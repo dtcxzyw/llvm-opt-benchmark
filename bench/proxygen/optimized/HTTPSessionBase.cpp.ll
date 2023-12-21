@@ -12,94 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::chrono::duration" = type { i64 }
 %"class.proxygen::WheelTimerInstance" = type { ptr, %"class.std::chrono::duration.6" }
 %"class.std::chrono::duration.6" = type { i64 }
-%"class.proxygen::HTTPSessionBase" = type <{ %"class.wangle::ManagedConnection", ptr, ptr, %"struct.wangle::TransportInfo", %"class.proxygen::FilterChain", %"class.proxygen::HTTP2PriorityQueue", %"class.folly::SocketAddress", %"class.folly::SocketAddress", %"class.folly::Optional.36", i8, [7 x i8], %"class.std::unique_ptr.38", %"struct.std::array.46", ptr, %"class.std::chrono::time_point", %"class.std::chrono::duration.47", i32, i32, i32, i32, i32, i32, i64, i64, i32, i8, i8, [2 x i8] }>
-%"class.wangle::ManagedConnection" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", %"class.folly::DelayedDestruction.base", i32, ptr, %"class.wangle::ConnectionAgeTimeout", %"class.folly::Optional", %"class.std::chrono::time_point", %"class.boost::intrusive::list_member_hook" }
-%"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback" = type { ptr, %"class.boost::intrusive::list_base_hook", ptr, %"class.std::chrono::time_point", i32, %"class.std::shared_ptr" }
-%"class.boost::intrusive::list_base_hook" = type { %"class.boost::intrusive::generic_hook" }
-%"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::node_holder" }
-%"struct.boost::intrusive::node_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.folly::DelayedDestruction.base" = type { %"class.folly::DelayedDestructionBase.base", i8 }
-%"class.folly::DelayedDestructionBase.base" = type <{ ptr, i32 }>
-%"class.wangle::ConnectionAgeTimeout" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr }
-%"class.folly::Optional" = type { %"struct.folly::Optional<std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>::StorageTriviallyDestructible" = type <{ %union.anon, i8, [7 x i8] }>
-%union.anon = type { %"class.std::chrono::time_point" }
-%"class.boost::intrusive::list_member_hook" = type { %"class.boost::intrusive::generic_hook.2" }
-%"class.boost::intrusive::generic_hook.2" = type { %"struct.boost::intrusive::list_node" }
-%"struct.wangle::TransportInfo" = type { %"class.std::chrono::time_point", %"class.std::chrono::time_point", %"class.std::chrono::duration.4", i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.std::__cxx11::basic_string", i32, %struct.tcp_info, %"class.std::chrono::duration.6", %"class.std::chrono::duration.6", %"class.std::shared_ptr.7", %"class.std::shared_ptr.7", %"class.std::shared_ptr.7", %"class.std::shared_ptr.7", %"class.std::shared_ptr.7", %"class.std::shared_ptr.7", %"class.std::shared_ptr.7", %"class.std::shared_ptr.7", %"class.std::shared_ptr.7", %"class.std::shared_ptr.7", %"class.std::shared_ptr.7", %"class.std::shared_ptr.7", %"class.std::shared_ptr.10", i64, i64, i64, %"class.std::shared_ptr.13", %"class.std::shared_ptr.13", %"class.std::shared_ptr.13", i32, i32, i32, %"class.std::__cxx11::basic_string", i16, %"class.std::shared_ptr.7", i16, i8, i32, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::shared_ptr.16", %"class.std::shared_ptr.7", %"class.std::shared_ptr.7", i8, %"class.folly::Optional.19", %"class.std::__cxx11::basic_string" }
-%"class.std::chrono::duration.4" = type { i64 }
-%struct.tcp_info = type { i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%"class.std::shared_ptr.10" = type { %"class.std::__shared_ptr.11" }
-%"class.std::__shared_ptr.11" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.13" = type { %"class.std::__shared_ptr.14" }
-%"class.std::__shared_ptr.14" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.16" = type { %"class.std::__shared_ptr.17" }
-%"class.std::__shared_ptr.17" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.7" = type { %"class.std::__shared_ptr.8" }
-%"class.std::__shared_ptr.8" = type { ptr, %"class.std::__shared_count" }
-%"class.folly::Optional.19" = type { %"struct.folly::Optional<unsigned char>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<unsigned char>::StorageTriviallyDestructible" = type { %union.anon.20, i8 }
-%union.anon.20 = type { i8 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.5 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.5 = type { i64, [8 x i8] }
-%"class.proxygen::FilterChain" = type { %"class.proxygen::PassThroughHTTPCodecFilter", ptr }
-%"class.proxygen::PassThroughHTTPCodecFilter" = type { %"class.proxygen::GenericFilter" }
-%"class.proxygen::GenericFilter" = type { %"class.proxygen::HTTPCodec", %"class.proxygen::HTTPCodec::Callback", i8, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.proxygen::HTTPCodec" = type { ptr }
-%"class.proxygen::HTTPCodec::Callback" = type { ptr }
-%"class.proxygen::HTTP2PriorityQueue" = type { %"class.proxygen::HTTP2PriorityQueueBase", %"class.folly::F14FastMap", %"class.proxygen::HTTP2PriorityQueue::Node", i32, i64, i32, i32, %"class.folly::Optional.32", i8, %"class.proxygen::WheelTimerInstance", ptr }
-%"class.proxygen::HTTP2PriorityQueueBase" = type { %"class.proxygen::HTTPCodec::PriorityQueue", i64 }
-%"class.proxygen::HTTPCodec::PriorityQueue" = type { ptr }
-%"class.folly::F14FastMap" = type { %"class.folly::F14ValueMap" }
-%"class.folly::F14ValueMap" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift", %"class.folly::f14::detail::PackedChunkItemPtr" }
-%"struct.folly::f14::detail::PackedSizeAndChunkShift" = type { i64 }
-%"class.folly::f14::detail::PackedChunkItemPtr" = type { i64 }
-%"class.proxygen::HTTP2PriorityQueue::Node" = type { %"class.proxygen::HTTP2PriorityQueueBase::BaseNode", %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr, ptr, i64, i16, ptr, i8, i8, i64, i64, %"class.std::__cxx11::list", %"struct.std::_List_iterator", %"class.boost::intrusive::list_member_hook.29", %"class.boost::intrusive::list" }
-%"class.proxygen::HTTP2PriorityQueueBase::BaseNode" = type { ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>, std::allocator<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>, std::allocator<std::unique_ptr<proxygen::HTTP2PriorityQueue::Node>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"struct.std::_List_iterator" = type { ptr }
-%"class.boost::intrusive::list_member_hook.29" = type { %"class.boost::intrusive::generic_hook.30" }
-%"class.boost::intrusive::generic_hook.30" = type { %"struct.boost::intrusive::list_node" }
-%"class.boost::intrusive::list" = type { %"class.boost::intrusive::list_impl" }
-%"class.boost::intrusive::list_impl" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::mhtraits<proxygen::HTTP2PriorityQueue::Node, boost::intrusive::list_member_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>>, &proxygen::HTTP2PriorityQueue::Node::enqueuedHook_>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
-%"class.folly::Optional.32" = type { %"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible" = type <{ %union.anon.33, i8, [7 x i8] }>
-%union.anon.33 = type { i64 }
-%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
-%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
-%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
-%"class.folly::Optional.36" = type { %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" }
-%"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" = type <{ %union.anon.37, i8, [7 x i8] }>
-%union.anon.37 = type { %"class.std::__cxx11::basic_string" }
-%"class.std::unique_ptr.38" = type { %"struct.std::__uniq_ptr_data.39" }
-%"struct.std::__uniq_ptr_data.39" = type { %"class.std::__uniq_ptr_impl.40" }
-%"class.std::__uniq_ptr_impl.40" = type { %"class.std::tuple.41" }
-%"class.std::tuple.41" = type { %"struct.std::_Tuple_impl.42" }
-%"struct.std::_Tuple_impl.42" = type { %"struct.std::_Head_base.45" }
-%"struct.std::_Head_base.45" = type { ptr }
-%"struct.std::array.46" = type { [4 x ptr] }
-%"class.std::chrono::duration.47" = type { i64 }
-%"class.folly::IPAddress" = type <{ %"union.folly::IPAddress::IPAddressV46", i16, [2 x i8] }>
-%"union.folly::IPAddress::IPAddressV46" = type { %"class.folly::IPAddressV4", [16 x i8] }
-%"class.folly::IPAddressV4" = type { %"union.folly::IPAddressV4::AddressStorage" }
-%"union.folly::IPAddressV4::AddressStorage" = type { %struct.in_addr }
-%struct.in_addr = type { i32 }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
 %"struct.google::CheckOpString" = type { ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
@@ -113,63 +25,13 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.51" = type { %"struct.std::_Tuple_impl.52" }
 %"struct.std::_Tuple_impl.52" = type { %"struct.std::_Head_base.55" }
 %"struct.std::_Head_base.55" = type { ptr }
-%"class.folly::DelayedDestructionBase" = type <{ ptr, i32, [4 x i8] }>
-%"class.proxygen::Exception" = type { %"class.std::exception", %"class.std::__cxx11::basic_string", i32, i32 }
-%"class.std::exception" = type { ptr }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.proxygen::HTTPTransaction" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", %"class.folly::DelayedDestructionBase.base", %"class.proxygen::HTTPTransaction::RateLimitCallback", %"class.std::unique_ptr.56", %"class.folly::IOBufQueue", %"struct.proxygen::HTTPTransaction::BufferMeta", i8, i8, i8, i32, i64, i32, i32, ptr, ptr, ptr, %"struct.proxygen::CompressionInfo", %"class.proxygen::Window", %"class.proxygen::Window", ptr, %"class.std::unique_ptr.64", %"class.std::__cxx11::list.72", ptr, ptr, %"class.folly::Optional.32", %"class.folly::Optional.77", %"class.std::set", %"class.std::set", %"struct.proxygen::http2::PriorityUpdate", i64, i64, double, i64, i64, %"class.folly::Optional.32", %"class.folly::Optional.32", %"class.folly::Optional.32", %"class.folly::Optional.32", i64, %"class.std::map", i24, i16, i64, %"class.std::chrono::time_point", i64, %"class.folly::Optional.86", ptr, i64, i8, %"class.std::map.88", %"class.std::map.93", %"class.proxygen::HTTPTransaction::TxnWebTransport" }
-%"class.proxygen::HTTPTransaction::RateLimitCallback" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr }
-%"class.std::unique_ptr.56" = type { %"struct.std::__uniq_ptr_data.57" }
-%"struct.std::__uniq_ptr_data.57" = type { %"class.std::__uniq_ptr_impl.58" }
-%"class.std::__uniq_ptr_impl.58" = type { %"class.std::tuple.59" }
-%"class.std::tuple.59" = type { %"struct.std::_Tuple_impl.60" }
-%"struct.std::_Tuple_impl.60" = type { %"struct.std::_Head_base.63" }
-%"struct.std::_Head_base.63" = type { ptr }
-%"class.folly::IOBufQueue" = type { %"struct.folly::IOBufQueue::Options", i64, %"class.std::unique_ptr.48", ptr, ptr, %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr }
-%"struct.folly::IOBufQueue::Options" = type { i8 }
-%"struct.folly::IOBufQueue::WritableRangeCacheData" = type <{ %"struct.std::pair", i8, [7 x i8] }>
-%"struct.std::pair" = type { ptr, ptr }
-%"struct.proxygen::HTTPTransaction::BufferMeta" = type { i64 }
-%"class.proxygen::Window" = type { i32, i32 }
-%"class.std::unique_ptr.64" = type { %"struct.std::__uniq_ptr_data.65" }
-%"struct.std::__uniq_ptr_data.65" = type { %"class.std::__uniq_ptr_impl.66" }
-%"class.std::__uniq_ptr_impl.66" = type { %"class.std::tuple.67" }
-%"class.std::tuple.67" = type { %"struct.std::_Tuple_impl.68" }
-%"struct.std::_Tuple_impl.68" = type { %"struct.std::_Head_base.71" }
-%"struct.std::_Head_base.71" = type { ptr }
-%"class.std::__cxx11::list.72" = type { %"class.std::__cxx11::_List_base.73" }
-%"class.std::__cxx11::_List_base.73" = type { %"struct.std::__cxx11::_List_base<proxygen::HTTPTransaction::Chunk, std::allocator<proxygen::HTTPTransaction::Chunk>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<proxygen::HTTPTransaction::Chunk, std::allocator<proxygen::HTTPTransaction::Chunk>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.folly::Optional.77" = type { %"struct.folly::Optional<proxygen::HTTPCodec::ExAttributes>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<proxygen::HTTPCodec::ExAttributes>::StorageTriviallyDestructible" = type { %union.anon.78, i8, [7 x i8] }
-%union.anon.78 = type { %"struct.proxygen::HTTPCodec::ExAttributes" }
-%"struct.proxygen::HTTPCodec::ExAttributes" = type <{ i64, i8, [7 x i8] }>
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned long, unsigned long, std::_Identity<unsigned long>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, unsigned long, std::_Identity<unsigned long>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.proxygen::http2::PriorityUpdate" = type { i64, i8, i8 }
-%"class.std::map" = type { %"class.std::_Rb_tree.82" }
-%"class.std::_Rb_tree.82" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::ByteEvent::EventFlags>, std::_Select1st<std::pair<const unsigned long, proxygen::ByteEvent::EventFlags>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::ByteEvent::EventFlags>, std::_Select1st<std::pair<const unsigned long, proxygen::ByteEvent::EventFlags>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
 %"class.folly::Optional.86" = type { %"struct.folly::Optional<std::chrono::duration<long, std::ratio<1, 1000>>>::StorageTriviallyDestructible" }
 %"struct.folly::Optional<std::chrono::duration<long, std::ratio<1, 1000>>>::StorageTriviallyDestructible" = type <{ %union.anon.87, i8, [7 x i8] }>
 %union.anon.87 = type { %"class.std::chrono::duration.6" }
-%"class.std::map.88" = type { %"class.std::_Rb_tree.89" }
-%"class.std::_Rb_tree.89" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamWriteHandle>, std::_Select1st<std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamWriteHandle>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamWriteHandle>, std::_Select1st<std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamWriteHandle>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::map.93" = type { %"class.std::_Rb_tree.94" }
-%"class.std::_Rb_tree.94" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamReadHandle>, std::_Select1st<std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamReadHandle>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamReadHandle>, std::_Select1st<std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamReadHandle>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.proxygen::HTTPTransaction::TxnWebTransport" = type { %"class.proxygen::WebTransport", ptr }
-%"class.proxygen::WebTransport" = type { ptr }
-%"class.folly::DelayedDestruction" = type { %"class.folly::DelayedDestructionBase.base", i8, [3 x i8] }
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
 
@@ -456,26 +318,26 @@ entry:
   store ptr getelementptr inbounds ({ [60 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15HTTPSessionBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 64
   store ptr getelementptr inbounds ({ [60 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15HTTPSessionBaseE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %sessionStats_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 1
+  %sessionStats_ = getelementptr inbounds i8, ptr %this, i64 208
   store ptr null, ptr %sessionStats_, align 8
-  %infoCallback_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 2
+  %infoCallback_ = getelementptr inbounds i8, ptr %this, i64 216
   store ptr %infoCallback, ptr %infoCallback_, align 8
-  %transportInfo_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 3
+  %transportInfo_ = getelementptr inbounds i8, ptr %this, i64 224
   invoke void @_ZN6wangle13TransportInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(744) %transportInfo_, ptr noundef nonnull align 8 dereferenceable(744) %tinfo)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %codec_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4
+  %codec_ = getelementptr inbounds i8, ptr %this, i64 968
   %0 = load i64, ptr %codec, align 8
   %1 = inttoptr i64 %0 to ptr
   store ptr null, ptr %codec, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %2 = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
-  %kWantsCalls_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %this, i64 976
+  %kWantsCalls_.i.i.i = getelementptr inbounds i8, ptr %this, i64 984
   store i8 0, ptr %kWantsCalls_.i.i.i, align 8
-  %kWantsCallbacks_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 3
+  %kWantsCallbacks_.i.i.i = getelementptr inbounds i8, ptr %this, i64 985
   store i8 0, ptr %kWantsCallbacks_.i.i.i, align 1
-  %call_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 4
+  %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 992
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call_.i.i.i, i8 0, i64 48, i1 false)
   store ptr getelementptr inbounds ({ [83 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen11FilterChainINS_9HTTPCodecENS1_8CallbackENS_26PassThroughHTTPCodecFilterEXadL_ZNS1_11setCallbackEPS2_EELb1EEE, i64 0, inrange i32 0, i64 2), ptr %codec_, align 8
   store ptr getelementptr inbounds ({ [83 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen11FilterChainINS_9HTTPCodecENS1_8CallbackENS_26PassThroughHTTPCodecFilterEXadL_ZNS1_11setCallbackEPS2_EELb1EEE, i64 0, inrange i32 1, i64 2), ptr %2, align 8
@@ -491,18 +353,18 @@ lpad.i:                                           ; preds = %invoke.cont
 
 invoke.cont6:                                     ; preds = %invoke.cont
   store ptr %call2.i, ptr %call_.i.i.i, align 8
-  %callback_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 5
+  %callback_.i = getelementptr inbounds i8, ptr %this, i64 1000
   store ptr null, ptr %callback_.i, align 8
-  %callSource_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 8
+  %callSource_.i = getelementptr inbounds i8, ptr %this, i64 1024
   store ptr %codec_, ptr %callSource_.i, align 8
-  %callbackSource_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 9
+  %callbackSource_.i = getelementptr inbounds i8, ptr %this, i64 1032
   store ptr %call2.i, ptr %callbackSource_.i, align 8
-  %chainEnd_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 1
+  %chainEnd_.i = getelementptr inbounds i8, ptr %this, i64 1040
   store ptr %call2.i, ptr %chainEnd_.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %txnEgressQueue_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5
+  %txnEgressQueue_ = getelementptr inbounds i8, ptr %this, i64 1048
   %vtable = load ptr, ptr %call2.i, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %4 = load ptr, ptr %vfn, align 8
   %call8 = invoke noundef zeroext i8 %4(ptr noundef nonnull align 8 dereferenceable(8) %call2.i)
           to label %invoke.cont7 unwind label %lpad5
@@ -523,33 +385,33 @@ cond.false:                                       ; preds = %invoke.cont9
           to label %cond.end unwind label %lpad5
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %rootNodeId_.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %rootNodeId_.i.i = getelementptr inbounds i8, ptr %this, i64 1056
   store i64 %rootNodeId, ptr %rootNodeId_.i.i, align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8proxygen18HTTP2PriorityQueueE, i64 0, inrange i32 0, i64 2), ptr %txnEgressQueue_, align 8
-  %nodes_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 1
+  %nodes_.i = getelementptr inbounds i8, ptr %this, i64 1064
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %nodes_.i, align 8
-  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 1, i32 0, i32 0, i32 0, i32 1
+  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1072
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i, i8 0, i64 16, i1 false)
-  %root_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 2
+  %root_.i = getelementptr inbounds i8, ptr %this, i64 1088
   invoke void @_ZN8proxygen18HTTP2PriorityQueue4NodeC1ERS0_PS1_mhPNS_15HTTPTransactionE(ptr noundef nonnull align 8 dereferenceable(200) %root_.i, ptr noundef nonnull align 8 dereferenceable(312) %txnEgressQueue_, ptr noundef null, i64 noundef %rootNodeId, i8 noundef zeroext 1, ptr noundef null)
           to label %invoke.cont.i unwind label %lpad.i6
 
 invoke.cont.i:                                    ; preds = %cond.end
-  %rebuildCount_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 3
+  %rebuildCount_.i = getelementptr inbounds i8, ptr %this, i64 1288
   store i32 0, ptr %rebuildCount_.i, align 8
-  %activeCount_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 4
+  %activeCount_.i = getelementptr inbounds i8, ptr %this, i64 1296
   store i64 0, ptr %activeCount_.i, align 8
-  %maxVirtualNodes_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 5
+  %maxVirtualNodes_.i = getelementptr inbounds i8, ptr %this, i64 1304
   store i32 50, ptr %maxVirtualNodes_.i, align 8
-  %numVirtualNodes_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 6
+  %numVirtualNodes_.i = getelementptr inbounds i8, ptr %this, i64 1308
   store i32 0, ptr %numVirtualNodes_.i, align 4
-  %largestId_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 7
+  %largestId_.i = getelementptr inbounds i8, ptr %this, i64 1312
   store i8 0, ptr %largestId_.i, align 8
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 7, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 1320
   store i8 0, ptr %hasValue.i.i.i, align 8
-  %pendingWeightChange_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 8
+  %pendingWeightChange_.i = getelementptr inbounds i8, ptr %this, i64 1328
   store i8 0, ptr %pendingWeightChange_.i, align 8
-  %timeout_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 9
+  %timeout_.i = getelementptr inbounds i8, ptr %this, i64 1336
   invoke void @_ZN8proxygen18WheelTimerInstanceC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %timeout_.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont13 unwind label %lpad2.i
 
@@ -570,27 +432,27 @@ ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i6
   br label %ehcleanup31
 
 invoke.cont13:                                    ; preds = %invoke.cont.i
-  %nextEgressResults_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 10
+  %nextEgressResults_.i = getelementptr inbounds i8, ptr %this, i64 1352
   store ptr null, ptr %nextEgressResults_.i, align 8
-  %isPermanent_.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 2, i32 7
+  %isPermanent_.i.i = getelementptr inbounds i8, ptr %this, i64 1200
   store i8 1, ptr %isPermanent_.i.i, align 8
-  %localAddr_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 6
+  %localAddr_ = getelementptr inbounds i8, ptr %this, i64 1360
   invoke void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %localAddr_)
           to label %.noexc unwind label %lpad14
 
 .noexc:                                           ; preds = %invoke.cont13
-  %port_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 6, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %this, i64 1384
   store i16 0, ptr %port_.i, align 8
-  %external_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 6, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %this, i64 1386
   store i8 0, ptr %external_.i, align 2
-  %port_2.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %localAddr, i64 0, i32 1
+  %port_2.i = getelementptr inbounds i8, ptr %localAddr, i64 24
   %7 = load i16, ptr %port_2.i, align 8
   store i16 %7, ptr %port_.i, align 8
-  %external_.i.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %localAddr, i64 0, i32 2
+  %external_.i.i = getelementptr inbounds i8, ptr %localAddr, i64 26
   %8 = load i8, ptr %external_.i.i, align 2
   %9 = and i8 %8, 1
   %tobool.not.i.i = icmp ne i8 %9, 0
-  %family_.i.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %localAddr, i64 0, i32 1
+  %family_.i.i.i = getelementptr inbounds i8, ptr %localAddr, i64 20
   %10 = load i16, ptr %family_.i.i.i, align 4
   %cmp5.i = icmp eq i16 %10, 1
   %cmp.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp5.i
@@ -602,9 +464,9 @@ if.then.i:                                        ; preds = %.noexc
 
 call.i.i.noexc:                                   ; preds = %if.then.i
   store ptr %call.i.i8, ptr %localAddr_, align 8
-  %len.i.i = getelementptr inbounds %"struct.folly::SocketAddress::ExternalUnixAddr", ptr %localAddr, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %localAddr, i64 8
   %11 = load i32, ptr %len.i.i, align 8
-  %len2.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 1
+  %len2.i.i = getelementptr inbounds i8, ptr %this, i64 1368
   store i32 %11, ptr %len2.i.i, align 8
   %12 = load ptr, ptr %localAddr, align 8
   %conv.i.i = zext i32 %11 to i64
@@ -619,23 +481,23 @@ invoke.cont15:                                    ; preds = %if.else.i, %call.i.
   %13 = load i8, ptr %external_.i.i, align 2
   %14 = and i8 %13, 1
   store i8 %14, ptr %external_.i, align 2
-  %peerAddr_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 7
+  %peerAddr_ = getelementptr inbounds i8, ptr %this, i64 1392
   invoke void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %peerAddr_)
           to label %.noexc22 unwind label %lpad16
 
 .noexc22:                                         ; preds = %invoke.cont15
-  %port_.i9 = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 7, i32 1
+  %port_.i9 = getelementptr inbounds i8, ptr %this, i64 1416
   store i16 0, ptr %port_.i9, align 8
-  %external_.i10 = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 7, i32 2
+  %external_.i10 = getelementptr inbounds i8, ptr %this, i64 1418
   store i8 0, ptr %external_.i10, align 2
-  %port_2.i11 = getelementptr inbounds %"class.folly::SocketAddress", ptr %peerAddr, i64 0, i32 1
+  %port_2.i11 = getelementptr inbounds i8, ptr %peerAddr, i64 24
   %15 = load i16, ptr %port_2.i11, align 8
   store i16 %15, ptr %port_.i9, align 8
-  %external_.i.i12 = getelementptr inbounds %"class.folly::SocketAddress", ptr %peerAddr, i64 0, i32 2
+  %external_.i.i12 = getelementptr inbounds i8, ptr %peerAddr, i64 26
   %16 = load i8, ptr %external_.i.i12, align 2
   %17 = and i8 %16, 1
   %tobool.not.i.i13 = icmp ne i8 %17, 0
-  %family_.i.i.i14 = getelementptr inbounds %"class.folly::IPAddress", ptr %peerAddr, i64 0, i32 1
+  %family_.i.i.i14 = getelementptr inbounds i8, ptr %peerAddr, i64 20
   %18 = load i16, ptr %family_.i.i.i14, align 4
   %cmp5.i15 = icmp eq i16 %18, 1
   %cmp.i16 = select i1 %tobool.not.i.i13, i1 true, i1 %cmp5.i15
@@ -647,9 +509,9 @@ if.then.i18:                                      ; preds = %.noexc22
 
 call.i.i.noexc23:                                 ; preds = %if.then.i18
   store ptr %call.i.i24, ptr %peerAddr_, align 8
-  %len.i.i19 = getelementptr inbounds %"struct.folly::SocketAddress::ExternalUnixAddr", ptr %peerAddr, i64 0, i32 1
+  %len.i.i19 = getelementptr inbounds i8, ptr %peerAddr, i64 8
   %19 = load i32, ptr %len.i.i19, align 8
-  %len2.i.i20 = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 1
+  %len2.i.i20 = getelementptr inbounds i8, ptr %this, i64 1400
   store i32 %19, ptr %len2.i.i20, align 8
   %20 = load ptr, ptr %peerAddr, align 8
   %conv.i.i21 = zext i32 %19 to i64
@@ -664,37 +526,37 @@ invoke.cont17:                                    ; preds = %if.else.i17, %call.
   %21 = load i8, ptr %external_.i.i12, align 2
   %22 = and i8 %21, 1
   store i8 %22, ptr %external_.i10, align 2
-  %connectionToken_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 8
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 8, i32 0, i32 1
+  %connectionToken_ = getelementptr inbounds i8, ptr %this, i64 1424
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 1456
   store i8 0, ptr %hasValue.i.i, align 8
-  %setIngressTimeoutAfterEom_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 9
+  %setIngressTimeoutAfterEom_ = getelementptr inbounds i8, ptr %this, i64 1464
   store i8 0, ptr %setIngressTimeoutAfterEom_, align 8
-  %httpSessionActivityTracker_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 11
-  %controller_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 13
+  %httpSessionActivityTracker_ = getelementptr inbounds i8, ptr %this, i64 1472
+  %controller_ = getelementptr inbounds i8, ptr %this, i64 1512
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %httpSessionActivityTracker_, i8 0, i64 40, i1 false)
   store ptr %controller, ptr %controller_, align 8
-  %latestActive_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 14
-  %closeReason_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 17
+  %latestActive_ = getelementptr inbounds i8, ptr %this, i64 1520
+  %closeReason_ = getelementptr inbounds i8, ptr %this, i64 1540
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %latestActive_, i8 0, i64 20, i1 false)
   store i32 13, ptr %closeReason_, align 4
-  %historicalMaxOutgoingStreams_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 18
+  %historicalMaxOutgoingStreams_ = getelementptr inbounds i8, ptr %this, i64 1544
   store i32 0, ptr %historicalMaxOutgoingStreams_, align 8
-  %maxConcurrentOutgoingStreamsConfig_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 19
+  %maxConcurrentOutgoingStreamsConfig_ = getelementptr inbounds i8, ptr %this, i64 1548
   store i32 100, ptr %maxConcurrentOutgoingStreamsConfig_, align 4
-  %readBufLimit_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 20
+  %readBufLimit_ = getelementptr inbounds i8, ptr %this, i64 1552
   %23 = load atomic i32, ptr @_ZN8proxygen15HTTPSessionBase20kDefaultReadBufLimitE seq_cst, align 4
   store i32 %23, ptr %readBufLimit_, align 8
-  %writeBufLimit_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 21
+  %writeBufLimit_ = getelementptr inbounds i8, ptr %this, i64 1556
   %24 = load i32, ptr @_ZN8proxygen15HTTPSessionBase21kDefaultWriteBufLimitE, align 4
   store i32 %24, ptr %writeBufLimit_, align 4
-  %pendingWriteSize_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 22
-  %h2PrioritiesEnabled_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 25
+  %pendingWriteSize_ = getelementptr inbounds i8, ptr %this, i64 1560
+  %h2PrioritiesEnabled_ = getelementptr inbounds i8, ptr %this, i64 1580
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pendingWriteSize_, i8 0, i64 20, i1 false)
   %bf.load = load i8, ptr %h2PrioritiesEnabled_, align 4
   %bf.set = and i8 %bf.load, -4
   %bf.clear22 = or disjoint i8 %bf.set, 1
   store i8 %bf.clear22, ptr %h2PrioritiesEnabled_, align 4
-  %streamLimitExceeded_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 26
+  %streamLimitExceeded_ = getelementptr inbounds i8, ptr %this, i64 1581
   store i8 0, ptr %streamLimitExceeded_, align 1
   %call26 = invoke noundef zeroext i1 @_ZN5folly13SocketAddress16tryConvertToIPv4Ev(ptr noundef nonnull align 8 dereferenceable(27) %localAddr_)
           to label %invoke.cont25 unwind label %lpad18
@@ -735,7 +597,7 @@ lpad18:                                           ; preds = %invoke.cont25, %inv
 
 _ZNKSt14default_deleteIN8proxygen26HTTPSessionActivityTrackerEEclEPS1_.exit.i: ; preds = %lpad18
   %vtable.i.i32 = load ptr, ptr %30, align 8
-  %vfn.i.i33 = getelementptr inbounds ptr, ptr %vtable.i.i32, i64 2
+  %vfn.i.i33 = getelementptr inbounds i8, ptr %vtable.i.i32, i64 16
   %31 = load ptr, ptr %vfn.i.i33, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(48) %30) #21
   br label %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit
@@ -810,25 +672,25 @@ declare void @_ZN6wangle17ManagedConnectionC2Ev(ptr noundef nonnull align 8 dere
 define linkonce_odr void @_ZN6wangle13TransportInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(744) %this, ptr noundef nonnull align 8 dereferenceable(744) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %0, i64 96, i1 false)
-  %caAlgo = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 12
-  %caAlgo3 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 12
+  %caAlgo = getelementptr inbounds i8, ptr %this, i64 96
+  %caAlgo3 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %caAlgo, ptr noundef nonnull align 8 dereferenceable(32) %caAlgo3)
-  %maxPacingRate = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 13
-  %maxPacingRate4 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 13
+  %maxPacingRate = getelementptr inbounds i8, ptr %this, i64 128
+  %maxPacingRate4 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %maxPacingRate, ptr noundef nonnull align 8 dereferenceable(128) %maxPacingRate4, i64 128, i1 false)
-  %sslCipher = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 17
-  %sslCipher5 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 17
+  %sslCipher = getelementptr inbounds i8, ptr %this, i64 256
+  %sslCipher5 = getelementptr inbounds i8, ptr %0, i64 256
   %1 = load ptr, ptr %sslCipher5, align 8
   store ptr %1, ptr %sslCipher, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 17, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 17, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 264
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %0, i64 264
   %2 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %2, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -844,19 +706,19 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %sslServerName = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 18
-  %sslServerName6 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 18
+  %sslServerName = getelementptr inbounds i8, ptr %this, i64 272
+  %sslServerName6 = getelementptr inbounds i8, ptr %0, i64 272
   %6 = load ptr, ptr %sslServerName6, align 8
   store ptr %6, ptr %sslServerName, align 8
-  %_M_refcount.i.i34 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 18, i32 0, i32 1
-  %_M_refcount3.i.i35 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 18, i32 0, i32 1
+  %_M_refcount.i.i34 = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_refcount3.i.i35 = getelementptr inbounds i8, ptr %0, i64 280
   %7 = load ptr, ptr %_M_refcount3.i.i35, align 8
   store ptr %7, ptr %_M_refcount.i.i34, align 8
   %cmp.not.i.i.i36 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i36, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit43, label %if.then.i.i.i37
 
 if.then.i.i.i37:                                  ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit
-  %_M_use_count.i.i.i.i38 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 1
+  %_M_use_count.i.i.i.i38 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i39 = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i39, label %if.else.i.i.i.i.i42, label %if.then.i.i.i.i.i40
@@ -872,19 +734,19 @@ if.else.i.i.i.i.i42:                              ; preds = %if.then.i.i.i37
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit43
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit43: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit, %if.then.i.i.i.i.i40, %if.else.i.i.i.i.i42
-  %sslClientCiphers = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 19
-  %sslClientCiphers7 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 19
+  %sslClientCiphers = getelementptr inbounds i8, ptr %this, i64 288
+  %sslClientCiphers7 = getelementptr inbounds i8, ptr %0, i64 288
   %11 = load ptr, ptr %sslClientCiphers7, align 8
   store ptr %11, ptr %sslClientCiphers, align 8
-  %_M_refcount.i.i44 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 19, i32 0, i32 1
-  %_M_refcount3.i.i45 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 19, i32 0, i32 1
+  %_M_refcount.i.i44 = getelementptr inbounds i8, ptr %this, i64 296
+  %_M_refcount3.i.i45 = getelementptr inbounds i8, ptr %0, i64 296
   %12 = load ptr, ptr %_M_refcount3.i.i45, align 8
   store ptr %12, ptr %_M_refcount.i.i44, align 8
   %cmp.not.i.i.i46 = icmp eq ptr %12, null
   br i1 %cmp.not.i.i.i46, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit53, label %if.then.i.i.i47
 
 if.then.i.i.i47:                                  ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit43
-  %_M_use_count.i.i.i.i48 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %12, i64 0, i32 1
+  %_M_use_count.i.i.i.i48 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i49 = icmp eq i8 %13, 0
   br i1 %tobool.i.not.i.i.i.i49, label %if.else.i.i.i.i.i52, label %if.then.i.i.i.i.i50
@@ -900,19 +762,19 @@ if.else.i.i.i.i.i52:                              ; preds = %if.then.i.i.i47
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit53
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit53: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit43, %if.then.i.i.i.i.i50, %if.else.i.i.i.i.i52
-  %sslClientCiphersHex = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 20
-  %sslClientCiphersHex8 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 20
+  %sslClientCiphersHex = getelementptr inbounds i8, ptr %this, i64 304
+  %sslClientCiphersHex8 = getelementptr inbounds i8, ptr %0, i64 304
   %16 = load ptr, ptr %sslClientCiphersHex8, align 8
   store ptr %16, ptr %sslClientCiphersHex, align 8
-  %_M_refcount.i.i54 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 20, i32 0, i32 1
-  %_M_refcount3.i.i55 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 20, i32 0, i32 1
+  %_M_refcount.i.i54 = getelementptr inbounds i8, ptr %this, i64 312
+  %_M_refcount3.i.i55 = getelementptr inbounds i8, ptr %0, i64 312
   %17 = load ptr, ptr %_M_refcount3.i.i55, align 8
   store ptr %17, ptr %_M_refcount.i.i54, align 8
   %cmp.not.i.i.i56 = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i56, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit63, label %if.then.i.i.i57
 
 if.then.i.i.i57:                                  ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit53
-  %_M_use_count.i.i.i.i58 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %17, i64 0, i32 1
+  %_M_use_count.i.i.i.i58 = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i59 = icmp eq i8 %18, 0
   br i1 %tobool.i.not.i.i.i.i59, label %if.else.i.i.i.i.i62, label %if.then.i.i.i.i.i60
@@ -928,19 +790,19 @@ if.else.i.i.i.i.i62:                              ; preds = %if.then.i.i.i57
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit63
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit63: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit53, %if.then.i.i.i.i.i60, %if.else.i.i.i.i.i62
-  %sslClientComprMethods = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 21
-  %sslClientComprMethods9 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 21
+  %sslClientComprMethods = getelementptr inbounds i8, ptr %this, i64 320
+  %sslClientComprMethods9 = getelementptr inbounds i8, ptr %0, i64 320
   %21 = load ptr, ptr %sslClientComprMethods9, align 8
   store ptr %21, ptr %sslClientComprMethods, align 8
-  %_M_refcount.i.i64 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 21, i32 0, i32 1
-  %_M_refcount3.i.i65 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 21, i32 0, i32 1
+  %_M_refcount.i.i64 = getelementptr inbounds i8, ptr %this, i64 328
+  %_M_refcount3.i.i65 = getelementptr inbounds i8, ptr %0, i64 328
   %22 = load ptr, ptr %_M_refcount3.i.i65, align 8
   store ptr %22, ptr %_M_refcount.i.i64, align 8
   %cmp.not.i.i.i66 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i66, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit73, label %if.then.i.i.i67
 
 if.then.i.i.i67:                                  ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit63
-  %_M_use_count.i.i.i.i68 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %22, i64 0, i32 1
+  %_M_use_count.i.i.i.i68 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i69 = icmp eq i8 %23, 0
   br i1 %tobool.i.not.i.i.i.i69, label %if.else.i.i.i.i.i72, label %if.then.i.i.i.i.i70
@@ -956,19 +818,19 @@ if.else.i.i.i.i.i72:                              ; preds = %if.then.i.i.i67
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit73
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit73: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit63, %if.then.i.i.i.i.i70, %if.else.i.i.i.i.i72
-  %sslClientExts = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 22
-  %sslClientExts10 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 22
+  %sslClientExts = getelementptr inbounds i8, ptr %this, i64 336
+  %sslClientExts10 = getelementptr inbounds i8, ptr %0, i64 336
   %26 = load ptr, ptr %sslClientExts10, align 8
   store ptr %26, ptr %sslClientExts, align 8
-  %_M_refcount.i.i74 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 22, i32 0, i32 1
-  %_M_refcount3.i.i75 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 22, i32 0, i32 1
+  %_M_refcount.i.i74 = getelementptr inbounds i8, ptr %this, i64 344
+  %_M_refcount3.i.i75 = getelementptr inbounds i8, ptr %0, i64 344
   %27 = load ptr, ptr %_M_refcount3.i.i75, align 8
   store ptr %27, ptr %_M_refcount.i.i74, align 8
   %cmp.not.i.i.i76 = icmp eq ptr %27, null
   br i1 %cmp.not.i.i.i76, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit83, label %if.then.i.i.i77
 
 if.then.i.i.i77:                                  ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit73
-  %_M_use_count.i.i.i.i78 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %27, i64 0, i32 1
+  %_M_use_count.i.i.i.i78 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i79 = icmp eq i8 %28, 0
   br i1 %tobool.i.not.i.i.i.i79, label %if.else.i.i.i.i.i82, label %if.then.i.i.i.i.i80
@@ -984,19 +846,19 @@ if.else.i.i.i.i.i82:                              ; preds = %if.then.i.i.i77
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit83
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit83: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit73, %if.then.i.i.i.i.i80, %if.else.i.i.i.i.i82
-  %sslClientSigAlgs = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 23
-  %sslClientSigAlgs11 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 23
+  %sslClientSigAlgs = getelementptr inbounds i8, ptr %this, i64 352
+  %sslClientSigAlgs11 = getelementptr inbounds i8, ptr %0, i64 352
   %31 = load ptr, ptr %sslClientSigAlgs11, align 8
   store ptr %31, ptr %sslClientSigAlgs, align 8
-  %_M_refcount.i.i84 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 23, i32 0, i32 1
-  %_M_refcount3.i.i85 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 23, i32 0, i32 1
+  %_M_refcount.i.i84 = getelementptr inbounds i8, ptr %this, i64 360
+  %_M_refcount3.i.i85 = getelementptr inbounds i8, ptr %0, i64 360
   %32 = load ptr, ptr %_M_refcount3.i.i85, align 8
   store ptr %32, ptr %_M_refcount.i.i84, align 8
   %cmp.not.i.i.i86 = icmp eq ptr %32, null
   br i1 %cmp.not.i.i.i86, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit93, label %if.then.i.i.i87
 
 if.then.i.i.i87:                                  ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit83
-  %_M_use_count.i.i.i.i88 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %32, i64 0, i32 1
+  %_M_use_count.i.i.i.i88 = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i89 = icmp eq i8 %33, 0
   br i1 %tobool.i.not.i.i.i.i89, label %if.else.i.i.i.i.i92, label %if.then.i.i.i.i.i90
@@ -1012,19 +874,19 @@ if.else.i.i.i.i.i92:                              ; preds = %if.then.i.i.i87
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit93
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit93: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit83, %if.then.i.i.i.i.i90, %if.else.i.i.i.i.i92
-  %sslClientSupportedVersions = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 24
-  %sslClientSupportedVersions12 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 24
+  %sslClientSupportedVersions = getelementptr inbounds i8, ptr %this, i64 368
+  %sslClientSupportedVersions12 = getelementptr inbounds i8, ptr %0, i64 368
   %36 = load ptr, ptr %sslClientSupportedVersions12, align 8
   store ptr %36, ptr %sslClientSupportedVersions, align 8
-  %_M_refcount.i.i94 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 24, i32 0, i32 1
-  %_M_refcount3.i.i95 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 24, i32 0, i32 1
+  %_M_refcount.i.i94 = getelementptr inbounds i8, ptr %this, i64 376
+  %_M_refcount3.i.i95 = getelementptr inbounds i8, ptr %0, i64 376
   %37 = load ptr, ptr %_M_refcount3.i.i95, align 8
   store ptr %37, ptr %_M_refcount.i.i94, align 8
   %cmp.not.i.i.i96 = icmp eq ptr %37, null
   br i1 %cmp.not.i.i.i96, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit103, label %if.then.i.i.i97
 
 if.then.i.i.i97:                                  ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit93
-  %_M_use_count.i.i.i.i98 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %37, i64 0, i32 1
+  %_M_use_count.i.i.i.i98 = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i99 = icmp eq i8 %38, 0
   br i1 %tobool.i.not.i.i.i.i99, label %if.else.i.i.i.i.i102, label %if.then.i.i.i.i.i100
@@ -1040,19 +902,19 @@ if.else.i.i.i.i.i102:                             ; preds = %if.then.i.i.i97
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit103
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit103: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit93, %if.then.i.i.i.i.i100, %if.else.i.i.i.i.i102
-  %sslSignature = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 25
-  %sslSignature13 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 25
+  %sslSignature = getelementptr inbounds i8, ptr %this, i64 384
+  %sslSignature13 = getelementptr inbounds i8, ptr %0, i64 384
   %41 = load ptr, ptr %sslSignature13, align 8
   store ptr %41, ptr %sslSignature, align 8
-  %_M_refcount.i.i104 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 25, i32 0, i32 1
-  %_M_refcount3.i.i105 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 25, i32 0, i32 1
+  %_M_refcount.i.i104 = getelementptr inbounds i8, ptr %this, i64 392
+  %_M_refcount3.i.i105 = getelementptr inbounds i8, ptr %0, i64 392
   %42 = load ptr, ptr %_M_refcount3.i.i105, align 8
   store ptr %42, ptr %_M_refcount.i.i104, align 8
   %cmp.not.i.i.i106 = icmp eq ptr %42, null
   br i1 %cmp.not.i.i.i106, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit113, label %if.then.i.i.i107
 
 if.then.i.i.i107:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit103
-  %_M_use_count.i.i.i.i108 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %42, i64 0, i32 1
+  %_M_use_count.i.i.i.i108 = getelementptr inbounds i8, ptr %42, i64 8
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i109 = icmp eq i8 %43, 0
   br i1 %tobool.i.not.i.i.i.i109, label %if.else.i.i.i.i.i112, label %if.then.i.i.i.i.i110
@@ -1068,19 +930,19 @@ if.else.i.i.i.i.i112:                             ; preds = %if.then.i.i.i107
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit113
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit113: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit103, %if.then.i.i.i.i.i110, %if.else.i.i.i.i.i112
-  %sslServerCiphers = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 26
-  %sslServerCiphers14 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 26
+  %sslServerCiphers = getelementptr inbounds i8, ptr %this, i64 400
+  %sslServerCiphers14 = getelementptr inbounds i8, ptr %0, i64 400
   %46 = load ptr, ptr %sslServerCiphers14, align 8
   store ptr %46, ptr %sslServerCiphers, align 8
-  %_M_refcount.i.i114 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 26, i32 0, i32 1
-  %_M_refcount3.i.i115 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 26, i32 0, i32 1
+  %_M_refcount.i.i114 = getelementptr inbounds i8, ptr %this, i64 408
+  %_M_refcount3.i.i115 = getelementptr inbounds i8, ptr %0, i64 408
   %47 = load ptr, ptr %_M_refcount3.i.i115, align 8
   store ptr %47, ptr %_M_refcount.i.i114, align 8
   %cmp.not.i.i.i116 = icmp eq ptr %47, null
   br i1 %cmp.not.i.i.i116, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit123, label %if.then.i.i.i117
 
 if.then.i.i.i117:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit113
-  %_M_use_count.i.i.i.i118 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %47, i64 0, i32 1
+  %_M_use_count.i.i.i.i118 = getelementptr inbounds i8, ptr %47, i64 8
   %48 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i119 = icmp eq i8 %48, 0
   br i1 %tobool.i.not.i.i.i.i119, label %if.else.i.i.i.i.i122, label %if.then.i.i.i.i.i120
@@ -1096,19 +958,19 @@ if.else.i.i.i.i.i122:                             ; preds = %if.then.i.i.i117
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit123
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit123: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit113, %if.then.i.i.i.i.i120, %if.else.i.i.i.i.i122
-  %guessedUserAgent = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 27
-  %guessedUserAgent15 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 27
+  %guessedUserAgent = getelementptr inbounds i8, ptr %this, i64 416
+  %guessedUserAgent15 = getelementptr inbounds i8, ptr %0, i64 416
   %51 = load ptr, ptr %guessedUserAgent15, align 8
   store ptr %51, ptr %guessedUserAgent, align 8
-  %_M_refcount.i.i124 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 27, i32 0, i32 1
-  %_M_refcount3.i.i125 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 27, i32 0, i32 1
+  %_M_refcount.i.i124 = getelementptr inbounds i8, ptr %this, i64 424
+  %_M_refcount3.i.i125 = getelementptr inbounds i8, ptr %0, i64 424
   %52 = load ptr, ptr %_M_refcount3.i.i125, align 8
   store ptr %52, ptr %_M_refcount.i.i124, align 8
   %cmp.not.i.i.i126 = icmp eq ptr %52, null
   br i1 %cmp.not.i.i.i126, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit133, label %if.then.i.i.i127
 
 if.then.i.i.i127:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit123
-  %_M_use_count.i.i.i.i128 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %52, i64 0, i32 1
+  %_M_use_count.i.i.i.i128 = getelementptr inbounds i8, ptr %52, i64 8
   %53 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i129 = icmp eq i8 %53, 0
   br i1 %tobool.i.not.i.i.i.i129, label %if.else.i.i.i.i.i132, label %if.then.i.i.i.i.i130
@@ -1124,19 +986,19 @@ if.else.i.i.i.i.i132:                             ; preds = %if.then.i.i.i127
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit133
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit133: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit123, %if.then.i.i.i.i.i130, %if.else.i.i.i.i.i132
-  %appProtocol = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 28
-  %appProtocol16 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 28
+  %appProtocol = getelementptr inbounds i8, ptr %this, i64 432
+  %appProtocol16 = getelementptr inbounds i8, ptr %0, i64 432
   %56 = load ptr, ptr %appProtocol16, align 8
   store ptr %56, ptr %appProtocol, align 8
-  %_M_refcount.i.i134 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 28, i32 0, i32 1
-  %_M_refcount3.i.i135 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 28, i32 0, i32 1
+  %_M_refcount.i.i134 = getelementptr inbounds i8, ptr %this, i64 440
+  %_M_refcount3.i.i135 = getelementptr inbounds i8, ptr %0, i64 440
   %57 = load ptr, ptr %_M_refcount3.i.i135, align 8
   store ptr %57, ptr %_M_refcount.i.i134, align 8
   %cmp.not.i.i.i136 = icmp eq ptr %57, null
   br i1 %cmp.not.i.i.i136, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit143, label %if.then.i.i.i137
 
 if.then.i.i.i137:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit133
-  %_M_use_count.i.i.i.i138 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %57, i64 0, i32 1
+  %_M_use_count.i.i.i.i138 = getelementptr inbounds i8, ptr %57, i64 8
   %58 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i139 = icmp eq i8 %58, 0
   br i1 %tobool.i.not.i.i.i.i139, label %if.else.i.i.i.i.i142, label %if.then.i.i.i.i.i140
@@ -1152,19 +1014,19 @@ if.else.i.i.i.i.i142:                             ; preds = %if.then.i.i.i137
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit143
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit143: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit133, %if.then.i.i.i.i.i140, %if.else.i.i.i.i.i142
-  %clientAlpns = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 29
-  %clientAlpns17 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 29
+  %clientAlpns = getelementptr inbounds i8, ptr %this, i64 448
+  %clientAlpns17 = getelementptr inbounds i8, ptr %0, i64 448
   %61 = load ptr, ptr %clientAlpns17, align 8
   store ptr %61, ptr %clientAlpns, align 8
-  %_M_refcount.i.i144 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 29, i32 0, i32 1
-  %_M_refcount3.i.i145 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 29, i32 0, i32 1
+  %_M_refcount.i.i144 = getelementptr inbounds i8, ptr %this, i64 456
+  %_M_refcount3.i.i145 = getelementptr inbounds i8, ptr %0, i64 456
   %62 = load ptr, ptr %_M_refcount3.i.i145, align 8
   store ptr %62, ptr %_M_refcount.i.i144, align 8
   %cmp.not.i.i.i146 = icmp eq ptr %62, null
   br i1 %cmp.not.i.i.i146, label %_ZNSt10shared_ptrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEC2ERKS9_.exit, label %if.then.i.i.i147
 
 if.then.i.i.i147:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit143
-  %_M_use_count.i.i.i.i148 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %62, i64 0, i32 1
+  %_M_use_count.i.i.i.i148 = getelementptr inbounds i8, ptr %62, i64 8
   %63 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i149 = icmp eq i8 %63, 0
   br i1 %tobool.i.not.i.i.i.i149, label %if.else.i.i.i.i.i152, label %if.then.i.i.i.i.i150
@@ -1180,22 +1042,22 @@ if.else.i.i.i.i.i152:                             ; preds = %if.then.i.i.i147
   br label %_ZNSt10shared_ptrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEC2ERKS9_.exit
 
 _ZNSt10shared_ptrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEC2ERKS9_.exit: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit143, %if.then.i.i.i.i.i150, %if.else.i.i.i.i.i152
-  %totalBytes = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 30
-  %totalBytes18 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 30
+  %totalBytes = getelementptr inbounds i8, ptr %this, i64 464
+  %totalBytes18 = getelementptr inbounds i8, ptr %0, i64 464
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %totalBytes, ptr noundef nonnull align 8 dereferenceable(24) %totalBytes18, i64 24, i1 false)
-  %remoteAddr = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 33
-  %remoteAddr19 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 33
+  %remoteAddr = getelementptr inbounds i8, ptr %this, i64 488
+  %remoteAddr19 = getelementptr inbounds i8, ptr %0, i64 488
   %66 = load ptr, ptr %remoteAddr19, align 8
   store ptr %66, ptr %remoteAddr, align 8
-  %_M_refcount.i.i153 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 33, i32 0, i32 1
-  %_M_refcount3.i.i154 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 33, i32 0, i32 1
+  %_M_refcount.i.i153 = getelementptr inbounds i8, ptr %this, i64 496
+  %_M_refcount3.i.i154 = getelementptr inbounds i8, ptr %0, i64 496
   %67 = load ptr, ptr %_M_refcount3.i.i154, align 8
   store ptr %67, ptr %_M_refcount.i.i153, align 8
   %cmp.not.i.i.i155 = icmp eq ptr %67, null
   br i1 %cmp.not.i.i.i155, label %_ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit, label %if.then.i.i.i156
 
 if.then.i.i.i156:                                 ; preds = %_ZNSt10shared_ptrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEC2ERKS9_.exit
-  %_M_use_count.i.i.i.i157 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %67, i64 0, i32 1
+  %_M_use_count.i.i.i.i157 = getelementptr inbounds i8, ptr %67, i64 8
   %68 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i158 = icmp eq i8 %68, 0
   br i1 %tobool.i.not.i.i.i.i158, label %if.else.i.i.i.i.i161, label %if.then.i.i.i.i.i159
@@ -1211,19 +1073,19 @@ if.else.i.i.i.i.i161:                             ; preds = %if.then.i.i.i156
   br label %_ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit: ; preds = %_ZNSt10shared_ptrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEC2ERKS9_.exit, %if.then.i.i.i.i.i159, %if.else.i.i.i.i.i161
-  %localAddr = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 34
-  %localAddr20 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 34
+  %localAddr = getelementptr inbounds i8, ptr %this, i64 504
+  %localAddr20 = getelementptr inbounds i8, ptr %0, i64 504
   %71 = load ptr, ptr %localAddr20, align 8
   store ptr %71, ptr %localAddr, align 8
-  %_M_refcount.i.i162 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 34, i32 0, i32 1
-  %_M_refcount3.i.i163 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 34, i32 0, i32 1
+  %_M_refcount.i.i162 = getelementptr inbounds i8, ptr %this, i64 512
+  %_M_refcount3.i.i163 = getelementptr inbounds i8, ptr %0, i64 512
   %72 = load ptr, ptr %_M_refcount3.i.i163, align 8
   store ptr %72, ptr %_M_refcount.i.i162, align 8
   %cmp.not.i.i.i164 = icmp eq ptr %72, null
   br i1 %cmp.not.i.i.i164, label %_ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit171, label %if.then.i.i.i165
 
 if.then.i.i.i165:                                 ; preds = %_ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit
-  %_M_use_count.i.i.i.i166 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %72, i64 0, i32 1
+  %_M_use_count.i.i.i.i166 = getelementptr inbounds i8, ptr %72, i64 8
   %73 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i167 = icmp eq i8 %73, 0
   br i1 %tobool.i.not.i.i.i.i167, label %if.else.i.i.i.i.i170, label %if.then.i.i.i.i.i168
@@ -1239,19 +1101,19 @@ if.else.i.i.i.i.i170:                             ; preds = %if.then.i.i.i165
   br label %_ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit171
 
 _ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit171: ; preds = %_ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit, %if.then.i.i.i.i.i168, %if.else.i.i.i.i.i170
-  %clientAddrOriginal = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 35
-  %clientAddrOriginal21 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 35
+  %clientAddrOriginal = getelementptr inbounds i8, ptr %this, i64 520
+  %clientAddrOriginal21 = getelementptr inbounds i8, ptr %0, i64 520
   %76 = load ptr, ptr %clientAddrOriginal21, align 8
   store ptr %76, ptr %clientAddrOriginal, align 8
-  %_M_refcount.i.i172 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 35, i32 0, i32 1
-  %_M_refcount3.i.i173 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 35, i32 0, i32 1
+  %_M_refcount.i.i172 = getelementptr inbounds i8, ptr %this, i64 528
+  %_M_refcount3.i.i173 = getelementptr inbounds i8, ptr %0, i64 528
   %77 = load ptr, ptr %_M_refcount3.i.i173, align 8
   store ptr %77, ptr %_M_refcount.i.i172, align 8
   %cmp.not.i.i.i174 = icmp eq ptr %77, null
   br i1 %cmp.not.i.i.i174, label %_ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit181, label %if.then.i.i.i175
 
 if.then.i.i.i175:                                 ; preds = %_ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit171
-  %_M_use_count.i.i.i.i176 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %77, i64 0, i32 1
+  %_M_use_count.i.i.i.i176 = getelementptr inbounds i8, ptr %77, i64 8
   %78 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i177 = icmp eq i8 %78, 0
   br i1 %tobool.i.not.i.i.i.i177, label %if.else.i.i.i.i.i180, label %if.then.i.i.i.i.i178
@@ -1267,32 +1129,32 @@ if.else.i.i.i.i.i180:                             ; preds = %if.then.i.i.i175
   br label %_ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit181
 
 _ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit181: ; preds = %_ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit171, %if.then.i.i.i.i.i178, %if.else.i.i.i.i.i180
-  %tcpinfoErrno = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 36
-  %tcpinfoErrno22 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 36
+  %tcpinfoErrno = getelementptr inbounds i8, ptr %this, i64 536
+  %tcpinfoErrno22 = getelementptr inbounds i8, ptr %0, i64 536
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %tcpinfoErrno, ptr noundef nonnull align 8 dereferenceable(12) %tcpinfoErrno22, i64 12, i1 false)
-  %sslError = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 39
-  %sslError23 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 39
+  %sslError = getelementptr inbounds i8, ptr %this, i64 552
+  %sslError23 = getelementptr inbounds i8, ptr %0, i64 552
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %sslError, ptr noundef nonnull align 8 dereferenceable(32) %sslError23)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN5folly13SocketAddressEEC2ERKS2_.exit181
-  %sslVersion = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 40
-  %sslVersion24 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 40
+  %sslVersion = getelementptr inbounds i8, ptr %this, i64 584
+  %sslVersion24 = getelementptr inbounds i8, ptr %0, i64 584
   %81 = load i16, ptr %sslVersion24, align 8
   store i16 %81, ptr %sslVersion, align 8
-  %sslCertSigAlgName = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 41
-  %sslCertSigAlgName25 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 41
+  %sslCertSigAlgName = getelementptr inbounds i8, ptr %this, i64 592
+  %sslCertSigAlgName25 = getelementptr inbounds i8, ptr %0, i64 592
   %82 = load ptr, ptr %sslCertSigAlgName25, align 8
   store ptr %82, ptr %sslCertSigAlgName, align 8
-  %_M_refcount.i.i182 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 41, i32 0, i32 1
-  %_M_refcount3.i.i183 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 41, i32 0, i32 1
+  %_M_refcount.i.i182 = getelementptr inbounds i8, ptr %this, i64 600
+  %_M_refcount3.i.i183 = getelementptr inbounds i8, ptr %0, i64 600
   %83 = load ptr, ptr %_M_refcount3.i.i183, align 8
   store ptr %83, ptr %_M_refcount.i.i182, align 8
   %cmp.not.i.i.i184 = icmp eq ptr %83, null
   br i1 %cmp.not.i.i.i184, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit191, label %if.then.i.i.i185
 
 if.then.i.i.i185:                                 ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i186 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %83, i64 0, i32 1
+  %_M_use_count.i.i.i.i186 = getelementptr inbounds i8, ptr %83, i64 8
   %84 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i187 = icmp eq i8 %84, 0
   br i1 %tobool.i.not.i.i.i.i187, label %if.else.i.i.i.i.i190, label %if.then.i.i.i.i.i188
@@ -1308,28 +1170,28 @@ if.else.i.i.i.i.i190:                             ; preds = %if.then.i.i.i185
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit191
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit191: ; preds = %invoke.cont, %if.then.i.i.i.i.i188, %if.else.i.i.i.i.i190
-  %sslCertSize = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 42
-  %sslCertSize26 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 42
+  %sslCertSize = getelementptr inbounds i8, ptr %this, i64 608
+  %sslCertSize26 = getelementptr inbounds i8, ptr %0, i64 608
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %sslCertSize, ptr noundef nonnull align 8 dereferenceable(10) %sslCertSize26, i64 10, i1 false)
-  %securityType = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 47
-  %securityType27 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 47
+  %securityType = getelementptr inbounds i8, ptr %this, i64 624
+  %securityType27 = getelementptr inbounds i8, ptr %0, i64 624
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %securityType, ptr noundef nonnull align 8 dereferenceable(32) %securityType27)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit191
-  %protocolInfo = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 48
-  %protocolInfo30 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 48
+  %protocolInfo = getelementptr inbounds i8, ptr %this, i64 656
+  %protocolInfo30 = getelementptr inbounds i8, ptr %0, i64 656
   %87 = load ptr, ptr %protocolInfo30, align 8
   store ptr %87, ptr %protocolInfo, align 8
-  %_M_refcount.i.i192 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 48, i32 0, i32 1
-  %_M_refcount3.i.i193 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 48, i32 0, i32 1
+  %_M_refcount.i.i192 = getelementptr inbounds i8, ptr %this, i64 664
+  %_M_refcount3.i.i193 = getelementptr inbounds i8, ptr %0, i64 664
   %88 = load ptr, ptr %_M_refcount3.i.i193, align 8
   store ptr %88, ptr %_M_refcount.i.i192, align 8
   %cmp.not.i.i.i194 = icmp eq ptr %88, null
   br i1 %cmp.not.i.i.i194, label %_ZNSt10shared_ptrIN6wangle12ProtocolInfoEEC2ERKS2_.exit, label %if.then.i.i.i195
 
 if.then.i.i.i195:                                 ; preds = %invoke.cont29
-  %_M_use_count.i.i.i.i196 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %88, i64 0, i32 1
+  %_M_use_count.i.i.i.i196 = getelementptr inbounds i8, ptr %88, i64 8
   %89 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i197 = icmp eq i8 %89, 0
   br i1 %tobool.i.not.i.i.i.i197, label %if.else.i.i.i.i.i200, label %if.then.i.i.i.i.i198
@@ -1345,19 +1207,19 @@ if.else.i.i.i.i.i200:                             ; preds = %if.then.i.i.i195
   br label %_ZNSt10shared_ptrIN6wangle12ProtocolInfoEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN6wangle12ProtocolInfoEEC2ERKS2_.exit: ; preds = %invoke.cont29, %if.then.i.i.i.i.i198, %if.else.i.i.i.i.i200
-  %tcpSignature = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 49
-  %tcpSignature31 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 49
+  %tcpSignature = getelementptr inbounds i8, ptr %this, i64 672
+  %tcpSignature31 = getelementptr inbounds i8, ptr %0, i64 672
   %92 = load ptr, ptr %tcpSignature31, align 8
   store ptr %92, ptr %tcpSignature, align 8
-  %_M_refcount.i.i201 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 49, i32 0, i32 1
-  %_M_refcount3.i.i202 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 49, i32 0, i32 1
+  %_M_refcount.i.i201 = getelementptr inbounds i8, ptr %this, i64 680
+  %_M_refcount3.i.i202 = getelementptr inbounds i8, ptr %0, i64 680
   %93 = load ptr, ptr %_M_refcount3.i.i202, align 8
   store ptr %93, ptr %_M_refcount.i.i201, align 8
   %cmp.not.i.i.i203 = icmp eq ptr %93, null
   br i1 %cmp.not.i.i.i203, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit210, label %if.then.i.i.i204
 
 if.then.i.i.i204:                                 ; preds = %_ZNSt10shared_ptrIN6wangle12ProtocolInfoEEC2ERKS2_.exit
-  %_M_use_count.i.i.i.i205 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %93, i64 0, i32 1
+  %_M_use_count.i.i.i.i205 = getelementptr inbounds i8, ptr %93, i64 8
   %94 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i206 = icmp eq i8 %94, 0
   br i1 %tobool.i.not.i.i.i.i206, label %if.else.i.i.i.i.i209, label %if.then.i.i.i.i.i207
@@ -1373,19 +1235,19 @@ if.else.i.i.i.i.i209:                             ; preds = %if.then.i.i.i204
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit210
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit210: ; preds = %_ZNSt10shared_ptrIN6wangle12ProtocolInfoEEC2ERKS2_.exit, %if.then.i.i.i.i.i207, %if.else.i.i.i.i.i209
-  %tcpFingerprint = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 50
-  %tcpFingerprint32 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 50
+  %tcpFingerprint = getelementptr inbounds i8, ptr %this, i64 688
+  %tcpFingerprint32 = getelementptr inbounds i8, ptr %0, i64 688
   %97 = load ptr, ptr %tcpFingerprint32, align 8
   store ptr %97, ptr %tcpFingerprint, align 8
-  %_M_refcount.i.i211 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 50, i32 0, i32 1
-  %_M_refcount3.i.i212 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 50, i32 0, i32 1
+  %_M_refcount.i.i211 = getelementptr inbounds i8, ptr %this, i64 696
+  %_M_refcount3.i.i212 = getelementptr inbounds i8, ptr %0, i64 696
   %98 = load ptr, ptr %_M_refcount3.i.i212, align 8
   store ptr %98, ptr %_M_refcount.i.i211, align 8
   %cmp.not.i.i.i213 = icmp eq ptr %98, null
   br i1 %cmp.not.i.i.i213, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit220, label %if.then.i.i.i214
 
 if.then.i.i.i214:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit210
-  %_M_use_count.i.i.i.i215 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %98, i64 0, i32 1
+  %_M_use_count.i.i.i.i215 = getelementptr inbounds i8, ptr %98, i64 8
   %99 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i216 = icmp eq i8 %99, 0
   br i1 %tobool.i.not.i.i.i.i216, label %if.else.i.i.i.i.i219, label %if.then.i.i.i.i.i217
@@ -1401,31 +1263,31 @@ if.else.i.i.i.i.i219:                             ; preds = %if.then.i.i.i214
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit220
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit220: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit210, %if.then.i.i.i.i.i217, %if.else.i.i.i.i.i219
-  %tfoSucceded = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 51
-  %tfoSucceded33 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 51
+  %tfoSucceded = getelementptr inbounds i8, ptr %this, i64 704
+  %tfoSucceded33 = getelementptr inbounds i8, ptr %0, i64 704
   %102 = load i8, ptr %tfoSucceded33, align 8
   %103 = and i8 %102, 1
   store i8 %103, ptr %tfoSucceded, align 8
-  %negotiatedTokenBindingKeyParameters = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 52
+  %negotiatedTokenBindingKeyParameters = getelementptr inbounds i8, ptr %this, i64 705
   store i8 0, ptr %negotiatedTokenBindingKeyParameters, align 1
-  %hasValue.i.i = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 52, i32 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 706
   store i8 0, ptr %hasValue.i.i, align 2
-  %hasValue.i.i.i = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 52, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %0, i64 706
   %104 = load i8, ptr %hasValue.i.i.i, align 2
   %105 = and i8 %104, 1
   %tobool.i.i.not.i = icmp eq i8 %105, 0
   br i1 %tobool.i.i.not.i, label %_ZN5folly8OptionalIhEC2ERKS1_.exit, label %invoke.cont2.i
 
 invoke.cont2.i:                                   ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit220
-  %negotiatedTokenBindingKeyParameters34 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 52
+  %negotiatedTokenBindingKeyParameters34 = getelementptr inbounds i8, ptr %0, i64 705
   %106 = load i8, ptr %negotiatedTokenBindingKeyParameters34, align 1
   store i8 %106, ptr %negotiatedTokenBindingKeyParameters, align 1
   store i8 1, ptr %hasValue.i.i, align 2
   br label %_ZN5folly8OptionalIhEC2ERKS1_.exit
 
 _ZN5folly8OptionalIhEC2ERKS1_.exit:               ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_.exit220, %invoke.cont2.i
-  %echStatus = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 53
-  %echStatus35 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %0, i64 0, i32 53
+  %echStatus = getelementptr inbounds i8, ptr %this, i64 712
+  %echStatus35 = getelementptr inbounds i8, ptr %0, i64 712
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %echStatus, ptr noundef nonnull align 8 dereferenceable(32) %echStatus35)
           to label %invoke.cont37 unwind label %lpad36
 
@@ -1496,21 +1358,21 @@ declare noundef zeroext i1 @_ZN5folly13SocketAddress16tryConvertToIPv4Ev(ptr nou
 define linkonce_odr void @_ZN8proxygen18HTTP2PriorityQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8proxygen18HTTP2PriorityQueueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %root_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue", ptr %this, i64 0, i32 2
+  %root_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %root_) #21
-  %nodes_ = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue", ptr %this, i64 0, i32 1
+  %nodes_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %nodes_, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %0, @_ZN5folly3f146detail15kEmptyTagVectorE
   br i1 %cmp.i.i.i.i.i.i, label %_ZN5folly10F14FastMapImPN8proxygen18HTTP2PriorityQueue4NodeENS_23HeterogeneousAccessHashImvEENS_26HeterogeneousAccessEqualToImvEESaISt4pairIKmS4_EEED2Ev.exit, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %entry
-  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %1, 256
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont45.i.i.i.i.i.i, label %if.end23.i.i.i.i.i.i
 
 if.end23.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
-  %packedBegin_.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueue", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 1
+  %packedBegin_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %packedBegin_.i.i.i.i.i.i.i, align 8
   br label %invoke.cont45.i.i.i.i.i.i
 
@@ -1530,12 +1392,12 @@ entry:
   store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i.i, align 8
-  %callbackSource_.i.i = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 9
+  %callbackSource_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %callbackSource_.i.i, align 8
-  %next_.i.i = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 6
+  %next_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %next_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
-  %call_.i.i = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 4
+  %call_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %call_.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, ptr %1, ptr %0
   invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
@@ -1547,7 +1409,7 @@ invoke.cont.i.i:                                  ; preds = %entry
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i: ; preds = %invoke.cont.i.i
   %vtable.i.i.i = load ptr, ptr %cond.i.i, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %cond.i.i) #21
   br label %_ZN8proxygen26PassThroughHTTPCodecFilterD2Ev.exit
@@ -1566,15 +1428,15 @@ _ZN8proxygen26PassThroughHTTPCodecFilterD2Ev.exit: ; preds = %invoke.cont.i.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6wangle13TransportInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(744) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %echStatus = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 53
+  %echStatus = getelementptr inbounds i8, ptr %this, i64 712
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %echStatus) #21
-  %_M_refcount.i.i = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 50, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 696
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1582,10 +1444,10 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %if.end8.sink.split.i.i.i.i
@@ -1611,10 +1473,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1636,19 +1498,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_refcount.i.i1 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 49, i32 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %this, i64 680
   %11 = load ptr, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i2 = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit32, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  %_M_use_count.i.i.i.i4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 1
+  %_M_use_count.i.i.i.i4 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load atomic i64, ptr %_M_use_count.i.i.i.i4 acquire, align 8
   %cmp.i.i.i.i5 = icmp eq i64 %12, 4294967297
   %13 = trunc i64 %12 to i32
@@ -1656,10 +1518,10 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i28:                                ; preds = %if.then.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i4, align 8
-  %_M_weak_count.i.i.i.i29 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 2
+  %_M_weak_count.i.i.i.i29 = getelementptr inbounds i8, ptr %11, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i29, align 4
   %vtable.i.i.i.i30 = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i31 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i30, i64 2
+  %vfn.i.i.i.i31 = getelementptr inbounds i8, ptr %vtable.i.i.i.i30, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i31, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %11) #21
   br label %if.end8.sink.split.i.i.i.i23
@@ -1685,10 +1547,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10: ; preds = %if.els
 
 if.then7.i.i.i.i13:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10
   %vtable.i.i.i.i.i.i14 = load ptr, ptr %11, align 8
-  %vfn.i.i.i.i.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i14, i64 2
+  %vfn.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i14, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i.i15, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %11) #21
-  %_M_weak_count.i.i.i.i.i.i16 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %11, i64 12
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i17 = icmp eq i8 %18, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i17, label %if.else.i.i.i.i.i.i.i26, label %if.then.i.i.i.i.i.i.i18
@@ -1710,19 +1572,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20: ; preds = %if
 
 if.end8.sink.split.i.i.i.i23:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20, %if.then.i.i.i.i28
   %vtable2.i.i.i.i.i.i24 = load ptr, ptr %11, align 8
-  %vfn3.i.i.i.i.i.i25 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i24, i64 3
+  %vfn3.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i24, i64 24
   %21 = load ptr, ptr %vfn3.i.i.i.i.i.i25, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %11) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit32
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit32: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i20, %if.end8.sink.split.i.i.i.i23
-  %_M_refcount.i.i33 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 48, i32 0, i32 1
+  %_M_refcount.i.i33 = getelementptr inbounds i8, ptr %this, i64 664
   %22 = load ptr, ptr %_M_refcount.i.i33, align 8
   %cmp.not.i.i.i34 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i.i34, label %_ZNSt10shared_ptrIN6wangle12ProtocolInfoEED2Ev.exit, label %if.then.i.i.i35
 
 if.then.i.i.i35:                                  ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit32
-  %_M_use_count.i.i.i.i36 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %22, i64 0, i32 1
+  %_M_use_count.i.i.i.i36 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load atomic i64, ptr %_M_use_count.i.i.i.i36 acquire, align 8
   %cmp.i.i.i.i37 = icmp eq i64 %23, 4294967297
   %24 = trunc i64 %23 to i32
@@ -1730,10 +1592,10 @@ if.then.i.i.i35:                                  ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i60:                                ; preds = %if.then.i.i.i35
   store i32 0, ptr %_M_use_count.i.i.i.i36, align 8
-  %_M_weak_count.i.i.i.i61 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %22, i64 0, i32 2
+  %_M_weak_count.i.i.i.i61 = getelementptr inbounds i8, ptr %22, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i61, align 4
   %vtable.i.i.i.i62 = load ptr, ptr %22, align 8
-  %vfn.i.i.i.i63 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i62, i64 2
+  %vfn.i.i.i.i63 = getelementptr inbounds i8, ptr %vtable.i.i.i.i62, i64 16
   %25 = load ptr, ptr %vfn.i.i.i.i63, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   br label %if.end8.sink.split.i.i.i.i55
@@ -1759,10 +1621,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i42: ; preds = %if.els
 
 if.then7.i.i.i.i45:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i42
   %vtable.i.i.i.i.i.i46 = load ptr, ptr %22, align 8
-  %vfn.i.i.i.i.i.i47 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i46, i64 2
+  %vfn.i.i.i.i.i.i47 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i46, i64 16
   %28 = load ptr, ptr %vfn.i.i.i.i.i.i47, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
-  %_M_weak_count.i.i.i.i.i.i48 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %22, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %22, i64 12
   %29 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i49 = icmp eq i8 %29, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i49, label %if.else.i.i.i.i.i.i.i58, label %if.then.i.i.i.i.i.i.i50
@@ -1784,21 +1646,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i52: ; preds = %if
 
 if.end8.sink.split.i.i.i.i55:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i52, %if.then.i.i.i.i60
   %vtable2.i.i.i.i.i.i56 = load ptr, ptr %22, align 8
-  %vfn3.i.i.i.i.i.i57 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i56, i64 3
+  %vfn3.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i56, i64 24
   %32 = load ptr, ptr %vfn3.i.i.i.i.i.i57, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   br label %_ZNSt10shared_ptrIN6wangle12ProtocolInfoEED2Ev.exit
 
 _ZNSt10shared_ptrIN6wangle12ProtocolInfoEED2Ev.exit: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i42, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i52, %if.end8.sink.split.i.i.i.i55
-  %securityType = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 47
+  %securityType = getelementptr inbounds i8, ptr %this, i64 624
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %securityType) #21
-  %_M_refcount.i.i64 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 41, i32 0, i32 1
+  %_M_refcount.i.i64 = getelementptr inbounds i8, ptr %this, i64 600
   %33 = load ptr, ptr %_M_refcount.i.i64, align 8
   %cmp.not.i.i.i65 = icmp eq ptr %33, null
   br i1 %cmp.not.i.i.i65, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit95, label %if.then.i.i.i66
 
 if.then.i.i.i66:                                  ; preds = %_ZNSt10shared_ptrIN6wangle12ProtocolInfoEED2Ev.exit
-  %_M_use_count.i.i.i.i67 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %33, i64 0, i32 1
+  %_M_use_count.i.i.i.i67 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load atomic i64, ptr %_M_use_count.i.i.i.i67 acquire, align 8
   %cmp.i.i.i.i68 = icmp eq i64 %34, 4294967297
   %35 = trunc i64 %34 to i32
@@ -1806,10 +1668,10 @@ if.then.i.i.i66:                                  ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i91:                                ; preds = %if.then.i.i.i66
   store i32 0, ptr %_M_use_count.i.i.i.i67, align 8
-  %_M_weak_count.i.i.i.i92 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %33, i64 0, i32 2
+  %_M_weak_count.i.i.i.i92 = getelementptr inbounds i8, ptr %33, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i92, align 4
   %vtable.i.i.i.i93 = load ptr, ptr %33, align 8
-  %vfn.i.i.i.i94 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i93, i64 2
+  %vfn.i.i.i.i94 = getelementptr inbounds i8, ptr %vtable.i.i.i.i93, i64 16
   %36 = load ptr, ptr %vfn.i.i.i.i94, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(16) %33) #21
   br label %if.end8.sink.split.i.i.i.i86
@@ -1835,10 +1697,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i73: ; preds = %if.els
 
 if.then7.i.i.i.i76:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i73
   %vtable.i.i.i.i.i.i77 = load ptr, ptr %33, align 8
-  %vfn.i.i.i.i.i.i78 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i77, i64 2
+  %vfn.i.i.i.i.i.i78 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i77, i64 16
   %39 = load ptr, ptr %vfn.i.i.i.i.i.i78, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %33) #21
-  %_M_weak_count.i.i.i.i.i.i79 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %33, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i79 = getelementptr inbounds i8, ptr %33, i64 12
   %40 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i80 = icmp eq i8 %40, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i80, label %if.else.i.i.i.i.i.i.i89, label %if.then.i.i.i.i.i.i.i81
@@ -1860,21 +1722,21 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i83: ; preds = %if
 
 if.end8.sink.split.i.i.i.i86:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i83, %if.then.i.i.i.i91
   %vtable2.i.i.i.i.i.i87 = load ptr, ptr %33, align 8
-  %vfn3.i.i.i.i.i.i88 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i87, i64 3
+  %vfn3.i.i.i.i.i.i88 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i87, i64 24
   %43 = load ptr, ptr %vfn3.i.i.i.i.i.i88, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(16) %33) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit95
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit95: ; preds = %_ZNSt10shared_ptrIN6wangle12ProtocolInfoEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i73, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i83, %if.end8.sink.split.i.i.i.i86
-  %sslError = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 39
+  %sslError = getelementptr inbounds i8, ptr %this, i64 552
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sslError) #21
-  %_M_refcount.i.i96 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 35, i32 0, i32 1
+  %_M_refcount.i.i96 = getelementptr inbounds i8, ptr %this, i64 528
   %44 = load ptr, ptr %_M_refcount.i.i96, align 8
   %cmp.not.i.i.i97 = icmp eq ptr %44, null
   br i1 %cmp.not.i.i.i97, label %_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit, label %if.then.i.i.i98
 
 if.then.i.i.i98:                                  ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit95
-  %_M_use_count.i.i.i.i99 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %44, i64 0, i32 1
+  %_M_use_count.i.i.i.i99 = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load atomic i64, ptr %_M_use_count.i.i.i.i99 acquire, align 8
   %cmp.i.i.i.i100 = icmp eq i64 %45, 4294967297
   %46 = trunc i64 %45 to i32
@@ -1882,10 +1744,10 @@ if.then.i.i.i98:                                  ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i123:                               ; preds = %if.then.i.i.i98
   store i32 0, ptr %_M_use_count.i.i.i.i99, align 8
-  %_M_weak_count.i.i.i.i124 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %44, i64 0, i32 2
+  %_M_weak_count.i.i.i.i124 = getelementptr inbounds i8, ptr %44, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i124, align 4
   %vtable.i.i.i.i125 = load ptr, ptr %44, align 8
-  %vfn.i.i.i.i126 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i125, i64 2
+  %vfn.i.i.i.i126 = getelementptr inbounds i8, ptr %vtable.i.i.i.i125, i64 16
   %47 = load ptr, ptr %vfn.i.i.i.i126, align 8
   tail call void %47(ptr noundef nonnull align 8 dereferenceable(16) %44) #21
   br label %if.end8.sink.split.i.i.i.i118
@@ -1911,10 +1773,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i105: ; preds = %if.el
 
 if.then7.i.i.i.i108:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i105
   %vtable.i.i.i.i.i.i109 = load ptr, ptr %44, align 8
-  %vfn.i.i.i.i.i.i110 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i109, i64 2
+  %vfn.i.i.i.i.i.i110 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i109, i64 16
   %50 = load ptr, ptr %vfn.i.i.i.i.i.i110, align 8
   tail call void %50(ptr noundef nonnull align 8 dereferenceable(16) %44) #21
-  %_M_weak_count.i.i.i.i.i.i111 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %44, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i111 = getelementptr inbounds i8, ptr %44, i64 12
   %51 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i112 = icmp eq i8 %51, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i112, label %if.else.i.i.i.i.i.i.i121, label %if.then.i.i.i.i.i.i.i113
@@ -1936,19 +1798,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i115: ; preds = %i
 
 if.end8.sink.split.i.i.i.i118:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i115, %if.then.i.i.i.i123
   %vtable2.i.i.i.i.i.i119 = load ptr, ptr %44, align 8
-  %vfn3.i.i.i.i.i.i120 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i119, i64 3
+  %vfn3.i.i.i.i.i.i120 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i119, i64 24
   %54 = load ptr, ptr %vfn3.i.i.i.i.i.i120, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(16) %44) #21
   br label %_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit
 
 _ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit95, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i105, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i115, %if.end8.sink.split.i.i.i.i118
-  %_M_refcount.i.i127 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 34, i32 0, i32 1
+  %_M_refcount.i.i127 = getelementptr inbounds i8, ptr %this, i64 512
   %55 = load ptr, ptr %_M_refcount.i.i127, align 8
   %cmp.not.i.i.i128 = icmp eq ptr %55, null
   br i1 %cmp.not.i.i.i128, label %_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit158, label %if.then.i.i.i129
 
 if.then.i.i.i129:                                 ; preds = %_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit
-  %_M_use_count.i.i.i.i130 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %55, i64 0, i32 1
+  %_M_use_count.i.i.i.i130 = getelementptr inbounds i8, ptr %55, i64 8
   %56 = load atomic i64, ptr %_M_use_count.i.i.i.i130 acquire, align 8
   %cmp.i.i.i.i131 = icmp eq i64 %56, 4294967297
   %57 = trunc i64 %56 to i32
@@ -1956,10 +1818,10 @@ if.then.i.i.i129:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i154:                               ; preds = %if.then.i.i.i129
   store i32 0, ptr %_M_use_count.i.i.i.i130, align 8
-  %_M_weak_count.i.i.i.i155 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %55, i64 0, i32 2
+  %_M_weak_count.i.i.i.i155 = getelementptr inbounds i8, ptr %55, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i155, align 4
   %vtable.i.i.i.i156 = load ptr, ptr %55, align 8
-  %vfn.i.i.i.i157 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i156, i64 2
+  %vfn.i.i.i.i157 = getelementptr inbounds i8, ptr %vtable.i.i.i.i156, i64 16
   %58 = load ptr, ptr %vfn.i.i.i.i157, align 8
   tail call void %58(ptr noundef nonnull align 8 dereferenceable(16) %55) #21
   br label %if.end8.sink.split.i.i.i.i149
@@ -1985,10 +1847,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i136: ; preds = %if.el
 
 if.then7.i.i.i.i139:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i136
   %vtable.i.i.i.i.i.i140 = load ptr, ptr %55, align 8
-  %vfn.i.i.i.i.i.i141 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i140, i64 2
+  %vfn.i.i.i.i.i.i141 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i140, i64 16
   %61 = load ptr, ptr %vfn.i.i.i.i.i.i141, align 8
   tail call void %61(ptr noundef nonnull align 8 dereferenceable(16) %55) #21
-  %_M_weak_count.i.i.i.i.i.i142 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %55, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i142 = getelementptr inbounds i8, ptr %55, i64 12
   %62 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i143 = icmp eq i8 %62, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i143, label %if.else.i.i.i.i.i.i.i152, label %if.then.i.i.i.i.i.i.i144
@@ -2010,19 +1872,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i146: ; preds = %i
 
 if.end8.sink.split.i.i.i.i149:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i146, %if.then.i.i.i.i154
   %vtable2.i.i.i.i.i.i150 = load ptr, ptr %55, align 8
-  %vfn3.i.i.i.i.i.i151 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i150, i64 3
+  %vfn3.i.i.i.i.i.i151 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i150, i64 24
   %65 = load ptr, ptr %vfn3.i.i.i.i.i.i151, align 8
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(16) %55) #21
   br label %_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit158
 
 _ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit158: ; preds = %_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i136, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i146, %if.end8.sink.split.i.i.i.i149
-  %_M_refcount.i.i159 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 33, i32 0, i32 1
+  %_M_refcount.i.i159 = getelementptr inbounds i8, ptr %this, i64 496
   %66 = load ptr, ptr %_M_refcount.i.i159, align 8
   %cmp.not.i.i.i160 = icmp eq ptr %66, null
   br i1 %cmp.not.i.i.i160, label %_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit190, label %if.then.i.i.i161
 
 if.then.i.i.i161:                                 ; preds = %_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit158
-  %_M_use_count.i.i.i.i162 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %66, i64 0, i32 1
+  %_M_use_count.i.i.i.i162 = getelementptr inbounds i8, ptr %66, i64 8
   %67 = load atomic i64, ptr %_M_use_count.i.i.i.i162 acquire, align 8
   %cmp.i.i.i.i163 = icmp eq i64 %67, 4294967297
   %68 = trunc i64 %67 to i32
@@ -2030,10 +1892,10 @@ if.then.i.i.i161:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i186:                               ; preds = %if.then.i.i.i161
   store i32 0, ptr %_M_use_count.i.i.i.i162, align 8
-  %_M_weak_count.i.i.i.i187 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %66, i64 0, i32 2
+  %_M_weak_count.i.i.i.i187 = getelementptr inbounds i8, ptr %66, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i187, align 4
   %vtable.i.i.i.i188 = load ptr, ptr %66, align 8
-  %vfn.i.i.i.i189 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i188, i64 2
+  %vfn.i.i.i.i189 = getelementptr inbounds i8, ptr %vtable.i.i.i.i188, i64 16
   %69 = load ptr, ptr %vfn.i.i.i.i189, align 8
   tail call void %69(ptr noundef nonnull align 8 dereferenceable(16) %66) #21
   br label %if.end8.sink.split.i.i.i.i181
@@ -2059,10 +1921,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i168: ; preds = %if.el
 
 if.then7.i.i.i.i171:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i168
   %vtable.i.i.i.i.i.i172 = load ptr, ptr %66, align 8
-  %vfn.i.i.i.i.i.i173 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i172, i64 2
+  %vfn.i.i.i.i.i.i173 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i172, i64 16
   %72 = load ptr, ptr %vfn.i.i.i.i.i.i173, align 8
   tail call void %72(ptr noundef nonnull align 8 dereferenceable(16) %66) #21
-  %_M_weak_count.i.i.i.i.i.i174 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %66, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i174 = getelementptr inbounds i8, ptr %66, i64 12
   %73 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i175 = icmp eq i8 %73, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i175, label %if.else.i.i.i.i.i.i.i184, label %if.then.i.i.i.i.i.i.i176
@@ -2084,19 +1946,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i178: ; preds = %i
 
 if.end8.sink.split.i.i.i.i181:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i178, %if.then.i.i.i.i186
   %vtable2.i.i.i.i.i.i182 = load ptr, ptr %66, align 8
-  %vfn3.i.i.i.i.i.i183 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i182, i64 3
+  %vfn3.i.i.i.i.i.i183 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i182, i64 24
   %76 = load ptr, ptr %vfn3.i.i.i.i.i.i183, align 8
   tail call void %76(ptr noundef nonnull align 8 dereferenceable(16) %66) #21
   br label %_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit190
 
 _ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit190: ; preds = %_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit158, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i168, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i178, %if.end8.sink.split.i.i.i.i181
-  %_M_refcount.i.i191 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 29, i32 0, i32 1
+  %_M_refcount.i.i191 = getelementptr inbounds i8, ptr %this, i64 456
   %77 = load ptr, ptr %_M_refcount.i.i191, align 8
   %cmp.not.i.i.i192 = icmp eq ptr %77, null
   br i1 %cmp.not.i.i.i192, label %_ZNSt10shared_ptrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEED2Ev.exit, label %if.then.i.i.i193
 
 if.then.i.i.i193:                                 ; preds = %_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit190
-  %_M_use_count.i.i.i.i194 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %77, i64 0, i32 1
+  %_M_use_count.i.i.i.i194 = getelementptr inbounds i8, ptr %77, i64 8
   %78 = load atomic i64, ptr %_M_use_count.i.i.i.i194 acquire, align 8
   %cmp.i.i.i.i195 = icmp eq i64 %78, 4294967297
   %79 = trunc i64 %78 to i32
@@ -2104,10 +1966,10 @@ if.then.i.i.i193:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i218:                               ; preds = %if.then.i.i.i193
   store i32 0, ptr %_M_use_count.i.i.i.i194, align 8
-  %_M_weak_count.i.i.i.i219 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %77, i64 0, i32 2
+  %_M_weak_count.i.i.i.i219 = getelementptr inbounds i8, ptr %77, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i219, align 4
   %vtable.i.i.i.i220 = load ptr, ptr %77, align 8
-  %vfn.i.i.i.i221 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i220, i64 2
+  %vfn.i.i.i.i221 = getelementptr inbounds i8, ptr %vtable.i.i.i.i220, i64 16
   %80 = load ptr, ptr %vfn.i.i.i.i221, align 8
   tail call void %80(ptr noundef nonnull align 8 dereferenceable(16) %77) #21
   br label %if.end8.sink.split.i.i.i.i213
@@ -2133,10 +1995,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i200: ; preds = %if.el
 
 if.then7.i.i.i.i203:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i200
   %vtable.i.i.i.i.i.i204 = load ptr, ptr %77, align 8
-  %vfn.i.i.i.i.i.i205 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i204, i64 2
+  %vfn.i.i.i.i.i.i205 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i204, i64 16
   %83 = load ptr, ptr %vfn.i.i.i.i.i.i205, align 8
   tail call void %83(ptr noundef nonnull align 8 dereferenceable(16) %77) #21
-  %_M_weak_count.i.i.i.i.i.i206 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %77, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i206 = getelementptr inbounds i8, ptr %77, i64 12
   %84 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i207 = icmp eq i8 %84, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i207, label %if.else.i.i.i.i.i.i.i216, label %if.then.i.i.i.i.i.i.i208
@@ -2158,19 +2020,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i210: ; preds = %i
 
 if.end8.sink.split.i.i.i.i213:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i210, %if.then.i.i.i.i218
   %vtable2.i.i.i.i.i.i214 = load ptr, ptr %77, align 8
-  %vfn3.i.i.i.i.i.i215 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i214, i64 3
+  %vfn3.i.i.i.i.i.i215 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i214, i64 24
   %87 = load ptr, ptr %vfn3.i.i.i.i.i.i215, align 8
   tail call void %87(ptr noundef nonnull align 8 dereferenceable(16) %77) #21
   br label %_ZNSt10shared_ptrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEED2Ev.exit
 
 _ZNSt10shared_ptrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev.exit190, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i200, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i210, %if.end8.sink.split.i.i.i.i213
-  %_M_refcount.i.i222 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 28, i32 0, i32 1
+  %_M_refcount.i.i222 = getelementptr inbounds i8, ptr %this, i64 440
   %88 = load ptr, ptr %_M_refcount.i.i222, align 8
   %cmp.not.i.i.i223 = icmp eq ptr %88, null
   br i1 %cmp.not.i.i.i223, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit253, label %if.then.i.i.i224
 
 if.then.i.i.i224:                                 ; preds = %_ZNSt10shared_ptrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEED2Ev.exit
-  %_M_use_count.i.i.i.i225 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %88, i64 0, i32 1
+  %_M_use_count.i.i.i.i225 = getelementptr inbounds i8, ptr %88, i64 8
   %89 = load atomic i64, ptr %_M_use_count.i.i.i.i225 acquire, align 8
   %cmp.i.i.i.i226 = icmp eq i64 %89, 4294967297
   %90 = trunc i64 %89 to i32
@@ -2178,10 +2040,10 @@ if.then.i.i.i224:                                 ; preds = %_ZNSt10shared_ptrIS
 
 if.then.i.i.i.i249:                               ; preds = %if.then.i.i.i224
   store i32 0, ptr %_M_use_count.i.i.i.i225, align 8
-  %_M_weak_count.i.i.i.i250 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %88, i64 0, i32 2
+  %_M_weak_count.i.i.i.i250 = getelementptr inbounds i8, ptr %88, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i250, align 4
   %vtable.i.i.i.i251 = load ptr, ptr %88, align 8
-  %vfn.i.i.i.i252 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i251, i64 2
+  %vfn.i.i.i.i252 = getelementptr inbounds i8, ptr %vtable.i.i.i.i251, i64 16
   %91 = load ptr, ptr %vfn.i.i.i.i252, align 8
   tail call void %91(ptr noundef nonnull align 8 dereferenceable(16) %88) #21
   br label %if.end8.sink.split.i.i.i.i244
@@ -2207,10 +2069,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i231: ; preds = %if.el
 
 if.then7.i.i.i.i234:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i231
   %vtable.i.i.i.i.i.i235 = load ptr, ptr %88, align 8
-  %vfn.i.i.i.i.i.i236 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i235, i64 2
+  %vfn.i.i.i.i.i.i236 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i235, i64 16
   %94 = load ptr, ptr %vfn.i.i.i.i.i.i236, align 8
   tail call void %94(ptr noundef nonnull align 8 dereferenceable(16) %88) #21
-  %_M_weak_count.i.i.i.i.i.i237 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %88, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i237 = getelementptr inbounds i8, ptr %88, i64 12
   %95 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i238 = icmp eq i8 %95, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i238, label %if.else.i.i.i.i.i.i.i247, label %if.then.i.i.i.i.i.i.i239
@@ -2232,19 +2094,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i241: ; preds = %i
 
 if.end8.sink.split.i.i.i.i244:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i241, %if.then.i.i.i.i249
   %vtable2.i.i.i.i.i.i245 = load ptr, ptr %88, align 8
-  %vfn3.i.i.i.i.i.i246 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i245, i64 3
+  %vfn3.i.i.i.i.i.i246 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i245, i64 24
   %98 = load ptr, ptr %vfn3.i.i.i.i.i.i246, align 8
   tail call void %98(ptr noundef nonnull align 8 dereferenceable(16) %88) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit253
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit253: ; preds = %_ZNSt10shared_ptrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i231, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i241, %if.end8.sink.split.i.i.i.i244
-  %_M_refcount.i.i254 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 27, i32 0, i32 1
+  %_M_refcount.i.i254 = getelementptr inbounds i8, ptr %this, i64 424
   %99 = load ptr, ptr %_M_refcount.i.i254, align 8
   %cmp.not.i.i.i255 = icmp eq ptr %99, null
   br i1 %cmp.not.i.i.i255, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit285, label %if.then.i.i.i256
 
 if.then.i.i.i256:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit253
-  %_M_use_count.i.i.i.i257 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %99, i64 0, i32 1
+  %_M_use_count.i.i.i.i257 = getelementptr inbounds i8, ptr %99, i64 8
   %100 = load atomic i64, ptr %_M_use_count.i.i.i.i257 acquire, align 8
   %cmp.i.i.i.i258 = icmp eq i64 %100, 4294967297
   %101 = trunc i64 %100 to i32
@@ -2252,10 +2114,10 @@ if.then.i.i.i256:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i281:                               ; preds = %if.then.i.i.i256
   store i32 0, ptr %_M_use_count.i.i.i.i257, align 8
-  %_M_weak_count.i.i.i.i282 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %99, i64 0, i32 2
+  %_M_weak_count.i.i.i.i282 = getelementptr inbounds i8, ptr %99, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i282, align 4
   %vtable.i.i.i.i283 = load ptr, ptr %99, align 8
-  %vfn.i.i.i.i284 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i283, i64 2
+  %vfn.i.i.i.i284 = getelementptr inbounds i8, ptr %vtable.i.i.i.i283, i64 16
   %102 = load ptr, ptr %vfn.i.i.i.i284, align 8
   tail call void %102(ptr noundef nonnull align 8 dereferenceable(16) %99) #21
   br label %if.end8.sink.split.i.i.i.i276
@@ -2281,10 +2143,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i263: ; preds = %if.el
 
 if.then7.i.i.i.i266:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i263
   %vtable.i.i.i.i.i.i267 = load ptr, ptr %99, align 8
-  %vfn.i.i.i.i.i.i268 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i267, i64 2
+  %vfn.i.i.i.i.i.i268 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i267, i64 16
   %105 = load ptr, ptr %vfn.i.i.i.i.i.i268, align 8
   tail call void %105(ptr noundef nonnull align 8 dereferenceable(16) %99) #21
-  %_M_weak_count.i.i.i.i.i.i269 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %99, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i269 = getelementptr inbounds i8, ptr %99, i64 12
   %106 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i270 = icmp eq i8 %106, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i270, label %if.else.i.i.i.i.i.i.i279, label %if.then.i.i.i.i.i.i.i271
@@ -2306,19 +2168,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i273: ; preds = %i
 
 if.end8.sink.split.i.i.i.i276:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i273, %if.then.i.i.i.i281
   %vtable2.i.i.i.i.i.i277 = load ptr, ptr %99, align 8
-  %vfn3.i.i.i.i.i.i278 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i277, i64 3
+  %vfn3.i.i.i.i.i.i278 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i277, i64 24
   %109 = load ptr, ptr %vfn3.i.i.i.i.i.i278, align 8
   tail call void %109(ptr noundef nonnull align 8 dereferenceable(16) %99) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit285
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit285: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit253, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i263, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i273, %if.end8.sink.split.i.i.i.i276
-  %_M_refcount.i.i286 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 26, i32 0, i32 1
+  %_M_refcount.i.i286 = getelementptr inbounds i8, ptr %this, i64 408
   %110 = load ptr, ptr %_M_refcount.i.i286, align 8
   %cmp.not.i.i.i287 = icmp eq ptr %110, null
   br i1 %cmp.not.i.i.i287, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit317, label %if.then.i.i.i288
 
 if.then.i.i.i288:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit285
-  %_M_use_count.i.i.i.i289 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %110, i64 0, i32 1
+  %_M_use_count.i.i.i.i289 = getelementptr inbounds i8, ptr %110, i64 8
   %111 = load atomic i64, ptr %_M_use_count.i.i.i.i289 acquire, align 8
   %cmp.i.i.i.i290 = icmp eq i64 %111, 4294967297
   %112 = trunc i64 %111 to i32
@@ -2326,10 +2188,10 @@ if.then.i.i.i288:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i313:                               ; preds = %if.then.i.i.i288
   store i32 0, ptr %_M_use_count.i.i.i.i289, align 8
-  %_M_weak_count.i.i.i.i314 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %110, i64 0, i32 2
+  %_M_weak_count.i.i.i.i314 = getelementptr inbounds i8, ptr %110, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i314, align 4
   %vtable.i.i.i.i315 = load ptr, ptr %110, align 8
-  %vfn.i.i.i.i316 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i315, i64 2
+  %vfn.i.i.i.i316 = getelementptr inbounds i8, ptr %vtable.i.i.i.i315, i64 16
   %113 = load ptr, ptr %vfn.i.i.i.i316, align 8
   tail call void %113(ptr noundef nonnull align 8 dereferenceable(16) %110) #21
   br label %if.end8.sink.split.i.i.i.i308
@@ -2355,10 +2217,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i295: ; preds = %if.el
 
 if.then7.i.i.i.i298:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i295
   %vtable.i.i.i.i.i.i299 = load ptr, ptr %110, align 8
-  %vfn.i.i.i.i.i.i300 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i299, i64 2
+  %vfn.i.i.i.i.i.i300 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i299, i64 16
   %116 = load ptr, ptr %vfn.i.i.i.i.i.i300, align 8
   tail call void %116(ptr noundef nonnull align 8 dereferenceable(16) %110) #21
-  %_M_weak_count.i.i.i.i.i.i301 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %110, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i301 = getelementptr inbounds i8, ptr %110, i64 12
   %117 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i302 = icmp eq i8 %117, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i302, label %if.else.i.i.i.i.i.i.i311, label %if.then.i.i.i.i.i.i.i303
@@ -2380,19 +2242,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i305: ; preds = %i
 
 if.end8.sink.split.i.i.i.i308:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i305, %if.then.i.i.i.i313
   %vtable2.i.i.i.i.i.i309 = load ptr, ptr %110, align 8
-  %vfn3.i.i.i.i.i.i310 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i309, i64 3
+  %vfn3.i.i.i.i.i.i310 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i309, i64 24
   %120 = load ptr, ptr %vfn3.i.i.i.i.i.i310, align 8
   tail call void %120(ptr noundef nonnull align 8 dereferenceable(16) %110) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit317
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit317: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit285, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i295, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i305, %if.end8.sink.split.i.i.i.i308
-  %_M_refcount.i.i318 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 25, i32 0, i32 1
+  %_M_refcount.i.i318 = getelementptr inbounds i8, ptr %this, i64 392
   %121 = load ptr, ptr %_M_refcount.i.i318, align 8
   %cmp.not.i.i.i319 = icmp eq ptr %121, null
   br i1 %cmp.not.i.i.i319, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit349, label %if.then.i.i.i320
 
 if.then.i.i.i320:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit317
-  %_M_use_count.i.i.i.i321 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %121, i64 0, i32 1
+  %_M_use_count.i.i.i.i321 = getelementptr inbounds i8, ptr %121, i64 8
   %122 = load atomic i64, ptr %_M_use_count.i.i.i.i321 acquire, align 8
   %cmp.i.i.i.i322 = icmp eq i64 %122, 4294967297
   %123 = trunc i64 %122 to i32
@@ -2400,10 +2262,10 @@ if.then.i.i.i320:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i345:                               ; preds = %if.then.i.i.i320
   store i32 0, ptr %_M_use_count.i.i.i.i321, align 8
-  %_M_weak_count.i.i.i.i346 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %121, i64 0, i32 2
+  %_M_weak_count.i.i.i.i346 = getelementptr inbounds i8, ptr %121, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i346, align 4
   %vtable.i.i.i.i347 = load ptr, ptr %121, align 8
-  %vfn.i.i.i.i348 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i347, i64 2
+  %vfn.i.i.i.i348 = getelementptr inbounds i8, ptr %vtable.i.i.i.i347, i64 16
   %124 = load ptr, ptr %vfn.i.i.i.i348, align 8
   tail call void %124(ptr noundef nonnull align 8 dereferenceable(16) %121) #21
   br label %if.end8.sink.split.i.i.i.i340
@@ -2429,10 +2291,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i327: ; preds = %if.el
 
 if.then7.i.i.i.i330:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i327
   %vtable.i.i.i.i.i.i331 = load ptr, ptr %121, align 8
-  %vfn.i.i.i.i.i.i332 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i331, i64 2
+  %vfn.i.i.i.i.i.i332 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i331, i64 16
   %127 = load ptr, ptr %vfn.i.i.i.i.i.i332, align 8
   tail call void %127(ptr noundef nonnull align 8 dereferenceable(16) %121) #21
-  %_M_weak_count.i.i.i.i.i.i333 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %121, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i333 = getelementptr inbounds i8, ptr %121, i64 12
   %128 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i334 = icmp eq i8 %128, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i334, label %if.else.i.i.i.i.i.i.i343, label %if.then.i.i.i.i.i.i.i335
@@ -2454,19 +2316,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i337: ; preds = %i
 
 if.end8.sink.split.i.i.i.i340:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i337, %if.then.i.i.i.i345
   %vtable2.i.i.i.i.i.i341 = load ptr, ptr %121, align 8
-  %vfn3.i.i.i.i.i.i342 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i341, i64 3
+  %vfn3.i.i.i.i.i.i342 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i341, i64 24
   %131 = load ptr, ptr %vfn3.i.i.i.i.i.i342, align 8
   tail call void %131(ptr noundef nonnull align 8 dereferenceable(16) %121) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit349
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit349: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit317, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i327, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i337, %if.end8.sink.split.i.i.i.i340
-  %_M_refcount.i.i350 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 24, i32 0, i32 1
+  %_M_refcount.i.i350 = getelementptr inbounds i8, ptr %this, i64 376
   %132 = load ptr, ptr %_M_refcount.i.i350, align 8
   %cmp.not.i.i.i351 = icmp eq ptr %132, null
   br i1 %cmp.not.i.i.i351, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit381, label %if.then.i.i.i352
 
 if.then.i.i.i352:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit349
-  %_M_use_count.i.i.i.i353 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %132, i64 0, i32 1
+  %_M_use_count.i.i.i.i353 = getelementptr inbounds i8, ptr %132, i64 8
   %133 = load atomic i64, ptr %_M_use_count.i.i.i.i353 acquire, align 8
   %cmp.i.i.i.i354 = icmp eq i64 %133, 4294967297
   %134 = trunc i64 %133 to i32
@@ -2474,10 +2336,10 @@ if.then.i.i.i352:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i377:                               ; preds = %if.then.i.i.i352
   store i32 0, ptr %_M_use_count.i.i.i.i353, align 8
-  %_M_weak_count.i.i.i.i378 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %132, i64 0, i32 2
+  %_M_weak_count.i.i.i.i378 = getelementptr inbounds i8, ptr %132, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i378, align 4
   %vtable.i.i.i.i379 = load ptr, ptr %132, align 8
-  %vfn.i.i.i.i380 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i379, i64 2
+  %vfn.i.i.i.i380 = getelementptr inbounds i8, ptr %vtable.i.i.i.i379, i64 16
   %135 = load ptr, ptr %vfn.i.i.i.i380, align 8
   tail call void %135(ptr noundef nonnull align 8 dereferenceable(16) %132) #21
   br label %if.end8.sink.split.i.i.i.i372
@@ -2503,10 +2365,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i359: ; preds = %if.el
 
 if.then7.i.i.i.i362:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i359
   %vtable.i.i.i.i.i.i363 = load ptr, ptr %132, align 8
-  %vfn.i.i.i.i.i.i364 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i363, i64 2
+  %vfn.i.i.i.i.i.i364 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i363, i64 16
   %138 = load ptr, ptr %vfn.i.i.i.i.i.i364, align 8
   tail call void %138(ptr noundef nonnull align 8 dereferenceable(16) %132) #21
-  %_M_weak_count.i.i.i.i.i.i365 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %132, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i365 = getelementptr inbounds i8, ptr %132, i64 12
   %139 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i366 = icmp eq i8 %139, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i366, label %if.else.i.i.i.i.i.i.i375, label %if.then.i.i.i.i.i.i.i367
@@ -2528,19 +2390,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i369: ; preds = %i
 
 if.end8.sink.split.i.i.i.i372:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i369, %if.then.i.i.i.i377
   %vtable2.i.i.i.i.i.i373 = load ptr, ptr %132, align 8
-  %vfn3.i.i.i.i.i.i374 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i373, i64 3
+  %vfn3.i.i.i.i.i.i374 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i373, i64 24
   %142 = load ptr, ptr %vfn3.i.i.i.i.i.i374, align 8
   tail call void %142(ptr noundef nonnull align 8 dereferenceable(16) %132) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit381
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit381: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit349, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i359, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i369, %if.end8.sink.split.i.i.i.i372
-  %_M_refcount.i.i382 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 23, i32 0, i32 1
+  %_M_refcount.i.i382 = getelementptr inbounds i8, ptr %this, i64 360
   %143 = load ptr, ptr %_M_refcount.i.i382, align 8
   %cmp.not.i.i.i383 = icmp eq ptr %143, null
   br i1 %cmp.not.i.i.i383, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit413, label %if.then.i.i.i384
 
 if.then.i.i.i384:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit381
-  %_M_use_count.i.i.i.i385 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %143, i64 0, i32 1
+  %_M_use_count.i.i.i.i385 = getelementptr inbounds i8, ptr %143, i64 8
   %144 = load atomic i64, ptr %_M_use_count.i.i.i.i385 acquire, align 8
   %cmp.i.i.i.i386 = icmp eq i64 %144, 4294967297
   %145 = trunc i64 %144 to i32
@@ -2548,10 +2410,10 @@ if.then.i.i.i384:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i409:                               ; preds = %if.then.i.i.i384
   store i32 0, ptr %_M_use_count.i.i.i.i385, align 8
-  %_M_weak_count.i.i.i.i410 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %143, i64 0, i32 2
+  %_M_weak_count.i.i.i.i410 = getelementptr inbounds i8, ptr %143, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i410, align 4
   %vtable.i.i.i.i411 = load ptr, ptr %143, align 8
-  %vfn.i.i.i.i412 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i411, i64 2
+  %vfn.i.i.i.i412 = getelementptr inbounds i8, ptr %vtable.i.i.i.i411, i64 16
   %146 = load ptr, ptr %vfn.i.i.i.i412, align 8
   tail call void %146(ptr noundef nonnull align 8 dereferenceable(16) %143) #21
   br label %if.end8.sink.split.i.i.i.i404
@@ -2577,10 +2439,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i391: ; preds = %if.el
 
 if.then7.i.i.i.i394:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i391
   %vtable.i.i.i.i.i.i395 = load ptr, ptr %143, align 8
-  %vfn.i.i.i.i.i.i396 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i395, i64 2
+  %vfn.i.i.i.i.i.i396 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i395, i64 16
   %149 = load ptr, ptr %vfn.i.i.i.i.i.i396, align 8
   tail call void %149(ptr noundef nonnull align 8 dereferenceable(16) %143) #21
-  %_M_weak_count.i.i.i.i.i.i397 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %143, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i397 = getelementptr inbounds i8, ptr %143, i64 12
   %150 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i398 = icmp eq i8 %150, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i398, label %if.else.i.i.i.i.i.i.i407, label %if.then.i.i.i.i.i.i.i399
@@ -2602,19 +2464,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i401: ; preds = %i
 
 if.end8.sink.split.i.i.i.i404:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i401, %if.then.i.i.i.i409
   %vtable2.i.i.i.i.i.i405 = load ptr, ptr %143, align 8
-  %vfn3.i.i.i.i.i.i406 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i405, i64 3
+  %vfn3.i.i.i.i.i.i406 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i405, i64 24
   %153 = load ptr, ptr %vfn3.i.i.i.i.i.i406, align 8
   tail call void %153(ptr noundef nonnull align 8 dereferenceable(16) %143) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit413
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit413: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit381, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i391, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i401, %if.end8.sink.split.i.i.i.i404
-  %_M_refcount.i.i414 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 22, i32 0, i32 1
+  %_M_refcount.i.i414 = getelementptr inbounds i8, ptr %this, i64 344
   %154 = load ptr, ptr %_M_refcount.i.i414, align 8
   %cmp.not.i.i.i415 = icmp eq ptr %154, null
   br i1 %cmp.not.i.i.i415, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit445, label %if.then.i.i.i416
 
 if.then.i.i.i416:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit413
-  %_M_use_count.i.i.i.i417 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %154, i64 0, i32 1
+  %_M_use_count.i.i.i.i417 = getelementptr inbounds i8, ptr %154, i64 8
   %155 = load atomic i64, ptr %_M_use_count.i.i.i.i417 acquire, align 8
   %cmp.i.i.i.i418 = icmp eq i64 %155, 4294967297
   %156 = trunc i64 %155 to i32
@@ -2622,10 +2484,10 @@ if.then.i.i.i416:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i441:                               ; preds = %if.then.i.i.i416
   store i32 0, ptr %_M_use_count.i.i.i.i417, align 8
-  %_M_weak_count.i.i.i.i442 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %154, i64 0, i32 2
+  %_M_weak_count.i.i.i.i442 = getelementptr inbounds i8, ptr %154, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i442, align 4
   %vtable.i.i.i.i443 = load ptr, ptr %154, align 8
-  %vfn.i.i.i.i444 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i443, i64 2
+  %vfn.i.i.i.i444 = getelementptr inbounds i8, ptr %vtable.i.i.i.i443, i64 16
   %157 = load ptr, ptr %vfn.i.i.i.i444, align 8
   tail call void %157(ptr noundef nonnull align 8 dereferenceable(16) %154) #21
   br label %if.end8.sink.split.i.i.i.i436
@@ -2651,10 +2513,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i423: ; preds = %if.el
 
 if.then7.i.i.i.i426:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i423
   %vtable.i.i.i.i.i.i427 = load ptr, ptr %154, align 8
-  %vfn.i.i.i.i.i.i428 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i427, i64 2
+  %vfn.i.i.i.i.i.i428 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i427, i64 16
   %160 = load ptr, ptr %vfn.i.i.i.i.i.i428, align 8
   tail call void %160(ptr noundef nonnull align 8 dereferenceable(16) %154) #21
-  %_M_weak_count.i.i.i.i.i.i429 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %154, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i429 = getelementptr inbounds i8, ptr %154, i64 12
   %161 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i430 = icmp eq i8 %161, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i430, label %if.else.i.i.i.i.i.i.i439, label %if.then.i.i.i.i.i.i.i431
@@ -2676,19 +2538,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i433: ; preds = %i
 
 if.end8.sink.split.i.i.i.i436:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i433, %if.then.i.i.i.i441
   %vtable2.i.i.i.i.i.i437 = load ptr, ptr %154, align 8
-  %vfn3.i.i.i.i.i.i438 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i437, i64 3
+  %vfn3.i.i.i.i.i.i438 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i437, i64 24
   %164 = load ptr, ptr %vfn3.i.i.i.i.i.i438, align 8
   tail call void %164(ptr noundef nonnull align 8 dereferenceable(16) %154) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit445
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit445: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit413, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i423, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i433, %if.end8.sink.split.i.i.i.i436
-  %_M_refcount.i.i446 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 21, i32 0, i32 1
+  %_M_refcount.i.i446 = getelementptr inbounds i8, ptr %this, i64 328
   %165 = load ptr, ptr %_M_refcount.i.i446, align 8
   %cmp.not.i.i.i447 = icmp eq ptr %165, null
   br i1 %cmp.not.i.i.i447, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit477, label %if.then.i.i.i448
 
 if.then.i.i.i448:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit445
-  %_M_use_count.i.i.i.i449 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %165, i64 0, i32 1
+  %_M_use_count.i.i.i.i449 = getelementptr inbounds i8, ptr %165, i64 8
   %166 = load atomic i64, ptr %_M_use_count.i.i.i.i449 acquire, align 8
   %cmp.i.i.i.i450 = icmp eq i64 %166, 4294967297
   %167 = trunc i64 %166 to i32
@@ -2696,10 +2558,10 @@ if.then.i.i.i448:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i473:                               ; preds = %if.then.i.i.i448
   store i32 0, ptr %_M_use_count.i.i.i.i449, align 8
-  %_M_weak_count.i.i.i.i474 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %165, i64 0, i32 2
+  %_M_weak_count.i.i.i.i474 = getelementptr inbounds i8, ptr %165, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i474, align 4
   %vtable.i.i.i.i475 = load ptr, ptr %165, align 8
-  %vfn.i.i.i.i476 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i475, i64 2
+  %vfn.i.i.i.i476 = getelementptr inbounds i8, ptr %vtable.i.i.i.i475, i64 16
   %168 = load ptr, ptr %vfn.i.i.i.i476, align 8
   tail call void %168(ptr noundef nonnull align 8 dereferenceable(16) %165) #21
   br label %if.end8.sink.split.i.i.i.i468
@@ -2725,10 +2587,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i455: ; preds = %if.el
 
 if.then7.i.i.i.i458:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i455
   %vtable.i.i.i.i.i.i459 = load ptr, ptr %165, align 8
-  %vfn.i.i.i.i.i.i460 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i459, i64 2
+  %vfn.i.i.i.i.i.i460 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i459, i64 16
   %171 = load ptr, ptr %vfn.i.i.i.i.i.i460, align 8
   tail call void %171(ptr noundef nonnull align 8 dereferenceable(16) %165) #21
-  %_M_weak_count.i.i.i.i.i.i461 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %165, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i461 = getelementptr inbounds i8, ptr %165, i64 12
   %172 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i462 = icmp eq i8 %172, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i462, label %if.else.i.i.i.i.i.i.i471, label %if.then.i.i.i.i.i.i.i463
@@ -2750,19 +2612,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i465: ; preds = %i
 
 if.end8.sink.split.i.i.i.i468:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i465, %if.then.i.i.i.i473
   %vtable2.i.i.i.i.i.i469 = load ptr, ptr %165, align 8
-  %vfn3.i.i.i.i.i.i470 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i469, i64 3
+  %vfn3.i.i.i.i.i.i470 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i469, i64 24
   %175 = load ptr, ptr %vfn3.i.i.i.i.i.i470, align 8
   tail call void %175(ptr noundef nonnull align 8 dereferenceable(16) %165) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit477
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit477: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit445, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i455, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i465, %if.end8.sink.split.i.i.i.i468
-  %_M_refcount.i.i478 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 20, i32 0, i32 1
+  %_M_refcount.i.i478 = getelementptr inbounds i8, ptr %this, i64 312
   %176 = load ptr, ptr %_M_refcount.i.i478, align 8
   %cmp.not.i.i.i479 = icmp eq ptr %176, null
   br i1 %cmp.not.i.i.i479, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit509, label %if.then.i.i.i480
 
 if.then.i.i.i480:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit477
-  %_M_use_count.i.i.i.i481 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %176, i64 0, i32 1
+  %_M_use_count.i.i.i.i481 = getelementptr inbounds i8, ptr %176, i64 8
   %177 = load atomic i64, ptr %_M_use_count.i.i.i.i481 acquire, align 8
   %cmp.i.i.i.i482 = icmp eq i64 %177, 4294967297
   %178 = trunc i64 %177 to i32
@@ -2770,10 +2632,10 @@ if.then.i.i.i480:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i505:                               ; preds = %if.then.i.i.i480
   store i32 0, ptr %_M_use_count.i.i.i.i481, align 8
-  %_M_weak_count.i.i.i.i506 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %176, i64 0, i32 2
+  %_M_weak_count.i.i.i.i506 = getelementptr inbounds i8, ptr %176, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i506, align 4
   %vtable.i.i.i.i507 = load ptr, ptr %176, align 8
-  %vfn.i.i.i.i508 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i507, i64 2
+  %vfn.i.i.i.i508 = getelementptr inbounds i8, ptr %vtable.i.i.i.i507, i64 16
   %179 = load ptr, ptr %vfn.i.i.i.i508, align 8
   tail call void %179(ptr noundef nonnull align 8 dereferenceable(16) %176) #21
   br label %if.end8.sink.split.i.i.i.i500
@@ -2799,10 +2661,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i487: ; preds = %if.el
 
 if.then7.i.i.i.i490:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i487
   %vtable.i.i.i.i.i.i491 = load ptr, ptr %176, align 8
-  %vfn.i.i.i.i.i.i492 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i491, i64 2
+  %vfn.i.i.i.i.i.i492 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i491, i64 16
   %182 = load ptr, ptr %vfn.i.i.i.i.i.i492, align 8
   tail call void %182(ptr noundef nonnull align 8 dereferenceable(16) %176) #21
-  %_M_weak_count.i.i.i.i.i.i493 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %176, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i493 = getelementptr inbounds i8, ptr %176, i64 12
   %183 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i494 = icmp eq i8 %183, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i494, label %if.else.i.i.i.i.i.i.i503, label %if.then.i.i.i.i.i.i.i495
@@ -2824,19 +2686,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i497: ; preds = %i
 
 if.end8.sink.split.i.i.i.i500:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i497, %if.then.i.i.i.i505
   %vtable2.i.i.i.i.i.i501 = load ptr, ptr %176, align 8
-  %vfn3.i.i.i.i.i.i502 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i501, i64 3
+  %vfn3.i.i.i.i.i.i502 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i501, i64 24
   %186 = load ptr, ptr %vfn3.i.i.i.i.i.i502, align 8
   tail call void %186(ptr noundef nonnull align 8 dereferenceable(16) %176) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit509
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit509: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit477, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i487, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i497, %if.end8.sink.split.i.i.i.i500
-  %_M_refcount.i.i510 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 19, i32 0, i32 1
+  %_M_refcount.i.i510 = getelementptr inbounds i8, ptr %this, i64 296
   %187 = load ptr, ptr %_M_refcount.i.i510, align 8
   %cmp.not.i.i.i511 = icmp eq ptr %187, null
   br i1 %cmp.not.i.i.i511, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit541, label %if.then.i.i.i512
 
 if.then.i.i.i512:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit509
-  %_M_use_count.i.i.i.i513 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %187, i64 0, i32 1
+  %_M_use_count.i.i.i.i513 = getelementptr inbounds i8, ptr %187, i64 8
   %188 = load atomic i64, ptr %_M_use_count.i.i.i.i513 acquire, align 8
   %cmp.i.i.i.i514 = icmp eq i64 %188, 4294967297
   %189 = trunc i64 %188 to i32
@@ -2844,10 +2706,10 @@ if.then.i.i.i512:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i537:                               ; preds = %if.then.i.i.i512
   store i32 0, ptr %_M_use_count.i.i.i.i513, align 8
-  %_M_weak_count.i.i.i.i538 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %187, i64 0, i32 2
+  %_M_weak_count.i.i.i.i538 = getelementptr inbounds i8, ptr %187, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i538, align 4
   %vtable.i.i.i.i539 = load ptr, ptr %187, align 8
-  %vfn.i.i.i.i540 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i539, i64 2
+  %vfn.i.i.i.i540 = getelementptr inbounds i8, ptr %vtable.i.i.i.i539, i64 16
   %190 = load ptr, ptr %vfn.i.i.i.i540, align 8
   tail call void %190(ptr noundef nonnull align 8 dereferenceable(16) %187) #21
   br label %if.end8.sink.split.i.i.i.i532
@@ -2873,10 +2735,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i519: ; preds = %if.el
 
 if.then7.i.i.i.i522:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i519
   %vtable.i.i.i.i.i.i523 = load ptr, ptr %187, align 8
-  %vfn.i.i.i.i.i.i524 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i523, i64 2
+  %vfn.i.i.i.i.i.i524 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i523, i64 16
   %193 = load ptr, ptr %vfn.i.i.i.i.i.i524, align 8
   tail call void %193(ptr noundef nonnull align 8 dereferenceable(16) %187) #21
-  %_M_weak_count.i.i.i.i.i.i525 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %187, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i525 = getelementptr inbounds i8, ptr %187, i64 12
   %194 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i526 = icmp eq i8 %194, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i526, label %if.else.i.i.i.i.i.i.i535, label %if.then.i.i.i.i.i.i.i527
@@ -2898,19 +2760,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i529: ; preds = %i
 
 if.end8.sink.split.i.i.i.i532:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i529, %if.then.i.i.i.i537
   %vtable2.i.i.i.i.i.i533 = load ptr, ptr %187, align 8
-  %vfn3.i.i.i.i.i.i534 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i533, i64 3
+  %vfn3.i.i.i.i.i.i534 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i533, i64 24
   %197 = load ptr, ptr %vfn3.i.i.i.i.i.i534, align 8
   tail call void %197(ptr noundef nonnull align 8 dereferenceable(16) %187) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit541
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit541: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit509, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i519, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i529, %if.end8.sink.split.i.i.i.i532
-  %_M_refcount.i.i542 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 18, i32 0, i32 1
+  %_M_refcount.i.i542 = getelementptr inbounds i8, ptr %this, i64 280
   %198 = load ptr, ptr %_M_refcount.i.i542, align 8
   %cmp.not.i.i.i543 = icmp eq ptr %198, null
   br i1 %cmp.not.i.i.i543, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit573, label %if.then.i.i.i544
 
 if.then.i.i.i544:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit541
-  %_M_use_count.i.i.i.i545 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %198, i64 0, i32 1
+  %_M_use_count.i.i.i.i545 = getelementptr inbounds i8, ptr %198, i64 8
   %199 = load atomic i64, ptr %_M_use_count.i.i.i.i545 acquire, align 8
   %cmp.i.i.i.i546 = icmp eq i64 %199, 4294967297
   %200 = trunc i64 %199 to i32
@@ -2918,10 +2780,10 @@ if.then.i.i.i544:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i569:                               ; preds = %if.then.i.i.i544
   store i32 0, ptr %_M_use_count.i.i.i.i545, align 8
-  %_M_weak_count.i.i.i.i570 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %198, i64 0, i32 2
+  %_M_weak_count.i.i.i.i570 = getelementptr inbounds i8, ptr %198, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i570, align 4
   %vtable.i.i.i.i571 = load ptr, ptr %198, align 8
-  %vfn.i.i.i.i572 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i571, i64 2
+  %vfn.i.i.i.i572 = getelementptr inbounds i8, ptr %vtable.i.i.i.i571, i64 16
   %201 = load ptr, ptr %vfn.i.i.i.i572, align 8
   tail call void %201(ptr noundef nonnull align 8 dereferenceable(16) %198) #21
   br label %if.end8.sink.split.i.i.i.i564
@@ -2947,10 +2809,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i551: ; preds = %if.el
 
 if.then7.i.i.i.i554:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i551
   %vtable.i.i.i.i.i.i555 = load ptr, ptr %198, align 8
-  %vfn.i.i.i.i.i.i556 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i555, i64 2
+  %vfn.i.i.i.i.i.i556 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i555, i64 16
   %204 = load ptr, ptr %vfn.i.i.i.i.i.i556, align 8
   tail call void %204(ptr noundef nonnull align 8 dereferenceable(16) %198) #21
-  %_M_weak_count.i.i.i.i.i.i557 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %198, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i557 = getelementptr inbounds i8, ptr %198, i64 12
   %205 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i558 = icmp eq i8 %205, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i558, label %if.else.i.i.i.i.i.i.i567, label %if.then.i.i.i.i.i.i.i559
@@ -2972,19 +2834,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i561: ; preds = %i
 
 if.end8.sink.split.i.i.i.i564:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i561, %if.then.i.i.i.i569
   %vtable2.i.i.i.i.i.i565 = load ptr, ptr %198, align 8
-  %vfn3.i.i.i.i.i.i566 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i565, i64 3
+  %vfn3.i.i.i.i.i.i566 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i565, i64 24
   %208 = load ptr, ptr %vfn3.i.i.i.i.i.i566, align 8
   tail call void %208(ptr noundef nonnull align 8 dereferenceable(16) %198) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit573
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit573: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit541, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i551, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i561, %if.end8.sink.split.i.i.i.i564
-  %_M_refcount.i.i574 = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 17, i32 0, i32 1
+  %_M_refcount.i.i574 = getelementptr inbounds i8, ptr %this, i64 264
   %209 = load ptr, ptr %_M_refcount.i.i574, align 8
   %cmp.not.i.i.i575 = icmp eq ptr %209, null
   br i1 %cmp.not.i.i.i575, label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit605, label %if.then.i.i.i576
 
 if.then.i.i.i576:                                 ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit573
-  %_M_use_count.i.i.i.i577 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %209, i64 0, i32 1
+  %_M_use_count.i.i.i.i577 = getelementptr inbounds i8, ptr %209, i64 8
   %210 = load atomic i64, ptr %_M_use_count.i.i.i.i577 acquire, align 8
   %cmp.i.i.i.i578 = icmp eq i64 %210, 4294967297
   %211 = trunc i64 %210 to i32
@@ -2992,10 +2854,10 @@ if.then.i.i.i576:                                 ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i601:                               ; preds = %if.then.i.i.i576
   store i32 0, ptr %_M_use_count.i.i.i.i577, align 8
-  %_M_weak_count.i.i.i.i602 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %209, i64 0, i32 2
+  %_M_weak_count.i.i.i.i602 = getelementptr inbounds i8, ptr %209, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i602, align 4
   %vtable.i.i.i.i603 = load ptr, ptr %209, align 8
-  %vfn.i.i.i.i604 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i603, i64 2
+  %vfn.i.i.i.i604 = getelementptr inbounds i8, ptr %vtable.i.i.i.i603, i64 16
   %212 = load ptr, ptr %vfn.i.i.i.i604, align 8
   tail call void %212(ptr noundef nonnull align 8 dereferenceable(16) %209) #21
   br label %if.end8.sink.split.i.i.i.i596
@@ -3021,10 +2883,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i583: ; preds = %if.el
 
 if.then7.i.i.i.i586:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i583
   %vtable.i.i.i.i.i.i587 = load ptr, ptr %209, align 8
-  %vfn.i.i.i.i.i.i588 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i587, i64 2
+  %vfn.i.i.i.i.i.i588 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i587, i64 16
   %215 = load ptr, ptr %vfn.i.i.i.i.i.i588, align 8
   tail call void %215(ptr noundef nonnull align 8 dereferenceable(16) %209) #21
-  %_M_weak_count.i.i.i.i.i.i589 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %209, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i589 = getelementptr inbounds i8, ptr %209, i64 12
   %216 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i590 = icmp eq i8 %216, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i590, label %if.else.i.i.i.i.i.i.i599, label %if.then.i.i.i.i.i.i.i591
@@ -3046,13 +2908,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i593: ; preds = %i
 
 if.end8.sink.split.i.i.i.i596:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i593, %if.then.i.i.i.i601
   %vtable2.i.i.i.i.i.i597 = load ptr, ptr %209, align 8
-  %vfn3.i.i.i.i.i.i598 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i597, i64 3
+  %vfn3.i.i.i.i.i.i598 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i597, i64 24
   %219 = load ptr, ptr %vfn3.i.i.i.i.i.i598, align 8
   tail call void %219(ptr noundef nonnull align 8 dereferenceable(16) %209) #21
   br label %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit605
 
 _ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit605: ; preds = %_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit573, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i583, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i593, %if.end8.sink.split.i.i.i.i596
-  %caAlgo = getelementptr inbounds %"struct.wangle::TransportInfo", ptr %this, i64 0, i32 12
+  %caAlgo = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %caAlgo) #21
   ret void
 }
@@ -3066,66 +2928,66 @@ entry:
   store ptr getelementptr inbounds ({ [60 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15HTTPSessionBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 64
   store ptr getelementptr inbounds ({ [60 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15HTTPSessionBaseE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %sessionStats_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 1
+  %sessionStats_ = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %sessionStats_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pendingWriteSize_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 22
+  %pendingWriteSize_ = getelementptr inbounds i8, ptr %this, i64 1560
   %1 = load i64, ptr %pendingWriteSize_, align 8
   %mul = sub nsw i64 0, %1
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %mul) #21
   %3 = load ptr, ptr %sessionStats_, align 8
-  %pendingReadSize_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 24
+  %pendingReadSize_ = getelementptr inbounds i8, ptr %this, i64 1576
   %4 = load i32, ptr %pendingReadSize_, align 8
   %conv = zext i32 %4 to i64
   %mul4 = sub nsw i64 0, %conv
   %vtable5 = load ptr, ptr %3, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 21
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 168
   %5 = load ptr, ptr %vfn6, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %mul4) #21
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %httpSessionActivityTracker_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 11
+  %httpSessionActivityTracker_ = getelementptr inbounds i8, ptr %this, i64 1472
   %6 = load ptr, ptr %httpSessionActivityTracker_, align 8
   %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen26HTTPSessionActivityTrackerEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN8proxygen26HTTPSessionActivityTrackerEEclEPS1_.exit.i: ; preds = %if.end
   %vtable.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(48) %6) #21
   br label %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN8proxygen26HTTPSessionActivityTrackerEEclEPS1_.exit.i
   store ptr null, ptr %httpSessionActivityTracker_, align 8
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 8, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 1456
   %8 = load i8, ptr %hasValue.i.i.i, align 8
   %9 = and i8 %8, 1
   %tobool.not.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i.i.i, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit
-  %connectionToken_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 8
+  %connectionToken_ = getelementptr inbounds i8, ptr %this, i64 1424
   store i8 0, ptr %hasValue.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %connectionToken_) #21
   br label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EED2Ev.exit, %if.then.i.i.i
-  %external_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 7, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %this, i64 1418
   %10 = load i8, ptr %external_.i, align 2
   %11 = and i8 %10, 1
   %tobool.not.i = icmp eq i8 %11, 0
   br i1 %tobool.not.i, label %_ZN5folly13SocketAddressD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  %peerAddr_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 7
+  %peerAddr_ = getelementptr inbounds i8, ptr %this, i64 1392
   %12 = load ptr, ptr %peerAddr_, align 8
   %isnull.i.i = icmp eq ptr %12, null
   br i1 %isnull.i.i, label %_ZN5folly13SocketAddressD2Ev.exit, label %delete.notnull.i.i
@@ -3135,14 +2997,14 @@ delete.notnull.i.i:                               ; preds = %if.then.i
   br label %_ZN5folly13SocketAddressD2Ev.exit
 
 _ZN5folly13SocketAddressD2Ev.exit:                ; preds = %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %if.then.i, %delete.notnull.i.i
-  %external_.i1 = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 6, i32 2
+  %external_.i1 = getelementptr inbounds i8, ptr %this, i64 1386
   %13 = load i8, ptr %external_.i1, align 2
   %14 = and i8 %13, 1
   %tobool.not.i2 = icmp eq i8 %14, 0
   br i1 %tobool.not.i2, label %_ZN5folly13SocketAddressD2Ev.exit6, label %if.then.i3
 
 if.then.i3:                                       ; preds = %_ZN5folly13SocketAddressD2Ev.exit
-  %localAddr_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 6
+  %localAddr_ = getelementptr inbounds i8, ptr %this, i64 1360
   %15 = load ptr, ptr %localAddr_, align 8
   %isnull.i.i4 = icmp eq ptr %15, null
   br i1 %isnull.i.i4, label %_ZN5folly13SocketAddressD2Ev.exit6, label %delete.notnull.i.i5
@@ -3152,23 +3014,23 @@ delete.notnull.i.i5:                              ; preds = %if.then.i3
   br label %_ZN5folly13SocketAddressD2Ev.exit6
 
 _ZN5folly13SocketAddressD2Ev.exit6:               ; preds = %_ZN5folly13SocketAddressD2Ev.exit, %if.then.i3, %delete.notnull.i.i5
-  %txnEgressQueue_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5
+  %txnEgressQueue_ = getelementptr inbounds i8, ptr %this, i64 1048
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8proxygen18HTTP2PriorityQueueE, i64 0, inrange i32 0, i64 2), ptr %txnEgressQueue_, align 8
-  %root_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 2
+  %root_.i = getelementptr inbounds i8, ptr %this, i64 1088
   tail call void @_ZN8proxygen18HTTP2PriorityQueue4NodeD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %root_.i) #21
-  %nodes_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 1
+  %nodes_.i = getelementptr inbounds i8, ptr %this, i64 1064
   %16 = load ptr, ptr %nodes_.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %16, @_ZN5folly3f146detail15kEmptyTagVectorE
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN8proxygen18HTTP2PriorityQueueD2Ev.exit, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN5folly13SocketAddressD2Ev.exit6
-  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 1, i32 0, i32 0, i32 0, i32 1
+  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1072
   %17 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ult i64 %17, 256
   br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont45.i.i.i.i.i.i.i, label %if.end23.i.i.i.i.i.i.i
 
 if.end23.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i
-  %packedBegin_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 5, i32 1, i32 0, i32 0, i32 0, i32 1, i32 1
+  %packedBegin_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1080
   store i64 0, ptr %packedBegin_.i.i.i.i.i.i.i.i, align 8
   br label %invoke.cont45.i.i.i.i.i.i.i
 
@@ -3179,16 +3041,16 @@ invoke.cont45.i.i.i.i.i.i.i:                      ; preds = %if.end23.i.i.i.i.i.
   br label %_ZN8proxygen18HTTP2PriorityQueueD2Ev.exit
 
 _ZN8proxygen18HTTP2PriorityQueueD2Ev.exit:        ; preds = %_ZN5folly13SocketAddressD2Ev.exit6, %invoke.cont45.i.i.i.i.i.i.i
-  %codec_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4
+  %codec_ = getelementptr inbounds i8, ptr %this, i64 968
   store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0, inrange i32 0, i64 2), ptr %codec_, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 976
   store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i.i.i, align 8
-  %callbackSource_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 9
+  %callbackSource_.i.i.i = getelementptr inbounds i8, ptr %this, i64 1032
   store ptr null, ptr %callbackSource_.i.i.i, align 8
-  %next_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 6
+  %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 1008
   %18 = load ptr, ptr %next_.i.i.i, align 8
   %tobool.not.i.i.i7 = icmp eq ptr %18, null
-  %call_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 4
+  %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %19 = load ptr, ptr %call_.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i7, ptr %19, ptr %18
   invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %codec_)
@@ -3200,7 +3062,7 @@ invoke.cont.i.i.i:                                ; preds = %_ZN8proxygen18HTTP2
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i: ; preds = %invoke.cont.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %cond.i.i.i, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %20 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %cond.i.i.i) #21
   br label %_ZN8proxygen11FilterChainINS_9HTTPCodecENS1_8CallbackENS_26PassThroughHTTPCodecFilterEXadL_ZNS1_11setCallbackEPS2_EELb1EED2Ev.exit
@@ -3213,7 +3075,7 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN8proxygen18HTTP2
   unreachable
 
 _ZN8proxygen11FilterChainINS_9HTTPCodecENS1_8CallbackENS_26PassThroughHTTPCodecFilterEXadL_ZNS1_11setCallbackEPS2_EELb1EED2Ev.exit: ; preds = %invoke.cont.i.i.i, %_ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i
-  %transportInfo_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 3
+  %transportInfo_ = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @_ZN6wangle13TransportInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(744) %transportInfo_) #21
   tail call void @_ZN6wangle17ManagedConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #21
   ret void
@@ -3247,7 +3109,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen15HTTPSessionBase15setSessionStatsEPNS_16HTTPSessionStatsE(ptr nocapture noundef nonnull align 8 dereferenceable(1582) %this, ptr noundef %stats) unnamed_addr #5 align 2 {
 entry:
-  %sessionStats_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 1
+  %sessionStats_ = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %sessionStats_, align 8
   %cmp.not = icmp eq ptr %0, %stats
   %cmp3.not = icmp eq ptr %0, null
@@ -3255,20 +3117,20 @@ entry:
   br i1 %or.cond, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pendingWriteSize_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 22
+  %pendingWriteSize_ = getelementptr inbounds i8, ptr %this, i64 1560
   %1 = load i64, ptr %pendingWriteSize_, align 8
   %mul = sub nsw i64 0, %1
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %mul) #21
   %3 = load ptr, ptr %sessionStats_, align 8
-  %pendingReadSize_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 24
+  %pendingReadSize_ = getelementptr inbounds i8, ptr %this, i64 1576
   %4 = load i32, ptr %pendingReadSize_, align 8
   %conv = zext i32 %4 to i64
   %mul6 = sub nsw i64 0, %conv
   %vtable7 = load ptr, ptr %3, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 21
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 168
   %5 = load ptr, ptr %vfn8, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %mul6) #21
   br label %if.end
@@ -3279,18 +3141,18 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not, label %if.end21, label %if.then11
 
 if.then11:                                        ; preds = %if.end
-  %pendingWriteSize_13 = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 22
+  %pendingWriteSize_13 = getelementptr inbounds i8, ptr %this, i64 1560
   %6 = load i64, ptr %pendingWriteSize_13, align 8
   %vtable14 = load ptr, ptr %stats, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 22
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 176
   %7 = load ptr, ptr %vfn15, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %stats, i64 noundef %6) #21
   %8 = load ptr, ptr %sessionStats_, align 8
-  %pendingReadSize_17 = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 24
+  %pendingReadSize_17 = getelementptr inbounds i8, ptr %this, i64 1576
   %9 = load i32, ptr %pendingReadSize_17, align 8
   %conv18 = zext i32 %9 to i64
   %vtable19 = load ptr, ptr %8, align 8
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 21
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 168
   %10 = load ptr, ptr %vfn20, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %conv18) #21
   br label %if.end21
@@ -3344,7 +3206,7 @@ if.then.i:                                        ; preds = %while.end
   unreachable
 
 _ZNSt5arrayIPN8proxygen15RateLimitFilterELm4EE2atEm.exit: ; preds = %while.end
-  %rateLimitFilters_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 12
+  %rateLimitFilters_ = getelementptr inbounds i8, ptr %this, i64 1480
   %arrayidx.i.i = getelementptr inbounds [4 x ptr], ptr %rateLimitFilters_, i64 0, i64 %conv12
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -3352,7 +3214,7 @@ _ZNSt5arrayIPN8proxygen15RateLimitFilterELm4EE2atEm.exit: ; preds = %while.end
 
 if.then:                                          ; preds = %_ZNSt5arrayIPN8proxygen15RateLimitFilterELm4EE2atEm.exit
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 84
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 672
   %2 = load ptr, ptr %vfn, align 8
   %call14 = call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(168) %1)
   %cmp = icmp ugt i32 %call14, %maxEventsPerInterval
@@ -3476,27 +3338,27 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPSessionBase19runDestroyCallbacksEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %infoCallback_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 2
+  %infoCallback_ = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %infoCallback_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(1582) %this)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %controller_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 13
+  %controller_ = getelementptr inbounds i8, ptr %this, i64 1512
   %2 = load ptr, ptr %controller_, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end9, label %if.then4
 
 if.then4:                                         ; preds = %if.end
   %vtable6 = load ptr, ptr %2, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 6
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 48
   %3 = load ptr, ptr %vfn7, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %this)
   store ptr null, ptr %controller_, align 8
@@ -3509,14 +3371,14 @@ if.end9:                                          ; preds = %if.then4, %if.end
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPSessionBase14onCodecChangedEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %controller_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 13
+  %controller_ = getelementptr inbounds i8, ptr %this, i64 1512
   %0 = load ptr, ptr %controller_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %_ZN8proxygen15HTTPSessionBase31initCodecHeaderIndexingStrategyEv.exit, label %if.end
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %this)
   %.pr = load ptr, ptr %controller_, align 8
@@ -3525,11 +3387,11 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   %vtable.i = load ptr, ptr %.pr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %.pr)
   %vtable3.i = load ptr, ptr %this, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 17
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 136
   %3 = load ptr, ptr %vfn4.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(1582) %this, ptr noundef %call.i)
   br label %_ZN8proxygen15HTTPSessionBase31initCodecHeaderIndexingStrategyEv.exit
@@ -3541,18 +3403,18 @@ _ZN8proxygen15HTTPSessionBase31initCodecHeaderIndexingStrategyEv.exit: ; preds =
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPSessionBase31initCodecHeaderIndexingStrategyEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %controller_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 13
+  %controller_ = getelementptr inbounds i8, ptr %this, i64 1512
   %0 = load ptr, ptr %controller_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3 = load ptr, ptr %this, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 17
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 136
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(1582) %this, ptr noundef %call)
   br label %if.end
@@ -3576,7 +3438,7 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %pendingReadSize_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 24
+  %pendingReadSize_ = getelementptr inbounds i8, ptr %this, i64 1576
   %1 = load i32, ptr %pendingReadSize_, align 8
   %conv5 = zext i16 %padding to i64
   %2 = add i64 %conv5, %length
@@ -3656,7 +3518,7 @@ while.end:                                        ; preds = %invoke.cont9.while.
   %8 = trunc i64 %2 to i32
   %conv23 = add i32 %7, %8
   store i32 %conv23, ptr %pendingReadSize_, align 8
-  %httpSessionActivityTracker_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 11
+  %httpSessionActivityTracker_ = getelementptr inbounds i8, ptr %this, i64 1472
   %9 = load ptr, ptr %httpSessionActivityTracker_, align 8
   %cmp.i14.not = icmp eq ptr %9, null
   br i1 %cmp.i14.not, label %if.end, label %if.then
@@ -3666,14 +3528,14 @@ if.then:                                          ; preds = %while.end
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %if.then, %while.end
-  %sessionStats_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 1
+  %sessionStats_ = getelementptr inbounds i8, ptr %this, i64 208
   %10 = load ptr, ptr %sessionStats_, align 8
   %tobool.not = icmp eq ptr %10, null
   br i1 %tobool.not, label %if.end35, label %if.then31
 
 if.then31:                                        ; preds = %if.end
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %11 = load ptr, ptr %vfn, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %2) #21
   br label %if.end35
@@ -3744,7 +3606,7 @@ invoke.cont59:                                    ; preds = %invoke.cont56
           to label %invoke.cont61 unwind label %lpad51
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  %readBufLimit_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 20
+  %readBufLimit_ = getelementptr inbounds i8, ptr %this, i64 1552
   %18 = load i32, ptr %readBufLimit_, align 8
   %call64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call62, i32 noundef %18)
           to label %invoke.cont63 unwind label %lpad51
@@ -3759,7 +3621,7 @@ cleanup.action:                                   ; preds = %invoke.cont63
 
 cleanup.done:                                     ; preds = %cond.false, %cond.end, %cleanup.action
   %19 = load i32, ptr %pendingReadSize_, align 8
-  %readBufLimit_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 20
+  %readBufLimit_.i = getelementptr inbounds i8, ptr %this, i64 1552
   %20 = load i32, ptr %readBufLimit_.i, align 8
   %cmp.i16 = icmp ule i32 %19, %20
   %cmp75.not = icmp ugt i32 %1, %20
@@ -3767,14 +3629,14 @@ cleanup.done:                                     ; preds = %cond.false, %cond.e
   br i1 %or.cond, label %if.then.i, label %if.then76
 
 if.then76:                                        ; preds = %cleanup.done
-  %infoCallback_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 2
+  %infoCallback_ = getelementptr inbounds i8, ptr %this, i64 216
   %21 = load ptr, ptr %infoCallback_, align 8
   %tobool77.not = icmp eq ptr %21, null
   br i1 %tobool77.not, label %if.then.i, label %if.then78
 
 if.then78:                                        ; preds = %if.then76
   %vtable80 = load ptr, ptr %21, align 8
-  %vfn81 = getelementptr inbounds ptr, ptr %vtable80, i64 17
+  %vfn81 = getelementptr inbounds i8, ptr %vtable80, i64 136
   %22 = load ptr, ptr %vfn81, align 8
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(1582) %this)
           to label %if.then.i unwind label %lpad
@@ -3802,7 +3664,7 @@ if.then.i:                                        ; preds = %if.then78, %if.then
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %26 = load ptr, ptr %vfn.i, align 8
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -3858,19 +3720,19 @@ entry:
   br i1 %cmp.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %guardCount_ = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %0, i64 0, i32 1
+  %guardCount_ = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %guardCount_, align 8
   %dec = add i32 %1, -1
   store i32 %dec, ptr %guardCount_, align 8
   %2 = load ptr, ptr %this, align 8
-  %guardCount_4 = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %2, i64 0, i32 1
+  %guardCount_4 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %guardCount_4, align 8
   %cmp5 = icmp eq i32 %3, 0
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.then
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %2, i1 noundef zeroext true)
           to label %if.end8 unwind label %terminate.lpad
@@ -3893,7 +3755,7 @@ entry:
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp6 = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp17 = alloca %"class.google::LogMessage", align 8
-  %pendingReadSize_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 24
+  %pendingReadSize_ = getelementptr inbounds i8, ptr %this, i64 1576
   %0 = load i32, ptr %pendingReadSize_, align 8
   %cmp.not.i = icmp ult i32 %0, %bytes
   br i1 %cmp.not.i, label %if.else.i, label %while.end
@@ -3957,7 +3819,7 @@ while.end:                                        ; preds = %entry, %_ZN6google1
   %4 = phi i32 [ %.pre, %_ZN6google12Check_GEImplIjjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.while.end_crit_edge ], [ %0, %entry ]
   %sub = sub i32 %4, %bytes
   store i32 %sub, ptr %pendingReadSize_, align 8
-  %sessionStats_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 1
+  %sessionStats_ = getelementptr inbounds i8, ptr %this, i64 208
   %5 = load ptr, ptr %sessionStats_, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3966,7 +3828,7 @@ if.then:                                          ; preds = %while.end
   %conv = zext i32 %bytes to i64
   %mul = sub nsw i64 0, %conv
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %6 = load ptr, ptr %vfn, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %mul) #21
   br label %if.end
@@ -4020,7 +3882,7 @@ invoke.cont32:                                    ; preds = %invoke.cont29
           to label %invoke.cont34 unwind label %lpad18
 
 invoke.cont34:                                    ; preds = %invoke.cont32
-  %readBufLimit_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 20
+  %readBufLimit_ = getelementptr inbounds i8, ptr %this, i64 1552
   %10 = load i32, ptr %readBufLimit_, align 8
   %call37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call35, i32 noundef %10)
           to label %invoke.cont36 unwind label %lpad18
@@ -4034,7 +3896,7 @@ cleanup.action:                                   ; preds = %invoke.cont36
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
-  %readBufLimit_45 = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 20
+  %readBufLimit_45 = getelementptr inbounds i8, ptr %this, i64 1552
   %11 = load i32, ptr %readBufLimit_45, align 8
   %cmp46 = icmp ugt i32 %4, %11
   %12 = load i32, ptr %pendingReadSize_, align 8
@@ -4053,7 +3915,7 @@ lpad18:                                           ; preds = %invoke.cont36, %inv
 define noundef zeroext i1 @_ZN8proxygen15HTTPSessionBase24notifyEgressBodyBufferedElb(ptr nocapture noundef nonnull align 8 dereferenceable(1582) %this, i64 noundef %bytes, i1 noundef zeroext %update) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
-  %pendingWriteSizeDelta_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 23
+  %pendingWriteSizeDelta_ = getelementptr inbounds i8, ptr %this, i64 1568
   %0 = load i64, ptr %pendingWriteSizeDelta_, align 8
   %add = add nsw i64 %0, %bytes
   store i64 %add, ptr %pendingWriteSizeDelta_, align 8
@@ -4100,20 +3962,20 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
 
 if.then:                                          ; preds = %cleanup.done
   store i64 0, ptr %pendingWriteSizeDelta_, align 8
-  %sessionStats_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 1
+  %sessionStats_.i = getelementptr inbounds i8, ptr %this, i64 208
   %5 = load ptr, ptr %sessionStats_.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %_ZN8proxygen15HTTPSessionBase18updateWriteBufSizeEl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 22
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 176
   %6 = load ptr, ptr %vfn.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %4) #21
   br label %_ZN8proxygen15HTTPSessionBase18updateWriteBufSizeEl.exit
 
 _ZN8proxygen15HTTPSessionBase18updateWriteBufSizeEl.exit: ; preds = %if.then, %if.then.i
-  %pendingWriteSize_12.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 22
+  %pendingWriteSize_12.i = getelementptr inbounds i8, ptr %this, i64 1560
   %7 = load i64, ptr %pendingWriteSize_12.i, align 8
   %add13.i = add i64 %7, %4
   store i64 %add13.i, ptr %pendingWriteSize_12.i, align 8
@@ -4135,24 +3997,24 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPSessionBase18updateWriteBufSizeEl(ptr nocapture noundef nonnull align 8 dereferenceable(1582) %this, i64 noundef %delta) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pendingWriteSizeDelta_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 23
+  %pendingWriteSizeDelta_ = getelementptr inbounds i8, ptr %this, i64 1568
   %0 = load i64, ptr %pendingWriteSizeDelta_, align 8
   %add = add nsw i64 %0, %delta
   store i64 0, ptr %pendingWriteSizeDelta_, align 8
-  %sessionStats_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 1
+  %sessionStats_ = getelementptr inbounds i8, ptr %this, i64 208
   %1 = load ptr, ptr %sessionStats_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 22
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %add) #21
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %pendingWriteSize_12 = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 22
+  %pendingWriteSize_12 = getelementptr inbounds i8, ptr %this, i64 1560
   %3 = load i64, ptr %pendingWriteSize_12, align 8
   %add13 = add i64 %3, %add
   store i64 %add13, ptr %pendingWriteSize_12, align 8
@@ -4164,27 +4026,27 @@ declare void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPSessionBase19updatePendingWritesEv(ptr nocapture noundef nonnull align 8 dereferenceable(1582) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %pendingWriteSizeDelta_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 23
+  %pendingWriteSizeDelta_ = getelementptr inbounds i8, ptr %this, i64 1568
   %0 = load i64, ptr %pendingWriteSizeDelta_, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   store i64 0, ptr %pendingWriteSizeDelta_, align 8
-  %sessionStats_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 1
+  %sessionStats_.i = getelementptr inbounds i8, ptr %this, i64 208
   %1 = load ptr, ptr %sessionStats_.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZN8proxygen15HTTPSessionBase18updateWriteBufSizeEl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 22
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 176
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %0) #21
   br label %_ZN8proxygen15HTTPSessionBase18updateWriteBufSizeEl.exit
 
 _ZN8proxygen15HTTPSessionBase18updateWriteBufSizeEl.exit: ; preds = %if.then, %if.then.i
-  %pendingWriteSize_12.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 22
+  %pendingWriteSize_12.i = getelementptr inbounds i8, ptr %this, i64 1560
   %3 = load i64, ptr %pendingWriteSize_12.i, align 8
   %add13.i = add i64 %3, %0
   store i64 %add13.i, ptr %pendingWriteSize_12.i, align 8
@@ -4235,24 +4097,24 @@ lpad:                                             ; preds = %invoke.cont7, %invo
   resume { ptr, i32 } %2
 
 while.end:                                        ; preds = %cond.true, %cond.end, %cleanup.action
-  %call_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 4
+  %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %3 = load ptr, ptr %call_.i.i.i, align 8
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %4 = load ptr, ptr %vfn.i, align 8
   %call2.i = call noundef zeroext i8 %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %cmp.i = icmp eq i8 %call2.i, 1
   br i1 %cmp.i, label %if.then, label %_ZN8proxygen15HTTPSessionBase20getParseErrorHandlerEPNS_15HTTPTransactionERKNS_13HTTPExceptionE.exit
 
 _ZN8proxygen15HTTPSessionBase20getParseErrorHandlerEPNS_15HTTPTransactionERKNS_13HTTPExceptionE.exit: ; preds = %while.end
-  %controller_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 13
+  %controller_.i = getelementptr inbounds i8, ptr %this, i64 1512
   %5 = load ptr, ptr %controller_.i, align 8
   %vtable3.i = load ptr, ptr %this, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 41
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 328
   %6 = load ptr, ptr %vfn4.i, align 8
   %call5.i = call noundef nonnull align 8 dereferenceable(27) ptr %6(ptr noundef nonnull align 8 dereferenceable(1582) %this) #21
   %vtable6.i = load ptr, ptr %5, align 8
-  %vfn7.i = getelementptr inbounds ptr, ptr %vtable6.i, i64 3
+  %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 24
   %7 = load ptr, ptr %vfn7.i, align 8
   %call8.i = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %txn, ptr noundef nonnull align 8 dereferenceable(96) %error, ptr noundef nonnull align 8 dereferenceable(27) %call5.i)
   %tobool36.not = icmp eq ptr %call8.i, null
@@ -4260,26 +4122,26 @@ _ZN8proxygen15HTTPSessionBase20getParseErrorHandlerEPNS_15HTTPTransactionERKNS_1
 
 if.then:                                          ; preds = %while.end, %_ZN8proxygen15HTTPSessionBase20getParseErrorHandlerEPNS_15HTTPTransactionERKNS_13HTTPExceptionE.exit
   %vtable = load ptr, ptr %txn, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %8 = load ptr, ptr %vfn, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(912) %txn)
   br label %return
 
 if.end:                                           ; preds = %_ZN8proxygen15HTTPSessionBase20getParseErrorHandlerEPNS_15HTTPTransactionERKNS_13HTTPExceptionE.exit
   %vtable37 = load ptr, ptr %txn, align 8
-  %vfn38 = getelementptr inbounds ptr, ptr %vtable37, i64 4
+  %vfn38 = getelementptr inbounds i8, ptr %vtable37, i64 32
   %9 = load ptr, ptr %vfn38, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(912) %txn, ptr noundef nonnull %call8.i)
-  %infoCallback_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 2
+  %infoCallback_ = getelementptr inbounds i8, ptr %this, i64 216
   %10 = load ptr, ptr %infoCallback_, align 8
   %tobool39.not = icmp eq ptr %10, null
   br i1 %tobool39.not, label %if.end45, label %if.then40
 
 if.then40:                                        ; preds = %if.end
-  %proxygenError_.i = getelementptr inbounds %"class.proxygen::Exception", ptr %error, i64 0, i32 3
+  %proxygenError_.i = getelementptr inbounds i8, ptr %error, i64 44
   %11 = load i32, ptr %proxygenError_.i, align 4
   %vtable43 = load ptr, ptr %10, align 8
-  %vfn44 = getelementptr inbounds ptr, ptr %vtable43, i64 6
+  %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 48
   %12 = load ptr, ptr %vfn44, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(1582) %this, i32 noundef %11)
   br label %if.end45
@@ -4295,24 +4157,24 @@ return:                                           ; preds = %if.end45, %if.then
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN8proxygen15HTTPSessionBase20getParseErrorHandlerEPNS_15HTTPTransactionERKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(1582) %this, ptr noundef %txn, ptr noundef nonnull align 8 dereferenceable(96) %error) local_unnamed_addr #3 align 2 {
 entry:
-  %call_.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 4
+  %call_.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %0 = load ptr, ptr %call_.i.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i8 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %cmp = icmp eq i8 %call2, 1
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %controller_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 13
+  %controller_ = getelementptr inbounds i8, ptr %this, i64 1512
   %2 = load ptr, ptr %controller_, align 8
   %vtable3 = load ptr, ptr %this, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 41
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 328
   %3 = load ptr, ptr %vfn4, align 8
   %call5 = tail call noundef nonnull align 8 dereferenceable(27) ptr %3(ptr noundef nonnull align 8 dereferenceable(1582) %this) #21
   %vtable6 = load ptr, ptr %2, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 3
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 24
   %4 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %txn, ptr noundef nonnull align 8 dereferenceable(96) %error, ptr noundef nonnull align 8 dereferenceable(27) %call5)
   br label %return
@@ -4327,10 +4189,10 @@ declare void @_ZN8proxygen15HTTPTransaction7onErrorERKNS_13HTTPExceptionE(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen15HTTPSessionBase23enableExHeadersSettingsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1582) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %call_.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 4
+  %call_.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %0 = load ptr, ptr %call_.i.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 45
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 360
   %1 = load ptr, ptr %vfn, align 8
   %call3 = invoke noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %invoke.cont2 unwind label %terminate.lpad
@@ -4344,7 +4206,7 @@ if.then:                                          ; preds = %invoke.cont2
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %if.then
-  %exHeadersEnabled_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 25
+  %exHeadersEnabled_ = getelementptr inbounds i8, ptr %this, i64 1580
   %bf.load = load i8, ptr %exHeadersEnabled_, align 4
   %bf.set = or i8 %bf.load, 2
   store i8 %bf.set, ptr %exHeadersEnabled_, align 4
@@ -4377,14 +4239,14 @@ declare void @_ZN8proxygen12HTTPSettings10setSettingENS_10SettingsIdEm(ptr nound
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPSessionBase25attachToSessionControllerEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %controller_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 13
+  %controller_.i = getelementptr inbounds i8, ptr %this, i64 1512
   %0 = load ptr, ptr %controller_.i, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %this)
   br label %if.end
@@ -4396,14 +4258,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPSessionBase37informSessionControllerTransportReadyEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %controller_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 13
+  %controller_.i = getelementptr inbounds i8, ptr %this, i64 1512
   %0 = load ptr, ptr %controller_.i, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %this)
   br label %if.end
@@ -4416,7 +4278,7 @@ if.end:                                           ; preds = %if.then, %entry
 define void @_ZN8proxygen15HTTPSessionBase20handleLastByteEventsEPNS_16ByteEventTrackerEPNS_15HTTPTransactionEmmb(ptr noundef %byteEventTracker, ptr noundef %txn, i64 noundef %encodedSize, i64 noundef %byteOffset, i1 noundef zeroext %piggybacked) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
-  %firstByteSent_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %txn, i64 0, i32 40
+  %firstByteSent_.i = getelementptr inbounds i8, ptr %txn, i64 728
   %bf.load.i = load i32, ptr %firstByteSent_.i, align 8
   %0 = and i32 %bf.load.i, 256
   %bf.cast.i.not = icmp eq i32 %0, 0
@@ -4444,10 +4306,10 @@ if.end2:                                          ; preds = %if.then1, %if.end
 if.then4:                                         ; preds = %if.end2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %vtable = load ptr, ptr %byteEventTracker, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(48) %byteEventTracker, ptr noundef nonnull %txn, i64 noundef %byteOffset, ptr noundef nonnull %agg.tmp) #21
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %2 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %if.end5, label %if.then.i.i
@@ -4479,14 +4341,14 @@ declare void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl10
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(27) ptr @_ZNK8proxygen15HTTPSessionBase14getPeerAddressEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %peerAddr_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 7
+  %peerAddr_ = getelementptr inbounds i8, ptr %this, i64 1392
   ret ptr %peerAddr_
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr i64 @_ZNK8proxygen15HTTPSessionBase11getIdleTimeEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %latestActive_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 14
+  %latestActive_ = getelementptr inbounds i8, ptr %this, i64 1520
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr @_ZZN8proxygen20timePointInitializedINSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEEEEbRKT_E5epoch, align 8
   %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %latestActive_, align 8
   %cmp.i.i.i.i = icmp slt i64 %retval.sroa.0.0.copyload.i.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
@@ -4514,7 +4376,7 @@ declare void @_ZNK6wangle17ManagedConnection26getLastActivityElapsedTimeEv(ptr s
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen15HTTPSessionBase29setHTTPSessionActivityTrackerESt10unique_ptrINS_26HTTPSessionActivityTrackerESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(1582) %this, ptr noundef %httpSessionActivityTracker) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %httpSessionActivityTracker_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 11
+  %httpSessionActivityTracker_ = getelementptr inbounds i8, ptr %this, i64 1472
   %0 = load ptr, ptr %httpSessionActivityTracker, align 8
   store ptr null, ptr %httpSessionActivityTracker, align 8
   %1 = load ptr, ptr %httpSessionActivityTracker_, align 8
@@ -4524,7 +4386,7 @@ entry:
 
 _ZNKSt14default_deleteIN8proxygen26HTTPSessionActivityTrackerEEclEPS1_.exit.i.i.i.i: ; preds = %entry
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(48) %1) #21
   br label %_ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_EEaSEOS4_.exit
@@ -4537,12 +4399,12 @@ _ZNSt10unique_ptrIN8proxygen26HTTPSessionActivityTrackerESt14default_deleteIS1_E
 define linkonce_odr noundef zeroext i1 @_ZNK8proxygen15HTTPSessionBase24supportsMoreTransactionsEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 26
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(1582) %this)
-  %maxConcurrentOutgoingStreamsConfig_.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 19
+  %maxConcurrentOutgoingStreamsConfig_.i = getelementptr inbounds i8, ptr %this, i64 1548
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 28
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 224
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(1582) %this)
   %2 = load i32, ptr %maxConcurrentOutgoingStreamsConfig_.i, align 4
@@ -4554,10 +4416,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i8 @_ZNK8proxygen15HTTPSessionBase16getCodecProtocolEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %call_.i.i = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 4
+  %call_.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %0 = load ptr, ptr %call_.i.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i8 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i8 %call2
@@ -4566,7 +4428,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8proxygen15HTTPSessionBase25getHTTP2PrioritiesEnabledEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %h2PrioritiesEnabled_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 25
+  %h2PrioritiesEnabled_ = getelementptr inbounds i8, ptr %this, i64 1580
   %bf.load = load i8, ptr %h2PrioritiesEnabled_, align 4
   %0 = and i8 %bf.load, 1
   %bf.cast = icmp ne i8 %0, 0
@@ -4582,7 +4444,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(27) ptr @_ZNK8proxygen15HTTPSessionBase15getLocalAddressEv(ptr noundef nonnull align 8 dereferenceable(1582) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %localAddr_ = getelementptr inbounds %"class.proxygen::HTTPSessionBase", ptr %this, i64 0, i32 6
+  %localAddr_ = getelementptr inbounds i8, ptr %this, i64 1360
   ret ptr %localAddr_
 }
 
@@ -4598,17 +4460,17 @@ entry:
   br i1 %delayed, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %destroyPending_ = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %destroyPending_, align 4
   %1 = and i8 %0, 1
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %delete.end, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %destroyPending_3 = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_3 = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %destroyPending_3, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(13) %this) #21
   br label %delete.end
@@ -4620,19 +4482,19 @@ delete.end:                                       ; preds = %land.lhs.true, %if.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction7destroyEv(ptr noundef nonnull align 8 dereferenceable(13) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %guardCount_.i = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %this, i64 0, i32 1
+  %guardCount_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %guardCount_.i, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %destroyPending_ = getelementptr inbounds %"class.folly::DelayedDestruction", ptr %this, i64 0, i32 1
+  %destroyPending_ = getelementptr inbounds i8, ptr %this, i64 12
   store i8 1, ptr %destroyPending_, align 4
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext false)
   br label %if.end
@@ -4646,13 +4508,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.8", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -4660,10 +4522,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %if.end8.sink.split.i.i.i
@@ -4689,10 +4551,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -4714,7 +4576,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZNSt12__shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -4726,13 +4588,13 @@ _ZNSt12__shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELN9__gnu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN6wangle12ProtocolInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.17", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN6wangle12ProtocolInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -4740,10 +4602,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %if.end8.sink.split.i.i.i
@@ -4769,10 +4631,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -4794,7 +4656,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZNSt12__shared_ptrIN6wangle12ProtocolInfoELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -4809,13 +4671,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN5folly13SocketAddressEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN5folly13SocketAddressELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -4823,10 +4685,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %if.end8.sink.split.i.i.i
@@ -4852,10 +4714,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -4877,7 +4739,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZNSt12__shared_ptrIN5folly13SocketAddressELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -4889,13 +4751,13 @@ _ZNSt12__shared_ptrIN5folly13SocketAddressELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.11", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -4903,10 +4765,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %if.end8.sink.split.i.i.i
@@ -4932,10 +4794,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -4957,7 +4819,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZNSt12__shared_ptrISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -4982,13 +4844,13 @@ entry:
   br i1 %cmp.i.i.i.i.i, label %_ZN5folly11F14ValueMapImPN8proxygen18HTTP2PriorityQueue4NodeENS_23HeterogeneousAccessHashImvEENS_26HeterogeneousAccessEqualToImvEESaISt4pairIKmS4_EEED2Ev.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %entry
-  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
+  %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ult i64 %1, 256
   br i1 %cmp.i.i.i.i.i.i, label %invoke.cont45.i.i.i.i.i, label %if.end23.i.i.i.i.i
 
 if.end23.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %packedBegin_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1, i32 1
+  %packedBegin_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %packedBegin_.i.i.i.i.i.i, align 8
   br label %invoke.cont45.i.i.i.i.i
 
@@ -5030,7 +4892,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i: ; preds = %invoke.cont.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %cond.i.i.i, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %cond.i.i.i) #21
   br label %_ZN8proxygen11FilterChainINS_9HTTPCodecENS1_8CallbackENS_26PassThroughHTTPCodecFilterEXadL_ZNS1_11setCallbackEPS2_EELb1EED2Ev.exit
@@ -5052,12 +4914,12 @@ entry:
   store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
-  %callbackSource_.i = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 9
+  %callbackSource_.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %callbackSource_.i, align 8
-  %next_.i = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 6
+  %next_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %next_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %call_.i = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 4
+  %call_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %call_.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr %1, ptr %0
   invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
@@ -5069,7 +4931,7 @@ invoke.cont.i:                                    ; preds = %entry
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i: ; preds = %invoke.cont.i
   %vtable.i.i = load ptr, ptr %cond.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %cond.i) #21
   br label %_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EED2Ev.exit
@@ -5088,15 +4950,15 @@ _ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %prev_ = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 7
+  %prev_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %prev_, align 8
   %tobool.not = icmp eq ptr %0, null
-  %next_4.phi.trans.insert = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 6
+  %next_4.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 40
   %.pre = load ptr, ptr %next_4.phi.trans.insert, align 8
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %next_3 = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %0, i64 0, i32 6
+  %next_3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %.pre, ptr %next_3, align 8
   br label %if.end
 
@@ -5106,27 +4968,27 @@ if.end:                                           ; preds = %entry, %if.then
 
 if.then6:                                         ; preds = %if.end
   %1 = load ptr, ptr %prev_, align 8
-  %prev_9 = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %.pre, i64 0, i32 7
+  %prev_9 = getelementptr inbounds i8, ptr %.pre, i64 48
   store ptr %1, ptr %prev_9, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then6, %if.end
-  %kWantsCalls_ = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 2
+  %kWantsCalls_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i8, ptr %kWantsCalls_, align 8
   %3 = and i8 %2, 1
   %tobool11.not = icmp eq i8 %3, 0
   br i1 %tobool11.not, label %if.end26, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end10
-  %callSource_ = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 8
+  %callSource_ = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load ptr, ptr %callSource_, align 8
   %tobool12.not = icmp eq ptr %4, null
   br i1 %tobool12.not, label %if.end26, label %if.then13
 
 if.then13:                                        ; preds = %land.lhs.true
-  %call_ = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 4
+  %call_ = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load ptr, ptr %call_, align 8
-  %call_15 = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %4, i64 0, i32 4
+  %call_15 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %5, ptr %call_15, align 8
   %tobool17.not = icmp eq ptr %5, null
   br i1 %tobool17.not, label %if.end26, label %dynamic_cast.notnull
@@ -5138,19 +5000,19 @@ dynamic_cast.notnull:                             ; preds = %if.then13
 
 if.then21:                                        ; preds = %dynamic_cast.notnull
   %7 = load ptr, ptr %callSource_, align 8
-  %callSource_23 = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %6, i64 0, i32 8
+  %callSource_23 = getelementptr inbounds i8, ptr %6, i64 56
   store ptr %7, ptr %callSource_23, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then13, %if.then21, %dynamic_cast.notnull, %land.lhs.true, %if.end10
-  %kWantsCallbacks_ = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 3
+  %kWantsCallbacks_ = getelementptr inbounds i8, ptr %this, i64 17
   %8 = load i8, ptr %kWantsCallbacks_, align 1
   %9 = and i8 %8, 1
   %tobool27.not = icmp eq i8 %9, 0
   br i1 %tobool27.not, label %if.end45, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %if.end26
-  %callbackSource_ = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 9
+  %callbackSource_ = getelementptr inbounds i8, ptr %this, i64 64
   %10 = load ptr, ptr %callbackSource_, align 8
   %tobool29.not = icmp eq ptr %10, null
   br i1 %tobool29.not, label %if.end45, label %if.then30
@@ -5159,7 +5021,7 @@ if.then30:                                        ; preds = %land.lhs.true28
   %vtable = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %vtable, i64 72, !nosanitize !4
   %memptr.virtualfn = load ptr, ptr %11, align 8, !nosanitize !4
-  %callback_ = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 5
+  %callback_ = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %callback_, align 8
   tail call void %memptr.virtualfn(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %12)
   %13 = load ptr, ptr %callback_, align 8
@@ -5173,12 +5035,12 @@ dynamic_cast.notnull36:                           ; preds = %if.then30
 
 if.then40:                                        ; preds = %dynamic_cast.notnull36
   %15 = load ptr, ptr %callbackSource_, align 8
-  %callbackSource_42 = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %14, i64 0, i32 9
+  %callbackSource_42 = getelementptr inbounds i8, ptr %14, i64 64
   store ptr %15, ptr %callbackSource_42, align 8
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then30, %if.then40, %dynamic_cast.notnull36, %land.lhs.true28, %if.end26
-  %call_47 = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 4
+  %call_47 = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %call_47, i8 0, i64 48, i1 false)
   ret void
 }
@@ -5189,12 +5051,12 @@ entry:
   store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %callbackSource_ = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 9
+  %callbackSource_ = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %callbackSource_, align 8
-  %next_ = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 6
+  %next_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %next_, align 8
   %tobool.not = icmp eq ptr %0, null
-  %call_ = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 4
+  %call_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %call_, align 8
   %cond = select i1 %tobool.not, ptr %1, ptr %0
   invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
@@ -5206,7 +5068,7 @@ invoke.cont:                                      ; preds = %entry
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit: ; preds = %invoke.cont
   %vtable.i = load ptr, ptr %cond, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %cond) #21
   br label %if.end
@@ -5325,14 +5187,14 @@ define linkonce_odr noundef i64 @_ZN8proxygen9HTTPCodec23generateImmediateGoaway
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.48", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 49
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %1 = load i64, ptr %debugData, align 8
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %debugData, align 8
   %vtable2 = load ptr, ptr %this, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 33
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 264
   %2 = load ptr, ptr %vfn3, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %call, i8 noundef zeroext %code, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -5626,7 +5488,7 @@ invoke.cont.i:                                    ; preds = %entry
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i: ; preds = %invoke.cont.i
   %vtable.i.i = load ptr, ptr %cond.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %cond.i) #21
   br label %_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EED2Ev.exit
@@ -5724,12 +5586,12 @@ entry:
   store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i.i.i, align 8
-  %callbackSource_.i.i.i = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 9
+  %callbackSource_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %callbackSource_.i.i.i, align 8
-  %next_.i.i.i = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 6
+  %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %next_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
-  %call_.i.i.i = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 4
+  %call_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %call_.i.i.i, align 8
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %1, ptr %0
   invoke void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE4dropEv(ptr noundef nonnull align 8 dereferenceable(72) %this)
@@ -5741,7 +5603,7 @@ invoke.cont.i.i.i:                                ; preds = %entry
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i: ; preds = %invoke.cont.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %cond.i.i.i, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %cond.i.i.i) #21
   br label %_ZN8proxygen11FilterChainINS_9HTTPCodecENS1_8CallbackENS_26PassThroughHTTPCodecFilterEXadL_ZNS1_11setCallbackEPS2_EELb1EED2Ev.exit
@@ -5775,14 +5637,14 @@ declare noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter12createStreamEv(pt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen11FilterChainINS_9HTTPCodecENS1_8CallbackENS_26PassThroughHTTPCodecFilterEXadL_ZNS1_11setCallbackEPS2_EELb1EE11setCallbackES4_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %cb) unnamed_addr #3 comdat align 2 {
 entry:
-  %callback_.i = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 5
+  %callback_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_.i, align 8
   %cmp.not.i = icmp eq ptr %0, %cb
   br i1 %cmp.not.i, label %_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EE23setCallbackInternalImplES3_S3_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   store ptr %cb, ptr %callback_.i, align 8
-  %callbackSource_.i = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this, i64 0, i32 9
+  %callbackSource_.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %callbackSource_.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
   %2 = getelementptr i8, ptr %vtable.i, i64 72, !nosanitize !4
@@ -6009,7 +5871,7 @@ invoke.cont.i.i.i.i:                              ; preds = %entry
 
 _ZNKSt14default_deleteIN8proxygen9HTTPCodecEEclEPS1_.exit.i.i.i.i: ; preds = %invoke.cont.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %cond.i.i.i.i, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %cond.i.i.i.i) #21
   br label %_ZN8proxygen11FilterChainINS_9HTTPCodecENS1_8CallbackENS_26PassThroughHTTPCodecFilterEXadL_ZNS1_11setCallbackEPS2_EELb1EED0Ev.exit

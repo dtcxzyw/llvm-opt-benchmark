@@ -8,16 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.icu_75::UXMLParser" = type { %"class.icu_75::UObject", %"class.icu_75::RegexMatcher", %"class.icu_75::RegexMatcher", %"class.icu_75::RegexMatcher", %"class.icu_75::RegexMatcher", %"class.icu_75::RegexMatcher", %"class.icu_75::RegexMatcher", %"class.icu_75::RegexMatcher", %"class.icu_75::RegexMatcher", %"class.icu_75::RegexMatcher", %"class.icu_75::RegexMatcher", %"class.icu_75::RegexMatcher", %"class.icu_75::RegexMatcher", %"class.icu_75::RegexMatcher", %"class.icu_75::Hashtable", %"class.icu_75::UStack", i32, %"class.icu_75::UnicodeString" }
-%"class.icu_75::RegexMatcher" = type { %"class.icu_75::UObject", ptr, ptr, ptr, ptr, ptr, i64, i32, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8, i8, i64, i64, i64, i64, i8, i8, ptr, ptr, ptr, [8 x i64], i32, i32, i32, i32, ptr, ptr, ptr, ptr, i8, i8, i32, ptr, ptr }
-%"class.icu_75::Hashtable" = type { ptr, %struct.UHashtable }
-%struct.UHashtable = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, float, float, i8, i8 }
-%"class.icu_75::UStack" = type { %"class.icu_75::UVector" }
-%"class.icu_75::UVector" = type { %"class.icu_75::UObject", i32, i32, ptr, ptr, ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
-%"class.icu_75::UXMLElement" = type { %"class.icu_75::UObject", ptr, ptr, %"class.icu_75::UnicodeString", %"class.icu_75::UVector", %"class.icu_75::UVector", %"class.icu_75::UVector", ptr }
-%struct.UHashElement = type { i32, %union.UElement, %union.UElement }
-%union.UElement = type { ptr }
 
 $_ZN6icu_759HashtableD2Ev = comdat any
 
@@ -106,7 +97,7 @@ entry:
   %ref.tmp54 = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp59 = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7510UXMLParserE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mXMLDecl = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 1
+  %mXMLDecl = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull @.str, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 
@@ -116,7 +107,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #11
-  %mXMLComment = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 2
+  %mXMLComment = getelementptr inbounds i8, ptr %this, i64 344
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp4, ptr noundef nonnull @.str.1, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont6 unwind label %lpad5
 
@@ -126,7 +117,7 @@ invoke.cont6:                                     ; preds = %invoke.cont3
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp4) #11
-  %mXMLSP = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 3
+  %mXMLSP = getelementptr inbounds i8, ptr %this, i64 680
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp9, ptr noundef nonnull @.str.2, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont11 unwind label %lpad10
 
@@ -136,7 +127,7 @@ invoke.cont11:                                    ; preds = %invoke.cont8
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp9) #11
-  %mXMLDoctype = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 4
+  %mXMLDoctype = getelementptr inbounds i8, ptr %this, i64 1016
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp14, ptr noundef nonnull @.str.3, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont16 unwind label %lpad15
 
@@ -146,7 +137,7 @@ invoke.cont16:                                    ; preds = %invoke.cont13
 
 invoke.cont18:                                    ; preds = %invoke.cont16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp14) #11
-  %mXMLPI = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 5
+  %mXMLPI = getelementptr inbounds i8, ptr %this, i64 1352
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp19, ptr noundef nonnull @.str.4, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont21 unwind label %lpad20
 
@@ -156,7 +147,7 @@ invoke.cont21:                                    ; preds = %invoke.cont18
 
 invoke.cont23:                                    ; preds = %invoke.cont21
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp19) #11
-  %mXMLElemStart = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 6
+  %mXMLElemStart = getelementptr inbounds i8, ptr %this, i64 1688
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp24, ptr noundef nonnull @.str.5, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont26 unwind label %lpad25
 
@@ -166,7 +157,7 @@ invoke.cont26:                                    ; preds = %invoke.cont23
 
 invoke.cont28:                                    ; preds = %invoke.cont26
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp24) #11
-  %mXMLElemEnd = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 7
+  %mXMLElemEnd = getelementptr inbounds i8, ptr %this, i64 2024
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp29, ptr noundef nonnull @.str.6, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont31 unwind label %lpad30
 
@@ -176,7 +167,7 @@ invoke.cont31:                                    ; preds = %invoke.cont28
 
 invoke.cont33:                                    ; preds = %invoke.cont31
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp29) #11
-  %mXMLElemEmpty = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 8
+  %mXMLElemEmpty = getelementptr inbounds i8, ptr %this, i64 2360
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp34, ptr noundef nonnull @.str.7, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont36 unwind label %lpad35
 
@@ -186,7 +177,7 @@ invoke.cont36:                                    ; preds = %invoke.cont33
 
 invoke.cont38:                                    ; preds = %invoke.cont36
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp34) #11
-  %mXMLCharData = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 9
+  %mXMLCharData = getelementptr inbounds i8, ptr %this, i64 2696
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp39, ptr noundef nonnull @.str.8, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont41 unwind label %lpad40
 
@@ -196,7 +187,7 @@ invoke.cont41:                                    ; preds = %invoke.cont38
 
 invoke.cont43:                                    ; preds = %invoke.cont41
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp39) #11
-  %mAttrValue = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 10
+  %mAttrValue = getelementptr inbounds i8, ptr %this, i64 3032
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp44, ptr noundef nonnull @.str.9, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont46 unwind label %lpad45
 
@@ -206,7 +197,7 @@ invoke.cont46:                                    ; preds = %invoke.cont43
 
 invoke.cont48:                                    ; preds = %invoke.cont46
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp44) #11
-  %mAttrNormalizer = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 11
+  %mAttrNormalizer = getelementptr inbounds i8, ptr %this, i64 3368
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp49, ptr noundef nonnull @.str.10, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont51 unwind label %lpad50
 
@@ -216,7 +207,7 @@ invoke.cont51:                                    ; preds = %invoke.cont48
 
 invoke.cont53:                                    ; preds = %invoke.cont51
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp49) #11
-  %mNewLineNormalizer = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 12
+  %mNewLineNormalizer = getelementptr inbounds i8, ptr %this, i64 3704
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp54, ptr noundef nonnull @.str.11, i32 noundef -1, i32 noundef 0)
           to label %invoke.cont56 unwind label %lpad55
 
@@ -226,7 +217,7 @@ invoke.cont56:                                    ; preds = %invoke.cont53
 
 invoke.cont58:                                    ; preds = %invoke.cont56
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp54) #11
-  %mAmps = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 13
+  %mAmps = getelementptr inbounds i8, ptr %this, i64 4040
   invoke void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp59, ptr noundef nonnull @.str.12)
           to label %invoke.cont61 unwind label %lpad60
 
@@ -236,14 +227,14 @@ invoke.cont61:                                    ; preds = %invoke.cont58
 
 invoke.cont63:                                    ; preds = %invoke.cont61
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp59) #11
-  %fNames = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 14
+  %fNames = getelementptr inbounds i8, ptr %this, i64 4376
   store ptr null, ptr %fNames, align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
   br i1 %cmp.i.i.i, label %if.end.i.i, label %invoke.cont65
 
 if.end.i.i:                                       ; preds = %invoke.cont63
-  %hashObj.i.i = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 14, i32 1
+  %hashObj.i.i = getelementptr inbounds i8, ptr %this, i64 4384
   %call2.i.i30 = invoke ptr @uhash_init_75(ptr noundef nonnull %hashObj.i.i, ptr noundef nonnull @uhash_hashUnicodeString_75, ptr noundef nonnull @uhash_compareUnicodeString_75, ptr noundef null, ptr noundef nonnull %status)
           to label %call2.i.i.noexc unwind label %lpad64
 
@@ -258,12 +249,12 @@ if.then5.i.i:                                     ; preds = %call2.i.i.noexc
           to label %invoke.cont65 unwind label %lpad64
 
 invoke.cont65:                                    ; preds = %call2.i.i.noexc, %invoke.cont63, %if.then5.i.i
-  %fElementStack = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 15
+  %fElementStack = getelementptr inbounds i8, ptr %this, i64 4464
   invoke void @_ZN6icu_756UStackC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fElementStack, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %invoke.cont65
-  %fOneLF = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 17
+  %fOneLF = getelementptr inbounds i8, ptr %this, i64 4512
   invoke void @_ZN6icu_7513UnicodeStringC1EDs(ptr noundef nonnull align 8 dereferenceable(64) %fOneLF, i16 noundef zeroext 10)
           to label %invoke.cont69 unwind label %lpad68
 
@@ -588,11 +579,11 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 define void @_ZN6icu_7510UXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(4576) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7510UXMLParserE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fOneLF = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 17
+  %fOneLF = getelementptr inbounds i8, ptr %this, i64 4512
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fOneLF) #11
-  %fElementStack = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 15
+  %fElementStack = getelementptr inbounds i8, ptr %this, i64 4464
   tail call void @_ZN6icu_756UStackD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %fElementStack) #11
-  %fNames = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 14
+  %fNames = getelementptr inbounds i8, ptr %this, i64 4376
   %0 = load ptr, ptr %fNames, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN6icu_759HashtableD2Ev.exit, label %if.then.i
@@ -609,31 +600,31 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN6icu_759HashtableD2Ev.exit:                    ; preds = %entry, %if.then.i
-  %mAmps = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 13
+  %mAmps = getelementptr inbounds i8, ptr %this, i64 4040
   tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %mAmps) #11
-  %mNewLineNormalizer = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 12
+  %mNewLineNormalizer = getelementptr inbounds i8, ptr %this, i64 3704
   tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %mNewLineNormalizer) #11
-  %mAttrNormalizer = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 11
+  %mAttrNormalizer = getelementptr inbounds i8, ptr %this, i64 3368
   tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %mAttrNormalizer) #11
-  %mAttrValue = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 10
+  %mAttrValue = getelementptr inbounds i8, ptr %this, i64 3032
   tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %mAttrValue) #11
-  %mXMLCharData = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 9
+  %mXMLCharData = getelementptr inbounds i8, ptr %this, i64 2696
   tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %mXMLCharData) #11
-  %mXMLElemEmpty = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 8
+  %mXMLElemEmpty = getelementptr inbounds i8, ptr %this, i64 2360
   tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %mXMLElemEmpty) #11
-  %mXMLElemEnd = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 7
+  %mXMLElemEnd = getelementptr inbounds i8, ptr %this, i64 2024
   tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %mXMLElemEnd) #11
-  %mXMLElemStart = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 6
+  %mXMLElemStart = getelementptr inbounds i8, ptr %this, i64 1688
   tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %mXMLElemStart) #11
-  %mXMLPI = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 5
+  %mXMLPI = getelementptr inbounds i8, ptr %this, i64 1352
   tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %mXMLPI) #11
-  %mXMLDoctype = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 4
+  %mXMLDoctype = getelementptr inbounds i8, ptr %this, i64 1016
   tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %mXMLDoctype) #11
-  %mXMLSP = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 3
+  %mXMLSP = getelementptr inbounds i8, ptr %this, i64 680
   tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %mXMLSP) #11
-  %mXMLComment = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 2
+  %mXMLComment = getelementptr inbounds i8, ptr %this, i64 344
   tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %mXMLComment) #11
-  %mXMLDecl = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 1
+  %mXMLDecl = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6icu_7512RegexMatcherD1Ev(ptr noundef nonnull align 8 dereferenceable(336) %mXMLDecl) #11
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
   ret void
@@ -660,7 +651,7 @@ entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %src, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %src, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -755,7 +746,7 @@ if.end37:                                         ; preds = %invoke.cont31
   %5 = load i16, ptr %fUnion2.i, align 8
   %6 = and i16 %5, 2
   %tobool.not.i = icmp eq i16 %6, 0
-  %fCapacity.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src, i64 0, i32 1, i32 0, i32 2
+  %fCapacity.i = getelementptr inbounds i8, ptr %src, i64 16
   %7 = load i32, ptr %fCapacity.i, align 8
   %8 = sext i32 %7 to i64
   %idx.ext = select i1 %tobool.not.i, i64 %8, i64 27
@@ -797,7 +788,7 @@ if.then53:                                        ; preds = %invoke.cont49
   br label %exit
 
 if.end56:                                         ; preds = %invoke.cont49
-  %mXMLDecl = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 1
+  %mXMLDecl = getelementptr inbounds i8, ptr %this, i64 8
   %call58 = invoke noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mXMLDecl, ptr noundef nonnull align 8 dereferenceable(64) %src)
           to label %invoke.cont57 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -818,25 +809,25 @@ invoke.cont64:                                    ; preds = %if.then62
   %cmp.i.i.i = icmp slt i16 %14, 0
   %15 = ashr i16 %14, 5
   %shr.i.i.i = sext i16 %15 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %src, i64 12
   %16 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %16, i32 %shr.i.i.i
   %call2.i68 = invoke noundef i32 @_ZNK6icu_7513UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64) %src, i16 noundef zeroext 108, i32 noundef 0, i32 noundef %cond.i.i)
           to label %invoke.cont66 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont66:                                    ; preds = %invoke.cont64
-  %mAttrValue = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 10
+  %mAttrValue = getelementptr inbounds i8, ptr %this, i64 3032
   %call69 = invoke noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mAttrValue, ptr noundef nonnull align 8 dereferenceable(64) %src)
           to label %while.cond.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 while.cond.preheader:                             ; preds = %invoke.cont66
   %add = add nsw i32 %call2.i68, 1
-  %fUnion.i.i70 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %attValue, i64 0, i32 1
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %attValue, i64 0, i32 1, i32 0, i32 1
-  %fUnion.i.i79 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %attName, i64 0, i32 1
-  %fUnion.i5.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1
-  %fLength.i.i86 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %attName, i64 0, i32 1, i32 0, i32 1
-  %fLength.i10.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i70 = getelementptr inbounds i8, ptr %attValue, i64 8
+  %fLength.i = getelementptr inbounds i8, ptr %attValue, i64 12
+  %fUnion.i.i79 = getelementptr inbounds i8, ptr %attName, i64 8
+  %fUnion.i5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %fLength.i.i86 = getelementptr inbounds i8, ptr %attName, i64 12
+  %fLength.i10.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %cleanup
@@ -1036,8 +1027,8 @@ invoke.cont118:                                   ; preds = %if.end117
           to label %for.cond.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %invoke.cont118
-  %fLength.i96 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src, i64 0, i32 1, i32 0, i32 1
-  %fCapacity.i100 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src, i64 0, i32 1, i32 0, i32 2
+  %fLength.i96 = getelementptr inbounds i8, ptr %src, i64 12
+  %fCapacity.i100 = getelementptr inbounds i8, ptr %src, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %invoke.cont170
@@ -1202,33 +1193,33 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fPos = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 16
+  %fPos = getelementptr inbounds i8, ptr %this, i64 4504
   store i32 0, ptr %fPos, align 8
-  %mXMLDecl = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 1
+  %mXMLDecl = getelementptr inbounds i8, ptr %this, i64 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mXMLDecl, ptr noundef nonnull align 8 dereferenceable(64) %src)
-  %mXMLComment = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 2
+  %mXMLComment = getelementptr inbounds i8, ptr %this, i64 344
   %call3 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mXMLComment, ptr noundef nonnull align 8 dereferenceable(64) %src)
-  %mXMLSP = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 3
+  %mXMLSP = getelementptr inbounds i8, ptr %this, i64 680
   %call4 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mXMLSP, ptr noundef nonnull align 8 dereferenceable(64) %src)
-  %mXMLDoctype = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 4
+  %mXMLDoctype = getelementptr inbounds i8, ptr %this, i64 1016
   %call5 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mXMLDoctype, ptr noundef nonnull align 8 dereferenceable(64) %src)
-  %mXMLPI = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 5
+  %mXMLPI = getelementptr inbounds i8, ptr %this, i64 1352
   %call6 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mXMLPI, ptr noundef nonnull align 8 dereferenceable(64) %src)
-  %mXMLElemStart = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 6
+  %mXMLElemStart = getelementptr inbounds i8, ptr %this, i64 1688
   %call7 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mXMLElemStart, ptr noundef nonnull align 8 dereferenceable(64) %src)
-  %mXMLElemEnd = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 7
+  %mXMLElemEnd = getelementptr inbounds i8, ptr %this, i64 2024
   %call8 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mXMLElemEnd, ptr noundef nonnull align 8 dereferenceable(64) %src)
-  %mXMLElemEmpty = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 8
+  %mXMLElemEmpty = getelementptr inbounds i8, ptr %this, i64 2360
   %call9 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mXMLElemEmpty, ptr noundef nonnull align 8 dereferenceable(64) %src)
-  %mXMLCharData = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 9
+  %mXMLCharData = getelementptr inbounds i8, ptr %this, i64 2696
   %call10 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mXMLCharData, ptr noundef nonnull align 8 dereferenceable(64) %src)
-  %mAttrValue = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 10
+  %mAttrValue = getelementptr inbounds i8, ptr %this, i64 3032
   %call11 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mAttrValue, ptr noundef nonnull align 8 dereferenceable(64) %src)
-  %mAttrNormalizer = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 11
+  %mAttrNormalizer = getelementptr inbounds i8, ptr %this, i64 3368
   %call12 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mAttrNormalizer, ptr noundef nonnull align 8 dereferenceable(64) %src)
-  %mNewLineNormalizer = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 12
+  %mNewLineNormalizer = getelementptr inbounds i8, ptr %this, i64 3704
   %call13 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mNewLineNormalizer, ptr noundef nonnull align 8 dereferenceable(64) %src)
-  %mAmps = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 13
+  %mAmps = getelementptr inbounds i8, ptr %this, i64 4040
   %call14 = tail call noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mAmps, ptr noundef nonnull align 8 dereferenceable(64) %src)
   %1 = load i32, ptr %fPos, align 8
   %conv = sext i32 %1 to i64
@@ -1282,8 +1273,8 @@ if.then50:                                        ; preds = %if.else
   br i1 %cmp5.i, label %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph.i, label %while.end.i
 
 _ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph.i: ; preds = %if.then50
-  %fUnion.i.i.phi.trans.insert.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call.i, i64 0, i32 1
-  %fLength.i.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call.i, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %fLength.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   br label %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.i
 
 _ZNK6icu_7513UnicodeString7indexOfEDsi.exit.i:    ; preds = %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.i, %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph.i
@@ -1320,19 +1311,19 @@ if.then.i:                                        ; preds = %while.end.i
 
 if.end51:                                         ; preds = %if.else
   %call53 = tail call noundef ptr @_ZN6icu_7510UXMLParser13createElementERNS_12RegexMatcherER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(4576) %this, ptr noundef nonnull align 8 dereferenceable(336) %mXMLElemStart, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fElementStack = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 15
-  %deleter.i.i = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 15, i32 0, i32 4
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %s, i64 0, i32 1, i32 0, i32 1
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %name, i64 0, i32 1
-  %fLength.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %name, i64 0, i32 1, i32 0, i32 1
-  %count.i.i = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 15, i32 0, i32 1
+  %fElementStack = getelementptr inbounds i8, ptr %this, i64 4464
+  %deleter.i.i = getelementptr inbounds i8, ptr %this, i64 4488
+  %fUnion.i.i = getelementptr inbounds i8, ptr %s, i64 8
+  %fLength.i = getelementptr inbounds i8, ptr %s, i64 12
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %name, i64 8
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %name, i64 12
+  %count.i.i = getelementptr inbounds i8, ptr %this, i64 4472
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %for.cond.outer.backedge, %if.end51
   %el.0.ph = phi ptr [ %call53, %if.end51 ], [ %el.0.ph.be, %for.cond.outer.backedge ]
-  %fChildren150 = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %el.0.ph, i64 0, i32 6
-  %fChildren77 = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %el.0.ph, i64 0, i32 6
+  %fChildren150 = getelementptr inbounds i8, ptr %el.0.ph, i64 168
+  %fChildren77 = getelementptr inbounds i8, ptr %el.0.ph, i64 168
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.outer, %cleanup154.thread187
@@ -1344,9 +1335,9 @@ for.cond:                                         ; preds = %for.cond.outer, %cl
 
 if.then59:                                        ; preds = %for.cond
   %call61 = call noundef ptr @_ZN6icu_7510UXMLParser13createElementERNS_12RegexMatcherER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(4576) %this, ptr noundef nonnull align 8 dereferenceable(336) %mXMLElemStart, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fChildren = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %el.0.ph, i64 0, i32 6
+  %fChildren = getelementptr inbounds i8, ptr %el.0.ph, i64 168
   call void @_ZN6icu_757UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fChildren, ptr noundef %call61, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fParent = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %call61, i64 0, i32 7
+  %fParent = getelementptr inbounds i8, ptr %call61, i64 208
   store ptr %el.0.ph, ptr %fParent, align 8
   %13 = load ptr, ptr %deleter.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %13, null
@@ -1463,7 +1454,7 @@ invoke.cont118:                                   ; preds = %if.then116
           to label %invoke.cont122 unwind label %lpad.loopexit166.loopexit.split-lp
 
 invoke.cont122:                                   ; preds = %invoke.cont118
-  %fName = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %el.0.ph, i64 0, i32 2
+  %fName = getelementptr inbounds i8, ptr %el.0.ph, i64 16
   %22 = load ptr, ptr %fName, align 8
   %23 = load i16, ptr %fUnion.i.i.i, align 8
   %conv2.i14.i.i = and i16 %23, 1
@@ -1471,7 +1462,7 @@ invoke.cont122:                                   ; preds = %invoke.cont118
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont122
-  %fUnion.i5.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %22, i64 0, i32 1
+  %fUnion.i5.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load i16, ptr %fUnion.i5.i.i, align 8
   %conv2.i615.i.i = and i16 %24, 1
   %tobool3.i.i.not = icmp eq i16 %conv2.i615.i.i, 0
@@ -1483,12 +1474,12 @@ if.else.i.i:                                      ; preds = %invoke.cont122
   %shr.i.i.i.i = sext i16 %25 to i32
   %26 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %26, i32 %shr.i.i.i.i
-  %fUnion.i.i7.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %22, i64 0, i32 1
+  %fUnion.i.i7.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %27 = load i16, ptr %fUnion.i.i7.i.i, align 8
   %cmp.i.i8.i.i = icmp slt i16 %27, 0
   %28 = ashr i16 %27, 5
   %shr.i.i9.i.i = sext i16 %28 to i32
-  %fLength.i10.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %22, i64 0, i32 1, i32 0, i32 1
+  %fLength.i10.i.i = getelementptr inbounds i8, ptr %22, i64 12
   %29 = load i32, ptr %fLength.i10.i.i, align 4
   %cond.i11.i.i = select i1 %cmp.i.i8.i.i, i32 %29, i32 %shr.i.i9.i.i
   %conv2.i1316.i.i = and i16 %27, 1
@@ -1515,8 +1506,8 @@ call.i68.noexc:                                   ; preds = %if.then126
   br i1 %cmp5.i70, label %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph.i76, label %while.end.i71
 
 _ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph.i76: ; preds = %call.i68.noexc
-  %fUnion.i.i.phi.trans.insert.i.i77 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call.i6893, i64 0, i32 1
-  %fLength.i.i.i.i78 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call.i6893, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.phi.trans.insert.i.i77 = getelementptr inbounds i8, ptr %call.i6893, i64 8
+  %fLength.i.i.i.i78 = getelementptr inbounds i8, ptr %call.i6893, i64 12
   br label %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.i79
 
 _ZNK6icu_7513UnicodeString7indexOfEDsi.exit.i79:  ; preds = %call2.i.i89.noexc, %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph.i76
@@ -1643,8 +1634,8 @@ if.then159:                                       ; preds = %for.end
   br i1 %cmp5.i103, label %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph.i109, label %while.end.i104
 
 _ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph.i109: ; preds = %if.then159
-  %fUnion.i.i.phi.trans.insert.i.i110 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call.i101, i64 0, i32 1
-  %fLength.i.i.i.i111 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call.i101, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.phi.trans.insert.i.i110 = getelementptr inbounds i8, ptr %call.i101, i64 8
+  %fLength.i.i.i.i111 = getelementptr inbounds i8, ptr %call.i101, i64 12
   br label %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.i112
 
 _ZNK6icu_7513UnicodeString7indexOfEDsi.exit.i112: ; preds = %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.i112, %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph.i109
@@ -1683,12 +1674,12 @@ if.end161:                                        ; preds = %for.end, %if.then39
   %root.0 = phi ptr [ %call41, %if.then39 ], [ %call53, %for.end ]
   call void @_ZN6icu_7510UXMLParser9parseMiscER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(4576) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %47 = load i32, ptr %fPos, align 8
-  %fUnion.i.i127 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src, i64 0, i32 1
+  %fUnion.i.i127 = getelementptr inbounds i8, ptr %src, i64 8
   %48 = load i16, ptr %fUnion.i.i127, align 8
   %cmp.i.i128 = icmp slt i16 %48, 0
   %49 = ashr i16 %48, 5
   %shr.i.i129 = sext i16 %49 to i32
-  %fLength.i130 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %src, i64 0, i32 1, i32 0, i32 1
+  %fLength.i130 = getelementptr inbounds i8, ptr %src, i64 12
   %50 = load i32, ptr %fLength.i130, align 4
   %cond.i131 = select i1 %cmp.i.i128, i32 %50, i32 %shr.i.i129
   %cmp164.not = icmp eq i32 %47, %cond.i131
@@ -1701,8 +1692,8 @@ if.then165:                                       ; preds = %if.end161
   br i1 %cmp5.i135, label %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph.i141, label %while.end.i136
 
 _ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph.i141: ; preds = %if.then165
-  %fUnion.i.i.phi.trans.insert.i.i142 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call.i133, i64 0, i32 1
-  %fLength.i.i.i.i143 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call.i133, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.phi.trans.insert.i.i142 = getelementptr inbounds i8, ptr %call.i133, i64 8
+  %fLength.i.i.i.i143 = getelementptr inbounds i8, ptr %call.i133, i64 12
   br label %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.i144
 
 _ZNK6icu_7513UnicodeString7indexOfEDsi.exit.i144: ; preds = %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.i144, %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph.i141
@@ -1749,7 +1740,7 @@ errorExit:                                        ; preds = %errorExit.loopexit,
 
 delete.notnull:                                   ; preds = %errorExit
   %vtable = load ptr, ptr %root.1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %58 = load ptr, ptr %vfn, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(216) %root.1) #11
   br label %return
@@ -1762,24 +1753,24 @@ return:                                           ; preds = %if.then.i, %while.e
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7510UXMLParser9parseMiscER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(4576) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %mXMLComment = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 2
-  %fPos = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 16
-  %mXMLPI = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 5
+  %mXMLComment = getelementptr inbounds i8, ptr %this, i64 344
+  %fPos = getelementptr inbounds i8, ptr %this, i64 4504
+  %mXMLPI = getelementptr inbounds i8, ptr %this, i64 1352
   %0 = load i32, ptr %fPos, align 8
   %call6 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512RegexMatcher5inputEv(ptr noundef nonnull align 8 dereferenceable(336) %mXMLPI)
-  %fUnion.i.i7 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call6, i64 0, i32 1
+  %fUnion.i.i7 = getelementptr inbounds i8, ptr %call6, i64 8
   %1 = load i16, ptr %fUnion.i.i7, align 8
   %cmp.i.i8 = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
   %shr.i.i9 = sext i16 %2 to i32
-  %fLength.i10 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call6, i64 0, i32 1, i32 0, i32 1
+  %fLength.i10 = getelementptr inbounds i8, ptr %call6, i64 12
   %3 = load i32, ptr %fLength.i10, align 4
   %cond.i11 = select i1 %cmp.i.i8, i32 %3, i32 %shr.i.i9
   %cmp.not12 = icmp slt i32 %0, %cond.i11
   br i1 %cmp.not12, label %if.end.lr.ph, label %for.end
 
 if.end.lr.ph:                                     ; preds = %entry
-  %mXMLSP = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 3
+  %mXMLSP = getelementptr inbounds i8, ptr %this, i64 680
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %for.cond.backedge
@@ -1794,12 +1785,12 @@ for.cond.backedge:                                ; preds = %if.end, %if.end19, 
   %call8 = tail call noundef i32 @_ZNK6icu_7512RegexMatcher3endER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %mXMLPI.sink, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store i32 %call8, ptr %fPos, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512RegexMatcher5inputEv(ptr noundef nonnull align 8 dereferenceable(336) %mXMLPI)
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %5 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %5, 0
   %6 = ashr i16 %5, 5
   %shr.i.i = sext i16 %6 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %call, i64 12
   %7 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %7, i32 %shr.i.i
   %cmp.not = icmp slt i32 %call8, %cond.i
@@ -1841,7 +1832,7 @@ new.notnull:                                      ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %new.notnull
-  %fNames.i = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 14
+  %fNames.i = getelementptr inbounds i8, ptr %this, i64 4376
   %0 = load ptr, ptr %fNames.i, align 8
   %call.i.i24 = invoke noundef ptr @uhash_find_75(ptr noundef %0, ptr noundef nonnull %ref.tmp)
           to label %call.i.i.noexc unwind label %lpad3
@@ -1877,7 +1868,7 @@ call2.i.i.noexc:                                  ; preds = %_ZN6icu_759Hashtabl
 
 invoke.cont4:                                     ; preds = %call.i.i.noexc, %call2.i.i.noexc
   %call.pn.i = phi ptr [ %call.i.i24, %call.i.i.noexc ], [ %call.i6.i26, %call2.i.i.noexc ]
-  %retval.0.in.i = getelementptr inbounds %struct.UHashElement, ptr %call.pn.i, i64 0, i32 2
+  %retval.0.in.i = getelementptr inbounds i8, ptr %call.pn.i, i64 16
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
   invoke void @_ZN6icu_7511UXMLElementC1EPKNS_10UXMLParserEPKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(216) %call, ptr noundef nonnull %this, ptr noundef %retval.0.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %cleanup.action unwind label %lpad3
@@ -1888,21 +1879,21 @@ cleanup.action:                                   ; preds = %invoke.cont4
 
 cleanup.done:                                     ; preds = %entry, %cleanup.action
   %call13 = call noundef i32 @_ZNK6icu_7512RegexMatcher3endEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %mEl, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %mAttrValue = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 10
+  %mAttrValue = getelementptr inbounds i8, ptr %this, i64 3032
   %conv52 = sext i32 %call13 to i64
   %call1453 = call noundef signext i8 @_ZN6icu_7512RegexMatcher9lookingAtElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %mAttrValue, i64 noundef %conv52, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %tobool.not54 = icmp eq i8 %call1453, 0
   br i1 %tobool.not54, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %cleanup.done
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %attValue, i64 0, i32 1
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %attValue, i64 0, i32 1, i32 0, i32 1
-  %mNewLineNormalizer = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 12
-  %fOneLF = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 17
-  %mAttrNormalizer = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 11
-  %fNames.i33 = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 14
-  %fAttNames = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %call, i64 0, i32 4
-  %fAttValues = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %call, i64 0, i32 5
+  %fUnion.i.i = getelementptr inbounds i8, ptr %attValue, i64 8
+  %fLength.i = getelementptr inbounds i8, ptr %attValue, i64 12
+  %mNewLineNormalizer = getelementptr inbounds i8, ptr %this, i64 3704
+  %fOneLF = getelementptr inbounds i8, ptr %this, i64 4512
+  %mAttrNormalizer = getelementptr inbounds i8, ptr %this, i64 3368
+  %fNames.i33 = getelementptr inbounds i8, ptr %this, i64 4376
+  %fAttNames = getelementptr inbounds i8, ptr %call, i64 88
+  %fAttValues = getelementptr inbounds i8, ptr %call, i64 128
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %invoke.cont48
@@ -2018,7 +2009,7 @@ call2.i.i.noexc47:                                ; preds = %_ZN6icu_759Hashtabl
 
 invoke.cont41:                                    ; preds = %call.i.i.noexc44, %call2.i.i.noexc47
   %call.pn.i35 = phi ptr [ %call.i.i45, %call.i.i.noexc44 ], [ %call.i6.i50, %call2.i.i.noexc47 ]
-  %retval.0.in.i36 = getelementptr inbounds %struct.UHashElement, ptr %call.pn.i35, i64 0, i32 2
+  %retval.0.in.i36 = getelementptr inbounds i8, ptr %call.pn.i35, i64 16
   %retval.0.i37 = load ptr, ptr %retval.0.in.i36, align 8
   invoke void @_ZN6icu_757UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fAttNames, ptr noundef %retval.0.i37, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont43 unwind label %lpad37
@@ -2096,7 +2087,7 @@ ehcleanup52:                                      ; preds = %ehcleanup51, %lpad1
 
 while.end:                                        ; preds = %invoke.cont48, %cleanup.done
   %call53 = call noundef i32 @_ZNK6icu_7512RegexMatcher3endEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %mEl, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fPos = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 16
+  %fPos = getelementptr inbounds i8, ptr %this, i64 4504
   store i32 %call53, ptr %fPos, align 8
   ret ptr %call
 
@@ -2108,16 +2099,16 @@ eh.resume:                                        ; preds = %cleanup.action11, %
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7510UXMLParser5errorEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(4576) %this, ptr noundef %message, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %mXMLDecl = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 1
+  %mXMLDecl = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7512RegexMatcher5inputEv(ptr noundef nonnull align 8 dereferenceable(336) %mXMLDecl)
-  %fPos = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 16
+  %fPos = getelementptr inbounds i8, ptr %this, i64 4504
   %0 = load i32, ptr %fPos, align 8
   %cmp5 = icmp sgt i32 %0, 0
   br i1 %cmp5, label %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph, label %while.end
 
 _ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph: ; preds = %entry
-  %fUnion.i.i.phi.trans.insert.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1
-  %fLength.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %call, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %call, i64 8
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %call, i64 12
   br label %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit
 
 _ZNK6icu_7513UnicodeString7indexOfEDsi.exit:      ; preds = %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit.lr.ph, %_ZNK6icu_7513UnicodeString7indexOfEDsi.exit
@@ -2164,10 +2155,10 @@ entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp7 = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.result, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  %mXMLCharData = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 9
-  %fPos = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 16
+  %mXMLCharData = getelementptr inbounds i8, ptr %this, i64 2696
+  %fPos = getelementptr inbounds i8, ptr %this, i64 4504
   %0 = load i32, ptr %fPos, align 8
   %conv = sext i32 %0 to i64
   %call = invoke noundef signext i8 @_ZN6icu_7512RegexMatcher9lookingAtElR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %mXMLCharData, i64 noundef %conv, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -2184,12 +2175,12 @@ if.then:                                          ; preds = %invoke.cont
 invoke.cont3:                                     ; preds = %if.then
   %call4 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #11
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #11
-  %mNewLineNormalizer = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 12
+  %mNewLineNormalizer = getelementptr inbounds i8, ptr %this, i64 3704
   %call6 = invoke noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mNewLineNormalizer, ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %fOneLF = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 17
+  %fOneLF = getelementptr inbounds i8, ptr %this, i64 4512
   invoke void @_ZN6icu_7512RegexMatcher10replaceAllERKNS_13UnicodeStringER10UErrorCode(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(336) %mNewLineNormalizer, ptr noundef nonnull align 8 dereferenceable(64) %fOneLF, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont9 unwind label %lpad
 
@@ -2229,25 +2220,25 @@ invoke.cont:
   %decimalString = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %result, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %result, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %replacement, align 8
-  %fUnion2.i21 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %replacement, i64 0, i32 1
+  %fUnion2.i21 = getelementptr inbounds i8, ptr %replacement, i64 8
   store i16 2, ptr %fUnion2.i21, align 8
-  %mAmps = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 13
+  %mAmps = getelementptr inbounds i8, ptr %this, i64 4040
   %call = invoke noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(336) %mAmps, ptr noundef nonnull align 8 dereferenceable(64) %s)
           to label %while.cond.preheader unwind label %lpad2.loopexit.split-lp
 
 while.cond.preheader:                             ; preds = %invoke.cont
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %replacement, i64 0, i32 1, i32 0, i32 1
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %hexString, i64 0, i32 1
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %hexString, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %replacement, i64 12
+  %fUnion.i.i = getelementptr inbounds i8, ptr %hexString, i64 8
+  %fLength.i = getelementptr inbounds i8, ptr %hexString, i64 12
   %fBuffer.i.i.i = getelementptr inbounds i8, ptr %hexString, i64 10
-  %fArray.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %hexString, i64 0, i32 1, i32 0, i32 3
-  %fUnion.i.i67 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %decimalString, i64 0, i32 1
-  %fLength.i70 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %decimalString, i64 0, i32 1, i32 0, i32 1
+  %fArray.i.i.i = getelementptr inbounds i8, ptr %hexString, i64 24
+  %fUnion.i.i67 = getelementptr inbounds i8, ptr %decimalString, i64 8
+  %fLength.i70 = getelementptr inbounds i8, ptr %decimalString, i64 12
   %fBuffer.i.i.i81 = getelementptr inbounds i8, ptr %decimalString, i64 10
-  %fArray.i.i.i82 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %decimalString, i64 0, i32 1, i32 0, i32 3
+  %fArray.i.i.i82 = getelementptr inbounds i8, ptr %decimalString, i64 24
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %if.end96
@@ -2616,7 +2607,7 @@ declare noundef ptr @_ZN6icu_756UStack3popEv(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7510UXMLParser6internERKNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4576) %this, ptr noundef nonnull align 8 dereferenceable(64) %s, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fNames = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 14
+  %fNames = getelementptr inbounds i8, ptr %this, i64 4376
   %0 = load ptr, ptr %fNames, align 8
   %call.i = tail call noundef ptr @uhash_find_75(ptr noundef %0, ptr noundef nonnull %s)
   %cmp.not = icmp eq ptr %call.i, null
@@ -2646,7 +2637,7 @@ _ZN6icu_759Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit: ; preds = %i
 
 return:                                           ; preds = %entry, %_ZN6icu_759Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit
   %call.pn = phi ptr [ %call.i6, %_ZN6icu_759Hashtable4putiERKNS_13UnicodeStringEiR10UErrorCode.exit ], [ %call.i, %entry ]
-  %retval.0.in = getelementptr inbounds %struct.UHashElement, ptr %call.pn, i64 0, i32 2
+  %retval.0.in = getelementptr inbounds i8, ptr %call.pn, i64 16
   %retval.0 = load ptr, ptr %retval.0.in, align 8
   ret ptr %retval.0
 }
@@ -2676,14 +2667,14 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7510UXMLParser8findNameERKNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4576) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) local_unnamed_addr #1 align 2 {
 entry:
-  %fNames = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %this, i64 0, i32 14
+  %fNames = getelementptr inbounds i8, ptr %this, i64 4376
   %0 = load ptr, ptr %fNames, align 8
   %call.i = tail call noundef ptr @uhash_find_75(ptr noundef %0, ptr noundef nonnull %s)
   %cmp.not = icmp eq ptr %call.i, null
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %key = getelementptr inbounds %struct.UHashElement, ptr %call.i, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %key, align 8
   br label %return
 
@@ -2696,30 +2687,30 @@ return:                                           ; preds = %entry, %if.then
 define void @_ZN6icu_7511UXMLElementC2EPKNS_10UXMLParserEPKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %parser, ptr noundef %name, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7511UXMLElementE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fParser = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 1
+  %fParser = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %parser, ptr %fParser, align 8
-  %fName = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 2
+  %fName = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %name, ptr %fName, align 8
-  %fContent = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 3
+  %fContent = getelementptr inbounds i8, ptr %this, i64 24
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fContent, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 3, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 32
   store i16 2, ptr %fUnion2.i, align 8
-  %fAttNames = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 4
+  %fAttNames = getelementptr inbounds i8, ptr %this, i64 88
   invoke void @_ZN6icu_757UVectorC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fAttNames, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %fAttValues = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 5
+  %fAttValues = getelementptr inbounds i8, ptr %this, i64 128
   invoke void @_ZN6icu_757UVectorC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fAttValues, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  %fChildren = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 6
+  %fChildren = getelementptr inbounds i8, ptr %this, i64 168
   invoke void @_ZN6icu_757UVectorC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fChildren, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %fParent = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 7
+  %fParent = getelementptr inbounds i8, ptr %this, i64 208
   store ptr null, ptr %fParent, align 8
   ret void
 
@@ -2760,8 +2751,8 @@ declare void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZN6icu_7511UXMLElementD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7511UXMLElementE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fAttValues = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 5
-  %count.i = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 5, i32 1
+  %fAttValues = getelementptr inbounds i8, ptr %this, i64 128
+  %count.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load i32, ptr %count.i, align 8
   %cmp8 = icmp sgt i32 %0, 0
   br i1 %cmp8, label %for.body, label %for.end
@@ -2778,7 +2769,7 @@ invoke.cont3:                                     ; preds = %for.body
 
 delete.notnull:                                   ; preds = %invoke.cont3
   %vtable = load ptr, ptr %call4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %call4) #11
   br label %for.inc
@@ -2788,8 +2779,8 @@ for.inc:                                          ; preds = %invoke.cont3, %dele
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %entry
-  %fChildren = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 6
-  %count.i6 = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 6, i32 1
+  %fChildren = getelementptr inbounds i8, ptr %this, i64 168
+  %count.i6 = getelementptr inbounds i8, ptr %this, i64 176
   %2 = load i32, ptr %count.i6, align 8
   %cmp911 = icmp sgt i32 %2, 0
   br i1 %cmp911, label %for.body10, label %for.end21
@@ -2806,7 +2797,7 @@ invoke.cont12:                                    ; preds = %for.body10
 
 delete.notnull15:                                 ; preds = %invoke.cont12
   %vtable16 = load ptr, ptr %call13, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 1
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 8
   %3 = load ptr, ptr %vfn17, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %call13) #11
   br label %for.inc19
@@ -2818,9 +2809,9 @@ for.inc19:                                        ; preds = %invoke.cont12, %del
 for.end21:                                        ; preds = %for.inc19, %for.end
   tail call void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %fChildren) #11
   tail call void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %fAttValues) #11
-  %fAttNames = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 4
+  %fAttNames = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %fAttNames) #11
-  %fContent = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 3
+  %fContent = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fContent) #11
   tail call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #11
   ret void
@@ -2866,7 +2857,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7511UXMLElement10getTagNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %fName = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 2
+  %fName = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %fName, align 8
   ret ptr %0
 }
@@ -2875,7 +2866,7 @@ entry:
 define void @_ZNK6icu_7511UXMLElement7getTextEa(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this, i8 noundef signext %recurse) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.result, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZNK6icu_7511UXMLElement10appendTextERNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i8 noundef signext %recurse)
           to label %nrvo.skipdtor unwind label %lpad
@@ -2893,8 +2884,8 @@ nrvo.skipdtor:                                    ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7511UXMLElement10appendTextERNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i8 noundef signext %recurse) local_unnamed_addr #1 align 2 {
 entry:
-  %fChildren = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 6
-  %count.i = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 6, i32 1
+  %fChildren = getelementptr inbounds i8, ptr %this, i64 168
+  %count.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i32, ptr %count.i, align 8
   %cmp8 = icmp sgt i32 %0, 0
   br i1 %cmp8, label %for.body.lr.ph, label %for.end
@@ -2915,12 +2906,12 @@ dynamic_cast.end.us:                              ; preds = %for.body.us
   br i1 %cmp4.not.us, label %for.inc.us, label %if.then.us
 
 if.then.us:                                       ; preds = %dynamic_cast.end.us
-  %fUnion.i.i.i.us = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %2, i64 0, i32 1
+  %fUnion.i.i.i.us = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i16, ptr %fUnion.i.i.i.us, align 8
   %cmp.i.i.i.us = icmp slt i16 %3, 0
   %4 = ashr i16 %3, 5
   %shr.i.i.i.us = sext i16 %4 to i32
-  %fLength.i.i.us = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %2, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i.us = getelementptr inbounds i8, ptr %2, i64 12
   %5 = load i32, ptr %fLength.i.i.us, align 4
   %cond.i.i.us = select i1 %cmp.i.i.i.us, i32 %5, i32 %shr.i.i.i.us
   %call2.i.us = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef 0, i32 noundef %cond.i.i.us)
@@ -2943,12 +2934,12 @@ dynamic_cast.end:                                 ; preds = %for.body
   br i1 %cmp4.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %dynamic_cast.end
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %7, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %8, 0
   %9 = ashr i16 %8, 5
   %shr.i.i.i = sext i16 %9 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %7, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %7, i64 12
   %10 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %10, i32 %shr.i.i.i
   %call2.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef 0, i32 noundef %cond.i.i)
@@ -2973,7 +2964,7 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7511UXMLElement15countAttributesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %count.i = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 4, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i32, ptr %count.i, align 8
   ret i32 %0
 }
@@ -2982,17 +2973,17 @@ entry:
 define noundef ptr @_ZNK6icu_7511UXMLElement12getAttributeEiRNS_13UnicodeStringES2_(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef %i, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 8 dereferenceable(64) %value) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp sgt i32 %i, -1
-  %count.i = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 4, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i32, ptr %count.i, align 8
   %cmp2 = icmp sgt i32 %0, %i
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %fAttNames = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 4
+  %fAttNames = getelementptr inbounds i8, ptr %this, i64 88
   %call4 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %fAttNames, i32 noundef %i)
   %call.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 8 dereferenceable(64) %call4, i8 noundef signext 0)
-  %fAttValues = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 5
+  %fAttValues = getelementptr inbounds i8, ptr %this, i64 128
   %call6 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %fAttValues, i32 noundef %i)
   %call.i5 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %value, ptr noundef nonnull align 8 dereferenceable(64) %call6, i8 noundef signext 0)
   br label %return
@@ -3005,23 +2996,23 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7511UXMLElement12getAttributeERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(64) %name) local_unnamed_addr #1 align 2 {
 entry:
-  %fParser = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 1
+  %fParser = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fParser, align 8
-  %fNames.i = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %0, i64 0, i32 14
+  %fNames.i = getelementptr inbounds i8, ptr %0, i64 4376
   %1 = load ptr, ptr %fNames.i, align 8
   %call.i.i = tail call noundef ptr @uhash_find_75(ptr noundef %1, ptr noundef nonnull %name)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %return, label %_ZNK6icu_7510UXMLParser8findNameERKNS_13UnicodeStringE.exit
 
 _ZNK6icu_7510UXMLParser8findNameERKNS_13UnicodeStringE.exit: ; preds = %entry
-  %key.i = getelementptr inbounds %struct.UHashElement, ptr %call.i.i, i64 0, i32 2
+  %key.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %2 = load ptr, ptr %key.i, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNK6icu_7510UXMLParser8findNameERKNS_13UnicodeStringE.exit
-  %fAttNames = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 4
-  %count.i = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 4, i32 1
+  %fAttNames = getelementptr inbounds i8, ptr %this, i64 88
+  %count.i = getelementptr inbounds i8, ptr %this, i64 96
   %3 = load i32, ptr %count.i, align 8
   %cmp39 = icmp sgt i32 %3, 0
   br i1 %cmp39, label %for.body, label %return
@@ -3033,7 +3024,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp6, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %for.body
-  %fAttValues = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 5
+  %fAttValues = getelementptr inbounds i8, ptr %this, i64 128
   %call8 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %fAttValues, i32 noundef %i.010)
   br label %return
 
@@ -3050,7 +3041,7 @@ return:                                           ; preds = %for.inc, %if.end, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_7511UXMLElement13countChildrenEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %count.i = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 6, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i32, ptr %count.i, align 8
   ret i32 %0
 }
@@ -3059,14 +3050,14 @@ entry:
 define noundef ptr @_ZNK6icu_7511UXMLElement8getChildEiR12UXMLNodeType(ptr noundef nonnull align 8 dereferenceable(216) %this, i32 noundef %i, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %type) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp sgt i32 %i, -1
-  %count.i = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 6, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i32, ptr %count.i, align 8
   %cmp2 = icmp sgt i32 %0, %i
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %fChildren = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 6
+  %fChildren = getelementptr inbounds i8, ptr %this, i64 168
   %call4 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %fChildren, i32 noundef %i)
   %1 = icmp eq ptr %call4, null
   br i1 %1, label %dynamic_cast.end.thread, label %dynamic_cast.end
@@ -3098,8 +3089,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fChildren = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 6
-  %count.i = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 6, i32 1
+  %fChildren = getelementptr inbounds i8, ptr %this, i64 168
+  %count.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load i32, ptr %count.i, align 8
   br label %while.cond
 
@@ -3132,23 +3123,23 @@ return:                                           ; preds = %while.cond, %dynami
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7511UXMLElement15getChildElementERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(64) %name) local_unnamed_addr #1 align 2 {
 entry:
-  %fParser = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 1
+  %fParser = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fParser, align 8
-  %fNames.i = getelementptr inbounds %"class.icu_75::UXMLParser", ptr %0, i64 0, i32 14
+  %fNames.i = getelementptr inbounds i8, ptr %0, i64 4376
   %1 = load ptr, ptr %fNames.i, align 8
   %call.i.i = tail call noundef ptr @uhash_find_75(ptr noundef %1, ptr noundef nonnull %name)
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %return, label %_ZNK6icu_7510UXMLParser8findNameERKNS_13UnicodeStringE.exit
 
 _ZNK6icu_7510UXMLParser8findNameERKNS_13UnicodeStringE.exit: ; preds = %entry
-  %key.i = getelementptr inbounds %struct.UHashElement, ptr %call.i.i, i64 0, i32 2
+  %key.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %2 = load ptr, ptr %key.i, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNK6icu_7510UXMLParser8findNameERKNS_13UnicodeStringE.exit
-  %fChildren = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 6
-  %count.i = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %this, i64 0, i32 6, i32 1
+  %fChildren = getelementptr inbounds i8, ptr %this, i64 168
+  %count.i = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load i32, ptr %count.i, align 8
   %cmp39 = icmp sgt i32 %3, 0
   br i1 %cmp39, label %for.body, label %return
@@ -3165,7 +3156,7 @@ dynamic_cast.end:                                 ; preds = %for.body
   br i1 %cmp6.not, label %for.inc, label %if.then7
 
 if.then7:                                         ; preds = %dynamic_cast.end
-  %fName = getelementptr inbounds %"class.icu_75::UXMLElement", ptr %5, i64 0, i32 2
+  %fName = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %fName, align 8
   %cmp8 = icmp eq ptr %2, %6
   br i1 %cmp8, label %return, label %for.inc

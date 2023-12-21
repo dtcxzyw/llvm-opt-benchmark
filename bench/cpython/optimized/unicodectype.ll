@@ -2486,11 +2486,12 @@ if.else.i:                                        ; preds = %entry
 
 gettyperecord.exit:                               ; preds = %entry, %if.else.i
   %index.0.i = phi i64 [ %2, %if.else.i ], [ 0, %entry ]
-  %flags = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i, i32 5
+  %arrayidx5.i = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i
+  %flags = getelementptr inbounds i8, ptr %arrayidx5.i, i64 14
   %3 = load i16, ptr %flags, align 2
   %4 = and i16 %3, 16384
   %tobool.not = icmp eq i16 %4, 0
-  %title2 = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i, i32 2
+  %title2 = getelementptr inbounds i8, ptr %arrayidx5.i, i64 8
   %5 = load i32, ptr %title2, align 8
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -2607,9 +2608,9 @@ gettyperecord.exit:                               ; preds = %entry, %if.else.i
 define dso_local i32 @_PyUnicode_ToDecimalDigit(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp ugt i32 %ch, 1114111
-  br i1 %cmp.i, label %cond.end, label %gettyperecord.exit
+  br i1 %cmp.i, label %gettyperecord.exit, label %if.else.i
 
-gettyperecord.exit:                               ; preds = %entry
+if.else.i:                                        ; preds = %entry
   %shr.i = lshr i32 %ch, 7
   %idxprom.i = zext nneg i32 %shr.i to i64
   %arrayidx.i = getelementptr [8704 x i16], ptr @index1, i64 0, i64 %idxprom.i
@@ -2622,18 +2623,25 @@ gettyperecord.exit:                               ; preds = %entry
   %arrayidx2.i = getelementptr [37120 x i16], ptr @index2, i64 0, i64 %idxprom1.i
   %1 = load i16, ptr %arrayidx2.i, align 2
   %2 = zext i16 %1 to i64
-  %3 = add nsw i64 %2, -16
-  %tobool.not = icmp ult i64 %3, -10
+  br label %gettyperecord.exit
+
+gettyperecord.exit:                               ; preds = %entry, %if.else.i
+  %index.0.i = phi i64 [ %2, %if.else.i ], [ 0, %entry ]
+  %arrayidx5.i = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i
+  %flags = getelementptr inbounds i8, ptr %arrayidx5.i, i64 14
+  %3 = load i16, ptr %flags, align 2
+  %4 = and i16 %3, 2
+  %tobool.not = icmp eq i16 %4, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %gettyperecord.exit
-  %decimal = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %2, i32 3
-  %4 = load i8, ptr %decimal, align 4
-  %conv1 = zext i8 %4 to i32
+  %decimal = getelementptr inbounds i8, ptr %arrayidx5.i, i64 12
+  %5 = load i8, ptr %decimal, align 4
+  %conv1 = zext i8 %5 to i32
   br label %cond.end
 
-cond.end:                                         ; preds = %entry, %gettyperecord.exit, %cond.true
-  %cond = phi i32 [ %conv1, %cond.true ], [ -1, %gettyperecord.exit ], [ -1, %entry ]
+cond.end:                                         ; preds = %gettyperecord.exit, %cond.true
+  %cond = phi i32 [ %conv1, %cond.true ], [ -1, %gettyperecord.exit ]
   ret i32 %cond
 }
 
@@ -2641,9 +2649,9 @@ cond.end:                                         ; preds = %entry, %gettypereco
 define dso_local i32 @_PyUnicode_IsDecimalDigit(i32 noundef %ch) local_unnamed_addr #0 {
 entry:
   %cmp.i.i = icmp ugt i32 %ch, 1114111
-  br i1 %cmp.i.i, label %_PyUnicode_ToDecimalDigit.exit.thread, label %gettyperecord.exit.i
+  br i1 %cmp.i.i, label %gettyperecord.exit.i, label %if.else.i.i
 
-gettyperecord.exit.i:                             ; preds = %entry
+if.else.i.i:                                      ; preds = %entry
   %shr.i.i = lshr i32 %ch, 7
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
   %arrayidx.i.i = getelementptr [8704 x i16], ptr @index1, i64 0, i64 %idxprom.i.i
@@ -2656,16 +2664,14 @@ gettyperecord.exit.i:                             ; preds = %entry
   %arrayidx2.i.i = getelementptr [37120 x i16], ptr @index2, i64 0, i64 %idxprom1.i.i
   %1 = load i16, ptr %arrayidx2.i.i, align 2
   %2 = zext i16 %1 to i64
-  %3 = add nsw i64 %2, -16
-  %tobool.not.i = icmp ult i64 %3, -10
-  br i1 %tobool.not.i, label %_PyUnicode_ToDecimalDigit.exit.thread, label %_PyUnicode_ToDecimalDigit.exit
+  %3 = add nsw i64 %2, -6
+  %4 = icmp ult i64 %3, 10
+  %5 = zext i1 %4 to i32
+  br label %gettyperecord.exit.i
 
-_PyUnicode_ToDecimalDigit.exit.thread:            ; preds = %entry, %gettyperecord.exit.i
-  br label %_PyUnicode_ToDecimalDigit.exit
-
-_PyUnicode_ToDecimalDigit.exit:                   ; preds = %gettyperecord.exit.i, %_PyUnicode_ToDecimalDigit.exit.thread
-  %4 = phi i32 [ 0, %_PyUnicode_ToDecimalDigit.exit.thread ], [ 1, %gettyperecord.exit.i ]
-  ret i32 %4
+gettyperecord.exit.i:                             ; preds = %if.else.i.i, %entry
+  %index.0.i.i = phi i32 [ %5, %if.else.i.i ], [ 0, %entry ]
+  ret i32 %index.0.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2691,14 +2697,15 @@ if.else.i:                                        ; preds = %entry
 
 gettyperecord.exit:                               ; preds = %entry, %if.else.i
   %index.0.i = phi i64 [ %2, %if.else.i ], [ 0, %entry ]
-  %flags = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i, i32 5
+  %arrayidx5.i = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i
+  %flags = getelementptr inbounds i8, ptr %arrayidx5.i, i64 14
   %3 = load i16, ptr %flags, align 2
   %4 = and i16 %3, 4
   %tobool.not = icmp eq i16 %4, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %gettyperecord.exit
-  %digit = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i, i32 4
+  %digit = getelementptr inbounds i8, ptr %arrayidx5.i, i64 13
   %5 = load i8, ptr %digit, align 1
   %conv1 = zext i8 %5 to i32
   br label %cond.end
@@ -2887,7 +2894,7 @@ if.else.i:                                        ; preds = %entry
 gettyperecord.exit:                               ; preds = %entry, %if.else.i
   %index.0.i = phi i64 [ %2, %if.else.i ], [ 0, %entry ]
   %arrayidx5.i = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i
-  %flags = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i, i32 5
+  %flags = getelementptr inbounds i8, ptr %arrayidx5.i, i64 14
   %3 = load i16, ptr %flags, align 2
   %4 = and i16 %3, 16384
   %tobool.not = icmp eq i16 %4, 0
@@ -2933,11 +2940,12 @@ if.else.i:                                        ; preds = %entry
 
 gettyperecord.exit:                               ; preds = %entry, %if.else.i
   %index.0.i = phi i64 [ %2, %if.else.i ], [ 0, %entry ]
-  %flags = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i, i32 5
+  %arrayidx5.i = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i
+  %flags = getelementptr inbounds i8, ptr %arrayidx5.i, i64 14
   %3 = load i16, ptr %flags, align 2
   %4 = and i16 %3, 16384
   %tobool.not = icmp eq i16 %4, 0
-  %lower2 = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i, i32 1
+  %lower2 = getelementptr inbounds i8, ptr %arrayidx5.i, i64 4
   %5 = load i32, ptr %lower2, align 4
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -2980,11 +2988,12 @@ if.else.i:                                        ; preds = %entry
 
 gettyperecord.exit:                               ; preds = %entry, %if.else.i
   %index.0.i = phi i64 [ %2, %if.else.i ], [ 0, %entry ]
-  %flags = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i, i32 5
+  %arrayidx5.i = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i
+  %flags = getelementptr inbounds i8, ptr %arrayidx5.i, i64 14
   %3 = load i16, ptr %flags, align 2
   %4 = and i16 %3, 16384
   %tobool.not = icmp eq i16 %4, 0
-  %lower6 = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i, i32 1
+  %lower6 = getelementptr inbounds i8, ptr %arrayidx5.i, i64 4
   %5 = load i32, ptr %lower6, align 4
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -3043,11 +3052,12 @@ if.else.i:                                        ; preds = %entry
 
 gettyperecord.exit:                               ; preds = %entry, %if.else.i
   %index.0.i = phi i64 [ %2, %if.else.i ], [ 0, %entry ]
-  %flags = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i, i32 5
+  %arrayidx5.i = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i
+  %flags = getelementptr inbounds i8, ptr %arrayidx5.i, i64 14
   %3 = load i16, ptr %flags, align 2
   %4 = and i16 %3, 16384
   %tobool.not = icmp eq i16 %4, 0
-  %title6 = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i, i32 2
+  %title6 = getelementptr inbounds i8, ptr %arrayidx5.i, i64 8
   %5 = load i32, ptr %title6, align 8
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -3107,7 +3117,7 @@ if.else.i:                                        ; preds = %entry
 gettyperecord.exit:                               ; preds = %entry, %if.else.i
   %index.0.i = phi i64 [ %2, %if.else.i ], [ 0, %entry ]
   %arrayidx5.i = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i
-  %flags = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i, i32 5
+  %flags = getelementptr inbounds i8, ptr %arrayidx5.i, i64 14
   %3 = load i16, ptr %flags, align 2
   %4 = and i16 %3, 16384
   %tobool.not = icmp eq i16 %4, 0
@@ -3169,14 +3179,15 @@ if.else.i:                                        ; preds = %entry
 
 gettyperecord.exit:                               ; preds = %entry, %if.else.i
   %index.0.i = phi i64 [ %2, %if.else.i ], [ 0, %entry ]
-  %flags = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i, i32 5
+  %arrayidx5.i = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i
+  %flags = getelementptr inbounds i8, ptr %arrayidx5.i, i64 14
   %3 = load i16, ptr %flags, align 2
   %4 = and i16 %3, 16384
   %tobool.not = icmp eq i16 %4, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %gettyperecord.exit
-  %lower = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i, i32 1
+  %lower = getelementptr inbounds i8, ptr %arrayidx5.i, i64 4
   %5 = load i32, ptr %lower, align 4
   %shr = lshr i32 %5, 20
   %and1 = and i32 %shr, 7
@@ -3222,11 +3233,12 @@ if.else.i.i:                                      ; preds = %if.end
 
 gettyperecord.exit.i:                             ; preds = %if.else.i.i, %if.end
   %index.0.i.i = phi i64 [ %11, %if.else.i.i ], [ 0, %if.end ]
-  %flags.i = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i.i, i32 5
+  %arrayidx5.i.i = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i.i
+  %flags.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 14
   %12 = load i16, ptr %flags.i, align 2
   %13 = and i16 %12, 16384
   %tobool.not.i = icmp eq i16 %13, 0
-  %lower6.i = getelementptr [505 x %struct._PyUnicode_TypeRecord], ptr @_PyUnicode_TypeRecords, i64 0, i64 %index.0.i.i, i32 1
+  %lower6.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 4
   %14 = load i32, ptr %lower6.i, align 4
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 

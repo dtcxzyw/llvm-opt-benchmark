@@ -3,11 +3,6 @@ source_filename = "bench/qemu/original/block_qed-l2-cache.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QTailQLink = type { ptr, ptr }
-%struct.L2TableCache = type { %union.anon, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.CachedL2Table = type { ptr, i64, %union.anon.0, i32 }
-%union.anon.0 = type { %struct.QTailQLink }
 %struct.timeval = type { i64, i64 }
 
 @trace_events_enabled_count = external local_unnamed_addr global i32, align 4
@@ -27,9 +22,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @qed_init_l2_cache(ptr noundef %l2_cache) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %l2_cache, align 8
-  %tql_prev = getelementptr inbounds %struct.QTailQLink, ptr %l2_cache, i64 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %l2_cache, i64 8
   store ptr %l2_cache, ptr %tql_prev, align 8
-  %n_entries = getelementptr inbounds %struct.L2TableCache, ptr %l2_cache, i64 0, i32 1
+  %n_entries = getelementptr inbounds i8, ptr %l2_cache, i64 16
   store i32 0, ptr %n_entries, align 8
   ret void
 }
@@ -43,7 +38,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry, %land.rhs
   %entry1.05 = phi ptr [ %1, %land.rhs ], [ %0, %entry ]
-  %node = getelementptr inbounds %struct.CachedL2Table, ptr %entry1.05, i64 0, i32 2
+  %node = getelementptr inbounds i8, ptr %entry1.05, i64 16
   %1 = load ptr, ptr %node, align 8
   %2 = load ptr, ptr %entry1.05, align 8
   tail call void @qemu_vfree(ptr noundef %2) #7
@@ -64,7 +59,7 @@ define dso_local ptr @qed_alloc_l2_cache_entry(ptr noundef %l2_cache) local_unna
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #8
-  %ref = getelementptr inbounds %struct.CachedL2Table, ptr %call, i64 0, i32 3
+  %ref = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load i32, ptr %ref, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %ref, align 8
@@ -92,7 +87,7 @@ if.then9.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call11.i.i = tail call i32 @qemu_get_thread_id() #7
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str, i32 noundef %call11.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %l2_cache, ptr noundef nonnull %call) #7
   br label %trace_qed_alloc_l2_cache_entry.exit
@@ -117,7 +112,7 @@ entry:
   br i1 %tobool.not, label %if.end5, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ref = getelementptr inbounds %struct.CachedL2Table, ptr %entry1, i64 0, i32 3
+  %ref = getelementptr inbounds i8, ptr %entry1, i64 32
   %0 = load i32, ptr %ref, align 8
   %dec = add i32 %0, -1
   store i32 %dec, ptr %ref, align 8
@@ -145,7 +140,7 @@ if.then9.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call11.i.i = tail call i32 @qemu_get_thread_id() #7
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %call11.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %entry1, i32 noundef %dec) #7
   br label %trace_qed_unref_l2_cache_entry.exit
@@ -180,13 +175,13 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %entry1.013 = phi ptr [ %entry1.0, %for.inc ], [ %entry1.011, %entry ]
-  %offset2 = getelementptr inbounds %struct.CachedL2Table, ptr %entry1.013, i64 0, i32 1
+  %offset2 = getelementptr inbounds i8, ptr %entry1.013, i64 8
   %0 = load i64, ptr %offset2, align 8
   %cmp = icmp eq i64 %0, %offset
   br i1 %cmp, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %ref = getelementptr inbounds %struct.CachedL2Table, ptr %entry1.013, i64 0, i32 3
+  %ref = getelementptr inbounds i8, ptr %entry1.013, i64 32
   %1 = load i32, ptr %ref, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -212,7 +207,7 @@ if.then9.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call11.i.i = tail call i32 @qemu_get_thread_id() #7
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call11.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %l2_cache, ptr noundef nonnull %entry1.013, i64 noundef %offset, i32 noundef %1) #7
   br label %trace_qed_find_l2_cache_entry.exit
@@ -229,7 +224,7 @@ trace_qed_find_l2_cache_entry.exit:               ; preds = %if.then, %land.lhs.
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %node = getelementptr inbounds %struct.CachedL2Table, ptr %entry1.013, i64 0, i32 2
+  %node = getelementptr inbounds i8, ptr %entry1.013, i64 16
   %entry1.0 = load ptr, ptr %node, align 8
   %tobool.not = icmp eq ptr %entry1.0, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !7
@@ -242,7 +237,7 @@ return:                                           ; preds = %for.inc, %entry, %t
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qed_commit_l2_cache_entry(ptr noundef %l2_cache, ptr noundef %l2_table) local_unnamed_addr #1 {
 entry:
-  %offset = getelementptr inbounds %struct.CachedL2Table, ptr %l2_table, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %l2_table, i64 8
   %0 = load i64, ptr %offset, align 8
   %call = tail call ptr @qed_find_l2_cache_entry(ptr noundef %l2_cache, i64 noundef %0)
   %tobool.not = icmp eq ptr %call, null
@@ -254,7 +249,7 @@ if.then:                                          ; preds = %entry
   br label %do.end46
 
 if.end:                                           ; preds = %entry
-  %n_entries = getelementptr inbounds %struct.L2TableCache, ptr %l2_cache, i64 0, i32 1
+  %n_entries = getelementptr inbounds i8, ptr %l2_cache, i64 16
   %1 = load i32, ptr %n_entries, align 8
   %cmp = icmp ugt i32 %1, 49
   br i1 %cmp, label %if.then2, label %if.end32
@@ -265,7 +260,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool3.not29, label %if.end32, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.then2
-  %tql_prev17 = getelementptr inbounds %struct.QTailQLink, ptr %l2_cache, i64 0, i32 1
+  %tql_prev17 = getelementptr inbounds i8, ptr %l2_cache, i64 8
   br label %land.rhs.outer
 
 land.rhs.outer:                                   ; preds = %do.body, %land.rhs.lr.ph
@@ -275,19 +270,19 @@ land.rhs.outer:                                   ; preds = %do.body, %land.rhs.
 
 land.rhs:                                         ; preds = %land.rhs.outer, %for.inc
   %entry1.030 = phi ptr [ %3, %for.inc ], [ %entry1.030.ph, %land.rhs.outer ]
-  %node = getelementptr inbounds %struct.CachedL2Table, ptr %entry1.030, i64 0, i32 2
+  %node = getelementptr inbounds i8, ptr %entry1.030, i64 16
   %3 = load ptr, ptr %node, align 8
-  %ref = getelementptr inbounds %struct.CachedL2Table, ptr %entry1.030, i64 0, i32 3
+  %ref = getelementptr inbounds i8, ptr %entry1.030, i64 32
   %4 = load i32, ptr %ref, align 8
   %cmp4 = icmp sgt i32 %4, 1
   %tobool3.not.old = icmp eq ptr %3, null
   br i1 %cmp4, label %for.inc, label %do.body
 
 do.body:                                          ; preds = %land.rhs
-  %node.le = getelementptr inbounds %struct.CachedL2Table, ptr %entry1.030, i64 0, i32 2
-  %tql_prev15 = getelementptr inbounds %struct.CachedL2Table, ptr %entry1.030, i64 0, i32 2, i32 0, i32 1
+  %node.le = getelementptr inbounds i8, ptr %entry1.030, i64 16
+  %tql_prev15 = getelementptr inbounds i8, ptr %entry1.030, i64 24
   %5 = load ptr, ptr %tql_prev15, align 8
-  %tql_prev13 = getelementptr inbounds %struct.CachedL2Table, ptr %3, i64 0, i32 2, i32 0, i32 1
+  %tql_prev13 = getelementptr inbounds i8, ptr %3, i64 24
   %tql_prev17.sink = select i1 %tobool3.not.old, ptr %tql_prev17, ptr %tql_prev13
   store ptr %5, ptr %tql_prev17.sink, align 8
   %6 = load ptr, ptr %node.le, align 8
@@ -309,11 +304,11 @@ if.end32:                                         ; preds = %for.inc, %do.body, 
   %9 = phi i32 [ %1, %if.then2 ], [ %1, %if.end ], [ %.ph31, %for.inc ], [ %8, %do.body ]
   %inc = add i32 %9, 1
   store i32 %inc, ptr %n_entries, align 8
-  %node35 = getelementptr inbounds %struct.CachedL2Table, ptr %l2_table, i64 0, i32 2
+  %node35 = getelementptr inbounds i8, ptr %l2_table, i64 16
   store ptr null, ptr %node35, align 8
-  %tql_prev37 = getelementptr inbounds %struct.QTailQLink, ptr %l2_cache, i64 0, i32 1
+  %tql_prev37 = getelementptr inbounds i8, ptr %l2_cache, i64 8
   %10 = load ptr, ptr %tql_prev37, align 8
-  %tql_prev39 = getelementptr inbounds %struct.CachedL2Table, ptr %l2_table, i64 0, i32 2, i32 0, i32 1
+  %tql_prev39 = getelementptr inbounds i8, ptr %l2_table, i64 24
   store ptr %10, ptr %tql_prev39, align 8
   store ptr %l2_table, ptr %10, align 8
   store ptr %node35, ptr %tql_prev37, align 8

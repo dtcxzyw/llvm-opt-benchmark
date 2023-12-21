@@ -3,14 +3,6 @@ source_filename = "bench/flac/original/operations_shorthand_picture.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.Operation = type { i32, %union.anon }
-%union.anon = type { %struct.Argument_VcField }
-%struct.Argument_VcField = type { ptr, ptr, i32, ptr, i32 }
-%struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon.0 }
-%union.anon.0 = type { %struct.FLAC__StreamMetadata_CueSheet }
-%struct.FLAC__StreamMetadata_CueSheet = type { [129 x i8], i64, i32, i32, ptr }
-%struct.Argument_BlockNumber = type { i32, ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"out of memory allocating iterator\00", align 1
 @.str.1 = private unnamed_addr constant [48 x i8] c"%s: ERROR: adding new PICTURE block to metadata\00", align 1
 @.str.2 = private unnamed_addr constant [84 x i8] c"%s: ERROR: FLAC stream can only have one 32x32 standard icon (type=1) PICTURE block\00", align 1
@@ -49,7 +41,7 @@ if.end:                                           ; preds = %if.then, %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %argument = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument = getelementptr inbounds i8, ptr %operation, i64 8
   %1 = load ptr, ptr %argument, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %error_message.i)
   %cmp.i = icmp eq ptr %1, null
@@ -77,7 +69,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %import_pic_from.exit.thread
 
 if.end7.i:                                        ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call3.i, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   %call8.i = call i32 @FLAC__format_picture_is_legal(ptr noundef nonnull %data.i, ptr noundef nonnull %error_message.i) #7
   %tobool.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool.not.i, label %if.then9.i, label %import_pic_from.exit
@@ -128,7 +120,7 @@ do.body:                                          ; preds = %while.cond12, %do.c
   br i1 %cmp19, label %if.then20, label %do.cond
 
 if.then20:                                        ; preds = %do.body
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call17, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %call17, i64 16
   %8 = load i32, ptr %data, align 8
   switch i32 %8, label %do.cond [
     i32 1, label %if.then23
@@ -159,8 +151,8 @@ do.cond:                                          ; preds = %do.cond.sink.split,
   br i1 %tobool38.not, label %sw.epilog, label %do.body, !llvm.loop !8
 
 sw.bb40:                                          ; preds = %if.end
-  %argument41 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
-  %block_number_link = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1, i32 0, i32 1
+  %argument41 = getelementptr inbounds i8, ptr %operation, i64 8
+  %block_number_link = getelementptr inbounds i8, ptr %operation, i64 16
   %9 = load ptr, ptr %block_number_link, align 8
   %tobool42.not = icmp eq ptr %9, null
   br i1 %tobool42.not, label %cond.end, label %land.lhs.true
@@ -171,7 +163,7 @@ land.lhs.true:                                    ; preds = %sw.bb40
   br i1 %cmp43.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %land.lhs.true
-  %entries = getelementptr inbounds %struct.Argument_BlockNumber, ptr %9, i64 0, i32 1
+  %entries = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %entries, align 8
   %12 = load i32, ptr %11, align 4
   br label %cond.end
@@ -214,7 +206,7 @@ if.else64:                                        ; preds = %if.then60
 
 if.else67:                                        ; preds = %do.end58
   %17 = load ptr, ptr %argument41, align 8
-  %data_length.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %picture.2, i64 0, i32 3, i32 0, i32 0, i64 40
+  %data_length.i = getelementptr inbounds i8, ptr %picture.2, i64 56
   %18 = load i32, ptr %data_length.i, align 8
   %cmp.i35 = icmp eq ptr %17, null
   br i1 %cmp.i35, label %if.then.i45, label %lor.lhs.false.i36
@@ -256,7 +248,7 @@ if.then10.i:                                      ; preds = %if.end8.i
   br label %sw.epilog
 
 if.end14.i:                                       ; preds = %if.end8.i
-  %data16.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %picture.2, i64 0, i32 3, i32 0, i32 0, i64 48
+  %data16.i = getelementptr inbounds i8, ptr %picture.2, i64 64
   %22 = load ptr, ptr %data16.i, align 8
   %conv.i = zext i32 %18 to i64
   %call17.i = tail call i64 @fwrite(ptr noundef %22, i64 noundef 1, i64 noundef %conv.i, ptr noundef nonnull %f.0.i)

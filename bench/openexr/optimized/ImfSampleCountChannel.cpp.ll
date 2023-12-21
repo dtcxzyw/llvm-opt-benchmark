@@ -4,12 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Imf_3_2::SampleCountChannel" = type { %"class.Imf_3_2::ImageChannel", ptr, ptr, ptr, ptr, i64, i64, i64 }
-%"class.Imf_3_2::ImageChannel" = type { ptr, ptr, i32, i32, i8, i32, i32, i64 }
 %"struct.Imf_3_2::Slice" = type <{ i32, [4 x i8], ptr, i64, i64, i32, i32, double, i8, i8, [6 x i8] }>
 %"class.Imath_3_2::Box" = type { %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2" }
 %"class.Imath_3_2::Vec2" = type { i32, i32 }
-%"class.Imf_3_2::ImageLevel" = type { ptr, ptr, i32, i32, %"class.Imath_3_2::Box" }
 
 $__clang_call_terminate = comdat any
 
@@ -38,7 +35,7 @@ define void @_ZN7Imf_3_218SampleCountChannelC2ERNS_14DeepImageLevelE(ptr noundef
 entry:
   tail call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %level, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Imf_3_218SampleCountChannelE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_numSamples = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 1
+  %_numSamples = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %_numSamples, i8 0, i64 56, i1 false)
   invoke void @_ZN7Imf_3_218SampleCountChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(104) %this)
           to label %invoke.cont unwind label %lpad
@@ -64,7 +61,7 @@ declare void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN7Imf_3_218SampleCountChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Imf_3_218SampleCountChannelE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_numSamples = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 1
+  %_numSamples = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_numSamples, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -74,7 +71,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %_sampleListSizes = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 3
+  %_sampleListSizes = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_sampleListSizes, align 8
   %isnull2 = icmp eq ptr %1, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
@@ -84,7 +81,7 @@ delete.notnull3:                                  ; preds = %delete.end
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
-  %_sampleListPositions = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 4
+  %_sampleListPositions = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %_sampleListPositions, align 8
   %isnull5 = icmp eq ptr %2, null
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
@@ -121,15 +118,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7Imf_3_218SampleCountChannel5sliceEv(ptr noalias nonnull sret(%"struct.Imf_3_2::Slice") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_base = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 2
+  %_base = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 5
+  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %conv = sext i32 %1 to i64
   %mul = shl nsw i64 %conv, 2
-  %_xSampling.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 2
+  %_xSampling.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %_xSampling.i, align 8
-  %_ySampling.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 3
+  %_ySampling.i = getelementptr inbounds i8, ptr %this, i64 20
   %3 = load i32, ptr %_ySampling.i, align 4
   tail call void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %agg.result, i32 noundef 0, ptr noundef %0, i64 noundef 4, i64 noundef %mul, i32 noundef %2, i32 noundef %3, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
   ret void
@@ -140,7 +137,7 @@ declare void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull al
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(192) ptr @_ZN7Imf_3_218SampleCountChannel9deepLevelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %_level.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
+  %_level.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_level.i, align 8
   ret ptr %0
 }
@@ -148,7 +145,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(192) ptr @_ZNK7Imf_3_218SampleCountChannel9deepLevelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %_level.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
+  %_level.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_level.i, align 8
   ret ptr %0
 }
@@ -157,16 +154,16 @@ entry:
 define void @_ZN7Imf_3_218SampleCountChannel3setEiij(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %x, i32 noundef %y, i32 noundef %newNumSamples) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Box", align 16
-  %_base = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 2
+  %_base = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
-  %_pixelsPerRow.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 5
+  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %1, %y
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr inbounds i32, ptr %0, i64 %idx.ext
   %idx.ext2 = sext i32 %x to i64
   %add.ptr3 = getelementptr inbounds i32, ptr %add.ptr, i64 %idx.ext2
-  %_numSamples = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 1
+  %_numSamples = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %_numSamples, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr3 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
@@ -180,7 +177,7 @@ entry:
 if.then:                                          ; preds = %entry
   %sub = sub i32 %3, %newNumSamples
   %conv = zext i32 %sub to i64
-  %_totalNumSamples = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 5
+  %_totalNumSamples = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load i64, ptr %_totalNumSamples, align 8
   %sub7 = sub i64 %4, %conv
   store i64 %sub7, ptr %_totalNumSamples, align 8
@@ -188,7 +185,7 @@ if.then:                                          ; preds = %entry
   br label %try.cont
 
 if.end:                                           ; preds = %entry
-  %_sampleListSizes = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 3
+  %_sampleListSizes = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load ptr, ptr %_sampleListSizes, align 8
   %arrayidx10 = getelementptr inbounds i32, ptr %5, i64 %sub.ptr.div
   %6 = load i32, ptr %arrayidx10, align 4
@@ -196,7 +193,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp11.not, label %while.cond.i, label %if.then12
 
 if.then12:                                        ; preds = %if.end
-  %_level.i.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
+  %_level.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %_level.i.i, align 8
   tail call void @_ZN7Imf_3_214DeepImageLevel16setSamplesToZeroEmjj(ptr noundef nonnull align 8 dereferenceable(192) %7, i64 noundef %sub.ptr.div, i32 noundef %3, i32 noundef %newNumSamples)
   %8 = load ptr, ptr %_numSamples, align 8
@@ -204,7 +201,7 @@ if.then12:                                        ; preds = %if.end
   %9 = load i32, ptr %arrayidx17, align 4
   %sub18 = sub i32 %newNumSamples, %9
   %conv19 = zext i32 %sub18 to i64
-  %_totalNumSamples20 = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 5
+  %_totalNumSamples20 = getelementptr inbounds i8, ptr %this, i64 80
   %10 = load i64, ptr %_totalNumSamples20, align 8
   %add = add i64 %10, %conv19
   store i64 %add, ptr %_totalNumSamples20, align 8
@@ -218,21 +215,21 @@ while.cond.i:                                     ; preds = %if.end, %while.cond
   br i1 %cmp1.i, label %while.cond.i, label %_ZN7Imf_3_212_GLOBAL__N_115roundListSizeUpEj.exit, !llvm.loop !4
 
 _ZN7Imf_3_212_GLOBAL__N_115roundListSizeUpEj.exit: ; preds = %while.cond.i
-  %_totalSamplesOccupied = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 6
+  %_totalSamplesOccupied = getelementptr inbounds i8, ptr %this, i64 88
   %11 = load i64, ptr %_totalSamplesOccupied, align 8
   %conv25 = sext i32 %s.0.i to i64
   %add26 = add i64 %11, %conv25
-  %_sampleBufferSize = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 7
+  %_sampleBufferSize = getelementptr inbounds i8, ptr %this, i64 96
   %12 = load i64, ptr %_sampleBufferSize, align 8
   %cmp27.not = icmp ugt i64 %add26, %12
   br i1 %cmp27.not, label %if.end46, label %if.then28
 
 if.then28:                                        ; preds = %_ZN7Imf_3_212_GLOBAL__N_115roundListSizeUpEj.exit
-  %_level.i.i43 = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
+  %_level.i.i43 = getelementptr inbounds i8, ptr %this, i64 8
   %13 = load ptr, ptr %_level.i.i43, align 8
   tail call void @_ZN7Imf_3_214DeepImageLevel14moveSampleListEmjjm(ptr noundef nonnull align 8 dereferenceable(192) %13, i64 noundef %sub.ptr.div, i32 noundef %3, i32 noundef %newNumSamples, i64 noundef %11)
   %14 = load i64, ptr %_totalSamplesOccupied, align 8
-  %_sampleListPositions = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 4
+  %_sampleListPositions = getelementptr inbounds i8, ptr %this, i64 72
   %15 = load ptr, ptr %_sampleListPositions, align 8
   %arrayidx34 = getelementptr inbounds i64, ptr %15, i64 %sub.ptr.div
   store i64 %14, ptr %arrayidx34, align 8
@@ -243,7 +240,7 @@ if.then28:                                        ; preds = %_ZN7Imf_3_212_GLOBA
   %17 = load i32, ptr %arrayidx39, align 4
   %sub40 = sub i32 %newNumSamples, %17
   %conv41 = zext i32 %sub40 to i64
-  %_totalNumSamples42 = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 5
+  %_totalNumSamples42 = getelementptr inbounds i8, ptr %this, i64 80
   %18 = load i64, ptr %_totalNumSamples42, align 8
   %add43 = add i64 %18, %conv41
   store i64 %add43, ptr %_totalNumSamples42, align 8
@@ -253,11 +250,11 @@ if.then28:                                        ; preds = %_ZN7Imf_3_212_GLOBA
 if.end46:                                         ; preds = %_ZN7Imf_3_212_GLOBAL__N_115roundListSizeUpEj.exit
   %sub49 = sub i32 %newNumSamples, %3
   %conv50 = zext i32 %sub49 to i64
-  %_totalNumSamples51 = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 5
+  %_totalNumSamples51 = getelementptr inbounds i8, ptr %this, i64 80
   %19 = load i64, ptr %_totalNumSamples51, align 8
   %add52 = add i64 %19, %conv50
   store i64 %add52, ptr %_totalNumSamples51, align 8
-  %_numPixels.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 7
+  %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
   %20 = load i64, ptr %_numPixels.i, align 8
   %21 = icmp ugt i64 %20, 4611686018427387903
   %22 = shl i64 %20, 2
@@ -267,10 +264,10 @@ if.end46:                                         ; preds = %_ZN7Imf_3_212_GLOBA
 
 invoke.cont58:                                    ; preds = %if.end46
   store ptr %call56, ptr %_numSamples, align 8
-  %_level.i.i44 = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
+  %_level.i.i44 = getelementptr inbounds i8, ptr %this, i64 8
   %24 = load ptr, ptr %_level.i.i44, align 8
-  %_dataWindow.i.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %24, i64 0, i32 4
-  %y.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %24, i64 0, i32 4, i32 0, i32 1
+  %_dataWindow.i.i = getelementptr inbounds i8, ptr %24, i64 24
+  %y.i = getelementptr inbounds i8, ptr %24, i64 28
   %25 = load i32, ptr %y.i, align 4
   %mul.i = mul nsw i32 %25, %1
   %idx.ext.i = sext i32 %mul.i to i64
@@ -281,7 +278,7 @@ invoke.cont58:                                    ; preds = %if.end46
   %idx.neg8.i = sub nsw i64 0, %idx.ext7.i
   %add.ptr9.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %idx.neg8.i
   store ptr %add.ptr9.i, ptr %_base, align 8
-  %_sampleListPositions59 = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 4
+  %_sampleListPositions59 = getelementptr inbounds i8, ptr %this, i64 72
   %27 = load ptr, ptr %_sampleListPositions59, align 8
   %28 = icmp ugt i64 %20, 2305843009213693951
   %29 = shl i64 %20, 3
@@ -322,9 +319,9 @@ delete.notnull107:                                ; preds = %delete.end105
   br label %delete.end108
 
 delete.end108:                                    ; preds = %delete.notnull107, %delete.end105
-  %_level.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
+  %_level.i = getelementptr inbounds i8, ptr %this, i64 8
   %34 = load ptr, ptr %_level.i, align 8
-  %_image.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %34, i64 0, i32 1
+  %_image.i = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load ptr, ptr %_image.i, align 8
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %ref.tmp, align 16
   invoke void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(104) %35, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
@@ -444,14 +441,14 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7Imf_3_218SampleCountChannel16resetBasePointerEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %_numSamples = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 1
+  %_numSamples = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_numSamples, align 8
-  %_level.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
+  %_level.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_level.i, align 8
-  %_dataWindow.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %1, i64 0, i32 4
-  %y = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %1, i64 0, i32 4, i32 0, i32 1
+  %_dataWindow.i = getelementptr inbounds i8, ptr %1, i64 24
+  %y = getelementptr inbounds i8, ptr %1, i64 28
   %2 = load i32, ptr %y, align 4
-  %_pixelsPerRow.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 5
+  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
   %3 = load i32, ptr %_pixelsPerRow.i, align 4
   %mul = mul nsw i32 %3, %2
   %idx.ext = sext i32 %mul to i64
@@ -461,7 +458,7 @@ entry:
   %idx.ext7 = sext i32 %4 to i64
   %idx.neg8 = sub nsw i64 0, %idx.ext7
   %add.ptr9 = getelementptr inbounds i32, ptr %add.ptr, i64 %idx.neg8
-  %_base = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 2
+  %_base = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %add.ptr9, ptr %_base, align 8
   ret void
 }
@@ -488,12 +485,12 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_218SampleCountChannel3setEiPj(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %r, ptr nocapture noundef readonly %newNumSamples) local_unnamed_addr #3 align 2 {
 entry:
-  %_level.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
+  %_level.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_level.i, align 8
-  %_dataWindow.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %0, i64 0, i32 4
+  %_dataWindow.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %_dataWindow.i, align 4
   %add = add nsw i32 %1, %r
-  %_pixelsPerRow.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 5
+  %_pixelsPerRow.i = getelementptr inbounds i8, ptr %this, i64 28
   %2 = load i32, ptr %_pixelsPerRow.i, align 4
   %cmp6 = icmp sgt i32 %2, 0
   br i1 %cmp6, label %for.body, label %for.end
@@ -519,15 +516,15 @@ for.end:                                          ; preds = %for.body, %entry
 define void @_ZN7Imf_3_218SampleCountChannel5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Box", align 16
-  %_numPixels.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 7
+  %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_numPixels.i, align 8
   %cmp6.not = icmp eq i64 %0, 0
   br i1 %cmp6.not, label %invoke.cont7, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_numSamples = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 1
-  %_sampleListSizes = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 3
-  %_sampleListPositions = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 4
+  %_numSamples = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListSizes = getelementptr inbounds i8, ptr %this, i64 64
+  %_sampleListPositions = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -552,7 +549,7 @@ lpad:                                             ; preds = %invoke.cont7
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #13
   %8 = load ptr, ptr %_level.i.i, align 8
-  %_image.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %8, i64 0, i32 1
+  %_image.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %_image.i, align 8
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %ref.tmp, align 16
   invoke void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
@@ -563,8 +560,8 @@ invoke.cont17:                                    ; preds = %lpad
           to label %unreachable unwind label %lpad10
 
 invoke.cont7:                                     ; preds = %for.body, %entry
-  %_totalNumSamples = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 5
-  %_level.i.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
+  %_totalNumSamples = getelementptr inbounds i8, ptr %this, i64 80
+  %_level.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_totalNumSamples, i8 0, i64 24, i1 false)
   %10 = load ptr, ptr %_level.i.i, align 8
   invoke void @_ZN7Imf_3_214DeepImageLevel21initializeSampleListsEv(ptr noundef nonnull align 8 dereferenceable(192) %10)
@@ -598,7 +595,7 @@ declare hidden void @_ZN7Imf_3_214DeepImageLevel21initializeSampleListsEv(ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZN7Imf_3_218SampleCountChannel9beginEditEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %_numSamples = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 1
+  %_numSamples = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_numSamples, align 8
   ret ptr %0
 }
@@ -607,18 +604,18 @@ entry:
 define void @_ZN7Imf_3_218SampleCountChannel7endEditEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Box", align 16
-  %_totalNumSamples = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 5
-  %_totalSamplesOccupied = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 6
-  %_numPixels.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 7
+  %_totalNumSamples = getelementptr inbounds i8, ptr %this, i64 80
+  %_totalSamplesOccupied = getelementptr inbounds i8, ptr %this, i64 88
+  %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_totalNumSamples, i8 0, i64 16, i1 false)
   %0 = load i64, ptr %_numPixels.i, align 8
   %cmp8.not = icmp eq i64 %0, 0
   br i1 %cmp8.not, label %invoke.cont18, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_numSamples = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 1
-  %_sampleListSizes = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 3
-  %_sampleListPositions = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 4
+  %_numSamples = getelementptr inbounds i8, ptr %this, i64 48
+  %_sampleListSizes = getelementptr inbounds i8, ptr %this, i64 64
+  %_sampleListPositions = getelementptr inbounds i8, ptr %this, i64 72
   %.pre = load ptr, ptr %_numSamples, align 8
   br label %for.body
 
@@ -669,7 +666,7 @@ lpad:                                             ; preds = %invoke.cont18
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = tail call ptr @__cxa_begin_catch(ptr %13) #13
   %15 = load ptr, ptr %_level.i.i, align 8
-  %_image.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %15, i64 0, i32 1
+  %_image.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %_image.i, align 8
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %ref.tmp, align 16
   invoke void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(104) %16, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
@@ -683,9 +680,9 @@ invoke.cont18:                                    ; preds = %_ZN7Imf_3_212_GLOBA
   %17 = phi i64 [ 0, %entry ], [ %add14, %_ZN7Imf_3_212_GLOBAL__N_115roundListSizeUpEj.exit ]
   %div2.i = lshr i64 %17, 1
   %add.i = add i64 %div2.i, %17
-  %_sampleBufferSize = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 7
+  %_sampleBufferSize = getelementptr inbounds i8, ptr %this, i64 96
   store i64 %add.i, ptr %_sampleBufferSize, align 8
-  %_level.i.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
+  %_level.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load ptr, ptr %_level.i.i, align 8
   invoke void @_ZN7Imf_3_214DeepImageLevel21initializeSampleListsEv(ptr noundef nonnull align 8 dereferenceable(192) %18)
           to label %try.cont unwind label %lpad
@@ -717,7 +714,7 @@ unreachable:                                      ; preds = %invoke.cont28
 define void @_ZN7Imf_3_218SampleCountChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN7Imf_3_212ImageChannel6resizeEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
-  %_numSamples = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 1
+  %_numSamples = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_numSamples, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -727,7 +724,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %_sampleListSizes = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 3
+  %_sampleListSizes = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_sampleListSizes, align 8
   %isnull2 = icmp eq ptr %1, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
@@ -737,7 +734,7 @@ delete.notnull3:                                  ; preds = %delete.end
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
-  %_sampleListPositions = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 4
+  %_sampleListPositions = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %_sampleListPositions, align 8
   %isnull5 = icmp eq ptr %2, null
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
@@ -748,7 +745,7 @@ delete.notnull6:                                  ; preds = %delete.end4
 
 delete.end7:                                      ; preds = %delete.notnull6, %delete.end4
   store ptr null, ptr %_numSamples, align 8
-  %_numPixels.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 7
+  %_numPixels.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_sampleListSizes, i8 0, i64 16, i1 false)
   %3 = load i64, ptr %_numPixels.i, align 8
   %4 = icmp ugt i64 %3, 4611686018427387903
@@ -763,12 +760,12 @@ delete.end7:                                      ; preds = %delete.notnull6, %d
   %9 = select i1 %7, i64 -1, i64 %8
   %call17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #15
   store ptr %call17, ptr %_sampleListPositions, align 8
-  %_level.i.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 1
+  %_level.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %_level.i.i, align 8
-  %_dataWindow.i.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %10, i64 0, i32 4
-  %y.i = getelementptr inbounds %"class.Imf_3_2::ImageLevel", ptr %10, i64 0, i32 4, i32 0, i32 1
+  %_dataWindow.i.i = getelementptr inbounds i8, ptr %10, i64 24
+  %y.i = getelementptr inbounds i8, ptr %10, i64 28
   %11 = load i32, ptr %y.i, align 4
-  %_pixelsPerRow.i.i = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this, i64 0, i32 5
+  %_pixelsPerRow.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %12 = load i32, ptr %_pixelsPerRow.i.i, align 4
   %mul.i = mul nsw i32 %12, %11
   %idx.ext.i = sext i32 %mul.i to i64
@@ -778,7 +775,7 @@ delete.end7:                                      ; preds = %delete.notnull6, %d
   %idx.ext7.i = sext i32 %13 to i64
   %idx.neg8.i = sub nsw i64 0, %idx.ext7.i
   %add.ptr9.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %idx.neg8.i
-  %_base.i = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 2
+  %_base.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %add.ptr9.i, ptr %_base.i, align 8
   %cmp10.not = icmp eq i64 %3, 0
   br i1 %cmp10.not, label %for.end, label %for.body
@@ -800,7 +797,7 @@ for.body:                                         ; preds = %delete.end7, %for.b
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %delete.end7
-  %_totalNumSamples = getelementptr inbounds %"class.Imf_3_2::SampleCountChannel", ptr %this, i64 0, i32 5
+  %_totalNumSamples = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_totalNumSamples, i8 0, i64 24, i1 false)
   ret void
 }

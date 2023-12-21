@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-asn_moid.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [12 x i8] c"oid_section\00", align 1
 @.str.1 = private unnamed_addr constant [34 x i8] c"../openssl/crypto/asn1/asn_moid.c\00", align 1
 @__func__.oid_module_init = private unnamed_addr constant [16 x i8] c"oid_module_init\00", align 1
@@ -40,9 +38,9 @@ for.cond:                                         ; preds = %do_create.exit
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.011 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
   %call6 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1, i32 noundef %i.011) #5
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call6, i64 16
   %0 = load ptr, ptr %value, align 8
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call6, i64 8
   %1 = load ptr, ptr %name, align 8
   %call.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 44) #6
   %cmp.i = icmp eq ptr %call.i, null

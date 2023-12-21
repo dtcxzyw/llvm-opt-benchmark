@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-%struct.bn_gencb_st = type { i32, ptr, %union.anon }
-%union.anon = type { ptr }
 
 @_bignum_small_prime_factors = internal constant %struct.bignum_st { ptr @small_prime_factors, i32 17, i32 17, i32 0, i32 2 }, align 8
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/bn/bn_prime.c\00", align 1
@@ -33,19 +31,19 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %cb1 = getelementptr inbounds %struct.bn_gencb_st, ptr %cb, i64 0, i32 2
+  %cb1 = getelementptr inbounds i8, ptr %cb, i64 16
   %1 = load ptr, ptr %cb1, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %sw.bb
-  %arg = getelementptr inbounds %struct.bn_gencb_st, ptr %cb, i64 0, i32 1
+  %arg = getelementptr inbounds i8, ptr %cb, i64 8
   %2 = load ptr, ptr %arg, align 8
   tail call void %1(i32 noundef %a, i32 noundef %b, ptr noundef %2) #4
   br label %return
 
 sw.bb6:                                           ; preds = %if.end
-  %cb7 = getelementptr inbounds %struct.bn_gencb_st, ptr %cb, i64 0, i32 2
+  %cb7 = getelementptr inbounds i8, ptr %cb, i64 16
   %3 = load ptr, ptr %cb7, align 8
   %call = tail call i32 %3(i32 noundef %a, i32 noundef %b, ptr noundef nonnull %cb) #4
   br label %return
@@ -107,8 +105,8 @@ loop.preheader:                                   ; preds = %if.end11
   %cond42.i = select i1 %tobool26.not.i, i64 3, i64 5
   %cmp69.i = icmp ult i32 %bits, 32
   %tobool.not.i68 = icmp eq ptr %cb, null
-  %cb7.i = getelementptr inbounds %struct.bn_gencb_st, ptr %cb, i64 0, i32 2
-  %arg.i = getelementptr inbounds %struct.bn_gencb_st, ptr %cb, i64 0, i32 1
+  %cb7.i = getelementptr inbounds i8, ptr %cb, i64 16
+  %arg.i = getelementptr inbounds i8, ptr %cb, i64 8
   %brmerge131 = icmp slt i32 %bits, 1025
   %.mux132 = select i1 %cmp.i.i41, i32 64, i32 128
   %spec.select133 = select i1 %cmp4.i.i45, i32 384, i32 %..i.i48
@@ -827,19 +825,19 @@ if.end.i:                                         ; preds = %for.end
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %cb1.i = getelementptr inbounds %struct.bn_gencb_st, ptr %cb, i64 0, i32 2
+  %cb1.i = getelementptr inbounds i8, ptr %cb, i64 16
   %2 = load ptr, ptr %cb1.i, align 8
   %tobool2.not.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i, label %if.end32, label %if.end4.i
 
 if.end4.i:                                        ; preds = %sw.bb.i
-  %arg.i = getelementptr inbounds %struct.bn_gencb_st, ptr %cb, i64 0, i32 1
+  %arg.i = getelementptr inbounds i8, ptr %cb, i64 8
   %3 = load ptr, ptr %arg.i, align 8
   tail call void %2(i32 noundef 1, i32 noundef -1, ptr noundef %3) #4
   br label %if.end32
 
 BN_GENCB_call.exit:                               ; preds = %if.end.i
-  %cb7.i = getelementptr inbounds %struct.bn_gencb_st, ptr %cb, i64 0, i32 2
+  %cb7.i = getelementptr inbounds i8, ptr %cb, i64 16
   %4 = load ptr, ptr %cb7.i, align 8
   %call.i = tail call i32 %4(i32 noundef 1, i32 noundef -1, ptr noundef nonnull %cb) #4
   %tobool29.not = icmp eq i32 %call.i, 0

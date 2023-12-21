@@ -7,17 +7,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.upb_MiniTable = type { ptr, ptr, i16, i16, i8, i8, i8, i8, [0 x %struct._upb_FastTable_Entry] }
 %struct._upb_FastTable_Entry = type { i64, ptr }
 %struct.upb_MiniTableField = type { i32, i16, i16, i16, i8, i8 }
-%"struct.grpc_core::GrpcLbServer" = type { i32, [16 x i8], i32, [50 x i8], i8 }
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%struct._upb_ArenaHead = type { ptr, ptr }
-%"class.absl::lts_20230802::inlined_vector_internal::Storage" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple", %"union.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::GrpcLbClientStats::DropTokenCount, 10, std::allocator<grpc_core::GrpcLbClientStats::DropTokenCount>>::Data" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.0" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.0" = type { i64 }
-%"union.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::GrpcLbClientStats::DropTokenCount, 10, std::allocator<grpc_core::GrpcLbClientStats::DropTokenCount>>::Data" = type { %"struct.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::GrpcLbClientStats::DropTokenCount, 10, std::allocator<grpc_core::GrpcLbClientStats::DropTokenCount>>::Allocated", [144 x i8] }
-%"struct.absl::lts_20230802::inlined_vector_internal::Storage<grpc_core::GrpcLbClientStats::DropTokenCount, 10, std::allocator<grpc_core::GrpcLbClientStats::DropTokenCount>>::Allocated" = type { ptr, i64 }
 %"struct.grpc_core::GrpcLbClientStats::DropTokenCount" = type { %"class.std::unique_ptr", i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -25,16 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.2" }
 %"struct.std::_Head_base.2" = type { ptr }
-%struct.upb_Array = type { i64, i64, i64 }
-%"struct.grpc_core::GrpcLbResponse" = type { i32, %"class.grpc_core::Duration", %"class.std::vector" }
-%"class.grpc_core::Duration" = type { i64 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<grpc_core::GrpcLbServer, std::allocator<grpc_core::GrpcLbServer>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_core::GrpcLbServer, std::allocator<grpc_core::GrpcLbServer>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::GrpcLbServer, std::allocator<grpc_core::GrpcLbServer>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_core::GrpcLbServer, std::allocator<grpc_core::GrpcLbServer>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.upb_Message_Extension = type { ptr, %union.anon }
-%union.anon = type { %struct.upb_StringView }
-%struct.upb_StringView = type { ptr, i64 }
+%"struct.grpc_core::GrpcLbServer" = type { i32, [16 x i8], i32, [50 x i8], i8 }
 
 $grpc_lb_v1_ClientStats_add_calls_finished_with_drop = comdat any
 
@@ -74,32 +57,32 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %ip_addr = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %this, i64 0, i32 1
-  %ip_addr3 = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %other, i64 0, i32 1
+  %ip_addr = getelementptr inbounds i8, ptr %this, i64 4
+  %ip_addr3 = getelementptr inbounds i8, ptr %other, i64 4
   %conv = sext i32 %0 to i64
   %bcmp = tail call i32 @bcmp(ptr nonnull %ip_addr, ptr nonnull %ip_addr3, i64 %conv)
   %cmp6.not = icmp eq i32 %bcmp, 0
   br i1 %cmp6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end
-  %port = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %this, i64 0, i32 2
+  %port = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i32, ptr %port, align 4
-  %port9 = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %other, i64 0, i32 2
+  %port9 = getelementptr inbounds i8, ptr %other, i64 20
   %3 = load i32, ptr %port9, align 4
   %cmp10.not = icmp eq i32 %2, %3
   br i1 %cmp10.not, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end8
-  %load_balance_token = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %this, i64 0, i32 3
-  %load_balance_token14 = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %other, i64 0, i32 3
+  %load_balance_token = getelementptr inbounds i8, ptr %this, i64 24
+  %load_balance_token14 = getelementptr inbounds i8, ptr %other, i64 24
   %call16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %load_balance_token, ptr noundef nonnull dereferenceable(1) %load_balance_token14, i64 noundef 50) #16
   %cmp17.not = icmp eq i32 %call16, 0
   br i1 %cmp17.not, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end12
-  %drop = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %this, i64 0, i32 4
+  %drop = getelementptr inbounds i8, ptr %this, i64 74
   %4 = load i8, ptr %drop, align 2
-  %drop21 = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %other, i64 0, i32 4
+  %drop21 = getelementptr inbounds i8, ptr %other, i64 74
   %5 = load i8, ptr %drop21, align 2
   %6 = xor i8 %5, %4
   %7 = and i8 %6, 1
@@ -124,7 +107,7 @@ entry:
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
   %div7.i.i.i = and i64 %sub.i.i.i, 131064
-  %end.i.i.i.i = getelementptr inbounds %struct._upb_ArenaHead, ptr %arena, i64 0, i32 1
+  %end.i.i.i.i = getelementptr inbounds i8, ptr %arena, i64 8
   %1 = load ptr, ptr %end.i.i.i.i, align 8
   %2 = load ptr, ptr %arena, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -227,7 +210,7 @@ entry:
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
   %div7.i.i.i = and i64 %sub.i.i.i, 131064
-  %end.i.i.i.i = getelementptr inbounds %struct._upb_ArenaHead, ptr %arena, i64 0, i32 1
+  %end.i.i.i.i = getelementptr inbounds i8, ptr %arena, i64 8
   %1 = load ptr, ptr %end.i.i.i.i, align 8
   %2 = load ptr, ptr %arena, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -377,7 +360,7 @@ for.cond.preheader:                               ; preds = %grpc_lb_v1_ClientSt
   br i1 %cmp570.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::inlined_vector_internal::Storage", ptr %drop_token_counts, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %drop_token_counts, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %upb_Arena_Malloc.exit
@@ -417,7 +400,7 @@ upb_Arena_Malloc.exit:                            ; preds = %if.then.i67, %if.en
   store ptr %retval.0.i, ptr %call7, align 1
   %value.sroa.5.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call7, i64 8
   store i64 %call9, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i, align 1
-  %count = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %cond.i.i, i64 %i.071, i32 1
+  %count = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %26 = load i64, ptr %count, align 8
   %add.ptr.i.i.i68 = getelementptr inbounds i8, ptr %call7, i64 16
   store i64 %26, ptr %add.ptr.i.i.i68, align 1
@@ -455,7 +438,7 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %upb_Message_GetOrCreateMutableArray.exit
 
 if.then.i:                                        ; preds = %entry
-  %end.i.i.i.i = getelementptr inbounds %struct._upb_ArenaHead, ptr %arena, i64 0, i32 1
+  %end.i.i.i.i = getelementptr inbounds i8, ptr %arena, i64 8
   %2 = load ptr, ptr %end.i.i.i.i, align 8
   %3 = load ptr, ptr %arena, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %2 to i64
@@ -483,9 +466,9 @@ if.end.i.i:                                       ; preds = %upb_Arena_Malloc.ex
   %4 = ptrtoint ptr %add.ptr.i.i to i64
   %or.i.i.i = or i64 %4, 3
   store i64 %or.i.i.i, ptr %retval.0.i.i.i, align 8
-  %size.i.i = getelementptr inbounds %struct.upb_Array, ptr %retval.0.i.i.i, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   store i64 0, ptr %size.i.i, align 8
-  %capacity.i.i = getelementptr inbounds %struct.upb_Array, ptr %retval.0.i.i.i, i64 0, i32 2
+  %capacity.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
   store i64 4, ptr %capacity.i.i, align 8
   br label %_upb_Array_New.exit.i
 
@@ -502,10 +485,10 @@ upb_Message_GetOrCreateMutableArray.exit:         ; preds = %entry, %_upb_Array_
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %upb_Message_GetOrCreateMutableArray.exit
-  %size = getelementptr inbounds %struct.upb_Array, ptr %5, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %size, align 8
   %add = add i64 %6, 1
-  %capacity.i.i8 = getelementptr inbounds %struct.upb_Array, ptr %5, i64 0, i32 2
+  %capacity.i.i8 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load i64, ptr %capacity.i.i8, align 8
   %cmp.i.i9 = icmp ult i64 %7, %add
   br i1 %cmp.i.i9, label %_upb_array_reserve.exit.i, label %if.end
@@ -521,7 +504,7 @@ if.end:                                           ; preds = %lor.lhs.false, %_up
   %add.i.i = add nuw nsw i64 %conv.i.i, 8
   %sub.i.i = add nuw nsw i64 %conv.i.i, 23
   %div7.i.i = and i64 %sub.i.i, 131064
-  %end.i.i.i = getelementptr inbounds %struct._upb_ArenaHead, ptr %arena, i64 0, i32 1
+  %end.i.i.i = getelementptr inbounds i8, ptr %arena, i64 8
   %9 = load ptr, ptr %end.i.i.i, align 8
   %10 = load ptr, ptr %arena, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
@@ -573,11 +556,11 @@ define noundef zeroext i1 @_ZN9grpc_core19GrpcLbResponseParseERK10grpc_sliceP9up
 entry:
   %0 = load ptr, ptr %serialized_response, align 8
   %tobool.not = icmp eq ptr %0, null
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %serialized_response, i64 0, i32 1, i32 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %serialized_response, i64 16
   %1 = load ptr, ptr %bytes, align 8
   %bytes2 = getelementptr inbounds i8, ptr %serialized_response, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %1
-  %data6 = getelementptr inbounds %struct.grpc_slice, ptr %serialized_response, i64 0, i32 1
+  %data6 = getelementptr inbounds i8, ptr %serialized_response, i64 8
   %2 = load i64, ptr %data6, align 8
   %conv = and i64 %2, 255
   %cond11 = select i1 %tobool.not, i64 %conv, i64 %2
@@ -586,7 +569,7 @@ entry:
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
   %div7.i.i.i.i = and i64 %sub.i.i.i.i, 131064
-  %end.i.i.i.i.i = getelementptr inbounds %struct._upb_ArenaHead, ptr %arena, i64 0, i32 1
+  %end.i.i.i.i.i = getelementptr inbounds i8, ptr %arena, i64 8
   %4 = load ptr, ptr %end.i.i.i.i.i, align 8
   %5 = load ptr, ptr %arena, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %4 to i64
@@ -619,7 +602,7 @@ if.end.i:                                         ; preds = %upb_Arena_Malloc.ex
 
 grpc_lb_v1_LoadBalanceResponse_parse.exit:        ; preds = %upb_Arena_Malloc.exit.i.i.i, %if.end.i
   %retval.0.i = phi ptr [ %call..i, %if.end.i ], [ null, %upb_Arena_Malloc.exit.i.i.i ]
-  %serverlist = getelementptr inbounds %"struct.grpc_core::GrpcLbResponse", ptr %result, i64 0, i32 2
+  %serverlist = getelementptr inbounds i8, ptr %result, i64 16
   %6 = load i32, ptr %retval.0.i, align 4
   switch i32 %6, label %return [
     i32 2, label %grpc_lb_v1_LoadBalanceResponse_server_list.exit.i
@@ -641,7 +624,7 @@ if.end.i17:                                       ; preds = %grpc_lb_v1_LoadBala
 
 grpc_lb_v1_ServerList_servers.exit.i:             ; preds = %if.end.i17
   %10 = inttoptr i64 %9 to ptr
-  %size3.i.i = getelementptr inbounds %struct.upb_Array, ptr %10, i64 0, i32 1
+  %size3.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i64, ptr %size3.i.i, align 8
   %12 = load i64, ptr %10, align 8
   %and.i.i.i = and i64 %12, -8
@@ -658,7 +641,7 @@ if.then.i24.i:                                    ; preds = %if.then3.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcLbResponse", ptr %result, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %result, i64 32
   %14 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %15 = load ptr, ptr %serverlist, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
@@ -669,7 +652,7 @@ if.end.i.i:                                       ; preds = %if.then3.i
   br i1 %cmp3.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE11_M_allocateEm.exit.i.i, label %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i
 
 _ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %if.end.i.i
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcLbResponse", ptr %result, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %result, i64 24
   %16 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i6.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i8.i.i = sub i64 %sub.ptr.lhs.cast.i6.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -700,7 +683,7 @@ _ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE13_M_deallocateEPS1_m.exit
   br label %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i
 
 _ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE13_M_deallocateEPS1_m.exit.i.i, %if.end.i.i
-  %_M_finish.i.i = getelementptr inbounds %"struct.grpc_core::GrpcLbResponse", ptr %result, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %result, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end38.i, %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i
@@ -720,7 +703,7 @@ if.then16.i:                                      ; preds = %for.body.i
   %retval.sroa.0.0.copyload34.i.i = load ptr, ptr %add.ptr.i.i25.i, align 1
   %conv.i = trunc i64 %retval.sroa.9.0.copyload35.i.i to i32
   store i32 %conv.i, ptr %call.i.i, align 4
-  %ip_addr.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %call.i.i, i64 0, i32 1
+  %ip_addr.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %ip_addr.i, ptr align 1 %retval.sroa.0.0.copyload34.i.i, i64 %retval.sroa.9.0.copyload35.i.i, i1 false)
   %.pre.i = load ptr, ptr %arrayidx.i, align 8
   br label %if.end20.i
@@ -728,7 +711,7 @@ if.then16.i:                                      ; preds = %for.body.i
 if.end20.i:                                       ; preds = %if.then16.i, %for.body.i
   %20 = phi ptr [ %.pre.i, %if.then16.i ], [ %18, %for.body.i ]
   %21 = load i32, ptr %20, align 1
-  %port.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %call.i.i, i64 0, i32 2
+  %port.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
   store i32 %21, ptr %port.i, align 4
   %22 = load ptr, ptr %arrayidx.i, align 8
   %add.ptr.i.i26.i = getelementptr inbounds i8, ptr %22, i64 24
@@ -743,7 +726,7 @@ if.else28.i:                                      ; preds = %if.end20.i
   br i1 %cmp30.i, label %if.then31.i, label %if.else35.i
 
 if.then31.i:                                      ; preds = %if.else28.i
-  %load_balance_token.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %call.i.i, i64 0, i32 3
+  %load_balance_token.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %load_balance_token.i, ptr align 1 %retval.sroa.0.0.copyload34.i27.i, i64 %retval.sroa.9.0.copyload35.i29.i, i1 false)
   br label %if.end38.i
 
@@ -756,7 +739,7 @@ if.end38.i:                                       ; preds = %if.else35.i, %if.th
   %add.ptr.i.i32.i = getelementptr inbounds i8, ptr %23, i64 4
   %24 = load i8, ptr %add.ptr.i.i32.i, align 1
   %25 = and i8 %24, 1
-  %drop.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %call.i.i, i64 0, i32 4
+  %drop.i = getelementptr inbounds i8, ptr %call.i.i, i64 74
   store i8 %25, ptr %drop.i, align 2
   %inc.i = add nuw i64 %i.040.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %11
@@ -820,7 +803,7 @@ _ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i.i: ; preds = %if.then18
 
 _ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit: ; preds = %if.then18, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.end7.i.i.i.i.i, %_ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i.i
   %retval.0.i.i.i.i21 = phi i64 [ %cond10.i.i.i.i, %if.then18 ], [ %add.i.i.i.i.i, %if.end7.i.i.i.i.i ], [ 9223372036854775807, %if.then.i.i.i.i.i ], [ -9223372036854775808, %if.else.i.i.i.i.i ], [ -9223372036854775808, %_ZN9grpc_coreplENS_8DurationES0_.exit.fold.split.i.i ]
-  %client_stats_report_interval20 = getelementptr inbounds %"struct.grpc_core::GrpcLbResponse", ptr %result, i64 0, i32 1
+  %client_stats_report_interval20 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %retval.0.i.i.i.i21, ptr %client_stats_report_interval20, align 8
   br label %return
 
@@ -843,7 +826,7 @@ declare i32 @upb_Encode(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr zeroext i1 @_upb_Message_SetField(ptr noundef %msg, ptr noundef %field, ptr noundef %val, ptr noundef %a) local_unnamed_addr #5 comdat {
 entry:
-  %mode.i = getelementptr inbounds %struct.upb_MiniTableField, ptr %field, i64 0, i32 5
+  %mode.i = getelementptr inbounds i8, ptr %field, i64 11
   %0 = load i8, ptr %mode.i, align 1
   %1 = and i8 %0, 8
   %tobool.i.not = icmp eq i8 %1, 0
@@ -855,7 +838,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.not, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %data.i = getelementptr inbounds %struct.upb_Message_Extension, ptr %call.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %2 = load i8, ptr %mode.i, align 1
   %3 = lshr i8 %2, 6
   %shr.i.i.i = zext nneg i8 %3 to i32
@@ -889,7 +872,7 @@ do.body.i.i:                                      ; preds = %if.end.i
   unreachable
 
 if.else:                                          ; preds = %entry
-  %presence.i.i = getelementptr inbounds %struct.upb_MiniTableField, ptr %field, i64 0, i32 2
+  %presence.i.i = getelementptr inbounds i8, ptr %field, i64 6
   %7 = load i16, ptr %presence.i.i, align 2
   %cmp.i.i = icmp sgt i16 %7, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -919,7 +902,7 @@ if.then1.i.i:                                     ; preds = %if.else.i.i
   br label %_upb_Message_SetPresence.exit.i
 
 _upb_Message_SetPresence.exit.i:                  ; preds = %if.then1.i.i, %if.else.i.i, %if.then.i.i
-  %offset.i.i = getelementptr inbounds %struct.upb_MiniTableField, ptr %field, i64 0, i32 1
+  %offset.i.i = getelementptr inbounds i8, ptr %field, i64 4
   %13 = load i16, ptr %offset.i.i, align 4
   %idx.ext.i.i = zext i16 %13 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %idx.ext.i.i
@@ -990,9 +973,9 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 76
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::GrpcLbServer, std::allocator<grpc_core::GrpcLbServer>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::GrpcLbServer, std::allocator<grpc_core::GrpcLbServer>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %cmp.not = icmp eq ptr %1, %2
   br i1 %cmp.not, label %if.else22, label %if.then
@@ -1004,18 +987,18 @@ if.then:                                          ; preds = %entry
 if.then9:                                         ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %__position.coerce, i8 0, i64 76, i1 false)
   %3 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %3, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %3, i64 76
   store ptr %incdec.ptr, ptr %_M_finish, align 8
   br label %if.end30
 
 if.else:                                          ; preds = %if.then
   %add.ptr.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %0, i64 %sub.ptr.div.i
-  %add.ptr.i5 = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %1, i64 -1
+  %add.ptr.i5 = getelementptr inbounds i8, ptr %1, i64 -76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %1, ptr noundef nonnull align 4 dereferenceable(76) %add.ptr.i5, i64 76, i1 false)
   %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 76
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
-  %add.ptr9.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %4, i64 -1
+  %add.ptr9.i = getelementptr inbounds i8, ptr %4, i64 -76
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i, %add.ptr.i
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i.i
 
@@ -1072,7 +1055,7 @@ if.then.i.i.i12.i:                                ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
 
 _ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %if.then.i.i.i12.i, %_ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE11_M_allocateEm.exit.i
-  %incdec.ptr.i8 = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %add.ptr.i7, i64 1
+  %incdec.ptr.i8 = getelementptr inbounds i8, ptr %add.ptr.i7, i64 76
   %sub.ptr.sub.i.i.i15.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i.i
   %cmp.i.i.i16.i = icmp sgt i64 %sub.ptr.sub.i.i.i15.i, 0
   br i1 %cmp.i.i.i16.i, label %if.then.i.i.i19.i, label %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit20.i

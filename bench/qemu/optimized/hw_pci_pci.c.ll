@@ -17,50 +17,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon.8, i32, ptr, i32, ptr }
 %union.anon.8 = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
 %struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.PCIBus = type { %struct.BusState, i32, ptr, ptr, i8, i32, ptr, ptr, ptr, ptr, [256 x ptr], ptr, ptr, ptr, %struct.anon, %struct.anon.4, i32, ptr, %struct.Notifier }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.anon = type { ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.Notifier = type { ptr, %struct.anon.5 }
-%struct.anon.5 = type { ptr, ptr }
-%struct.PCIHostState = type { %struct.SysBusDevice, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, i32, i8, ptr, i8, %struct.anon.7 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon.6], i32, [32 x i32] }
-%struct.anon.6 = type { i64, ptr }
-%struct.anon.7 = type { ptr, ptr }
-%struct.PCIHostBridgeClass = type { %struct.SysBusDeviceClass, ptr }
-%struct.SysBusDeviceClass = type { %struct.DeviceClass, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.PCIBusClass = type { %struct.BusClass, ptr, ptr }
-%struct.BusClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.MachineClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i8, i8, i8, i32, i8, i8, i32, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, %struct.SMPCompatProps, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.SMPCompatProps = type { i8, i8, i8, i8, i8, i8 }
 %struct.timeval = type { i64, i64 }
-%struct.PCIINTxRoute = type { i32, i32 }
-%struct.NICInfo = type { %struct.MACAddr, ptr, ptr, ptr, ptr, i32, i32, i32 }
-%struct.MACAddr = type { [6 x i8] }
 %struct.Range = type { i64, i64 }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
 
 @pci_available = dso_local local_unnamed_addr global i8 1, align 1
 @.str = private unnamed_addr constant [14 x i8] c"!pci_is_vf(d)\00", align 1
@@ -394,7 +353,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %d, i64 168
   %1 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %1, i64 14
   %2 = load i8, ptr %arrayidx, align 1
@@ -422,7 +381,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %nirq = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 16
+  %nirq = getelementptr inbounds i8, ptr %bus, i64 2280
   %0 = load i32, ptr %nirq, align 8
   %cmp1 = icmp sgt i32 %0, %irq_num
   br i1 %cmp1, label %if.end4, label %if.else3
@@ -432,7 +391,7 @@ if.else3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %irq_count = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 17
+  %irq_count = getelementptr inbounds i8, ptr %bus, i64 2288
   %1 = load ptr, ptr %irq_count, align 8
   %idxprom = zext nneg i32 %irq_num to i64
   %arrayidx = getelementptr i32, ptr %1, i64 %idxprom
@@ -446,7 +405,7 @@ if.end4:                                          ; preds = %if.end
 define dso_local void @pci_device_deassert_intx(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %dev, i64 1257
-  %config2.i.i = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config2.i.i = getelementptr inbounds i8, ptr %dev, i64 168
   br label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %pci_irq_handler.exit
@@ -531,7 +490,7 @@ if.end8:                                          ; preds = %if.end6
   %conv5.i = or i8 %conv1.i, %3
   store i8 %conv5.i, ptr %0, align 1
   %tobool.not.i = icmp eq i8 %conv5.i, 0
-  %config2.i = getelementptr inbounds %struct.PCIDevice, ptr %opaque, i64 0, i32 3
+  %config2.i = getelementptr inbounds i8, ptr %opaque, i64 168
   %4 = load ptr, ptr %config2.i, align 8
   %arrayidx3.i = getelementptr i8, ptr %4, i64 6
   %5 = load i8, ptr %arrayidx3.i, align 1
@@ -568,7 +527,7 @@ declare void @device_cold_reset(ptr noundef) local_unnamed_addr #2
 define internal fastcc void @pci_do_device_reset(ptr noundef %dev) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %dev, i64 1257
-  %config2.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config2.i.i.i = getelementptr inbounds i8, ptr %dev, i64 168
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %pci_irq_handler.exit.i, %entry
@@ -623,11 +582,11 @@ if.else:                                          ; preds = %pci_device_deassert
 if.end:                                           ; preds = %pci_device_deassert_intx.exit
   %9 = load ptr, ptr %config2.i.i.i, align 8
   %add.ptr = getelementptr i8, ptr %9, i64 4
-  %wmask = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 5
+  %wmask = getelementptr inbounds i8, ptr %dev, i64 184
   %10 = load ptr, ptr %wmask, align 8
   %add.ptr2 = getelementptr i8, ptr %10, i64 4
   %add.ptr2.val = load i16, ptr %add.ptr2, align 1
-  %w1cmask = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 6
+  %w1cmask = getelementptr inbounds i8, ptr %dev, i64 192
   %11 = load ptr, ptr %w1cmask, align 16
   %add.ptr4 = getelementptr i8, ptr %11, i64 4
   %add.ptr4.val = load i16, ptr %add.ptr4, align 1
@@ -669,17 +628,22 @@ if.end:                                           ; preds = %pci_device_deassert
   %19 = getelementptr i8, ptr %dev, i64 2232
   %dev.val.i = load ptr, ptr %19, align 8
   %cmp.i.not.i = icmp eq ptr %dev.val.i, null
-  br i1 %cmp.i.not.i, label %for.body.i, label %pci_reset_regions.exit
+  br i1 %cmp.i.not.i, label %for.cond.preheader.i, label %pci_reset_regions.exit
 
-for.body.i:                                       ; preds = %if.end, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.end ]
-  %size.i = getelementptr %struct.PCIDevice, ptr %dev, i64 0, i32 11, i64 %indvars.iv.i, i32 1
+for.cond.preheader.i:                             ; preds = %if.end
+  %io_regions.i = getelementptr inbounds i8, ptr %dev, i64 296
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %arrayidx.i = getelementptr [7 x %struct.PCIIORegion], ptr %io_regions.i, i64 0, i64 %indvars.iv.i
+  %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %20 = load i64, ptr %size.i, align 8
   %tobool1.not.i = icmp eq i64 %20, 0
   br i1 %tobool1.not.i, label %for.inc.i, label %if.end3.i
 
 if.end3.i:                                        ; preds = %for.body.i
-  %type.i = getelementptr %struct.PCIDevice, ptr %dev, i64 0, i32 11, i64 %indvars.iv.i, i32 2
+  %type.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %21 = load i8, ptr %type.i, align 8
   %conv.i = zext i8 %21 to i32
   %22 = and i32 %conv.i, 5
@@ -778,7 +742,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %if.end
   %bus.012 = phi ptr [ %call.i1.i7, %if.end ], [ %call.i1.i, %entry ]
-  %parent_dev = getelementptr inbounds %struct.PCIBus, ptr %bus.012, i64 0, i32 11
+  %parent_dev = getelementptr inbounds i8, ptr %bus.012, i64 2232
   %1 = load ptr, ptr %parent_dev, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.end
@@ -806,12 +770,12 @@ while.end:                                        ; preds = %if.end, %entry
 define dso_local ptr @pci_root_bus_path(ptr noundef %dev) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @pci_device_root_bus(ptr noundef %dev)
-  %parent = getelementptr inbounds %struct.BusState, ptr %call, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call, i64 40
   %0 = load ptr, ptr %parent, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
   %call.i7 = tail call ptr @object_get_class(ptr noundef %call.i) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i7, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE_GET_CLASS) #23
-  %bus = getelementptr inbounds %struct.PCIHostState, ptr %call.i, i64 0, i32 6
+  %bus = getelementptr inbounds i8, ptr %call.i, i64 1640
   %1 = load ptr, ptr %bus, align 8
   %cmp = icmp eq ptr %1, %call
   br i1 %cmp, label %if.end, label %if.else
@@ -821,7 +785,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %root_bus_path = getelementptr inbounds %struct.PCIHostBridgeClass, ptr %call1.i, i64 0, i32 1
+  %root_bus_path = getelementptr inbounds i8, ptr %call1.i, i64 192
   %2 = load ptr, ptr %root_bus_path, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end6, label %if.then3
@@ -831,7 +795,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %name = getelementptr inbounds %struct.BusState, ptr %call, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %call, i64 48
   %3 = load ptr, ptr %name, align 8
   br label %return
 
@@ -850,17 +814,17 @@ entry:
   br i1 %tobool.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %parent_dev = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 11
+  %parent_dev = getelementptr inbounds i8, ptr %bus, i64 2232
   %1 = load ptr, ptr %parent_dev, align 8
   %call1 = tail call ptr @pci_device_root_bus(ptr noundef %1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %rootbus.0 = phi ptr [ %bus, %entry ], [ %call1, %if.then ]
-  %parent = getelementptr inbounds %struct.BusState, ptr %rootbus.0, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %rootbus.0, i64 40
   %2 = load ptr, ptr %parent, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
-  %bus3 = getelementptr inbounds %struct.PCIHostState, ptr %call.i, i64 0, i32 6
+  %bus3 = getelementptr inbounds i8, ptr %call.i, i64 1640
   %3 = load ptr, ptr %bus3, align 8
   %cmp = icmp eq ptr %3, %rootbus.0
   br i1 %cmp, label %if.end5, label %if.else
@@ -870,7 +834,7 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %bypass_iommu = getelementptr inbounds %struct.PCIHostState, ptr %call.i, i64 0, i32 7
+  %bypass_iommu = getelementptr inbounds i8, ptr %call.i, i64 1648
   %4 = load i8, ptr %bypass_iommu, align 16
   %5 = and i8 %4, 1
   %tobool = icmp ne i8 %5, 0
@@ -900,35 +864,35 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %devfn_min2.i = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 4
+  %devfn_min2.i = getelementptr inbounds i8, ptr %bus, i64 144
   store i8 %devfn_min, ptr %devfn_min2.i, align 8
-  %slot_reserved_mask.i = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 5
+  %slot_reserved_mask.i = getelementptr inbounds i8, ptr %bus, i64 148
   store i32 0, ptr %slot_reserved_mask.i, align 4
-  %address_space_mem.i = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 12
+  %address_space_mem.i = getelementptr inbounds i8, ptr %bus, i64 2240
   store ptr %mem, ptr %address_space_mem.i, align 8
-  %address_space_io.i = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 13
+  %address_space_io.i = getelementptr inbounds i8, ptr %bus, i64 2248
   store ptr %io, ptr %address_space_io.i, align 8
-  %flags.i = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %bus, i64 120
   %1 = load i32, ptr %flags.i, align 8
   %or.i = or i32 %1, 1
   store i32 %or.i, ptr %flags.i, align 8
-  %child.i = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 14
+  %child.i = getelementptr inbounds i8, ptr %bus, i64 2256
   store ptr null, ptr %child.i, align 8
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %parent, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
   %2 = load ptr, ptr @pci_host_bridges, align 8
-  %next.i.i = getelementptr inbounds %struct.PCIHostState, ptr %call.i.i.i, i64 0, i32 8
+  %next.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 1656
   store ptr %2, ptr %next.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %pci_root_bus_internal_init.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %le_prev.i.i = getelementptr inbounds %struct.PCIHostState, ptr %2, i64 0, i32 8, i32 1
+  %le_prev.i.i = getelementptr inbounds i8, ptr %2, i64 1664
   store ptr %next.i.i, ptr %le_prev.i.i, align 8
   br label %pci_root_bus_internal_init.exit
 
 pci_root_bus_internal_init.exit:                  ; preds = %if.end.i, %if.then.i.i
   store ptr %call.i.i.i, ptr @pci_host_bridges, align 8
-  %le_prev5.i.i = getelementptr inbounds %struct.PCIHostState, ptr %call.i.i.i, i64 0, i32 8, i32 1
+  %le_prev5.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 1664
   store ptr @pci_host_bridges, ptr %le_prev5.i.i, align 8
   ret void
 }
@@ -949,35 +913,35 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %devfn_min2.i = getelementptr inbounds %struct.PCIBus, ptr %call.i, i64 0, i32 4
+  %devfn_min2.i = getelementptr inbounds i8, ptr %call.i, i64 144
   store i8 %devfn_min, ptr %devfn_min2.i, align 8
-  %slot_reserved_mask.i = getelementptr inbounds %struct.PCIBus, ptr %call.i, i64 0, i32 5
+  %slot_reserved_mask.i = getelementptr inbounds i8, ptr %call.i, i64 148
   store i32 0, ptr %slot_reserved_mask.i, align 4
-  %address_space_mem.i = getelementptr inbounds %struct.PCIBus, ptr %call.i, i64 0, i32 12
+  %address_space_mem.i = getelementptr inbounds i8, ptr %call.i, i64 2240
   store ptr %mem, ptr %address_space_mem.i, align 8
-  %address_space_io.i = getelementptr inbounds %struct.PCIBus, ptr %call.i, i64 0, i32 13
+  %address_space_io.i = getelementptr inbounds i8, ptr %call.i, i64 2248
   store ptr %io, ptr %address_space_io.i, align 8
-  %flags.i = getelementptr inbounds %struct.PCIBus, ptr %call.i, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %call.i, i64 120
   %1 = load i32, ptr %flags.i, align 8
   %or.i = or i32 %1, 1
   store i32 %or.i, ptr %flags.i, align 8
-  %child.i = getelementptr inbounds %struct.PCIBus, ptr %call.i, i64 0, i32 14
+  %child.i = getelementptr inbounds i8, ptr %call.i, i64 2256
   store ptr null, ptr %child.i, align 8
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %parent, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
   %2 = load ptr, ptr @pci_host_bridges, align 8
-  %next.i.i = getelementptr inbounds %struct.PCIHostState, ptr %call.i.i.i, i64 0, i32 8
+  %next.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 1656
   store ptr %2, ptr %next.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %pci_root_bus_internal_init.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %le_prev.i.i = getelementptr inbounds %struct.PCIHostState, ptr %2, i64 0, i32 8, i32 1
+  %le_prev.i.i = getelementptr inbounds i8, ptr %2, i64 1664
   store ptr %next.i.i, ptr %le_prev.i.i, align 8
   br label %pci_root_bus_internal_init.exit
 
 pci_root_bus_internal_init.exit:                  ; preds = %if.end.i, %if.then.i.i
   store ptr %call.i.i.i, ptr @pci_host_bridges, align 8
-  %le_prev5.i.i = getelementptr inbounds %struct.PCIHostState, ptr %call.i.i.i, i64 0, i32 8, i32 1
+  %le_prev5.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 1664
   store ptr @pci_host_bridges, ptr %le_prev5.i.i, align 8
   ret ptr %call.i
 }
@@ -988,18 +952,18 @@ declare ptr @qbus_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 define dso_local void @pci_root_bus_cleanup(ptr noundef %bus) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %bus, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #23
-  %parent.i = getelementptr inbounds %struct.BusState, ptr %call.i.i, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %0 = load ptr, ptr %parent.i, align 8
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
-  %next.i.i = getelementptr inbounds %struct.PCIHostState, ptr %call.i.i.i, i64 0, i32 8
+  %next.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 1656
   %1 = load ptr, ptr %next.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
-  %le_prev9.phi.trans.insert.i.i = getelementptr inbounds %struct.PCIHostState, ptr %call.i.i.i, i64 0, i32 8, i32 1
+  %le_prev9.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 1664
   %.pre7.i.i = load ptr, ptr %le_prev9.phi.trans.insert.i.i, align 8
   br i1 %cmp.not.i.i, label %pci_bus_uninit.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %le_prev5.i.i = getelementptr inbounds %struct.PCIHostState, ptr %1, i64 0, i32 8, i32 1
+  %le_prev5.i.i = getelementptr inbounds i8, ptr %1, i64 1664
   store ptr %.pre7.i.i, ptr %le_prev5.i.i, align 8
   %.pre.i.i = load ptr, ptr %next.i.i, align 8
   br label %pci_bus_uninit.exit
@@ -1018,13 +982,13 @@ declare void @qbus_unrealize(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_bus_irqs(ptr nocapture noundef %bus, ptr noundef %set_irq, ptr noundef %irq_opaque, i32 noundef %nirq) local_unnamed_addr #0 {
 entry:
-  %set_irq1 = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 6
+  %set_irq1 = getelementptr inbounds i8, ptr %bus, i64 152
   store ptr %set_irq, ptr %set_irq1, align 8
-  %irq_opaque2 = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 9
+  %irq_opaque2 = getelementptr inbounds i8, ptr %bus, i64 176
   store ptr %irq_opaque, ptr %irq_opaque2, align 8
-  %nirq3 = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 16
+  %nirq3 = getelementptr inbounds i8, ptr %bus, i64 2280
   store i32 %nirq, ptr %nirq3, align 8
-  %irq_count = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 17
+  %irq_count = getelementptr inbounds i8, ptr %bus, i64 2288
   %0 = load ptr, ptr %irq_count, align 8
   tail call void @g_free(ptr noundef %0) #23
   %conv = sext i32 %nirq to i64
@@ -1042,7 +1006,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @pci_bus_map_irqs(ptr nocapture noundef writeonly %bus, ptr noundef %map_irq) local_unnamed_addr #4 {
 entry:
-  %map_irq1 = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 7
+  %map_irq1 = getelementptr inbounds i8, ptr %bus, i64 160
   store ptr %map_irq, ptr %map_irq1, align 8
   ret void
 }
@@ -1050,12 +1014,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_bus_irqs_cleanup(ptr nocapture noundef %bus) local_unnamed_addr #0 {
 entry:
-  %set_irq = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 6
-  %irq_opaque = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 9
+  %set_irq = getelementptr inbounds i8, ptr %bus, i64 152
+  %irq_opaque = getelementptr inbounds i8, ptr %bus, i64 176
   store ptr null, ptr %irq_opaque, align 8
-  %nirq = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 16
+  %nirq = getelementptr inbounds i8, ptr %bus, i64 2280
   store i32 0, ptr %nirq, align 8
-  %irq_count = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 17
+  %irq_count = getelementptr inbounds i8, ptr %bus, i64 2288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %set_irq, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %irq_count, align 8
   tail call void @g_free(ptr noundef %0) #23
@@ -1077,50 +1041,50 @@ if.else.i.i:                                      ; preds = %entry
   unreachable
 
 if.end.i.i:                                       ; preds = %entry
-  %devfn_min2.i.i = getelementptr inbounds %struct.PCIBus, ptr %call.i.i, i64 0, i32 4
+  %devfn_min2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 144
   store i8 %devfn_min, ptr %devfn_min2.i.i, align 8
-  %slot_reserved_mask.i.i = getelementptr inbounds %struct.PCIBus, ptr %call.i.i, i64 0, i32 5
+  %slot_reserved_mask.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 148
   store i32 0, ptr %slot_reserved_mask.i.i, align 4
-  %address_space_mem.i.i = getelementptr inbounds %struct.PCIBus, ptr %call.i.i, i64 0, i32 12
+  %address_space_mem.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2240
   store ptr %mem, ptr %address_space_mem.i.i, align 8
-  %address_space_io.i.i = getelementptr inbounds %struct.PCIBus, ptr %call.i.i, i64 0, i32 13
+  %address_space_io.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2248
   store ptr %io, ptr %address_space_io.i.i, align 8
-  %flags.i.i = getelementptr inbounds %struct.PCIBus, ptr %call.i.i, i64 0, i32 1
+  %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 120
   %1 = load i32, ptr %flags.i.i, align 8
   %or.i.i = or i32 %1, 1
   store i32 %or.i.i, ptr %flags.i.i, align 8
-  %child.i.i = getelementptr inbounds %struct.PCIBus, ptr %call.i.i, i64 0, i32 14
+  %child.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 2256
   store ptr null, ptr %child.i.i, align 8
   %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %parent, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
   %2 = load ptr, ptr @pci_host_bridges, align 8
-  %next.i.i.i = getelementptr inbounds %struct.PCIHostState, ptr %call.i.i.i.i, i64 0, i32 8
+  %next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 1656
   store ptr %2, ptr %next.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %pci_root_bus_new.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %le_prev.i.i.i = getelementptr inbounds %struct.PCIHostState, ptr %2, i64 0, i32 8, i32 1
+  %le_prev.i.i.i = getelementptr inbounds i8, ptr %2, i64 1664
   store ptr %next.i.i.i, ptr %le_prev.i.i.i, align 8
   br label %pci_root_bus_new.exit
 
 pci_root_bus_new.exit:                            ; preds = %if.end.i.i, %if.then.i.i.i
   store ptr %call.i.i.i.i, ptr @pci_host_bridges, align 8
-  %le_prev5.i.i.i = getelementptr inbounds %struct.PCIHostState, ptr %call.i.i.i.i, i64 0, i32 8, i32 1
+  %le_prev5.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 1664
   store ptr @pci_host_bridges, ptr %le_prev5.i.i.i, align 8
-  %set_irq1.i = getelementptr inbounds %struct.PCIBus, ptr %call.i.i, i64 0, i32 6
+  %set_irq1.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
   store ptr %set_irq, ptr %set_irq1.i, align 8
-  %irq_opaque2.i = getelementptr inbounds %struct.PCIBus, ptr %call.i.i, i64 0, i32 9
+  %irq_opaque2.i = getelementptr inbounds i8, ptr %call.i.i, i64 176
   store ptr %irq_opaque, ptr %irq_opaque2.i, align 8
-  %nirq3.i = getelementptr inbounds %struct.PCIBus, ptr %call.i.i, i64 0, i32 16
+  %nirq3.i = getelementptr inbounds i8, ptr %call.i.i, i64 2280
   store i32 %nirq, ptr %nirq3.i, align 8
-  %irq_count.i = getelementptr inbounds %struct.PCIBus, ptr %call.i.i, i64 0, i32 17
+  %irq_count.i = getelementptr inbounds i8, ptr %call.i.i, i64 2288
   %3 = load ptr, ptr %irq_count.i, align 8
   tail call void @g_free(ptr noundef %3) #23
   %conv.i = sext i32 %nirq to i64
   %mul.i = shl nsw i64 %conv.i, 2
   %call.i3 = tail call noalias ptr @g_malloc0(i64 noundef %mul.i) #24
   store ptr %call.i3, ptr %irq_count.i, align 8
-  %map_irq1.i = getelementptr inbounds %struct.PCIBus, ptr %call.i.i, i64 0, i32 7
+  %map_irq1.i = getelementptr inbounds i8, ptr %call.i.i, i64 160
   store ptr %map_irq, ptr %map_irq1.i, align 8
   ret ptr %call.i.i
 }
@@ -1128,29 +1092,29 @@ pci_root_bus_new.exit:                            ; preds = %if.end.i.i, %if.the
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_unregister_root_bus(ptr noundef %bus) local_unnamed_addr #0 {
 entry:
-  %set_irq.i = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 6
-  %irq_opaque.i = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 9
+  %set_irq.i = getelementptr inbounds i8, ptr %bus, i64 152
+  %irq_opaque.i = getelementptr inbounds i8, ptr %bus, i64 176
   store ptr null, ptr %irq_opaque.i, align 8
-  %nirq.i = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 16
+  %nirq.i = getelementptr inbounds i8, ptr %bus, i64 2280
   store i32 0, ptr %nirq.i, align 8
-  %irq_count.i = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 17
+  %irq_count.i = getelementptr inbounds i8, ptr %bus, i64 2288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %set_irq.i, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %irq_count.i, align 8
   tail call void @g_free(ptr noundef %0) #23
   store ptr null, ptr %irq_count.i, align 8
   %call.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %bus, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #23
-  %parent.i.i = getelementptr inbounds %struct.BusState, ptr %call.i.i.i, i64 0, i32 1
+  %parent.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
   %1 = load ptr, ptr %parent.i.i, align 8
   %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
-  %next.i.i.i = getelementptr inbounds %struct.PCIHostState, ptr %call.i.i.i.i, i64 0, i32 8
+  %next.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 1656
   %2 = load ptr, ptr %next.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
-  %le_prev9.phi.trans.insert.i.i.i = getelementptr inbounds %struct.PCIHostState, ptr %call.i.i.i.i, i64 0, i32 8, i32 1
+  %le_prev9.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 1664
   %.pre7.i.i.i = load ptr, ptr %le_prev9.phi.trans.insert.i.i.i, align 8
   br i1 %cmp.not.i.i.i, label %pci_root_bus_cleanup.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %le_prev5.i.i.i = getelementptr inbounds %struct.PCIHostState, ptr %2, i64 0, i32 8, i32 1
+  %le_prev5.i.i.i = getelementptr inbounds i8, ptr %2, i64 1664
   store ptr %.pre7.i.i.i, ptr %le_prev5.i.i.i, align 8
   %.pre.i.i.i = load ptr, ptr %next.i.i.i, align 8
   br label %pci_root_bus_cleanup.exit
@@ -1169,7 +1133,7 @@ define dso_local i32 @pci_bus_num(ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
-  %bus_num = getelementptr inbounds %struct.PCIBusClass, ptr %call1.i, i64 0, i32 1
+  %bus_num = getelementptr inbounds i8, ptr %call1.i, i64 160
   %0 = load ptr, ptr %bus_num, align 8
   %call1 = tail call i32 %0(ptr noundef %s) #23
   ret i32 %call1
@@ -1180,16 +1144,17 @@ define dso_local void @pci_bus_range(ptr noundef %bus, ptr nocapture noundef %mi
 entry:
   %call.i.i = tail call ptr @object_get_class(ptr noundef %bus) #23
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
-  %bus_num.i = getelementptr inbounds %struct.PCIBusClass, ptr %call1.i.i, i64 0, i32 1
+  %bus_num.i = getelementptr inbounds i8, ptr %call1.i.i, i64 160
   %0 = load ptr, ptr %bus_num.i, align 8
   %call1.i = tail call i32 %0(ptr noundef %bus) #23
   store i32 %call1.i, ptr %max_bus, align 4
   store i32 %call1.i, ptr %min_bus, align 4
+  %devices = getelementptr inbounds i8, ptr %bus, i64 184
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr %struct.PCIBus, ptr %bus, i64 0, i32 10, i64 %indvars.iv
+  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
@@ -1201,7 +1166,7 @@ land.lhs.true:                                    ; preds = %for.body
 
 if.then:                                          ; preds = %land.lhs.true
   %2 = load i32, ptr %min_bus, align 4
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %1, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %1, i64 168
   %3 = load ptr, ptr %config, align 8
   %arrayidx4 = getelementptr i8, ptr %3, i64 25
   %4 = load i8, ptr %arrayidx4, align 1
@@ -1231,7 +1196,7 @@ define dso_local i32 @pci_bus_numa_node(ptr noundef %bus) local_unnamed_addr #0 
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %bus) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
-  %numa_node = getelementptr inbounds %struct.PCIBusClass, ptr %call1.i, i64 0, i32 2
+  %numa_node = getelementptr inbounds i8, ptr %call1.i, i64 168
   %0 = load ptr, ptr %numa_node, align 8
   %call1 = tail call zeroext i16 %0(ptr noundef %bus) #23
   %conv = zext i16 %call1 to i32
@@ -1261,14 +1226,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_device_save(ptr noundef %s, ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %s, i64 168
   %0 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 6
   %1 = load i8, ptr %arrayidx, align 1
   %2 = and i8 %1, -9
   store i8 %2, ptr %arrayidx, align 1
   %call = tail call i32 @vmstate_save_state(ptr noundef %f, ptr noundef nonnull @vmstate_pci_device, ptr noundef %s, ptr noundef null) #23
-  %irq_state.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 19
+  %irq_state.i = getelementptr inbounds i8, ptr %s, i64 1257
   %3 = load i8, ptr %irq_state.i, align 1
   %tobool.not.i = icmp eq i8 %3, 0
   %4 = load ptr, ptr %config, align 8
@@ -1286,13 +1251,13 @@ declare i32 @vmstate_save_state(ptr noundef, ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @pci_device_load(ptr noundef %s, ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %version_id = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 34
+  %version_id = getelementptr inbounds i8, ptr %s, i64 2156
   %0 = load i32, ptr %version_id, align 4
   %call = tail call i32 @vmstate_load_state(ptr noundef %f, ptr noundef nonnull @vmstate_pci_device, ptr noundef %s, i32 noundef %0) #23
-  %irq_state.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 19
+  %irq_state.i = getelementptr inbounds i8, ptr %s, i64 1257
   %1 = load i8, ptr %irq_state.i, align 1
   %tobool.not.i = icmp eq i8 %1, 0
-  %config2.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 3
+  %config2.i = getelementptr inbounds i8, ptr %s, i64 168
   %2 = load ptr, ptr %config2.i, align 8
   %arrayidx3.i = getelementptr i8, ptr %2, i64 6
   %3 = load i8, ptr %arrayidx3.i, align 1
@@ -1308,8 +1273,8 @@ declare i32 @vmstate_load_state(ptr noundef, ptr noundef, ptr noundef, i32 nound
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i16 @pci_requester_id(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
 entry:
-  %requester_id_cache = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 9
-  %type.i = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 9, i32 1
+  %requester_id_cache = getelementptr inbounds i8, ptr %dev, i64 216
+  %type.i = getelementptr inbounds i8, ptr %dev, i64 224
   %0 = load i32, ptr %type.i, align 8
   switch i32 %0, label %sw.default.i [
     i32 1, label %sw.bb.i
@@ -1323,11 +1288,11 @@ sw.bb.i:                                          ; preds = %entry
   %call.i1.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
   %call.i.i2.i.i = tail call ptr @object_get_class(ptr noundef %call.i1.i.i.i) #23
   %call1.i.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i2.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
-  %bus_num.i.i.i = getelementptr inbounds %struct.PCIBusClass, ptr %call1.i.i.i.i, i64 0, i32 1
+  %bus_num.i.i.i = getelementptr inbounds i8, ptr %call1.i.i.i.i, i64 160
   %2 = load ptr, ptr %bus_num.i.i.i, align 8
   %call1.i3.i.i = tail call i32 %2(ptr noundef %call.i1.i.i.i) #23
   %shl.i.i = shl i32 %call1.i3.i.i, 8
-  %devfn.i.i = getelementptr inbounds %struct.PCIDevice, ptr %1, i64 0, i32 8
+  %devfn.i.i = getelementptr inbounds i8, ptr %1, i64 208
   %3 = load i32, ptr %devfn.i.i, align 16
   %or.i.i = or i32 %shl.i.i, %3
   %conv.i.i = trunc i32 %or.i.i to i16
@@ -1340,7 +1305,7 @@ sw.bb1.i:                                         ; preds = %entry
   %call.i1.i.i6.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i5.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
   %call.i.i1.i.i = tail call ptr @object_get_class(ptr noundef %call.i1.i.i6.i) #23
   %call1.i.i.i7.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i1.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
-  %bus_num.i.i8.i = getelementptr inbounds %struct.PCIBusClass, ptr %call1.i.i.i7.i, i64 0, i32 1
+  %bus_num.i.i8.i = getelementptr inbounds i8, ptr %call1.i.i.i7.i, i64 160
   %5 = load ptr, ptr %bus_num.i.i8.i, align 8
   %call1.i2.i.i = tail call i32 %5(ptr noundef %call.i1.i.i6.i) #23
   %call3.tr.i = trunc i32 %call1.i2.i.i to i16
@@ -1360,7 +1325,7 @@ pci_req_id_cache_extract.exit:                    ; preds = %sw.bb.i, %sw.bb1.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @pci_bus_get_slot_reserved_mask(ptr nocapture noundef readonly %bus) local_unnamed_addr #5 {
 entry:
-  %slot_reserved_mask = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 5
+  %slot_reserved_mask = getelementptr inbounds i8, ptr %bus, i64 148
   %0 = load i32, ptr %slot_reserved_mask, align 4
   ret i32 %0
 }
@@ -1368,7 +1333,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @pci_bus_set_slot_reserved_mask(ptr nocapture noundef %bus, i32 noundef %mask) local_unnamed_addr #6 {
 entry:
-  %slot_reserved_mask = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 5
+  %slot_reserved_mask = getelementptr inbounds i8, ptr %bus, i64 148
   %0 = load i32, ptr %slot_reserved_mask, align 4
   %or = or i32 %0, %mask
   store i32 %or, ptr %slot_reserved_mask, align 4
@@ -1379,7 +1344,7 @@ entry:
 define dso_local void @pci_bus_clear_slot_reserved_mask(ptr nocapture noundef %bus, i32 noundef %mask) local_unnamed_addr #6 {
 entry:
   %not = xor i32 %mask, -1
-  %slot_reserved_mask = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 5
+  %slot_reserved_mask = getelementptr inbounds i8, ptr %bus, i64 148
   %0 = load i32, ptr %slot_reserved_mask, align 4
   %and = and i32 %0, %not
   store i32 %and, ptr %slot_reserved_mask, align 4
@@ -1425,7 +1390,7 @@ if.else11:                                        ; preds = %if.end8
   unreachable
 
 if.end12:                                         ; preds = %if.end8
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %pci_dev, i64 168
   %2 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %2, i64 14
   %3 = load i8, ptr %arrayidx, align 1
@@ -1440,14 +1405,15 @@ if.else20:                                        ; preds = %if.end12
   unreachable
 
 if.end21:                                         ; preds = %if.end12
+  %io_regions = getelementptr inbounds i8, ptr %pci_dev, i64 296
   %idxprom = zext nneg i32 %region_num to i64
-  %arrayidx22 = getelementptr %struct.PCIDevice, ptr %pci_dev, i64 0, i32 11, i64 %idxprom
+  %arrayidx22 = getelementptr [7 x %struct.PCIIORegion], ptr %io_regions, i64 0, i64 %idxprom
   store i64 -1, ptr %arrayidx22, align 8
-  %size24 = getelementptr %struct.PCIDevice, ptr %pci_dev, i64 0, i32 11, i64 %idxprom, i32 1
+  %size24 = getelementptr inbounds i8, ptr %arrayidx22, i64 8
   store i64 %call, ptr %size24, align 8
-  %type25 = getelementptr %struct.PCIDevice, ptr %pci_dev, i64 0, i32 11, i64 %idxprom, i32 2
+  %type25 = getelementptr inbounds i8, ptr %arrayidx22, i64 16
   store i8 %type, ptr %type25, align 8
-  %memory26 = getelementptr %struct.PCIDevice, ptr %pci_dev, i64 0, i32 11, i64 %idxprom, i32 3
+  %memory26 = getelementptr inbounds i8, ptr %arrayidx22, i64 24
   store ptr %memory, ptr %memory26, align 8
   %conv27 = zext i8 %type to i32
   %and28 = and i32 %conv27, 1
@@ -1455,11 +1421,10 @@ if.end21:                                         ; preds = %if.end12
   %call.i.i36 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %pci_dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i37 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i36) #23
   %call.i1.i38 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i37, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %address_space_io = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i38, i64 0, i32 13
-  %address_space_mem = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i38, i64 0, i32 12
-  %cond.in = select i1 %tobool29.not, ptr %address_space_mem, ptr %address_space_io
-  %cond = load ptr, ptr %cond.in, align 8
-  %address_space = getelementptr %struct.PCIDevice, ptr %pci_dev, i64 0, i32 11, i64 %idxprom, i32 4
+  %. = select i1 %tobool29.not, i64 2240, i64 2248
+  %address_space_mem = getelementptr inbounds i8, ptr %call.i1.i38, i64 %.
+  %cond = load ptr, ptr %address_space_mem, align 8
+  %address_space = getelementptr inbounds i8, ptr %arrayidx22, i64 32
   store ptr %cond, ptr %address_space, align 8
   %not = sub i64 0, %call
   %cmp32 = icmp eq i32 %region_num, 6
@@ -1507,14 +1472,14 @@ if.end35:                                         ; preds = %pci_bar.exit, %pci_
   %9 = load i8, ptr %type25, align 8
   %10 = and i8 %9, 5
   %or.cond35.not = icmp eq i8 %10, 4
-  %wmask48 = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 5
+  %wmask48 = getelementptr inbounds i8, ptr %pci_dev, i64 184
   %11 = load ptr, ptr %wmask48, align 8
   %add.ptr50 = getelementptr i8, ptr %11, i64 %idx.ext
   br i1 %or.cond35.not, label %if.then47, label %if.else53
 
 if.then47:                                        ; preds = %if.end35
   store i64 %wmask.0, ptr %add.ptr50, align 1
-  %cmask = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 4
+  %cmask = getelementptr inbounds i8, ptr %pci_dev, i64 176
   %12 = load ptr, ptr %cmask, align 16
   %add.ptr52 = getelementptr i8, ptr %12, i64 %idx.ext
   store i64 -1, ptr %add.ptr52, align 1
@@ -1523,7 +1488,7 @@ if.then47:                                        ; preds = %if.end35
 if.else53:                                        ; preds = %if.end35
   %conv58 = trunc i64 %wmask.0 to i32
   store i32 %conv58, ptr %add.ptr50, align 1
-  %cmask59 = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 4
+  %cmask59 = getelementptr inbounds i8, ptr %pci_dev, i64 176
   %13 = load ptr, ptr %cmask59, align 16
   %add.ptr61 = getelementptr i8, ptr %13, i64 %idx.ext
   store i32 -1, ptr %add.ptr61, align 1
@@ -1541,7 +1506,7 @@ entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
   %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %has_vga = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 18
+  %has_vga = getelementptr inbounds i8, ptr %pci_dev, i64 1256
   %0 = load i8, ptr %has_vga, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1561,9 +1526,9 @@ if.else3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %vga_regions = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 17
+  %vga_regions = getelementptr inbounds i8, ptr %pci_dev, i64 1232
   store ptr %mem, ptr %vga_regions, align 16
-  %address_space_mem = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 12
+  %address_space_mem = getelementptr inbounds i8, ptr %call.i1.i, i64 2240
   %2 = load ptr, ptr %address_space_mem, align 8
   tail call void @memory_region_add_subregion_overlap(ptr noundef %2, i64 noundef 655360, ptr noundef %mem, i32 noundef 1) #23
   %call5 = tail call i64 @memory_region_size(ptr noundef %io_lo) #23
@@ -1575,9 +1540,9 @@ if.else8:                                         ; preds = %if.end4
   unreachable
 
 if.end9:                                          ; preds = %if.end4
-  %arrayidx11 = getelementptr %struct.PCIDevice, ptr %pci_dev, i64 0, i32 17, i64 1
+  %arrayidx11 = getelementptr i8, ptr %pci_dev, i64 1240
   store ptr %io_lo, ptr %arrayidx11, align 8
-  %address_space_io = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 13
+  %address_space_io = getelementptr inbounds i8, ptr %call.i1.i, i64 2248
   %3 = load ptr, ptr %address_space_io, align 8
   tail call void @memory_region_add_subregion_overlap(ptr noundef %3, i64 noundef 944, ptr noundef %io_lo, i32 noundef 1) #23
   %call12 = tail call i64 @memory_region_size(ptr noundef %io_hi) #23
@@ -1589,12 +1554,12 @@ if.else15:                                        ; preds = %if.end9
   unreachable
 
 pci_update_vga.exit:                              ; preds = %if.end9
-  %arrayidx18 = getelementptr %struct.PCIDevice, ptr %pci_dev, i64 0, i32 17, i64 2
+  %arrayidx18 = getelementptr i8, ptr %pci_dev, i64 1248
   store ptr %io_hi, ptr %arrayidx18, align 16
   %4 = load ptr, ptr %address_space_io, align 8
   tail call void @memory_region_add_subregion_overlap(ptr noundef %4, i64 noundef 960, ptr noundef %io_hi, i32 noundef 1) #23
   store i8 1, ptr %has_vga, align 8
-  %config.i = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 3
+  %config.i = getelementptr inbounds i8, ptr %pci_dev, i64 168
   %5 = load ptr, ptr %config.i, align 8
   %add.ptr.i = getelementptr i8, ptr %5, i64 4
   %add.ptr.val.i = load i16, ptr %add.ptr.i, align 1
@@ -1620,25 +1585,25 @@ entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
   %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %has_vga = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 18
+  %has_vga = getelementptr inbounds i8, ptr %pci_dev, i64 1256
   %0 = load i8, ptr %has_vga, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %address_space_mem = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 12
+  %address_space_mem = getelementptr inbounds i8, ptr %call.i1.i, i64 2240
   %2 = load ptr, ptr %address_space_mem, align 8
-  %vga_regions = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 17
+  %vga_regions = getelementptr inbounds i8, ptr %pci_dev, i64 1232
   %3 = load ptr, ptr %vga_regions, align 16
   tail call void @memory_region_del_subregion(ptr noundef %2, ptr noundef %3) #23
-  %address_space_io = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 13
+  %address_space_io = getelementptr inbounds i8, ptr %call.i1.i, i64 2248
   %4 = load ptr, ptr %address_space_io, align 8
-  %arrayidx2 = getelementptr %struct.PCIDevice, ptr %pci_dev, i64 0, i32 17, i64 1
+  %arrayidx2 = getelementptr i8, ptr %pci_dev, i64 1240
   %5 = load ptr, ptr %arrayidx2, align 8
   tail call void @memory_region_del_subregion(ptr noundef %4, ptr noundef %5) #23
   %6 = load ptr, ptr %address_space_io, align 8
-  %arrayidx5 = getelementptr %struct.PCIDevice, ptr %pci_dev, i64 0, i32 17, i64 2
+  %arrayidx5 = getelementptr i8, ptr %pci_dev, i64 1248
   %7 = load ptr, ptr %arrayidx5, align 16
   tail call void @memory_region_del_subregion(ptr noundef %6, ptr noundef %7) #23
   store i8 0, ptr %has_vga, align 8
@@ -1653,8 +1618,9 @@ declare void @memory_region_del_subregion(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @pci_get_bar_addr(ptr nocapture noundef readonly %pci_dev, i32 noundef %region_num) local_unnamed_addr #5 {
 entry:
+  %io_regions = getelementptr inbounds i8, ptr %pci_dev, i64 296
   %idxprom = sext i32 %region_num to i64
-  %arrayidx = getelementptr %struct.PCIDevice, ptr %pci_dev, i64 0, i32 11, i64 %idxprom
+  %arrayidx = getelementptr [7 x %struct.PCIIORegion], ptr %io_regions, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 8
   ret i64 %0
 }
@@ -1662,14 +1628,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @pci_bar_address(ptr nocapture noundef readonly %d, i32 noundef %reg, i8 noundef zeroext %type, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %d, i64 168
   %0 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 4
   %add.ptr.val = load i16, ptr %add.ptr, align 1
   %call1 = tail call ptr @qdev_get_machine() #23
   %call.i = tail call ptr @object_get_class(ptr noundef %call1) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #23
-  %pci_allow_0_address = getelementptr inbounds %struct.MachineClass, ptr %call1.i, i64 0, i32 15
+  %pci_allow_0_address = getelementptr inbounds i8, ptr %call1.i, i64 188
   %bf.load = load i8, ptr %pci_allow_0_address, align 4
   %1 = and i8 %bf.load, 32
   %tobool.not = icmp eq i8 %1, 0
@@ -1727,13 +1693,13 @@ if.else.i:                                        ; preds = %pci_bar.exit.i
   br label %pci_config_get_bar_addr.exit
 
 if.else10.i:                                      ; preds = %if.end
-  %sriov_cap13.i = getelementptr inbounds %struct.PCIDevice, ptr %d.val.i, i64 0, i32 36, i32 7
+  %sriov_cap13.i = getelementptr inbounds i8, ptr %d.val.i, i64 2196
   %9 = load i16, ptr %sriov_cap13.i, align 4
   %conv15.i = zext i16 %9 to i32
   %mul.i = shl i32 %reg, 2
   %add.i = add i32 %mul.i, 36
   %add16.i = add i32 %add.i, %conv15.i
-  %config17.i = getelementptr inbounds %struct.PCIDevice, ptr %d.val.i, i64 0, i32 3
+  %config17.i = getelementptr inbounds i8, ptr %d.val.i, i64 168
   %10 = load ptr, ptr %config17.i, align 8
   %idx.ext19.i = zext i16 %9 to i64
   %add.ptr20.i = getelementptr i8, ptr %10, i64 %idx.ext19.i
@@ -1741,9 +1707,9 @@ if.else10.i:                                      ; preds = %if.end
   %add.ptr21.val.i = load i16, ptr %add.ptr21.i, align 1
   %add.ptr27.i = getelementptr i8, ptr %add.ptr20.i, i64 22
   %add.ptr27.val.i = load i16, ptr %add.ptr27.i, align 1
-  %devfn.i = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 8
+  %devfn.i = getelementptr inbounds i8, ptr %d, i64 208
   %11 = load i32, ptr %devfn.i, align 16
-  %devfn29.i = getelementptr inbounds %struct.PCIDevice, ptr %d.val.i, i64 0, i32 8
+  %devfn29.i = getelementptr inbounds i8, ptr %d.val.i, i64 208
   %12 = load i32, ptr %devfn29.i, align 16
   %conv30.i = zext i16 %add.ptr21.val.i to i32
   %13 = add i32 %12, %conv30.i
@@ -1838,13 +1804,13 @@ if.else.i88:                                      ; preds = %pci_bar.exit.i80
   br label %pci_config_get_bar_addr.exit96
 
 if.else10.i38:                                    ; preds = %if.end23
-  %sriov_cap13.i39 = getelementptr inbounds %struct.PCIDevice, ptr %d.val.i36, i64 0, i32 36, i32 7
+  %sriov_cap13.i39 = getelementptr inbounds i8, ptr %d.val.i36, i64 2196
   %22 = load i16, ptr %sriov_cap13.i39, align 4
   %conv15.i40 = zext i16 %22 to i32
   %mul.i41 = shl i32 %reg, 2
   %add.i42 = add i32 %mul.i41, 36
   %add16.i43 = add i32 %add.i42, %conv15.i40
-  %config17.i44 = getelementptr inbounds %struct.PCIDevice, ptr %d.val.i36, i64 0, i32 3
+  %config17.i44 = getelementptr inbounds i8, ptr %d.val.i36, i64 168
   %23 = load ptr, ptr %config17.i44, align 8
   %idx.ext19.i45 = zext i16 %22 to i64
   %add.ptr20.i46 = getelementptr i8, ptr %23, i64 %idx.ext19.i45
@@ -1852,9 +1818,9 @@ if.else10.i38:                                    ; preds = %if.end23
   %add.ptr21.val.i48 = load i16, ptr %add.ptr21.i47, align 1
   %add.ptr27.i49 = getelementptr i8, ptr %add.ptr20.i46, i64 22
   %add.ptr27.val.i50 = load i16, ptr %add.ptr27.i49, align 1
-  %devfn.i51 = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 8
+  %devfn.i51 = getelementptr inbounds i8, ptr %d, i64 208
   %24 = load i32, ptr %devfn.i51, align 16
-  %devfn29.i52 = getelementptr inbounds %struct.PCIDevice, ptr %d.val.i36, i64 0, i32 8
+  %devfn29.i52 = getelementptr inbounds i8, ptr %d.val.i36, i64 208
   %25 = load i32, ptr %devfn29.i52, align 16
   %conv30.i53 = zext i16 %add.ptr21.val.i48 to i32
   %26 = add i32 %25, %conv30.i53
@@ -1943,7 +1909,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.end9, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end
-  %exp.i = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 36
+  %exp.i = getelementptr inbounds i8, ptr %d, i64 2168
   %1 = load i8, ptr %exp.i, align 8
   %tobool1.not.i = icmp eq i8 %1, 0
   br i1 %tobool1.not.i, label %if.end9, label %pci_is_express_downstream_port.exit
@@ -1973,7 +1939,7 @@ if.then8:                                         ; preds = %land.lhs.true
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end, %lor.lhs.false.i, %if.then8, %land.lhs.true, %pci_is_express_downstream_port.exit
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %d, i64 168
   %4 = load ptr, ptr %config, align 8
   %idx.ext = zext i32 %address to i64
   %add.ptr = getelementptr i8, ptr %4, i64 %idx.ext
@@ -2010,8 +1976,8 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp278, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %wmask3 = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 5
-  %w1cmask5 = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 6
+  %wmask3 = getelementptr inbounds i8, ptr %d, i64 184
+  %w1cmask5 = getelementptr inbounds i8, ptr %d, i64 192
   %wide.trip.count = zext nneg i32 %l to i64
   br label %for.body
 
@@ -2140,7 +2106,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   br i1 %exitcond.not.i, label %pci_update_irq_disabled.exit, label %for.body.i, !llvm.loop !12
 
 pci_update_irq_disabled.exit:                     ; preds = %for.body.i, %for.body.us.i, %if.then60
-  %bus_master_enable_region = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 14
+  %bus_master_enable_region = getelementptr inbounds i8, ptr %d, i64 944
   %19 = load ptr, ptr %0, align 8
   %add.ptr = getelementptr i8, ptr %19, i64 4
   %add.ptr.val = load i16, ptr %add.ptr, align 1
@@ -2149,7 +2115,7 @@ pci_update_irq_disabled.exit:                     ; preds = %for.body.i, %for.bo
   br i1 %tobool65.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %pci_update_irq_disabled.exit
-  %has_power = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 2
+  %has_power = getelementptr inbounds i8, ptr %d, i64 161
   %21 = load i8, ptr %has_power, align 1
   %22 = and i8 %21, 1
   %tobool66 = icmp ne i8 %22, 0
@@ -2172,23 +2138,24 @@ define internal fastcc void @pci_update_mappings(ptr noundef %d) unnamed_addr #0
 entry:
   %_now.i.i41 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %has_power = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 2
-  %name = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 10
-  %devfn = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %tv_usec.i.i53 = getelementptr inbounds %struct.timeval, ptr %_now.i.i41, i64 0, i32 1
+  %io_regions = getelementptr inbounds i8, ptr %d, i64 296
+  %has_power = getelementptr inbounds i8, ptr %d, i64 161
+  %name = getelementptr inbounds i8, ptr %d, i64 232
+  %devfn = getelementptr inbounds i8, ptr %d, i64 208
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i53 = getelementptr inbounds i8, ptr %_now.i.i41, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr %struct.PCIDevice, ptr %d, i64 0, i32 11, i64 %indvars.iv
-  %size = getelementptr %struct.PCIDevice, ptr %d, i64 0, i32 11, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr [7 x %struct.PCIIORegion], ptr %io_regions, i64 0, i64 %indvars.iv
+  %size = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load i64, ptr %size, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %type = getelementptr %struct.PCIDevice, ptr %d, i64 0, i32 11, i64 %indvars.iv, i32 2
+  %type = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load i8, ptr %type, align 8
   %2 = trunc i64 %indvars.iv to i32
   %call = tail call i64 @pci_bar_address(ptr noundef nonnull %d, i32 noundef %2, i8 noundef zeroext %1, i64 noundef %0)
@@ -2210,7 +2177,7 @@ if.then10:                                        ; preds = %if.end7
   %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
   %call.i.i1.i = tail call ptr @object_get_class(ptr noundef %call.i1.i.i) #23
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
-  %bus_num.i.i = getelementptr inbounds %struct.PCIBusClass, ptr %call1.i.i.i, i64 0, i32 1
+  %bus_num.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 160
   %6 = load ptr, ptr %bus_num.i.i, align 8
   %call1.i2.i = tail call i32 %6(ptr noundef %call.i1.i.i) #23
   %7 = load i32, ptr %devfn, align 16
@@ -2253,9 +2220,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pci_update_mappings_del.exit:               ; preds = %if.then10, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %address_space = getelementptr %struct.PCIDevice, ptr %d, i64 0, i32 11, i64 %indvars.iv, i32 4
+  %address_space = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %17 = load ptr, ptr %address_space, align 8
-  %memory = getelementptr %struct.PCIDevice, ptr %d, i64 0, i32 11, i64 %indvars.iv, i32 3
+  %memory = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %18 = load ptr, ptr %memory, align 8
   tail call void @memory_region_del_subregion(ptr noundef %17, ptr noundef %18) #23
   br label %if.end16
@@ -2271,7 +2238,7 @@ if.then20:                                        ; preds = %if.end16
   %call.i1.i.i36 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i35, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
   %call.i.i1.i37 = tail call ptr @object_get_class(ptr noundef %call.i1.i.i36) #23
   %call1.i.i.i38 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i1.i37, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
-  %bus_num.i.i39 = getelementptr inbounds %struct.PCIBusClass, ptr %call1.i.i.i38, i64 0, i32 1
+  %bus_num.i.i39 = getelementptr inbounds i8, ptr %call1.i.i.i38, i64 160
   %19 = load ptr, ptr %bus_num.i.i39, align 8
   %call1.i2.i40 = tail call i32 %19(ptr noundef %call.i1.i.i36) #23
   %20 = load i32, ptr %devfn, align 16
@@ -2314,10 +2281,10 @@ if.else.i.i54:                                    ; preds = %if.then.i.i48
 
 trace_pci_update_mappings_add.exit:               ; preds = %if.then20, %land.lhs.true5.i.i45, %if.then8.i.i50, %if.else.i.i54
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i41)
-  %address_space31 = getelementptr %struct.PCIDevice, ptr %d, i64 0, i32 11, i64 %indvars.iv, i32 4
+  %address_space31 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %30 = load ptr, ptr %address_space31, align 8
   %31 = load i64, ptr %arrayidx, align 8
-  %memory33 = getelementptr %struct.PCIDevice, ptr %d, i64 0, i32 11, i64 %indvars.iv, i32 3
+  %memory33 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %32 = load ptr, ptr %memory33, align 8
   tail call void @memory_region_add_subregion_overlap(ptr noundef %30, i64 noundef %31, ptr noundef %32, i32 noundef 1) #23
   br label %for.inc
@@ -2328,29 +2295,29 @@ for.inc:                                          ; preds = %if.end16, %trace_pc
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc
-  %has_vga.i = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 18
+  %has_vga.i = getelementptr inbounds i8, ptr %d, i64 1256
   %33 = load i8, ptr %has_vga.i, align 8
   %34 = and i8 %33, 1
   %tobool.not.i = icmp eq i8 %34, 0
   br i1 %tobool.not.i, label %pci_update_vga.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.end
-  %config.i = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 3
+  %config.i = getelementptr inbounds i8, ptr %d, i64 168
   %35 = load ptr, ptr %config.i, align 8
   %add.ptr.i = getelementptr i8, ptr %35, i64 4
   %add.ptr.val.i = load i16, ptr %add.ptr.i, align 1
-  %vga_regions.i = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 17
+  %vga_regions.i = getelementptr inbounds i8, ptr %d, i64 1232
   %36 = load ptr, ptr %vga_regions.i, align 16
   %conv.i = zext i16 %add.ptr.val.i to i32
   %and.i = and i32 %conv.i, 2
   %tobool1.i = icmp ne i32 %and.i, 0
   tail call void @memory_region_set_enabled(ptr noundef %36, i1 noundef zeroext %tobool1.i) #23
-  %arrayidx3.i = getelementptr %struct.PCIDevice, ptr %d, i64 0, i32 17, i64 1
+  %arrayidx3.i = getelementptr i8, ptr %d, i64 1240
   %37 = load ptr, ptr %arrayidx3.i, align 8
   %and5.i = and i32 %conv.i, 1
   %tobool6.i = icmp ne i32 %and5.i, 0
   tail call void @memory_region_set_enabled(ptr noundef %37, i1 noundef zeroext %tobool6.i) #23
-  %arrayidx8.i = getelementptr %struct.PCIDevice, ptr %d, i64 0, i32 17, i64 2
+  %arrayidx8.i = getelementptr i8, ptr %d, i64 1248
   %38 = load ptr, ptr %arrayidx8.i, align 16
   tail call void @memory_region_set_enabled(ptr noundef %38, i1 noundef zeroext %tobool6.i) #23
   br label %pci_update_vga.exit
@@ -2469,7 +2436,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %route_intx_to_irq1 = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 8
+  %route_intx_to_irq1 = getelementptr inbounds i8, ptr %bus, i64 168
   store ptr %route_intx_to_irq, ptr %route_intx_to_irq1, align 8
   ret void
 }
@@ -2478,7 +2445,7 @@ if.end:                                           ; preds = %entry
 define dso_local i64 @pci_device_route_intx_to_irq(ptr noundef %dev, i32 noundef %pin) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %trace_pci_route_irq.exit, %entry
@@ -2487,11 +2454,11 @@ do.body:                                          ; preds = %trace_pci_route_irq
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev.addr.0, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
   %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %map_irq = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 7
+  %map_irq = getelementptr inbounds i8, ptr %call.i1.i, i64 160
   %0 = load ptr, ptr %map_irq, align 8
   %call1 = tail call i32 %0(ptr noundef %dev.addr.0, i32 noundef %pin.addr.0) #23
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev.addr.0, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %canonical_path = getelementptr inbounds %struct.DeviceState, ptr %call.i, i64 0, i32 2
+  %canonical_path = getelementptr inbounds i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %canonical_path, align 8
   %2 = getelementptr i8, ptr %call.i1.i, i64 120
   %call.val = load i32, ptr %2, align 8
@@ -2500,10 +2467,10 @@ do.body:                                          ; preds = %trace_pci_route_irq
   br i1 %tobool.i.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %do.body
-  %parent_dev = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 11
+  %parent_dev = getelementptr inbounds i8, ptr %call.i1.i, i64 2232
   %3 = load ptr, ptr %parent_dev, align 8
   %call.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %3, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %canonical_path5 = getelementptr inbounds %struct.DeviceState, ptr %call.i15, i64 0, i32 2
+  %canonical_path5 = getelementptr inbounds i8, ptr %call.i15, i64 48
   %4 = load ptr, ptr %canonical_path5, align 8
   br label %cond.end
 
@@ -2543,26 +2510,26 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pci_route_irq.exit:                         ; preds = %cond.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %parent_dev6 = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 11
+  %parent_dev6 = getelementptr inbounds i8, ptr %call.i1.i, i64 2232
   %12 = load ptr, ptr %parent_dev6, align 8
   %tobool.not = icmp eq ptr %12, null
   br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !14
 
 do.end:                                           ; preds = %trace_pci_route_irq.exit
-  %route_intx_to_irq = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 8
+  %route_intx_to_irq = getelementptr inbounds i8, ptr %call.i1.i, i64 168
   %13 = load ptr, ptr %route_intx_to_irq, align 8
   %tobool7.not = icmp eq ptr %13, null
   br i1 %tobool7.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.end
-  %parent = getelementptr inbounds %struct.BusState, ptr %call.i1.i, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call.i1.i, i64 40
   %14 = load ptr, ptr %parent, align 8
   %call8 = tail call ptr @object_get_typename(ptr noundef %14) #23
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.27, ptr noundef %call8) #23
   br label %return
 
 if.end:                                           ; preds = %do.end
-  %irq_opaque = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 9
+  %irq_opaque = getelementptr inbounds i8, ptr %call.i1.i, i64 176
   %15 = load ptr, ptr %irq_opaque, align 8
   %call10 = tail call i64 %13(ptr noundef %15, i32 noundef %call1) #23
   br label %return
@@ -2585,9 +2552,9 @@ entry:
   br i1 %cmp.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %irq = getelementptr inbounds %struct.PCIINTxRoute, ptr %old, i64 0, i32 1
+  %irq = getelementptr inbounds i8, ptr %old, i64 4
   %2 = load i32, ptr %irq, align 4
-  %irq2 = getelementptr inbounds %struct.PCIINTxRoute, ptr %new, i64 0, i32 1
+  %irq2 = getelementptr inbounds i8, ptr %new, i64 4
   %3 = load i32, ptr %irq2, align 4
   %cmp3 = icmp ne i32 %2, %3
   br label %lor.end
@@ -2600,17 +2567,18 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_bus_fire_intx_routing_notifier(ptr nocapture noundef readonly %bus) local_unnamed_addr #0 {
 entry:
+  %devices = getelementptr inbounds i8, ptr %bus, i64 184
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr %struct.PCIBus, ptr %bus, i64 0, i32 10, i64 %indvars.iv
+  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %intx_routing_notifier = getelementptr inbounds %struct.PCIDevice, ptr %0, i64 0, i32 43
+  %intx_routing_notifier = getelementptr inbounds i8, ptr %0, i64 2552
   %1 = load ptr, ptr %intx_routing_notifier, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %for.inc, label %if.then
@@ -2625,7 +2593,7 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc
-  %child = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 14
+  %child = getelementptr inbounds i8, ptr %bus, i64 2256
   %sec.011 = load ptr, ptr %child, align 8
   %tobool5.not12 = icmp eq ptr %sec.011, null
   br i1 %tobool5.not12, label %for.end8, label %for.body6
@@ -2633,7 +2601,7 @@ for.end:                                          ; preds = %for.inc
 for.body6:                                        ; preds = %for.end, %for.body6
   %sec.013 = phi ptr [ %sec.0, %for.body6 ], [ %sec.011, %for.end ]
   tail call void @pci_bus_fire_intx_routing_notifier(ptr noundef nonnull %sec.013)
-  %sibling = getelementptr inbounds %struct.PCIBus, ptr %sec.013, i64 0, i32 15
+  %sibling = getelementptr inbounds i8, ptr %sec.013, i64 2264
   %sec.0 = load ptr, ptr %sibling, align 8
   %tobool5.not = icmp eq ptr %sec.0, null
   br i1 %tobool5.not, label %for.end8, label %for.body6, !llvm.loop !16
@@ -2645,7 +2613,7 @@ for.end8:                                         ; preds = %for.body6, %for.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @pci_device_set_intx_routing_notifier(ptr nocapture noundef writeonly %dev, ptr noundef %notifier) local_unnamed_addr #4 {
 entry:
-  %intx_routing_notifier = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 43
+  %intx_routing_notifier = getelementptr inbounds i8, ptr %dev, i64 2552
   store ptr %notifier, ptr %intx_routing_notifier, align 8
   ret void
 }
@@ -2653,7 +2621,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @pci_swizzle_map_irq_fn(ptr nocapture noundef readonly %pci_dev, i32 noundef %pin) local_unnamed_addr #5 {
 entry:
-  %devfn = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 8
+  %devfn = getelementptr inbounds i8, ptr %pci_dev, i64 208
   %0 = load i32, ptr %devfn, align 16
   %shr = lshr i32 %0, 3
   %and = and i32 %shr, 31
@@ -2665,13 +2633,14 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_for_each_device_under_bus_reverse(ptr noundef %bus, ptr nocapture noundef readonly %fn, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
+  %devices = getelementptr inbounds i8, ptr %bus, i64 184
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %devfn.05 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
   %0 = xor i32 %devfn.05, 255
   %sub = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr %struct.PCIBus, ptr %bus, i64 0, i32 10, i64 %sub
+  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %sub
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -2694,13 +2663,17 @@ define dso_local void @pci_for_each_device_reverse(ptr noundef %bus, i32 noundef
 entry:
   %call = tail call ptr @pci_find_bus_nr(ptr noundef %bus, i32 noundef %bus_num)
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %if.end, label %for.body.i
+  br i1 %tobool.not, label %if.end, label %if.then
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %devfn.05.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %entry ]
+if.then:                                          ; preds = %entry
+  %devices.i = getelementptr inbounds i8, ptr %call, i64 184
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %if.then
+  %devfn.05.i = phi i32 [ 0, %if.then ], [ %inc.i, %for.inc.i ]
   %0 = xor i32 %devfn.05.i, 255
   %sub.i = zext nneg i32 %0 to i64
-  %arrayidx.i = getelementptr %struct.PCIBus, ptr %call, i64 0, i32 10, i64 %sub.i
+  %arrayidx.i = getelementptr [256 x ptr], ptr %devices.i, i64 0, i64 %sub.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
@@ -2727,7 +2700,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %bus) #23
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
-  %bus_num.i = getelementptr inbounds %struct.PCIBusClass, ptr %call1.i.i, i64 0, i32 1
+  %bus_num.i = getelementptr inbounds i8, ptr %call1.i.i, i64 160
   %0 = load ptr, ptr %bus_num.i, align 8
   %call1.i = tail call i32 %0(ptr noundef nonnull %bus) #23
   %cmp = icmp eq i32 %call1.i, %bus_num
@@ -2741,7 +2714,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %tobool.i.not, label %land.lhs.true, label %if.end6
 
 land.lhs.true:                                    ; preds = %if.end2
-  %parent_dev = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 11
+  %parent_dev = getelementptr inbounds i8, ptr %bus, i64 2232
   %2 = load ptr, ptr %parent_dev, align 8
   %3 = getelementptr i8, ptr %2, i64 168
   %.val = load ptr, ptr %3, align 8
@@ -2766,7 +2739,7 @@ pci_secondary_bus_in_range.exit:                  ; preds = %land.lhs.true.i
   br i1 %cmp7.i.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %pci_secondary_bus_in_range.exit, %if.end2
-  %child56 = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 14
+  %child56 = getelementptr inbounds i8, ptr %bus, i64 2256
   %sec.04257 = load ptr, ptr %child56, align 8
   %tobool9.not4358 = icmp eq ptr %sec.04257, null
   br i1 %tobool9.not4358, label %return, label %for.body10
@@ -2775,7 +2748,7 @@ for.body10:                                       ; preds = %if.end6, %for.body1
   %sec.044 = phi ptr [ %sec.044.be, %for.body10.backedge ], [ %sec.04257, %if.end6 ]
   %call.i.i19 = tail call ptr @object_get_class(ptr noundef nonnull %sec.044) #23
   %call1.i.i20 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i19, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
-  %bus_num.i21 = getelementptr inbounds %struct.PCIBusClass, ptr %call1.i.i20, i64 0, i32 1
+  %bus_num.i21 = getelementptr inbounds i8, ptr %call1.i.i20, i64 160
   %7 = load ptr, ptr %bus_num.i21, align 8
   %call1.i22 = tail call i32 %7(ptr noundef nonnull %sec.044) #23
   %cmp12 = icmp eq i32 %call1.i22, %bus_num
@@ -2786,12 +2759,16 @@ if.end14:                                         ; preds = %for.body10
   %sec.0.val = load i32, ptr %8, align 8
   %and.i23 = and i32 %sec.0.val, 1
   %tobool.i24.not = icmp eq i32 %and.i23, 0
-  br i1 %tobool.i24.not, label %if.else, label %for.body.i
+  br i1 %tobool.i24.not, label %if.else, label %if.then16
 
-for.body.i:                                       ; preds = %if.end14, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.end14 ]
-  %cmp6.i = phi i1 [ %cmp.i, %for.inc.i ], [ true, %if.end14 ]
-  %arrayidx.i25 = getelementptr %struct.PCIBus, ptr %sec.044, i64 0, i32 10, i64 %indvars.iv.i
+if.then16:                                        ; preds = %if.end14
+  %devices.i = getelementptr inbounds i8, ptr %sec.044, i64 184
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %if.then16
+  %indvars.iv.i = phi i64 [ 0, %if.then16 ], [ %indvars.iv.next.i, %for.inc.i ]
+  %cmp6.i = phi i1 [ true, %if.then16 ], [ %cmp.i, %for.inc.i ]
+  %arrayidx.i25 = getelementptr [256 x ptr], ptr %devices.i, i64 0, i64 %indvars.iv.i
   %9 = load ptr, ptr %arrayidx.i25, align 8
   %tobool.not.i26 = icmp eq ptr %9, null
   br i1 %tobool.not.i26, label %for.inc.i, label %land.lhs.true.i27
@@ -2835,7 +2812,7 @@ pci_root_bus_in_range.exit:                       ; preds = %pci_secondary_bus_i
   br i1 %cmp.lcssa.i, label %for.inc25, label %for.inc
 
 if.else:                                          ; preds = %if.end14
-  %parent_dev20 = getelementptr inbounds %struct.PCIBus, ptr %sec.044, i64 0, i32 11
+  %parent_dev20 = getelementptr inbounds i8, ptr %sec.044, i64 2232
   %14 = load ptr, ptr %parent_dev20, align 8
   %15 = getelementptr i8, ptr %14, i64 168
   %.val18 = load ptr, ptr %15, align 8
@@ -2860,7 +2837,7 @@ pci_secondary_bus_in_range.exit39:                ; preds = %land.lhs.true.i31
   br i1 %cmp7.i38.not, label %for.inc, label %for.inc25
 
 for.inc:                                          ; preds = %if.else, %land.lhs.true.i31, %pci_root_bus_in_range.exit, %pci_secondary_bus_in_range.exit39
-  %sibling = getelementptr inbounds %struct.PCIBus, ptr %sec.044, i64 0, i32 15
+  %sibling = getelementptr inbounds i8, ptr %sec.044, i64 2264
   %sec.0 = load ptr, ptr %sibling, align 8
   %tobool9.not = icmp eq ptr %sec.0, null
   br i1 %tobool9.not, label %return, label %for.body10.backedge
@@ -2870,7 +2847,7 @@ for.body10.backedge:                              ; preds = %for.inc, %for.inc25
   br label %for.body10, !llvm.loop !19
 
 for.inc25:                                        ; preds = %pci_secondary_bus_in_range.exit39, %pci_root_bus_in_range.exit
-  %child = getelementptr inbounds %struct.PCIBus, ptr %sec.044, i64 0, i32 14
+  %child = getelementptr inbounds i8, ptr %sec.044, i64 2256
   %sec.042 = load ptr, ptr %child, align 8
   %tobool9.not43 = icmp eq ptr %sec.042, null
   br i1 %tobool9.not43, label %return, label %for.body10.backedge
@@ -2883,11 +2860,12 @@ return:                                           ; preds = %for.inc25, %for.inc
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_for_each_device_under_bus(ptr noundef %bus, ptr nocapture noundef readonly %fn, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
+  %devices = getelementptr inbounds i8, ptr %bus, i64 184
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr %struct.PCIBus, ptr %bus, i64 0, i32 10, i64 %indvars.iv
+  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -2910,11 +2888,15 @@ define dso_local void @pci_for_each_device(ptr noundef %bus, i32 noundef %bus_nu
 entry:
   %call = tail call ptr @pci_find_bus_nr(ptr noundef %bus, i32 noundef %bus_num)
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %if.end, label %for.body.i
+  br i1 %tobool.not, label %if.end, label %if.then
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr %struct.PCIBus, ptr %call, i64 0, i32 10, i64 %indvars.iv.i
+if.then:                                          ; preds = %entry
+  %devices.i = getelementptr inbounds i8, ptr %call, i64 184
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.inc.i, %if.then
+  %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.inc.i ]
+  %arrayidx.i = getelementptr [256 x ptr], ptr %devices.i, i64 0, i64 %indvars.iv.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
@@ -2945,8 +2927,8 @@ land.rhs:                                         ; preds = %entry, %while.body
   br i1 %cmp.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %incdec.ptr = getelementptr %struct.pci_class_desc, ptr %desc.04, i64 1
-  %desc1 = getelementptr %struct.pci_class_desc, ptr %desc.04, i64 1, i32 1
+  %incdec.ptr = getelementptr i8, ptr %desc.04, i64 32
+  %desc1 = getelementptr i8, ptr %desc.04, i64 40
   %1 = load ptr, ptr %desc1, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %land.rhs, !llvm.loop !21
@@ -2960,11 +2942,11 @@ while.end:                                        ; preds = %while.body, %land.r
 define dso_local ptr @pci_nic_init_nofail(ptr noundef %nd, ptr noundef %rootbus, ptr noundef %default_model, ptr noundef %default_devaddr) local_unnamed_addr #0 {
 entry:
   %e.i = alloca ptr, align 8
-  %devaddr1 = getelementptr inbounds %struct.NICInfo, ptr %nd, i64 0, i32 3
+  %devaddr1 = getelementptr inbounds i8, ptr %nd, i64 24
   %0 = load ptr, ptr %devaddr1, align 8
   %tobool.not = icmp eq ptr %0, null
   %default_devaddr. = select i1 %tobool.not, ptr %default_devaddr, ptr %0
-  %model = getelementptr inbounds %struct.NICInfo, ptr %nd, i64 0, i32 1
+  %model = getelementptr inbounds i8, ptr %nd, i64 8
   %1 = load ptr, ptr %model, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end, label %land.lhs.true
@@ -3012,7 +2994,7 @@ if.then20:                                        ; preds = %if.end18
   unreachable
 
 if.end21:                                         ; preds = %if.end18
-  %parent_dev = getelementptr inbounds %struct.PCIBus, ptr %rootbus, i64 0, i32 11
+  %parent_dev = getelementptr inbounds i8, ptr %rootbus, i64 2232
   %5 = load ptr, ptr %parent_dev, align 8
   %tobool22.not = icmp eq ptr %5, null
   br i1 %tobool22.not, label %if.end24, label %if.else
@@ -3215,7 +3197,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end, %if.then2
   %state.0 = phi ptr [ %call, %if.then2 ], [ %parent_state, %if.end ]
-  %child = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 14
+  %child = getelementptr inbounds i8, ptr %bus, i64 2256
   %sec.012 = load ptr, ptr %child, align 8
   %tobool4.not13 = icmp eq ptr %sec.012, null
   br i1 %tobool4.not13, label %for.end, label %for.body
@@ -3223,7 +3205,7 @@ if.end3:                                          ; preds = %if.end, %if.then2
 for.body:                                         ; preds = %if.end3, %for.body
   %sec.014 = phi ptr [ %sec.0, %for.body ], [ %sec.012, %if.end3 ]
   tail call void @pci_for_each_bus_depth_first(ptr noundef nonnull %sec.014, ptr noundef %begin, ptr noundef %end, ptr noundef %state.0)
-  %sibling = getelementptr inbounds %struct.PCIBus, ptr %sec.014, i64 0, i32 15
+  %sibling = getelementptr inbounds i8, ptr %sec.014, i64 2264
   %sec.0 = load ptr, ptr %sibling, align 8
   %tobool4.not = icmp eq ptr %sec.0, null
   br i1 %tobool4.not, label %for.end, label %for.body, !llvm.loop !22
@@ -3248,8 +3230,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %devices = getelementptr inbounds i8, ptr %call, i64 184
   %idxprom = zext i8 %devfn to i64
-  %arrayidx = getelementptr %struct.PCIBus, ptr %call, i64 0, i32 10, i64 %idxprom
+  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   br label %return
 
@@ -3288,7 +3271,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else3
 
 if.then:                                          ; preds = %entry
-  %used.i = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 7
+  %used.i = getelementptr inbounds i8, ptr %pdev, i64 200
   %0 = load ptr, ptr %used.i, align 8
   %conv.i = zext i8 %size to i32
   br label %for.body.i
@@ -3344,9 +3327,9 @@ if.else3:                                         ; preds = %entry
   br i1 %cmp47.not, label %if.end19, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.else3
-  %used.i34 = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 7
+  %used.i34 = getelementptr inbounds i8, ptr %pdev, i64 200
   %5 = load ptr, ptr %used.i34, align 8
-  %config.i = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 3
+  %config.i = getelementptr inbounds i8, ptr %pdev, i64 168
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -3403,10 +3386,10 @@ if.then11:                                        ; preds = %pci_find_capability
   %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
   %call.i.i1.i = tail call ptr @object_get_class(ptr noundef %call.i1.i.i) #23
   %call1.i.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #23
-  %bus_num.i.i = getelementptr inbounds %struct.PCIBusClass, ptr %call1.i.i.i, i64 0, i32 1
+  %bus_num.i.i = getelementptr inbounds i8, ptr %call1.i.i.i, i64 160
   %14 = load ptr, ptr %bus_num.i.i, align 8
   %call1.i2.i = tail call i32 %14(ptr noundef %call.i1.i.i) #23
-  %devfn = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 8
+  %devfn = getelementptr inbounds i8, ptr %pdev, i64 208
   %15 = load i32, ptr %devfn, align 16
   %shr = lshr i32 %15, 3
   %and = and i32 %shr, 31
@@ -3423,7 +3406,7 @@ for.inc:                                          ; preds = %for.cond.preheader.
 if.end19:                                         ; preds = %for.inc, %pci_find_space.exit.if.end19_crit_edge, %if.else3
   %conv21.pre-phi = phi i32 [ %.pre, %pci_find_space.exit.if.end19_crit_edge ], [ %conv, %if.else3 ], [ %conv, %for.inc ]
   %offset.addr.0 = phi i8 [ %conv5.i, %pci_find_space.exit.if.end19_crit_edge ], [ %offset, %if.else3 ], [ %offset, %for.inc ]
-  %config20 = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 3
+  %config20 = getelementptr inbounds i8, ptr %pdev, i64 168
   %16 = load ptr, ptr %config20, align 8
   %idx.ext = zext i8 %offset.addr.0 to i64
   %add.ptr = getelementptr i8, ptr %16, i64 %idx.ext
@@ -3441,18 +3424,18 @@ if.end19:                                         ; preds = %for.inc, %pci_find_
   %21 = load i8, ptr %arrayidx28, align 1
   %22 = or i8 %21, 16
   store i8 %22, ptr %arrayidx28, align 1
-  %used = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 7
+  %used = getelementptr inbounds i8, ptr %pdev, i64 200
   %23 = load ptr, ptr %used, align 8
   %add.ptr33 = getelementptr i8, ptr %23, i64 %idx.ext
   %conv34 = zext i8 %size to i64
   %sub = add nuw nsw i64 %conv34, 3
   %div33 = and i64 %sub, 508
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr33, i8 -1, i64 %div33, i1 false)
-  %wmask = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 5
+  %wmask = getelementptr inbounds i8, ptr %pdev, i64 184
   %24 = load ptr, ptr %wmask, align 8
   %add.ptr39 = getelementptr i8, ptr %24, i64 %idx.ext
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr39, i8 0, i64 %conv34, i1 false)
-  %cmask = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 4
+  %cmask = getelementptr inbounds i8, ptr %pdev, i64 176
   %25 = load ptr, ptr %cmask, align 16
   %add.ptr43 = getelementptr i8, ptr %25, i64 %idx.ext
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr43, i8 -1, i64 %conv34, i1 false)
@@ -3520,20 +3503,20 @@ if.end:                                           ; preds = %for.body.i.preheade
   %10 = load i8, ptr %arrayidx, align 1
   %arrayidx3 = getelementptr i8, ptr %pdev.val, i64 %prev.03.i.lcssa
   store i8 %10, ptr %arrayidx3, align 1
-  %wmask = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 5
+  %wmask = getelementptr inbounds i8, ptr %pdev, i64 184
   %11 = load ptr, ptr %wmask, align 8
   %add.ptr = getelementptr i8, ptr %11, i64 %conv.pre-phi
   %conv5 = zext i8 %size to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 -1, i64 %conv5, i1 false)
-  %w1cmask = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 6
+  %w1cmask = getelementptr inbounds i8, ptr %pdev, i64 192
   %12 = load ptr, ptr %w1cmask, align 16
   %add.ptr8 = getelementptr i8, ptr %12, i64 %conv.pre-phi
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr8, i8 0, i64 %conv5, i1 false)
-  %cmask = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 4
+  %cmask = getelementptr inbounds i8, ptr %pdev, i64 176
   %13 = load ptr, ptr %cmask, align 16
   %add.ptr12 = getelementptr i8, ptr %13, i64 %conv.pre-phi
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr12, i8 0, i64 %conv5, i1 false)
-  %used = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 7
+  %used = getelementptr inbounds i8, ptr %pdev, i64 200
   %14 = load ptr, ptr %used, align 8
   %add.ptr16 = getelementptr i8, ptr %14, i64 %conv.pre-phi
   %sub = add nuw nsw i64 %conv5, 3
@@ -3604,7 +3587,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %host_bridge.013 = phi ptr [ %host_bridge.0, %for.inc ], [ %host_bridge.010, %entry ]
   %rc.012 = phi i32 [ %rc.1, %for.inc ], [ -19, %entry ]
-  %bus = getelementptr inbounds %struct.PCIHostState, ptr %host_bridge.013, i64 0, i32 6
+  %bus = getelementptr inbounds i8, ptr %host_bridge.013, i64 1640
   %0 = load ptr, ptr %bus, align 8
   %call.i = tail call ptr @qdev_find_recursive(ptr noundef %0, ptr noundef %id) #23
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -3622,7 +3605,7 @@ pci_qdev_find_recursive.exit.thread7:             ; preds = %if.end.i
 
 for.inc:                                          ; preds = %if.end.i, %for.body
   %rc.1 = phi i32 [ %rc.012, %for.body ], [ -22, %if.end.i ]
-  %next = getelementptr inbounds %struct.PCIHostState, ptr %host_bridge.013, i64 0, i32 8
+  %next = getelementptr inbounds i8, ptr %host_bridge.013, i64 1656
   %host_bridge.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %host_bridge.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !27
@@ -3638,7 +3621,7 @@ entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
   %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %address_space_mem = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 12
+  %address_space_mem = getelementptr inbounds i8, ptr %call.i1.i, i64 2240
   %0 = load ptr, ptr %address_space_mem, align 8
   ret ptr %0
 }
@@ -3649,7 +3632,7 @@ entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
   %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %address_space_io = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 13
+  %address_space_io = getelementptr inbounds i8, ptr %call.i1.i, i64 2248
   %0 = load ptr, ptr %address_space_io, align 8
   ret ptr %0
 }
@@ -3660,7 +3643,7 @@ entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
   %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %devfn1 = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 8
+  %devfn1 = getelementptr inbounds i8, ptr %dev, i64 208
   %0 = load i32, ptr %devfn1, align 16
   %conv = trunc i32 %0 to i8
   %tobool.not23 = icmp eq ptr %call.i1.i, null
@@ -3670,13 +3653,13 @@ land.lhs.true:                                    ; preds = %entry, %if.end17
   %bus.026 = phi ptr [ %bus.1, %if.end17 ], [ %call.i1.i, %entry ]
   %devfn.025 = phi i8 [ %devfn.1, %if.end17 ], [ %conv, %entry ]
   %iommu_bus.024 = phi ptr [ %call.i1.i19, %if.end17 ], [ %call.i1.i, %entry ]
-  %iommu_ops = getelementptr inbounds %struct.PCIBus, ptr %iommu_bus.024, i64 0, i32 2
+  %iommu_ops = getelementptr inbounds i8, ptr %iommu_bus.024, i64 128
   %1 = load ptr, ptr %iommu_ops, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %parent_dev = getelementptr inbounds %struct.PCIBus, ptr %iommu_bus.024, i64 0, i32 11
+  %parent_dev = getelementptr inbounds i8, ptr %iommu_bus.024, i64 2232
   %2 = load ptr, ptr %parent_dev, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %while.end, label %while.body
@@ -3703,7 +3686,7 @@ land.lhs.true10:                                  ; preds = %if.then
   br i1 %cmp, label %if.end17, label %if.else
 
 if.else:                                          ; preds = %land.lhs.true10, %if.then
-  %devfn15 = getelementptr inbounds %struct.PCIDevice, ptr %3, i64 0, i32 8
+  %devfn15 = getelementptr inbounds i8, ptr %3, i64 208
   %5 = load i32, ptr %devfn15, align 16
   %conv16 = trunc i32 %5 to i8
   br label %if.end17
@@ -3725,17 +3708,17 @@ while.end:                                        ; preds = %land.rhs, %if.end17
   br i1 %tobool.i.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.end
-  %parent_dev.i = getelementptr inbounds %struct.PCIBus, ptr %bus.0.lcssa, i64 0, i32 11
+  %parent_dev.i = getelementptr inbounds i8, ptr %bus.0.lcssa, i64 2232
   %7 = load ptr, ptr %parent_dev.i, align 8
   %call1.i22 = tail call ptr @pci_device_root_bus(ptr noundef %7)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.end
   %rootbus.0.i = phi ptr [ %bus.0.lcssa, %while.end ], [ %call1.i22, %if.then.i ]
-  %parent.i = getelementptr inbounds %struct.BusState, ptr %rootbus.0.i, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %rootbus.0.i, i64 40
   %8 = load ptr, ptr %parent.i, align 8
   %call.i.i20 = tail call ptr @object_dynamic_cast_assert(ptr noundef %8, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef 37, ptr noundef nonnull @__func__.PCI_HOST_BRIDGE) #23
-  %bus3.i = getelementptr inbounds %struct.PCIHostState, ptr %call.i.i20, i64 0, i32 6
+  %bus3.i = getelementptr inbounds i8, ptr %call.i.i20, i64 1640
   %9 = load ptr, ptr %bus3.i, align 8
   %cmp.i = icmp eq ptr %9, %rootbus.0.i
   br i1 %cmp.i, label %pci_bus_bypass_iommu.exit, label %if.else.i
@@ -3745,21 +3728,21 @@ if.else.i:                                        ; preds = %if.end.i
   unreachable
 
 pci_bus_bypass_iommu.exit:                        ; preds = %if.end.i
-  %bypass_iommu.i = getelementptr inbounds %struct.PCIHostState, ptr %call.i.i20, i64 0, i32 7
+  %bypass_iommu.i = getelementptr inbounds i8, ptr %call.i.i20, i64 1648
   %10 = load i8, ptr %bypass_iommu.i, align 16
   %11 = and i8 %10, 1
   %tobool.i21.not = icmp eq i8 %11, 0
   br i1 %tobool.i21.not, label %land.lhs.true19, label %return
 
 land.lhs.true19:                                  ; preds = %pci_bus_bypass_iommu.exit
-  %iommu_ops20 = getelementptr inbounds %struct.PCIBus, ptr %iommu_bus.0.lcssa, i64 0, i32 2
+  %iommu_ops20 = getelementptr inbounds i8, ptr %iommu_bus.0.lcssa, i64 128
   %12 = load ptr, ptr %iommu_ops20, align 8
   %tobool21.not = icmp eq ptr %12, null
   br i1 %tobool21.not, label %return, label %if.then22
 
 if.then22:                                        ; preds = %land.lhs.true19
   %13 = load ptr, ptr %12, align 8
-  %iommu_opaque = getelementptr inbounds %struct.PCIBus, ptr %iommu_bus.0.lcssa, i64 0, i32 3
+  %iommu_opaque = getelementptr inbounds i8, ptr %iommu_bus.0.lcssa, i64 136
   %14 = load ptr, ptr %iommu_opaque, align 8
   %conv24 = zext i8 %devfn.0.lcssa to i32
   %call25 = tail call ptr %13(ptr noundef nonnull %bus.0.lcssa, ptr noundef %14, i32 noundef %conv24) #23
@@ -3792,9 +3775,9 @@ if.else3:                                         ; preds = %if.end
   unreachable
 
 if.end4:                                          ; preds = %if.end
-  %iommu_ops = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 2
+  %iommu_ops = getelementptr inbounds i8, ptr %bus, i64 128
   store ptr %ops, ptr %iommu_ops, align 8
-  %iommu_opaque = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 3
+  %iommu_opaque = getelementptr inbounds i8, ptr %bus, i64 136
   store ptr %opaque, ptr %iommu_opaque, align 8
   ret void
 }
@@ -3807,13 +3790,14 @@ entry:
   store i64 1, ptr %range, align 8
   %.compoundliteral.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %range, i64 8
   store i64 0, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
-  %upb2.i.i = getelementptr inbounds %struct.Range, ptr %pref_range.i, i64 0, i32 1
-  %upb2.i27.i = getelementptr inbounds %struct.Range, ptr %region_range.i, i64 0, i32 1
+  %devices.i = getelementptr inbounds i8, ptr %bus, i64 184
+  %upb2.i.i = getelementptr inbounds i8, ptr %pref_range.i, i64 8
+  %upb2.i27.i = getelementptr inbounds i8, ptr %region_range.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i = getelementptr %struct.PCIBus, ptr %bus, i64 0, i32 10, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr [256 x ptr], ptr %devices.i, i64 0, i64 %indvars.iv.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
@@ -3821,7 +3805,7 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
 if.then.i:                                        ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pref_range.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %region_range.i)
-  %config.i = getelementptr inbounds %struct.PCIDevice, ptr %0, i64 0, i32 3
+  %config.i = getelementptr inbounds i8, ptr %0, i64 168
   %1 = load ptr, ptr %config.i, align 8
   %add.ptr.i = getelementptr i8, ptr %1, i64 4
   %add.ptr.val.i = load i16, ptr %add.ptr.i, align 1
@@ -3832,37 +3816,39 @@ if.then.i:                                        ; preds = %for.body.i
 if.end.i:                                         ; preds = %if.then.i
   %call1.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #23
   %tobool2.not.i = icmp eq ptr %call1.i, null
-  br i1 %tobool2.not.i, label %for.body.i3.preheader, label %if.then3.i
+  br i1 %tobool2.not.i, label %if.end11.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
   %call4.i = tail call i64 @pci_bridge_get_base(ptr noundef nonnull %0, i8 noundef zeroext 8) #23
   %call5.i = tail call i64 @pci_bridge_get_limit(ptr noundef nonnull %0, i8 noundef zeroext 8) #23
   %cond.i = tail call i64 @llvm.umax.i64(i64 %call4.i, i64 4294967296)
   %cmp7.not.i = icmp ult i64 %call5.i, %cond.i
-  br i1 %cmp7.not.i, label %for.body.i3.preheader, label %range_set_bounds.exit.i
+  br i1 %cmp7.not.i, label %if.end11.i, label %range_set_bounds.exit.i
 
 range_set_bounds.exit.i:                          ; preds = %if.then3.i
   store i64 %cond.i, ptr %pref_range.i, align 8
   store i64 %call5.i, ptr %upb2.i.i, align 8
   call fastcc void @range_extend(ptr noundef nonnull %range, ptr noundef nonnull %pref_range.i)
-  br label %for.body.i3.preheader
+  br label %if.end11.i
 
-for.body.i3.preheader:                            ; preds = %range_set_bounds.exit.i, %if.then3.i, %if.end.i
+if.end11.i:                                       ; preds = %range_set_bounds.exit.i, %if.then3.i, %if.end.i
+  %io_regions.i = getelementptr inbounds i8, ptr %0, i64 296
   br label %for.body.i3
 
-for.body.i3:                                      ; preds = %for.body.i3.preheader, %for.inc.i5
-  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i6, %for.inc.i5 ], [ 0, %for.body.i3.preheader ]
-  %size.i = getelementptr %struct.PCIDevice, ptr %0, i64 0, i32 11, i64 %indvars.iv.i4, i32 1
+for.body.i3:                                      ; preds = %for.inc.i6, %if.end11.i
+  %indvars.iv.i4 = phi i64 [ 0, %if.end11.i ], [ %indvars.iv.next.i7, %for.inc.i6 ]
+  %arrayidx.i5 = getelementptr [7 x %struct.PCIIORegion], ptr %io_regions.i, i64 0, i64 %indvars.iv.i4
+  %size.i = getelementptr inbounds i8, ptr %arrayidx.i5, i64 8
   %3 = load i64, ptr %size.i, align 8
   %tobool14.not.i = icmp eq i64 %3, 0
-  br i1 %tobool14.not.i, label %for.inc.i5, label %lor.lhs.false.i
+  br i1 %tobool14.not.i, label %for.inc.i6, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i3
-  %type.i = getelementptr %struct.PCIDevice, ptr %0, i64 0, i32 11, i64 %indvars.iv.i4, i32 2
+  %type.i = getelementptr inbounds i8, ptr %arrayidx.i5, i64 16
   %4 = load i8, ptr %type.i, align 8
   %5 = and i8 %4, 5
   %or.cond.not.i = icmp eq i8 %5, 4
-  br i1 %or.cond.not.i, label %if.end24.i, label %for.inc.i5
+  br i1 %or.cond.not.i, label %if.end24.i, label %for.inc.i6
 
 if.end24.i:                                       ; preds = %lor.lhs.false.i
   %6 = trunc i64 %indvars.iv.i4 to i32
@@ -3871,25 +3857,25 @@ if.end24.i:                                       ; preds = %lor.lhs.false.i
   %add.i = add i64 %call27.i, -1
   %sub.i = add i64 %add.i, %7
   %cmp29.i = icmp eq i64 %call27.i, -1
-  br i1 %cmp29.i, label %for.inc.i5, label %if.end32.i
+  br i1 %cmp29.i, label %for.inc.i6, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.end24.i
   %cond39.i = tail call i64 @llvm.umax.i64(i64 %call27.i, i64 4294967296)
   %cmp40.not.i = icmp ult i64 %sub.i, %cond39.i
-  br i1 %cmp40.not.i, label %for.inc.i5, label %range_set_bounds.exit35.i
+  br i1 %cmp40.not.i, label %for.inc.i6, label %range_set_bounds.exit35.i
 
 range_set_bounds.exit35.i:                        ; preds = %if.end32.i
   store i64 %cond39.i, ptr %region_range.i, align 8
   store i64 %sub.i, ptr %upb2.i27.i, align 8
   call fastcc void @range_extend(ptr noundef nonnull %range, ptr noundef nonnull %region_range.i)
-  br label %for.inc.i5
+  br label %for.inc.i6
 
-for.inc.i5:                                       ; preds = %range_set_bounds.exit35.i, %if.end32.i, %if.end24.i, %lor.lhs.false.i, %for.body.i3
-  %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i4, 1
-  %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 7
-  br i1 %exitcond.not.i7, label %pci_dev_get_w64.exit, label %for.body.i3, !llvm.loop !29
+for.inc.i6:                                       ; preds = %range_set_bounds.exit35.i, %if.end32.i, %if.end24.i, %lor.lhs.false.i, %for.body.i3
+  %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i4, 1
+  %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, 7
+  br i1 %exitcond.not.i8, label %pci_dev_get_w64.exit, label %for.body.i3, !llvm.loop !29
 
-pci_dev_get_w64.exit:                             ; preds = %for.inc.i5, %if.then.i
+pci_dev_get_w64.exit:                             ; preds = %for.inc.i6, %if.then.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pref_range.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %region_range.i)
   br label %for.inc.i
@@ -3910,22 +3896,19 @@ entry:
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
   %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
   %call1 = tail call fastcc zeroext i1 @pcie_has_upstream_port(ptr noundef %pci_dev)
-  br i1 %call1, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %devices = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 10
-  br label %return
+  %devices = getelementptr inbounds i8, ptr %call.i1.i, i64 184
+  br i1 %call1, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %devfn = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 8
+  %devfn = getelementptr inbounds i8, ptr %pci_dev, i64 208
   %0 = load i32, ptr %devfn, align 16
   %and = and i32 %0, 248
   %idxprom = zext nneg i32 %and to i64
-  %arrayidx4 = getelementptr %struct.PCIBus, ptr %call.i1.i, i64 0, i32 10, i64 %idxprom
+  %arrayidx4 = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %idxprom
   br label %return
 
-return:                                           ; preds = %if.else, %if.then
-  %retval.0.in = phi ptr [ %devices, %if.then ], [ %arrayidx4, %if.else ]
+return:                                           ; preds = %entry, %if.else
+  %retval.0.in = phi ptr [ %arrayidx4, %if.else ], [ %devices, %entry ]
   %retval.0 = load ptr, ptr %retval.0.in, align 8
   ret ptr %retval.0
 }
@@ -3948,7 +3931,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool3.not, label %land.end, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %exp = getelementptr inbounds %struct.PCIDevice, ptr %call1, i64 0, i32 36
+  %exp = getelementptr inbounds i8, ptr %call1, i64 2168
   %1 = load i8, ptr %exp, align 8
   %tobool5.not = icmp eq i8 %1, 0
   br i1 %tobool5.not, label %land.end, label %land.rhs
@@ -4011,7 +3994,7 @@ declare void @abort() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @pci_set_power(ptr noundef %d, i1 noundef zeroext %state) local_unnamed_addr #0 {
 entry:
-  %has_power = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 2
+  %has_power = getelementptr inbounds i8, ptr %d, i64 161
   %0 = load i8, ptr %has_power, align 1
   %1 = and i8 %0, 1
   %2 = icmp eq i8 %1, 0
@@ -4022,8 +4005,8 @@ if.end:                                           ; preds = %entry
   %frombool = zext i1 %state to i8
   store i8 %frombool, ptr %has_power, align 1
   tail call fastcc void @pci_update_mappings(ptr noundef nonnull %d)
-  %bus_master_enable_region = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 14
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %d, i64 0, i32 3
+  %bus_master_enable_region = getelementptr inbounds i8, ptr %d, i64 944
+  %config = getelementptr inbounds i8, ptr %d, i64 168
   %3 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %3, i64 4
   %add.ptr.val = load i16, ptr %add.ptr, align 1
@@ -4307,7 +4290,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #2
 define internal fastcc void @pci_change_irq_level(ptr noundef %pci_dev, i32 noundef %irq_num, i32 noundef %change) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end9, %entry
@@ -4316,7 +4299,7 @@ for.cond:                                         ; preds = %if.end9, %entry
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev.addr.0, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
   %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %map_irq = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 7
+  %map_irq = getelementptr inbounds i8, ptr %call.i1.i, i64 160
   %0 = load ptr, ptr %map_irq, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end
@@ -4328,7 +4311,7 @@ if.else:                                          ; preds = %for.cond
 if.end:                                           ; preds = %for.cond
   %call2 = tail call i32 %0(ptr noundef %pci_dev.addr.0, i32 noundef %irq_num.addr.0) #23
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev.addr.0, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %canonical_path = getelementptr inbounds %struct.DeviceState, ptr %call.i, i64 0, i32 2
+  %canonical_path = getelementptr inbounds i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %canonical_path, align 8
   %2 = getelementptr i8, ptr %call.i1.i, i64 120
   %call.val = load i32, ptr %2, align 8
@@ -4337,10 +4320,10 @@ if.end:                                           ; preds = %for.cond
   br i1 %tobool.i.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %parent_dev = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 11
+  %parent_dev = getelementptr inbounds i8, ptr %call.i1.i, i64 2232
   %3 = load ptr, ptr %parent_dev, align 8
   %call.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef %3, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %canonical_path6 = getelementptr inbounds %struct.DeviceState, ptr %call.i12, i64 0, i32 2
+  %canonical_path6 = getelementptr inbounds i8, ptr %call.i12, i64 48
   %4 = load ptr, ptr %canonical_path6, align 8
   br label %cond.end
 
@@ -4380,13 +4363,13 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_pci_route_irq.exit:                         ; preds = %cond.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %set_irq = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 6
+  %set_irq = getelementptr inbounds i8, ptr %call.i1.i, i64 152
   %12 = load ptr, ptr %set_irq, align 8
   %tobool7.not = icmp eq ptr %12, null
   br i1 %tobool7.not, label %if.end9, label %for.end
 
 if.end9:                                          ; preds = %trace_pci_route_irq.exit
-  %parent_dev10 = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 11
+  %parent_dev10 = getelementptr inbounds i8, ptr %call.i1.i, i64 2232
   %13 = load ptr, ptr %parent_dev10, align 8
   br label %for.cond
 
@@ -4399,7 +4382,7 @@ if.else.i:                                        ; preds = %for.end
   unreachable
 
 if.end.i:                                         ; preds = %for.end
-  %nirq.i = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 16
+  %nirq.i = getelementptr inbounds i8, ptr %call.i1.i, i64 2280
   %14 = load i32, ptr %nirq.i, align 8
   %cmp1.i = icmp sgt i32 %14, %call2
   br i1 %cmp1.i, label %pci_bus_change_irq_level.exit, label %if.else3.i
@@ -4409,8 +4392,8 @@ if.else3.i:                                       ; preds = %if.end.i
   unreachable
 
 pci_bus_change_irq_level.exit:                    ; preds = %if.end.i
-  %set_irq.le = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 6
-  %irq_count.i = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 17
+  %set_irq.le = getelementptr inbounds i8, ptr %call.i1.i, i64 152
+  %irq_count.i = getelementptr inbounds i8, ptr %call.i1.i, i64 2288
   %15 = load ptr, ptr %irq_count.i, align 8
   %idxprom.i = zext nneg i32 %call2 to i64
   %arrayidx.i = getelementptr i32, ptr %15, i64 %idxprom.i
@@ -4418,7 +4401,7 @@ pci_bus_change_irq_level.exit:                    ; preds = %if.end.i
   %add.i = add i32 %16, %change
   store i32 %add.i, ptr %arrayidx.i, align 4
   %17 = load ptr, ptr %set_irq.le, align 8
-  %irq_opaque.i = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 9
+  %irq_opaque.i = getelementptr inbounds i8, ptr %call.i1.i, i64 176
   %18 = load ptr, ptr %irq_opaque.i, align 8
   %19 = load ptr, ptr %irq_count.i, align 8
   %arrayidx7.i = getelementptr i32, ptr %19, i64 %idxprom.i
@@ -4531,21 +4514,21 @@ define internal void @pci_bus_class_init(ptr noundef %klass, ptr nocapture readn
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #23
   %call.i8 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_CLASS) #23
-  %print_dev = getelementptr inbounds %struct.BusClass, ptr %call.i, i64 0, i32 1
+  %print_dev = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @pcibus_dev_print, ptr %print_dev, align 8
-  %get_dev_path = getelementptr inbounds %struct.BusClass, ptr %call.i, i64 0, i32 2
+  %get_dev_path = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @pcibus_get_dev_path, ptr %get_dev_path, align 8
-  %get_fw_dev_path = getelementptr inbounds %struct.BusClass, ptr %call.i, i64 0, i32 3
+  %get_fw_dev_path = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @pcibus_get_fw_dev_path, ptr %get_fw_dev_path, align 8
-  %realize = getelementptr inbounds %struct.BusClass, ptr %call.i, i64 0, i32 6
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @pci_bus_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.BusClass, ptr %call.i, i64 0, i32 7
+  %unrealize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @pci_bus_unrealize, ptr %unrealize, align 8
-  %reset = getelementptr inbounds %struct.BusClass, ptr %call.i, i64 0, i32 4
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @pcibus_reset, ptr %reset, align 8
-  %bus_num = getelementptr inbounds %struct.PCIBusClass, ptr %call.i8, i64 0, i32 1
+  %bus_num = getelementptr inbounds i8, ptr %call.i8, i64 160
   store ptr @pcibus_num, ptr %bus_num, align 8
-  %numa_node = getelementptr inbounds %struct.PCIBusClass, ptr %call.i8, i64 0, i32 2
+  %numa_node = getelementptr inbounds i8, ptr %call.i8, i64 168
   store ptr @pcibus_numa_node, ptr %numa_node, align 8
   ret void
 }
@@ -4570,7 +4553,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %t.025, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
   %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %parent_dev = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i, i64 0, i32 11
+  %parent_dev = getelementptr inbounds i8, ptr %call.i1.i, i64 2232
   %0 = load ptr, ptr %parent_dev, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !34
@@ -4596,7 +4579,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 for.body10:                                       ; preds = %for.end, %if.end
   %t.128 = phi ptr [ %3, %if.end ], [ %dev, %for.end ]
   %p.027 = phi ptr [ %add.ptr12, %if.end ], [ %arrayidx, %for.end ]
-  %devfn = getelementptr inbounds %struct.PCIDevice, ptr %t.128, i64 0, i32 8
+  %devfn = getelementptr inbounds i8, ptr %t.128, i64 208
   %2 = load i32, ptr %devfn, align 16
   %shr = lshr i32 %2, 3
   %and = and i32 %shr, 31
@@ -4615,7 +4598,7 @@ if.end:                                           ; preds = %for.body10
   %call.i.i20 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %t.128, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i21 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i20) #23
   %call.i1.i22 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i21, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %parent_dev21 = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i22, i64 0, i32 11
+  %parent_dev21 = getelementptr inbounds i8, ptr %call.i1.i22, i64 2232
   %3 = load ptr, ptr %parent_dev21, align 8
   %tobool9.not = icmp eq ptr %3, null
   br i1 %tobool9.not, label %for.end22, label %for.body10, !llvm.loop !35
@@ -4628,7 +4611,7 @@ for.end22:                                        ; preds = %if.end, %for.end
 define internal noalias ptr @pcibus_get_fw_dev_path(ptr nocapture noundef readonly %dev) #0 {
 entry:
   %name = alloca [33 x i8], align 16
-  %devfn = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 8
+  %devfn = getelementptr inbounds i8, ptr %dev, i64 208
   %0 = load i32, ptr %devfn, align 16
   %1 = getelementptr i8, ptr %dev, i64 168
   %dev.val = load ptr, ptr %1, align 8
@@ -4638,7 +4621,7 @@ entry:
 
 land.rhs.i:                                       ; preds = %while.body.i, %entry
   %desc.04.i = phi ptr [ @pci_class_descriptions, %entry ], [ %incdec.ptr.i, %while.body.i ]
-  %fw_ign_bits.i = getelementptr inbounds %struct.pci_class_desc, ptr %desc.04.i, i64 0, i32 3
+  %fw_ign_bits.i = getelementptr inbounds i8, ptr %desc.04.i, i64 24
   %2 = load i16, ptr %fw_ign_bits.i, align 8
   %conv2.i = zext i16 %2 to i32
   %not.i = xor i32 %conv2.i, -1
@@ -4650,14 +4633,14 @@ land.rhs.i:                                       ; preds = %while.body.i, %entr
   br i1 %cmp.not.i, label %if.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %incdec.ptr.i = getelementptr %struct.pci_class_desc, ptr %desc.04.i, i64 1
-  %desc1.i = getelementptr %struct.pci_class_desc, ptr %desc.04.i, i64 1, i32 1
+  %incdec.ptr.i = getelementptr i8, ptr %desc.04.i, i64 32
+  %desc1.i = getelementptr i8, ptr %desc.04.i, i64 40
   %7 = load ptr, ptr %desc1.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %if.else.i, label %land.rhs.i, !llvm.loop !36
 
 if.end.i:                                         ; preds = %land.rhs.i
-  %fw_name.i = getelementptr inbounds %struct.pci_class_desc, ptr %desc.04.i, i64 0, i32 2
+  %fw_name.i = getelementptr inbounds i8, ptr %desc.04.i, i64 16
   %8 = load ptr, ptr %fw_name.i, align 8
   %tobool12.not.i = icmp eq ptr %8, null
   br i1 %tobool12.not.i, label %if.else.i, label %if.then13.i
@@ -4692,7 +4675,7 @@ pci_dev_fw_name.exit:                             ; preds = %if.then13.i, %if.el
 define internal void @pci_bus_realize(ptr noundef %qbus, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %machine_done = getelementptr inbounds %struct.PCIBus, ptr %call.i, i64 0, i32 18
+  %machine_done = getelementptr inbounds i8, ptr %call.i, i64 2296
   store ptr @pcibus_machine_done, ptr %machine_done, align 8
   tail call void @qemu_add_machine_init_done_notifier(ptr noundef nonnull %machine_done) #23
   %call.i3 = tail call i32 @vmstate_register_with_alias_id(ptr noundef null, i32 noundef -1, ptr noundef nonnull @vmstate_pcibus, ptr noundef %call.i, i32 noundef -1, i32 noundef 0, ptr noundef null) #23
@@ -4703,7 +4686,7 @@ entry:
 define internal void @pci_bus_unrealize(ptr noundef %qbus) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %machine_done = getelementptr inbounds %struct.PCIBus, ptr %call.i, i64 0, i32 18
+  %machine_done = getelementptr inbounds i8, ptr %call.i, i64 2296
   tail call void @qemu_remove_machine_init_done_notifier(ptr noundef nonnull %machine_done) #23
   tail call void @vmstate_unregister(ptr noundef null, ptr noundef nonnull @vmstate_pcibus, ptr noundef %call.i) #23
   ret void
@@ -4712,23 +4695,24 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pcibus_reset(ptr nocapture noundef readonly %qbus) #0 {
 entry:
+  %devices = getelementptr inbounds i8, ptr %qbus, i64 184
   br label %for.body
 
 for.cond6.preheader:                              ; preds = %for.inc
-  %nirq = getelementptr inbounds %struct.PCIBus, ptr %qbus, i64 0, i32 16
+  %nirq = getelementptr inbounds i8, ptr %qbus, i64 2280
   %0 = load i32, ptr %nirq, align 8
   %cmp711 = icmp sgt i32 %0, 0
   br i1 %cmp711, label %for.body9.lr.ph, label %for.end18
 
 for.body9.lr.ph:                                  ; preds = %for.cond6.preheader
-  %irq_count = getelementptr inbounds %struct.PCIBus, ptr %qbus, i64 0, i32 17
+  %irq_count = getelementptr inbounds i8, ptr %qbus, i64 2288
   %1 = load ptr, ptr %irq_count, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body9
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr %struct.PCIBus, ptr %qbus, i64 0, i32 10, i64 %indvars.iv
+  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -4772,9 +4756,9 @@ entry:
   br i1 %tobool.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %parent_dev = getelementptr inbounds %struct.PCIBus, ptr %bus, i64 0, i32 11
+  %parent_dev = getelementptr inbounds i8, ptr %bus, i64 2232
   %1 = load ptr, ptr %parent_dev, align 8
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %1, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %1, i64 168
   %2 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %2, i64 25
   %3 = load i8, ptr %arrayidx, align 1
@@ -4817,13 +4801,13 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %call.i = tail call ptr @pci_device_iommu_address_space(ptr noundef nonnull %0)
-  %bus_master_enable_region.i = getelementptr inbounds %struct.PCIDevice, ptr %0, i64 0, i32 14
-  %root.i = getelementptr inbounds %struct.AddressSpace, ptr %call.i, i64 0, i32 2
+  %bus_master_enable_region.i = getelementptr inbounds i8, ptr %0, i64 944
+  %root.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %1 = load ptr, ptr %root.i, align 8
   %call2.i = tail call i64 @memory_region_size(ptr noundef %1) #23
   tail call void @memory_region_init_alias(ptr noundef nonnull %bus_master_enable_region.i, ptr noundef nonnull %0, ptr noundef nonnull @.str.176, ptr noundef %1, i64 noundef 0, i64 noundef %call2.i) #23
   tail call void @memory_region_set_enabled(ptr noundef nonnull %bus_master_enable_region.i, i1 noundef zeroext false) #23
-  %bus_master_container_region.i = getelementptr inbounds %struct.PCIDevice, ptr %0, i64 0, i32 13
+  %bus_master_container_region.i = getelementptr inbounds i8, ptr %0, i64 672
   tail call void @memory_region_add_subregion(ptr noundef nonnull %bus_master_container_region.i, i64 noundef 0, ptr noundef nonnull %bus_master_enable_region.i) #23
   br label %for.inc
 
@@ -4852,7 +4836,7 @@ declare void @vmstate_unregister(ptr noundef, ptr noundef, ptr noundef) local_un
 define internal void @pcie_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #23
-  %realize = getelementptr inbounds %struct.BusClass, ptr %call.i, i64 0, i32 6
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @pcie_bus_realize, ptr %realize, align 8
   ret void
 }
@@ -4862,7 +4846,7 @@ define internal void @pcie_bus_realize(ptr noundef %qbus, ptr nocapture readnone
 if.end:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %qbus, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %machine_done.i = getelementptr inbounds %struct.PCIBus, ptr %call.i.i, i64 0, i32 18
+  %machine_done.i = getelementptr inbounds i8, ptr %call.i.i, i64 2296
   store ptr @pcibus_machine_done, ptr %machine_done.i, align 8
   tail call void @qemu_add_machine_init_done_notifier(ptr noundef nonnull %machine_done.i) #23
   %call.i3.i = tail call i32 @vmstate_register_with_alias_id(ptr noundef null, i32 noundef -1, ptr noundef nonnull @vmstate_pcibus, ptr noundef %call.i.i, i32 noundef -1, i32 noundef 0, ptr noundef null) #23
@@ -4873,7 +4857,7 @@ if.end:
   br i1 %tobool.i.not, label %if.else, label %if.end9.sink.split
 
 if.else:                                          ; preds = %if.end
-  %parent_dev = getelementptr inbounds %struct.PCIBus, ptr %call.i, i64 0, i32 11
+  %parent_dev = getelementptr inbounds i8, ptr %call.i, i64 2232
   %1 = load ptr, ptr %parent_dev, align 8
   %call.i.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i5) #23
@@ -4904,11 +4888,11 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal void @pci_device_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #23
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @pci_qdev_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 9
+  %unrealize = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr @pci_qdev_unrealize, ptr %unrealize, align 8
-  %bus_type = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 11
+  %bus_type = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr @.str.49, ptr %bus_type, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @pci_props) #23
   ret void
@@ -4948,7 +4932,7 @@ entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %qdev) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #23
   store ptr null, ptr %local_err, align 8
-  %acpi_index = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 48
+  %acpi_index = getelementptr inbounds i8, ptr %qdev, i64 2592
   %0 = load i32, ptr %acpi_index, align 16
   %cmp = icmp ugt i32 %0, 16383
   br i1 %cmp, label %if.then, label %if.end
@@ -4993,7 +4977,7 @@ if.end9:                                          ; preds = %pci_acpi_index_list
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end9, %if.end
-  %romsize = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 39
+  %romsize = getelementptr inbounds i8, ptr %qdev, i64 2264
   %7 = load i32, ptr %romsize, align 8
   %cmp14.not = icmp eq i32 %7, -1
   %8 = tail call i32 @llvm.ctpop.i32(i32 %7), !range !40
@@ -5016,7 +5000,7 @@ land.lhs.true24:                                  ; preds = %if.end21
   br i1 %tobool26.not, label %if.then27, label %if.end28
 
 if.then27:                                        ; preds = %land.lhs.true24
-  %cap_present = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 20
+  %cap_present = getelementptr inbounds i8, ptr %qdev, i64 1260
   %9 = load i32, ptr %cap_present, align 4
   %or = or i32 %9, 4
   store i32 %or, ptr %cap_present, align 4
@@ -5028,7 +5012,7 @@ if.end28:                                         ; preds = %if.then27, %land.lh
   br i1 %tobool30.not, label %if.end34, label %if.then31
 
 if.then31:                                        ; preds = %if.end28
-  %cap_present32 = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 20
+  %cap_present32 = getelementptr inbounds i8, ptr %qdev, i64 1260
   %10 = load i32, ptr %cap_present32, align 4
   %or33 = or i32 %10, 1024
   store i32 %or33, ptr %cap_present32, align 4
@@ -5036,12 +5020,12 @@ if.then31:                                        ; preds = %if.end28
 
 if.end34:                                         ; preds = %if.then31, %if.end28
   %call35 = tail call ptr @object_get_typename(ptr noundef nonnull %qdev) #23
-  %devfn = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 8
+  %devfn = getelementptr inbounds i8, ptr %qdev, i64 208
   %11 = load i32, ptr %devfn, align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   %call.i.i = tail call ptr @object_get_class(ptr noundef nonnull %qdev) #23
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #23
-  %config_read1.i = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i.i, i64 0, i32 3
+  %config_read1.i = getelementptr inbounds i8, ptr %call1.i.i, i64 192
   %12 = load <2 x ptr>, ptr %config_read1.i, align 8
   store ptr null, ptr %local_err.i, align 8
   %call.i92.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
@@ -5057,14 +5041,14 @@ if.end34:                                         ; preds = %if.then31, %if.end2
   br i1 %tobool.i.not.i, label %if.end.i63, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end34
-  %parent_dev.i = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i.i, i64 0, i32 11
+  %parent_dev.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 2232
   %14 = load ptr, ptr %parent_dev.i, align 8
   %tobool7.not.i = icmp eq ptr %14, null
   %brmerge.i = select i1 %tobool7.not.i, i1 true, i1 %tobool.not.i60
   br i1 %brmerge.i, label %if.end.i63, label %if.then.i61
 
 if.then.i61:                                      ; preds = %land.lhs.true.i
-  %name11.i = getelementptr inbounds %struct.PCIDevice, ptr %14, i64 0, i32 10
+  %name11.i = getelementptr inbounds i8, ptr %14, i64 232
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1152, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.194, ptr noundef nonnull %name11.i) #23
   br label %do_pci_register_device.exit.thread
 
@@ -5073,15 +5057,16 @@ if.end.i63:                                       ; preds = %land.lhs.true.i, %i
   br i1 %cmp.i, label %if.then12.i, label %if.else.i
 
 if.then12.i:                                      ; preds = %if.end.i63
-  %devfn_min.i = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i.i, i64 0, i32 4
+  %devfn_min.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 144
   %15 = load i8, ptr %devfn_min.i, align 8
+  %devices.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 184
   %16 = getelementptr i8, ptr %call.i1.i.i, i64 148
   %17 = zext i8 %15 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then12.i
   %indvars.iv.i = phi i64 [ %17, %if.then12.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %arrayidx.i.i = getelementptr %struct.PCIBus, ptr %call.i1.i.i, i64 0, i32 10, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr [256 x ptr], ptr %devices.i.i, i64 0, i64 %indvars.iv.i
   %18 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i, label %land.lhs.true18.i, label %for.inc.i
@@ -5122,22 +5107,23 @@ if.then23.i:                                      ; preds = %if.else.i
   br label %do_pci_register_device.exit.thread
 
 if.else25.i:                                      ; preds = %if.else.i
-  %idxprom.i103.i = zext nneg i32 %11 to i64
-  %arrayidx.i104.i = getelementptr %struct.PCIBus, ptr %call.i1.i.i, i64 0, i32 10, i64 %idxprom.i103.i
-  %21 = load ptr, ptr %arrayidx.i104.i, align 8
-  %tobool.not.i105.i = icmp eq ptr %21, null
-  br i1 %tobool.not.i105.i, label %if.else36.i, label %if.then27.i
+  %devices.i103.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 184
+  %idxprom.i104.i = zext nneg i32 %11 to i64
+  %arrayidx.i105.i = getelementptr [256 x ptr], ptr %devices.i103.i, i64 0, i64 %idxprom.i104.i
+  %21 = load ptr, ptr %arrayidx.i105.i, align 8
+  %tobool.not.i106.i = icmp eq ptr %21, null
+  br i1 %tobool.not.i106.i, label %if.else36.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %if.else25.i
   %and30.i = and i32 %11, 7
-  %name31.i = getelementptr inbounds %struct.PCIDevice, ptr %21, i64 0, i32 10
-  %id.i = getelementptr inbounds %struct.DeviceState, ptr %21, i64 0, i32 1
+  %name31.i = getelementptr inbounds i8, ptr %21, i64 232
+  %id.i = getelementptr inbounds i8, ptr %21, i64 40
   %22 = load ptr, ptr %id.i, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1177, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.197, i32 noundef %and.i98.i, i32 noundef %and30.i, ptr noundef %call35, ptr noundef nonnull %name31.i, ptr noundef %22) #23
   br label %do_pci_register_device.exit.thread
 
 if.else36.i:                                      ; preds = %if.else25.i
-  %hotplugged.i = getelementptr inbounds %struct.DeviceState, ptr %call.i92.i, i64 0, i32 7
+  %hotplugged.i = getelementptr inbounds i8, ptr %call.i92.i, i64 80
   %23 = load i32, ptr %hotplugged.i, align 8
   %tobool37.not.i = icmp eq i32 %23, 0
   br i1 %tobool37.not.i, label %if.end55.i, label %land.lhs.true38.i
@@ -5152,34 +5138,31 @@ land.lhs.true41.i:                                ; preds = %land.lhs.true38.i
   %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i.i) #23
   %call.i1.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %call1.i107.i = tail call fastcc zeroext i1 @pcie_has_upstream_port(ptr noundef nonnull %qdev)
-  br i1 %call1.i107.i, label %if.then.i.i, label %if.else.i.i
-
-if.then.i.i:                                      ; preds = %land.lhs.true41.i
-  %devices.i.i = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i.i.i, i64 0, i32 10
-  br label %pci_get_function_0.exit.i
+  %call1.i108.i = tail call fastcc zeroext i1 @pcie_has_upstream_port(ptr noundef nonnull %qdev)
+  %devices.i109.i = getelementptr inbounds i8, ptr %call.i1.i.i.i, i64 184
+  br i1 %call1.i108.i, label %pci_get_function_0.exit.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %land.lhs.true41.i
   %25 = load i32, ptr %devfn, align 16
-  %and.i108.i = and i32 %25, 248
-  %idxprom.i109.i = zext nneg i32 %and.i108.i to i64
-  %arrayidx4.i.i = getelementptr %struct.PCIBus, ptr %call.i1.i.i.i, i64 0, i32 10, i64 %idxprom.i109.i
+  %and.i110.i = and i32 %25, 248
+  %idxprom.i111.i = zext nneg i32 %and.i110.i to i64
+  %arrayidx4.i.i = getelementptr [256 x ptr], ptr %devices.i109.i, i64 0, i64 %idxprom.i111.i
   br label %pci_get_function_0.exit.i
 
-pci_get_function_0.exit.i:                        ; preds = %if.else.i.i, %if.then.i.i
-  %retval.0.in.i.i = phi ptr [ %devices.i.i, %if.then.i.i ], [ %arrayidx4.i.i, %if.else.i.i ]
+pci_get_function_0.exit.i:                        ; preds = %if.else.i.i, %land.lhs.true41.i
+  %retval.0.in.i.i = phi ptr [ %arrayidx4.i.i, %if.else.i.i ], [ %devices.i109.i, %land.lhs.true41.i ]
   %retval.0.i.i = load ptr, ptr %retval.0.in.i.i, align 8
   %tobool43.not.i = icmp eq ptr %retval.0.i.i, null
   br i1 %tobool43.not.i, label %if.end55.i, label %if.then44.i
 
 if.then44.i:                                      ; preds = %pci_get_function_0.exit.i
   %call45.i = tail call ptr @pci_get_function_0(ptr noundef nonnull %qdev)
-  %devfn46.i = getelementptr inbounds %struct.PCIDevice, ptr %call45.i, i64 0, i32 8
+  %devfn46.i = getelementptr inbounds i8, ptr %call45.i, i64 208
   %26 = load i32, ptr %devfn46.i, align 16
   %shr47.i = lshr i32 %26, 3
   %and48.i = and i32 %shr47.i, 31
   %call49.i = tail call ptr @pci_get_function_0(ptr noundef nonnull %qdev)
-  %name50.i = getelementptr inbounds %struct.PCIDevice, ptr %call49.i, i64 0, i32 10
+  %name50.i = getelementptr inbounds i8, ptr %call49.i, i64 232
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1191, ptr noundef nonnull @__func__.do_pci_register_device, ptr noundef nonnull @.str.198, i32 noundef %and48.i, ptr noundef nonnull %name50.i, ptr noundef %call35) #23
   br label %do_pci_register_device.exit.thread
 
@@ -5196,10 +5179,10 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.back
   %retval.sroa.0.0.i.i = phi ptr [ %qdev, %if.end55.i ], [ %retval.sroa.0.0.i.i.be, %while.cond.i.i.backedge ]
   %dev.addr.0.i.i = phi ptr [ %qdev, %if.end55.i ], [ %29, %while.cond.i.i.backedge ]
   %retval.sroa.4.0.i.i = phi i32 [ 1, %if.end55.i ], [ %retval.sroa.4.0.i.i.be, %while.cond.i.i.backedge ]
-  %call.i.i.i110.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev.addr.0.i.i, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %call1.i.i111.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i110.i) #23
-  %call.i1.i.i112.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i111.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %28 = getelementptr i8, ptr %call.i1.i.i112.i, i64 120
+  %call.i.i.i112.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev.addr.0.i.i, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call1.i.i113.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i112.i) #23
+  %call.i1.i.i114.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i113.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
+  %28 = getelementptr i8, ptr %call.i1.i.i114.i, i64 120
   %call.val.i.i = load i32, ptr %28, align 8
   %and.i.i.i = and i32 %call.val.i.i, 1
   %tobool.i.not.i.i = icmp eq i32 %and.i.i.i, 0
@@ -5209,44 +5192,44 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
   %call.i.i8.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev.addr.0.i.i, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i9.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i8.i.i) #23
   %call.i1.i10.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i9.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %parent_dev.i.i = getelementptr inbounds %struct.PCIBus, ptr %call.i1.i10.i.i, i64 0, i32 11
+  %parent_dev.i.i = getelementptr inbounds i8, ptr %call.i1.i10.i.i, i64 2232
   %29 = load ptr, ptr %parent_dev.i.i, align 8
   %30 = getelementptr i8, ptr %29, i64 1260
   %.val.i.i = load i32, ptr %30, align 4
   %and.i11.i.i = and i32 %.val.i.i, 4
-  %tobool.not.i113.i = icmp eq i32 %and.i11.i.i, 0
-  br i1 %tobool.not.i113.i, label %while.cond.i.i.backedge, label %if.then.i114.i
+  %tobool.not.i115.i = icmp eq i32 %and.i11.i.i, 0
+  br i1 %tobool.not.i115.i, label %while.cond.i.i.backedge, label %if.then.i.i
 
-if.then.i114.i:                                   ; preds = %while.body.i.i
+if.then.i.i:                                      ; preds = %while.body.i.i
   %call5.i.i = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %29) #23
-  %cmp.i115.i = icmp eq i8 %call5.i.i, 7
-  %spec.select.i.i = select i1 %cmp.i115.i, ptr %dev.addr.0.i.i, ptr %retval.sroa.0.0.i.i
-  %spec.select7.i.i = select i1 %cmp.i115.i, i32 2, i32 %retval.sroa.4.0.i.i
+  %cmp.i116.i = icmp eq i8 %call5.i.i, 7
+  %spec.select.i.i = select i1 %cmp.i116.i, ptr %dev.addr.0.i.i, ptr %retval.sroa.0.0.i.i
+  %spec.select7.i.i = select i1 %cmp.i116.i, i32 2, i32 %retval.sroa.4.0.i.i
   br label %while.cond.i.i.backedge
 
-while.cond.i.i.backedge:                          ; preds = %if.then.i114.i, %while.body.i.i
-  %retval.sroa.0.0.i.i.be = phi ptr [ %spec.select.i.i, %if.then.i114.i ], [ %29, %while.body.i.i ]
-  %retval.sroa.4.0.i.i.be = phi i32 [ %spec.select7.i.i, %if.then.i114.i ], [ 1, %while.body.i.i ]
+while.cond.i.i.backedge:                          ; preds = %if.then.i.i, %while.body.i.i
+  %retval.sroa.0.0.i.i.be = phi ptr [ %spec.select.i.i, %if.then.i.i ], [ %29, %while.body.i.i ]
+  %retval.sroa.4.0.i.i.be = phi i32 [ %spec.select7.i.i, %if.then.i.i ], [ 1, %while.body.i.i ]
   br label %while.cond.i.i, !llvm.loop !42
 
 pci_req_id_cache_get.exit.i:                      ; preds = %while.cond.i.i
-  %requester_id_cache.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 9
+  %requester_id_cache.i = getelementptr inbounds i8, ptr %qdev, i64 216
   store ptr %retval.sroa.0.0.i.i, ptr %requester_id_cache.i, align 8
-  %tmp.sroa.2.0.requester_id_cache.sroa_idx.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 9, i32 1
+  %tmp.sroa.2.0.requester_id_cache.sroa_idx.i = getelementptr inbounds i8, ptr %qdev, i64 224
   store i32 %retval.sroa.4.0.i.i, ptr %tmp.sroa.2.0.requester_id_cache.sroa_idx.i, align 8
-  %name58.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 10
+  %name58.i = getelementptr inbounds i8, ptr %qdev, i64 232
   tail call void @pstrcpy(ptr noundef nonnull %name58.i, i32 noundef 64, ptr noundef %call35) #23
-  %bus_master_container_region.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 13
+  %bus_master_container_region.i = getelementptr inbounds i8, ptr %qdev, i64 672
   tail call void @memory_region_init(ptr noundef nonnull %bus_master_container_region.i, ptr noundef %qdev, ptr noundef nonnull @.str.199, i64 noundef -1) #23
-  %bus_master_as.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 12
+  %bus_master_as.i = getelementptr inbounds i8, ptr %qdev, i64 576
   tail call void @address_space_init(ptr noundef nonnull %bus_master_as.i, ptr noundef nonnull %bus_master_container_region.i, ptr noundef nonnull %name58.i) #23
   %call63.i = tail call zeroext i1 @phase_check(i32 noundef 4) #23
   br i1 %call63.i, label %if.then64.i, label %if.end65.i
 
 if.then64.i:                                      ; preds = %pci_req_id_cache_get.exit.i
-  %call.i116.i = tail call ptr @pci_device_iommu_address_space(ptr noundef nonnull %qdev)
-  %bus_master_enable_region.i.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 14
-  %root.i.i = getelementptr inbounds %struct.AddressSpace, ptr %call.i116.i, i64 0, i32 2
+  %call.i117.i = tail call ptr @pci_device_iommu_address_space(ptr noundef nonnull %qdev)
+  %bus_master_enable_region.i.i = getelementptr inbounds i8, ptr %qdev, i64 944
+  %root.i.i = getelementptr inbounds i8, ptr %call.i117.i, i64 24
   %31 = load ptr, ptr %root.i.i, align 8
   %call2.i.i = tail call i64 @memory_region_size(ptr noundef %31) #23
   tail call void @memory_region_init_alias(ptr noundef nonnull %bus_master_enable_region.i.i, ptr noundef nonnull %qdev, ptr noundef nonnull @.str.176, ptr noundef %31, i64 noundef 0, i64 noundef %call2.i.i) #23
@@ -5255,48 +5238,48 @@ if.then64.i:                                      ; preds = %pci_req_id_cache_ge
   br label %if.end65.i
 
 if.end65.i:                                       ; preds = %if.then64.i, %pci_req_id_cache_get.exit.i
-  %irq_state.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 19
+  %irq_state.i = getelementptr inbounds i8, ptr %qdev, i64 1257
   store i8 0, ptr %irq_state.i, align 1
   %32 = getelementptr i8, ptr %qdev, i64 1260
   %pci_dev.val.i.i = load i32, ptr %32, align 4
   %and.i.i.i.i = and i32 %pci_dev.val.i.i, 4
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i64 256, i64 4096
-  %call1.i117.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #24
-  %config.i.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 3
-  store ptr %call1.i117.i, ptr %config.i.i, align 8
+  %call1.i118.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #24
+  %config.i.i = getelementptr inbounds i8, ptr %qdev, i64 168
+  store ptr %call1.i118.i, ptr %config.i.i, align 8
   %call3.i.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #24
-  %cmask.i.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 4
+  %cmask.i.i = getelementptr inbounds i8, ptr %qdev, i64 176
   store ptr %call3.i.i, ptr %cmask.i.i, align 16
-  %call5.i118.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #24
-  %wmask.i.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 5
-  store ptr %call5.i118.i, ptr %wmask.i.i, align 8
+  %call5.i119.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #24
+  %wmask.i.i = getelementptr inbounds i8, ptr %qdev, i64 184
+  store ptr %call5.i119.i, ptr %wmask.i.i, align 8
   %call7.i.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #24
-  %w1cmask.i.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 6
+  %w1cmask.i.i = getelementptr inbounds i8, ptr %qdev, i64 192
   store ptr %call7.i.i, ptr %w1cmask.i.i, align 16
   %call9.i.i = tail call noalias ptr @g_malloc0(i64 noundef %cond.i.i.i) #24
-  %used.i.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 7
+  %used.i.i = getelementptr inbounds i8, ptr %qdev, i64 200
   store ptr %call9.i.i, ptr %used.i.i, align 8
   %33 = load ptr, ptr %config.i.i, align 8
-  %vendor_id.i = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i.i, i64 0, i32 5
+  %vendor_id.i = getelementptr inbounds i8, ptr %call1.i.i, i64 208
   %34 = load i16, ptr %vendor_id.i, align 8
   store i16 %34, ptr %33, align 1
   %35 = load ptr, ptr %config.i.i, align 8
-  %device_id.i = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i.i, i64 0, i32 6
+  %device_id.i = getelementptr inbounds i8, ptr %call1.i.i, i64 210
   %36 = load i16, ptr %device_id.i, align 2
-  %arrayidx.i119.i = getelementptr i8, ptr %35, i64 2
-  store i16 %36, ptr %arrayidx.i119.i, align 1
+  %arrayidx.i120.i = getelementptr i8, ptr %35, i64 2
+  store i16 %36, ptr %arrayidx.i120.i, align 1
   %37 = load ptr, ptr %config.i.i, align 8
-  %revision.i = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i.i, i64 0, i32 7
+  %revision.i = getelementptr inbounds i8, ptr %call1.i.i, i64 212
   %38 = load i8, ptr %revision.i, align 4
-  %arrayidx.i120.i = getelementptr i8, ptr %37, i64 8
-  store i8 %38, ptr %arrayidx.i120.i, align 1
+  %arrayidx.i121.i = getelementptr i8, ptr %37, i64 8
+  store i8 %38, ptr %arrayidx.i121.i, align 1
   %39 = load ptr, ptr %config.i.i, align 8
-  %class_id.i = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i.i, i64 0, i32 8
+  %class_id.i = getelementptr inbounds i8, ptr %call1.i.i, i64 214
   %40 = load i16, ptr %class_id.i, align 2
-  %arrayidx.i121.i = getelementptr i8, ptr %39, i64 10
-  store i16 %40, ptr %arrayidx.i121.i, align 1
-  %subsystem_vendor_id84.i = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i.i, i64 0, i32 9
+  %arrayidx.i122.i = getelementptr i8, ptr %39, i64 10
+  store i16 %40, ptr %arrayidx.i122.i, align 1
+  %subsystem_vendor_id84.i = getelementptr inbounds i8, ptr %call1.i.i, i64 216
   %41 = load i16, ptr %subsystem_vendor_id84.i, align 8
   %tobool85.not.i = icmp eq i16 %41, 0
   br i1 %tobool.not.i60, label %if.else83.i, label %if.then70.i
@@ -5305,7 +5288,7 @@ if.then70.i:                                      ; preds = %if.end65.i
   br i1 %tobool85.not.i, label %lor.lhs.false.i, label %if.then75.i
 
 lor.lhs.false.i:                                  ; preds = %if.then70.i
-  %subsystem_id.i = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i.i, i64 0, i32 10
+  %subsystem_id.i = getelementptr inbounds i8, ptr %call1.i.i, i64 218
   %42 = load i16, ptr %subsystem_id.i, align 2
   %tobool74.not.i = icmp eq i16 %42, 0
   br i1 %tobool74.not.i, label %if.else81.i, label %if.then75.i
@@ -5316,7 +5299,7 @@ if.then75.i:                                      ; preds = %lor.lhs.false.i, %i
   store i16 %41, ptr %add.ptr.i, align 1
   %44 = load ptr, ptr %config.i.i, align 8
   %add.ptr79.i = getelementptr i8, ptr %44, i64 46
-  %subsystem_id80.i = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i.i, i64 0, i32 10
+  %subsystem_id80.i = getelementptr inbounds i8, ptr %call1.i.i, i64 218
   %45 = load i16, ptr %subsystem_id80.i, align 2
   store i16 %45, ptr %add.ptr79.i, align 1
   br label %if.end94.i
@@ -5338,7 +5321,7 @@ if.else87.i:                                      ; preds = %if.else83.i
   unreachable
 
 if.end88.i:                                       ; preds = %if.else83.i
-  %subsystem_id89.i = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i.i, i64 0, i32 10
+  %subsystem_id89.i = getelementptr inbounds i8, ptr %call1.i.i, i64 218
   %48 = load i16, ptr %subsystem_id89.i, align 2
   %tobool90.not.i = icmp eq i16 %48, 0
   br i1 %tobool90.not.i, label %if.end94.i, label %if.else92.i
@@ -5351,11 +5334,11 @@ if.end94.i:                                       ; preds = %if.end88.i, %if.els
   %49 = load ptr, ptr %cmask.i.i, align 16
   store i16 -1, ptr %49, align 1
   %50 = load ptr, ptr %cmask.i.i, align 16
-  %add.ptr2.i124.i = getelementptr i8, ptr %50, i64 2
-  store i16 -1, ptr %add.ptr2.i124.i, align 1
+  %add.ptr2.i125.i = getelementptr i8, ptr %50, i64 2
+  store i16 -1, ptr %add.ptr2.i125.i, align 1
   %51 = load ptr, ptr %cmask.i.i, align 16
-  %arrayidx.i125.i = getelementptr i8, ptr %51, i64 6
-  store i8 16, ptr %arrayidx.i125.i, align 1
+  %arrayidx.i126.i = getelementptr i8, ptr %51, i64 6
+  store i8 16, ptr %arrayidx.i126.i, align 1
   %52 = load ptr, ptr %cmask.i.i, align 16
   %arrayidx5.i.i = getelementptr i8, ptr %52, i64 8
   store i8 -1, ptr %arrayidx5.i.i, align 1
@@ -5372,17 +5355,17 @@ if.end94.i:                                       ; preds = %if.end88.i, %if.els
   %arrayidx13.i.i = getelementptr i8, ptr %56, i64 52
   store i8 -1, ptr %arrayidx13.i.i, align 1
   %dev.val.i.i = load i32, ptr %32, align 4
-  %and.i.i.i126.i = and i32 %dev.val.i.i, 4
-  %tobool.not.i.i127.i = icmp eq i32 %and.i.i.i126.i, 0
+  %and.i.i.i127.i = and i32 %dev.val.i.i, 4
+  %tobool.not.i.i128.i = icmp eq i32 %and.i.i.i127.i, 0
   %57 = load ptr, ptr %wmask.i.i, align 8
-  %arrayidx.i129.i = getelementptr i8, ptr %57, i64 12
-  store i8 -1, ptr %arrayidx.i129.i, align 1
+  %arrayidx.i130.i = getelementptr i8, ptr %57, i64 12
+  store i8 -1, ptr %arrayidx.i130.i, align 1
   %58 = load ptr, ptr %wmask.i.i, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %58, i64 60
   store i8 -1, ptr %arrayidx2.i.i, align 1
   %59 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr.i130.i = getelementptr i8, ptr %59, i64 4
-  store i16 1031, ptr %add.ptr.i130.i, align 1
+  %add.ptr.i131.i = getelementptr i8, ptr %59, i64 4
+  store i16 1031, ptr %add.ptr.i131.i, align 1
   %60 = load ptr, ptr %wmask.i.i, align 8
   %add.ptr5.i.i = getelementptr i8, ptr %60, i64 4
   %config.val.i.i.i = load i16, ptr %add.ptr5.i.i, align 1
@@ -5390,32 +5373,32 @@ if.end94.i:                                       ; preds = %if.end88.i, %if.els
   store i16 %or.i.i.i, ptr %add.ptr5.i.i, align 1
   %61 = load ptr, ptr %wmask.i.i, align 8
   %add.ptr8.i.i = getelementptr i8, ptr %61, i64 64
-  %sub.i.i = select i1 %tobool.not.i.i127.i, i64 192, i64 4032
+  %sub.i.i = select i1 %tobool.not.i.i128.i, i64 192, i64 4032
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(192) %add.ptr8.i.i, i8 -1, i64 %sub.i.i, i1 false)
   %pci_dev.val91.i = load ptr, ptr %w1cmask.i.i, align 16
-  %add.ptr.i131.i = getelementptr i8, ptr %pci_dev.val91.i, i64 6
-  store i16 -1792, ptr %add.ptr.i131.i, align 1
+  %add.ptr.i132.i = getelementptr i8, ptr %pci_dev.val91.i, i64 6
+  store i16 -1792, ptr %add.ptr.i132.i, align 1
   br i1 %tobool.not.i60, label %if.then96.i, label %if.end97.i
 
 if.then96.i:                                      ; preds = %if.end94.i
   %62 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr.i133.i = getelementptr i8, ptr %62, i64 24
-  store i32 -1, ptr %add.ptr.i133.i, align 1
+  %add.ptr.i134.i = getelementptr i8, ptr %62, i64 24
+  store i32 -1, ptr %add.ptr.i134.i, align 1
   %63 = load ptr, ptr %wmask.i.i, align 8
-  %arrayidx.i134.i = getelementptr i8, ptr %63, i64 28
-  store i8 -16, ptr %arrayidx.i134.i, align 1
+  %arrayidx.i135.i = getelementptr i8, ptr %63, i64 28
+  store i8 -16, ptr %arrayidx.i135.i, align 1
   %64 = load ptr, ptr %wmask.i.i, align 8
   %arrayidx3.i.i = getelementptr i8, ptr %64, i64 29
   store i8 -16, ptr %arrayidx3.i.i, align 1
   %65 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr5.i135.i = getelementptr i8, ptr %65, i64 32
-  store i16 -16, ptr %add.ptr5.i135.i, align 1
+  %add.ptr5.i136.i = getelementptr i8, ptr %65, i64 32
+  store i16 -16, ptr %add.ptr5.i136.i, align 1
   %66 = load ptr, ptr %wmask.i.i, align 8
   %add.ptr7.i.i = getelementptr i8, ptr %66, i64 34
   store i16 -16, ptr %add.ptr7.i.i, align 1
   %67 = load ptr, ptr %wmask.i.i, align 8
-  %add.ptr9.i136.i = getelementptr i8, ptr %67, i64 36
-  store i16 -16, ptr %add.ptr9.i136.i, align 1
+  %add.ptr9.i137.i = getelementptr i8, ptr %67, i64 36
+  store i16 -16, ptr %add.ptr9.i137.i, align 1
   %68 = load ptr, ptr %wmask.i.i, align 8
   %add.ptr11.i.i = getelementptr i8, ptr %68, i64 38
   store i16 -16, ptr %add.ptr11.i.i, align 1
@@ -5424,9 +5407,9 @@ if.then96.i:                                      ; preds = %if.end94.i
   store i64 -1, ptr %add.ptr13.i.i, align 1
   %70 = load ptr, ptr %config.i.i, align 8
   %add.ptr22.i.i = getelementptr i8, ptr %70, i64 36
-  %config.val.i.i138.i = load i16, ptr %add.ptr22.i.i, align 1
-  %or.i.i139.i = or i16 %config.val.i.i138.i, 1
-  store i16 %or.i.i139.i, ptr %add.ptr22.i.i, align 1
+  %config.val.i.i139.i = load i16, ptr %add.ptr22.i.i, align 1
+  %or.i.i140.i = or i16 %config.val.i.i139.i, 1
+  store i16 %or.i.i140.i, ptr %add.ptr22.i.i, align 1
   %71 = load ptr, ptr %config.i.i, align 8
   %add.ptr24.i.i = getelementptr i8, ptr %71, i64 38
   %config.val.i18.i.i = load i16, ptr %add.ptr24.i.i, align 1
@@ -5465,26 +5448,26 @@ if.end97.i:                                       ; preds = %if.then96.i, %if.en
   %83 = trunc i32 %82 to i8
   %84 = lshr i8 %83, 3
   %85 = load i32, ptr %32, align 4
-  %and1.i143.i = and i32 %85, 8
-  %tobool.not.i144.i = icmp eq i32 %and1.i143.i, 0
-  br i1 %tobool.not.i144.i, label %if.end.i.i, label %if.then.i145.i
+  %and1.i144.i = and i32 %85, 8
+  %tobool.not.i145.i = icmp eq i32 %and1.i144.i, 0
+  br i1 %tobool.not.i145.i, label %if.end.i.i, label %if.then.i146.i
 
-if.then.i145.i:                                   ; preds = %if.end97.i
+if.then.i146.i:                                   ; preds = %if.end97.i
   %86 = load ptr, ptr %config.i.i, align 8
-  %arrayidx.i147.i = getelementptr i8, ptr %86, i64 14
-  %87 = load i8, ptr %arrayidx.i147.i, align 1
+  %arrayidx.i148.i = getelementptr i8, ptr %86, i64 14
+  %87 = load i8, ptr %arrayidx.i148.i, align 1
   %88 = or i8 %87, -128
-  store i8 %88, ptr %arrayidx.i147.i, align 1
+  store i8 %88, ptr %arrayidx.i148.i, align 1
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then.i145.i, %if.end97.i
+if.end.i.i:                                       ; preds = %if.then.i146.i, %if.end97.i
   %89 = getelementptr i8, ptr %qdev, i64 2232
-  %dev.val.i148.i = load ptr, ptr %89, align 8
-  %cmp.i.not.i.i = icmp eq ptr %dev.val.i148.i, null
+  %dev.val.i149.i = load ptr, ptr %89, align 8
+  %cmp.i.not.i.i = icmp eq ptr %dev.val.i149.i, null
   br i1 %cmp.i.not.i.i, label %if.end9.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %cap_present5.i.i = getelementptr inbounds %struct.PCIDevice, ptr %dev.val.i148.i, i64 0, i32 20
+  %cap_present5.i.i = getelementptr inbounds i8, ptr %dev.val.i149.i, i64 1260
   %90 = load i32, ptr %cap_present5.i.i, align 4
   %and6.i.i = and i32 %90, 8
   %tobool7.not.i.i = icmp eq i32 %and6.i.i, 0
@@ -5497,16 +5480,17 @@ if.end9.i.i:                                      ; preds = %land.lhs.true.i.i, 
   br i1 %tobool12.not.i.i, label %if.end28.i.i, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %if.end9.i.i
+  %devices.i150.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 184
   %conv14.i.i = zext nneg i8 %84 to i32
-  %shl.i149.i = shl nuw nsw i32 %conv14.i.i, 3
-  %idxprom.i150.i = zext nneg i32 %shl.i149.i to i64
-  %arrayidx17.i.i = getelementptr %struct.PCIBus, ptr %call.i1.i.i, i64 0, i32 10, i64 %idxprom.i150.i
+  %shl.i151.i = shl nuw nsw i32 %conv14.i.i, 3
+  %idxprom.i152.i = zext nneg i32 %shl.i151.i to i64
+  %arrayidx17.i.i = getelementptr [256 x ptr], ptr %devices.i150.i, i64 0, i64 %idxprom.i152.i
   %92 = load ptr, ptr %arrayidx17.i.i, align 8
   %tobool18.not.i.i = icmp eq ptr %92, null
   br i1 %tobool18.not.i.i, label %pci_init_multifunction.exit.i, label %land.lhs.true19.i.i
 
 land.lhs.true19.i.i:                              ; preds = %if.then13.i.i
-  %cap_present20.i.i = getelementptr inbounds %struct.PCIDevice, ptr %92, i64 0, i32 20
+  %cap_present20.i.i = getelementptr inbounds i8, ptr %92, i64 1260
   %93 = load i32, ptr %cap_present20.i.i, align 4
   %and21.i.i = and i32 %93, 8
   %tobool22.not.i.i = icmp eq i32 %and21.i.i, 0
@@ -5523,6 +5507,7 @@ if.end28.i.i:                                     ; preds = %if.end9.i.i
   br i1 %tobool31.not.i.i, label %for.cond.preheader.i.i, label %pci_init_multifunction.exit.i
 
 for.cond.preheader.i.i:                           ; preds = %if.end28.i.i
+  %devices36.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 184
   %conv37.i.i = zext nneg i8 %84 to i32
   %shl39.i.i = shl nuw nsw i32 %conv37.i.i, 3
   %95 = zext nneg i32 %shl39.i.i to i64
@@ -5536,7 +5521,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 for.body.i.i:                                     ; preds = %for.cond.i.i, %for.cond.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 1, %for.cond.preheader.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
   %96 = add nuw nsw i64 %indvars.iv.i.i, %95
-  %arrayidx44.i.i = getelementptr %struct.PCIBus, ptr %call.i1.i.i, i64 0, i32 10, i64 %96
+  %arrayidx44.i.i = getelementptr [256 x ptr], ptr %devices36.i.i, i64 0, i64 %96
   %97 = load ptr, ptr %arrayidx44.i.i, align 8
   %tobool45.not.i.i = icmp eq ptr %97, null
   br i1 %tobool45.not.i.i, label %for.cond.i.i, label %if.then46.i.i
@@ -5562,16 +5547,17 @@ do_pci_register_device.exit.thread:               ; preds = %if.then99.i, %for.e
 
 if.end40:                                         ; preds = %pci_init_multifunction.exit.i
   %100 = icmp eq <2 x ptr> %12, zeroinitializer
-  %config_read107.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 15
+  %config_read107.i = getelementptr inbounds i8, ptr %qdev, i64 1216
   %101 = select <2 x i1> %100, <2 x ptr> <ptr @pci_default_read_config, ptr @pci_default_write_config>, <2 x ptr> %12
   store <2 x ptr> %101, ptr %config_read107.i, align 16
+  %devices109.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 184
   %idxprom110.i = zext nneg i32 %devfn.addr.1.i to i64
-  %arrayidx111.i = getelementptr %struct.PCIBus, ptr %call.i1.i.i, i64 0, i32 10, i64 %idxprom110.i
+  %arrayidx111.i = getelementptr [256 x ptr], ptr %devices109.i, i64 0, i64 %idxprom110.i
   store ptr %qdev, ptr %arrayidx111.i, align 8
-  %version_id.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 34
+  %version_id.i = getelementptr inbounds i8, ptr %qdev, i64 2156
   store i32 2, ptr %version_id.i, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call1.i, i64 176
   %102 = load ptr, ptr %realize, align 8
   %tobool41.not = icmp eq ptr %102, null
   br i1 %tobool41.not, label %if.end47, label %if.then42
@@ -5614,7 +5600,7 @@ if.then59:                                        ; preds = %land.lhs.true56
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then59, %land.lhs.true56, %land.lhs.true53, %land.lhs.true50, %if.end47
-  %failover_pair_id = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 47
+  %failover_pair_id = getelementptr inbounds i8, ptr %qdev, i64 2584
   %105 = load ptr, ptr %failover_pair_id, align 8
   %tobool64.not = icmp eq ptr %105, null
   br i1 %tobool64.not, label %if.end88, label %if.then65
@@ -5665,18 +5651,18 @@ if.then85:                                        ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end87:                                         ; preds = %lor.lhs.false
-  %allow_unplug_during_migration = getelementptr inbounds %struct.DeviceState, ptr %qdev, i64 0, i32 8
+  %allow_unplug_during_migration = getelementptr inbounds i8, ptr %qdev, i64 84
   store i8 1, ptr %allow_unplug_during_migration, align 4
   br label %if.end88
 
 if.end88:                                         ; preds = %if.end87, %if.end63
-  %romfile = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 38
+  %romfile = getelementptr inbounds i8, ptr %qdev, i64 2256
   %109 = load ptr, ptr %romfile, align 16
   %cmp89 = icmp eq ptr %109, null
   br i1 %cmp89, label %land.lhs.true91, label %if.end99
 
 land.lhs.true91:                                  ; preds = %if.end88
-  %romfile92 = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i, i64 0, i32 11
+  %romfile92 = getelementptr inbounds i8, ptr %call1.i, i64 224
   %110 = load ptr, ptr %romfile92, align 8
   %cmp93.not = icmp eq ptr %110, null
   br i1 %cmp93.not, label %if.end99, label %if.then95
@@ -5700,7 +5686,7 @@ lor.lhs.false.i72:                                ; preds = %if.end99
   br i1 %tobool4.not.i, label %pci_add_option_rom.exit, label %if.end.i73
 
 if.end.i73:                                       ; preds = %lor.lhs.false.i72
-  %rom_bar.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 42
+  %rom_bar.i = getelementptr inbounds i8, ptr %qdev, i64 2544
   %112 = load i32, ptr %rom_bar.i, align 16
   %tobool5.not.i = icmp eq i32 %112, 0
   br i1 %tobool5.not.i, label %if.then6.i, label %if.end19.i
@@ -5710,7 +5696,7 @@ if.then6.i:                                       ; preds = %if.end.i73
   %add.ptr.i76 = getelementptr i8, ptr %113, i64 10
   %add.ptr.val.i = load i16, ptr %add.ptr.i76, align 1
   %call.i.i77 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %qdev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
-  %hotplugged.i78 = getelementptr inbounds %struct.DeviceState, ptr %call.i.i77, i64 0, i32 7
+  %hotplugged.i78 = getelementptr inbounds i8, ptr %call.i.i77, i64 80
   %114 = load i32, ptr %hotplugged.i78, align 8
   %tobool9.not.i = icmp eq i32 %114, 0
   br i1 %tobool9.not.i, label %if.end11.i, label %if.then10.i
@@ -5824,9 +5810,9 @@ cond.false.i:                                     ; preds = %if.end70.i
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %cond.i = phi ptr [ %124, %cond.true.i ], [ %call75.i, %cond.false.i ]
   %call76.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name.i, i64 noundef 32, ptr noundef nonnull @.str.209, ptr noundef %cond.i) #23
-  %has_rom.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 40
+  %has_rom.i = getelementptr inbounds i8, ptr %qdev, i64 2268
   store i8 1, ptr %has_rom.i, align 4
-  %rom.i = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 41
+  %rom.i = getelementptr inbounds i8, ptr %qdev, i64 2272
   %125 = load i32, ptr %romsize, align 8
   %conv79.i = zext i32 %125 to i64
   call void @memory_region_init_rom(ptr noundef nonnull %rom.i, ptr noundef nonnull %qdev, ptr noundef nonnull %name.i, i64 noundef %conv79.i, ptr noundef nonnull @error_fatal) #23
@@ -5871,7 +5857,7 @@ if.then102:                                       ; preds = %pci_add_option_rom.
 
 if.end104:                                        ; preds = %pci_add_option_rom.exit
   call void @pci_set_power(ptr noundef nonnull %qdev, i1 noundef zeroext true)
-  %msi_trigger = getelementptr inbounds %struct.PCIDevice, ptr %qdev, i64 0, i32 26
+  %msi_trigger = getelementptr inbounds i8, ptr %qdev, i64 1296
   store ptr @pci_msi_trigger, ptr %msi_trigger, align 16
   br label %return
 
@@ -5885,25 +5871,26 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #23
   %call.i10 = tail call ptr @object_get_class(ptr noundef %call.i) #23
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i10, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_GET_CLASS) #23
+  %io_regions.i = getelementptr inbounds i8, ptr %call.i, i64 296
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
-  %size.i = getelementptr %struct.PCIDevice, ptr %call.i, i64 0, i32 11, i64 %indvars.iv.i, i32 1
+  %arrayidx.i = getelementptr [7 x %struct.PCIIORegion], ptr %io_regions.i, i64 0, i64 %indvars.iv.i
+  %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i64, ptr %size.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %for.inc.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %arrayidx.i = getelementptr %struct.PCIDevice, ptr %call.i, i64 0, i32 11, i64 %indvars.iv.i
   %1 = load i64, ptr %arrayidx.i, align 8
   %cmp1.i = icmp eq i64 %1, -1
   br i1 %cmp1.i, label %for.inc.i, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %address_space.i = getelementptr %struct.PCIDevice, ptr %call.i, i64 0, i32 11, i64 %indvars.iv.i, i32 4
+  %address_space.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
   %2 = load ptr, ptr %address_space.i, align 8
-  %memory.i = getelementptr %struct.PCIDevice, ptr %call.i, i64 0, i32 11, i64 %indvars.iv.i, i32 3
+  %memory.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %3 = load ptr, ptr %memory.i, align 8
   tail call void @memory_region_del_subregion(ptr noundef %2, ptr noundef %3) #23
   br label %for.inc.i
@@ -5915,20 +5902,20 @@ for.inc.i:                                        ; preds = %if.end.i, %lor.lhs.
 
 pci_unregister_io_regions.exit:                   ; preds = %for.inc.i
   tail call void @pci_unregister_vga(ptr noundef nonnull %call.i)
-  %has_rom.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 40
+  %has_rom.i = getelementptr inbounds i8, ptr %call.i, i64 2268
   %4 = load i8, ptr %has_rom.i, align 4
   %5 = and i8 %4, 1
   %tobool.not.i11 = icmp eq i8 %5, 0
   br i1 %tobool.not.i11, label %pci_del_option_rom.exit, label %if.end.i12
 
 if.end.i12:                                       ; preds = %pci_unregister_io_regions.exit
-  %rom.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 41
+  %rom.i = getelementptr inbounds i8, ptr %call.i, i64 2272
   tail call void @vmstate_unregister_ram(ptr noundef nonnull %rom.i, ptr noundef nonnull %call.i) #23
   store i8 0, ptr %has_rom.i, align 4
   br label %pci_del_option_rom.exit
 
 pci_del_option_rom.exit:                          ; preds = %pci_unregister_io_regions.exit, %if.end.i12
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call1.i, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call1.i, i64 184
   %6 = load ptr, ptr %exit, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -5939,7 +5926,7 @@ if.then:                                          ; preds = %pci_del_option_rom.
 
 if.end:                                           ; preds = %if.then, %pci_del_option_rom.exit
   %7 = getelementptr i8, ptr %call.i, i64 1257
-  %config2.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 3
+  %config2.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 168
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %pci_irq_handler.exit.i, %if.end
@@ -5984,9 +5971,9 @@ pci_irq_handler.exit.i:                           ; preds = %if.end12.i.i, %if.e
 
 pci_device_deassert_intx.exit:                    ; preds = %pci_irq_handler.exit.i
   tail call fastcc void @do_pci_unregister_device(ptr noundef nonnull %call.i)
-  %msi_trigger = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 26
+  %msi_trigger = getelementptr inbounds i8, ptr %call.i, i64 1296
   store ptr null, ptr %msi_trigger, align 16
-  %acpi_index = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 48
+  %acpi_index = getelementptr inbounds i8, ptr %call.i, i64 2592
   %15 = load i32, ptr %acpi_index, align 16
   %tobool3.not = icmp eq i32 %15, 0
   br i1 %tobool3.not, label %if.end8, label %if.then4
@@ -6039,24 +6026,25 @@ entry:
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i) #23
   %call.i1.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %devfn = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 8
+  %devices = getelementptr inbounds i8, ptr %call.i1.i, i64 184
+  %devfn = getelementptr inbounds i8, ptr %pci_dev, i64 208
   %0 = load i32, ptr %devfn, align 16
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr %struct.PCIBus, ptr %call.i1.i, i64 0, i32 10, i64 %idxprom
+  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %idxprom
   store ptr null, ptr %arrayidx, align 8
-  %config.i = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 3
+  %config.i = getelementptr inbounds i8, ptr %pci_dev, i64 168
   %1 = load ptr, ptr %config.i, align 8
   tail call void @g_free(ptr noundef %1) #23
-  %cmask.i = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 4
+  %cmask.i = getelementptr inbounds i8, ptr %pci_dev, i64 176
   %2 = load ptr, ptr %cmask.i, align 16
   tail call void @g_free(ptr noundef %2) #23
-  %wmask.i = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 5
+  %wmask.i = getelementptr inbounds i8, ptr %pci_dev, i64 184
   %3 = load ptr, ptr %wmask.i, align 8
   tail call void @g_free(ptr noundef %3) #23
-  %w1cmask.i = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 6
+  %w1cmask.i = getelementptr inbounds i8, ptr %pci_dev, i64 192
   %4 = load ptr, ptr %w1cmask.i, align 16
   tail call void @g_free(ptr noundef %4) #23
-  %used.i = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 7
+  %used.i = getelementptr inbounds i8, ptr %pci_dev, i64 200
   %5 = load ptr, ptr %used.i, align 8
   tail call void @g_free(ptr noundef %5) #23
   %6 = load i32, ptr @xen_mode, align 4
@@ -6068,17 +6056,17 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %bus_master_enable_region = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 14
+  %bus_master_enable_region = getelementptr inbounds i8, ptr %pci_dev, i64 944
   %call1 = tail call zeroext i1 @memory_region_is_mapped(ptr noundef nonnull %bus_master_enable_region) #23
   br i1 %call1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %bus_master_container_region = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 13
+  %bus_master_container_region = getelementptr inbounds i8, ptr %pci_dev, i64 672
   tail call void @memory_region_del_subregion(ptr noundef nonnull %bus_master_container_region, ptr noundef nonnull %bus_master_enable_region) #23
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %bus_master_as = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 12
+  %bus_master_as = getelementptr inbounds i8, ptr %pci_dev, i64 576
   tail call void @address_space_destroy(ptr noundef nonnull %bus_master_as) #23
   ret void
 }
@@ -6102,7 +6090,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %call1 = tail call zeroext i16 @pci_requester_id(ptr noundef %dev)
   %conv = zext i16 %call1 to i32
   %bf.shl = shl nuw nsw i32 %conv, 6
-  %bus_master_as = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 12
+  %bus_master_as = getelementptr inbounds i8, ptr %dev, i64 576
   tail call void @address_space_stl_le(ptr noundef nonnull %bus_master_as, i64 noundef %msg.coerce0, i32 noundef %msg.coerce1, i32 %bf.shl, ptr noundef null) #23
   br label %return
 
@@ -6165,7 +6153,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool.not, label %if.end12, label %if.end93
 
 if.end12:                                         ; preds = %lor.lhs.false
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %pdev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %pdev, i64 168
   %0 = load ptr, ptr %config, align 8
   %.val = load i16, ptr %0, align 1
   %add.ptr16 = getelementptr i8, ptr %0, i64 2

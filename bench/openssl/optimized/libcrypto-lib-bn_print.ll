@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-bn_print.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @Hex = internal constant [17 x i8] c"0123456789ABCDEF\00", align 16
@@ -40,7 +38,7 @@ declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define i32 @BN_print(ptr noundef %bp, ptr noundef %a) local_unnamed_addr #0 {
 entry:
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -61,7 +59,7 @@ land.lhs.true3:                                   ; preds = %if.end
   br i1 %cmp5.not, label %if.end7, label %end
 
 if.end7:                                          ; preds = %land.lhs.true3, %if.end
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load i32, ptr %top, align 8
   %cmp817 = icmp sgt i32 %1, 0
   br i1 %cmp817, label %for.cond9.preheader.preheader, label %end

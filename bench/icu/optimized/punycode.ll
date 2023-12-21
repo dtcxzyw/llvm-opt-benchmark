@@ -1006,7 +1006,7 @@ if.end190:                                        ; preds = %if.end174.thread220
   %22 = trunc i32 %add93 to i16
   %23 = and i16 %22, 1023
   %conv186 = or disjoint i16 %23, -9216
-  %arrayidx189 = getelementptr i16, ptr %arrayidx184, i64 1
+  %arrayidx189 = getelementptr i8, ptr %arrayidx184, i64 2
   store i16 %conv186, ptr %arrayidx189, align 2
   br i1 %cmp161.not, label %if.end215, label %if.then192
 

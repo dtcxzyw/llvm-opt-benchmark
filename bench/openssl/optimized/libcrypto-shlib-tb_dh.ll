@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-tb_dh.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.engine_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %struct.CRYPTO_REF_COUNT, i32, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-
 @dh_table = internal global ptr null, align 8
 @dummy_nid = internal constant i32 1, align 4
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/engine/tb_dh.c\00", align 1
@@ -23,7 +19,7 @@ declare void @engine_table_unregister(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define i32 @ENGINE_register_DH(ptr noundef %e) local_unnamed_addr #0 {
 entry:
-  %dh_meth = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 4
+  %dh_meth = getelementptr inbounds i8, ptr %e, i64 32
   %0 = load ptr, ptr %dh_meth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -55,7 +51,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %ENGINE_register_DH.exit
   %e.04 = phi ptr [ %call2, %ENGINE_register_DH.exit ], [ %call, %entry ]
-  %dh_meth.i = getelementptr inbounds %struct.engine_st, ptr %e.04, i64 0, i32 4
+  %dh_meth.i = getelementptr inbounds i8, ptr %e.04, i64 32
   %0 = load ptr, ptr %dh_meth.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %ENGINE_register_DH.exit, label %if.then.i
@@ -80,7 +76,7 @@ declare ptr @ENGINE_get_next(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ENGINE_set_default_DH(ptr noundef %e) local_unnamed_addr #0 {
 entry:
-  %dh_meth = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 4
+  %dh_meth = getelementptr inbounds i8, ptr %e, i64 32
   %0 = load ptr, ptr %dh_meth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then
@@ -106,7 +102,7 @@ declare ptr @ossl_engine_table_select(ptr noundef, i32 noundef, ptr noundef, i32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ENGINE_get_DH(ptr nocapture noundef readonly %e) local_unnamed_addr #2 {
 entry:
-  %dh_meth = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 4
+  %dh_meth = getelementptr inbounds i8, ptr %e, i64 32
   %0 = load ptr, ptr %dh_meth, align 8
   ret ptr %0
 }
@@ -114,7 +110,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define i32 @ENGINE_set_DH(ptr nocapture noundef writeonly %e, ptr noundef %dh_meth) local_unnamed_addr #3 {
 entry:
-  %dh_meth1 = getelementptr inbounds %struct.engine_st, ptr %e, i64 0, i32 4
+  %dh_meth1 = getelementptr inbounds i8, ptr %e, i64 32
   store ptr %dh_meth, ptr %dh_meth1, align 8
   ret i32 1
 }

@@ -19,179 +19,27 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::c_array.324" = type { [5 x i8] }
 %"struct.proxygen::http2::PriorityUpdate" = type { i64, i8, i8 }
 %"struct.folly::IOBufQueue::Options" = type { i8 }
-%"class.proxygen::HTTPTransaction" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", %"class.folly::DelayedDestructionBase.base", %"class.proxygen::HTTPTransaction::RateLimitCallback", %"class.std::unique_ptr", %"class.folly::IOBufQueue", %"struct.proxygen::HTTPTransaction::BufferMeta", i8, i8, i8, i32, i64, i32, i32, ptr, ptr, ptr, %"struct.proxygen::CompressionInfo", %"class.proxygen::Window", %"class.proxygen::Window", ptr, %"class.std::unique_ptr.12", %"class.std::__cxx11::list", ptr, ptr, %"class.folly::Optional", %"class.folly::Optional.0", %"class.std::set", %"class.std::set", %"struct.proxygen::http2::PriorityUpdate", i64, i64, double, i64, i64, %"class.folly::Optional", %"class.folly::Optional", %"class.folly::Optional", %"class.folly::Optional", i64, %"class.std::map", i24, i16, i64, %"class.std::chrono::time_point", i64, %"class.folly::Optional.27", ptr, i64, i8, %"class.std::map.30", %"class.std::map.35", %"class.proxygen::HTTPTransaction::TxnWebTransport" }
-%"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback" = type { ptr, %"class.boost::intrusive::list_base_hook", ptr, %"class.std::chrono::time_point", i32, %"class.std::shared_ptr" }
-%"class.boost::intrusive::list_base_hook" = type { %"class.boost::intrusive::generic_hook" }
-%"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::node_holder" }
-%"struct.boost::intrusive::node_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.folly::DelayedDestructionBase.base" = type <{ ptr, i32 }>
-%"class.proxygen::HTTPTransaction::RateLimitCallback" = type { %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.3" }
-%"struct.std::_Head_base.3" = type { ptr }
-%"class.folly::IOBufQueue" = type { %"struct.folly::IOBufQueue::Options", i64, %"class.std::unique_ptr.4", ptr, ptr, %"struct.folly::IOBufQueue::WritableRangeCacheData", ptr }
-%"class.std::unique_ptr.4" = type { %"struct.std::__uniq_ptr_data.5" }
-%"struct.std::__uniq_ptr_data.5" = type { %"class.std::__uniq_ptr_impl.6" }
-%"class.std::__uniq_ptr_impl.6" = type { %"class.std::tuple.7" }
-%"class.std::tuple.7" = type { %"struct.std::_Tuple_impl.8" }
-%"struct.std::_Tuple_impl.8" = type { %"struct.std::_Head_base.11" }
-%"struct.std::_Head_base.11" = type { ptr }
-%"struct.folly::IOBufQueue::WritableRangeCacheData" = type <{ %"struct.std::pair", i8, [7 x i8] }>
-%"struct.std::pair" = type { ptr, ptr }
-%"struct.proxygen::HTTPTransaction::BufferMeta" = type { i64 }
-%"struct.proxygen::CompressionInfo" = type { %"struct.proxygen::CompressionInfoPart", %"struct.proxygen::CompressionInfoPart" }
-%"struct.proxygen::CompressionInfoPart" = type { i32, i32, i32, i32, i32, i32, i32 }
-%"class.proxygen::Window" = type { i32, i32 }
-%"class.std::unique_ptr.12" = type { %"struct.std::__uniq_ptr_data.13" }
-%"struct.std::__uniq_ptr_data.13" = type { %"class.std::__uniq_ptr_impl.14" }
-%"class.std::__uniq_ptr_impl.14" = type { %"class.std::tuple.15" }
-%"class.std::tuple.15" = type { %"struct.std::_Tuple_impl.16" }
-%"struct.std::_Tuple_impl.16" = type { %"struct.std::_Head_base.19" }
-%"struct.std::_Head_base.19" = type { ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<proxygen::HTTPTransaction::Chunk, std::allocator<proxygen::HTTPTransaction::Chunk>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<proxygen::HTTPTransaction::Chunk, std::allocator<proxygen::HTTPTransaction::Chunk>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"class.folly::Optional.0" = type { %"struct.folly::Optional<proxygen::HTTPCodec::ExAttributes>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<proxygen::HTTPCodec::ExAttributes>::StorageTriviallyDestructible" = type { %union.anon.1, i8, [7 x i8] }
-%union.anon.1 = type { %"struct.proxygen::HTTPCodec::ExAttributes" }
-%"struct.proxygen::HTTPCodec::ExAttributes" = type <{ i64, i8, [7 x i8] }>
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned long, unsigned long, std::_Identity<unsigned long>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, unsigned long, std::_Identity<unsigned long>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::map" = type { %"class.std::_Rb_tree.23" }
-%"class.std::_Rb_tree.23" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::ByteEvent::EventFlags>, std::_Select1st<std::pair<const unsigned long, proxygen::ByteEvent::EventFlags>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::ByteEvent::EventFlags>, std::_Select1st<std::pair<const unsigned long, proxygen::ByteEvent::EventFlags>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.folly::Optional.27" = type { %"struct.folly::Optional<std::chrono::duration<long, std::ratio<1, 1000>>>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<std::chrono::duration<long, std::ratio<1, 1000>>>::StorageTriviallyDestructible" = type <{ %union.anon.28, i8, [7 x i8] }>
-%union.anon.28 = type { %"class.std::chrono::duration.29" }
-%"class.std::chrono::duration.29" = type { i64 }
-%"class.std::map.30" = type { %"class.std::_Rb_tree.31" }
-%"class.std::_Rb_tree.31" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamWriteHandle>, std::_Select1st<std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamWriteHandle>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamWriteHandle>, std::_Select1st<std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamWriteHandle>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::map.35" = type { %"class.std::_Rb_tree.36" }
-%"class.std::_Rb_tree.36" = type { %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamReadHandle>, std::_Select1st<std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamReadHandle>>, std::less<unsigned long>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamReadHandle>, std::_Select1st<std::pair<const unsigned long, proxygen::HTTPTransaction::TxnStreamReadHandle>>, std::less<unsigned long>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.proxygen::HTTPTransaction::TxnWebTransport" = type { %"class.proxygen::WebTransport", ptr }
-%"class.proxygen::WebTransport" = type { ptr }
-%"class.proxygen::HTTP2PriorityQueueBase" = type { %"class.proxygen::HTTPCodec::PriorityQueue", i64 }
-%"class.proxygen::HTTPCodec::PriorityQueue" = type { ptr }
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [152 x i8] }
-%"struct.std::_Rb_tree_node.263" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.264" }
-%"struct.__gnu_cxx::__aligned_membuf.264" = type { [72 x i8] }
 %"class.proxygen::WebTransport::Exception" = type <{ %"class.std::runtime_error", i32, [4 x i8] }>
 %"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
 %"struct.std::__cow_string" = type { %union.anon.121 }
 %union.anon.121 = type { ptr }
-%"class.proxygen::HTTPTransaction::TxnStreamReadHandle" = type { %"class.proxygen::WebTransport::StreamReadHandle", ptr, i64, %"class.folly::Optional.42", %"class.folly::IOBufQueue", i8, [3 x i8], %"class.folly::Optional.44", %"class.folly::CancellationSource" }
-%"class.proxygen::WebTransport::StreamReadHandle" = type { %"class.proxygen::WebTransport::StreamHandleBase" }
-%"class.proxygen::WebTransport::StreamHandleBase" = type { ptr }
-%"class.folly::Optional.42" = type { %"struct.folly::Optional<folly::Promise<proxygen::WebTransport::StreamData>>::StorageNonTriviallyDestructible" }
-%"struct.folly::Optional<folly::Promise<proxygen::WebTransport::StreamData>>::StorageNonTriviallyDestructible" = type <{ %union.anon.43, i8, [7 x i8] }>
-%union.anon.43 = type { %"class.folly::Promise" }
-%"class.folly::Promise" = type { i8, ptr }
-%"class.folly::Optional.44" = type { %"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<unsigned int>::StorageTriviallyDestructible" = type <{ %union.anon.45, i8, [3 x i8] }>
-%union.anon.45 = type { i32 }
-%"class.folly::CancellationSource" = type { %"class.std::unique_ptr.46" }
-%"class.std::unique_ptr.46" = type { %"struct.std::__uniq_ptr_data.47" }
-%"struct.std::__uniq_ptr_data.47" = type { %"class.std::__uniq_ptr_impl.48" }
-%"class.std::__uniq_ptr_impl.48" = type { %"class.std::tuple.49" }
-%"class.std::tuple.49" = type { %"struct.std::_Tuple_impl.50" }
-%"struct.std::_Tuple_impl.50" = type { %"struct.std::_Head_base.53" }
-%"struct.std::_Head_base.53" = type { ptr }
-%"class.proxygen::HTTPTransaction::TxnStreamWriteHandle" = type { %"class.proxygen::WebTransport::StreamWriteHandle", ptr, i64, %"class.folly::Optional.57", %"class.folly::CancellationSource" }
-%"class.proxygen::WebTransport::StreamWriteHandle" = type { %"class.proxygen::WebTransport::StreamHandleBase", %"class.folly::Optional.44" }
-%"class.folly::Optional.57" = type { %"struct.folly::Optional<folly::Promise<folly::Unit>>::StorageNonTriviallyDestructible" }
-%"struct.folly::Optional<folly::Promise<folly::Unit>>::StorageNonTriviallyDestructible" = type <{ %union.anon.58, i8, [7 x i8] }>
-%union.anon.58 = type { %"class.folly::Promise.59" }
-%"class.folly::Promise.59" = type { i8, ptr }
-%"class.folly::detail::CancellationState" = type { ptr, %"struct.std::atomic.242", ptr, %"class.std::thread::id" }
-%"struct.std::atomic.242" = type { %"struct.std::__atomic_base.243" }
-%"struct.std::__atomic_base.243" = type { i64 }
-%"class.std::thread::id" = type { i64 }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.folly::DelayedDestructionBase::DestructorGuard" = type { ptr }
 %"class.folly::Optional.119" = type { %"struct.folly::Optional<proxygen::HTTPMethod>::StorageTriviallyDestructible" }
 %"struct.folly::Optional<proxygen::HTTPMethod>::StorageTriviallyDestructible" = type <{ %union.anon.120, i8, [3 x i8] }>
 %union.anon.120 = type { i32 }
+%"struct.proxygen::CompressionInfo" = type { %"struct.proxygen::CompressionInfoPart", %"struct.proxygen::CompressionInfoPart" }
+%"struct.proxygen::CompressionInfoPart" = type { i32, i32, i32, i32, i32, i32, i32 }
 %"class.std::unique_ptr.60" = type { %"struct.std::__uniq_ptr_data.61" }
 %"struct.std::__uniq_ptr_data.61" = type { %"class.std::__uniq_ptr_impl.62" }
 %"class.std::__uniq_ptr_impl.62" = type { %"class.std::tuple.63" }
 %"class.std::tuple.63" = type { %"struct.std::_Tuple_impl.64" }
 %"struct.std::_Tuple_impl.64" = type { %"struct.std::_Head_base.67" }
 %"struct.std::_Head_base.67" = type { ptr }
-%"class.proxygen::HTTPMessage" = type { %"class.std::chrono::time_point", %"class.folly::SocketAddress", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"struct.proxygen::HTTPMessage::Fields", %"class.std::map.84", %"class.std::map.92", %"class.proxygen::HTTPHeaders", %"class.std::unique_ptr.12", %"struct.proxygen::HTTPHeaderSize", i32, %"class.std::unique_ptr.12", i32, i32, ptr, ptr, %"class.std::unique_ptr.76", i8, [7 x i8], %"class.folly::Optional.108", %"struct.std::pair.117", i8, i32 }
-%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
-%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
-%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
-%"struct.proxygen::HTTPMessage::Fields" = type { i8, %"union.proxygen::HTTPMessage::Fields::Data" }
-%"union.proxygen::HTTPMessage::Fields::Data" = type { %"struct.proxygen::HTTPMessage::Response", [136 x i8] }
-%"struct.proxygen::HTTPMessage::Response" = type { i16, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.std::map.84" = type { %"class.std::_Rb_tree.85" }
-%"class.std::_Rb_tree.85" = type { %"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<folly::Range<const char *>, std::pair<const folly::Range<const char *>, folly::Range<const char *>>, std::_Select1st<std::pair<const folly::Range<const char *>, folly::Range<const char *>>>, std::less<folly::Range<const char *>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.89", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.89" = type { %"struct.std::less.90" }
-%"struct.std::less.90" = type { i8 }
-%"class.std::map.92" = type { %"class.std::_Rb_tree.93" }
-%"class.std::_Rb_tree.93" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.97", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.97" = type { %"struct.std::less.98" }
-%"struct.std::less.98" = type { i8 }
-%"class.proxygen::HTTPHeaders" = type { %"class.std::unique_ptr.100", i64, i64, i64 }
-%"class.std::unique_ptr.100" = type { %"struct.std::__uniq_ptr_data.101" }
-%"struct.std::__uniq_ptr_data.101" = type { %"class.std::__uniq_ptr_impl.102" }
-%"class.std::__uniq_ptr_impl.102" = type { %"class.std::tuple.103" }
-%"class.std::tuple.103" = type { %"struct.std::_Tuple_impl.104" }
-%"struct.std::_Tuple_impl.104" = type { %"struct.std::_Head_base.107" }
-%"struct.std::_Head_base.107" = type { ptr }
-%"struct.proxygen::HTTPHeaderSize" = type { i32, i32, i32 }
-%"class.std::unique_ptr.76" = type { %"struct.std::__uniq_ptr_data.77" }
-%"struct.std::__uniq_ptr_data.77" = type { %"class.std::__uniq_ptr_impl.78" }
-%"class.std::__uniq_ptr_impl.78" = type { %"class.std::tuple.79" }
-%"class.std::tuple.79" = type { %"struct.std::_Tuple_impl.80" }
-%"struct.std::_Tuple_impl.80" = type { %"struct.std::_Head_base.83" }
-%"struct.std::_Head_base.83" = type { ptr }
-%"class.folly::Optional.108" = type { %"struct.folly::Optional<std::tuple<unsigned long, bool, unsigned char>>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<std::tuple<unsigned long, bool, unsigned char>>::StorageTriviallyDestructible" = type <{ %union.anon.109, i8, [7 x i8] }>
-%union.anon.109 = type { %"class.std::tuple.110" }
-%"class.std::tuple.110" = type { %"struct.std::_Tuple_impl.111" }
-%"struct.std::_Tuple_impl.111" = type { %"struct.std::_Tuple_impl.112", %"struct.std::_Head_base.116" }
-%"struct.std::_Tuple_impl.112" = type { %"struct.std::_Tuple_impl.113", %"struct.std::_Head_base.115" }
-%"struct.std::_Tuple_impl.113" = type { %"struct.std::_Head_base.114" }
-%"struct.std::_Head_base.114" = type { i8 }
-%"struct.std::_Head_base.115" = type { i8 }
-%"struct.std::_Head_base.116" = type { i64 }
-%"struct.std::pair.117" = type { i8, i8 }
-%"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.proxygen::HTTPEvent" = type { %"class.std::unique_ptr.60", %"class.std::unique_ptr.4", %"class.std::unique_ptr.12", %"class.std::unique_ptr.125", i64, i64, i8, i8, i32 }
-%"class.std::unique_ptr.125" = type { %"struct.std::__uniq_ptr_data.126" }
-%"struct.std::__uniq_ptr_data.126" = type { %"class.std::__uniq_ptr_impl.127" }
-%"class.std::__uniq_ptr_impl.127" = type { %"class.std::tuple.128" }
-%"class.std::tuple.128" = type { %"struct.std::_Tuple_impl.129" }
-%"struct.std::_Tuple_impl.129" = type { %"struct.std::_Head_base.132" }
-%"struct.std::_Head_base.132" = type { ptr }
-%"class.folly::DelayedDestructionBase" = type <{ ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -210,22 +58,31 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::Optional.135" = type { %"struct.folly::Optional<proxygen::ErrorCode>::StorageTriviallyDestructible" }
 %"struct.folly::Optional<proxygen::ErrorCode>::StorageTriviallyDestructible" = type { %union.anon.136, i8 }
 %union.anon.136 = type { i8 }
+%"class.std::unique_ptr.4" = type { %"struct.std::__uniq_ptr_data.5" }
+%"struct.std::__uniq_ptr_data.5" = type { %"class.std::__uniq_ptr_impl.6" }
+%"class.std::__uniq_ptr_impl.6" = type { %"class.std::tuple.7" }
+%"class.std::tuple.7" = type { %"struct.std::_Tuple_impl.8" }
+%"struct.std::_Tuple_impl.8" = type { %"struct.std::_Head_base.11" }
+%"struct.std::_Head_base.11" = type { ptr }
 %"class.std::allocator.70" = type { i8 }
+%"class.std::unique_ptr.12" = type { %"struct.std::__uniq_ptr_data.13" }
+%"struct.std::__uniq_ptr_data.13" = type { %"class.std::__uniq_ptr_impl.14" }
+%"class.std::__uniq_ptr_impl.14" = type { %"class.std::tuple.15" }
+%"class.std::tuple.15" = type { %"struct.std::_Tuple_impl.16" }
+%"struct.std::_Tuple_impl.16" = type { %"struct.std::_Head_base.19" }
+%"struct.std::_Head_base.19" = type { ptr }
 %"class.folly::ConversionError" = type <{ %"struct.folly::ConversionErrorBase", i8, [7 x i8] }>
 %"struct.folly::ConversionErrorBase" = type { %"class.std::range_error" }
 %"class.std::range_error" = type { %"class.std::runtime_error" }
 %class.anon.323 = type { ptr }
-%"class.folly::IOBuf" = type { i64, ptr, i64, ptr, ptr, ptr, i64 }
+%"struct.proxygen::HTTPHeaderSize" = type { i32, i32, i32 }
 %"class.std::unique_ptr.139" = type { %"struct.std::__uniq_ptr_data.140" }
 %"struct.std::__uniq_ptr_data.140" = type { %"class.std::__uniq_ptr_impl.141" }
 %"class.std::__uniq_ptr_impl.141" = type { %"class.std::tuple.142" }
 %"class.std::tuple.142" = type { %"struct.std::_Tuple_impl.143" }
 %"struct.std::_Tuple_impl.143" = type { %"struct.std::_Head_base.146" }
 %"struct.std::_Head_base.146" = type { ptr }
-%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf.269" }
-%"struct.__gnu_cxx::__aligned_membuf.269" = type { [16 x i8] }
-%"struct.std::_Rb_tree_node.265" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.266" }
-%"struct.__gnu_cxx::__aligned_membuf.266" = type { [16 x i8] }
+%"struct.proxygen::HTTPTransaction::BufferMeta" = type { i64 }
 %"class.google::base::CheckOpMessageBuilder" = type { ptr }
 %"struct.google::CheckOpString" = type { ptr }
 %"class.folly::Expected.164" = type { %"struct.folly::expected_detail::ExpectedStorage.base.167", [7 x i8] }
@@ -242,12 +99,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.179" = type { %"struct.std::_Head_base.180" }
 %"struct.std::_Head_base.180" = type { ptr }
 %"struct.std::_Head_base.181" = type { ptr }
-%"struct.folly::expected_detail::ExpectedStorage.165" = type <{ %union.anon.166, i8, [7 x i8] }>
 %"class.folly::Optional.189" = type { %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" }
 %"struct.folly::Optional<std::__cxx11::basic_string<char>>::StorageNonTriviallyDestructible" = type <{ %union.anon.190, i8, [7 x i8] }>
 %union.anon.190 = type { %"class.std::__cxx11::basic_string" }
-%"struct.std::_Rb_tree_node.267" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.268" }
-%"struct.__gnu_cxx::__aligned_membuf.268" = type { [8 x i8] }
 %"struct.proxygen::HTTPPriority" = type { ptr, i64 }
 %"class.folly::Expected.196" = type { %"struct.folly::expected_detail::ExpectedStorage.base.199", [7 x i8] }
 %"struct.folly::expected_detail::ExpectedStorage.base.199" = type { %"struct.folly::expected_detail::ExpectedUnion.base" }
@@ -260,12 +114,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.229 = type { %"class.folly::exception_wrapper" }
 %"class.folly::exception_wrapper" = type { %"class.std::__exception_ptr::exception_ptr" }
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
-%"class.folly::futures::detail::CoreBase" = type { ptr, [8 x i8], %"class.folly::Function", %"struct.std::atomic", %"struct.std::atomic.232", %"struct.std::atomic.232", %"class.folly::futures::detail::KeepAliveOrDeferred", %"class.std::shared_ptr", %"struct.std::atomic.242", ptr, [8 x i8] }
-%"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
-%"struct.std::atomic" = type { i8 }
-%"struct.std::atomic.232" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
+%"class.folly::Try.247" = type { %"class.folly::detail::TryBase.248" }
+%"class.folly::detail::TryBase.248" = type { i32, %union.anon.249 }
+%union.anon.249 = type { %"class.folly::exception_wrapper", [8 x i8] }
+%"struct.proxygen::WebTransport::StreamData" = type <{ %"class.std::unique_ptr.4", i8, [7 x i8] }>
+%"class.folly::SemiFuture.210" = type { %"class.folly::futures::detail::FutureBase.211" }
+%"class.folly::futures::detail::FutureBase.211" = type { ptr }
 %"class.folly::futures::detail::KeepAliveOrDeferred" = type { i32, %union.anon.233 }
 %union.anon.233 = type { %"class.std::unique_ptr.234" }
 %"class.std::unique_ptr.234" = type { %"struct.std::__uniq_ptr_data.235" }
@@ -274,31 +128,25 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.237" = type { %"struct.std::_Tuple_impl.238" }
 %"struct.std::_Tuple_impl.238" = type { %"struct.std::_Head_base.241" }
 %"struct.std::_Head_base.241" = type { ptr }
-%"struct.folly::expected_detail::ExpectedUnion" = type <{ %union.anon.198, i8, [7 x i8] }>
-%"class.folly::Try.247" = type { %"class.folly::detail::TryBase.248" }
-%"class.folly::detail::TryBase.248" = type { i32, %union.anon.249 }
-%union.anon.249 = type { %"class.folly::exception_wrapper", [8 x i8] }
-%"struct.proxygen::WebTransport::StreamData" = type <{ %"class.std::unique_ptr.4", i8, [7 x i8] }>
-%"class.folly::SemiFuture.210" = type { %"class.folly::futures::detail::FutureBase.211" }
-%"class.folly::futures::detail::FutureBase.211" = type { ptr }
 %"class.folly::CancellationToken" = type { %"class.std::unique_ptr.203" }
 %"class.std::unique_ptr.203" = type { %"struct.std::__uniq_ptr_data.204" }
 %"struct.std::__uniq_ptr_data.204" = type { %"class.std::__uniq_ptr_impl.205" }
 %"class.std::__uniq_ptr_impl.205" = type { %"class.std::tuple.206" }
 %"class.std::tuple.206" = type { %"struct.std::_Tuple_impl.207" }
 %"struct.std::_Tuple_impl.207" = type { %"struct.std::_Head_base.53" }
+%"struct.std::_Head_base.53" = type { ptr }
 %"class.folly::Expected.216" = type { %"struct.folly::expected_detail::ExpectedStorage.base.226", [7 x i8] }
 %"struct.folly::expected_detail::ExpectedStorage.base.226" = type { %"struct.folly::expected_detail::ExpectedUnion.base.220" }
 %"struct.folly::expected_detail::ExpectedUnion.base.220" = type <{ %union.anon.219, i8 }>
 %union.anon.219 = type { %"class.folly::SemiFuture.210" }
-%"struct.folly::expected_detail::ExpectedUnion.218" = type <{ %union.anon.219, i8, [7 x i8] }>
 %"class.std::bad_function_call" = type { %"class.std::exception" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
-%"class.folly::static_what_exception" = type { %"class.std::logic_error", ptr }
 %"class.folly::OptionalEmptyException" = type { %"class.std::runtime_error" }
+%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"class.folly::Executor::KeepAlive" = type { i64 }
 %"class.folly::BrokenPromise" = type { %"class.folly::PromiseException" }
 %"class.folly::PromiseException" = type { %"class.folly::static_what_exception" }
+%"class.folly::static_what_exception" = type { %"class.std::logic_error", ptr }
 %struct._Guard = type { ptr }
 %"class.folly::Range" = type { ptr, ptr }
 %"class.folly::Expected.306" = type { %"struct.folly::expected_detail::ExpectedStorage.base.309", [7 x i8] }
@@ -308,8 +156,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.315 = type { ptr }
 %"class.folly::BadExpectedAccess" = type { %"class.std::exception" }
 %"class.folly::BadExpectedAccess.320" = type <{ %"class.folly::BadExpectedAccess", i8, [7 x i8] }>
-%"struct.folly::expected_detail::ExpectedStorage.307" = type <{ %union.anon.308, i8, [7 x i8] }>
 %"class.folly::BadExpectedAccess.342" = type <{ %"class.folly::BadExpectedAccess", i32, [4 x i8] }>
+%"class.proxygen::HTTPEvent" = type { %"class.std::unique_ptr.60", %"class.std::unique_ptr.4", %"class.std::unique_ptr.12", %"class.std::unique_ptr.125", i64, i64, i8, i8, i32 }
+%"class.std::unique_ptr.125" = type { %"struct.std::__uniq_ptr_data.126" }
+%"struct.std::__uniq_ptr_data.126" = type { %"class.std::__uniq_ptr_impl.127" }
+%"class.std::__uniq_ptr_impl.127" = type { %"class.std::tuple.128" }
+%"class.std::tuple.128" = type { %"struct.std::_Tuple_impl.129" }
+%"struct.std::_Tuple_impl.129" = type { %"struct.std::_Head_base.132" }
+%"struct.std::_Head_base.132" = type { ptr }
 %"class.folly::PromiseInvalid" = type { %"class.folly::PromiseException" }
 %"class.folly::PromiseAlreadySatisfied" = type { %"class.folly::PromiseException" }
 
@@ -1205,74 +1059,74 @@ entry:
   store i32 0, ptr %guardCount_.i, align 8
   store ptr getelementptr inbounds ({ [33 x ptr], [5 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransactionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [33 x ptr], [5 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransactionE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
-  %rateLimitCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 2
+  %rateLimitCallback_ = getelementptr inbounds i8, ptr %this, i64 80
   invoke void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %rateLimitCallback_)
           to label %invoke.cont6 unwind label %lpad3
 
 invoke.cont6:                                     ; preds = %entry
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction17RateLimitCallbackE, i64 0, inrange i32 0, i64 2), ptr %rateLimitCallback_, align 8
-  %txn_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 2, i32 1
+  %txn_.i = getelementptr inbounds i8, ptr %this, i64 144
   store ptr %this, ptr %txn_.i, align 8
-  %deferredIngress_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_ = getelementptr inbounds i8, ptr %this, i64 152
   store ptr null, ptr %deferredIngress_, align 8
-  %deferredEgressBody_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4
+  %deferredEgressBody_ = getelementptr inbounds i8, ptr %this, i64 160
   store i8 1, ptr %ref.tmp, align 1
   invoke void @_ZN5folly10IOBufQueueC1ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %deferredEgressBody_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont13 unwind label %lpad5
 
 invoke.cont13:                                    ; preds = %invoke.cont6
-  %deferredBufferMeta_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 5
+  %deferredBufferMeta_ = getelementptr inbounds i8, ptr %this, i64 232
   store i64 0, ptr %deferredBufferMeta_, align 8
-  %direction_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 6
+  %direction_ = getelementptr inbounds i8, ptr %this, i64 240
   store i8 %direction, ptr %direction_, align 8
-  %egressState_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_ = getelementptr inbounds i8, ptr %this, i64 241
   store i8 0, ptr %egressState_, align 1
-  %ingressState_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_ = getelementptr inbounds i8, ptr %this, i64 242
   store i8 0, ptr %ingressState_, align 2
-  %recvToAck_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 9
+  %recvToAck_ = getelementptr inbounds i8, ptr %this, i64 244
   store i32 0, ptr %recvToAck_, align 4
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   store i64 %id, ptr %id_, align 8
-  %seqNo_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 11
+  %seqNo_ = getelementptr inbounds i8, ptr %this, i64 256
   store i32 %seqNo, ptr %seqNo_, align 8
-  %maxDeferredIngress_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 12
+  %maxDeferredIngress_ = getelementptr inbounds i8, ptr %this, i64 260
   store i32 0, ptr %maxDeferredIngress_, align 4
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   store ptr null, ptr %handler_, align 8
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   store ptr %transport, ptr %transport_, align 8
-  %stats_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 15
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 280
   store ptr %stats, ptr %stats_, align 8
-  %tableInfo_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16
+  %tableInfo_ = getelementptr inbounds i8, ptr %this, i64 288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tableInfo_, i8 0, i64 56, i1 false)
-  %recvWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 17
+  %recvWindow_ = getelementptr inbounds i8, ptr %this, i64 344
   invoke void @_ZN8proxygen6WindowC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %recvWindow_, i32 noundef %receiveInitialWindowSize)
           to label %invoke.cont14 unwind label %lpad8
 
 invoke.cont14:                                    ; preds = %invoke.cont13
-  %sendWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_ = getelementptr inbounds i8, ptr %this, i64 352
   invoke void @_ZN8proxygen6WindowC1Ej(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_, i32 noundef %sendInitialWindowSize)
           to label %invoke.cont15 unwind label %lpad8
 
 invoke.cont15:                                    ; preds = %invoke.cont14
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
-  %trailers_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 20
-  %chunkHeaders_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 21
-  %_M_prev.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 0, i32 1
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
+  %trailers_ = getelementptr inbounds i8, ptr %this, i64 368
+  %chunkHeaders_ = getelementptr inbounds i8, ptr %this, i64 376
+  %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 384
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %transportCallback_, i8 0, i64 16, i1 false)
   store ptr %chunkHeaders_, ptr %_M_prev.i.i.i.i.i, align 8
   store ptr %chunkHeaders_, ptr %chunkHeaders_, align 8
-  %_M_size.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 392
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8
-  %egressQueue_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 22
+  %egressQueue_ = getelementptr inbounds i8, ptr %this, i64 400
   store ptr %egressQueue, ptr %egressQueue_, align 8
-  %queueHandle_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 23
+  %queueHandle_ = getelementptr inbounds i8, ptr %this, i64 408
   store ptr null, ptr %queueHandle_, align 8
-  %assocStreamId_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 24
+  %assocStreamId_ = getelementptr inbounds i8, ptr %this, i64 416
   store i8 0, ptr %assocStreamId_, align 8
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 24, i32 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 424
   store i8 0, ptr %hasValue.i.i, align 8
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<unsigned long>::StorageTriviallyDestructible", ptr %assocId, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %assocId, i64 8
   %1 = load i8, ptr %hasValue.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.not.i = icmp eq i8 %2, 0
@@ -1285,75 +1139,75 @@ invoke.cont2.i:                                   ; preds = %invoke.cont15
   br label %_ZN5folly8OptionalImEC2ERKS1_.exit
 
 _ZN5folly8OptionalImEC2ERKS1_.exit:               ; preds = %invoke.cont15, %invoke.cont2.i
-  %exAttributes_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 25
+  %exAttributes_ = getelementptr inbounds i8, ptr %this, i64 432
   store i8 0, ptr %exAttributes_, align 8
-  %hasValue.i.i4 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 25, i32 0, i32 1
+  %hasValue.i.i4 = getelementptr inbounds i8, ptr %this, i64 448
   store i8 0, ptr %hasValue.i.i4, align 8
-  %pushedTransactions_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26
-  %4 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 1
+  %pushedTransactions_ = getelementptr inbounds i8, ptr %this, i64 456
+  %4 = getelementptr inbounds i8, ptr %this, i64 464
   store i32 0, ptr %4, align 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 472
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 480
   store ptr %4, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 488
   store ptr %4, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 496
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  %exTransactions_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27
-  %5 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27, i32 0, i32 0, i32 1
+  %exTransactions_ = getelementptr inbounds i8, ptr %this, i64 504
+  %5 = getelementptr inbounds i8, ptr %this, i64 512
   store i32 0, ptr %5, align 8
-  %_M_parent.i.i.i.i.i5 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 520
   store ptr null, ptr %_M_parent.i.i.i.i.i5, align 8
-  %_M_left.i.i.i.i.i6 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 528
   store ptr %5, ptr %_M_left.i.i.i.i.i6, align 8
-  %_M_right.i.i.i.i.i7 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 536
   store ptr %5, ptr %_M_right.i.i.i.i.i7, align 8
-  %_M_node_count.i.i.i.i.i8 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 544
   store i64 0, ptr %_M_node_count.i.i.i.i.i8, align 8
-  %priority_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 28
+  %priority_ = getelementptr inbounds i8, ptr %this, i64 552
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %priority_, ptr noundef nonnull align 8 dereferenceable(16) %priority, i64 16, i1 false)
-  %insertDepth_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 29
-  %hasValue.i.i9 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 34, i32 0, i32 1
+  %insertDepth_ = getelementptr inbounds i8, ptr %this, i64 568
+  %hasValue.i.i9 = getelementptr inbounds i8, ptr %this, i64 616
   store i8 0, ptr %hasValue.i.i9, align 8
-  %expectedIngressContentLengthRemaining_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 35
+  %expectedIngressContentLengthRemaining_ = getelementptr inbounds i8, ptr %this, i64 624
   store i8 0, ptr %expectedIngressContentLengthRemaining_, align 8
-  %hasValue.i.i10 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 35, i32 0, i32 1
+  %hasValue.i.i10 = getelementptr inbounds i8, ptr %this, i64 632
   store i8 0, ptr %hasValue.i.i10, align 8
-  %expectedResponseLength_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 36
+  %expectedResponseLength_ = getelementptr inbounds i8, ptr %this, i64 640
   store i8 0, ptr %expectedResponseLength_, align 8
-  %hasValue.i.i11 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 36, i32 0, i32 1
+  %hasValue.i.i11 = getelementptr inbounds i8, ptr %this, i64 648
   store i8 0, ptr %hasValue.i.i11, align 8
-  %actualResponseLength_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 37
-  %hasValue.i.i12 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 37, i32 0, i32 1
+  %actualResponseLength_ = getelementptr inbounds i8, ptr %this, i64 656
+  %hasValue.i.i12 = getelementptr inbounds i8, ptr %this, i64 664
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %insertDepth_, i8 0, i64 41, i1 false)
   store i64 0, ptr %actualResponseLength_, align 8
   store i8 1, ptr %hasValue.i.i12, align 8
-  %bodyBytesEgressed_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 38
+  %bodyBytesEgressed_ = getelementptr inbounds i8, ptr %this, i64 672
   store i64 0, ptr %bodyBytesEgressed_, align 8
-  %egressBodyOffsetsToTrack_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39
-  %6 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39, i32 0, i32 0, i32 1
+  %egressBodyOffsetsToTrack_ = getelementptr inbounds i8, ptr %this, i64 680
+  %6 = getelementptr inbounds i8, ptr %this, i64 688
   store i32 0, ptr %6, align 8
-  %_M_parent.i.i.i.i.i13 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 696
   store ptr null, ptr %_M_parent.i.i.i.i.i13, align 8
-  %_M_left.i.i.i.i.i14 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i14 = getelementptr inbounds i8, ptr %this, i64 704
   store ptr %6, ptr %_M_left.i.i.i.i.i14, align 8
-  %_M_right.i.i.i.i.i15 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i15 = getelementptr inbounds i8, ptr %this, i64 712
   store ptr %6, ptr %_M_right.i.i.i.i.i15, align 8
-  %_M_node_count.i.i.i.i.i16 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 720
   store i64 0, ptr %_M_node_count.i.i.i.i.i16, align 8
-  %ingressPaused_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %ingressPaused_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %ingressPaused_, align 8
   %bf.shl = select i1 %useFlowControl, i32 32, i32 0
   %bf.clear30 = and i32 %bf.load, -1048576
   %bf.set31 = or disjoint i32 %bf.clear30, %bf.shl
   store i32 %bf.set31, ptr %ingressPaused_, align 8
-  %lastResponseStatus_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 41
+  %lastResponseStatus_ = getelementptr inbounds i8, ptr %this, i64 732
   store i16 0, ptr %lastResponseStatus_, align 4
-  %egressLimitBytesPerMs_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 42
-  %hasValue.i.i17 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45, i32 0, i32 1
+  %egressLimitBytesPerMs_ = getelementptr inbounds i8, ptr %this, i64 736
+  %hasValue.i.i17 = getelementptr inbounds i8, ptr %this, i64 768
   store i8 0, ptr %hasValue.i.i17, align 8
-  %hasValue.i.i.i18 = getelementptr inbounds %"struct.folly::Optional<std::chrono::duration<long, std::ratio<1, 1000>>>::StorageTriviallyDestructible", ptr %defaultIdleTimeout, i64 0, i32 1
+  %hasValue.i.i.i18 = getelementptr inbounds i8, ptr %defaultIdleTimeout, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %egressLimitBytesPerMs_, i8 0, i64 25, i1 false)
   %7 = load i8, ptr %hasValue.i.i.i18, align 8
   %8 = and i8 %7, 1
@@ -1361,44 +1215,44 @@ _ZN5folly8OptionalImEC2ERKS1_.exit:               ; preds = %invoke.cont15, %inv
   br i1 %tobool.i.i.not.i19, label %_ZN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEC2ERKS6_.exit, label %invoke.cont2.i20
 
 invoke.cont2.i20:                                 ; preds = %_ZN5folly8OptionalImEC2ERKS1_.exit
-  %idleTimeout_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45
+  %idleTimeout_ = getelementptr inbounds i8, ptr %this, i64 760
   %9 = load i64, ptr %defaultIdleTimeout, align 8
   store i64 %9, ptr %idleTimeout_, align 8
   store i8 1, ptr %hasValue.i.i17, align 8
   br label %_ZN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEC2ERKS6_.exit
 
 _ZN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEC2ERKS6_.exit: ; preds = %_ZN5folly8OptionalImEC2ERKS1_.exit, %invoke.cont2.i20
-  %timer_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 46
+  %timer_ = getelementptr inbounds i8, ptr %this, i64 776
   store ptr %timer, ptr %timer_, align 8
-  %ingressBodyOffset_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 47
+  %ingressBodyOffset_ = getelementptr inbounds i8, ptr %this, i64 784
   store i64 0, ptr %ingressBodyOffset_, align 8
-  %setIngressTimeoutAfterEom_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 48
+  %setIngressTimeoutAfterEom_ = getelementptr inbounds i8, ptr %this, i64 792
   store i8 %frombool1, ptr %setIngressTimeoutAfterEom_, align 8
-  %wtEgressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49
-  %10 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1
+  %wtEgressStreams_ = getelementptr inbounds i8, ptr %this, i64 800
+  %10 = getelementptr inbounds i8, ptr %this, i64 808
   store i32 0, ptr %10, align 8
-  %_M_parent.i.i.i.i.i21 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 816
   store ptr null, ptr %_M_parent.i.i.i.i.i21, align 8
-  %_M_left.i.i.i.i.i22 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i22 = getelementptr inbounds i8, ptr %this, i64 824
   store ptr %10, ptr %_M_left.i.i.i.i.i22, align 8
-  %_M_right.i.i.i.i.i23 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i23 = getelementptr inbounds i8, ptr %this, i64 832
   store ptr %10, ptr %_M_right.i.i.i.i.i23, align 8
-  %_M_node_count.i.i.i.i.i24 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i24 = getelementptr inbounds i8, ptr %this, i64 840
   store i64 0, ptr %_M_node_count.i.i.i.i.i24, align 8
-  %wtIngressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50
-  %11 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1
+  %wtIngressStreams_ = getelementptr inbounds i8, ptr %this, i64 848
+  %11 = getelementptr inbounds i8, ptr %this, i64 856
   store i32 0, ptr %11, align 8
-  %_M_parent.i.i.i.i.i25 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i25 = getelementptr inbounds i8, ptr %this, i64 864
   store ptr null, ptr %_M_parent.i.i.i.i.i25, align 8
-  %_M_left.i.i.i.i.i26 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i26 = getelementptr inbounds i8, ptr %this, i64 872
   store ptr %11, ptr %_M_left.i.i.i.i.i26, align 8
-  %_M_right.i.i.i.i.i27 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i27 = getelementptr inbounds i8, ptr %this, i64 880
   store ptr %11, ptr %_M_right.i.i.i.i.i27, align 8
-  %_M_node_count.i.i.i.i.i28 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 888
   store i64 0, ptr %_M_node_count.i.i.i.i.i28, align 8
-  %webTransport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 51
+  %webTransport_ = getelementptr inbounds i8, ptr %this, i64 896
   store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction15TxnWebTransportE, i64 0, inrange i32 0, i64 2), ptr %webTransport_, align 8
-  %txn_.i29 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 51, i32 1
+  %txn_.i29 = getelementptr inbounds i8, ptr %this, i64 904
   store ptr %this, ptr %txn_.i29, align 8
   br i1 %tobool.i.i.not.i, label %if.end88, label %if.then
 
@@ -1454,7 +1308,7 @@ if.else:                                          ; preds = %if.then
   br label %if.end88
 
 if.end88:                                         ; preds = %if.then85, %if.else, %_ZN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEC2ERKS6_.exit
-  %hasValue.i.i31 = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTPCodec::ExAttributes>::StorageTriviallyDestructible", ptr %exAttributes, i64 0, i32 1
+  %hasValue.i.i31 = getelementptr inbounds i8, ptr %exAttributes, i64 16
   %19 = load i8, ptr %hasValue.i.i31, align 8
   %20 = and i8 %19, 1
   %tobool.i.i32.not = icmp eq i8 %20, 0
@@ -1463,7 +1317,7 @@ if.end88:                                         ; preds = %if.then85, %if.else
 invoke.cont95:                                    ; preds = %if.end88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %exAttributes_, ptr noundef nonnull align 8 dereferenceable(16) %exAttributes, i64 16, i1 false)
   store i8 1, ptr %hasValue.i.i4, align 8
-  %unidirectional = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 25, i32 0, i32 0, i32 0, i32 1
+  %unidirectional = getelementptr inbounds i8, ptr %this, i64 440
   %21 = load i8, ptr %unidirectional, align 8
   %22 = and i8 %21, 1
   %tobool97.not = icmp eq i8 %22, 0
@@ -1507,7 +1361,7 @@ invoke.cont108:                                   ; preds = %if.end107
 
 if.then111:                                       ; preds = %invoke.cont108
   %vtable = load ptr, ptr %26, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %27 = load ptr, ptr %vfn, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(8) %26) #27
   br label %if.end113
@@ -1534,7 +1388,7 @@ if.then117:                                       ; preds = %lor.lhs.false, %if.
   %agg.tmp.sroa.2.0.priority.sroa_idx = getelementptr inbounds i8, ptr %priority, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.priority.sroa_idx, align 8
   %vtable121 = load ptr, ptr %31, align 8
-  %vfn122 = getelementptr inbounds ptr, ptr %vtable121, i64 3
+  %vfn122 = getelementptr inbounds i8, ptr %vtable121, i64 24
   %33 = load ptr, ptr %vfn122, align 8
   %call124 = invoke noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(16) %31, i64 noundef %32, i64 %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, ptr noundef nonnull %this, i1 noundef zeroext false, ptr noundef nonnull %insertDepth_)
           to label %invoke.cont123 unwind label %lpad82
@@ -1546,7 +1400,7 @@ invoke.cont123:                                   ; preds = %if.then117
 if.end126:                                        ; preds = %lor.lhs.false.if.end126_crit_edge, %invoke.cont123
   %34 = phi i64 [ %.pre, %lor.lhs.false.if.end126_crit_edge ], [ %agg.tmp.sroa.0.0.copyload, %invoke.cont123 ]
   %35 = load ptr, ptr %egressQueue_, align 8
-  %rootNodeId_.i = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueueBase", ptr %35, i64 0, i32 1
+  %rootNodeId_.i = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load i64, ptr %rootNodeId_.i, align 8
   %cmp130.not = icmp ne i64 %34, %36
   %37 = load i64, ptr %insertDepth_, align 8
@@ -1561,7 +1415,7 @@ if.then133:                                       ; preds = %if.end126
   br label %if.end138
 
 if.end138:                                        ; preds = %if.then133, %if.end126
-  %currentDepth_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 30
+  %currentDepth_ = getelementptr inbounds i8, ptr %this, i64 576
   store i64 %37, ptr %currentDepth_, align 8
   ret void
 
@@ -1596,42 +1450,42 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPTransaction17updateReadTimeoutEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %setIngressTimeoutAfterEom_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 48
+  %setIngressTimeoutAfterEom_.i = getelementptr inbounds i8, ptr %this, i64 792
   %0 = load i8, ptr %setIngressTimeoutAfterEom_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
-  %direction_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 6
+  %direction_.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load i8, ptr %direction_.i.i, align 8
   %cmp.i.i = icmp eq i8 %2, 0
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.i.i
-  %egressState_.i2.phi.trans.insert.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i2.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 241
   %.pre.i = load i8, ptr %egressState_.i2.phi.trans.insert.i, align 1
   %cmp.i1.i = icmp eq i8 %.pre.i, 9
   %spec.select3.i = or i1 %or.cond.i, %cmp.i1.i
   br i1 %cmp.i1.i, label %lor.rhs4.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %useFlowControl_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %useFlowControl_.i.i = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load.i.i = load i32, ptr %useFlowControl_.i.i, align 8
   %3 = and i32 %bf.load.i.i, 32
   %bf.cast.not.i.i = icmp eq i32 %3, 0
   br i1 %bf.cast.not.i.i, label %lor.rhs4.i, label %_ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv.exit.i
 
 _ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv.exit.i: ; preds = %land.lhs.true.i.i
-  %sendWindow_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_.i.i = getelementptr inbounds i8, ptr %this, i64 352
   %call.i.i = tail call noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_.i.i)
   %cmp2.i.i = icmp slt i32 %call.i.i, 1
   br i1 %cmp2.i.i, label %if.then, label %lor.rhs4.i
 
 lor.rhs4.i:                                       ; preds = %_ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv.exit.i, %land.lhs.true.i.i, %entry
-  %ingressPaused_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %ingressPaused_.i = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load.i = load i32, ptr %ingressPaused_.i, align 8
   %4 = and i32 %bf.load.i, 1
   %bf.cast.not.i = icmp eq i32 %4, 0
   br i1 %bf.cast.not.i, label %_ZNK8proxygen15HTTPTransaction18isExpectingIngressEv.exit, label %if.else
 
 _ZNK8proxygen15HTTPTransaction18isExpectingIngressEv.exit: ; preds = %lor.rhs4.i
-  %ingressState_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i.i.i = getelementptr inbounds i8, ptr %this, i64 242
   %5 = load i8, ptr %ingressState_.i.i.i, align 2
   %6 = add i8 %5, -11
   %spec.select.i.i = icmp ult i8 %6, -2
@@ -1639,20 +1493,20 @@ _ZNK8proxygen15HTTPTransaction18isExpectingIngressEv.exit: ; preds = %lor.rhs4.i
   br i1 %spec.select.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv.exit.i, %_ZNK8proxygen15HTTPTransaction18isExpectingIngressEv.exit
-  %timer_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 46
+  %timer_.i = getelementptr inbounds i8, ptr %this, i64 776
   %7 = load ptr, ptr %timer_.i, align 8
   %tobool.not.i1 = icmp eq ptr %7, null
   br i1 %tobool.not.i1, label %if.end, label %land.lhs.true.i2
 
 land.lhs.true.i2:                                 ; preds = %if.then
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %8 = load i8, ptr %hasValue.i.i.i, align 8
   %9 = and i8 %8, 1
   %tobool.i.i.not.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i, label %if.end, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i: ; preds = %land.lhs.true.i2
-  %idleTimeout_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45
+  %idleTimeout_.i = getelementptr inbounds i8, ptr %this, i64 760
   %10 = load i64, ptr %idleTimeout_.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %10, 0
   br i1 %cmp.i.i.not.i, label %if.end, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
@@ -1804,38 +1658,38 @@ entry:
   %ref.tmp13 = alloca %"class.google::LogMessage", align 8
   %ref.tmp53 = alloca %"class.google::LogMessage", align 8
   %ref.tmp87 = alloca %"class.google::LogMessage", align 8
-  %egressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i = getelementptr inbounds i8, ptr %this, i64 241
   %0 = load i8, ptr %egressState_.i, align 1
   %cmp.i = icmp eq i8 %0, 9
-  %ingressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i = getelementptr inbounds i8, ptr %this, i64 242
   %1 = load i8, ptr %ingressState_.i, align 2
   %cmp.i12 = icmp eq i8 %1, 10
   %or.cond49 = select i1 %cmp.i, i1 %cmp.i12, i1 false
   br i1 %or.cond49, label %lor.lhs.false3, label %return
 
 lor.lhs.false3:                                   ; preds = %entry
-  %queueHandle_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 23
+  %queueHandle_.i = getelementptr inbounds i8, ptr %this, i64 408
   %2 = load ptr, ptr %queueHandle_.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %_ZNK8proxygen15HTTPTransaction10isEnqueuedEv.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %lor.lhs.false3
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %_ZNK8proxygen15HTTPTransaction10isEnqueuedEv.exit
 
 _ZNK8proxygen15HTTPTransaction10isEnqueuedEv.exit: ; preds = %lor.lhs.false3, %cond.true.i
   %cond.i = phi i1 [ %call.i, %cond.true.i ], [ false, %lor.lhs.false3 ]
-  %pendingByteEvents_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 33
+  %pendingByteEvents_ = getelementptr inbounds i8, ptr %this, i64 600
   %4 = load i64, ptr %pendingByteEvents_, align 8
   %cmp.not = icmp ne i64 %4, 0
   %or.cond.not = select i1 %cond.i, i1 true, i1 %cmp.not
   br i1 %or.cond.not, label %return, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %_ZNK8proxygen15HTTPTransaction10isEnqueuedEv.exit
-  %deleting_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %deleting_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %deleting_, align 8
   %5 = and i32 %bf.load, 128
   %bf.cast.not = icmp eq i32 %5, 0
@@ -1865,10 +1719,10 @@ invoke.cont:                                      ; preds = %cond.false12
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %8 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %9 = load ptr, ptr %vfn.i.i, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %call16)
           to label %.noexc unwind label %lpad
@@ -1878,7 +1732,7 @@ invoke.cont15:                                    ; preds = %invoke.cont
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %10 = load i64, ptr %id_.i.i, align 8
   %call2.i.i14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i13, i64 noundef %10)
           to label %cleanup.action unwind label %lpad
@@ -1891,28 +1745,28 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
   %bf.load25 = load i32, ptr %deleting_, align 8
   %bf.set = or i32 %bf.load25, 128
   store i32 %bf.set, ptr %deleting_, align 8
-  %wtIngressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50
-  %_M_left.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1, i32 0, i32 2
+  %wtIngressStreams_ = getelementptr inbounds i8, ptr %this, i64 848
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 872
   %11 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 856
   %cmp.i15.not55 = icmp eq ptr %11, %add.ptr.i.i
   br i1 %cmp.i15.not55, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %cleanup.done
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end104
   %ingressStreamIt.sroa.0.056 = phi ptr [ %11, %for.body.lr.ph ], [ %call.i17, %if.end104 ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %ingressStreamIt.sroa.0.056, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %ingressStreamIt.sroa.0.056, i64 32
   %12 = load i64, ptr %_M_storage.i.i, align 8
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %ingressStreamIt.sroa.0.056, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %ingressStreamIt.sroa.0.056, i64 40
   %call.i17 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %ingressStreamIt.sroa.0.056) #30
-  %eof_.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %ingressStreamIt.sroa.0.056, i64 0, i32 1, i32 0, i64 128
+  %eof_.i = getelementptr inbounds i8, ptr %ingressStreamIt.sroa.0.056, i64 160
   %13 = load i8, ptr %eof_.i, align 8
   %14 = and i8 %13, 1
   %tobool.not.i18 = icmp eq i8 %14, 0
-  %hasValue.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %ingressStreamIt.sroa.0.056, i64 0, i32 1, i32 0, i64 136
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %ingressStreamIt.sroa.0.056, i64 168
   %15 = load i8, ptr %hasValue.i.i.i, align 4
   %16 = and i8 %15, 1
   %tobool.i.i.not.i = icmp eq i8 %16, 0
@@ -1954,7 +1808,7 @@ cleanup.done66:                                   ; preds = %cond.true42, %cond.
   call void @_ZN8proxygen15HTTPTransaction19TxnStreamReadHandle5errorEj(ptr noundef nonnull align 8 dereferenceable(144) %second, i32 noundef -1)
   %20 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %20, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 53
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 424
   %21 = load ptr, ptr %vfn, align 8
   %call70 = call i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %20, i64 noundef %12, i32 noundef -1)
   br label %if.end104
@@ -2010,7 +1864,7 @@ if.end104:                                        ; preds = %cond.true76, %cond.
   br i1 %cmp.i15.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %if.end104, %cleanup.done
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 864
   %27 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %wtIngressStreams_, ptr noundef %27)
           to label %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit unwind label %terminate.lpad.i.i
@@ -2025,27 +1879,27 @@ terminate.lpad.i.i:                               ; preds = %for.end
 _ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit: ; preds = %for.end
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i, ptr %_M_left.i.i, align 8
-  %_M_right.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %this, i64 880
   store ptr %add.ptr.i.i, ptr %_M_right.i.i.i, align 8
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 888
   store i64 0, ptr %_M_node_count.i.i.i, align 8
-  %wtEgressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49
-  %_M_left.i.i20 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 2
+  %wtEgressStreams_ = getelementptr inbounds i8, ptr %this, i64 800
+  %_M_left.i.i20 = getelementptr inbounds i8, ptr %this, i64 824
   %30 = load ptr, ptr %_M_left.i.i20, align 8
-  %add.ptr.i.i21 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1
+  %add.ptr.i.i21 = getelementptr inbounds i8, ptr %this, i64 808
   %cmp.i22.not57 = icmp eq ptr %30, %add.ptr.i.i21
   br i1 %cmp.i22.not57, label %for.end138, label %for.body114.lr.ph
 
 for.body114.lr.ph:                                ; preds = %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit
-  %_M_parent.i.i.i.i27 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 1
-  %transport_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %_M_parent.i.i.i.i27 = getelementptr inbounds i8, ptr %this, i64 816
+  %transport_.i = getelementptr inbounds i8, ptr %this, i64 272
   br label %for.body114
 
 for.body114:                                      ; preds = %for.body114.lr.ph, %if.end137
   %egressStreamIt.sroa.0.058 = phi ptr [ %30, %for.body114.lr.ph ], [ %call.i26, %if.end137 ]
-  %_M_storage.i.i23 = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %egressStreamIt.sroa.0.058, i64 0, i32 1
+  %_M_storage.i.i23 = getelementptr inbounds i8, ptr %egressStreamIt.sroa.0.058, i64 32
   %31 = load i64, ptr %_M_storage.i.i23, align 8
-  %second120 = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %egressStreamIt.sroa.0.058, i64 0, i32 1, i32 0, i64 8
+  %second120 = getelementptr inbounds i8, ptr %egressStreamIt.sroa.0.058, i64 40
   %call.i26 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %egressStreamIt.sroa.0.058) #30
   call void @_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle13onStopSendingEj(ptr noundef nonnull align 8 dereferenceable(64) %second120, i32 noundef -1)
   %32 = load ptr, ptr %_M_parent.i.i.i.i27, align 8
@@ -2055,13 +1909,12 @@ for.body114:                                      ; preds = %for.body114.lr.ph, 
 while.body.i.i.i:                                 ; preds = %for.body114, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %32, %for.body114 ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i21, %for.body114 ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %33 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %33, %31
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !7
@@ -2071,7 +1924,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt1
   br i1 %cmp.i.i.i, label %if.end137, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
 
 _ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %34 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp ult i64 %31, %34
   br i1 %cmp.i4.i.i, label %if.end137, label %if.then133
@@ -2079,80 +1932,75 @@ _ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pai
 if.then133:                                       ; preds = %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
   %35 = load ptr, ptr %transport_.i, align 8
   %vtable.i30 = load ptr, ptr %35, align 8
-  %vfn.i31 = getelementptr inbounds ptr, ptr %vtable.i30, i64 50
+  %vfn.i31 = getelementptr inbounds i8, ptr %vtable.i30, i64 400
   %36 = load ptr, ptr %vfn.i31, align 8
   %call.i32 = call i64 %36(ptr noundef nonnull align 8 dereferenceable(8) %35, i64 noundef %31, i32 noundef -1)
-  %__x.039.i.i.i.i = load ptr, ptr %_M_parent.i.i.i.i27, align 8
-  %cmp.not40.i.i.i.i = icmp eq ptr %__x.039.i.i.i.i, null
-  br i1 %cmp.not40.i.i.i.i, label %_ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit, label %while.body.i.i.i.i
+  %__x.038.i.i.i.i = load ptr, ptr %_M_parent.i.i.i.i27, align 8
+  %cmp.not39.i.i.i.i = icmp eq ptr %__x.038.i.i.i.i, null
+  br i1 %cmp.not39.i.i.i.i, label %_ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then133, %if.end19.i.i.i.i
-  %__x.042.i.i.i.i = phi ptr [ %__x.0.i.i.i.i, %if.end19.i.i.i.i ], [ %__x.039.i.i.i.i, %if.then133 ]
-  %__y.041.i.i.i.i = phi ptr [ %__y.1.i.i.i.i, %if.end19.i.i.i.i ], [ %add.ptr.i.i21, %if.then133 ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.042.i.i.i.i, i64 0, i32 1
+  %__x.041.i.i.i.i = phi ptr [ %__x.0.i.i.i.i, %if.end19.i.i.i.i ], [ %__x.038.i.i.i.i, %if.then133 ]
+  %__y.040.i.i.i.i = phi ptr [ %__y.1.i.i.i.i, %if.end19.i.i.i.i ], [ %add.ptr.i.i21, %if.then133 ]
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i.i, i64 32
   %37 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %37, %31
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i.i, i64 0, i32 3
-  br label %if.end19.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.end19.i.i.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   %cmp.i18.i.i.i.i = icmp ugt i64 %37, %31
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i.i, i64 0, i32 2
   br i1 %cmp.i18.i.i.i.i, label %if.end19.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %38 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i20.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i.i, i64 0, i32 3
+  %_M_left.i19.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i.i, i64 16
+  %38 = load ptr, ptr %_M_left.i19.i.i.i.i, align 8
+  %_M_right.i20.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i.i, i64 24
   %39 = load ptr, ptr %_M_right.i20.i.i.i.i, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %38, null
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.else12.i.i.i.i, %while.body.i.i.i.i.i
   %__x.addr.07.i.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %38, %if.else12.i.i.i.i ]
-  %__y.addr.06.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__x.042.i.i.i.i, %if.else12.i.i.i.i ]
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i.i.i.i.i, i64 0, i32 1
+  %__y.addr.06.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__x.041.i.i.i.i, %if.else12.i.i.i.i ]
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i, i64 32
   %40 = load i64, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ult i64 %40, %31
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i.i, ptr %__x.addr.07.i.i.i.i.i
-  %__x.addr.1.in.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i
   %__x.addr.1.i.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !7
 
 _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.else12.i.i.i.i
-  %__y.addr.0.lcssa.i.i.i.i.i = phi ptr [ %__x.042.i.i.i.i, %if.else12.i.i.i.i ], [ %__y.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %__y.addr.0.lcssa.i.i.i.i.i = phi ptr [ %__x.041.i.i.i.i, %if.else12.i.i.i.i ], [ %__y.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %cmp.not5.i21.i.i.i.i = icmp eq ptr %39, null
   br i1 %cmp.not5.i21.i.i.i.i, label %_ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit, label %while.body.i23.i.i.i.i
 
 while.body.i23.i.i.i.i:                           ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %while.body.i23.i.i.i.i
-  %__x.addr.07.i24.i.i.i.i = phi ptr [ %__x.addr.1.i32.i.i.i.i, %while.body.i23.i.i.i.i ], [ %39, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ]
-  %__y.addr.06.i25.i.i.i.i = phi ptr [ %__y.addr.1.i30.i.i.i.i, %while.body.i23.i.i.i.i ], [ %__y.041.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ]
-  %_M_storage.i.i.i26.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i24.i.i.i.i, i64 0, i32 1
+  %__x.addr.07.i24.i.i.i.i = phi ptr [ %__x.addr.1.i31.i.i.i.i, %while.body.i23.i.i.i.i ], [ %39, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ]
+  %__y.addr.06.i25.i.i.i.i = phi ptr [ %__y.addr.1.i28.i.i.i.i, %while.body.i23.i.i.i.i ], [ %__y.040.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ]
+  %_M_storage.i.i.i26.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i.i, i64 32
   %41 = load i64, ptr %_M_storage.i.i.i26.i.i.i.i, align 8
   %cmp.i.i27.i.i.i.i = icmp ugt i64 %41, %31
-  %_M_left.i.i28.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i.i.i.i, i64 0, i32 2
-  %_M_right.i.i29.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i.i.i.i, i64 0, i32 3
-  %__y.addr.1.i30.i.i.i.i = select i1 %cmp.i.i27.i.i.i.i, ptr %__x.addr.07.i24.i.i.i.i, ptr %__y.addr.06.i25.i.i.i.i
-  %__x.addr.1.in.i31.i.i.i.i = select i1 %cmp.i.i27.i.i.i.i, ptr %_M_left.i.i28.i.i.i.i, ptr %_M_right.i.i29.i.i.i.i
-  %__x.addr.1.i32.i.i.i.i = load ptr, ptr %__x.addr.1.in.i31.i.i.i.i, align 8
-  %cmp.not.i33.i.i.i.i = icmp eq ptr %__x.addr.1.i32.i.i.i.i, null
-  br i1 %cmp.not.i33.i.i.i.i, label %_ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit, label %while.body.i23.i.i.i.i, !llvm.loop !8
+  %__y.addr.1.i28.i.i.i.i = select i1 %cmp.i.i27.i.i.i.i, ptr %__x.addr.07.i24.i.i.i.i, ptr %__y.addr.06.i25.i.i.i.i
+  %__x.addr.1.in.v.i29.i.i.i.i = select i1 %cmp.i.i27.i.i.i.i, i64 16, i64 24
+  %__x.addr.1.in.i30.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i.i, i64 %__x.addr.1.in.v.i29.i.i.i.i
+  %__x.addr.1.i31.i.i.i.i = load ptr, ptr %__x.addr.1.in.i30.i.i.i.i, align 8
+  %cmp.not.i32.i.i.i.i = icmp eq ptr %__x.addr.1.i31.i.i.i.i, null
+  br i1 %cmp.not.i32.i.i.i.i, label %_ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit, label %while.body.i23.i.i.i.i, !llvm.loop !8
 
-if.end19.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
-  %__y.1.i.i.i.i = phi ptr [ %__y.041.i.i.i.i, %if.then.i.i.i.i ], [ %__x.042.i.i.i.i, %if.else.i.i.i.i ]
-  %__x.1.in.i.i.i.i = phi ptr [ %_M_right.i.i.i.i.i, %if.then.i.i.i.i ], [ %_M_left.i.i.i.i.i, %if.else.i.i.i.i ]
-  %__x.0.i.i.i.i = load ptr, ptr %__x.1.in.i.i.i.i, align 8
+if.end19.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %while.body.i.i.i.i
+  %.sink.i.i.i.i = phi i64 [ 24, %while.body.i.i.i.i ], [ 16, %if.else.i.i.i.i ]
+  %__y.1.i.i.i.i = phi ptr [ %__y.040.i.i.i.i, %while.body.i.i.i.i ], [ %__x.041.i.i.i.i, %if.else.i.i.i.i ]
+  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i.i, i64 %.sink.i.i.i.i
+  %__x.0.i.i.i.i = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.0.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit, label %while.body.i.i.i.i, !llvm.loop !9
 
 _ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit: ; preds = %if.end19.i.i.i.i, %while.body.i23.i.i.i.i, %if.then133, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %retval.sroa.0.0.i.i.i.i = phi ptr [ %__y.addr.0.lcssa.i.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ], [ %add.ptr.i.i21, %if.then133 ], [ %__y.addr.0.lcssa.i.i.i.i.i, %while.body.i23.i.i.i.i ], [ %__y.1.i.i.i.i, %if.end19.i.i.i.i ]
-  %retval.sroa.3.0.i.i.i.i = phi ptr [ %__y.041.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ], [ %add.ptr.i.i21, %if.then133 ], [ %__y.addr.1.i30.i.i.i.i, %while.body.i23.i.i.i.i ], [ %__y.1.i.i.i.i, %if.end19.i.i.i.i ]
+  %retval.sroa.3.0.i.i.i.i = phi ptr [ %__y.040.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ], [ %add.ptr.i.i21, %if.then133 ], [ %__y.addr.1.i28.i.i.i.i, %while.body.i23.i.i.i.i ], [ %__y.1.i.i.i.i, %if.end19.i.i.i.i ]
   call void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS5_ESD_(ptr noundef nonnull align 8 dereferenceable(48) %wtEgressStreams_, ptr %retval.sroa.0.0.i.i.i.i, ptr %retval.sroa.3.0.i.i.i.i)
   br label %if.end137
 
@@ -2161,7 +2009,7 @@ if.end137:                                        ; preds = %for.body114, %_ZNSt
   br i1 %cmp.i22.not, label %for.end138, label %for.body114, !llvm.loop !10
 
 for.end138:                                       ; preds = %if.end137, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit
-  %_M_parent.i.i.i.i33 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i33 = getelementptr inbounds i8, ptr %this, i64 816
   %42 = load ptr, ptr %_M_parent.i.i.i.i33, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %wtEgressStreams_, ptr noundef %42)
           to label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit unwind label %terminate.lpad.i.i34
@@ -2176,45 +2024,45 @@ terminate.lpad.i.i34:                             ; preds = %for.end138
 _ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit: ; preds = %for.end138
   store ptr null, ptr %_M_parent.i.i.i.i33, align 8
   store ptr %add.ptr.i.i21, ptr %_M_left.i.i20, align 8
-  %_M_right.i.i.i37 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i37 = getelementptr inbounds i8, ptr %this, i64 832
   store ptr %add.ptr.i.i21, ptr %_M_right.i.i.i37, align 8
-  %_M_node_count.i.i.i38 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i38 = getelementptr inbounds i8, ptr %this, i64 840
   store i64 0, ptr %_M_node_count.i.i.i38, align 8
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %45 = load ptr, ptr %handler_, align 8
   %tobool140.not = icmp eq ptr %45, null
   br i1 %tobool140.not, label %if.end146, label %if.then141
 
 if.then141:                                       ; preds = %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit
   %vtable143 = load ptr, ptr %45, align 8
-  %vfn144 = getelementptr inbounds ptr, ptr %vtable143, i64 5
+  %vfn144 = getelementptr inbounds i8, ptr %vtable143, i64 40
   %46 = load ptr, ptr %vfn144, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(8) %45) #27
   store ptr null, ptr %handler_, align 8
   br label %if.end146
 
 if.end146:                                        ; preds = %if.then141, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5clearEv.exit
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   store ptr null, ptr %transportCallback_, align 8
-  %recvWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 17
+  %recvWindow_ = getelementptr inbounds i8, ptr %this, i64 344
   %call147 = call noundef i32 @_ZNK8proxygen6Window14getOutstandingEv(ptr noundef nonnull align 4 dereferenceable(8) %recvWindow_)
   %tobool148.not = icmp eq i32 %call147, 0
   br i1 %tobool148.not, label %if.end153, label %if.then149
 
 if.then149:                                       ; preds = %if.end146
-  %transport_150 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_150 = getelementptr inbounds i8, ptr %this, i64 272
   %47 = load ptr, ptr %transport_150, align 8
   %vtable151 = load ptr, ptr %47, align 8
-  %vfn152 = getelementptr inbounds ptr, ptr %vtable151, i64 18
+  %vfn152 = getelementptr inbounds i8, ptr %vtable151, i64 144
   %48 = load ptr, ptr %vfn152, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(8) %47, i32 noundef %call147) #27
   br label %if.end153
 
 if.end153:                                        ; preds = %if.then149, %if.end146
-  %transport_154 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_154 = getelementptr inbounds i8, ptr %this, i64 272
   %49 = load ptr, ptr %transport_154, align 8
   %vtable155 = load ptr, ptr %49, align 8
-  %vfn156 = getelementptr inbounds ptr, ptr %vtable155, i64 17
+  %vfn156 = getelementptr inbounds i8, ptr %vtable155, i64 136
   %50 = load ptr, ptr %vfn156, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull %this) #27
   br label %return
@@ -2234,14 +2082,14 @@ declare noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr nou
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_15HTTPTransactionE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %txn) local_unnamed_addr #3 {
 entry:
-  %transport_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %txn, i64 0, i32 14
+  %transport_.i = getelementptr inbounds i8, ptr %txn, i64 272
   %0 = load ptr, ptr %transport_.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 23
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 184
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %os)
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.25)
-  %id_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %txn, i64 0, i32 10
+  %id_.i = getelementptr inbounds i8, ptr %txn, i64 248
   %2 = load i64, ptr %id_.i, align 8
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i64 noundef %2)
   ret ptr %os
@@ -2266,7 +2114,7 @@ entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.proxygen::WebTransport::Exception", align 8
   %ref.tmp6 = alloca i64, align 8
-  %cancellationSource_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 8
+  %cancellationSource_ = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %cancellationSource_, align 8
   %cmp.i.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.not.i, label %_ZNK5folly18CancellationSource19requestCancellationEv.exit, label %if.then.i
@@ -2276,8 +2124,8 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNK5folly18CancellationSource19requestCancellationEv.exit
 
 _ZNK5folly18CancellationSource19requestCancellationEv.exit: ; preds = %entry, %if.then.i
-  %readPromise_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %readPromise_ = getelementptr inbounds i8, ptr %this, i64 24
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i8, ptr %hasValue.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.not = icmp eq i8 %2, 0
@@ -2320,7 +2168,7 @@ lpad.i:                                           ; preds = %_ZN5folly2toINSt7__
 _ZN8proxygen12WebTransport9ExceptionC2Ej.exit:    ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA43_cjEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen12WebTransport9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
-  %error.i = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %ref.tmp, i64 0, i32 1
+  %error.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %5 = load i32, ptr %inError.addr.i, align 4
   store i32 %5, ptr %error.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %inError.addr.i)
@@ -2337,7 +2185,7 @@ invoke.cont:                                      ; preds = %_ZN8proxygen12WebTr
 
 if.then.i.i:                                      ; preds = %invoke.cont
   store i8 0, ptr %hasValue.i.i, align 8
-  %core_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %core_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %core_.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5folly8OptionalINS_7PromiseIN8proxygen12WebTransport10StreamDataEEEE5resetEv.exit, label %if.then.i.i.i.i
@@ -2370,11 +2218,11 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i.i
   unreachable
 
 _ZN5folly8OptionalINS_7PromiseIN8proxygen12WebTransport10StreamDataEEEE5resetEv.exit: ; preds = %invoke.cont, %if.then.i.i, %.noexc.i.i.i
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %14 = load ptr, ptr %txn_, align 8
-  %wtIngressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %14, i64 0, i32 50
+  %wtIngressStreams_ = getelementptr inbounds i8, ptr %14, i64 848
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %15 = load ptr, ptr %vfn, align 8
   %call7 = call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(144) %this)
   store i64 %call7, ptr %ref.tmp6, align 8
@@ -2388,8 +2236,8 @@ lpad:                                             ; preds = %_ZN8proxygen12WebTr
   br label %common.resume
 
 if.else:                                          ; preds = %_ZNK5folly18CancellationSource19requestCancellationEv.exit
-  %error_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 7
-  %hasValue.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 7, i32 0, i32 1
+  %error_ = getelementptr inbounds i8, ptr %this, i64 124
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %17 = load i8, ptr %hasValue.i.i.i.i, align 8
   %18 = and i8 %17, 1
   %tobool.i.i.not.i.i = icmp eq i8 %18, 0
@@ -2414,19 +2262,19 @@ entry:
   %inError.addr.i = alloca i32, align 4
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.proxygen::WebTransport::Exception", align 8
-  %cancellationSource_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 4
+  %cancellationSource_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %cancellationSource_, align 8, !noalias !14
   %cmp.i.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.not.i, label %_ZNK5folly18CancellationSource8getTokenEv.exit, label %_ZNSt10unique_ptrIN5folly6detail17CancellationStateENS1_29CancellationStateTokenDeleterEED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5folly6detail17CancellationStateENS1_29CancellationStateTokenDeleterEED2Ev.exit.i: ; preds = %entry
-  %state_.i.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %0, i64 0, i32 1
+  %state_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw add ptr %state_.i.i, i64 8 monotonic, align 8, !noalias !17
   br label %_ZNK5folly18CancellationSource8getTokenEv.exit
 
 _ZNK5folly18CancellationSource8getTokenEv.exit:   ; preds = %entry, %_ZNSt10unique_ptrIN5folly6detail17CancellationStateENS1_29CancellationStateTokenDeleterEED2Ev.exit.i
-  %writePromise_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 3
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %writePromise_ = getelementptr inbounds i8, ptr %this, i64 32
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i8, ptr %hasValue.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.i.i.not = icmp eq i8 %3, 0
@@ -2460,7 +2308,7 @@ lpad.i:                                           ; preds = %_ZN5folly2toINSt7__
 invoke.cont4:                                     ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA43_cjEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen12WebTransport9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
-  %error.i = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %ref.tmp, i64 0, i32 1
+  %error.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %6 = load i32, ptr %inError.addr.i, align 4
   store i32 %6, ptr %error.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %inError.addr.i)
@@ -2477,7 +2325,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 
 if.then.i.i:                                      ; preds = %invoke.cont6
   store i8 0, ptr %hasValue.i.i, align 8
-  %core_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %core_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %9 = load ptr, ptr %core_.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i, label %if.end15, label %if.then.i.i.i.i
@@ -2521,14 +2369,14 @@ lpad5:                                            ; preds = %invoke.cont4
   br label %ehcleanup
 
 if.else:                                          ; preds = %_ZNK5folly18CancellationSource8getTokenEv.exit
-  %hasValue.i.i3 = getelementptr inbounds %"class.proxygen::WebTransport::StreamWriteHandle", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %hasValue.i.i3 = getelementptr inbounds i8, ptr %this, i64 12
   %16 = load i8, ptr %hasValue.i.i3, align 4
   %17 = and i8 %16, 1
   %tobool.i.i4.not = icmp eq i8 %17, 0
   br i1 %tobool.i.i4.not, label %invoke.cont11, label %if.end15
 
 invoke.cont11:                                    ; preds = %if.else
-  %stopSendingErrorCode_ = getelementptr inbounds %"class.proxygen::WebTransport::StreamWriteHandle", ptr %this, i64 0, i32 1
+  %stopSendingErrorCode_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %hasValue.i.i3, align 4
   store i32 %errorCode, ptr %stopSendingErrorCode_, align 8
   %18 = load ptr, ptr %cancellationSource_, align 8
@@ -2543,14 +2391,14 @@ if.end15:                                         ; preds = %if.then.i, %invoke.
   br i1 %cmp.i.i.not.i, label %_ZN5folly17CancellationTokenD2Ev.exit, label %if.then.i.i6
 
 if.then.i.i6:                                     ; preds = %if.end15
-  %state_.i.i.i.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %0, i64 0, i32 1
+  %state_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %19 = atomicrmw sub ptr %state_.i.i.i.i, i64 8 acq_rel, align 8
   %cmp8.i.i.i.i = icmp ugt i64 %19, 15
   br i1 %cmp8.i.i.i.i, label %_ZN5folly17CancellationTokenD2Ev.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i6
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %20 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   br label %_ZN5folly17CancellationTokenD2Ev.exit
@@ -2563,14 +2411,14 @@ ehcleanup:                                        ; preds = %lpad5, %lpad.body
   br i1 %cmp.i.i.not.i, label %_ZN5folly17CancellationTokenD2Ev.exit16, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %ehcleanup
-  %state_.i.i.i.i10 = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %0, i64 0, i32 1
+  %state_.i.i.i.i10 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = atomicrmw sub ptr %state_.i.i.i.i10, i64 8 acq_rel, align 8
   %cmp8.i.i.i.i11 = icmp ugt i64 %21, 15
   br i1 %cmp8.i.i.i.i11, label %_ZN5folly17CancellationTokenD2Ev.exit16, label %delete.notnull.i.i.i.i12
 
 delete.notnull.i.i.i.i12:                         ; preds = %if.then.i.i9
   %vtable.i.i.i.i13 = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i14 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i13, i64 1
+  %vfn.i.i.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i.i.i13, i64 8
   %22 = load ptr, ptr %vfn.i.i.i.i14, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   br label %_ZN5folly17CancellationTokenD2Ev.exit16
@@ -2582,86 +2430,81 @@ _ZN5folly17CancellationTokenD2Ev.exit16:          ; preds = %ehcleanup, %if.then
 ; Function Attrs: mustprogress uwtable
 define i64 @_ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %id, i32 noundef %errorCode) local_unnamed_addr #3 align 2 {
 entry:
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 50
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 400
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %id, i32 noundef %errorCode)
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1
-  %__x.039.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  %cmp.not40.i.i.i = icmp eq ptr %__x.039.i.i.i, null
-  br i1 %cmp.not40.i.i.i, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5eraseERS6_.exit, label %while.body.i.i.i
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 816
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 808
+  %__x.038.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  %cmp.not39.i.i.i = icmp eq ptr %__x.038.i.i.i, null
+  br i1 %cmp.not39.i.i.i, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5eraseERS6_.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %if.end19.i.i.i
-  %__x.042.i.i.i = phi ptr [ %__x.0.i.i.i, %if.end19.i.i.i ], [ %__x.039.i.i.i, %entry ]
-  %__y.041.i.i.i = phi ptr [ %__y.1.i.i.i, %if.end19.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.042.i.i.i, i64 0, i32 1
+  %__x.041.i.i.i = phi ptr [ %__x.0.i.i.i, %if.end19.i.i.i ], [ %__x.038.i.i.i, %entry ]
+  %__y.040.i.i.i = phi ptr [ %__y.1.i.i.i, %if.end19.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %2, %id
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
-
-if.then.i.i.i:                                    ; preds = %while.body.i.i.i
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i, i64 0, i32 3
-  br label %if.end19.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.end19.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   %cmp.i18.i.i.i = icmp ugt i64 %2, %id
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i, i64 0, i32 2
   br i1 %cmp.i18.i.i.i, label %if.end19.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
-  %3 = load ptr, ptr %_M_left.i.i.i.i, align 8
-  %_M_right.i20.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i, i64 0, i32 3
+  %_M_left.i19.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 16
+  %3 = load ptr, ptr %_M_left.i19.i.i.i, align 8
+  %_M_right.i20.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 24
   %4 = load ptr, ptr %_M_right.i20.i.i.i, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.else12.i.i.i, %while.body.i.i.i.i
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %3, %if.else12.i.i.i ]
-  %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %__x.042.i.i.i, %if.else12.i.i.i ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1
+  %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %__x.041.i.i.i, %if.else12.i.i.i ]
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %5, %id
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
-  %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !7
 
 _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i, %if.else12.i.i.i
-  %__y.addr.0.lcssa.i.i.i.i = phi ptr [ %__x.042.i.i.i, %if.else12.i.i.i ], [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ]
+  %__y.addr.0.lcssa.i.i.i.i = phi ptr [ %__x.041.i.i.i, %if.else12.i.i.i ], [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ]
   %cmp.not5.i21.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not5.i21.i.i.i, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5eraseERS6_.exit, label %while.body.i23.i.i.i
 
 while.body.i23.i.i.i:                             ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %while.body.i23.i.i.i
-  %__x.addr.07.i24.i.i.i = phi ptr [ %__x.addr.1.i32.i.i.i, %while.body.i23.i.i.i ], [ %4, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ]
-  %__y.addr.06.i25.i.i.i = phi ptr [ %__y.addr.1.i30.i.i.i, %while.body.i23.i.i.i ], [ %__y.041.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ]
-  %_M_storage.i.i.i26.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i24.i.i.i, i64 0, i32 1
+  %__x.addr.07.i24.i.i.i = phi ptr [ %__x.addr.1.i31.i.i.i, %while.body.i23.i.i.i ], [ %4, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ]
+  %__y.addr.06.i25.i.i.i = phi ptr [ %__y.addr.1.i28.i.i.i, %while.body.i23.i.i.i ], [ %__y.040.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ]
+  %_M_storage.i.i.i26.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i, i64 32
   %6 = load i64, ptr %_M_storage.i.i.i26.i.i.i, align 8
   %cmp.i.i27.i.i.i = icmp ugt i64 %6, %id
-  %_M_left.i.i28.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i.i.i, i64 0, i32 2
-  %_M_right.i.i29.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i.i.i, i64 0, i32 3
-  %__y.addr.1.i30.i.i.i = select i1 %cmp.i.i27.i.i.i, ptr %__x.addr.07.i24.i.i.i, ptr %__y.addr.06.i25.i.i.i
-  %__x.addr.1.in.i31.i.i.i = select i1 %cmp.i.i27.i.i.i, ptr %_M_left.i.i28.i.i.i, ptr %_M_right.i.i29.i.i.i
-  %__x.addr.1.i32.i.i.i = load ptr, ptr %__x.addr.1.in.i31.i.i.i, align 8
-  %cmp.not.i33.i.i.i = icmp eq ptr %__x.addr.1.i32.i.i.i, null
-  br i1 %cmp.not.i33.i.i.i, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5eraseERS6_.exit, label %while.body.i23.i.i.i, !llvm.loop !8
+  %__y.addr.1.i28.i.i.i = select i1 %cmp.i.i27.i.i.i, ptr %__x.addr.07.i24.i.i.i, ptr %__y.addr.06.i25.i.i.i
+  %__x.addr.1.in.v.i29.i.i.i = select i1 %cmp.i.i27.i.i.i, i64 16, i64 24
+  %__x.addr.1.in.i30.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i, i64 %__x.addr.1.in.v.i29.i.i.i
+  %__x.addr.1.i31.i.i.i = load ptr, ptr %__x.addr.1.in.i30.i.i.i, align 8
+  %cmp.not.i32.i.i.i = icmp eq ptr %__x.addr.1.i31.i.i.i, null
+  br i1 %cmp.not.i32.i.i.i, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5eraseERS6_.exit, label %while.body.i23.i.i.i, !llvm.loop !8
 
-if.end19.i.i.i:                                   ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %__y.1.i.i.i = phi ptr [ %__y.041.i.i.i, %if.then.i.i.i ], [ %__x.042.i.i.i, %if.else.i.i.i ]
-  %__x.1.in.i.i.i = phi ptr [ %_M_right.i.i.i.i, %if.then.i.i.i ], [ %_M_left.i.i.i.i, %if.else.i.i.i ]
-  %__x.0.i.i.i = load ptr, ptr %__x.1.in.i.i.i, align 8
+if.end19.i.i.i:                                   ; preds = %if.else.i.i.i, %while.body.i.i.i
+  %.sink.i.i.i = phi i64 [ 24, %while.body.i.i.i ], [ 16, %if.else.i.i.i ]
+  %__y.1.i.i.i = phi ptr [ %__y.040.i.i.i, %while.body.i.i.i ], [ %__x.041.i.i.i, %if.else.i.i.i ]
+  %_M_left.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 %.sink.i.i.i
+  %__x.0.i.i.i = load ptr, ptr %_M_left.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5eraseERS6_.exit, label %while.body.i.i.i, !llvm.loop !9
 
 _ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5eraseERS6_.exit: ; preds = %if.end19.i.i.i, %while.body.i23.i.i.i, %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %retval.sroa.0.0.i.i.i = phi ptr [ %__y.addr.0.lcssa.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %add.ptr.i.i.i.i, %entry ], [ %__y.addr.0.lcssa.i.i.i.i, %while.body.i23.i.i.i ], [ %__y.1.i.i.i, %if.end19.i.i.i ]
-  %retval.sroa.3.0.i.i.i = phi ptr [ %__y.041.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %add.ptr.i.i.i.i, %entry ], [ %__y.addr.1.i30.i.i.i, %while.body.i23.i.i.i ], [ %__y.1.i.i.i, %if.end19.i.i.i ]
-  %wtEgressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49
+  %retval.sroa.3.0.i.i.i = phi ptr [ %__y.040.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %add.ptr.i.i.i.i, %entry ], [ %__y.addr.1.i28.i.i.i, %while.body.i23.i.i.i ], [ %__y.1.i.i.i, %if.end19.i.i.i ]
+  %wtEgressStreams_ = getelementptr inbounds i8, ptr %this, i64 800
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS5_ESD_(ptr noundef nonnull align 8 dereferenceable(48) %wtEgressStreams_, ptr %retval.sroa.0.0.i.i.i, ptr %retval.sroa.3.0.i.i.i)
   ret i64 %call
 }
@@ -2694,27 +2537,27 @@ if.then:                                          ; preds = %invoke.cont
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %invoke.cont
-  %stats_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 15
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %stats_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
-  %queueHandle_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 23
+  %queueHandle_.i = getelementptr inbounds i8, ptr %this, i64 408
   %2 = load ptr, ptr %queueHandle_.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.end17, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end5
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i2 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %invoke.cont6 unwind label %terminate.lpad
@@ -2730,7 +2573,7 @@ if.then8:                                         ; preds = %invoke.cont6
 
 _ZNK8proxygen15HTTPTransaction10isEnqueuedEv.exit.i: ; preds = %if.then8
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i5 = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %call.i.i.noexc unwind label %terminate.lpad
@@ -2761,11 +2604,11 @@ lpad.i:                                           ; preds = %invoke.cont.i, %.no
   unreachable
 
 cleanup.done.i:                                   ; preds = %call.i.i.noexc
-  %egressQueue_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 22
+  %egressQueue_.i = getelementptr inbounds i8, ptr %this, i64 400
   %7 = load ptr, ptr %egressQueue_.i, align 8
   %8 = load ptr, ptr %queueHandle_.i, align 8
   %vtable.i3 = load ptr, ptr %7, align 8
-  %vfn.i4 = getelementptr inbounds ptr, ptr %vtable.i3, i64 7
+  %vfn.i4 = getelementptr inbounds i8, ptr %vtable.i3, i64 56
   %9 = load ptr, ptr %vfn.i4, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
           to label %_ZN8proxygen15HTTPTransaction7dequeueEv.exit unwind label %terminate.lpad
@@ -2780,17 +2623,17 @@ if.end10:                                         ; preds = %_ZN8proxygen15HTTPT
   br i1 %tobool11.not, label %if.end17, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %egressQueue_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 22
+  %egressQueue_ = getelementptr inbounds i8, ptr %this, i64 400
   %10 = load ptr, ptr %egressQueue_, align 8
   %vtable14 = load ptr, ptr %10, align 8
-  %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 5
+  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 40
   %11 = load ptr, ptr %vfn15, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %.pr)
           to label %if.end17 unwind label %terminate.lpad
 
 if.end17:                                         ; preds = %if.end5, %if.then12, %if.end10
-  %wtIngressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1, i32 0, i32 1
+  %wtIngressStreams_ = getelementptr inbounds i8, ptr %this, i64 848
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 864
   %12 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %wtIngressStreams_, ptr noundef %12)
           to label %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -2803,8 +2646,8 @@ terminate.lpad.i.i:                               ; preds = %if.end17
   unreachable
 
 _ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEED2Ev.exit: ; preds = %if.end17
-  %wtEgressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49
-  %_M_parent.i.i.i.i7 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 1
+  %wtEgressStreams_ = getelementptr inbounds i8, ptr %this, i64 800
+  %_M_parent.i.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 816
   %15 = load ptr, ptr %_M_parent.i.i.i.i7, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %wtEgressStreams_, ptr noundef %15)
           to label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEED2Ev.exit unwind label %terminate.lpad.i.i8
@@ -2817,8 +2660,8 @@ terminate.lpad.i.i8:                              ; preds = %_ZNSt3mapImN8proxyg
   unreachable
 
 _ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEED2Ev.exit: ; preds = %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEED2Ev.exit
-  %egressBodyOffsetsToTrack_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39
-  %_M_parent.i.i.i.i9 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39, i32 0, i32 0, i32 1, i32 0, i32 1
+  %egressBodyOffsetsToTrack_ = getelementptr inbounds i8, ptr %this, i64 680
+  %_M_parent.i.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 696
   %18 = load ptr, ptr %_M_parent.i.i.i.i9, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen9ByteEvent10EventFlagsEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %egressBodyOffsetsToTrack_, ptr noundef %18)
           to label %_ZNSt3mapImN8proxygen9ByteEvent10EventFlagsESt4lessImESaISt4pairIKmS2_EEED2Ev.exit unwind label %terminate.lpad.i.i10
@@ -2831,8 +2674,8 @@ terminate.lpad.i.i10:                             ; preds = %_ZNSt3mapImN8proxyg
   unreachable
 
 _ZNSt3mapImN8proxygen9ByteEvent10EventFlagsESt4lessImESaISt4pairIKmS2_EEED2Ev.exit: ; preds = %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEED2Ev.exit
-  %exTransactions_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27
-  %_M_parent.i.i.i.i11 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27, i32 0, i32 0, i32 1, i32 0, i32 1
+  %exTransactions_ = getelementptr inbounds i8, ptr %this, i64 504
+  %_M_parent.i.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 520
   %21 = load ptr, ptr %_M_parent.i.i.i.i11, align 8
   invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %exTransactions_, ptr noundef %21)
           to label %_ZNSt3setImSt4lessImESaImEED2Ev.exit unwind label %terminate.lpad.i.i12
@@ -2845,8 +2688,8 @@ terminate.lpad.i.i12:                             ; preds = %_ZNSt3mapImN8proxyg
   unreachable
 
 _ZNSt3setImSt4lessImESaImEED2Ev.exit:             ; preds = %_ZNSt3mapImN8proxygen9ByteEvent10EventFlagsESt4lessImESaISt4pairIKmS2_EEED2Ev.exit
-  %pushedTransactions_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26
-  %_M_parent.i.i.i.i13 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 1, i32 0, i32 1
+  %pushedTransactions_ = getelementptr inbounds i8, ptr %this, i64 456
+  %_M_parent.i.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 472
   %24 = load ptr, ptr %_M_parent.i.i.i.i13, align 8
   invoke void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %pushedTransactions_, ptr noundef %24)
           to label %_ZNSt3setImSt4lessImESaImEED2Ev.exit15 unwind label %terminate.lpad.i.i14
@@ -2859,7 +2702,7 @@ terminate.lpad.i.i14:                             ; preds = %_ZNSt3setImSt4lessI
   unreachable
 
 _ZNSt3setImSt4lessImESaImEED2Ev.exit15:           ; preds = %_ZNSt3setImSt4lessImESaImEED2Ev.exit
-  %chunkHeaders_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 21
+  %chunkHeaders_ = getelementptr inbounds i8, ptr %this, i64 376
   %27 = load ptr, ptr %chunkHeaders_, align 8
   %cmp.not4.i.i.i = icmp eq ptr %27, %chunkHeaders_
   br i1 %cmp.not4.i.i.i, label %_ZNSt7__cxx114listIN8proxygen15HTTPTransaction5ChunkESaIS3_EED2Ev.exit, label %while.body.i.i.i
@@ -2872,7 +2715,7 @@ while.body.i.i.i:                                 ; preds = %_ZNSt3setImSt4lessI
   br i1 %cmp.not.i.i.i, label %_ZNSt7__cxx114listIN8proxygen15HTTPTransaction5ChunkESaIS3_EED2Ev.exit, label %while.body.i.i.i, !llvm.loop !4
 
 _ZNSt7__cxx114listIN8proxygen15HTTPTransaction5ChunkESaIS3_EED2Ev.exit: ; preds = %while.body.i.i.i, %_ZNSt3setImSt4lessImESaImEED2Ev.exit15
-  %trailers_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 20
+  %trailers_ = getelementptr inbounds i8, ptr %this, i64 368
   %29 = load ptr, ptr %trailers_, align 8
   %cmp.not.i = icmp eq ptr %29, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i
@@ -2884,9 +2727,9 @@ _ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i: ; preds = %_ZNSt
 
 _ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt7__cxx114listIN8proxygen15HTTPTransaction5ChunkESaIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i
   store ptr null, ptr %trailers_, align 8
-  %deferredEgressBody_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4
+  %deferredEgressBody_ = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %deferredEgressBody_) #27
-  %deferredIngress_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_ = getelementptr inbounds i8, ptr %this, i64 152
   %30 = load ptr, ptr %deferredIngress_, align 8
   %cmp.not.i16 = icmp eq ptr %30, null
   br i1 %cmp.not.i16, label %_ZNSt10unique_ptrISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEESt14default_deleteIS6_EED2Ev.exit, label %_ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS6_.exit.i
@@ -2898,7 +2741,7 @@ _ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS
 
 _ZNSt10unique_ptrISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEESt14default_deleteIS6_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS6_.exit.i
   store ptr null, ptr %deferredIngress_, align 8
-  %rateLimitCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 2
+  %rateLimitCallback_ = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %rateLimitCallback_) #27
   tail call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #27
   ret void
@@ -2957,19 +2800,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPTransaction5resetEbjjj(ptr noundef nonnull align 8 dereferenceable(912) %this, i1 noundef zeroext %useFlowControl, i32 noundef %receiveInitialWindowSize, i32 noundef %receiveStreamWindowSize, i32 noundef %sendInitialWindowSize) local_unnamed_addr #3 align 2 {
 entry:
-  %useFlowControl_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %useFlowControl_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %useFlowControl_, align 8
   %bf.shl = select i1 %useFlowControl, i32 32, i32 0
   %bf.clear = and i32 %bf.load, -33
   %bf.set = or disjoint i32 %bf.clear, %bf.shl
   store i32 %bf.set, ptr %useFlowControl_, align 8
-  %recvWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 17
+  %recvWindow_ = getelementptr inbounds i8, ptr %this, i64 344
   %call = tail call noundef zeroext i1 @_ZN8proxygen6Window11setCapacityEj(ptr noundef nonnull align 4 dereferenceable(8) %recvWindow_, i32 noundef %receiveInitialWindowSize)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(912) %this, i32 noundef %receiveStreamWindowSize)
-  %sendWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_ = getelementptr inbounds i8, ptr %this, i64 352
   %call2 = tail call noundef zeroext i1 @_ZN8proxygen6Window11setCapacityEj(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_, i32 noundef %sendInitialWindowSize)
   ret void
 }
@@ -2994,17 +2837,17 @@ entry:
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
   %1 = load ptr, ptr %msg, align 8
-  %seqNo_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 11
+  %seqNo_ = getelementptr inbounds i8, ptr %this, i64 256
   %2 = load i32, ptr %seqNo_, align 8
-  %seqNo_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %1, i64 0, i32 14
+  %seqNo_.i = getelementptr inbounds i8, ptr %1, i64 544
   store i32 %2, ptr %seqNo_.i, align 8
-  %direction_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 6
+  %direction_.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load i8, ptr %direction_.i, align 8
   %cmp.i = icmp eq i8 %3, 1
   br i1 %cmp.i, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 24, i32 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 424
   %4 = load i8, ptr %hasValue.i.i, align 8
   %5 = and i8 %4, 1
   %tobool.i.i.not = icmp eq i8 %5, 0
@@ -3012,7 +2855,7 @@ land.lhs.true:                                    ; preds = %entry
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
   %6 = load ptr, ptr %msg, align 8
-  %fields_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %6, i64 0, i32 6
+  %fields_.i = getelementptr inbounds i8, ptr %6, i64 168
   %7 = load i8, ptr %fields_.i, align 8
   %cmp.i8 = icmp eq i8 %7, 2
   br i1 %cmp.i8, label %if.then, label %if.end
@@ -3022,7 +2865,7 @@ if.then:                                          ; preds = %land.lhs.true6
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %if.then
-  %lastResponseStatus_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 41
+  %lastResponseStatus_ = getelementptr inbounds i8, ptr %this, i64 732
   store i16 %call12, ptr %lastResponseStatus_, align 4
   br label %if.end
 
@@ -3032,12 +2875,12 @@ lpad:                                             ; preds = %if.else.i.i45, %if.
   br label %ehcleanup174
 
 if.end:                                           ; preds = %invoke.cont11, %land.lhs.true6, %land.lhs.true, %entry
-  %hasValue.i.i9 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 24, i32 0, i32 1
+  %hasValue.i.i9 = getelementptr inbounds i8, ptr %this, i64 424
   %9 = load i8, ptr %hasValue.i.i9, align 8
   %10 = and i8 %9, 1
   %tobool.i.i10.not = icmp eq i8 %10, 0
   %.pre = load ptr, ptr %msg, align 8
-  %fields_.i.i.phi.trans.insert = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %.pre, i64 0, i32 6
+  %fields_.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 168
   %.pre58 = load i8, ptr %fields_.i.i.phi.trans.insert, align 8
   %cmp.i12 = icmp ne i8 %.pre58, 1
   %.not = or i1 %tobool.i.i10.not, %cmp.i12
@@ -3073,7 +2916,7 @@ invoke.cont23:                                    ; preds = %invoke.cont19
 
 if.end26:                                         ; preds = %invoke.cont23
   %13 = load ptr, ptr %msg, align 8
-  %fields_.i16 = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %13, i64 0, i32 6
+  %fields_.i16 = getelementptr inbounds i8, ptr %13, i64 168
   %14 = load i8, ptr %fields_.i16, align 8
   %cmp.i17 = icmp eq i8 %14, 1
   br i1 %cmp.i17, label %if.then30, label %lor.rhs
@@ -3083,14 +2926,14 @@ if.then30:                                        ; preds = %if.end26
           to label %invoke.cont34 unwind label %lpad
 
 invoke.cont34:                                    ; preds = %if.then30
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTPMethod>::StorageTriviallyDestructible", ptr %ref.tmp, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %15 = load i8, ptr %hasValue.i.i.i, align 4
   %16 = and i8 %15, 1
   %tobool.i.i.i = icmp ne i8 %16, 0
   %17 = load i32, ptr %ref.tmp, align 4
   %cmp.i18 = icmp eq i32 %17, 4
   %18 = select i1 %tobool.i.i.i, i1 %cmp.i18, i1 false
-  %headRequest_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %headRequest_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %headRequest_, align 8
   %bf.shl = select i1 %18, i32 16384, i32 0
   %bf.clear = and i32 %bf.load, -16385
@@ -3107,7 +2950,7 @@ if.end43:                                         ; preds = %invoke.cont34
   %bf.set42 = or disjoint i32 %bf.clear41, %bf.shl40
   store i32 %bf.set42, ptr %headRequest_, align 8
   %.pre59 = load ptr, ptr %msg, align 8
-  %fields_.i19.phi.trans.insert = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %.pre59, i64 0, i32 6
+  %fields_.i19.phi.trans.insert = getelementptr inbounds i8, ptr %.pre59, i64 168
   %.pre60 = load i8, ptr %fields_.i19.phi.trans.insert, align 8
   %cmp.i20 = icmp eq i8 %.pre60, 1
   br i1 %cmp.i20, label %land.lhs.true47, label %lor.rhs
@@ -3117,7 +2960,7 @@ land.lhs.true47:                                  ; preds = %if.end43
           to label %invoke.cont52 unwind label %lpad
 
 invoke.cont52:                                    ; preds = %land.lhs.true47
-  %hasValue.i.i.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTPMethod>::StorageTriviallyDestructible", ptr %ref.tmp48, i64 0, i32 1
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp48, i64 4
   %20 = load i8, ptr %hasValue.i.i.i.i, align 4
   %21 = and i8 %20, 1
   %tobool.i.i.i.i = icmp eq i8 %21, 0
@@ -3128,7 +2971,7 @@ invoke.cont52:                                    ; preds = %land.lhs.true47
 
 invoke.cont52.lor.rhs_crit_edge:                  ; preds = %invoke.cont52
   %.pre61 = load ptr, ptr %msg, align 8
-  %fields_.i22.phi.trans.insert = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %.pre61, i64 0, i32 6
+  %fields_.i22.phi.trans.insert = getelementptr inbounds i8, ptr %.pre61, i64 168
   %.pre62 = load i8, ptr %fields_.i22.phi.trans.insert, align 8
   br label %lor.rhs
 
@@ -3139,7 +2982,7 @@ lor.rhs:                                          ; preds = %if.end26, %invoke.c
   br i1 %cmp.i23, label %land.lhs.true57, label %if.end115
 
 land.lhs.true57:                                  ; preds = %lor.rhs
-  %headRequest_58 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %headRequest_58 = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load59 = load i32, ptr %headRequest_58, align 8
   %25 = and i32 %bf.load59, 16384
   %bf.cast.not = icmp eq i32 %25, 0
@@ -3159,14 +3002,14 @@ invoke.cont65:                                    ; preds = %invoke.cont63
 
 if.then69:                                        ; preds = %invoke.cont52, %invoke.cont65
   %26 = load ptr, ptr %msg, align 8
-  %headers_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %26, i64 0, i32 9
+  %headers_.i = getelementptr inbounds i8, ptr %26, i64 480
   %27 = load ptr, ptr %headers_.i, align 8
   %tobool.not12.i.i = icmp eq ptr %27, null
   br i1 %tobool.not12.i.i, label %invoke.cont74, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %if.then69
-  %length_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %26, i64 0, i32 9, i32 1
-  %capacity_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %26, i64 0, i32 9, i32 2
+  %length_.i.i = getelementptr inbounds i8, ptr %26, i64 488
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %26, i64 496
   %28 = load i64, ptr %capacity_.i.i.i, align 8
   %mul.i.i.i.i = mul i64 %28, 40
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 %mul.i.i.i.i
@@ -3214,8 +3057,8 @@ if.then77:                                        ; preds = %invoke.cont74
           to label %invoke.cont80 unwind label %lpad79
 
 invoke.cont80:                                    ; preds = %if.then77
-  %expectedIngressContentLengthRemaining_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 35
-  %hasValue.i.i.i.i26 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 35, i32 0, i32 1
+  %expectedIngressContentLengthRemaining_ = getelementptr inbounds i8, ptr %this, i64 624
+  %hasValue.i.i.i.i26 = getelementptr inbounds i8, ptr %this, i64 632
   %30 = load i8, ptr %hasValue.i.i.i.i26, align 8
   %31 = and i8 %30, 1
   %tobool.i.i.not.i.i = icmp eq i8 %31, 0
@@ -3263,7 +3106,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
 
 invoke.cont94:                                    ; preds = %invoke.cont92
   %vtable = load ptr, ptr %37, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %38 = load ptr, ptr %vfn, align 8
   %call96 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(16) %37) #27
   %call98 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call95, ptr noundef %call96)
@@ -3283,7 +3126,7 @@ invoke.cont101:                                   ; preds = %invoke.cont99
           to label %invoke.cont101.try.cont_crit_edge unwind label %lpad
 
 invoke.cont101.try.cont_crit_edge:                ; preds = %invoke.cont101
-  %hasValue.i.i27.phi.trans.insert = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 35, i32 0, i32 1
+  %hasValue.i.i27.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 632
   %.pre63 = load i8, ptr %hasValue.i.i27.phi.trans.insert, align 8
   br label %try.cont
 
@@ -3294,9 +3137,9 @@ try.cont:                                         ; preds = %invoke.cont101.try.
   br i1 %tobool.i.i28.not, label %if.end115, label %invoke.cont109
 
 invoke.cont109:                                   ; preds = %try.cont
-  %expectedIngressContentLengthRemaining_105 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 35
-  %expectedIngressContentLength_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 34
-  %hasValue.i.i.i.i30 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 34, i32 0, i32 1
+  %expectedIngressContentLengthRemaining_105 = getelementptr inbounds i8, ptr %this, i64 624
+  %expectedIngressContentLength_ = getelementptr inbounds i8, ptr %this, i64 608
+  %hasValue.i.i.i.i30 = getelementptr inbounds i8, ptr %this, i64 616
   %41 = load i8, ptr %hasValue.i.i.i.i30, align 8
   %42 = and i8 %41, 1
   %tobool.i.i.not.i.i31 = icmp eq i8 %42, 0
@@ -3328,51 +3171,51 @@ ehcleanup:                                        ; preds = %lpad87, %lpad85
           to label %ehcleanup174 unwind label %terminate.lpad
 
 if.end115:                                        ; preds = %_ZN5folly8OptionalImEaSIRmEERS1_OT_.exit, %land.lhs.true57, %lor.rhs, %invoke.cont74, %try.cont, %invoke.cont65
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %46 = load ptr, ptr %transportCallback_, align 8
   %tobool116.not = icmp eq ptr %46, null
   br i1 %tobool116.not, label %if.end124, label %if.then117
 
 if.then117:                                       ; preds = %if.end115
   %47 = load ptr, ptr %msg, align 8
-  %size_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %47, i64 0, i32 11
+  %size_.i = getelementptr inbounds i8, ptr %47, i64 520
   %vtable122 = load ptr, ptr %46, align 8
-  %vfn123 = getelementptr inbounds ptr, ptr %vtable122, i64 9
+  %vfn123 = getelementptr inbounds i8, ptr %vtable122, i64 72
   %48 = load ptr, ptr %vfn123, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 4 dereferenceable(12) %size_.i) #27
   br label %if.end124
 
 if.end124:                                        ; preds = %if.then117, %if.end115
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %49 = load ptr, ptr %transport_, align 8
   %vtable126 = load ptr, ptr %49, align 8
-  %vfn127 = getelementptr inbounds ptr, ptr %vtable126, i64 28
+  %vfn127 = getelementptr inbounds i8, ptr %vtable126, i64 224
   %50 = load ptr, ptr %vfn127, align 8
   %call128 = call noundef nonnull align 8 dereferenceable(8) ptr %50(ptr noundef nonnull align 8 dereferenceable(8) %49) #27
   %vtable129 = load ptr, ptr %call128, align 8
-  %vfn130 = getelementptr inbounds ptr, ptr %vtable129, i64 2
+  %vfn130 = getelementptr inbounds i8, ptr %vtable129, i64 16
   %51 = load ptr, ptr %vfn130, align 8
   invoke void %51(ptr nonnull sret(%"struct.proxygen::CompressionInfo") align 4 %ref.tmp125, ptr noundef nonnull align 8 dereferenceable(8) %call128)
           to label %invoke.cont132 unwind label %lpad
 
 invoke.cont132:                                   ; preds = %if.end124
-  %ingress.i = getelementptr inbounds %"struct.proxygen::CompressionInfo", ptr %ref.tmp125, i64 0, i32 1
-  %ingress2.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 1
+  %ingress.i = getelementptr inbounds i8, ptr %ref.tmp125, i64 28
+  %ingress2.i = getelementptr inbounds i8, ptr %this, i64 316
   %52 = load <4 x i32>, ptr %ingress.i, align 4
   store <4 x i32> %52, ptr %ingress2.i, align 4
-  %blockedInserts_.i.i = getelementptr inbounds %"struct.proxygen::CompressionInfo", ptr %ref.tmp125, i64 0, i32 1, i32 4
-  %blockedInserts_6.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 1, i32 4
+  %blockedInserts_.i.i = getelementptr inbounds i8, ptr %ref.tmp125, i64 44
+  %blockedInserts_6.i.i = getelementptr inbounds i8, ptr %this, i64 332
   %53 = load <2 x i32>, ptr %blockedInserts_.i.i, align 4
   store <2 x i32> %53, ptr %blockedInserts_6.i.i, align 4
-  %staticRefs_.i.i = getelementptr inbounds %"struct.proxygen::CompressionInfo", ptr %ref.tmp125, i64 0, i32 1, i32 6
+  %staticRefs_.i.i = getelementptr inbounds i8, ptr %ref.tmp125, i64 52
   %54 = load i32, ptr %staticRefs_.i.i, align 4
-  %staticRefs_8.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 1, i32 6
+  %staticRefs_8.i.i = getelementptr inbounds i8, ptr %this, i64 340
   store i32 %54, ptr %staticRefs_8.i.i, align 4
-  %ingressPaused_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %ingressPaused_.i = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load.i = load i32, ptr %ingressPaused_.i, align 8
   %55 = and i32 %bf.load.i, 1
   %bf.cast.not.i = icmp eq i32 %55, 0
-  %deferredIngress_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_.i = getelementptr inbounds i8, ptr %this, i64 152
   %56 = load ptr, ptr %deferredIngress_.i, align 8
   br i1 %bf.cast.not.i, label %lor.rhs.i33, label %if.then135
 
@@ -3381,15 +3224,15 @@ lor.rhs.i33:                                      ; preds = %invoke.cont132
   br i1 %cmp.i.not.i, label %if.else, label %invoke.cont133
 
 invoke.cont133:                                   ; preds = %lor.rhs.i33
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %56, i64 0, i32 3
-  %_M_start.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %56, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %56, i64 48
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %56, i64 16
   %57 = load ptr, ptr %_M_finish.i.i.i, align 8
   %58 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i.not = icmp eq ptr %57, %58
   br i1 %cmp.i.i.i.i.not, label %if.else, label %invoke.cont136
 
 if.then135:                                       ; preds = %invoke.cont132
-  %deferredIngress_.i34 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_.i34 = getelementptr inbounds i8, ptr %this, i64 152
   %cmp.i.not.i35 = icmp eq ptr %56, null
   br i1 %cmp.i.not.i35, label %if.then.i, label %invoke.cont136
 
@@ -3422,13 +3265,13 @@ _ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS
 
 invoke.cont136:                                   ; preds = %invoke.cont133, %_ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS6_.exit.i.i.i.i.i, %_ZSt11make_uniqueISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, %if.then135
   %61 = phi ptr [ %.pre65, %_ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS6_.exit.i.i.i.i.i ], [ %call.i.i37, %_ZSt11make_uniqueISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i ], [ %56, %if.then135 ], [ %56, %invoke.cont133 ]
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   store i8 1, ptr %ref.tmp138, align 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %61, i64 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %61, i64 48
   %62 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %61, i64 0, i32 3, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %61, i64 64
   %63 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i38 = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %63, i64 -1
+  %add.ptr.i.i38 = getelementptr inbounds i8, ptr %63, i64 -56
   %cmp.not.i.i39 = icmp eq ptr %62, %add.ptr.i.i38
   br i1 %cmp.not.i.i39, label %if.else.i.i45, label %if.then.i.i40
 
@@ -3437,18 +3280,18 @@ if.then.i.i40:                                    ; preds = %invoke.cont136
   %65 = load i64, ptr %msg, align 8
   store ptr null, ptr %msg, align 8
   store i64 %65, ptr %62, align 8
-  %body_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %62, i64 0, i32 1
-  %streamID_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %62, i64 0, i32 4
+  %body_.i.i.i.i.i = getelementptr inbounds i8, ptr %62, i64 8
+  %streamID_.i.i.i.i.i = getelementptr inbounds i8, ptr %62, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %body_.i.i.i.i.i, i8 0, i64 24, i1 false)
   store i64 %64, ptr %streamID_.i.i.i.i.i, align 8
-  %length_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %62, i64 0, i32 5
+  %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %62, i64 40
   store i64 0, ptr %length_.i.i.i.i.i, align 8
-  %event_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %62, i64 0, i32 6
+  %event_.i.i.i.i.i = getelementptr inbounds i8, ptr %62, i64 48
   store i8 1, ptr %event_.i.i.i.i.i, align 8
-  %upgrade_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %62, i64 0, i32 7
+  %upgrade_.i.i.i.i.i = getelementptr inbounds i8, ptr %62, i64 49
   store i8 0, ptr %upgrade_.i.i.i.i.i, align 1
   %66 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i41 = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %66, i64 1
+  %incdec.ptr.i.i41 = getelementptr inbounds i8, ptr %66, i64 56
   store ptr %incdec.ptr.i.i41, ptr %_M_finish.i.i, align 8
   br label %if.end.i.i42
 
@@ -3496,7 +3339,7 @@ invoke.cont158:                                   ; preds = %invoke.cont156
 invoke.cont160:                                   ; preds = %invoke.cont158
   %69 = load ptr, ptr %transport_, align 8
   %vtable.i.i = load ptr, ptr %69, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %70 = load ptr, ptr %vfn.i.i, align 8
   invoke void %70(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull align 8 dereferenceable(8) %call161)
           to label %.noexc47 unwind label %lpad153
@@ -3553,7 +3396,7 @@ cleanup:                                          ; preds = %cond.false, %_ZNSt1
   br i1 %cmp.not.i51, label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit, label %if.then.i52
 
 if.then.i52:                                      ; preds = %cleanup
-  %guardCount_.i53 = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %76, i64 0, i32 1
+  %guardCount_.i53 = getelementptr inbounds i8, ptr %76, i64 8
   %77 = load i32, ptr %guardCount_.i53, align 8
   %dec.i = add i32 %77, -1
   store i32 %dec.i, ptr %guardCount_.i53, align 8
@@ -3562,7 +3405,7 @@ if.then.i52:                                      ; preds = %cleanup
 
 if.then6.i:                                       ; preds = %if.then.i52
   %vtable.i = load ptr, ptr %76, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %78 = load ptr, ptr %vfn.i, align 8
   invoke void %78(ptr noundef nonnull align 8 dereferenceable(12) %76, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -3605,7 +3448,7 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %ingressState_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_ = getelementptr inbounds i8, ptr %this, i64 242
   %call = invoke noundef zeroext i1 @_ZN8proxygen12StateMachineINS_28HTTPTransactionIngressSMDataEE7transitERNS1_5StateENS1_5EventE(ptr noundef nonnull align 1 dereferenceable(1) %ingressState_, i8 noundef zeroext %event)
           to label %invoke.cont unwind label %lpad
 
@@ -3639,7 +3482,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont14 unwind label %lpad4
 
 invoke.cont14:                                    ; preds = %invoke.cont12
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load i64, ptr %id_, align 8
   %call17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call15, i64 noundef %2)
           to label %invoke.cont16 unwind label %lpad4
@@ -3653,9 +3496,9 @@ invoke.cont18:                                    ; preds = %invoke.cont16
           to label %.noexc unwind label %lpad19
 
 .noexc:                                           ; preds = %invoke.cont18
-  %proxygenError_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %ex, i64 0, i32 3
+  %proxygenError_.i.i = getelementptr inbounds i8, ptr %ex, i64 44
   store i32 35, ptr %proxygenError_.i.i, align 4, !alias.scope !26
-  %hasValue.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 4, i32 0, i32 1
+  %hasValue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ex, i64 73
   %3 = load i8, ptr %hasValue.i.i.i.i.i.i, align 1, !alias.scope !26
   %4 = and i8 %3, 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %4, 0
@@ -3666,9 +3509,9 @@ if.else.i.i.i.i:                                  ; preds = %.noexc
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %if.else.i.i.i.i, %.noexc
-  %codecStatusCode_.i.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 4
+  %codecStatusCode_.i.i = getelementptr inbounds i8, ptr %ex, i64 72
   store i8 2, ptr %codecStatusCode_.i.i, align 8, !alias.scope !26
-  %errno_.i.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 5
+  %errno_.i.i = getelementptr inbounds i8, ptr %ex, i64 76
   store i32 0, ptr %errno_.i.i, align 4, !alias.scope !26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #27
   invoke void @_ZN8proxygen15HTTPTransaction7onErrorERKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(96) %ex)
@@ -3676,7 +3519,7 @@ invoke.cont20:                                    ; preds = %if.else.i.i.i.i, %.
 
 invoke.cont22:                                    ; preds = %invoke.cont20
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %ex, i64 88
   %5 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -3688,7 +3531,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont22
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %ex, i64 80
   %6 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %6, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -3701,7 +3544,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %ex, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %ex, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ex) #27
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #27
@@ -3744,7 +3587,7 @@ if.then.i:                                        ; preds = %_ZN8proxygen13HTTPE
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %12 = load ptr, ptr %vfn.i, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -3793,14 +3636,14 @@ invoke.cont:                                      ; preds = %init
   br label %init.end
 
 init.end:                                         ; preds = %invoke.cont, %init.check, %entry
-  %fields_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %msg, i64 0, i32 6
+  %fields_.i = getelementptr inbounds i8, ptr %msg, i64 168
   %3 = load i8, ptr %fields_.i, align 8
   %cmp.i = icmp eq i8 %3, 1
   br i1 %cmp.i, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %init.end
   call void @_ZNK8proxygen11HTTPMessage9getMethodEv(ptr nonnull sret(%"class.folly::Optional.119") align 4 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(616) %msg)
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTPMethod>::StorageTriviallyDestructible", ptr %ref.tmp1, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 4
   %4 = load i8, ptr %hasValue.i.i.i, align 4
   %5 = and i8 %4, 1
   %tobool.i.i.i = icmp ne i8 %5, 0
@@ -3810,7 +3653,7 @@ land.lhs.true:                                    ; preds = %init.end
   br i1 %7, label %land.lhs.true4, label %land.end
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %upgradeProtocol_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %msg, i64 0, i32 18
+  %upgradeProtocol_.i = getelementptr inbounds i8, ptr %msg, i64 568
   %8 = load ptr, ptr %upgradeProtocol_.i, align 8
   %tobool6.not = icmp eq ptr %8, null
   br i1 %tobool6.not, label %land.end, label %land.rhs
@@ -3862,33 +3705,33 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8proxygen15HTTPTransaction28updateIngressCompressionInfoERKNS_15CompressionInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(56) %tableInfo) local_unnamed_addr #11 align 2 {
 entry:
-  %ingress = getelementptr inbounds %"struct.proxygen::CompressionInfo", ptr %tableInfo, i64 0, i32 1
-  %ingress2 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 1
+  %ingress = getelementptr inbounds i8, ptr %tableInfo, i64 28
+  %ingress2 = getelementptr inbounds i8, ptr %this, i64 316
   %0 = load i32, ptr %ingress, align 4
   store i32 %0, ptr %ingress2, align 4
-  %bytesStored_.i = getelementptr inbounds %"struct.proxygen::CompressionInfo", ptr %tableInfo, i64 0, i32 1, i32 1
+  %bytesStored_.i = getelementptr inbounds i8, ptr %tableInfo, i64 32
   %1 = load i32, ptr %bytesStored_.i, align 4
-  %bytesStored_3.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 1, i32 1
+  %bytesStored_3.i = getelementptr inbounds i8, ptr %this, i64 320
   store i32 %1, ptr %bytesStored_3.i, align 8
-  %headersStored_.i = getelementptr inbounds %"struct.proxygen::CompressionInfo", ptr %tableInfo, i64 0, i32 1, i32 2
+  %headersStored_.i = getelementptr inbounds i8, ptr %tableInfo, i64 36
   %2 = load i32, ptr %headersStored_.i, align 4
-  %headersStored_4.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 1, i32 2
+  %headersStored_4.i = getelementptr inbounds i8, ptr %this, i64 324
   store i32 %2, ptr %headersStored_4.i, align 4
-  %inserts_.i = getelementptr inbounds %"struct.proxygen::CompressionInfo", ptr %tableInfo, i64 0, i32 1, i32 3
+  %inserts_.i = getelementptr inbounds i8, ptr %tableInfo, i64 40
   %3 = load i32, ptr %inserts_.i, align 4
-  %inserts_5.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 1, i32 3
+  %inserts_5.i = getelementptr inbounds i8, ptr %this, i64 328
   store i32 %3, ptr %inserts_5.i, align 8
-  %blockedInserts_.i = getelementptr inbounds %"struct.proxygen::CompressionInfo", ptr %tableInfo, i64 0, i32 1, i32 4
+  %blockedInserts_.i = getelementptr inbounds i8, ptr %tableInfo, i64 44
   %4 = load i32, ptr %blockedInserts_.i, align 4
-  %blockedInserts_6.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 1, i32 4
+  %blockedInserts_6.i = getelementptr inbounds i8, ptr %this, i64 332
   store i32 %4, ptr %blockedInserts_6.i, align 4
-  %duplications_.i = getelementptr inbounds %"struct.proxygen::CompressionInfo", ptr %tableInfo, i64 0, i32 1, i32 5
+  %duplications_.i = getelementptr inbounds i8, ptr %tableInfo, i64 48
   %5 = load i32, ptr %duplications_.i, align 4
-  %duplications_7.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 1, i32 5
+  %duplications_7.i = getelementptr inbounds i8, ptr %this, i64 336
   store i32 %5, ptr %duplications_7.i, align 8
-  %staticRefs_.i = getelementptr inbounds %"struct.proxygen::CompressionInfo", ptr %tableInfo, i64 0, i32 1, i32 6
+  %staticRefs_.i = getelementptr inbounds i8, ptr %tableInfo, i64 52
   %6 = load i32, ptr %staticRefs_.i, align 4
-  %staticRefs_8.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 1, i32 6
+  %staticRefs_8.i = getelementptr inbounds i8, ptr %this, i64 340
   store i32 %6, ptr %staticRefs_8.i, align 4
   ret void
 }
@@ -3896,21 +3739,21 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %this) local_unnamed_addr #12 align 2 {
 entry:
-  %ingressPaused_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %ingressPaused_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %ingressPaused_, align 8
   %0 = and i32 %bf.load, 1
   %bf.cast.not = icmp eq i32 %0, 0
   br i1 %bf.cast.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %deferredIngress_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_ = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load ptr, ptr %deferredIngress_, align 8
   %cmp.i.not = icmp eq ptr %1, null
   br i1 %cmp.i.not, label %lor.end, label %land.rhs
 
 land.rhs:                                         ; preds = %lor.rhs
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %1, i64 0, i32 3
-  %_M_start.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %1, i64 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %_M_start.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %3 = load ptr, ptr %_M_start.i.i, align 8
   %cmp.i.i.i = icmp ne ptr %2, %3
@@ -3924,7 +3767,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv(ptr nocapture noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %deferredIngress_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_ = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %deferredIngress_, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.then, label %if.end
@@ -3969,27 +3812,27 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %aborted_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %aborted_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %aborted_, align 8
   %1 = and i32 %bf.load, 64
   %bf.cast.not = icmp eq i32 %1, 0
   br i1 %bf.cast.not, label %if.end, label %if.then.i
 
 if.end:                                           ; preds = %entry
-  %timer_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 46
+  %timer_.i = getelementptr inbounds i8, ptr %this, i64 776
   %2 = load ptr, ptr %timer_.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %invoke.cont, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %3 = load i8, ptr %hasValue.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.i.not.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i, label %invoke.cont, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i: ; preds = %land.lhs.true.i
-  %idleTimeout_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45
+  %idleTimeout_.i = getelementptr inbounds i8, ptr %this, i64 760
   %5 = load i64, ptr %idleTimeout_.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %5, 0
   br i1 %cmp.i.i.not.i, label %invoke.cont, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
@@ -3999,10 +3842,10 @@ _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i, %land.lhs.true.i, %if.end, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %6 = load ptr, ptr %handler_, align 8
   %tobool.not = icmp eq ptr %6, null
-  %ingressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i = getelementptr inbounds i8, ptr %this, i64 242
   %7 = load i8, ptr %ingressState_.i, align 2
   %cmp.i = icmp eq i8 %7, 10
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.i
@@ -4013,7 +3856,7 @@ if.then3:                                         ; preds = %invoke.cont
   store i64 %8, ptr %agg.tmp, align 8
   store ptr null, ptr %msg, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %9 = load ptr, ptr %vfn, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %agg.tmp) #27
   %10 = load ptr, ptr %agg.tmp, align 8
@@ -4045,7 +3888,7 @@ if.then.i:                                        ; preds = %entry, %_ZNSt10uniq
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %13 = load ptr, ptr %vfn.i, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -4086,19 +3929,19 @@ entry:
   br i1 %cmp.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %guardCount_ = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %0, i64 0, i32 1
+  %guardCount_ = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %guardCount_, align 8
   %dec = add i32 %1, -1
   store i32 %dec, ptr %guardCount_, align 8
   %2 = load ptr, ptr %this, align 8
-  %guardCount_4 = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %2, i64 0, i32 1
+  %guardCount_4 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %guardCount_4, align 8
   %cmp5 = icmp eq i32 %3, 0
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.then
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %4 = load ptr, ptr %vfn, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %2, i1 noundef zeroext true)
           to label %if.end8 unwind label %terminate.lpad
@@ -4122,8 +3965,8 @@ entry:
   %ref.tmp11 = alloca %"class.google::LogMessage", align 8
   %ex = alloca %"class.proxygen::HTTPException", align 8
   store i64 %len, ptr %len.addr, align 8
-  %expectedIngressContentLengthRemaining_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 35
-  %hasValue.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 35, i32 0, i32 1
+  %expectedIngressContentLengthRemaining_ = getelementptr inbounds i8, ptr %this, i64 624
+  %hasValue.i = getelementptr inbounds i8, ptr %this, i64 632
   %0 = load i8, ptr %hasValue.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -4157,10 +4000,10 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %invoke.cont17 unwind label %lpad12
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %3 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %4 = load ptr, ptr %vfn.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %call18)
           to label %.noexc unwind label %lpad12
@@ -4170,14 +4013,14 @@ invoke.cont17:                                    ; preds = %invoke.cont15
           to label %call.i.i.noexc unwind label %lpad12
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %5 = load i64, ptr %id_.i.i, align 8
   %call2.i.i11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i10, i64 noundef %5)
           to label %invoke.cont19 unwind label %lpad12
 
 invoke.cont19:                                    ; preds = %call.i.i.noexc
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp11) #27
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %6 = load ptr, ptr %handler_, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %if.end, label %if.then21
@@ -4187,14 +4030,14 @@ if.then21:                                        ; preds = %invoke.cont19
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %if.then21
-  %proxygenError_.i = getelementptr inbounds %"class.proxygen::Exception", ptr %ex, i64 0, i32 3
+  %proxygenError_.i = getelementptr inbounds i8, ptr %ex, i64 44
   store i32 17, ptr %proxygenError_.i, align 4
   invoke void @_ZN8proxygen15HTTPTransaction7onErrorERKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(96) %ex)
           to label %invoke.cont25 unwind label %lpad23
 
 invoke.cont25:                                    ; preds = %invoke.cont22
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %ex, i64 88
   %7 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -4206,7 +4049,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont25
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %ex, i64 80
   %8 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %8, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -4219,7 +4062,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %ex, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %ex, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ex) #27
   br label %if.end
@@ -4264,7 +4107,7 @@ entry:
   store ptr %agg.result, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %sizes.i.i.i)
   store i64 54, ptr %sizes.i.i.i, align 16
-  %arrayinit.element.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 1
+  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 8
   %0 = load i64, ptr %vs1, align 8
   br label %for.body.i.i.i.i.i.i.i
 
@@ -4289,9 +4132,9 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i.i.i, ptr %arrayinit.element.i.i.i, align 8
-  %arrayinit.element11.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 2
+  %arrayinit.element11.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 16
   store i64 25, ptr %arrayinit.element11.i.i.i, align 16
-  %arrayinit.element14.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 3
+  %arrayinit.element14.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 24
   %2 = load i64, ptr %vs5, align 8
   br label %for.body.i.i.i.i5.i.i.i
 
@@ -4316,7 +4159,7 @@ if.end.i.i.i.i9.i.i.i:                            ; preds = %for.body.i.i.i.i5.i
 _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit17.i.i.i: ; preds = %if.end.i.i.i.i9.i.i.i, %if.then.i.i.i.i13.i.i.i
   %retval.i.0.i.i.i12.i.i.i = phi i64 [ %add.i.i.i.i16.i.i.i, %if.then.i.i.i.i13.i.i.i ], [ 20, %if.end.i.i.i.i9.i.i.i ]
   store i64 %retval.i.0.i.i.i12.i.i.i, ptr %arrayinit.element14.i.i.i, align 8
-  %arrayinit.element17.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 4
+  %arrayinit.element17.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 32
   store i64 0, ptr %arrayinit.element17.i.i.i, align 16
   br label %for.body.i.i.i
 
@@ -4362,20 +4205,20 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %aborted_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %aborted_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %aborted_, align 8
   %1 = and i32 %bf.load, 64
   %bf.cast.not = icmp ne i32 %1, 0
-  %egressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i = getelementptr inbounds i8, ptr %this, i64 241
   %2 = load i8, ptr %egressState_.i, align 1
   %cmp.i = icmp eq i8 %2, 9
-  %ingressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i = getelementptr inbounds i8, ptr %this, i64 242
   %3 = load i8, ptr %ingressState_.i, align 2
   %cmp.i15 = icmp eq i8 %3, 10
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %4 = load ptr, ptr %handler_, align 8
   %tobool = icmp ne ptr %4, null
-  %dir_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %error, i64 0, i32 1
+  %dir_.i = getelementptr inbounds i8, ptr %error, i64 48
   %5 = load i32, ptr %dir_.i, align 8
   %cmp = icmp eq i32 %5, 0
   br i1 %cmp, label %invoke.cont9, label %if.end
@@ -4390,7 +4233,7 @@ invoke.cont9:                                     ; preds = %entry
   br i1 %or.cond, label %if.end, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %invoke.cont9
-  %sendWindow_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_.i = getelementptr inbounds i8, ptr %this, i64 352
   %call.i17 = invoke noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_.i)
           to label %invoke.cont12 unwind label %lpad
 
@@ -4428,10 +4271,10 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %invoke.cont28 unwind label %lpad25
 
 invoke.cont28:                                    ; preds = %invoke.cont26
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %10 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %11 = load ptr, ptr %vfn.i.i, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %call29)
           to label %.noexc unwind label %lpad25
@@ -4441,7 +4284,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
           to label %call.i.i.noexc unwind label %lpad25
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %12 = load i64, ptr %id_.i.i, align 8
   %call2.i.i19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i18, i64 noundef %12)
           to label %cleanup.action unwind label %lpad25
@@ -4467,7 +4310,7 @@ lpad25:                                           ; preds = %call.i.i.noexc, %.n
 
 if.end:                                           ; preds = %invoke.cont9, %cleanup.done, %invoke.cont12, %entry
   %direction.0 = phi i32 [ 2, %cleanup.done ], [ 0, %invoke.cont12 ], [ 0, %invoke.cont9 ], [ %5, %entry ]
-  %proxygenError_.i = getelementptr inbounds %"class.proxygen::Exception", ptr %error, i64 0, i32 3
+  %proxygenError_.i = getelementptr inbounds i8, ptr %error, i64 44
   %15 = load i32, ptr %proxygenError_.i, align 4
   %cmp40 = icmp eq i32 %15, 23
   br i1 %cmp40, label %while.end, label %if.else
@@ -4479,14 +4322,14 @@ while.end:                                        ; preds = %if.end
   br label %if.end102
 
 if.else:                                          ; preds = %if.end
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %error, i64 0, i32 4, i32 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %error, i64 73
   %16 = load i8, ptr %hasValue.i.i, align 1
   %17 = and i8 %16, 1
   %tobool.i.i.not = icmp eq i8 %17, 0
   br i1 %tobool.i.i.not, label %if.end102, label %invoke.cont98
 
 invoke.cont98:                                    ; preds = %if.else
-  %codecStatusCode_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %error, i64 0, i32 4
+  %codecStatusCode_.i = getelementptr inbounds i8, ptr %error, i64 72
   %18 = load i8, ptr %codecStatusCode_.i, align 8
   invoke void @_ZN8proxygen15HTTPTransaction9sendAbortENS_9ErrorCodeE(ptr noundef nonnull align 8 dereferenceable(912) %this, i8 noundef zeroext %18)
           to label %if.end102 unwind label %lpad
@@ -4542,11 +4385,11 @@ if.then126:                                       ; preds = %land.lhs.true121
           to label %sw.epilog unwind label %lpad
 
 land.lhs.true130:                                 ; preds = %invoke.cont116
-  %hasValue.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 25, i32 0, i32 1
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
   %23 = load i8, ptr %hasValue.i.i.i.i, align 8
   %24 = and i8 %23, 1
   %tobool.i.i.not.i.i = icmp ne i8 %24, 0
-  %unidirectional.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 25, i32 0, i32 0, i32 0, i32 1
+  %unidirectional.i.i = getelementptr inbounds i8, ptr %this, i64 440
   %25 = load i8, ptr %unidirectional.i.i, align 8
   %26 = and i8 %25, 1
   %tobool.i.i24 = icmp ne i8 %26, 0
@@ -4554,7 +4397,7 @@ land.lhs.true130:                                 ; preds = %invoke.cont116
   br i1 %27, label %if.then.i, label %if.then.i65
 
 if.then.i:                                        ; preds = %land.lhs.true130
-  %direction_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 6
+  %direction_.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %28 = load i8, ptr %direction_.i.i, align 8
   switch i8 %28, label %if.then.i65 [
     i8 0, label %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i
@@ -4562,7 +4405,7 @@ if.then.i:                                        ; preds = %land.lhs.true130
   ]
 
 land.rhs.i.i:                                     ; preds = %if.then.i
-  %id_5.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_5.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %29 = load i64, ptr %id_5.i.i, align 8
   %rem6.i.i = and i64 %29, 1
   %cmp7.i.i = icmp eq i64 %rem6.i.i, 0
@@ -4570,7 +4413,7 @@ land.rhs.i.i:                                     ; preds = %if.then.i
   br i1 %or.cond75, label %land.lhs.true155, label %if.then.i65
 
 _ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i: ; preds = %if.then.i
-  %id_.i.i25 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i25 = getelementptr inbounds i8, ptr %this, i64 248
   %30 = load i64, ptr %id_.i.i25, align 8
   %rem.i.i = and i64 %30, 1
   %cmp2.not.i.not.i = icmp ne i64 %rem.i.i, 0
@@ -4584,11 +4427,11 @@ invoke.cont136:                                   ; preds = %if.end102
   br i1 %spec.select.i27, label %land.lhs.true138, label %if.end146
 
 land.lhs.true138:                                 ; preds = %invoke.cont136
-  %hasValue.i.i.i.i28 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 25, i32 0, i32 1
+  %hasValue.i.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 448
   %33 = load i8, ptr %hasValue.i.i.i.i28, align 8
   %34 = and i8 %33, 1
   %tobool.i.i.not.i.i29 = icmp ne i8 %34, 0
-  %unidirectional.i.i30 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 25, i32 0, i32 0, i32 0, i32 1
+  %unidirectional.i.i30 = getelementptr inbounds i8, ptr %this, i64 440
   %35 = load i8, ptr %unidirectional.i.i30, align 8
   %36 = and i8 %35, 1
   %tobool.i.i31 = icmp ne i8 %36, 0
@@ -4596,7 +4439,7 @@ land.lhs.true138:                                 ; preds = %invoke.cont136
   br i1 %37, label %if.then.i33, label %if.then141
 
 if.then.i33:                                      ; preds = %land.lhs.true138
-  %direction_.i.i34 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 6
+  %direction_.i.i34 = getelementptr inbounds i8, ptr %this, i64 240
   %38 = load i8, ptr %direction_.i.i34, align 8
   switch i8 %38, label %if.end146 [
     i8 0, label %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i41
@@ -4604,14 +4447,14 @@ if.then.i33:                                      ; preds = %land.lhs.true138
   ]
 
 land.rhs.i.i35:                                   ; preds = %if.then.i33
-  %id_5.i.i36 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_5.i.i36 = getelementptr inbounds i8, ptr %this, i64 248
   %39 = load i64, ptr %id_5.i.i36, align 8
   %rem6.i.i37 = and i64 %39, 1
   %cmp7.i.i38 = icmp eq i64 %rem6.i.i37, 0
   br i1 %cmp7.i.i38, label %if.then141, label %if.end146
 
 _ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i41: ; preds = %if.then.i33
-  %id_.i.i42 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i42 = getelementptr inbounds i8, ptr %this, i64 248
   %40 = load i64, ptr %id_.i.i42, align 8
   %rem.i.i43 = and i64 %40, 1
   %cmp2.not.i.not.i44 = icmp eq i64 %rem.i.i43, 0
@@ -4631,11 +4474,11 @@ invoke.cont147:                                   ; preds = %if.end146
   br i1 %cmp.i15, label %land.lhs.true149, label %sw.epilog
 
 land.lhs.true149:                                 ; preds = %invoke.cont147
-  %hasValue.i.i.i.i46 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 25, i32 0, i32 1
+  %hasValue.i.i.i.i46 = getelementptr inbounds i8, ptr %this, i64 448
   %41 = load i8, ptr %hasValue.i.i.i.i46, align 8
   %42 = and i8 %41, 1
   %tobool.i.i.not.i.i47 = icmp ne i8 %42, 0
-  %unidirectional.i.i48 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 25, i32 0, i32 0, i32 0, i32 1
+  %unidirectional.i.i48 = getelementptr inbounds i8, ptr %this, i64 440
   %43 = load i8, ptr %unidirectional.i.i48, align 8
   %44 = and i8 %43, 1
   %tobool.i.i49 = icmp ne i8 %44, 0
@@ -4643,7 +4486,7 @@ land.lhs.true149:                                 ; preds = %invoke.cont147
   br i1 %45, label %if.then.i51, label %if.then.i65
 
 if.then.i51:                                      ; preds = %land.lhs.true149
-  %direction_.i.i52 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 6
+  %direction_.i.i52 = getelementptr inbounds i8, ptr %this, i64 240
   %46 = load i8, ptr %direction_.i.i52, align 8
   switch i8 %46, label %invoke.cont150 [
     i8 0, label %_ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i59
@@ -4651,7 +4494,7 @@ if.then.i51:                                      ; preds = %land.lhs.true149
   ]
 
 land.rhs.i.i53:                                   ; preds = %if.then.i51
-  %id_5.i.i54 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_5.i.i54 = getelementptr inbounds i8, ptr %this, i64 248
   %47 = load i64, ptr %id_5.i.i54, align 8
   %rem6.i.i55 = and i64 %47, 1
   %cmp7.i.i56 = icmp ne i64 %rem6.i.i55, 0
@@ -4659,7 +4502,7 @@ land.rhs.i.i53:                                   ; preds = %if.then.i51
   br i1 %or.cond76, label %land.lhs.true155, label %if.then.i65
 
 _ZNK8proxygen15HTTPTransaction17isRemoteInitiatedEv.exit.i59: ; preds = %if.then.i51
-  %id_.i.i60 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i60 = getelementptr inbounds i8, ptr %this, i64 248
   %48 = load i64, ptr %id_.i.i60, align 8
   %rem.i.i61 = and i64 %48, 1
   %cmp2.not.i.not.i62 = icmp eq i64 %rem.i.i61, 0
@@ -4679,7 +4522,7 @@ land.lhs.true155:                                 ; preds = %land.lhs.true108, %
 
 if.then158:                                       ; preds = %land.lhs.true155
   %vtable = load ptr, ptr %49, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %50 = load ptr, ptr %vfn, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(96) %error) #27
   br label %if.then.i65
@@ -4694,7 +4537,7 @@ if.then.i65:                                      ; preds = %if.then141, %if.the
 
 if.then6.i:                                       ; preds = %if.then.i65
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %52 = load ptr, ptr %vfn.i, align 8
   invoke void %52(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -4719,7 +4562,7 @@ ehcleanup:                                        ; preds = %lpad25, %lpad
 define linkonce_odr void @_ZN8proxygen13HTTPExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %partialMsg_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this, i64 0, i32 7
+  %partialMsg_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %partialMsg_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
@@ -4731,7 +4574,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i: ; preds = %entry
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
   store ptr null, ptr %partialMsg_, align 8
-  %currentIngressBuf_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this, i64 0, i32 6
+  %currentIngressBuf_ = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %currentIngressBuf_, align 8
   %cmp.not.i1 = icmp eq ptr %1, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -4744,7 +4587,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_p
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %currentIngressBuf_, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msg_.i = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 1
+  %msg_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i) #27
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #27
   ret void
@@ -4776,7 +4619,7 @@ invoke.cont:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %ingressState_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i.i = getelementptr inbounds i8, ptr %this, i64 242
   %1 = load i8, ptr %ingressState_.i.i, align 2
   %2 = add i8 %1, -9
   %spec.select.i = icmp ult i8 %2, 2
@@ -4792,10 +4635,10 @@ invoke.cont2:                                     ; preds = %if.then
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont2
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %3 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %4 = load ptr, ptr %vfn.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %call6)
           to label %.noexc unwind label %lpad4
@@ -4805,7 +4648,7 @@ invoke.cont5:                                     ; preds = %invoke.cont2
           to label %call.i.i.noexc unwind label %lpad4
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %5 = load i64, ptr %id_.i.i, align 8
   %call2.i.i24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i23, i64 noundef %5)
           to label %invoke.cont7 unwind label %lpad4
@@ -4922,24 +4765,24 @@ invoke.cont53:                                    ; preds = %if.end52
   br i1 %call54, label %if.end56, label %if.then.i
 
 if.end56:                                         ; preds = %invoke.cont53
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %14 = load ptr, ptr %transportCallback_, align 8
   %tobool57.not = icmp eq ptr %14, null
   br i1 %tobool57.not, label %if.end60, label %if.then58
 
 if.then58:                                        ; preds = %if.end56
   %vtable = load ptr, ptr %14, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %15 = load ptr, ptr %vfn, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %call45) #27
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then58, %if.end56
-  %recvWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 17
+  %recvWindow_ = getelementptr inbounds i8, ptr %this, i64 344
   %conv = zext i16 %padding to i64
   %add = add i64 %call45, %conv
   %conv61 = trunc i64 %add to i32
-  %useFlowControl_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %useFlowControl_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %useFlowControl_, align 8
   %16 = and i32 %bf.load, 32
   %bf.cast = icmp ne i32 %16, 0
@@ -4999,10 +4842,10 @@ invoke.cont89:                                    ; preds = %invoke.cont87
           to label %invoke.cont91 unwind label %lpad68
 
 invoke.cont91:                                    ; preds = %invoke.cont89
-  %transport_.i.i25 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i25 = getelementptr inbounds i8, ptr %this, i64 272
   %17 = load ptr, ptr %transport_.i.i25, align 8
   %vtable.i.i26 = load ptr, ptr %17, align 8
-  %vfn.i.i27 = getelementptr inbounds ptr, ptr %vtable.i.i26, i64 23
+  %vfn.i.i27 = getelementptr inbounds i8, ptr %vtable.i.i26, i64 184
   %18 = load ptr, ptr %vfn.i.i27, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %call92)
           to label %.noexc29 unwind label %lpad68
@@ -5012,7 +4855,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
           to label %call.i.i.noexc30 unwind label %lpad68
 
 call.i.i.noexc30:                                 ; preds = %.noexc29
-  %id_.i.i28 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i28 = getelementptr inbounds i8, ptr %this, i64 248
   %19 = load i64, ptr %id_.i.i28, align 8
   %call2.i.i32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i31, i64 noundef %19)
           to label %invoke.cont93 unwind label %lpad68
@@ -5107,7 +4950,7 @@ lpad119:                                          ; preds = %invoke.cont118
   br label %ehcleanup194
 
 if.end122:                                        ; preds = %invoke.cont115
-  %recvToAck_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 9
+  %recvToAck_ = getelementptr inbounds i8, ptr %this, i64 244
   %25 = load i32, ptr %recvToAck_, align 4
   %add124 = add nsw i32 %25, %conv114
   store i32 %add124, ptr %recvToAck_, align 4
@@ -5117,14 +4960,14 @@ if.end122:                                        ; preds = %invoke.cont115
   br i1 %bf.cast.not.i, label %lor.rhs.i, label %if.then128
 
 lor.rhs.i:                                        ; preds = %if.end122
-  %deferredIngress_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_.i = getelementptr inbounds i8, ptr %this, i64 152
   %27 = load ptr, ptr %deferredIngress_.i, align 8
   %cmp.i.not.i = icmp eq ptr %27, null
   br i1 %cmp.i.not.i, label %if.else177, label %invoke.cont126
 
 invoke.cont126:                                   ; preds = %lor.rhs.i
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %27, i64 0, i32 3
-  %_M_start.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %27, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %27, i64 48
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %27, i64 16
   %28 = load ptr, ptr %_M_finish.i.i.i, align 8
   %29 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i.not = icmp eq ptr %28, %29
@@ -5135,9 +4978,9 @@ if.then128:                                       ; preds = %if.end122, %invoke.
           to label %invoke.cont129 unwind label %lpad
 
 invoke.cont129:                                   ; preds = %if.then128
-  %deferredIngress_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_ = getelementptr inbounds i8, ptr %this, i64 152
   %30 = load ptr, ptr %deferredIngress_, align 8
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   store i8 2, ptr %ref.tmp131, align 1
   %call133 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt5queueIN8proxygen9HTTPEventESt5dequeIS1_SaIS1_EEE7emplaceIJRmNS1_4TypeESt10unique_ptrIN5folly5IOBufESt14default_deleteISB_EEEEEDcDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %30, ptr noundef nonnull align 8 dereferenceable(8) %id_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp131, ptr noundef nonnull align 8 dereferenceable(8) %chain)
           to label %invoke.cont132 unwind label %lpad
@@ -5254,7 +5097,7 @@ if.then.i:                                        ; preds = %invoke.cont40, %inv
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %38 = load ptr, ptr %vfn.i, align 8
   invoke void %38(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -5284,7 +5127,7 @@ define void @_ZN8proxygen15HTTPTransaction20abortAndDeliverErrorENS_9ErrorCodeER
 entry:
   %ex = alloca %"class.proxygen::HTTPException", align 8
   call void @_ZN8proxygen13HTTPExceptionC1ENS0_9DirectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %ex, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %msg)
-  %hasValue.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 4, i32 0, i32 1
+  %hasValue.i.i.i.i.i = getelementptr inbounds i8, ptr %ex, i64 73
   %0 = load i8, ptr %hasValue.i.i.i.i.i, align 1
   %1 = and i8 %0, 1
   %tobool.i.i.not.i.i.i = icmp eq i8 %1, 0
@@ -5295,14 +5138,14 @@ if.else.i.i.i:                                    ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i.i, %entry
-  %codecStatusCode_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 4
+  %codecStatusCode_.i = getelementptr inbounds i8, ptr %ex, i64 72
   store i8 %codecError, ptr %codecStatusCode_.i, align 8
   invoke void @_ZN8proxygen15HTTPTransaction7onErrorERKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(96) %ex)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %ex, i64 88
   %2 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -5314,7 +5157,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont2
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %ex, i64 80
   %3 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %3, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -5327,7 +5170,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %ex, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %ex, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ex) #27
   ret void
@@ -5377,7 +5220,7 @@ invoke.cont5:                                     ; preds = %invoke.cont2
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %aborted_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %aborted_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %aborted_, align 8
   %0 = lshr i32 %bf.load, 6
   %.lobit = and i32 %0, 1
@@ -5389,10 +5232,10 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %1 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %2 = load ptr, ptr %vfn.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %call12)
           to label %.noexc unwind label %lpad
@@ -5402,7 +5245,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %3 = load i64, ptr %id_.i.i, align 8
   %call2.i.i2 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i1, i64 noundef %3)
           to label %invoke.cont13 unwind label %lpad
@@ -5410,17 +5253,17 @@ call.i.i.noexc:                                   ; preds = %.noexc
 invoke.cont13:                                    ; preds = %call.i.i.noexc
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #27
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %4 = load ptr, ptr %vfn, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(912) %this)
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %5 = load ptr, ptr %handler_, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %invoke.cont13
   %vtable16 = load ptr, ptr %5, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 15
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 120
   %6 = load ptr, ptr %vfn17, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(96) %ex) #27
   ret void
@@ -5461,11 +5304,11 @@ declare void @_ZN8proxygen13HTTPExceptionC1ENS0_9DirectionEPKc(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(56) ptr @_ZNSt5queueIN8proxygen9HTTPEventESt5dequeIS1_SaIS1_EEE7emplaceIJRmNS1_4TypeESt10unique_ptrIN5folly5IOBufESt14default_deleteISB_EEEEEDcDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %__args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_last.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %1, i64 -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 -56
   %cmp.not.i = icmp eq ptr %0, %add.ptr.i
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -5475,20 +5318,20 @@ if.then.i:                                        ; preds = %entry
   %4 = load i64, ptr %__args3, align 8
   store ptr null, ptr %__args3, align 8
   store ptr null, ptr %0, align 8
-  %body_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %0, i64 0, i32 1
+  %body_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %4, ptr %body_.i.i.i.i, align 8
-  %trailers_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %0, i64 0, i32 2
-  %streamID_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %0, i64 0, i32 4
+  %trailers_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
+  %streamID_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %trailers_.i.i.i.i, i8 0, i64 16, i1 false)
   store i64 %2, ptr %streamID_.i.i.i.i, align 8
-  %length_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %0, i64 0, i32 5
+  %length_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
   store i64 0, ptr %length_.i.i.i.i, align 8
-  %event_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %0, i64 0, i32 6
+  %event_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   store i8 %3, ptr %event_.i.i.i.i, align 8
-  %upgrade_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %0, i64 0, i32 7
+  %upgrade_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 49
   store i8 0, ptr %upgrade_.i.i.i.i, align 1
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 56
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end.i
 
@@ -5499,22 +5342,22 @@ if.else.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %6 = phi ptr [ %.pre.i, %if.else.i ], [ %incdec.ptr.i, %if.then.i ]
-  %_M_first3.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !34
   %cmp.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE12emplace_backIJRmNS1_4TypeESt10unique_ptrIN5folly5IOBufESt14default_deleteIS9_EEEEERS1_DpOT_.exit
 
 if.then.i.i.i:                                    ; preds = %if.end.i
-  %_M_node5.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %8 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !34
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %8, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
   %9 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 9
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 504
   br label %_ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE12emplace_backIJRmNS1_4TypeESt10unique_ptrIN5folly5IOBufESt14default_deleteIS9_EEEEERS1_DpOT_.exit
 
 _ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE12emplace_backIJRmNS1_4TypeESt10unique_ptrIN5folly5IOBufESt14default_deleteIS9_EEEEERS1_DpOT_.exit: ; preds = %if.end.i, %if.then.i.i.i
   %10 = phi ptr [ %add.ptr.i.i.i.i, %if.then.i.i.i ], [ %6, %if.end.i ]
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %10, i64 -1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 -56
   ret ptr %incdec.ptr.i.i.i
 }
 
@@ -5529,27 +5372,27 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %aborted_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %aborted_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %aborted_, align 8
   %1 = and i32 %bf.load, 64
   %bf.cast.not = icmp eq i32 %1, 0
   br i1 %bf.cast.not, label %if.end, label %if.then.i
 
 if.end:                                           ; preds = %entry
-  %timer_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 46
+  %timer_.i = getelementptr inbounds i8, ptr %this, i64 776
   %2 = load ptr, ptr %timer_.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %invoke.cont, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %3 = load i8, ptr %hasValue.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.i.not.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i, label %invoke.cont, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i: ; preds = %land.lhs.true.i
-  %idleTimeout_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45
+  %idleTimeout_.i = getelementptr inbounds i8, ptr %this, i64 760
   %5 = load i64, ptr %idleTimeout_.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %5, 0
   br i1 %cmp.i.i.not.i, label %invoke.cont, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
@@ -5559,11 +5402,11 @@ _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i, %land.lhs.true.i, %if.end, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %6 = load ptr, ptr %transport_, align 8
   %conv = trunc i64 %len to i32
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %conv) #27
   %8 = load ptr, ptr %chain, align 8
@@ -5571,25 +5414,25 @@ invoke.cont:                                      ; preds = %_ZNR5folly8Optional
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %9 = load ptr, ptr %handler_, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %if.end41, label %if.then4
 
 if.then4:                                         ; preds = %invoke.cont2
-  %ingressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i = getelementptr inbounds i8, ptr %this, i64 242
   %10 = load i8, ptr %ingressState_.i, align 2
   %cmp.i = icmp eq i8 %10, 10
   br i1 %cmp.i, label %if.end13, label %if.then7
 
 if.then7:                                         ; preds = %if.then4
-  %ingressBodyOffset_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 47
+  %ingressBodyOffset_ = getelementptr inbounds i8, ptr %this, i64 784
   %11 = load i64, ptr %ingressBodyOffset_, align 8
   %12 = load i64, ptr %chain, align 8
   store i64 %12, ptr %agg.tmp, align 8
   store ptr null, ptr %chain, align 8
   %vtable9 = load ptr, ptr %9, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 8
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 64
   %13 = load ptr, ptr %vfn10, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(8) %9, i64 noundef %11, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont12 unwind label %lpad11
@@ -5632,7 +5475,7 @@ invoke.cont18:                                    ; preds = %if.end13
   br i1 %spec.select.i, label %if.end41, label %if.then20
 
 if.then20:                                        ; preds = %invoke.cont18
-  %recvToAck_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 9
+  %recvToAck_ = getelementptr inbounds i8, ptr %this, i64 244
   %20 = load i32, ptr %recvToAck_, align 4
   %conv22 = add i32 %20, %conv
   store i32 %conv22, ptr %recvToAck_, align 4
@@ -5642,14 +5485,14 @@ if.then20:                                        ; preds = %invoke.cont18
 if.then24:                                        ; preds = %if.then20
   %21 = load ptr, ptr %transport_, align 8
   %vtable26 = load ptr, ptr %21, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 30
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 240
   %22 = load ptr, ptr %vfn27, align 8
   %call29 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %21)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %if.then24
   %23 = load i32, ptr %recvToAck_, align 4
-  %recvWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 17
+  %recvWindow_ = getelementptr inbounds i8, ptr %this, i64 344
   %call34 = invoke noundef i32 @_ZNK8proxygen6Window11getCapacityEv(ptr noundef nonnull align 4 dereferenceable(8) %recvWindow_)
           to label %invoke.cont33 unwind label %lpad
 
@@ -5665,7 +5508,7 @@ if.then36:                                        ; preds = %invoke.cont33
           to label %if.end41 unwind label %lpad
 
 if.end41:                                         ; preds = %if.end13, %invoke.cont18, %invoke.cont33, %if.then36, %if.then20, %invoke.cont2
-  %ingressBodyOffset_42 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 47
+  %ingressBodyOffset_42 = getelementptr inbounds i8, ptr %this, i64 784
   %25 = load i64, ptr %ingressBodyOffset_42, align 8
   %add43 = add i64 %25, %call3
   store i64 %add43, ptr %ingressBodyOffset_42, align 8
@@ -5681,7 +5524,7 @@ if.then.i:                                        ; preds = %if.end41, %entry
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %27 = load ptr, ptr %vfn.i, align 8
   invoke void %27(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -5723,30 +5566,30 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 define void @_ZN8proxygen15HTTPTransaction17flushWindowUpdateEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp13 = alloca %"class.google::LogMessage", align 8
-  %recvToAck_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 9
+  %recvToAck_ = getelementptr inbounds i8, ptr %this, i64 244
   %0 = load i32, ptr %recvToAck_, align 4
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %useFlowControl_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %useFlowControl_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %useFlowControl_, align 8
   %1 = and i32 %bf.load, 32
   %bf.cast.not = icmp eq i32 %1, 0
   br i1 %bf.cast.not, label %if.end, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %ingressState_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i.i = getelementptr inbounds i8, ptr %this, i64 242
   %2 = load i8, ptr %ingressState_.i.i, align 2
   %3 = add i8 %2, -9
   %spec.select.i = icmp ult i8 %3, 2
   br i1 %spec.select.i, label %if.end, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true2
-  %direction_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 6
+  %direction_ = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load i8, ptr %direction_, align 8
   %cmp4 = icmp ne i8 %4, 0
-  %egressState_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_ = getelementptr inbounds i8, ptr %this, i64 241
   %5 = load i8, ptr %egressState_, align 1
   %6 = or i8 %5, %2
   %7 = icmp eq i8 %6, 0
@@ -5777,7 +5620,7 @@ invoke.cont:                                      ; preds = %cond.false12
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont
-  %recvWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 17
+  %recvWindow_ = getelementptr inbounds i8, ptr %this, i64 344
   %call18 = invoke noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr noundef nonnull align 4 dereferenceable(8) %recvWindow_)
           to label %invoke.cont17 unwind label %lpad
 
@@ -5811,10 +5654,10 @@ invoke.cont31:                                    ; preds = %invoke.cont28
           to label %invoke.cont33 unwind label %lpad
 
 invoke.cont33:                                    ; preds = %invoke.cont31
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %11 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %11, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %12 = load ptr, ptr %vfn.i.i, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %call34)
           to label %.noexc unwind label %lpad
@@ -5824,7 +5667,7 @@ invoke.cont33:                                    ; preds = %invoke.cont31
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %13 = load i64, ptr %id_.i.i, align 8
   %call2.i.i4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i3, i64 noundef %13)
           to label %cleanup.action unwind label %lpad
@@ -5834,11 +5677,11 @@ cleanup.action:                                   ; preds = %call.i.i.noexc
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %14 = load ptr, ptr %transport_, align 8
   %15 = load i32, ptr %recvToAck_, align 4
   %vtable = load ptr, ptr %14, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %16 = load ptr, ptr %vfn, align 8
   %call43 = call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %this, i32 noundef %15) #27
   store i32 0, ptr %recvToAck_, align 4
@@ -5865,11 +5708,11 @@ entry:
   br i1 %call, label %if.end, label %if.end30
 
 if.end:                                           ; preds = %entry
-  %ingressPaused_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %ingressPaused_.i = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load.i = load i32, ptr %ingressPaused_.i, align 8
   %0 = and i32 %bf.load.i, 1
   %bf.cast.not.i = icmp eq i32 %0, 0
-  %deferredIngress_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_.i = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load ptr, ptr %deferredIngress_.i, align 8
   br i1 %bf.cast.not.i, label %lor.rhs.i, label %if.then3
 
@@ -5878,15 +5721,15 @@ lor.rhs.i:                                        ; preds = %if.end
   br i1 %cmp.i.not.i, label %if.else, label %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit
 
 _ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit: ; preds = %lor.rhs.i
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %1, i64 0, i32 3
-  %_M_start.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %1, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i.not = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i.not, label %if.else, label %_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit
 
 if.then3:                                         ; preds = %if.end
-  %deferredIngress_.i2 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_.i2 = getelementptr inbounds i8, ptr %this, i64 152
   %cmp.i.not.i3 = icmp eq ptr %1, null
   br i1 %cmp.i.not.i3, label %if.then.i, label %_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit
 
@@ -5920,13 +5763,13 @@ _ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS
 
 _ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit: ; preds = %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit, %if.then3, %_ZSt11make_uniqueISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, %_ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS6_.exit.i.i.i.i.i
   %6 = phi ptr [ %1, %if.then3 ], [ %call.i.i, %_ZSt11make_uniqueISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i ], [ %.pre10, %_ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS6_.exit.i.i.i.i.i ], [ %1, %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit ]
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   store i8 3, ptr %ref.tmp, align 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %6, i64 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %6, i64 0, i32 3, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %6, i64 64
   %8 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %8, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 -56
   %cmp.not.i.i = icmp eq ptr %7, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
@@ -5934,7 +5777,7 @@ if.then.i.i:                                      ; preds = %_ZN8proxygen15HTTPT
   %9 = load i64, ptr %id_, align 8
   tail call void @_ZN8proxygen9HTTPEventC2EmNS0_4TypeEm(ptr noundef nonnull align 8 dereferenceable(56) %7, i64 noundef %9, i8 noundef zeroext 3, i64 noundef %length)
   %10 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %10, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 56
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %if.end.i.i
 
@@ -5983,10 +5826,10 @@ invoke.cont19:                                    ; preds = %invoke.cont17
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %14 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %14, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %15 = load ptr, ptr %vfn.i.i, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %call22)
           to label %.noexc unwind label %lpad
@@ -6028,27 +5871,27 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %aborted_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %aborted_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %aborted_, align 8
   %1 = and i32 %bf.load, 64
   %bf.cast.not = icmp eq i32 %1, 0
   br i1 %bf.cast.not, label %if.end, label %if.then.i
 
 if.end:                                           ; preds = %entry
-  %timer_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 46
+  %timer_.i = getelementptr inbounds i8, ptr %this, i64 776
   %2 = load ptr, ptr %timer_.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %invoke.cont, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %3 = load i8, ptr %hasValue.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.i.not.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i, label %invoke.cont, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i: ; preds = %land.lhs.true.i
-  %idleTimeout_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45
+  %idleTimeout_.i = getelementptr inbounds i8, ptr %this, i64 760
   %5 = load i64, ptr %idleTimeout_.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %5, 0
   br i1 %cmp.i.i.not.i, label %invoke.cont, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
@@ -6058,10 +5901,10 @@ _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i, %land.lhs.true.i, %if.end, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %6 = load ptr, ptr %handler_, align 8
   %tobool.not = icmp eq ptr %6, null
-  %ingressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i = getelementptr inbounds i8, ptr %this, i64 242
   %7 = load i8, ptr %ingressState_.i, align 2
   %cmp.i = icmp eq i8 %7, 10
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.i
@@ -6069,7 +5912,7 @@ invoke.cont:                                      ; preds = %_ZNR5folly8Optional
 
 if.then3:                                         ; preds = %invoke.cont
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %8 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %length) #27
   br label %if.then.i
@@ -6090,7 +5933,7 @@ if.then.i:                                        ; preds = %entry, %if.then3, %
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %11 = load ptr, ptr %vfn.i, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -6115,11 +5958,11 @@ entry:
   br i1 %call, label %if.end, label %if.end26
 
 if.end:                                           ; preds = %entry
-  %ingressPaused_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %ingressPaused_.i = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load.i = load i32, ptr %ingressPaused_.i, align 8
   %0 = and i32 %bf.load.i, 1
   %bf.cast.not.i = icmp eq i32 %0, 0
-  %deferredIngress_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_.i = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load ptr, ptr %deferredIngress_.i, align 8
   br i1 %bf.cast.not.i, label %lor.rhs.i, label %if.then3
 
@@ -6128,15 +5971,15 @@ lor.rhs.i:                                        ; preds = %if.end
   br i1 %cmp.i.not.i, label %if.else, label %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit
 
 _ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit: ; preds = %lor.rhs.i
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %1, i64 0, i32 3
-  %_M_start.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %1, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i.not = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i.not, label %if.else, label %_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit
 
 if.then3:                                         ; preds = %if.end
-  %deferredIngress_.i2 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_.i2 = getelementptr inbounds i8, ptr %this, i64 152
   %cmp.i.not.i3 = icmp eq ptr %1, null
   br i1 %cmp.i.not.i3, label %if.then.i, label %_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit
 
@@ -6170,29 +6013,29 @@ _ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS
 
 _ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit: ; preds = %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit, %if.then3, %_ZSt11make_uniqueISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, %_ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS6_.exit.i.i.i.i.i
   %6 = phi ptr [ %1, %if.then3 ], [ %call.i.i, %_ZSt11make_uniqueISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i ], [ %.pre10, %_ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS6_.exit.i.i.i.i.i ], [ %1, %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit ]
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   store i8 4, ptr %ref.tmp, align 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %6, i64 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %6, i64 0, i32 3, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %6, i64 64
   %8 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %8, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 -56
   %cmp.not.i.i = icmp eq ptr %7, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit
   %9 = load i64, ptr %id_, align 8
-  %streamID_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 4
+  %streamID_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   store i64 %9, ptr %streamID_.i.i.i.i.i, align 8
-  %length_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 5
+  %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
   store i64 0, ptr %length_.i.i.i.i.i, align 8
-  %event_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 6
+  %event_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
   store i8 4, ptr %event_.i.i.i.i.i, align 8
-  %upgrade_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 7
+  %upgrade_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 49
   store i8 0, ptr %upgrade_.i.i.i.i.i, align 1
   %10 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %10, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 56
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %if.end.i.i
 
@@ -6232,10 +6075,10 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %13 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %13, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %14 = load ptr, ptr %vfn.i.i, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %call18)
           to label %.noexc unwind label %lpad
@@ -6277,27 +6120,27 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %aborted_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %aborted_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %aborted_, align 8
   %1 = and i32 %bf.load, 64
   %bf.cast.not = icmp eq i32 %1, 0
   br i1 %bf.cast.not, label %if.end, label %if.then.i
 
 if.end:                                           ; preds = %entry
-  %timer_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 46
+  %timer_.i = getelementptr inbounds i8, ptr %this, i64 776
   %2 = load ptr, ptr %timer_.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %invoke.cont, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %3 = load i8, ptr %hasValue.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.i.not.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i, label %invoke.cont, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i: ; preds = %land.lhs.true.i
-  %idleTimeout_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45
+  %idleTimeout_.i = getelementptr inbounds i8, ptr %this, i64 760
   %5 = load i64, ptr %idleTimeout_.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %5, 0
   br i1 %cmp.i.i.not.i, label %invoke.cont, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
@@ -6307,10 +6150,10 @@ _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i, %land.lhs.true.i, %if.end, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %6 = load ptr, ptr %handler_, align 8
   %tobool.not = icmp eq ptr %6, null
-  %ingressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i = getelementptr inbounds i8, ptr %this, i64 242
   %7 = load i8, ptr %ingressState_.i, align 2
   %cmp.i = icmp eq i8 %7, 10
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.i
@@ -6318,7 +6161,7 @@ invoke.cont:                                      ; preds = %_ZNR5folly8Optional
 
 if.then3:                                         ; preds = %invoke.cont
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %8 = load ptr, ptr %vfn, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
   br label %if.then.i
@@ -6339,7 +6182,7 @@ if.then.i:                                        ; preds = %entry, %if.then3, %
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %11 = load ptr, ptr %vfn.i, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -6365,11 +6208,11 @@ entry:
   br i1 %call, label %if.end, label %if.end28
 
 if.end:                                           ; preds = %entry
-  %ingressPaused_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %ingressPaused_.i = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load.i = load i32, ptr %ingressPaused_.i, align 8
   %0 = and i32 %bf.load.i, 1
   %bf.cast.not.i = icmp eq i32 %0, 0
-  %deferredIngress_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_.i = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load ptr, ptr %deferredIngress_.i, align 8
   br i1 %bf.cast.not.i, label %lor.rhs.i, label %if.then3
 
@@ -6378,15 +6221,15 @@ lor.rhs.i:                                        ; preds = %if.end
   br i1 %cmp.i.not.i, label %if.else, label %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit
 
 _ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit: ; preds = %lor.rhs.i
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %1, i64 0, i32 3
-  %_M_start.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %1, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i.not = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i.not, label %if.else, label %_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit
 
 if.then3:                                         ; preds = %if.end
-  %deferredIngress_.i3 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_.i3 = getelementptr inbounds i8, ptr %this, i64 152
   %cmp.i.not.i4 = icmp eq ptr %1, null
   br i1 %cmp.i.not.i4, label %if.then.i, label %_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit
 
@@ -6420,13 +6263,13 @@ _ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS
 
 _ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit: ; preds = %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit, %if.then3, %_ZSt11make_uniqueISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, %_ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS6_.exit.i.i.i.i.i
   %6 = phi ptr [ %1, %if.then3 ], [ %call.i.i, %_ZSt11make_uniqueISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i ], [ %.pre11, %_ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS6_.exit.i.i.i.i.i ], [ %1, %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit ]
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   store i8 5, ptr %ref.tmp, align 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %6, i64 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %6, i64 0, i32 3, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %6, i64 64
   %8 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %8, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 -56
   %cmp.not.i.i = icmp eq ptr %7, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
@@ -6434,21 +6277,21 @@ if.then.i.i:                                      ; preds = %_ZN8proxygen15HTTPT
   %9 = load i64, ptr %id_, align 8
   %10 = load i64, ptr %trailers, align 8
   store ptr null, ptr %trailers, align 8
-  %trailers_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 2
+  %trailers_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store i64 %10, ptr %trailers_.i.i.i.i.i, align 8
-  %error_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 3
+  %error_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 24
   store ptr null, ptr %error_.i.i.i.i.i, align 8
-  %streamID_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 4
+  %streamID_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
   store i64 %9, ptr %streamID_.i.i.i.i.i, align 8
-  %length_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 5
+  %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
   store i64 0, ptr %length_.i.i.i.i.i, align 8
-  %event_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 6
+  %event_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
   store i8 5, ptr %event_.i.i.i.i.i, align 8
-  %upgrade_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 7
+  %upgrade_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 49
   store i8 0, ptr %upgrade_.i.i.i.i.i, align 1
   %11 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %11, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 56
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %if.end.i.i
 
@@ -6488,10 +6331,10 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %14 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %14, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %15 = load ptr, ptr %vfn.i.i, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %call18)
           to label %.noexc unwind label %lpad
@@ -6553,27 +6396,27 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %aborted_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %aborted_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %aborted_, align 8
   %1 = and i32 %bf.load, 64
   %bf.cast.not = icmp eq i32 %1, 0
   br i1 %bf.cast.not, label %if.end, label %if.then.i
 
 if.end:                                           ; preds = %entry
-  %timer_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 46
+  %timer_.i = getelementptr inbounds i8, ptr %this, i64 776
   %2 = load ptr, ptr %timer_.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %invoke.cont, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %3 = load i8, ptr %hasValue.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.i.not.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i, label %invoke.cont, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i: ; preds = %land.lhs.true.i
-  %idleTimeout_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45
+  %idleTimeout_.i = getelementptr inbounds i8, ptr %this, i64 760
   %5 = load i64, ptr %idleTimeout_.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %5, 0
   br i1 %cmp.i.i.not.i, label %invoke.cont, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
@@ -6583,10 +6426,10 @@ _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i, %land.lhs.true.i, %if.end, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %6 = load ptr, ptr %handler_, align 8
   %tobool.not = icmp eq ptr %6, null
-  %ingressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i = getelementptr inbounds i8, ptr %this, i64 242
   %7 = load i8, ptr %ingressState_.i, align 2
   %cmp.i = icmp eq i8 %7, 10
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.i
@@ -6597,7 +6440,7 @@ if.then3:                                         ; preds = %invoke.cont
   store i64 %8, ptr %agg.tmp, align 8
   store ptr null, ptr %trailers, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %9 = load ptr, ptr %vfn, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %agg.tmp) #27
   %10 = load ptr, ptr %agg.tmp, align 8
@@ -6629,7 +6472,7 @@ if.then.i:                                        ; preds = %entry, %_ZNSt10uniq
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %13 = load ptr, ptr %vfn.i, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -6656,11 +6499,11 @@ entry:
   br i1 %call, label %if.end, label %if.end26
 
 if.end:                                           ; preds = %entry
-  %ingressPaused_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %ingressPaused_.i = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load.i = load i32, ptr %ingressPaused_.i, align 8
   %0 = and i32 %bf.load.i, 1
   %bf.cast.not.i = icmp eq i32 %0, 0
-  %deferredIngress_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_.i = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load ptr, ptr %deferredIngress_.i, align 8
   br i1 %bf.cast.not.i, label %lor.rhs.i, label %if.then3
 
@@ -6669,15 +6512,15 @@ lor.rhs.i:                                        ; preds = %if.end
   br i1 %cmp.i.not.i, label %if.else, label %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit
 
 _ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit: ; preds = %lor.rhs.i
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %1, i64 0, i32 3
-  %_M_start.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %1, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
   %3 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i.not = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i.not, label %if.else, label %_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit
 
 if.then3:                                         ; preds = %if.end
-  %deferredIngress_.i2 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_.i2 = getelementptr inbounds i8, ptr %this, i64 152
   %cmp.i.not.i3 = icmp eq ptr %1, null
   br i1 %cmp.i.not.i3, label %if.then.i, label %_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit
 
@@ -6711,31 +6554,31 @@ _ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS
 
 _ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit: ; preds = %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit, %if.then3, %_ZSt11make_uniqueISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, %_ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS6_.exit.i.i.i.i.i
   %6 = phi ptr [ %1, %if.then3 ], [ %call.i.i, %_ZSt11make_uniqueISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i ], [ %.pre15, %_ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS6_.exit.i.i.i.i.i ], [ %1, %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit ]
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   store i8 7, ptr %ref.tmp, align 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %6, i64 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %6, i64 0, i32 3, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %6, i64 64
   %8 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %8, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 -56
   %cmp.not.i.i = icmp eq ptr %7, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit
   %9 = load i64, ptr %id_, align 8
-  %streamID_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 4
+  %streamID_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   store i64 %9, ptr %streamID_.i.i.i.i.i, align 8
-  %length_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 5
+  %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
   store i64 0, ptr %length_.i.i.i.i.i, align 8
-  %event_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 6
+  %event_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
   store i8 7, ptr %event_.i.i.i.i.i, align 8
-  %upgrade_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 7
+  %upgrade_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 49
   store i8 0, ptr %upgrade_.i.i.i.i.i, align 1
-  %protocol_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 0, i32 8
+  %protocol_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 52
   store i32 %protocol, ptr %protocol_.i.i.i.i.i, align 4
   %10 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %10, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 56
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %if.end.i.i
 
@@ -6775,10 +6618,10 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %13 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %13, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %14 = load ptr, ptr %vfn.i.i, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %call18)
           to label %.noexc unwind label %lpad
@@ -6813,10 +6656,10 @@ if.else:                                          ; preds = %lor.rhs.i, %_ZNK8pr
   br i1 %bf.cast.not.i9, label %if.end.i, label %if.then.i.i10
 
 if.end.i:                                         ; preds = %if.else
-  %handler_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_.i = getelementptr inbounds i8, ptr %this, i64 264
   %19 = load ptr, ptr %handler_.i, align 8
   %tobool.not.i = icmp eq ptr %19, null
-  %ingressState_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i.i = getelementptr inbounds i8, ptr %this, i64 242
   %20 = load i8, ptr %ingressState_.i.i, align 2
   %cmp.i.i = icmp eq i8 %20, 10
   %or.cond.i = select i1 %tobool.not.i, i1 true, i1 %cmp.i.i
@@ -6824,7 +6667,7 @@ if.end.i:                                         ; preds = %if.else
 
 if.then2.i:                                       ; preds = %if.end.i
   %vtable.i = load ptr, ptr %19, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 13
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 104
   %21 = load ptr, ptr %vfn.i, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %protocol) #27
   %.pre.i = load i32, ptr %guardCount_.i.i, align 8
@@ -6839,7 +6682,7 @@ if.then.i.i10:                                    ; preds = %if.then2.i, %if.end
 
 if.then6.i.i:                                     ; preds = %if.then.i.i10
   %vtable.i.i11 = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i.i12 = getelementptr inbounds ptr, ptr %vtable.i.i11, i64 2
+  %vfn.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i11, i64 16
   %23 = load ptr, ptr %vfn.i.i12, align 8
   invoke void %23(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr.i, i1 noundef zeroext true)
           to label %if.end26 unwind label %terminate.lpad.i.i
@@ -6863,17 +6706,17 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %aborted_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %aborted_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %aborted_, align 8
   %1 = and i32 %bf.load, 64
   %bf.cast.not = icmp eq i32 %1, 0
   br i1 %bf.cast.not, label %if.end, label %if.then.i
 
 if.end:                                           ; preds = %entry
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %2 = load ptr, ptr %handler_, align 8
   %tobool.not = icmp eq ptr %2, null
-  %ingressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i = getelementptr inbounds i8, ptr %this, i64 242
   %3 = load i8, ptr %ingressState_.i, align 2
   %cmp.i = icmp eq i8 %3, 10
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.i
@@ -6881,7 +6724,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %protocol) #27
   %.pre = load i32, ptr %guardCount_.i, align 8
@@ -6896,7 +6739,7 @@ if.then.i:                                        ; preds = %entry, %if.then2, %
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %6 = load ptr, ptr %vfn.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -6925,7 +6768,7 @@ entry:
   %ex = alloca %"class.proxygen::HTTPException", align 8
   %ref.tmp75 = alloca i8, align 1
   %ref.tmp91 = alloca %"class.google::LogMessage", align 8
-  %ingressState_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i.i = getelementptr inbounds i8, ptr %this, i64 242
   %0 = load i8, ptr %ingressState_.i.i, align 2
   %1 = add i8 %0, -9
   %spec.select.i = icmp ult i8 %1, 2
@@ -6938,10 +6781,10 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %2 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %3 = load ptr, ptr %vfn.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %call2)
           to label %.noexc unwind label %lpad
@@ -6951,7 +6794,7 @@ invoke.cont:                                      ; preds = %if.then
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load i64, ptr %id_.i.i, align 8
   %call2.i.i11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i10, i64 noundef %4)
           to label %invoke.cont3 unwind label %lpad
@@ -7040,8 +6883,8 @@ ehcleanup38:                                      ; preds = %cleanup.action31, %
   br label %common.resume
 
 if.end:                                           ; preds = %entry
-  %expectedIngressContentLengthRemaining_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 35
-  %hasValue.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 35, i32 0, i32 1
+  %expectedIngressContentLengthRemaining_ = getelementptr inbounds i8, ptr %this, i64 624
+  %hasValue.i = getelementptr inbounds i8, ptr %this, i64 632
   %11 = load i8, ptr %hasValue.i, align 8
   %12 = and i8 %11, 1
   %tobool.i = icmp eq i8 %12, 0
@@ -7085,10 +6928,10 @@ invoke.cont52:                                    ; preds = %invoke.cont50
           to label %invoke.cont54 unwind label %lpad49
 
 invoke.cont54:                                    ; preds = %invoke.cont52
-  %transport_.i.i16 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i16 = getelementptr inbounds i8, ptr %this, i64 272
   %15 = load ptr, ptr %transport_.i.i16, align 8
   %vtable.i.i17 = load ptr, ptr %15, align 8
-  %vfn.i.i18 = getelementptr inbounds ptr, ptr %vtable.i.i17, i64 23
+  %vfn.i.i18 = getelementptr inbounds i8, ptr %vtable.i.i17, i64 184
   %16 = load ptr, ptr %vfn.i.i18, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %call55)
           to label %.noexc20 unwind label %lpad49
@@ -7098,14 +6941,14 @@ invoke.cont54:                                    ; preds = %invoke.cont52
           to label %call.i.i.noexc21 unwind label %lpad49
 
 call.i.i.noexc21:                                 ; preds = %.noexc20
-  %id_.i.i19 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i19 = getelementptr inbounds i8, ptr %this, i64 248
   %17 = load i64, ptr %id_.i.i19, align 8
   %call2.i.i23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i22, i64 noundef %17)
           to label %invoke.cont56 unwind label %lpad49
 
 invoke.cont56:                                    ; preds = %call.i.i.noexc21
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp46) #27
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %18 = load ptr, ptr %handler_, align 8
   %tobool59.not = icmp eq ptr %18, null
   br i1 %tobool59.not, label %if.end66, label %if.then60
@@ -7115,14 +6958,14 @@ if.then60:                                        ; preds = %invoke.cont56
           to label %invoke.cont61 unwind label %lpad47
 
 invoke.cont61:                                    ; preds = %if.then60
-  %proxygenError_.i = getelementptr inbounds %"class.proxygen::Exception", ptr %ex, i64 0, i32 3
+  %proxygenError_.i = getelementptr inbounds i8, ptr %ex, i64 44
   store i32 17, ptr %proxygenError_.i, align 4
   invoke void @_ZN8proxygen15HTTPTransaction7onErrorERKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(96) %ex)
           to label %invoke.cont64 unwind label %lpad62
 
 invoke.cont64:                                    ; preds = %invoke.cont61
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %ex, i64 88
   %19 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -7134,7 +6977,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont64
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %ex, i64 80
   %20 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %20, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -7147,7 +6990,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %ex, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %ex, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ex) #27
   br label %if.end66
@@ -7184,11 +7027,11 @@ if.end68:                                         ; preds = %if.end
 
 if.end71:                                         ; preds = %if.end68
   tail call void @_ZN8proxygen15HTTPTransaction17updateReadTimeoutEv(ptr noundef nonnull align 8 dereferenceable(912) %this)
-  %ingressPaused_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %ingressPaused_.i = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load.i = load i32, ptr %ingressPaused_.i, align 8
   %24 = and i32 %bf.load.i, 1
   %bf.cast.not.i = icmp eq i32 %24, 0
-  %deferredIngress_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_.i = getelementptr inbounds i8, ptr %this, i64 152
   %25 = load ptr, ptr %deferredIngress_.i, align 8
   br i1 %bf.cast.not.i, label %lor.rhs.i, label %if.then73
 
@@ -7197,15 +7040,15 @@ lor.rhs.i:                                        ; preds = %if.end71
   br i1 %cmp.i.not.i, label %if.else, label %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit
 
 _ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit: ; preds = %lor.rhs.i
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %25, i64 0, i32 3
-  %_M_start.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %25, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %25, i64 48
+  %_M_start.i.i.i = getelementptr inbounds i8, ptr %25, i64 16
   %26 = load ptr, ptr %_M_finish.i.i.i, align 8
   %27 = load ptr, ptr %_M_start.i.i.i, align 8
   %cmp.i.i.i.i.not = icmp eq ptr %26, %27
   br i1 %cmp.i.i.i.i.not, label %if.else, label %_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit
 
 if.then73:                                        ; preds = %if.end71
-  %deferredIngress_.i25 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_.i25 = getelementptr inbounds i8, ptr %this, i64 152
   %cmp.i.not.i26 = icmp eq ptr %25, null
   br i1 %cmp.i.not.i26, label %if.then.i, label %_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit
 
@@ -7235,29 +7078,29 @@ _ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS
 
 _ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit: ; preds = %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit, %if.then73, %_ZSt11make_uniqueISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i, %_ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS6_.exit.i.i.i.i.i
   %30 = phi ptr [ %25, %if.then73 ], [ %call.i.i, %_ZSt11make_uniqueISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i ], [ %.pre42, %_ZNKSt14default_deleteISt5queueIN8proxygen9HTTPEventESt5dequeIS2_SaIS2_EEEEclEPS6_.exit.i.i.i.i.i ], [ %25, %_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv.exit ]
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   store i8 6, ptr %ref.tmp75, align 1
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %30, i64 0, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %30, i64 48
   %31 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %30, i64 0, i32 3, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %30, i64 64
   %32 = load ptr, ptr %_M_last.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %32, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %32, i64 -56
   %cmp.not.i.i27 = icmp eq ptr %31, %add.ptr.i.i
   br i1 %cmp.not.i.i27, label %if.else.i.i, label %if.then.i.i28
 
 if.then.i.i28:                                    ; preds = %_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv.exit
   %33 = load i64, ptr %id_, align 8
-  %streamID_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %31, i64 0, i32 4
+  %streamID_.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
   store i64 %33, ptr %streamID_.i.i.i.i.i, align 8
-  %length_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %31, i64 0, i32 5
+  %length_.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 40
   store i64 0, ptr %length_.i.i.i.i.i, align 8
-  %event_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %31, i64 0, i32 6
+  %event_.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 48
   store i8 6, ptr %event_.i.i.i.i.i, align 8
-  %upgrade_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %31, i64 0, i32 7
+  %upgrade_.i.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 49
   store i8 0, ptr %upgrade_.i.i.i.i.i, align 1
   %34 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %34, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %34, i64 56
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %if.end.i.i
 
@@ -7297,10 +7140,10 @@ invoke.cont98:                                    ; preds = %invoke.cont96
           to label %invoke.cont100 unwind label %lpad93
 
 invoke.cont100:                                   ; preds = %invoke.cont98
-  %transport_.i.i30 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i30 = getelementptr inbounds i8, ptr %this, i64 272
   %37 = load ptr, ptr %transport_.i.i30, align 8
   %vtable.i.i31 = load ptr, ptr %37, align 8
-  %vfn.i.i32 = getelementptr inbounds ptr, ptr %vtable.i.i31, i64 23
+  %vfn.i.i32 = getelementptr inbounds i8, ptr %vtable.i.i31, i64 184
   %38 = load ptr, ptr %vfn.i.i32, align 8
   invoke void %38(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %call101)
           to label %.noexc35 unwind label %lpad93
@@ -7343,7 +7186,7 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %aborted_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %aborted_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %aborted_, align 8
   %1 = and i32 %bf.load, 64
   %bf.cast.not = icmp eq i32 %1, 0
@@ -7379,10 +7222,10 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %invoke.cont11 unwind label %lpad8
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %4 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %5 = load ptr, ptr %vfn.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %call12)
           to label %.noexc unwind label %lpad8
@@ -7392,7 +7235,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %call.i.i.noexc unwind label %lpad8
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %6 = load i64, ptr %id_.i.i, align 8
   %call2.i.i5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i4, i64 noundef %6)
           to label %cleanup.action unwind label %lpad8
@@ -7402,7 +7245,7 @@ cleanup.action:                                   ; preds = %call.i.i.noexc
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.false, %cond.end, %cleanup.action
-  %ingressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i = getelementptr inbounds i8, ptr %this, i64 242
   %7 = load i8, ptr %ingressState_.i, align 2
   %cmp.i = icmp eq i8 %7, 10
   %call24 = invoke noundef zeroext i1 @_ZN8proxygen15HTTPTransaction30validateIngressStateTransitionENS_28HTTPTransactionIngressSMData5EventE(ptr noundef nonnull align 8 dereferenceable(912) %this, i8 noundef zeroext 9)
@@ -7423,7 +7266,7 @@ lpad8:                                            ; preds = %call.i.i.noexc, %.n
   br label %ehcleanup
 
 if.end26:                                         ; preds = %invoke.cont23
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %10 = load ptr, ptr %handler_, align 8
   %tobool27.not = icmp eq ptr %10, null
   br i1 %tobool27.not, label %if.else, label %if.then28
@@ -7433,7 +7276,7 @@ if.then28:                                        ; preds = %if.end26
 
 if.then30:                                        ; preds = %if.then28
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %11 = load ptr, ptr %vfn, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #27
   br label %if.end34
@@ -7456,7 +7299,7 @@ if.then.i:                                        ; preds = %entry, %invoke.cont
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %13 = load ptr, ptr %vfn.i, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -7508,10 +7351,10 @@ invoke.cont:                                      ; preds = %cond.false4
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %2 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %3 = load ptr, ptr %vfn.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %call8)
           to label %.noexc unwind label %lpad
@@ -7521,7 +7364,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load i64, ptr %id_.i.i, align 8
   %call2.i.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i2, i64 noundef %4)
           to label %cleanup.action unwind label %lpad
@@ -7531,7 +7374,7 @@ cleanup.action:                                   ; preds = %call.i.i.noexc
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
-  %deferredEgressBody_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4
+  %deferredEgressBody_.i = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i8, ptr %deferredEgressBody_.i, align 8
   %6 = and i8 %5, 1
   %tobool.not.i.i = icmp eq i8 %6, 0
@@ -7557,18 +7400,18 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br label %common.resume
 
 _ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit: ; preds = %cleanup.done
-  %chainLength_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 1
+  %chainLength_.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %8 = load i64, ptr %chainLength_.i.i, align 8
-  %cachePtr_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 4
+  %cachePtr_.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %9 = load ptr, ptr %cachePtr_.i.i, align 8
   %10 = load ptr, ptr %9, align 8
-  %tailStart_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 3
+  %tailStart_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %11 = load ptr, ptr %tailStart_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = add i64 %8, %sub.ptr.lhs.cast.i.i
   %add.i.i = sub i64 %sub.ptr.sub.i.i, %sub.ptr.rhs.cast.i.i
-  %deferredBufferMeta_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 5
+  %deferredBufferMeta_.i = getelementptr inbounds i8, ptr %this, i64 232
   %12 = load i64, ptr %deferredBufferMeta_.i, align 8
   %add.i = add i64 %add.i.i, %12
   store i64 %add.i, ptr %pendingBytes, align 8
@@ -7605,11 +7448,11 @@ _ZN5folly2toIlmEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typ
   %retval.sroa.5.sroa.1.0.i.i.i = call noundef i64 @llvm.smax.i64(i64 %add.i, i64 0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp1.i)
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %15 = load ptr, ptr %transport_, align 8
   %sub = sub nsw i64 0, %retval.sroa.5.sroa.1.0.i.i.i
   %vtable = load ptr, ptr %15, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %16 = load ptr, ptr %vfn, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %sub) #27
   %.pre = load ptr, ptr %tailStart_.i.i, align 8, !noalias !55
@@ -7631,9 +7474,9 @@ if.end:                                           ; preds = %_ZN5folly2toIlmEENS
   br i1 %cmp.not.i.i.i, label %_ZN5folly10IOBufQueue4moveEv.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %head_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 2
+  %head_.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %21 = load ptr, ptr %head_.i.i.i, align 8, !noalias !55
-  %prev_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %21, i64 0, i32 5
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 40
   %22 = load ptr, ptr %prev_.i.i.i.i, align 8, !noalias !55
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %20 to i64
@@ -7646,9 +7489,9 @@ if.then.i.i.i:                                    ; preds = %if.end
 
 _ZN5folly10IOBufQueue4moveEv.exit:                ; preds = %if.end, %if.then.i.i.i
   %24 = phi ptr [ %19, %if.end ], [ %.pre.i, %if.then.i.i.i ]
-  %head_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 2
+  %head_.i = getelementptr inbounds i8, ptr %this, i64 176
   %25 = load i64, ptr %head_.i, align 8, !noalias !60
-  %reusableTail_5.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 6
+  %reusableTail_5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
   store ptr null, ptr %reusableTail_5.i.i.i.i.i, align 8, !noalias !60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i.i, i8 0, i64 24, i1 false), !noalias !60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false), !noalias !60
@@ -7663,14 +7506,14 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %_ZN5folly10IOBu
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN5folly10IOBufQueue4moveEv.exit, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store i64 0, ptr %deferredBufferMeta_.i, align 8
-  %queueHandle_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 23
+  %queueHandle_.i = getelementptr inbounds i8, ptr %this, i64 408
   %27 = load ptr, ptr %queueHandle_.i, align 8
   %tobool.not.i = icmp eq ptr %27, null
   br i1 %tobool.not.i, label %if.end21, label %_ZNK8proxygen15HTTPTransaction10isEnqueuedEv.exit
 
 _ZNK8proxygen15HTTPTransaction10isEnqueuedEv.exit: ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
   %vtable.i = load ptr, ptr %27, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %28 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(8) %27)
   br i1 %call.i, label %if.then20, label %if.end21
@@ -7683,7 +7526,7 @@ if.then20:                                        ; preds = %_ZNK8proxygen15HTTP
 
 _ZNK8proxygen15HTTPTransaction10isEnqueuedEv.exit.i: ; preds = %if.then20
   %vtable.i.i5 = load ptr, ptr %29, align 8
-  %vfn.i.i6 = getelementptr inbounds ptr, ptr %vtable.i.i5, i64 2
+  %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 16
   %30 = load ptr, ptr %vfn.i.i6, align 8
   %call.i.i = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(8) %29)
   br i1 %call.i.i, label %_ZN8proxygen15HTTPTransaction7dequeueEv.exit, label %cond.false.i
@@ -7708,18 +7551,18 @@ lpad.i:                                           ; preds = %invoke.cont.i, %con
   unreachable
 
 _ZN8proxygen15HTTPTransaction7dequeueEv.exit:     ; preds = %_ZNK8proxygen15HTTPTransaction10isEnqueuedEv.exit.i
-  %egressQueue_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 22
+  %egressQueue_.i = getelementptr inbounds i8, ptr %this, i64 400
   %32 = load ptr, ptr %egressQueue_.i, align 8
   %33 = load ptr, ptr %queueHandle_.i, align 8
   %vtable.i7 = load ptr, ptr %32, align 8
-  %vfn.i8 = getelementptr inbounds ptr, ptr %vtable.i7, i64 7
+  %vfn.i8 = getelementptr inbounds i8, ptr %vtable.i7, i64 56
   %34 = load ptr, ptr %vfn.i8, align 8
   call void %34(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %33)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp2.i)
   br label %if.end21
 
 if.end21:                                         ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, %_ZN8proxygen15HTTPTransaction7dequeueEv.exit, %_ZNK8proxygen15HTTPTransaction10isEnqueuedEv.exit
-  %egressState_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_ = getelementptr inbounds i8, ptr %this, i64 241
   store i8 9, ptr %egressState_, align 1
   ret void
 }
@@ -7727,20 +7570,20 @@ if.end21:                                         ; preds = %_ZNSt10unique_ptrIN
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %egressState_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_ = getelementptr inbounds i8, ptr %this, i64 241
   %0 = load i8, ptr %egressState_, align 1
   %cmp.not = icmp eq i8 %0, 9
   br i1 %cmp.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %useFlowControl_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %useFlowControl_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %useFlowControl_, align 8
   %1 = and i32 %bf.load, 32
   %bf.cast.not = icmp eq i32 %1, 0
   br i1 %bf.cast.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %sendWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_ = getelementptr inbounds i8, ptr %this, i64 352
   %call = tail call noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_)
   %cmp2 = icmp slt i32 %call, 1
   br label %land.end
@@ -7755,15 +7598,15 @@ declare noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr noundef nonnull align 4 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK8proxygen15HTTPTransaction18isExpectingIngressEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %setIngressTimeoutAfterEom_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 48
+  %setIngressTimeoutAfterEom_ = getelementptr inbounds i8, ptr %this, i64 792
   %0 = load i8, ptr %setIngressTimeoutAfterEom_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %direction_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 6
+  %direction_.i = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load i8, ptr %direction_.i, align 8
   %cmp.i = icmp eq i8 %2, 0
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.i
-  %egressState_.i2.phi.trans.insert = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i2.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 241
   %.pre = load i8, ptr %egressState_.i2.phi.trans.insert, align 1
   %cmp.i1 = icmp eq i8 %.pre, 9
   %spec.select3 = or i1 %or.cond, %cmp.i1
@@ -7771,27 +7614,27 @@ entry:
   br i1 %cmp.not.i, label %lor.rhs4, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %useFlowControl_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %useFlowControl_.i = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load.i = load i32, ptr %useFlowControl_.i, align 8
   %3 = and i32 %bf.load.i, 32
   %bf.cast.not.i = icmp eq i32 %3, 0
   br i1 %bf.cast.not.i, label %lor.rhs4, label %_ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv.exit
 
 _ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv.exit: ; preds = %land.lhs.true.i
-  %sendWindow_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_.i = getelementptr inbounds i8, ptr %this, i64 352
   %call.i = tail call noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_.i)
   %cmp2.i = icmp slt i32 %call.i, 1
   br i1 %cmp2.i, label %lor.end7, label %lor.rhs4
 
 lor.rhs4:                                         ; preds = %entry, %land.lhs.true.i, %_ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv.exit
-  %ingressPaused_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %ingressPaused_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %ingressPaused_, align 8
   %4 = and i32 %bf.load, 1
   %bf.cast.not = icmp eq i32 %4, 0
   br i1 %bf.cast.not, label %land.lhs.true, label %lor.end7
 
 land.lhs.true:                                    ; preds = %lor.rhs4
-  %ingressState_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i.i = getelementptr inbounds i8, ptr %this, i64 242
   %5 = load i8, ptr %ingressState_.i.i, align 2
   %6 = add i8 %5, -11
   %spec.select.i = icmp ult i8 %6, -2
@@ -7830,10 +7673,10 @@ invoke.cont:                                      ; preds = %cond.false4
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %2 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %3 = load ptr, ptr %vfn.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %call8)
           to label %.noexc unwind label %lpad
@@ -7843,7 +7686,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load i64, ptr %id_.i.i, align 8
   %call2.i.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i2, i64 noundef %4)
           to label %cleanup.action unwind label %lpad
@@ -7853,9 +7696,9 @@ cleanup.action:                                   ; preds = %call.i.i.noexc
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
-  %ingressState_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_ = getelementptr inbounds i8, ptr %this, i64 242
   store i8 10, ptr %ingressState_, align 2
-  %deferredIngress_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_ = getelementptr inbounds i8, ptr %this, i64 152
   %5 = load ptr, ptr %deferredIngress_, align 8
   store ptr null, ptr %deferredIngress_, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
@@ -7912,7 +7755,7 @@ if.then9:                                         ; preds = %if.end
   %7 = load atomic i32, ptr @_ZZN8proxygen12StateMachineINS_28HTTPTransactionIngressSMDataEE7transitERNS1_5StateENS1_5EventEE14occurrences_33 seq_cst, align 4
   %conv = sext i32 %7 to i64
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep, align 8
   call void @_ZN6google10LogMessageC1EPKciilMS0_FvvE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10, ptr noundef nonnull @.str.192, i32 noundef 33, i32 noundef 2, i64 noundef %conv, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10)
@@ -8052,7 +7895,7 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %egressState_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_ = getelementptr inbounds i8, ptr %this, i64 241
   %call = invoke noundef zeroext i1 @_ZN8proxygen12StateMachineINS_27HTTPTransactionEgressSMDataEE7transitERNS1_5StateENS1_5EventE(ptr noundef nonnull align 1 dereferenceable(1) %egressState_, i8 noundef zeroext %event)
           to label %invoke.cont unwind label %lpad
 
@@ -8086,7 +7929,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %invoke.cont14 unwind label %lpad4
 
 invoke.cont14:                                    ; preds = %invoke.cont12
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load i64, ptr %id_, align 8
   %call17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call15, i64 noundef %2)
           to label %invoke.cont16 unwind label %lpad4
@@ -8112,10 +7955,10 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %invoke.cont27 unwind label %lpad24
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %3 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %4 = load ptr, ptr %vfn.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %call28)
           to label %.noexc unwind label %lpad24
@@ -8140,9 +7983,9 @@ invoke.cont32:                                    ; preds = %invoke.cont29
           to label %.noexc9 unwind label %lpad33
 
 .noexc9:                                          ; preds = %invoke.cont32
-  %proxygenError_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %agg.tmp, i64 0, i32 3
+  %proxygenError_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 44
   store i32 35, ptr %proxygenError_.i.i, align 4, !alias.scope !61
-  %hasValue.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 4, i32 0, i32 1
+  %hasValue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 73
   %6 = load i8, ptr %hasValue.i.i.i.i.i.i, align 1, !alias.scope !61
   %7 = and i8 %6, 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %7, 0
@@ -8153,16 +7996,16 @@ if.else.i.i.i.i:                                  ; preds = %.noexc9
   br label %invoke.cont34
 
 invoke.cont34:                                    ; preds = %if.else.i.i.i.i, %.noexc9
-  %codecStatusCode_.i.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 4
+  %codecStatusCode_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 72
   store i8 2, ptr %codecStatusCode_.i.i, align 8, !alias.scope !61
-  %errno_.i.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 5
+  %errno_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 76
   store i32 1, ptr %errno_.i.i, align 4, !alias.scope !61
   invoke void @_ZN8proxygen15HTTPTransaction18invariantViolationENS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont34
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
   %8 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -8174,7 +8017,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont36
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %9 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %9, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -8187,7 +8030,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %agg.tmp, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp31) #27
@@ -8251,7 +8094,7 @@ if.then.i:                                        ; preds = %_ZN8proxygen13HTTPE
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %17 = load ptr, ptr %vfn.i, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -8307,7 +8150,7 @@ if.then9:                                         ; preds = %if.end
   %7 = load atomic i32, ptr @_ZZN8proxygen12StateMachineINS_27HTTPTransactionEgressSMDataEE7transitERNS1_5StateENS1_5EventEE14occurrences_33 seq_cst, align 4
   %conv = sext i32 %7 to i64
   store i64 ptrtoint (ptr @_ZN6google10LogMessage9SendToLogEv to i64), ptr %indirect-arg-temp, align 8
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   store i64 0, ptr %.fca.1.gep, align 8
   call void @_ZN6google10LogMessageC1EPKciilMS0_FvvE(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10, ptr noundef nonnull @.str.192, i32 noundef 33, i32 noundef 2, i64 noundef %conv, ptr noundef nonnull byval({ i64, i64 }) align 8 %indirect-arg-temp)
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp10)
@@ -8461,7 +8304,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %aborted_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %aborted_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %aborted_, align 8
   %1 = and i32 %bf.load, 64
   %bf.cast.not = icmp eq i32 %1, 0
@@ -8541,10 +8384,10 @@ invoke.cont40:                                    ; preds = %invoke.cont37
           to label %invoke.cont42 unwind label %lpad39
 
 invoke.cont42:                                    ; preds = %invoke.cont40
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %8 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %9 = load ptr, ptr %vfn.i.i, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %call43)
           to label %.noexc unwind label %lpad39
@@ -8554,7 +8397,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %call.i.i.noexc unwind label %lpad39
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %10 = load i64, ptr %id_.i.i, align 8
   %call2.i.i6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i5, i64 noundef %10)
           to label %cleanup.action49 unwind label %lpad39
@@ -8567,26 +8410,26 @@ cleanup.done50:                                   ; preds = %cond.false26, %cond
   %bf.load55 = load i32, ptr %aborted_, align 8
   %bf.set = or i32 %bf.load55, 64
   store i32 %bf.set, ptr %aborted_, align 8
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %11 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %11, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %12 = load ptr, ptr %vfn, align 8
   %call57 = call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %this, i8 noundef zeroext %statusCode) #27
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %13 = load ptr, ptr %transportCallback_, align 8
   %tobool58.not = icmp eq ptr %13, null
   br i1 %tobool58.not, label %if.then.i, label %if.then59
 
 if.then59:                                        ; preds = %cleanup.done50
   store i32 0, ptr %size, align 4
-  %uncompressed.i = getelementptr inbounds %"struct.proxygen::HTTPHeaderSize", ptr %size, i64 0, i32 1
-  %compressedBlock.i = getelementptr inbounds %"struct.proxygen::HTTPHeaderSize", ptr %size, i64 0, i32 2
+  %uncompressed.i = getelementptr inbounds i8, ptr %size, i64 4
+  %compressedBlock.i = getelementptr inbounds i8, ptr %size, i64 8
   store i32 0, ptr %compressedBlock.i, align 4
   %conv = trunc i64 %call57 to i32
   store i32 %conv, ptr %uncompressed.i, align 4
   %vtable61 = load ptr, ptr %13, align 8
-  %vfn62 = getelementptr inbounds ptr, ptr %vtable61, i64 8
+  %vfn62 = getelementptr inbounds i8, ptr %vtable61, i64 64
   %14 = load ptr, ptr %vfn62, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(12) %size) #27
   br label %if.then.i
@@ -8607,7 +8450,7 @@ if.then.i:                                        ; preds = %cond.end, %cleanup.
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %17 = load ptr, ptr %vfn.i, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -8668,10 +8511,10 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %invoke.cont11 unwind label %lpad8
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %3 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %4 = load ptr, ptr %vfn.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %call12)
           to label %.noexc unwind label %lpad8
@@ -8681,7 +8524,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %call.i.i.noexc unwind label %lpad8
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %5 = load i64, ptr %id_.i.i, align 8
   %call2.i.i5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i4, i64 noundef %5)
           to label %cleanup.action unwind label %lpad8
@@ -8691,14 +8534,14 @@ cleanup.action:                                   ; preds = %call.i.i.noexc
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.false, %cond.end, %cleanup.action
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %6 = load ptr, ptr %handler_, align 8
   %tobool20.not = icmp eq ptr %6, null
   br i1 %tobool20.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %cleanup.done
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %7 = load ptr, ptr %vfn, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, i8 noundef zeroext %code) #27
   br label %if.then.i
@@ -8724,7 +8567,7 @@ if.then.i:                                        ; preds = %cleanup.done, %if.t
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %11 = load ptr, ptr %vfn.i, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -8753,10 +8596,10 @@ entry:
   %g = alloca %"class.folly::DelayedDestructionBase::DestructorGuard", align 8
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
   %ex = alloca %"class.proxygen::HTTPException", align 8
-  %ex.sroa.gep = getelementptr inbounds %"class.proxygen::Exception", ptr %ex, i64 0, i32 1
+  %ex.sroa.gep = getelementptr inbounds i8, ptr %ex, i64 8
   %ref.tmp29 = alloca %"class.std::__cxx11::basic_string", align 8
   %ex37 = alloca %"class.proxygen::HTTPException", align 8
-  %ex37.sroa.gep = getelementptr inbounds %"class.proxygen::Exception", ptr %ex37, i64 0, i32 1
+  %ex37.sroa.gep = getelementptr inbounds i8, ptr %ex37, i64 8
   %ref.tmp38 = alloca %"class.std::__cxx11::basic_string", align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr, ptr %g, align 8
@@ -8793,10 +8636,10 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %invoke.cont11 unwind label %lpad8
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %3 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %4 = load ptr, ptr %vfn.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %call12)
           to label %.noexc unwind label %lpad8
@@ -8806,7 +8649,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %call.i.i.noexc unwind label %lpad8
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %5 = load i64, ptr %id_.i.i, align 8
   %call2.i.i4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i3, i64 noundef %5)
           to label %cleanup.action unwind label %lpad8
@@ -8817,26 +8660,26 @@ cleanup.action:                                   ; preds = %call.i.i.noexc
 
 cleanup.done:                                     ; preds = %cond.false, %cond.end, %cleanup.action
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %6 = load ptr, ptr %vfn, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(912) %this)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %cleanup.done
-  %egressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i = getelementptr inbounds i8, ptr %this, i64 241
   %7 = load i8, ptr %egressState_.i, align 1
   %cmp.i = icmp eq i8 %7, 9
   br i1 %cmp.i, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %invoke.cont20
-  %useFlowControl_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %useFlowControl_.i = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load.i = load i32, ptr %useFlowControl_.i, align 8
   %8 = and i32 %bf.load.i, 32
   %bf.cast.not.i = icmp eq i32 %8, 0
   br i1 %bf.cast.not.i, label %land.end, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %sendWindow_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_.i = getelementptr inbounds i8, ptr %this, i64 352
   %call.i6 = invoke noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_.i)
           to label %call.i.noexc unwind label %lpad
 
@@ -8846,13 +8689,13 @@ call.i.noexc:                                     ; preds = %land.rhs.i
 
 land.end:                                         ; preds = %call.i.noexc, %land.lhs.true.i, %invoke.cont20
   %9 = phi i1 [ false, %invoke.cont20 ], [ false, %land.lhs.true.i ], [ %cmp2.i, %call.i.noexc ]
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %10 = load ptr, ptr %handler_, align 8
   %tobool26.not = icmp eq ptr %10, null
   br i1 %tobool26.not, label %if.else46, label %if.then
 
 if.then:                                          ; preds = %land.end
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   br i1 %9, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %if.then
@@ -8875,9 +8718,9 @@ invoke.cont30:                                    ; preds = %if.then28
 
 invoke.cont32:                                    ; preds = %invoke.cont30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #27
-  %proxygenError_.i = getelementptr inbounds %"class.proxygen::Exception", ptr %ex, i64 0, i32 3
+  %proxygenError_.i = getelementptr inbounds i8, ptr %ex, i64 44
   store i32 25, ptr %proxygenError_.i, align 4
-  %hasValue.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 4, i32 0, i32 1
+  %hasValue.i.i.i.i.i = getelementptr inbounds i8, ptr %ex, i64 73
   %12 = load i8, ptr %hasValue.i.i.i.i.i, align 1
   %13 = and i8 %12, 1
   %tobool.i.i.not.i.i.i = icmp eq i8 %13, 0
@@ -8888,14 +8731,14 @@ if.else.i.i.i:                                    ; preds = %invoke.cont32
   br label %invoke.cont35
 
 invoke.cont35:                                    ; preds = %if.else.i.i.i, %invoke.cont32
-  %codecStatusCode_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 4
+  %codecStatusCode_.i = getelementptr inbounds i8, ptr %ex, i64 72
   store i8 1, ptr %codecStatusCode_.i, align 8
   invoke void @_ZN8proxygen15HTTPTransaction7onErrorERKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(96) %ex)
           to label %invoke.cont36 unwind label %lpad33
 
 invoke.cont36:                                    ; preds = %invoke.cont35
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %ex, i64 88
   %14 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -8907,7 +8750,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont36
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %ex, i64 80
   %15 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %15, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -8965,14 +8808,14 @@ invoke.cont40:                                    ; preds = %if.else
 
 invoke.cont42:                                    ; preds = %invoke.cont40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #27
-  %proxygenError_.i12 = getelementptr inbounds %"class.proxygen::Exception", ptr %ex37, i64 0, i32 3
+  %proxygenError_.i12 = getelementptr inbounds i8, ptr %ex37, i64 44
   store i32 6, ptr %proxygenError_.i12, align 4
   invoke void @_ZN8proxygen15HTTPTransaction7onErrorERKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(96) %ex37)
           to label %invoke.cont45 unwind label %lpad43
 
 invoke.cont45:                                    ; preds = %invoke.cont42
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex37, align 8
-  %partialMsg_.i13 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex37, i64 0, i32 7
+  %partialMsg_.i13 = getelementptr inbounds i8, ptr %ex37, i64 88
   %21 = load ptr, ptr %partialMsg_.i13, align 8
   %cmp.not.i.i14 = icmp eq ptr %21, null
   br i1 %cmp.not.i.i14, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i16, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i15
@@ -8984,7 +8827,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i15: ; preds = %i
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i16: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i15, %invoke.cont45
   store ptr null, ptr %partialMsg_.i13, align 8
-  %currentIngressBuf_.i17 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex37, i64 0, i32 6
+  %currentIngressBuf_.i17 = getelementptr inbounds i8, ptr %ex37, i64 80
   %22 = load ptr, ptr %currentIngressBuf_.i17, align 8
   %cmp.not.i1.i18 = icmp eq ptr %22, null
   br i1 %cmp.not.i1.i18, label %_ZN8proxygen13HTTPExceptionD2Ev.exit21, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i19
@@ -9036,7 +8879,7 @@ if.then.i:                                        ; preds = %if.then.i.sink.spli
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %26 = load ptr, ptr %vfn.i, align 8
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -9066,7 +8909,7 @@ entry:
   %ref.tmp54 = alloca %"class.google::LogMessage", align 8
   %ref.tmp59 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp64 = alloca %"class.std::__cxx11::basic_string", align 8
-  %useFlowControl_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %useFlowControl_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %useFlowControl_, align 8
   %0 = and i32 %bf.load, 32
   %bf.cast.not = icmp eq i32 %0, 0
@@ -9116,10 +8959,10 @@ invoke.cont13:                                    ; preds = %invoke.cont11
           to label %invoke.cont15 unwind label %lpad8
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %4 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %5 = load ptr, ptr %vfn.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %call16)
           to label %.noexc unwind label %lpad8
@@ -9129,7 +8972,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %call.i.i.noexc unwind label %lpad8
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %6 = load i64, ptr %id_.i.i, align 8
   %call2.i.i10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i9, i64 noundef %6)
           to label %cleanup.action unwind label %lpad8
@@ -9143,7 +8986,7 @@ cleanup.done:                                     ; preds = %cond.false, %cond.e
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %cleanup.done
-  %sendWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_ = getelementptr inbounds i8, ptr %this, i64 352
   %call26 = invoke noundef zeroext i1 @_ZN8proxygen6Window4freeEj(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_, i32 noundef %amount)
           to label %invoke.cont25 unwind label %lpad
 
@@ -9207,10 +9050,10 @@ invoke.cont48:                                    ; preds = %invoke.cont46
           to label %invoke.cont50 unwind label %lpad31
 
 invoke.cont50:                                    ; preds = %invoke.cont48
-  %transport_.i.i11 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i11 = getelementptr inbounds i8, ptr %this, i64 272
   %9 = load ptr, ptr %transport_.i.i11, align 8
   %vtable.i.i12 = load ptr, ptr %9, align 8
-  %vfn.i.i13 = getelementptr inbounds ptr, ptr %vtable.i.i12, i64 23
+  %vfn.i.i13 = getelementptr inbounds i8, ptr %vtable.i.i12, i64 184
   %10 = load ptr, ptr %vfn.i.i13, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %call51)
           to label %.noexc15 unwind label %lpad31
@@ -9220,7 +9063,7 @@ invoke.cont50:                                    ; preds = %invoke.cont48
           to label %call.i.i.noexc16 unwind label %lpad31
 
 call.i.i.noexc16:                                 ; preds = %.noexc15
-  %id_.i.i14 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i14 = getelementptr inbounds i8, ptr %this, i64 248
   %11 = load i64, ptr %id_.i.i14, align 8
   %call2.i.i18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i17, i64 noundef %11)
           to label %invoke.cont52 unwind label %lpad31
@@ -9298,7 +9141,7 @@ if.then.i:                                        ; preds = %invoke.cont67, %if.
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %17 = load ptr, ptr %vfn.i, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %return unwind label %terminate.lpad.i
@@ -9330,7 +9173,7 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %queueHandle_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 23
+  %queueHandle_ = getelementptr inbounds i8, ptr %this, i64 408
   %1 = load ptr, ptr %queueHandle_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cond.false, label %cleanup.done
@@ -9368,14 +9211,14 @@ lpad4:                                            ; preds = %invoke.cont5, %invo
   unreachable
 
 cleanup.done:                                     ; preds = %entry
-  %egressRateLimited_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %egressRateLimited_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %egressRateLimited_, align 8
   %4 = and i32 %bf.load, 16
   %bf.cast.not = icmp eq i32 %4, 0
   br i1 %bf.cast.not, label %land.lhs.true, label %cond.true.i4
 
 land.lhs.true:                                    ; preds = %cleanup.done
-  %deferredEgressBody_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4
+  %deferredEgressBody_.i = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load i8, ptr %deferredEgressBody_.i, align 8
   %6 = and i8 %5, 1
   %tobool.not.i.i = icmp eq i8 %6, 0
@@ -9400,22 +9243,22 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br label %lpad.body
 
 invoke.cont12:                                    ; preds = %land.lhs.true
-  %chainLength_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 1
+  %chainLength_.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %8 = load i64, ptr %chainLength_.i.i, align 8
-  %cachePtr_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 4
+  %cachePtr_.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %9 = load ptr, ptr %cachePtr_.i.i, align 8
   %10 = load ptr, ptr %9, align 8
-  %tailStart_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 3
+  %tailStart_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %11 = load ptr, ptr %tailStart_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = add i64 %8, %sub.ptr.lhs.cast.i.i
   %add.i.i = sub i64 %sub.ptr.sub.i.i, %sub.ptr.rhs.cast.i.i
-  %deferredBufferMeta_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 5
+  %deferredBufferMeta_.i = getelementptr inbounds i8, ptr %this, i64 232
   %12 = load i64, ptr %deferredBufferMeta_.i, align 8
   %add.i = sub i64 0, %12
   %cmp.not = icmp ne i64 %add.i.i, %add.i
-  %egressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i = getelementptr inbounds i8, ptr %this, i64 241
   %13 = load i8, ptr %egressState_.i, align 1
   %cmp.i = icmp eq i8 %13, 8
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp.i
@@ -9427,7 +9270,7 @@ land.lhs.true16:                                  ; preds = %invoke.cont12
   br i1 %bf.cast20.not, label %cond.true.i, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %land.lhs.true16
-  %sendWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_ = getelementptr inbounds i8, ptr %this, i64 352
   %call23 = invoke noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_)
           to label %invoke.cont22 unwind label %lpad
 
@@ -9443,7 +9286,7 @@ if.then:                                          ; preds = %invoke.cont22
 cond.true.i:                                      ; preds = %land.lhs.true16, %if.then
   %15 = phi ptr [ %.pre16, %if.then ], [ %1, %land.lhs.true16 ]
   %vtable.i = load ptr, ptr %15, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %16 = load ptr, ptr %vfn.i, align 8
   %call.i1 = invoke noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %invoke.cont25 unwind label %lpad
@@ -9457,19 +9300,19 @@ invoke.cont25.if.then27_crit_edge:                ; preds = %invoke.cont25
 
 if.then27:                                        ; preds = %invoke.cont25.if.then27_crit_edge, %if.then
   %17 = phi ptr [ %.pre, %invoke.cont25.if.then27_crit_edge ], [ null, %if.then ]
-  %egressQueue_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 22
+  %egressQueue_ = getelementptr inbounds i8, ptr %this, i64 400
   %18 = load ptr, ptr %egressQueue_, align 8
   %vtable = load ptr, ptr %18, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %19 = load ptr, ptr %vfn, align 8
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %17)
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %if.then27
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %20 = load ptr, ptr %transport_, align 8
   %vtable30 = load ptr, ptr %20, align 8
-  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 16
+  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 128
   %21 = load ptr, ptr %vfn31, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20) #27
   br label %if.end41
@@ -9480,7 +9323,7 @@ if.else:                                          ; preds = %invoke.cont22
 cond.true.i4:                                     ; preds = %cleanup.done, %invoke.cont12, %if.else
   %22 = phi ptr [ %.pre16, %if.else ], [ %1, %invoke.cont12 ], [ %1, %cleanup.done ]
   %vtable.i5 = load ptr, ptr %22, align 8
-  %vfn.i6 = getelementptr inbounds ptr, ptr %vtable.i5, i64 2
+  %vfn.i6 = getelementptr inbounds i8, ptr %vtable.i5, i64 16
   %23 = load ptr, ptr %vfn.i6, align 8
   %call.i9 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %invoke.cont32 unwind label %lpad
@@ -9489,11 +9332,11 @@ invoke.cont32:                                    ; preds = %cond.true.i4
   br i1 %call.i9, label %if.then34, label %if.end41
 
 if.then34:                                        ; preds = %invoke.cont32
-  %egressQueue_35 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 22
+  %egressQueue_35 = getelementptr inbounds i8, ptr %this, i64 400
   %24 = load ptr, ptr %egressQueue_35, align 8
   %25 = load ptr, ptr %queueHandle_, align 8
   %vtable37 = load ptr, ptr %24, align 8
-  %vfn38 = getelementptr inbounds ptr, ptr %vtable37, i64 7
+  %vfn38 = getelementptr inbounds i8, ptr %vtable37, i64 56
   %26 = load ptr, ptr %vfn38, align 8
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef %25)
           to label %if.end41 unwind label %lpad
@@ -9508,7 +9351,7 @@ invoke.cont42:                                    ; preds = %if.end41
   br i1 %cmp.not.i, label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont42
-  %guardCount_.i11 = getelementptr inbounds %"class.folly::DelayedDestructionBase", ptr %27, i64 0, i32 1
+  %guardCount_.i11 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load i32, ptr %guardCount_.i11, align 8
   %dec.i = add i32 %28, -1
   store i32 %dec.i, ptr %guardCount_.i11, align 8
@@ -9517,7 +9360,7 @@ if.then.i:                                        ; preds = %invoke.cont42
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i12 = load ptr, ptr %27, align 8
-  %vfn.i13 = getelementptr inbounds ptr, ptr %vtable.i12, i64 2
+  %vfn.i13 = getelementptr inbounds i8, ptr %vtable.i12, i64 16
   %29 = load ptr, ptr %vfn.i13, align 8
   invoke void %29(ptr noundef nonnull align 8 dereferenceable(12) %27, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -9540,7 +9383,7 @@ entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %ref.tmp28 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp33 = alloca %"class.std::__cxx11::basic_string", align 8
-  %useFlowControl_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %useFlowControl_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %useFlowControl_, align 8
   %0 = and i32 %bf.load, 32
   %bf.cast.not = icmp eq i32 %0, 0
@@ -9548,7 +9391,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN8proxygen15HTTPTransaction17updateReadTimeoutEv(ptr noundef nonnull align 8 dereferenceable(912) %this)
-  %sendWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_ = getelementptr inbounds i8, ptr %this, i64 352
   %call = tail call noundef zeroext i1 @_ZN8proxygen6Window11setCapacityEj(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_, i32 noundef %newWindowSize)
   br i1 %call, label %if.then2, label %if.else
 
@@ -9595,10 +9438,10 @@ invoke.cont18:                                    ; preds = %invoke.cont16
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont18
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %1 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %2 = load ptr, ptr %vfn.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %call21)
           to label %.noexc unwind label %lpad
@@ -9608,7 +9451,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %3 = load i64, ptr %id_.i.i, align 8
   %call2.i.i6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i5, i64 noundef %3)
           to label %invoke.cont22 unwind label %lpad
@@ -9723,10 +9566,10 @@ invoke.cont9:                                     ; preds = %invoke.cont7
           to label %invoke.cont11 unwind label %lpad8
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %3 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %4 = load ptr, ptr %vfn.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %call12)
           to label %.noexc unwind label %lpad8
@@ -9736,7 +9579,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %call.i.i.noexc unwind label %lpad8
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %5 = load i64, ptr %id_.i.i, align 8
   %call2.i.i4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i3, i64 noundef %5)
           to label %cleanup.action unwind label %lpad8
@@ -9746,13 +9589,13 @@ cleanup.action:                                   ; preds = %call.i.i.noexc
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.false, %cond.end, %cleanup.action
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %6 = load ptr, ptr %handler_, align 8
   %tobool20.not = icmp eq ptr %6, null
   br i1 %tobool20.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %cleanup.done
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #27
   store ptr %ref.tmp21, ptr %ref.tmp.i, align 8, !noalias !70
@@ -9772,14 +9615,14 @@ invoke.cont22:                                    ; preds = %if.then
 
 invoke.cont24:                                    ; preds = %invoke.cont22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #27
-  %proxygenError_.i = getelementptr inbounds %"class.proxygen::Exception", ptr %ex, i64 0, i32 3
+  %proxygenError_.i = getelementptr inbounds i8, ptr %ex, i64 44
   store i32 6, ptr %proxygenError_.i, align 4
   invoke void @_ZN8proxygen15HTTPTransaction7onErrorERKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(96) %ex)
           to label %invoke.cont27 unwind label %lpad25
 
 invoke.cont27:                                    ; preds = %invoke.cont24
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %ex, i64 88
   %8 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -9791,7 +9634,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont27
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %ex, i64 80
   %9 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %9, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -9804,7 +9647,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %ex, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %ex, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ex) #27
   br label %if.then.i
@@ -9846,7 +9689,7 @@ if.then.i:                                        ; preds = %_ZN8proxygen13HTTPE
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %15 = load ptr, ptr %vfn.i, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -9875,7 +9718,7 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %transportCallback_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then.i, label %if.then
@@ -9896,7 +9739,7 @@ if.then.i:                                        ; preds = %entry, %if.then
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -9920,14 +9763,14 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %transportCallback_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #27
   %.pre = load i32, ptr %guardCount_.i, align 8
@@ -9942,7 +9785,7 @@ if.then.i:                                        ; preds = %entry, %if.then
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -9966,14 +9809,14 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %transportCallback_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #27
   %.pre = load i32, ptr %guardCount_.i, align 8
@@ -9988,7 +9831,7 @@ if.then.i:                                        ; preds = %entry, %if.then
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -10012,14 +9855,14 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %transportCallback_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #27
   %.pre = load i32, ptr %guardCount_.i, align 8
@@ -10034,7 +9877,7 @@ if.then.i:                                        ; preds = %entry, %if.then
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -10058,14 +9901,14 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %transportCallback_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %latency.coerce) #27
   %.pre = load i32, ptr %guardCount_.i, align 8
@@ -10080,7 +9923,7 @@ if.then.i:                                        ; preds = %entry, %if.then
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -10099,7 +9942,7 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %if.then.
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPTransaction27onLastEgressHeaderByteAckedEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %egressHeadersDelivered_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %egressHeadersDelivered_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %egressHeadersDelivered_, align 8
   %bf.set = or i32 %bf.load, 131072
   store i32 %bf.set, ptr %egressHeadersDelivered_, align 8
@@ -10108,14 +9951,14 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %transportCallback_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #27
   %.pre = load i32, ptr %guardCount_.i, align 8
@@ -10130,7 +9973,7 @@ if.then.i:                                        ; preds = %entry, %if.then
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -10154,14 +9997,14 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %transportCallback_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %bodyOffset) #27
   %.pre = load i32, ptr %guardCount_.i, align 8
@@ -10176,7 +10019,7 @@ if.then.i:                                        ; preds = %entry, %if.then
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -10200,14 +10043,14 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %transportCallback_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %bodyOffset) #27
   %.pre = load i32, ptr %guardCount_.i, align 8
@@ -10222,7 +10065,7 @@ if.then.i:                                        ; preds = %entry, %if.then
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -10246,14 +10089,14 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %transportCallback_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %bodyOffset) #27
   %.pre = load i32, ptr %guardCount_.i, align 8
@@ -10268,7 +10111,7 @@ if.then.i:                                        ; preds = %entry, %if.then
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -10292,14 +10135,14 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %transportCallback_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %event) #27
   %.pre = load i32, ptr %guardCount_.i, align 8
@@ -10314,7 +10157,7 @@ if.then.i:                                        ; preds = %entry, %if.then
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -10338,14 +10181,14 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %transportCallback_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(64) %event) #27
   %.pre = load i32, ptr %guardCount_.i, align 8
@@ -10360,7 +10203,7 @@ if.then.i:                                        ; preds = %entry, %if.then
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -10384,14 +10227,14 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %1 = load ptr, ptr %transportCallback_, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.then.i, label %if.then
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #27
   %.pre = load i32, ptr %guardCount_.i, align 8
@@ -10406,7 +10249,7 @@ if.then.i:                                        ; preds = %entry, %if.then
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -10433,13 +10276,13 @@ entry:
   br i1 %call, label %while.end, label %return
 
 while.end:                                        ; preds = %entry
-  %fields_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %headers, i64 0, i32 6
+  %fields_.i = getelementptr inbounds i8, ptr %headers, i64 168
   %0 = load i8, ptr %fields_.i, align 8
   %cmp.i = icmp eq i8 %0, 1
   br i1 %cmp.i, label %if.then18, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.end
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 24, i32 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 424
   %1 = load i8, ptr %hasValue.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.not = icmp eq i8 %2, 0
@@ -10447,7 +10290,7 @@ land.lhs.true:                                    ; preds = %while.end
 
 if.end16:                                         ; preds = %land.lhs.true
   %call15 = tail call noundef zeroext i16 @_ZNK8proxygen11HTTPMessage13getStatusCodeEv(ptr noundef nonnull align 8 dereferenceable(616) %headers)
-  %lastResponseStatus_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 41
+  %lastResponseStatus_ = getelementptr inbounds i8, ptr %this, i64 732
   store i16 %call15, ptr %lastResponseStatus_, align 4
   %.pr.pre = load i8, ptr %fields_.i, align 8
   %cmp.i17 = icmp eq i8 %.pr.pre, 1
@@ -10455,14 +10298,14 @@ if.end16:                                         ; preds = %land.lhs.true
 
 if.then18:                                        ; preds = %while.end, %if.end16
   call void @_ZNK8proxygen11HTTPMessage9getMethodEv(ptr nonnull sret(%"class.folly::Optional.119") align 4 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(616) %headers)
-  %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<proxygen::HTTPMethod>::StorageTriviallyDestructible", ptr %ref.tmp19, i64 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %ref.tmp19, i64 4
   %3 = load i8, ptr %hasValue.i.i.i, align 4
   %4 = and i8 %3, 1
   %tobool.i.i.i = icmp ne i8 %4, 0
   %5 = load i32, ptr %ref.tmp19, align 4
   %cmp.i18 = icmp eq i32 %5, 4
   %6 = select i1 %tobool.i.i.i, i1 %cmp.i18, i1 false
-  %headRequest_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %headRequest_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %headRequest_, align 8
   %bf.shl = select i1 %6, i32 16384, i32 0
   %bf.clear = and i32 %bf.load, -16385
@@ -10480,7 +10323,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   %call.i = tail call noundef zeroext i16 @_ZNK8proxygen11HTTPMessage13getStatusCodeEv(ptr noundef nonnull align 8 dereferenceable(616) %headers)
   %call.off.i = add i16 %call.i, -100
   %cmp.i19 = icmp ult i16 %call.off.i, 100
-  %has1xxResponse_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %has1xxResponse_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load28 = load i32, ptr %has1xxResponse_, align 8
   %bf.shl29 = select i1 %cmp.i19, i32 262144, i32 0
   %bf.clear30 = and i32 %bf.load28, -262145
@@ -10498,14 +10341,14 @@ if.end32:                                         ; preds = %if.else, %if.then18
   br i1 %or.cond, label %if.then38, label %if.end71
 
 if.then38:                                        ; preds = %if.end32
-  %headers_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %headers, i64 0, i32 9
+  %headers_.i = getelementptr inbounds i8, ptr %headers, i64 480
   %9 = load ptr, ptr %headers_.i, align 8
   %tobool.not12.i.i = icmp eq ptr %9, null
   br i1 %tobool.not12.i.i, label %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %if.then38
-  %length_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %headers, i64 0, i32 9, i32 1
-  %capacity_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %headers, i64 0, i32 9, i32 2
+  %length_.i.i = getelementptr inbounds i8, ptr %headers, i64 488
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %headers, i64 496
   %10 = load i64, ptr %capacity_.i.i.i, align 8
   %mul.i.i.i.i = mul i64 %10, 40
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %mul.i.i.i.i
@@ -10553,8 +10396,8 @@ if.then43:                                        ; preds = %_ZNK8proxygen11HTTP
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %if.then43
-  %expectedResponseLength_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 36
-  %hasValue.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 36, i32 0, i32 1
+  %expectedResponseLength_ = getelementptr inbounds i8, ptr %this, i64 640
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 648
   %12 = load i8, ptr %hasValue.i.i.i.i, align 8
   %13 = and i8 %12, 1
   %tobool.i.i.not.i.i = icmp eq i8 %13, 0
@@ -10600,7 +10443,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
 
 invoke.cont60:                                    ; preds = %invoke.cont58
   %vtable = load ptr, ptr %18, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %19 = load ptr, ptr %vfn, align 8
   %call62 = call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(16) %18) #27
   %call64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call61, ptr noundef %call62)
@@ -10637,24 +10480,24 @@ ehcleanup:                                        ; preds = %lpad53, %lpad51
 
 if.end71:                                         ; preds = %_ZN5folly8OptionalImEaSImEERS1_OT_.exit, %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, %invoke.cont67, %if.end32
   store i32 0, ptr %size, align 4
-  %uncompressed.i = getelementptr inbounds %"struct.proxygen::HTTPHeaderSize", ptr %size, i64 0, i32 1
+  %uncompressed.i = getelementptr inbounds i8, ptr %size, i64 4
   store i32 0, ptr %uncompressed.i, align 4
-  %compressedBlock.i = getelementptr inbounds %"struct.proxygen::HTTPHeaderSize", ptr %size, i64 0, i32 2
+  %compressedBlock.i = getelementptr inbounds i8, ptr %size, i64 8
   store i32 0, ptr %compressedBlock.i, align 4
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %22 = load ptr, ptr %transport_, align 8
   %vtable72 = load ptr, ptr %22, align 8
-  %vfn73 = getelementptr inbounds ptr, ptr %vtable72, i64 5
+  %vfn73 = getelementptr inbounds i8, ptr %vtable72, i64 40
   %23 = load ptr, ptr %vfn73, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(616) %headers, ptr noundef nonnull %size, i1 noundef zeroext %eom) #27
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %24 = load ptr, ptr %transportCallback_, align 8
   %tobool74.not = icmp eq ptr %24, null
   br i1 %tobool74.not, label %if.end79, label %if.then75
 
 if.then75:                                        ; preds = %if.end71
   %vtable77 = load ptr, ptr %24, align 8
-  %vfn78 = getelementptr inbounds ptr, ptr %vtable77, i64 8
+  %vfn78 = getelementptr inbounds i8, ptr %vtable77, i64 64
   %25 = load ptr, ptr %vfn78, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 4 dereferenceable(12) %size) #27
   br label %if.end79
@@ -10662,23 +10505,23 @@ if.then75:                                        ; preds = %if.end71
 if.end79:                                         ; preds = %if.then75, %if.end71
   %26 = load ptr, ptr %transport_, align 8
   %vtable82 = load ptr, ptr %26, align 8
-  %vfn83 = getelementptr inbounds ptr, ptr %vtable82, i64 28
+  %vfn83 = getelementptr inbounds i8, ptr %vtable82, i64 224
   %27 = load ptr, ptr %vfn83, align 8
   %call84 = call noundef nonnull align 8 dereferenceable(8) ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %26) #27
   %vtable85 = load ptr, ptr %call84, align 8
-  %vfn86 = getelementptr inbounds ptr, ptr %vtable85, i64 2
+  %vfn86 = getelementptr inbounds i8, ptr %vtable85, i64 16
   %28 = load ptr, ptr %vfn86, align 8
   call void %28(ptr nonnull sret(%"struct.proxygen::CompressionInfo") align 4 %ref.tmp80, ptr noundef nonnull align 8 dereferenceable(8) %call84)
-  %tableInfo_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16
+  %tableInfo_.i = getelementptr inbounds i8, ptr %this, i64 288
   %29 = load <4 x i32>, ptr %ref.tmp80, align 16
   store <4 x i32> %29, ptr %tableInfo_.i, align 8
-  %blockedInserts_.i.i = getelementptr inbounds %"struct.proxygen::CompressionInfoPart", ptr %ref.tmp80, i64 0, i32 4
-  %blockedInserts_6.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 0, i32 4
+  %blockedInserts_.i.i = getelementptr inbounds i8, ptr %ref.tmp80, i64 16
+  %blockedInserts_6.i.i = getelementptr inbounds i8, ptr %this, i64 304
   %30 = load <2 x i32>, ptr %blockedInserts_.i.i, align 16
   store <2 x i32> %30, ptr %blockedInserts_6.i.i, align 8
-  %staticRefs_.i.i = getelementptr inbounds %"struct.proxygen::CompressionInfoPart", ptr %ref.tmp80, i64 0, i32 6
+  %staticRefs_.i.i = getelementptr inbounds i8, ptr %ref.tmp80, i64 24
   %31 = load i32, ptr %staticRefs_.i.i, align 8
-  %staticRefs_8.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 0, i32 6
+  %staticRefs_8.i.i = getelementptr inbounds i8, ptr %this, i64 312
   store i32 %31, ptr %staticRefs_8.i.i, align 8
   br i1 %eom, label %if.then88, label %if.end102
 
@@ -10693,7 +10536,7 @@ if.end91:                                         ; preds = %if.then88
 
 if.then94:                                        ; preds = %if.end91
   %vtable96 = load ptr, ptr %32, align 8
-  %vfn97 = getelementptr inbounds ptr, ptr %vtable96, i64 10
+  %vfn97 = getelementptr inbounds i8, ptr %vtable96, i64 80
   %33 = load ptr, ptr %vfn97, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(8) %32, i64 noundef 0) #27
   br label %if.end98
@@ -10728,32 +10571,32 @@ terminate.lpad:                                   ; preds = %ehcleanup
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN8proxygen15HTTPTransaction27updateEgressCompressionInfoERKNS_15CompressionInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(56) %tableInfo) local_unnamed_addr #11 align 2 {
 entry:
-  %tableInfo_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16
+  %tableInfo_ = getelementptr inbounds i8, ptr %this, i64 288
   %0 = load i32, ptr %tableInfo, align 4
   store i32 %0, ptr %tableInfo_, align 8
-  %bytesStored_.i = getelementptr inbounds %"struct.proxygen::CompressionInfoPart", ptr %tableInfo, i64 0, i32 1
+  %bytesStored_.i = getelementptr inbounds i8, ptr %tableInfo, i64 4
   %1 = load i32, ptr %bytesStored_.i, align 4
-  %bytesStored_3.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 0, i32 1
+  %bytesStored_3.i = getelementptr inbounds i8, ptr %this, i64 292
   store i32 %1, ptr %bytesStored_3.i, align 4
-  %headersStored_.i = getelementptr inbounds %"struct.proxygen::CompressionInfoPart", ptr %tableInfo, i64 0, i32 2
+  %headersStored_.i = getelementptr inbounds i8, ptr %tableInfo, i64 8
   %2 = load i32, ptr %headersStored_.i, align 4
-  %headersStored_4.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 0, i32 2
+  %headersStored_4.i = getelementptr inbounds i8, ptr %this, i64 296
   store i32 %2, ptr %headersStored_4.i, align 8
-  %inserts_.i = getelementptr inbounds %"struct.proxygen::CompressionInfoPart", ptr %tableInfo, i64 0, i32 3
+  %inserts_.i = getelementptr inbounds i8, ptr %tableInfo, i64 12
   %3 = load i32, ptr %inserts_.i, align 4
-  %inserts_5.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 0, i32 3
+  %inserts_5.i = getelementptr inbounds i8, ptr %this, i64 300
   store i32 %3, ptr %inserts_5.i, align 4
-  %blockedInserts_.i = getelementptr inbounds %"struct.proxygen::CompressionInfoPart", ptr %tableInfo, i64 0, i32 4
+  %blockedInserts_.i = getelementptr inbounds i8, ptr %tableInfo, i64 16
   %4 = load i32, ptr %blockedInserts_.i, align 4
-  %blockedInserts_6.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 0, i32 4
+  %blockedInserts_6.i = getelementptr inbounds i8, ptr %this, i64 304
   store i32 %4, ptr %blockedInserts_6.i, align 8
-  %duplications_.i = getelementptr inbounds %"struct.proxygen::CompressionInfoPart", ptr %tableInfo, i64 0, i32 5
+  %duplications_.i = getelementptr inbounds i8, ptr %tableInfo, i64 20
   %5 = load i32, ptr %duplications_.i, align 4
-  %duplications_7.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 0, i32 5
+  %duplications_7.i = getelementptr inbounds i8, ptr %this, i64 308
   store i32 %5, ptr %duplications_7.i, align 4
-  %staticRefs_.i = getelementptr inbounds %"struct.proxygen::CompressionInfoPart", ptr %tableInfo, i64 0, i32 6
+  %staticRefs_.i = getelementptr inbounds i8, ptr %tableInfo, i64 24
   %6 = load i32, ptr %staticRefs_.i, align 4
-  %staticRefs_8.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 0, i32 6
+  %staticRefs_8.i = getelementptr inbounds i8, ptr %this, i64 312
   store i32 %6, ptr %staticRefs_8.i, align 8
   ret void
 }
@@ -10767,7 +10610,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fields_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %headers, i64 0, i32 6
+  %fields_.i = getelementptr inbounds i8, ptr %headers, i64 168
   %0 = load i8, ptr %fields_.i, align 8
   %cmp.i = icmp eq i8 %0, 1
   br i1 %cmp.i, label %if.then3, label %if.end6
@@ -10782,7 +10625,7 @@ invoke.cont4:                                     ; preds = %if.then3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
   %1 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -10794,7 +10637,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont5
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %2 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %2, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -10807,20 +10650,20 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %agg.tmp, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #27
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %headers_.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %headers, i64 0, i32 9
+  %headers_.i = getelementptr inbounds i8, ptr %headers, i64 480
   %3 = load ptr, ptr %headers_.i, align 8
   %tobool.not12.i.i = icmp eq ptr %3, null
   br i1 %tobool.not12.i.i, label %invoke.cont9, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %if.end6
-  %length_.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %headers, i64 0, i32 9, i32 1
-  %capacity_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPMessage", ptr %headers, i64 0, i32 9, i32 2
+  %length_.i.i = getelementptr inbounds i8, ptr %headers, i64 488
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %headers, i64 496
   %4 = load i64, ptr %capacity_.i.i.i, align 8
   %mul.i.i.i.i = mul i64 %4, 40
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %mul.i.i.i.i
@@ -10873,10 +10716,10 @@ invoke.cont15:                                    ; preds = %invoke.cont14
           to label %invoke.cont17 unwind label %terminate.lpad
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %6 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %7 = load ptr, ptr %vfn.i.i, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %call18)
           to label %.noexc unwind label %terminate.lpad
@@ -10886,7 +10729,7 @@ invoke.cont17:                                    ; preds = %invoke.cont15
           to label %call.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %8 = load i64, ptr %id_.i.i, align 8
   %call2.i.i6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i5, i64 noundef %8)
           to label %invoke.cont19 unwind label %terminate.lpad
@@ -10903,8 +10746,8 @@ if.end21:                                         ; preds = %invoke.cont9
           to label %invoke.cont23 unwind label %terminate.lpad
 
 invoke.cont23:                                    ; preds = %if.end21
-  %expectedResponseLength_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 36
-  %hasValue.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 36, i32 0, i32 1
+  %expectedResponseLength_ = getelementptr inbounds i8, ptr %this, i64 640
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 648
   %9 = load i8, ptr %hasValue.i.i.i.i, align 8
   %10 = and i8 %9, 1
   %tobool.i.i.not.i.i = icmp eq i8 %10, 0
@@ -10940,14 +10783,14 @@ entry:
   %agg.tmp46 = alloca %"class.proxygen::HTTPException", align 8
   %agg.tmp53 = alloca %"class.proxygen::HTTPException", align 8
   %agg.tmp59 = alloca %"class.proxygen::HTTPException", align 8
-  %has1xxResponse_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %has1xxResponse_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %has1xxResponse_, align 8
   %0 = and i32 %bf.load, 278528
   %or.cond2 = icmp eq i32 %0, 0
   br i1 %or.cond2, label %lor.lhs.false6, label %if.then
 
 lor.lhs.false6:                                   ; preds = %entry
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 24, i32 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 424
   %1 = load i8, ptr %hasValue.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.not = icmp eq i8 %2, 0
@@ -10970,7 +10813,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false6
-  %direction_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 6
+  %direction_ = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load i8, ptr %direction_, align 8
   %cmp = icmp eq i8 %3, 1
   br i1 %cmp, label %if.then12, label %if.end19
@@ -10992,14 +10835,14 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   br label %return
 
 if.end19:                                         ; preds = %if.end
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %4 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 28
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %5 = load ptr, ptr %vfn, align 8
   %call20 = tail call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #27
   %vtable21 = load ptr, ptr %call20, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 3
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 24
   %6 = load ptr, ptr %vfn22, align 8
   %call24 = invoke noundef zeroext i8 %6(ptr noundef nonnull align 8 dereferenceable(8) %call20)
           to label %invoke.cont23 unwind label %terminate.lpad
@@ -11026,7 +10869,7 @@ invoke.cont32:                                    ; preds = %invoke.cont30
   br label %return
 
 if.end34:                                         ; preds = %invoke.cont23
-  %head_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 2
+  %head_.i = getelementptr inbounds i8, ptr %this, i64 176
   %8 = load ptr, ptr %head_.i, align 8
   %cmp.i.not.i = icmp eq ptr %8, null
   br i1 %cmp.i.not.i, label %if.end40, label %lor.rhs.i
@@ -11039,10 +10882,10 @@ call4.i.noexc:                                    ; preds = %lor.rhs.i
   br i1 %call4.i3, label %invoke.cont35, label %if.then37
 
 invoke.cont35:                                    ; preds = %call4.i.noexc
-  %cachePtr_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 4
+  %cachePtr_.i = getelementptr inbounds i8, ptr %this, i64 192
   %9 = load ptr, ptr %cachePtr_.i, align 8
   %10 = load ptr, ptr %9, align 8
-  %tailStart_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 3
+  %tailStart_.i = getelementptr inbounds i8, ptr %this, i64 184
   %11 = load ptr, ptr %tailStart_.i, align 8
   %cmp.i = icmp eq ptr %10, %11
   br i1 %cmp.i, label %if.end40, label %if.then37
@@ -11057,7 +10900,7 @@ invoke.cont38:                                    ; preds = %if.then37
 
 invoke.cont39:                                    ; preds = %invoke.cont38
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
   %12 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -11069,7 +10912,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont39
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %13 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %13, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -11082,7 +10925,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %agg.tmp, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #27
   br label %return
@@ -11106,7 +10949,7 @@ invoke.cont48:                                    ; preds = %invoke.cont47
   br label %return
 
 if.end49:                                         ; preds = %if.end40
-  %egressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i = getelementptr inbounds i8, ptr %this, i64 241
   %15 = load i8, ptr %egressState_.i, align 1
   switch i8 %15, label %return [
     i8 9, label %if.then52
@@ -11170,10 +11013,10 @@ invoke.cont:                                      ; preds = %if.then
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %1 = load ptr, ptr %vfn.i.i, align 8
   invoke void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %call4)
           to label %.noexc unwind label %lpad
@@ -11183,7 +11026,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load i64, ptr %id_.i.i, align 8
   %call2.i.i4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i3, i64 noundef %2)
           to label %invoke.cont5 unwind label %lpad
@@ -11199,7 +11042,7 @@ lpad:                                             ; preds = %call.i.i.noexc, %.n
   resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %entry
-  %isDelegated_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %isDelegated_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %isDelegated_, align 8
   %bf.set = or i32 %bf.load, 524288
   store i32 %bf.set, ptr %isDelegated_, align 8
@@ -11208,16 +11051,16 @@ if.end:                                           ; preds = %entry
 
 if.end9:                                          ; preds = %if.end
   %call10 = tail call noundef zeroext i16 @_ZNK8proxygen11HTTPMessage13getStatusCodeEv(ptr noundef nonnull align 8 dereferenceable(616) %headers)
-  %lastResponseStatus_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 41
+  %lastResponseStatus_ = getelementptr inbounds i8, ptr %this, i64 732
   store i16 %call10, ptr %lastResponseStatus_, align 4
   store i32 0, ptr %size, align 4
-  %uncompressed.i = getelementptr inbounds %"struct.proxygen::HTTPHeaderSize", ptr %size, i64 0, i32 1
+  %uncompressed.i = getelementptr inbounds i8, ptr %size, i64 4
   store i32 0, ptr %uncompressed.i, align 4
-  %compressedBlock.i = getelementptr inbounds %"struct.proxygen::HTTPHeaderSize", ptr %size, i64 0, i32 2
+  %compressedBlock.i = getelementptr inbounds i8, ptr %size, i64 8
   store i32 0, ptr %compressedBlock.i, align 4
   store i64 0, ptr %dataFrameHeaderSize, align 8
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 36, i32 0, i32 1
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 648
   %4 = load i8, ptr %hasValue.i.i.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i.i.i = icmp eq i8 %5, 0
@@ -11228,14 +11071,14 @@ if.then.i.i.i:                                    ; preds = %if.end9
   unreachable
 
 _ZNR5folly8OptionalImEdeEv.exit:                  ; preds = %if.end9
-  %expectedResponseLength_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 36
+  %expectedResponseLength_ = getelementptr inbounds i8, ptr %this, i64 640
   %6 = load ptr, ptr %transport_, align 8
   %7 = load i64, ptr %expectedResponseLength_, align 8
   %8 = load i64, ptr %sender, align 8
   store i64 %8, ptr %agg.tmp, align 8
   store ptr null, ptr %sender, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %9 = load ptr, ptr %vfn, align 8
   %call12 = call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(616) %headers, ptr noundef nonnull %size, ptr noundef nonnull %dataFrameHeaderSize, i64 noundef %7, ptr noundef nonnull %agg.tmp) #27
   %10 = load ptr, ptr %agg.tmp, align 8
@@ -11244,7 +11087,7 @@ _ZNR5folly8OptionalImEdeEv.exit:                  ; preds = %if.end9
 
 _ZNKSt14default_deleteIN8proxygen16DSRRequestSenderEEclEPS1_.exit.i: ; preds = %_ZNR5folly8OptionalImEdeEv.exit
   %vtable.i.i5 = load ptr, ptr %10, align 8
-  %vfn.i.i6 = getelementptr inbounds ptr, ptr %vtable.i.i5, i64 1
+  %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 8
   %11 = load ptr, ptr %vfn.i.i6, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #27
   br label %_ZNSt10unique_ptrIN8proxygen16DSRRequestSenderESt14default_deleteIS1_EED2Ev.exit
@@ -11254,20 +11097,20 @@ _ZNSt10unique_ptrIN8proxygen16DSRRequestSenderESt14default_deleteIS1_EED2Ev.exit
   br i1 %call12, label %if.end14, label %return
 
 if.end14:                                         ; preds = %_ZNSt10unique_ptrIN8proxygen16DSRRequestSenderESt14default_deleteIS1_EED2Ev.exit
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %12 = load ptr, ptr %transportCallback_, align 8
   %tobool15.not = icmp eq ptr %12, null
   br i1 %tobool15.not, label %if.end23, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
   %vtable18 = load ptr, ptr %12, align 8
-  %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 8
+  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 64
   %13 = load ptr, ptr %vfn19, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(12) %size) #27
   %14 = load ptr, ptr %transportCallback_, align 8
   %15 = load i64, ptr %dataFrameHeaderSize, align 8
   %vtable21 = load ptr, ptr %14, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 10
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 80
   %16 = load ptr, ptr %vfn22, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %15) #27
   br label %if.end23
@@ -11275,23 +11118,23 @@ if.then16:                                        ; preds = %if.end14
 if.end23:                                         ; preds = %if.then16, %if.end14
   %17 = load ptr, ptr %transport_, align 8
   %vtable26 = load ptr, ptr %17, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 28
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 224
   %18 = load ptr, ptr %vfn27, align 8
   %call28 = call noundef nonnull align 8 dereferenceable(8) ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %17) #27
   %vtable29 = load ptr, ptr %call28, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 2
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 16
   %19 = load ptr, ptr %vfn30, align 8
   call void %19(ptr nonnull sret(%"struct.proxygen::CompressionInfo") align 4 %ref.tmp24, ptr noundef nonnull align 8 dereferenceable(8) %call28)
-  %tableInfo_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16
+  %tableInfo_.i = getelementptr inbounds i8, ptr %this, i64 288
   %20 = load <4 x i32>, ptr %ref.tmp24, align 16
   store <4 x i32> %20, ptr %tableInfo_.i, align 8
-  %blockedInserts_.i.i = getelementptr inbounds %"struct.proxygen::CompressionInfoPart", ptr %ref.tmp24, i64 0, i32 4
-  %blockedInserts_6.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 0, i32 4
+  %blockedInserts_.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 16
+  %blockedInserts_6.i.i = getelementptr inbounds i8, ptr %this, i64 304
   %21 = load <2 x i32>, ptr %blockedInserts_.i.i, align 16
   store <2 x i32> %21, ptr %blockedInserts_6.i.i, align 8
-  %staticRefs_.i.i = getelementptr inbounds %"struct.proxygen::CompressionInfoPart", ptr %ref.tmp24, i64 0, i32 6
+  %staticRefs_.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 24
   %22 = load i32, ptr %staticRefs_.i.i, align 8
-  %staticRefs_8.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16, i32 0, i32 6
+  %staticRefs_8.i.i = getelementptr inbounds i8, ptr %this, i64 312
   store i32 %22, ptr %staticRefs_8.i.i, align 8
   br label %return
 
@@ -11304,7 +11147,7 @@ return:                                           ; preds = %_ZNSt10unique_ptrIN
 define void @_ZN8proxygen15HTTPTransaction18sendHeadersWithEOMERKNS_11HTTPMessageE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(616) %header) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(616) %header, i1 noundef zeroext true)
   ret void
@@ -11314,7 +11157,7 @@ entry:
 define void @_ZN8proxygen15HTTPTransaction11sendHeadersERKNS_11HTTPMessageE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(616) %header) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(616) %header, i1 noundef zeroext false)
   ret void
@@ -11331,26 +11174,26 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %egressState_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_ = getelementptr inbounds i8, ptr %this, i64 241
   %1 = load i8, ptr %egressState_, align 1
   %cmp = icmp eq i8 %1, 4
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %2 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 28
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
   %vtable2 = load ptr, ptr %call, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 19
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 152
   %4 = load ptr, ptr %vfn3, align 8
   %call4 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %call)
           to label %land.end unwind label %lpad
 
 land.end:                                         ; preds = %land.rhs, %entry
-  %deferredBufferMeta_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 5
+  %deferredBufferMeta_ = getelementptr inbounds i8, ptr %this, i64 232
   %5 = load i64, ptr %deferredBufferMeta_, align 8
   %cmp5 = icmp eq i64 %5, 0
   br i1 %cmp5, label %if.end, label %if.then
@@ -11365,7 +11208,7 @@ invoke.cont6:                                     ; preds = %if.then
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
   %6 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -11377,7 +11220,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont8
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %7 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %7, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -11390,7 +11233,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %agg.tmp, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #27
   br label %if.then.i
@@ -11423,7 +11266,7 @@ if.then14:                                        ; preds = %if.end12
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %if.then14
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 37, i32 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 664
   %11 = load i8, ptr %hasValue.i.i, align 8
   %12 = and i8 %11, 1
   %tobool.not.i.i = icmp eq i8 %12, 0
@@ -11437,19 +11280,19 @@ if.then.i.i:                                      ; preds = %invoke.cont16
   unreachable
 
 invoke.cont21:                                    ; preds = %invoke.cont16
-  %actualResponseLength_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 37
+  %actualResponseLength_ = getelementptr inbounds i8, ptr %this, i64 656
   %13 = load i64, ptr %actualResponseLength_, align 8
   %add = add i64 %13, %call17
   store i64 %add, ptr %actualResponseLength_, align 8
-  %deferredEgressBody_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4
+  %deferredEgressBody_ = getelementptr inbounds i8, ptr %this, i64 160
   invoke void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %deferredEgressBody_, ptr noundef nonnull align 8 dereferenceable(8) %body, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont68 unwind label %lpad
 
 invoke.cont68:                                    ; preds = %invoke.cont21
-  %transport_69 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_69 = getelementptr inbounds i8, ptr %this, i64 272
   %14 = load ptr, ptr %transport_69, align 8
   %vtable70 = load ptr, ptr %14, align 8
-  %vfn71 = getelementptr inbounds ptr, ptr %vtable70, i64 19
+  %vfn71 = getelementptr inbounds i8, ptr %vtable70, i64 152
   %15 = load ptr, ptr %vfn71, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %call17) #27
   br label %if.end72
@@ -11468,7 +11311,7 @@ if.then.i:                                        ; preds = %_ZN8proxygen13HTTPE
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %17 = load ptr, ptr %vfn.i, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -11510,7 +11353,7 @@ invoke.cont2:                                     ; preds = %entry
   br i1 %call, label %if.end, label %if.then.i
 
 if.end:                                           ; preds = %invoke.cont2
-  %deferredBufferMeta_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 5
+  %deferredBufferMeta_ = getelementptr inbounds i8, ptr %this, i64 232
   %1 = load i64, ptr %deferredBufferMeta_, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.end6, label %if.then3
@@ -11525,7 +11368,7 @@ invoke.cont4:                                     ; preds = %if.then3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
   %2 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -11537,7 +11380,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont5
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %3 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %3, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -11553,8 +11396,8 @@ _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN
   br label %if.then.i.sink.split
 
 if.end6:                                          ; preds = %if.end
-  %actualResponseLength_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 37
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 37, i32 0, i32 1
+  %actualResponseLength_ = getelementptr inbounds i8, ptr %this, i64 656
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 664
   %4 = load i8, ptr %hasValue.i.i, align 8
   %5 = and i8 %4, 1
   %tobool.i.i.not = icmp eq i8 %5, 0
@@ -11575,7 +11418,7 @@ invoke.cont14:                                    ; preds = %if.then12
 
 invoke.cont15:                                    ; preds = %invoke.cont14
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp13, align 8
-  %partialMsg_.i1 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp13, i64 0, i32 7
+  %partialMsg_.i1 = getelementptr inbounds i8, ptr %agg.tmp13, i64 88
   %7 = load ptr, ptr %partialMsg_.i1, align 8
   %cmp.not.i.i2 = icmp eq ptr %7, null
   br i1 %cmp.not.i.i2, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i4, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i3
@@ -11587,7 +11430,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i3: ; preds = %in
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i4: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i3, %invoke.cont15
   store ptr null, ptr %partialMsg_.i1, align 8
-  %currentIngressBuf_.i5 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp13, i64 0, i32 6
+  %currentIngressBuf_.i5 = getelementptr inbounds i8, ptr %agg.tmp13, i64 80
   %8 = load ptr, ptr %currentIngressBuf_.i5, align 8
   %cmp.not.i1.i6 = icmp eq ptr %8, null
   br i1 %cmp.not.i1.i6, label %_ZN8proxygen13HTTPExceptionD2Ev.exit9, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i7
@@ -11603,21 +11446,21 @@ _ZN8proxygen13HTTPExceptionD2Ev.exit9:            ; preds = %_ZNSt10unique_ptrIN
   br label %if.then.i.sink.split
 
 if.end16:                                         ; preds = %if.end6
-  %hasValue.i.i.i10 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 36, i32 0, i32 1
+  %hasValue.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 648
   %9 = load i8, ptr %hasValue.i.i.i10, align 8
   %10 = and i8 %9, 1
   %tobool.not.i.i.i11 = icmp eq i8 %10, 0
   br i1 %tobool.not.i.i.i11, label %if.then.i.i.i12, label %if.else.i.i
 
 if.end16.thread:                                  ; preds = %invoke.cont9
-  %hasValue.i.i.i1019 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 36, i32 0, i32 1
+  %hasValue.i.i.i1019 = getelementptr inbounds i8, ptr %this, i64 648
   %11 = load i8, ptr %hasValue.i.i.i1019, align 8
   %12 = and i8 %11, 1
   %tobool.not.i.i.i1120 = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i.i1120, label %if.then.i.i.i12, label %invoke.cont17.thread
 
 invoke.cont17.thread:                             ; preds = %if.end16.thread
-  %expectedResponseLength_18 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 36
+  %expectedResponseLength_18 = getelementptr inbounds i8, ptr %this, i64 640
   %13 = load i64, ptr %expectedResponseLength_18, align 8
   store i64 %13, ptr %deferredBufferMeta_, align 8
   br label %invoke.cont22
@@ -11630,7 +11473,7 @@ if.then.i.i.i12:                                  ; preds = %if.end16.thread, %i
   unreachable
 
 if.else.i.i:                                      ; preds = %if.end16
-  %expectedResponseLength_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 36
+  %expectedResponseLength_ = getelementptr inbounds i8, ptr %this, i64 640
   %14 = load i64, ptr %expectedResponseLength_, align 8
   store i64 %14, ptr %deferredBufferMeta_, align 8
   store i8 1, ptr %hasValue.i.i, align 8
@@ -11639,10 +11482,10 @@ if.else.i.i:                                      ; preds = %if.end16
 invoke.cont22:                                    ; preds = %if.else.i.i, %invoke.cont17.thread
   %15 = phi i64 [ %13, %invoke.cont17.thread ], [ %14, %if.else.i.i ]
   store i64 %15, ptr %actualResponseLength_, align 8
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %16 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %16, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %17 = load ptr, ptr %vfn, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %15) #27
   invoke void @_ZN8proxygen15HTTPTransaction28notifyTransportPendingEgressEv(ptr noundef nonnull align 8 dereferenceable(912) %this)
@@ -11650,7 +11493,7 @@ invoke.cont22:                                    ; preds = %if.else.i.i, %invok
 
 if.then.i.sink.split:                             ; preds = %_ZN8proxygen13HTTPExceptionD2Ev.exit9, %_ZN8proxygen13HTTPExceptionD2Ev.exit
   %agg.tmp.sink24 = phi ptr [ %agg.tmp, %_ZN8proxygen13HTTPExceptionD2Ev.exit ], [ %agg.tmp13, %_ZN8proxygen13HTTPExceptionD2Ev.exit9 ]
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %agg.tmp.sink24, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %agg.tmp.sink24, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.sink24) #27
   br label %if.then.i
@@ -11665,7 +11508,7 @@ if.then.i:                                        ; preds = %if.then.i.sink.spli
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %19 = load ptr, ptr %vfn.i, align 8
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -11698,11 +11541,11 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %cumulativeRatio_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 31
+  %cumulativeRatio_ = getelementptr inbounds i8, ptr %this, i64 584
   %1 = load double, ptr %cumulativeRatio_, align 8
   %add = fadd double %1, %ratio
   store double %add, ptr %cumulativeRatio_, align 8
-  %egressCalls_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 32
+  %egressCalls_ = getelementptr inbounds i8, ptr %this, i64 592
   %2 = load i64, ptr %egressCalls_, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %egressCalls_, align 8
@@ -11716,14 +11559,14 @@ lpad:                                             ; preds = %cond.true.i, %entry
   resume { ptr, i32 } %3
 
 invoke.cont14:                                    ; preds = %entry
-  %queueHandle_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 23
+  %queueHandle_.i = getelementptr inbounds i8, ptr %this, i64 408
   %4 = load ptr, ptr %queueHandle_.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.then.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %invoke.cont14
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i1 = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %if.then.i unwind label %lpad
@@ -11739,7 +11582,7 @@ if.then.i:                                        ; preds = %cond.true.i, %invok
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i3 = load ptr, ptr %add.ptr, align 8
-  %vfn.i4 = getelementptr inbounds ptr, ptr %vtable.i3, i64 2
+  %vfn.i4 = getelementptr inbounds i8, ptr %vtable.i3, i64 16
   %7 = load ptr, ptr %vfn.i4, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -11766,9 +11609,9 @@ entry:
   %cur = alloca %"class.std::unique_ptr.4", align 8
   %ref.tmp76 = alloca %"class.google::LogMessage", align 8
   %agg.tmp92 = alloca %"class.std::unique_ptr.4", align 8
-  %sendWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_ = getelementptr inbounds i8, ptr %this, i64 352
   %call = tail call noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_)
-  %useFlowControl_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %useFlowControl_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %useFlowControl_, align 8
   %0 = and i32 %bf.load, 32
   %bf.cast.not = icmp eq i32 %0, 0
@@ -11781,7 +11624,7 @@ cond.true:                                        ; preds = %entry
 
 cond.end5:                                        ; preds = %entry, %cond.true
   %cond6 = phi i32 [ %cond6.pre, %cond.true ], [ %maxEgress, %entry ]
-  %deferredEgressBody_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4
+  %deferredEgressBody_.i = getelementptr inbounds i8, ptr %this, i64 160
   %1 = load i8, ptr %deferredEgressBody_.i, align 8
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
@@ -11807,25 +11650,25 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br label %common.resume
 
 _ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit: ; preds = %cond.end5
-  %chainLength_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 1
+  %chainLength_.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load i64, ptr %chainLength_.i.i, align 8
-  %cachePtr_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 4
+  %cachePtr_.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %5 = load ptr, ptr %cachePtr_.i.i, align 8
   %6 = load ptr, ptr %5, align 8
-  %tailStart_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 3
+  %tailStart_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %7 = load ptr, ptr %tailStart_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i = add i64 %4, %sub.ptr.lhs.cast.i.i
   %add.i.i = sub i64 %sub.ptr.sub.i.i, %sub.ptr.rhs.cast.i.i
-  %deferredBufferMeta_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 5
+  %deferredBufferMeta_.i = getelementptr inbounds i8, ptr %this, i64 232
   %8 = load i64, ptr %deferredBufferMeta_.i, align 8
   %add.i = add i64 %add.i.i, %8
   %cmp8.not = icmp eq i64 %add.i, 0
   br i1 %cmp8.not, label %lor.lhs.false, label %land.lhs.true
 
 lor.lhs.false:                                    ; preds = %_ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit
-  %egressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i = getelementptr inbounds i8, ptr %this, i64 241
   %9 = load i8, ptr %egressState_.i, align 1
   %cmp.i24 = icmp eq i8 %9, 8
   %cmp10 = icmp ne i32 %cond6, 0
@@ -11843,7 +11686,7 @@ if.then:                                          ; preds = %land.lhs.true, %lor
 
 invoke.cont:                                      ; preds = %if.then
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
   %10 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -11855,7 +11698,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %11 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %11, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -11868,7 +11711,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %agg.tmp, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #27
   br label %return
@@ -11886,7 +11729,7 @@ if.end:                                           ; preds = %lor.lhs.false, %lan
   br i1 %call13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end
-  %chunkHeaders_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 21
+  %chunkHeaders_ = getelementptr inbounds i8, ptr %this, i64 376
   %13 = load ptr, ptr %chunkHeaders_, align 8
   %cmp.i27 = icmp eq ptr %13, %chunkHeaders_
   br i1 %cmp.i27, label %if.then17, label %while.cond.preheader
@@ -11896,8 +11739,8 @@ while.cond.preheader:                             ; preds = %if.end15
   br i1 %cmp50104, label %while.end131, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
-  %_M_size.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 1
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 392
   br label %while.body
 
 if.then17:                                        ; preds = %if.end15
@@ -11944,7 +11787,7 @@ if.then22:                                        ; preds = %if.then20
 
 invoke.cont25:                                    ; preds = %if.then22
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp23, align 8
-  %partialMsg_.i29 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp23, i64 0, i32 7
+  %partialMsg_.i29 = getelementptr inbounds i8, ptr %agg.tmp23, i64 88
   %22 = load ptr, ptr %partialMsg_.i29, align 8
   %cmp.not.i.i30 = icmp eq ptr %22, null
   br i1 %cmp.not.i.i30, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i32, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i31
@@ -11956,7 +11799,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i31: ; preds = %i
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i32: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i31, %invoke.cont25
   store ptr null, ptr %partialMsg_.i29, align 8
-  %currentIngressBuf_.i33 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp23, i64 0, i32 6
+  %currentIngressBuf_.i33 = getelementptr inbounds i8, ptr %agg.tmp23, i64 80
   %23 = load ptr, ptr %currentIngressBuf_.i33, align 8
   %cmp.not.i1.i34 = icmp eq ptr %23, null
   br i1 %cmp.not.i1.i34, label %_ZN8proxygen13HTTPExceptionD2Ev.exit37, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i35
@@ -11969,7 +11812,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i35: ; preds = %_ZNSt10uniq
 _ZN8proxygen13HTTPExceptionD2Ev.exit37:           ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i32, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i35
   store ptr null, ptr %currentIngressBuf_.i33, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp23, align 8
-  %msg_.i.i36 = getelementptr inbounds %"class.proxygen::Exception", ptr %agg.tmp23, i64 0, i32 1
+  %msg_.i.i36 = getelementptr inbounds i8, ptr %agg.tmp23, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i36) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp23) #27
   br label %return
@@ -11985,7 +11828,7 @@ if.end26:                                         ; preds = %if.then20
   %25 = load i64, ptr %body, align 8
   store i64 %25, ptr %agg.tmp28, align 8
   store ptr null, ptr %body, align 8
-  %egressState_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i.i = getelementptr inbounds i8, ptr %this, i64 241
   %26 = load i8, ptr %egressState_.i.i, align 1
   %cmp.i.i = icmp eq i8 %26, 8
   br i1 %cmp.i.i, label %land.rhs.i, label %invoke.cont30
@@ -12085,7 +11928,7 @@ if.then40:                                        ; preds = %if.then38
 
 invoke.cont43:                                    ; preds = %if.then40
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp41, align 8
-  %partialMsg_.i43 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp41, i64 0, i32 7
+  %partialMsg_.i43 = getelementptr inbounds i8, ptr %agg.tmp41, i64 88
   %40 = load ptr, ptr %partialMsg_.i43, align 8
   %cmp.not.i.i44 = icmp eq ptr %40, null
   br i1 %cmp.not.i.i44, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i46, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i45
@@ -12097,7 +11940,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i45: ; preds = %i
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i46: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i45, %invoke.cont43
   store ptr null, ptr %partialMsg_.i43, align 8
-  %currentIngressBuf_.i47 = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp41, i64 0, i32 6
+  %currentIngressBuf_.i47 = getelementptr inbounds i8, ptr %agg.tmp41, i64 80
   %41 = load ptr, ptr %currentIngressBuf_.i47, align 8
   %cmp.not.i1.i48 = icmp eq ptr %41, null
   br i1 %cmp.not.i1.i48, label %_ZN8proxygen13HTTPExceptionD2Ev.exit51, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i49
@@ -12110,7 +11953,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i49: ; preds = %_ZNSt10uniq
 _ZN8proxygen13HTTPExceptionD2Ev.exit51:           ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i46, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i49
   store ptr null, ptr %currentIngressBuf_.i47, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp41, align 8
-  %msg_.i.i50 = getelementptr inbounds %"class.proxygen::Exception", ptr %agg.tmp41, i64 0, i32 1
+  %msg_.i.i50 = getelementptr inbounds i8, ptr %agg.tmp41, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i50) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp41) #27
   br label %return
@@ -12131,8 +11974,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %43 = phi ptr [ %13, %while.body.lr.ph ], [ %63, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit60 ]
   %nbytes.1107 = phi i64 [ 0, %while.body.lr.ph ], [ %nbytes.3, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit60 ]
   %canSend.0106 = phi i64 [ %.sroa.speculated, %while.body.lr.ph ], [ %sub, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit60 ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %43, i64 0, i32 1
-  %headerSent = getelementptr inbounds %"struct.std::_List_node", ptr %43, i64 0, i32 1, i32 0, i64 8
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %43, i64 16
+  %headerSent = getelementptr inbounds i8, ptr %43, i64 24
   %44 = load i8, ptr %headerSent, align 8
   %45 = and i8 %44, 1
   %tobool.not = icmp eq i8 %45, 0
@@ -12142,7 +11985,7 @@ if.then53:                                        ; preds = %while.body
   %46 = load ptr, ptr %transport_, align 8
   %47 = load i64, ptr %_M_storage.i.i.i, align 8
   %vtable = load ptr, ptr %46, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %48 = load ptr, ptr %vfn, align 8
   %call55 = call noundef i64 %48(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull %this, i64 noundef %47) #27
   %add56 = add i64 %call55, %nbytes.1107
@@ -12224,7 +12067,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit57: ; preds = %
 if.then101:                                       ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit57
   %55 = load ptr, ptr %transport_, align 8
   %vtable103 = load ptr, ptr %55, align 8
-  %vfn104 = getelementptr inbounds ptr, ptr %vtable103, i64 10
+  %vfn104 = getelementptr inbounds i8, ptr %vtable103, i64 80
   %56 = load ptr, ptr %vfn104, align 8
   %call105 = call noundef i64 %56(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull %this) #27
   %add106 = add i64 %call105, %add96
@@ -12279,7 +12122,7 @@ ehcleanup:                                        ; preds = %lpad78, %lpad93, %l
 
 while.end131:                                     ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit60, %while.cond.preheader
   %nbytes.1.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %nbytes.3, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit60 ]
-  %egressState_.i.i61 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i.i61 = getelementptr inbounds i8, ptr %this, i64 241
   %64 = load i8, ptr %egressState_.i.i61, align 1
   %cmp.i.i62 = icmp eq i8 %64, 8
   br i1 %cmp.i.i62, label %land.rhs.i63, label %if.end139
@@ -12327,14 +12170,14 @@ if.then136:                                       ; preds = %if.end134
 if.end139:                                        ; preds = %while.end131, %if.end34, %if.end44, %if.then136, %if.end134
   %nbytes.5 = phi i64 [ %add138, %if.then136 ], [ %nbytes.1.lcssa, %if.end134 ], [ %nbytes.1.lcssa, %while.end131 ], [ %nbytes.0, %if.end34 ], [ %add, %if.end44 ]
   call void @_ZN8proxygen15HTTPTransaction28notifyTransportPendingEgressEv(ptr noundef nonnull align 8 dereferenceable(912) %this)
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %73 = load ptr, ptr %transportCallback_, align 8
   %tobool140.not = icmp eq ptr %73, null
   br i1 %tobool140.not, label %return, label %if.then141
 
 if.then141:                                       ; preds = %if.end139
   %vtable143 = load ptr, ptr %73, align 8
-  %vfn144 = getelementptr inbounds ptr, ptr %vtable143, i64 10
+  %vfn144 = getelementptr inbounds i8, ptr %vtable143, i64 80
   %74 = load ptr, ptr %vfn144, align 8
   call void %74(ptr noundef nonnull align 8 dereferenceable(8) %73, i64 noundef %nbytes.5) #27
   br label %return
@@ -12348,20 +12191,20 @@ return:                                           ; preds = %if.end139, %if.then
 define noundef zeroext i1 @_ZN8proxygen15HTTPTransaction22maybeDelayForRateLimitEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp30 = alloca %"class.google::LogMessage", align 8
-  %egressLimitBytesPerMs_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 42
+  %egressLimitBytesPerMs_ = getelementptr inbounds i8, ptr %this, i64 736
   %0 = load i64, ptr %egressLimitBytesPerMs_, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %numLimitedBytesEgressed_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 44
+  %numLimitedBytesEgressed_ = getelementptr inbounds i8, ptr %this, i64 752
   %1 = load i64, ptr %numLimitedBytesEgressed_, align 8
   %cmp2 = icmp eq i64 %1, 0
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #27
-  %startRateLimit_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 43
+  %startRateLimit_ = getelementptr inbounds i8, ptr %this, i64 744
   %agg.tmp6.sroa.0.0.copyload = load i64, ptr %startRateLimit_, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %agg.tmp6.sroa.0.0.copyload
   %div.i.i.i.neg = sdiv i64 %sub.i.i.i, -1000000
@@ -12420,17 +12263,17 @@ lpad:                                             ; preds = %invoke.cont36, %inv
   resume { ptr, i32 } %6
 
 if.end45:                                         ; preds = %if.end21
-  %egressRateLimited_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %egressRateLimited_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %egressRateLimited_, align 8
   %bf.set = or i32 %bf.load, 16
   store i32 %bf.set, ptr %egressRateLimited_, align 8
-  %timer_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 46
+  %timer_ = getelementptr inbounds i8, ptr %this, i64 776
   %7 = load ptr, ptr %timer_, align 8
   %tobool46.not = icmp eq ptr %7, null
   br i1 %tobool46.not, label %if.end51, label %if.then47
 
 if.then47:                                        ; preds = %if.end45
-  %rateLimitCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 2
+  %rateLimitCallback_ = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE15scheduleTimeoutEPNS6_8CallbackES5_(ptr noundef nonnull align 8 dereferenceable(16704) %7, ptr noundef nonnull %rateLimitCallback_, i64 %div)
   br label %if.end51
 
@@ -12484,14 +12327,14 @@ lpad:                                             ; preds = %init
   br label %common.resume
 
 while.end28:                                      ; preds = %invoke.cont, %init.check, %entry
-  %useFlowControl_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %useFlowControl_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %useFlowControl_, align 8
   %4 = and i32 %bf.load, 32
   %bf.cast.not = icmp eq i32 %4, 0
   br i1 %bf.cast.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end28
-  %sendWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_ = getelementptr inbounds i8, ptr %this, i64 352
   %conv = trunc i64 %bodyLen to i32
   %call29 = call noundef zeroext i1 @_ZN8proxygen6Window7reserveEjb(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_, i32 noundef %conv, i1 noundef zeroext true)
   br i1 %call29, label %if.end, label %cond.false33
@@ -12562,7 +12405,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
   br i1 %bf.cast82.not, label %cond.false93, label %cond.true83
 
 cond.true83:                                      ; preds = %invoke.cont75
-  %sendWindow_85 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_85 = getelementptr inbounds i8, ptr %this, i64 352
   %call87 = invoke noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_85)
           to label %invoke.cont86 unwind label %lpad62
 
@@ -12589,7 +12432,7 @@ invoke.cont98:                                    ; preds = %cond.end95
           to label %invoke.cont100 unwind label %lpad97
 
 invoke.cont100:                                   ; preds = %invoke.cont98
-  %trailers_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 20
+  %trailers_ = getelementptr inbounds i8, ptr %this, i64 368
   %9 = load ptr, ptr %trailers_, align 8
   %cmp.i.not = icmp eq ptr %9, null
   %cond103 = select i1 %cmp.i.not, ptr @.str.69, ptr @.str.68
@@ -12601,10 +12444,10 @@ invoke.cont104:                                   ; preds = %invoke.cont100
           to label %invoke.cont106 unwind label %lpad97
 
 invoke.cont106:                                   ; preds = %invoke.cont104
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %10 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %11 = load ptr, ptr %vfn.i.i, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %call107)
           to label %.noexc unwind label %lpad97
@@ -12614,7 +12457,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
           to label %call.i.i.noexc unwind label %lpad97
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %12 = load i64, ptr %id_.i.i, align 8
   %call2.i.i14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i13, i64 noundef %12)
           to label %cleanup.action113 unwind label %lpad97
@@ -12641,14 +12484,14 @@ cleanup.action122:                                ; preds = %lpad62, %lpad97
   br label %common.resume
 
 while.end142:                                     ; preds = %cond.true50, %cond.end54, %cleanup.action113
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %15 = load ptr, ptr %transport_, align 8
   %sub = sub nsw i64 0, %bodyLen
   %vtable = load ptr, ptr %15, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %16 = load ptr, ptr %vfn, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %sub) #27
-  %trailers_144 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 20
+  %trailers_144 = getelementptr inbounds i8, ptr %this, i64 368
   %17 = load ptr, ptr %trailers_144, align 8
   %cmp.i15 = icmp eq ptr %17, null
   %or.cond.not = select i1 %sendEom, i1 %cmp.i15, i1 false
@@ -12660,7 +12503,7 @@ if.then146:                                       ; preds = %while.end142
 
 if.else:                                          ; preds = %while.end142
   %bf.load150 = load i32, ptr %useFlowControl_, align 8
-  %egressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i = getelementptr inbounds i8, ptr %this, i64 241
   %18 = load i8, ptr %egressState_.i, align 1
   %cmp.not.i = icmp eq i8 %18, 9
   %19 = and i32 %bf.load150, 4128
@@ -12669,13 +12512,13 @@ if.else:                                          ; preds = %while.end142
   br i1 %or.cond28, label %if.end167, label %_ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv.exit
 
 _ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv.exit: ; preds = %if.else
-  %sendWindow_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_.i = getelementptr inbounds i8, ptr %this, i64 352
   %call.i = call noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_.i)
   %cmp2.i = icmp slt i32 %call.i, 1
   br i1 %cmp2.i, label %if.then156, label %if.end167
 
 if.then156:                                       ; preds = %_ZNK8proxygen15HTTPTransaction23isExpectingWindowUpdateEv.exit
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp157) #27
   store ptr %ref.tmp157, ptr %ref.tmp.i, align 8, !noalias !74
@@ -12699,9 +12542,9 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA45_cmEEENSt9e
 
 invoke.cont159:                                   ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA45_cmEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp157) #27
-  %proxygenError_.i = getelementptr inbounds %"class.proxygen::Exception", ptr %ex, i64 0, i32 3
+  %proxygenError_.i = getelementptr inbounds i8, ptr %ex, i64 44
   store i32 18, ptr %proxygenError_.i, align 4
-  %hasValue.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 4, i32 0, i32 1
+  %hasValue.i.i.i.i.i = getelementptr inbounds i8, ptr %ex, i64 73
   %22 = load i8, ptr %hasValue.i.i.i.i.i, align 1
   %23 = and i8 %22, 1
   %tobool.i.i.not.i.i.i = icmp eq i8 %23, 0
@@ -12712,14 +12555,14 @@ if.else.i.i.i:                                    ; preds = %invoke.cont159
   br label %invoke.cont163
 
 invoke.cont163:                                   ; preds = %if.else.i.i.i, %invoke.cont159
-  %codecStatusCode_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 4
+  %codecStatusCode_.i = getelementptr inbounds i8, ptr %ex, i64 72
   store i8 3, ptr %codecStatusCode_.i, align 8
   invoke void @_ZN8proxygen15HTTPTransaction7onErrorERKNS_13HTTPExceptionE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(96) %ex)
           to label %invoke.cont164 unwind label %lpad161
 
 invoke.cont164:                                   ; preds = %invoke.cont163
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %ex, i64 88
   %24 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %24, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -12731,7 +12574,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont164
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %ex, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %ex, i64 80
   %25 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %25, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -12744,7 +12587,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %ex, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %ex, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ex) #27
   br label %return
@@ -12774,7 +12617,7 @@ if.end167:                                        ; preds = %if.else, %_ZNK8prox
   %32 = and i32 %bf.load173, 32768
   %bf.cast176 = icmp ne i32 %32, 0
   %vtable177 = load ptr, ptr %28, align 8
-  %vfn178 = getelementptr inbounds ptr, ptr %vtable177, i64 8
+  %vfn178 = getelementptr inbounds i8, ptr %vtable177, i64 64
   %33 = load ptr, ptr %vfn178, align 8
   %call179 = call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %this, ptr noundef nonnull %agg.tmp, i1 noundef zeroext %31, i1 noundef zeroext %bf.cast176) #27
   %34 = load ptr, ptr %agg.tmp, align 8
@@ -12788,23 +12631,23 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i: ; preds = %if.end167
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.end167, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
   store ptr null, ptr %agg.tmp, align 8
-  %bodyBytesEgressed_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 38
+  %bodyBytesEgressed_ = getelementptr inbounds i8, ptr %this, i64 672
   %35 = load i64, ptr %bodyBytesEgressed_, align 8
   %add = add i64 %35, %bodyLen
   store i64 %add, ptr %bodyBytesEgressed_, align 8
-  %_M_left.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39, i32 0, i32 0, i32 1, i32 0, i32 2
-  %add.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39, i32 0, i32 0, i32 1
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 704
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 688
   %storemerge30 = load ptr, ptr %_M_left.i.i, align 8
   %cmp.i18.not31 = icmp eq ptr %storemerge30, %add.ptr.i.i
   br i1 %cmp.i18.not31, label %for.end, label %land.rhs186.lr.ph
 
 land.rhs186.lr.ph:                                ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 720
   br label %land.rhs186
 
 land.rhs186:                                      ; preds = %land.rhs186.lr.ph, %for.body
   %storemerge32 = phi ptr [ %storemerge30, %land.rhs186.lr.ph ], [ %storemerge, %for.body ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %storemerge32, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %storemerge32, i64 32
   %36 = load i64, ptr %_M_storage.i.i, align 8
   %37 = load i64, ptr %bodyBytesEgressed_, align 8
   %cmp189 = icmp ult i64 %36, %37
@@ -12812,10 +12655,10 @@ land.rhs186:                                      ; preds = %land.rhs186.lr.ph, 
 
 for.body:                                         ; preds = %land.rhs186
   %38 = load ptr, ptr %transport_, align 8
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %storemerge32, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %storemerge32, i64 40
   %39 = load i8, ptr %second, align 8
   %vtable195 = load ptr, ptr %38, align 8
-  %vfn196 = getelementptr inbounds ptr, ptr %vtable195, i64 54
+  %vfn196 = getelementptr inbounds i8, ptr %vtable195, i64 432
   %40 = load ptr, ptr %vfn196, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %36, i8 noundef zeroext %39)
   %call.i1.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %storemerge32, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #27
@@ -12840,13 +12683,13 @@ if.then210:                                       ; preds = %for.end
 
 if.end213:                                        ; preds = %if.then210, %for.end
   %nbytes.0 = phi i64 [ %add212, %if.then210 ], [ %call179, %for.end ]
-  %egressLimitBytesPerMs_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 42
+  %egressLimitBytesPerMs_ = getelementptr inbounds i8, ptr %this, i64 736
   %43 = load i64, ptr %egressLimitBytesPerMs_, align 8
   %cmp214.not = icmp eq i64 %43, 0
   br i1 %cmp214.not, label %return, label %if.then215
 
 if.then215:                                       ; preds = %if.end213
-  %numLimitedBytesEgressed_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 44
+  %numLimitedBytesEgressed_ = getelementptr inbounds i8, ptr %this, i64 752
   %44 = load i64, ptr %numLimitedBytesEgressed_, align 8
   %add216 = add i64 %44, %nbytes.0
   store i64 %add216, ptr %numLimitedBytesEgressed_, align 8
@@ -12864,7 +12707,7 @@ entry:
   %agg.tmp = alloca %"class.proxygen::HTTPException", align 8
   %ref.tmp11 = alloca %"class.google::LogMessage", align 8
   %ref.tmp41 = alloca %"class.google::LogMessage", align 8
-  %deferredBufferMeta_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 5
+  %deferredBufferMeta_ = getelementptr inbounds i8, ptr %this, i64 232
   %conv = zext i32 %maxEgress to i64
   %call = tail call i64 @_ZN8proxygen15HTTPTransaction10BufferMeta5splitEm(ptr noundef nonnull align 8 dereferenceable(8) %deferredBufferMeta_, i64 noundef %conv)
   store i64 %call, ptr %bufferMeta, align 8
@@ -12878,7 +12721,7 @@ if.then:                                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
   %0 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -12890,7 +12733,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %1 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -12903,7 +12746,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %agg.tmp, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #27
   br label %return
@@ -12942,10 +12785,10 @@ invoke.cont13:                                    ; preds = %cond.false10
           to label %invoke.cont15 unwind label %lpad12
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %5 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %6 = load ptr, ptr %vfn.i.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %call16)
           to label %.noexc unwind label %lpad12
@@ -12955,7 +12798,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %call.i.i.noexc unwind label %lpad12
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %7 = load i64, ptr %id_.i.i, align 8
   %call2.i.i9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i8, i64 noundef %7)
           to label %cleanup.action unwind label %lpad12
@@ -12971,13 +12814,13 @@ lpad12:                                           ; preds = %call.i.i.noexc, %.n
   br label %common.resume
 
 if.end24:                                         ; preds = %if.end
-  %egressState_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i.i = getelementptr inbounds i8, ptr %this, i64 241
   %9 = load i8, ptr %egressState_.i.i, align 1
   %cmp.i.i = icmp eq i8 %9, 8
   br i1 %cmp.i.i, label %land.rhs.i, label %_ZNK8proxygen15HTTPTransaction13hasPendingEOMEv.exit
 
 land.rhs.i:                                       ; preds = %if.end24
-  %deferredEgressBody_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4
+  %deferredEgressBody_.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %10 = load i8, ptr %deferredEgressBody_.i.i, align 8
   %11 = and i8 %10, 1
   %tobool.not.i.i.i = icmp eq i8 %11, 0
@@ -13003,12 +12846,12 @@ lpad.i.i.i:                                       ; preds = %if.then.i.i.i
   br label %common.resume
 
 _ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit.i: ; preds = %land.rhs.i
-  %chainLength_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 1
+  %chainLength_.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %13 = load i64, ptr %chainLength_.i.i.i, align 8
-  %cachePtr_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 4
+  %cachePtr_.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %14 = load ptr, ptr %cachePtr_.i.i.i, align 8
   %15 = load ptr, ptr %14, align 8
-  %tailStart_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 3
+  %tailStart_.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %16 = load ptr, ptr %tailStart_.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %16 to i64
@@ -13061,10 +12904,10 @@ invoke.cont55:                                    ; preds = %invoke.cont51
           to label %invoke.cont57 unwind label %lpad43
 
 invoke.cont57:                                    ; preds = %invoke.cont55
-  %transport_.i.i10 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i10 = getelementptr inbounds i8, ptr %this, i64 272
   %21 = load ptr, ptr %transport_.i.i10, align 8
   %vtable.i.i11 = load ptr, ptr %21, align 8
-  %vfn.i.i12 = getelementptr inbounds ptr, ptr %vtable.i.i11, i64 23
+  %vfn.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i11, i64 184
   %22 = load ptr, ptr %vfn.i.i12, align 8
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %call58)
           to label %.noexc14 unwind label %lpad43
@@ -13074,7 +12917,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %call.i.i.noexc15 unwind label %lpad43
 
 call.i.i.noexc15:                                 ; preds = %.noexc14
-  %id_.i.i13 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i13 = getelementptr inbounds i8, ptr %this, i64 248
   %23 = load i64, ptr %id_.i.i13, align 8
   %call2.i.i17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i16, i64 noundef %23)
           to label %cleanup.action64 unwind label %lpad43
@@ -13084,11 +12927,11 @@ cleanup.action64:                                 ; preds = %call.i.i.noexc15
   br label %cleanup.done65
 
 cleanup.done65:                                   ; preds = %cond.true30, %cond.end34, %cleanup.action64
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %24 = load ptr, ptr %transport_, align 8
   %sub = sub nsw i64 0, %call
   %vtable = load ptr, ptr %24, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %25 = load ptr, ptr %vfn, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(8) %24, i64 noundef %sub) #27
   br i1 %18, label %if.then71, label %if.end75
@@ -13107,27 +12950,27 @@ if.end75:                                         ; preds = %if.then71, %cleanup
   call void @_ZN8proxygen15HTTPTransaction17updateReadTimeoutEv(ptr noundef nonnull align 8 dereferenceable(912) %this)
   %27 = load ptr, ptr %transport_, align 8
   %vtable78 = load ptr, ptr %27, align 8
-  %vfn79 = getelementptr inbounds ptr, ptr %vtable78, i64 7
+  %vfn79 = getelementptr inbounds i8, ptr %vtable78, i64 56
   %28 = load ptr, ptr %vfn79, align 8
   %call80 = call noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(8) %bufferMeta, i1 noundef zeroext %18) #27
   %29 = load i64, ptr %bufferMeta, align 8
-  %bodyBytesEgressed_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 38
+  %bodyBytesEgressed_ = getelementptr inbounds i8, ptr %this, i64 672
   %30 = load i64, ptr %bodyBytesEgressed_, align 8
   %add = add i64 %30, %29
   store i64 %add, ptr %bodyBytesEgressed_, align 8
-  %_M_left.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39, i32 0, i32 0, i32 1, i32 0, i32 2
-  %add.ptr.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39, i32 0, i32 0, i32 1
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 704
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 688
   %storemerge28 = load ptr, ptr %_M_left.i.i, align 8
   %cmp.i19.not29 = icmp eq ptr %storemerge28, %add.ptr.i.i
   br i1 %cmp.i19.not29, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end75
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 720
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.body
   %storemerge30 = phi ptr [ %storemerge28, %land.rhs.lr.ph ], [ %storemerge, %for.body ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %storemerge30, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %storemerge30, i64 32
   %31 = load i64, ptr %_M_storage.i.i, align 8
   %32 = load i64, ptr %bodyBytesEgressed_, align 8
   %cmp91 = icmp ult i64 %31, %32
@@ -13135,10 +12978,10 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
 
 for.body:                                         ; preds = %land.rhs
   %33 = load ptr, ptr %transport_, align 8
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %storemerge30, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %storemerge30, i64 40
   %34 = load i8, ptr %second, align 8
   %vtable96 = load ptr, ptr %33, align 8
-  %vfn97 = getelementptr inbounds ptr, ptr %vtable96, i64 54
+  %vfn97 = getelementptr inbounds i8, ptr %vtable96, i64 432
   %35 = load ptr, ptr %vfn97, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(8) %33, i64 noundef %31, i8 noundef zeroext %34)
   %call.i1.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %storemerge30, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #27
@@ -13151,13 +12994,13 @@ for.body:                                         ; preds = %land.rhs
   br i1 %cmp.i19.not, label %for.end, label %land.rhs, !llvm.loop !78
 
 for.end:                                          ; preds = %land.rhs, %for.body, %if.end75
-  %egressLimitBytesPerMs_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 42
+  %egressLimitBytesPerMs_ = getelementptr inbounds i8, ptr %this, i64 736
   %37 = load i64, ptr %egressLimitBytesPerMs_, align 8
   %cmp107.not = icmp eq i64 %37, 0
   br i1 %cmp107.not, label %return, label %if.then108
 
 if.then108:                                       ; preds = %for.end
-  %numLimitedBytesEgressed_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 44
+  %numLimitedBytesEgressed_ = getelementptr inbounds i8, ptr %this, i64 752
   %38 = load i64, ptr %numLimitedBytesEgressed_, align 8
   %add109 = add i64 %38, %call80
   store i64 %add109, ptr %numLimitedBytesEgressed_, align 8
@@ -13195,10 +13038,10 @@ invoke.cont:                                      ; preds = %cond.false4
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %2 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %3 = load ptr, ptr %vfn.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %call8)
           to label %.noexc unwind label %lpad
@@ -13208,7 +13051,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load i64, ptr %id_.i.i, align 8
   %call2.i.i3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i2, i64 noundef %4)
           to label %cleanup.action unwind label %lpad
@@ -13228,12 +13071,12 @@ lpad:                                             ; preds = %call.i.i.noexc, %.n
   resume { ptr, i32 } %5
 
 if.end:                                           ; preds = %cleanup.done
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %6 = load ptr, ptr %transport_, align 8
-  %trailers_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 20
+  %trailers_ = getelementptr inbounds i8, ptr %this, i64 368
   %7 = load ptr, ptr %trailers_, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %8 = load ptr, ptr %vfn, align 8
   %call18 = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %this, ptr noundef %7) #27
   %9 = load ptr, ptr %trailers_, align 8
@@ -13330,7 +13173,7 @@ declare void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl10
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPTransaction23rateLimitTimeoutExpiredEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %egressRateLimited_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %egressRateLimited_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %egressRateLimited_, align 8
   %bf.clear = and i32 %bf.load, -17
   store i32 %bf.clear, ptr %egressRateLimited_, align 8
@@ -13421,9 +13264,9 @@ _ZN5folly19estimateSpaceNeededIiEENSt9enable_ifIXaaaaaa13is_integral_vIT_E11is_s
   %conv3.i.i.i.i = zext nneg i32 %value.lobit.i.i.i.i to i64
   %add4.i.i.i.i = add i64 %retval.i.0.i.i.i.i.i.i, %conv3.i.i.i.i
   store i64 %add4.i.i.i.i, ptr %sizes.i.i.i, align 16
-  %arrayinit.element.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 1
+  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 8
   store i64 4, ptr %arrayinit.element.i.i.i, align 8
-  %arrayinit.element9.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 2
+  %arrayinit.element9.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 16
   %3 = load i32, ptr %vs3, align 4
   %conv.i.i.i.i = zext i32 %3 to i64
   br label %for.body.i.i.i.i5.i.i.i
@@ -13449,7 +13292,7 @@ if.end.i.i.i.i9.i.i.i:                            ; preds = %for.body.i.i.i.i5.i
 _ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i: ; preds = %if.end.i.i.i.i9.i.i.i, %if.then.i.i.i.i13.i.i.i
   %retval.i.0.i.i.i12.i.i.i = phi i64 [ %add.i.i.i.i16.i.i.i, %if.then.i.i.i.i13.i.i.i ], [ 20, %if.end.i.i.i.i9.i.i.i ]
   store i64 %retval.i.0.i.i.i12.i.i.i, ptr %arrayinit.element9.i.i.i, align 16
-  %arrayinit.element12.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 3
+  %arrayinit.element12.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 24
   store i64 0, ptr %arrayinit.element12.i.i.i, align 8
   br label %for.body.i.i.i
 
@@ -13510,16 +13353,16 @@ lpad:                                             ; preds = %if.then.i.i.i23.inv
   br label %ehcleanup177
 
 if.end:                                           ; preds = %invoke.cont
-  %expectedResponseLength_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 36
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 36, i32 0, i32 1
+  %expectedResponseLength_ = getelementptr inbounds i8, ptr %this, i64 640
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 648
   %2 = load i8, ptr %hasValue.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.i.i.not = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not, label %if.end33, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %actualResponseLength_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 37
-  %hasValue.i.i9 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 37, i32 0, i32 1
+  %actualResponseLength_ = getelementptr inbounds i8, ptr %this, i64 656
+  %hasValue.i.i9 = getelementptr inbounds i8, ptr %this, i64 664
   %4 = load i8, ptr %hasValue.i.i9, align 8
   %5 = and i8 %4, 1
   %tobool.i.i10.not = icmp eq i8 %5, 0
@@ -13532,14 +13375,14 @@ invoke.cont9:                                     ; preds = %land.lhs.true
   br i1 %cmp.not, label %if.end33, label %if.then11
 
 if.then11:                                        ; preds = %invoke.cont9
-  %stats_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 15
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 280
   %8 = load ptr, ptr %stats_, align 8
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.then11
   %vtable = load ptr, ptr %8, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
   %9 = load ptr, ptr %vfn, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #27
   %.pre = load i8, ptr %hasValue.i.i, align 8
@@ -13585,10 +13428,10 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %invoke.cont29 unwind label %lpad24
 
 invoke.cont29:                                    ; preds = %invoke.cont27
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %14 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %14, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %15 = load ptr, ptr %vfn.i.i, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %call30)
           to label %.noexc26 unwind label %lpad24
@@ -13598,7 +13441,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
           to label %call.i.i.noexc unwind label %lpad24
 
 call.i.i.noexc:                                   ; preds = %.noexc26
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %16 = load i64, ptr %id_.i.i, align 8
   %call2.i.i28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i27, i64 noundef %16)
           to label %invoke.cont31 unwind label %lpad24
@@ -13625,7 +13468,7 @@ ehcleanup:                                        ; preds = %lpad24, %lpad22
   br label %ehcleanup177
 
 if.end33:                                         ; preds = %invoke.cont31, %invoke.cont9, %land.lhs.true, %if.end
-  %deferredEgressBody_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4
+  %deferredEgressBody_.i = getelementptr inbounds i8, ptr %this, i64 160
   %19 = load i8, ptr %deferredEgressBody_.i, align 8
   %20 = and i8 %19, 1
   %tobool.not.i.i = icmp eq i8 %20, 0
@@ -13650,36 +13493,36 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br label %ehcleanup177
 
 invoke.cont34:                                    ; preds = %if.end33
-  %chainLength_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 1
+  %chainLength_.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %22 = load i64, ptr %chainLength_.i.i, align 8
-  %cachePtr_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 4
+  %cachePtr_.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %23 = load ptr, ptr %cachePtr_.i.i, align 8
   %24 = load ptr, ptr %23, align 8
-  %tailStart_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 3
+  %tailStart_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %25 = load ptr, ptr %tailStart_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %24 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i.i = add i64 %22, %sub.ptr.lhs.cast.i.i
   %add.i.i = sub i64 %sub.ptr.sub.i.i, %sub.ptr.rhs.cast.i.i
-  %deferredBufferMeta_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 5
+  %deferredBufferMeta_.i = getelementptr inbounds i8, ptr %this, i64 232
   %26 = load i64, ptr %deferredBufferMeta_.i, align 8
   %add.i = sub i64 0, %26
   %cmp36 = icmp eq i64 %add.i.i, %add.i
-  %chunkHeaders_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 21
+  %chunkHeaders_ = getelementptr inbounds i8, ptr %this, i64 376
   %27 = load ptr, ptr %chunkHeaders_, align 8
   %cmp.i = icmp eq ptr %27, %chunkHeaders_
   %or.cond = select i1 %cmp36, i1 %cmp.i, i1 false
   br i1 %or.cond, label %if.then39, label %if.else139
 
 if.then39:                                        ; preds = %invoke.cont34
-  %queueHandle_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 23
+  %queueHandle_.i = getelementptr inbounds i8, ptr %this, i64 408
   %28 = load ptr, ptr %queueHandle_.i, align 8
   %tobool.not.i = icmp eq ptr %28, null
   br i1 %tobool.not.i, label %if.then42, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.then39
   %vtable.i = load ptr, ptr %28, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %29 = load ptr, ptr %vfn.i, align 8
   %call.i30 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %invoke.cont40 unwind label %lpad
@@ -13692,20 +13535,20 @@ if.then42:                                        ; preds = %if.then39, %invoke.
           to label %invoke.cont43 unwind label %lpad
 
 invoke.cont43:                                    ; preds = %if.then42
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %30 = load ptr, ptr %transport_, align 8
   %vtable45 = load ptr, ptr %30, align 8
-  %vfn46 = getelementptr inbounds ptr, ptr %vtable45, i64 16
+  %vfn46 = getelementptr inbounds i8, ptr %vtable45, i64 128
   %31 = load ptr, ptr %vfn46, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %30) #27
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %32 = load ptr, ptr %transportCallback_, align 8
   %tobool47.not = icmp eq ptr %32, null
   br i1 %tobool47.not, label %if.then.i62, label %if.then48
 
 if.then48:                                        ; preds = %invoke.cont43
   %vtable50 = load ptr, ptr %32, align 8
-  %vfn51 = getelementptr inbounds ptr, ptr %vtable50, i64 10
+  %vfn51 = getelementptr inbounds i8, ptr %vtable50, i64 80
   %33 = load ptr, ptr %vfn51, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(8) %32, i64 noundef %call44) #27
   br label %if.then.i62
@@ -13744,7 +13587,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
           to label %invoke.cont69 unwind label %lpad64
 
 invoke.cont69:                                    ; preds = %invoke.cont67
-  %egressState_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_ = getelementptr inbounds i8, ptr %this, i64 241
   %36 = load i8, ptr %egressState_, align 1
   %call72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoNS_27HTTPTransactionEgressSMData5StateE(ptr noundef nonnull align 8 dereferenceable(8) %call70, i8 noundef zeroext %36)
           to label %invoke.cont71 unwind label %lpad64
@@ -13758,7 +13601,7 @@ invoke.cont73:                                    ; preds = %invoke.cont71
           to label %invoke.cont75 unwind label %lpad64
 
 invoke.cont75:                                    ; preds = %invoke.cont73
-  %ingressState_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_ = getelementptr inbounds i8, ptr %this, i64 242
   %37 = load i8, ptr %ingressState_, align 2
   %call78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoNS_28HTTPTransactionIngressSMData5StateE(ptr noundef nonnull align 8 dereferenceable(8) %call76, i8 noundef zeroext %37)
           to label %invoke.cont77 unwind label %lpad64
@@ -13772,7 +13615,7 @@ invoke.cont79:                                    ; preds = %invoke.cont77
           to label %invoke.cont81 unwind label %lpad64
 
 invoke.cont81:                                    ; preds = %invoke.cont79
-  %egressPaused_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %egressPaused_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %egressPaused_, align 8
   %38 = and i32 %bf.load, 2
   %bf.cast = icmp ne i32 %38, 0
@@ -13824,7 +13667,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
 
 cond.true.i33:                                    ; preds = %invoke.cont106
   %vtable.i34 = load ptr, ptr %41, align 8
-  %vfn.i35 = getelementptr inbounds ptr, ptr %vtable.i34, i64 2
+  %vfn.i35 = getelementptr inbounds i8, ptr %vtable.i34, i64 16
   %42 = load ptr, ptr %vfn.i35, align 8
   %call.i38 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(8) %41)
           to label %invoke.cont108 unwind label %lpad64
@@ -13900,10 +13743,10 @@ invoke.cont126:                                   ; preds = %invoke.cont124
           to label %invoke.cont128 unwind label %lpad64
 
 invoke.cont128:                                   ; preds = %invoke.cont126
-  %transport_.i.i44 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i44 = getelementptr inbounds i8, ptr %this, i64 272
   %51 = load ptr, ptr %transport_.i.i44, align 8
   %vtable.i.i45 = load ptr, ptr %51, align 8
-  %vfn.i.i46 = getelementptr inbounds ptr, ptr %vtable.i.i45, i64 23
+  %vfn.i.i46 = getelementptr inbounds i8, ptr %vtable.i.i45, i64 184
   %52 = load ptr, ptr %vfn.i.i46, align 8
   invoke void %52(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull align 8 dereferenceable(8) %call129)
           to label %.noexc48 unwind label %lpad64
@@ -13913,7 +13756,7 @@ invoke.cont128:                                   ; preds = %invoke.cont126
           to label %call.i.i.noexc49 unwind label %lpad64
 
 call.i.i.noexc49:                                 ; preds = %.noexc48
-  %id_.i.i47 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i47 = getelementptr inbounds i8, ptr %this, i64 248
   %53 = load i64, ptr %id_.i.i47, align 8
   %call2.i.i51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i50, i64 noundef %53)
           to label %cleanup.action unwind label %lpad64
@@ -13962,10 +13805,10 @@ invoke.cont160:                                   ; preds = %invoke.cont157
           to label %invoke.cont162 unwind label %lpad159
 
 invoke.cont162:                                   ; preds = %invoke.cont160
-  %transport_.i.i53 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i53 = getelementptr inbounds i8, ptr %this, i64 272
   %57 = load ptr, ptr %transport_.i.i53, align 8
   %vtable.i.i54 = load ptr, ptr %57, align 8
-  %vfn.i.i55 = getelementptr inbounds ptr, ptr %vtable.i.i54, i64 23
+  %vfn.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i54, i64 184
   %58 = load ptr, ptr %vfn.i.i55, align 8
   invoke void %58(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(8) %call163)
           to label %.noexc57 unwind label %lpad159
@@ -13975,7 +13818,7 @@ invoke.cont162:                                   ; preds = %invoke.cont160
           to label %call.i.i.noexc58 unwind label %lpad159
 
 call.i.i.noexc58:                                 ; preds = %.noexc57
-  %id_.i.i56 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i56 = getelementptr inbounds i8, ptr %this, i64 248
   %59 = load i64, ptr %id_.i.i56, align 8
   %call2.i.i60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i59, i64 noundef %59)
           to label %cleanup.action169 unwind label %lpad159
@@ -14004,7 +13847,7 @@ if.then.i62:                                      ; preds = %invoke.cont, %cond.
 
 if.then6.i:                                       ; preds = %if.then.i62
   %vtable.i64 = load ptr, ptr %add.ptr, align 8
-  %vfn.i65 = getelementptr inbounds ptr, ptr %vtable.i64, i64 2
+  %vfn.i65 = getelementptr inbounds i8, ptr %vtable.i64, i64 16
   %62 = load ptr, ptr %vfn.i65, align 8
   invoke void %62(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -14034,7 +13877,7 @@ entry:
   store ptr %agg.result, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %sizes.i.i.i)
   store i64 48, ptr %sizes.i.i.i, align 16
-  %arrayinit.element.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 1
+  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 8
   %0 = load i64, ptr %vs1, align 8
   br label %for.body.i.i.i.i.i.i.i
 
@@ -14059,9 +13902,9 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i.i.i, ptr %arrayinit.element.i.i.i, align 8
-  %arrayinit.element11.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 2
+  %arrayinit.element11.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 16
   store i64 11, ptr %arrayinit.element11.i.i.i, align 16
-  %arrayinit.element14.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 3
+  %arrayinit.element14.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 24
   %2 = load i64, ptr %vs5, align 8
   br label %for.body.i.i.i.i5.i.i.i
 
@@ -14086,7 +13929,7 @@ if.end.i.i.i.i9.i.i.i:                            ; preds = %for.body.i.i.i.i5.i
 _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit17.i.i.i: ; preds = %if.end.i.i.i.i9.i.i.i, %if.then.i.i.i.i13.i.i.i
   %retval.i.0.i.i.i12.i.i.i = phi i64 [ %add.i.i.i.i16.i.i.i, %if.then.i.i.i.i13.i.i.i ], [ 20, %if.end.i.i.i.i9.i.i.i ]
   store i64 %retval.i.0.i.i.i12.i.i.i, ptr %arrayinit.element14.i.i.i, align 8
-  %arrayinit.element17.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 4
+  %arrayinit.element17.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 32
   store i64 0, ptr %arrayinit.element17.i.i.i, align 16
   br label %for.body.i.i.i
 
@@ -14124,7 +13967,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPTransaction9sendAbortEv(ptr noundef nonnull align 8 dereferenceable(912) %this) unnamed_addr #3 align 2 {
 entry:
-  %direction_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 6
+  %direction_.i = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i8, ptr %direction_.i, align 8
   %cmp.i = icmp eq i8 %0, 1
   %cond = select i1 %cmp.i, i8 8, i8 2
@@ -14139,17 +13982,17 @@ entry:
   %flags.addr = alloca i8, align 1
   store i64 %offset, ptr %offset.addr, align 8
   store i8 %flags, ptr %flags.addr, align 1
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 27
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 216
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i8 %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   %cmp.not = icmp eq i8 %call, 1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %bodyBytesEgressed_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 38
+  %bodyBytesEgressed_ = getelementptr inbounds i8, ptr %this, i64 672
   %2 = load i64, ptr %bodyBytesEgressed_, align 8
   %cmp2 = icmp ugt i64 %2, %offset
   br i1 %cmp2, label %if.then3, label %if.else
@@ -14157,13 +14000,13 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   %3 = load ptr, ptr %transport_, align 8
   %vtable5 = load ptr, ptr %3, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 54
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 432
   %4 = load ptr, ptr %vfn6, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %offset, i8 noundef zeroext %flags)
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %egressBodyOffsetsToTrack_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 39
+  %egressBodyOffsetsToTrack_ = getelementptr inbounds i8, ptr %this, i64 680
   %call7 = call { ptr, i8 } @_ZNSt3mapImN8proxygen9ByteEvent10EventFlagsESt4lessImESaISt4pairIKmS2_EEE7emplaceIJRmRS2_EEES5_ISt17_Rb_tree_iteratorIS7_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %egressBodyOffsetsToTrack_, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr, ptr noundef nonnull align 1 dereferenceable(1) %flags.addr)
   br label %return
 
@@ -14184,13 +14027,12 @@ entry:
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, %.pre
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapImN8proxygen9ByteEvent10EventFlagsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit, label %while.body.i.i.i, !llvm.loop !79
@@ -14200,7 +14042,7 @@ _ZNSt3mapImN8proxygen9ByteEvent10EventFlagsESt4lessImESaISt4pairIKmS2_EEE11lower
   br i1 %cmp.i, label %if.then, label %lor.rhs
 
 lor.rhs:                                          ; preds = %_ZNSt3mapImN8proxygen9ByteEvent10EventFlagsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i, align 8
   %cmp.i5 = icmp ult i64 %.pre, %2
   br i1 %cmp.i5, label %if.then, label %return
@@ -14208,9 +14050,9 @@ lor.rhs:                                          ; preds = %_ZNSt3mapImN8proxyg
 if.then:                                          ; preds = %entry, %_ZNSt3mapImN8proxygen9ByteEvent10EventFlagsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit, %lor.rhs
   %__y.addr.0.lcssa.i.i.i13 = phi ptr [ %add.ptr.i.i.i, %_ZNSt3mapImN8proxygen9ByteEvent10EventFlagsESt4lessImESaISt4pairIKmS2_EEE11lower_boundERS6_.exit ], [ %__y.addr.1.i.i.i, %lor.rhs ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 32
   store i64 %.pre, ptr %_M_storage.i.i.i.i.i.i, align 8
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 40
   %3 = load i8, ptr %__args1, align 1
   store i8 %3, ptr %second.i.i.i.i.i.i.i.i, align 8
   %call6.i.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen9ByteEvent10EventFlagsEESt10_Select1stIS5_ESt4lessImESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i13, ptr noundef nonnull align 8 dereferenceable(8) %_M_storage.i.i.i.i.i.i)
@@ -14229,7 +14071,7 @@ if.then.i.i:                                      ; preds = %invoke.cont5.i.i
   br i1 %or.cond.i.i.i.i, label %cleanup.thread.i.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %5, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
   %7 = load i64, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %6, %7
@@ -14265,10 +14107,10 @@ return:                                           ; preds = %lor.rhs, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i16 @_ZNK8proxygen15HTTPTransaction20getDatagramSizeLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 44
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 352
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i16 %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   ret i16 %call
@@ -14284,10 +14126,10 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %datagram, align 8
   %call3 = tail call noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %transport_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i = getelementptr inbounds i8, ptr %this, i64 272
   %1 = load ptr, ptr %transport_.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 44
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 352
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i16 %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #27
   %conv = zext i16 %call.i to i64
@@ -14300,7 +14142,7 @@ if.end6:                                          ; preds = %if.end
   store i64 %4, ptr %agg.tmp, align 8
   store ptr null, ptr %datagram, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 45
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 360
   %5 = load ptr, ptr %vfn, align 8
   %call7 = invoke noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -14320,14 +14162,14 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %in
   br i1 %call7, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %7 = load ptr, ptr %transportCallback_, align 8
   %tobool8.not = icmp eq ptr %7, null
   br i1 %tobool8.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true
   %vtable11 = load ptr, ptr %7, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 17
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 136
   %8 = load ptr, ptr %vfn12, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %call3) #27
   br label %return
@@ -14351,15 +14193,15 @@ entry:
   %ref.tmp8 = alloca %"class.std::tuple.177", align 8
   %ref.tmp11 = alloca %"class.std::tuple.174", align 8
   %ref.tmp13 = alloca %"class.std::tuple.177", align 8
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 47
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 376
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call { i64, i64 } %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %2 = extractvalue { i64, i64 } %call, 0
   store i64 %2, ptr %id, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %id, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %id, i64 8
   %4 = extractvalue { i64, i64 } %call, 1
   store i64 %4, ptr %3, align 8
   %5 = and i64 %2, 255
@@ -14371,7 +14213,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 _ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5: ; preds = %entry
-  %wtIngressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50
+  %wtIngressStreams_ = getelementptr inbounds i8, ptr %this, i64 848
   store ptr %3, ptr %ref.tmp6, align 8, !alias.scope !80
   store ptr %3, ptr %ref.tmp8, align 8, !alias.scope !83
   %6 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
@@ -14384,7 +14226,7 @@ _ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5: ; preds = %
   ]
 
 if.then3.i.i.i6:                                  ; preds = %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5
-  %error_.i.i.i7 = getelementptr inbounds %"struct.folly::expected_detail::ExpectedStorage.170", ptr %id, i64 0, i32 1
+  %error_.i.i.i7 = getelementptr inbounds i8, ptr %id, i64 4
   %8 = load i32, ptr %error_.i.i.i7, align 4
   call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIN8proxygen12WebTransport9ErrorCodeEEEJS5_EEEvDpT0_(i32 noundef %8) #33
   unreachable
@@ -14394,7 +14236,7 @@ if.end.i.i.i9:                                    ; preds = %_ZNR5folly8Expected
   unreachable
 
 _ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit15: ; preds = %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5
-  %wtEgressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49
+  %wtEgressStreams_ = getelementptr inbounds i8, ptr %this, i64 800
   %9 = extractvalue { ptr, i8 } %call.i, 0
   store ptr %3, ptr %ref.tmp11, align 8, !alias.scope !86
   store ptr %3, ptr %ref.tmp13, align 8, !alias.scope !89
@@ -14402,8 +14244,8 @@ _ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit15: ; preds = 
   store ptr %this, ptr %10, align 8, !alias.scope !89
   %call.i16 = call { ptr, i8 } @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE17_M_emplace_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRmEESG_IJRS3_SH_EEEEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %wtEgressStreams_, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13)
   %11 = extractvalue { ptr, i8 } %call.i16, 0
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %9, i64 0, i32 1, i32 0, i64 8
-  %second20 = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %11, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %9, i64 40
+  %second20 = getelementptr inbounds i8, ptr %11, i64 40
   store ptr %second, ptr %agg.result, align 8
   %ref.tmp16.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %second20, ptr %ref.tmp16.sroa.2.0.agg.result.sroa_idx, align 8
@@ -14411,7 +14253,7 @@ _ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit15: ; preds = 
 
 return:                                           ; preds = %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit15, %if.then
   %.sink = phi i8 [ 1, %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit15 ], [ 2, %if.then ]
-  %which_.i.i18 = getelementptr inbounds %"struct.folly::expected_detail::ExpectedStorage.165", ptr %agg.result, i64 0, i32 1
+  %which_.i.i18 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 %.sink, ptr %which_.i.i18, align 8
   ret void
 }
@@ -14422,15 +14264,15 @@ entry:
   %id = alloca %"class.folly::Expected.169", align 8
   %ref.tmp6 = alloca %"class.std::tuple.174", align 8
   %ref.tmp8 = alloca %"class.std::tuple.177", align 8
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 384
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call { i64, i64 } %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %2 = extractvalue { i64, i64 } %call, 0
   store i64 %2, ptr %id, align 8
-  %3 = getelementptr inbounds { i64, i64 }, ptr %id, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %id, i64 8
   %4 = extractvalue { i64, i64 } %call, 1
   store i64 %4, ptr %3, align 8
   %5 = and i64 %2, 255
@@ -14438,14 +14280,14 @@ entry:
   br i1 %cmp.i.i, label %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5, label %return
 
 _ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5: ; preds = %entry
-  %wtEgressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49
+  %wtEgressStreams_ = getelementptr inbounds i8, ptr %this, i64 800
   store ptr %3, ptr %ref.tmp6, align 8, !alias.scope !92
   store ptr %3, ptr %ref.tmp8, align 8, !alias.scope !95
   %6 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
   store ptr %this, ptr %6, align 8, !alias.scope !95
   %call.i = call { ptr, i8 } @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE17_M_emplace_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRmEESG_IJRS3_SH_EEEEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %wtEgressStreams_, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8)
   %7 = extractvalue { ptr, i8 } %call.i, 0
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %7, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %7, i64 40
   br label %return
 
 return:                                           ; preds = %entry, %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5
@@ -14462,20 +14304,20 @@ return:                                           ; preds = %entry, %_ZNR5folly8
 define { i64, i32 } @_ZN8proxygen15HTTPTransaction26sendWebTransportStreamDataEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEb(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %id, ptr nocapture noundef %data, i1 noundef zeroext %eof) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.4", align 8
-  %timer_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 46
+  %timer_.i = getelementptr inbounds i8, ptr %this, i64 776
   %0 = load ptr, ptr %timer_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %1 = load i8, ptr %hasValue.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.not.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i, label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i: ; preds = %land.lhs.true.i
-  %idleTimeout_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45
+  %idleTimeout_.i = getelementptr inbounds i8, ptr %this, i64 760
   %3 = load i64, ptr %idleTimeout_.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %3, 0
   br i1 %cmp.i.i.not.i, label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
@@ -14485,13 +14327,13 @@ _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.
   br label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit
 
 _ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit: ; preds = %entry, %land.lhs.true.i, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %4 = load ptr, ptr %transport_, align 8
   %5 = load i64, ptr %data, align 8
   store i64 %5, ptr %agg.tmp, align 8
   store ptr null, ptr %data, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 49
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
   %6 = load ptr, ptr %vfn, align 8
   %call = invoke { i64, i32 } %6(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %id, ptr noundef nonnull %agg.tmp, i1 noundef zeroext %eof)
           to label %invoke.cont unwind label %lpad
@@ -14515,80 +14357,75 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %in
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-  %wtEgressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1
-  %__x.039.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  %cmp.not40.i.i.i = icmp eq ptr %__x.039.i.i.i, null
-  br i1 %cmp.not40.i.i.i, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5eraseERS6_.exit, label %while.body.i.i.i
+  %wtEgressStreams_ = getelementptr inbounds i8, ptr %this, i64 800
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 816
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 808
+  %__x.038.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
+  %cmp.not39.i.i.i = icmp eq ptr %__x.038.i.i.i, null
+  br i1 %cmp.not39.i.i.i, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5eraseERS6_.exit, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then, %if.end19.i.i.i
-  %__x.042.i.i.i = phi ptr [ %__x.0.i.i.i, %if.end19.i.i.i ], [ %__x.039.i.i.i, %if.then ]
-  %__y.041.i.i.i = phi ptr [ %__y.1.i.i.i, %if.end19.i.i.i ], [ %add.ptr.i.i.i.i, %if.then ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.042.i.i.i, i64 0, i32 1
+  %__x.041.i.i.i = phi ptr [ %__x.0.i.i.i, %if.end19.i.i.i ], [ %__x.038.i.i.i, %if.then ]
+  %__y.040.i.i.i = phi ptr [ %__y.1.i.i.i, %if.end19.i.i.i ], [ %add.ptr.i.i.i.i, %if.then ]
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 32
   %9 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %9, %id
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
-
-if.then.i.i.i:                                    ; preds = %while.body.i.i.i
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i, i64 0, i32 3
-  br label %if.end19.i.i.i
+  br i1 %cmp.i.i.i.i, label %if.end19.i.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   %cmp.i18.i.i.i = icmp ugt i64 %9, %id
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i, i64 0, i32 2
   br i1 %cmp.i18.i.i.i, label %if.end19.i.i.i, label %if.else12.i.i.i
 
 if.else12.i.i.i:                                  ; preds = %if.else.i.i.i
-  %10 = load ptr, ptr %_M_left.i.i.i.i, align 8
-  %_M_right.i20.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i, i64 0, i32 3
+  %_M_left.i19.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 16
+  %10 = load ptr, ptr %_M_left.i19.i.i.i, align 8
+  %_M_right.i20.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 24
   %11 = load ptr, ptr %_M_right.i20.i.i.i, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.else12.i.i.i, %while.body.i.i.i.i
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %10, %if.else12.i.i.i ]
-  %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %__x.042.i.i.i, %if.else12.i.i.i ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i.i.i.i, i64 0, i32 1
+  %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %__x.041.i.i.i, %if.else12.i.i.i ]
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
   %12 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %12, %id
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
-  %__x.addr.1.in.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %while.body.i.i.i.i, !llvm.loop !7
 
 _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %while.body.i.i.i.i, %if.else12.i.i.i
-  %__y.addr.0.lcssa.i.i.i.i = phi ptr [ %__x.042.i.i.i, %if.else12.i.i.i ], [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ]
+  %__y.addr.0.lcssa.i.i.i.i = phi ptr [ %__x.041.i.i.i, %if.else12.i.i.i ], [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ]
   %cmp.not5.i21.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not5.i21.i.i.i, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5eraseERS6_.exit, label %while.body.i23.i.i.i
 
 while.body.i23.i.i.i:                             ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %while.body.i23.i.i.i
-  %__x.addr.07.i24.i.i.i = phi ptr [ %__x.addr.1.i32.i.i.i, %while.body.i23.i.i.i ], [ %11, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ]
-  %__y.addr.06.i25.i.i.i = phi ptr [ %__y.addr.1.i30.i.i.i, %while.body.i23.i.i.i ], [ %__y.041.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ]
-  %_M_storage.i.i.i26.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i24.i.i.i, i64 0, i32 1
+  %__x.addr.07.i24.i.i.i = phi ptr [ %__x.addr.1.i31.i.i.i, %while.body.i23.i.i.i ], [ %11, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ]
+  %__y.addr.06.i25.i.i.i = phi ptr [ %__y.addr.1.i28.i.i.i, %while.body.i23.i.i.i ], [ %__y.040.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ]
+  %_M_storage.i.i.i26.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i, i64 32
   %13 = load i64, ptr %_M_storage.i.i.i26.i.i.i, align 8
   %cmp.i.i27.i.i.i = icmp ugt i64 %13, %id
-  %_M_left.i.i28.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i.i.i, i64 0, i32 2
-  %_M_right.i.i29.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i.i.i, i64 0, i32 3
-  %__y.addr.1.i30.i.i.i = select i1 %cmp.i.i27.i.i.i, ptr %__x.addr.07.i24.i.i.i, ptr %__y.addr.06.i25.i.i.i
-  %__x.addr.1.in.i31.i.i.i = select i1 %cmp.i.i27.i.i.i, ptr %_M_left.i.i28.i.i.i, ptr %_M_right.i.i29.i.i.i
-  %__x.addr.1.i32.i.i.i = load ptr, ptr %__x.addr.1.in.i31.i.i.i, align 8
-  %cmp.not.i33.i.i.i = icmp eq ptr %__x.addr.1.i32.i.i.i, null
-  br i1 %cmp.not.i33.i.i.i, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5eraseERS6_.exit, label %while.body.i23.i.i.i, !llvm.loop !8
+  %__y.addr.1.i28.i.i.i = select i1 %cmp.i.i27.i.i.i, ptr %__x.addr.07.i24.i.i.i, ptr %__y.addr.06.i25.i.i.i
+  %__x.addr.1.in.v.i29.i.i.i = select i1 %cmp.i.i27.i.i.i, i64 16, i64 24
+  %__x.addr.1.in.i30.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i, i64 %__x.addr.1.in.v.i29.i.i.i
+  %__x.addr.1.i31.i.i.i = load ptr, ptr %__x.addr.1.in.i30.i.i.i, align 8
+  %cmp.not.i32.i.i.i = icmp eq ptr %__x.addr.1.i31.i.i.i, null
+  br i1 %cmp.not.i32.i.i.i, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5eraseERS6_.exit, label %while.body.i23.i.i.i, !llvm.loop !8
 
-if.end19.i.i.i:                                   ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %__y.1.i.i.i = phi ptr [ %__y.041.i.i.i, %if.then.i.i.i ], [ %__x.042.i.i.i, %if.else.i.i.i ]
-  %__x.1.in.i.i.i = phi ptr [ %_M_right.i.i.i.i, %if.then.i.i.i ], [ %_M_left.i.i.i.i, %if.else.i.i.i ]
-  %__x.0.i.i.i = load ptr, ptr %__x.1.in.i.i.i, align 8
+if.end19.i.i.i:                                   ; preds = %if.else.i.i.i, %while.body.i.i.i
+  %.sink.i.i.i = phi i64 [ 24, %while.body.i.i.i ], [ 16, %if.else.i.i.i ]
+  %__y.1.i.i.i = phi ptr [ %__y.040.i.i.i, %while.body.i.i.i ], [ %__x.041.i.i.i, %if.else.i.i.i ]
+  %_M_left.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i, i64 %.sink.i.i.i
+  %__x.0.i.i.i = load ptr, ptr %_M_left.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5eraseERS6_.exit, label %while.body.i.i.i, !llvm.loop !9
 
 _ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE5eraseERS6_.exit: ; preds = %if.end19.i.i.i, %while.body.i23.i.i.i, %if.then, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %retval.sroa.0.0.i.i.i = phi ptr [ %__y.addr.0.lcssa.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %add.ptr.i.i.i.i, %if.then ], [ %__y.addr.0.lcssa.i.i.i.i, %while.body.i23.i.i.i ], [ %__y.1.i.i.i, %if.end19.i.i.i ]
-  %retval.sroa.3.0.i.i.i = phi ptr [ %__y.041.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %add.ptr.i.i.i.i, %if.then ], [ %__y.addr.1.i30.i.i.i, %while.body.i23.i.i.i ], [ %__y.1.i.i.i, %if.end19.i.i.i ]
+  %retval.sroa.3.0.i.i.i = phi ptr [ %__y.040.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %add.ptr.i.i.i.i, %if.then ], [ %__y.addr.1.i28.i.i.i, %while.body.i23.i.i.i ], [ %__y.1.i.i.i, %if.end19.i.i.i ]
   call void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS5_ESD_(ptr noundef nonnull align 8 dereferenceable(48) %wtEgressStreams_, ptr %retval.sroa.0.0.i.i.i, ptr %retval.sroa.3.0.i.i.i)
   br label %if.end
 
@@ -14607,13 +14444,13 @@ define i64 @_ZN8proxygen15HTTPTransaction30stopReadingWebTransportIngressEmj(ptr
 entry:
   %id.addr = alloca i64, align 8
   store i64 %id, ptr %id.addr, align 8
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 53
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 424
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %id, i32 noundef %errorCode)
-  %wtIngressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50
+  %wtIngressStreams_ = getelementptr inbounds i8, ptr %this, i64 848
   %call.i = call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %wtIngressStreams_, ptr noundef nonnull align 8 dereferenceable(8) %id.addr)
   ret i64 %call
 }
@@ -14621,10 +14458,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZNK8proxygen15HTTPTransaction18getConnectionTokenB5cxx11Ev(ptr noalias sret(%"class.folly::Optional.189") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 55
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 440
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.folly::Optional.189") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   ret void
@@ -14659,10 +14496,10 @@ invoke.cont:                                      ; preds = %cond.false4
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %2 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %3 = load ptr, ptr %vfn.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %call8)
           to label %.noexc unwind label %lpad
@@ -14672,7 +14509,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load i64, ptr %id_.i.i, align 8
   %call2.i.i7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i6, i64 noundef %4)
           to label %cleanup.action unwind label %lpad
@@ -14688,7 +14525,7 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
   %5 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %5, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %ingressPaused_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %ingressPaused_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %ingressPaused_, align 8
   %6 = and i32 %bf.load, 1
   %bf.cast.not = icmp eq i32 %6, 0
@@ -14758,10 +14595,10 @@ if.end:                                           ; preds = %cleanup.done
           to label %invoke.cont58 unwind label %lpad20
 
 invoke.cont58:                                    ; preds = %if.end
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %13 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %13, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %14 = load ptr, ptr %vfn, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %this) #27
   br label %if.then.i
@@ -14776,7 +14613,7 @@ if.then.i:                                        ; preds = %invoke.cont58, %con
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %16 = load ptr, ptr %vfn.i, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -14838,10 +14675,10 @@ invoke.cont:                                      ; preds = %cond.false4
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %2 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %3 = load ptr, ptr %vfn.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %call8)
           to label %.noexc unwind label %lpad
@@ -14851,7 +14688,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load i64, ptr %id_.i.i, align 8
   %call2.i.i34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i33, i64 noundef %4)
           to label %cleanup.action unwind label %lpad
@@ -14867,14 +14704,14 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
   %5 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %5, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %ingressPaused_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %ingressPaused_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %ingressPaused_, align 8
   %6 = and i32 %bf.load, 1
   %bf.cast.not = icmp eq i32 %6, 0
   br i1 %bf.cast.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %cleanup.done
-  %ingressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i = getelementptr inbounds i8, ptr %this, i64 242
   %7 = load i8, ptr %ingressState_.i, align 2
   %cmp.i = icmp eq i8 %7, 10
   br i1 %cmp.i, label %if.then, label %if.end
@@ -14920,7 +14757,7 @@ invoke.cont47:                                    ; preds = %invoke.cont41
           to label %invoke.cont49 unwind label %lpad38
 
 invoke.cont49:                                    ; preds = %invoke.cont47
-  %ingressState_.i35 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i35 = getelementptr inbounds i8, ptr %this, i64 242
   %11 = load i8, ptr %ingressState_.i35, align 2
   %cmp.i36 = icmp eq i8 %11, 10
   %call54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call50, i1 noundef zeroext %cmp.i36)
@@ -14942,10 +14779,10 @@ invoke.cont60:                                    ; preds = %invoke.cont55
           to label %invoke.cont62 unwind label %lpad38
 
 invoke.cont62:                                    ; preds = %invoke.cont60
-  %transport_.i.i37 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i37 = getelementptr inbounds i8, ptr %this, i64 272
   %13 = load ptr, ptr %transport_.i.i37, align 8
   %vtable.i.i38 = load ptr, ptr %13, align 8
-  %vfn.i.i39 = getelementptr inbounds ptr, ptr %vtable.i.i38, i64 23
+  %vfn.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i38, i64 184
   %14 = load ptr, ptr %vfn.i.i39, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %call63)
           to label %.noexc41 unwind label %lpad38
@@ -14955,7 +14792,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
           to label %call.i.i.noexc42 unwind label %lpad38
 
 call.i.i.noexc42:                                 ; preds = %.noexc41
-  %id_.i.i40 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i40 = getelementptr inbounds i8, ptr %this, i64 248
   %15 = load i64, ptr %id_.i.i40, align 8
   %call2.i.i44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i43, i64 noundef %15)
           to label %cleanup.action69 unwind label %lpad38
@@ -14984,10 +14821,10 @@ lpad38:                                           ; preds = %call.i.i.noexc42, %
 if.end:                                           ; preds = %lor.lhs.false
   %bf.clear76 = and i32 %bf.load, -2
   store i32 %bf.clear76, ptr %ingressPaused_, align 8
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %19 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %19, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %20 = load ptr, ptr %vfn, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %this) #27
   %bf.load78 = load i32, ptr %ingressPaused_, align 8
@@ -15027,7 +14864,7 @@ invoke.cont103:                                   ; preds = %invoke.cont100
 invoke.cont105:                                   ; preds = %invoke.cont103
   %24 = load ptr, ptr %transport_, align 8
   %vtable.i.i47 = load ptr, ptr %24, align 8
-  %vfn.i.i48 = getelementptr inbounds ptr, ptr %vtable.i.i47, i64 23
+  %vfn.i.i48 = getelementptr inbounds i8, ptr %vtable.i.i47, i64 184
   %25 = load ptr, ptr %vfn.i.i48, align 8
   invoke void %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %call106)
           to label %.noexc50 unwind label %lpad102
@@ -15037,7 +14874,7 @@ invoke.cont105:                                   ; preds = %invoke.cont103
           to label %call.i.i.noexc51 unwind label %lpad102
 
 call.i.i.noexc51:                                 ; preds = %.noexc50
-  %id_.i.i49 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i49 = getelementptr inbounds i8, ptr %this, i64 248
   %26 = load i64, ptr %id_.i.i49, align 8
   %call2.i.i53 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i52, i64 noundef %26)
           to label %cleanup.action112 unwind label %lpad102
@@ -15055,20 +14892,20 @@ lpad102:                                          ; preds = %call.i.i.noexc51, %
 if.end117:                                        ; preds = %if.end
   %bf.set121 = or disjoint i32 %bf.load78, 1024
   store i32 %bf.set121, ptr %ingressPaused_, align 8
-  %deferredIngress_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 3
+  %deferredIngress_ = getelementptr inbounds i8, ptr %this, i64 152
   %28 = load ptr, ptr %deferredIngress_, align 8
   %cmp.i55.not = icmp eq ptr %28, null
   br i1 %cmp.i55.not, label %if.end138, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end117
-  %maxDeferredIngress_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 12
+  %maxDeferredIngress_ = getelementptr inbounds i8, ptr %this, i64 260
   %29 = load i32, ptr %maxDeferredIngress_, align 4
   %conv = zext i32 %29 to i64
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %28, i64 0, i32 3
-  %_M_start.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %28, i64 0, i32 2
-  %_M_node.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %28, i64 0, i32 3, i32 3
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %28, i64 48
+  %_M_start.i.i = getelementptr inbounds i8, ptr %28, i64 16
+  %_M_node.i.i.i = getelementptr inbounds i8, ptr %28, i64 72
   %30 = load ptr, ptr %_M_node.i.i.i, align 8
-  %_M_node1.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %28, i64 0, i32 2, i32 3
+  %_M_node1.i.i.i = getelementptr inbounds i8, ptr %28, i64 40
   %31 = load ptr, ptr %_M_node1.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %31 to i64
@@ -15079,14 +14916,14 @@ land.lhs.true:                                    ; preds = %if.end117
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, %conv.neg.i.i.i
   %mul.i.i.i = mul nsw i64 %sub.i.i.i, 9
   %32 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_first.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %28, i64 0, i32 3, i32 1
+  %_M_first.i.i.i = getelementptr inbounds i8, ptr %28, i64 56
   %33 = load ptr, ptr %_M_first.i.i.i, align 8
   %sub.ptr.lhs.cast3.i.i.i = ptrtoint ptr %32 to i64
   %sub.ptr.rhs.cast4.i.i.i = ptrtoint ptr %33 to i64
   %sub.ptr.sub5.i.i.i = sub i64 %sub.ptr.lhs.cast3.i.i.i, %sub.ptr.rhs.cast4.i.i.i
   %sub.ptr.div6.i.i.i = sdiv exact i64 %sub.ptr.sub5.i.i.i, 56
   %add.i.i.i = add nsw i64 %mul.i.i.i, %sub.ptr.div6.i.i.i
-  %_M_last.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %28, i64 0, i32 2, i32 2
+  %_M_last.i.i.i = getelementptr inbounds i8, ptr %28, i64 32
   %34 = load ptr, ptr %_M_last.i.i.i, align 8
   %35 = load ptr, ptr %_M_start.i.i, align 8
   %sub.ptr.lhs.cast8.i.i.i = ptrtoint ptr %34 to i64
@@ -15113,12 +14950,12 @@ if.end138:                                        ; preds = %if.then131, %land.l
   br i1 %bf.cast142.not121, label %land.lhs.true143.lr.ph, label %if.then.i107
 
 land.lhs.true143.lr.ph:                           ; preds = %if.end138
-  %id_.i.i86 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
-  %handler_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
-  %recvWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 17
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp220, i64 0, i32 7
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp220, i64 0, i32 6
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %agg.tmp220, i64 0, i32 1
+  %id_.i.i86 = getelementptr inbounds i8, ptr %this, i64 248
+  %handler_.i = getelementptr inbounds i8, ptr %this, i64 264
+  %recvWindow_ = getelementptr inbounds i8, ptr %this, i64 344
+  %partialMsg_.i = getelementptr inbounds i8, ptr %agg.tmp220, i64 88
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %agg.tmp220, i64 80
+  %msg_.i.i = getelementptr inbounds i8, ptr %agg.tmp220, i64 8
   br label %land.lhs.true143
 
 land.lhs.true143:                                 ; preds = %land.lhs.true143.lr.ph, %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.exit"
@@ -15127,8 +14964,8 @@ land.lhs.true143:                                 ; preds = %land.lhs.true143.lr
   br i1 %cmp.i80.not, label %if.then.i107, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true143
-  %_M_finish.i.i81 = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %38, i64 0, i32 3
-  %_M_start.i.i82 = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %38, i64 0, i32 2
+  %_M_finish.i.i81 = getelementptr inbounds i8, ptr %38, i64 48
+  %_M_start.i.i82 = getelementptr inbounds i8, ptr %38, i64 16
   %39 = load ptr, ptr %_M_finish.i.i81, align 8
   %40 = load ptr, ptr %_M_start.i.i82, align 8
   %cmp.i.i.i = icmp eq ptr %39, %40
@@ -15164,7 +15001,7 @@ invoke.cont174:                                   ; preds = %invoke.cont171
           to label %invoke.cont176 unwind label %lpad173
 
 invoke.cont176:                                   ; preds = %invoke.cont174
-  %event_.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %40, i64 0, i32 6
+  %event_.i = getelementptr inbounds i8, ptr %40, i64 48
   %43 = load i8, ptr %event_.i, align 8
   %call181 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoNS_9HTTPEvent4TypeE(ptr noundef nonnull align 8 dereferenceable(8) %call177, i8 noundef zeroext %43)
           to label %invoke.cont180 unwind label %lpad173
@@ -15176,7 +15013,7 @@ invoke.cont180:                                   ; preds = %invoke.cont176
 invoke.cont182:                                   ; preds = %invoke.cont180
   %44 = load ptr, ptr %transport_, align 8
   %vtable.i.i84 = load ptr, ptr %44, align 8
-  %vfn.i.i85 = getelementptr inbounds ptr, ptr %vtable.i.i84, i64 23
+  %vfn.i.i85 = getelementptr inbounds i8, ptr %vtable.i.i84, i64 184
   %45 = load ptr, ptr %vfn.i.i85, align 8
   invoke void %45(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %call183)
           to label %.noexc87 unwind label %lpad173
@@ -15195,7 +15032,7 @@ cleanup.action189:                                ; preds = %call.i.i.noexc88
   br label %cleanup.done190
 
 cleanup.done190:                                  ; preds = %cond.false160, %cond.end162, %cleanup.action189
-  %event_.i93 = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %40, i64 0, i32 6
+  %event_.i93 = getelementptr inbounds i8, ptr %40, i64 48
   %47 = load i8, ptr %event_.i93, align 8
   switch i8 %47, label %if.then.i [
     i8 0, label %sw.bb
@@ -15276,7 +15113,7 @@ lpad208:                                          ; preds = %sw.bb206
 
 sw.bb210:                                         ; preds = %cleanup.done190
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
-  %body_.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %40, i64 0, i32 1
+  %body_.i = getelementptr inbounds i8, ptr %40, i64 8
   %53 = load i64, ptr %body_.i, align 8, !noalias !101
   store i64 %53, ptr %data, align 8, !alias.scope !101
   store ptr null, ptr %body_.i, align 8, !noalias !101
@@ -15382,7 +15219,7 @@ ehcleanup:                                        ; preds = %lpad213.loopexit, %
   br label %ehcleanup249
 
 invoke.cont229:                                   ; preds = %cleanup.done190
-  %length_.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %40, i64 0, i32 5
+  %length_.i = getelementptr inbounds i8, ptr %40, i64 40
   %59 = load i64, ptr %length_.i, align 8
   invoke void @_ZN8proxygen15HTTPTransaction25processIngressChunkHeaderEm(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %59)
           to label %if.then.i unwind label %lpad196.loopexit
@@ -15393,7 +15230,7 @@ sw.bb232:                                         ; preds = %cleanup.done190
 
 sw.bb234:                                         ; preds = %cleanup.done190
   call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  %trailers_.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %40, i64 0, i32 2
+  %trailers_.i = getelementptr inbounds i8, ptr %40, i64 16
   %60 = load i64, ptr %trailers_.i, align 8, !noalias !105
   store i64 %60, ptr %agg.tmp235, align 8, !alias.scope !105
   store ptr null, ptr %trailers_.i, align 8, !noalias !105
@@ -15425,7 +15262,7 @@ sw.bb240:                                         ; preds = %cleanup.done190
           to label %if.then.i unwind label %lpad196.loopexit
 
 sw.bb242:                                         ; preds = %cleanup.done190
-  %protocol_.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %40, i64 0, i32 8
+  %protocol_.i = getelementptr inbounds i8, ptr %40, i64 52
   %63 = load i32, ptr %protocol_.i, align 4
   %64 = load i32, ptr %guardCount_.i, align 8
   %inc.i.i = add i32 %64, 1
@@ -15445,7 +15282,7 @@ if.end.i:                                         ; preds = %sw.bb242
 
 if.then2.i:                                       ; preds = %if.end.i
   %vtable.i = load ptr, ptr %66, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 13
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 104
   %68 = load ptr, ptr %vfn.i, align 8
   call void %68(ptr noundef nonnull align 8 dereferenceable(8) %66, i32 noundef %63) #27
   %.pre.i = load i32, ptr %guardCount_.i, align 8
@@ -15460,7 +15297,7 @@ if.then.i.i:                                      ; preds = %if.then2.i, %if.end
 
 if.then6.i.i:                                     ; preds = %if.then.i.i
   %vtable.i.i101 = load ptr, ptr %add.ptr, align 8
-  %vfn.i.i102 = getelementptr inbounds ptr, ptr %vtable.i.i101, i64 2
+  %vfn.i.i102 = getelementptr inbounds i8, ptr %vtable.i.i101, i64 16
   %70 = load ptr, ptr %vfn.i.i102, align 8
   invoke void %70(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %if.then.i unwind label %terminate.lpad.i.i
@@ -15478,31 +15315,31 @@ if.then.i:                                        ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp.i.not.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev.exit", label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %_M_start.i.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this.val.val.i, i64 0, i32 2
+  %_M_start.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val.i, i64 16
   %73 = load ptr, ptr %_M_start.i.i.i.i.i, align 8
-  %_M_last.i.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this.val.val.i, i64 0, i32 2, i32 2
+  %_M_last.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val.i, i64 32
   %74 = load ptr, ptr %_M_last.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %74, i64 -1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %74, i64 -56
   %cmp.not.i.i.i.i.i = icmp eq ptr %73, %add.ptr.i.i.i.i.i
   call void @_ZN8proxygen9HTTPEventD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %73) #27
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %75 = load ptr, ptr %_M_start.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %75, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %75, i64 56
   br label %_ZNSt5queueIN8proxygen9HTTPEventESt5dequeIS1_SaIS1_EEE3popEv.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
-  %_M_first.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this.val.val.i, i64 0, i32 2, i32 1
+  %_M_first.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val.i, i64 24
   %76 = load ptr, ptr %_M_first.i.i.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef %76) #28
-  %_M_node.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this.val.val.i, i64 0, i32 2, i32 3
+  %_M_node.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val.i, i64 40
   %77 = load ptr, ptr %_M_node.i.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %77, i64 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %77, i64 8
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_node.i.i.i.i.i.i, align 8
   %78 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   store ptr %78, ptr %_M_first.i.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %78, i64 9
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %78, i64 504
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_last.i.i.i.i.i, align 8
   br label %_ZNSt5queueIN8proxygen9HTTPEventESt5dequeIS1_SaIS1_EEE3popEv.exit.i.i.i
 
@@ -15549,7 +15386,7 @@ if.then.i109:                                     ; preds = %"_ZN5folly6detail14
 
 if.then6.i:                                       ; preds = %if.then.i109
   %vtable.i111 = load ptr, ptr %add.ptr, align 8
-  %vfn.i112 = getelementptr inbounds ptr, ptr %vtable.i111, i64 2
+  %vfn.i112 = getelementptr inbounds i8, ptr %vtable.i111, i64 16
   %83 = load ptr, ptr %vfn.i112, align 8
   invoke void %83(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -15593,31 +15430,31 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i.i, label %if.end, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %_M_start.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this.val.val, i64 0, i32 2
+  %_M_start.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val, i64 16
   %2 = load ptr, ptr %_M_start.i.i.i.i, align 8
-  %_M_last.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this.val.val, i64 0, i32 2, i32 2
+  %_M_last.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val, i64 32
   %3 = load ptr, ptr %_M_last.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %3, i64 -1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -56
   %cmp.not.i.i.i.i = icmp eq ptr %2, %add.ptr.i.i.i.i
   tail call void @_ZN8proxygen9HTTPEventD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #27
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i
   %4 = load ptr, ptr %_M_start.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %4, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 56
   br label %_ZNSt5queueIN8proxygen9HTTPEventESt5dequeIS1_SaIS1_EEE3popEv.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i
-  %_M_first.i.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this.val.val, i64 0, i32 2, i32 1
+  %_M_first.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val, i64 24
   %5 = load ptr, ptr %_M_first.i.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %5) #28
-  %_M_node.i.i.i.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this.val.val, i64 0, i32 2, i32 3
+  %_M_node.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.val, i64 40
   %6 = load ptr, ptr %_M_node.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_node.i.i.i.i.i, align 8
   %7 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   store ptr %7, ptr %_M_first.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %7, i64 9
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 504
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_last.i.i.i.i, align 8
   br label %_ZNSt5queueIN8proxygen9HTTPEventESt5dequeIS1_SaIS1_EEE3popEv.exit.i.i
 
@@ -15649,7 +15486,7 @@ terminate.lpad.i.i:                               ; preds = %if.then
   unreachable
 
 "_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_0Lb1EE7executeEv.exit": ; preds = %if.then
-  %inResume_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this.8.val, i64 0, i32 40
+  %inResume_.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 728
   %bf.load.i.i = load i32, ptr %inResume_.i.i, align 8
   %bf.clear.i.i = and i32 %bf.load.i.i, -1025
   store i32 %bf.clear.i.i, ptr %inResume_.i.i, align 8
@@ -15688,10 +15525,10 @@ invoke.cont:                                      ; preds = %cond.false4
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %2 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %3 = load ptr, ptr %vfn.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %call8)
           to label %.noexc unwind label %lpad
@@ -15701,7 +15538,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load i64, ptr %id_.i.i, align 8
   %call2.i.i7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i6, i64 noundef %4)
           to label %cleanup.action unwind label %lpad
@@ -15717,7 +15554,7 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
   %5 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %5, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %egressPaused_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %egressPaused_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %egressPaused_, align 8
   %6 = and i32 %bf.load, 2
   %bf.cast.not = icmp eq i32 %6, 0
@@ -15753,10 +15590,10 @@ invoke.cont37:                                    ; preds = %invoke.cont34
           to label %invoke.cont39 unwind label %lpad36
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  %transport_.i.i8 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i8 = getelementptr inbounds i8, ptr %this, i64 272
   %9 = load ptr, ptr %transport_.i.i8, align 8
   %vtable.i.i9 = load ptr, ptr %9, align 8
-  %vfn.i.i10 = getelementptr inbounds ptr, ptr %vtable.i.i9, i64 23
+  %vfn.i.i10 = getelementptr inbounds i8, ptr %vtable.i.i9, i64 184
   %10 = load ptr, ptr %vfn.i.i10, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %call40)
           to label %.noexc12 unwind label %lpad36
@@ -15766,7 +15603,7 @@ invoke.cont39:                                    ; preds = %invoke.cont37
           to label %call.i.i.noexc13 unwind label %lpad36
 
 call.i.i.noexc13:                                 ; preds = %.noexc12
-  %id_.i.i11 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i11 = getelementptr inbounds i8, ptr %this, i64 248
   %11 = load i64, ptr %id_.i.i11, align 8
   %call2.i.i15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i14, i64 noundef %11)
           to label %cleanup.action46 unwind label %lpad36
@@ -15808,7 +15645,7 @@ if.then.i:                                        ; preds = %cond.end25, %cleanu
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %16 = load ptr, ptr %vfn.i, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -15842,7 +15679,7 @@ entry:
   %ref.tmp161 = alloca %"class.google::LogMessage", align 8
   %ref.tmp197 = alloca %"class.google::LogMessage", align 8
   %ref.tmp235 = alloca %"class.google::LogMessage", align 8
-  %egressState_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i.i = getelementptr inbounds i8, ptr %this, i64 241
   %0 = load i8, ptr %egressState_.i.i, align 1
   %1 = and i8 %0, -2
   %spec.select.i = icmp eq i8 %1, 8
@@ -15872,10 +15709,10 @@ invoke.cont:                                      ; preds = %cond.false5
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %4 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %5 = load ptr, ptr %vfn.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %call9)
           to label %.noexc unwind label %lpad
@@ -15885,7 +15722,7 @@ invoke.cont8:                                     ; preds = %invoke.cont
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %6 = load i64, ptr %id_.i.i, align 8
   %call2.i.i22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i21, i64 noundef %6)
           to label %cleanup.action unwind label %lpad
@@ -15901,9 +15738,9 @@ lpad:                                             ; preds = %call.i.i.noexc, %.n
   br label %common.resume
 
 if.end:                                           ; preds = %entry
-  %sendWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 18
+  %sendWindow_ = getelementptr inbounds i8, ptr %this, i64 352
   %call17 = tail call noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr noundef nonnull align 4 dereferenceable(8) %sendWindow_)
-  %deferredEgressBody_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4
+  %deferredEgressBody_.i = getelementptr inbounds i8, ptr %this, i64 160
   %8 = load i8, ptr %deferredEgressBody_.i, align 8
   %9 = and i8 %8, 1
   %tobool.not.i.i = icmp eq i8 %9, 0
@@ -15930,22 +15767,22 @@ lpad.i.i:                                         ; preds = %if.then.i.i
 
 _ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit: ; preds = %if.end
   %conv = sext i32 %call17 to i64
-  %chainLength_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 1
+  %chainLength_.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %11 = load i64, ptr %chainLength_.i.i, align 8
-  %cachePtr_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 4
+  %cachePtr_.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %12 = load ptr, ptr %cachePtr_.i.i, align 8
   %13 = load ptr, ptr %12, align 8
-  %tailStart_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 3
+  %tailStart_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %14 = load ptr, ptr %tailStart_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %14 to i64
-  %deferredBufferMeta_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 5
+  %deferredBufferMeta_.i = getelementptr inbounds i8, ptr %this, i64 232
   %15 = load i64, ptr %deferredBufferMeta_.i, align 8
   %16 = add i64 %11, %sub.ptr.lhs.cast.i.i
   %17 = add i64 %conv, %sub.ptr.rhs.cast.i.i
   %18 = add i64 %16, %15
   %sub = sub i64 %17, %18
-  %useFlowControl_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %useFlowControl_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %useFlowControl_, align 8
   %cmp19 = icmp slt i64 %sub, 0
   %19 = and i32 %bf.load, 36
@@ -15977,10 +15814,10 @@ invoke.cont43:                                    ; preds = %cond.false38
           to label %invoke.cont45 unwind label %lpad42
 
 invoke.cont45:                                    ; preds = %invoke.cont43
-  %transport_.i.i23 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i23 = getelementptr inbounds i8, ptr %this, i64 272
   %23 = load ptr, ptr %transport_.i.i23, align 8
   %vtable.i.i24 = load ptr, ptr %23, align 8
-  %vfn.i.i25 = getelementptr inbounds ptr, ptr %vtable.i.i24, i64 23
+  %vfn.i.i25 = getelementptr inbounds i8, ptr %vtable.i.i24, i64 184
   %24 = load ptr, ptr %vfn.i.i25, align 8
   invoke void %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %call46)
           to label %.noexc27 unwind label %lpad42
@@ -15990,7 +15827,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
           to label %call.i.i.noexc28 unwind label %lpad42
 
 call.i.i.noexc28:                                 ; preds = %.noexc27
-  %id_.i.i26 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i26 = getelementptr inbounds i8, ptr %this, i64 248
   %25 = load i64, ptr %id_.i.i26, align 8
   %call2.i.i30 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i29, i64 noundef %25)
           to label %cleanup.action52 unwind label %lpad42
@@ -16000,14 +15837,14 @@ cleanup.action52:                                 ; preds = %call.i.i.noexc28
   br label %cleanup.done53
 
 cleanup.done53:                                   ; preds = %cond.true29, %cond.end33, %cleanup.action52
-  %stats_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 15
+  %stats_ = getelementptr inbounds i8, ptr %this, i64 280
   %26 = load ptr, ptr %stats_, align 8
   %tobool57.not = icmp eq ptr %26, null
   br i1 %tobool57.not, label %if.end61, label %if.then58
 
 if.then58:                                        ; preds = %cleanup.done53
   %vtable = load ptr, ptr %26, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %27 = load ptr, ptr %vfn, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(8) %26) #27
   br label %if.end61
@@ -16095,10 +15932,10 @@ invoke.cont115:                                   ; preds = %cond.false110
           to label %invoke.cont117 unwind label %lpad114
 
 invoke.cont117:                                   ; preds = %invoke.cont115
-  %transport_.i.i48 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i48 = getelementptr inbounds i8, ptr %this, i64 272
   %44 = load ptr, ptr %transport_.i.i48, align 8
   %vtable.i.i49 = load ptr, ptr %44, align 8
-  %vfn.i.i50 = getelementptr inbounds ptr, ptr %vtable.i.i49, i64 23
+  %vfn.i.i50 = getelementptr inbounds i8, ptr %vtable.i.i49, i64 184
   %45 = load ptr, ptr %vfn.i.i50, align 8
   invoke void %45(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(8) %call118)
           to label %.noexc52 unwind label %lpad114
@@ -16108,7 +15945,7 @@ invoke.cont117:                                   ; preds = %invoke.cont115
           to label %call.i.i.noexc53 unwind label %lpad114
 
 call.i.i.noexc53:                                 ; preds = %.noexc52
-  %id_.i.i51 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i51 = getelementptr inbounds i8, ptr %this, i64 248
   %46 = load i64, ptr %id_.i.i51, align 8
   %call2.i.i55 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i54, i64 noundef %46)
           to label %cleanup.action124 unwind label %lpad114
@@ -16124,7 +15961,7 @@ lpad114:                                          ; preds = %call.i.i.noexc53, %
   br label %common.resume
 
 if.end129:                                        ; preds = %cond.true101, %cond.end105, %_ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit47, %cleanup.action124
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %48 = load ptr, ptr %handler_, align 8
   %tobool130.not = icmp eq ptr %48, null
   br i1 %tobool130.not, label %if.end256, label %land.lhs.true131
@@ -16141,7 +15978,7 @@ if.then140:                                       ; preds = %land.lhs.true131
 
 if.then142:                                       ; preds = %if.then140
   %vtable143 = load ptr, ptr %this, align 8
-  %vfn144 = getelementptr inbounds ptr, ptr %vtable143, i64 9
+  %vfn144 = getelementptr inbounds i8, ptr %vtable143, i64 72
   %51 = load ptr, ptr %vfn144, align 8
   %call145 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(912) %this)
   br i1 %call145, label %if.then146, label %if.end178
@@ -16220,7 +16057,7 @@ cleanup.action209:                                ; preds = %invoke.cont202
 cleanup.done210:                                  ; preds = %cond.true186, %cond.end190, %cleanup.action209
   %57 = load ptr, ptr %handler_, align 8
   %vtable215 = load ptr, ptr %57, align 8
-  %vfn216 = getelementptr inbounds ptr, ptr %vtable215, i64 16
+  %vfn216 = getelementptr inbounds i8, ptr %vtable215, i64 128
   %58 = load ptr, ptr %vfn216, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(8) %57) #27
   br label %if.end256
@@ -16257,10 +16094,10 @@ invoke.cont238:                                   ; preds = %cond.false233
           to label %invoke.cont240 unwind label %lpad237
 
 invoke.cont240:                                   ; preds = %invoke.cont238
-  %transport_.i.i57 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i57 = getelementptr inbounds i8, ptr %this, i64 272
   %62 = load ptr, ptr %transport_.i.i57, align 8
   %vtable.i.i58 = load ptr, ptr %62, align 8
-  %vfn.i.i59 = getelementptr inbounds ptr, ptr %vtable.i.i58, i64 23
+  %vfn.i.i59 = getelementptr inbounds i8, ptr %vtable.i.i58, i64 184
   %63 = load ptr, ptr %vfn.i.i59, align 8
   invoke void %63(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 8 dereferenceable(8) %call241)
           to label %.noexc61 unwind label %lpad237
@@ -16270,7 +16107,7 @@ invoke.cont240:                                   ; preds = %invoke.cont238
           to label %call.i.i.noexc62 unwind label %lpad237
 
 call.i.i.noexc62:                                 ; preds = %.noexc61
-  %id_.i.i60 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i60 = getelementptr inbounds i8, ptr %this, i64 248
   %64 = load i64, ptr %id_.i.i60, align 8
   %call2.i.i64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i63, i64 noundef %64)
           to label %cleanup.action247 unwind label %lpad237
@@ -16282,7 +16119,7 @@ cleanup.action247:                                ; preds = %call.i.i.noexc62
 cleanup.done248:                                  ; preds = %cond.true224, %cond.end228, %cleanup.action247
   %65 = load ptr, ptr %handler_, align 8
   %vtable253 = load ptr, ptr %65, align 8
-  %vfn254 = getelementptr inbounds ptr, ptr %vtable253, i64 17
+  %vfn254 = getelementptr inbounds i8, ptr %vtable253, i64 136
   %66 = load ptr, ptr %vfn254, align 8
   call void %66(ptr noundef nonnull align 8 dereferenceable(8) %65) #27
   br label %if.end256
@@ -16326,10 +16163,10 @@ invoke.cont:                                      ; preds = %cond.false4
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %2 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %3 = load ptr, ptr %vfn.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %call8)
           to label %.noexc unwind label %lpad
@@ -16339,7 +16176,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load i64, ptr %id_.i.i, align 8
   %call2.i.i7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i6, i64 noundef %4)
           to label %cleanup.action unwind label %lpad
@@ -16355,7 +16192,7 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
   %5 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %5, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %egressPaused_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %egressPaused_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %egressPaused_, align 8
   %6 = and i32 %bf.load, 2
   %bf.cast.not = icmp eq i32 %6, 0
@@ -16391,10 +16228,10 @@ invoke.cont37:                                    ; preds = %invoke.cont34
           to label %invoke.cont39 unwind label %lpad36
 
 invoke.cont39:                                    ; preds = %invoke.cont37
-  %transport_.i.i8 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i8 = getelementptr inbounds i8, ptr %this, i64 272
   %9 = load ptr, ptr %transport_.i.i8, align 8
   %vtable.i.i9 = load ptr, ptr %9, align 8
-  %vfn.i.i10 = getelementptr inbounds ptr, ptr %vtable.i.i9, i64 23
+  %vfn.i.i10 = getelementptr inbounds i8, ptr %vtable.i.i9, i64 184
   %10 = load ptr, ptr %vfn.i.i10, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %call40)
           to label %.noexc12 unwind label %lpad36
@@ -16404,7 +16241,7 @@ invoke.cont39:                                    ; preds = %invoke.cont37
           to label %call.i.i.noexc13 unwind label %lpad36
 
 call.i.i.noexc13:                                 ; preds = %.noexc12
-  %id_.i.i11 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i11 = getelementptr inbounds i8, ptr %this, i64 248
   %11 = load i64, ptr %id_.i.i11, align 8
   %call2.i.i15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i14, i64 noundef %11)
           to label %cleanup.action46 unwind label %lpad36
@@ -16446,7 +16283,7 @@ if.then.i:                                        ; preds = %cond.end25, %cleanu
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %16 = load ptr, ptr %vfn.i, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -16476,7 +16313,7 @@ define void @_ZN8proxygen15HTTPTransaction18setEgressRateLimitEm(ptr nocapture n
 entry:
   %ref.tmp8 = alloca %"class.google::LogMessage", align 8
   %div = udiv i64 %bitsPerSecond, 8000
-  %egressLimitBytesPerMs_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 42
+  %egressLimitBytesPerMs_ = getelementptr inbounds i8, ptr %this, i64 736
   store i64 %div, ptr %egressLimitBytesPerMs_, align 8
   %0 = add i64 %bitsPerSecond, -1
   %or.cond = icmp ult i64 %0, 7999
@@ -16525,9 +16362,9 @@ lpad:                                             ; preds = %invoke.cont12, %inv
 
 if.end:                                           ; preds = %cond.true, %cond.end, %cleanup.action, %entry
   %call.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #27
-  %startRateLimit_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 43
+  %startRateLimit_ = getelementptr inbounds i8, ptr %this, i64 744
   store i64 %call.i, ptr %startRateLimit_, align 8
-  %numLimitedBytesEgressed_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 44
+  %numLimitedBytesEgressed_ = getelementptr inbounds i8, ptr %this, i64 752
   store i64 0, ptr %numLimitedBytesEgressed_, align 8
   ret void
 }
@@ -16535,7 +16372,7 @@ if.end:                                           ; preds = %cond.true, %cond.en
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 4 dereferenceable(56) ptr @_ZNK8proxygen15HTTPTransaction18getCompressionInfoEv(ptr noundef nonnull readnone align 8 dereferenceable(912) %this) local_unnamed_addr #14 align 2 {
 entry:
-  %tableInfo_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 16
+  %tableInfo_ = getelementptr inbounds i8, ptr %this, i64 288
   ret ptr %tableInfo_
 }
 
@@ -16553,7 +16390,7 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %isDelegated_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %isDelegated_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %isDelegated_, align 8
   %1 = and i32 %bf.load, 524288
   %bf.cast.not = icmp eq i32 %1, 0
@@ -16576,10 +16413,10 @@ invoke.cont4:                                     ; preds = %invoke.cont3
           to label %invoke.cont6 unwind label %lpad2
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %2 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %3 = load ptr, ptr %vfn.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %call7)
           to label %.noexc unwind label %lpad2
@@ -16589,7 +16426,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
           to label %call.i.i.noexc unwind label %lpad2
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load i64, ptr %id_.i.i, align 8
   %call2.i.i9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i8, i64 noundef %4)
           to label %invoke.cont8 unwind label %lpad2
@@ -16610,7 +16447,7 @@ lpad2:                                            ; preds = %call.i.i.noexc, %.n
   br label %ehcleanup
 
 if.end:                                           ; preds = %entry
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %pushTxn, i64 0, i32 24, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %pushTxn, i64 424
   %7 = load i8, ptr %hasValue.i.i.i, align 8
   %8 = and i8 %7, 1
   %tobool.not.i.i.i = icmp eq i8 %8, 0
@@ -16624,9 +16461,9 @@ if.then.i.i.i:                                    ; preds = %if.end
   unreachable
 
 invoke.cont10:                                    ; preds = %if.end
-  %assocStreamId_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %pushTxn, i64 0, i32 24
+  %assocStreamId_ = getelementptr inbounds i8, ptr %pushTxn, i64 416
   %9 = load i64, ptr %assocStreamId_, align 8
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   %10 = load i64, ptr %id_, align 8
   %cmp = icmp eq i64 %9, %10
   br i1 %cmp, label %if.end16, label %if.then12
@@ -16641,7 +16478,7 @@ invoke.cont13:                                    ; preds = %if.then12
 
 invoke.cont15:                                    ; preds = %invoke.cont13
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
   %11 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -16653,7 +16490,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont15
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %12 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %12, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -16666,7 +16503,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %agg.tmp, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #27
   br label %if.then.i
@@ -16678,7 +16515,7 @@ lpad14:                                           ; preds = %invoke.cont13
   br label %ehcleanup
 
 if.end16:                                         ; preds = %invoke.cont10
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %14 = load ptr, ptr %handler_, align 8
   %tobool.not = icmp eq ptr %14, null
   br i1 %tobool.not, label %if.then17, label %if.end39
@@ -16723,20 +16560,20 @@ lpad29:                                           ; preds = %invoke.cont30, %inv
   br label %ehcleanup
 
 if.end39:                                         ; preds = %if.end16
-  %timer_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 46
+  %timer_.i = getelementptr inbounds i8, ptr %this, i64 776
   %18 = load ptr, ptr %timer_.i, align 8
   %tobool.not.i = icmp eq ptr %18, null
   br i1 %tobool.not.i, label %invoke.cont40, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end39
-  %hasValue.i.i.i11 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45, i32 0, i32 1
+  %hasValue.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 768
   %19 = load i8, ptr %hasValue.i.i.i11, align 8
   %20 = and i8 %19, 1
   %tobool.i.i.not.i = icmp eq i8 %20, 0
   br i1 %tobool.i.i.not.i, label %invoke.cont40, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i: ; preds = %land.lhs.true.i
-  %idleTimeout_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45
+  %idleTimeout_.i = getelementptr inbounds i8, ptr %this, i64 760
   %21 = load i64, ptr %idleTimeout_.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %21, 0
   br i1 %cmp.i.i.not.i, label %invoke.cont40, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
@@ -16752,10 +16589,10 @@ _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.
 invoke.cont40:                                    ; preds = %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i.invoke.cont40_crit_edge, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i, %land.lhs.true.i, %if.end39
   %22 = phi ptr [ %.pre, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i.invoke.cont40_crit_edge ], [ %14, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i ], [ %14, %land.lhs.true.i ], [ %14, %if.end39 ]
   %vtable = load ptr, ptr %22, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %23 = load ptr, ptr %vfn, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull %pushTxn) #27
-  %handler_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %pushTxn, i64 0, i32 13
+  %handler_.i = getelementptr inbounds i8, ptr %pushTxn, i64 264
   %24 = load ptr, ptr %handler_.i, align 8
   %tobool44.not = icmp eq ptr %24, null
   br i1 %tobool44.not, label %if.then45, label %if.end78
@@ -16800,22 +16637,21 @@ lpad65:                                           ; preds = %invoke.cont66, %inv
   br label %ehcleanup
 
 if.end78:                                         ; preds = %invoke.cont40
-  %id_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %pushTxn, i64 0, i32 10
+  %id_.i = getelementptr inbounds i8, ptr %pushTxn, i64 248
   %28 = load i64, ptr %id_.i, align 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 472
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %__x.019.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not20.i.i.i = icmp eq ptr %__x.019.i.i.i, null
   br i1 %cmp.not20.i.i.i, label %if.then.i.i.i13, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end78, %while.body.i.i.i
   %__x.021.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.019.i.i.i, %if.end78 ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %__x.021.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 32
   %29 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %28, %29
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i, i64 0, i32 2
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i, i64 0, i32 3
-  %cond.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_left.i.i.i.i, ptr %_M_right.i.i.i.i
+  %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
+  %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !108
@@ -16825,14 +16661,14 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i
 
 if.then.i.i.i13:                                  ; preds = %while.end.i.i.i, %if.end78
   %__y.0.lcssa25.i.i.i = phi ptr [ %__x.021.i.i.i, %while.end.i.i.i ], [ %add.ptr.i.i.i.i, %if.end78 ]
-  %_M_left.i3.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i3.i.i.i = getelementptr inbounds i8, ptr %this, i64 480
   %30 = load ptr, ptr %_M_left.i3.i.i.i, align 8
   %cmp.i4.i.i.i = icmp eq ptr %__y.0.lcssa25.i.i.i, %30
   br i1 %cmp.i4.i.i.i, label %if.then.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i13
   %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i) #30
-  %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %call.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %.pre.i.i = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i, align 8
   br label %if.end12.i.i.i
 
@@ -16848,7 +16684,7 @@ if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
-  %_M_storage.i.i.i.i6.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %retval.sroa.4.0.i.ph.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
   %32 = load i64, ptr %_M_storage.i.i.i.i6.i.i, align 8
   %cmp.i.i7.i.i = icmp ult i64 %28, %32
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
@@ -16859,10 +16695,10 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeE
           to label %call5.i.i.i.i.i.i.i.i.noexc unwind label %lpad
 
 call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %call5.i.i.i.i.i.i.i.i14, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i14, i64 32
   store i64 %28, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %33, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i14, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #27
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 496
   %34 = load i64, ptr %_M_node_count.i.i.i, align 8
   %inc.i.i.i = add i64 %34, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8
@@ -16879,7 +16715,7 @@ if.then.i:                                        ; preds = %invoke.cont8, %_ZN8
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %36 = load ptr, ptr %vfn.i, align 8
   invoke void %36(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -16914,7 +16750,7 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %isDelegated_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %isDelegated_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %isDelegated_, align 8
   %1 = and i32 %bf.load, 524288
   %bf.cast.not = icmp eq i32 %1, 0
@@ -16937,10 +16773,10 @@ invoke.cont4:                                     ; preds = %invoke.cont3
           to label %invoke.cont6 unwind label %lpad2
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %2 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %3 = load ptr, ptr %vfn.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %call7)
           to label %.noexc unwind label %lpad2
@@ -16950,7 +16786,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
           to label %call.i.i.noexc unwind label %lpad2
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load i64, ptr %id_.i.i, align 8
   %call2.i.i6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i5, i64 noundef %4)
           to label %invoke.cont8 unwind label %lpad2
@@ -16971,14 +16807,14 @@ lpad2:                                            ; preds = %call.i.i.noexc, %.n
   br label %ehcleanup
 
 if.end:                                           ; preds = %entry
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %exTxn, i64 0, i32 25, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %exTxn, i64 448
   %7 = load i8, ptr %hasValue.i.i.i, align 8, !noalias !109
   %8 = and i8 %7, 1
   %tobool.i.i.not.i = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i, label %cond.false.i, label %_ZNK5folly8OptionalIN8proxygen9HTTPCodec12ExAttributesEEptEv.exit.i
 
 _ZNK5folly8OptionalIN8proxygen9HTTPCodec12ExAttributesEEptEv.exit.i: ; preds = %if.end
-  %exAttributes_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %exTxn, i64 0, i32 25
+  %exAttributes_.i = getelementptr inbounds i8, ptr %exTxn, i64 432
   br label %invoke.cont12
 
 cond.false.i:                                     ; preds = %if.end
@@ -16997,7 +16833,7 @@ if.then.i.i.i:                                    ; preds = %cond.false.i
 invoke.cont12:                                    ; preds = %_ZNK5folly8OptionalIN8proxygen9HTTPCodec12ExAttributesEEptEv.exit.i, %cond.false.i
   %_ZN8proxygen9HTTPCodec8NoStreamE.sink.i = phi ptr [ %exAttributes_.i, %_ZNK5folly8OptionalIN8proxygen9HTTPCodec12ExAttributesEEptEv.exit.i ], [ @_ZN8proxygen9HTTPCodec8NoStreamE, %cond.false.i ]
   %11 = load i64, ptr %_ZN8proxygen9HTTPCodec8NoStreamE.sink.i, align 8, !noalias !109
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   %12 = load i64, ptr %id_, align 8
   %cmp.not = icmp eq i64 %11, %12
   br i1 %cmp.not, label %if.end18, label %if.then14
@@ -17012,7 +16848,7 @@ invoke.cont15:                                    ; preds = %if.then14
 
 invoke.cont17:                                    ; preds = %invoke.cont15
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
   %13 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -17024,7 +16860,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont17
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %14 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %14, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -17037,7 +16873,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %agg.tmp, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #27
   br label %if.then.i
@@ -17049,7 +16885,7 @@ lpad16:                                           ; preds = %invoke.cont15
   br label %ehcleanup
 
 if.end18:                                         ; preds = %invoke.cont12
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %16 = load ptr, ptr %handler_, align 8
   %tobool.not = icmp eq ptr %16, null
   br i1 %tobool.not, label %if.then19, label %if.end27
@@ -17078,10 +16914,10 @@ lpad22:                                           ; preds = %invoke.cont23, %inv
 
 if.end27:                                         ; preds = %if.end18
   %vtable = load ptr, ptr %16, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %18 = load ptr, ptr %vfn, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %exTxn) #27
-  %handler_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %exTxn, i64 0, i32 13
+  %handler_.i = getelementptr inbounds i8, ptr %exTxn, i64 264
   %19 = load ptr, ptr %handler_.i, align 8
   %tobool31.not = icmp eq ptr %19, null
   br i1 %tobool31.not, label %if.then32, label %if.end40
@@ -17109,22 +16945,21 @@ lpad35:                                           ; preds = %invoke.cont36, %inv
   br label %ehcleanup
 
 if.end40:                                         ; preds = %if.end27
-  %id_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %exTxn, i64 0, i32 10
+  %id_.i = getelementptr inbounds i8, ptr %exTxn, i64 248
   %21 = load i64, ptr %id_.i, align 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27, i32 0, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 520
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 512
   %__x.019.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not20.i.i.i = icmp eq ptr %__x.019.i.i.i, null
   br i1 %cmp.not20.i.i.i, label %if.then.i.i.i9, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end40, %while.body.i.i.i
   %__x.021.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.019.i.i.i, %if.end40 ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %__x.021.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 32
   %22 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %21, %22
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i, i64 0, i32 2
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i, i64 0, i32 3
-  %cond.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_left.i.i.i.i, ptr %_M_right.i.i.i.i
+  %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
+  %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !108
@@ -17134,14 +16969,14 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i
 
 if.then.i.i.i9:                                   ; preds = %while.end.i.i.i, %if.end40
   %__y.0.lcssa25.i.i.i = phi ptr [ %__x.021.i.i.i, %while.end.i.i.i ], [ %add.ptr.i.i.i.i, %if.end40 ]
-  %_M_left.i3.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i3.i.i.i = getelementptr inbounds i8, ptr %this, i64 528
   %23 = load ptr, ptr %_M_left.i3.i.i.i, align 8
   %cmp.i4.i.i.i = icmp eq ptr %__y.0.lcssa25.i.i.i, %23
   br i1 %cmp.i4.i.i.i, label %if.then.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i9
   %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i) #30
-  %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %call.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %.pre.i.i = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i, align 8
   br label %if.end12.i.i.i
 
@@ -17157,7 +16992,7 @@ if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
-  %_M_storage.i.i.i.i6.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %retval.sroa.4.0.i.ph.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
   %25 = load i64, ptr %_M_storage.i.i.i.i6.i.i, align 8
   %cmp.i.i7.i.i = icmp ult i64 %21, %25
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
@@ -17168,10 +17003,10 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeE
           to label %call5.i.i.i.i.i.i.i.i.noexc unwind label %lpad
 
 call5.i.i.i.i.i.i.i.i.noexc:                      ; preds = %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %call5.i.i.i.i.i.i.i.i10, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i10, i64 32
   store i64 %21, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %26, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i10, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #27
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 544
   %27 = load i64, ptr %_M_node_count.i.i.i, align 8
   %inc.i.i.i = add i64 %27, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8
@@ -17188,7 +17023,7 @@ if.then.i:                                        ; preds = %invoke.cont8, %_ZN8
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %29 = load ptr, ptr %vfn.i, align 8
   invoke void %29(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -17213,8 +17048,8 @@ ehcleanup:                                        ; preds = %lpad35, %lpad22, %l
 define void @_ZN8proxygen15HTTPTransaction14setIdleTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 %idleTimeout.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
-  %idleTimeout_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45
-  %hasValue.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45, i32 0, i32 1
+  %idleTimeout_ = getelementptr inbounds i8, ptr %this, i64 760
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %0 = load i8, ptr %hasValue.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not.i.i = icmp eq i8 %1, 0
@@ -17270,14 +17105,14 @@ lpad:                                             ; preds = %invoke.cont11, %inv
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK8proxygen15HTTPTransaction8describeERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 {
 entry:
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %os)
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.25)
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load i64, ptr %id_, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef %2)
   ret void
@@ -17287,14 +17122,14 @@ entry:
 define void @_ZN8proxygen15HTTPTransaction16setReceiveWindowEj(ptr noundef nonnull align 8 dereferenceable(912) %this, i32 noundef %capacity) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %"class.google::LogMessage", align 8
-  %useFlowControl_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %useFlowControl_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %useFlowControl_, align 8
   %0 = and i32 %bf.load, 32
   %bf.cast.not = icmp eq i32 %0, 0
   br i1 %bf.cast.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %recvWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 17
+  %recvWindow_ = getelementptr inbounds i8, ptr %this, i64 344
   %call = tail call noundef i32 @_ZNK8proxygen6Window11getCapacityEv(ptr noundef nonnull align 4 dereferenceable(8) %recvWindow_)
   %sub = sub i32 %capacity, %call
   %cmp = icmp slt i32 %sub, 0
@@ -17338,7 +17173,7 @@ if.end17:                                         ; preds = %if.end
   br i1 %call19, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.end17
-  %recvToAck_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 9
+  %recvToAck_ = getelementptr inbounds i8, ptr %this, i64 244
   %4 = load i32, ptr %recvToAck_, align 4
   %add = add nsw i32 %4, %sub
   store i32 %add, ptr %recvToAck_, align 4
@@ -17354,7 +17189,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK8proxygen15HTTPTransaction12getRecvToAckEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %this) local_unnamed_addr #15 align 2 {
 entry:
-  %recvToAck_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 9
+  %recvToAck_ = getelementptr inbounds i8, ptr %this, i64 244
   %0 = load i32, ptr %recvToAck_, align 4
   ret i32 %0
 }
@@ -17379,7 +17214,7 @@ if.then:                                          ; preds = %entry
 
 invoke.cont:                                      ; preds = %if.then
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 88
   %3 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -17391,7 +17226,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %inv
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %invoke.cont
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %agg.tmp, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 80
   %4 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %4, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -17404,7 +17239,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %agg.tmp, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #27
   br label %return
@@ -17416,30 +17251,30 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %5
 
 if.end:                                           ; preds = %entry
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %6 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 28
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %7 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #27
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 52
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 416
   %8 = load ptr, ptr %vfn4, align 8
   %call5 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %call2, i8 noundef zeroext %retval.0.i)
-  %priority_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 28
+  %priority_ = getelementptr inbounds i8, ptr %this, i64 552
   store i64 %call5, ptr %priority_, align 8
-  %queueHandle_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 23
+  %queueHandle_ = getelementptr inbounds i8, ptr %this, i64 408
   %9 = load ptr, ptr %queueHandle_, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %if.end14, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %egressQueue_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 22
+  %egressQueue_ = getelementptr inbounds i8, ptr %this, i64 400
   %10 = load ptr, ptr %egressQueue_, align 8
-  %agg.tmp8.sroa.2.0.priority_9.sroa_idx = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 28, i32 1
+  %agg.tmp8.sroa.2.0.priority_9.sroa_idx = getelementptr inbounds i8, ptr %this, i64 560
   %agg.tmp8.sroa.2.0.copyload = load i64, ptr %agg.tmp8.sroa.2.0.priority_9.sroa_idx, align 8
   %vtable10 = load ptr, ptr %10, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 4
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 32
   %11 = load ptr, ptr %vfn11, align 8
   %call12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %9, i64 %call5, i64 %agg.tmp8.sroa.2.0.copyload, ptr noundef null)
   store ptr %call12, ptr %queueHandle_, align 8
@@ -17448,7 +17283,7 @@ if.then6:                                         ; preds = %if.end
 if.end14:                                         ; preds = %if.then6, %if.end
   %12 = load ptr, ptr %transport_, align 8
   %vtable17 = load ptr, ptr %12, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 13
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 104
   %13 = load ptr, ptr %vfn18, align 8
   %call19 = tail call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(16) %priority_) #27
   br label %return
@@ -17461,11 +17296,11 @@ return:                                           ; preds = %if.end14, %_ZN8prox
 define void @_ZN8proxygen15HTTPTransaction21updateAndSendPriorityERKNS_5http214PriorityUpdateE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %newPriority) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN8proxygen15HTTPTransaction16onPriorityUpdateERKNS_5http214PriorityUpdateE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(16) %newPriority)
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
-  %priority_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 28
+  %priority_ = getelementptr inbounds i8, ptr %this, i64 552
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(16) %priority_) #27
   ret void
@@ -17475,7 +17310,7 @@ entry:
 define void @_ZN8proxygen15HTTPTransaction16onPriorityUpdateERKNS_5http214PriorityUpdateE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %priority) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
-  %queueHandle_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 23
+  %queueHandle_ = getelementptr inbounds i8, ptr %this, i64 408
   %0 = load ptr, ptr %queueHandle_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -17500,22 +17335,22 @@ lpad:                                             ; preds = %invoke.cont, %if.th
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
-  %priority_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 28
+  %priority_ = getelementptr inbounds i8, ptr %this, i64 552
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %priority_, ptr noundef nonnull align 8 dereferenceable(16) %priority, i64 16, i1 false)
-  %egressQueue_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 22
+  %egressQueue_ = getelementptr inbounds i8, ptr %this, i64 400
   %2 = load ptr, ptr %egressQueue_, align 8
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %priority_, align 8
-  %agg.tmp.sroa.2.0.priority_5.sroa_idx = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 28, i32 1
+  %agg.tmp.sroa.2.0.priority_5.sroa_idx = getelementptr inbounds i8, ptr %this, i64 560
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.priority_5.sroa_idx, align 8
-  %currentDepth_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 30
+  %currentDepth_ = getelementptr inbounds i8, ptr %this, i64 576
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   %call6 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %0, i64 %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, ptr noundef nonnull %currentDepth_)
   store ptr %call6, ptr %queueHandle_, align 8
   %4 = load i64, ptr %priority_, align 8
   %5 = load ptr, ptr %egressQueue_, align 8
-  %rootNodeId_.i = getelementptr inbounds %"class.proxygen::HTTP2PriorityQueueBase", ptr %5, i64 0, i32 1
+  %rootNodeId_.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %rootNodeId_.i, align 8
   %cmp.not = icmp ne i64 %4, %6
   %7 = load i64, ptr %currentDepth_, align 8
@@ -17524,7 +17359,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then13, label %if.end14
 
 if.then13:                                        ; preds = %if.end
-  %priorityFallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %priorityFallback_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %priorityFallback_, align 8
   %bf.set = or i32 %bf.load, 8192
   store i32 %bf.set, ptr %priorityFallback_, align 8
@@ -17538,15 +17373,15 @@ if.end14:                                         ; preds = %if.then13, %if.end,
 define void @_ZN8proxygen15HTTPTransaction21updateAndSendPriorityENS_12HTTPPriorityE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef readonly %pri) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"struct.proxygen::HTTPPriority", align 8
-  %urgency = getelementptr inbounds %"struct.proxygen::HTTPPriority", ptr %pri, i64 0, i32 1
+  %urgency = getelementptr inbounds i8, ptr %pri, i64 8
   %bf.load = load i64, ptr %urgency, align 8
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen12HTTPPriorityE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %urgency.i = getelementptr inbounds %"struct.proxygen::HTTPPriority", ptr %agg.tmp, i64 0, i32 1
+  %urgency.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 %bf.load, ptr %urgency.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   %call5 = call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %this, ptr noundef nonnull %agg.tmp) #27
   ret void
@@ -17561,17 +17396,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPTransaction34checkIfEgressRateLimitedByUpstreamEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %transportCallback_, align 8
   %tobool.not = icmp eq ptr %0, null
-  %egressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i = getelementptr inbounds i8, ptr %this, i64 241
   %1 = load i8, ptr %egressState_.i, align 1
   %cmp.i = icmp eq i8 %1, 8
   %or.cond = select i1 %tobool.not, i1 true, i1 %cmp.i
   br i1 %or.cond, label %if.end, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %entry
-  %deferredEgressBody_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4
+  %deferredEgressBody_.i = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i8, ptr %deferredEgressBody_.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i = icmp eq i8 %3, 0
@@ -17593,18 +17428,18 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   resume { ptr, i32 } %4
 
 _ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit: ; preds = %land.lhs.true2
-  %chainLength_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 1
+  %chainLength_.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %5 = load i64, ptr %chainLength_.i.i, align 8
-  %cachePtr_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 4
+  %cachePtr_.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %6 = load ptr, ptr %cachePtr_.i.i, align 8
   %7 = load ptr, ptr %6, align 8
-  %tailStart_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 4, i32 3
+  %tailStart_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %8 = load ptr, ptr %tailStart_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i = add i64 %5, %sub.ptr.lhs.cast.i.i
   %add.i.i = sub i64 %sub.ptr.sub.i.i, %sub.ptr.rhs.cast.i.i
-  %deferredBufferMeta_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 5
+  %deferredBufferMeta_.i = getelementptr inbounds i8, ptr %this, i64 232
   %9 = load i64, ptr %deferredBufferMeta_.i, align 8
   %add.i = sub i64 0, %9
   %cmp = icmp eq i64 %add.i.i, %add.i
@@ -17612,7 +17447,7 @@ _ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit: ; preds = 
 
 if.then:                                          ; preds = %_ZNK8proxygen15HTTPTransaction29getOutstandingEgressBodyBytesEv.exit
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %10 = load ptr, ptr %vfn, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %0) #27
   br label %if.end
@@ -17631,7 +17466,7 @@ entry:
   %0 = load i32, ptr %guardCount_.i, align 8
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
-  %aborted_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %aborted_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %aborted_, align 8
   %1 = and i32 %bf.load, 64
   %bf.cast.not = icmp eq i32 %1, 0
@@ -17667,10 +17502,10 @@ invoke.cont9:                                     ; preds = %invoke.cont8
           to label %invoke.cont11 unwind label %terminate.lpad
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %4 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 23
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 184
   %5 = load ptr, ptr %vfn.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %call12)
           to label %.noexc unwind label %terminate.lpad
@@ -17680,7 +17515,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
           to label %call.i.i.noexc unwind label %terminate.lpad
 
 call.i.i.noexc:                                   ; preds = %.noexc
-  %id_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %6 = load i64, ptr %id_.i.i, align 8
   %call2.i.i4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i3, i64 noundef %6)
           to label %cleanup.action unwind label %terminate.lpad
@@ -17697,20 +17532,20 @@ invoke.cont17:                                    ; preds = %cleanup.done
   br i1 %call18, label %if.end20, label %if.then.i
 
 if.end20:                                         ; preds = %invoke.cont17
-  %timer_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 46
+  %timer_.i = getelementptr inbounds i8, ptr %this, i64 776
   %7 = load ptr, ptr %timer_.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %invoke.cont21, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end20
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %8 = load i8, ptr %hasValue.i.i.i, align 8
   %9 = and i8 %8, 1
   %tobool.i.i.not.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i, label %invoke.cont21, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i: ; preds = %land.lhs.true.i
-  %idleTimeout_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45
+  %idleTimeout_.i = getelementptr inbounds i8, ptr %this, i64 760
   %10 = load i64, ptr %idleTimeout_.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %10, 0
   br i1 %cmp.i.i.not.i, label %invoke.cont21, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
@@ -17725,23 +17560,23 @@ invoke.cont21:                                    ; preds = %_ZNR5folly8Optional
           to label %invoke.cont23 unwind label %terminate.lpad
 
 invoke.cont23:                                    ; preds = %invoke.cont21
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %12 = load ptr, ptr %transportCallback_, align 8
   %tobool25.not = icmp eq ptr %12, null
   br i1 %tobool25.not, label %if.end28, label %if.then26
 
 if.then26:                                        ; preds = %invoke.cont23
   %vtable = load ptr, ptr %12, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %13 = load ptr, ptr %vfn, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %call24) #27
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then26, %invoke.cont23
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %14 = load ptr, ptr %handler_, align 8
   %tobool29.not = icmp eq ptr %14, null
-  %ingressState_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 8
+  %ingressState_.i = getelementptr inbounds i8, ptr %this, i64 242
   %15 = load i8, ptr %ingressState_.i, align 2
   %cmp.i = icmp eq i8 %15, 10
   %or.cond = select i1 %tobool29.not, i1 true, i1 %cmp.i
@@ -17752,7 +17587,7 @@ if.then32:                                        ; preds = %if.end28
   store i64 %16, ptr %agg.tmp, align 8
   store ptr null, ptr %datagram, align 8
   %vtable34 = load ptr, ptr %14, align 8
-  %vfn35 = getelementptr inbounds ptr, ptr %vtable34, i64 21
+  %vfn35 = getelementptr inbounds i8, ptr %vtable34, i64 168
   %17 = load ptr, ptr %vfn35, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %agg.tmp) #27
   %18 = load ptr, ptr %agg.tmp, align 8
@@ -17777,7 +17612,7 @@ if.then.i:                                        ; preds = %entry, %invoke.cont
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %20 = load ptr, ptr %vfn.i, align 8
   invoke void %20(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
@@ -17809,40 +17644,40 @@ entry:
   %ref.tmp10 = alloca %"class.std::tuple.174", align 8
   %ref.tmp11 = alloca %"class.std::tuple.177", align 8
   store i64 %id, ptr %id.addr, align 8
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load ptr, ptr %handler_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %1 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 50
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 400
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %id, i32 noundef -1)
   %3 = load ptr, ptr %transport_, align 8
   %vtable3 = load ptr, ptr %3, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 53
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 424
   %4 = load ptr, ptr %vfn4, align 8
   %call5 = tail call i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %id, i32 noundef -1)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %timer_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 46
+  %timer_.i = getelementptr inbounds i8, ptr %this, i64 776
   %5 = load ptr, ptr %timer_.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %6 = load i8, ptr %hasValue.i.i.i, align 8
   %7 = and i8 %6, 1
   %tobool.i.i.not.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i, label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i: ; preds = %land.lhs.true.i
-  %idleTimeout_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45
+  %idleTimeout_.i = getelementptr inbounds i8, ptr %this, i64 760
   %8 = load i64, ptr %idleTimeout_.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %8, 0
   br i1 %cmp.i.i.not.i, label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
@@ -17852,14 +17687,14 @@ _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.
   br label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit
 
 _ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit: ; preds = %if.end, %land.lhs.true.i, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
-  %wtIngressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50
+  %wtIngressStreams_ = getelementptr inbounds i8, ptr %this, i64 848
   store ptr %id.addr, ptr %ref.tmp, align 8, !alias.scope !112
   store ptr %id.addr, ptr %ref.tmp8, align 8, !alias.scope !115
   %9 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
   store ptr %this, ptr %9, align 8, !alias.scope !115
   %call.i = call { ptr, i8 } @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE17_M_emplace_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRmEESG_IJRS3_SH_EEEEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %wtIngressStreams_, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8)
   %10 = extractvalue { ptr, i8 } %call.i, 0
-  %wtEgressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49
+  %wtEgressStreams_ = getelementptr inbounds i8, ptr %this, i64 800
   store ptr %id.addr, ptr %ref.tmp10, align 8, !alias.scope !118
   store ptr %id.addr, ptr %ref.tmp11, align 8, !alias.scope !121
   %11 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
@@ -17868,10 +17703,10 @@ _ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit: ; preds = %if.end, %land.l
   %12 = extractvalue { ptr, i8 } %call.i1, 0
   %13 = load ptr, ptr %handler_, align 8
   %14 = load i64, ptr %id.addr, align 8
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %10, i64 0, i32 1, i32 0, i64 8
-  %second17 = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %12, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %10, i64 40
+  %second17 = getelementptr inbounds i8, ptr %12, i64 40
   %vtable18 = load ptr, ptr %13, align 8
-  %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 22
+  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 176
   %15 = load ptr, ptr %vfn19, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef %14, ptr nonnull %second, ptr nonnull %second17) #27
   br label %return
@@ -17888,7 +17723,7 @@ entry:
   %ref.tmp5 = alloca %"class.std::tuple.174", align 8
   %ref.tmp6 = alloca %"class.std::tuple.177", align 8
   store i64 %id, ptr %id.addr, align 8
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load ptr, ptr %handler_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -17904,10 +17739,10 @@ invoke.cont:                                      ; preds = %if.then
 
 invoke.cont2:                                     ; preds = %invoke.cont
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #27
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %1 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 53
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 424
   %2 = load ptr, ptr %vfn, align 8
   %call4 = call i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %id, i32 noundef -1)
   br label %return
@@ -17919,20 +17754,20 @@ lpad:                                             ; preds = %invoke.cont, %if.th
   resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %entry
-  %timer_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 46
+  %timer_.i = getelementptr inbounds i8, ptr %this, i64 776
   %4 = load ptr, ptr %timer_.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %5 = load i8, ptr %hasValue.i.i.i, align 8
   %6 = and i8 %5, 1
   %tobool.i.i.not.i = icmp eq i8 %6, 0
   br i1 %tobool.i.i.not.i, label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i: ; preds = %land.lhs.true.i
-  %idleTimeout_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45
+  %idleTimeout_.i = getelementptr inbounds i8, ptr %this, i64 760
   %7 = load i64, ptr %idleTimeout_.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %7, 0
   br i1 %cmp.i.i.not.i, label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
@@ -17942,7 +17777,7 @@ _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.
   br label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit
 
 _ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit: ; preds = %if.end, %land.lhs.true.i, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
-  %wtIngressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50
+  %wtIngressStreams_ = getelementptr inbounds i8, ptr %this, i64 848
   store ptr %id.addr, ptr %ref.tmp5, align 8, !alias.scope !124
   store ptr %id.addr, ptr %ref.tmp6, align 8, !alias.scope !127
   %8 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
@@ -17951,9 +17786,9 @@ _ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit: ; preds = %if.end, %land.l
   %9 = extractvalue { ptr, i8 } %call.i, 0
   %10 = load ptr, ptr %handler_, align 8
   %11 = load i64, ptr %id.addr, align 8
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %9, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %9, i64 40
   %vtable10 = load ptr, ptr %10, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 23
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 184
   %12 = load ptr, ptr %vfn11, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %11, ptr noundef nonnull %second) #27
   br label %return
@@ -17969,8 +17804,8 @@ entry:
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8
   %agg.tmp = alloca %"class.folly::exception_wrapper", align 8
   %agg.tmp19 = alloca %"class.std::unique_ptr.4", align 8
-  %writePromise_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 3
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %writePromise_ = getelementptr inbounds i8, ptr %this, i64 32
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %hasValue.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not = icmp eq i8 %1, 0
@@ -18000,20 +17835,20 @@ lpad:                                             ; preds = %invoke.cont5, %invo
   unreachable
 
 cleanup.done:                                     ; preds = %entry
-  %hasValue.i.i2 = getelementptr inbounds %"class.proxygen::WebTransport::StreamWriteHandle", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %hasValue.i.i2 = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i8, ptr %hasValue.i.i2, align 4
   %4 = and i8 %3, 1
   %tobool.i.i3.not = icmp eq i8 %4, 0
   br i1 %tobool.i.i3.not, label %if.end, label %_ZNR5folly8OptionalIjEdeEv.exit
 
 _ZNR5folly8OptionalIjEdeEv.exit:                  ; preds = %cleanup.done
-  %stopSendingErrorCode_ = getelementptr inbounds %"class.proxygen::WebTransport::StreamWriteHandle", ptr %this, i64 0, i32 1
+  %stopSendingErrorCode_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN5folly17exception_wrapperC2IN8proxygen12WebTransport9ExceptionEJRjEEENS0_11PrivateCtorESt15in_place_type_tIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull align 4 dereferenceable(4) %stopSendingErrorCode_)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   %5 = load i64, ptr %agg.tmp, align 8, !noalias !130
   store i64 0, ptr %agg.tmp, align 8, !noalias !130
   store i32 1, ptr %agg.tmp.i, align 8, !noalias !135
-  %6 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %agg.tmp.i, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 %5, ptr %6, align 8, !alias.scope !136, !noalias !135
   %call.i.i1.i = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31
           to label %invoke.cont18 unwind label %if.then4.i.i3.i, !noalias !135
@@ -18026,21 +17861,21 @@ if.then4.i.i3.i:                                  ; preds = %_ZNR5folly8Optional
 
 invoke.cont18:                                    ; preds = %_ZNR5folly8OptionalIjEdeEv.exit
   %8 = getelementptr inbounds i8, ptr %call.i.i1.i, i64 136
-  %callback_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 2
+  %callback_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 16
   store ptr null, ptr %callback_.i.i.i.i.i, align 16, !noalias !139
-  %call_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 2, i32 1
+  %call_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 64
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS7_EEPNS_17exception_wrapperEEE10uninitCallES6_SA_SC_RNS1_4DataE, ptr %call_.i.i.i.i.i.i, align 16, !noalias !139
-  %exec_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 2, i32 2
+  %exec_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i, align 8, !noalias !139
-  %state_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 3
+  %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 80
   store i8 2, ptr %state_.i.i.i.i.i, align 1, !noalias !139
-  %attached_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 4
+  %attached_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i, align 1, !noalias !139
-  %callbackReferences_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 5
+  %callbackReferences_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 82
   store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 1, !noalias !139
-  %executor_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 6
+  %executor_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i, align 8, !noalias !139
-  %9 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 6, i32 1
+  %9 = getelementptr inbounds i8, ptr %call.i.i1.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 32, i1 false), !noalias !139
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i1.i, align 16, !noalias !139
   store i32 1, ptr %8, align 8, !noalias !139
@@ -18048,7 +17883,7 @@ invoke.cont18:                                    ; preds = %_ZNR5folly8Optional
   store i64 %5, ptr %10, align 8, !alias.scope !142, !noalias !139
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
   store ptr %call.i.i1.i, ptr %agg.result, align 8
-  %which_.i.i.i = getelementptr inbounds %"struct.folly::expected_detail::ExpectedUnion", ptr %agg.result, i64 0, i32 1
+  %which_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 1, ptr %which_.i.i.i, align 8
   invoke void @_ZN5folly10SemiFutureINS_4UnitEE23releaseDeferredExecutorEPNS_7futures6detail4CoreIS1_EE(ptr noundef null)
           to label %_ZN5folly10SemiFutureINS_4UnitEED2Ev.exit unwind label %terminate.lpad.i
@@ -18080,9 +17915,9 @@ if.then.i.i7:                                     ; preds = %lpad17.body
   br label %eh.resume
 
 if.end:                                           ; preds = %cleanup.done
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load ptr, ptr %txn_, align 8
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load i64, ptr %id_, align 8
   %17 = load i64, ptr %data, align 8
   store i64 %17, ptr %agg.tmp19, align 8
@@ -18113,7 +17948,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %in
 
 _ZNR5folly8ExpectedIN8proxygen15HTTPTransaction9Transport7FCStateENS1_12WebTransport9ErrorCodeEE5errorEv.exit: ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
   store i32 %fcState.sroa.446.0.extract.trunc, ptr %agg.result, align 8
-  %which_.i.i.i10 = getelementptr inbounds %"struct.folly::expected_detail::ExpectedUnion", ptr %agg.result, i64 0, i32 1
+  %which_.i.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 2, ptr %which_.i.i.i10, align 8
   br label %return
 
@@ -18134,26 +17969,26 @@ _ZNR5folly8ExpectedIN8proxygen15HTTPTransaction9Transport7FCStateENS1_12WebTrans
 
 if.then31:                                        ; preds = %_ZNR5folly8ExpectedIN8proxygen15HTTPTransaction9Transport7FCStateENS1_12WebTransport9ErrorCodeEEdeEv.exit
   %20 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 136
-  %callback_.i.i.i.i.i12 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 2
+  %callback_.i.i.i.i.i12 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 16
   store ptr null, ptr %callback_.i.i.i.i.i12, align 16, !noalias !146
-  %call_.i.i.i.i.i.i13 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 2, i32 1
+  %call_.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 64
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS7_EEPNS_17exception_wrapperEEE10uninitCallES6_SA_SC_RNS1_4DataE, ptr %call_.i.i.i.i.i.i13, align 16, !noalias !146
-  %exec_.i.i.i.i.i.i14 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 2, i32 2
+  %exec_.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i14, align 8, !noalias !146
-  %state_.i.i.i.i.i15 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 3
+  %state_.i.i.i.i.i15 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 80
   store i8 2, ptr %state_.i.i.i.i.i15, align 1, !noalias !146
-  %attached_.i.i.i.i.i16 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 4
+  %attached_.i.i.i.i.i16 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i16, align 1, !noalias !146
-  %callbackReferences_.i.i.i.i.i17 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 5
+  %callbackReferences_.i.i.i.i.i17 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 82
   store i8 0, ptr %callbackReferences_.i.i.i.i.i17, align 1, !noalias !146
-  %executor_.i.i.i.i.i18 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 6
+  %executor_.i.i.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i18, align 8, !noalias !146
-  %21 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 6, i32 1
+  %21 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %21, i8 0, i64 32, i1 false), !noalias !146
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i1.i11, align 16, !noalias !146
   store i32 0, ptr %20, align 8, !noalias !146
   store ptr %call.i.i1.i11, ptr %agg.result, align 8
-  %which_.i.i.i19 = getelementptr inbounds %"struct.folly::expected_detail::ExpectedUnion", ptr %agg.result, i64 0, i32 1
+  %which_.i.i.i19 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 1, ptr %which_.i.i.i19, align 8
   invoke void @_ZN5folly10SemiFutureINS_4UnitEE23releaseDeferredExecutorEPNS_7futures6detail4CoreIS1_EE(ptr noundef null)
           to label %return unwind label %terminate.lpad.i20
@@ -18166,21 +18001,21 @@ terminate.lpad.i20:                               ; preds = %if.then31
   unreachable
 
 _ZN5folly19makePromiseContractINS_4UnitEEESt4pairINS_7PromiseIT_EENS_10SemiFutureIS4_EEEv.exit: ; preds = %_ZNR5folly8ExpectedIN8proxygen15HTTPTransaction9Transport7FCStateENS1_12WebTransport9ErrorCodeEEdeEv.exit
-  %callback_.i.i.i.i.i25 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 2
+  %callback_.i.i.i.i.i25 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 16
   store ptr null, ptr %callback_.i.i.i.i.i25, align 16, !noalias !151
-  %call_.i.i.i.i.i.i26 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 2, i32 1
+  %call_.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 64
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS7_EEPNS_17exception_wrapperEEE10uninitCallES6_SA_SC_RNS1_4DataE, ptr %call_.i.i.i.i.i.i26, align 16, !noalias !151
-  %exec_.i.i.i.i.i.i27 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 2, i32 2
+  %exec_.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i27, align 8, !noalias !151
-  %state_.i.i.i.i.i28 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 3
+  %state_.i.i.i.i.i28 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 80
   store i8 1, ptr %state_.i.i.i.i.i28, align 1, !noalias !151
-  %attached_.i.i.i.i.i29 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 4
+  %attached_.i.i.i.i.i29 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 81
   store i8 2, ptr %attached_.i.i.i.i.i29, align 1, !noalias !151
-  %callbackReferences_.i.i.i.i.i30 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 5
+  %callbackReferences_.i.i.i.i.i30 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 82
   store i8 0, ptr %callbackReferences_.i.i.i.i.i30, align 1, !noalias !151
-  %executor_.i.i.i.i.i31 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 6
+  %executor_.i.i.i.i.i31 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i31, align 8, !noalias !151
-  %24 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i11, i64 0, i32 6, i32 1
+  %24 = getelementptr inbounds i8, ptr %call.i.i1.i11, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %24, i8 0, i64 32, i1 false), !noalias !151
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i1.i11, align 16, !noalias !151
   %25 = load i8, ptr %hasValue.i.i, align 8
@@ -18190,7 +18025,7 @@ _ZN5folly19makePromiseContractINS_4UnitEEESt4pairINS_7PromiseIT_EENS_10SemiFutur
 
 if.then.i.i.i34:                                  ; preds = %_ZN5folly19makePromiseContractINS_4UnitEEESt4pairINS_7PromiseIT_EENS_10SemiFutureIS4_EEEv.exit
   store i8 0, ptr %hasValue.i.i, align 8
-  %core_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %core_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %27 = load ptr, ptr %core_.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont35, label %if.then.i.i.i.i.i
@@ -18224,11 +18059,11 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i
 
 invoke.cont35:                                    ; preds = %.noexc.i.i.i.i, %if.then.i.i.i34, %_ZN5folly19makePromiseContractINS_4UnitEEESt4pairINS_7PromiseIT_EENS_10SemiFutureIS4_EEEv.exit
   store i8 1, ptr %writePromise_, align 8
-  %core_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %core_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %call.i.i1.i11, ptr %core_.i.i.i, align 8
   store i8 1, ptr %hasValue.i.i, align 8
   store ptr %call.i.i1.i11, ptr %agg.result, align 8
-  %which_.i.i.i35 = getelementptr inbounds %"struct.folly::expected_detail::ExpectedUnion", ptr %agg.result, i64 0, i32 1
+  %which_.i.i.i35 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 1, ptr %which_.i.i.i35, align 8
   invoke void @_ZN5folly10SemiFutureINS_4UnitEE23releaseDeferredExecutorEPNS_7futures6detail4CoreIS1_EE(ptr noundef null)
           to label %return unwind label %terminate.lpad.i.i36
@@ -18256,15 +18091,15 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i), !noalias !154
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %e) #27, !noalias !154
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen12WebTransport9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp.i.i.i, align 8, !noalias !154
-  %error.i.i.i.i = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %agg.tmp.i.i.i, i64 0, i32 1
-  %error2.i.i.i.i = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %e, i64 0, i32 1
+  %error.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
+  %error2.i.i.i.i = getelementptr inbounds i8, ptr %e, i64 16
   %0 = load i32, ptr %error2.i.i.i.i, align 8, !noalias !154
   store i32 %0, ptr %error.i.i.i.i, align 8, !noalias !154
   %call.i.i.i.i = call ptr @__cxa_allocate_exception(i64 noundef 24) #27, !noalias !157
   %call1.i.i.i.i = call ptr @__cxa_init_primary_exception(ptr noundef %call.i.i.i.i, ptr noundef nonnull @_ZTIN8proxygen12WebTransport9ExceptionE, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkIN8proxygen12WebTransport9ExceptionEEEvPv) #27, !noalias !157
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i) #27, !noalias !157
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen12WebTransport9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 8, !noalias !157
-  %error.i.i.i.i.i = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %call.i.i.i.i, i64 0, i32 1
+  %error.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   %1 = load i32, ptr %error.i.i.i.i, align 8, !noalias !157
   store i32 %1, ptr %error.i.i.i.i.i, align 8, !noalias !157
   call void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull %call.i.i.i.i) #27
@@ -18311,8 +18146,8 @@ entry:
 define void @_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle13onEgressReadyEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.folly::Try", align 8
-  %writePromise_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 3
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %writePromise_ = getelementptr inbounds i8, ptr %this, i64 32
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %hasValue.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not = icmp eq i8 %1, 0
@@ -18330,7 +18165,7 @@ invoke.cont.i:                                    ; preds = %_ZN5folly8OptionalI
   br i1 %cond.i.i.i, label %if.then4.i.i.i, label %_ZN5folly7PromiseINS_4UnitEE8setValueIS1_EENSt9enable_ifIXsr3std7is_sameIS1_T_EE5valueEvE4typeEv.exit
 
 if.then4.i.i.i:                                   ; preds = %invoke.cont.i
-  %3 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %ref.tmp.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %4 = load ptr, ptr %3, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly7PromiseINS_4UnitEE8setValueIS1_EENSt9enable_ifIXsr3std7is_sameIS1_T_EE5valueEvE4typeEv.exit, label %if.then.i.i.i.i.i
@@ -18347,7 +18182,7 @@ lpad.i:                                           ; preds = %_ZN5folly8OptionalI
   br i1 %cond.i.i1.i, label %if.then4.i.i2.i, label %_ZN5folly3TryINS_4UnitEED2Ev.exit5.i
 
 if.then4.i.i2.i:                                  ; preds = %lpad.i
-  %7 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %ref.tmp.i, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %8 = load ptr, ptr %7, align 8
   %tobool.not.i.i.i.i3.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i3.i, label %_ZN5folly3TryINS_4UnitEED2Ev.exit5.i, label %if.then.i.i.i.i4.i
@@ -18368,7 +18203,7 @@ _ZN5folly7PromiseINS_4UnitEE8setValueIS1_EENSt9enable_ifIXsr3std7is_sameIS1_T_EE
 
 if.then.i.i:                                      ; preds = %_ZN5folly7PromiseINS_4UnitEE8setValueIS1_EENSt9enable_ifIXsr3std7is_sameIS1_T_EE5valueEvE4typeEv.exit
   store i8 0, ptr %hasValue.i.i, align 8
-  %core_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %core_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %11 = load ptr, ptr %core_.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i, label %if.end, label %if.then.i.i.i.i
@@ -18463,8 +18298,8 @@ cleanup.action:                                   ; preds = %invoke.cont20
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cond.true, %cond.end, %cleanup.action
-  %readPromise_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %readPromise_ = getelementptr inbounds i8, ptr %this, i64 24
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load i8, ptr %hasValue.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.i.i.not = icmp eq i8 %4, 0
@@ -18473,14 +18308,14 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
 _ZN5folly8OptionalINS_7PromiseIN8proxygen12WebTransport10StreamDataEEEEptEv.exit: ; preds = %cleanup.done
   %5 = load i64, ptr %data, align 8
   store ptr null, ptr %data, align 8
-  %fin = getelementptr inbounds %"struct.proxygen::WebTransport::StreamData", ptr %ref.tmp33, i64 0, i32 1
+  %fin = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
   store i8 %frombool, ptr %fin, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   store i32 0, ptr %ref.tmp.i, align 8
-  %6 = getelementptr inbounds %"class.folly::detail::TryBase.248", ptr %ref.tmp.i, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store i64 %5, ptr %6, align 8
   store ptr null, ptr %ref.tmp33, align 8
-  %fin.i.i.i.i = getelementptr inbounds %"class.folly::detail::TryBase.248", ptr %ref.tmp.i, i64 0, i32 1, i32 1
+  %fin.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i8 %frombool, ptr %fin.i.i.i.i, align 8
   invoke void @_ZN5folly7PromiseIN8proxygen12WebTransport10StreamDataEE6setTryEONS_3TryIS3_EE(ptr noundef nonnull align 8 dereferenceable(16) %readPromise_, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -18528,7 +18363,7 @@ _ZN8proxygen12WebTransport10StreamDataD2Ev.exit:  ; preds = %if.then.i.i.i.i.i, 
 
 if.then.i.i:                                      ; preds = %_ZN8proxygen12WebTransport10StreamDataD2Ev.exit
   store i8 0, ptr %hasValue.i.i, align 8
-  %core_.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %core_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %core_.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5folly8OptionalINS_7PromiseIN8proxygen12WebTransport10StreamDataEEEE5resetEv.exit, label %if.then.i.i.i.i
@@ -18564,11 +18399,11 @@ _ZN5folly8OptionalINS_7PromiseIN8proxygen12WebTransport10StreamDataEEEE5resetEv.
   br i1 %eof, label %if.then41, label %if.end47
 
 if.then41:                                        ; preds = %_ZN5folly8OptionalINS_7PromiseIN8proxygen12WebTransport10StreamDataEEEE5resetEv.exit
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load ptr, ptr %txn_, align 8
-  %wtIngressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %18, i64 0, i32 50
+  %wtIngressStreams_ = getelementptr inbounds i8, ptr %18, i64 848
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %19 = load ptr, ptr %vfn, align 8
   %call43 = call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(144) %this)
   store i64 %call43, ptr %ref.tmp42, align 8
@@ -18582,9 +18417,9 @@ lpad:                                             ; preds = %invoke.cont20, %inv
   br label %common.resume
 
 if.else:                                          ; preds = %cleanup.done
-  %buf_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 48
   call void @_ZN5folly10IOBufQueue6appendEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEbb(ptr noundef nonnull align 8 dereferenceable(72) %buf_, ptr noundef nonnull align 8 dereferenceable(8) %data, i1 noundef zeroext false, i1 noundef zeroext false)
-  %eof_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 5
+  %eof_ = getelementptr inbounds i8, ptr %this, i64 120
   store i8 %frombool, ptr %eof_, align 8
   br label %if.end47
 
@@ -18612,7 +18447,7 @@ invoke.cont65:                                    ; preds = %cond.false60
           to label %invoke.cont67 unwind label %lpad64
 
 invoke.cont67:                                    ; preds = %invoke.cont65
-  %buf_69 = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4
+  %buf_69 = getelementptr inbounds i8, ptr %this, i64 48
   %23 = load i8, ptr %buf_69, align 8
   %24 = and i8 %23, 1
   %tobool.not.i = icmp eq i8 %24, 0
@@ -18637,12 +18472,12 @@ lpad.i11:                                         ; preds = %if.then.i
   br label %lpad64.body
 
 invoke.cont70:                                    ; preds = %invoke.cont67
-  %chainLength_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4, i32 1
+  %chainLength_.i = getelementptr inbounds i8, ptr %this, i64 56
   %26 = load i64, ptr %chainLength_.i, align 8
-  %cachePtr_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4, i32 4
+  %cachePtr_.i = getelementptr inbounds i8, ptr %this, i64 80
   %27 = load ptr, ptr %cachePtr_.i, align 8
   %28 = load ptr, ptr %27, align 8
-  %tailStart_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4, i32 3
+  %tailStart_.i = getelementptr inbounds i8, ptr %this, i64 72
   %29 = load ptr, ptr %tailStart_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %28 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %29 to i64
@@ -18659,7 +18494,7 @@ cleanup.done78:                                   ; preds = %cond.true51, %cond.
   br i1 %eof, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %cleanup.done78
-  %buf_83 = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4
+  %buf_83 = getelementptr inbounds i8, ptr %this, i64 48
   %30 = load i8, ptr %buf_83, align 8
   %31 = and i8 %30, 1
   %tobool.not.i14 = icmp eq i8 %31, 0
@@ -18685,12 +18520,12 @@ lpad.i24:                                         ; preds = %if.then.i22
   br label %common.resume
 
 _ZNK5folly10IOBufQueue11chainLengthEv.exit26:     ; preds = %lor.rhs
-  %chainLength_.i15 = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4, i32 1
+  %chainLength_.i15 = getelementptr inbounds i8, ptr %this, i64 56
   %33 = load i64, ptr %chainLength_.i15, align 8
-  %cachePtr_.i16 = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4, i32 4
+  %cachePtr_.i16 = getelementptr inbounds i8, ptr %this, i64 80
   %34 = load ptr, ptr %cachePtr_.i16, align 8
   %35 = load ptr, ptr %34, align 8
-  %tailStart_.i17 = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4, i32 3
+  %tailStart_.i17 = getelementptr inbounds i8, ptr %this, i64 72
   %36 = load ptr, ptr %tailStart_.i17, align 8
   %sub.ptr.lhs.cast.i18 = ptrtoint ptr %35 to i64
   %sub.ptr.rhs.cast.i19 = ptrtoint ptr %36 to i64
@@ -18740,15 +18575,15 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i), !noalias !160
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %e) #27, !noalias !160
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen12WebTransport9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp.i.i.i, align 8, !noalias !160
-  %error.i.i.i.i = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %agg.tmp.i.i.i, i64 0, i32 1
-  %error2.i.i.i.i = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %e, i64 0, i32 1
+  %error.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 16
+  %error2.i.i.i.i = getelementptr inbounds i8, ptr %e, i64 16
   %0 = load i32, ptr %error2.i.i.i.i, align 8, !noalias !160
   store i32 %0, ptr %error.i.i.i.i, align 8, !noalias !160
   %call.i.i.i.i = call ptr @__cxa_allocate_exception(i64 noundef 24) #27, !noalias !163
   %call1.i.i.i.i = call ptr @__cxa_init_primary_exception(ptr noundef %call.i.i.i.i, ptr noundef nonnull @_ZTIN8proxygen12WebTransport9ExceptionE, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkIN8proxygen12WebTransport9ExceptionEEEvPv) #27, !noalias !163
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i) #27, !noalias !163
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen12WebTransport9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 8, !noalias !163
-  %error.i.i.i.i.i = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %call.i.i.i.i, i64 0, i32 1
+  %error.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   %1 = load i32, ptr %error.i.i.i.i, align 8, !noalias !163
   store i32 %1, ptr %error.i.i.i.i.i, align 8, !noalias !163
   call void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef nonnull %call.i.i.i.i) #27
@@ -18789,20 +18624,20 @@ define void @_ZN8proxygen15HTTPTransaction27onWebTransportStreamIngressEmSt10uni
 entry:
   %ref.tmp7 = alloca %"class.google::LogMessageFatal", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.4", align 8
-  %timer_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 46
+  %timer_.i = getelementptr inbounds i8, ptr %this, i64 776
   %0 = load ptr, ptr %timer_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45, i32 0, i32 1
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 768
   %1 = load i8, ptr %hasValue.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.not.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i, label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i
 
 _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i: ; preds = %land.lhs.true.i
-  %idleTimeout_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 45
+  %idleTimeout_.i = getelementptr inbounds i8, ptr %this, i64 760
   %3 = load i64, ptr %idleTimeout_.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %3, 0
   br i1 %cmp.i.i.not.i, label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, label %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
@@ -18812,22 +18647,21 @@ _ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.
   br label %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit
 
 _ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit: ; preds = %entry, %land.lhs.true.i, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit.i, %_ZNR5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE5valueEv.exit5.i
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 864
   %4 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 856
   %cmp.not5.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not5.i.i.i, label %cond.false, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %4, %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %_ZN8proxygen15HTTPTransaction14refreshTimeoutEv.exit ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %5, %id
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !166
@@ -18837,7 +18671,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10
   br i1 %cmp.i.i.i, label %cond.false, label %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
 
 _ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %6 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp ugt i64 %6, %id
   br i1 %cmp.i4.i.i, label %cond.false, label %cleanup.done
@@ -18862,7 +18696,7 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   unreachable
 
 cleanup.done:                                     ; preds = %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 40
   %8 = load i64, ptr %data, align 8
   store i64 %8, ptr %agg.tmp, align 8
   store ptr null, ptr %data, align 8
@@ -18885,10 +18719,10 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit: ; preds = %in
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %10 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %10, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 51
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 408
   %11 = load ptr, ptr %vfn, align 8
   %call19 = call i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %id)
   br label %if.end
@@ -18907,22 +18741,21 @@ if.end:                                           ; preds = %if.then, %_ZNSt10un
 define void @_ZN8proxygen15HTTPTransaction25onWebTransportStreamErrorEmj(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %id, i32 noundef %errorCode) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.google::LogMessageFatal", align 8
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 864
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 50, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 856
   %cmp.not5.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not5.i.i.i, label %cond.false, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, %id
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !166
@@ -18932,7 +18765,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10
   br i1 %cmp.i.i.i, label %cond.false, label %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
 
 _ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp ugt i64 %2, %id
   br i1 %cmp.i4.i.i, label %cond.false, label %cleanup.done
@@ -18961,7 +18794,7 @@ lpad:                                             ; preds = %invoke.cont9, %invo
   unreachable
 
 cleanup.done:                                     ; preds = %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 40
   tail call void @_ZN8proxygen15HTTPTransaction19TxnStreamReadHandle5errorEj(ptr noundef nonnull align 8 dereferenceable(144) %second, i32 noundef %errorCode)
   ret void
 }
@@ -18969,22 +18802,21 @@ cleanup.done:                                     ; preds = %_ZNSt3mapImN8proxyg
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN8proxygen15HTTPTransaction25onWebTransportStopSendingEmj(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %id, i32 noundef %errorCode) local_unnamed_addr #3 align 2 {
 entry:
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 816
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 808
   %cmp.not5.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not5.i.i.i, label %return, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, %id
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !7
@@ -18994,13 +18826,13 @@ _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt1
   br i1 %cmp.i.i.i, label %return, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
 
 _ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp ugt i64 %2, %id
   br i1 %cmp.i4.i.i, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 40
   tail call void @_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle13onStopSendingEj(ptr noundef nonnull align 8 dereferenceable(64) %second, i32 noundef %errorCode)
   br label %return
 
@@ -19013,22 +18845,21 @@ return:                                           ; preds = %entry, %_ZNSt8_Rb_t
 define void @_ZN8proxygen15HTTPTransaction25onWebTransportEgressReadyEm(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %id) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.google::LogMessageFatal", align 8
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 816
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 49, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 808
   %cmp.not5.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not5.i.i.i, label %cond.false, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %1, %id
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !7
@@ -19038,7 +18869,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt1
   br i1 %cmp.i.i.i, label %cond.false, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
 
 _ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp ugt i64 %2, %id
   br i1 %cmp.i4.i.i, label %cond.false, label %cleanup.done
@@ -19063,7 +18894,7 @@ lpad:                                             ; preds = %invoke.cont, %cond.
   unreachable
 
 cleanup.done:                                     ; preds = %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 40
   tail call void @_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle13onEgressReadyEv(ptr noundef nonnull align 8 dereferenceable(64) %second)
   ret void
 }
@@ -19080,8 +18911,8 @@ entry:
   %agg.tmp = alloca %"class.folly::exception_wrapper", align 8
   %streamData = alloca %"struct.proxygen::WebTransport::StreamData", align 8
   %ref.tmp42 = alloca i64, align 8
-  %readPromise_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3
-  %hasValue.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %readPromise_ = getelementptr inbounds i8, ptr %this, i64 24
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %hasValue.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.not = icmp eq i8 %1, 0
@@ -19111,25 +18942,25 @@ lpad:                                             ; preds = %invoke.cont5, %invo
   unreachable
 
 cleanup.done:                                     ; preds = %entry
-  %hasValue.i.i3 = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 7, i32 0, i32 1
+  %hasValue.i.i3 = getelementptr inbounds i8, ptr %this, i64 128
   %3 = load i8, ptr %hasValue.i.i3, align 8
   %4 = and i8 %3, 1
   %tobool.i.i4.not = icmp eq i8 %4, 0
   br i1 %tobool.i.i4.not, label %if.else, label %_ZNR5folly8OptionalIjEdeEv.exit
 
 _ZNR5folly8OptionalIjEdeEv.exit:                  ; preds = %cleanup.done
-  %error_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 7
+  %error_ = getelementptr inbounds i8, ptr %this, i64 124
   call void @_ZN5folly17exception_wrapperC2IN8proxygen12WebTransport9ExceptionEJRjEEENS0_11PrivateCtorESt15in_place_type_tIT_EDpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %ex, ptr noundef nonnull align 4 dereferenceable(4) %error_)
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %txn_, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %6 = load ptr, ptr %vfn, align 8
   %call19 = invoke noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(144) %this)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %_ZNR5folly8OptionalIjEdeEv.exit
-  %wtIngressStreams_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %5, i64 0, i32 50
+  %wtIngressStreams_ = getelementptr inbounds i8, ptr %5, i64 848
   store i64 %call19, ptr %ref.tmp16, align 8
   %call.i5 = invoke noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %wtIngressStreams_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16)
           to label %invoke.cont20 unwind label %lpad17
@@ -19141,7 +18972,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i)
   store i64 0, ptr %agg.tmp, align 8, !noalias !174
   store i32 1, ptr %agg.tmp.i, align 8, !noalias !171
-  %8 = getelementptr inbounds %"class.folly::detail::TryBase.248", ptr %agg.tmp.i, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 %7, ptr %8, align 8, !alias.scope !177, !noalias !171
   call void @llvm.experimental.noalias.scope.decl(metadata !180)
   %call.i.i1.i = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31
@@ -19149,21 +18980,21 @@ invoke.cont20:                                    ; preds = %invoke.cont18
 
 _ZN5folly17exception_wrapperD2Ev.exit:            ; preds = %invoke.cont20
   %9 = getelementptr inbounds i8, ptr %call.i.i1.i, i64 136
-  %callback_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 2
+  %callback_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 16
   store ptr null, ptr %callback_.i.i.i.i.i, align 16, !noalias !183
-  %call_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 2, i32 1
+  %call_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 64
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS7_EEPNS_17exception_wrapperEEE10uninitCallES6_SA_SC_RNS1_4DataE, ptr %call_.i.i.i.i.i.i, align 16, !noalias !183
-  %exec_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 2, i32 2
+  %exec_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i, align 8, !noalias !183
-  %state_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 3
+  %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 80
   store i8 2, ptr %state_.i.i.i.i.i, align 1, !noalias !183
-  %attached_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 4
+  %attached_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i, align 1, !noalias !183
-  %callbackReferences_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 5
+  %callbackReferences_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 82
   store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 1, !noalias !183
-  %executor_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 6
+  %executor_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i, align 8, !noalias !183
-  %10 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 6, i32 1
+  %10 = getelementptr inbounds i8, ptr %call.i.i1.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, i8 0, i64 32, i1 false), !noalias !183
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreIN8proxygen12WebTransport10StreamDataEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i1.i, align 16, !noalias !183
   store i32 1, ptr %9, align 8, !noalias !183
@@ -19201,8 +19032,8 @@ if.then.i.i13:                                    ; preds = %ehcleanup
   br label %common.resume
 
 if.else:                                          ; preds = %cleanup.done
-  %buf_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4
-  %head_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4, i32 2
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 48
+  %head_.i = getelementptr inbounds i8, ptr %this, i64 64
   %15 = load ptr, ptr %head_.i, align 8
   %cmp.i.not.i = icmp eq ptr %15, null
   br i1 %cmp.i.not.i, label %land.lhs.true, label %lor.rhs.i
@@ -19212,16 +19043,16 @@ lor.rhs.i:                                        ; preds = %if.else
   br i1 %call4.i, label %_ZNK5folly10IOBufQueue5emptyEv.exit, label %if.else31
 
 _ZNK5folly10IOBufQueue5emptyEv.exit:              ; preds = %lor.rhs.i
-  %cachePtr_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4, i32 4
+  %cachePtr_.i = getelementptr inbounds i8, ptr %this, i64 80
   %16 = load ptr, ptr %cachePtr_.i, align 8
   %17 = load ptr, ptr %16, align 8
-  %tailStart_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4, i32 3
+  %tailStart_.i = getelementptr inbounds i8, ptr %this, i64 72
   %18 = load ptr, ptr %tailStart_.i, align 8
   %cmp.i = icmp eq ptr %17, %18
   br i1 %cmp.i, label %land.lhs.true, label %if.else31
 
 land.lhs.true:                                    ; preds = %if.else, %_ZNK5folly10IOBufQueue5emptyEv.exit
-  %eof_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 5
+  %eof_ = getelementptr inbounds i8, ptr %this, i64 120
   %19 = load i8, ptr %eof_, align 8
   %20 = and i8 %19, 1
   %tobool.not = icmp eq i8 %20, 0
@@ -19229,21 +19060,21 @@ land.lhs.true:                                    ; preds = %if.else, %_ZNK5foll
 
 _ZN5folly19makePromiseContractIN8proxygen12WebTransport10StreamDataEEESt4pairINS_7PromiseIT_EENS_10SemiFutureIS6_EEEv.exit: ; preds = %land.lhs.true
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31, !noalias !187
-  %callback_.i.i.i.i.i15 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i.i, i64 0, i32 2
+  %callback_.i.i.i.i.i15 = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store ptr null, ptr %callback_.i.i.i.i.i15, align 16, !noalias !187
-  %call_.i.i.i.i.i.i16 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i.i, i64 0, i32 2, i32 1
+  %call_.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS7_EEPNS_17exception_wrapperEEE10uninitCallES6_SA_SC_RNS1_4DataE, ptr %call_.i.i.i.i.i.i16, align 16, !noalias !187
-  %exec_.i.i.i.i.i.i17 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i.i, i64 0, i32 2, i32 2
+  %exec_.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %call.i.i.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i17, align 8, !noalias !187
-  %state_.i.i.i.i.i18 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i.i, i64 0, i32 3
+  %state_.i.i.i.i.i18 = getelementptr inbounds i8, ptr %call.i.i.i, i64 80
   store i8 1, ptr %state_.i.i.i.i.i18, align 1, !noalias !187
-  %attached_.i.i.i.i.i19 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i.i, i64 0, i32 4
+  %attached_.i.i.i.i.i19 = getelementptr inbounds i8, ptr %call.i.i.i, i64 81
   store i8 2, ptr %attached_.i.i.i.i.i19, align 1, !noalias !187
-  %callbackReferences_.i.i.i.i.i20 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i.i, i64 0, i32 5
+  %callbackReferences_.i.i.i.i.i20 = getelementptr inbounds i8, ptr %call.i.i.i, i64 82
   store i8 0, ptr %callbackReferences_.i.i.i.i.i20, align 1, !noalias !187
-  %executor_.i.i.i.i.i21 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i.i, i64 0, i32 6
+  %executor_.i.i.i.i.i21 = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i21, align 8, !noalias !187
-  %21 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i.i, i64 0, i32 6, i32 1
+  %21 = getelementptr inbounds i8, ptr %call.i.i.i, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %21, i8 0, i64 32, i1 false), !noalias !187
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreIN8proxygen12WebTransport10StreamDataEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 16, !noalias !187
   %22 = load i8, ptr %hasValue.i.i, align 8
@@ -19253,7 +19084,7 @@ _ZN5folly19makePromiseContractIN8proxygen12WebTransport10StreamDataEEESt4pairINS
 
 if.then.i.i.i24:                                  ; preds = %_ZN5folly19makePromiseContractIN8proxygen12WebTransport10StreamDataEEESt4pairINS_7PromiseIT_EENS_10SemiFutureIS6_EEEv.exit
   store i8 0, ptr %hasValue.i.i, align 8
-  %core_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %core_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %24 = load ptr, ptr %core_.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont28, label %if.then.i.i.i.i.i
@@ -19287,7 +19118,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i
 
 invoke.cont28:                                    ; preds = %.noexc.i.i.i.i, %if.then.i.i.i24, %_ZN5folly19makePromiseContractIN8proxygen12WebTransport10StreamDataEEESt4pairINS_7PromiseIT_EENS_10SemiFutureIS6_EEEv.exit
   store i8 1, ptr %readPromise_, align 8
-  %core_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %core_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.i.i, ptr %core_.i.i.i, align 8
   store i8 1, ptr %hasValue.i.i, align 8
   store ptr %call.i.i.i, ptr %agg.result, align 8
@@ -19327,12 +19158,12 @@ lpad.i31:                                         ; preds = %if.then.i
   br label %common.resume
 
 _ZNK5folly10IOBufQueue11chainLengthEv.exit:       ; preds = %if.else31
-  %chainLength_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4, i32 1
+  %chainLength_.i = getelementptr inbounds i8, ptr %this, i64 56
   %35 = load i64, ptr %chainLength_.i, align 8
-  %cachePtr_.i29 = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4, i32 4
+  %cachePtr_.i29 = getelementptr inbounds i8, ptr %this, i64 80
   %36 = load ptr, ptr %cachePtr_.i29, align 8
   %37 = load ptr, ptr %36, align 8
-  %tailStart_.i30 = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4, i32 3
+  %tailStart_.i30 = getelementptr inbounds i8, ptr %this, i64 72
   %38 = load ptr, ptr %tailStart_.i30, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %37 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %38 to i64
@@ -19344,7 +19175,7 @@ _ZNK5folly10IOBufQueue11chainLengthEv.exit:       ; preds = %if.else31
 
 if.then.i.i.i32:                                  ; preds = %_ZNK5folly10IOBufQueue11chainLengthEv.exit
   %39 = load ptr, ptr %head_.i, align 8, !noalias !193
-  %prev_.i.i.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %39, i64 0, i32 5
+  %prev_.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 40
   %40 = load ptr, ptr %prev_.i.i.i.i, align 8, !noalias !193
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %41 = load i64, ptr %40, align 8, !noalias !193
@@ -19357,12 +19188,12 @@ _ZN5folly10IOBufQueue4moveEv.exit:                ; preds = %_ZNK5folly10IOBufQu
   %42 = phi ptr [ %36, %_ZNK5folly10IOBufQueue11chainLengthEv.exit ], [ %.pre.i, %if.then.i.i.i32 ]
   %43 = load i64, ptr %head_.i, align 8, !noalias !190
   store i64 %43, ptr %streamData, align 8, !alias.scope !190
-  %reusableTail_5.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4, i32 6
+  %reusableTail_5.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store ptr null, ptr %reusableTail_5.i.i.i.i.i, align 8, !noalias !190
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i, i8 0, i64 24, i1 false), !noalias !190
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false), !noalias !190
-  %fin = getelementptr inbounds %"struct.proxygen::WebTransport::StreamData", ptr %streamData, i64 0, i32 1
-  %eof_35 = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 5
+  %fin = getelementptr inbounds i8, ptr %streamData, i64 8
+  %eof_35 = getelementptr inbounds i8, ptr %this, i64 120
   %44 = load i8, ptr %eof_35, align 8
   %45 = and i8 %44, 1
   store i8 %45, ptr %fin, align 8
@@ -19370,16 +19201,16 @@ _ZN5folly10IOBufQueue4moveEv.exit:                ; preds = %_ZNK5folly10IOBufQu
   br i1 %tobool38.not, label %if.else50, label %if.then39
 
 if.then39:                                        ; preds = %_ZN5folly10IOBufQueue4moveEv.exit
-  %txn_40 = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 1
+  %txn_40 = getelementptr inbounds i8, ptr %this, i64 8
   %46 = load ptr, ptr %txn_40, align 8
   %vtable43 = load ptr, ptr %this, align 8
-  %vfn44 = getelementptr inbounds ptr, ptr %vtable43, i64 2
+  %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 16
   %47 = load ptr, ptr %vfn44, align 8
   %call47 = invoke noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(144) %this)
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %if.then39
-  %wtIngressStreams_41 = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %46, i64 0, i32 50
+  %wtIngressStreams_41 = getelementptr inbounds i8, ptr %46, i64 848
   store i64 %call47, ptr %ref.tmp42, align 8
   %call.i35 = invoke noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %wtIngressStreams_41, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp42)
           to label %if.end61 unwind label %lpad45
@@ -19399,19 +19230,19 @@ if.else50:                                        ; preds = %_ZN5folly10IOBufQue
   br i1 %cmp, label %if.then51, label %if.end61
 
 if.then51:                                        ; preds = %if.else50
-  %txn_52 = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 1
+  %txn_52 = getelementptr inbounds i8, ptr %this, i64 8
   %49 = load ptr, ptr %txn_52, align 8
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %49, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %49, i64 272
   %50 = load ptr, ptr %transport_, align 8
   %vtable53 = load ptr, ptr %this, align 8
-  %vfn54 = getelementptr inbounds ptr, ptr %vtable53, i64 2
+  %vfn54 = getelementptr inbounds i8, ptr %vtable53, i64 16
   %51 = load ptr, ptr %vfn54, align 8
   %call56 = invoke noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(144) %this)
           to label %invoke.cont55 unwind label %lpad45
 
 invoke.cont55:                                    ; preds = %if.then51
   %vtable57 = load ptr, ptr %50, align 8
-  %vfn58 = getelementptr inbounds ptr, ptr %vtable57, i64 52
+  %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 416
   %52 = load ptr, ptr %vfn58, align 8
   %call60 = invoke i64 %52(ptr noundef nonnull align 8 dereferenceable(8) %50, i64 noundef %call56)
           to label %if.end61 unwind label %lpad45
@@ -19419,10 +19250,10 @@ invoke.cont55:                                    ; preds = %if.then51
 if.end61:                                         ; preds = %invoke.cont46, %invoke.cont55, %if.else50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i37)
   store i32 0, ptr %agg.tmp.i37, align 8, !noalias !196
-  %53 = getelementptr inbounds %"class.folly::detail::TryBase.248", ptr %agg.tmp.i37, i64 0, i32 1
+  %53 = getelementptr inbounds i8, ptr %agg.tmp.i37, i64 8
   store i64 %43, ptr %53, align 8, !noalias !196
   store ptr null, ptr %streamData, align 8, !noalias !196
-  %fin.i.i.i.i = getelementptr inbounds %"class.folly::detail::TryBase.248", ptr %agg.tmp.i37, i64 0, i32 1, i32 1
+  %fin.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i37, i64 16
   store i8 %45, ptr %fin.i.i.i.i, align 8, !noalias !196
   %call.i.i1.i38 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31
           to label %_ZN8proxygen12WebTransport10StreamDataD2Ev.exit unwind label %lpad.i39, !noalias !196
@@ -19435,21 +19266,21 @@ lpad.i39:                                         ; preds = %if.end61
 
 _ZN8proxygen12WebTransport10StreamDataD2Ev.exit:  ; preds = %if.end61
   %55 = getelementptr inbounds i8, ptr %call.i.i1.i38, i64 136
-  %callback_.i.i.i.i.i41 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i38, i64 0, i32 2
+  %callback_.i.i.i.i.i41 = getelementptr inbounds i8, ptr %call.i.i1.i38, i64 16
   store ptr null, ptr %callback_.i.i.i.i.i41, align 16, !noalias !199
-  %call_.i.i.i.i.i.i42 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i38, i64 0, i32 2, i32 1
+  %call_.i.i.i.i.i.i42 = getelementptr inbounds i8, ptr %call.i.i1.i38, i64 64
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS7_EEPNS_17exception_wrapperEEE10uninitCallES6_SA_SC_RNS1_4DataE, ptr %call_.i.i.i.i.i.i42, align 16, !noalias !199
-  %exec_.i.i.i.i.i.i43 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i38, i64 0, i32 2, i32 2
+  %exec_.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %call.i.i1.i38, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i43, align 8, !noalias !199
-  %state_.i.i.i.i.i44 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i38, i64 0, i32 3
+  %state_.i.i.i.i.i44 = getelementptr inbounds i8, ptr %call.i.i1.i38, i64 80
   store i8 2, ptr %state_.i.i.i.i.i44, align 1, !noalias !199
-  %attached_.i.i.i.i.i45 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i38, i64 0, i32 4
+  %attached_.i.i.i.i.i45 = getelementptr inbounds i8, ptr %call.i.i1.i38, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i45, align 1, !noalias !199
-  %callbackReferences_.i.i.i.i.i46 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i38, i64 0, i32 5
+  %callbackReferences_.i.i.i.i.i46 = getelementptr inbounds i8, ptr %call.i.i1.i38, i64 82
   store i8 0, ptr %callbackReferences_.i.i.i.i.i46, align 1, !noalias !199
-  %executor_.i.i.i.i.i47 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i38, i64 0, i32 6
+  %executor_.i.i.i.i.i47 = getelementptr inbounds i8, ptr %call.i.i1.i38, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i47, align 8, !noalias !199
-  %56 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i38, i64 0, i32 6, i32 1
+  %56 = getelementptr inbounds i8, ptr %call.i.i1.i38, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %56, i8 0, i64 32, i1 false), !noalias !199
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreIN8proxygen12WebTransport10StreamDataEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i1.i38, align 16, !noalias !199
   store i32 0, ptr %55, align 8, !noalias !199
@@ -19461,7 +19292,7 @@ _ZN8proxygen12WebTransport10StreamDataD2Ev.exit:  ; preds = %if.end61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i49)
   store ptr %call.i.i1.i38, ptr %agg.result, align 8
   store i32 0, ptr %agg.tmp.i49, align 8
-  %58 = getelementptr inbounds %"class.folly::futures::detail::KeepAliveOrDeferred", ptr %agg.tmp.i49, i64 0, i32 1
+  %58 = getelementptr inbounds i8, ptr %agg.tmp.i49, i64 8
   store ptr null, ptr %58, align 8
   %call13.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5folly7futures6detail19KeepAliveOrDeferredaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %executor_.i.i.i.i.i47, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i49) #27
   call void @_ZN5folly7futures6detail19KeepAliveOrDeferredD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i49) #27
@@ -19476,7 +19307,7 @@ return:                                           ; preds = %invoke.cont28, %_ZN
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction20TxnStreamWriteHandleE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %cancellationSource_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 4
+  %cancellationSource_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %cancellationSource_, align 8
   %cmp.i.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.not.i, label %_ZN5folly18CancellationSourceD2Ev.exit, label %_ZNK5folly18CancellationSource19requestCancellationEv.exit
@@ -19488,22 +19319,22 @@ _ZNK5folly18CancellationSource19requestCancellationEv.exit: ; preds = %entry
   br i1 %cmp.not.i.i, label %_ZN5folly18CancellationSourceD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK5folly18CancellationSource19requestCancellationEv.exit
-  %state_.i.i.i.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %.pr, i64 0, i32 1
+  %state_.i.i.i.i = getelementptr inbounds i8, ptr %.pr, i64 8
   %1 = atomicrmw sub ptr %state_.i.i.i.i, i64 17179869184 acq_rel, align 8
   %cmp8.i.i.i.i = icmp ugt i64 %1, 17179869191
   br i1 %cmp8.i.i.i.i, label %_ZN5folly18CancellationSourceD2Ev.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %.pr, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %.pr) #27
   br label %_ZN5folly18CancellationSourceD2Ev.exit
 
 _ZN5folly18CancellationSourceD2Ev.exit:           ; preds = %entry, %_ZNK5folly18CancellationSource19requestCancellationEv.exit, %if.then.i.i, %delete.notnull.i.i.i.i
   store ptr null, ptr %cancellationSource_, align 8
-  %writePromise_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 3
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %writePromise_ = getelementptr inbounds i8, ptr %this, i64 32
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load i8, ptr %hasValue.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i.i.i = icmp eq i8 %4, 0
@@ -19511,7 +19342,7 @@ _ZN5folly18CancellationSourceD2Ev.exit:           ; preds = %entry, %_ZNK5folly1
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly18CancellationSourceD2Ev.exit
   store i8 0, ptr %hasValue.i.i.i, align 8
-  %core_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %core_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %core_.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly8OptionalINS_7PromiseINS_4UnitEEEED2Ev.exit, label %if.then.i.i.i.i.i
@@ -19558,7 +19389,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle5getIDEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %id_, align 8
   ret i64 %0
 }
@@ -19566,14 +19397,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle14getCancelTokenEv(ptr noalias sret(%"class.folly::CancellationToken") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cancellationSource_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 4
+  %cancellationSource_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
   %0 = load ptr, ptr %cancellationSource_, align 8, !noalias !202
   %cmp.i.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.not.i, label %_ZNK5folly18CancellationSource8getTokenEv.exit, label %_ZNSt10unique_ptrIN5folly6detail17CancellationStateENS1_29CancellationStateTokenDeleterEED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5folly6detail17CancellationStateENS1_29CancellationStateTokenDeleterEED2Ev.exit.i: ; preds = %entry
-  %state_.i.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %0, i64 0, i32 1
+  %state_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw add ptr %state_.i.i, i64 8 monotonic, align 8, !noalias !205
   br label %_ZNK5folly18CancellationSource8getTokenEv.exit
 
@@ -19585,90 +19416,85 @@ _ZNK5folly18CancellationSource8getTokenEv.exit:   ; preds = %entry, %_ZNSt10uniq
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr i64 @_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle11resetStreamEj(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %errorCode) unnamed_addr #3 comdat align 2 {
 entry:
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %txn_, align 8
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamWriteHandle", ptr %this, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %id_, align 8
-  %transport_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 14
+  %transport_.i = getelementptr inbounds i8, ptr %0, i64 272
   %2 = load ptr, ptr %transport_.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 50
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 400
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %1, i32 noundef %errorCode)
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 49, i32 0, i32 0, i32 1
-  %__x.039.i.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %cmp.not40.i.i.i.i = icmp eq ptr %__x.039.i.i.i.i, null
-  br i1 %cmp.not40.i.i.i.i, label %_ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit, label %while.body.i.i.i.i
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 816
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 808
+  %__x.038.i.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
+  %cmp.not39.i.i.i.i = icmp eq ptr %__x.038.i.i.i.i, null
+  br i1 %cmp.not39.i.i.i.i, label %_ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %if.end19.i.i.i.i
-  %__x.042.i.i.i.i = phi ptr [ %__x.0.i.i.i.i, %if.end19.i.i.i.i ], [ %__x.039.i.i.i.i, %entry ]
-  %__y.041.i.i.i.i = phi ptr [ %__y.1.i.i.i.i, %if.end19.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.042.i.i.i.i, i64 0, i32 1
+  %__x.041.i.i.i.i = phi ptr [ %__x.0.i.i.i.i, %if.end19.i.i.i.i ], [ %__x.038.i.i.i.i, %entry ]
+  %__y.040.i.i.i.i = phi ptr [ %__y.1.i.i.i.i, %if.end19.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %entry ]
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i.i, i64 32
   %4 = load i64, ptr %_M_storage.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp ult i64 %4, %1
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i.i, i64 0, i32 3
-  br label %if.end19.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.end19.i.i.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %while.body.i.i.i.i
   %cmp.i18.i.i.i.i = icmp ugt i64 %4, %1
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i.i, i64 0, i32 2
   br i1 %cmp.i18.i.i.i.i, label %if.end19.i.i.i.i, label %if.else12.i.i.i.i
 
 if.else12.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %5 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i20.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i.i, i64 0, i32 3
+  %_M_left.i19.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i.i, i64 16
+  %5 = load ptr, ptr %_M_left.i19.i.i.i.i, align 8
+  %_M_right.i20.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i.i, i64 24
   %6 = load ptr, ptr %_M_right.i20.i.i.i.i, align 8
   %cmp.not5.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.else12.i.i.i.i, %while.body.i.i.i.i.i
   %__x.addr.07.i.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %5, %if.else12.i.i.i.i ]
-  %__y.addr.06.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__x.042.i.i.i.i, %if.else12.i.i.i.i ]
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i.i.i.i.i, i64 0, i32 1
+  %__y.addr.06.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__x.041.i.i.i.i, %if.else12.i.i.i.i ]
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i, i64 32
   %7 = load i64, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ult i64 %7, %1
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i.i, ptr %__x.addr.07.i.i.i.i.i
-  %__x.addr.1.in.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i
   %__x.addr.1.i.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, label %while.body.i.i.i.i.i, !llvm.loop !7
 
 _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i: ; preds = %while.body.i.i.i.i.i, %if.else12.i.i.i.i
-  %__y.addr.0.lcssa.i.i.i.i.i = phi ptr [ %__x.042.i.i.i.i, %if.else12.i.i.i.i ], [ %__y.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ]
+  %__y.addr.0.lcssa.i.i.i.i.i = phi ptr [ %__x.041.i.i.i.i, %if.else12.i.i.i.i ], [ %__y.addr.1.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %cmp.not5.i21.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not5.i21.i.i.i.i, label %_ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit, label %while.body.i23.i.i.i.i
 
 while.body.i23.i.i.i.i:                           ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i, %while.body.i23.i.i.i.i
-  %__x.addr.07.i24.i.i.i.i = phi ptr [ %__x.addr.1.i32.i.i.i.i, %while.body.i23.i.i.i.i ], [ %6, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ]
-  %__y.addr.06.i25.i.i.i.i = phi ptr [ %__y.addr.1.i30.i.i.i.i, %while.body.i23.i.i.i.i ], [ %__y.041.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ]
-  %_M_storage.i.i.i26.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i24.i.i.i.i, i64 0, i32 1
+  %__x.addr.07.i24.i.i.i.i = phi ptr [ %__x.addr.1.i31.i.i.i.i, %while.body.i23.i.i.i.i ], [ %6, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ]
+  %__y.addr.06.i25.i.i.i.i = phi ptr [ %__y.addr.1.i28.i.i.i.i, %while.body.i23.i.i.i.i ], [ %__y.040.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ]
+  %_M_storage.i.i.i26.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i.i, i64 32
   %8 = load i64, ptr %_M_storage.i.i.i26.i.i.i.i, align 8
   %cmp.i.i27.i.i.i.i = icmp ugt i64 %8, %1
-  %_M_left.i.i28.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i.i.i.i, i64 0, i32 2
-  %_M_right.i.i29.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i.i.i.i, i64 0, i32 3
-  %__y.addr.1.i30.i.i.i.i = select i1 %cmp.i.i27.i.i.i.i, ptr %__x.addr.07.i24.i.i.i.i, ptr %__y.addr.06.i25.i.i.i.i
-  %__x.addr.1.in.i31.i.i.i.i = select i1 %cmp.i.i27.i.i.i.i, ptr %_M_left.i.i28.i.i.i.i, ptr %_M_right.i.i29.i.i.i.i
-  %__x.addr.1.i32.i.i.i.i = load ptr, ptr %__x.addr.1.in.i31.i.i.i.i, align 8
-  %cmp.not.i33.i.i.i.i = icmp eq ptr %__x.addr.1.i32.i.i.i.i, null
-  br i1 %cmp.not.i33.i.i.i.i, label %_ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit, label %while.body.i23.i.i.i.i, !llvm.loop !8
+  %__y.addr.1.i28.i.i.i.i = select i1 %cmp.i.i27.i.i.i.i, ptr %__x.addr.07.i24.i.i.i.i, ptr %__y.addr.06.i25.i.i.i.i
+  %__x.addr.1.in.v.i29.i.i.i.i = select i1 %cmp.i.i27.i.i.i.i, i64 16, i64 24
+  %__x.addr.1.in.i30.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i.i, i64 %__x.addr.1.in.v.i29.i.i.i.i
+  %__x.addr.1.i31.i.i.i.i = load ptr, ptr %__x.addr.1.in.i30.i.i.i.i, align 8
+  %cmp.not.i32.i.i.i.i = icmp eq ptr %__x.addr.1.i31.i.i.i.i, null
+  br i1 %cmp.not.i32.i.i.i.i, label %_ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit, label %while.body.i23.i.i.i.i, !llvm.loop !8
 
-if.end19.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
-  %__y.1.i.i.i.i = phi ptr [ %__y.041.i.i.i.i, %if.then.i.i.i.i ], [ %__x.042.i.i.i.i, %if.else.i.i.i.i ]
-  %__x.1.in.i.i.i.i = phi ptr [ %_M_right.i.i.i.i.i, %if.then.i.i.i.i ], [ %_M_left.i.i.i.i.i, %if.else.i.i.i.i ]
-  %__x.0.i.i.i.i = load ptr, ptr %__x.1.in.i.i.i.i, align 8
+if.end19.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %while.body.i.i.i.i
+  %.sink.i.i.i.i = phi i64 [ 24, %while.body.i.i.i.i ], [ 16, %if.else.i.i.i.i ]
+  %__y.1.i.i.i.i = phi ptr [ %__y.040.i.i.i.i, %while.body.i.i.i.i ], [ %__x.041.i.i.i.i, %if.else.i.i.i.i ]
+  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i.i, i64 %.sink.i.i.i.i
+  %__x.0.i.i.i.i = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.0.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit, label %while.body.i.i.i.i, !llvm.loop !9
 
 _ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit: ; preds = %if.end19.i.i.i.i, %while.body.i23.i.i.i.i, %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i
   %retval.sroa.0.0.i.i.i.i = phi ptr [ %__y.addr.0.lcssa.i.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %entry ], [ %__y.addr.0.lcssa.i.i.i.i.i, %while.body.i23.i.i.i.i ], [ %__y.1.i.i.i.i, %if.end19.i.i.i.i ]
-  %retval.sroa.3.0.i.i.i.i = phi ptr [ %__y.041.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %entry ], [ %__y.addr.1.i30.i.i.i.i, %while.body.i23.i.i.i.i ], [ %__y.1.i.i.i.i, %if.end19.i.i.i.i ]
-  %wtEgressStreams_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 49
+  %retval.sroa.3.0.i.i.i.i = phi ptr [ %__y.040.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %entry ], [ %__y.addr.1.i28.i.i.i.i, %while.body.i23.i.i.i.i ], [ %__y.1.i.i.i.i, %if.end19.i.i.i.i ]
+  %wtEgressStreams_.i = getelementptr inbounds i8, ptr %0, i64 800
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS5_ESD_(ptr noundef nonnull align 8 dereferenceable(48) %wtEgressStreams_.i, ptr %retval.sroa.0.0.i.i.i.i, ptr %retval.sroa.3.0.i.i.i.i)
   ret i64 %call.i
 }
@@ -19677,30 +19503,30 @@ _ZN8proxygen15HTTPTransaction23resetWebTransportEgressEmj.exit: ; preds = %if.en
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction19TxnStreamReadHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction19TxnStreamReadHandleE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %cancellationSource_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 8
+  %cancellationSource_ = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %cancellationSource_, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN5folly18CancellationSourceD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %state_.i.i.i.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %0, i64 0, i32 1
+  %state_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %state_.i.i.i.i, i64 17179869184 acq_rel, align 8
   %cmp8.i.i.i.i = icmp ugt i64 %1, 17179869191
   br i1 %cmp8.i.i.i.i, label %_ZN5folly18CancellationSourceD2Ev.exit, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   br label %_ZN5folly18CancellationSourceD2Ev.exit
 
 _ZN5folly18CancellationSourceD2Ev.exit:           ; preds = %entry, %if.then.i.i, %delete.notnull.i.i.i.i
   store ptr null, ptr %cancellationSource_, align 8
-  %buf_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4
+  %buf_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %buf_) #27
-  %readPromise_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3
-  %hasValue.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %readPromise_ = getelementptr inbounds i8, ptr %this, i64 24
+  %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load i8, ptr %hasValue.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i.i.i = icmp eq i8 %4, 0
@@ -19708,7 +19534,7 @@ _ZN5folly18CancellationSourceD2Ev.exit:           ; preds = %entry, %if.then.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly18CancellationSourceD2Ev.exit
   store i8 0, ptr %hasValue.i.i.i, align 8
-  %core_.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %core_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %core_.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN5folly8OptionalINS_7PromiseIN8proxygen12WebTransport10StreamDataEEEED2Ev.exit, label %if.then.i.i.i.i.i
@@ -19748,30 +19574,30 @@ _ZN5folly8OptionalINS_7PromiseIN8proxygen12WebTransport10StreamDataEEEED2Ev.exit
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction19TxnStreamReadHandleD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction19TxnStreamReadHandleE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %cancellationSource_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 8
+  %cancellationSource_.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %cancellationSource_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN5folly18CancellationSourceD2Ev.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %state_.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %0, i64 0, i32 1
+  %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %state_.i.i.i.i.i, i64 17179869184 acq_rel, align 8
   %cmp8.i.i.i.i.i = icmp ugt i64 %1, 17179869191
   br i1 %cmp8.i.i.i.i.i, label %_ZN5folly18CancellationSourceD2Ev.exit.i, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   br label %_ZN5folly18CancellationSourceD2Ev.exit.i
 
 _ZN5folly18CancellationSourceD2Ev.exit.i:         ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i, %entry
   store ptr null, ptr %cancellationSource_.i, align 8
-  %buf_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 4
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %buf_.i) #27
-  %readPromise_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3
-  %hasValue.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %readPromise_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load i8, ptr %hasValue.i.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i.i.i.i = icmp eq i8 %4, 0
@@ -19779,7 +19605,7 @@ _ZN5folly18CancellationSourceD2Ev.exit.i:         ; preds = %delete.notnull.i.i.
 
 if.then.i.i.i.i:                                  ; preds = %_ZN5folly18CancellationSourceD2Ev.exit.i
   store i8 0, ptr %hasValue.i.i.i.i, align 8
-  %core_.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %core_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %core_.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN8proxygen15HTTPTransaction19TxnStreamReadHandleD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -19815,7 +19641,7 @@ _ZN8proxygen15HTTPTransaction19TxnStreamReadHandleD2Ev.exit: ; preds = %if.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZN8proxygen15HTTPTransaction19TxnStreamReadHandle5getIDEv(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %id_, align 8
   ret i64 %0
 }
@@ -19823,14 +19649,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction19TxnStreamReadHandle14getCancelTokenEv(ptr noalias sret(%"class.folly::CancellationToken") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cancellationSource_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 8
+  %cancellationSource_ = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
   %0 = load ptr, ptr %cancellationSource_, align 8, !noalias !208
   %cmp.i.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.not.i, label %_ZNK5folly18CancellationSource8getTokenEv.exit, label %_ZNSt10unique_ptrIN5folly6detail17CancellationStateENS1_29CancellationStateTokenDeleterEED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5folly6detail17CancellationStateENS1_29CancellationStateTokenDeleterEED2Ev.exit.i: ; preds = %entry
-  %state_.i.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %0, i64 0, i32 1
+  %state_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw add ptr %state_.i.i, i64 8 monotonic, align 8, !noalias !211
   br label %_ZNK5folly18CancellationSource8getTokenEv.exit
 
@@ -19843,19 +19669,19 @@ _ZNK5folly18CancellationSource8getTokenEv.exit:   ; preds = %entry, %_ZNSt10uniq
 define linkonce_odr i64 @_ZN8proxygen15HTTPTransaction19TxnStreamReadHandle11stopSendingEj(ptr noundef nonnull align 8 dereferenceable(144) %this, i32 noundef %error) unnamed_addr #3 comdat align 2 {
 entry:
   %id.addr.i = alloca i64, align 8
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %txn_, align 8
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnStreamReadHandle", ptr %this, i64 0, i32 2
+  %id_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %id_, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %id.addr.i)
   store i64 %1, ptr %id.addr.i, align 8
-  %transport_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 14
+  %transport_.i = getelementptr inbounds i8, ptr %0, i64 272
   %2 = load ptr, ptr %transport_.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 53
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 424
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %1, i32 noundef %error)
-  %wtIngressStreams_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 50
+  %wtIngressStreams_.i = getelementptr inbounds i8, ptr %0, i64 848
   %call.i.i = call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %wtIngressStreams_.i, ptr noundef nonnull align 8 dereferenceable(8) %id.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %id.addr.i)
   ret i64 %call.i
@@ -19864,10 +19690,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction14timeoutExpiredEv(ptr noundef nonnull align 8 dereferenceable(912) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %this) #27
   ret void
@@ -19880,13 +19706,13 @@ declare void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl10
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction10setHandlerEPNS_22HTTPTransactionHandlerE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef %handler) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dg = alloca %"class.folly::DelayedDestructionBase::DestructorGuard", align 8
-  %handler_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 13
+  %handler_ = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load ptr, ptr %handler_, align 8
   %cmp.not = icmp eq ptr %0, %handler
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %handlerEgressPaused_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %handlerEgressPaused_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %handlerEgressPaused_, align 8
   %bf.clear = and i32 %bf.load, -9
   store i32 %bf.clear, ptr %handlerEgressPaused_, align 8
@@ -19905,7 +19731,7 @@ if.then4:                                         ; preds = %if.end
   %inc.i = add i32 %1, 1
   store i32 %inc.i, ptr %guardCount_.i, align 8
   %vtable = load ptr, ptr %handler, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %handler, ptr noundef nonnull %this) #27
   invoke void @_ZN8proxygen15HTTPTransaction23updateHandlerPauseStateEv(ptr noundef nonnull align 8 dereferenceable(912) %this)
@@ -19921,7 +19747,7 @@ if.then.i:                                        ; preds = %if.then4
 
 if.then6.i:                                       ; preds = %if.then.i
   %vtable.i = load ptr, ptr %add.ptr, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %if.end6 unwind label %terminate.lpad.i
@@ -19946,7 +19772,7 @@ if.end6:                                          ; preds = %if.then6.i, %if.the
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8proxygen15HTTPTransaction21extraResponseExpectedEv(ptr noundef nonnull align 8 dereferenceable(912) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %lastResponseStatus_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 41
+  %lastResponseStatus_ = getelementptr inbounds i8, ptr %this, i64 732
   %0 = load i16, ptr %lastResponseStatus_, align 4
   %1 = add i16 %0, -100
   %or.cond = icmp ult i16 %1, 100
@@ -19958,14 +19784,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZNK8proxygen15HTTPTransaction16getReceiveWindowEv(ptr noundef nonnull align 8 dereferenceable(912) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %recvWindow_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 17
+  %recvWindow_ = getelementptr inbounds i8, ptr %this, i64 344
   ret ptr %recvWindow_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction20setTransportCallbackEPNS_32HTTPTransactionTransportCallbackE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef %cb) unnamed_addr #5 comdat align 2 {
 entry:
-  %transportCallback_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 19
+  %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   store ptr %cb, ptr %transportCallback_, align 8
   ret void
 }
@@ -19973,13 +19799,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8proxygen15HTTPTransaction14canSendHeadersEv(ptr noundef nonnull align 8 dereferenceable(912) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %egressState_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_ = getelementptr inbounds i8, ptr %this, i64 241
   %0 = load i8, ptr %egressState_, align 1
   %cmp = icmp eq i8 %0, 0
   br i1 %cmp, label %lor.end7, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %direction_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 6
+  %direction_.i = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load i8, ptr %direction_.i, align 8
   %cmp.i = icmp eq i8 %1, 0
   br i1 %cmp.i, label %land.lhs.true, label %lor.end7
@@ -19991,14 +19817,14 @@ land.lhs.true:                                    ; preds = %lor.rhs
   br i1 %tobool.i.not, label %lor.end7, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %lastResponseStatus_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 41
+  %lastResponseStatus_ = getelementptr inbounds i8, ptr %this, i64 732
   %3 = load i16, ptr %lastResponseStatus_, align 4
   %cmp4 = icmp eq i16 %3, 0
   br i1 %cmp4, label %lor.end7, label %lor.rhs5
 
 lor.rhs5:                                         ; preds = %land.rhs
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %4 = load ptr, ptr %vfn, align 8
   %call6 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(912) %this)
   br label %lor.end7
@@ -20018,7 +19844,7 @@ entry:
   br i1 %call, label %while.cond, label %if.end18
 
 while.cond:                                       ; preds = %entry
-  %deferredBufferMeta_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 5
+  %deferredBufferMeta_ = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load i64, ptr %deferredBufferMeta_, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %while.end, label %if.else.i
@@ -20075,27 +19901,27 @@ lpad:                                             ; preds = %invoke.cont, %while
   unreachable
 
 while.end:                                        ; preds = %while.cond, %_ZN6google12Check_EQImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %4 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 28
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %5 = load ptr, ptr %vfn, align 8
   %call12 = call noundef nonnull align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #27
   %vtable13 = load ptr, ptr %call12, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 19
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 152
   %6 = load ptr, ptr %vfn14, align 8
   %call15 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %call12)
   br i1 %call15, label %if.end18, label %if.then16
 
 if.then16:                                        ; preds = %while.end
-  %chunkHeaders_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 21
+  %chunkHeaders_ = getelementptr inbounds i8, ptr %this, i64 376
   %call5.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
   store i64 %length, ptr %_M_storage.i.i.i.i, align 8
-  %headerSent.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_List_node", ptr %call5.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %headerSent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 24
   store i8 0, ptr %headerSent.i.i.i.i.i.i, align 8
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %chunkHeaders_) #27
-  %_M_size.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 21, i32 0, i32 0, i32 0, i32 1
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 392
   %7 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %7, 1
   store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
@@ -20112,7 +19938,7 @@ entry:
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp7 = alloca %"class.google::LogMessageFatal", align 8
   %call = tail call noundef zeroext i1 @_ZN8proxygen15HTTPTransaction29validateEgressStateTransitionENS_27HTTPTransactionEgressSMData5EventE(ptr noundef nonnull align 8 dereferenceable(912) %this, i8 noundef zeroext 4)
-  %deferredBufferMeta_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 5
+  %deferredBufferMeta_ = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load i64, ptr %deferredBufferMeta_, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %while.end, label %if.else.i
@@ -20184,7 +20010,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %trailers_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 20
+  %trailers_ = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load ptr, ptr %trailers_, align 8
   store ptr %call2, ptr %trailers_, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -20209,7 +20035,7 @@ lpad:                                             ; preds = %if.end
 define linkonce_odr noundef ptr @_ZN8proxygen15HTTPTransaction20newPushedTransactionEPNS_26HTTPPushTransactionHandlerEPNS_13ProxygenErrorE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef %handler, ptr noundef %error) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
-  %isDelegated_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %isDelegated_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %isDelegated_, align 8
   %0 = and i32 %bf.load, 524288
   %bf.cast.not = icmp eq i32 %0, 0
@@ -20239,7 +20065,7 @@ lpad:                                             ; preds = %invoke.cont2, %invo
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
-  %egressState_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 7
+  %egressState_.i.i = getelementptr inbounds i8, ptr %this, i64 241
   %2 = load i8, ptr %egressState_.i.i, align 1
   %3 = and i8 %2, -2
   %spec.select.i = icmp eq i8 %3, 8
@@ -20254,34 +20080,33 @@ if.then8:                                         ; preds = %do.body
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %4 = load ptr, ptr %transport_, align 8
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   %5 = load i64, ptr %id_, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 31
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
   %6 = load ptr, ptr %vfn, align 8
   %call11 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %5, ptr noundef %handler, ptr noundef %error) #27
   %tobool12.not = icmp eq ptr %call11, null
   br i1 %tobool12.not, label %return, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  %id_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %call11, i64 0, i32 10
+  %id_.i = getelementptr inbounds i8, ptr %call11, i64 248
   %7 = load i64, ptr %id_.i, align 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 472
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %__x.019.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not20.i.i.i = icmp eq ptr %__x.019.i.i.i, null
   br i1 %cmp.not20.i.i.i, label %if.then.i.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then13, %while.body.i.i.i
   %__x.021.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.019.i.i.i, %if.then13 ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %__x.021.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 32
   %8 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %7, %8
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i, i64 0, i32 2
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i, i64 0, i32 3
-  %cond.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_left.i.i.i.i, ptr %_M_right.i.i.i.i
+  %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
+  %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !108
@@ -20291,14 +20116,14 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i, %if.then13
   %__y.0.lcssa25.i.i.i = phi ptr [ %__x.021.i.i.i, %while.end.i.i.i ], [ %add.ptr.i.i.i.i, %if.then13 ]
-  %_M_left.i3.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i3.i.i.i = getelementptr inbounds i8, ptr %this, i64 480
   %9 = load ptr, ptr %_M_left.i3.i.i.i, align 8
   %cmp.i4.i.i.i = icmp eq ptr %__y.0.lcssa25.i.i.i, %9
   br i1 %cmp.i4.i.i.i, label %if.then.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i) #30
-  %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %call.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %.pre.i.i = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i, align 8
   br label %if.end12.i.i.i
 
@@ -20314,7 +20139,7 @@ if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
-  %_M_storage.i.i.i.i6.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %retval.sroa.4.0.i.ph.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
   %11 = load i64, ptr %_M_storage.i.i.i.i6.i.i, align 8
   %cmp.i.i7.i.i = icmp ult i64 %7, %11
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
@@ -20322,10 +20147,10 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
   %12 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %call5.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %7, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %12, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #27
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 26, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 496
   %13 = load i64, ptr %_M_node_count.i.i.i, align 8
   %inc.i.i.i = add i64 %13, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8
@@ -20340,7 +20165,7 @@ return:                                           ; preds = %_ZNSt8_Rb_treeImmSt
 define linkonce_odr noundef ptr @_ZN8proxygen15HTTPTransaction16newExTransactionEPNS_22HTTPTransactionHandlerEb(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef %handler, i1 noundef zeroext %unidirectional) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
-  %isDelegated_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 40
+  %isDelegated_ = getelementptr inbounds i8, ptr %this, i64 728
   %bf.load = load i32, ptr %isDelegated_, align 8
   %0 = and i32 %bf.load, 524288
   %bf.cast.not = icmp eq i32 %0, 0
@@ -20370,34 +20195,33 @@ lpad:                                             ; preds = %invoke.cont2, %invo
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %2 = load ptr, ptr %transport_, align 8
-  %id_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 10
+  %id_ = getelementptr inbounds i8, ptr %this, i64 248
   %3 = load i64, ptr %id_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
   %4 = load ptr, ptr %vfn, align 8
   %call6 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %handler, i64 noundef %3, i1 noundef zeroext %unidirectional) #27
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %return, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %id_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %call6, i64 0, i32 10
+  %id_.i = getelementptr inbounds i8, ptr %call6, i64 248
   %5 = load i64, ptr %id_.i, align 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27, i32 0, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 520
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 512
   %__x.019.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not20.i.i.i = icmp eq ptr %__x.019.i.i.i, null
   br i1 %cmp.not20.i.i.i, label %if.then.i.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.then8, %while.body.i.i.i
   %__x.021.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.019.i.i.i, %if.then8 ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %__x.021.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 32
   %6 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %5, %6
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i, i64 0, i32 2
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i.i.i, i64 0, i32 3
-  %cond.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_left.i.i.i.i, ptr %_M_right.i.i.i.i
+  %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 16, i64 24
+  %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !108
@@ -20407,14 +20231,14 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i, %if.then8
   %__y.0.lcssa25.i.i.i = phi ptr [ %__x.021.i.i.i, %while.end.i.i.i ], [ %add.ptr.i.i.i.i, %if.then8 ]
-  %_M_left.i3.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i3.i.i.i = getelementptr inbounds i8, ptr %this, i64 528
   %7 = load ptr, ptr %_M_left.i3.i.i.i, align 8
   %cmp.i4.i.i.i = icmp eq ptr %__y.0.lcssa25.i.i.i, %7
   br i1 %cmp.i4.i.i.i, label %if.then.i.i, label %if.else.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i.i.i) #30
-  %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %call.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %.pre.i.i = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert.i.i, align 8
   br label %if.end12.i.i.i
 
@@ -20430,7 +20254,7 @@ if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
-  %_M_storage.i.i.i.i6.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %retval.sroa.4.0.i.ph.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i6.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
   %9 = load i64, ptr %_M_storage.i.i.i.i6.i.i, align 8
   %cmp.i.i7.i.i = icmp ult i64 %5, %9
   br label %_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i
@@ -20438,10 +20262,10 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
 _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE10_M_insert_ImNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorImEPSt18_Rb_tree_node_baseSB_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
   %10 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i7.i.i, %lor.rhs.i.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.267", ptr %call5.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   store i64 %5, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %10, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #27
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 27, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 544
   %11 = load i64, ptr %_M_node_count.i.i.i, align 8
   %inc.i.i.i = add i64 %11, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8
@@ -20455,10 +20279,10 @@ return:                                           ; preds = %_ZNSt8_Rb_treeImmSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction25addWaitingForReplaySafetyEPN5folly14AsyncTransport20ReplaySafetyCallbackE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef %callback) unnamed_addr #5 comdat align 2 {
 entry:
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 34
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 272
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %callback) #27
   ret void
@@ -20467,10 +20291,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction28removeWaitingForReplaySafetyEPN5folly14AsyncTransport20ReplaySafetyCallbackE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef %callback) unnamed_addr #5 comdat align 2 {
 entry:
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 35
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 280
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %callback) #27
   ret void
@@ -20479,10 +20303,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK8proxygen15HTTPTransaction26needToBlockForReplaySafetyEv(ptr noundef nonnull align 8 dereferenceable(912) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %transport_ = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %this, i64 0, i32 14
+  %transport_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 36
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 288
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i1 %call
@@ -20499,9 +20323,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction17RateLimitCallback14timeoutExpiredEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::RateLimitCallback", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %txn_, align 8
-  %egressRateLimited_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 40
+  %egressRateLimited_.i = getelementptr inbounds i8, ptr %0, i64 728
   %bf.load.i = load i32, ptr %egressRateLimited_.i, align 8
   %bf.clear.i = and i32 %bf.load.i, -17
   store i32 %bf.clear.i, ptr %egressRateLimited_.i, align 8
@@ -20541,20 +20365,20 @@ entry:
   %id.i = alloca %"class.folly::Expected.169", align 8
   %ref.tmp6.i = alloca %"class.std::tuple.174", align 8
   %ref.tmp8.i = alloca %"class.std::tuple.177", align 8
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnWebTransport", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %txn_, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %id.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp6.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp8.i)
-  %transport_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 14
+  %transport_.i = getelementptr inbounds i8, ptr %0, i64 272
   %1 = load ptr, ptr %transport_.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 48
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 384
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call { i64, i64 } %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %3 = extractvalue { i64, i64 } %call.i, 0
   store i64 %3, ptr %id.i, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %id.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %id.i, i64 8
   %5 = extractvalue { i64, i64 } %call.i, 1
   store i64 %5, ptr %4, align 8
   %6 = and i64 %3, 255
@@ -20562,14 +20386,14 @@ entry:
   br i1 %cmp.i.i.i, label %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5.i, label %_ZN8proxygen15HTTPTransaction24newWebTransportUniStreamEv.exit
 
 _ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5.i: ; preds = %entry
-  %wtEgressStreams_.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 49
+  %wtEgressStreams_.i = getelementptr inbounds i8, ptr %0, i64 800
   store ptr %4, ptr %ref.tmp6.i, align 8, !alias.scope !214
   store ptr %4, ptr %ref.tmp8.i, align 8, !alias.scope !217
   %7 = getelementptr inbounds i8, ptr %ref.tmp8.i, i64 8
   store ptr %0, ptr %7, align 8, !alias.scope !217
   %call.i.i = call { ptr, i8 } @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE17_M_emplace_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRmEESG_IJRS3_SH_EEEEES0_ISt17_Rb_tree_iteratorIS5_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %wtEgressStreams_.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8.i)
   %8 = extractvalue { ptr, i8 } %call.i.i, 0
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %8, i64 0, i32 1, i32 0, i64 8
+  %second.i = getelementptr inbounds i8, ptr %8, i64 40
   br label %_ZN8proxygen15HTTPTransaction24newWebTransportUniStreamEv.exit
 
 _ZN8proxygen15HTTPTransaction24newWebTransportUniStreamEv.exit: ; preds = %entry, %_ZNR5folly8ExpectedImN8proxygen12WebTransport9ErrorCodeEEdeEv.exit5.i
@@ -20588,7 +20412,7 @@ _ZN8proxygen15HTTPTransaction24newWebTransportUniStreamEv.exit: ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction15TxnWebTransport16createBidiStreamEv(ptr noalias sret(%"class.folly::Expected.164") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnWebTransport", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %txn_, align 8
   tail call void @_ZN8proxygen15HTTPTransaction25newWebTransportBidiStreamEv(ptr sret(%"class.folly::Expected.164") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(912) %0)
   ret void
@@ -20600,28 +20424,28 @@ _ZN5folly6FutureINS_4UnitEED2Ev.exit:
   %agg.tmp.i = alloca %"class.folly::futures::detail::KeepAliveOrDeferred", align 8
   %call.i.i1.i = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31, !noalias !220
   %0 = getelementptr inbounds i8, ptr %call.i.i1.i, i64 136
-  %callback_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 2
+  %callback_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 16
   store ptr null, ptr %callback_.i.i.i.i.i, align 16, !noalias !223
-  %call_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 2, i32 1
+  %call_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 64
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS7_EEPNS_17exception_wrapperEEE10uninitCallES6_SA_SC_RNS1_4DataE, ptr %call_.i.i.i.i.i.i, align 16, !noalias !223
-  %exec_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 2, i32 2
+  %exec_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i, align 8, !noalias !223
-  %state_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 3
+  %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 80
   store i8 2, ptr %state_.i.i.i.i.i, align 1, !noalias !223
-  %attached_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 4
+  %attached_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i, align 1, !noalias !223
-  %callbackReferences_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 5
+  %callbackReferences_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 82
   store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 1, !noalias !223
-  %executor_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 6
+  %executor_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i, align 8, !noalias !223
-  %1 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 6, i32 1
+  %1 = getelementptr inbounds i8, ptr %call.i.i1.i, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false), !noalias !223
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i1.i, align 16, !noalias !223
   store i32 0, ptr %0, align 8, !noalias !223
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   store ptr %call.i.i1.i, ptr %agg.result, align 8
   store i32 0, ptr %agg.tmp.i, align 8
-  %2 = getelementptr inbounds %"class.folly::futures::detail::KeepAliveOrDeferred", ptr %agg.tmp.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store ptr null, ptr %2, align 8
   %call13.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5folly7futures6detail19KeepAliveOrDeferredaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %executor_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i) #27
   call void @_ZN5folly7futures6detail19KeepAliveOrDeferredD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i) #27
@@ -20635,28 +20459,28 @@ _ZN5folly6FutureINS_4UnitEED2Ev.exit:
   %agg.tmp.i = alloca %"class.folly::futures::detail::KeepAliveOrDeferred", align 8
   %call.i.i1.i = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #31, !noalias !226
   %0 = getelementptr inbounds i8, ptr %call.i.i1.i, i64 136
-  %callback_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 2
+  %callback_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 16
   store ptr null, ptr %callback_.i.i.i.i.i, align 16, !noalias !229
-  %call_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 2, i32 1
+  %call_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 64
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvRNS_7futures6detail8CoreBaseEONS_8Executor9KeepAliveIS7_EEPNS_17exception_wrapperEEE10uninitCallES6_SA_SC_RNS1_4DataE, ptr %call_.i.i.i.i.i.i, align 16, !noalias !229
-  %exec_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 2, i32 2
+  %exec_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 72
   store ptr null, ptr %exec_.i.i.i.i.i.i, align 8, !noalias !229
-  %state_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 3
+  %state_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 80
   store i8 2, ptr %state_.i.i.i.i.i, align 1, !noalias !229
-  %attached_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 4
+  %attached_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 81
   store i8 1, ptr %attached_.i.i.i.i.i, align 1, !noalias !229
-  %callbackReferences_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 5
+  %callbackReferences_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 82
   store i8 0, ptr %callbackReferences_.i.i.i.i.i, align 1, !noalias !229
-  %executor_.i.i.i.i.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 6
+  %executor_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i, i64 88
   store i32 0, ptr %executor_.i.i.i.i.i, align 8, !noalias !229
-  %1 = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %call.i.i1.i, i64 0, i32 6, i32 1
+  %1 = getelementptr inbounds i8, ptr %call.i.i1.i, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %1, i8 0, i64 32, i1 false), !noalias !229
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreINS_4UnitEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i1.i, align 16, !noalias !229
   store i32 0, ptr %0, align 8, !noalias !229
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   store ptr %call.i.i1.i, ptr %agg.result, align 8
   store i32 0, ptr %agg.tmp.i, align 8
-  %2 = getelementptr inbounds %"class.folly::futures::detail::KeepAliveOrDeferred", ptr %agg.tmp.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store ptr null, ptr %2, align 8
   %call13.i.i.i = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5folly7futures6detail19KeepAliveOrDeferredaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %executor_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i) #27
   call void @_ZN5folly7futures6detail19KeepAliveOrDeferredD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i) #27
@@ -20668,24 +20492,23 @@ _ZN5folly6FutureINS_4UnitEED2Ev.exit:
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction15TxnWebTransport14readStreamDataEm(ptr noalias sret(%"class.folly::Expected.216") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %id) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp11 = alloca %"class.folly::SemiFuture.210", align 8
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnWebTransport", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %txn_, align 8
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 50, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 864
   %1 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 50, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 856
   %cmp.not5.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not5.i.i.i, label %if.then, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %1, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %2, %id
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !166
@@ -20695,23 +20518,23 @@ _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10
   br i1 %cmp.i.i.i, label %if.then, label %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
 
 _ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %3 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp ugt i64 %3, %id
   br i1 %cmp.i4.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
   store i32 1, ptr %agg.result, align 8
-  %which_.i.i.i = getelementptr inbounds %"struct.folly::expected_detail::ExpectedUnion.218", ptr %agg.result, i64 0, i32 1
+  %which_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 2, ptr %which_.i.i.i, align 8
   br label %return
 
 if.end:                                           ; preds = %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 40
   call void @_ZN8proxygen15HTTPTransaction19TxnStreamReadHandle14readStreamDataEv(ptr nonnull sret(%"class.folly::SemiFuture.210") align 8 %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(144) %second)
   %4 = load ptr, ptr %ref.tmp11, align 8
   store ptr %4, ptr %agg.result, align 8
-  %which_.i.i.i1 = getelementptr inbounds %"struct.folly::expected_detail::ExpectedUnion.218", ptr %agg.result, i64 0, i32 1
+  %which_.i.i.i1 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 1, ptr %which_.i.i.i1, align 8
   invoke void @_ZN5folly10SemiFutureIN8proxygen12WebTransport10StreamDataEE23releaseDeferredExecutorEPNS_7futures6detail4CoreIS3_EE(ptr noundef null)
           to label %return unwind label %terminate.lpad.i
@@ -20731,24 +20554,23 @@ return:                                           ; preds = %if.end, %if.then
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction15TxnWebTransport15writeStreamDataEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEb(ptr noalias sret(%"class.folly::Expected.196") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %id, ptr noundef %data, i1 noundef zeroext %fin) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.4", align 8
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnWebTransport", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %txn_, align 8
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 816
   %1 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 49, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 808
   %cmp.not5.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not5.i.i.i, label %if.then, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %1, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %2, %id
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !7
@@ -20758,19 +20580,19 @@ _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt1
   br i1 %cmp.i.i.i, label %if.then, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
 
 _ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %3 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp ugt i64 %3, %id
   br i1 %cmp.i4.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
   store i32 1, ptr %agg.result, align 8
-  %which_.i.i.i = getelementptr inbounds %"struct.folly::expected_detail::ExpectedUnion", ptr %agg.result, i64 0, i32 1
+  %which_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 2, ptr %which_.i.i.i, align 8
   br label %return
 
 if.end:                                           ; preds = %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 40
   %4 = load i64, ptr %data, align 8
   store i64 %4, ptr %agg.tmp, align 8
   store ptr null, ptr %data, align 8
@@ -20800,24 +20622,23 @@ return:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr i64 @_ZN8proxygen15HTTPTransaction15TxnWebTransport11resetStreamEmj(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %id, i32 noundef %error) unnamed_addr #3 comdat align 2 {
 entry:
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnWebTransport", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %txn_, align 8
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 816
   %1 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 49, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 808
   %cmp.not5.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not5.i.i.i, label %return, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %1, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %2, %id
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !7
@@ -20827,96 +20648,91 @@ _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt1
   br i1 %cmp.i.i.i, label %return, label %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
 
 _ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %3 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp ugt i64 %3, %id
   br i1 %cmp.i4.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNSt3mapImN8proxygen15HTTPTransaction20TxnStreamWriteHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
-  %txn_.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 24
+  %txn_.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 56
   %4 = load ptr, ptr %txn_.i, align 8
-  %id_.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 32
+  %id_.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 64
   %5 = load i64, ptr %id_.i, align 8
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %4, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %4, i64 272
   %6 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 50
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 400
   %7 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %5, i32 noundef %error)
-  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %4, i64 0, i32 49, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %4, i64 0, i32 49, i32 0, i32 0, i32 1
-  %__x.039.i.i.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
-  %cmp.not40.i.i.i.i.i = icmp eq ptr %__x.039.i.i.i.i.i, null
-  br i1 %cmp.not40.i.i.i.i.i, label %_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle11resetStreamEj.exit, label %while.body.i.i.i.i.i
+  %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 816
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 808
+  %__x.038.i.i.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8
+  %cmp.not39.i.i.i.i.i = icmp eq ptr %__x.038.i.i.i.i.i, null
+  br i1 %cmp.not39.i.i.i.i.i, label %_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle11resetStreamEj.exit, label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.end, %if.end19.i.i.i.i.i
-  %__x.042.i.i.i.i.i = phi ptr [ %__x.0.i.i.i.i.i, %if.end19.i.i.i.i.i ], [ %__x.039.i.i.i.i.i, %if.end ]
-  %__y.041.i.i.i.i.i = phi ptr [ %__y.1.i.i.i.i.i, %if.end19.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.end ]
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.042.i.i.i.i.i, i64 0, i32 1
+  %__x.041.i.i.i.i.i = phi ptr [ %__x.0.i.i.i.i.i, %if.end19.i.i.i.i.i ], [ %__x.038.i.i.i.i.i, %if.end ]
+  %__y.040.i.i.i.i.i = phi ptr [ %__y.1.i.i.i.i.i, %if.end19.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.end ]
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i.i.i, i64 32
   %8 = load i64, ptr %_M_storage.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp ult i64 %8, %5
-  br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i.i.i, i64 0, i32 3
-  br label %if.end19.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %if.end19.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.body.i.i.i.i.i
   %cmp.i18.i.i.i.i.i = icmp ugt i64 %8, %5
-  %_M_left.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i.i.i, i64 0, i32 2
   br i1 %cmp.i18.i.i.i.i.i, label %if.end19.i.i.i.i.i, label %if.else12.i.i.i.i.i
 
 if.else12.i.i.i.i.i:                              ; preds = %if.else.i.i.i.i.i
-  %9 = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8
-  %_M_right.i20.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i.i.i.i.i, i64 0, i32 3
+  %_M_left.i19.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i.i.i, i64 16
+  %9 = load ptr, ptr %_M_left.i19.i.i.i.i.i, align 8
+  %_M_right.i20.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %_M_right.i20.i.i.i.i.i, align 8
   %cmp.not5.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %if.else12.i.i.i.i.i, %while.body.i.i.i.i.i.i
   %__x.addr.07.i.i.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %9, %if.else12.i.i.i.i.i ]
-  %__y.addr.06.i.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %__x.042.i.i.i.i.i, %if.else12.i.i.i.i.i ]
-  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i.i.i.i.i.i, i64 0, i32 1
+  %__y.addr.06.i.i.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %__x.041.i.i.i.i.i, %if.else12.i.i.i.i.i ]
+  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i.i, i64 32
   %11 = load i64, ptr %_M_storage.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %11, %5
-  %_M_right.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i.i.i, ptr %__x.addr.07.i.i.i.i.i.i
-  %__x.addr.1.in.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i
+  %__x.addr.1.in.v.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i.i.i
   %__x.addr.1.i.i.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i, label %while.body.i.i.i.i.i.i, !llvm.loop !7
 
 _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i: ; preds = %while.body.i.i.i.i.i.i, %if.else12.i.i.i.i.i
-  %__y.addr.0.lcssa.i.i.i.i.i.i = phi ptr [ %__x.042.i.i.i.i.i, %if.else12.i.i.i.i.i ], [ %__y.addr.1.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
+  %__y.addr.0.lcssa.i.i.i.i.i.i = phi ptr [ %__x.041.i.i.i.i.i, %if.else12.i.i.i.i.i ], [ %__y.addr.1.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ]
   %cmp.not5.i21.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %cmp.not5.i21.i.i.i.i.i, label %_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle11resetStreamEj.exit, label %while.body.i23.i.i.i.i.i
 
 while.body.i23.i.i.i.i.i:                         ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i, %while.body.i23.i.i.i.i.i
-  %__x.addr.07.i24.i.i.i.i.i = phi ptr [ %__x.addr.1.i32.i.i.i.i.i, %while.body.i23.i.i.i.i.i ], [ %10, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i ]
-  %__y.addr.06.i25.i.i.i.i.i = phi ptr [ %__y.addr.1.i30.i.i.i.i.i, %while.body.i23.i.i.i.i.i ], [ %__y.041.i.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i ]
-  %_M_storage.i.i.i26.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.07.i24.i.i.i.i.i, i64 0, i32 1
+  %__x.addr.07.i24.i.i.i.i.i = phi ptr [ %__x.addr.1.i31.i.i.i.i.i, %while.body.i23.i.i.i.i.i ], [ %10, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i ]
+  %__y.addr.06.i25.i.i.i.i.i = phi ptr [ %__y.addr.1.i28.i.i.i.i.i, %while.body.i23.i.i.i.i.i ], [ %__y.040.i.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i ]
+  %_M_storage.i.i.i26.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i.i.i, i64 32
   %12 = load i64, ptr %_M_storage.i.i.i26.i.i.i.i.i, align 8
   %cmp.i.i27.i.i.i.i.i = icmp ugt i64 %12, %5
-  %_M_left.i.i28.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i.i.i.i.i, i64 0, i32 2
-  %_M_right.i.i29.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i.i.i.i.i, i64 0, i32 3
-  %__y.addr.1.i30.i.i.i.i.i = select i1 %cmp.i.i27.i.i.i.i.i, ptr %__x.addr.07.i24.i.i.i.i.i, ptr %__y.addr.06.i25.i.i.i.i.i
-  %__x.addr.1.in.i31.i.i.i.i.i = select i1 %cmp.i.i27.i.i.i.i.i, ptr %_M_left.i.i28.i.i.i.i.i, ptr %_M_right.i.i29.i.i.i.i.i
-  %__x.addr.1.i32.i.i.i.i.i = load ptr, ptr %__x.addr.1.in.i31.i.i.i.i.i, align 8
-  %cmp.not.i33.i.i.i.i.i = icmp eq ptr %__x.addr.1.i32.i.i.i.i.i, null
-  br i1 %cmp.not.i33.i.i.i.i.i, label %_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle11resetStreamEj.exit, label %while.body.i23.i.i.i.i.i, !llvm.loop !8
+  %__y.addr.1.i28.i.i.i.i.i = select i1 %cmp.i.i27.i.i.i.i.i, ptr %__x.addr.07.i24.i.i.i.i.i, ptr %__y.addr.06.i25.i.i.i.i.i
+  %__x.addr.1.in.v.i29.i.i.i.i.i = select i1 %cmp.i.i27.i.i.i.i.i, i64 16, i64 24
+  %__x.addr.1.in.i30.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i.i.i.i.i, i64 %__x.addr.1.in.v.i29.i.i.i.i.i
+  %__x.addr.1.i31.i.i.i.i.i = load ptr, ptr %__x.addr.1.in.i30.i.i.i.i.i, align 8
+  %cmp.not.i32.i.i.i.i.i = icmp eq ptr %__x.addr.1.i31.i.i.i.i.i, null
+  br i1 %cmp.not.i32.i.i.i.i.i, label %_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle11resetStreamEj.exit, label %while.body.i23.i.i.i.i.i, !llvm.loop !8
 
-if.end19.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
-  %__y.1.i.i.i.i.i = phi ptr [ %__y.041.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %__x.042.i.i.i.i.i, %if.else.i.i.i.i.i ]
-  %__x.1.in.i.i.i.i.i = phi ptr [ %_M_right.i.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %_M_left.i.i.i.i.i.i, %if.else.i.i.i.i.i ]
-  %__x.0.i.i.i.i.i = load ptr, ptr %__x.1.in.i.i.i.i.i, align 8
+if.end19.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i, %while.body.i.i.i.i.i
+  %.sink.i.i.i.i.i = phi i64 [ 24, %while.body.i.i.i.i.i ], [ 16, %if.else.i.i.i.i.i ]
+  %__y.1.i.i.i.i.i = phi ptr [ %__y.040.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__x.041.i.i.i.i.i, %if.else.i.i.i.i.i ]
+  %_M_left.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.041.i.i.i.i.i, i64 %.sink.i.i.i.i.i
+  %__x.0.i.i.i.i.i = load ptr, ptr %_M_left.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %__x.0.i.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle11resetStreamEj.exit, label %while.body.i.i.i.i.i, !llvm.loop !9
 
 _ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle11resetStreamEj.exit: ; preds = %if.end19.i.i.i.i.i, %while.body.i23.i.i.i.i.i, %if.end, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i
   %retval.sroa.0.0.i.i.i.i.i = phi ptr [ %__y.addr.0.lcssa.i.i.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.end ], [ %__y.addr.0.lcssa.i.i.i.i.i.i, %while.body.i23.i.i.i.i.i ], [ %__y.1.i.i.i.i.i, %if.end19.i.i.i.i.i ]
-  %retval.sroa.3.0.i.i.i.i.i = phi ptr [ %__y.041.i.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.end ], [ %__y.addr.1.i30.i.i.i.i.i, %while.body.i23.i.i.i.i.i ], [ %__y.1.i.i.i.i.i, %if.end19.i.i.i.i.i ]
-  %wtEgressStreams_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %4, i64 0, i32 49
+  %retval.sroa.3.0.i.i.i.i.i = phi ptr [ %__y.040.i.i.i.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.end ], [ %__y.addr.1.i28.i.i.i.i.i, %while.body.i23.i.i.i.i.i ], [ %__y.1.i.i.i.i.i, %if.end19.i.i.i.i.i ]
+  %wtEgressStreams_.i.i = getelementptr inbounds i8, ptr %4, i64 800
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS5_ESD_(ptr noundef nonnull align 8 dereferenceable(48) %wtEgressStreams_.i.i, ptr %retval.sroa.0.0.i.i.i.i.i, ptr %retval.sroa.3.0.i.i.i.i.i)
   %retval.sroa.32.0.extract.shift = and i64 %call.i.i, -4294967296
   %13 = and i64 %call.i.i, 4294967040
@@ -20936,24 +20752,23 @@ return:                                           ; preds = %entry, %_ZNSt8_Rb_t
 define linkonce_odr i64 @_ZN8proxygen15HTTPTransaction15TxnWebTransport11stopSendingEmj(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %id, i32 noundef %error) unnamed_addr #3 comdat align 2 {
 entry:
   %id.addr.i.i = alloca i64, align 8
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnWebTransport", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %txn_, align 8
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 50, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 864
   %1 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %0, i64 0, i32 50, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 856
   %cmp.not5.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not5.i.i.i, label %return, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %entry, %while.body.i.i.i
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i ], [ %1, %entry ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i ], [ %add.ptr.i.i.i, %entry ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp ult i64 %2, %id
-  %_M_right.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
-  %__x.addr.1.in.i.i.i = select i1 %cmp.i.i.i.i, ptr %_M_right.i.i.i.i, ptr %_M_left.i.i.i.i
+  %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, label %while.body.i.i.i, !llvm.loop !166
@@ -20963,25 +20778,25 @@ _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10
   br i1 %cmp.i.i.i, label %return, label %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
 
 _ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
-  %_M_storage.i.i.i3.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i3.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %3 = load i64, ptr %_M_storage.i.i.i3.i.i, align 8
   %cmp.i4.i.i = icmp ugt i64 %3, %id
   br i1 %cmp.i4.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZNSt3mapImN8proxygen15HTTPTransaction19TxnStreamReadHandleESt4lessImESaISt4pairIKmS2_EEE4findERS6_.exit
-  %txn_.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 16
+  %txn_.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 48
   %4 = load ptr, ptr %txn_.i, align 8
-  %id_.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i, i64 0, i32 1, i32 0, i64 24
+  %id_.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 56
   %5 = load i64, ptr %id_.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %id.addr.i.i)
   store i64 %5, ptr %id.addr.i.i, align 8
-  %transport_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %4, i64 0, i32 14
+  %transport_.i.i = getelementptr inbounds i8, ptr %4, i64 272
   %6 = load ptr, ptr %transport_.i.i, align 8
   %vtable.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 53
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 424
   %7 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %5, i32 noundef %error)
-  %wtIngressStreams_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %4, i64 0, i32 50
+  %wtIngressStreams_.i.i = getelementptr inbounds i8, ptr %4, i64 848
   %call.i.i.i = call noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %wtIngressStreams_.i.i, ptr noundef nonnull align 8 dereferenceable(8) %id.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %id.addr.i.i)
   %retval.sroa.32.0.extract.shift = and i64 %call.i.i, -4294967296
@@ -21002,13 +20817,13 @@ return:                                           ; preds = %entry, %_ZNSt8_Rb_t
 define linkonce_odr i64 @_ZN8proxygen15HTTPTransaction15TxnWebTransport12sendDatagramESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %datagram) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.4", align 8
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnWebTransport", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %txn_, align 8
   %1 = load i64, ptr %datagram, align 8
   store i64 %1, ptr %agg.tmp, align 8
   store ptr null, ptr %datagram, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 28
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
   %2 = load ptr, ptr %vfn, align 8
   %call = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -21037,9 +20852,9 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr i64 @_ZN8proxygen15HTTPTransaction15TxnWebTransport12closeSessionEN5folly8OptionalIjEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0) unnamed_addr #3 comdat align 2 {
 entry:
-  %txn_ = getelementptr inbounds %"class.proxygen::HTTPTransaction::TxnWebTransport", ptr %this, i64 0, i32 1
+  %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %txn_, align 8
-  %egressState_.i.i = getelementptr inbounds %"class.proxygen::HTTPTransaction", ptr %1, i64 0, i32 7
+  %egressState_.i.i = getelementptr inbounds i8, ptr %1, i64 241
   %2 = load i8, ptr %egressState_.i.i, align 1
   %3 = and i8 %2, -2
   %spec.select.i = icmp eq i8 %3, 8
@@ -21047,7 +20862,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(912) %1)
   br label %if.end
@@ -21062,7 +20877,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev(ptr noundef nonnull align 16 dereferenceable(160) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 3
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load atomic i8, ptr %state_ monotonic, align 16
   switch i8 %0, label %sw.default [
     i8 2, label %sw.bb11
@@ -21088,7 +20903,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i.i
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
-  %proxy_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 9
+  %proxy_ = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load ptr, ptr %proxy_, align 16
   tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %4) #27
   br label %sw.epilog
@@ -21105,7 +20920,7 @@ sw.epilog:                                        ; preds = %if.then.i.i.i.i, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly7futures6detail4CoreINS_4UnitEED0Ev(ptr noundef nonnull align 16 dereferenceable(160) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state_.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 3
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load atomic i8, ptr %state_.i monotonic, align 16
   switch i8 %0, label %sw.default.i [
     i8 2, label %sw.bb11.i
@@ -21131,7 +20946,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then4.i.i.i
   br label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
 
 sw.bb12.i:                                        ; preds = %entry
-  %proxy_.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 9
+  %proxy_.i = getelementptr inbounds i8, ptr %this, i64 128
   %4 = load ptr, ptr %proxy_.i, align 16
   tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %4) #27
   br label %_ZN5folly7futures6detail4CoreINS_4UnitEED2Ev.exit
@@ -21238,7 +21053,7 @@ declare void @_ZN5folly7futures6detail19KeepAliveOrDeferredD1Ev(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNK5folly21static_what_exceptionISt11logic_errorE4whatEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %msg_ = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
+  %msg_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %msg_, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %cond.false, label %cond.end
@@ -21292,7 +21107,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %state_.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %core, i64 0, i32 3
+  %state_.i = getelementptr inbounds i8, ptr %core, i64 80
   %0 = load atomic i8, ptr %state_.i acquire, align 1
   %and1.i.i = and i8 %0, 108
   %cmp.i.not = icmp eq i8 %and1.i.i, 0
@@ -21440,10 +21255,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %__x.addr.05) #27
   %cmp.not = icmp eq ptr %1, null
@@ -21456,32 +21271,32 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__p) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__p, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 40
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction19TxnStreamReadHandleE, i64 0, inrange i32 0, i64 2), ptr %second.i.i.i.i, align 8
-  %cancellationSource_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__p, i64 0, i32 1, i32 0, i64 144
+  %cancellationSource_.i.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 176
   %0 = load ptr, ptr %cancellationSource_.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5folly18CancellationSourceD2Ev.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
-  %state_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %0, i64 0, i32 1
+  %state_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %state_.i.i.i.i.i.i.i.i.i, i64 17179869184 acq_rel, align 8
   %cmp8.i.i.i.i.i.i.i.i.i = icmp ugt i64 %1, 17179869191
   br i1 %cmp8.i.i.i.i.i.i.i.i.i, label %_ZN5folly18CancellationSourceD2Ev.exit.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %0) #27
   br label %_ZN5folly18CancellationSourceD2Ev.exit.i.i.i.i.i
 
 _ZN5folly18CancellationSourceD2Ev.exit.i.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %entry
   store ptr null, ptr %cancellationSource_.i.i.i.i.i, align 8
-  %buf_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__p, i64 0, i32 1, i32 0, i64 56
+  %buf_.i.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 88
   tail call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %buf_.i.i.i.i.i) #27
-  %readPromise_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__p, i64 0, i32 1, i32 0, i64 32
-  %hasValue.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__p, i64 0, i32 1, i32 0, i64 48
+  %readPromise_.i.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 64
+  %hasValue.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 80
   %3 = load i8, ptr %hasValue.i.i.i.i.i.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
@@ -21489,7 +21304,7 @@ _ZN5folly18CancellationSourceD2Ev.exit.i.i.i.i.i: ; preds = %delete.notnull.i.i.
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN5folly18CancellationSourceD2Ev.exit.i.i.i.i.i
   store i8 0, ptr %hasValue.i.i.i.i.i.i.i.i, align 8
-  %core_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__p, i64 0, i32 1, i32 0, i64 40
+  %core_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 72
   %5 = load ptr, ptr %core_.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeIS5_E.exit, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -21530,12 +21345,12 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 40
   tail call void @_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %second.i.i.i.i.i) #27
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #28
   %cmp.not = icmp eq ptr %1, null
@@ -21553,10 +21368,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen9ByteEvent10EventFlagsEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #28
   %cmp.not = icmp eq ptr %1, null
@@ -21574,10 +21389,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE8_M_eraseEPSt13_Rb_tree_nodeImE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #28
   %cmp.not = icmp eq ptr %1, null
@@ -21596,11 +21411,11 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE16_M_push_back_auxIJRmNS1_4TypeESt10unique_ptrINS0_11HTTPMessageESt14default_deleteIS8_EEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %__args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -21611,14 +21426,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = mul nsw i64 %sub.i.i, 9
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 56
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -21634,7 +21449,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -21652,7 +21467,7 @@ if.then.i:                                        ; preds = %if.end
 invoke.cont:                                      ; preds = %if.then.i, %if.end
   %8 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.end ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #31
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load i64, ptr %__args, align 8
@@ -21660,23 +21475,23 @@ invoke.cont:                                      ; preds = %if.then.i, %if.end
   %12 = load i64, ptr %__args3, align 8
   store ptr null, ptr %__args3, align 8
   store i64 %12, ptr %9, align 8
-  %body_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 1
-  %streamID_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 4
+  %body_.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %streamID_.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %body_.i.i.i, i8 0, i64 24, i1 false)
   store i64 %10, ptr %streamID_.i.i.i, align 8
-  %length_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 5
+  %length_.i.i.i = getelementptr inbounds i8, ptr %9, i64 40
   store i64 0, ptr %length_.i.i.i, align 8
-  %event_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 6
+  %event_.i.i.i = getelementptr inbounds i8, ptr %9, i64 48
   store i8 %11, ptr %event_.i.i.i, align 8
-  %upgrade_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 7
+  %upgrade_.i.i.i = getelementptr inbounds i8, ptr %9, i64 49
   store i8 0, ptr %upgrade_.i.i.i, align 1
   %13 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr16 = getelementptr inbounds ptr, ptr %13, i64 1
+  %add.ptr16 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %add.ptr16, ptr %_M_node.i.i, align 8
   %14 = load ptr, ptr %add.ptr16, align 8
   store ptr %14, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %14, i64 9
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %14, i64 504
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %14, ptr %_M_finish.i, align 8
   ret void
@@ -21690,9 +21505,9 @@ declare void @__cxa_rethrow() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node3 = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node3, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -21700,7 +21515,7 @@ entry:
   %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
   %add = add nsw i64 %sub.ptr.div, 1
   %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %_M_map_size, align 8
   %mul = shl i64 %add4, 1
   %cmp = icmp ugt i64 %2, %mul
@@ -21714,7 +21529,7 @@ if.then:                                          ; preds = %entry
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
   br i1 %cmp13, label %if.then14, label %if.else
 
@@ -21767,7 +21582,7 @@ _ZNSt11_Deque_baseIN8proxygen9HTTPEventESaIS1_EE15_M_allocate_mapEm.exit: ; pred
   %add.ptr42 = getelementptr inbounds ptr, ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
   %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds ptr, ptr %0, i64 1
+  %add.ptr55 = getelementptr inbounds i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i28 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i28, label %_ZSt4copyIPPN8proxygen9HTTPEventES3_ET0_T_S5_S4_.exit32, label %if.then.i.i.i.i.i29
 
@@ -21788,19 +21603,19 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i, 
   %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN8proxygen9HTTPEventES3_ET0_T_S5_S4_.exit32 ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i23 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ]
   store ptr %__new_nstart.0, ptr %_M_node3, align 8
   %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %5, i64 9
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 504
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
-  %add.ptr71 = getelementptr inbounds ptr, ptr %add.ptr70, i64 -1
+  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i34 = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i34 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %6, ptr %_M_first.i34, align 8
-  %add.ptr.i35 = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %6, i64 9
-  %_M_last.i36 = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i35 = getelementptr inbounds i8, ptr %6, i64 504
+  %_M_last.i36 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i35, ptr %_M_last.i36, align 8
   ret void
 }
@@ -21818,7 +21633,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #20
 define linkonce_odr void @_ZN8proxygen13HTTPExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %partialMsg_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this, i64 0, i32 7
+  %partialMsg_.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %partialMsg_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -21830,7 +21645,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %ent
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i, %entry
   store ptr null, ptr %partialMsg_.i, align 8
-  %currentIngressBuf_.i = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this, i64 0, i32 6
+  %currentIngressBuf_.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %currentIngressBuf_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %1, null
   br i1 %cmp.not.i1.i, label %_ZN8proxygen13HTTPExceptionD2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -21843,7 +21658,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique
 _ZN8proxygen13HTTPExceptionD2Ev.exit:             ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %currentIngressBuf_.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msg_.i.i = getelementptr inbounds %"class.proxygen::Exception", ptr %this, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i.i) #27
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #27
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
@@ -21856,11 +21671,11 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE16_M_push_back_auxIJRmNS1_4TypeESt10unique_ptrIN5folly5IOBufESt14default_deleteIS9_EEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %__args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -21871,14 +21686,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = mul nsw i64 %sub.i.i, 9
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 56
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -21894,7 +21709,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -21912,7 +21727,7 @@ if.then.i:                                        ; preds = %if.end
 invoke.cont:                                      ; preds = %if.then.i, %if.end
   %8 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.end ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #31
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load i64, ptr %__args, align 8
@@ -21920,25 +21735,25 @@ invoke.cont:                                      ; preds = %if.then.i, %if.end
   %12 = load i64, ptr %__args3, align 8
   store ptr null, ptr %__args3, align 8
   store ptr null, ptr %9, align 8
-  %body_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 1
+  %body_.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %12, ptr %body_.i.i.i, align 8
-  %trailers_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 2
-  %streamID_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 4
+  %trailers_.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %streamID_.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %trailers_.i.i.i, i8 0, i64 16, i1 false)
   store i64 %10, ptr %streamID_.i.i.i, align 8
-  %length_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 5
+  %length_.i.i.i = getelementptr inbounds i8, ptr %9, i64 40
   store i64 0, ptr %length_.i.i.i, align 8
-  %event_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 6
+  %event_.i.i.i = getelementptr inbounds i8, ptr %9, i64 48
   store i8 %11, ptr %event_.i.i.i, align 8
-  %upgrade_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 7
+  %upgrade_.i.i.i = getelementptr inbounds i8, ptr %9, i64 49
   store i8 0, ptr %upgrade_.i.i.i, align 1
   %13 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr16 = getelementptr inbounds ptr, ptr %13, i64 1
+  %add.ptr16 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %add.ptr16, ptr %_M_node.i.i, align 8
   %14 = load ptr, ptr %add.ptr16, align 8
   store ptr %14, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %14, i64 9
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %14, i64 504
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %14, ptr %_M_finish.i, align 8
   ret void
@@ -21947,11 +21762,11 @@ invoke.cont:                                      ; preds = %if.then.i, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE16_M_push_back_auxIJRmNS1_4TypeES5_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %__args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -21962,14 +21777,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = mul nsw i64 %sub.i.i, 9
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 56
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -21985,7 +21800,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -22003,7 +21818,7 @@ if.then.i:                                        ; preds = %if.end
 _ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
   %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #31
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load i64, ptr %__args, align 8
@@ -22014,12 +21829,12 @@ _ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE22_M_reserve_map_at_backEm.exit: ; pred
 
 invoke.cont:                                      ; preds = %_ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE22_M_reserve_map_at_backEm.exit
   %13 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr16 = getelementptr inbounds ptr, ptr %13, i64 1
+  %add.ptr16 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %add.ptr16, ptr %_M_node.i.i, align 8
   %14 = load ptr, ptr %add.ptr16, align 8
   store ptr %14, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %14, i64 9
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %14, i64 504
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %14, ptr %_M_finish.i, align 8
   ret void
@@ -22030,7 +21845,7 @@ lpad:                                             ; preds = %_ZNSt5dequeIN8proxy
   %16 = extractvalue { ptr, i32 } %15, 0
   %17 = tail call ptr @__cxa_begin_catch(ptr %16) #27
   %18 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr25 = getelementptr inbounds ptr, ptr %18, i64 1
+  %add.ptr25 = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %add.ptr25, align 8
   tail call void @_ZdlPv(ptr noundef %19) #28
   invoke void @__cxa_rethrow() #32
@@ -22060,15 +21875,15 @@ unreachable:                                      ; preds = %lpad
 define linkonce_odr void @_ZN8proxygen9HTTPEventC2EmNS0_4TypeEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %streamID, i8 noundef zeroext %event, i64 noundef %length) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
-  %error_ = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %this, i64 0, i32 3
-  %streamID_ = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %this, i64 0, i32 4
+  %error_ = getelementptr inbounds i8, ptr %this, i64 24
+  %streamID_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   store i64 %streamID, ptr %streamID_, align 8
-  %length_ = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %this, i64 0, i32 5
+  %length_ = getelementptr inbounds i8, ptr %this, i64 40
   store i64 %length, ptr %length_, align 8
-  %event_ = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %this, i64 0, i32 6
+  %event_ = getelementptr inbounds i8, ptr %this, i64 48
   store i8 %event, ptr %event_, align 8
-  %upgrade_ = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %this, i64 0, i32 7
+  %upgrade_ = getelementptr inbounds i8, ptr %this, i64 49
   store i8 0, ptr %upgrade_, align 1
   %cmp.not.not = icmp eq i8 %event, 3
   br i1 %cmp.not.not, label %cleanup.done, label %cond.false
@@ -22098,14 +21913,14 @@ lpad:                                             ; preds = %cond.false
 
 _ZNKSt14default_deleteIN8proxygen13HTTPExceptionEEclEPS1_.exit.i: ; preds = %lpad
   %vtable.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(96) %1) #27
   br label %_ZNSt10unique_ptrIN8proxygen13HTTPExceptionESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen13HTTPExceptionESt14default_deleteIS1_EED2Ev.exit: ; preds = %lpad, %_ZNKSt14default_deleteIN8proxygen13HTTPExceptionEEclEPS1_.exit.i
-  %trailers_ = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %this, i64 0, i32 2
-  %body_ = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %this, i64 0, i32 1
+  %trailers_ = getelementptr inbounds i8, ptr %this, i64 16
+  %body_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %error_, align 8
   call void @_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %trailers_) #27
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %body_) #27
@@ -22125,11 +21940,11 @@ cleanup.done:                                     ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE16_M_push_back_auxIJRmNS1_4TypeEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -22140,14 +21955,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = mul nsw i64 %sub.i.i, 9
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 56
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -22163,7 +21978,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -22181,27 +21996,27 @@ if.then.i:                                        ; preds = %if.end
 invoke.cont:                                      ; preds = %if.then.i, %if.end
   %8 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.end ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #31
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load i64, ptr %__args, align 8
   %11 = load i8, ptr %__args1, align 1
-  %streamID_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 4
+  %streamID_.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   store i64 %10, ptr %streamID_.i.i.i, align 8
-  %length_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 5
+  %length_.i.i.i = getelementptr inbounds i8, ptr %9, i64 40
   store i64 0, ptr %length_.i.i.i, align 8
-  %event_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 6
+  %event_.i.i.i = getelementptr inbounds i8, ptr %9, i64 48
   store i8 %11, ptr %event_.i.i.i, align 8
-  %upgrade_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 7
+  %upgrade_.i.i.i = getelementptr inbounds i8, ptr %9, i64 49
   store i8 0, ptr %upgrade_.i.i.i, align 1
   %12 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr14 = getelementptr inbounds ptr, ptr %12, i64 1
+  %add.ptr14 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %add.ptr14, ptr %_M_node.i.i, align 8
   %13 = load ptr, ptr %add.ptr14, align 8
   store ptr %13, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %13, i64 9
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 504
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %13, ptr %_M_finish.i, align 8
   ret void
@@ -22210,11 +22025,11 @@ invoke.cont:                                      ; preds = %if.then.i, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE16_M_push_back_auxIJRmNS1_4TypeESt10unique_ptrINS0_11HTTPHeadersESt14default_deleteIS8_EEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %__args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -22225,14 +22040,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = mul nsw i64 %sub.i.i, 9
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 56
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -22248,7 +22063,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -22266,33 +22081,33 @@ if.then.i:                                        ; preds = %if.end
 invoke.cont:                                      ; preds = %if.then.i, %if.end
   %8 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.end ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #31
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load i64, ptr %__args, align 8
   %11 = load i8, ptr %__args1, align 1
   %12 = load i64, ptr %__args3, align 8
   store ptr null, ptr %__args3, align 8
-  %trailers_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 2
+  %trailers_.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i64 %12, ptr %trailers_.i.i.i, align 8
-  %error_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 3
+  %error_.i.i.i = getelementptr inbounds i8, ptr %9, i64 24
   store ptr null, ptr %error_.i.i.i, align 8
-  %streamID_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 4
+  %streamID_.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
   store i64 %10, ptr %streamID_.i.i.i, align 8
-  %length_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 5
+  %length_.i.i.i = getelementptr inbounds i8, ptr %9, i64 40
   store i64 0, ptr %length_.i.i.i, align 8
-  %event_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 6
+  %event_.i.i.i = getelementptr inbounds i8, ptr %9, i64 48
   store i8 %11, ptr %event_.i.i.i, align 8
-  %upgrade_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 7
+  %upgrade_.i.i.i = getelementptr inbounds i8, ptr %9, i64 49
   store i8 0, ptr %upgrade_.i.i.i, align 1
   %13 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr16 = getelementptr inbounds ptr, ptr %13, i64 1
+  %add.ptr16 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %add.ptr16, ptr %_M_node.i.i, align 8
   %14 = load ptr, ptr %add.ptr16, align 8
   store ptr %14, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %14, i64 9
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %14, i64 504
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %14, ptr %_M_finish.i, align 8
   ret void
@@ -22301,11 +22116,11 @@ invoke.cont:                                      ; preds = %if.then.i, %if.end
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE16_M_push_back_auxIJRmNS1_4TypeERNS0_15UpgradeProtocolEEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 1 dereferenceable(1) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_node1.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %_M_node1.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -22316,14 +22131,14 @@ entry:
   %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
   %mul.i.i = mul nsw i64 %sub.i.i, 9
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %3 = load ptr, ptr %_M_first.i.i, align 8
   %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
   %sub.ptr.div6.i.i = sdiv exact i64 %sub.ptr.sub5.i.i, 56
   %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %_M_last.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_last.i.i, align 8
   %5 = load ptr, ptr %_M_start.i, align 8
   %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
@@ -22339,7 +22154,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_map_size.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
@@ -22357,30 +22172,30 @@ if.then.i:                                        ; preds = %if.end
 invoke.cont:                                      ; preds = %if.then.i, %if.end
   %8 = phi ptr [ %.pre, %if.then.i ], [ %0, %if.end ]
   %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #31
-  %add.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %call5.i.i.i, ptr %add.ptr, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
   %10 = load i64, ptr %__args, align 8
   %11 = load i8, ptr %__args1, align 1
   %12 = load i32, ptr %__args3, align 4
-  %streamID_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 4
+  %streamID_.i.i.i = getelementptr inbounds i8, ptr %9, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   store i64 %10, ptr %streamID_.i.i.i, align 8
-  %length_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 5
+  %length_.i.i.i = getelementptr inbounds i8, ptr %9, i64 40
   store i64 0, ptr %length_.i.i.i, align 8
-  %event_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 6
+  %event_.i.i.i = getelementptr inbounds i8, ptr %9, i64 48
   store i8 %11, ptr %event_.i.i.i, align 8
-  %upgrade_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 7
+  %upgrade_.i.i.i = getelementptr inbounds i8, ptr %9, i64 49
   store i8 0, ptr %upgrade_.i.i.i, align 1
-  %protocol_.i.i.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %9, i64 0, i32 8
+  %protocol_.i.i.i = getelementptr inbounds i8, ptr %9, i64 52
   store i32 %12, ptr %protocol_.i.i.i, align 4
   %13 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr16 = getelementptr inbounds ptr, ptr %13, i64 1
+  %add.ptr16 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %add.ptr16, ptr %_M_node.i.i, align 8
   %14 = load ptr, ptr %add.ptr16, align 8
   store ptr %14, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %14, i64 9
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %14, i64 504
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
   store ptr %14, ptr %_M_finish.i, align 8
   ret void
@@ -22411,22 +22226,22 @@ define linkonce_odr void @_ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EED2Ev(ptr noun
 entry:
   %agg.tmp.i = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp2.i = alloca %"struct.std::_Deque_iterator", align 16
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_last4.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
-  %_M_node5.i.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_last4.i.i4 = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
-  %_M_node5.i.i6 = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_last4.i.i4 = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_node5.i.i6 = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i)
   %0 = load <2 x ptr>, ptr %_M_start.i, align 8, !noalias !236
   store <2 x ptr> %0, ptr %agg.tmp.i, align 16
-  %_M_last.i.i9 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i, i64 0, i32 2
+  %_M_last.i.i9 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %1 = load <2 x ptr>, ptr %_M_last4.i.i, align 8, !noalias !236
   store <2 x ptr> %1, ptr %_M_last.i.i9, align 16
   %2 = load <2 x ptr>, ptr %_M_finish.i, align 8, !noalias !239
   store <2 x ptr> %2, ptr %agg.tmp2.i, align 16
-  %_M_last.i3.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i, i64 0, i32 2
+  %_M_last.i3.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 16
   %3 = load <2 x ptr>, ptr %_M_last4.i.i4, align 8, !noalias !239
   store <2 x ptr> %3, ptr %_M_last.i3.i, align 16
   invoke void @_ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE19_M_destroy_data_auxESt15_Deque_iteratorIS1_RS1_PS1_ES7_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i)
@@ -22442,7 +22257,7 @@ invoke.cont:                                      ; preds = %entry
 if.then.i:                                        ; preds = %invoke.cont
   %5 = load ptr, ptr %_M_node5.i.i, align 8
   %6 = load ptr, ptr %_M_node5.i.i6, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %6, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 8
   %cmp3.i.i = icmp ult ptr %5, %add.ptr.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN8proxygen9HTTPEventESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i
 
@@ -22450,7 +22265,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %5, %if.then.i ]
   %7 = load ptr, ptr %__n.04.i.i, align 8
   call void @_ZdlPv(ptr noundef %7) #28
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__n.04.i.i, %6
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN8proxygen9HTTPEventESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i, !llvm.loop !242
 
@@ -22477,10 +22292,10 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE19_M_destroy_data_auxESt15_Deque_iteratorIS1_RS1_PS1_ES7_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %__first, i64 24
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node2 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__last, i64 0, i32 3
-  %__node.022 = getelementptr inbounds ptr, ptr %0, i64 1
+  %_M_node2 = getelementptr inbounds i8, ptr %__last, i64 24
+  %__node.022 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_node2, align 8
   %cmp23 = icmp ult ptr %__node.022, %1
   br i1 %cmp23, label %for.body, label %for.end
@@ -22493,21 +22308,21 @@ for.body:                                         ; preds = %entry, %_ZSt8_Destr
 for.body.i.i.i:                                   ; preds = %_ZN8proxygen9HTTPEventD2Ev.exit, %for.body
   %__first.addr.04.i.i.i.idx = phi i64 [ %__first.addr.04.i.i.i.add, %_ZN8proxygen9HTTPEventD2Ev.exit ], [ 0, %for.body ]
   %__first.addr.04.i.i.i.ptr = getelementptr inbounds i8, ptr %2, i64 %__first.addr.04.i.i.i.idx
-  %error_.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %__first.addr.04.i.i.i.ptr, i64 0, i32 3
+  %error_.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.ptr, i64 24
   %3 = load ptr, ptr %error_.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN8proxygen13HTTPExceptionESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen13HTTPExceptionEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN8proxygen13HTTPExceptionEEclEPS1_.exit.i.i: ; preds = %for.body.i.i.i
   %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(96) %3) #27
   br label %_ZNSt10unique_ptrIN8proxygen13HTTPExceptionESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN8proxygen13HTTPExceptionESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen13HTTPExceptionEEclEPS1_.exit.i.i, %for.body.i.i.i
   store ptr null, ptr %error_.i, align 8
-  %trailers_.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %__first.addr.04.i.i.i.ptr, i64 0, i32 2
+  %trailers_.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.ptr, i64 16
   %5 = load ptr, ptr %trailers_.i, align 8
   %cmp.not.i1.i = icmp eq ptr %5, null
   br i1 %cmp.not.i1.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i.i
@@ -22519,7 +22334,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i.i: ; preds = %_ZN
 
 _ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i.i, %_ZNSt10unique_ptrIN8proxygen13HTTPExceptionESt14default_deleteIS1_EED2Ev.exit.i
   store ptr null, ptr %trailers_.i, align 8
-  %body_.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %__first.addr.04.i.i.i.ptr, i64 0, i32 1
+  %body_.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.ptr, i64 8
   %6 = load ptr, ptr %body_.i, align 8
   %cmp.not.i2.i = icmp eq ptr %6, null
   br i1 %cmp.not.i2.i, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
@@ -22547,7 +22362,7 @@ _ZN8proxygen9HTTPEventD2Ev.exit:                  ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN8proxygen9HTTPEventES1_EvT_S3_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !243
 
 _ZSt8_DestroyIPN8proxygen9HTTPEventES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZN8proxygen9HTTPEventD2Ev.exit
-  %__node.0 = getelementptr inbounds ptr, ptr %__node.024, i64 1
+  %__node.0 = getelementptr inbounds i8, ptr %__node.024, i64 8
   %8 = load ptr, ptr %_M_node2, align 8
   %cmp = icmp ult ptr %__node.0, %8
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !244
@@ -22564,7 +22379,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp7.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 2
+  %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
   %11 = load ptr, ptr %_M_last, align 8
   %cmp.not3.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.not3.i.i.i, label %_ZSt8_DestroyIPN8proxygen9HTTPEventES1_EvT_S3_RSaIT0_E.exit8, label %for.body.i.i.i4
@@ -22572,12 +22387,12 @@ if.then:                                          ; preds = %for.end
 for.body.i.i.i4:                                  ; preds = %if.then, %for.body.i.i.i4
   %__first.addr.04.i.i.i5 = phi ptr [ %incdec.ptr.i.i.i6, %for.body.i.i.i4 ], [ %10, %if.then ]
   tail call void @_ZN8proxygen9HTTPEventD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.04.i.i.i5) #27
-  %incdec.ptr.i.i.i6 = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %__first.addr.04.i.i.i5, i64 1
+  %incdec.ptr.i.i.i6 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i5, i64 56
   %cmp.not.i.i.i7 = icmp eq ptr %incdec.ptr.i.i.i6, %11
   br i1 %cmp.not.i.i.i7, label %_ZSt8_DestroyIPN8proxygen9HTTPEventES1_EvT_S3_RSaIT0_E.exit8, label %for.body.i.i.i4, !llvm.loop !243
 
 _ZSt8_DestroyIPN8proxygen9HTTPEventES1_EvT_S3_RSaIT0_E.exit8: ; preds = %for.body.i.i.i4, %if.then
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__last, i64 0, i32 1
+  %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
   %12 = load ptr, ptr %_M_first, align 8
   %13 = load ptr, ptr %__last, align 8
   %cmp.not3.i.i.i9 = icmp eq ptr %12, %13
@@ -22586,7 +22401,7 @@ _ZSt8_DestroyIPN8proxygen9HTTPEventES1_EvT_S3_RSaIT0_E.exit8: ; preds = %for.bod
 for.body.i.i.i10:                                 ; preds = %_ZSt8_DestroyIPN8proxygen9HTTPEventES1_EvT_S3_RSaIT0_E.exit8, %for.body.i.i.i10
   %__first.addr.04.i.i.i11 = phi ptr [ %incdec.ptr.i.i.i12, %for.body.i.i.i10 ], [ %12, %_ZSt8_DestroyIPN8proxygen9HTTPEventES1_EvT_S3_RSaIT0_E.exit8 ]
   tail call void @_ZN8proxygen9HTTPEventD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.04.i.i.i11) #27
-  %incdec.ptr.i.i.i12 = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %__first.addr.04.i.i.i11, i64 1
+  %incdec.ptr.i.i.i12 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i11, i64 56
   %cmp.not.i.i.i13 = icmp eq ptr %incdec.ptr.i.i.i12, %13
   br i1 %cmp.not.i.i.i13, label %if.end, label %for.body.i.i.i10, !llvm.loop !243
 
@@ -22598,7 +22413,7 @@ if.else:                                          ; preds = %for.end
 for.body.i.i.i16:                                 ; preds = %if.else, %for.body.i.i.i16
   %__first.addr.04.i.i.i17 = phi ptr [ %incdec.ptr.i.i.i18, %for.body.i.i.i16 ], [ %10, %if.else ]
   tail call void @_ZN8proxygen9HTTPEventD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.04.i.i.i17) #27
-  %incdec.ptr.i.i.i18 = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %__first.addr.04.i.i.i17, i64 1
+  %incdec.ptr.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i17, i64 56
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i18, %14
   br i1 %cmp.not.i.i.i19, label %if.end, label %for.body.i.i.i16, !llvm.loop !243
 
@@ -22609,21 +22424,21 @@ if.end:                                           ; preds = %for.body.i.i.i10, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen9HTTPEventD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %error_ = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %this, i64 0, i32 3
+  %error_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %error_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8proxygen13HTTPExceptionESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen13HTTPExceptionEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN8proxygen13HTTPExceptionEEclEPS1_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(96) %0) #27
   br label %_ZNSt10unique_ptrIN8proxygen13HTTPExceptionESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen13HTTPExceptionESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN8proxygen13HTTPExceptionEEclEPS1_.exit.i
   store ptr null, ptr %error_, align 8
-  %trailers_ = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %this, i64 0, i32 2
+  %trailers_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %trailers_, align 8
   %cmp.not.i1 = icmp eq ptr %2, null
   br i1 %cmp.not.i1, label %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i
@@ -22635,7 +22450,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i: ; preds = %_ZNSt
 
 _ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN8proxygen13HTTPExceptionESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i
   store ptr null, ptr %trailers_, align 8
-  %body_ = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %this, i64 0, i32 1
+  %body_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %body_, align 8
   %cmp.not.i2 = icmp eq ptr %3, null
   br i1 %cmp.not.i2, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i
@@ -22701,13 +22516,13 @@ lpad.i.i.i:                                       ; preds = %if.then
 
 _ZN5folly3TryINS_4UnitEEC2EOS2_.exit.i.i:         ; preds = %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #27
-  %msg_.i.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %ref.tmp1, i64 0, i32 1
+  %msg_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   store ptr @_ZZN5folly13BrokenPromise13error_messageINS_4UnitEEEPKcvE3str, ptr %msg_.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp1, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1) #27
-  %msg_.i.i.i.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %agg.tmp.i.i, i64 0, i32 1
+  %msg_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
   %1 = load ptr, ptr %msg_.i.i.i, align 8
   store ptr %1, ptr %msg_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp.i.i, align 8
@@ -22715,7 +22530,7 @@ _ZN5folly3TryINS_4UnitEEC2EOS2_.exit.i.i:         ; preds = %if.then
   %call1.i.i.i = call ptr @__cxa_init_primary_exception(ptr noundef %call.i.i.i, ptr noundef nonnull @_ZTIN5folly13BrokenPromiseE, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkIN5folly13BrokenPromiseEEEvPv) #27, !noalias !245
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i) #27, !noalias !245
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8, !noalias !245
-  %msg_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %call.i.i.i, i64 0, i32 1
+  %msg_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %2 = load ptr, ptr %msg_.i.i.i.i.i, align 8, !noalias !245
   store ptr %2, ptr %msg_.i.i.i.i.i.i, align 8, !noalias !245
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8, !noalias !245
@@ -22723,7 +22538,7 @@ _ZN5folly3TryINS_4UnitEEC2EOS2_.exit.i.i:         ; preds = %if.then
   call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   store i32 1, ptr %ref.tmp, align 8
-  %3 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %ref.tmp, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %4 = load i64, ptr %agg.tmp, align 8, !noalias !248
   store i64 0, ptr %agg.tmp, align 8, !noalias !248
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -22771,7 +22586,7 @@ invoke.cont4.thread:                              ; preds = %if.then.i.i.i, %inv
 
 invoke.cont4:                                     ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 6
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 48
   %11 = load ptr, ptr %vfn.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %7) #27
   %.pre14 = load i32, ptr %ref.tmp, align 8
@@ -22801,7 +22616,7 @@ _ZN5folly17exception_wrapperD2Ev.exit:            ; preds = %_ZN5folly3TryINS_4U
 
 lpad3.body:                                       ; preds = %if.then.i.i3.i
   %vtable.i.i7.i = load ptr, ptr %10, align 8
-  %vfn.i.i8.i = getelementptr inbounds ptr, ptr %vtable.i.i7.i, i64 6
+  %vfn.i.i8.i = getelementptr inbounds i8, ptr %vtable.i.i7.i, i64 48
   %16 = load ptr, ptr %vfn.i.i8.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %10) #27
   %.pre = load i32, ptr %ref.tmp, align 8
@@ -22889,7 +22704,7 @@ entry:
   %0 = load ptr, ptr %vs3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i)
   store i64 43, ptr %sizes.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 8
   %1 = load i32, ptr %vs1, align 4
   %conv.i.i.i = zext i32 %1 to i64
   br label %for.body.i.i.i.i.i.i
@@ -22915,7 +22730,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 _ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i.i, ptr %arrayinit.element.i.i, align 8
-  %arrayinit.element7.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 2
+  %arrayinit.element7.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i, align 16
   br label %for.body.i.i
 
@@ -23039,13 +22854,13 @@ lpad.i.i.i:                                       ; preds = %if.then
 
 _ZN5folly3TryIN8proxygen12WebTransport10StreamDataEEC2EOS4_.exit.i.i: ; preds = %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #27
-  %msg_.i.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %ref.tmp1, i64 0, i32 1
+  %msg_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   store ptr @_ZZN5folly13BrokenPromise13error_messageIN8proxygen12WebTransport10StreamDataEEEPKcvE3str, ptr %msg_.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp1, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1) #27
-  %msg_.i.i.i.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %agg.tmp.i.i, i64 0, i32 1
+  %msg_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
   %1 = load ptr, ptr %msg_.i.i.i, align 8
   store ptr %1, ptr %msg_.i.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp.i.i, align 8
@@ -23053,7 +22868,7 @@ _ZN5folly3TryIN8proxygen12WebTransport10StreamDataEEC2EOS4_.exit.i.i: ; preds = 
   %call1.i.i.i = call ptr @__cxa_init_primary_exception(ptr noundef %call.i.i.i, ptr noundef nonnull @_ZTIN5folly13BrokenPromiseE, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkIN5folly13BrokenPromiseEEEvPv) #27, !noalias !255
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i) #27, !noalias !255
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8, !noalias !255
-  %msg_.i.i.i.i.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %call.i.i.i, i64 0, i32 1
+  %msg_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   %2 = load ptr, ptr %msg_.i.i.i.i.i, align 8, !noalias !255
   store ptr %2, ptr %msg_.i.i.i.i.i.i, align 8, !noalias !255
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly13BrokenPromiseE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8, !noalias !255
@@ -23061,7 +22876,7 @@ _ZN5folly3TryIN8proxygen12WebTransport10StreamDataEEC2EOS4_.exit.i.i: ; preds = 
   call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   store i32 1, ptr %ref.tmp, align 8
-  %3 = getelementptr inbounds %"class.folly::detail::TryBase.248", ptr %ref.tmp, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %4 = load i64, ptr %agg.tmp, align 8, !noalias !258
   store i64 0, ptr %agg.tmp, align 8, !noalias !258
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -23105,7 +22920,7 @@ if.then.i.i3.i:                                   ; preds = %lpad.i
 
 if.then5.i.i6.i:                                  ; preds = %if.then.i.i3.i
   %vtable.i.i7.i = load ptr, ptr %10, align 8
-  %vfn.i.i8.i = getelementptr inbounds ptr, ptr %vtable.i.i7.i, i64 6
+  %vfn.i.i8.i = getelementptr inbounds i8, ptr %vtable.i.i7.i, i64 48
   %11 = load ptr, ptr %vfn.i.i8.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #27
   br label %lpad3.body
@@ -23116,7 +22931,7 @@ invoke.cont4.thread:                              ; preds = %if.then.i.i.i, %inv
 
 invoke.cont4:                                     ; preds = %if.then.i.i.i
   %vtable.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 6
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 48
   %12 = load ptr, ptr %vfn.i.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %7) #27
   %.pre = load i32, ptr %ref.tmp, align 8
@@ -23191,7 +23006,7 @@ entry:
   ]
 
 if.then.i:                                        ; preds = %entry
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase.248", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %1, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZN8proxygen12WebTransport10StreamDataD2Ev.exit.i, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i
@@ -23206,7 +23021,7 @@ _ZN8proxygen12WebTransport10StreamDataD2Ev.exit.i: ; preds = %_ZNKSt14default_de
   br label %_ZN5folly6detail7TryBaseIN8proxygen12WebTransport10StreamDataEED2Ev.exit
 
 if.then4.i:                                       ; preds = %entry
-  %3 = getelementptr inbounds %"class.folly::detail::TryBase.248", ptr %this, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %3, align 8
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %_ZN5folly6detail7TryBaseIN8proxygen12WebTransport10StreamDataEED2Ev.exit, label %if.then.i.i.i
@@ -23222,7 +23037,7 @@ _ZN5folly6detail7TryBaseIN8proxygen12WebTransport10StreamDataEED2Ev.exit: ; pred
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly8OptionalINS_7PromiseINS_4UnitEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<folly::Promise<folly::Unit>>::StorageNonTriviallyDestructible", ptr %this, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %hasValue.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
@@ -23230,7 +23045,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   store i8 0, ptr %hasValue.i.i, align 8
-  %core_.i.i.i.i = getelementptr inbounds %"class.folly::Promise.59", ptr %this, i64 0, i32 1
+  %core_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %core_.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5folly8OptionalINS_7PromiseINS_4UnitEEEE31StorageNonTriviallyDestructibleD2Ev.exit, label %if.then.i.i.i.i
@@ -23269,7 +23084,7 @@ _ZN5folly8OptionalINS_7PromiseINS_4UnitEEEE31StorageNonTriviallyDestructibleD2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly8OptionalINS_7PromiseIN8proxygen12WebTransport10StreamDataEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<folly::Promise<proxygen::WebTransport::StreamData>>::StorageNonTriviallyDestructible", ptr %this, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %hasValue.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
@@ -23277,7 +23092,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   store i8 0, ptr %hasValue.i.i, align 8
-  %core_.i.i.i.i = getelementptr inbounds %"class.folly::Promise", ptr %this, i64 0, i32 1
+  %core_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %core_.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5folly8OptionalINS_7PromiseIN8proxygen12WebTransport10StreamDataEEEE31StorageNonTriviallyDestructibleD2Ev.exit, label %if.then.i.i.i.i
@@ -23445,7 +23260,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %state_.i = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %core, i64 0, i32 3
+  %state_.i = getelementptr inbounds i8, ptr %core, i64 80
   %0 = load atomic i8, ptr %state_.i acquire, align 1
   %and1.i.i = and i8 %0, 108
   %cmp.i.not = icmp eq i8 %and1.i.i, 0
@@ -23512,13 +23327,13 @@ entry:
   %ref.tmp2 = alloca %class.anon.313, align 8
   %ref.tmp4 = alloca %class.anon.315, align 8
   store ptr %src.coerce0, ptr %src, align 8
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %src, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %src, i64 8
   store ptr %src.coerce1, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %src.i.i), !noalias !264
   store ptr %src.coerce0, ptr %src.i.i, align 8, !noalias !270
-  %1 = getelementptr inbounds { ptr, ptr }, ptr %src.i.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %src.i.i, i64 8
   store ptr %src.coerce1, ptr %1, align 8, !noalias !270
   %call.i.i.i = call { i64, i64 } @_ZN5folly6detail15str_to_integralImEENS_8ExpectedIT_NS_14ConversionCodeEEEPNS_5RangeIPKcEE(ptr noundef nonnull %src.i.i) #27, !noalias !270
   %2 = extractvalue { i64, i64 } %call.i.i.i, 0
@@ -23534,8 +23349,8 @@ if.then.i.i:                                      ; preds = %entry
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %tmp, align 8, !alias.scope !277
   %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %tmp, i64 8
   store ptr %retval.sroa.2.0.copyload.i.i.i.i.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !277
-  %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %tmp, i64 16
-  store i8 1, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !277
+  %4 = getelementptr inbounds i8, ptr %tmp, i64 16
+  store i8 1, ptr %4, align 8, !alias.scope !277
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %src.i.i), !noalias !264
   %cmp.not4.i.i.i.i = icmp eq ptr %retval.sroa.0.0.copyload.i.i.i.i.i, %retval.sroa.2.0.copyload.i.i.i.i.i
   br i1 %cmp.not4.i.i.i.i, label %_ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toImEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_ImEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit, label %for.body.i.i.i.i
@@ -23547,8 +23362,8 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.then.i.i, %for.cond.i.i.i.i
   %__begin2.05.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.cond.i.i.i.i ], [ %retval.sroa.0.0.copyload.i.i.i.i.i, %if.then.i.i ]
-  %4 = load i8, ptr %__begin2.05.i.i.i.i, align 1
-  %conv.i.i.i.i = sext i8 %4 to i32
+  %5 = load i8, ptr %__begin2.05.i.i.i.i, align 1
+  %conv.i.i.i.i = sext i8 %5 to i32
   %call2.i.i.i.i = call i32 @isspace(i32 noundef %conv.i.i.i.i) #30
   %tobool.not.i.i.i.i.not = icmp eq i32 %call2.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.not, label %if.end.i.i2, label %for.cond.i.i.i.i
@@ -23569,8 +23384,8 @@ if.end.i.i2:                                      ; preds = %for.body.i.i.i.i
   unreachable
 
 _ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toImEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueESB_E4typeESA_EUlS1_E_ZNS5_ImEESD_SA_EUlS2_E0_EEDTclclsr3stdE7declvalISB_EEclL_ZSt7declvalIOS1_EDTcl9__declvalISB_ELi0EEEvEEEEOSB_OT0_.exit: ; preds = %for.cond.i.i.i.i, %if.then.i.i
-  %5 = extractvalue { i64, i64 } %call.i.i.i, 1
-  ret i64 %5
+  %6 = extractvalue { i64, i64 } %call.i.i.i, 1
+  ret i64 %6
 }
 
 ; Function Attrs: nounwind
@@ -23672,8 +23487,8 @@ define linkonce_odr void @_ZN5folly15ConversionErrorC2EOS0_(ptr noundef nonnull 
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #27
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %code_ = getelementptr inbounds %"class.folly::ConversionError", ptr %this, i64 0, i32 1
-  %code_2 = getelementptr inbounds %"class.folly::ConversionError", ptr %0, i64 0, i32 1
+  %code_ = getelementptr inbounds i8, ptr %this, i64 16
+  %code_2 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %code_2, align 8
   store i8 %1, ptr %code_, align 8
   ret void
@@ -23695,7 +23510,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAcc
 entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess.320", align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
-  %error_.i = getelementptr inbounds %"class.folly::BadExpectedAccess.320", ptr %ref.tmp, i64 0, i32 1
+  %error_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i8 %args, ptr %error_.i, align 8
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp) #33
           to label %invoke.cont unwind label %lpad
@@ -23715,8 +23530,8 @@ define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_1
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #27
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %error_.i = getelementptr inbounds %"class.folly::BadExpectedAccess.320", ptr %exception, i64 0, i32 1
-  %error_2.i = getelementptr inbounds %"class.folly::BadExpectedAccess.320", ptr %ex, i64 0, i32 1
+  %error_.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %error_2.i = getelementptr inbounds i8, ptr %ex, i64 8
   %0 = load i8, ptr %error_2.i, align 8
   store i8 %0, ptr %error_.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly17BadExpectedAccessINS_14ConversionCodeEEE, ptr nonnull @_ZN5folly17BadExpectedAccessINS_14ConversionCodeEED2Ev) #32
@@ -23743,7 +23558,7 @@ define linkonce_odr void @_ZZN5folly2toImEENSt9enable_ifIXntsr3std7is_sameINS_5R
 entry:
   %ref.tmp = alloca %"class.folly::ConversionError", align 8
   %0 = load ptr, ptr %this, align 8
-  %which_.i.i.i = getelementptr inbounds %"struct.folly::expected_detail::ExpectedStorage.307", ptr %0, i64 0, i32 1
+  %which_.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i8, ptr %which_.i.i.i, align 8
   switch i8 %1, label %if.end.i.i [
     i8 1, label %_ZNR5folly8ExpectedINS_5RangeIPKcEENS_14ConversionCodeEE5valueEv.exit
@@ -23920,7 +23735,7 @@ entry:
   %0 = load ptr, ptr %vs3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i)
   store i64 62, ptr %sizes.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 8
   %1 = load i64, ptr %vs1, align 8
   br label %for.body.i.i.i.i.i.i
 
@@ -23945,7 +23760,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i.i, ptr %arrayinit.element.i.i, align 8
-  %arrayinit.element7.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 2
+  %arrayinit.element7.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i, align 16
   br label %for.body.i.i
 
@@ -24065,7 +23880,7 @@ entry:
   store ptr %agg.result, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %sizes.i.i.i)
   store i64 2, ptr %sizes.i.i.i, align 16
-  %arrayinit.element.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 1
+  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 8
   %0 = load ptr, ptr %vs1, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i, label %cond.true.i.i.i.i
@@ -24077,9 +23892,9 @@ cond.true.i.i.i.i:                                ; preds = %entry
 _ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %entry
   %cond.i.i.i.i = phi i64 [ %call.i5.i.i.i, %cond.true.i.i.i.i ], [ 0, %entry ]
   store i64 %cond.i.i.i.i, ptr %arrayinit.element.i.i.i, align 8
-  %arrayinit.element11.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 2
+  %arrayinit.element11.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 16
   store i64 3, ptr %arrayinit.element11.i.i.i, align 16
-  %arrayinit.element14.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 3
+  %arrayinit.element14.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 24
   %1 = load i64, ptr %vs5, align 8
   br label %for.body.i.i.i.i.i.i.i
 
@@ -24104,7 +23919,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i.i.i, ptr %arrayinit.element14.i.i.i, align 8
-  %arrayinit.element17.i.i.i = getelementptr inbounds i64, ptr %sizes.i.i.i, i64 4
+  %arrayinit.element17.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 32
   store i64 0, ptr %arrayinit.element17.i.i.i, align 16
   br label %for.body.i.i.i
 
@@ -24306,7 +24121,7 @@ entry:
   %0 = load ptr, ptr %vs3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i)
   store i64 27, ptr %sizes.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 8
   %1 = load i64, ptr %vs1, align 8
   br label %for.body.i.i.i.i.i.i
 
@@ -24331,7 +24146,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i.i, ptr %arrayinit.element.i.i, align 8
-  %arrayinit.element7.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 2
+  %arrayinit.element7.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i, align 16
   br label %for.body.i.i
 
@@ -24423,7 +24238,7 @@ entry:
   %0 = load ptr, ptr %vs3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i)
   store i64 26, ptr %sizes.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 8
   %1 = load i64, ptr %vs1, align 8
   br label %for.body.i.i.i.i.i.i
 
@@ -24448,7 +24263,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i.i, ptr %arrayinit.element.i.i, align 8
-  %arrayinit.element7.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 2
+  %arrayinit.element7.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i, align 16
   br label %for.body.i.i
 
@@ -24693,7 +24508,7 @@ entry:
   %0 = load ptr, ptr %vs3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sizes.i.i)
   store i64 45, ptr %sizes.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 8
   %1 = load i64, ptr %vs1, align 8
   br label %for.body.i.i.i.i.i.i
 
@@ -24718,7 +24533,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %retval.i.0.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ 20, %if.end.i.i.i.i.i.i ]
   store i64 %retval.i.0.i.i.i.i.i, ptr %arrayinit.element.i.i, align 8
-  %arrayinit.element7.i.i = getelementptr inbounds i64, ptr %sizes.i.i, i64 2
+  %arrayinit.element7.i.i = getelementptr inbounds i8, ptr %sizes.i.i, i64 16
   store i64 0, ptr %arrayinit.element7.i.i, align 16
   br label %for.body.i.i
 
@@ -24953,7 +24768,7 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i64, ptr %_M_storage.i.i.i, align 8
   %3 = load i64, ptr %__k, align 8
   %cmp.i = icmp ult i64 %2, %3
@@ -24971,12 +24786,11 @@ while.body.lr.ph.i:                               ; preds = %if.else
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.021.i = phi ptr [ %__x.019.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i10 = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %__x.021.i, i64 0, i32 1
+  %_M_storage.i.i.i10 = getelementptr inbounds i8, ptr %__x.021.i, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i10, align 8
   %cmp.i.i = icmp ult i64 %4, %5
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.v.i = select i1 %cmp.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !281
@@ -24993,14 +24807,14 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #30
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %call.i.i, i64 0, i32 1
-  %.pre116 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
-  %.pre117 = load i64, ptr %__k, align 8
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %.pre114 = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
+  %.pre115 = load i64, ptr %__k, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %7 = phi i64 [ %.pre117, %if.else.i ], [ %4, %while.end.i ]
-  %8 = phi i64 [ %.pre116, %if.else.i ], [ %5, %while.end.i ]
+  %7 = phi i64 [ %.pre115, %if.else.i ], [ %4, %while.end.i ]
+  %8 = phi i64 [ %.pre114, %if.else.i ], [ %5, %while.end.i ]
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %cmp.i5.i = icmp ult i64 %8, %7
@@ -25009,7 +24823,7 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   br label %return
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i11 = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i11 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %9 = load i64, ptr %__k, align 8
   %10 = load i64, ptr %_M_storage.i.i.i11, align 8
   %cmp.i12 = icmp ult i64 %9, %10
@@ -25023,131 +24837,129 @@ if.then18:                                        ; preds = %if.else12
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #30
-  %_M_storage.i.i.i16 = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i16 = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load i64, ptr %_M_storage.i.i.i16, align 8
   %cmp.i17 = icmp ult i64 %12, %9
   br i1 %cmp.i17, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25
-  %_M_right.i18 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i18 = getelementptr inbounds i8, ptr %call.i, i64 24
   %13 = load ptr, ptr %_M_right.i18, align 8
   %cmp35 = icmp eq ptr %13, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
-  %spec.select112 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
+  %spec.select110 = select i1 %cmp35, ptr %call.i, ptr %__position.coerce
   br label %return
 
 if.else42:                                        ; preds = %if.else25
   %_M_parent.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 16
   %__x.019.i23 = load ptr, ptr %_M_parent.i.i.i21, align 8
   %cmp.not20.i24 = icmp eq ptr %__x.019.i23, null
-  br i1 %cmp.not20.i24, label %if.then.i47, label %while.body.i26
+  br i1 %cmp.not20.i24, label %if.then.i46, label %while.body.i26
 
 while.body.i26:                                   ; preds = %if.else42, %while.body.i26
-  %__x.021.i27 = phi ptr [ %__x.0.i33, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
-  %_M_storage.i.i.i28 = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %__x.021.i27, i64 0, i32 1
+  %__x.021.i27 = phi ptr [ %__x.0.i32, %while.body.i26 ], [ %__x.019.i23, %if.else42 ]
+  %_M_storage.i.i.i28 = getelementptr inbounds i8, ptr %__x.021.i27, i64 32
   %14 = load i64, ptr %_M_storage.i.i.i28, align 8
   %cmp.i.i29 = icmp ult i64 %9, %14
-  %_M_left.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 2
-  %_M_right.i.i31 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i27, i64 0, i32 3
-  %cond.in.i32 = select i1 %cmp.i.i29, ptr %_M_left.i.i30, ptr %_M_right.i.i31
-  %__x.0.i33 = load ptr, ptr %cond.in.i32, align 8
-  %cmp.not.i34 = icmp eq ptr %__x.0.i33, null
-  br i1 %cmp.not.i34, label %while.end.i35, label %while.body.i26, !llvm.loop !281
+  %cond.in.v.i30 = select i1 %cmp.i.i29, i64 16, i64 24
+  %cond.in.i31 = getelementptr inbounds i8, ptr %__x.021.i27, i64 %cond.in.v.i30
+  %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8
+  %cmp.not.i33 = icmp eq ptr %__x.0.i32, null
+  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !281
 
-while.end.i35:                                    ; preds = %while.body.i26
-  br i1 %cmp.i.i29, label %if.then.i47, label %if.end12.i36
+while.end.i34:                                    ; preds = %while.body.i26
+  br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
 
-if.then.i47:                                      ; preds = %while.end.i35, %if.else42
-  %__y.0.lcssa25.i48 = phi ptr [ %__x.021.i27, %while.end.i35 ], [ %add.ptr.i, %if.else42 ]
-  %cmp.i4.i50 = icmp eq ptr %__y.0.lcssa25.i48, %11
-  br i1 %cmp.i4.i50, label %return, label %if.else.i51
+if.then.i46:                                      ; preds = %while.end.i34, %if.else42
+  %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else42 ]
+  %cmp.i4.i49 = icmp eq ptr %__y.0.lcssa25.i47, %11
+  br i1 %cmp.i4.i49, label %return, label %if.else.i50
 
-if.else.i51:                                      ; preds = %if.then.i47
-  %call.i.i52 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i48) #30
-  %_M_storage.i.i.i.i39.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %call.i.i52, i64 0, i32 1
-  %.pre115 = load i64, ptr %_M_storage.i.i.i.i39.phi.trans.insert, align 8
-  br label %if.end12.i36
+if.else.i50:                                      ; preds = %if.then.i46
+  %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #30
+  %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i51, i64 32
+  %.pre113 = load i64, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 8
+  br label %if.end12.i35
 
-if.end12.i36:                                     ; preds = %if.else.i51, %while.end.i35
-  %15 = phi i64 [ %.pre115, %if.else.i51 ], [ %14, %while.end.i35 ]
-  %__y.0.lcssa26.i37 = phi ptr [ %__y.0.lcssa25.i48, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %__j.sroa.0.0.i38 = phi ptr [ %call.i.i52, %if.else.i51 ], [ %__x.021.i27, %while.end.i35 ]
-  %cmp.i5.i40 = icmp ult i64 %15, %9
-  %spec.select.i41 = select i1 %cmp.i5.i40, ptr null, ptr %__j.sroa.0.0.i38
-  %spec.select18.i42 = select i1 %cmp.i5.i40, ptr %__y.0.lcssa26.i37, ptr null
+if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
+  %15 = phi i64 [ %.pre113, %if.else.i50 ], [ %14, %while.end.i34 ]
+  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
+  %cmp.i5.i39 = icmp ult i64 %15, %9
+  %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
+  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
-  %cmp.i55 = icmp ult i64 %10, %9
-  br i1 %cmp.i55, label %if.then50, label %return
+  %cmp.i54 = icmp ult i64 %10, %9
+  br i1 %cmp.i54, label %if.then50, label %return
 
 if.then50:                                        ; preds = %if.else44
-  %_M_right.i56 = getelementptr inbounds i8, ptr %this, i64 32
-  %16 = load ptr, ptr %_M_right.i56, align 8
+  %_M_right.i55 = getelementptr inbounds i8, ptr %this, i64 32
+  %16 = load ptr, ptr %_M_right.i55, align 8
   %cmp53 = icmp eq ptr %16, %__position.coerce
   br i1 %cmp53, label %return, label %if.else57
 
 if.else57:                                        ; preds = %if.then50
-  %call.i59 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #30
-  %_M_storage.i.i.i60 = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %call.i59, i64 0, i32 1
-  %17 = load i64, ptr %_M_storage.i.i.i60, align 8
-  %cmp.i61 = icmp ult i64 %9, %17
-  br i1 %cmp.i61, label %if.then64, label %if.else74
+  %call.i58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #30
+  %_M_storage.i.i.i59 = getelementptr inbounds i8, ptr %call.i58, i64 32
+  %17 = load i64, ptr %_M_storage.i.i.i59, align 8
+  %cmp.i60 = icmp ult i64 %9, %17
+  br i1 %cmp.i60, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57
-  %_M_right.i62 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
-  %18 = load ptr, ptr %_M_right.i62, align 8
+  %_M_right.i61 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
+  %18 = load ptr, ptr %_M_right.i61, align 8
   %cmp67 = icmp eq ptr %18, null
-  %spec.select113 = select i1 %cmp67, ptr null, ptr %call.i59
-  %spec.select114 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i59
+  %spec.select111 = select i1 %cmp67, ptr null, ptr %call.i58
+  %spec.select112 = select i1 %cmp67, ptr %__position.coerce, ptr %call.i58
   br label %return
 
 if.else74:                                        ; preds = %if.else57
-  %_M_parent.i.i.i65 = getelementptr inbounds i8, ptr %this, i64 16
-  %__x.019.i67 = load ptr, ptr %_M_parent.i.i.i65, align 8
-  %cmp.not20.i68 = icmp eq ptr %__x.019.i67, null
-  br i1 %cmp.not20.i68, label %if.then.i91, label %while.body.i70
+  %_M_parent.i.i.i64 = getelementptr inbounds i8, ptr %this, i64 16
+  %__x.019.i66 = load ptr, ptr %_M_parent.i.i.i64, align 8
+  %cmp.not20.i67 = icmp eq ptr %__x.019.i66, null
+  br i1 %cmp.not20.i67, label %if.then.i89, label %while.body.i69
 
-while.body.i70:                                   ; preds = %if.else74, %while.body.i70
-  %__x.021.i71 = phi ptr [ %__x.0.i77, %while.body.i70 ], [ %__x.019.i67, %if.else74 ]
-  %_M_storage.i.i.i72 = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %__x.021.i71, i64 0, i32 1
-  %19 = load i64, ptr %_M_storage.i.i.i72, align 8
-  %cmp.i.i73 = icmp ult i64 %9, %19
-  %_M_left.i.i74 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 2
-  %_M_right.i.i75 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i71, i64 0, i32 3
-  %cond.in.i76 = select i1 %cmp.i.i73, ptr %_M_left.i.i74, ptr %_M_right.i.i75
-  %__x.0.i77 = load ptr, ptr %cond.in.i76, align 8
-  %cmp.not.i78 = icmp eq ptr %__x.0.i77, null
-  br i1 %cmp.not.i78, label %while.end.i79, label %while.body.i70, !llvm.loop !281
+while.body.i69:                                   ; preds = %if.else74, %while.body.i69
+  %__x.021.i70 = phi ptr [ %__x.0.i75, %while.body.i69 ], [ %__x.019.i66, %if.else74 ]
+  %_M_storage.i.i.i71 = getelementptr inbounds i8, ptr %__x.021.i70, i64 32
+  %19 = load i64, ptr %_M_storage.i.i.i71, align 8
+  %cmp.i.i72 = icmp ult i64 %9, %19
+  %cond.in.v.i73 = select i1 %cmp.i.i72, i64 16, i64 24
+  %cond.in.i74 = getelementptr inbounds i8, ptr %__x.021.i70, i64 %cond.in.v.i73
+  %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8
+  %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
+  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !281
 
-while.end.i79:                                    ; preds = %while.body.i70
-  br i1 %cmp.i.i73, label %if.then.i91, label %if.end12.i80
+while.end.i77:                                    ; preds = %while.body.i69
+  br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
 
-if.then.i91:                                      ; preds = %while.end.i79, %if.else74
-  %__y.0.lcssa25.i92 = phi ptr [ %__x.021.i71, %while.end.i79 ], [ %add.ptr.i, %if.else74 ]
-  %_M_left.i3.i93 = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load ptr, ptr %_M_left.i3.i93, align 8
-  %cmp.i4.i94 = icmp eq ptr %__y.0.lcssa25.i92, %20
-  br i1 %cmp.i4.i94, label %return, label %if.else.i95
+if.then.i89:                                      ; preds = %while.end.i77, %if.else74
+  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else74 ]
+  %_M_left.i3.i91 = getelementptr inbounds i8, ptr %this, i64 24
+  %20 = load ptr, ptr %_M_left.i3.i91, align 8
+  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %20
+  br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
-if.else.i95:                                      ; preds = %if.then.i91
-  %call.i.i96 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i92) #30
-  %_M_storage.i.i.i.i83.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.265", ptr %call.i.i96, i64 0, i32 1
-  %.pre = load i64, ptr %_M_storage.i.i.i.i83.phi.trans.insert, align 8
-  br label %if.end12.i80
+if.else.i93:                                      ; preds = %if.then.i89
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #30
+  %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i94, i64 32
+  %.pre = load i64, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 8
+  br label %if.end12.i78
 
-if.end12.i80:                                     ; preds = %if.else.i95, %while.end.i79
-  %21 = phi i64 [ %.pre, %if.else.i95 ], [ %19, %while.end.i79 ]
-  %__y.0.lcssa26.i81 = phi ptr [ %__y.0.lcssa25.i92, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %__j.sroa.0.0.i82 = phi ptr [ %call.i.i96, %if.else.i95 ], [ %__x.021.i71, %while.end.i79 ]
-  %cmp.i5.i84 = icmp ult i64 %21, %9
-  %spec.select.i85 = select i1 %cmp.i5.i84, ptr null, ptr %__j.sroa.0.0.i82
-  %spec.select18.i86 = select i1 %cmp.i5.i84, ptr %__y.0.lcssa26.i81, ptr null
+if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
+  %21 = phi i64 [ %.pre, %if.else.i93 ], [ %19, %while.end.i77 ]
+  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
+  %cmp.i5.i82 = icmp ult i64 %21, %9
+  %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
+  %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
   br label %return
 
-return:                                           ; preds = %if.end12.i80, %if.then.i91, %if.end12.i36, %if.then.i47, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select113, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i47 ], [ %spec.select.i41, %if.end12.i36 ], [ null, %if.then.i91 ], [ %spec.select.i85, %if.end12.i80 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select112, %if.then32 ], [ %spec.select114, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i47 ], [ %spec.select18.i42, %if.end12.i36 ], [ %__y.0.lcssa25.i92, %if.then.i91 ], [ %spec.select18.i86, %if.end12.i80 ]
+return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.then64, %if.then32, %if.else44, %if.then50, %if.then18, %land.lhs.true
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ %spec.select, %if.then32 ], [ %spec.select111, %if.then64 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %__position.coerce, %if.then18 ], [ %__position.coerce, %if.then50 ], [ null, %if.else44 ], [ %spec.select110, %if.then32 ], [ %spec.select112, %if.then64 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %11, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -25158,7 +24970,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAcc
 entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess.342", align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIN8proxygen12WebTransport9ErrorCodeEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
-  %error_.i = getelementptr inbounds %"class.folly::BadExpectedAccess.342", ptr %ref.tmp, i64 0, i32 1
+  %error_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 %args, ptr %error_.i, align 8
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIN8proxygen12WebTransport9ErrorCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp) #33
           to label %invoke.cont unwind label %lpad
@@ -25178,8 +24990,8 @@ define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIN8pr
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #27
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIN8proxygen12WebTransport9ErrorCodeEEE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %error_.i = getelementptr inbounds %"class.folly::BadExpectedAccess.342", ptr %exception, i64 0, i32 1
-  %error_2.i = getelementptr inbounds %"class.folly::BadExpectedAccess.342", ptr %ex, i64 0, i32 1
+  %error_.i = getelementptr inbounds i8, ptr %exception, i64 8
+  %error_2.i = getelementptr inbounds i8, ptr %ex, i64 8
   %0 = load i32, ptr %error_2.i, align 8
   store i32 %0, ptr %error_.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly17BadExpectedAccessIN8proxygen12WebTransport9ErrorCodeEEE, ptr nonnull @_ZN5folly17BadExpectedAccessIN8proxygen12WebTransport9ErrorCodeEED2Ev) #32
@@ -25206,7 +25018,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTrans
 invoke.cont:
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRmEESG_IJRS3_SH_EEEEEvPSt13_Rb_tree_nodeIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3)
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %__x.019.i = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -25219,12 +25031,11 @@ while.body.lr.ph.i:                               ; preds = %invoke.cont
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.021.i = phi ptr [ %__x.019.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i2 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.021.i, i64 0, i32 1
+  %_M_storage.i.i.i2 = getelementptr inbounds i8, ptr %__x.021.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i2, align 8
   %cmp.i.i = icmp ult i64 %0, %1
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.v.i = select i1 %cmp.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !282
@@ -25241,7 +25052,7 @@ if.then.i:                                        ; preds = %while.end.i, %invok
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #30
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %.pre = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
   %.pre30 = load i64, ptr %_M_storage.i.i.i, align 8
   br label %if.end12.i
@@ -25260,7 +25071,7 @@ if.then:                                          ; preds = %if.end12.i, %if.the
   br i1 %cmp2.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %retval.sroa.4.0.i.ph, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i, align 8
   %6 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %5, %6
@@ -25291,7 +25102,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10
 define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRmEESG_IJRS3_SH_EEEEEvPSt13_Rb_tree_nodeIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__node, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %"struct.folly::IOBufQueue::Options", align 1
-  %_M_storage.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1
+  %_M_storage.i = getelementptr inbounds i8, ptr %__node, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = load i64, ptr %__args3, align 8
@@ -25301,27 +25112,27 @@ entry:
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %1, align 8
   store i64 %6, ptr %_M_storage.i, align 8
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 40
   %7 = load i64, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction19TxnStreamReadHandleE, i64 0, inrange i32 0, i64 2), ptr %second.i.i.i.i, align 8
-  %txn_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 16
+  %txn_.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 48
   store ptr %5, ptr %txn_.i.i.i.i.i, align 8
-  %id_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 24
+  %id_.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 56
   store i64 %7, ptr %id_.i.i.i.i.i, align 8
-  %hasValue.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 48
+  %hasValue.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 80
   store i8 0, ptr %hasValue.i.i.i.i.i.i.i, align 8
-  %buf_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 56
+  %buf_.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 88
   store i8 1, ptr %ref.tmp.i.i.i.i.i, align 1
   invoke void @_ZN5folly10IOBufQueueC1ERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %buf_.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i)
           to label %invoke.cont2.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 invoke.cont2.i.i.i.i.i:                           ; preds = %entry
-  %eof_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 128
+  %eof_.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 160
   store i8 0, ptr %eof_.i.i.i.i.i, align 8
-  %error_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 132
+  %error_.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 164
   store i8 0, ptr %error_.i.i.i.i.i, align 4
-  %hasValue.i.i2.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 136
+  %hasValue.i.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 168
   store i8 0, ptr %hasValue.i.i2.i.i.i.i.i, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !283)
   %call.i.i3.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
@@ -25340,7 +25151,7 @@ lpad3.i.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i.
 
 ehcleanup.i.i.i.i.i:                              ; preds = %lpad3.i.i.i.i.i, %lpad.i.i.i.i.i
   %.pn.i.i.i.i.i = phi { ptr, i32 } [ %9, %lpad3.i.i.i.i.i ], [ %8, %lpad.i.i.i.i.i ]
-  %readPromise_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 32
+  %readPromise_.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 64
   call void @_ZN5folly8OptionalINS_7PromiseIN8proxygen12WebTransport10StreamDataEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %readPromise_.i.i.i.i.i) #27
   %10 = extractvalue { ptr, i32 } %.pn.i.i.i.i.i, 0
   %11 = call ptr @__cxa_begin_catch(ptr %10) #27
@@ -25355,11 +25166,11 @@ lpad7:                                            ; preds = %ehcleanup.i.i.i.i.i
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont2.i.i.i.i.i
-  %cancellationSource_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 144
+  %cancellationSource_.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 176
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly6detail17CancellationStateE, i64 0, inrange i32 0, i64 2), ptr %call.i.i3.i.i.i.i.i, align 8, !noalias !283
-  %state_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %call.i.i3.i.i.i.i.i, i64 0, i32 1
+  %state_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i3.i.i.i.i.i, i64 8
   store i64 17179869184, ptr %state_.i.i.i.i.i.i.i.i, align 8, !noalias !283
-  %head_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %call.i.i3.i.i.i.i.i, i64 0, i32 2
+  %head_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i3.i.i.i.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %head_.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !283
   store ptr %call.i.i3.i.i.i.i.i, ptr %cancellationSource_.i.i.i.i.i, align 8, !alias.scope !283
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i)
@@ -25384,7 +25195,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTrans
 invoke.cont:
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #31
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRmEESG_IJRS3_SH_EEEEEvPSt13_Rb_tree_nodeIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %call5.i.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3)
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %call5.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %__x.019.i = load ptr, ptr %_M_parent.i.i.i, align 8
@@ -25397,12 +25208,11 @@ while.body.lr.ph.i:                               ; preds = %invoke.cont
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.021.i = phi ptr [ %__x.019.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i2 = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__x.021.i, i64 0, i32 1
+  %_M_storage.i.i.i2 = getelementptr inbounds i8, ptr %__x.021.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i2, align 8
   %cmp.i.i = icmp ult i64 %0, %1
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.021.i, i64 0, i32 3
-  %cond.in.i = select i1 %cmp.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.v.i = select i1 %cmp.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.021.i, i64 %cond.in.v.i
   %__x.0.i = load ptr, ptr %cond.in.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !286
@@ -25419,7 +25229,7 @@ if.then.i:                                        ; preds = %while.end.i, %invok
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #30
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %call.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %.pre = load i64, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 8
   %.pre20 = load i64, ptr %_M_storage.i.i.i, align 8
   br label %if.end12.i
@@ -25438,7 +25248,7 @@ if.then:                                          ; preds = %if.end12.i, %if.the
   br i1 %cmp2.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %retval.sroa.4.0.i.ph, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i, align 8
   %6 = load i64, ptr %_M_storage.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %5, %6
@@ -25454,7 +25264,7 @@ cleanup.thread:                                   ; preds = %if.then, %lor.rhs.i
   br label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE10_Auto_nodeD2Ev.exit
 
 if.then.i7:                                       ; preds = %if.end12.i
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 40
   tail call void @_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %second.i.i.i.i.i.i) #27
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i) #28
   br label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE10_Auto_nodeD2Ev.exit
@@ -25470,7 +25280,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction20TxnStreamWriteHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE17_M_construct_nodeIJRKSt21piecewise_construct_tSt5tupleIJRmEESG_IJRS3_SH_EEEEEvPSt13_Rb_tree_nodeIS5_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__node, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(16) %__args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_storage.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1
+  %_M_storage.i = getelementptr inbounds i8, ptr %__node, i64 32
   %0 = load i64, ptr %__args1, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = load i64, ptr %__args3, align 8
@@ -25480,18 +25290,18 @@ entry:
   %5 = inttoptr i64 %4 to ptr
   %6 = load i64, ptr %1, align 8
   store i64 %6, ptr %_M_storage.i, align 8
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 40
   %7 = load i64, ptr %3, align 8
-  %stopSendingErrorCode_.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 16
+  %stopSendingErrorCode_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 48
   store i8 0, ptr %stopSendingErrorCode_.i.i.i.i.i.i, align 4
-  %hasValue.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 20
+  %hasValue.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 52
   store i8 0, ptr %hasValue.i.i.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen15HTTPTransaction20TxnStreamWriteHandleE, i64 0, inrange i32 0, i64 2), ptr %second.i.i.i.i, align 8
-  %txn_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 24
+  %txn_.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 56
   store ptr %5, ptr %txn_.i.i.i.i.i, align 8
-  %id_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 32
+  %id_.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 64
   store i64 %7, ptr %id_.i.i.i.i.i, align 8
-  %hasValue.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 56
+  %hasValue.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 88
   store i8 0, ptr %hasValue.i.i.i.i.i.i.i, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
   %call.i.i1.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
@@ -25500,7 +25310,7 @@ entry:
 lpad.i.i.i.i.i:                                   ; preds = %entry
   %8 = landingpad { ptr, i32 }
           catch ptr null
-  %writePromise_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 40
+  %writePromise_.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 72
   tail call void @_ZN5folly8OptionalINS_7PromiseINS_4UnitEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %writePromise_.i.i.i.i.i) #27
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #27
@@ -25515,11 +25325,11 @@ lpad7:                                            ; preds = %lpad.i.i.i.i.i
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %entry
-  %cancellationSource_.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %__node, i64 0, i32 1, i32 0, i64 64
+  %cancellationSource_.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 96
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly6detail17CancellationStateE, i64 0, inrange i32 0, i64 2), ptr %call.i.i1.i.i.i.i.i, align 8, !noalias !287
-  %state_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %call.i.i1.i.i.i.i.i, i64 0, i32 1
+  %state_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i.i.i.i.i, i64 8
   store i64 17179869184, ptr %state_.i.i.i.i.i.i.i.i, align 8, !noalias !287
-  %head_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::CancellationState", ptr %call.i.i1.i.i.i.i.i, i64 0, i32 2
+  %head_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i1.i.i.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %head_.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !287
   store ptr %call.i.i1.i.i.i.i.i, ptr %cancellationSource_.i.i.i.i.i, align 8, !alias.scope !287
   ret void
@@ -25584,7 +25394,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %__first.sroa.0.09 = phi ptr [ %__first.coerce, %while.body.lr.ph ], [ %call.i, %while.body ]
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.09) #30
   %call.i5 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %__first.sroa.0.09, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i4) #27
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.263", ptr %call.i5, i64 0, i32 1, i32 0, i64 8
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 40
   tail call void @_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %second.i.i.i.i.i.i) #27
   tail call void @_ZdlPv(ptr noundef nonnull %call.i5) #28
   %4 = load i64, ptr %_M_node_count.i, align 8
@@ -25605,81 +25415,76 @@ define linkonce_odr noundef i64 @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTrans
 entry:
   %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %__x.039.i = load ptr, ptr %_M_parent.i.i.i, align 8
-  %cmp.not40.i = icmp eq ptr %__x.039.i, null
-  br i1 %cmp.not40.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE11equal_rangeERS1_.exit, label %while.body.lr.ph.i
+  %__x.038.i = load ptr, ptr %_M_parent.i.i.i, align 8
+  %cmp.not39.i = icmp eq ptr %__x.038.i, null
+  br i1 %cmp.not39.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE11equal_rangeERS1_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
   %0 = load i64, ptr %__x, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end19.i, %while.body.lr.ph.i
-  %__x.042.i = phi ptr [ %__x.039.i, %while.body.lr.ph.i ], [ %__x.0.i, %if.end19.i ]
-  %__y.041.i = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i ], [ %__y.1.i, %if.end19.i ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.042.i, i64 0, i32 1
+  %__x.041.i = phi ptr [ %__x.038.i, %while.body.lr.ph.i ], [ %__x.0.i, %if.end19.i ]
+  %__y.040.i = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i ], [ %__y.1.i, %if.end19.i ]
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.041.i, i64 32
   %1 = load i64, ptr %_M_storage.i.i.i, align 8
   %cmp.i.i = icmp ult i64 %1, %0
-  br i1 %cmp.i.i, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %while.body.i
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i, i64 0, i32 3
-  br label %if.end19.i
+  br i1 %cmp.i.i, label %if.end19.i, label %if.else.i
 
 if.else.i:                                        ; preds = %while.body.i
   %cmp.i18.i = icmp ult i64 %0, %1
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i, i64 0, i32 2
   br i1 %cmp.i18.i, label %if.end19.i, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.else.i
-  %2 = load ptr, ptr %_M_left.i.i, align 8
-  %_M_right.i20.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.042.i, i64 0, i32 3
+  %_M_left.i19.i = getelementptr inbounds i8, ptr %__x.041.i, i64 16
+  %2 = load ptr, ptr %_M_left.i19.i, align 8
+  %_M_right.i20.i = getelementptr inbounds i8, ptr %__x.041.i, i64 24
   %3 = load ptr, ptr %_M_right.i20.i, align 8
   %cmp.not5.i.i = icmp eq ptr %2, null
   br i1 %cmp.not5.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.else12.i, %while.body.i.i
   %__x.addr.07.i.i = phi ptr [ %__x.addr.1.i.i, %while.body.i.i ], [ %2, %if.else12.i ]
-  %__y.addr.06.i.i = phi ptr [ %__y.addr.1.i.i, %while.body.i.i ], [ %__x.042.i, %if.else12.i ]
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i.i, i64 0, i32 1
+  %__y.addr.06.i.i = phi ptr [ %__y.addr.1.i.i, %while.body.i.i ], [ %__x.041.i, %if.else12.i ]
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i, i64 32
   %4 = load i64, ptr %_M_storage.i.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %4, %0
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i, i64 0, i32 3
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i.i, i64 0, i32 2
   %__y.addr.1.i.i = select i1 %cmp.i.i.i, ptr %__y.addr.06.i.i, ptr %__x.addr.07.i.i
-  %__x.addr.1.in.i.i = select i1 %cmp.i.i.i, ptr %_M_right.i.i.i, ptr %_M_left.i.i.i
+  %__x.addr.1.in.v.i.i = select i1 %cmp.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i, i64 %__x.addr.1.in.v.i.i
   %__x.addr.1.i.i = load ptr, ptr %__x.addr.1.in.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %__x.addr.1.i.i, null
   br i1 %cmp.not.i.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i, label %while.body.i.i, !llvm.loop !166
 
 _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i: ; preds = %while.body.i.i, %if.else12.i
-  %__y.addr.0.lcssa.i.i = phi ptr [ %__x.042.i, %if.else12.i ], [ %__y.addr.1.i.i, %while.body.i.i ]
+  %__y.addr.0.lcssa.i.i = phi ptr [ %__x.041.i, %if.else12.i ], [ %__y.addr.1.i.i, %while.body.i.i ]
   %cmp.not5.i21.i = icmp eq ptr %3, null
   br i1 %cmp.not5.i21.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE11equal_rangeERS1_.exit, label %while.body.i23.i
 
 while.body.i23.i:                                 ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i, %while.body.i23.i
-  %__x.addr.07.i24.i = phi ptr [ %__x.addr.1.i32.i, %while.body.i23.i ], [ %3, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ]
-  %__y.addr.06.i25.i = phi ptr [ %__y.addr.1.i30.i, %while.body.i23.i ], [ %__y.041.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ]
-  %_M_storage.i.i.i26.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07.i24.i, i64 0, i32 1
+  %__x.addr.07.i24.i = phi ptr [ %__x.addr.1.i31.i, %while.body.i23.i ], [ %3, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ]
+  %__y.addr.06.i25.i = phi ptr [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.040.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ]
+  %_M_storage.i.i.i26.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i, i64 32
   %5 = load i64, ptr %_M_storage.i.i.i26.i, align 8
   %cmp.i.i27.i = icmp ult i64 %0, %5
-  %_M_left.i.i28.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i, i64 0, i32 2
-  %_M_right.i.i29.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07.i24.i, i64 0, i32 3
-  %__y.addr.1.i30.i = select i1 %cmp.i.i27.i, ptr %__x.addr.07.i24.i, ptr %__y.addr.06.i25.i
-  %__x.addr.1.in.i31.i = select i1 %cmp.i.i27.i, ptr %_M_left.i.i28.i, ptr %_M_right.i.i29.i
-  %__x.addr.1.i32.i = load ptr, ptr %__x.addr.1.in.i31.i, align 8
-  %cmp.not.i33.i = icmp eq ptr %__x.addr.1.i32.i, null
-  br i1 %cmp.not.i33.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE11equal_rangeERS1_.exit, label %while.body.i23.i, !llvm.loop !291
+  %__y.addr.1.i28.i = select i1 %cmp.i.i27.i, ptr %__x.addr.07.i24.i, ptr %__y.addr.06.i25.i
+  %__x.addr.1.in.v.i29.i = select i1 %cmp.i.i27.i, i64 16, i64 24
+  %__x.addr.1.in.i30.i = getelementptr inbounds i8, ptr %__x.addr.07.i24.i, i64 %__x.addr.1.in.v.i29.i
+  %__x.addr.1.i31.i = load ptr, ptr %__x.addr.1.in.i30.i, align 8
+  %cmp.not.i32.i = icmp eq ptr %__x.addr.1.i31.i, null
+  br i1 %cmp.not.i32.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE11equal_rangeERS1_.exit, label %while.body.i23.i, !llvm.loop !291
 
-if.end19.i:                                       ; preds = %if.else.i, %if.then.i
-  %__y.1.i = phi ptr [ %__y.041.i, %if.then.i ], [ %__x.042.i, %if.else.i ]
-  %__x.1.in.i = phi ptr [ %_M_right.i.i, %if.then.i ], [ %_M_left.i.i, %if.else.i ]
-  %__x.0.i = load ptr, ptr %__x.1.in.i, align 8
+if.end19.i:                                       ; preds = %if.else.i, %while.body.i
+  %.sink.i = phi i64 [ 24, %while.body.i ], [ 16, %if.else.i ]
+  %__y.1.i = phi ptr [ %__y.040.i, %while.body.i ], [ %__x.041.i, %if.else.i ]
+  %_M_left.i.i = getelementptr inbounds i8, ptr %__x.041.i, i64 %.sink.i
+  %__x.0.i = load ptr, ptr %_M_left.i.i, align 8
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE11equal_rangeERS1_.exit, label %while.body.i, !llvm.loop !292
 
 _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE11equal_rangeERS1_.exit: ; preds = %if.end19.i, %while.body.i23.i, %entry, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i
   %retval.sroa.0.0.i = phi ptr [ %__y.addr.0.lcssa.i.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.0.lcssa.i.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
-  %retval.sroa.3.0.i = phi ptr [ %__y.041.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i30.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
+  %retval.sroa.3.0.i = phi ptr [ %__y.040.i, %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i ], [ %add.ptr.i.i, %entry ], [ %__y.addr.1.i28.i, %while.body.i23.i ], [ %__y.1.i, %if.end19.i ]
   %_M_node_count.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i64, ptr %_M_node_count.i, align 8
   %_M_left.i.i1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -25687,24 +25492,24 @@ _ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10
   %cmp.i.i2 = icmp eq ptr %7, %retval.sroa.0.0.i
   %cmp.i1.i = icmp eq ptr %add.ptr.i.i, %retval.sroa.3.0.i
   %or.cond.i = select i1 %cmp.i.i2, i1 %cmp.i1.i, i1 false
-  br i1 %or.cond.i, label %if.then.i7, label %if.else.i4
+  br i1 %or.cond.i, label %if.then.i, label %if.else.i4
 
-if.then.i7:                                       ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE11equal_rangeERS1_.exit
-  invoke void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x.039.i)
+if.then.i:                                        ; preds = %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE11equal_rangeERS1_.exit
+  invoke void @_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x.038.i)
           to label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5clearEv.exit.i unwind label %terminate.lpad.i.i
 
-terminate.lpad.i.i:                               ; preds = %if.then.i7
+terminate.lpad.i.i:                               ; preds = %if.then.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
   tail call void @__clang_call_terminate(ptr %9) #29
   unreachable
 
-_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5clearEv.exit.i: ; preds = %if.then.i7
+_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE5clearEv.exit.i: ; preds = %if.then.i
   store ptr null, ptr %_M_parent.i.i.i, align 8
   store ptr %add.ptr.i.i, ptr %_M_left.i.i1, align 8
-  %_M_right.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %add.ptr.i.i, ptr %_M_right.i.i.i8, align 8
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  store ptr %add.ptr.i.i, ptr %_M_right.i.i.i, align 8
   store i64 0, ptr %_M_node_count.i, align 8
   br label %_ZNSt8_Rb_treeImSt4pairIKmN8proxygen15HTTPTransaction19TxnStreamReadHandleEESt10_Select1stIS5_ESt4lessImESaIS5_EE12_M_erase_auxESt23_Rb_tree_const_iteratorIS5_ESD_.exit
 
@@ -25736,7 +25541,7 @@ entry:
   %rem = urem i64 %__num_elements, 9
   %0 = tail call i64 @llvm.umax.i64(i64 %div, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %cmp.i.i.i = icmp ugt i64 %__num_elements, -8070450532247928860
   br i1 %cmp.i.i.i, label %if.end.i.i.i, label %_ZNSt11_Deque_baseIN8proxygen9HTTPEventESaIS1_EE15_M_allocate_mapEm.exit
@@ -25763,7 +25568,7 @@ for.body.i:                                       ; preds = %_ZNSt11_Deque_baseI
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__cur.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !294
 
@@ -25779,7 +25584,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #28
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN8proxygen9HTTPEventESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i, !llvm.loop !242
 
@@ -25819,24 +25624,24 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %12, i64 9
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 504
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %add.ptr27 = getelementptr inbounds ptr, ptr %add.ptr, i64 %div
-  %_M_node.i10 = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
+  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %13, i64 9
-  %_M_last.i13 = getelementptr inbounds %"struct.std::_Deque_base<proxygen::HTTPEvent, std::allocator<proxygen::HTTPEvent>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 504
+  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %add.ptr36 = getelementptr inbounds %"class.proxygen::HTTPEvent", ptr %13, i64 %rem
@@ -25897,7 +25702,7 @@ lpad.i:                                           ; preds = %_ZN5folly2toINSt7__
 _ZN8proxygen12WebTransport9ExceptionC2Ej.exit:    ; preds = %_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA43_cjEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #27
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen12WebTransport9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
-  %error.i = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %agg.tmp, i64 0, i32 1
+  %error.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %3 = load i32, ptr %inError.addr.i, align 4
   store i32 %3, ptr %error.i, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %inError.addr.i)
@@ -25906,7 +25711,7 @@ _ZN8proxygen12WebTransport9ExceptionC2Ej.exit:    ; preds = %_ZN5folly2toINSt7__
   %call1.i = call ptr @__cxa_init_primary_exception(ptr noundef %call.i, ptr noundef nonnull @_ZTIN8proxygen12WebTransport9ExceptionE, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkIN8proxygen12WebTransport9ExceptionEEEvPv) #27, !noalias !298
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %call.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #27, !noalias !298
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen12WebTransport9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !298
-  %error.i.i = getelementptr inbounds %"class.proxygen::WebTransport::Exception", ptr %call.i, i64 0, i32 1
+  %error.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %4 = load i32, ptr %error.i, align 8, !noalias !298
   store i32 %4, ptr %error.i.i, align 8, !noalias !298
   call void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %call.i) #27
@@ -25948,7 +25753,7 @@ lpad.i.i.i:                                       ; preds = %entry
 
 _ZN5folly14PromiseInvalidC2Ev.exit:               ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #27
-  %msg_.i.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %ref.tmp, i64 0, i32 1
+  %msg_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr @.str.199, ptr %msg_.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly14PromiseInvalidE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
@@ -25986,8 +25791,8 @@ define linkonce_odr void @_ZN5folly14PromiseInvalidC2EOS0_(ptr noundef nonnull a
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #27
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
-  %msg_2.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %0, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8
   store ptr %1, ptr %msg_.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly14PromiseInvalidE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
@@ -26010,7 +25815,7 @@ entry:
   %0 = load i64, ptr %ew, align 8, !noalias !301
   store i64 0, ptr %ew, align 8, !noalias !301
   store i32 1, ptr %ref.tmp, align 8
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %ref.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
   store i64 %0, ptr %1, align 8, !alias.scope !304
   store i64 0, ptr %agg.tmp, align 8, !noalias !304
@@ -26066,7 +25871,7 @@ _ZN5folly17exception_wrapperD2Ev.exit8:           ; preds = %lpad, %_ZN5folly3Tr
 define linkonce_odr void @_ZN5folly7PromiseINS_4UnitEE6setTryEONS_3TryIS1_EE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %t) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.folly::Executor::KeepAlive", align 8
-  %core_.i.i = getelementptr inbounds %"class.folly::Promise.59", ptr %this, i64 0, i32 1
+  %core_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %core_.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZNK5folly7PromiseINS_4UnitEE7getCoreEv.exit.i
@@ -26095,7 +25900,7 @@ _ZNK5folly7PromiseINS_4UnitEE16throwIfFulfilledEv.exit: ; preds = %_ZNK5folly7Pr
 
 if.then6.i.i.i.i:                                 ; preds = %_ZNK5folly7PromiseINS_4UnitEE16throwIfFulfilledEv.exit
   %3 = getelementptr inbounds i8, ptr %1, i64 144
-  %4 = getelementptr inbounds %"class.folly::detail::TryBase", ptr %t, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %t, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
   %5 = load i64, ptr %4, align 8, !noalias !307
   store i64 %5, ptr %3, align 8, !alias.scope !307
@@ -26121,7 +25926,7 @@ if.then.i.i.i2:                                   ; preds = %invoke.cont.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i2
   %vtable.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 6
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 48
   %8 = load ptr, ptr %vfn.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #27
   br label %_ZN5folly7futures6detail4CoreINS_4UnitEE9setResultEONS_3TryIS3_EE.exit
@@ -26143,7 +25948,7 @@ if.then.i.i3.i:                                   ; preds = %lpad.i
 
 if.then5.i.i6.i:                                  ; preds = %if.then.i.i3.i
   %vtable.i.i7.i = load ptr, ptr %11, align 8
-  %vfn.i.i8.i = getelementptr inbounds ptr, ptr %vtable.i.i7.i, i64 6
+  %vfn.i.i8.i = getelementptr inbounds i8, ptr %vtable.i.i7.i, i64 48
   %12 = load ptr, ptr %vfn.i.i8.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #27
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit9.i
@@ -26178,7 +25983,7 @@ lpad.i.i.i:                                       ; preds = %entry
 
 _ZN5folly23PromiseAlreadySatisfiedC2Ev.exit:      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i) #27
-  %msg_.i.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %ref.tmp, i64 0, i32 1
+  %msg_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr @.str.200, ptr %msg_.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
@@ -26216,8 +26021,8 @@ define linkonce_odr void @_ZN5folly23PromiseAlreadySatisfiedC2EOS0_(ptr noundef 
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #27
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly21static_what_exceptionISt11logic_errorEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %msg_.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %this, i64 0, i32 1
-  %msg_2.i.i = getelementptr inbounds %"class.folly::static_what_exception", ptr %0, i64 0, i32 1
+  %msg_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %msg_2.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %msg_2.i.i, align 8
   store ptr %1, ptr %msg_.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly23PromiseAlreadySatisfiedE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
@@ -26236,7 +26041,7 @@ entry:
 define linkonce_odr void @_ZN5folly7PromiseIN8proxygen12WebTransport10StreamDataEE6setTryEONS_3TryIS3_EE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.folly::Executor::KeepAlive", align 8
-  %core_.i.i = getelementptr inbounds %"class.folly::Promise", ptr %this, i64 0, i32 1
+  %core_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %core_.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %_ZNK5folly7PromiseIN8proxygen12WebTransport10StreamDataEE7getCoreEv.exit.i
@@ -26267,12 +26072,12 @@ _ZNK5folly7PromiseIN8proxygen12WebTransport10StreamDataEE16throwIfFulfilledEv.ex
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK5folly7PromiseIN8proxygen12WebTransport10StreamDataEE16throwIfFulfilledEv.exit
   %3 = getelementptr inbounds i8, ptr %1, i64 144
-  %4 = getelementptr inbounds %"class.folly::detail::TryBase.248", ptr %t, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %t, i64 8
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %3, align 8
   store ptr null, ptr %4, align 8
   %fin.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 152
-  %fin3.i.i.i.i.i = getelementptr inbounds %"class.folly::detail::TryBase.248", ptr %t, i64 0, i32 1, i32 1
+  %fin3.i.i.i.i.i = getelementptr inbounds i8, ptr %t, i64 16
   %6 = load i8, ptr %fin3.i.i.i.i.i, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %fin.i.i.i.i.i, align 8
@@ -26280,7 +26085,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNK5folly7PromiseI
 
 if.then6.i.i.i.i:                                 ; preds = %_ZNK5folly7PromiseIN8proxygen12WebTransport10StreamDataEE16throwIfFulfilledEv.exit
   %8 = getelementptr inbounds i8, ptr %1, i64 144
-  %9 = getelementptr inbounds %"class.folly::detail::TryBase.248", ptr %t, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %t, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !310)
   %10 = load i64, ptr %9, align 8, !noalias !310
   store i64 %10, ptr %8, align 8, !alias.scope !310
@@ -26306,7 +26111,7 @@ if.then.i.i.i2:                                   ; preds = %invoke.cont.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i2
   %vtable.i.i.i = load ptr, ptr %12, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 6
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 48
   %13 = load ptr, ptr %vfn.i.i.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #27
   br label %_ZN5folly7futures6detail4CoreIN8proxygen12WebTransport10StreamDataEE9setResultEONS_3TryIS5_EE.exit
@@ -26328,7 +26133,7 @@ if.then.i.i3.i:                                   ; preds = %lpad.i
 
 if.then5.i.i6.i:                                  ; preds = %if.then.i.i3.i
   %vtable.i.i7.i = load ptr, ptr %16, align 8
-  %vfn.i.i8.i = getelementptr inbounds ptr, ptr %vtable.i.i7.i, i64 6
+  %vfn.i.i8.i = getelementptr inbounds i8, ptr %vtable.i.i7.i, i64 48
   %17 = load ptr, ptr %vfn.i.i8.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16) #27
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit9.i
@@ -26349,7 +26154,7 @@ entry:
   %0 = load i64, ptr %ew, align 8, !noalias !313
   store i64 0, ptr %ew, align 8, !noalias !313
   store i32 1, ptr %ref.tmp, align 8
-  %1 = getelementptr inbounds %"class.folly::detail::TryBase.248", ptr %ref.tmp, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
   store i64 %0, ptr %1, align 8, !alias.scope !316
   store i64 0, ptr %agg.tmp, align 8, !noalias !316
@@ -26417,7 +26222,7 @@ _ZN5folly17exception_wrapperD2Ev.exit4:           ; preds = %lpad, %if.then.i.i3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly7futures6detail4CoreIN8proxygen12WebTransport10StreamDataEED2Ev(ptr noundef nonnull align 16 dereferenceable(160) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 3
+  %state_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load atomic i8, ptr %state_ monotonic, align 16
   switch i8 %0, label %sw.default [
     i8 2, label %sw.bb10
@@ -26460,7 +26265,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i.i
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %proxy_ = getelementptr inbounds %"class.folly::futures::detail::CoreBase", ptr %this, i64 0, i32 9
+  %proxy_ = getelementptr inbounds i8, ptr %this, i64 128
   %6 = load ptr, ptr %proxy_, align 16
   tail call void @_ZN5folly7futures6detail8CoreBase9detachOneEv(ptr noundef nonnull align 16 dereferenceable(136) %6) #27
   br label %sw.epilog

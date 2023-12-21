@@ -4,97 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.google::SiteFlag" = type { ptr, ptr, i64, ptr }
-%"class.proxygen::WheelTimerInstance" = type { ptr, %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.folly::EventBase" = type { %"class.folly::TimeoutManager", %"class.folly::DrivableExecutor", %"class.folly::IOExecutor", %"class.folly::SequencedExecutor", %"class.folly::ScheduledExecutor", %"class.std::chrono::duration", i8, i8, %"struct.std::atomic.16", %"class.std::unique_ptr.17", %"class.boost::intrusive::list.25", %"class.boost::intrusive::list.25", %"struct.folly::Synchronized", %"struct.folly::Synchronized", ptr, %"struct.std::atomic.35", %"class.std::unique_ptr.37", i64, %"struct.std::atomic.45", i8, %"class.std::chrono::duration.47", %"class.folly::EventBase::SmoothLoopTime", %"class.folly::EventBase::SmoothLoopTime", i8, %"class.folly::Function", i64, i64, %"class.std::chrono::time_point", i8, %"class.std::shared_ptr.11", i32, %"class.boost::intrusive::list.49", %"class.std::__cxx11::basic_string", %"class.folly::F14FastMap", %"struct.folly::Synchronized.59", %"class.folly::basic_once_flag", %"class.std::unique_ptr.78", %"class.std::unique_ptr.86", [8 x i8] }
-%"class.folly::TimeoutManager" = type { ptr, %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.15" }
-%"struct.std::_Head_base.15" = type { ptr }
-%"class.folly::DrivableExecutor" = type { %"class.folly::Executor" }
-%"class.folly::Executor" = type { ptr }
-%"class.folly::IOExecutor" = type { %"class.folly::Executor" }
-%"class.folly::SequencedExecutor" = type { %"class.folly::Executor" }
-%"class.folly::ScheduledExecutor" = type { %"class.folly::Executor" }
-%"struct.std::atomic.16" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
-%"class.std::unique_ptr.17" = type { %"struct.std::__uniq_ptr_data.18" }
-%"struct.std::__uniq_ptr_data.18" = type { %"class.std::__uniq_ptr_impl.19" }
-%"class.std::__uniq_ptr_impl.19" = type { %"class.std::tuple.20" }
-%"class.std::tuple.20" = type { %"struct.std::_Tuple_impl.21" }
-%"struct.std::_Tuple_impl.21" = type { %"struct.std::_Head_base.24" }
-%"struct.std::_Head_base.24" = type { ptr }
-%"class.boost::intrusive::list.25" = type { %"class.boost::intrusive::list_impl.26" }
-%"class.boost::intrusive::list_impl.26" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::LoopCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::default_header_holder" = type { %"struct.boost::intrusive::list_node" }
-%"struct.boost::intrusive::list_node" = type { ptr, ptr }
-%"struct.folly::Synchronized" = type <{ %"class.boost::intrusive::list.30", %"class.folly::SharedMutexImpl", [4 x i8] }>
-%"class.boost::intrusive::list.30" = type { %"class.boost::intrusive::list_impl.31" }
-%"class.boost::intrusive::list_impl.31" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::EventBase::OnDestructionCallback, boost::intrusive::list_node_traits<void *>, boost::intrusive::normal_link, boost::intrusive::dft_tag, 1>, unsigned long, true, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::size_holder.34", %"struct.boost::intrusive::detail::default_header_holder" }
-%"struct.boost::intrusive::detail::size_holder.34" = type { i64 }
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"struct.std::atomic.35" = type { %"struct.std::__atomic_base.36" }
-%"struct.std::__atomic_base.36" = type { i8 }
-%"class.std::unique_ptr.37" = type { %"struct.std::__uniq_ptr_data.38" }
-%"struct.std::__uniq_ptr_data.38" = type { %"class.std::__uniq_ptr_impl.39" }
-%"class.std::__uniq_ptr_impl.39" = type { %"class.std::tuple.40" }
-%"class.std::tuple.40" = type { %"struct.std::_Tuple_impl.41" }
-%"struct.std::_Tuple_impl.41" = type { %"struct.std::_Head_base.44" }
-%"struct.std::_Head_base.44" = type { ptr }
-%"struct.std::atomic.45" = type { %"struct.std::__atomic_base.46" }
-%"struct.std::__atomic_base.46" = type { i64 }
-%"class.std::chrono::duration.47" = type { i64 }
-%"class.folly::EventBase::SmoothLoopTime" = type { double, double, %"class.std::chrono::duration.47", %"class.std::chrono::duration.47", i64 }
-%"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration.8" }
-%"class.std::chrono::duration.8" = type { i64 }
-%"class.std::shared_ptr.11" = type { %"class.std::__shared_ptr.12" }
-%"class.std::__shared_ptr.12" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.boost::intrusive::list.49" = type { %"class.boost::intrusive::list_impl.50" }
-%"class.boost::intrusive::list_impl.50" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::data_t" = type { %"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" }
-%"struct.boost::intrusive::list_impl<boost::intrusive::bhtraits<folly::ExecutionObserver, boost::intrusive::list_node_traits<void *>, boost::intrusive::auto_unlink, boost::intrusive::dft_tag, 1>, unsigned long, false, void>::root_plus_size" = type { %"struct.boost::intrusive::detail::default_header_holder" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.53 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.53 = type { i64, [8 x i8] }
-%"class.folly::F14FastMap" = type { %"class.folly::f14::detail::F14VectorMapImpl" }
-%"class.folly::f14::detail::F14VectorMapImpl" = type { %"class.folly::f14::detail::F14BasicMap" }
-%"class.folly::f14::detail::F14BasicMap" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { %"class.folly::f14::detail::VectorContainerPolicy", ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" }
-%"class.folly::f14::detail::VectorContainerPolicy" = type { ptr }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift" }
-%"struct.folly::f14::detail::PackedSizeAndChunkShift" = type { i64 }
-%"struct.folly::Synchronized.59" = type <{ %"class.folly::F14FastSet", %"class.folly::SharedMutexImpl", [4 x i8] }>
-%"class.folly::F14FastSet" = type { %"class.folly::F14ValueSet" }
-%"class.folly::F14ValueSet" = type { %"class.folly::f14::detail::F14BasicSet" }
-%"class.folly::f14::detail::F14BasicSet" = type { %"class.folly::f14::detail::F14Table.62" }
-%"class.folly::f14::detail::F14Table.62" = type { ptr, %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin.76" }
-%"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin.76" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift", %"class.folly::f14::detail::PackedChunkItemPtr" }
-%"class.folly::f14::detail::PackedChunkItemPtr" = type { i64 }
-%"class.folly::basic_once_flag" = type { %"struct.std::atomic.35", %"class.folly::SharedMutexImpl" }
-%"class.std::unique_ptr.78" = type { %"struct.std::__uniq_ptr_data.79" }
-%"struct.std::__uniq_ptr_data.79" = type { %"class.std::__uniq_ptr_impl.80" }
-%"class.std::__uniq_ptr_impl.80" = type { %"class.std::tuple.81" }
-%"class.std::tuple.81" = type { %"struct.std::_Tuple_impl.82" }
-%"struct.std::_Tuple_impl.82" = type { %"struct.std::_Head_base.85" }
-%"struct.std::_Head_base.85" = type { ptr }
-%"class.std::unique_ptr.86" = type { %"struct.std::__uniq_ptr_data.87" }
-%"struct.std::__uniq_ptr_data.87" = type { %"class.std::__uniq_ptr_impl.88" }
-%"class.std::__uniq_ptr_impl.88" = type { %"class.std::tuple.89" }
-%"class.std::tuple.89" = type { %"struct.std::_Tuple_impl.90" }
-%"struct.std::_Tuple_impl.90" = type { %"struct.std::_Head_base.93" }
-%"struct.std::_Head_base.93" = type { ptr }
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
@@ -132,7 +41,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call = tail call i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE17getDefaultTimeoutEv(ptr noundef nonnull align 8 dereferenceable(16704) %timer)
-  %defaultTimeoutMS_2 = getelementptr inbounds %"class.proxygen::WheelTimerInstance", ptr %this, i64 0, i32 1
+  %defaultTimeoutMS_2 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %call, ptr %defaultTimeoutMS_2, align 8
   br label %if.end
 
@@ -146,7 +55,7 @@ declare i64 @_ZNK5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl10
 define void @_ZN8proxygen18WheelTimerInstanceC2ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEPN5folly9EventBaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 %defaultTimeoutMS.coerce, ptr noundef %eventBase) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
-  %defaultTimeoutMS_ = getelementptr inbounds %"class.proxygen::WheelTimerInstance", ptr %this, i64 0, i32 1
+  %defaultTimeoutMS_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %defaultTimeoutMS.coerce, ptr %defaultTimeoutMS_, align 8
   %tobool.not = icmp eq ptr %eventBase, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -158,13 +67,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %eventBase.addr.0 = phi ptr [ %eventBase, %entry ], [ %call2, %if.then ]
-  %wheelTimer_.i = getelementptr inbounds %"class.folly::EventBase", ptr %eventBase.addr.0, i64 0, i32 9
+  %wheelTimer_.i = getelementptr inbounds i8, ptr %eventBase.addr.0, i64 72
   %0 = load ptr, ptr %wheelTimer_.i, align 8
   %cmp.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i, label %if.then.i, label %_ZN5folly9EventBase5timerEv.exit
 
 if.then.i:                                        ; preds = %if.end
-  %intervalDuration_.i = getelementptr inbounds %"class.folly::EventBase", ptr %eventBase.addr.0, i64 0, i32 5
+  %intervalDuration_.i = getelementptr inbounds i8, ptr %eventBase.addr.0, i64 48
   %call.i.i = tail call noalias noundef nonnull dereferenceable(16704) ptr @_Znwm(i64 noundef 16704) #11, !noalias !4
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %intervalDuration_.i, align 8, !noalias !4
   invoke void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEC1EPNS_14TimeoutManagerES5_NS7_12InternalEnumES5_(ptr noundef nonnull align 8 dereferenceable(16704) %call.i.i, ptr noundef nonnull %eventBase.addr.0, i64 %agg.tmp.sroa.0.0.copyload.i.i, i32 noundef 1, i64 -1)
@@ -185,7 +94,7 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8newTim
 if.then.i.i.i.i.i:                                ; preds = %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8newTimerIJPNS_9EventBaseERKS5_EEESt10unique_ptrIS6_NS_18DelayedDestruction10DestructorEEDpOT_.exit.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 192
   %vtable.i.i.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 24
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(13) %add.ptr.i.i.i.i.i)
           to label %if.then.i.i.i.i.if.end_crit_edge.i unwind label %terminate.lpad.i.i.i.i.i
@@ -216,8 +125,8 @@ define void @_ZN8proxygen18WheelTimerInstanceC2ERKS0_(ptr nocapture noundef nonn
 entry:
   %0 = load ptr, ptr %timerInstance, align 8
   store ptr %0, ptr %this, align 8
-  %defaultTimeoutMS_ = getelementptr inbounds %"class.proxygen::WheelTimerInstance", ptr %this, i64 0, i32 1
-  %defaultTimeoutMS_3 = getelementptr inbounds %"class.proxygen::WheelTimerInstance", ptr %timerInstance, i64 0, i32 1
+  %defaultTimeoutMS_ = getelementptr inbounds i8, ptr %this, i64 8
+  %defaultTimeoutMS_3 = getelementptr inbounds i8, ptr %timerInstance, i64 8
   %1 = load i64, ptr %defaultTimeoutMS_3, align 8
   store i64 %1, ptr %defaultTimeoutMS_, align 8
   ret void
@@ -228,8 +137,8 @@ define void @_ZN8proxygen18WheelTimerInstanceC2EOS0_(ptr nocapture noundef nonnu
 entry:
   %0 = load ptr, ptr %timerInstance, align 8
   store ptr %0, ptr %this, align 8
-  %defaultTimeoutMS_ = getelementptr inbounds %"class.proxygen::WheelTimerInstance", ptr %this, i64 0, i32 1
-  %defaultTimeoutMS_3 = getelementptr inbounds %"class.proxygen::WheelTimerInstance", ptr %timerInstance, i64 0, i32 1
+  %defaultTimeoutMS_ = getelementptr inbounds i8, ptr %this, i64 8
+  %defaultTimeoutMS_3 = getelementptr inbounds i8, ptr %timerInstance, i64 8
   %1 = load i64, ptr %defaultTimeoutMS_3, align 8
   store i64 %1, ptr %defaultTimeoutMS_, align 8
   ret void
@@ -238,7 +147,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @_ZNK8proxygen18WheelTimerInstance17getDefaultTimeoutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %defaultTimeoutMS_ = getelementptr inbounds %"class.proxygen::WheelTimerInstance", ptr %this, i64 0, i32 1
+  %defaultTimeoutMS_ = getelementptr inbounds i8, ptr %this, i64 8
   %retval.sroa.0.0.copyload = load i64, ptr %defaultTimeoutMS_, align 8
   ret i64 %retval.sroa.0.0.copyload
 }
@@ -246,7 +155,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8proxygen18WheelTimerInstance17setDefaultTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 %timeout.coerce) local_unnamed_addr #0 align 2 {
 entry:
-  %defaultTimeoutMS_ = getelementptr inbounds %"class.proxygen::WheelTimerInstance", ptr %this, i64 0, i32 1
+  %defaultTimeoutMS_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %timeout.coerce, ptr %defaultTimeoutMS_, align 8
   ret void
 }
@@ -321,7 +230,7 @@ entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp7 = alloca %"class.google::LogMessageFatal", align 8
-  %defaultTimeoutMS_ = getelementptr inbounds %"class.proxygen::WheelTimerInstance", ptr %this, i64 0, i32 1
+  %defaultTimeoutMS_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %defaultTimeoutMS_, align 8
   %cmp.not.i = icmp slt i64 %0, 0
   br i1 %cmp.not.i, label %if.else.i, label %while.end
@@ -393,8 +302,8 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8proxygen18WheelTimer
 entry:
   %0 = load ptr, ptr %t, align 8
   store ptr %0, ptr %this, align 8
-  %defaultTimeoutMS_ = getelementptr inbounds %"class.proxygen::WheelTimerInstance", ptr %t, i64 0, i32 1
-  %defaultTimeoutMS_3 = getelementptr inbounds %"class.proxygen::WheelTimerInstance", ptr %this, i64 0, i32 1
+  %defaultTimeoutMS_ = getelementptr inbounds i8, ptr %t, i64 8
+  %defaultTimeoutMS_3 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %defaultTimeoutMS_, align 8
   store i64 %1, ptr %defaultTimeoutMS_3, align 8
   ret ptr %this
@@ -405,8 +314,8 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8proxygen18WheelTimer
 entry:
   %0 = load ptr, ptr %timer, align 8
   store ptr %0, ptr %this, align 8
-  %defaultTimeoutMS_ = getelementptr inbounds %"class.proxygen::WheelTimerInstance", ptr %timer, i64 0, i32 1
-  %defaultTimeoutMS_3 = getelementptr inbounds %"class.proxygen::WheelTimerInstance", ptr %this, i64 0, i32 1
+  %defaultTimeoutMS_ = getelementptr inbounds i8, ptr %timer, i64 8
+  %defaultTimeoutMS_3 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %defaultTimeoutMS_, align 8
   store i64 %1, ptr %defaultTimeoutMS_3, align 8
   ret ptr %this

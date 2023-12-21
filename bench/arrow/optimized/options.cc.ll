@@ -37,19 +37,19 @@ $_ZN5arrow6Status8FromArgsIJRA44_KcEEES0_NS_10StatusCodeEDpOT_ = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow3ipc15IpcWriteOptions8DefaultsEv(ptr noalias nocapture writeonly sret(%"struct.arrow::ipc::IpcWriteOptions") align 8 %agg.result) local_unnamed_addr #0 align 2 {
 entry:
-  %max_recursion_depth.i = getelementptr inbounds %"struct.arrow::ipc::IpcWriteOptions", ptr %agg.result, i64 0, i32 2
+  %max_recursion_depth.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i8 0, i64 64, i1 false)
   store i32 64, ptr %max_recursion_depth.i, align 4
-  %alignment.i = getelementptr inbounds %"struct.arrow::ipc::IpcWriteOptions", ptr %agg.result, i64 0, i32 3
+  %alignment.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 8, ptr %alignment.i, align 8
-  %memory_pool.i = getelementptr inbounds %"struct.arrow::ipc::IpcWriteOptions", ptr %agg.result, i64 0, i32 6
+  %memory_pool.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %call.i = tail call noundef ptr @_ZN5arrow19default_memory_poolEv()
   store ptr %call.i, ptr %memory_pool.i, align 8
-  %codec.i = getelementptr inbounds %"struct.arrow::ipc::IpcWriteOptions", ptr %agg.result, i64 0, i32 7
+  %codec.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %codec.i, i8 0, i64 16, i1 false)
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"struct.arrow::ipc::IpcWriteOptions", ptr %agg.result, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  %use_threads.i = getelementptr inbounds %"struct.arrow::ipc::IpcWriteOptions", ptr %agg.result, i64 0, i32 9
+  %use_threads.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   store <4 x i8> <i8 1, i8 0, i8 0, i8 4>, ptr %use_threads.i, align 8
   ret void
 }
@@ -62,16 +62,16 @@ define void @_ZN5arrow3ipc14IpcReadOptions8DefaultsEv(ptr noalias sret(%"struct.
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, i8 0, i64 80, i1 false)
   store i32 64, ptr %agg.result, align 8
-  %memory_pool.i = getelementptr inbounds %"struct.arrow::ipc::IpcReadOptions", ptr %agg.result, i64 0, i32 1
+  %memory_pool.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %call.i = tail call noundef ptr @_ZN5arrow19default_memory_poolEv()
   store ptr %call.i, ptr %memory_pool.i, align 8
-  %included_fields.i = getelementptr inbounds %"struct.arrow::ipc::IpcReadOptions", ptr %agg.result, i64 0, i32 2
+  %included_fields.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %included_fields.i, i8 0, i64 24, i1 false)
-  %use_threads.i = getelementptr inbounds %"struct.arrow::ipc::IpcReadOptions", ptr %agg.result, i64 0, i32 3
+  %use_threads.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i8 1, ptr %use_threads.i, align 8
-  %ensure_native_endian.i = getelementptr inbounds %"struct.arrow::ipc::IpcReadOptions", ptr %agg.result, i64 0, i32 4
+  %ensure_native_endian.i = getelementptr inbounds i8, ptr %agg.result, i64 41
   store i8 1, ptr %ensure_native_endian.i, align 1
-  %pre_buffer_cache_options.i = getelementptr inbounds %"struct.arrow::ipc::IpcReadOptions", ptr %agg.result, i64 0, i32 5
+  %pre_buffer_cache_options.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   invoke void @_ZN5arrow2io12CacheOptions12LazyDefaultsEv(ptr nonnull sret(%"struct.arrow::io::CacheOptions") align 8 %pre_buffer_cache_options.i)
           to label %_ZN5arrow3ipc14IpcReadOptionsC2Ev.exit unwind label %lpad.i
 
@@ -128,7 +128,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ss.i)
   call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ss.i), !noalias !7
-  %ostream_.i.i = getelementptr inbounds %"class.arrow::util::detail::StringStreamWrapper", ptr %ss.i, i64 0, i32 1
+  %ostream_.i.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %0 = load ptr, ptr %ostream_.i.i, align 8, !noalias !7
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %args)
           to label %invoke.cont1.i unwind label %lpad.i, !noalias !7

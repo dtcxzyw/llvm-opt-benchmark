@@ -214,7 +214,7 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.018 = phi ptr [ %incdec.ptr, %for.body ], [ %pieces.coerce0, %entry ]
   %piece.sroa.0.0.copyload = load i64, ptr %__begin2.018, align 8
   %add = add i64 %piece.sroa.0.0.copyload, %total_size.019
-  %incdec.ptr = getelementptr inbounds %"class.std::basic_string_view", ptr %__begin2.018, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.018, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -252,7 +252,7 @@ lpad:                                             ; preds = %for.end, %invoke.co
 
 for.inc17:                                        ; preds = %for.body12, %if.then
   %out.1 = phi ptr [ %add.ptr, %if.then ], [ %out.021, %for.body12 ]
-  %incdec.ptr18 = getelementptr inbounds %"class.std::basic_string_view", ptr %__begin26.022, i64 1
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %__begin26.022, i64 16
   %cmp11.not = icmp eq ptr %incdec.ptr18, %add.ptr.i
   br i1 %cmp11.not, label %nrvo.skipdtor, label %for.body12
 
@@ -276,7 +276,7 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin2.020 = phi ptr [ %incdec.ptr, %for.body ], [ %pieces.coerce0, %entry ]
   %piece.sroa.0.0.copyload = load i64, ptr %__begin2.020, align 8
   %add = add i64 %piece.sroa.0.0.copyload, %to_append.021
-  %incdec.ptr = getelementptr inbounds %"class.std::basic_string_view", ptr %__begin2.020, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.020, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -306,7 +306,7 @@ if.then:                                          ; preds = %for.body12
 
 for.inc18:                                        ; preds = %for.body12, %if.then
   %out.1 = phi ptr [ %add.ptr17, %if.then ], [ %out.023, %for.body12 ]
-  %incdec.ptr19 = getelementptr inbounds %"class.std::basic_string_view", ptr %__begin26.024, i64 1
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %__begin26.024, i64 16
   %cmp11.not = icmp eq ptr %incdec.ptr19, %add.ptr.i
   br i1 %cmp11.not, label %for.end20, label %for.body12
 

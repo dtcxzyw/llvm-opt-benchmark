@@ -123,7 +123,7 @@ entry:
   %0 = load ptr, ptr @smain.0, align 8
   store ptr %L, ptr @globalL, align 8
   tail call void @luaJIT_version_2_1_1702296283() #8
-  %arrayidx35.i = getelementptr inbounds ptr, ptr %0, i64 1
+  %arrayidx35.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx35.i, align 8
   %cmp.not36.i = icmp eq ptr %1, null
   br i1 %cmp.not36.i, label %if.end3, label %for.body.i
@@ -501,7 +501,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
 
 if.end7.i.i:                                      ; preds = %if.then3.i.i, %if.end.i.i
   %narg.0.i.i = phi i32 [ 1, %if.then3.i.i ], [ 0, %if.end.i.i ]
-  %argv.addr.014.i.i = getelementptr inbounds ptr, ptr %arrayidx.i39.le, i64 1
+  %argv.addr.014.i.i = getelementptr inbounds i8, ptr %arrayidx.i39.le, i64 8
   %36 = load ptr, ptr %argv.addr.014.i.i, align 8
   %cmp.not15.i.i = icmp eq ptr %36, null
   br i1 %cmp.not15.i.i, label %for.end.i.i, label %for.body.i.i
@@ -512,7 +512,7 @@ for.body.i.i:                                     ; preds = %if.end7.i.i, %for.b
   %narg.116.i.i = phi i32 [ %inc8.i.i, %for.body.i.i ], [ %narg.0.i.i, %if.end7.i.i ]
   tail call void @lua_pushstring(ptr noundef %L, ptr noundef nonnull %37) #8
   %inc8.i.i = add nuw nsw i32 %narg.116.i.i, 1
-  %argv.addr.0.i.i = getelementptr inbounds ptr, ptr %argv.addr.017.i.i, i64 1
+  %argv.addr.0.i.i = getelementptr inbounds i8, ptr %argv.addr.017.i.i, i64 8
   %38 = load ptr, ptr %argv.addr.0.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %38, null
   br i1 %cmp.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !7
@@ -554,7 +554,7 @@ if.then28:                                        ; preds = %if.end25
   br i1 %cmp.i58, label %land.lhs.true.i, label %if.end.i59
 
 land.lhs.true.i:                                  ; preds = %if.then28
-  %arrayidx1.i = getelementptr inbounds ptr, ptr %add.ptr, i64 -1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr, i64 -8
   %41 = load ptr, ptr %arrayidx1.i, align 8
   %call2.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(3) @.str.22) #10
   %cmp3.not.i = icmp eq i32 %call2.i, 0

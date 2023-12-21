@@ -8,80 +8,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::NetworkSocket" = type { i32 }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr }
-%"class.folly::AsyncUDPSocket" = type { %"class.folly::EventHandler", i16, ptr, ptr, %"class.folly::SocketAddress", %"struct.folly::NetworkSocket", i32, %"class.folly::SocketAddress", %"class.folly::SocketAddress", i8, i8, i8, i8, i8, i8, i32, i32, i32, %"class.folly::Optional.13", %"class.folly::Optional.13", %"class.folly::Optional.15", %"class.folly::Optional.13", ptr, i8, i8, i64, i64, i32, %"class.std::unordered_map", %"class.folly::Function", %"class.std::map", %"class.std::map", ptr, %"class.std::map.27", [8 x i8], %"class.folly::Function.32", %"class.folly::netops::DispatcherContainer" }
-%"class.folly::EventHandler" = type { ptr, %"class.folly::EventBaseEvent", ptr }
-%"class.folly::EventBaseEvent" = type { %struct.event, ptr, ptr, ptr, %"struct.folly::EventCallback" }
-%struct.event = type { %struct.event_callback, %union.anon.2, i32, ptr, %union.anon.4, i16, i16, %struct.timeval }
-%struct.event_callback = type { %struct.anon, i16, i8, i8, %union.anon.1, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon.1 = type { ptr }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { ptr, ptr }
-%union.anon.4 = type { %struct.anon.5 }
-%struct.anon.5 = type { %struct.anon.6, %struct.timeval }
-%struct.anon.6 = type { ptr, ptr }
-%struct.timeval = type { i64, i64 }
-%"struct.folly::EventCallback" = type { i32, %union.anon.9 }
-%union.anon.9 = type { ptr }
-%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
-%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
-%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
-%"class.folly::Optional.15" = type { %"struct.folly::Optional<folly::AsyncUDPSocket::TXTime>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<folly::AsyncUDPSocket::TXTime>::StorageTriviallyDestructible" = type { %union.anon.16, i8, [3 x i8] }
-%union.anon.16 = type { %"struct.folly::AsyncUDPSocket::TXTime" }
-%"struct.folly::AsyncUDPSocket::TXTime" = type <{ i32, i8, [3 x i8] }>
-%"class.folly::Optional.13" = type { %"struct.folly::Optional<int>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<int>::StorageTriviallyDestructible" = type <{ %union.anon.14, i8, [3 x i8] }>
-%union.anon.14 = type { i32 }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, int>, std::_Select1st<std::pair<const folly::SocketOptionKey, int>>, std::less<folly::SocketOptionKey>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, int>, std::_Select1st<std::pair<const folly::SocketOptionKey, int>>, std::less<folly::SocketOptionKey>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::map.27" = type { %"class.std::_Rb_tree.28" }
-%"class.std::_Rb_tree.28" = type { %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>>, std::less<folly::SocketOptionKey>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>>, std::less<folly::SocketOptionKey>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.folly::Function.32" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"class.folly::netops::DispatcherContainer" = type { %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"struct.folly::AsyncUDPSocket::BindOptions" = type { i8, %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%"class.folly::IPAddress" = type <{ %"union.folly::IPAddress::IPAddressV46", i16, [2 x i8] }>
-%"union.folly::IPAddress::IPAddressV46" = type { %"class.folly::IPAddressV4", [16 x i8] }
-%"class.folly::IPAddressV4" = type { %"union.folly::IPAddressV4::AddressStorage" }
-%"union.folly::IPAddressV4::AddressStorage" = type { %struct.in_addr }
-%struct.in_addr = type { i32 }
-%struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon.11 }
-%union.anon.11 = type { [4 x i32] }
-%"class.folly::IPAddressV6" = type <{ %"union.folly::IPAddressV6::AddressStorage", i16, [2 x i8] }>
-%"union.folly::IPAddressV6::AddressStorage" = type { %struct.in6_addr }
 %"class.std::tuple.215" = type { %"struct.std::_Tuple_impl.216" }
 %"struct.std::_Tuple_impl.216" = type { %"struct.std::_Head_base.217" }
 %"struct.std::_Head_base.217" = type { ptr }
 %"class.std::tuple.152" = type { i8 }
-%"struct.std::_Rb_tree_node.128" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf.129" }
-%"struct.__gnu_cxx::__aligned_membuf.129" = type { [16 x i8] }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [48 x i8] }
 %struct.iovec = type { ptr, i64 }
-%"class.folly::IOBuf" = type { i64, ptr, i64, ptr, ptr, ptr, i64 }
 %struct.msghdr = type { ptr, i32, ptr, i64, ptr, i64, i32 }
-%struct.cmsghdr = type { i64, i32, i32, [0 x i8] }
 %struct.timespec = type { i64, i64 }
 %struct.mmsghdr = type { %struct.msghdr, i32 }
 %"class.folly::netops::Msgheader" = type { %struct.msghdr }
@@ -91,7 +28,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::exception" = type { ptr }
 %"struct.std::__cow_string" = type { %union.anon.146 }
 %union.anon.146 = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
+%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
+%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
 %struct.Initializer = type { i8 }
 %class.anon.190 = type { i8 }
 %"class.folly::small_vector" = type { %"struct.boost::operators_impl::totally_ordered1", %"union.folly::small_vector<folly::AsyncUDPSocket::full_sockaddr_storage>::Data" }
@@ -102,6 +41,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::detail::IntegralSizePolicyBase" = type { i64 }
 %"union.folly::small_vector<folly::AsyncUDPSocket::full_sockaddr_storage>::Data" = type { %"struct.folly::small_vector<folly::AsyncUDPSocket::full_sockaddr_storage>::HeapPtrWithCapacity", [120 x i8] }
 %"struct.folly::small_vector<folly::AsyncUDPSocket::full_sockaddr_storage>::HeapPtrWithCapacity" = type { ptr, i64 }
+%"class.folly::SocketAddress" = type <{ %"union.folly::SocketAddress::AddrStorage", i16, i8, [5 x i8] }>
+%"union.folly::SocketAddress::AddrStorage" = type { %"struct.folly::SocketAddress::ExternalUnixAddr", [8 x i8] }
+%"struct.folly::SocketAddress::ExternalUnixAddr" = type { ptr, i32 }
 %"struct.folly::AsyncUDPSocket::full_sockaddr_storage" = type { %struct.sockaddr_storage, i32 }
 %"class.std::unique_ptr.135" = type { %"struct.std::__uniq_ptr_data.136" }
 %"struct.std::__uniq_ptr_data.136" = type { %"class.std::__uniq_ptr_impl.137" }
@@ -109,15 +51,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.138" = type { %"struct.std::_Tuple_impl.139" }
 %"struct.std::_Tuple_impl.139" = type { %"struct.std::_Head_base.142" }
 %"struct.std::_Head_base.142" = type { ptr }
-%"struct.folly::AsyncUDPSocket::ReadCallback::OnDataAvailableParams" = type <{ i32, [4 x i8], %"class.folly::Optional", i8, [7 x i8] }>
-%"class.folly::Optional" = type { %"struct.folly::Optional<std::array<timespec, 3>>::StorageTriviallyDestructible" }
-%"struct.folly::Optional<std::array<timespec, 3>>::StorageTriviallyDestructible" = type <{ %union.anon.0, i8, [7 x i8] }>
-%union.anon.0 = type { %"struct.std::array" }
-%"struct.std::array" = type { [3 x %struct.timespec] }
 %"class.std::bad_function_call" = type { %"class.std::exception" }
 %"class.folly::Optional.126" = type { %"struct.folly::Optional<std::map<folly::SocketOptionKey, int>>::StorageNonTriviallyDestructible" }
 %"struct.folly::Optional<std::map<folly::SocketOptionKey, int>>::StorageNonTriviallyDestructible" = type <{ %union.anon.127, i8, [7 x i8] }>
 %union.anon.127 = type { %"class.std::map" }
+%"class.std::map" = type { %"class.std::_Rb_tree" }
+%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, int>, std::_Select1st<std::pair<const folly::SocketOptionKey, int>>, std::less<folly::SocketOptionKey>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, int>, std::_Select1st<std::pair<const folly::SocketOptionKey, int>>, std::less<folly::SocketOptionKey>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
+%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
+%"struct.std::less" = type { i8 }
+%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
+%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.folly::IPAddressFormatException" = type { %"class.std::runtime_error" }
 %"class.folly::InvalidAddressFamilyException" = type { %"class.folly::IPAddressFormatException" }
 %"class.google::base::CheckOpMessageBuilder" = type { ptr }
@@ -130,11 +74,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Initializer.195 = type { i8 }
 %struct.Initializer.194 = type { i8 }
 %"class.std::bad_alloc" = type { %"class.std::exception" }
+%"struct.folly::AsyncUDPSocket::ReadCallback::OnDataAvailableParams" = type <{ i32, [4 x i8], %"class.folly::Optional", i8, [7 x i8] }>
+%"class.folly::Optional" = type { %"struct.folly::Optional<std::array<timespec, 3>>::StorageTriviallyDestructible" }
+%"struct.folly::Optional<std::array<timespec, 3>>::StorageTriviallyDestructible" = type <{ %union.anon.0, i8, [7 x i8] }>
+%union.anon.0 = type { %"struct.std::array" }
+%"struct.std::array" = type { [3 x %struct.timespec] }
 %"struct.folly::netops::sock_txtime" = type { i32, i32 }
 %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, int>, std::_Select1st<std::pair<const folly::SocketOptionKey, int>>, std::less<folly::SocketOptionKey>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>>, std::less<folly::SocketOptionKey>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { %"class.folly::SocketOptionKey", %"class.std::__cxx11::basic_string" }
-%"class.folly::SocketOptionKey" = type { i32, i32, i32 }
 %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>>, std::less<folly::SocketOptionKey>>::_Auto_node" = type { ptr, ptr }
 
 $_ZNK5folly14AsyncUDPSocket7addressEv = comdat any
@@ -481,7 +428,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result) #30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #30
   store i32 -1, ptr %ref.tmp, align 4, !tbaa !7
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i32, ptr %fd_, align 16, !tbaa !7
   %cmp.i.i.not.i = icmp eq i32 %0, -1
   br i1 %cmp.i.i.not.i, label %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, label %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, !prof !12
@@ -499,7 +446,7 @@ _ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringI
 
 while.exit:                                       ; preds = %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result) #30
-  %localAddress_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4
+  %localAddress_ = getelementptr inbounds i8, ptr %this, i64 208
   ret ptr %localAddress_
 
 while.body:                                       ; preds = %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
@@ -532,26 +479,26 @@ entry:
   %addrStorage = alloca %struct.sockaddr_storage, align 8
   %ref.tmp32 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp33 = alloca %"class.std::__cxx11::basic_string", align 8
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i32, ptr %fd_, align 16, !tbaa !7
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %external_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %address, i64 0, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %address, i64 26
   %1 = load i8, ptr %external_.i, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i = icmp eq i8 %1, 0
-  %family_.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %address, i64 0, i32 1
+  %family_.i.i = getelementptr inbounds i8, ptr %address, i64 20
   %2 = load i16, ptr %family_.i.i, align 4
   %cond.i = select i1 %tobool.not.i, i16 %2, i16 1
   %3 = load i8, ptr %bindOptions, align 8, !tbaa !22, !range !20, !noundef !21
   store i8 %3, ptr %agg.tmp, align 8, !tbaa !22
-  %ifName.i = getelementptr inbounds %"struct.folly::AsyncUDPSocket::BindOptions", ptr %agg.tmp, i64 0, i32 1
-  %ifName3.i = getelementptr inbounds %"struct.folly::AsyncUDPSocket::BindOptions", ptr %bindOptions, i64 0, i32 1
-  %4 = getelementptr inbounds %"struct.folly::AsyncUDPSocket::BindOptions", ptr %agg.tmp, i64 0, i32 1, i32 2
+  %ifName.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %ifName3.i = getelementptr inbounds i8, ptr %bindOptions, i64 8
+  %4 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %4, ptr %ifName.i, align 8, !tbaa !27
   %5 = load ptr, ptr %ifName3.i, align 8, !tbaa !28
-  %_M_string_length.i.i.i = getelementptr inbounds %"struct.folly::AsyncUDPSocket::BindOptions", ptr %bindOptions, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %bindOptions, i64 16
   %6 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #30
   store i64 %6, ptr %__dnew.i.i.i, align 8, !tbaa !30
@@ -583,7 +530,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end.i.i.i
 
 _ZN5folly14AsyncUDPSocket11BindOptionsC2ERKS1_.exit: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i.i.i
   %10 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !30
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"struct.folly::AsyncUDPSocket::BindOptions", ptr %agg.tmp, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store i64 %10, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !29
   %11 = load ptr, ptr %ifName.i, align 8, !tbaa !28
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %10
@@ -625,8 +572,8 @@ if.then.i.i.i86:                                  ; preds = %lpad
   br label %eh.resume
 
 if.end:                                           ; preds = %if.then.i.i.i83, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %entry
-  %ifName3 = getelementptr inbounds %"struct.folly::AsyncUDPSocket::BindOptions", ptr %bindOptions, i64 0, i32 1
-  %_M_string_length.i.i = getelementptr inbounds %"struct.folly::AsyncUDPSocket::BindOptions", ptr %bindOptions, i64 0, i32 1, i32 1
+  %ifName3 = getelementptr inbounds i8, ptr %bindOptions, i64 8
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %bindOptions, i64 16
   %17 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !29
   %cmp.i91 = icmp eq i64 %17, 0
   br i1 %cmp.i91, label %if.end21, label %land.lhs.true5
@@ -666,12 +613,12 @@ lpad17:                                           ; preds = %invoke.cont18, %inv
   %21 = landingpad { ptr, i32 }
           cleanup
   %22 = load ptr, ptr %ref.tmp14, align 8, !tbaa !28
-  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp14, i64 0, i32 2
+  %23 = getelementptr inbounds i8, ptr %ref.tmp14, i64 16
   %cmp.i.i.i92 = icmp eq ptr %22, %23
   br i1 %cmp.i.i.i92, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad17
-  %_M_string_length.i.i.i93 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp14, i64 0, i32 1
+  %_M_string_length.i.i.i93 = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
   %24 = load i64, ptr %_M_string_length.i.i.i93, align 8, !tbaa !29
   %cmp3.i.i.i = icmp ult i64 %24, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -690,17 +637,17 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
 
 if.end21:                                         ; preds = %land.lhs.true5, %if.end
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrStorage) #30
-  %external_.i94 = getelementptr inbounds %"class.folly::SocketAddress", ptr %address, i64 0, i32 2
+  %external_.i94 = getelementptr inbounds i8, ptr %address, i64 26
   %25 = load i8, ptr %external_.i94, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i95 = icmp eq i8 %25, 0
   br i1 %tobool.not.i95, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end21
-  %port_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %address, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %address, i64 24
   %26 = load i16, ptr %port_.i, align 8, !tbaa !34
   %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %26)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %addrStorage, i8 0, i64 128, i1 false)
-  %family_.i.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %address, i64 0, i32 1
+  %family_.i.i.i = getelementptr inbounds i8, ptr %address, i64 20
   %27 = load i16, ptr %family_.i.i.i, align 4, !tbaa !35
   store i16 %27, ptr %addrStorage, align 8, !tbaa !37
   switch i16 %27, label %if.else16.i.i [
@@ -710,22 +657,22 @@ if.then.i:                                        ; preds = %if.end21
 
 _ZNK5folly9IPAddress4asV4Ev.exit.i.i:             ; preds = %if.then.i
   %retval.sroa.0.0.copyload.i.i.i = load i32, ptr %address, align 8, !tbaa.struct !32
-  %sin_addr.i.i = getelementptr inbounds %struct.sockaddr_in, ptr %addrStorage, i64 0, i32 2
+  %sin_addr.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 4
   store i32 %retval.sroa.0.0.copyload.i.i.i, ptr %sin_addr.i.i, align 4, !tbaa.struct !32
-  %sin_port.i.i = getelementptr inbounds %struct.sockaddr_in, ptr %addrStorage, i64 0, i32 1
+  %sin_port.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 2
   store i16 %rev.i.i, ptr %sin_port.i.i, align 2, !tbaa !39
   br label %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
 
 _ZNK5folly9IPAddress4asV6Ev.exit37.i.i:           ; preds = %if.then.i
-  %sin6_addr.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %addrStorage, i64 0, i32 3
+  %sin6_addr.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 8
   %28 = load <2 x i64>, ptr %address, align 8
   store <2 x i64> %28, ptr %sin6_addr.i.i, align 8
-  %sin6_port.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %addrStorage, i64 0, i32 1
+  %sin6_port.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 2
   store i16 %rev.i.i, ptr %sin6_port.i.i, align 2, !tbaa !42
-  %scope_.i.i.i = getelementptr inbounds %"class.folly::IPAddressV6", ptr %address, i64 0, i32 1
+  %scope_.i.i.i = getelementptr inbounds i8, ptr %address, i64 16
   %29 = load i16, ptr %scope_.i.i.i, align 8, !tbaa !45
   %conv.i.i = zext i16 %29 to i32
-  %sin6_scope_id.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %addrStorage, i64 0, i32 4
+  %sin6_scope_id.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 24
   store i32 %conv.i.i, ptr %sin6_scope_id.i.i, align 8, !tbaa !47
   br label %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
 
@@ -778,12 +725,12 @@ lpad39:                                           ; preds = %invoke.cont40, %inv
   %33 = landingpad { ptr, i32 }
           cleanup
   %34 = load ptr, ptr %ref.tmp32, align 8, !tbaa !28
-  %35 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp32, i64 0, i32 2
+  %35 = getelementptr inbounds i8, ptr %ref.tmp32, i64 16
   %cmp.i.i.i96 = icmp eq ptr %34, %35
   br i1 %cmp.i.i.i96, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i98, label %if.then.i.i97
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i98: ; preds = %lpad39
-  %_M_string_length.i.i.i99 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp32, i64 0, i32 1
+  %_M_string_length.i.i.i99 = getelementptr inbounds i8, ptr %ref.tmp32, i64 8
   %36 = load i64, ptr %_M_string_length.i.i.i99, align 8, !tbaa !29
   %cmp3.i.i.i100 = icmp ult i64 %36, 16
   call void @llvm.assume(i1 %cmp3.i.i.i100)
@@ -795,7 +742,7 @@ if.then.i.i97:                                    ; preds = %lpad39
 
 ehcleanup43:                                      ; preds = %if.then.i.i97, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i98
   %37 = load ptr, ptr %ref.tmp33, align 8, !tbaa !28
-  %38 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp33, i64 0, i32 2
+  %38 = getelementptr inbounds i8, ptr %ref.tmp33, i64 16
   %cmp.i.i.i102 = icmp eq ptr %37, %38
   br i1 %cmp.i.i.i102, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i104, label %ehcleanup44
 
@@ -803,12 +750,12 @@ ehcleanup43.thread:                               ; preds = %invoke.cont35
   %39 = landingpad { ptr, i32 }
           cleanup
   %40 = load ptr, ptr %ref.tmp33, align 8, !tbaa !28
-  %41 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp33, i64 0, i32 2
+  %41 = getelementptr inbounds i8, ptr %ref.tmp33, i64 16
   %cmp.i.i.i102128 = icmp eq ptr %40, %41
   br i1 %cmp.i.i.i102128, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i104.thread, label %ehcleanup44.thread133
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i104.thread: ; preds = %ehcleanup43.thread
-  %_M_string_length.i.i.i105138 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp33, i64 0, i32 1
+  %_M_string_length.i.i.i105138 = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
   %42 = load i64, ptr %_M_string_length.i.i.i105138, align 8, !tbaa !29
   %cmp3.i.i.i106139 = icmp ult i64 %42, 16
   call void @llvm.assume(i1 %cmp3.i.i.i106139)
@@ -823,7 +770,7 @@ ehcleanup44.thread133:                            ; preds = %ehcleanup43.thread
   br label %cleanup.action48
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i104: ; preds = %ehcleanup43
-  %_M_string_length.i.i.i105 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp33, i64 0, i32 1
+  %_M_string_length.i.i.i105 = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
   %43 = load i64, ptr %_M_string_length.i.i.i105, align 8, !tbaa !29
   %cmp3.i.i.i106 = icmp ult i64 %43, 16
   call void @llvm.assume(i1 %cmp3.i.i.i106)
@@ -850,7 +797,7 @@ cleanup.done49:                                   ; preds = %cleanup.action48, %
 if.end50:                                         ; preds = %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
   %44 = load i8, ptr %external_.i94, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i109 = icmp ne i8 %44, 0
-  %family_.i.i110 = getelementptr inbounds %"class.folly::IPAddress", ptr %address, i64 0, i32 1
+  %family_.i.i110 = getelementptr inbounds i8, ptr %address, i64 20
   %45 = load i16, ptr %family_.i.i110, align 4
   %cmp53140 = icmp eq i16 %45, 1
   %cmp53 = select i1 %tobool.not.i109, i1 true, i1 %cmp53140
@@ -869,8 +816,8 @@ lor.lhs.false.if.then57_crit_edge:                ; preds = %lor.lhs.false
 if.then57:                                        ; preds = %lor.lhs.false.if.then57_crit_edge, %if.end50
   %46 = phi i16 [ %.pre141, %lor.lhs.false.if.then57_crit_edge ], [ %45, %if.end50 ]
   %47 = phi i8 [ %.pre, %lor.lhs.false.if.then57_crit_edge ], [ %44, %if.end50 ]
-  %localAddress_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4
-  %external_.i112 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4, i32 2
+  %localAddress_ = getelementptr inbounds i8, ptr %this, i64 208
+  %external_.i112 = getelementptr inbounds i8, ptr %this, i64 234
   %48 = load i8, ptr %external_.i112, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i113 = icmp eq i8 %48, 0
   %tobool.not.i.i = icmp ne i8 %47, 0
@@ -885,9 +832,9 @@ if.then.i116:                                     ; preds = %if.then57
 if.else.i117:                                     ; preds = %if.then.i116
   %call.i.i = call noalias noundef nonnull dereferenceable(110) ptr @_Znwm(i64 noundef 110) #36
   store ptr %call.i.i, ptr %localAddress_, align 16, !tbaa !48
-  %len.i.i = getelementptr inbounds %"struct.folly::SocketAddress::ExternalUnixAddr", ptr %address, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %address, i64 8
   %49 = load i32, ptr %len.i.i, align 8, !tbaa !50
-  %len2.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
+  %len2.i.i = getelementptr inbounds i8, ptr %this, i64 216
   store i32 %49, ptr %len2.i.i, align 8, !tbaa !50
   %50 = load ptr, ptr %address, align 8, !tbaa !48
   %conv.i.i118 = zext i32 %49 to i64
@@ -898,9 +845,9 @@ if.else8.i:                                       ; preds = %if.then57
   br i1 %cmp.not.i, label %if.then12.i, label %if.else15.i
 
 if.then12.i:                                      ; preds = %if.else8.i
-  %len.i37.i = getelementptr inbounds %"struct.folly::SocketAddress::ExternalUnixAddr", ptr %address, i64 0, i32 1
+  %len.i37.i = getelementptr inbounds i8, ptr %address, i64 8
   %51 = load i32, ptr %len.i37.i, align 8, !tbaa !50
-  %len2.i38.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 1
+  %len2.i38.i = getelementptr inbounds i8, ptr %this, i64 216
   store i32 %51, ptr %len2.i38.i, align 8, !tbaa !50
   %52 = load ptr, ptr %localAddress_, align 16, !tbaa !48
   %53 = load ptr, ptr %address, align 8, !tbaa !48
@@ -922,16 +869,16 @@ _ZN5folly13SocketAddress16ExternalUnixAddr4freeEv.exit.i: ; preds = %delete.notn
   br label %_ZN5folly13SocketAddressaSERKS0_.exit
 
 _ZN5folly13SocketAddressaSERKS0_.exit:            ; preds = %_ZN5folly13SocketAddress16ExternalUnixAddr4freeEv.exit.i, %if.then12.i, %if.else.i117, %if.then.i116
-  %port_.i115 = getelementptr inbounds %"class.folly::SocketAddress", ptr %address, i64 0, i32 1
+  %port_.i115 = getelementptr inbounds i8, ptr %address, i64 24
   %55 = load i16, ptr %port_.i115, align 8, !tbaa !34
-  %port_21.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4, i32 1
+  %port_21.i = getelementptr inbounds i8, ptr %this, i64 232
   store i16 %55, ptr %port_21.i, align 8, !tbaa !34
   %56 = load i8, ptr %external_.i94, align 2, !tbaa !16, !range !20, !noundef !21
   store i8 %56, ptr %external_.i112, align 2, !tbaa !16
   br label %if.end63
 
 if.else:                                          ; preds = %lor.lhs.false
-  %localAddress_59 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4
+  %localAddress_59 = getelementptr inbounds i8, ptr %this, i64 208
   %agg.tmp60.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   call void @_ZN5folly13SocketAddress19setFromLocalAddressENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(27) %localAddress_59, i32 %agg.tmp60.sroa.0.0.copyload)
   br label %if.end63
@@ -955,23 +902,23 @@ entry:
   %addrStorage = alloca %struct.sockaddr_storage, align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i32, ptr %fd_, align 16, !tbaa !7
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %external_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %address, i64 0, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %address, i64 26
   %1 = load i8, ptr %external_.i, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i = icmp eq i8 %1, 0
-  %family_.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %address, i64 0, i32 1
+  %family_.i.i = getelementptr inbounds i8, ptr %address, i64 20
   %2 = load i16, ptr %family_.i.i, align 4
   %cond.i = select i1 %tobool.not.i, i16 %2, i16 1
   store i8 1, ptr %agg.tmp, align 8, !tbaa !22
-  %ifName.i = getelementptr inbounds %"struct.folly::AsyncUDPSocket::BindOptions", ptr %agg.tmp, i64 0, i32 1
-  %3 = getelementptr inbounds %"struct.folly::AsyncUDPSocket::BindOptions", ptr %agg.tmp, i64 0, i32 1, i32 2
+  %ifName.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   store ptr %3, ptr %ifName.i, align 8, !tbaa !27
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"struct.folly::AsyncUDPSocket::BindOptions", ptr %agg.tmp, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
   store i8 0, ptr %3, align 8, !tbaa !31
   invoke void @_ZN5folly14AsyncUDPSocket4initEtNS0_11BindOptionsE(ptr noundef nonnull align 16 dereferenceable(768) %this, i16 noundef zeroext %cond.i, ptr noundef nonnull %agg.tmp)
@@ -1011,17 +958,17 @@ if.then.i.i.i43:                                  ; preds = %lpad
 
 if.end:                                           ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrStorage) #30
-  %external_.i48 = getelementptr inbounds %"class.folly::SocketAddress", ptr %address, i64 0, i32 2
+  %external_.i48 = getelementptr inbounds i8, ptr %address, i64 26
   %9 = load i8, ptr %external_.i48, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i49 = icmp eq i8 %9, 0
   br i1 %tobool.not.i49, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %port_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %address, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %address, i64 24
   %10 = load i16, ptr %port_.i, align 8, !tbaa !34
   %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %addrStorage, i8 0, i64 128, i1 false)
-  %family_.i.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %address, i64 0, i32 1
+  %family_.i.i.i = getelementptr inbounds i8, ptr %address, i64 20
   %11 = load i16, ptr %family_.i.i.i, align 4, !tbaa !35
   store i16 %11, ptr %addrStorage, align 8, !tbaa !37
   switch i16 %11, label %if.else16.i.i [
@@ -1031,22 +978,22 @@ if.then.i:                                        ; preds = %if.end
 
 _ZNK5folly9IPAddress4asV4Ev.exit.i.i:             ; preds = %if.then.i
   %retval.sroa.0.0.copyload.i.i.i = load i32, ptr %address, align 8, !tbaa.struct !32
-  %sin_addr.i.i = getelementptr inbounds %struct.sockaddr_in, ptr %addrStorage, i64 0, i32 2
+  %sin_addr.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 4
   store i32 %retval.sroa.0.0.copyload.i.i.i, ptr %sin_addr.i.i, align 4, !tbaa.struct !32
-  %sin_port.i.i = getelementptr inbounds %struct.sockaddr_in, ptr %addrStorage, i64 0, i32 1
+  %sin_port.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 2
   store i16 %rev.i.i, ptr %sin_port.i.i, align 2, !tbaa !39
   br label %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
 
 _ZNK5folly9IPAddress4asV6Ev.exit37.i.i:           ; preds = %if.then.i
-  %sin6_addr.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %addrStorage, i64 0, i32 3
+  %sin6_addr.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 8
   %12 = load <2 x i64>, ptr %address, align 8
   store <2 x i64> %12, ptr %sin6_addr.i.i, align 8
-  %sin6_port.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %addrStorage, i64 0, i32 1
+  %sin6_port.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 2
   store i16 %rev.i.i, ptr %sin6_port.i.i, align 2, !tbaa !42
-  %scope_.i.i.i = getelementptr inbounds %"class.folly::IPAddressV6", ptr %address, i64 0, i32 1
+  %scope_.i.i.i = getelementptr inbounds i8, ptr %address, i64 16
   %13 = load i16, ptr %scope_.i.i.i, align 8, !tbaa !45
   %conv.i.i = zext i16 %13 to i32
-  %sin6_scope_id.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %addrStorage, i64 0, i32 4
+  %sin6_scope_id.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 24
   store i32 %conv.i.i, ptr %sin6_scope_id.i.i, align 8, !tbaa !47
   br label %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
 
@@ -1099,12 +1046,12 @@ lpad16:                                           ; preds = %invoke.cont17, %inv
   %17 = landingpad { ptr, i32 }
           cleanup
   %18 = load ptr, ptr %ref.tmp9, align 8, !tbaa !28
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp9, i64 0, i32 2
+  %19 = getelementptr inbounds i8, ptr %ref.tmp9, i64 16
   %cmp.i.i.i = icmp eq ptr %18, %19
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad16
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp9, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %20 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !29
   %cmp3.i.i.i = icmp ult i64 %20, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1116,7 +1063,7 @@ if.then.i.i:                                      ; preds = %lpad16
 
 ehcleanup:                                        ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   %21 = load ptr, ptr %ref.tmp10, align 8, !tbaa !28
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp10, i64 0, i32 2
+  %22 = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
   %cmp.i.i.i50 = icmp eq ptr %21, %22
   br i1 %cmp.i.i.i50, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i52, label %ehcleanup18
 
@@ -1124,12 +1071,12 @@ ehcleanup.thread:                                 ; preds = %invoke.cont12
   %23 = landingpad { ptr, i32 }
           cleanup
   %24 = load ptr, ptr %ref.tmp10, align 8, !tbaa !28
-  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp10, i64 0, i32 2
+  %25 = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
   %cmp.i.i.i5073 = icmp eq ptr %24, %25
   br i1 %cmp.i.i.i5073, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i52.thread, label %ehcleanup18.thread78
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i52.thread: ; preds = %ehcleanup.thread
-  %_M_string_length.i.i.i5383 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp10, i64 0, i32 1
+  %_M_string_length.i.i.i5383 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   %26 = load i64, ptr %_M_string_length.i.i.i5383, align 8, !tbaa !29
   %cmp3.i.i.i5484 = icmp ult i64 %26, 16
   call void @llvm.assume(i1 %cmp3.i.i.i5484)
@@ -1144,7 +1091,7 @@ ehcleanup18.thread78:                             ; preds = %ehcleanup.thread
   br label %cleanup.action
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i52: ; preds = %ehcleanup
-  %_M_string_length.i.i.i53 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp10, i64 0, i32 1
+  %_M_string_length.i.i.i53 = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   %27 = load i64, ptr %_M_string_length.i.i.i53, align 8, !tbaa !29
   %cmp3.i.i.i54 = icmp ult i64 %27, 16
   call void @llvm.assume(i1 %cmp3.i.i.i54)
@@ -1169,15 +1116,15 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
   br label %eh.resume
 
 if.end21:                                         ; preds = %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
-  %connected_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 9
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 312
   store i8 1, ptr %connected_, align 8, !tbaa !54
-  %connectedAddress_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 8
-  %external_.i56 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 8, i32 2
+  %connectedAddress_ = getelementptr inbounds i8, ptr %this, i64 280
+  %external_.i56 = getelementptr inbounds i8, ptr %this, i64 306
   %28 = load i8, ptr %external_.i56, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i57 = icmp eq i8 %28, 0
   %29 = load i8, ptr %external_.i48, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i.i = icmp ne i8 %29, 0
-  %family_.i.i.i58 = getelementptr inbounds %"class.folly::IPAddress", ptr %address, i64 0, i32 1
+  %family_.i.i.i58 = getelementptr inbounds i8, ptr %address, i64 20
   %30 = load i16, ptr %family_.i.i.i58, align 4
   %cmp.not41.i = icmp eq i16 %30, 1
   %cmp.not.i = select i1 %tobool.not.i.i, i1 true, i1 %cmp.not41.i
@@ -1190,9 +1137,9 @@ if.then.i60:                                      ; preds = %if.end21
 if.else.i61:                                      ; preds = %if.then.i60
   %call.i.i = call noalias noundef nonnull dereferenceable(110) ptr @_Znwm(i64 noundef 110) #36
   store ptr %call.i.i, ptr %connectedAddress_, align 8, !tbaa !48
-  %len.i.i = getelementptr inbounds %"struct.folly::SocketAddress::ExternalUnixAddr", ptr %address, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %address, i64 8
   %31 = load i32, ptr %len.i.i, align 8, !tbaa !50
-  %len2.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1
+  %len2.i.i = getelementptr inbounds i8, ptr %this, i64 288
   store i32 %31, ptr %len2.i.i, align 16, !tbaa !50
   %32 = load ptr, ptr %address, align 8, !tbaa !48
   %conv.i.i62 = zext i32 %31 to i64
@@ -1203,9 +1150,9 @@ if.else8.i:                                       ; preds = %if.end21
   br i1 %cmp.not.i, label %if.then12.i, label %if.else15.i
 
 if.then12.i:                                      ; preds = %if.else8.i
-  %len.i37.i = getelementptr inbounds %"struct.folly::SocketAddress::ExternalUnixAddr", ptr %address, i64 0, i32 1
+  %len.i37.i = getelementptr inbounds i8, ptr %address, i64 8
   %33 = load i32, ptr %len.i37.i, align 8, !tbaa !50
-  %len2.i38.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 8, i32 0, i32 0, i32 1
+  %len2.i38.i = getelementptr inbounds i8, ptr %this, i64 288
   store i32 %33, ptr %len2.i38.i, align 16, !tbaa !50
   %34 = load ptr, ptr %connectedAddress_, align 8, !tbaa !48
   %35 = load ptr, ptr %address, align 8, !tbaa !48
@@ -1227,23 +1174,23 @@ _ZN5folly13SocketAddress16ExternalUnixAddr4freeEv.exit.i: ; preds = %delete.notn
   br label %_ZN5folly13SocketAddressaSERKS0_.exit
 
 _ZN5folly13SocketAddressaSERKS0_.exit:            ; preds = %_ZN5folly13SocketAddress16ExternalUnixAddr4freeEv.exit.i, %if.then12.i, %if.else.i61, %if.then.i60
-  %port_.i59 = getelementptr inbounds %"class.folly::SocketAddress", ptr %address, i64 0, i32 1
+  %port_.i59 = getelementptr inbounds i8, ptr %address, i64 24
   %37 = load i16, ptr %port_.i59, align 8, !tbaa !34
-  %port_21.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 8, i32 1
+  %port_21.i = getelementptr inbounds i8, ptr %this, i64 304
   store i16 %37, ptr %port_21.i, align 16, !tbaa !34
   %38 = load i8, ptr %external_.i48, align 2, !tbaa !16, !range !20, !noundef !21
   store i8 %38, ptr %external_.i56, align 2, !tbaa !16
-  %external_.i.i63 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4, i32 2
+  %external_.i.i63 = getelementptr inbounds i8, ptr %this, i64 234
   %39 = load i8, ptr %external_.i.i63, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i.i64 = icmp ne i8 %39, 0
-  %family_.i.i.i65 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4, i32 0, i32 1, i64 4
+  %family_.i.i.i65 = getelementptr inbounds i8, ptr %this, i64 228
   %40 = load i16, ptr %family_.i.i.i65, align 4
   %cmp2.i = icmp ne i16 %40, 0
   %cmp.i66 = select i1 %tobool.not.i.i64, i1 true, i1 %cmp2.i
   br i1 %cmp.i66, label %if.end29, label %if.then24
 
 if.then24:                                        ; preds = %_ZN5folly13SocketAddressaSERKS0_.exit
-  %localAddress_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4
+  %localAddress_ = getelementptr inbounds i8, ptr %this, i64 208
   %agg.tmp26.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   call void @_ZN5folly13SocketAddress19setFromLocalAddressENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(27) %localAddress_, i32 %agg.tmp26.sroa.0.0.copyload)
   br label %if.end29
@@ -1269,7 +1216,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result) #30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #30
   store i32 -1, ptr %ref.tmp, align 4, !tbaa !7
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i32, ptr %fd_, align 16, !tbaa !7
   %cmp.i.i = icmp eq i32 %0, -1
   br i1 %cmp.i.i, label %_ZN6google12Check_EQImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, label %_ZN6google12Check_EQImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, !prof !91
@@ -1288,10 +1235,10 @@ _ZN6google12Check_EQImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringI
 while.exit:                                       ; preds = %_ZN6google12Check_EQImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %_ZN6google12Check_EQImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result) #30
   store i32 %fd.coerce, ptr %fd_, align 16, !tbaa.struct !32
-  %ownership_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 6
+  %ownership_ = getelementptr inbounds i8, ptr %this, i64 244
   store i32 %ownership, ptr %ownership_, align 4, !tbaa !92
   call void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 %fd.coerce)
-  %localAddress_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4
+  %localAddress_ = getelementptr inbounds i8, ptr %this, i64 208
   %agg.tmp12.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   call void @_ZN5folly13SocketAddress19setFromLocalAddressENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(27) %localAddress_, i32 %agg.tmp12.sroa.0.0.copyload)
   ret void
@@ -1320,7 +1267,7 @@ lpad:                                             ; preds = %invoke.cont, %while
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly14AsyncUDPSocket8setCmsgsERKSt3mapINS_15SocketOptionKeyEiSt4lessIS2_ESaISt4pairIKS2_iEEE(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull align 8 dereferenceable(48) %cmsgs) unnamed_addr #1 align 2 {
 entry:
-  %defaultCmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30
+  %defaultCmsgs_ = getelementptr inbounds i8, ptr %this, i64 528
   %call.i = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EEaSERKSA_(ptr noundef nonnull align 8 dereferenceable(48) %defaultCmsgs_, ptr noundef nonnull align 8 dereferenceable(48) %cmsgs)
   ret void
 }
@@ -1328,7 +1275,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly14AsyncUDPSocket18setNontrivialCmsgsERKSt3mapINS_15SocketOptionKeyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull align 8 dereferenceable(48) %nontrivialCmsgs) unnamed_addr #1 align 2 {
 entry:
-  %nontrivialCmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33
+  %nontrivialCmsgs_ = getelementptr inbounds i8, ptr %this, i64 632
   %call.i = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EEaSERKSG_(ptr noundef nonnull align 8 dereferenceable(48) %nontrivialCmsgs_, ptr noundef nonnull align 8 dereferenceable(48) %nontrivialCmsgs)
   ret void
 }
@@ -1345,9 +1292,9 @@ entry:
   br i1 %cmp.i.not14, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %defaultCmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30, i32 0, i32 0, i32 1
+  %defaultCmsgs_ = getelementptr inbounds i8, ptr %this, i64 528
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 544
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 536
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEEixERS5_.exit, %entry
@@ -1355,8 +1302,8 @@ for.cond.cleanup:                                 ; preds = %_ZNSt3mapIN5folly15
 
 for.body:                                         ; preds = %_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEEixERS5_.exit, %for.body.lr.ph
   %itr.sroa.0.015 = phi ptr [ %0, %for.body.lr.ph ], [ %call.i, %_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEEixERS5_.exit ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %itr.sroa.0.015, i64 0, i32 1
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %itr.sroa.0.015, i64 0, i32 1, i32 0, i64 12
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %itr.sroa.0.015, i64 32
+  %second = getelementptr inbounds i8, ptr %itr.sroa.0.015, i64 44
   %1 = load i32, ptr %second, align 4, !tbaa !94
   %2 = load ptr, ptr %_M_parent.i.i.i.i.i, align 16, !tbaa !98
   %cmp.not9.i.i.i.i = icmp eq ptr %2, null
@@ -1364,25 +1311,24 @@ for.body:                                         ; preds = %_ZNSt3mapIN5folly15
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %for.body
   %3 = load i32, ptr %_M_storage.i.i, align 4, !tbaa !99
-  %optname2.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %itr.sroa.0.015, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %itr.sroa.0.015, i64 36
   %4 = load i32, ptr %optname2.i.i.i.i.i.i, align 4
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %while.body.lr.ph.i.i.i.i
   %__x.addr.011.i.i.i.i = phi ptr [ %2, %while.body.lr.ph.i.i.i.i ], [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ]
   %__y.addr.010.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__x.addr.011.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i, i64 32
   %5 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4, !tbaa !99
   %cmp.i.i.i.i.i.i = icmp eq i32 %5, %3
-  %optname.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__x.addr.011.i.i.i.i, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i, i64 36
   %6 = load i32, ptr %optname.i.i.i.i.i.i, align 4
   %cmp3.i.i.i.i.i.i = icmp slt i32 %6, %4
   %cmp6.i.i.i.i.i.i = icmp slt i32 %5, %3
   %retval.0.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i, i1 %cmp6.i.i.i.i.i.i
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %retval.0.i.i.i.i.i.i, ptr %__y.addr.010.i.i.i.i, ptr %__x.addr.011.i.i.i.i
-  %__x.addr.1.in.i.i.i.i = select i1 %retval.0.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
+  %__x.addr.1.in.i.i.i.i.v = select i1 %retval.0.i.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i, i64 %__x.addr.1.in.i.i.i.i.v
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8, !tbaa !53
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEE11lower_boundERS5_.exit.i, label %while.body.i.i.i.i, !llvm.loop !100
@@ -1392,10 +1338,10 @@ _ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEE11lower_bound
   br i1 %cmp.i.i, label %if.then.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEE11lower_boundERS5_.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %7 = load i32, ptr %_M_storage.i.i.i, align 4, !tbaa !99
   %cmp.i.i.i = icmp eq i32 %3, %7
-  %optname2.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 36
   %8 = load i32, ptr %optname2.i.i.i, align 4
   %cmp3.i.i.i = icmp slt i32 %4, %8
   %cmp6.i.i.i = icmp slt i32 %3, %7
@@ -1414,7 +1360,7 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
 
 _ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEEixERS5_.exit: ; preds = %if.then.i, %lor.rhs.i
   %__i.sroa.0.0.i = phi ptr [ %call12.i, %if.then.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 12
+  %second.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 44
   store i32 %1, ptr %second.i, align 4, !tbaa !33
   %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %itr.sroa.0.015) #37
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
@@ -1433,9 +1379,9 @@ entry:
   br i1 %cmp.i.not15, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %nontrivialCmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1, i32 0, i32 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1
+  %nontrivialCmsgs_ = getelementptr inbounds i8, ptr %this, i64 632
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 648
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 640
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %_ZNSt3mapIN5folly15SocketOptionKeyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEEixERSB_.exit, %entry
@@ -1443,33 +1389,32 @@ for.cond.cleanup:                                 ; preds = %_ZNSt3mapIN5folly15
 
 for.body:                                         ; preds = %_ZNSt3mapIN5folly15SocketOptionKeyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEEixERSB_.exit, %for.body.lr.ph
   %itr.sroa.0.016 = phi ptr [ %0, %for.body.lr.ph ], [ %call.i, %_ZNSt3mapIN5folly15SocketOptionKeyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEEixERSB_.exit ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %itr.sroa.0.016, i64 0, i32 1
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %itr.sroa.0.016, i64 0, i32 1, i32 0, i64 16
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %itr.sroa.0.016, i64 32
+  %second = getelementptr inbounds i8, ptr %itr.sroa.0.016, i64 48
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !98
   %cmp.not9.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not9.i.i.i.i, label %if.then.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %for.body
   %2 = load i32, ptr %_M_storage.i.i, align 4, !tbaa !99
-  %optname2.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %itr.sroa.0.016, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %itr.sroa.0.016, i64 36
   %3 = load i32, ptr %optname2.i.i.i.i.i.i, align 4
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %while.body.lr.ph.i.i.i.i
   %__x.addr.011.i.i.i.i = phi ptr [ %1, %while.body.lr.ph.i.i.i.i ], [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ]
   %__y.addr.010.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.011.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i, i64 32
   %4 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4, !tbaa !99
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %2
-  %optname.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.011.i.i.i.i, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i, i64 36
   %5 = load i32, ptr %optname.i.i.i.i.i.i, align 4
   %cmp3.i.i.i.i.i.i = icmp slt i32 %5, %3
   %cmp6.i.i.i.i.i.i = icmp slt i32 %4, %2
   %retval.0.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i, i1 %cmp6.i.i.i.i.i.i
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i.i, i64 0, i32 3
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.011.i.i.i.i, i64 0, i32 2
   %__y.addr.1.i.i.i.i = select i1 %retval.0.i.i.i.i.i.i, ptr %__y.addr.010.i.i.i.i, ptr %__x.addr.011.i.i.i.i
-  %__x.addr.1.in.i.i.i.i = select i1 %retval.0.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i, ptr %_M_left.i.i.i.i.i
+  %__x.addr.1.in.i.i.i.i.v = select i1 %retval.0.i.i.i.i.i.i, i64 24, i64 16
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.011.i.i.i.i, i64 %__x.addr.1.in.i.i.i.i.v
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8, !tbaa !53
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt3mapIN5folly15SocketOptionKeyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i, label %while.body.i.i.i.i, !llvm.loop !103
@@ -1479,10 +1424,10 @@ _ZNSt3mapIN5folly15SocketOptionKeyENSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %cmp.i.i, label %if.then.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNSt3mapIN5folly15SocketOptionKeyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEE11lower_boundERSB_.exit.i
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %6 = load i32, ptr %_M_storage.i.i.i, align 4, !tbaa !99
   %cmp.i.i.i = icmp eq i32 %2, %6
-  %optname2.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__y.addr.1.i.i.i.i, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 36
   %7 = load i32, ptr %optname2.i.i.i, align 4
   %cmp3.i.i.i = icmp slt i32 %3, %7
   %cmp6.i.i.i = icmp slt i32 %2, %6
@@ -1501,7 +1446,7 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
 
 _ZNSt3mapIN5folly15SocketOptionKeyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEEixERSB_.exit: ; preds = %if.then.i, %lor.rhs.i
   %__i.sroa.0.0.i = phi ptr [ %call12.i, %if.then.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ]
-  %second.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__i.sroa.0.0.i, i64 0, i32 1, i32 0, i64 16
+  %second.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i, ptr noundef nonnull align 8 dereferenceable(32) %second)
   %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %itr.sroa.0.016) #37
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
@@ -1511,8 +1456,8 @@ _ZNSt3mapIN5folly15SocketOptionKeyENSt7__cxx1112basic_stringIcSt11char_traitsIcE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly14AsyncUDPSocket22setAdditionalCmsgsFuncEONS_8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS4_ESaISt4pairIKS4_iEEEEEvEEE(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull align 16 dereferenceable(64) %additionalCmsgsFunc) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %additionalCmsgsFunc_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 35
-  %exec_.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 35, i32 2
+  %additionalCmsgsFunc_ = getelementptr inbounds i8, ptr %this, i64 688
+  %exec_.i.i = getelementptr inbounds i8, ptr %this, i64 744
   %0 = load ptr, ptr %exec_.i.i, align 8, !tbaa !105
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNK5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt4pairIKS3_iEEEEEvEE4execENS_6detail8function2OpEPNSF_4DataESI_.exit.i, label %if.end.i.i
@@ -1526,7 +1471,7 @@ _ZNK5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt
   br i1 %cmp.not.i, label %_ZN5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt4pairIKS3_iEEEEEvEEaSEOSD_.exit, label %if.then.i, !prof !12
 
 if.then.i:                                        ; preds = %_ZNK5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt4pairIKS3_iEEEEEvEE4execENS_6detail8function2OpEPNSF_4DataESI_.exit.i
-  %exec_.i15.i = getelementptr inbounds %"class.folly::Function.32", ptr %additionalCmsgsFunc, i64 0, i32 2
+  %exec_.i15.i = getelementptr inbounds i8, ptr %additionalCmsgsFunc, i64 56
   %1 = load ptr, ptr %exec_.i15.i, align 8, !tbaa !105
   %tobool.not.i16.i = icmp eq ptr %1, null
   br i1 %tobool.not.i16.i, label %_ZNK5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt4pairIKS3_iEEEEEvEE4execENS_6detail8function2OpEPNSF_4DataESI_.exit20.i, label %if.end.i17.i
@@ -1539,19 +1484,19 @@ if.end.i17.i:                                     ; preds = %if.then.i
 _ZNK5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt4pairIKS3_iEEEEEvEE4execENS_6detail8function2OpEPNSF_4DataESI_.exit20.i: ; preds = %if.end.i17.i, %if.then.i
   %2 = phi ptr [ null, %if.then.i ], [ %.pre.i, %if.end.i17.i ]
   store ptr %2, ptr %exec_.i.i, align 8, !tbaa !105
-  %call_.i = getelementptr inbounds %"class.folly::Function.32", ptr %additionalCmsgsFunc, i64 0, i32 1
+  %call_.i = getelementptr inbounds i8, ptr %additionalCmsgsFunc, i64 48
   %3 = load ptr, ptr %call_.i, align 16, !tbaa !106
-  %call_6.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 35, i32 1
+  %call_6.i = getelementptr inbounds i8, ptr %this, i64 736
   store ptr %3, ptr %call_6.i, align 16, !tbaa !106
   br label %_ZN5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt4pairIKS3_iEEEEEvEEaSEOSD_.exit
 
 _ZN5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt4pairIKS3_iEEEEEvEEaSEOSD_.exit: ; preds = %_ZNK5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt4pairIKS3_iEEEEEvEE4execENS_6detail8function2OpEPNSF_4DataESI_.exit20.i, %_ZNK5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt4pairIKS3_iEEEEEvEE4execENS_6detail8function2OpEPNSF_4DataESI_.exit.i
-  %exec_7.i = getelementptr inbounds %"class.folly::Function.32", ptr %additionalCmsgsFunc, i64 0, i32 2
+  %exec_7.i = getelementptr inbounds i8, ptr %additionalCmsgsFunc, i64 56
   store ptr null, ptr %exec_7.i, align 8, !tbaa !105
-  %call_8.i = getelementptr inbounds %"class.folly::Function.32", ptr %additionalCmsgsFunc, i64 0, i32 1
+  %call_8.i = getelementptr inbounds i8, ptr %additionalCmsgsFunc, i64 48
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS5_ESaISt4pairIKS5_iEEEEEvEE10uninitCallERNS1_4DataE, ptr %call_8.i, align 16, !tbaa !106
-  %dynamicCmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1, i32 0, i32 1
+  %dynamicCmsgs_ = getelementptr inbounds i8, ptr %this, i64 576
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 592
   %4 = load ptr, ptr %_M_parent.i.i.i.i, align 16, !tbaa !98
   invoke void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %dynamicCmsgs_, ptr noundef %4)
           to label %_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEE5clearEv.exit unwind label %terminate.lpad.i.i
@@ -1564,13 +1509,13 @@ terminate.lpad.i.i:                               ; preds = %_ZN5folly8FunctionI
   unreachable
 
 _ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEE5clearEv.exit: ; preds = %_ZN5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt4pairIKS3_iEEEEEvEEaSEOSD_.exit
-  %add.ptr.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 584
   store ptr null, ptr %_M_parent.i.i.i.i, align 16, !tbaa !98
-  %_M_left.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %this, i64 600
   store ptr %add.ptr.i.i, ptr %_M_left.i.i.i, align 8, !tbaa !93
-  %_M_right.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %this, i64 608
   store ptr %add.ptr.i.i, ptr %_M_right.i.i.i, align 16, !tbaa !107
-  %_M_node_count.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 616
   store i64 0, ptr %_M_node_count.i.i.i, align 8, !tbaa !108
   ret void
 }
@@ -1579,7 +1524,7 @@ _ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEE5clearEv.exit
 define noundef i64 @_ZN5folly14AsyncUDPSocket5writeERKNS_13SocketAddressERKSt10unique_ptrINS_5IOBufESt14default_deleteIS5_EE(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull align 8 dereferenceable(27) %address, ptr noundef nonnull align 8 dereferenceable(8) %buf) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull align 8 dereferenceable(27) %address, ptr noundef nonnull align 8 dereferenceable(8) %buf, i64 0, i64 0)
   ret i64 %call
@@ -1589,7 +1534,7 @@ entry:
 define noundef i32 @_ZN5folly14AsyncUDPSocket6writemENS_5RangeIPKNS_13SocketAddressEEEPKSt10unique_ptrINS_5IOBufESt14default_deleteIS7_EEm(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr %addrs.coerce0, ptr %addrs.coerce1, ptr noundef %bufs, i64 noundef %count) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr %addrs.coerce0, ptr %addrs.coerce1, ptr noundef %bufs, i64 noundef %count, ptr noundef null)
   ret i32 %call
@@ -1610,18 +1555,18 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %buf, align 8, !tbaa !53
   %call4 = call { ptr, ptr } @_ZN5folly5IOBuf8coalesceEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
   %3 = load ptr, ptr %buf, align 8, !tbaa !53
-  %data_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %3, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data_.i, align 8, !tbaa !111
   store ptr %4, ptr %vec, align 16, !tbaa !113
   %5 = load i64, ptr %3, align 8, !tbaa !115
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %vec, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %vec, i64 8
   store i64 %5, ptr %iov_len, align 8, !tbaa !116
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %iovec_len.0 = phi i64 [ 1, %if.then ], [ %1, %entry ]
   %vtable = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %6 = load ptr, ptr %vfn, align 8
   %call11 = call noundef i64 %6(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull align 8 dereferenceable(27) %address, ptr noundef nonnull %vec, i64 noundef %iovec_len.0, i64 %options.coerce0, i64 %options.coerce1)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %vec) #30
@@ -1639,13 +1584,13 @@ entry:
   %addrStorage = alloca %struct.sockaddr_storage, align 8
   %msg = alloca %struct.msghdr, align 8
   %control = alloca [48 x i8], align 16
-  %control.sroa.gep217 = getelementptr inbounds %struct.cmsghdr, ptr %control, i64 0, i32 3
-  %control.sroa.gep214 = getelementptr inbounds %struct.cmsghdr, ptr %control, i64 0, i32 2
-  %control.sroa.gep = getelementptr inbounds %struct.cmsghdr, ptr %control, i64 0, i32 1
+  %control.sroa.gep217 = getelementptr inbounds i8, ptr %control, i64 16
+  %control.sroa.gep214 = getelementptr inbounds i8, ptr %control, i64 12
+  %control.sroa.gep = getelementptr inbounds i8, ptr %control, i64 8
   %ts = alloca %struct.timespec, align 8
   %ref.tmp122 = alloca %"class.google::LogMessage", align 8
   %options.sroa.0.0.extract.trunc = trunc i64 %options.coerce0 to i32
-  %_M_node_count.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 672
   %0 = load i64, ptr %_M_node_count.i.i, align 16, !tbaa !108
   %cmp.i.i = icmp eq i64 %0, 0
   br i1 %cmp.i.i, label %cleanup.done15, label %cond.false, !prof !91
@@ -1680,13 +1625,13 @@ cleanup.done15:                                   ; preds = %entry
   br i1 %tobool19.not, label %cond.end23, label %cond.true20
 
 cond.true20:                                      ; preds = %cleanup.done15
-  %zeroCopyEnabled_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 23
+  %zeroCopyEnabled_.i = getelementptr inbounds i8, ptr %this, i64 376
   %3 = load i8, ptr %zeroCopyEnabled_.i, align 8, !tbaa !117, !range !20, !noundef !21
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %if.then.i, label %cond.end23
 
 if.then.i:                                        ; preds = %cond.true20
-  %zeroCopyReenableCounter_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 26
+  %zeroCopyReenableCounter_.i = getelementptr inbounds i8, ptr %this, i64 392
   %4 = load i64, ptr %zeroCopyReenableCounter_.i, align 8, !tbaa !118
   %tobool2.not.i = icmp eq i64 %4, 0
   br i1 %tobool2.not.i, label %cond.end23, label %if.then3.i
@@ -1715,11 +1660,11 @@ if.then:                                          ; preds = %cond.end23
   %7 = load ptr, ptr %buf, align 8, !tbaa !53
   %call31 = call { ptr, ptr } @_ZN5folly5IOBuf8coalesceEv(ptr noundef nonnull align 8 dereferenceable(56) %7)
   %8 = load ptr, ptr %buf, align 8, !tbaa !53
-  %data_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %8, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %data_.i, align 8, !tbaa !111
   store ptr %9, ptr %vec, align 16, !tbaa !113
   %10 = load i64, ptr %8, align 8, !tbaa !115
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %vec, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %vec, i64 8
   store i64 %10, ptr %iov_len, align 8, !tbaa !116
   br label %while.cond
 
@@ -1728,7 +1673,7 @@ while.cond:                                       ; preds = %if.then, %cond.end2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result) #30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp37) #30
   store i32 -1, ptr %ref.tmp37, align 4, !tbaa !7
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %11 = load i32, ptr %fd_, align 16, !tbaa !7
   %cmp.i.i.not.i = icmp eq i32 %11, -1
   br i1 %cmp.i.i.not.i, label %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, label %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, !prof !12
@@ -1747,17 +1692,17 @@ _ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringI
 while.exit:                                       ; preds = %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result) #30
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrStorage) #30
-  %external_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %address, i64 0, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %address, i64 26
   %12 = load i8, ptr %external_.i, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i177 = icmp eq i8 %12, 0
   br i1 %tobool.not.i177, label %if.then.i180, label %if.else.i178
 
 if.then.i180:                                     ; preds = %while.exit
-  %port_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %address, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %address, i64 24
   %13 = load i16, ptr %port_.i, align 8, !tbaa !34
   %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %addrStorage, i8 0, i64 128, i1 false)
-  %family_.i.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %address, i64 0, i32 1
+  %family_.i.i.i = getelementptr inbounds i8, ptr %address, i64 20
   %14 = load i16, ptr %family_.i.i.i, align 4, !tbaa !35
   store i16 %14, ptr %addrStorage, align 8, !tbaa !37
   switch i16 %14, label %if.else16.i.i [
@@ -1767,22 +1712,22 @@ if.then.i180:                                     ; preds = %while.exit
 
 _ZNK5folly9IPAddress4asV4Ev.exit.i.i:             ; preds = %if.then.i180
   %retval.sroa.0.0.copyload.i.i.i = load i32, ptr %address, align 8, !tbaa.struct !32
-  %sin_addr.i.i = getelementptr inbounds %struct.sockaddr_in, ptr %addrStorage, i64 0, i32 2
+  %sin_addr.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 4
   store i32 %retval.sroa.0.0.copyload.i.i.i, ptr %sin_addr.i.i, align 4, !tbaa.struct !32
-  %sin_port.i.i = getelementptr inbounds %struct.sockaddr_in, ptr %addrStorage, i64 0, i32 1
+  %sin_port.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 2
   store i16 %rev.i.i, ptr %sin_port.i.i, align 2, !tbaa !39
   br label %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
 
 _ZNK5folly9IPAddress4asV6Ev.exit37.i.i:           ; preds = %if.then.i180
-  %sin6_addr.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %addrStorage, i64 0, i32 3
+  %sin6_addr.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 8
   %15 = load <2 x i64>, ptr %address, align 8
   store <2 x i64> %15, ptr %sin6_addr.i.i, align 8
-  %sin6_port.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %addrStorage, i64 0, i32 1
+  %sin6_port.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 2
   store i16 %rev.i.i, ptr %sin6_port.i.i, align 2, !tbaa !42
-  %scope_.i.i.i = getelementptr inbounds %"class.folly::IPAddressV6", ptr %address, i64 0, i32 1
+  %scope_.i.i.i = getelementptr inbounds i8, ptr %address, i64 16
   %16 = load i16, ptr %scope_.i.i.i, align 8, !tbaa !45
   %conv.i.i = zext i16 %16 to i32
-  %sin6_scope_id.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %addrStorage, i64 0, i32 4
+  %sin6_scope_id.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 24
   store i32 %conv.i.i, ptr %sin6_scope_id.i.i, align 8, !tbaa !47
   br label %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
 
@@ -1797,7 +1742,7 @@ if.else.i178:                                     ; preds = %while.exit
 
 _ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit: ; preds = %if.else.i178, %_ZNK5folly9IPAddress4asV6Ev.exit37.i.i, %_ZNK5folly9IPAddress4asV4Ev.exit.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %msg) #30
-  %connected_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 9
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 312
   %18 = load i8, ptr %connected_, align 8, !tbaa !54, !range !20, !noundef !21
   %tobool49.not = icmp eq i8 %18, 0
   br i1 %tobool49.not, label %if.then50, label %if.else
@@ -1828,7 +1773,7 @@ if.then50:                                        ; preds = %_ZNK5folly13SocketA
   br label %if.end58
 
 if.else:                                          ; preds = %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
-  %connectedAddress_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 8
+  %connectedAddress_ = getelementptr inbounds i8, ptr %this, i64 280
   %call.i = call noundef zeroext i1 @_ZNK5folly13SocketAddresseqERKS0_(ptr noundef nonnull align 8 dereferenceable(27) %connectedAddress_, ptr noundef nonnull align 8 dereferenceable(27) %address)
   br i1 %call.i, label %if.end55, label %if.then53
 
@@ -1843,14 +1788,14 @@ if.end55:                                         ; preds = %if.else
 
 if.end58:                                         ; preds = %if.end55, %if.then50
   %.sink = phi i32 [ 0, %if.end55 ], [ %call51, %if.then50 ]
-  %msg_namelen57 = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 1
+  %msg_namelen57 = getelementptr inbounds i8, ptr %msg, i64 8
   store i32 %.sink, ptr %msg_namelen57, align 8, !tbaa !121
-  %msg_iov = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 2
+  %msg_iov = getelementptr inbounds i8, ptr %msg, i64 16
   store ptr %vec, ptr %msg_iov, align 8, !tbaa !122
-  %msg_iovlen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 3
+  %msg_iovlen = getelementptr inbounds i8, ptr %msg, i64 24
   store i64 %iovec_len.0, ptr %msg_iovlen, align 8, !tbaa !123
-  %msg_control = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 4
-  %msg_controllen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 5
+  %msg_control = getelementptr inbounds i8, ptr %msg, i64 32
+  %msg_controllen = getelementptr inbounds i8, ptr %msg, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %msg_controllen, i8 0, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %control) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %control, i8 0, i64 48, i1 false)
@@ -1874,8 +1819,8 @@ if.end76:                                         ; preds = %if.then64, %if.end5
   br i1 %cmp78, label %land.lhs.true, label %if.end112
 
 land.lhs.true:                                    ; preds = %if.end76
-  %txTime_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 20
-  %hasValue.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 20, i32 0, i32 1
+  %txTime_ = getelementptr inbounds i8, ptr %this, i64 348
+  %hasValue.i = getelementptr inbounds i8, ptr %this, i64 356
   %20 = load i8, ptr %hasValue.i, align 4, !tbaa !126, !range !20, !noundef !21
   %tobool.i = icmp ne i8 %20, 0
   %21 = load i32, ptr %txTime_, align 4
@@ -1895,7 +1840,7 @@ if.then87:                                        ; preds = %if.then84
   %sub.i = add i64 %22, 7
   %and.i = and i64 %sub.i, -8
   %add.ptr.i = getelementptr inbounds i8, ptr %cm.0, i64 %and.i
-  %add.ptr2.i = getelementptr inbounds %struct.cmsghdr, ptr %add.ptr.i, i64 1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %add.ptr3.i = getelementptr inbounds i8, ptr %control, i64 %add
   %cmp4.i = icmp ule ptr %add.ptr2.i, %add.ptr3.i
   call void @llvm.assume(i1 %cmp4.i)
@@ -1906,9 +1851,9 @@ if.then87:                                        ; preds = %if.then84
   %cmp13.i = icmp ugt ptr %add.ptr9.i, %add.ptr3.i
   %spec.select.i = select i1 %cmp13.i, ptr null, ptr %add.ptr.i
   %spec.select.i.sroa.sel = select i1 %cmp13.i, ptr inttoptr (i64 16 to ptr), ptr %add.ptr2.i
-  %add.ptr.i.sroa.gep1 = getelementptr inbounds %struct.cmsghdr, ptr %add.ptr.i, i64 0, i32 2
+  %add.ptr.i.sroa.gep1 = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
   %spec.select.i.sroa.sel2 = select i1 %cmp13.i, ptr inttoptr (i64 12 to ptr), ptr %add.ptr.i.sroa.gep1
-  %add.ptr.i.sroa.gep3 = getelementptr inbounds %struct.cmsghdr, ptr %add.ptr.i, i64 0, i32 1
+  %add.ptr.i.sroa.gep3 = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %spec.select.i.sroa.sel4 = select i1 %cmp13.i, ptr inttoptr (i64 8 to ptr), ptr %add.ptr.i.sroa.gep3
   br label %_ZNR5folly8OptionalINS_14AsyncUDPSocket6TXTimeEE5valueEv.exit186
 
@@ -1925,7 +1870,7 @@ _ZNR5folly8OptionalINS_14AsyncUDPSocket6TXTimeEE5valueEv.exit186: ; preds = %if.
   %call104 = call i32 @clock_gettime(i32 noundef %24, ptr noundef nonnull %ts) #30
   %25 = load i64, ptr %ts, align 8, !tbaa !129
   %mul = mul i64 %25, 1000000000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   %26 = load i64, ptr %tv_nsec, align 8, !tbaa !131
   %mul.i.i.i = mul nsw i64 %options.coerce1, 1000
   %add105 = add i64 %26, %mul.i.i.i
@@ -1937,7 +1882,7 @@ _ZNR5folly8OptionalINS_14AsyncUDPSocket6TXTimeEE5valueEv.exit186: ; preds = %if.
 if.end112:                                        ; preds = %_ZNR5folly8OptionalINS_14AsyncUDPSocket6TXTimeEE5valueEv.exit186, %land.lhs.true, %if.end76
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %vtable = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 44
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 352
   %27 = load ptr, ptr %vfn, align 8
   %call114 = call noundef i64 %27(ptr noundef nonnull align 16 dereferenceable(768) %this, i32 %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull %msg, i32 noundef %cond)
   br i1 %tobool115.not, label %if.end137, label %if.then116
@@ -1965,15 +1910,15 @@ invoke.cont124:                                   ; preds = %if.then121
 invoke.cont126:                                   ; preds = %invoke.cont124
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp122) #30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp122) #30
-  %zeroCopyEnabled_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 23
+  %zeroCopyEnabled_ = getelementptr inbounds i8, ptr %this, i64 376
   store i8 0, ptr %zeroCopyEnabled_, align 8, !tbaa !117
-  %zeroCopyReenableThreshold_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 25
+  %zeroCopyReenableThreshold_ = getelementptr inbounds i8, ptr %this, i64 384
   %29 = load i64, ptr %zeroCopyReenableThreshold_, align 16, !tbaa !132
-  %zeroCopyReenableCounter_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 26
+  %zeroCopyReenableCounter_ = getelementptr inbounds i8, ptr %this, i64 392
   store i64 %29, ptr %zeroCopyReenableCounter_, align 8, !tbaa !118
   %agg.tmp128.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %vtable131 = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn132 = getelementptr inbounds ptr, ptr %vtable131, i64 44
+  %vfn132 = getelementptr inbounds i8, ptr %vtable131, i64 352
   %30 = load ptr, ptr %vfn132, align 8
   %call133 = call noundef i64 %30(ptr noundef nonnull align 16 dereferenceable(768) %this, i32 %agg.tmp128.sroa.0.0.copyload, ptr noundef nonnull %msg, i32 noundef 0)
   br label %if.end137
@@ -1995,7 +1940,7 @@ if.else135:                                       ; preds = %if.then116
 
 if.end137:                                        ; preds = %if.else135, %invoke.cont126, %if.then118, %if.end112
   %ret.0 = phi i64 [ %call133, %invoke.cont126 ], [ %call114, %if.then118 ], [ %call114, %if.else135 ], [ %call114, %if.end112 ]
-  %exec_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 29, i32 2
+  %exec_.i = getelementptr inbounds i8, ptr %this, i64 520
   %32 = load ptr, ptr %exec_.i, align 8, !tbaa !133
   %cmp.i192 = icmp ne ptr %32, null
   %33 = load ptr, ptr %buf, align 8
@@ -2004,8 +1949,8 @@ if.end137:                                        ; preds = %if.else135, %invoke
   br i1 %or.cond201, label %if.then141, label %if.end143
 
 if.then141:                                       ; preds = %if.end137
-  %ioBufFreeFunc_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 29
-  %call_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 29, i32 1
+  %ioBufFreeFunc_ = getelementptr inbounds i8, ptr %this, i64 464
+  %call_.i = getelementptr inbounds i8, ptr %this, i64 512
   %34 = load ptr, ptr %call_.i, align 16, !tbaa !134
   call void %34(ptr noundef nonnull align 8 dereferenceable(8) %buf, ptr noundef nonnull align 16 dereferenceable(48) %ioBufFreeFunc_)
   br label %if.end143
@@ -2026,13 +1971,13 @@ cleanup:                                          ; preds = %if.end143, %if.then
 define noundef i32 @_ZN5folly14AsyncUDPSocket9writemGSOENS_5RangeIPKNS_13SocketAddressEEEPKSt10unique_ptrINS_5IOBufESt14default_deleteIS7_EEmPKNS0_12WriteOptionsE(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr %addrs.coerce0, ptr %addrs.coerce1, ptr noundef %bufs, i64 noundef %count, ptr noundef %options) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN5folly14AsyncUDPSocket23maybeUpdateDynamicCmsgsEv(ptr noundef nonnull align 16 dereferenceable(768) %this) #30
-  %cmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 32
+  %cmsgs_ = getelementptr inbounds i8, ptr %this, i64 624
   %0 = load ptr, ptr %cmsgs_, align 16, !tbaa !135
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %_M_node_count.i.i, align 8, !tbaa !108
   %add = add i64 %1, 1
   %mul2 = mul i64 %add, %count
-  %_M_node_count.i.i53 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i53 = getelementptr inbounds i8, ptr %this, i64 672
   %2 = load i64, ptr %_M_node_count.i.i53, align 16, !tbaa !108
   %cmp.i.i = icmp eq i64 %2, 0
   %cmp = icmp ult i64 %mul2, 41
@@ -2046,7 +1991,7 @@ if.then:                                          ; preds = %entry
   %vla5 = alloca i8, i64 %mul4, align 16
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %vla5, i8 0, i64 %mul4, i1 false)
   %vtable = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 46
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 368
   %4 = load ptr, ptr %vfn, align 8
   %call6 = call noundef i32 %4(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr %addrs.coerce0, ptr %addrs.coerce1, ptr noundef %bufs, i64 noundef %count, ptr noundef nonnull %vla, ptr noundef %options, ptr noundef nonnull %vla5)
   call void @llvm.stackrestore.p0(ptr %3)
@@ -2058,9 +2003,9 @@ if.else:                                          ; preds = %entry
   %7 = select i1 %5, i64 -1, i64 %6
   %call7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #36
   %mul8 = mul i64 %mul2, 24
-  %_M_left.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 656
   %8 = load ptr, ptr %_M_left.i.i, align 16, !tbaa !93
-  %add.ptr.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 640
   %cmp.i.not68 = icmp eq ptr %8, %add.ptr.i.i
   br i1 %cmp.i.not68, label %for.cond.cleanup, label %for.body
 
@@ -2072,7 +2017,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %if.else
 for.body:                                         ; preds = %if.else, %for.body
   %controlBufSize.070 = phi i64 [ %add18, %for.body ], [ %mul8, %if.else ]
   %__begin2.sroa.0.069 = phi ptr [ %call.i, %for.body ], [ %8, %if.else ]
-  %_M_string_length.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin2.sroa.0.069, i64 0, i32 1, i32 0, i64 24
+  %_M_string_length.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.069, i64 56
   %9 = load i64, ptr %_M_string_length.i, align 8, !tbaa !29
   %sub = add i64 %9, 7
   %and = and i64 %sub, -8
@@ -2085,7 +2030,7 @@ for.body:                                         ; preds = %if.else, %for.body
 invoke.cont:                                      ; preds = %for.cond.cleanup
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call20, i8 0, i64 %controlBufSize.0.lcssa, i1 false)
   %vtable25 = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn26 = getelementptr inbounds ptr, ptr %vtable25, i64 46
+  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 368
   %10 = load ptr, ptr %vfn26, align 8
   %call29 = invoke noundef i32 %10(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr %addrs.coerce0, ptr %addrs.coerce1, ptr noundef %bufs, i64 noundef %count, ptr noundef nonnull %call7, ptr noundef %options, ptr noundef nonnull %call20)
           to label %_ZNSt10unique_ptrIA_7mmsghdrSt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit57
@@ -2128,7 +2073,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result) #30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #30
   store i32 -1, ptr %ref.tmp, align 4, !tbaa !7
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i32, ptr %fd_, align 16, !tbaa !7
   %cmp.i.i.not.i = icmp eq i32 %0, -1
   br i1 %cmp.i.i.not.i, label %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, label %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, !prof !12
@@ -2148,17 +2093,17 @@ while.exit:                                       ; preds = %_ZN6google12Check_N
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %_result) #30
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %msg) #30
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %addrStorage) #30
-  %external_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %address, i64 0, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %address, i64 26
   %1 = load i8, ptr %external_.i, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i86
 
 if.then.i:                                        ; preds = %while.exit
-  %port_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %address, i64 0, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %address, i64 24
   %2 = load i16, ptr %port_.i, align 8, !tbaa !34
   %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %addrStorage, i8 0, i64 128, i1 false)
-  %family_.i.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %address, i64 0, i32 1
+  %family_.i.i.i = getelementptr inbounds i8, ptr %address, i64 20
   %3 = load i16, ptr %family_.i.i.i, align 4, !tbaa !35
   store i16 %3, ptr %addrStorage, align 8, !tbaa !37
   switch i16 %3, label %if.else16.i.i [
@@ -2168,22 +2113,22 @@ if.then.i:                                        ; preds = %while.exit
 
 _ZNK5folly9IPAddress4asV4Ev.exit.i.i:             ; preds = %if.then.i
   %retval.sroa.0.0.copyload.i.i.i = load i32, ptr %address, align 8, !tbaa.struct !32
-  %sin_addr.i.i = getelementptr inbounds %struct.sockaddr_in, ptr %addrStorage, i64 0, i32 2
+  %sin_addr.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 4
   store i32 %retval.sroa.0.0.copyload.i.i.i, ptr %sin_addr.i.i, align 4, !tbaa.struct !32
-  %sin_port.i.i = getelementptr inbounds %struct.sockaddr_in, ptr %addrStorage, i64 0, i32 1
+  %sin_port.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 2
   store i16 %rev.i.i, ptr %sin_port.i.i, align 2, !tbaa !39
   br label %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
 
 _ZNK5folly9IPAddress4asV6Ev.exit37.i.i:           ; preds = %if.then.i
-  %sin6_addr.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %addrStorage, i64 0, i32 3
+  %sin6_addr.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 8
   %4 = load <2 x i64>, ptr %address, align 8
   store <2 x i64> %4, ptr %sin6_addr.i.i, align 8
-  %sin6_port.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %addrStorage, i64 0, i32 1
+  %sin6_port.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 2
   store i16 %rev.i.i, ptr %sin6_port.i.i, align 2, !tbaa !42
-  %scope_.i.i.i = getelementptr inbounds %"class.folly::IPAddressV6", ptr %address, i64 0, i32 1
+  %scope_.i.i.i = getelementptr inbounds i8, ptr %address, i64 16
   %5 = load i16, ptr %scope_.i.i.i, align 8, !tbaa !45
   %conv.i.i = zext i16 %5 to i32
-  %sin6_scope_id.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %addrStorage, i64 0, i32 4
+  %sin6_scope_id.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 24
   store i32 %conv.i.i, ptr %sin6_scope_id.i.i, align 8, !tbaa !47
   br label %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
 
@@ -2197,7 +2142,7 @@ if.else.i86:                                      ; preds = %while.exit
   br label %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
 
 _ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit: ; preds = %if.else.i86, %_ZNK5folly9IPAddress4asV6Ev.exit37.i.i, %_ZNK5folly9IPAddress4asV4Ev.exit.i.i
-  %connected_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 9
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 312
   %7 = load i8, ptr %connected_, align 8, !tbaa !54, !range !20, !noundef !21
   %tobool.not = icmp eq i8 %7, 0
   br i1 %tobool.not, label %if.then, label %if.else
@@ -2229,7 +2174,7 @@ if.then:                                          ; preds = %_ZNK5folly13SocketA
   br label %if.end14
 
 if.else:                                          ; preds = %_ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit
-  %connectedAddress_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 8
+  %connectedAddress_ = getelementptr inbounds i8, ptr %this, i64 280
   %call.i = call noundef zeroext i1 @_ZNK5folly13SocketAddresseqERKS0_(ptr noundef nonnull align 8 dereferenceable(27) %connectedAddress_, ptr noundef nonnull align 8 dereferenceable(27) %address)
   br i1 %call.i, label %if.end, label %if.then12
 
@@ -2250,12 +2195,12 @@ if.end14:                                         ; preds = %if.end, %if.then
   call void @_ZN5folly14AsyncUDPSocket23maybeUpdateDynamicCmsgsEv(ptr noundef nonnull align 16 dereferenceable(768) %this) #30
   %cmp = icmp sgt i32 %options.sroa.0.0.extract.trunc, 0
   %conv15 = zext i1 %cmp to i64
-  %cmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 32
+  %cmsgs_ = getelementptr inbounds i8, ptr %this, i64 624
   %9 = load ptr, ptr %cmsgs_, align 16, !tbaa !135
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %9, i64 40
   %10 = load i64, ptr %_M_node_count.i.i, align 8, !tbaa !108
   %add = add i64 %10, %conv15
-  %_M_node_count.i.i88 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i88 = getelementptr inbounds i8, ptr %this, i64 672
   %11 = load i64, ptr %_M_node_count.i.i88, align 16, !tbaa !108
   %cmp.i.i = icmp eq i64 %11, 0
   %cmp18 = icmp ult i64 %add, 6
@@ -2268,7 +2213,7 @@ if.then19:                                        ; preds = %if.end14
 
 if.then21:                                        ; preds = %if.then19
   %vtable = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 47
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 376
   %12 = load ptr, ptr %vfn, align 8
   %call22 = call noundef i64 %12(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull %msg, i64 %options.coerce0, i64 %options.coerce1)
   br label %cleanup53
@@ -2280,7 +2225,7 @@ if.end23:                                         ; preds = %if.then19
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %vla, i8 0, i64 %mul24, i1 false)
   call void @_ZN5folly6netops9Msgheader10setCmsgPtrEPc(ptr noundef nonnull align 8 dereferenceable(56) %msg, ptr noundef nonnull %vla)
   %vtable26 = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 47
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 376
   %14 = load ptr, ptr %vfn27, align 8
   %call28 = call noundef i64 %14(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull %msg, i64 %options.coerce0, i64 %options.coerce1)
   call void @llvm.stackrestore.p0(ptr %13)
@@ -2288,9 +2233,9 @@ if.end23:                                         ; preds = %if.then19
 
 if.else29:                                        ; preds = %if.end14
   %mul30 = mul i64 %add, 24
-  %_M_left.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 656
   %15 = load ptr, ptr %_M_left.i.i, align 16, !tbaa !93
-  %add.ptr.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 640
   %cmp.i89.not101 = icmp eq ptr %15, %add.ptr.i.i
   br i1 %cmp.i89.not101, label %for.cond.cleanup, label %for.body
 
@@ -2304,7 +2249,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %if.else2
 for.body:                                         ; preds = %if.else29, %for.body
   %controlBufSize.0103 = phi i64 [ %add40, %for.body ], [ %mul30, %if.else29 ]
   %__begin2.sroa.0.0102 = phi ptr [ %call.i90, %for.body ], [ %15, %if.else29 ]
-  %_M_string_length.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin2.sroa.0.0102, i64 0, i32 1, i32 0, i64 24
+  %_M_string_length.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0102, i64 56
   %16 = load i64, ptr %_M_string_length.i, align 8, !tbaa !29
   %sub = add i64 %16, 7
   %and = and i64 %sub, -8
@@ -2316,7 +2261,7 @@ for.body:                                         ; preds = %if.else29, %for.bod
 
 invoke.cont46:                                    ; preds = %for.cond.cleanup
   %vtable48 = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn49 = getelementptr inbounds ptr, ptr %vtable48, i64 47
+  %vfn49 = getelementptr inbounds i8, ptr %vtable48, i64 376
   %17 = load ptr, ptr %vfn49, align 8
   %call51 = invoke noundef i64 %17(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull %msg, i64 %options.coerce0, i64 %options.coerce1)
           to label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit93
@@ -2344,7 +2289,7 @@ cleanup53:                                        ; preds = %_ZNSt10unique_ptrIA
 define noundef i64 @_ZN5folly14AsyncUDPSocket6writevERKNS_13SocketAddressEPK5iovecm(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull align 8 dereferenceable(27) %address, ptr noundef %vec, i64 noundef %iovec_len) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull align 8 dereferenceable(27) %address, ptr noundef %vec, i64 noundef %iovec_len, i64 0, i64 0)
   ret i64 %call
@@ -2353,7 +2298,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN5folly14AsyncUDPSocket7recvmsgEP6msghdri(ptr nocapture noundef nonnull readonly align 16 dereferenceable(768) %this, ptr noundef %msg, i32 noundef %flags) unnamed_addr #1 align 2 {
 entry:
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call = tail call noundef i64 @_ZN5folly6netops7recvmsgENS_13NetworkSocketEP6msghdri(i32 %agg.tmp.sroa.0.0.copyload, ptr noundef %msg, i32 noundef %flags)
   ret i64 %call
@@ -2362,7 +2307,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5folly14AsyncUDPSocket8recvmmsgEP7mmsghdrjjP8timespec(ptr nocapture noundef nonnull readonly align 16 dereferenceable(768) %this, ptr noundef %msgvec, i32 noundef %vlen, i32 noundef %flags, ptr noundef %timeout) unnamed_addr #1 align 2 {
 entry:
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call = tail call noundef i32 @_ZN5folly6netops8recvmmsgENS_13NetworkSocketEP7mmsghdrjjP8timespec(i32 %agg.tmp.sroa.0.0.copyload, ptr noundef %msgvec, i32 noundef %vlen, i32 noundef %flags, ptr noundef %timeout)
   ret i32 %call
@@ -2382,7 +2327,7 @@ entry:
   %ref.tmp24 = alloca %"class.google::LogMessageFatal", align 8
   %ex = alloca %"class.folly::AsyncSocketException", align 8
   %ref.tmp33 = alloca %"class.std::__cxx11::basic_string", align 8
-  %readCallback_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 2
+  %readCallback_ = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %readCallback_, align 16, !tbaa !136
   %tobool.not.not = icmp eq ptr %0, null
   br i1 %tobool.not.not, label %cleanup.done15, label %cond.false, !prof !91
@@ -2415,7 +2360,7 @@ cleanup.done15:                                   ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result) #30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp19) #30
   store i32 -1, ptr %ref.tmp19, align 4, !tbaa !7
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load i32, ptr %fd_, align 16, !tbaa !7
   %cmp.i.i.not.i = icmp eq i32 %2, -1
   br i1 %cmp.i.i.not.i, label %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, label %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, !prof !12
@@ -2501,7 +2446,7 @@ lpad25:                                           ; preds = %invoke.cont26, %whi
 if.then:                                          ; preds = %_ZN5folly14AsyncUDPSocket18updateRegistrationEv.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ex) #30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp33) #30
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp33, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %ref.tmp33, i64 16
   store ptr %7, ptr %ref.tmp33, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #30
   store i64 36, ptr %__dnew.i.i, align 8, !tbaa !30
@@ -2513,7 +2458,7 @@ call2.i11.i.noexc:                                ; preds = %if.then
   %8 = load i64, ptr %__dnew.i.i, align 8, !tbaa !30
   store i64 %8, ptr %7, align 8, !tbaa !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %call2.i11.i52, ptr noundef nonnull align 1 dereferenceable(36) @.str.54, i64 36, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp33, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp33, i64 8
   store i64 %8, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call2.i11.i52, i64 %8
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !31
@@ -2528,12 +2473,12 @@ call2.i11.i.noexc:                                ; preds = %if.then
 
 invoke.cont.i54:                                  ; preds = %.noexc
   %9 = load ptr, ptr %ref.tmp.i53, align 8, !tbaa !28
-  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i53, i64 0, i32 2
+  %10 = getelementptr inbounds i8, ptr %ref.tmp.i53, i64 16
   %cmp.i.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %invoke.cont.i54
-  %_M_string_length.i.i.i.i55 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i53, i64 0, i32 1
+  %_M_string_length.i.i.i.i55 = getelementptr inbounds i8, ptr %ref.tmp.i53, i64 8
   %11 = load i64, ptr %_M_string_length.i.i.i.i55, align 8, !tbaa !29
   %cmp3.i.i.i.i = icmp ult i64 %11, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -2547,12 +2492,12 @@ lpad.i:                                           ; preds = %.noexc
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = load ptr, ptr %ref.tmp.i53, align 8, !tbaa !28
-  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i53, i64 0, i32 2
+  %14 = getelementptr inbounds i8, ptr %ref.tmp.i53, i64 16
   %cmp.i.i.i5.i = icmp eq ptr %13, %14
   br i1 %cmp.i.i.i5.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i, label %if.then.i.i6.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i: ; preds = %lpad.i
-  %_M_string_length.i.i.i8.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i53, i64 0, i32 1
+  %_M_string_length.i.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp.i53, i64 8
   %15 = load i64, ptr %_M_string_length.i.i.i8.i, align 8, !tbaa !29
   %cmp3.i.i.i9.i = icmp ult i64 %15, 16
   call void @llvm.assume(i1 %cmp3.i.i.i9.i)
@@ -2569,9 +2514,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 invoke.cont38:                                    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i53) #30
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8, !tbaa !109
-  %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex, i64 0, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %ex, i64 16
   store i32 1, ptr %type_.i, align 8, !tbaa !137
-  %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex, i64 0, i32 2
+  %errno_.i = getelementptr inbounds i8, ptr %ex, i64 20
   store i32 0, ptr %errno_.i, align 4, !tbaa !143
   %16 = load ptr, ptr %ref.tmp33, align 8, !tbaa !28
   %cmp.i.i.i = icmp eq ptr %16, %7
@@ -2591,7 +2536,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp33) #30
   store ptr null, ptr %readCallback_, align 16, !tbaa !136
   %vtable = load ptr, ptr %cob, align 8, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %18 = load ptr, ptr %vfn, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %cob, ptr noundef nonnull align 8 dereferenceable(24) %ex) #30
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ex) #30
@@ -2637,7 +2582,7 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly14AsyncUDPSocket9pauseReadEv(ptr noundef nonnull align 16 dereferenceable(768) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %readCallback_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 2
+  %readCallback_ = getelementptr inbounds i8, ptr %this, i64 192
   store ptr null, ptr %readCallback_, align 16, !tbaa !136
   %call.i7.i = invoke noundef zeroext i1 @_ZN5folly12EventHandler12registerImplEtb(ptr noundef nonnull align 8 dereferenceable(184) %this, i16 noundef zeroext 16, i1 noundef zeroext false)
           to label %_ZN5folly14AsyncUDPSocket18updateRegistrationEv.exit unwind label %terminate.lpad.i
@@ -2656,7 +2601,7 @@ _ZN5folly14AsyncUDPSocket18updateRegistrationEv.exit: ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly14AsyncUDPSocket5closeEv(ptr noundef nonnull align 16 dereferenceable(768) %this) unnamed_addr #1 align 2 {
 entry:
-  %readCallback_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 2
+  %readCallback_ = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %readCallback_, align 16, !tbaa !136
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2664,17 +2609,17 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr null, ptr %readCallback_, align 16, !tbaa !136
   %vtable = load ptr, ptr %0, align 8, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   tail call void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load i32, ptr %fd_, align 16
   %cmp.i.i = icmp ne i32 %2, -1
-  %ownership_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 6
+  %ownership_ = getelementptr inbounds i8, ptr %this, i64 244
   %3 = load i32, ptr %ownership_, align 4
   %cmp = icmp eq i32 %3, 0
   %or.cond = select i1 %cmp.i.i, i1 %cmp, i1 false
@@ -2698,7 +2643,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %_result) #30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp) #30
   store i32 -1, ptr %ref.tmp, align 4, !tbaa !7
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i32, ptr %fd_, align 16
   %cmp.i.i.not.i = icmp eq i32 %0, -1
   br i1 %cmp.i.i.not.i, label %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, label %_ZN6google12Check_NEImplIN5folly13NetworkSocketES2_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, !prof !12
@@ -2748,7 +2693,7 @@ lpad:                                             ; preds = %invoke.cont, %while
 define linkonce_odr void @_ZN5folly14AsyncUDPSocket11setFreeBindEb(ptr noundef nonnull align 16 dereferenceable(768) %this, i1 noundef zeroext %freeBind) unnamed_addr #0 comdat align 2 {
 entry:
   %frombool = zext i1 %freeBind to i8
-  %freeBind_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 12
+  %freeBind_ = getelementptr inbounds i8, ptr %this, i64 315
   store i8 %frombool, ptr %freeBind_, align 1, !tbaa !144
   ret void
 }
@@ -2757,7 +2702,7 @@ entry:
 define linkonce_odr void @_ZN5folly14AsyncUDPSocket14setTransparentEb(ptr noundef nonnull align 16 dereferenceable(768) %this, i1 noundef zeroext %transparent) unnamed_addr #0 comdat align 2 {
 entry:
   %frombool = zext i1 %transparent to i8
-  %transparent_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 13
+  %transparent_ = getelementptr inbounds i8, ptr %this, i64 316
   store i8 %frombool, ptr %transparent_, align 4, !tbaa !145
   ret void
 }
@@ -2766,7 +2711,7 @@ entry:
 define linkonce_odr void @_ZN5folly14AsyncUDPSocket10setRecvTosEb(ptr noundef nonnull align 16 dereferenceable(768) %this, i1 noundef zeroext %recvTos) unnamed_addr #0 comdat align 2 {
 entry:
   %frombool = zext i1 %recvTos to i8
-  %recvTos_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 14
+  %recvTos_ = getelementptr inbounds i8, ptr %this, i64 317
   store i8 %frombool, ptr %recvTos_, align 1, !tbaa !146
   ret void
 }
@@ -2775,7 +2720,7 @@ entry:
 define linkonce_odr void @_ZN5folly14AsyncUDPSocket12setReusePortEb(ptr noundef nonnull align 16 dereferenceable(768) %this, i1 noundef zeroext %reusePort) unnamed_addr #0 comdat align 2 {
 entry:
   %frombool = zext i1 %reusePort to i8
-  %reusePort_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 11
+  %reusePort_ = getelementptr inbounds i8, ptr %this, i64 314
   store i8 %frombool, ptr %reusePort_, align 2, !tbaa !147
   ret void
 }
@@ -2784,7 +2729,7 @@ entry:
 define linkonce_odr void @_ZN5folly14AsyncUDPSocket12setReuseAddrEb(ptr noundef nonnull align 16 dereferenceable(768) %this, i1 noundef zeroext %reuseAddr) unnamed_addr #0 comdat align 2 {
 entry:
   %frombool = zext i1 %reuseAddr to i8
-  %reuseAddr_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 10
+  %reuseAddr_ = getelementptr inbounds i8, ptr %this, i64 313
   store i8 %frombool, ptr %reuseAddr_, align 1, !tbaa !148
   ret void
 }
@@ -2792,7 +2737,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly14AsyncUDPSocket9setRcvBufEi(ptr noundef nonnull align 16 dereferenceable(768) %this, i32 noundef %rcvBuf) unnamed_addr #0 comdat align 2 {
 entry:
-  %rcvBuf_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 15
+  %rcvBuf_ = getelementptr inbounds i8, ptr %this, i64 320
   store i32 %rcvBuf, ptr %rcvBuf_, align 16, !tbaa !149
   ret void
 }
@@ -2800,7 +2745,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly14AsyncUDPSocket9setSndBufEi(ptr noundef nonnull align 16 dereferenceable(768) %this, i32 noundef %sndBuf) unnamed_addr #0 comdat align 2 {
 entry:
-  %sndBuf_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 16
+  %sndBuf_ = getelementptr inbounds i8, ptr %this, i64 324
   store i32 %sndBuf, ptr %sndBuf_, align 4, !tbaa !150
   ret void
 }
@@ -2808,7 +2753,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly14AsyncUDPSocket11setBusyPollEi(ptr noundef nonnull align 16 dereferenceable(768) %this, i32 noundef %busyPollUs) unnamed_addr #0 comdat align 2 {
 entry:
-  %busyPollUs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 17
+  %busyPollUs_ = getelementptr inbounds i8, ptr %this, i64 328
   store i32 %busyPollUs, ptr %busyPollUs_, align 8, !tbaa !151
   ret void
 }
@@ -2828,20 +2773,20 @@ entry:
   store i32 %cond5, ptr %optval4, align 4, !tbaa !33
   store i32 %cond5, ptr %optval6, align 4, !tbaa !33
   %vtable = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(27) ptr %0(ptr noundef nonnull align 16 dereferenceable(768) %this)
-  %external_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %call, i64 0, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %call, i64 26
   %1 = load i8, ptr %external_.i, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i = icmp eq i8 %1, 0
-  %family_.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %call, i64 0, i32 1
+  %family_.i.i = getelementptr inbounds i8, ptr %call, i64 20
   %2 = load i16, ptr %family_.i.i, align 4
   %cmp90 = icmp eq i16 %2, 2
   %cmp = select i1 %tobool.not.i, i1 %cmp90, i1 false
   br i1 %cmp, label %if.then, label %land.lhs.true26
 
 if.then:                                          ; preds = %entry
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call12 = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 0, i32 noundef 10, ptr noundef nonnull %optval4, i32 noundef 4)
   %tobool13.not = icmp eq i32 %call12, 0
@@ -2876,12 +2821,12 @@ lpad17:                                           ; preds = %invoke.cont18, %inv
   %5 = landingpad { ptr, i32 }
           cleanup
   %6 = load ptr, ptr %ref.tmp, align 8, !tbaa !28
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad17
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %8 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !29
   %cmp3.i.i.i = icmp ult i64 %8, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -2897,20 +2842,20 @@ ehcleanup:                                        ; preds = %lpad17
 
 land.lhs.true26:                                  ; preds = %if.then, %entry
   %vtable27 = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 3
+  %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 24
   %9 = load ptr, ptr %vfn28, align 8
   %call29 = call noundef nonnull align 8 dereferenceable(27) ptr %9(ptr noundef nonnull align 16 dereferenceable(768) %this)
-  %external_.i74 = getelementptr inbounds %"class.folly::SocketAddress", ptr %call29, i64 0, i32 2
+  %external_.i74 = getelementptr inbounds i8, ptr %call29, i64 26
   %10 = load i8, ptr %external_.i74, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i75 = icmp eq i8 %10, 0
-  %family_.i.i76 = getelementptr inbounds %"class.folly::IPAddress", ptr %call29, i64 0, i32 1
+  %family_.i.i76 = getelementptr inbounds i8, ptr %call29, i64 20
   %11 = load i16, ptr %family_.i.i76, align 4
   %cmp3291 = icmp eq i16 %11, 10
   %cmp32 = select i1 %tobool.not.i75, i1 %cmp3291, i1 false
   br i1 %cmp32, label %if.then33, label %if.end58
 
 if.then33:                                        ; preds = %land.lhs.true26
-  %fd_35 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_35 = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp34.sroa.0.0.copyload = load i32, ptr %fd_35, align 16, !tbaa.struct !32
   %call37 = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %agg.tmp34.sroa.0.0.copyload, i32 noundef 41, i32 noundef 23, ptr noundef nonnull %optval6, i32 noundef 4)
   %tobool38.not = icmp eq i32 %call37, 0
@@ -2945,12 +2890,12 @@ lpad46:                                           ; preds = %invoke.cont47, %inv
   %14 = landingpad { ptr, i32 }
           cleanup
   %15 = load ptr, ptr %ref.tmp41, align 8, !tbaa !28
-  %16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp41, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %ref.tmp41, i64 16
   %cmp.i.i.i78 = icmp eq ptr %15, %16
   br i1 %cmp.i.i.i78, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i80, label %ehcleanup50
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i80: ; preds = %lpad46
-  %_M_string_length.i.i.i81 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp41, i64 0, i32 1
+  %_M_string_length.i.i.i81 = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
   %17 = load i64, ptr %_M_string_length.i.i.i81, align 8, !tbaa !29
   %cmp3.i.i.i82 = icmp ult i64 %17, 16
   call void @llvm.assume(i1 %cmp3.i.i.i82)
@@ -2999,20 +2944,20 @@ entry:
   store i32 3, ptr %optval4, align 4, !tbaa !33
   store i32 3, ptr %optval6, align 4, !tbaa !33
   %vtable = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(27) ptr %0(ptr noundef nonnull align 16 dereferenceable(768) %this)
-  %external_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %call, i64 0, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %call, i64 26
   %1 = load i8, ptr %external_.i, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i = icmp eq i8 %1, 0
-  %family_.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %call, i64 0, i32 1
+  %family_.i.i = getelementptr inbounds i8, ptr %call, i64 20
   %2 = load i16, ptr %family_.i.i, align 4
   %cmp80 = icmp eq i16 %2, 2
   %cmp = select i1 %tobool.not.i, i1 %cmp80, i1 false
   br i1 %cmp, label %if.then, label %land.lhs.true19
 
 if.then:                                          ; preds = %entry
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call5 = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 0, i32 noundef 10, ptr noundef nonnull %optval4, i32 noundef 4)
   %tobool6.not = icmp eq i32 %call5, 0
@@ -3047,12 +2992,12 @@ lpad10:                                           ; preds = %invoke.cont11, %inv
   %5 = landingpad { ptr, i32 }
           cleanup
   %6 = load ptr, ptr %ref.tmp, align 8, !tbaa !28
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad10
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %8 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !29
   %cmp3.i.i.i = icmp ult i64 %8, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -3068,20 +3013,20 @@ ehcleanup:                                        ; preds = %lpad10
 
 land.lhs.true19:                                  ; preds = %if.then, %entry
   %vtable20 = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 3
+  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 24
   %9 = load ptr, ptr %vfn21, align 8
   %call22 = call noundef nonnull align 8 dereferenceable(27) ptr %9(ptr noundef nonnull align 16 dereferenceable(768) %this)
-  %external_.i64 = getelementptr inbounds %"class.folly::SocketAddress", ptr %call22, i64 0, i32 2
+  %external_.i64 = getelementptr inbounds i8, ptr %call22, i64 26
   %10 = load i8, ptr %external_.i64, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i65 = icmp eq i8 %10, 0
-  %family_.i.i66 = getelementptr inbounds %"class.folly::IPAddress", ptr %call22, i64 0, i32 1
+  %family_.i.i66 = getelementptr inbounds i8, ptr %call22, i64 20
   %11 = load i16, ptr %family_.i.i66, align 4
   %cmp2581 = icmp eq i16 %11, 10
   %cmp25 = select i1 %tobool.not.i65, i1 %cmp2581, i1 false
   br i1 %cmp25, label %if.then26, label %if.end51
 
 if.then26:                                        ; preds = %land.lhs.true19
-  %fd_28 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_28 = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp27.sroa.0.0.copyload = load i32, ptr %fd_28, align 16, !tbaa.struct !32
   %call30 = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %agg.tmp27.sroa.0.0.copyload, i32 noundef 41, i32 noundef 23, ptr noundef nonnull %optval6, i32 noundef 4)
   %tobool31.not = icmp eq i32 %call30, 0
@@ -3116,12 +3061,12 @@ lpad39:                                           ; preds = %invoke.cont40, %inv
   %14 = landingpad { ptr, i32 }
           cleanup
   %15 = load ptr, ptr %ref.tmp34, align 8, !tbaa !28
-  %16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp34, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %ref.tmp34, i64 16
   %cmp.i.i.i68 = icmp eq ptr %15, %16
   br i1 %cmp.i.i.i68, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i70, label %ehcleanup43
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i70: ; preds = %lpad39
-  %_M_string_length.i.i.i71 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp34, i64 0, i32 1
+  %_M_string_length.i.i.i71 = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
   %17 = load i64, ptr %_M_string_length.i.i.i71, align 8, !tbaa !29
   %cmp3.i.i.i72 = icmp ult i64 %17, 16
   call void @llvm.assume(i1 %cmp3.i.i.i72)
@@ -3164,27 +3109,27 @@ entry:
   %ref.tmp9 = alloca %"class.std::allocator", align 1
   %ref.tmp32 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp33 = alloca %"class.std::allocator", align 1
-  %errMessageCallback_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 22
+  %errMessageCallback_ = getelementptr inbounds i8, ptr %this, i64 368
   store ptr %errMessageCallback, ptr %errMessageCallback_, align 16, !tbaa !152
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %err) #30
   %cmp = icmp ne ptr %errMessageCallback, null
   %conv = zext i1 %cmp to i32
   store i32 %conv, ptr %err, align 4, !tbaa !33
   %vtable = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(27) ptr %0(ptr noundef nonnull align 16 dereferenceable(768) %this)
-  %external_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %call, i64 0, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %call, i64 26
   %1 = load i8, ptr %external_.i, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i = icmp eq i8 %1, 0
-  %family_.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %call, i64 0, i32 1
+  %family_.i.i = getelementptr inbounds i8, ptr %call, i64 20
   %2 = load i16, ptr %family_.i.i, align 4
   %cmp575 = icmp eq i16 %2, 2
   %cmp5 = select i1 %tobool.not.i, i1 %cmp575, i1 false
   br i1 %cmp5, label %land.lhs.true6, label %land.lhs.true17
 
 land.lhs.true6:                                   ; preds = %entry
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call7 = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 0, i32 noundef 11, ptr noundef nonnull %err, i32 noundef 4)
   %tobool8.not = icmp eq i32 %call7, 0
@@ -3219,12 +3164,12 @@ lpad11:                                           ; preds = %invoke.cont12, %inv
   %5 = landingpad { ptr, i32 }
           cleanup
   %6 = load ptr, ptr %ref.tmp, align 8, !tbaa !28
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad11
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %8 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !29
   %cmp3.i.i.i = icmp ult i64 %8, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -3240,20 +3185,20 @@ ehcleanup:                                        ; preds = %lpad11
 
 land.lhs.true17:                                  ; preds = %land.lhs.true6, %entry
   %vtable18 = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 3
+  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 24
   %9 = load ptr, ptr %vfn19, align 8
   %call20 = call noundef nonnull align 8 dereferenceable(27) ptr %9(ptr noundef nonnull align 16 dereferenceable(768) %this)
-  %external_.i59 = getelementptr inbounds %"class.folly::SocketAddress", ptr %call20, i64 0, i32 2
+  %external_.i59 = getelementptr inbounds i8, ptr %call20, i64 26
   %10 = load i8, ptr %external_.i59, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i60 = icmp eq i8 %10, 0
-  %family_.i.i61 = getelementptr inbounds %"class.folly::IPAddress", ptr %call20, i64 0, i32 1
+  %family_.i.i61 = getelementptr inbounds i8, ptr %call20, i64 20
   %11 = load i16, ptr %family_.i.i61, align 4
   %cmp2376 = icmp eq i16 %11, 10
   %cmp23 = select i1 %tobool.not.i60, i1 %cmp2376, i1 false
   br i1 %cmp23, label %land.lhs.true24, label %if.end48
 
 land.lhs.true24:                                  ; preds = %land.lhs.true17
-  %fd_26 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_26 = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp25.sroa.0.0.copyload = load i32, ptr %fd_26, align 16, !tbaa.struct !32
   %call28 = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %agg.tmp25.sroa.0.0.copyload, i32 noundef 41, i32 noundef 25, ptr noundef nonnull %err, i32 noundef 4)
   %tobool29.not = icmp eq i32 %call28, 0
@@ -3288,12 +3233,12 @@ lpad37:                                           ; preds = %invoke.cont38, %inv
   %14 = landingpad { ptr, i32 }
           cleanup
   %15 = load ptr, ptr %ref.tmp32, align 8, !tbaa !28
-  %16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp32, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %ref.tmp32, i64 16
   %cmp.i.i.i63 = icmp eq ptr %15, %16
   br i1 %cmp.i.i.i63, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65, label %ehcleanup41
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65: ; preds = %lpad37
-  %_M_string_length.i.i.i66 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp32, i64 0, i32 1
+  %_M_string_length.i.i.i66 = getelementptr inbounds i8, ptr %ref.tmp32, i64 8
   %17 = load i64, ptr %_M_string_length.i.i.i66, align 8, !tbaa !29
   %cmp3.i.i.i67 = icmp ult i64 %17, 16
   call void @llvm.assume(i1 %cmp3.i.i.i67)
@@ -3329,7 +3274,7 @@ unreachable:                                      ; preds = %invoke.cont38, %inv
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK5folly14AsyncUDPSocket7isBoundEv(ptr noundef nonnull align 16 dereferenceable(768) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i32, ptr %fd_, align 16, !tbaa !7
   %cmp.i.i = icmp ne i32 %0, -1
   ret i1 %cmp.i.i
@@ -3338,7 +3283,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK5folly14AsyncUDPSocket9isReadingEv(ptr noundef nonnull align 16 dereferenceable(768) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %readCallback_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 2
+  %readCallback_ = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %readCallback_, align 16, !tbaa !136
   %cmp = icmp ne ptr %0, null
   ret i1 %cmp
@@ -3348,7 +3293,7 @@ entry:
 define void @_ZN5folly14AsyncUDPSocket15detachEventBaseEv(ptr noundef nonnull align 16 dereferenceable(768) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef zeroext i1 @_ZN5folly12EventHandler12registerImplEtb(ptr noundef nonnull align 8 dereferenceable(184) %this, i16 noundef zeroext 0, i1 noundef zeroext false)
-  %eventBase_19 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 3
+  %eventBase_19 = getelementptr inbounds i8, ptr %this, i64 200
   store ptr null, ptr %eventBase_19, align 8, !tbaa !153
   tail call void @_ZN5folly12EventHandler15detachEventBaseEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
   ret void
@@ -3357,10 +3302,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly14AsyncUDPSocket15attachEventBaseEPNS_9EventBaseE(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef %evb) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %eventBase_50 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 3
+  %eventBase_50 = getelementptr inbounds i8, ptr %this, i64 200
   store ptr %evb, ptr %eventBase_50, align 8, !tbaa !153
   tail call void @_ZN5folly12EventHandler15attachEventBaseEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %evb)
-  %readCallback_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 2
+  %readCallback_.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %readCallback_.i, align 16, !tbaa !136
   %tobool.not.i = icmp eq ptr %0, null
   %spec.select.i = select i1 %tobool.not.i, i16 16, i16 18
@@ -3383,8 +3328,8 @@ define noundef i32 @_ZN5folly14AsyncUDPSocket6getGSOEv(ptr nocapture noundef non
 entry:
   %gso = alloca i32, align 4
   %optlen = alloca i32, align 4
-  %gso_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 18
-  %hasValue.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 18, i32 0, i32 1
+  %gso_ = getelementptr inbounds i8, ptr %this, i64 332
+  %hasValue.i = getelementptr inbounds i8, ptr %this, i64 336
   %0 = load i8, ptr %hasValue.i, align 16, !tbaa !154, !range !20, !noundef !21
   %tobool.i.not = icmp eq i8 %0, 0
   br i1 %tobool.i.not, label %if.then, label %entry._ZNR5folly8OptionalIiE5valueEv.exit_crit_edge, !prof !12
@@ -3398,7 +3343,7 @@ if.then:                                          ; preds = %entry
   store i32 -1, ptr %gso, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %optlen) #30
   store i32 4, ptr %optlen, align 4, !tbaa !33
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call2 = call noundef i32 @_ZN5folly6netops10getsockoptENS_13NetworkSocketEiiPvPj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 17, i32 noundef 103, ptr noundef nonnull %gso, ptr noundef nonnull %optlen)
   %tobool3.not = icmp eq i32 %call2, 0
@@ -3435,7 +3380,7 @@ define void @_ZN5folly14AsyncUDPSocket12applyOptionsERKSt3mapINS_15SocketOptionK
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call = tail call noundef i32 @_ZN5folly18applySocketOptionsENS_13NetworkSocketERKSt3mapINS_15SocketOptionKeyENS_17SocketOptionValueESt4lessIS2_ESaISt4pairIKS2_S3_EEENS2_8ApplyPosE(i32 %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(48) %options, i32 noundef %pos)
   %cmp.not = icmp eq i32 %call, 0
@@ -3468,12 +3413,12 @@ lpad3:                                            ; preds = %invoke.cont4, %invo
   %1 = landingpad { ptr, i32 }
           cleanup
   %2 = load ptr, ptr %ref.tmp, align 8, !tbaa !28
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad3
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %4 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !29
   %cmp3.i.i.i = icmp ult i64 %4, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -3506,8 +3451,8 @@ unreachable:                                      ; preds = %invoke.cont4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly14AsyncUDPSocket27setOverrideNetOpsDispatcherESt10shared_ptrINS_6netops10DispatcherEE(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr noundef %dispatcher) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %netops_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 36
-  %_M_refcount3.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 36, i32 0, i32 0, i32 1
+  %netops_ = getelementptr inbounds i8, ptr %this, i64 752
+  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 760
   %0 = load <2 x ptr>, ptr %dispatcher, align 8, !tbaa !53
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dispatcher, i8 0, i64 16, i1 false)
   %1 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8, !tbaa !155
@@ -3516,7 +3461,7 @@ entry:
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt12__shared_ptrIN5folly6netops10DispatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -3524,14 +3469,14 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !156
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !158
   %vtable.i.i.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !109
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %1) #30
   %vtable3.i.i.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !109
-  %vfn4.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i.i.i, i64 3
+  %vfn4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i.i.i, i64 24
   %5 = load ptr, ptr %vfn4.i.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1) #30
   br label %_ZNSt12__shared_ptrIN5folly6netops10DispatcherELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -3566,19 +3511,19 @@ _ZNSt12__shared_ptrIN5folly6netops10DispatcherELN9__gnu_cxx12_Lock_policyE2EED2E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK5folly14AsyncUDPSocket27getOverrideNetOpsDispatcherEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(768) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %netops_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 36
+  %netops_ = getelementptr inbounds i8, ptr %this, i64 752
   tail call void @llvm.experimental.noalias.scope.decl(metadata !159)
   %0 = load ptr, ptr %netops_, align 16, !tbaa !162, !noalias !159
   store ptr %0, ptr %agg.result, align 8, !tbaa !162, !alias.scope !159
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 36, i32 0, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 760
   %1 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !tbaa !155, !noalias !159
   store ptr %1, ptr %_M_refcount.i.i.i, align 8, !tbaa !155, !alias.scope !159
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK5folly6netops19DispatcherContainer11getOverrideEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31, !noalias !159
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -3600,7 +3545,7 @@ _ZNK5folly6netops19DispatcherContainer11getOverrideEv.exit: ; preds = %if.else.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZN5folly14AsyncUDPSocket7sendmsgENS_13NetworkSocketEPK6msghdri(ptr noundef nonnull align 16 dereferenceable(768) %this, i32 %socket.coerce, ptr noundef %message, i32 noundef %flags) unnamed_addr #1 comdat align 2 {
 entry:
-  %netops_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 36
+  %netops_ = getelementptr inbounds i8, ptr %this, i64 752
   %0 = load ptr, ptr %netops_, align 16, !tbaa !162
   %cmp.i.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i.i, label %cond.false.i.i, label %_ZNK5folly6netops19DispatcherContainerptEv.exit
@@ -3612,7 +3557,7 @@ cond.false.i.i:                                   ; preds = %entry
 _ZNK5folly6netops19DispatcherContainerptEv.exit:  ; preds = %cond.false.i.i, %entry
   %cond.i.i = phi ptr [ %call4.i.i, %cond.false.i.i ], [ %0, %entry ]
   %vtable = load ptr, ptr %cond.i.i, align 8, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %cond.i.i, i32 %socket.coerce, ptr noundef %message, i32 noundef %flags)
   ret i64 %call3
@@ -3621,7 +3566,7 @@ _ZNK5folly6netops19DispatcherContainerptEv.exit:  ; preds = %cond.false.i.i, %en
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN5folly14AsyncUDPSocket8sendmmsgENS_13NetworkSocketEP7mmsghdrji(ptr noundef nonnull align 16 dereferenceable(768) %this, i32 %socket.coerce, ptr noundef %msgvec, i32 noundef %vlen, i32 noundef %flags) unnamed_addr #1 comdat align 2 {
 entry:
-  %netops_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 36
+  %netops_ = getelementptr inbounds i8, ptr %this, i64 752
   %0 = load ptr, ptr %netops_, align 16, !tbaa !162
   %cmp.i.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.not.i.i, label %cond.false.i.i, label %_ZNK5folly6netops19DispatcherContainerptEv.exit
@@ -3633,7 +3578,7 @@ cond.false.i.i:                                   ; preds = %entry
 _ZNK5folly6netops19DispatcherContainerptEv.exit:  ; preds = %cond.false.i.i, %entry
   %cond.i.i = phi ptr [ %call4.i.i, %cond.false.i.i ], [ %0, %entry ]
   %vtable = load ptr, ptr %cond.i.i, align 8, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %cond.i.i, i32 %socket.coerce, ptr noundef %msgvec, i32 noundef %vlen, i32 noundef %flags)
   ret i32 %call3
@@ -3650,7 +3595,7 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %addrStorage) #30
-  %u.i = getelementptr inbounds %"class.folly::small_vector", ptr %addrStorage, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %addrStorage, i64 8
   %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %addrStorage, i8 0, i64 16, i1 false)
   br i1 %cmp.not.i.i.i, label %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE8makeSizeEm.exit.thread.i.i, label %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvE8makeSizeEm.exit.i.i
@@ -3720,7 +3665,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 if.end.i.i:                                       ; preds = %if.then.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %add.ptr.i, i8 0, i64 128, i1 false)
-  %family_.i.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %arrayidx.i, i64 0, i32 1
+  %family_.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
   %7 = load i16, ptr %family_.i.i.i, align 4, !tbaa !35
   store i16 %7, ptr %add.ptr.i, align 8, !tbaa !37
   switch i16 %7, label %if.else16.i.i [
@@ -3730,17 +3675,17 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 _ZNK5folly9IPAddress4asV4Ev.exit.i.i:             ; preds = %if.end.i.i
   %retval.sroa.0.0.copyload.i.i.i = load i32, ptr %arrayidx.i, align 4, !tbaa.struct !32
-  %sin_addr.i.i = getelementptr inbounds %struct.sockaddr_in, ptr %add.ptr.i, i64 0, i32 2
+  %sin_addr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   store i32 %retval.sroa.0.0.copyload.i.i.i, ptr %sin_addr.i.i, align 4, !tbaa.struct !32
-  %sin_port.i.i = getelementptr inbounds %struct.sockaddr_in, ptr %add.ptr.i, i64 0, i32 1
+  %sin_port.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   store i16 %rev.i.i, ptr %sin_port.i.i, align 2, !tbaa !39
   br label %invoke.cont5
 
 _ZNK5folly9IPAddress4asV6Ev.exit.i.i:             ; preds = %if.end.i.i
-  %sin6_addr.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %add.ptr.i, i64 0, i32 3
+  %sin6_addr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %8 = load <2 x i64>, ptr %arrayidx.i, align 4
   store <2 x i64> %8, ptr %sin6_addr.i.i, align 4
-  %sin6_port.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %add.ptr.i, i64 0, i32 1
+  %sin6_port.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   store i16 %rev.i.i, ptr %sin6_port.i.i, align 2, !tbaa !42
   %9 = load i16, ptr %family_.i.i.i, align 4, !tbaa !35
   %cmp.i.i35.i.i = icmp eq i16 %9, 10
@@ -3754,10 +3699,10 @@ if.then.i36.i.i:                                  ; preds = %_ZNK5folly9IPAddres
   unreachable
 
 _ZNK5folly9IPAddress4asV6Ev.exit37.i.i:           ; preds = %_ZNK5folly9IPAddress4asV6Ev.exit.i.i
-  %scope_.i.i.i = getelementptr inbounds %"class.folly::IPAddressV6", ptr %arrayidx.i, i64 0, i32 1
+  %scope_.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %10 = load i16, ptr %scope_.i.i.i, align 4, !tbaa !45
   %conv.i.i = zext i16 %10 to i32
-  %sin6_scope_id.i.i = getelementptr inbounds %struct.sockaddr_in6, ptr %add.ptr.i, i64 0, i32 4
+  %sin6_scope_id.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   store i32 %conv.i.i, ptr %sin6_scope_id.i.i, align 4, !tbaa !47
   br label %invoke.cont5
 
@@ -3835,11 +3780,11 @@ invoke.cont32:                                    ; preds = %for.cond.cleanup20,
           to label %invoke.cont34 unwind label %lpad31
 
 invoke.cont34:                                    ; preds = %invoke.cont32
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp35.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %conv = trunc i64 %count to i32
   %vtable = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 45
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 360
   %21 = load ptr, ptr %vfn, align 8
   %call38 = invoke noundef i32 %21(ptr noundef nonnull align 16 dereferenceable(768) %this, i32 %agg.tmp35.sroa.0.0.copyload, ptr noundef %msgvec, i32 noundef %conv, i32 noundef 0)
           to label %invoke.cont37 unwind label %lpad31
@@ -3871,11 +3816,11 @@ invoke.cont44:                                    ; preds = %if.else
           to label %invoke.cont47 unwind label %_ZNSt10unique_ptrIA_5iovecSt14default_deleteIS1_EED2Ev.exit115
 
 invoke.cont47:                                    ; preds = %invoke.cont44
-  %fd_49 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_49 = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp48.sroa.0.0.copyload = load i32, ptr %fd_49, align 16, !tbaa.struct !32
   %conv50 = trunc i64 %count to i32
   %vtable52 = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn53 = getelementptr inbounds ptr, ptr %vtable52, i64 45
+  %vfn53 = getelementptr inbounds i8, ptr %vtable52, i64 360
   %28 = load ptr, ptr %vfn53, align 8
   %call55 = invoke noundef i32 %28(ptr noundef nonnull align 16 dereferenceable(768) %this, i32 %agg.tmp48.sroa.0.0.copyload, ptr noundef %msgvec, i32 noundef %conv50, i32 noundef 0)
           to label %_ZNSt10unique_ptrIA_5iovecSt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIA_5iovecSt14default_deleteIS1_EED2Ev.exit115
@@ -3905,7 +3850,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIA
   br i1 %or.cond.i.i, label %_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sockaddr_storageELm1EvED2Ev.exit, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.end
-  %capacity_.i.i.i.i.i = getelementptr inbounds %"class.folly::small_vector", ptr %addrStorage, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %addrStorage, i64 16
   %33 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !tbaa !169
   %mul.i.i.i = mul i64 %33, 136
   %34 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
@@ -3956,7 +3901,7 @@ define noundef i64 @_ZN5folly14AsyncUDPSocket10writevImplEPNS_6netops9MsgheaderE
 entry:
   %ts = alloca %struct.timespec, align 8
   %options.sroa.0.0.extract.trunc = trunc i64 %options.coerce0 to i32
-  %cmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 32
+  %cmsgs_ = getelementptr inbounds i8, ptr %this, i64 624
   %0 = load ptr, ptr %cmsgs_, align 16, !tbaa !135
   %_M_left.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !93
@@ -3966,18 +3911,18 @@ entry:
 
 for.cond.cleanup:                                 ; preds = %if.end, %entry
   %cm.0.lcssa = phi ptr [ null, %entry ], [ %call8, %if.end ]
-  %_M_left.i.i120 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i120 = getelementptr inbounds i8, ptr %this, i64 656
   %2 = load ptr, ptr %_M_left.i.i120, align 16, !tbaa !93
-  %add.ptr.i.i121 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1
+  %add.ptr.i.i121 = getelementptr inbounds i8, ptr %this, i64 640
   %cmp.i123.not146 = icmp eq ptr %2, %add.ptr.i.i121
   br i1 %cmp.i123.not146, label %for.cond.cleanup16, label %for.body17
 
 for.body:                                         ; preds = %entry, %if.end
   %cm.0145 = phi ptr [ %call8, %if.end ], [ null, %entry ]
   %itr.sroa.0.0144 = phi ptr [ %call.i, %if.end ], [ %1, %entry ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %itr.sroa.0.0144, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %itr.sroa.0.0144, i64 32
   %3 = load <2 x i32>, ptr %_M_storage.i.i, align 4
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %itr.sroa.0.0144, i64 0, i32 1, i32 0, i64 12
+  %second = getelementptr inbounds i8, ptr %itr.sroa.0.0144, i64 44
   %4 = load i32, ptr %second, align 4, !tbaa !94
   tail call void @_ZN5folly6netops9Msgheader11incrCmsgLenEm(ptr noundef nonnull align 8 dereferenceable(56) %msg, i64 noundef 4)
   %call8 = tail call noundef ptr @_ZN5folly6netops9Msgheader24getFirstOrNextCmsgHeaderEP7cmsghdr(ptr noundef nonnull align 8 dereferenceable(56) %msg, ptr noundef %cm.0145)
@@ -3985,10 +3930,10 @@ for.body:                                         ; preds = %entry, %if.end
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %cmsg_level = getelementptr inbounds %struct.cmsghdr, ptr %call8, i64 0, i32 1
+  %cmsg_level = getelementptr inbounds i8, ptr %call8, i64 8
   store <2 x i32> %3, ptr %cmsg_level, align 8, !tbaa !33
   store i64 20, ptr %call8, align 8, !tbaa !30
-  %__cmsg_data = getelementptr inbounds %struct.cmsghdr, ptr %call8, i64 0, i32 3
+  %__cmsg_data = getelementptr inbounds i8, ptr %call8, i64 16
   store i32 %4, ptr %__cmsg_data, align 8
   br label %if.end
 
@@ -4007,7 +3952,7 @@ for.cond.cleanup16:                               ; preds = %if.end38, %for.cond
 for.body17:                                       ; preds = %for.cond.cleanup, %if.end38
   %cm.1148 = phi ptr [ %call25, %if.end38 ], [ %cm.0.lcssa, %for.cond.cleanup ]
   %__begin1.sroa.0.0147 = phi ptr [ %call.i127, %if.end38 ], [ %2, %for.cond.cleanup ]
-  %_M_string_length.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.0147, i64 0, i32 1, i32 0, i64 24
+  %_M_string_length.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0147, i64 56
   %6 = load i64, ptr %_M_string_length.i, align 8, !tbaa !29
   tail call void @_ZN5folly6netops9Msgheader11incrCmsgLenEm(ptr noundef nonnull align 8 dereferenceable(56) %msg, i64 noundef %6)
   %call25 = tail call noundef ptr @_ZN5folly6netops9Msgheader24getFirstOrNextCmsgHeaderEP7cmsghdr(ptr noundef nonnull align 8 dereferenceable(56) %msg, ptr noundef %cm.1148)
@@ -4015,19 +3960,19 @@ for.body17:                                       ; preds = %for.cond.cleanup, %
   br i1 %tobool26.not, label %if.end38, label %if.then27
 
 if.then27:                                        ; preds = %for.body17
-  %second23 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.0147, i64 0, i32 1, i32 0, i64 16
-  %_M_storage.i.i124 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.0147, i64 0, i32 1
+  %second23 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0147, i64 48
+  %_M_storage.i.i124 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0147, i64 32
   %7 = load i32, ptr %_M_storage.i.i124, align 4, !tbaa !99
-  %cmsg_level29 = getelementptr inbounds %struct.cmsghdr, ptr %call25, i64 0, i32 1
+  %cmsg_level29 = getelementptr inbounds i8, ptr %call25, i64 8
   store i32 %7, ptr %cmsg_level29, align 8, !tbaa !33
-  %optname30 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.0147, i64 0, i32 1, i32 0, i64 4
+  %optname30 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0147, i64 36
   %8 = load i32, ptr %optname30, align 4, !tbaa !174
-  %cmsg_type31 = getelementptr inbounds %struct.cmsghdr, ptr %call25, i64 0, i32 2
+  %cmsg_type31 = getelementptr inbounds i8, ptr %call25, i64 12
   store i32 %8, ptr %cmsg_type31, align 4, !tbaa !33
   %9 = load i64, ptr %_M_string_length.i, align 8, !tbaa !29
   %add = add i64 %9, 16
   store i64 %add, ptr %call25, align 8, !tbaa !30
-  %__cmsg_data34 = getelementptr inbounds %struct.cmsghdr, ptr %call25, i64 0, i32 3
+  %__cmsg_data34 = getelementptr inbounds i8, ptr %call25, i64 16
   %10 = load ptr, ptr %second23, align 8, !tbaa !28
   %11 = load i64, ptr %_M_string_length.i, align 8, !tbaa !29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %__cmsg_data34, ptr align 1 %10, i64 %11, i1 false)
@@ -4045,13 +3990,13 @@ if.then42:                                        ; preds = %for.cond.cleanup16
   br i1 %tobool44.not, label %if.end53, label %if.then45
 
 if.then45:                                        ; preds = %if.then42
-  %cmsg_level46 = getelementptr inbounds %struct.cmsghdr, ptr %call43, i64 0, i32 1
+  %cmsg_level46 = getelementptr inbounds i8, ptr %call43, i64 8
   store i32 17, ptr %cmsg_level46, align 8, !tbaa !33
-  %cmsg_type47 = getelementptr inbounds %struct.cmsghdr, ptr %call43, i64 0, i32 2
+  %cmsg_type47 = getelementptr inbounds i8, ptr %call43, i64 12
   store i32 103, ptr %cmsg_type47, align 4, !tbaa !33
   store i64 18, ptr %call43, align 8, !tbaa !30
   %conv = trunc i64 %options.coerce0 to i16
-  %__cmsg_data50 = getelementptr inbounds %struct.cmsghdr, ptr %call43, i64 0, i32 3
+  %__cmsg_data50 = getelementptr inbounds i8, ptr %call43, i64 16
   store i16 %conv, ptr %__cmsg_data50, align 8
   br label %if.end53
 
@@ -4061,8 +4006,8 @@ if.end53:                                         ; preds = %if.then45, %if.then
   br i1 %cmp55, label %land.lhs.true, label %if.end80
 
 land.lhs.true:                                    ; preds = %if.end53
-  %txTime_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 20
-  %hasValue.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 20, i32 0, i32 1
+  %txTime_ = getelementptr inbounds i8, ptr %this, i64 348
+  %hasValue.i = getelementptr inbounds i8, ptr %this, i64 356
   %12 = load i8, ptr %hasValue.i, align 4, !tbaa !126, !range !20, !noundef !21
   %tobool.i = icmp ne i8 %12, 0
   %13 = load i32, ptr %txTime_, align 4
@@ -4076,9 +4021,9 @@ if.then61:                                        ; preds = %land.lhs.true
   br i1 %tobool63.not, label %if.end80, label %if.then64
 
 if.then64:                                        ; preds = %if.then61
-  %cmsg_level65 = getelementptr inbounds %struct.cmsghdr, ptr %call62, i64 0, i32 1
+  %cmsg_level65 = getelementptr inbounds i8, ptr %call62, i64 8
   store i32 1, ptr %cmsg_level65, align 8, !tbaa !33
-  %cmsg_type66 = getelementptr inbounds %struct.cmsghdr, ptr %call62, i64 0, i32 2
+  %cmsg_type66 = getelementptr inbounds i8, ptr %call62, i64 12
   store i32 61, ptr %cmsg_type66, align 4, !tbaa !33
   store i64 24, ptr %call62, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts) #30
@@ -4095,22 +4040,22 @@ _ZNR5folly8OptionalINS_14AsyncUDPSocket6TXTimeEE5valueEv.exit131: ; preds = %if.
   %call71 = call i32 @clock_gettime(i32 noundef %15, ptr noundef nonnull %ts) #30
   %16 = load i64, ptr %ts, align 8, !tbaa !129
   %mul = mul i64 %16, 1000000000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   %17 = load i64, ptr %tv_nsec, align 8, !tbaa !131
   %mul.i.i.i = mul nsw i64 %options.coerce1, 1000
   %add72 = add i64 %17, %mul.i.i.i
   %add76 = add i64 %add72, %mul
-  %__cmsg_data77 = getelementptr inbounds %struct.cmsghdr, ptr %call62, i64 0, i32 3
+  %__cmsg_data77 = getelementptr inbounds i8, ptr %call62, i64 16
   store i64 %add76, ptr %__cmsg_data77, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts) #30
   br label %if.end80
 
 if.end80:                                         ; preds = %_ZNR5folly8OptionalINS_14AsyncUDPSocket6TXTimeEE5valueEv.exit131, %if.then61, %land.lhs.true, %if.end53
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call81 = call noundef ptr @_ZN5folly6netops9Msgheader6getMsgEv(ptr noundef nonnull align 8 dereferenceable(56) %msg)
   %vtable = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 44
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 352
   %18 = load ptr, ptr %vfn, align 8
   %call83 = call noundef i64 %18(ptr noundef nonnull align 16 dereferenceable(768) %this, i32 %agg.tmp.sroa.0.0.copyload, ptr noundef %call81, i32 noundef 0)
   ret i64 %call83
@@ -4119,26 +4064,26 @@ if.end80:                                         ; preds = %_ZNR5folly8Optional
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5folly14AsyncUDPSocket7fromMsgERNS0_12ReadCallback21OnDataAvailableParamsER6msghdr(ptr nocapture noundef nonnull align 8 dereferenceable(65) %params, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %msg) local_unnamed_addr #2 align 2 {
 entry:
-  %msg_controllen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 5
+  %msg_controllen = getelementptr inbounds i8, ptr %msg, i64 40
   %0 = load i64, ptr %msg_controllen, align 8, !tbaa !125
   %cmp = icmp ult i64 %0, 16
-  %msg_control = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 4
+  %msg_control = getelementptr inbounds i8, ptr %msg, i64 32
   %1 = load ptr, ptr %msg_control, align 8
   %cmp1.not5456 = icmp eq ptr %1, null
   %cmp1.not54 = select i1 %cmp, i1 true, i1 %cmp1.not5456
   br i1 %cmp1.not54, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %tos = getelementptr inbounds %"struct.folly::AsyncUDPSocket::ReadCallback::OnDataAvailableParams", ptr %params, i64 0, i32 3
-  %ts15 = getelementptr inbounds %"struct.folly::AsyncUDPSocket::ReadCallback::OnDataAvailableParams", ptr %params, i64 0, i32 2
-  %hasValue.i.i.i.i = getelementptr inbounds %"struct.folly::AsyncUDPSocket::ReadCallback::OnDataAvailableParams", ptr %params, i64 0, i32 2, i32 0, i32 1
+  %tos = getelementptr inbounds i8, ptr %params, i64 64
+  %ts15 = getelementptr inbounds i8, ptr %params, i64 8
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %params, i64 56
   %hasValue.i.i.i.i.promoted = load i8, ptr %hasValue.i.i.i.i, align 8, !tbaa !175
   br label %for.body
 
 for.body:                                         ; preds = %lor.lhs.false.i, %for.body.lr.ph
   %2 = phi i8 [ %hasValue.i.i.i.i.promoted, %for.body.lr.ph ], [ %10, %lor.lhs.false.i ]
   %cmsg.055 = phi ptr [ %1, %for.body.lr.ph ], [ %add.ptr.i, %lor.lhs.false.i ]
-  %cmsg_level = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055, i64 0, i32 1
+  %cmsg_level = getelementptr inbounds i8, ptr %cmsg.055, i64 8
   %3 = load i32, ptr %cmsg_level, align 8, !tbaa !33
   switch i32 %3, label %for.inc [
     i32 17, label %if.then
@@ -4148,20 +4093,20 @@ for.body:                                         ; preds = %lor.lhs.false.i, %f
   ]
 
 if.then:                                          ; preds = %for.body
-  %cmsg_type = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055, i64 0, i32 2
+  %cmsg_type = getelementptr inbounds i8, ptr %cmsg.055, i64 12
   %4 = load i32, ptr %cmsg_type, align 4, !tbaa !33
   %cmp3 = icmp eq i32 %4, 104
   br i1 %cmp3, label %if.then4, label %for.inc
 
 if.then4:                                         ; preds = %if.then
-  %__cmsg_data = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055, i64 0, i32 3
+  %__cmsg_data = getelementptr inbounds i8, ptr %cmsg.055, i64 16
   %5 = load i16, ptr %__cmsg_data, align 2, !tbaa !52
   %conv = zext i16 %5 to i32
   store i32 %conv, ptr %params, align 8, !tbaa !178
   br label %for.inc
 
 if.then7:                                         ; preds = %for.body
-  %cmsg_type8 = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055, i64 0, i32 2
+  %cmsg_type8 = getelementptr inbounds i8, ptr %cmsg.055, i64 12
   %6 = load i32, ptr %cmsg_type8, align 4, !tbaa !33
   switch i32 %6, label %for.inc [
     i32 37, label %if.then12
@@ -4169,7 +4114,7 @@ if.then7:                                         ; preds = %for.body
   ]
 
 if.then12:                                        ; preds = %if.then7, %if.then7
-  %__cmsg_data13 = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055, i64 0, i32 3
+  %__cmsg_data13 = getelementptr inbounds i8, ptr %cmsg.055, i64 16
   %tobool.i.i.not.i.i = icmp eq i8 %2, 0
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %ts15, ptr noundef nonnull align 8 dereferenceable(48) %__cmsg_data13, i64 48, i1 false)
   br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %for.inc
@@ -4179,19 +4124,19 @@ if.else.i.i:                                      ; preds = %if.then12
   br label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %cmsg_type20 = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055, i64 0, i32 2
+  %cmsg_type20 = getelementptr inbounds i8, ptr %cmsg.055, i64 12
   %7 = load i32, ptr %cmsg_type20, align 4, !tbaa !33
   %cmp21 = icmp eq i32 %7, 1
   br i1 %cmp21, label %if.then28, label %for.inc
 
 land.lhs.true25:                                  ; preds = %for.body
-  %cmsg_type26 = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055, i64 0, i32 2
+  %cmsg_type26 = getelementptr inbounds i8, ptr %cmsg.055, i64 12
   %8 = load i32, ptr %cmsg_type26, align 4, !tbaa !33
   %cmp27 = icmp eq i32 %8, 67
   br i1 %cmp27, label %if.then28, label %for.inc
 
 if.then28:                                        ; preds = %land.lhs.true25, %land.lhs.true
-  %__cmsg_data29 = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055, i64 0, i32 3
+  %__cmsg_data29 = getelementptr inbounds i8, ptr %cmsg.055, i64 16
   %9 = load i8, ptr %__cmsg_data29, align 8, !tbaa !31
   store i8 %9, ptr %tos, align 8, !tbaa !180
   br label %for.inc
@@ -4206,7 +4151,7 @@ if.end.i:                                         ; preds = %for.inc
   %sub.i = add i64 %11, 7
   %and.i = and i64 %sub.i, -8
   %add.ptr.i = getelementptr inbounds i8, ptr %cmsg.055, i64 %and.i
-  %add.ptr2.i = getelementptr inbounds %struct.cmsghdr, ptr %add.ptr.i, i64 1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %12 = load ptr, ptr %msg_control, align 8, !tbaa !124
   %13 = load i64, ptr %msg_controllen, align 8, !tbaa !125
   %add.ptr3.i = getelementptr inbounds i8, ptr %12, i64 %13
@@ -4239,120 +4184,120 @@ define void @_ZN5folly14AsyncUDPSocketC2EPNS_9EventBaseE(ptr noundef nonnull ali
 entry:
   tail call void @_ZN5folly12EventHandlerC2EPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %evb, i32 -1)
   store ptr getelementptr inbounds ({ [50 x ptr] }, ptr @_ZTVN5folly14AsyncUDPSocketE, i64 0, inrange i32 0, i64 2), ptr %this, align 16, !tbaa !109
-  %maxReadsPerEvent_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 1
+  %maxReadsPerEvent_ = getelementptr inbounds i8, ptr %this, i64 184
   store i16 1, ptr %maxReadsPerEvent_, align 8, !tbaa !182
-  %readCallback_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 2
+  %readCallback_ = getelementptr inbounds i8, ptr %this, i64 192
   store ptr null, ptr %readCallback_, align 16, !tbaa !136
-  %eventBase_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 3
+  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 200
   store ptr %evb, ptr %eventBase_, align 8, !tbaa !153
-  %localAddress_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4
+  %localAddress_ = getelementptr inbounds i8, ptr %this, i64 208
   invoke void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %localAddress_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %port_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4, i32 1
+  %port_.i = getelementptr inbounds i8, ptr %this, i64 232
   store i16 0, ptr %port_.i, align 8, !tbaa !34
-  %external_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %this, i64 234
   store i8 0, ptr %external_.i, align 2, !tbaa !16
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   store i32 -1, ptr %fd_, align 16, !tbaa !7
-  %clientAddress_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 7
+  %clientAddress_ = getelementptr inbounds i8, ptr %this, i64 248
   invoke void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %clientAddress_)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %port_.i18 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 7, i32 1
+  %port_.i18 = getelementptr inbounds i8, ptr %this, i64 272
   store i16 0, ptr %port_.i18, align 16, !tbaa !34
-  %external_.i19 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 7, i32 2
+  %external_.i19 = getelementptr inbounds i8, ptr %this, i64 274
   store i8 0, ptr %external_.i19, align 2, !tbaa !16
-  %connectedAddress_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 8
+  %connectedAddress_ = getelementptr inbounds i8, ptr %this, i64 280
   invoke void @_ZN5folly9IPAddressC1Ev(ptr noundef nonnull align 4 dereferenceable(22) %connectedAddress_)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %port_.i21 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 8, i32 1
+  %port_.i21 = getelementptr inbounds i8, ptr %this, i64 304
   store i16 0, ptr %port_.i21, align 16, !tbaa !34
-  %external_.i22 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 8, i32 2
+  %external_.i22 = getelementptr inbounds i8, ptr %this, i64 306
   store i8 0, ptr %external_.i22, align 2, !tbaa !16
-  %connected_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 9
-  %rcvBuf_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 15
-  %hasValue.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 18, i32 0, i32 1
+  %connected_ = getelementptr inbounds i8, ptr %this, i64 312
+  %rcvBuf_ = getelementptr inbounds i8, ptr %this, i64 320
+  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 336
   store i8 0, ptr %hasValue.i.i, align 16, !tbaa !183
-  %gro_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 19
+  %gro_ = getelementptr inbounds i8, ptr %this, i64 340
   store i8 0, ptr %gro_, align 4, !tbaa !31
-  %hasValue.i.i24 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 19, i32 0, i32 1
+  %hasValue.i.i24 = getelementptr inbounds i8, ptr %this, i64 344
   store i8 0, ptr %hasValue.i.i24, align 8, !tbaa !183
-  %txTime_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 20
+  %txTime_ = getelementptr inbounds i8, ptr %this, i64 348
   store i8 0, ptr %txTime_, align 4, !tbaa !31
-  %hasValue.i.i25 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 20, i32 0, i32 1
+  %hasValue.i.i25 = getelementptr inbounds i8, ptr %this, i64 356
   store i8 0, ptr %hasValue.i.i25, align 4, !tbaa !184
-  %ts_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 21
+  %ts_ = getelementptr inbounds i8, ptr %this, i64 360
   store i8 0, ptr %ts_, align 8, !tbaa !31
-  %hasValue.i.i26 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 21, i32 0, i32 1
+  %hasValue.i.i26 = getelementptr inbounds i8, ptr %this, i64 364
   store i8 0, ptr %hasValue.i.i26, align 4, !tbaa !183
-  %errMessageCallback_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 22
+  %errMessageCallback_ = getelementptr inbounds i8, ptr %this, i64 368
   store ptr null, ptr %errMessageCallback_, align 16, !tbaa !152
-  %zeroCopyEnabled_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 23
+  %zeroCopyEnabled_ = getelementptr inbounds i8, ptr %this, i64 376
   store i8 0, ptr %zeroCopyEnabled_, align 8, !tbaa !117
-  %zeroCopyVal_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 24
+  %zeroCopyVal_ = getelementptr inbounds i8, ptr %this, i64 377
   store i8 0, ptr %zeroCopyVal_, align 1, !tbaa !185
-  %zeroCopyReenableThreshold_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 25
-  %idZeroCopyBufMap_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28
-  %_M_single_bucket.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28, i32 0, i32 5
+  %zeroCopyReenableThreshold_ = getelementptr inbounds i8, ptr %this, i64 384
+  %idZeroCopyBufMap_ = getelementptr inbounds i8, ptr %this, i64 408
+  %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 456
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %connected_, i8 0, i64 6, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(13) %rcvBuf_, i8 0, i64 13, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %zeroCopyReenableThreshold_, i8 0, i64 20, i1 false)
   store ptr %_M_single_bucket.i.i, ptr %idZeroCopyBufMap_, align 8, !tbaa !186
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28, i32 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 416
   store i64 1, ptr %_M_bucket_count.i.i, align 16, !tbaa !187
-  %_M_before_begin.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28, i32 0, i32 2
-  %_M_rehash_policy.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28, i32 0, i32 4
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 424
+  %_M_rehash_policy.i.i = getelementptr inbounds i8, ptr %this, i64 440
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8, !tbaa !188
-  %_M_next_resize.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28, i32 0, i32 4, i32 1
-  %call_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 29, i32 1
+  %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
+  %call_.i = getelementptr inbounds i8, ptr %this, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %_M_next_resize.i.i.i, i8 0, i64 24, i1 false)
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvOSt10unique_ptrINS_5IOBufESt14default_deleteIS4_EEEE10uninitCallES8_RNS1_4DataE, ptr %call_.i, align 16, !tbaa !134
-  %exec_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 29, i32 2
+  %exec_.i = getelementptr inbounds i8, ptr %this, i64 520
   store ptr null, ptr %exec_.i, align 8, !tbaa !133
-  %defaultCmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30
-  %0 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30, i32 0, i32 0, i32 1
+  %defaultCmsgs_ = getelementptr inbounds i8, ptr %this, i64 528
+  %0 = getelementptr inbounds i8, ptr %this, i64 536
   store i32 0, ptr %0, align 8, !tbaa !189
-  %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 544
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 16, !tbaa !98
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 552
   store ptr %0, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !93
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 560
   store ptr %0, ptr %_M_right.i.i.i.i.i, align 16, !tbaa !107
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 568
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !108
-  %1 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 584
   store i32 0, ptr %1, align 8, !tbaa !189
-  %_M_parent.i.i.i.i.i27 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i27 = getelementptr inbounds i8, ptr %this, i64 592
   store ptr null, ptr %_M_parent.i.i.i.i.i27, align 16, !tbaa !98
-  %_M_left.i.i.i.i.i28 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i28 = getelementptr inbounds i8, ptr %this, i64 600
   store ptr %1, ptr %_M_left.i.i.i.i.i28, align 8, !tbaa !93
-  %_M_right.i.i.i.i.i29 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i29 = getelementptr inbounds i8, ptr %this, i64 608
   store ptr %1, ptr %_M_right.i.i.i.i.i29, align 16, !tbaa !107
-  %_M_node_count.i.i.i.i.i30 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i30 = getelementptr inbounds i8, ptr %this, i64 616
   store i64 0, ptr %_M_node_count.i.i.i.i.i30, align 8, !tbaa !108
-  %cmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 32
+  %cmsgs_ = getelementptr inbounds i8, ptr %this, i64 624
   store ptr %defaultCmsgs_, ptr %cmsgs_, align 16, !tbaa !135
-  %2 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 640
   store i32 0, ptr %2, align 16, !tbaa !189
-  %_M_parent.i.i.i.i.i31 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i.i31 = getelementptr inbounds i8, ptr %this, i64 648
   store ptr null, ptr %_M_parent.i.i.i.i.i31, align 8, !tbaa !98
-  %_M_left.i.i.i.i.i32 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i32 = getelementptr inbounds i8, ptr %this, i64 656
   store ptr %2, ptr %_M_left.i.i.i.i.i32, align 16, !tbaa !93
-  %_M_right.i.i.i.i.i33 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i33 = getelementptr inbounds i8, ptr %this, i64 664
   store ptr %2, ptr %_M_right.i.i.i.i.i33, align 8, !tbaa !107
-  %_M_node_count.i.i.i.i.i34 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %this, i64 672
   store i64 0, ptr %_M_node_count.i.i.i.i.i34, align 16, !tbaa !108
-  %additionalCmsgsFunc_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 35
+  %additionalCmsgsFunc_ = getelementptr inbounds i8, ptr %this, i64 688
   store ptr null, ptr %additionalCmsgsFunc_, align 16, !tbaa !31
-  %call_.i35 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 35, i32 1
+  %call_.i35 = getelementptr inbounds i8, ptr %this, i64 736
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS5_ESaISt4pairIKS5_iEEEEEvEE10uninitCallERNS1_4DataE, ptr %call_.i35, align 16, !tbaa !106
-  %exec_.i36 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 35, i32 2
+  %exec_.i36 = getelementptr inbounds i8, ptr %this, i64 744
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exec_.i36, i8 0, i64 24, i1 false)
   ret void
 
@@ -4480,10 +4425,10 @@ entry:
 define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !109
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this) #30
-  %_M_weak_count.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this, i64 0, i32 2
+  %_M_weak_count.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !31
   %tobool.i.not.i = icmp eq i8 %1, 0
   br i1 %tobool.i.not.i, label %if.else.i.i, label %if.then.i.i
@@ -4505,7 +4450,7 @@ invoke.cont.i:                                    ; preds = %if.else.i.i, %if.th
 
 if.then.i:                                        ; preds = %invoke.cont.i
   %vtable2.i = load ptr, ptr %this, align 8, !tbaa !109
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 3
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 24
   %4 = load ptr, ptr %vfn3.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %this) #30
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
@@ -4522,19 +4467,19 @@ entry:
 
 while.body:                                       ; preds = %entry, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit
   %__x.addr.07 = phi ptr [ %1, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !190
   tail call void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !191
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07, i64 0, i32 1, i32 0, i64 16
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 48
   %2 = load ptr, ptr %second.i.i.i.i.i, align 8, !tbaa !28
-  %3 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07, i64 0, i32 1, i32 0, i64 32
+  %3 = getelementptr inbounds i8, ptr %__x.addr.07, i64 64
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %while.body
-  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.07, i64 0, i32 1, i32 0, i64 24
+  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 56
   %4 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !29
   %cmp3.i.i.i.i.i.i.i.i = icmp ult i64 %4, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i)
@@ -4564,10 +4509,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.07 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !190
   tail call void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.07, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.07, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !191
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.07) #31
   %cmp.not = icmp eq ptr %1, null
@@ -4587,13 +4532,13 @@ declare void @_ZN5folly5IOBufdlEPv(ptr noundef) local_unnamed_addr #6
 define void @_ZN5folly14AsyncUDPSocketD2Ev(ptr noundef nonnull align 16 dereferenceable(768) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [50 x ptr] }, ptr @_ZTVN5folly14AsyncUDPSocketE, i64 0, inrange i32 0, i64 2), ptr %this, align 16, !tbaa !109
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i32, ptr %fd_, align 16, !tbaa !7
   %cmp.i.i.not = icmp eq i32 %0, -1
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %readCallback_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 2
+  %readCallback_.i = getelementptr inbounds i8, ptr %this, i64 192
   %1 = load ptr, ptr %readCallback_.i, align 16, !tbaa !136
   %tobool.not.i25 = icmp eq ptr %1, null
   br i1 %tobool.not.i25, label %if.end.i, label %if.then.i26
@@ -4601,7 +4546,7 @@ if.then:                                          ; preds = %entry
 if.then.i26:                                      ; preds = %if.then
   store ptr null, ptr %readCallback_.i, align 16, !tbaa !136
   %vtable.i = load ptr, ptr %1, align 8, !tbaa !109
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1) #30
   br label %if.end.i
@@ -4613,7 +4558,7 @@ if.end.i:                                         ; preds = %if.then.i26, %if.th
 .noexc:                                           ; preds = %if.end.i
   %3 = load i32, ptr %fd_, align 16
   %cmp.i.i.i = icmp ne i32 %3, -1
-  %ownership_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 6
+  %ownership_.i = getelementptr inbounds i8, ptr %this, i64 244
   %4 = load i32, ptr %ownership_.i, align 4
   %cmp.i = icmp eq i32 %4, 0
   %or.cond.i = select i1 %cmp.i.i.i, i1 %cmp.i, i1 false
@@ -4628,13 +4573,13 @@ _ZN5folly14AsyncUDPSocket5closeEv.exit:           ; preds = %if.then4.i, %.noexc
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5folly14AsyncUDPSocket5closeEv.exit, %entry
-  %_M_refcount.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 36, i32 0, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 760
   %5 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !155
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZN5folly6netops19DispatcherContainerD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -4642,14 +4587,14 @@ if.then.i.i.i:                                    ; preds = %if.end
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8, !tbaa !156
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4, !tbaa !158
   %vtable.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !109
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #30
   %vtable3.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !109
-  %vfn4.i.i.i.i = getelementptr inbounds ptr, ptr %vtable3.i.i.i.i, i64 3
+  %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable3.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn4.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %5) #30
   br label %_ZN5folly6netops19DispatcherContainerD2Ev.exit
@@ -4678,19 +4623,19 @@ if.then7.i.i.i.i:                                 ; preds = %invoke.cont.i.i.i.i
   br label %_ZN5folly6netops19DispatcherContainerD2Ev.exit
 
 _ZN5folly6netops19DispatcherContainerD2Ev.exit:   ; preds = %if.then7.i.i.i.i, %invoke.cont.i.i.i.i, %if.then.i.i.i.i, %if.end
-  %exec_.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 35, i32 2
+  %exec_.i.i = getelementptr inbounds i8, ptr %this, i64 744
   %12 = load ptr, ptr %exec_.i.i, align 8, !tbaa !105
   %tobool.not.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt4pairIKS3_iEEEEEvEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN5folly6netops19DispatcherContainerD2Ev.exit
-  %additionalCmsgsFunc_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 35
+  %additionalCmsgsFunc_ = getelementptr inbounds i8, ptr %this, i64 688
   %call.i.i = tail call noundef i64 %12(i32 noundef 1, ptr noundef nonnull %additionalCmsgsFunc_, ptr noundef null) #30
   br label %_ZN5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt4pairIKS3_iEEEEEvEED2Ev.exit
 
 _ZN5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt4pairIKS3_iEEEEEvEED2Ev.exit: ; preds = %if.end.i.i, %_ZN5folly6netops19DispatcherContainerD2Ev.exit
-  %nontrivialCmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33
-  %_M_parent.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1, i32 0, i32 1
+  %nontrivialCmsgs_ = getelementptr inbounds i8, ptr %this, i64 632
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 648
   %13 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !98
   invoke void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %nontrivialCmsgs_, ptr noundef %13)
           to label %_ZNSt3mapIN5folly15SocketOptionKeyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -4703,8 +4648,8 @@ terminate.lpad.i.i:                               ; preds = %_ZN5folly8FunctionI
   unreachable
 
 _ZNSt3mapIN5folly15SocketOptionKeyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEED2Ev.exit: ; preds = %_ZN5folly8FunctionIFNS_8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS3_ESaISt4pairIKS3_iEEEEEvEED2Ev.exit
-  %dynamicCmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31
-  %_M_parent.i.i.i.i3 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1, i32 0, i32 1
+  %dynamicCmsgs_ = getelementptr inbounds i8, ptr %this, i64 576
+  %_M_parent.i.i.i.i3 = getelementptr inbounds i8, ptr %this, i64 592
   %16 = load ptr, ptr %_M_parent.i.i.i.i3, align 16, !tbaa !98
   invoke void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %dynamicCmsgs_, ptr noundef %16)
           to label %_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEED2Ev.exit unwind label %terminate.lpad.i.i4
@@ -4717,8 +4662,8 @@ terminate.lpad.i.i4:                              ; preds = %_ZNSt3mapIN5folly15
   unreachable
 
 _ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEED2Ev.exit: ; preds = %_ZNSt3mapIN5folly15SocketOptionKeyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS1_ESaISt4pairIKS1_S7_EEED2Ev.exit
-  %defaultCmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30
-  %_M_parent.i.i.i.i5 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30, i32 0, i32 0, i32 1, i32 0, i32 1
+  %defaultCmsgs_ = getelementptr inbounds i8, ptr %this, i64 528
+  %_M_parent.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 544
   %19 = load ptr, ptr %_M_parent.i.i.i.i5, align 16, !tbaa !98
   invoke void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %defaultCmsgs_, ptr noundef %19)
           to label %_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEED2Ev.exit7 unwind label %terminate.lpad.i.i6
@@ -4731,19 +4676,19 @@ terminate.lpad.i.i6:                              ; preds = %_ZNSt3mapIN5folly15
   unreachable
 
 _ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEED2Ev.exit7: ; preds = %_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEED2Ev.exit
-  %exec_.i.i8 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 29, i32 2
+  %exec_.i.i8 = getelementptr inbounds i8, ptr %this, i64 520
   %22 = load ptr, ptr %exec_.i.i8, align 8, !tbaa !133
   %tobool.not.i.i9 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i9, label %_ZN5folly8FunctionIFvOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEEED2Ev.exit, label %if.end.i.i10
 
 if.end.i.i10:                                     ; preds = %_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEED2Ev.exit7
-  %ioBufFreeFunc_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 29
+  %ioBufFreeFunc_ = getelementptr inbounds i8, ptr %this, i64 464
   %call.i.i11 = tail call noundef i64 %22(i32 noundef 1, ptr noundef nonnull %ioBufFreeFunc_, ptr noundef null) #30
   br label %_ZN5folly8FunctionIFvOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEEED2Ev.exit
 
 _ZN5folly8FunctionIFvOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEEED2Ev.exit: ; preds = %if.end.i.i10, %_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEED2Ev.exit7
-  %idZeroCopyBufMap_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28, i32 0, i32 2
+  %idZeroCopyBufMap_ = getelementptr inbounds i8, ptr %this, i64 408
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
   %23 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !194
   %tobool.not4.i.i.i.i = icmp eq ptr %23, null
   br i1 %tobool.not4.i.i.i.i, label %_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -4768,13 +4713,13 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt10unique_ptrIN5f
 
 _ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS6_EEELb0EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i, %_ZN5folly8FunctionIFvOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEEED2Ev.exit
   %26 = load ptr, ptr %idZeroCopyBufMap_, align 8, !tbaa !186
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
   %27 = load i64, ptr %_M_bucket_count.i.i.i, align 16, !tbaa !187
   %mul.i.i.i = shl i64 %27, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %26, i8 0, i64 %mul.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %28 = load ptr, ptr %idZeroCopyBufMap_, align 8, !tbaa !186
-  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 456
   %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %28
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapIjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEED2Ev.exit, label %if.end.i.i.i.i12
 
@@ -4783,13 +4728,13 @@ if.end.i.i.i.i12:                                 ; preds = %_ZNSt10_HashtableIj
   br label %_ZNSt13unordered_mapIjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEED2Ev.exit
 
 _ZNSt13unordered_mapIjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEED2Ev.exit: ; preds = %if.end.i.i.i.i12, %_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i
-  %external_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 8, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %this, i64 306
   %29 = load i8, ptr %external_.i, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i = icmp eq i8 %29, 0
   br i1 %tobool.not.i, label %_ZN5folly13SocketAddressD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNSt13unordered_mapIjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEED2Ev.exit
-  %connectedAddress_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 8
+  %connectedAddress_ = getelementptr inbounds i8, ptr %this, i64 280
   %30 = load ptr, ptr %connectedAddress_, align 8, !tbaa !48
   %isnull.i.i = icmp eq ptr %30, null
   br i1 %isnull.i.i, label %_ZN5folly13SocketAddressD2Ev.exit, label %delete.notnull.i.i
@@ -4799,13 +4744,13 @@ delete.notnull.i.i:                               ; preds = %if.then.i
   br label %_ZN5folly13SocketAddressD2Ev.exit
 
 _ZN5folly13SocketAddressD2Ev.exit:                ; preds = %delete.notnull.i.i, %if.then.i, %_ZNSt13unordered_mapIjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EESt4hashIjESt8equal_toIjESaISt4pairIKjS5_EEED2Ev.exit
-  %external_.i13 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 7, i32 2
+  %external_.i13 = getelementptr inbounds i8, ptr %this, i64 274
   %31 = load i8, ptr %external_.i13, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i14 = icmp eq i8 %31, 0
   br i1 %tobool.not.i14, label %_ZN5folly13SocketAddressD2Ev.exit18, label %if.then.i15
 
 if.then.i15:                                      ; preds = %_ZN5folly13SocketAddressD2Ev.exit
-  %clientAddress_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 7
+  %clientAddress_ = getelementptr inbounds i8, ptr %this, i64 248
   %32 = load ptr, ptr %clientAddress_, align 8, !tbaa !48
   %isnull.i.i16 = icmp eq ptr %32, null
   br i1 %isnull.i.i16, label %_ZN5folly13SocketAddressD2Ev.exit18, label %delete.notnull.i.i17
@@ -4815,13 +4760,13 @@ delete.notnull.i.i17:                             ; preds = %if.then.i15
   br label %_ZN5folly13SocketAddressD2Ev.exit18
 
 _ZN5folly13SocketAddressD2Ev.exit18:              ; preds = %delete.notnull.i.i17, %if.then.i15, %_ZN5folly13SocketAddressD2Ev.exit
-  %external_.i19 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4, i32 2
+  %external_.i19 = getelementptr inbounds i8, ptr %this, i64 234
   %33 = load i8, ptr %external_.i19, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i20 = icmp eq i8 %33, 0
   br i1 %tobool.not.i20, label %_ZN5folly13SocketAddressD2Ev.exit24, label %if.then.i21
 
 if.then.i21:                                      ; preds = %_ZN5folly13SocketAddressD2Ev.exit18
-  %localAddress_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4
+  %localAddress_ = getelementptr inbounds i8, ptr %this, i64 208
   %34 = load ptr, ptr %localAddress_, align 16, !tbaa !48
   %isnull.i.i22 = icmp eq ptr %34, null
   br i1 %isnull.i.i22, label %_ZN5folly13SocketAddressD2Ev.exit24, label %delete.notnull.i.i23
@@ -4878,7 +4823,7 @@ entry:
   %flag379 = alloca i32, align 4
   %ref.tmp390 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp391 = alloca %"class.std::allocator", align 1
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i32, ptr %fd_, align 16, !tbaa !7
   %cmp.i.i.not = icmp eq i32 %0, -1
   br i1 %cmp.i.i.not, label %if.end, label %return
@@ -4920,12 +4865,12 @@ lpad10:                                           ; preds = %invoke.cont11, %inv
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = load ptr, ptr %ref.tmp7, align 8, !tbaa !28
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp7, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
   %cmp.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad10
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp7, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %6 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !29
   %cmp3.i.i.i = icmp ult i64 %6, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -4987,12 +4932,12 @@ lpad29:                                           ; preds = %invoke.cont30, %inv
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = load ptr, ptr %ref.tmp24, align 8, !tbaa !28
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp24, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %ref.tmp24, i64 16
   %cmp.i.i.i463 = icmp eq ptr %11, %12
   br i1 %cmp.i.i.i463, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i465, label %ehcleanup33
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i465: ; preds = %lpad29
-  %_M_string_length.i.i.i466 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp24, i64 0, i32 1
+  %_M_string_length.i.i.i466 = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
   %13 = load i64, ptr %_M_string_length.i.i.i466, align 8, !tbaa !29
   %cmp3.i.i.i467 = icmp ult i64 %13, 16
   call void @llvm.assume(i1 %cmp3.i.i.i467)
@@ -5012,7 +4957,7 @@ cleanup.action38:                                 ; preds = %ehcleanup33, %_ZNKS
   br label %ehcleanup414
 
 if.end40:                                         ; preds = %invoke.cont19
-  %reuseAddr_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 10
+  %reuseAddr_ = getelementptr inbounds i8, ptr %this, i64 313
   %14 = load i8, ptr %reuseAddr_, align 1, !tbaa !148, !range !20, !noundef !21
   %tobool.not = icmp eq i8 %14, 0
   br i1 %tobool.not, label %if.end68, label %if.then41
@@ -5061,12 +5006,12 @@ lpad55:                                           ; preds = %invoke.cont56, %inv
   %18 = landingpad { ptr, i32 }
           cleanup
   %19 = load ptr, ptr %ref.tmp50, align 8, !tbaa !28
-  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp50, i64 0, i32 2
+  %20 = getelementptr inbounds i8, ptr %ref.tmp50, i64 16
   %cmp.i.i.i469 = icmp eq ptr %19, %20
   br i1 %cmp.i.i.i469, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i471, label %ehcleanup59
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i471: ; preds = %lpad55
-  %_M_string_length.i.i.i472 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp50, i64 0, i32 1
+  %_M_string_length.i.i.i472 = getelementptr inbounds i8, ptr %ref.tmp50, i64 8
   %21 = load i64, ptr %_M_string_length.i.i.i472, align 8, !tbaa !29
   %cmp3.i.i.i473 = icmp ult i64 %21, 16
   call void @llvm.assume(i1 %cmp3.i.i.i473)
@@ -5095,7 +5040,7 @@ ehcleanup67:                                      ; preds = %cleanup.action64, %
   br label %ehcleanup414
 
 if.end68:                                         ; preds = %if.end66, %if.end40
-  %reusePort_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 11
+  %reusePort_ = getelementptr inbounds i8, ptr %this, i64 314
   %22 = load i8, ptr %reusePort_, align 2, !tbaa !147, !range !20, !noundef !21
   %tobool69.not = icmp eq i8 %22, 0
   br i1 %tobool69.not, label %if.end99, label %if.then70
@@ -5144,12 +5089,12 @@ lpad85:                                           ; preds = %invoke.cont86, %inv
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = load ptr, ptr %ref.tmp80, align 8, !tbaa !28
-  %28 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp80, i64 0, i32 2
+  %28 = getelementptr inbounds i8, ptr %ref.tmp80, i64 16
   %cmp.i.i.i475 = icmp eq ptr %27, %28
   br i1 %cmp.i.i.i475, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i477, label %ehcleanup89
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i477: ; preds = %lpad85
-  %_M_string_length.i.i.i478 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp80, i64 0, i32 1
+  %_M_string_length.i.i.i478 = getelementptr inbounds i8, ptr %ref.tmp80, i64 8
   %29 = load i64, ptr %_M_string_length.i.i.i478, align 8, !tbaa !29
   %cmp3.i.i.i479 = icmp ult i64 %29, 16
   call void @llvm.assume(i1 %cmp3.i.i.i479)
@@ -5178,7 +5123,7 @@ ehcleanup97:                                      ; preds = %cleanup.action94, %
   br label %ehcleanup414
 
 if.end99:                                         ; preds = %if.end96, %if.end68
-  %freeBind_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 12
+  %freeBind_ = getelementptr inbounds i8, ptr %this, i64 315
   %30 = load i8, ptr %freeBind_, align 1, !tbaa !144, !range !20, !noundef !21
   %tobool100.not = icmp eq i8 %30, 0
   br i1 %tobool100.not, label %if.end149, label %if.end120
@@ -5227,12 +5172,12 @@ lpad135:                                          ; preds = %invoke.cont136, %in
   %34 = landingpad { ptr, i32 }
           cleanup
   %35 = load ptr, ptr %ref.tmp130, align 8, !tbaa !28
-  %36 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp130, i64 0, i32 2
+  %36 = getelementptr inbounds i8, ptr %ref.tmp130, i64 16
   %cmp.i.i.i481 = icmp eq ptr %35, %36
   br i1 %cmp.i.i.i481, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i483, label %ehcleanup139
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i483: ; preds = %lpad135
-  %_M_string_length.i.i.i484 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp130, i64 0, i32 1
+  %_M_string_length.i.i.i484 = getelementptr inbounds i8, ptr %ref.tmp130, i64 8
   %37 = load i64, ptr %_M_string_length.i.i.i484, align 8, !tbaa !29
   %cmp3.i.i.i485 = icmp ult i64 %37, 16
   call void @llvm.assume(i1 %cmp3.i.i.i485)
@@ -5261,7 +5206,7 @@ ehcleanup147:                                     ; preds = %cleanup.action144, 
   br label %ehcleanup414
 
 if.end149:                                        ; preds = %if.end146, %if.end99
-  %transparent_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 13
+  %transparent_ = getelementptr inbounds i8, ptr %this, i64 316
   %38 = load i8, ptr %transparent_, align 4, !tbaa !145, !range !20, !noundef !21
   %tobool150.not = icmp eq i8 %38, 0
   br i1 %tobool150.not, label %if.end200, label %if.end171
@@ -5310,12 +5255,12 @@ lpad186:                                          ; preds = %invoke.cont187, %in
   %42 = landingpad { ptr, i32 }
           cleanup
   %43 = load ptr, ptr %ref.tmp181, align 8, !tbaa !28
-  %44 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp181, i64 0, i32 2
+  %44 = getelementptr inbounds i8, ptr %ref.tmp181, i64 16
   %cmp.i.i.i487 = icmp eq ptr %43, %44
   br i1 %cmp.i.i.i487, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i489, label %ehcleanup190
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i489: ; preds = %lpad186
-  %_M_string_length.i.i.i490 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp181, i64 0, i32 1
+  %_M_string_length.i.i.i490 = getelementptr inbounds i8, ptr %ref.tmp181, i64 8
   %45 = load i64, ptr %_M_string_length.i.i.i490, align 8, !tbaa !29
   %cmp3.i.i.i491 = icmp ult i64 %45, 16
   call void @llvm.assume(i1 %cmp3.i.i.i491)
@@ -5344,7 +5289,7 @@ ehcleanup198:                                     ; preds = %cleanup.action195, 
   br label %ehcleanup414
 
 if.end200:                                        ; preds = %if.end197, %if.end149
-  %busyPollUs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 17
+  %busyPollUs_ = getelementptr inbounds i8, ptr %this, i64 328
   %46 = load i32, ptr %busyPollUs_, align 8, !tbaa !151
   %cmp201 = icmp sgt i32 %46, 0
   br i1 %cmp201, label %if.end222, label %if.end252
@@ -5393,12 +5338,12 @@ lpad238:                                          ; preds = %invoke.cont239, %in
   %50 = landingpad { ptr, i32 }
           cleanup
   %51 = load ptr, ptr %ref.tmp233, align 8, !tbaa !28
-  %52 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp233, i64 0, i32 2
+  %52 = getelementptr inbounds i8, ptr %ref.tmp233, i64 16
   %cmp.i.i.i493 = icmp eq ptr %51, %52
   br i1 %cmp.i.i.i493, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i495, label %ehcleanup242
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i495: ; preds = %lpad238
-  %_M_string_length.i.i.i496 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp233, i64 0, i32 1
+  %_M_string_length.i.i.i496 = getelementptr inbounds i8, ptr %ref.tmp233, i64 8
   %53 = load i64, ptr %_M_string_length.i.i.i496, align 8, !tbaa !29
   %cmp3.i.i.i497 = icmp ult i64 %53, 16
   call void @llvm.assume(i1 %cmp3.i.i.i497)
@@ -5427,7 +5372,7 @@ ehcleanup250:                                     ; preds = %cleanup.action247, 
   br label %ehcleanup414
 
 if.end252:                                        ; preds = %if.end249, %if.end200
-  %rcvBuf_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 15
+  %rcvBuf_ = getelementptr inbounds i8, ptr %this, i64 320
   %54 = load i32, ptr %rcvBuf_, align 16, !tbaa !149
   %cmp253 = icmp sgt i32 %54, 0
   br i1 %cmp253, label %if.then254, label %if.end283
@@ -5476,12 +5421,12 @@ lpad270:                                          ; preds = %invoke.cont271, %in
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = load ptr, ptr %ref.tmp265, align 8, !tbaa !28
-  %60 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp265, i64 0, i32 2
+  %60 = getelementptr inbounds i8, ptr %ref.tmp265, i64 16
   %cmp.i.i.i499 = icmp eq ptr %59, %60
   br i1 %cmp.i.i.i499, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i501, label %ehcleanup274
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i501: ; preds = %lpad270
-  %_M_string_length.i.i.i502 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp265, i64 0, i32 1
+  %_M_string_length.i.i.i502 = getelementptr inbounds i8, ptr %ref.tmp265, i64 8
   %61 = load i64, ptr %_M_string_length.i.i.i502, align 8, !tbaa !29
   %cmp3.i.i.i503 = icmp ult i64 %61, 16
   call void @llvm.assume(i1 %cmp3.i.i.i503)
@@ -5510,7 +5455,7 @@ ehcleanup282:                                     ; preds = %cleanup.action279, 
   br label %ehcleanup414
 
 if.end283:                                        ; preds = %if.end281, %if.end252
-  %sndBuf_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 16
+  %sndBuf_ = getelementptr inbounds i8, ptr %this, i64 324
   %62 = load i32, ptr %sndBuf_, align 4, !tbaa !150
   %cmp284 = icmp sgt i32 %62, 0
   br i1 %cmp284, label %if.then285, label %if.end314
@@ -5559,12 +5504,12 @@ lpad301:                                          ; preds = %invoke.cont302, %in
   %66 = landingpad { ptr, i32 }
           cleanup
   %67 = load ptr, ptr %ref.tmp296, align 8, !tbaa !28
-  %68 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp296, i64 0, i32 2
+  %68 = getelementptr inbounds i8, ptr %ref.tmp296, i64 16
   %cmp.i.i.i505 = icmp eq ptr %67, %68
   br i1 %cmp.i.i.i505, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i507, label %ehcleanup305
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i507: ; preds = %lpad301
-  %_M_string_length.i.i.i508 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp296, i64 0, i32 1
+  %_M_string_length.i.i.i508 = getelementptr inbounds i8, ptr %ref.tmp296, i64 8
   %69 = load i64, ptr %_M_string_length.i.i.i508, align 8, !tbaa !29
   %cmp3.i.i.i509 = icmp ult i64 %69, 16
   call void @llvm.assume(i1 %cmp3.i.i.i509)
@@ -5593,7 +5538,7 @@ ehcleanup313:                                     ; preds = %cleanup.action310, 
   br label %ehcleanup414
 
 if.end314:                                        ; preds = %if.end312, %if.end283
-  %recvTos_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 14
+  %recvTos_ = getelementptr inbounds i8, ptr %this, i64 317
   %70 = load i8, ptr %recvTos_, align 1, !tbaa !146, !range !20, !noundef !21
   %tobool315.not = icmp eq i8 %70, 0
   br i1 %tobool315.not, label %if.end375, label %if.then316
@@ -5648,12 +5593,12 @@ lpad333:                                          ; preds = %invoke.cont334, %in
   %74 = landingpad { ptr, i32 }
           cleanup
   %75 = load ptr, ptr %ref.tmp328, align 8, !tbaa !28
-  %76 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp328, i64 0, i32 2
+  %76 = getelementptr inbounds i8, ptr %ref.tmp328, i64 16
   %cmp.i.i.i511 = icmp eq ptr %75, %76
   br i1 %cmp.i.i.i511, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i513, label %ehcleanup337
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i513: ; preds = %lpad333
-  %_M_string_length.i.i.i514 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp328, i64 0, i32 1
+  %_M_string_length.i.i.i514 = getelementptr inbounds i8, ptr %ref.tmp328, i64 8
   %77 = load i64, ptr %_M_string_length.i.i.i514, align 8, !tbaa !29
   %cmp3.i.i.i515 = icmp ult i64 %77, 16
   call void @llvm.assume(i1 %cmp3.i.i.i515)
@@ -5709,12 +5654,12 @@ lpad360:                                          ; preds = %invoke.cont361, %in
   %80 = landingpad { ptr, i32 }
           cleanup
   %81 = load ptr, ptr %ref.tmp355, align 8, !tbaa !28
-  %82 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp355, i64 0, i32 2
+  %82 = getelementptr inbounds i8, ptr %ref.tmp355, i64 16
   %cmp.i.i.i517 = icmp eq ptr %81, %82
   br i1 %cmp.i.i.i517, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i519, label %ehcleanup364
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i519: ; preds = %lpad360
-  %_M_string_length.i.i.i520 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp355, i64 0, i32 1
+  %_M_string_length.i.i.i520 = getelementptr inbounds i8, ptr %ref.tmp355, i64 8
   %83 = load i64, ptr %_M_string_length.i.i.i520, align 8, !tbaa !29
   %cmp3.i.i.i521 = icmp ult i64 %83, 16
   call void @llvm.assume(i1 %cmp3.i.i.i521)
@@ -5792,12 +5737,12 @@ lpad395:                                          ; preds = %invoke.cont396, %in
   %88 = landingpad { ptr, i32 }
           cleanup
   %89 = load ptr, ptr %ref.tmp390, align 8, !tbaa !28
-  %90 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp390, i64 0, i32 2
+  %90 = getelementptr inbounds i8, ptr %ref.tmp390, i64 16
   %cmp.i.i.i523 = icmp eq ptr %89, %90
   br i1 %cmp.i.i.i523, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i525, label %ehcleanup399
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i525: ; preds = %lpad395
-  %_M_string_length.i.i.i526 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp390, i64 0, i32 1
+  %_M_string_length.i.i.i526 = getelementptr inbounds i8, ptr %ref.tmp390, i64 8
   %91 = load i64, ptr %_M_string_length.i.i.i526, align 8, !tbaa !29
   %cmp3.i.i.i527 = icmp ult i64 %91, 16
   call void @llvm.assume(i1 %cmp3.i.i.i527)
@@ -5827,7 +5772,7 @@ ehcleanup407:                                     ; preds = %cleanup.action404, 
 
 if.end408:                                        ; preds = %if.end406, %if.end375
   store i32 %call3, ptr %fd_, align 16, !tbaa !33
-  %ownership_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 6
+  %ownership_ = getelementptr inbounds i8, ptr %this, i64 244
   store i32 0, ptr %ownership_, align 4, !tbaa !92
   invoke void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(184) %this, i32 %call3)
           to label %return unwind label %lpad18
@@ -5855,7 +5800,7 @@ declare i32 @_ZN5folly6netops6socketEiii(i32 noundef, i32 noundef, i32 noundef) 
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i = alloca i64, align 8
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %0, ptr %this, align 8, !tbaa !27
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
@@ -5896,7 +5841,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
 
 invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
   %4 = load i64, ptr %__dnew.i, align 8, !tbaa !30
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %this, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !29
   %5 = load ptr, ptr %this, align 8, !tbaa !28
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %4
@@ -5919,12 +5864,12 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %ref.tmp, align 8, !tbaa !28
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %invoke.cont
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !29
   %cmp3.i.i.i = icmp ult i64 %2, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -5937,9 +5882,9 @@ if.then.i.i:                                      ; preds = %invoke.cont
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #30
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !109
-  %type_ = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this, i64 0, i32 1
+  %type_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %type, ptr %type_, align 8, !tbaa !137
-  %errno_ = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this, i64 0, i32 2
+  %errno_ = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %errnoCopy, ptr %errno_, align 4, !tbaa !143
   ret void
 
@@ -5947,12 +5892,12 @@ lpad:                                             ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = load ptr, ptr %ref.tmp, align 8, !tbaa !28
-  %5 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i5 = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7, label %if.then.i.i6
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7: ; preds = %lpad
-  %_M_string_length.i.i.i8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i8 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %6 = load i64, ptr %_M_string_length.i.i.i8, align 8, !tbaa !29
   %cmp3.i.i.i9 = icmp ult i64 %6, 16
   call void @llvm.assume(i1 %cmp3.i.i.i9)
@@ -6031,12 +5976,12 @@ declare noundef i32 @_ZN5folly6netops5closeENS_13NetworkSocketE(i32) local_unnam
 define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %__lhs, ptr noundef nonnull align 8 dereferenceable(32) %__rhs) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__lhs) #30
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !27
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !29
   store i8 0, ptr %0, align 8, !tbaa !31
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__rhs, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %__rhs, i64 8
   %1 = load i64, ptr %_M_string_length.i, align 8, !tbaa !29
   %add = add i64 %1, %call.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %add)
@@ -6104,15 +6049,15 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 entry:
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__lhs) #30
   %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__rhs, i64 noundef 0, i64 noundef 0, ptr noundef %__lhs, i64 noundef %call.i.i)
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !27
   %1 = load ptr, ptr %call3.i.i, align 8, !tbaa !28
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %call3.i.i, i64 16
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 8
   %3 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !29
   %cmp3.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i)
@@ -6124,14 +6069,14 @@ if.else.i:                                        ; preds = %entry
   store ptr %1, ptr %agg.result, align 8, !tbaa !28
   %4 = load i64, ptr %2, align 8, !tbaa !31
   store i64 %4, ptr %0, align 8, !tbaa !31
-  %_M_string_length.i23.i.phi.trans.insert = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i, i64 0, i32 1
+  %_M_string_length.i23.i.phi.trans.insert = getelementptr inbounds i8, ptr %call3.i.i, i64 8
   %.pre = load i64, ptr %_M_string_length.i23.i.phi.trans.insert, align 8, !tbaa !29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if.else.i, %if.then.i
   %5 = phi i64 [ %3, %if.then.i ], [ %.pre, %if.else.i ]
-  %_M_string_length.i23.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i, i64 0, i32 1
-  %_M_string_length.i24.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.result, i64 0, i32 1
+  %_M_string_length.i23.i = getelementptr inbounds i8, ptr %call3.i.i, i64 8
+  %_M_string_length.i24.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %5, ptr %_M_string_length.i24.i, align 8, !tbaa !29
   store ptr %2, ptr %call3.i.i, align 8, !tbaa !28
   store i64 0, ptr %_M_string_length.i23.i, align 8, !tbaa !29
@@ -6252,39 +6197,27 @@ entry:
   ]
 
 sw.bb.i:                                          ; preds = %entry
-  %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store ptr %0, ptr %ref.tmp3, align 8, !tbaa !27, !alias.scope !197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %0, ptr noundef nonnull align 1 dereferenceable(7) @.str.22, i64 7, i1 false)
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 1
-  store i64 7, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !29, !alias.scope !197
-  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 23
   br label %invoke.cont.sink.split
 
 sw.bb1.i:                                         ; preds = %entry
-  %1 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store ptr %1, ptr %ref.tmp3, align 8, !tbaa !27, !alias.scope !197
   store i64 3914830178632549953, ptr %1, align 8, !alias.scope !197
-  %_M_string_length.i.i.i.i21.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 1
-  store i64 8, ptr %_M_string_length.i.i.i.i21.i, align 8, !tbaa !29, !alias.scope !197
-  %arrayidx.i.i.i22.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 2, i32 1
   br label %invoke.cont.sink.split
 
 sw.bb5.i:                                         ; preds = %entry
-  %2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store ptr %2, ptr %ref.tmp3, align 8, !tbaa !27, !alias.scope !197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %2, ptr noundef nonnull align 1 dereferenceable(9) @.str.24, i64 9, i1 false)
-  %_M_string_length.i.i.i.i33.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 1
-  store i64 9, ptr %_M_string_length.i.i.i.i33.i, align 8, !tbaa !29, !alias.scope !197
-  %arrayidx.i.i.i34.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 2, i32 1, i64 1
   br label %invoke.cont.sink.split
 
 sw.bb9.i:                                         ; preds = %entry
-  %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store ptr %3, ptr %ref.tmp3, align 8, !tbaa !27, !alias.scope !197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %3, ptr noundef nonnull align 1 dereferenceable(7) @.str.25, i64 7, i1 false)
-  %_M_string_length.i.i.i.i45.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 1
-  store i64 7, ptr %_M_string_length.i.i.i.i45.i, align 8, !tbaa !29, !alias.scope !197
-  %arrayidx.i.i.i46.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 23
   br label %invoke.cont.sink.split
 
 sw.default.i:                                     ; preds = %entry
@@ -6292,8 +6225,12 @@ sw.default.i:                                     ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont.sink.split:                           ; preds = %sw.bb9.i, %sw.bb5.i, %sw.bb1.i, %sw.bb.i
-  %arrayidx.i.i.i46.i.sink = phi ptr [ %arrayidx.i.i.i46.i, %sw.bb9.i ], [ %arrayidx.i.i.i34.i, %sw.bb5.i ], [ %arrayidx.i.i.i22.i, %sw.bb1.i ], [ %arrayidx.i.i.i.i, %sw.bb.i ]
-  store i8 0, ptr %arrayidx.i.i.i46.i.sink, align 1, !tbaa !31, !alias.scope !197
+  %.sink8 = phi i64 [ 7, %sw.bb9.i ], [ 9, %sw.bb5.i ], [ 8, %sw.bb1.i ], [ 7, %sw.bb.i ]
+  %.sink = phi i64 [ 23, %sw.bb9.i ], [ 25, %sw.bb5.i ], [ 24, %sw.bb1.i ], [ 23, %sw.bb.i ]
+  %_M_string_length.i.i.i.i45.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  store i64 %.sink8, ptr %_M_string_length.i.i.i.i45.i, align 8, !tbaa !29, !alias.scope !197
+  %arrayidx.i.i.i46.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 %.sink
+  store i8 0, ptr %arrayidx.i.i.i46.i, align 1, !tbaa !31, !alias.scope !197
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.sink.split, %sw.default.i
@@ -6301,15 +6238,15 @@ invoke.cont:                                      ; preds = %invoke.cont.sink.sp
           to label %call3.i.i.i.noexc unwind label %terminate.lpad
 
 call3.i.i.i.noexc:                                ; preds = %invoke.cont
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp2, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store ptr %4, ptr %ref.tmp2, align 8, !tbaa !27, !alias.scope !200
   %5 = load ptr, ptr %call3.i.i.i6, align 8, !tbaa !28
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i6, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %call3.i.i.i6, i64 16
   %cmp.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %call3.i.i.i.noexc
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i6, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %call3.i.i.i6, i64 8
   %7 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !29
   %cmp3.i.i.i = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -6321,14 +6258,14 @@ if.else.i.i:                                      ; preds = %call3.i.i.i.noexc
   store ptr %5, ptr %ref.tmp2, align 8, !tbaa !28, !alias.scope !200
   %8 = load i64, ptr %6, align 8, !tbaa !31
   store i64 %8, ptr %4, align 8, !tbaa !31, !alias.scope !200
-  %_M_string_length.i23.i.phi.trans.insert.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i6, i64 0, i32 1
+  %_M_string_length.i23.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %call3.i.i.i6, i64 8
   %.pre.i = load i64, ptr %_M_string_length.i23.i.phi.trans.insert.i, align 8, !tbaa !29
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %if.else.i.i, %if.then.i.i
   %9 = phi i64 [ %7, %if.then.i.i ], [ %.pre.i, %if.else.i.i ]
-  %_M_string_length.i23.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call3.i.i.i6, i64 0, i32 1
-  %_M_string_length.i24.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp2, i64 0, i32 1
+  %_M_string_length.i23.i.i = getelementptr inbounds i8, ptr %call3.i.i.i6, i64 8
+  %_M_string_length.i24.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store i64 %9, ptr %_M_string_length.i24.i.i, align 8, !tbaa !29, !alias.scope !200
   store ptr %6, ptr %call3.i.i.i6, align 8, !tbaa !28
   store i64 0, ptr %_M_string_length.i23.i.i, align 8, !tbaa !29
@@ -6349,15 +6286,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
           to label %call2.i.i.noexc unwind label %terminate.lpad
 
 call2.i.i.noexc:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
-  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %11, ptr %ref.tmp, align 8, !tbaa !27, !alias.scope !203
   %12 = load ptr, ptr %call2.i.i19, align 8, !tbaa !28
-  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call2.i.i19, i64 0, i32 2
+  %13 = getelementptr inbounds i8, ptr %call2.i.i19, i64 16
   %cmp.i.i1.i = icmp eq ptr %12, %13
   br i1 %cmp.i.i1.i, label %if.then.i.i14, label %if.else.i.i9
 
 if.then.i.i14:                                    ; preds = %call2.i.i.noexc
-  %_M_string_length.i.i.i15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call2.i.i19, i64 0, i32 1
+  %_M_string_length.i.i.i15 = getelementptr inbounds i8, ptr %call2.i.i19, i64 8
   %14 = load i64, ptr %_M_string_length.i.i.i15, align 8, !tbaa !29
   %cmp3.i.i.i16 = icmp ult i64 %14, 16
   call void @llvm.assume(i1 %cmp3.i.i.i16)
@@ -6369,14 +6306,14 @@ if.else.i.i9:                                     ; preds = %call2.i.i.noexc
   store ptr %12, ptr %ref.tmp, align 8, !tbaa !28, !alias.scope !203
   %15 = load i64, ptr %13, align 8, !tbaa !31
   store i64 %15, ptr %11, align 8, !tbaa !31, !alias.scope !203
-  %_M_string_length.i23.i.phi.trans.insert.i10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call2.i.i19, i64 0, i32 1
+  %_M_string_length.i23.i.phi.trans.insert.i10 = getelementptr inbounds i8, ptr %call2.i.i19, i64 8
   %.pre.i11 = load i64, ptr %_M_string_length.i23.i.phi.trans.insert.i10, align 8, !tbaa !29
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.else.i.i9, %if.then.i.i14
   %16 = phi i64 [ %14, %if.then.i.i14 ], [ %.pre.i11, %if.else.i.i9 ]
-  %_M_string_length.i23.i.i12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call2.i.i19, i64 0, i32 1
-  %_M_string_length.i24.i.i13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i23.i.i12 = getelementptr inbounds i8, ptr %call2.i.i19, i64 8
+  %_M_string_length.i24.i.i13 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %16, ptr %_M_string_length.i24.i.i13, align 8, !tbaa !29, !alias.scope !203
   store ptr %13, ptr %call2.i.i19, align 8, !tbaa !28
   store i64 0, ptr %_M_string_length.i23.i.i12, align 8, !tbaa !29
@@ -6424,12 +6361,12 @@ if.then.i.i25:                                    ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %if.then.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26
   %23 = load ptr, ptr %ref.tmp3, align 8, !tbaa !28
-  %24 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 2
+  %24 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   %cmp.i.i.i30 = icmp eq ptr %23, %24
   br i1 %cmp.i.i.i30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i32, label %if.then.i.i31
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i32: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29
-  %_M_string_length.i.i.i33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp3, i64 0, i32 1
+  %_M_string_length.i.i.i33 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %25 = load i64, ptr %_M_string_length.i.i.i33, align 8, !tbaa !29
   %cmp3.i.i.i34 = icmp ult i64 %25, 16
   call void @llvm.assume(i1 %cmp3.i.i.i34)
@@ -6560,9 +6497,9 @@ entry:
   %val = alloca i32, align 4
   %optlen = alloca i32, align 4
   %frombool = zext i1 %enable to i8
-  %zeroCopyVal_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 24
+  %zeroCopyVal_ = getelementptr inbounds i8, ptr %this, i64 377
   store i8 %frombool, ptr %zeroCopyVal_, align 1, !tbaa !185
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i32, ptr %fd_, align 16
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %return, label %if.end
@@ -6575,7 +6512,7 @@ if.end:                                           ; preds = %entry
   br i1 %enable, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %zeroCopyEnabled_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 23
+  %zeroCopyEnabled_ = getelementptr inbounds i8, ptr %this, i64 376
   store i8 %frombool, ptr %zeroCopyEnabled_, align 8, !tbaa !117
   br label %cleanup.thread
 
@@ -6597,7 +6534,7 @@ if.end21:                                         ; preds = %if.end10
 
 if.then23:                                        ; preds = %if.end21, %if.end10
   %enable.addr.137 = phi i1 [ %cmp, %if.end21 ], [ true, %if.end10 ]
-  %zeroCopyEnabled_25 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 23
+  %zeroCopyEnabled_25 = getelementptr inbounds i8, ptr %this, i64 376
   %frombool26 = zext i1 %enable.addr.137 to i8
   store i8 %frombool26, ptr %zeroCopyEnabled_25, align 8, !tbaa !117
   br label %cleanup.thread
@@ -6622,27 +6559,27 @@ declare { i64, i64 } @_ZNK5folly5IOBuf7fillIovEP5iovecm(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZN5folly5IOBuf8coalesceEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %next_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %this, i64 0, i32 4
+  %next_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %next_.i, align 8, !tbaa !208
   %cmp.i.not = icmp eq ptr %0, %this
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %data_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %this, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %data_.i, align 8, !tbaa !111
-  %buf_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %this, i64 0, i32 3
+  %buf_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %buf_.i.i, align 8, !tbaa !209
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %prev_.i = getelementptr inbounds %"class.folly::IOBuf", ptr %this, i64 0, i32 5
+  %prev_.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %prev_.i, align 8, !tbaa !210
-  %buf_.i.i6 = getelementptr inbounds %"class.folly::IOBuf", ptr %3, i64 0, i32 3
+  %buf_.i.i6 = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %buf_.i.i6, align 8, !tbaa !209
-  %capacity_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %3, i64 0, i32 2
+  %capacity_.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %capacity_.i.i, align 8, !tbaa !211
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %5
-  %data_.i.i = getelementptr inbounds %"class.folly::IOBuf", ptr %3, i64 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %data_.i.i, align 8, !tbaa !111
   %7 = load i64, ptr %3, align 8, !tbaa !115
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %6, i64 %7
@@ -6654,7 +6591,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %data_ = getelementptr inbounds %"class.folly::IOBuf", ptr %this, i64 0, i32 1
+  %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %data_, align 8, !tbaa !111
   %9 = load i64, ptr %this, align 8, !tbaa !115
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %9
@@ -6670,13 +6607,13 @@ declare noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @_ZN5folly14AsyncUDPSocket16getZeroCopyFlagsEv(ptr nocapture noundef nonnull align 16 dereferenceable(768) %this) local_unnamed_addr #18 align 2 {
 entry:
-  %zeroCopyEnabled_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 23
+  %zeroCopyEnabled_ = getelementptr inbounds i8, ptr %this, i64 376
   %0 = load i8, ptr %zeroCopyEnabled_, align 8, !tbaa !117, !range !20, !noundef !21
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %zeroCopyReenableCounter_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 26
+  %zeroCopyReenableCounter_ = getelementptr inbounds i8, ptr %this, i64 392
   %1 = load i64, ptr %zeroCopyReenableCounter_, align 8, !tbaa !118
   %tobool2.not = icmp eq i64 %1, 0
   br i1 %tobool2.not, label %return, label %if.then3
@@ -6700,13 +6637,13 @@ return:                                           ; preds = %if.then5, %if.then3
 define void @_ZN5folly14AsyncUDPSocket14addZeroCopyBufEOSt10unique_ptrINS_5IOBufESt14default_deleteIS2_EE(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %buf) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node5.i.i = alloca %"struct.std::_Hashtable<unsigned int, std::pair<const unsigned int, std::unique_ptr<folly::IOBuf>>, std::allocator<std::pair<const unsigned int, std::unique_ptr<folly::IOBuf>>>, std::__detail::_Select1st, std::equal_to<unsigned int>, std::hash<unsigned int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
-  %zeroCopyBufId_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 27
+  %zeroCopyBufId_.i = getelementptr inbounds i8, ptr %this, i64 400
   %0 = load i32, ptr %zeroCopyBufId_.i, align 16, !tbaa !212
   %inc.i = add i32 %0, 1
   store i32 %inc.i, ptr %zeroCopyBufId_.i, align 16, !tbaa !212
-  %idZeroCopyBufMap_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28
+  %idZeroCopyBufMap_ = getelementptr inbounds i8, ptr %this, i64 408
   %conv.i.i.i.i = zext i32 %0 to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
   %1 = load i64, ptr %_M_bucket_count.i.i.i, align 16
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %1
   %2 = load ptr, ptr %idZeroCopyBufMap_, align 8, !tbaa !186
@@ -6743,7 +6680,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
 cleanup.cont.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__node5.i.i) #30
   store ptr %idZeroCopyBufMap_, ptr %__node5.i.i, align 8, !tbaa !215
-  %_M_node.i.i.i = getelementptr inbounds %"struct.std::_Hashtable<unsigned int, std::pair<const unsigned int, std::unique_ptr<folly::IOBuf>>, std::allocator<std::pair<const unsigned int, std::unique_ptr<folly::IOBuf>>>, std::__detail::_Select1st, std::equal_to<unsigned int>, std::hash<unsigned int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %__node5.i.i, i64 0, i32 1
+  %_M_node.i.i.i = getelementptr inbounds i8, ptr %__node5.i.i, i64 8
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36
   store ptr null, ptr %call5.i.i.i.i.i.i, align 8, !tbaa !195
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 8
@@ -6787,12 +6724,12 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4
-  %_M_next_resize.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4, i32 1
+  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8, !tbaa !227
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8, !tbaa !187
-  %_M_element_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8, !tbaa !228
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -6854,7 +6791,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb0EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %17 = load ptr, ptr %_M_before_begin.i, align 8, !tbaa !194
   store ptr %17, ptr %__node, align 8, !tbaa !195
   store ptr %__node, ptr %_M_before_begin.i, align 8, !tbaa !194
@@ -6889,7 +6826,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Hashtable<unsigned int, std::pair<const unsigned int, std::unique_ptr<folly::IOBuf>>, std::allocator<std::pair<const unsigned int, std::unique_ptr<folly::IOBuf>>>, std::__detail::_Select1st, std::equal_to<unsigned int>, std::hash<unsigned int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", ptr %this, i64 0, i32 1
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8, !tbaa !226
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -6930,7 +6867,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i, !prof !12
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8, !tbaa !229
   br label %_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -6958,7 +6895,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt10unique_ptrIN5f
 
 _ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS6_EEELb0EEEEE19_M_allocate_bucketsEm.exit.i, %if.then.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i8.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS6_EEELb0EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8, !tbaa !194
   store ptr null, ptr %_M_before_begin.i, align 8, !tbaa !194
   %tobool.not42 = icmp eq ptr %0, null
@@ -7009,7 +6946,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8, !tbaa !186
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -7018,7 +6955,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %if.end.i.i, %while.end
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8, !tbaa !187
   store ptr %retval.0.i, ptr %this, align 8, !tbaa !186
   ret void
@@ -7099,24 +7036,24 @@ declare void @_ZN5folly6netops9Msgheader8setFlagsEi(ptr noundef nonnull align 8 
 define void @_ZN5folly14AsyncUDPSocket23maybeUpdateDynamicCmsgsEv(ptr noundef nonnull align 16 dereferenceable(768) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %additionalCmsgs = alloca %"class.folly::Optional.126", align 8
-  %defaultCmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30
-  %cmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 32
+  %defaultCmsgs_ = getelementptr inbounds i8, ptr %this, i64 528
+  %cmsgs_ = getelementptr inbounds i8, ptr %this, i64 624
   store ptr %defaultCmsgs_, ptr %cmsgs_, align 16, !tbaa !135
-  %exec_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 35, i32 2
+  %exec_.i = getelementptr inbounds i8, ptr %this, i64 744
   %0 = load ptr, ptr %exec_.i, align 8, !tbaa !105
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.end23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %additionalCmsgsFunc_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 35
+  %additionalCmsgsFunc_ = getelementptr inbounds i8, ptr %this, i64 688
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %additionalCmsgs) #30
-  %call_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 35, i32 1
+  %call_.i = getelementptr inbounds i8, ptr %this, i64 736
   %1 = load ptr, ptr %call_.i, align 16, !tbaa !106, !noalias !231
   invoke void %1(ptr nonnull sret(%"class.folly::Optional.126") align 8 %additionalCmsgs, ptr noundef nonnull align 16 dereferenceable(48) %additionalCmsgsFunc_)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<std::map<folly::SocketOptionKey, int>>::StorageNonTriviallyDestructible", ptr %additionalCmsgs, i64 0, i32 1
+  %hasValue.i.i = getelementptr inbounds i8, ptr %additionalCmsgs, i64 48
   %2 = load i8, ptr %hasValue.i.i, align 8, !tbaa !234, !range !20, !noundef !21
   %tobool.i.i.not = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not, label %_ZN5folly8OptionalISt3mapINS_15SocketOptionKeyEiSt4lessIS2_ESaISt4pairIKS2_iEEEED2Ev.exit, label %invoke.cont4
@@ -7128,8 +7065,8 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br i1 %cmp.i.i, label %if.then.i.i.i30, label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %invoke.cont4
-  %dynamicCmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1, i32 0, i32 1
+  %dynamicCmsgs_ = getelementptr inbounds i8, ptr %this, i64 576
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 592
   %4 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 16, !tbaa !98
   invoke void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %dynamicCmsgs_, ptr noundef %4)
           to label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE5clearEv.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -7142,13 +7079,13 @@ terminate.lpad.i.i.i.i:                           ; preds = %invoke.cont8
   unreachable
 
 _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE5clearEv.exit.i.i.i: ; preds = %invoke.cont8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 584
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 16, !tbaa !98
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 600
   store ptr %add.ptr.i.i.i.i, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !93
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 608
   store ptr %add.ptr.i.i.i.i, ptr %_M_right.i.i.i.i.i, align 16, !tbaa !107
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 31, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 616
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !108
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %additionalCmsgs, i64 16
   %7 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !53
@@ -7164,7 +7101,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeIN5fo
   %_M_right.i.i8.i.i.i = getelementptr inbounds i8, ptr %additionalCmsgs, i64 32
   %9 = load <2 x ptr>, ptr %_M_left.i.i7.i.i.i, align 8, !tbaa !53
   store <2 x ptr> %9, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !53
-  %_M_parent16.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %7, i64 0, i32 1
+  %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_parent16.i.i.i.i.i, align 8, !tbaa !236
   %10 = load i64, ptr %_M_node_count.i.i, align 8, !tbaa !108
   store i64 %10, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !108
@@ -7175,9 +7112,9 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeIN5fo
   br label %_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEEaSEOS8_.exit
 
 _ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEEaSEOS8_.exit: ; preds = %if.then.i.i.i, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE5clearEv.exit.i.i.i
-  %_M_left.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 552
   %11 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !93
-  %add.ptr.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 30, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 536
   invoke void @_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4pairIKS1_iEEE6insertISt17_Rb_tree_iteratorIS6_EEEvT_SC_(ptr noundef nonnull align 8 dereferenceable(48) %dynamicCmsgs_, ptr %11, ptr nonnull %add.ptr.i.i)
           to label %if.end unwind label %terminate.lpad
 
@@ -7252,11 +7189,11 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %0 = getelementptr %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %addrs.coerce0, i64 %sub.ptr.div.i
-  %arrayidx.i226 = getelementptr %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %0, i64 -1
-  %len30 = getelementptr %"struct.folly::AsyncUDPSocket::full_sockaddr_storage", ptr %0, i64 -1, i32 1
-  %cmsgs_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 32
-  %_M_left.i.i228 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1, i32 0, i32 2
-  %add.ptr.i.i229 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 33, i32 0, i32 0, i32 1
+  %arrayidx.i226 = getelementptr i8, ptr %0, i64 -136
+  %len30 = getelementptr i8, ptr %0, i64 -8
+  %cmsgs_ = getelementptr inbounds i8, ptr %this, i64 624
+  %_M_left.i.i228 = getelementptr inbounds i8, ptr %this, i64 656
+  %add.ptr.i.i229 = getelementptr inbounds i8, ptr %this, i64 640
   %tobool115.not = icmp eq ptr %options, null
   br label %for.body
 
@@ -7281,11 +7218,11 @@ for.body:                                         ; preds = %if.end149, %for.bod
   %.sink.in = select i1 %cmp21, ptr %len, ptr %len30
   %.sink = load i32, ptr %.sink.in, align 8, !tbaa !165
   store ptr %arrayidx.i226.sink, ptr %arrayidx20, align 8
-  %3 = getelementptr inbounds %struct.msghdr, ptr %arrayidx20, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %arrayidx20, i64 8
   store i32 %.sink, ptr %3, align 8
-  %msg_iov = getelementptr inbounds %struct.msghdr, ptr %arrayidx20, i64 0, i32 2
+  %msg_iov = getelementptr inbounds i8, ptr %arrayidx20, i64 16
   store ptr %arrayidx18, ptr %msg_iov, align 8, !tbaa !122
-  %msg_iovlen = getelementptr inbounds %struct.msghdr, ptr %arrayidx20, i64 0, i32 3
+  %msg_iovlen = getelementptr inbounds i8, ptr %arrayidx20, i64 24
   store i64 %2, ptr %msg_iovlen, align 8, !tbaa !123
   %4 = load ptr, ptr %cmsgs_, align 16, !tbaa !135
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %4, i64 40
@@ -7294,9 +7231,9 @@ for.body:                                         ; preds = %if.end149, %for.bod
   %mul34 = mul i64 %i.0318, 24
   %mul35 = mul i64 %mul34, %add
   %arrayidx36 = getelementptr inbounds i8, ptr %control, i64 %mul35
-  %msg_control = getelementptr inbounds %struct.msghdr, ptr %arrayidx20, i64 0, i32 4
+  %msg_control = getelementptr inbounds i8, ptr %arrayidx20, i64 32
   store ptr %arrayidx36, ptr %msg_control, align 8, !tbaa !124
-  %msg_controllen = getelementptr inbounds %struct.msghdr, ptr %arrayidx20, i64 0, i32 5
+  %msg_controllen = getelementptr inbounds i8, ptr %arrayidx20, i64 40
   store i64 0, ptr %msg_controllen, align 8, !tbaa !125
   %_M_left.i.i = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !93
@@ -7314,9 +7251,9 @@ for.body46:                                       ; preds = %for.body, %if.end64
   %8 = phi ptr [ %16, %if.end64 ], [ %4, %for.body ]
   %cm.0312 = phi ptr [ %cm.1284, %if.end64 ], [ null, %for.body ]
   %itr.sroa.0.0311 = phi ptr [ %call.i, %if.end64 ], [ %6, %for.body ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %itr.sroa.0.0311, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %itr.sroa.0.0311, i64 32
   %9 = load <2 x i32>, ptr %_M_storage.i.i, align 4
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %itr.sroa.0.0311, i64 0, i32 1, i32 0, i64 12
+  %second = getelementptr inbounds i8, ptr %itr.sroa.0.0311, i64 44
   %10 = load i32, ptr %second, align 4, !tbaa !94
   %11 = load i64, ptr %msg_controllen, align 8, !tbaa !125
   %add50 = add i64 %11, 24
@@ -7333,7 +7270,7 @@ if.end.i:                                         ; preds = %if.then52
   %sub.i = add i64 %12, 7
   %and.i = and i64 %sub.i, -8
   %add.ptr.i = getelementptr inbounds i8, ptr %cm.0312, i64 %and.i
-  %add.ptr2.i = getelementptr inbounds %struct.cmsghdr, ptr %add.ptr.i, i64 1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %13 = load ptr, ptr %msg_control, align 8, !tbaa !124
   %add.ptr3.i = getelementptr inbounds i8, ptr %13, i64 %add50
   %cmp4.i = icmp ugt ptr %add.ptr2.i, %add.ptr3.i
@@ -7358,10 +7295,10 @@ if.end61:                                         ; preds = %if.else54
 
 if.then63:                                        ; preds = %if.end61, %lor.lhs.false.i
   %cm.1288 = phi ptr [ %15, %if.end61 ], [ %add.ptr.i, %lor.lhs.false.i ]
-  %cmsg_level = getelementptr inbounds %struct.cmsghdr, ptr %cm.1288, i64 0, i32 1
+  %cmsg_level = getelementptr inbounds i8, ptr %cm.1288, i64 8
   store <2 x i32> %9, ptr %cmsg_level, align 8, !tbaa !33
   store i64 20, ptr %cm.1288, align 8, !tbaa !30
-  %__cmsg_data = getelementptr inbounds %struct.cmsghdr, ptr %cm.1288, i64 0, i32 3
+  %__cmsg_data = getelementptr inbounds i8, ptr %cm.1288, i64 16
   store i32 %10, ptr %__cmsg_data, align 8
   %.pre = load ptr, ptr %cmsgs_, align 16, !tbaa !135
   br label %if.end64
@@ -7381,9 +7318,9 @@ for.cond.cleanup72:                               ; preds = %if.end111, %for.con
 for.body73:                                       ; preds = %for.cond.cleanup45, %if.end111
   %cm.2315 = phi ptr [ %cm.3292, %if.end111 ], [ %cm.0.lcssa, %for.cond.cleanup45 ]
   %__begin2.sroa.0.0314 = phi ptr [ %call.i254, %if.end111 ], [ %7, %for.cond.cleanup45 ]
-  %_M_storage.i.i233 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin2.sroa.0.0314, i64 0, i32 1
-  %second79 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin2.sroa.0.0314, i64 0, i32 1, i32 0, i64 16
-  %_M_string_length.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin2.sroa.0.0314, i64 0, i32 1, i32 0, i64 24
+  %_M_storage.i.i233 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0314, i64 32
+  %second79 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0314, i64 48
+  %_M_string_length.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0314, i64 56
   %17 = load i64, ptr %_M_string_length.i, align 8, !tbaa !29
   %sub82 = add i64 %17, 7
   %and = and i64 %sub82, -8
@@ -7403,7 +7340,7 @@ if.end.i235:                                      ; preds = %if.then87
   %sub.i236 = add i64 %19, 7
   %and.i237 = and i64 %sub.i236, -8
   %add.ptr.i238 = getelementptr inbounds i8, ptr %cm.2315, i64 %and.i237
-  %add.ptr2.i239 = getelementptr inbounds %struct.cmsghdr, ptr %add.ptr.i238, i64 1
+  %add.ptr2.i239 = getelementptr inbounds i8, ptr %add.ptr.i238, i64 16
   %20 = load ptr, ptr %msg_control, align 8, !tbaa !124
   %add.ptr3.i242 = getelementptr inbounds i8, ptr %20, i64 %add85
   %cmp4.i243 = icmp ugt ptr %add.ptr2.i239, %add.ptr3.i242
@@ -7429,15 +7366,15 @@ if.end97:                                         ; preds = %if.else89
 if.then99:                                        ; preds = %if.end97, %lor.lhs.false.i244
   %cm.3296 = phi ptr [ %22, %if.end97 ], [ %add.ptr.i238, %lor.lhs.false.i244 ]
   %23 = load i32, ptr %_M_storage.i.i233, align 4, !tbaa !99
-  %cmsg_level101 = getelementptr inbounds %struct.cmsghdr, ptr %cm.3296, i64 0, i32 1
+  %cmsg_level101 = getelementptr inbounds i8, ptr %cm.3296, i64 8
   store i32 %23, ptr %cmsg_level101, align 8, !tbaa !33
-  %optname102 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin2.sroa.0.0314, i64 0, i32 1, i32 0, i64 4
+  %optname102 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0314, i64 36
   %24 = load i32, ptr %optname102, align 4, !tbaa !174
-  %cmsg_type103 = getelementptr inbounds %struct.cmsghdr, ptr %cm.3296, i64 0, i32 2
+  %cmsg_type103 = getelementptr inbounds i8, ptr %cm.3296, i64 12
   store i32 %24, ptr %cmsg_type103, align 4, !tbaa !33
   %add105 = add i64 %17, 16
   store i64 %add105, ptr %cm.3296, align 8, !tbaa !30
-  %__cmsg_data107 = getelementptr inbounds %struct.cmsghdr, ptr %cm.3296, i64 0, i32 3
+  %__cmsg_data107 = getelementptr inbounds i8, ptr %cm.3296, i64 16
   %25 = load ptr, ptr %second79, align 8, !tbaa !28
   %26 = load i64, ptr %_M_string_length.i, align 8, !tbaa !29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %__cmsg_data107, ptr align 1 %25, i64 %26, i1 false)
@@ -7471,7 +7408,7 @@ if.end.i256:                                      ; preds = %if.then122
   %sub.i257 = add i64 %29, 7
   %and.i258 = and i64 %sub.i257, -8
   %add.ptr.i259 = getelementptr inbounds i8, ptr %cm.2.lcssa, i64 %and.i258
-  %add.ptr2.i260 = getelementptr inbounds %struct.cmsghdr, ptr %add.ptr.i259, i64 1
+  %add.ptr2.i260 = getelementptr inbounds i8, ptr %add.ptr.i259, i64 16
   %30 = load ptr, ptr %msg_control, align 8, !tbaa !124
   %add.ptr3.i263 = getelementptr inbounds i8, ptr %30, i64 %add120
   %cmp4.i264 = icmp ugt ptr %add.ptr2.i260, %add.ptr3.i263
@@ -7496,14 +7433,14 @@ if.end132:                                        ; preds = %if.else124
 
 if.end144.thread306:                              ; preds = %if.end132, %lor.lhs.false.i265
   %cm.4303 = phi ptr [ %32, %if.end132 ], [ %add.ptr.i259, %lor.lhs.false.i265 ]
-  %cmsg_level135 = getelementptr inbounds %struct.cmsghdr, ptr %cm.4303, i64 0, i32 1
+  %cmsg_level135 = getelementptr inbounds i8, ptr %cm.4303, i64 8
   store i32 17, ptr %cmsg_level135, align 8, !tbaa !33
-  %cmsg_type136 = getelementptr inbounds %struct.cmsghdr, ptr %cm.4303, i64 0, i32 2
+  %cmsg_type136 = getelementptr inbounds i8, ptr %cm.4303, i64 12
   store i32 103, ptr %cmsg_type136, align 4, !tbaa !33
   store i64 18, ptr %cm.4303, align 8, !tbaa !30
   %33 = load i32, ptr %arrayidx116, align 8, !tbaa !238
   %conv140 = trunc i32 %33 to i16
-  %__cmsg_data141 = getelementptr inbounds %struct.cmsghdr, ptr %cm.4303, i64 0, i32 3
+  %__cmsg_data141 = getelementptr inbounds i8, ptr %cm.4303, i64 16
   store i16 %conv140, ptr %__cmsg_data141, align 8
   br label %if.end149
 
@@ -7516,7 +7453,7 @@ if.then146:                                       ; preds = %if.end144, %if.end1
   br label %if.end149
 
 if.end149:                                        ; preds = %if.then146, %if.end144, %if.end144.thread306
-  %msg_flags = getelementptr inbounds %struct.msghdr, ptr %arrayidx20, i64 0, i32 6
+  %msg_flags = getelementptr inbounds i8, ptr %arrayidx20, i64 48
   store i32 0, ptr %msg_flags, align 8, !tbaa !241
   %msg_len = getelementptr inbounds %struct.mmsghdr, ptr %msgvec, i64 %i.0318, i32 1
   store i32 0, ptr %msg_len, align 8, !tbaa !242
@@ -7533,7 +7470,7 @@ define linkonce_odr void @_ZN5folly12small_vectorINS_14AsyncUDPSocket21full_sock
 entry:
   %ref.tmp.i.i.i.i.i.i = alloca %struct.Initializer, align 1
   %0 = load i64, ptr %this, align 8, !tbaa !163
-  %u.i.i.i = getelementptr inbounds %"class.folly::small_vector", ptr %this, i64 0, i32 1
+  %u.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %u.i.i.i, align 8
   %tobool.not.i.i = icmp sgt i64 %0, -1
   %tobool2.not.i.i = icmp eq ptr %1, null
@@ -7541,7 +7478,7 @@ entry:
   br i1 %or.cond.i, label %invoke.cont, label %if.then4.i.i
 
 if.then4.i.i:                                     ; preds = %entry
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i.i.i.i, align 8, !tbaa !169
   %mul.i.i = mul i64 %2, 136
   %3 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
@@ -7595,7 +7532,7 @@ if.then:                                          ; preds = %entry
 if.end3:                                          ; preds = %entry
   %0 = load i64, ptr %this, align 8, !tbaa !163
   %tobool.not.i.i = icmp sgt i64 %0, -1
-  %capacity_.i.i.i.i = getelementptr inbounds %"class.folly::small_vector", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %capacity_.i.i.i.i, align 8
   %retval.0.i.i = select i1 %tobool.not.i.i, i64 1, i64 %1
   %2 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %retval.0.i.i, i64 3)
@@ -7668,7 +7605,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
   %13 = xor i1 %insert, true
   call void @llvm.assume(i1 %13)
   %14 = load i64, ptr %this, align 8, !tbaa !163
-  %u.i = getelementptr inbounds %"class.folly::small_vector", ptr %this, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %this, i64 8
   %15 = load ptr, ptr %u.i, align 8
   %tobool.not5.i = icmp slt i64 %14, 0
   %cond.i58 = select i1 %tobool.not5.i, ptr %15, ptr %u.i
@@ -8069,7 +8006,7 @@ declare noundef i32 @_ZN5folly6netops8recvmmsgENS_13NetworkSocketEP7mmsghdrjjP8t
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZN5folly14AsyncUDPSocket18updateRegistrationEv(ptr noundef nonnull align 16 dereferenceable(768) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %readCallback_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 2
+  %readCallback_ = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %readCallback_, align 16, !tbaa !136
   %tobool.not = icmp eq ptr %0, null
   %spec.select = select i1 %tobool.not, i16 16, i16 18
@@ -8102,10 +8039,10 @@ entry:
   %ref.tmp31 = alloca %"class.google::LogMessage", align 8
   %ex = alloca %"class.folly::AsyncSocketException", align 8
   %ref.tmp43 = alloca %"class.std::__cxx11::basic_string", align 8
-  %errMessageCallback_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 22
+  %errMessageCallback_ = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load ptr, ptr %errMessageCallback_, align 16, !tbaa !152
   %cmp = icmp eq ptr %0, null
-  %_M_element_count.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28, i32 0, i32 3
+  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 432
   %1 = load i64, ptr %_M_element_count.i.i.i, align 16
   %cmp.i.i = icmp eq i64 %1, 0
   %or.cond = select i1 %cmp, i1 %cmp.i.i, i1 false
@@ -8117,22 +8054,22 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %msg) #30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %entry2) #30
   store ptr %data, ptr %entry2, align 8, !tbaa !113
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %entry2, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %entry2, i64 8
   store i64 1, ptr %iov_len, align 8, !tbaa !116
-  %msg_iov = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 2
+  %msg_iov = getelementptr inbounds i8, ptr %msg, i64 16
   store ptr %entry2, ptr %msg_iov, align 8, !tbaa !122
-  %msg_iovlen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 3
+  %msg_iovlen = getelementptr inbounds i8, ptr %msg, i64 24
   store i64 1, ptr %msg_iovlen, align 8, !tbaa !123
   store ptr null, ptr %msg, align 8, !tbaa !119
-  %msg_namelen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 1
+  %msg_namelen = getelementptr inbounds i8, ptr %msg, i64 8
   store i32 0, ptr %msg_namelen, align 8, !tbaa !121
-  %msg_control = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 4
+  %msg_control = getelementptr inbounds i8, ptr %msg, i64 32
   store ptr %ctrl, ptr %msg_control, align 8, !tbaa !124
-  %msg_controllen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 5
+  %msg_controllen = getelementptr inbounds i8, ptr %msg, i64 40
   store i64 1024, ptr %msg_controllen, align 8, !tbaa !125
-  %msg_flags = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 6
+  %msg_flags = getelementptr inbounds i8, ptr %msg, i64 48
   store i32 0, ptr %msg_flags, align 8, !tbaa !241
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load i32, ptr %fd_, align 16
   %cmp.i.i91.not132 = icmp eq i32 %2, -1
   br i1 %cmp.i.i91.not132, label %cleanup72, label %while.body
@@ -8223,7 +8160,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp31) #30
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ex) #30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp43) #30
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp43, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %ref.tmp43, i64 16
   store ptr %7, ptr %ref.tmp43, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #30
   store i64 16, ptr %__dnew.i.i, align 8, !tbaa !30
@@ -8235,7 +8172,7 @@ call2.i11.i.noexc:                                ; preds = %invoke.cont41
   %8 = load i64, ptr %__dnew.i.i, align 8, !tbaa !30
   store i64 %8, ptr %7, align 8, !tbaa !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call2.i11.i101, ptr noundef nonnull align 1 dereferenceable(16) @.str.63, i64 16, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp43, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp43, i64 8
   store i64 %8, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
   %9 = load ptr, ptr %ref.tmp43, align 8, !tbaa !28
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
@@ -8251,12 +8188,12 @@ call2.i11.i.noexc:                                ; preds = %invoke.cont41
 
 invoke.cont.i:                                    ; preds = %.noexc
   %10 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !28
-  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %11 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %invoke.cont.i
-  %_M_string_length.i.i.i.i102 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i102 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %12 = load i64, ptr %_M_string_length.i.i.i.i102, align 8, !tbaa !29
   %cmp3.i.i.i.i = icmp ult i64 %12, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -8270,12 +8207,12 @@ lpad.i:                                           ; preds = %.noexc
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !28
-  %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i5.i = icmp eq ptr %14, %15
   br i1 %cmp.i.i.i5.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i, label %if.then.i.i6.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i: ; preds = %lpad.i
-  %_M_string_length.i.i.i8.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %16 = load i64, ptr %_M_string_length.i.i.i8.i, align 8, !tbaa !29
   %cmp3.i.i.i9.i = icmp ult i64 %16, 16
   call void @llvm.assume(i1 %cmp3.i.i.i9.i)
@@ -8292,9 +8229,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 invoke.cont46:                                    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #30
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8, !tbaa !109
-  %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex, i64 0, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %ex, i64 16
   store i32 8, ptr %type_.i, align 8, !tbaa !137
-  %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex, i64 0, i32 2
+  %errno_.i = getelementptr inbounds i8, ptr %ex, i64 20
   store i32 %6, ptr %errno_.i, align 4, !tbaa !143
   %17 = load ptr, ptr %ref.tmp43, align 8, !tbaa !28
   %cmp.i.i.i = icmp eq ptr %17, %7
@@ -8319,7 +8256,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 if.then.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   store ptr null, ptr %errMessageCallback_, align 16, !tbaa !152
   %vtable.i = load ptr, ptr %19, align 8, !tbaa !109
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %20 = load ptr, ptr %vfn.i, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(24) %ex) #30
   br label %_ZN5folly14AsyncUDPSocket18failErrMessageReadERKNS_20AsyncSocketExceptionE.exit
@@ -8350,10 +8287,10 @@ land.rhs57:                                       ; preds = %land.rhs57thread-pr
 
 for.body:                                         ; preds = %land.rhs57
   %inc = add i64 %num.1129, 1
-  %cmsg_level.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.0130, i64 0, i32 1
+  %cmsg_level.i = getelementptr inbounds i8, ptr %cmsg.0130, i64 8
   %24 = load i32, ptr %cmsg_level.i, align 8, !tbaa !33
   %cmp.i = icmp eq i32 %24, 0
-  %cmsg_type.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.0130, i64 0, i32 2
+  %cmsg_type.i = getelementptr inbounds i8, ptr %cmsg.0130, i64 12
   %25 = load i32, ptr %cmsg_type.i, align 4
   %cmp1.i = icmp eq i32 %25, 11
   %or.cond.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
@@ -8366,7 +8303,7 @@ lor.lhs.false.i:                                  ; preds = %for.body
   br i1 %or.cond14.i, label %if.then.i105, label %if.else
 
 if.then.i105:                                     ; preds = %lor.lhs.false.i, %for.body
-  %__cmsg_data.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.0130, i64 0, i32 3
+  %__cmsg_data.i = getelementptr inbounds i8, ptr %cmsg.0130, i64 16
   %26 = load i32, ptr %__cmsg_data.i, align 4, !tbaa !245
   %cmp7.i = icmp eq i32 %26, 0
   br i1 %cmp7.i, label %_ZN5folly14AsyncUDPSocket13isZeroCopyMsgERK7cmsghdr.exit, label %if.else
@@ -8384,7 +8321,7 @@ if.then61:                                        ; preds = %_ZN5folly14AsyncUDP
 if.else:                                          ; preds = %_ZN5folly14AsyncUDPSocket13isZeroCopyMsgERK7cmsghdr.exit, %if.then.i105, %lor.lhs.false.i
   %28 = load ptr, ptr %errMessageCallback_, align 16, !tbaa !152
   %vtable = load ptr, ptr %28, align 8, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %29 = load ptr, ptr %vfn, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(16) %cmsg.0130) #30
   br label %if.end64
@@ -8403,7 +8340,7 @@ if.end.i:                                         ; preds = %for.inc
   %sub.i = add i64 %31, 7
   %and.i = and i64 %sub.i, -8
   %add.ptr.i = getelementptr inbounds i8, ptr %cmsg.0130, i64 %and.i
-  %add.ptr2.i = getelementptr inbounds %struct.cmsghdr, ptr %add.ptr.i, i64 1
+  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   %32 = load ptr, ptr %msg_control, align 8, !tbaa !124
   %33 = load i64, ptr %msg_controllen, align 8, !tbaa !125
   %add.ptr3.i = getelementptr inbounds i8, ptr %32, i64 %33
@@ -8492,16 +8429,16 @@ entry:
   br i1 %tobool.not, label %if.end, label %cleanup116
 
 if.end:                                           ; preds = %entry
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i32, ptr %fd_, align 16, !tbaa !7
   %cmp.i = icmp eq i32 %0, -1
   br i1 %cmp.i, label %cleanup116, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %readCallback_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 2
+  %readCallback_ = getelementptr inbounds i8, ptr %this, i64 192
   %1 = load ptr, ptr %readCallback_, align 16, !tbaa !136
   %vtable = load ptr, ptr %1, align 8, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %2 = load ptr, ptr %vfn, align 8
   %call6 = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont5 unwind label %terminate.lpad.loopexit.split-lp
@@ -8512,41 +8449,41 @@ invoke.cont5:                                     ; preds = %if.end4
 if.then7:                                         ; preds = %invoke.cont5
   %3 = load ptr, ptr %readCallback_, align 16, !tbaa !136
   %vtable9 = load ptr, ptr %3, align 8, !tbaa !109
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 2
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 16
   %4 = load ptr, ptr %vfn10, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 16 dereferenceable(768) %this) #30
   br label %cleanup116
 
 if.end11:                                         ; preds = %invoke.cont5
-  %maxReadsPerEvent_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 1
+  %maxReadsPerEvent_ = getelementptr inbounds i8, ptr %this, i64 184
   %5 = load i16, ptr %maxReadsPerEvent_, align 8, !tbaa !182
   %tobool12.not = icmp eq i16 %5, 0
   %conv = zext i16 %5 to i64
-  %eventBase_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 3
+  %eventBase_ = getelementptr inbounds i8, ptr %this, i64 200
   %6 = load ptr, ptr %eventBase_, align 8, !tbaa !153
   %spec.select = select i1 %tobool12.not, i64 -1, i64 %conv
   %tobool14.not209 = icmp eq i64 %spec.select, 0
   br i1 %tobool14.not209, label %cleanup116, label %land.lhs.true.lr.ph
 
 land.lhs.true.lr.ph:                              ; preds = %if.end11
-  %external_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4, i32 2
-  %family_.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 4, i32 0, i32 1, i64 4
-  %gro_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 19
-  %hasValue.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 19, i32 0, i32 1
-  %ts_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 21
-  %hasValue.i141 = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 21, i32 0, i32 1
-  %recvTos_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 14
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
-  %msg_iov = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 2
-  %msg_iovlen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 3
-  %msg_namelen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 1
-  %msg_control = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 4
-  %msg_controllen = getelementptr inbounds %struct.msghdr, ptr %msg, i64 0, i32 5
-  %clientAddress_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 7
-  %ts.i152 = getelementptr inbounds %"struct.folly::AsyncUDPSocket::ReadCallback::OnDataAvailableParams", ptr %agg.tmp83, i64 0, i32 2
-  %hasValue.i.i.i153 = getelementptr inbounds %"struct.folly::AsyncUDPSocket::ReadCallback::OnDataAvailableParams", ptr %agg.tmp83, i64 0, i32 2, i32 0, i32 1
+  %external_.i = getelementptr inbounds i8, ptr %this, i64 234
+  %family_.i.i = getelementptr inbounds i8, ptr %this, i64 228
+  %gro_ = getelementptr inbounds i8, ptr %this, i64 340
+  %hasValue.i = getelementptr inbounds i8, ptr %this, i64 344
+  %ts_ = getelementptr inbounds i8, ptr %this, i64 360
+  %hasValue.i141 = getelementptr inbounds i8, ptr %this, i64 364
+  %recvTos_ = getelementptr inbounds i8, ptr %this, i64 317
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
+  %msg_iov = getelementptr inbounds i8, ptr %msg, i64 16
+  %msg_iovlen = getelementptr inbounds i8, ptr %msg, i64 24
+  %msg_namelen = getelementptr inbounds i8, ptr %msg, i64 8
+  %msg_control = getelementptr inbounds i8, ptr %msg, i64 32
+  %msg_controllen = getelementptr inbounds i8, ptr %msg, i64 40
+  %clientAddress_ = getelementptr inbounds i8, ptr %this, i64 248
+  %ts.i152 = getelementptr inbounds i8, ptr %agg.tmp83, i64 8
+  %hasValue.i.i.i153 = getelementptr inbounds i8, ptr %agg.tmp83, i64 56
   %params.sroa.8.8.ts.i152.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp83, i64 9
-  %tos.i154 = getelementptr inbounds %"struct.folly::AsyncUDPSocket::ReadCallback::OnDataAvailableParams", ptr %agg.tmp83, i64 0, i32 3
+  %tos.i154 = getelementptr inbounds i8, ptr %agg.tmp83, i64 64
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cleanup, %land.lhs.true.lr.ph
@@ -8573,7 +8510,7 @@ while.body:                                       ; preds = %land.lhs.true
 if.then23:                                        ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ex) #30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp24) #30
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp24, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %ref.tmp24, i64 16
   store ptr %12, ptr %ref.tmp24, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #30
   store i64 53, ptr %__dnew.i.i, align 8, !tbaa !30
@@ -8585,7 +8522,7 @@ call2.i11.i.noexc:                                ; preds = %if.then23
   %13 = load i64, ptr %__dnew.i.i, align 8, !tbaa !30
   store i64 %13, ptr %12, align 8, !tbaa !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(53) %call2.i11.i133, ptr noundef nonnull align 1 dereferenceable(53) @.str.64, i64 53, i1 false)
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp24, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
   store i64 %13, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call2.i11.i133, i64 %13
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !31
@@ -8600,12 +8537,12 @@ call2.i11.i.noexc:                                ; preds = %if.then23
 
 invoke.cont.i:                                    ; preds = %.noexc
   %14 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !28
-  %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %15 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i.i = icmp eq ptr %14, %15
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %invoke.cont.i
-  %_M_string_length.i.i.i.i134 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i.i134 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %16 = load i64, ptr %_M_string_length.i.i.i.i134, align 8, !tbaa !29
   %cmp3.i.i.i.i = icmp ult i64 %16, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -8619,12 +8556,12 @@ lpad.i:                                           ; preds = %.noexc
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = load ptr, ptr %ref.tmp.i, align 8, !tbaa !28
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 2
+  %19 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %cmp.i.i.i5.i = icmp eq ptr %18, %19
   br i1 %cmp.i.i.i5.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i, label %if.then.i.i6.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i: ; preds = %lpad.i
-  %_M_string_length.i.i.i8.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_string_length.i.i.i8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %20 = load i64, ptr %_M_string_length.i.i.i8.i, align 8, !tbaa !29
   %cmp3.i.i.i9.i = icmp ult i64 %20, 16
   call void @llvm.assume(i1 %cmp3.i.i.i9.i)
@@ -8641,9 +8578,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 invoke.cont27:                                    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #30
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8, !tbaa !109
-  %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex, i64 0, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %ex, i64 16
   store i32 6, ptr %type_.i, align 8, !tbaa !137
-  %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex, i64 0, i32 2
+  %errno_.i = getelementptr inbounds i8, ptr %ex, i64 20
   store i32 0, ptr %errno_.i, align 4, !tbaa !143
   %21 = load ptr, ptr %ref.tmp24, align 8, !tbaa !28
   %cmp.i.i.i = icmp eq ptr %21, %12
@@ -8664,7 +8601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %23 = load ptr, ptr %readCallback_, align 16, !tbaa !136
   store ptr null, ptr %readCallback_, align 16, !tbaa !136
   %vtable30 = load ptr, ptr %23, align 8, !tbaa !109
-  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 4
+  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 32
   %24 = load ptr, ptr %vfn31, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(24) %ex) #30
   %25 = load ptr, ptr %readCallback_, align 16, !tbaa !136
@@ -8755,7 +8692,7 @@ for.body.i:                                       ; preds = %lor.lhs.false.i.i, 
   %params.sroa.12205.0 = phi i8 [ %params.sroa.12205.1, %lor.lhs.false.i.i ], [ 0, %for.body.i.preheader ]
   %40 = phi i8 [ %48, %lor.lhs.false.i.i ], [ 0, %for.body.i.preheader ]
   %cmsg.055.i = phi ptr [ %add.ptr.i.i, %lor.lhs.false.i.i ], [ %39, %for.body.i.preheader ]
-  %cmsg_level.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055.i, i64 0, i32 1
+  %cmsg_level.i = getelementptr inbounds i8, ptr %cmsg.055.i, i64 8
   %41 = load i32, ptr %cmsg_level.i, align 8, !tbaa !33
   switch i32 %41, label %for.inc.i [
     i32 17, label %if.then.i
@@ -8765,19 +8702,19 @@ for.body.i:                                       ; preds = %lor.lhs.false.i.i, 
   ]
 
 if.then.i:                                        ; preds = %for.body.i
-  %cmsg_type.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055.i, i64 0, i32 2
+  %cmsg_type.i = getelementptr inbounds i8, ptr %cmsg.055.i, i64 12
   %42 = load i32, ptr %cmsg_type.i, align 4, !tbaa !33
   %cmp3.i = icmp eq i32 %42, 104
   br i1 %cmp3.i, label %if.then4.i, label %for.inc.i
 
 if.then4.i:                                       ; preds = %if.then.i
-  %__cmsg_data.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055.i, i64 0, i32 3
+  %__cmsg_data.i = getelementptr inbounds i8, ptr %cmsg.055.i, i64 16
   %43 = load i16, ptr %__cmsg_data.i, align 2, !tbaa !52
   %conv.i = zext i16 %43 to i32
   br label %for.inc.i
 
 if.then7.i:                                       ; preds = %for.body.i
-  %cmsg_type8.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055.i, i64 0, i32 2
+  %cmsg_type8.i = getelementptr inbounds i8, ptr %cmsg.055.i, i64 12
   %44 = load i32, ptr %cmsg_type8.i, align 4, !tbaa !33
   switch i32 %44, label %for.inc.i [
     i32 37, label %if.then12.i
@@ -8785,7 +8722,7 @@ if.then7.i:                                       ; preds = %for.body.i
   ]
 
 if.then12.i:                                      ; preds = %if.then7.i, %if.then7.i
-  %__cmsg_data13.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055.i, i64 0, i32 3
+  %__cmsg_data13.i = getelementptr inbounds i8, ptr %cmsg.055.i, i64 16
   %tobool.i.i.not.i.i.i = icmp eq i8 %40, 0
   %params.sroa.5201.8.copyload = load i8, ptr %__cmsg_data13.i, align 8
   %params.sroa.8.8.__cmsg_data13.i.sroa_idx = getelementptr inbounds i8, ptr %cmsg.055.i, i64 17
@@ -8794,19 +8731,19 @@ if.then12.i:                                      ; preds = %if.then7.i, %if.the
   br label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %cmsg_type20.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055.i, i64 0, i32 2
+  %cmsg_type20.i = getelementptr inbounds i8, ptr %cmsg.055.i, i64 12
   %45 = load i32, ptr %cmsg_type20.i, align 4, !tbaa !33
   %cmp21.i = icmp eq i32 %45, 1
   br i1 %cmp21.i, label %if.then28.i, label %for.inc.i
 
 land.lhs.true25.i:                                ; preds = %for.body.i
-  %cmsg_type26.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055.i, i64 0, i32 2
+  %cmsg_type26.i = getelementptr inbounds i8, ptr %cmsg.055.i, i64 12
   %46 = load i32, ptr %cmsg_type26.i, align 4, !tbaa !33
   %cmp27.i = icmp eq i32 %46, 67
   br i1 %cmp27.i, label %if.then28.i, label %for.inc.i
 
 if.then28.i:                                      ; preds = %land.lhs.true25.i, %land.lhs.true.i
-  %__cmsg_data29.i = getelementptr inbounds %struct.cmsghdr, ptr %cmsg.055.i, i64 0, i32 3
+  %__cmsg_data29.i = getelementptr inbounds i8, ptr %cmsg.055.i, i64 16
   %47 = load i8, ptr %__cmsg_data29.i, align 8, !tbaa !31
   br label %for.inc.i
 
@@ -8824,7 +8761,7 @@ if.end.i.i151:                                    ; preds = %for.inc.i
   %sub.i.i = add i64 %49, 7
   %and.i.i = and i64 %sub.i.i, -8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %cmsg.055.i, i64 %and.i.i
-  %add.ptr2.i.i = getelementptr inbounds %struct.cmsghdr, ptr %add.ptr.i.i, i64 1
+  %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
   %cmp4.i.i = icmp ugt ptr %add.ptr2.i.i, %add.ptr3.i.i
   br i1 %cmp4.i.i, label %if.end65, label %lor.lhs.false.i.i
 
@@ -8889,7 +8826,7 @@ invoke.cont2.i.i:                                 ; preds = %if.then76
 _ZN5folly14AsyncUDPSocket12ReadCallback21OnDataAvailableParamsC2ERKS2_.exit: ; preds = %invoke.cont2.i.i, %if.then76
   store i8 %params.sroa.12205.4, ptr %tos.i154, align 8, !tbaa !180
   %vtable84 = load ptr, ptr %53, align 8, !tbaa !109
-  %vfn85 = getelementptr inbounds ptr, ptr %vtable84, i64 1
+  %vfn85 = getelementptr inbounds i8, ptr %vtable84, i64 8
   %54 = load ptr, ptr %vfn85, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(27) %clientAddress_, i64 noundef %spec.select132, i1 noundef zeroext %cmp77, ptr noundef nonnull %agg.tmp83) #30
   br label %cleanup
@@ -8903,7 +8840,7 @@ if.else87:                                        ; preds = %if.end71
 if.end94:                                         ; preds = %if.else87
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ex95) #30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp96) #30
-  %56 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp96, i64 0, i32 2
+  %56 = getelementptr inbounds i8, ptr %ref.tmp96, i64 16
   store ptr %56, ptr %ref.tmp96, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i155) #30
   store i64 19, ptr %__dnew.i.i155, align 8, !tbaa !30
@@ -8915,7 +8852,7 @@ call2.i11.i.noexc164:                             ; preds = %if.end94
   %57 = load i64, ptr %__dnew.i.i155, align 8, !tbaa !30
   store i64 %57, ptr %56, align 8, !tbaa !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %call2.i11.i165, ptr noundef nonnull align 1 dereferenceable(19) @.str.65, i64 19, i1 false)
-  %_M_string_length.i.i.i.i159 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp96, i64 0, i32 1
+  %_M_string_length.i.i.i.i159 = getelementptr inbounds i8, ptr %ref.tmp96, i64 8
   store i64 %57, ptr %_M_string_length.i.i.i.i159, align 8, !tbaa !29
   %58 = load ptr, ptr %ref.tmp96, align 8, !tbaa !28
   %arrayidx.i.i.i160 = getelementptr inbounds i8, ptr %58, i64 %57
@@ -8932,12 +8869,12 @@ call2.i11.i.noexc164:                             ; preds = %if.end94
 
 invoke.cont.i175:                                 ; preds = %.noexc183
   %60 = load ptr, ptr %ref.tmp.i167, align 8, !tbaa !28
-  %61 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i167, i64 0, i32 2
+  %61 = getelementptr inbounds i8, ptr %ref.tmp.i167, i64 16
   %cmp.i.i.i.i176 = icmp eq ptr %60, %61
   br i1 %cmp.i.i.i.i176, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i180, label %if.then.i.i.i177
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i180: ; preds = %invoke.cont.i175
-  %_M_string_length.i.i.i.i181 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i167, i64 0, i32 1
+  %_M_string_length.i.i.i.i181 = getelementptr inbounds i8, ptr %ref.tmp.i167, i64 8
   %62 = load i64, ptr %_M_string_length.i.i.i.i181, align 8, !tbaa !29
   %cmp3.i.i.i.i182 = icmp ult i64 %62, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i182)
@@ -8951,12 +8888,12 @@ lpad.i168:                                        ; preds = %.noexc183
   %63 = landingpad { ptr, i32 }
           catch ptr null
   %64 = load ptr, ptr %ref.tmp.i167, align 8, !tbaa !28
-  %65 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i167, i64 0, i32 2
+  %65 = getelementptr inbounds i8, ptr %ref.tmp.i167, i64 16
   %cmp.i.i.i5.i169 = icmp eq ptr %64, %65
   br i1 %cmp.i.i.i5.i169, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i172, label %if.then.i.i6.i170
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i7.i172: ; preds = %lpad.i168
-  %_M_string_length.i.i.i8.i173 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp.i167, i64 0, i32 1
+  %_M_string_length.i.i.i8.i173 = getelementptr inbounds i8, ptr %ref.tmp.i167, i64 8
   %66 = load i64, ptr %_M_string_length.i.i.i8.i173, align 8, !tbaa !29
   %cmp3.i.i.i9.i174 = icmp ult i64 %66, 16
   call void @llvm.assume(i1 %cmp3.i.i.i9.i174)
@@ -8973,9 +8910,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i171: ; preds =
 invoke.cont100:                                   ; preds = %if.then.i.i.i177, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i180
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i167) #30
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex95, align 8, !tbaa !109
-  %type_.i178 = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex95, i64 0, i32 1
+  %type_.i178 = getelementptr inbounds i8, ptr %ex95, i64 16
   store i32 8, ptr %type_.i178, align 8, !tbaa !137
-  %errno_.i179 = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex95, i64 0, i32 2
+  %errno_.i179 = getelementptr inbounds i8, ptr %ex95, i64 20
   store i32 %59, ptr %errno_.i179, align 4, !tbaa !143
   %67 = load ptr, ptr %ref.tmp96, align 8, !tbaa !28
   %cmp.i.i.i187 = icmp eq ptr %67, %56
@@ -8996,7 +8933,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193: ; preds = %if
   %69 = load ptr, ptr %readCallback_, align 16, !tbaa !136
   store ptr null, ptr %readCallback_, align 16, !tbaa !136
   %vtable104 = load ptr, ptr %69, align 8, !tbaa !109
-  %vfn105 = getelementptr inbounds ptr, ptr %vtable104, i64 4
+  %vfn105 = getelementptr inbounds i8, ptr %vtable104, i64 32
   %70 = load ptr, ptr %vfn105, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull align 8 dereferenceable(24) %ex95) #30
   %71 = load ptr, ptr %readCallback_, align 16, !tbaa !136
@@ -9056,14 +8993,14 @@ terminate.lpad.body:                              ; preds = %terminate.lpad.loop
 define void @_ZN5folly14AsyncUDPSocket18releaseZeroCopyBufEj(ptr noundef nonnull align 16 dereferenceable(768) %this, i32 noundef %id) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9 = alloca %"class.google::LogMessageFatal", align 8
-  %idZeroCopyBufMap_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28
-  %_M_element_count.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28, i32 0, i32 3
+  %idZeroCopyBufMap_ = getelementptr inbounds i8, ptr %this, i64 408
+  %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 432
   %0 = load i64, ptr %_M_element_count.i.i.i, align 16, !tbaa !228
   %cmp.not.not.i.i = icmp eq i64 %0, 0
   br i1 %cmp.not.not.i.i, label %if.then.i.i, label %if.end15.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28, i32 0, i32 2
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then.i.i
@@ -9080,7 +9017,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 if.end15.i.i:                                     ; preds = %entry
   %conv.i.i.i.i = zext i32 %id to i64
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 28, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 416
   %2 = load i64, ptr %_M_bucket_count.i.i.i, align 16
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %2
   %3 = load ptr, ptr %idZeroCopyBufMap_, align 8, !tbaa !186
@@ -9136,15 +9073,15 @@ lpad:                                             ; preds = %invoke.cont, %cond.
 
 cleanup.done19:                                   ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i41 = phi ptr [ %5, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %7, %for.cond.i.i.i.i ]
-  %exec_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 29, i32 2
+  %exec_.i = getelementptr inbounds i8, ptr %this, i64 520
   %10 = load ptr, ptr %exec_.i, align 8, !tbaa !133
   %cmp.i34.not = icmp eq ptr %10, null
   br i1 %cmp.i34.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cleanup.done19
-  %ioBufFreeFunc_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 29
+  %ioBufFreeFunc_ = getelementptr inbounds i8, ptr %this, i64 464
   %second = getelementptr inbounds i8, ptr %retval.sroa.0.1.i.i41, i64 16
-  %call_.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 29, i32 1
+  %call_.i = getelementptr inbounds i8, ptr %this, i64 512
   %11 = load ptr, ptr %call_.i, align 16, !tbaa !134
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %second, ptr noundef nonnull align 16 dereferenceable(48) %ioBufFreeFunc_)
   br label %if.end
@@ -9158,7 +9095,7 @@ if.end:                                           ; preds = %if.then, %cleanup.d
 define linkonce_odr ptr @_ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5eraseENSA_20_Node_const_iteratorIS8_Lb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %__it.coerce) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %__it.coerce, i64 8
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_bucket_count.i, align 8, !tbaa !187
   %1 = load i32, ptr %add.ptr, align 4, !tbaa !33
   %conv.i.i.i.i = zext i32 %1 to i64
@@ -9202,7 +9139,7 @@ if.then3.i.i:                                     ; preds = %cond.end.i
 if.end.i.i:                                       ; preds = %if.then3.i.i, %if.then.i
   %7 = phi ptr [ %3, %if.then.i ], [ %.pre43.i, %if.then3.i.i ]
   %8 = phi ptr [ %2, %if.then.i ], [ %.pre.i, %if.then3.i.i ]
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx7.i.i = getelementptr inbounds ptr, ptr %8, i64 %rem.i.i.i
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %7
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
@@ -9246,7 +9183,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %if.en
 
 _ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEESaIS8_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSA_15_Hash_node_baseEPNSA_10_Hash_nodeIS8_Lb0EEE.exit: ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i.i.i, %if.end15.i
   tail call void @_ZdlPv(ptr noundef nonnull %__it.coerce) #31
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %12 = load i64, ptr %_M_element_count.i, align 8, !tbaa !228
   %dec.i = add i64 %12, -1
   store i64 %dec.i, ptr %_M_element_count.i, align 8, !tbaa !228
@@ -9256,10 +9193,10 @@ _ZNSt10_HashtableIjSt4pairIKjSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN5folly14AsyncUDPSocket13isZeroCopyMsgERK7cmsghdr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cmsg) local_unnamed_addr #27 align 2 {
 entry:
-  %cmsg_level = getelementptr inbounds %struct.cmsghdr, ptr %cmsg, i64 0, i32 1
+  %cmsg_level = getelementptr inbounds i8, ptr %cmsg, i64 8
   %0 = load i32, ptr %cmsg_level, align 8, !tbaa !33
   %cmp = icmp eq i32 %0, 0
-  %cmsg_type = getelementptr inbounds %struct.cmsghdr, ptr %cmsg, i64 0, i32 2
+  %cmsg_type = getelementptr inbounds i8, ptr %cmsg, i64 12
   %1 = load i32, ptr %cmsg_type, align 4
   %cmp1 = icmp eq i32 %1, 11
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
@@ -9272,7 +9209,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond14, label %if.then, label %return
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %__cmsg_data = getelementptr inbounds %struct.cmsghdr, ptr %cmsg, i64 0, i32 3
+  %__cmsg_data = getelementptr inbounds i8, ptr %cmsg, i64 16
   %2 = load i32, ptr %__cmsg_data, align 8, !tbaa !245
   %cmp7 = icmp eq i32 %2, 0
   br i1 %cmp7, label %land.rhs, label %return
@@ -9292,9 +9229,9 @@ return:                                           ; preds = %land.rhs, %if.then,
 define void @_ZN5folly14AsyncUDPSocket18processZeroCopyMsgERK7cmsghdr(ptr noundef nonnull align 16 dereferenceable(768) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cmsg) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.google::LogMessage", align 8
-  %0 = getelementptr inbounds %struct.cmsghdr, ptr %cmsg, i64 1, i32 2
+  %0 = getelementptr inbounds i8, ptr %cmsg, i64 28
   %1 = load i32, ptr %0, align 4, !tbaa !31
-  %ee_info = getelementptr inbounds %struct.cmsghdr, ptr %cmsg, i64 1, i32 1
+  %ee_info = getelementptr inbounds i8, ptr %cmsg, i64 24
   %2 = load i32, ptr %ee_info, align 8, !tbaa !261
   %ee_code = getelementptr inbounds i8, ptr %cmsg, i64 22
   %3 = load i8, ptr %ee_code, align 2, !tbaa !262
@@ -9303,7 +9240,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %zeroCopyEnabled_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 23
+  %zeroCopyEnabled_ = getelementptr inbounds i8, ptr %this, i64 376
   %5 = load i8, ptr %zeroCopyEnabled_, align 8, !tbaa !117, !range !20, !noundef !21
   %tobool2.not = icmp eq i8 %5, 0
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -9345,7 +9282,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
           to label %call1.i.i.noexc unwind label %lpad
 
 call1.i.i.noexc:                                  ; preds = %invoke.cont12
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %8 = load i32, ptr %fd_, align 16, !tbaa !7
   %call1.i41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call7, i32 noundef %8)
           to label %call1.i.noexc unwind label %lpad
@@ -9392,7 +9329,7 @@ declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly14AsyncUDPSocket18failErrMessageReadERKNS_20AsyncSocketExceptionE(ptr nocapture noundef nonnull align 16 dereferenceable(768) %this, ptr noundef nonnull align 8 dereferenceable(24) %ex) local_unnamed_addr #0 align 2 {
 entry:
-  %errMessageCallback_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 22
+  %errMessageCallback_ = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load ptr, ptr %errMessageCallback_, align 16, !tbaa !152
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -9400,7 +9337,7 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr null, ptr %errMessageCallback_, align 16, !tbaa !152
   %vtable = load ptr, ptr %0, align 8, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %ex) #30
   br label %if.end
@@ -9420,11 +9357,11 @@ define noundef zeroext i1 @_ZN5folly14AsyncUDPSocket6setGSOEi(ptr nocapture noun
 entry:
   %val.addr = alloca i32, align 4
   store i32 %val, ptr %val.addr, align 4, !tbaa !33
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 17, i32 noundef 103, ptr noundef nonnull %val.addr, i32 noundef 4)
   %0 = load i32, ptr %val.addr, align 4
-  %hasValue.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 18, i32 0, i32 1
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 336
   %1 = load i8, ptr %hasValue.i.i.i.i, align 16, !tbaa !154, !range !20, !noundef !21
   %tobool.i.i.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %_ZN5folly8OptionalIiEaSIiEERS1_OT_.exit
@@ -9434,7 +9371,7 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN5folly8OptionalIiEaSIiEERS1_OT_.exit
 
 _ZN5folly8OptionalIiEaSIiEERS1_OT_.exit:          ; preds = %if.else.i.i, %entry
-  %gso_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 18
+  %gso_ = getelementptr inbounds i8, ptr %this, i64 332
   %tobool.not = icmp eq i32 %call, 0
   %cond = select i1 %tobool.not, i32 %0, i32 -1
   store i32 %cond, ptr %gso_, align 4
@@ -9448,11 +9385,11 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val) #30
   %cond = zext i1 %bVal to i32
   store i32 %cond, ptr %val, align 4, !tbaa !33
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 17, i32 noundef 104, ptr noundef nonnull %val, i32 noundef 4)
   %0 = load i32, ptr %val, align 4
-  %hasValue.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 19, i32 0, i32 1
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 344
   %1 = load i8, ptr %hasValue.i.i.i.i, align 8, !tbaa !154, !range !20, !noundef !21
   %tobool.i.i.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %_ZN5folly8OptionalIiEaSIiEERS1_OT_.exit
@@ -9462,7 +9399,7 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN5folly8OptionalIiEaSIiEERS1_OT_.exit
 
 _ZN5folly8OptionalIiEaSIiEERS1_OT_.exit:          ; preds = %if.else.i.i, %entry
-  %gro_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 19
+  %gro_ = getelementptr inbounds i8, ptr %this, i64 340
   %tobool2.not = icmp eq i32 %call, 0
   %cond3 = select i1 %tobool2.not, i32 %0, i32 -1
   store i32 %cond3, ptr %gro_, align 4
@@ -9475,8 +9412,8 @@ define noundef i32 @_ZN5folly14AsyncUDPSocket15getTimestampingEv(ptr nocapture n
 entry:
   %ts = alloca i32, align 4
   %optlen = alloca i32, align 4
-  %ts_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 21
-  %hasValue.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 21, i32 0, i32 1
+  %ts_ = getelementptr inbounds i8, ptr %this, i64 360
+  %hasValue.i = getelementptr inbounds i8, ptr %this, i64 364
   %0 = load i8, ptr %hasValue.i, align 4, !tbaa !154, !range !20, !noundef !21
   %tobool.i.not = icmp eq i8 %0, 0
   br i1 %tobool.i.not, label %if.then, label %entry._ZNR5folly8OptionalIiE5valueEv.exit_crit_edge, !prof !12
@@ -9490,7 +9427,7 @@ if.then:                                          ; preds = %entry
   store i32 -1, ptr %ts, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %optlen) #30
   store i32 4, ptr %optlen, align 4, !tbaa !33
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call2 = call noundef i32 @_ZN5folly6netops10getsockoptENS_13NetworkSocketEiiPvPj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 1, i32 noundef 37, ptr noundef nonnull %ts, ptr noundef nonnull %optlen)
   %tobool3.not = icmp eq i32 %call2, 0
@@ -9527,11 +9464,11 @@ define noundef zeroext i1 @_ZN5folly14AsyncUDPSocket15setTimestampingEi(ptr noca
 entry:
   %val.addr = alloca i32, align 4
   store i32 %val, ptr %val.addr, align 4, !tbaa !33
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 1, i32 noundef 37, ptr noundef nonnull %val.addr, i32 noundef 4)
   %0 = load i32, ptr %val.addr, align 4
-  %hasValue.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 21, i32 0, i32 1
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 364
   %1 = load i8, ptr %hasValue.i.i.i.i, align 4, !tbaa !154, !range !20, !noundef !21
   %tobool.i.i.not.i.i = icmp eq i8 %1, 0
   br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %_ZN5folly8OptionalIiEaSIiEERS1_OT_.exit
@@ -9541,7 +9478,7 @@ if.else.i.i:                                      ; preds = %entry
   br label %_ZN5folly8OptionalIiEaSIiEERS1_OT_.exit
 
 _ZN5folly8OptionalIiEaSIiEERS1_OT_.exit:          ; preds = %if.else.i.i, %entry
-  %ts_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 21
+  %ts_ = getelementptr inbounds i8, ptr %this, i64 360
   %tobool.not = icmp eq i32 %call, 0
   %cond = select i1 %tobool.not, i32 %0, i32 -1
   store i32 %cond, ptr %ts_, align 8
@@ -9553,8 +9490,8 @@ define noundef i32 @_ZN5folly14AsyncUDPSocket6getGROEv(ptr nocapture noundef non
 entry:
   %gro = alloca i32, align 4
   %optlen = alloca i32, align 4
-  %gro_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 19
-  %hasValue.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 19, i32 0, i32 1
+  %gro_ = getelementptr inbounds i8, ptr %this, i64 340
+  %hasValue.i = getelementptr inbounds i8, ptr %this, i64 344
   %0 = load i8, ptr %hasValue.i, align 8, !tbaa !154, !range !20, !noundef !21
   %tobool.i.not = icmp eq i8 %0, 0
   br i1 %tobool.i.not, label %if.then, label %entry._ZNR5folly8OptionalIiE5valueEv.exit_crit_edge, !prof !12
@@ -9568,7 +9505,7 @@ if.then:                                          ; preds = %entry
   store i32 -1, ptr %gro, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %optlen) #30
   store i32 4, ptr %optlen, align 4, !tbaa !33
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call2 = call noundef i32 @_ZN5folly6netops10getsockoptENS_13NetworkSocketEiiPvPj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 17, i32 noundef 104, ptr noundef nonnull %gro, ptr noundef nonnull %optlen)
   %tobool3.not = icmp eq i32 %call2, 0
@@ -9605,8 +9542,8 @@ define i64 @_ZN5folly14AsyncUDPSocket9getTXTimeEv(ptr nocapture noundef nonnull 
 entry:
   %val = alloca %"struct.folly::netops::sock_txtime", align 8
   %optlen = alloca i32, align 4
-  %txTime_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 20
-  %hasValue.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 20, i32 0, i32 1
+  %txTime_ = getelementptr inbounds i8, ptr %this, i64 348
+  %hasValue.i = getelementptr inbounds i8, ptr %this, i64 356
   %0 = load i8, ptr %hasValue.i, align 4, !tbaa !126, !range !20, !noundef !21
   %tobool.i.not = icmp eq i8 %0, 0
   br i1 %tobool.i.not, label %if.then, label %_ZNR5folly8OptionalINS_14AsyncUDPSocket6TXTimeEE5valueEv.exit, !prof !12
@@ -9616,12 +9553,12 @@ if.then:                                          ; preds = %entry
   store i64 0, ptr %val, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %optlen) #30
   store i32 8, ptr %optlen, align 4, !tbaa !33
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call2 = call noundef i32 @_ZN5folly6netops10getsockoptENS_13NetworkSocketEiiPvPj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 1, i32 noundef 61, ptr noundef nonnull %val, ptr noundef nonnull %optlen)
   %tobool3.not = icmp eq i32 %call2, 0
   %1 = load i32, ptr %val, align 8
-  %flags = getelementptr inbounds %"struct.folly::netops::sock_txtime", ptr %val, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %val, i64 4
   %2 = load i32, ptr %flags, align 4
   %3 = trunc i32 %2 to i8
   %frombool = and i8 %3, 1
@@ -9644,7 +9581,7 @@ if.end9.thread14:                                 ; preds = %if.then
 
 if.end9:                                          ; preds = %if.then
   store i32 %txTime.sroa.0.0, ptr %txTime_, align 4, !tbaa.struct !264
-  %txTime.sroa.6.0.txTime_.sroa_idx = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 20, i32 0, i32 0, i32 0, i32 1
+  %txTime.sroa.6.0.txTime_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 352
   store i8 %txTime.sroa.6.0, ptr %txTime.sroa.6.0.txTime_.sroa_idx, align 16, !tbaa.struct !265
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %optlen) #30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %val) #30
@@ -9665,24 +9602,24 @@ entry:
   %0 = lshr i64 %txTime.coerce, 32
   %1 = trunc i64 %0 to i32
   %cond = and i32 %1, 1
-  %flags = getelementptr inbounds %"struct.folly::netops::sock_txtime", ptr %val, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %val, i64 4
   store i32 %cond, ptr %flags, align 4, !tbaa !268
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 1, i32 noundef 61, ptr noundef nonnull %val, i32 noundef 8)
   %tobool3.not = icmp eq i32 %call, 0
   %txTime.sroa.3.0.extract.trunc = trunc i64 %0 to i8
   %spec.select = select i1 %tobool3.not, i8 %txTime.sroa.3.0.extract.trunc, i8 0
   %spec.select7 = select i1 %tobool3.not, i32 %txTime.sroa.0.0.extract.trunc, i32 -1
-  %txTime_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 20
-  %hasValue.i.i.i.i = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 20, i32 0, i32 1
+  %txTime_ = getelementptr inbounds i8, ptr %this, i64 348
+  %hasValue.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 356
   %2 = load i8, ptr %hasValue.i.i.i.i, align 4, !tbaa !126, !range !20, !noundef !21
   %tobool.i.i.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   store i32 %spec.select7, ptr %txTime_, align 4, !tbaa.struct !264
-  %ref.tmp.sroa.7.0.txTime_.sroa_idx = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 20, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.7.0.txTime_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 352
   store i8 %spec.select, ptr %ref.tmp.sroa.7.0.txTime_.sroa_idx, align 16, !tbaa.struct !265
   br label %_ZN5folly8OptionalINS_14AsyncUDPSocket6TXTimeEEaSIS2_EERS3_OT_.exit
 
@@ -9705,13 +9642,13 @@ define noundef zeroext i1 @_ZN5folly14AsyncUDPSocket16setRxZeroChksum6Eb(ptr nou
 entry:
   %val = alloca i32, align 4
   %vtable = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(27) ptr %0(ptr noundef nonnull align 16 dereferenceable(768) %this)
-  %external_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %call, i64 0, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %call, i64 26
   %1 = load i8, ptr %external_.i, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i = icmp eq i8 %1, 0
-  %family_.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %call, i64 0, i32 1
+  %family_.i.i = getelementptr inbounds i8, ptr %call, i64 20
   %2 = load i16, ptr %family_.i.i, align 4
   %cmp.not5 = icmp eq i16 %2, 10
   %cmp.not = select i1 %tobool.not.i, i1 %cmp.not5, i1 false
@@ -9721,7 +9658,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val) #30
   %cond = zext i1 %bVal to i32
   store i32 %cond, ptr %val, align 4, !tbaa !33
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call3 = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 17, i32 noundef 102, ptr noundef nonnull %val, i32 noundef 4)
   %tobool4.not = icmp eq i32 %call3, 0
@@ -9738,13 +9675,13 @@ define noundef zeroext i1 @_ZN5folly14AsyncUDPSocket16setTxZeroChksum6Eb(ptr nou
 entry:
   %val = alloca i32, align 4
   %vtable = load ptr, ptr %this, align 16, !tbaa !109
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(27) ptr %0(ptr noundef nonnull align 16 dereferenceable(768) %this)
-  %external_.i = getelementptr inbounds %"class.folly::SocketAddress", ptr %call, i64 0, i32 2
+  %external_.i = getelementptr inbounds i8, ptr %call, i64 26
   %1 = load i8, ptr %external_.i, align 2, !tbaa !16, !range !20, !noundef !21
   %tobool.not.i = icmp eq i8 %1, 0
-  %family_.i.i = getelementptr inbounds %"class.folly::IPAddress", ptr %call, i64 0, i32 1
+  %family_.i.i = getelementptr inbounds i8, ptr %call, i64 20
   %2 = load i16, ptr %family_.i.i, align 4
   %cmp.not5 = icmp eq i16 %2, 10
   %cmp.not = select i1 %tobool.not.i, i1 %cmp.not5, i1 false
@@ -9754,7 +9691,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val) #30
   %cond = zext i1 %bVal to i32
   store i32 %cond, ptr %val, align 4, !tbaa !33
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call3 = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 17, i32 noundef 101, ptr noundef nonnull %val, i32 noundef 4)
   %tobool4.not = icmp eq i32 %call3, 0
@@ -9773,7 +9710,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
   store i8 %tclass, ptr %tclass.addr, align 1, !tbaa !31
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 41, i32 noundef 67, ptr noundef nonnull %tclass.addr, i32 noundef 1)
   %cmp.not = icmp eq i32 %call, 0
@@ -9808,12 +9745,12 @@ lpad4:                                            ; preds = %invoke.cont5, %invo
   %2 = landingpad { ptr, i32 }
           cleanup
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !28
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad4
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !29
   %cmp3.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -9850,7 +9787,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
   store i8 %tos, ptr %tos.addr, align 1, !tbaa !31
-  %fd_ = getelementptr inbounds %"class.folly::AsyncUDPSocket", ptr %this, i64 0, i32 5
+  %fd_ = getelementptr inbounds i8, ptr %this, i64 240
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %fd_, align 16, !tbaa.struct !32
   %call = call noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32 %agg.tmp.sroa.0.0.copyload, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %tos.addr, i32 noundef 1)
   %cmp.not = icmp eq i32 %call, 0
@@ -9885,12 +9822,12 @@ lpad4:                                            ; preds = %invoke.cont5, %invo
   %2 = landingpad { ptr, i32 }
           cleanup
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !28
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %ehcleanup
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad4
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !29
   %cmp3.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -9938,19 +9875,19 @@ if.then:                                          ; preds = %entry
   %_M_parent.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i, align 8, !tbaa !53
   store ptr %0, ptr %__roan, align 8, !tbaa !269
-  %_M_nodes.i = getelementptr inbounds %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, int>, std::_Select1st<std::pair<const folly::SocketOptionKey, int>>, std::less<folly::SocketOptionKey>>::_Reuse_or_alloc_node", ptr %__roan, i64 0, i32 1
+  %_M_nodes.i = getelementptr inbounds i8, ptr %__roan, i64 8
   %_M_right.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i.i, align 8, !tbaa !53
   store ptr %1, ptr %_M_nodes.i, align 8, !tbaa !271
-  %_M_t.i = getelementptr inbounds %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, int>, std::_Select1st<std::pair<const folly::SocketOptionKey, int>>, std::less<folly::SocketOptionKey>>::_Reuse_or_alloc_node", ptr %__roan, i64 0, i32 2
+  %_M_t.i = getelementptr inbounds i8, ptr %__roan, i64 16
   store ptr %this, ptr %_M_t.i, align 8, !tbaa !53
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end12.sink.split.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %_M_parent.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i64 0, i32 1
+  %_M_parent.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %_M_parent.i, align 8, !tbaa !236
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %_M_left.i, align 8, !tbaa !191
   %tobool6.not.i = icmp eq ptr %2, null
   br i1 %tobool6.not.i, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_nodeC2ERSA_.exit, label %if.end12.sink.split.i
@@ -9979,7 +9916,7 @@ if.then6:                                         ; preds = %_ZNSt8_Rb_treeIN5fo
 
 while.cond.i.i.i:                                 ; preds = %if.then6, %while.cond.i.i.i
   %__x.addr.0.i.i.i = phi ptr [ %4, %while.cond.i.i.i ], [ %call3.i20, %if.then6 ]
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i, i64 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i.i, i64 16
   %4 = load ptr, ptr %_M_left.i.i.i, align 8, !tbaa !191
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i, label %while.cond.i.i.i, !llvm.loop !272
@@ -9990,7 +9927,7 @@ _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4less
 
 while.cond.i.i14.i:                               ; preds = %while.cond.i.i14.i, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i
   %__x.addr.0.i.i15.i = phi ptr [ %call3.i20, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i ], [ %5, %while.cond.i.i14.i ]
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i15.i, i64 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i15.i, i64 24
   %5 = load ptr, ptr %_M_right.i.i.i, align 8, !tbaa !190
   %cmp.not.i.i16.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i16.i, label %invoke.cont, label %while.cond.i.i14.i, !llvm.loop !273
@@ -10036,7 +9973,7 @@ if.end9:                                          ; preds = %_ZNSt8_Rb_treeIN5fo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_t = getelementptr inbounds %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, int>, std::_Select1st<std::pair<const folly::SocketOptionKey, int>>, std::less<folly::SocketOptionKey>>::_Reuse_or_alloc_node", ptr %this, i64 0, i32 2
+  %_M_t = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_t, align 8, !tbaa !274
   %1 = load ptr, ptr %this, align 8, !tbaa !269
   invoke void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
@@ -10056,40 +9993,40 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE7_M_copyILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(24) %__node_gen) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_nodes.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, int>, std::_Select1st<std::pair<const folly::SocketOptionKey, int>>, std::less<folly::SocketOptionKey>>::_Reuse_or_alloc_node", ptr %__node_gen, i64 0, i32 1
+  %_M_nodes.i.i.i = getelementptr inbounds i8, ptr %__node_gen, i64 8
   %0 = load ptr, ptr %_M_nodes.i.i.i, align 8, !tbaa !271
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %_M_parent.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i64 0, i32 1
+  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_parent.i.i.i, align 8, !tbaa !236
   store ptr %1, ptr %_M_nodes.i.i.i, align 8, !tbaa !271
   %tobool7.not.i.i.i = icmp eq ptr %1, null
   br i1 %tobool7.not.i.i.i, label %if.else37.i.i.i, label %if.then8.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %_M_right.i.i.i, align 8, !tbaa !190
   %cmp.i.i.i = icmp eq ptr %2, %0
   br i1 %cmp.i.i.i, label %if.then10.i.i.i, label %if.else.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.then8.i.i.i
   store ptr null, ptr %_M_right.i.i.i, align 8, !tbaa !190
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %_M_left.i.i.i, align 8, !tbaa !191
   %tobool14.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool14.not.i.i.i, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit, label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %if.then10.i.i.i, %while.cond.i.i.i
   %storemerge.i.i.i = phi ptr [ %4, %while.cond.i.i.i ], [ %3, %if.then10.i.i.i ]
-  %_M_right20.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i, i64 0, i32 3
+  %_M_right20.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 24
   %4 = load ptr, ptr %_M_right20.i.i.i, align 8, !tbaa !190
   %tobool21.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool21.not.i.i.i, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i, label %while.cond.i.i.i, !llvm.loop !275
 
 if.else.i.i.i:                                    ; preds = %if.then8.i.i.i
-  %_M_left35.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left35.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr null, ptr %_M_left35.i.i.i, align 8, !tbaa !191
   br label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit
 
@@ -10098,7 +10035,7 @@ if.else37.i.i.i:                                  ; preds = %if.end.i.i.i
   br label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit
 
 _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i: ; preds = %while.cond.i.i.i
-  %_M_left26.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i, i64 0, i32 2
+  %_M_left26.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 16
   %5 = load ptr, ptr %_M_left26.i.i.i, align 8, !tbaa !191
   %tobool27.not.i.i.i = icmp eq ptr %5, null
   %spec.store.select.i.i.i = select i1 %tobool27.not.i.i.i, ptr %storemerge.i.i.i, ptr %5
@@ -10111,16 +10048,16 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit: ; preds = %if.end.i.i, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i, %if.else37.i.i.i, %if.else.i.i.i, %if.then10.i.i.i
   %call5.i.i.i.i.sink.i.i = phi ptr [ %call5.i.i.i.i.i.i, %if.end.i.i ], [ %0, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i ], [ %0, %if.else37.i.i.i ], [ %0, %if.else.i.i.i ], [ %0, %if.then10.i.i.i ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__x, i64 0, i32 1
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x, i64 32
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %_M_storage.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %_M_storage.i.i, i64 16, i1 false)
   %6 = load i32, ptr %__x, align 8, !tbaa !276
   store i32 %6, ptr %call5.i.i.i.i.sink.i.i, align 8, !tbaa !276
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i, i8 0, i64 16, i1 false)
-  %_M_parent = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 1
+  %_M_parent = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 8
   store ptr %__p, ptr %_M_parent, align 8, !tbaa !236
-  %_M_right = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 3
+  %_M_right = getelementptr inbounds i8, ptr %__x, i64 24
   %7 = load ptr, ptr %_M_right, align 8, !tbaa !190
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -10130,7 +10067,7 @@ if.then:                                          ; preds = %_ZNSt8_Rb_treeIN5fo
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %_M_right4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i, i64 0, i32 3
+  %_M_right4 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i, i64 24
   store ptr %call3, ptr %_M_right4, align 8, !tbaa !190
   br label %if.end
 
@@ -10140,7 +10077,7 @@ lpad:                                             ; preds = %if.then
   br label %catch
 
 if.end:                                           ; preds = %invoke.cont, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit
-  %__x.addr.0.in79 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 2
+  %__x.addr.0.in79 = getelementptr inbounds i8, ptr %__x, i64 16
   %__x.addr.080 = load ptr, ptr %__x.addr.0.in79, align 8, !tbaa !191
   %cmp.not81 = icmp eq ptr %__x.addr.080, null
   br i1 %cmp.not81, label %try.cont, label %while.body
@@ -10153,34 +10090,34 @@ while.body:                                       ; preds = %if.end, %if.end17
   br i1 %tobool.not.i.i.i48, label %if.end.i.i73, label %if.end.i.i.i49
 
 if.end.i.i.i49:                                   ; preds = %while.body
-  %_M_parent.i.i.i50 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %9, i64 0, i32 1
+  %_M_parent.i.i.i50 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %_M_parent.i.i.i50, align 8, !tbaa !236
   store ptr %10, ptr %_M_nodes.i.i.i, align 8, !tbaa !271
   %tobool7.not.i.i.i51 = icmp eq ptr %10, null
   br i1 %tobool7.not.i.i.i51, label %if.else37.i.i.i72, label %if.then8.i.i.i52
 
 if.then8.i.i.i52:                                 ; preds = %if.end.i.i.i49
-  %_M_right.i.i.i53 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %10, i64 0, i32 3
+  %_M_right.i.i.i53 = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %_M_right.i.i.i53, align 8, !tbaa !190
   %cmp.i.i.i54 = icmp eq ptr %11, %9
   br i1 %cmp.i.i.i54, label %if.then10.i.i.i61, label %if.else.i.i.i55
 
 if.then10.i.i.i61:                                ; preds = %if.then8.i.i.i52
   store ptr null, ptr %_M_right.i.i.i53, align 8, !tbaa !190
-  %_M_left.i.i.i62 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %10, i64 0, i32 2
+  %_M_left.i.i.i62 = getelementptr inbounds i8, ptr %10, i64 16
   %12 = load ptr, ptr %_M_left.i.i.i62, align 8, !tbaa !191
   %tobool14.not.i.i.i63 = icmp eq ptr %12, null
   br i1 %tobool14.not.i.i.i63, label %invoke.cont7, label %while.cond.i.i.i64
 
 while.cond.i.i.i64:                               ; preds = %if.then10.i.i.i61, %while.cond.i.i.i64
   %storemerge.i.i.i65 = phi ptr [ %13, %while.cond.i.i.i64 ], [ %12, %if.then10.i.i.i61 ]
-  %_M_right20.i.i.i66 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i65, i64 0, i32 3
+  %_M_right20.i.i.i66 = getelementptr inbounds i8, ptr %storemerge.i.i.i65, i64 24
   %13 = load ptr, ptr %_M_right20.i.i.i66, align 8, !tbaa !190
   %tobool21.not.i.i.i67 = icmp eq ptr %13, null
   br i1 %tobool21.not.i.i.i67, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i68, label %while.cond.i.i.i64, !llvm.loop !277
 
 if.else.i.i.i55:                                  ; preds = %if.then8.i.i.i52
-  %_M_left35.i.i.i56 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %10, i64 0, i32 2
+  %_M_left35.i.i.i56 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr null, ptr %_M_left35.i.i.i56, align 8, !tbaa !191
   br label %invoke.cont7
 
@@ -10189,7 +10126,7 @@ if.else37.i.i.i72:                                ; preds = %if.end.i.i.i49
   br label %invoke.cont7
 
 _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i68: ; preds = %while.cond.i.i.i64
-  %_M_left26.i.i.i69 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i.i.i65, i64 0, i32 2
+  %_M_left26.i.i.i69 = getelementptr inbounds i8, ptr %storemerge.i.i.i65, i64 16
   %14 = load ptr, ptr %_M_left26.i.i.i69, align 8, !tbaa !191
   %tobool27.not.i.i.i70 = icmp eq ptr %14, null
   %spec.store.select.i.i.i71 = select i1 %tobool27.not.i.i.i70, ptr %storemerge.i.i.i65, ptr %14
@@ -10202,18 +10139,18 @@ if.end.i.i73:                                     ; preds = %while.body
 
 invoke.cont7:                                     ; preds = %if.end.i.i73, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i68, %if.else37.i.i.i72, %if.else.i.i.i55, %if.then10.i.i.i61
   %call5.i.i.i.i.sink.i.i57 = phi ptr [ %9, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i68 ], [ %9, %if.else37.i.i.i72 ], [ %9, %if.else.i.i.i55 ], [ %9, %if.then10.i.i.i61 ], [ %call5.i.i.i.i.i.i7475, %if.end.i.i73 ]
-  %_M_storage.i.i58 = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__x.addr.083, i64 0, i32 1
-  %_M_storage.i.i.i.i.i59 = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call5.i.i.i.i.sink.i.i57, i64 0, i32 1
+  %_M_storage.i.i58 = getelementptr inbounds i8, ptr %__x.addr.083, i64 32
+  %_M_storage.i.i.i.i.i59 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i57, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %_M_storage.i.i.i.i.i59, ptr noundef nonnull align 4 dereferenceable(16) %_M_storage.i.i58, i64 16, i1 false)
   %15 = load i32, ptr %__x.addr.083, align 8, !tbaa !276
   store i32 %15, ptr %call5.i.i.i.i.sink.i.i57, align 8, !tbaa !276
-  %_M_left.i60 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i57, i64 0, i32 2
+  %_M_left.i60 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i57, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i60, i8 0, i64 16, i1 false)
-  %_M_left = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__p.addr.082, i64 0, i32 2
+  %_M_left = getelementptr inbounds i8, ptr %__p.addr.082, i64 16
   store ptr %call5.i.i.i.i.sink.i.i57, ptr %_M_left, align 8, !tbaa !191
-  %_M_parent9 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i57, i64 0, i32 1
+  %_M_parent9 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i57, i64 8
   store ptr %__p.addr.082, ptr %_M_parent9, align 8, !tbaa !236
-  %_M_right10 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.083, i64 0, i32 3
+  %_M_right10 = getelementptr inbounds i8, ptr %__x.addr.083, i64 24
   %16 = load ptr, ptr %_M_right10, align 8, !tbaa !190
   %tobool11.not = icmp eq ptr %16, null
   br i1 %tobool11.not, label %if.end17, label %if.then12
@@ -10223,7 +10160,7 @@ if.then12:                                        ; preds = %invoke.cont7
           to label %invoke.cont14 unwind label %lpad6
 
 invoke.cont14:                                    ; preds = %if.then12
-  %_M_right16 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call5.i.i.i.i.sink.i.i57, i64 0, i32 3
+  %_M_right16 = getelementptr inbounds i8, ptr %call5.i.i.i.i.sink.i.i57, i64 24
   store ptr %call15, ptr %_M_right16, align 8, !tbaa !190
   br label %if.end17
 
@@ -10244,7 +10181,7 @@ invoke.cont20:                                    ; preds = %catch
           to label %unreachable unwind label %lpad19
 
 if.end17:                                         ; preds = %invoke.cont14, %invoke.cont7
-  %__x.addr.0.in = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.083, i64 0, i32 2
+  %__x.addr.0.in = getelementptr inbounds i8, ptr %__x.addr.083, i64 16
   %__x.addr.0 = load ptr, ptr %__x.addr.0.in, align 8, !tbaa !191
   %cmp.not = icmp eq ptr %__x.addr.0, null
   br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !278
@@ -10284,19 +10221,19 @@ if.then:                                          ; preds = %entry
   %_M_parent.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i, align 8, !tbaa !53
   store ptr %0, ptr %__roan, align 8, !tbaa !279
-  %_M_nodes.i = getelementptr inbounds %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>>, std::less<folly::SocketOptionKey>>::_Reuse_or_alloc_node", ptr %__roan, i64 0, i32 1
+  %_M_nodes.i = getelementptr inbounds i8, ptr %__roan, i64 8
   %_M_right.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i.i, align 8, !tbaa !53
   store ptr %1, ptr %_M_nodes.i, align 8, !tbaa !281
-  %_M_t.i = getelementptr inbounds %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>>, std::less<folly::SocketOptionKey>>::_Reuse_or_alloc_node", ptr %__roan, i64 0, i32 2
+  %_M_t.i = getelementptr inbounds i8, ptr %__roan, i64 16
   store ptr %this, ptr %_M_t.i, align 8, !tbaa !53
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end12.sink.split.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %_M_parent.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i64 0, i32 1
+  %_M_parent.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %_M_parent.i, align 8, !tbaa !236
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %_M_left.i, align 8, !tbaa !191
   %tobool6.not.i = icmp eq ptr %2, null
   br i1 %tobool6.not.i, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE20_Reuse_or_alloc_nodeC2ERSG_.exit, label %if.end12.sink.split.i
@@ -10325,7 +10262,7 @@ if.then6:                                         ; preds = %_ZNSt8_Rb_treeIN5fo
 
 while.cond.i.i.i:                                 ; preds = %if.then6, %while.cond.i.i.i
   %__x.addr.0.i.i.i = phi ptr [ %4, %while.cond.i.i.i ], [ %call3.i20, %if.then6 ]
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i.i, i64 0, i32 2
+  %_M_left.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i.i, i64 16
   %4 = load ptr, ptr %_M_left.i.i.i, align 8, !tbaa !191
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i, label %while.cond.i.i.i, !llvm.loop !282
@@ -10336,7 +10273,7 @@ _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcS
 
 while.cond.i.i14.i:                               ; preds = %while.cond.i.i14.i, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i
   %__x.addr.0.i.i15.i = phi ptr [ %call3.i20, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i ], [ %5, %while.cond.i.i14.i ]
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.0.i.i15.i, i64 0, i32 3
+  %_M_right.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i15.i, i64 24
   %5 = load ptr, ptr %_M_right.i.i.i, align 8, !tbaa !190
   %cmp.not.i.i16.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i16.i, label %invoke.cont, label %while.cond.i.i14.i, !llvm.loop !283
@@ -10382,7 +10319,7 @@ if.end9:                                          ; preds = %_ZNSt8_Rb_treeIN5fo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE20_Reuse_or_alloc_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_t = getelementptr inbounds %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>>, std::less<folly::SocketOptionKey>>::_Reuse_or_alloc_node", ptr %this, i64 0, i32 2
+  %_M_t = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_t, align 8, !tbaa !284
   %1 = load ptr, ptr %this, align 8, !tbaa !279
   invoke void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1)
@@ -10402,15 +10339,15 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE7_M_copyILb0ENSG_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(24) %__node_gen) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x, i64 32
   %call2.i = tail call noundef ptr @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE20_Reuse_or_alloc_nodeclIRKSA_EEPSt13_Rb_tree_nodeISA_EOT_(ptr noundef nonnull align 8 dereferenceable(24) %__node_gen, ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i)
   %0 = load i32, ptr %__x, align 8, !tbaa !276
   store i32 %0, ptr %call2.i, align 8, !tbaa !276
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call2.i, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %call2.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i, i8 0, i64 16, i1 false)
-  %_M_parent = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call2.i, i64 0, i32 1
+  %_M_parent = getelementptr inbounds i8, ptr %call2.i, i64 8
   store ptr %__p, ptr %_M_parent, align 8, !tbaa !236
-  %_M_right = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 3
+  %_M_right = getelementptr inbounds i8, ptr %__x, i64 24
   %1 = load ptr, ptr %_M_right, align 8, !tbaa !190
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -10420,7 +10357,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %_M_right4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call2.i, i64 0, i32 3
+  %_M_right4 = getelementptr inbounds i8, ptr %call2.i, i64 24
   store ptr %call3, ptr %_M_right4, align 8, !tbaa !190
   br label %if.end
 
@@ -10430,7 +10367,7 @@ lpad:                                             ; preds = %if.then
   br label %catch
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  %__x.addr.0.in53 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x, i64 0, i32 2
+  %__x.addr.0.in53 = getelementptr inbounds i8, ptr %__x, i64 16
   %__x.addr.054 = load ptr, ptr %__x.addr.0.in53, align 8, !tbaa !191
   %cmp.not55 = icmp eq ptr %__x.addr.054, null
   br i1 %cmp.not55, label %try.cont, label %while.body
@@ -10438,20 +10375,20 @@ if.end:                                           ; preds = %invoke.cont, %entry
 while.body:                                       ; preds = %if.end, %if.end17
   %__x.addr.057 = phi ptr [ %__x.addr.0, %if.end17 ], [ %__x.addr.054, %if.end ]
   %__p.addr.056 = phi ptr [ %call2.i4850, %if.end17 ], [ %call2.i, %if.end ]
-  %_M_storage.i.i47 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.057, i64 0, i32 1
+  %_M_storage.i.i47 = getelementptr inbounds i8, ptr %__x.addr.057, i64 32
   %call2.i4850 = invoke noundef ptr @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE20_Reuse_or_alloc_nodeclIRKSA_EEPSt13_Rb_tree_nodeISA_EOT_(ptr noundef nonnull align 8 dereferenceable(24) %__node_gen, ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i47)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %while.body
   %3 = load i32, ptr %__x.addr.057, align 8, !tbaa !276
   store i32 %3, ptr %call2.i4850, align 8, !tbaa !276
-  %_M_left.i49 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call2.i4850, i64 0, i32 2
+  %_M_left.i49 = getelementptr inbounds i8, ptr %call2.i4850, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i49, i8 0, i64 16, i1 false)
-  %_M_left = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__p.addr.056, i64 0, i32 2
+  %_M_left = getelementptr inbounds i8, ptr %__p.addr.056, i64 16
   store ptr %call2.i4850, ptr %_M_left, align 8, !tbaa !191
-  %_M_parent9 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call2.i4850, i64 0, i32 1
+  %_M_parent9 = getelementptr inbounds i8, ptr %call2.i4850, i64 8
   store ptr %__p.addr.056, ptr %_M_parent9, align 8, !tbaa !236
-  %_M_right10 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.057, i64 0, i32 3
+  %_M_right10 = getelementptr inbounds i8, ptr %__x.addr.057, i64 24
   %4 = load ptr, ptr %_M_right10, align 8, !tbaa !190
   %tobool11.not = icmp eq ptr %4, null
   br i1 %tobool11.not, label %if.end17, label %if.then12
@@ -10461,7 +10398,7 @@ if.then12:                                        ; preds = %invoke.cont7
           to label %invoke.cont14 unwind label %lpad6
 
 invoke.cont14:                                    ; preds = %if.then12
-  %_M_right16 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call2.i4850, i64 0, i32 3
+  %_M_right16 = getelementptr inbounds i8, ptr %call2.i4850, i64 24
   store ptr %call15, ptr %_M_right16, align 8, !tbaa !190
   br label %if.end17
 
@@ -10482,7 +10419,7 @@ invoke.cont20:                                    ; preds = %catch
           to label %unreachable unwind label %lpad19
 
 if.end17:                                         ; preds = %invoke.cont14, %invoke.cont7
-  %__x.addr.0.in = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.057, i64 0, i32 2
+  %__x.addr.0.in = getelementptr inbounds i8, ptr %__x.addr.057, i64 16
   %__x.addr.0 = load ptr, ptr %__x.addr.0.in, align 8, !tbaa !191
   %cmp.not = icmp eq ptr %__x.addr.0, null
   br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !285
@@ -10513,40 +10450,40 @@ unreachable:                                      ; preds = %invoke.cont20
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE20_Reuse_or_alloc_nodeclIRKSA_EEPSt13_Rb_tree_nodeISA_EOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(48) %__arg) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_nodes.i = getelementptr inbounds %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>>, std::less<folly::SocketOptionKey>>::_Reuse_or_alloc_node", ptr %this, i64 0, i32 1
+  %_M_nodes.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_nodes.i, align 8, !tbaa !281
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %_M_parent.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %0, i64 0, i32 1
+  %_M_parent.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_parent.i, align 8, !tbaa !236
   store ptr %1, ptr %_M_nodes.i, align 8, !tbaa !281
   %tobool7.not.i = icmp eq ptr %1, null
   br i1 %tobool7.not.i, label %if.else37.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end.i
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load ptr, ptr %_M_right.i, align 8, !tbaa !190
   %cmp.i = icmp eq ptr %2, %0
   br i1 %cmp.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %if.then8.i
   store ptr null, ptr %_M_right.i, align 8, !tbaa !190
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %_M_left.i, align 8, !tbaa !191
   %tobool14.not.i = icmp eq ptr %3, null
   br i1 %tobool14.not.i, label %if.then, label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.then10.i, %while.cond.i
   %storemerge.i = phi ptr [ %4, %while.cond.i ], [ %3, %if.then10.i ]
-  %_M_right20.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i, i64 0, i32 3
+  %_M_right20.i = getelementptr inbounds i8, ptr %storemerge.i, i64 24
   %4 = load ptr, ptr %_M_right20.i, align 8, !tbaa !190
   %tobool21.not.i = icmp eq ptr %4, null
   br i1 %tobool21.not.i, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit, label %while.cond.i, !llvm.loop !286
 
 if.else.i:                                        ; preds = %if.then8.i
-  %_M_left35.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %1, i64 0, i32 2
+  %_M_left35.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr null, ptr %_M_left35.i, align 8, !tbaa !191
   br label %if.then
 
@@ -10555,7 +10492,7 @@ if.else37.i:                                      ; preds = %if.end.i
   br label %if.then
 
 _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit: ; preds = %while.cond.i
-  %_M_left26.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %storemerge.i, i64 0, i32 2
+  %_M_left26.i = getelementptr inbounds i8, ptr %storemerge.i, i64 16
   %5 = load ptr, ptr %_M_left26.i, align 8, !tbaa !191
   %tobool27.not.i = icmp eq ptr %5, null
   %spec.store.select.i = select i1 %tobool27.not.i, ptr %storemerge.i, ptr %5
@@ -10563,15 +10500,15 @@ _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcS
   br label %if.then
 
 if.then:                                          ; preds = %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit, %if.else37.i, %if.else.i, %if.then10.i
-  %_M_t = getelementptr inbounds %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>>, std::less<folly::SocketOptionKey>>::_Reuse_or_alloc_node", ptr %this, i64 0, i32 2
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1, i32 0, i64 16
+  %_M_t = getelementptr inbounds i8, ptr %this, i64 16
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %second.i.i.i.i, align 8, !tbaa !28
-  %7 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1, i32 0, i64 32
+  %7 = getelementptr inbounds i8, ptr %0, i64 64
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %if.then
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1, i32 0, i64 24
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !29
   %cmp3.i.i.i.i.i.i.i = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
@@ -10587,7 +10524,7 @@ _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcS
   br label %cleanup
 
 if.end:                                           ; preds = %entry
-  %_M_t3 = getelementptr inbounds %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>>, std::less<folly::SocketOptionKey>>::_Reuse_or_alloc_node", ptr %this, i64 0, i32 2
+  %_M_t3 = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %_M_t3, align 8, !tbaa !284
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #36
   tail call void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull %call5.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__arg)
@@ -10602,14 +10539,14 @@ cleanup:                                          ; preds = %if.end, %_ZNSt8_Rb_
 define linkonce_odr void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__node, ptr noundef nonnull align 8 dereferenceable(48) %__args) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
-  %_M_storage.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1
+  %_M_storage.i = getelementptr inbounds i8, ptr %__node, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %_M_storage.i, ptr noundef nonnull align 8 dereferenceable(12) %__args, i64 12, i1 false), !tbaa.struct !287
-  %second.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 16
-  %second3.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__args, i64 0, i32 1
-  %0 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 32
+  %second.i.i.i = getelementptr inbounds i8, ptr %__node, i64 48
+  %second3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
+  %0 = getelementptr inbounds i8, ptr %__node, i64 64
   store ptr %0, ptr %second.i.i.i, align 8, !tbaa !27
   %1 = load ptr, ptr %second3.i.i.i, align 8, !tbaa !28
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__args, i64 0, i32 1, i32 1
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   %2 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i.i.i) #30
   store i64 %2, ptr %__dnew.i.i.i.i.i, align 8, !tbaa !30
@@ -10659,7 +10596,7 @@ lpad3:                                            ; preds = %lpad
 
 try.cont:                                         ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
   %10 = load i64, ptr %__dnew.i.i.i.i.i, align 8, !tbaa !30
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__node, i64 0, i32 1, i32 0, i64 24
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 56
   store i64 %10, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !29
   %11 = load ptr, ptr %second.i.i.i, align 8, !tbaa !28
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %10
@@ -10685,11 +10622,11 @@ unreachable:                                      ; preds = %lpad
 define linkonce_odr ptr @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #36
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call5.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8, !tbaa !53
   %1 = inttoptr i64 %0 to ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !tbaa.struct !287
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 12
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 44
   store i32 0, ptr %second.i.i.i.i.i.i.i, align 4, !tbaa !94
   %call8 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 4 dereferenceable(12) %_M_storage.i.i.i.i)
           to label %invoke.cont7 unwind label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit
@@ -10708,13 +10645,13 @@ if.then:                                          ; preds = %invoke.cont7
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %3, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load i32, ptr %_M_storage.i.i.i.i, align 4, !tbaa !99
   %5 = load i32, ptr %_M_storage.i.i.i.i.i, align 4, !tbaa !99
   %cmp.i.i.i.i = icmp eq i32 %4, %5
-  %optname.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 36
   %6 = load i32, ptr %optname.i.i.i.i, align 4
-  %optname2.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %3, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 36
   %7 = load i32, ptr %optname2.i.i.i.i, align 4
   %cmp3.i.i.i.i = icmp slt i32 %6, %7
   %cmp6.i.i.i.i = icmp slt i32 %4, %5
@@ -10761,13 +10698,13 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8, !tbaa !53
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i, align 4, !tbaa !99
   %3 = load i32, ptr %__k, align 4, !tbaa !99
   %cmp.i.i = icmp eq i32 %2, %3
-  %optname.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %1, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i = getelementptr inbounds i8, ptr %1, i64 36
   %4 = load i32, ptr %optname.i.i, align 4
-  %optname2.i.i = getelementptr inbounds %"class.folly::SocketOptionKey", ptr %__k, i64 0, i32 1
+  %optname2.i.i = getelementptr inbounds i8, ptr %__k, i64 4
   %5 = load i32, ptr %optname2.i.i, align 4
   %cmp3.i.i = icmp slt i32 %4, %5
   %cmp6.i.i = icmp slt i32 %2, %3
@@ -10782,23 +10719,22 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 
 while.body.lr.ph.i:                               ; preds = %if.else
   %6 = load i32, ptr %__k, align 4, !tbaa !99
-  %optname.i.i.i = getelementptr inbounds %"class.folly::SocketOptionKey", ptr %__k, i64 0, i32 1
+  %optname.i.i.i = getelementptr inbounds i8, ptr %__k, i64 4
   %7 = load i32, ptr %optname.i.i.i, align 4
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.048.i = phi ptr [ %__x.046.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i90 = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__x.048.i, i64 0, i32 1
+  %_M_storage.i.i.i90 = getelementptr inbounds i8, ptr %__x.048.i, i64 32
   %8 = load i32, ptr %_M_storage.i.i.i90, align 4, !tbaa !99
   %cmp.i.i.i = icmp eq i32 %6, %8
-  %optname2.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__x.048.i, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i = getelementptr inbounds i8, ptr %__x.048.i, i64 36
   %9 = load i32, ptr %optname2.i.i.i, align 4
   %cmp3.i.i.i = icmp slt i32 %7, %9
   %cmp6.i.i.i = icmp slt i32 %6, %8
   %retval.0.i.i.i = select i1 %cmp.i.i.i, i1 %cmp3.i.i.i, i1 %cmp6.i.i.i
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048.i, i64 0, i32 3
-  %cond.in.i = select i1 %retval.0.i.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.i.v = select i1 %retval.0.i.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.048.i, i64 %cond.in.i.v
   %__x.0.i = load ptr, ptr %cond.in.i, align 8, !tbaa !53
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !289
@@ -10815,12 +10751,12 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa52.i) #37
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %.pre239 = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 4, !tbaa !99
   %.pre240 = load i32, ptr %__k, align 4, !tbaa !99
-  %optname.i.i28.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call.i.i, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i28.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 36
   %.pre241 = load i32, ptr %optname.i.i28.i.phi.trans.insert, align 4
-  %optname2.i.i29.i.phi.trans.insert = getelementptr inbounds %"class.folly::SocketOptionKey", ptr %__k, i64 0, i32 1
+  %optname2.i.i29.i.phi.trans.insert = getelementptr inbounds i8, ptr %__k, i64 4
   %.pre242 = load i32, ptr %optname2.i.i29.i.phi.trans.insert, align 4
   br label %if.end12.i
 
@@ -10840,13 +10776,13 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   br label %cleanup80
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i92 = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i92 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %15 = load i32, ptr %__k, align 4, !tbaa !99
   %16 = load i32, ptr %_M_storage.i.i.i92, align 4, !tbaa !99
   %cmp.i.i93 = icmp eq i32 %15, %16
-  %optname.i.i94 = getelementptr inbounds %"class.folly::SocketOptionKey", ptr %__k, i64 0, i32 1
+  %optname.i.i94 = getelementptr inbounds i8, ptr %__k, i64 4
   %17 = load i32, ptr %optname.i.i94, align 4
-  %optname2.i.i95 = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i95 = getelementptr inbounds i8, ptr %__position.coerce, i64 36
   %18 = load i32, ptr %optname2.i.i95, align 4
   %cmp3.i.i96 = icmp slt i32 %17, %18
   %cmp6.i.i97 = icmp slt i32 %15, %16
@@ -10861,10 +10797,10 @@ if.then18:                                        ; preds = %if.else12
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #37
-  %_M_storage.i.i.i102 = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i102 = getelementptr inbounds i8, ptr %call.i, i64 32
   %20 = load i32, ptr %_M_storage.i.i.i102, align 4, !tbaa !99
   %cmp.i.i103 = icmp eq i32 %20, %15
-  %optname.i.i104 = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call.i, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i104 = getelementptr inbounds i8, ptr %call.i, i64 36
   %21 = load i32, ptr %optname.i.i104, align 4
   %cmp3.i.i106 = icmp slt i32 %21, %17
   %cmp6.i.i107 = icmp slt i32 %20, %15
@@ -10872,7 +10808,7 @@ if.else25:                                        ; preds = %if.then18
   br i1 %retval.0.i.i108, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25
-  %_M_right.i109 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i109 = getelementptr inbounds i8, ptr %call.i, i64 24
   %22 = load ptr, ptr %_M_right.i109, align 8, !tbaa !190
   %cmp35 = icmp eq ptr %22, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
@@ -10887,17 +10823,16 @@ if.else42:                                        ; preds = %if.else25
 
 while.body.i118:                                  ; preds = %if.else42, %while.body.i118
   %__x.048.i119 = phi ptr [ %__x.0.i129, %while.body.i118 ], [ %__x.046.i114, %if.else42 ]
-  %_M_storage.i.i.i120 = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__x.048.i119, i64 0, i32 1
+  %_M_storage.i.i.i120 = getelementptr inbounds i8, ptr %__x.048.i119, i64 32
   %23 = load i32, ptr %_M_storage.i.i.i120, align 4, !tbaa !99
   %cmp.i.i.i121 = icmp eq i32 %15, %23
-  %optname2.i.i.i122 = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__x.048.i119, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i122 = getelementptr inbounds i8, ptr %__x.048.i119, i64 36
   %24 = load i32, ptr %optname2.i.i.i122, align 4
   %cmp3.i.i.i123 = icmp slt i32 %17, %24
   %cmp6.i.i.i124 = icmp slt i32 %15, %23
   %retval.0.i.i.i125 = select i1 %cmp.i.i.i121, i1 %cmp3.i.i.i123, i1 %cmp6.i.i.i124
-  %_M_left.i.i126 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048.i119, i64 0, i32 2
-  %_M_right.i.i127 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048.i119, i64 0, i32 3
-  %cond.in.i128 = select i1 %retval.0.i.i.i125, ptr %_M_left.i.i126, ptr %_M_right.i.i127
+  %cond.in.i128.v = select i1 %retval.0.i.i.i125, i64 16, i64 24
+  %cond.in.i128 = getelementptr inbounds i8, ptr %__x.048.i119, i64 %cond.in.i128.v
   %__x.0.i129 = load ptr, ptr %cond.in.i128, align 8, !tbaa !53
   %cmp.not.i130 = icmp eq ptr %__x.0.i129, null
   br i1 %cmp.not.i130, label %while.end.i131, label %while.body.i118, !llvm.loop !290
@@ -10912,9 +10847,9 @@ if.then.i148:                                     ; preds = %while.end.i131, %if
 
 if.else.i152:                                     ; preds = %if.then.i148
   %call.i.i153 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa52.i149) #37
-  %_M_storage.i.i.i.i135.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call.i.i153, i64 0, i32 1
+  %_M_storage.i.i.i.i135.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i153, i64 32
   %.pre237 = load i32, ptr %_M_storage.i.i.i.i135.phi.trans.insert, align 4, !tbaa !99
-  %optname.i.i28.i137.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call.i.i153, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i28.i137.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i153, i64 36
   %.pre238 = load i32, ptr %optname.i.i28.i137.phi.trans.insert, align 4
   br label %if.end12.i132
 
@@ -10945,10 +10880,10 @@ if.then50:                                        ; preds = %if.else44
 
 if.else57:                                        ; preds = %if.then50
   %call.i165 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #37
-  %_M_storage.i.i.i166 = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call.i165, i64 0, i32 1
+  %_M_storage.i.i.i166 = getelementptr inbounds i8, ptr %call.i165, i64 32
   %28 = load i32, ptr %_M_storage.i.i.i166, align 4, !tbaa !99
   %cmp.i.i167 = icmp eq i32 %15, %28
-  %optname2.i.i169 = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call.i165, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i169 = getelementptr inbounds i8, ptr %call.i165, i64 36
   %29 = load i32, ptr %optname2.i.i169, align 4
   %cmp3.i.i170 = icmp slt i32 %17, %29
   %cmp6.i.i171 = icmp slt i32 %15, %28
@@ -10956,7 +10891,7 @@ if.else57:                                        ; preds = %if.then50
   br i1 %retval.0.i.i172, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57
-  %_M_right.i173 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
+  %_M_right.i173 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
   %30 = load ptr, ptr %_M_right.i173, align 8, !tbaa !190
   %cmp67 = icmp eq ptr %30, null
   %spec.select234 = select i1 %cmp67, ptr null, ptr %call.i165
@@ -10971,17 +10906,16 @@ if.else74:                                        ; preds = %if.else57
 
 while.body.i182:                                  ; preds = %if.else74, %while.body.i182
   %__x.048.i183 = phi ptr [ %__x.0.i193, %while.body.i182 ], [ %__x.046.i178, %if.else74 ]
-  %_M_storage.i.i.i184 = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__x.048.i183, i64 0, i32 1
+  %_M_storage.i.i.i184 = getelementptr inbounds i8, ptr %__x.048.i183, i64 32
   %31 = load i32, ptr %_M_storage.i.i.i184, align 4, !tbaa !99
   %cmp.i.i.i185 = icmp eq i32 %15, %31
-  %optname2.i.i.i186 = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__x.048.i183, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i186 = getelementptr inbounds i8, ptr %__x.048.i183, i64 36
   %32 = load i32, ptr %optname2.i.i.i186, align 4
   %cmp3.i.i.i187 = icmp slt i32 %17, %32
   %cmp6.i.i.i188 = icmp slt i32 %15, %31
   %retval.0.i.i.i189 = select i1 %cmp.i.i.i185, i1 %cmp3.i.i.i187, i1 %cmp6.i.i.i188
-  %_M_left.i.i190 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048.i183, i64 0, i32 2
-  %_M_right.i.i191 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048.i183, i64 0, i32 3
-  %cond.in.i192 = select i1 %retval.0.i.i.i189, ptr %_M_left.i.i190, ptr %_M_right.i.i191
+  %cond.in.i192.v = select i1 %retval.0.i.i.i189, i64 16, i64 24
+  %cond.in.i192 = getelementptr inbounds i8, ptr %__x.048.i183, i64 %cond.in.i192.v
   %__x.0.i193 = load ptr, ptr %cond.in.i192, align 8, !tbaa !53
   %cmp.not.i194 = icmp eq ptr %__x.0.i193, null
   br i1 %cmp.not.i194, label %while.end.i195, label %while.body.i182, !llvm.loop !291
@@ -10998,9 +10932,9 @@ if.then.i212:                                     ; preds = %while.end.i195, %if
 
 if.else.i216:                                     ; preds = %if.then.i212
   %call.i.i217 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa52.i213) #37
-  %_M_storage.i.i.i.i199.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call.i.i217, i64 0, i32 1
+  %_M_storage.i.i.i.i199.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i217, i64 32
   %.pre = load i32, ptr %_M_storage.i.i.i.i199.phi.trans.insert, align 4, !tbaa !99
-  %optname.i.i28.i201.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call.i.i217, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i28.i201.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i217, i64 36
   %.pre236 = load i32, ptr %optname.i.i28.i201.phi.trans.insert, align 4
   br label %if.end12.i196
 
@@ -11052,19 +10986,19 @@ for.body.lr.ph.i:                                 ; preds = %entry
 for.body.i:                                       ; preds = %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE17_M_insert_unique_IRS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EOT_RT0_.exit.i, %for.body.lr.ph.i
   %0 = phi i64 [ %.pre, %for.body.lr.ph.i ], [ %21, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE17_M_insert_unique_IRS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EOT_RT0_.exit.i ]
   %__first.sroa.0.013.i = phi ptr [ %__first.coerce, %for.body.lr.ph.i ], [ %call.i.i, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE17_M_insert_unique_IRS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EOT_RT0_.exit.i ]
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__first.sroa.0.013.i, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.013.i, i64 32
   %cmp5.not.i = icmp eq i64 %0, 0
   br i1 %cmp5.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
   %1 = load ptr, ptr %_M_right.i.i, align 8, !tbaa !53
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i.i, align 4, !tbaa !99
   %3 = load i32, ptr %_M_storage.i.i.i, align 4, !tbaa !99
   %cmp.i.i.i = icmp eq i32 %2, %3
-  %optname.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %1, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i.i = getelementptr inbounds i8, ptr %1, i64 36
   %4 = load i32, ptr %optname.i.i.i, align 4
-  %optname2.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__first.sroa.0.013.i, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.013.i, i64 36
   %5 = load i32, ptr %optname2.i.i.i, align 4
   %cmp3.i.i.i = icmp slt i32 %4, %5
   %cmp6.i.i.i = icmp slt i32 %2, %3
@@ -11078,23 +11012,22 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %f
 
 while.body.lr.ph.i.i:                             ; preds = %if.else.i
   %6 = load i32, ptr %_M_storage.i.i.i, align 4, !tbaa !99
-  %optname.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__first.sroa.0.013.i, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.013.i, i64 36
   %7 = load i32, ptr %optname.i.i.i.i, align 4
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.lr.ph.i.i
   %__x.048.i.i = phi ptr [ %__x.046.i.i, %while.body.lr.ph.i.i ], [ %__x.0.i.i, %while.body.i.i ]
-  %_M_storage.i.i.i90.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__x.048.i.i, i64 0, i32 1
+  %_M_storage.i.i.i90.i = getelementptr inbounds i8, ptr %__x.048.i.i, i64 32
   %8 = load i32, ptr %_M_storage.i.i.i90.i, align 4, !tbaa !99
   %cmp.i.i.i.i = icmp eq i32 %6, %8
-  %optname2.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__x.048.i.i, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i.i = getelementptr inbounds i8, ptr %__x.048.i.i, i64 36
   %9 = load i32, ptr %optname2.i.i.i.i, align 4
   %cmp3.i.i.i.i = icmp slt i32 %7, %9
   %cmp6.i.i.i.i = icmp slt i32 %6, %8
   %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i, i1 %cmp3.i.i.i.i, i1 %cmp6.i.i.i.i
-  %_M_left.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048.i.i, i64 0, i32 2
-  %_M_right.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048.i.i, i64 0, i32 3
-  %cond.in.i.i = select i1 %retval.0.i.i.i.i, ptr %_M_left.i.i.i, ptr %_M_right.i.i.i
+  %cond.in.i.i.v = select i1 %retval.0.i.i.i.i, i64 16, i64 24
+  %cond.in.i.i = getelementptr inbounds i8, ptr %__x.048.i.i, i64 %cond.in.i.i.v
   %__x.0.i.i = load ptr, ptr %cond.in.i.i, align 8, !tbaa !53
   %cmp.not.i.i = icmp eq ptr %__x.0.i.i, null
   br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !292
@@ -11110,12 +11043,12 @@ if.then.i.i7:                                     ; preds = %while.end.i.i, %if.
 
 if.else.i.i:                                      ; preds = %if.then.i.i7
   %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa52.i.i) #37
-  %_M_storage.i.i.i.i.phi.trans.insert.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   %.pre239.i = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert.i, align 4, !tbaa !99
   %.pre240.i = load i32, ptr %_M_storage.i.i.i, align 4, !tbaa !99
-  %optname.i.i28.i.phi.trans.insert.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call.i.i.i, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i28.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 36
   %.pre241.i = load i32, ptr %optname.i.i28.i.phi.trans.insert.i, align 4
-  %optname2.i.i29.i.phi.trans.insert.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__first.sroa.0.013.i, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i29.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %__first.sroa.0.013.i, i64 36
   %.pre242.i = load i32, ptr %optname2.i.i29.i.phi.trans.insert.i, align 4
   br label %if.end12.i.i
 
@@ -11137,13 +11070,13 @@ if.then.i.i:                                      ; preds = %if.end12.i.i, %if.t
   br i1 %cmp2.i.i.i, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_M_insert_IRS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %retval.sroa.12.2.i.ph, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.12.2.i.ph, i64 32
   %15 = load i32, ptr %_M_storage.i.i.i, align 4, !tbaa !99
   %16 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4, !tbaa !99
   %cmp.i.i.i.i.i = icmp eq i32 %15, %16
-  %optname.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %__first.sroa.0.013.i, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.013.i, i64 36
   %17 = load i32, ptr %optname.i.i.i.i.i, align 4
-  %optname2.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %retval.sroa.12.2.i.ph, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.12.2.i.ph, i64 36
   %18 = load i32, ptr %optname2.i.i.i.i.i, align 4
   %cmp3.i.i.i.i.i = icmp slt i32 %17, %18
   %cmp6.i.i.i.i.i = icmp slt i32 %15, %16
@@ -11153,7 +11086,7 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
 _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_M_insert_IRS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i: ; preds = %lor.rhs.i.i.i, %if.then.i.i
   %19 = phi i1 [ true, %if.then.i.i ], [ %retval.0.i.i.i.i.i, %lor.rhs.i.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #36
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.128", ptr %call5.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %_M_storage.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %_M_storage.i.i.i, i64 16, i1 false)
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %19, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.12.2.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #30
   %20 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !108
@@ -11177,16 +11110,16 @@ invoke.cont:
   %__z = alloca %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>>, std::less<folly::SocketOptionKey>>::_Auto_node", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__z) #30
   store ptr %this, ptr %__z, align 8, !tbaa !53
-  %_M_node.i = getelementptr inbounds %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>>, std::less<folly::SocketOptionKey>>::_Auto_node", ptr %__z, i64 0, i32 1
+  %_M_node.i = getelementptr inbounds i8, ptr %__z, i64 8
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #36
-  %_M_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 32
   %0 = load i64, ptr %__args1, align 8, !tbaa !53
   %1 = inttoptr i64 %0 to ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %_M_storage.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !tbaa.struct !287
-  %second.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 16
-  %2 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 32
+  %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 48
+  %2 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 64
   store ptr %2, ptr %second.i.i.i.i.i.i.i, align 8, !tbaa !27
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 24
+  %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 56
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !29
   store i8 0, ptr %2, align 1, !tbaa !31
   store ptr %call5.i.i.i.i.i, ptr %_M_node.i, align 8, !tbaa !294
@@ -11207,13 +11140,13 @@ if.then:                                          ; preds = %invoke.cont7
   br i1 %or.cond.i.i, label %cleanup.thread, label %lor.rhs.i.i
 
 lor.rhs.i.i:                                      ; preds = %if.then
-  %_M_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %4, i64 0, i32 1
+  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i32, ptr %_M_storage.i.i.i.i, align 4, !tbaa !99
   %6 = load i32, ptr %_M_storage.i.i.i.i.i, align 4, !tbaa !99
   %cmp.i.i.i.i = icmp eq i32 %5, %6
-  %optname.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call5.i.i.i.i.i, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 36
   %7 = load i32, ptr %optname.i.i.i.i, align 4
-  %optname2.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %4, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 36
   %8 = load i32, ptr %optname2.i.i.i.i, align 4
   %cmp3.i.i.i.i = icmp slt i32 %7, %8
   %cmp6.i.i.i.i = icmp slt i32 %5, %6
@@ -11277,13 +11210,13 @@ if.then:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_right.i, align 8, !tbaa !53
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i, align 4, !tbaa !99
   %3 = load i32, ptr %__k, align 4, !tbaa !99
   %cmp.i.i = icmp eq i32 %2, %3
-  %optname.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %1, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i = getelementptr inbounds i8, ptr %1, i64 36
   %4 = load i32, ptr %optname.i.i, align 4
-  %optname2.i.i = getelementptr inbounds %"class.folly::SocketOptionKey", ptr %__k, i64 0, i32 1
+  %optname2.i.i = getelementptr inbounds i8, ptr %__k, i64 4
   %5 = load i32, ptr %optname2.i.i, align 4
   %cmp3.i.i = icmp slt i32 %4, %5
   %cmp6.i.i = icmp slt i32 %2, %3
@@ -11298,23 +11231,22 @@ if.else:                                          ; preds = %land.lhs.true, %if.
 
 while.body.lr.ph.i:                               ; preds = %if.else
   %6 = load i32, ptr %__k, align 4, !tbaa !99
-  %optname.i.i.i = getelementptr inbounds %"class.folly::SocketOptionKey", ptr %__k, i64 0, i32 1
+  %optname.i.i.i = getelementptr inbounds i8, ptr %__k, i64 4
   %7 = load i32, ptr %optname.i.i.i, align 4
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %__x.048.i = phi ptr [ %__x.046.i, %while.body.lr.ph.i ], [ %__x.0.i, %while.body.i ]
-  %_M_storage.i.i.i90 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.048.i, i64 0, i32 1
+  %_M_storage.i.i.i90 = getelementptr inbounds i8, ptr %__x.048.i, i64 32
   %8 = load i32, ptr %_M_storage.i.i.i90, align 4, !tbaa !99
   %cmp.i.i.i = icmp eq i32 %6, %8
-  %optname2.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.048.i, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i = getelementptr inbounds i8, ptr %__x.048.i, i64 36
   %9 = load i32, ptr %optname2.i.i.i, align 4
   %cmp3.i.i.i = icmp slt i32 %7, %9
   %cmp6.i.i.i = icmp slt i32 %6, %8
   %retval.0.i.i.i = select i1 %cmp.i.i.i, i1 %cmp3.i.i.i, i1 %cmp6.i.i.i
-  %_M_left.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048.i, i64 0, i32 2
-  %_M_right.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048.i, i64 0, i32 3
-  %cond.in.i = select i1 %retval.0.i.i.i, ptr %_M_left.i.i, ptr %_M_right.i.i
+  %cond.in.i.v = select i1 %retval.0.i.i.i, i64 16, i64 24
+  %cond.in.i = getelementptr inbounds i8, ptr %__x.048.i, i64 %cond.in.i.v
   %__x.0.i = load ptr, ptr %cond.in.i, align 8, !tbaa !53
   %cmp.not.i = icmp eq ptr %__x.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !296
@@ -11331,12 +11263,12 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa52.i) #37
-  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i, i64 0, i32 1
+  %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %.pre239 = load i32, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 4, !tbaa !99
   %.pre240 = load i32, ptr %__k, align 4, !tbaa !99
-  %optname.i.i28.i.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i28.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i, i64 36
   %.pre241 = load i32, ptr %optname.i.i28.i.phi.trans.insert, align 4
-  %optname2.i.i29.i.phi.trans.insert = getelementptr inbounds %"class.folly::SocketOptionKey", ptr %__k, i64 0, i32 1
+  %optname2.i.i29.i.phi.trans.insert = getelementptr inbounds i8, ptr %__k, i64 4
   %.pre242 = load i32, ptr %optname2.i.i29.i.phi.trans.insert, align 4
   br label %if.end12.i
 
@@ -11356,13 +11288,13 @@ if.end12.i:                                       ; preds = %if.else.i, %while.e
   br label %cleanup80
 
 if.else12:                                        ; preds = %entry
-  %_M_storage.i.i.i92 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1
+  %_M_storage.i.i.i92 = getelementptr inbounds i8, ptr %__position.coerce, i64 32
   %15 = load i32, ptr %__k, align 4, !tbaa !99
   %16 = load i32, ptr %_M_storage.i.i.i92, align 4, !tbaa !99
   %cmp.i.i93 = icmp eq i32 %15, %16
-  %optname.i.i94 = getelementptr inbounds %"class.folly::SocketOptionKey", ptr %__k, i64 0, i32 1
+  %optname.i.i94 = getelementptr inbounds i8, ptr %__k, i64 4
   %17 = load i32, ptr %optname.i.i94, align 4
-  %optname2.i.i95 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__position.coerce, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i95 = getelementptr inbounds i8, ptr %__position.coerce, i64 36
   %18 = load i32, ptr %optname2.i.i95, align 4
   %cmp3.i.i96 = icmp slt i32 %17, %18
   %cmp6.i.i97 = icmp slt i32 %15, %16
@@ -11377,10 +11309,10 @@ if.then18:                                        ; preds = %if.else12
 
 if.else25:                                        ; preds = %if.then18
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #37
-  %_M_storage.i.i.i102 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1
+  %_M_storage.i.i.i102 = getelementptr inbounds i8, ptr %call.i, i64 32
   %20 = load i32, ptr %_M_storage.i.i.i102, align 4, !tbaa !99
   %cmp.i.i103 = icmp eq i32 %20, %15
-  %optname.i.i104 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i104 = getelementptr inbounds i8, ptr %call.i, i64 36
   %21 = load i32, ptr %optname.i.i104, align 4
   %cmp3.i.i106 = icmp slt i32 %21, %17
   %cmp6.i.i107 = icmp slt i32 %20, %15
@@ -11388,7 +11320,7 @@ if.else25:                                        ; preds = %if.then18
   br i1 %retval.0.i.i108, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else25
-  %_M_right.i109 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %call.i, i64 0, i32 3
+  %_M_right.i109 = getelementptr inbounds i8, ptr %call.i, i64 24
   %22 = load ptr, ptr %_M_right.i109, align 8, !tbaa !190
   %cmp35 = icmp eq ptr %22, null
   %spec.select = select i1 %cmp35, ptr null, ptr %__position.coerce
@@ -11403,17 +11335,16 @@ if.else42:                                        ; preds = %if.else25
 
 while.body.i118:                                  ; preds = %if.else42, %while.body.i118
   %__x.048.i119 = phi ptr [ %__x.0.i129, %while.body.i118 ], [ %__x.046.i114, %if.else42 ]
-  %_M_storage.i.i.i120 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.048.i119, i64 0, i32 1
+  %_M_storage.i.i.i120 = getelementptr inbounds i8, ptr %__x.048.i119, i64 32
   %23 = load i32, ptr %_M_storage.i.i.i120, align 4, !tbaa !99
   %cmp.i.i.i121 = icmp eq i32 %15, %23
-  %optname2.i.i.i122 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.048.i119, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i122 = getelementptr inbounds i8, ptr %__x.048.i119, i64 36
   %24 = load i32, ptr %optname2.i.i.i122, align 4
   %cmp3.i.i.i123 = icmp slt i32 %17, %24
   %cmp6.i.i.i124 = icmp slt i32 %15, %23
   %retval.0.i.i.i125 = select i1 %cmp.i.i.i121, i1 %cmp3.i.i.i123, i1 %cmp6.i.i.i124
-  %_M_left.i.i126 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048.i119, i64 0, i32 2
-  %_M_right.i.i127 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048.i119, i64 0, i32 3
-  %cond.in.i128 = select i1 %retval.0.i.i.i125, ptr %_M_left.i.i126, ptr %_M_right.i.i127
+  %cond.in.i128.v = select i1 %retval.0.i.i.i125, i64 16, i64 24
+  %cond.in.i128 = getelementptr inbounds i8, ptr %__x.048.i119, i64 %cond.in.i128.v
   %__x.0.i129 = load ptr, ptr %cond.in.i128, align 8, !tbaa !53
   %cmp.not.i130 = icmp eq ptr %__x.0.i129, null
   br i1 %cmp.not.i130, label %while.end.i131, label %while.body.i118, !llvm.loop !297
@@ -11428,9 +11359,9 @@ if.then.i148:                                     ; preds = %while.end.i131, %if
 
 if.else.i152:                                     ; preds = %if.then.i148
   %call.i.i153 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa52.i149) #37
-  %_M_storage.i.i.i.i135.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i153, i64 0, i32 1
+  %_M_storage.i.i.i.i135.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i153, i64 32
   %.pre237 = load i32, ptr %_M_storage.i.i.i.i135.phi.trans.insert, align 4, !tbaa !99
-  %optname.i.i28.i137.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i153, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i28.i137.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i153, i64 36
   %.pre238 = load i32, ptr %optname.i.i28.i137.phi.trans.insert, align 4
   br label %if.end12.i132
 
@@ -11461,10 +11392,10 @@ if.then50:                                        ; preds = %if.else44
 
 if.else57:                                        ; preds = %if.then50
   %call.i165 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__position.coerce) #37
-  %_M_storage.i.i.i166 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i165, i64 0, i32 1
+  %_M_storage.i.i.i166 = getelementptr inbounds i8, ptr %call.i165, i64 32
   %28 = load i32, ptr %_M_storage.i.i.i166, align 4, !tbaa !99
   %cmp.i.i167 = icmp eq i32 %15, %28
-  %optname2.i.i169 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i165, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i169 = getelementptr inbounds i8, ptr %call.i165, i64 36
   %29 = load i32, ptr %optname2.i.i169, align 4
   %cmp3.i.i170 = icmp slt i32 %17, %29
   %cmp6.i.i171 = icmp slt i32 %15, %28
@@ -11472,7 +11403,7 @@ if.else57:                                        ; preds = %if.then50
   br i1 %retval.0.i.i172, label %if.then64, label %if.else74
 
 if.then64:                                        ; preds = %if.else57
-  %_M_right.i173 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__position.coerce, i64 0, i32 3
+  %_M_right.i173 = getelementptr inbounds i8, ptr %__position.coerce, i64 24
   %30 = load ptr, ptr %_M_right.i173, align 8, !tbaa !190
   %cmp67 = icmp eq ptr %30, null
   %spec.select234 = select i1 %cmp67, ptr null, ptr %call.i165
@@ -11487,17 +11418,16 @@ if.else74:                                        ; preds = %if.else57
 
 while.body.i182:                                  ; preds = %if.else74, %while.body.i182
   %__x.048.i183 = phi ptr [ %__x.0.i193, %while.body.i182 ], [ %__x.046.i178, %if.else74 ]
-  %_M_storage.i.i.i184 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.048.i183, i64 0, i32 1
+  %_M_storage.i.i.i184 = getelementptr inbounds i8, ptr %__x.048.i183, i64 32
   %31 = load i32, ptr %_M_storage.i.i.i184, align 4, !tbaa !99
   %cmp.i.i.i185 = icmp eq i32 %15, %31
-  %optname2.i.i.i186 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.048.i183, i64 0, i32 1, i32 0, i64 4
+  %optname2.i.i.i186 = getelementptr inbounds i8, ptr %__x.048.i183, i64 36
   %32 = load i32, ptr %optname2.i.i.i186, align 4
   %cmp3.i.i.i187 = icmp slt i32 %17, %32
   %cmp6.i.i.i188 = icmp slt i32 %15, %31
   %retval.0.i.i.i189 = select i1 %cmp.i.i.i185, i1 %cmp3.i.i.i187, i1 %cmp6.i.i.i188
-  %_M_left.i.i190 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048.i183, i64 0, i32 2
-  %_M_right.i.i191 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.048.i183, i64 0, i32 3
-  %cond.in.i192 = select i1 %retval.0.i.i.i189, ptr %_M_left.i.i190, ptr %_M_right.i.i191
+  %cond.in.i192.v = select i1 %retval.0.i.i.i189, i64 16, i64 24
+  %cond.in.i192 = getelementptr inbounds i8, ptr %__x.048.i183, i64 %cond.in.i192.v
   %__x.0.i193 = load ptr, ptr %cond.in.i192, align 8, !tbaa !53
   %cmp.not.i194 = icmp eq ptr %__x.0.i193, null
   br i1 %cmp.not.i194, label %while.end.i195, label %while.body.i182, !llvm.loop !298
@@ -11514,9 +11444,9 @@ if.then.i212:                                     ; preds = %while.end.i195, %if
 
 if.else.i216:                                     ; preds = %if.then.i212
   %call.i.i217 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa52.i213) #37
-  %_M_storage.i.i.i.i199.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i217, i64 0, i32 1
+  %_M_storage.i.i.i.i199.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i217, i64 32
   %.pre = load i32, ptr %_M_storage.i.i.i.i199.phi.trans.insert, align 4, !tbaa !99
-  %optname.i.i28.i201.phi.trans.insert = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %call.i.i217, i64 0, i32 1, i32 0, i64 4
+  %optname.i.i28.i201.phi.trans.insert = getelementptr inbounds i8, ptr %call.i.i217, i64 36
   %.pre236 = load i32, ptr %optname.i.i28.i201.phi.trans.insert, align 4
   br label %if.end12.i196
 
@@ -11544,20 +11474,20 @@ cleanup80:                                        ; preds = %if.end12.i196, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const folly::SocketOptionKey, std::__cxx11::basic_string<char>>>, std::less<folly::SocketOptionKey>>::_Auto_node", ptr %this, i64 0, i32 1
+  %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8, !tbaa !294
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1, i32 0, i64 16
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load ptr, ptr %second.i.i.i.i.i, align 8, !tbaa !28
-  %2 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1, i32 0, i64 32
+  %2 = getelementptr inbounds i8, ptr %0, i64 64
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %if.then
-  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %0, i64 0, i32 1, i32 0, i64 24
+  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !29
   %cmp3.i.i.i.i.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i)

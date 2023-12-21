@@ -14,12 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::less" = type { i8 }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.Imf_3_2::AcesOutputFile" = type { ptr, ptr }
-%"class.Imath_3_2::Box" = type { %"class.Imath_3_2::Vec2.3", %"class.Imath_3_2::Vec2.3" }
-%"class.Imath_3_2::Vec2.3" = type { i32, i32 }
-%"class.Imf_3_2::AcesInputFile::Data" = type <{ ptr, ptr, i64, i64, i32, i32, i8, [3 x i8], %"class.Imath_3_2::Matrix44", [4 x i8] }>
 %"class.Imath_3_2::Matrix44" = type { [4 x [4 x float]] }
-%"class.Imf_3_2::AcesInputFile" = type { ptr, ptr }
 %"struct.Imf_3_2::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
 %"class.Imath_3_2::half" = type { i16 }
 %union.imath_half_uif = type { i32 }
@@ -128,7 +123,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(24) %0) #14
   br label %delete.end
@@ -150,7 +145,7 @@ entry:
   %ref.tmp3.i = alloca %"class.Imath_3_2::Vec2", align 8
   %newHeader = alloca %"class.Imf_3_2::Header", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %call, align 8
   store ptr %call, ptr %_data, align 8
@@ -337,7 +332,7 @@ entry:
   %ref.tmp3.i = alloca %"class.Imath_3_2::Vec2", align 8
   %newHeader = alloca %"class.Imf_3_2::Header", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %call, align 8
   store ptr %call, ptr %_data, align 8
@@ -501,7 +496,7 @@ entry:
   %ref.tmp3.i = alloca %"class.Imath_3_2::Vec2", align 8
   %newHeader = alloca %"class.Imf_3_2::Header", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %call, align 8
   store ptr %call, ptr %_data, align 8
@@ -531,7 +526,7 @@ lpad.i:                                           ; preds = %sw.default.i
   br label %common.resume
 
 _ZN7Imf_3_212_GLOBAL__N_116checkCompressionENS_11CompressionE.exit: ; preds = %entry, %entry, %entry
-  %max.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %dataWindow, i64 0, i32 1
+  %max.i = getelementptr inbounds i8, ptr %dataWindow, i64 8
   %1 = load <2 x i32>, ptr %max.i, align 4
   %2 = load <2 x i32>, ptr %dataWindow, align 4
   %3 = icmp slt <2 x i32> %1, %2
@@ -672,7 +667,7 @@ entry:
   %ref.tmp3.i = alloca %"class.Imath_3_2::Vec2", align 8
   %newHeader = alloca %"class.Imf_3_2::Header", align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %call, align 8
   store ptr %call, ptr %_data, align 8
@@ -826,7 +821,7 @@ declare void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11
 define void @_ZN7Imf_3_214AcesOutputFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -838,7 +833,7 @@ delete.notnull:                                   ; preds = %entry
 
 delete.notnull.i:                                 ; preds = %delete.notnull
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(24) %1) #14
   br label %_ZN7Imf_3_214AcesOutputFile4DataD2Ev.exit
@@ -862,7 +857,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_214AcesOutputFile14setFrameBufferEPKNS_4RgbaEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @_ZN7Imf_3_214RgbaOutputFile14setFrameBufferEPKNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride)
@@ -874,7 +869,7 @@ declare void @_ZN7Imf_3_214RgbaOutputFile14setFrameBufferEPKNS_4RgbaEmm(ptr noun
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_214AcesOutputFile11writePixelsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %numScanLines) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @_ZN7Imf_3_214RgbaOutputFile11writePixelsEi(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %numScanLines)
@@ -886,7 +881,7 @@ declare void @_ZN7Imf_3_214RgbaOutputFile11writePixelsEi(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_214AcesOutputFile15currentScanLineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef i32 @_ZNK7Imf_3_214RgbaOutputFile15currentScanLineEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -898,7 +893,7 @@ declare noundef i32 @_ZNK7Imf_3_214RgbaOutputFile15currentScanLineEv(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_214AcesOutputFile6headerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_214RgbaOutputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -910,7 +905,7 @@ declare noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_214RgbaOutpu
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_214AcesOutputFile13displayWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_214RgbaOutputFile13displayWindowEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -922,7 +917,7 @@ declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_214RgbaOutpu
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_214AcesOutputFile10dataWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_214RgbaOutputFile10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -934,7 +929,7 @@ declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_214RgbaOutpu
 ; Function Attrs: mustprogress uwtable
 define noundef float @_ZNK7Imf_3_214AcesOutputFile16pixelAspectRatioEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef float @_ZNK7Imf_3_214RgbaOutputFile16pixelAspectRatioEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -946,7 +941,7 @@ declare noundef float @_ZNK7Imf_3_214RgbaOutputFile16pixelAspectRatioEv(ptr noun
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7Imf_3_214AcesOutputFile18screenWindowCenterEv(ptr noalias sret(%"class.Imath_3_2::Vec2") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @_ZNK7Imf_3_214RgbaOutputFile18screenWindowCenterEv(ptr sret(%"class.Imath_3_2::Vec2") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -958,7 +953,7 @@ declare void @_ZNK7Imf_3_214RgbaOutputFile18screenWindowCenterEv(ptr sret(%"clas
 ; Function Attrs: mustprogress uwtable
 define noundef float @_ZNK7Imf_3_214AcesOutputFile17screenWindowWidthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef float @_ZNK7Imf_3_214RgbaOutputFile17screenWindowWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -970,7 +965,7 @@ declare noundef float @_ZNK7Imf_3_214RgbaOutputFile17screenWindowWidthEv(ptr nou
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_214AcesOutputFile9lineOrderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef i32 @_ZNK7Imf_3_214RgbaOutputFile9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -982,7 +977,7 @@ declare noundef i32 @_ZNK7Imf_3_214RgbaOutputFile9lineOrderEv(ptr noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_214AcesOutputFile11compressionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef i32 @_ZNK7Imf_3_214RgbaOutputFile11compressionEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -994,7 +989,7 @@ declare noundef i32 @_ZNK7Imf_3_214RgbaOutputFile11compressionEv(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_214AcesOutputFile8channelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef i32 @_ZNK7Imf_3_214RgbaOutputFile8channelsEv(ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -1006,7 +1001,7 @@ declare noundef i32 @_ZNK7Imf_3_214RgbaOutputFile8channelsEv(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_214AcesOutputFile18updatePreviewImageEPKNS_11PreviewRgbaE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %pixels) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @_ZN7Imf_3_214RgbaOutputFile18updatePreviewImageEPKNS_11PreviewRgbaE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %pixels)
@@ -1018,19 +1013,19 @@ declare void @_ZN7Imf_3_214RgbaOutputFile18updatePreviewImageEPKNS_11PreviewRgba
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN7Imf_3_213AcesInputFile4DataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(108) %this) unnamed_addr #8 align 2 {
 entry:
-  %fileToAces = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %this, i64 0, i32 8
+  %fileToAces = getelementptr inbounds i8, ptr %this, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %this, i8 0, i64 41, i1 false)
   store float 1.000000e+00, ptr %fileToAces, align 4
-  %arrayidx5.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %this, i64 0, i32 8, i32 0, i64 0, i64 1
-  %arrayidx17.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %this, i64 0, i32 8, i32 0, i64 1, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 48
+  %arrayidx17.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx17.i, align 8
-  %arrayidx20.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %this, i64 0, i32 8, i32 0, i64 1, i64 2
-  %arrayidx32.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %this, i64 0, i32 8, i32 0, i64 2, i64 2
+  %arrayidx20.i = getelementptr inbounds i8, ptr %this, i64 68
+  %arrayidx32.i = getelementptr inbounds i8, ptr %this, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx20.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx32.i, align 4
-  %arrayidx35.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %this, i64 0, i32 8, i32 0, i64 2, i64 3
-  %arrayidx47.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %this, i64 0, i32 8, i32 0, i64 3, i64 3
+  %arrayidx35.i = getelementptr inbounds i8, ptr %this, i64 88
+  %arrayidx47.i = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx35.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i, align 8
   ret void
@@ -1045,7 +1040,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(64) %0) #14
   br label %delete.end
@@ -1080,9 +1075,9 @@ entry:
   br i1 %call5, label %if.then, label %entry.if.end_crit_edge
 
 entry.if.end_crit_edge:                           ; preds = %entry
-  %white.phi.trans.insert = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %fileChr, i64 0, i32 3
+  %white.phi.trans.insert = getelementptr inbounds i8, ptr %fileChr, i64 24
   %.pre = load float, ptr %white.phi.trans.insert, align 8
-  %y3.i.phi.trans.insert = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %fileChr, i64 0, i32 3, i32 1
+  %y3.i.phi.trans.insert = getelementptr inbounds i8, ptr %fileChr, i64 28
   %.pre245 = load float, ptr %y3.i.phi.trans.insert, align 4
   br label %if.end
 
@@ -1090,8 +1085,8 @@ if.then:                                          ; preds = %entry
   %call6 = call noundef nonnull align 4 dereferenceable(32) ptr @_ZN7Imf_3_214chromaticitiesERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(49) %call)
   %1 = load <4 x float>, ptr %call6, align 4
   store <4 x float> %1, ptr %fileChr, align 16
-  %blue.i = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %fileChr, i64 0, i32 2
-  %blue5.i = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %call6, i64 0, i32 2
+  %blue.i = getelementptr inbounds i8, ptr %fileChr, i64 16
+  %blue5.i = getelementptr inbounds i8, ptr %call6, i64 16
   %2 = load <4 x float>, ptr %blue5.i, align 4
   store <4 x float> %2, ptr %blue.i, align 16
   %3 = extractelement <4 x float> %2, i64 2
@@ -1101,8 +1096,8 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry.if.end_crit_edge, %if.then
   %5 = phi float [ %.pre245, %entry.if.end_crit_edge ], [ %4, %if.then ]
   %6 = phi float [ %.pre, %entry.if.end_crit_edge ], [ %3, %if.then ]
-  %white = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %fileChr, i64 0, i32 3
-  %y3.i = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %fileChr, i64 0, i32 3, i32 1
+  %white = getelementptr inbounds i8, ptr %fileChr, i64 24
+  %y3.i = getelementptr inbounds i8, ptr %fileChr, i64 28
   %call8 = call noundef zeroext i1 @_ZN7Imf_3_217hasAdoptedNeutralERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(49) %call)
   br i1 %call8, label %if.then9, label %if.end14
 
@@ -1155,13 +1150,13 @@ _ZN7Imf_3_218acesChromaticitiesEv.exit:           ; preds = %if.end14, %init.che
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp3.i)
   %13 = load <4 x float>, ptr @_ZZN7Imf_3_218acesChromaticitiesEvE7acesChr, align 16
   store <4 x float> %13, ptr %acesChr, align 16
-  %blue.i24 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %acesChr, i64 0, i32 2
-  %14 = load <4 x float>, ptr getelementptr inbounds (%"struct.Imf_3_2::Chromaticities", ptr @_ZZN7Imf_3_218acesChromaticitiesEvE7acesChr, i64 0, i32 2), align 16
+  %blue.i24 = getelementptr inbounds i8, ptr %acesChr, i64 16
+  %14 = load <4 x float>, ptr getelementptr inbounds (%"struct.Imf_3_2::Chromaticities", ptr @_ZZN7Imf_3_218acesChromaticitiesEvE7acesChr, i64 0, i32 2, i32 0), align 16
   store <4 x float> %14, ptr %blue.i24, align 16
   %15 = load float, ptr %fileChr, align 16
   %16 = extractelement <4 x float> %13, i64 0
   %cmp.i = fcmp oeq float %15, %16
-  %y.i30 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %fileChr, i64 0, i32 1
+  %y.i30 = getelementptr inbounds i8, ptr %fileChr, i64 4
   %17 = load float, ptr %y.i30, align 4
   %18 = extractelement <4 x float> %13, i64 1
   %cmp4.i = fcmp oeq float %17, %18
@@ -1169,11 +1164,11 @@ _ZN7Imf_3_218acesChromaticitiesEv.exit:           ; preds = %if.end14, %init.che
   br i1 %19, label %land.lhs.true, label %if.end29
 
 land.lhs.true:                                    ; preds = %_ZN7Imf_3_218acesChromaticitiesEv.exit
-  %green = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %fileChr, i64 0, i32 1
+  %green = getelementptr inbounds i8, ptr %fileChr, i64 8
   %20 = load float, ptr %green, align 8
   %21 = extractelement <4 x float> %13, i64 2
   %cmp.i32 = fcmp oeq float %20, %21
-  %y.i33 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %fileChr, i64 0, i32 1, i32 1
+  %y.i33 = getelementptr inbounds i8, ptr %fileChr, i64 12
   %22 = load float, ptr %y.i33, align 4
   %23 = extractelement <4 x float> %13, i64 3
   %cmp4.i35 = fcmp oeq float %22, %23
@@ -1181,11 +1176,11 @@ land.lhs.true:                                    ; preds = %_ZN7Imf_3_218acesCh
   br i1 %24, label %land.lhs.true21, label %if.end29
 
 land.lhs.true21:                                  ; preds = %land.lhs.true
-  %blue = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %fileChr, i64 0, i32 2
+  %blue = getelementptr inbounds i8, ptr %fileChr, i64 16
   %25 = load float, ptr %blue, align 16
   %26 = extractelement <4 x float> %14, i64 0
   %cmp.i36 = fcmp oeq float %25, %26
-  %y.i37 = getelementptr inbounds %"struct.Imf_3_2::Chromaticities", ptr %fileChr, i64 0, i32 2, i32 1
+  %y.i37 = getelementptr inbounds i8, ptr %fileChr, i64 20
   %27 = load float, ptr %y.i37, align 4
   %28 = extractelement <4 x float> %14, i64 1
   %cmp4.i39 = fcmp oeq float %27, %28
@@ -1203,16 +1198,16 @@ land.lhs.true24:                                  ; preds = %land.lhs.true21
   br i1 %34, label %return, label %if.end29
 
 if.end29:                                         ; preds = %land.lhs.true24, %land.lhs.true21, %land.lhs.true, %_ZN7Imf_3_218acesChromaticitiesEv.exit
-  %mustConvertColor = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %this, i64 0, i32 6
+  %mustConvertColor = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %mustConvertColor, align 8
   %call30 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
   %35 = load i32, ptr %call30, align 4
-  %minX = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %this, i64 0, i32 4
+  %minX = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %35, ptr %minX, align 8
   %call31 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %call)
-  %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call31, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %call31, i64 8
   %36 = load i32, ptr %max, align 4
-  %maxX = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %this, i64 0, i32 5
+  %maxX = getelementptr inbounds i8, ptr %this, i64 36
   store i32 %36, ptr %maxX, align 4
   %37 = shufflevector <4 x float> %14, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   %38 = insertelement <2 x float> %37, float %fileNeutral.sroa.0.0, i64 1
@@ -1336,11 +1331,11 @@ if.end29:                                         ; preds = %land.lhs.true24, %l
   %133 = fadd float %132, 1.000000e+00
   call void @_ZN7Imf_3_28RGBtoXYZERKNS_14ChromaticitiesEf(ptr nonnull sret(%"class.Imath_3_2::Matrix44") align 4 %ref.tmp50, ptr noundef nonnull align 4 dereferenceable(32) %fileChr, float noundef 1.000000e+00)
   %134 = load float, ptr %ref.tmp50, align 4, !noalias !5
-  %arrayidx4.i121 = getelementptr inbounds [4 x float], ptr %ref.tmp50, i64 0, i64 1
+  %arrayidx4.i121 = getelementptr inbounds i8, ptr %ref.tmp50, i64 4
   %135 = load float, ptr %arrayidx4.i121, align 4, !noalias !5
-  %arrayidx7.i122 = getelementptr inbounds [4 x float], ptr %ref.tmp50, i64 0, i64 2
+  %arrayidx7.i122 = getelementptr inbounds i8, ptr %ref.tmp50, i64 8
   %136 = load float, ptr %arrayidx7.i122, align 4, !noalias !5
-  %arrayidx10.i123 = getelementptr inbounds [4 x float], ptr %ref.tmp50, i64 0, i64 3
+  %arrayidx10.i123 = getelementptr inbounds i8, ptr %ref.tmp50, i64 12
   %137 = load float, ptr %arrayidx10.i123, align 4, !noalias !5
   %mul17.i125 = fmul float %100, %135
   %138 = call float @llvm.fmuladd.f32(float %134, float %88, float %mul17.i125)
@@ -1358,13 +1353,13 @@ if.end29:                                         ; preds = %land.lhs.true24, %l
   %147 = call float @llvm.fmuladd.f32(float %134, float %97, float %mul56.i140)
   %148 = call float @llvm.fmuladd.f32(float %136, float %121, float %147)
   %149 = call float @llvm.fmuladd.f32(float %137, float %133, float %148)
-  %arrayidx64.i143 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp50, i64 0, i64 1
+  %arrayidx64.i143 = getelementptr inbounds i8, ptr %ref.tmp50, i64 16
   %150 = load float, ptr %arrayidx64.i143, align 4, !noalias !5
-  %arrayidx68.i144 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp50, i64 0, i64 1, i64 1
+  %arrayidx68.i144 = getelementptr inbounds i8, ptr %ref.tmp50, i64 20
   %151 = load float, ptr %arrayidx68.i144, align 4, !noalias !5
-  %arrayidx71.i145 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp50, i64 0, i64 1, i64 2
+  %arrayidx71.i145 = getelementptr inbounds i8, ptr %ref.tmp50, i64 24
   %152 = load float, ptr %arrayidx71.i145, align 4, !noalias !5
-  %arrayidx74.i146 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp50, i64 0, i64 1, i64 3
+  %arrayidx74.i146 = getelementptr inbounds i8, ptr %ref.tmp50, i64 28
   %153 = load float, ptr %arrayidx74.i146, align 4, !noalias !5
   %mul81.i147 = fmul float %100, %151
   %154 = call float @llvm.fmuladd.f32(float %150, float %88, float %mul81.i147)
@@ -1382,13 +1377,13 @@ if.end29:                                         ; preds = %land.lhs.true24, %l
   %163 = call float @llvm.fmuladd.f32(float %150, float %97, float %mul120.i150)
   %164 = call float @llvm.fmuladd.f32(float %152, float %121, float %163)
   %165 = call float @llvm.fmuladd.f32(float %153, float %133, float %164)
-  %arrayidx128.i151 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp50, i64 0, i64 2
+  %arrayidx128.i151 = getelementptr inbounds i8, ptr %ref.tmp50, i64 32
   %166 = load float, ptr %arrayidx128.i151, align 4, !noalias !5
-  %arrayidx132.i152 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp50, i64 0, i64 2, i64 1
+  %arrayidx132.i152 = getelementptr inbounds i8, ptr %ref.tmp50, i64 36
   %167 = load float, ptr %arrayidx132.i152, align 4, !noalias !5
-  %arrayidx135.i153 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp50, i64 0, i64 2, i64 2
+  %arrayidx135.i153 = getelementptr inbounds i8, ptr %ref.tmp50, i64 40
   %168 = load float, ptr %arrayidx135.i153, align 4, !noalias !5
-  %arrayidx138.i154 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp50, i64 0, i64 2, i64 3
+  %arrayidx138.i154 = getelementptr inbounds i8, ptr %ref.tmp50, i64 44
   %169 = load float, ptr %arrayidx138.i154, align 4, !noalias !5
   %mul145.i155 = fmul float %100, %167
   %170 = call float @llvm.fmuladd.f32(float %166, float %88, float %mul145.i155)
@@ -1406,13 +1401,13 @@ if.end29:                                         ; preds = %land.lhs.true24, %l
   %179 = call float @llvm.fmuladd.f32(float %166, float %97, float %mul184.i158)
   %180 = call float @llvm.fmuladd.f32(float %168, float %121, float %179)
   %181 = call float @llvm.fmuladd.f32(float %169, float %133, float %180)
-  %arrayidx192.i159 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp50, i64 0, i64 3
+  %arrayidx192.i159 = getelementptr inbounds i8, ptr %ref.tmp50, i64 48
   %182 = load float, ptr %arrayidx192.i159, align 4, !noalias !5
-  %arrayidx196.i160 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp50, i64 0, i64 3, i64 1
+  %arrayidx196.i160 = getelementptr inbounds i8, ptr %ref.tmp50, i64 52
   %183 = load float, ptr %arrayidx196.i160, align 4, !noalias !5
-  %arrayidx199.i161 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp50, i64 0, i64 3, i64 2
+  %arrayidx199.i161 = getelementptr inbounds i8, ptr %ref.tmp50, i64 56
   %184 = load float, ptr %arrayidx199.i161, align 4, !noalias !5
-  %arrayidx202.i162 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp50, i64 0, i64 3, i64 3
+  %arrayidx202.i162 = getelementptr inbounds i8, ptr %ref.tmp50, i64 60
   %185 = load float, ptr %arrayidx202.i162, align 4, !noalias !5
   %mul209.i163 = fmul float %100, %183
   %186 = call float @llvm.fmuladd.f32(float %182, float %88, float %mul209.i163)
@@ -1431,10 +1426,10 @@ if.end29:                                         ; preds = %land.lhs.true24, %l
   %196 = call float @llvm.fmuladd.f32(float %184, float %121, float %195)
   %197 = call float @llvm.fmuladd.f32(float %185, float %133, float %196)
   call void @_ZN7Imf_3_28XYZtoRGBERKNS_14ChromaticitiesEf(ptr nonnull sret(%"class.Imath_3_2::Matrix44") align 4 %ref.tmp51, ptr noundef nonnull align 4 dereferenceable(32) %acesChr, float noundef 1.000000e+00)
-  %arrayidx15.i185 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp51, i64 0, i64 1
-  %arrayidx19.i187 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp51, i64 0, i64 2
-  %arrayidx22.i188 = getelementptr inbounds [4 x [4 x float]], ptr %ref.tmp51, i64 0, i64 3
-  %fileToAces = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %this, i64 0, i32 8
+  %arrayidx15.i185 = getelementptr inbounds i8, ptr %ref.tmp51, i64 16
+  %arrayidx19.i187 = getelementptr inbounds i8, ptr %ref.tmp51, i64 32
+  %arrayidx22.i188 = getelementptr inbounds i8, ptr %ref.tmp51, i64 48
+  %fileToAces = getelementptr inbounds i8, ptr %this, i64 44
   %198 = load <4 x float>, ptr %ref.tmp51, align 16, !noalias !8
   %199 = load <4 x float>, ptr %arrayidx15.i185, align 16, !noalias !8
   %200 = insertelement <4 x float> poison, float %143, i64 0
@@ -1452,7 +1447,7 @@ if.end29:                                         ; preds = %land.lhs.true24, %l
   %212 = shufflevector <4 x float> %211, <4 x float> poison, <4 x i32> zeroinitializer
   %213 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %212, <4 x float> %210, <4 x float> %209)
   store <4 x float> %213, ptr %fileToAces, align 4
-  %arrayidx28.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %this, i64 0, i32 8, i32 0, i64 1
+  %arrayidx28.i = getelementptr inbounds i8, ptr %this, i64 60
   %214 = insertelement <4 x float> poison, float %159, i64 0
   %215 = shufflevector <4 x float> %214, <4 x float> poison, <4 x i32> zeroinitializer
   %216 = fmul <4 x float> %215, %199
@@ -1466,7 +1461,7 @@ if.end29:                                         ; preds = %land.lhs.true24, %l
   %224 = shufflevector <4 x float> %223, <4 x float> poison, <4 x i32> zeroinitializer
   %225 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %224, <4 x float> %210, <4 x float> %222)
   store <4 x float> %225, ptr %arrayidx28.i, align 4
-  %arrayidx52.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %this, i64 0, i32 8, i32 0, i64 2
+  %arrayidx52.i = getelementptr inbounds i8, ptr %this, i64 76
   %226 = insertelement <4 x float> poison, float %175, i64 0
   %227 = shufflevector <4 x float> %226, <4 x float> poison, <4 x i32> zeroinitializer
   %228 = fmul <4 x float> %227, %199
@@ -1480,7 +1475,7 @@ if.end29:                                         ; preds = %land.lhs.true24, %l
   %236 = shufflevector <4 x float> %235, <4 x float> poison, <4 x i32> zeroinitializer
   %237 = call <4 x float> @llvm.fmuladd.v4f32(<4 x float> %236, <4 x float> %210, <4 x float> %234)
   store <4 x float> %237, ptr %arrayidx52.i, align 4
-  %arrayidx76.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %this, i64 0, i32 8, i32 0, i64 3
+  %arrayidx76.i = getelementptr inbounds i8, ptr %this, i64 92
   %238 = insertelement <4 x float> poison, float %191, i64 0
   %239 = shufflevector <4 x float> %238, <4 x float> poison, <4 x i32> zeroinitializer
   %240 = fmul <4 x float> %239, %199
@@ -1520,21 +1515,21 @@ declare void @_ZN7Imf_3_28XYZtoRGBERKNS_14ChromaticitiesEf(ptr sret(%"class.Imat
 define void @_ZN7Imf_3_213AcesInputFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #15
-  %fileToAces.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %call, i64 0, i32 8
+  %fileToAces.i = getelementptr inbounds i8, ptr %call, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %call, i8 0, i64 41, i1 false)
   store float 1.000000e+00, ptr %fileToAces.i, align 4
-  %arrayidx5.i.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %call, i64 0, i32 8, i32 0, i64 0, i64 1
-  %arrayidx17.i.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %call, i64 0, i32 8, i32 0, i64 1, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 48
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %call, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx17.i.i, align 4
-  %arrayidx20.i.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %call, i64 0, i32 8, i32 0, i64 1, i64 2
-  %arrayidx32.i.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %call, i64 0, i32 8, i32 0, i64 2, i64 2
+  %arrayidx20.i.i = getelementptr inbounds i8, ptr %call, i64 68
+  %arrayidx32.i.i = getelementptr inbounds i8, ptr %call, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx20.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx32.i.i, align 4
-  %arrayidx35.i.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %call, i64 0, i32 8, i32 0, i64 2, i64 3
-  %arrayidx47.i.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %call, i64 0, i32 8, i32 0, i64 3, i64 3
+  %arrayidx35.i.i = getelementptr inbounds i8, ptr %call, i64 88
+  %arrayidx47.i.i = getelementptr inbounds i8, ptr %call, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx35.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i.i, align 4
   store ptr %call, ptr %_data, align 8
@@ -1563,21 +1558,21 @@ declare void @_ZN7Imf_3_213RgbaInputFileC1EPKci(ptr noundef nonnull align 8 dere
 define void @_ZN7Imf_3_213AcesInputFileC2ERNS_7IStreamEi(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #15
-  %fileToAces.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %call, i64 0, i32 8
+  %fileToAces.i = getelementptr inbounds i8, ptr %call, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %call, i8 0, i64 41, i1 false)
   store float 1.000000e+00, ptr %fileToAces.i, align 4
-  %arrayidx5.i.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %call, i64 0, i32 8, i32 0, i64 0, i64 1
-  %arrayidx17.i.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %call, i64 0, i32 8, i32 0, i64 1, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %call, i64 48
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %call, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx5.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx17.i.i, align 4
-  %arrayidx20.i.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %call, i64 0, i32 8, i32 0, i64 1, i64 2
-  %arrayidx32.i.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %call, i64 0, i32 8, i32 0, i64 2, i64 2
+  %arrayidx20.i.i = getelementptr inbounds i8, ptr %call, i64 68
+  %arrayidx32.i.i = getelementptr inbounds i8, ptr %call, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx20.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx32.i.i, align 4
-  %arrayidx35.i.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %call, i64 0, i32 8, i32 0, i64 2, i64 3
-  %arrayidx47.i.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %call, i64 0, i32 8, i32 0, i64 3, i64 3
+  %arrayidx35.i.i = getelementptr inbounds i8, ptr %call, i64 88
+  %arrayidx47.i.i = getelementptr inbounds i8, ptr %call, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx35.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %arrayidx47.i.i, align 4
   store ptr %call, ptr %_data, align 8
@@ -1605,7 +1600,7 @@ declare void @_ZN7Imf_3_213RgbaInputFileC1ERNS_7IStreamEi(ptr noundef nonnull al
 define void @_ZN7Imf_3_213AcesInputFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1617,7 +1612,7 @@ delete.notnull:                                   ; preds = %entry
 
 delete.notnull.i:                                 ; preds = %delete.notnull
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(64) %1) #14
   br label %_ZN7Imf_3_213AcesInputFile4DataD2Ev.exit
@@ -1641,18 +1636,18 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_213AcesInputFile14setFrameBufferEPNS_4RgbaEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @_ZN7Imf_3_213RgbaInputFile14setFrameBufferEPNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %base, i64 noundef %xStride, i64 noundef %yStride)
   %2 = load ptr, ptr %_data, align 8
-  %fbBase = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %2, i64 0, i32 1
+  %fbBase = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %base, ptr %fbBase, align 8
   %3 = load ptr, ptr %_data, align 8
-  %fbXStride = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %3, i64 0, i32 2
+  %fbXStride = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %xStride, ptr %fbXStride, align 8
   %4 = load ptr, ptr %_data, align 8
-  %fbYStride = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %4, i64 0, i32 3
+  %fbYStride = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %yStride, ptr %fbYStride, align 8
   ret void
 }
@@ -1662,21 +1657,21 @@ declare void @_ZN7Imf_3_213RgbaInputFile14setFrameBufferEPNS_4RgbaEmm(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_213AcesInputFile10readPixelsEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %scanLine1, i32 noundef %scanLine2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @_ZN7Imf_3_213RgbaInputFile10readPixelsEii(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %scanLine1, i32 noundef %scanLine2)
   %2 = load ptr, ptr %_data, align 8
-  %mustConvertColor = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %2, i64 0, i32 6
+  %mustConvertColor = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load i8, ptr %mustConvertColor, align 8
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %for.end35, label %if.end
 
 if.end:                                           ; preds = %entry
-  %5 = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %2, i64 0, i32 4
+  %5 = getelementptr inbounds i8, ptr %2, i64 32
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %2, i64 0, i32 5
+  %7 = getelementptr inbounds i8, ptr %2, i64 36
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %6, %8
   br i1 %9, label %for.end35, label %for.body.preheader
@@ -1693,22 +1688,22 @@ for.body.preheader:                               ; preds = %if.end
 for.body:                                         ; preds = %for.body.preheader, %for.inc33
   %14 = phi ptr [ %2, %for.body.preheader ], [ %89, %for.inc33 ]
   %indvars.iv = phi i64 [ %smin, %for.body.preheader ], [ %indvars.iv.next, %for.inc33 ]
-  %minX = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %14, i64 0, i32 4
+  %minX = getelementptr inbounds i8, ptr %14, i64 32
   %15 = load i32, ptr %minX, align 8
-  %maxX129 = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %14, i64 0, i32 5
+  %maxX129 = getelementptr inbounds i8, ptr %14, i64 36
   %16 = load i32, ptr %maxX129, align 4
   %cmp15.not130 = icmp sgt i32 %15, %16
   br i1 %cmp15.not130, label %for.inc33, label %for.body16.preheader
 
 for.body16.preheader:                             ; preds = %for.body
-  %fbBase = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %14, i64 0, i32 1
+  %fbBase = getelementptr inbounds i8, ptr %14, i64 8
   %17 = load ptr, ptr %fbBase, align 8
-  %fbXStride = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %14, i64 0, i32 2
+  %fbXStride = getelementptr inbounds i8, ptr %14, i64 16
   %18 = load i64, ptr %fbXStride, align 8
   %conv = sext i32 %15 to i64
   %mul = mul i64 %18, %conv
   %add.ptr = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %17, i64 %mul
-  %fbYStride = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %14, i64 0, i32 3
+  %fbYStride = getelementptr inbounds i8, ptr %14, i64 24
   %19 = load i64, ptr %fbYStride, align 8
   %mul9 = mul i64 %19, %indvars.iv
   %add.ptr10 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %add.ptr, i64 %mul9
@@ -1723,55 +1718,55 @@ for.body16:                                       ; preds = %for.body16.preheade
   %idxprom.i.i = zext i16 %21 to i64
   %arrayidx.i.i = getelementptr inbounds %union.imath_half_uif, ptr %22, i64 %idxprom.i.i
   %23 = load float, ptr %arrayidx.i.i, align 4
-  %g = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %base.0131, i64 0, i32 1
+  %g = getelementptr inbounds i8, ptr %base.0131, i64 2
   %24 = load i16, ptr %g, align 2
   %idxprom.i.i12 = zext i16 %24 to i64
   %arrayidx.i.i13 = getelementptr inbounds %union.imath_half_uif, ptr %22, i64 %idxprom.i.i12
   %25 = load float, ptr %arrayidx.i.i13, align 4
-  %b = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %base.0131, i64 0, i32 2
+  %b = getelementptr inbounds i8, ptr %base.0131, i64 4
   %26 = load i16, ptr %b, align 2
   %idxprom.i.i14 = zext i16 %26 to i64
   %arrayidx.i.i15 = getelementptr inbounds %union.imath_half_uif, ptr %22, i64 %idxprom.i.i14
   %27 = load float, ptr %arrayidx.i.i15, align 4
-  %fileToAces = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8
+  %fileToAces = getelementptr inbounds i8, ptr %20, i64 44
   %28 = load float, ptr %fileToAces, align 4, !noalias !11
-  %arrayidx5.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %20, i64 60
   %29 = load float, ptr %arrayidx5.i, align 4, !noalias !11
-  %arrayidx9.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 2
+  %arrayidx9.i = getelementptr inbounds i8, ptr %20, i64 76
   %30 = load float, ptr %arrayidx9.i, align 4, !noalias !11
-  %arrayidx12.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 3
+  %arrayidx12.i = getelementptr inbounds i8, ptr %20, i64 92
   %31 = load float, ptr %arrayidx12.i, align 4, !noalias !11
-  %arrayidx18.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 0, i64 1
+  %arrayidx18.i = getelementptr inbounds i8, ptr %20, i64 48
   %32 = load float, ptr %arrayidx18.i, align 4, !noalias !11
-  %arrayidx22.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 1, i64 1
+  %arrayidx22.i = getelementptr inbounds i8, ptr %20, i64 64
   %33 = load float, ptr %arrayidx22.i, align 4, !noalias !11
   %mul23.i = fmul float %25, %33
   %34 = tail call float @llvm.fmuladd.f32(float %23, float %32, float %mul23.i)
-  %arrayidx27.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 2, i64 1
+  %arrayidx27.i = getelementptr inbounds i8, ptr %20, i64 80
   %35 = load float, ptr %arrayidx27.i, align 4, !noalias !11
   %36 = tail call float @llvm.fmuladd.f32(float %27, float %35, float %34)
-  %arrayidx30.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 3, i64 1
+  %arrayidx30.i = getelementptr inbounds i8, ptr %20, i64 96
   %37 = load float, ptr %arrayidx30.i, align 4, !noalias !11
   %add31.i = fadd float %37, %36
-  %arrayidx36.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 0, i64 2
+  %arrayidx36.i = getelementptr inbounds i8, ptr %20, i64 52
   %38 = load float, ptr %arrayidx36.i, align 4, !noalias !11
-  %arrayidx40.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 1, i64 2
+  %arrayidx40.i = getelementptr inbounds i8, ptr %20, i64 68
   %39 = load float, ptr %arrayidx40.i, align 4, !noalias !11
   %mul41.i = fmul float %25, %39
   %40 = tail call float @llvm.fmuladd.f32(float %23, float %38, float %mul41.i)
-  %arrayidx45.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 2, i64 2
+  %arrayidx45.i = getelementptr inbounds i8, ptr %20, i64 84
   %41 = load float, ptr %arrayidx45.i, align 4, !noalias !11
   %42 = tail call float @llvm.fmuladd.f32(float %27, float %41, float %40)
-  %arrayidx48.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 3, i64 2
+  %arrayidx48.i = getelementptr inbounds i8, ptr %20, i64 100
   %43 = load float, ptr %arrayidx48.i, align 4, !noalias !11
   %add49.i = fadd float %43, %42
-  %arrayidx53.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 0, i64 3
+  %arrayidx53.i = getelementptr inbounds i8, ptr %20, i64 56
   %44 = load float, ptr %arrayidx53.i, align 4, !noalias !11
-  %arrayidx57.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 1, i64 3
+  %arrayidx57.i = getelementptr inbounds i8, ptr %20, i64 72
   %45 = load float, ptr %arrayidx57.i, align 4, !noalias !11
-  %arrayidx62.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 2, i64 3
+  %arrayidx62.i = getelementptr inbounds i8, ptr %20, i64 88
   %46 = load float, ptr %arrayidx62.i, align 4, !noalias !11
-  %arrayidx65.i = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %20, i64 0, i32 8, i32 0, i64 3, i64 3
+  %arrayidx65.i = getelementptr inbounds i8, ptr %20, i64 104
   %47 = load float, ptr %arrayidx65.i, align 4, !noalias !11
   %48 = insertelement <2 x float> poison, float %25, i64 0
   %49 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> zeroinitializer
@@ -2034,11 +2029,11 @@ _ZN9Imath_3_24halfaSEf.exit118:                   ; preds = %if.then4.i.i.i110, 
   %retval.0.i.i.i94 = phi i16 [ %conv19.i.i.i117, %if.end.i.i.i113 ], [ %conv26.i.i.i109, %if.then23.i.i.i108 ], [ %conv36.i.i.i107, %if.end27.i.i.i99 ], [ %conv6.i.i.i111, %if.then4.i.i.i110 ], [ %conv.i.i.i71, %if.end37.i.i.i73 ], [ %inc.i.i.i93, %if.then55.i.i.i92 ], [ %conv49.i.i.i85, %lor.lhs.false.i.i.i87 ]
   store i16 %retval.0.i.i.i94, ptr %b, align 2
   %86 = load ptr, ptr %_data, align 8
-  %fbXStride31 = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %86, i64 0, i32 2
+  %fbXStride31 = getelementptr inbounds i8, ptr %86, i64 16
   %87 = load i64, ptr %fbXStride31, align 8
   %add.ptr32 = getelementptr inbounds %"struct.Imf_3_2::Rgba", ptr %base.0131, i64 %87
   %inc = add nsw i32 %x.0132, 1
-  %maxX = getelementptr inbounds %"class.Imf_3_2::AcesInputFile::Data", ptr %86, i64 0, i32 5
+  %maxX = getelementptr inbounds i8, ptr %86, i64 36
   %88 = load i32, ptr %maxX, align 4
   %cmp15.not.not = icmp slt i32 %x.0132, %88
   br i1 %cmp15.not.not, label %for.body16, label %for.inc33, !llvm.loop !14
@@ -2066,7 +2061,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_213AcesInputFile6headerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZNK7Imf_3_213RgbaInputFile6headerEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -2076,7 +2071,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_213AcesInputFile13displayWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_213RgbaInputFile13displayWindowEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -2088,7 +2083,7 @@ declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_213RgbaInput
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_213AcesInputFile10dataWindowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_213RgbaInputFile10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -2100,7 +2095,7 @@ declare noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_213RgbaInput
 ; Function Attrs: mustprogress uwtable
 define noundef float @_ZNK7Imf_3_213AcesInputFile16pixelAspectRatioEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef float @_ZNK7Imf_3_213RgbaInputFile16pixelAspectRatioEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -2112,7 +2107,7 @@ declare noundef float @_ZNK7Imf_3_213RgbaInputFile16pixelAspectRatioEv(ptr nound
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7Imf_3_213AcesInputFile18screenWindowCenterEv(ptr noalias sret(%"class.Imath_3_2::Vec2") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   tail call void @_ZNK7Imf_3_213RgbaInputFile18screenWindowCenterEv(ptr sret(%"class.Imath_3_2::Vec2") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -2124,7 +2119,7 @@ declare void @_ZNK7Imf_3_213RgbaInputFile18screenWindowCenterEv(ptr sret(%"class
 ; Function Attrs: mustprogress uwtable
 define noundef float @_ZNK7Imf_3_213AcesInputFile17screenWindowWidthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef float @_ZNK7Imf_3_213RgbaInputFile17screenWindowWidthEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -2136,7 +2131,7 @@ declare noundef float @_ZNK7Imf_3_213RgbaInputFile17screenWindowWidthEv(ptr noun
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_213AcesInputFile9lineOrderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef i32 @_ZNK7Imf_3_213RgbaInputFile9lineOrderEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -2148,7 +2143,7 @@ declare noundef i32 @_ZNK7Imf_3_213RgbaInputFile9lineOrderEv(ptr noundef nonnull
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_213AcesInputFile11compressionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef i32 @_ZNK7Imf_3_213RgbaInputFile11compressionEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -2160,7 +2155,7 @@ declare noundef i32 @_ZNK7Imf_3_213RgbaInputFile11compressionEv(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_213AcesInputFile8channelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef i32 @_ZNK7Imf_3_213RgbaInputFile8channelsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -2172,7 +2167,7 @@ declare noundef i32 @_ZNK7Imf_3_213RgbaInputFile8channelsEv(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK7Imf_3_213AcesInputFile8fileNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef ptr @_ZNK7Imf_3_213RgbaInputFile8fileNameEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -2184,7 +2179,7 @@ declare noundef ptr @_ZNK7Imf_3_213RgbaInputFile8fileNameEv(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK7Imf_3_213AcesInputFile10isCompleteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef zeroext i1 @_ZNK7Imf_3_213RgbaInputFile10isCompleteEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -2196,7 +2191,7 @@ declare noundef zeroext i1 @_ZNK7Imf_3_213RgbaInputFile10isCompleteEv(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_213AcesInputFile7versionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this, i64 0, i32 1
+  %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef i32 @_ZNK7Imf_3_213RgbaInputFile7versionEv(ptr noundef nonnull align 8 dereferenceable(64) %1)

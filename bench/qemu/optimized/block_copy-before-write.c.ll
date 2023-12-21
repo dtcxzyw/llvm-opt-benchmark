@@ -6,35 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.BlockDriver = type { ptr, i32, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon.9, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.anon.9 = type { ptr, ptr }
 %struct.BdrvChildClass = type { i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.0, %union.anon.1, i32, [16 x %struct.anon.2], ptr, %struct.anon.3, ptr, ptr, %struct.anon.4, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.5, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.6, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.anon.2 = type { ptr }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.6 = type { ptr }
-%struct.CoQueue = type { %struct.anon.7 }
-%struct.anon.7 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.8, %struct.anon.8, i32, i32, ptr }
-%struct.anon.8 = type { ptr }
-%struct.BDRVCopyBeforeWriteState = type { ptr, ptr, i32, i32, %struct.CoMutex, ptr, ptr, %struct.BlockReqList, i32 }
-%struct.BlockReqList = type { ptr }
-%struct.BlockdevOptions = type { i32, ptr, i8, i32, ptr, i8, i8, i8, i8, i8, i8, i8, i32, %union.anon.10 }
-%union.anon.10 = type { %struct.BlockdevOptionsBlkdebug }
-%struct.BlockdevOptionsBlkdebug = type { ptr, ptr, i8, i64, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32, i8, ptr, i8, ptr, i8, ptr, i8, ptr }
-%struct.BlockDirtyBitmap = type { ptr, ptr }
-%struct.BlockReq = type { i64, i64, %struct.CoQueue, %struct.anon.13 }
-%struct.anon.13 = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [47 x i8] c"source->total_sectors == target->total_sectors\00", align 1
 @.str.1 = private unnamed_addr constant [34 x i8] c"../qemu/block/copy-before-write.c\00", align 1
@@ -74,9 +45,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @bdrv_cbw_append(ptr noundef %source, ptr noundef %target, ptr noundef %filter_node_name, ptr nocapture noundef writeonly %bcs, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %total_sectors = getelementptr inbounds %struct.BlockDriverState, ptr %source, i64 0, i32 37
+  %total_sectors = getelementptr inbounds i8, ptr %source, i64 16888
   %0 = load i64, ptr %total_sectors, align 8
-  %total_sectors1 = getelementptr inbounds %struct.BlockDriverState, ptr %target, i64 0, i32 37
+  %total_sectors1 = getelementptr inbounds i8, ptr %target, i64 16888
   %1 = load i64, ptr %total_sectors1, align 8
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %do.body, label %if.else
@@ -113,7 +84,7 @@ if.end7:                                          ; preds = %if.then6, %do.end
   br i1 %tobool11.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end7
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %call10, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %call10, i64 24
   %2 = load ptr, ptr %opaque, align 8
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %bcs, align 8
@@ -178,7 +149,7 @@ declare void @bdrv_register(ptr noundef) local_unnamed_addr #2
 define internal i32 @cbw_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %opts.i = alloca ptr, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %opts.i)
   store ptr null, ptr %opts.i, align 8
@@ -223,7 +194,7 @@ if.end2:                                          ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end2
   %call7 = call ptr @bdrv_open_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.7, ptr noundef nonnull %bs, ptr noundef nonnull @child_of_bds, i32 noundef 1, i1 noundef zeroext false, ptr noundef %errp) #7
-  %target = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %call7, ptr %target, align 8
   %tobool9.not = icmp eq ptr %call7, null
   br i1 %tobool9.not, label %if.then.i.i51, label %if.end11
@@ -232,14 +203,14 @@ if.end11:                                         ; preds = %if.end6
   call void @bdrv_graph_rdlock_main_loop() #7
   %call13 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #7
   call void @aio_context_acquire(ptr noundef %call13) #7
-  %bitmap14 = getelementptr inbounds %struct.BlockdevOptions, ptr %2, i64 0, i32 13, i32 0, i32 2
+  %bitmap14 = getelementptr inbounds i8, ptr %2, i64 64
   %4 = load ptr, ptr %bitmap14, align 8
   %tobool15.not = icmp eq ptr %4, null
   br i1 %tobool15.not, label %if.end23, label %if.then16
 
 if.then16:                                        ; preds = %if.end11
   %5 = load ptr, ptr %4, align 8
-  %name = getelementptr inbounds %struct.BlockDirtyBitmap, ptr %4, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %name, align 8
   %call19 = call ptr @block_dirty_bitmap_lookup(ptr noundef %5, ptr noundef %6, ptr noundef null, ptr noundef %errp) #7
   %tobool20.not = icmp eq ptr %call19, null
@@ -247,7 +218,7 @@ if.then16:                                        ; preds = %if.end11
 
 if.end23:                                         ; preds = %if.then16, %if.end11
   %bitmap.0 = phi ptr [ %call19, %if.then16 ], [ null, %if.end11 ]
-  %has_on_cbw_error = getelementptr inbounds %struct.BlockdevOptions, ptr %2, i64 0, i32 13, i32 0, i32 3
+  %has_on_cbw_error = getelementptr inbounds i8, ptr %2, i64 72
   %7 = load i8, ptr %has_on_cbw_error, align 8
   %8 = and i8 %7, 1
   %tobool24.not = icmp eq i8 %8, 0
@@ -260,44 +231,44 @@ cond.true:                                        ; preds = %if.end23
 
 cond.end:                                         ; preds = %if.end23, %cond.true
   %cond = phi i32 [ %9, %cond.true ], [ 0, %if.end23 ]
-  %on_cbw_error25 = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 2
+  %on_cbw_error25 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %cond, ptr %on_cbw_error25, align 8
-  %has_cbw_timeout = getelementptr inbounds %struct.BlockdevOptions, ptr %2, i64 0, i32 13, i32 0, i32 4
+  %has_cbw_timeout = getelementptr inbounds i8, ptr %2, i64 80
   %10 = load i8, ptr %has_cbw_timeout, align 8
   %11 = and i8 %10, 1
   %tobool26.not = icmp eq i8 %11, 0
   br i1 %tobool26.not, label %cond.end29, label %cond.true27
 
 cond.true27:                                      ; preds = %cond.end
-  %cbw_timeout = getelementptr inbounds %struct.BlockdevOptions, ptr %2, i64 0, i32 13, i32 0, i32 5
+  %cbw_timeout = getelementptr inbounds i8, ptr %2, i64 84
   %12 = load i32, ptr %cbw_timeout, align 4
   %mul = mul i32 %12, 1000000000
   br label %cond.end29
 
 cond.end29:                                       ; preds = %cond.end, %cond.true27
   %cond30 = phi i32 [ %mul, %cond.true27 ], [ 0, %cond.end ]
-  %cbw_timeout_ns = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 3
+  %cbw_timeout_ns = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %cond30, ptr %cbw_timeout_ns, align 4
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %13 = load ptr, ptr %file, align 8
   %14 = load ptr, ptr %13, align 8
-  %total_sectors = getelementptr inbounds %struct.BlockDriverState, ptr %14, i64 0, i32 37
+  %total_sectors = getelementptr inbounds i8, ptr %14, i64 16888
   %15 = load i64, ptr %total_sectors, align 8
-  %total_sectors33 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 37
+  %total_sectors33 = getelementptr inbounds i8, ptr %bs, i64 16888
   store i64 %15, ptr %total_sectors33, align 8
   %16 = load ptr, ptr %13, align 8
-  %supported_write_flags = getelementptr inbounds %struct.BlockDriverState, ptr %16, i64 0, i32 19
+  %supported_write_flags = getelementptr inbounds i8, ptr %16, i64 16588
   %17 = load i32, ptr %supported_write_flags, align 4
   %and = and i32 %17, 16
   %or = or disjoint i32 %and, 64
-  %supported_write_flags36 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 19
+  %supported_write_flags36 = getelementptr inbounds i8, ptr %bs, i64 16588
   store i32 %or, ptr %supported_write_flags36, align 4
   %18 = load ptr, ptr %13, align 8
-  %supported_zero_flags = getelementptr inbounds %struct.BlockDriverState, ptr %18, i64 0, i32 20
+  %supported_zero_flags = getelementptr inbounds i8, ptr %18, i64 16592
   %19 = load i32, ptr %supported_zero_flags, align 8
   %and39 = and i32 %19, 276
   %or40 = or disjoint i32 %and39, 64
-  %supported_zero_flags41 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 20
+  %supported_zero_flags41 = getelementptr inbounds i8, ptr %bs, i64 16592
   store i32 %or40, ptr %supported_zero_flags41, align 8
   %20 = load ptr, ptr %target, align 8
   %call44 = call ptr @block_copy_state_new(ptr noundef nonnull %13, ptr noundef %20, ptr noundef %bitmap.0, ptr noundef %errp) #7
@@ -313,7 +284,7 @@ if.end48:                                         ; preds = %cond.end29
   %call50 = call i64 @block_copy_cluster_size(ptr noundef nonnull %call44) #7
   %conv51 = trunc i64 %call50 to i32
   %call52 = call ptr @bdrv_create_dirty_bitmap(ptr noundef nonnull %bs, i32 noundef %conv51, ptr noundef null, ptr noundef %errp) #7
-  %done_bitmap = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 6
+  %done_bitmap = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %call52, ptr %done_bitmap, align 8
   %tobool54.not = icmp eq ptr %call52, null
   br i1 %tobool54.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end56
@@ -321,7 +292,7 @@ if.end48:                                         ; preds = %cond.end29
 if.end56:                                         ; preds = %if.end48
   call void @bdrv_disable_dirty_bitmap(ptr noundef nonnull %call52) #7
   %call59 = call ptr @bdrv_create_dirty_bitmap(ptr noundef nonnull %bs, i32 noundef %conv51, ptr noundef null, ptr noundef %errp) #7
-  %access_bitmap = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 5
+  %access_bitmap = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %call59, ptr %access_bitmap, align 8
   %tobool61.not = icmp eq ptr %call59, null
   br i1 %tobool61.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end63
@@ -332,9 +303,9 @@ if.end63:                                         ; preds = %if.end56
   %22 = load ptr, ptr %0, align 8
   %call67 = call ptr @block_copy_dirty_bitmap(ptr noundef %22) #7
   call void @bdrv_dirty_bitmap_merge_internal(ptr noundef %21, ptr noundef %call67, ptr noundef null, i1 noundef zeroext true) #7
-  %lock = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 24
   call void @qemu_co_mutex_init(ptr noundef nonnull %lock) #7
-  %frozen_read_reqs = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 7
+  %frozen_read_reqs = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %frozen_read_reqs, align 8
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
@@ -357,12 +328,12 @@ glib_autoptr_cleanup_BlockdevOptions.exit:        ; preds = %cbw_parse_options.e
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cbw_close(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %access_bitmap = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 5
+  %access_bitmap = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %access_bitmap, align 8
   tail call void @bdrv_release_dirty_bitmap(ptr noundef %1) #7
-  %done_bitmap = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 6
+  %done_bitmap = getelementptr inbounds i8, ptr %0, i64 80
   %2 = load ptr, ptr %done_bitmap, align 8
   tail call void @bdrv_release_dirty_bitmap(ptr noundef %2) #7
   %3 = load ptr, ptr %0, align 8
@@ -374,11 +345,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cbw_refresh_filename(ptr noundef %bs) #0 {
 entry:
-  %exact_filename = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 16
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %exact_filename = getelementptr inbounds i8, ptr %bs, i64 12368
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
-  %filename = getelementptr inbounds %struct.BlockDriverState, ptr %1, i64 0, i32 11
+  %filename = getelementptr inbounds i8, ptr %1, i64 49
   tail call void @pstrcpy(ptr noundef nonnull %exact_filename, i32 noundef 4096, ptr noundef nonnull %filename) #7
   ret void
 }
@@ -397,7 +368,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   tail call void @bdrv_default_perms(ptr noundef %bs, ptr noundef %c, i32 noundef %role, ptr noundef %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr noundef %nperm, ptr noundef %nshared) #7
-  %parents = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 32
+  %parents = getelementptr inbounds i8, ptr %bs, i64 16848
   %0 = load ptr, ptr %parents, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end7, label %if.then1
@@ -426,7 +397,7 @@ if.end7:                                          ; preds = %if.else, %if.end, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @cbw_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_preadv(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #7
   ret i32 %call
@@ -440,7 +411,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call1 = tail call i32 @bdrv_co_pwritev(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #7
   br label %return
@@ -458,7 +429,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call1 = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #7
   br label %return
@@ -476,7 +447,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call1 = tail call i32 @bdrv_co_pdiscard(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes) #7
   br label %return
@@ -495,7 +466,7 @@ entry:
   br i1 %tobool.not9, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %opaque.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque.i = getelementptr inbounds i8, ptr %bs, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end4
@@ -516,7 +487,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp.i, label %land.lhs.true.i, label %glib_autoptr_cleanup_QemuLockable.exit.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %bytes.i = getelementptr inbounds %struct.BlockReq, ptr %call, i64 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %bytes.i, align 8
   %cmp1.i = icmp eq i64 %4, -1
   br i1 %cmp1.i, label %if.then.i, label %glib_autoptr_cleanup_QemuLockable.exit.i
@@ -526,7 +497,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %cbw_snapshot_read_unlock.exit
 
 glib_autoptr_cleanup_QemuLockable.exit.i:         ; preds = %land.lhs.true.i, %if.end
-  %lock.i = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %2, i64 0, i32 4
+  %lock.i = getelementptr inbounds i8, ptr %2, i64 24
   call void @qemu_co_mutex_lock(ptr noundef nonnull %lock.i) #7
   call void @reqlist_remove_req(ptr noundef nonnull %call) #7
   call void @g_free(ptr noundef nonnull %call) #7
@@ -555,7 +526,7 @@ define internal i32 @cbw_co_snapshot_block_status(ptr nocapture noundef readonly
 entry:
   %cur_bytes = alloca i64, align 8
   %child = alloca ptr, align 8
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = call ptr @cbw_snapshot_read_lock(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %cur_bytes, ptr noundef nonnull %child)
   %tobool.not = icmp eq ptr %call, null
@@ -566,7 +537,7 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %1, align 8
   %3 = load i64, ptr %cur_bytes, align 8
   %call2 = call i32 @bdrv_co_block_status(ptr noundef %2, i64 noundef %offset, i64 noundef %3, ptr noundef %pnum, ptr noundef %map, ptr noundef %file) #7
-  %target = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %4
   %and = and i32 %call2, 16
@@ -585,7 +556,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp.i, label %land.lhs.true.i, label %glib_autoptr_cleanup_QemuLockable.exit.i
 
 land.lhs.true.i:                                  ; preds = %if.end7
-  %bytes.i = getelementptr inbounds %struct.BlockReq, ptr %call, i64 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %call, i64 8
   %7 = load i64, ptr %bytes.i, align 8
   %cmp1.i = icmp eq i64 %7, -1
   br i1 %cmp1.i, label %if.then.i, label %glib_autoptr_cleanup_QemuLockable.exit.i
@@ -595,7 +566,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %return
 
 glib_autoptr_cleanup_QemuLockable.exit.i:         ; preds = %land.lhs.true.i, %if.end7
-  %lock.i = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %5, i64 0, i32 4
+  %lock.i = getelementptr inbounds i8, ptr %5, i64 24
   call void @qemu_co_mutex_lock(ptr noundef nonnull %lock.i) #7
   call void @reqlist_remove_req(ptr noundef nonnull %call) #7
   call void @g_free(ptr noundef nonnull %call) #7
@@ -610,17 +581,17 @@ return:                                           ; preds = %glib_autoptr_cleanu
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @cbw_co_pdiscard_snapshot(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 qemu_lockable_auto_unlock.exit.us:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %lock = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #7
-  %access_bitmap = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 5
+  %access_bitmap = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %access_bitmap, align 8
   tail call void @bdrv_reset_dirty_bitmap(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes) #7
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #7
   %2 = load ptr, ptr %0, align 8
   tail call void @block_copy_reset(ptr noundef %2, i64 noundef %offset, i64 noundef %bytes) #7
-  %target = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call i32 @bdrv_co_pdiscard(ptr noundef %3, i64 noundef %offset, i64 noundef %bytes) #7
   ret i32 %call2
@@ -629,7 +600,7 @@ qemu_lockable_auto_unlock.exit.us:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @cbw_co_flush(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %file = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -701,7 +672,7 @@ declare i32 @bdrv_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @cbw_do_copy_before_write(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i64 @block_copy_cluster_size(ptr noundef %1) #7
@@ -711,7 +682,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %snapshot_error = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 8
+  %snapshot_error = getelementptr inbounds i8, ptr %0, i64 96
   %2 = load i32, ptr %snapshot_error, align 8
   %tobool1.not = icmp eq i32 %2, 0
   br i1 %tobool1.not, label %if.end3, label %return
@@ -727,7 +698,7 @@ if.end3:                                          ; preds = %if.end
   %5 = load ptr, ptr %0, align 8
   %6 = add i64 %mul, %4
   %sub8 = sub i64 %sub, %6
-  %cbw_timeout_ns = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 3
+  %cbw_timeout_ns = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %cbw_timeout_ns, align 4
   %conv = zext i32 %7 to i64
   %call9 = tail call i32 @block_copy(ptr noundef %5, i64 noundef %mul, i64 noundef %sub8, i1 noundef zeroext true, i64 noundef %conv, ptr noundef nonnull @block_copy_cb, ptr noundef nonnull %bs) #7
@@ -735,16 +706,16 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp, label %land.lhs.true, label %for.body.us33
 
 land.lhs.true:                                    ; preds = %if.end3
-  %on_cbw_error = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 2
+  %on_cbw_error = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i32, ptr %on_cbw_error, align 8
   %cmp11 = icmp eq i32 %8, 0
   br i1 %cmp11, label %return, label %for.body.us.us
 
 for.body.us.us:                                   ; preds = %land.lhs.true
-  %lock39 = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 4
+  %lock39 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock39) #7
-  %on_cbw_error2141 = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 2
-  %frozen_read_reqs42 = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 7
+  %on_cbw_error2141 = getelementptr inbounds i8, ptr %0, i64 16
+  %frozen_read_reqs42 = getelementptr inbounds i8, ptr %0, i64 88
   %9 = load i32, ptr %on_cbw_error2141, align 8
   %cmp22.us.us = icmp eq i32 %9, 1
   br i1 %cmp22.us.us, label %if.end25.us.us, label %if.else
@@ -763,10 +734,10 @@ qemu_lockable_auto_unlock.exit.us.us:             ; preds = %if.then28.us.us, %i
   br label %return.sink.split
 
 for.body.us33:                                    ; preds = %if.end3
-  %lock = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #7
-  %done_bitmap = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 6
-  %frozen_read_reqs = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 7
+  %done_bitmap = getelementptr inbounds i8, ptr %0, i64 80
+  %frozen_read_reqs = getelementptr inbounds i8, ptr %0, i64 88
   %11 = load ptr, ptr %done_bitmap, align 8
   tail call void @bdrv_set_dirty_bitmap(ptr noundef %11, i64 noundef %mul, i64 noundef %sub8) #7
   tail call void @reqlist_wait_all(ptr noundef nonnull %frozen_read_reqs, i64 noundef %mul, i64 noundef %sub8, ptr noundef nonnull %lock) #7
@@ -816,12 +787,12 @@ declare i32 @bdrv_co_pdiscard(ptr noundef, i64 noundef, i64 noundef) #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @cbw_snapshot_read_lock(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %pnum, ptr nocapture noundef writeonly %file) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc_n(i64 noundef 1, i64 noundef 48) #8
-  %lock = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #7
-  %snapshot_error = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 8
+  %snapshot_error = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load i32, ptr %snapshot_error, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -831,7 +802,7 @@ if.then:                                          ; preds = %entry
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end:                                           ; preds = %entry
-  %access_bitmap = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 5
+  %access_bitmap = getelementptr inbounds i8, ptr %0, i64 72
   %2 = load ptr, ptr %access_bitmap, align 8
   %call5 = tail call i64 @bdrv_dirty_bitmap_next_zero(ptr noundef %2, i64 noundef %offset, i64 noundef %bytes) #7
   %cmp.not = icmp eq i64 %call5, -1
@@ -842,7 +813,7 @@ if.then6:                                         ; preds = %if.end
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end7:                                          ; preds = %if.end
-  %done_bitmap = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 6
+  %done_bitmap = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %done_bitmap, align 8
   %call8 = tail call zeroext i1 @bdrv_dirty_bitmap_status(ptr noundef %3, i64 noundef %offset, i64 noundef %bytes, ptr noundef %pnum) #7
   br i1 %call8, label %if.then10, label %if.else
@@ -850,14 +821,14 @@ if.end7:                                          ; preds = %if.end
 if.then10:                                        ; preds = %if.end7
   %.compoundliteral11.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 -1, i64 16, i1 false)
-  %target = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 1
+  %target = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.compoundliteral11.sroa.3.0..sroa_idx, i8 0, i64 32, i1 false)
   br label %if.end15
 
 if.else:                                          ; preds = %if.end7
-  %frozen_read_reqs = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 7
+  %frozen_read_reqs = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @reqlist_init_req(ptr noundef nonnull %frozen_read_reqs, ptr noundef %call, i64 noundef %offset, i64 noundef %bytes) #7
-  %file14 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 31
+  %file14 = getelementptr inbounds i8, ptr %bs, i64 16840
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then10
@@ -877,14 +848,14 @@ declare i32 @bdrv_co_preadv_part(ptr noundef, i64 noundef, i64 noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cbw_snapshot_read_unlock(ptr nocapture noundef readonly %bs, ptr noundef %req) #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 7
+  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load i64, ptr %req, align 8
   %cmp = icmp eq i64 %1, -1
   br i1 %cmp, label %land.lhs.true, label %glib_autoptr_cleanup_QemuLockable.exit
 
 land.lhs.true:                                    ; preds = %entry
-  %bytes = getelementptr inbounds %struct.BlockReq, ptr %req, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %req, i64 8
   %2 = load i64, ptr %bytes, align 8
   %cmp1 = icmp eq i64 %2, -1
   br i1 %cmp1, label %if.then, label %glib_autoptr_cleanup_QemuLockable.exit
@@ -894,7 +865,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %land.lhs.true, %entry
-  %lock = getelementptr inbounds %struct.BDRVCopyBeforeWriteState, ptr %0, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #7
   tail call void @reqlist_remove_req(ptr noundef nonnull %req) #7
   tail call void @g_free(ptr noundef nonnull %req) #7

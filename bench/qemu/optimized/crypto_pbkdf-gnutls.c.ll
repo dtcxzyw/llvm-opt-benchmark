@@ -26,11 +26,11 @@ entry:
   %gkey = alloca %struct.gnutls_datum_t, align 8
   %gsalt = alloca %struct.gnutls_datum_t, align 8
   store ptr %key, ptr %gkey, align 8
-  %size = getelementptr inbounds %struct.gnutls_datum_t, ptr %gkey, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %gkey, i64 8
   %conv = trunc i64 %nkey to i32
   store i32 %conv, ptr %size, align 8
   store ptr %salt, ptr %gsalt, align 8
-  %size2 = getelementptr inbounds %struct.gnutls_datum_t, ptr %gsalt, i64 0, i32 1
+  %size2 = getelementptr inbounds i8, ptr %gsalt, i64 8
   %conv3 = trunc i64 %nsalt to i32
   store i32 %conv3, ptr %size2, align 8
   %cmp6 = icmp ugt i32 %hash, 6

@@ -105,9 +105,9 @@ for.cond.i:                                       ; preds = %if.end67.i, %while.
 
 while.end.i:                                      ; preds = %for.cond.i, %while.end.i
   %index.023.i = phi ptr [ %index.0.i, %while.end.i ], [ %index.021.i, %for.cond.i ]
-  %waiting.i = getelementptr inbounds %struct.rcu_reader_data, ptr %index.023.i, i64 0, i32 1
+  %waiting.i = getelementptr inbounds i8, ptr %index.023.i, i64 8
   store atomic i8 1, ptr %waiting.i monotonic, align 8
-  %node.i = getelementptr inbounds %struct.rcu_reader_data, ptr %index.023.i, i64 0, i32 3
+  %node.i = getelementptr inbounds i8, ptr %index.023.i, i64 16
   %index.0.i = load ptr, ptr %node.i, align 8
   %tobool.not.i = icmp eq ptr %index.0.i, null
   br i1 %tobool.not.i, label %for.end.i, label %while.end.i, !llvm.loop !9
@@ -121,7 +121,7 @@ for.end.i:                                        ; preds = %while.end.i, %for.c
 
 land.rhs.i:                                       ; preds = %for.end.i, %for.inc63.i
   %index.125.i = phi ptr [ %7, %for.inc63.i ], [ %6, %for.end.i ]
-  %node6.i = getelementptr inbounds %struct.rcu_reader_data, ptr %index.125.i, i64 0, i32 3
+  %node6.i = getelementptr inbounds i8, ptr %index.125.i, i64 16
   %7 = load ptr, ptr %node6.i, align 8
   %8 = load atomic i64, ptr %index.125.i monotonic, align 8
   %tobool.i.i = icmp eq i64 %8, 0
@@ -132,12 +132,12 @@ land.rhs.i:                                       ; preds = %for.end.i, %for.inc
 
 do.body10.i:                                      ; preds = %land.rhs.i
   %cmp.not.i = icmp eq ptr %7, null
-  %le_prev22.phi.trans.insert.i = getelementptr inbounds %struct.rcu_reader_data, ptr %index.125.i, i64 0, i32 3, i32 1
+  %le_prev22.phi.trans.insert.i = getelementptr inbounds i8, ptr %index.125.i, i64 24
   %.pre26.i = load ptr, ptr %le_prev22.phi.trans.insert.i, align 8
   br i1 %cmp.not.i, label %if.end.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %do.body10.i
-  %le_prev18.i = getelementptr inbounds %struct.rcu_reader_data, ptr %7, i64 0, i32 3, i32 1
+  %le_prev18.i = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %.pre26.i, ptr %le_prev18.i, align 8
   %.pre.i = load ptr, ptr %node6.i, align 8
   br label %if.end.i
@@ -151,14 +151,14 @@ if.end.i:                                         ; preds = %if.then13.i, %do.bo
   br i1 %cmp31.not.i, label %if.end38.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %if.end.i
-  %le_prev37.i = getelementptr inbounds %struct.rcu_reader_data, ptr %11, i64 0, i32 3, i32 1
+  %le_prev37.i = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %node6.i, ptr %le_prev37.i, align 8
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.then32.i, %if.end.i
   store ptr %index.125.i, ptr %qsreaders.i, align 8
   store ptr %qsreaders.i, ptr %le_prev22.phi.trans.insert.i, align 8
-  %waiting50.i = getelementptr inbounds %struct.rcu_reader_data, ptr %index.125.i, i64 0, i32 1
+  %waiting50.i = getelementptr inbounds i8, ptr %index.125.i, i64 8
   store atomic i8 0, ptr %waiting50.i monotonic, align 8
   br label %for.inc63.i
 
@@ -168,7 +168,7 @@ while.end57.i:                                    ; preds = %land.rhs.i
   br i1 %tobool59.not.i, label %for.inc63.i, label %if.then60.i
 
 if.then60.i:                                      ; preds = %while.end57.i
-  %force_rcu.i = getelementptr inbounds %struct.rcu_reader_data, ptr %index.125.i, i64 0, i32 4
+  %force_rcu.i = getelementptr inbounds i8, ptr %index.125.i, i64 32
   call void @notifier_list_notify(ptr noundef nonnull %force_rcu.i, ptr noundef null) #10
   br label %for.inc63.i
 
@@ -196,7 +196,7 @@ do.body76.i:                                      ; preds = %for.end64.i, %for.e
   br i1 %cmp87.not.i, label %wait_for_readers.exit, label %if.then88.i
 
 if.then88.i:                                      ; preds = %do.body76.i
-  %le_prev90.i = getelementptr inbounds %struct.rcu_reader_data, ptr %15, i64 0, i32 3, i32 1
+  %le_prev90.i = getelementptr inbounds i8, ptr %15, i64 24
   store ptr @registry, ptr %le_prev90.i, align 8
   br label %wait_for_readers.exit
 
@@ -213,7 +213,7 @@ glib_autoptr_cleanup_QemuLockable.exit7:          ; preds = %wait_for_readers.ex
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @call_rcu1(ptr noundef %node, ptr noundef %func) local_unnamed_addr #0 {
 entry:
-  %func1 = getelementptr inbounds %struct.rcu_head, ptr %node, i64 0, i32 1
+  %func1 = getelementptr inbounds i8, ptr %node, i64 8
   store ptr %func, ptr %func1, align 8
   store ptr null, ptr %node, align 8
   %0 = ptrtoint ptr %node to i64
@@ -233,14 +233,14 @@ entry:
   %rcu_drain = alloca %struct.rcu_drain, align 8
   %call = tail call zeroext i1 @qemu_mutex_iothread_locked() #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rcu_drain, i8 0, i64 24, i1 false)
-  %drain_complete_event = getelementptr inbounds %struct.rcu_drain, ptr %rcu_drain, i64 0, i32 1
+  %drain_complete_event = getelementptr inbounds i8, ptr %rcu_drain, i64 16
   call void @qemu_event_init(ptr noundef nonnull %drain_complete_event, i1 noundef zeroext false) #10
   br i1 %call, label %if.then, label %if.end6.critedge
 
 if.then:                                          ; preds = %entry
   call void @qemu_mutex_unlock_iothread() #10
   %0 = atomicrmw add ptr @in_drain_call_rcu, i32 1 seq_cst, align 4
-  %func1.i = getelementptr inbounds %struct.rcu_head, ptr %rcu_drain, i64 0, i32 1
+  %func1.i = getelementptr inbounds i8, ptr %rcu_drain, i64 8
   store ptr @drain_rcu_callback, ptr %func1.i, align 8
   store ptr null, ptr %rcu_drain, align 8
   %1 = ptrtoint ptr %rcu_drain to i64
@@ -256,7 +256,7 @@ if.then:                                          ; preds = %entry
 
 if.end6.critedge:                                 ; preds = %entry
   %6 = atomicrmw add ptr @in_drain_call_rcu, i32 1 seq_cst, align 4
-  %func1.i2 = getelementptr inbounds %struct.rcu_head, ptr %rcu_drain, i64 0, i32 1
+  %func1.i2 = getelementptr inbounds i8, ptr %rcu_drain, i64 8
   store ptr @drain_rcu_callback, ptr %func1.i2, align 8
   store ptr null, ptr %rcu_drain, align 8
   %7 = ptrtoint ptr %rcu_drain to i64
@@ -285,7 +285,7 @@ declare void @qemu_mutex_unlock_iothread() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @drain_rcu_callback(ptr noundef %node) #0 {
 entry:
-  %drain_complete_event = getelementptr inbounds %struct.rcu_drain, ptr %node, i64 0, i32 1
+  %drain_complete_event = getelementptr inbounds i8, ptr %node, i64 16
   tail call void @qemu_event_set(ptr noundef nonnull %drain_complete_event) #10
   ret void
 }
@@ -326,7 +326,7 @@ while.end:                                        ; preds = %entry
   call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i1, ptr nonnull %0) #10, !srcloc !7
   %6 = load ptr, ptr %ptr.i1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i1)
-  %node = getelementptr inbounds %struct.rcu_reader_data, ptr %6, i64 0, i32 3
+  %node = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %5, ptr %node, align 8
   %cmp3.not = icmp eq ptr %5, null
   br i1 %cmp3.not, label %if.end9, label %if.then4
@@ -337,9 +337,9 @@ if.then4:                                         ; preds = %while.end
   call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i2, ptr nonnull %0) #10, !srcloc !7
   %7 = load ptr, ptr %ptr.i2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i2)
-  %node6 = getelementptr inbounds %struct.rcu_reader_data, ptr %7, i64 0, i32 3
+  %node6 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr @registry, align 8
-  %le_prev = getelementptr inbounds %struct.rcu_reader_data, ptr %8, i64 0, i32 3, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %node6, ptr %le_prev, align 8
   br label %if.end9
 
@@ -355,7 +355,7 @@ if.end9:                                          ; preds = %if.then4, %while.en
   call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i4, ptr nonnull %0) #10, !srcloc !7
   %10 = load ptr, ptr %ptr.i4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i4)
-  %le_prev13 = getelementptr inbounds %struct.rcu_reader_data, ptr %10, i64 0, i32 3, i32 1
+  %le_prev13 = getelementptr inbounds i8, ptr %10, i64 24
   store ptr @registry, ptr %le_prev13, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @rcu_registry_lock, ptr noundef nonnull @.str, i32 noundef 378) #10
   ret void
@@ -385,7 +385,7 @@ entry:
   call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i, ptr nonnull %2) #10, !srcloc !7
   %3 = load ptr, ptr %ptr.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i)
-  %node = getelementptr inbounds %struct.rcu_reader_data, ptr %3, i64 0, i32 3
+  %node = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %node, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -396,16 +396,16 @@ if.then:                                          ; preds = %entry
   call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i1, ptr nonnull %2) #10, !srcloc !7
   %5 = load ptr, ptr %ptr.i1, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i1)
-  %le_prev = getelementptr inbounds %struct.rcu_reader_data, ptr %5, i64 0, i32 3, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load ptr, ptr %le_prev, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i2)
   store ptr %2, ptr %ptr.i2, align 8
   call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i2, ptr nonnull %2) #10, !srcloc !7
   %7 = load ptr, ptr %ptr.i2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i2)
-  %node5 = getelementptr inbounds %struct.rcu_reader_data, ptr %7, i64 0, i32 3
+  %node5 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %node5, align 8
-  %le_prev8 = getelementptr inbounds %struct.rcu_reader_data, ptr %8, i64 0, i32 3, i32 1
+  %le_prev8 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %6, ptr %le_prev8, align 8
   br label %if.end
 
@@ -415,14 +415,14 @@ if.end:                                           ; preds = %if.then, %entry
   call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i3, ptr nonnull %2) #10, !srcloc !7
   %9 = load ptr, ptr %ptr.i3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i3)
-  %node10 = getelementptr inbounds %struct.rcu_reader_data, ptr %9, i64 0, i32 3
+  %node10 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %node10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i4)
   store ptr %2, ptr %ptr.i4, align 8
   call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i4, ptr nonnull %2) #10, !srcloc !7
   %11 = load ptr, ptr %ptr.i4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i4)
-  %le_prev14 = getelementptr inbounds %struct.rcu_reader_data, ptr %11, i64 0, i32 3, i32 1
+  %le_prev14 = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load ptr, ptr %le_prev14, align 8
   store ptr %10, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i5)
@@ -430,14 +430,14 @@ if.end:                                           ; preds = %if.then, %entry
   call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i5, ptr nonnull %2) #10, !srcloc !7
   %13 = load ptr, ptr %ptr.i5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i5)
-  %node16 = getelementptr inbounds %struct.rcu_reader_data, ptr %13, i64 0, i32 3
+  %node16 = getelementptr inbounds i8, ptr %13, i64 16
   store ptr null, ptr %node16, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i6)
   store ptr %2, ptr %ptr.i6, align 8
   call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i6, ptr nonnull %2) #10, !srcloc !7
   %14 = load ptr, ptr %ptr.i6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i6)
-  %le_prev20 = getelementptr inbounds %struct.rcu_reader_data, ptr %14, i64 0, i32 3, i32 1
+  %le_prev20 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr null, ptr %le_prev20, align 8
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @rcu_registry_lock, ptr noundef nonnull @.str, i32 noundef 385) #10
   ret void
@@ -456,7 +456,7 @@ entry:
   call void asm sideeffect "", "=*rm,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %ptr.i, ptr nonnull %2) #10, !srcloc !7
   %3 = load ptr, ptr %ptr.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i)
-  %force_rcu = getelementptr inbounds %struct.rcu_reader_data, ptr %3, i64 0, i32 4
+  %force_rcu = getelementptr inbounds i8, ptr %3, i64 32
   call void @notifier_list_add(ptr noundef nonnull %force_rcu, ptr noundef %n) #10
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @rcu_registry_lock, ptr noundef nonnull @.str, i32 noundef 392) #10
   ret void
@@ -763,7 +763,7 @@ if.end35:                                         ; preds = %if.end10.i14, %if.t
 while.end36:                                      ; preds = %if.end10.i, %if.end35
   %node.0.lcssa = phi ptr [ %node.1, %if.end35 ], [ %5, %if.end10.i ]
   %dec = add nsw i32 %n.148, -1
-  %func = getelementptr inbounds %struct.rcu_head, ptr %node.0.lcssa, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %node.0.lcssa, i64 8
   %36 = load ptr, ptr %func, align 8
   tail call void %36(ptr noundef nonnull %node.0.lcssa) #10
   %cmp26 = icmp sgt i32 %n.148, 1

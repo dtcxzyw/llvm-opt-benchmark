@@ -3,18 +3,16 @@ source_filename = "bench/memcached/original/memcached-slab_automove.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.settings = type { i64, i32, i32, i32, ptr, i32, i32, i64, i32, ptr, ptr, i32, double, i32, i32, i32, i8, i32, i32, i8, i32, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i32, double, i32, i32, i8, i32, i8, i8, ptr, i32, i32, i32, i32, double, double, i32, i8, i32, i32, i32, i32, i32, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, double, double, i8, i32, i32, ptr, i32 }
-%struct.slab_automove = type { ptr, i32, i32, double, [64 x %struct.item_stats_automove], [64 x %struct.item_stats_automove], [64 x %struct.slab_stats_automove], [64 x %struct.slab_stats_automove] }
 %struct.item_stats_automove = type { i64, i64, i32 }
-%struct.slab_stats_automove = type { i32, i32, i64, i64 }
 %struct.window_data = type { i64, i64, float, i64 }
+%struct.slab_stats_automove = type { i32, i32, i64, i64 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @slab_automove_init(ptr nocapture noundef readonly %settings) local_unnamed_addr #0 {
 entry:
-  %slab_automove_window = getelementptr inbounds %struct.settings, ptr %settings, i64 0, i32 34
+  %slab_automove_window = getelementptr inbounds i8, ptr %settings, i64 160
   %0 = load i32, ptr %slab_automove_window, align 8
-  %slab_automove_ratio = getelementptr inbounds %struct.settings, ptr %settings, i64 0, i32 33
+  %slab_automove_ratio = getelementptr inbounds i8, ptr %settings, i64 152
   %1 = load double, ptr %slab_automove_ratio, align 8
   %call = tail call noalias dereferenceable_or_null(6168) ptr @calloc(i64 noundef 1, i64 noundef 6168) #7
   %cmp = icmp eq ptr %call, null
@@ -25,9 +23,9 @@ if.end:                                           ; preds = %entry
   %conv = zext i32 %mul to i64
   %call1 = tail call noalias ptr @calloc(i64 noundef %conv, i64 noundef 32) #7
   store ptr %call1, ptr %call, align 8
-  %window_size2 = getelementptr inbounds %struct.slab_automove, ptr %call, i64 0, i32 1
+  %window_size2 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %0, ptr %window_size2, align 8
-  %max_age_ratio3 = getelementptr inbounds %struct.slab_automove, ptr %call, i64 0, i32 3
+  %max_age_ratio3 = getelementptr inbounds i8, ptr %call, i64 16
   store double %1, ptr %max_age_ratio3, align 8
   %cmp5 = icmp eq ptr %call1, null
   br i1 %cmp5, label %if.then7, label %if.end8
@@ -37,9 +35,9 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %iam_before = getelementptr inbounds %struct.slab_automove, ptr %call, i64 0, i32 4
+  %iam_before = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @fill_item_stats_automove(ptr noundef nonnull %iam_before) #8
-  %sam_before = getelementptr inbounds %struct.slab_automove, ptr %call, i64 0, i32 6
+  %sam_before = getelementptr inbounds i8, ptr %call, i64 3096
   tail call void @fill_slab_stats_automove(ptr noundef nonnull %sam_before) #8
   br label %return
 
@@ -72,18 +70,19 @@ define dso_local void @slab_automove_run(ptr noundef %arg, ptr nocapture noundef
 entry:
   store i32 -1, ptr %src, align 4
   store i32 -1, ptr %dst, align 4
-  %iam_after = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 5
+  %iam_after = getelementptr inbounds i8, ptr %arg, i64 1560
   tail call void @fill_item_stats_automove(ptr noundef nonnull %iam_after) #8
-  %sam_after = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 7
+  %sam_after = getelementptr inbounds i8, ptr %arg, i64 4632
   tail call void @fill_slab_stats_automove(ptr noundef nonnull %sam_after) #8
+  %iam_before = getelementptr inbounds i8, ptr %arg, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %for.body ]
   %evicted_total.088 = phi i64 [ 0, %entry ], [ %add, %for.body ]
-  %arrayidx = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 5, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [64 x %struct.item_stats_automove], ptr %iam_after, i64 0, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
-  %arrayidx4 = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 4, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds [64 x %struct.item_stats_automove], ptr %iam_before, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx4, align 8
   %sub = add i64 %0, %evicted_total.088
   %add = sub i64 %sub, %1
@@ -92,11 +91,12 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
-  %window_cur = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 2
+  %window_cur = getelementptr inbounds i8, ptr %arg, i64 12
   %2 = load i32, ptr %window_cur, align 4
   %inc6 = add i32 %2, 1
   store i32 %inc6, ptr %window_cur, align 4
-  %window_size = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 1
+  %window_size = getelementptr inbounds i8, ptr %arg, i64 8
+  %sam_before = getelementptr inbounds i8, ptr %arg, i64 3096
   %conv25 = uitofp i64 %add to float
   %.pre = load i32, ptr %window_size, align 8
   %.pre104 = load ptr, ptr %arg, align 8
@@ -119,54 +119,54 @@ for.body9:                                        ; preds = %for.end, %for.inc11
   %idxprom13 = zext i32 %add12 to i64
   %arrayidx14 = getelementptr inbounds %struct.window_data, ptr %3, i64 %idxprom13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx14, i8 0, i64 32, i1 false)
-  %arrayidx17 = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 5, i64 %indvars.iv101
+  %arrayidx17 = getelementptr inbounds [64 x %struct.item_stats_automove], ptr %iam_after, i64 0, i64 %indvars.iv101
   %7 = load i64, ptr %arrayidx17, align 8
-  %arrayidx21 = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 4, i64 %indvars.iv101
+  %arrayidx21 = getelementptr inbounds [64 x %struct.item_stats_automove], ptr %iam_before, i64 0, i64 %indvars.iv101
   %8 = load i64, ptr %arrayidx21, align 8
-  %cmp24.not = icmp eq i64 %7, %8
-  br i1 %cmp24.not, label %if.end, label %if.then
+  %cmp24.not = icmp ne i64 %7, %8
+  br i1 %cmp24.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body9
   %sub23 = sub nsw i64 %7, %8
   %conv = uitofp i64 %sub23 to float
   %div = fdiv float %conv, %conv25
-  %evicted_ratio = getelementptr inbounds %struct.window_data, ptr %3, i64 %idxprom13, i32 2
+  %evicted_ratio = getelementptr inbounds i8, ptr %arrayidx14, i64 16
   store float %div, ptr %evicted_ratio, align 8
-  %evicted_seen = getelementptr inbounds %struct.window_data, ptr %3, i64 %idxprom13, i32 3
+  %evicted_seen = getelementptr inbounds i8, ptr %arrayidx14, i64 24
   store i64 1, ptr %evicted_seen, align 8
-  %dirty = getelementptr inbounds %struct.window_data, ptr %3, i64 %idxprom13, i32 1
+  %dirty = getelementptr inbounds i8, ptr %arrayidx14, i64 8
   store i64 1, ptr %dirty, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body9
-  %outofmemory = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 5, i64 %indvars.iv101, i32 1
+  %outofmemory = getelementptr inbounds i8, ptr %arrayidx17, i64 8
   %9 = load i64, ptr %outofmemory, align 8
-  %outofmemory32 = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 4, i64 %indvars.iv101, i32 1
+  %outofmemory32 = getelementptr inbounds i8, ptr %arrayidx21, i64 8
   %10 = load i64, ptr %outofmemory32, align 8
   %cmp34 = icmp sgt i64 %9, %10
   br i1 %cmp34, label %if.then36, label %if.end38
 
 if.then36:                                        ; preds = %if.end
-  %dirty37 = getelementptr inbounds %struct.window_data, ptr %3, i64 %idxprom13, i32 1
+  %dirty37 = getelementptr inbounds i8, ptr %arrayidx14, i64 8
   store i64 1, ptr %dirty37, align 8
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then36, %if.end
-  %arrayidx41 = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 7, i64 %indvars.iv101
-  %total_pages = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 7, i64 %indvars.iv101, i32 3
+  %arrayidx41 = getelementptr inbounds [64 x %struct.slab_stats_automove], ptr %sam_after, i64 0, i64 %indvars.iv101
+  %total_pages = getelementptr inbounds i8, ptr %arrayidx41, i64 16
   %11 = load i64, ptr %total_pages, align 8
-  %total_pages44 = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 6, i64 %indvars.iv101, i32 3
+  %total_pages44 = getelementptr inbounds [64 x %struct.slab_stats_automove], ptr %sam_before, i64 0, i64 %indvars.iv101, i32 3
   %12 = load i64, ptr %total_pages44, align 8
   %cmp46 = icmp sgt i64 %11, %12
   br i1 %cmp46, label %if.then48, label %if.end50
 
 if.then48:                                        ; preds = %if.end38
-  %dirty49 = getelementptr inbounds %struct.window_data, ptr %3, i64 %idxprom13, i32 1
+  %dirty49 = getelementptr inbounds i8, ptr %arrayidx14, i64 8
   store i64 1, ptr %dirty49, align 8
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then48, %if.end38
-  %age = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 5, i64 %indvars.iv101, i32 2
+  %age = getelementptr inbounds i8, ptr %arrayidx17, i64 16
   %13 = load i32, ptr %age, align 8
   %conv54 = zext i32 %13 to i64
   store i64 %conv54, ptr %arrayidx14, align 8
@@ -183,40 +183,40 @@ for.body.lr.ph.i:                                 ; preds = %if.end50
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %add713.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add7.i, %for.body.i ]
-  %add512.i = phi float [ 0.000000e+00, %for.body.lr.ph.i ], [ %add5.i, %for.body.i ]
-  %add311.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add3.i, %for.body.i ]
-  %16 = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i, %for.body.i ]
+  %16 = phi i64 [ 0, %for.body.lr.ph.i ], [ %add7.i, %for.body.i ]
+  %17 = phi float [ 0.000000e+00, %for.body.lr.ph.i ], [ %add5.i, %for.body.i ]
+  %18 = phi i64 [ 0, %for.body.lr.ph.i ], [ %add3.i, %for.body.i ]
+  %19 = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %struct.window_data, ptr %arrayidx58, i64 %indvars.iv.i
-  %17 = load i64, ptr %arrayidx.i, align 8
-  %add.i = add i64 %17, %16
-  %dirty.i = getelementptr inbounds %struct.window_data, ptr %arrayidx58, i64 %indvars.iv.i, i32 1
-  %18 = load i64, ptr %dirty.i, align 8
-  %add3.i = add i64 %18, %add311.i
-  %evicted_ratio.i = getelementptr inbounds %struct.window_data, ptr %arrayidx58, i64 %indvars.iv.i, i32 2
-  %19 = load float, ptr %evicted_ratio.i, align 8
-  %add5.i = fadd float %add512.i, %19
-  %evicted_seen.i = getelementptr inbounds %struct.window_data, ptr %arrayidx58, i64 %indvars.iv.i, i32 3
-  %20 = load i64, ptr %evicted_seen.i, align 8
-  %add7.i = add i64 %20, %add713.i
+  %20 = load i64, ptr %arrayidx.i, align 8
+  %add.i = add i64 %20, %19
+  %dirty.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %21 = load i64, ptr %dirty.i, align 8
+  %add3.i = add i64 %21, %18
+  %evicted_ratio.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %22 = load float, ptr %evicted_ratio.i, align 8
+  %add5.i = fadd float %17, %22
+  %evicted_seen.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %23 = load i64, ptr %evicted_seen.i, align 8
+  %add7.i = add i64 %23, %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %window_sum.exit.loopexit, label %for.body.i, !llvm.loop !7
 
 window_sum.exit.loopexit:                         ; preds = %for.body.i
-  %21 = udiv i64 %add.i, %wide.trip.count.i
+  %24 = udiv i64 %add.i, %wide.trip.count.i
   br label %window_sum.exit
 
 window_sum.exit:                                  ; preds = %window_sum.exit.loopexit, %if.end50
   %w_sum.sroa.4.1 = phi i64 [ 0, %if.end50 ], [ %add3.i, %window_sum.exit.loopexit ]
   %w_sum.sroa.7.1 = phi float [ 0.000000e+00, %if.end50 ], [ %add5.i, %window_sum.exit.loopexit ]
   %w_sum.sroa.1075.1 = phi i64 [ 0, %if.end50 ], [ %add7.i, %window_sum.exit.loopexit ]
-  %div64 = phi i64 [ poison, %if.end50 ], [ %21, %window_sum.exit.loopexit ]
-  %free_chunks = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 7, i64 %indvars.iv101, i32 2
-  %22 = load i64, ptr %free_chunks, align 8
-  %conv68 = sitofp i64 %22 to double
-  %23 = load i32, ptr %arrayidx41, align 8
-  %conv72 = uitofp i32 %23 to double
+  %div64 = phi i64 [ poison, %if.end50 ], [ %24, %window_sum.exit.loopexit ]
+  %free_chunks = getelementptr inbounds i8, ptr %arrayidx41, i64 8
+  %25 = load i64, ptr %free_chunks, align 8
+  %conv68 = sitofp i64 %25 to double
+  %26 = load i32, ptr %arrayidx41, align 8
+  %conv72 = uitofp i32 %26 to double
   %mul73 = fmul double %conv72, 2.500000e+00
   %cmp74 = fcmp olt double %mul73, %conv68
   %cmp78 = icmp eq i64 %w_sum.sroa.4.1, 0
@@ -233,8 +233,8 @@ if.end82:                                         ; preds = %window_sum.exit
   br i1 %cmp83, label %land.lhs.true, label %if.end92
 
 land.lhs.true:                                    ; preds = %if.end82
-  %24 = load i64, ptr %total_pages, align 8
-  %cmp89 = icmp sgt i64 %24, 2
+  %27 = load i64, ptr %total_pages, align 8
+  %cmp89 = icmp sgt i64 %27, 2
   %spec.select = select i1 %cmp89, i64 %div64, i64 %oldest_age.093
   %spec.select73 = select i1 %cmp89, i32 %5, i32 %oldest.094
   br label %if.end92
@@ -258,10 +258,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true95
   br i1 %cmp107, label %if.then109, label %for.inc113
 
 if.then109:                                       ; preds = %lor.lhs.false, %land.lhs.true95
-  %evicted_seen110 = getelementptr inbounds %struct.window_data, ptr %3, i64 %idxprom13, i32 3
-  %25 = load i64, ptr %evicted_seen110, align 8
-  %tobool = icmp ne i64 %25, 0
-  %frombool = zext i1 %tobool to i8
+  %frombool = zext i1 %cmp24.not to i8
   br label %for.inc113
 
 for.inc113:                                       ; preds = %if.end92, %lor.lhs.false, %if.then109
@@ -278,30 +275,28 @@ for.end115:                                       ; preds = %for.inc113, %if.the
   %oldest_age.082 = phi i64 [ %oldest_age.093, %if.then80 ], [ %oldest_age.1, %for.inc113 ]
   %youngest.2 = phi i32 [ -1, %if.then80 ], [ %youngest.1, %for.inc113 ]
   %oldest.2 = phi i32 [ -1, %if.then80 ], [ %oldest.1, %for.inc113 ]
-  %iam_before116 = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %iam_before116, ptr noundef nonnull align 8 dereferenceable(1536) %iam_after, i64 1536, i1 false)
-  %sam_before120 = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %sam_before120, ptr noundef nonnull align 8 dereferenceable(1536) %sam_after, i64 1536, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %iam_before, ptr noundef nonnull align 8 dereferenceable(1536) %iam_after, i64 1536, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %sam_before, ptr noundef nonnull align 8 dereferenceable(1536) %sam_after, i64 1536, i1 false)
   %cmp124 = icmp ne i32 %youngest.2, -1
   %cmp127 = icmp ne i32 %oldest.2, -1
   %or.cond = select i1 %cmp124, i1 %cmp127, i1 false
   br i1 %or.cond, label %land.lhs.true129, label %if.end145
 
 land.lhs.true129:                                 ; preds = %for.end115
-  %26 = load i32, ptr %window_cur, align 4
-  %27 = load i32, ptr %window_size, align 8
-  %cmp132 = icmp ugt i32 %26, %27
+  %28 = load i32, ptr %window_cur, align 4
+  %29 = load i32, ptr %window_size, align 8
+  %cmp132 = icmp ugt i32 %28, %29
   br i1 %cmp132, label %if.then134, label %if.end145
 
 if.then134:                                       ; preds = %land.lhs.true129
   %conv135 = uitofp i64 %youngest_age.087 to double
   %conv136 = uitofp i64 %oldest_age.082 to double
-  %max_age_ratio = getelementptr inbounds %struct.slab_automove, ptr %arg, i64 0, i32 3
-  %28 = load double, ptr %max_age_ratio, align 8
-  %mul137 = fmul double %28, %conv136
+  %max_age_ratio = getelementptr inbounds i8, ptr %arg, i64 16
+  %30 = load double, ptr %max_age_ratio, align 8
+  %mul137 = fmul double %30, %conv136
   %cmp138 = fcmp ule double %mul137, %conv135
-  %29 = and i8 %youngest_evicting.085, 1
-  %tobool141.not = icmp eq i8 %29, 0
+  %31 = and i8 %youngest_evicting.085, 1
+  %tobool141.not = icmp eq i8 %31, 0
   %or.cond74 = select i1 %cmp138, i1 true, i1 %tobool141.not
   br i1 %or.cond74, label %if.end145, label %if.then143
 

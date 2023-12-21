@@ -3,11 +3,6 @@ source_filename = "bench/icu/original/collationdata.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.icu_75::CollationData" = type <{ ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8] }>
-%struct.UTrie2 = type { ptr, ptr, ptr, i32, i32, i16, i16, i32, i32, i32, i32, ptr, i32, i8, i8, i16, ptr }
-%"class.icu_75::UVector32" = type { %"class.icu_75::UObject", i32, i32, i32, ptr }
-%"class.icu_75::UObject" = type { ptr }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7513CollationData15getIndirectCE32Ej(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, i32 noundef %ce32) local_unnamed_addr #0 align 2 {
 entry:
@@ -19,7 +14,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %ce32s = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 1
+  %ce32s = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ce32s, align 8
   %shr.i = lshr i32 %ce32, 13
   %idxprom = zext nneg i32 %shr.i to i64
@@ -28,7 +23,7 @@ if.then:                                          ; preds = %entry
   br label %if.end11
 
 if.then7:                                         ; preds = %entry
-  %ce32s8 = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 1
+  %ce32s8 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %ce32s8, align 8
   %3 = load i32, ptr %2, align 4
   br label %if.end11
@@ -57,7 +52,7 @@ if.then:                                          ; preds = %entry
   ]
 
 if.then.i:                                        ; preds = %if.then
-  %ce32s.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 1
+  %ce32s.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ce32s.i, align 8
   %shr.i.i = lshr i32 %ce32, 13
   %idxprom.i = zext nneg i32 %shr.i.i to i64
@@ -66,7 +61,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end
 
 if.then7.i:                                       ; preds = %if.then
-  %ce32s8.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 1
+  %ce32s8.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %ce32s8.i, align 8
   %3 = load i32, ptr %2, align 4
   br label %if.end
@@ -88,7 +83,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %data32.i = getelementptr inbounds %struct.UTrie2, ptr %1, i64 0, i32 2
+  %data32.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %data32.i, align 8
   %cmp.i23 = icmp ult i32 %c, 55296
   br i1 %cmp.i23, label %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread, label %cond.false.i
@@ -102,13 +97,13 @@ cond.false17.i:                                   ; preds = %cond.false.i
   br i1 %cmp18.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit, label %cond.false20.i
 
 cond.false20.i:                                   ; preds = %cond.false17.i
-  %highStart.i = getelementptr inbounds %struct.UTrie2, ptr %1, i64 0, i32 9
+  %highStart.i = getelementptr inbounds i8, ptr %1, i64 44
   %3 = load i32, ptr %highStart.i, align 4
   %cmp22.not.i = icmp sgt i32 %3, %c
   br i1 %cmp22.not.i, label %cond.false25.i, label %cond.true23.i
 
 cond.true23.i:                                    ; preds = %cond.false20.i
-  %highValueIndex.i = getelementptr inbounds %struct.UTrie2, ptr %1, i64 0, i32 10
+  %highValueIndex.i = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load i32, ptr %highValueIndex.i, align 8
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit
 
@@ -160,10 +155,10 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit.thread126: ; preds = %cond.false.i
   br i1 %cmp130, label %if.then3.thread131, label %if.end6
 
 if.then3.thread131:                               ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread126
-  %base132 = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 4
+  %base132 = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %base132, align 8
   %13 = load ptr, ptr %12, align 8
-  %data32.i25133 = getelementptr inbounds %struct.UTrie2, ptr %13, i64 0, i32 2
+  %data32.i25133 = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load ptr, ptr %data32.i25133, align 8
   br label %cond.true5.i54
 
@@ -184,10 +179,10 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit.thread: ; preds = %if.end
   br i1 %cmp102, label %if.then3.thread, label %if.end6
 
 if.then3.thread:                                  ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread
-  %base103 = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 4
+  %base103 = getelementptr inbounds i8, ptr %this, i64 32
   %18 = load ptr, ptr %base103, align 8
   %19 = load ptr, ptr %18, align 8
-  %data32.i25104 = getelementptr inbounds %struct.UTrie2, ptr %19, i64 0, i32 2
+  %data32.i25104 = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %data32.i25104, align 8
   %21 = load ptr, ptr %19, align 8
   %arrayidx.i68 = getelementptr inbounds i16, ptr %21, i64 %idxprom.i
@@ -198,10 +193,10 @@ if.then3.thread:                                  ; preds = %_ZNK6icu_7513Collat
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit73
 
 if.then3:                                         ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit
-  %base = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 4
+  %base = getelementptr inbounds i8, ptr %this, i64 32
   %23 = load ptr, ptr %base, align 8
   %24 = load ptr, ptr %23, align 8
-  %data32.i25 = getelementptr inbounds %struct.UTrie2, ptr %24, i64 0, i32 2
+  %data32.i25 = getelementptr inbounds i8, ptr %24, i64 16
   %25 = load ptr, ptr %data32.i25, align 8
   br i1 %cmp4.i, label %cond.true5.i54, label %cond.false17.i29
 
@@ -228,13 +223,13 @@ cond.false17.i29:                                 ; preds = %if.then3
   br i1 %cmp18.i30, label %_ZNK6icu_7513CollationData7getCE32Ei.exit73, label %cond.false20.i31
 
 cond.false20.i31:                                 ; preds = %cond.false17.i29
-  %highStart.i32 = getelementptr inbounds %struct.UTrie2, ptr %24, i64 0, i32 9
+  %highStart.i32 = getelementptr inbounds i8, ptr %24, i64 44
   %31 = load i32, ptr %highStart.i32, align 4
   %cmp22.not.i33 = icmp sgt i32 %31, %c
   br i1 %cmp22.not.i33, label %cond.false25.i39, label %cond.true23.i34
 
 cond.true23.i34:                                  ; preds = %cond.false20.i31
-  %highValueIndex.i35 = getelementptr inbounds %struct.UTrie2, ptr %24, i64 0, i32 10
+  %highValueIndex.i35 = getelementptr inbounds i8, ptr %24, i64 48
   %32 = load i32, ptr %highValueIndex.i35, align 8
   br label %_ZNK6icu_7513CollationData7getCE32Ei.exit73
 
@@ -275,7 +270,7 @@ if.end6:                                          ; preds = %_ZNK6icu_7513Collat
   br i1 %cmp.i75.not115, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end6
-  %ce32s35 = getelementptr inbounds %"struct.icu_75::CollationData", ptr %d.0, i64 0, i32 1
+  %ce32s35 = getelementptr inbounds i8, ptr %d.0, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
@@ -342,7 +337,7 @@ sw.bb21:                                          ; preds = %while.body
   br i1 %cmp23, label %if.then24, label %if.else28
 
 if.then24:                                        ; preds = %sw.bb21
-  %ces = getelementptr inbounds %"struct.icu_75::CollationData", ptr %d.0, i64 0, i32 2
+  %ces = getelementptr inbounds i8, ptr %d.0, i64 16
   %42 = load ptr, ptr %ces, align 8
   %shr.i88 = lshr i32 %ce32.1116, 13
   %idxprom26 = zext nneg i32 %shr.i88 to i64
@@ -366,7 +361,7 @@ sw.bb34:                                          ; preds = %while.body
   br label %sw.epilog
 
 sw.bb37:                                          ; preds = %while.body
-  %ces.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %d.0, i64 0, i32 2
+  %ces.i = getelementptr inbounds i8, ptr %d.0, i64 16
   %46 = load ptr, ptr %ces.i, align 8
   %shr.i.i = lshr i32 %ce32.1116, 13
   %idxprom.i90 = zext nneg i32 %shr.i.i to i64
@@ -422,13 +417,13 @@ entry:
   br i1 %cmp.i, label %cond.end, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %numScripts.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 15
+  %numScripts.i = getelementptr inbounds i8, ptr %this, i64 100
   %0 = load i32, ptr %numScripts.i, align 4
   %cmp2.i = icmp sgt i32 %0, %script
   br i1 %cmp2.i, label %if.then3.i, label %if.else4.i
 
 if.then3.i:                                       ; preds = %if.else.i
-  %scriptsIndex.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 16
+  %scriptsIndex.i = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load ptr, ptr %scriptsIndex.i, align 8
   %idxprom.i = zext nneg i32 %script to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %1, i64 %idxprom.i
@@ -441,7 +436,7 @@ if.else4.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else4.i
   %sub.i = add nsw i32 %script, -4096
-  %scriptsIndex10.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 16
+  %scriptsIndex10.i = getelementptr inbounds i8, ptr %this, i64 104
   %3 = load ptr, ptr %scriptsIndex10.i, align 8
   %add.i = add nsw i32 %sub.i, %0
   %idxprom12.i = sext i32 %add.i to i64
@@ -455,7 +450,7 @@ _ZNK6icu_7513CollationData14getScriptIndexEi.exit: ; preds = %if.then3.i, %if.th
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %_ZNK6icu_7513CollationData14getScriptIndexEi.exit
-  %scriptStarts = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 17
+  %scriptStarts = getelementptr inbounds i8, ptr %this, i64 112
   %5 = load ptr, ptr %scriptStarts, align 8
   %idxprom = zext i16 %4 to i64
   %arrayidx = getelementptr inbounds i16, ptr %5, i64 %idxprom
@@ -476,13 +471,13 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %numScripts = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 15
+  %numScripts = getelementptr inbounds i8, ptr %this, i64 100
   %0 = load i32, ptr %numScripts, align 4
   %cmp2 = icmp sgt i32 %0, %script
   br i1 %cmp2, label %if.then3, label %if.else4
 
 if.then3:                                         ; preds = %if.else
-  %scriptsIndex = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 16
+  %scriptsIndex = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load ptr, ptr %scriptsIndex, align 8
   %idxprom = zext nneg i32 %script to i64
   %arrayidx = getelementptr inbounds i16, ptr %1, i64 %idxprom
@@ -495,7 +490,7 @@ if.else4:                                         ; preds = %if.else
 
 if.then9:                                         ; preds = %if.else4
   %sub = add nsw i32 %script, -4096
-  %scriptsIndex10 = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 16
+  %scriptsIndex10 = getelementptr inbounds i8, ptr %this, i64 104
   %3 = load ptr, ptr %scriptsIndex10, align 8
   %add = add nsw i32 %sub, %0
   %idxprom12 = sext i32 %add to i64
@@ -520,13 +515,13 @@ entry:
   br i1 %cmp.i, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %numScripts.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 15
+  %numScripts.i = getelementptr inbounds i8, ptr %this, i64 100
   %0 = load i32, ptr %numScripts.i, align 4
   %cmp2.i = icmp sgt i32 %0, %script
   br i1 %cmp2.i, label %if.then3.i, label %if.else4.i
 
 if.then3.i:                                       ; preds = %if.else.i
-  %scriptsIndex.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 16
+  %scriptsIndex.i = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load ptr, ptr %scriptsIndex.i, align 8
   %idxprom.i = zext nneg i32 %script to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %1, i64 %idxprom.i
@@ -539,7 +534,7 @@ if.else4.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else4.i
   %sub.i = add nsw i32 %script, -4096
-  %scriptsIndex10.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 16
+  %scriptsIndex10.i = getelementptr inbounds i8, ptr %this, i64 104
   %3 = load ptr, ptr %scriptsIndex10.i, align 8
   %add.i = add nsw i32 %sub.i, %0
   %idxprom12.i = sext i32 %add.i to i64
@@ -554,10 +549,10 @@ _ZNK6icu_7513CollationData14getScriptIndexEi.exit: ; preds = %if.then3.i, %if.th
 
 if.end:                                           ; preds = %_ZNK6icu_7513CollationData14getScriptIndexEi.exit
   %5 = zext i16 %4 to i64
-  %scriptStarts = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 17
+  %scriptStarts = getelementptr inbounds i8, ptr %this, i64 112
   %6 = load ptr, ptr %scriptStarts, align 8
   %7 = getelementptr i16, ptr %6, i64 %5
-  %arrayidx = getelementptr i16, ptr %7, i64 1
+  %arrayidx = getelementptr i8, ptr %7, i64 2
   %8 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %8 to i32
   %shl = shl nuw i32 %conv, 16
@@ -573,20 +568,20 @@ return:                                           ; preds = %if.else4.i, %entry,
 define noundef i32 @_ZNK6icu_7513CollationData18getGroupForPrimaryEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
 entry:
   %shr = lshr i32 %p, 16
-  %scriptStarts = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 17
+  %scriptStarts = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %scriptStarts, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 2
   %1 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %1 to i32
   %cmp = icmp ult i32 %shr, %conv
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %scriptStartsLength = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 18
+  %scriptStartsLength = getelementptr inbounds i8, ptr %this, i64 120
   %2 = load i32, ptr %scriptStartsLength, align 8
   %3 = sext i32 %2 to i64
   %4 = getelementptr i16, ptr %0, i64 %3
-  %arrayidx3 = getelementptr i16, ptr %4, i64 -1
+  %arrayidx3 = getelementptr i8, ptr %4, i64 -2
   %5 = load i16, ptr %arrayidx3, align 2
   %conv4 = zext i16 %5 to i32
   %cmp5.not = icmp ult i32 %shr, %conv4
@@ -606,10 +601,10 @@ while.cond:                                       ; preds = %while.cond.preheade
 
 for.cond.preheader:                               ; preds = %while.cond
   %8 = trunc i64 %indvars.iv to i32
-  %numScripts = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 15
+  %numScripts = getelementptr inbounds i8, ptr %this, i64 100
   %9 = load i32, ptr %numScripts, align 4
   %cmp1117 = icmp sgt i32 %9, 0
-  %scriptsIndex = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 16
+  %scriptsIndex = getelementptr inbounds i8, ptr %this, i64 104
   %10 = load ptr, ptr %scriptsIndex, align 8
   br i1 %cmp1117, label %for.body.lr.ph, label %for.cond20.preheader
 
@@ -672,13 +667,13 @@ entry:
   br i1 %or.cond, label %return, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %numScripts.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 15
+  %numScripts.i = getelementptr inbounds i8, ptr %this, i64 100
   %1 = load i32, ptr %numScripts.i, align 4
   %cmp2.i = icmp sgt i32 %1, %script
   br i1 %cmp2.i, label %if.then3.i, label %if.else4.i
 
 if.then3.i:                                       ; preds = %if.else.i
-  %scriptsIndex.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 16
+  %scriptsIndex.i = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load ptr, ptr %scriptsIndex.i, align 8
   %idxprom.i = zext nneg i32 %script to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %2, i64 %idxprom.i
@@ -691,7 +686,7 @@ if.else4.i:                                       ; preds = %if.else.i
 
 if.then9.i:                                       ; preds = %if.else4.i
   %sub.i = add nsw i32 %script, -4096
-  %scriptsIndex10.i = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 16
+  %scriptsIndex10.i = getelementptr inbounds i8, ptr %this, i64 104
   %4 = load ptr, ptr %scriptsIndex10.i, align 8
   %add.i = add nsw i32 %sub.i, %1
   %idxprom12.i = sext i32 %add.i to i64
@@ -713,7 +708,7 @@ for.cond.preheader:                               ; preds = %if.end4
   br i1 %cmp1119, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %scriptsIndex = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 16
+  %scriptsIndex = getelementptr inbounds i8, ptr %this, i64 104
   br label %for.body
 
 if.then6:                                         ; preds = %if.end4
@@ -790,10 +785,10 @@ entry:
 define void @_ZNK6icu_7513CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, ptr nocapture noundef readonly %reorder, i32 noundef %length, i8 noundef signext %latinMustMove, ptr noundef nonnull align 8 dereferenceable(32) %ranges, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %table = alloca [256 x i8], align 16
-  %scriptsIndex = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 16
-  %numScripts = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 15
-  %scriptStarts = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 17
-  %scriptStartsLength = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 18
+  %scriptsIndex = getelementptr inbounds i8, ptr %this, i64 104
+  %numScripts = getelementptr inbounds i8, ptr %this, i64 100
+  %scriptStarts = getelementptr inbounds i8, ptr %this, i64 112
+  %scriptStartsLength = getelementptr inbounds i8, ptr %this, i64 120
   %cmp31193 = icmp sgt i32 %length, 0
   %0 = icmp ne i8 %latinMustMove, 0
   %1 = sext i32 %length to i64
@@ -824,7 +819,7 @@ if.end5:                                          ; preds = %if.end, %land.lhs.t
   %5 = load i32, ptr %numScripts, align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i16, ptr %4, i64 %6
-  %arrayidx6 = getelementptr i16, ptr %7, i64 14
+  %arrayidx6 = getelementptr i8, ptr %7, i64 28
   %8 = load i16, ptr %arrayidx6, align 2
   %cmp7.not = icmp eq i16 %8, 0
   br i1 %cmp7.not, label %if.end11, label %if.then8
@@ -836,7 +831,7 @@ if.then8:                                         ; preds = %if.end5
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %if.end5
-  %arrayidx17 = getelementptr i16, ptr %7, i64 15
+  %arrayidx17 = getelementptr i8, ptr %7, i64 30
   %9 = load i16, ptr %arrayidx17, align 2
   %cmp19.not = icmp eq i16 %9, 0
   br i1 %cmp19.not, label %if.end23, label %if.then20
@@ -849,13 +844,13 @@ if.then20:                                        ; preds = %if.end11
 
 if.end23:                                         ; preds = %if.then20, %if.end11
   %10 = load ptr, ptr %scriptStarts, align 8
-  %arrayidx24 = getelementptr inbounds i16, ptr %10, i64 1
+  %arrayidx24 = getelementptr inbounds i8, ptr %10, i64 2
   %11 = load i16, ptr %arrayidx24, align 2
   %conv25 = zext i16 %11 to i32
   %12 = load i32, ptr %scriptStartsLength, align 8
   %13 = sext i32 %12 to i64
   %14 = getelementptr i16, ptr %10, i64 %13
-  %arrayidx29 = getelementptr i16, ptr %14, i64 -1
+  %arrayidx29 = getelementptr i8, ptr %14, i64 -2
   %15 = load i16, ptr %arrayidx29, align 2
   %conv30 = zext i16 %15 to i32
   br i1 %cmp31193, label %for.body, label %for.cond41.preheader
@@ -909,7 +904,7 @@ if.then55:                                        ; preds = %land.lhs.true52
   %conv3.i = trunc i32 %shr.i to i8
   %arrayidx5.i = getelementptr inbounds i8, ptr %table, i64 %idxprom.i
   store i8 %conv3.i, ptr %arrayidx5.i, align 1
-  %arrayidx9.i = getelementptr i16, ptr %arrayidx.i, i64 1
+  %arrayidx9.i = getelementptr i8, ptr %arrayidx.i, i64 2
   %21 = load i16, ptr %arrayidx9.i, align 2
   %conv10.i = zext i16 %21 to i32
   %and11.i = and i32 %spec.select.i, 65280
@@ -938,7 +933,7 @@ land.lhs.true63:                                  ; preds = %for.end61
   br i1 %or.cond1, label %if.end78, label %if.then68
 
 if.then68:                                        ; preds = %land.lhs.true63
-  %arrayidx71 = getelementptr inbounds i16, ptr %4, i64 25
+  %arrayidx71 = getelementptr inbounds i8, ptr %4, i64 50
   %23 = load i16, ptr %arrayidx71, align 2
   %idxprom74 = zext i16 %23 to i64
   %arrayidx75 = getelementptr inbounds i16, ptr %10, i64 %idxprom74
@@ -1045,7 +1040,7 @@ if.end100:                                        ; preds = %_ZNK6icu_7513Collat
 if.end106:                                        ; preds = %if.end100
   %35 = trunc i64 %indvars.iv.next235 to i32
   %36 = getelementptr i16, ptr %10, i64 %idxprom101
-  %arrayidx.i83 = getelementptr i16, ptr %36, i64 1
+  %arrayidx.i83 = getelementptr i8, ptr %36, i64 2
   %37 = load i16, ptr %arrayidx.i83, align 2
   %conv.i84 = zext i16 %37 to i32
   %and.i85 = and i32 %conv.i84, 255
@@ -1121,7 +1116,7 @@ if.end123:                                        ; preds = %if.end117
   %shr.i122 = lshr i32 %spec.select.i121, 8
   %conv3.i123 = trunc i32 %shr.i122 to i8
   store i8 %conv3.i123, ptr %arrayidx119, align 1
-  %arrayidx9.i125 = getelementptr i16, ptr %arrayidx.i115, i64 1
+  %arrayidx9.i125 = getelementptr i8, ptr %arrayidx.i115, i64 2
   %45 = load i16, ptr %arrayidx9.i125, align 2
   %conv10.i126 = zext i16 %45 to i32
   %and11.i127 = and i32 %spec.select.i121, 65280
@@ -1167,7 +1162,7 @@ if.end138:                                        ; preds = %for.body132
   %shr.i143 = lshr i32 %spec.select.i142, 8
   %conv3.i144 = trunc i32 %shr.i143 to i8
   store i8 %conv3.i144, ptr %arrayidx134, align 1
-  %arrayidx9.i146 = getelementptr i16, ptr %arrayidx142, i64 1
+  %arrayidx9.i146 = getelementptr i8, ptr %arrayidx142, i64 2
   %48 = load i16, ptr %arrayidx9.i146, align 2
   %conv10.i147 = zext i16 %48 to i32
   %and11.i148 = and i32 %spec.select.i142, 65280
@@ -1191,9 +1186,9 @@ for.end153:                                       ; preds = %for.inc151, %for.en
   br i1 %cmp154, label %if.then155, label %for.cond163.preheader
 
 for.cond163.preheader:                            ; preds = %for.end153
-  %count.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %ranges, i64 0, i32 1
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %ranges, i64 0, i32 2
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector32", ptr %ranges, i64 0, i32 4
+  %count.i = getelementptr inbounds i8, ptr %ranges, i64 8
+  %capacity.i.i = getelementptr inbounds i8, ptr %ranges, i64 12
+  %elements.i = getelementptr inbounds i8, ptr %ranges, i64 24
   br label %for.cond163
 
 if.then155:                                       ; preds = %for.end153
@@ -1318,7 +1313,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7513CollationData17addLowScriptRangeEPhii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, ptr nocapture noundef writeonly %table, i32 noundef %index, i32 noundef %lowStart) local_unnamed_addr #5 align 2 {
 entry:
-  %scriptStarts = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 17
+  %scriptStarts = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %scriptStarts, align 8
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds i16, ptr %0, i64 %idxprom
@@ -1335,7 +1330,7 @@ entry:
   store i8 %conv3, ptr %arrayidx5, align 1
   %2 = load ptr, ptr %scriptStarts, align 8
   %3 = getelementptr i16, ptr %2, i64 %idxprom
-  %arrayidx9 = getelementptr i16, ptr %3, i64 1
+  %arrayidx9 = getelementptr i8, ptr %3, i64 2
   %4 = load i16, ptr %arrayidx9, align 2
   %conv10 = zext i16 %4 to i32
   %and11 = and i32 %spec.select, 65280
@@ -1351,11 +1346,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7513CollationData18addHighScriptRangeEPhii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, ptr nocapture noundef writeonly %table, i32 noundef %index, i32 noundef %highLimit) local_unnamed_addr #5 align 2 {
 entry:
-  %scriptStarts = getelementptr inbounds %"struct.icu_75::CollationData", ptr %this, i64 0, i32 17
+  %scriptStarts = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %scriptStarts, align 8
   %1 = sext i32 %index to i64
   %2 = getelementptr i16, ptr %0, i64 %1
-  %arrayidx = getelementptr i16, ptr %2, i64 1
+  %arrayidx = getelementptr i8, ptr %2, i64 2
   %3 = load i16, ptr %arrayidx, align 2
   %conv = zext i16 %3 to i32
   %and = and i32 %conv, 255

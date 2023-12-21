@@ -3,9 +3,6 @@ source_filename = "bench/brotli/original/compound_dictionary.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PreparedDictionary = type { i32, i32, i32, i32, i32, i32 }
-%struct.CompoundDictionary = type { i64, i64, [16 x ptr], [16 x ptr], [16 x i64], i64, [16 x ptr] }
-
 ; Function Attrs: nounwind uwtable
 define hidden ptr @CreatePreparedDictionary(ptr noundef %m, ptr noundef %source, i64 noundef %source_size) local_unnamed_addr #0 {
 entry:
@@ -168,24 +165,28 @@ cond.true119.i:                                   ; preds = %for.end106.i
 
 cond.end123.i:                                    ; preds = %cond.true119.i, %for.end106.i
   %cond124.i = phi ptr [ %call121.i, %cond.true119.i ], [ null, %for.end106.i ]
-  %arrayidx125.i = getelementptr inbounds %struct.PreparedDictionary, ptr %cond124.i, i64 1
+  %arrayidx125.i = getelementptr inbounds i8, ptr %cond124.i, i64 24
   %arrayidx127.i = getelementptr inbounds i32, ptr %arrayidx125.i, i64 %idxprom.i
   %arrayidx129.i = getelementptr inbounds i16, ptr %arrayidx127.i, i64 %idxprom26.i
   %arrayidx131.i = getelementptr inbounds i32, ptr %arrayidx129.i, i64 %conv113.i
   store i32 -558043677, ptr %cond124.i, align 4
-  %num_items.i = getelementptr inbounds %struct.PreparedDictionary, ptr %cond124.i, i64 0, i32 1
+  %num_items.i = getelementptr inbounds i8, ptr %cond124.i, i64 4
   store i32 %add100.i, ptr %num_items.i, align 4
   %conv132.i = trunc i64 %source_size to i32
-  %source_size133.i = getelementptr inbounds %struct.PreparedDictionary, ptr %cond124.i, i64 0, i32 2
+  %source_size133.i = getelementptr inbounds i8, ptr %cond124.i, i64 8
   store i32 %conv132.i, ptr %source_size133.i, align 4
-  %hash_bits134.i = getelementptr inbounds %struct.PreparedDictionary, ptr %cond124.i, i64 0, i32 3
+  %hash_bits134.i = getelementptr inbounds i8, ptr %cond124.i, i64 12
   store i32 40, ptr %hash_bits134.i, align 4
-  %bucket_bits135.i = getelementptr inbounds %struct.PreparedDictionary, ptr %cond124.i, i64 0, i32 4
+  %bucket_bits135.i = getelementptr inbounds i8, ptr %cond124.i, i64 16
   store i32 %bucket_bits.0.lcssa, ptr %bucket_bits135.i, align 4
-  %slot_bits136.i = getelementptr inbounds %struct.PreparedDictionary, ptr %cond124.i, i64 0, i32 5
+  %slot_bits136.i = getelementptr inbounds i8, ptr %cond124.i, i64 20
   store i32 %slot_bits.0.lcssa, ptr %slot_bits136.i, align 4
   store ptr %source, ptr %arrayidx131.i, align 1
   br label %for.body140.i
+
+for.cond151.preheader.i:                          ; preds = %for.body140.i
+  %invariant.gep.i = getelementptr i8, ptr %arrayidx129.i, i64 -4
+  br label %for.body154.i
 
 for.body140.i:                                    ; preds = %for.body140.i, %cond.end123.i
   %indvars.iv145.i = phi i64 [ 0, %cond.end123.i ], [ %indvars.iv.next146.i, %for.body140.i ]
@@ -198,10 +199,10 @@ for.body140.i:                                    ; preds = %for.body140.i, %con
   store i32 0, ptr %arrayidx144.i, align 4
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond150.not.i = icmp eq i64 %indvars.iv.next146.i, %idxprom.i
-  br i1 %exitcond150.not.i, label %for.body154.i, label %for.body140.i, !llvm.loop !9
+  br i1 %exitcond150.not.i, label %for.cond151.preheader.i, label %for.body140.i, !llvm.loop !9
 
-for.body154.i:                                    ; preds = %for.body140.i, %for.inc204.i
-  %indvars.iv152.i = phi i64 [ %indvars.iv.next153.i, %for.inc204.i ], [ 0, %for.body140.i ]
+for.body154.i:                                    ; preds = %for.inc204.i, %for.cond151.preheader.i
+  %indvars.iv152.i = phi i64 [ 0, %for.cond151.preheader.i ], [ %indvars.iv.next153.i, %for.inc204.i ]
   %5 = trunc i64 %indvars.iv152.i to i32
   %and155.i = and i32 %sub3.i, %5
   %arrayidx158.i = getelementptr inbounds i16, ptr %arrayidx25.i, i64 %indvars.iv152.i
@@ -243,7 +244,7 @@ for.body194.i:                                    ; preds = %for.body194.i, %if.
   %pos.0.in140.i = phi ptr [ %arrayidx189.i, %if.end177.i ], [ %arrayidx198.i, %for.body194.i ]
   %pos.0.i = load i32, ptr %pos.0.in140.i, align 4
   %inc195.i = add nuw nsw i64 %cursor.0142.i, 1
-  %arrayidx196.i = getelementptr i32, ptr %arrayidx129.i, i64 %cursor.0142.i
+  %arrayidx196.i = getelementptr inbounds i32, ptr %arrayidx129.i, i64 %cursor.0142.i
   store i32 %pos.0.i, ptr %arrayidx196.i, align 4
   %idxprom197.i = zext i32 %pos.0.i to i64
   %arrayidx198.i = getelementptr inbounds i32, ptr %arrayidx29.i, i64 %idxprom197.i
@@ -252,9 +253,9 @@ for.body194.i:                                    ; preds = %for.body194.i, %if.
   br i1 %exitcond151.not.i, label %for.end201.i, label %for.body194.i, !llvm.loop !10
 
 for.end201.i:                                     ; preds = %for.body194.i
-  %arrayidx196.i.le = getelementptr i32, ptr %arrayidx129.i, i64 %cursor.0142.i
+  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %inc195.i
   %or.i = or i32 %pos.0.i, -2147483648
-  store i32 %or.i, ptr %arrayidx196.i.le, align 4
+  store i32 %or.i, ptr %gep.i, align 4
   br label %for.inc204.i
 
 for.inc204.i:                                     ; preds = %for.end201.i, %if.then174.i
@@ -297,31 +298,33 @@ entry:
   br i1 %or.cond, label %return, label %if.end2
 
 if.end2:                                          ; preds = %entry
-  %source_size = getelementptr inbounds %struct.PreparedDictionary, ptr %dictionary, i64 0, i32 2
+  %source_size = getelementptr inbounds i8, ptr %dictionary, i64 8
   %1 = load i32, ptr %source_size, align 4
   %conv = zext i32 %1 to i64
-  %total_size = getelementptr inbounds %struct.CompoundDictionary, ptr %compound, i64 0, i32 1
+  %total_size = getelementptr inbounds i8, ptr %compound, i64 8
   %2 = load i64, ptr %total_size, align 8
   %add = add i64 %2, %conv
   store i64 %add, ptr %total_size, align 8
-  %arrayidx = getelementptr inbounds %struct.CompoundDictionary, ptr %compound, i64 0, i32 2, i64 %0
+  %chunks = getelementptr inbounds i8, ptr %compound, i64 16
+  %arrayidx = getelementptr inbounds [16 x ptr], ptr %chunks, i64 0, i64 %0
   store ptr %dictionary, ptr %arrayidx, align 8
   %3 = load i64, ptr %total_size, align 8
+  %chunk_offsets = getelementptr inbounds i8, ptr %compound, i64 272
   %add5 = add i64 %0, 1
-  %arrayidx6 = getelementptr inbounds %struct.CompoundDictionary, ptr %compound, i64 0, i32 4, i64 %add5
+  %arrayidx6 = getelementptr inbounds [16 x i64], ptr %chunk_offsets, i64 0, i64 %add5
   store i64 %3, ptr %arrayidx6, align 8
-  %arrayidx7 = getelementptr inbounds %struct.PreparedDictionary, ptr %dictionary, i64 1
-  %slot_bits = getelementptr inbounds %struct.PreparedDictionary, ptr %dictionary, i64 0, i32 5
+  %arrayidx7 = getelementptr inbounds i8, ptr %dictionary, i64 24
+  %slot_bits = getelementptr inbounds i8, ptr %dictionary, i64 20
   %4 = load i32, ptr %slot_bits, align 4
   %shl = shl nuw i32 1, %4
   %idxprom = zext i32 %shl to i64
   %arrayidx8 = getelementptr inbounds i32, ptr %arrayidx7, i64 %idxprom
-  %bucket_bits = getelementptr inbounds %struct.PreparedDictionary, ptr %dictionary, i64 0, i32 4
+  %bucket_bits = getelementptr inbounds i8, ptr %dictionary, i64 16
   %5 = load i32, ptr %bucket_bits, align 4
   %shl9 = shl nuw i32 1, %5
   %idxprom10 = zext i32 %shl9 to i64
   %arrayidx11 = getelementptr inbounds i16, ptr %arrayidx8, i64 %idxprom10
-  %num_items = getelementptr inbounds %struct.PreparedDictionary, ptr %dictionary, i64 0, i32 1
+  %num_items = getelementptr inbounds i8, ptr %dictionary, i64 4
   %6 = load i32, ptr %num_items, align 4
   %idxprom12 = zext i32 %6 to i64
   %arrayidx13 = getelementptr inbounds i32, ptr %arrayidx11, i64 %idxprom12
@@ -335,10 +338,11 @@ if.else:                                          ; preds = %if.end2
 
 if.end20:                                         ; preds = %if.end2, %if.else
   %v.i.0.copyload.sink = phi ptr [ %v.i.0.copyload, %if.else ], [ %arrayidx13, %if.end2 ]
-  %8 = getelementptr inbounds %struct.CompoundDictionary, ptr %compound, i64 0, i32 3, i64 %0
-  store ptr %v.i.0.copyload.sink, ptr %8, align 8
-  %9 = load i64, ptr %compound, align 8
-  %inc = add i64 %9, 1
+  %chunk_source18 = getelementptr inbounds i8, ptr %compound, i64 144
+  %arrayidx19 = getelementptr inbounds [16 x ptr], ptr %chunk_source18, i64 0, i64 %0
+  store ptr %v.i.0.copyload.sink, ptr %arrayidx19, align 8
+  %8 = load i64, ptr %compound, align 8
+  %inc = add i64 %8, 1
   store i64 %inc, ptr %compound, align 8
   br label %return
 

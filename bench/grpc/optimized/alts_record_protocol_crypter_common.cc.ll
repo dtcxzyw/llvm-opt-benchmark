@@ -3,9 +3,6 @@ source_filename = "bench/grpc/original/alts_record_protocol_crypter_common.cc.ll
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.alts_record_protocol_crypter = type { %struct.alts_crypter, ptr, ptr }
-%struct.alts_crypter = type { ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"alts_crypter instance is nullptr.\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"data is nullptr.\00", align 1
 @.str.2 = private unnamed_addr constant [24 x i8] c"output_size is nullptr.\00", align 1
@@ -66,7 +63,7 @@ define noundef i32 @_Z17increment_counterP28alts_record_protocol_crypterPPc(ptr 
 entry:
   %is_overflow = alloca i8, align 1
   store i8 0, ptr %is_overflow, align 1
-  %ctr = getelementptr inbounds %struct.alts_record_protocol_crypter, ptr %rp_crypter, i64 0, i32 2
+  %ctr = getelementptr inbounds i8, ptr %rp_crypter, i64 16
   %0 = load ptr, ptr %ctr, align 8
   %call = call noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef %0, ptr noundef nonnull %is_overflow, ptr noundef %error_details)
   %cmp.not = icmp eq i32 %call, 0
@@ -109,7 +106,7 @@ entry:
 if.then:                                          ; preds = %entry
   store i64 0, ptr %num_overhead_bytes, align 8
   store ptr null, ptr %error_details, align 8
-  %crypter = getelementptr inbounds %struct.alts_record_protocol_crypter, ptr %c, i64 0, i32 1
+  %crypter = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load ptr, ptr %crypter, align 8
   %call = call noundef i32 @_Z28gsec_aead_crypter_tag_lengthPK17gsec_aead_crypterPmPPc(ptr noundef %0, ptr noundef nonnull %num_overhead_bytes, ptr noundef nonnull %error_details)
   %cmp1 = icmp eq i32 %call, 0
@@ -131,10 +128,10 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ctr = getelementptr inbounds %struct.alts_record_protocol_crypter, ptr %c, i64 0, i32 2
+  %ctr = getelementptr inbounds i8, ptr %c, i64 16
   %0 = load ptr, ptr %ctr, align 8
   tail call void @_Z20alts_counter_destroyP12alts_counter(ptr noundef %0)
-  %crypter = getelementptr inbounds %struct.alts_record_protocol_crypter, ptr %c, i64 0, i32 1
+  %crypter = getelementptr inbounds i8, ptr %c, i64 8
   %1 = load ptr, ptr %crypter, align 8
   tail call void @_Z25gsec_aead_crypter_destroyP17gsec_aead_crypter(ptr noundef %1)
   br label %if.end
@@ -163,13 +160,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %0 = load i64, ptr %counter_size, align 8
-  %ctr = getelementptr inbounds %struct.alts_record_protocol_crypter, ptr %call, i64 0, i32 2
+  %ctr = getelementptr inbounds i8, ptr %call, i64 16
   %call4 = call noundef i32 @_Z19alts_counter_createbmmPP12alts_counterPPc(i1 noundef zeroext %is_client, i64 noundef %0, i64 noundef %overflow_size, ptr noundef nonnull %ctr, ptr noundef %error_details)
   %cmp5.not = icmp eq i32 %call4, 0
   br i1 %cmp5.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end
-  %crypter8 = getelementptr inbounds %struct.alts_record_protocol_crypter, ptr %call, i64 0, i32 1
+  %crypter8 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %crypter, ptr %crypter8, align 8
   br label %return
 

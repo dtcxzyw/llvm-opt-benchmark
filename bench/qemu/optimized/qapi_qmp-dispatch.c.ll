@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.CompatPolicy = type { i8, i32, i8, i32, i8, i32, i8, i32 }
 %struct.QEnumLookup = type { ptr, ptr, i32 }
 %struct.QmpDispatchBH = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.QmpCommand = type { ptr, ptr, i32, i32, %union.anon, i8, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.QObjectBase_ = type { i32, i64 }
 
 @compat_policy = external global %struct.CompatPolicy, align 4
 @.str = private unnamed_addr constant [41 x i8] c"{ 'error': { 'class': %s, 'desc': %s } }\00", align 1
@@ -322,20 +318,20 @@ if.then16:                                        ; preds = %if.end14
   br label %out
 
 if.end17:                                         ; preds = %if.end14
-  %special_features = getelementptr inbounds %struct.QmpCommand, ptr %call15, i64 0, i32 3
+  %special_features = getelementptr inbounds i8, ptr %call15, i64 20
   %5 = load i32, ptr %special_features, align 4
   %call18 = call zeroext i1 @compat_policy_input_ok(i32 noundef %5, ptr noundef nonnull @compat_policy, i32 noundef 1, ptr noundef nonnull @.str.8, ptr noundef %command.0, ptr noundef nonnull %err) #5
   br i1 %call18, label %if.end20, label %out
 
 if.end20:                                         ; preds = %if.end17
-  %enabled = getelementptr inbounds %struct.QmpCommand, ptr %call15, i64 0, i32 5
+  %enabled = getelementptr inbounds i8, ptr %call15, i64 40
   %6 = load i8, ptr %enabled, align 8
   %7 = and i8 %6, 1
   %tobool21.not = icmp eq i8 %7, 0
   br i1 %tobool21.not, label %if.then22, label %if.end27
 
 if.then22:                                        ; preds = %if.end20
-  %disable_reason = getelementptr inbounds %struct.QmpCommand, ptr %call15, i64 0, i32 6
+  %disable_reason = getelementptr inbounds i8, ptr %call15, i64 48
   %8 = load ptr, ptr %disable_reason, align 8
   %tobool23.not = icmp eq ptr %8, null
   %cond = select i1 %tobool23.not, ptr @.str.11, ptr @.str.10
@@ -347,7 +343,7 @@ if.end27:                                         ; preds = %if.end20
   br i1 %tobool8.not, label %land.lhs.true, label %if.end31
 
 land.lhs.true:                                    ; preds = %if.end27
-  %options = getelementptr inbounds %struct.QmpCommand, ptr %call15, i64 0, i32 2
+  %options = getelementptr inbounds i8, ptr %call15, i64 16
   %9 = load i32, ptr %options, align 8
   %and = and i32 %9, 2
   %tobool29.not = icmp eq i32 %and, 0
@@ -376,7 +372,7 @@ if.else39:                                        ; preds = %if.end34
   br i1 %tobool41.not, label %if.end48, label %if.then.i52
 
 if.then.i52:                                      ; preds = %if.else39
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call40, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call40, i64 8
   %10 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %10, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
@@ -404,7 +400,7 @@ if.else58:                                        ; preds = %if.end54
   unreachable
 
 if.end59:                                         ; preds = %if.end54
-  %options60 = getelementptr inbounds %struct.QmpCommand, ptr %call15, i64 0, i32 2
+  %options60 = getelementptr inbounds i8, ptr %call15, i64 16
   %11 = load i32, ptr %options60, align 8
   %call64 = call zeroext i1 @qemu_in_coroutine() #5
   %12 = and i32 %11, 8
@@ -415,7 +411,7 @@ if.end59:                                         ; preds = %if.end54
 if.then67:                                        ; preds = %if.end59
   %call68 = call ptr @qemu_coroutine_self() #5
   %call69 = call ptr @monitor_set_cur(ptr noundef %call68, ptr noundef %cur_mon) #5
-  %fn = getelementptr inbounds %struct.QmpCommand, ptr %call15, i64 0, i32 1
+  %fn = getelementptr inbounds i8, ptr %call15, i64 8
   %14 = load ptr, ptr %fn, align 8
   call void %14(ptr noundef %args.0, ptr noundef nonnull %ret, ptr noundef nonnull %err) #5
   %call70 = call ptr @qemu_coroutine_self() #5
@@ -441,15 +437,15 @@ if.else82:                                        ; preds = %land.lhs.true77, %l
 
 if.end83:                                         ; preds = %land.lhs.true77
   store ptr %call15, ptr %data, align 8
-  %cur_mon85 = getelementptr inbounds %struct.QmpDispatchBH, ptr %data, i64 0, i32 1
+  %cur_mon85 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %cur_mon, ptr %cur_mon85, align 8
-  %args86 = getelementptr inbounds %struct.QmpDispatchBH, ptr %data, i64 0, i32 2
+  %args86 = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %args.0, ptr %args86, align 8
-  %ret87 = getelementptr inbounds %struct.QmpDispatchBH, ptr %data, i64 0, i32 3
+  %ret87 = getelementptr inbounds i8, ptr %data, i64 24
   store ptr %ret, ptr %ret87, align 8
-  %errp = getelementptr inbounds %struct.QmpDispatchBH, ptr %data, i64 0, i32 4
+  %errp = getelementptr inbounds i8, ptr %data, i64 32
   store ptr %err, ptr %errp, align 8
-  %co = getelementptr inbounds %struct.QmpDispatchBH, ptr %data, i64 0, i32 5
+  %co = getelementptr inbounds i8, ptr %data, i64 40
   %call88 = call ptr @qemu_coroutine_self() #5
   store ptr %call88, ptr %co, align 8
   %call89 = call ptr @qemu_get_aio_context() #5
@@ -462,7 +458,7 @@ if.end90:                                         ; preds = %if.end83, %if.then6
   br i1 %tobool92.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i54
 
 lor.lhs.false.i54:                                ; preds = %if.end90
-  %refcnt.i55 = getelementptr inbounds %struct.QObjectBase_, ptr %args.0, i64 0, i32 1
+  %refcnt.i55 = getelementptr inbounds i8, ptr %args.0, i64 8
   %16 = load i64, ptr %refcnt.i55, align 8
   %tobool1.not.i = icmp eq i64 %16, 0
   br i1 %tobool1.not.i, label %if.else.i58, label %land.lhs.true.i56
@@ -557,7 +553,7 @@ if.end150:                                        ; preds = %if.end146
   br i1 %tobool151.not, label %return, label %qobject_ref_impl.exit68
 
 qobject_ref_impl.exit68:                          ; preds = %if.end150
-  %refcnt.i65 = getelementptr inbounds %struct.QObjectBase_, ptr %id.0, i64 0, i32 1
+  %refcnt.i65 = getelementptr inbounds i8, ptr %id.0, i64 8
   %23 = load i64, ptr %refcnt.i65, align 8
   %inc.i66 = add i64 %23, 1
   store i64 %inc.i66, ptr %refcnt.i65, align 8
@@ -617,22 +613,22 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @qemu_coroutine_self() #5
-  %cur_mon = getelementptr inbounds %struct.QmpDispatchBH, ptr %opaque, i64 0, i32 1
+  %cur_mon = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %cur_mon, align 8
   %call2 = tail call ptr @monitor_set_cur(ptr noundef %call1, ptr noundef %0) #5
   %1 = load ptr, ptr %opaque, align 8
-  %fn = getelementptr inbounds %struct.QmpCommand, ptr %1, i64 0, i32 1
+  %fn = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %fn, align 8
-  %args = getelementptr inbounds %struct.QmpDispatchBH, ptr %opaque, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %opaque, i64 16
   %3 = load ptr, ptr %args, align 8
-  %ret = getelementptr inbounds %struct.QmpDispatchBH, ptr %opaque, i64 0, i32 3
+  %ret = getelementptr inbounds i8, ptr %opaque, i64 24
   %4 = load ptr, ptr %ret, align 8
-  %errp = getelementptr inbounds %struct.QmpDispatchBH, ptr %opaque, i64 0, i32 4
+  %errp = getelementptr inbounds i8, ptr %opaque, i64 32
   %5 = load ptr, ptr %errp, align 8
   tail call void %2(ptr noundef %3, ptr noundef %4, ptr noundef %5) #5
   %call3 = tail call ptr @qemu_coroutine_self() #5
   %call4 = tail call ptr @monitor_set_cur(ptr noundef %call3, ptr noundef null) #5
-  %co = getelementptr inbounds %struct.QmpDispatchBH, ptr %opaque, i64 0, i32 5
+  %co = getelementptr inbounds i8, ptr %opaque, i64 40
   %6 = load ptr, ptr %co, align 8
   tail call void @aio_co_wake(ptr noundef %6) #5
   ret void
@@ -647,7 +643,7 @@ entry:
   br i1 %tobool.not, label %if.end6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %refcnt = getelementptr inbounds %struct.QObjectBase_, ptr %obj, i64 0, i32 1
+  %refcnt = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load i64, ptr %refcnt, align 8
   %tobool1.not = icmp eq i64 %0, 0
   br i1 %tobool1.not, label %if.else, label %land.lhs.true

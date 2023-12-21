@@ -8,15 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.anon.1 = type { ptr }
-%struct.YankInstance = type { i32, %union.anon }
-%union.anon = type { %struct.YankInstanceBlockNode }
-%struct.YankInstanceBlockNode = type { ptr }
-%struct.YankInstanceEntry = type { ptr, %struct.anon, %struct.anon.0 }
-%struct.anon = type { ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.YankFuncAndParam = type { ptr, ptr, %struct.anon.2 }
-%struct.anon.2 = type { ptr, ptr }
-%struct.YankInstanceList = type { ptr, ptr }
 
 @yank_lock = internal global %struct.QemuMutex zeroinitializer, align 8
 @.str = private unnamed_addr constant [20 x i8] c"../qemu/util/yank.c\00", align 1
@@ -46,7 +37,7 @@ entry:
   br i1 %tobool.not9.i, label %if.end, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %u7.i.i = getelementptr inbounds %struct.YankInstance, ptr %instance, i64 0, i32 1
+  %u7.i.i = getelementptr inbounds i8, ptr %instance, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -69,7 +60,7 @@ sw.default.i.i:                                   ; preds = %if.end.i.i
   unreachable
 
 yank_instance_equal.exit.i:                       ; preds = %if.end.i.i, %if.end.i.i
-  %u6.i.i = getelementptr inbounds %struct.YankInstance, ptr %2, i64 0, i32 1
+  %u6.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %u6.i.i, align 8
   %6 = load ptr, ptr %u7.i.i, align 8
   %call9.i.i = tail call i32 @g_str_equal(ptr noundef %5, ptr noundef %6) #5
@@ -77,7 +68,7 @@ yank_instance_equal.exit.i:                       ; preds = %if.end.i.i, %if.end
   br i1 %tobool10.i.not.i, label %for.inc.i, label %if.then
 
 for.inc.i:                                        ; preds = %yank_instance_equal.exit.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.YankInstanceEntry, ptr %entry1.010.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %entry1.010.i, i64 16
   %entry1.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %entry1.0.i, null
   br i1 %tobool.not.i, label %if.end, label %for.body.i, !llvm.loop !5
@@ -90,22 +81,22 @@ if.end:                                           ; preds = %for.inc.i, %entry
   %call4 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #7
   %call5 = tail call ptr @qapi_clone(ptr noundef %instance, ptr noundef nonnull @visit_type_YankInstance) #5
   store ptr %call5, ptr %call4, align 8
-  %yankfns = getelementptr inbounds %struct.YankInstanceEntry, ptr %call4, i64 0, i32 1
+  %yankfns = getelementptr inbounds i8, ptr %call4, i64 8
   store ptr null, ptr %yankfns, align 8
   %7 = load ptr, ptr @yank_instance_list, align 8
-  %next = getelementptr inbounds %struct.YankInstanceEntry, ptr %call4, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %call4, i64 16
   store ptr %7, ptr %next, align 8
   %cmp.not = icmp eq ptr %7, null
   br i1 %cmp.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %le_prev = getelementptr inbounds %struct.YankInstanceEntry, ptr %7, i64 0, i32 2, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %next, ptr %le_prev, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then8, %if.end
   store ptr %call4, ptr @yank_instance_list, align 8
-  %le_prev14 = getelementptr inbounds %struct.YankInstanceEntry, ptr %call4, i64 0, i32 2, i32 1
+  %le_prev14 = getelementptr inbounds i8, ptr %call4, i64 24
   store ptr @yank_instance_list, ptr %le_prev14, align 8
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
@@ -135,7 +126,7 @@ entry:
   br i1 %tobool.not9.i, label %if.else, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %u7.i.i = getelementptr inbounds %struct.YankInstance, ptr %instance, i64 0, i32 1
+  %u7.i.i = getelementptr inbounds i8, ptr %instance, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -158,7 +149,7 @@ sw.default.i.i:                                   ; preds = %if.end.i.i
   unreachable
 
 yank_instance_equal.exit.i:                       ; preds = %if.end.i.i, %if.end.i.i
-  %u6.i.i = getelementptr inbounds %struct.YankInstance, ptr %2, i64 0, i32 1
+  %u6.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %u6.i.i, align 8
   %6 = load ptr, ptr %u7.i.i, align 8
   %call9.i.i = tail call i32 @g_str_equal(ptr noundef %5, ptr noundef %6) #5
@@ -166,7 +157,7 @@ yank_instance_equal.exit.i:                       ; preds = %if.end.i.i, %if.end
   br i1 %tobool10.i.not.i, label %for.inc.i, label %if.end
 
 for.inc.i:                                        ; preds = %yank_instance_equal.exit.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.YankInstanceEntry, ptr %entry1.010.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %entry1.010.i, i64 16
   %entry1.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %entry1.0.i, null
   br i1 %tobool.not.i, label %if.else, label %for.body.i, !llvm.loop !5
@@ -176,7 +167,7 @@ if.else:                                          ; preds = %for.inc.i, %entry
   unreachable
 
 if.end:                                           ; preds = %yank_instance_equal.exit.i, %if.end.i.i
-  %yankfns = getelementptr inbounds %struct.YankInstanceEntry, ptr %entry1.010.i, i64 0, i32 1
+  %yankfns = getelementptr inbounds i8, ptr %entry1.010.i, i64 8
   %7 = load ptr, ptr %yankfns, align 8
   %cmp = icmp eq ptr %7, null
   br i1 %cmp, label %do.body, label %if.else5
@@ -186,15 +177,15 @@ if.else5:                                         ; preds = %if.end
   unreachable
 
 do.body:                                          ; preds = %if.end
-  %next = getelementptr inbounds %struct.YankInstanceEntry, ptr %entry1.010.i, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %entry1.010.i, i64 16
   %8 = load ptr, ptr %next, align 8
   %cmp7.not = icmp eq ptr %8, null
-  %le_prev18.phi.trans.insert = getelementptr inbounds %struct.YankInstanceEntry, ptr %entry1.010.i, i64 0, i32 2, i32 1
+  %le_prev18.phi.trans.insert = getelementptr inbounds i8, ptr %entry1.010.i, i64 24
   %.pre17 = load ptr, ptr %le_prev18.phi.trans.insert, align 8
   br i1 %cmp7.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then8
 
 if.then8:                                         ; preds = %do.body
-  %le_prev13 = getelementptr inbounds %struct.YankInstanceEntry, ptr %8, i64 0, i32 2, i32 1
+  %le_prev13 = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %.pre17, ptr %le_prev13, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %glib_autoptr_cleanup_QemuLockable.exit
@@ -228,7 +219,7 @@ entry:
   br i1 %tobool.not9.i, label %if.else, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %u7.i.i = getelementptr inbounds %struct.YankInstance, ptr %instance, i64 0, i32 1
+  %u7.i.i = getelementptr inbounds i8, ptr %instance, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -251,7 +242,7 @@ sw.default.i.i:                                   ; preds = %if.end.i.i
   unreachable
 
 yank_instance_equal.exit.i:                       ; preds = %if.end.i.i, %if.end.i.i
-  %u6.i.i = getelementptr inbounds %struct.YankInstance, ptr %2, i64 0, i32 1
+  %u6.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %u6.i.i, align 8
   %6 = load ptr, ptr %u7.i.i, align 8
   %call9.i.i = tail call i32 @g_str_equal(ptr noundef %5, ptr noundef %6) #5
@@ -259,7 +250,7 @@ yank_instance_equal.exit.i:                       ; preds = %if.end.i.i, %if.end
   br i1 %tobool10.i.not.i, label %for.inc.i, label %if.end
 
 for.inc.i:                                        ; preds = %yank_instance_equal.exit.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.YankInstanceEntry, ptr %entry1.010.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %entry1.010.i, i64 16
   %entry1.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %entry1.0.i, null
   br i1 %tobool.not.i, label %if.else, label %for.body.i, !llvm.loop !5
@@ -271,23 +262,23 @@ if.else:                                          ; preds = %for.inc.i, %entry
 if.end:                                           ; preds = %yank_instance_equal.exit.i, %if.end.i.i
   %call4 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #7
   store ptr %func, ptr %call4, align 8
-  %opaque6 = getelementptr inbounds %struct.YankFuncAndParam, ptr %call4, i64 0, i32 1
+  %opaque6 = getelementptr inbounds i8, ptr %call4, i64 8
   store ptr %opaque, ptr %opaque6, align 8
-  %yankfns = getelementptr inbounds %struct.YankInstanceEntry, ptr %entry1.010.i, i64 0, i32 1
+  %yankfns = getelementptr inbounds i8, ptr %entry1.010.i, i64 8
   %7 = load ptr, ptr %yankfns, align 8
-  %next = getelementptr inbounds %struct.YankFuncAndParam, ptr %call4, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %call4, i64 16
   store ptr %7, ptr %next, align 8
   %cmp.not = icmp eq ptr %7, null
   br i1 %cmp.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %le_prev = getelementptr inbounds %struct.YankFuncAndParam, ptr %7, i64 0, i32 2, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %next, ptr %le_prev, align 8
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.then7, %if.end
   store ptr %call4, ptr %yankfns, align 8
-  %le_prev19 = getelementptr inbounds %struct.YankFuncAndParam, ptr %call4, i64 0, i32 2, i32 1
+  %le_prev19 = getelementptr inbounds i8, ptr %call4, i64 24
   store ptr %yankfns, ptr %le_prev19, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @yank_lock, ptr noundef nonnull @.str.5, i32 noundef 132) #5
   ret void
@@ -304,7 +295,7 @@ entry:
   br i1 %tobool.not9.i, label %if.else, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %u7.i.i = getelementptr inbounds %struct.YankInstance, ptr %instance, i64 0, i32 1
+  %u7.i.i = getelementptr inbounds i8, ptr %instance, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -327,7 +318,7 @@ sw.default.i.i:                                   ; preds = %if.end.i.i
   unreachable
 
 yank_instance_equal.exit.i:                       ; preds = %if.end.i.i, %if.end.i.i
-  %u6.i.i = getelementptr inbounds %struct.YankInstance, ptr %2, i64 0, i32 1
+  %u6.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %u6.i.i, align 8
   %6 = load ptr, ptr %u7.i.i, align 8
   %call9.i.i = tail call i32 @g_str_equal(ptr noundef %5, ptr noundef %6) #5
@@ -335,7 +326,7 @@ yank_instance_equal.exit.i:                       ; preds = %if.end.i.i, %if.end
   br i1 %tobool10.i.not.i, label %for.inc.i, label %if.end
 
 for.inc.i:                                        ; preds = %yank_instance_equal.exit.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.YankInstanceEntry, ptr %entry1.010.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %entry1.010.i, i64 16
   %entry1.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %entry1.0.i, null
   br i1 %tobool.not.i, label %if.else, label %for.body.i, !llvm.loop !5
@@ -345,7 +336,7 @@ if.else:                                          ; preds = %for.inc.i, %entry
   unreachable
 
 if.end:                                           ; preds = %yank_instance_equal.exit.i, %if.end.i.i
-  %yankfns = getelementptr inbounds %struct.YankInstanceEntry, ptr %entry1.010.i, i64 0, i32 1
+  %yankfns = getelementptr inbounds i8, ptr %entry1.010.i, i64 8
   %func_entry.018 = load ptr, ptr %yankfns, align 8
   %tobool4.not19 = icmp eq ptr %func_entry.018, null
   br i1 %tobool4.not19, label %for.end, label %for.body
@@ -357,21 +348,21 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %cmp, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %opaque6 = getelementptr inbounds %struct.YankFuncAndParam, ptr %func_entry.020, i64 0, i32 1
+  %opaque6 = getelementptr inbounds i8, ptr %func_entry.020, i64 8
   %8 = load ptr, ptr %opaque6, align 8
   %cmp7 = icmp eq ptr %8, %opaque
   br i1 %cmp7, label %do.body, label %for.inc
 
 do.body:                                          ; preds = %land.lhs.true
-  %next = getelementptr inbounds %struct.YankFuncAndParam, ptr %func_entry.020, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %func_entry.020, i64 16
   %9 = load ptr, ptr %next, align 8
   %cmp9.not = icmp eq ptr %9, null
-  %le_prev20.phi.trans.insert = getelementptr inbounds %struct.YankFuncAndParam, ptr %func_entry.020, i64 0, i32 2, i32 1
+  %le_prev20.phi.trans.insert = getelementptr inbounds i8, ptr %func_entry.020, i64 24
   %.pre24 = load ptr, ptr %le_prev20.phi.trans.insert, align 8
   br i1 %cmp9.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %if.then10
 
 if.then10:                                        ; preds = %do.body
-  %le_prev15 = getelementptr inbounds %struct.YankFuncAndParam, ptr %9, i64 0, i32 2, i32 1
+  %le_prev15 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %.pre24, ptr %le_prev15, align 8
   %.pre = load ptr, ptr %next, align 8
   br label %glib_autoptr_cleanup_QemuLockable.exit
@@ -385,7 +376,7 @@ glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %do.body, %if.then10
   ret void
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true
-  %next26 = getelementptr inbounds %struct.YankFuncAndParam, ptr %func_entry.020, i64 0, i32 2
+  %next26 = getelementptr inbounds i8, ptr %func_entry.020, i64 16
   %func_entry.0 = load ptr, ptr %next26, align 8
   %tobool4.not = icmp eq ptr %func_entry.0, null
   br i1 %tobool4.not, label %for.end, label %for.body, !llvm.loop !7
@@ -409,14 +400,14 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %tail.040 = phi ptr [ %8, %for.inc ], [ %instances, %entry ]
-  %value = getelementptr inbounds %struct.YankInstanceList, ptr %tail.040, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.040, i64 8
   %2 = load ptr, ptr %value, align 8
   %entry1.08.i = load ptr, ptr @yank_instance_list, align 8
   %tobool.not9.i = icmp eq ptr %entry1.08.i, null
   br i1 %tobool.not9.i, label %if.then, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body
-  %u7.i.i = getelementptr inbounds %struct.YankInstance, ptr %2, i64 0, i32 1
+  %u7.i.i = getelementptr inbounds i8, ptr %2, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -439,7 +430,7 @@ sw.default.i.i:                                   ; preds = %if.end.i.i
   unreachable
 
 yank_instance_equal.exit.i:                       ; preds = %if.end.i.i, %if.end.i.i
-  %u6.i.i = getelementptr inbounds %struct.YankInstance, ptr %3, i64 0, i32 1
+  %u6.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %u6.i.i, align 8
   %7 = load ptr, ptr %u7.i.i, align 8
   %call9.i.i = tail call i32 @g_str_equal(ptr noundef %6, ptr noundef %7) #5
@@ -447,7 +438,7 @@ yank_instance_equal.exit.i:                       ; preds = %if.end.i.i, %if.end
   br i1 %tobool10.i.not.i, label %for.inc.i, label %for.inc
 
 for.inc.i:                                        ; preds = %yank_instance_equal.exit.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.YankInstanceEntry, ptr %entry1.010.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %entry1.010.i, i64 16
   %entry1.0.i = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %entry1.0.i, null
   br i1 %tobool.not.i, label %if.then, label %for.body.i, !llvm.loop !5
@@ -463,14 +454,14 @@ for.inc:                                          ; preds = %yank_instance_equal
 
 for.body7:                                        ; preds = %for.inc, %for.inc19
   %tail.145 = phi ptr [ %17, %for.inc19 ], [ %instances, %for.inc ]
-  %value8 = getelementptr inbounds %struct.YankInstanceList, ptr %tail.145, i64 0, i32 1
+  %value8 = getelementptr inbounds i8, ptr %tail.145, i64 8
   %9 = load ptr, ptr %value8, align 8
   %entry1.08.i12 = load ptr, ptr @yank_instance_list, align 8
   %tobool.not9.i13 = icmp eq ptr %entry1.08.i12, null
   br i1 %tobool.not9.i13, label %if.else, label %for.body.lr.ph.i14
 
 for.body.lr.ph.i14:                               ; preds = %for.body7
-  %u7.i.i15 = getelementptr inbounds %struct.YankInstance, ptr %9, i64 0, i32 1
+  %u7.i.i15 = getelementptr inbounds i8, ptr %9, i64 8
   br label %for.body.i16
 
 for.body.i16:                                     ; preds = %for.inc.i19, %for.body.lr.ph.i14
@@ -493,7 +484,7 @@ sw.default.i.i29:                                 ; preds = %if.end.i.i24
   unreachable
 
 yank_instance_equal.exit.i25:                     ; preds = %if.end.i.i24, %if.end.i.i24
-  %u6.i.i26 = getelementptr inbounds %struct.YankInstance, ptr %10, i64 0, i32 1
+  %u6.i.i26 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load ptr, ptr %u6.i.i26, align 8
   %14 = load ptr, ptr %u7.i.i15, align 8
   %call9.i.i27 = tail call i32 @g_str_equal(ptr noundef %13, ptr noundef %14) #5
@@ -501,7 +492,7 @@ yank_instance_equal.exit.i25:                     ; preds = %if.end.i.i24, %if.e
   br i1 %tobool10.i.not.i28, label %for.inc.i19, label %if.end12
 
 for.inc.i19:                                      ; preds = %yank_instance_equal.exit.i25, %for.body.i16
-  %next.i20 = getelementptr inbounds %struct.YankInstanceEntry, ptr %entry1.010.i17, i64 0, i32 2
+  %next.i20 = getelementptr inbounds i8, ptr %entry1.010.i17, i64 16
   %entry1.0.i21 = load ptr, ptr %next.i20, align 8
   %tobool.not.i22 = icmp eq ptr %entry1.0.i21, null
   br i1 %tobool.not.i22, label %if.else, label %for.body.i16, !llvm.loop !5
@@ -511,7 +502,7 @@ if.else:                                          ; preds = %for.body7, %for.inc
   unreachable
 
 if.end12:                                         ; preds = %yank_instance_equal.exit.i25, %if.end.i.i24
-  %yankfns = getelementptr inbounds %struct.YankInstanceEntry, ptr %entry1.010.i17, i64 0, i32 1
+  %yankfns = getelementptr inbounds i8, ptr %entry1.010.i17, i64 8
   %func_entry.041 = load ptr, ptr %yankfns, align 8
   %tobool14.not42 = icmp eq ptr %func_entry.041, null
   br i1 %tobool14.not42, label %for.inc19, label %for.body15
@@ -519,10 +510,10 @@ if.end12:                                         ; preds = %yank_instance_equal
 for.body15:                                       ; preds = %if.end12, %for.body15
   %func_entry.043 = phi ptr [ %func_entry.0, %for.body15 ], [ %func_entry.041, %if.end12 ]
   %15 = load ptr, ptr %func_entry.043, align 8
-  %opaque = getelementptr inbounds %struct.YankFuncAndParam, ptr %func_entry.043, i64 0, i32 1
+  %opaque = getelementptr inbounds i8, ptr %func_entry.043, i64 8
   %16 = load ptr, ptr %opaque, align 8
   tail call void %15(ptr noundef %16) #5
-  %next17 = getelementptr inbounds %struct.YankFuncAndParam, ptr %func_entry.043, i64 0, i32 2
+  %next17 = getelementptr inbounds i8, ptr %func_entry.043, i64 16
   %func_entry.0 = load ptr, ptr %next17, align 8
   %tobool14.not = icmp eq ptr %func_entry.0, null
   br i1 %tobool14.not, label %for.inc19, label %for.body15, !llvm.loop !9
@@ -555,10 +546,10 @@ for.body:                                         ; preds = %entry, %for.body
   %call3 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #7
   %2 = load ptr, ptr %entry1.09, align 8
   %call4 = tail call ptr @qapi_clone(ptr noundef %2, ptr noundef nonnull @visit_type_YankInstance) #5
-  %value = getelementptr inbounds %struct.YankInstanceList, ptr %call3, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %call4, ptr %value, align 8
   store ptr %ret.08, ptr %call3, align 8
-  %next5 = getelementptr inbounds %struct.YankInstanceEntry, ptr %entry1.09, i64 0, i32 2
+  %next5 = getelementptr inbounds i8, ptr %entry1.09, i64 16
   %entry1.0 = load ptr, ptr %next5, align 8
   %tobool.not = icmp eq ptr %entry1.0, null
   br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %for.body, !llvm.loop !11

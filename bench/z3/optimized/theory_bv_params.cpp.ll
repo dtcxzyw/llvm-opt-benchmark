@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.smt_params_helper = type { ptr, %class.params_ref }
 %class.params_ref = type { ptr }
 %struct.bv_rewriter_params = type { ptr, %class.params_ref }
-%struct.theory_bv_params = type { i32, i8, i8, i8, i8, i32, i8, i8, i8, i8, i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -45,10 +44,10 @@ entry:
   %p = alloca %struct.smt_params_helper, align 8
   %rp = alloca %struct.bv_rewriter_params, align 8
   store ptr %_p, ptr %p, align 8
-  %g.i = getelementptr inbounds %struct.smt_params_helper, ptr %p, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %p, i64 8
   call void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i, ptr noundef nonnull @.str.10)
   store ptr %_p, ptr %rp, align 8
-  %g.i3 = getelementptr inbounds %struct.bv_rewriter_params, ptr %rp, i64 0, i32 1
+  %g.i3 = getelementptr inbounds i8, ptr %rp, i64 8
   invoke void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i3, ptr noundef nonnull @.str.11)
           to label %invoke.cont unwind label %lpad
 
@@ -58,7 +57,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %m_hi_div0 = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 1
+  %m_hi_div0 = getelementptr inbounds i8, ptr %this, i64 4
   %frombool = zext i1 %call.i5 to i8
   store i8 %frombool, ptr %m_hi_div0, align 4
   %1 = load ptr, ptr %p, align 8
@@ -66,7 +65,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  %m_bv_reflect = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 2
+  %m_bv_reflect = getelementptr inbounds i8, ptr %this, i64 5
   %frombool6 = zext i1 %call.i7 to i8
   store i8 %frombool6, ptr %m_bv_reflect, align 1
   %2 = load ptr, ptr %p, align 8
@@ -74,7 +73,7 @@ invoke.cont4:                                     ; preds = %invoke.cont3
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %invoke.cont4
-  %m_bv_enable_int2bv2int = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 6
+  %m_bv_enable_int2bv2int = getelementptr inbounds i8, ptr %this, i64 12
   %frombool9 = zext i1 %call.i9 to i8
   store i8 %frombool9, ptr %m_bv_enable_int2bv2int, align 4
   %3 = load ptr, ptr %p, align 8
@@ -82,7 +81,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
           to label %invoke.cont10 unwind label %lpad2
 
 invoke.cont10:                                    ; preds = %invoke.cont7
-  %m_bv_delay = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 8
+  %m_bv_delay = getelementptr inbounds i8, ptr %this, i64 14
   %frombool12 = zext i1 %call.i11 to i8
   store i8 %frombool12, ptr %m_bv_delay, align 2
   %4 = load ptr, ptr %p, align 8
@@ -90,7 +89,7 @@ invoke.cont10:                                    ; preds = %invoke.cont7
           to label %invoke.cont13 unwind label %lpad2
 
 invoke.cont13:                                    ; preds = %invoke.cont10
-  %m_bv_size_reduce = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 9
+  %m_bv_size_reduce = getelementptr inbounds i8, ptr %this, i64 15
   %frombool15 = zext i1 %call.i13 to i8
   store i8 %frombool15, ptr %m_bv_size_reduce, align 1
   %5 = load ptr, ptr %p, align 8
@@ -98,7 +97,7 @@ invoke.cont13:                                    ; preds = %invoke.cont10
           to label %invoke.cont16 unwind label %lpad2
 
 invoke.cont16:                                    ; preds = %invoke.cont13
-  %m_bv_solver = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 10
+  %m_bv_solver = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %call.i15, ptr %m_bv_solver, align 4
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i3) #5
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #5
@@ -131,61 +130,61 @@ entry:
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %0)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call2, i8 noundef signext 10)
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.1)
-  %m_hi_div0 = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 1
+  %m_hi_div0 = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i8, ptr %m_hi_div0, align 4
   %2 = and i8 %1, 1
   %tobool = icmp ne i8 %2, 0
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call4, i1 noundef zeroext %tobool)
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call5, i8 noundef signext 10)
   %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.2)
-  %m_bv_reflect = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 2
+  %m_bv_reflect = getelementptr inbounds i8, ptr %this, i64 5
   %3 = load i8, ptr %m_bv_reflect, align 1
   %4 = and i8 %3, 1
   %tobool8 = icmp ne i8 %4, 0
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call7, i1 noundef zeroext %tobool8)
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call9, i8 noundef signext 10)
   %call11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.3)
-  %m_bv_lazy_le = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 3
+  %m_bv_lazy_le = getelementptr inbounds i8, ptr %this, i64 6
   %5 = load i8, ptr %m_bv_lazy_le, align 2
   %6 = and i8 %5, 1
   %tobool12 = icmp ne i8 %6, 0
   %call13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call11, i1 noundef zeroext %tobool12)
   %call14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call13, i8 noundef signext 10)
   %call15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.4)
-  %m_bv_cc = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 4
+  %m_bv_cc = getelementptr inbounds i8, ptr %this, i64 7
   %7 = load i8, ptr %m_bv_cc, align 1
   %8 = and i8 %7, 1
   %tobool16 = icmp ne i8 %8, 0
   %call17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call15, i1 noundef zeroext %tobool16)
   %call18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call17, i8 noundef signext 10)
   %call19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.5)
-  %m_bv_blast_max_size = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 5
+  %m_bv_blast_max_size = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load i32, ptr %m_bv_blast_max_size, align 4
   %call20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call19, i32 noundef %9)
   %call21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call20, i8 noundef signext 10)
   %call22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.6)
-  %m_bv_enable_int2bv2int = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 6
+  %m_bv_enable_int2bv2int = getelementptr inbounds i8, ptr %this, i64 12
   %10 = load i8, ptr %m_bv_enable_int2bv2int, align 4
   %11 = and i8 %10, 1
   %tobool23 = icmp ne i8 %11, 0
   %call24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call22, i1 noundef zeroext %tobool23)
   %call25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call24, i8 noundef signext 10)
   %call26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.7)
-  %m_bv_delay = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 8
+  %m_bv_delay = getelementptr inbounds i8, ptr %this, i64 14
   %12 = load i8, ptr %m_bv_delay, align 2
   %13 = and i8 %12, 1
   %tobool27 = icmp ne i8 %13, 0
   %call28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call26, i1 noundef zeroext %tobool27)
   %call29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call28, i8 noundef signext 10)
   %call30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.8)
-  %m_bv_size_reduce = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 9
+  %m_bv_size_reduce = getelementptr inbounds i8, ptr %this, i64 15
   %14 = load i8, ptr %m_bv_size_reduce, align 1
   %15 = and i8 %14, 1
   %tobool31 = icmp ne i8 %15, 0
   %call32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef nonnull align 8 dereferenceable(8) %call30, i1 noundef zeroext %tobool31)
   %call33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call32, i8 noundef signext 10)
   %call34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.9)
-  %m_bv_solver = getelementptr inbounds %struct.theory_bv_params, ptr %this, i64 0, i32 10
+  %m_bv_solver = getelementptr inbounds i8, ptr %this, i64 16
   %16 = load i32, ptr %m_bv_solver, align 4
   %call35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call34, i32 noundef %16)
   %call36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call35, i8 noundef signext 10)

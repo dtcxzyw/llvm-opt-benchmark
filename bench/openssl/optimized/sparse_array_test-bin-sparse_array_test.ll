@@ -91,7 +91,7 @@ for.body:                                         ; preds = %lor.lhs.false9, %fo
   %i.025 = phi i64 [ %inc36, %for.inc35 ], [ 0, %lor.lhs.false9 ]
   %arrayidx = getelementptr inbounds [8 x %struct.anon], ptr @test_sparse_array.cases, i64 0, i64 %i.025
   %0 = load i64, ptr %arrayidx, align 16
-  %v = getelementptr inbounds [8 x %struct.anon], ptr @test_sparse_array.cases, i64 0, i64 %i.025, i32 1
+  %v = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %v, align 8
   %call.i19 = tail call i32 @ossl_sa_set(ptr noundef %call.i, i64 noundef %0, ptr noundef %1) #3
   %cmp15 = icmp ne i32 %call.i19, 0
@@ -110,7 +110,7 @@ for.body23:                                       ; preds = %for.body, %for.inc
   %arrayidx24 = getelementptr inbounds [8 x %struct.anon], ptr @test_sparse_array.cases, i64 0, i64 %j.024
   %2 = load i64, ptr %arrayidx24, align 16
   %call.i20 = tail call ptr @ossl_sa_get(ptr noundef %call.i, i64 noundef %2) #3
-  %v28 = getelementptr inbounds [8 x %struct.anon], ptr @test_sparse_array.cases, i64 0, i64 %j.024, i32 1
+  %v28 = getelementptr inbounds i8, ptr %arrayidx24, i64 8
   %3 = load ptr, ptr %v28, align 8
   %call29 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.11, i32 noundef 55, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef %call.i20, ptr noundef %3) #3
   %tobool30.not = icmp eq i32 %call29, 0
@@ -166,9 +166,10 @@ for.cond:                                         ; preds = %lor.lhs.false14
 
 for.body:                                         ; preds = %lor.lhs.false5, %for.cond
   %i.012 = phi i64 [ %inc, %for.cond ], [ 0, %lor.lhs.false5 ]
-  %n = getelementptr inbounds [16 x %struct.anon.0], ptr @test_sparse_array_num.cases, i64 0, i64 %i.012, i32 1
+  %arrayidx = getelementptr inbounds [16 x %struct.anon.0], ptr @test_sparse_array_num.cases, i64 0, i64 %i.012
+  %n = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load i64, ptr %n, align 8
-  %v = getelementptr inbounds [16 x %struct.anon.0], ptr @test_sparse_array_num.cases, i64 0, i64 %i.012, i32 2
+  %v = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load ptr, ptr %v, align 8
   %call.i10 = tail call i32 @ossl_sa_set(ptr noundef %call.i8, i64 noundef %0, ptr noundef %1) #3
   %cmp11 = icmp ne i32 %call.i10, 0
@@ -178,7 +179,6 @@ for.body:                                         ; preds = %lor.lhs.false5, %fo
   br i1 %tobool13.not, label %err, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %for.body
-  %arrayidx = getelementptr inbounds [16 x %struct.anon.0], ptr @test_sparse_array_num.cases, i64 0, i64 %i.012
   %call.i11 = tail call i64 @ossl_sa_num(ptr noundef %call.i8) #3
   %2 = load i64, ptr %arrayidx, align 8
   %call17 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.11, i32 noundef 89, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i64 noundef %call.i11, i64 noundef %2) #3
@@ -202,11 +202,11 @@ entry:
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %num_cases = getelementptr inbounds %struct.doall_st, ptr %doall_data, i64 0, i32 1
+  %num_cases = getelementptr inbounds i8, ptr %doall_data, i64 8
   store i64 8, ptr %num_cases, align 8
-  %cases = getelementptr inbounds %struct.doall_st, ptr %doall_data, i64 0, i32 2
+  %cases = getelementptr inbounds i8, ptr %doall_data, i64 16
   store ptr @test_sparse_array_doall.cases, ptr %cases, align 8
-  %all = getelementptr inbounds %struct.doall_st, ptr %doall_data, i64 0, i32 4
+  %all = getelementptr inbounds i8, ptr %doall_data, i64 28
   store i32 1, ptr %all, align 4
   store ptr null, ptr %doall_data, align 8
   br label %for.body
@@ -215,7 +215,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %i.012 = phi i64 [ 0, %if.end ], [ %add, %for.inc ]
   %arrayidx = getelementptr inbounds [8 x %struct.index_cases_st], ptr @test_sparse_array_doall.cases, i64 0, i64 %i.012
   %0 = load i64, ptr %arrayidx, align 8
-  %v = getelementptr inbounds [8 x %struct.index_cases_st], ptr @test_sparse_array_doall.cases, i64 0, i64 %i.012, i32 1
+  %v = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %v, align 8
   %call.i10 = tail call i32 @ossl_sa_set(ptr noundef %call.i, i64 noundef %0, ptr noundef %1) #3
   %cmp5 = icmp ne i32 %call.i10, 0
@@ -235,7 +235,7 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc
   call void @ossl_sa_doall_arg(ptr noundef %call.i, ptr noundef nonnull @leaf_check_all, ptr noundef nonnull %doall_data) #3
-  %res10 = getelementptr inbounds %struct.doall_st, ptr %doall_data, i64 0, i32 3
+  %res10 = getelementptr inbounds i8, ptr %doall_data, i64 24
   %2 = load i32, ptr %res10, align 8
   %cmp11 = icmp eq i32 %2, 0
   br i1 %cmp11, label %if.then13, label %if.end14
@@ -297,17 +297,17 @@ declare i64 @ossl_sa_num(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @leaf_check_all(i64 noundef %n, ptr noundef %value, ptr nocapture noundef %arg) #0 {
 entry:
-  %cases1 = getelementptr inbounds %struct.doall_st, ptr %arg, i64 0, i32 2
+  %cases1 = getelementptr inbounds i8, ptr %arg, i64 16
   %0 = load ptr, ptr %cases1, align 8
-  %res = getelementptr inbounds %struct.doall_st, ptr %arg, i64 0, i32 3
+  %res = getelementptr inbounds i8, ptr %arg, i64 24
   store i32 0, ptr %res, align 8
-  %num_cases = getelementptr inbounds %struct.doall_st, ptr %arg, i64 0, i32 1
+  %num_cases = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load i64, ptr %num_cases, align 8
   %cmp13.not = icmp eq i64 %1, 0
   br i1 %cmp13.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %all = getelementptr inbounds %struct.doall_st, ptr %arg, i64 0, i32 4
+  %all = getelementptr inbounds i8, ptr %arg, i64 28
   %2 = load i32, ptr %all, align 4
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %for.body.us, label %for.body
@@ -326,7 +326,7 @@ land.lhs.true.us:                                 ; preds = %for.body.us
   br i1 %cmp5.us, label %land.lhs.true6.us, label %for.inc.us
 
 land.lhs.true6.us:                                ; preds = %land.lhs.true.us
-  %v.us = getelementptr inbounds %struct.index_cases_st, ptr %0, i64 %i.014.us, i32 1
+  %v.us = getelementptr inbounds i8, ptr %arrayidx3.us, i64 8
   %5 = load ptr, ptr %v.us, align 8
   %call.us = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value, ptr noundef nonnull dereferenceable(1) %5) #4
   %cmp8.us = icmp eq i32 %call.us, 0
@@ -345,7 +345,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp5, label %land.lhs.true6, label %for.inc
 
 land.lhs.true6:                                   ; preds = %for.body
-  %v = getelementptr inbounds %struct.index_cases_st, ptr %0, i64 %i.014, i32 1
+  %v = getelementptr inbounds i8, ptr %arrayidx3, i64 8
   %7 = load ptr, ptr %v, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value, ptr noundef nonnull dereferenceable(1) %7) #4
   %cmp8 = icmp eq i32 %call, 0
@@ -373,11 +373,11 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 ; Function Attrs: nounwind uwtable
 define internal void @leaf_delete(i64 noundef %n, ptr noundef %value, ptr nocapture noundef %arg) #0 {
 entry:
-  %cases1 = getelementptr inbounds %struct.doall_st, ptr %arg, i64 0, i32 2
+  %cases1 = getelementptr inbounds i8, ptr %arg, i64 16
   %0 = load ptr, ptr %cases1, align 8
-  %res = getelementptr inbounds %struct.doall_st, ptr %arg, i64 0, i32 3
+  %res = getelementptr inbounds i8, ptr %arg, i64 24
   store i32 0, ptr %res, align 8
-  %num_cases = getelementptr inbounds %struct.doall_st, ptr %arg, i64 0, i32 1
+  %num_cases = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load i64, ptr %num_cases, align 8
   %cmp12.not = icmp eq i64 %1, 0
   br i1 %cmp12.not, label %for.end, label %for.body
@@ -390,7 +390,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp3, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %v = getelementptr inbounds %struct.index_cases_st, ptr %0, i64 %i.013, i32 1
+  %v = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load ptr, ptr %v, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %value, ptr noundef nonnull dereferenceable(1) %3) #4
   %cmp5 = icmp eq i32 %call, 0

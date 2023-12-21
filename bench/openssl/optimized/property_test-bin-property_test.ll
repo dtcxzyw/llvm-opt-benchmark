@@ -614,7 +614,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
   br i1 %tobool7.not, label %if.end, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %land.lhs.true4
-  %query = getelementptr inbounds [34 x %struct.anon], ptr @parser_tests, i64 0, i64 %idxprom, i32 1
+  %query = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %query, align 8
   %call11 = tail call ptr @ossl_parse_query(ptr noundef null, ptr noundef %1, i32 noundef 0) #5
   %call12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 160, ptr noundef nonnull @.str.87, ptr noundef %call11) #5
@@ -623,7 +623,7 @@ land.lhs.true8:                                   ; preds = %land.lhs.true4
 
 land.lhs.true14:                                  ; preds = %land.lhs.true8
   %call15 = tail call i32 @ossl_property_match_count(ptr noundef %call11, ptr noundef %call5) #5
-  %e = getelementptr inbounds [34 x %struct.anon], ptr @parser_tests, i64 0, i64 %idxprom, i32 2
+  %e = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load i32, ptr %e, align 8
   %call18 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.12, i32 noundef 161, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.88, i32 noundef %call15, i32 noundef %2) #5
   %tobool19.not = icmp ne i32 %call18, 0
@@ -656,7 +656,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.end:                                           ; preds = %lor.lhs.false
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr inbounds [17 x %struct.anon.0], ptr @parse_error_tests, i64 0, i64 %idxprom
-  %ps4 = getelementptr inbounds [17 x %struct.anon.0], ptr @parse_error_tests, i64 0, i64 %idxprom, i32 1
+  %ps4 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %ps4, align 8
   %1 = load i32, ptr %arrayidx, align 16
   %tobool7.not = icmp eq i32 %1, 0
@@ -701,7 +701,8 @@ land.lhs.true:                                    ; preds = %entry
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
   %idxprom = sext i32 %n to i64
-  %prop5 = getelementptr inbounds [14 x %struct.anon.1], ptr @merge_tests, i64 0, i64 %idxprom, i32 2
+  %arrayidx = getelementptr inbounds [14 x %struct.anon.1], ptr @merge_tests, i64 0, i64 %idxprom
+  %prop5 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %0 = load ptr, ptr %prop5, align 8
   %call6 = tail call ptr @ossl_parse_property(ptr noundef null, ptr noundef %0) #5
   %call7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 277, ptr noundef nonnull @.str.152, ptr noundef %call6) #5
@@ -709,7 +710,6 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
   br i1 %tobool8.not, label %if.end, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true4
-  %arrayidx = getelementptr inbounds [14 x %struct.anon.1], ptr @merge_tests, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %call13 = tail call ptr @ossl_parse_query(ptr noundef null, ptr noundef %1, i32 noundef 0) #5
   %call14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 279, ptr noundef nonnull @.str.153, ptr noundef %call13) #5
@@ -717,7 +717,7 @@ land.lhs.true9:                                   ; preds = %land.lhs.true4
   br i1 %tobool15.not, label %if.end, label %land.lhs.true16
 
 land.lhs.true16:                                  ; preds = %land.lhs.true9
-  %q_local19 = getelementptr inbounds [14 x %struct.anon.1], ptr @merge_tests, i64 0, i64 %idxprom, i32 1
+  %q_local19 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %q_local19, align 8
   %call20 = tail call ptr @ossl_parse_query(ptr noundef null, ptr noundef %2, i32 noundef 0) #5
   %call21 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 280, ptr noundef nonnull @.str.154, ptr noundef %call20) #5
@@ -912,7 +912,7 @@ land.lhs.true4:                                   ; preds = %land.lhs.true
   br i1 %tobool7.not, label %land.end, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %land.lhs.true4
-  %query = getelementptr inbounds [11 x %struct.anon.2], ptr @definition_tests, i64 0, i64 %idxprom, i32 1
+  %query = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %query, align 8
   %call11 = tail call ptr @ossl_parse_query(ptr noundef null, ptr noundef %1, i32 noundef 0) #5
   %call12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.12, i32 noundef 362, ptr noundef nonnull @.str.188, ptr noundef %call11) #5
@@ -921,7 +921,7 @@ land.lhs.true8:                                   ; preds = %land.lhs.true4
 
 land.rhs:                                         ; preds = %land.lhs.true8
   %call14 = tail call i32 @ossl_property_match_count(ptr noundef %call11, ptr noundef %call5) #5
-  %e = getelementptr inbounds [11 x %struct.anon.2], ptr @definition_tests, i64 0, i64 %idxprom, i32 2
+  %e = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load i32, ptr %e, align 8
   %call17 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.12, i32 noundef 363, ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.190, i32 noundef %call14, i32 noundef %2) #5
   %tobool18 = icmp ne i32 %call17, 0
@@ -955,9 +955,10 @@ lor.lhs.false:                                    ; preds = %entry
 
 for.body:                                         ; preds = %lor.lhs.false, %for.inc
   %i.020 = phi i64 [ %add, %for.inc ], [ 0, %lor.lhs.false ]
-  %prop = getelementptr inbounds [4 x %struct.anon.3], ptr @test_register_deregister.impls, i64 0, i64 %i.020, i32 1
+  %arrayidx = getelementptr inbounds [4 x %struct.anon.3], ptr @test_register_deregister.impls, i64 0, i64 %i.020
+  %prop = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %prop, align 8
-  %impl = getelementptr inbounds [4 x %struct.anon.3], ptr @test_register_deregister.impls, i64 0, i64 %i.020, i32 2
+  %impl = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load ptr, ptr %impl, align 8
   %call6 = call i32 @ossl_method_store_add(ptr noundef %call, ptr noundef nonnull %prov, i32 noundef 6, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @up_ref, ptr noundef nonnull @down_ref) #5
   %cmp7 = icmp ne i32 %call6, 0
@@ -980,8 +981,8 @@ for.body15:                                       ; preds = %for.inc, %for.inc38
   %mul = mul nuw nsw i64 %i.121, 3
   %add16 = add nuw nsw i64 %mul, 1
   %rem = and i64 %add16, 3
-  %impl22 = getelementptr inbounds [4 x %struct.anon.3], ptr @test_register_deregister.impls, i64 0, i64 %rem, i32 2
-  %2 = load ptr, ptr %impl22, align 8
+  %gep = getelementptr inbounds [4 x %struct.anon.3], ptr getelementptr inbounds ([4 x %struct.anon.3], ptr @test_register_deregister.impls, i64 0, i64 0, i32 2), i64 0, i64 %rem
+  %2 = load ptr, ptr %gep, align 8
   %call23 = call i32 @ossl_method_store_remove(ptr noundef %call, i32 noundef 6, ptr noundef %2) #5
   %cmp24 = icmp ne i32 %call23, 0
   %conv25 = zext i1 %cmp24 to i32
@@ -1043,11 +1044,11 @@ for.body:                                         ; preds = %lor.lhs.false, %for
   %arrayidx = getelementptr inbounds [6 x %struct.anon.4], ptr @test_property.impls, i64 0, i64 %i.050
   %0 = load ptr, ptr %arrayidx, align 16
   %1 = load ptr, ptr %0, align 8
-  %nid = getelementptr inbounds [6 x %struct.anon.4], ptr @test_property.impls, i64 0, i64 %i.050, i32 1
+  %nid = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i32, ptr %nid, align 8
-  %prop = getelementptr inbounds [6 x %struct.anon.4], ptr @test_property.impls, i64 0, i64 %i.050, i32 2
+  %prop = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load ptr, ptr %prop, align 16
-  %impl = getelementptr inbounds [6 x %struct.anon.4], ptr @test_property.impls, i64 0, i64 %i.050, i32 3
+  %impl = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %4 = load ptr, ptr %impl, align 8
   %call7 = tail call i32 @ossl_method_store_add(ptr noundef %call, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @up_ref, ptr noundef nonnull @down_ref) #5
   %cmp8 = icmp ne i32 %call7, 0
@@ -1068,9 +1069,10 @@ for.inc:                                          ; preds = %for.body
 for.body16:                                       ; preds = %for.inc, %if.end32
   %i.151 = phi i64 [ %inc34, %if.end32 ], [ 0, %for.inc ]
   store ptr null, ptr %nullprov, align 8
-  %nid18 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.151, i32 1
+  %arrayidx17 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.151
+  %nid18 = getelementptr inbounds i8, ptr %arrayidx17, i64 8
   %5 = load i32, ptr %nid18, align 8
-  %prop20 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.151, i32 2
+  %prop20 = getelementptr inbounds i8, ptr %arrayidx17, i64 16
   %6 = load ptr, ptr %prop20, align 16
   %call21 = call i32 @ossl_method_store_fetch(ptr noundef %call, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %nullprov, ptr noundef nonnull %result) #5
   %cmp22 = icmp ne i32 %call21, 0
@@ -1081,7 +1083,7 @@ for.body16:                                       ; preds = %for.inc, %if.end32
 
 lor.lhs.false26:                                  ; preds = %for.body16
   %7 = load ptr, ptr %result, align 8
-  %expected = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.151, i32 3
+  %expected = getelementptr inbounds i8, ptr %arrayidx17, i64 24
   %8 = load ptr, ptr %expected, align 8
   %call28 = call i32 @test_str_eq(ptr noundef nonnull @.str.12, i32 noundef 485, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.229, ptr noundef %7, ptr noundef %8) #5
   %tobool29.not = icmp eq i32 %call28, 0
@@ -1105,9 +1107,9 @@ for.body39:                                       ; preds = %if.end32, %if.end84
   %arrayidx41 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.252
   %9 = load ptr, ptr %arrayidx41, align 16
   %cmp43 = icmp eq ptr %9, @test_property.fake_prov1
-  %nid47 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.252, i32 1
+  %nid47 = getelementptr inbounds i8, ptr %arrayidx41, i64 8
   %10 = load i32, ptr %nid47, align 8
-  %prop49 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.252, i32 2
+  %prop49 = getelementptr inbounds i8, ptr %arrayidx41, i64 16
   %11 = load ptr, ptr %prop49, align 16
   %call50 = call i32 @ossl_method_store_fetch(ptr noundef %call, i32 noundef %10, ptr noundef %11, ptr noundef nonnull @test_property.fake_prov1, ptr noundef nonnull %result) #5
   %cmp51 = icmp ne i32 %call50, 0
@@ -1127,7 +1129,7 @@ lor.lhs.false55:                                  ; preds = %if.then45
 
 lor.lhs.false58:                                  ; preds = %lor.lhs.false55
   %13 = load ptr, ptr %result, align 8
-  %expected60 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.252, i32 3
+  %expected60 = getelementptr inbounds i8, ptr %arrayidx41, i64 24
   %14 = load ptr, ptr %expected60, align 8
   %call61 = call i32 @test_str_eq(ptr noundef nonnull @.str.12, i32 noundef 505, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.229, ptr noundef %13, ptr noundef %14) #5
   %tobool62.not = icmp eq i32 %call61, 0
@@ -1174,9 +1176,9 @@ for.body91:                                       ; preds = %if.end84, %if.end13
   %arrayidx93 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.353
   %17 = load ptr, ptr %arrayidx93, align 16
   %cmp95 = icmp eq ptr %17, @test_property.fake_prov2
-  %nid99 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.353, i32 1
+  %nid99 = getelementptr inbounds i8, ptr %arrayidx93, i64 8
   %18 = load i32, ptr %nid99, align 8
-  %prop101 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.353, i32 2
+  %prop101 = getelementptr inbounds i8, ptr %arrayidx93, i64 16
   %19 = load ptr, ptr %prop101, align 16
   %call102 = call i32 @ossl_method_store_fetch(ptr noundef %call, i32 noundef %18, ptr noundef %19, ptr noundef nonnull @test_property.fake_prov2, ptr noundef nonnull %result) #5
   %cmp103 = icmp ne i32 %call102, 0
@@ -1196,7 +1198,7 @@ lor.lhs.false107:                                 ; preds = %if.then97
 
 lor.lhs.false110:                                 ; preds = %lor.lhs.false107
   %21 = load ptr, ptr %result, align 8
-  %expected112 = getelementptr inbounds [11 x %struct.anon.5], ptr @test_property.queries, i64 0, i64 %i.353, i32 3
+  %expected112 = getelementptr inbounds i8, ptr %arrayidx93, i64 24
   %22 = load ptr, ptr %expected112, align 8
   %call113 = call i32 @test_str_eq(ptr noundef nonnull @.str.12, i32 noundef 537, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.229, ptr noundef %21, ptr noundef %22) #5
   %tobool114.not = icmp eq i32 %call113, 0
@@ -1505,7 +1507,7 @@ lor.lhs.false:                                    ; preds = %if.end9
   br i1 %tobool15.not, label %err, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false
-  %out = getelementptr inbounds [20 x %struct.anon.6], ptr @to_string_tests, i64 0, i64 %idxprom, i32 1
+  %out = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %out, align 8
   %call19 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.12, i32 noundef 679, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.261, ptr noundef %1, ptr noundef %call10) #5
   %tobool20.not = icmp eq i32 %call19, 0
@@ -1559,8 +1561,8 @@ define internal i32 @add_property_names(ptr noundef %n, ...) unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %args)
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 2
-  %0 = getelementptr inbounds %struct.__va_list_tag, ptr %args, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %args, i64 8
+  %0 = getelementptr inbounds i8, ptr %args, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %vaarg.end, %entry

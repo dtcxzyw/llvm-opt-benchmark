@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.absl::lts_20230802::Span" = type { ptr, i64 }
-%"class.google::protobuf::compiler::internal::Allowlist" = type <{ %"class.absl::lts_20230802::Span", i32, [4 x i8] }>
 %"class.std::basic_string_view" = type { i64, ptr }
 
 $_ZNK6google8protobuf8compiler8internal9AllowlistILm0EE6AllowsESt17basic_string_viewIcSt11char_traitsIcEE = comdat any
@@ -47,7 +46,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK6google8protobuf8compiler8internal9AllowlistILm0EE6AllowsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %flags_ = getelementptr inbounds %"class.google::protobuf::compiler::internal::Allowlist", ptr %this, i64 0, i32 1
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %flags_, align 8
   %and = and i32 %0, 4
   %tobool.not = icmp eq i32 %and, 0
@@ -55,7 +54,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %len_.i.i = getelementptr inbounds %"class.absl::lts_20230802::Span", ptr %this, i64 0, i32 1
+  %len_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %len_.i.i, align 8
   %cmp12.i.i.i = icmp sgt i64 %2, 0
   br i1 %cmp12.i.i.i, label %while.body.i.i.i, label %_ZN4absl12lts_2023080213c_lower_boundINS0_4SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEES6_EEDTcl5beginclsr3stdE7declvalIRT_EEEESA_RKT0_.exit
@@ -64,14 +63,14 @@ while.body.i.i.i:                                 ; preds = %if.end, %_ZNK9__gnu
   %__first.addr.014.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt17basic_string_viewIcSt11char_traitsIcEES7_EEbT_RT0_.exit.i.i.i ], [ %1, %if.end ]
   %__len.013.i.i.i = phi i64 [ %__len.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt17basic_string_viewIcSt11char_traitsIcEES7_EEbT_RT0_.exit.i.i.i ], [ %2, %if.end ]
   %shr.i.i.i = lshr i64 %__len.013.i.i.i, 1
-  %incdec.ptr4.sink.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.014.i.i.i, i64 %shr.i.i.i
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %incdec.ptr4.sink.i.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.014.i.i.i, i64 %shr.i.i.i
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i, i64 %name.coerce0)
   %cmp.i2.i.i.i.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
   br i1 %cmp.i2.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %while.body.i.i.i
-  %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr4.sink.i.i.i.i.i, i64 8
+  %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %call.i.i.i.i.i.i.i = tail call i32 @memcmp(ptr noundef %agg.tmp.sroa.2.0.copyload.i.i.i.i, ptr noundef %name.coerce1, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #8
   %cmp.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i, 0
@@ -87,7 +86,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt11char_traitsI
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKSt17basic_string_viewIcSt11char_traitsIcEES7_EEbT_RT0_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
   %__ret.0.i.i.i.i.i.i = phi i32 [ %retval.0.i3.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %call.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ]
   %cmp.i.i8.i.i.i = icmp slt i32 %__ret.0.i.i.i.i.i.i, 0
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %incdec.ptr4.sink.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 16
   %3 = xor i64 %shr.i.i.i, -1
   %sub2.i.i.i = add nsw i64 %__len.013.i.i.i, %3
   %__len.1.i.i.i = select i1 %cmp.i.i8.i.i.i, i64 %sub2.i.i.i, i64 %shr.i.i.i
@@ -109,9 +108,9 @@ if.then3:                                         ; preds = %_ZN4absl12lts_20230
   br i1 %or.cond, label %return, label %if.then8
 
 if.then8:                                         ; preds = %if.then3
-  %add.ptr3.i = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.0.lcssa.i.i.i, i64 -1
+  %add.ptr3.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i, i64 -16
   %agg.tmp9.sroa.0.0.copyload = load i64, ptr %add.ptr3.i, align 8
-  %agg.tmp9.sroa.2.0.call10.sroa_idx = getelementptr %"class.std::basic_string_view", ptr %__first.addr.0.lcssa.i.i.i, i64 -1, i32 1
+  %agg.tmp9.sroa.2.0.call10.sroa_idx = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i, i64 -8
   %agg.tmp9.sroa.2.0.copyload = load ptr, ptr %agg.tmp9.sroa.2.0.call10.sroa_idx, align 8
   %cmp.i.i = icmp eq i64 %agg.tmp9.sroa.0.0.copyload, 0
   br i1 %cmp.i.i, label %return, label %lor.rhs.i
@@ -149,9 +148,9 @@ if.end18:                                         ; preds = %if.end13, %_ZNSt11c
   br i1 %or.cond28, label %return, label %if.then25
 
 if.then25:                                        ; preds = %if.end18
-  %arrayidx = getelementptr inbounds %"class.std::basic_string_view", ptr %__first.addr.0.lcssa.i.i.i, i64 -1
+  %arrayidx = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i, i64 -16
   %agg.tmp27.sroa.0.0.copyload = load i64, ptr %arrayidx, align 8
-  %agg.tmp27.sroa.2.0.arrayidx.sroa_idx = getelementptr %"class.std::basic_string_view", ptr %__first.addr.0.lcssa.i.i.i, i64 -1, i32 1
+  %agg.tmp27.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i, i64 -8
   %agg.tmp27.sroa.2.0.copyload = load ptr, ptr %agg.tmp27.sroa.2.0.arrayidx.sroa_idx, align 8
   %cmp.i.i12 = icmp eq i64 %agg.tmp27.sroa.0.0.copyload, 0
   br i1 %cmp.i.i12, label %return, label %lor.rhs.i13

@@ -4,28 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.LeakyBucket = type { i64, i64, double, double, i64 }
-%struct.ThrottleTimers = type { [2 x ptr], i32, [2 x ptr], ptr }
-%struct.AioContext = type { %struct._GSource, %struct.QemuRecMutex, ptr, %struct.AioHandlerList, %struct.AioHandlerList, i32, %struct.QemuLockCnt, %struct.BHList, %struct.anon, i8, %struct.EventNotifier, %struct.anon.0, ptr, i32, i32, ptr, ptr, %struct.io_uring, %struct.AioHandlerSList, %struct.QEMUTimerListGroup, i32, i64, i64, i64, i64, i64, %struct.AioHandlerList, i8, i32, ptr }
-%struct._GSource = type { ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.QemuRecMutex = type { %struct.QemuMutex }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QemuLockCnt = type { i32 }
-%struct.BHList = type { ptr }
-%struct.anon = type { ptr, ptr }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.anon.0 = type { ptr }
-%struct.io_uring = type { %struct.io_uring_sq, %struct.io_uring_cq, i32, i32, i32, [3 x i32] }
-%struct.io_uring_sq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, [4 x i32] }
-%struct.io_uring_cq = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, [4 x i32] }
-%struct.AioHandlerSList = type { ptr }
-%struct.QEMUTimerListGroup = type { [4 x ptr] }
-%struct.AioHandlerList = type { ptr }
-%struct.ThrottleConfig = type { [6 x %struct.LeakyBucket], i64 }
-%struct.ThrottleState = type { %struct.ThrottleConfig, i64 }
-%struct.ThrottleLimits = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64 }
 
 @.str = private unnamed_addr constant [13 x i8] c"bkt->max > 0\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"../qemu/util/throttle.c\00", align 1
@@ -64,24 +42,24 @@ entry:
   %conv1 = sitofp i64 %delta_ns to double
   %mul = fmul double %conv1, %conv
   %div = fdiv double %mul, 1.000000e+09
-  %level = getelementptr inbounds %struct.LeakyBucket, ptr %bkt, i64 0, i32 2
+  %level = getelementptr inbounds i8, ptr %bkt, i64 16
   %1 = load double, ptr %level, align 8
   %sub = fsub double %1, %div
   %cmp = fcmp ogt double %sub, 0.000000e+00
   %cond = select i1 %cmp, double %sub, double 0.000000e+00
   store double %cond, ptr %level, align 8
-  %burst_length = getelementptr inbounds %struct.LeakyBucket, ptr %bkt, i64 0, i32 4
+  %burst_length = getelementptr inbounds i8, ptr %bkt, i64 32
   %2 = load i64, ptr %burst_length, align 8
   %cmp4 = icmp ugt i64 %2, 1
   br i1 %cmp4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %max = getelementptr inbounds %struct.LeakyBucket, ptr %bkt, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %bkt, i64 8
   %3 = load i64, ptr %max, align 8
   %conv6 = uitofp i64 %3 to double
   %mul8 = fmul double %conv1, %conv6
   %div9 = fdiv double %mul8, 1.000000e+09
-  %burst_level = getelementptr inbounds %struct.LeakyBucket, ptr %bkt, i64 0, i32 3
+  %burst_level = getelementptr inbounds i8, ptr %bkt, i64 24
   %4 = load double, ptr %burst_level, align 8
   %sub10 = fsub double %4, %div9
   %cmp12 = fcmp ogt double %sub10, 0.000000e+00
@@ -101,7 +79,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %max = getelementptr inbounds %struct.LeakyBucket, ptr %bkt, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %bkt, i64 8
   %1 = load i64, ptr %max, align 8
   %tobool1.not = icmp eq i64 %1, 0
   br i1 %tobool1.not, label %if.then2, label %if.else
@@ -112,7 +90,7 @@ if.then2:                                         ; preds = %if.end
   br label %if.end9
 
 if.else:                                          ; preds = %if.end
-  %burst_length = getelementptr inbounds %struct.LeakyBucket, ptr %bkt, i64 0, i32 4
+  %burst_length = getelementptr inbounds i8, ptr %bkt, i64 32
   %2 = load i64, ptr %burst_length, align 8
   %mul = mul i64 %2, %1
   %conv5 = uitofp i64 %mul to double
@@ -123,7 +101,7 @@ if.else:                                          ; preds = %if.end
 if.end9:                                          ; preds = %if.else, %if.then2
   %bucket_size.0 = phi double [ %conv5, %if.else ], [ %div, %if.then2 ]
   %burst_bucket_size.0 = phi double [ %div8, %if.else ], [ 0.000000e+00, %if.then2 ]
-  %level = getelementptr inbounds %struct.LeakyBucket, ptr %bkt, i64 0, i32 2
+  %level = getelementptr inbounds i8, ptr %bkt, i64 16
   %3 = load double, ptr %level, align 8
   %sub = fsub double %3, %bucket_size.0
   %cmp = fcmp ogt double %sub, 0.000000e+00
@@ -137,7 +115,7 @@ if.then11:                                        ; preds = %if.end9
   br label %return
 
 if.end14:                                         ; preds = %if.end9
-  %burst_length15 = getelementptr inbounds %struct.LeakyBucket, ptr %bkt, i64 0, i32 4
+  %burst_length15 = getelementptr inbounds i8, ptr %bkt, i64 32
   %4 = load i64, ptr %burst_length15, align 8
   %cmp16 = icmp ugt i64 %4, 1
   br i1 %cmp16, label %if.then18, label %return
@@ -150,7 +128,7 @@ if.else23:                                        ; preds = %if.then18
   unreachable
 
 if.end24:                                         ; preds = %if.then18
-  %burst_level = getelementptr inbounds %struct.LeakyBucket, ptr %bkt, i64 0, i32 3
+  %burst_level = getelementptr inbounds i8, ptr %bkt, i64 24
   %5 = load double, ptr %burst_level, align 8
   %sub25 = fsub double %5, %burst_bucket_size.0
   %cmp26 = fcmp ogt double %sub25, 0.000000e+00
@@ -174,15 +152,16 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @throttle_timers_attach_aio_context(ptr nocapture noundef %tt, ptr noundef %new_context) local_unnamed_addr #1 {
 entry:
-  %clock_type = getelementptr inbounds %struct.ThrottleTimers, ptr %tt, i64 0, i32 1
-  %timer_opaque = getelementptr inbounds %struct.ThrottleTimers, ptr %tt, i64 0, i32 3
-  %tlg.i = getelementptr inbounds %struct.AioContext, ptr %new_context, i64 0, i32 19
+  %timer_cb = getelementptr inbounds i8, ptr %tt, i64 24
+  %clock_type = getelementptr inbounds i8, ptr %tt, i64 16
+  %timer_opaque = getelementptr inbounds i8, ptr %tt, i64 40
+  %tlg.i = getelementptr inbounds i8, ptr %new_context, i64 480
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 1, %for.inc ]
-  %arrayidx = getelementptr %struct.ThrottleTimers, ptr %tt, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx = getelementptr [2 x ptr], ptr %timer_cb, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -256,21 +235,21 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %tt, i8 0, i64 24, i1 false)
-  %clock_type2 = getelementptr inbounds %struct.ThrottleTimers, ptr %tt, i64 0, i32 1
+  %clock_type2 = getelementptr inbounds i8, ptr %tt, i64 16
   store i32 %clock_type, ptr %clock_type2, align 8
-  %timer_cb = getelementptr inbounds %struct.ThrottleTimers, ptr %tt, i64 0, i32 2
+  %timer_cb = getelementptr inbounds i8, ptr %tt, i64 24
   store ptr %read_timer_cb, ptr %timer_cb, align 8
-  %arrayidx4 = getelementptr %struct.ThrottleTimers, ptr %tt, i64 0, i32 2, i64 1
+  %arrayidx4 = getelementptr i8, ptr %tt, i64 32
   store ptr %write_timer_cb, ptr %arrayidx4, align 8
-  %timer_opaque5 = getelementptr inbounds %struct.ThrottleTimers, ptr %tt, i64 0, i32 3
+  %timer_opaque5 = getelementptr inbounds i8, ptr %tt, i64 40
   store ptr %timer_opaque, ptr %timer_opaque5, align 8
-  %tlg.i.i = getelementptr inbounds %struct.AioContext, ptr %aio_context, i64 0, i32 19
+  %tlg.i.i = getelementptr inbounds i8, ptr %aio_context, i64 480
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end
   %cmp.i = phi i1 [ true, %if.end ], [ false, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ 1, %for.inc.i ]
-  %arrayidx.i = getelementptr %struct.ThrottleTimers, ptr %tt, i64 0, i32 2, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr [2 x ptr], ptr %timer_cb, i64 0, i64 %indvars.iv.i
   %0 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
@@ -398,70 +377,70 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %arrayidx2 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 1
+  %arrayidx2 = getelementptr i8, ptr %cfg, i64 40
   %1 = load i64, ptr %arrayidx2, align 8
   %tobool4.not = icmp eq i64 %1, 0
   br i1 %tobool4.not, label %lor.rhs, label %land.end
 
 lor.rhs:                                          ; preds = %land.rhs
-  %arrayidx6 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 2
+  %arrayidx6 = getelementptr i8, ptr %cfg, i64 80
   %2 = load i64, ptr %arrayidx6, align 8
   %tobool8 = icmp ne i64 %2, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %lor.rhs, %entry
   %3 = phi i1 [ false, %entry ], [ true, %land.rhs ], [ %tobool8, %lor.rhs ]
-  %arrayidx10 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 3
+  %arrayidx10 = getelementptr i8, ptr %cfg, i64 120
   %4 = load i64, ptr %arrayidx10, align 8
   %tobool12.not = icmp ne i64 %4, 0
   br i1 %tobool12.not, label %land.rhs13, label %land.end24
 
 land.rhs13:                                       ; preds = %land.end
-  %arrayidx15 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 4
+  %arrayidx15 = getelementptr i8, ptr %cfg, i64 160
   %5 = load i64, ptr %arrayidx15, align 8
   %tobool17.not = icmp eq i64 %5, 0
   br i1 %tobool17.not, label %lor.rhs18, label %land.end24
 
 lor.rhs18:                                        ; preds = %land.rhs13
-  %arrayidx20 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 5
+  %arrayidx20 = getelementptr i8, ptr %cfg, i64 200
   %6 = load i64, ptr %arrayidx20, align 8
   %tobool22 = icmp ne i64 %6, 0
   br label %land.end24
 
 land.end24:                                       ; preds = %land.rhs13, %lor.rhs18, %land.end
   %7 = phi i1 [ false, %land.end ], [ true, %land.rhs13 ], [ %tobool22, %lor.rhs18 ]
-  %max = getelementptr inbounds %struct.LeakyBucket, ptr %cfg, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %cfg, i64 8
   %8 = load i64, ptr %max, align 8
   %tobool28.not = icmp eq i64 %8, 0
   br i1 %tobool28.not, label %land.end40, label %land.rhs29
 
 land.rhs29:                                       ; preds = %land.end24
-  %max32 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 1, i32 1
+  %max32 = getelementptr i8, ptr %cfg, i64 48
   %9 = load i64, ptr %max32, align 8
   %tobool33.not = icmp eq i64 %9, 0
   br i1 %tobool33.not, label %lor.rhs34, label %land.end40
 
 lor.rhs34:                                        ; preds = %land.rhs29
-  %max37 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 2, i32 1
+  %max37 = getelementptr i8, ptr %cfg, i64 88
   %10 = load i64, ptr %max37, align 8
   %tobool38 = icmp ne i64 %10, 0
   br label %land.end40
 
 land.end40:                                       ; preds = %land.rhs29, %lor.rhs34, %land.end24
   %11 = phi i1 [ false, %land.end24 ], [ true, %land.rhs29 ], [ %tobool38, %lor.rhs34 ]
-  %max44 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 3, i32 1
+  %max44 = getelementptr i8, ptr %cfg, i64 128
   %12 = load i64, ptr %max44, align 8
   %tobool45.not = icmp eq i64 %12, 0
   br i1 %tobool45.not, label %land.end57, label %land.rhs46
 
 land.rhs46:                                       ; preds = %land.end40
-  %max49 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 4, i32 1
+  %max49 = getelementptr i8, ptr %cfg, i64 168
   %13 = load i64, ptr %max49, align 8
   %tobool50.not = icmp eq i64 %13, 0
   br i1 %tobool50.not, label %lor.rhs51, label %if.then
 
 lor.rhs51:                                        ; preds = %land.rhs46
-  %max54 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 5, i32 1
+  %max54 = getelementptr i8, ptr %cfg, i64 208
   %14 = load i64, ptr %max54, align 8
   %tobool55 = icmp ne i64 %14, 0
   br label %land.end57
@@ -478,14 +457,14 @@ if.then:                                          ; preds = %land.rhs46, %land.e
   br label %return
 
 if.end:                                           ; preds = %land.end57
-  %op_size = getelementptr inbounds %struct.ThrottleConfig, ptr %cfg, i64 0, i32 1
+  %op_size = getelementptr inbounds i8, ptr %cfg, i64 240
   %16 = load i64, ptr %op_size, align 8
   %tobool65.not = icmp eq i64 %16, 0
   %brmerge52 = or i1 %tobool12.not, %tobool65.not
   br i1 %brmerge52, label %for.body.preheader, label %land.lhs.true70
 
 land.lhs.true70:                                  ; preds = %if.end
-  %arrayidx72 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 4
+  %arrayidx72 = getelementptr i8, ptr %cfg, i64 160
   %17 = load i64, ptr %arrayidx72, align 8
   %tobool74.not = icmp eq i64 %17, 0
   br i1 %tobool74.not, label %land.lhs.true75, label %for.body.preheader
@@ -494,7 +473,7 @@ for.body.preheader:                               ; preds = %if.end, %land.lhs.t
   br label %for.body
 
 land.lhs.true75:                                  ; preds = %land.lhs.true70
-  %arrayidx77 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 5
+  %arrayidx77 = getelementptr i8, ptr %cfg, i64 200
   %18 = load i64, ptr %arrayidx77, align 8
   %tobool79.not = icmp eq i64 %18, 0
   br i1 %tobool79.not, label %if.then80, label %for.body.preheader
@@ -511,7 +490,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp85, label %if.then89, label %lor.lhs.false86
 
 lor.lhs.false86:                                  ; preds = %for.body
-  %max87 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 %indvars.iv, i32 1
+  %max87 = getelementptr inbounds i8, ptr %arrayidx83, i64 8
   %20 = load i64, ptr %max87, align 8
   %cmp88 = icmp ugt i64 %20, 1000000000000000
   br i1 %cmp88, label %if.then89, label %if.end90
@@ -521,7 +500,7 @@ if.then89:                                        ; preds = %lor.lhs.false86, %f
   br label %return
 
 if.end90:                                         ; preds = %lor.lhs.false86
-  %burst_length = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 %indvars.iv, i32 4
+  %burst_length = getelementptr inbounds i8, ptr %arrayidx83, i64 32
   %21 = load i64, ptr %burst_length, align 8
   switch i64 %21, label %land.lhs.true96 [
     i64 0, label %if.then92
@@ -585,19 +564,20 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 define dso_local void @throttle_config(ptr nocapture noundef writeonly %ts, i32 noundef %clock_type, ptr nocapture noundef readonly %cfg) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %ts, ptr noundef nonnull align 8 dereferenceable(248) %cfg, i64 248, i1 false)
+  %invariant.gep = getelementptr i8, ptr %ts, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %level = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %indvars.iv, i32 2
+  %gep = getelementptr [6 x %struct.LeakyBucket], ptr %invariant.gep, i64 0, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %level, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %gep, i8 0, i64 16, i1 false)
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef %clock_type) #13
-  %previous_leak = getelementptr inbounds %struct.ThrottleState, ptr %ts, i64 0, i32 1
+  %previous_leak = getelementptr inbounds i8, ptr %ts, i64 248
   store i64 %call, ptr %previous_leak, align 8
   ret void
 }
@@ -617,7 +597,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @throttle_schedule_timer(ptr nocapture noundef %ts, ptr nocapture noundef readonly %tt, i32 noundef %direction) local_unnamed_addr #1 {
 entry:
-  %clock_type = getelementptr inbounds %struct.ThrottleTimers, ptr %tt, i64 0, i32 1
+  %clock_type = getelementptr inbounds i8, ptr %tt, i64 16
   %0 = load i32, ptr %clock_type, align 8
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef %0) #13
   %cmp = icmp ult i32 %direction, 2
@@ -639,7 +619,7 @@ if.else2:                                         ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %previous_leak.i.i = getelementptr inbounds %struct.ThrottleState, ptr %ts, i64 0, i32 1
+  %previous_leak.i.i = getelementptr inbounds i8, ptr %ts, i64 248
   %2 = load i64, ptr %previous_leak.i.i, align 8
   %sub.i.i = sub i64 %call, %2
   store i64 %call, ptr %previous_leak.i.i, align 8
@@ -657,24 +637,24 @@ for.body.i.i:                                     ; preds = %throttle_leak_bucke
   %conv.i.i.i = uitofp i64 %3 to double
   %mul.i.i.i = fmul double %conv1.i.i.i, %conv.i.i.i
   %div.i.i.i = fdiv double %mul.i.i.i, 1.000000e+09
-  %level.i.i.i = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %indvars.iv.i.i, i32 2
+  %level.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
   %4 = load double, ptr %level.i.i.i, align 8
   %sub.i.i.i = fsub double %4, %div.i.i.i
   %cmp.i.i.i = fcmp ogt double %sub.i.i.i, 0.000000e+00
   %cond.i.i.i = select i1 %cmp.i.i.i, double %sub.i.i.i, double 0.000000e+00
   store double %cond.i.i.i, ptr %level.i.i.i, align 8
-  %burst_length.i.i.i = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %indvars.iv.i.i, i32 4
+  %burst_length.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   %5 = load i64, ptr %burst_length.i.i.i, align 8
   %cmp4.i.i.i = icmp ugt i64 %5, 1
   br i1 %cmp4.i.i.i, label %if.then.i.i.i, label %throttle_leak_bucket.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i.i
-  %max.i.i.i = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %indvars.iv.i.i, i32 1
+  %max.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %6 = load i64, ptr %max.i.i.i, align 8
   %conv6.i.i.i = uitofp i64 %6 to double
   %mul8.i.i.i = fmul double %conv1.i.i.i, %conv6.i.i.i
   %div9.i.i.i = fdiv double %mul8.i.i.i, 1.000000e+09
-  %burst_level.i.i.i = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %indvars.iv.i.i, i32 3
+  %burst_level.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %7 = load double, ptr %burst_level.i.i.i, align 8
   %sub10.i.i.i = fsub double %7, %div9.i.i.i
   %cmp12.i.i.i = fcmp ogt double %sub10.i.i.i, 0.000000e+00
@@ -702,7 +682,7 @@ for.body.i6.i:                                    ; preds = %for.body.i6.i.prehe
   br i1 %tobool.not.i.i.i, label %throttle_compute_wait.exit.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i6.i
-  %max.i.i8.i = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom4.i.i, i32 1
+  %max.i.i8.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 8
   %10 = load i64, ptr %max.i.i8.i, align 8
   %tobool1.not.i.i.i = icmp eq i64 %10, 0
   br i1 %tobool1.not.i.i.i, label %if.then2.i.i.i, label %if.else.i.i.i
@@ -713,7 +693,7 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %if.end9.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i.i
-  %burst_length.i.i9.i = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom4.i.i, i32 4
+  %burst_length.i.i9.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 32
   %11 = load i64, ptr %burst_length.i.i9.i, align 8
   %mul.i.i10.i = mul i64 %11, %10
   %conv5.i.i.i = uitofp i64 %mul.i.i10.i to double
@@ -724,7 +704,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i.i
 if.end9.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then2.i.i.i
   %bucket_size.0.i.i.i = phi double [ %conv5.i.i.i, %if.else.i.i.i ], [ %div.i.i18.i, %if.then2.i.i.i ]
   %burst_bucket_size.0.i.i.i = phi double [ %div8.i.i.i, %if.else.i.i.i ], [ 0.000000e+00, %if.then2.i.i.i ]
-  %level.i.i11.i = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom4.i.i, i32 2
+  %level.i.i11.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 16
   %12 = load double, ptr %level.i.i11.i, align 8
   %sub.i.i12.i = fsub double %12, %bucket_size.0.i.i.i
   %cmp.i.i13.i = fcmp ogt double %sub.i.i12.i, 0.000000e+00
@@ -738,7 +718,7 @@ if.then11.i.i.i:                                  ; preds = %if.end9.i.i.i
   br label %throttle_compute_wait.exit.i.i
 
 if.end14.i.i.i:                                   ; preds = %if.end9.i.i.i
-  %burst_length15.i.i.i = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom4.i.i, i32 4
+  %burst_length15.i.i.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 32
   %13 = load i64, ptr %burst_length15.i.i.i, align 8
   %cmp16.i.i.i = icmp ugt i64 %13, 1
   br i1 %cmp16.i.i.i, label %if.then18.i.i.i, label %throttle_compute_wait.exit.i.i
@@ -751,7 +731,7 @@ if.else23.i.i.i:                                  ; preds = %if.then18.i.i.i
   unreachable
 
 if.end24.i.i.i:                                   ; preds = %if.then18.i.i.i
-  %burst_level.i.i16.i = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom4.i.i, i32 3
+  %burst_level.i.i16.i = getelementptr inbounds i8, ptr %arrayidx5.i.i, i64 24
   %14 = load double, ptr %burst_level.i.i16.i, align 8
   %sub25.i.i.i = fsub double %14, %burst_bucket_size.0.i.i.i
   %cmp26.i.i.i = fcmp ogt double %sub25.i.i.i, 0.000000e+00
@@ -803,7 +783,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %op_size = getelementptr inbounds %struct.ThrottleConfig, ptr %ts, i64 0, i32 1
+  %op_size = getelementptr inbounds i8, ptr %ts, i64 240
   %0 = load i64, ptr %op_size, align 8
   %tobool.not = icmp ne i64 %0, 0
   %cmp3 = icmp ult i64 %0, %size
@@ -821,17 +801,18 @@ for.body:                                         ; preds = %if.end, %for.inc
   %arrayidx14 = getelementptr [2 x [2 x i32]], ptr @throttle_account.bucket_types_size, i64 0, i64 %idxprom, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx14, align 4
   %idxprom15 = zext i32 %1 to i64
-  %level = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom15, i32 2
+  %arrayidx16 = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom15
+  %level = getelementptr inbounds i8, ptr %arrayidx16, i64 16
   %2 = load double, ptr %level, align 8
   %add = fadd double %2, %conv
   store double %add, ptr %level, align 8
-  %burst_length = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom15, i32 4
+  %burst_length = getelementptr inbounds i8, ptr %arrayidx16, i64 32
   %3 = load i64, ptr %burst_length, align 8
   %cmp18 = icmp ugt i64 %3, 1
   br i1 %cmp18, label %if.then20, label %if.end23
 
 if.then20:                                        ; preds = %for.body
-  %burst_level = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom15, i32 3
+  %burst_level = getelementptr inbounds i8, ptr %arrayidx16, i64 24
   %4 = load double, ptr %burst_level, align 8
   %add22 = fadd double %4, %conv
   store double %add22, ptr %burst_level, align 8
@@ -841,17 +822,18 @@ if.end23:                                         ; preds = %if.then20, %for.bod
   %arrayidx29 = getelementptr [2 x [2 x i32]], ptr @throttle_account.bucket_types_units, i64 0, i64 %idxprom, i64 %indvars.iv
   %5 = load i32, ptr %arrayidx29, align 4
   %idxprom30 = zext i32 %5 to i64
-  %level32 = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom30, i32 2
+  %arrayidx31 = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom30
+  %level32 = getelementptr inbounds i8, ptr %arrayidx31, i64 16
   %6 = load double, ptr %level32, align 8
   %add33 = fadd double %units.0, %6
   store double %add33, ptr %level32, align 8
-  %burst_length34 = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom30, i32 4
+  %burst_length34 = getelementptr inbounds i8, ptr %arrayidx31, i64 32
   %7 = load i64, ptr %burst_length34, align 8
   %cmp35 = icmp ugt i64 %7, 1
   br i1 %cmp35, label %if.then37, label %for.inc
 
 if.then37:                                        ; preds = %if.end23
-  %burst_level38 = getelementptr [6 x %struct.LeakyBucket], ptr %ts, i64 0, i64 %idxprom30, i32 3
+  %burst_level38 = getelementptr inbounds i8, ptr %arrayidx31, i64 24
   %8 = load double, ptr %burst_level38, align 8
   %add39 = fadd double %units.0, %8
   store double %add39, ptr %burst_level38, align 8
@@ -867,43 +849,43 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @throttle_limits_to_config(ptr nocapture noundef readonly %arg, ptr nocapture noundef %cfg, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
-  %has_bps_total = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 18
+  %has_bps_total = getelementptr inbounds i8, ptr %arg, i64 144
   %0 = load i8, ptr %has_bps_total, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bps_total = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 19
+  %bps_total = getelementptr inbounds i8, ptr %arg, i64 152
   %2 = load i64, ptr %bps_total, align 8
   store i64 %2, ptr %cfg, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %has_bps_read = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 24
+  %has_bps_read = getelementptr inbounds i8, ptr %arg, i64 192
   %3 = load i8, ptr %has_bps_read, align 8
   %4 = and i8 %3, 1
   %tobool1.not = icmp eq i8 %4, 0
   br i1 %tobool1.not, label %if.end6, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %bps_read = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 25
+  %bps_read = getelementptr inbounds i8, ptr %arg, i64 200
   %5 = load i64, ptr %bps_read, align 8
-  %arrayidx4 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 1
+  %arrayidx4 = getelementptr i8, ptr %cfg, i64 40
   store i64 %5, ptr %arrayidx4, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %has_bps_write = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 30
+  %has_bps_write = getelementptr inbounds i8, ptr %arg, i64 240
   %6 = load i8, ptr %has_bps_write, align 8
   %7 = and i8 %6, 1
   %tobool7.not = icmp eq i8 %7, 0
   br i1 %tobool7.not, label %if.end12, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %bps_write = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 31
+  %bps_write = getelementptr inbounds i8, ptr %arg, i64 248
   %8 = load i64, ptr %bps_write, align 8
-  %arrayidx10 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 2
+  %arrayidx10 = getelementptr i8, ptr %cfg, i64 80
   store i64 %8, ptr %arrayidx10, align 8
   br label %if.end12
 
@@ -914,133 +896,133 @@ if.end12:                                         ; preds = %if.then8, %if.end6
   br i1 %tobool13.not, label %if.end18, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
-  %iops_total = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 1
+  %iops_total = getelementptr inbounds i8, ptr %arg, i64 8
   %11 = load i64, ptr %iops_total, align 8
-  %arrayidx16 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 3
+  %arrayidx16 = getelementptr i8, ptr %cfg, i64 120
   store i64 %11, ptr %arrayidx16, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then14, %if.end12
-  %has_iops_read = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 6
+  %has_iops_read = getelementptr inbounds i8, ptr %arg, i64 48
   %12 = load i8, ptr %has_iops_read, align 8
   %13 = and i8 %12, 1
   %tobool19.not = icmp eq i8 %13, 0
   br i1 %tobool19.not, label %if.end24, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %iops_read = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 7
+  %iops_read = getelementptr inbounds i8, ptr %arg, i64 56
   %14 = load i64, ptr %iops_read, align 8
-  %arrayidx22 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 4
+  %arrayidx22 = getelementptr i8, ptr %cfg, i64 160
   store i64 %14, ptr %arrayidx22, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then20, %if.end18
-  %has_iops_write = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 12
+  %has_iops_write = getelementptr inbounds i8, ptr %arg, i64 96
   %15 = load i8, ptr %has_iops_write, align 8
   %16 = and i8 %15, 1
   %tobool25.not = icmp eq i8 %16, 0
   br i1 %tobool25.not, label %if.end30, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
-  %iops_write = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 13
+  %iops_write = getelementptr inbounds i8, ptr %arg, i64 104
   %17 = load i64, ptr %iops_write, align 8
-  %arrayidx28 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 5
+  %arrayidx28 = getelementptr i8, ptr %cfg, i64 200
   store i64 %17, ptr %arrayidx28, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then26, %if.end24
-  %has_bps_total_max = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 20
+  %has_bps_total_max = getelementptr inbounds i8, ptr %arg, i64 160
   %18 = load i8, ptr %has_bps_total_max, align 8
   %19 = and i8 %18, 1
   %tobool31.not = icmp eq i8 %19, 0
   br i1 %tobool31.not, label %if.end35, label %if.then32
 
 if.then32:                                        ; preds = %if.end30
-  %bps_total_max = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 21
+  %bps_total_max = getelementptr inbounds i8, ptr %arg, i64 168
   %20 = load i64, ptr %bps_total_max, align 8
-  %max = getelementptr inbounds %struct.LeakyBucket, ptr %cfg, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %cfg, i64 8
   store i64 %20, ptr %max, align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then32, %if.end30
-  %has_bps_read_max = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 26
+  %has_bps_read_max = getelementptr inbounds i8, ptr %arg, i64 208
   %21 = load i8, ptr %has_bps_read_max, align 8
   %22 = and i8 %21, 1
   %tobool36.not = icmp eq i8 %22, 0
   br i1 %tobool36.not, label %if.end41, label %if.then37
 
 if.then37:                                        ; preds = %if.end35
-  %bps_read_max = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 27
+  %bps_read_max = getelementptr inbounds i8, ptr %arg, i64 216
   %23 = load i64, ptr %bps_read_max, align 8
-  %max40 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 1, i32 1
+  %max40 = getelementptr i8, ptr %cfg, i64 48
   store i64 %23, ptr %max40, align 8
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then37, %if.end35
-  %has_bps_write_max = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 32
+  %has_bps_write_max = getelementptr inbounds i8, ptr %arg, i64 256
   %24 = load i8, ptr %has_bps_write_max, align 8
   %25 = and i8 %24, 1
   %tobool42.not = icmp eq i8 %25, 0
   br i1 %tobool42.not, label %if.end47, label %if.then43
 
 if.then43:                                        ; preds = %if.end41
-  %bps_write_max = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 33
+  %bps_write_max = getelementptr inbounds i8, ptr %arg, i64 264
   %26 = load i64, ptr %bps_write_max, align 8
-  %max46 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 2, i32 1
+  %max46 = getelementptr i8, ptr %cfg, i64 88
   store i64 %26, ptr %max46, align 8
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then43, %if.end41
-  %has_iops_total_max = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 2
+  %has_iops_total_max = getelementptr inbounds i8, ptr %arg, i64 16
   %27 = load i8, ptr %has_iops_total_max, align 8
   %28 = and i8 %27, 1
   %tobool48.not = icmp eq i8 %28, 0
   br i1 %tobool48.not, label %if.end53, label %if.then49
 
 if.then49:                                        ; preds = %if.end47
-  %iops_total_max = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 3
+  %iops_total_max = getelementptr inbounds i8, ptr %arg, i64 24
   %29 = load i64, ptr %iops_total_max, align 8
-  %max52 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 3, i32 1
+  %max52 = getelementptr i8, ptr %cfg, i64 128
   store i64 %29, ptr %max52, align 8
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then49, %if.end47
-  %has_iops_read_max = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 8
+  %has_iops_read_max = getelementptr inbounds i8, ptr %arg, i64 64
   %30 = load i8, ptr %has_iops_read_max, align 8
   %31 = and i8 %30, 1
   %tobool54.not = icmp eq i8 %31, 0
   br i1 %tobool54.not, label %if.end59, label %if.then55
 
 if.then55:                                        ; preds = %if.end53
-  %iops_read_max = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 9
+  %iops_read_max = getelementptr inbounds i8, ptr %arg, i64 72
   %32 = load i64, ptr %iops_read_max, align 8
-  %max58 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 4, i32 1
+  %max58 = getelementptr i8, ptr %cfg, i64 168
   store i64 %32, ptr %max58, align 8
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then55, %if.end53
-  %has_iops_write_max = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 14
+  %has_iops_write_max = getelementptr inbounds i8, ptr %arg, i64 112
   %33 = load i8, ptr %has_iops_write_max, align 8
   %34 = and i8 %33, 1
   %tobool60.not = icmp eq i8 %34, 0
   br i1 %tobool60.not, label %if.end65, label %if.then61
 
 if.then61:                                        ; preds = %if.end59
-  %iops_write_max = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 15
+  %iops_write_max = getelementptr inbounds i8, ptr %arg, i64 120
   %35 = load i64, ptr %iops_write_max, align 8
-  %max64 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 5, i32 1
+  %max64 = getelementptr i8, ptr %cfg, i64 208
   store i64 %35, ptr %max64, align 8
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then61, %if.end59
-  %has_bps_total_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 22
+  %has_bps_total_max_length = getelementptr inbounds i8, ptr %arg, i64 176
   %36 = load i8, ptr %has_bps_total_max_length, align 8
   %37 = and i8 %36, 1
   %tobool66.not = icmp eq i8 %37, 0
   br i1 %tobool66.not, label %if.end73, label %if.then67
 
 if.then67:                                        ; preds = %if.end65
-  %bps_total_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 23
+  %bps_total_max_length = getelementptr inbounds i8, ptr %arg, i64 184
   %38 = load i64, ptr %bps_total_max_length, align 8
   %cmp = icmp sgt i64 %38, 4294967295
   br i1 %cmp, label %if.then68, label %if.end69
@@ -1050,19 +1032,19 @@ if.then68:                                        ; preds = %if.then67
   br label %return
 
 if.end69:                                         ; preds = %if.then67
-  %burst_length = getelementptr inbounds %struct.LeakyBucket, ptr %cfg, i64 0, i32 4
+  %burst_length = getelementptr inbounds i8, ptr %cfg, i64 32
   store i64 %38, ptr %burst_length, align 8
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end69, %if.end65
-  %has_bps_read_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 28
+  %has_bps_read_max_length = getelementptr inbounds i8, ptr %arg, i64 224
   %39 = load i8, ptr %has_bps_read_max_length, align 8
   %40 = and i8 %39, 1
   %tobool74.not = icmp eq i8 %40, 0
   br i1 %tobool74.not, label %if.end83, label %if.then75
 
 if.then75:                                        ; preds = %if.end73
-  %bps_read_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 29
+  %bps_read_max_length = getelementptr inbounds i8, ptr %arg, i64 232
   %41 = load i64, ptr %bps_read_max_length, align 8
   %cmp76 = icmp sgt i64 %41, 4294967295
   br i1 %cmp76, label %if.then77, label %if.end78
@@ -1072,19 +1054,19 @@ if.then77:                                        ; preds = %if.then75
   br label %return
 
 if.end78:                                         ; preds = %if.then75
-  %burst_length82 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 1, i32 4
+  %burst_length82 = getelementptr i8, ptr %cfg, i64 72
   store i64 %41, ptr %burst_length82, align 8
   br label %if.end83
 
 if.end83:                                         ; preds = %if.end78, %if.end73
-  %has_bps_write_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 34
+  %has_bps_write_max_length = getelementptr inbounds i8, ptr %arg, i64 272
   %42 = load i8, ptr %has_bps_write_max_length, align 8
   %43 = and i8 %42, 1
   %tobool84.not = icmp eq i8 %43, 0
   br i1 %tobool84.not, label %if.end93, label %if.then85
 
 if.then85:                                        ; preds = %if.end83
-  %bps_write_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 35
+  %bps_write_max_length = getelementptr inbounds i8, ptr %arg, i64 280
   %44 = load i64, ptr %bps_write_max_length, align 8
   %cmp86 = icmp sgt i64 %44, 4294967295
   br i1 %cmp86, label %if.then87, label %if.end88
@@ -1094,19 +1076,19 @@ if.then87:                                        ; preds = %if.then85
   br label %return
 
 if.end88:                                         ; preds = %if.then85
-  %burst_length92 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 2, i32 4
+  %burst_length92 = getelementptr i8, ptr %cfg, i64 112
   store i64 %44, ptr %burst_length92, align 8
   br label %if.end93
 
 if.end93:                                         ; preds = %if.end88, %if.end83
-  %has_iops_total_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 4
+  %has_iops_total_max_length = getelementptr inbounds i8, ptr %arg, i64 32
   %45 = load i8, ptr %has_iops_total_max_length, align 8
   %46 = and i8 %45, 1
   %tobool94.not = icmp eq i8 %46, 0
   br i1 %tobool94.not, label %if.end103, label %if.then95
 
 if.then95:                                        ; preds = %if.end93
-  %iops_total_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 5
+  %iops_total_max_length = getelementptr inbounds i8, ptr %arg, i64 40
   %47 = load i64, ptr %iops_total_max_length, align 8
   %cmp96 = icmp sgt i64 %47, 4294967295
   br i1 %cmp96, label %if.then97, label %if.end98
@@ -1116,19 +1098,19 @@ if.then97:                                        ; preds = %if.then95
   br label %return
 
 if.end98:                                         ; preds = %if.then95
-  %burst_length102 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 3, i32 4
+  %burst_length102 = getelementptr i8, ptr %cfg, i64 152
   store i64 %47, ptr %burst_length102, align 8
   br label %if.end103
 
 if.end103:                                        ; preds = %if.end98, %if.end93
-  %has_iops_read_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 10
+  %has_iops_read_max_length = getelementptr inbounds i8, ptr %arg, i64 80
   %48 = load i8, ptr %has_iops_read_max_length, align 8
   %49 = and i8 %48, 1
   %tobool104.not = icmp eq i8 %49, 0
   br i1 %tobool104.not, label %if.end113, label %if.then105
 
 if.then105:                                       ; preds = %if.end103
-  %iops_read_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 11
+  %iops_read_max_length = getelementptr inbounds i8, ptr %arg, i64 88
   %50 = load i64, ptr %iops_read_max_length, align 8
   %cmp106 = icmp sgt i64 %50, 4294967295
   br i1 %cmp106, label %if.then107, label %if.end108
@@ -1138,19 +1120,19 @@ if.then107:                                       ; preds = %if.then105
   br label %return
 
 if.end108:                                        ; preds = %if.then105
-  %burst_length112 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 4, i32 4
+  %burst_length112 = getelementptr i8, ptr %cfg, i64 192
   store i64 %50, ptr %burst_length112, align 8
   br label %if.end113
 
 if.end113:                                        ; preds = %if.end108, %if.end103
-  %has_iops_write_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 16
+  %has_iops_write_max_length = getelementptr inbounds i8, ptr %arg, i64 128
   %51 = load i8, ptr %has_iops_write_max_length, align 8
   %52 = and i8 %51, 1
   %tobool114.not = icmp eq i8 %52, 0
   br i1 %tobool114.not, label %if.end123, label %if.then115
 
 if.then115:                                       ; preds = %if.end113
-  %iops_write_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 17
+  %iops_write_max_length = getelementptr inbounds i8, ptr %arg, i64 136
   %53 = load i64, ptr %iops_write_max_length, align 8
   %cmp116 = icmp sgt i64 %53, 4294967295
   br i1 %cmp116, label %if.then117, label %if.end118
@@ -1160,21 +1142,21 @@ if.then117:                                       ; preds = %if.then115
   br label %return
 
 if.end118:                                        ; preds = %if.then115
-  %burst_length122 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 5, i32 4
+  %burst_length122 = getelementptr i8, ptr %cfg, i64 232
   store i64 %53, ptr %burst_length122, align 8
   br label %if.end123
 
 if.end123:                                        ; preds = %if.end118, %if.end113
-  %has_iops_size = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 36
+  %has_iops_size = getelementptr inbounds i8, ptr %arg, i64 288
   %54 = load i8, ptr %has_iops_size, align 8
   %55 = and i8 %54, 1
   %tobool124.not = icmp eq i8 %55, 0
   br i1 %tobool124.not, label %if.end126, label %if.then125
 
 if.then125:                                       ; preds = %if.end123
-  %iops_size = getelementptr inbounds %struct.ThrottleLimits, ptr %arg, i64 0, i32 37
+  %iops_size = getelementptr inbounds i8, ptr %arg, i64 296
   %56 = load i64, ptr %iops_size, align 8
-  %op_size = getelementptr inbounds %struct.ThrottleConfig, ptr %cfg, i64 0, i32 1
+  %op_size = getelementptr inbounds i8, ptr %cfg, i64 240
   store i64 %56, ptr %op_size, align 8
   br label %if.end126
 
@@ -1190,116 +1172,116 @@ return:                                           ; preds = %if.end126, %if.then
 define dso_local void @throttle_config_to_limits(ptr nocapture noundef readonly %cfg, ptr nocapture noundef writeonly %var) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %cfg, align 8
-  %bps_total = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 19
+  %bps_total = getelementptr inbounds i8, ptr %var, i64 152
   store i64 %0, ptr %bps_total, align 8
-  %arrayidx2 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 1
+  %arrayidx2 = getelementptr i8, ptr %cfg, i64 40
   %1 = load i64, ptr %arrayidx2, align 8
-  %bps_read = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 25
+  %bps_read = getelementptr inbounds i8, ptr %var, i64 200
   store i64 %1, ptr %bps_read, align 8
-  %arrayidx5 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 2
+  %arrayidx5 = getelementptr i8, ptr %cfg, i64 80
   %2 = load i64, ptr %arrayidx5, align 8
-  %bps_write = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 31
+  %bps_write = getelementptr inbounds i8, ptr %var, i64 248
   store i64 %2, ptr %bps_write, align 8
-  %arrayidx8 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 3
+  %arrayidx8 = getelementptr i8, ptr %cfg, i64 120
   %3 = load i64, ptr %arrayidx8, align 8
-  %iops_total = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 1
+  %iops_total = getelementptr inbounds i8, ptr %var, i64 8
   store i64 %3, ptr %iops_total, align 8
-  %arrayidx11 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 4
+  %arrayidx11 = getelementptr i8, ptr %cfg, i64 160
   %4 = load i64, ptr %arrayidx11, align 8
-  %iops_read = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 7
+  %iops_read = getelementptr inbounds i8, ptr %var, i64 56
   store i64 %4, ptr %iops_read, align 8
-  %arrayidx14 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 5
+  %arrayidx14 = getelementptr i8, ptr %cfg, i64 200
   %5 = load i64, ptr %arrayidx14, align 8
-  %iops_write = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 13
+  %iops_write = getelementptr inbounds i8, ptr %var, i64 104
   store i64 %5, ptr %iops_write, align 8
-  %max = getelementptr inbounds %struct.LeakyBucket, ptr %cfg, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %cfg, i64 8
   %6 = load i64, ptr %max, align 8
-  %bps_total_max = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 21
+  %bps_total_max = getelementptr inbounds i8, ptr %var, i64 168
   store i64 %6, ptr %bps_total_max, align 8
-  %max20 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 1, i32 1
+  %max20 = getelementptr i8, ptr %cfg, i64 48
   %7 = load i64, ptr %max20, align 8
-  %bps_read_max = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 27
+  %bps_read_max = getelementptr inbounds i8, ptr %var, i64 216
   store i64 %7, ptr %bps_read_max, align 8
-  %max23 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 2, i32 1
+  %max23 = getelementptr i8, ptr %cfg, i64 88
   %8 = load i64, ptr %max23, align 8
-  %bps_write_max = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 33
+  %bps_write_max = getelementptr inbounds i8, ptr %var, i64 264
   store i64 %8, ptr %bps_write_max, align 8
-  %max26 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 3, i32 1
+  %max26 = getelementptr i8, ptr %cfg, i64 128
   %9 = load i64, ptr %max26, align 8
-  %iops_total_max = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 3
+  %iops_total_max = getelementptr inbounds i8, ptr %var, i64 24
   store i64 %9, ptr %iops_total_max, align 8
-  %max29 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 4, i32 1
+  %max29 = getelementptr i8, ptr %cfg, i64 168
   %10 = load i64, ptr %max29, align 8
-  %iops_read_max = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 9
+  %iops_read_max = getelementptr inbounds i8, ptr %var, i64 72
   store i64 %10, ptr %iops_read_max, align 8
-  %max32 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 5, i32 1
+  %max32 = getelementptr i8, ptr %cfg, i64 208
   %11 = load i64, ptr %max32, align 8
-  %iops_write_max = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 15
+  %iops_write_max = getelementptr inbounds i8, ptr %var, i64 120
   store i64 %11, ptr %iops_write_max, align 8
-  %burst_length = getelementptr inbounds %struct.LeakyBucket, ptr %cfg, i64 0, i32 4
+  %burst_length = getelementptr inbounds i8, ptr %cfg, i64 32
   %12 = load i64, ptr %burst_length, align 8
-  %bps_total_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 23
+  %bps_total_max_length = getelementptr inbounds i8, ptr %var, i64 184
   store i64 %12, ptr %bps_total_max_length, align 8
-  %burst_length37 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 1, i32 4
+  %burst_length37 = getelementptr i8, ptr %cfg, i64 72
   %13 = load i64, ptr %burst_length37, align 8
-  %bps_read_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 29
+  %bps_read_max_length = getelementptr inbounds i8, ptr %var, i64 232
   store i64 %13, ptr %bps_read_max_length, align 8
-  %burst_length40 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 2, i32 4
+  %burst_length40 = getelementptr i8, ptr %cfg, i64 112
   %14 = load i64, ptr %burst_length40, align 8
-  %bps_write_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 35
+  %bps_write_max_length = getelementptr inbounds i8, ptr %var, i64 280
   store i64 %14, ptr %bps_write_max_length, align 8
-  %burst_length43 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 3, i32 4
+  %burst_length43 = getelementptr i8, ptr %cfg, i64 152
   %15 = load i64, ptr %burst_length43, align 8
-  %iops_total_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 5
+  %iops_total_max_length = getelementptr inbounds i8, ptr %var, i64 40
   store i64 %15, ptr %iops_total_max_length, align 8
-  %burst_length46 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 4, i32 4
+  %burst_length46 = getelementptr i8, ptr %cfg, i64 192
   %16 = load i64, ptr %burst_length46, align 8
-  %iops_read_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 11
+  %iops_read_max_length = getelementptr inbounds i8, ptr %var, i64 88
   store i64 %16, ptr %iops_read_max_length, align 8
-  %burst_length49 = getelementptr [6 x %struct.LeakyBucket], ptr %cfg, i64 0, i64 5, i32 4
+  %burst_length49 = getelementptr i8, ptr %cfg, i64 232
   %17 = load i64, ptr %burst_length49, align 8
-  %iops_write_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 17
+  %iops_write_max_length = getelementptr inbounds i8, ptr %var, i64 136
   store i64 %17, ptr %iops_write_max_length, align 8
-  %op_size = getelementptr inbounds %struct.ThrottleConfig, ptr %cfg, i64 0, i32 1
+  %op_size = getelementptr inbounds i8, ptr %cfg, i64 240
   %18 = load i64, ptr %op_size, align 8
-  %iops_size = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 37
+  %iops_size = getelementptr inbounds i8, ptr %var, i64 296
   store i64 %18, ptr %iops_size, align 8
-  %has_bps_total = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 18
+  %has_bps_total = getelementptr inbounds i8, ptr %var, i64 144
   store i8 1, ptr %has_bps_total, align 8
-  %has_bps_read = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 24
+  %has_bps_read = getelementptr inbounds i8, ptr %var, i64 192
   store i8 1, ptr %has_bps_read, align 8
-  %has_bps_write = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 30
+  %has_bps_write = getelementptr inbounds i8, ptr %var, i64 240
   store i8 1, ptr %has_bps_write, align 8
   store i8 1, ptr %var, align 8
-  %has_iops_read = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 6
+  %has_iops_read = getelementptr inbounds i8, ptr %var, i64 48
   store i8 1, ptr %has_iops_read, align 8
-  %has_iops_write = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 12
+  %has_iops_write = getelementptr inbounds i8, ptr %var, i64 96
   store i8 1, ptr %has_iops_write, align 8
-  %has_bps_total_max = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 20
+  %has_bps_total_max = getelementptr inbounds i8, ptr %var, i64 160
   store i8 1, ptr %has_bps_total_max, align 8
-  %has_bps_read_max = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 26
+  %has_bps_read_max = getelementptr inbounds i8, ptr %var, i64 208
   store i8 1, ptr %has_bps_read_max, align 8
-  %has_bps_write_max = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 32
+  %has_bps_write_max = getelementptr inbounds i8, ptr %var, i64 256
   store i8 1, ptr %has_bps_write_max, align 8
-  %has_iops_total_max = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 2
+  %has_iops_total_max = getelementptr inbounds i8, ptr %var, i64 16
   store i8 1, ptr %has_iops_total_max, align 8
-  %has_iops_read_max = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 8
+  %has_iops_read_max = getelementptr inbounds i8, ptr %var, i64 64
   store i8 1, ptr %has_iops_read_max, align 8
-  %has_iops_write_max = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 14
+  %has_iops_write_max = getelementptr inbounds i8, ptr %var, i64 112
   store i8 1, ptr %has_iops_write_max, align 8
-  %has_bps_read_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 28
+  %has_bps_read_max_length = getelementptr inbounds i8, ptr %var, i64 224
   store i8 1, ptr %has_bps_read_max_length, align 8
-  %has_bps_total_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 22
+  %has_bps_total_max_length = getelementptr inbounds i8, ptr %var, i64 176
   store i8 1, ptr %has_bps_total_max_length, align 8
-  %has_bps_write_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 34
+  %has_bps_write_max_length = getelementptr inbounds i8, ptr %var, i64 272
   store i8 1, ptr %has_bps_write_max_length, align 8
-  %has_iops_total_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 4
+  %has_iops_total_max_length = getelementptr inbounds i8, ptr %var, i64 32
   store i8 1, ptr %has_iops_total_max_length, align 8
-  %has_iops_read_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 10
+  %has_iops_read_max_length = getelementptr inbounds i8, ptr %var, i64 80
   store i8 1, ptr %has_iops_read_max_length, align 8
-  %has_iops_write_max_length = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 16
+  %has_iops_write_max_length = getelementptr inbounds i8, ptr %var, i64 128
   store i8 1, ptr %has_iops_write_max_length, align 8
-  %has_iops_size = getelementptr inbounds %struct.ThrottleLimits, ptr %var, i64 0, i32 36
+  %has_iops_size = getelementptr inbounds i8, ptr %var, i64 288
   store i8 1, ptr %has_iops_size, align 8
   ret void
 }

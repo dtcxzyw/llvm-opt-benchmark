@@ -3,8 +3,6 @@ source_filename = "bench/libevent/original/event_tagging.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.timeval = type { i64, i64 }
-
 @.str = private unnamed_addr constant [11 x i8] c"%s: malloc\00", align 1
 @__func__.evtag_unmarshal_string = private unnamed_addr constant [23 x i8] c"evtag_unmarshal_string\00", align 1
 
@@ -807,7 +805,7 @@ encode_int_internal.exit:                         ; preds = %entry, %while.end.i
   store i8 %conv28.i, ptr %data, align 1
   %idx.ext = zext nneg i32 %off.0.lcssa27.i to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %tv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %12 = load i64, ptr %tv_usec, align 8
   %conv2 = trunc i64 %12 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr, i8 0, i64 5, i1 false)
@@ -1789,7 +1787,7 @@ while.body.i24:                                   ; preds = %if.end16.i21, %whil
 
 if.end12:                                         ; preds = %while.body.i24
   %conv13 = zext i32 %number.1.i35 to i64
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %ptv, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %ptv, i64 8
   store i64 %conv13, ptr %tv_usec, align 8
   %add = add nuw nsw i32 %add11.i18, %add11.i
   %cmp14 = icmp sgt i32 %add, %call

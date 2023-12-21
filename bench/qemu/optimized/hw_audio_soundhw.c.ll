@@ -103,10 +103,10 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %if.then, %for.body
   %2 = phi ptr [ %4, %for.body ], [ %1, %if.then ]
   %c.06 = phi ptr [ %incdec.ptr, %for.body ], [ @soundhw, %if.then ]
-  %descr = getelementptr inbounds %struct.soundhw, ptr %c.06, i64 0, i32 1
+  %descr = getelementptr inbounds i8, ptr %c.06, i64 8
   %3 = load ptr, ptr %descr, align 8
   %call3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %2, ptr noundef %3)
-  %incdec.ptr = getelementptr %struct.soundhw, ptr %c.06, i64 1
+  %incdec.ptr = getelementptr i8, ptr %c.06, i64 40
   %4 = load ptr, ptr %incdec.ptr, align 8
   %tobool1.not = icmp eq ptr %4, null
   br i1 %tobool1.not, label %if.end, label %for.body, !llvm.loop !5
@@ -146,7 +146,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   br i1 %tobool4.not, label %for.inc, label %for.end
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr = getelementptr %struct.soundhw, ptr %c.09, i64 1
+  %incdec.ptr = getelementptr i8, ptr %c.09, i64 40
   %3 = load ptr, ptr %incdec.ptr, align 8
   %tobool2.not = icmp eq ptr %3, null
   br i1 %tobool2.not, label %if.then9, label %for.body, !llvm.loop !7
@@ -187,7 +187,7 @@ entry:
   br i1 %tobool.not, label %if.end26, label %if.end
 
 if.end:                                           ; preds = %entry
-  %isa = getelementptr inbounds %struct.soundhw, ptr %0, i64 0, i32 3
+  %isa = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %isa, align 8
   %tobool2.not = icmp eq i32 %1, 0
   br i1 %tobool2.not, label %if.else, label %if.then3
@@ -215,7 +215,7 @@ if.then9:                                         ; preds = %if.else
 if.end13:                                         ; preds = %if.else, %if.then3
   %call1.sink = phi ptr [ %call, %if.then3 ], [ %call1, %if.else ]
   %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call1.sink, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #7
-  %typename = getelementptr inbounds %struct.soundhw, ptr %0, i64 0, i32 2
+  %typename = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %typename, align 8
   %tobool14.not = icmp eq ptr %4, null
   br i1 %tobool14.not, label %if.else19, label %if.then15
@@ -237,7 +237,7 @@ if.else23:                                        ; preds = %if.else19
   unreachable
 
 if.end24:                                         ; preds = %if.else19
-  %init_pci = getelementptr inbounds %struct.soundhw, ptr %0, i64 0, i32 4
+  %init_pci = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %init_pci, align 8
   %8 = load ptr, ptr @audiodev_id, align 8
   %call25 = tail call i32 %7(ptr noundef %call1, ptr noundef %8) #7

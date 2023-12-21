@@ -7,12 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.UConverterImpl = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.UConverterSharedData = type { i32, i32, ptr, ptr, i8, i8, ptr, i32, %struct.UConverterMBCSTable }
 %struct.UConverterMBCSTable = type { i8, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, [64 x i16], ptr, ptr, i32, i8, i8, i8, i16, i32, ptr, ptr, ptr, ptr }
-%struct.UConverterLoadArgs = type { i32, i32, i8, i8, i16, i32, ptr, ptr, ptr }
-%struct.UConverter = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8, i8, i8, i8, [7 x i8], i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, [8 x i8], [32 x i8], [2 x i16], [2 x i16], [32 x i16], i32, [19 x i16], [31 x i8], i8, i8, i8, i32 }
-%struct.SCSUData = type { [8 x i32], [8 x i32], i8, i8, i8, i8, i8, [3 x i8], i8, i8, i8, i8, [8 x i8] }
-%struct.UConverterToUnicodeArgs = type { i16, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.UConverterFromUnicodeArgs = type { i16, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.cloneSCSUStruct = type { %struct.UConverter, %struct.SCSUData }
 
 @_ZL15_SCSUStaticData = internal constant %struct.UConverterStaticData { i32 100, [60 x i8] c"SCSU\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 1212, i8 0, i8 24, i8 1, i8 3, [4 x i8] c"\0E\FF\FD\00", i8 3, i8 0, i8 0, i8 0, i8 0, [19 x i8] zeroinitializer }, align 4
 @_ZL9_SCSUImpl = internal constant %struct.UConverterImpl { i32 24, ptr null, ptr null, ptr @_ZL9_SCSUOpenP10UConverterP18UConverterLoadArgsP10UErrorCode, ptr @_ZL10_SCSUCloseP10UConverter, ptr @_ZL10_SCSUResetP10UConverter21UConverterResetChoice, ptr @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode, ptr @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode, ptr @_ZL16_SCSUFromUnicodeP25UConverterFromUnicodeArgsP10UErrorCode, ptr @_ZL27_SCSUFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode, ptr null, ptr null, ptr @_ZL12_SCSUGetNamePK10UConverter, ptr null, ptr @_ZL14_SCSUSafeClonePK10UConverterPvPiP10UErrorCode, ptr @ucnv_getCompleteUnicodeSet_75, ptr null, ptr null }, align 8
@@ -26,16 +20,16 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL9_SCSUOpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr nocapture noundef writeonly %cnv, ptr nocapture noundef readonly %pArgs, ptr nocapture noundef writeonly %pErrorCode) #0 {
 entry:
-  %locale1 = getelementptr inbounds %struct.UConverterLoadArgs, ptr %pArgs, i64 0, i32 8
+  %locale1 = getelementptr inbounds i8, ptr %pArgs, i64 32
   %0 = load ptr, ptr %locale1, align 8
-  %onlyTestIsLoadable = getelementptr inbounds %struct.UConverterLoadArgs, ptr %pArgs, i64 0, i32 2
+  %onlyTestIsLoadable = getelementptr inbounds i8, ptr %pArgs, i64 8
   %1 = load i8, ptr %onlyTestIsLoadable, align 8
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(84) ptr @uprv_malloc_75(i64 noundef 84) #9
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 2
+  %extraInfo = getelementptr inbounds i8, ptr %cnv, i64 16
   store ptr %call, ptr %extraInfo, align 8
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.else23, label %if.then3
@@ -69,26 +63,26 @@ if.else:                                          ; preds = %land.lhs.true10, %l
 if.end22:                                         ; preds = %land.lhs.true10, %land.lhs.true10, %if.else
   %.sink = phi i8 [ 0, %if.else ], [ 1, %land.lhs.true10 ], [ 1, %land.lhs.true10 ]
   %cond.i = phi i64 [ 73751958669950983, %if.else ], [ 433760635709555203, %land.lhs.true10 ], [ 433760635709555203, %land.lhs.true10 ]
-  %locale21 = getelementptr inbounds %struct.SCSUData, ptr %call, i64 0, i32 10
+  %locale21 = getelementptr inbounds i8, ptr %call, i64 74
   store i8 %.sink, ptr %locale21, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call, ptr noundef nonnull align 16 dereferenceable(32) @_ZL21initialDynamicOffsets, i64 32, i1 false)
-  %toUIsSingleByteMode.i = getelementptr inbounds %struct.SCSUData, ptr %call, i64 0, i32 2
+  %toUIsSingleByteMode.i = getelementptr inbounds i8, ptr %call, i64 64
   store i8 1, ptr %toUIsSingleByteMode.i, align 4
-  %toUState.i = getelementptr inbounds %struct.SCSUData, ptr %call, i64 0, i32 3
-  %toULength.i = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 12
+  %toUState.i = getelementptr inbounds i8, ptr %call, i64 65
+  %toULength.i = getelementptr inbounds i8, ptr %cnv, i64 64
   store i32 0, ptr %toUState.i, align 1
   store i8 0, ptr %toULength.i, align 8
-  %fromUDynamicOffsets.i = getelementptr inbounds %struct.SCSUData, ptr %call, i64 0, i32 1
+  %fromUDynamicOffsets.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %fromUDynamicOffsets.i, ptr noundef nonnull align 16 dereferenceable(32) @_ZL21initialDynamicOffsets, i64 32, i1 false)
-  %fromUIsSingleByteMode.i = getelementptr inbounds %struct.SCSUData, ptr %call, i64 0, i32 8
+  %fromUIsSingleByteMode.i = getelementptr inbounds i8, ptr %call, i64 72
   store i8 1, ptr %fromUIsSingleByteMode.i, align 4
-  %fromUDynamicWindow.i = getelementptr inbounds %struct.SCSUData, ptr %call, i64 0, i32 9
+  %fromUDynamicWindow.i = getelementptr inbounds i8, ptr %call, i64 73
   store i8 0, ptr %fromUDynamicWindow.i, align 1
-  %nextWindowUseIndex.i = getelementptr inbounds %struct.SCSUData, ptr %call, i64 0, i32 11
+  %nextWindowUseIndex.i = getelementptr inbounds i8, ptr %call, i64 75
   store i8 0, ptr %nextWindowUseIndex.i, align 1
-  %5 = getelementptr inbounds %struct.SCSUData, ptr %call, i64 0, i32 12
+  %5 = getelementptr inbounds i8, ptr %call, i64 76
   store i64 %cond.i, ptr %5, align 4
-  %fromUChar32.i = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 17
+  %fromUChar32.i = getelementptr inbounds i8, ptr %cnv, i64 84
   store i32 0, ptr %fromUChar32.i, align 4
   br label %if.end24
 
@@ -97,9 +91,9 @@ if.else23:                                        ; preds = %if.end
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else23, %if.end22
-  %subUChars = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 28
+  %subUChars = getelementptr inbounds i8, ptr %cnv, i64 136
   store i16 -3, ptr %subUChars, align 8
-  %subCharLen = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 19
+  %subCharLen = getelementptr inbounds i8, ptr %cnv, i64 89
   store i8 -1, ptr %subCharLen, align 1
   br label %return
 
@@ -110,13 +104,13 @@ return:                                           ; preds = %entry, %if.end24
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL10_SCSUCloseP10UConverter(ptr nocapture noundef %cnv) #0 {
 entry:
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 2
+  %extraInfo = getelementptr inbounds i8, ptr %cnv, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %isExtraLocal = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 10
+  %isExtraLocal = getelementptr inbounds i8, ptr %cnv, i64 62
   %1 = load i8, ptr %isExtraLocal, align 2
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then1, label %if.end
@@ -136,38 +130,38 @@ if.end4:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL10_SCSUResetP10UConverter21UConverterResetChoice(ptr nocapture noundef %cnv, i32 noundef %choice) #1 {
 entry:
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 2
+  %extraInfo = getelementptr inbounds i8, ptr %cnv, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
   %cmp = icmp slt i32 %choice, 2
   br i1 %cmp, label %if.end, label %do.body3
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @_ZL21initialDynamicOffsets, i64 32, i1 false)
-  %toUIsSingleByteMode = getelementptr inbounds %struct.SCSUData, ptr %0, i64 0, i32 2
+  %toUIsSingleByteMode = getelementptr inbounds i8, ptr %0, i64 64
   store i8 1, ptr %toUIsSingleByteMode, align 4
-  %toUState = getelementptr inbounds %struct.SCSUData, ptr %0, i64 0, i32 3
-  %toULength = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 12
+  %toUState = getelementptr inbounds i8, ptr %0, i64 65
+  %toULength = getelementptr inbounds i8, ptr %cnv, i64 64
   store i32 0, ptr %toUState, align 1
   store i8 0, ptr %toULength, align 8
   %cmp1.not = icmp eq i32 %choice, 1
   br i1 %cmp1.not, label %if.end13, label %do.body3
 
 do.body3:                                         ; preds = %entry, %if.end
-  %fromUDynamicOffsets = getelementptr inbounds %struct.SCSUData, ptr %0, i64 0, i32 1
+  %fromUDynamicOffsets = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %fromUDynamicOffsets, ptr noundef nonnull align 16 dereferenceable(32) @_ZL21initialDynamicOffsets, i64 32, i1 false)
-  %fromUIsSingleByteMode = getelementptr inbounds %struct.SCSUData, ptr %0, i64 0, i32 8
+  %fromUIsSingleByteMode = getelementptr inbounds i8, ptr %0, i64 72
   store i8 1, ptr %fromUIsSingleByteMode, align 4
-  %fromUDynamicWindow = getelementptr inbounds %struct.SCSUData, ptr %0, i64 0, i32 9
+  %fromUDynamicWindow = getelementptr inbounds i8, ptr %0, i64 73
   store i8 0, ptr %fromUDynamicWindow, align 1
-  %nextWindowUseIndex = getelementptr inbounds %struct.SCSUData, ptr %0, i64 0, i32 11
+  %nextWindowUseIndex = getelementptr inbounds i8, ptr %0, i64 75
   store i8 0, ptr %nextWindowUseIndex, align 1
-  %locale = getelementptr inbounds %struct.SCSUData, ptr %0, i64 0, i32 10
+  %locale = getelementptr inbounds i8, ptr %0, i64 74
   %1 = load i8, ptr %locale, align 2
   %cond = icmp eq i8 %1, 1
   %spec.select = select i1 %cond, i64 433760635709555203, i64 73751958669950983
-  %2 = getelementptr inbounds %struct.SCSUData, ptr %0, i64 0, i32 12
+  %2 = getelementptr inbounds i8, ptr %0, i64 76
   store i64 %spec.select, ptr %2, align 4
-  %fromUChar32 = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 17
+  %fromUChar32 = getelementptr inbounds i8, ptr %cnv, i64 84
   store i32 0, ptr %fromUChar32, align 4
   br label %if.end13
 
@@ -178,28 +172,28 @@ if.end13:                                         ; preds = %do.body3, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef %pErrorCode) #2 {
 entry:
-  %converter = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 2
+  %converter = getelementptr inbounds i8, ptr %pArgs, i64 8
   %0 = load ptr, ptr %converter, align 8
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 2
+  %extraInfo = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %extraInfo, align 8
-  %source1 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 3
+  %source1 = getelementptr inbounds i8, ptr %pArgs, i64 16
   %2 = load ptr, ptr %source1, align 8
-  %sourceLimit2 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 4
+  %sourceLimit2 = getelementptr inbounds i8, ptr %pArgs, i64 24
   %3 = load ptr, ptr %sourceLimit2, align 8
   %4 = ptrtoint ptr %3 to i64
-  %target3 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 5
+  %target3 = getelementptr inbounds i8, ptr %pArgs, i64 32
   %5 = load ptr, ptr %target3, align 8
-  %targetLimit4 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 6
+  %targetLimit4 = getelementptr inbounds i8, ptr %pArgs, i64 40
   %6 = load ptr, ptr %targetLimit4, align 8
-  %toUIsSingleByteMode = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 2
+  %toUIsSingleByteMode = getelementptr inbounds i8, ptr %1, i64 64
   %7 = load i8, ptr %toUIsSingleByteMode, align 4
-  %toUState = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 3
+  %toUState = getelementptr inbounds i8, ptr %1, i64 65
   %8 = load i8, ptr %toUState, align 1
-  %toUQuoteWindow = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 4
+  %toUQuoteWindow = getelementptr inbounds i8, ptr %1, i64 66
   %9 = load i8, ptr %toUQuoteWindow, align 2
-  %toUDynamicWindow = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 5
+  %toUDynamicWindow = getelementptr inbounds i8, ptr %1, i64 67
   %10 = load i8, ptr %toUDynamicWindow, align 1
-  %toUByteOne = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 6
+  %toUByteOne = getelementptr inbounds i8, ptr %1, i64 68
   %11 = load i8, ptr %toUByteOne, align 4
   %tobool.not = icmp eq i8 %7, 0
   %cmp220 = icmp eq i8 %8, 0
@@ -239,7 +233,7 @@ while.body:                                       ; preds = %land.rhs
 
 if.then12:                                        ; preds = %while.body
   %conv13 = zext nneg i8 %12 to i16
-  %incdec.ptr14 = getelementptr inbounds i16, ptr %target.1303, i64 1
+  %incdec.ptr14 = getelementptr inbounds i8, ptr %target.1303, i64 2
   store i16 %conv13, ptr %target.1303, align 2
   br label %if.end35
 
@@ -253,7 +247,7 @@ if.else:                                          ; preds = %while.body
 
 if.then17:                                        ; preds = %if.else
   %conv18 = trunc i32 %add to i16
-  %incdec.ptr19 = getelementptr inbounds i16, ptr %target.1303, i64 1
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %target.1303, i64 2
   store i16 %conv18, ptr %target.1303, align 2
   br label %if.end35
 
@@ -261,7 +255,7 @@ if.else20:                                        ; preds = %if.else
   %shr = lshr i32 %add, 10
   %15 = trunc i32 %shr to i16
   %conv22 = add i16 %15, -10304
-  %incdec.ptr23 = getelementptr inbounds i16, ptr %target.1303, i64 1
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %target.1303, i64 2
   store i16 %conv22, ptr %target.1303, align 2
   %cmp24 = icmp ult ptr %incdec.ptr23, %6
   %16 = trunc i32 %add to i16
@@ -270,14 +264,14 @@ if.else20:                                        ; preds = %if.else
   br i1 %cmp24, label %if.then25, label %if.else29
 
 if.then25:                                        ; preds = %if.else20
-  %incdec.ptr28 = getelementptr inbounds i16, ptr %target.1303, i64 2
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %target.1303, i64 4
   store i16 %conv27, ptr %incdec.ptr23, align 2
   br label %if.end35
 
 if.else29:                                        ; preds = %if.else20
-  %UCharErrorBuffer = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 30
+  %UCharErrorBuffer = getelementptr inbounds i8, ptr %0, i64 144
   store i16 %conv27, ptr %UCharErrorBuffer, align 8
-  %UCharErrorBufferLength = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 23
+  %UCharErrorBufferLength = getelementptr inbounds i8, ptr %0, i64 93
   store i8 1, ptr %UCharErrorBufferLength, align 1
   store i32 15, ptr %pErrorCode, align 4
   br label %endloop
@@ -310,9 +304,9 @@ singleByteMode:                                   ; preds = %land.rhs, %if.end35
 
 while.body39.lr.ph:                               ; preds = %singleByteMode
   %cmp40.not = icmp ult ptr %target.4, %6
-  %arrayidx157 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 13, i64 1
-  %toULength158 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 12
-  %toUBytes91 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 13
+  %arrayidx157 = getelementptr inbounds i8, ptr %0, i64 66
+  %toULength158 = getelementptr inbounds i8, ptr %0, i64 64
+  %toUBytes91 = getelementptr inbounds i8, ptr %0, i64 65
   br i1 %cmp40.not, label %while.body39.us.preheader, label %if.then41
 
 while.body39.us.preheader:                        ; preds = %while.body39.lr.ph
@@ -405,7 +399,7 @@ if.then41:                                        ; preds = %while.body39.lr.ph
 
 if.then48:                                        ; preds = %sw.bb.us
   %conv49 = zext i8 %19 to i16
-  %incdec.ptr50 = getelementptr inbounds i16, ptr %target.4, i64 1
+  %incdec.ptr50 = getelementptr inbounds i8, ptr %target.4, i64 2
   store i16 %conv49, ptr %target.4, align 2
   br label %fastSingle
 
@@ -424,7 +418,7 @@ sw.bb98:                                          ; preds = %while.body39.us
   %shl100 = shl nuw i16 %conv99, 8
   %conv101 = zext i8 %19 to i16
   %or102 = or disjoint i16 %shl100, %conv101
-  %incdec.ptr104 = getelementptr inbounds i16, ptr %target.4, i64 1
+  %incdec.ptr104 = getelementptr inbounds i8, ptr %target.4, i64 2
   store i16 %or102, ptr %target.4, align 2
   br label %fastSingle
 
@@ -439,7 +433,7 @@ if.then108:                                       ; preds = %sw.bb105
   %21 = load i32, ptr %arrayidx110, align 4
   %add112 = add i32 %21, %conv106
   %conv113 = trunc i32 %add112 to i16
-  %incdec.ptr114 = getelementptr inbounds i16, ptr %target.4, i64 1
+  %incdec.ptr114 = getelementptr inbounds i8, ptr %target.4, i64 2
   store i16 %conv113, ptr %target.4, align 2
   br label %fastSingle
 
@@ -453,7 +447,7 @@ if.else115:                                       ; preds = %sw.bb105
 
 if.then124:                                       ; preds = %if.else115
   %conv125 = trunc i32 %add122 to i16
-  %incdec.ptr126 = getelementptr inbounds i16, ptr %target.4, i64 1
+  %incdec.ptr126 = getelementptr inbounds i8, ptr %target.4, i64 2
   store i16 %conv125, ptr %target.4, align 2
   br label %fastSingle
 
@@ -461,7 +455,7 @@ if.else127:                                       ; preds = %if.else115
   %shr128 = lshr i32 %add122, 10
   %23 = trunc i32 %shr128 to i16
   %conv130 = add i16 %23, -10304
-  %incdec.ptr131 = getelementptr inbounds i16, ptr %target.4, i64 1
+  %incdec.ptr131 = getelementptr inbounds i8, ptr %target.4, i64 2
   store i16 %conv130, ptr %target.4, align 2
   %cmp132 = icmp ult ptr %incdec.ptr131, %6
   %24 = trunc i32 %add122 to i16
@@ -470,14 +464,14 @@ if.else127:                                       ; preds = %if.else115
   br i1 %cmp132, label %if.then133, label %if.else138
 
 if.then133:                                       ; preds = %if.else127
-  %incdec.ptr137 = getelementptr inbounds i16, ptr %target.4, i64 2
+  %incdec.ptr137 = getelementptr inbounds i8, ptr %target.4, i64 4
   store i16 %conv136, ptr %incdec.ptr131, align 2
   br label %fastSingle
 
 if.else138:                                       ; preds = %if.else127
-  %UCharErrorBuffer142 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 30
+  %UCharErrorBuffer142 = getelementptr inbounds i8, ptr %0, i64 144
   store i16 %conv136, ptr %UCharErrorBuffer142, align 8
-  %UCharErrorBufferLength144 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 23
+  %UCharErrorBufferLength144 = getelementptr inbounds i8, ptr %0, i64 93
   store i8 1, ptr %UCharErrorBufferLength144, align 1
   store i32 15, ptr %pErrorCode, align 4
   br label %endloop
@@ -575,7 +569,7 @@ while.body233:                                    ; preds = %land.rhs226
   %29 = load i8, ptr %add.ptr272, align 1
   %conv237 = zext i8 %29 to i16
   %or238 = or disjoint i16 %shl235, %conv237
-  %incdec.ptr240 = getelementptr inbounds i16, ptr %target.7270, i64 1
+  %incdec.ptr240 = getelementptr inbounds i8, ptr %target.7270, i64 2
   store i16 %or238, ptr %target.7270, align 2
   %add.ptr241 = getelementptr inbounds i8, ptr %source.6271, i64 2
   %add.ptr = getelementptr inbounds i8, ptr %source.6271, i64 3
@@ -597,9 +591,9 @@ if.end243:                                        ; preds = %while.body233, %lan
 
 while.body246.lr.ph:                              ; preds = %if.end243
   %cmp247.not = icmp ult ptr %target.8, %6
-  %arrayidx304 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 13, i64 1
-  %toULength305 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 12
-  %toUBytes290 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 13
+  %arrayidx304 = getelementptr inbounds i8, ptr %0, i64 66
+  %toULength305 = getelementptr inbounds i8, ptr %0, i64 64
+  %toUBytes290 = getelementptr inbounds i8, ptr %0, i64 65
   br i1 %cmp247.not, label %while.body246.us.preheader, label %if.then248
 
 while.body246.us.preheader:                       ; preds = %while.body246.lr.ph
@@ -682,7 +676,7 @@ sw.bb306:                                         ; preds = %while.body246.us
   %shl308 = shl nuw i16 %conv307, 8
   %conv309 = zext i8 %31 to i16
   %or310 = or disjoint i16 %shl308, %conv309
-  %incdec.ptr312 = getelementptr inbounds i16, ptr %target.8, i64 1
+  %incdec.ptr312 = getelementptr inbounds i8, ptr %target.8, i64 2
   store i16 %or310, ptr %target.8, align 2
   br label %fastUnicode
 
@@ -705,7 +699,7 @@ if.else320:                                       ; preds = %endloop
   br i1 %cmp322, label %if.then323, label %if.end326
 
 if.then323:                                       ; preds = %if.else320
-  %toULength324 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 12
+  %toULength324 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 0, ptr %toULength324, align 8
   br label %if.end326
 
@@ -724,30 +718,30 @@ if.end326:                                        ; preds = %endloop, %if.else32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef %pErrorCode) #2 {
 entry:
-  %converter = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 2
+  %converter = getelementptr inbounds i8, ptr %pArgs, i64 8
   %0 = load ptr, ptr %converter, align 8
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 2
+  %extraInfo = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %extraInfo, align 8
-  %source1 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 3
+  %source1 = getelementptr inbounds i8, ptr %pArgs, i64 16
   %2 = load ptr, ptr %source1, align 8
-  %sourceLimit2 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 4
+  %sourceLimit2 = getelementptr inbounds i8, ptr %pArgs, i64 24
   %3 = load ptr, ptr %sourceLimit2, align 8
   %4 = ptrtoint ptr %3 to i64
-  %target3 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 5
+  %target3 = getelementptr inbounds i8, ptr %pArgs, i64 32
   %5 = load ptr, ptr %target3, align 8
-  %targetLimit4 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 6
+  %targetLimit4 = getelementptr inbounds i8, ptr %pArgs, i64 40
   %6 = load ptr, ptr %targetLimit4, align 8
-  %offsets5 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %pArgs, i64 0, i32 7
+  %offsets5 = getelementptr inbounds i8, ptr %pArgs, i64 48
   %7 = load ptr, ptr %offsets5, align 8
-  %toUIsSingleByteMode = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 2
+  %toUIsSingleByteMode = getelementptr inbounds i8, ptr %1, i64 64
   %8 = load i8, ptr %toUIsSingleByteMode, align 4
-  %toUState = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 3
+  %toUState = getelementptr inbounds i8, ptr %1, i64 65
   %9 = load i8, ptr %toUState, align 1
-  %toUQuoteWindow = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 4
+  %toUQuoteWindow = getelementptr inbounds i8, ptr %1, i64 66
   %10 = load i8, ptr %toUQuoteWindow, align 2
-  %toUDynamicWindow = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 5
+  %toUDynamicWindow = getelementptr inbounds i8, ptr %1, i64 67
   %11 = load i8, ptr %toUDynamicWindow, align 1
-  %toUByteOne = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 6
+  %toUByteOne = getelementptr inbounds i8, ptr %1, i64 68
   %12 = load i8, ptr %toUByteOne, align 4
   %cmp.not = icmp eq i8 %9, 0
   %tobool.not = icmp eq i8 %8, 0
@@ -792,7 +786,7 @@ while.body:                                       ; preds = %land.rhs
 
 if.then15:                                        ; preds = %while.body
   %conv16 = zext nneg i8 %13 to i16
-  %incdec.ptr17 = getelementptr inbounds i16, ptr %target.1388, i64 1
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %target.1388, i64 2
   store i16 %conv16, ptr %target.1388, align 2
   %cmp18.not = icmp eq ptr %offsets.1386, null
   br i1 %cmp18.not, label %if.end55, label %if.end55.sink.split
@@ -807,7 +801,7 @@ if.else:                                          ; preds = %while.body
 
 if.then23:                                        ; preds = %if.else
   %conv24 = trunc i32 %add to i16
-  %incdec.ptr25 = getelementptr inbounds i16, ptr %target.1388, i64 1
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %target.1388, i64 2
   store i16 %conv24, ptr %target.1388, align 2
   %cmp26.not = icmp eq ptr %offsets.1386, null
   br i1 %cmp26.not, label %if.end55, label %if.end55.sink.split
@@ -816,7 +810,7 @@ if.else30:                                        ; preds = %if.else
   %shr = lshr i32 %add, 10
   %16 = trunc i32 %shr to i16
   %conv32 = add i16 %16, -10304
-  %incdec.ptr33 = getelementptr inbounds i16, ptr %target.1388, i64 1
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %target.1388, i64 2
   store i16 %conv32, ptr %target.1388, align 2
   %cmp34 = icmp ult ptr %incdec.ptr33, %6
   br i1 %cmp34, label %if.then35, label %if.else44
@@ -825,13 +819,13 @@ if.then35:                                        ; preds = %if.else30
   %17 = trunc i32 %add to i16
   %18 = and i16 %17, 1023
   %conv37 = or disjoint i16 %18, -9216
-  %incdec.ptr38 = getelementptr inbounds i16, ptr %target.1388, i64 2
+  %incdec.ptr38 = getelementptr inbounds i8, ptr %target.1388, i64 4
   store i16 %conv37, ptr %incdec.ptr33, align 2
   %cmp39.not = icmp eq ptr %offsets.1386, null
   br i1 %cmp39.not, label %if.end55, label %if.then40
 
 if.then40:                                        ; preds = %if.then35
-  %incdec.ptr41 = getelementptr inbounds i32, ptr %offsets.1386, i64 1
+  %incdec.ptr41 = getelementptr inbounds i8, ptr %offsets.1386, i64 4
   store i32 %sourceIndex.1387, ptr %offsets.1386, align 4
   br label %if.end55.sink.split
 
@@ -840,7 +834,7 @@ if.else44:                                        ; preds = %if.else30
   br i1 %cmp45.not, label %if.end48, label %if.then46
 
 if.then46:                                        ; preds = %if.else44
-  %incdec.ptr47 = getelementptr inbounds i32, ptr %offsets.1386, i64 1
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %offsets.1386, i64 4
   store i32 %sourceIndex.1387, ptr %offsets.1386, align 4
   br label %if.end48
 
@@ -849,18 +843,18 @@ if.end48:                                         ; preds = %if.then46, %if.else
   %19 = trunc i32 %add to i16
   %20 = and i16 %19, 1023
   %conv51 = or disjoint i16 %20, -9216
-  %UCharErrorBuffer = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 30
+  %UCharErrorBuffer = getelementptr inbounds i8, ptr %0, i64 144
   store i16 %conv51, ptr %UCharErrorBuffer, align 8
-  %UCharErrorBufferLength = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 23
+  %UCharErrorBufferLength = getelementptr inbounds i8, ptr %0, i64 93
   store i8 1, ptr %UCharErrorBufferLength, align 1
   store i32 15, ptr %pErrorCode, align 4
   br label %endloop
 
 if.end55.sink.split:                              ; preds = %if.then23, %if.then15, %if.then40
-  %.sink = phi i64 [ 2, %if.then40 ], [ 1, %if.then15 ], [ 1, %if.then23 ]
+  %.sink = phi i64 [ 8, %if.then40 ], [ 4, %if.then15 ], [ 4, %if.then23 ]
   %offsets.1386.sink = phi ptr [ %incdec.ptr41, %if.then40 ], [ %offsets.1386, %if.then15 ], [ %offsets.1386, %if.then23 ]
   %target.2.ph = phi ptr [ %incdec.ptr38, %if.then40 ], [ %incdec.ptr17, %if.then15 ], [ %incdec.ptr25, %if.then23 ]
-  %incdec.ptr28 = getelementptr inbounds i32, ptr %offsets.1386, i64 %.sink
+  %incdec.ptr28 = getelementptr inbounds i8, ptr %offsets.1386, i64 %.sink
   store i32 %sourceIndex.1387, ptr %offsets.1386.sink, align 4
   br label %if.end55
 
@@ -896,9 +890,9 @@ singleByteMode:                                   ; preds = %land.rhs, %if.end55
 
 while.body59.lr.ph:                               ; preds = %singleByteMode
   %cmp60.not = icmp ult ptr %target.4, %6
-  %arrayidx203 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 13, i64 1
-  %toULength204 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 12
-  %toUBytes116 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 13
+  %arrayidx203 = getelementptr inbounds i8, ptr %0, i64 66
+  %toULength204 = getelementptr inbounds i8, ptr %0, i64 64
+  %toUBytes116 = getelementptr inbounds i8, ptr %0, i64 65
   br i1 %cmp60.not, label %while.body59.us.preheader, label %if.then61
 
 while.body59.us.preheader:                        ; preds = %while.body59.lr.ph
@@ -993,13 +987,13 @@ if.then61:                                        ; preds = %while.body59.lr.ph
 
 if.then69:                                        ; preds = %sw.bb.us
   %conv70 = zext i8 %22 to i16
-  %incdec.ptr71 = getelementptr inbounds i16, ptr %target.4, i64 1
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %target.4, i64 2
   store i16 %conv70, ptr %target.4, align 2
   %cmp72.not = icmp eq ptr %offsets.5, null
   br i1 %cmp72.not, label %fastSingle, label %if.then73
 
 if.then73:                                        ; preds = %if.then69
-  %incdec.ptr74 = getelementptr inbounds i32, ptr %offsets.5, i64 1
+  %incdec.ptr74 = getelementptr inbounds i8, ptr %offsets.5, i64 4
   store i32 %sourceIndex.3, ptr %offsets.5, align 4
   br label %fastSingle
 
@@ -1018,13 +1012,13 @@ sw.bb123:                                         ; preds = %while.body59.us
   %shl125 = shl nuw i16 %conv124, 8
   %conv126 = zext i8 %22 to i16
   %or127 = or disjoint i16 %shl125, %conv126
-  %incdec.ptr129 = getelementptr inbounds i16, ptr %target.4, i64 1
+  %incdec.ptr129 = getelementptr inbounds i8, ptr %target.4, i64 2
   store i16 %or127, ptr %target.4, align 2
   %cmp130.not = icmp eq ptr %offsets.5, null
   br i1 %cmp130.not, label %fastSingle, label %if.then131
 
 if.then131:                                       ; preds = %sw.bb123
-  %incdec.ptr132 = getelementptr inbounds i32, ptr %offsets.5, i64 1
+  %incdec.ptr132 = getelementptr inbounds i8, ptr %offsets.5, i64 4
   store i32 %sourceIndex.3, ptr %offsets.5, align 4
   br label %fastSingle
 
@@ -1039,7 +1033,7 @@ if.then137:                                       ; preds = %sw.bb134
   %24 = load i32, ptr %arrayidx139, align 4
   %add141 = add i32 %24, %conv135
   %conv142 = trunc i32 %add141 to i16
-  %incdec.ptr143 = getelementptr inbounds i16, ptr %target.4, i64 1
+  %incdec.ptr143 = getelementptr inbounds i8, ptr %target.4, i64 2
   store i16 %conv142, ptr %target.4, align 2
   %cmp144.not = icmp eq ptr %offsets.5, null
   br i1 %cmp144.not, label %fastSingle, label %if.end193.sink.split
@@ -1054,7 +1048,7 @@ if.else148:                                       ; preds = %sw.bb134
 
 if.then157:                                       ; preds = %if.else148
   %conv158 = trunc i32 %add155 to i16
-  %incdec.ptr159 = getelementptr inbounds i16, ptr %target.4, i64 1
+  %incdec.ptr159 = getelementptr inbounds i8, ptr %target.4, i64 2
   store i16 %conv158, ptr %target.4, align 2
   %cmp160.not = icmp eq ptr %offsets.5, null
   br i1 %cmp160.not, label %fastSingle, label %if.end193.sink.split
@@ -1063,7 +1057,7 @@ if.else164:                                       ; preds = %if.else148
   %shr165 = lshr i32 %add155, 10
   %26 = trunc i32 %shr165 to i16
   %conv167 = add i16 %26, -10304
-  %incdec.ptr168 = getelementptr inbounds i16, ptr %target.4, i64 1
+  %incdec.ptr168 = getelementptr inbounds i8, ptr %target.4, i64 2
   store i16 %conv167, ptr %target.4, align 2
   %cmp169 = icmp ult ptr %incdec.ptr168, %6
   br i1 %cmp169, label %if.then170, label %if.else180
@@ -1072,13 +1066,13 @@ if.then170:                                       ; preds = %if.else164
   %27 = trunc i32 %add155 to i16
   %28 = and i16 %27, 1023
   %conv173 = or disjoint i16 %28, -9216
-  %incdec.ptr174 = getelementptr inbounds i16, ptr %target.4, i64 2
+  %incdec.ptr174 = getelementptr inbounds i8, ptr %target.4, i64 4
   store i16 %conv173, ptr %incdec.ptr168, align 2
   %cmp175.not = icmp eq ptr %offsets.5, null
   br i1 %cmp175.not, label %fastSingle, label %if.then176
 
 if.then176:                                       ; preds = %if.then170
-  %incdec.ptr177 = getelementptr inbounds i32, ptr %offsets.5, i64 1
+  %incdec.ptr177 = getelementptr inbounds i8, ptr %offsets.5, i64 4
   store i32 %sourceIndex.3, ptr %offsets.5, align 4
   br label %if.end193.sink.split
 
@@ -1087,7 +1081,7 @@ if.else180:                                       ; preds = %if.else164
   br i1 %cmp181.not, label %if.end184, label %if.then182
 
 if.then182:                                       ; preds = %if.else180
-  %incdec.ptr183 = getelementptr inbounds i32, ptr %offsets.5, i64 1
+  %incdec.ptr183 = getelementptr inbounds i8, ptr %offsets.5, i64 4
   store i32 %sourceIndex.3, ptr %offsets.5, align 4
   br label %if.end184
 
@@ -1096,18 +1090,18 @@ if.end184:                                        ; preds = %if.then182, %if.els
   %29 = trunc i32 %add155 to i16
   %30 = and i16 %29, 1023
   %conv187 = or disjoint i16 %30, -9216
-  %UCharErrorBuffer188 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 30
+  %UCharErrorBuffer188 = getelementptr inbounds i8, ptr %0, i64 144
   store i16 %conv187, ptr %UCharErrorBuffer188, align 8
-  %UCharErrorBufferLength190 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 23
+  %UCharErrorBufferLength190 = getelementptr inbounds i8, ptr %0, i64 93
   store i8 1, ptr %UCharErrorBufferLength190, align 1
   store i32 15, ptr %pErrorCode, align 4
   br label %endloop
 
 if.end193.sink.split:                             ; preds = %if.then157, %if.then137, %if.then176
-  %.sink615 = phi i64 [ 2, %if.then176 ], [ 1, %if.then137 ], [ 1, %if.then157 ]
+  %.sink615 = phi i64 [ 8, %if.then176 ], [ 4, %if.then137 ], [ 4, %if.then157 ]
   %offsets.5.sink = phi ptr [ %incdec.ptr177, %if.then176 ], [ %offsets.5, %if.then137 ], [ %offsets.5, %if.then157 ]
   %target.5.ph = phi ptr [ %incdec.ptr174, %if.then176 ], [ %incdec.ptr143, %if.then137 ], [ %incdec.ptr159, %if.then157 ]
-  %incdec.ptr162 = getelementptr inbounds i32, ptr %offsets.5, i64 %.sink615
+  %incdec.ptr162 = getelementptr inbounds i8, ptr %offsets.5, i64 %.sink615
   store i32 %sourceIndex.3, ptr %offsets.5.sink, align 4
   br label %fastSingle
 
@@ -1209,13 +1203,13 @@ while.body279:                                    ; preds = %land.rhs272
   %34 = load i8, ptr %add.ptr344, align 1
   %conv283 = zext i8 %34 to i16
   %or284 = or disjoint i16 %shl281, %conv283
-  %incdec.ptr286 = getelementptr inbounds i16, ptr %target.7342, i64 1
+  %incdec.ptr286 = getelementptr inbounds i8, ptr %target.7342, i64 2
   store i16 %or284, ptr %target.7342, align 2
   %cmp287.not = icmp eq ptr %offsets.11339, null
   br i1 %cmp287.not, label %if.end290, label %if.then288
 
 if.then288:                                       ; preds = %while.body279
-  %incdec.ptr289 = getelementptr inbounds i32, ptr %offsets.11339, i64 1
+  %incdec.ptr289 = getelementptr inbounds i8, ptr %offsets.11339, i64 4
   store i32 %sourceIndex.5340, ptr %offsets.11339, align 4
   br label %if.end290
 
@@ -1245,9 +1239,9 @@ if.end294:                                        ; preds = %if.end290, %land.rh
 
 while.body297.lr.ph:                              ; preds = %if.end294
   %cmp298.not = icmp ult ptr %target.8, %6
-  %arrayidx356 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 13, i64 1
-  %toULength357 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 12
-  %toUBytes342 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 13
+  %arrayidx356 = getelementptr inbounds i8, ptr %0, i64 66
+  %toULength357 = getelementptr inbounds i8, ptr %0, i64 64
+  %toUBytes342 = getelementptr inbounds i8, ptr %0, i64 65
   br i1 %cmp298.not, label %while.body297.us.preheader, label %if.then299
 
 while.body297.us.preheader:                       ; preds = %while.body297.lr.ph
@@ -1332,13 +1326,13 @@ sw.bb358:                                         ; preds = %while.body297.us
   %shl360 = shl nuw i16 %conv359, 8
   %conv361 = zext i8 %36 to i16
   %or362 = or disjoint i16 %shl360, %conv361
-  %incdec.ptr364 = getelementptr inbounds i16, ptr %target.8, i64 1
+  %incdec.ptr364 = getelementptr inbounds i8, ptr %target.8, i64 2
   store i16 %or362, ptr %target.8, align 2
   %cmp365.not = icmp eq ptr %offsets.13, null
   br i1 %cmp365.not, label %fastUnicode, label %if.then366
 
 if.then366:                                       ; preds = %sw.bb358
-  %incdec.ptr367 = getelementptr inbounds i32, ptr %offsets.13, i64 1
+  %incdec.ptr367 = getelementptr inbounds i8, ptr %offsets.13, i64 4
   store i32 %sourceIndex.6, ptr %offsets.13, align 4
   br label %fastUnicode
 
@@ -1362,7 +1356,7 @@ if.else376:                                       ; preds = %endloop
   br i1 %cmp378, label %if.then379, label %if.end382
 
 if.then379:                                       ; preds = %if.else376
-  %toULength380 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 12
+  %toULength380 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 0, ptr %toULength380, align 8
   br label %if.end382
 
@@ -1383,33 +1377,34 @@ if.end382:                                        ; preds = %endloop, %if.else37
 define internal void @_ZL16_SCSUFromUnicodeP25UConverterFromUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #2 {
 entry:
   %offset = alloca i32, align 4
-  %converter = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 2
+  %converter = getelementptr inbounds i8, ptr %pArgs, i64 8
   %0 = load ptr, ptr %converter, align 8
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 2
+  %extraInfo = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %extraInfo, align 8
-  %source1 = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 3
+  %source1 = getelementptr inbounds i8, ptr %pArgs, i64 16
   %2 = load ptr, ptr %source1, align 8
-  %sourceLimit2 = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 4
+  %sourceLimit2 = getelementptr inbounds i8, ptr %pArgs, i64 24
   %3 = load ptr, ptr %sourceLimit2, align 8
-  %target3 = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 5
+  %target3 = getelementptr inbounds i8, ptr %pArgs, i64 32
   %4 = load ptr, ptr %target3, align 8
-  %targetLimit = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 6
+  %targetLimit = getelementptr inbounds i8, ptr %pArgs, i64 40
   %5 = load ptr, ptr %targetLimit, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %4 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  %fromUIsSingleByteMode = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 8
+  %fromUIsSingleByteMode = getelementptr inbounds i8, ptr %1, i64 72
   %6 = load i8, ptr %fromUIsSingleByteMode, align 4
-  %fromUDynamicWindow = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 9
+  %fromUDynamicWindow = getelementptr inbounds i8, ptr %1, i64 73
   %7 = load i8, ptr %fromUDynamicWindow, align 1
-  %fromUDynamicOffsets = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1
+  %fromUDynamicOffsets = getelementptr inbounds i8, ptr %1, i64 32
   %idxprom = zext i8 %7 to i64
-  %arrayidx = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom
   %8 = load i32, ptr %arrayidx, align 4
-  %fromUChar32 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 17
+  %fromUChar32 = getelementptr inbounds i8, ptr %0, i64 84
   %9 = load i32, ptr %fromUChar32, align 4
-  %nextWindowUseIndex.i258 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 11
+  %windowUse.i258 = getelementptr inbounds i8, ptr %1, i64 76
+  %nextWindowUseIndex.i259 = getelementptr inbounds i8, ptr %1, i64 75
   br label %loop
 
 loop:                                             ; preds = %sw.epilog, %entry
@@ -1442,7 +1437,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp8, label %endloop.sink.split, label %if.end10
 
 if.end10:                                         ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i16, ptr %source.1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %source.1, i64 2
   %10 = load i16, ptr %source.1, align 2
   %conv11 = zext i16 %10 to i32
   %sub = add nsw i32 %conv11, -32
@@ -1505,7 +1500,7 @@ if.then42:                                        ; preds = %getTrailSingle
   br i1 %cmp45, label %if.then46, label %endloop.sink.split
 
 if.then46:                                        ; preds = %if.then42
-  %incdec.ptr47 = getelementptr inbounds i16, ptr %source.2, i64 1
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %source.2, i64 2
   %shl48 = shl i32 %c.2, 10
   %add = add nsw i32 %shl48, %conv43
   %sub50 = add nsw i32 %add, -56613888
@@ -1536,9 +1531,9 @@ for.body.i246.preheader:                          ; preds = %for.inc.i, %_ZL9get
 
 if.then68:                                        ; preds = %_ZL9getWindowPKjj.exit
   %idxprom70 = and i64 %indvars.iv.i, 255
-  %arrayidx71 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom70
+  %arrayidx71 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom70
   %13 = load i32, ptr %arrayidx71, align 4
-  %14 = load i8, ptr %nextWindowUseIndex.i258, align 1
+  %14 = load i8, ptr %nextWindowUseIndex.i259, align 1
   %conv.i244 = sext i8 %14 to i32
   br label %do.body.i
 
@@ -1548,7 +1543,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %cmp.i = icmp slt i32 %i.0.i, 1
   %spec.store.select.i = select i1 %cmp.i, i32 7, i32 %dec.i
   %idxprom.i = sext i32 %spec.store.select.i to i64
-  %arrayidx.i245 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i
+  %arrayidx.i245 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom.i
   %15 = load i8, ptr %arrayidx.i245, align 1
   %cmp3.not.i = icmp eq i8 %15, %conv.i
   br i1 %cmp3.not.i, label %do.end.i, label %do.body.i, !llvm.loop !14
@@ -1564,22 +1559,22 @@ while.body.i:                                     ; preds = %do.end.i, %while.bo
   %j.020.i = phi i32 [ %spec.store.select2.i, %while.body.i ], [ %spec.store.select1.i, %do.end.i ]
   %i.119.i = phi i32 [ %j.020.i, %while.body.i ], [ %spec.store.select.i, %do.end.i ]
   %idxprom11.i = sext i32 %j.020.i to i64
-  %arrayidx12.i = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom11.i
+  %arrayidx12.i = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom11.i
   %16 = load i8, ptr %arrayidx12.i, align 1
   %idxprom14.i = sext i32 %i.119.i to i64
-  %arrayidx15.i = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom14.i
   store i8 %16, ptr %arrayidx15.i, align 1
   %inc.i = add nsw i32 %j.020.i, 1
   %cmp16.i = icmp eq i32 %inc.i, 8
   %spec.store.select2.i = select i1 %cmp16.i, i32 0, i32 %inc.i
-  %17 = load i8, ptr %nextWindowUseIndex.i258, align 1
+  %17 = load i8, ptr %nextWindowUseIndex.i259, align 1
   %conv8.i = sext i8 %17 to i32
   %cmp9.not.i = icmp eq i32 %spec.store.select2.i, %conv8.i
   br i1 %cmp9.not.i, label %_ZL16useDynamicWindowP8SCSUDataa.exit, label %while.body.i, !llvm.loop !15
 
 _ZL16useDynamicWindowP8SCSUDataa.exit:            ; preds = %while.body.i, %do.end.i
   %idxprom20.pre-phi.i = phi i64 [ %idxprom.i, %do.end.i ], [ %idxprom11.i, %while.body.i ]
-  %arrayidx21.i = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom20.pre-phi.i
+  %arrayidx21.i = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom20.pre-phi.i
   store i8 %conv.i, ptr %arrayidx21.i, align 1
   %narrow = add nuw i8 %conv.i, 16
   %add73 = zext i8 %narrow to i32
@@ -1645,64 +1640,64 @@ _ZL16getDynamicOffsetjPj.exit:                    ; preds = %for.body.i246
 
 if.then81:                                        ; preds = %if.then18.i, %if.then12.i, %_ZL16getDynamicOffsetjPj.exit
   %23 = phi i32 [ %18, %_ZL16getDynamicOffsetjPj.exit ], [ %and19.i, %if.then18.i ], [ %and.i, %if.then12.i ]
-  %retval.0.i255518 = phi i32 [ %add.i257, %_ZL16getDynamicOffsetjPj.exit ], [ %shr21.i, %if.then18.i ], [ %shr.i, %if.then12.i ]
-  %24 = load i8, ptr %nextWindowUseIndex.i258, align 1
-  %idxprom.i259 = sext i8 %24 to i64
-  %arrayidx.i260 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i259
-  %25 = load i8, ptr %arrayidx.i260, align 1
-  %inc.i261 = add i8 %24, 1
-  %cmp.i262 = icmp eq i8 %inc.i261, 8
-  %spec.select.i = select i1 %cmp.i262, i8 0, i8 %inc.i261
-  store i8 %spec.select.i, ptr %nextWindowUseIndex.i258, align 1
+  %retval.0.i255527 = phi i32 [ %add.i257, %_ZL16getDynamicOffsetjPj.exit ], [ %shr21.i, %if.then18.i ], [ %shr.i, %if.then12.i ]
+  %24 = load i8, ptr %nextWindowUseIndex.i259, align 1
+  %idxprom.i260 = sext i8 %24 to i64
+  %arrayidx.i261 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom.i260
+  %25 = load i8, ptr %arrayidx.i261, align 1
+  %inc.i262 = add i8 %24, 1
+  %cmp.i263 = icmp eq i8 %inc.i262, 8
+  %spec.select.i = select i1 %cmp.i263, i8 0, i8 %inc.i262
+  store i8 %spec.select.i, ptr %nextWindowUseIndex.i259, align 1
   %idxprom85 = zext i8 %25 to i64
-  %arrayidx86 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom85
+  %arrayidx86 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom85
   store i32 %23, ptr %arrayidx86, align 4
-  %26 = load i8, ptr %nextWindowUseIndex.i258, align 1
-  %conv.i264 = sext i8 %26 to i32
-  br label %do.body.i265
+  %26 = load i8, ptr %nextWindowUseIndex.i259, align 1
+  %conv.i265 = sext i8 %26 to i32
+  br label %do.body.i267
 
-do.body.i265:                                     ; preds = %do.body.i265, %if.then81
-  %i.0.i266 = phi i32 [ %conv.i264, %if.then81 ], [ %spec.store.select.i269, %do.body.i265 ]
-  %dec.i267 = add nsw i32 %i.0.i266, -1
-  %cmp.i268 = icmp slt i32 %i.0.i266, 1
-  %spec.store.select.i269 = select i1 %cmp.i268, i32 7, i32 %dec.i267
-  %idxprom.i270 = sext i32 %spec.store.select.i269 to i64
-  %arrayidx.i271 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i270
-  %27 = load i8, ptr %arrayidx.i271, align 1
-  %cmp3.not.i272 = icmp eq i8 %27, %25
-  br i1 %cmp3.not.i272, label %do.end.i273, label %do.body.i265, !llvm.loop !14
+do.body.i267:                                     ; preds = %do.body.i267, %if.then81
+  %i.0.i268 = phi i32 [ %conv.i265, %if.then81 ], [ %spec.store.select.i271, %do.body.i267 ]
+  %dec.i269 = add nsw i32 %i.0.i268, -1
+  %cmp.i270 = icmp slt i32 %i.0.i268, 1
+  %spec.store.select.i271 = select i1 %cmp.i270, i32 7, i32 %dec.i269
+  %idxprom.i272 = sext i32 %spec.store.select.i271 to i64
+  %arrayidx.i273 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom.i272
+  %27 = load i8, ptr %arrayidx.i273, align 1
+  %cmp3.not.i274 = icmp eq i8 %27, %25
+  br i1 %cmp3.not.i274, label %do.end.i275, label %do.body.i267, !llvm.loop !14
 
-do.end.i273:                                      ; preds = %do.body.i265
-  %add.i274 = add nsw i32 %spec.store.select.i269, 1
-  %cmp4.i275 = icmp eq i32 %add.i274, 8
-  %spec.store.select1.i276 = select i1 %cmp4.i275, i32 0, i32 %add.i274
-  %cmp9.not18.i277 = icmp eq i32 %spec.store.select1.i276, %conv.i264
-  br i1 %cmp9.not18.i277, label %_ZL16useDynamicWindowP8SCSUDataa.exit292, label %while.body.i278
+do.end.i275:                                      ; preds = %do.body.i267
+  %add.i276 = add nsw i32 %spec.store.select.i271, 1
+  %cmp4.i277 = icmp eq i32 %add.i276, 8
+  %spec.store.select1.i278 = select i1 %cmp4.i277, i32 0, i32 %add.i276
+  %cmp9.not18.i279 = icmp eq i32 %spec.store.select1.i278, %conv.i265
+  br i1 %cmp9.not18.i279, label %_ZL16useDynamicWindowP8SCSUDataa.exit294, label %while.body.i280
 
-while.body.i278:                                  ; preds = %do.end.i273, %while.body.i278
-  %j.020.i279 = phi i32 [ %spec.store.select2.i287, %while.body.i278 ], [ %spec.store.select1.i276, %do.end.i273 ]
-  %i.119.i280 = phi i32 [ %j.020.i279, %while.body.i278 ], [ %spec.store.select.i269, %do.end.i273 ]
-  %idxprom11.i281 = sext i32 %j.020.i279 to i64
-  %arrayidx12.i282 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom11.i281
-  %28 = load i8, ptr %arrayidx12.i282, align 1
-  %idxprom14.i283 = sext i32 %i.119.i280 to i64
-  %arrayidx15.i284 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom14.i283
-  store i8 %28, ptr %arrayidx15.i284, align 1
-  %inc.i285 = add nsw i32 %j.020.i279, 1
-  %cmp16.i286 = icmp eq i32 %inc.i285, 8
-  %spec.store.select2.i287 = select i1 %cmp16.i286, i32 0, i32 %inc.i285
-  %29 = load i8, ptr %nextWindowUseIndex.i258, align 1
-  %conv8.i288 = sext i8 %29 to i32
-  %cmp9.not.i289 = icmp eq i32 %spec.store.select2.i287, %conv8.i288
-  br i1 %cmp9.not.i289, label %_ZL16useDynamicWindowP8SCSUDataa.exit292, label %while.body.i278, !llvm.loop !15
+while.body.i280:                                  ; preds = %do.end.i275, %while.body.i280
+  %j.020.i281 = phi i32 [ %spec.store.select2.i289, %while.body.i280 ], [ %spec.store.select1.i278, %do.end.i275 ]
+  %i.119.i282 = phi i32 [ %j.020.i281, %while.body.i280 ], [ %spec.store.select.i271, %do.end.i275 ]
+  %idxprom11.i283 = sext i32 %j.020.i281 to i64
+  %arrayidx12.i284 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom11.i283
+  %28 = load i8, ptr %arrayidx12.i284, align 1
+  %idxprom14.i285 = sext i32 %i.119.i282 to i64
+  %arrayidx15.i286 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom14.i285
+  store i8 %28, ptr %arrayidx15.i286, align 1
+  %inc.i287 = add nsw i32 %j.020.i281, 1
+  %cmp16.i288 = icmp eq i32 %inc.i287, 8
+  %spec.store.select2.i289 = select i1 %cmp16.i288, i32 0, i32 %inc.i287
+  %29 = load i8, ptr %nextWindowUseIndex.i259, align 1
+  %conv8.i290 = sext i8 %29 to i32
+  %cmp9.not.i291 = icmp eq i32 %spec.store.select2.i289, %conv8.i290
+  br i1 %cmp9.not.i291, label %_ZL16useDynamicWindowP8SCSUDataa.exit294, label %while.body.i280, !llvm.loop !15
 
-_ZL16useDynamicWindowP8SCSUDataa.exit292:         ; preds = %while.body.i278, %do.end.i273
-  %idxprom20.pre-phi.i290 = phi i64 [ %idxprom.i270, %do.end.i273 ], [ %idxprom11.i281, %while.body.i278 ]
-  %arrayidx21.i291 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom20.pre-phi.i290
-  store i8 %25, ptr %arrayidx21.i291, align 1
+_ZL16useDynamicWindowP8SCSUDataa.exit294:         ; preds = %while.body.i280, %do.end.i275
+  %idxprom20.pre-phi.i292 = phi i64 [ %idxprom.i272, %do.end.i275 ], [ %idxprom11.i283, %while.body.i280 ]
+  %arrayidx21.i293 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom20.pre-phi.i292
+  store i8 %25, ptr %arrayidx21.i293, align 1
   %conv87 = zext i8 %25 to i32
   %shl88 = shl nuw nsw i32 %conv87, 21
-  %sub82 = shl i32 %retval.0.i255518, 8
+  %sub82 = shl i32 %retval.0.i255527, 8
   %shl90 = add i32 %sub82, -131072
   %sub92 = sub i32 %sub50, %23
   %or89 = or i32 %shl90, %shl88
@@ -1731,46 +1726,46 @@ if.else108:                                       ; preds = %if.else103
   %cmp109 = icmp eq i16 %10, -257
   %cmp110 = icmp ugt i16 %10, -17
   %or.cond1 = or i1 %cmp109, %cmp110
-  br i1 %or.cond1, label %if.then111, label %for.body.i293
+  br i1 %or.cond1, label %if.then111, label %for.body.i295
 
 if.then111:                                       ; preds = %if.else108
   %or112 = or disjoint i32 %conv11, 917504
   br label %outputBytes
 
-for.body.i293:                                    ; preds = %if.else108, %for.inc.i298
-  %indvars.iv.i294 = phi i64 [ %indvars.iv.next.i299, %for.inc.i298 ], [ 0, %if.else108 ]
-  %arrayidx.i295 = getelementptr inbounds i32, ptr %fromUDynamicOffsets, i64 %indvars.iv.i294
-  %30 = load i32, ptr %arrayidx.i295, align 4
-  %sub.i296 = sub i32 %conv11, %30
-  %cmp1.i297 = icmp ult i32 %sub.i296, 128
-  br i1 %cmp1.i297, label %_ZL9getWindowPKjj.exit304, label %for.inc.i298
+for.body.i295:                                    ; preds = %if.else108, %for.inc.i300
+  %indvars.iv.i296 = phi i64 [ %indvars.iv.next.i301, %for.inc.i300 ], [ 0, %if.else108 ]
+  %arrayidx.i297 = getelementptr inbounds i32, ptr %fromUDynamicOffsets, i64 %indvars.iv.i296
+  %30 = load i32, ptr %arrayidx.i297, align 4
+  %sub.i298 = sub i32 %conv11, %30
+  %cmp1.i299 = icmp ult i32 %sub.i298, 128
+  br i1 %cmp1.i299, label %_ZL9getWindowPKjj.exit306, label %for.inc.i300
 
-for.inc.i298:                                     ; preds = %for.body.i293
-  %indvars.iv.next.i299 = add nuw nsw i64 %indvars.iv.i294, 1
-  %exitcond.not.i300 = icmp eq i64 %indvars.iv.next.i299, 8
-  br i1 %exitcond.not.i300, label %for.body.i339.preheader, label %for.body.i293, !llvm.loop !13
+for.inc.i300:                                     ; preds = %for.body.i295
+  %indvars.iv.next.i301 = add nuw nsw i64 %indvars.iv.i296, 1
+  %exitcond.not.i302 = icmp eq i64 %indvars.iv.next.i301, 8
+  br i1 %exitcond.not.i302, label %for.body.i342.preheader, label %for.body.i295, !llvm.loop !13
 
-_ZL9getWindowPKjj.exit304:                        ; preds = %for.body.i293
-  %conv.i303 = trunc i64 %indvars.iv.i294 to i8
-  %conv117 = sext i8 %conv.i303 to i32
-  %cmp118 = icmp sgt i8 %conv.i303, -1
-  br i1 %cmp118, label %if.then119, label %for.body.i339.preheader
+_ZL9getWindowPKjj.exit306:                        ; preds = %for.body.i295
+  %conv.i305 = trunc i64 %indvars.iv.i296 to i8
+  %conv117 = sext i8 %conv.i305 to i32
+  %cmp118 = icmp sgt i8 %conv.i305, -1
+  br i1 %cmp118, label %if.then119, label %for.body.i342.preheader
 
-for.body.i339.preheader:                          ; preds = %for.inc.i298, %_ZL9getWindowPKjj.exit304
-  br label %for.body.i339
+for.body.i342.preheader:                          ; preds = %for.inc.i300, %_ZL9getWindowPKjj.exit306
+  br label %for.body.i342
 
-if.then119:                                       ; preds = %_ZL9getWindowPKjj.exit304
+if.then119:                                       ; preds = %_ZL9getWindowPKjj.exit306
   %cmp120.not = icmp ult ptr %incdec.ptr, %3
-  %idxprom123 = and i64 %indvars.iv.i294, 255
+  %idxprom123 = and i64 %indvars.iv.i296, 255
   br i1 %cmp120.not, label %lor.lhs.false121, label %if.then128
 
 lor.lhs.false121:                                 ; preds = %if.then119
-  %arrayidx124 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom123
+  %arrayidx124 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom123
   %31 = load i32, ptr %arrayidx124, align 4
   %32 = load i16, ptr %incdec.ptr, align 2
   %conv125 = zext i16 %32 to i32
-  %add.i305 = add i32 %31, 127
-  %cmp.not.i = icmp ult i32 %add.i305, %conv125
+  %add.i307 = add i32 %31, 127
+  %cmp.not.i = icmp ult i32 %add.i307, %conv125
   br i1 %cmp.not.i, label %if.else138, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %lor.lhs.false121
@@ -1782,61 +1777,61 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
   br i1 %cmp2.i, label %_ZL24isInOffsetWindowOrDirectjj.exit, label %if.else138
 
 _ZL24isInOffsetWindowOrDirectjj.exit:             ; preds = %lor.rhs.i
-  %cmp4.i307 = icmp ult i16 %32, 32
+  %cmp4.i309 = icmp ult i16 %32, 32
   %sh_prom.i = zext nneg i16 %32 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
-  %and.i308 = and i64 %shl.i, 9729
-  %tobool.i = icmp eq i64 %and.i308, 0
-  %.not = select i1 %cmp4.i307, i1 %tobool.i, i1 false
+  %and.i310 = and i64 %shl.i, 9729
+  %tobool.i = icmp eq i64 %and.i310, 0
+  %.not = select i1 %cmp4.i309, i1 %tobool.i, i1 false
   br i1 %.not, label %if.else138, label %if.then128
 
 if.then128:                                       ; preds = %if.then119, %land.rhs.i, %_ZL24isInOffsetWindowOrDirectjj.exit
-  %arrayidx131 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom123
+  %arrayidx131 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom123
   %33 = load i32, ptr %arrayidx131, align 4
-  %34 = load i8, ptr %nextWindowUseIndex.i258, align 1
-  %conv.i310 = sext i8 %34 to i32
-  br label %do.body.i311
+  %34 = load i8, ptr %nextWindowUseIndex.i259, align 1
+  %conv.i312 = sext i8 %34 to i32
+  br label %do.body.i314
 
-do.body.i311:                                     ; preds = %do.body.i311, %if.then128
-  %i.0.i312 = phi i32 [ %conv.i310, %if.then128 ], [ %spec.store.select.i315, %do.body.i311 ]
-  %dec.i313 = add nsw i32 %i.0.i312, -1
-  %cmp.i314 = icmp slt i32 %i.0.i312, 1
-  %spec.store.select.i315 = select i1 %cmp.i314, i32 7, i32 %dec.i313
-  %idxprom.i316 = sext i32 %spec.store.select.i315 to i64
-  %arrayidx.i317 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i316
-  %35 = load i8, ptr %arrayidx.i317, align 1
-  %cmp3.not.i318 = icmp eq i8 %35, %conv.i303
-  br i1 %cmp3.not.i318, label %do.end.i319, label %do.body.i311, !llvm.loop !14
+do.body.i314:                                     ; preds = %do.body.i314, %if.then128
+  %i.0.i315 = phi i32 [ %conv.i312, %if.then128 ], [ %spec.store.select.i318, %do.body.i314 ]
+  %dec.i316 = add nsw i32 %i.0.i315, -1
+  %cmp.i317 = icmp slt i32 %i.0.i315, 1
+  %spec.store.select.i318 = select i1 %cmp.i317, i32 7, i32 %dec.i316
+  %idxprom.i319 = sext i32 %spec.store.select.i318 to i64
+  %arrayidx.i320 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom.i319
+  %35 = load i8, ptr %arrayidx.i320, align 1
+  %cmp3.not.i321 = icmp eq i8 %35, %conv.i305
+  br i1 %cmp3.not.i321, label %do.end.i322, label %do.body.i314, !llvm.loop !14
 
-do.end.i319:                                      ; preds = %do.body.i311
-  %add.i320 = add nsw i32 %spec.store.select.i315, 1
-  %cmp4.i321 = icmp eq i32 %add.i320, 8
-  %spec.store.select1.i322 = select i1 %cmp4.i321, i32 0, i32 %add.i320
-  %cmp9.not18.i323 = icmp eq i32 %spec.store.select1.i322, %conv.i310
-  br i1 %cmp9.not18.i323, label %_ZL16useDynamicWindowP8SCSUDataa.exit338, label %while.body.i324
+do.end.i322:                                      ; preds = %do.body.i314
+  %add.i323 = add nsw i32 %spec.store.select.i318, 1
+  %cmp4.i324 = icmp eq i32 %add.i323, 8
+  %spec.store.select1.i325 = select i1 %cmp4.i324, i32 0, i32 %add.i323
+  %cmp9.not18.i326 = icmp eq i32 %spec.store.select1.i325, %conv.i312
+  br i1 %cmp9.not18.i326, label %_ZL16useDynamicWindowP8SCSUDataa.exit341, label %while.body.i327
 
-while.body.i324:                                  ; preds = %do.end.i319, %while.body.i324
-  %j.020.i325 = phi i32 [ %spec.store.select2.i333, %while.body.i324 ], [ %spec.store.select1.i322, %do.end.i319 ]
-  %i.119.i326 = phi i32 [ %j.020.i325, %while.body.i324 ], [ %spec.store.select.i315, %do.end.i319 ]
-  %idxprom11.i327 = sext i32 %j.020.i325 to i64
-  %arrayidx12.i328 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom11.i327
-  %36 = load i8, ptr %arrayidx12.i328, align 1
-  %idxprom14.i329 = sext i32 %i.119.i326 to i64
-  %arrayidx15.i330 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom14.i329
-  store i8 %36, ptr %arrayidx15.i330, align 1
-  %inc.i331 = add nsw i32 %j.020.i325, 1
-  %cmp16.i332 = icmp eq i32 %inc.i331, 8
-  %spec.store.select2.i333 = select i1 %cmp16.i332, i32 0, i32 %inc.i331
-  %37 = load i8, ptr %nextWindowUseIndex.i258, align 1
-  %conv8.i334 = sext i8 %37 to i32
-  %cmp9.not.i335 = icmp eq i32 %spec.store.select2.i333, %conv8.i334
-  br i1 %cmp9.not.i335, label %_ZL16useDynamicWindowP8SCSUDataa.exit338, label %while.body.i324, !llvm.loop !15
+while.body.i327:                                  ; preds = %do.end.i322, %while.body.i327
+  %j.020.i328 = phi i32 [ %spec.store.select2.i336, %while.body.i327 ], [ %spec.store.select1.i325, %do.end.i322 ]
+  %i.119.i329 = phi i32 [ %j.020.i328, %while.body.i327 ], [ %spec.store.select.i318, %do.end.i322 ]
+  %idxprom11.i330 = sext i32 %j.020.i328 to i64
+  %arrayidx12.i331 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom11.i330
+  %36 = load i8, ptr %arrayidx12.i331, align 1
+  %idxprom14.i332 = sext i32 %i.119.i329 to i64
+  %arrayidx15.i333 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom14.i332
+  store i8 %36, ptr %arrayidx15.i333, align 1
+  %inc.i334 = add nsw i32 %j.020.i328, 1
+  %cmp16.i335 = icmp eq i32 %inc.i334, 8
+  %spec.store.select2.i336 = select i1 %cmp16.i335, i32 0, i32 %inc.i334
+  %37 = load i8, ptr %nextWindowUseIndex.i259, align 1
+  %conv8.i337 = sext i8 %37 to i32
+  %cmp9.not.i338 = icmp eq i32 %spec.store.select2.i336, %conv8.i337
+  br i1 %cmp9.not.i338, label %_ZL16useDynamicWindowP8SCSUDataa.exit341, label %while.body.i327, !llvm.loop !15
 
-_ZL16useDynamicWindowP8SCSUDataa.exit338:         ; preds = %while.body.i324, %do.end.i319
-  %idxprom20.pre-phi.i336 = phi i64 [ %idxprom.i316, %do.end.i319 ], [ %idxprom11.i327, %while.body.i324 ]
-  %arrayidx21.i337 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom20.pre-phi.i336
-  store i8 %conv.i303, ptr %arrayidx21.i337, align 1
-  %narrow241 = add nuw i8 %conv.i303, 16
+_ZL16useDynamicWindowP8SCSUDataa.exit341:         ; preds = %while.body.i327, %do.end.i322
+  %idxprom20.pre-phi.i339 = phi i64 [ %idxprom.i319, %do.end.i322 ], [ %idxprom11.i330, %while.body.i327 ]
+  %arrayidx21.i340 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom20.pre-phi.i339
+  store i8 %conv.i305, ptr %arrayidx21.i340, align 1
+  %narrow241 = add nuw i8 %conv.i305, 16
   %add133 = zext i8 %narrow241 to i32
   %shl134 = shl nuw nsw i32 %add133, 8
   %sub135 = sub i32 %conv11, %33
@@ -1851,52 +1846,52 @@ if.else138:                                       ; preds = %lor.rhs.i, %lor.lhs
   %or147 = or i32 %or146, %sub145
   br label %outputBytes
 
-for.body.i339:                                    ; preds = %for.body.i339.preheader, %for.inc.i344
-  %indvars.iv.i340 = phi i64 [ %indvars.iv.next.i345, %for.inc.i344 ], [ 0, %for.body.i339.preheader ]
-  %arrayidx.i341 = getelementptr inbounds i32, ptr @_ZL13staticOffsets, i64 %indvars.iv.i340
-  %38 = load i32, ptr %arrayidx.i341, align 4
-  %sub.i342 = sub i32 %conv11, %38
-  %cmp1.i343 = icmp ult i32 %sub.i342, 128
-  br i1 %cmp1.i343, label %_ZL9getWindowPKjj.exit350, label %for.inc.i344
+for.body.i342:                                    ; preds = %for.body.i342.preheader, %for.inc.i347
+  %indvars.iv.i343 = phi i64 [ %indvars.iv.next.i348, %for.inc.i347 ], [ 0, %for.body.i342.preheader ]
+  %arrayidx.i344 = getelementptr inbounds i32, ptr @_ZL13staticOffsets, i64 %indvars.iv.i343
+  %38 = load i32, ptr %arrayidx.i344, align 4
+  %sub.i345 = sub i32 %conv11, %38
+  %cmp1.i346 = icmp ult i32 %sub.i345, 128
+  br i1 %cmp1.i346, label %_ZL9getWindowPKjj.exit353, label %for.inc.i347
 
-for.inc.i344:                                     ; preds = %for.body.i339
-  %indvars.iv.next.i345 = add nuw nsw i64 %indvars.iv.i340, 1
-  %exitcond.not.i346 = icmp eq i64 %indvars.iv.next.i345, 8
-  br i1 %exitcond.not.i346, label %if.else160, label %for.body.i339, !llvm.loop !13
+for.inc.i347:                                     ; preds = %for.body.i342
+  %indvars.iv.next.i348 = add nuw nsw i64 %indvars.iv.i343, 1
+  %exitcond.not.i349 = icmp eq i64 %indvars.iv.next.i348, 8
+  br i1 %exitcond.not.i349, label %if.else160, label %for.body.i342, !llvm.loop !13
 
-_ZL9getWindowPKjj.exit350:                        ; preds = %for.body.i339
-  %conv.i349 = trunc i64 %indvars.iv.i340 to i8
-  %cmp151 = icmp sgt i8 %conv.i349, -1
+_ZL9getWindowPKjj.exit353:                        ; preds = %for.body.i342
+  %conv.i352 = trunc i64 %indvars.iv.i343 to i8
+  %cmp151 = icmp sgt i8 %conv.i352, -1
   br i1 %cmp151, label %if.then152, label %if.else160
 
-if.then152:                                       ; preds = %_ZL9getWindowPKjj.exit350
-  %narrow240 = add nuw i8 %conv.i349, 1
+if.then152:                                       ; preds = %_ZL9getWindowPKjj.exit353
+  %narrow240 = add nuw i8 %conv.i352, 1
   %add154 = zext i8 %narrow240 to i32
   %shl155 = shl nuw nsw i32 %add154, 8
-  %idxprom156 = and i64 %indvars.iv.i340, 255
+  %idxprom156 = and i64 %indvars.iv.i343, 255
   %arrayidx157 = getelementptr inbounds [8 x i32], ptr @_ZL13staticOffsets, i64 0, i64 %idxprom156
   %39 = load i32, ptr %arrayidx157, align 4
   %sub158 = sub i32 %conv11, %39
   %or159 = or i32 %sub158, %shl155
   br label %outputBytes
 
-if.else160:                                       ; preds = %for.inc.i344, %_ZL9getWindowPKjj.exit350
+if.else160:                                       ; preds = %for.inc.i347, %_ZL9getWindowPKjj.exit353
   %call161 = call fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef %conv11, ptr noundef nonnull %offset)
   %cmp162 = icmp sgt i32 %call161, -1
   br i1 %cmp162, label %if.then163, label %if.else176
 
 if.then163:                                       ; preds = %if.else160
-  %40 = load i8, ptr %nextWindowUseIndex.i258, align 1
-  %idxprom.i352 = sext i8 %40 to i64
-  %arrayidx.i353 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i352
-  %41 = load i8, ptr %arrayidx.i353, align 1
-  %inc.i354 = add i8 %40, 1
-  %cmp.i355 = icmp eq i8 %inc.i354, 8
-  %spec.select.i356 = select i1 %cmp.i355, i8 0, i8 %inc.i354
-  store i8 %spec.select.i356, ptr %nextWindowUseIndex.i258, align 1
+  %40 = load i8, ptr %nextWindowUseIndex.i259, align 1
+  %idxprom.i356 = sext i8 %40 to i64
+  %arrayidx.i357 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom.i356
+  %41 = load i8, ptr %arrayidx.i357, align 1
+  %inc.i358 = add i8 %40, 1
+  %cmp.i359 = icmp eq i8 %inc.i358, 8
+  %spec.select.i360 = select i1 %cmp.i359, i8 0, i8 %inc.i358
+  store i8 %spec.select.i360, ptr %nextWindowUseIndex.i259, align 1
   %42 = load i32, ptr %offset, align 4
   %idxprom166 = zext i8 %41 to i64
-  %arrayidx167 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom166
+  %arrayidx167 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom166
   store i32 %42, ptr %arrayidx167, align 4
   tail call fastcc void @_ZL16useDynamicWindowP8SCSUDataa(ptr noundef %1, i8 noundef signext %41)
   %conv168 = zext i8 %41 to i32
@@ -1955,40 +1950,40 @@ if.else193:                                       ; preds = %loop
   br i1 %or.cond2, label %getTrailUnicode, label %while.cond199.preheader
 
 while.cond199.preheader:                          ; preds = %if.else193
-  %cmp200610 = icmp ult ptr %source.0, %3
-  br i1 %cmp200610, label %while.body201.preheader, label %endloop
+  %cmp200619 = icmp ult ptr %source.0, %3
+  br i1 %cmp200619, label %while.body201.preheader, label %endloop
 
 while.body201.preheader:                          ; preds = %while.cond199.preheader
-  %cmp202773 = icmp slt i32 %targetCapacity.0, 1
-  br i1 %cmp202773, label %endloop.sink.split, label %if.end204
+  %cmp202782 = icmp slt i32 %targetCapacity.0, 1
+  br i1 %cmp202782, label %endloop.sink.split, label %if.end204
 
 while.body201:                                    ; preds = %if.then211
-  %sub216 = add nsw i32 %targetCapacity.6613774, -2
-  %cmp202 = icmp slt i32 %targetCapacity.6613774, 3
+  %sub216 = add nsw i32 %targetCapacity.6622783, -2
+  %cmp202 = icmp slt i32 %targetCapacity.6622783, 3
   br i1 %cmp202, label %endloop.sink.split, label %if.end204, !llvm.loop !18
 
 if.end204:                                        ; preds = %while.body201.preheader, %while.body201
-  %source.6611776 = phi ptr [ %incdec.ptr205, %while.body201 ], [ %source.0, %while.body201.preheader ]
-  %target.6612775 = phi ptr [ %incdec.ptr215, %while.body201 ], [ %target.0, %while.body201.preheader ]
-  %targetCapacity.6613774 = phi i32 [ %sub216, %while.body201 ], [ %targetCapacity.0, %while.body201.preheader ]
-  %incdec.ptr205 = getelementptr inbounds i16, ptr %source.6611776, i64 1
-  %45 = load i16, ptr %source.6611776, align 2
+  %source.6620785 = phi ptr [ %incdec.ptr205, %while.body201 ], [ %source.0, %while.body201.preheader ]
+  %target.6621784 = phi ptr [ %incdec.ptr215, %while.body201 ], [ %target.0, %while.body201.preheader ]
+  %targetCapacity.6622783 = phi i32 [ %sub216, %while.body201 ], [ %targetCapacity.0, %while.body201.preheader ]
+  %incdec.ptr205 = getelementptr inbounds i8, ptr %source.6620785, i64 2
+  %45 = load i16, ptr %source.6620785, align 2
   %conv206 = zext i16 %45 to i32
   %sub207 = add nsw i32 %conv206, -13312
   %cmp208 = icmp ult i32 %sub207, 41984
   br i1 %cmp208, label %if.then209, label %if.else219
 
 if.then209:                                       ; preds = %if.end204
-  %cmp210.not = icmp eq i32 %targetCapacity.6613774, 1
+  %cmp210.not = icmp eq i32 %targetCapacity.6622783, 1
   br i1 %cmp210.not, label %if.else379, label %if.then211
 
 if.then211:                                       ; preds = %if.then209
   %shr = lshr i16 %45, 8
   %conv212 = trunc i16 %shr to i8
-  %incdec.ptr213 = getelementptr inbounds i8, ptr %target.6612775, i64 1
-  store i8 %conv212, ptr %target.6612775, align 1
+  %incdec.ptr213 = getelementptr inbounds i8, ptr %target.6621784, i64 1
+  store i8 %conv212, ptr %target.6621784, align 1
   %conv214 = trunc i16 %45 to i8
-  %incdec.ptr215 = getelementptr inbounds i8, ptr %target.6612775, i64 2
+  %incdec.ptr215 = getelementptr inbounds i8, ptr %target.6621784, i64 2
   store i8 %conv214, ptr %incdec.ptr213, align 1
   %cmp200 = icmp ult ptr %incdec.ptr205, %3
   br i1 %cmp200, label %while.body201, label %endloop, !llvm.loop !18
@@ -2017,7 +2012,7 @@ if.then228:                                       ; preds = %land.lhs.true224, %
   %sub235 = add nsw i32 %conv206, -65
   %cmp236 = icmp ult i32 %sub235, 26
   %or.cond243 = select i1 %or.cond242, i1 true, i1 %cmp236
-  br i1 %or.cond243, label %if.then237, label %for.body.i357
+  br i1 %or.cond243, label %if.then237, label %for.body.i361
 
 if.then237:                                       ; preds = %if.then228
   %conv238 = zext i8 %dynamicWindow.0 to i32
@@ -2026,72 +2021,72 @@ if.then237:                                       ; preds = %if.then228
   %or241 = or i32 %shl240, %conv206
   br label %outputBytes
 
-for.body.i357:                                    ; preds = %if.then228, %for.inc.i362
-  %indvars.iv.i358 = phi i64 [ %indvars.iv.next.i363, %for.inc.i362 ], [ 0, %if.then228 ]
-  %arrayidx.i359 = getelementptr inbounds i32, ptr %fromUDynamicOffsets, i64 %indvars.iv.i358
-  %47 = load i32, ptr %arrayidx.i359, align 4
-  %sub.i360 = sub i32 %conv206, %47
-  %cmp1.i361 = icmp ult i32 %sub.i360, 128
-  br i1 %cmp1.i361, label %_ZL9getWindowPKjj.exit368, label %for.inc.i362
+for.body.i361:                                    ; preds = %if.then228, %for.inc.i366
+  %indvars.iv.i362 = phi i64 [ %indvars.iv.next.i367, %for.inc.i366 ], [ 0, %if.then228 ]
+  %arrayidx.i363 = getelementptr inbounds i32, ptr %fromUDynamicOffsets, i64 %indvars.iv.i362
+  %47 = load i32, ptr %arrayidx.i363, align 4
+  %sub.i364 = sub i32 %conv206, %47
+  %cmp1.i365 = icmp ult i32 %sub.i364, 128
+  br i1 %cmp1.i365, label %_ZL9getWindowPKjj.exit372, label %for.inc.i366
 
-for.inc.i362:                                     ; preds = %for.body.i357
-  %indvars.iv.next.i363 = add nuw nsw i64 %indvars.iv.i358, 1
-  %exitcond.not.i364 = icmp eq i64 %indvars.iv.next.i363, 8
-  br i1 %exitcond.not.i364, label %if.else259, label %for.body.i357, !llvm.loop !13
+for.inc.i366:                                     ; preds = %for.body.i361
+  %indvars.iv.next.i367 = add nuw nsw i64 %indvars.iv.i362, 1
+  %exitcond.not.i368 = icmp eq i64 %indvars.iv.next.i367, 8
+  br i1 %exitcond.not.i368, label %if.else259, label %for.body.i361, !llvm.loop !13
 
-_ZL9getWindowPKjj.exit368:                        ; preds = %for.body.i357
-  %conv.i367 = trunc i64 %indvars.iv.i358 to i8
-  %cmp248 = icmp sgt i8 %conv.i367, -1
+_ZL9getWindowPKjj.exit372:                        ; preds = %for.body.i361
+  %conv.i371 = trunc i64 %indvars.iv.i362 to i8
+  %cmp248 = icmp sgt i8 %conv.i371, -1
   br i1 %cmp248, label %if.then249, label %if.else259
 
-if.then249:                                       ; preds = %_ZL9getWindowPKjj.exit368
-  %idxprom251 = and i64 %indvars.iv.i358, 255
-  %arrayidx252 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom251
+if.then249:                                       ; preds = %_ZL9getWindowPKjj.exit372
+  %idxprom251 = and i64 %indvars.iv.i362, 255
+  %arrayidx252 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom251
   %48 = load i32, ptr %arrayidx252, align 4
-  %49 = load i8, ptr %nextWindowUseIndex.i258, align 1
-  %conv.i370 = sext i8 %49 to i32
-  br label %do.body.i371
+  %49 = load i8, ptr %nextWindowUseIndex.i259, align 1
+  %conv.i374 = sext i8 %49 to i32
+  br label %do.body.i376
 
-do.body.i371:                                     ; preds = %do.body.i371, %if.then249
-  %i.0.i372 = phi i32 [ %conv.i370, %if.then249 ], [ %spec.store.select.i375, %do.body.i371 ]
-  %dec.i373 = add nsw i32 %i.0.i372, -1
-  %cmp.i374 = icmp slt i32 %i.0.i372, 1
-  %spec.store.select.i375 = select i1 %cmp.i374, i32 7, i32 %dec.i373
-  %idxprom.i376 = sext i32 %spec.store.select.i375 to i64
-  %arrayidx.i377 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i376
-  %50 = load i8, ptr %arrayidx.i377, align 1
-  %cmp3.not.i378 = icmp eq i8 %50, %conv.i367
-  br i1 %cmp3.not.i378, label %do.end.i379, label %do.body.i371, !llvm.loop !14
+do.body.i376:                                     ; preds = %do.body.i376, %if.then249
+  %i.0.i377 = phi i32 [ %conv.i374, %if.then249 ], [ %spec.store.select.i380, %do.body.i376 ]
+  %dec.i378 = add nsw i32 %i.0.i377, -1
+  %cmp.i379 = icmp slt i32 %i.0.i377, 1
+  %spec.store.select.i380 = select i1 %cmp.i379, i32 7, i32 %dec.i378
+  %idxprom.i381 = sext i32 %spec.store.select.i380 to i64
+  %arrayidx.i382 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom.i381
+  %50 = load i8, ptr %arrayidx.i382, align 1
+  %cmp3.not.i383 = icmp eq i8 %50, %conv.i371
+  br i1 %cmp3.not.i383, label %do.end.i384, label %do.body.i376, !llvm.loop !14
 
-do.end.i379:                                      ; preds = %do.body.i371
-  %add.i380 = add nsw i32 %spec.store.select.i375, 1
-  %cmp4.i381 = icmp eq i32 %add.i380, 8
-  %spec.store.select1.i382 = select i1 %cmp4.i381, i32 0, i32 %add.i380
-  %cmp9.not18.i383 = icmp eq i32 %spec.store.select1.i382, %conv.i370
-  br i1 %cmp9.not18.i383, label %_ZL16useDynamicWindowP8SCSUDataa.exit398, label %while.body.i384
+do.end.i384:                                      ; preds = %do.body.i376
+  %add.i385 = add nsw i32 %spec.store.select.i380, 1
+  %cmp4.i386 = icmp eq i32 %add.i385, 8
+  %spec.store.select1.i387 = select i1 %cmp4.i386, i32 0, i32 %add.i385
+  %cmp9.not18.i388 = icmp eq i32 %spec.store.select1.i387, %conv.i374
+  br i1 %cmp9.not18.i388, label %_ZL16useDynamicWindowP8SCSUDataa.exit403, label %while.body.i389
 
-while.body.i384:                                  ; preds = %do.end.i379, %while.body.i384
-  %j.020.i385 = phi i32 [ %spec.store.select2.i393, %while.body.i384 ], [ %spec.store.select1.i382, %do.end.i379 ]
-  %i.119.i386 = phi i32 [ %j.020.i385, %while.body.i384 ], [ %spec.store.select.i375, %do.end.i379 ]
-  %idxprom11.i387 = sext i32 %j.020.i385 to i64
-  %arrayidx12.i388 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom11.i387
-  %51 = load i8, ptr %arrayidx12.i388, align 1
-  %idxprom14.i389 = sext i32 %i.119.i386 to i64
-  %arrayidx15.i390 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom14.i389
-  store i8 %51, ptr %arrayidx15.i390, align 1
-  %inc.i391 = add nsw i32 %j.020.i385, 1
-  %cmp16.i392 = icmp eq i32 %inc.i391, 8
-  %spec.store.select2.i393 = select i1 %cmp16.i392, i32 0, i32 %inc.i391
-  %52 = load i8, ptr %nextWindowUseIndex.i258, align 1
-  %conv8.i394 = sext i8 %52 to i32
-  %cmp9.not.i395 = icmp eq i32 %spec.store.select2.i393, %conv8.i394
-  br i1 %cmp9.not.i395, label %_ZL16useDynamicWindowP8SCSUDataa.exit398, label %while.body.i384, !llvm.loop !15
+while.body.i389:                                  ; preds = %do.end.i384, %while.body.i389
+  %j.020.i390 = phi i32 [ %spec.store.select2.i398, %while.body.i389 ], [ %spec.store.select1.i387, %do.end.i384 ]
+  %i.119.i391 = phi i32 [ %j.020.i390, %while.body.i389 ], [ %spec.store.select.i380, %do.end.i384 ]
+  %idxprom11.i392 = sext i32 %j.020.i390 to i64
+  %arrayidx12.i393 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom11.i392
+  %51 = load i8, ptr %arrayidx12.i393, align 1
+  %idxprom14.i394 = sext i32 %i.119.i391 to i64
+  %arrayidx15.i395 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom14.i394
+  store i8 %51, ptr %arrayidx15.i395, align 1
+  %inc.i396 = add nsw i32 %j.020.i390, 1
+  %cmp16.i397 = icmp eq i32 %inc.i396, 8
+  %spec.store.select2.i398 = select i1 %cmp16.i397, i32 0, i32 %inc.i396
+  %52 = load i8, ptr %nextWindowUseIndex.i259, align 1
+  %conv8.i399 = sext i8 %52 to i32
+  %cmp9.not.i400 = icmp eq i32 %spec.store.select2.i398, %conv8.i399
+  br i1 %cmp9.not.i400, label %_ZL16useDynamicWindowP8SCSUDataa.exit403, label %while.body.i389, !llvm.loop !15
 
-_ZL16useDynamicWindowP8SCSUDataa.exit398:         ; preds = %while.body.i384, %do.end.i379
-  %idxprom20.pre-phi.i396 = phi i64 [ %idxprom.i376, %do.end.i379 ], [ %idxprom11.i387, %while.body.i384 ]
-  %arrayidx21.i397 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom20.pre-phi.i396
-  store i8 %conv.i367, ptr %arrayidx21.i397, align 1
-  %53 = trunc i64 %indvars.iv.i358 to i32
+_ZL16useDynamicWindowP8SCSUDataa.exit403:         ; preds = %while.body.i389, %do.end.i384
+  %idxprom20.pre-phi.i401 = phi i64 [ %idxprom.i381, %do.end.i384 ], [ %idxprom11.i392, %while.body.i389 ]
+  %arrayidx21.i402 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom20.pre-phi.i401
+  store i8 %conv.i371, ptr %arrayidx21.i402, align 1
+  %53 = trunc i64 %indvars.iv.i362 to i32
   %conv253 = shl i32 %53, 8
   %add254 = and i32 %conv253, 65280
   %sub256 = sub i32 %conv206, %48
@@ -2099,23 +2094,23 @@ _ZL16useDynamicWindowP8SCSUDataa.exit398:         ; preds = %while.body.i384, %d
   %or258 = or i32 %or257, %sub256
   br label %outputBytes
 
-if.else259:                                       ; preds = %for.inc.i362, %_ZL9getWindowPKjj.exit368
+if.else259:                                       ; preds = %for.inc.i366, %_ZL9getWindowPKjj.exit372
   %call260 = call fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef %conv206, ptr noundef nonnull %offset)
   %cmp261 = icmp sgt i32 %call260, -1
   br i1 %cmp261, label %if.then262, label %outputBytes
 
 if.then262:                                       ; preds = %if.else259
-  %54 = load i8, ptr %nextWindowUseIndex.i258, align 1
-  %idxprom.i400 = sext i8 %54 to i64
-  %arrayidx.i401 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i400
-  %55 = load i8, ptr %arrayidx.i401, align 1
-  %inc.i402 = add i8 %54, 1
-  %cmp.i403 = icmp eq i8 %inc.i402, 8
-  %spec.select.i404 = select i1 %cmp.i403, i8 0, i8 %inc.i402
-  store i8 %spec.select.i404, ptr %nextWindowUseIndex.i258, align 1
+  %54 = load i8, ptr %nextWindowUseIndex.i259, align 1
+  %idxprom.i406 = sext i8 %54 to i64
+  %arrayidx.i407 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom.i406
+  %55 = load i8, ptr %arrayidx.i407, align 1
+  %inc.i408 = add i8 %54, 1
+  %cmp.i409 = icmp eq i8 %inc.i408, 8
+  %spec.select.i410 = select i1 %cmp.i409, i8 0, i8 %inc.i408
+  store i8 %spec.select.i410, ptr %nextWindowUseIndex.i259, align 1
   %56 = load i32, ptr %offset, align 4
   %idxprom265 = zext i8 %55 to i64
-  %arrayidx266 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom265
+  %arrayidx266 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom265
   store i32 %56, ptr %arrayidx266, align 4
   tail call fastcc void @_ZL16useDynamicWindowP8SCSUDataa(ptr noundef nonnull %1, i8 noundef signext %55)
   %conv267 = zext i8 %55 to i32
@@ -2139,8 +2134,8 @@ if.then281:                                       ; preds = %if.else279
 
 getTrailUnicode:                                  ; preds = %if.then281, %if.else193
   %source.7 = phi ptr [ %source.0, %if.else193 ], [ %incdec.ptr205, %if.then281 ]
-  %target.7 = phi ptr [ %target.0, %if.else193 ], [ %target.6612775, %if.then281 ]
-  %targetCapacity.7 = phi i32 [ %targetCapacity.0, %if.else193 ], [ %targetCapacity.6613774, %if.then281 ]
+  %target.7 = phi ptr [ %target.0, %if.else193 ], [ %target.6621784, %if.then281 ]
+  %targetCapacity.7 = phi i32 [ %targetCapacity.0, %if.else193 ], [ %targetCapacity.6622783, %if.then281 ]
   %c.4 = phi i32 [ %c.0, %if.else193 ], [ %conv206, %if.then281 ]
   %cmp286 = icmp ult ptr %source.7, %3
   br i1 %cmp286, label %if.then287, label %endloop
@@ -2153,31 +2148,31 @@ if.then287:                                       ; preds = %getTrailUnicode
   br i1 %cmp290, label %if.then291, label %endloop.sink.split
 
 if.then291:                                       ; preds = %if.then287
-  %incdec.ptr292 = getelementptr inbounds i16, ptr %source.7, i64 1
+  %incdec.ptr292 = getelementptr inbounds i8, ptr %source.7, i64 2
   %shl293 = shl i32 %c.4, 10
   %add295 = add nsw i32 %shl293, %conv288
   %sub296 = add nsw i32 %add295, -56613888
-  br label %for.body.i405
+  br label %for.body.i411
 
-for.body.i405:                                    ; preds = %for.inc.i410, %if.then291
-  %indvars.iv.i406 = phi i64 [ 0, %if.then291 ], [ %indvars.iv.next.i411, %for.inc.i410 ]
-  %arrayidx.i407 = getelementptr inbounds i32, ptr %fromUDynamicOffsets, i64 %indvars.iv.i406
-  %58 = load i32, ptr %arrayidx.i407, align 4
-  %sub.i408 = sub i32 %sub296, %58
-  %cmp1.i409 = icmp ult i32 %sub.i408, 128
-  br i1 %cmp1.i409, label %_ZL9getWindowPKjj.exit416, label %for.inc.i410
+for.body.i411:                                    ; preds = %for.inc.i416, %if.then291
+  %indvars.iv.i412 = phi i64 [ 0, %if.then291 ], [ %indvars.iv.next.i417, %for.inc.i416 ]
+  %arrayidx.i413 = getelementptr inbounds i32, ptr %fromUDynamicOffsets, i64 %indvars.iv.i412
+  %58 = load i32, ptr %arrayidx.i413, align 4
+  %sub.i414 = sub i32 %sub296, %58
+  %cmp1.i415 = icmp ult i32 %sub.i414, 128
+  br i1 %cmp1.i415, label %_ZL9getWindowPKjj.exit422, label %for.inc.i416
 
-for.inc.i410:                                     ; preds = %for.body.i405
-  %indvars.iv.next.i411 = add nuw nsw i64 %indvars.iv.i406, 1
-  %exitcond.not.i412 = icmp eq i64 %indvars.iv.next.i411, 8
-  br i1 %exitcond.not.i412, label %if.else324, label %for.body.i405, !llvm.loop !13
+for.inc.i416:                                     ; preds = %for.body.i411
+  %indvars.iv.next.i417 = add nuw nsw i64 %indvars.iv.i412, 1
+  %exitcond.not.i418 = icmp eq i64 %indvars.iv.next.i417, 8
+  br i1 %exitcond.not.i418, label %if.else324, label %for.body.i411, !llvm.loop !13
 
-_ZL9getWindowPKjj.exit416:                        ; preds = %for.body.i405
-  %conv.i415 = trunc i64 %indvars.iv.i406 to i8
-  %cmp307 = icmp sgt i8 %conv.i415, -1
+_ZL9getWindowPKjj.exit422:                        ; preds = %for.body.i411
+  %conv.i421 = trunc i64 %indvars.iv.i412 to i8
+  %cmp307 = icmp sgt i8 %conv.i421, -1
   br i1 %cmp307, label %land.lhs.true308, label %if.else324
 
-land.lhs.true308:                                 ; preds = %_ZL9getWindowPKjj.exit416
+land.lhs.true308:                                 ; preds = %_ZL9getWindowPKjj.exit422
   %cmp309 = icmp ult ptr %incdec.ptr292, %3
   br i1 %cmp309, label %land.lhs.true310, label %if.then314
 
@@ -2189,53 +2184,53 @@ land.lhs.true310:                                 ; preds = %land.lhs.true308
   br i1 %cmp313, label %if.else324, label %if.then314
 
 if.then314:                                       ; preds = %land.lhs.true310, %land.lhs.true308
-  %idxprom316 = and i64 %indvars.iv.i406, 255
-  %arrayidx317 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom316
+  %idxprom316 = and i64 %indvars.iv.i412, 255
+  %arrayidx317 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom316
   %60 = load i32, ptr %arrayidx317, align 4
-  %61 = load i8, ptr %nextWindowUseIndex.i258, align 1
-  %conv.i418 = sext i8 %61 to i32
-  br label %do.body.i419
+  %61 = load i8, ptr %nextWindowUseIndex.i259, align 1
+  %conv.i424 = sext i8 %61 to i32
+  br label %do.body.i426
 
-do.body.i419:                                     ; preds = %do.body.i419, %if.then314
-  %i.0.i420 = phi i32 [ %conv.i418, %if.then314 ], [ %spec.store.select.i423, %do.body.i419 ]
-  %dec.i421 = add nsw i32 %i.0.i420, -1
-  %cmp.i422 = icmp slt i32 %i.0.i420, 1
-  %spec.store.select.i423 = select i1 %cmp.i422, i32 7, i32 %dec.i421
-  %idxprom.i424 = sext i32 %spec.store.select.i423 to i64
-  %arrayidx.i425 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i424
-  %62 = load i8, ptr %arrayidx.i425, align 1
-  %cmp3.not.i426 = icmp eq i8 %62, %conv.i415
-  br i1 %cmp3.not.i426, label %do.end.i427, label %do.body.i419, !llvm.loop !14
+do.body.i426:                                     ; preds = %do.body.i426, %if.then314
+  %i.0.i427 = phi i32 [ %conv.i424, %if.then314 ], [ %spec.store.select.i430, %do.body.i426 ]
+  %dec.i428 = add nsw i32 %i.0.i427, -1
+  %cmp.i429 = icmp slt i32 %i.0.i427, 1
+  %spec.store.select.i430 = select i1 %cmp.i429, i32 7, i32 %dec.i428
+  %idxprom.i431 = sext i32 %spec.store.select.i430 to i64
+  %arrayidx.i432 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom.i431
+  %62 = load i8, ptr %arrayidx.i432, align 1
+  %cmp3.not.i433 = icmp eq i8 %62, %conv.i421
+  br i1 %cmp3.not.i433, label %do.end.i434, label %do.body.i426, !llvm.loop !14
 
-do.end.i427:                                      ; preds = %do.body.i419
-  %add.i428 = add nsw i32 %spec.store.select.i423, 1
-  %cmp4.i429 = icmp eq i32 %add.i428, 8
-  %spec.store.select1.i430 = select i1 %cmp4.i429, i32 0, i32 %add.i428
-  %cmp9.not18.i431 = icmp eq i32 %spec.store.select1.i430, %conv.i418
-  br i1 %cmp9.not18.i431, label %_ZL16useDynamicWindowP8SCSUDataa.exit446, label %while.body.i432
+do.end.i434:                                      ; preds = %do.body.i426
+  %add.i435 = add nsw i32 %spec.store.select.i430, 1
+  %cmp4.i436 = icmp eq i32 %add.i435, 8
+  %spec.store.select1.i437 = select i1 %cmp4.i436, i32 0, i32 %add.i435
+  %cmp9.not18.i438 = icmp eq i32 %spec.store.select1.i437, %conv.i424
+  br i1 %cmp9.not18.i438, label %_ZL16useDynamicWindowP8SCSUDataa.exit453, label %while.body.i439
 
-while.body.i432:                                  ; preds = %do.end.i427, %while.body.i432
-  %j.020.i433 = phi i32 [ %spec.store.select2.i441, %while.body.i432 ], [ %spec.store.select1.i430, %do.end.i427 ]
-  %i.119.i434 = phi i32 [ %j.020.i433, %while.body.i432 ], [ %spec.store.select.i423, %do.end.i427 ]
-  %idxprom11.i435 = sext i32 %j.020.i433 to i64
-  %arrayidx12.i436 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom11.i435
-  %63 = load i8, ptr %arrayidx12.i436, align 1
-  %idxprom14.i437 = sext i32 %i.119.i434 to i64
-  %arrayidx15.i438 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom14.i437
-  store i8 %63, ptr %arrayidx15.i438, align 1
-  %inc.i439 = add nsw i32 %j.020.i433, 1
-  %cmp16.i440 = icmp eq i32 %inc.i439, 8
-  %spec.store.select2.i441 = select i1 %cmp16.i440, i32 0, i32 %inc.i439
-  %64 = load i8, ptr %nextWindowUseIndex.i258, align 1
-  %conv8.i442 = sext i8 %64 to i32
-  %cmp9.not.i443 = icmp eq i32 %spec.store.select2.i441, %conv8.i442
-  br i1 %cmp9.not.i443, label %_ZL16useDynamicWindowP8SCSUDataa.exit446, label %while.body.i432, !llvm.loop !15
+while.body.i439:                                  ; preds = %do.end.i434, %while.body.i439
+  %j.020.i440 = phi i32 [ %spec.store.select2.i448, %while.body.i439 ], [ %spec.store.select1.i437, %do.end.i434 ]
+  %i.119.i441 = phi i32 [ %j.020.i440, %while.body.i439 ], [ %spec.store.select.i430, %do.end.i434 ]
+  %idxprom11.i442 = sext i32 %j.020.i440 to i64
+  %arrayidx12.i443 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom11.i442
+  %63 = load i8, ptr %arrayidx12.i443, align 1
+  %idxprom14.i444 = sext i32 %i.119.i441 to i64
+  %arrayidx15.i445 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom14.i444
+  store i8 %63, ptr %arrayidx15.i445, align 1
+  %inc.i446 = add nsw i32 %j.020.i440, 1
+  %cmp16.i447 = icmp eq i32 %inc.i446, 8
+  %spec.store.select2.i448 = select i1 %cmp16.i447, i32 0, i32 %inc.i446
+  %64 = load i8, ptr %nextWindowUseIndex.i259, align 1
+  %conv8.i449 = sext i8 %64 to i32
+  %cmp9.not.i450 = icmp eq i32 %spec.store.select2.i448, %conv8.i449
+  br i1 %cmp9.not.i450, label %_ZL16useDynamicWindowP8SCSUDataa.exit453, label %while.body.i439, !llvm.loop !15
 
-_ZL16useDynamicWindowP8SCSUDataa.exit446:         ; preds = %while.body.i432, %do.end.i427
-  %idxprom20.pre-phi.i444 = phi i64 [ %idxprom.i424, %do.end.i427 ], [ %idxprom11.i435, %while.body.i432 ]
-  %arrayidx21.i445 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom20.pre-phi.i444
-  store i8 %conv.i415, ptr %arrayidx21.i445, align 1
-  %65 = trunc i64 %indvars.iv.i406 to i32
+_ZL16useDynamicWindowP8SCSUDataa.exit453:         ; preds = %while.body.i439, %do.end.i434
+  %idxprom20.pre-phi.i451 = phi i64 [ %idxprom.i431, %do.end.i434 ], [ %idxprom11.i442, %while.body.i439 ]
+  %arrayidx21.i452 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom20.pre-phi.i451
+  store i8 %conv.i421, ptr %arrayidx21.i452, align 1
+  %65 = trunc i64 %indvars.iv.i412 to i32
   %conv318 = shl i32 %65, 8
   %add319 = and i32 %conv318, 65280
   %sub321 = sub i32 %sub296, %60
@@ -2243,7 +2238,7 @@ _ZL16useDynamicWindowP8SCSUDataa.exit446:         ; preds = %while.body.i432, %d
   %or323 = or i32 %or322, %sub321
   br label %outputBytes
 
-if.else324:                                       ; preds = %for.inc.i410, %land.lhs.true310, %_ZL9getWindowPKjj.exit416
+if.else324:                                       ; preds = %for.inc.i416, %land.lhs.true310, %_ZL9getWindowPKjj.exit422
   %cmp325 = icmp ult ptr %incdec.ptr292, %3
   br i1 %cmp325, label %land.lhs.true326, label %if.else347
 
@@ -2251,122 +2246,122 @@ land.lhs.true326:                                 ; preds = %if.else324
   %66 = load i16, ptr %incdec.ptr292, align 2
   %67 = trunc i32 %c.4 to i16
   %cmp329 = icmp eq i16 %66, %67
-  br i1 %cmp329, label %for.body.i447, label %if.else347
+  br i1 %cmp329, label %for.body.i454, label %if.else347
 
-for.body.i447:                                    ; preds = %land.lhs.true326, %for.inc.i452
-  %indvars.iv.i448 = phi i64 [ %indvars.iv.next.i453, %for.inc.i452 ], [ 0, %land.lhs.true326 ]
-  %arrayidx.i449 = getelementptr inbounds [7 x i32], ptr @_ZL12fixedOffsets, i64 0, i64 %indvars.iv.i448
-  %68 = load i32, ptr %arrayidx.i449, align 4
-  %sub.i450 = sub i32 %sub296, %68
-  %cmp1.i451 = icmp ult i32 %sub.i450, 128
-  br i1 %cmp1.i451, label %_ZL16getDynamicOffsetjPj.exit477, label %for.inc.i452
+for.body.i454:                                    ; preds = %land.lhs.true326, %for.inc.i459
+  %indvars.iv.i455 = phi i64 [ %indvars.iv.next.i460, %for.inc.i459 ], [ 0, %land.lhs.true326 ]
+  %arrayidx.i456 = getelementptr inbounds [7 x i32], ptr @_ZL12fixedOffsets, i64 0, i64 %indvars.iv.i455
+  %68 = load i32, ptr %arrayidx.i456, align 4
+  %sub.i457 = sub i32 %sub296, %68
+  %cmp1.i458 = icmp ult i32 %sub.i457, 128
+  br i1 %cmp1.i458, label %_ZL16getDynamicOffsetjPj.exit484, label %for.inc.i459
 
-for.inc.i452:                                     ; preds = %for.body.i447
-  %indvars.iv.next.i453 = add nuw nsw i64 %indvars.iv.i448, 1
-  %exitcond.not.i454 = icmp eq i64 %indvars.iv.next.i453, 7
-  br i1 %exitcond.not.i454, label %for.end.i455, label %for.body.i447, !llvm.loop !16
+for.inc.i459:                                     ; preds = %for.body.i454
+  %indvars.iv.next.i460 = add nuw nsw i64 %indvars.iv.i455, 1
+  %exitcond.not.i461 = icmp eq i64 %indvars.iv.next.i460, 7
+  br i1 %exitcond.not.i461, label %for.end.i462, label %for.body.i454, !llvm.loop !16
 
-for.end.i455:                                     ; preds = %for.inc.i452
-  %cmp4.i456 = icmp ult i32 %sub296, 128
-  br i1 %cmp4.i456, label %if.else347, label %if.else.i457
+for.end.i462:                                     ; preds = %for.inc.i459
+  %cmp4.i463 = icmp ult i32 %sub296, 128
+  br i1 %cmp4.i463, label %if.else347, label %if.else.i464
 
-if.else.i457:                                     ; preds = %for.end.i455
-  %cmp6.i458 = icmp ult i32 %sub296, 13312
+if.else.i464:                                     ; preds = %for.end.i462
+  %cmp6.i465 = icmp ult i32 %sub296, 13312
   %69 = and i32 %sub296, -16384
-  %cmp8.i459 = icmp eq i32 %69, 65536
-  %or.cond.i460 = or i1 %cmp6.i458, %cmp8.i459
-  %sub10.i461 = add i32 %add295, -56732672
-  %cmp11.i462 = icmp ult i32 %sub10.i461, 12288
-  %or.cond19.i463 = or i1 %cmp11.i462, %or.cond.i460
-  br i1 %or.cond19.i463, label %if.then12.i472, label %if.else13.i464
+  %cmp8.i466 = icmp eq i32 %69, 65536
+  %or.cond.i467 = or i1 %cmp6.i465, %cmp8.i466
+  %sub10.i468 = add i32 %add295, -56732672
+  %cmp11.i469 = icmp ult i32 %sub10.i468, 12288
+  %or.cond19.i470 = or i1 %cmp11.i469, %or.cond.i467
+  br i1 %or.cond19.i470, label %if.then12.i479, label %if.else13.i471
 
-if.then12.i472:                                   ; preds = %if.else.i457
-  %and.i473 = and i32 %sub296, 2147483520
-  store i32 %and.i473, ptr %offset, align 4
-  %shr.i474 = lshr i32 %sub296, 7
+if.then12.i479:                                   ; preds = %if.else.i464
+  %and.i480 = and i32 %sub296, 2147483520
+  store i32 %and.i480, ptr %offset, align 4
+  %shr.i481 = lshr i32 %sub296, 7
   br label %if.then333
 
-if.else13.i464:                                   ; preds = %if.else.i457
-  %cmp15.i465 = icmp ne i32 %sub296, 65279
+if.else13.i471:                                   ; preds = %if.else.i464
+  %cmp15.i472 = icmp ne i32 %sub296, 65279
   %70 = add i32 %add295, -56671232
   %71 = icmp ult i32 %70, 8176
-  %or.cond1.i466 = and i1 %cmp15.i465, %71
-  br i1 %or.cond1.i466, label %if.then18.i468, label %if.else347
+  %or.cond1.i473 = and i1 %cmp15.i472, %71
+  br i1 %or.cond1.i473, label %if.then18.i475, label %if.else347
 
-if.then18.i468:                                   ; preds = %if.else13.i464
-  %and19.i469 = and i32 %sub296, 2147483520
-  store i32 %and19.i469, ptr %offset, align 4
-  %sub20.i470 = add nsw i32 %add295, -56657920
-  %shr21.i471 = lshr i32 %sub20.i470, 7
+if.then18.i475:                                   ; preds = %if.else13.i471
+  %and19.i476 = and i32 %sub296, 2147483520
+  store i32 %and19.i476, ptr %offset, align 4
+  %sub20.i477 = add nsw i32 %add295, -56657920
+  %shr21.i478 = lshr i32 %sub20.i477, 7
   br label %if.then333
 
-_ZL16getDynamicOffsetjPj.exit477:                 ; preds = %for.body.i447
-  %72 = trunc i64 %indvars.iv.i448 to i32
+_ZL16getDynamicOffsetjPj.exit484:                 ; preds = %for.body.i454
+  %72 = trunc i64 %indvars.iv.i455 to i32
   store i32 %68, ptr %offset, align 4
-  %add.i476 = add nuw nsw i32 %72, 249
+  %add.i483 = add nuw nsw i32 %72, 249
   %cmp332 = icmp sgt i32 %72, -250
   br i1 %cmp332, label %if.then333, label %if.else347
 
-if.then333:                                       ; preds = %if.then18.i468, %if.then12.i472, %_ZL16getDynamicOffsetjPj.exit477
-  %73 = phi i32 [ %68, %_ZL16getDynamicOffsetjPj.exit477 ], [ %and19.i469, %if.then18.i468 ], [ %and.i473, %if.then12.i472 ]
-  %retval.0.i467539 = phi i32 [ %add.i476, %_ZL16getDynamicOffsetjPj.exit477 ], [ %shr21.i471, %if.then18.i468 ], [ %shr.i474, %if.then12.i472 ]
-  %74 = load i8, ptr %nextWindowUseIndex.i258, align 1
-  %idxprom.i479 = sext i8 %74 to i64
-  %arrayidx.i480 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i479
-  %75 = load i8, ptr %arrayidx.i480, align 1
-  %inc.i481 = add i8 %74, 1
-  %cmp.i482 = icmp eq i8 %inc.i481, 8
-  %spec.select.i483 = select i1 %cmp.i482, i8 0, i8 %inc.i481
-  store i8 %spec.select.i483, ptr %nextWindowUseIndex.i258, align 1
+if.then333:                                       ; preds = %if.then18.i475, %if.then12.i479, %_ZL16getDynamicOffsetjPj.exit484
+  %73 = phi i32 [ %68, %_ZL16getDynamicOffsetjPj.exit484 ], [ %and19.i476, %if.then18.i475 ], [ %and.i480, %if.then12.i479 ]
+  %retval.0.i474548 = phi i32 [ %add.i483, %_ZL16getDynamicOffsetjPj.exit484 ], [ %shr21.i478, %if.then18.i475 ], [ %shr.i481, %if.then12.i479 ]
+  %74 = load i8, ptr %nextWindowUseIndex.i259, align 1
+  %idxprom.i487 = sext i8 %74 to i64
+  %arrayidx.i488 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom.i487
+  %75 = load i8, ptr %arrayidx.i488, align 1
+  %inc.i489 = add i8 %74, 1
+  %cmp.i490 = icmp eq i8 %inc.i489, 8
+  %spec.select.i491 = select i1 %cmp.i490, i8 0, i8 %inc.i489
+  store i8 %spec.select.i491, ptr %nextWindowUseIndex.i259, align 1
   %idxprom337 = zext i8 %75 to i64
-  %arrayidx338 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom337
+  %arrayidx338 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom337
   store i32 %73, ptr %arrayidx338, align 4
-  %76 = load i8, ptr %nextWindowUseIndex.i258, align 1
-  %conv.i485 = sext i8 %76 to i32
-  br label %do.body.i486
+  %76 = load i8, ptr %nextWindowUseIndex.i259, align 1
+  %conv.i493 = sext i8 %76 to i32
+  br label %do.body.i495
 
-do.body.i486:                                     ; preds = %do.body.i486, %if.then333
-  %i.0.i487 = phi i32 [ %conv.i485, %if.then333 ], [ %spec.store.select.i490, %do.body.i486 ]
-  %dec.i488 = add nsw i32 %i.0.i487, -1
-  %cmp.i489 = icmp slt i32 %i.0.i487, 1
-  %spec.store.select.i490 = select i1 %cmp.i489, i32 7, i32 %dec.i488
-  %idxprom.i491 = sext i32 %spec.store.select.i490 to i64
-  %arrayidx.i492 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i491
-  %77 = load i8, ptr %arrayidx.i492, align 1
-  %cmp3.not.i493 = icmp eq i8 %77, %75
-  br i1 %cmp3.not.i493, label %do.end.i494, label %do.body.i486, !llvm.loop !14
+do.body.i495:                                     ; preds = %do.body.i495, %if.then333
+  %i.0.i496 = phi i32 [ %conv.i493, %if.then333 ], [ %spec.store.select.i499, %do.body.i495 ]
+  %dec.i497 = add nsw i32 %i.0.i496, -1
+  %cmp.i498 = icmp slt i32 %i.0.i496, 1
+  %spec.store.select.i499 = select i1 %cmp.i498, i32 7, i32 %dec.i497
+  %idxprom.i500 = sext i32 %spec.store.select.i499 to i64
+  %arrayidx.i501 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom.i500
+  %77 = load i8, ptr %arrayidx.i501, align 1
+  %cmp3.not.i502 = icmp eq i8 %77, %75
+  br i1 %cmp3.not.i502, label %do.end.i503, label %do.body.i495, !llvm.loop !14
 
-do.end.i494:                                      ; preds = %do.body.i486
-  %add.i495 = add nsw i32 %spec.store.select.i490, 1
-  %cmp4.i496 = icmp eq i32 %add.i495, 8
-  %spec.store.select1.i497 = select i1 %cmp4.i496, i32 0, i32 %add.i495
-  %cmp9.not18.i498 = icmp eq i32 %spec.store.select1.i497, %conv.i485
-  br i1 %cmp9.not18.i498, label %_ZL16useDynamicWindowP8SCSUDataa.exit513, label %while.body.i499
+do.end.i503:                                      ; preds = %do.body.i495
+  %add.i504 = add nsw i32 %spec.store.select.i499, 1
+  %cmp4.i505 = icmp eq i32 %add.i504, 8
+  %spec.store.select1.i506 = select i1 %cmp4.i505, i32 0, i32 %add.i504
+  %cmp9.not18.i507 = icmp eq i32 %spec.store.select1.i506, %conv.i493
+  br i1 %cmp9.not18.i507, label %_ZL16useDynamicWindowP8SCSUDataa.exit522, label %while.body.i508
 
-while.body.i499:                                  ; preds = %do.end.i494, %while.body.i499
-  %j.020.i500 = phi i32 [ %spec.store.select2.i508, %while.body.i499 ], [ %spec.store.select1.i497, %do.end.i494 ]
-  %i.119.i501 = phi i32 [ %j.020.i500, %while.body.i499 ], [ %spec.store.select.i490, %do.end.i494 ]
-  %idxprom11.i502 = sext i32 %j.020.i500 to i64
-  %arrayidx12.i503 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom11.i502
-  %78 = load i8, ptr %arrayidx12.i503, align 1
-  %idxprom14.i504 = sext i32 %i.119.i501 to i64
-  %arrayidx15.i505 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom14.i504
-  store i8 %78, ptr %arrayidx15.i505, align 1
-  %inc.i506 = add nsw i32 %j.020.i500, 1
-  %cmp16.i507 = icmp eq i32 %inc.i506, 8
-  %spec.store.select2.i508 = select i1 %cmp16.i507, i32 0, i32 %inc.i506
-  %79 = load i8, ptr %nextWindowUseIndex.i258, align 1
-  %conv8.i509 = sext i8 %79 to i32
-  %cmp9.not.i510 = icmp eq i32 %spec.store.select2.i508, %conv8.i509
-  br i1 %cmp9.not.i510, label %_ZL16useDynamicWindowP8SCSUDataa.exit513, label %while.body.i499, !llvm.loop !15
+while.body.i508:                                  ; preds = %do.end.i503, %while.body.i508
+  %j.020.i509 = phi i32 [ %spec.store.select2.i517, %while.body.i508 ], [ %spec.store.select1.i506, %do.end.i503 ]
+  %i.119.i510 = phi i32 [ %j.020.i509, %while.body.i508 ], [ %spec.store.select.i499, %do.end.i503 ]
+  %idxprom11.i511 = sext i32 %j.020.i509 to i64
+  %arrayidx12.i512 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom11.i511
+  %78 = load i8, ptr %arrayidx12.i512, align 1
+  %idxprom14.i513 = sext i32 %i.119.i510 to i64
+  %arrayidx15.i514 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom14.i513
+  store i8 %78, ptr %arrayidx15.i514, align 1
+  %inc.i515 = add nsw i32 %j.020.i509, 1
+  %cmp16.i516 = icmp eq i32 %inc.i515, 8
+  %spec.store.select2.i517 = select i1 %cmp16.i516, i32 0, i32 %inc.i515
+  %79 = load i8, ptr %nextWindowUseIndex.i259, align 1
+  %conv8.i518 = sext i8 %79 to i32
+  %cmp9.not.i519 = icmp eq i32 %spec.store.select2.i517, %conv8.i518
+  br i1 %cmp9.not.i519, label %_ZL16useDynamicWindowP8SCSUDataa.exit522, label %while.body.i508, !llvm.loop !15
 
-_ZL16useDynamicWindowP8SCSUDataa.exit513:         ; preds = %while.body.i499, %do.end.i494
-  %idxprom20.pre-phi.i511 = phi i64 [ %idxprom.i491, %do.end.i494 ], [ %idxprom11.i502, %while.body.i499 ]
-  %arrayidx21.i512 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom20.pre-phi.i511
-  store i8 %75, ptr %arrayidx21.i512, align 1
+_ZL16useDynamicWindowP8SCSUDataa.exit522:         ; preds = %while.body.i508, %do.end.i503
+  %idxprom20.pre-phi.i520 = phi i64 [ %idxprom.i500, %do.end.i503 ], [ %idxprom11.i511, %while.body.i508 ]
+  %arrayidx21.i521 = getelementptr inbounds [8 x i8], ptr %windowUse.i258, i64 0, i64 %idxprom20.pre-phi.i520
+  store i8 %75, ptr %arrayidx21.i521, align 1
   %conv339 = zext i8 %75 to i32
   %shl340 = shl nuw nsw i32 %conv339, 21
-  %sub334 = shl i32 %retval.0.i467539, 8
+  %sub334 = shl i32 %retval.0.i474548, 8
   %shl342 = add i32 %sub334, 268304384
   %sub344 = sub i32 %sub296, %73
   %or341 = or i32 %shl342, %shl340
@@ -2374,7 +2369,7 @@ _ZL16useDynamicWindowP8SCSUDataa.exit513:         ; preds = %while.body.i499, %d
   %or346 = or i32 %or343, -251658112
   br label %outputBytes
 
-if.else347:                                       ; preds = %if.else13.i464, %for.end.i455, %_ZL16getDynamicOffsetjPj.exit477, %land.lhs.true326, %if.else324
+if.else347:                                       ; preds = %if.else13.i471, %for.end.i462, %_ZL16getDynamicOffsetjPj.exit484, %land.lhs.true326, %if.else324
   %conv348 = shl i32 %c.4, 16
   %or351 = or disjoint i32 %conv348, %conv288
   br label %outputBytes
@@ -2385,10 +2380,10 @@ if.else352:                                       ; preds = %if.else279
 
 endloop.sink.split:                               ; preds = %if.then281, %if.then287, %if.then36, %if.then42, %while.body, %while.body201.preheader, %while.body201, %sw.bb409, %sw.epilog397
   %.sink = phi i32 [ 15, %sw.epilog397 ], [ 15, %sw.bb409 ], [ 15, %while.body201 ], [ 15, %while.body ], [ 12, %if.then42 ], [ 12, %if.then36 ], [ 12, %if.then287 ], [ 12, %if.then281 ], [ 15, %while.body201.preheader ]
-  %source.8.ph = phi ptr [ %source.9553, %sw.epilog397 ], [ %source.9553, %sw.bb409 ], [ %incdec.ptr205, %while.body201 ], [ %source.1, %while.body ], [ %source.2, %if.then42 ], [ %incdec.ptr, %if.then36 ], [ %source.7, %if.then287 ], [ %incdec.ptr205, %if.then281 ], [ %source.0, %while.body201.preheader ]
-  %target.8.ph = phi ptr [ %target.9554, %sw.epilog397 ], [ %incdec.ptr411, %sw.bb409 ], [ %incdec.ptr215, %while.body201 ], [ %target.1, %while.body ], [ %target.2, %if.then42 ], [ %target.1, %if.then36 ], [ %target.7, %if.then287 ], [ %target.6612775, %if.then281 ], [ %target.0, %while.body201.preheader ]
-  %isSingleByteMode.1.ph = phi i8 [ %isSingleByteMode.2556, %sw.epilog397 ], [ %isSingleByteMode.2556, %sw.bb409 ], [ 0, %while.body201 ], [ %isSingleByteMode.0, %while.body ], [ %isSingleByteMode.0, %if.then42 ], [ %isSingleByteMode.0, %if.then36 ], [ 0, %if.then287 ], [ 0, %if.then281 ], [ 0, %while.body201.preheader ]
-  %dynamicWindow.1.ph = phi i8 [ %dynamicWindow.2557, %sw.epilog397 ], [ %dynamicWindow.2557, %sw.bb409 ], [ %dynamicWindow.0, %while.body201 ], [ %dynamicWindow.0, %while.body201.preheader ], [ %dynamicWindow.0, %while.body ], [ %dynamicWindow.0, %if.then42 ], [ %dynamicWindow.0, %if.then36 ], [ %dynamicWindow.0, %if.then287 ], [ %dynamicWindow.0, %if.then281 ]
+  %source.8.ph = phi ptr [ %source.9562, %sw.epilog397 ], [ %source.9562, %sw.bb409 ], [ %incdec.ptr205, %while.body201 ], [ %source.1, %while.body ], [ %source.2, %if.then42 ], [ %incdec.ptr, %if.then36 ], [ %source.7, %if.then287 ], [ %incdec.ptr205, %if.then281 ], [ %source.0, %while.body201.preheader ]
+  %target.8.ph = phi ptr [ %target.9563, %sw.epilog397 ], [ %incdec.ptr411, %sw.bb409 ], [ %incdec.ptr215, %while.body201 ], [ %target.1, %while.body ], [ %target.2, %if.then42 ], [ %target.1, %if.then36 ], [ %target.7, %if.then287 ], [ %target.6621784, %if.then281 ], [ %target.0, %while.body201.preheader ]
+  %isSingleByteMode.1.ph = phi i8 [ %isSingleByteMode.2565, %sw.epilog397 ], [ %isSingleByteMode.2565, %sw.bb409 ], [ 0, %while.body201 ], [ %isSingleByteMode.0, %while.body ], [ %isSingleByteMode.0, %if.then42 ], [ %isSingleByteMode.0, %if.then36 ], [ 0, %if.then287 ], [ 0, %if.then281 ], [ 0, %while.body201.preheader ]
+  %dynamicWindow.1.ph = phi i8 [ %dynamicWindow.2566, %sw.epilog397 ], [ %dynamicWindow.2566, %sw.bb409 ], [ %dynamicWindow.0, %while.body201 ], [ %dynamicWindow.0, %while.body201.preheader ], [ %dynamicWindow.0, %while.body ], [ %dynamicWindow.0, %if.then42 ], [ %dynamicWindow.0, %if.then36 ], [ %dynamicWindow.0, %if.then287 ], [ %dynamicWindow.0, %if.then281 ]
   %c.5.ph = phi i32 [ 0, %sw.epilog397 ], [ 0, %sw.bb409 ], [ 0, %while.body201 ], [ %c.1, %while.body ], [ %c.2, %if.then42 ], [ %conv11, %if.then36 ], [ %c.4, %if.then287 ], [ %conv206, %if.then281 ], [ %c.0, %while.body201.preheader ]
   store i32 %.sink, ptr %pErrorCode, align 4
   br label %endloop
@@ -2406,15 +2401,15 @@ endloop:                                          ; preds = %getTrailSingle, %wh
   store ptr %target.8, ptr %target3, align 8
   ret void
 
-outputBytes:                                      ; preds = %land.lhs.true224, %if.else259, %if.else352, %if.else347, %_ZL16useDynamicWindowP8SCSUDataa.exit513, %_ZL16useDynamicWindowP8SCSUDataa.exit446, %if.then262, %_ZL16useDynamicWindowP8SCSUDataa.exit398, %if.then237, %if.else187, %if.then185, %if.then163, %if.then152, %if.else138, %_ZL16useDynamicWindowP8SCSUDataa.exit338, %if.then111, %if.then105, %if.else95, %_ZL16useDynamicWindowP8SCSUDataa.exit292, %_ZL16useDynamicWindowP8SCSUDataa.exit, %if.else23
-  %source.9 = phi ptr [ %incdec.ptr, %if.else23 ], [ %incdec.ptr, %if.then105 ], [ %incdec.ptr, %if.then111 ], [ %incdec.ptr, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %incdec.ptr, %if.else138 ], [ %incdec.ptr, %if.then152 ], [ %incdec.ptr, %if.then163 ], [ %incdec.ptr, %if.then185 ], [ %incdec.ptr, %if.else187 ], [ %incdec.ptr47, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %incdec.ptr47, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ %incdec.ptr47, %if.else95 ], [ %incdec.ptr292, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ %incdec.ptr292, %if.else347 ], [ %incdec.ptr292, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ %incdec.ptr205, %if.then237 ], [ %incdec.ptr205, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ %incdec.ptr205, %if.then262 ], [ %incdec.ptr205, %if.else352 ], [ %incdec.ptr205, %if.else259 ], [ %incdec.ptr205, %land.lhs.true224 ]
-  %target.9 = phi ptr [ %target.1, %if.else23 ], [ %target.1, %if.then105 ], [ %target.1, %if.then111 ], [ %target.1, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %target.1, %if.else138 ], [ %target.1, %if.then152 ], [ %target.1, %if.then163 ], [ %target.1, %if.then185 ], [ %target.1, %if.else187 ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ %incdec.ptr96, %if.else95 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ %target.7, %if.else347 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ %target.6612775, %if.then237 ], [ %target.6612775, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ %target.6612775, %if.then262 ], [ %target.6612775, %if.else352 ], [ %target.6612775, %if.else259 ], [ %target.6612775, %land.lhs.true224 ]
-  %targetCapacity.8 = phi i32 [ %targetCapacity.1, %if.else23 ], [ %targetCapacity.1, %if.then105 ], [ %targetCapacity.1, %if.then111 ], [ %targetCapacity.1, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %targetCapacity.1, %if.else138 ], [ %targetCapacity.1, %if.then152 ], [ %targetCapacity.1, %if.then163 ], [ %targetCapacity.1, %if.then185 ], [ %targetCapacity.1, %if.else187 ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ %dec97, %if.else95 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ %targetCapacity.7, %if.else347 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ %targetCapacity.6613774, %if.then237 ], [ %targetCapacity.6613774, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ %targetCapacity.6613774, %if.then262 ], [ %targetCapacity.6613774, %if.else352 ], [ %targetCapacity.6613774, %if.else259 ], [ %targetCapacity.6613774, %land.lhs.true224 ]
-  %isSingleByteMode.2 = phi i8 [ %isSingleByteMode.0, %if.else23 ], [ %isSingleByteMode.0, %if.then105 ], [ %isSingleByteMode.0, %if.then111 ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %isSingleByteMode.0, %if.else138 ], [ %isSingleByteMode.0, %if.then152 ], [ %isSingleByteMode.0, %if.then163 ], [ 0, %if.then185 ], [ %isSingleByteMode.0, %if.else187 ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ 0, %if.else95 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ 0, %if.else347 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ 1, %if.then237 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ 1, %if.then262 ], [ 0, %if.else352 ], [ 0, %if.else259 ], [ 0, %land.lhs.true224 ]
-  %dynamicWindow.2 = phi i8 [ %dynamicWindow.0, %if.else23 ], [ %dynamicWindow.0, %if.then105 ], [ %dynamicWindow.0, %if.then111 ], [ %conv.i303, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %dynamicWindow.0, %if.else138 ], [ %dynamicWindow.0, %if.then152 ], [ %41, %if.then163 ], [ %dynamicWindow.0, %if.then185 ], [ %dynamicWindow.0, %if.else187 ], [ %conv.i, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %25, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ %dynamicWindow.0, %if.else95 ], [ %75, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ %dynamicWindow.0, %if.else347 ], [ %conv.i415, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ %dynamicWindow.0, %if.then237 ], [ %conv.i367, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ %55, %if.then262 ], [ %dynamicWindow.0, %if.else352 ], [ %dynamicWindow.0, %if.else259 ], [ %dynamicWindow.0, %land.lhs.true224 ]
-  %currentOffset.1 = phi i32 [ %currentOffset.0, %if.else23 ], [ %currentOffset.0, %if.then105 ], [ %currentOffset.0, %if.then111 ], [ %33, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %currentOffset.0, %if.else138 ], [ %currentOffset.0, %if.then152 ], [ %42, %if.then163 ], [ %currentOffset.0, %if.then185 ], [ %currentOffset.0, %if.else187 ], [ %13, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %23, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ %currentOffset.0, %if.else95 ], [ %73, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ %currentOffset.0, %if.else347 ], [ %60, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ %currentOffset.0, %if.then237 ], [ %48, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ %56, %if.then262 ], [ %currentOffset.0, %if.else352 ], [ %currentOffset.0, %if.else259 ], [ %currentOffset.0, %land.lhs.true224 ]
-  %c.6 = phi i32 [ %or, %if.else23 ], [ %or107, %if.then105 ], [ %or112, %if.then111 ], [ %or137, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ %or147, %if.else138 ], [ %or159, %if.then152 ], [ %or175, %if.then163 ], [ %or186, %if.then185 ], [ %or188, %if.else187 ], [ %or77, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %or94, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ %or101, %if.else95 ], [ %or346, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ %or351, %if.else347 ], [ %or323, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ %or241, %if.then237 ], [ %or258, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ %or274, %if.then262 ], [ %or353, %if.else352 ], [ %conv206, %if.else259 ], [ %conv206, %land.lhs.true224 ]
-  %length.0 = phi i32 [ 2, %if.else23 ], [ 2, %if.then105 ], [ 3, %if.then111 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit338 ], [ 2, %if.else138 ], [ 2, %if.then152 ], [ 3, %if.then163 ], [ 3, %if.then185 ], [ 3, %if.else187 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit292 ], [ 4, %if.else95 ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit513 ], [ 4, %if.else347 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit446 ], [ 2, %if.then237 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit398 ], [ 3, %if.then262 ], [ 3, %if.else352 ], [ 2, %if.else259 ], [ 2, %land.lhs.true224 ]
+outputBytes:                                      ; preds = %land.lhs.true224, %if.else259, %if.else352, %if.else347, %_ZL16useDynamicWindowP8SCSUDataa.exit522, %_ZL16useDynamicWindowP8SCSUDataa.exit453, %if.then262, %_ZL16useDynamicWindowP8SCSUDataa.exit403, %if.then237, %if.else187, %if.then185, %if.then163, %if.then152, %if.else138, %_ZL16useDynamicWindowP8SCSUDataa.exit341, %if.then111, %if.then105, %if.else95, %_ZL16useDynamicWindowP8SCSUDataa.exit294, %_ZL16useDynamicWindowP8SCSUDataa.exit, %if.else23
+  %source.9 = phi ptr [ %incdec.ptr, %if.else23 ], [ %incdec.ptr, %if.then105 ], [ %incdec.ptr, %if.then111 ], [ %incdec.ptr, %_ZL16useDynamicWindowP8SCSUDataa.exit341 ], [ %incdec.ptr, %if.else138 ], [ %incdec.ptr, %if.then152 ], [ %incdec.ptr, %if.then163 ], [ %incdec.ptr, %if.then185 ], [ %incdec.ptr, %if.else187 ], [ %incdec.ptr47, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %incdec.ptr47, %_ZL16useDynamicWindowP8SCSUDataa.exit294 ], [ %incdec.ptr47, %if.else95 ], [ %incdec.ptr292, %_ZL16useDynamicWindowP8SCSUDataa.exit522 ], [ %incdec.ptr292, %if.else347 ], [ %incdec.ptr292, %_ZL16useDynamicWindowP8SCSUDataa.exit453 ], [ %incdec.ptr205, %if.then237 ], [ %incdec.ptr205, %_ZL16useDynamicWindowP8SCSUDataa.exit403 ], [ %incdec.ptr205, %if.then262 ], [ %incdec.ptr205, %if.else352 ], [ %incdec.ptr205, %if.else259 ], [ %incdec.ptr205, %land.lhs.true224 ]
+  %target.9 = phi ptr [ %target.1, %if.else23 ], [ %target.1, %if.then105 ], [ %target.1, %if.then111 ], [ %target.1, %_ZL16useDynamicWindowP8SCSUDataa.exit341 ], [ %target.1, %if.else138 ], [ %target.1, %if.then152 ], [ %target.1, %if.then163 ], [ %target.1, %if.then185 ], [ %target.1, %if.else187 ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit294 ], [ %incdec.ptr96, %if.else95 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit522 ], [ %target.7, %if.else347 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit453 ], [ %target.6621784, %if.then237 ], [ %target.6621784, %_ZL16useDynamicWindowP8SCSUDataa.exit403 ], [ %target.6621784, %if.then262 ], [ %target.6621784, %if.else352 ], [ %target.6621784, %if.else259 ], [ %target.6621784, %land.lhs.true224 ]
+  %targetCapacity.8 = phi i32 [ %targetCapacity.1, %if.else23 ], [ %targetCapacity.1, %if.then105 ], [ %targetCapacity.1, %if.then111 ], [ %targetCapacity.1, %_ZL16useDynamicWindowP8SCSUDataa.exit341 ], [ %targetCapacity.1, %if.else138 ], [ %targetCapacity.1, %if.then152 ], [ %targetCapacity.1, %if.then163 ], [ %targetCapacity.1, %if.then185 ], [ %targetCapacity.1, %if.else187 ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit294 ], [ %dec97, %if.else95 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit522 ], [ %targetCapacity.7, %if.else347 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit453 ], [ %targetCapacity.6622783, %if.then237 ], [ %targetCapacity.6622783, %_ZL16useDynamicWindowP8SCSUDataa.exit403 ], [ %targetCapacity.6622783, %if.then262 ], [ %targetCapacity.6622783, %if.else352 ], [ %targetCapacity.6622783, %if.else259 ], [ %targetCapacity.6622783, %land.lhs.true224 ]
+  %isSingleByteMode.2 = phi i8 [ %isSingleByteMode.0, %if.else23 ], [ %isSingleByteMode.0, %if.then105 ], [ %isSingleByteMode.0, %if.then111 ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit341 ], [ %isSingleByteMode.0, %if.else138 ], [ %isSingleByteMode.0, %if.then152 ], [ %isSingleByteMode.0, %if.then163 ], [ 0, %if.then185 ], [ %isSingleByteMode.0, %if.else187 ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit294 ], [ 0, %if.else95 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit522 ], [ 0, %if.else347 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit453 ], [ 1, %if.then237 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit403 ], [ 1, %if.then262 ], [ 0, %if.else352 ], [ 0, %if.else259 ], [ 0, %land.lhs.true224 ]
+  %dynamicWindow.2 = phi i8 [ %dynamicWindow.0, %if.else23 ], [ %dynamicWindow.0, %if.then105 ], [ %dynamicWindow.0, %if.then111 ], [ %conv.i305, %_ZL16useDynamicWindowP8SCSUDataa.exit341 ], [ %dynamicWindow.0, %if.else138 ], [ %dynamicWindow.0, %if.then152 ], [ %41, %if.then163 ], [ %dynamicWindow.0, %if.then185 ], [ %dynamicWindow.0, %if.else187 ], [ %conv.i, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %25, %_ZL16useDynamicWindowP8SCSUDataa.exit294 ], [ %dynamicWindow.0, %if.else95 ], [ %75, %_ZL16useDynamicWindowP8SCSUDataa.exit522 ], [ %dynamicWindow.0, %if.else347 ], [ %conv.i421, %_ZL16useDynamicWindowP8SCSUDataa.exit453 ], [ %dynamicWindow.0, %if.then237 ], [ %conv.i371, %_ZL16useDynamicWindowP8SCSUDataa.exit403 ], [ %55, %if.then262 ], [ %dynamicWindow.0, %if.else352 ], [ %dynamicWindow.0, %if.else259 ], [ %dynamicWindow.0, %land.lhs.true224 ]
+  %currentOffset.1 = phi i32 [ %currentOffset.0, %if.else23 ], [ %currentOffset.0, %if.then105 ], [ %currentOffset.0, %if.then111 ], [ %33, %_ZL16useDynamicWindowP8SCSUDataa.exit341 ], [ %currentOffset.0, %if.else138 ], [ %currentOffset.0, %if.then152 ], [ %42, %if.then163 ], [ %currentOffset.0, %if.then185 ], [ %currentOffset.0, %if.else187 ], [ %13, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %23, %_ZL16useDynamicWindowP8SCSUDataa.exit294 ], [ %currentOffset.0, %if.else95 ], [ %73, %_ZL16useDynamicWindowP8SCSUDataa.exit522 ], [ %currentOffset.0, %if.else347 ], [ %60, %_ZL16useDynamicWindowP8SCSUDataa.exit453 ], [ %currentOffset.0, %if.then237 ], [ %48, %_ZL16useDynamicWindowP8SCSUDataa.exit403 ], [ %56, %if.then262 ], [ %currentOffset.0, %if.else352 ], [ %currentOffset.0, %if.else259 ], [ %currentOffset.0, %land.lhs.true224 ]
+  %c.6 = phi i32 [ %or, %if.else23 ], [ %or107, %if.then105 ], [ %or112, %if.then111 ], [ %or137, %_ZL16useDynamicWindowP8SCSUDataa.exit341 ], [ %or147, %if.else138 ], [ %or159, %if.then152 ], [ %or175, %if.then163 ], [ %or186, %if.then185 ], [ %or188, %if.else187 ], [ %or77, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %or94, %_ZL16useDynamicWindowP8SCSUDataa.exit294 ], [ %or101, %if.else95 ], [ %or346, %_ZL16useDynamicWindowP8SCSUDataa.exit522 ], [ %or351, %if.else347 ], [ %or323, %_ZL16useDynamicWindowP8SCSUDataa.exit453 ], [ %or241, %if.then237 ], [ %or258, %_ZL16useDynamicWindowP8SCSUDataa.exit403 ], [ %or274, %if.then262 ], [ %or353, %if.else352 ], [ %conv206, %if.else259 ], [ %conv206, %land.lhs.true224 ]
+  %length.0 = phi i32 [ 2, %if.else23 ], [ 2, %if.then105 ], [ 3, %if.then111 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit341 ], [ 2, %if.else138 ], [ 2, %if.then152 ], [ 3, %if.then163 ], [ 3, %if.then185 ], [ 3, %if.else187 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit294 ], [ 4, %if.else95 ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit522 ], [ 4, %if.else347 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit453 ], [ 2, %if.then237 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit403 ], [ 3, %if.then262 ], [ 3, %if.else352 ], [ 2, %if.else259 ], [ 2, %land.lhs.true224 ]
   %cmp362.not = icmp sgt i32 %length.0, %targetCapacity.8
   br i1 %cmp362.not, label %if.else379, label %if.then363
 
@@ -2457,15 +2452,15 @@ sw.epilog:                                        ; preds = %if.then363, %sw.bb3
   br label %loop
 
 if.else379:                                       ; preds = %outputBytes, %if.then209
-  %length.0559 = phi i32 [ 2, %if.then209 ], [ %length.0, %outputBytes ]
-  %c.6558 = phi i32 [ %conv206, %if.then209 ], [ %c.6, %outputBytes ]
-  %dynamicWindow.2557 = phi i8 [ %dynamicWindow.0, %if.then209 ], [ %dynamicWindow.2, %outputBytes ]
-  %isSingleByteMode.2556 = phi i8 [ 0, %if.then209 ], [ %isSingleByteMode.2, %outputBytes ]
-  %targetCapacity.8555 = phi i32 [ 1, %if.then209 ], [ %targetCapacity.8, %outputBytes ]
-  %target.9554 = phi ptr [ %target.6612775, %if.then209 ], [ %target.9, %outputBytes ]
-  %source.9553 = phi ptr [ %incdec.ptr205, %if.then209 ], [ %source.9, %outputBytes ]
-  %sub380 = sub nsw i32 %length.0559, %targetCapacity.8555
-  %charErrorBuffer = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 27
+  %length.0568 = phi i32 [ 2, %if.then209 ], [ %length.0, %outputBytes ]
+  %c.6567 = phi i32 [ %conv206, %if.then209 ], [ %c.6, %outputBytes ]
+  %dynamicWindow.2566 = phi i8 [ %dynamicWindow.0, %if.then209 ], [ %dynamicWindow.2, %outputBytes ]
+  %isSingleByteMode.2565 = phi i8 [ 0, %if.then209 ], [ %isSingleByteMode.2, %outputBytes ]
+  %targetCapacity.8564 = phi i32 [ 1, %if.then209 ], [ %targetCapacity.8, %outputBytes ]
+  %target.9563 = phi ptr [ %target.6621784, %if.then209 ], [ %target.9, %outputBytes ]
+  %source.9562 = phi ptr [ %incdec.ptr205, %if.then209 ], [ %source.9, %outputBytes ]
+  %sub380 = sub nsw i32 %length.0568, %targetCapacity.8564
+  %charErrorBuffer = getelementptr inbounds i8, ptr %0, i64 104
   switch i32 %sub380, label %sw.epilog397 [
     i32 4, label %sw.bb382
     i32 3, label %sw.bb386
@@ -2474,15 +2469,15 @@ if.else379:                                       ; preds = %outputBytes, %if.th
   ]
 
 sw.bb382:                                         ; preds = %if.else379
-  %shr383 = lshr i32 %c.6558, 24
+  %shr383 = lshr i32 %c.6567, 24
   %conv384 = trunc i32 %shr383 to i8
-  %incdec.ptr385 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 27, i64 1
+  %incdec.ptr385 = getelementptr inbounds i8, ptr %0, i64 105
   store i8 %conv384, ptr %charErrorBuffer, align 1
   br label %sw.bb386
 
 sw.bb386:                                         ; preds = %sw.bb382, %if.else379
   %p.0 = phi ptr [ %charErrorBuffer, %if.else379 ], [ %incdec.ptr385, %sw.bb382 ]
-  %shr387 = lshr i32 %c.6558, 16
+  %shr387 = lshr i32 %c.6567, 16
   %conv388 = trunc i32 %shr387 to i8
   %incdec.ptr389 = getelementptr inbounds i8, ptr %p.0, i64 1
   store i8 %conv388, ptr %p.0, align 1
@@ -2490,7 +2485,7 @@ sw.bb386:                                         ; preds = %sw.bb382, %if.else3
 
 sw.bb390:                                         ; preds = %sw.bb386, %if.else379
   %p.1 = phi ptr [ %charErrorBuffer, %if.else379 ], [ %incdec.ptr389, %sw.bb386 ]
-  %shr391 = lshr i32 %c.6558, 8
+  %shr391 = lshr i32 %c.6567, 8
   %conv392 = trunc i32 %shr391 to i8
   %incdec.ptr393 = getelementptr inbounds i8, ptr %p.1, i64 1
   store i8 %conv392, ptr %p.1, align 1
@@ -2498,19 +2493,19 @@ sw.bb390:                                         ; preds = %sw.bb386, %if.else3
 
 sw.bb394:                                         ; preds = %sw.bb390, %if.else379
   %p.2 = phi ptr [ %charErrorBuffer, %if.else379 ], [ %incdec.ptr393, %sw.bb390 ]
-  %conv395 = trunc i32 %c.6558 to i8
+  %conv395 = trunc i32 %c.6567 to i8
   store i8 %conv395, ptr %p.2, align 1
   br label %sw.epilog397
 
 sw.epilog397:                                     ; preds = %if.else379, %sw.bb394
   %conv398 = trunc i32 %sub380 to i8
-  %charErrorBufferLength = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 21
+  %charErrorBufferLength = getelementptr inbounds i8, ptr %0, i64 91
   store i8 %conv398, ptr %charErrorBufferLength, align 1
   %cmp399 = icmp eq i32 %sub380, 4
   %mul = shl nsw i32 %sub380, 3
-  %shr400 = lshr i32 %c.6558, %mul
+  %shr400 = lshr i32 %c.6567, %mul
   %cond = select i1 %cmp399, i32 0, i32 %shr400
-  switch i32 %targetCapacity.8555, label %endloop.sink.split [
+  switch i32 %targetCapacity.8564, label %endloop.sink.split [
     i32 3, label %sw.bb401
     i32 2, label %sw.bb405
     i32 1, label %sw.bb409
@@ -2519,12 +2514,12 @@ sw.epilog397:                                     ; preds = %if.else379, %sw.bb3
 sw.bb401:                                         ; preds = %sw.epilog397
   %shr402 = lshr i32 %cond, 16
   %conv403 = trunc i32 %shr402 to i8
-  %incdec.ptr404 = getelementptr inbounds i8, ptr %target.9554, i64 1
-  store i8 %conv403, ptr %target.9554, align 1
+  %incdec.ptr404 = getelementptr inbounds i8, ptr %target.9563, i64 1
+  store i8 %conv403, ptr %target.9563, align 1
   br label %sw.bb405
 
 sw.bb405:                                         ; preds = %sw.bb401, %sw.epilog397
-  %target.14 = phi ptr [ %target.9554, %sw.epilog397 ], [ %incdec.ptr404, %sw.bb401 ]
+  %target.14 = phi ptr [ %target.9563, %sw.epilog397 ], [ %incdec.ptr404, %sw.bb401 ]
   %shr406 = lshr i32 %cond, 8
   %conv407 = trunc i32 %shr406 to i8
   %incdec.ptr408 = getelementptr inbounds i8, ptr %target.14, i64 1
@@ -2532,7 +2527,7 @@ sw.bb405:                                         ; preds = %sw.bb401, %sw.epilo
   br label %sw.bb409
 
 sw.bb409:                                         ; preds = %sw.bb405, %sw.epilog397
-  %target.15 = phi ptr [ %target.9554, %sw.epilog397 ], [ %incdec.ptr408, %sw.bb405 ]
+  %target.15 = phi ptr [ %target.9563, %sw.epilog397 ], [ %incdec.ptr408, %sw.bb405 ]
   %conv410 = trunc i32 %cond to i8
   %incdec.ptr411 = getelementptr inbounds i8, ptr %target.15, i64 1
   store i8 %conv410, ptr %target.15, align 1
@@ -2543,37 +2538,38 @@ sw.bb409:                                         ; preds = %sw.bb405, %sw.epilo
 define internal void @_ZL27_SCSUFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #2 {
 entry:
   %offset = alloca i32, align 4
-  %converter = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 2
+  %converter = getelementptr inbounds i8, ptr %pArgs, i64 8
   %0 = load ptr, ptr %converter, align 8
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 2
+  %extraInfo = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %extraInfo, align 8
-  %source1 = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 3
+  %source1 = getelementptr inbounds i8, ptr %pArgs, i64 16
   %2 = load ptr, ptr %source1, align 8
-  %sourceLimit2 = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 4
+  %sourceLimit2 = getelementptr inbounds i8, ptr %pArgs, i64 24
   %3 = load ptr, ptr %sourceLimit2, align 8
-  %target3 = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 5
+  %target3 = getelementptr inbounds i8, ptr %pArgs, i64 32
   %4 = load ptr, ptr %target3, align 8
-  %targetLimit = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 6
+  %targetLimit = getelementptr inbounds i8, ptr %pArgs, i64 40
   %5 = load ptr, ptr %targetLimit, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %4 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  %offsets5 = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %pArgs, i64 0, i32 7
+  %offsets5 = getelementptr inbounds i8, ptr %pArgs, i64 48
   %6 = load ptr, ptr %offsets5, align 8
-  %fromUIsSingleByteMode = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 8
+  %fromUIsSingleByteMode = getelementptr inbounds i8, ptr %1, i64 72
   %7 = load i8, ptr %fromUIsSingleByteMode, align 4
-  %fromUDynamicWindow = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 9
+  %fromUDynamicWindow = getelementptr inbounds i8, ptr %1, i64 73
   %8 = load i8, ptr %fromUDynamicWindow, align 1
-  %fromUDynamicOffsets = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1
+  %fromUDynamicOffsets = getelementptr inbounds i8, ptr %1, i64 32
   %idxprom = zext i8 %8 to i64
-  %arrayidx = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom
   %9 = load i32, ptr %arrayidx, align 4
-  %fromUChar32 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 17
+  %fromUChar32 = getelementptr inbounds i8, ptr %0, i64 84
   %10 = load i32, ptr %fromUChar32, align 4
   %cmp = icmp ne i32 %10, 0
   %cond = sext i1 %cmp to i32
-  %nextWindowUseIndex.i312 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 11
+  %windowUse.i312 = getelementptr inbounds i8, ptr %1, i64 76
+  %nextWindowUseIndex.i313 = getelementptr inbounds i8, ptr %1, i64 75
   br label %loop
 
 loop:                                             ; preds = %if.end433, %entry
@@ -2612,7 +2608,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp10, label %endloop.sink.split, label %if.end12
 
 if.end12:                                         ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i16, ptr %source.1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %source.1, i64 2
   %11 = load i16, ptr %source.1, align 2
   %conv13 = zext i16 %11 to i32
   %inc = add nsw i32 %nextSourceIndex.1, 1
@@ -2627,7 +2623,7 @@ if.then15:                                        ; preds = %if.end12
   br i1 %cmp18.not, label %if.end215, label %if.then19
 
 if.then19:                                        ; preds = %if.then15
-  %incdec.ptr20 = getelementptr inbounds i32, ptr %offsets.1, i64 1
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %offsets.1, i64 4
   store i32 %sourceIndex.1, ptr %offsets.1, align 4
   br label %if.end215
 
@@ -2649,7 +2645,7 @@ if.then25:                                        ; preds = %if.then23
   br i1 %cmp28.not, label %if.end215, label %if.then29
 
 if.then29:                                        ; preds = %if.then25
-  %incdec.ptr30 = getelementptr inbounds i32, ptr %offsets.1, i64 1
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %offsets.1, i64 4
   store i32 %sourceIndex.1, ptr %offsets.1, align 4
   br label %if.end215
 
@@ -2670,7 +2666,7 @@ if.then38:                                        ; preds = %if.else35
   br i1 %cmp42.not, label %if.end215, label %if.then43
 
 if.then43:                                        ; preds = %if.then38
-  %incdec.ptr44 = getelementptr inbounds i32, ptr %offsets.1, i64 1
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %offsets.1, i64 4
   store i32 %sourceIndex.1, ptr %offsets.1, align 4
   br label %if.end215
 
@@ -2703,7 +2699,7 @@ if.then56:                                        ; preds = %getTrailSingle
   br i1 %cmp59, label %if.then60, label %endloop.sink.split
 
 if.then60:                                        ; preds = %if.then56
-  %incdec.ptr61 = getelementptr inbounds i16, ptr %source.2, i64 1
+  %incdec.ptr61 = getelementptr inbounds i8, ptr %source.2, i64 2
   %inc62 = add nsw i32 %nextSourceIndex.2, 1
   %shl63 = shl i32 %c.2, 10
   %add = add nsw i32 %shl63, %conv57
@@ -2720,7 +2716,7 @@ if.then74:                                        ; preds = %if.then60
   br i1 %cmp78.not, label %if.end215, label %if.then79
 
 if.then79:                                        ; preds = %if.then74
-  %incdec.ptr80 = getelementptr inbounds i32, ptr %offsets.5, i64 1
+  %incdec.ptr80 = getelementptr inbounds i8, ptr %offsets.5, i64 4
   store i32 %sourceIndex.2, ptr %offsets.5, align 4
   br label %if.end215
 
@@ -2747,9 +2743,9 @@ for.body.i300.preheader:                          ; preds = %for.inc.i, %_ZL9get
 
 if.then87:                                        ; preds = %_ZL9getWindowPKjj.exit
   %idxprom89 = and i64 %indvars.iv.i, 255
-  %arrayidx90 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom89
+  %arrayidx90 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom89
   %16 = load i32, ptr %arrayidx90, align 4
-  %17 = load i8, ptr %nextWindowUseIndex.i312, align 1
+  %17 = load i8, ptr %nextWindowUseIndex.i313, align 1
   %conv.i298 = sext i8 %17 to i32
   br label %do.body.i
 
@@ -2759,7 +2755,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %cmp.i = icmp slt i32 %i.0.i, 1
   %spec.store.select.i = select i1 %cmp.i, i32 7, i32 %dec.i
   %idxprom.i = sext i32 %spec.store.select.i to i64
-  %arrayidx.i299 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i
+  %arrayidx.i299 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom.i
   %18 = load i8, ptr %arrayidx.i299, align 1
   %cmp3.not.i = icmp eq i8 %18, %conv.i
   br i1 %cmp3.not.i, label %do.end.i, label %do.body.i, !llvm.loop !14
@@ -2775,22 +2771,22 @@ while.body.i:                                     ; preds = %do.end.i, %while.bo
   %j.020.i = phi i32 [ %spec.store.select2.i, %while.body.i ], [ %spec.store.select1.i, %do.end.i ]
   %i.119.i = phi i32 [ %j.020.i, %while.body.i ], [ %spec.store.select.i, %do.end.i ]
   %idxprom11.i = sext i32 %j.020.i to i64
-  %arrayidx12.i = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom11.i
+  %arrayidx12.i = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom11.i
   %19 = load i8, ptr %arrayidx12.i, align 1
   %idxprom14.i = sext i32 %i.119.i to i64
-  %arrayidx15.i = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom14.i
   store i8 %19, ptr %arrayidx15.i, align 1
   %inc.i = add nsw i32 %j.020.i, 1
   %cmp16.i = icmp eq i32 %inc.i, 8
   %spec.store.select2.i = select i1 %cmp16.i, i32 0, i32 %inc.i
-  %20 = load i8, ptr %nextWindowUseIndex.i312, align 1
+  %20 = load i8, ptr %nextWindowUseIndex.i313, align 1
   %conv8.i = sext i8 %20 to i32
   %cmp9.not.i = icmp eq i32 %spec.store.select2.i, %conv8.i
   br i1 %cmp9.not.i, label %_ZL16useDynamicWindowP8SCSUDataa.exit, label %while.body.i, !llvm.loop !15
 
 _ZL16useDynamicWindowP8SCSUDataa.exit:            ; preds = %while.body.i, %do.end.i
   %idxprom20.pre-phi.i = phi i64 [ %idxprom.i, %do.end.i ], [ %idxprom11.i, %while.body.i ]
-  %arrayidx21.i = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom20.pre-phi.i
+  %arrayidx21.i = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom20.pre-phi.i
   store i8 %conv.i, ptr %arrayidx21.i, align 1
   %narrow = add nuw i8 %conv.i, 16
   %add92 = zext i8 %narrow to i32
@@ -2856,64 +2852,64 @@ _ZL16getDynamicOffsetjPj.exit:                    ; preds = %for.body.i300
 
 if.then100:                                       ; preds = %if.then18.i, %if.then12.i, %_ZL16getDynamicOffsetjPj.exit
   %26 = phi i32 [ %21, %_ZL16getDynamicOffsetjPj.exit ], [ %and19.i, %if.then18.i ], [ %and.i, %if.then12.i ]
-  %retval.0.i309572 = phi i32 [ %add.i311, %_ZL16getDynamicOffsetjPj.exit ], [ %shr21.i, %if.then18.i ], [ %shr.i, %if.then12.i ]
-  %27 = load i8, ptr %nextWindowUseIndex.i312, align 1
-  %idxprom.i313 = sext i8 %27 to i64
-  %arrayidx.i314 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i313
-  %28 = load i8, ptr %arrayidx.i314, align 1
-  %inc.i315 = add i8 %27, 1
-  %cmp.i316 = icmp eq i8 %inc.i315, 8
-  %spec.select.i = select i1 %cmp.i316, i8 0, i8 %inc.i315
-  store i8 %spec.select.i, ptr %nextWindowUseIndex.i312, align 1
+  %retval.0.i309581 = phi i32 [ %add.i311, %_ZL16getDynamicOffsetjPj.exit ], [ %shr21.i, %if.then18.i ], [ %shr.i, %if.then12.i ]
+  %27 = load i8, ptr %nextWindowUseIndex.i313, align 1
+  %idxprom.i314 = sext i8 %27 to i64
+  %arrayidx.i315 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom.i314
+  %28 = load i8, ptr %arrayidx.i315, align 1
+  %inc.i316 = add i8 %27, 1
+  %cmp.i317 = icmp eq i8 %inc.i316, 8
+  %spec.select.i = select i1 %cmp.i317, i8 0, i8 %inc.i316
+  store i8 %spec.select.i, ptr %nextWindowUseIndex.i313, align 1
   %idxprom104 = zext i8 %28 to i64
-  %arrayidx105 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom104
+  %arrayidx105 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom104
   store i32 %26, ptr %arrayidx105, align 4
-  %29 = load i8, ptr %nextWindowUseIndex.i312, align 1
-  %conv.i318 = sext i8 %29 to i32
-  br label %do.body.i319
+  %29 = load i8, ptr %nextWindowUseIndex.i313, align 1
+  %conv.i319 = sext i8 %29 to i32
+  br label %do.body.i321
 
-do.body.i319:                                     ; preds = %do.body.i319, %if.then100
-  %i.0.i320 = phi i32 [ %conv.i318, %if.then100 ], [ %spec.store.select.i323, %do.body.i319 ]
-  %dec.i321 = add nsw i32 %i.0.i320, -1
-  %cmp.i322 = icmp slt i32 %i.0.i320, 1
-  %spec.store.select.i323 = select i1 %cmp.i322, i32 7, i32 %dec.i321
-  %idxprom.i324 = sext i32 %spec.store.select.i323 to i64
-  %arrayidx.i325 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i324
-  %30 = load i8, ptr %arrayidx.i325, align 1
-  %cmp3.not.i326 = icmp eq i8 %30, %28
-  br i1 %cmp3.not.i326, label %do.end.i327, label %do.body.i319, !llvm.loop !14
+do.body.i321:                                     ; preds = %do.body.i321, %if.then100
+  %i.0.i322 = phi i32 [ %conv.i319, %if.then100 ], [ %spec.store.select.i325, %do.body.i321 ]
+  %dec.i323 = add nsw i32 %i.0.i322, -1
+  %cmp.i324 = icmp slt i32 %i.0.i322, 1
+  %spec.store.select.i325 = select i1 %cmp.i324, i32 7, i32 %dec.i323
+  %idxprom.i326 = sext i32 %spec.store.select.i325 to i64
+  %arrayidx.i327 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom.i326
+  %30 = load i8, ptr %arrayidx.i327, align 1
+  %cmp3.not.i328 = icmp eq i8 %30, %28
+  br i1 %cmp3.not.i328, label %do.end.i329, label %do.body.i321, !llvm.loop !14
 
-do.end.i327:                                      ; preds = %do.body.i319
-  %add.i328 = add nsw i32 %spec.store.select.i323, 1
-  %cmp4.i329 = icmp eq i32 %add.i328, 8
-  %spec.store.select1.i330 = select i1 %cmp4.i329, i32 0, i32 %add.i328
-  %cmp9.not18.i331 = icmp eq i32 %spec.store.select1.i330, %conv.i318
-  br i1 %cmp9.not18.i331, label %_ZL16useDynamicWindowP8SCSUDataa.exit346, label %while.body.i332
+do.end.i329:                                      ; preds = %do.body.i321
+  %add.i330 = add nsw i32 %spec.store.select.i325, 1
+  %cmp4.i331 = icmp eq i32 %add.i330, 8
+  %spec.store.select1.i332 = select i1 %cmp4.i331, i32 0, i32 %add.i330
+  %cmp9.not18.i333 = icmp eq i32 %spec.store.select1.i332, %conv.i319
+  br i1 %cmp9.not18.i333, label %_ZL16useDynamicWindowP8SCSUDataa.exit348, label %while.body.i334
 
-while.body.i332:                                  ; preds = %do.end.i327, %while.body.i332
-  %j.020.i333 = phi i32 [ %spec.store.select2.i341, %while.body.i332 ], [ %spec.store.select1.i330, %do.end.i327 ]
-  %i.119.i334 = phi i32 [ %j.020.i333, %while.body.i332 ], [ %spec.store.select.i323, %do.end.i327 ]
-  %idxprom11.i335 = sext i32 %j.020.i333 to i64
-  %arrayidx12.i336 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom11.i335
-  %31 = load i8, ptr %arrayidx12.i336, align 1
-  %idxprom14.i337 = sext i32 %i.119.i334 to i64
-  %arrayidx15.i338 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom14.i337
-  store i8 %31, ptr %arrayidx15.i338, align 1
-  %inc.i339 = add nsw i32 %j.020.i333, 1
-  %cmp16.i340 = icmp eq i32 %inc.i339, 8
-  %spec.store.select2.i341 = select i1 %cmp16.i340, i32 0, i32 %inc.i339
-  %32 = load i8, ptr %nextWindowUseIndex.i312, align 1
-  %conv8.i342 = sext i8 %32 to i32
-  %cmp9.not.i343 = icmp eq i32 %spec.store.select2.i341, %conv8.i342
-  br i1 %cmp9.not.i343, label %_ZL16useDynamicWindowP8SCSUDataa.exit346, label %while.body.i332, !llvm.loop !15
+while.body.i334:                                  ; preds = %do.end.i329, %while.body.i334
+  %j.020.i335 = phi i32 [ %spec.store.select2.i343, %while.body.i334 ], [ %spec.store.select1.i332, %do.end.i329 ]
+  %i.119.i336 = phi i32 [ %j.020.i335, %while.body.i334 ], [ %spec.store.select.i325, %do.end.i329 ]
+  %idxprom11.i337 = sext i32 %j.020.i335 to i64
+  %arrayidx12.i338 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom11.i337
+  %31 = load i8, ptr %arrayidx12.i338, align 1
+  %idxprom14.i339 = sext i32 %i.119.i336 to i64
+  %arrayidx15.i340 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom14.i339
+  store i8 %31, ptr %arrayidx15.i340, align 1
+  %inc.i341 = add nsw i32 %j.020.i335, 1
+  %cmp16.i342 = icmp eq i32 %inc.i341, 8
+  %spec.store.select2.i343 = select i1 %cmp16.i342, i32 0, i32 %inc.i341
+  %32 = load i8, ptr %nextWindowUseIndex.i313, align 1
+  %conv8.i344 = sext i8 %32 to i32
+  %cmp9.not.i345 = icmp eq i32 %spec.store.select2.i343, %conv8.i344
+  br i1 %cmp9.not.i345, label %_ZL16useDynamicWindowP8SCSUDataa.exit348, label %while.body.i334, !llvm.loop !15
 
-_ZL16useDynamicWindowP8SCSUDataa.exit346:         ; preds = %while.body.i332, %do.end.i327
-  %idxprom20.pre-phi.i344 = phi i64 [ %idxprom.i324, %do.end.i327 ], [ %idxprom11.i335, %while.body.i332 ]
-  %arrayidx21.i345 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom20.pre-phi.i344
-  store i8 %28, ptr %arrayidx21.i345, align 1
+_ZL16useDynamicWindowP8SCSUDataa.exit348:         ; preds = %while.body.i334, %do.end.i329
+  %idxprom20.pre-phi.i346 = phi i64 [ %idxprom.i326, %do.end.i329 ], [ %idxprom11.i337, %while.body.i334 ]
+  %arrayidx21.i347 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom20.pre-phi.i346
+  store i8 %28, ptr %arrayidx21.i347, align 1
   %conv106 = zext i8 %28 to i32
   %shl107 = shl nuw nsw i32 %conv106, 21
-  %sub101 = shl i32 %retval.0.i309572, 8
+  %sub101 = shl i32 %retval.0.i309581, 8
   %shl109 = add i32 %sub101, -131072
   %sub111 = sub i32 %sub65, %26
   %or108 = or i32 %shl109, %shl107
@@ -2928,7 +2924,7 @@ if.else114:                                       ; preds = %if.else13.i, %for.e
   br i1 %cmp116.not, label %if.end119, label %if.then117
 
 if.then117:                                       ; preds = %if.else114
-  %incdec.ptr118 = getelementptr inbounds i32, ptr %offsets.5, i64 1
+  %incdec.ptr118 = getelementptr inbounds i8, ptr %offsets.5, i64 4
   store i32 %sourceIndex.2, ptr %offsets.5, align 4
   br label %if.end119
 
@@ -2952,46 +2948,46 @@ if.else131:                                       ; preds = %if.else126
   %cmp132 = icmp eq i16 %11, -257
   %cmp133 = icmp ugt i16 %11, -17
   %or.cond1 = or i1 %cmp132, %cmp133
-  br i1 %or.cond1, label %if.then134, label %for.body.i347
+  br i1 %or.cond1, label %if.then134, label %for.body.i349
 
 if.then134:                                       ; preds = %if.else131
   %or135 = or disjoint i32 %conv13, 917504
   br label %outputBytes
 
-for.body.i347:                                    ; preds = %if.else131, %for.inc.i352
-  %indvars.iv.i348 = phi i64 [ %indvars.iv.next.i353, %for.inc.i352 ], [ 0, %if.else131 ]
-  %arrayidx.i349 = getelementptr inbounds i32, ptr %fromUDynamicOffsets, i64 %indvars.iv.i348
-  %33 = load i32, ptr %arrayidx.i349, align 4
-  %sub.i350 = sub i32 %conv13, %33
-  %cmp1.i351 = icmp ult i32 %sub.i350, 128
-  br i1 %cmp1.i351, label %_ZL9getWindowPKjj.exit358, label %for.inc.i352
+for.body.i349:                                    ; preds = %if.else131, %for.inc.i354
+  %indvars.iv.i350 = phi i64 [ %indvars.iv.next.i355, %for.inc.i354 ], [ 0, %if.else131 ]
+  %arrayidx.i351 = getelementptr inbounds i32, ptr %fromUDynamicOffsets, i64 %indvars.iv.i350
+  %33 = load i32, ptr %arrayidx.i351, align 4
+  %sub.i352 = sub i32 %conv13, %33
+  %cmp1.i353 = icmp ult i32 %sub.i352, 128
+  br i1 %cmp1.i353, label %_ZL9getWindowPKjj.exit360, label %for.inc.i354
 
-for.inc.i352:                                     ; preds = %for.body.i347
-  %indvars.iv.next.i353 = add nuw nsw i64 %indvars.iv.i348, 1
-  %exitcond.not.i354 = icmp eq i64 %indvars.iv.next.i353, 8
-  br i1 %exitcond.not.i354, label %for.body.i393.preheader, label %for.body.i347, !llvm.loop !13
+for.inc.i354:                                     ; preds = %for.body.i349
+  %indvars.iv.next.i355 = add nuw nsw i64 %indvars.iv.i350, 1
+  %exitcond.not.i356 = icmp eq i64 %indvars.iv.next.i355, 8
+  br i1 %exitcond.not.i356, label %for.body.i396.preheader, label %for.body.i349, !llvm.loop !13
 
-_ZL9getWindowPKjj.exit358:                        ; preds = %for.body.i347
-  %conv.i357 = trunc i64 %indvars.iv.i348 to i8
-  %conv140 = sext i8 %conv.i357 to i32
-  %cmp141 = icmp sgt i8 %conv.i357, -1
-  br i1 %cmp141, label %if.then142, label %for.body.i393.preheader
+_ZL9getWindowPKjj.exit360:                        ; preds = %for.body.i349
+  %conv.i359 = trunc i64 %indvars.iv.i350 to i8
+  %conv140 = sext i8 %conv.i359 to i32
+  %cmp141 = icmp sgt i8 %conv.i359, -1
+  br i1 %cmp141, label %if.then142, label %for.body.i396.preheader
 
-for.body.i393.preheader:                          ; preds = %for.inc.i352, %_ZL9getWindowPKjj.exit358
-  br label %for.body.i393
+for.body.i396.preheader:                          ; preds = %for.inc.i354, %_ZL9getWindowPKjj.exit360
+  br label %for.body.i396
 
-if.then142:                                       ; preds = %_ZL9getWindowPKjj.exit358
+if.then142:                                       ; preds = %_ZL9getWindowPKjj.exit360
   %cmp143.not = icmp ult ptr %incdec.ptr, %3
-  %idxprom146 = and i64 %indvars.iv.i348, 255
+  %idxprom146 = and i64 %indvars.iv.i350, 255
   br i1 %cmp143.not, label %lor.lhs.false144, label %if.then151
 
 lor.lhs.false144:                                 ; preds = %if.then142
-  %arrayidx147 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom146
+  %arrayidx147 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom146
   %34 = load i32, ptr %arrayidx147, align 4
   %35 = load i16, ptr %incdec.ptr, align 2
   %conv148 = zext i16 %35 to i32
-  %add.i359 = add i32 %34, 127
-  %cmp.not.i = icmp ult i32 %add.i359, %conv148
+  %add.i361 = add i32 %34, 127
+  %cmp.not.i = icmp ult i32 %add.i361, %conv148
   br i1 %cmp.not.i, label %if.else161, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %lor.lhs.false144
@@ -3003,61 +2999,61 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
   br i1 %cmp2.i, label %_ZL24isInOffsetWindowOrDirectjj.exit, label %if.else161
 
 _ZL24isInOffsetWindowOrDirectjj.exit:             ; preds = %lor.rhs.i
-  %cmp4.i361 = icmp ult i16 %35, 32
+  %cmp4.i363 = icmp ult i16 %35, 32
   %sh_prom.i = zext nneg i16 %35 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
-  %and.i362 = and i64 %shl.i, 9729
-  %tobool.i = icmp eq i64 %and.i362, 0
-  %.not = select i1 %cmp4.i361, i1 %tobool.i, i1 false
+  %and.i364 = and i64 %shl.i, 9729
+  %tobool.i = icmp eq i64 %and.i364, 0
+  %.not = select i1 %cmp4.i363, i1 %tobool.i, i1 false
   br i1 %.not, label %if.else161, label %if.then151
 
 if.then151:                                       ; preds = %if.then142, %land.rhs.i, %_ZL24isInOffsetWindowOrDirectjj.exit
-  %arrayidx154 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom146
+  %arrayidx154 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom146
   %36 = load i32, ptr %arrayidx154, align 4
-  %37 = load i8, ptr %nextWindowUseIndex.i312, align 1
-  %conv.i364 = sext i8 %37 to i32
-  br label %do.body.i365
+  %37 = load i8, ptr %nextWindowUseIndex.i313, align 1
+  %conv.i366 = sext i8 %37 to i32
+  br label %do.body.i368
 
-do.body.i365:                                     ; preds = %do.body.i365, %if.then151
-  %i.0.i366 = phi i32 [ %conv.i364, %if.then151 ], [ %spec.store.select.i369, %do.body.i365 ]
-  %dec.i367 = add nsw i32 %i.0.i366, -1
-  %cmp.i368 = icmp slt i32 %i.0.i366, 1
-  %spec.store.select.i369 = select i1 %cmp.i368, i32 7, i32 %dec.i367
-  %idxprom.i370 = sext i32 %spec.store.select.i369 to i64
-  %arrayidx.i371 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i370
-  %38 = load i8, ptr %arrayidx.i371, align 1
-  %cmp3.not.i372 = icmp eq i8 %38, %conv.i357
-  br i1 %cmp3.not.i372, label %do.end.i373, label %do.body.i365, !llvm.loop !14
+do.body.i368:                                     ; preds = %do.body.i368, %if.then151
+  %i.0.i369 = phi i32 [ %conv.i366, %if.then151 ], [ %spec.store.select.i372, %do.body.i368 ]
+  %dec.i370 = add nsw i32 %i.0.i369, -1
+  %cmp.i371 = icmp slt i32 %i.0.i369, 1
+  %spec.store.select.i372 = select i1 %cmp.i371, i32 7, i32 %dec.i370
+  %idxprom.i373 = sext i32 %spec.store.select.i372 to i64
+  %arrayidx.i374 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom.i373
+  %38 = load i8, ptr %arrayidx.i374, align 1
+  %cmp3.not.i375 = icmp eq i8 %38, %conv.i359
+  br i1 %cmp3.not.i375, label %do.end.i376, label %do.body.i368, !llvm.loop !14
 
-do.end.i373:                                      ; preds = %do.body.i365
-  %add.i374 = add nsw i32 %spec.store.select.i369, 1
-  %cmp4.i375 = icmp eq i32 %add.i374, 8
-  %spec.store.select1.i376 = select i1 %cmp4.i375, i32 0, i32 %add.i374
-  %cmp9.not18.i377 = icmp eq i32 %spec.store.select1.i376, %conv.i364
-  br i1 %cmp9.not18.i377, label %_ZL16useDynamicWindowP8SCSUDataa.exit392, label %while.body.i378
+do.end.i376:                                      ; preds = %do.body.i368
+  %add.i377 = add nsw i32 %spec.store.select.i372, 1
+  %cmp4.i378 = icmp eq i32 %add.i377, 8
+  %spec.store.select1.i379 = select i1 %cmp4.i378, i32 0, i32 %add.i377
+  %cmp9.not18.i380 = icmp eq i32 %spec.store.select1.i379, %conv.i366
+  br i1 %cmp9.not18.i380, label %_ZL16useDynamicWindowP8SCSUDataa.exit395, label %while.body.i381
 
-while.body.i378:                                  ; preds = %do.end.i373, %while.body.i378
-  %j.020.i379 = phi i32 [ %spec.store.select2.i387, %while.body.i378 ], [ %spec.store.select1.i376, %do.end.i373 ]
-  %i.119.i380 = phi i32 [ %j.020.i379, %while.body.i378 ], [ %spec.store.select.i369, %do.end.i373 ]
-  %idxprom11.i381 = sext i32 %j.020.i379 to i64
-  %arrayidx12.i382 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom11.i381
-  %39 = load i8, ptr %arrayidx12.i382, align 1
-  %idxprom14.i383 = sext i32 %i.119.i380 to i64
-  %arrayidx15.i384 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom14.i383
-  store i8 %39, ptr %arrayidx15.i384, align 1
-  %inc.i385 = add nsw i32 %j.020.i379, 1
-  %cmp16.i386 = icmp eq i32 %inc.i385, 8
-  %spec.store.select2.i387 = select i1 %cmp16.i386, i32 0, i32 %inc.i385
-  %40 = load i8, ptr %nextWindowUseIndex.i312, align 1
-  %conv8.i388 = sext i8 %40 to i32
-  %cmp9.not.i389 = icmp eq i32 %spec.store.select2.i387, %conv8.i388
-  br i1 %cmp9.not.i389, label %_ZL16useDynamicWindowP8SCSUDataa.exit392, label %while.body.i378, !llvm.loop !15
+while.body.i381:                                  ; preds = %do.end.i376, %while.body.i381
+  %j.020.i382 = phi i32 [ %spec.store.select2.i390, %while.body.i381 ], [ %spec.store.select1.i379, %do.end.i376 ]
+  %i.119.i383 = phi i32 [ %j.020.i382, %while.body.i381 ], [ %spec.store.select.i372, %do.end.i376 ]
+  %idxprom11.i384 = sext i32 %j.020.i382 to i64
+  %arrayidx12.i385 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom11.i384
+  %39 = load i8, ptr %arrayidx12.i385, align 1
+  %idxprom14.i386 = sext i32 %i.119.i383 to i64
+  %arrayidx15.i387 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom14.i386
+  store i8 %39, ptr %arrayidx15.i387, align 1
+  %inc.i388 = add nsw i32 %j.020.i382, 1
+  %cmp16.i389 = icmp eq i32 %inc.i388, 8
+  %spec.store.select2.i390 = select i1 %cmp16.i389, i32 0, i32 %inc.i388
+  %40 = load i8, ptr %nextWindowUseIndex.i313, align 1
+  %conv8.i391 = sext i8 %40 to i32
+  %cmp9.not.i392 = icmp eq i32 %spec.store.select2.i390, %conv8.i391
+  br i1 %cmp9.not.i392, label %_ZL16useDynamicWindowP8SCSUDataa.exit395, label %while.body.i381, !llvm.loop !15
 
-_ZL16useDynamicWindowP8SCSUDataa.exit392:         ; preds = %while.body.i378, %do.end.i373
-  %idxprom20.pre-phi.i390 = phi i64 [ %idxprom.i370, %do.end.i373 ], [ %idxprom11.i381, %while.body.i378 ]
-  %arrayidx21.i391 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom20.pre-phi.i390
-  store i8 %conv.i357, ptr %arrayidx21.i391, align 1
-  %narrow295 = add nuw i8 %conv.i357, 16
+_ZL16useDynamicWindowP8SCSUDataa.exit395:         ; preds = %while.body.i381, %do.end.i376
+  %idxprom20.pre-phi.i393 = phi i64 [ %idxprom.i373, %do.end.i376 ], [ %idxprom11.i384, %while.body.i381 ]
+  %arrayidx21.i394 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom20.pre-phi.i393
+  store i8 %conv.i359, ptr %arrayidx21.i394, align 1
+  %narrow295 = add nuw i8 %conv.i359, 16
   %add156 = zext i8 %narrow295 to i32
   %shl157 = shl nuw nsw i32 %add156, 8
   %sub158 = sub i32 %conv13, %36
@@ -3072,52 +3068,52 @@ if.else161:                                       ; preds = %lor.rhs.i, %lor.lhs
   %or170 = or i32 %or169, %sub168
   br label %outputBytes
 
-for.body.i393:                                    ; preds = %for.body.i393.preheader, %for.inc.i398
-  %indvars.iv.i394 = phi i64 [ %indvars.iv.next.i399, %for.inc.i398 ], [ 0, %for.body.i393.preheader ]
-  %arrayidx.i395 = getelementptr inbounds i32, ptr @_ZL13staticOffsets, i64 %indvars.iv.i394
-  %41 = load i32, ptr %arrayidx.i395, align 4
-  %sub.i396 = sub i32 %conv13, %41
-  %cmp1.i397 = icmp ult i32 %sub.i396, 128
-  br i1 %cmp1.i397, label %_ZL9getWindowPKjj.exit404, label %for.inc.i398
+for.body.i396:                                    ; preds = %for.body.i396.preheader, %for.inc.i401
+  %indvars.iv.i397 = phi i64 [ %indvars.iv.next.i402, %for.inc.i401 ], [ 0, %for.body.i396.preheader ]
+  %arrayidx.i398 = getelementptr inbounds i32, ptr @_ZL13staticOffsets, i64 %indvars.iv.i397
+  %41 = load i32, ptr %arrayidx.i398, align 4
+  %sub.i399 = sub i32 %conv13, %41
+  %cmp1.i400 = icmp ult i32 %sub.i399, 128
+  br i1 %cmp1.i400, label %_ZL9getWindowPKjj.exit407, label %for.inc.i401
 
-for.inc.i398:                                     ; preds = %for.body.i393
-  %indvars.iv.next.i399 = add nuw nsw i64 %indvars.iv.i394, 1
-  %exitcond.not.i400 = icmp eq i64 %indvars.iv.next.i399, 8
-  br i1 %exitcond.not.i400, label %if.else183, label %for.body.i393, !llvm.loop !13
+for.inc.i401:                                     ; preds = %for.body.i396
+  %indvars.iv.next.i402 = add nuw nsw i64 %indvars.iv.i397, 1
+  %exitcond.not.i403 = icmp eq i64 %indvars.iv.next.i402, 8
+  br i1 %exitcond.not.i403, label %if.else183, label %for.body.i396, !llvm.loop !13
 
-_ZL9getWindowPKjj.exit404:                        ; preds = %for.body.i393
-  %conv.i403 = trunc i64 %indvars.iv.i394 to i8
-  %cmp174 = icmp sgt i8 %conv.i403, -1
+_ZL9getWindowPKjj.exit407:                        ; preds = %for.body.i396
+  %conv.i406 = trunc i64 %indvars.iv.i397 to i8
+  %cmp174 = icmp sgt i8 %conv.i406, -1
   br i1 %cmp174, label %if.then175, label %if.else183
 
-if.then175:                                       ; preds = %_ZL9getWindowPKjj.exit404
-  %narrow294 = add nuw i8 %conv.i403, 1
+if.then175:                                       ; preds = %_ZL9getWindowPKjj.exit407
+  %narrow294 = add nuw i8 %conv.i406, 1
   %add177 = zext i8 %narrow294 to i32
   %shl178 = shl nuw nsw i32 %add177, 8
-  %idxprom179 = and i64 %indvars.iv.i394, 255
+  %idxprom179 = and i64 %indvars.iv.i397, 255
   %arrayidx180 = getelementptr inbounds [8 x i32], ptr @_ZL13staticOffsets, i64 0, i64 %idxprom179
   %42 = load i32, ptr %arrayidx180, align 4
   %sub181 = sub i32 %conv13, %42
   %or182 = or i32 %sub181, %shl178
   br label %outputBytes
 
-if.else183:                                       ; preds = %for.inc.i398, %_ZL9getWindowPKjj.exit404
+if.else183:                                       ; preds = %for.inc.i401, %_ZL9getWindowPKjj.exit407
   %call184 = call fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef %conv13, ptr noundef nonnull %offset)
   %cmp185 = icmp sgt i32 %call184, -1
   br i1 %cmp185, label %if.then186, label %if.else199
 
 if.then186:                                       ; preds = %if.else183
-  %43 = load i8, ptr %nextWindowUseIndex.i312, align 1
-  %idxprom.i406 = sext i8 %43 to i64
-  %arrayidx.i407 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i406
-  %44 = load i8, ptr %arrayidx.i407, align 1
-  %inc.i408 = add i8 %43, 1
-  %cmp.i409 = icmp eq i8 %inc.i408, 8
-  %spec.select.i410 = select i1 %cmp.i409, i8 0, i8 %inc.i408
-  store i8 %spec.select.i410, ptr %nextWindowUseIndex.i312, align 1
+  %43 = load i8, ptr %nextWindowUseIndex.i313, align 1
+  %idxprom.i410 = sext i8 %43 to i64
+  %arrayidx.i411 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom.i410
+  %44 = load i8, ptr %arrayidx.i411, align 1
+  %inc.i412 = add i8 %43, 1
+  %cmp.i413 = icmp eq i8 %inc.i412, 8
+  %spec.select.i414 = select i1 %cmp.i413, i8 0, i8 %inc.i412
+  store i8 %spec.select.i414, ptr %nextWindowUseIndex.i313, align 1
   %45 = load i32, ptr %offset, align 4
   %idxprom189 = zext i8 %44 to i64
-  %arrayidx190 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom189
+  %arrayidx190 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom189
   store i32 %45, ptr %arrayidx190, align 4
   tail call fastcc void @_ZL16useDynamicWindowP8SCSUDataa(ptr noundef %1, i8 noundef signext %44)
   %conv191 = zext i8 %44 to i32
@@ -3168,53 +3164,53 @@ if.else216:                                       ; preds = %loop
   br i1 %or.cond2, label %getTrailUnicode, label %while.cond222.preheader
 
 while.cond222.preheader:                          ; preds = %if.else216
-  %cmp223705 = icmp ult ptr %source.0, %3
-  br i1 %cmp223705, label %while.body224.preheader, label %endloop
+  %cmp223714 = icmp ult ptr %source.0, %3
+  br i1 %cmp223714, label %while.body224.preheader, label %endloop
 
 while.body224.preheader:                          ; preds = %while.cond222.preheader
-  %cmp225900 = icmp slt i32 %targetCapacity.0, 1
-  br i1 %cmp225900, label %endloop.sink.split, label %if.end227
+  %cmp225909 = icmp slt i32 %targetCapacity.0, 1
+  br i1 %cmp225909, label %endloop.sink.split, label %if.end227
 
 while.body224:                                    ; preds = %if.end244
-  %sub245 = add nsw i32 %targetCapacity.6708904, -2
-  %cmp225 = icmp slt i32 %targetCapacity.6708904, 3
+  %sub245 = add nsw i32 %targetCapacity.6717913, -2
+  %cmp225 = icmp slt i32 %targetCapacity.6717913, 3
   br i1 %cmp225, label %endloop.sink.split, label %if.end227, !llvm.loop !20
 
 if.end227:                                        ; preds = %while.body224.preheader, %while.body224
-  %source.6706906 = phi ptr [ %incdec.ptr228, %while.body224 ], [ %source.0, %while.body224.preheader ]
-  %target.6707905 = phi ptr [ %incdec.ptr239, %while.body224 ], [ %target.0, %while.body224.preheader ]
-  %targetCapacity.6708904 = phi i32 [ %sub245, %while.body224 ], [ %targetCapacity.0, %while.body224.preheader ]
-  %offsets.11709903 = phi ptr [ %offsets.12, %while.body224 ], [ %offsets.0, %while.body224.preheader ]
-  %sourceIndex.3711902 = phi i32 [ %inc230, %while.body224 ], [ %sourceIndex.0, %while.body224.preheader ]
-  %nextSourceIndex.6712901 = phi i32 [ %inc230, %while.body224 ], [ %nextSourceIndex.0, %while.body224.preheader ]
-  %incdec.ptr228 = getelementptr inbounds i16, ptr %source.6706906, i64 1
-  %47 = load i16, ptr %source.6706906, align 2
+  %source.6715915 = phi ptr [ %incdec.ptr228, %while.body224 ], [ %source.0, %while.body224.preheader ]
+  %target.6716914 = phi ptr [ %incdec.ptr239, %while.body224 ], [ %target.0, %while.body224.preheader ]
+  %targetCapacity.6717913 = phi i32 [ %sub245, %while.body224 ], [ %targetCapacity.0, %while.body224.preheader ]
+  %offsets.11718912 = phi ptr [ %offsets.12, %while.body224 ], [ %offsets.0, %while.body224.preheader ]
+  %sourceIndex.3720911 = phi i32 [ %inc230, %while.body224 ], [ %sourceIndex.0, %while.body224.preheader ]
+  %nextSourceIndex.6721910 = phi i32 [ %inc230, %while.body224 ], [ %nextSourceIndex.0, %while.body224.preheader ]
+  %incdec.ptr228 = getelementptr inbounds i8, ptr %source.6715915, i64 2
+  %47 = load i16, ptr %source.6715915, align 2
   %conv229 = zext i16 %47 to i32
-  %inc230 = add nsw i32 %nextSourceIndex.6712901, 1
+  %inc230 = add nsw i32 %nextSourceIndex.6721910, 1
   %sub231 = add nsw i32 %conv229, -13312
   %cmp232 = icmp ult i32 %sub231, 41984
   br i1 %cmp232, label %if.then233, label %if.else248
 
 if.then233:                                       ; preds = %if.end227
-  %cmp234.not = icmp eq i32 %targetCapacity.6708904, 1
+  %cmp234.not = icmp eq i32 %targetCapacity.6717913, 1
   br i1 %cmp234.not, label %if.else435, label %if.then235
 
 if.then235:                                       ; preds = %if.then233
   %shr = lshr i16 %47, 8
   %conv236 = trunc i16 %shr to i8
-  %incdec.ptr237 = getelementptr inbounds i8, ptr %target.6707905, i64 1
-  store i8 %conv236, ptr %target.6707905, align 1
+  %incdec.ptr237 = getelementptr inbounds i8, ptr %target.6716914, i64 1
+  store i8 %conv236, ptr %target.6716914, align 1
   %conv238 = trunc i16 %47 to i8
-  %incdec.ptr239 = getelementptr inbounds i8, ptr %target.6707905, i64 2
+  %incdec.ptr239 = getelementptr inbounds i8, ptr %target.6716914, i64 2
   store i8 %conv238, ptr %incdec.ptr237, align 1
-  %cmp240.not = icmp eq ptr %offsets.11709903, null
+  %cmp240.not = icmp eq ptr %offsets.11718912, null
   br i1 %cmp240.not, label %if.end244, label %if.then241
 
 if.then241:                                       ; preds = %if.then235
-  %incdec.ptr242 = getelementptr inbounds i32, ptr %offsets.11709903, i64 1
-  store i32 %sourceIndex.3711902, ptr %offsets.11709903, align 4
-  %incdec.ptr243 = getelementptr inbounds i32, ptr %offsets.11709903, i64 2
-  store i32 %sourceIndex.3711902, ptr %incdec.ptr242, align 4
+  %incdec.ptr242 = getelementptr inbounds i8, ptr %offsets.11718912, i64 4
+  store i32 %sourceIndex.3720911, ptr %offsets.11718912, align 4
+  %incdec.ptr243 = getelementptr inbounds i8, ptr %offsets.11718912, i64 8
+  store i32 %sourceIndex.3720911, ptr %incdec.ptr242, align 4
   br label %if.end244
 
 if.end244:                                        ; preds = %if.then241, %if.then235
@@ -3246,7 +3242,7 @@ if.then257:                                       ; preds = %land.lhs.true253, %
   %sub264 = add nsw i32 %conv229, -65
   %cmp265 = icmp ult i32 %sub264, 26
   %or.cond297 = select i1 %or.cond296, i1 true, i1 %cmp265
-  br i1 %or.cond297, label %if.then266, label %for.body.i411
+  br i1 %or.cond297, label %if.then266, label %for.body.i415
 
 if.then266:                                       ; preds = %if.then257
   %conv267 = zext i8 %dynamicWindow.0 to i32
@@ -3255,72 +3251,72 @@ if.then266:                                       ; preds = %if.then257
   %or270 = or i32 %shl269, %conv229
   br label %outputBytes
 
-for.body.i411:                                    ; preds = %if.then257, %for.inc.i416
-  %indvars.iv.i412 = phi i64 [ %indvars.iv.next.i417, %for.inc.i416 ], [ 0, %if.then257 ]
-  %arrayidx.i413 = getelementptr inbounds i32, ptr %fromUDynamicOffsets, i64 %indvars.iv.i412
-  %49 = load i32, ptr %arrayidx.i413, align 4
-  %sub.i414 = sub i32 %conv229, %49
-  %cmp1.i415 = icmp ult i32 %sub.i414, 128
-  br i1 %cmp1.i415, label %_ZL9getWindowPKjj.exit422, label %for.inc.i416
+for.body.i415:                                    ; preds = %if.then257, %for.inc.i420
+  %indvars.iv.i416 = phi i64 [ %indvars.iv.next.i421, %for.inc.i420 ], [ 0, %if.then257 ]
+  %arrayidx.i417 = getelementptr inbounds i32, ptr %fromUDynamicOffsets, i64 %indvars.iv.i416
+  %49 = load i32, ptr %arrayidx.i417, align 4
+  %sub.i418 = sub i32 %conv229, %49
+  %cmp1.i419 = icmp ult i32 %sub.i418, 128
+  br i1 %cmp1.i419, label %_ZL9getWindowPKjj.exit426, label %for.inc.i420
 
-for.inc.i416:                                     ; preds = %for.body.i411
-  %indvars.iv.next.i417 = add nuw nsw i64 %indvars.iv.i412, 1
-  %exitcond.not.i418 = icmp eq i64 %indvars.iv.next.i417, 8
-  br i1 %exitcond.not.i418, label %if.else288, label %for.body.i411, !llvm.loop !13
+for.inc.i420:                                     ; preds = %for.body.i415
+  %indvars.iv.next.i421 = add nuw nsw i64 %indvars.iv.i416, 1
+  %exitcond.not.i422 = icmp eq i64 %indvars.iv.next.i421, 8
+  br i1 %exitcond.not.i422, label %if.else288, label %for.body.i415, !llvm.loop !13
 
-_ZL9getWindowPKjj.exit422:                        ; preds = %for.body.i411
-  %conv.i421 = trunc i64 %indvars.iv.i412 to i8
-  %cmp277 = icmp sgt i8 %conv.i421, -1
+_ZL9getWindowPKjj.exit426:                        ; preds = %for.body.i415
+  %conv.i425 = trunc i64 %indvars.iv.i416 to i8
+  %cmp277 = icmp sgt i8 %conv.i425, -1
   br i1 %cmp277, label %if.then278, label %if.else288
 
-if.then278:                                       ; preds = %_ZL9getWindowPKjj.exit422
-  %idxprom280 = and i64 %indvars.iv.i412, 255
-  %arrayidx281 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom280
+if.then278:                                       ; preds = %_ZL9getWindowPKjj.exit426
+  %idxprom280 = and i64 %indvars.iv.i416, 255
+  %arrayidx281 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom280
   %50 = load i32, ptr %arrayidx281, align 4
-  %51 = load i8, ptr %nextWindowUseIndex.i312, align 1
-  %conv.i424 = sext i8 %51 to i32
-  br label %do.body.i425
+  %51 = load i8, ptr %nextWindowUseIndex.i313, align 1
+  %conv.i428 = sext i8 %51 to i32
+  br label %do.body.i430
 
-do.body.i425:                                     ; preds = %do.body.i425, %if.then278
-  %i.0.i426 = phi i32 [ %conv.i424, %if.then278 ], [ %spec.store.select.i429, %do.body.i425 ]
-  %dec.i427 = add nsw i32 %i.0.i426, -1
-  %cmp.i428 = icmp slt i32 %i.0.i426, 1
-  %spec.store.select.i429 = select i1 %cmp.i428, i32 7, i32 %dec.i427
-  %idxprom.i430 = sext i32 %spec.store.select.i429 to i64
-  %arrayidx.i431 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i430
-  %52 = load i8, ptr %arrayidx.i431, align 1
-  %cmp3.not.i432 = icmp eq i8 %52, %conv.i421
-  br i1 %cmp3.not.i432, label %do.end.i433, label %do.body.i425, !llvm.loop !14
+do.body.i430:                                     ; preds = %do.body.i430, %if.then278
+  %i.0.i431 = phi i32 [ %conv.i428, %if.then278 ], [ %spec.store.select.i434, %do.body.i430 ]
+  %dec.i432 = add nsw i32 %i.0.i431, -1
+  %cmp.i433 = icmp slt i32 %i.0.i431, 1
+  %spec.store.select.i434 = select i1 %cmp.i433, i32 7, i32 %dec.i432
+  %idxprom.i435 = sext i32 %spec.store.select.i434 to i64
+  %arrayidx.i436 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom.i435
+  %52 = load i8, ptr %arrayidx.i436, align 1
+  %cmp3.not.i437 = icmp eq i8 %52, %conv.i425
+  br i1 %cmp3.not.i437, label %do.end.i438, label %do.body.i430, !llvm.loop !14
 
-do.end.i433:                                      ; preds = %do.body.i425
-  %add.i434 = add nsw i32 %spec.store.select.i429, 1
-  %cmp4.i435 = icmp eq i32 %add.i434, 8
-  %spec.store.select1.i436 = select i1 %cmp4.i435, i32 0, i32 %add.i434
-  %cmp9.not18.i437 = icmp eq i32 %spec.store.select1.i436, %conv.i424
-  br i1 %cmp9.not18.i437, label %_ZL16useDynamicWindowP8SCSUDataa.exit452, label %while.body.i438
+do.end.i438:                                      ; preds = %do.body.i430
+  %add.i439 = add nsw i32 %spec.store.select.i434, 1
+  %cmp4.i440 = icmp eq i32 %add.i439, 8
+  %spec.store.select1.i441 = select i1 %cmp4.i440, i32 0, i32 %add.i439
+  %cmp9.not18.i442 = icmp eq i32 %spec.store.select1.i441, %conv.i428
+  br i1 %cmp9.not18.i442, label %_ZL16useDynamicWindowP8SCSUDataa.exit457, label %while.body.i443
 
-while.body.i438:                                  ; preds = %do.end.i433, %while.body.i438
-  %j.020.i439 = phi i32 [ %spec.store.select2.i447, %while.body.i438 ], [ %spec.store.select1.i436, %do.end.i433 ]
-  %i.119.i440 = phi i32 [ %j.020.i439, %while.body.i438 ], [ %spec.store.select.i429, %do.end.i433 ]
-  %idxprom11.i441 = sext i32 %j.020.i439 to i64
-  %arrayidx12.i442 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom11.i441
-  %53 = load i8, ptr %arrayidx12.i442, align 1
-  %idxprom14.i443 = sext i32 %i.119.i440 to i64
-  %arrayidx15.i444 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom14.i443
-  store i8 %53, ptr %arrayidx15.i444, align 1
-  %inc.i445 = add nsw i32 %j.020.i439, 1
-  %cmp16.i446 = icmp eq i32 %inc.i445, 8
-  %spec.store.select2.i447 = select i1 %cmp16.i446, i32 0, i32 %inc.i445
-  %54 = load i8, ptr %nextWindowUseIndex.i312, align 1
-  %conv8.i448 = sext i8 %54 to i32
-  %cmp9.not.i449 = icmp eq i32 %spec.store.select2.i447, %conv8.i448
-  br i1 %cmp9.not.i449, label %_ZL16useDynamicWindowP8SCSUDataa.exit452, label %while.body.i438, !llvm.loop !15
+while.body.i443:                                  ; preds = %do.end.i438, %while.body.i443
+  %j.020.i444 = phi i32 [ %spec.store.select2.i452, %while.body.i443 ], [ %spec.store.select1.i441, %do.end.i438 ]
+  %i.119.i445 = phi i32 [ %j.020.i444, %while.body.i443 ], [ %spec.store.select.i434, %do.end.i438 ]
+  %idxprom11.i446 = sext i32 %j.020.i444 to i64
+  %arrayidx12.i447 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom11.i446
+  %53 = load i8, ptr %arrayidx12.i447, align 1
+  %idxprom14.i448 = sext i32 %i.119.i445 to i64
+  %arrayidx15.i449 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom14.i448
+  store i8 %53, ptr %arrayidx15.i449, align 1
+  %inc.i450 = add nsw i32 %j.020.i444, 1
+  %cmp16.i451 = icmp eq i32 %inc.i450, 8
+  %spec.store.select2.i452 = select i1 %cmp16.i451, i32 0, i32 %inc.i450
+  %54 = load i8, ptr %nextWindowUseIndex.i313, align 1
+  %conv8.i453 = sext i8 %54 to i32
+  %cmp9.not.i454 = icmp eq i32 %spec.store.select2.i452, %conv8.i453
+  br i1 %cmp9.not.i454, label %_ZL16useDynamicWindowP8SCSUDataa.exit457, label %while.body.i443, !llvm.loop !15
 
-_ZL16useDynamicWindowP8SCSUDataa.exit452:         ; preds = %while.body.i438, %do.end.i433
-  %idxprom20.pre-phi.i450 = phi i64 [ %idxprom.i430, %do.end.i433 ], [ %idxprom11.i441, %while.body.i438 ]
-  %arrayidx21.i451 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom20.pre-phi.i450
-  store i8 %conv.i421, ptr %arrayidx21.i451, align 1
-  %55 = trunc i64 %indvars.iv.i412 to i32
+_ZL16useDynamicWindowP8SCSUDataa.exit457:         ; preds = %while.body.i443, %do.end.i438
+  %idxprom20.pre-phi.i455 = phi i64 [ %idxprom.i435, %do.end.i438 ], [ %idxprom11.i446, %while.body.i443 ]
+  %arrayidx21.i456 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom20.pre-phi.i455
+  store i8 %conv.i425, ptr %arrayidx21.i456, align 1
+  %55 = trunc i64 %indvars.iv.i416 to i32
   %conv282 = shl i32 %55, 8
   %add283 = and i32 %conv282, 65280
   %sub285 = sub i32 %conv229, %50
@@ -3328,23 +3324,23 @@ _ZL16useDynamicWindowP8SCSUDataa.exit452:         ; preds = %while.body.i438, %d
   %or287 = or i32 %or286, %sub285
   br label %outputBytes
 
-if.else288:                                       ; preds = %for.inc.i416, %_ZL9getWindowPKjj.exit422
+if.else288:                                       ; preds = %for.inc.i420, %_ZL9getWindowPKjj.exit426
   %call289 = call fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef %conv229, ptr noundef nonnull %offset)
   %cmp290 = icmp sgt i32 %call289, -1
   br i1 %cmp290, label %if.then291, label %outputBytes
 
 if.then291:                                       ; preds = %if.else288
-  %56 = load i8, ptr %nextWindowUseIndex.i312, align 1
-  %idxprom.i454 = sext i8 %56 to i64
-  %arrayidx.i455 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i454
-  %57 = load i8, ptr %arrayidx.i455, align 1
-  %inc.i456 = add i8 %56, 1
-  %cmp.i457 = icmp eq i8 %inc.i456, 8
-  %spec.select.i458 = select i1 %cmp.i457, i8 0, i8 %inc.i456
-  store i8 %spec.select.i458, ptr %nextWindowUseIndex.i312, align 1
+  %56 = load i8, ptr %nextWindowUseIndex.i313, align 1
+  %idxprom.i460 = sext i8 %56 to i64
+  %arrayidx.i461 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom.i460
+  %57 = load i8, ptr %arrayidx.i461, align 1
+  %inc.i462 = add i8 %56, 1
+  %cmp.i463 = icmp eq i8 %inc.i462, 8
+  %spec.select.i464 = select i1 %cmp.i463, i8 0, i8 %inc.i462
+  store i8 %spec.select.i464, ptr %nextWindowUseIndex.i313, align 1
   %58 = load i32, ptr %offset, align 4
   %idxprom294 = zext i8 %57 to i64
-  %arrayidx295 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom294
+  %arrayidx295 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom294
   store i32 %58, ptr %arrayidx295, align 4
   tail call fastcc void @_ZL16useDynamicWindowP8SCSUDataa(ptr noundef nonnull %1, i8 noundef signext %57)
   %conv296 = zext i8 %57 to i32
@@ -3368,11 +3364,11 @@ if.then310:                                       ; preds = %if.else308
 
 getTrailUnicode:                                  ; preds = %if.then310, %if.else216
   %source.7 = phi ptr [ %source.0, %if.else216 ], [ %incdec.ptr228, %if.then310 ]
-  %target.7 = phi ptr [ %target.0, %if.else216 ], [ %target.6707905, %if.then310 ]
-  %targetCapacity.7 = phi i32 [ %targetCapacity.0, %if.else216 ], [ %targetCapacity.6708904, %if.then310 ]
-  %offsets.13 = phi ptr [ %offsets.0, %if.else216 ], [ %offsets.11709903, %if.then310 ]
+  %target.7 = phi ptr [ %target.0, %if.else216 ], [ %target.6716914, %if.then310 ]
+  %targetCapacity.7 = phi i32 [ %targetCapacity.0, %if.else216 ], [ %targetCapacity.6717913, %if.then310 ]
+  %offsets.13 = phi ptr [ %offsets.0, %if.else216 ], [ %offsets.11718912, %if.then310 ]
   %c.4 = phi i32 [ %c.0, %if.else216 ], [ %conv229, %if.then310 ]
-  %sourceIndex.4 = phi i32 [ %sourceIndex.0, %if.else216 ], [ %sourceIndex.3711902, %if.then310 ]
+  %sourceIndex.4 = phi i32 [ %sourceIndex.0, %if.else216 ], [ %sourceIndex.3720911, %if.then310 ]
   %nextSourceIndex.7 = phi i32 [ %nextSourceIndex.0, %if.else216 ], [ %inc230, %if.then310 ]
   %cmp315 = icmp ult ptr %source.7, %3
   br i1 %cmp315, label %if.then316, label %endloop
@@ -3385,32 +3381,32 @@ if.then316:                                       ; preds = %getTrailUnicode
   br i1 %cmp319, label %if.then320, label %endloop.sink.split
 
 if.then320:                                       ; preds = %if.then316
-  %incdec.ptr321 = getelementptr inbounds i16, ptr %source.7, i64 1
+  %incdec.ptr321 = getelementptr inbounds i8, ptr %source.7, i64 2
   %inc322 = add nsw i32 %nextSourceIndex.7, 1
   %shl323 = shl i32 %c.4, 10
   %add325 = add nsw i32 %shl323, %conv317
   %sub326 = add nsw i32 %add325, -56613888
-  br label %for.body.i459
+  br label %for.body.i465
 
-for.body.i459:                                    ; preds = %for.inc.i464, %if.then320
-  %indvars.iv.i460 = phi i64 [ 0, %if.then320 ], [ %indvars.iv.next.i465, %for.inc.i464 ]
-  %arrayidx.i461 = getelementptr inbounds i32, ptr %fromUDynamicOffsets, i64 %indvars.iv.i460
-  %60 = load i32, ptr %arrayidx.i461, align 4
-  %sub.i462 = sub i32 %sub326, %60
-  %cmp1.i463 = icmp ult i32 %sub.i462, 128
-  br i1 %cmp1.i463, label %_ZL9getWindowPKjj.exit470, label %for.inc.i464
+for.body.i465:                                    ; preds = %for.inc.i470, %if.then320
+  %indvars.iv.i466 = phi i64 [ 0, %if.then320 ], [ %indvars.iv.next.i471, %for.inc.i470 ]
+  %arrayidx.i467 = getelementptr inbounds i32, ptr %fromUDynamicOffsets, i64 %indvars.iv.i466
+  %60 = load i32, ptr %arrayidx.i467, align 4
+  %sub.i468 = sub i32 %sub326, %60
+  %cmp1.i469 = icmp ult i32 %sub.i468, 128
+  br i1 %cmp1.i469, label %_ZL9getWindowPKjj.exit476, label %for.inc.i470
 
-for.inc.i464:                                     ; preds = %for.body.i459
-  %indvars.iv.next.i465 = add nuw nsw i64 %indvars.iv.i460, 1
-  %exitcond.not.i466 = icmp eq i64 %indvars.iv.next.i465, 8
-  br i1 %exitcond.not.i466, label %if.else354, label %for.body.i459, !llvm.loop !13
+for.inc.i470:                                     ; preds = %for.body.i465
+  %indvars.iv.next.i471 = add nuw nsw i64 %indvars.iv.i466, 1
+  %exitcond.not.i472 = icmp eq i64 %indvars.iv.next.i471, 8
+  br i1 %exitcond.not.i472, label %if.else354, label %for.body.i465, !llvm.loop !13
 
-_ZL9getWindowPKjj.exit470:                        ; preds = %for.body.i459
-  %conv.i469 = trunc i64 %indvars.iv.i460 to i8
-  %cmp337 = icmp sgt i8 %conv.i469, -1
+_ZL9getWindowPKjj.exit476:                        ; preds = %for.body.i465
+  %conv.i475 = trunc i64 %indvars.iv.i466 to i8
+  %cmp337 = icmp sgt i8 %conv.i475, -1
   br i1 %cmp337, label %land.lhs.true338, label %if.else354
 
-land.lhs.true338:                                 ; preds = %_ZL9getWindowPKjj.exit470
+land.lhs.true338:                                 ; preds = %_ZL9getWindowPKjj.exit476
   %cmp339 = icmp ult ptr %incdec.ptr321, %3
   br i1 %cmp339, label %land.lhs.true340, label %if.then344
 
@@ -3422,53 +3418,53 @@ land.lhs.true340:                                 ; preds = %land.lhs.true338
   br i1 %cmp343, label %if.else354, label %if.then344
 
 if.then344:                                       ; preds = %land.lhs.true340, %land.lhs.true338
-  %idxprom346 = and i64 %indvars.iv.i460, 255
-  %arrayidx347 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom346
+  %idxprom346 = and i64 %indvars.iv.i466, 255
+  %arrayidx347 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom346
   %62 = load i32, ptr %arrayidx347, align 4
-  %63 = load i8, ptr %nextWindowUseIndex.i312, align 1
-  %conv.i472 = sext i8 %63 to i32
-  br label %do.body.i473
+  %63 = load i8, ptr %nextWindowUseIndex.i313, align 1
+  %conv.i478 = sext i8 %63 to i32
+  br label %do.body.i480
 
-do.body.i473:                                     ; preds = %do.body.i473, %if.then344
-  %i.0.i474 = phi i32 [ %conv.i472, %if.then344 ], [ %spec.store.select.i477, %do.body.i473 ]
-  %dec.i475 = add nsw i32 %i.0.i474, -1
-  %cmp.i476 = icmp slt i32 %i.0.i474, 1
-  %spec.store.select.i477 = select i1 %cmp.i476, i32 7, i32 %dec.i475
-  %idxprom.i478 = sext i32 %spec.store.select.i477 to i64
-  %arrayidx.i479 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i478
-  %64 = load i8, ptr %arrayidx.i479, align 1
-  %cmp3.not.i480 = icmp eq i8 %64, %conv.i469
-  br i1 %cmp3.not.i480, label %do.end.i481, label %do.body.i473, !llvm.loop !14
+do.body.i480:                                     ; preds = %do.body.i480, %if.then344
+  %i.0.i481 = phi i32 [ %conv.i478, %if.then344 ], [ %spec.store.select.i484, %do.body.i480 ]
+  %dec.i482 = add nsw i32 %i.0.i481, -1
+  %cmp.i483 = icmp slt i32 %i.0.i481, 1
+  %spec.store.select.i484 = select i1 %cmp.i483, i32 7, i32 %dec.i482
+  %idxprom.i485 = sext i32 %spec.store.select.i484 to i64
+  %arrayidx.i486 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom.i485
+  %64 = load i8, ptr %arrayidx.i486, align 1
+  %cmp3.not.i487 = icmp eq i8 %64, %conv.i475
+  br i1 %cmp3.not.i487, label %do.end.i488, label %do.body.i480, !llvm.loop !14
 
-do.end.i481:                                      ; preds = %do.body.i473
-  %add.i482 = add nsw i32 %spec.store.select.i477, 1
-  %cmp4.i483 = icmp eq i32 %add.i482, 8
-  %spec.store.select1.i484 = select i1 %cmp4.i483, i32 0, i32 %add.i482
-  %cmp9.not18.i485 = icmp eq i32 %spec.store.select1.i484, %conv.i472
-  br i1 %cmp9.not18.i485, label %_ZL16useDynamicWindowP8SCSUDataa.exit500, label %while.body.i486
+do.end.i488:                                      ; preds = %do.body.i480
+  %add.i489 = add nsw i32 %spec.store.select.i484, 1
+  %cmp4.i490 = icmp eq i32 %add.i489, 8
+  %spec.store.select1.i491 = select i1 %cmp4.i490, i32 0, i32 %add.i489
+  %cmp9.not18.i492 = icmp eq i32 %spec.store.select1.i491, %conv.i478
+  br i1 %cmp9.not18.i492, label %_ZL16useDynamicWindowP8SCSUDataa.exit507, label %while.body.i493
 
-while.body.i486:                                  ; preds = %do.end.i481, %while.body.i486
-  %j.020.i487 = phi i32 [ %spec.store.select2.i495, %while.body.i486 ], [ %spec.store.select1.i484, %do.end.i481 ]
-  %i.119.i488 = phi i32 [ %j.020.i487, %while.body.i486 ], [ %spec.store.select.i477, %do.end.i481 ]
-  %idxprom11.i489 = sext i32 %j.020.i487 to i64
-  %arrayidx12.i490 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom11.i489
-  %65 = load i8, ptr %arrayidx12.i490, align 1
-  %idxprom14.i491 = sext i32 %i.119.i488 to i64
-  %arrayidx15.i492 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom14.i491
-  store i8 %65, ptr %arrayidx15.i492, align 1
-  %inc.i493 = add nsw i32 %j.020.i487, 1
-  %cmp16.i494 = icmp eq i32 %inc.i493, 8
-  %spec.store.select2.i495 = select i1 %cmp16.i494, i32 0, i32 %inc.i493
-  %66 = load i8, ptr %nextWindowUseIndex.i312, align 1
-  %conv8.i496 = sext i8 %66 to i32
-  %cmp9.not.i497 = icmp eq i32 %spec.store.select2.i495, %conv8.i496
-  br i1 %cmp9.not.i497, label %_ZL16useDynamicWindowP8SCSUDataa.exit500, label %while.body.i486, !llvm.loop !15
+while.body.i493:                                  ; preds = %do.end.i488, %while.body.i493
+  %j.020.i494 = phi i32 [ %spec.store.select2.i502, %while.body.i493 ], [ %spec.store.select1.i491, %do.end.i488 ]
+  %i.119.i495 = phi i32 [ %j.020.i494, %while.body.i493 ], [ %spec.store.select.i484, %do.end.i488 ]
+  %idxprom11.i496 = sext i32 %j.020.i494 to i64
+  %arrayidx12.i497 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom11.i496
+  %65 = load i8, ptr %arrayidx12.i497, align 1
+  %idxprom14.i498 = sext i32 %i.119.i495 to i64
+  %arrayidx15.i499 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom14.i498
+  store i8 %65, ptr %arrayidx15.i499, align 1
+  %inc.i500 = add nsw i32 %j.020.i494, 1
+  %cmp16.i501 = icmp eq i32 %inc.i500, 8
+  %spec.store.select2.i502 = select i1 %cmp16.i501, i32 0, i32 %inc.i500
+  %66 = load i8, ptr %nextWindowUseIndex.i313, align 1
+  %conv8.i503 = sext i8 %66 to i32
+  %cmp9.not.i504 = icmp eq i32 %spec.store.select2.i502, %conv8.i503
+  br i1 %cmp9.not.i504, label %_ZL16useDynamicWindowP8SCSUDataa.exit507, label %while.body.i493, !llvm.loop !15
 
-_ZL16useDynamicWindowP8SCSUDataa.exit500:         ; preds = %while.body.i486, %do.end.i481
-  %idxprom20.pre-phi.i498 = phi i64 [ %idxprom.i478, %do.end.i481 ], [ %idxprom11.i489, %while.body.i486 ]
-  %arrayidx21.i499 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom20.pre-phi.i498
-  store i8 %conv.i469, ptr %arrayidx21.i499, align 1
-  %67 = trunc i64 %indvars.iv.i460 to i32
+_ZL16useDynamicWindowP8SCSUDataa.exit507:         ; preds = %while.body.i493, %do.end.i488
+  %idxprom20.pre-phi.i505 = phi i64 [ %idxprom.i485, %do.end.i488 ], [ %idxprom11.i496, %while.body.i493 ]
+  %arrayidx21.i506 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom20.pre-phi.i505
+  store i8 %conv.i475, ptr %arrayidx21.i506, align 1
+  %67 = trunc i64 %indvars.iv.i466 to i32
   %conv348 = shl i32 %67, 8
   %add349 = and i32 %conv348, 65280
   %sub351 = sub i32 %sub326, %62
@@ -3476,7 +3472,7 @@ _ZL16useDynamicWindowP8SCSUDataa.exit500:         ; preds = %while.body.i486, %d
   %or353 = or i32 %or352, %sub351
   br label %outputBytes
 
-if.else354:                                       ; preds = %for.inc.i464, %land.lhs.true340, %_ZL9getWindowPKjj.exit470
+if.else354:                                       ; preds = %for.inc.i470, %land.lhs.true340, %_ZL9getWindowPKjj.exit476
   %cmp355 = icmp ult ptr %incdec.ptr321, %3
   br i1 %cmp355, label %land.lhs.true356, label %if.else377
 
@@ -3484,122 +3480,122 @@ land.lhs.true356:                                 ; preds = %if.else354
   %68 = load i16, ptr %incdec.ptr321, align 2
   %69 = trunc i32 %c.4 to i16
   %cmp359 = icmp eq i16 %68, %69
-  br i1 %cmp359, label %for.body.i501, label %if.else377
+  br i1 %cmp359, label %for.body.i508, label %if.else377
 
-for.body.i501:                                    ; preds = %land.lhs.true356, %for.inc.i506
-  %indvars.iv.i502 = phi i64 [ %indvars.iv.next.i507, %for.inc.i506 ], [ 0, %land.lhs.true356 ]
-  %arrayidx.i503 = getelementptr inbounds [7 x i32], ptr @_ZL12fixedOffsets, i64 0, i64 %indvars.iv.i502
-  %70 = load i32, ptr %arrayidx.i503, align 4
-  %sub.i504 = sub i32 %sub326, %70
-  %cmp1.i505 = icmp ult i32 %sub.i504, 128
-  br i1 %cmp1.i505, label %_ZL16getDynamicOffsetjPj.exit531, label %for.inc.i506
+for.body.i508:                                    ; preds = %land.lhs.true356, %for.inc.i513
+  %indvars.iv.i509 = phi i64 [ %indvars.iv.next.i514, %for.inc.i513 ], [ 0, %land.lhs.true356 ]
+  %arrayidx.i510 = getelementptr inbounds [7 x i32], ptr @_ZL12fixedOffsets, i64 0, i64 %indvars.iv.i509
+  %70 = load i32, ptr %arrayidx.i510, align 4
+  %sub.i511 = sub i32 %sub326, %70
+  %cmp1.i512 = icmp ult i32 %sub.i511, 128
+  br i1 %cmp1.i512, label %_ZL16getDynamicOffsetjPj.exit538, label %for.inc.i513
 
-for.inc.i506:                                     ; preds = %for.body.i501
-  %indvars.iv.next.i507 = add nuw nsw i64 %indvars.iv.i502, 1
-  %exitcond.not.i508 = icmp eq i64 %indvars.iv.next.i507, 7
-  br i1 %exitcond.not.i508, label %for.end.i509, label %for.body.i501, !llvm.loop !16
+for.inc.i513:                                     ; preds = %for.body.i508
+  %indvars.iv.next.i514 = add nuw nsw i64 %indvars.iv.i509, 1
+  %exitcond.not.i515 = icmp eq i64 %indvars.iv.next.i514, 7
+  br i1 %exitcond.not.i515, label %for.end.i516, label %for.body.i508, !llvm.loop !16
 
-for.end.i509:                                     ; preds = %for.inc.i506
-  %cmp4.i510 = icmp ult i32 %sub326, 128
-  br i1 %cmp4.i510, label %if.else377, label %if.else.i511
+for.end.i516:                                     ; preds = %for.inc.i513
+  %cmp4.i517 = icmp ult i32 %sub326, 128
+  br i1 %cmp4.i517, label %if.else377, label %if.else.i518
 
-if.else.i511:                                     ; preds = %for.end.i509
-  %cmp6.i512 = icmp ult i32 %sub326, 13312
+if.else.i518:                                     ; preds = %for.end.i516
+  %cmp6.i519 = icmp ult i32 %sub326, 13312
   %71 = and i32 %sub326, -16384
-  %cmp8.i513 = icmp eq i32 %71, 65536
-  %or.cond.i514 = or i1 %cmp6.i512, %cmp8.i513
-  %sub10.i515 = add i32 %add325, -56732672
-  %cmp11.i516 = icmp ult i32 %sub10.i515, 12288
-  %or.cond19.i517 = or i1 %cmp11.i516, %or.cond.i514
-  br i1 %or.cond19.i517, label %if.then12.i526, label %if.else13.i518
+  %cmp8.i520 = icmp eq i32 %71, 65536
+  %or.cond.i521 = or i1 %cmp6.i519, %cmp8.i520
+  %sub10.i522 = add i32 %add325, -56732672
+  %cmp11.i523 = icmp ult i32 %sub10.i522, 12288
+  %or.cond19.i524 = or i1 %cmp11.i523, %or.cond.i521
+  br i1 %or.cond19.i524, label %if.then12.i533, label %if.else13.i525
 
-if.then12.i526:                                   ; preds = %if.else.i511
-  %and.i527 = and i32 %sub326, 2147483520
-  store i32 %and.i527, ptr %offset, align 4
-  %shr.i528 = lshr i32 %sub326, 7
+if.then12.i533:                                   ; preds = %if.else.i518
+  %and.i534 = and i32 %sub326, 2147483520
+  store i32 %and.i534, ptr %offset, align 4
+  %shr.i535 = lshr i32 %sub326, 7
   br label %if.then363
 
-if.else13.i518:                                   ; preds = %if.else.i511
-  %cmp15.i519 = icmp ne i32 %sub326, 65279
+if.else13.i525:                                   ; preds = %if.else.i518
+  %cmp15.i526 = icmp ne i32 %sub326, 65279
   %72 = add i32 %add325, -56671232
   %73 = icmp ult i32 %72, 8176
-  %or.cond1.i520 = and i1 %cmp15.i519, %73
-  br i1 %or.cond1.i520, label %if.then18.i522, label %if.else377
+  %or.cond1.i527 = and i1 %cmp15.i526, %73
+  br i1 %or.cond1.i527, label %if.then18.i529, label %if.else377
 
-if.then18.i522:                                   ; preds = %if.else13.i518
-  %and19.i523 = and i32 %sub326, 2147483520
-  store i32 %and19.i523, ptr %offset, align 4
-  %sub20.i524 = add nsw i32 %add325, -56657920
-  %shr21.i525 = lshr i32 %sub20.i524, 7
+if.then18.i529:                                   ; preds = %if.else13.i525
+  %and19.i530 = and i32 %sub326, 2147483520
+  store i32 %and19.i530, ptr %offset, align 4
+  %sub20.i531 = add nsw i32 %add325, -56657920
+  %shr21.i532 = lshr i32 %sub20.i531, 7
   br label %if.then363
 
-_ZL16getDynamicOffsetjPj.exit531:                 ; preds = %for.body.i501
-  %74 = trunc i64 %indvars.iv.i502 to i32
+_ZL16getDynamicOffsetjPj.exit538:                 ; preds = %for.body.i508
+  %74 = trunc i64 %indvars.iv.i509 to i32
   store i32 %70, ptr %offset, align 4
-  %add.i530 = add nuw nsw i32 %74, 249
+  %add.i537 = add nuw nsw i32 %74, 249
   %cmp362 = icmp sgt i32 %74, -250
   br i1 %cmp362, label %if.then363, label %if.else377
 
-if.then363:                                       ; preds = %if.then18.i522, %if.then12.i526, %_ZL16getDynamicOffsetjPj.exit531
-  %75 = phi i32 [ %70, %_ZL16getDynamicOffsetjPj.exit531 ], [ %and19.i523, %if.then18.i522 ], [ %and.i527, %if.then12.i526 ]
-  %retval.0.i521593 = phi i32 [ %add.i530, %_ZL16getDynamicOffsetjPj.exit531 ], [ %shr21.i525, %if.then18.i522 ], [ %shr.i528, %if.then12.i526 ]
-  %76 = load i8, ptr %nextWindowUseIndex.i312, align 1
-  %idxprom.i533 = sext i8 %76 to i64
-  %arrayidx.i534 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i533
-  %77 = load i8, ptr %arrayidx.i534, align 1
-  %inc.i535 = add i8 %76, 1
-  %cmp.i536 = icmp eq i8 %inc.i535, 8
-  %spec.select.i537 = select i1 %cmp.i536, i8 0, i8 %inc.i535
-  store i8 %spec.select.i537, ptr %nextWindowUseIndex.i312, align 1
+if.then363:                                       ; preds = %if.then18.i529, %if.then12.i533, %_ZL16getDynamicOffsetjPj.exit538
+  %75 = phi i32 [ %70, %_ZL16getDynamicOffsetjPj.exit538 ], [ %and19.i530, %if.then18.i529 ], [ %and.i534, %if.then12.i533 ]
+  %retval.0.i528602 = phi i32 [ %add.i537, %_ZL16getDynamicOffsetjPj.exit538 ], [ %shr21.i532, %if.then18.i529 ], [ %shr.i535, %if.then12.i533 ]
+  %76 = load i8, ptr %nextWindowUseIndex.i313, align 1
+  %idxprom.i541 = sext i8 %76 to i64
+  %arrayidx.i542 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom.i541
+  %77 = load i8, ptr %arrayidx.i542, align 1
+  %inc.i543 = add i8 %76, 1
+  %cmp.i544 = icmp eq i8 %inc.i543, 8
+  %spec.select.i545 = select i1 %cmp.i544, i8 0, i8 %inc.i543
+  store i8 %spec.select.i545, ptr %nextWindowUseIndex.i313, align 1
   %idxprom367 = zext i8 %77 to i64
-  %arrayidx368 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 1, i64 %idxprom367
+  %arrayidx368 = getelementptr inbounds [8 x i32], ptr %fromUDynamicOffsets, i64 0, i64 %idxprom367
   store i32 %75, ptr %arrayidx368, align 4
-  %78 = load i8, ptr %nextWindowUseIndex.i312, align 1
-  %conv.i539 = sext i8 %78 to i32
-  br label %do.body.i540
+  %78 = load i8, ptr %nextWindowUseIndex.i313, align 1
+  %conv.i547 = sext i8 %78 to i32
+  br label %do.body.i549
 
-do.body.i540:                                     ; preds = %do.body.i540, %if.then363
-  %i.0.i541 = phi i32 [ %conv.i539, %if.then363 ], [ %spec.store.select.i544, %do.body.i540 ]
-  %dec.i542 = add nsw i32 %i.0.i541, -1
-  %cmp.i543 = icmp slt i32 %i.0.i541, 1
-  %spec.store.select.i544 = select i1 %cmp.i543, i32 7, i32 %dec.i542
-  %idxprom.i545 = sext i32 %spec.store.select.i544 to i64
-  %arrayidx.i546 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom.i545
-  %79 = load i8, ptr %arrayidx.i546, align 1
-  %cmp3.not.i547 = icmp eq i8 %79, %77
-  br i1 %cmp3.not.i547, label %do.end.i548, label %do.body.i540, !llvm.loop !14
+do.body.i549:                                     ; preds = %do.body.i549, %if.then363
+  %i.0.i550 = phi i32 [ %conv.i547, %if.then363 ], [ %spec.store.select.i553, %do.body.i549 ]
+  %dec.i551 = add nsw i32 %i.0.i550, -1
+  %cmp.i552 = icmp slt i32 %i.0.i550, 1
+  %spec.store.select.i553 = select i1 %cmp.i552, i32 7, i32 %dec.i551
+  %idxprom.i554 = sext i32 %spec.store.select.i553 to i64
+  %arrayidx.i555 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom.i554
+  %79 = load i8, ptr %arrayidx.i555, align 1
+  %cmp3.not.i556 = icmp eq i8 %79, %77
+  br i1 %cmp3.not.i556, label %do.end.i557, label %do.body.i549, !llvm.loop !14
 
-do.end.i548:                                      ; preds = %do.body.i540
-  %add.i549 = add nsw i32 %spec.store.select.i544, 1
-  %cmp4.i550 = icmp eq i32 %add.i549, 8
-  %spec.store.select1.i551 = select i1 %cmp4.i550, i32 0, i32 %add.i549
-  %cmp9.not18.i552 = icmp eq i32 %spec.store.select1.i551, %conv.i539
-  br i1 %cmp9.not18.i552, label %_ZL16useDynamicWindowP8SCSUDataa.exit567, label %while.body.i553
+do.end.i557:                                      ; preds = %do.body.i549
+  %add.i558 = add nsw i32 %spec.store.select.i553, 1
+  %cmp4.i559 = icmp eq i32 %add.i558, 8
+  %spec.store.select1.i560 = select i1 %cmp4.i559, i32 0, i32 %add.i558
+  %cmp9.not18.i561 = icmp eq i32 %spec.store.select1.i560, %conv.i547
+  br i1 %cmp9.not18.i561, label %_ZL16useDynamicWindowP8SCSUDataa.exit576, label %while.body.i562
 
-while.body.i553:                                  ; preds = %do.end.i548, %while.body.i553
-  %j.020.i554 = phi i32 [ %spec.store.select2.i562, %while.body.i553 ], [ %spec.store.select1.i551, %do.end.i548 ]
-  %i.119.i555 = phi i32 [ %j.020.i554, %while.body.i553 ], [ %spec.store.select.i544, %do.end.i548 ]
-  %idxprom11.i556 = sext i32 %j.020.i554 to i64
-  %arrayidx12.i557 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom11.i556
-  %80 = load i8, ptr %arrayidx12.i557, align 1
-  %idxprom14.i558 = sext i32 %i.119.i555 to i64
-  %arrayidx15.i559 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom14.i558
-  store i8 %80, ptr %arrayidx15.i559, align 1
-  %inc.i560 = add nsw i32 %j.020.i554, 1
-  %cmp16.i561 = icmp eq i32 %inc.i560, 8
-  %spec.store.select2.i562 = select i1 %cmp16.i561, i32 0, i32 %inc.i560
-  %81 = load i8, ptr %nextWindowUseIndex.i312, align 1
-  %conv8.i563 = sext i8 %81 to i32
-  %cmp9.not.i564 = icmp eq i32 %spec.store.select2.i562, %conv8.i563
-  br i1 %cmp9.not.i564, label %_ZL16useDynamicWindowP8SCSUDataa.exit567, label %while.body.i553, !llvm.loop !15
+while.body.i562:                                  ; preds = %do.end.i557, %while.body.i562
+  %j.020.i563 = phi i32 [ %spec.store.select2.i571, %while.body.i562 ], [ %spec.store.select1.i560, %do.end.i557 ]
+  %i.119.i564 = phi i32 [ %j.020.i563, %while.body.i562 ], [ %spec.store.select.i553, %do.end.i557 ]
+  %idxprom11.i565 = sext i32 %j.020.i563 to i64
+  %arrayidx12.i566 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom11.i565
+  %80 = load i8, ptr %arrayidx12.i566, align 1
+  %idxprom14.i567 = sext i32 %i.119.i564 to i64
+  %arrayidx15.i568 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom14.i567
+  store i8 %80, ptr %arrayidx15.i568, align 1
+  %inc.i569 = add nsw i32 %j.020.i563, 1
+  %cmp16.i570 = icmp eq i32 %inc.i569, 8
+  %spec.store.select2.i571 = select i1 %cmp16.i570, i32 0, i32 %inc.i569
+  %81 = load i8, ptr %nextWindowUseIndex.i313, align 1
+  %conv8.i572 = sext i8 %81 to i32
+  %cmp9.not.i573 = icmp eq i32 %spec.store.select2.i571, %conv8.i572
+  br i1 %cmp9.not.i573, label %_ZL16useDynamicWindowP8SCSUDataa.exit576, label %while.body.i562, !llvm.loop !15
 
-_ZL16useDynamicWindowP8SCSUDataa.exit567:         ; preds = %while.body.i553, %do.end.i548
-  %idxprom20.pre-phi.i565 = phi i64 [ %idxprom.i545, %do.end.i548 ], [ %idxprom11.i556, %while.body.i553 ]
-  %arrayidx21.i566 = getelementptr inbounds %struct.SCSUData, ptr %1, i64 0, i32 12, i64 %idxprom20.pre-phi.i565
-  store i8 %77, ptr %arrayidx21.i566, align 1
+_ZL16useDynamicWindowP8SCSUDataa.exit576:         ; preds = %while.body.i562, %do.end.i557
+  %idxprom20.pre-phi.i574 = phi i64 [ %idxprom.i554, %do.end.i557 ], [ %idxprom11.i565, %while.body.i562 ]
+  %arrayidx21.i575 = getelementptr inbounds [8 x i8], ptr %windowUse.i312, i64 0, i64 %idxprom20.pre-phi.i574
+  store i8 %77, ptr %arrayidx21.i575, align 1
   %conv369 = zext i8 %77 to i32
   %shl370 = shl nuw nsw i32 %conv369, 21
-  %sub364 = shl i32 %retval.0.i521593, 8
+  %sub364 = shl i32 %retval.0.i528602, 8
   %shl372 = add i32 %sub364, 268304384
   %sub374 = sub i32 %sub326, %75
   %or371 = or i32 %shl372, %shl370
@@ -3607,7 +3603,7 @@ _ZL16useDynamicWindowP8SCSUDataa.exit567:         ; preds = %while.body.i553, %d
   %or376 = or i32 %or373, -251658112
   br label %outputBytes
 
-if.else377:                                       ; preds = %if.else13.i518, %for.end.i509, %_ZL16getDynamicOffsetjPj.exit531, %land.lhs.true356, %if.else354
+if.else377:                                       ; preds = %if.else13.i525, %for.end.i516, %_ZL16getDynamicOffsetjPj.exit538, %land.lhs.true356, %if.else354
   %conv378 = shl i32 %c.4, 16
   %or381 = or disjoint i32 %conv378, %conv317
   br label %outputBytes
@@ -3618,11 +3614,11 @@ if.else382:                                       ; preds = %if.else308
 
 endloop.sink.split:                               ; preds = %if.then310, %if.then316, %if.then50, %if.then56, %while.body, %while.body224.preheader, %while.body224, %sw.bb472, %if.then476, %sw.epilog453, %sw.bb472.thread
   %.sink = phi i32 [ 15, %sw.bb472.thread ], [ 15, %sw.epilog453 ], [ 15, %if.then476 ], [ 15, %sw.bb472 ], [ 15, %while.body224 ], [ 15, %while.body ], [ 12, %if.then56 ], [ 12, %if.then50 ], [ 12, %if.then316 ], [ 12, %if.then310 ], [ 15, %while.body224.preheader ]
-  %source.8.ph = phi ptr [ %source.9610, %sw.bb472.thread ], [ %source.9610, %sw.epilog453 ], [ %source.9610, %if.then476 ], [ %source.9610, %sw.bb472 ], [ %incdec.ptr228, %while.body224 ], [ %source.1, %while.body ], [ %source.2, %if.then56 ], [ %incdec.ptr, %if.then50 ], [ %source.7, %if.then316 ], [ %incdec.ptr228, %if.then310 ], [ %source.0, %while.body224.preheader ]
-  %target.8.ph = phi ptr [ %incdec.ptr474637, %sw.bb472.thread ], [ %target.9611, %sw.epilog453 ], [ %incdec.ptr474646, %if.then476 ], [ %incdec.ptr474, %sw.bb472 ], [ %incdec.ptr239, %while.body224 ], [ %target.1, %while.body ], [ %target.2, %if.then56 ], [ %target.1, %if.then50 ], [ %target.7, %if.then316 ], [ %target.6707905, %if.then310 ], [ %target.0, %while.body224.preheader ]
-  %offsets.14.ph = phi ptr [ null, %sw.bb472.thread ], [ %offsets.15613, %sw.epilog453 ], [ %incdec.ptr477, %if.then476 ], [ null, %sw.bb472 ], [ %offsets.12, %while.body224 ], [ %offsets.1, %while.body ], [ %offsets.5, %if.then56 ], [ %offsets.1, %if.then50 ], [ %offsets.13, %if.then316 ], [ %offsets.11709903, %if.then310 ], [ %offsets.0, %while.body224.preheader ]
-  %isSingleByteMode.1.ph = phi i8 [ %isSingleByteMode.2614, %sw.bb472.thread ], [ %isSingleByteMode.2614, %sw.epilog453 ], [ %isSingleByteMode.2614, %if.then476 ], [ %isSingleByteMode.2614, %sw.bb472 ], [ 0, %while.body224 ], [ %isSingleByteMode.0, %while.body ], [ %isSingleByteMode.0, %if.then56 ], [ %isSingleByteMode.0, %if.then50 ], [ 0, %if.then316 ], [ 0, %if.then310 ], [ 0, %while.body224.preheader ]
-  %dynamicWindow.1.ph = phi i8 [ %dynamicWindow.2615, %sw.bb472.thread ], [ %dynamicWindow.2615, %sw.epilog453 ], [ %dynamicWindow.2615, %if.then476 ], [ %dynamicWindow.2615, %sw.bb472 ], [ %dynamicWindow.0, %while.body224 ], [ %dynamicWindow.0, %while.body224.preheader ], [ %dynamicWindow.0, %while.body ], [ %dynamicWindow.0, %if.then56 ], [ %dynamicWindow.0, %if.then50 ], [ %dynamicWindow.0, %if.then316 ], [ %dynamicWindow.0, %if.then310 ]
+  %source.8.ph = phi ptr [ %source.9619, %sw.bb472.thread ], [ %source.9619, %sw.epilog453 ], [ %source.9619, %if.then476 ], [ %source.9619, %sw.bb472 ], [ %incdec.ptr228, %while.body224 ], [ %source.1, %while.body ], [ %source.2, %if.then56 ], [ %incdec.ptr, %if.then50 ], [ %source.7, %if.then316 ], [ %incdec.ptr228, %if.then310 ], [ %source.0, %while.body224.preheader ]
+  %target.8.ph = phi ptr [ %incdec.ptr474646, %sw.bb472.thread ], [ %target.9620, %sw.epilog453 ], [ %incdec.ptr474655, %if.then476 ], [ %incdec.ptr474, %sw.bb472 ], [ %incdec.ptr239, %while.body224 ], [ %target.1, %while.body ], [ %target.2, %if.then56 ], [ %target.1, %if.then50 ], [ %target.7, %if.then316 ], [ %target.6716914, %if.then310 ], [ %target.0, %while.body224.preheader ]
+  %offsets.14.ph = phi ptr [ null, %sw.bb472.thread ], [ %offsets.15622, %sw.epilog453 ], [ %incdec.ptr477, %if.then476 ], [ null, %sw.bb472 ], [ %offsets.12, %while.body224 ], [ %offsets.1, %while.body ], [ %offsets.5, %if.then56 ], [ %offsets.1, %if.then50 ], [ %offsets.13, %if.then316 ], [ %offsets.11718912, %if.then310 ], [ %offsets.0, %while.body224.preheader ]
+  %isSingleByteMode.1.ph = phi i8 [ %isSingleByteMode.2623, %sw.bb472.thread ], [ %isSingleByteMode.2623, %sw.epilog453 ], [ %isSingleByteMode.2623, %if.then476 ], [ %isSingleByteMode.2623, %sw.bb472 ], [ 0, %while.body224 ], [ %isSingleByteMode.0, %while.body ], [ %isSingleByteMode.0, %if.then56 ], [ %isSingleByteMode.0, %if.then50 ], [ 0, %if.then316 ], [ 0, %if.then310 ], [ 0, %while.body224.preheader ]
+  %dynamicWindow.1.ph = phi i8 [ %dynamicWindow.2624, %sw.bb472.thread ], [ %dynamicWindow.2624, %sw.epilog453 ], [ %dynamicWindow.2624, %if.then476 ], [ %dynamicWindow.2624, %sw.bb472 ], [ %dynamicWindow.0, %while.body224 ], [ %dynamicWindow.0, %while.body224.preheader ], [ %dynamicWindow.0, %while.body ], [ %dynamicWindow.0, %if.then56 ], [ %dynamicWindow.0, %if.then50 ], [ %dynamicWindow.0, %if.then316 ], [ %dynamicWindow.0, %if.then310 ]
   %c.5.ph = phi i32 [ 0, %sw.bb472.thread ], [ 0, %sw.epilog453 ], [ 0, %if.then476 ], [ 0, %sw.bb472 ], [ 0, %while.body224 ], [ %c.1, %while.body ], [ %c.2, %if.then56 ], [ %conv13, %if.then50 ], [ %c.4, %if.then316 ], [ %conv229, %if.then310 ], [ %c.0, %while.body224.preheader ]
   store i32 %.sink, ptr %pErrorCode, align 4
   br label %endloop
@@ -3642,18 +3638,18 @@ endloop:                                          ; preds = %getTrailSingle, %wh
   store ptr %offsets.14, ptr %offsets5, align 8
   ret void
 
-outputBytes:                                      ; preds = %land.lhs.true253, %if.else288, %if.else382, %if.else377, %_ZL16useDynamicWindowP8SCSUDataa.exit567, %_ZL16useDynamicWindowP8SCSUDataa.exit500, %if.then291, %_ZL16useDynamicWindowP8SCSUDataa.exit452, %if.then266, %if.else210, %if.then208, %if.then186, %if.then175, %if.else161, %_ZL16useDynamicWindowP8SCSUDataa.exit392, %if.then134, %if.then128, %if.end119, %_ZL16useDynamicWindowP8SCSUDataa.exit346, %_ZL16useDynamicWindowP8SCSUDataa.exit, %if.else33
-  %source.9 = phi ptr [ %incdec.ptr, %if.else33 ], [ %incdec.ptr, %if.then128 ], [ %incdec.ptr, %if.then134 ], [ %incdec.ptr, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %incdec.ptr, %if.else161 ], [ %incdec.ptr, %if.then175 ], [ %incdec.ptr, %if.then186 ], [ %incdec.ptr, %if.then208 ], [ %incdec.ptr, %if.else210 ], [ %incdec.ptr61, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %incdec.ptr61, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %incdec.ptr61, %if.end119 ], [ %incdec.ptr321, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %incdec.ptr321, %if.else377 ], [ %incdec.ptr321, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %incdec.ptr228, %if.then266 ], [ %incdec.ptr228, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %incdec.ptr228, %if.then291 ], [ %incdec.ptr228, %if.else382 ], [ %incdec.ptr228, %if.else288 ], [ %incdec.ptr228, %land.lhs.true253 ]
-  %target.9 = phi ptr [ %target.1, %if.else33 ], [ %target.1, %if.then128 ], [ %target.1, %if.then134 ], [ %target.1, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %target.1, %if.else161 ], [ %target.1, %if.then175 ], [ %target.1, %if.then186 ], [ %target.1, %if.then208 ], [ %target.1, %if.else210 ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %incdec.ptr115, %if.end119 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %target.7, %if.else377 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %target.6707905, %if.then266 ], [ %target.6707905, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %target.6707905, %if.then291 ], [ %target.6707905, %if.else382 ], [ %target.6707905, %if.else288 ], [ %target.6707905, %land.lhs.true253 ]
-  %targetCapacity.8 = phi i32 [ %targetCapacity.1, %if.else33 ], [ %targetCapacity.1, %if.then128 ], [ %targetCapacity.1, %if.then134 ], [ %targetCapacity.1, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %targetCapacity.1, %if.else161 ], [ %targetCapacity.1, %if.then175 ], [ %targetCapacity.1, %if.then186 ], [ %targetCapacity.1, %if.then208 ], [ %targetCapacity.1, %if.else210 ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %dec120, %if.end119 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %targetCapacity.7, %if.else377 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %targetCapacity.6708904, %if.then266 ], [ %targetCapacity.6708904, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %targetCapacity.6708904, %if.then291 ], [ %targetCapacity.6708904, %if.else382 ], [ %targetCapacity.6708904, %if.else288 ], [ %targetCapacity.6708904, %land.lhs.true253 ]
-  %offsets.15 = phi ptr [ %offsets.1, %if.else33 ], [ %offsets.1, %if.then128 ], [ %offsets.1, %if.then134 ], [ %offsets.1, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %offsets.1, %if.else161 ], [ %offsets.1, %if.then175 ], [ %offsets.1, %if.then186 ], [ %offsets.1, %if.then208 ], [ %offsets.1, %if.else210 ], [ %offsets.5, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %offsets.5, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %offsets.7, %if.end119 ], [ %offsets.13, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %offsets.13, %if.else377 ], [ %offsets.13, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %offsets.11709903, %if.then266 ], [ %offsets.11709903, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %offsets.11709903, %if.then291 ], [ %offsets.11709903, %if.else382 ], [ %offsets.11709903, %if.else288 ], [ %offsets.11709903, %land.lhs.true253 ]
-  %isSingleByteMode.2 = phi i8 [ %isSingleByteMode.0, %if.else33 ], [ %isSingleByteMode.0, %if.then128 ], [ %isSingleByteMode.0, %if.then134 ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %isSingleByteMode.0, %if.else161 ], [ %isSingleByteMode.0, %if.then175 ], [ %isSingleByteMode.0, %if.then186 ], [ 0, %if.then208 ], [ %isSingleByteMode.0, %if.else210 ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ 0, %if.end119 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ 0, %if.else377 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ 1, %if.then266 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ 1, %if.then291 ], [ 0, %if.else382 ], [ 0, %if.else288 ], [ 0, %land.lhs.true253 ]
-  %dynamicWindow.2 = phi i8 [ %dynamicWindow.0, %if.else33 ], [ %dynamicWindow.0, %if.then128 ], [ %dynamicWindow.0, %if.then134 ], [ %conv.i357, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %dynamicWindow.0, %if.else161 ], [ %dynamicWindow.0, %if.then175 ], [ %44, %if.then186 ], [ %dynamicWindow.0, %if.then208 ], [ %dynamicWindow.0, %if.else210 ], [ %conv.i, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %28, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %dynamicWindow.0, %if.end119 ], [ %77, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %dynamicWindow.0, %if.else377 ], [ %conv.i469, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %dynamicWindow.0, %if.then266 ], [ %conv.i421, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %57, %if.then291 ], [ %dynamicWindow.0, %if.else382 ], [ %dynamicWindow.0, %if.else288 ], [ %dynamicWindow.0, %land.lhs.true253 ]
-  %currentOffset.1 = phi i32 [ %currentOffset.0, %if.else33 ], [ %currentOffset.0, %if.then128 ], [ %currentOffset.0, %if.then134 ], [ %36, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %currentOffset.0, %if.else161 ], [ %currentOffset.0, %if.then175 ], [ %45, %if.then186 ], [ %currentOffset.0, %if.then208 ], [ %currentOffset.0, %if.else210 ], [ %16, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %26, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %currentOffset.0, %if.end119 ], [ %75, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %currentOffset.0, %if.else377 ], [ %62, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %currentOffset.0, %if.then266 ], [ %50, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %58, %if.then291 ], [ %currentOffset.0, %if.else382 ], [ %currentOffset.0, %if.else288 ], [ %currentOffset.0, %land.lhs.true253 ]
-  %c.6 = phi i32 [ %or, %if.else33 ], [ %or130, %if.then128 ], [ %or135, %if.then134 ], [ %or160, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %or170, %if.else161 ], [ %or182, %if.then175 ], [ %or198, %if.then186 ], [ %or209, %if.then208 ], [ %or211, %if.else210 ], [ %or96, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %or113, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %or124, %if.end119 ], [ %or376, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %or381, %if.else377 ], [ %or353, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %or270, %if.then266 ], [ %or287, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %or303, %if.then291 ], [ %or383, %if.else382 ], [ %conv229, %if.else288 ], [ %conv229, %land.lhs.true253 ]
-  %sourceIndex.5 = phi i32 [ %sourceIndex.1, %if.else33 ], [ %sourceIndex.1, %if.then128 ], [ %sourceIndex.1, %if.then134 ], [ %sourceIndex.1, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %sourceIndex.1, %if.else161 ], [ %sourceIndex.1, %if.then175 ], [ %sourceIndex.1, %if.then186 ], [ %sourceIndex.1, %if.then208 ], [ %sourceIndex.1, %if.else210 ], [ %sourceIndex.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %sourceIndex.2, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %sourceIndex.2, %if.end119 ], [ %sourceIndex.4, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %sourceIndex.4, %if.else377 ], [ %sourceIndex.4, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %sourceIndex.3711902, %if.then266 ], [ %sourceIndex.3711902, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %sourceIndex.3711902, %if.then291 ], [ %sourceIndex.3711902, %if.else382 ], [ %sourceIndex.3711902, %if.else288 ], [ %sourceIndex.3711902, %land.lhs.true253 ]
-  %nextSourceIndex.8 = phi i32 [ %inc, %if.else33 ], [ %inc, %if.then128 ], [ %inc, %if.then134 ], [ %inc, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ %inc, %if.else161 ], [ %inc, %if.then175 ], [ %inc, %if.then186 ], [ %inc, %if.then208 ], [ %inc, %if.else210 ], [ %inc62, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %inc62, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ %inc62, %if.end119 ], [ %inc322, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ %inc322, %if.else377 ], [ %inc322, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ %inc230, %if.then266 ], [ %inc230, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ %inc230, %if.then291 ], [ %inc230, %if.else382 ], [ %inc230, %if.else288 ], [ %inc230, %land.lhs.true253 ]
-  %length.0 = phi i32 [ 2, %if.else33 ], [ 2, %if.then128 ], [ 3, %if.then134 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit392 ], [ 2, %if.else161 ], [ 2, %if.then175 ], [ 3, %if.then186 ], [ 3, %if.then208 ], [ 3, %if.else210 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit346 ], [ 4, %if.end119 ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit567 ], [ 4, %if.else377 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit500 ], [ 2, %if.then266 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit452 ], [ 3, %if.then291 ], [ 3, %if.else382 ], [ 2, %if.else288 ], [ 2, %land.lhs.true253 ]
+outputBytes:                                      ; preds = %land.lhs.true253, %if.else288, %if.else382, %if.else377, %_ZL16useDynamicWindowP8SCSUDataa.exit576, %_ZL16useDynamicWindowP8SCSUDataa.exit507, %if.then291, %_ZL16useDynamicWindowP8SCSUDataa.exit457, %if.then266, %if.else210, %if.then208, %if.then186, %if.then175, %if.else161, %_ZL16useDynamicWindowP8SCSUDataa.exit395, %if.then134, %if.then128, %if.end119, %_ZL16useDynamicWindowP8SCSUDataa.exit348, %_ZL16useDynamicWindowP8SCSUDataa.exit, %if.else33
+  %source.9 = phi ptr [ %incdec.ptr, %if.else33 ], [ %incdec.ptr, %if.then128 ], [ %incdec.ptr, %if.then134 ], [ %incdec.ptr, %_ZL16useDynamicWindowP8SCSUDataa.exit395 ], [ %incdec.ptr, %if.else161 ], [ %incdec.ptr, %if.then175 ], [ %incdec.ptr, %if.then186 ], [ %incdec.ptr, %if.then208 ], [ %incdec.ptr, %if.else210 ], [ %incdec.ptr61, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %incdec.ptr61, %_ZL16useDynamicWindowP8SCSUDataa.exit348 ], [ %incdec.ptr61, %if.end119 ], [ %incdec.ptr321, %_ZL16useDynamicWindowP8SCSUDataa.exit576 ], [ %incdec.ptr321, %if.else377 ], [ %incdec.ptr321, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %incdec.ptr228, %if.then266 ], [ %incdec.ptr228, %_ZL16useDynamicWindowP8SCSUDataa.exit457 ], [ %incdec.ptr228, %if.then291 ], [ %incdec.ptr228, %if.else382 ], [ %incdec.ptr228, %if.else288 ], [ %incdec.ptr228, %land.lhs.true253 ]
+  %target.9 = phi ptr [ %target.1, %if.else33 ], [ %target.1, %if.then128 ], [ %target.1, %if.then134 ], [ %target.1, %_ZL16useDynamicWindowP8SCSUDataa.exit395 ], [ %target.1, %if.else161 ], [ %target.1, %if.then175 ], [ %target.1, %if.then186 ], [ %target.1, %if.then208 ], [ %target.1, %if.else210 ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %target.2, %_ZL16useDynamicWindowP8SCSUDataa.exit348 ], [ %incdec.ptr115, %if.end119 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit576 ], [ %target.7, %if.else377 ], [ %target.7, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %target.6716914, %if.then266 ], [ %target.6716914, %_ZL16useDynamicWindowP8SCSUDataa.exit457 ], [ %target.6716914, %if.then291 ], [ %target.6716914, %if.else382 ], [ %target.6716914, %if.else288 ], [ %target.6716914, %land.lhs.true253 ]
+  %targetCapacity.8 = phi i32 [ %targetCapacity.1, %if.else33 ], [ %targetCapacity.1, %if.then128 ], [ %targetCapacity.1, %if.then134 ], [ %targetCapacity.1, %_ZL16useDynamicWindowP8SCSUDataa.exit395 ], [ %targetCapacity.1, %if.else161 ], [ %targetCapacity.1, %if.then175 ], [ %targetCapacity.1, %if.then186 ], [ %targetCapacity.1, %if.then208 ], [ %targetCapacity.1, %if.else210 ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %targetCapacity.2, %_ZL16useDynamicWindowP8SCSUDataa.exit348 ], [ %dec120, %if.end119 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit576 ], [ %targetCapacity.7, %if.else377 ], [ %targetCapacity.7, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %targetCapacity.6717913, %if.then266 ], [ %targetCapacity.6717913, %_ZL16useDynamicWindowP8SCSUDataa.exit457 ], [ %targetCapacity.6717913, %if.then291 ], [ %targetCapacity.6717913, %if.else382 ], [ %targetCapacity.6717913, %if.else288 ], [ %targetCapacity.6717913, %land.lhs.true253 ]
+  %offsets.15 = phi ptr [ %offsets.1, %if.else33 ], [ %offsets.1, %if.then128 ], [ %offsets.1, %if.then134 ], [ %offsets.1, %_ZL16useDynamicWindowP8SCSUDataa.exit395 ], [ %offsets.1, %if.else161 ], [ %offsets.1, %if.then175 ], [ %offsets.1, %if.then186 ], [ %offsets.1, %if.then208 ], [ %offsets.1, %if.else210 ], [ %offsets.5, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %offsets.5, %_ZL16useDynamicWindowP8SCSUDataa.exit348 ], [ %offsets.7, %if.end119 ], [ %offsets.13, %_ZL16useDynamicWindowP8SCSUDataa.exit576 ], [ %offsets.13, %if.else377 ], [ %offsets.13, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %offsets.11718912, %if.then266 ], [ %offsets.11718912, %_ZL16useDynamicWindowP8SCSUDataa.exit457 ], [ %offsets.11718912, %if.then291 ], [ %offsets.11718912, %if.else382 ], [ %offsets.11718912, %if.else288 ], [ %offsets.11718912, %land.lhs.true253 ]
+  %isSingleByteMode.2 = phi i8 [ %isSingleByteMode.0, %if.else33 ], [ %isSingleByteMode.0, %if.then128 ], [ %isSingleByteMode.0, %if.then134 ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit395 ], [ %isSingleByteMode.0, %if.else161 ], [ %isSingleByteMode.0, %if.then175 ], [ %isSingleByteMode.0, %if.then186 ], [ 0, %if.then208 ], [ %isSingleByteMode.0, %if.else210 ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %isSingleByteMode.0, %_ZL16useDynamicWindowP8SCSUDataa.exit348 ], [ 0, %if.end119 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit576 ], [ 0, %if.else377 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ 1, %if.then266 ], [ 1, %_ZL16useDynamicWindowP8SCSUDataa.exit457 ], [ 1, %if.then291 ], [ 0, %if.else382 ], [ 0, %if.else288 ], [ 0, %land.lhs.true253 ]
+  %dynamicWindow.2 = phi i8 [ %dynamicWindow.0, %if.else33 ], [ %dynamicWindow.0, %if.then128 ], [ %dynamicWindow.0, %if.then134 ], [ %conv.i359, %_ZL16useDynamicWindowP8SCSUDataa.exit395 ], [ %dynamicWindow.0, %if.else161 ], [ %dynamicWindow.0, %if.then175 ], [ %44, %if.then186 ], [ %dynamicWindow.0, %if.then208 ], [ %dynamicWindow.0, %if.else210 ], [ %conv.i, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %28, %_ZL16useDynamicWindowP8SCSUDataa.exit348 ], [ %dynamicWindow.0, %if.end119 ], [ %77, %_ZL16useDynamicWindowP8SCSUDataa.exit576 ], [ %dynamicWindow.0, %if.else377 ], [ %conv.i475, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %dynamicWindow.0, %if.then266 ], [ %conv.i425, %_ZL16useDynamicWindowP8SCSUDataa.exit457 ], [ %57, %if.then291 ], [ %dynamicWindow.0, %if.else382 ], [ %dynamicWindow.0, %if.else288 ], [ %dynamicWindow.0, %land.lhs.true253 ]
+  %currentOffset.1 = phi i32 [ %currentOffset.0, %if.else33 ], [ %currentOffset.0, %if.then128 ], [ %currentOffset.0, %if.then134 ], [ %36, %_ZL16useDynamicWindowP8SCSUDataa.exit395 ], [ %currentOffset.0, %if.else161 ], [ %currentOffset.0, %if.then175 ], [ %45, %if.then186 ], [ %currentOffset.0, %if.then208 ], [ %currentOffset.0, %if.else210 ], [ %16, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %26, %_ZL16useDynamicWindowP8SCSUDataa.exit348 ], [ %currentOffset.0, %if.end119 ], [ %75, %_ZL16useDynamicWindowP8SCSUDataa.exit576 ], [ %currentOffset.0, %if.else377 ], [ %62, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %currentOffset.0, %if.then266 ], [ %50, %_ZL16useDynamicWindowP8SCSUDataa.exit457 ], [ %58, %if.then291 ], [ %currentOffset.0, %if.else382 ], [ %currentOffset.0, %if.else288 ], [ %currentOffset.0, %land.lhs.true253 ]
+  %c.6 = phi i32 [ %or, %if.else33 ], [ %or130, %if.then128 ], [ %or135, %if.then134 ], [ %or160, %_ZL16useDynamicWindowP8SCSUDataa.exit395 ], [ %or170, %if.else161 ], [ %or182, %if.then175 ], [ %or198, %if.then186 ], [ %or209, %if.then208 ], [ %or211, %if.else210 ], [ %or96, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %or113, %_ZL16useDynamicWindowP8SCSUDataa.exit348 ], [ %or124, %if.end119 ], [ %or376, %_ZL16useDynamicWindowP8SCSUDataa.exit576 ], [ %or381, %if.else377 ], [ %or353, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %or270, %if.then266 ], [ %or287, %_ZL16useDynamicWindowP8SCSUDataa.exit457 ], [ %or303, %if.then291 ], [ %or383, %if.else382 ], [ %conv229, %if.else288 ], [ %conv229, %land.lhs.true253 ]
+  %sourceIndex.5 = phi i32 [ %sourceIndex.1, %if.else33 ], [ %sourceIndex.1, %if.then128 ], [ %sourceIndex.1, %if.then134 ], [ %sourceIndex.1, %_ZL16useDynamicWindowP8SCSUDataa.exit395 ], [ %sourceIndex.1, %if.else161 ], [ %sourceIndex.1, %if.then175 ], [ %sourceIndex.1, %if.then186 ], [ %sourceIndex.1, %if.then208 ], [ %sourceIndex.1, %if.else210 ], [ %sourceIndex.2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %sourceIndex.2, %_ZL16useDynamicWindowP8SCSUDataa.exit348 ], [ %sourceIndex.2, %if.end119 ], [ %sourceIndex.4, %_ZL16useDynamicWindowP8SCSUDataa.exit576 ], [ %sourceIndex.4, %if.else377 ], [ %sourceIndex.4, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %sourceIndex.3720911, %if.then266 ], [ %sourceIndex.3720911, %_ZL16useDynamicWindowP8SCSUDataa.exit457 ], [ %sourceIndex.3720911, %if.then291 ], [ %sourceIndex.3720911, %if.else382 ], [ %sourceIndex.3720911, %if.else288 ], [ %sourceIndex.3720911, %land.lhs.true253 ]
+  %nextSourceIndex.8 = phi i32 [ %inc, %if.else33 ], [ %inc, %if.then128 ], [ %inc, %if.then134 ], [ %inc, %_ZL16useDynamicWindowP8SCSUDataa.exit395 ], [ %inc, %if.else161 ], [ %inc, %if.then175 ], [ %inc, %if.then186 ], [ %inc, %if.then208 ], [ %inc, %if.else210 ], [ %inc62, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ %inc62, %_ZL16useDynamicWindowP8SCSUDataa.exit348 ], [ %inc62, %if.end119 ], [ %inc322, %_ZL16useDynamicWindowP8SCSUDataa.exit576 ], [ %inc322, %if.else377 ], [ %inc322, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ %inc230, %if.then266 ], [ %inc230, %_ZL16useDynamicWindowP8SCSUDataa.exit457 ], [ %inc230, %if.then291 ], [ %inc230, %if.else382 ], [ %inc230, %if.else288 ], [ %inc230, %land.lhs.true253 ]
+  %length.0 = phi i32 [ 2, %if.else33 ], [ 2, %if.then128 ], [ 3, %if.then134 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit395 ], [ 2, %if.else161 ], [ 2, %if.then175 ], [ 3, %if.then186 ], [ 3, %if.then208 ], [ 3, %if.else210 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit348 ], [ 4, %if.end119 ], [ 4, %_ZL16useDynamicWindowP8SCSUDataa.exit576 ], [ 4, %if.else377 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit507 ], [ 2, %if.then266 ], [ 2, %_ZL16useDynamicWindowP8SCSUDataa.exit457 ], [ 3, %if.then291 ], [ 3, %if.else382 ], [ 2, %if.else288 ], [ 2, %land.lhs.true253 ]
   %cmp393.not = icmp sgt i32 %length.0, %targetCapacity.8
   br i1 %cmp393.not, label %if.else435, label %if.then394
 
@@ -3706,7 +3702,7 @@ sw.bb412:                                         ; preds = %if.else411
   %conv414 = trunc i32 %shr413 to i8
   %incdec.ptr415 = getelementptr inbounds i8, ptr %target.9, i64 1
   store i8 %conv414, ptr %target.9, align 1
-  %incdec.ptr416 = getelementptr inbounds i32, ptr %offsets.15, i64 1
+  %incdec.ptr416 = getelementptr inbounds i8, ptr %offsets.15, i64 4
   store i32 %sourceIndex.5, ptr %offsets.15, align 4
   br label %sw.bb417
 
@@ -3717,7 +3713,7 @@ sw.bb417:                                         ; preds = %sw.bb412, %if.else4
   %conv419 = trunc i32 %shr418 to i8
   %incdec.ptr420 = getelementptr inbounds i8, ptr %target.13, i64 1
   store i8 %conv419, ptr %target.13, align 1
-  %incdec.ptr421 = getelementptr inbounds i32, ptr %offsets.16, i64 1
+  %incdec.ptr421 = getelementptr inbounds i8, ptr %offsets.16, i64 4
   store i32 %sourceIndex.5, ptr %offsets.16, align 4
   br label %sw.bb422
 
@@ -3728,12 +3724,12 @@ sw.bb422:                                         ; preds = %sw.bb417, %if.else4
   %conv424 = trunc i32 %shr423 to i8
   store i8 %conv424, ptr %target.14, align 1
   store i32 %sourceIndex.5, ptr %offsets.17, align 4
-  %incdec.ptr426 = getelementptr inbounds i32, ptr %offsets.17, i64 1
+  %incdec.ptr426 = getelementptr inbounds i8, ptr %offsets.17, i64 4
   %incdec.ptr425 = getelementptr inbounds i8, ptr %target.14, i64 1
   %conv428 = trunc i32 %c.6 to i8
   %incdec.ptr429 = getelementptr inbounds i8, ptr %target.14, i64 2
   store i8 %conv428, ptr %incdec.ptr425, align 1
-  %incdec.ptr430 = getelementptr inbounds i32, ptr %offsets.17, i64 2
+  %incdec.ptr430 = getelementptr inbounds i8, ptr %offsets.17, i64 8
   store i32 %sourceIndex.5, ptr %incdec.ptr426, align 4
   br label %if.end433
 
@@ -3744,17 +3740,17 @@ if.end433:                                        ; preds = %sw.bb422, %if.else4
   br label %loop
 
 if.else435:                                       ; preds = %outputBytes, %if.then233
-  %length.0618 = phi i32 [ 2, %if.then233 ], [ %length.0, %outputBytes ]
-  %sourceIndex.5617 = phi i32 [ %sourceIndex.3711902, %if.then233 ], [ %sourceIndex.5, %outputBytes ]
-  %c.6616 = phi i32 [ %conv229, %if.then233 ], [ %c.6, %outputBytes ]
-  %dynamicWindow.2615 = phi i8 [ %dynamicWindow.0, %if.then233 ], [ %dynamicWindow.2, %outputBytes ]
-  %isSingleByteMode.2614 = phi i8 [ 0, %if.then233 ], [ %isSingleByteMode.2, %outputBytes ]
-  %offsets.15613 = phi ptr [ %offsets.11709903, %if.then233 ], [ %offsets.15, %outputBytes ]
-  %targetCapacity.8612 = phi i32 [ 1, %if.then233 ], [ %targetCapacity.8, %outputBytes ]
-  %target.9611 = phi ptr [ %target.6707905, %if.then233 ], [ %target.9, %outputBytes ]
-  %source.9610 = phi ptr [ %incdec.ptr228, %if.then233 ], [ %source.9, %outputBytes ]
-  %sub436 = sub nsw i32 %length.0618, %targetCapacity.8612
-  %charErrorBuffer = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 27
+  %length.0627 = phi i32 [ 2, %if.then233 ], [ %length.0, %outputBytes ]
+  %sourceIndex.5626 = phi i32 [ %sourceIndex.3720911, %if.then233 ], [ %sourceIndex.5, %outputBytes ]
+  %c.6625 = phi i32 [ %conv229, %if.then233 ], [ %c.6, %outputBytes ]
+  %dynamicWindow.2624 = phi i8 [ %dynamicWindow.0, %if.then233 ], [ %dynamicWindow.2, %outputBytes ]
+  %isSingleByteMode.2623 = phi i8 [ 0, %if.then233 ], [ %isSingleByteMode.2, %outputBytes ]
+  %offsets.15622 = phi ptr [ %offsets.11718912, %if.then233 ], [ %offsets.15, %outputBytes ]
+  %targetCapacity.8621 = phi i32 [ 1, %if.then233 ], [ %targetCapacity.8, %outputBytes ]
+  %target.9620 = phi ptr [ %target.6716914, %if.then233 ], [ %target.9, %outputBytes ]
+  %source.9619 = phi ptr [ %incdec.ptr228, %if.then233 ], [ %source.9, %outputBytes ]
+  %sub436 = sub nsw i32 %length.0627, %targetCapacity.8621
+  %charErrorBuffer = getelementptr inbounds i8, ptr %0, i64 104
   switch i32 %sub436, label %sw.epilog453 [
     i32 4, label %sw.bb438
     i32 3, label %sw.bb442
@@ -3763,15 +3759,15 @@ if.else435:                                       ; preds = %outputBytes, %if.th
   ]
 
 sw.bb438:                                         ; preds = %if.else435
-  %shr439 = lshr i32 %c.6616, 24
+  %shr439 = lshr i32 %c.6625, 24
   %conv440 = trunc i32 %shr439 to i8
-  %incdec.ptr441 = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 27, i64 1
+  %incdec.ptr441 = getelementptr inbounds i8, ptr %0, i64 105
   store i8 %conv440, ptr %charErrorBuffer, align 1
   br label %sw.bb442
 
 sw.bb442:                                         ; preds = %sw.bb438, %if.else435
   %p.0 = phi ptr [ %charErrorBuffer, %if.else435 ], [ %incdec.ptr441, %sw.bb438 ]
-  %shr443 = lshr i32 %c.6616, 16
+  %shr443 = lshr i32 %c.6625, 16
   %conv444 = trunc i32 %shr443 to i8
   %incdec.ptr445 = getelementptr inbounds i8, ptr %p.0, i64 1
   store i8 %conv444, ptr %p.0, align 1
@@ -3779,7 +3775,7 @@ sw.bb442:                                         ; preds = %sw.bb438, %if.else4
 
 sw.bb446:                                         ; preds = %sw.bb442, %if.else435
   %p.1 = phi ptr [ %charErrorBuffer, %if.else435 ], [ %incdec.ptr445, %sw.bb442 ]
-  %shr447 = lshr i32 %c.6616, 8
+  %shr447 = lshr i32 %c.6625, 8
   %conv448 = trunc i32 %shr447 to i8
   %incdec.ptr449 = getelementptr inbounds i8, ptr %p.1, i64 1
   store i8 %conv448, ptr %p.1, align 1
@@ -3787,17 +3783,17 @@ sw.bb446:                                         ; preds = %sw.bb442, %if.else4
 
 sw.bb450:                                         ; preds = %sw.bb446, %if.else435
   %p.2 = phi ptr [ %charErrorBuffer, %if.else435 ], [ %incdec.ptr449, %sw.bb446 ]
-  %conv451 = trunc i32 %c.6616 to i8
+  %conv451 = trunc i32 %c.6625 to i8
   store i8 %conv451, ptr %p.2, align 1
   br label %sw.epilog453
 
 sw.epilog453:                                     ; preds = %if.else435, %sw.bb450
   %conv454 = trunc i32 %sub436 to i8
-  %charErrorBufferLength = getelementptr inbounds %struct.UConverter, ptr %0, i64 0, i32 21
+  %charErrorBufferLength = getelementptr inbounds i8, ptr %0, i64 91
   store i8 %conv454, ptr %charErrorBufferLength, align 1
   %mul = shl nsw i32 %sub436, 3
-  %shr455 = lshr i32 %c.6616, %mul
-  switch i32 %targetCapacity.8612, label %endloop.sink.split [
+  %shr455 = lshr i32 %c.6625, %mul
+  switch i32 %targetCapacity.8621, label %endloop.sink.split [
     i32 3, label %sw.bb456
     i32 2, label %sw.bb464
     i32 1, label %sw.bb472
@@ -3806,73 +3802,73 @@ sw.epilog453:                                     ; preds = %if.else435, %sw.bb4
 sw.bb456:                                         ; preds = %sw.epilog453
   %shr457 = lshr i32 %shr455, 16
   %conv458 = trunc i32 %shr457 to i8
-  %incdec.ptr459 = getelementptr inbounds i8, ptr %target.9611, i64 1
-  store i8 %conv458, ptr %target.9611, align 1
-  %cmp460.not = icmp eq ptr %offsets.15613, null
-  br i1 %cmp460.not, label %sw.bb464.thread, label %sw.bb464.thread625
+  %incdec.ptr459 = getelementptr inbounds i8, ptr %target.9620, i64 1
+  store i8 %conv458, ptr %target.9620, align 1
+  %cmp460.not = icmp eq ptr %offsets.15622, null
+  br i1 %cmp460.not, label %sw.bb464.thread, label %sw.bb464.thread634
 
 sw.bb464.thread:                                  ; preds = %sw.bb456
-  %shr465621 = lshr i32 %shr455, 8
-  %conv466622 = trunc i32 %shr465621 to i8
-  %incdec.ptr467623 = getelementptr inbounds i8, ptr %target.9611, i64 2
-  store i8 %conv466622, ptr %incdec.ptr459, align 1
+  %shr465630 = lshr i32 %shr455, 8
+  %conv466631 = trunc i32 %shr465630 to i8
+  %incdec.ptr467632 = getelementptr inbounds i8, ptr %target.9620, i64 2
+  store i8 %conv466631, ptr %incdec.ptr459, align 1
   br label %sw.bb472.thread
 
-sw.bb464.thread625:                               ; preds = %sw.bb456
-  %incdec.ptr462 = getelementptr inbounds i32, ptr %offsets.15613, i64 1
-  store i32 %sourceIndex.5617, ptr %offsets.15613, align 4
-  %shr465628 = lshr i32 %shr455, 8
-  %conv466629 = trunc i32 %shr465628 to i8
-  %incdec.ptr467630 = getelementptr inbounds i8, ptr %target.9611, i64 2
-  store i8 %conv466629, ptr %incdec.ptr459, align 1
-  br label %sw.bb472.thread639
+sw.bb464.thread634:                               ; preds = %sw.bb456
+  %incdec.ptr462 = getelementptr inbounds i8, ptr %offsets.15622, i64 4
+  store i32 %sourceIndex.5626, ptr %offsets.15622, align 4
+  %shr465637 = lshr i32 %shr455, 8
+  %conv466638 = trunc i32 %shr465637 to i8
+  %incdec.ptr467639 = getelementptr inbounds i8, ptr %target.9620, i64 2
+  store i8 %conv466638, ptr %incdec.ptr459, align 1
+  br label %sw.bb472.thread648
 
 sw.bb464:                                         ; preds = %sw.epilog453
   %shr465 = lshr i32 %shr455, 8
   %conv466 = trunc i32 %shr465 to i8
-  %incdec.ptr467 = getelementptr inbounds i8, ptr %target.9611, i64 1
-  store i8 %conv466, ptr %target.9611, align 1
-  %cmp468.not = icmp eq ptr %offsets.15613, null
-  br i1 %cmp468.not, label %sw.bb472.thread, label %sw.bb472.thread639
+  %incdec.ptr467 = getelementptr inbounds i8, ptr %target.9620, i64 1
+  store i8 %conv466, ptr %target.9620, align 1
+  %cmp468.not = icmp eq ptr %offsets.15622, null
+  br i1 %cmp468.not, label %sw.bb472.thread, label %sw.bb472.thread648
 
-sw.bb472.thread639:                               ; preds = %sw.bb464, %sw.bb464.thread625
-  %incdec.ptr467633 = phi ptr [ %incdec.ptr467630, %sw.bb464.thread625 ], [ %incdec.ptr467, %sw.bb464 ]
-  %offsets.20632 = phi ptr [ %incdec.ptr462, %sw.bb464.thread625 ], [ %offsets.15613, %sw.bb464 ]
-  %incdec.ptr470 = getelementptr inbounds i32, ptr %offsets.20632, i64 1
-  store i32 %sourceIndex.5617, ptr %offsets.20632, align 4
-  %conv473642 = trunc i32 %shr455 to i8
-  %incdec.ptr474643 = getelementptr inbounds i8, ptr %incdec.ptr467633, i64 1
-  store i8 %conv473642, ptr %incdec.ptr467633, align 1
+sw.bb472.thread648:                               ; preds = %sw.bb464, %sw.bb464.thread634
+  %incdec.ptr467642 = phi ptr [ %incdec.ptr467639, %sw.bb464.thread634 ], [ %incdec.ptr467, %sw.bb464 ]
+  %offsets.20641 = phi ptr [ %incdec.ptr462, %sw.bb464.thread634 ], [ %offsets.15622, %sw.bb464 ]
+  %incdec.ptr470 = getelementptr inbounds i8, ptr %offsets.20641, i64 4
+  store i32 %sourceIndex.5626, ptr %offsets.20641, align 4
+  %conv473651 = trunc i32 %shr455 to i8
+  %incdec.ptr474652 = getelementptr inbounds i8, ptr %incdec.ptr467642, i64 1
+  store i8 %conv473651, ptr %incdec.ptr467642, align 1
   br label %if.then476
 
 sw.bb472.thread:                                  ; preds = %sw.bb464, %sw.bb464.thread
-  %target.18.ph = phi ptr [ %incdec.ptr467623, %sw.bb464.thread ], [ %incdec.ptr467, %sw.bb464 ]
-  %conv473636 = trunc i32 %shr455 to i8
-  %incdec.ptr474637 = getelementptr inbounds i8, ptr %target.18.ph, i64 1
-  store i8 %conv473636, ptr %target.18.ph, align 1
+  %target.18.ph = phi ptr [ %incdec.ptr467632, %sw.bb464.thread ], [ %incdec.ptr467, %sw.bb464 ]
+  %conv473645 = trunc i32 %shr455 to i8
+  %incdec.ptr474646 = getelementptr inbounds i8, ptr %target.18.ph, i64 1
+  store i8 %conv473645, ptr %target.18.ph, align 1
   br label %endloop.sink.split
 
 sw.bb472:                                         ; preds = %sw.epilog453
   %conv473 = trunc i32 %shr455 to i8
-  %incdec.ptr474 = getelementptr inbounds i8, ptr %target.9611, i64 1
-  store i8 %conv473, ptr %target.9611, align 1
-  %cmp475.not = icmp eq ptr %offsets.15613, null
+  %incdec.ptr474 = getelementptr inbounds i8, ptr %target.9620, i64 1
+  store i8 %conv473, ptr %target.9620, align 1
+  %cmp475.not = icmp eq ptr %offsets.15622, null
   br i1 %cmp475.not, label %endloop.sink.split, label %if.then476
 
-if.then476:                                       ; preds = %sw.bb472.thread639, %sw.bb472
-  %incdec.ptr474646 = phi ptr [ %incdec.ptr474643, %sw.bb472.thread639 ], [ %incdec.ptr474, %sw.bb472 ]
-  %offsets.21645 = phi ptr [ %incdec.ptr470, %sw.bb472.thread639 ], [ %offsets.15613, %sw.bb472 ]
-  %incdec.ptr477 = getelementptr inbounds i32, ptr %offsets.21645, i64 1
-  store i32 %sourceIndex.5617, ptr %offsets.21645, align 4
+if.then476:                                       ; preds = %sw.bb472.thread648, %sw.bb472
+  %incdec.ptr474655 = phi ptr [ %incdec.ptr474652, %sw.bb472.thread648 ], [ %incdec.ptr474, %sw.bb472 ]
+  %offsets.21654 = phi ptr [ %incdec.ptr470, %sw.bb472.thread648 ], [ %offsets.15622, %sw.bb472 ]
+  %incdec.ptr477 = getelementptr inbounds i8, ptr %offsets.21654, i64 4
+  store i32 %sourceIndex.5626, ptr %offsets.21654, align 4
   br label %endloop.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef nonnull ptr @_ZL12_SCSUGetNamePK10UConverter(ptr nocapture noundef readonly %cnv) #3 {
 entry:
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 2
+  %extraInfo = getelementptr inbounds i8, ptr %cnv, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
-  %locale = getelementptr inbounds %struct.SCSUData, ptr %0, i64 0, i32 10
+  %locale = getelementptr inbounds i8, ptr %0, i64 74
   %1 = load i8, ptr %locale, align 2
   %cond = icmp eq i8 %1, 1
   %.str..str.1 = select i1 %cond, ptr @.str, ptr @.str.1
@@ -3896,13 +3892,13 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %mydata = getelementptr inbounds %struct.cloneSCSUStruct, ptr %stackBuffer, i64 0, i32 1
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 2
+  %mydata = getelementptr inbounds i8, ptr %stackBuffer, i64 288
+  %extraInfo = getelementptr inbounds i8, ptr %cnv, i64 16
   %2 = load ptr, ptr %extraInfo, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %mydata, ptr noundef nonnull align 1 dereferenceable(84) %2, i64 84, i1 false)
-  %extraInfo5 = getelementptr inbounds %struct.UConverter, ptr %stackBuffer, i64 0, i32 2
+  %extraInfo5 = getelementptr inbounds i8, ptr %stackBuffer, i64 16
   store ptr %mydata, ptr %extraInfo5, align 8
-  %isExtraLocal = getelementptr inbounds %struct.UConverter, ptr %stackBuffer, i64 0, i32 10
+  %isExtraLocal = getelementptr inbounds i8, ptr %stackBuffer, i64 62
   store i8 1, ptr %isExtraLocal, align 2
   br label %return
 
@@ -3924,9 +3920,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZL16useDynamicWindowP8SCSUDataa(ptr nocapture noundef %scsu, i8 noundef signext %window) unnamed_addr #7 {
 entry:
-  %nextWindowUseIndex = getelementptr inbounds %struct.SCSUData, ptr %scsu, i64 0, i32 11
+  %nextWindowUseIndex = getelementptr inbounds i8, ptr %scsu, i64 75
   %0 = load i8, ptr %nextWindowUseIndex, align 1
   %conv = sext i8 %0 to i32
+  %windowUse = getelementptr inbounds i8, ptr %scsu, i64 76
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %entry
@@ -3935,7 +3932,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp = icmp slt i32 %i.0, 1
   %spec.store.select = select i1 %cmp, i32 7, i32 %dec
   %idxprom = sext i32 %spec.store.select to i64
-  %arrayidx = getelementptr inbounds %struct.SCSUData, ptr %scsu, i64 0, i32 12, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %windowUse, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %cmp3.not = icmp eq i8 %1, %window
   br i1 %cmp3.not, label %do.end, label %do.body, !llvm.loop !14
@@ -3951,10 +3948,10 @@ while.body:                                       ; preds = %do.end, %while.body
   %j.020 = phi i32 [ %spec.store.select2, %while.body ], [ %spec.store.select1, %do.end ]
   %i.119 = phi i32 [ %j.020, %while.body ], [ %spec.store.select, %do.end ]
   %idxprom11 = sext i32 %j.020 to i64
-  %arrayidx12 = getelementptr inbounds %struct.SCSUData, ptr %scsu, i64 0, i32 12, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [8 x i8], ptr %windowUse, i64 0, i64 %idxprom11
   %2 = load i8, ptr %arrayidx12, align 1
   %idxprom14 = sext i32 %i.119 to i64
-  %arrayidx15 = getelementptr inbounds %struct.SCSUData, ptr %scsu, i64 0, i32 12, i64 %idxprom14
+  %arrayidx15 = getelementptr inbounds [8 x i8], ptr %windowUse, i64 0, i64 %idxprom14
   store i8 %2, ptr %arrayidx15, align 1
   %inc = add nsw i32 %j.020, 1
   %cmp16 = icmp eq i32 %inc, 8
@@ -3966,7 +3963,7 @@ while.body:                                       ; preds = %do.end, %while.body
 
 while.end:                                        ; preds = %while.body, %do.end
   %idxprom20.pre-phi = phi i64 [ %idxprom, %do.end ], [ %idxprom11, %while.body ]
-  %arrayidx21 = getelementptr inbounds %struct.SCSUData, ptr %scsu, i64 0, i32 12, i64 %idxprom20.pre-phi
+  %arrayidx21 = getelementptr inbounds [8 x i8], ptr %windowUse, i64 0, i64 %idxprom20.pre-phi
   store i8 %window, ptr %arrayidx21, align 1
   ret void
 }

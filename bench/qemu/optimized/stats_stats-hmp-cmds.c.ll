@@ -4,23 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.StatsResultList = type { ptr, ptr }
-%struct.StatsSchemaList = type { ptr, ptr }
-%struct.StatsSchema = type { i32, i32, ptr }
-%struct.StatsResult = type { i32, ptr, ptr }
-%struct.StatsList = type { ptr, ptr }
-%struct.Stats = type { ptr, ptr }
-%struct.StatsSchemaValueList = type { ptr, ptr }
-%struct.StatsSchemaValue = type { ptr, i32, i8, i32, i8, i8, i16, i8, i32 }
-%struct.StatsValue = type { i32, %union.anon.0 }
-%union.anon.0 = type { i64 }
-%struct.uint64List = type { ptr, i64 }
-%struct.strList = type { ptr, ptr }
-%struct.StatsFilter = type { i32, i8, ptr, %union.anon }
-%union.anon = type { %struct.StatsVCPUFilter }
-%struct.StatsVCPUFilter = type { i8, ptr }
-%struct.StatsRequestList = type { ptr, ptr }
-%struct.StatsRequest = type { i32, i8, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"target\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"provider\00", align 1
@@ -133,7 +116,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %entry3.055.us = phi ptr [ %6, %for.body.us ], [ %call26, %for.body.lr.ph ]
-  %value.us = getelementptr inbounds %struct.StatsResultList, ptr %entry3.055.us, i64 0, i32 1
+  %value.us = getelementptr inbounds i8, ptr %entry3.055.us, i64 8
   %4 = load ptr, ptr %value.us, align 8
   %5 = load i32, ptr %4, align 8
   %call2.i.us = call ptr @qapi_enum_lookup(ptr noundef nonnull @StatsProvider_lookup, i32 noundef %5) #5
@@ -144,21 +127,21 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 for.body:                                         ; preds = %for.body.lr.ph, %print_stats_results.exit
   %entry3.055 = phi ptr [ %48, %print_stats_results.exit ], [ %call26, %for.body.lr.ph ]
-  %value = getelementptr inbounds %struct.StatsResultList, ptr %entry3.055, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %entry3.055, i64 8
   %7 = load ptr, ptr %value, align 8
   %8 = load i32, ptr %7, align 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body, %for.inc.i.i
   %node.06.i.i = phi ptr [ %12, %for.inc.i.i ], [ %call16, %for.body ]
-  %value.i.i = getelementptr inbounds %struct.StatsSchemaList, ptr %node.06.i.i, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %node.06.i.i, i64 8
   %9 = load ptr, ptr %value.i.i, align 8
   %10 = load i32, ptr %9, align 8
   %cmp.i.i = icmp eq i32 %10, %8
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body.i.i
-  %target3.i.i = getelementptr inbounds %struct.StatsSchema, ptr %9, i64 0, i32 1
+  %target3.i.i = getelementptr inbounds i8, ptr %9, i64 4
   %11 = load i32, ptr %target3.i.i, align 4
   %cmp4.i.i = icmp eq i32 %11, %call4
   br i1 %cmp4.i.i, label %find_schema_value_list.exit.i, label %for.inc.i.i
@@ -169,7 +152,7 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, 
   br i1 %tobool.not.i.i, label %if.then.i, label %for.body.i.i, !llvm.loop !7
 
 find_schema_value_list.exit.i:                    ; preds = %land.lhs.true.i.i
-  %stats.i.i = getelementptr inbounds %struct.StatsSchema, ptr %9, i64 0, i32 2
+  %stats.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load ptr, ptr %stats.i.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -188,7 +171,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then5.i, %if.end.i
-  %stats.i = getelementptr inbounds %struct.StatsResult, ptr %7, i64 0, i32 2
+  %stats.i = getelementptr inbounds i8, ptr %7, i64 16
   %stats_list.048.i = load ptr, ptr %stats.i, align 8
   %tobool10.not49.i = icmp eq ptr %stats_list.048.i, null
   br i1 %tobool10.not49.i, label %print_stats_results.exit, label %for.body.i
@@ -196,15 +179,15 @@ if.end9.i:                                        ; preds = %if.then5.i, %if.end
 for.body.i:                                       ; preds = %if.end9.i, %for.inc48.i
   %stats_list.051.i = phi ptr [ %stats_list.0.i, %for.inc48.i ], [ %stats_list.048.i, %if.end9.i ]
   %schema_value_list.050.i = phi ptr [ %47, %for.inc48.i ], [ %13, %if.end9.i ]
-  %value.i = getelementptr inbounds %struct.StatsList, ptr %stats_list.051.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %stats_list.051.i, i64 8
   %14 = load ptr, ptr %value.i, align 8
-  %value12.i = getelementptr inbounds %struct.Stats, ptr %14, i64 0, i32 1
+  %value12.i = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %value12.i, align 8
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %for.body.i
   %schema_value_list.1.i = phi ptr [ %schema_value_list.050.i, %for.body.i ], [ %18, %while.body.i ]
-  %schema_value.0.in.i = getelementptr inbounds %struct.StatsSchemaValueList, ptr %schema_value_list.1.i, i64 0, i32 1
+  %schema_value.0.in.i = getelementptr inbounds i8, ptr %schema_value_list.1.i, i64 8
   %schema_value.0.i = load ptr, ptr %schema_value.0.in.i, align 8
   %16 = load ptr, ptr %14, align 8
   %17 = load ptr, ptr %schema_value.0.i, align 8
@@ -224,17 +207,17 @@ if.then18.i:                                      ; preds = %while.body.i
 
 while.end.i:                                      ; preds = %while.cond.i
   %20 = load ptr, ptr %schema_value.0.i, align 8
-  %type.i.i = getelementptr inbounds %struct.StatsSchemaValue, ptr %schema_value.0.i, i64 0, i32 1
+  %type.i.i = getelementptr inbounds i8, ptr %schema_value.0.i, i64 8
   %21 = load i32, ptr %type.i.i, align 8
   %call.i.i = call ptr @qapi_enum_lookup(ptr noundef nonnull @StatsType_lookup, i32 noundef %21) #5
-  %has_unit.i.i = getelementptr inbounds %struct.StatsSchemaValue, ptr %schema_value.0.i, i64 0, i32 2
+  %has_unit.i.i = getelementptr inbounds i8, ptr %schema_value.0.i, i64 12
   %22 = load i8, ptr %has_unit.i.i, align 4
   %23 = and i8 %22, 1
   %tobool.not.i31.i = icmp eq i8 %23, 0
   br i1 %tobool.not.i31.i, label %lor.rhs.i.i, label %lor.end.i.i
 
 lor.rhs.i.i:                                      ; preds = %while.end.i
-  %exponent.i.i = getelementptr inbounds %struct.StatsSchemaValue, ptr %schema_value.0.i, i64 0, i32 6
+  %exponent.i.i = getelementptr inbounds i8, ptr %schema_value.0.i, i64 22
   %24 = load i16, ptr %exponent.i.i, align 2
   %tobool1.not.i.i = icmp eq i16 %24, 0
   %25 = select i1 %tobool1.not.i.i, ptr @.str.19, ptr @.str.18
@@ -249,7 +232,7 @@ lor.end.i.i:                                      ; preds = %lor.rhs.i.i, %while
   br i1 %tobool4.not.i.i, label %if.else66.i.i, label %if.then.i32.i
 
 if.then.i32.i:                                    ; preds = %lor.end.i.i
-  %unit5.i.i = getelementptr inbounds %struct.StatsSchemaValue, ptr %schema_value.0.i, i64 0, i32 3
+  %unit5.i.i = getelementptr inbounds i8, ptr %schema_value.0.i, i64 16
   %28 = load i32, ptr %unit5.i.i, align 8
   switch i32 %28, label %if.else66.i.i [
     i32 1, label %land.lhs.true.i33.i
@@ -261,7 +244,7 @@ if.then11.i.i:                                    ; preds = %if.then.i32.i
 
 land.lhs.true.i33.i:                              ; preds = %if.then11.i.i, %if.then.i32.i
   %unit.0.i.i = phi ptr [ @.str.21, %if.then11.i.i ], [ @.str.20, %if.then.i32.i ]
-  %base.i.i = getelementptr inbounds %struct.StatsSchemaValue, ptr %schema_value.0.i, i64 0, i32 5
+  %base.i.i = getelementptr inbounds i8, ptr %schema_value.0.i, i64 21
   %29 = load i8, ptr %base.i.i, align 1
   switch i8 %29, label %if.else66.i.i [
     i8 10, label %land.lhs.true18.i.i
@@ -269,7 +252,7 @@ land.lhs.true.i33.i:                              ; preds = %if.then11.i.i, %if.
   ]
 
 land.lhs.true18.i.i:                              ; preds = %land.lhs.true.i33.i
-  %exponent19.i.i = getelementptr inbounds %struct.StatsSchemaValue, ptr %schema_value.0.i, i64 0, i32 6
+  %exponent19.i.i = getelementptr inbounds i8, ptr %schema_value.0.i, i64 22
   %30 = load i16, ptr %exponent19.i.i, align 2
   %31 = add i16 %30, 18
   %or.cond.i.i = icmp ult i16 %31, 37
@@ -284,7 +267,7 @@ if.then33.i.i:                                    ; preds = %land.lhs.true18.i.i
   br label %if.end81.sink.split.i.i
 
 land.lhs.true45.i.i:                              ; preds = %land.lhs.true.i33.i
-  %exponent46.i.i = getelementptr inbounds %struct.StatsSchemaValue, ptr %schema_value.0.i, i64 0, i32 6
+  %exponent46.i.i = getelementptr inbounds i8, ptr %schema_value.0.i, i64 22
   %32 = load i16, ptr %exponent46.i.i, align 2
   %conv47.i.i = sext i16 %32 to i32
   %or.cond37.i.i = icmp ult i16 %32, 61
@@ -299,7 +282,7 @@ if.then61.i.i:                                    ; preds = %land.lhs.true45.i.i
 
 if.else66.i.i:                                    ; preds = %land.lhs.true45.i.i, %land.lhs.true18.i.i, %land.lhs.true.i33.i, %if.then.i32.i, %lor.end.i.i
   %unit.041.i.i = phi ptr [ %unit.0.i.i, %land.lhs.true45.i.i ], [ null, %lor.end.i.i ], [ null, %if.then.i32.i ], [ %unit.0.i.i, %land.lhs.true18.i.i ], [ %unit.0.i.i, %land.lhs.true.i33.i ]
-  %exponent67.i.i = getelementptr inbounds %struct.StatsSchemaValue, ptr %schema_value.0.i, i64 0, i32 6
+  %exponent67.i.i = getelementptr inbounds i8, ptr %schema_value.0.i, i64 22
   %33 = load i16, ptr %exponent67.i.i, align 2
   %tobool68.not.i.i = icmp eq i16 %33, 0
   br i1 %tobool68.not.i.i, label %if.end81.i.i, label %if.end81.thread.i.i
@@ -318,7 +301,7 @@ if.end81.i.i:                                     ; preds = %if.end81.sink.split
   br i1 %tobool83.not.i.i, label %if.end90.i.i, label %if.then84.i.i
 
 if.end81.thread.i.i:                              ; preds = %if.else66.i.i
-  %base70.i.i = getelementptr inbounds %struct.StatsSchemaValue, ptr %schema_value.0.i, i64 0, i32 5
+  %base70.i.i = getelementptr inbounds i8, ptr %schema_value.0.i, i64 21
   %34 = load i8, ptr %base70.i.i, align 1
   %conv71.i.i = sext i8 %34 to i32
   %conv73.i.i = sext i16 %33 to i32
@@ -334,7 +317,7 @@ if.then84.i.i:                                    ; preds = %if.end81.i.i
   br i1 %tobool85.not.i.i, label %cond.false.i.i, label %cond.end.i.i
 
 cond.false.i.i:                                   ; preds = %if.then84.i.i, %if.end81.thread.i.i
-  %unit86.i.i = getelementptr inbounds %struct.StatsSchemaValue, ptr %schema_value.0.i, i64 0, i32 3
+  %unit86.i.i = getelementptr inbounds i8, ptr %schema_value.0.i, i64 16
   %37 = load i32, ptr %unit86.i.i, align 8
   %call87.i.i = call ptr @qapi_enum_lookup(ptr noundef nonnull @StatsUnit_lookup, i32 noundef %37) #5
   br label %cond.end.i.i
@@ -350,14 +333,14 @@ if.end90.i.i:                                     ; preds = %cond.end.i.i, %if.e
   br i1 %cmp92.i.i, label %land.lhs.true94.i.i, label %print_stats_schema_value.exit.i
 
 land.lhs.true94.i.i:                              ; preds = %if.end90.i.i
-  %has_bucket_size.i.i = getelementptr inbounds %struct.StatsSchemaValue, ptr %schema_value.0.i, i64 0, i32 7
+  %has_bucket_size.i.i = getelementptr inbounds i8, ptr %schema_value.0.i, i64 24
   %39 = load i8, ptr %has_bucket_size.i.i, align 8
   %40 = and i8 %39, 1
   %tobool95.not.i.i = icmp eq i8 %40, 0
   br i1 %tobool95.not.i.i, label %print_stats_schema_value.exit.i, label %if.then97.i.i
 
 if.then97.i.i:                                    ; preds = %land.lhs.true94.i.i
-  %bucket_size.i.i = getelementptr inbounds %struct.StatsSchemaValue, ptr %schema_value.0.i, i64 0, i32 8
+  %bucket_size.i.i = getelementptr inbounds i8, ptr %schema_value.0.i, i64 28
   %41 = load i32, ptr %bucket_size.i.i, align 4
   %call98.i.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.24, i32 noundef %41) #5
   br label %print_stats_schema_value.exit.i
@@ -372,13 +355,13 @@ print_stats_schema_value.exit.i:                  ; preds = %if.then97.i.i, %lan
   ]
 
 if.then24.i:                                      ; preds = %print_stats_schema_value.exit.i
-  %u.i = getelementptr inbounds %struct.StatsValue, ptr %15, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %15, i64 8
   %43 = load i64, ptr %u.i, align 8
   %call25.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.10, i64 noundef %43) #5
   br label %for.inc48.i
 
 if.then28.i:                                      ; preds = %print_stats_schema_value.exit.i
-  %u29.i = getelementptr inbounds %struct.StatsValue, ptr %15, i64 0, i32 1
+  %u29.i = getelementptr inbounds i8, ptr %15, i64 8
   %44 = load i8, ptr %u29.i, align 8
   %45 = and i8 %44, 1
   %tobool30.not.i = icmp eq i8 %45, 0
@@ -388,7 +371,7 @@ if.then28.i:                                      ; preds = %print_stats_schema_
 
 if.then35.i:                                      ; preds = %print_stats_schema_value.exit.i
   %call36.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.14) #5
-  %u37.i = getelementptr inbounds %struct.StatsValue, ptr %15, i64 0, i32 1
+  %u37.i = getelementptr inbounds i8, ptr %15, i64 8
   %list.044.i = load ptr, ptr %u37.i, align 8
   %tobool39.not45.i = icmp eq ptr %list.044.i, null
   br i1 %tobool39.not45.i, label %for.end.i, label %for.body40.i
@@ -396,7 +379,7 @@ if.then35.i:                                      ; preds = %print_stats_schema_
 for.body40.i:                                     ; preds = %if.then35.i, %for.body40.i
   %list.047.i = phi ptr [ %list.0.i, %for.body40.i ], [ %list.044.i, %if.then35.i ]
   %i.046.i = phi i32 [ %inc.i, %for.body40.i ], [ 1, %if.then35.i ]
-  %value41.i = getelementptr inbounds %struct.uint64List, ptr %list.047.i, i64 0, i32 1
+  %value41.i = getelementptr inbounds i8, ptr %list.047.i, i64 8
   %46 = load i64, ptr %value41.i, align 8
   %call42.i = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.15, i32 noundef %i.046.i, i64 noundef %46) #5
   %inc.i = add i32 %i.046.i, 1
@@ -492,12 +475,12 @@ sw.bb2:                                           ; preds = %entry
   %call3 = tail call ptr @qemu_get_cpu(i32 noundef %cpu_index) #5
   %call4 = tail call ptr @object_get_canonical_path(ptr noundef %call3) #5
   %call5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #7
-  %value = getelementptr inbounds %struct.strList, ptr %call5, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %call4, ptr %value, align 8
   store ptr null, ptr %call5, align 8
-  %u = getelementptr inbounds %struct.StatsFilter, ptr %call, i64 0, i32 3
+  %u = getelementptr inbounds i8, ptr %call, i64 16
   store i8 1, ptr %u, align 8
-  %vcpus = getelementptr inbounds %struct.StatsFilter, ptr %call, i64 0, i32 3, i32 0, i32 1
+  %vcpus = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call5, ptr %vcpus, align 8
   br label %sw.epilog
 
@@ -520,7 +503,7 @@ for.body.us.us:                                   ; preds = %for.cond.preheader.
   %call12.us.us = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
   store i32 %provider_idx.027.us.us, ptr %call12.us.us, align 8
   %call24.us.us = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #7
-  %value25.us.us = getelementptr inbounds %struct.StatsRequestList, ptr %call24.us.us, i64 0, i32 1
+  %value25.us.us = getelementptr inbounds i8, ptr %call24.us.us, i64 8
   store ptr %call12.us.us, ptr %value25.us.us, align 8
   store ptr %request_list.026.us.us, ptr %call24.us.us, align 8
   br i1 %cmp8.us.us, label %for.body.us.us, label %for.end, !llvm.loop !11
@@ -536,7 +519,7 @@ if.then11.us:                                     ; preds = %for.body.us
   %call12.us = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #8
   store i32 %provider, ptr %call12.us, align 8
   %call24.us = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #7
-  %value25.us = getelementptr inbounds %struct.StatsRequestList, ptr %call24.us, i64 0, i32 1
+  %value25.us = getelementptr inbounds i8, ptr %call24.us, i64 8
   store ptr %call12.us, ptr %value25.us, align 8
   store ptr %request_list.026.us, ptr %call24.us, align 8
   br label %for.inc.us
@@ -559,16 +542,16 @@ for.body.us28:                                    ; preds = %for.cond.preheader.
   br i1 %tobool17.not.us, label %if.then18.us, label %do.body22.us35
 
 if.then18.us:                                     ; preds = %for.body.us28
-  %has_names.us = getelementptr inbounds %struct.StatsRequest, ptr %call12.us34, i64 0, i32 1
+  %has_names.us = getelementptr inbounds i8, ptr %call12.us34, i64 4
   store i8 1, ptr %has_names.us, align 4
   %call19.us = tail call ptr @hmp_split_at_comma(ptr noundef nonnull %names) #5
-  %names20.us = getelementptr inbounds %struct.StatsRequest, ptr %call12.us34, i64 0, i32 2
+  %names20.us = getelementptr inbounds i8, ptr %call12.us34, i64 8
   store ptr %call19.us, ptr %names20.us, align 8
   br label %do.body22.us35
 
 do.body22.us35:                                   ; preds = %if.then18.us, %for.body.us28
   %call24.us36 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #7
-  %value25.us37 = getelementptr inbounds %struct.StatsRequestList, ptr %call24.us36, i64 0, i32 1
+  %value25.us37 = getelementptr inbounds i8, ptr %call24.us36, i64 8
   store ptr %call12.us34, ptr %value25.us37, align 8
   store ptr %request_list.026.us30, ptr %call24.us36, align 8
   br i1 %cmp8.us41, label %for.body.us28, label %for.end, !llvm.loop !11
@@ -588,16 +571,16 @@ if.then11:                                        ; preds = %for.body
   br i1 %tobool17.not, label %if.then18, label %do.body22
 
 if.then18:                                        ; preds = %if.then11
-  %has_names = getelementptr inbounds %struct.StatsRequest, ptr %call12, i64 0, i32 1
+  %has_names = getelementptr inbounds i8, ptr %call12, i64 4
   store i8 1, ptr %has_names, align 4
   %call19 = tail call ptr @hmp_split_at_comma(ptr noundef nonnull %names) #5
-  %names20 = getelementptr inbounds %struct.StatsRequest, ptr %call12, i64 0, i32 2
+  %names20 = getelementptr inbounds i8, ptr %call12, i64 8
   store ptr %call19, ptr %names20, align 8
   br label %do.body22
 
 do.body22:                                        ; preds = %if.then11, %if.then18
   %call24 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #7
-  %value25 = getelementptr inbounds %struct.StatsRequestList, ptr %call24, i64 0, i32 1
+  %value25 = getelementptr inbounds i8, ptr %call24, i64 8
   store ptr %call12, ptr %value25, align 8
   store ptr %request_list.026, ptr %call24, align 8
   br label %for.inc
@@ -608,9 +591,9 @@ for.inc:                                          ; preds = %for.body, %do.body2
 
 for.end:                                          ; preds = %for.inc, %do.body22.us35, %for.inc.us, %for.body.us.us
   %.us-phi = phi ptr [ %call24.us.us, %for.body.us.us ], [ %request_list.1.us, %for.inc.us ], [ %call24.us36, %do.body22.us35 ], [ %request_list.1, %for.inc ]
-  %has_providers = getelementptr inbounds %struct.StatsFilter, ptr %call, i64 0, i32 1
+  %has_providers = getelementptr inbounds i8, ptr %call, i64 4
   store i8 1, ptr %has_providers, align 4
-  %providers = getelementptr inbounds %struct.StatsFilter, ptr %call, i64 0, i32 2
+  %providers = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %.us-phi, ptr %providers, align 8
   br label %return
 

@@ -62,7 +62,7 @@ entry:
   %call = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts) #8
   %0 = load i64, ptr %ts, align 8
   %mul = mul i64 %0, 1000000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   %1 = load i64, ptr %tv_nsec, align 8
   %div = sdiv i64 %1, 1000
   %add = add i64 %div, %mul

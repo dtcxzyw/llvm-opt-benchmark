@@ -3,23 +3,7 @@ source_filename = "bench/luajit/original/lj_lex_dyn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.LexState = type { ptr, ptr, %union.TValue, %union.TValue, ptr, ptr, i32, i32, i32, %struct.SBuf, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, i32, i32 }
-%union.TValue = type { i64 }
-%struct.SBuf = type { ptr, ptr, ptr, %struct.MRef }
-%struct.MRef = type { i64 }
-%struct.lua_State = type { %struct.GCRef, i8, i8, i8, i8, %struct.MRef, %struct.GCRef, ptr, ptr, %struct.MRef, %struct.MRef, %struct.GCRef, %struct.GCRef, ptr, i32 }
-%struct.GCRef = type { i64 }
-%struct.global_State = type { ptr, ptr, %struct.GCState, %struct.GCstr, i8, i8, i8, i8, %struct.StrInternState, i32, %struct.GCRef, %struct.SBuf, %union.TValue, %union.TValue, %struct.Node, %union.TValue, %struct.GCupval, i32, i32, ptr, ptr, ptr, i32, i32, %struct.GCRef, %struct.MRef, %struct.MRef, %struct.PRNGState, [38 x %struct.GCRef] }
-%struct.GCState = type { i64, i64, i8, i8, i8, i8, i32, %struct.GCRef, %struct.MRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, i64, i64, i32, i32, %struct.MRef }
-%struct.GCstr = type { %struct.GCRef, i8, i8, i8, i8, i32, i32, i32 }
-%struct.StrInternState = type { ptr, i32, i32, i32, i8, i8, i8, i8, i64 }
-%struct.Node = type { %union.TValue, %union.TValue, %struct.MRef }
-%struct.GCupval = type { %struct.GCRef, i8, i8, i8, i8, %union.anon, %struct.MRef, i32 }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { %struct.GCRef, %struct.GCRef }
-%struct.PRNGState = type { [4 x i64] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.GCcdata = type { %struct.GCRef, i8, i8, i16 }
 
 @tokennames = internal unnamed_addr constant [34 x ptr] [ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr null], align 16
 @lj_char_bits = external hidden local_unnamed_addr constant [257 x i8], align 16
@@ -65,28 +49,28 @@ cond.false.i61:
   %sz.i74 = alloca i64, align 8
   %sz.i50 = alloca i64, align 8
   %sz.i = alloca i64, align 8
-  %L1 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
+  %L1 = getelementptr inbounds i8, ptr %ls, i64 8
   store ptr %L, ptr %L1, align 8
   store ptr null, ptr %ls, align 8
-  %p = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 4
-  %pe = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 5
-  %vstack = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 17
-  %tok = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 7
+  %p = getelementptr inbounds i8, ptr %ls, i64 32
+  %pe = getelementptr inbounds i8, ptr %ls, i64 40
+  %vstack = getelementptr inbounds i8, ptr %ls, i64 144
+  %tok = getelementptr inbounds i8, ptr %ls, i64 52
   store i32 0, ptr %tok, align 4
-  %lookahead = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 8
+  %lookahead = getelementptr inbounds i8, ptr %ls, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %p, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %vstack, i8 0, i64 28, i1 false)
   store i32 289, ptr %lookahead, align 8
-  %linenumber = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 12
+  %linenumber = getelementptr inbounds i8, ptr %ls, i64 112
   store i32 1, ptr %linenumber, align 8
-  %lastline = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 13
+  %lastline = getelementptr inbounds i8, ptr %ls, i64 116
   store i32 1, ptr %lastline, align 4
-  %endmark = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 23
+  %endmark = getelementptr inbounds i8, ptr %ls, i64 176
   store i32 0, ptr %endmark, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i)
-  %rfunc.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 10
+  %rfunc.i = getelementptr inbounds i8, ptr %ls, i64 96
   %0 = load ptr, ptr %rfunc.i, align 8
-  %rdata.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 11
+  %rdata.i = getelementptr inbounds i8, ptr %ls, i64 104
   %1 = load ptr, ptr %rdata.i, align 8
   %call.i47 = call ptr %0(ptr noundef %L, ptr noundef %1, ptr noundef nonnull %sz.i) #9
   %cmp.i48 = icmp eq ptr %call.i47, null
@@ -97,7 +81,7 @@ cond.false.i61:
 
 if.end34.thread:                                  ; preds = %cond.false.i61
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i)
-  %c.i6499 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 6
+  %c.i6499 = getelementptr inbounds i8, ptr %ls, i64 48
   store i32 -1, ptr %c.i6499, align 8
   br label %return
 
@@ -131,7 +115,7 @@ lex_next.exit69:                                  ; preds = %if.end.i, %if.end7.
   %7 = load i8, ptr %call.i47, align 1
   %conv.i49 = zext i8 %7 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sz.i)
-  %c.i64 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 6
+  %c.i64 = getelementptr inbounds i8, ptr %ls, i64 48
   store i32 %conv.i49, ptr %c.i64, align 8
   %cmp = icmp ne i8 %7, -17
   br i1 %cmp, label %if.end, label %land.lhs.true
@@ -306,9 +290,9 @@ if.end34.thread110:                               ; preds = %lex_next.exit, %lex
   br i1 %cmp37113, label %if.then40, label %return
 
 if.then40:                                        ; preds = %if.end34, %if.end34.thread110
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   %32 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %32, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
   %call41 = call ptr @lj_err_str(ptr noundef %L, i32 noundef 2965) #9
   %33 = ptrtoint ptr %call41 to i64
@@ -327,11 +311,11 @@ define internal fastcc void @lex_newline(ptr noundef %ls) unnamed_addr #0 {
 entry:
   %sz.i21 = alloca i64, align 8
   %sz.i = alloca i64, align 8
-  %c = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 6
+  %c = getelementptr inbounds i8, ptr %ls, i64 48
   %0 = load i32, ptr %c, align 8
-  %p.i11 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 4
+  %p.i11 = getelementptr inbounds i8, ptr %ls, i64 32
   %1 = load ptr, ptr %p.i11, align 8
-  %pe.i12 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 5
+  %pe.i12 = getelementptr inbounds i8, ptr %ls, i64 40
   %2 = load ptr, ptr %pe.i12, align 8
   %cmp.i13 = icmp ult ptr %1, %2
   br i1 %cmp.i13, label %cond.true.i18, label %cond.false.i14
@@ -345,11 +329,11 @@ cond.true.i18:                                    ; preds = %entry
 
 cond.false.i14:                                   ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i)
-  %rfunc.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 10
+  %rfunc.i = getelementptr inbounds i8, ptr %ls, i64 96
   %4 = load ptr, ptr %rfunc.i, align 8
-  %L.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
+  %L.i = getelementptr inbounds i8, ptr %ls, i64 8
   %5 = load ptr, ptr %L.i, align 8
-  %rdata.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 11
+  %rdata.i = getelementptr inbounds i8, ptr %ls, i64 104
   %6 = load ptr, ptr %rdata.i, align 8
   %call.i18 = call ptr %4(ptr noundef %5, ptr noundef %6, ptr noundef nonnull %sz.i) #9
   %cmp.i19 = icmp eq ptr %call.i18, null
@@ -376,7 +360,7 @@ if.end7.i:                                        ; preds = %if.then3.i
   %10 = call i64 @llvm.umax.i64(i64 %9, i64 -2147483392)
   %spec.store.select.i = xor i64 %10, -1
   store i64 %spec.store.select.i, ptr %sz.i, align 8
-  %endmark.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 23
+  %endmark.i = getelementptr inbounds i8, ptr %ls, i64 176
   store i32 1, ptr %endmark.i, align 8
   br label %if.end11.i
 
@@ -422,11 +406,11 @@ cond.true.i:                                      ; preds = %if.then
 
 cond.false.i:                                     ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i21)
-  %rfunc.i22 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 10
+  %rfunc.i22 = getelementptr inbounds i8, ptr %ls, i64 96
   %16 = load ptr, ptr %rfunc.i22, align 8
-  %L.i23 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
+  %L.i23 = getelementptr inbounds i8, ptr %ls, i64 8
   %17 = load ptr, ptr %L.i23, align 8
-  %rdata.i24 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 11
+  %rdata.i24 = getelementptr inbounds i8, ptr %ls, i64 104
   %18 = load ptr, ptr %rdata.i24, align 8
   %call.i25 = call ptr %16(ptr noundef %17, ptr noundef %18, ptr noundef nonnull %sz.i21) #9
   %cmp.i26 = icmp eq ptr %call.i25, null
@@ -453,7 +437,7 @@ if.end7.i41:                                      ; preds = %if.then3.i38
   %22 = call i64 @llvm.umax.i64(i64 %21, i64 -2147483392)
   %spec.store.select.i42 = xor i64 %22, -1
   store i64 %spec.store.select.i42, ptr %sz.i21, align 8
-  %endmark.i43 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 23
+  %endmark.i43 = getelementptr inbounds i8, ptr %ls, i64 176
   store i32 1, ptr %endmark.i43, align 8
   br label %if.end11.i31
 
@@ -478,7 +462,7 @@ lex_next.exit:                                    ; preds = %lex_more.exit44, %c
   br label %if.end
 
 if.end:                                           ; preds = %lex_next.exit22, %lex_next.exit, %land.lhs.true
-  %linenumber = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 12
+  %linenumber = getelementptr inbounds i8, ptr %ls, i64 112
   %25 = load i32, ptr %linenumber, align 8
   %inc = add nsw i32 %25, 1
   store i32 %inc, ptr %linenumber, align 8
@@ -486,7 +470,7 @@ if.end:                                           ; preds = %lex_next.exit22, %l
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end
-  %tok = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 7
+  %tok = getelementptr inbounds i8, ptr %ls, i64 52
   %26 = load i32, ptr %tok, align 4
   call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %ls, i32 noundef %26, i32 noundef 2171) #11
   unreachable
@@ -503,26 +487,26 @@ declare hidden void @lj_err_throw(ptr noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_lex_cleanup(ptr nocapture noundef readonly %L, ptr nocapture noundef readonly %ls) local_unnamed_addr #0 {
 entry:
-  %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
   %1 = inttoptr i64 %0 to ptr
-  %bcstack = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 20
+  %bcstack = getelementptr inbounds i8, ptr %ls, i64 160
   %2 = load ptr, ptr %bcstack, align 8
-  %sizebcstack = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 21
+  %sizebcstack = getelementptr inbounds i8, ptr %ls, i64 168
   %3 = load i32, ptr %sizebcstack, align 8
   %conv = zext i32 %3 to i64
   %mul = shl nuw nsw i64 %conv, 3
-  %gc.i6 = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 2
+  %gc.i6 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %gc.i6, align 8
   %sub.i7 = sub i64 %4, %mul
   store i64 %sub.i7, ptr %gc.i6, align 8
   %5 = load ptr, ptr %1, align 8
-  %allocd.i8 = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 1
+  %allocd.i8 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %allocd.i8, align 8
   %call.i9 = tail call ptr %5(ptr noundef %6, ptr noundef %2, i64 noundef %mul, i64 noundef 0) #9
-  %vstack = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 17
+  %vstack = getelementptr inbounds i8, ptr %ls, i64 144
   %7 = load ptr, ptr %vstack, align 8
-  %sizevstack = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 18
+  %sizevstack = getelementptr inbounds i8, ptr %ls, i64 152
   %8 = load i32, ptr %sizevstack, align 8
   %conv1 = zext i32 %8 to i64
   %mul2 = mul nuw nsw i64 %conv1, 24
@@ -532,9 +516,9 @@ entry:
   %10 = load ptr, ptr %1, align 8
   %11 = load ptr, ptr %allocd.i8, align 8
   %call.i = tail call ptr %10(ptr noundef %11, ptr noundef %7, i64 noundef %mul2, i64 noundef 0) #9
-  %b.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 2
+  %b.i = getelementptr inbounds i8, ptr %ls, i64 80
   %12 = load ptr, ptr %b.i, align 8
-  %e.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 1
+  %e.i = getelementptr inbounds i8, ptr %ls, i64 72
   %13 = load ptr, ptr %e.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %12 to i64
@@ -552,31 +536,31 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_lex_next(ptr noundef %ls) local_unnamed_addr #0 {
 entry:
-  %linenumber = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 12
+  %linenumber = getelementptr inbounds i8, ptr %ls, i64 112
   %0 = load i32, ptr %linenumber, align 8
-  %lastline = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 13
+  %lastline = getelementptr inbounds i8, ptr %ls, i64 116
   store i32 %0, ptr %lastline, align 4
-  %lookahead = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 8
+  %lookahead = getelementptr inbounds i8, ptr %ls, i64 56
   %1 = load i32, ptr %lookahead, align 8
   %cmp = icmp eq i32 %1, 289
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %tokval = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 2
+  %tokval = getelementptr inbounds i8, ptr %ls, i64 16
   %call = tail call fastcc i32 @lex_scan(ptr noundef nonnull %ls, ptr noundef nonnull %tokval)
   br label %if.end
 
 if.else:                                          ; preds = %entry
   store i32 289, ptr %lookahead, align 8
-  %tokval5 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 2
-  %lookaheadval = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 3
+  %tokval5 = getelementptr inbounds i8, ptr %ls, i64 16
+  %lookaheadval = getelementptr inbounds i8, ptr %ls, i64 24
   %2 = load i64, ptr %lookaheadval, align 8
   store i64 %2, ptr %tokval5, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %.sink = phi i32 [ %call, %if.then ], [ %1, %if.else ]
-  %3 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 7
+  %3 = getelementptr inbounds i8, ptr %ls, i64 52
   store i32 %.sink, ptr %3, align 4
   ret void
 }
@@ -611,11 +595,11 @@ entry:
   %sz.i207 = alloca i64, align 8
   %sz.i183 = alloca i64, align 8
   %sz.i = alloca i64, align 8
-  %sb = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9
-  %b.i356 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 2
+  %sb = getelementptr inbounds i8, ptr %ls, i64 64
+  %b.i356 = getelementptr inbounds i8, ptr %ls, i64 80
   %0 = load ptr, ptr %b.i356, align 8
   store ptr %0, ptr %sb, align 8
-  %c = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 6
+  %c = getelementptr inbounds i8, ptr %ls, i64 48
   %1 = load i32, ptr %c, align 8
   %idxprom510 = sext i32 %1 to i64
   %arrayidx511 = getelementptr inbounds i8, ptr getelementptr inbounds ([257 x i8], ptr @lj_char_bits, i64 0, i64 1), i64 %idxprom510
@@ -624,12 +608,12 @@ entry:
   br i1 %tobool.not512, label %if.end27.lr.ph, label %if.then
 
 if.end27.lr.ph:                                   ; preds = %entry
-  %p.i320 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 4
-  %pe.i321 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 5
-  %rfunc.i208 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 10
-  %L.i209 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
-  %rdata.i210 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 11
-  %endmark.i229 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 23
+  %p.i320 = getelementptr inbounds i8, ptr %ls, i64 32
+  %pe.i321 = getelementptr inbounds i8, ptr %ls, i64 40
+  %rfunc.i208 = getelementptr inbounds i8, ptr %ls, i64 96
+  %L.i209 = getelementptr inbounds i8, ptr %ls, i64 8
+  %rdata.i210 = getelementptr inbounds i8, ptr %ls, i64 104
+  %endmark.i229 = getelementptr inbounds i8, ptr %ls, i64 176
   br label %if.end27
 
 if.then:                                          ; preds = %for.cond.backedge, %entry
@@ -640,13 +624,13 @@ if.then:                                          ; preds = %for.cond.backedge, 
   br i1 %tobool6.not, label %do.body.preheader, label %if.then7
 
 do.body.preheader:                                ; preds = %if.then
-  %e.i394 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 1
-  %p.i.i365 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 4
-  %pe.i.i366 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 5
-  %rfunc.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 10
-  %L.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
-  %rdata.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 11
-  %endmark.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 23
+  %e.i394 = getelementptr inbounds i8, ptr %ls, i64 72
+  %p.i.i365 = getelementptr inbounds i8, ptr %ls, i64 32
+  %pe.i.i366 = getelementptr inbounds i8, ptr %ls, i64 40
+  %rfunc.i = getelementptr inbounds i8, ptr %ls, i64 96
+  %L.i = getelementptr inbounds i8, ptr %ls, i64 8
+  %rdata.i = getelementptr inbounds i8, ptr %ls, i64 104
+  %endmark.i = getelementptr inbounds i8, ptr %ls, i64 176
   br label %do.body
 
 if.then7:                                         ; preds = %if.then
@@ -754,7 +738,7 @@ do.end:                                           ; preds = %lex_savenext.exit37
   %24 = ptrtoint ptr %call20 to i64
   %or.i = or i64 %24, -703687441776640
   store i64 %or.i, ptr %tv, align 8
-  %reserved = getelementptr inbounds %struct.GCstr, ptr %call20, i64 0, i32 3
+  %reserved = getelementptr inbounds i8, ptr %call20, i64 10
   %25 = load i8, ptr %reserved, align 2
   %cmp.not = icmp eq i8 %25, 0
   br i1 %cmp.not, label %return, label %if.then23
@@ -1556,7 +1540,7 @@ lex_next.exit175:                                 ; preds = %cond.false.i167, %c
   br label %return
 
 sw.bb111:                                         ; preds = %if.end27, %if.end27
-  %e.i609.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 1
+  %e.i609.i = getelementptr inbounds i8, ptr %ls, i64 72
   %155 = load ptr, ptr %e.i609.i, align 8
   %156 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i610.i = ptrtoint ptr %155 to i64
@@ -3007,7 +2991,7 @@ lex_string.exit:                                  ; preds = %cond.true.i.i.i, %l
   br label %return
 
 sw.bb112:                                         ; preds = %if.end27
-  %e.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 1
+  %e.i = getelementptr inbounds i8, ptr %ls, i64 72
   %393 = load ptr, ptr %e.i, align 8
   %394 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %393 to i64
@@ -3223,9 +3207,9 @@ return:                                           ; preds = %if.end27, %lex_next
 ; Function Attrs: nounwind uwtable
 define hidden i32 @lj_lex_lookahead(ptr noundef %ls) local_unnamed_addr #0 {
 entry:
-  %lookaheadval = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 3
+  %lookaheadval = getelementptr inbounds i8, ptr %ls, i64 24
   %call = tail call fastcc i32 @lex_scan(ptr noundef %ls, ptr noundef nonnull %lookaheadval)
-  %lookahead = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 8
+  %lookahead = getelementptr inbounds i8, ptr %ls, i64 56
   store i32 %call, ptr %lookahead, align 8
   ret i32 %call
 }
@@ -3249,7 +3233,7 @@ if.else:                                          ; preds = %entry
   %1 = load i8, ptr %arrayidx3, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
-  %L = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
+  %L = getelementptr inbounds i8, ptr %ls, i64 8
   %3 = load ptr, ptr %L, align 8
   br i1 %tobool.not, label %if.then4, label %if.else5
 
@@ -3281,8 +3265,8 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond1, label %if.then5, label %if.else6
 
 if.then5:                                         ; preds = %if.else
-  %sb.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9
-  %e.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 1
+  %sb.i = getelementptr inbounds i8, ptr %ls, i64 64
+  %e.i = getelementptr inbounds i8, ptr %ls, i64 72
   %1 = load ptr, ptr %e.i, align 8
   %2 = load ptr, ptr %sb.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -3301,7 +3285,7 @@ lj_buf_more.exit:                                 ; preds = %if.then5, %if.then.
   %incdec.ptr.i = getelementptr inbounds i8, ptr %retval.i.0, i64 1
   store i8 0, ptr %retval.i.0, align 1
   store ptr %incdec.ptr.i, ptr %sb.i, align 8
-  %b = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 2
+  %b = getelementptr inbounds i8, ptr %ls, i64 80
   %4 = load ptr, ptr %b, align 8
   br label %if.end7
 
@@ -3322,7 +3306,7 @@ if.else.i:                                        ; preds = %if.else6
   %6 = load i8, ptr %arrayidx3.i, align 1
   %7 = and i8 %6, 1
   %tobool.not.i = icmp eq i8 %7, 0
-  %L.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
+  %L.i = getelementptr inbounds i8, ptr %ls, i64 8
   %8 = load ptr, ptr %L.i, align 8
   br i1 %tobool.not.i, label %if.then4.i, label %if.else5.i
 
@@ -3337,11 +3321,11 @@ if.else5.i:                                       ; preds = %if.else.i
 if.end7:                                          ; preds = %if.else5.i, %if.then4.i, %if.then.i18, %entry, %lj_buf_more.exit
   %tokstr.0 = phi ptr [ %4, %lj_buf_more.exit ], [ null, %entry ], [ %5, %if.then.i18 ], [ %call7.i, %if.else5.i ], [ %call.i, %if.then4.i ]
   call void @llvm.va_start(ptr nonnull %argp)
-  %L = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
+  %L = getelementptr inbounds i8, ptr %ls, i64 8
   %9 = load ptr, ptr %L, align 8
-  %chunkname = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 14
+  %chunkname = getelementptr inbounds i8, ptr %ls, i64 120
   %10 = load ptr, ptr %chunkname, align 8
-  %linenumber = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 12
+  %linenumber = getelementptr inbounds i8, ptr %ls, i64 112
   %11 = load i32, ptr %linenumber, align 8
   call void @lj_err_lex(ptr noundef %9, ptr noundef %10, ptr noundef %tokstr.0, i32 noundef %11, i32 noundef %em, ptr noundef nonnull %argp) #10
   unreachable
@@ -3364,12 +3348,12 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #12
   %call3 = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef %0, i64 noundef %call) #9
-  %marked = getelementptr inbounds %struct.GCstr, ptr %call3, i64 0, i32 1
+  %marked = getelementptr inbounds i8, ptr %call3, i64 8
   %1 = load i8, ptr %marked, align 8
   %2 = or i8 %1, 32
   store i8 %2, ptr %marked, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %reserved = getelementptr inbounds %struct.GCstr, ptr %call3, i64 0, i32 3
+  %reserved = getelementptr inbounds i8, ptr %call3, i64 10
   %3 = trunc i64 %indvars.iv.next to i8
   store i8 %3, ptr %reserved, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, 22
@@ -3388,11 +3372,11 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 define internal fastcc i32 @lex_more(ptr nocapture noundef %ls) unnamed_addr #0 {
 entry:
   %sz = alloca i64, align 8
-  %rfunc = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 10
+  %rfunc = getelementptr inbounds i8, ptr %ls, i64 96
   %0 = load ptr, ptr %rfunc, align 8
-  %L = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
+  %L = getelementptr inbounds i8, ptr %ls, i64 8
   %1 = load ptr, ptr %L, align 8
-  %rdata = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 11
+  %rdata = getelementptr inbounds i8, ptr %ls, i64 104
   %2 = load ptr, ptr %rdata, align 8
   %call = call ptr %0(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %sz) #9
   %cmp = icmp eq ptr %call, null
@@ -3419,17 +3403,17 @@ if.end7:                                          ; preds = %if.then3
   %6 = call i64 @llvm.umax.i64(i64 %5, i64 -2147483392)
   %spec.store.select = xor i64 %6, -1
   store i64 %spec.store.select, ptr %sz, align 8
-  %endmark = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 23
+  %endmark = getelementptr inbounds i8, ptr %ls, i64 176
   store i32 1, ptr %endmark, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end7, %if.end
   %7 = phi i64 [ %spec.store.select, %if.end7 ], [ %3, %if.end ]
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %7
-  %pe = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 5
+  %pe = getelementptr inbounds i8, ptr %ls, i64 40
   store ptr %add.ptr, ptr %pe, align 8
   %add.ptr12 = getelementptr inbounds i8, ptr %call, i64 1
-  %p13 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 4
+  %p13 = getelementptr inbounds i8, ptr %ls, i64 32
   store ptr %add.ptr12, ptr %p13, align 8
   %8 = load i8, ptr %call, align 1
   %conv = zext i8 %8 to i32
@@ -3448,14 +3432,14 @@ define internal fastcc void @lex_number(ptr noundef %ls, ptr noundef %tv) unname
 entry:
   %sz.i70 = alloca i64, align 8
   %sz.i = alloca i64, align 8
-  %c1 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 6
+  %c1 = getelementptr inbounds i8, ptr %ls, i64 48
   %0 = load i32, ptr %c1, align 8
   %cmp = icmp eq i32 %0, 48
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %sb.i.i66 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9
-  %e.i127 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 1
+  %sb.i.i66 = getelementptr inbounds i8, ptr %ls, i64 64
+  %e.i127 = getelementptr inbounds i8, ptr %ls, i64 72
   %1 = load ptr, ptr %e.i127, align 8
   %2 = load ptr, ptr %sb.i.i66, align 8
   %sub.ptr.lhs.cast.i128 = ptrtoint ptr %1 to i64
@@ -3474,9 +3458,9 @@ lj_buf_more.exit139:                              ; preds = %land.lhs.true, %if.
   %incdec.ptr.i = getelementptr inbounds i8, ptr %retval.i124.0, i64 1
   store i8 48, ptr %retval.i124.0, align 1
   store ptr %incdec.ptr.i, ptr %sb.i.i66, align 8
-  %p.i.i67 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 4
+  %p.i.i67 = getelementptr inbounds i8, ptr %ls, i64 32
   %4 = load ptr, ptr %p.i.i67, align 8
-  %pe.i.i68 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 5
+  %pe.i.i68 = getelementptr inbounds i8, ptr %ls, i64 40
   %5 = load ptr, ptr %pe.i.i68, align 8
   %cmp.i.i69 = icmp ult ptr %4, %5
   br i1 %cmp.i.i69, label %cond.true.i.i74, label %cond.false.i.i70
@@ -3490,11 +3474,11 @@ cond.true.i.i74:                                  ; preds = %lj_buf_more.exit139
 
 cond.false.i.i70:                                 ; preds = %lj_buf_more.exit139
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i)
-  %rfunc.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 10
+  %rfunc.i = getelementptr inbounds i8, ptr %ls, i64 96
   %7 = load ptr, ptr %rfunc.i, align 8
-  %L.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
+  %L.i = getelementptr inbounds i8, ptr %ls, i64 8
   %8 = load ptr, ptr %L.i, align 8
-  %rdata.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 11
+  %rdata.i = getelementptr inbounds i8, ptr %ls, i64 104
   %9 = load ptr, ptr %rdata.i, align 8
   %call.i68 = call ptr %7(ptr noundef %8, ptr noundef %9, ptr noundef nonnull %sz.i) #9
   %cmp.i69 = icmp eq ptr %call.i68, null
@@ -3521,7 +3505,7 @@ if.end7.i:                                        ; preds = %if.then3.i
   %13 = call i64 @llvm.umax.i64(i64 %12, i64 -2147483392)
   %spec.store.select.i = xor i64 %13, -1
   store i64 %spec.store.select.i, ptr %sz.i, align 8
-  %endmark.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 23
+  %endmark.i = getelementptr inbounds i8, ptr %ls, i64 176
   store i32 1, ptr %endmark.i, align 8
   br label %if.end11.i
 
@@ -3551,14 +3535,14 @@ lex_savenext.exit78:                              ; preds = %lex_more.exit, %con
 if.end:                                           ; preds = %lex_savenext.exit78, %entry
   %.pr = phi i32 [ %0, %entry ], [ %cond.i.i72, %lex_savenext.exit78 ]
   %xp.0 = phi i32 [ 101, %entry ], [ %spec.select, %lex_savenext.exit78 ]
-  %sb.i.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9
-  %e.i111 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 1
-  %p.i.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 4
-  %pe.i.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 5
-  %rfunc.i71 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 10
-  %L.i72 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
-  %rdata.i73 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 11
-  %endmark.i92 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 23
+  %sb.i.i = getelementptr inbounds i8, ptr %ls, i64 64
+  %e.i111 = getelementptr inbounds i8, ptr %ls, i64 72
+  %p.i.i = getelementptr inbounds i8, ptr %ls, i64 32
+  %pe.i.i = getelementptr inbounds i8, ptr %ls, i64 40
+  %rfunc.i71 = getelementptr inbounds i8, ptr %ls, i64 96
+  %L.i72 = getelementptr inbounds i8, ptr %ls, i64 8
+  %rdata.i73 = getelementptr inbounds i8, ptr %ls, i64 104
+  %endmark.i92 = getelementptr inbounds i8, ptr %ls, i64 176
   br label %while.cond
 
 while.cond:                                       ; preds = %lex_savenext.exit, %if.end
@@ -3687,7 +3671,7 @@ lj_buf_more.exit:                                 ; preds = %while.end, %if.then
   %incdec.ptr.i103 = getelementptr inbounds i8, ptr %retval.i.0, i64 1
   store i8 0, ptr %retval.i.0, align 1
   store ptr %incdec.ptr.i103, ptr %sb.i.i, align 8
-  %b = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 2
+  %b = getelementptr inbounds i8, ptr %ls, i64 80
   %37 = load ptr, ptr %b, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %incdec.ptr.i103 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %37 to i64
@@ -3702,18 +3686,18 @@ lj_buf_more.exit:                                 ; preds = %while.end, %if.then
 
 if.then29:                                        ; preds = %lj_buf_more.exit
   %38 = load ptr, ptr %L.i72, align 8
-  %glref = getelementptr inbounds %struct.lua_State, ptr %38, i64 0, i32 5
+  %glref = getelementptr inbounds i8, ptr %38, i64 16
   %39 = load i64, ptr %glref, align 8
   %40 = inttoptr i64 %39 to ptr
-  %ctype_state = getelementptr inbounds %struct.global_State, ptr %40, i64 0, i32 26
+  %ctype_state = getelementptr inbounds i8, ptr %40, i64 384
   %41 = load i64, ptr %ctype_state, align 8
   %tobool32.not = icmp eq i64 %41, 0
   br i1 %tobool32.not, label %if.then33, label %do.end
 
 if.then33:                                        ; preds = %if.then29
-  %top = getelementptr inbounds %struct.lua_State, ptr %38, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %38, i64 40
   %42 = load ptr, ptr %top, align 8
-  %stack = getelementptr inbounds %struct.lua_State, ptr %38, i64 0, i32 10
+  %stack = getelementptr inbounds i8, ptr %38, i64 56
   %43 = load i64, ptr %stack, align 8
   %sub.ptr.lhs.cast35 = ptrtoint ptr %42 to i64
   %sub.ptr.sub37 = sub i64 %sub.ptr.lhs.cast35, %43
@@ -3730,27 +3714,27 @@ do.end:                                           ; preds = %if.then29, %if.then
 
 if.then45:                                        ; preds = %do.end
   %call.i85 = call ptr @lj_mem_newgco(ptr noundef nonnull %38, i64 noundef 32) #9
-  %gct.i86 = getelementptr inbounds %struct.GCcdata, ptr %call.i85, i64 0, i32 2
+  %gct.i86 = getelementptr inbounds i8, ptr %call.i85, i64 9
   store i8 10, ptr %gct.i86, align 1
-  %ctypeid.i88 = getelementptr inbounds %struct.GCcdata, ptr %call.i85, i64 0, i32 3
+  %ctypeid.i88 = getelementptr inbounds i8, ptr %call.i85, i64 10
   store i16 16, ptr %ctypeid.i88, align 2
-  %add.ptr47 = getelementptr inbounds %struct.GCcdata, ptr %call.i85, i64 1
+  %add.ptr47 = getelementptr inbounds i8, ptr %call.i85, i64 16
   store double 0.000000e+00, ptr %add.ptr47, align 8
   %46 = load double, ptr %tv, align 8
-  %arrayidx50 = getelementptr inbounds %struct.GCcdata, ptr %call.i85, i64 1, i32 1
+  %arrayidx50 = getelementptr inbounds i8, ptr %call.i85, i64 24
   store double %46, ptr %arrayidx50, align 8
   br label %if.end56
 
 if.else51:                                        ; preds = %do.end
   %cmp52 = icmp eq i32 %call23, 5
   %call.i = call ptr @lj_mem_newgco(ptr noundef nonnull %38, i64 noundef 24) #9
-  %gct.i = getelementptr inbounds %struct.GCcdata, ptr %call.i, i64 0, i32 2
+  %gct.i = getelementptr inbounds i8, ptr %call.i, i64 9
   store i8 10, ptr %gct.i, align 1
   %conv1.i = select i1 %cmp52, i16 11, i16 12
-  %ctypeid.i = getelementptr inbounds %struct.GCcdata, ptr %call.i, i64 0, i32 3
+  %ctypeid.i = getelementptr inbounds i8, ptr %call.i, i64 10
   store i16 %conv1.i, ptr %ctypeid.i, align 2
   %47 = load i64, ptr %tv, align 8
-  %add.ptr55 = getelementptr inbounds %struct.GCcdata, ptr %call.i, i64 1
+  %add.ptr55 = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %47, ptr %add.ptr55, align 8
   br label %if.end56
 
@@ -3773,16 +3757,16 @@ declare hidden ptr @lj_parse_keepstr(ptr noundef, ptr noundef, i64 noundef) loca
 define internal fastcc i32 @lex_skipeq(ptr noundef %ls) unnamed_addr #0 {
 entry:
   %sz.i = alloca i64, align 8
-  %c = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 6
+  %c = getelementptr inbounds i8, ptr %ls, i64 48
   %0 = load i32, ptr %c, align 8
-  %sb.i.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9
-  %e.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 1
-  %p.i.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 4
-  %pe.i.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 5
-  %rfunc.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 10
-  %L.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
-  %rdata.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 11
-  %endmark.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 23
+  %sb.i.i = getelementptr inbounds i8, ptr %ls, i64 64
+  %e.i = getelementptr inbounds i8, ptr %ls, i64 72
+  %p.i.i = getelementptr inbounds i8, ptr %ls, i64 32
+  %pe.i.i = getelementptr inbounds i8, ptr %ls, i64 40
+  %rfunc.i = getelementptr inbounds i8, ptr %ls, i64 96
+  %L.i = getelementptr inbounds i8, ptr %ls, i64 8
+  %rdata.i = getelementptr inbounds i8, ptr %ls, i64 104
+  %endmark.i = getelementptr inbounds i8, ptr %ls, i64 176
   %1 = trunc i32 %0 to i8
   br label %while.cond
 
@@ -3894,10 +3878,10 @@ entry:
   %sz.i.i = alloca i64, align 8
   %sz.i69 = alloca i64, align 8
   %sz.i = alloca i64, align 8
-  %c.i55 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 6
+  %c.i55 = getelementptr inbounds i8, ptr %ls, i64 48
   %0 = load i32, ptr %c.i55, align 8
-  %sb.i.i56 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9
-  %e.i128 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 1
+  %sb.i.i56 = getelementptr inbounds i8, ptr %ls, i64 64
+  %e.i128 = getelementptr inbounds i8, ptr %ls, i64 72
   %1 = load ptr, ptr %e.i128, align 8
   %2 = load ptr, ptr %sb.i.i56, align 8
   %sub.ptr.lhs.cast.i129 = ptrtoint ptr %1 to i64
@@ -3917,9 +3901,9 @@ lj_buf_more.exit140:                              ; preds = %entry, %if.then.i13
   %incdec.ptr.i = getelementptr inbounds i8, ptr %retval.i125.0, i64 1
   store i8 %conv.i71, ptr %retval.i125.0, align 1
   store ptr %incdec.ptr.i, ptr %sb.i.i56, align 8
-  %p.i.i57 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 4
+  %p.i.i57 = getelementptr inbounds i8, ptr %ls, i64 32
   %4 = load ptr, ptr %p.i.i57, align 8
-  %pe.i.i58 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 5
+  %pe.i.i58 = getelementptr inbounds i8, ptr %ls, i64 40
   %5 = load ptr, ptr %pe.i.i58, align 8
   %cmp.i.i59 = icmp ult ptr %4, %5
   br i1 %cmp.i.i59, label %cond.true.i.i64, label %cond.false.i.i60
@@ -3933,11 +3917,11 @@ cond.true.i.i64:                                  ; preds = %lj_buf_more.exit140
 
 cond.false.i.i60:                                 ; preds = %lj_buf_more.exit140
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sz.i)
-  %rfunc.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 10
+  %rfunc.i = getelementptr inbounds i8, ptr %ls, i64 96
   %7 = load ptr, ptr %rfunc.i, align 8
-  %L.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
+  %L.i = getelementptr inbounds i8, ptr %ls, i64 8
   %8 = load ptr, ptr %L.i, align 8
-  %rdata.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 11
+  %rdata.i = getelementptr inbounds i8, ptr %ls, i64 104
   %9 = load ptr, ptr %rdata.i, align 8
   %call.i = call ptr %7(ptr noundef %8, ptr noundef %9, ptr noundef nonnull %sz.i) #9
   %cmp.i68 = icmp eq ptr %call.i, null
@@ -3964,7 +3948,7 @@ if.end7.i:                                        ; preds = %if.then3.i
   %13 = call i64 @llvm.umax.i64(i64 %12, i64 -2147483392)
   %spec.store.select.i = xor i64 %13, -1
   store i64 %spec.store.select.i, ptr %sz.i, align 8
-  %endmark.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 23
+  %endmark.i = getelementptr inbounds i8, ptr %ls, i64 176
   store i32 1, ptr %endmark.i, align 8
   br label %if.end11.i
 
@@ -3996,13 +3980,13 @@ if.then:                                          ; preds = %lex_savenext.exit68
   br label %if.end
 
 if.end:                                           ; preds = %lex_savenext.exit68, %if.then
-  %rfunc.i.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 10
-  %L.i.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 1
-  %rdata.i.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 11
-  %endmark.i.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 23
-  %linenumber.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 12
+  %rfunc.i.i = getelementptr inbounds i8, ptr %ls, i64 96
+  %L.i.i = getelementptr inbounds i8, ptr %ls, i64 8
+  %rdata.i.i = getelementptr inbounds i8, ptr %ls, i64 104
+  %endmark.i.i = getelementptr inbounds i8, ptr %ls, i64 176
+  %linenumber.i = getelementptr inbounds i8, ptr %ls, i64 112
   %tobool11.not = icmp eq ptr %tv, null
-  %b.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 2
+  %b.i = getelementptr inbounds i8, ptr %ls, i64 80
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end
@@ -4276,7 +4260,7 @@ if.end.i97:                                       ; preds = %lex_next.exit.i, %l
   br i1 %cmp7.i, label %if.then8.i, label %lex_newline.exit
 
 if.then8.i:                                       ; preds = %if.end.i97
-  %tok.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 7
+  %tok.i = getelementptr inbounds i8, ptr %ls, i64 52
   %62 = load i32, ptr %tok.i, align 4
   call void (ptr, i32, i32, ...) @lj_lex_error(ptr noundef nonnull %ls, i32 noundef %62, i32 noundef 2171) #11
   unreachable

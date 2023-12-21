@@ -5,18 +5,11 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.timeval = type { i64, i64 }
 %struct.ErrorPropagator = type { ptr, ptr }
-%struct.NBDExportInfo = type { i8, ptr, ptr, i32, i8, i64, i16, i32, i32, i32, i32, ptr, i32, ptr }
 %struct.NBDOptionReply = type <{ i64, i32, i32, i32 }>
 %struct.NBDOption = type { i64, i32, i32 }
+%struct.NBDExportInfo = type { i8, ptr, ptr, i32, i8, i64, i16, i32, i32, i32, i32, ptr, i32, ptr }
 %struct.NBDRequest = type { i64, i64, i64, i16, i16, i32, ptr }
-%struct.QIOChannelSocket = type { %struct.QIOChannel, i32, %struct.sockaddr_storage, i32, %struct.sockaddr_storage, i32, i64, i64 }
-%struct.QIOChannel = type { %struct.Object, i32, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %struct.iovec = type { ptr, i64 }
-%struct.NBDSimpleReply = type { i32, i32, i64 }
-%struct.NBDStructuredReplyChunk = type <{ i32, i16, i16, i64, i32 }>
-%struct.NBDExtendedReplyChunk = type { i32, i16, i16, i64, i64, i64 }
 %struct.NBDTLSHandshakeData = type { ptr, i8, ptr }
 
 @error_fatal = external global ptr, align 8
@@ -264,17 +257,17 @@ entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %zeroes = alloca i8, align 1
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
-  %base_allocation3 = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 4
+  %base_allocation3 = getelementptr inbounds i8, ptr %info, i64 28
   %0 = load i8, ptr %base_allocation3, align 4
   %1 = and i8 %0, 1
   %tobool4.not = icmp eq i8 %1, 0
-  %name = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %info, i64 16
   %2 = load ptr, ptr %name, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %if.else, label %land.lhs.true
@@ -313,7 +306,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %2) #17
   br label %trace_nbd_receive_negotiate_name.exit
@@ -324,7 +317,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_nbd_receive_negotiate_name.exit:            ; preds = %if.end9, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %mode = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 3
+  %mode = getelementptr inbounds i8, ptr %info, i64 24
   %10 = load i32, ptr %mode, align 8
   %call11 = call fastcc i32 @nbd_start_negotiate(ptr noundef %ioc, ptr noundef %tlscreds, ptr noundef %hostname, ptr noundef %outioc, i32 noundef %10, ptr noundef nonnull %zeroes, ptr noundef nonnull %spec.select), !range !5
   %cmp12 = icmp slt i32 %call11, 0
@@ -357,7 +350,7 @@ sw.bb:                                            ; preds = %if.end21, %if.end21
 
 if.then24:                                        ; preds = %sw.bb
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %name.i)
-  %x_dirty_bitmap.i = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 1
+  %x_dirty_bitmap.i = getelementptr inbounds i8, ptr %info, i64 8
   %12 = load ptr, ptr %x_dirty_bitmap.i, align 8
   %tobool.not.i = icmp eq ptr %12, null
   %..str.66.i = select i1 %tobool.not.i, ptr @.str.66, ptr %12
@@ -368,7 +361,7 @@ if.then24:                                        ; preds = %sw.bb
   br i1 %cmp.i, label %nbd_negotiate_simple_meta_context.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then24
-  %context_id.i = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 10
+  %context_id.i = getelementptr inbounds i8, ptr %info, i64 56
   %call2.i = call fastcc i32 @nbd_receive_one_meta_context(ptr noundef %ioc.addr.0, i32 noundef 10, ptr noundef nonnull %name.i, ptr noundef nonnull %context_id.i, ptr noundef nonnull %spec.select), !range !7
   %cmp3.i = icmp slt i32 %call2.i, 0
   br i1 %cmp3.i, label %nbd_negotiate_simple_meta_context.exit.thread, label %if.end5.i
@@ -453,7 +446,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
   %call10.i.i.i = call i32 @qemu_get_thread_id() #17
   %22 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %23 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, i32 noundef %call10.i.i.i, i64 noundef %22, i64 noundef %23, ptr noundef %16) #17
   br label %trace_nbd_receive_query_exports_start.exit.i
@@ -521,7 +514,7 @@ if.then8.i.i18.i:                                 ; preds = %if.then.i.i16.i
   %call9.i.i19.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i9.i, ptr noundef null) #17
   %call10.i.i20.i = call i32 @qemu_get_thread_id() #17
   %31 = load i64, ptr %_now.i.i9.i, align 8
-  %tv_usec.i.i21.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i9.i, i64 0, i32 1
+  %tv_usec.i.i21.i = getelementptr inbounds i8, ptr %_now.i.i9.i, i64 8
   %32 = load i64, ptr %tv_usec.i.i21.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.110, i32 noundef %call10.i.i20.i, i64 noundef %31, i64 noundef %32, ptr noundef %16) #17
   br label %trace_nbd_receive_query_exports_success.exit.i
@@ -558,7 +551,7 @@ sw.bb46:                                          ; preds = %nbd_receive_query_e
   br i1 %cmp49, label %cleanup, label %if.end51
 
 if.end51:                                         ; preds = %sw.bb46
-  %size = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %info, i64 32
   %call.i.i60 = call i32 @qio_channel_read_all(ptr noundef %ioc.addr.0, ptr noundef nonnull %size, i64 noundef 8, ptr noundef %spec.select) #17
   %cmp3.i.i = icmp slt i32 %call.i.i60, 0
   br i1 %cmp3.i.i, label %nbd_read64.exit.thread, label %if.end55
@@ -573,7 +566,7 @@ if.end55:                                         ; preds = %if.end51
   %35 = load i64, ptr %size, align 8
   %36 = call i64 @llvm.bswap.i64(i64 %35)
   store i64 %36, ptr %size, align 8
-  %flags = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %info, i64 40
   %call.i.i68 = call i32 @qio_channel_read_all(ptr noundef %ioc.addr.0, ptr noundef nonnull %flags, i64 noundef 2, ptr noundef %spec.select) #17
   %cmp3.i.i69 = icmp slt i32 %call.i.i68, 0
   br i1 %cmp3.i.i69, label %nbd_read16.exit.thread, label %nbd_read16.exit
@@ -606,7 +599,7 @@ if.end64:                                         ; preds = %sw.bb60
   br i1 %cmp66, label %cleanup, label %if.end64.sw.epilog_crit_edge
 
 if.end64.sw.epilog_crit_edge:                     ; preds = %if.end64
-  %flags73.phi.trans.insert = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 6
+  %flags73.phi.trans.insert = getelementptr inbounds i8, ptr %info, i64 40
   %.pre = load i16, ptr %flags73.phi.trans.insert, align 8
   br label %sw.epilog
 
@@ -616,7 +609,7 @@ do.body69:                                        ; preds = %if.end21
 
 sw.epilog:                                        ; preds = %if.end64.sw.epilog_crit_edge, %nbd_read16.exit
   %41 = phi i16 [ %.pre, %if.end64.sw.epilog_crit_edge ], [ %38, %nbd_read16.exit ]
-  %size72 = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 5
+  %size72 = getelementptr inbounds i8, ptr %info, i64 32
   %42 = load i64, ptr %size72, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i77)
   %43 = load i32, ptr @trace_events_enabled_count, align 4
@@ -642,7 +635,7 @@ if.then8.i.i86:                                   ; preds = %if.then.i.i84
   %call9.i.i87 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i77, ptr noundef null) #17
   %call10.i.i88 = call i32 @qemu_get_thread_id() #17
   %48 = load i64, ptr %_now.i.i77, align 8
-  %tv_usec.i.i89 = getelementptr inbounds %struct.timeval, ptr %_now.i.i77, i64 0, i32 1
+  %tv_usec.i.i89 = getelementptr inbounds i8, ptr %_now.i.i77, i64 8
   %49 = load i64, ptr %tv_usec.i.i89, align 8
   %conv11.i.i = zext i16 %41 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.117, i32 noundef %call10.i.i88, i64 noundef %48, i64 noundef %49, i64 noundef %42, i32 noundef %conv11.i.i) #17
@@ -695,7 +688,7 @@ entry:
   %clientflags = alloca i32, align 4
   %globalflags = alloca i16, align 2
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -727,7 +720,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %tlscreds, ptr noundef nonnull %cond) #17
   br label %trace_nbd_start_negotiate.exit
@@ -802,7 +795,7 @@ if.then8.i.i55:                                   ; preds = %if.then.i.i53
   %call9.i.i56 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i46, ptr noundef null) #17
   %call10.i.i57 = call i32 @qemu_get_thread_id() #17
   %14 = load i64, ptr %_now.i.i46, align 8
-  %tv_usec.i.i58 = getelementptr inbounds %struct.timeval, ptr %_now.i.i46, i64 0, i32 1
+  %tv_usec.i.i58 = getelementptr inbounds i8, ptr %_now.i.i46, i64 8
   %15 = load i64, ptr %tv_usec.i.i58, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i57, i64 noundef %14, i64 noundef %15, i64 noundef %8) #17
   br label %trace_nbd_receive_negotiate_magic.exit
@@ -860,7 +853,7 @@ if.then8.i.i85:                                   ; preds = %if.then.i.i83
   %call9.i.i86 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i76, ptr noundef null) #17
   %call10.i.i87 = call i32 @qemu_get_thread_id() #17
   %24 = load i64, ptr %_now.i.i76, align 8
-  %tv_usec.i.i88 = getelementptr inbounds %struct.timeval, ptr %_now.i.i76, i64 0, i32 1
+  %tv_usec.i.i88 = getelementptr inbounds i8, ptr %_now.i.i76, i64 8
   %25 = load i64, ptr %tv_usec.i.i88, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i87, i64 noundef %24, i64 noundef %25, i64 noundef %18) #17
   br label %trace_nbd_receive_negotiate_magic.exit90
@@ -918,7 +911,7 @@ if.then8.i.i115:                                  ; preds = %if.then.i.i113
   %call9.i.i116 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i106, ptr noundef null) #17
   %call10.i.i117 = call i32 @qemu_get_thread_id() #17
   %34 = load i64, ptr %_now.i.i106, align 8
-  %tv_usec.i.i118 = getelementptr inbounds %struct.timeval, ptr %_now.i.i106, i64 0, i32 1
+  %tv_usec.i.i118 = getelementptr inbounds i8, ptr %_now.i.i106, i64 8
   %35 = load i64, ptr %tv_usec.i.i118, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i117, i64 noundef %34, i64 noundef %35, i32 noundef %conv) #17
   br label %trace_nbd_receive_negotiate_server_flags.exit
@@ -1038,16 +1031,16 @@ entry:
   %reply = alloca %struct.NBDOptionReply, align 1
   %type = alloca i16, align 2
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
-  %name = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %info, i64 16
   %0 = load ptr, ptr %name, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
-  %flags = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %info, i64 40
   store i16 0, ptr %flags, align 8
   %1 = and i32 %opt, -2
   %or.cond1 = icmp eq i32 %1, 6
@@ -1085,7 +1078,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.99, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %call10, ptr noundef %2) #17
   br label %trace_nbd_opt_info_go_start.exit
@@ -1141,15 +1134,15 @@ while.cond.preheader:                             ; preds = %if.end33
   br i1 %cmp47347, label %cleanup, label %if.end50.lr.ph
 
 if.end50.lr.ph:                                   ; preds = %while.cond.preheader
-  %length = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 3
-  %type56 = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 2
-  %min_block125 = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 7
-  %opt_block = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 8
-  %max_block = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 9
-  %tv_usec.i.i236 = getelementptr inbounds %struct.timeval, ptr %_now.i.i224, i64 0, i32 1
-  %size = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 5
-  %tv_usec.i.i162 = getelementptr inbounds %struct.timeval, ptr %_now.i.i150, i64 0, i32 1
-  %tv_usec.i.i250 = getelementptr inbounds %struct.timeval, ptr %_now.i.i238, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %reply, i64 16
+  %type56 = getelementptr inbounds i8, ptr %reply, i64 12
+  %min_block125 = getelementptr inbounds i8, ptr %info, i64 44
+  %opt_block = getelementptr inbounds i8, ptr %info, i64 48
+  %max_block = getelementptr inbounds i8, ptr %info, i64 52
+  %tv_usec.i.i236 = getelementptr inbounds i8, ptr %_now.i.i224, i64 8
+  %size = getelementptr inbounds i8, ptr %info, i64 32
+  %tv_usec.i.i162 = getelementptr inbounds i8, ptr %_now.i.i150, i64 8
+  %tv_usec.i.i250 = getelementptr inbounds i8, ptr %_now.i.i238, i64 8
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end50.lr.ph, %sw.epilog
@@ -1514,7 +1507,7 @@ entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %req = alloca %struct.NBDOption, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -1555,7 +1548,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.114, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %opt, ptr noundef %call6, i32 noundef %len.addr.0) #17
   br label %trace_nbd_send_option_request.exit
@@ -1567,10 +1560,10 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_nbd_send_option_request.exit:               ; preds = %if.end5, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   store i64 6075443056541255753, ptr %req, align 8
-  %option = getelementptr inbounds %struct.NBDOption, ptr %req, i64 0, i32 1
+  %option = getelementptr inbounds i8, ptr %req, i64 8
   %7 = tail call i32 @llvm.bswap.i32(i32 %opt)
   store i32 %7, ptr %option, align 8
-  %length7 = getelementptr inbounds %struct.NBDOption, ptr %req, i64 0, i32 2
+  %length7 = getelementptr inbounds i8, ptr %req, i64 12
   %8 = tail call i32 @llvm.bswap.i32(i32 %len.addr.0)
   store i32 %8, ptr %length7, align 4
   %call.i = call i32 @qio_channel_write_all(ptr noundef %ioc, ptr noundef nonnull %req, i64 noundef 16, ptr noundef nonnull %spec.select) #17
@@ -1608,10 +1601,10 @@ entry:
   %_auto_errp_prop.i.i5 = alloca %struct.ErrorPropagator, align 8
   %_auto_errp_prop.i.i = alloca %struct.ErrorPropagator, align 8
   %oldflags = alloca i32, align 4
-  %size = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %info, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i.i)
   store ptr null, ptr %_auto_errp_prop.i.i, align 8
-  %errp1.i.i = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop.i.i, i64 0, i32 1
+  %errp1.i.i = getelementptr inbounds i8, ptr %_auto_errp_prop.i.i, i64 8
   store ptr %errp, ptr %errp1.i.i, align 8
   %tobool.i.i = icmp eq ptr %errp, null
   %cmp.i.i = icmp eq ptr %errp, @error_fatal
@@ -1639,7 +1632,7 @@ if.end:                                           ; preds = %entry
   store i64 %1, ptr %size, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i.i5)
   store ptr null, ptr %_auto_errp_prop.i.i5, align 8
-  %errp1.i.i6 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop.i.i5, i64 0, i32 1
+  %errp1.i.i6 = getelementptr inbounds i8, ptr %_auto_errp_prop.i.i5, i64 8
   store ptr %errp, ptr %errp1.i.i6, align 8
   %spec.select.i.i10 = select i1 %or.cond.i.i, ptr %_auto_errp_prop.i.i5, ptr %errp
   %call.i.i11 = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef nonnull %oldflags, i64 noundef 4, ptr noundef %spec.select.i.i10) #17
@@ -1671,7 +1664,7 @@ if.then5:                                         ; preds = %if.end4
 
 if.end6:                                          ; preds = %if.end4
   %conv = trunc i32 %3 to i16
-  %flags = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %info, i64 40
   store i16 %conv, ptr %flags, align 8
   br label %return
 
@@ -1703,19 +1696,20 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.end
   %indvars.iv20 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next21, %for.end ]
-  %name = getelementptr %struct.NBDExportInfo, ptr %info, i64 %indvars.iv20, i32 2
+  %arrayidx = getelementptr %struct.NBDExportInfo, ptr %info, i64 %indvars.iv20
+  %name = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %0 = load ptr, ptr %name, align 8
   tail call void @g_free(ptr noundef %0) #17
-  %description = getelementptr %struct.NBDExportInfo, ptr %info, i64 %indvars.iv20, i32 11
+  %description = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %1 = load ptr, ptr %description, align 8
   tail call void @g_free(ptr noundef %1) #17
-  %n_contexts = getelementptr %struct.NBDExportInfo, ptr %info, i64 %indvars.iv20, i32 12
+  %n_contexts = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %2 = load i32, ptr %n_contexts, align 8
   %cmp615 = icmp sgt i32 %2, 0
   br i1 %cmp615, label %for.body7.lr.ph, label %for.end
 
 for.body7.lr.ph:                                  ; preds = %for.body
-  %contexts = getelementptr %struct.NBDExportInfo, ptr %info, i64 %indvars.iv20, i32 13
+  %contexts = getelementptr inbounds i8, ptr %arrayidx, i64 80
   br label %for.body7
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.body7
@@ -1731,7 +1725,7 @@ for.body7:                                        ; preds = %for.body7.lr.ph, %f
   br i1 %cmp6, label %for.body7, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.body7, %for.body
-  %contexts14 = getelementptr %struct.NBDExportInfo, ptr %info, i64 %indvars.iv20, i32 13
+  %contexts14 = getelementptr inbounds i8, ptr %arrayidx, i64 80
   %7 = load ptr, ptr %contexts14, align 8
   tail call void @g_free(ptr noundef %7) #17
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
@@ -1782,29 +1776,29 @@ sw.bb:                                            ; preds = %if.end3, %if.end3, 
   br i1 %cmp5, label %out, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %sw.bb
-  %call858 = call fastcc i32 @nbd_receive_list(ptr noundef %spec.select, ptr noundef nonnull %name, ptr noundef nonnull %desc, ptr noundef %errp), !range !8
-  %cmp959 = icmp slt i32 %call858, 0
-  br i1 %cmp959, label %out, label %if.else
+  %call862 = call fastcc i32 @nbd_receive_list(ptr noundef %spec.select, ptr noundef nonnull %name, ptr noundef nonnull %desc, ptr noundef %errp), !range !8
+  %cmp963 = icmp slt i32 %call862, 0
+  br i1 %cmp963, label %out, label %if.else
 
 if.else:                                          ; preds = %while.body.preheader, %if.end14
-  %call862 = phi i32 [ %call8, %if.end14 ], [ %call858, %while.body.preheader ]
-  %array.061 = phi ptr [ %call15, %if.end14 ], [ null, %while.body.preheader ]
-  %count.060 = phi i32 [ %inc, %if.end14 ], [ 0, %while.body.preheader ]
-  %cmp11 = icmp eq i32 %call862, 0
+  %call866 = phi i32 [ %call8, %if.end14 ], [ %call862, %while.body.preheader ]
+  %array.065 = phi ptr [ %call15, %if.end14 ], [ null, %while.body.preheader ]
+  %count.064 = phi i32 [ %inc, %if.end14 ], [ 0, %while.body.preheader ]
+  %cmp11 = icmp eq i32 %call866, 0
   br i1 %cmp11, label %for.cond.preheader, label %if.end14
 
 for.cond.preheader:                               ; preds = %if.else
-  %cmp2664 = icmp sgt i32 %count.060, 0
-  br i1 %cmp2664, label %for.body.lr.ph, label %for.end
+  %cmp2668 = icmp sgt i32 %count.064, 0
+  br i1 %cmp2668, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %cmp42 = icmp sgt i32 %call, 2
-  %wide.trip.count = zext nneg i32 %count.060 to i64
+  %wide.trip.count = zext nneg i32 %count.064 to i64
   br i1 %cmp42, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %arrayidx29.us = getelementptr %struct.NBDExportInfo, ptr %array.061, i64 %indvars.iv78
+  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %arrayidx29.us = getelementptr %struct.NBDExportInfo, ptr %array.065, i64 %indvars.iv82
   store i8 1, ptr %arrayidx29.us, align 8
   %call32.us = call fastcc i32 @nbd_opt_info_or_go(ptr noundef %spec.select, i32 noundef 6, ptr noundef nonnull %arrayidx29.us, ptr noundef %errp), !range !7
   %cmp33.us = icmp slt i32 %call32.us, 0
@@ -1816,15 +1810,15 @@ if.else36.us:                                     ; preds = %for.body.us
 
 if.end41.us:                                      ; preds = %if.else36.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %context.i)
-  %name.i.us = getelementptr %struct.NBDExportInfo, ptr %array.061, i64 %indvars.iv78, i32 2
+  %name.i.us = getelementptr inbounds i8, ptr %arrayidx29.us, i64 16
   %1 = load ptr, ptr %name.i.us, align 8
   %call.i.us = call fastcc i32 @nbd_send_meta_query(ptr noundef %spec.select, i32 noundef 9, ptr noundef %1, ptr noundef null, ptr noundef %errp), !range !6
   %cmp.i.us = icmp slt i32 %call.i.us, 0
   br i1 %cmp.i.us, label %nbd_list_meta_contexts.exit.thread, label %while.body.preheader.i.us
 
 while.body.preheader.i.us:                        ; preds = %if.end41.us
-  %contexts.i.us = getelementptr %struct.NBDExportInfo, ptr %array.061, i64 %indvars.iv78, i32 13
-  %n_contexts.i.us = getelementptr %struct.NBDExportInfo, ptr %array.061, i64 %indvars.iv78, i32 12
+  %contexts.i.us = getelementptr inbounds i8, ptr %arrayidx29.us, i64 80
+  %n_contexts.i.us = getelementptr inbounds i8, ptr %arrayidx29.us, i64 72
   br label %while.body.outer.i.us
 
 while.body.outer.i.us:                            ; preds = %if.end14.i.us, %while.body.preheader.i.us
@@ -1881,24 +1875,24 @@ nbd_list_meta_contexts.exit.us:                   ; preds = %if.end11.i.us
   br i1 %cmp48.us, label %out, label %for.inc.us
 
 for.inc.us:                                       ; preds = %nbd_list_meta_contexts.exit.us
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body.us, !llvm.loop !14
 
 if.end14:                                         ; preds = %if.else
-  %inc = add i32 %count.060, 1
+  %inc = add i32 %count.064, 1
   %conv = sext i32 %inc to i64
-  %call15 = call ptr @g_realloc_n(ptr noundef %array.061, i64 noundef %conv, i64 noundef 88) #17
-  %idxprom = sext i32 %count.060 to i64
+  %call15 = call ptr @g_realloc_n(ptr noundef %array.065, i64 noundef %conv, i64 noundef 88) #17
+  %idxprom = sext i32 %count.064 to i64
   %arrayidx = getelementptr %struct.NBDExportInfo, ptr %call15, i64 %idxprom
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx, i8 0, i64 88, i1 false)
   %8 = load ptr, ptr %name, align 8
-  %name19 = getelementptr %struct.NBDExportInfo, ptr %call15, i64 %idxprom, i32 2
+  %name19 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr %8, ptr %name19, align 8
   %9 = load ptr, ptr %desc, align 8
-  %description = getelementptr %struct.NBDExportInfo, ptr %call15, i64 %idxprom, i32 11
+  %description = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store ptr %9, ptr %description, align 8
-  %mode = getelementptr %struct.NBDExportInfo, ptr %call15, i64 %idxprom, i32 3
+  %mode = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store i32 %call, ptr %mode, align 8
   %call8 = call fastcc i32 @nbd_receive_list(ptr noundef %spec.select, ptr noundef nonnull %name, ptr noundef nonnull %desc, ptr noundef %errp), !range !8
   %cmp9 = icmp slt i32 %call8, 0
@@ -1906,7 +1900,7 @@ if.end14:                                         ; preds = %if.else
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.else36
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.else36 ], [ 0, %for.body.lr.ph ]
-  %arrayidx29 = getelementptr %struct.NBDExportInfo, ptr %array.061, i64 %indvars.iv
+  %arrayidx29 = getelementptr %struct.NBDExportInfo, ptr %array.065, i64 %indvars.iv
   store i8 1, ptr %arrayidx29, align 8
   %call32 = call fastcc i32 @nbd_opt_info_or_go(ptr noundef %spec.select, i32 noundef 6, ptr noundef nonnull %arrayidx29, ptr noundef %errp), !range !7
   %cmp33 = icmp slt i32 %call32, 0
@@ -1916,8 +1910,8 @@ if.else36:                                        ; preds = %for.body
   %cmp37 = icmp ne i32 %call32, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp26 = icmp ult i64 %indvars.iv.next, %wide.trip.count
-  %or.cond66 = and i1 %cmp37, %cmp26
-  br i1 %or.cond66, label %for.body, label %for.end, !llvm.loop !14
+  %or.cond70 = and i1 %cmp37, %cmp26
+  br i1 %or.cond70, label %for.body, label %for.end, !llvm.loop !14
 
 nbd_list_meta_contexts.exit.thread:               ; preds = %if.end41.us, %if.then5.i.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %context.i)
@@ -1934,9 +1928,9 @@ sw.bb53:                                          ; preds = %if.end3
 sw.bb54:                                          ; preds = %if.end3
   %call55 = call noalias dereferenceable_or_null(88) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 88) #19
   %call56 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.7) #17
-  %name57 = getelementptr inbounds %struct.NBDExportInfo, ptr %call55, i64 0, i32 2
+  %name57 = getelementptr inbounds i8, ptr %call55, i64 16
   store ptr %call56, ptr %name57, align 8
-  %mode58 = getelementptr inbounds %struct.NBDExportInfo, ptr %call55, i64 0, i32 3
+  %mode58 = getelementptr inbounds i8, ptr %call55, i64 24
   store i32 0, ptr %mode58, align 8
   %call59 = call fastcc i32 @nbd_negotiate_finish_oldstyle(ptr noundef %spec.select, ptr noundef %call55, ptr noundef %errp), !range !9
   %cmp60 = icmp slt i32 %call59, 0
@@ -1949,7 +1943,7 @@ if.end63:                                         ; preds = %sw.bb54
 
 if.then67:                                        ; preds = %if.end63
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %request, i8 0, i64 40, i1 false)
-  %type = getelementptr inbounds %struct.NBDRequest, ptr %request, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %request, i64 26
   store i16 2, ptr %type, align 2
   %call69 = call i32 @nbd_send_request(ptr noundef %spec.select, ptr noundef nonnull %request), !range !15
   br label %sw.epilog
@@ -1959,20 +1953,73 @@ do.body:                                          ; preds = %if.end3
   unreachable
 
 sw.epilog:                                        ; preds = %if.end63, %if.then67, %for.end
-  %count.1 = phi i32 [ 1, %if.then67 ], [ 1, %if.end63 ], [ %count.060, %for.end ]
-  %array.1 = phi ptr [ %call55, %if.then67 ], [ %call55, %if.end63 ], [ %array.061, %for.end ]
+  %count.1 = phi i32 [ 1, %if.then67 ], [ 1, %if.end63 ], [ %count.064, %for.end ]
+  %array.1 = phi ptr [ %call55, %if.then67 ], [ %call55, %if.end63 ], [ %array.065, %for.end ]
   store ptr %array.1, ptr %info, align 8
   br label %out
 
 out:                                              ; preds = %if.end14, %for.body, %nbd_list_meta_contexts.exit.us, %for.body.us, %while.body.preheader, %nbd_list_meta_contexts.exit.thread, %sw.bb54, %sw.bb, %entry, %sw.epilog, %sw.bb53
-  %count.2 = phi i32 [ 0, %entry ], [ 1, %sw.bb54 ], [ %count.1, %sw.epilog ], [ 0, %sw.bb53 ], [ 0, %sw.bb ], [ %count.060, %nbd_list_meta_contexts.exit.thread ], [ 0, %while.body.preheader ], [ %count.060, %for.body.us ], [ %count.060, %nbd_list_meta_contexts.exit.us ], [ %count.060, %for.body ], [ %inc, %if.end14 ]
+  %count.2 = phi i32 [ 0, %entry ], [ 1, %sw.bb54 ], [ %count.1, %sw.epilog ], [ 0, %sw.bb53 ], [ 0, %sw.bb ], [ %count.064, %nbd_list_meta_contexts.exit.thread ], [ 0, %while.body.preheader ], [ %count.064, %for.body.us ], [ %count.064, %nbd_list_meta_contexts.exit.us ], [ %count.064, %for.body ], [ %inc, %if.end14 ]
   %ret.0 = phi i32 [ -1, %entry ], [ -1, %sw.bb54 ], [ %count.1, %sw.epilog ], [ -1, %sw.bb53 ], [ -1, %sw.bb ], [ -1, %nbd_list_meta_contexts.exit.thread ], [ -1, %while.body.preheader ], [ -1, %for.body.us ], [ -1, %nbd_list_meta_contexts.exit.us ], [ -1, %for.body ], [ -1, %if.end14 ]
-  %array.2 = phi ptr [ null, %entry ], [ %call55, %sw.bb54 ], [ null, %sw.epilog ], [ null, %sw.bb53 ], [ null, %sw.bb ], [ %array.061, %nbd_list_meta_contexts.exit.thread ], [ null, %while.body.preheader ], [ %array.061, %for.body.us ], [ %array.061, %nbd_list_meta_contexts.exit.us ], [ %array.061, %for.body ], [ %call15, %if.end14 ]
+  %array.2 = phi ptr [ null, %entry ], [ %call55, %sw.bb54 ], [ null, %sw.epilog ], [ null, %sw.bb53 ], [ null, %sw.bb ], [ %array.065, %nbd_list_meta_contexts.exit.thread ], [ null, %while.body.preheader ], [ %array.065, %for.body.us ], [ %array.065, %nbd_list_meta_contexts.exit.us ], [ %array.065, %for.body ], [ %call15, %if.end14 ]
   %call71 = call i32 @qio_channel_shutdown(ptr noundef %spec.select, i32 noundef 3, ptr noundef null) #17
   %call72 = call i32 @qio_channel_close(ptr noundef %spec.select, ptr noundef null) #17
   %10 = load ptr, ptr %sioc, align 8
   call void @object_unref(ptr noundef %10) #17
-  call void @nbd_free_export_list(ptr noundef %array.2, i32 noundef %count.2)
+  %tobool.not.i = icmp eq ptr %array.2, null
+  br i1 %tobool.not.i, label %nbd_free_export_list.exit, label %for.cond.preheader.i
+
+for.cond.preheader.i:                             ; preds = %out
+  %cmp17.i = icmp sgt i32 %count.2, 0
+  br i1 %cmp17.i, label %for.body.preheader.i, label %for.end17.i
+
+for.body.preheader.i:                             ; preds = %for.cond.preheader.i
+  %wide.trip.count.i = zext nneg i32 %count.2 to i64
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.end.i, %for.body.preheader.i
+  %indvars.iv20.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next21.i, %for.end.i ]
+  %arrayidx.i50 = getelementptr %struct.NBDExportInfo, ptr %array.2, i64 %indvars.iv20.i
+  %name.i51 = getelementptr inbounds i8, ptr %arrayidx.i50, i64 16
+  %11 = load ptr, ptr %name.i51, align 8
+  call void @g_free(ptr noundef %11) #17
+  %description.i = getelementptr inbounds i8, ptr %arrayidx.i50, i64 64
+  %12 = load ptr, ptr %description.i, align 8
+  call void @g_free(ptr noundef %12) #17
+  %n_contexts.i52 = getelementptr inbounds i8, ptr %arrayidx.i50, i64 72
+  %13 = load i32, ptr %n_contexts.i52, align 8
+  %cmp615.i = icmp sgt i32 %13, 0
+  br i1 %cmp615.i, label %for.body7.lr.ph.i, label %for.end.i
+
+for.body7.lr.ph.i:                                ; preds = %for.body.i
+  %contexts.i53 = getelementptr inbounds i8, ptr %arrayidx.i50, i64 80
+  br label %for.body7.i
+
+for.body7.i:                                      ; preds = %for.body7.i, %for.body7.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %for.body7.lr.ph.i ], [ %indvars.iv.next.i, %for.body7.i ]
+  %14 = load ptr, ptr %contexts.i53, align 8
+  %arrayidx11.i = getelementptr ptr, ptr %14, i64 %indvars.iv.i
+  %15 = load ptr, ptr %arrayidx11.i, align 8
+  call void @g_free(ptr noundef %15) #17
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %16 = load i32, ptr %n_contexts.i52, align 8
+  %17 = sext i32 %16 to i64
+  %cmp6.i = icmp slt i64 %indvars.iv.next.i, %17
+  br i1 %cmp6.i, label %for.body7.i, label %for.end.i, !llvm.loop !11
+
+for.end.i:                                        ; preds = %for.body7.i, %for.body.i
+  %contexts14.i = getelementptr inbounds i8, ptr %arrayidx.i50, i64 80
+  %18 = load ptr, ptr %contexts14.i, align 8
+  call void @g_free(ptr noundef %18) #17
+  %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next21.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %for.end17.i, label %for.body.i, !llvm.loop !13
+
+for.end17.i:                                      ; preds = %for.end.i, %for.cond.preheader.i
+  call void @g_free(ptr noundef nonnull %array.2) #17
+  br label %nbd_free_export_list.exit
+
+nbd_free_export_list.exit:                        ; preds = %out, %for.end17.i
   ret i32 %ret.0
 }
 
@@ -1993,9 +2040,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %cleanup, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %length = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 3
+  %length = getelementptr inbounds i8, ptr %reply, i64 16
   %0 = load i32, ptr %length, align 1
-  %type = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %reply, i64 12
   %1 = load i32, ptr %type, align 1
   switch i32 %1, label %if.then12 [
     i32 1, label %if.then6
@@ -2031,7 +2078,7 @@ if.then23:                                        ; preds = %if.end18
 if.end24:                                         ; preds = %if.end18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i.i)
   store ptr null, ptr %_auto_errp_prop.i.i, align 8
-  %errp1.i.i = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop.i.i, i64 0, i32 1
+  %errp1.i.i = getelementptr inbounds i8, ptr %_auto_errp_prop.i.i, i64 8
   store ptr %errp, ptr %errp1.i.i, align 8
   %tobool.i.i = icmp eq ptr %errp, null
   %cmp.i.i = icmp eq ptr %errp, @error_fatal
@@ -2077,7 +2124,7 @@ if.end38:                                         ; preds = %if.end29
   %conv41 = zext i32 %5 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i)
   store ptr null, ptr %_auto_errp_prop.i, align 8
-  %errp1.i = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop.i, i64 0, i32 1
+  %errp1.i = getelementptr inbounds i8, ptr %_auto_errp_prop.i, i64 8
   store ptr %errp, ptr %errp1.i, align 8
   %spec.select.i = select i1 %or.cond.i.i, ptr %_auto_errp_prop.i, ptr %errp
   %call.i41 = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef %call40, i64 noundef %conv41, ptr noundef %spec.select.i) #17
@@ -2170,14 +2217,14 @@ define dso_local i32 @nbd_send_request(ptr noundef %ioc, ptr nocapture noundef r
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca [32 x i8], align 16
-  %from = getelementptr inbounds %struct.NBDRequest, ptr %request, i64 0, i32 1
+  %from = getelementptr inbounds i8, ptr %request, i64 8
   %0 = load i64, ptr %from, align 8
-  %len1 = getelementptr inbounds %struct.NBDRequest, ptr %request, i64 0, i32 2
+  %len1 = getelementptr inbounds i8, ptr %request, i64 16
   %1 = load i64, ptr %len1, align 8
   %2 = load i64, ptr %request, align 8
-  %flags = getelementptr inbounds %struct.NBDRequest, ptr %request, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %request, i64 24
   %3 = load i16, ptr %flags, align 8
-  %type = getelementptr inbounds %struct.NBDRequest, ptr %request, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %request, i64 26
   %4 = load i16, ptr %type, align 2
   %call = tail call ptr @nbd_cmd_lookup(i16 noundef zeroext %4) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2204,7 +2251,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %3 to i32
   %conv12.i.i = zext i16 %4 to i32
@@ -2235,7 +2282,7 @@ trace_nbd_send_request.exit:                      ; preds = %entry, %land.lhs.tr
   %18 = load i64, ptr %from, align 8
   %19 = tail call i64 @llvm.bswap.i64(i64 %18)
   store i64 %19, ptr %add.ptr11, align 16
-  %mode = getelementptr inbounds %struct.NBDRequest, ptr %request, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %request, i64 28
   %20 = load i32, ptr %mode, align 4
   %cmp = icmp ugt i32 %20, 3
   br i1 %cmp, label %if.then, label %if.else
@@ -2289,11 +2336,11 @@ entry:
   %_now.i.i27 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %read_only = alloca i32, align 4
-  %min_block = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 7
+  %min_block = getelementptr inbounds i8, ptr %info, i64 44
   %0 = load i32, ptr %min_block, align 4
   %1 = tail call i32 @llvm.umax.i32(i32 %0, i32 512)
   %cond = zext i32 %1 to i64
-  %size = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %info, i64 32
   %2 = load i64, ptr %size, align 8
   %div = udiv i64 %2, %cond
   %3 = load i8, ptr %info, align 8
@@ -2330,7 +2377,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.129, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11) #17
   br label %trace_nbd_init_set_socket.exit
@@ -2341,7 +2388,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_nbd_init_set_socket.exit:                   ; preds = %if.end8, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %fd9 = getelementptr inbounds %struct.QIOChannelSocket, ptr %sioc, i64 0, i32 1
+  %fd9 = getelementptr inbounds i8, ptr %sioc, i64 96
   %12 = load i32, ptr %fd9, align 8
   %conv10 = sext i32 %12 to i64
   %call = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %fd, i64 noundef 43776, i64 noundef %conv10) #17
@@ -2380,7 +2427,7 @@ if.then8.i.i36:                                   ; preds = %if.then.i.i34
   %call9.i.i37 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i27, ptr noundef null) #17
   %call10.i.i38 = tail call i32 @qemu_get_thread_id() #17
   %19 = load i64, ptr %_now.i.i27, align 8
-  %tv_usec.i.i39 = getelementptr inbounds %struct.timeval, ptr %_now.i.i27, i64 0, i32 1
+  %tv_usec.i.i39 = getelementptr inbounds i8, ptr %_now.i.i27, i64 8
   %20 = load i64, ptr %tv_usec.i.i39, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.131, i32 noundef %call10.i.i38, i64 noundef %19, i64 noundef %20, i64 noundef %cond) #17
   br label %trace_nbd_init_set_block_size.exit
@@ -2427,7 +2474,7 @@ if.then8.i.i50:                                   ; preds = %if.then.i.i48
   %call9.i.i51 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i41, ptr noundef null) #17
   %call10.i.i52 = tail call i32 @qemu_get_thread_id() #17
   %27 = load i64, ptr %_now.i.i41, align 8
-  %tv_usec.i.i53 = getelementptr inbounds %struct.timeval, ptr %_now.i.i41, i64 0, i32 1
+  %tv_usec.i.i53 = getelementptr inbounds i8, ptr %_now.i.i41, i64 8
   %28 = load i64, ptr %tv_usec.i.i53, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, i32 noundef %call10.i.i52, i64 noundef %27, i64 noundef %28, i64 noundef %div) #17
   br label %trace_nbd_init_set_size.exit
@@ -2469,7 +2516,7 @@ if.then8.i.i64:                                   ; preds = %if.then.i.i62
   %call9.i.i65 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i55, ptr noundef null) #17
   %call10.i.i66 = tail call i32 @qemu_get_thread_id() #17
   %35 = load i64, ptr %_now.i.i55, align 8
-  %tv_usec.i.i67 = getelementptr inbounds %struct.timeval, ptr %_now.i.i55, i64 0, i32 1
+  %tv_usec.i.i67 = getelementptr inbounds i8, ptr %_now.i.i55, i64 8
   %36 = load i64, ptr %tv_usec.i.i67, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.135, i32 noundef %call10.i.i66, i64 noundef %35, i64 noundef %36, i32 noundef %conv29) #17
   br label %trace_nbd_init_trailing_bytes.exit
@@ -2495,7 +2542,7 @@ if.then34:                                        ; preds = %if.end30
   br label %return
 
 if.end38:                                         ; preds = %if.end30
-  %flags = getelementptr inbounds %struct.NBDExportInfo, ptr %info, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %info, i64 40
   %38 = load i16, ptr %flags, align 8
   %conv39 = zext i16 %38 to i64
   %call40 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %fd, i64 noundef 43786, i64 noundef %conv39) #17
@@ -2538,7 +2585,7 @@ if.then8.i.i78:                                   ; preds = %if.then.i.i76
   %call9.i.i79 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i69, ptr noundef null) #17
   %call10.i.i80 = tail call i32 @qemu_get_thread_id() #17
   %47 = load i64, ptr %_now.i.i69, align 8
-  %tv_usec.i.i81 = getelementptr inbounds %struct.timeval, ptr %_now.i.i69, i64 0, i32 1
+  %tv_usec.i.i81 = getelementptr inbounds i8, ptr %_now.i.i69, i64 8
   %48 = load i64, ptr %tv_usec.i.i81, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.137, i32 noundef %call10.i.i80, i64 noundef %47, i64 noundef %48) #17
   br label %trace_nbd_init_set_readonly.exit
@@ -2590,7 +2637,7 @@ if.then8.i.i92:                                   ; preds = %if.then.i.i90
   %call9.i.i93 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i83, ptr noundef null) #17
   %call10.i.i94 = call i32 @qemu_get_thread_id() #17
   %56 = load i64, ptr %_now.i.i83, align 8
-  %tv_usec.i.i95 = getelementptr inbounds %struct.timeval, ptr %_now.i.i83, i64 0, i32 1
+  %tv_usec.i.i95 = getelementptr inbounds i8, ptr %_now.i.i83, i64 8
   %57 = load i64, ptr %tv_usec.i.i95, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.139, i32 noundef %call10.i.i94, i64 noundef %56, i64 noundef %57) #17
   br label %trace_nbd_init_finish.exit
@@ -2645,7 +2692,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.141, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #17
   br label %trace_nbd_client_loop.exit
@@ -2695,7 +2742,7 @@ if.then8.i.i15:                                   ; preds = %if.then.i.i13
   %call9.i.i16 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i6, ptr noundef null) #17
   %call10.i.i17 = tail call i32 @qemu_get_thread_id() #17
   %14 = load i64, ptr %_now.i.i6, align 8
-  %tv_usec.i.i18 = getelementptr inbounds %struct.timeval, ptr %_now.i.i6, i64 0, i32 1
+  %tv_usec.i.i18 = getelementptr inbounds i8, ptr %_now.i.i6, i64 8
   %15 = load i64, ptr %tv_usec.i.i18, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.143, i32 noundef %call10.i.i17, i64 noundef %14, i64 noundef %15, i32 noundef %ret.0, ptr noundef %call4) #17
   br label %trace_nbd_client_loop_ret.exit
@@ -2730,7 +2777,7 @@ if.then8.i.i29:                                   ; preds = %if.then.i.i27
   %call9.i.i30 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i20, ptr noundef null) #17
   %call10.i.i31 = tail call i32 @qemu_get_thread_id() #17
   %21 = load i64, ptr %_now.i.i20, align 8
-  %tv_usec.i.i32 = getelementptr inbounds %struct.timeval, ptr %_now.i.i20, i64 0, i32 1
+  %tv_usec.i.i32 = getelementptr inbounds i8, ptr %_now.i.i20, i64 8
   %22 = load i64, ptr %tv_usec.i.i32, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.145, i32 noundef %call10.i.i31, i64 noundef %21, i64 noundef %22) #17
   br label %trace_nbd_client_clear_queue.exit
@@ -2766,7 +2813,7 @@ if.then8.i.i43:                                   ; preds = %if.then.i.i41
   %call9.i.i44 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i34, ptr noundef null) #17
   %call10.i.i45 = tail call i32 @qemu_get_thread_id() #17
   %28 = load i64, ptr %_now.i.i34, align 8
-  %tv_usec.i.i46 = getelementptr inbounds %struct.timeval, ptr %_now.i.i34, i64 0, i32 1
+  %tv_usec.i.i46 = getelementptr inbounds i8, ptr %_now.i.i34, i64 8
   %29 = load i64, ptr %tv_usec.i.i46, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.147, i32 noundef %call10.i.i45, i64 noundef %28, i64 noundef %29) #17
   br label %trace_nbd_client_clear_socket.exit
@@ -2808,7 +2855,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %iov.i = alloca %struct.iovec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %iov.i)
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov.i, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
   br label %while.body.lr.ph.split.i
 
 if.then2.i:                                       ; preds = %while.body.lr.ph.split.i, %if.then2.i
@@ -2897,7 +2944,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = call i32 @qemu_get_thread_id() #17
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.153, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef 1732535960, ptr noundef %call8) #17
   br label %if.end9
@@ -2920,7 +2967,7 @@ if.end.i:                                         ; preds = %sw.bb, %if.end9
   %add.ptr.i33 = getelementptr i8, ptr %reply, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i.i)
   store ptr null, ptr %_auto_errp_prop.i.i, align 8
-  %errp1.i.i = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop.i.i, i64 0, i32 1
+  %errp1.i.i = getelementptr inbounds i8, ptr %_auto_errp_prop.i.i, i64 8
   store ptr %errp, ptr %errp1.i.i, align 8
   %tobool.i.i34 = icmp eq ptr %errp, null
   %cmp.i.i = icmp eq ptr %errp, @error_fatal
@@ -2946,7 +2993,7 @@ if.end13:                                         ; preds = %if.end.i
   %9 = load i32, ptr %add.ptr.i33, align 1
   %10 = call i32 @llvm.bswap.i32(i32 %9)
   store i32 %10, ptr %add.ptr.i33, align 1
-  %cookie.i = getelementptr inbounds %struct.NBDSimpleReply, ptr %reply, i64 0, i32 2
+  %cookie.i = getelementptr inbounds i8, ptr %reply, i64 8
   %11 = load i64, ptr %cookie.i, align 1
   %12 = call i64 @llvm.bswap.i64(i64 %11)
   store i64 %12, ptr %cookie.i, align 1
@@ -2976,7 +3023,7 @@ if.then8.i.i45:                                   ; preds = %if.then.i.i43
   %call9.i.i46 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36, ptr noundef null) #17
   %call10.i.i47 = call i32 @qemu_get_thread_id() #17
   %19 = load i64, ptr %_now.i.i36, align 8
-  %tv_usec.i.i48 = getelementptr inbounds %struct.timeval, ptr %_now.i.i36, i64 0, i32 1
+  %tv_usec.i.i48 = getelementptr inbounds i8, ptr %_now.i.i36, i64 8
   %20 = load i64, ptr %tv_usec.i.i48, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.157, i32 noundef %call10.i.i47, i64 noundef %19, i64 noundef %20, i32 noundef %10, ptr noundef %call15, i64 noundef %13) #17
   br label %trace_nbd_receive_simple_reply.exit
@@ -3021,7 +3068,7 @@ if.then8.i.i59:                                   ; preds = %if.then.i.i57
   %call9.i.i60 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i50, ptr noundef null) #17
   %call10.i.i61 = call i32 @qemu_get_thread_id() #17
   %26 = load i64, ptr %_now.i.i50, align 8
-  %tv_usec.i.i62 = getelementptr inbounds %struct.timeval, ptr %_now.i.i50, i64 0, i32 1
+  %tv_usec.i.i62 = getelementptr inbounds i8, ptr %_now.i.i50, i64 8
   %27 = load i64, ptr %tv_usec.i.i62, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.153, i32 noundef %call10.i.i61, i64 noundef %26, i64 noundef %27, i32 noundef %1, ptr noundef %call22) #17
   br label %trace_nbd_receive_wrong_header.exit64
@@ -3054,7 +3101,7 @@ if.end5.i:                                        ; preds = %if.end.i66, %if.end
   %add.ptr.i67 = getelementptr i8, ptr %reply, i64 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i.i65)
   store ptr null, ptr %_auto_errp_prop.i.i65, align 8
-  %errp1.i.i68 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop.i.i65, i64 0, i32 1
+  %errp1.i.i68 = getelementptr inbounds i8, ptr %_auto_errp_prop.i.i65, i64 8
   store ptr %errp, ptr %errp1.i.i68, align 8
   %tobool.i.i69 = icmp eq ptr %errp, null
   %cmp.i.i70 = icmp eq ptr %errp, @error_fatal
@@ -3080,11 +3127,11 @@ if.end8.i:                                        ; preds = %if.end5.i
   %29 = load i16, ptr %add.ptr.i67, align 4
   %30 = call i16 @llvm.bswap.i16(i16 %29)
   store i16 %30, ptr %add.ptr.i67, align 4
-  %type.i = getelementptr inbounds %struct.NBDStructuredReplyChunk, ptr %reply, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %reply, i64 6
   %31 = load i16, ptr %type.i, align 2
   %32 = call i16 @llvm.bswap.i16(i16 %31)
   store i16 %32, ptr %type.i, align 2
-  %cookie.i77 = getelementptr inbounds %struct.NBDStructuredReplyChunk, ptr %reply, i64 0, i32 3
+  %cookie.i77 = getelementptr inbounds i8, ptr %reply, i64 8
   %33 = load i64, ptr %cookie.i77, align 8
   %34 = call i64 @llvm.bswap.i64(i64 %33)
   store i64 %34, ptr %cookie.i77, align 8
@@ -3093,14 +3140,14 @@ if.end8.i:                                        ; preds = %if.end5.i
   br i1 %cmp16.i, label %if.then17.i, label %if.else19.i
 
 if.then17.i:                                      ; preds = %if.end8.i
-  %length.i = getelementptr inbounds %struct.NBDStructuredReplyChunk, ptr %reply, i64 0, i32 4
+  %length.i = getelementptr inbounds i8, ptr %reply, i64 16
   %36 = load i32, ptr %length.i, align 8
   %37 = call i32 @llvm.bswap.i32(i32 %36)
   %conv.i = zext i32 %37 to i64
   br label %if.end23.i
 
 if.else19.i:                                      ; preds = %if.end8.i
-  %length20.i = getelementptr inbounds %struct.NBDExtendedReplyChunk, ptr %reply, i64 0, i32 5
+  %length20.i = getelementptr inbounds i8, ptr %reply, i64 24
   %38 = load i64, ptr %length20.i, align 8
   %39 = call i64 @llvm.bswap.i64(i64 %38)
   store i32 1720595439, ptr %reply, align 8
@@ -3119,7 +3166,7 @@ if.then26.i:                                      ; preds = %if.end23.i
 
 if.end27:                                         ; preds = %if.end23.i
   %conv33.i = trunc i64 %payload_len.0.i to i32
-  %length34.i = getelementptr inbounds %struct.NBDStructuredReplyChunk, ptr %reply, i64 0, i32 4
+  %length34.i = getelementptr inbounds i8, ptr %reply, i64 16
   store i32 %conv33.i, ptr %length34.i, align 8
   %call29 = call ptr @nbd_reply_type_lookup(i16 noundef zeroext %32) #17
   %40 = load i16, ptr %add.ptr.i67, align 4
@@ -3150,7 +3197,7 @@ if.then8.i.i89:                                   ; preds = %if.then.i.i87
   %call9.i.i90 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i80, ptr noundef null) #17
   %call10.i.i91 = call i32 @qemu_get_thread_id() #17
   %49 = load i64, ptr %_now.i.i80, align 8
-  %tv_usec.i.i92 = getelementptr inbounds %struct.timeval, ptr %_now.i.i80, i64 0, i32 1
+  %tv_usec.i.i92 = getelementptr inbounds i8, ptr %_now.i.i80, i64 8
   %50 = load i64, ptr %tv_usec.i.i92, align 8
   %conv11.i.i = zext i16 %40 to i32
   %conv12.i.i = zext i16 %41 to i32
@@ -3193,7 +3240,7 @@ if.then8.i.i103:                                  ; preds = %if.then.i.i101
   %call9.i.i104 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i94, ptr noundef null) #17
   %call10.i.i105 = call i32 @qemu_get_thread_id() #17
   %56 = load i64, ptr %_now.i.i94, align 8
-  %tv_usec.i.i106 = getelementptr inbounds %struct.timeval, ptr %_now.i.i94, i64 0, i32 1
+  %tv_usec.i.i106 = getelementptr inbounds i8, ptr %_now.i.i94, i64 8
   %57 = load i64, ptr %tv_usec.i.i106, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.153, i32 noundef %call10.i.i105, i64 noundef %56, i64 noundef %57, i32 noundef %1, ptr noundef %call33) #17
   br label %trace_nbd_receive_wrong_header.exit108
@@ -3221,7 +3268,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   br label %while.body.lr.ph.split
 
 if.else:                                          ; preds = %entry
@@ -3334,7 +3381,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7) #17
   br label %trace_nbd_receive_starttls_new_client.exit
@@ -3379,7 +3426,7 @@ if.then8.i.i21:                                   ; preds = %if.then.i.i19
   %call9.i.i22 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i12, ptr noundef null) #17
   %call10.i.i23 = tail call i32 @qemu_get_thread_id() #17
   %13 = load i64, ptr %_now.i.i12, align 8
-  %tv_usec.i.i24 = getelementptr inbounds %struct.timeval, ptr %_now.i.i12, i64 0, i32 1
+  %tv_usec.i.i24 = getelementptr inbounds i8, ptr %_now.i.i12, i64 8
   %14 = load i64, ptr %tv_usec.i.i24, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.40, i32 noundef %call10.i.i23, i64 noundef %13, i64 noundef %14) #17
   br label %trace_nbd_receive_starttls_tls_handshake.exit
@@ -3391,7 +3438,7 @@ if.else.i.i25:                                    ; preds = %if.then.i.i19
 trace_nbd_receive_starttls_tls_handshake.exit:    ; preds = %if.end6, %land.lhs.true5.i.i16, %if.then8.i.i21, %if.else.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i12)
   call void @qio_channel_tls_handshake(ptr noundef nonnull %call4, ptr noundef nonnull @nbd_tls_handshake, ptr noundef nonnull %data, ptr noundef null, ptr noundef null) #17
-  %complete = getelementptr inbounds %struct.NBDTLSHandshakeData, ptr %data, i64 0, i32 1
+  %complete = getelementptr inbounds i8, ptr %data, i64 8
   %15 = load i8, ptr %complete, align 8
   %16 = and i8 %15, 1
   %tobool10.not = icmp eq i8 %16, 0
@@ -3405,7 +3452,7 @@ if.then11:                                        ; preds = %trace_nbd_receive_s
 if.end13:                                         ; preds = %if.then11, %trace_nbd_receive_starttls_tls_handshake.exit
   %18 = load ptr, ptr %data, align 8
   call void @g_main_loop_unref(ptr noundef %18) #17
-  %error = getelementptr inbounds %struct.NBDTLSHandshakeData, ptr %data, i64 0, i32 2
+  %error = getelementptr inbounds i8, ptr %data, i64 16
   %19 = load ptr, ptr %error, align 8
   %tobool15.not = icmp eq ptr %19, null
   br i1 %tobool15.not, label %if.end18, label %if.then16
@@ -3443,7 +3490,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %type = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %reply, i64 12
   %0 = load i32, ptr %type, align 1
   %cmp9.not = icmp eq i32 %0, 1
   br i1 %cmp9.not, label %if.end15, label %if.then10
@@ -3456,7 +3503,7 @@ if.then10:                                        ; preds = %if.end8
   br label %return.sink.split
 
 if.end15:                                         ; preds = %if.end8
-  %length = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 3
+  %length = getelementptr inbounds i8, ptr %reply, i64 16
   %2 = load i32, ptr %length, align 1
   %cmp16.not = icmp eq i32 %2, 0
   br i1 %cmp16.not, label %return, label %if.then17
@@ -3504,7 +3551,7 @@ entry:
   %_auto_errp_prop.i = alloca %struct.ErrorPropagator, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i)
   store ptr null, ptr %_auto_errp_prop.i, align 8
-  %errp1.i = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop.i, i64 0, i32 1
+  %errp1.i = getelementptr inbounds i8, ptr %_auto_errp_prop.i, i64 8
   store ptr %errp, ptr %errp1.i, align 8
   %tobool.i = icmp eq ptr %errp, null
   %cmp.i = icmp eq ptr %errp, @error_fatal
@@ -3530,15 +3577,15 @@ if.end.critedge:                                  ; preds = %entry
   %0 = load i64, ptr %reply, align 1
   %1 = call i64 @llvm.bswap.i64(i64 %0)
   store i64 %1, ptr %reply, align 1
-  %option = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 1
+  %option = getelementptr inbounds i8, ptr %reply, i64 8
   %2 = load i32, ptr %option, align 1
   %3 = call i32 @llvm.bswap.i32(i32 %2)
   store i32 %3, ptr %option, align 1
-  %type = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %reply, i64 12
   %4 = load i32, ptr %type, align 1
   %5 = call i32 @llvm.bswap.i32(i32 %4)
   store i32 %5, ptr %type, align 1
-  %length = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 3
+  %length = getelementptr inbounds i8, ptr %reply, i64 16
   %6 = load i32, ptr %length, align 1
   %7 = call i32 @llvm.bswap.i32(i32 %6)
   store i32 %7, ptr %length, align 1
@@ -3570,7 +3617,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = call i32 @qemu_get_thread_id() #17
   %15 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, i32 noundef %3, ptr noundef %call11, i32 noundef %8, ptr noundef %call14, i32 noundef %9) #17
   br label %trace_nbd_receive_option_reply.exit
@@ -3616,19 +3663,19 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
-  %type = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %reply, i64 12
   %0 = load i32, ptr %type, align 1
   %tobool3.not = icmp sgt i32 %0, -1
   br i1 %tobool3.not, label %cleanup, label %if.end5
 
 if.end5:                                          ; preds = %entry
-  %length = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 3
+  %length = getelementptr inbounds i8, ptr %reply, i64 16
   %1 = load i32, ptr %length, align 1
   %tobool6.not = icmp eq i32 %1, 0
   br i1 %tobool6.not, label %if.end31, label %if.then7
@@ -3691,7 +3738,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = call i32 @qemu_get_thread_id() #17
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %5, ptr noundef %call30, ptr noundef nonnull %call15) #17
   br label %trace_nbd_server_error_msg.exit
@@ -3713,7 +3760,7 @@ if.end31:                                         ; preds = %trace_nbd_server_er
   br i1 %brmerge.not, label %if.end43, label %if.then37
 
 if.then37:                                        ; preds = %if.end31
-  %option = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 1
+  %option = getelementptr inbounds i8, ptr %reply, i64 8
   %14 = load i32, ptr %option, align 1
   %call39 = call ptr @nbd_opt_lookup(i32 noundef %14) #17
   %15 = load i32, ptr %type, align 1
@@ -3742,7 +3789,7 @@ if.then8.i.i60:                                   ; preds = %if.then.i.i58
   %call9.i.i61 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i51, ptr noundef null) #17
   %call10.i.i62 = call i32 @qemu_get_thread_id() #17
   %21 = load i64, ptr %_now.i.i51, align 8
-  %tv_usec.i.i63 = getelementptr inbounds %struct.timeval, ptr %_now.i.i51, i64 0, i32 1
+  %tv_usec.i.i63 = getelementptr inbounds i8, ptr %_now.i.i51, i64 8
   %22 = load i64, ptr %tv_usec.i.i63, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i.i62, i64 noundef %21, i64 noundef %22, i32 noundef %14, ptr noundef %call39, i32 noundef %15, ptr noundef %call42) #17
   br label %trace_nbd_reply_err_ignored.exit
@@ -3767,28 +3814,28 @@ if.end43:                                         ; preds = %if.end31
   ]
 
 sw.bb:                                            ; preds = %if.end43
-  %option45 = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 1
+  %option45 = getelementptr inbounds i8, ptr %reply, i64 8
   %23 = load i32, ptr %option45, align 1
   %call47 = call ptr @nbd_opt_lookup(i32 noundef %23) #17
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 193, ptr noundef nonnull @__func__.nbd_handle_reply_err, ptr noundef nonnull @.str.52, i32 noundef %23, ptr noundef %call47) #17
   br label %sw.epilog
 
 sw.bb48:                                          ; preds = %if.end43
-  %option49 = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 1
+  %option49 = getelementptr inbounds i8, ptr %reply, i64 8
   %24 = load i32, ptr %option49, align 1
   %call51 = call ptr @nbd_opt_lookup(i32 noundef %24) #17
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 198, ptr noundef nonnull @__func__.nbd_handle_reply_err, ptr noundef nonnull @.str.53, i32 noundef %24, ptr noundef %call51) #17
   br label %sw.epilog
 
 sw.bb52:                                          ; preds = %if.end43
-  %option53 = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 1
+  %option53 = getelementptr inbounds i8, ptr %reply, i64 8
   %25 = load i32, ptr %option53, align 1
   %call55 = call ptr @nbd_opt_lookup(i32 noundef %25) #17
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @__func__.nbd_handle_reply_err, ptr noundef nonnull @.str.54, i32 noundef %25, ptr noundef %call55) #17
   br label %sw.epilog
 
 sw.bb56:                                          ; preds = %if.end43
-  %option57 = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 1
+  %option57 = getelementptr inbounds i8, ptr %reply, i64 8
   %26 = load i32, ptr %option57, align 1
   %call59 = call ptr @nbd_opt_lookup(i32 noundef %26) #17
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 208, ptr noundef nonnull @__func__.nbd_handle_reply_err, ptr noundef nonnull @.str.55, i32 noundef %26, ptr noundef %call59) #17
@@ -3800,21 +3847,21 @@ sw.bb60:                                          ; preds = %if.end43
   br label %sw.epilog
 
 sw.bb61:                                          ; preds = %if.end43
-  %option62 = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 1
+  %option62 = getelementptr inbounds i8, ptr %reply, i64 8
   %27 = load i32, ptr %option62, align 1
   %call64 = call ptr @nbd_opt_lookup(i32 noundef %27) #17
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @__func__.nbd_handle_reply_err, ptr noundef nonnull @.str.58, i32 noundef %27, ptr noundef %call64) #17
   br label %sw.epilog
 
 sw.bb65:                                          ; preds = %if.end43
-  %option66 = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 1
+  %option66 = getelementptr inbounds i8, ptr %reply, i64 8
   %28 = load i32, ptr %option66, align 1
   %call68 = call ptr @nbd_opt_lookup(i32 noundef %28) #17
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 223, ptr noundef nonnull @__func__.nbd_handle_reply_err, ptr noundef nonnull @.str.59, i32 noundef %28, ptr noundef %call68) #17
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end43
-  %option69 = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 1
+  %option69 = getelementptr inbounds i8, ptr %reply, i64 8
   %29 = load i32, ptr %option69, align 1
   %call71 = call ptr @nbd_opt_lookup(i32 noundef %29) #17
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 228, ptr noundef nonnull @__func__.nbd_handle_reply_err, ptr noundef nonnull @.str.60, i32 noundef %29, ptr noundef %call71) #17
@@ -3852,7 +3899,7 @@ define internal fastcc i32 @nbd_read(ptr noundef %ioc, ptr noundef %buffer, i64 
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -3963,7 +4010,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %call30, ptr noundef nonnull %..str.72, ptr noundef %export) #17
   br label %trace_nbd_opt_meta_request.exit
@@ -4016,7 +4063,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %type = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %reply, i64 12
   %0 = load i32, ptr %type, align 1
   switch i32 %0, label %if.then12 [
     i32 1, label %if.then6
@@ -4024,7 +4071,7 @@ if.end4:                                          ; preds = %if.end
   ]
 
 if.then6:                                         ; preds = %if.end4
-  %length = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 3
+  %length = getelementptr inbounds i8, ptr %reply, i64 16
   %1 = load i32, ptr %length, align 1
   %cmp7.not = icmp eq i32 %1, 0
   br i1 %cmp7.not, label %return, label %if.then8
@@ -4042,7 +4089,7 @@ if.then12:                                        ; preds = %if.end4
   br label %return
 
 if.end18:                                         ; preds = %if.end4
-  %length19 = getelementptr inbounds %struct.NBDOptionReply, ptr %reply, i64 0, i32 3
+  %length19 = getelementptr inbounds i8, ptr %reply, i64 16
   %2 = load i32, ptr %length19, align 1
   %3 = add i32 %2, -33554433
   %or.cond = icmp ult i32 %3, -33554428
@@ -4056,7 +4103,7 @@ if.then25:                                        ; preds = %if.end18
 if.end27:                                         ; preds = %if.end18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i.i)
   store ptr null, ptr %_auto_errp_prop.i.i, align 8
-  %errp1.i.i = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop.i.i, i64 0, i32 1
+  %errp1.i.i = getelementptr inbounds i8, ptr %_auto_errp_prop.i.i, i64 8
   store ptr %errp, ptr %errp1.i.i, align 8
   %tobool.i.i = icmp eq ptr %errp, null
   %cmp.i.i = icmp eq ptr %errp, @error_fatal
@@ -4092,7 +4139,7 @@ if.end32:                                         ; preds = %if.end27
   %conv40 = zext i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_auto_errp_prop.i)
   store ptr null, ptr %_auto_errp_prop.i, align 8
-  %errp1.i = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop.i, i64 0, i32 1
+  %errp1.i = getelementptr inbounds i8, ptr %_auto_errp_prop.i, i64 8
   store ptr %errp, ptr %errp1.i, align 8
   %spec.select.i = select i1 %or.cond.i.i, ptr %_auto_errp_prop.i, ptr %errp
   %call.i24 = call i32 @qio_channel_read_all(ptr noundef %ioc, ptr noundef %call38, i64 noundef %conv40, ptr noundef %spec.select.i) #17
@@ -4143,7 +4190,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = call i32 @qemu_get_thread_id() #17
   %15 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %call10.i.i, i64 noundef %15, i64 noundef %16, ptr noundef %call47, ptr noundef nonnull %call38, i32 noundef %9) #17
   br label %trace_nbd_opt_meta_reply.exit
@@ -4216,7 +4263,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
   %call10.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.101, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %opt) #17
   br label %_nocheck__trace_nbd_opt_info_go_success.exit
@@ -4263,7 +4310,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #17
   %call10.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.126, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %name, ptr noundef %desc) #17
   br label %_nocheck__trace_nbd_receive_list.exit

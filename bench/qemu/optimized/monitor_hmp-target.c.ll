@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.HMPCommand = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr }
-%struct.MonitorDef = type { ptr, i32, ptr, i32 }
 
 @.str = private unnamed_addr constant [7 x i8] c"help|?\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"name:S?\00", align 1
@@ -845,24 +844,24 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %f
   br i1 %cmp7.i, label %for.inc, label %for.cond.i
 
 if.then7:                                         ; preds = %land.lhs.true.i
-  %get_value = getelementptr inbounds %struct.MonitorDef, ptr %md.025, i64 0, i32 2
+  %get_value = getelementptr inbounds i8, ptr %md.025, i64 16
   %3 = load ptr, ptr %get_value, align 8
   %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.then7
-  %offset = getelementptr inbounds %struct.MonitorDef, ptr %md.025, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %md.025, i64 8
   %4 = load i32, ptr %offset, align 8
   %call11 = tail call i64 %3(ptr noundef %mon, ptr noundef nonnull %md.025, i32 noundef %4) #11
   br label %return.sink.split
 
 if.else:                                          ; preds = %if.then7
   %call12 = tail call ptr @mon_get_cpu_env(ptr noundef %mon) #11
-  %offset13 = getelementptr inbounds %struct.MonitorDef, ptr %md.025, i64 0, i32 1
+  %offset13 = getelementptr inbounds i8, ptr %md.025, i64 8
   %5 = load i32, ptr %offset13, align 8
   %idx.ext = sext i32 %5 to i64
   %add.ptr = getelementptr i8, ptr %call12, i64 %idx.ext
-  %type = getelementptr inbounds %struct.MonitorDef, ptr %md.025, i64 0, i32 3
+  %type = getelementptr inbounds i8, ptr %md.025, i64 24
   %6 = load i32, ptr %type, align 8
   switch i32 %6, label %return.sink.split [
     i32 1, label %sw.bb
@@ -879,7 +878,7 @@ sw.bb14:                                          ; preds = %if.else
   br label %return.sink.split
 
 for.inc:                                          ; preds = %if.end.i
-  %incdec.ptr = getelementptr %struct.MonitorDef, ptr %md.025, i64 1
+  %incdec.ptr = getelementptr i8, ptr %md.025, i64 32
   %9 = load ptr, ptr %incdec.ptr, align 8
   %cmp4.not = icmp eq ptr %9, null
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !5
@@ -947,13 +946,13 @@ while.body:                                       ; preds = %entry, %if.end9
   br i1 %cmp3, label %do.body, label %if.end9
 
 do.body:                                          ; preds = %while.body
-  %cmd4 = getelementptr inbounds %struct.HMPCommand, ptr %table.08, i64 0, i32 5
+  %cmd4 = getelementptr inbounds i8, ptr %table.08, i64 40
   %2 = load ptr, ptr %cmd4, align 8
   %cmp5 = icmp eq ptr %2, null
   br i1 %cmp5, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %do.body
-  %cmd_info_hrt = getelementptr inbounds %struct.HMPCommand, ptr %table.08, i64 0, i32 6
+  %cmd_info_hrt = getelementptr inbounds i8, ptr %table.08, i64 48
   %3 = load ptr, ptr %cmd_info_hrt, align 8
   %cmp6 = icmp eq ptr %3, null
   br i1 %cmp6, label %do.end, label %if.else
@@ -967,7 +966,7 @@ do.end:                                           ; preds = %land.lhs.true
   ret void
 
 if.end9:                                          ; preds = %while.body
-  %incdec.ptr = getelementptr %struct.HMPCommand, ptr %table.08, i64 1
+  %incdec.ptr = getelementptr i8, ptr %table.08, i64 80
   %4 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %do.body10, label %while.body, !llvm.loop !7
@@ -998,13 +997,13 @@ while.body:                                       ; preds = %entry, %if.end8
   br i1 %cmp3, label %do.body, label %if.end8
 
 do.body:                                          ; preds = %while.body
-  %cmd = getelementptr inbounds %struct.HMPCommand, ptr %table.08, i64 0, i32 5
+  %cmd = getelementptr inbounds i8, ptr %table.08, i64 40
   %2 = load ptr, ptr %cmd, align 8
   %cmp4 = icmp eq ptr %2, null
   br i1 %cmp4, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %do.body
-  %cmd_info_hrt = getelementptr inbounds %struct.HMPCommand, ptr %table.08, i64 0, i32 6
+  %cmd_info_hrt = getelementptr inbounds i8, ptr %table.08, i64 48
   %3 = load ptr, ptr %cmd_info_hrt, align 8
   %cmp5 = icmp eq ptr %3, null
   br i1 %cmp5, label %do.end, label %if.else
@@ -1018,7 +1017,7 @@ do.end:                                           ; preds = %land.lhs.true
   ret void
 
 if.end8:                                          ; preds = %while.body
-  %incdec.ptr = getelementptr %struct.HMPCommand, ptr %table.08, i64 1
+  %incdec.ptr = getelementptr i8, ptr %table.08, i64 80
   %4 = load ptr, ptr %incdec.ptr, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %do.body9, label %while.body, !llvm.loop !8

@@ -6,30 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.BindingEntry = type { ptr, ptr, ptr, ptr }
 %struct.HostProperty = type { ptr, i8 }
 %struct.PlatformBusFDTData = type { ptr, i32, ptr, ptr }
-%struct.VFIOPlatformDevice = type { %struct.SysBusDevice, %struct.VFIODevice, ptr, %struct.anon.3, %struct.anon.4, ptr, i32, i32, ptr, %struct.QemuMutex, i8 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.VFIODevice = type { %struct.anon.0, %struct.anon.1, %struct.anon.2, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, i8, i32, ptr, i32, i32, i32, ptr, ptr, i32, i8, i8 }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.1 = type { ptr, ptr }
-%struct.anon.2 = type { ptr, ptr }
-%struct.anon.3 = type { ptr }
-%struct.anon.4 = type { ptr, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.VFIORegion = type { ptr, i64, ptr, i64, i32, i32, ptr, i8 }
-%struct.VFIOINTp = type { %struct.anon.5, %struct.anon.6, ptr, ptr, ptr, ptr, i32, i8, i32, i8 }
-%struct.anon.5 = type { ptr, ptr }
-%struct.anon.6 = type { ptr }
 
 @__const.platform_bus_add_all_fdt_nodes.platcomp = private unnamed_addr constant [25 x i8] c"qemu,platform\00simple-bus\00", align 16
 @.str = private unnamed_addr constant [4 x i8] c"fdt\00", align 1
@@ -44,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [20 x i8] c"platform-bus-device\00", align 1
 @.str.10 = private unnamed_addr constant [104 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/platform-bus.h\00", align 1
 @__func__.PLATFORM_BUS_DEVICE = private unnamed_addr constant [20 x i8] c"PLATFORM_BUS_DEVICE\00", align 1
-@bindings = internal unnamed_addr constant [6 x %struct.BindingEntry] [%struct.BindingEntry { ptr @.str.13, ptr null, ptr @add_calxeda_midway_xgmac_fdt_node, ptr null }, %struct.BindingEntry { ptr @.str.14, ptr null, ptr @add_amd_xgbe_fdt_node, ptr null }, %struct.BindingEntry { ptr @.str.15, ptr @.str.16, ptr @add_amd_xgbe_fdt_node, ptr @vfio_platform_match }, %struct.BindingEntry { ptr @.str.17, ptr null, ptr @add_tpm_tis_fdt_node, ptr null }, %struct.BindingEntry { ptr @.str.18, ptr null, ptr @no_fdt_node, ptr null }, %struct.BindingEntry { ptr @.str.19, ptr null, ptr null, ptr null }], align 16
+@bindings = internal constant [6 x %struct.BindingEntry] [%struct.BindingEntry { ptr @.str.13, ptr null, ptr @add_calxeda_midway_xgmac_fdt_node, ptr null }, %struct.BindingEntry { ptr @.str.14, ptr null, ptr @add_amd_xgbe_fdt_node, ptr null }, %struct.BindingEntry { ptr @.str.15, ptr @.str.16, ptr @add_amd_xgbe_fdt_node, ptr @vfio_platform_match }, %struct.BindingEntry { ptr @.str.17, ptr null, ptr @add_tpm_tis_fdt_node, ptr null }, %struct.BindingEntry { ptr @.str.18, ptr null, ptr @no_fdt_node, ptr null }, %struct.BindingEntry { ptr @.str.19, ptr null, ptr null, ptr null }], align 16
 @.str.11 = private unnamed_addr constant [5 x i8] c"!ret\00", align 1
 @__PRETTY_FUNCTION__.add_fdt_node = private unnamed_addr constant [42 x i8] c"void add_fdt_node(SysBusDevice *, void *)\00", align 1
 @.str.12 = private unnamed_addr constant [46 x i8] c"Device %s can not be dynamically instantiated\00", align 1
@@ -123,14 +99,14 @@ if.end:                                           ; preds = %entry
   store i32 16777216, ptr %qdt_tmp10, align 4
   %call26 = call i32 @qemu_fdt_setprop(ptr noundef nonnull %fdt, ptr noundef %call, ptr noundef nonnull @.str.6, ptr noundef nonnull %qdt_tmp10, i32 noundef 4) #10
   store i32 0, ptr %qdt_tmp29, align 16
-  %arrayinit.element = getelementptr inbounds i32, ptr %qdt_tmp29, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %qdt_tmp29, i64 4
   %shr = lshr i64 %addr, 32
   %conv30 = trunc i64 %shr to i32
   store i32 %conv30, ptr %arrayinit.element, align 4
-  %arrayinit.element31 = getelementptr inbounds i32, ptr %qdt_tmp29, i64 2
+  %arrayinit.element31 = getelementptr inbounds i8, ptr %qdt_tmp29, i64 8
   %conv32 = trunc i64 %addr to i32
   store i32 %conv32, ptr %arrayinit.element31, align 8
-  %arrayinit.element33 = getelementptr inbounds i32, ptr %qdt_tmp29, i64 3
+  %arrayinit.element33 = getelementptr inbounds i8, ptr %qdt_tmp29, i64 12
   %conv34 = trunc i64 %bus_size to i32
   store i32 %conv34, ptr %arrayinit.element33, align 4
   br label %for.body40
@@ -152,11 +128,11 @@ for.end48:                                        ; preds = %for.body40
   %call54 = call ptr @qdev_find_recursive(ptr noundef %call53, ptr noundef nonnull @.str.9) #10
   %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %call54, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 30, ptr noundef nonnull @__func__.PLATFORM_BUS_DEVICE) #10
   store ptr %fdt, ptr %data, align 8
-  %irq_start57 = getelementptr inbounds %struct.PlatformBusFDTData, ptr %data, i64 0, i32 1
+  %irq_start57 = getelementptr inbounds i8, ptr %data, i64 8
   store i32 %irq_start, ptr %irq_start57, align 8
-  %pbus_node_name = getelementptr inbounds %struct.PlatformBusFDTData, ptr %data, i64 0, i32 2
+  %pbus_node_name = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %call, ptr %pbus_node_name, align 8
-  %pbus58 = getelementptr inbounds %struct.PlatformBusFDTData, ptr %data, i64 0, i32 3
+  %pbus58 = getelementptr inbounds i8, ptr %data, i64 24
   store ptr %call.i, ptr %pbus58, align 8
   call void @foreach_dynamic_sysbus_device(ptr noundef nonnull @add_fdt_node, ptr noundef nonnull %data) #10
   call void @g_free(ptr noundef %call) #10
@@ -198,41 +174,19 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %tobool.not.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %tobool.not.not = icmp eq i64 %indvars.iv, 2
-  br i1 %tobool.not.not, label %lor.lhs.false, label %if.then5
+  %match_fn = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %1 = load ptr, ptr %match_fn, align 8
+  %tobool.not = icmp eq ptr %1, null
+  br i1 %tobool.not, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #10
-  %num_compat.i = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i.i, i64 0, i32 6
-  %1 = load i32, ptr %num_compat.i, align 8
-  %cmp.not5.not.i = icmp eq i32 %1, 0
-  br i1 %cmp.not5.not.i, label %for.inc, label %for.body.lr.ph.i
+  %call3 = tail call zeroext i1 %1(ptr noundef %sbdev, ptr noundef nonnull %arrayidx) #10
+  br i1 %call3, label %if.then5, label %for.inc
 
-for.body.lr.ph.i:                                 ; preds = %lor.lhs.false
-  %compat2.i = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i.i, i64 0, i32 5
-  %2 = load ptr, ptr %compat2.i, align 8
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %n.07.i = phi i32 [ %1, %for.body.lr.ph.i ], [ %dec.i, %for.inc.i ]
-  %compat.06.i = phi ptr [ %2, %for.body.lr.ph.i ], [ %add.ptr.i, %for.inc.i ]
-  %call4.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(21) @.str.16, ptr noundef nonnull dereferenceable(1) %compat.06.i) #11
-  %tobool.not.i14 = icmp eq i32 %call4.i, 0
-  br i1 %tobool.not.i14, label %if.then5, label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i
-  %dec.i = add i32 %n.07.i, -1
-  %call5.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %compat.06.i) #11
-  %add.i = add i64 %call5.i, 1
-  %add.ptr.i = getelementptr i8, ptr %compat.06.i, i64 %add.i
-  %cmp.not.not.i = icmp eq i32 %dec.i, 0
-  br i1 %cmp.not.not.i, label %for.inc, label %for.body.i, !llvm.loop !7
-
-if.then5:                                         ; preds = %if.then, %for.body.i
-  %indvars.iv23 = phi i64 [ 2, %for.body.i ], [ %indvars.iv, %if.then ]
-  %add_fn = getelementptr [6 x %struct.BindingEntry], ptr @bindings, i64 0, i64 %indvars.iv23, i32 2
-  %3 = load ptr, ptr %add_fn, align 16
-  %call6 = tail call i32 %3(ptr noundef %sbdev, ptr noundef %opaque) #10
+if.then5:                                         ; preds = %lor.lhs.false, %if.then
+  %add_fn = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %2 = load ptr, ptr %add_fn, align 8
+  %call6 = tail call i32 %2(ptr noundef %sbdev, ptr noundef %opaque) #10
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.end, label %if.else
 
@@ -243,10 +197,10 @@ if.else:                                          ; preds = %if.then5
 if.end:                                           ; preds = %if.then5
   ret void
 
-for.inc:                                          ; preds = %for.inc.i, %lor.lhs.false, %for.body
+for.inc:                                          ; preds = %for.body, %lor.lhs.false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
   %call11 = tail call fastcc ptr @DEVICE(ptr noundef %sbdev)
@@ -280,25 +234,25 @@ declare void @exit(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @add_calxeda_midway_xgmac_fdt_node(ptr noundef %sbdev, ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %pbus1 = getelementptr inbounds %struct.PlatformBusFDTData, ptr %opaque, i64 0, i32 3
+  %pbus1 = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %pbus1, align 8
   %1 = load ptr, ptr %opaque, align 8
-  %pbus_node_name = getelementptr inbounds %struct.PlatformBusFDTData, ptr %opaque, i64 0, i32 2
+  %pbus_node_name = getelementptr inbounds i8, ptr %opaque, i64 16
   %2 = load ptr, ptr %pbus_node_name, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #10
   %call4 = tail call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef 0) #10
-  %name = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %call.i, i64 888
   %3 = load ptr, ptr %name, align 8
   %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.20, ptr noundef %2, ptr noundef %3, i64 noundef %call4) #10
   %call6 = tail call i32 @qemu_fdt_add_subnode(ptr noundef %1, ptr noundef %call5) #10
-  %compat = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 5
+  %compat = getelementptr inbounds i8, ptr %call.i, i64 1000
   %4 = load ptr, ptr %compat, align 8
   %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
   %5 = trunc i64 %call7 to i32
   %conv = add i32 %5, 1
   %call9 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.3, ptr noundef %4, i32 noundef %conv) #10
   %call10 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.19, i32 noundef 0) #10
-  %num_regions = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 17
+  %num_regions = getelementptr inbounds i8, ptr %call.i, i64 932
   %6 = load i32, ptr %num_regions, align 4
   %mul = shl i32 %6, 1
   %conv11 = zext i32 %mul to i64
@@ -308,7 +262,7 @@ entry:
   br i1 %cmp48.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %regions = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 2
+  %regions = getelementptr inbounds i8, ptr %call.i, i64 968
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -324,7 +278,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom19 = sext i32 %i.049 to i64
   %arrayidx20 = getelementptr ptr, ptr %9, i64 %idxprom19
   %10 = load ptr, ptr %arrayidx20, align 8
-  %mem = getelementptr inbounds %struct.VFIORegion, ptr %10, i64 0, i32 2
+  %mem = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %mem, align 8
   %call21 = tail call i64 @memory_region_size(ptr noundef %11) #10
   %conv22 = trunc i64 %call21 to i32
@@ -336,7 +290,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %inc = add nuw i32 %i.049, 1
   %13 = load i32, ptr %num_regions, align 4
   %cmp = icmp ult i32 %inc, %13
-  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !9
+  br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !8
 
 for.end.loopexit:                                 ; preds = %for.body
   %14 = shl i32 %13, 3
@@ -345,7 +299,7 @@ for.end.loopexit:                                 ; preds = %for.body
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %.lcssa47 = phi i32 [ 0, %entry ], [ %14, %for.end.loopexit ]
   %call33 = tail call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call5, ptr noundef nonnull @.str.22, ptr noundef %call12, i32 noundef %.lcssa47) #10
-  %num_irqs = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 16
+  %num_irqs = getelementptr inbounds i8, ptr %call.i, i64 928
   %15 = load i32, ptr %num_irqs, align 8
   %mul34 = mul i32 %15, 3
   %conv35 = zext i32 %mul34 to i64
@@ -355,7 +309,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp3950.not, label %for.end62, label %for.body41.lr.ph
 
 for.body41.lr.ph:                                 ; preds = %for.end
-  %irq_start = getelementptr inbounds %struct.PlatformBusFDTData, ptr %opaque, i64 0, i32 1
+  %irq_start = getelementptr inbounds i8, ptr %opaque, i64 8
   br label %for.body41
 
 for.body41:                                       ; preds = %for.body41.lr.ph, %for.body41
@@ -379,7 +333,7 @@ for.body41:                                       ; preds = %for.body41.lr.ph, %
   %inc61 = add nuw i32 %i.151, 1
   %19 = load i32, ptr %num_irqs, align 8
   %cmp39 = icmp ult i32 %inc61, %19
-  br i1 %cmp39, label %for.body41, label %for.end62.loopexit, !llvm.loop !10
+  br i1 %cmp39, label %for.body41, label %for.end62.loopexit, !llvm.loop !9
 
 for.end62.loopexit:                               ; preds = %for.body41
   %20 = mul i32 %19, 12
@@ -399,14 +353,14 @@ define internal i32 @add_amd_xgbe_fdt_node(ptr noundef %sbdev, ptr nocapture nou
 entry:
   %prop_len = alloca i32, align 4
   %qdt_tmp = alloca [2 x i32], align 4
-  %pbus1 = getelementptr inbounds %struct.PlatformBusFDTData, ptr %opaque, i64 0, i32 3
+  %pbus1 = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %pbus1, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #10
-  %pbus_node_name = getelementptr inbounds %struct.PlatformBusFDTData, ptr %opaque, i64 0, i32 2
+  %pbus_node_name = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load ptr, ptr %pbus_node_name, align 8
   %2 = load ptr, ptr %opaque, align 8
   %call3 = tail call ptr @load_device_tree_from_sysfs() #10
-  %name = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 6
+  %name = getelementptr inbounds i8, ptr %call.i, i64 888
   %3 = load ptr, ptr %name, align 8
   %call.i82 = tail call ptr @g_strsplit(ptr noundef %3, ptr noundef nonnull @.str.31, i32 noundef 2) #10
   %tobool.not.i = icmp eq ptr %call.i82, null
@@ -418,7 +372,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool1.not.i, label %sysfs_to_dt_name.exit.thread, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
-  %arrayidx3.i = getelementptr ptr, ptr %call.i82, i64 1
+  %arrayidx3.i = getelementptr i8, ptr %call.i82, i64 8
   %5 = load ptr, ptr %arrayidx3.i, align 8
   %tobool4.not.i = icmp eq ptr %5, null
   br i1 %tobool4.not.i, label %sysfs_to_dt_name.exit.thread, label %sysfs_to_dt_name.exit
@@ -440,7 +394,7 @@ if.then:                                          ; preds = %sysfs_to_dt_name.ex
   unreachable
 
 if.end:                                           ; preds = %sysfs_to_dt_name.exit
-  %compat = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 5
+  %compat = getelementptr inbounds i8, ptr %call.i, i64 1000
   %7 = load ptr, ptr %compat, align 8
   %call6 = tail call ptr @qemu_fdt_node_path(ptr noundef %call3, ptr noundef nonnull %call7.i, ptr noundef %7, ptr noundef nonnull @error_fatal) #10
   %tobool7.not = icmp eq ptr %call6, null
@@ -458,7 +412,7 @@ if.then9:                                         ; preds = %lor.lhs.false, %if.
   unreachable
 
 if.end11:                                         ; preds = %lor.lhs.false
-  %arrayidx12 = getelementptr ptr, ptr %call6, i64 1
+  %arrayidx12 = getelementptr i8, ptr %call6, i64 8
   %10 = load ptr, ptr %arrayidx12, align 8
   %tobool13.not = icmp eq ptr %10, null
   br i1 %tobool13.not, label %if.end16, label %if.then14
@@ -471,7 +425,7 @@ if.then14:                                        ; preds = %if.end11
 
 if.end16:                                         ; preds = %if.end11
   tail call void @g_free(ptr noundef nonnull %call7.i) #10
-  %num_regions = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 17
+  %num_regions = getelementptr inbounds i8, ptr %call.i, i64 932
   %12 = load i32, ptr %num_regions, align 4
   %cmp.not = icmp eq i32 %12, 5
   br i1 %cmp.not, label %if.end18, label %if.then17
@@ -499,7 +453,7 @@ if.end23:                                         ; preds = %if.end18
   %15 = load i32, ptr %call20, align 4
   %16 = call i32 @llvm.bswap.i32(i32 %15)
   call fastcc void @fdt_build_clock_node(ptr noundef %call3, ptr noundef %2, i32 noundef %16, i32 noundef %call24)
-  %arrayidx31 = getelementptr i32, ptr %call20, i64 1
+  %arrayidx31 = getelementptr i8, ptr %call20, i64 4
   %17 = load i32, ptr %arrayidx31, align 4
   %18 = call i32 @llvm.bswap.i32(i32 %17)
   call fastcc void @fdt_build_clock_node(ptr noundef %call3, ptr noundef %2, i32 noundef %18, i32 noundef %call26)
@@ -510,89 +464,88 @@ if.end23:                                         ; preds = %if.end18
   %20 = load ptr, ptr %call6, align 8
   call fastcc void @copy_properties_from_host(ptr noundef nonnull @amd_xgbe_copied_properties, i32 noundef 13, ptr noundef %call3, ptr noundef %2, ptr noundef %20, ptr noundef %call36)
   store i32 %call24, ptr %qdt_tmp, align 4
-  %arrayinit.element = getelementptr inbounds i32, ptr %qdt_tmp, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %qdt_tmp, i64 4
   store i32 %call26, ptr %arrayinit.element, align 4
   %21 = call i32 @llvm.bswap.i32(i32 %call24)
   store i32 %21, ptr %qdt_tmp, align 4
-  %arrayidx43.c = getelementptr inbounds [2 x i32], ptr %qdt_tmp, i64 0, i64 1
-  %22 = load i32, ptr %arrayidx43.c, align 4
-  %23 = call i32 @llvm.bswap.i32(i32 %22)
-  store i32 %23, ptr %arrayidx43.c, align 4
+  %arrayidx43.c = getelementptr inbounds i8, ptr %qdt_tmp, i64 4
+  %22 = call i32 @llvm.bswap.i32(i32 %call26)
+  store i32 %22, ptr %arrayidx43.c, align 4
   %call47 = call i32 @qemu_fdt_setprop(ptr noundef %2, ptr noundef %call36, ptr noundef nonnull @.str.29, ptr noundef nonnull %qdt_tmp, i32 noundef 8) #10
-  %24 = load i32, ptr %num_regions, align 4
-  %mul = shl i32 %24, 1
+  %23 = load i32, ptr %num_regions, align 4
+  %mul = shl i32 %23, 1
   %conv49 = zext i32 %mul to i64
   %call50 = call noalias ptr @g_malloc_n(i64 noundef %conv49, i64 noundef 4) #12
-  %25 = load i32, ptr %num_regions, align 4
-  %cmp5387.not = icmp eq i32 %25, 0
+  %24 = load i32, ptr %num_regions, align 4
+  %cmp5387.not = icmp eq i32 %24, 0
   br i1 %cmp5387.not, label %for.end72, label %for.body55.lr.ph
 
 for.body55.lr.ph:                                 ; preds = %if.end23
-  %regions = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 2
+  %regions = getelementptr inbounds i8, ptr %call.i, i64 968
   br label %for.body55
 
 for.body55:                                       ; preds = %for.body55.lr.ph, %for.body55
   %i.088 = phi i32 [ 0, %for.body55.lr.ph ], [ %inc71, %for.body55 ]
   %call56 = call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef %i.088) #10
   %conv57 = trunc i64 %call56 to i32
-  %26 = call i32 @llvm.bswap.i32(i32 %conv57)
+  %25 = call i32 @llvm.bswap.i32(i32 %conv57)
   %mul59 = shl i32 %i.088, 1
   %idxprom60 = sext i32 %mul59 to i64
   %arrayidx61 = getelementptr i32, ptr %call50, i64 %idxprom60
-  store i32 %26, ptr %arrayidx61, align 4
-  %27 = load ptr, ptr %regions, align 8
+  store i32 %25, ptr %arrayidx61, align 4
+  %26 = load ptr, ptr %regions, align 8
   %idxprom62 = sext i32 %i.088 to i64
-  %arrayidx63 = getelementptr ptr, ptr %27, i64 %idxprom62
-  %28 = load ptr, ptr %arrayidx63, align 8
-  %mem = getelementptr inbounds %struct.VFIORegion, ptr %28, i64 0, i32 2
-  %29 = load ptr, ptr %mem, align 8
-  %call64 = call i64 @memory_region_size(ptr noundef %29) #10
+  %arrayidx63 = getelementptr ptr, ptr %26, i64 %idxprom62
+  %27 = load ptr, ptr %arrayidx63, align 8
+  %mem = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = load ptr, ptr %mem, align 8
+  %call64 = call i64 @memory_region_size(ptr noundef %28) #10
   %conv65 = trunc i64 %call64 to i32
-  %30 = call i32 @llvm.bswap.i32(i32 %conv65)
+  %29 = call i32 @llvm.bswap.i32(i32 %conv65)
   %add = or disjoint i32 %mul59, 1
   %idxprom68 = sext i32 %add to i64
   %arrayidx69 = getelementptr i32, ptr %call50, i64 %idxprom68
-  store i32 %30, ptr %arrayidx69, align 4
+  store i32 %29, ptr %arrayidx69, align 4
   %inc71 = add nuw i32 %i.088, 1
-  %31 = load i32, ptr %num_regions, align 4
-  %cmp53 = icmp ult i32 %inc71, %31
-  br i1 %cmp53, label %for.body55, label %for.end72.loopexit, !llvm.loop !11
+  %30 = load i32, ptr %num_regions, align 4
+  %cmp53 = icmp ult i32 %inc71, %30
+  br i1 %cmp53, label %for.body55, label %for.end72.loopexit, !llvm.loop !10
 
 for.end72.loopexit:                               ; preds = %for.body55
-  %32 = shl i32 %31, 3
+  %31 = shl i32 %30, 3
   br label %for.end72
 
 for.end72:                                        ; preds = %for.end72.loopexit, %if.end23
-  %.lcssa85 = phi i32 [ 0, %if.end23 ], [ %32, %for.end72.loopexit ]
+  %.lcssa85 = phi i32 [ 0, %if.end23 ], [ %31, %for.end72.loopexit ]
   %call78 = call i32 @qemu_fdt_setprop(ptr noundef %2, ptr noundef %call36, ptr noundef nonnull @.str.22, ptr noundef %call50, i32 noundef %.lcssa85) #10
-  %num_irqs = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 1, i32 16
-  %33 = load i32, ptr %num_irqs, align 8
-  %mul79 = mul i32 %33, 3
+  %num_irqs = getelementptr inbounds i8, ptr %call.i, i64 928
+  %32 = load i32, ptr %num_irqs, align 8
+  %mul79 = mul i32 %32, 3
   %conv80 = zext i32 %mul79 to i64
   %call81 = call noalias ptr @g_malloc_n(i64 noundef %conv80, i64 noundef 4) #12
-  %34 = load i32, ptr %num_irqs, align 8
-  %cmp8489.not = icmp eq i32 %34, 0
+  %33 = load i32, ptr %num_irqs, align 8
+  %cmp8489.not = icmp eq i32 %33, 0
   br i1 %cmp8489.not, label %for.end125, label %for.body86.lr.ph
 
 for.body86.lr.ph:                                 ; preds = %for.end72
-  %irq_start = getelementptr inbounds %struct.PlatformBusFDTData, ptr %opaque, i64 0, i32 1
-  %intp_list = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 3
+  %irq_start = getelementptr inbounds i8, ptr %opaque, i64 8
+  %intp_list = getelementptr inbounds i8, ptr %call.i, i64 976
   br label %for.body86
 
 for.body86:                                       ; preds = %for.body86.lr.ph, %for.end109
   %i.190 = phi i32 [ 0, %for.body86.lr.ph ], [ %inc124, %for.end109 ]
   %call87 = call i32 @platform_bus_get_irqn(ptr noundef %0, ptr noundef %sbdev, i32 noundef %i.190) #10
-  %35 = load i32, ptr %irq_start, align 8
-  %add88 = add i32 %35, %call87
+  %34 = load i32, ptr %irq_start, align 8
+  %add88 = add i32 %34, %call87
   %mul91 = mul i32 %i.190, 3
   %idxprom92 = sext i32 %mul91 to i64
   %arrayidx93 = getelementptr i32, ptr %call81, i64 %idxprom92
   store i32 0, ptr %arrayidx93, align 4
-  %36 = call i32 @llvm.bswap.i32(i32 %add88)
+  %35 = call i32 @llvm.bswap.i32(i32 %add88)
   %add97 = add i32 %mul91, 1
   %idxprom98 = sext i32 %add97 to i64
   %arrayidx99 = getelementptr i32, ptr %call81, i64 %idxprom98
-  store i32 %36, ptr %arrayidx99, align 4
+  store i32 %35, ptr %arrayidx99, align 4
   br label %for.cond100
 
 for.cond100:                                      ; preds = %for.body102, %for.body86
@@ -602,16 +555,16 @@ for.cond100:                                      ; preds = %for.body102, %for.b
   br i1 %tobool101.not, label %for.end109, label %for.body102
 
 for.body102:                                      ; preds = %for.cond100
-  %pin = getelementptr inbounds %struct.VFIOINTp, ptr %intp.0, i64 0, i32 7
-  %37 = load i8, ptr %pin, align 4
-  %conv103 = zext i8 %37 to i32
+  %pin = getelementptr inbounds i8, ptr %intp.0, i64 60
+  %36 = load i8, ptr %pin, align 4
+  %conv103 = zext i8 %36 to i32
   %cmp104 = icmp eq i32 %i.190, %conv103
-  br i1 %cmp104, label %for.end109, label %for.cond100, !llvm.loop !12
+  br i1 %cmp104, label %for.end109, label %for.cond100, !llvm.loop !11
 
 for.end109:                                       ; preds = %for.body102, %for.cond100
-  %flags = getelementptr inbounds %struct.VFIOINTp, ptr %intp.0, i64 0, i32 8
-  %38 = load i32, ptr %flags, align 8
-  %and = and i32 %38, 4
+  %flags = getelementptr inbounds i8, ptr %intp.0, i64 64
+  %37 = load i32, ptr %flags, align 8
+  %and = and i32 %37, 4
   %tobool110.not = icmp eq i32 %and, 0
   %add119 = add i32 %mul91, 2
   %idxprom120 = sext i32 %add119 to i64
@@ -619,16 +572,16 @@ for.end109:                                       ; preds = %for.body102, %for.c
   %. = select i1 %tobool110.not, i32 16777216, i32 67108864
   store i32 %., ptr %arrayidx121, align 4
   %inc124 = add nuw i32 %i.190, 1
-  %39 = load i32, ptr %num_irqs, align 8
-  %cmp84 = icmp ult i32 %inc124, %39
-  br i1 %cmp84, label %for.body86, label %for.end125.loopexit, !llvm.loop !13
+  %38 = load i32, ptr %num_irqs, align 8
+  %cmp84 = icmp ult i32 %inc124, %38
+  br i1 %cmp84, label %for.body86, label %for.end125.loopexit, !llvm.loop !12
 
 for.end125.loopexit:                              ; preds = %for.end109
-  %40 = mul i32 %39, 12
+  %39 = mul i32 %38, 12
   br label %for.end125
 
 for.end125:                                       ; preds = %for.end125.loopexit, %for.end72
-  %.lcssa = phi i32 [ 0, %for.end72 ], [ %40, %for.end125.loopexit ]
+  %.lcssa = phi i32 [ 0, %for.end72 ], [ %39, %for.end125.loopexit ]
   %call131 = call i32 @qemu_fdt_setprop(ptr noundef %2, ptr noundef %call36, ptr noundef nonnull @.str.23, ptr noundef %call81, i32 noundef %.lcssa) #10
   call void @g_free(ptr noundef %call3) #10
   call void @g_strfreev(ptr noundef nonnull %call6) #10
@@ -642,14 +595,14 @@ for.end125:                                       ; preds = %for.end125.loopexit
 define internal zeroext i1 @vfio_platform_match(ptr noundef %sbdev, ptr nocapture noundef readonly %entry1) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %sbdev, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.24, i32 noundef 74, ptr noundef nonnull @__func__.VFIO_PLATFORM_DEVICE) #10
-  %num_compat = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 6
+  %num_compat = getelementptr inbounds i8, ptr %call.i, i64 1008
   %0 = load i32, ptr %num_compat, align 8
   %cmp.not5.not = icmp eq i32 %0, 0
   br i1 %cmp.not5.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %compat3 = getelementptr inbounds %struct.BindingEntry, ptr %entry1, i64 0, i32 1
-  %compat2 = getelementptr inbounds %struct.VFIOPlatformDevice, ptr %call.i, i64 0, i32 5
+  %compat3 = getelementptr inbounds i8, ptr %entry1, i64 8
+  %compat2 = getelementptr inbounds i8, ptr %call.i, i64 1000
   %1 = load ptr, ptr %compat2, align 8
   %2 = load ptr, ptr %compat3, align 8
   br label %for.body
@@ -667,7 +620,7 @@ for.inc:                                          ; preds = %for.body
   %add = add i64 %call5, 1
   %add.ptr = getelementptr i8, ptr %compat.06, i64 %add
   %cmp.not.not = icmp eq i32 %dec, 0
-  br i1 %cmp.not.not, label %return, label %for.body, !llvm.loop !7
+  br i1 %cmp.not.not, label %return, label %for.body, !llvm.loop !13
 
 return:                                           ; preds = %for.body, %for.inc, %entry
   %cmp.not.lcssa = phi i1 [ false, %entry ], [ %tobool.not, %for.inc ], [ %tobool.not, %for.body ]
@@ -678,10 +631,10 @@ return:                                           ; preds = %for.body, %for.inc,
 define internal i32 @add_tpm_tis_fdt_node(ptr noundef %sbdev, ptr nocapture noundef readonly %opaque) #0 {
 entry:
   %reg_attr = alloca [2 x i32], align 4
-  %pbus1 = getelementptr inbounds %struct.PlatformBusFDTData, ptr %opaque, i64 0, i32 3
+  %pbus1 = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %pbus1, align 8
   %1 = load ptr, ptr %opaque, align 8
-  %pbus_node_name = getelementptr inbounds %struct.PlatformBusFDTData, ptr %opaque, i64 0, i32 2
+  %pbus_node_name = getelementptr inbounds i8, ptr %opaque, i64 16
   %2 = load ptr, ptr %pbus_node_name, align 8
   %call = tail call i64 @platform_bus_get_mmio_addr(ptr noundef %0, ptr noundef %sbdev, i32 noundef 0) #10
   %call3 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.52, ptr noundef %2, i64 noundef %call) #10
@@ -690,7 +643,7 @@ entry:
   %conv = trunc i64 %call to i32
   %3 = tail call i32 @llvm.bswap.i32(i32 %conv)
   store i32 %3, ptr %reg_attr, align 4
-  %arrayidx8 = getelementptr inbounds [2 x i32], ptr %reg_attr, i64 0, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %reg_attr, i64 4
   store i32 5242880, ptr %arrayidx8, align 4
   %call9 = call i32 @qemu_fdt_setprop(ptr noundef %1, ptr noundef %call3, ptr noundef nonnull @.str.22, ptr noundef nonnull %reg_attr, i32 noundef 8) #10
   call void @g_free(ptr noundef %call3) #10
@@ -811,7 +764,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %optional = getelementptr %struct.HostProperty, ptr %props, i64 %indvars.iv, i32 1
+  %optional = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load i8, ptr %optional, align 8
   %4 = and i8 %3, 1
   %tobool7 = icmp ne i8 %4, 0

@@ -81,8 +81,8 @@ entry:
   %out_b = alloca [16 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %out_a, ptr noundef nonnull align 16 dereferenceable(16) @in_b, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %out_b, ptr noundef nonnull align 16 dereferenceable(16) @in_b, i64 16, i1 false)
-  %arrayidx4 = getelementptr inbounds [16 x i8], ptr %out_a, i64 0, i64 8
-  %arrayidx9 = getelementptr inbounds [16 x i8], ptr %out_b, i64 0, i64 8
+  %arrayidx4 = getelementptr inbounds i8, ptr %out_a, i64 8
+  %arrayidx9 = getelementptr inbounds i8, ptr %out_b, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body

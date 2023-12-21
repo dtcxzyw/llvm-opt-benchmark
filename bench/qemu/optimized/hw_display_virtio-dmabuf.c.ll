@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %union._GMutex = type { ptr }
-%struct.VirtioSharedObject = type { i32, ptr }
 
 @lock = internal global %union._GMutex zeroinitializer, align 8
 @resource_uuids = internal unnamed_addr global ptr null, align 8
@@ -25,7 +24,7 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %call, align 8
   %conv = zext nneg i32 %udmabuf_fd to i64
   %0 = inttoptr i64 %conv to ptr
-  %value = getelementptr inbounds %struct.VirtioSharedObject, ptr %call, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %0, ptr %value, align 8
   tail call void @g_mutex_lock(ptr noundef nonnull @lock) #5
   %1 = load ptr, ptr @resource_uuids, align 8
@@ -73,7 +72,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #4
   store i32 2, ptr %call, align 8
-  %value = getelementptr inbounds %struct.VirtioSharedObject, ptr %call, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %dev, ptr %value, align 8
   tail call void @g_mutex_lock(ptr noundef nonnull @lock) #5
   %0 = load ptr, ptr @resource_uuids, align 8
@@ -152,7 +151,7 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %value = getelementptr inbounds %struct.VirtioSharedObject, ptr %call.i, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call.i, i64 8
   %2 = load ptr, ptr %value, align 8
   %3 = ptrtoint ptr %2 to i64
   %conv = trunc i64 %3 to i32
@@ -194,7 +193,7 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %value = getelementptr inbounds %struct.VirtioSharedObject, ptr %call.i, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call.i, i64 8
   %2 = load ptr, ptr %value, align 8
   br label %return
 

@@ -6,24 +6,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.audio_driver = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, i64, %struct.anon }
 %struct.anon = type { ptr, ptr }
 %struct.audio_pcm_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.Audiodev = type { ptr, i32, i8, i32, %union.anon }
-%union.anon = type { %struct.AudiodevOssOptions }
-%struct.AudiodevOssOptions = type { ptr, ptr, i8, i8, i8, i8, i8, i32 }
-%struct.AudiodevOssPerDirectionOptions = type { i8, i8, i8, i8, i8, i32, i8, i32, i8, i32, i8, i32, i8, i32, ptr, i8, i32, i8, i8 }
 %struct.oss_params = type { i32, i32, i32, i32, i32 }
 %struct.audsettings = type { i32, i32, i32, i32 }
-%struct.OSSVoiceOut = type { %struct.HWVoiceOut, i32, i32, i32, i32, ptr }
-%struct.HWVoiceOut = type { ptr, i32, i32, i32, %struct.audio_pcm_info, ptr, i64, %struct.STSampleBuffer, ptr, i64, i64, i64, i64, %struct.sw_out_listhead, %struct.sw_cap_listhead, ptr, %struct.anon.0 }
-%struct.audio_pcm_info = type { i32, i8, i8, i32, i32, i32, i32, i32 }
-%struct.STSampleBuffer = type { i64, i64, ptr }
-%struct.sw_out_listhead = type { ptr }
-%struct.sw_cap_listhead = type { ptr }
-%struct.anon.0 = type { ptr, ptr }
 %struct.count_info = type { i32, i32, i32 }
-%struct.OSSVoiceIn = type { %struct.HWVoiceIn, i32, i32, i32, ptr }
-%struct.HWVoiceIn = type { ptr, i32, i32, %struct.audio_pcm_info, ptr, i64, i64, %struct.STSampleBuffer, ptr, i64, i64, i64, i64, %struct.sw_in_listhead, ptr, %struct.anon.1 }
-%struct.sw_in_listhead = type { ptr }
-%struct.anon.1 = type { ptr, ptr }
 %struct.audio_buf_info = type { i32, i32, i32, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
@@ -89,7 +74,7 @@ declare void @audio_driver_register(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @oss_audio_init(ptr noundef readonly %dev, ptr noundef %errp) #0 {
 entry:
-  %driver = getelementptr inbounds %struct.Audiodev, ptr %dev, i64 0, i32 1
+  %driver = getelementptr inbounds i8, ptr %dev, i64 8
   %0 = load i32, ptr %driver, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.end, label %if.else
@@ -99,38 +84,38 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %u = getelementptr inbounds %struct.Audiodev, ptr %dev, i64 0, i32 4
+  %u = getelementptr inbounds i8, ptr %dev, i64 24
   %1 = load ptr, ptr %u, align 8
-  %has_try_poll.i = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %1, i64 0, i32 17
+  %has_try_poll.i = getelementptr inbounds i8, ptr %1, i64 64
   %2 = load i8, ptr %has_try_poll.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %if.then.i, label %oss_init_per_direction.exit
 
 if.then.i:                                        ; preds = %if.end
-  %try_poll.i = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %1, i64 0, i32 18
+  %try_poll.i = getelementptr inbounds i8, ptr %1, i64 65
   store i8 1, ptr %try_poll.i, align 1
   store i8 1, ptr %has_try_poll.i, align 8
   br label %oss_init_per_direction.exit
 
 oss_init_per_direction.exit:                      ; preds = %if.end, %if.then.i
-  %out = getelementptr inbounds %struct.Audiodev, ptr %dev, i64 0, i32 4, i32 0, i32 1
+  %out = getelementptr inbounds i8, ptr %dev, i64 32
   %4 = load ptr, ptr %out, align 8
-  %has_try_poll.i12 = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %4, i64 0, i32 17
+  %has_try_poll.i12 = getelementptr inbounds i8, ptr %4, i64 64
   %5 = load i8, ptr %has_try_poll.i12, align 8
   %6 = and i8 %5, 1
   %tobool.not.i13 = icmp eq i8 %6, 0
   br i1 %tobool.not.i13, label %if.then.i14, label %oss_init_per_direction.exit16
 
 if.then.i14:                                      ; preds = %oss_init_per_direction.exit
-  %try_poll.i15 = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %4, i64 0, i32 18
+  %try_poll.i15 = getelementptr inbounds i8, ptr %4, i64 65
   store i8 1, ptr %try_poll.i15, align 1
   store i8 1, ptr %has_try_poll.i12, align 8
   br label %oss_init_per_direction.exit16
 
 oss_init_per_direction.exit16:                    ; preds = %oss_init_per_direction.exit, %if.then.i14
   %7 = load ptr, ptr %u, align 8
-  %dev2 = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %7, i64 0, i32 14
+  %dev2 = getelementptr inbounds i8, ptr %7, i64 48
   %8 = load ptr, ptr %dev2, align 8
   %tobool.not = icmp eq ptr %8, null
   %..str.4 = select i1 %tobool.not, ptr @.str.4, ptr %8
@@ -142,7 +127,7 @@ if.then4:                                         ; preds = %oss_init_per_direct
   %call5 = tail call ptr @__errno_location() #15
   %9 = load i32, ptr %call5, align 4
   %10 = load ptr, ptr %u, align 8
-  %dev7 = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %10, i64 0, i32 14
+  %dev7 = getelementptr inbounds i8, ptr %10, i64 48
   %11 = load ptr, ptr %dev7, align 8
   %tobool8.not = icmp eq ptr %11, null
   %..str.41 = select i1 %tobool8.not, ptr @.str.4, ptr %11
@@ -151,7 +136,7 @@ if.then4:                                         ; preds = %oss_init_per_direct
 
 if.end13:                                         ; preds = %oss_init_per_direction.exit16
   %12 = load ptr, ptr %out, align 8
-  %dev15 = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %12, i64 0, i32 14
+  %dev15 = getelementptr inbounds i8, ptr %12, i64 48
   %13 = load ptr, ptr %dev15, align 8
   %tobool16.not = icmp eq ptr %13, null
   %..str.42 = select i1 %tobool16.not, ptr @.str.4, ptr %13
@@ -163,7 +148,7 @@ if.then23:                                        ; preds = %if.end13
   %call24 = tail call ptr @__errno_location() #15
   %14 = load i32, ptr %call24, align 4
   %15 = load ptr, ptr %out, align 8
-  %dev26 = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %15, i64 0, i32 14
+  %dev26 = getelementptr inbounds i8, ptr %15, i64 48
   %16 = load ptr, ptr %dev26, align 8
   %tobool27.not = icmp eq ptr %16, null
   %..str.43 = select i1 %tobool27.not, ptr @.str.4, ptr %16
@@ -200,11 +185,11 @@ entry:
   %fd = alloca i32, align 4
   %obt_as = alloca %struct.audsettings, align 4
   %trig = alloca i32, align 4
-  %fd1 = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 1
+  %fd1 = getelementptr inbounds i8, ptr %hw, i64 168
   store i32 -1, ptr %fd1, align 8
-  %fmt = getelementptr inbounds %struct.audsettings, ptr %as, i64 0, i32 2
+  %fmt = getelementptr inbounds i8, ptr %as, i64 8
   %0 = load i32, ptr %fmt, align 4
-  %endianness2 = getelementptr inbounds %struct.audsettings, ptr %as, i64 0, i32 3
+  %endianness2 = getelementptr inbounds i8, ptr %as, i64 12
   %1 = load i32, ptr %endianness2, align 4
   switch i32 %0, label %sw.default.i [
     i32 1, label %aud_to_ossfmt.exit
@@ -232,20 +217,20 @@ sw.default.i:                                     ; preds = %entry
 
 aud_to_ossfmt.exit:                               ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.default.i
   %retval.0.i = phi i32 [ 8, %sw.default.i ], [ 8, %sw.bb1.i ], [ 64, %entry ], [ %..i, %sw.bb2.i ], [ %.3.i, %sw.bb3.i ]
-  %fmt3 = getelementptr inbounds %struct.oss_params, ptr %req, i64 0, i32 1
+  %fmt3 = getelementptr inbounds i8, ptr %req, i64 4
   store i32 %retval.0.i, ptr %fmt3, align 4
   %2 = load i32, ptr %as, align 4
   store i32 %2, ptr %req, align 4
-  %nchannels = getelementptr inbounds %struct.audsettings, ptr %as, i64 0, i32 1
+  %nchannels = getelementptr inbounds i8, ptr %as, i64 4
   %3 = load i32, ptr %nchannels, align 4
-  %nchannels5 = getelementptr inbounds %struct.oss_params, ptr %req, i64 0, i32 2
+  %nchannels5 = getelementptr inbounds i8, ptr %req, i64 8
   store i32 %3, ptr %nchannels5, align 4
   %call6 = call fastcc i32 @oss_open(i32 noundef 0, ptr noundef nonnull %req, ptr noundef nonnull %as, ptr noundef nonnull %obt, ptr noundef nonnull %fd, ptr noundef %drv_opaque), !range !5
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %aud_to_ossfmt.exit
-  %fmt7 = getelementptr inbounds %struct.oss_params, ptr %obt, i64 0, i32 1
+  %fmt7 = getelementptr inbounds i8, ptr %obt, i64 4
   %4 = load i32, ptr %fmt7, align 4
   switch i32 %4, label %if.then10 [
     i32 64, label %if.end11
@@ -289,24 +274,24 @@ if.end11:                                         ; preds = %sw.bb5.i, %sw.bb4.i
   %7 = phi <2 x i32> [ <i32 1, i32 0>, %if.end ], [ zeroinitializer, %sw.bb1.i37 ], [ <i32 3, i32 0>, %sw.bb2.i36 ], [ <i32 2, i32 0>, %sw.bb3.i35 ], [ <i32 3, i32 1>, %sw.bb4.i ], [ <i32 2, i32 1>, %sw.bb5.i ]
   %8 = load i32, ptr %obt, align 4
   store i32 %8, ptr %obt_as, align 4
-  %nchannels14 = getelementptr inbounds %struct.oss_params, ptr %obt, i64 0, i32 2
+  %nchannels14 = getelementptr inbounds i8, ptr %obt, i64 8
   %9 = load i32, ptr %nchannels14, align 4
-  %nchannels15 = getelementptr inbounds %struct.audsettings, ptr %obt_as, i64 0, i32 1
+  %nchannels15 = getelementptr inbounds i8, ptr %obt_as, i64 4
   store i32 %9, ptr %nchannels15, align 4
-  %fmt16 = getelementptr inbounds %struct.audsettings, ptr %obt_as, i64 0, i32 2
+  %fmt16 = getelementptr inbounds i8, ptr %obt_as, i64 8
   store <2 x i32> %7, ptr %fmt16, align 4
-  %info = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4
+  %info = getelementptr inbounds i8, ptr %hw, i64 20
   call void @audio_pcm_init_info(ptr noundef nonnull %info, ptr noundef nonnull %obt_as) #13
-  %nfrags = getelementptr inbounds %struct.oss_params, ptr %obt, i64 0, i32 3
+  %nfrags = getelementptr inbounds i8, ptr %obt, i64 12
   %10 = load i32, ptr %nfrags, align 4
-  %nfrags18 = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 2
+  %nfrags18 = getelementptr inbounds i8, ptr %hw, i64 172
   store i32 %10, ptr %nfrags18, align 4
-  %fragsize = getelementptr inbounds %struct.oss_params, ptr %obt, i64 0, i32 4
+  %fragsize = getelementptr inbounds i8, ptr %obt, i64 16
   %11 = load i32, ptr %fragsize, align 4
-  %fragsize19 = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 3
+  %fragsize19 = getelementptr inbounds i8, ptr %hw, i64 176
   store i32 %11, ptr %fragsize19, align 8
   %mul = mul i32 %11, %10
-  %bytes_per_frame = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4, i32 5
+  %bytes_per_frame = getelementptr inbounds i8, ptr %hw, i64 36
   %12 = load i32, ptr %bytes_per_frame, align 4
   %rem = srem i32 %mul, %12
   %tobool23.not = icmp eq i32 %rem, 0
@@ -321,11 +306,11 @@ if.end30:                                         ; preds = %if.then24, %if.end1
   %13 = phi i32 [ %.pre, %if.then24 ], [ %12, %if.end11 ]
   %div = sdiv i32 %mul, %13
   %conv = sext i32 %div to i64
-  %samples = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 12
+  %samples = getelementptr inbounds i8, ptr %hw, i64 120
   store i64 %conv, ptr %samples, align 8
-  %mmapped = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 4
+  %mmapped = getelementptr inbounds i8, ptr %hw, i64 180
   store i32 0, ptr %mmapped, align 4
-  %has_try_mmap = getelementptr inbounds %struct.Audiodev, ptr %drv_opaque, i64 0, i32 4, i32 0, i32 2
+  %has_try_mmap = getelementptr inbounds i8, ptr %drv_opaque, i64 40
   %14 = load i8, ptr %has_try_mmap, align 8
   %15 = and i8 %14, 1
   %tobool36.not = icmp eq i8 %15, 0
@@ -336,7 +321,7 @@ if.end30.if.end84_crit_edge:                      ; preds = %if.end30
   br label %if.end84
 
 land.lhs.true:                                    ; preds = %if.end30
-  %try_mmap = getelementptr inbounds %struct.Audiodev, ptr %drv_opaque, i64 0, i32 4, i32 0, i32 3
+  %try_mmap = getelementptr inbounds i8, ptr %drv_opaque, i64 41
   %16 = load i8, ptr %try_mmap, align 1
   %17 = and i8 %16, 1
   %tobool38.not = icmp eq i8 %17, 0
@@ -346,10 +331,10 @@ land.lhs.true:                                    ; preds = %if.end30
 if.then40:                                        ; preds = %land.lhs.true
   %conv44 = sext i32 %13 to i64
   %mul45 = mul nsw i64 %conv, %conv44
-  %size_emul = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 11
+  %size_emul = getelementptr inbounds i8, ptr %hw, i64 112
   store i64 %mul45, ptr %size_emul, align 8
   %call47 = call ptr @mmap64(ptr noundef null, i64 noundef %mul45, i32 noundef 3, i32 noundef 1, i32 noundef %.pre48, i64 noundef 0) #13
-  %buf_emul = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 8
+  %buf_emul = getelementptr inbounds i8, ptr %hw, i64 88
   store ptr %call47, ptr %buf_emul, align 8
   %cmp = icmp eq ptr %call47, inttoptr (i64 -1 to ptr)
   br i1 %cmp, label %if.then50, label %if.else
@@ -409,7 +394,7 @@ if.end80:                                         ; preds = %if.then76, %if.then
 if.end84:                                         ; preds = %if.end30.if.end84_crit_edge, %if.end68.thread, %if.then50, %if.end80, %if.end68, %land.lhs.true
   %26 = phi i32 [ %.pre47, %if.end30.if.end84_crit_edge ], [ %.pre48, %if.end68.thread ], [ %.pre48, %if.then50 ], [ %.pre48, %if.end80 ], [ %.pre48, %if.end68 ], [ %.pre48, %land.lhs.true ]
   store i32 %26, ptr %fd1, align 8
-  %dev86 = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 5
+  %dev86 = getelementptr inbounds i8, ptr %hw, i64 184
   store ptr %drv_opaque, ptr %dev86, align 8
   br label %return
 
@@ -421,7 +406,7 @@ return:                                           ; preds = %if.then.i, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @oss_fini_out(ptr nocapture noundef %hw) #0 {
 entry:
-  %fd = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %hw, i64 168
   %0 = load i32, ptr %fd, align 4
   tail call void @qemu_set_fd_handler(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef null) #13
   %1 = load i32, ptr %fd, align 4
@@ -438,19 +423,19 @@ if.then.i:                                        ; preds = %entry
 
 oss_anal_close.exit:                              ; preds = %entry, %if.then.i
   store i32 -1, ptr %fd, align 4
-  %mmapped = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 4
+  %mmapped = getelementptr inbounds i8, ptr %hw, i64 180
   %4 = load i32, ptr %mmapped, align 4
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %oss_anal_close.exit
-  %buf_emul = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 8
+  %buf_emul = getelementptr inbounds i8, ptr %hw, i64 88
   %5 = load ptr, ptr %buf_emul, align 8
   %tobool1.not = icmp eq ptr %5, null
   br i1 %tobool1.not, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %size_emul = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 11
+  %size_emul = getelementptr inbounds i8, ptr %hw, i64 112
   %6 = load i64, ptr %size_emul, align 8
   %call = tail call i32 @munmap(ptr noundef nonnull %5, i64 noundef %6) #13
   %tobool3.not = icmp eq i32 %call, 0
@@ -476,7 +461,7 @@ if.end9:                                          ; preds = %if.end, %land.lhs.t
 define internal i64 @oss_write(ptr nocapture noundef %hw, ptr nocapture noundef readonly %buf, i64 noundef %len) #0 {
 entry:
   %cntinfo.i = alloca %struct.count_info, align 4
-  %mmapped = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 4
+  %mmapped = getelementptr inbounds i8, ptr %hw, i64 180
   %0 = load i32, ptr %mmapped, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %while.cond14.preheader, label %if.end.i
@@ -486,12 +471,12 @@ while.cond14.preheader:                           ; preds = %entry
   br i1 %tobool15.not40, label %return, label %while.body16.lr.ph
 
 while.body16.lr.ph:                               ; preds = %while.cond14.preheader
-  %fd = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %hw, i64 168
   br label %while.body16
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %cntinfo.i)
-  %fd.i = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %hw, i64 168
   %1 = load i32, ptr %fd.i, align 8
   %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 2148290578, ptr noundef nonnull %cntinfo.i) #13
   %cmp.i = icmp slt i32 %call.i, 0
@@ -504,12 +489,12 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %oss_get_available_bytes.exit
 
 if.end3.i:                                        ; preds = %if.end.i
-  %ptr.i = getelementptr inbounds %struct.count_info, ptr %cntinfo.i, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %cntinfo.i, i64 8
   %3 = load i32, ptr %ptr.i, align 4
   %conv.i = sext i32 %3 to i64
-  %pos_emul.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 9
+  %pos_emul.i = getelementptr inbounds i8, ptr %hw, i64 96
   %4 = load i64, ptr %pos_emul.i, align 8
-  %size_emul.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 11
+  %size_emul.i = getelementptr inbounds i8, ptr %hw, i64 112
   %5 = load i64, ptr %size_emul.i, align 8
   %cmp.not.i.i = icmp ugt i64 %4, %conv.i
   %cond.p.v.i.i = select i1 %cmp.not.i.i, i64 %5, i64 0
@@ -525,9 +510,9 @@ oss_get_available_bytes.exit:                     ; preds = %if.then1.i, %if.end
   br i1 %tobool1.not37, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %oss_get_available_bytes.exit
-  %size_emul = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 11
-  %pos_emul = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 9
-  %buf_emul = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 8
+  %size_emul = getelementptr inbounds i8, ptr %hw, i64 112
+  %pos_emul = getelementptr inbounds i8, ptr %hw, i64 96
+  %buf_emul = getelementptr inbounds i8, ptr %hw, i64 88
   %.pre = load i64, ptr %size_emul, align 8
   %.pre47 = load i64, ptr %pos_emul, align 8
   br label %while.body
@@ -589,7 +574,7 @@ return:                                           ; preds = %while.body, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @oss_run_buffer_out(ptr noundef %hw) #0 {
 entry:
-  %mmapped = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 4
+  %mmapped = getelementptr inbounds i8, ptr %hw, i64 180
   %0 = load i32, ptr %mmapped, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -606,14 +591,14 @@ if.end:                                           ; preds = %if.then, %entry
 define internal i64 @oss_buffer_get_free(ptr noundef %hw) #0 {
 entry:
   %cntinfo.i = alloca %struct.count_info, align 4
-  %mmapped = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 4
+  %mmapped = getelementptr inbounds i8, ptr %hw, i64 180
   %0 = load i32, ptr %mmapped, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %cntinfo.i)
-  %fd.i = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %hw, i64 168
   %1 = load i32, ptr %fd.i, align 8
   %call.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 2148290578, ptr noundef nonnull %cntinfo.i) #13
   %cmp.i = icmp slt i32 %call.i, 0
@@ -626,12 +611,12 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %oss_get_available_bytes.exit
 
 if.end3.i:                                        ; preds = %if.end.i
-  %ptr.i = getelementptr inbounds %struct.count_info, ptr %cntinfo.i, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %cntinfo.i, i64 8
   %3 = load i32, ptr %ptr.i, align 4
   %conv.i = sext i32 %3 to i64
-  %pos_emul.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 9
+  %pos_emul.i = getelementptr inbounds i8, ptr %hw, i64 96
   %4 = load i64, ptr %pos_emul.i, align 8
-  %size_emul.i = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 11
+  %size_emul.i = getelementptr inbounds i8, ptr %hw, i64 112
   %5 = load i64, ptr %size_emul.i, align 8
   %cmp.not.i.i = icmp ugt i64 %4, %conv.i
   %cond.p.v.i.i = select i1 %cmp.not.i.i, i64 %5, i64 0
@@ -656,19 +641,19 @@ return:                                           ; preds = %if.else, %oss_get_a
 ; Function Attrs: nounwind sspstrong uwtable
 define internal ptr @oss_get_buffer_out(ptr noundef %hw, ptr noundef %size) #0 {
 entry:
-  %mmapped = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 4
+  %mmapped = getelementptr inbounds i8, ptr %hw, i64 180
   %0 = load i32, ptr %mmapped, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %size_emul = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 11
+  %size_emul = getelementptr inbounds i8, ptr %hw, i64 112
   %1 = load i64, ptr %size_emul, align 8
-  %pos_emul = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 9
+  %pos_emul = getelementptr inbounds i8, ptr %hw, i64 96
   %2 = load i64, ptr %pos_emul, align 8
   %sub = sub i64 %1, %2
   store i64 %sub, ptr %size, align 8
-  %buf_emul = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 8
+  %buf_emul = getelementptr inbounds i8, ptr %hw, i64 88
   %3 = load ptr, ptr %buf_emul, align 8
   %4 = load i64, ptr %pos_emul, align 8
   %add.ptr = getelementptr i8, ptr %3, i64 %4
@@ -686,22 +671,22 @@ return:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @oss_put_buffer_out(ptr noundef %hw, ptr noundef %buf, i64 noundef %size) #0 {
 entry:
-  %mmapped = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 4
+  %mmapped = getelementptr inbounds i8, ptr %hw, i64 180
   %0 = load i32, ptr %mmapped, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %buf_emul = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 8
+  %buf_emul = getelementptr inbounds i8, ptr %hw, i64 88
   %1 = load ptr, ptr %buf_emul, align 8
-  %pos_emul = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 9
+  %pos_emul = getelementptr inbounds i8, ptr %hw, i64 96
   %2 = load i64, ptr %pos_emul, align 8
   %add.ptr = getelementptr i8, ptr %1, i64 %2
   %cmp = icmp eq ptr %add.ptr, %buf
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.then
-  %size_emul = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 11
+  %size_emul = getelementptr inbounds i8, ptr %hw, i64 112
   %3 = load i64, ptr %size_emul, align 8
   %cmp1 = icmp ugt i64 %3, %size
   br i1 %cmp1, label %if.end, label %if.else
@@ -732,16 +717,16 @@ entry:
   br i1 %enable, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %dev = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 5
+  %dev = getelementptr inbounds i8, ptr %hw, i64 184
   %0 = load ptr, ptr %dev, align 8
-  %out = getelementptr inbounds %struct.Audiodev, ptr %0, i64 0, i32 4, i32 0, i32 1
+  %out = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %out, align 8
-  %try_poll = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %1, i64 0, i32 18
+  %try_poll = getelementptr inbounds i8, ptr %1, i64 65
   %2 = load i8, ptr %try_poll, align 1
   %3 = and i8 %2, 1
   %tobool1.not = icmp eq i8 %3, 0
   %conv = zext nneg i8 %3 to i32
-  %poll_mode = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 2
+  %poll_mode = getelementptr inbounds i8, ptr %hw, i64 12
   store i32 %conv, ptr %poll_mode, align 4
   br i1 %tobool1.not, label %if.end, label %if.then4
 
@@ -753,48 +738,48 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %mmapped = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 4
+  %mmapped = getelementptr inbounds i8, ptr %hw, i64 180
   %5 = load i32, ptr %mmapped, align 4
   %tobool5.not = icmp eq i32 %5, 0
   br i1 %tobool5.not, label %if.end30, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %info = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4
-  %buf_emul = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 8
+  %info = getelementptr inbounds i8, ptr %hw, i64 20
+  %buf_emul = getelementptr inbounds i8, ptr %hw, i64 88
   %6 = load ptr, ptr %buf_emul, align 8
-  %samples = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 12
+  %samples = getelementptr inbounds i8, ptr %hw, i64 120
   %7 = load i64, ptr %samples, align 8
   %conv8 = trunc i64 %7 to i32
   tail call void @audio_pcm_info_clear_buf(ptr noundef nonnull %info, ptr noundef %6, i32 noundef %conv8) #13
   store i32 2, ptr %trig, align 4
-  %fd = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %hw, i64 168
   %8 = load i32, ptr %fd, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %8, i64 noundef 1074024464, ptr noundef nonnull %trig) #13
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.end30.sink.split, label %if.end30
 
 if.else:                                          ; preds = %entry
-  %poll_mode13 = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 2
+  %poll_mode13 = getelementptr inbounds i8, ptr %hw, i64 12
   %9 = load i32, ptr %poll_mode13, align 4
   %tobool14.not = icmp eq i32 %9, 0
   br i1 %tobool14.not, label %if.end18, label %if.then15
 
 if.then15:                                        ; preds = %if.else
-  %fd16 = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 1
+  %fd16 = getelementptr inbounds i8, ptr %hw, i64 168
   %10 = load i32, ptr %fd16, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %10, ptr noundef null, ptr noundef null, ptr noundef null) #13
   store i32 0, ptr %poll_mode13, align 4
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %if.else
-  %mmapped19 = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 4
+  %mmapped19 = getelementptr inbounds i8, ptr %hw, i64 180
   %11 = load i32, ptr %mmapped19, align 4
   %tobool20.not = icmp eq i32 %11, 0
   br i1 %tobool20.not, label %if.end30, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
   store i32 0, ptr %trig, align 4
-  %fd23 = getelementptr inbounds %struct.OSSVoiceOut, ptr %hw, i64 0, i32 1
+  %fd23 = getelementptr inbounds i8, ptr %hw, i64 168
   %12 = load i32, ptr %fd23, align 8
   %call24 = call i32 (i32, i64, ...) @ioctl(i32 noundef %12, i64 noundef 1074024464, ptr noundef nonnull %trig) #13
   %cmp25 = icmp slt i32 %call24, 0
@@ -818,11 +803,11 @@ entry:
   %obt = alloca %struct.oss_params, align 4
   %fd = alloca i32, align 4
   %obt_as = alloca %struct.audsettings, align 4
-  %fd1 = getelementptr inbounds %struct.OSSVoiceIn, ptr %hw, i64 0, i32 1
+  %fd1 = getelementptr inbounds i8, ptr %hw, i64 168
   store i32 -1, ptr %fd1, align 8
-  %fmt = getelementptr inbounds %struct.audsettings, ptr %as, i64 0, i32 2
+  %fmt = getelementptr inbounds i8, ptr %as, i64 8
   %0 = load i32, ptr %fmt, align 4
-  %endianness2 = getelementptr inbounds %struct.audsettings, ptr %as, i64 0, i32 3
+  %endianness2 = getelementptr inbounds i8, ptr %as, i64 12
   %1 = load i32, ptr %endianness2, align 4
   switch i32 %0, label %sw.default.i [
     i32 1, label %aud_to_ossfmt.exit
@@ -850,20 +835,20 @@ sw.default.i:                                     ; preds = %entry
 
 aud_to_ossfmt.exit:                               ; preds = %entry, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.default.i
   %retval.0.i = phi i32 [ 8, %sw.default.i ], [ 8, %sw.bb1.i ], [ 64, %entry ], [ %..i, %sw.bb2.i ], [ %.3.i, %sw.bb3.i ]
-  %fmt3 = getelementptr inbounds %struct.oss_params, ptr %req, i64 0, i32 1
+  %fmt3 = getelementptr inbounds i8, ptr %req, i64 4
   store i32 %retval.0.i, ptr %fmt3, align 4
   %2 = load i32, ptr %as, align 4
   store i32 %2, ptr %req, align 4
-  %nchannels = getelementptr inbounds %struct.audsettings, ptr %as, i64 0, i32 1
+  %nchannels = getelementptr inbounds i8, ptr %as, i64 4
   %3 = load i32, ptr %nchannels, align 4
-  %nchannels5 = getelementptr inbounds %struct.oss_params, ptr %req, i64 0, i32 2
+  %nchannels5 = getelementptr inbounds i8, ptr %req, i64 8
   store i32 %3, ptr %nchannels5, align 4
   %call6 = call fastcc i32 @oss_open(i32 noundef 1, ptr noundef nonnull %req, ptr noundef nonnull %as, ptr noundef nonnull %obt, ptr noundef nonnull %fd, ptr noundef %drv_opaque), !range !5
   %tobool.not = icmp eq i32 %call6, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %aud_to_ossfmt.exit
-  %fmt7 = getelementptr inbounds %struct.oss_params, ptr %obt, i64 0, i32 1
+  %fmt7 = getelementptr inbounds i8, ptr %obt, i64 4
   %4 = load i32, ptr %fmt7, align 4
   switch i32 %4, label %if.then10 [
     i32 64, label %if.end11
@@ -907,24 +892,24 @@ if.end11:                                         ; preds = %sw.bb5.i, %sw.bb4.i
   %7 = phi <2 x i32> [ <i32 1, i32 0>, %if.end ], [ zeroinitializer, %sw.bb1.i18 ], [ <i32 3, i32 0>, %sw.bb2.i17 ], [ <i32 2, i32 0>, %sw.bb3.i16 ], [ <i32 3, i32 1>, %sw.bb4.i ], [ <i32 2, i32 1>, %sw.bb5.i ]
   %8 = load i32, ptr %obt, align 4
   store i32 %8, ptr %obt_as, align 4
-  %nchannels14 = getelementptr inbounds %struct.oss_params, ptr %obt, i64 0, i32 2
+  %nchannels14 = getelementptr inbounds i8, ptr %obt, i64 8
   %9 = load i32, ptr %nchannels14, align 4
-  %nchannels15 = getelementptr inbounds %struct.audsettings, ptr %obt_as, i64 0, i32 1
+  %nchannels15 = getelementptr inbounds i8, ptr %obt_as, i64 4
   store i32 %9, ptr %nchannels15, align 4
-  %fmt16 = getelementptr inbounds %struct.audsettings, ptr %obt_as, i64 0, i32 2
+  %fmt16 = getelementptr inbounds i8, ptr %obt_as, i64 8
   store <2 x i32> %7, ptr %fmt16, align 4
-  %info = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 3
+  %info = getelementptr inbounds i8, ptr %hw, i64 16
   call void @audio_pcm_init_info(ptr noundef nonnull %info, ptr noundef nonnull %obt_as) #13
-  %nfrags = getelementptr inbounds %struct.oss_params, ptr %obt, i64 0, i32 3
+  %nfrags = getelementptr inbounds i8, ptr %obt, i64 12
   %10 = load i32, ptr %nfrags, align 4
-  %nfrags18 = getelementptr inbounds %struct.OSSVoiceIn, ptr %hw, i64 0, i32 2
+  %nfrags18 = getelementptr inbounds i8, ptr %hw, i64 172
   store i32 %10, ptr %nfrags18, align 4
-  %fragsize = getelementptr inbounds %struct.oss_params, ptr %obt, i64 0, i32 4
+  %fragsize = getelementptr inbounds i8, ptr %obt, i64 16
   %11 = load i32, ptr %fragsize, align 4
-  %fragsize19 = getelementptr inbounds %struct.OSSVoiceIn, ptr %hw, i64 0, i32 3
+  %fragsize19 = getelementptr inbounds i8, ptr %hw, i64 176
   store i32 %11, ptr %fragsize19, align 8
   %mul = mul i32 %11, %10
-  %bytes_per_frame = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 3, i32 5
+  %bytes_per_frame = getelementptr inbounds i8, ptr %hw, i64 32
   %12 = load i32, ptr %bytes_per_frame, align 8
   %rem = srem i32 %mul, %12
   %tobool23.not = icmp eq i32 %rem, 0
@@ -939,11 +924,11 @@ if.end30:                                         ; preds = %if.then24, %if.end1
   %13 = phi i32 [ %.pre, %if.then24 ], [ %12, %if.end11 ]
   %div = sdiv i32 %mul, %13
   %conv = sext i32 %div to i64
-  %samples = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 12
+  %samples = getelementptr inbounds i8, ptr %hw, i64 128
   store i64 %conv, ptr %samples, align 8
   %14 = load i32, ptr %fd, align 4
   store i32 %14, ptr %fd1, align 8
-  %dev37 = getelementptr inbounds %struct.OSSVoiceIn, ptr %hw, i64 0, i32 4
+  %dev37 = getelementptr inbounds i8, ptr %hw, i64 184
   store ptr %drv_opaque, ptr %dev37, align 8
   br label %return
 
@@ -955,7 +940,7 @@ return:                                           ; preds = %if.then.i, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @oss_fini_in(ptr nocapture noundef %hw) #0 {
 entry:
-  %fd = getelementptr inbounds %struct.OSSVoiceIn, ptr %hw, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %hw, i64 168
   %0 = load i32, ptr %fd, align 4
   tail call void @qemu_set_fd_handler(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef null) #13
   %1 = load i32, ptr %fd, align 4
@@ -982,7 +967,7 @@ entry:
   br i1 %tobool.not12, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %fd = getelementptr inbounds %struct.OSSVoiceIn, ptr %hw, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %hw, i64 168
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -1027,16 +1012,16 @@ entry:
   br i1 %enable, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %dev = getelementptr inbounds %struct.OSSVoiceIn, ptr %hw, i64 0, i32 4
+  %dev = getelementptr inbounds i8, ptr %hw, i64 184
   %0 = load ptr, ptr %dev, align 8
-  %out = getelementptr inbounds %struct.Audiodev, ptr %0, i64 0, i32 4, i32 0, i32 1
+  %out = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %out, align 8
-  %try_poll = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %1, i64 0, i32 18
+  %try_poll = getelementptr inbounds i8, ptr %1, i64 65
   %2 = load i8, ptr %try_poll, align 1
   %3 = and i8 %2, 1
   %tobool1.not = icmp eq i8 %3, 0
   %conv = zext nneg i8 %3 to i32
-  %poll_mode = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 2
+  %poll_mode = getelementptr inbounds i8, ptr %hw, i64 12
   store i32 %conv, ptr %poll_mode, align 4
   br i1 %tobool1.not, label %if.end10, label %if.then4
 
@@ -1048,13 +1033,13 @@ if.then4:                                         ; preds = %if.then
   br label %if.end10
 
 if.else:                                          ; preds = %entry
-  %poll_mode5 = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 2
+  %poll_mode5 = getelementptr inbounds i8, ptr %hw, i64 12
   %5 = load i32, ptr %poll_mode5, align 4
   %tobool6.not = icmp eq i32 %5, 0
   br i1 %tobool6.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.else
-  %fd = getelementptr inbounds %struct.OSSVoiceIn, ptr %hw, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %hw, i64 168
   %6 = load i32, ptr %fd, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %6, ptr noundef null, ptr noundef null, ptr noundef null) #13
   store i32 0, ptr %poll_mode5, align 4
@@ -1073,18 +1058,17 @@ entry:
   %nchannels = alloca i32, align 4
   %mmmmssss = alloca i32, align 4
   %tobool.not = icmp eq i32 %in, 0
-  %u = getelementptr inbounds %struct.Audiodev, ptr %dev, i64 0, i32 4
-  %out = getelementptr inbounds %struct.Audiodev, ptr %dev, i64 0, i32 4, i32 0, i32 1
-  %cond.in = select i1 %tobool.not, ptr %out, ptr %u
+  %cond.in.v = select i1 %tobool.not, i64 32, i64 24
+  %cond.in = getelementptr inbounds i8, ptr %dev, i64 %cond.in.v
   %cond = load ptr, ptr %cond.in, align 8
-  %has_exclusive = getelementptr inbounds %struct.Audiodev, ptr %dev, i64 0, i32 4, i32 0, i32 4
+  %has_exclusive = getelementptr inbounds i8, ptr %dev, i64 42
   %0 = load i8, ptr %has_exclusive, align 2
   %1 = and i8 %0, 1
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %exclusive = getelementptr inbounds %struct.Audiodev, ptr %dev, i64 0, i32 4, i32 0, i32 5
+  %exclusive = getelementptr inbounds i8, ptr %dev, i64 43
   %2 = load i8, ptr %exclusive, align 1
   %3 = shl i8 %2, 7
   %4 = zext i8 %3 to i32
@@ -1093,19 +1077,19 @@ land.rhs:                                         ; preds = %entry
 
 land.end:                                         ; preds = %land.rhs, %entry
   %cond4 = phi i32 [ 2048, %entry ], [ %5, %land.rhs ]
-  %dev5 = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %cond, i64 0, i32 14
+  %dev5 = getelementptr inbounds i8, ptr %cond, i64 48
   %6 = load ptr, ptr %dev5, align 8
   %tobool6.not = icmp eq ptr %6, null
   %..str.4 = select i1 %tobool6.not, ptr @.str.4, ptr %6
   %cond12 = select i1 %tobool.not, ptr @.str.13, ptr @.str.12
-  %has_try_mmap = getelementptr inbounds %struct.Audiodev, ptr %dev, i64 0, i32 4, i32 0, i32 2
+  %has_try_mmap = getelementptr inbounds i8, ptr %dev, i64 40
   %7 = load i8, ptr %has_try_mmap, align 8
   %8 = and i8 %7, 1
   %tobool13.not = icmp eq i8 %8, 0
   br i1 %tobool13.not, label %cond.false16, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.end
-  %try_mmap = getelementptr inbounds %struct.Audiodev, ptr %dev, i64 0, i32 4, i32 0, i32 3
+  %try_mmap = getelementptr inbounds i8, ptr %dev, i64 41
   %9 = load i8, ptr %try_mmap, align 1
   %10 = and i8 %9, 1
   %tobool14.not = icmp eq i8 %10, 0
@@ -1131,29 +1115,29 @@ if.then:                                          ; preds = %cond.end19
 if.end:                                           ; preds = %cond.end19
   %12 = load i32, ptr %req, align 4
   store i32 %12, ptr %freq, align 4
-  %nchannels24 = getelementptr inbounds %struct.oss_params, ptr %req, i64 0, i32 2
+  %nchannels24 = getelementptr inbounds i8, ptr %req, i64 8
   %13 = load i32, ptr %nchannels24, align 4
   store i32 %13, ptr %nchannels, align 4
-  %fmt25 = getelementptr inbounds %struct.oss_params, ptr %req, i64 0, i32 1
+  %fmt25 = getelementptr inbounds i8, ptr %req, i64 4
   %14 = load i32, ptr %fmt25, align 4
   store i32 %14, ptr %fmt, align 4
-  %has_buffer_count = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %cond, i64 0, i32 15
+  %has_buffer_count = getelementptr inbounds i8, ptr %cond, i64 56
   %15 = load i8, ptr %has_buffer_count, align 8
   %16 = and i8 %15, 1
   %tobool26.not = icmp eq i8 %16, 0
   br i1 %tobool26.not, label %cond.end29, label %cond.true27
 
 cond.true27:                                      ; preds = %if.end
-  %buffer_count = getelementptr inbounds %struct.AudiodevOssPerDirectionOptions, ptr %cond, i64 0, i32 16
+  %buffer_count = getelementptr inbounds i8, ptr %cond, i64 60
   %17 = load i32, ptr %buffer_count, align 4
   br label %cond.end29
 
 cond.end29:                                       ; preds = %if.end, %cond.true27
   %cond30 = phi i32 [ %17, %cond.true27 ], [ 4, %if.end ]
-  %nfrags = getelementptr inbounds %struct.oss_params, ptr %req, i64 0, i32 3
+  %nfrags = getelementptr inbounds i8, ptr %req, i64 12
   store i32 %cond30, ptr %nfrags, align 4
   %call32 = tail call i32 @audio_buffer_bytes(ptr noundef nonnull %cond, ptr noundef %as, i32 noundef 23220) #13
-  %fragsize = getelementptr inbounds %struct.oss_params, ptr %req, i64 0, i32 4
+  %fragsize = getelementptr inbounds i8, ptr %req, i64 16
   store i32 %call32, ptr %fragsize, align 4
   %call33 = call i32 (i32, i64, ...) @ioctl(i32 noundef %call, i64 noundef 3221508101, ptr noundef nonnull %fmt) #13
   %tobool34.not = icmp eq i32 %call33, 0
@@ -1233,10 +1217,10 @@ if.then74:                                        ; preds = %if.end69
   br label %err
 
 if.end76:                                         ; preds = %if.end69
-  %fragstotal = getelementptr inbounds %struct.audio_buf_info, ptr %abinfo, i64 0, i32 1
+  %fragstotal = getelementptr inbounds i8, ptr %abinfo, i64 4
   %32 = load i32, ptr %fragstotal, align 4
   %tobool77 = icmp ne i32 %32, 0
-  %fragsize78 = getelementptr inbounds %struct.audio_buf_info, ptr %abinfo, i64 0, i32 2
+  %fragsize78 = getelementptr inbounds i8, ptr %abinfo, i64 8
   %33 = load i32, ptr %fragsize78, align 4
   %tobool79 = icmp ne i32 %33, 0
   %or.cond = select i1 %tobool77, i1 %tobool79, i1 false
@@ -1248,16 +1232,16 @@ if.then80:                                        ; preds = %if.end76
 
 if.end83:                                         ; preds = %if.end76
   %34 = load i32, ptr %fmt, align 4
-  %fmt84 = getelementptr inbounds %struct.oss_params, ptr %obt, i64 0, i32 1
+  %fmt84 = getelementptr inbounds i8, ptr %obt, i64 4
   store i32 %34, ptr %fmt84, align 4
   %35 = load i32, ptr %nchannels, align 4
-  %nchannels85 = getelementptr inbounds %struct.oss_params, ptr %obt, i64 0, i32 2
+  %nchannels85 = getelementptr inbounds i8, ptr %obt, i64 8
   store i32 %35, ptr %nchannels85, align 4
   %36 = load i32, ptr %freq, align 4
   store i32 %36, ptr %obt, align 4
-  %nfrags88 = getelementptr inbounds %struct.oss_params, ptr %obt, i64 0, i32 3
+  %nfrags88 = getelementptr inbounds i8, ptr %obt, i64 12
   store i32 %32, ptr %nfrags88, align 4
-  %fragsize90 = getelementptr inbounds %struct.oss_params, ptr %obt, i64 0, i32 4
+  %fragsize90 = getelementptr inbounds i8, ptr %obt, i64 16
   store i32 %33, ptr %fragsize90, align 4
   store i32 %call, ptr %pfd, align 4
   br label %return

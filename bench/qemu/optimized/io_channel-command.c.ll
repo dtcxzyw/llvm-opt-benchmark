@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct._GError = type { i32, i32, ptr }
-%struct.QIOChannelCommand = type { %struct.QIOChannel, i32, i32, i32 }
-%struct.QIOChannel = type { %struct.Object, i32, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QIOChannelClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @.str = private unnamed_addr constant [29 x i8] c"../qemu/io/channel-command.c\00", align 1
 @__func__.qio_channel_command_new_spawn = private unnamed_addr constant [30 x i8] c"qio_channel_command_new_spawn\00", align 1
@@ -72,7 +66,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds %struct._GError, ptr %0, i64 0, i32 2
+  %message = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %message, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 91, ptr noundef nonnull @__func__.qio_channel_command_new_spawn, ptr noundef nonnull @.str.1, ptr noundef %1) #6
   br label %cleanup
@@ -83,11 +77,11 @@ if.end:                                           ; preds = %entry
   %4 = load i32, ptr %pid, align 4
   %call.i = call ptr @object_new(ptr noundef nonnull @.str.2) #6
   %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_COMMAND) #6
-  %readfd2.i = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i.i, i64 0, i32 2
+  %readfd2.i = getelementptr inbounds i8, ptr %call.i.i, i64 100
   store i32 %3, ptr %readfd2.i, align 4
-  %writefd3.i = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i.i, i64 0, i32 1
+  %writefd3.i = getelementptr inbounds i8, ptr %call.i.i, i64 96
   store i32 %2, ptr %writefd3.i, align 8
-  %pid4.i = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i.i, i64 0, i32 3
+  %pid4.i = getelementptr inbounds i8, ptr %call.i.i, i64 104
   store i32 %4, ptr %pid4.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -113,7 +107,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #6
   %call10.i.i.i = call i32 @qemu_get_thread_id() #6
   %10 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %call.i.i, i32 noundef %2, i32 noundef %3, i32 noundef %4) #6
   br label %qio_channel_command_new_pid.exit
@@ -179,11 +173,11 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qio_channel_command_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_COMMAND) #6
-  %readfd = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 2
+  %readfd = getelementptr inbounds i8, ptr %call.i, i64 100
   store i32 -1, ptr %readfd, align 4
-  %writefd = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 1
+  %writefd = getelementptr inbounds i8, ptr %call.i, i64 96
   store i32 -1, ptr %writefd, align 8
-  %pid = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 3
+  %pid = getelementptr inbounds i8, ptr %call.i, i64 104
   store i32 0, ptr %pid, align 8
   ret void
 }
@@ -195,7 +189,7 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %status.i = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_COMMAND) #6
-  %readfd = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 2
+  %readfd = getelementptr inbounds i8, ptr %call.i, i64 100
   %0 = load i32, ptr %readfd, align 4
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -205,7 +199,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %writefd = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 1
+  %writefd = getelementptr inbounds i8, ptr %call.i, i64 96
   %1 = load i32, ptr %writefd, align 8
   %cmp3.not = icmp eq i32 %1, -1
   br i1 %cmp3.not, label %if.end10, label %land.lhs.true
@@ -222,15 +216,15 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end10:                                         ; preds = %if.then7, %land.lhs.true, %if.end
   store i32 -1, ptr %readfd, align 4
   store i32 -1, ptr %writefd, align 8
-  %pid = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 3
+  %pid = getelementptr inbounds i8, ptr %call.i, i64 104
   %3 = load i32, ptr %pid, align 8
   %cmp13 = icmp sgt i32 %3, 0
   br i1 %cmp13, label %if.then14, label %if.end17
 
 if.then14:                                        ; preds = %if.end10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
-  %tv_usec.i.i26.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i14.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i26.i = getelementptr inbounds i8, ptr %_now.i.i14.i, i64 8
   br label %rewait.outer.i
 
 rewait.outer.i:                                   ; preds = %if.end26.i, %if.then14
@@ -364,17 +358,17 @@ if.end17:                                         ; preds = %qio_channel_command
 define internal void @qio_channel_command_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.13, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_CLASS) #6
-  %io_writev = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 1
+  %io_writev = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @qio_channel_command_writev, ptr %io_writev, align 8
-  %io_readv = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 2
+  %io_readv = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @qio_channel_command_readv, ptr %io_readv, align 8
-  %io_set_blocking = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 5
+  %io_set_blocking = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @qio_channel_command_set_blocking, ptr %io_set_blocking, align 8
-  %io_close = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 3
+  %io_close = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qio_channel_command_close, ptr %io_close, align 8
-  %io_create_watch = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 4
+  %io_create_watch = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @qio_channel_command_create_watch, ptr %io_create_watch, align 8
-  %io_set_aio_fd_handler = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 10
+  %io_set_aio_fd_handler = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr @qio_channel_command_set_aio_fd_handler, ptr %io_set_aio_fd_handler, align 8
   ret void
 }
@@ -399,7 +393,7 @@ declare i32 @usleep(i32 noundef) local_unnamed_addr #1
 define internal i64 @qio_channel_command_writev(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr nocapture readnone %fds, i64 %nfds, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_COMMAND) #6
-  %writefd = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 1
+  %writefd = getelementptr inbounds i8, ptr %call.i, i64 96
   %conv = trunc i64 %niov to i32
   br label %retry
 
@@ -430,7 +424,7 @@ return:                                           ; preds = %retry, %if.then, %i
 define internal i64 @qio_channel_command_readv(ptr noundef %ioc, ptr noundef %iov, i64 noundef %niov, ptr nocapture readnone %fds, ptr nocapture readnone %nfds, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_COMMAND) #6
-  %readfd = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 2
+  %readfd = getelementptr inbounds i8, ptr %call.i, i64 100
   %conv = trunc i64 %niov to i32
   br label %retry
 
@@ -461,7 +455,7 @@ return:                                           ; preds = %retry, %if.then, %i
 define internal i32 @qio_channel_command_set_blocking(ptr noundef %ioc, i1 noundef zeroext %enabled, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_COMMAND) #6
-  %writefd = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 1
+  %writefd = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i32, ptr %writefd, align 8
   %cmp = icmp sgt i32 %0, -1
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
@@ -474,7 +468,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool3.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %entry
-  %readfd = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 2
+  %readfd = getelementptr inbounds i8, ptr %call.i, i64 100
   %1 = load i32, ptr %readfd, align 4
   %cmp4 = icmp sgt i32 %1, -1
   br i1 %cmp4, label %land.lhs.true5, label %return
@@ -501,7 +495,7 @@ return:                                           ; preds = %lor.lhs.false, %lan
 define internal i32 @qio_channel_command_close(ptr noundef %ioc, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_COMMAND) #6
-  %readfd = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 2
+  %readfd = getelementptr inbounds i8, ptr %call.i, i64 100
   %0 = load i32, ptr %readfd, align 4
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -513,7 +507,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %rv.0 = phi i32 [ 0, %entry ], [ %call2.lobit, %land.lhs.true ]
-  %writefd = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 1
+  %writefd = getelementptr inbounds i8, ptr %call.i, i64 96
   %1 = load i32, ptr %writefd, align 8
   %cmp4.not = icmp eq i32 %1, -1
   br i1 %cmp4.not, label %if.end14, label %land.lhs.true5
@@ -533,7 +527,7 @@ if.end14:                                         ; preds = %land.lhs.true9, %la
   %rv.1 = phi i32 [ %rv.0, %land.lhs.true5 ], [ %rv.0, %if.end ], [ %spec.select14, %land.lhs.true9 ]
   store i32 -1, ptr %readfd, align 4
   store i32 -1, ptr %writefd, align 8
-  %pid = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 3
+  %pid = getelementptr inbounds i8, ptr %call.i, i64 104
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.end14
@@ -573,9 +567,9 @@ return:                                           ; preds = %if.end25, %if.then2
 define internal ptr @qio_channel_command_create_watch(ptr noundef %ioc, i32 noundef %condition) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_COMMAND) #6
-  %readfd = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 2
+  %readfd = getelementptr inbounds i8, ptr %call.i, i64 100
   %0 = load i32, ptr %readfd, align 4
-  %writefd = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 1
+  %writefd = getelementptr inbounds i8, ptr %call.i, i64 96
   %1 = load i32, ptr %writefd, align 8
   %call1 = tail call ptr @qio_channel_create_fd_pair_watch(ptr noundef %ioc, i32 noundef %0, i32 noundef %1, i32 noundef %condition) #6
   ret ptr %call1
@@ -585,9 +579,9 @@ entry:
 define internal void @qio_channel_command_set_aio_fd_handler(ptr noundef %ioc, ptr noundef %read_ctx, ptr noundef %io_read, ptr noundef %write_ctx, ptr noundef %io_write, ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_COMMAND) #6
-  %readfd = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 2
+  %readfd = getelementptr inbounds i8, ptr %call.i, i64 100
   %0 = load i32, ptr %readfd, align 4
-  %writefd = getelementptr inbounds %struct.QIOChannelCommand, ptr %call.i, i64 0, i32 1
+  %writefd = getelementptr inbounds i8, ptr %call.i, i64 96
   %1 = load i32, ptr %writefd, align 8
   tail call void @qio_channel_util_set_aio_fd_handler(i32 noundef %0, ptr noundef %read_ctx, ptr noundef %io_read, i32 noundef %1, ptr noundef %write_ctx, ptr noundef %io_write, ptr noundef %opaque) #6
   ret void

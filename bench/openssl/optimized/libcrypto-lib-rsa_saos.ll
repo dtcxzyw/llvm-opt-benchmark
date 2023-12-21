@@ -14,10 +14,10 @@ define i32 @RSA_sign_ASN1_OCTET_STRING(i32 noundef %type, ptr noundef %m, i32 no
 entry:
   %sig = alloca %struct.asn1_string_st, align 8
   %p = alloca ptr, align 8
-  %type1 = getelementptr inbounds %struct.asn1_string_st, ptr %sig, i64 0, i32 1
+  %type1 = getelementptr inbounds i8, ptr %sig, i64 4
   store i32 4, ptr %type1, align 4
   store i32 %m_len, ptr %sig, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %sig, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %sig, i64 8
   store ptr %m, ptr %data, align 8
   %call = call i32 @i2d_ASN1_OCTET_STRING(ptr noundef nonnull %sig, ptr noundef null) #3
   %call2 = call i32 @RSA_size(ptr noundef %rsa) #3
@@ -113,7 +113,7 @@ if.end16:                                         ; preds = %if.end10
   br i1 %cmp17.not, label %lor.lhs.false, label %if.then23
 
 lor.lhs.false:                                    ; preds = %if.end16
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call12, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call12, i64 8
   %1 = load ptr, ptr %data, align 8
   %conv19 = zext i32 %m_len to i64
   %bcmp = call i32 @bcmp(ptr %m, ptr %1, i64 %conv19)

@@ -4,19 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.RingBufChardev = type { %struct.Chardev, i64, i64, i64, ptr }
-%struct.Chardev = type { %struct.Object, %struct.QemuMutex, ptr, ptr, ptr, i32, i32, i8, ptr, ptr, [1 x i64] }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.ChardevClass = type { %struct.ObjectClass, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.ChardevBackend = type { i32, %union.anon }
-%union.anon = type { %struct.ChardevFileWrapper }
-%struct.ChardevFileWrapper = type { ptr }
-%struct.ChardevRingbuf = type { ptr, i8, i8, i8, i64 }
 
 @.str = private unnamed_addr constant [31 x i8] c"../qemu/chardev/char-ringbuf.c\00", align 1
 @__func__.qmp_ringbuf_write = private unnamed_addr constant [18 x i8] c"qmp_ringbuf_write\00", align 1
@@ -94,10 +81,10 @@ for.cond.preheader.i:                             ; preds = %if.end12
   br i1 %cmp114.not.i, label %ringbuf_chr_write.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %cbuf.i = getelementptr inbounds %struct.RingBufChardev, ptr %call.i.i, i64 0, i32 4
-  %prod.i = getelementptr inbounds %struct.RingBufChardev, ptr %call.i.i, i64 0, i32 2
-  %size.i = getelementptr inbounds %struct.RingBufChardev, ptr %call.i.i, i64 0, i32 1
-  %cons.i = getelementptr inbounds %struct.RingBufChardev, ptr %call.i.i, i64 0, i32 3
+  %cbuf.i = getelementptr inbounds i8, ptr %call.i.i, i64 176
+  %prod.i = getelementptr inbounds i8, ptr %call.i.i, i64 160
+  %size.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
+  %cons.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   %wide.trip.count.i = and i64 %0, 4294967295
   %.pre.i = load i64, ptr %prod.i, align 8
   %.pre17.i = load i64, ptr %size.i, align 8
@@ -182,10 +169,10 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp114.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %cbuf = getelementptr inbounds %struct.RingBufChardev, ptr %call.i, i64 0, i32 4
-  %prod = getelementptr inbounds %struct.RingBufChardev, ptr %call.i, i64 0, i32 2
-  %size = getelementptr inbounds %struct.RingBufChardev, ptr %call.i, i64 0, i32 1
-  %cons = getelementptr inbounds %struct.RingBufChardev, ptr %call.i, i64 0, i32 3
+  %cbuf = getelementptr inbounds i8, ptr %call.i, i64 176
+  %prod = getelementptr inbounds i8, ptr %call.i, i64 160
+  %size = getelementptr inbounds i8, ptr %call.i, i64 152
+  %cons = getelementptr inbounds i8, ptr %call.i, i64 168
   %wide.trip.count = zext nneg i32 %len to i64
   %.pre = load i64, ptr %prod, align 8
   %.pre17 = load i64, ptr %size, align 8
@@ -258,9 +245,9 @@ if.then5:                                         ; preds = %if.end4
 
 if.end6:                                          ; preds = %if.end4
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull @__func__.RINGBUF_CHARDEV) #7
-  %prod.i = getelementptr inbounds %struct.RingBufChardev, ptr %call.i.i, i64 0, i32 2
+  %prod.i = getelementptr inbounds i8, ptr %call.i.i, i64 160
   %0 = load i64, ptr %prod.i, align 8
-  %cons.i = getelementptr inbounds %struct.RingBufChardev, ptr %call.i.i, i64 0, i32 3
+  %cons.i = getelementptr inbounds i8, ptr %call.i.i, i64 168
   %1 = load i64, ptr %cons.i, align 8
   %sub.i = sub i64 %0, %1
   %cond = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 %size)
@@ -270,16 +257,16 @@ if.end6:                                          ; preds = %if.end4
   %call.i.i19 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull @__func__.RINGBUF_CHARDEV) #7
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  %chr_write_lock.i = getelementptr inbounds %struct.Chardev, ptr %call, i64 0, i32 1
+  %chr_write_lock.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void %3(ptr noundef nonnull %chr_write_lock.i, ptr noundef nonnull @.str, i32 noundef 79) #7
-  %cons.i20 = getelementptr inbounds %struct.RingBufChardev, ptr %call.i.i19, i64 0, i32 3
+  %cons.i20 = getelementptr inbounds i8, ptr %call.i.i19, i64 168
   %cmp10.i = icmp sgt i32 %conv, 0
   br i1 %cmp10.i, label %land.rhs.lr.ph.i, label %ringbuf_chr_read.exit
 
 land.rhs.lr.ph.i:                                 ; preds = %if.end6
-  %prod.i21 = getelementptr inbounds %struct.RingBufChardev, ptr %call.i.i19, i64 0, i32 2
-  %cbuf.i = getelementptr inbounds %struct.RingBufChardev, ptr %call.i.i19, i64 0, i32 4
-  %size.i = getelementptr inbounds %struct.RingBufChardev, ptr %call.i.i19, i64 0, i32 1
+  %prod.i21 = getelementptr inbounds i8, ptr %call.i.i19, i64 160
+  %cbuf.i = getelementptr inbounds i8, ptr %call.i.i19, i64 176
+  %size.i = getelementptr inbounds i8, ptr %call.i.i19, i64 152
   %wide.trip.count.i = and i64 %cond, 4294967295
   %.pre = load i64, ptr %cons.i20, align 8
   %.pre23 = load i64, ptr %prod.i21, align 8
@@ -359,7 +346,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @char_ringbuf_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull @__func__.RINGBUF_CHARDEV) #7
-  %cbuf = getelementptr inbounds %struct.RingBufChardev, ptr %call.i, i64 0, i32 4
+  %cbuf = getelementptr inbounds i8, ptr %call.i, i64 176
   %0 = load ptr, ptr %cbuf, align 8
   tail call void @g_free(ptr noundef %0) #7
   ret void
@@ -369,11 +356,11 @@ entry:
 define internal void @char_ringbuf_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #7
-  %parse = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 3
+  %parse = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @qemu_chr_parse_ringbuf, ptr %parse, align 8
-  %open = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 4
+  %open = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qemu_chr_open_ringbuf, ptr %open, align 8
-  %chr_write = getelementptr inbounds %struct.ChardevClass, ptr %call.i, i64 0, i32 5
+  %chr_write = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @ringbuf_chr_write, ptr %chr_write, align 8
   ret void
 }
@@ -383,7 +370,7 @@ define internal void @qemu_chr_parse_ringbuf(ptr noundef %opts, ptr nocapture no
 entry:
   store i32 17, ptr %backend, align 8
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #10
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   store ptr %call, ptr %u, align 8
   tail call void @qemu_chr_parse_common(ptr noundef %opts, ptr noundef %call) #7
   %call2 = tail call i64 @qemu_opt_get_size(ptr noundef %opts, ptr noundef nonnull @.str.8, i64 noundef 0) #7
@@ -392,11 +379,11 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %has_size = getelementptr inbounds %struct.ChardevRingbuf, ptr %call, i64 0, i32 3
+  %has_size = getelementptr inbounds i8, ptr %call, i64 10
   store i8 1, ptr %has_size, align 2
   %sext = shl i64 %call2, 32
   %conv4 = ashr exact i64 %sext, 32
-  %size = getelementptr inbounds %struct.ChardevRingbuf, ptr %call, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %conv4, ptr %size, align 8
   br label %if.end
 
@@ -407,23 +394,23 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qemu_chr_open_ringbuf(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture readnone %be_opened, ptr noundef %errp) #0 {
 entry:
-  %u = getelementptr inbounds %struct.ChardevBackend, ptr %backend, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %backend, i64 8
   %0 = load ptr, ptr %u, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull @__func__.RINGBUF_CHARDEV) #7
-  %has_size = getelementptr inbounds %struct.ChardevRingbuf, ptr %0, i64 0, i32 3
+  %has_size = getelementptr inbounds i8, ptr %0, i64 10
   %1 = load i8, ptr %has_size, align 2
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %size = getelementptr inbounds %struct.ChardevRingbuf, ptr %0, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %size, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i64 [ %3, %cond.true ], [ 65536, %entry ]
-  %size1 = getelementptr inbounds %struct.RingBufChardev, ptr %call.i, i64 0, i32 1
+  %size1 = getelementptr inbounds i8, ptr %call.i, i64 152
   store i64 %cond, ptr %size1, align 8
   %4 = tail call i64 @llvm.ctpop.i64(i64 %cond), !range !8
   %tobool4.not = icmp ult i64 %4, 2
@@ -434,10 +421,10 @@ if.then:                                          ; preds = %cond.end
   br label %return
 
 if.end:                                           ; preds = %cond.end
-  %prod = getelementptr inbounds %struct.RingBufChardev, ptr %call.i, i64 0, i32 2
+  %prod = getelementptr inbounds i8, ptr %call.i, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prod, i8 0, i64 16, i1 false)
   %call6 = tail call noalias ptr @g_malloc0(i64 noundef %cond) #9
-  %cbuf = getelementptr inbounds %struct.RingBufChardev, ptr %call.i, i64 0, i32 4
+  %cbuf = getelementptr inbounds i8, ptr %call.i, i64 176
   store ptr %call6, ptr %cbuf, align 8
   br label %return
 

@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.UDataMemory = type { ptr, ptr, ptr, i8, ptr, ptr, i32 }
 
 ; Function Attrs: mustprogress uwtable
 define signext i8 @uprv_mapFile_75(ptr noundef %pData, ptr nocapture noundef readonly %path, ptr nocapture noundef readonly %status) local_unnamed_addr #0 {
@@ -19,7 +18,7 @@ if.end:                                           ; preds = %entry
   tail call void @UDataMemory_init_75(ptr noundef %pData)
   %call1 = call i32 @stat(ptr noundef %path, ptr noundef nonnull %mystat) #7
   %cmp = icmp ne i32 %call1, 0
-  %st_size = getelementptr inbounds %struct.stat, ptr %mystat, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %mystat, i64 48
   %1 = load i64, ptr %st_size, align 8
   %cmp2 = icmp slt i64 %1, 1
   %or.cond = select i1 %cmp, i1 true, i1 %cmp2
@@ -40,11 +39,11 @@ if.end9:                                          ; preds = %if.end4
 
 if.end15:                                         ; preds = %if.end9
   %add.ptr = getelementptr inbounds i8, ptr %call11, i64 %conv10
-  %map = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 5
+  %map = getelementptr inbounds i8, ptr %pData, i64 40
   store ptr %add.ptr, ptr %map, align 8
-  %pHeader = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 1
+  %pHeader = getelementptr inbounds i8, ptr %pData, i64 8
   store ptr %call11, ptr %pHeader, align 8
-  %mapAddr = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 4
+  %mapAddr = getelementptr inbounds i8, ptr %pData, i64 32
   store ptr %call11, ptr %mapAddr, align 8
   br label %return
 
@@ -73,19 +72,19 @@ entry:
   br i1 %cmp.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %map = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 5
+  %map = getelementptr inbounds i8, ptr %pData, i64 40
   %0 = load ptr, ptr %map, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %mapAddr = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 4
+  %mapAddr = getelementptr inbounds i8, ptr %pData, i64 32
   %1 = load ptr, ptr %mapAddr, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call = tail call i32 @munmap(ptr noundef %1, i64 noundef %sub.ptr.sub) #7
-  %pHeader = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 1
+  %pHeader = getelementptr inbounds i8, ptr %pData, i64 8
   store ptr null, ptr %pHeader, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mapAddr, i8 0, i64 16, i1 false)
   br label %if.end8

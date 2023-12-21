@@ -743,7 +743,7 @@ sw.bb7:                                           ; preds = %for.cond
 
 for.inc:                                          ; preds = %for.cond, %sw.bb, %sw.bb5, %sw.bb7
   %c_get_libctx.1 = phi ptr [ %in.addr.0.val16, %sw.bb7 ], [ %c_get_libctx.0, %sw.bb5 ], [ %c_get_libctx.0, %sw.bb ], [ %c_get_libctx.0, %for.cond ]
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %in.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond

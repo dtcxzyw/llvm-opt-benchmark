@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/util_qtree.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct._QTree = type { ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct._QTreeNode = type { ptr, ptr, ptr, ptr, i8, i8, i8 }
-
 @__func__.q_tree_new = private unnamed_addr constant [11 x i8] c"q_tree_new\00", align 1
 @.str = private unnamed_addr constant [25 x i8] c"key_compare_func != NULL\00", align 1
 @__func__.q_tree_new_with_data = private unnamed_addr constant [21 x i8] c"q_tree_new_with_data\00", align 1
@@ -44,10 +41,10 @@ if.else:                                          ; preds = %entry
 q_tree_new_full.exit:                             ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc_n(i64 noundef 1, i64 noundef 48) #8
   store ptr null, ptr %call.i, align 8
-  %key_compare.i = getelementptr inbounds %struct._QTree, ptr %call.i, i64 0, i32 1
+  %key_compare.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %key_compare_func, ptr %key_compare.i, align 8
-  %key_destroy_func1.i = getelementptr inbounds %struct._QTree, ptr %call.i, i64 0, i32 2
-  %ref_count.i = getelementptr inbounds %struct._QTree, ptr %call.i, i64 0, i32 6
+  %key_destroy_func1.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %ref_count.i = getelementptr inbounds i8, ptr %call.i, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %key_destroy_func1.i, i8 0, i64 28, i1 false)
   store i32 1, ptr %ref_count.i, align 4
   br label %return
@@ -72,17 +69,17 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc_n(i64 noundef 1, i64 noundef 48) #8
   store ptr null, ptr %call, align 8
-  %key_compare = getelementptr inbounds %struct._QTree, ptr %call, i64 0, i32 1
+  %key_compare = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %key_compare_func, ptr %key_compare, align 8
-  %key_destroy_func1 = getelementptr inbounds %struct._QTree, ptr %call, i64 0, i32 2
+  %key_destroy_func1 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %key_destroy_func, ptr %key_destroy_func1, align 8
-  %value_destroy_func2 = getelementptr inbounds %struct._QTree, ptr %call, i64 0, i32 3
+  %value_destroy_func2 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %value_destroy_func, ptr %value_destroy_func2, align 8
-  %key_compare_data3 = getelementptr inbounds %struct._QTree, ptr %call, i64 0, i32 4
+  %key_compare_data3 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %key_compare_data, ptr %key_compare_data3, align 8
-  %nnodes = getelementptr inbounds %struct._QTree, ptr %call, i64 0, i32 5
+  %nnodes = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %nnodes, align 8
-  %ref_count = getelementptr inbounds %struct._QTree, ptr %call, i64 0, i32 6
+  %ref_count = getelementptr inbounds i8, ptr %call, i64 44
   store i32 1, ptr %ref_count, align 4
   br label %return
 
@@ -104,15 +101,15 @@ if.else:                                          ; preds = %entry
 q_tree_new_full.exit:                             ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc_n(i64 noundef 1, i64 noundef 48) #8
   store ptr null, ptr %call.i, align 8
-  %key_compare.i = getelementptr inbounds %struct._QTree, ptr %call.i, i64 0, i32 1
+  %key_compare.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %key_compare_func, ptr %key_compare.i, align 8
-  %key_destroy_func1.i = getelementptr inbounds %struct._QTree, ptr %call.i, i64 0, i32 2
-  %key_compare_data3.i = getelementptr inbounds %struct._QTree, ptr %call.i, i64 0, i32 4
+  %key_destroy_func1.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %key_compare_data3.i = getelementptr inbounds i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key_destroy_func1.i, i8 0, i64 16, i1 false)
   store ptr %key_compare_data, ptr %key_compare_data3.i, align 8
-  %nnodes.i = getelementptr inbounds %struct._QTree, ptr %call.i, i64 0, i32 5
+  %nnodes.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i32 0, ptr %nnodes.i, align 8
-  %ref_count.i = getelementptr inbounds %struct._QTree, ptr %call.i, i64 0, i32 6
+  %ref_count.i = getelementptr inbounds i8, ptr %call.i, i64 44
   store i32 1, ptr %ref_count.i, align 4
   br label %return
 
@@ -135,7 +132,7 @@ if.else:                                          ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %ref_count = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 6
+  %ref_count = getelementptr inbounds i8, ptr %tree, i64 44
   %0 = atomicrmw add ptr %ref_count, i32 1 seq_cst, align 4
   br label %return
 
@@ -154,7 +151,7 @@ if.else:                                          ; preds = %entry
   br label %if.end3
 
 do.end:                                           ; preds = %entry
-  %ref_count = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 6
+  %ref_count = getelementptr inbounds i8, ptr %tree, i64 44
   %0 = atomicrmw sub ptr %ref_count, i32 1 seq_cst, align 4
   %cmp1 = icmp eq i32 %0, 1
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -165,46 +162,46 @@ if.then2:                                         ; preds = %do.end
   br i1 %tobool.not.i.i, label %q_tree_remove_all.exit, label %while.cond.preheader.i.i
 
 while.cond.preheader.i.i:                         ; preds = %if.then2
-  %left_child1.i.i = getelementptr inbounds %struct._QTreeNode, ptr %tree.val.i, i64 0, i32 5
+  %left_child1.i.i = getelementptr inbounds i8, ptr %tree.val.i, i64 33
   %1 = load i8, ptr %left_child1.i.i, align 1
   %tobool4.not2.i.i = icmp eq i8 %1, 0
   br i1 %tobool4.not2.i.i, label %do.end.i.lr.ph.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %while.body.i.i
   %tmp.03.i.i = phi ptr [ %2, %while.body.i.i ], [ %tree.val.i, %while.cond.preheader.i.i ]
-  %left.i.i = getelementptr inbounds %struct._QTreeNode, ptr %tmp.03.i.i, i64 0, i32 2
+  %left.i.i = getelementptr inbounds i8, ptr %tmp.03.i.i, i64 16
   %2 = load ptr, ptr %left.i.i, align 8
-  %left_child.i.i = getelementptr inbounds %struct._QTreeNode, ptr %2, i64 0, i32 5
+  %left_child.i.i = getelementptr inbounds i8, ptr %2, i64 33
   %3 = load i8, ptr %left_child.i.i, align 1
   %tobool4.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool4.not.i.i, label %do.end.i.lr.ph.i, label %while.body.i.i, !llvm.loop !5
 
 do.end.i.lr.ph.i:                                 ; preds = %while.body.i.i, %while.cond.preheader.i.i
   %retval.0.i.ph.i = phi ptr [ %tree.val.i, %while.cond.preheader.i.i ], [ %2, %while.body.i.i ]
-  %key_destroy_func.i = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 2
-  %value_destroy_func.i = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 3
+  %key_destroy_func.i = getelementptr inbounds i8, ptr %tree, i64 16
+  %value_destroy_func.i = getelementptr inbounds i8, ptr %tree, i64 24
   br label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %if.end9.i, %do.end.i.lr.ph.i
   %node.021.i = phi ptr [ %retval.0.i.ph.i, %do.end.i.lr.ph.i ], [ %retval.0.i18.i, %if.end9.i ]
-  %right.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.021.i, i64 0, i32 3
+  %right.i.i = getelementptr inbounds i8, ptr %node.021.i, i64 24
   %4 = load ptr, ptr %right.i.i, align 8
-  %right_child.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.021.i, i64 0, i32 6
+  %right_child.i.i = getelementptr inbounds i8, ptr %node.021.i, i64 34
   %5 = load i8, ptr %right_child.i.i, align 2
   %tobool.not.i13.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i13.i, label %q_tree_node_next.exit.i, label %while.cond.preheader.i14.i
 
 while.cond.preheader.i14.i:                       ; preds = %do.end.i.i
-  %left_child5.i.i = getelementptr inbounds %struct._QTreeNode, ptr %4, i64 0, i32 5
+  %left_child5.i.i = getelementptr inbounds i8, ptr %4, i64 33
   %6 = load i8, ptr %left_child5.i.i, align 1
   %tobool2.not6.i.i = icmp eq i8 %6, 0
   br i1 %tobool2.not6.i.i, label %q_tree_node_next.exit.i, label %while.body.i15.i
 
 while.body.i15.i:                                 ; preds = %while.cond.preheader.i14.i, %while.body.i15.i
   %tmp.07.i.i = phi ptr [ %7, %while.body.i15.i ], [ %4, %while.cond.preheader.i14.i ]
-  %left.i16.i = getelementptr inbounds %struct._QTreeNode, ptr %tmp.07.i.i, i64 0, i32 2
+  %left.i16.i = getelementptr inbounds i8, ptr %tmp.07.i.i, i64 16
   %7 = load ptr, ptr %left.i16.i, align 8
-  %left_child.i17.i = getelementptr inbounds %struct._QTreeNode, ptr %7, i64 0, i32 5
+  %left_child.i17.i = getelementptr inbounds i8, ptr %7, i64 33
   %8 = load i8, ptr %left_child.i17.i, align 1
   %tobool2.not.i.i = icmp eq i8 %8, 0
   br i1 %tobool2.not.i.i, label %q_tree_node_next.exit.i, label %while.body.i15.i, !llvm.loop !7
@@ -226,7 +223,7 @@ if.end5.i:                                        ; preds = %if.then3.i, %q_tree
   br i1 %tobool6.not.i, label %if.end9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %value.i = getelementptr inbounds %struct._QTreeNode, ptr %node.021.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %node.021.i, i64 8
   %12 = load ptr, ptr %value.i, align 8
   tail call void %11(ptr noundef %12) #7
   br label %if.end9.i
@@ -238,7 +235,7 @@ if.end9.i:                                        ; preds = %if.then7.i, %if.end
 
 q_tree_remove_all.exit:                           ; preds = %if.end9.i, %if.then2
   store ptr null, ptr %tree, align 8
-  %nnodes.i = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 5
+  %nnodes.i = getelementptr inbounds i8, ptr %tree, i64 40
   store i32 0, ptr %nnodes.i, align 8
   tail call void @g_free(ptr noundef nonnull %tree) #7
   br label %if.end3
@@ -265,46 +262,46 @@ do.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i, label %do.end.i, label %while.cond.preheader.i.i
 
 while.cond.preheader.i.i:                         ; preds = %do.end
-  %left_child1.i.i = getelementptr inbounds %struct._QTreeNode, ptr %tree.val.i, i64 0, i32 5
+  %left_child1.i.i = getelementptr inbounds i8, ptr %tree.val.i, i64 33
   %0 = load i8, ptr %left_child1.i.i, align 1
   %tobool4.not2.i.i = icmp eq i8 %0, 0
   br i1 %tobool4.not2.i.i, label %do.end.i.lr.ph.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %while.body.i.i
   %tmp.03.i.i = phi ptr [ %1, %while.body.i.i ], [ %tree.val.i, %while.cond.preheader.i.i ]
-  %left.i.i = getelementptr inbounds %struct._QTreeNode, ptr %tmp.03.i.i, i64 0, i32 2
+  %left.i.i = getelementptr inbounds i8, ptr %tmp.03.i.i, i64 16
   %1 = load ptr, ptr %left.i.i, align 8
-  %left_child.i.i = getelementptr inbounds %struct._QTreeNode, ptr %1, i64 0, i32 5
+  %left_child.i.i = getelementptr inbounds i8, ptr %1, i64 33
   %2 = load i8, ptr %left_child.i.i, align 1
   %tobool4.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool4.not.i.i, label %do.end.i.lr.ph.i, label %while.body.i.i, !llvm.loop !5
 
 do.end.i.lr.ph.i:                                 ; preds = %while.body.i.i, %while.cond.preheader.i.i
   %retval.0.i.ph.i = phi ptr [ %tree.val.i, %while.cond.preheader.i.i ], [ %1, %while.body.i.i ]
-  %key_destroy_func.i = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 2
-  %value_destroy_func.i = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 3
+  %key_destroy_func.i = getelementptr inbounds i8, ptr %tree, i64 16
+  %value_destroy_func.i = getelementptr inbounds i8, ptr %tree, i64 24
   br label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %if.end9.i, %do.end.i.lr.ph.i
   %node.021.i = phi ptr [ %retval.0.i.ph.i, %do.end.i.lr.ph.i ], [ %retval.0.i18.i, %if.end9.i ]
-  %right.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.021.i, i64 0, i32 3
+  %right.i.i = getelementptr inbounds i8, ptr %node.021.i, i64 24
   %3 = load ptr, ptr %right.i.i, align 8
-  %right_child.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.021.i, i64 0, i32 6
+  %right_child.i.i = getelementptr inbounds i8, ptr %node.021.i, i64 34
   %4 = load i8, ptr %right_child.i.i, align 2
   %tobool.not.i13.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i13.i, label %q_tree_node_next.exit.i, label %while.cond.preheader.i14.i
 
 while.cond.preheader.i14.i:                       ; preds = %do.end.i.i
-  %left_child5.i.i = getelementptr inbounds %struct._QTreeNode, ptr %3, i64 0, i32 5
+  %left_child5.i.i = getelementptr inbounds i8, ptr %3, i64 33
   %5 = load i8, ptr %left_child5.i.i, align 1
   %tobool2.not6.i.i = icmp eq i8 %5, 0
   br i1 %tobool2.not6.i.i, label %q_tree_node_next.exit.i, label %while.body.i15.i
 
 while.body.i15.i:                                 ; preds = %while.cond.preheader.i14.i, %while.body.i15.i
   %tmp.07.i.i = phi ptr [ %6, %while.body.i15.i ], [ %3, %while.cond.preheader.i14.i ]
-  %left.i16.i = getelementptr inbounds %struct._QTreeNode, ptr %tmp.07.i.i, i64 0, i32 2
+  %left.i16.i = getelementptr inbounds i8, ptr %tmp.07.i.i, i64 16
   %6 = load ptr, ptr %left.i16.i, align 8
-  %left_child.i17.i = getelementptr inbounds %struct._QTreeNode, ptr %6, i64 0, i32 5
+  %left_child.i17.i = getelementptr inbounds i8, ptr %6, i64 33
   %7 = load i8, ptr %left_child.i17.i, align 1
   %tobool2.not.i.i = icmp eq i8 %7, 0
   br i1 %tobool2.not.i.i, label %q_tree_node_next.exit.i, label %while.body.i15.i, !llvm.loop !7
@@ -326,7 +323,7 @@ if.end5.i:                                        ; preds = %if.then3.i, %q_tree
   br i1 %tobool6.not.i, label %if.end9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %value.i = getelementptr inbounds %struct._QTreeNode, ptr %node.021.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %node.021.i, i64 8
   %11 = load ptr, ptr %value.i, align 8
   tail call void %10(ptr noundef %11) #7
   br label %if.end9.i
@@ -338,9 +335,9 @@ if.end9.i:                                        ; preds = %if.then7.i, %if.end
 
 do.end.i:                                         ; preds = %if.end9.i, %do.end
   store ptr null, ptr %tree, align 8
-  %nnodes.i = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 5
+  %nnodes.i = getelementptr inbounds i8, ptr %tree, i64 40
   store i32 0, ptr %nnodes.i, align 8
-  %ref_count.i = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 6
+  %ref_count.i = getelementptr inbounds i8, ptr %tree, i64 44
   %12 = atomicrmw sub ptr %ref_count.i, i32 1 seq_cst, align 4
   %cmp1.i = icmp eq i32 %12, 1
   br i1 %cmp1.i, label %if.then2.i, label %return
@@ -351,46 +348,46 @@ if.then2.i:                                       ; preds = %do.end.i
   br i1 %tobool.not.i.i.i, label %q_tree_remove_all.exit.i, label %while.cond.preheader.i.i.i
 
 while.cond.preheader.i.i.i:                       ; preds = %if.then2.i
-  %left_child1.i.i.i = getelementptr inbounds %struct._QTreeNode, ptr %tree.val.i.i, i64 0, i32 5
+  %left_child1.i.i.i = getelementptr inbounds i8, ptr %tree.val.i.i, i64 33
   %13 = load i8, ptr %left_child1.i.i.i, align 1
   %tobool4.not2.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool4.not2.i.i.i, label %do.end.i.lr.ph.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.preheader.i.i.i, %while.body.i.i.i
   %tmp.03.i.i.i = phi ptr [ %14, %while.body.i.i.i ], [ %tree.val.i.i, %while.cond.preheader.i.i.i ]
-  %left.i.i.i = getelementptr inbounds %struct._QTreeNode, ptr %tmp.03.i.i.i, i64 0, i32 2
+  %left.i.i.i = getelementptr inbounds i8, ptr %tmp.03.i.i.i, i64 16
   %14 = load ptr, ptr %left.i.i.i, align 8
-  %left_child.i.i.i = getelementptr inbounds %struct._QTreeNode, ptr %14, i64 0, i32 5
+  %left_child.i.i.i = getelementptr inbounds i8, ptr %14, i64 33
   %15 = load i8, ptr %left_child.i.i.i, align 1
   %tobool4.not.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool4.not.i.i.i, label %do.end.i.lr.ph.i.i, label %while.body.i.i.i, !llvm.loop !5
 
 do.end.i.lr.ph.i.i:                               ; preds = %while.body.i.i.i, %while.cond.preheader.i.i.i
   %retval.0.i.ph.i.i = phi ptr [ %tree.val.i.i, %while.cond.preheader.i.i.i ], [ %14, %while.body.i.i.i ]
-  %key_destroy_func.i.i = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 2
-  %value_destroy_func.i.i = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 3
+  %key_destroy_func.i.i = getelementptr inbounds i8, ptr %tree, i64 16
+  %value_destroy_func.i.i = getelementptr inbounds i8, ptr %tree, i64 24
   br label %do.end.i.i.i
 
 do.end.i.i.i:                                     ; preds = %if.end9.i.i, %do.end.i.lr.ph.i.i
   %node.021.i.i = phi ptr [ %retval.0.i.ph.i.i, %do.end.i.lr.ph.i.i ], [ %retval.0.i18.i.i, %if.end9.i.i ]
-  %right.i.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.021.i.i, i64 0, i32 3
+  %right.i.i.i = getelementptr inbounds i8, ptr %node.021.i.i, i64 24
   %16 = load ptr, ptr %right.i.i.i, align 8
-  %right_child.i.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.021.i.i, i64 0, i32 6
+  %right_child.i.i.i = getelementptr inbounds i8, ptr %node.021.i.i, i64 34
   %17 = load i8, ptr %right_child.i.i.i, align 2
   %tobool.not.i13.i.i = icmp eq i8 %17, 0
   br i1 %tobool.not.i13.i.i, label %q_tree_node_next.exit.i.i, label %while.cond.preheader.i14.i.i
 
 while.cond.preheader.i14.i.i:                     ; preds = %do.end.i.i.i
-  %left_child5.i.i.i = getelementptr inbounds %struct._QTreeNode, ptr %16, i64 0, i32 5
+  %left_child5.i.i.i = getelementptr inbounds i8, ptr %16, i64 33
   %18 = load i8, ptr %left_child5.i.i.i, align 1
   %tobool2.not6.i.i.i = icmp eq i8 %18, 0
   br i1 %tobool2.not6.i.i.i, label %q_tree_node_next.exit.i.i, label %while.body.i15.i.i
 
 while.body.i15.i.i:                               ; preds = %while.cond.preheader.i14.i.i, %while.body.i15.i.i
   %tmp.07.i.i.i = phi ptr [ %19, %while.body.i15.i.i ], [ %16, %while.cond.preheader.i14.i.i ]
-  %left.i16.i.i = getelementptr inbounds %struct._QTreeNode, ptr %tmp.07.i.i.i, i64 0, i32 2
+  %left.i16.i.i = getelementptr inbounds i8, ptr %tmp.07.i.i.i, i64 16
   %19 = load ptr, ptr %left.i16.i.i, align 8
-  %left_child.i17.i.i = getelementptr inbounds %struct._QTreeNode, ptr %19, i64 0, i32 5
+  %left_child.i17.i.i = getelementptr inbounds i8, ptr %19, i64 33
   %20 = load i8, ptr %left_child.i17.i.i, align 1
   %tobool2.not.i.i.i = icmp eq i8 %20, 0
   br i1 %tobool2.not.i.i.i, label %q_tree_node_next.exit.i.i, label %while.body.i15.i.i, !llvm.loop !7
@@ -412,7 +409,7 @@ if.end5.i.i:                                      ; preds = %if.then3.i.i, %q_tr
   br i1 %tobool6.not.i.i, label %if.end9.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.end5.i.i
-  %value.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.021.i.i, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %node.021.i.i, i64 8
   %24 = load ptr, ptr %value.i.i, align 8
   tail call void %23(ptr noundef %24) #7
   br label %if.end9.i.i
@@ -497,8 +494,8 @@ entry:
 
 if.end2:                                          ; preds = %entry
   store ptr null, ptr %path, align 16
-  %key_compare = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 1
-  %key_compare_data = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 4
+  %key_compare = getelementptr inbounds i8, ptr %tree, i64 8
+  %key_compare_data = getelementptr inbounds i8, ptr %tree, i64 32
   %1 = load ptr, ptr %key_compare, align 8
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %key_compare_data, align 8
@@ -514,35 +511,25 @@ if.else8:                                         ; preds = %if.end2, %if.end25
   br i1 %cmp9, label %if.then10, label %if.else17
 
 if.then10:                                        ; preds = %if.else8
-  %left_child = getelementptr inbounds %struct._QTreeNode, ptr %.pre, i64 0, i32 5
+  %left_child = getelementptr inbounds i8, ptr %.pre, i64 33
   %4 = load i8, ptr %left_child, align 1
   %tobool11.not = icmp eq i8 %4, 0
-  br i1 %tobool11.not, label %return, label %if.end13
+  br i1 %tobool11.not, label %return, label %if.end25
 
-if.end13:                                         ; preds = %if.then10
+if.else17:                                        ; preds = %if.else8
+  %right_child = getelementptr inbounds i8, ptr %.pre, i64 34
+  %5 = load i8, ptr %right_child, align 2
+  %tobool18.not = icmp eq i8 %5, 0
+  br i1 %tobool18.not, label %return, label %if.end25
+
+if.end25:                                         ; preds = %if.else17, %if.then10
+  %.sink = phi i64 [ 16, %if.then10 ], [ 24, %if.else17 ]
   %idxprom15 = sext i32 %idx.0174 to i64
   %arrayidx16 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %idxprom15
   store ptr %.pre, ptr %arrayidx16, align 8
-  %left = getelementptr inbounds %struct._QTreeNode, ptr %.pre, i64 0, i32 2
-  br label %if.end25
-
-if.else17:                                        ; preds = %if.else8
-  %right_child = getelementptr inbounds %struct._QTreeNode, ptr %.pre, i64 0, i32 6
-  %5 = load i8, ptr %right_child, align 2
-  %tobool18.not = icmp eq i8 %5, 0
-  br i1 %tobool18.not, label %return, label %if.end20
-
-if.end20:                                         ; preds = %if.else17
-  %idxprom22 = sext i32 %idx.0174 to i64
-  %arrayidx23 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %idxprom22
-  store ptr %.pre, ptr %arrayidx23, align 8
-  %right = getelementptr inbounds %struct._QTreeNode, ptr %.pre, i64 0, i32 3
-  br label %if.end25
-
-if.end25:                                         ; preds = %if.end13, %if.end20
-  %node.1.in = phi ptr [ %left, %if.end13 ], [ %right, %if.end20 ]
+  %left = getelementptr inbounds i8, ptr %.pre, i64 %.sink
   %idx.1 = add i32 %idx.0174, 1
-  %node.0 = load ptr, ptr %node.1.in, align 8
+  %node.0 = load ptr, ptr %left, align 8
   %6 = load ptr, ptr %key_compare, align 8
   %7 = load ptr, ptr %node.0, align 8
   %8 = load ptr, ptr %key_compare_data, align 8
@@ -551,13 +538,13 @@ if.end25:                                         ; preds = %if.end13, %if.end20
   br i1 %cmp6, label %lor.lhs.false, label %if.else8
 
 lor.lhs.false:                                    ; preds = %if.end25
-  %left30 = getelementptr inbounds %struct._QTreeNode, ptr %.pre, i64 0, i32 2
+  %left30 = getelementptr inbounds i8, ptr %.pre, i64 16
   %9 = load ptr, ptr %left30, align 8
   %cmp31 = icmp eq ptr %9, %node.0
   br i1 %cmp31, label %land.end, label %lor.lhs.false32
 
 lor.lhs.false32:                                  ; preds = %lor.lhs.false
-  %right33 = getelementptr inbounds %struct._QTreeNode, ptr %.pre, i64 0, i32 3
+  %right33 = getelementptr inbounds i8, ptr %.pre, i64 24
   %10 = load ptr, ptr %right33, align 8
   %cmp34 = icmp eq ptr %10, %node.0
   br i1 %cmp34, label %land.end, label %if.else36
@@ -567,15 +554,15 @@ if.else36:                                        ; preds = %lor.lhs.false32
   unreachable
 
 land.end:                                         ; preds = %if.end2, %lor.lhs.false32, %lor.lhs.false
-  %dec204 = phi i32 [ %idx.0174, %lor.lhs.false ], [ %idx.0174, %lor.lhs.false32 ], [ 0, %if.end2 ]
+  %dec205 = phi i32 [ %idx.0174, %lor.lhs.false ], [ %idx.0174, %lor.lhs.false32 ], [ 0, %if.end2 ]
   %node.0.lcssa202 = phi ptr [ %node.0, %lor.lhs.false ], [ %node.0, %lor.lhs.false32 ], [ %0, %if.end2 ]
   %idx.0.lcssa201 = phi i32 [ %idx.1, %lor.lhs.false ], [ %idx.1, %lor.lhs.false32 ], [ 1, %if.end2 ]
   %11 = phi ptr [ %.pre, %lor.lhs.false ], [ %.pre, %lor.lhs.false32 ], [ null, %if.end2 ]
   %12 = phi i1 [ true, %lor.lhs.false ], [ false, %lor.lhs.false32 ], [ false, %if.end2 ]
-  %left_child42 = getelementptr inbounds %struct._QTreeNode, ptr %node.0.lcssa202, i64 0, i32 5
+  %left_child42 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 33
   %13 = load i8, ptr %left_child42, align 1
   %tobool43.not = icmp eq i8 %13, 0
-  %right_child45 = getelementptr inbounds %struct._QTreeNode, ptr %node.0.lcssa202, i64 0, i32 6
+  %right_child45 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 34
   %14 = load i8, ptr %right_child45, align 2
   %tobool46.not = icmp eq i8 %14, 0
   br i1 %tobool43.not, label %if.then44, label %if.else95
@@ -590,117 +577,97 @@ if.else51:                                        ; preds = %if.then47
   br i1 %12, label %if.then53, label %if.else59
 
 if.then53:                                        ; preds = %if.else51
-  %left_child54 = getelementptr inbounds %struct._QTreeNode, ptr %11, i64 0, i32 5
+  %left_child54 = getelementptr inbounds i8, ptr %11, i64 33
   store i8 0, ptr %left_child54, align 1
-  %left55 = getelementptr inbounds %struct._QTreeNode, ptr %node.0.lcssa202, i64 0, i32 2
+  %left55 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 16
   %15 = load ptr, ptr %left55, align 8
-  %left56 = getelementptr inbounds %struct._QTreeNode, ptr %11, i64 0, i32 2
-  store ptr %15, ptr %left56, align 8
-  br label %while.body195.sink.split
+  br label %while.body195.preheader.sink.split
 
 if.else59:                                        ; preds = %if.else51
-  %right_child60 = getelementptr inbounds %struct._QTreeNode, ptr %11, i64 0, i32 6
+  %right_child60 = getelementptr inbounds i8, ptr %11, i64 34
   store i8 0, ptr %right_child60, align 2
-  %right61 = getelementptr inbounds %struct._QTreeNode, ptr %node.0.lcssa202, i64 0, i32 3
+  %right61 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 24
   %16 = load ptr, ptr %right61, align 8
-  %right62 = getelementptr inbounds %struct._QTreeNode, ptr %11, i64 0, i32 3
-  store ptr %16, ptr %right62, align 8
-  br label %while.body195.sink.split
+  br label %while.body195.preheader.sink.split
 
 while.cond.preheader.i:                           ; preds = %if.then44
-  %right.i = getelementptr inbounds %struct._QTreeNode, ptr %node.0.lcssa202, i64 0, i32 3
+  %right.i = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 24
   %17 = load ptr, ptr %right.i, align 8
-  %left_child5.i = getelementptr inbounds %struct._QTreeNode, ptr %17, i64 0, i32 5
+  %left_child5.i = getelementptr inbounds i8, ptr %17, i64 33
   %18 = load i8, ptr %left_child5.i, align 1
   %tobool2.not6.i = icmp eq i8 %18, 0
   br i1 %tobool2.not6.i, label %q_tree_node_next.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
   %tmp.07.i = phi ptr [ %19, %while.body.i ], [ %17, %while.cond.preheader.i ]
-  %left.i = getelementptr inbounds %struct._QTreeNode, ptr %tmp.07.i, i64 0, i32 2
+  %left.i = getelementptr inbounds i8, ptr %tmp.07.i, i64 16
   %19 = load ptr, ptr %left.i, align 8
-  %left_child.i = getelementptr inbounds %struct._QTreeNode, ptr %19, i64 0, i32 5
+  %left_child.i = getelementptr inbounds i8, ptr %19, i64 33
   %20 = load i8, ptr %left_child.i, align 1
   %tobool2.not.i = icmp eq i8 %20, 0
   br i1 %tobool2.not.i, label %q_tree_node_next.exit, label %while.body.i, !llvm.loop !7
 
 q_tree_node_next.exit:                            ; preds = %while.body.i, %while.cond.preheader.i
   %retval.0.i = phi ptr [ %17, %while.cond.preheader.i ], [ %19, %while.body.i ]
-  %left70 = getelementptr inbounds %struct._QTreeNode, ptr %node.0.lcssa202, i64 0, i32 2
+  %left70 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 16
   %21 = load ptr, ptr %left70, align 8
-  %left71 = getelementptr inbounds %struct._QTreeNode, ptr %retval.0.i, i64 0, i32 2
+  %left71 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   store ptr %21, ptr %left71, align 8
   %22 = load ptr, ptr %right.i, align 8
   br i1 %cmp6173, label %if.end264.sink.split, label %if.else76
 
 if.else76:                                        ; preds = %q_tree_node_next.exit
-  br i1 %12, label %if.then78, label %if.else85
-
-if.then78:                                        ; preds = %if.else76
-  %left80 = getelementptr inbounds %struct._QTreeNode, ptr %11, i64 0, i32 2
-  store ptr %22, ptr %left80, align 8
-  br label %while.body195.sink.split
-
-if.else85:                                        ; preds = %if.else76
-  %right87 = getelementptr inbounds %struct._QTreeNode, ptr %11, i64 0, i32 3
-  store ptr %22, ptr %right87, align 8
-  br label %while.body195.sink.split
+  %. = select i1 %12, i64 16, i64 24
+  %.239 = select i1 %12, i8 1, i8 -1
+  br label %while.body195.preheader.sink.split
 
 if.else95:                                        ; preds = %land.end
-  %left.i137 = getelementptr inbounds %struct._QTreeNode, ptr %node.0.lcssa202, i64 0, i32 2
+  %left.i137 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 16
   %23 = load ptr, ptr %left.i137, align 8
   br i1 %tobool46.not, label %while.cond.preheader.i140, label %if.else126
 
 while.cond.preheader.i140:                        ; preds = %if.else95
-  %right_child5.i = getelementptr inbounds %struct._QTreeNode, ptr %23, i64 0, i32 6
+  %right_child5.i = getelementptr inbounds i8, ptr %23, i64 34
   %24 = load i8, ptr %right_child5.i, align 2
   %tobool2.not6.i141 = icmp eq i8 %24, 0
   br i1 %tobool2.not6.i141, label %q_tree_node_previous.exit, label %while.body.i142
 
 while.body.i142:                                  ; preds = %while.cond.preheader.i140, %while.body.i142
   %tmp.07.i143 = phi ptr [ %25, %while.body.i142 ], [ %23, %while.cond.preheader.i140 ]
-  %right.i144 = getelementptr inbounds %struct._QTreeNode, ptr %tmp.07.i143, i64 0, i32 3
+  %right.i144 = getelementptr inbounds i8, ptr %tmp.07.i143, i64 24
   %25 = load ptr, ptr %right.i144, align 8
-  %right_child.i145 = getelementptr inbounds %struct._QTreeNode, ptr %25, i64 0, i32 6
+  %right_child.i145 = getelementptr inbounds i8, ptr %25, i64 34
   %26 = load i8, ptr %right_child.i145, align 2
   %tobool2.not.i146 = icmp eq i8 %26, 0
   br i1 %tobool2.not.i146, label %q_tree_node_previous.exit, label %while.body.i142, !llvm.loop !10
 
 q_tree_node_previous.exit:                        ; preds = %while.body.i142, %while.cond.preheader.i140
   %retval.0.i147 = phi ptr [ %23, %while.cond.preheader.i140 ], [ %25, %while.body.i142 ]
-  %right101 = getelementptr inbounds %struct._QTreeNode, ptr %node.0.lcssa202, i64 0, i32 3
+  %right101 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 24
   %27 = load ptr, ptr %right101, align 8
-  %right102 = getelementptr inbounds %struct._QTreeNode, ptr %retval.0.i147, i64 0, i32 3
+  %right102 = getelementptr inbounds i8, ptr %retval.0.i147, i64 24
   store ptr %27, ptr %right102, align 8
   %28 = load ptr, ptr %left.i137, align 8
   br i1 %cmp6173, label %if.end264.sink.split, label %if.else108
 
 if.else108:                                       ; preds = %q_tree_node_previous.exit
-  br i1 %12, label %if.then110, label %if.else117
-
-if.then110:                                       ; preds = %if.else108
-  %left112 = getelementptr inbounds %struct._QTreeNode, ptr %11, i64 0, i32 2
-  store ptr %28, ptr %left112, align 8
-  br label %while.body195.sink.split
-
-if.else117:                                       ; preds = %if.else108
-  %right119 = getelementptr inbounds %struct._QTreeNode, ptr %11, i64 0, i32 3
-  store ptr %28, ptr %right119, align 8
-  br label %while.body195.sink.split
+  %.240 = select i1 %12, i64 16, i64 24
+  %.241 = select i1 %12, i8 1, i8 -1
+  br label %while.body195.preheader.sink.split
 
 if.else126:                                       ; preds = %if.else95
-  %right128 = getelementptr inbounds %struct._QTreeNode, ptr %node.0.lcssa202, i64 0, i32 3
+  %right128 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 24
   %next.0179 = load ptr, ptr %right128, align 8
-  %left_child131180 = getelementptr inbounds %struct._QTreeNode, ptr %next.0179, i64 0, i32 5
+  %left_child131180 = getelementptr inbounds i8, ptr %next.0179, i64 33
   %29 = load i8, ptr %left_child131180, align 1
   %tobool132.not181 = icmp eq i8 %29, 0
   br i1 %tobool132.not181, label %while.end138.thread, label %while.body133
 
 while.end138.thread:                              ; preds = %if.else126
   %.pre195 = sext i32 %idx.0.lcssa201 to i64
-  %left_child131.le211 = getelementptr inbounds %struct._QTreeNode, ptr %next.0179, i64 0, i32 5
-  %arrayidx140212 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %.pre195
-  store ptr %next.0179, ptr %arrayidx140212, align 8
+  %left_child131.le212 = getelementptr inbounds i8, ptr %next.0179, i64 33
+  %arrayidx140213 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %.pre195
+  store ptr %next.0179, ptr %arrayidx140213, align 8
   br label %if.else161
 
 while.body133:                                    ; preds = %if.else126, %while.body133
@@ -710,16 +677,16 @@ while.body133:                                    ; preds = %if.else126, %while.
   %idxprom135 = sext i32 %inc134 to i64
   %arrayidx136 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %idxprom135
   store ptr %next.0183, ptr %arrayidx136, align 8
-  %left137 = getelementptr inbounds %struct._QTreeNode, ptr %next.0183, i64 0, i32 2
+  %left137 = getelementptr inbounds i8, ptr %next.0183, i64 16
   %next.0 = load ptr, ptr %left137, align 8
-  %left_child131 = getelementptr inbounds %struct._QTreeNode, ptr %next.0, i64 0, i32 5
+  %left_child131 = getelementptr inbounds i8, ptr %next.0, i64 33
   %30 = load i8, ptr %left_child131, align 1
   %tobool132.not = icmp eq i8 %30, 0
   br i1 %tobool132.not, label %while.end138, label %while.body133, !llvm.loop !11
 
 while.end138:                                     ; preds = %while.body133
   %.pre196 = sext i32 %idx.0.lcssa201 to i64
-  %left_child131.le = getelementptr inbounds %struct._QTreeNode, ptr %next.0, i64 0, i32 5
+  %left_child131.le = getelementptr inbounds i8, ptr %next.0, i64 33
   %arrayidx140 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %.pre196
   store ptr %next.0, ptr %arrayidx140, align 8
   %arrayidx142 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %idxprom135
@@ -728,40 +695,40 @@ while.end138:                                     ; preds = %while.body133
   br i1 %cmp143.not, label %if.else161, label %if.then145
 
 if.then145:                                       ; preds = %while.end138
-  %right_child146 = getelementptr inbounds %struct._QTreeNode, ptr %next.0, i64 0, i32 6
+  %right_child146 = getelementptr inbounds i8, ptr %next.0, i64 34
   %32 = load i8, ptr %right_child146, align 2
   %tobool147.not = icmp eq i8 %32, 0
   br i1 %tobool147.not, label %if.else151, label %if.then148
 
 if.then148:                                       ; preds = %if.then145
-  %right149 = getelementptr inbounds %struct._QTreeNode, ptr %next.0, i64 0, i32 3
+  %right149 = getelementptr inbounds i8, ptr %next.0, i64 24
   %33 = load ptr, ptr %right149, align 8
-  %left150 = getelementptr inbounds %struct._QTreeNode, ptr %next.0183, i64 0, i32 2
+  %left150 = getelementptr inbounds i8, ptr %next.0183, i64 16
   store ptr %33, ptr %left150, align 8
   br label %if.end153
 
 if.else151:                                       ; preds = %if.then145
-  %left_child152 = getelementptr inbounds %struct._QTreeNode, ptr %next.0183, i64 0, i32 5
+  %left_child152 = getelementptr inbounds i8, ptr %next.0183, i64 33
   store i8 0, ptr %left_child152, align 1
   br label %if.end153
 
 if.end153:                                        ; preds = %if.else151, %if.then148
-  %balance154 = getelementptr inbounds %struct._QTreeNode, ptr %next.0183, i64 0, i32 4
+  %balance154 = getelementptr inbounds i8, ptr %next.0183, i64 32
   %34 = load i8, ptr %balance154, align 8
   %add156 = add i8 %34, 1
   store i8 %add156, ptr %balance154, align 8
   store i8 1, ptr %right_child146, align 2
   %35 = load ptr, ptr %right128, align 8
-  %right160 = getelementptr inbounds %struct._QTreeNode, ptr %next.0, i64 0, i32 3
+  %right160 = getelementptr inbounds i8, ptr %next.0, i64 24
   store ptr %35, ptr %right160, align 8
   br label %if.end166
 
 if.else161:                                       ; preds = %while.end138.thread, %while.end138
   %36 = phi ptr [ %next.0179, %while.end138.thread ], [ %31, %while.end138 ]
-  %left_child131.le220 = phi ptr [ %left_child131.le211, %while.end138.thread ], [ %left_child131.le, %while.end138 ]
-  %idx.2.lcssa218 = phi i32 [ %idx.0.lcssa201, %while.end138.thread ], [ %inc134, %while.end138 ]
-  %next.0.lcssa178216 = phi ptr [ %next.0179, %while.end138.thread ], [ %next.0, %while.end138 ]
-  %balance162 = getelementptr inbounds %struct._QTreeNode, ptr %node.0.lcssa202, i64 0, i32 4
+  %left_child131.le221 = phi ptr [ %left_child131.le212, %while.end138.thread ], [ %left_child131.le, %while.end138 ]
+  %idx.2.lcssa219 = phi i32 [ %idx.0.lcssa201, %while.end138.thread ], [ %inc134, %while.end138 ]
+  %next.0.lcssa178217 = phi ptr [ %next.0179, %while.end138.thread ], [ %next.0, %while.end138 ]
+  %balance162 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 32
   %37 = load i8, ptr %balance162, align 8
   %sub164 = add i8 %37, -1
   store i8 %sub164, ptr %balance162, align 8
@@ -769,34 +736,34 @@ if.else161:                                       ; preds = %while.end138.thread
 
 if.end166:                                        ; preds = %if.else161, %if.end153
   %38 = phi ptr [ %36, %if.else161 ], [ %31, %if.end153 ]
-  %left_child131.le219 = phi ptr [ %left_child131.le220, %if.else161 ], [ %left_child131.le, %if.end153 ]
-  %idx.2.lcssa217 = phi i32 [ %idx.2.lcssa218, %if.else161 ], [ %inc134, %if.end153 ]
-  %next.0.lcssa178215 = phi ptr [ %next.0.lcssa178216, %if.else161 ], [ %next.0, %if.end153 ]
-  %right_child168188 = getelementptr inbounds %struct._QTreeNode, ptr %23, i64 0, i32 6
+  %left_child131.le220 = phi ptr [ %left_child131.le221, %if.else161 ], [ %left_child131.le, %if.end153 ]
+  %idx.2.lcssa218 = phi i32 [ %idx.2.lcssa219, %if.else161 ], [ %inc134, %if.end153 ]
+  %next.0.lcssa178216 = phi ptr [ %next.0.lcssa178217, %if.else161 ], [ %next.0, %if.end153 ]
+  %right_child168188 = getelementptr inbounds i8, ptr %23, i64 34
   %39 = load i8, ptr %right_child168188, align 2
   %tobool169.not189 = icmp eq i8 %39, 0
   br i1 %tobool169.not189, label %while.end172, label %while.body170
 
 while.body170:                                    ; preds = %if.end166, %while.body170
   %prev.0190 = phi ptr [ %40, %while.body170 ], [ %23, %if.end166 ]
-  %right171 = getelementptr inbounds %struct._QTreeNode, ptr %prev.0190, i64 0, i32 3
+  %right171 = getelementptr inbounds i8, ptr %prev.0190, i64 24
   %40 = load ptr, ptr %right171, align 8
-  %right_child168 = getelementptr inbounds %struct._QTreeNode, ptr %40, i64 0, i32 6
+  %right_child168 = getelementptr inbounds i8, ptr %40, i64 34
   %41 = load i8, ptr %right_child168, align 2
   %tobool169.not = icmp eq i8 %41, 0
   br i1 %tobool169.not, label %while.end172, label %while.body170, !llvm.loop !12
 
 while.end172:                                     ; preds = %while.body170, %if.end166
   %prev.0.lcssa = phi ptr [ %23, %if.end166 ], [ %40, %while.body170 ]
-  %right173 = getelementptr inbounds %struct._QTreeNode, ptr %prev.0.lcssa, i64 0, i32 3
-  store ptr %next.0.lcssa178215, ptr %right173, align 8
-  store i8 1, ptr %left_child131.le219, align 1
+  %right173 = getelementptr inbounds i8, ptr %prev.0.lcssa, i64 24
+  store ptr %next.0.lcssa178216, ptr %right173, align 8
+  store i8 1, ptr %left_child131.le220, align 1
   %42 = load ptr, ptr %left.i137, align 8
-  %left176 = getelementptr inbounds %struct._QTreeNode, ptr %next.0.lcssa178215, i64 0, i32 2
+  %left176 = getelementptr inbounds i8, ptr %next.0.lcssa178216, i64 16
   store ptr %42, ptr %left176, align 8
-  %balance177 = getelementptr inbounds %struct._QTreeNode, ptr %node.0.lcssa202, i64 0, i32 4
+  %balance177 = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 32
   %43 = load i8, ptr %balance177, align 8
-  %balance178 = getelementptr inbounds %struct._QTreeNode, ptr %next.0.lcssa178215, i64 0, i32 4
+  %balance178 = getelementptr inbounds i8, ptr %next.0.lcssa178216, i64 32
   store i8 %43, ptr %balance178, align 8
   br i1 %cmp6173, label %if.end191, label %if.else182
 
@@ -804,32 +771,40 @@ if.else182:                                       ; preds = %while.end172
   br i1 %12, label %if.then184, label %if.else186
 
 if.then184:                                       ; preds = %if.else182
-  %left185 = getelementptr inbounds %struct._QTreeNode, ptr %11, i64 0, i32 2
+  %left185 = getelementptr inbounds i8, ptr %11, i64 16
   br label %if.end191
 
 if.else186:                                       ; preds = %if.else182
-  %right187 = getelementptr inbounds %struct._QTreeNode, ptr %11, i64 0, i32 3
+  %right187 = getelementptr inbounds i8, ptr %11, i64 24
   br label %if.end191
 
 if.end191:                                        ; preds = %while.end172, %if.then184, %if.else186
   %left185.sink = phi ptr [ %left185, %if.then184 ], [ %right187, %if.else186 ], [ %tree, %while.end172 ]
-  store ptr %next.0.lcssa178215, ptr %left185.sink, align 8
+  store ptr %next.0.lcssa178216, ptr %left185.sink, align 8
   %tobool192.not = icmp eq ptr %38, null
   br i1 %tobool192.not, label %if.end264, label %while.body195
 
-while.body195.sink.split:                         ; preds = %if.else59, %if.then53, %if.else85, %if.then78, %if.else117, %if.then110, %if.else257, %if.end242.thread161, %if.end250
-  %.sink239 = phi ptr [ %45, %if.end250 ], [ %45, %if.end242.thread161 ], [ %45, %if.else257 ], [ %11, %if.then110 ], [ %11, %if.else117 ], [ %11, %if.then78 ], [ %11, %if.else85 ], [ %11, %if.then53 ], [ %11, %if.else59 ]
-  %.sink229.sink = phi i8 [ 1, %if.end250 ], [ 1, %if.end242.thread161 ], [ -1, %if.else257 ], [ 1, %if.then110 ], [ -1, %if.else117 ], [ 1, %if.then78 ], [ -1, %if.else85 ], [ 1, %if.then53 ], [ -1, %if.else59 ]
-  %idx.4.ph = phi i32 [ %dec196, %if.end250 ], [ %dec196, %if.end242.thread161 ], [ %dec196, %if.else257 ], [ %dec204, %if.then110 ], [ %dec204, %if.else117 ], [ %dec204, %if.then78 ], [ %dec204, %if.else85 ], [ %dec204, %if.then53 ], [ %dec204, %if.else59 ]
-  %balance258 = getelementptr inbounds %struct._QTreeNode, ptr %.sink239, i64 0, i32 4
-  %44 = load i8, ptr %balance258, align 8
-  %sub = add i8 %44, %.sink229.sink
-  store i8 %sub, ptr %balance258, align 8
+while.body195.preheader.sink.split:               ; preds = %if.else108, %if.else76, %if.then53, %if.else59
+  %.sink234 = phi i64 [ 24, %if.else59 ], [ 16, %if.then53 ], [ %., %if.else76 ], [ %.240, %if.else108 ]
+  %.sink233 = phi ptr [ %16, %if.else59 ], [ %15, %if.then53 ], [ %22, %if.else76 ], [ %28, %if.else108 ]
+  %.sink231 = phi i8 [ -1, %if.else59 ], [ 1, %if.then53 ], [ %.239, %if.else76 ], [ %.241, %if.else108 ]
+  %right62 = getelementptr inbounds i8, ptr %11, i64 %.sink234
+  store ptr %.sink233, ptr %right62, align 8
+  br label %while.body195.sink.split
+
+while.body195.sink.split:                         ; preds = %if.end262, %while.body195.preheader.sink.split
+  %.sink231.sink = phi i8 [ %.sink231, %while.body195.preheader.sink.split ], [ %.sink236, %if.end262 ]
+  %idx.4.ph = phi i32 [ %dec205, %while.body195.preheader.sink.split ], [ %dec196, %if.end262 ]
+  %balance.1.ph = phi ptr [ %11, %while.body195.preheader.sink.split ], [ %45, %if.end262 ]
+  %balance57.sink232.sink247 = getelementptr inbounds i8, ptr %balance.1.ph, i64 32
+  %44 = load i8, ptr %balance57.sink232.sink247, align 8
+  %sub = add i8 %44, %.sink231.sink
+  store i8 %sub, ptr %balance57.sink232.sink247, align 8
   br label %while.body195
 
 while.body195:                                    ; preds = %while.body195.sink.split, %if.end191
-  %idx.4 = phi i32 [ %idx.2.lcssa217, %if.end191 ], [ %idx.4.ph, %while.body195.sink.split ]
-  %balance.1 = phi ptr [ %38, %if.end191 ], [ %.sink239, %while.body195.sink.split ]
+  %idx.4 = phi i32 [ %idx.2.lcssa218, %if.end191 ], [ %idx.4.ph, %while.body195.sink.split ]
+  %balance.1 = phi ptr [ %38, %if.end191 ], [ %balance.1.ph, %while.body195.sink.split ]
   %dec196 = add i32 %idx.4, -1
   %idxprom197 = sext i32 %dec196 to i64
   %arrayidx198 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %idxprom197
@@ -838,13 +813,13 @@ while.body195:                                    ; preds = %while.body195.sink.
   br i1 %tobool200, label %lor.lhs.false201, label %land.end218
 
 lor.lhs.false201:                                 ; preds = %while.body195
-  %left202 = getelementptr inbounds %struct._QTreeNode, ptr %45, i64 0, i32 2
+  %left202 = getelementptr inbounds i8, ptr %45, i64 16
   %46 = load ptr, ptr %left202, align 8
   %cmp203 = icmp eq ptr %46, %balance.1
   br i1 %cmp203, label %land.end218, label %lor.lhs.false205
 
 lor.lhs.false205:                                 ; preds = %lor.lhs.false201
-  %right206 = getelementptr inbounds %struct._QTreeNode, ptr %45, i64 0, i32 3
+  %right206 = getelementptr inbounds i8, ptr %45, i64 24
   %47 = load ptr, ptr %right206, align 8
   %cmp207 = icmp eq ptr %47, %balance.1
   br i1 %cmp207, label %land.end218, label %if.else210
@@ -855,7 +830,7 @@ if.else210:                                       ; preds = %lor.lhs.false205
 
 land.end218:                                      ; preds = %lor.lhs.false205, %lor.lhs.false201, %while.body195
   %48 = phi i1 [ false, %while.body195 ], [ true, %lor.lhs.false201 ], [ false, %lor.lhs.false205 ]
-  %balance220 = getelementptr inbounds %struct._QTreeNode, ptr %balance.1, i64 0, i32 4
+  %balance220 = getelementptr inbounds i8, ptr %balance.1, i64 32
   %49 = load i8, ptr %balance220, align 8
   %50 = add i8 %49, -2
   %or.cond134 = icmp ult i8 %50, -3
@@ -866,7 +841,7 @@ if.then229:                                       ; preds = %land.end218
   br i1 %tobool200, label %if.else234, label %if.end264.sink.split
 
 if.else234:                                       ; preds = %if.then229
-  %balance243163 = getelementptr inbounds %struct._QTreeNode, ptr %call230, i64 0, i32 4
+  %balance243163 = getelementptr inbounds i8, ptr %call230, i64 32
   br i1 %48, label %if.end242.thread161, label %if.end242.thread156
 
 if.end242:                                        ; preds = %land.end218
@@ -875,28 +850,32 @@ if.end242:                                        ; preds = %land.end218
   br i1 %or.cond, label %if.end250, label %if.end264
 
 if.end242.thread161:                              ; preds = %if.else234
-  %left237 = getelementptr inbounds %struct._QTreeNode, ptr %45, i64 0, i32 2
+  %left237 = getelementptr inbounds i8, ptr %45, i64 16
   store ptr %call230, ptr %left237, align 8
   %51 = load i8, ptr %balance243163, align 8
   %cmp245164 = icmp eq i8 %51, 0
-  br i1 %cmp245164, label %while.body195.sink.split, label %if.end264
+  br i1 %cmp245164, label %if.end262, label %if.end264
 
 if.end242.thread156:                              ; preds = %if.else234
-  %right239 = getelementptr inbounds %struct._QTreeNode, ptr %45, i64 0, i32 3
+  %right239 = getelementptr inbounds i8, ptr %45, i64 24
   store ptr %call230, ptr %right239, align 8
   %52 = load i8, ptr %balance243163, align 8
   %cmp245159 = icmp eq i8 %52, 0
   br i1 %cmp245159, label %if.else257, label %if.end264
 
 if.end250:                                        ; preds = %if.end242
-  br i1 %48, label %while.body195.sink.split, label %if.else257
+  br i1 %48, label %if.end262, label %if.else257
 
 if.else257:                                       ; preds = %if.end242.thread156, %if.end250
+  br label %if.end262
+
+if.end262:                                        ; preds = %if.end250, %if.end242.thread161, %if.else257
+  %.sink236 = phi i8 [ -1, %if.else257 ], [ 1, %if.end242.thread161 ], [ 1, %if.end250 ]
   br label %while.body195.sink.split
 
 if.end264.sink.split:                             ; preds = %if.then229, %q_tree_node_previous.exit, %q_tree_node_next.exit, %if.then47
-  %.sink = phi ptr [ null, %if.then47 ], [ %22, %q_tree_node_next.exit ], [ %28, %q_tree_node_previous.exit ], [ %call230, %if.then229 ]
-  store ptr %.sink, ptr %tree, align 8
+  %.sink238 = phi ptr [ null, %if.then47 ], [ %22, %q_tree_node_next.exit ], [ %28, %q_tree_node_previous.exit ], [ %call230, %if.then229 ]
+  store ptr %.sink238, ptr %tree, align 8
   br label %if.end264
 
 if.end264:                                        ; preds = %if.end242.thread161, %if.end242.thread156, %if.end242, %if.end264.sink.split, %if.end191
@@ -904,7 +883,7 @@ if.end264:                                        ; preds = %if.end242.thread161
   br i1 %tobool265.not, label %if.then266, label %if.end276
 
 if.then266:                                       ; preds = %if.end264
-  %key_destroy_func = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 2
+  %key_destroy_func = getelementptr inbounds i8, ptr %tree, i64 16
   %53 = load ptr, ptr %key_destroy_func, align 8
   %tobool267.not = icmp eq ptr %53, null
   br i1 %tobool267.not, label %if.end271, label %if.then268
@@ -915,20 +894,20 @@ if.then268:                                       ; preds = %if.then266
   br label %if.end271
 
 if.end271:                                        ; preds = %if.then268, %if.then266
-  %value_destroy_func = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 3
+  %value_destroy_func = getelementptr inbounds i8, ptr %tree, i64 24
   %55 = load ptr, ptr %value_destroy_func, align 8
   %tobool272.not = icmp eq ptr %55, null
   br i1 %tobool272.not, label %if.end276, label %if.then273
 
 if.then273:                                       ; preds = %if.end271
-  %value = getelementptr inbounds %struct._QTreeNode, ptr %node.0.lcssa202, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %node.0.lcssa202, i64 8
   %56 = load ptr, ptr %value, align 8
   tail call void %55(ptr noundef %56) #7
   br label %if.end276
 
 if.end276:                                        ; preds = %if.end271, %if.then273, %if.end264
   tail call void @g_free(ptr noundef nonnull %node.0.lcssa202) #7
-  %nnodes = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 5
+  %nnodes = getelementptr inbounds i8, ptr %tree, i64 40
   %57 = load i32, ptr %nnodes, align 8
   %dec277 = add i32 %57, -1
   store i32 %dec277, ptr %nnodes, align 8
@@ -974,8 +953,8 @@ do.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %cond.end, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %do.end.i
-  %key_compare.i.i = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 1
-  %key_compare_data.i.i = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 4
+  %key_compare.i.i = getelementptr inbounds i8, ptr %tree, i64 8
+  %key_compare_data.i.i = getelementptr inbounds i8, ptr %tree, i64 32
   %1 = load ptr, ptr %key_compare.i.i, align 8
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %key_compare_data.i.i, align 8
@@ -990,28 +969,21 @@ if.else.i.i:                                      ; preds = %while.body.preheade
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else9.i.i
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %left_child.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.012.i.i, i64 0, i32 5
+  %left_child.i.i = getelementptr inbounds i8, ptr %node.012.i.i, i64 33
   %4 = load i8, ptr %left_child.i.i, align 1
   %tobool6.not.i.i = icmp eq i8 %4, 0
-  br i1 %tobool6.not.i.i, label %cond.end, label %if.end8.i.i
-
-if.end8.i.i:                                      ; preds = %if.then5.i.i
-  %left.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.012.i.i, i64 0, i32 2
-  br label %if.end14.i.i
+  br i1 %tobool6.not.i.i, label %cond.end, label %if.end14.i.i
 
 if.else9.i.i:                                     ; preds = %if.else.i.i
-  %right_child.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.012.i.i, i64 0, i32 6
+  %right_child.i.i = getelementptr inbounds i8, ptr %node.012.i.i, i64 34
   %5 = load i8, ptr %right_child.i.i, align 2
   %tobool10.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool10.not.i.i, label %cond.end, label %if.end12.i.i
+  br i1 %tobool10.not.i.i, label %cond.end, label %if.end14.i.i
 
-if.end12.i.i:                                     ; preds = %if.else9.i.i
-  %right.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.012.i.i, i64 0, i32 3
-  br label %if.end14.i.i
-
-if.end14.i.i:                                     ; preds = %if.end12.i.i, %if.end8.i.i
-  %node.1.in.i.i = phi ptr [ %left.i.i, %if.end8.i.i ], [ %right.i.i, %if.end12.i.i ]
-  %node.1.i.i = load ptr, ptr %node.1.in.i.i, align 8
+if.end14.i.i:                                     ; preds = %if.else9.i.i, %if.then5.i.i
+  %.sink.i.i = phi i64 [ 16, %if.then5.i.i ], [ 24, %if.else9.i.i ]
+  %left.i.i = getelementptr inbounds i8, ptr %node.012.i.i, i64 %.sink.i.i
+  %node.1.i.i = load ptr, ptr %left.i.i, align 8
   %6 = load ptr, ptr %key_compare.i.i, align 8
   %7 = load ptr, ptr %node.1.i.i, align 8
   %8 = load ptr, ptr %key_compare_data.i.i, align 8
@@ -1021,7 +993,7 @@ if.end14.i.i:                                     ; preds = %if.end12.i.i, %if.e
 
 cond.true:                                        ; preds = %if.end14.i.i, %while.body.preheader.i.i
   %retval.0.i = phi ptr [ %0, %while.body.preheader.i.i ], [ %node.1.i.i, %if.end14.i.i ]
-  %value = getelementptr inbounds %struct._QTreeNode, ptr %retval.0.i, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %9 = load ptr, ptr %value, align 8
   br label %cond.end
 
@@ -1046,8 +1018,8 @@ do.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %return, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %do.end
-  %key_compare.i = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 1
-  %key_compare_data.i = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 4
+  %key_compare.i = getelementptr inbounds i8, ptr %tree, i64 8
+  %key_compare_data.i = getelementptr inbounds i8, ptr %tree, i64 32
   %1 = load ptr, ptr %key_compare.i, align 8
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %key_compare_data.i, align 8
@@ -1062,28 +1034,21 @@ if.else.i:                                        ; preds = %while.body.preheade
   br i1 %cmp4.i, label %if.then5.i, label %if.else9.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  %left_child.i = getelementptr inbounds %struct._QTreeNode, ptr %node.012.i, i64 0, i32 5
+  %left_child.i = getelementptr inbounds i8, ptr %node.012.i, i64 33
   %4 = load i8, ptr %left_child.i, align 1
   %tobool6.not.i = icmp eq i8 %4, 0
-  br i1 %tobool6.not.i, label %return, label %if.end8.i
-
-if.end8.i:                                        ; preds = %if.then5.i
-  %left.i = getelementptr inbounds %struct._QTreeNode, ptr %node.012.i, i64 0, i32 2
-  br label %if.end14.i
+  br i1 %tobool6.not.i, label %return, label %if.end14.i
 
 if.else9.i:                                       ; preds = %if.else.i
-  %right_child.i = getelementptr inbounds %struct._QTreeNode, ptr %node.012.i, i64 0, i32 6
+  %right_child.i = getelementptr inbounds i8, ptr %node.012.i, i64 34
   %5 = load i8, ptr %right_child.i, align 2
   %tobool10.not.i = icmp eq i8 %5, 0
-  br i1 %tobool10.not.i, label %return, label %if.end12.i
+  br i1 %tobool10.not.i, label %return, label %if.end14.i
 
-if.end12.i:                                       ; preds = %if.else9.i
-  %right.i = getelementptr inbounds %struct._QTreeNode, ptr %node.012.i, i64 0, i32 3
-  br label %if.end14.i
-
-if.end14.i:                                       ; preds = %if.end12.i, %if.end8.i
-  %node.1.in.i = phi ptr [ %left.i, %if.end8.i ], [ %right.i, %if.end12.i ]
-  %node.1.i = load ptr, ptr %node.1.in.i, align 8
+if.end14.i:                                       ; preds = %if.else9.i, %if.then5.i
+  %.sink.i = phi i64 [ 16, %if.then5.i ], [ 24, %if.else9.i ]
+  %left.i = getelementptr inbounds i8, ptr %node.012.i, i64 %.sink.i
+  %node.1.i = load ptr, ptr %left.i, align 8
   %6 = load ptr, ptr %key_compare.i, align 8
   %7 = load ptr, ptr %node.1.i, align 8
   %8 = load ptr, ptr %key_compare_data.i, align 8
@@ -1106,7 +1071,7 @@ if.end4:                                          ; preds = %if.then3, %if.then1
   br i1 %tobool5.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %value7 = getelementptr inbounds %struct._QTreeNode, ptr %retval.0.i, i64 0, i32 1
+  %value7 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %10 = load ptr, ptr %value7, align 8
   store ptr %10, ptr %value, align 8
   br label %return
@@ -1132,16 +1097,16 @@ do.end:                                           ; preds = %entry
   br i1 %tobool.not, label %while.end, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %do.end
-  %left_child1.i = getelementptr inbounds %struct._QTreeNode, ptr %0, i64 0, i32 5
+  %left_child1.i = getelementptr inbounds i8, ptr %0, i64 33
   %1 = load i8, ptr %left_child1.i, align 1
   %tobool4.not2.i = icmp eq i8 %1, 0
   br i1 %tobool4.not2.i, label %while.body.preheader, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
   %tmp.03.i = phi ptr [ %2, %while.body.i ], [ %0, %while.cond.preheader.i ]
-  %left.i = getelementptr inbounds %struct._QTreeNode, ptr %tmp.03.i, i64 0, i32 2
+  %left.i = getelementptr inbounds i8, ptr %tmp.03.i, i64 16
   %2 = load ptr, ptr %left.i, align 8
-  %left_child.i = getelementptr inbounds %struct._QTreeNode, ptr %2, i64 0, i32 5
+  %left_child.i = getelementptr inbounds i8, ptr %2, i64 33
   %3 = load i8, ptr %left_child.i, align 1
   %tobool4.not.i = icmp eq i8 %3, 0
   br i1 %tobool4.not.i, label %while.body.preheader, label %while.body.i, !llvm.loop !5
@@ -1153,31 +1118,31 @@ while.body.preheader:                             ; preds = %while.body.i, %whil
 while.body:                                       ; preds = %while.body.preheader, %q_tree_node_next.exit
   %node.014 = phi ptr [ %retval.0.i11, %q_tree_node_next.exit ], [ %node.014.ph, %while.body.preheader ]
   %4 = load ptr, ptr %node.014, align 8
-  %value = getelementptr inbounds %struct._QTreeNode, ptr %node.014, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %node.014, i64 8
   %5 = load ptr, ptr %value, align 8
   %call4 = tail call i32 %func(ptr noundef %4, ptr noundef %5, ptr noundef %user_data) #7
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %do.end.i, label %while.end
 
 do.end.i:                                         ; preds = %while.body
-  %right.i = getelementptr inbounds %struct._QTreeNode, ptr %node.014, i64 0, i32 3
+  %right.i = getelementptr inbounds i8, ptr %node.014, i64 24
   %6 = load ptr, ptr %right.i, align 8
-  %right_child.i = getelementptr inbounds %struct._QTreeNode, ptr %node.014, i64 0, i32 6
+  %right_child.i = getelementptr inbounds i8, ptr %node.014, i64 34
   %7 = load i8, ptr %right_child.i, align 2
   %tobool.not.i6 = icmp eq i8 %7, 0
   br i1 %tobool.not.i6, label %q_tree_node_next.exit, label %while.cond.preheader.i7
 
 while.cond.preheader.i7:                          ; preds = %do.end.i
-  %left_child5.i = getelementptr inbounds %struct._QTreeNode, ptr %6, i64 0, i32 5
+  %left_child5.i = getelementptr inbounds i8, ptr %6, i64 33
   %8 = load i8, ptr %left_child5.i, align 1
   %tobool2.not6.i = icmp eq i8 %8, 0
   br i1 %tobool2.not6.i, label %q_tree_node_next.exit, label %while.body.i8
 
 while.body.i8:                                    ; preds = %while.cond.preheader.i7, %while.body.i8
   %tmp.07.i = phi ptr [ %9, %while.body.i8 ], [ %6, %while.cond.preheader.i7 ]
-  %left.i9 = getelementptr inbounds %struct._QTreeNode, ptr %tmp.07.i, i64 0, i32 2
+  %left.i9 = getelementptr inbounds i8, ptr %tmp.07.i, i64 16
   %9 = load ptr, ptr %left.i9, align 8
-  %left_child.i10 = getelementptr inbounds %struct._QTreeNode, ptr %9, i64 0, i32 5
+  %left_child.i10 = getelementptr inbounds i8, ptr %9, i64 33
   %10 = load i8, ptr %left_child.i10, align 1
   %tobool2.not.i = icmp eq i8 %10, 0
   br i1 %tobool2.not.i, label %q_tree_node_next.exit, label %while.body.i8, !llvm.loop !7
@@ -1219,28 +1184,21 @@ if.else.i.i:                                      ; preds = %if.end2.i, %if.end1
   br i1 %cmp2.i.i, label %if.then3.i.i, label %if.else7.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  %left_child.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.addr.010.i.i, i64 0, i32 5
+  %left_child.i.i = getelementptr inbounds i8, ptr %node.addr.010.i.i, i64 33
   %2 = load i8, ptr %left_child.i.i, align 1
   %tobool4.not.i.i = icmp eq i8 %2, 0
-  br i1 %tobool4.not.i.i, label %cond.end, label %if.end6.i.i
-
-if.end6.i.i:                                      ; preds = %if.then3.i.i
-  %left.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.addr.010.i.i, i64 0, i32 2
-  br label %if.end12.i.i
+  br i1 %tobool4.not.i.i, label %cond.end, label %if.end12.i.i
 
 if.else7.i.i:                                     ; preds = %if.else.i.i
-  %right_child.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.addr.010.i.i, i64 0, i32 6
+  %right_child.i.i = getelementptr inbounds i8, ptr %node.addr.010.i.i, i64 34
   %3 = load i8, ptr %right_child.i.i, align 2
   %tobool8.not.i.i = icmp eq i8 %3, 0
-  br i1 %tobool8.not.i.i, label %cond.end, label %if.end10.i.i
+  br i1 %tobool8.not.i.i, label %cond.end, label %if.end12.i.i
 
-if.end10.i.i:                                     ; preds = %if.else7.i.i
-  %right.i.i = getelementptr inbounds %struct._QTreeNode, ptr %node.addr.010.i.i, i64 0, i32 3
-  br label %if.end12.i.i
-
-if.end12.i.i:                                     ; preds = %if.end10.i.i, %if.end6.i.i
-  %node.addr.1.in.i.i = phi ptr [ %left.i.i, %if.end6.i.i ], [ %right.i.i, %if.end10.i.i ]
-  %node.addr.1.i.i = load ptr, ptr %node.addr.1.in.i.i, align 8
+if.end12.i.i:                                     ; preds = %if.else7.i.i, %if.then3.i.i
+  %.sink.i.i = phi i64 [ 16, %if.then3.i.i ], [ 24, %if.else7.i.i ]
+  %left.i.i = getelementptr inbounds i8, ptr %node.addr.010.i.i, i64 %.sink.i.i
+  %node.addr.1.i.i = load ptr, ptr %left.i.i, align 8
   %4 = load ptr, ptr %node.addr.1.i.i, align 8
   %call.i.i = tail call i32 %search_func(ptr noundef %4, ptr noundef %user_data) #7
   %cmp.i.i = icmp eq i32 %call.i.i, 0
@@ -1248,7 +1206,7 @@ if.end12.i.i:                                     ; preds = %if.end10.i.i, %if.e
 
 cond.true:                                        ; preds = %if.end12.i.i, %if.end2.i
   %retval.0.i = phi ptr [ %0, %if.end2.i ], [ %node.addr.1.i.i, %if.end12.i.i ]
-  %value = getelementptr inbounds %struct._QTreeNode, ptr %retval.0.i, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %5 = load ptr, ptr %value, align 8
   br label %cond.end
 
@@ -1273,12 +1231,12 @@ do.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %do.end
-  %balance8 = getelementptr inbounds %struct._QTreeNode, ptr %0, i64 0, i32 4
+  %balance8 = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i8, ptr %balance8, align 8
   %2 = tail call i8 @llvm.smax.i8(i8 %1, i8 0)
   %narrow9 = add nuw i8 %2, 1
   %add10 = zext i8 %narrow9 to i32
-  %left_child11 = getelementptr inbounds %struct._QTreeNode, ptr %0, i64 0, i32 5
+  %left_child11 = getelementptr inbounds i8, ptr %0, i64 33
   %3 = load i8, ptr %left_child11, align 1
   %tobool7.not12 = icmp eq i8 %3, 0
   br i1 %tobool7.not12, label %return, label %if.end9
@@ -1286,15 +1244,15 @@ while.body.preheader:                             ; preds = %do.end
 if.end9:                                          ; preds = %while.body.preheader, %if.end9
   %add614 = phi i32 [ %add6, %if.end9 ], [ %add10, %while.body.preheader ]
   %node.013 = phi ptr [ %4, %if.end9 ], [ %0, %while.body.preheader ]
-  %left = getelementptr inbounds %struct._QTreeNode, ptr %node.013, i64 0, i32 2
+  %left = getelementptr inbounds i8, ptr %node.013, i64 16
   %4 = load ptr, ptr %left, align 8
-  %balance = getelementptr inbounds %struct._QTreeNode, ptr %4, i64 0, i32 4
+  %balance = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load i8, ptr %balance, align 8
   %6 = tail call i8 @llvm.smax.i8(i8 %5, i8 0)
   %narrow = add nuw i8 %6, 1
   %add = zext i8 %narrow to i32
   %add6 = add i32 %add614, %add
-  %left_child = getelementptr inbounds %struct._QTreeNode, ptr %4, i64 0, i32 5
+  %left_child = getelementptr inbounds i8, ptr %4, i64 33
   %7 = load i8, ptr %left_child, align 1
   %tobool7.not = icmp eq i8 %7, 0
   br i1 %tobool7.not, label %return, label %if.end9
@@ -1315,7 +1273,7 @@ if.else:                                          ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  %nnodes = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 5
+  %nnodes = getelementptr inbounds i8, ptr %tree, i64 40
   %0 = load i32, ptr %nnodes, align 8
   br label %return
 
@@ -1334,13 +1292,13 @@ entry:
 
 if.then1:                                         ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #8
-  %left.i = getelementptr inbounds %struct._QTreeNode, ptr %call.i, i64 0, i32 2
+  %left.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %left.i, i8 0, i64 19, i1 false)
   store ptr %key, ptr %call.i, align 8
-  %value2.i = getelementptr inbounds %struct._QTreeNode, ptr %call.i, i64 0, i32 1
+  %value2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %value, ptr %value2.i, align 8
   store ptr %call.i, ptr %tree, align 8
-  %nnodes = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 5
+  %nnodes = getelementptr inbounds i8, ptr %tree, i64 40
   %1 = load i32, ptr %nnodes, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %nnodes, align 8
@@ -1348,8 +1306,8 @@ if.then1:                                         ; preds = %entry
 
 if.end4:                                          ; preds = %entry
   store ptr null, ptr %path, align 16
-  %key_compare = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 1
-  %key_compare_data = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 4
+  %key_compare = getelementptr inbounds i8, ptr %tree, i64 8
+  %key_compare_data = getelementptr inbounds i8, ptr %tree, i64 32
   %2 = load ptr, ptr %key_compare, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %key_compare_data, align 8
@@ -1359,22 +1317,22 @@ if.end4:                                          ; preds = %entry
 
 if.then11:                                        ; preds = %if.end73, %if.end4
   %node.0.lcssa = phi ptr [ %0, %if.end4 ], [ %node.0, %if.end73 ]
-  %value_destroy_func = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 3
+  %value_destroy_func = getelementptr inbounds i8, ptr %tree, i64 24
   %5 = load ptr, ptr %value_destroy_func, align 8
   %tobool12.not = icmp eq ptr %5, null
   br i1 %tobool12.not, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %if.then11
-  %value15 = getelementptr inbounds %struct._QTreeNode, ptr %node.0.lcssa, i64 0, i32 1
+  %value15 = getelementptr inbounds i8, ptr %node.0.lcssa, i64 8
   %6 = load ptr, ptr %value15, align 8
   tail call void %5(ptr noundef %6) #7
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then13, %if.then11
-  %value17 = getelementptr inbounds %struct._QTreeNode, ptr %node.0.lcssa, i64 0, i32 1
+  %value17 = getelementptr inbounds i8, ptr %node.0.lcssa, i64 8
   store ptr %value, ptr %value17, align 8
   %tobool18.not = icmp eq i32 %replace, 0
-  %key_destroy_func27 = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 2
+  %key_destroy_func27 = getelementptr inbounds i8, ptr %tree, i64 16
   %7 = load ptr, ptr %key_destroy_func27, align 8
   %tobool28.not = icmp eq ptr %7, null
   br i1 %tobool18.not, label %if.else26, label %if.then19
@@ -1406,71 +1364,61 @@ if.else33:                                        ; preds = %if.end4, %if.end73
   br i1 %cmp34, label %if.then35, label %if.else51
 
 if.then35:                                        ; preds = %if.else33
-  %left_child = getelementptr inbounds %struct._QTreeNode, ptr %node.0115, i64 0, i32 5
+  %left_child = getelementptr inbounds i8, ptr %node.0115, i64 33
   %9 = load i8, ptr %left_child, align 1
   %tobool36.not = icmp eq i8 %9, 0
-  br i1 %tobool36.not, label %if.else41, label %if.then37
-
-if.then37:                                        ; preds = %if.then35
-  %idxprom39 = sext i32 %idx.0114 to i64
-  %arrayidx40 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %idxprom39
-  store ptr %node.0115, ptr %arrayidx40, align 8
-  %left = getelementptr inbounds %struct._QTreeNode, ptr %node.0115, i64 0, i32 2
-  br label %if.end73
+  br i1 %tobool36.not, label %if.else41, label %if.end73
 
 if.else41:                                        ; preds = %if.then35
-  %left_child.le = getelementptr inbounds %struct._QTreeNode, ptr %node.0115, i64 0, i32 5
+  %left_child.le = getelementptr inbounds i8, ptr %node.0115, i64 33
   %call.i82 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #8
-  %left.i83 = getelementptr inbounds %struct._QTreeNode, ptr %call.i82, i64 0, i32 2
-  %10 = getelementptr inbounds %struct._QTreeNode, ptr %call.i82, i64 0, i32 4
+  %left.i83 = getelementptr inbounds i8, ptr %call.i82, i64 16
+  %10 = getelementptr inbounds i8, ptr %call.i82, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %10, i8 0, i64 3, i1 false)
   store ptr %key, ptr %call.i82, align 8
-  %value2.i84 = getelementptr inbounds %struct._QTreeNode, ptr %call.i82, i64 0, i32 1
+  %value2.i84 = getelementptr inbounds i8, ptr %call.i82, i64 8
   store ptr %value, ptr %value2.i84, align 8
-  %left43 = getelementptr inbounds %struct._QTreeNode, ptr %node.0115, i64 0, i32 2
+  %left43 = getelementptr inbounds i8, ptr %node.0115, i64 16
   %11 = load ptr, ptr %left43, align 8
   store ptr %11, ptr %left.i83, align 8
-  %right = getelementptr inbounds %struct._QTreeNode, ptr %call.i82, i64 0, i32 3
+  %right = getelementptr inbounds i8, ptr %call.i82, i64 24
   store ptr %node.0115, ptr %right, align 8
   store ptr %call.i82, ptr %left43, align 8
   store i8 1, ptr %left_child.le, align 1
   br label %while.end
 
 if.else51:                                        ; preds = %if.else33
-  %right_child = getelementptr inbounds %struct._QTreeNode, ptr %node.0115, i64 0, i32 6
+  %right_child = getelementptr inbounds i8, ptr %node.0115, i64 34
   %12 = load i8, ptr %right_child, align 2
   %tobool52.not = icmp eq i8 %12, 0
-  br i1 %tobool52.not, label %if.else58, label %if.then53
-
-if.then53:                                        ; preds = %if.else51
-  %idxprom55 = sext i32 %idx.0114 to i64
-  %arrayidx56 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %idxprom55
-  store ptr %node.0115, ptr %arrayidx56, align 8
-  %right57 = getelementptr inbounds %struct._QTreeNode, ptr %node.0115, i64 0, i32 3
-  br label %if.end73
+  br i1 %tobool52.not, label %if.else58, label %if.end73
 
 if.else58:                                        ; preds = %if.else51
-  %right_child.le = getelementptr inbounds %struct._QTreeNode, ptr %node.0115, i64 0, i32 6
+  %right_child.le = getelementptr inbounds i8, ptr %node.0115, i64 34
   %call.i85 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #8
-  %left.i86 = getelementptr inbounds %struct._QTreeNode, ptr %call.i85, i64 0, i32 2
-  %13 = getelementptr inbounds %struct._QTreeNode, ptr %call.i85, i64 0, i32 4
+  %left.i86 = getelementptr inbounds i8, ptr %call.i85, i64 16
+  %13 = getelementptr inbounds i8, ptr %call.i85, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %13, i8 0, i64 3, i1 false)
   store ptr %key, ptr %call.i85, align 8
-  %value2.i87 = getelementptr inbounds %struct._QTreeNode, ptr %call.i85, i64 0, i32 1
+  %value2.i87 = getelementptr inbounds i8, ptr %call.i85, i64 8
   store ptr %value, ptr %value2.i87, align 8
-  %right61 = getelementptr inbounds %struct._QTreeNode, ptr %node.0115, i64 0, i32 3
+  %right61 = getelementptr inbounds i8, ptr %node.0115, i64 24
   %14 = load ptr, ptr %right61, align 8
-  %right62 = getelementptr inbounds %struct._QTreeNode, ptr %call.i85, i64 0, i32 3
+  %right62 = getelementptr inbounds i8, ptr %call.i85, i64 24
   store ptr %14, ptr %right62, align 8
   store ptr %node.0115, ptr %left.i86, align 8
   store ptr %call.i85, ptr %right61, align 8
   store i8 1, ptr %right_child.le, align 2
   br label %while.end
 
-if.end73:                                         ; preds = %if.then37, %if.then53
-  %node.1.in = phi ptr [ %left, %if.then37 ], [ %right57, %if.then53 ]
+if.end73:                                         ; preds = %if.else51, %if.then35
+  %.sink = phi i64 [ 16, %if.then35 ], [ 24, %if.else51 ]
+  %idxprom39 = sext i32 %idx.0114 to i64
+  %arrayidx40 = getelementptr [40 x ptr], ptr %path, i64 0, i64 %idxprom39
+  store ptr %node.0115, ptr %arrayidx40, align 8
+  %left = getelementptr inbounds i8, ptr %node.0115, i64 %.sink
   %idx.1 = add i32 %idx.0114, 1
-  %node.0 = load ptr, ptr %node.1.in, align 8
+  %node.0 = load ptr, ptr %left, align 8
   %15 = load ptr, ptr %key_compare, align 8
   %16 = load ptr, ptr %node.0, align 8
   %17 = load ptr, ptr %key_compare_data, align 8
@@ -1479,12 +1427,12 @@ if.end73:                                         ; preds = %if.then37, %if.then
   br i1 %cmp10, label %if.then11, label %if.else33
 
 while.end:                                        ; preds = %if.else58, %if.else41
-  %.sink136 = phi i8 [ 1, %if.else58 ], [ -1, %if.else41 ]
-  %balance66 = getelementptr inbounds %struct._QTreeNode, ptr %node.0115, i64 0, i32 4
+  %.sink139 = phi i8 [ 1, %if.else58 ], [ -1, %if.else41 ]
+  %balance66 = getelementptr inbounds i8, ptr %node.0115, i64 32
   %18 = load i8, ptr %balance66, align 8
-  %add = add i8 %18, %.sink136
+  %add = add i8 %18, %.sink139
   store i8 %add, ptr %balance66, align 8
-  %nnodes69 = getelementptr inbounds %struct._QTree, ptr %tree, i64 0, i32 5
+  %nnodes69 = getelementptr inbounds i8, ptr %tree, i64 40
   %19 = load i32, ptr %nnodes69, align 8
   %inc70 = add i32 %19, 1
   store i32 %inc70, ptr %nnodes69, align 8
@@ -1501,13 +1449,13 @@ while.body74:                                     ; preds = %if.end138, %while.e
   br i1 %tobool77.not, label %do.end93, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.body74
-  %left78 = getelementptr inbounds %struct._QTreeNode, ptr %20, i64 0, i32 2
+  %left78 = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load ptr, ptr %left78, align 8
   %cmp79 = icmp eq ptr %node.2, %21
   br i1 %cmp79, label %do.end93, label %lor.lhs.false86
 
 lor.lhs.false86:                                  ; preds = %lor.lhs.false
-  %right87 = getelementptr inbounds %struct._QTreeNode, ptr %20, i64 0, i32 3
+  %right87 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load ptr, ptr %right87, align 8
   %cmp88 = icmp eq ptr %22, %node.2
   br i1 %cmp88, label %do.end93, label %if.else91
@@ -1518,7 +1466,7 @@ if.else91:                                        ; preds = %lor.lhs.false86
 
 do.end93:                                         ; preds = %while.body74, %lor.lhs.false86, %lor.lhs.false
   %23 = phi i1 [ false, %lor.lhs.false86 ], [ true, %lor.lhs.false ], [ false, %while.body74 ]
-  %balance94 = getelementptr inbounds %struct._QTreeNode, ptr %node.2, i64 0, i32 4
+  %balance94 = getelementptr inbounds i8, ptr %node.2, i64 32
   %24 = load i8, ptr %balance94, align 8
   %25 = add i8 %24, -2
   %or.cond81 = icmp ult i8 %25, -3
@@ -1533,7 +1481,7 @@ if.end117.thread:                                 ; preds = %if.then103
   br label %return
 
 if.else109:                                       ; preds = %if.then103
-  %balance11899 = getelementptr inbounds %struct._QTreeNode, ptr %call104, i64 0, i32 4
+  %balance11899 = getelementptr inbounds i8, ptr %call104, i64 32
   br i1 %23, label %if.end117.thread97, label %if.end117.thread92
 
 if.end117:                                        ; preds = %do.end93
@@ -1542,14 +1490,14 @@ if.end117:                                        ; preds = %do.end93
   br i1 %or.cond, label %return, label %if.end126
 
 if.end117.thread97:                               ; preds = %if.else109
-  %left112 = getelementptr inbounds %struct._QTreeNode, ptr %20, i64 0, i32 2
+  %left112 = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %call104, ptr %left112, align 8
   %26 = load i8, ptr %balance11899, align 8
   %cmp120100 = icmp eq i8 %26, 0
   br i1 %cmp120100, label %return, label %if.end138
 
 if.end117.thread92:                               ; preds = %if.else109
-  %right114 = getelementptr inbounds %struct._QTreeNode, ptr %20, i64 0, i32 3
+  %right114 = getelementptr inbounds i8, ptr %20, i64 24
   store ptr %call104, ptr %right114, align 8
   %27 = load i8, ptr %balance11899, align 8
   %cmp12095 = icmp eq i8 %27, 0
@@ -1562,10 +1510,10 @@ if.else133:                                       ; preds = %if.end117.thread92,
   br label %if.end138
 
 if.end138:                                        ; preds = %if.end126, %if.end117.thread97, %if.else133
-  %.sink134 = phi i8 [ 1, %if.else133 ], [ -1, %if.end117.thread97 ], [ -1, %if.end126 ]
-  %balance134 = getelementptr inbounds %struct._QTreeNode, ptr %20, i64 0, i32 4
+  %.sink136 = phi i8 [ 1, %if.else133 ], [ -1, %if.end117.thread97 ], [ -1, %if.end126 ]
+  %balance134 = getelementptr inbounds i8, ptr %20, i64 32
   %28 = load i8, ptr %balance134, align 8
-  %add136 = add i8 %28, %.sink134
+  %add136 = add i8 %28, %.sink136
   store i8 %add136, ptr %balance134, align 8
   br label %while.body74
 
@@ -1579,44 +1527,44 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc ptr @q_tree_node_balance(ptr noundef %node) unnamed_addr #4 {
 entry:
-  %balance = getelementptr inbounds %struct._QTreeNode, ptr %node, i64 0, i32 4
+  %balance = getelementptr inbounds i8, ptr %node, i64 32
   %0 = load i8, ptr %balance, align 8
   %cmp = icmp slt i8 %0, -1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %left = getelementptr inbounds %struct._QTreeNode, ptr %node, i64 0, i32 2
+  %left = getelementptr inbounds i8, ptr %node, i64 16
   %1 = load ptr, ptr %left, align 8
-  %balance2 = getelementptr inbounds %struct._QTreeNode, ptr %1, i64 0, i32 4
+  %balance2 = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i8, ptr %balance2, align 8
   %cmp4 = icmp sgt i8 %2, 0
   br i1 %cmp4, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %if.then
-  %right1.i = getelementptr inbounds %struct._QTreeNode, ptr %1, i64 0, i32 3
+  %right1.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %right1.i, align 8
-  %left_child.i = getelementptr inbounds %struct._QTreeNode, ptr %3, i64 0, i32 5
+  %left_child.i = getelementptr inbounds i8, ptr %3, i64 33
   %4 = load i8, ptr %left_child.i, align 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then6
-  %left.i = getelementptr inbounds %struct._QTreeNode, ptr %3, i64 0, i32 2
+  %left.i = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %left.i, align 8
   store ptr %5, ptr %right1.i, align 8
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then6
-  %right_child.i = getelementptr inbounds %struct._QTreeNode, ptr %1, i64 0, i32 6
+  %right_child.i = getelementptr inbounds i8, ptr %1, i64 34
   store i8 0, ptr %right_child.i, align 2
   store i8 1, ptr %left_child.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %left4.i = getelementptr inbounds %struct._QTreeNode, ptr %3, i64 0, i32 2
+  %left4.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %1, ptr %left4.i, align 8
   %6 = load i8, ptr %balance2, align 8
-  %balance5.i = getelementptr inbounds %struct._QTreeNode, ptr %3, i64 0, i32 4
+  %balance5.i = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i8, ptr %balance5.i, align 8
   %cmp.i = icmp slt i8 %7, 1
   br i1 %cmp.i, label %if.then8.i, label %if.else22.i
@@ -1647,28 +1595,28 @@ q_tree_node_rotate_left.exit:                     ; preds = %if.then8.i, %if.els
 
 if.end:                                           ; preds = %q_tree_node_rotate_left.exit, %if.then
   %9 = phi ptr [ %3, %q_tree_node_rotate_left.exit ], [ %1, %if.then ]
-  %right_child.i11 = getelementptr inbounds %struct._QTreeNode, ptr %9, i64 0, i32 6
+  %right_child.i11 = getelementptr inbounds i8, ptr %9, i64 34
   %10 = load i8, ptr %right_child.i11, align 2
   %tobool.not.i12 = icmp eq i8 %10, 0
   br i1 %tobool.not.i12, label %if.else.i26, label %if.then.i13
 
 if.then.i13:                                      ; preds = %if.end
-  %right.i = getelementptr inbounds %struct._QTreeNode, ptr %9, i64 0, i32 3
+  %right.i = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %right.i, align 8
   store ptr %11, ptr %left, align 8
   br label %if.end.i14
 
 if.else.i26:                                      ; preds = %if.end
-  %left_child.i27 = getelementptr inbounds %struct._QTreeNode, ptr %node, i64 0, i32 5
+  %left_child.i27 = getelementptr inbounds i8, ptr %node, i64 33
   store i8 0, ptr %left_child.i27, align 1
   store i8 1, ptr %right_child.i11, align 2
   br label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.else.i26, %if.then.i13
-  %right4.i = getelementptr inbounds %struct._QTreeNode, ptr %9, i64 0, i32 3
+  %right4.i = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %node, ptr %right4.i, align 8
   %12 = load i8, ptr %balance, align 8
-  %balance5.i16 = getelementptr inbounds %struct._QTreeNode, ptr %9, i64 0, i32 4
+  %balance5.i16 = getelementptr inbounds i8, ptr %9, i64 32
   %13 = load i8, ptr %balance5.i16, align 8
   %cmp.i17 = icmp slt i8 %13, 1
   %add15.i = add i8 %12, 2
@@ -1699,38 +1647,38 @@ if.else:                                          ; preds = %entry
   br i1 %cmp12, label %if.then14, label %if.end26
 
 if.then14:                                        ; preds = %if.else
-  %right = getelementptr inbounds %struct._QTreeNode, ptr %node, i64 0, i32 3
+  %right = getelementptr inbounds i8, ptr %node, i64 24
   %14 = load ptr, ptr %right, align 8
-  %balance15 = getelementptr inbounds %struct._QTreeNode, ptr %14, i64 0, i32 4
+  %balance15 = getelementptr inbounds i8, ptr %14, i64 32
   %15 = load i8, ptr %balance15, align 8
   %cmp17 = icmp slt i8 %15, 0
   br i1 %cmp17, label %if.then19, label %if.end23
 
 if.then19:                                        ; preds = %if.then14
-  %left1.i28 = getelementptr inbounds %struct._QTreeNode, ptr %14, i64 0, i32 2
+  %left1.i28 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %left1.i28, align 8
-  %right_child.i29 = getelementptr inbounds %struct._QTreeNode, ptr %16, i64 0, i32 6
+  %right_child.i29 = getelementptr inbounds i8, ptr %16, i64 34
   %17 = load i8, ptr %right_child.i29, align 2
   %tobool.not.i30 = icmp eq i8 %17, 0
   br i1 %tobool.not.i30, label %if.else.i51, label %if.then.i31
 
 if.then.i31:                                      ; preds = %if.then19
-  %right.i32 = getelementptr inbounds %struct._QTreeNode, ptr %16, i64 0, i32 3
+  %right.i32 = getelementptr inbounds i8, ptr %16, i64 24
   %18 = load ptr, ptr %right.i32, align 8
   store ptr %18, ptr %left1.i28, align 8
   br label %if.end.i33
 
 if.else.i51:                                      ; preds = %if.then19
-  %left_child.i52 = getelementptr inbounds %struct._QTreeNode, ptr %14, i64 0, i32 5
+  %left_child.i52 = getelementptr inbounds i8, ptr %14, i64 33
   store i8 0, ptr %left_child.i52, align 1
   store i8 1, ptr %right_child.i29, align 2
   br label %if.end.i33
 
 if.end.i33:                                       ; preds = %if.else.i51, %if.then.i31
-  %right4.i34 = getelementptr inbounds %struct._QTreeNode, ptr %16, i64 0, i32 3
+  %right4.i34 = getelementptr inbounds i8, ptr %16, i64 24
   store ptr %14, ptr %right4.i34, align 8
   %19 = load i8, ptr %balance15, align 8
-  %balance5.i36 = getelementptr inbounds %struct._QTreeNode, ptr %16, i64 0, i32 4
+  %balance5.i36 = getelementptr inbounds i8, ptr %16, i64 32
   %20 = load i8, ptr %balance5.i36, align 8
   %cmp.i37 = icmp slt i8 %20, 1
   %add15.i38 = add i8 %19, 2
@@ -1760,28 +1708,28 @@ q_tree_node_rotate_right.exit53:                  ; preds = %if.then8.i46, %if.e
 
 if.end23:                                         ; preds = %q_tree_node_rotate_right.exit53, %if.then14
   %21 = phi ptr [ %16, %q_tree_node_rotate_right.exit53 ], [ %14, %if.then14 ]
-  %left_child.i55 = getelementptr inbounds %struct._QTreeNode, ptr %21, i64 0, i32 5
+  %left_child.i55 = getelementptr inbounds i8, ptr %21, i64 33
   %22 = load i8, ptr %left_child.i55, align 1
   %tobool.not.i56 = icmp eq i8 %22, 0
   br i1 %tobool.not.i56, label %if.else.i77, label %if.then.i57
 
 if.then.i57:                                      ; preds = %if.end23
-  %left.i58 = getelementptr inbounds %struct._QTreeNode, ptr %21, i64 0, i32 2
+  %left.i58 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %left.i58, align 8
   store ptr %23, ptr %right, align 8
   br label %if.end.i59
 
 if.else.i77:                                      ; preds = %if.end23
-  %right_child.i78 = getelementptr inbounds %struct._QTreeNode, ptr %node, i64 0, i32 6
+  %right_child.i78 = getelementptr inbounds i8, ptr %node, i64 34
   store i8 0, ptr %right_child.i78, align 2
   store i8 1, ptr %left_child.i55, align 1
   br label %if.end.i59
 
 if.end.i59:                                       ; preds = %if.else.i77, %if.then.i57
-  %left4.i60 = getelementptr inbounds %struct._QTreeNode, ptr %21, i64 0, i32 2
+  %left4.i60 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %node, ptr %left4.i60, align 8
   %24 = load i8, ptr %balance, align 8
-  %balance5.i62 = getelementptr inbounds %struct._QTreeNode, ptr %21, i64 0, i32 4
+  %balance5.i62 = getelementptr inbounds i8, ptr %21, i64 32
   %25 = load i8, ptr %balance5.i62, align 8
   %cmp.i63 = icmp slt i8 %25, 1
   br i1 %cmp.i63, label %if.then8.i72, label %if.else22.i64

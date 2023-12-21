@@ -12,13 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper" = type { %"class.OpenColorIO_v2_4dev::GpuShaderClassWrapper", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector" }
-%"class.OpenColorIO_v2_4dev::GpuShaderClassWrapper" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.OpenColorIO_v2_4dev::OSLShaderClassWrapper" = type { %"class.OpenColorIO_v2_4dev::GpuShaderClassWrapper", %"class.std::__cxx11::basic_string" }
 %"class.OpenColorIO_v2_4dev::GpuShaderText" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_ostringstream", %"class.std::__cxx11::basic_ostringstream", i32, [4 x i8] }>
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -30,7 +23,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine" = type { ptr }
 %"class.std::allocator" = type { i8 }
-%"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.std::vector.30" = type { %"struct.std::_Vector_base.31" }
 %"struct.std::_Vector_base.31" = type { %"struct.std::_Vector_base<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
@@ -41,6 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_istringstream" = type { %"class.std::basic_istream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
+%"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.std::tuple.41" = type { %"struct.std::_Tuple_impl.42" }
 %"struct.std::_Tuple_impl.42" = type { %"struct.std::_Tuple_impl.43", %"struct.std::_Head_base.47" }
 %"struct.std::_Tuple_impl.43" = type { %"struct.std::_Tuple_impl.44", %"struct.std::_Head_base.46" }
@@ -216,18 +209,18 @@ entry:
 _ZNSt10unique_ptrIN19OpenColorIO_v2_4dev23MetalShaderClassWrapperESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #14
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %m_className.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %call, i64 0, i32 1
+  %m_className.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_className.i) #13
-  %m_functionName.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %call, i64 0, i32 2
+  %m_functionName.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName.i) #13
-  %m_functionParameters.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %call, i64 0, i32 3
+  %m_functionParameters.i = getelementptr inbounds i8, ptr %call, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_functionParameters.i, i8 0, i64 24, i1 false)
   br label %return
 
 _ZNSt10unique_ptrIN19OpenColorIO_v2_4dev21OSLShaderClassWrapperESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry
   %call3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
-  %m_functionName.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::OSLShaderClassWrapper", ptr %call3, i64 0, i32 1
+  %m_functionName.i1 = getelementptr inbounds i8, ptr %call3, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName.i1) #13
   br label %return
 
@@ -263,7 +256,7 @@ _ZNSt10unique_ptrIN19OpenColorIO_v2_4dev21OSLShaderClassWrapperESt14default_dele
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %m_functionName.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::OSLShaderClassWrapper", ptr %call, i64 0, i32 1
+  %m_functionName.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName.i) #13
   store ptr %call, ptr %agg.result, align 8
   ret void
@@ -883,7 +876,7 @@ invoke.cont283:                                   ; preds = %invoke.cont281
           to label %invoke.cont285 unwind label %lpad282
 
 invoke.cont285:                                   ; preds = %invoke.cont283
-  %m_functionName = getelementptr inbounds %"class.OpenColorIO_v2_4dev::OSLShaderClassWrapper", ptr %this, i64 0, i32 1
+  %m_functionName = getelementptr inbounds i8, ptr %this, i64 8
   %call288 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %call286, ptr noundef nonnull align 8 dereferenceable(32) %m_functionName)
           to label %invoke.cont287 unwind label %lpad282
 
@@ -912,9 +905,9 @@ invoke.cont297:                                   ; preds = %invoke.cont294
 invoke.cont299:                                   ; preds = %invoke.cont297
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call.i2) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp296) #13
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i) #13
-  %m_ossText.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 2
+  %m_ossText.i = getelementptr inbounds i8, ptr %st, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i) #13
   ret void
 
@@ -1261,9 +1254,9 @@ lpad298:                                          ; preds = %invoke.cont297
 
 ehcleanup:                                        ; preds = %lpad298, %lpad293, %lpad282, %lpad277, %lpad272, %lpad267, %lpad262, %lpad256, %lpad250, %lpad245, %lpad240, %lpad235, %lpad229, %lpad223, %lpad218, %lpad213, %lpad208, %lpad202, %lpad196, %lpad191, %lpad186, %lpad181, %lpad175, %lpad169, %lpad164, %lpad159, %lpad154, %lpad148, %lpad142, %lpad137, %lpad132, %lpad127, %lpad121, %lpad115, %lpad110, %lpad105, %lpad100, %lpad94, %lpad88, %lpad83, %lpad78, %lpad73, %lpad67, %lpad62, %lpad57, %lpad52, %lpad46, %lpad41, %lpad36, %lpad31, %lpad26, %lpad21, %lpad16, %lpad11, %lpad6, %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %56, %lpad298 ], [ %0, %lpad ], [ %55, %lpad293 ], [ %54, %lpad282 ], [ %53, %lpad277 ], [ %52, %lpad272 ], [ %51, %lpad267 ], [ %50, %lpad262 ], [ %49, %lpad256 ], [ %48, %lpad250 ], [ %47, %lpad245 ], [ %46, %lpad240 ], [ %45, %lpad235 ], [ %44, %lpad229 ], [ %43, %lpad223 ], [ %42, %lpad218 ], [ %41, %lpad213 ], [ %40, %lpad208 ], [ %39, %lpad202 ], [ %38, %lpad196 ], [ %37, %lpad191 ], [ %36, %lpad186 ], [ %35, %lpad181 ], [ %34, %lpad175 ], [ %33, %lpad169 ], [ %32, %lpad164 ], [ %31, %lpad159 ], [ %30, %lpad154 ], [ %29, %lpad148 ], [ %28, %lpad142 ], [ %27, %lpad137 ], [ %26, %lpad132 ], [ %25, %lpad127 ], [ %24, %lpad121 ], [ %23, %lpad115 ], [ %22, %lpad110 ], [ %21, %lpad105 ], [ %20, %lpad100 ], [ %19, %lpad94 ], [ %18, %lpad88 ], [ %17, %lpad83 ], [ %16, %lpad78 ], [ %15, %lpad73 ], [ %14, %lpad67 ], [ %13, %lpad62 ], [ %12, %lpad57 ], [ %11, %lpad52 ], [ %10, %lpad46 ], [ %9, %lpad41 ], [ %8, %lpad36 ], [ %7, %lpad31 ], [ %6, %lpad26 ], [ %5, %lpad21 ], [ %4, %lpad16 ], [ %3, %lpad11 ], [ %2, %lpad6 ], [ %1, %lpad2 ]
-  %m_ossLine.i3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i3 = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i3) #13
-  %m_ossText.i4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 2
+  %m_ossText.i4 = getelementptr inbounds i8, ptr %st, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i4) #13
   resume { ptr, i32 } %.pn
 }
@@ -1316,7 +1309,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %m_functionName = getelementptr inbounds %"class.OpenColorIO_v2_4dev::OSLShaderClassWrapper", ptr %this, i64 0, i32 1
+  %m_functionName = getelementptr inbounds i8, ptr %this, i64 8
   %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %call8, ptr noundef nonnull align 8 dereferenceable(32) %m_functionName)
           to label %invoke.cont9 unwind label %lpad6
 
@@ -1345,9 +1338,9 @@ invoke.cont19:                                    ; preds = %invoke.cont16
 invoke.cont21:                                    ; preds = %invoke.cont19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call.i2) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #13
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i) #13
-  %m_ossText.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 2
+  %m_ossText.i = getelementptr inbounds i8, ptr %st, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i) #13
   ret void
 
@@ -1382,9 +1375,9 @@ lpad20:                                           ; preds = %invoke.cont19
 
 ehcleanup:                                        ; preds = %lpad20, %lpad15, %lpad6, %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad20 ], [ %0, %lpad ], [ %3, %lpad15 ], [ %2, %lpad6 ], [ %1, %lpad2 ]
-  %m_ossLine.i3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i3 = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i3) #13
-  %m_ossText.i4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 2
+  %m_ossText.i4 = getelementptr inbounds i8, ptr %st, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i4) #13
   resume { ptr, i32 } %.pn
 }
@@ -1418,7 +1411,7 @@ entry:
   %ref.tmp212 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp223 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp235 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
-  %m_className = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 1
+  %m_className = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %m_className) #13
   br i1 %call, label %if.then, label %if.end
 
@@ -1515,9 +1508,9 @@ invoke.cont32:                                    ; preds = %invoke.cont30
 
 invoke.cont37:                                    ; preds = %invoke.cont32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #13
-  %m_functionParameters = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3
+  %m_functionParameters = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load ptr, ptr %m_functionParameters, align 8
-  %_M_finish.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not81 = icmp eq ptr %5, %6
   br i1 %cmp.i.not81, label %for.end, label %for.body
@@ -1532,7 +1525,7 @@ invoke.cont46:                                    ; preds = %for.body
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %invoke.cont46
-  %m_isArray = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__begin1.sroa.0.082, i64 0, i32 2
+  %m_isArray = getelementptr inbounds i8, ptr %__begin1.sroa.0.082, i64 64
   %7 = load i8, ptr %m_isArray, align 8
   %8 = and i8 %7, 1
   %tobool50.not = icmp eq i8 %8, 0
@@ -1549,7 +1542,7 @@ invoke.cont53:                                    ; preds = %invoke.cont51
           to label %invoke.cont55 unwind label %lpad47
 
 invoke.cont55:                                    ; preds = %invoke.cont53
-  %m_name = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__begin1.sroa.0.082, i64 0, i32 1
+  %m_name = getelementptr inbounds i8, ptr %__begin1.sroa.0.082, i64 32
   %call58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %call56, ptr noundef nonnull align 8 dereferenceable(32) %m_name)
           to label %invoke.cont57 unwind label %lpad47
 
@@ -1673,7 +1666,7 @@ if.end82:                                         ; preds = %invoke.cont77, %inv
           to label %for.inc unwind label %lpad45.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %if.end82
-  %incdec.ptr.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__begin1.sroa.0.082, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.082, i64 72
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %6
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1711,9 +1704,9 @@ invoke.cont99:                                    ; preds = %invoke.cont96
 
 for.body110:                                      ; preds = %invoke.cont99, %for.inc231
   %__begin1102.sroa.0.084 = phi ptr [ %incdec.ptr.i68, %for.inc231 ], [ %20, %invoke.cont99 ]
-  %m_name113 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__begin1102.sroa.0.084, i64 0, i32 1
+  %m_name113 = getelementptr inbounds i8, ptr %__begin1102.sroa.0.084, i64 32
   %call114 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %m_name113, i8 noundef signext 91, i64 noundef 0) #13
-  %m_isArray115 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__begin1102.sroa.0.084, i64 0, i32 2
+  %m_isArray115 = getelementptr inbounds i8, ptr %__begin1102.sroa.0.084, i64 64
   %22 = load i8, ptr %m_isArray115, align 8
   %23 = and i8 %22, 1
   %tobool116.not = icmp eq i8 %23, 0
@@ -2037,7 +2030,7 @@ ehcleanup229:                                     ; preds = %lpad225, %lpad214, 
   br label %ehcleanup242
 
 for.inc231:                                       ; preds = %invoke.cont131, %invoke.cont226
-  %incdec.ptr.i68 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__begin1102.sroa.0.084, i64 1
+  %incdec.ptr.i68 = getelementptr inbounds i8, ptr %__begin1102.sroa.0.084, i64 72
   %cmp.i57.not = icmp eq ptr %incdec.ptr.i68, %21
   br i1 %cmp.i57.not, label %for.end233, label %for.body110
 
@@ -2176,7 +2169,7 @@ entry:
   %ref.tmp168 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp186 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp197 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
-  %m_className = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 1
+  %m_className = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %m_className) #13
   br i1 %call, label %if.then, label %if.end
 
@@ -2280,9 +2273,9 @@ invoke.cont35:                                    ; preds = %invoke.cont30
 
 invoke.cont38:                                    ; preds = %invoke.cont35
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp36) #13
-  %m_functionParameters = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3
+  %m_functionParameters = getelementptr inbounds i8, ptr %this, i64 72
   %5 = load ptr, ptr %m_functionParameters, align 8
-  %_M_finish.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not72 = icmp eq ptr %5, %6
   br i1 %cmp.i.not72, label %for.end, label %for.body
@@ -2297,7 +2290,7 @@ invoke.cont47:                                    ; preds = %for.body
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %invoke.cont47
-  %m_isArray = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__begin1.sroa.0.073, i64 0, i32 2
+  %m_isArray = getelementptr inbounds i8, ptr %__begin1.sroa.0.073, i64 64
   %7 = load i8, ptr %m_isArray, align 8
   %8 = and i8 %7, 1
   %tobool51.not = icmp eq i8 %8, 0
@@ -2314,7 +2307,7 @@ invoke.cont54:                                    ; preds = %invoke.cont52
           to label %invoke.cont56 unwind label %lpad48
 
 invoke.cont56:                                    ; preds = %invoke.cont54
-  %m_name = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__begin1.sroa.0.073, i64 0, i32 1
+  %m_name = getelementptr inbounds i8, ptr %__begin1.sroa.0.073, i64 32
   %call59 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLinelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %call57, ptr noundef nonnull align 8 dereferenceable(32) %m_name)
           to label %invoke.cont58 unwind label %lpad48
 
@@ -2447,7 +2440,7 @@ if.end83:                                         ; preds = %invoke.cont78, %inv
           to label %for.inc unwind label %lpad46.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %if.end83
-  %incdec.ptr.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__begin1.sroa.0.073, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.073, i64 72
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %6
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -2523,7 +2516,7 @@ invoke.cont121:                                   ; preds = %invoke.cont120
 
 for.body133:                                      ; preds = %invoke.cont121, %for.inc182
   %__begin1125.sroa.0.075 = phi ptr [ %incdec.ptr.i59, %for.inc182 ], [ %21, %invoke.cont121 ]
-  %m_name136 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__begin1125.sroa.0.075, i64 0, i32 1
+  %m_name136 = getelementptr inbounds i8, ptr %__begin1125.sroa.0.075, i64 32
   %call137 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %m_name136, i8 noundef signext 91, i64 noundef 0) #13
   %cmp.not = icmp eq i64 %call137, -1
   br i1 %cmp.not, label %if.then139, label %if.else
@@ -2676,7 +2669,7 @@ if.end179:                                        ; preds = %invoke.cont143, %in
           to label %for.inc182 unwind label %lpad46.loopexit
 
 for.inc182:                                       ; preds = %if.end179
-  %incdec.ptr.i59 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__begin1125.sroa.0.075, i64 1
+  %incdec.ptr.i59 = getelementptr inbounds i8, ptr %__begin1125.sroa.0.075, i64 72
   %cmp.i53.not = icmp eq ptr %incdec.ptr.i59, %22
   br i1 %cmp.i53.not, label %for.end184, label %for.body133
 
@@ -2855,19 +2848,19 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lut3DTextures, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lutTextures, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %uniforms, i8 0, i64 24, i1 false)
-  %m_functionParameters = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3
+  %m_functionParameters = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_functionParameters, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE5clearEv.exit, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %entry, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %0, %entry ]
-  %m_name.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %m_name.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i.i.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #13
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 72
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !4
 
@@ -2881,12 +2874,12 @@ _ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS
           to label %while.cond.preheader unwind label %lpad
 
 while.cond.preheader:                             ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE5clearEv.exit
-  %_M_finish.i61 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %uniforms, i64 0, i32 1
-  %_M_end_of_storage.i62 = getelementptr inbounds %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %uniforms, i64 0, i32 2
-  %_M_finish.i44 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %lutTextures, i64 0, i32 1
-  %_M_end_of_storage.i45 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %lutTextures, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %lut3DTextures, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %lut3DTextures, i64 0, i32 2
+  %_M_finish.i61 = getelementptr inbounds i8, ptr %uniforms, i64 8
+  %_M_end_of_storage.i62 = getelementptr inbounds i8, ptr %uniforms, i64 16
+  %_M_finish.i44 = getelementptr inbounds i8, ptr %lutTextures, i64 8
+  %_M_end_of_storage.i45 = getelementptr inbounds i8, ptr %lutTextures, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %lut3DTextures, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %lut3DTextures, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.preheader
@@ -3164,7 +3157,7 @@ if.else.i55.invoke:                               ; preds = %if.then70, %if.else
 if.end74.sink.split:                              ; preds = %_ZNSt11_Tuple_implILm1EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2IRS5_JS8_EvEEOT_DpOT0_.exit.i.i.i.i.i51, %_ZNSt11_Tuple_implILm1EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2IRS5_JS8_EvEEOT_DpOT0_.exit.i.i.i.i.i
   %_M_finish.i44.sink222 = phi ptr [ %_M_finish.i, %_ZNSt11_Tuple_implILm1EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2IRS5_JS8_EvEEOT_DpOT0_.exit.i.i.i.i.i ], [ %_M_finish.i44, %_ZNSt11_Tuple_implILm1EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EEC2IRS5_JS8_EvEEOT_DpOT0_.exit.i.i.i.i.i51 ]
   %24 = load ptr, ptr %_M_finish.i44.sink222, align 8
-  %incdec.ptr.i54 = getelementptr inbounds %"class.std::tuple.41", ptr %24, i64 1
+  %incdec.ptr.i54 = getelementptr inbounds i8, ptr %24, i64 96
   store ptr %incdec.ptr.i54, ptr %_M_finish.i44.sink222, align 8
   br label %if.end74
 
@@ -3228,7 +3221,7 @@ if.then.i64:                                      ; preds = %invoke.cont93
           to label %.noexc67 unwind label %lpad94
 
 .noexc67:                                         ; preds = %if.then.i64
-  %second.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %26, i64 0, i32 1
+  %second.i.i.i.i = getelementptr inbounds i8, ptr %26, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %variableName)
           to label %_ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS7_JRS6_SB_EEEvRS8_PT_DpOT0_.exit.i unwind label %lpad.i.i.i.i
 
@@ -3240,7 +3233,7 @@ lpad.i.i.i.i:                                     ; preds = %.noexc67
 
 _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EEE9constructIS7_JRS6_SB_EEEvRS8_PT_DpOT0_.exit.i: ; preds = %.noexc67
   %29 = load ptr, ptr %_M_finish.i61, align 8
-  %incdec.ptr.i65 = getelementptr inbounds %"struct.std::pair", ptr %29, i64 1
+  %incdec.ptr.i65 = getelementptr inbounds i8, ptr %29, i64 64
   store ptr %incdec.ptr.i65, ptr %_M_finish.i61, align 8
   br label %while.cond.backedge.sink.split
 
@@ -3280,7 +3273,7 @@ while.end99:                                      ; preds = %invoke.cont3
   br i1 %cmp.i.not186, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %while.end99
-  %_M_end_of_storage.i73 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i73 = getelementptr inbounds i8, ptr %this, i64 88
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -3302,7 +3295,7 @@ if.then.i75:                                      ; preds = %for.body
 
 .noexc78:                                         ; preds = %if.then.i75
   %35 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i76 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %35, i64 1
+  %incdec.ptr.i76 = getelementptr inbounds i8, ptr %35, i64 72
   store ptr %incdec.ptr.i76, ptr %_M_finish.i.i, align 8
   br label %invoke.cont111
 
@@ -3324,7 +3317,7 @@ if.then.i83:                                      ; preds = %invoke.cont111
 
 .noexc86:                                         ; preds = %if.then.i83
   %38 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i84 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %38, i64 1
+  %incdec.ptr.i84 = getelementptr inbounds i8, ptr %38, i64 72
   store ptr %incdec.ptr.i84, ptr %_M_finish.i.i, align 8
   br label %for.inc
 
@@ -3333,7 +3326,7 @@ if.else.i85:                                      ; preds = %invoke.cont111
           to label %for.inc unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %.noexc86, %if.else.i85
-  %incdec.ptr.i88 = getelementptr inbounds %"class.std::tuple.41", ptr %__begin1.sroa.0.0187, i64 1
+  %incdec.ptr.i88 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0187, i64 96
   %cmp.i.not = icmp eq ptr %incdec.ptr.i88, %32
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -3344,7 +3337,7 @@ for.end:                                          ; preds = %for.inc, %while.end
   br i1 %cmp.i90.not188, label %for.end144, label %for.body127.lr.ph
 
 for.body127.lr.ph:                                ; preds = %for.end
-  %_M_end_of_storage.i94 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i94 = getelementptr inbounds i8, ptr %this, i64 88
   br label %for.body127
 
 for.body127:                                      ; preds = %for.body127.lr.ph, %for.inc142
@@ -3366,7 +3359,7 @@ if.then.i96:                                      ; preds = %for.body127
 
 .noexc99:                                         ; preds = %if.then.i96
   %43 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i97 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %43, i64 1
+  %incdec.ptr.i97 = getelementptr inbounds i8, ptr %43, i64 72
   store ptr %incdec.ptr.i97, ptr %_M_finish.i.i, align 8
   br label %invoke.cont136
 
@@ -3388,7 +3381,7 @@ if.then.i105:                                     ; preds = %invoke.cont136
 
 .noexc108:                                        ; preds = %if.then.i105
   %46 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i106 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %46, i64 1
+  %incdec.ptr.i106 = getelementptr inbounds i8, ptr %46, i64 72
   store ptr %incdec.ptr.i106, ptr %_M_finish.i.i, align 8
   br label %for.inc142
 
@@ -3397,7 +3390,7 @@ if.else.i107:                                     ; preds = %invoke.cont136
           to label %for.inc142 unwind label %lpad2.loopexit.split-lp.loopexit
 
 for.inc142:                                       ; preds = %.noexc108, %if.else.i107
-  %incdec.ptr.i111 = getelementptr inbounds %"class.std::tuple.41", ptr %__begin1119.sroa.0.0189, i64 1
+  %incdec.ptr.i111 = getelementptr inbounds i8, ptr %__begin1119.sroa.0.0189, i64 96
   %cmp.i90.not = icmp eq ptr %incdec.ptr.i111, %40
   br i1 %cmp.i90.not, label %for.end144, label %for.body127
 
@@ -3408,12 +3401,12 @@ for.end144:                                       ; preds = %for.inc142, %for.en
   br i1 %cmp.i113.not190, label %for.end160, label %for.body154.lr.ph
 
 for.body154.lr.ph:                                ; preds = %for.end144
-  %_M_end_of_storage.i115 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i115 = getelementptr inbounds i8, ptr %this, i64 88
   br label %for.body154
 
 for.body154:                                      ; preds = %for.body154.lr.ph, %for.inc158
   %__begin1146.sroa.0.0191 = phi ptr [ %47, %for.body154.lr.ph ], [ %incdec.ptr.i124, %for.inc158 ]
-  %second = getelementptr inbounds %"struct.std::pair", ptr %__begin1146.sroa.0.0191, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %__begin1146.sroa.0.0191, i64 32
   %49 = load ptr, ptr %_M_finish.i.i, align 8
   %50 = load ptr, ptr %_M_end_of_storage.i115, align 8
   %cmp.not.i116 = icmp eq ptr %49, %50
@@ -3424,7 +3417,7 @@ if.then.i117:                                     ; preds = %for.body154
           to label %.noexc121 unwind label %lpad2.loopexit
 
 .noexc121:                                        ; preds = %if.then.i117
-  %m_name.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %49, i64 0, i32 1
+  %m_name.i.i.i.i = getelementptr inbounds i8, ptr %49, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second)
           to label %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamEEE9constructIS2_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_EEEvRS3_PT_DpOT0_.exit.i unwind label %lpad.i.i.i.i118
 
@@ -3437,11 +3430,11 @@ lpad.i.i.i.i118:                                  ; preds = %.noexc121
 _ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamEEE9constructIS2_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_EEEvRS3_PT_DpOT0_.exit.i: ; preds = %.noexc121
   %call.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %second, i8 noundef signext 91, i64 noundef 0) #13
   %cmp.i.i.i.i = icmp ne i64 %call.i.i.i.i, -1
-  %m_isArray.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %49, i64 0, i32 2
+  %m_isArray.i.i.i.i = getelementptr inbounds i8, ptr %49, i64 64
   %frombool.i.i.i.i = zext i1 %cmp.i.i.i.i to i8
   store i8 %frombool.i.i.i.i, ptr %m_isArray.i.i.i.i, align 8
   %52 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i119 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %52, i64 1
+  %incdec.ptr.i119 = getelementptr inbounds i8, ptr %52, i64 72
   store ptr %incdec.ptr.i119, ptr %_M_finish.i.i, align 8
   br label %for.inc158
 
@@ -3450,7 +3443,7 @@ if.else.i120:                                     ; preds = %for.body154
           to label %for.inc158 unwind label %lpad2.loopexit
 
 for.inc158:                                       ; preds = %_ZNSt16allocator_traitsISaIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamEEE9constructIS2_JRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_EEEvRS3_PT_DpOT0_.exit.i, %if.else.i120
-  %incdec.ptr.i124 = getelementptr inbounds %"struct.std::pair", ptr %__begin1146.sroa.0.0191, i64 1
+  %incdec.ptr.i124 = getelementptr inbounds i8, ptr %__begin1146.sroa.0.0191, i64 64
   %cmp.i113.not = icmp eq ptr %incdec.ptr.i124, %48
   br i1 %cmp.i113.not, label %for.end160, label %for.body154
 
@@ -3464,10 +3457,10 @@ for.end160:                                       ; preds = %for.inc158, %for.en
 
 for.body.i.i.i.i:                                 ; preds = %for.end160, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %53, %for.end160 ]
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #13
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 64
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %54
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !11
 
@@ -3497,7 +3490,7 @@ for.body.i.i.i.i128:                              ; preds = %_ZNSt6vectorISt4pai
   %59 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i129, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i129) #13
-  %incdec.ptr.i.i.i.i130 = getelementptr inbounds %"class.std::tuple.41", ptr %__first.addr.04.i.i.i.i129, i64 1
+  %incdec.ptr.i.i.i.i130 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i129, i64 96
   %cmp.not.i.i.i.i131 = icmp eq ptr %incdec.ptr.i.i.i.i130, %57
   br i1 %cmp.not.i.i.i.i131, label %invoke.contthread-pre-split.i132, label %for.body.i.i.i.i128, !llvm.loop !12
 
@@ -3527,7 +3520,7 @@ for.body.i.i.i.i139:                              ; preds = %_ZNSt6vectorISt5tup
   %64 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i140, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i140) #13
-  %incdec.ptr.i.i.i.i141 = getelementptr inbounds %"class.std::tuple.41", ptr %__first.addr.04.i.i.i.i140, i64 1
+  %incdec.ptr.i.i.i.i141 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i140, i64 96
   %cmp.not.i.i.i.i142 = icmp eq ptr %incdec.ptr.i.i.i.i141, %62
   br i1 %cmp.not.i.i.i.i142, label %invoke.contthread-pre-split.i143, label %for.body.i.i.i.i139, !llvm.loop !12
 
@@ -3590,17 +3583,17 @@ declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 define linkonce_odr hidden void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #13
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 64
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !11
 
@@ -3625,7 +3618,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 define linkonce_odr hidden void @_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -3637,7 +3630,7 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
   %3 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #13
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::tuple.41", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 96
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !12
 
@@ -3662,10 +3655,10 @@ _ZNSt12_Vector_baseISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 define hidden void @_ZN19OpenColorIO_v2_4dev23MetalShaderClassWrapper19prepareClassWrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %resourcePrefix, ptr noundef nonnull align 8 dereferenceable(32) %functionName, ptr noundef nonnull align 8 dereferenceable(32) %originalHeader) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %m_functionName = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 2
+  %m_functionName = getelementptr inbounds i8, ptr %this, i64 40
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName, ptr noundef nonnull align 8 dereferenceable(32) %functionName)
   call void @_ZN19OpenColorIO_v2_4dev23MetalShaderClassWrapper19getClassWrapperNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %resourcePrefix, ptr noundef nonnull align 8 dereferenceable(32) %functionName)
-  %m_className = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 1
+  %m_className = getelementptr inbounds i8, ptr %this, i64 8
   %call2 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_className, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   call void @_ZN19OpenColorIO_v2_4dev23MetalShaderClassWrapper25extractFunctionParametersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %originalHeader)
@@ -3727,9 +3720,9 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont11:                                    ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %classWrapHeader) #13
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i) #13
-  %m_ossText.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 2
+  %m_ossText.i = getelementptr inbounds i8, ptr %st, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i) #13
   ret void
 
@@ -3762,9 +3755,9 @@ ehcleanup:                                        ; preds = %lpad7, %lpad.i, %lp
 
 ehcleanup12:                                      ; preds = %ehcleanup, %lpad4, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad4 ], [ %1, %lpad ]
-  %m_ossLine.i3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i3 = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i3) #13
-  %m_ossText.i4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 2
+  %m_ossText.i4 = getelementptr inbounds i8, ptr %st, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i4) #13
   resume { ptr, i32 } %.pn.pn
 }
@@ -3786,7 +3779,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13GpuShaderLineD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.ensured) #13
-  %m_functionName = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 2
+  %m_functionName = getelementptr inbounds i8, ptr %this, i64 40
   invoke void @_ZNK19OpenColorIO_v2_4dev23MetalShaderClassWrapper26generateClassWrapperFooterERNS_13GpuShaderTextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.ensured2, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(764) %st, ptr noundef nonnull align 8 dereferenceable(32) %m_functionName)
           to label %invoke.cont3 unwind label %lpad
 
@@ -3822,9 +3815,9 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont11:                                    ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %classWrapFooter) #13
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i) #13
-  %m_ossText.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 2
+  %m_ossText.i = getelementptr inbounds i8, ptr %st, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i) #13
   ret void
 
@@ -3857,9 +3850,9 @@ ehcleanup:                                        ; preds = %lpad7, %lpad.i, %lp
 
 ehcleanup12:                                      ; preds = %ehcleanup, %lpad4, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad4 ], [ %1, %lpad ]
-  %m_ossLine.i3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i3 = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i3) #13
-  %m_ossText.i4 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 2
+  %m_ossText.i4 = getelementptr inbounds i8, ptr %st, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i4) #13
   resume { ptr, i32 } %.pn.pn
 }
@@ -3869,23 +3862,23 @@ define hidden void @_ZNK19OpenColorIO_v2_4dev23MetalShaderClassWrapper5cloneEv(p
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #14
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %m_className.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %call, i64 0, i32 1
+  %m_className.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_className.i) #13
-  %m_functionName.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %call, i64 0, i32 2
+  %m_functionName.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName.i) #13
-  %m_functionParameters.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %call, i64 0, i32 3
+  %m_functionParameters.i = getelementptr inbounds i8, ptr %call, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_functionParameters.i, i8 0, i64 24, i1 false)
-  %m_className.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 1
+  %m_className.i1 = getelementptr inbounds i8, ptr %this, i64 8
   %call.i4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_className.i, ptr noundef nonnull align 8 dereferenceable(32) %m_className.i1)
           to label %call.i.noexc unwind label %_ZNSt10unique_ptrIN19OpenColorIO_v2_4dev23MetalShaderClassWrapperESt14default_deleteIS1_EED2Ev.exit11
 
 call.i.noexc:                                     ; preds = %entry
-  %m_functionName.i2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 2
+  %m_functionName.i2 = getelementptr inbounds i8, ptr %this, i64 40
   %call4.i5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName.i, ptr noundef nonnull align 8 dereferenceable(32) %m_functionName.i2)
           to label %call4.i.noexc unwind label %_ZNSt10unique_ptrIN19OpenColorIO_v2_4dev23MetalShaderClassWrapperESt14default_deleteIS1_EED2Ev.exit11
 
 call4.i.noexc:                                    ; preds = %call.i.noexc
-  %m_functionParameters.i3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3
+  %m_functionParameters.i3 = getelementptr inbounds i8, ptr %this, i64 72
   %call6.i6 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %m_functionParameters.i, ptr noundef nonnull align 8 dereferenceable(24) %m_functionParameters.i3)
           to label %_ZNSt10unique_ptrIN19OpenColorIO_v2_4dev23MetalShaderClassWrapperESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN19OpenColorIO_v2_4dev23MetalShaderClassWrapperESt14default_deleteIS1_EED2Ev.exit11
 
@@ -3897,7 +3890,7 @@ _ZNSt10unique_ptrIN19OpenColorIO_v2_4dev23MetalShaderClassWrapperESt14default_de
   %0 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i9 = load ptr, ptr %call, align 8
-  %vfn.i.i10 = getelementptr inbounds ptr, ptr %vtable.i.i9, i64 5
+  %vfn.i.i10 = getelementptr inbounds i8, ptr %vtable.i.i9, i64 40
   %1 = load ptr, ptr %vfn.i.i10, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(96) %call) #13
   resume { ptr, i32 } %0
@@ -3906,14 +3899,14 @@ _ZNSt10unique_ptrIN19OpenColorIO_v2_4dev23MetalShaderClassWrapperESt14default_de
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN19OpenColorIO_v2_4dev23MetalShaderClassWrapperaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %rhs) local_unnamed_addr #0 align 2 {
 entry:
-  %m_className = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %rhs, i64 0, i32 1
-  %m_className2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 1
+  %m_className = getelementptr inbounds i8, ptr %rhs, i64 8
+  %m_className2 = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_className2, ptr noundef nonnull align 8 dereferenceable(32) %m_className)
-  %m_functionName = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %rhs, i64 0, i32 2
-  %m_functionName3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 2
+  %m_functionName = getelementptr inbounds i8, ptr %rhs, i64 40
+  %m_functionName3 = getelementptr inbounds i8, ptr %this, i64 40
   %call4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName3, ptr noundef nonnull align 8 dereferenceable(32) %m_functionName)
-  %m_functionParameters = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %rhs, i64 0, i32 3
-  %m_functionParameters5 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3
+  %m_functionParameters = getelementptr inbounds i8, ptr %rhs, i64 72
+  %m_functionParameters5 = getelementptr inbounds i8, ptr %this, i64 72
   %call6 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %m_functionParameters5, ptr noundef nonnull align 8 dereferenceable(24) %m_functionParameters)
   ret ptr %this
 }
@@ -3925,14 +3918,14 @@ entry:
   br i1 %cmp.not, label %if.end75, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 72
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
@@ -3945,17 +3938,17 @@ if.then:                                          ; preds = %entry
 if.then4:                                         ; preds = %if.then
   %call11 = tail call noundef ptr @_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEPS2_mT_SC_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.ptr.div.i, ptr %1, ptr %0)
   %4 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.not3.i.i.i, label %_ZSt8_DestroyIPN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %if.then4, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %4, %if.then4 ]
-  %m_name.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %m_name.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #13
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 72
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %5
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamES2_EvT_S4_RSaIT0_E.exitthread-pre-split, label %for.body.i.i.i, !llvm.loop !4
 
@@ -3979,7 +3972,7 @@ _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionPar
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
-  %_M_finish.i19 = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
@@ -4000,16 +3993,16 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %__result.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %3, %for.body.preheader.i.i.i.i.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %for.body.preheader.i.i.i.i.i ]
   %call.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i.i)
-  %m_name.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 1
-  %m_name3.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 1
+  %m_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 32
+  %m_name3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 32
   %call4.i.i.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i.i.i.i.i)
-  %m_isArray.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.07.i.i.i.i.i, i64 0, i32 2
+  %m_isArray.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 64
   %8 = load i8, ptr %m_isArray.i.i.i.i.i.i, align 8
   %9 = and i8 %8, 1
-  %m_isArray5.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__result.addr.08.i.i.i.i.i, i64 0, i32 2
+  %m_isArray5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 64
   store i8 %9, ptr %m_isArray5.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__result.addr.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 72
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 72
   %dec.i.i.i.i.i = add nsw i64 %__n.09.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.09.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.loopexit, !llvm.loop !13
@@ -4030,10 +4023,10 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_4dev23MetalShaderCl
 
 for.body.i.i.i26:                                 ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, %for.body.i.i.i26
   %__first.sroa.0.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i26 ], [ %add.ptr.i.i.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit ]
-  %m_name.i.i.i.i.i27 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.sroa.0.04.i.i.i, i64 0, i32 1
+  %m_name.i.i.i.i.i27 = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i.i.i27) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.sroa.0.04.i.i.i) #13
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.sroa.0.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i.i, i64 72
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %10
   br i1 %cmp.i.not.i.i.i, label %if.end69, label %for.body.i.i.i26, !llvm.loop !14
 
@@ -4050,16 +4043,16 @@ for.body.i.i.i.i.i40:                             ; preds = %for.body.i.i.i.i.i4
   %__result.addr.08.i.i.i.i.i42 = phi ptr [ %incdec.ptr1.i.i.i.i.i51, %for.body.i.i.i.i.i40 ], [ %3, %for.body.preheader.i.i.i.i.i38 ]
   %__first.addr.07.i.i.i.i.i43 = phi ptr [ %incdec.ptr.i.i.i.i.i50, %for.body.i.i.i.i.i40 ], [ %1, %for.body.preheader.i.i.i.i.i38 ]
   %call.i.i.i.i.i.i44 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %__result.addr.08.i.i.i.i.i42, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.07.i.i.i.i.i43)
-  %m_name.i.i.i.i.i.i45 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__result.addr.08.i.i.i.i.i42, i64 0, i32 1
-  %m_name3.i.i.i.i.i.i46 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.07.i.i.i.i.i43, i64 0, i32 1
+  %m_name.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i42, i64 32
+  %m_name3.i.i.i.i.i.i46 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i43, i64 32
   %call4.i.i.i.i.i.i47 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i.i.i.i45, ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i.i.i.i.i46)
-  %m_isArray.i.i.i.i.i.i48 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.07.i.i.i.i.i43, i64 0, i32 2
+  %m_isArray.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i43, i64 64
   %11 = load i8, ptr %m_isArray.i.i.i.i.i.i48, align 8
   %12 = and i8 %11, 1
-  %m_isArray5.i.i.i.i.i.i49 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__result.addr.08.i.i.i.i.i42, i64 0, i32 2
+  %m_isArray5.i.i.i.i.i.i49 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i42, i64 64
   store i8 %12, ptr %m_isArray5.i.i.i.i.i.i49, align 8
-  %incdec.ptr.i.i.i.i.i50 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.07.i.i.i.i.i43, i64 1
-  %incdec.ptr1.i.i.i.i.i51 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__result.addr.08.i.i.i.i.i42, i64 1
+  %incdec.ptr.i.i.i.i.i50 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i43, i64 72
+  %incdec.ptr1.i.i.i.i.i51 = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i42, i64 72
   %dec.i.i.i.i.i52 = add nsw i64 %__n.09.i.i.i.i.i41, -1
   %cmp.i.i.i.i.i53 = icmp ugt i64 %__n.09.i.i.i.i.i41, 1
   br i1 %cmp.i.i.i.i.i53, label %for.body.i.i.i.i.i40, label %_ZSt4copyIPN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamES3_ET0_T_S5_S4_.exit.loopexit, !llvm.loop !15
@@ -4087,7 +4080,7 @@ _ZSt4copyIPN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamES3_ET0
 if.end69:                                         ; preds = %for.body.i.i.i26, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit, %_ZSt4copyIPN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamES3_ET0_T_S5_S4_.exit, %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE13_M_deallocateEPS2_m.exit
   %16 = load ptr, ptr %this, align 8
   %add.ptr72 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %16, i64 %sub.ptr.div.i
-  %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
 
@@ -4099,19 +4092,19 @@ if.end75:                                         ; preds = %if.end69, %entry
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev23MetalShaderClassWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_functionParameters = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3
+  %m_functionParameters = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_functionParameters, align 8
-  %_M_finish.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
-  %m_name.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %m_name.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #13
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 72
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !4
 
@@ -4129,9 +4122,9 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %m_functionName = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 2
+  %m_functionName = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName) #13
-  %m_className = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 1
+  %m_className = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_className) #13
   ret void
 }
@@ -4140,19 +4133,19 @@ _ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev23MetalShaderClassWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev23MetalShaderClassWrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_functionParameters.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3
+  %m_functionParameters.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_functionParameters.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %entry, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %0, %entry ]
-  %m_name.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %m_name.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i.i.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #13
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 72
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !4
 
@@ -4170,9 +4163,9 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   br label %_ZN19OpenColorIO_v2_4dev23MetalShaderClassWrapperD2Ev.exit
 
 _ZN19OpenColorIO_v2_4dev23MetalShaderClassWrapperD2Ev.exit: ; preds = %invoke.cont.i.i, %if.then.i.i.i.i
-  %m_functionName.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 2
+  %m_functionName.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName.i) #13
-  %m_className.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::MetalShaderClassWrapper", ptr %this, i64 0, i32 1
+  %m_className.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_className.i) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
@@ -4181,7 +4174,7 @@ _ZN19OpenColorIO_v2_4dev23MetalShaderClassWrapperD2Ev.exit: ; preds = %invoke.co
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev21OSLShaderClassWrapper19prepareClassWrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %functionName, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 comdat align 2 {
 entry:
-  %m_functionName = getelementptr inbounds %"class.OpenColorIO_v2_4dev::OSLShaderClassWrapper", ptr %this, i64 0, i32 1
+  %m_functionName = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName, ptr noundef nonnull align 8 dereferenceable(32) %functionName)
   ret void
 }
@@ -4190,7 +4183,7 @@ entry:
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev21OSLShaderClassWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_functionName = getelementptr inbounds %"class.OpenColorIO_v2_4dev::OSLShaderClassWrapper", ptr %this, i64 0, i32 1
+  %m_functionName = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName) #13
   ret void
 }
@@ -4199,7 +4192,7 @@ entry:
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev21OSLShaderClassWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21OSLShaderClassWrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_functionName.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::OSLShaderClassWrapper", ptr %this, i64 0, i32 1
+  %m_functionName.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_functionName.i) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
   ret void
@@ -4260,10 +4253,10 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__first.addr.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %__first, %entry ]
-  %m_name.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.04.i, i64 0, i32 1
+  %m_name.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i) #13
-  %incdec.ptr.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 72
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
   br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamEEEvT_S6_.exit, label %for.body.i, !llvm.loop !4
 
@@ -4302,7 +4295,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_EESaIS7_EE17_M_realloc_insertIJRS6_SB_SB_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args1, ptr noundef nonnull align 8 dereferenceable(32) %__args3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4383,14 +4376,14 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #13
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::tuple.41", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::tuple.41", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 96
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 96
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %for.body.i.i.i.i, !llvm.loop !16
 
 _ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::tuple.41", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 96
   %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit28, label %for.body.i.i.i.i19
 
@@ -4407,8 +4400,8 @@ for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorISt5tup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i.i.i23) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i.i.i.i22) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i21) #13
-  %incdec.ptr.i.i.i.i24 = getelementptr inbounds %"class.std::tuple.41", ptr %__first.addr.06.i.i.i.i21, i64 1
-  %incdec.ptr1.i.i.i.i25 = getelementptr inbounds %"class.std::tuple.41", ptr %__cur.07.i.i.i.i20, i64 1
+  %incdec.ptr.i.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 96
+  %incdec.ptr1.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 96
   %cmp.not.i.i.i.i26 = icmp eq ptr %incdec.ptr.i.i.i.i24, %0
   br i1 %cmp.not.i.i.i.i26, label %_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit28, label %for.body.i.i.i.i19, !llvm.loop !16
 
@@ -4422,7 +4415,7 @@ if.then.i29:                                      ; preds = %_ZNSt6vectorISt5tup
   br label %_ZNSt12_Vector_baseISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_EESaIS7_EE13_M_deallocateEPS7_m.exit
 
 _ZNSt12_Vector_baseISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_EESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit28, %if.then.i29
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::tuple<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i27, ptr %_M_finish.i.i, align 8
   %add.ptr30 = getelementptr inbounds %"class.std::tuple.41", ptr %cond.i17, i64 %cond.i
@@ -4500,7 +4493,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_M_realloc_insertIJRS6_SB_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4539,7 +4532,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_M_allocateEm.exit
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args1)
           to label %invoke.cont unwind label %lpad.i.i.i
 
@@ -4557,19 +4550,19 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %cond.i17, %invoke.cont ]
   %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %invoke.cont ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #13
-  %second.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i, i64 0, i32 1
-  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 32
+  %second3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #13
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 64
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 64
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %for.body.i.i.i.i, !llvm.loop !17
 
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 64
   %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit28, label %for.body.i.i.i.i19
 
@@ -4577,13 +4570,13 @@ for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorISt4pai
   %__cur.07.i.i.i.i20 = phi ptr [ %incdec.ptr1.i.i.i.i25, %for.body.i.i.i.i19 ], [ %incdec.ptr, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
   %__first.addr.06.i.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i.i24, %for.body.i.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i21) #13
-  %second.i.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i20, i64 0, i32 1
-  %second3.i.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i21, i64 0, i32 1
+  %second.i.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 32
+  %second3.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i.i23) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second3.i.i.i.i.i.i.i.i23) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i21) #13
-  %incdec.ptr.i.i.i.i24 = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i21, i64 1
-  %incdec.ptr1.i.i.i.i25 = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i20, i64 1
+  %incdec.ptr.i.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 64
+  %incdec.ptr1.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 64
   %cmp.not.i.i.i.i26 = icmp eq ptr %incdec.ptr.i.i.i.i24, %0
   br i1 %cmp.not.i.i.i.i26, label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit28, label %for.body.i.i.i.i19, !llvm.loop !17
 
@@ -4597,7 +4590,7 @@ if.then.i29:                                      ; preds = %_ZNSt6vectorISt4pai
   br label %_ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit
 
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit28, %if.then.i29
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i27, ptr %_M_finish.i.i, align 8
   %add.ptr28 = getelementptr inbounds %"struct.std::pair", ptr %cond.i17, i64 %cond.i
@@ -4617,7 +4610,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i, %lpad
   br i1 %tobool.not, label %if.end.thread, label %if.then.i32
 
 if.end.thread:                                    ; preds = %lpad.body
-  %second.i.i.i30 = getelementptr inbounds %"struct.std::pair", ptr null, i64 %sub.ptr.div.i, i32 1
+  %second.i.i.i30 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i30) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #13
   br label %invoke.cont21
@@ -4653,7 +4646,7 @@ unreachable:                                      ; preds = %invoke.cont21
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE17_M_realloc_insertIJPKcS7_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4701,24 +4694,24 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #13
-  %m_name.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i, i64 0, i32 1
-  %m_name3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i, i64 0, i32 1
+  %m_name.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 32
+  %m_name3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i.i.i.i.i.i.i) #13
-  %m_isArray.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i, i64 0, i32 2
-  %m_isArray4.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i, i64 0, i32 2
+  %m_isArray.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 64
+  %m_isArray4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 64
   %2 = load i8, ptr %m_isArray4.i.i.i.i.i.i.i.i, align 8, !alias.scope !21, !noalias !18
   %3 = and i8 %2, 1
   store i8 %3, ptr %m_isArray.i.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i.i.i.i.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #13
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 72
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 72
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i.i, !llvm.loop !23
 
 _ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 72
   %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30, label %for.body.i.i.i.i19
 
@@ -4728,18 +4721,18 @@ for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorIN19Ope
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i21) #13
-  %m_name.i.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i20, i64 0, i32 1
-  %m_name3.i.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i21, i64 0, i32 1
+  %m_name.i.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 32
+  %m_name3.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i.i.i.i.i.i.i23) #13
-  %m_isArray.i.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i20, i64 0, i32 2
-  %m_isArray4.i.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i21, i64 0, i32 2
+  %m_isArray.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 64
+  %m_isArray4.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 64
   %4 = load i8, ptr %m_isArray4.i.i.i.i.i.i.i.i25, align 8, !alias.scope !27, !noalias !24
   %5 = and i8 %4, 1
   store i8 %5, ptr %m_isArray.i.i.i.i.i.i.i.i24, align 8, !alias.scope !24, !noalias !27
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i.i.i.i.i.i.i23) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i21) #13
-  %incdec.ptr.i.i.i.i26 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i21, i64 1
-  %incdec.ptr1.i.i.i.i27 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i20, i64 1
+  %incdec.ptr.i.i.i.i26 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 72
+  %incdec.ptr1.i.i.i.i27 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 72
   %cmp.not.i.i.i.i28 = icmp eq ptr %incdec.ptr.i.i.i.i26, %0
   br i1 %cmp.not.i.i.i.i28, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30, label %for.body.i.i.i.i19, !llvm.loop !23
 
@@ -4753,7 +4746,7 @@ if.then.i31:                                      ; preds = %_ZNSt6vectorIN19Ope
   br label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30, %if.then.i31
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i29, ptr %_M_finish.i.i, align 8
   %add.ptr28 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %cond.i17, i64 %cond.i
@@ -4769,7 +4762,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   br i1 %tobool.not, label %if.end.thread, label %if.then.i33
 
 if.end.thread:                                    ; preds = %lpad
-  %m_name.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr null, i64 %sub.ptr.div.i, i32 1
+  %m_name.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #13
   br label %invoke.cont21
@@ -4825,7 +4818,7 @@ invoke.cont8:                                     ; preds = %invoke.cont
           to label %.noexc unwind label %lpad9
 
 .noexc:                                           ; preds = %invoke.cont8
-  %m_name.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__p, i64 0, i32 1
+  %m_name.i = getelementptr inbounds i8, ptr %__p, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
           to label %invoke.cont10 unwind label %lpad.i
 
@@ -4838,7 +4831,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont10:                                    ; preds = %.noexc
   %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, i8 noundef signext 91, i64 noundef 0) #13
   %cmp.i = icmp ne i64 %call.i, -1
-  %m_isArray.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__p, i64 0, i32 2
+  %m_isArray.i = getelementptr inbounds i8, ptr %__p, i64 64
   %frombool.i = zext i1 %cmp.i to i8
   store i8 %frombool.i, ptr %m_isArray.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #13
@@ -4882,7 +4875,7 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE17_M_realloc_insertIJRA8_KcPS6_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 1 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4930,24 +4923,24 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #13
-  %m_name.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i, i64 0, i32 1
-  %m_name3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i, i64 0, i32 1
+  %m_name.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 32
+  %m_name3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i.i.i.i.i.i.i) #13
-  %m_isArray.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i, i64 0, i32 2
-  %m_isArray4.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i, i64 0, i32 2
+  %m_isArray.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 64
+  %m_isArray4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 64
   %2 = load i8, ptr %m_isArray4.i.i.i.i.i.i.i.i, align 8, !alias.scope !32, !noalias !29
   %3 = and i8 %2, 1
   store i8 %3, ptr %m_isArray.i.i.i.i.i.i.i.i, align 8, !alias.scope !29, !noalias !32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i.i.i.i.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #13
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 72
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 72
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i.i, !llvm.loop !23
 
 _ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 72
   %cmp.not5.i.i.i.i18 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i.i18, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30, label %for.body.i.i.i.i19
 
@@ -4957,18 +4950,18 @@ for.body.i.i.i.i19:                               ; preds = %_ZNSt6vectorIN19Ope
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i21) #13
-  %m_name.i.i.i.i.i.i.i.i22 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i20, i64 0, i32 1
-  %m_name3.i.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i21, i64 0, i32 1
+  %m_name.i.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 32
+  %m_name3.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i.i.i.i.i.i22, ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i.i.i.i.i.i.i23) #13
-  %m_isArray.i.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i20, i64 0, i32 2
-  %m_isArray4.i.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i21, i64 0, i32 2
+  %m_isArray.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 64
+  %m_isArray4.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 64
   %4 = load i8, ptr %m_isArray4.i.i.i.i.i.i.i.i25, align 8, !alias.scope !37, !noalias !34
   %5 = and i8 %4, 1
   store i8 %5, ptr %m_isArray.i.i.i.i.i.i.i.i24, align 8, !alias.scope !34, !noalias !37
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i.i.i.i.i.i.i23) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i21) #13
-  %incdec.ptr.i.i.i.i26 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i21, i64 1
-  %incdec.ptr1.i.i.i.i27 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i20, i64 1
+  %incdec.ptr.i.i.i.i26 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i21, i64 72
+  %incdec.ptr1.i.i.i.i27 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i20, i64 72
   %cmp.not.i.i.i.i28 = icmp eq ptr %incdec.ptr.i.i.i.i26, %0
   br i1 %cmp.not.i.i.i.i28, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30, label %for.body.i.i.i.i19, !llvm.loop !23
 
@@ -4982,7 +4975,7 @@ if.then.i31:                                      ; preds = %_ZNSt6vectorIN19Ope
   br label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30, %if.then.i31
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i29, ptr %_M_finish.i.i, align 8
   %add.ptr28 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %cond.i17, i64 %cond.i
@@ -4998,7 +4991,7 @@ lpad:                                             ; preds = %_ZNSt12_Vector_base
   br i1 %tobool.not, label %if.end.thread, label %if.then.i33
 
 if.end.thread:                                    ; preds = %lpad
-  %m_name.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr null, i64 %sub.ptr.div.i, i32 1
+  %m_name.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #13
   br label %invoke.cont21
@@ -5053,7 +5046,7 @@ invoke.cont8:                                     ; preds = %invoke.cont
           to label %.noexc unwind label %lpad9
 
 .noexc:                                           ; preds = %invoke.cont8
-  %m_name.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__p, i64 0, i32 1
+  %m_name.i = getelementptr inbounds i8, ptr %__p, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
           to label %invoke.cont10 unwind label %lpad.i
 
@@ -5066,7 +5059,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont10:                                    ; preds = %.noexc
   %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, i8 noundef signext 91, i64 noundef 0) #13
   %cmp.i = icmp ne i64 %call.i, -1
-  %m_isArray.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__p, i64 0, i32 2
+  %m_isArray.i = getelementptr inbounds i8, ptr %__p, i64 64
   %frombool.i = zext i1 %cmp.i to i8
   store i8 %frombool.i, ptr %m_isArray.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #13
@@ -5110,7 +5103,7 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -5149,7 +5142,7 @@ _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionPar
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_M_allocateEm.exit
-  %m_name.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1
+  %m_name.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args1)
           to label %invoke.cont unwind label %lpad.i.i.i
 
@@ -5162,7 +5155,7 @@ lpad.i.i.i:                                       ; preds = %.noexc
 invoke.cont:                                      ; preds = %.noexc
   %call.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %__args1, i8 noundef signext 91, i64 noundef 0) #13
   %cmp.i.i.i18 = icmp ne i64 %call.i.i.i, -1
-  %m_isArray.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %cond.i17, i64 %sub.ptr.div.i, i32 2
+  %m_isArray.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 64
   %frombool.i.i.i = zext i1 %cmp.i.i.i18 to i8
   store i8 %frombool.i.i.i, ptr %m_isArray.i.i.i, align 8
   %cmp.not5.i.i.i.i = icmp eq ptr %1, %__position.coerce
@@ -5174,24 +5167,24 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #13
-  %m_name.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i, i64 0, i32 1
-  %m_name3.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i, i64 0, i32 1
+  %m_name.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 32
+  %m_name3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i.i.i.i.i.i.i) #13
-  %m_isArray.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i, i64 0, i32 2
-  %m_isArray4.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i, i64 0, i32 2
+  %m_isArray.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 64
+  %m_isArray4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 64
   %3 = load i8, ptr %m_isArray4.i.i.i.i.i.i.i.i, align 8, !alias.scope !42, !noalias !39
   %4 = and i8 %3, 1
   store i8 %4, ptr %m_isArray.i.i.i.i.i.i.i.i, align 8, !alias.scope !39, !noalias !42
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i.i.i.i.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i) #13
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 72
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 72
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i.i, !llvm.loop !23
 
 _ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 72
   %cmp.not5.i.i.i.i19 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i.i19, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit31, label %for.body.i.i.i.i20
 
@@ -5201,18 +5194,18 @@ for.body.i.i.i.i20:                               ; preds = %_ZNSt6vectorIN19Ope
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i.i21, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i22) #13
-  %m_name.i.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i21, i64 0, i32 1
-  %m_name3.i.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i22, i64 0, i32 1
+  %m_name.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i21, i64 32
+  %m_name3.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i22, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i.i.i.i.i.i23, ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i.i.i.i.i.i.i24) #13
-  %m_isArray.i.i.i.i.i.i.i.i25 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i21, i64 0, i32 2
-  %m_isArray4.i.i.i.i.i.i.i.i26 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i22, i64 0, i32 2
+  %m_isArray.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i21, i64 64
+  %m_isArray4.i.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i22, i64 64
   %5 = load i8, ptr %m_isArray4.i.i.i.i.i.i.i.i26, align 8, !alias.scope !47, !noalias !44
   %6 = and i8 %5, 1
   store i8 %6, ptr %m_isArray.i.i.i.i.i.i.i.i25, align 8, !alias.scope !44, !noalias !47
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i.i.i.i.i.i.i24) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i.i22) #13
-  %incdec.ptr.i.i.i.i27 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.06.i.i.i.i22, i64 1
-  %incdec.ptr1.i.i.i.i28 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.07.i.i.i.i21, i64 1
+  %incdec.ptr.i.i.i.i27 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i22, i64 72
+  %incdec.ptr1.i.i.i.i28 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i21, i64 72
   %cmp.not.i.i.i.i29 = icmp eq ptr %incdec.ptr.i.i.i.i27, %0
   br i1 %cmp.not.i.i.i.i29, label %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit31, label %for.body.i.i.i.i20, !llvm.loop !23
 
@@ -5226,7 +5219,7 @@ if.then.i32:                                      ; preds = %_ZNSt6vectorIN19Ope
   br label %_ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_4dev23MetalShaderClassWrapper13FunctionParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit31, %if.then.i32
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam, std::allocator<OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i30, ptr %_M_finish.i.i, align 8
   %add.ptr28 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %cond.i17, i64 %cond.i
@@ -5246,7 +5239,7 @@ lpad.body:                                        ; preds = %lpad.i.i.i, %lpad
   br i1 %tobool.not, label %if.end.thread, label %if.then.i35
 
 if.end.thread:                                    ; preds = %lpad.body
-  %m_name.i.i.i33 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr null, i64 %sub.ptr.div.i, i32 1
+  %m_name.i.i.i33 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i.i33) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr) #13
   br label %invoke.cont21
@@ -5363,8 +5356,8 @@ for.body:                                         ; preds = %entry, %for.inc
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %for.body
-  %m_name.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.012, i64 0, i32 1
-  %m_name3.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.sroa.0.011, i64 0, i32 1
+  %m_name.i.i = getelementptr inbounds i8, ptr %__cur.012, i64 32
+  %m_name3.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.011, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i)
           to label %for.inc unwind label %lpad.i.i
 
@@ -5375,13 +5368,13 @@ lpad.i.i:                                         ; preds = %.noexc
   br label %lpad.body
 
 for.inc:                                          ; preds = %.noexc
-  %m_isArray.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.012, i64 0, i32 2
-  %m_isArray4.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.sroa.0.011, i64 0, i32 2
+  %m_isArray.i.i = getelementptr inbounds i8, ptr %__cur.012, i64 64
+  %m_isArray4.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.011, i64 64
   %1 = load i8, ptr %m_isArray4.i.i, align 8
   %2 = and i8 %1, 1
   store i8 %2, ptr %m_isArray.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.sroa.0.011, i64 1
-  %incdec.ptr = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.012, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.sroa.0.011, i64 72
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.012, i64 72
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %__last.coerce
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !49
 
@@ -5438,8 +5431,8 @@ for.body:                                         ; preds = %entry, %for.inc
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %for.body
-  %m_name.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.012, i64 0, i32 1
-  %m_name3.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.011, i64 0, i32 1
+  %m_name.i.i = getelementptr inbounds i8, ptr %__cur.012, i64 32
+  %m_name3.i.i = getelementptr inbounds i8, ptr %__first.addr.011, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i.i, ptr noundef nonnull align 8 dereferenceable(32) %m_name3.i.i)
           to label %for.inc unwind label %lpad.i.i
 
@@ -5450,13 +5443,13 @@ lpad.i.i:                                         ; preds = %.noexc
   br label %lpad.body
 
 for.inc:                                          ; preds = %.noexc
-  %m_isArray.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.012, i64 0, i32 2
-  %m_isArray4.i.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.011, i64 0, i32 2
+  %m_isArray.i.i = getelementptr inbounds i8, ptr %__cur.012, i64 64
+  %m_isArray4.i.i = getelementptr inbounds i8, ptr %__first.addr.011, i64 64
   %1 = load i8, ptr %m_isArray4.i.i, align 8
   %2 = and i8 %1, 1
   store i8 %2, ptr %m_isArray.i.i, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__first.addr.011, i64 1
-  %incdec.ptr1 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::MetalShaderClassWrapper::FunctionParam", ptr %__cur.012, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.011, i64 72
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %__cur.012, i64 72
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !50
 

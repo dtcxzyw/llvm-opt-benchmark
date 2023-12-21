@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %union.ModuleTypeList = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
-%struct.ModuleEntry = type { ptr, %union.anon, i32 }
-%union.anon = type { %struct.QTailQLink }
 
 @dso_init_list = internal global %union.ModuleTypeList zeroinitializer, align 8
 @modules_init_done = internal unnamed_addr global [8 x i8] zeroinitializer, align 1
@@ -18,7 +16,7 @@ define dso_local void @register_module_init(ptr noundef %fn, i32 noundef %type) 
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #3
   store ptr %fn, ptr %call, align 8
-  %type1 = getelementptr inbounds %struct.ModuleEntry, ptr %call, i64 0, i32 2
+  %type1 = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %type, ptr %type1, align 8
   %.b.i.i = load i1, ptr @init_lists.inited, align 4
   br i1 %.b.i.i, label %find_type.exit, label %do.body.i.i
@@ -27,7 +25,7 @@ do.body.i.i:                                      ; preds = %entry, %do.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %do.body.i.i ], [ 0, %entry ]
   %arrayidx.i.i = getelementptr [8 x %union.ModuleTypeList], ptr @init_type_list, i64 0, i64 %indvars.iv.i.i
   store ptr null, ptr %arrayidx.i.i, align 16
-  %tql_prev.i.i = getelementptr inbounds %struct.QTailQLink, ptr %arrayidx.i.i, i64 0, i32 1
+  %tql_prev.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   store ptr %arrayidx.i.i, ptr %tql_prev.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -41,11 +39,11 @@ do.body5.i.i:                                     ; preds = %do.body.i.i
 
 find_type.exit:                                   ; preds = %entry, %do.body5.i.i
   %idxprom.i = zext i32 %type to i64
-  %node = getelementptr inbounds %struct.ModuleEntry, ptr %call, i64 0, i32 1
+  %node = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %node, align 8
   %tql_prev = getelementptr [8 x %union.ModuleTypeList], ptr @init_type_list, i64 0, i64 %idxprom.i, i32 0, i32 1
   %0 = load ptr, ptr %tql_prev, align 8
-  %tql_prev4 = getelementptr inbounds %struct.ModuleEntry, ptr %call, i64 0, i32 1, i32 0, i32 1
+  %tql_prev4 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %0, ptr %tql_prev4, align 8
   store ptr %call, ptr %0, align 8
   store ptr %node, ptr %tql_prev, align 8
@@ -65,7 +63,7 @@ do.body.i:                                        ; preds = %entry, %do.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %do.body.i ], [ 0, %entry ]
   %arrayidx.i = getelementptr [8 x %union.ModuleTypeList], ptr @init_type_list, i64 0, i64 %indvars.iv.i
   store ptr null, ptr %arrayidx.i, align 16
-  %tql_prev.i = getelementptr inbounds %struct.QTailQLink, ptr %arrayidx.i, i64 0, i32 1
+  %tql_prev.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store ptr %arrayidx.i, ptr %tql_prev.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -80,12 +78,12 @@ do.body5.i:                                       ; preds = %do.body.i
 init_lists.exit:                                  ; preds = %entry, %do.body5.i
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #3
   store ptr %fn, ptr %call, align 8
-  %type1 = getelementptr inbounds %struct.ModuleEntry, ptr %call, i64 0, i32 2
+  %type1 = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %type, ptr %type1, align 8
-  %node = getelementptr inbounds %struct.ModuleEntry, ptr %call, i64 0, i32 1
+  %node = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %node, align 8
   %0 = load ptr, ptr getelementptr inbounds (%union.ModuleTypeList, ptr @dso_init_list, i64 0, i32 0, i32 1), align 8
-  %tql_prev = getelementptr inbounds %struct.ModuleEntry, ptr %call, i64 0, i32 1, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %0, ptr %tql_prev, align 8
   store ptr %call, ptr %0, align 8
   store ptr %node, ptr getelementptr inbounds (%union.ModuleTypeList, ptr @dso_init_list, i64 0, i32 0, i32 1), align 8
@@ -110,7 +108,7 @@ do.body.i.i:                                      ; preds = %if.end, %do.body.i.
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %do.body.i.i ], [ 0, %if.end ]
   %arrayidx.i.i = getelementptr [8 x %union.ModuleTypeList], ptr @init_type_list, i64 0, i64 %indvars.iv.i.i
   store ptr null, ptr %arrayidx.i.i, align 16
-  %tql_prev.i.i = getelementptr inbounds %struct.QTailQLink, ptr %arrayidx.i.i, i64 0, i32 1
+  %tql_prev.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   store ptr %arrayidx.i.i, ptr %tql_prev.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -132,7 +130,7 @@ for.body:                                         ; preds = %find_type.exit, %fo
   %e.07 = phi ptr [ %e.0, %for.body ], [ %e.05, %find_type.exit ]
   %2 = load ptr, ptr %e.07, align 8
   tail call void %2() #4
-  %node = getelementptr inbounds %struct.ModuleEntry, ptr %e.07, i64 0, i32 1
+  %node = getelementptr inbounds i8, ptr %e.07, i64 8
   %e.0 = load ptr, ptr %node, align 8
   %tobool1.not = icmp eq ptr %e.0, null
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !7

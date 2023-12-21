@@ -3,21 +3,11 @@ source_filename = "bench/icu/original/rbbidata.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::RBBIDataWrapper" = type <{ ptr, ptr, ptr, ptr, ptr, i32, [4 x i8], ptr, %"struct.std::atomic", [4 x i8], ptr, %"class.icu_75::UnicodeString", i8, [7 x i8] }>
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
 %"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"struct.icu_75::RBBIDataHeader" = type { i32, [4 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [6 x i32] }
-%struct.UDataMemory = type { ptr, ptr, ptr, i8, ptr, ptr, i32 }
-%struct.DataHeader = type { %struct.MappedData, %struct.UDataInfo }
-%struct.MappedData = type { i16, i8, i8 }
-%struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
-%struct.UDataSwapper = type { i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"struct.icu_75::RBBIStateTable" = type { i32, i32, i32, i32, i32, [1 x i8] }
 
 $__clang_call_terminate = comdat any
 
@@ -34,18 +24,18 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7515RBBIDataWrapperC2EPKNS_14RBBIDataHeaderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %data, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fRuleString = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 11
+  %fRuleString = getelementptr inbounds i8, ptr %this, i64 72
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fRuleString, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 11, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 80
   store i16 2, ptr %fUnion2.i, align 8
-  %fTrie.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 7
+  %fTrie.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %fTrie.i, align 8
-  %fUDataMem.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 10
+  %fUDataMem.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %fUDataMem.i, align 8
-  %fRefCount.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 8
+  %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   store atomic i32 0, ptr %fRefCount.i seq_cst, align 8
-  %fDontFreeData.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 12
+  %fDontFreeData.i = getelementptr inbounds i8, ptr %this, i64 136
   store i8 1, ptr %fDontFreeData.i, align 8
   invoke void @_ZN6icu_7515RBBIDataWrapper4initEPKNS_14RBBIDataHeaderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %data, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont2 unwind label %lpad
@@ -63,14 +53,14 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7515RBBIDataWrapper5init0Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(137) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fTrie = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 7
+  %fTrie = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %fTrie, align 8
-  %fUDataMem = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 10
+  %fUDataMem = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %fUDataMem, align 8
-  %fRefCount = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 8
+  %fRefCount = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   store atomic i32 0, ptr %fRefCount seq_cst, align 8
-  %fDontFreeData = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 12
+  %fDontFreeData = getelementptr inbounds i8, ptr %this, i64 136
   store i8 1, ptr %fDontFreeData, align 8
   ret void
 }
@@ -92,7 +82,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %lor.lhs.false, label %if.then6
 
 lor.lhs.false:                                    ; preds = %if.end
-  %fFormatVersion = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %data, i64 0, i32 1
+  %fFormatVersion = getelementptr inbounds i8, ptr %data, i64 4
   %2 = load i8, ptr %fFormatVersion, align 1
   %cmp.i14.not = icmp eq i8 %2, 6
   br i1 %cmp.i14.not, label %if.end7, label %if.then6
@@ -102,46 +92,46 @@ if.then6:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end7:                                          ; preds = %lor.lhs.false
-  %fDontFreeData = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 12
+  %fDontFreeData = getelementptr inbounds i8, ptr %this, i64 136
   store i8 0, ptr %fDontFreeData, align 8
-  %fFTableLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %data, i64 0, i32 5
+  %fFTableLen = getelementptr inbounds i8, ptr %data, i64 20
   %3 = load i32, ptr %fFTableLen, align 4
   %cmp8.not = icmp eq i32 %3, 0
   br i1 %cmp8.not, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %fFTable = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %data, i64 0, i32 4
+  %fFTable = getelementptr inbounds i8, ptr %data, i64 16
   %4 = load i32, ptr %fFTable, align 4
   %idx.ext = zext i32 %4 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %idx.ext
-  %fForwardTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 1
+  %fForwardTable = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr, ptr %fForwardTable, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end7
-  %fRTableLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %data, i64 0, i32 7
+  %fRTableLen = getelementptr inbounds i8, ptr %data, i64 28
   %5 = load i32, ptr %fRTableLen, align 4
   %cmp12.not = icmp eq i32 %5, 0
   br i1 %cmp12.not, label %if.end17, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %fRTable = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %data, i64 0, i32 6
+  %fRTable = getelementptr inbounds i8, ptr %data, i64 24
   %6 = load i32, ptr %fRTable, align 4
   %idx.ext15 = zext i32 %6 to i64
   %add.ptr16 = getelementptr inbounds i8, ptr %data, i64 %idx.ext15
-  %fReverseTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 2
+  %fReverseTable = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr16, ptr %fReverseTable, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then13, %if.end11
-  %fTrie = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %data, i64 0, i32 8
+  %fTrie = getelementptr inbounds i8, ptr %data, i64 32
   %7 = load i32, ptr %fTrie, align 4
   %idx.ext19 = zext i32 %7 to i64
   %add.ptr20 = getelementptr inbounds i8, ptr %data, i64 %idx.ext19
-  %fTrieLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %data, i64 0, i32 9
+  %fTrieLen = getelementptr inbounds i8, ptr %data, i64 36
   %8 = load i32, ptr %fTrieLen, align 4
   %call22 = tail call ptr @ucptrie_openFromBinary_75(i32 noundef 0, i32 noundef -1, ptr noundef nonnull %add.ptr20, i32 noundef %8, ptr noundef null, ptr noundef nonnull %status)
-  %fTrie23 = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 7
+  %fTrie23 = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call22, ptr %fTrie23, align 8
   %9 = load i32, ptr %status, align 4
   %cmp.i15 = icmp slt i32 %9, 1
@@ -159,31 +149,31 @@ if.then33:                                        ; preds = %if.end27
 
 if.end34:                                         ; preds = %if.end27
   %11 = load ptr, ptr %this, align 8
-  %fRuleSource = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %11, i64 0, i32 10
+  %fRuleSource = getelementptr inbounds i8, ptr %11, i64 40
   %12 = load i32, ptr %fRuleSource, align 4
   %idx.ext36 = zext i32 %12 to i64
   %add.ptr37 = getelementptr inbounds i8, ptr %data, i64 %idx.ext36
-  %fRuleSource38 = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 3
+  %fRuleSource38 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr37, ptr %fRuleSource38, align 8
-  %fRuleSourceLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %11, i64 0, i32 11
+  %fRuleSourceLen = getelementptr inbounds i8, ptr %11, i64 44
   %13 = load i32, ptr %fRuleSourceLen, align 4
   call void @_ZN6icu_7513UnicodeString8fromUTF8ENS_11StringPieceE(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp, ptr nonnull %add.ptr37, i32 %13)
-  %fRuleString = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 11
+  %fRuleString = getelementptr inbounds i8, ptr %this, i64 72
   %call41 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %fRuleString, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #14
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #14
   %14 = load ptr, ptr %this, align 8
-  %fStatusTable = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %14, i64 0, i32 12
+  %fStatusTable = getelementptr inbounds i8, ptr %14, i64 48
   %15 = load i32, ptr %fStatusTable, align 4
   %idx.ext43 = zext i32 %15 to i64
   %add.ptr44 = getelementptr inbounds i8, ptr %data, i64 %idx.ext43
-  %fRuleStatusTable = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 4
+  %fRuleStatusTable = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr44, ptr %fRuleStatusTable, align 8
-  %fStatusTableLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %data, i64 0, i32 13
+  %fStatusTableLen = getelementptr inbounds i8, ptr %data, i64 52
   %16 = load i32, ptr %fStatusTableLen, align 4
   %17 = lshr i32 %16, 2
-  %fStatusMaxIdx = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 5
+  %fStatusMaxIdx = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %17, ptr %fStatusMaxIdx, align 8
-  %fRefCount = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 8
+  %fRefCount = getelementptr inbounds i8, ptr %this, i64 56
   store atomic i32 1, ptr %fRefCount seq_cst, align 8
   br label %return
 
@@ -197,18 +187,18 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7515RBBIDataWrapperC2EPKNS_14RBBIDataHeaderENS0_10EDontAdoptER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %data, i32 %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fRuleString = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 11
+  %fRuleString = getelementptr inbounds i8, ptr %this, i64 72
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fRuleString, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 11, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 80
   store i16 2, ptr %fUnion2.i, align 8
-  %fTrie.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 7
+  %fTrie.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %fTrie.i, align 8
-  %fUDataMem.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 10
+  %fUDataMem.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %fUDataMem.i, align 8
-  %fRefCount.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 8
+  %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   store atomic i32 0, ptr %fRefCount.i seq_cst, align 8
-  %fDontFreeData.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 12
+  %fDontFreeData.i = getelementptr inbounds i8, ptr %this, i64 136
   store i8 1, ptr %fDontFreeData.i, align 8
   invoke void @_ZN6icu_7515RBBIDataWrapper4initEPKNS_14RBBIDataHeaderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %data, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont2 unwind label %lpad
@@ -227,18 +217,18 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7515RBBIDataWrapperC2EP11UDataMemoryR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %udm, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fRuleString = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 11
+  %fRuleString = getelementptr inbounds i8, ptr %this, i64 72
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fRuleString, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 11, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 80
   store i16 2, ptr %fUnion2.i, align 8
-  %fTrie.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 7
+  %fTrie.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %fTrie.i, align 8
-  %fUDataMem.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 10
+  %fUDataMem.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %fUDataMem.i, align 8
-  %fRefCount.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 8
+  %fRefCount.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   store atomic i32 0, ptr %fRefCount.i seq_cst, align 8
-  %fDontFreeData.i = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 12
+  %fDontFreeData.i = getelementptr inbounds i8, ptr %this, i64 136
   store i8 1, ptr %fDontFreeData.i, align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -251,50 +241,50 @@ lpad:                                             ; preds = %if.end38
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
-  %pHeader = getelementptr inbounds %struct.UDataMemory, ptr %udm, i64 0, i32 1
+  %pHeader = getelementptr inbounds i8, ptr %udm, i64 8
   %2 = load ptr, ptr %pHeader, align 8
   %3 = load i16, ptr %2, align 2
   %cmp = icmp ugt i16 %3, 19
   br i1 %cmp, label %land.lhs.true, label %if.then37
 
 land.lhs.true:                                    ; preds = %if.end
-  %isBigEndian = getelementptr inbounds %struct.DataHeader, ptr %2, i64 0, i32 1, i32 2
+  %isBigEndian = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i8, ptr %isBigEndian, align 2
   %cmp5 = icmp eq i8 %4, 0
   br i1 %cmp5, label %land.lhs.true6, label %if.then37
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
-  %charsetFamily = getelementptr inbounds %struct.DataHeader, ptr %2, i64 0, i32 1, i32 3
+  %charsetFamily = getelementptr inbounds i8, ptr %2, i64 9
   %5 = load i8, ptr %charsetFamily, align 1
   %cmp9 = icmp eq i8 %5, 0
   br i1 %cmp9, label %land.lhs.true10, label %if.then37
 
 land.lhs.true10:                                  ; preds = %land.lhs.true6
-  %dataFormat = getelementptr inbounds %struct.DataHeader, ptr %2, i64 0, i32 1, i32 6
+  %dataFormat = getelementptr inbounds i8, ptr %2, i64 12
   %6 = load i8, ptr %dataFormat, align 2
   %cmp13 = icmp eq i8 %6, 66
   br i1 %cmp13, label %land.lhs.true14, label %if.then37
 
 land.lhs.true14:                                  ; preds = %land.lhs.true10
-  %arrayidx17 = getelementptr inbounds %struct.DataHeader, ptr %2, i64 0, i32 1, i32 6, i64 1
+  %arrayidx17 = getelementptr inbounds i8, ptr %2, i64 13
   %7 = load i8, ptr %arrayidx17, align 1
   %cmp19 = icmp eq i8 %7, 114
   br i1 %cmp19, label %land.lhs.true20, label %if.then37
 
 land.lhs.true20:                                  ; preds = %land.lhs.true14
-  %arrayidx23 = getelementptr inbounds %struct.DataHeader, ptr %2, i64 0, i32 1, i32 6, i64 2
+  %arrayidx23 = getelementptr inbounds i8, ptr %2, i64 14
   %8 = load i8, ptr %arrayidx23, align 2
   %cmp25 = icmp eq i8 %8, 107
   br i1 %cmp25, label %land.lhs.true26, label %if.then37
 
 land.lhs.true26:                                  ; preds = %land.lhs.true20
-  %arrayidx29 = getelementptr inbounds %struct.DataHeader, ptr %2, i64 0, i32 1, i32 6, i64 3
+  %arrayidx29 = getelementptr inbounds i8, ptr %2, i64 15
   %9 = load i8, ptr %arrayidx29, align 1
   %cmp31 = icmp eq i8 %9, 32
   br i1 %cmp31, label %land.lhs.true32, label %if.then37
 
 land.lhs.true32:                                  ; preds = %land.lhs.true26
-  %formatVersion = getelementptr inbounds %struct.DataHeader, ptr %2, i64 0, i32 1, i32 7
+  %formatVersion = getelementptr inbounds i8, ptr %2, i64 16
   %10 = load i8, ptr %formatVersion, align 1
   %cmp.i13.not = icmp eq i8 %10, 6
   br i1 %cmp.i13.not, label %if.end38, label %if.then37
@@ -338,14 +328,14 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7515RBBIDataWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fTrie = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 7
+  %fTrie = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %fTrie, align 8
   invoke void @ucptrie_close_75(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr null, ptr %fTrie, align 8
-  %fUDataMem = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 10
+  %fUDataMem = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %fUDataMem, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -355,7 +345,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %if.end8 unwind label %terminate.lpad
 
 if.else:                                          ; preds = %invoke.cont
-  %fDontFreeData = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 12
+  %fDontFreeData = getelementptr inbounds i8, ptr %this, i64 136
   %2 = load i8, ptr %fDontFreeData, align 8
   %tobool5.not = icmp eq i8 %2, 0
   br i1 %tobool5.not, label %if.then6, label %if.end8
@@ -366,7 +356,7 @@ if.then6:                                         ; preds = %if.else
           to label %if.end8 unwind label %terminate.lpad
 
 if.end8:                                          ; preds = %if.else, %if.then6, %if.then
-  %fRuleString = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 11
+  %fRuleString = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fRuleString) #14
   ret void
 
@@ -404,9 +394,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fLength = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %0, i64 0, i32 2
+  %fLength = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i32, ptr %fLength, align 4
-  %fLength5 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %1, i64 0, i32 2
+  %fLength5 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i32, ptr %fLength5, align 4
   %cmp6.not = icmp eq i32 %2, %3
   br i1 %cmp6.not, label %if.end8, label %return
@@ -426,7 +416,7 @@ return:                                           ; preds = %if.end8, %if.end, %
 define noundef i32 @_ZN6icu_7515RBBIDataWrapper8hashCodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %fFTableLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %0, i64 0, i32 5
+  %fFTableLen = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load i32, ptr %fFTableLen, align 4
   ret i32 %1
 }
@@ -434,7 +424,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7515RBBIDataWrapper15removeReferenceEv(ptr noundef nonnull align 8 dereferenceable(137) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %fRefCount = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 8
+  %fRefCount = getelementptr inbounds i8, ptr %this, i64 56
   %0 = atomicrmw sub ptr %fRefCount, i32 1 seq_cst, align 4
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %delete.notnull, label %if.end
@@ -454,7 +444,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull ptr @_ZN6icu_7515RBBIDataWrapper12addReferenceEv(ptr noundef nonnull returned align 8 dereferenceable(137) %this) local_unnamed_addr #9 align 2 {
 entry:
-  %fRefCount = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 8
+  %fRefCount = getelementptr inbounds i8, ptr %this, i64 56
   %0 = atomicrmw add ptr %fRefCount, i32 1 seq_cst, align 4
   ret ptr %this
 }
@@ -462,7 +452,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7515RBBIDataWrapper19getRuleSourceStringEv(ptr noundef nonnull readnone align 8 dereferenceable(137) %this) local_unnamed_addr #10 align 2 {
 entry:
-  %fRuleString = getelementptr inbounds %"class.icu_75::RBBIDataWrapper", ptr %this, i64 0, i32 11
+  %fRuleString = getelementptr inbounds i8, ptr %this, i64 72
   ret ptr %fRuleString
 }
 
@@ -550,7 +540,7 @@ if.end46:                                         ; preds = %land.lhs.true27
   %call47 = tail call i32 @udata_swapDataHeader_75(ptr noundef nonnull %ds, ptr noundef nonnull %inData, i32 noundef %length, ptr noundef %outData, ptr noundef nonnull %status)
   %idx.ext = sext i32 %call47 to i64
   %add.ptr48 = getelementptr inbounds i8, ptr %inData, i64 %idx.ext
-  %readUInt32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 5
+  %readUInt32 = getelementptr inbounds i8, ptr %ds, i64 16
   %10 = load ptr, ptr %readUInt32, align 8
   %11 = load i32, ptr %add.ptr48, align 4
   %call49 = tail call noundef i32 %10(i32 noundef %11)
@@ -558,14 +548,14 @@ if.end46:                                         ; preds = %land.lhs.true27
   br i1 %cmp50.not, label %lor.lhs.false51, label %if.then60
 
 lor.lhs.false51:                                  ; preds = %if.end46
-  %fFormatVersion = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %add.ptr48, i64 0, i32 1
+  %fFormatVersion = getelementptr inbounds i8, ptr %add.ptr48, i64 4
   %12 = load i8, ptr %fFormatVersion, align 1
   %cmp.i160.not = icmp eq i8 %12, 6
   br i1 %cmp.i160.not, label %lor.lhs.false55, label %if.then60
 
 lor.lhs.false55:                                  ; preds = %lor.lhs.false51
   %13 = load ptr, ptr %readUInt32, align 8
-  %fLength = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %add.ptr48, i64 0, i32 2
+  %fLength = getelementptr inbounds i8, ptr %add.ptr48, i64 8
   %14 = load i32, ptr %fLength, align 4
   %call57 = tail call noundef i32 %13(i32 noundef %14)
   %cmp59 = icmp ult i32 %call57, 80
@@ -605,11 +595,11 @@ if.then74:                                        ; preds = %if.end70
 
 if.end76:                                         ; preds = %if.then74, %if.end70
   %17 = load ptr, ptr %readUInt32, align 8
-  %fFTable = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %add.ptr48, i64 0, i32 4
+  %fFTable = getelementptr inbounds i8, ptr %add.ptr48, i64 16
   %18 = load i32, ptr %fFTable, align 4
   %call78 = tail call noundef i32 %17(i32 noundef %18)
   %19 = load ptr, ptr %readUInt32, align 8
-  %fFTableLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %add.ptr48, i64 0, i32 5
+  %fFTableLen = getelementptr inbounds i8, ptr %add.ptr48, i64 20
   %20 = load i32, ptr %fFTableLen, align 4
   %call80 = tail call noundef i32 %19(i32 noundef %20)
   %cmp81 = icmp sgt i32 %call80, 0
@@ -619,10 +609,10 @@ if.then82:                                        ; preds = %if.end76
   %idx.ext83 = sext i32 %call78 to i64
   %add.ptr84 = getelementptr inbounds i8, ptr %add.ptr48, i64 %idx.ext83
   %21 = load ptr, ptr %readUInt32, align 8
-  %fFlags = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %add.ptr84, i64 0, i32 4
+  %fFlags = getelementptr inbounds i8, ptr %add.ptr84, i64 16
   %22 = load i32, ptr %fFlags, align 4
   %call86 = tail call noundef i32 %21(i32 noundef %22)
-  %swapArray32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32 = getelementptr inbounds i8, ptr %ds, i64 56
   %23 = load ptr, ptr %swapArray32, align 8
   %add.ptr91 = getelementptr inbounds i8, ptr %add.ptr72, i64 %idx.ext83
   %call92 = tail call noundef i32 %23(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr84, i32 noundef 20, ptr noundef %add.ptr91, ptr noundef nonnull %status)
@@ -642,7 +632,7 @@ do.body:                                          ; preds = %if.then94
   br label %if.end118
 
 if.else:                                          ; preds = %if.then82
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
   %24 = load ptr, ptr %swapArray16, align 8
   %add.ptr110 = getelementptr inbounds i8, ptr %add.ptr84, i64 20
   %sub111 = add nsw i32 %call80, -20
@@ -652,11 +642,11 @@ if.else:                                          ; preds = %if.then82
 
 if.end118:                                        ; preds = %if.else, %do.body, %if.then94, %if.end76
   %25 = load ptr, ptr %readUInt32, align 8
-  %fRTable = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %add.ptr48, i64 0, i32 6
+  %fRTable = getelementptr inbounds i8, ptr %add.ptr48, i64 24
   %26 = load i32, ptr %fRTable, align 4
   %call120 = tail call noundef i32 %25(i32 noundef %26)
   %27 = load ptr, ptr %readUInt32, align 8
-  %fRTableLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %add.ptr48, i64 0, i32 7
+  %fRTableLen = getelementptr inbounds i8, ptr %add.ptr48, i64 28
   %28 = load i32, ptr %fRTableLen, align 4
   %call122 = tail call noundef i32 %27(i32 noundef %28)
   %cmp123 = icmp sgt i32 %call122, 0
@@ -666,10 +656,10 @@ if.then124:                                       ; preds = %if.end118
   %idx.ext126 = sext i32 %call120 to i64
   %add.ptr127 = getelementptr inbounds i8, ptr %add.ptr48, i64 %idx.ext126
   %29 = load ptr, ptr %readUInt32, align 8
-  %fFlags130 = getelementptr inbounds %"struct.icu_75::RBBIStateTable", ptr %add.ptr127, i64 0, i32 4
+  %fFlags130 = getelementptr inbounds i8, ptr %add.ptr127, i64 16
   %30 = load i32, ptr %fFlags130, align 4
   %call131 = tail call noundef i32 %29(i32 noundef %30)
-  %swapArray32134 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32134 = getelementptr inbounds i8, ptr %ds, i64 56
   %31 = load ptr, ptr %swapArray32134, align 8
   %add.ptr138 = getelementptr inbounds i8, ptr %add.ptr72, i64 %idx.ext126
   %call139 = tail call noundef i32 %31(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr127, i32 noundef 20, ptr noundef %add.ptr138, ptr noundef nonnull %status)
@@ -689,7 +679,7 @@ do.body144:                                       ; preds = %if.then141
   br label %if.end170
 
 if.else157:                                       ; preds = %if.then124
-  %swapArray16158 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16158 = getelementptr inbounds i8, ptr %ds, i64 48
   %32 = load ptr, ptr %swapArray16158, align 8
   %add.ptr162 = getelementptr inbounds i8, ptr %add.ptr127, i64 20
   %sub163 = add nsw i32 %call122, -20
@@ -699,13 +689,13 @@ if.else157:                                       ; preds = %if.then124
 
 if.end170:                                        ; preds = %if.else157, %do.body144, %if.then141, %if.end118
   %33 = load ptr, ptr %readUInt32, align 8
-  %fTrie = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %add.ptr48, i64 0, i32 8
+  %fTrie = getelementptr inbounds i8, ptr %add.ptr48, i64 32
   %34 = load i32, ptr %fTrie, align 4
   %call172 = tail call noundef i32 %33(i32 noundef %34)
   %idx.ext173 = zext i32 %call172 to i64
   %add.ptr174 = getelementptr inbounds i8, ptr %add.ptr48, i64 %idx.ext173
   %35 = load ptr, ptr %readUInt32, align 8
-  %fTrieLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %add.ptr48, i64 0, i32 9
+  %fTrieLen = getelementptr inbounds i8, ptr %add.ptr48, i64 36
   %36 = load i32, ptr %fTrieLen, align 4
   %call176 = tail call noundef i32 %35(i32 noundef %36)
   %37 = load ptr, ptr %readUInt32, align 8
@@ -718,7 +708,7 @@ if.end170:                                        ; preds = %if.else157, %do.bod
 
 do.body185:                                       ; preds = %if.end170
   %39 = load ptr, ptr %readUInt32, align 8
-  %fRuleSource = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %add.ptr48, i64 0, i32 10
+  %fRuleSource = getelementptr inbounds i8, ptr %add.ptr48, i64 40
   %40 = load i32, ptr %fRuleSource, align 4
   %call187 = tail call noundef i32 %39(i32 noundef %40)
   %idx.ext188 = zext i32 %call187 to i64
@@ -729,7 +719,7 @@ do.body185:                                       ; preds = %if.end170
   %idx.ext193 = zext i32 %call192 to i64
   %add.ptr194 = getelementptr inbounds i8, ptr %add.ptr48, i64 %idx.ext193
   %43 = load ptr, ptr %readUInt32, align 8
-  %fRuleSourceLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %add.ptr48, i64 0, i32 11
+  %fRuleSourceLen = getelementptr inbounds i8, ptr %add.ptr48, i64 44
   %44 = load i32, ptr %fRuleSourceLen, align 4
   %call196 = tail call noundef i32 %43(i32 noundef %44)
   %conv197 = zext i32 %call196 to i64
@@ -737,16 +727,16 @@ do.body185:                                       ; preds = %if.end170
   br label %if.end199
 
 if.end199:                                        ; preds = %do.body185, %if.end170
-  %swapArray32200 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 10
+  %swapArray32200 = getelementptr inbounds i8, ptr %ds, i64 56
   %45 = load ptr, ptr %swapArray32200, align 8
   %46 = load ptr, ptr %readUInt32, align 8
-  %fStatusTable = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %add.ptr48, i64 0, i32 12
+  %fStatusTable = getelementptr inbounds i8, ptr %add.ptr48, i64 48
   %47 = load i32, ptr %fStatusTable, align 4
   %call202 = tail call noundef i32 %46(i32 noundef %47)
   %idx.ext203 = zext i32 %call202 to i64
   %add.ptr204 = getelementptr inbounds i8, ptr %add.ptr48, i64 %idx.ext203
   %48 = load ptr, ptr %readUInt32, align 8
-  %fStatusTableLen = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %add.ptr48, i64 0, i32 13
+  %fStatusTableLen = getelementptr inbounds i8, ptr %add.ptr48, i64 52
   %49 = load i32, ptr %fStatusTableLen, align 4
   %call206 = tail call noundef i32 %48(i32 noundef %49)
   %50 = load ptr, ptr %readUInt32, align 8
@@ -758,7 +748,7 @@ if.end199:                                        ; preds = %do.body185, %if.end
   %52 = load ptr, ptr %swapArray32200, align 8
   %call214 = tail call noundef i32 %52(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr48, i32 noundef 80, ptr noundef %add.ptr72, ptr noundef nonnull %status)
   %53 = load ptr, ptr %swapArray32200, align 8
-  %fFormatVersion216 = getelementptr inbounds %"struct.icu_75::RBBIDataHeader", ptr %add.ptr72, i64 0, i32 1
+  %fFormatVersion216 = getelementptr inbounds i8, ptr %add.ptr72, i64 4
   %call220 = tail call noundef i32 %53(ptr noundef nonnull %ds, ptr noundef nonnull %fFormatVersion216, i32 noundef 4, ptr noundef nonnull %fFormatVersion216, ptr noundef nonnull %status)
   br label %return
 

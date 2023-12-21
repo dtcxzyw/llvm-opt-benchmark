@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.PBE2PARAM_st = type { ptr, ptr }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.SCRYPT_PARAMS_st = type { ptr, ptr, ptr, ptr, ptr }
 
 @SCRYPT_PARAMS_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @SCRYPT_PARAMS_seq_tt, i64 5, ptr null, i64 40, ptr @.str }, align 8
 @SCRYPT_PARAMS_seq_tt = internal constant [5 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.2, ptr @ASN1_OCTET_STRING_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.3, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 16, ptr @.str.4, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 24, ptr @.str.5, ptr @ASN1_INTEGER_it }, %struct.ASN1_TEMPLATE_st { i64 1, i64 0, i64 32, ptr @.str.6, ptr @ASN1_INTEGER_it }], align 16
@@ -112,12 +108,12 @@ if.then9:                                         ; preds = %if.end6
   br label %err
 
 if.end10:                                         ; preds = %if.end6
-  %encryption = getelementptr inbounds %struct.PBE2PARAM_st, ptr %call7, i64 0, i32 1
+  %encryption = getelementptr inbounds i8, ptr %call7, i64 8
   %0 = load ptr, ptr %encryption, align 8
   %call11 = tail call ptr @OBJ_nid2obj(i32 noundef %call3) #4
   store ptr %call11, ptr %0, align 8
   %call12 = tail call ptr @ASN1_TYPE_new() #4
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %0, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %call12, ptr %parameter, align 8
   %cmp14 = icmp eq ptr %call12, null
   br i1 %cmp14, label %if.then15, label %if.end16
@@ -208,28 +204,28 @@ if.end8.i:                                        ; preds = %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end8.i
   %4 = load ptr, ptr %call1.i.i, align 8
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %data.i, align 8
   %call13.i = call i32 @RAND_bytes(ptr noundef %5, i32 noundef %conv.i) #4
   %cmp14.i = icmp slt i32 %call13.i, 1
   br i1 %cmp14.i, label %if.then61, label %if.end17.i
 
 if.end17.i:                                       ; preds = %land.lhs.true.i, %if.end8.i
-  %costParameter.i = getelementptr inbounds %struct.SCRYPT_PARAMS_st, ptr %call1.i.i, i64 0, i32 1
+  %costParameter.i = getelementptr inbounds i8, ptr %call1.i.i, i64 8
   %6 = load ptr, ptr %costParameter.i, align 8
   %call18.i = call i32 @ASN1_INTEGER_set_uint64(ptr noundef %6, i64 noundef %N) #4
   %cmp19.i = icmp eq i32 %call18.i, 0
   br i1 %cmp19.i, label %err.sink.split.i, label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end17.i
-  %blockSize.i = getelementptr inbounds %struct.SCRYPT_PARAMS_st, ptr %call1.i.i, i64 0, i32 2
+  %blockSize.i = getelementptr inbounds i8, ptr %call1.i.i, i64 16
   %7 = load ptr, ptr %blockSize.i, align 8
   %call23.i = call i32 @ASN1_INTEGER_set_uint64(ptr noundef %7, i64 noundef %r) #4
   %cmp24.i = icmp eq i32 %call23.i, 0
   br i1 %cmp24.i, label %err.sink.split.i, label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.end22.i
-  %parallelizationParameter.i = getelementptr inbounds %struct.SCRYPT_PARAMS_st, ptr %call1.i.i, i64 0, i32 3
+  %parallelizationParameter.i = getelementptr inbounds i8, ptr %call1.i.i, i64 24
   %8 = load ptr, ptr %parallelizationParameter.i, align 8
   %call28.i = call i32 @ASN1_INTEGER_set_uint64(ptr noundef %8, i64 noundef %p) #4
   %cmp29.i = icmp eq i32 %call28.i, 0
@@ -241,7 +237,7 @@ if.end32.i:                                       ; preds = %if.end27.i
 
 if.then35.i:                                      ; preds = %if.end32.i
   %call36.i = call ptr @ASN1_INTEGER_new() #4
-  %keyLength.i = getelementptr inbounds %struct.SCRYPT_PARAMS_st, ptr %call1.i.i, i64 0, i32 4
+  %keyLength.i = getelementptr inbounds i8, ptr %call1.i.i, i64 32
   store ptr %call36.i, ptr %keyLength.i, align 8
   %cmp38.i = icmp eq ptr %call36.i, null
   br i1 %cmp38.i, label %err.sink.split.i, label %if.end41.i
@@ -259,7 +255,7 @@ if.end48.i:                                       ; preds = %if.end41.i, %if.end
 if.end53.i:                                       ; preds = %if.end48.i
   %call54.i = call ptr @OBJ_nid2obj(i32 noundef 973) #4
   store ptr %call54.i, ptr %call49.i, align 8
-  %parameter.i = getelementptr inbounds %struct.X509_algor_st, ptr %call49.i, i64 0, i32 1
+  %parameter.i = getelementptr inbounds i8, ptr %call49.i, i64 8
   %call56.i = call ptr @ASN1_TYPE_pack_sequence(ptr noundef nonnull @SCRYPT_PARAMS_it.local_it, ptr noundef nonnull %call1.i.i, ptr noundef nonnull %parameter.i) #4
   %cmp57.i = icmp eq ptr %call56.i, null
   br i1 %cmp57.i, label %err.sink.split.i, label %if.end62
@@ -299,7 +295,7 @@ if.end67:                                         ; preds = %if.end62
   %call68 = call ptr @OBJ_nid2obj(i32 noundef 161) #4
   store ptr %call68, ptr %call63, align 8
   %call70 = call ptr @PBE2PARAM_it() #4
-  %parameter71 = getelementptr inbounds %struct.X509_algor_st, ptr %call63, i64 0, i32 1
+  %parameter71 = getelementptr inbounds i8, ptr %call63, i64 8
   %call72 = call ptr @ASN1_TYPE_pack_sequence(ptr noundef %call70, ptr noundef nonnull %call7, ptr noundef nonnull %parameter71) #4
   %cmp73 = icmp eq ptr %call72, null
   br i1 %cmp73, label %if.then75, label %if.end76
@@ -413,7 +409,7 @@ if.then8:                                         ; preds = %if.end5
 
 if.end9:                                          ; preds = %if.end5
   %conv = zext nneg i32 %call6 to i64
-  %keyLength = getelementptr inbounds %struct.SCRYPT_PARAMS_st, ptr %call2, i64 0, i32 4
+  %keyLength = getelementptr inbounds i8, ptr %call2, i64 32
   %0 = load ptr, ptr %keyLength, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end19, label %if.then10
@@ -433,21 +429,21 @@ if.then17:                                        ; preds = %if.then10
   br label %err
 
 if.end19:                                         ; preds = %if.then10, %if.end9
-  %costParameter = getelementptr inbounds %struct.SCRYPT_PARAMS_st, ptr %call2, i64 0, i32 1
+  %costParameter = getelementptr inbounds i8, ptr %call2, i64 8
   %2 = load ptr, ptr %costParameter, align 8
   %call20 = call i32 @ASN1_INTEGER_get_uint64(ptr noundef nonnull %N, ptr noundef %2) #4
   %cmp21 = icmp eq i32 %call20, 0
   br i1 %cmp21, label %if.then35, label %lor.lhs.false23
 
 lor.lhs.false23:                                  ; preds = %if.end19
-  %blockSize = getelementptr inbounds %struct.SCRYPT_PARAMS_st, ptr %call2, i64 0, i32 2
+  %blockSize = getelementptr inbounds i8, ptr %call2, i64 16
   %3 = load ptr, ptr %blockSize, align 8
   %call24 = call i32 @ASN1_INTEGER_get_uint64(ptr noundef nonnull %r, ptr noundef %3) #4
   %cmp25 = icmp eq i32 %call24, 0
   br i1 %cmp25, label %if.then35, label %lor.lhs.false27
 
 lor.lhs.false27:                                  ; preds = %lor.lhs.false23
-  %parallelizationParameter = getelementptr inbounds %struct.SCRYPT_PARAMS_st, ptr %call2, i64 0, i32 3
+  %parallelizationParameter = getelementptr inbounds i8, ptr %call2, i64 24
   %4 = load ptr, ptr %parallelizationParameter, align 8
   %call28 = call i32 @ASN1_INTEGER_get_uint64(ptr noundef nonnull %p, ptr noundef %4) #4
   %cmp29 = icmp eq i32 %call28, 0
@@ -469,7 +465,7 @@ if.then35:                                        ; preds = %lor.lhs.false31, %l
 
 if.end36:                                         ; preds = %lor.lhs.false31
   %8 = load ptr, ptr %call2, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %8, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %data, align 8
   %10 = load i32, ptr %8, align 8
   %conv39 = sext i32 %10 to i64

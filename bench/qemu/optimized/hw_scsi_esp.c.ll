@@ -12,38 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.6 = type { i32, i32, i8 }
 %struct.SCSIBusInfo = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.ESPState = type { %struct.DeviceState, [16 x i8], [16 x i8], ptr, ptr, i8, i8, i32, i32, i32, %struct.Fifo8, %struct.SCSIBus, ptr, ptr, %struct.Fifo8, i8, i8, i32, i8, i8, i32, i32, ptr, ptr, ptr, ptr, ptr, i8, i8, i32, i32, i8, i32, i32, [16 x i8], [32 x i8], i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.SCSIBus = type { %struct.BusState, i32, %struct.SCSISense, ptr, i32 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.SCSISense = type { i8, i8, i8 }
-%struct.Fifo8 = type { ptr, i32, i32, i32 }
-%struct.SCSIRequest = type { ptr, ptr, ptr, i32, i32, i32, i16, i16, ptr, i64, %struct.SCSICommand, %struct.NotifierList, [252 x i8], i32, i8, i8, i8, i8, ptr, ptr, %union.anon }
-%struct.SCSICommand = type { [16 x i8], i32, i64, i64, i32 }
-%struct.NotifierList = type { %struct.anon }
-%struct.anon = type { ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.SCSIDevice = type { %struct.DeviceState, ptr, ptr, i32, %struct.BlockConf, %struct.SCSISense, i8, [252 x i8], i32, %union.anon.0, i32, i32, i32, i32, i64, i64, i64, i32, i32, i32, i8, i8 }
-%struct.BlockConf = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.SysBusESPState = type { %struct.SysBusDevice, %struct.MemoryRegion, %struct.MemoryRegion, i32, %struct.ESPState }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon.1], i32, [32 x i32] }
-%struct.anon.1 = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.2, %union.anon.3, %union.anon.4, ptr, i32, ptr, ptr, i8 }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @.str = private unnamed_addr constant [11 x i8] c"!s->do_cmd\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"../qemu/hw/scsi/esp.c\00", align 1
@@ -244,7 +212,7 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %dma_enabled = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 20
+  %dma_enabled = getelementptr inbounds i8, ptr %s, i64 444
   store i32 1, ptr %dma_enabled, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
@@ -270,7 +238,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #10
   br label %trace_esp_dma_enable.exit
@@ -281,7 +249,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_esp_dma_enable.exit:                        ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %dma_cb = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 26
+  %dma_cb = getelementptr inbounds i8, ptr %s, i64 488
   %7 = load ptr, ptr %dma_cb, align 8
   %tobool1.not = icmp eq ptr %7, null
   br i1 %tobool1.not, label %if.end6, label %if.then2
@@ -316,7 +284,7 @@ if.then8.i.i15:                                   ; preds = %if.then.i.i13
   %call9.i.i16 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i6, ptr noundef null) #10
   %call10.i.i17 = tail call i32 @qemu_get_thread_id() #10
   %13 = load i64, ptr %_now.i.i6, align 8
-  %tv_usec.i.i18 = getelementptr inbounds %struct.timeval, ptr %_now.i.i6, i64 0, i32 1
+  %tv_usec.i.i18 = getelementptr inbounds i8, ptr %_now.i.i6, i64 8
   %14 = load i64, ptr %tv_usec.i.i18, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i17, i64 noundef %13, i64 noundef %14) #10
   br label %trace_esp_dma_disable.exit
@@ -327,7 +295,7 @@ if.else.i.i19:                                    ; preds = %if.then.i.i13
 
 trace_esp_dma_disable.exit:                       ; preds = %if.else, %land.lhs.true5.i.i10, %if.then8.i.i15, %if.else.i.i19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i6)
-  %dma_enabled5 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 20
+  %dma_enabled5 = getelementptr inbounds i8, ptr %s, i64 444
   store i32 0, ptr %dma_enabled5, align 4
   br label %if.end6
 
@@ -338,17 +306,17 @@ if.end6:                                          ; preds = %trace_esp_dma_enabl
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @esp_request_cancelled(ptr noundef readonly %req) #0 {
 entry:
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
-  %current_req = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 13
+  %current_req = getelementptr inbounds i8, ptr %0, i64 400
   %1 = load ptr, ptr %current_req, align 8
   %cmp = icmp eq ptr %1, %req
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call void @scsi_req_unref(ptr noundef nonnull %req) #10
-  %current_dev = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 12
-  %async_len = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 21
+  %current_dev = getelementptr inbounds i8, ptr %0, i64 392
+  %async_len = getelementptr inbounds i8, ptr %0, i64 448
   store i32 0, ptr %async_len, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current_dev, i8 0, i64 16, i1 false)
   br label %if.end
@@ -366,9 +334,9 @@ entry:
   %_now.i.i30 = alloca %struct.timeval, align 8
   %_now.i.i16 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
-  %arrayidx = getelementptr %struct.ESPState, ptr %0, i64 0, i32 1, i64 4
+  %arrayidx = getelementptr i8, ptr %0, i64 164
   %1 = load i8, ptr %arrayidx, align 4
   %2 = and i8 %1, 7
   %cmp = icmp eq i8 %2, 0
@@ -396,7 +364,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9) #10
   br label %trace_esp_command_complete.exit
@@ -407,14 +375,14 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_esp_command_complete.exit:                  ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %dma = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 9
+  %dma = getelementptr inbounds i8, ptr %0, i64 220
   %10 = load i32, ptr %dma, align 4
   %tobool = icmp ne i32 %10, 0
   %or.cond = select i1 %tobool, i1 true, i1 %cmp
   br i1 %or.cond, label %if.then, label %if.end7
 
 if.then:                                          ; preds = %trace_esp_command_complete.exit
-  %ti_size = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 7
+  %ti_size = getelementptr inbounds i8, ptr %0, i64 212
   %11 = load i32, ptr %ti_size, align 4
   %cmp3.not = icmp eq i32 %11, 0
   br i1 %cmp3.not, label %if.end, label %if.then5
@@ -444,7 +412,7 @@ if.then8.i.i25:                                   ; preds = %if.then.i.i23
   %call9.i.i26 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i16, ptr noundef null) #10
   %call10.i.i27 = tail call i32 @qemu_get_thread_id() #10
   %17 = load i64, ptr %_now.i.i16, align 8
-  %tv_usec.i.i28 = getelementptr inbounds %struct.timeval, ptr %_now.i.i16, i64 0, i32 1
+  %tv_usec.i.i28 = getelementptr inbounds i8, ptr %_now.i.i16, i64 8
   %18 = load i64, ptr %tv_usec.i.i28, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i27, i64 noundef %17, i64 noundef %18) #10
   br label %trace_esp_command_complete_unexpected.exit
@@ -462,9 +430,9 @@ if.end:                                           ; preds = %trace_esp_command_c
   br label %if.end7
 
 if.end7:                                          ; preds = %trace_esp_command_complete.exit, %if.end
-  %async_len = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 21
+  %async_len = getelementptr inbounds i8, ptr %0, i64 448
   store i32 0, ptr %async_len, align 8
-  %status = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 6
+  %status = getelementptr inbounds i8, ptr %req, i64 36
   %19 = load i16, ptr %status, align 4
   %tobool8.not = icmp eq i16 %19, 0
   br i1 %tobool8.not, label %if.end10, label %if.then9
@@ -494,7 +462,7 @@ if.then8.i.i39:                                   ; preds = %if.then.i.i37
   %call9.i.i40 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i30, ptr noundef null) #10
   %call10.i.i41 = tail call i32 @qemu_get_thread_id() #10
   %25 = load i64, ptr %_now.i.i30, align 8
-  %tv_usec.i.i42 = getelementptr inbounds %struct.timeval, ptr %_now.i.i30, i64 0, i32 1
+  %tv_usec.i.i42 = getelementptr inbounds i8, ptr %_now.i.i30, i64 8
   %26 = load i64, ptr %tv_usec.i.i42, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i41, i64 noundef %25, i64 noundef %26) #10
   br label %trace_esp_command_complete_fail.exit
@@ -511,26 +479,26 @@ trace_esp_command_complete_fail.exit:             ; preds = %if.then9, %land.lhs
 
 if.end10:                                         ; preds = %trace_esp_command_complete_fail.exit, %if.end7
   %conv12 = phi i32 [ %27, %trace_esp_command_complete_fail.exit ], [ 0, %if.end7 ]
-  %status13 = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 8
+  %status13 = getelementptr inbounds i8, ptr %0, i64 216
   store i32 %conv12, ptr %status13, align 8
-  %ti_size14 = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 7
+  %ti_size14 = getelementptr inbounds i8, ptr %0, i64 212
   %28 = load i32, ptr %ti_size14, align 4
   %cmp15 = icmp eq i32 %28, 0
   br i1 %cmp15, label %if.then17, label %if.end20
 
 if.then17:                                        ; preds = %if.end10
   store i8 19, ptr %arrayidx, align 4
-  %arrayidx3.i = getelementptr %struct.ESPState, ptr %0, i64 0, i32 1, i64 5
+  %arrayidx3.i = getelementptr i8, ptr %0, i64 165
   %29 = load i8, ptr %arrayidx3.i, align 1
   %30 = or i8 %29, 16
   store i8 %30, ptr %arrayidx3.i, align 1
-  %arrayidx8.i = getelementptr %struct.ESPState, ptr %0, i64 0, i32 1, i64 7
+  %arrayidx8.i = getelementptr i8, ptr %0, i64 167
   store i8 0, ptr %arrayidx8.i, align 1
-  %rregs.i.i = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 1
+  %rregs.i.i = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %rregs.i.i, align 8
-  %arrayidx3.i.i = getelementptr %struct.ESPState, ptr %0, i64 0, i32 1, i64 1
+  %arrayidx3.i.i = getelementptr i8, ptr %0, i64 161
   store i8 0, ptr %arrayidx3.i.i, align 1
-  %arrayidx7.i.i = getelementptr %struct.ESPState, ptr %0, i64 0, i32 1, i64 14
+  %arrayidx7.i.i = getelementptr i8, ptr %0, i64 174
   store i8 0, ptr %arrayidx7.i.i, align 2
   tail call fastcc void @esp_raise_irq(ptr noundef nonnull %0)
   %31 = getelementptr i8, ptr %0, i64 200
@@ -560,7 +528,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %37 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %38 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i.i, i64 noundef %37, i64 noundef %38) #10
   br label %esp_lower_drq.exit
@@ -574,14 +542,14 @@ esp_lower_drq.exit:                               ; preds = %if.then17, %land.lh
   br label %if.end20
 
 if.end20:                                         ; preds = %esp_lower_drq.exit, %if.end10
-  %current_req = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 13
+  %current_req = getelementptr inbounds i8, ptr %0, i64 400
   %39 = load ptr, ptr %current_req, align 8
   %tobool21.not = icmp eq ptr %39, null
   br i1 %tobool21.not, label %if.end25, label %if.then22
 
 if.then22:                                        ; preds = %if.end20
   tail call void @scsi_req_unref(ptr noundef nonnull %39) #10
-  %current_dev = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 12
+  %current_dev = getelementptr inbounds i8, ptr %0, i64 392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current_dev, i8 0, i64 16, i1 false)
   br label %if.end25
 
@@ -594,18 +562,18 @@ define dso_local void @esp_transfer_data(ptr noundef %req, i32 noundef %len) #0 
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %hba_private = getelementptr inbounds %struct.SCSIRequest, ptr %req, i64 0, i32 8
+  %hba_private = getelementptr inbounds i8, ptr %req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
-  %arrayidx = getelementptr %struct.ESPState, ptr %0, i64 0, i32 1, i64 4
-  %rregs.i = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 1
+  %arrayidx = getelementptr i8, ptr %0, i64 164
+  %rregs.i = getelementptr inbounds i8, ptr %0, i64 160
   %1 = load i16, ptr %rregs.i, align 8
   %2 = zext i16 %1 to i32
-  %arrayidx5.i = getelementptr %struct.ESPState, ptr %0, i64 0, i32 1, i64 14
+  %arrayidx5.i = getelementptr i8, ptr %0, i64 174
   %3 = load i8, ptr %arrayidx5.i, align 2
   %conv6.i = zext i8 %3 to i32
   %shl7.i = shl nuw nsw i32 %conv6.i, 16
   %or8.i = or disjoint i32 %shl7.i, %2
-  %do_cmd = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 17
+  %do_cmd = getelementptr inbounds i8, ptr %0, i64 436
   %4 = load i32, ptr %do_cmd, align 4
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %if.end, label %if.else
@@ -618,7 +586,7 @@ if.end:                                           ; preds = %entry
   %5 = load i8, ptr %arrayidx, align 4
   %6 = and i8 %5, 7
   %cmp = icmp eq i8 %6, 0
-  %ti_size = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 7
+  %ti_size = getelementptr inbounds i8, ptr %0, i64 212
   %7 = load i32, ptr %ti_size, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %8 = load i32, ptr @trace_events_enabled_count, align 4
@@ -644,7 +612,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %or8.i, i32 noundef %7) #10
   br label %trace_esp_transfer_data.exit
@@ -655,15 +623,15 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_esp_transfer_data.exit:                     ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %async_len = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 21
+  %async_len = getelementptr inbounds i8, ptr %0, i64 448
   store i32 %len, ptr %async_len, align 8
   %call2 = tail call ptr @scsi_req_get_buf(ptr noundef nonnull %req) #10
-  %async_buf = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 22
+  %async_buf = getelementptr inbounds i8, ptr %0, i64 456
   store ptr %call2, ptr %async_buf, align 8
   br i1 %cmp, label %if.end16, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %trace_esp_transfer_data.exit
-  %data_in_ready = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 18
+  %data_in_ready = getelementptr inbounds i8, ptr %0, i64 440
   %15 = load i8, ptr %data_in_ready, align 8
   %16 = and i8 %15, 1
   %tobool4.not = icmp eq i8 %16, 0
@@ -674,7 +642,7 @@ if.then5:                                         ; preds = %land.lhs.true
   %17 = load i8, ptr %arrayidx, align 4
   %18 = or i8 %17, 16
   store i8 %18, ptr %arrayidx, align 4
-  %arrayidx12 = getelementptr %struct.ESPState, ptr %0, i64 0, i32 1, i64 5
+  %arrayidx12 = getelementptr i8, ptr %0, i64 165
   %19 = load i8, ptr %arrayidx12, align 1
   %20 = or i8 %19, 16
   store i8 %20, ptr %arrayidx12, align 1
@@ -682,7 +650,7 @@ if.then5:                                         ; preds = %land.lhs.true
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then5, %land.lhs.true, %trace_esp_transfer_data.exit
-  %ti_cmd = getelementptr inbounds %struct.ESPState, ptr %0, i64 0, i32 19
+  %ti_cmd = getelementptr inbounds i8, ptr %0, i64 441
   %21 = load i8, ptr %ti_cmd, align 1
   switch i8 %21, label %if.end43 [
     i8 16, label %if.then41
@@ -706,14 +674,14 @@ if.then33:                                        ; preds = %if.else29
   %23 = load i8, ptr %arrayidx, align 4
   %24 = or i8 %23, 16
   store i8 %24, ptr %arrayidx, align 4
-  %arrayidx3.i = getelementptr %struct.ESPState, ptr %0, i64 0, i32 1, i64 5
+  %arrayidx3.i = getelementptr i8, ptr %0, i64 165
   %25 = load i8, ptr %arrayidx3.i, align 1
   %26 = or i8 %25, 16
   store i8 %26, ptr %arrayidx3.i, align 1
-  %arrayidx8.i = getelementptr %struct.ESPState, ptr %0, i64 0, i32 1, i64 7
+  %arrayidx8.i = getelementptr i8, ptr %0, i64 167
   store i8 0, ptr %arrayidx8.i, align 1
   store i8 0, ptr %rregs.i, align 8
-  %arrayidx3.i.i = getelementptr %struct.ESPState, ptr %0, i64 0, i32 1, i64 1
+  %arrayidx3.i.i = getelementptr i8, ptr %0, i64 161
   store i8 0, ptr %arrayidx3.i.i, align 1
   store i8 0, ptr %arrayidx5.i, align 2
   tail call fastcc void @esp_raise_irq(ptr noundef nonnull %0)
@@ -744,7 +712,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %33 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %34 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i.i, i64 noundef %33, i64 noundef %34) #10
   br label %esp_lower_drq.exit
@@ -774,7 +742,7 @@ declare ptr @scsi_req_get_buf(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @esp_raise_irq(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx = getelementptr i8, ptr %s, i64 164
   %0 = load i8, ptr %arrayidx, align 4
   %tobool.not = icmp sgt i8 %0, -1
   br i1 %tobool.not, label %if.then, label %if.end
@@ -782,7 +750,7 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = or disjoint i8 %0, -128
   store i8 %1, ptr %arrayidx, align 4
-  %irq = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 3
+  %irq = getelementptr inbounds i8, ptr %s, i64 192
   %2 = load ptr, ptr %irq, align 8
   tail call void @qemu_set_irq(ptr noundef %2, i32 noundef 1) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -809,7 +777,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9) #10
   br label %trace_esp_raise_irq.exit
@@ -836,25 +804,25 @@ entry:
   %_now.i.i99 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca [32 x i8], align 16
-  %arrayidx = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx = getelementptr i8, ptr %s, i64 164
   %0 = load i8, ptr %arrayidx, align 4
   %1 = and i8 %0, 7
   %cmp = icmp eq i8 %1, 0
-  %rregs.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 1
+  %rregs.i = getelementptr inbounds i8, ptr %s, i64 160
   %2 = load i16, ptr %rregs.i, align 8
   %3 = zext i16 %2 to i32
-  %arrayidx5.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 14
+  %arrayidx5.i = getelementptr i8, ptr %s, i64 174
   %4 = load i8, ptr %arrayidx5.i, align 2
   %conv6.i = zext i8 %4 to i32
   %shl7.i = shl nuw nsw i32 %conv6.i, 16
   %or8.i = or disjoint i32 %shl7.i, %3
-  %do_cmd = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd = getelementptr inbounds i8, ptr %s, i64 436
   %5 = load i32, ptr %do_cmd, align 4
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %if.end41, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmdfifo = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo = getelementptr inbounds i8, ptr %s, i64 408
   %call2 = tail call i32 @fifo8_num_used(ptr noundef nonnull %cmdfifo) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %6 = load i32, ptr @trace_events_enabled_count, align 4
@@ -880,7 +848,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %call2, i32 noundef %or8.i) #10
   br label %trace_esp_do_dma.exit
@@ -891,7 +859,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_esp_do_dma.exit:                            ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %dma_memory_read = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 23
+  %dma_memory_read = getelementptr inbounds i8, ptr %s, i64 464
   %13 = load ptr, ptr %dma_memory_read, align 8
   %tobool3.not = icmp eq ptr %13, null
   br i1 %tobool3.not, label %if.else, label %if.then4
@@ -900,7 +868,7 @@ if.then4:                                         ; preds = %trace_esp_do_dma.ex
   %call6 = tail call i32 @fifo8_num_free(ptr noundef nonnull %cmdfifo) #10
   %cond = tail call i32 @llvm.umin.i32(i32 %or8.i, i32 %call6)
   %14 = load ptr, ptr %dma_memory_read, align 8
-  %dma_opaque = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 25
+  %dma_opaque = getelementptr inbounds i8, ptr %s, i64 480
   %15 = load ptr, ptr %dma_opaque, align 8
   call void %14(ptr noundef %15, ptr noundef nonnull %buf, i32 noundef %cond) #10
   call void @fifo8_push_all(ptr noundef nonnull %cmdfifo, ptr noundef nonnull %buf, i32 noundef %cond) #10
@@ -928,7 +896,7 @@ if.then8.i.i108:                                  ; preds = %if.then.i.i106
   %call9.i.i109 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i99, ptr noundef null) #10
   %call10.i.i110 = call i32 @qemu_get_thread_id() #10
   %21 = load i64, ptr %_now.i.i99, align 8
-  %tv_usec.i.i111 = getelementptr inbounds %struct.timeval, ptr %_now.i.i99, i64 0, i32 1
+  %tv_usec.i.i111 = getelementptr inbounds i8, ptr %_now.i.i99, i64 8
   %22 = load i64, ptr %tv_usec.i.i111, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i110, i64 noundef %21, i64 noundef %22, i32 noundef %call2) #10
   br label %trace_esp_handle_ti_cmd.exit
@@ -939,7 +907,7 @@ if.else.i.i112:                                   ; preds = %if.then.i.i106
 
 trace_esp_handle_ti_cmd.exit:                     ; preds = %if.then4, %land.lhs.true5.i.i103, %if.then8.i.i108, %if.else.i.i112
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i99)
-  %ti_size = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size = getelementptr inbounds i8, ptr %s, i64 212
   store i32 0, ptr %ti_size, align 4
   %23 = load i8, ptr %arrayidx, align 4
   %24 = and i8 %23, 7
@@ -947,7 +915,7 @@ trace_esp_handle_ti_cmd.exit:                     ; preds = %if.then4, %land.lhs
   br i1 %cmp16, label %if.then18, label %if.else27
 
 if.else:                                          ; preds = %trace_esp_do_dma.exit
-  %pdma_cb.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 27
+  %pdma_cb.i = getelementptr inbounds i8, ptr %s, i64 496
   store i8 4, ptr %pdma_cb.i, align 8
   %25 = getelementptr i8, ptr %s, i64 200
   %s.val96 = load ptr, ptr %25, align 8
@@ -976,7 +944,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %31 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %32 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i, i64 noundef %31, i64 noundef %32) #10
   br label %esp_raise_drq.exit
@@ -990,7 +958,7 @@ esp_raise_drq.exit:                               ; preds = %if.else, %land.lhs.
   br label %return
 
 if.then18:                                        ; preds = %trace_esp_handle_ti_cmd.exit
-  %cmdfifo_cdb_offset = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 15
+  %cmdfifo_cdb_offset = getelementptr inbounds i8, ptr %s, i64 432
   %33 = load i8, ptr %cmdfifo_cdb_offset, align 8
   %conv19 = zext i8 %33 to i32
   %call21 = call i32 @fifo8_num_used(ptr noundef nonnull %cmdfifo) #10
@@ -1005,12 +973,12 @@ if.end25:                                         ; preds = %if.then18
 if.else27:                                        ; preds = %trace_esp_handle_ti_cmd.exit
   %call29 = call i32 @fifo8_num_used(ptr noundef nonnull %cmdfifo) #10
   %conv30 = trunc i32 %call29 to i8
-  %cmdfifo_cdb_offset31 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 15
+  %cmdfifo_cdb_offset31 = getelementptr inbounds i8, ptr %s, i64 432
   store i8 %conv30, ptr %cmdfifo_cdb_offset31, align 8
   store i8 18, ptr %arrayidx, align 4
-  %arrayidx35 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx35 = getelementptr i8, ptr %s, i64 166
   store i8 4, ptr %arrayidx35, align 2
-  %arrayidx37 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx37 = getelementptr i8, ptr %s, i64 165
   %34 = load i8, ptr %arrayidx37, align 1
   %35 = or i8 %34, 16
   store i8 %35, ptr %arrayidx37, align 1
@@ -1018,13 +986,13 @@ if.else27:                                        ; preds = %trace_esp_handle_ti
   br label %return
 
 if.end41:                                         ; preds = %entry
-  %current_req = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 13
+  %current_req = getelementptr inbounds i8, ptr %s, i64 400
   %36 = load ptr, ptr %current_req, align 8
   %tobool42.not = icmp eq ptr %36, null
   br i1 %tobool42.not, label %return, label %if.end44
 
 if.end44:                                         ; preds = %if.end41
-  %async_len = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 21
+  %async_len = getelementptr inbounds i8, ptr %s, i64 448
   %37 = load i32, ptr %async_len, align 8
   %cmp45 = icmp eq i32 %37, 0
   br i1 %cmp45, label %return, label %if.end48
@@ -1034,13 +1002,13 @@ if.end48:                                         ; preds = %if.end44
   br i1 %cmp, label %if.then56, label %if.else64
 
 if.then56:                                        ; preds = %if.end48
-  %dma_memory_read57 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 23
+  %dma_memory_read57 = getelementptr inbounds i8, ptr %s, i64 464
   %38 = load ptr, ptr %dma_memory_read57, align 8
   %tobool58.not = icmp eq ptr %38, null
   br i1 %tobool58.not, label %if.else62, label %if.end114
 
 if.else62:                                        ; preds = %if.then56
-  %pdma_cb.i113 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 27
+  %pdma_cb.i113 = getelementptr inbounds i8, ptr %s, i64 496
   store i8 4, ptr %pdma_cb.i113, align 8
   %39 = getelementptr i8, ptr %s, i64 200
   %s.val97 = load ptr, ptr %39, align 8
@@ -1069,7 +1037,7 @@ if.then8.i.i.i123:                                ; preds = %if.then.i.i.i121
   %call9.i.i.i124 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i114, ptr noundef null) #10
   %call10.i.i.i125 = tail call i32 @qemu_get_thread_id() #10
   %45 = load i64, ptr %_now.i.i.i114, align 8
-  %tv_usec.i.i.i126 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i114, i64 0, i32 1
+  %tv_usec.i.i.i126 = getelementptr inbounds i8, ptr %_now.i.i.i114, i64 8
   %46 = load i64, ptr %tv_usec.i.i.i126, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i125, i64 noundef %45, i64 noundef %46) #10
   br label %esp_raise_drq.exit128
@@ -1083,13 +1051,13 @@ esp_raise_drq.exit128:                            ; preds = %if.else62, %land.lh
   br label %return
 
 if.else64:                                        ; preds = %if.end48
-  %dma_memory_write = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 24
+  %dma_memory_write = getelementptr inbounds i8, ptr %s, i64 472
   %47 = load ptr, ptr %dma_memory_write, align 8
   %tobool65.not = icmp eq ptr %47, null
   br i1 %tobool65.not, label %if.else70, label %if.end114
 
 if.else70:                                        ; preds = %if.else64
-  %fifo = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 10
+  %fifo = getelementptr inbounds i8, ptr %s, i64 224
   %call71 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %fifo) #10
   br i1 %call71, label %if.end76, label %if.then72
 
@@ -1106,7 +1074,7 @@ if.then72:                                        ; preds = %if.else70
   store i8 %conv.i, ptr %rregs.i, align 8
   %shr.i = lshr i32 %sub, 8
   %conv1.i = trunc i32 %shr.i to i8
-  %arrayidx3.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 1
+  %arrayidx3.i = getelementptr i8, ptr %s, i64 161
   store i8 %conv1.i, ptr %arrayidx3.i, align 1
   %shr4.i = lshr i32 %sub, 16
   %conv5.i = trunc i32 %shr4.i to i8
@@ -1116,7 +1084,7 @@ if.then72:                                        ; preds = %if.else70
 if.end76:                                         ; preds = %if.then72, %if.else70
   %call78 = tail call i32 @fifo8_num_free(ptr noundef nonnull %fifo) #10
   %cond85 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %call78)
-  %async_buf87 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 22
+  %async_buf87 = getelementptr inbounds i8, ptr %s, i64 456
   %51 = load ptr, ptr %async_buf87, align 8
   tail call void @fifo8_push_all(ptr noundef nonnull %fifo, ptr noundef %51, i32 noundef %cond85) #10
   %52 = load ptr, ptr %async_buf87, align 8
@@ -1126,7 +1094,7 @@ if.end76:                                         ; preds = %if.then72, %if.else
   %53 = load i32, ptr %async_len, align 8
   %sub90 = sub i32 %53, %cond85
   store i32 %sub90, ptr %async_len, align 8
-  %ti_size91 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size91 = getelementptr inbounds i8, ptr %s, i64 212
   %54 = load i32, ptr %ti_size91, align 4
   %sub92 = sub i32 %54, %cond85
   store i32 %sub92, ptr %ti_size91, align 4
@@ -1167,12 +1135,12 @@ if.end105:                                        ; preds = %while.body, %while.
   store i8 %conv.i150, ptr %rregs.i, align 8
   %shr.i152 = lshr i32 %sub107, 8
   %conv1.i153 = trunc i32 %shr.i152 to i8
-  %arrayidx3.i154 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 1
+  %arrayidx3.i154 = getelementptr i8, ptr %s, i64 161
   store i8 %conv1.i153, ptr %arrayidx3.i154, align 1
   %shr4.i155 = lshr i32 %sub107, 16
   %conv5.i156 = trunc i32 %shr4.i155 to i8
   store i8 %conv5.i156, ptr %arrayidx5.i, align 2
-  %pdma_cb.i158 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 27
+  %pdma_cb.i158 = getelementptr inbounds i8, ptr %s, i64 496
   store i8 4, ptr %pdma_cb.i158, align 8
   %61 = getelementptr i8, ptr %s, i64 200
   %s.val98 = load ptr, ptr %61, align 8
@@ -1201,7 +1169,7 @@ if.then8.i.i.i168:                                ; preds = %if.then.i.i.i166
   %call9.i.i.i169 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i159, ptr noundef null) #10
   %call10.i.i.i170 = tail call i32 @qemu_get_thread_id() #10
   %67 = load i64, ptr %_now.i.i.i159, align 8
-  %tv_usec.i.i.i171 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i159, i64 0, i32 1
+  %tv_usec.i.i.i171 = getelementptr inbounds i8, ptr %_now.i.i.i159, i64 8
   %68 = load i64, ptr %tv_usec.i.i.i171, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i170, i64 noundef %67, i64 noundef %68) #10
   br label %esp_raise_drq.exit173
@@ -1219,9 +1187,9 @@ esp_raise_drq.exit173:                            ; preds = %if.end105, %land.lh
 
 if.end114:                                        ; preds = %if.else64, %if.then56
   %.sink212 = phi ptr [ %38, %if.then56 ], [ %47, %if.else64 ]
-  %dma_opaque68 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 25
+  %dma_opaque68 = getelementptr inbounds i8, ptr %s, i64 480
   %71 = load ptr, ptr %dma_opaque68, align 8
-  %async_buf69 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 22
+  %async_buf69 = getelementptr inbounds i8, ptr %s, i64 456
   %72 = load ptr, ptr %async_buf69, align 8
   tail call void %.sink212(ptr noundef %71, ptr noundef %72, i32 noundef %spec.select) #10
   %73 = load i16, ptr %rregs.i, align 8
@@ -1235,12 +1203,12 @@ if.end114:                                        ; preds = %if.else64, %if.then
   store i8 %conv.i179, ptr %rregs.i, align 8
   %shr.i181 = lshr i32 %sub116, 8
   %conv1.i182 = trunc i32 %shr.i181 to i8
-  %arrayidx3.i183 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 1
+  %arrayidx3.i183 = getelementptr i8, ptr %s, i64 161
   store i8 %conv1.i182, ptr %arrayidx3.i183, align 1
   %shr4.i184 = lshr i32 %sub116, 16
   %conv5.i185 = trunc i32 %shr4.i184 to i8
   store i8 %conv5.i185, ptr %arrayidx5.i, align 2
-  %async_buf117 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 22
+  %async_buf117 = getelementptr inbounds i8, ptr %s, i64 456
   %76 = load ptr, ptr %async_buf117, align 8
   %idx.ext118 = zext nneg i32 %spec.select to i64
   %add.ptr119 = getelementptr i8, ptr %76, i64 %idx.ext118
@@ -1248,7 +1216,7 @@ if.end114:                                        ; preds = %if.else64, %if.then
   %77 = load i32, ptr %async_len, align 8
   %sub121 = sub i32 %77, %spec.select
   store i32 %sub121, ptr %async_len, align 8
-  %ti_size124 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size124 = getelementptr inbounds i8, ptr %s, i64 212
   %78 = load i32, ptr %ti_size124, align 4
   %cmp130 = icmp eq i32 %77, %spec.select
   br i1 %cmp, label %if.end128, label %if.end128.thread
@@ -1289,11 +1257,11 @@ if.end144:                                        ; preds = %if.end128.thread, %
   %85 = load i8, ptr %arrayidx, align 4
   %86 = or i8 %85, 16
   store i8 %86, ptr %arrayidx, align 4
-  %arrayidx3.i192 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx3.i192 = getelementptr i8, ptr %s, i64 165
   %87 = load i8, ptr %arrayidx3.i192, align 1
   %88 = or i8 %87, 16
   store i8 %88, ptr %arrayidx3.i192, align 1
-  %arrayidx8.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 7
+  %arrayidx8.i = getelementptr i8, ptr %s, i64 167
   store i8 0, ptr %arrayidx8.i, align 1
   store i8 0, ptr %rregs.i, align 8
   store i8 0, ptr %arrayidx3.i183, align 1
@@ -1326,7 +1294,7 @@ if.then8.i.i.i202:                                ; preds = %if.then.i.i.i200
   %call9.i.i.i203 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i193, ptr noundef null) #10
   %call10.i.i.i204 = tail call i32 @qemu_get_thread_id() #10
   %95 = load i64, ptr %_now.i.i.i193, align 8
-  %tv_usec.i.i.i205 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i193, i64 0, i32 1
+  %tv_usec.i.i.i205 = getelementptr inbounds i8, ptr %_now.i.i.i193, i64 8
   %96 = load i64, ptr %tv_usec.i.i.i205, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i.i204, i64 noundef %95, i64 noundef %96) #10
   br label %esp_lower_drq.exit
@@ -1348,17 +1316,17 @@ define internal fastcc void @esp_do_nodma(ptr noundef %s) unnamed_addr #0 {
 entry:
   %n.i = alloca i32, align 4
   %_now.i.i = alloca %struct.timeval, align 8
-  %arrayidx = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx = getelementptr i8, ptr %s, i64 164
   %0 = load i8, ptr %arrayidx, align 4
   %1 = and i8 %0, 7
   %cmp = icmp eq i8 %1, 0
-  %do_cmd = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd = getelementptr inbounds i8, ptr %s, i64 436
   %2 = load i32, ptr %do_cmd, align 4
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.end29, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cmdfifo = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo = getelementptr inbounds i8, ptr %s, i64 408
   %call = tail call i32 @fifo8_num_used(ptr noundef nonnull %cmdfifo) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1384,7 +1352,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %call) #10
   br label %trace_esp_handle_ti_cmd.exit
@@ -1395,7 +1363,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_esp_handle_ti_cmd.exit:                     ; preds = %if.then, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %ti_size = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size = getelementptr inbounds i8, ptr %s, i64 212
   store i32 0, ptr %ti_size, align 4
   %10 = load i8, ptr %arrayidx, align 4
   %11 = and i8 %10, 7
@@ -1403,7 +1371,7 @@ trace_esp_handle_ti_cmd.exit:                     ; preds = %if.then, %land.lhs.
   br i1 %cmp6, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %trace_esp_handle_ti_cmd.exit
-  %cmdfifo_cdb_offset = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 15
+  %cmdfifo_cdb_offset = getelementptr inbounds i8, ptr %s, i64 432
   %12 = load i8, ptr %cmdfifo_cdb_offset, align 8
   %conv9 = zext i8 %12 to i32
   %call11 = tail call i32 @fifo8_num_used(ptr noundef nonnull %cmdfifo) #10
@@ -1418,12 +1386,12 @@ if.end:                                           ; preds = %if.then8
 if.else:                                          ; preds = %trace_esp_handle_ti_cmd.exit
   %call17 = tail call i32 @fifo8_num_used(ptr noundef nonnull %cmdfifo) #10
   %conv18 = trunc i32 %call17 to i8
-  %cmdfifo_cdb_offset19 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 15
+  %cmdfifo_cdb_offset19 = getelementptr inbounds i8, ptr %s, i64 432
   store i8 %conv18, ptr %cmdfifo_cdb_offset19, align 8
   store i8 18, ptr %arrayidx, align 4
-  %arrayidx23 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx23 = getelementptr i8, ptr %s, i64 166
   store i8 4, ptr %arrayidx23, align 2
-  %arrayidx25 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx25 = getelementptr i8, ptr %s, i64 165
   %13 = load i8, ptr %arrayidx25, align 1
   %14 = or i8 %13, 16
   store i8 %14, ptr %arrayidx25, align 1
@@ -1431,26 +1399,26 @@ if.else:                                          ; preds = %trace_esp_handle_ti
   br label %return
 
 if.end29:                                         ; preds = %entry
-  %current_req = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 13
+  %current_req = getelementptr inbounds i8, ptr %s, i64 400
   %15 = load ptr, ptr %current_req, align 8
   %tobool30.not = icmp eq ptr %15, null
   br i1 %tobool30.not, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.end29
-  %async_len = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 21
+  %async_len = getelementptr inbounds i8, ptr %s, i64 448
   %16 = load i32, ptr %async_len, align 8
   %cmp33 = icmp eq i32 %16, 0
   br i1 %cmp33, label %return, label %if.end36
 
 if.end36:                                         ; preds = %if.end32
-  %fifo = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 10
+  %fifo = getelementptr inbounds i8, ptr %s, i64 224
   br i1 %cmp, label %if.then38, label %if.else55
 
 if.then38:                                        ; preds = %if.end36
   %call42 = tail call i32 @fifo8_num_used(ptr noundef nonnull %fifo) #10
   %cond = tail call i32 @llvm.umin.i32(i32 %16, i32 %call42)
   %cond49 = tail call i32 @llvm.umin.i32(i32 %cond, i32 16)
-  %async_buf = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 22
+  %async_buf = getelementptr inbounds i8, ptr %s, i64 456
   %17 = load ptr, ptr %async_buf, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i)
   %cmp.i = icmp eq i32 %call42, 0
@@ -1476,7 +1444,7 @@ esp_fifo_pop_buf.exit:                            ; preds = %if.then38, %if.end.
   %19 = load i32, ptr %async_len, align 8
   %sub = sub i32 %19, %cond49
   store i32 %sub, ptr %async_len, align 8
-  %ti_size54 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size54 = getelementptr inbounds i8, ptr %s, i64 212
   %20 = load i32, ptr %ti_size54, align 4
   %add = add i32 %20, %cond49
   store i32 %add, ptr %ti_size54, align 4
@@ -1487,7 +1455,7 @@ if.else55:                                        ; preds = %if.end36
   br i1 %call57, label %if.then58, label %if.end67thread-pre-split
 
 if.then58:                                        ; preds = %if.else55
-  %async_buf60 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 22
+  %async_buf60 = getelementptr inbounds i8, ptr %s, i64 456
   %21 = load ptr, ptr %async_buf60, align 8
   %22 = load i8, ptr %21, align 1
   tail call void @fifo8_push(ptr noundef nonnull %fifo, i8 noundef zeroext %22) #10
@@ -1497,7 +1465,7 @@ if.then58:                                        ; preds = %if.else55
   %24 = load i32, ptr %async_len, align 8
   %dec = add i32 %24, -1
   store i32 %dec, ptr %async_len, align 8
-  %ti_size64 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size64 = getelementptr inbounds i8, ptr %s, i64 212
   %25 = load i32, ptr %ti_size64, align 4
   %dec65 = add i32 %25, -1
   store i32 %dec65, ptr %ti_size64, align 4
@@ -1518,7 +1486,7 @@ if.then71:                                        ; preds = %if.end67
   br label %return
 
 if.end73:                                         ; preds = %if.end67
-  %arrayidx75 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx75 = getelementptr i8, ptr %s, i64 165
   %28 = load i8, ptr %arrayidx75, align 1
   %29 = or i8 %28, 16
   store i8 %29, ptr %arrayidx75, align 1
@@ -1532,25 +1500,25 @@ return:                                           ; preds = %if.end32, %if.end29
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @esp_hard_reset(ptr noundef %s) local_unnamed_addr #0 {
 entry:
-  %rregs = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 1
-  %tchi_written = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 6
+  %rregs = getelementptr inbounds i8, ptr %s, i64 160
+  %tchi_written = getelementptr inbounds i8, ptr %s, i64 209
   store i8 0, ptr %tchi_written, align 1
-  %ti_size = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size = getelementptr inbounds i8, ptr %s, i64 212
   store i32 0, ptr %ti_size, align 4
-  %async_len = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 21
+  %async_len = getelementptr inbounds i8, ptr %s, i64 448
   store i32 0, ptr %async_len, align 8
-  %fifo = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 10
+  %fifo = getelementptr inbounds i8, ptr %s, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %rregs, i8 0, i64 32, i1 false)
   tail call void @fifo8_reset(ptr noundef nonnull %fifo) #10
-  %cmdfifo = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo = getelementptr inbounds i8, ptr %s, i64 408
   tail call void @fifo8_reset(ptr noundef nonnull %cmdfifo) #10
-  %dma = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 9
+  %dma = getelementptr inbounds i8, ptr %s, i64 220
   store i32 0, ptr %dma, align 4
-  %do_cmd = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd = getelementptr inbounds i8, ptr %s, i64 436
   store i32 0, ptr %do_cmd, align 4
-  %dma_cb = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 26
+  %dma_cb = getelementptr inbounds i8, ptr %s, i64 488
   store ptr null, ptr %dma_cb, align 8
-  %arrayidx = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 8
+  %arrayidx = getelementptr i8, ptr %s, i64 168
   store i8 7, ptr %arrayidx, align 8
   ret void
 }
@@ -1573,19 +1541,19 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %dma_memory_read = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 23
+  %dma_memory_read = getelementptr inbounds i8, ptr %s, i64 464
   %0 = load ptr, ptr %dma_memory_read, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb
-  %dma_memory_write = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 24
+  %dma_memory_write = getelementptr inbounds i8, ptr %s, i64 472
   %1 = load ptr, ptr %dma_memory_write, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.else, label %land.lhs.true2
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %arrayidx = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx = getelementptr i8, ptr %s, i64 164
   %2 = load i8, ptr %arrayidx, align 4
   %3 = and i8 %2, 6
   %cmp = icmp eq i8 %3, 0
@@ -1602,19 +1570,19 @@ if.then7:                                         ; preds = %do.body
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then7
-  %arrayidx9 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 2
+  %arrayidx9 = getelementptr i8, ptr %s, i64 162
   store i8 0, ptr %arrayidx9, align 2
   br label %sw.epilog
 
 if.else:                                          ; preds = %land.lhs.true2, %land.lhs.true, %sw.bb
-  %arrayidx11 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx11 = getelementptr i8, ptr %s, i64 164
   %5 = load i8, ptr %arrayidx11, align 4
   %6 = and i8 %5, 7
   %cmp14 = icmp eq i8 %6, 1
   br i1 %cmp14, label %if.then16, label %if.end23
 
 if.then16:                                        ; preds = %if.else
-  %ti_size = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size = getelementptr inbounds i8, ptr %s, i64 212
   %7 = load i32, ptr %ti_size, align 4
   %tobool17.not = icmp eq i32 %7, 0
   br i1 %tobool17.not, label %if.else19, label %if.then18
@@ -1628,7 +1596,7 @@ if.else19:                                        ; preds = %if.then16
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then18, %if.else19, %if.else
-  %fifo = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 10
+  %fifo = getelementptr inbounds i8, ptr %s, i64 224
   %call.i = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %fifo) #10
   br i1 %call.i, label %esp_fifo_pop.exit, label %if.end.i
 
@@ -1638,17 +1606,17 @@ if.end.i:                                         ; preds = %if.end23
 
 esp_fifo_pop.exit:                                ; preds = %if.end23, %if.end.i
   %retval.0.i = phi i8 [ %call1.i, %if.end.i ], [ 0, %if.end23 ]
-  %arrayidx26 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 2
+  %arrayidx26 = getelementptr i8, ptr %s, i64 162
   store i8 %retval.0.i, ptr %arrayidx26, align 2
   %8 = zext i8 %retval.0.i to i32
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %entry
-  %arrayidx33 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx33 = getelementptr i8, ptr %s, i64 165
   %9 = load i8, ptr %arrayidx33, align 1
   %conv34 = zext i8 %9 to i32
   store i8 0, ptr %arrayidx33, align 1
-  %arrayidx38 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx38 = getelementptr i8, ptr %s, i64 164
   %10 = load i8, ptr %arrayidx38, align 4
   %11 = and i8 %10, -17
   store i8 %11, ptr %arrayidx38, align 4
@@ -1658,7 +1626,7 @@ sw.bb31:                                          ; preds = %entry
 if.then.i:                                        ; preds = %sw.bb31
   %12 = and i8 %10, 111
   store i8 %12, ptr %arrayidx38, align 4
-  %irq.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 3
+  %irq.i = getelementptr inbounds i8, ptr %s, i64 192
   %13 = load ptr, ptr %irq.i, align 8
   tail call void @qemu_set_irq(ptr noundef %13, i32 noundef 0) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
@@ -1685,7 +1653,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %19 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.52, i32 noundef %call10.i.i.i, i64 noundef %19, i64 noundef %20) #10
   br label %trace_esp_lower_irq.exit.i
@@ -1699,32 +1667,33 @@ trace_esp_lower_irq.exit.i:                       ; preds = %if.else.i.i.i, %if.
   br label %sw.epilog
 
 sw.bb42:                                          ; preds = %entry
-  %tchi_written = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 6
+  %tchi_written = getelementptr inbounds i8, ptr %s, i64 209
   %21 = load i8, ptr %tchi_written, align 1
   %22 = and i8 %21, 1
   %tobool43.not = icmp eq i8 %22, 0
   br i1 %tobool43.not, label %if.then44, label %if.else46
 
 if.then44:                                        ; preds = %sw.bb42
-  %chip_id = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 5
+  %chip_id = getelementptr inbounds i8, ptr %s, i64 208
   %23 = load i8, ptr %chip_id, align 8
   %conv45 = zext i8 %23 to i32
   br label %sw.epilog
 
 if.else46:                                        ; preds = %sw.bb42
-  %arrayidx48 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 14
+  %arrayidx48 = getelementptr i8, ptr %s, i64 174
   %24 = load i8, ptr %arrayidx48, align 1
   %conv49 = zext i8 %24 to i32
   br label %sw.epilog
 
 sw.bb51:                                          ; preds = %entry
-  %fifo52 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 10
+  %fifo52 = getelementptr inbounds i8, ptr %s, i64 224
   %call53 = tail call i32 @fifo8_num_used(ptr noundef nonnull %fifo52) #10
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
+  %rregs54 = getelementptr inbounds i8, ptr %s, i64 160
   %idxprom55 = zext i32 %saddr to i64
-  %arrayidx56 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 %idxprom55
+  %arrayidx56 = getelementptr [16 x i8], ptr %rregs54, i64 0, i64 %idxprom55
   %25 = load i8, ptr %arrayidx56, align 1
   %conv57 = zext i8 %25 to i32
   br label %sw.epilog
@@ -1755,7 +1724,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %31 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %32 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = and i32 %val.0, 255
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %call10.i.i, i64 noundef %31, i64 noundef %32, i32 noundef %saddr, i32 noundef %conv11.i.i) #10
@@ -1781,8 +1750,9 @@ define dso_local void @esp_reg_write(ptr noundef %s, i32 noundef %saddr, i64 nou
 entry:
   %_now.i.i79 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
+  %wregs = getelementptr inbounds i8, ptr %s, i64 176
   %idxprom = zext i32 %saddr to i64
-  %arrayidx = getelementptr %struct.ESPState, ptr %s, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [16 x i8], ptr %wregs, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %conv = trunc i64 %val to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1809,7 +1779,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %0 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %saddr, i32 noundef %conv11.i.i, i32 noundef %conv) #10
@@ -1842,34 +1812,34 @@ trace_esp_mem_writeb.exit:                        ; preds = %entry, %land.lhs.tr
   ]
 
 sw.bb:                                            ; preds = %trace_esp_mem_writeb.exit
-  %tchi_written = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 6
+  %tchi_written = getelementptr inbounds i8, ptr %s, i64 209
   store i8 1, ptr %tchi_written, align 1
   br label %sw.bb1
 
 sw.bb1:                                           ; preds = %sw.bb, %trace_esp_mem_writeb.exit, %trace_esp_mem_writeb.exit
-  %arrayidx2 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx2 = getelementptr i8, ptr %s, i64 164
   %8 = load i8, ptr %arrayidx2, align 4
   %9 = and i8 %8, -17
   store i8 %9, ptr %arrayidx2, align 4
   br label %sw.epilog121
 
 sw.bb5:                                           ; preds = %trace_esp_mem_writeb.exit
-  %do_cmd = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd = getelementptr inbounds i8, ptr %s, i64 436
   %10 = load i32, ptr %do_cmd, align 4
   %tobool.not = icmp eq i32 %10, 0
   %conv16 = trunc i64 %val to i8
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %sw.bb5
-  %cmdfifo = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo = getelementptr inbounds i8, ptr %s, i64 408
   tail call fastcc void @esp_fifo_push(ptr noundef nonnull %cmdfifo, i8 noundef zeroext %conv16)
-  %arrayidx8 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 3
+  %arrayidx8 = getelementptr i8, ptr %s, i64 163
   %11 = load i8, ptr %arrayidx8, align 1
   %cmp = icmp eq i8 %11, 16
   br i1 %cmp, label %if.then11, label %sw.epilog121
 
 if.then11:                                        ; preds = %if.then
-  %arrayidx13 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx13 = getelementptr i8, ptr %s, i64 165
   %12 = load i8, ptr %arrayidx13, align 1
   %13 = or i8 %12, 16
   store i8 %13, ptr %arrayidx13, align 1
@@ -1877,25 +1847,25 @@ if.then11:                                        ; preds = %if.then
   br label %sw.epilog121
 
 if.else:                                          ; preds = %sw.bb5
-  %fifo = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 10
+  %fifo = getelementptr inbounds i8, ptr %s, i64 224
   tail call fastcc void @esp_fifo_push(ptr noundef nonnull %fifo, i8 noundef zeroext %conv16)
   br label %sw.epilog121
 
 sw.bb18:                                          ; preds = %trace_esp_mem_writeb.exit
   %conv19 = trunc i64 %val to i8
-  %arrayidx22 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 %idxprom
+  %rregs20 = getelementptr inbounds i8, ptr %s, i64 160
+  %arrayidx22 = getelementptr [16 x i8], ptr %rregs20, i64 0, i64 %idxprom
   store i8 %conv19, ptr %arrayidx22, align 1
   %and23 = and i64 %val, 128
   %tobool24.not = icmp eq i64 %and23, 0
-  %dma33 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 9
+  %dma33 = getelementptr inbounds i8, ptr %s, i64 220
   br i1 %tobool24.not, label %if.else32, label %if.then25
 
 if.then25:                                        ; preds = %sw.bb18
   store i32 1, ptr %dma33, align 4
-  %wregs.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 2
-  %14 = load i16, ptr %wregs.i, align 8
+  %14 = load i16, ptr %wregs, align 8
   %15 = zext i16 %14 to i32
-  %arrayidx5.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 2, i64 14
+  %arrayidx5.i = getelementptr i8, ptr %s, i64 190
   %16 = load i8, ptr %arrayidx5.i, align 2
   %conv6.i = zext i8 %16 to i32
   %shl7.i = shl nuw nsw i32 %conv6.i, 16
@@ -1904,23 +1874,21 @@ if.then25:                                        ; preds = %sw.bb18
   br i1 %cmp26, label %if.then28, label %if.else29
 
 if.then28:                                        ; preds = %if.then25
-  %rregs.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 1
-  store i8 0, ptr %rregs.i, align 8
-  %arrayidx3.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 1
+  store i8 0, ptr %rregs20, align 8
+  %arrayidx3.i = getelementptr i8, ptr %s, i64 161
   store i8 0, ptr %arrayidx3.i, align 1
-  %arrayidx7.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 14
+  %arrayidx7.i = getelementptr i8, ptr %s, i64 174
   store i8 1, ptr %arrayidx7.i, align 2
   br label %if.end34
 
 if.else29:                                        ; preds = %if.then25
   %conv.i = trunc i16 %14 to i8
-  %rregs.i76 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 1
-  store i8 %conv.i, ptr %rregs.i76, align 8
+  store i8 %conv.i, ptr %rregs20, align 8
   %shr.i = lshr i16 %14, 8
   %conv1.i = trunc i16 %shr.i to i8
-  %arrayidx3.i77 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 1
+  %arrayidx3.i77 = getelementptr i8, ptr %s, i64 161
   store i8 %conv1.i, ptr %arrayidx3.i77, align 1
-  %arrayidx7.i78 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 14
+  %arrayidx7.i78 = getelementptr i8, ptr %s, i64 174
   store i8 %16, ptr %arrayidx7.i78, align 2
   br label %if.end34
 
@@ -1954,7 +1922,7 @@ sw.bb36:                                          ; preds = %if.end34
 
 sw.bb38:                                          ; preds = %if.end34
   tail call fastcc void @trace_esp_mem_writeb_cmd_flush(i32 noundef %conv)
-  %fifo40 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 10
+  %fifo40 = getelementptr inbounds i8, ptr %s, i64 224
   tail call void @fifo8_reset(ptr noundef nonnull %fifo40) #10
   br label %sw.epilog121
 
@@ -1966,14 +1934,14 @@ sw.bb41:                                          ; preds = %if.end34
 sw.bb43:                                          ; preds = %if.end34
   tail call fastcc void @trace_esp_mem_writeb_cmd_bus_reset(i32 noundef %conv)
   tail call fastcc void @esp_bus_reset(ptr noundef nonnull %s)
-  %arrayidx46 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 2, i64 8
+  %arrayidx46 = getelementptr i8, ptr %s, i64 184
   %17 = load i8, ptr %arrayidx46, align 8
   %18 = and i8 %17, 64
   %tobool49.not = icmp eq i8 %18, 0
   br i1 %tobool49.not, label %if.then50, label %sw.epilog121
 
 if.then50:                                        ; preds = %sw.bb43
-  %arrayidx52 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx52 = getelementptr i8, ptr %s, i64 165
   %19 = load i8, ptr %arrayidx52, align 1
   %20 = or i8 %19, -128
   store i8 %20, ptr %arrayidx52, align 1
@@ -1988,11 +1956,11 @@ sw.bb57:                                          ; preds = %if.end34
 sw.bb59:                                          ; preds = %if.end34
   tail call fastcc void @trace_esp_mem_writeb_cmd_iccs(i32 noundef %conv)
   tail call fastcc void @write_response(ptr noundef nonnull %s)
-  %arrayidx62 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx62 = getelementptr i8, ptr %s, i64 165
   %21 = load i8, ptr %arrayidx62, align 1
   %22 = or i8 %21, 8
   store i8 %22, ptr %arrayidx62, align 1
-  %arrayidx67 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx67 = getelementptr i8, ptr %s, i64 164
   %23 = load i8, ptr %arrayidx67, align 4
   %24 = or i8 %23, 7
   store i8 %24, ptr %arrayidx67, align 4
@@ -2000,26 +1968,26 @@ sw.bb59:                                          ; preds = %if.end34
 
 sw.bb71:                                          ; preds = %if.end34
   tail call fastcc void @trace_esp_mem_writeb_cmd_msgacc(i32 noundef %conv)
-  %arrayidx74 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx74 = getelementptr i8, ptr %s, i64 165
   %25 = load i8, ptr %arrayidx74, align 1
   %26 = or i8 %25, 32
   store i8 %26, ptr %arrayidx74, align 1
-  %arrayidx79 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx79 = getelementptr i8, ptr %s, i64 166
   store i8 0, ptr %arrayidx79, align 2
-  %arrayidx81 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 7
+  %arrayidx81 = getelementptr i8, ptr %s, i64 167
   store i8 0, ptr %arrayidx81, align 1
   tail call fastcc void @esp_raise_irq(ptr noundef nonnull %s)
   br label %sw.epilog121
 
 sw.bb82:                                          ; preds = %if.end34
   tail call fastcc void @trace_esp_mem_writeb_cmd_pad(i32 noundef %conv)
-  %arrayidx85 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx85 = getelementptr i8, ptr %s, i64 164
   store i8 16, ptr %arrayidx85, align 4
-  %arrayidx87 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx87 = getelementptr i8, ptr %s, i64 165
   %27 = load i8, ptr %arrayidx87, align 1
   %28 = or i8 %27, 8
   store i8 %28, ptr %arrayidx87, align 1
-  %arrayidx92 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx92 = getelementptr i8, ptr %s, i64 166
   store i8 0, ptr %arrayidx92, align 2
   br label %sw.epilog121
 
@@ -2048,13 +2016,13 @@ sw.bb101:                                         ; preds = %if.end34
 
 sw.bb103:                                         ; preds = %if.end34
   tail call fastcc void @trace_esp_mem_writeb_cmd_ensel(i32 noundef %conv)
-  %arrayidx106 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx106 = getelementptr i8, ptr %s, i64 165
   store i8 0, ptr %arrayidx106, align 1
   br label %sw.epilog121
 
 sw.bb107:                                         ; preds = %if.end34
   tail call fastcc void @trace_esp_mem_writeb_cmd_dissel(i32 noundef %conv)
-  %arrayidx110 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx110 = getelementptr i8, ptr %s, i64 165
   store i8 0, ptr %arrayidx110, align 1
   tail call fastcc void @esp_raise_irq(ptr noundef nonnull %s)
   br label %sw.epilog121
@@ -2065,7 +2033,8 @@ sw.default:                                       ; preds = %if.end34
 
 sw.bb113:                                         ; preds = %trace_esp_mem_writeb.exit, %trace_esp_mem_writeb.exit, %trace_esp_mem_writeb.exit, %trace_esp_mem_writeb.exit, %trace_esp_mem_writeb.exit
   %conv114 = trunc i64 %val to i8
-  %arrayidx117 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 %idxprom
+  %rregs115 = getelementptr inbounds i8, ptr %s, i64 160
+  %arrayidx117 = getelementptr [16 x i8], ptr %rregs115, i64 0, i64 %idxprom
   store i8 %conv114, ptr %arrayidx117, align 1
   br label %sw.epilog121
 
@@ -2094,7 +2063,7 @@ if.then8.i.i88:                                   ; preds = %if.then.i.i86
   %call9.i.i89 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i79, ptr noundef null) #10
   %call10.i.i90 = tail call i32 @qemu_get_thread_id() #10
   %34 = load i64, ptr %_now.i.i79, align 8
-  %tv_usec.i.i91 = getelementptr inbounds %struct.timeval, ptr %_now.i.i79, i64 0, i32 1
+  %tv_usec.i.i91 = getelementptr inbounds i8, ptr %_now.i.i79, i64 8
   %35 = load i64, ptr %tv_usec.i.i91, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i90, i64 noundef %34, i64 noundef %35, i32 noundef %conv, i32 noundef %saddr) #10
   br label %trace_esp_error_invalid_write.exit
@@ -2121,7 +2090,7 @@ define internal fastcc void @esp_fifo_push(ptr noundef %fifo, i8 noundef zeroext
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i32 @fifo8_num_used(ptr noundef %fifo) #10
-  %capacity = getelementptr inbounds %struct.Fifo8, ptr %fifo, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %fifo, i64 8
   %0 = load i32, ptr %capacity, align 8
   %cmp = icmp eq i32 %call, %0
   br i1 %cmp, label %if.then, label %if.end
@@ -2151,7 +2120,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7) #10
   br label %trace_esp_error_fifo_overrun.exit
@@ -2200,7 +2169,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_nop.exit
@@ -2242,7 +2211,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_flush.exit
@@ -2284,7 +2253,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.64, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_reset.exit
@@ -2301,31 +2270,31 @@ _nocheck__trace_esp_mem_writeb_cmd_reset.exit:    ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @esp_soft_reset(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %irq = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 3
+  %irq = getelementptr inbounds i8, ptr %s, i64 192
   %0 = load ptr, ptr %irq, align 8
   tail call void @qemu_set_irq(ptr noundef %0, i32 noundef 0) #10
-  %irq_data = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 4
+  %irq_data = getelementptr inbounds i8, ptr %s, i64 200
   %1 = load ptr, ptr %irq_data, align 8
   tail call void @qemu_set_irq(ptr noundef %1, i32 noundef 0) #10
-  %rregs.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 1
-  %tchi_written.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 6
+  %rregs.i = getelementptr inbounds i8, ptr %s, i64 160
+  %tchi_written.i = getelementptr inbounds i8, ptr %s, i64 209
   store i8 0, ptr %tchi_written.i, align 1
-  %ti_size.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size.i = getelementptr inbounds i8, ptr %s, i64 212
   store i32 0, ptr %ti_size.i, align 4
-  %async_len.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 21
+  %async_len.i = getelementptr inbounds i8, ptr %s, i64 448
   store i32 0, ptr %async_len.i, align 8
-  %fifo.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 10
+  %fifo.i = getelementptr inbounds i8, ptr %s, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %rregs.i, i8 0, i64 32, i1 false)
   tail call void @fifo8_reset(ptr noundef nonnull %fifo.i) #10
-  %cmdfifo.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo.i = getelementptr inbounds i8, ptr %s, i64 408
   tail call void @fifo8_reset(ptr noundef nonnull %cmdfifo.i) #10
-  %dma.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 9
+  %dma.i = getelementptr inbounds i8, ptr %s, i64 220
   store i32 0, ptr %dma.i, align 4
-  %do_cmd.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd.i = getelementptr inbounds i8, ptr %s, i64 436
   store i32 0, ptr %do_cmd.i, align 4
-  %dma_cb.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 26
+  %dma_cb.i = getelementptr inbounds i8, ptr %s, i64 488
   store ptr null, ptr %dma_cb.i, align 8
-  %arrayidx.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 8
+  %arrayidx.i = getelementptr i8, ptr %s, i64 168
   store i8 7, ptr %arrayidx.i, align 8
   ret void
 }
@@ -2358,7 +2327,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.66, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_bus_reset.exit
@@ -2375,7 +2344,7 @@ _nocheck__trace_esp_mem_writeb_cmd_bus_reset.exit: ; preds = %entry, %land.lhs.t
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @esp_bus_reset(ptr noundef %s) unnamed_addr #0 {
 entry:
-  %bus = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 11
+  %bus = getelementptr inbounds i8, ptr %s, i64 248
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %bus, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #10
   tail call void @bus_cold_reset(ptr noundef %call.i) #10
   ret void
@@ -2409,7 +2378,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.70, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_ti.exit
@@ -2428,31 +2397,31 @@ define internal void @handle_ti(ptr noundef %s) #0 {
 entry:
   %_now.i.i11 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %dma = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 9
+  %dma = getelementptr inbounds i8, ptr %s, i64 220
   %0 = load i32, ptr %dma, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %dma_enabled = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 20
+  %dma_enabled = getelementptr inbounds i8, ptr %s, i64 444
   %1 = load i32, ptr %dma_enabled, align 4
   %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %if.then, label %if.then4
 
 if.then:                                          ; preds = %land.lhs.true
-  %dma_cb = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 26
+  %dma_cb = getelementptr inbounds i8, ptr %s, i64 488
   store ptr @handle_ti, ptr %dma_cb, align 8
   br label %if.end8
 
 if.then4:                                         ; preds = %land.lhs.true
-  %arrayidx = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 3
+  %arrayidx = getelementptr i8, ptr %s, i64 163
   %2 = load i8, ptr %arrayidx, align 1
-  %ti_cmd = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 19
+  %ti_cmd = getelementptr inbounds i8, ptr %s, i64 441
   store i8 %2, ptr %ti_cmd, align 1
-  %rregs.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 1
+  %rregs.i = getelementptr inbounds i8, ptr %s, i64 160
   %3 = load i16, ptr %rregs.i, align 8
   %4 = zext i16 %3 to i32
-  %arrayidx5.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 14
+  %arrayidx5.i = getelementptr i8, ptr %s, i64 174
   %5 = load i8, ptr %arrayidx5.i, align 2
   %conv6.i = zext i8 %5 to i32
   %shl7.i = shl nuw nsw i32 %conv6.i, 16
@@ -2481,7 +2450,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i32 noundef %or8.i) #10
   br label %trace_esp_handle_ti.exit
@@ -2492,7 +2461,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_esp_handle_ti.exit:                         ; preds = %if.then4, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %arrayidx6 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx6 = getelementptr i8, ptr %s, i64 164
   %13 = load i8, ptr %arrayidx6, align 4
   %14 = and i8 %13, -17
   store i8 %14, ptr %arrayidx6, align 4
@@ -2500,11 +2469,11 @@ trace_esp_handle_ti.exit:                         ; preds = %if.then4, %land.lhs
   br label %if.end8
 
 if.else:                                          ; preds = %entry
-  %arrayidx26 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 3
+  %arrayidx26 = getelementptr i8, ptr %s, i64 163
   %15 = load i8, ptr %arrayidx26, align 1
-  %ti_cmd27 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 19
+  %ti_cmd27 = getelementptr inbounds i8, ptr %s, i64 441
   store i8 %15, ptr %ti_cmd27, align 1
-  %ti_size = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size = getelementptr inbounds i8, ptr %s, i64 212
   %16 = load i32, ptr %ti_size, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i11)
   %17 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2530,7 +2499,7 @@ if.then8.i.i20:                                   ; preds = %if.then.i.i18
   %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11, ptr noundef null) #10
   %call10.i.i22 = tail call i32 @qemu_get_thread_id() #10
   %22 = load i64, ptr %_now.i.i11, align 8
-  %tv_usec.i.i23 = getelementptr inbounds %struct.timeval, ptr %_now.i.i11, i64 0, i32 1
+  %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i11, i64 8
   %23 = load i64, ptr %tv_usec.i.i23, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.72, i32 noundef %call10.i.i22, i64 noundef %22, i64 noundef %23, i32 noundef %16) #10
   br label %trace_esp_handle_ti.exit25
@@ -2576,7 +2545,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_iccs.exit
@@ -2596,7 +2565,7 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca [2 x i8], align 1
-  %status = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %s, i64 216
   %0 = load i32, ptr %status, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2622,7 +2591,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %0) #10
   br label %trace_esp_write_response.exit
@@ -2636,35 +2605,35 @@ trace_esp_write_response.exit:                    ; preds = %entry, %land.lhs.tr
   %8 = load i32, ptr %status, align 8
   %conv = trunc i32 %8 to i8
   store i8 %conv, ptr %buf, align 1
-  %arrayidx2 = getelementptr inbounds [2 x i8], ptr %buf, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %buf, i64 1
   store i8 0, ptr %arrayidx2, align 1
-  %dma = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 9
+  %dma = getelementptr inbounds i8, ptr %s, i64 220
   %9 = load i32, ptr %dma, align 4
   %tobool.not = icmp eq i32 %9, 0
   br i1 %tobool.not, label %if.else13, label %if.then
 
 if.then:                                          ; preds = %trace_esp_write_response.exit
-  %dma_memory_write = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 24
+  %dma_memory_write = getelementptr inbounds i8, ptr %s, i64 472
   %10 = load ptr, ptr %dma_memory_write, align 8
   %tobool3.not = icmp eq ptr %10, null
   br i1 %tobool3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %dma_opaque = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 25
+  %dma_opaque = getelementptr inbounds i8, ptr %s, i64 480
   %11 = load ptr, ptr %dma_opaque, align 8
   call void %10(ptr noundef %11, ptr noundef nonnull %buf, i32 noundef 2) #10
-  %arrayidx6 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx6 = getelementptr i8, ptr %s, i64 164
   store i8 19, ptr %arrayidx6, align 4
-  %arrayidx8 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx8 = getelementptr i8, ptr %s, i64 165
   %12 = load i8, ptr %arrayidx8, align 1
   %13 = or i8 %12, 24
   store i8 %13, ptr %arrayidx8, align 1
-  %arrayidx12 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx12 = getelementptr i8, ptr %s, i64 166
   store i8 4, ptr %arrayidx12, align 2
   br label %if.end18
 
 if.else:                                          ; preds = %if.then
-  %pdma_cb.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 27
+  %pdma_cb.i = getelementptr inbounds i8, ptr %s, i64 496
   store i8 3, ptr %pdma_cb.i, align 8
   %14 = getelementptr i8, ptr %s, i64 200
   %s.val = load ptr, ptr %14, align 8
@@ -2693,7 +2662,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %20 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %21 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i, i64 noundef %20, i64 noundef %21) #10
   br label %esp_raise_drq.exit
@@ -2707,10 +2676,10 @@ esp_raise_drq.exit:                               ; preds = %if.else, %land.lhs.
   br label %return
 
 if.else13:                                        ; preds = %trace_esp_write_response.exit
-  %fifo = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 10
+  %fifo = getelementptr inbounds i8, ptr %s, i64 224
   tail call void @fifo8_reset(ptr noundef nonnull %fifo) #10
   call void @fifo8_push_all(ptr noundef nonnull %fifo, ptr noundef nonnull %buf, i32 noundef 2) #10
-  %arrayidx17 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 7
+  %arrayidx17 = getelementptr i8, ptr %s, i64 167
   store i8 2, ptr %arrayidx17, align 1
   br label %if.end18
 
@@ -2750,7 +2719,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.78, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_msgacc.exit
@@ -2792,7 +2761,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.80, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_pad.exit
@@ -2834,7 +2803,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_satn.exit
@@ -2876,7 +2845,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_rstatn.exit
@@ -2918,7 +2887,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_sel.exit
@@ -2935,33 +2904,33 @@ _nocheck__trace_esp_mem_writeb_cmd_sel.exit:      ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_s_without_atn(ptr noundef %s) #0 {
 entry:
-  %dma = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 9
+  %dma = getelementptr inbounds i8, ptr %s, i64 220
   %0 = load i32, ptr %dma, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %dma_enabled = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 20
+  %dma_enabled = getelementptr inbounds i8, ptr %s, i64 444
   %1 = load i32, ptr %dma_enabled, align 4
   %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %dma_cb = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 26
+  %dma_cb = getelementptr inbounds i8, ptr %s, i64 488
   store ptr @handle_s_without_atn, ptr %dma_cb, align 8
   br label %if.end9
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %pdma_cb.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 27
+  %pdma_cb.i = getelementptr inbounds i8, ptr %s, i64 496
   store i8 1, ptr %pdma_cb.i, align 8
   %call = tail call fastcc i32 @get_cmd(ptr noundef nonnull %s, i32 noundef 32)
   %cmp = icmp sgt i32 %call, 0
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  %cmdfifo_cdb_offset = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 15
+  %cmdfifo_cdb_offset = getelementptr inbounds i8, ptr %s, i64 432
   store i8 0, ptr %cmdfifo_cdb_offset, align 8
-  %do_cmd = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd = getelementptr inbounds i8, ptr %s, i64 436
   store i32 0, ptr %do_cmd, align 4
   tail call fastcc void @do_cmd(ptr noundef nonnull %s)
   br label %if.end9
@@ -2971,11 +2940,11 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp3, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %if.else
-  %do_cmd5 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd5 = getelementptr inbounds i8, ptr %s, i64 436
   store i32 1, ptr %do_cmd5, align 4
-  %arrayidx = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx = getelementptr i8, ptr %s, i64 166
   store i8 4, ptr %arrayidx, align 2
-  %arrayidx7 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx7 = getelementptr i8, ptr %s, i64 164
   store i8 2, ptr %arrayidx7, align 4
   br label %if.end9
 
@@ -3011,7 +2980,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.90, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_selatn.exit
@@ -3028,33 +2997,33 @@ _nocheck__trace_esp_mem_writeb_cmd_selatn.exit:   ; preds = %entry, %land.lhs.tr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @handle_satn(ptr noundef %s) #0 {
 entry:
-  %dma = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 9
+  %dma = getelementptr inbounds i8, ptr %s, i64 220
   %0 = load i32, ptr %dma, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %dma_enabled = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 20
+  %dma_enabled = getelementptr inbounds i8, ptr %s, i64 444
   %1 = load i32, ptr %dma_enabled, align 4
   %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %dma_cb = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 26
+  %dma_cb = getelementptr inbounds i8, ptr %s, i64 488
   store ptr @handle_satn, ptr %dma_cb, align 8
   br label %if.end9
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %pdma_cb.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 27
+  %pdma_cb.i = getelementptr inbounds i8, ptr %s, i64 496
   store i8 0, ptr %pdma_cb.i, align 8
   %call = tail call fastcc i32 @get_cmd(ptr noundef nonnull %s, i32 noundef 32)
   %cmp = icmp sgt i32 %call, 0
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  %cmdfifo_cdb_offset = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 15
+  %cmdfifo_cdb_offset = getelementptr inbounds i8, ptr %s, i64 432
   store i8 1, ptr %cmdfifo_cdb_offset, align 8
-  %do_cmd = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd = getelementptr inbounds i8, ptr %s, i64 436
   store i32 0, ptr %do_cmd, align 4
   tail call fastcc void @do_cmd(ptr noundef nonnull %s)
   br label %if.end9
@@ -3064,11 +3033,11 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp3, label %if.then4, label %if.end9
 
 if.then4:                                         ; preds = %if.else
-  %do_cmd5 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd5 = getelementptr inbounds i8, ptr %s, i64 436
   store i32 1, ptr %do_cmd5, align 4
-  %arrayidx = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx = getelementptr i8, ptr %s, i64 166
   store i8 4, ptr %arrayidx, align 2
-  %arrayidx7 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx7 = getelementptr i8, ptr %s, i64 164
   store i8 2, ptr %arrayidx7, align 4
   br label %if.end9
 
@@ -3104,7 +3073,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.92, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_selatns.exit
@@ -3122,31 +3091,31 @@ _nocheck__trace_esp_mem_writeb_cmd_selatns.exit:  ; preds = %entry, %land.lhs.tr
 define internal void @handle_satn_stop(ptr noundef %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %dma = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 9
+  %dma = getelementptr inbounds i8, ptr %s, i64 220
   %0 = load i32, ptr %dma, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %dma_enabled = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 20
+  %dma_enabled = getelementptr inbounds i8, ptr %s, i64 444
   %1 = load i32, ptr %dma_enabled, align 4
   %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %dma_cb = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 26
+  %dma_cb = getelementptr inbounds i8, ptr %s, i64 488
   store ptr @handle_satn_stop, ptr %dma_cb, align 8
   br label %if.end18
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %pdma_cb.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 27
+  %pdma_cb.i = getelementptr inbounds i8, ptr %s, i64 496
   store i8 2, ptr %pdma_cb.i, align 8
   %call = tail call fastcc i32 @get_cmd(ptr noundef nonnull %s, i32 noundef 1)
   %cmp = icmp sgt i32 %call, 0
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
-  %cmdfifo = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo = getelementptr inbounds i8, ptr %s, i64 408
   %call3 = tail call i32 @fifo8_num_used(ptr noundef nonnull %cmdfifo) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3172,7 +3141,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.94, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %call3) #10
   br label %trace_esp_handle_satn_stop.exit
@@ -3183,17 +3152,17 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_esp_handle_satn_stop.exit:                  ; preds = %if.then2, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %do_cmd = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd = getelementptr inbounds i8, ptr %s, i64 436
   store i32 1, ptr %do_cmd, align 4
-  %cmdfifo_cdb_offset = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 15
+  %cmdfifo_cdb_offset = getelementptr inbounds i8, ptr %s, i64 432
   store i8 1, ptr %cmdfifo_cdb_offset, align 8
-  %arrayidx = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx = getelementptr i8, ptr %s, i64 164
   store i8 6, ptr %arrayidx, align 4
-  %arrayidx5 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx5 = getelementptr i8, ptr %s, i64 165
   %9 = load i8, ptr %arrayidx5, align 1
   %10 = or i8 %9, 24
   store i8 %10, ptr %arrayidx5, align 1
-  %arrayidx8 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx8 = getelementptr i8, ptr %s, i64 166
   store i8 1, ptr %arrayidx8, align 2
   tail call fastcc void @esp_raise_irq(ptr noundef nonnull %s)
   br label %if.end18
@@ -3203,11 +3172,11 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp9, label %if.then11, label %if.end18
 
 if.then11:                                        ; preds = %if.else
-  %do_cmd12 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd12 = getelementptr inbounds i8, ptr %s, i64 436
   store i32 1, ptr %do_cmd12, align 4
-  %arrayidx14 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx14 = getelementptr i8, ptr %s, i64 166
   store i8 1, ptr %arrayidx14, align 2
-  %arrayidx16 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx16 = getelementptr i8, ptr %s, i64 164
   store i8 6, ptr %arrayidx16, align 4
   br label %if.end18
 
@@ -3243,7 +3212,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.96, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_ensel.exit
@@ -3285,7 +3254,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.98, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_mem_writeb_cmd_dissel.exit
@@ -3327,7 +3296,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #10
   %call10.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.100, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %val) #10
   br label %_nocheck__trace_esp_error_unhandled_command.exit
@@ -3346,7 +3315,7 @@ define dso_local i32 @esp_pre_save(ptr noundef %opaque) #0 {
 entry:
   %call = tail call ptr @object_resolve_path_component(ptr noundef %opaque, ptr noundef nonnull @.str.3) #10
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
-  %mig_version_id = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 28
+  %mig_version_id = getelementptr inbounds i8, ptr %call.i, i64 497
   store i8 6, ptr %mig_version_id, align 1
   ret i32 0
 }
@@ -3357,7 +3326,7 @@ declare ptr @object_resolve_path_component(ptr noundef, ptr noundef) local_unnam
 define internal i32 @esp_post_load(ptr noundef %opaque, i32 noundef %version_id) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
-  %mig_version_id = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 28
+  %mig_version_id = getelementptr inbounds i8, ptr %call.i, i64 497
   %0 = load i8, ptr %mig_version_id, align 1
   %conv = zext i8 %0 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv, i32 %version_id)
@@ -3365,45 +3334,47 @@ entry:
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %mig_dma_left = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 29
+  %mig_dma_left = getelementptr inbounds i8, ptr %call.i, i64 500
   %1 = load i32, ptr %mig_dma_left, align 4
   %conv.i = trunc i32 %1 to i8
-  %rregs.i = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 1
+  %rregs.i = getelementptr inbounds i8, ptr %call.i, i64 160
   store i8 %conv.i, ptr %rregs.i, align 8
   %shr.i = lshr i32 %1, 8
   %conv1.i = trunc i32 %shr.i to i8
-  %arrayidx3.i = getelementptr %struct.ESPState, ptr %call.i, i64 0, i32 1, i64 1
+  %arrayidx3.i = getelementptr i8, ptr %call.i, i64 161
   store i8 %conv1.i, ptr %arrayidx3.i, align 1
   %shr4.i = lshr i32 %1, 16
   %conv5.i = trunc i32 %shr4.i to i8
-  %arrayidx7.i = getelementptr %struct.ESPState, ptr %call.i, i64 0, i32 1, i64 14
+  %arrayidx7.i = getelementptr i8, ptr %call.i, i64 174
   store i8 %conv5.i, ptr %arrayidx7.i, align 2
-  %mig_ti_wptr = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 33
+  %mig_ti_wptr = getelementptr inbounds i8, ptr %call.i, i64 516
   %2 = load i32, ptr %mig_ti_wptr, align 4
-  %mig_ti_rptr = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 32
+  %mig_ti_rptr = getelementptr inbounds i8, ptr %call.i, i64 512
   %3 = load i32, ptr %mig_ti_rptr, align 8
   %sub = sub i32 %2, %3
   %cmp419 = icmp sgt i32 %sub, 0
   br i1 %cmp419, label %for.body.lr.ph, label %for.cond6.preheader
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %fifo = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 10
+  %fifo = getelementptr inbounds i8, ptr %call.i, i64 224
+  %mig_ti_buf = getelementptr inbounds i8, ptr %call.i, i64 520
   %wide.trip.count = zext nneg i32 %sub to i64
   br label %for.body
 
 for.cond6.preheader:                              ; preds = %for.body, %if.then
-  %mig_cmdlen = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 36
+  %mig_cmdlen = getelementptr inbounds i8, ptr %call.i, i64 568
   %4 = load i32, ptr %mig_cmdlen, align 8
   %cmp721.not = icmp eq i32 %4, 0
   br i1 %cmp721.not, label %if.end, label %for.body9.lr.ph
 
 for.body9.lr.ph:                                  ; preds = %for.cond6.preheader
-  %cmdfifo = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 14
+  %cmdfifo = getelementptr inbounds i8, ptr %call.i, i64 408
+  %mig_cmdbuf = getelementptr inbounds i8, ptr %call.i, i64 536
   br label %for.body9
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr %struct.ESPState, ptr %call.i, i64 0, i32 34, i64 %indvars.iv
+  %arrayidx = getelementptr [16 x i8], ptr %mig_ti_buf, i64 0, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx, align 1
   tail call void @fifo8_push(ptr noundef nonnull %fifo, i8 noundef zeroext %5) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3413,7 +3384,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body9:                                        ; preds = %for.body9.lr.ph, %for.body9
   %i.122 = phi i32 [ 0, %for.body9.lr.ph ], [ %inc13, %for.body9 ]
   %idxprom10 = sext i32 %i.122 to i64
-  %arrayidx11 = getelementptr %struct.ESPState, ptr %call.i, i64 0, i32 35, i64 %idxprom10
+  %arrayidx11 = getelementptr [32 x i8], ptr %mig_cmdbuf, i64 0, i64 %idxprom10
   %6 = load i8, ptr %arrayidx11, align 1
   tail call void @fifo8_push(ptr noundef nonnull %cmdfifo, i8 noundef zeroext %6) #10
   %inc13 = add nuw i32 %i.122, 1
@@ -3430,7 +3401,7 @@ if.end:                                           ; preds = %for.body9, %for.con
 define internal zeroext i1 @esp_is_before_version_5(ptr noundef %opaque, i32 noundef %version_id) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
-  %mig_version_id = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 28
+  %mig_version_id = getelementptr inbounds i8, ptr %call.i, i64 497
   %0 = load i8, ptr %mig_version_id, align 1
   %conv = zext i8 %0 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv, i32 %version_id)
@@ -3442,7 +3413,7 @@ entry:
 define internal zeroext i1 @esp_is_version_5(ptr noundef %opaque, i32 noundef %version_id) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
-  %mig_version_id = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 28
+  %mig_version_id = getelementptr inbounds i8, ptr %call.i, i64 497
   %0 = load i8, ptr %mig_version_id, align 1
   %conv = zext i8 %0 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv, i32 %version_id)
@@ -3454,7 +3425,7 @@ entry:
 define internal zeroext i1 @esp_is_version_6(ptr noundef %opaque, i32 noundef %version_id) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
-  %mig_version_id = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 28
+  %mig_version_id = getelementptr inbounds i8, ptr %call.i, i64 497
   %0 = load i8, ptr %mig_version_id, align 1
   %conv = zext i8 %0 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv, i32 %version_id)
@@ -3499,13 +3470,13 @@ entry:
   %buf.i = alloca [32 x i8], align 16
   %n.i.i = alloca i32, align 4
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %cmdfifo_cdb_offset.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 15
+  %cmdfifo_cdb_offset.i = getelementptr inbounds i8, ptr %s, i64 432
   %0 = load i8, ptr %cmdfifo_cdb_offset.i, align 8
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %cmdfifo.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo.i = getelementptr inbounds i8, ptr %s, i64 408
   %call.i.i = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %cmdfifo.i) #10
   br i1 %call.i.i, label %esp_fifo_pop.exit.i, label %if.end.i.i
 
@@ -3539,7 +3510,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i.i, align 8
   %conv11.i.i.i = zext i8 %retval.0.i.i to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %call10.i.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %conv11.i.i.i) #10
@@ -3553,7 +3524,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 if.end.i:                                         ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %esp_fifo_pop.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %8 = and i8 %retval.0.i.i, 7
-  %lun.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 16
+  %lun.i = getelementptr inbounds i8, ptr %s, i64 433
   store i8 %8, ptr %lun.i, align 1
   %9 = load i8, ptr %cmdfifo_cdb_offset.i, align 8
   %dec.i = add i8 %9, -1
@@ -3580,7 +3551,7 @@ esp_fifo_pop_buf.exit.i:                          ; preds = %if.end.i12.i, %if.t
 
 if.end:                                           ; preds = %esp_fifo_pop_buf.exit.i, %if.end.i, %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i)
-  %lun.i5 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 16
+  %lun.i5 = getelementptr inbounds i8, ptr %s, i64 433
   %10 = load i8, ptr %lun.i5, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i4)
   %11 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3606,7 +3577,7 @@ if.then8.i.i.i18:                                 ; preds = %if.then.i.i.i16
   %call9.i.i.i19 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i4, ptr noundef null) #10
   %call10.i.i.i20 = call i32 @qemu_get_thread_id() #10
   %16 = load i64, ptr %_now.i.i.i4, align 8
-  %tv_usec.i.i.i21 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i4, i64 0, i32 1
+  %tv_usec.i.i.i21 = getelementptr inbounds i8, ptr %_now.i.i.i4, i64 8
   %17 = load i64, ptr %tv_usec.i.i.i21, align 8
   %conv11.i.i.i22 = zext i8 %10 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call10.i.i.i20, i64 noundef %16, i64 noundef %17, i32 noundef %conv11.i.i.i22) #10
@@ -3619,13 +3590,13 @@ if.else.i.i.i23:                                  ; preds = %if.then.i.i.i16
 
 trace_esp_do_command_phase.exit.i:                ; preds = %if.else.i.i.i23, %if.then8.i.i.i18, %land.lhs.true5.i.i.i13, %if.end
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i4)
-  %cmdfifo.i9 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo.i9 = getelementptr inbounds i8, ptr %s, i64 408
   %call.i = call i32 @fifo8_num_used(ptr noundef nonnull %cmdfifo.i9) #10
   %tobool.not.i10 = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i10, label %do_command_phase.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %trace_esp_do_command_phase.exit.i
-  %current_dev.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 12
+  %current_dev.i = getelementptr inbounds i8, ptr %s, i64 392
   %18 = load ptr, ptr %current_dev.i, align 8
   %tobool1.not.i = icmp eq ptr %18, null
   br i1 %tobool1.not.i, label %do_command_phase.exit, label %esp_fifo_pop_buf.exit.i11
@@ -3637,9 +3608,9 @@ esp_fifo_pop_buf.exit.i11:                        ; preds = %lor.lhs.false.i
   %conv.i.i = zext i32 %.pre.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf.i, ptr align 1 %call.i.i12, i64 %conv.i.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i.i3)
-  %bus.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 11
+  %bus.i = getelementptr inbounds i8, ptr %s, i64 248
   %19 = load ptr, ptr %current_dev.i, align 8
-  %id.i = getelementptr inbounds %struct.SCSIDevice, ptr %19, i64 0, i32 3
+  %id.i = getelementptr inbounds i8, ptr %19, i64 176
   %20 = load i32, ptr %id.i, align 8
   %21 = load i8, ptr %lun.i5, align 1
   %conv.i = zext i8 %21 to i32
@@ -3648,39 +3619,39 @@ esp_fifo_pop_buf.exit.i11:                        ; preds = %lor.lhs.false.i
   %conv8.i = zext i8 %22 to i32
   %conv10.i = zext i32 %call.i to i64
   %call11.i = call ptr @scsi_req_new(ptr noundef %call6.i, i32 noundef 0, i32 noundef %conv8.i, ptr noundef nonnull %buf.i, i64 noundef %conv10.i, ptr noundef nonnull %s) #10
-  %current_req.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 13
+  %current_req.i = getelementptr inbounds i8, ptr %s, i64 400
   store ptr %call11.i, ptr %current_req.i, align 8
   %call13.i = call i32 @scsi_req_enqueue(ptr noundef %call11.i) #10
-  %ti_size.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size.i = getelementptr inbounds i8, ptr %s, i64 212
   store i32 %call13.i, ptr %ti_size.i, align 4
   call void @fifo8_reset(ptr noundef nonnull %cmdfifo.i9) #10
   %cmp.not.i = icmp eq i32 %call13.i, 0
   br i1 %cmp.not.i, label %do_command_phase.exit, label %if.then16.i
 
 if.then16.i:                                      ; preds = %esp_fifo_pop_buf.exit.i11
-  %arrayidx.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx.i = getelementptr i8, ptr %s, i64 164
   store i8 16, ptr %arrayidx.i, align 4
-  %arrayidx18.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx18.i = getelementptr i8, ptr %s, i64 166
   store i8 4, ptr %arrayidx18.i, align 2
-  %ti_cmd.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 19
+  %ti_cmd.i = getelementptr inbounds i8, ptr %s, i64 441
   store i8 0, ptr %ti_cmd.i, align 1
-  %rregs.i.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 1
+  %rregs.i.i = getelementptr inbounds i8, ptr %s, i64 160
   store i8 0, ptr %rregs.i.i, align 8
-  %arrayidx3.i.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 1
+  %arrayidx3.i.i = getelementptr i8, ptr %s, i64 161
   store i8 0, ptr %arrayidx3.i.i, align 1
-  %arrayidx7.i.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 14
+  %arrayidx7.i.i = getelementptr i8, ptr %s, i64 174
   store i8 0, ptr %arrayidx7.i.i, align 2
   %cmp19.i = icmp sgt i32 %call13.i, 0
   br i1 %cmp19.i, label %if.then21.i, label %if.else.i
 
 if.then21.i:                                      ; preds = %if.then16.i
-  %data_in_ready.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 18
+  %data_in_ready.i = getelementptr inbounds i8, ptr %s, i64 440
   store i8 0, ptr %data_in_ready.i, align 8
   store i8 17, ptr %arrayidx.i, align 4
   br label %if.end36.i
 
 if.else.i:                                        ; preds = %if.then16.i
-  %arrayidx32.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx32.i = getelementptr i8, ptr %s, i64 165
   %23 = load i8, ptr %arrayidx32.i, align 1
   %24 = or i8 %23, 24
   store i8 %24, ptr %arrayidx32.i, align 1
@@ -3712,7 +3683,7 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #10
   %call10.i.i.i.i = call i32 @qemu_get_thread_id() #10
   %31 = load i64, ptr %_now.i.i.i.i, align 8
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %32 = load i64, ptr %tv_usec.i.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i.i.i, i64 noundef %31, i64 noundef %32) #10
   br label %esp_lower_drq.exit.i
@@ -3765,7 +3736,7 @@ entry:
   %n.i = alloca i32, align 4
   %_now.i.i.i = alloca %struct.timeval, align 8
   %buf = alloca [32 x i8], align 16
-  %current_req = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 13
+  %current_req = getelementptr inbounds i8, ptr %s, i64 400
   %0 = load ptr, ptr %current_req, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3775,20 +3746,20 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %arrayidx = getelementptr %struct.ESPState, ptr %s, i64 0, i32 2, i64 4
+  %arrayidx = getelementptr i8, ptr %s, i64 180
   %1 = load i8, ptr %arrayidx, align 4
   %2 = and i8 %1, 7
   %and = zext nneg i8 %2 to i32
-  %dma = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 9
+  %dma = getelementptr inbounds i8, ptr %s, i64 220
   %3 = load i32, ptr %dma, align 4
   %tobool2.not = icmp eq i32 %3, 0
   br i1 %tobool2.not, label %if.else30, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %rregs.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 1
+  %rregs.i = getelementptr inbounds i8, ptr %s, i64 160
   %4 = load i16, ptr %rregs.i, align 8
   %5 = zext i16 %4 to i32
-  %arrayidx5.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 14
+  %arrayidx5.i = getelementptr i8, ptr %s, i64 174
   %6 = load i8, ptr %arrayidx5.i, align 2
   %conv6.i = zext i8 %6 to i32
   %shl7.i = shl nuw nsw i32 %conv6.i, 16
@@ -3798,47 +3769,47 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.then3
-  %dma_memory_read = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 23
+  %dma_memory_read = getelementptr inbounds i8, ptr %s, i64 464
   %7 = load ptr, ptr %dma_memory_read, align 8
   %tobool9.not = icmp eq ptr %7, null
   br i1 %tobool9.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  %dma_opaque = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 25
+  %dma_opaque = getelementptr inbounds i8, ptr %s, i64 480
   %8 = load ptr, ptr %dma_opaque, align 8
   call void %7(ptr noundef %8, ptr noundef nonnull %buf, i32 noundef %cond) #10
-  %cmdfifo = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo = getelementptr inbounds i8, ptr %s, i64 408
   %call12 = call i32 @fifo8_num_free(ptr noundef nonnull %cmdfifo) #10
   %cond19 = call i32 @llvm.umin.i32(i32 %call12, i32 %cond)
   call void @fifo8_push_all(ptr noundef nonnull %cmdfifo, ptr noundef nonnull %buf, i32 noundef %cond19) #10
   br label %if.end57
 
 if.else:                                          ; preds = %if.end8
-  %ti_size.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size.i = getelementptr inbounds i8, ptr %s, i64 212
   store i32 0, ptr %ti_size.i, align 4
-  %fifo.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 10
+  %fifo.i = getelementptr inbounds i8, ptr %s, i64 224
   tail call void @fifo8_reset(ptr noundef nonnull %fifo.i) #10
-  %bus.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 11
+  %bus.i = getelementptr inbounds i8, ptr %s, i64 248
   %call.i = tail call ptr @scsi_device_find(ptr noundef nonnull %bus.i, i32 noundef 0, i32 noundef %and, i32 noundef 0) #10
-  %current_dev.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 12
+  %current_dev.i = getelementptr inbounds i8, ptr %s, i64 392
   store ptr %call.i, ptr %current_dev.i, align 8
   %tobool.not.i = icmp eq ptr %call.i, null
-  %arrayidx6.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx6.i = getelementptr i8, ptr %s, i64 166
   br i1 %tobool.not.i, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %if.else
-  %arrayidx2.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx2.i = getelementptr i8, ptr %s, i64 164
   store i8 0, ptr %arrayidx2.i, align 4
-  %arrayidx4.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx4.i = getelementptr i8, ptr %s, i64 165
   store i8 32, ptr %arrayidx4.i, align 1
   store i8 0, ptr %arrayidx6.i, align 2
   tail call fastcc void @esp_raise_irq(ptr noundef nonnull %s)
-  %cmdfifo26 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo26 = getelementptr inbounds i8, ptr %s, i64 408
   tail call void @fifo8_reset(ptr noundef nonnull %cmdfifo26) #10
   br label %return
 
 if.end27:                                         ; preds = %if.else
-  %arrayidx8.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx8.i = getelementptr i8, ptr %s, i64 165
   %9 = load i8, ptr %arrayidx8.i, align 1
   %10 = or i8 %9, 8
   store i8 %10, ptr %arrayidx8.i, align 1
@@ -3870,7 +3841,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %17 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i.i, i64 noundef %17, i64 noundef %18) #10
   br label %esp_raise_drq.exit
@@ -3881,12 +3852,12 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 esp_raise_drq.exit:                               ; preds = %if.end27, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %cmdfifo28 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo28 = getelementptr inbounds i8, ptr %s, i64 408
   tail call void @fifo8_reset(ptr noundef nonnull %cmdfifo28) #10
   br label %return
 
 if.else30:                                        ; preds = %if.end
-  %fifo = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 10
+  %fifo = getelementptr inbounds i8, ptr %s, i64 224
   %call31 = tail call i32 @fifo8_num_used(ptr noundef nonnull %fifo) #10
   %cond38 = tail call i32 @llvm.umin.i32(i32 %call31, i32 %maxlen)
   %cmp39 = icmp eq i32 %cond38, 0
@@ -3899,7 +3870,7 @@ esp_fifo_pop_buf.exit:                            ; preds = %if.else30
   %conv.i = zext i32 %.pre.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr align 1 %call.i39, i64 %conv.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n.i)
-  %cmdfifo46 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo46 = getelementptr inbounds i8, ptr %s, i64 408
   %call47 = call i32 @fifo8_num_free(ptr noundef nonnull %cmdfifo46) #10
   %cond54 = call i32 @llvm.umin.i32(i32 %call47, i32 %.pre.i)
   call void @fifo8_push_all(ptr noundef nonnull %cmdfifo46, ptr noundef nonnull %buf, i32 noundef %cond54) #10
@@ -3931,7 +3902,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = call i32 @qemu_get_thread_id() #10
   %24 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %25 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i.i, i64 noundef %24, i64 noundef %25, i32 noundef %dmalen.0, i32 noundef %and) #10
   br label %trace_esp_get_cmd.exit
@@ -3945,20 +3916,20 @@ trace_esp_get_cmd.exit:                           ; preds = %if.end57, %land.lhs
   %26 = load i8, ptr %arrayidx, align 4
   %27 = and i8 %26, 7
   %and.i42 = zext nneg i8 %27 to i32
-  %ti_size.i43 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size.i43 = getelementptr inbounds i8, ptr %s, i64 212
   store i32 0, ptr %ti_size.i43, align 4
-  %fifo.i44 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 10
+  %fifo.i44 = getelementptr inbounds i8, ptr %s, i64 224
   call void @fifo8_reset(ptr noundef nonnull %fifo.i44) #10
-  %bus.i45 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 11
+  %bus.i45 = getelementptr inbounds i8, ptr %s, i64 248
   %call.i46 = call ptr @scsi_device_find(ptr noundef nonnull %bus.i45, i32 noundef 0, i32 noundef %and.i42, i32 noundef 0) #10
-  %current_dev.i47 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 12
+  %current_dev.i47 = getelementptr inbounds i8, ptr %s, i64 392
   store ptr %call.i46, ptr %current_dev.i47, align 8
   %tobool.not.i48 = icmp eq ptr %call.i46, null
-  %arrayidx6.i49 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx6.i49 = getelementptr i8, ptr %s, i64 166
   br i1 %tobool.not.i48, label %if.then61, label %esp_select.exit56
 
 esp_select.exit56:                                ; preds = %trace_esp_get_cmd.exit
-  %arrayidx8.i51 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx8.i51 = getelementptr i8, ptr %s, i64 165
   %28 = load i8, ptr %arrayidx8.i51, align 1
   %29 = or i8 %28, 8
   store i8 %29, ptr %arrayidx8.i51, align 1
@@ -3966,13 +3937,13 @@ esp_select.exit56:                                ; preds = %trace_esp_get_cmd.e
   br label %return
 
 if.then61:                                        ; preds = %trace_esp_get_cmd.exit
-  %arrayidx2.i54 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx2.i54 = getelementptr i8, ptr %s, i64 164
   store i8 0, ptr %arrayidx2.i54, align 4
-  %arrayidx4.i55 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx4.i55 = getelementptr i8, ptr %s, i64 165
   store i8 32, ptr %arrayidx4.i55, align 1
   store i8 0, ptr %arrayidx6.i49, align 2
   call fastcc void @esp_raise_irq(ptr noundef nonnull %s)
-  %cmdfifo62 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo62 = getelementptr inbounds i8, ptr %s, i64 408
   call void @fifo8_reset(ptr noundef nonnull %cmdfifo62) #10
   br label %return
 
@@ -3987,19 +3958,19 @@ declare void @scsi_req_cancel(ptr noundef) local_unnamed_addr #1
 define internal zeroext i1 @esp_pdma_needed(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
-  %dma_memory_read = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 23
+  %dma_memory_read = getelementptr inbounds i8, ptr %call.i, i64 464
   %0 = load ptr, ptr %dma_memory_read, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %dma_memory_write = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 24
+  %dma_memory_write = getelementptr inbounds i8, ptr %call.i, i64 472
   %1 = load ptr, ptr %dma_memory_write, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %dma_enabled = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 20
+  %dma_enabled = getelementptr inbounds i8, ptr %call.i, i64 444
   %2 = load i32, ptr %dma_enabled, align 4
   %tobool = icmp ne i32 %2, 0
   br label %land.end
@@ -4015,7 +3986,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @sysbus_esp_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.104, i32 noundef 69, ptr noundef nonnull @__func__.SYSBUS_ESP) #10
-  %esp = getelementptr inbounds %struct.SysBusESPState, ptr %call.i, i64 0, i32 4
+  %esp = getelementptr inbounds i8, ptr %call.i, i64 1368
   tail call void @object_initialize_child_internal(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull %esp, i64 noundef 576, ptr noundef nonnull @.str.3) #10
   ret void
 }
@@ -4024,13 +3995,13 @@ entry:
 define internal void @sysbus_esp_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.69, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @sysbus_esp_realize, ptr %realize, align 8
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @sysbus_esp_hard_reset, ptr %reset, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_sysbus_esp_scsi, ptr %vmsd, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8
@@ -4044,18 +4015,18 @@ define internal void @sysbus_esp_realize(ptr noundef %dev, ptr noundef %errp) #0
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.114, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #10
   %call.i21 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.104, i32 noundef 69, ptr noundef nonnull @__func__.SYSBUS_ESP) #10
-  %esp = getelementptr inbounds %struct.SysBusESPState, ptr %call.i21, i64 0, i32 4
+  %esp = getelementptr inbounds i8, ptr %call.i21, i64 1368
   %call.i22 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %esp, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
   %call.i23 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i22, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.69, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
   %call4 = tail call zeroext i1 @qdev_realize(ptr noundef %call.i23, ptr noundef null, ptr noundef %errp) #10
   br i1 %call4, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %irq = getelementptr inbounds %struct.ESPState, ptr %call.i22, i64 0, i32 3
+  %irq = getelementptr inbounds i8, ptr %call.i22, i64 192
   tail call void @sysbus_init_irq(ptr noundef %call.i, ptr noundef nonnull %irq) #10
-  %irq_data = getelementptr inbounds %struct.ESPState, ptr %call.i22, i64 0, i32 4
+  %irq_data = getelementptr inbounds i8, ptr %call.i22, i64 200
   tail call void @sysbus_init_irq(ptr noundef %call.i, ptr noundef nonnull %irq_data) #10
-  %it_shift = getelementptr inbounds %struct.SysBusESPState, ptr %call.i21, i64 0, i32 3
+  %it_shift = getelementptr inbounds i8, ptr %call.i21, i64 1360
   %0 = load i32, ptr %it_shift, align 16
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.else, label %if.end6
@@ -4065,19 +4036,19 @@ if.else:                                          ; preds = %if.end
   unreachable
 
 if.end6:                                          ; preds = %if.end
-  %chip_id = getelementptr inbounds %struct.ESPState, ptr %call.i22, i64 0, i32 5
+  %chip_id = getelementptr inbounds i8, ptr %call.i22, i64 208
   store i8 4, ptr %chip_id, align 8
-  %iomem = getelementptr inbounds %struct.SysBusESPState, ptr %call.i21, i64 0, i32 1
+  %iomem = getelementptr inbounds i8, ptr %call.i21, i64 816
   %1 = load i32, ptr %it_shift, align 16
   %shl = shl i32 16, %1
   %conv = sext i32 %shl to i64
   tail call void @memory_region_init_io(ptr noundef nonnull %iomem, ptr noundef nonnull %call.i21, ptr noundef nonnull @sysbus_esp_mem_ops, ptr noundef nonnull %call.i21, ptr noundef nonnull @.str.112, i64 noundef %conv) #10
   tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %iomem) #10
-  %pdma = getelementptr inbounds %struct.SysBusESPState, ptr %call.i21, i64 0, i32 2
+  %pdma = getelementptr inbounds i8, ptr %call.i21, i64 1088
   tail call void @memory_region_init_io(ptr noundef nonnull %pdma, ptr noundef nonnull %call.i21, ptr noundef nonnull @sysbus_esp_pdma_ops, ptr noundef nonnull %call.i21, ptr noundef nonnull @.str.113, i64 noundef 4) #10
   tail call void @sysbus_init_mmio(ptr noundef %call.i, ptr noundef nonnull %pdma) #10
   tail call void @qdev_init_gpio_in(ptr noundef %dev, ptr noundef nonnull @sysbus_esp_gpio_demux, i32 noundef 2) #10
-  %bus = getelementptr inbounds %struct.ESPState, ptr %call.i22, i64 0, i32 11
+  %bus = getelementptr inbounds i8, ptr %call.i22, i64 248
   tail call void @scsi_bus_init_named(ptr noundef nonnull %bus, i64 noundef 144, ptr noundef %dev, ptr noundef nonnull @esp_scsi_info, ptr noundef null) #10
   br label %return
 
@@ -4089,27 +4060,27 @@ return:                                           ; preds = %entry, %if.end6
 define internal void @sysbus_esp_hard_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.104, i32 noundef 69, ptr noundef nonnull @__func__.SYSBUS_ESP) #10
-  %esp = getelementptr inbounds %struct.SysBusESPState, ptr %call.i, i64 0, i32 4
+  %esp = getelementptr inbounds i8, ptr %call.i, i64 1368
   %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %esp, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
-  %rregs.i = getelementptr inbounds %struct.ESPState, ptr %call.i1, i64 0, i32 1
-  %tchi_written.i = getelementptr inbounds %struct.ESPState, ptr %call.i1, i64 0, i32 6
+  %rregs.i = getelementptr inbounds i8, ptr %call.i1, i64 160
+  %tchi_written.i = getelementptr inbounds i8, ptr %call.i1, i64 209
   store i8 0, ptr %tchi_written.i, align 1
-  %ti_size.i = getelementptr inbounds %struct.ESPState, ptr %call.i1, i64 0, i32 7
+  %ti_size.i = getelementptr inbounds i8, ptr %call.i1, i64 212
   store i32 0, ptr %ti_size.i, align 4
-  %async_len.i = getelementptr inbounds %struct.ESPState, ptr %call.i1, i64 0, i32 21
+  %async_len.i = getelementptr inbounds i8, ptr %call.i1, i64 448
   store i32 0, ptr %async_len.i, align 8
-  %fifo.i = getelementptr inbounds %struct.ESPState, ptr %call.i1, i64 0, i32 10
+  %fifo.i = getelementptr inbounds i8, ptr %call.i1, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %rregs.i, i8 0, i64 32, i1 false)
   tail call void @fifo8_reset(ptr noundef nonnull %fifo.i) #10
-  %cmdfifo.i = getelementptr inbounds %struct.ESPState, ptr %call.i1, i64 0, i32 14
+  %cmdfifo.i = getelementptr inbounds i8, ptr %call.i1, i64 408
   tail call void @fifo8_reset(ptr noundef nonnull %cmdfifo.i) #10
-  %dma.i = getelementptr inbounds %struct.ESPState, ptr %call.i1, i64 0, i32 9
+  %dma.i = getelementptr inbounds i8, ptr %call.i1, i64 220
   store i32 0, ptr %dma.i, align 4
-  %do_cmd.i = getelementptr inbounds %struct.ESPState, ptr %call.i1, i64 0, i32 17
+  %do_cmd.i = getelementptr inbounds i8, ptr %call.i1, i64 436
   store i32 0, ptr %do_cmd.i, align 4
-  %dma_cb.i = getelementptr inbounds %struct.ESPState, ptr %call.i1, i64 0, i32 26
+  %dma_cb.i = getelementptr inbounds i8, ptr %call.i1, i64 488
   store ptr null, ptr %dma_cb.i, align 8
-  %arrayidx.i = getelementptr %struct.ESPState, ptr %call.i1, i64 0, i32 1, i64 8
+  %arrayidx.i = getelementptr i8, ptr %call.i1, i64 168
   store i8 7, ptr %arrayidx.i, align 8
   ret void
 }
@@ -4130,7 +4101,7 @@ declare void @qdev_init_gpio_in(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal void @sysbus_esp_gpio_demux(ptr noundef %opaque, i32 noundef %irq, i32 noundef %level) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.104, i32 noundef 69, ptr noundef nonnull @__func__.SYSBUS_ESP) #10
-  %esp = getelementptr inbounds %struct.SysBusESPState, ptr %call.i, i64 0, i32 4
+  %esp = getelementptr inbounds i8, ptr %call.i, i64 1368
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %esp, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
   switch i32 %irq, label %sw.epilog [
     i32 0, label %sw.bb
@@ -4142,31 +4113,31 @@ sw.bb:                                            ; preds = %entry
   br i1 %tobool.not.i, label %sw.epilog, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %irq.i.i = getelementptr inbounds %struct.ESPState, ptr %call.i5, i64 0, i32 3
+  %irq.i.i = getelementptr inbounds i8, ptr %call.i5, i64 192
   %0 = load ptr, ptr %irq.i.i, align 8
   tail call void @qemu_set_irq(ptr noundef %0, i32 noundef 0) #10
-  %irq_data.i.i = getelementptr inbounds %struct.ESPState, ptr %call.i5, i64 0, i32 4
+  %irq_data.i.i = getelementptr inbounds i8, ptr %call.i5, i64 200
   %1 = load ptr, ptr %irq_data.i.i, align 8
   tail call void @qemu_set_irq(ptr noundef %1, i32 noundef 0) #10
-  %rregs.i.i.i = getelementptr inbounds %struct.ESPState, ptr %call.i5, i64 0, i32 1
-  %tchi_written.i.i.i = getelementptr inbounds %struct.ESPState, ptr %call.i5, i64 0, i32 6
+  %rregs.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 160
+  %tchi_written.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 209
   store i8 0, ptr %tchi_written.i.i.i, align 1
-  %ti_size.i.i.i = getelementptr inbounds %struct.ESPState, ptr %call.i5, i64 0, i32 7
+  %ti_size.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 212
   store i32 0, ptr %ti_size.i.i.i, align 4
-  %async_len.i.i.i = getelementptr inbounds %struct.ESPState, ptr %call.i5, i64 0, i32 21
+  %async_len.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 448
   store i32 0, ptr %async_len.i.i.i, align 8
-  %fifo.i.i.i = getelementptr inbounds %struct.ESPState, ptr %call.i5, i64 0, i32 10
+  %fifo.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %rregs.i.i.i, i8 0, i64 32, i1 false)
   tail call void @fifo8_reset(ptr noundef nonnull %fifo.i.i.i) #10
-  %cmdfifo.i.i.i = getelementptr inbounds %struct.ESPState, ptr %call.i5, i64 0, i32 14
+  %cmdfifo.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 408
   tail call void @fifo8_reset(ptr noundef nonnull %cmdfifo.i.i.i) #10
-  %dma.i.i.i = getelementptr inbounds %struct.ESPState, ptr %call.i5, i64 0, i32 9
+  %dma.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 220
   store i32 0, ptr %dma.i.i.i, align 4
-  %do_cmd.i.i.i = getelementptr inbounds %struct.ESPState, ptr %call.i5, i64 0, i32 17
+  %do_cmd.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 436
   store i32 0, ptr %do_cmd.i.i.i, align 4
-  %dma_cb.i.i.i = getelementptr inbounds %struct.ESPState, ptr %call.i5, i64 0, i32 26
+  %dma_cb.i.i.i = getelementptr inbounds i8, ptr %call.i5, i64 488
   store ptr null, ptr %dma_cb.i.i.i, align 8
-  %arrayidx.i.i.i = getelementptr %struct.ESPState, ptr %call.i5, i64 0, i32 1, i64 8
+  %arrayidx.i.i.i = getelementptr i8, ptr %call.i5, i64 168
   store i8 7, ptr %arrayidx.i.i.i, align 8
   br label %sw.epilog
 
@@ -4181,9 +4152,9 @@ sw.epilog:                                        ; preds = %if.then.i, %sw.bb, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @sysbus_esp_mem_read(ptr noundef %opaque, i64 noundef %addr, i32 %size) #0 {
 entry:
-  %esp = getelementptr inbounds %struct.SysBusESPState, ptr %opaque, i64 0, i32 4
+  %esp = getelementptr inbounds i8, ptr %opaque, i64 1368
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %esp, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
-  %it_shift = getelementptr inbounds %struct.SysBusESPState, ptr %opaque, i64 0, i32 3
+  %it_shift = getelementptr inbounds i8, ptr %opaque, i64 1360
   %0 = load i32, ptr %it_shift, align 16
   %sh_prom = zext nneg i32 %0 to i64
   %shr = lshr i64 %addr, %sh_prom
@@ -4195,9 +4166,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @sysbus_esp_mem_write(ptr noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 %size) #0 {
 entry:
-  %esp = getelementptr inbounds %struct.SysBusESPState, ptr %opaque, i64 0, i32 4
+  %esp = getelementptr inbounds i8, ptr %opaque, i64 1368
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %esp, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
-  %it_shift = getelementptr inbounds %struct.SysBusESPState, ptr %opaque, i64 0, i32 3
+  %it_shift = getelementptr inbounds i8, ptr %opaque, i64 1360
   %0 = load i32, ptr %it_shift, align 16
   %sh_prom = zext nneg i32 %0 to i64
   %shr = lshr i64 %addr, %sh_prom
@@ -4226,7 +4197,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 define internal i64 @sysbus_esp_pdma_read(ptr noundef %opaque, i64 %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %esp = getelementptr inbounds %struct.SysBusESPState, ptr %opaque, i64 0, i32 4
+  %esp = getelementptr inbounds i8, ptr %opaque, i64 1368
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %esp, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4252,7 +4223,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.115, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %size) #10
   br label %trace_esp_pdma_read.exit
@@ -4269,18 +4240,18 @@ trace_esp_pdma_read.exit:                         ; preds = %entry, %land.lhs.tr
   ]
 
 sw.bb:                                            ; preds = %trace_esp_pdma_read.exit
-  %do_cmd.i = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 17
+  %do_cmd.i = getelementptr inbounds i8, ptr %call.i, i64 436
   %7 = load i32, ptr %do_cmd.i, align 4
   %tobool.not.i = icmp eq i32 %7, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %cmdfifo.i = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 14
+  %cmdfifo.i = getelementptr inbounds i8, ptr %call.i, i64 408
   %call.i.i = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %cmdfifo.i) #10
   br i1 %call.i.i, label %sw.epilog, label %if.end.sink.split.i
 
 if.else.i:                                        ; preds = %sw.bb
-  %fifo.i = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 10
+  %fifo.i = getelementptr inbounds i8, ptr %call.i, i64 224
   %call.i3.i = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %fifo.i) #10
   br i1 %call.i3.i, label %sw.epilog, label %if.end.sink.split.i
 
@@ -4291,18 +4262,18 @@ if.end.sink.split.i:                              ; preds = %if.else.i, %if.then
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %trace_esp_pdma_read.exit
-  %do_cmd.i7 = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 17
+  %do_cmd.i7 = getelementptr inbounds i8, ptr %call.i, i64 436
   %9 = load i32, ptr %do_cmd.i7, align 4
   %tobool.not.i8 = icmp eq i32 %9, 0
   br i1 %tobool.not.i8, label %if.else.i16, label %if.then.i9
 
 if.then.i9:                                       ; preds = %sw.bb2
-  %cmdfifo.i10 = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 14
+  %cmdfifo.i10 = getelementptr inbounds i8, ptr %call.i, i64 408
   %call.i.i11 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %cmdfifo.i10) #10
   br i1 %call.i.i11, label %esp_pdma_read.exit19, label %if.end.sink.split.i12
 
 if.else.i16:                                      ; preds = %sw.bb2
-  %fifo.i17 = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 10
+  %fifo.i17 = getelementptr inbounds i8, ptr %call.i, i64 224
   %call.i3.i18 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %fifo.i17) #10
   br i1 %call.i3.i18, label %esp_pdma_read.exit19, label %if.end.sink.split.i12
 
@@ -4320,12 +4291,12 @@ esp_pdma_read.exit19:                             ; preds = %if.then.i9, %if.els
   br i1 %tobool.not.i21, label %if.else.i29, label %if.then.i22
 
 if.then.i22:                                      ; preds = %esp_pdma_read.exit19
-  %cmdfifo.i23 = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 14
+  %cmdfifo.i23 = getelementptr inbounds i8, ptr %call.i, i64 408
   %call.i.i24 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %cmdfifo.i23) #10
   br i1 %call.i.i24, label %esp_pdma_read.exit32, label %if.end.sink.split.i25
 
 if.else.i29:                                      ; preds = %esp_pdma_read.exit19
-  %fifo.i30 = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 10
+  %fifo.i30 = getelementptr inbounds i8, ptr %call.i, i64 224
   %call.i3.i31 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %fifo.i30) #10
   br i1 %call.i3.i31, label %esp_pdma_read.exit32, label %if.end.sink.split.i25
 
@@ -4342,7 +4313,7 @@ esp_pdma_read.exit32:                             ; preds = %if.then.i22, %if.el
 
 sw.epilog:                                        ; preds = %if.end.sink.split.i, %if.else.i, %if.then.i, %esp_pdma_read.exit32, %trace_esp_pdma_read.exit
   %val.0 = phi i64 [ 0, %trace_esp_pdma_read.exit ], [ %or, %esp_pdma_read.exit32 ], [ 0, %if.then.i ], [ 0, %if.else.i ], [ %8, %if.end.sink.split.i ]
-  %fifo = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 10
+  %fifo = getelementptr inbounds i8, ptr %call.i, i64 224
   %call7 = tail call i32 @fifo8_num_used(ptr noundef nonnull %fifo) #10
   %cmp = icmp ult i32 %call7, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -4359,7 +4330,7 @@ if.end:                                           ; preds = %if.then, %sw.epilog
 define internal void @sysbus_esp_pdma_write(ptr noundef %opaque, i64 %addr, i64 noundef %val, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %esp = getelementptr inbounds %struct.SysBusESPState, ptr %opaque, i64 0, i32 4
+  %esp = getelementptr inbounds i8, ptr %opaque, i64 1368
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %esp, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4385,7 +4356,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.117, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %size) #10
   br label %trace_esp_pdma_write.exit
@@ -4402,10 +4373,10 @@ trace_esp_pdma_write.exit:                        ; preds = %entry, %land.lhs.tr
   ]
 
 sw.bb:                                            ; preds = %trace_esp_pdma_write.exit
-  %rregs.i.i = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 1
+  %rregs.i.i = getelementptr inbounds i8, ptr %call.i, i64 160
   %7 = load i16, ptr %rregs.i.i, align 8
   %8 = zext i16 %7 to i32
-  %arrayidx5.i.i = getelementptr %struct.ESPState, ptr %call.i, i64 0, i32 1, i64 14
+  %arrayidx5.i.i = getelementptr i8, ptr %call.i, i64 174
   %9 = load i8, ptr %arrayidx5.i.i, align 2
   %conv6.i.i = zext i8 %9 to i32
   %shl7.i.i = shl nuw nsw i32 %conv6.i.i, 16
@@ -4414,69 +4385,67 @@ sw.bb:                                            ; preds = %trace_esp_pdma_writ
   br i1 %cmp.i, label %sw.epilog, label %sw.epilog.sink.split
 
 sw.bb1:                                           ; preds = %trace_esp_pdma_write.exit
-  %rregs.i.i7 = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 1
+  %rregs.i.i7 = getelementptr inbounds i8, ptr %call.i, i64 160
   %10 = load i16, ptr %rregs.i.i7, align 8
   %11 = zext i16 %10 to i32
-  %arrayidx5.i.i8 = getelementptr %struct.ESPState, ptr %call.i, i64 0, i32 1, i64 14
+  %arrayidx5.i.i8 = getelementptr i8, ptr %call.i, i64 174
   %12 = load i8, ptr %arrayidx5.i.i8, align 2
   %conv6.i.i9 = zext i8 %12 to i32
   %shl7.i.i10 = shl nuw nsw i32 %conv6.i.i9, 16
   %or8.i.i11 = or disjoint i32 %shl7.i.i10, %11
   %cmp.i12 = icmp eq i32 %or8.i.i11, 0
-  br i1 %cmp.i12, label %sw.epilog, label %esp_pdma_write.exit26
+  br i1 %cmp.i12, label %sw.epilog, label %esp_pdma_write.exit25
 
-esp_pdma_write.exit26:                            ; preds = %sw.bb1
+esp_pdma_write.exit25:                            ; preds = %sw.bb1
   %shr = lshr i64 %val, 8
   %conv2 = trunc i64 %shr to i8
-  %do_cmd.i14 = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 17
+  %do_cmd.i14 = getelementptr inbounds i8, ptr %call.i, i64 436
   %13 = load i32, ptr %do_cmd.i14, align 4
   %tobool.not.i15 = icmp eq i32 %13, 0
-  %fifo.i16 = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 10
-  %cmdfifo.i17 = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 14
-  %fifo.sink.i18 = select i1 %tobool.not.i15, ptr %fifo.i16, ptr %cmdfifo.i17
-  tail call fastcc void @esp_fifo_push(ptr noundef nonnull %fifo.sink.i18, i8 noundef zeroext %conv2)
-  %dec.i19 = add nsw i32 %or8.i.i11, -1
-  %conv.i.i20 = trunc i32 %dec.i19 to i8
-  store i8 %conv.i.i20, ptr %rregs.i.i7, align 8
-  %shr.i.i21 = lshr i32 %dec.i19, 8
-  %conv1.i.i22 = trunc i32 %shr.i.i21 to i8
-  %arrayidx3.i.i23 = getelementptr %struct.ESPState, ptr %call.i, i64 0, i32 1, i64 1
-  store i8 %conv1.i.i22, ptr %arrayidx3.i.i23, align 1
-  %shr4.i.i24 = lshr i32 %dec.i19, 16
-  %conv5.i.i25 = trunc i32 %shr4.i.i24 to i8
-  store i8 %conv5.i.i25, ptr %arrayidx5.i.i8, align 2
+  %..i16 = select i1 %tobool.not.i15, i64 224, i64 408
+  %fifo.i17 = getelementptr inbounds i8, ptr %call.i, i64 %..i16
+  tail call fastcc void @esp_fifo_push(ptr noundef nonnull %fifo.i17, i8 noundef zeroext %conv2)
+  %dec.i18 = add nsw i32 %or8.i.i11, -1
+  %conv.i.i19 = trunc i32 %dec.i18 to i8
+  store i8 %conv.i.i19, ptr %rregs.i.i7, align 8
+  %shr.i.i20 = lshr i32 %dec.i18, 8
+  %conv1.i.i21 = trunc i32 %shr.i.i20 to i8
+  %arrayidx3.i.i22 = getelementptr i8, ptr %call.i, i64 161
+  store i8 %conv1.i.i21, ptr %arrayidx3.i.i22, align 1
+  %shr4.i.i23 = lshr i32 %dec.i18, 16
+  %conv5.i.i24 = trunc i32 %shr4.i.i23 to i8
+  store i8 %conv5.i.i24, ptr %arrayidx5.i.i8, align 2
   %.pre = load i16, ptr %rregs.i.i7, align 8
-  %.pre47 = zext i16 %.pre to i32
-  %.pre49 = and i32 %dec.i19, 16711680
-  %.pre50 = or disjoint i32 %.pre49, %.pre47
-  %cmp.i32 = icmp eq i32 %.pre50, 0
-  br i1 %cmp.i32, label %sw.epilog, label %sw.epilog.sink.split
+  %.pre45 = zext i16 %.pre to i32
+  %.pre47 = and i32 %dec.i18, 16711680
+  %.pre48 = or disjoint i32 %.pre47, %.pre45
+  %cmp.i31 = icmp eq i32 %.pre48, 0
+  br i1 %cmp.i31, label %sw.epilog, label %sw.epilog.sink.split
 
-sw.epilog.sink.split:                             ; preds = %esp_pdma_write.exit26, %sw.bb
-  %or8.i.i.sink = phi i32 [ %or8.i.i, %sw.bb ], [ %.pre50, %esp_pdma_write.exit26 ]
-  %rregs.i.i7.sink = phi ptr [ %rregs.i.i, %sw.bb ], [ %rregs.i.i7, %esp_pdma_write.exit26 ]
-  %arrayidx5.i.i8.sink = phi ptr [ %arrayidx5.i.i, %sw.bb ], [ %arrayidx5.i.i8, %esp_pdma_write.exit26 ]
+sw.epilog.sink.split:                             ; preds = %esp_pdma_write.exit25, %sw.bb
+  %or8.i.i.sink = phi i32 [ %or8.i.i, %sw.bb ], [ %.pre48, %esp_pdma_write.exit25 ]
+  %rregs.i.i7.sink = phi ptr [ %rregs.i.i, %sw.bb ], [ %rregs.i.i7, %esp_pdma_write.exit25 ]
+  %arrayidx5.i.i8.sink = phi ptr [ %arrayidx5.i.i, %sw.bb ], [ %arrayidx5.i.i8, %esp_pdma_write.exit25 ]
   %conv = trunc i64 %val to i8
-  %do_cmd.i = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 17
+  %do_cmd.i = getelementptr inbounds i8, ptr %call.i, i64 436
   %14 = load i32, ptr %do_cmd.i, align 4
   %tobool.not.i = icmp eq i32 %14, 0
-  %fifo.i = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 10
-  %cmdfifo.i = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 14
-  %fifo.sink.i = select i1 %tobool.not.i, ptr %fifo.i, ptr %cmdfifo.i
-  tail call fastcc void @esp_fifo_push(ptr noundef nonnull %fifo.sink.i, i8 noundef zeroext %conv)
+  %..i = select i1 %tobool.not.i, i64 224, i64 408
+  %fifo.i = getelementptr inbounds i8, ptr %call.i, i64 %..i
+  tail call fastcc void @esp_fifo_push(ptr noundef nonnull %fifo.i, i8 noundef zeroext %conv)
   %dec.i = add nsw i32 %or8.i.i.sink, -1
-  %conv.i.i40 = trunc i32 %dec.i to i8
-  store i8 %conv.i.i40, ptr %rregs.i.i7.sink, align 8
-  %shr.i.i41 = lshr i32 %dec.i, 8
-  %conv1.i.i42 = trunc i32 %shr.i.i41 to i8
-  %arrayidx3.i.i43 = getelementptr %struct.ESPState, ptr %call.i, i64 0, i32 1, i64 1
-  store i8 %conv1.i.i42, ptr %arrayidx3.i.i43, align 1
-  %shr4.i.i44 = lshr i32 %dec.i, 16
-  %conv5.i.i45 = trunc i32 %shr4.i.i44 to i8
-  store i8 %conv5.i.i45, ptr %arrayidx5.i.i8.sink, align 2
+  %conv.i.i38 = trunc i32 %dec.i to i8
+  store i8 %conv.i.i38, ptr %rregs.i.i7.sink, align 8
+  %shr.i.i39 = lshr i32 %dec.i, 8
+  %conv1.i.i40 = trunc i32 %shr.i.i39 to i8
+  %arrayidx3.i.i41 = getelementptr i8, ptr %call.i, i64 161
+  store i8 %conv1.i.i40, ptr %arrayidx3.i.i41, align 1
+  %shr4.i.i42 = lshr i32 %dec.i, 16
+  %conv5.i.i43 = trunc i32 %shr4.i.i42 to i8
+  store i8 %conv5.i.i43, ptr %arrayidx5.i.i8.sink, align 2
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb1, %esp_pdma_write.exit26, %sw.bb, %trace_esp_pdma_write.exit
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb1, %esp_pdma_write.exit25, %sw.bb, %trace_esp_pdma_write.exit
   tail call fastcc void @esp_pdma_cb(ptr noundef %call.i)
   ret void
 }
@@ -4489,7 +4458,7 @@ entry:
   %n.i78.i = alloca i32, align 4
   %n.i.i = alloca i32, align 4
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %pdma_cb = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 27
+  %pdma_cb = getelementptr inbounds i8, ptr %s, i64 496
   %0 = load i8, ptr %pdma_cb, align 8
   switch i8 %0, label %do.body [
     i8 0, label %sw.bb
@@ -4500,10 +4469,10 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %rregs.i.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 1
+  %rregs.i.i = getelementptr inbounds i8, ptr %s, i64 160
   %1 = load i16, ptr %rregs.i.i, align 8
   %2 = zext i16 %1 to i32
-  %arrayidx5.i.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 14
+  %arrayidx5.i.i = getelementptr i8, ptr %s, i64 174
   %3 = load i8, ptr %arrayidx5.i.i, align 2
   %conv6.i.i = zext i8 %3 to i32
   %shl7.i.i = shl nuw nsw i32 %conv6.i.i, 16
@@ -4512,23 +4481,23 @@ sw.bb:                                            ; preds = %entry
   br i1 %tobool.not.i, label %land.lhs.true.i, label %sw.epilog
 
 land.lhs.true.i:                                  ; preds = %sw.bb
-  %cmdfifo.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo.i = getelementptr inbounds i8, ptr %s, i64 408
   %call1.i = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %cmdfifo.i) #10
   br i1 %call1.i, label %sw.epilog, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %cmdfifo_cdb_offset.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 15
+  %cmdfifo_cdb_offset.i = getelementptr inbounds i8, ptr %s, i64 432
   store i8 1, ptr %cmdfifo_cdb_offset.i, align 8
-  %do_cmd.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd.i = getelementptr inbounds i8, ptr %s, i64 436
   store i32 0, ptr %do_cmd.i, align 4
   tail call fastcc void @do_cmd(ptr noundef nonnull %s)
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %rregs.i.i6 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 1
+  %rregs.i.i6 = getelementptr inbounds i8, ptr %s, i64 160
   %4 = load i16, ptr %rregs.i.i6, align 8
   %5 = zext i16 %4 to i32
-  %arrayidx5.i.i7 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 14
+  %arrayidx5.i.i7 = getelementptr i8, ptr %s, i64 174
   %6 = load i8, ptr %arrayidx5.i.i7, align 2
   %conv6.i.i8 = zext i8 %6 to i32
   %shl7.i.i9 = shl nuw nsw i32 %conv6.i.i8, 16
@@ -4537,23 +4506,23 @@ sw.bb1:                                           ; preds = %entry
   br i1 %tobool.not.i11, label %land.lhs.true.i12, label %sw.epilog
 
 land.lhs.true.i12:                                ; preds = %sw.bb1
-  %cmdfifo.i13 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo.i13 = getelementptr inbounds i8, ptr %s, i64 408
   %call1.i14 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %cmdfifo.i13) #10
   br i1 %call1.i14, label %sw.epilog, label %if.then.i15
 
 if.then.i15:                                      ; preds = %land.lhs.true.i12
-  %cmdfifo_cdb_offset.i16 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 15
+  %cmdfifo_cdb_offset.i16 = getelementptr inbounds i8, ptr %s, i64 432
   store i8 0, ptr %cmdfifo_cdb_offset.i16, align 8
-  %do_cmd.i17 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd.i17 = getelementptr inbounds i8, ptr %s, i64 436
   store i32 0, ptr %do_cmd.i17, align 4
   tail call fastcc void @do_cmd(ptr noundef nonnull %s)
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %rregs.i.i18 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 1
+  %rregs.i.i18 = getelementptr inbounds i8, ptr %s, i64 160
   %7 = load i16, ptr %rregs.i.i18, align 8
   %8 = zext i16 %7 to i32
-  %arrayidx5.i.i19 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 14
+  %arrayidx5.i.i19 = getelementptr i8, ptr %s, i64 174
   %9 = load i8, ptr %arrayidx5.i.i19, align 2
   %conv6.i.i20 = zext i8 %9 to i32
   %shl7.i.i21 = shl nuw nsw i32 %conv6.i.i20, 16
@@ -4562,7 +4531,7 @@ sw.bb2:                                           ; preds = %entry
   br i1 %tobool.not.i23, label %land.lhs.true.i24, label %sw.epilog
 
 land.lhs.true.i24:                                ; preds = %sw.bb2
-  %cmdfifo.i25 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo.i25 = getelementptr inbounds i8, ptr %s, i64 408
   %call1.i26 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %cmdfifo.i25) #10
   br i1 %call1.i26, label %sw.epilog, label %if.then.i27
 
@@ -4592,7 +4561,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #10
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #10
   %15 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %16 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.94, i32 noundef %call10.i.i.i, i64 noundef %15, i64 noundef %16, i32 noundef %call3.i) #10
   br label %trace_esp_handle_satn_stop.exit.i
@@ -4603,48 +4572,48 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_esp_handle_satn_stop.exit.i:                ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %if.then.i27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %do_cmd.i28 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd.i28 = getelementptr inbounds i8, ptr %s, i64 436
   store i32 1, ptr %do_cmd.i28, align 4
-  %cmdfifo_cdb_offset.i29 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 15
+  %cmdfifo_cdb_offset.i29 = getelementptr inbounds i8, ptr %s, i64 432
   store i8 1, ptr %cmdfifo_cdb_offset.i29, align 8
-  %arrayidx.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx.i = getelementptr i8, ptr %s, i64 164
   store i8 18, ptr %arrayidx.i, align 4
-  %arrayidx5.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx5.i = getelementptr i8, ptr %s, i64 165
   %17 = load i8, ptr %arrayidx5.i, align 1
   %18 = or i8 %17, 24
   store i8 %18, ptr %arrayidx5.i, align 1
-  %arrayidx8.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx8.i = getelementptr i8, ptr %s, i64 166
   store i8 4, ptr %arrayidx8.i, align 2
   tail call fastcc void @esp_raise_irq(ptr noundef nonnull %s)
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %arrayidx.i30 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx.i30 = getelementptr i8, ptr %s, i64 164
   store i8 19, ptr %arrayidx.i30, align 4
-  %arrayidx2.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx2.i = getelementptr i8, ptr %s, i64 165
   %19 = load i8, ptr %arrayidx2.i, align 1
   %20 = or i8 %19, 24
   store i8 %20, ptr %arrayidx2.i, align 1
-  %arrayidx5.i31 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx5.i31 = getelementptr i8, ptr %s, i64 166
   store i8 4, ptr %arrayidx5.i31, align 2
   tail call fastcc void @esp_raise_irq(ptr noundef nonnull %s)
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
-  %arrayidx.i32 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 4
+  %arrayidx.i32 = getelementptr i8, ptr %s, i64 164
   %21 = load i8, ptr %arrayidx.i32, align 4
   %22 = and i8 %21, 7
   %cmp.i = icmp eq i8 %22, 0
-  %do_cmd.i33 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 17
+  %do_cmd.i33 = getelementptr inbounds i8, ptr %s, i64 436
   %23 = load i32, ptr %do_cmd.i33, align 4
   %tobool.not.i34 = icmp eq i32 %23, 0
   br i1 %tobool.not.i34, label %if.end34.i, label %if.then.i35
 
 if.then.i35:                                      ; preds = %sw.bb4
-  %rregs.i.i36 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 1
+  %rregs.i.i36 = getelementptr inbounds i8, ptr %s, i64 160
   %24 = load i16, ptr %rregs.i.i36, align 8
   %25 = zext i16 %24 to i32
-  %arrayidx5.i.i37 = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 14
+  %arrayidx5.i.i37 = getelementptr i8, ptr %s, i64 174
   %26 = load i8, ptr %arrayidx5.i.i37, align 2
   %conv6.i.i38 = zext i8 %26 to i32
   %shl7.i.i39 = shl nuw nsw i32 %conv6.i.i38, 16
@@ -4653,12 +4622,12 @@ if.then.i35:                                      ; preds = %sw.bb4
   br i1 %tobool2.not.i, label %lor.lhs.false.i, label %sw.epilog
 
 lor.lhs.false.i:                                  ; preds = %if.then.i35
-  %cmdfifo.i41 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 14
+  %cmdfifo.i41 = getelementptr inbounds i8, ptr %s, i64 408
   %call3.i42 = tail call zeroext i1 @fifo8_is_empty(ptr noundef nonnull %cmdfifo.i41) #10
   br i1 %call3.i42, label %sw.epilog, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %ti_size.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size.i = getelementptr inbounds i8, ptr %s, i64 212
   store i32 0, ptr %ti_size.i, align 4
   %27 = load i8, ptr %arrayidx.i32, align 4
   %28 = and i8 %27, 7
@@ -4666,7 +4635,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %cmp10.i, label %if.then12.i, label %if.else.i
 
 if.then12.i:                                      ; preds = %if.end.i
-  %cmdfifo_cdb_offset.i43 = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 15
+  %cmdfifo_cdb_offset.i43 = getelementptr inbounds i8, ptr %s, i64 432
   %29 = load i8, ptr %cmdfifo_cdb_offset.i43, align 8
   %conv13.i = zext i8 %29 to i32
   %call15.i = tail call i32 @fifo8_num_used(ptr noundef nonnull %cmdfifo.i41) #10
@@ -4681,12 +4650,12 @@ if.end19.i:                                       ; preds = %if.then12.i
 if.else.i:                                        ; preds = %if.end.i
   %call22.i = tail call i32 @fifo8_num_used(ptr noundef nonnull %cmdfifo.i41) #10
   %conv23.i = trunc i32 %call22.i to i8
-  %cmdfifo_cdb_offset24.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 15
+  %cmdfifo_cdb_offset24.i = getelementptr inbounds i8, ptr %s, i64 432
   store i8 %conv23.i, ptr %cmdfifo_cdb_offset24.i, align 8
   store i8 18, ptr %arrayidx.i32, align 4
-  %arrayidx28.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 6
+  %arrayidx28.i = getelementptr i8, ptr %s, i64 166
   store i8 4, ptr %arrayidx28.i, align 2
-  %arrayidx30.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx30.i = getelementptr i8, ptr %s, i64 165
   %30 = load i8, ptr %arrayidx30.i, align 1
   %31 = or i8 %30, 16
   store i8 %31, ptr %arrayidx30.i, align 1
@@ -4694,22 +4663,22 @@ if.else.i:                                        ; preds = %if.end.i
   br label %sw.epilog
 
 if.end34.i:                                       ; preds = %sw.bb4
-  %current_req.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 13
+  %current_req.i = getelementptr inbounds i8, ptr %s, i64 400
   %32 = load ptr, ptr %current_req.i, align 8
   %tobool35.not.i = icmp eq ptr %32, null
   br i1 %tobool35.not.i, label %sw.epilog, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end34.i
-  %async_len.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 21
+  %async_len.i = getelementptr inbounds i8, ptr %s, i64 448
   %33 = load i32, ptr %async_len.i, align 8
   br i1 %cmp.i, label %if.then39.i, label %if.else81.i
 
 if.then39.i:                                      ; preds = %if.end37.i
-  %fifo.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 10
+  %fifo.i = getelementptr inbounds i8, ptr %s, i64 224
   %call42.i = tail call i32 @fifo8_num_used(ptr noundef nonnull %fifo.i) #10
   %cond.i = tail call i32 @llvm.umin.i32(i32 %33, i32 %call42.i)
   %cond49.i = tail call i32 @llvm.umin.i32(i32 %cond.i, i32 16)
-  %async_buf.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 22
+  %async_buf.i = getelementptr inbounds i8, ptr %s, i64 456
   %34 = load ptr, ptr %async_buf.i, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %n.i.i)
   %cmp.i.i = icmp eq i32 %cond.i, 0
@@ -4736,7 +4705,7 @@ esp_fifo_pop_buf.exit.i:                          ; preds = %if.then1.i.i, %if.e
   %36 = load i32, ptr %async_len.i, align 8
   %sub.i = sub i32 %36, %retval.0.i.i
   store i32 %sub.i, ptr %async_len.i, align 8
-  %ti_size54.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size54.i = getelementptr inbounds i8, ptr %s, i64 212
   %37 = load i32, ptr %ti_size54.i, align 4
   %add.i = add i32 %37, %retval.0.i.i
   store i32 %add.i, ptr %ti_size54.i, align 4
@@ -4780,10 +4749,10 @@ if.then73.i:                                      ; preds = %if.end69.i
   br label %sw.epilog
 
 if.end75.i:                                       ; preds = %if.end69.i
-  %rregs.i88.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 1
+  %rregs.i88.i = getelementptr inbounds i8, ptr %s, i64 160
   %43 = load i16, ptr %rregs.i88.i, align 8
   %44 = zext i16 %43 to i32
-  %arrayidx5.i89.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 14
+  %arrayidx5.i89.i = getelementptr i8, ptr %s, i64 174
   %45 = load i8, ptr %arrayidx5.i89.i, align 2
   %conv6.i90.i = zext i8 %45 to i32
   %shl7.i91.i = shl nuw nsw i32 %conv6.i90.i, 16
@@ -4819,7 +4788,7 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #10
   %call10.i.i.i.i = call i32 @qemu_get_thread_id() #10
   %52 = load i64, ptr %_now.i.i.i.i, align 8
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %53 = load i64, ptr %tv_usec.i.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i.i.i, i64 noundef %52, i64 noundef %53) #10
   br label %esp_lower_drq.exit.i
@@ -4833,14 +4802,14 @@ esp_lower_drq.exit.i:                             ; preds = %if.else.i.i.i.i, %i
   %54 = load i8, ptr %arrayidx.i32, align 4
   %55 = or i8 %54, 16
   store i8 %55, ptr %arrayidx.i32, align 4
-  %arrayidx3.i.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx3.i.i = getelementptr i8, ptr %s, i64 165
   %56 = load i8, ptr %arrayidx3.i.i, align 1
   %57 = or i8 %56, 16
   store i8 %57, ptr %arrayidx3.i.i, align 1
-  %arrayidx8.i.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 7
+  %arrayidx8.i.i = getelementptr i8, ptr %s, i64 167
   store i8 0, ptr %arrayidx8.i.i, align 1
   store i8 0, ptr %rregs.i88.i, align 8
-  %arrayidx3.i.i.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 1
+  %arrayidx3.i.i.i = getelementptr i8, ptr %s, i64 161
   store i8 0, ptr %arrayidx3.i.i.i, align 1
   store i8 0, ptr %arrayidx5.i89.i, align 2
   call fastcc void @esp_raise_irq(ptr noundef nonnull %s)
@@ -4852,15 +4821,15 @@ if.else81.i:                                      ; preds = %if.end37.i
 
 if.then85.i:                                      ; preds = %if.else81.i
   tail call void @scsi_req_continue(ptr noundef nonnull %32) #10
-  %data_in_ready.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 18
+  %data_in_ready.i = getelementptr inbounds i8, ptr %s, i64 440
   store i8 0, ptr %data_in_ready.i, align 8
   br label %sw.epilog
 
 if.end87.i:                                       ; preds = %if.else81.i
-  %rregs.i93.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 1
+  %rregs.i93.i = getelementptr inbounds i8, ptr %s, i64 160
   %58 = load i16, ptr %rregs.i93.i, align 8
   %59 = zext i16 %58 to i32
-  %arrayidx5.i94.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 14
+  %arrayidx5.i94.i = getelementptr i8, ptr %s, i64 174
   %60 = load i8, ptr %arrayidx5.i94.i, align 2
   %conv6.i95.i = zext i8 %60 to i32
   %shl7.i96.i = shl nuw nsw i32 %conv6.i95.i, 16
@@ -4870,10 +4839,10 @@ if.end87.i:                                       ; preds = %if.else81.i
 
 if.then91.i:                                      ; preds = %if.end87.i
   %cond100.i = tail call i32 @llvm.umin.i32(i32 %33, i32 %or8.i97.i)
-  %fifo101.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 10
+  %fifo101.i = getelementptr inbounds i8, ptr %s, i64 224
   %call102.i = tail call i32 @fifo8_num_free(ptr noundef nonnull %fifo101.i) #10
   %cond109.i = tail call i32 @llvm.umin.i32(i32 %cond100.i, i32 %call102.i)
-  %async_buf111.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 22
+  %async_buf111.i = getelementptr inbounds i8, ptr %s, i64 456
   %61 = load ptr, ptr %async_buf111.i, align 8
   tail call void @fifo8_push_all(ptr noundef nonnull %fifo101.i, ptr noundef %61, i32 noundef %cond109.i) #10
   %62 = load ptr, ptr %async_buf111.i, align 8
@@ -4883,7 +4852,7 @@ if.then91.i:                                      ; preds = %if.end87.i
   %63 = load i32, ptr %async_len.i, align 8
   %sub116.i = sub i32 %63, %cond109.i
   store i32 %sub116.i, ptr %async_len.i, align 8
-  %ti_size117.i = getelementptr inbounds %struct.ESPState, ptr %s, i64 0, i32 7
+  %ti_size117.i = getelementptr inbounds i8, ptr %s, i64 212
   %64 = load i32, ptr %ti_size117.i, align 4
   %sub118.i = sub i32 %64, %cond109.i
   store i32 %sub118.i, ptr %ti_size117.i, align 4
@@ -4898,7 +4867,7 @@ if.then91.i:                                      ; preds = %if.end87.i
   store i8 %conv.i108.i, ptr %rregs.i93.i, align 8
   %shr.i.i = lshr i32 %sub120.i, 8
   %conv1.i.i = trunc i32 %shr.i.i to i8
-  %arrayidx3.i110.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 1
+  %arrayidx3.i110.i = getelementptr i8, ptr %s, i64 161
   store i8 %conv1.i.i, ptr %arrayidx3.i110.i, align 1
   %shr4.i.i = lshr i32 %sub120.i, 16
   %conv5.i.i = trunc i32 %shr4.i.i to i8
@@ -4944,7 +4913,7 @@ if.then8.i.i.i125.i:                              ; preds = %if.then.i.i.i123.i
   %call9.i.i.i126.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i116.i, ptr noundef null) #10
   %call10.i.i.i127.i = tail call i32 @qemu_get_thread_id() #10
   %78 = load i64, ptr %_now.i.i.i116.i, align 8
-  %tv_usec.i.i.i128.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i116.i, i64 0, i32 1
+  %tv_usec.i.i.i128.i = getelementptr inbounds i8, ptr %_now.i.i.i116.i, i64 8
   %79 = load i64, ptr %tv_usec.i.i.i128.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i.i127.i, i64 noundef %78, i64 noundef %79) #10
   br label %esp_lower_drq.exit130.i
@@ -4958,14 +4927,14 @@ esp_lower_drq.exit130.i:                          ; preds = %if.else.i.i.i129.i,
   %80 = load i8, ptr %arrayidx.i32, align 4
   %81 = or i8 %80, 16
   store i8 %81, ptr %arrayidx.i32, align 4
-  %arrayidx3.i132.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 5
+  %arrayidx3.i132.i = getelementptr i8, ptr %s, i64 165
   %82 = load i8, ptr %arrayidx3.i132.i, align 1
   %83 = or i8 %82, 16
   store i8 %83, ptr %arrayidx3.i132.i, align 1
-  %arrayidx8.i133.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 7
+  %arrayidx8.i133.i = getelementptr i8, ptr %s, i64 167
   store i8 0, ptr %arrayidx8.i133.i, align 1
   store i8 0, ptr %rregs.i93.i, align 8
-  %arrayidx3.i.i135.i = getelementptr %struct.ESPState, ptr %s, i64 0, i32 1, i64 1
+  %arrayidx3.i.i135.i = getelementptr i8, ptr %s, i64 161
   store i8 0, ptr %arrayidx3.i.i135.i, align 1
   store i8 0, ptr %arrayidx5.i94.i, align 2
   tail call fastcc void @esp_raise_irq(ptr noundef nonnull %s)
@@ -5001,9 +4970,9 @@ declare ptr @scsi_req_ref(ptr noundef) local_unnamed_addr #1
 define internal void @esp_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
-  %fifo = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 10
+  %fifo = getelementptr inbounds i8, ptr %call.i, i64 224
   tail call void @fifo8_create(ptr noundef nonnull %fifo, i32 noundef 16) #10
-  %cmdfifo = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 14
+  %cmdfifo = getelementptr inbounds i8, ptr %call.i, i64 408
   tail call void @fifo8_create(ptr noundef nonnull %cmdfifo, i32 noundef 32) #10
   ret void
 }
@@ -5012,9 +4981,9 @@ entry:
 define internal void @esp_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.104, i32 noundef 20, ptr noundef nonnull @__func__.ESP) #10
-  %fifo = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 10
+  %fifo = getelementptr inbounds i8, ptr %call.i, i64 224
   tail call void @fifo8_destroy(ptr noundef nonnull %fifo) #10
-  %cmdfifo = getelementptr inbounds %struct.ESPState, ptr %call.i, i64 0, i32 14
+  %cmdfifo = getelementptr inbounds i8, ptr %call.i, i64 408
   tail call void @fifo8_destroy(ptr noundef nonnull %cmdfifo) #10
   ret void
 }
@@ -5023,9 +4992,9 @@ entry:
 define internal void @esp_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.69, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
-  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 5
+  %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 0, ptr %user_creatable, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8

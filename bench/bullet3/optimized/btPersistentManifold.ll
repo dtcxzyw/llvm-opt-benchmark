@@ -7,13 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.0 = type { float }
 %union.anon.1 = type { float }
 %class.btVector3 = type { [4 x float] }
-%class.btPersistentManifold = type { %struct.btTypedObject, [4 x i8], [4 x %class.btManifoldPoint], ptr, ptr, i32, float, float, i32, i32, i32 }
-%struct.btTypedObject = type { i32 }
-%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%struct.btPersistentManifoldFloatData = type { [4 x %struct.btVector3FloatData], [4 x %struct.btVector3FloatData], [4 x %struct.btVector3FloatData], [4 x %struct.btVector3FloatData], [4 x %struct.btVector3FloatData], [4 x %struct.btVector3FloatData], [4 x %struct.btVector3FloatData], [4 x float], [4 x float], [4 x float], [4 x float], [4 x float], [4 x float], [4 x float], [4 x i32], [4 x i32], [4 x i32], [4 x i32], [4 x i32], [4 x float], [4 x float], [4 x float], [4 x float], [4 x float], [4 x float], [4 x float], [4 x float], [4 x float], [4 x i32], i32, i32, i32, i32, i32, float, float, i32, ptr, ptr }
 %struct.btVector3FloatData = type { [4 x float] }
-%struct.btPersistentManifoldDoubleData = type { [4 x %struct.btVector3DoubleData], [4 x %struct.btVector3DoubleData], [4 x %struct.btVector3DoubleData], [4 x %struct.btVector3DoubleData], [4 x %struct.btVector3DoubleData], [4 x %struct.btVector3DoubleData], [4 x %struct.btVector3DoubleData], [4 x double], [4 x double], [4 x double], [4 x double], [4 x double], [4 x double], [4 x double], [4 x i32], [4 x i32], [4 x i32], [4 x i32], [4 x i32], [4 x double], [4 x double], [4 x double], [4 x double], [4 x double], [4 x double], [4 x double], [4 x double], [4 x double], [4 x i32], i32, i32, i32, i32, i32, double, double, i32, ptr, ptr }
 %struct.btVector3DoubleData = type { [4 x double] }
 
 @gContactBreakingThreshold = dso_local local_unnamed_addr global float 0x3F947AE140000000, align 4
@@ -31,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @_ZN20btPersistentManifoldC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 1025, ptr %this, align 8
-  %invariant.gep = getelementptr inbounds %class.btManifoldPoint, ptr %this, i64 0, i32 15
+  %invariant.gep = getelementptr inbounds i8, ptr %this, i64 120
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %arrayctor.loop, %entry
@@ -43,12 +37,12 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %en
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %arrayctor.loop
-  %m_body0 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 3
-  %m_companionIdA = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 8
+  %m_body0 = getelementptr inbounds i8, ptr %this, i64 840
+  %m_companionIdA = getelementptr inbounds i8, ptr %this, i64 868
   store i32 0, ptr %m_companionIdA, align 4
-  %m_companionIdB = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 9
+  %m_companionIdB = getelementptr inbounds i8, ptr %this, i64 872
   store i32 0, ptr %m_companionIdB, align 8
-  %m_index1a = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 10
+  %m_index1a = getelementptr inbounds i8, ptr %this, i64 876
   store i32 0, ptr %m_index1a, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_body0, i8 0, i64 20, i1 false)
   ret void
@@ -57,7 +51,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint(ptr nocapture noundef nonnull readnone align 8 dereferenceable(880) %this, ptr nocapture noundef nonnull align 8 dereferenceable(204) %pt) local_unnamed_addr #1 align 2 {
 entry:
-  %m_userPersistentData = getelementptr inbounds %class.btManifoldPoint, ptr %pt, i64 0, i32 15
+  %m_userPersistentData = getelementptr inbounds i8, ptr %pt, i64 120
   %0 = load ptr, ptr %m_userPersistentData, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end8, label %if.then
@@ -79,15 +73,16 @@ if.end8:                                          ; preds = %if.then, %if.then5,
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(204) %pt) local_unnamed_addr #2 align 2 {
 entry:
-  %m_distance1.i = getelementptr inbounds %class.btManifoldPoint, ptr %pt, i64 0, i32 5
+  %m_distance1.i = getelementptr inbounds i8, ptr %pt, i64 80
   %0 = load float, ptr %m_distance1.i, align 8
+  %m_pointCache = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %maxPenetrationIndex.0295 = phi i32 [ -1, %entry ], [ %maxPenetrationIndex.1, %for.body ]
   %maxPenetration.0293 = phi float [ %0, %entry ], [ %maxPenetration.1, %for.body ]
-  %m_distance1.i25 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 5
+  %m_distance1.i25 = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache, i64 0, i64 %indvars.iv, i32 5
   %1 = load float, ptr %m_distance1.i25, align 8
   %cmp3 = fcmp olt float %1, %maxPenetration.0293
   %maxPenetration.1 = select i1 %cmp3, float %1, float %maxPenetration.0293
@@ -109,17 +104,17 @@ if.then8:                                         ; preds = %for.end
   br i1 %cond22, label %if.then8.if.then28_crit_edge, label %if.then10
 
 if.then8.if.then28_crit_edge:                     ; preds = %if.then8
-  %arrayidx5.i47.phi.trans.insert = getelementptr inbounds [4 x float], ptr %pt, i64 0, i64 1
+  %arrayidx5.i47.phi.trans.insert = getelementptr inbounds i8, ptr %pt, i64 4
   %.pre297 = load float, ptr %arrayidx5.i47.phi.trans.insert, align 4
-  %arrayidx11.i50.phi.trans.insert = getelementptr inbounds [4 x float], ptr %pt, i64 0, i64 2
+  %arrayidx11.i50.phi.trans.insert = getelementptr inbounds i8, ptr %pt, i64 8
   %.pre298 = load float, ptr %arrayidx11.i50.phi.trans.insert, align 8
-  %arrayidx36.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 3
-  %arrayidx39.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 2
+  %arrayidx36.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 632
+  %arrayidx39.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 424
   %5 = load <2 x float>, ptr %arrayidx36.phi.trans.insert, align 8
   %6 = load <2 x float>, ptr %arrayidx39.phi.trans.insert, align 8
-  %arrayidx11.i62.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 3, i32 0, i32 0, i64 2
+  %arrayidx11.i62.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 640
   %.pre303 = load float, ptr %arrayidx11.i62.phi.trans.insert, align 8
-  %arrayidx13.i63.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 2, i32 0, i32 0, i64 2
+  %arrayidx13.i63.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 432
   %.pre304 = load float, ptr %arrayidx13.i63.phi.trans.insert, align 8
   %7 = fsub <2 x float> %5, %6
   %.pre396 = fsub float %.pre303, %.pre304
@@ -130,27 +125,27 @@ if.then8.if.then28_crit_edge:                     ; preds = %if.then8
   br label %if.then28
 
 if.then10:                                        ; preds = %if.then8
-  %arrayidx12 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 216
   %12 = load float, ptr %arrayidx12, align 8
   %sub.i = fsub float %.pre314, %12
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %pt, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %pt, i64 4
   %13 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 1, i32 0, i32 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 220
   %14 = load float, ptr %arrayidx7.i, align 4
   %sub8.i = fsub float %13, %14
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %pt, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %pt, i64 8
   %15 = load float, ptr %arrayidx11.i, align 8
-  %arrayidx13.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 1, i32 0, i32 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 224
   %16 = load float, ptr %arrayidx13.i, align 8
   %sub14.i = fsub float %15, %16
-  %arrayidx16 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 3
-  %arrayidx19 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 2
+  %arrayidx16 = getelementptr inbounds i8, ptr %this, i64 632
+  %arrayidx19 = getelementptr inbounds i8, ptr %this, i64 424
   %17 = load <2 x float>, ptr %arrayidx16, align 8
   %18 = load <2 x float>, ptr %arrayidx19, align 8
   %19 = fsub <2 x float> %17, %18
-  %arrayidx11.i31 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 3, i32 0, i32 0, i64 2
+  %arrayidx11.i31 = getelementptr inbounds i8, ptr %this, i64 640
   %20 = load float, ptr %arrayidx11.i31, align 8
-  %arrayidx13.i32 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 2, i32 0, i32 0, i64 2
+  %arrayidx13.i32 = getelementptr inbounds i8, ptr %this, i64 432
   %21 = load float, ptr %arrayidx13.i32, align 8
   %sub14.i33 = fsub float %20, %21
   %22 = fneg float %sub14.i
@@ -175,10 +170,9 @@ if.then10:                                        ; preds = %if.then8
   br i1 %cond20, label %if.then10.if.then49_crit_edge, label %if.then28
 
 if.then10.if.then49_crit_edge:                    ; preds = %if.then10
-  %m_pointCache51.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2
-  %arrayidx13.i90.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 0, i32 0, i32 0, i64 2
+  %arrayidx13.i90.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre307 = load float, ptr %arrayidx13.i90.phi.trans.insert, align 8
-  %36 = load <2 x float>, ptr %m_pointCache51.phi.trans.insert, align 8
+  %36 = load <2 x float>, ptr %m_pointCache, align 8
   %37 = insertelement <2 x float> poison, float %.pre314, i64 0
   %38 = insertelement <2 x float> %37, float %13, i64 1
   %39 = fsub <2 x float> %38, %36
@@ -202,12 +196,11 @@ if.then28:                                        ; preds = %if.then8.if.then28_
   %49 = phi float [ %.pre297, %if.then8.if.then28_crit_edge ], [ %13, %if.then10 ]
   %res0.0 = phi float [ 0.000000e+00, %if.then8.if.then28_crit_edge ], [ %31, %if.then10 ]
   %50 = phi <2 x float> [ %7, %if.then8.if.then28_crit_edge ], [ %19, %if.then10 ]
-  %m_pointCache30 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2
-  %51 = load <2 x float>, ptr %m_pointCache30, align 8
+  %51 = load <2 x float>, ptr %m_pointCache, align 8
   %52 = insertelement <2 x float> poison, float %.pre314, i64 0
   %53 = insertelement <2 x float> %52, float %49, i64 1
   %54 = fsub <2 x float> %53, %51
-  %arrayidx13.i51 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 0, i32 0, i32 0, i64 2
+  %arrayidx13.i51 = getelementptr inbounds i8, ptr %this, i64 16
   %55 = load float, ptr %arrayidx13.i51, align 8
   %sub14.i52 = fsub float %48, %55
   %56 = fneg float %sub14.i52
@@ -227,11 +220,11 @@ if.then28:                                        ; preds = %if.then8.if.then28_
   %66 = tail call float @llvm.fmuladd.f32(float %59, float %59, float %mul8.i.i83)
   %67 = tail call noundef float @llvm.fmuladd.f32(float %65, float %65, float %66)
   %cond21 = icmp eq i32 %maxPenetrationIndex.1, 2
-  %arrayidx81.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 1
+  %arrayidx81.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 216
   %.pre311 = load float, ptr %arrayidx81.phi.trans.insert, align 8
-  %arrayidx7.i138.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 1, i32 0, i32 0, i64 1
+  %arrayidx7.i138.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 220
   %.pre312 = load float, ptr %arrayidx7.i138.phi.trans.insert, align 4
-  %arrayidx13.i141.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 1, i32 0, i32 0, i64 2
+  %arrayidx13.i141.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 224
   %.pre313 = load float, ptr %arrayidx13.i141.phi.trans.insert, align 8
   br i1 %cond21, label %if.then70, label %if.then49
 
@@ -303,19 +296,19 @@ if.else:                                          ; preds = %for.end
   br i1 %cond22, label %if.else.if.then105_crit_edge, label %if.then91
 
 if.else.if.then105_crit_edge:                     ; preds = %if.else
-  %arrayidx5.i.i165.phi.trans.insert = getelementptr inbounds [4 x float], ptr %pt, i64 0, i64 1
+  %arrayidx5.i.i165.phi.trans.insert = getelementptr inbounds i8, ptr %pt, i64 4
   %.pre315 = load float, ptr %arrayidx5.i.i165.phi.trans.insert, align 4
-  %arrayidx11.i.i168.phi.trans.insert = getelementptr inbounds [4 x float], ptr %pt, i64 0, i64 2
+  %arrayidx11.i.i168.phi.trans.insert = getelementptr inbounds i8, ptr %pt, i64 8
   %.pre316 = load float, ptr %arrayidx11.i.i168.phi.trans.insert, align 8
-  %arrayidx111.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 2
+  %arrayidx111.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 424
   %.pre317 = load float, ptr %arrayidx111.phi.trans.insert, align 8
-  %arrayidx7.i11.i172.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 2, i32 0, i32 0, i64 1
+  %arrayidx7.i11.i172.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 428
   %.pre318 = load float, ptr %arrayidx7.i11.i172.phi.trans.insert, align 4
-  %arrayidx13.i14.i174.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 2, i32 0, i32 0, i64 2
+  %arrayidx13.i14.i174.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 432
   %.pre319 = load float, ptr %arrayidx13.i14.i174.phi.trans.insert, align 8
-  %arrayidx114.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 3
+  %arrayidx114.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 632
   %96 = load <2 x float>, ptr %arrayidx114.phi.trans.insert, align 8
-  %arrayidx13.i26.i179.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 3, i32 0, i32 0, i64 2
+  %arrayidx13.i26.i179.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 640
   %.pre322 = load float, ptr %arrayidx13.i26.i179.phi.trans.insert, align 8
   %.pre332 = fsub float %.pre314, %.pre317
   %.pre333 = fsub float %.pre315, %.pre318
@@ -343,26 +336,26 @@ if.else.if.then105_crit_edge:                     ; preds = %if.else
   br label %if.then105
 
 if.then91:                                        ; preds = %if.else
-  %arrayidx94 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 1
-  %arrayidx97 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 2
-  %arrayidx100 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 3
-  %arrayidx5.i.i163 = getelementptr inbounds [4 x float], ptr %pt, i64 0, i64 1
+  %arrayidx94 = getelementptr inbounds i8, ptr %this, i64 216
+  %arrayidx97 = getelementptr inbounds i8, ptr %this, i64 424
+  %arrayidx100 = getelementptr inbounds i8, ptr %this, i64 632
+  %arrayidx5.i.i163 = getelementptr inbounds i8, ptr %pt, i64 4
   %105 = load float, ptr %arrayidx5.i.i163, align 4
-  %arrayidx11.i.i = getelementptr inbounds [4 x float], ptr %pt, i64 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %pt, i64 8
   %106 = load float, ptr %arrayidx11.i.i, align 8
-  %arrayidx13.i.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 1, i32 0, i32 0, i64 2
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %107 = load float, ptr %arrayidx13.i.i, align 8
   %108 = load float, ptr %arrayidx97, align 8
-  %arrayidx7.i11.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 2, i32 0, i32 0, i64 1
+  %arrayidx7.i11.i = getelementptr inbounds i8, ptr %this, i64 428
   %109 = load float, ptr %arrayidx7.i11.i, align 4
-  %arrayidx13.i14.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 2, i32 0, i32 0, i64 2
+  %arrayidx13.i14.i = getelementptr inbounds i8, ptr %this, i64 432
   %110 = load float, ptr %arrayidx13.i14.i, align 8
   %111 = load <2 x float>, ptr %arrayidx100, align 8
   %112 = extractelement <2 x float> %111, i64 0
   %sub.i21.i = fsub float %.pre314, %112
   %113 = extractelement <2 x float> %111, i64 1
   %sub8.i24.i = fsub float %105, %113
-  %arrayidx13.i26.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 3, i32 0, i32 0, i64 2
+  %arrayidx13.i26.i = getelementptr inbounds i8, ptr %this, i64 640
   %114 = load float, ptr %arrayidx13.i26.i, align 8
   %sub14.i27.i = fsub float %106, %114
   %sub.i33.i = fsub float %108, %112
@@ -436,9 +429,8 @@ if.then91:                                        ; preds = %if.else
   br i1 %cond23, label %if.then91.if.then119_crit_edge, label %if.then105
 
 if.then91.if.then119_crit_edge:                   ; preds = %if.then91
-  %m_pointCache121.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2
-  %169 = load <2 x float>, ptr %m_pointCache121.phi.trans.insert, align 8
-  %arrayidx13.i.i211.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 0, i32 0, i32 0, i64 2
+  %169 = load <2 x float>, ptr %m_pointCache, align 8
+  %arrayidx13.i.i211.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre325 = load float, ptr %arrayidx13.i.i211.phi.trans.insert, align 8
   %170 = extractelement <2 x float> %169, i64 0
   %.pre367 = fsub float %.pre314, %170
@@ -487,10 +479,9 @@ if.then105:                                       ; preds = %if.else.if.then105_
   %194 = phi <2 x float> [ %100, %if.else.if.then105_crit_edge ], [ %163, %if.then91 ]
   %195 = phi <2 x float> [ %102, %if.else.if.then105_crit_edge ], [ %164, %if.then91 ]
   %196 = phi <2 x float> [ %104, %if.else.if.then105_crit_edge ], [ %165, %if.then91 ]
-  %m_pointCache107 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2
-  %arrayidx13.i.i169 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 0, i32 0, i32 0, i64 2
+  %arrayidx13.i.i169 = getelementptr inbounds i8, ptr %this, i64 16
   %197 = load float, ptr %arrayidx13.i.i169, align 8
-  %198 = load <2 x float>, ptr %m_pointCache107, align 8
+  %198 = load <2 x float>, ptr %m_pointCache, align 8
   %199 = fsub <2 x float> %198, %193
   %sub14.i51.i186 = fsub float %197, %187
   %200 = extractelement <2 x float> %198, i64 0
@@ -508,9 +499,9 @@ if.then105:                                       ; preds = %if.else.if.then105_
   %205 = tail call float @llvm.fmuladd.f32(float %202, float %202, float %mul8.i.i104.i202)
   %206 = tail call noundef float @llvm.fmuladd.f32(float %204, float %204, float %205)
   %cond24 = icmp eq i32 %maxPenetrationIndex.1, 2
-  %arrayidx139.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 1
+  %arrayidx139.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 216
   %207 = load <2 x float>, ptr %arrayidx139.phi.trans.insert, align 8
-  %arrayidx13.i14.i258.phi.trans.insert = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 1, i32 0, i32 0, i64 2
+  %arrayidx13.i14.i258.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 224
   %.pre331 = load float, ptr %arrayidx13.i14.i258.phi.trans.insert, align 8
   %208 = insertelement <2 x float> poison, float %191, i64 0
   %209 = shufflevector <2 x float> %208, <2 x float> poison, <2 x i32> zeroinitializer
@@ -739,19 +730,20 @@ if.end146:                                        ; preds = %if.then119, %if.the
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK20btPersistentManifold13getCacheEntryERK15btManifoldPoint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(204) %newPoint) local_unnamed_addr #3 align 2 {
 entry:
-  %m_cachedPoints.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 5
+  %m_cachedPoints.i = getelementptr inbounds i8, ptr %this, i64 856
   %0 = load i32, ptr %m_cachedPoints.i, align 8
   %cmp14 = icmp sgt i32 %0, 0
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_contactBreakingThreshold.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 6
+  %m_contactBreakingThreshold.i = getelementptr inbounds i8, ptr %this, i64 860
   %1 = load float, ptr %m_contactBreakingThreshold.i, align 4
   %mul = fmul float %1, %1
+  %m_pointCache = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load float, ptr %newPoint, align 8
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %newPoint, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %newPoint, i64 4
   %3 = load float, ptr %arrayidx7.i, align 4
-  %arrayidx13.i = getelementptr inbounds [4 x float], ptr %newPoint, i64 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %newPoint, i64 8
   %4 = load float, ptr %arrayidx13.i, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
@@ -760,13 +752,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %shortestDist.017 = phi float [ %mul, %for.body.lr.ph ], [ %shortestDist.1, %for.body ]
   %nearestPoint.016 = phi i32 [ -1, %for.body.lr.ph ], [ %nearestPoint.1, %for.body ]
-  %arrayidx = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache, i64 0, i64 %indvars.iv
   %5 = load float, ptr %arrayidx, align 8
   %sub.i = fsub float %5, %2
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %arrayidx, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = load float, ptr %arrayidx5.i, align 4
   %sub8.i = fsub float %6, %3
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %arrayidx, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %7 = load float, ptr %arrayidx11.i, align 8
   %sub14.i = fsub float %7, %4
   %mul8.i = fmul float %sub8.i, %sub8.i
@@ -788,7 +780,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef float @_ZNK20btPersistentManifold27getContactBreakingThresholdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %m_contactBreakingThreshold = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 6
+  %m_contactBreakingThreshold = getelementptr inbounds i8, ptr %this, i64 860
   %0 = load float, ptr %m_contactBreakingThreshold, align 4
   ret float %0
 }
@@ -796,15 +788,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN20btPersistentManifold16addManifoldPointERK15btManifoldPointb(ptr nocapture noundef nonnull align 8 dereferenceable(880) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(204) %newPoint, i1 noundef zeroext %isPredictive) local_unnamed_addr #1 align 2 {
 entry:
-  %m_cachedPoints.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 5
+  %m_cachedPoints.i = getelementptr inbounds i8, ptr %this, i64 856
   %0 = load i32, ptr %m_cachedPoints.i, align 8
   %cmp = icmp eq i32 %0, 4
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %entry
   %call3 = tail call noundef i32 @_ZN20btPersistentManifold16sortCachedPointsERK15btManifoldPoint(ptr noundef nonnull align 8 dereferenceable(880) %this, ptr noundef nonnull align 8 dereferenceable(204) %newPoint)
+  %m_pointCache = getelementptr inbounds i8, ptr %this, i64 8
   %idxprom = sext i32 %call3 to i64
-  %m_userPersistentData.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %idxprom, i32 15
+  %m_userPersistentData.i = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache, i64 0, i64 %idxprom, i32 15
   %1 = load ptr, ptr %m_userPersistentData.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end4, label %if.then.i
@@ -827,8 +820,9 @@ if.else:                                          ; preds = %entry
 if.end4:                                          ; preds = %if.then5.i, %if.then.i, %if.then2, %if.else
   %insertIndex.0 = phi i32 [ %0, %if.else ], [ %call3, %if.then2 ], [ %call3, %if.then.i ], [ %call3, %if.then5.i ]
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %insertIndex.0, i32 0)
+  %m_pointCache8 = getelementptr inbounds i8, ptr %this, i64 8
   %idxprom9 = zext nneg i32 %spec.store.select to i64
-  %arrayidx10 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %idxprom9
+  %arrayidx10 = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache8, i64 0, i64 %idxprom9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(204) %arrayidx10, ptr noundef nonnull align 8 dereferenceable(204) %newPoint, i64 204, i1 false)
   ret i32 %spec.store.select
 }
@@ -841,57 +835,59 @@ define dso_local void @_ZN20btPersistentManifold20refreshContactPointsERK11btTra
 entry:
   %ref.tmp.i86 = alloca ptr, align 8
   %ref.tmp.i = alloca ptr, align 8
-  %m_cachedPoints.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 5
+  %m_cachedPoints.i = getelementptr inbounds i8, ptr %this, i64 856
   %0 = load i32, ptr %m_cachedPoints.i, align 8
-  %cmp118 = icmp sgt i32 %0, 0
-  br i1 %cmp118, label %for.body.lr.ph, label %for.end47
+  %cmp119 = icmp sgt i32 %0, 0
+  br i1 %cmp119, label %for.body.lr.ph, label %for.end47
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %trA, i64 0, i64 1
-  %arrayidx.i1.i = getelementptr inbounds [3 x %class.btVector3], ptr %trA, i64 0, i64 2
-  %arrayidx7.i.i.i = getelementptr inbounds [4 x float], ptr %trA, i64 0, i64 1
-  %arrayidx12.i.i.i = getelementptr inbounds [4 x float], ptr %trA, i64 0, i64 2
-  %arrayidx7.i2.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %trA, i64 0, i64 1, i32 0, i64 1
-  %arrayidx12.i5.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %trA, i64 0, i64 1, i32 0, i64 2
-  %arrayidx7.i7.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %trA, i64 0, i64 2, i32 0, i64 1
-  %arrayidx12.i10.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %trA, i64 0, i64 2, i32 0, i64 2
-  %m_origin.i = getelementptr inbounds %class.btTransform, ptr %trA, i64 0, i32 1
-  %arrayidx13.i.i = getelementptr inbounds %class.btTransform, ptr %trA, i64 0, i32 1, i32 0, i64 2
-  %arrayidx.i.i21 = getelementptr inbounds [3 x %class.btVector3], ptr %trB, i64 0, i64 1
-  %arrayidx.i1.i22 = getelementptr inbounds [3 x %class.btVector3], ptr %trB, i64 0, i64 2
-  %arrayidx7.i.i.i24 = getelementptr inbounds [4 x float], ptr %trB, i64 0, i64 1
-  %arrayidx12.i.i.i27 = getelementptr inbounds [4 x float], ptr %trB, i64 0, i64 2
-  %arrayidx7.i2.i.i28 = getelementptr inbounds [3 x %class.btVector3], ptr %trB, i64 0, i64 1, i32 0, i64 1
-  %arrayidx12.i5.i.i30 = getelementptr inbounds [3 x %class.btVector3], ptr %trB, i64 0, i64 1, i32 0, i64 2
-  %arrayidx7.i7.i.i31 = getelementptr inbounds [3 x %class.btVector3], ptr %trB, i64 0, i64 2, i32 0, i64 1
-  %arrayidx12.i10.i.i33 = getelementptr inbounds [3 x %class.btVector3], ptr %trB, i64 0, i64 2, i32 0, i64 2
-  %m_origin.i34 = getelementptr inbounds %class.btTransform, ptr %trB, i64 0, i32 1
-  %arrayidx13.i.i38 = getelementptr inbounds %class.btTransform, ptr %trB, i64 0, i32 1, i32 0, i64 2
+  %m_pointCache = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %trA, i64 16
+  %arrayidx.i1.i = getelementptr inbounds i8, ptr %trA, i64 32
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %trA, i64 4
+  %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %trA, i64 8
+  %arrayidx7.i2.i.i = getelementptr inbounds i8, ptr %trA, i64 20
+  %arrayidx12.i5.i.i = getelementptr inbounds i8, ptr %trA, i64 24
+  %arrayidx7.i7.i.i = getelementptr inbounds i8, ptr %trA, i64 36
+  %arrayidx12.i10.i.i = getelementptr inbounds i8, ptr %trA, i64 40
+  %m_origin.i = getelementptr inbounds i8, ptr %trA, i64 48
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %trA, i64 56
+  %arrayidx.i.i21 = getelementptr inbounds i8, ptr %trB, i64 16
+  %arrayidx.i1.i22 = getelementptr inbounds i8, ptr %trB, i64 32
+  %arrayidx7.i.i.i24 = getelementptr inbounds i8, ptr %trB, i64 4
+  %arrayidx12.i.i.i27 = getelementptr inbounds i8, ptr %trB, i64 8
+  %arrayidx7.i2.i.i28 = getelementptr inbounds i8, ptr %trB, i64 20
+  %arrayidx12.i5.i.i30 = getelementptr inbounds i8, ptr %trB, i64 24
+  %arrayidx7.i7.i.i31 = getelementptr inbounds i8, ptr %trB, i64 36
+  %arrayidx12.i10.i.i33 = getelementptr inbounds i8, ptr %trB, i64 40
+  %m_origin.i34 = getelementptr inbounds i8, ptr %trB, i64 48
+  %arrayidx13.i.i38 = getelementptr inbounds i8, ptr %trB, i64 56
   %1 = zext nneg i32 %0 to i64
   br label %for.body
 
 for.cond14.preheader:                             ; preds = %for.body
-  br i1 %cmp118, label %for.body16.lr.ph, label %for.end47
+  br i1 %cmp119, label %for.body16.lr.ph, label %for.end47
 
 for.body16.lr.ph:                                 ; preds = %for.cond14.preheader
-  %m_contactBreakingThreshold.i.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 6
-  %m_body0 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 3
-  %m_body1 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 4
+  %m_pointCache18 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_contactBreakingThreshold.i.i = getelementptr inbounds i8, ptr %this, i64 860
+  %m_body0 = getelementptr inbounds i8, ptr %this, i64 840
+  %m_body1 = getelementptr inbounds i8, ptr %this, i64 848
   %2 = zext nneg i32 %0 to i64
   br label %for.body16
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %1, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache, i64 0, i64 %indvars.iv.next
   %3 = load float, ptr %arrayidx, align 8
   %4 = load <4 x float>, ptr %trA, align 4
   %5 = shufflevector <4 x float> %4, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx5.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx, i64 0, i64 1
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %6 = load float, ptr %arrayidx5.i.i.i, align 4
   %7 = load <4 x float>, ptr %arrayidx7.i.i.i, align 4
   %8 = shufflevector <4 x float> %7, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx10.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx, i64 0, i64 2
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %9 = load float, ptr %arrayidx10.i.i.i, align 8
   %10 = load <4 x float>, ptr %arrayidx12.i.i.i, align 4
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
@@ -921,19 +917,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %34 = load float, ptr %arrayidx13.i.i, align 4
   %add14.i.i = fadd float %19, %34
   %retval.sroa.3.12.vec.insert.i4.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i, i64 0
-  %m_positionWorldOnA = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv.next, i32 3
+  %m_positionWorldOnA = getelementptr inbounds i8, ptr %arrayidx, i64 48
   store <2 x float> %33, ptr %m_positionWorldOnA, align 8
-  %ref.tmp.sroa.2.0.m_positionWorldOnA.sroa_idx = getelementptr inbounds i8, ptr %m_positionWorldOnA, i64 8
+  %ref.tmp.sroa.2.0.m_positionWorldOnA.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 56
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i, ptr %ref.tmp.sroa.2.0.m_positionWorldOnA.sroa_idx, align 8
-  %m_localPointB = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv.next, i32 1
+  %m_localPointB = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %35 = load float, ptr %m_localPointB, align 8
   %36 = load <4 x float>, ptr %trB, align 4
   %37 = shufflevector <4 x float> %36, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx5.i.i.i23 = getelementptr inbounds [4 x float], ptr %m_localPointB, i64 0, i64 1
+  %arrayidx5.i.i.i23 = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %38 = load float, ptr %arrayidx5.i.i.i23, align 4
   %39 = load <4 x float>, ptr %arrayidx7.i.i.i24, align 4
   %40 = shufflevector <4 x float> %39, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx10.i.i.i26 = getelementptr inbounds [4 x float], ptr %m_localPointB, i64 0, i64 2
+  %arrayidx10.i.i.i26 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %41 = load float, ptr %arrayidx10.i.i.i26, align 8
   %42 = load <4 x float>, ptr %arrayidx12.i.i.i27, align 4
   %43 = shufflevector <4 x float> %42, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
@@ -963,27 +959,27 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %66 = load float, ptr %arrayidx13.i.i38, align 4
   %add14.i.i39 = fadd float %51, %66
   %retval.sroa.3.12.vec.insert.i4.i42 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i39, i64 0
-  %m_positionWorldOnB = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv.next, i32 2
+  %m_positionWorldOnB = getelementptr inbounds i8, ptr %arrayidx, i64 32
   store <2 x float> %65, ptr %m_positionWorldOnB, align 8
-  %ref.tmp3.sroa.2.0.m_positionWorldOnB.sroa_idx = getelementptr inbounds i8, ptr %m_positionWorldOnB, i64 8
+  %ref.tmp3.sroa.2.0.m_positionWorldOnB.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i42, ptr %ref.tmp3.sroa.2.0.m_positionWorldOnB.sroa_idx, align 8
   %67 = fsub <2 x float> %33, %65
   %sub.i = extractelement <2 x float> %67, i64 0
   %68 = fsub <2 x float> %33, %65
   %sub8.i = extractelement <2 x float> %68, i64 1
   %sub14.i = fsub float %add14.i.i, %add14.i.i39
-  %m_normalWorldOnB = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv.next, i32 4
+  %m_normalWorldOnB = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %69 = load float, ptr %m_normalWorldOnB, align 8
-  %arrayidx7.i46 = getelementptr inbounds [4 x float], ptr %m_normalWorldOnB, i64 0, i64 1
+  %arrayidx7.i46 = getelementptr inbounds i8, ptr %arrayidx, i64 68
   %70 = load float, ptr %arrayidx7.i46, align 4
   %mul8.i = fmul float %sub8.i, %70
   %71 = tail call float @llvm.fmuladd.f32(float %sub.i, float %69, float %mul8.i)
-  %arrayidx12.i = getelementptr inbounds [4 x float], ptr %m_normalWorldOnB, i64 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %72 = load float, ptr %arrayidx12.i, align 8
   %73 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i, float %72, float %71)
-  %m_distance1 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv.next, i32 5
+  %m_distance1 = getelementptr inbounds i8, ptr %arrayidx, i64 80
   store float %73, ptr %m_distance1, align 8
-  %m_lifeTime = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv.next, i32 26
+  %m_lifeTime = getelementptr inbounds i8, ptr %arrayidx, i64 168
   %74 = load i32, ptr %m_lifeTime, align 8
   %inc = add nsw i32 %74, 1
   store i32 %inc, ptr %m_lifeTime, align 8
@@ -991,10 +987,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.cond14.preheader, !llvm.loop !8
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.inc45
-  %indvars.iv125 = phi i64 [ %2, %for.body16.lr.ph ], [ %indvars.iv.next126, %for.inc45 ]
-  %indvars.iv.next126 = add nsw i64 %indvars.iv125, -1
-  %arrayidx20 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv.next126
-  %m_distance1.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv.next126, i32 5
+  %indvars.iv126 = phi i64 [ %2, %for.body16.lr.ph ], [ %indvars.iv.next127, %for.inc45 ]
+  %indvars.iv.next127 = add nsw i64 %indvars.iv126, -1
+  %arrayidx20 = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache18, i64 0, i64 %indvars.iv.next127
+  %m_distance1.i = getelementptr inbounds i8, ptr %arrayidx20, i64 80
   %75 = load float, ptr %m_distance1.i, align 8
   %76 = load float, ptr %m_contactBreakingThreshold.i.i, align 4
   %cmp.i = fcmp ugt float %75, %76
@@ -1002,7 +998,7 @@ for.body16:                                       ; preds = %for.body16.lr.ph, %
 
 if.then:                                          ; preds = %for.body16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
-  %m_userPersistentData.i.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv.next126, i32 15
+  %m_userPersistentData.i.i = getelementptr inbounds i8, ptr %arrayidx20, i64 120
   %77 = load ptr, ptr %m_userPersistentData.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %77, null
   br i1 %tobool.not.i.i, label %_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i, label %if.then.i.i
@@ -1020,16 +1016,16 @@ if.then5.i.i:                                     ; preds = %if.then.i.i
 _ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i: ; preds = %if.then5.i.i, %if.then.i.i, %if.then
   %79 = load i32, ptr %m_cachedPoints.i, align 8
   %80 = zext i32 %79 to i64
-  %cmp.not.i = icmp eq i64 %indvars.iv125, %80
+  %cmp.not.i = icmp eq i64 %indvars.iv126, %80
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i
   %sub.i48 = add nsw i32 %79, -1
   %idxprom3.i = sext i32 %sub.i48 to i64
-  %arrayidx4.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache18, i64 0, i64 %idxprom3.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(204) %arrayidx20, ptr noundef nonnull align 8 dereferenceable(204) %arrayidx4.i, i64 204, i1 false)
-  %m_userPersistentData.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %idxprom3.i, i32 15
-  %m_lifeTime.i = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %idxprom3.i, i32 26
+  %m_userPersistentData.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 120
+  %m_lifeTime.i = getelementptr inbounds i8, ptr %arrayidx4.i, i64 168
   store i32 0, ptr %m_lifeTime.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %m_userPersistentData.i, i8 0, i64 28, i1 false)
   %.pre.i = load i32, ptr %m_cachedPoints.i, align 8
@@ -1055,31 +1051,31 @@ _ZN20btPersistentManifold18removeContactPointEi.exit: ; preds = %if.end.i, %if.t
   br label %for.inc45
 
 if.else:                                          ; preds = %for.body16
-  %m_positionWorldOnA23 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv.next126, i32 3
-  %m_normalWorldOnB25 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv.next126, i32 4
+  %m_positionWorldOnA23 = getelementptr inbounds i8, ptr %arrayidx20, i64 48
+  %m_normalWorldOnB25 = getelementptr inbounds i8, ptr %arrayidx20, i64 64
   %83 = load float, ptr %m_normalWorldOnB25, align 8
-  %mul.i = fmul float %83, %75
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %m_normalWorldOnB25, i64 0, i64 1
+  %mul.i = fmul float %75, %83
+  %arrayidx3.i = getelementptr inbounds i8, ptr %arrayidx20, i64 68
   %84 = load float, ptr %arrayidx3.i, align 4
   %mul4.i = fmul float %75, %84
-  %arrayidx7.i49 = getelementptr inbounds [4 x float], ptr %m_normalWorldOnB25, i64 0, i64 2
+  %arrayidx7.i49 = getelementptr inbounds i8, ptr %arrayidx20, i64 72
   %85 = load float, ptr %arrayidx7.i49, align 8
   %mul8.i50 = fmul float %75, %85
   %86 = load float, ptr %m_positionWorldOnA23, align 8
   %sub.i56 = fsub float %86, %mul.i
-  %arrayidx5.i57 = getelementptr inbounds [4 x float], ptr %m_positionWorldOnA23, i64 0, i64 1
+  %arrayidx5.i57 = getelementptr inbounds i8, ptr %arrayidx20, i64 52
   %87 = load float, ptr %arrayidx5.i57, align 4
   %sub8.i59 = fsub float %87, %mul4.i
-  %arrayidx11.i60 = getelementptr inbounds [4 x float], ptr %m_positionWorldOnA23, i64 0, i64 2
+  %arrayidx11.i60 = getelementptr inbounds i8, ptr %arrayidx20, i64 56
   %88 = load float, ptr %arrayidx11.i60, align 8
   %sub14.i62 = fsub float %88, %mul8.i50
-  %m_positionWorldOnB32 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv.next126, i32 2
+  %m_positionWorldOnB32 = getelementptr inbounds i8, ptr %arrayidx20, i64 32
   %89 = load float, ptr %m_positionWorldOnB32, align 8
   %sub.i68 = fsub float %89, %sub.i56
-  %arrayidx5.i69 = getelementptr inbounds [4 x float], ptr %m_positionWorldOnB32, i64 0, i64 1
+  %arrayidx5.i69 = getelementptr inbounds i8, ptr %arrayidx20, i64 36
   %90 = load float, ptr %arrayidx5.i69, align 4
   %sub8.i71 = fsub float %90, %sub8.i59
-  %arrayidx11.i72 = getelementptr inbounds [4 x float], ptr %m_positionWorldOnB32, i64 0, i64 2
+  %arrayidx11.i72 = getelementptr inbounds i8, ptr %arrayidx20, i64 40
   %91 = load float, ptr %arrayidx11.i72, align 8
   %sub14.i74 = fsub float %91, %sub14.i62
   %mul8.i82 = fmul float %sub8.i71, %sub8.i71
@@ -1091,55 +1087,55 @@ if.else:                                          ; preds = %for.body16
 
 if.then39:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i86)
-  %m_userPersistentData.i.i89 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv.next126, i32 15
-  %94 = load ptr, ptr %m_userPersistentData.i.i89, align 8
-  %tobool.not.i.i90 = icmp eq ptr %94, null
-  br i1 %tobool.not.i.i90, label %_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i95, label %if.then.i.i91
+  %m_userPersistentData.i.i90 = getelementptr inbounds i8, ptr %arrayidx20, i64 120
+  %94 = load ptr, ptr %m_userPersistentData.i.i90, align 8
+  %tobool.not.i.i91 = icmp eq ptr %94, null
+  br i1 %tobool.not.i.i91, label %_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i96, label %if.then.i.i92
 
-if.then.i.i91:                                    ; preds = %if.then39
+if.then.i.i92:                                    ; preds = %if.then39
   %95 = load ptr, ptr @gContactDestroyedCallback, align 8
-  %tobool4.not.i.i92 = icmp eq ptr %95, null
-  br i1 %tobool4.not.i.i92, label %_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i95, label %if.then5.i.i93
+  %tobool4.not.i.i93 = icmp eq ptr %95, null
+  br i1 %tobool4.not.i.i93, label %_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i96, label %if.then5.i.i94
 
-if.then5.i.i93:                                   ; preds = %if.then.i.i91
-  %call.i.i94 = call noundef zeroext i1 %95(ptr noundef nonnull %94)
-  store ptr null, ptr %m_userPersistentData.i.i89, align 8
-  br label %_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i95
+if.then5.i.i94:                                   ; preds = %if.then.i.i92
+  %call.i.i95 = call noundef zeroext i1 %95(ptr noundef nonnull %94)
+  store ptr null, ptr %m_userPersistentData.i.i90, align 8
+  br label %_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i96
 
-_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i95: ; preds = %if.then5.i.i93, %if.then.i.i91, %if.then39
+_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i96: ; preds = %if.then5.i.i94, %if.then.i.i92, %if.then39
   %96 = load i32, ptr %m_cachedPoints.i, align 8
   %97 = zext i32 %96 to i64
-  %cmp.not.i98 = icmp eq i64 %indvars.iv125, %97
-  br i1 %cmp.not.i98, label %if.end.i105, label %if.then.i99
+  %cmp.not.i99 = icmp eq i64 %indvars.iv126, %97
+  br i1 %cmp.not.i99, label %if.end.i106, label %if.then.i100
 
-if.then.i99:                                      ; preds = %_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i95
-  %sub.i97 = add nsw i32 %96, -1
-  %idxprom3.i100 = sext i32 %sub.i97 to i64
-  %arrayidx4.i101 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %idxprom3.i100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(204) %arrayidx20, ptr noundef nonnull align 8 dereferenceable(204) %arrayidx4.i101, i64 204, i1 false)
-  %m_userPersistentData.i102 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %idxprom3.i100, i32 15
-  %m_lifeTime.i103 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %idxprom3.i100, i32 26
-  store i32 0, ptr %m_lifeTime.i103, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %m_userPersistentData.i102, i8 0, i64 28, i1 false)
-  %.pre.i104 = load i32, ptr %m_cachedPoints.i, align 8
-  br label %if.end.i105
+if.then.i100:                                     ; preds = %_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i96
+  %sub.i98 = add nsw i32 %96, -1
+  %idxprom3.i101 = sext i32 %sub.i98 to i64
+  %arrayidx4.i102 = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache18, i64 0, i64 %idxprom3.i101
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(204) %arrayidx20, ptr noundef nonnull align 8 dereferenceable(204) %arrayidx4.i102, i64 204, i1 false)
+  %m_userPersistentData.i103 = getelementptr inbounds i8, ptr %arrayidx4.i102, i64 120
+  %m_lifeTime.i104 = getelementptr inbounds i8, ptr %arrayidx4.i102, i64 168
+  store i32 0, ptr %m_lifeTime.i104, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %m_userPersistentData.i103, i8 0, i64 28, i1 false)
+  %.pre.i105 = load i32, ptr %m_cachedPoints.i, align 8
+  br label %if.end.i106
 
-if.end.i105:                                      ; preds = %if.then.i99, %_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i95
-  %98 = phi i32 [ %.pre.i104, %if.then.i99 ], [ %96, %_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i95 ]
-  %dec.i106 = add nsw i32 %98, -1
-  store i32 %dec.i106, ptr %m_cachedPoints.i, align 8
+if.end.i106:                                      ; preds = %if.then.i100, %_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i96
+  %98 = phi i32 [ %.pre.i105, %if.then.i100 ], [ %96, %_ZN20btPersistentManifold14clearUserCacheER15btManifoldPoint.exit.i96 ]
+  %dec.i107 = add nsw i32 %98, -1
+  store i32 %dec.i107, ptr %m_cachedPoints.i, align 8
   %99 = load ptr, ptr @gContactEndedCallback, align 8
-  %tobool.not.i107 = icmp ne ptr %99, null
-  %cmp30.i108 = icmp eq i32 %dec.i106, 0
-  %or.cond.i109 = select i1 %tobool.not.i107, i1 %cmp30.i108, i1 false
-  br i1 %or.cond.i109, label %if.then31.i110, label %_ZN20btPersistentManifold18removeContactPointEi.exit111
+  %tobool.not.i108 = icmp ne ptr %99, null
+  %cmp30.i109 = icmp eq i32 %dec.i107, 0
+  %or.cond.i110 = select i1 %tobool.not.i108, i1 %cmp30.i109, i1 false
+  br i1 %or.cond.i110, label %if.then31.i111, label %_ZN20btPersistentManifold18removeContactPointEi.exit112
 
-if.then31.i110:                                   ; preds = %if.end.i105
+if.then31.i111:                                   ; preds = %if.end.i106
   store ptr %this, ptr %ref.tmp.i86, align 8
   call void %99(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i86)
-  br label %_ZN20btPersistentManifold18removeContactPointEi.exit111
+  br label %_ZN20btPersistentManifold18removeContactPointEi.exit112
 
-_ZN20btPersistentManifold18removeContactPointEi.exit111: ; preds = %if.end.i105, %if.then31.i110
+_ZN20btPersistentManifold18removeContactPointEi.exit112: ; preds = %if.end.i106, %if.then31.i111
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i86)
   br label %for.inc45
 
@@ -1154,8 +1150,8 @@ if.then41:                                        ; preds = %if.else40
   %call42 = call noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(204) %arrayidx20, ptr noundef %101, ptr noundef %102)
   br label %for.inc45
 
-for.inc45:                                        ; preds = %_ZN20btPersistentManifold18removeContactPointEi.exit, %if.else40, %if.then41, %_ZN20btPersistentManifold18removeContactPointEi.exit111
-  %cmp15 = icmp ugt i64 %indvars.iv125, 1
+for.inc45:                                        ; preds = %_ZN20btPersistentManifold18removeContactPointEi.exit, %if.else40, %if.then41, %_ZN20btPersistentManifold18removeContactPointEi.exit112
+  %cmp15 = icmp ugt i64 %indvars.iv126, 1
   br i1 %cmp15, label %for.body16, label %for.end47, !llvm.loop !9
 
 for.end47:                                        ; preds = %for.inc45, %entry, %for.cond14.preheader
@@ -1169,75 +1165,107 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK20btPersistentManifold9serializeEPKS_PvP12btSerializer(ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %this, ptr nocapture noundef readonly %manifold, ptr nocapture noundef writeonly %dataBuffer, ptr noundef %serializer) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZNK20btPersistentManifold9serializeEPKS_PvP12btSerializer(ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %this, ptr nocapture noundef readonly %manifold, ptr noundef writeonly %dataBuffer, ptr noundef %serializer) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(848) %dataBuffer, i8 0, i64 848, i1 false)
-  %m_body0.i = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 3
+  %m_body0.i = getelementptr inbounds i8, ptr %manifold, i64 840
   %0 = load ptr, ptr %m_body0.i, align 8
   %vtable = load ptr, ptr %serializer, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %0)
-  %m_body0 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 37
+  %m_body0 = getelementptr inbounds i8, ptr %dataBuffer, i64 832
   store ptr %call2, ptr %m_body0, align 8
-  %m_body1.i = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 4
+  %m_body1.i = getelementptr inbounds i8, ptr %manifold, i64 848
   %2 = load ptr, ptr %m_body1.i, align 8
   %vtable4 = load ptr, ptr %serializer, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 7
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 56
   %3 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %serializer, ptr noundef %2)
-  %m_body1 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 38
+  %m_body1 = getelementptr inbounds i8, ptr %dataBuffer, i64 840
   store ptr %call6, ptr %m_body1, align 8
-  %m_contactBreakingThreshold.i = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 6
+  %m_contactBreakingThreshold.i = getelementptr inbounds i8, ptr %manifold, i64 860
   %4 = load float, ptr %m_contactBreakingThreshold.i, align 4
-  %m_contactBreakingThreshold = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 34
+  %m_contactBreakingThreshold = getelementptr inbounds i8, ptr %dataBuffer, i64 820
   store float %4, ptr %m_contactBreakingThreshold, align 4
-  %m_contactProcessingThreshold.i = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 7
+  %m_contactProcessingThreshold.i = getelementptr inbounds i8, ptr %manifold, i64 864
   %5 = load float, ptr %m_contactProcessingThreshold.i, align 8
-  %m_contactProcessingThreshold = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 35
+  %m_contactProcessingThreshold = getelementptr inbounds i8, ptr %dataBuffer, i64 824
   store float %5, ptr %m_contactProcessingThreshold, align 8
-  %m_cachedPoints.i = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 5
+  %m_cachedPoints.i = getelementptr inbounds i8, ptr %manifold, i64 856
   %6 = load i32, ptr %m_cachedPoints.i, align 8
-  %m_numCachedPoints = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 29
+  %m_numCachedPoints = getelementptr inbounds i8, ptr %dataBuffer, i64 800
   store i32 %6, ptr %m_numCachedPoints, align 8
-  %m_companionIdA = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 8
+  %m_companionIdA = getelementptr inbounds i8, ptr %manifold, i64 868
   %7 = load i32, ptr %m_companionIdA, align 4
-  %m_companionIdA10 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 30
+  %m_companionIdA10 = getelementptr inbounds i8, ptr %dataBuffer, i64 804
   store i32 %7, ptr %m_companionIdA10, align 4
-  %m_companionIdB = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 9
+  %m_companionIdB = getelementptr inbounds i8, ptr %manifold, i64 872
   %8 = load i32, ptr %m_companionIdB, align 8
-  %m_companionIdB11 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 31
+  %m_companionIdB11 = getelementptr inbounds i8, ptr %dataBuffer, i64 808
   store i32 %8, ptr %m_companionIdB11, align 8
-  %m_index1a = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 10
+  %m_index1a = getelementptr inbounds i8, ptr %manifold, i64 876
   %9 = load i32, ptr %m_index1a, align 4
-  %m_index1a12 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 32
+  %m_index1a12 = getelementptr inbounds i8, ptr %dataBuffer, i64 812
   store i32 %9, ptr %m_index1a12, align 4
   %10 = load i32, ptr %manifold, align 8
-  %m_objectType13 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 33
+  %m_objectType13 = getelementptr inbounds i8, ptr %dataBuffer, i64 816
   store i32 %10, ptr %m_objectType13, align 8
-  %m_cachedPoints.i108 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 5
+  %m_cachedPoints.i108 = getelementptr inbounds i8, ptr %this, i64 856
   %11 = load i32, ptr %m_cachedPoints.i108, align 8
   %cmp152 = icmp sgt i32 %11, 0
-  br i1 %cmp152, label %for.body, label %for.end
+  br i1 %cmp152, label %for.body.lr.ph, label %for.end
 
-for.body:                                         ; preds = %entry, %_ZNK9btVector39serializeER18btVector3FloatData.exit151
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK9btVector39serializeER18btVector3FloatData.exit151 ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv
-  %m_appliedImpulse = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 17
+for.body.lr.ph:                                   ; preds = %entry
+  %m_pointCache.i = getelementptr inbounds i8, ptr %manifold, i64 8
+  %m_pointCacheAppliedImpulse = getelementptr inbounds i8, ptr %dataBuffer, i64 464
+  %m_pointCachePrevRHS = getelementptr inbounds i8, ptr %dataBuffer, i64 480
+  %m_pointCacheAppliedImpulseLateral1 = getelementptr inbounds i8, ptr %dataBuffer, i64 640
+  %m_pointCacheAppliedImpulseLateral2 = getelementptr inbounds i8, ptr %dataBuffer, i64 656
+  %m_pointCacheLocalPointB = getelementptr inbounds i8, ptr %dataBuffer, i64 64
+  %m_pointCacheNormalWorldOnB = getelementptr inbounds i8, ptr %dataBuffer, i64 256
+  %m_pointCacheDistance = getelementptr inbounds i8, ptr %dataBuffer, i64 448
+  %m_pointCacheCombinedContactDamping1 = getelementptr inbounds i8, ptr %dataBuffer, i64 752
+  %m_pointCacheCombinedContactStiffness1 = getelementptr inbounds i8, ptr %dataBuffer, i64 720
+  %m_pointCacheLifeTime = getelementptr inbounds i8, ptr %dataBuffer, i64 784
+  %m_pointCacheFrictionCFM = getelementptr inbounds i8, ptr %dataBuffer, i64 768
+  %m_pointCacheContactERP = getelementptr inbounds i8, ptr %dataBuffer, i64 736
+  %m_pointCacheContactCFM = getelementptr inbounds i8, ptr %dataBuffer, i64 704
+  %m_pointCacheContactPointFlags = getelementptr inbounds i8, ptr %dataBuffer, i64 624
+  %m_pointCacheIndex0 = getelementptr inbounds i8, ptr %dataBuffer, i64 592
+  %m_pointCacheIndex1 = getelementptr inbounds i8, ptr %dataBuffer, i64 608
+  %m_pointCachePartId0 = getelementptr inbounds i8, ptr %dataBuffer, i64 560
+  %m_pointCachePartId1 = getelementptr inbounds i8, ptr %dataBuffer, i64 576
+  %m_pointCachePositionWorldOnA = getelementptr inbounds i8, ptr %dataBuffer, i64 128
+  %m_pointCachePositionWorldOnB = getelementptr inbounds i8, ptr %dataBuffer, i64 192
+  %m_pointCacheCombinedFriction = getelementptr inbounds i8, ptr %dataBuffer, i64 496
+  %m_pointCacheLateralFrictionDir1 = getelementptr inbounds i8, ptr %dataBuffer, i64 320
+  %m_pointCacheLateralFrictionDir2 = getelementptr inbounds i8, ptr %dataBuffer, i64 384
+  %m_pointCacheCombinedRollingFriction = getelementptr inbounds i8, ptr %dataBuffer, i64 512
+  %m_pointCacheCombinedSpinningFriction = getelementptr inbounds i8, ptr %dataBuffer, i64 528
+  %m_pointCacheCombinedRestitution = getelementptr inbounds i8, ptr %dataBuffer, i64 544
+  %m_pointCacheContactMotion1 = getelementptr inbounds i8, ptr %dataBuffer, i64 672
+  %m_pointCacheContactMotion2 = getelementptr inbounds i8, ptr %dataBuffer, i64 688
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZNK9btVector39serializeER18btVector3FloatData.exit151
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK9btVector39serializeER18btVector3FloatData.exit151 ]
+  %arrayidx.i = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache.i, i64 0, i64 %indvars.iv
+  %m_appliedImpulse = getelementptr inbounds i8, ptr %arrayidx.i, i64 132
   %12 = load float, ptr %m_appliedImpulse, align 4
-  %arrayidx = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 8, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [4 x float], ptr %m_pointCacheAppliedImpulse, i64 0, i64 %indvars.iv
   store float %12, ptr %arrayidx, align 4
-  %m_prevRHS = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 18
+  %m_prevRHS = getelementptr inbounds i8, ptr %arrayidx.i, i64 136
   %13 = load float, ptr %m_prevRHS, align 8
-  %arrayidx17 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 9, i64 %indvars.iv
+  %arrayidx17 = getelementptr inbounds [4 x float], ptr %m_pointCachePrevRHS, i64 0, i64 %indvars.iv
   store float %13, ptr %arrayidx17, align 4
-  %m_appliedImpulseLateral1 = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 19
+  %m_appliedImpulseLateral1 = getelementptr inbounds i8, ptr %arrayidx.i, i64 140
   %14 = load float, ptr %m_appliedImpulseLateral1, align 4
-  %arrayidx19 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 19, i64 %indvars.iv
+  %arrayidx19 = getelementptr inbounds [4 x float], ptr %m_pointCacheAppliedImpulseLateral1, i64 0, i64 %indvars.iv
   store float %14, ptr %arrayidx19, align 4
-  %m_appliedImpulseLateral2 = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 20
+  %m_appliedImpulseLateral2 = getelementptr inbounds i8, ptr %arrayidx.i, i64 144
   %15 = load float, ptr %m_appliedImpulseLateral2, align 8
-  %arrayidx21 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 20, i64 %indvars.iv
+  %arrayidx21 = getelementptr inbounds [4 x float], ptr %m_pointCacheAppliedImpulseLateral2, i64 0, i64 %indvars.iv
   store float %15, ptr %arrayidx21, align 4
   %arrayidx23 = getelementptr inbounds [4 x %struct.btVector3FloatData], ptr %dataBuffer, i64 0, i64 %indvars.iv
   br label %for.body.i
@@ -1253,8 +1281,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit, label %for.body.i, !llvm.loop !10
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit: ; preds = %for.body.i
-  %m_localPointB = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 1
-  %arrayidx25 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 1, i64 %indvars.iv
+  %m_localPointB = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %arrayidx25 = getelementptr inbounds [4 x %struct.btVector3FloatData], ptr %m_pointCacheLocalPointB, i64 0, i64 %indvars.iv
   br label %for.body.i110
 
 for.body.i110:                                    ; preds = %for.body.i110, %_ZNK9btVector39serializeER18btVector3FloatData.exit
@@ -1268,8 +1296,8 @@ for.body.i110:                                    ; preds = %for.body.i110, %_ZN
   br i1 %exitcond.not.i115, label %_ZNK9btVector39serializeER18btVector3FloatData.exit116, label %for.body.i110, !llvm.loop !10
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit116: ; preds = %for.body.i110
-  %m_normalWorldOnB = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 4
-  %arrayidx27 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 4, i64 %indvars.iv
+  %m_normalWorldOnB = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
+  %arrayidx27 = getelementptr inbounds [4 x %struct.btVector3FloatData], ptr %m_pointCacheNormalWorldOnB, i64 0, i64 %indvars.iv
   br label %for.body.i117
 
 for.body.i117:                                    ; preds = %for.body.i117, %_ZNK9btVector39serializeER18btVector3FloatData.exit116
@@ -1283,54 +1311,54 @@ for.body.i117:                                    ; preds = %for.body.i117, %_ZN
   br i1 %exitcond.not.i122, label %_ZNK9btVector39serializeER18btVector3FloatData.exit123, label %for.body.i117, !llvm.loop !10
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit123: ; preds = %for.body.i117
-  %m_distance1 = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 5
+  %m_distance1 = getelementptr inbounds i8, ptr %arrayidx.i, i64 80
   %19 = load float, ptr %m_distance1, align 8
-  %arrayidx29 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 7, i64 %indvars.iv
+  %arrayidx29 = getelementptr inbounds [4 x float], ptr %m_pointCacheDistance, i64 0, i64 %indvars.iv
   store float %19, ptr %arrayidx29, align 4
-  %20 = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 24
+  %20 = getelementptr inbounds i8, ptr %arrayidx.i, i64 160
   %21 = load float, ptr %20, align 8
-  %arrayidx31 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 26, i64 %indvars.iv
+  %arrayidx31 = getelementptr inbounds [4 x float], ptr %m_pointCacheCombinedContactDamping1, i64 0, i64 %indvars.iv
   store float %21, ptr %arrayidx31, align 4
-  %22 = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 23
+  %22 = getelementptr inbounds i8, ptr %arrayidx.i, i64 156
   %23 = load float, ptr %22, align 4
-  %arrayidx33 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 24, i64 %indvars.iv
+  %arrayidx33 = getelementptr inbounds [4 x float], ptr %m_pointCacheCombinedContactStiffness1, i64 0, i64 %indvars.iv
   store float %23, ptr %arrayidx33, align 4
-  %m_lifeTime = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 26
+  %m_lifeTime = getelementptr inbounds i8, ptr %arrayidx.i, i64 168
   %24 = load i32, ptr %m_lifeTime, align 8
-  %arrayidx35 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 28, i64 %indvars.iv
+  %arrayidx35 = getelementptr inbounds [4 x i32], ptr %m_pointCacheLifeTime, i64 0, i64 %indvars.iv
   store i32 %24, ptr %arrayidx35, align 4
-  %m_frictionCFM = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 25
+  %m_frictionCFM = getelementptr inbounds i8, ptr %arrayidx.i, i64 164
   %25 = load float, ptr %m_frictionCFM, align 4
-  %arrayidx37 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 27, i64 %indvars.iv
+  %arrayidx37 = getelementptr inbounds [4 x float], ptr %m_pointCacheFrictionCFM, i64 0, i64 %indvars.iv
   store float %25, ptr %arrayidx37, align 4
   %26 = load float, ptr %20, align 8
-  %arrayidx39 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 25, i64 %indvars.iv
+  %arrayidx39 = getelementptr inbounds [4 x float], ptr %m_pointCacheContactERP, i64 0, i64 %indvars.iv
   store float %26, ptr %arrayidx39, align 4
   %27 = load float, ptr %22, align 4
-  %arrayidx41 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 23, i64 %indvars.iv
+  %arrayidx41 = getelementptr inbounds [4 x float], ptr %m_pointCacheContactCFM, i64 0, i64 %indvars.iv
   store float %27, ptr %arrayidx41, align 4
-  %m_contactPointFlags = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 16
+  %m_contactPointFlags = getelementptr inbounds i8, ptr %arrayidx.i, i64 128
   %28 = load i32, ptr %m_contactPointFlags, align 8
-  %arrayidx43 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 18, i64 %indvars.iv
+  %arrayidx43 = getelementptr inbounds [4 x i32], ptr %m_pointCacheContactPointFlags, i64 0, i64 %indvars.iv
   store i32 %28, ptr %arrayidx43, align 4
-  %m_index0 = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 12
+  %m_index0 = getelementptr inbounds i8, ptr %arrayidx.i, i64 108
   %29 = load i32, ptr %m_index0, align 4
-  %arrayidx45 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 16, i64 %indvars.iv
+  %arrayidx45 = getelementptr inbounds [4 x i32], ptr %m_pointCacheIndex0, i64 0, i64 %indvars.iv
   store i32 %29, ptr %arrayidx45, align 4
-  %m_index1 = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 13
+  %m_index1 = getelementptr inbounds i8, ptr %arrayidx.i, i64 112
   %30 = load i32, ptr %m_index1, align 8
-  %arrayidx47 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 17, i64 %indvars.iv
+  %arrayidx47 = getelementptr inbounds [4 x i32], ptr %m_pointCacheIndex1, i64 0, i64 %indvars.iv
   store i32 %30, ptr %arrayidx47, align 4
-  %m_partId0 = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 10
+  %m_partId0 = getelementptr inbounds i8, ptr %arrayidx.i, i64 100
   %31 = load i32, ptr %m_partId0, align 4
-  %arrayidx49 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 14, i64 %indvars.iv
+  %arrayidx49 = getelementptr inbounds [4 x i32], ptr %m_pointCachePartId0, i64 0, i64 %indvars.iv
   store i32 %31, ptr %arrayidx49, align 4
-  %m_partId1 = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 11
+  %m_partId1 = getelementptr inbounds i8, ptr %arrayidx.i, i64 104
   %32 = load i32, ptr %m_partId1, align 8
-  %arrayidx51 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 15, i64 %indvars.iv
+  %arrayidx51 = getelementptr inbounds [4 x i32], ptr %m_pointCachePartId1, i64 0, i64 %indvars.iv
   store i32 %32, ptr %arrayidx51, align 4
-  %m_positionWorldOnA = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 3
-  %arrayidx53 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 2, i64 %indvars.iv
+  %m_positionWorldOnA = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
+  %arrayidx53 = getelementptr inbounds [4 x %struct.btVector3FloatData], ptr %m_pointCachePositionWorldOnA, i64 0, i64 %indvars.iv
   br label %for.body.i124
 
 for.body.i124:                                    ; preds = %for.body.i124, %_ZNK9btVector39serializeER18btVector3FloatData.exit123
@@ -1344,8 +1372,8 @@ for.body.i124:                                    ; preds = %for.body.i124, %_ZN
   br i1 %exitcond.not.i129, label %_ZNK9btVector39serializeER18btVector3FloatData.exit130, label %for.body.i124, !llvm.loop !10
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit130: ; preds = %for.body.i124
-  %m_positionWorldOnB = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 2
-  %arrayidx55 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 3, i64 %indvars.iv
+  %m_positionWorldOnB = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %arrayidx55 = getelementptr inbounds [4 x %struct.btVector3FloatData], ptr %m_pointCachePositionWorldOnB, i64 0, i64 %indvars.iv
   br label %for.body.i131
 
 for.body.i131:                                    ; preds = %for.body.i131, %_ZNK9btVector39serializeER18btVector3FloatData.exit130
@@ -1359,12 +1387,12 @@ for.body.i131:                                    ; preds = %for.body.i131, %_ZN
   br i1 %exitcond.not.i136, label %_ZNK9btVector39serializeER18btVector3FloatData.exit137, label %for.body.i131, !llvm.loop !10
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit137: ; preds = %for.body.i131
-  %m_combinedFriction = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 6
+  %m_combinedFriction = getelementptr inbounds i8, ptr %arrayidx.i, i64 84
   %35 = load float, ptr %m_combinedFriction, align 4
-  %arrayidx57 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 10, i64 %indvars.iv
+  %arrayidx57 = getelementptr inbounds [4 x float], ptr %m_pointCacheCombinedFriction, i64 0, i64 %indvars.iv
   store float %35, ptr %arrayidx57, align 4
-  %m_lateralFrictionDir1 = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 27
-  %arrayidx59 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 5, i64 %indvars.iv
+  %m_lateralFrictionDir1 = getelementptr inbounds i8, ptr %arrayidx.i, i64 172
+  %arrayidx59 = getelementptr inbounds [4 x %struct.btVector3FloatData], ptr %m_pointCacheLateralFrictionDir1, i64 0, i64 %indvars.iv
   br label %for.body.i138
 
 for.body.i138:                                    ; preds = %for.body.i138, %_ZNK9btVector39serializeER18btVector3FloatData.exit137
@@ -1378,8 +1406,8 @@ for.body.i138:                                    ; preds = %for.body.i138, %_ZN
   br i1 %exitcond.not.i143, label %_ZNK9btVector39serializeER18btVector3FloatData.exit144, label %for.body.i138, !llvm.loop !10
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit144: ; preds = %for.body.i138
-  %m_lateralFrictionDir2 = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 28
-  %arrayidx61 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 6, i64 %indvars.iv
+  %m_lateralFrictionDir2 = getelementptr inbounds i8, ptr %arrayidx.i, i64 188
+  %arrayidx61 = getelementptr inbounds [4 x %struct.btVector3FloatData], ptr %m_pointCacheLateralFrictionDir2, i64 0, i64 %indvars.iv
   br label %for.body.i145
 
 for.body.i145:                                    ; preds = %for.body.i145, %_ZNK9btVector39serializeER18btVector3FloatData.exit144
@@ -1393,25 +1421,25 @@ for.body.i145:                                    ; preds = %for.body.i145, %_ZN
   br i1 %exitcond.not.i150, label %_ZNK9btVector39serializeER18btVector3FloatData.exit151, label %for.body.i145, !llvm.loop !10
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit151: ; preds = %for.body.i145
-  %m_combinedRollingFriction = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 7
+  %m_combinedRollingFriction = getelementptr inbounds i8, ptr %arrayidx.i, i64 88
   %38 = load float, ptr %m_combinedRollingFriction, align 8
-  %arrayidx63 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 11, i64 %indvars.iv
+  %arrayidx63 = getelementptr inbounds [4 x float], ptr %m_pointCacheCombinedRollingFriction, i64 0, i64 %indvars.iv
   store float %38, ptr %arrayidx63, align 4
-  %m_combinedSpinningFriction = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 8
+  %m_combinedSpinningFriction = getelementptr inbounds i8, ptr %arrayidx.i, i64 92
   %39 = load float, ptr %m_combinedSpinningFriction, align 4
-  %arrayidx65 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 12, i64 %indvars.iv
+  %arrayidx65 = getelementptr inbounds [4 x float], ptr %m_pointCacheCombinedSpinningFriction, i64 0, i64 %indvars.iv
   store float %39, ptr %arrayidx65, align 4
-  %m_combinedRestitution = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 9
+  %m_combinedRestitution = getelementptr inbounds i8, ptr %arrayidx.i, i64 96
   %40 = load float, ptr %m_combinedRestitution, align 8
-  %arrayidx67 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 13, i64 %indvars.iv
+  %arrayidx67 = getelementptr inbounds [4 x float], ptr %m_pointCacheCombinedRestitution, i64 0, i64 %indvars.iv
   store float %40, ptr %arrayidx67, align 4
-  %m_contactMotion1 = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 21
+  %m_contactMotion1 = getelementptr inbounds i8, ptr %arrayidx.i, i64 148
   %41 = load float, ptr %m_contactMotion1, align 4
-  %arrayidx69 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 21, i64 %indvars.iv
+  %arrayidx69 = getelementptr inbounds [4 x float], ptr %m_pointCacheContactMotion1, i64 0, i64 %indvars.iv
   store float %41, ptr %arrayidx69, align 4
-  %m_contactMotion2 = getelementptr inbounds %class.btPersistentManifold, ptr %manifold, i64 0, i32 2, i64 %indvars.iv, i32 22
+  %m_contactMotion2 = getelementptr inbounds i8, ptr %arrayidx.i, i64 152
   %42 = load float, ptr %m_contactMotion2, align 8
-  %arrayidx71 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %dataBuffer, i64 0, i32 22, i64 %indvars.iv
+  %arrayidx71 = getelementptr inbounds [4 x float], ptr %m_pointCacheContactMotion2, i64 0, i64 %indvars.iv
   store float %42, ptr %arrayidx71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %m_cachedPoints.i108, align 8
@@ -1427,58 +1455,90 @@ for.end:                                          ; preds = %_ZNK9btVector39seri
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN20btPersistentManifold11deSerializeEPK30btPersistentManifoldDoubleData(ptr nocapture noundef nonnull align 8 dereferenceable(880) %this, ptr nocapture noundef readonly %manifoldDataPtr) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN20btPersistentManifold11deSerializeEPK30btPersistentManifoldDoubleData(ptr nocapture noundef nonnull align 8 dereferenceable(880) %this, ptr noundef readonly %manifoldDataPtr) local_unnamed_addr #9 align 2 {
 entry:
-  %m_contactBreakingThreshold = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 34
+  %m_contactBreakingThreshold = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1528
   %0 = load double, ptr %m_contactBreakingThreshold, align 8
   %conv = fptrunc double %0 to float
-  %m_contactBreakingThreshold2 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 6
+  %m_contactBreakingThreshold2 = getelementptr inbounds i8, ptr %this, i64 860
   store float %conv, ptr %m_contactBreakingThreshold2, align 4
-  %m_contactProcessingThreshold = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 35
+  %m_contactProcessingThreshold = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1536
   %1 = load double, ptr %m_contactProcessingThreshold, align 8
   %conv3 = fptrunc double %1 to float
-  %m_contactProcessingThreshold4 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 7
+  %m_contactProcessingThreshold4 = getelementptr inbounds i8, ptr %this, i64 864
   store float %conv3, ptr %m_contactProcessingThreshold4, align 8
-  %m_numCachedPoints = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 29
+  %m_numCachedPoints = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1504
   %2 = load i32, ptr %m_numCachedPoints, align 8
-  %m_cachedPoints = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 5
+  %m_cachedPoints = getelementptr inbounds i8, ptr %this, i64 856
   store i32 %2, ptr %m_cachedPoints, align 8
-  %m_companionIdA = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 30
+  %m_companionIdA = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1508
   %3 = load i32, ptr %m_companionIdA, align 4
-  %m_companionIdA5 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 8
+  %m_companionIdA5 = getelementptr inbounds i8, ptr %this, i64 868
   store i32 %3, ptr %m_companionIdA5, align 4
-  %m_companionIdB = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 31
+  %m_companionIdB = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1512
   %4 = load i32, ptr %m_companionIdB, align 8
-  %m_companionIdB6 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 9
+  %m_companionIdB6 = getelementptr inbounds i8, ptr %this, i64 872
   store i32 %4, ptr %m_companionIdB6, align 8
-  %m_objectType = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 33
+  %m_objectType = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1520
   %5 = load i32, ptr %m_objectType, align 8
   store i32 %5, ptr %this, align 8
   %cmp142 = icmp sgt i32 %2, 0
-  br i1 %cmp142, label %for.body, label %for.end
+  br i1 %cmp142, label %for.body.lr.ph, label %for.end
 
-for.body:                                         ; preds = %entry, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit141
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit141 ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv
-  %arrayidx9 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 8, i64 %indvars.iv
+for.body.lr.ph:                                   ; preds = %entry
+  %m_pointCache = getelementptr inbounds i8, ptr %this, i64 8
+  %m_pointCacheAppliedImpulse = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 928
+  %m_pointCachePrevRHS = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 960
+  %m_pointCacheAppliedImpulseLateral1 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1200
+  %m_pointCacheAppliedImpulseLateral2 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1232
+  %m_pointCacheLocalPointB = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 128
+  %m_pointCacheNormalWorldOnB = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 512
+  %m_pointCacheDistance = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 896
+  %m_pointCacheCombinedContactDamping1 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1424
+  %m_pointCacheCombinedContactStiffness1 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1360
+  %m_pointCacheLifeTime = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1488
+  %m_pointCacheFrictionCFM = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1456
+  %m_pointCacheContactERP = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1392
+  %m_pointCacheContactCFM = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1328
+  %m_pointCacheContactPointFlags = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1184
+  %m_pointCacheIndex0 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1152
+  %m_pointCacheIndex1 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1168
+  %m_pointCachePartId0 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1120
+  %m_pointCachePartId1 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1136
+  %m_pointCachePositionWorldOnA = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 256
+  %m_pointCachePositionWorldOnB = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 384
+  %m_pointCacheCombinedFriction = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 992
+  %m_pointCacheLateralFrictionDir1 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 640
+  %m_pointCacheLateralFrictionDir2 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 768
+  %m_pointCacheCombinedRollingFriction = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1024
+  %m_pointCacheCombinedSpinningFriction = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1056
+  %m_pointCacheCombinedRestitution = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1088
+  %m_pointCacheContactMotion1 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1264
+  %m_pointCacheContactMotion2 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 1296
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit141
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit141 ]
+  %arrayidx = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache, i64 0, i64 %indvars.iv
+  %arrayidx9 = getelementptr inbounds [4 x double], ptr %m_pointCacheAppliedImpulse, i64 0, i64 %indvars.iv
   %6 = load double, ptr %arrayidx9, align 8
   %conv10 = fptrunc double %6 to float
-  %m_appliedImpulse = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 17
+  %m_appliedImpulse = getelementptr inbounds i8, ptr %arrayidx, i64 132
   store float %conv10, ptr %m_appliedImpulse, align 4
-  %arrayidx12 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 9, i64 %indvars.iv
+  %arrayidx12 = getelementptr inbounds [4 x double], ptr %m_pointCachePrevRHS, i64 0, i64 %indvars.iv
   %7 = load double, ptr %arrayidx12, align 8
   %conv13 = fptrunc double %7 to float
-  %m_prevRHS = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 18
+  %m_prevRHS = getelementptr inbounds i8, ptr %arrayidx, i64 136
   store float %conv13, ptr %m_prevRHS, align 8
-  %arrayidx15 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 19, i64 %indvars.iv
+  %arrayidx15 = getelementptr inbounds [4 x double], ptr %m_pointCacheAppliedImpulseLateral1, i64 0, i64 %indvars.iv
   %8 = load double, ptr %arrayidx15, align 8
   %conv16 = fptrunc double %8 to float
-  %m_appliedImpulseLateral1 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 19
+  %m_appliedImpulseLateral1 = getelementptr inbounds i8, ptr %arrayidx, i64 140
   store float %conv16, ptr %m_appliedImpulseLateral1, align 4
-  %arrayidx18 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 20, i64 %indvars.iv
+  %arrayidx18 = getelementptr inbounds [4 x double], ptr %m_pointCacheAppliedImpulseLateral2, i64 0, i64 %indvars.iv
   %9 = load double, ptr %arrayidx18, align 8
   %conv19 = fptrunc double %9 to float
-  %m_appliedImpulseLateral2 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 20
+  %m_appliedImpulseLateral2 = getelementptr inbounds i8, ptr %arrayidx, i64 144
   store float %conv19, ptr %m_appliedImpulseLateral2, align 8
   %arrayidx21 = getelementptr inbounds [4 x %struct.btVector3DoubleData], ptr %manifoldDataPtr, i64 0, i64 %indvars.iv
   br label %for.body.i
@@ -1495,8 +1555,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit, label %for.body.i, !llvm.loop !12
 
 _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit: ; preds = %for.body.i
-  %m_localPointB = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 1
-  %arrayidx23 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 1, i64 %indvars.iv
+  %m_localPointB = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %arrayidx23 = getelementptr inbounds [4 x %struct.btVector3DoubleData], ptr %m_pointCacheLocalPointB, i64 0, i64 %indvars.iv
   br label %for.body.i94
 
 for.body.i94:                                     ; preds = %for.body.i94, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit
@@ -1511,8 +1571,8 @@ for.body.i94:                                     ; preds = %for.body.i94, %_ZN9
   br i1 %exitcond.not.i100, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit101, label %for.body.i94, !llvm.loop !12
 
 _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit101: ; preds = %for.body.i94
-  %m_normalWorldOnB = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 4
-  %arrayidx25 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 4, i64 %indvars.iv
+  %m_normalWorldOnB = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %arrayidx25 = getelementptr inbounds [4 x %struct.btVector3DoubleData], ptr %m_pointCacheNormalWorldOnB, i64 0, i64 %indvars.iv
   br label %for.body.i102
 
 for.body.i102:                                    ; preds = %for.body.i102, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit101
@@ -1527,60 +1587,60 @@ for.body.i102:                                    ; preds = %for.body.i102, %_ZN
   br i1 %exitcond.not.i108, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit109, label %for.body.i102, !llvm.loop !12
 
 _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit109: ; preds = %for.body.i102
-  %arrayidx27 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 7, i64 %indvars.iv
+  %arrayidx27 = getelementptr inbounds [4 x double], ptr %m_pointCacheDistance, i64 0, i64 %indvars.iv
   %13 = load double, ptr %arrayidx27, align 8
   %conv28 = fptrunc double %13 to float
-  %m_distance1 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 5
+  %m_distance1 = getelementptr inbounds i8, ptr %arrayidx, i64 80
   store float %conv28, ptr %m_distance1, align 8
-  %arrayidx30 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 26, i64 %indvars.iv
+  %arrayidx30 = getelementptr inbounds [4 x double], ptr %m_pointCacheCombinedContactDamping1, i64 0, i64 %indvars.iv
   %14 = load double, ptr %arrayidx30, align 8
   %conv31 = fptrunc double %14 to float
-  %15 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 24
+  %15 = getelementptr inbounds i8, ptr %arrayidx, i64 160
   store float %conv31, ptr %15, align 8
-  %arrayidx33 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 24, i64 %indvars.iv
+  %arrayidx33 = getelementptr inbounds [4 x double], ptr %m_pointCacheCombinedContactStiffness1, i64 0, i64 %indvars.iv
   %16 = load double, ptr %arrayidx33, align 8
   %conv34 = fptrunc double %16 to float
-  %17 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 23
+  %17 = getelementptr inbounds i8, ptr %arrayidx, i64 156
   store float %conv34, ptr %17, align 4
-  %arrayidx36 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 28, i64 %indvars.iv
+  %arrayidx36 = getelementptr inbounds [4 x i32], ptr %m_pointCacheLifeTime, i64 0, i64 %indvars.iv
   %18 = load i32, ptr %arrayidx36, align 4
-  %m_lifeTime = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 26
+  %m_lifeTime = getelementptr inbounds i8, ptr %arrayidx, i64 168
   store i32 %18, ptr %m_lifeTime, align 8
-  %arrayidx38 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 27, i64 %indvars.iv
+  %arrayidx38 = getelementptr inbounds [4 x double], ptr %m_pointCacheFrictionCFM, i64 0, i64 %indvars.iv
   %19 = load double, ptr %arrayidx38, align 8
   %conv39 = fptrunc double %19 to float
-  %m_frictionCFM = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 25
+  %m_frictionCFM = getelementptr inbounds i8, ptr %arrayidx, i64 164
   store float %conv39, ptr %m_frictionCFM, align 4
-  %arrayidx41 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 25, i64 %indvars.iv
+  %arrayidx41 = getelementptr inbounds [4 x double], ptr %m_pointCacheContactERP, i64 0, i64 %indvars.iv
   %20 = load double, ptr %arrayidx41, align 8
   %conv42 = fptrunc double %20 to float
   store float %conv42, ptr %15, align 8
-  %arrayidx44 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 23, i64 %indvars.iv
+  %arrayidx44 = getelementptr inbounds [4 x double], ptr %m_pointCacheContactCFM, i64 0, i64 %indvars.iv
   %21 = load double, ptr %arrayidx44, align 8
   %conv45 = fptrunc double %21 to float
   store float %conv45, ptr %17, align 4
-  %arrayidx47 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 18, i64 %indvars.iv
+  %arrayidx47 = getelementptr inbounds [4 x i32], ptr %m_pointCacheContactPointFlags, i64 0, i64 %indvars.iv
   %22 = load i32, ptr %arrayidx47, align 4
-  %m_contactPointFlags = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 16
+  %m_contactPointFlags = getelementptr inbounds i8, ptr %arrayidx, i64 128
   store i32 %22, ptr %m_contactPointFlags, align 8
-  %arrayidx49 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 16, i64 %indvars.iv
+  %arrayidx49 = getelementptr inbounds [4 x i32], ptr %m_pointCacheIndex0, i64 0, i64 %indvars.iv
   %23 = load i32, ptr %arrayidx49, align 4
-  %m_index0 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 12
+  %m_index0 = getelementptr inbounds i8, ptr %arrayidx, i64 108
   store i32 %23, ptr %m_index0, align 4
-  %arrayidx51 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 17, i64 %indvars.iv
+  %arrayidx51 = getelementptr inbounds [4 x i32], ptr %m_pointCacheIndex1, i64 0, i64 %indvars.iv
   %24 = load i32, ptr %arrayidx51, align 4
-  %m_index1 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 13
+  %m_index1 = getelementptr inbounds i8, ptr %arrayidx, i64 112
   store i32 %24, ptr %m_index1, align 8
-  %arrayidx53 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 14, i64 %indvars.iv
+  %arrayidx53 = getelementptr inbounds [4 x i32], ptr %m_pointCachePartId0, i64 0, i64 %indvars.iv
   %25 = load i32, ptr %arrayidx53, align 4
-  %m_partId0 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 10
+  %m_partId0 = getelementptr inbounds i8, ptr %arrayidx, i64 100
   store i32 %25, ptr %m_partId0, align 4
-  %arrayidx55 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 15, i64 %indvars.iv
+  %arrayidx55 = getelementptr inbounds [4 x i32], ptr %m_pointCachePartId1, i64 0, i64 %indvars.iv
   %26 = load i32, ptr %arrayidx55, align 4
-  %m_partId1 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 11
+  %m_partId1 = getelementptr inbounds i8, ptr %arrayidx, i64 104
   store i32 %26, ptr %m_partId1, align 8
-  %m_positionWorldOnA = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 3
-  %arrayidx57 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 2, i64 %indvars.iv
+  %m_positionWorldOnA = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %arrayidx57 = getelementptr inbounds [4 x %struct.btVector3DoubleData], ptr %m_pointCachePositionWorldOnA, i64 0, i64 %indvars.iv
   br label %for.body.i110
 
 for.body.i110:                                    ; preds = %for.body.i110, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit109
@@ -1595,8 +1655,8 @@ for.body.i110:                                    ; preds = %for.body.i110, %_ZN
   br i1 %exitcond.not.i116, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit117, label %for.body.i110, !llvm.loop !12
 
 _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit117: ; preds = %for.body.i110
-  %m_positionWorldOnB = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 2
-  %arrayidx59 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 3, i64 %indvars.iv
+  %m_positionWorldOnB = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %arrayidx59 = getelementptr inbounds [4 x %struct.btVector3DoubleData], ptr %m_pointCachePositionWorldOnB, i64 0, i64 %indvars.iv
   br label %for.body.i118
 
 for.body.i118:                                    ; preds = %for.body.i118, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit117
@@ -1611,13 +1671,13 @@ for.body.i118:                                    ; preds = %for.body.i118, %_ZN
   br i1 %exitcond.not.i124, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit125, label %for.body.i118, !llvm.loop !12
 
 _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit125: ; preds = %for.body.i118
-  %arrayidx61 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 10, i64 %indvars.iv
+  %arrayidx61 = getelementptr inbounds [4 x double], ptr %m_pointCacheCombinedFriction, i64 0, i64 %indvars.iv
   %29 = load double, ptr %arrayidx61, align 8
   %conv62 = fptrunc double %29 to float
-  %m_combinedFriction = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 6
+  %m_combinedFriction = getelementptr inbounds i8, ptr %arrayidx, i64 84
   store float %conv62, ptr %m_combinedFriction, align 4
-  %m_lateralFrictionDir1 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 27
-  %arrayidx64 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 5, i64 %indvars.iv
+  %m_lateralFrictionDir1 = getelementptr inbounds i8, ptr %arrayidx, i64 172
+  %arrayidx64 = getelementptr inbounds [4 x %struct.btVector3DoubleData], ptr %m_pointCacheLateralFrictionDir1, i64 0, i64 %indvars.iv
   br label %for.body.i126
 
 for.body.i126:                                    ; preds = %for.body.i126, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit125
@@ -1632,8 +1692,8 @@ for.body.i126:                                    ; preds = %for.body.i126, %_ZN
   br i1 %exitcond.not.i132, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit133, label %for.body.i126, !llvm.loop !12
 
 _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit133: ; preds = %for.body.i126
-  %m_lateralFrictionDir2 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 28
-  %arrayidx66 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 6, i64 %indvars.iv
+  %m_lateralFrictionDir2 = getelementptr inbounds i8, ptr %arrayidx, i64 188
+  %arrayidx66 = getelementptr inbounds [4 x %struct.btVector3DoubleData], ptr %m_pointCacheLateralFrictionDir2, i64 0, i64 %indvars.iv
   br label %for.body.i134
 
 for.body.i134:                                    ; preds = %for.body.i134, %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit133
@@ -1648,30 +1708,30 @@ for.body.i134:                                    ; preds = %for.body.i134, %_ZN
   br i1 %exitcond.not.i140, label %_ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit141, label %for.body.i134, !llvm.loop !12
 
 _ZN9btVector317deSerializeDoubleERK19btVector3DoubleData.exit141: ; preds = %for.body.i134
-  %arrayidx68 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 11, i64 %indvars.iv
+  %arrayidx68 = getelementptr inbounds [4 x double], ptr %m_pointCacheCombinedRollingFriction, i64 0, i64 %indvars.iv
   %32 = load double, ptr %arrayidx68, align 8
   %conv69 = fptrunc double %32 to float
-  %m_combinedRollingFriction = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 7
+  %m_combinedRollingFriction = getelementptr inbounds i8, ptr %arrayidx, i64 88
   store float %conv69, ptr %m_combinedRollingFriction, align 8
-  %arrayidx71 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 12, i64 %indvars.iv
+  %arrayidx71 = getelementptr inbounds [4 x double], ptr %m_pointCacheCombinedSpinningFriction, i64 0, i64 %indvars.iv
   %33 = load double, ptr %arrayidx71, align 8
   %conv72 = fptrunc double %33 to float
-  %m_combinedSpinningFriction = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 8
+  %m_combinedSpinningFriction = getelementptr inbounds i8, ptr %arrayidx, i64 92
   store float %conv72, ptr %m_combinedSpinningFriction, align 4
-  %arrayidx74 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 13, i64 %indvars.iv
+  %arrayidx74 = getelementptr inbounds [4 x double], ptr %m_pointCacheCombinedRestitution, i64 0, i64 %indvars.iv
   %34 = load double, ptr %arrayidx74, align 8
   %conv75 = fptrunc double %34 to float
-  %m_combinedRestitution = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 9
+  %m_combinedRestitution = getelementptr inbounds i8, ptr %arrayidx, i64 96
   store float %conv75, ptr %m_combinedRestitution, align 8
-  %arrayidx77 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 21, i64 %indvars.iv
+  %arrayidx77 = getelementptr inbounds [4 x double], ptr %m_pointCacheContactMotion1, i64 0, i64 %indvars.iv
   %35 = load double, ptr %arrayidx77, align 8
   %conv78 = fptrunc double %35 to float
-  %m_contactMotion1 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 21
+  %m_contactMotion1 = getelementptr inbounds i8, ptr %arrayidx, i64 148
   store float %conv78, ptr %m_contactMotion1, align 4
-  %arrayidx80 = getelementptr inbounds %struct.btPersistentManifoldDoubleData, ptr %manifoldDataPtr, i64 0, i32 22, i64 %indvars.iv
+  %arrayidx80 = getelementptr inbounds [4 x double], ptr %m_pointCacheContactMotion2, i64 0, i64 %indvars.iv
   %36 = load double, ptr %arrayidx80, align 8
   %conv81 = fptrunc double %36 to float
-  %m_contactMotion2 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 22
+  %m_contactMotion2 = getelementptr inbounds i8, ptr %arrayidx, i64 152
   store float %conv81, ptr %m_contactMotion2, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %m_cachedPoints, align 8
@@ -1684,52 +1744,84 @@ for.end:                                          ; preds = %_ZN9btVector317deSe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN20btPersistentManifold11deSerializeEPK29btPersistentManifoldFloatData(ptr nocapture noundef nonnull align 8 dereferenceable(880) %this, ptr nocapture noundef readonly %manifoldDataPtr) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN20btPersistentManifold11deSerializeEPK29btPersistentManifoldFloatData(ptr nocapture noundef nonnull align 8 dereferenceable(880) %this, ptr noundef readonly %manifoldDataPtr) local_unnamed_addr #9 align 2 {
 entry:
-  %m_contactBreakingThreshold = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 34
+  %m_contactBreakingThreshold = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 820
   %0 = load float, ptr %m_contactBreakingThreshold, align 4
-  %m_contactBreakingThreshold2 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 6
+  %m_contactBreakingThreshold2 = getelementptr inbounds i8, ptr %this, i64 860
   store float %0, ptr %m_contactBreakingThreshold2, align 4
-  %m_contactProcessingThreshold = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 35
+  %m_contactProcessingThreshold = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 824
   %1 = load float, ptr %m_contactProcessingThreshold, align 8
-  %m_contactProcessingThreshold3 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 7
+  %m_contactProcessingThreshold3 = getelementptr inbounds i8, ptr %this, i64 864
   store float %1, ptr %m_contactProcessingThreshold3, align 8
-  %m_numCachedPoints = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 29
+  %m_numCachedPoints = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 800
   %2 = load i32, ptr %m_numCachedPoints, align 8
-  %m_cachedPoints = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 5
+  %m_cachedPoints = getelementptr inbounds i8, ptr %this, i64 856
   store i32 %2, ptr %m_cachedPoints, align 8
-  %m_companionIdA = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 30
+  %m_companionIdA = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 804
   %3 = load i32, ptr %m_companionIdA, align 4
-  %m_companionIdA4 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 8
+  %m_companionIdA4 = getelementptr inbounds i8, ptr %this, i64 868
   store i32 %3, ptr %m_companionIdA4, align 4
-  %m_companionIdB = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 31
+  %m_companionIdB = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 808
   %4 = load i32, ptr %m_companionIdB, align 8
-  %m_companionIdB5 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 9
+  %m_companionIdB5 = getelementptr inbounds i8, ptr %this, i64 872
   store i32 %4, ptr %m_companionIdB5, align 8
-  %m_objectType = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 33
+  %m_objectType = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 816
   %5 = load i32, ptr %m_objectType, align 8
   store i32 %5, ptr %this, align 8
   %cmp136 = icmp sgt i32 %2, 0
-  br i1 %cmp136, label %for.body, label %for.end
+  br i1 %cmp136, label %for.body.lr.ph, label %for.end
 
-for.body:                                         ; preds = %entry, %_ZN9btVector311deSerializeERK18btVector3FloatData.exit135
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN9btVector311deSerializeERK18btVector3FloatData.exit135 ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv
-  %arrayidx8 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 8, i64 %indvars.iv
+for.body.lr.ph:                                   ; preds = %entry
+  %m_pointCache = getelementptr inbounds i8, ptr %this, i64 8
+  %m_pointCacheAppliedImpulse = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 464
+  %m_pointCachePrevRHS = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 480
+  %m_pointCacheAppliedImpulseLateral1 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 640
+  %m_pointCacheAppliedImpulseLateral2 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 656
+  %m_pointCacheLocalPointB = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 64
+  %m_pointCacheNormalWorldOnB = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 256
+  %m_pointCacheDistance = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 448
+  %m_pointCacheCombinedContactDamping1 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 752
+  %m_pointCacheCombinedContactStiffness1 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 720
+  %m_pointCacheLifeTime = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 784
+  %m_pointCacheFrictionCFM = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 768
+  %m_pointCacheContactERP = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 736
+  %m_pointCacheContactCFM = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 704
+  %m_pointCacheContactPointFlags = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 624
+  %m_pointCacheIndex0 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 592
+  %m_pointCacheIndex1 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 608
+  %m_pointCachePartId0 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 560
+  %m_pointCachePartId1 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 576
+  %m_pointCachePositionWorldOnA = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 128
+  %m_pointCachePositionWorldOnB = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 192
+  %m_pointCacheCombinedFriction = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 496
+  %m_pointCacheLateralFrictionDir1 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 320
+  %m_pointCacheLateralFrictionDir2 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 384
+  %m_pointCacheCombinedRollingFriction = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 512
+  %m_pointCacheCombinedSpinningFriction = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 528
+  %m_pointCacheCombinedRestitution = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 544
+  %m_pointCacheContactMotion1 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 672
+  %m_pointCacheContactMotion2 = getelementptr inbounds i8, ptr %manifoldDataPtr, i64 688
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN9btVector311deSerializeERK18btVector3FloatData.exit135
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN9btVector311deSerializeERK18btVector3FloatData.exit135 ]
+  %arrayidx = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache, i64 0, i64 %indvars.iv
+  %arrayidx8 = getelementptr inbounds [4 x float], ptr %m_pointCacheAppliedImpulse, i64 0, i64 %indvars.iv
   %6 = load float, ptr %arrayidx8, align 4
-  %m_appliedImpulse = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 17
+  %m_appliedImpulse = getelementptr inbounds i8, ptr %arrayidx, i64 132
   store float %6, ptr %m_appliedImpulse, align 4
-  %arrayidx10 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 9, i64 %indvars.iv
+  %arrayidx10 = getelementptr inbounds [4 x float], ptr %m_pointCachePrevRHS, i64 0, i64 %indvars.iv
   %7 = load float, ptr %arrayidx10, align 4
-  %m_prevRHS = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 18
+  %m_prevRHS = getelementptr inbounds i8, ptr %arrayidx, i64 136
   store float %7, ptr %m_prevRHS, align 8
-  %arrayidx12 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 19, i64 %indvars.iv
+  %arrayidx12 = getelementptr inbounds [4 x float], ptr %m_pointCacheAppliedImpulseLateral1, i64 0, i64 %indvars.iv
   %8 = load float, ptr %arrayidx12, align 4
-  %m_appliedImpulseLateral1 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 19
+  %m_appliedImpulseLateral1 = getelementptr inbounds i8, ptr %arrayidx, i64 140
   store float %8, ptr %m_appliedImpulseLateral1, align 4
-  %arrayidx14 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 20, i64 %indvars.iv
+  %arrayidx14 = getelementptr inbounds [4 x float], ptr %m_pointCacheAppliedImpulseLateral2, i64 0, i64 %indvars.iv
   %9 = load float, ptr %arrayidx14, align 4
-  %m_appliedImpulseLateral2 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 20
+  %m_appliedImpulseLateral2 = getelementptr inbounds i8, ptr %arrayidx, i64 144
   store float %9, ptr %m_appliedImpulseLateral2, align 8
   %arrayidx16 = getelementptr inbounds [4 x %struct.btVector3FloatData], ptr %manifoldDataPtr, i64 0, i64 %indvars.iv
   br label %for.body.i
@@ -1745,8 +1837,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %_ZN9btVector311deSerializeERK18btVector3FloatData.exit, label %for.body.i, !llvm.loop !14
 
 _ZN9btVector311deSerializeERK18btVector3FloatData.exit: ; preds = %for.body.i
-  %m_localPointB = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 1
-  %arrayidx18 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 1, i64 %indvars.iv
+  %m_localPointB = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %arrayidx18 = getelementptr inbounds [4 x %struct.btVector3FloatData], ptr %m_pointCacheLocalPointB, i64 0, i64 %indvars.iv
   br label %for.body.i94
 
 for.body.i94:                                     ; preds = %for.body.i94, %_ZN9btVector311deSerializeERK18btVector3FloatData.exit
@@ -1760,8 +1852,8 @@ for.body.i94:                                     ; preds = %for.body.i94, %_ZN9
   br i1 %exitcond.not.i99, label %_ZN9btVector311deSerializeERK18btVector3FloatData.exit100, label %for.body.i94, !llvm.loop !14
 
 _ZN9btVector311deSerializeERK18btVector3FloatData.exit100: ; preds = %for.body.i94
-  %m_normalWorldOnB = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 4
-  %arrayidx20 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 4, i64 %indvars.iv
+  %m_normalWorldOnB = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %arrayidx20 = getelementptr inbounds [4 x %struct.btVector3FloatData], ptr %m_pointCacheNormalWorldOnB, i64 0, i64 %indvars.iv
   br label %for.body.i101
 
 for.body.i101:                                    ; preds = %for.body.i101, %_ZN9btVector311deSerializeERK18btVector3FloatData.exit100
@@ -1775,54 +1867,54 @@ for.body.i101:                                    ; preds = %for.body.i101, %_ZN
   br i1 %exitcond.not.i106, label %_ZN9btVector311deSerializeERK18btVector3FloatData.exit107, label %for.body.i101, !llvm.loop !14
 
 _ZN9btVector311deSerializeERK18btVector3FloatData.exit107: ; preds = %for.body.i101
-  %arrayidx22 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 7, i64 %indvars.iv
+  %arrayidx22 = getelementptr inbounds [4 x float], ptr %m_pointCacheDistance, i64 0, i64 %indvars.iv
   %13 = load float, ptr %arrayidx22, align 4
-  %m_distance1 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 5
+  %m_distance1 = getelementptr inbounds i8, ptr %arrayidx, i64 80
   store float %13, ptr %m_distance1, align 8
-  %arrayidx24 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 26, i64 %indvars.iv
+  %arrayidx24 = getelementptr inbounds [4 x float], ptr %m_pointCacheCombinedContactDamping1, i64 0, i64 %indvars.iv
   %14 = load float, ptr %arrayidx24, align 4
-  %15 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 24
+  %15 = getelementptr inbounds i8, ptr %arrayidx, i64 160
   store float %14, ptr %15, align 8
-  %arrayidx26 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 24, i64 %indvars.iv
+  %arrayidx26 = getelementptr inbounds [4 x float], ptr %m_pointCacheCombinedContactStiffness1, i64 0, i64 %indvars.iv
   %16 = load float, ptr %arrayidx26, align 4
-  %17 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 23
+  %17 = getelementptr inbounds i8, ptr %arrayidx, i64 156
   store float %16, ptr %17, align 4
-  %arrayidx28 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 28, i64 %indvars.iv
+  %arrayidx28 = getelementptr inbounds [4 x i32], ptr %m_pointCacheLifeTime, i64 0, i64 %indvars.iv
   %18 = load i32, ptr %arrayidx28, align 4
-  %m_lifeTime = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 26
+  %m_lifeTime = getelementptr inbounds i8, ptr %arrayidx, i64 168
   store i32 %18, ptr %m_lifeTime, align 8
-  %arrayidx30 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 27, i64 %indvars.iv
+  %arrayidx30 = getelementptr inbounds [4 x float], ptr %m_pointCacheFrictionCFM, i64 0, i64 %indvars.iv
   %19 = load float, ptr %arrayidx30, align 4
-  %m_frictionCFM = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 25
+  %m_frictionCFM = getelementptr inbounds i8, ptr %arrayidx, i64 164
   store float %19, ptr %m_frictionCFM, align 4
-  %arrayidx32 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 25, i64 %indvars.iv
+  %arrayidx32 = getelementptr inbounds [4 x float], ptr %m_pointCacheContactERP, i64 0, i64 %indvars.iv
   %20 = load float, ptr %arrayidx32, align 4
   store float %20, ptr %15, align 8
-  %arrayidx34 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 23, i64 %indvars.iv
+  %arrayidx34 = getelementptr inbounds [4 x float], ptr %m_pointCacheContactCFM, i64 0, i64 %indvars.iv
   %21 = load float, ptr %arrayidx34, align 4
   store float %21, ptr %17, align 4
-  %arrayidx36 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 18, i64 %indvars.iv
+  %arrayidx36 = getelementptr inbounds [4 x i32], ptr %m_pointCacheContactPointFlags, i64 0, i64 %indvars.iv
   %22 = load i32, ptr %arrayidx36, align 4
-  %m_contactPointFlags = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 16
+  %m_contactPointFlags = getelementptr inbounds i8, ptr %arrayidx, i64 128
   store i32 %22, ptr %m_contactPointFlags, align 8
-  %arrayidx38 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 16, i64 %indvars.iv
+  %arrayidx38 = getelementptr inbounds [4 x i32], ptr %m_pointCacheIndex0, i64 0, i64 %indvars.iv
   %23 = load i32, ptr %arrayidx38, align 4
-  %m_index0 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 12
+  %m_index0 = getelementptr inbounds i8, ptr %arrayidx, i64 108
   store i32 %23, ptr %m_index0, align 4
-  %arrayidx40 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 17, i64 %indvars.iv
+  %arrayidx40 = getelementptr inbounds [4 x i32], ptr %m_pointCacheIndex1, i64 0, i64 %indvars.iv
   %24 = load i32, ptr %arrayidx40, align 4
-  %m_index1 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 13
+  %m_index1 = getelementptr inbounds i8, ptr %arrayidx, i64 112
   store i32 %24, ptr %m_index1, align 8
-  %arrayidx42 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 14, i64 %indvars.iv
+  %arrayidx42 = getelementptr inbounds [4 x i32], ptr %m_pointCachePartId0, i64 0, i64 %indvars.iv
   %25 = load i32, ptr %arrayidx42, align 4
-  %m_partId0 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 10
+  %m_partId0 = getelementptr inbounds i8, ptr %arrayidx, i64 100
   store i32 %25, ptr %m_partId0, align 4
-  %arrayidx44 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 15, i64 %indvars.iv
+  %arrayidx44 = getelementptr inbounds [4 x i32], ptr %m_pointCachePartId1, i64 0, i64 %indvars.iv
   %26 = load i32, ptr %arrayidx44, align 4
-  %m_partId1 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 11
+  %m_partId1 = getelementptr inbounds i8, ptr %arrayidx, i64 104
   store i32 %26, ptr %m_partId1, align 8
-  %m_positionWorldOnA = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 3
-  %arrayidx46 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 2, i64 %indvars.iv
+  %m_positionWorldOnA = getelementptr inbounds i8, ptr %arrayidx, i64 48
+  %arrayidx46 = getelementptr inbounds [4 x %struct.btVector3FloatData], ptr %m_pointCachePositionWorldOnA, i64 0, i64 %indvars.iv
   br label %for.body.i108
 
 for.body.i108:                                    ; preds = %for.body.i108, %_ZN9btVector311deSerializeERK18btVector3FloatData.exit107
@@ -1836,8 +1928,8 @@ for.body.i108:                                    ; preds = %for.body.i108, %_ZN
   br i1 %exitcond.not.i113, label %_ZN9btVector311deSerializeERK18btVector3FloatData.exit114, label %for.body.i108, !llvm.loop !14
 
 _ZN9btVector311deSerializeERK18btVector3FloatData.exit114: ; preds = %for.body.i108
-  %m_positionWorldOnB = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 2
-  %arrayidx48 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 3, i64 %indvars.iv
+  %m_positionWorldOnB = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %arrayidx48 = getelementptr inbounds [4 x %struct.btVector3FloatData], ptr %m_pointCachePositionWorldOnB, i64 0, i64 %indvars.iv
   br label %for.body.i115
 
 for.body.i115:                                    ; preds = %for.body.i115, %_ZN9btVector311deSerializeERK18btVector3FloatData.exit114
@@ -1851,12 +1943,12 @@ for.body.i115:                                    ; preds = %for.body.i115, %_ZN
   br i1 %exitcond.not.i120, label %_ZN9btVector311deSerializeERK18btVector3FloatData.exit121, label %for.body.i115, !llvm.loop !14
 
 _ZN9btVector311deSerializeERK18btVector3FloatData.exit121: ; preds = %for.body.i115
-  %arrayidx50 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 10, i64 %indvars.iv
+  %arrayidx50 = getelementptr inbounds [4 x float], ptr %m_pointCacheCombinedFriction, i64 0, i64 %indvars.iv
   %29 = load float, ptr %arrayidx50, align 4
-  %m_combinedFriction = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 6
+  %m_combinedFriction = getelementptr inbounds i8, ptr %arrayidx, i64 84
   store float %29, ptr %m_combinedFriction, align 4
-  %m_lateralFrictionDir1 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 27
-  %arrayidx52 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 5, i64 %indvars.iv
+  %m_lateralFrictionDir1 = getelementptr inbounds i8, ptr %arrayidx, i64 172
+  %arrayidx52 = getelementptr inbounds [4 x %struct.btVector3FloatData], ptr %m_pointCacheLateralFrictionDir1, i64 0, i64 %indvars.iv
   br label %for.body.i122
 
 for.body.i122:                                    ; preds = %for.body.i122, %_ZN9btVector311deSerializeERK18btVector3FloatData.exit121
@@ -1870,8 +1962,8 @@ for.body.i122:                                    ; preds = %for.body.i122, %_ZN
   br i1 %exitcond.not.i127, label %_ZN9btVector311deSerializeERK18btVector3FloatData.exit128, label %for.body.i122, !llvm.loop !14
 
 _ZN9btVector311deSerializeERK18btVector3FloatData.exit128: ; preds = %for.body.i122
-  %m_lateralFrictionDir2 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 28
-  %arrayidx54 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 6, i64 %indvars.iv
+  %m_lateralFrictionDir2 = getelementptr inbounds i8, ptr %arrayidx, i64 188
+  %arrayidx54 = getelementptr inbounds [4 x %struct.btVector3FloatData], ptr %m_pointCacheLateralFrictionDir2, i64 0, i64 %indvars.iv
   br label %for.body.i129
 
 for.body.i129:                                    ; preds = %for.body.i129, %_ZN9btVector311deSerializeERK18btVector3FloatData.exit128
@@ -1885,25 +1977,25 @@ for.body.i129:                                    ; preds = %for.body.i129, %_ZN
   br i1 %exitcond.not.i134, label %_ZN9btVector311deSerializeERK18btVector3FloatData.exit135, label %for.body.i129, !llvm.loop !14
 
 _ZN9btVector311deSerializeERK18btVector3FloatData.exit135: ; preds = %for.body.i129
-  %arrayidx56 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 11, i64 %indvars.iv
+  %arrayidx56 = getelementptr inbounds [4 x float], ptr %m_pointCacheCombinedRollingFriction, i64 0, i64 %indvars.iv
   %32 = load float, ptr %arrayidx56, align 4
-  %m_combinedRollingFriction = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 7
+  %m_combinedRollingFriction = getelementptr inbounds i8, ptr %arrayidx, i64 88
   store float %32, ptr %m_combinedRollingFriction, align 8
-  %arrayidx58 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 12, i64 %indvars.iv
+  %arrayidx58 = getelementptr inbounds [4 x float], ptr %m_pointCacheCombinedSpinningFriction, i64 0, i64 %indvars.iv
   %33 = load float, ptr %arrayidx58, align 4
-  %m_combinedSpinningFriction = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 8
+  %m_combinedSpinningFriction = getelementptr inbounds i8, ptr %arrayidx, i64 92
   store float %33, ptr %m_combinedSpinningFriction, align 4
-  %arrayidx60 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 13, i64 %indvars.iv
+  %arrayidx60 = getelementptr inbounds [4 x float], ptr %m_pointCacheCombinedRestitution, i64 0, i64 %indvars.iv
   %34 = load float, ptr %arrayidx60, align 4
-  %m_combinedRestitution = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 9
+  %m_combinedRestitution = getelementptr inbounds i8, ptr %arrayidx, i64 96
   store float %34, ptr %m_combinedRestitution, align 8
-  %arrayidx62 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 21, i64 %indvars.iv
+  %arrayidx62 = getelementptr inbounds [4 x float], ptr %m_pointCacheContactMotion1, i64 0, i64 %indvars.iv
   %35 = load float, ptr %arrayidx62, align 4
-  %m_contactMotion1 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 21
+  %m_contactMotion1 = getelementptr inbounds i8, ptr %arrayidx, i64 148
   store float %35, ptr %m_contactMotion1, align 4
-  %arrayidx64 = getelementptr inbounds %struct.btPersistentManifoldFloatData, ptr %manifoldDataPtr, i64 0, i32 22, i64 %indvars.iv
+  %arrayidx64 = getelementptr inbounds [4 x float], ptr %m_pointCacheContactMotion2, i64 0, i64 %indvars.iv
   %36 = load float, ptr %arrayidx64, align 4
-  %m_contactMotion2 = getelementptr inbounds %class.btPersistentManifold, ptr %this, i64 0, i32 2, i64 %indvars.iv, i32 22
+  %m_contactMotion2 = getelementptr inbounds i8, ptr %arrayidx, i64 152
   store float %36, ptr %m_contactMotion2, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %m_cachedPoints, align 8

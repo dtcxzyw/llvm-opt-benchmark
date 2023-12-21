@@ -3,16 +3,6 @@ source_filename = "bench/assimp/original/CInterfaceIOWrapper.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.Assimp::CIOStreamWrapper" = type { %"class.Assimp::IOStream", ptr, ptr }
-%"class.Assimp::IOStream" = type { ptr }
-%"class.Assimp::CIOSystemWrapper" = type { %"class.Assimp::IOSystem", ptr }
-%"class.Assimp::IOSystem" = type { ptr, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.aiFileIO = type { ptr, ptr, ptr }
-%struct.aiFile = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -88,17 +78,17 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6Assimp16CIOStreamWrapperD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mFile = getelementptr inbounds %"class.Assimp::CIOStreamWrapper", ptr %this, i64 0, i32 1
+  %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mIO = getelementptr inbounds %"class.Assimp::CIOStreamWrapper", ptr %this, i64 0, i32 2
+  %mIO = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %mIO, align 8
-  %mFileSystem = getelementptr inbounds %"class.Assimp::CIOSystemWrapper", ptr %1, i64 0, i32 1
+  %mFileSystem = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %mFileSystem, align 8
-  %CloseProc = getelementptr inbounds %struct.aiFileIO, ptr %2, i64 0, i32 1
+  %CloseProc = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %CloseProc, align 8
   invoke void %3(ptr noundef nonnull %2, ptr noundef nonnull %0)
           to label %if.end unwind label %terminate.lpad
@@ -130,17 +120,17 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6Assimp16CIOStreamWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mFile.i = getelementptr inbounds %"class.Assimp::CIOStreamWrapper", ptr %this, i64 0, i32 1
+  %mFile.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN6Assimp16CIOStreamWrapperD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mIO.i = getelementptr inbounds %"class.Assimp::CIOStreamWrapper", ptr %this, i64 0, i32 2
+  %mIO.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %mIO.i, align 8
-  %mFileSystem.i = getelementptr inbounds %"class.Assimp::CIOSystemWrapper", ptr %1, i64 0, i32 1
+  %mFileSystem.i = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %mFileSystem.i, align 8
-  %CloseProc.i = getelementptr inbounds %struct.aiFileIO, ptr %2, i64 0, i32 1
+  %CloseProc.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %CloseProc.i, align 8
   invoke void %3(ptr noundef nonnull %2, ptr noundef nonnull %0)
           to label %_ZN6Assimp16CIOStreamWrapperD2Ev.exit unwind label %terminate.lpad.i
@@ -163,7 +153,7 @@ declare void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef) local_
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZN6Assimp16CIOStreamWrapper4ReadEPvmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %pvBuffer, i64 noundef %pSize, i64 noundef %pCount) unnamed_addr #4 align 2 {
 entry:
-  %mFile = getelementptr inbounds %"class.Assimp::CIOStreamWrapper", ptr %this, i64 0, i32 1
+  %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef i64 %1(ptr noundef nonnull %0, ptr noundef %pvBuffer, i64 noundef %pSize, i64 noundef %pCount)
@@ -173,9 +163,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZN6Assimp16CIOStreamWrapper5WriteEPKvmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %pvBuffer, i64 noundef %pSize, i64 noundef %pCount) unnamed_addr #4 align 2 {
 entry:
-  %mFile = getelementptr inbounds %"class.Assimp::CIOStreamWrapper", ptr %this, i64 0, i32 1
+  %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
-  %WriteProc = getelementptr inbounds %struct.aiFile, ptr %0, i64 0, i32 1
+  %WriteProc = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %WriteProc, align 8
   %call = tail call noundef i64 %1(ptr noundef %0, ptr noundef %pvBuffer, i64 noundef %pSize, i64 noundef %pCount)
   ret i64 %call
@@ -184,9 +174,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN6Assimp16CIOStreamWrapper4SeekEm8aiOrigin(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %pOffset, i32 noundef %pOrigin) unnamed_addr #4 align 2 {
 entry:
-  %mFile = getelementptr inbounds %"class.Assimp::CIOStreamWrapper", ptr %this, i64 0, i32 1
+  %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
-  %SeekProc = getelementptr inbounds %struct.aiFile, ptr %0, i64 0, i32 4
+  %SeekProc = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %SeekProc, align 8
   %call = tail call noundef i32 %1(ptr noundef %0, i64 noundef %pOffset, i32 noundef %pOrigin)
   ret i32 %call
@@ -195,9 +185,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZNK6Assimp16CIOStreamWrapper4TellEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 {
 entry:
-  %mFile = getelementptr inbounds %"class.Assimp::CIOStreamWrapper", ptr %this, i64 0, i32 1
+  %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
-  %TellProc = getelementptr inbounds %struct.aiFile, ptr %0, i64 0, i32 2
+  %TellProc = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %TellProc, align 8
   %call = tail call noundef i64 %1(ptr noundef %0)
   ret i64 %call
@@ -206,9 +196,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZNK6Assimp16CIOStreamWrapper8FileSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 {
 entry:
-  %mFile = getelementptr inbounds %"class.Assimp::CIOStreamWrapper", ptr %this, i64 0, i32 1
+  %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
-  %FileSizeProc = getelementptr inbounds %struct.aiFile, ptr %0, i64 0, i32 3
+  %FileSizeProc = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %FileSizeProc, align 8
   %call = tail call noundef i64 %1(ptr noundef %0)
   ret i64 %call
@@ -217,9 +207,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp16CIOStreamWrapper5FlushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 {
 entry:
-  %mFile = getelementptr inbounds %"class.Assimp::CIOStreamWrapper", ptr %this, i64 0, i32 1
+  %mFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mFile, align 8
-  %FlushProc = getelementptr inbounds %struct.aiFile, ptr %0, i64 0, i32 5
+  %FlushProc = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %FlushProc, align 8
   tail call void %1(ptr noundef %0)
   ret void
@@ -228,7 +218,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK6Assimp16CIOSystemWrapper6ExistsEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %pFile) unnamed_addr #4 align 2 {
 entry:
-  %mFileSystem = getelementptr inbounds %"class.Assimp::CIOSystemWrapper", ptr %this, i64 0, i32 1
+  %mFileSystem = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %mFileSystem, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull %0, ptr noundef %pFile, ptr noundef nonnull @.str)
@@ -237,7 +227,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %mFileSystem, align 8
-  %CloseProc = getelementptr inbounds %struct.aiFileIO, ptr %2, i64 0, i32 1
+  %CloseProc = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %CloseProc, align 8
   tail call void %3(ptr noundef %2, ptr noundef nonnull %call)
   br label %return
@@ -255,7 +245,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN6Assimp16CIOSystemWrapper4OpenEPKcS2_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %pFile, ptr noundef %pMode) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mFileSystem = getelementptr inbounds %"class.Assimp::CIOSystemWrapper", ptr %this, i64 0, i32 1
+  %mFileSystem = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %mFileSystem, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull %0, ptr noundef %pFile, ptr noundef %pMode)
@@ -265,9 +255,9 @@ entry:
 if.end:                                           ; preds = %entry
   %call3 = tail call noundef ptr @_ZN6Assimp6Intern22AllocateFromAssimpHeapnwEm(i64 noundef 24)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp16CIOStreamWrapperE, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
-  %mFile.i = getelementptr inbounds %"class.Assimp::CIOStreamWrapper", ptr %call3, i64 0, i32 1
+  %mFile.i = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %call, ptr %mFile.i, align 8
-  %mIO.i = getelementptr inbounds %"class.Assimp::CIOStreamWrapper", ptr %call3, i64 0, i32 2
+  %mIO.i = getelementptr inbounds i8, ptr %call3, i64 16
   store ptr %this, ptr %mIO.i, align 8
   br label %return
 
@@ -286,7 +276,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %pFile, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %pFile) #13
   br label %delete.end
@@ -301,9 +291,9 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr void @_ZN6Assimp8IOSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this, i64 0, i32 1
+  %m_pathStack = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_pathStack, align 8
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -311,7 +301,7 @@ entry:
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #13
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !4
 
@@ -341,9 +331,9 @@ entry:
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -351,12 +341,12 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %path)
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %return
 
 if.else.i:                                        ; preds = %if.end
-  %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this, i64 0, i32 1
+  %m_pathStack = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack, ptr %0, ptr noundef nonnull align 8 dereferenceable(32) %path)
   br label %return
 
@@ -370,8 +360,8 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6Assimp8IOSystem16C
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK6Assimp8IOSystem9StackSizeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %m_pathStack = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_pathStack, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -384,15 +374,15 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6Assimp8IOSystem12PopDirectoryEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this, i64 0, i32 1
+  %m_pathStack = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_pathStack, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp ne ptr %0, %1
   br i1 %cmp.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 -32
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i) #13
   br label %return
@@ -456,9 +446,9 @@ return:                                           ; preds = %entry, %if.end
 define linkonce_odr hidden void @_ZN6Assimp16CIOSystemWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_pathStack.i = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this, i64 0, i32 1
+  %m_pathStack.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_pathStack.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
@@ -466,7 +456,7 @@ entry:
 for.body.i.i.i.i.i:                               ; preds = %entry, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %0, %entry ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #13
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !4
 
@@ -491,9 +481,9 @@ _ZN6Assimp8IOSystemD2Ev.exit:                     ; preds = %invoke.cont.i.i, %i
 define linkonce_odr hidden void @_ZN6Assimp16CIOSystemWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_pathStack.i.i = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this, i64 0, i32 1
+  %m_pathStack.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_pathStack.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i
@@ -501,7 +491,7 @@ entry:
 for.body.i.i.i.i.i.i:                             ; preds = %entry, %for.body.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %0, %entry ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i) #13
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !4
 
@@ -529,7 +519,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -576,14 +566,14 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #13
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !6
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19
 
@@ -592,8 +582,8 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorINSt7__
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i22, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i20, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i21) #13
-  %incdec.ptr.i.i.i22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i21, i64 1
-  %incdec.ptr1.i.i.i23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i20, i64 1
+  %incdec.ptr.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 32
+  %incdec.ptr1.i.i.i23 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 32
   %cmp.not.i.i.i24 = icmp eq ptr %incdec.ptr.i.i.i22, %0
   br i1 %cmp.not.i.i.i24, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %for.body.i.i.i19, !llvm.loop !6
 
@@ -607,7 +597,7 @@ if.then.i27:                                      ; preds = %_ZNSt6vectorINSt7__
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %if.then.i27
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8
   %add.ptr26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i17, i64 %cond.i

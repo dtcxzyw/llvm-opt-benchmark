@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-md5_sha1.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.md5_sha1_st = type { %struct.MD5state_st, %struct.SHAstate_st }
-%struct.MD5state_st = type { i32, i32, i32, i32, i32, i32, [16 x i32], i32 }
-%struct.SHAstate_st = type { i32, i32, i32, i32, i32, i32, i32, [16 x i32], i32 }
-
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_md5_sha1_init(ptr noundef %mctx) local_unnamed_addr #0 {
 entry:
@@ -15,7 +11,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sha1 = getelementptr inbounds %struct.md5_sha1_st, ptr %mctx, i64 0, i32 1
+  %sha1 = getelementptr inbounds i8, ptr %mctx, i64 92
   %call1 = tail call i32 @SHA1_Init(ptr noundef nonnull %sha1) #3
   br label %return
 
@@ -36,7 +32,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sha1 = getelementptr inbounds %struct.md5_sha1_st, ptr %mctx, i64 0, i32 1
+  %sha1 = getelementptr inbounds i8, ptr %mctx, i64 92
   %call1 = tail call i32 @SHA1_Update(ptr noundef nonnull %sha1, ptr noundef %data, i64 noundef %count) #3
   br label %return
 
@@ -58,7 +54,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %md, i64 16
-  %sha1 = getelementptr inbounds %struct.md5_sha1_st, ptr %mctx, i64 0, i32 1
+  %sha1 = getelementptr inbounds i8, ptr %mctx, i64 92
   %call1 = tail call i32 @SHA1_Final(ptr noundef nonnull %add.ptr, ptr noundef nonnull %sha1) #3
   br label %return
 
@@ -92,7 +88,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %tobool.not.i, label %return, label %ossl_md5_sha1_update.exit
 
 ossl_md5_sha1_update.exit:                        ; preds = %if.end6
-  %sha1.i = getelementptr inbounds %struct.md5_sha1_st, ptr %mctx, i64 0, i32 1
+  %sha1.i = getelementptr inbounds i8, ptr %mctx, i64 92
   %call1.i = tail call i32 @SHA1_Update(ptr noundef nonnull %sha1.i, ptr noundef %ms, i64 noundef 48) #3
   %cmp7 = icmp slt i32 %call1.i, 1
   br i1 %cmp7, label %return, label %if.end10

@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/ucbuf.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UCHARBUF = type { ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i8, i8 }
-
 @.str = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [23 x i8] c"Bad escape: [%c%s]...\0A\00", align 1
@@ -60,7 +58,7 @@ if.end7:                                          ; preds = %if.end
   store ptr %call8, ptr %conv, align 8
   store ptr %target, ptr %pTarget, align 8
   store ptr %start, ptr %pStart, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %target, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %target, i64 2
   %2 = load i32, ptr %signatureLength, align 4
   %idx.ext = sext i32 %2 to i64
   %add.ptr13 = getelementptr inbounds i8, ptr %start, i64 %idx.ext
@@ -180,15 +178,15 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %currentPos = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 1
+  %currentPos = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load ptr, ptr %currentPos, align 8
-  %bufLimit = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 2
+  %bufLimit = getelementptr inbounds i8, ptr %buf, i64 16
   %2 = load ptr, ptr %bufLimit, align 8
   %cmp1.not = icmp ult ptr %1, %2
   br i1 %cmp1.not, label %if.end11, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %remaining = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 4
+  %remaining = getelementptr inbounds i8, ptr %buf, i64 28
   %3 = load i32, ptr %remaining, align 4
   %cmp3 = icmp eq i32 %3, 0
   br i1 %cmp3, label %return, label %if.end5
@@ -200,15 +198,15 @@ if.end5:                                          ; preds = %if.then2
   br i1 %cmp.i8, label %if.end5.if.end11_crit_edge, label %return
 
 if.end5.if.end11_crit_edge:                       ; preds = %if.end5
-  %currentPos12.phi.trans.insert = getelementptr inbounds %struct.UCHARBUF, ptr %call6, i64 0, i32 1
+  %currentPos12.phi.trans.insert = getelementptr inbounds i8, ptr %call6, i64 8
   %.pre = load ptr, ptr %currentPos12.phi.trans.insert, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end5.if.end11_crit_edge, %if.end
   %5 = phi ptr [ %.pre, %if.end5.if.end11_crit_edge ], [ %1, %if.end ]
   %buf.addr.0 = phi ptr [ %call6, %if.end5.if.end11_crit_edge ], [ %buf, %if.end ]
-  %currentPos12 = getelementptr inbounds %struct.UCHARBUF, ptr %buf.addr.0, i64 0, i32 1
-  %incdec.ptr = getelementptr inbounds i16, ptr %5, i64 1
+  %currentPos12 = getelementptr inbounds i8, ptr %buf.addr.0, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %5, i64 2
   store ptr %incdec.ptr, ptr %currentPos12, align 8
   %6 = load i16, ptr %5, align 2
   %conv = zext i16 %6 to i32
@@ -235,9 +233,9 @@ entry:
   store ptr null, ptr %source, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1000) %carr, i8 0, i64 1000, i1 false)
   %0 = load ptr, ptr %buf, align 8
-  %currentPos = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 1
+  %currentPos = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load ptr, ptr %currentPos, align 8
-  %bufLimit = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 2
+  %bufLimit = getelementptr inbounds i8, ptr %buf, i64 16
   %2 = load ptr, ptr %bufLimit, align 8
   %cmp = icmp ult ptr %1, %2
   br i1 %cmp, label %if.then, label %if.end
@@ -256,10 +254,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %offset.0 = phi i32 [ %conv, %if.then ], [ 0, %entry ]
-  %isBuffered = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 9
+  %isBuffered = getelementptr inbounds i8, ptr %buf, i64 57
   %4 = load i8, ptr %isBuffered, align 1
   %tobool.not = icmp eq i8 %4, 0
-  %in8 = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 6
+  %in8 = getelementptr inbounds i8, ptr %buf, i64 40
   %5 = load ptr, ptr %in8, align 8
   br i1 %tobool.not, label %if.else, label %if.then6
 
@@ -288,7 +286,7 @@ if.end19:                                         ; preds = %if.end14, %if.then6
   %call16.sink = phi i32 [ %call16, %if.end14 ], [ %call, %if.then6 ]
   %cbuf.0 = phi ptr [ %call11, %if.end14 ], [ %carr, %if.then6 ]
   %cbufSize.0 = phi i32 [ %call9, %if.end14 ], [ 1000, %if.then6 ]
-  %remaining17 = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 4
+  %remaining17 = getelementptr inbounds i8, ptr %buf, i64 28
   %7 = load i32, ptr %remaining17, align 4
   %sub18 = sub nsw i32 %7, %call16.sink
   store i32 %sub18, ptr %remaining17, align 4
@@ -296,13 +294,13 @@ if.end19:                                         ; preds = %if.end14, %if.then6
   br i1 %cmp20, label %if.then21, label %if.end23
 
 if.then21:                                        ; preds = %if.end19
-  %remaining22 = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 4
+  %remaining22 = getelementptr inbounds i8, ptr %buf, i64 28
   store i32 0, ptr %remaining22, align 4
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then21, %if.end19
   store ptr %0, ptr %target, align 8
-  %conv24 = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 7
+  %conv24 = getelementptr inbounds i8, ptr %buf, i64 48
   %8 = load ptr, ptr %conv24, align 8
   %tobool25.not = icmp eq ptr %8, null
   br i1 %tobool25.not, label %if.else118, label %if.then26
@@ -316,12 +314,12 @@ if.then26:                                        ; preds = %if.end23
   %idx.ext28 = sext i32 %call16.sink to i64
   %add.ptr29 = getelementptr inbounds i8, ptr %cbuf.0, i64 %idx.ext28
   %9 = load ptr, ptr %conv24, align 8
-  %bufCapacity = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 3
+  %bufCapacity = getelementptr inbounds i8, ptr %buf, i64 24
   %10 = load i32, ptr %bufCapacity, align 8
   %sub31 = sub nsw i32 %10, %offset.0
   %idx.ext32 = sext i32 %sub31 to i64
   %add.ptr33 = getelementptr inbounds i16, ptr %add.ptr, i64 %idx.ext32
-  %remaining34 = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 4
+  %remaining34 = getelementptr inbounds i8, ptr %buf, i64 28
   %11 = load i32, ptr %remaining34, align 4
   %cmp35 = icmp eq i32 %11, 0
   %conv36 = zext i1 %cmp35 to i8
@@ -333,7 +331,7 @@ if.then26:                                        ; preds = %if.end23
 if.then39:                                        ; preds = %if.then26
   store i8 20, ptr %len, align 1
   store i32 0, ptr %error1, align 4
-  %showWarning = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 8
+  %showWarning = getelementptr inbounds i8, ptr %buf, i64 56
   %13 = load i8, ptr %showWarning, align 8
   %cmp41 = icmp eq i8 %13, 1
   br i1 %cmp41, label %if.then42, label %if.end45
@@ -425,7 +423,7 @@ if.else118:                                       ; preds = %if.end23
   %idx.ext119 = sext i32 %offset.0 to i64
   %add.ptr120 = getelementptr inbounds i16, ptr %0, i64 %idx.ext119
   call void @u_charsToUChars_75(ptr noundef nonnull %cbuf.0, ptr noundef %add.ptr120, i32 noundef %call16.sink)
-  %remaining121 = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 4
+  %remaining121 = getelementptr inbounds i8, ptr %buf, i64 28
   %32 = load i32, ptr %remaining121, align 4
   %cmp122 = icmp sgt i32 %32, %cbufSize.0
   %add125 = add nsw i32 %call16.sink, %offset.0
@@ -463,16 +461,16 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %currentPos = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 1
+  %currentPos = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load ptr, ptr %currentPos, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %1, i64 1
-  %bufLimit = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 2
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 2
+  %bufLimit = getelementptr inbounds i8, ptr %buf, i64 16
   %2 = load ptr, ptr %bufLimit, align 8
   %cmp1.not = icmp ult ptr %add.ptr, %2
   br i1 %cmp1.not, label %if.end11, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %remaining = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 4
+  %remaining = getelementptr inbounds i8, ptr %buf, i64 28
   %3 = load i32, ptr %remaining, align 4
   %cmp3 = icmp eq i32 %3, 0
   br i1 %cmp3, label %return, label %if.end5
@@ -484,14 +482,14 @@ if.end5:                                          ; preds = %if.then2
   br i1 %cmp.i12, label %if.end5.if.end11_crit_edge, label %return
 
 if.end5.if.end11_crit_edge:                       ; preds = %if.end5
-  %currentPos12.phi.trans.insert = getelementptr inbounds %struct.UCHARBUF, ptr %call6, i64 0, i32 1
+  %currentPos12.phi.trans.insert = getelementptr inbounds i8, ptr %call6, i64 8
   %.pre = load ptr, ptr %currentPos12.phi.trans.insert, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end5.if.end11_crit_edge, %if.end
   %5 = phi ptr [ %.pre, %if.end5.if.end11_crit_edge ], [ %1, %if.end ]
   %buf.addr.0 = phi ptr [ %call6, %if.end5.if.end11_crit_edge ], [ %buf, %if.end ]
-  %currentPos12 = getelementptr inbounds %struct.UCHARBUF, ptr %buf.addr.0, i64 0, i32 1
+  %currentPos12 = getelementptr inbounds i8, ptr %buf.addr.0, i64 8
   %6 = load i16, ptr %5, align 2
   %conv = zext i16 %6 to i32
   %and = and i32 %conv, 64512
@@ -500,17 +498,17 @@ if.end11:                                         ; preds = %if.end5.if.end11_cr
 
 if.then14:                                        ; preds = %if.end11
   %shl = shl nuw nsw i32 %conv, 10
-  %arrayidx18 = getelementptr inbounds i16, ptr %5, i64 1
+  %arrayidx18 = getelementptr inbounds i8, ptr %5, i64 2
   %7 = load i16, ptr %arrayidx18, align 2
   %conv19 = zext i16 %7 to i32
   %add = add nsw i32 %shl, -56613888
   %sub = add nuw nsw i32 %add, %conv19
-  %add.ptr21 = getelementptr inbounds i16, ptr %5, i64 2
+  %add.ptr21 = getelementptr inbounds i8, ptr %5, i64 4
   store ptr %add.ptr21, ptr %currentPos12, align 8
   br label %return
 
 if.else:                                          ; preds = %if.end11
-  %incdec.ptr = getelementptr inbounds i16, ptr %5, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %5, i64 2
   store ptr %incdec.ptr, ptr %currentPos12, align 8
   %8 = load i16, ptr %5, align 2
   %conv23 = zext i16 %8 to i32
@@ -535,11 +533,11 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %currentPos = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 1
+  %currentPos = getelementptr inbounds i8, ptr %buf, i64 8
   %1 = load ptr, ptr %currentPos, align 8
-  %bufLimit = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 2
+  %bufLimit = getelementptr inbounds i8, ptr %buf, i64 16
   %2 = load ptr, ptr %bufLimit, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %2, i64 -2
+  %add.ptr = getelementptr inbounds i8, ptr %2, i64 -4
   %cmp1.not = icmp ult ptr %1, %add.ptr
   br i1 %cmp1.not, label %if.end4, label %if.then2
 
@@ -556,7 +554,7 @@ if.end4:                                          ; preds = %if.then2, %if.end
   br i1 %cmp7, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end4
-  %incdec.ptr = getelementptr inbounds i16, ptr %4, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %4, i64 2
   store ptr %incdec.ptr, ptr %currentPos, align 8
   %5 = load i16, ptr %4, align 2
   %conv = zext i16 %5 to i32
@@ -593,7 +591,7 @@ if.end28:                                         ; preds = %if.then20, %if.end1
   br i1 %cmp30, label %if.then31, label %if.else41
 
 if.then31:                                        ; preds = %if.end28
-  %showWarning = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 8
+  %showWarning = getelementptr inbounds i8, ptr %buf, i64 56
   %9 = load i8, ptr %showWarning, align 8
   %tobool32.not = icmp eq i8 %9, 0
   br i1 %tobool32.not, label %if.end40, label %if.then33
@@ -637,7 +635,7 @@ declare i32 @u_unescapeAt_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i16 @_ZL7_charAtiPv(i32 noundef %offset, ptr nocapture noundef readonly %context) #3 {
 entry:
-  %currentPos = getelementptr inbounds %struct.UCHARBUF, ptr %context, i64 0, i32 1
+  %currentPos = getelementptr inbounds i8, ptr %context, i64 8
   %0 = load ptr, ptr %currentPos, align 8
   %idxprom = sext i32 %offset to i64
   %arrayidx = getelementptr inbounds i16, ptr %0, i64 %idxprom
@@ -702,15 +700,15 @@ if.then17:                                        ; preds = %if.then13
   br label %return
 
 if.end18:                                         ; preds = %if.then13
-  %in19 = getelementptr inbounds %struct.UCHARBUF, ptr %call14, i64 0, i32 6
+  %in19 = getelementptr inbounds i8, ptr %call14, i64 40
   store ptr %in.0, ptr %in19, align 8
-  %conv = getelementptr inbounds %struct.UCHARBUF, ptr %call14, i64 0, i32 7
+  %conv = getelementptr inbounds i8, ptr %call14, i64 48
   store ptr null, ptr %conv, align 8
-  %showWarning20 = getelementptr inbounds %struct.UCHARBUF, ptr %call14, i64 0, i32 8
+  %showWarning20 = getelementptr inbounds i8, ptr %call14, i64 56
   store i8 %showWarning, ptr %showWarning20, align 8
-  %isBuffered = getelementptr inbounds %struct.UCHARBUF, ptr %call14, i64 0, i32 9
+  %isBuffered = getelementptr inbounds i8, ptr %call14, i64 57
   store i8 %buffered, ptr %isBuffered, align 1
-  %signatureLength = getelementptr inbounds %struct.UCHARBUF, ptr %call14, i64 0, i32 5
+  %signatureLength = getelementptr inbounds i8, ptr %call14, i64 32
   store i32 0, ptr %signatureLength, align 8
   %1 = load ptr, ptr %cp, align 8
   %cmp21 = icmp eq ptr %1, null
@@ -776,13 +774,13 @@ if.then57:                                        ; preds = %land.lhs.true53
 if.end59:                                         ; preds = %land.lhs.true, %if.then57, %land.lhs.true53, %if.end50
   %11 = load i32, ptr %signatureLength, align 8
   %sub = sub nsw i32 %call15, %11
-  %remaining = getelementptr inbounds %struct.UCHARBUF, ptr %call14, i64 0, i32 4
+  %remaining = getelementptr inbounds i8, ptr %call14, i64 28
   store i32 %sub, ptr %remaining, align 4
   %12 = load i8, ptr %isBuffered, align 1
   %tobool62.not = icmp eq i8 %12, 0
   %add67 = add nsw i32 %call15, 1
   %spec.select = select i1 %tobool62.not, i32 %add67, i32 1500
-  %13 = getelementptr inbounds %struct.UCHARBUF, ptr %call14, i64 0, i32 3
+  %13 = getelementptr inbounds i8, ptr %call14, i64 24
   store i32 %spec.select, ptr %13, align 8
   %mul = shl nsw i32 %spec.select, 1
   %conv71 = sext i32 %mul to i64
@@ -797,9 +795,9 @@ if.then75:                                        ; preds = %if.end59
   br label %return
 
 if.end76:                                         ; preds = %if.end59
-  %currentPos = getelementptr inbounds %struct.UCHARBUF, ptr %call14, i64 0, i32 1
+  %currentPos = getelementptr inbounds i8, ptr %call14, i64 8
   store ptr %call72, ptr %currentPos, align 8
-  %bufLimit = getelementptr inbounds %struct.UCHARBUF, ptr %call14, i64 0, i32 2
+  %bufLimit = getelementptr inbounds i8, ptr %call14, i64 16
   store ptr %call72, ptr %bufLimit, align 8
   %14 = load i32, ptr %error, align 4
   %cmp.i67 = icmp slt i32 %14, 1
@@ -909,7 +907,7 @@ entry:
   br i1 %cmp.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %conv = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 7
+  %conv = getelementptr inbounds i8, ptr %buf, i64 48
   %0 = load ptr, ptr %conv, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then1
@@ -919,7 +917,7 @@ if.then1:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then1, %if.then
-  %in = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 6
+  %in = getelementptr inbounds i8, ptr %buf, i64 40
   %1 = load ptr, ptr %in, align 8
   tail call void @T_FileStream_close(ptr noundef %1)
   %2 = load ptr, ptr %buf, align 8
@@ -937,14 +935,14 @@ declare ptr @u_errorName_75(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ucbuf_ungetc(i32 noundef %c, ptr nocapture noundef %buf) local_unnamed_addr #7 {
 entry:
-  %currentPos = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 1
+  %currentPos = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load ptr, ptr %currentPos, align 8
   %1 = load ptr, ptr %buf, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %add.ptr = getelementptr inbounds i16, ptr %0, i64 -1
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 -2
   %2 = load i16, ptr %add.ptr, align 2
   %conv = zext i16 %2 to i32
   %cmp2 = icmp eq i32 %conv, %c
@@ -977,21 +975,21 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then2:                                         ; preds = %lor.lhs.false
   %1 = load ptr, ptr %buf, align 8
-  %currentPos = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 1
+  %currentPos = getelementptr inbounds i8, ptr %buf, i64 8
   store ptr %1, ptr %currentPos, align 8
-  %bufLimit = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 2
+  %bufLimit = getelementptr inbounds i8, ptr %buf, i64 16
   store ptr %1, ptr %bufLimit, align 8
-  %in = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 6
+  %in = getelementptr inbounds i8, ptr %buf, i64 40
   %2 = load ptr, ptr %in, align 8
   tail call void @T_FileStream_rewind(ptr noundef %2)
   %3 = load ptr, ptr %in, align 8
   %call5 = tail call i32 @T_FileStream_size(ptr noundef %3)
-  %signatureLength = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 5
+  %signatureLength = getelementptr inbounds i8, ptr %buf, i64 32
   %4 = load i32, ptr %signatureLength, align 8
   %sub = sub nsw i32 %call5, %4
-  %remaining = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 4
+  %remaining = getelementptr inbounds i8, ptr %buf, i64 28
   store i32 %sub, ptr %remaining, align 4
-  %conv = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 7
+  %conv = getelementptr inbounds i8, ptr %buf, i64 48
   %5 = load ptr, ptr %conv, align 8
   tail call void @ucnv_resetToUnicode_75(ptr noundef %5)
   %6 = load i32, ptr %signatureLength, align 8
@@ -1005,7 +1003,7 @@ if.then8:                                         ; preds = %if.then2
   store ptr %target, ptr %pTarget, align 8
   store ptr %start, ptr %pStart, align 8
   %8 = load ptr, ptr %conv, align 8
-  %add.ptr = getelementptr inbounds i16, ptr %target, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %target, i64 2
   %idx.ext = sext i32 %call11 to i64
   %add.ptr17 = getelementptr inbounds i8, ptr %start, i64 %idx.ext
   call void @ucnv_toUnicode_75(ptr noundef %8, ptr noundef nonnull %pTarget, ptr noundef nonnull %add.ptr, ptr noundef nonnull %pStart, ptr noundef nonnull %add.ptr17, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %error)
@@ -1049,19 +1047,19 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %isBuffered = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 9
+  %isBuffered = getelementptr inbounds i8, ptr %buf, i64 57
   %0 = load i8, ptr %isBuffered, align 1
   %tobool1.not = icmp eq i8 %0, 0
   br i1 %tobool1.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %in = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 6
+  %in = getelementptr inbounds i8, ptr %buf, i64 40
   %1 = load ptr, ptr %in, align 8
   %call = tail call i32 @T_FileStream_size(ptr noundef %1)
-  %signatureLength = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 5
+  %signatureLength = getelementptr inbounds i8, ptr %buf, i64 32
   %2 = load i32, ptr %signatureLength, align 8
   %sub = sub nsw i32 %call, %2
-  %conv = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 7
+  %conv = getelementptr inbounds i8, ptr %buf, i64 48
   %3 = load ptr, ptr %conv, align 8
   %call3 = tail call signext i8 @ucnv_getMinCharSize_75(ptr noundef %3)
   %conv4 = sext i8 %call3 to i32
@@ -1069,7 +1067,7 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %bufLimit = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 2
+  %bufLimit = getelementptr inbounds i8, ptr %buf, i64 16
   %4 = load ptr, ptr %bufLimit, align 8
   %5 = load ptr, ptr %buf, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
@@ -1108,7 +1106,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %bufLimit = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 2
+  %bufLimit = getelementptr inbounds i8, ptr %buf, i64 16
   %1 = load ptr, ptr %bufLimit, align 8
   %2 = load ptr, ptr %buf, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
@@ -1245,27 +1243,27 @@ declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef 
 ; Function Attrs: mustprogress uwtable
 define ptr @ucbuf_readline(ptr noundef %buf, ptr nocapture noundef writeonly %len, ptr noundef %err) local_unnamed_addr #0 {
 entry:
-  %currentPos = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 1
+  %currentPos = getelementptr inbounds i8, ptr %buf, i64 8
   %0 = load ptr, ptr %currentPos, align 8
-  %isBuffered = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 9
+  %isBuffered = getelementptr inbounds i8, ptr %buf, i64 57
   %1 = load i8, ptr %isBuffered, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %for.cond40.preheader, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %remaining = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 4
-  %bufLimit = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 2
+  %remaining = getelementptr inbounds i8, ptr %buf, i64 28
+  %bufLimit = getelementptr inbounds i8, ptr %buf, i64 16
   br label %for.cond
 
 for.cond40.preheader:                             ; preds = %entry
-  %bufLimit43 = getelementptr inbounds %struct.UCHARBUF, ptr %buf, i64 0, i32 2
+  %bufLimit43 = getelementptr inbounds i8, ptr %buf, i64 16
   %2 = load ptr, ptr %bufLimit43, align 8
   %cmp44 = icmp eq ptr %0, %2
   br i1 %cmp44, label %return, label %for.cond40
 
 for.cond:                                         ; preds = %for.cond.preheader, %lor.lhs.false
   %temp.0 = phi ptr [ %incdec.ptr, %lor.lhs.false ], [ %0, %for.cond.preheader ]
-  %incdec.ptr = getelementptr inbounds i16, ptr %temp.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %temp.0, i64 2
   %3 = load i16, ptr %temp.0, align 2
   %4 = load i32, ptr %remaining, align 4
   %cmp = icmp eq i32 %4, 0
@@ -1305,7 +1303,7 @@ land.lhs.true15:                                  ; preds = %if.end10
   br i1 %cmp17, label %if.then18, label %if.end24
 
 if.then18:                                        ; preds = %land.lhs.true15
-  %incdec.ptr19 = getelementptr inbounds i16, ptr %temp.0, i64 2
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %temp.0, i64 4
   %10 = load ptr, ptr %currentPos, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %incdec.ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %10 to i64
@@ -1345,7 +1343,7 @@ if.then29:                                        ; preds = %lor.lhs.false, %lor
 
 for.cond40:                                       ; preds = %for.cond40.preheader, %lor.lhs.false68
   %temp.1 = phi ptr [ %incdec.ptr41, %lor.lhs.false68 ], [ %0, %for.cond40.preheader ]
-  %incdec.ptr41 = getelementptr inbounds i16, ptr %temp.1, i64 1
+  %incdec.ptr41 = getelementptr inbounds i8, ptr %temp.1, i64 2
   %14 = load i16, ptr %temp.1, align 2
   %cmp48 = icmp ne i16 %14, 13
   %cmp51.not = icmp ugt ptr %incdec.ptr41, %2
@@ -1358,7 +1356,7 @@ land.lhs.true52:                                  ; preds = %for.cond40
   br i1 %cmp54, label %if.then55, label %if.end65
 
 if.then55:                                        ; preds = %land.lhs.true52
-  %incdec.ptr56 = getelementptr inbounds i16, ptr %temp.1, i64 2
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %temp.1, i64 4
   %sub.ptr.lhs.cast58 = ptrtoint ptr %incdec.ptr41 to i64
   %sub.ptr.rhs.cast59 = ptrtoint ptr %0 to i64
   %sub.ptr.sub60 = sub i64 %sub.ptr.lhs.cast58, %sub.ptr.rhs.cast59

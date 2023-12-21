@@ -3,23 +3,10 @@ source_filename = "bench/openssl/original/libcrypto-lib-pcy_map.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.x509_st = type { %struct.x509_cinf_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.x509_sig_info_st, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, i64, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr, ptr, i32, ptr, ptr, ptr }
-%struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_val_st = type { ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.x509_sig_info_st = type { i32, i32, i32, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.X509_POLICY_CACHE_st = type { ptr, ptr, i64, i64, i64 }
-%struct.POLICY_MAPPING_st = type { ptr, ptr }
-%struct.X509_POLICY_DATA_st = type { i32, ptr, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_policy_cache_set_mapping(ptr nocapture noundef readonly %x, ptr noundef %maps) local_unnamed_addr #0 {
 entry:
-  %policy_cache = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 14
+  %policy_cache = getelementptr inbounds i8, ptr %x, i64 264
   %0 = load ptr, ptr %policy_cache, align 8
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef %maps) #2
   %cmp = icmp eq i32 %call1, 0
@@ -31,13 +18,13 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp425, label %for.body.lr.ph, label %bad_mapping
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data31 = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %0, i64 0, i32 1
+  %data31 = getelementptr inbounds i8, ptr %0, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.026 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call6 = tail call ptr @OPENSSL_sk_value(ptr noundef %maps, i32 noundef %i.026) #2
-  %subjectDomainPolicy = getelementptr inbounds %struct.POLICY_MAPPING_st, ptr %call6, i64 0, i32 1
+  %subjectDomainPolicy = getelementptr inbounds i8, ptr %call6, i64 8
   %1 = load ptr, ptr %subjectDomainPolicy, align 8
   %call7 = tail call i32 @OBJ_obj2nid(ptr noundef %1) #2
   %cmp8 = icmp eq i32 %call7, 746
@@ -70,9 +57,9 @@ if.then19:                                        ; preds = %land.lhs.true
 
 if.end25:                                         ; preds = %if.then19
   %7 = load ptr, ptr %0, align 8
-  %qualifier_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %7, i64 0, i32 2
+  %qualifier_set = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %qualifier_set, align 8
-  %qualifier_set27 = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call22, i64 0, i32 2
+  %qualifier_set27 = getelementptr inbounds i8, ptr %call22, i64 16
   store ptr %8, ptr %qualifier_set27, align 8
   %9 = load i32, ptr %call22, align 8
   %or30 = or i32 %9, 6
@@ -94,7 +81,7 @@ if.else:                                          ; preds = %if.end12
 
 if.end38:                                         ; preds = %if.end25, %if.else
   %data.0 = phi ptr [ %call22, %if.end25 ], [ %call14, %if.else ]
-  %expected_policy_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %data.0, i64 0, i32 3
+  %expected_policy_set = getelementptr inbounds i8, ptr %data.0, i64 24
   %12 = load ptr, ptr %expected_policy_set, align 8
   %13 = load ptr, ptr %subjectDomainPolicy, align 8
   %call42 = tail call i32 @OPENSSL_sk_push(ptr noundef %12, ptr noundef %13) #2

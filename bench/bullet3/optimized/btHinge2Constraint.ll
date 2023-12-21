@@ -6,22 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
 %class.btMatrix3x3 = type { [3 x %class.btVector3] }
 %class.btVector3 = type { [4 x float] }
-%class.btHinge2Constraint = type { %class.btGeneric6DofSpring2Constraint.base, %class.btVector3, %class.btVector3, %class.btVector3, [4 x i8] }
-%class.btGeneric6DofSpring2Constraint.base = type <{ %class.btTypedConstraint, %class.btTransform, %class.btTransform, [3 x %class.btJacobianEntry], [3 x %class.btJacobianEntry], %class.btTranslationalLimitMotor2, [3 x %class.btRotationalLimitMotor2], i32, %class.btTransform, %class.btTransform, %class.btVector3, [3 x %class.btVector3], %class.btVector3, float, float, i8, [3 x i8], i32 }>
-%class.btTypedConstraint = type { ptr, %struct.btTypedObject, i32, %union.anon.0, float, i8, i8, i32, ptr, ptr, float, float, ptr }
-%struct.btTypedObject = type { i32 }
-%union.anon.0 = type { ptr }
-%class.btJacobianEntry = type { %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float }
-%class.btTranslationalLimitMotor2 = type { %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [3 x i8], [3 x i8], [3 x i8], %class.btVector3, %class.btVector3, [3 x i8], %class.btVector3, [3 x i8], %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, [3 x i32] }
 %class.btRotationalLimitMotor2 = type { float, float, float, float, float, float, float, i8, float, float, i8, float, i8, float, i8, float, i8, float, float, float, float, i32 }
-%class.btCollisionObject = type <{ ptr, %class.btTransform, %class.btTransform, %class.btVector3, %class.btVector3, %class.btVector3, i32, float, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, float, float, float, float, float, float, float, i32, [4 x i8], ptr, i32, i32, i32, float, float, float, i32, [4 x i8], %class.btAlignedObjectArray, i32, %class.btVector3, [4 x i8] }>
-%class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator = type { i8 }
-%class.btGeneric6DofSpring2Constraint = type <{ %class.btTypedConstraint, %class.btTransform, %class.btTransform, [3 x %class.btJacobianEntry], [3 x %class.btJacobianEntry], %class.btTranslationalLimitMotor2, [3 x %class.btRotationalLimitMotor2], i32, %class.btTransform, %class.btTransform, %class.btVector3, [3 x %class.btVector3], %class.btVector3, float, float, i8, [3 x i8], i32, [4 x i8] }>
-%struct.btGeneric6DofSpring2ConstraintData = type { %struct.btTypedConstraintData, %struct.btTransformFloatData, %struct.btTransformFloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, [4 x i8], [4 x i8], [4 x i8], [4 x i8], [4 x i8], [4 x i8], %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, %struct.btVector3FloatData, [4 x i8], [4 x i8], [4 x i8], [4 x i8], [4 x i8], i32 }
-%struct.btTypedConstraintData = type { ptr, ptr, ptr, i32, i32, i32, i32, float, float, i32, i32, float, i32 }
-%struct.btTransformFloatData = type { %struct.btMatrix3x3FloatData, %struct.btVector3FloatData }
-%struct.btMatrix3x3FloatData = type { [3 x %struct.btVector3FloatData] }
 %struct.btVector3FloatData = type { [4 x float] }
 
 $_ZNK17btTypedConstraint28calculateSerializeBufferSizeEv = comdat any
@@ -121,11 +106,11 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont5.i:                                   ; preds = %init.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZN11btTransform11getIdentityEvE17identityTransform, ptr noundef nonnull align 4 dereferenceable(16) %call.i, i64 16, i1 false)
-  %arrayidx6.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %call.i, i64 0, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 1), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
-  %arrayidx10.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %call.i, i64 0, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1), i8 0, i64 16, i1 false)
+  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i, i64 16, i1 false)
+  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1, i32 0, i64 0), i8 0, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #12
   br label %_ZN11btTransform11getIdentityEv.exit
 
@@ -155,11 +140,11 @@ init.i9:                                          ; preds = %init.check.i7
 
 invoke.cont5.i12:                                 ; preds = %init.i9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @_ZZN11btTransform11getIdentityEvE17identityTransform, ptr noundef nonnull align 4 dereferenceable(16) %call.i10, i64 16, i1 false)
-  %arrayidx6.i.i.i13 = getelementptr inbounds [3 x %class.btVector3], ptr %call.i10, i64 0, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 1), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i13, i64 16, i1 false)
-  %arrayidx10.i.i.i14 = getelementptr inbounds [3 x %class.btVector3], ptr %call.i10, i64 0, i64 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i14, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1), i8 0, i64 16, i1 false)
+  %arrayidx6.i.i.i13 = getelementptr inbounds i8, ptr %call.i10, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 1, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx6.i.i.i13, i64 16, i1 false)
+  %arrayidx10.i.i.i14 = getelementptr inbounds i8, ptr %call.i10, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 0, i32 0, i64 2, i32 0, i64 0), ptr noundef nonnull align 4 dereferenceable(16) %arrayidx10.i.i.i14, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%class.btTransform, ptr @_ZZN11btTransform11getIdentityEvE17identityTransform, i64 0, i32 1, i32 0, i64 0), i8 0, i64 16, i1 false)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN11btTransform11getIdentityEvE17identityTransform) #12
   br label %invoke.cont53
 
@@ -172,13 +157,13 @@ lpad.i11:                                         ; preds = %init.i9
 invoke.cont53:                                    ; preds = %invoke.cont5.i12, %init.check.i7, %_ZN11btTransform11getIdentityEv.exit
   tail call void @_ZN30btGeneric6DofSpring2ConstraintC2ER11btRigidBodyS1_RK11btTransformS4_11RotateOrder(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull align 8 dereferenceable(744) %rbA, ptr noundef nonnull align 8 dereferenceable(744) %rbB, ptr noundef nonnull align 4 dereferenceable(64) @_ZZN11btTransform11getIdentityEvE17identityTransform, ptr noundef nonnull align 4 dereferenceable(64) @_ZZN11btTransform11getIdentityEvE17identityTransform, i32 noundef 0)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV18btHinge2Constraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_anchor = getelementptr inbounds %class.btHinge2Constraint, ptr %this, i64 0, i32 1
+  %m_anchor = getelementptr inbounds i8, ptr %this, i64 1484
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_anchor, ptr noundef nonnull align 4 dereferenceable(16) %anchor, i64 16, i1 false)
-  %m_axis1 = getelementptr inbounds %class.btHinge2Constraint, ptr %this, i64 0, i32 2
+  %m_axis1 = getelementptr inbounds i8, ptr %this, i64 1500
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_axis1, ptr noundef nonnull align 4 dereferenceable(16) %axis1, i64 16, i1 false)
-  %m_axis2 = getelementptr inbounds %class.btHinge2Constraint, ptr %this, i64 0, i32 3
+  %m_axis2 = getelementptr inbounds i8, ptr %this, i64 1516
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_axis2, ptr noundef nonnull align 4 dereferenceable(16) %axis2, i64 16, i1 false)
-  %arrayidx10.i.i.i.i = getelementptr inbounds [4 x float], ptr %axis1, i64 0, i64 2
+  %arrayidx10.i.i.i.i = getelementptr inbounds i8, ptr %axis1, i64 8
   %6 = load float, ptr %arrayidx10.i.i.i.i, align 4
   %7 = load <2 x float>, ptr %axis1, align 4
   %8 = fmul <2 x float> %7, %7
@@ -194,7 +179,7 @@ invoke.cont53:                                    ; preds = %invoke.cont5.i12, %
   store <2 x float> %14, ptr %axis1, align 4
   %mul7.i.i.i = fmul float %6, %div.i.i
   store float %mul7.i.i.i, ptr %arrayidx10.i.i.i.i, align 4
-  %arrayidx10.i.i.i.i18 = getelementptr inbounds [4 x float], ptr %axis2, i64 0, i64 2
+  %arrayidx10.i.i.i.i18 = getelementptr inbounds i8, ptr %axis2, i64 8
   %15 = load float, ptr %arrayidx10.i.i.i.i18, align 4
   %16 = load <2 x float>, ptr %axis2, align 4
   %17 = fmul <2 x float> %16, %16
@@ -228,22 +213,22 @@ invoke.cont53:                                    ; preds = %invoke.cont5.i12, %
   %frameInW.sroa.39.48.copyload = load float, ptr %frameInW.sroa.39.48.anchor.sroa_idx, align 4
   %frameInW.sroa.41.48.anchor.sroa_idx = getelementptr inbounds i8, ptr %anchor, i64 8
   %frameInW.sroa.41.48.copyload = load float, ptr %frameInW.sroa.41.48.anchor.sroa_idx, align 4
-  %m_worldTransform.i = getelementptr inbounds %class.btCollisionObject, ptr %rbA, i64 0, i32 1
-  %arrayidx3.i.i26 = getelementptr inbounds %class.btCollisionObject, ptr %rbA, i64 0, i32 1, i32 0, i32 0, i64 1
-  %arrayidx6.i.i = getelementptr inbounds %class.btCollisionObject, ptr %rbA, i64 0, i32 1, i32 0, i32 0, i64 2
-  %arrayidx.i3.i.i = getelementptr inbounds %class.btCollisionObject, ptr %rbA, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i64 2
-  %arrayidx.i4.i.i = getelementptr inbounds %class.btCollisionObject, ptr %rbA, i64 0, i32 1, i32 0, i32 0, i64 1, i32 0, i64 2
-  %arrayidx.i5.i.i = getelementptr inbounds %class.btCollisionObject, ptr %rbA, i64 0, i32 1, i32 0, i32 0, i64 2, i32 0, i64 2
+  %m_worldTransform.i = getelementptr inbounds i8, ptr %rbA, i64 8
+  %arrayidx3.i.i26 = getelementptr inbounds i8, ptr %rbA, i64 24
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %rbA, i64 40
+  %arrayidx.i3.i.i = getelementptr inbounds i8, ptr %rbA, i64 16
+  %arrayidx.i4.i.i = getelementptr inbounds i8, ptr %rbA, i64 32
+  %arrayidx.i5.i.i = getelementptr inbounds i8, ptr %rbA, i64 48
   %34 = load float, ptr %arrayidx.i3.i.i, align 8, !noalias !6
   %35 = load float, ptr %arrayidx.i4.i.i, align 8, !noalias !6
   %36 = load float, ptr %arrayidx.i5.i.i, align 8, !noalias !6
-  %m_origin.i27 = getelementptr inbounds %class.btCollisionObject, ptr %rbA, i64 0, i32 1, i32 1
+  %m_origin.i27 = getelementptr inbounds i8, ptr %rbA, i64 56
   %37 = load float, ptr %m_origin.i27, align 8, !noalias !11
   %fneg.i.i = fneg float %37
-  %arrayidx3.i1.i28 = getelementptr inbounds %class.btCollisionObject, ptr %rbA, i64 0, i32 1, i32 1, i32 0, i64 1
+  %arrayidx3.i1.i28 = getelementptr inbounds i8, ptr %rbA, i64 60
   %38 = load float, ptr %arrayidx3.i1.i28, align 4, !noalias !11
   %fneg4.i.i = fneg float %38
-  %arrayidx7.i.i29 = getelementptr inbounds %class.btCollisionObject, ptr %rbA, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx7.i.i29 = getelementptr inbounds i8, ptr %rbA, i64 64
   %39 = load float, ptr %arrayidx7.i.i29, align 8, !noalias !11
   %fneg8.i.i = fneg float %39
   %mul8.i13.i.i = fmul float %35, %fneg4.i.i
@@ -291,7 +276,7 @@ invoke.cont53:                                    ; preds = %invoke.cont5.i12, %
   %77 = fadd <2 x float> %76, %57
   %add14.i.i.i = fadd float %45, %41
   %retval.sroa.3.12.vec.insert.i4.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i.i, i64 0
-  %m_frameInA = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 1
+  %m_frameInA = getelementptr inbounds i8, ptr %this, i64 72
   %78 = shufflevector <2 x float> %23, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %79 = insertelement <2 x float> %78, float %31, i64 1
   %80 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> zeroinitializer
@@ -304,11 +289,11 @@ invoke.cont53:                                    ; preds = %invoke.cont5.i12, %
   %87 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> zeroinitializer
   %88 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %86, <2 x float> %87, <2 x float> %84)
   store <2 x float> %88, ptr %m_frameInA, align 8
-  %ref.tmp.sroa.3.0.m_frameInA.sroa_idx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i64 2
+  %ref.tmp.sroa.3.0.m_frameInA.sroa_idx = getelementptr inbounds i8, ptr %this, i64 80
   store float %62, ptr %ref.tmp.sroa.3.0.m_frameInA.sroa_idx, align 8
-  %ref.tmp.sroa.4.0.m_frameInA.sroa_idx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i64 3
+  %ref.tmp.sroa.4.0.m_frameInA.sroa_idx = getelementptr inbounds i8, ptr %this, i64 84
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.m_frameInA.sroa_idx, align 4
-  %arrayidx7.i.i38 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 1, i32 0, i32 0, i64 1
+  %arrayidx7.i.i38 = getelementptr inbounds i8, ptr %this, i64 88
   %89 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %90 = fmul <2 x float> %79, %89
   %91 = shufflevector <2 x float> %46, <2 x float> poison, <2 x i32> <i32 1, i32 1>
@@ -316,11 +301,11 @@ invoke.cont53:                                    ; preds = %invoke.cont5.i12, %
   %93 = shufflevector <2 x float> %48, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %94 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %86, <2 x float> %93, <2 x float> %92)
   store <2 x float> %94, ptr %arrayidx7.i.i38, align 8
-  %ref.tmp.sroa.8.16.arrayidx7.i.i38.sroa_idx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 1, i32 0, i32 0, i64 1, i32 0, i64 2
+  %ref.tmp.sroa.8.16.arrayidx7.i.i38.sroa_idx = getelementptr inbounds i8, ptr %this, i64 96
   store float %67, ptr %ref.tmp.sroa.8.16.arrayidx7.i.i38.sroa_idx, align 8
-  %ref.tmp.sroa.9.16.arrayidx7.i.i38.sroa_idx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 1, i32 0, i32 0, i64 1, i32 0, i64 3
+  %ref.tmp.sroa.9.16.arrayidx7.i.i38.sroa_idx = getelementptr inbounds i8, ptr %this, i64 100
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx7.i.i38.sroa_idx, align 4
-  %arrayidx11.i.i = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 1, i32 0, i32 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %95 = insertelement <2 x float> poison, float %35, i64 0
   %96 = shufflevector <2 x float> %95, <2 x float> poison, <2 x i32> zeroinitializer
   %97 = fmul <2 x float> %79, %96
@@ -331,30 +316,30 @@ invoke.cont53:                                    ; preds = %invoke.cont5.i12, %
   %102 = shufflevector <2 x float> %101, <2 x float> poison, <2 x i32> zeroinitializer
   %103 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %86, <2 x float> %102, <2 x float> %100)
   store <2 x float> %103, ptr %arrayidx11.i.i, align 8
-  %ref.tmp.sroa.13.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 1, i32 0, i32 0, i64 2, i32 0, i64 2
+  %ref.tmp.sroa.13.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 112
   store float %43, ptr %ref.tmp.sroa.13.32.arrayidx11.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.14.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 1, i32 0, i32 0, i64 2, i32 0, i64 3
+  %ref.tmp.sroa.14.32.arrayidx11.i.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 116
   store float 0.000000e+00, ptr %ref.tmp.sroa.14.32.arrayidx11.i.i.sroa_idx, align 4
-  %m_origin3.i = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 1, i32 1
+  %m_origin3.i = getelementptr inbounds i8, ptr %this, i64 120
   store <2 x float> %77, ptr %m_origin3.i, align 8
-  %ref.tmp.sroa.17.48.m_origin3.i.sroa_idx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 1, i32 1, i32 0, i64 2
+  %ref.tmp.sroa.17.48.m_origin3.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 128
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i.i, ptr %ref.tmp.sroa.17.48.m_origin3.i.sroa_idx, align 8
-  %m_worldTransform.i40 = getelementptr inbounds %class.btCollisionObject, ptr %rbB, i64 0, i32 1
-  %arrayidx3.i.i41 = getelementptr inbounds %class.btCollisionObject, ptr %rbB, i64 0, i32 1, i32 0, i32 0, i64 1
-  %arrayidx6.i.i42 = getelementptr inbounds %class.btCollisionObject, ptr %rbB, i64 0, i32 1, i32 0, i32 0, i64 2
-  %arrayidx.i3.i.i46 = getelementptr inbounds %class.btCollisionObject, ptr %rbB, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i64 2
-  %arrayidx.i4.i.i47 = getelementptr inbounds %class.btCollisionObject, ptr %rbB, i64 0, i32 1, i32 0, i32 0, i64 1, i32 0, i64 2
-  %arrayidx.i5.i.i48 = getelementptr inbounds %class.btCollisionObject, ptr %rbB, i64 0, i32 1, i32 0, i32 0, i64 2, i32 0, i64 2
+  %m_worldTransform.i40 = getelementptr inbounds i8, ptr %rbB, i64 8
+  %arrayidx3.i.i41 = getelementptr inbounds i8, ptr %rbB, i64 24
+  %arrayidx6.i.i42 = getelementptr inbounds i8, ptr %rbB, i64 40
+  %arrayidx.i3.i.i46 = getelementptr inbounds i8, ptr %rbB, i64 16
+  %arrayidx.i4.i.i47 = getelementptr inbounds i8, ptr %rbB, i64 32
+  %arrayidx.i5.i.i48 = getelementptr inbounds i8, ptr %rbB, i64 48
   %104 = load float, ptr %arrayidx.i3.i.i46, align 8, !noalias !12
   %105 = load float, ptr %arrayidx.i4.i.i47, align 8, !noalias !12
   %106 = load float, ptr %arrayidx.i5.i.i48, align 8, !noalias !12
-  %m_origin.i49 = getelementptr inbounds %class.btCollisionObject, ptr %rbB, i64 0, i32 1, i32 1
+  %m_origin.i49 = getelementptr inbounds i8, ptr %rbB, i64 56
   %107 = load float, ptr %m_origin.i49, align 8, !noalias !17
   %fneg.i.i50 = fneg float %107
-  %arrayidx3.i1.i51 = getelementptr inbounds %class.btCollisionObject, ptr %rbB, i64 0, i32 1, i32 1, i32 0, i64 1
+  %arrayidx3.i1.i51 = getelementptr inbounds i8, ptr %rbB, i64 60
   %108 = load float, ptr %arrayidx3.i1.i51, align 4, !noalias !17
   %fneg4.i.i52 = fneg float %108
-  %arrayidx7.i.i53 = getelementptr inbounds %class.btCollisionObject, ptr %rbB, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx7.i.i53 = getelementptr inbounds i8, ptr %rbB, i64 64
   %109 = load float, ptr %arrayidx7.i.i53, align 8, !noalias !17
   %fneg8.i.i54 = fneg float %109
   %mul8.i13.i.i57 = fmul float %105, %fneg4.i.i52
@@ -396,7 +381,7 @@ invoke.cont53:                                    ; preds = %invoke.cont5.i12, %
   %141 = fadd <2 x float> %140, %127
   %add14.i.i.i110 = fadd float %115, %111
   %retval.sroa.3.12.vec.insert.i4.i.i113 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i.i110, i64 0
-  %m_frameInB = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 2
+  %m_frameInB = getelementptr inbounds i8, ptr %this, i64 136
   %142 = shufflevector <2 x float> %117, <2 x float> poison, <2 x i32> zeroinitializer
   %143 = fmul <2 x float> %79, %142
   %144 = shufflevector <2 x float> %116, <2 x float> poison, <2 x i32> zeroinitializer
@@ -404,11 +389,11 @@ invoke.cont53:                                    ; preds = %invoke.cont5.i12, %
   %146 = shufflevector <2 x float> %118, <2 x float> poison, <2 x i32> zeroinitializer
   %147 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %86, <2 x float> %146, <2 x float> %145)
   store <2 x float> %147, ptr %m_frameInB, align 8
-  %ref.tmp47.sroa.3.0.m_frameInB.sroa_idx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 0, i32 0, i64 2
+  %ref.tmp47.sroa.3.0.m_frameInB.sroa_idx = getelementptr inbounds i8, ptr %this, i64 144
   store float %132, ptr %ref.tmp47.sroa.3.0.m_frameInB.sroa_idx, align 8
-  %ref.tmp47.sroa.4.0.m_frameInB.sroa_idx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 0, i32 0, i64 3
+  %ref.tmp47.sroa.4.0.m_frameInB.sroa_idx = getelementptr inbounds i8, ptr %this, i64 148
   store float 0.000000e+00, ptr %ref.tmp47.sroa.4.0.m_frameInB.sroa_idx, align 4
-  %arrayidx7.i.i128 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1
+  %arrayidx7.i.i128 = getelementptr inbounds i8, ptr %this, i64 152
   %148 = shufflevector <2 x float> %117, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %149 = fmul <2 x float> %79, %148
   %150 = shufflevector <2 x float> %116, <2 x float> poison, <2 x i32> <i32 1, i32 1>
@@ -416,11 +401,11 @@ invoke.cont53:                                    ; preds = %invoke.cont5.i12, %
   %152 = shufflevector <2 x float> %118, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %153 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %86, <2 x float> %152, <2 x float> %151)
   store <2 x float> %153, ptr %arrayidx7.i.i128, align 8
-  %ref.tmp47.sroa.8.16.arrayidx7.i.i128.sroa_idx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1, i32 0, i64 2
+  %ref.tmp47.sroa.8.16.arrayidx7.i.i128.sroa_idx = getelementptr inbounds i8, ptr %this, i64 160
   store float %137, ptr %ref.tmp47.sroa.8.16.arrayidx7.i.i128.sroa_idx, align 8
-  %ref.tmp47.sroa.9.16.arrayidx7.i.i128.sroa_idx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 1, i32 0, i64 3
+  %ref.tmp47.sroa.9.16.arrayidx7.i.i128.sroa_idx = getelementptr inbounds i8, ptr %this, i64 164
   store float 0.000000e+00, ptr %ref.tmp47.sroa.9.16.arrayidx7.i.i128.sroa_idx, align 4
-  %arrayidx11.i.i130 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2
+  %arrayidx11.i.i130 = getelementptr inbounds i8, ptr %this, i64 168
   %154 = insertelement <2 x float> poison, float %105, i64 0
   %155 = shufflevector <2 x float> %154, <2 x float> poison, <2 x i32> zeroinitializer
   %156 = fmul <2 x float> %79, %155
@@ -431,19 +416,20 @@ invoke.cont53:                                    ; preds = %invoke.cont5.i12, %
   %161 = shufflevector <2 x float> %160, <2 x float> poison, <2 x i32> zeroinitializer
   %162 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %86, <2 x float> %161, <2 x float> %159)
   store <2 x float> %162, ptr %arrayidx11.i.i130, align 8
-  %ref.tmp47.sroa.13.32.arrayidx11.i.i130.sroa_idx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2, i32 0, i64 2
+  %ref.tmp47.sroa.13.32.arrayidx11.i.i130.sroa_idx = getelementptr inbounds i8, ptr %this, i64 176
   store float %113, ptr %ref.tmp47.sroa.13.32.arrayidx11.i.i130.sroa_idx, align 8
-  %ref.tmp47.sroa.14.32.arrayidx11.i.i130.sroa_idx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 2, i32 0, i32 0, i64 2, i32 0, i64 3
+  %ref.tmp47.sroa.14.32.arrayidx11.i.i130.sroa_idx = getelementptr inbounds i8, ptr %this, i64 180
   store float 0.000000e+00, ptr %ref.tmp47.sroa.14.32.arrayidx11.i.i130.sroa_idx, align 4
-  %m_origin3.i132 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 2, i32 1
+  %m_origin3.i132 = getelementptr inbounds i8, ptr %this, i64 184
   store <2 x float> %141, ptr %m_origin3.i132, align 8
-  %ref.tmp47.sroa.17.48.m_origin3.i132.sroa_idx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 2, i32 1, i32 0, i64 2
+  %ref.tmp47.sroa.17.48.m_origin3.i132.sroa_idx = getelementptr inbounds i8, ptr %this, i64 192
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i.i113, ptr %ref.tmp47.sroa.17.48.m_origin3.i132.sroa_idx, align 8
-  %m_linearLimits.i = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5
+  %m_linearLimits.i = getelementptr inbounds i8, ptr %this, i64 704
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float -1.000000e+00, float 0.000000e+00>, ptr %m_linearLimits.i, align 8
-  %m_upperLimit.i = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 1
+  %m_upperLimit.i = getelementptr inbounds i8, ptr %this, i64 720
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %m_upperLimit.i, align 8
   store <4 x float> <float 1.000000e+00, float 0.000000e+00, float 0xBFE921FB60000000, float 0.000000e+00>, ptr %ref.tmp67, align 16
+  %m_angularLimits.i = getelementptr inbounds i8, ptr %this, i64 992
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_Z16btNormalizeAnglef.exit.i, %invoke.cont53
@@ -468,7 +454,7 @@ if.then2.i.i:                                     ; preds = %if.else.i.i
 
 _Z16btNormalizeAnglef.exit.i:                     ; preds = %if.then2.i.i, %if.else.i.i, %if.then.i.i
   %retval.0.i.i = phi float [ %add.i.i, %if.then.i.i ], [ %sub.i.i, %if.then2.i.i ], [ %call.i.i.i, %if.else.i.i ]
-  %arrayidx4.i = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv.i
+  %arrayidx4.i = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i
   store float %retval.0.i.i, ptr %arrayidx4.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -476,37 +462,37 @@ _Z16btNormalizeAnglef.exit.i:                     ; preds = %if.then2.i.i, %if.e
 
 invoke.cont72:                                    ; preds = %_Z16btNormalizeAnglef.exit.i
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0x3FE921FB60000000, float 0.000000e+00>, ptr %ref.tmp73, align 16
-  br label %for.body.i146
+  br label %for.body.i147
 
-for.body.i146:                                    ; preds = %_Z16btNormalizeAnglef.exit.i153, %invoke.cont72
-  %indvars.iv.i147 = phi i64 [ 0, %invoke.cont72 ], [ %indvars.iv.next.i155, %_Z16btNormalizeAnglef.exit.i153 ]
-  %arrayidx.i148 = getelementptr inbounds float, ptr %ref.tmp73, i64 %indvars.iv.i147
-  %164 = load float, ptr %arrayidx.i148, align 4
-  %call.i.i.i149 = tail call noundef float @fmodf(float noundef %164, float noundef 0x401921FB60000000) #12
-  %cmp.i.i150 = fcmp olt float %call.i.i.i149, 0xC00921FB60000000
-  br i1 %cmp.i.i150, label %if.then.i.i159, label %if.else.i.i151
+for.body.i147:                                    ; preds = %_Z16btNormalizeAnglef.exit.i154, %invoke.cont72
+  %indvars.iv.i148 = phi i64 [ 0, %invoke.cont72 ], [ %indvars.iv.next.i156, %_Z16btNormalizeAnglef.exit.i154 ]
+  %arrayidx.i149 = getelementptr inbounds float, ptr %ref.tmp73, i64 %indvars.iv.i148
+  %164 = load float, ptr %arrayidx.i149, align 4
+  %call.i.i.i150 = tail call noundef float @fmodf(float noundef %164, float noundef 0x401921FB60000000) #12
+  %cmp.i.i151 = fcmp olt float %call.i.i.i150, 0xC00921FB60000000
+  br i1 %cmp.i.i151, label %if.then.i.i160, label %if.else.i.i152
 
-if.then.i.i159:                                   ; preds = %for.body.i146
-  %add.i.i160 = fadd float %call.i.i.i149, 0x401921FB60000000
-  br label %_Z16btNormalizeAnglef.exit.i153
+if.then.i.i160:                                   ; preds = %for.body.i147
+  %add.i.i161 = fadd float %call.i.i.i150, 0x401921FB60000000
+  br label %_Z16btNormalizeAnglef.exit.i154
 
-if.else.i.i151:                                   ; preds = %for.body.i146
-  %cmp1.i.i152 = fcmp ogt float %call.i.i.i149, 0x400921FB60000000
-  br i1 %cmp1.i.i152, label %if.then2.i.i157, label %_Z16btNormalizeAnglef.exit.i153
+if.else.i.i152:                                   ; preds = %for.body.i147
+  %cmp1.i.i153 = fcmp ogt float %call.i.i.i150, 0x400921FB60000000
+  br i1 %cmp1.i.i153, label %if.then2.i.i158, label %_Z16btNormalizeAnglef.exit.i154
 
-if.then2.i.i157:                                  ; preds = %if.else.i.i151
-  %sub.i.i158 = fadd float %call.i.i.i149, 0xC01921FB60000000
-  br label %_Z16btNormalizeAnglef.exit.i153
+if.then2.i.i158:                                  ; preds = %if.else.i.i152
+  %sub.i.i159 = fadd float %call.i.i.i150, 0xC01921FB60000000
+  br label %_Z16btNormalizeAnglef.exit.i154
 
-_Z16btNormalizeAnglef.exit.i153:                  ; preds = %if.then2.i.i157, %if.else.i.i151, %if.then.i.i159
-  %retval.0.i.i154 = phi float [ %add.i.i160, %if.then.i.i159 ], [ %sub.i.i158, %if.then2.i.i157 ], [ %call.i.i.i149, %if.else.i.i151 ]
-  %m_hiLimit.i = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv.i147, i32 1
-  store float %retval.0.i.i154, ptr %m_hiLimit.i, align 4
-  %indvars.iv.next.i155 = add nuw nsw i64 %indvars.iv.i147, 1
-  %exitcond.not.i156 = icmp eq i64 %indvars.iv.next.i155, 3
-  br i1 %exitcond.not.i156, label %invoke.cont78, label %for.body.i146, !llvm.loop !20
+_Z16btNormalizeAnglef.exit.i154:                  ; preds = %if.then2.i.i158, %if.else.i.i152, %if.then.i.i160
+  %retval.0.i.i155 = phi float [ %add.i.i161, %if.then.i.i160 ], [ %sub.i.i159, %if.then2.i.i158 ], [ %call.i.i.i150, %if.else.i.i152 ]
+  %m_hiLimit.i = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits.i, i64 0, i64 %indvars.iv.i148, i32 1
+  store float %retval.0.i.i155, ptr %m_hiLimit.i, align 4
+  %indvars.iv.next.i156 = add nuw nsw i64 %indvars.iv.i148, 1
+  %exitcond.not.i157 = icmp eq i64 %indvars.iv.next.i156, 3
+  br i1 %exitcond.not.i157, label %invoke.cont78, label %for.body.i147, !llvm.loop !20
 
-invoke.cont78:                                    ; preds = %_Z16btNormalizeAnglef.exit.i153
+invoke.cont78:                                    ; preds = %_Z16btNormalizeAnglef.exit.i154
   invoke void @_ZN30btGeneric6DofSpring2Constraint12enableSpringEib(ptr noundef nonnull align 8 dereferenceable(1484) %this, i32 noundef 2, i1 noundef zeroext true)
           to label %invoke.cont79 unwind label %lpad
 
@@ -632,8 +618,8 @@ entry:
 define linkonce_odr dso_local noundef ptr @_ZNK30btGeneric6DofSpring2Constraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef %dataBuffer, ptr noundef %serializer) unnamed_addr #4 comdat align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %dataBuffer, ptr noundef %serializer)
-  %m_frameInA = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 1
-  %m_rbAFrame = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 1
+  %m_frameInA = getelementptr inbounds i8, ptr %this, i64 72
+  %m_rbAFrame = getelementptr inbounds i8, ptr %dataBuffer, i64 64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i, %entry
@@ -658,8 +644,8 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit.i.i: ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i, label %for.body.i.i, !llvm.loop !22
 
 _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i: ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i
-  %m_origin.i = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 1, i32 1
-  %m_origin3.i = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 1, i32 1
+  %m_origin.i = getelementptr inbounds i8, ptr %this, i64 120
+  %m_origin3.i = getelementptr inbounds i8, ptr %dataBuffer, i64 112
   br label %for.body.i2.i
 
 for.body.i2.i:                                    ; preds = %for.body.i2.i, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i
@@ -673,8 +659,8 @@ for.body.i2.i:                                    ; preds = %for.body.i2.i, %_ZN
   br i1 %exitcond.not.i7.i, label %_ZNK11btTransform9serializeER20btTransformFloatData.exit, label %for.body.i2.i, !llvm.loop !21
 
 _ZNK11btTransform9serializeER20btTransformFloatData.exit: ; preds = %for.body.i2.i
-  %m_frameInB = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 2
-  %m_rbBFrame = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 2
+  %m_frameInB = getelementptr inbounds i8, ptr %this, i64 136
+  %m_rbBFrame = getelementptr inbounds i8, ptr %dataBuffer, i64 128
   br label %for.body.i.i122
 
 for.body.i.i122:                                  ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i132, %_ZNK11btTransform9serializeER20btTransformFloatData.exit
@@ -699,8 +685,8 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit.i.i132: ; preds = %for.body.
   br i1 %exitcond.not.i.i134, label %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i135, label %for.body.i.i122, !llvm.loop !22
 
 _ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i135: ; preds = %_ZNK9btVector39serializeER18btVector3FloatData.exit.i.i132
-  %m_origin.i136 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 2, i32 1
-  %m_origin3.i137 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 2, i32 1
+  %m_origin.i136 = getelementptr inbounds i8, ptr %this, i64 184
+  %m_origin3.i137 = getelementptr inbounds i8, ptr %dataBuffer, i64 176
   br label %for.body.i2.i138
 
 for.body.i2.i138:                                 ; preds = %for.body.i2.i138, %_ZNK11btMatrix3x39serializeER20btMatrix3x3FloatData.exit.i135
@@ -714,72 +700,73 @@ for.body.i2.i138:                                 ; preds = %for.body.i2.i138, %
   br i1 %exitcond.not.i7.i143, label %for.cond.preheader, label %for.body.i2.i138, !llvm.loop !21
 
 for.cond.preheader:                               ; preds = %for.body.i2.i138
-  %m_angularLowerLimit = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 23
-  %m_angularUpperLimit = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 22
-  %m_angularBounce = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 24
-  %m_angularStopERP = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 25
-  %m_angularStopCFM = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 26
-  %m_angularMotorERP = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 27
-  %m_angularMotorCFM = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 28
-  %m_angularTargetVelocity = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 29
-  %m_angularMaxMotorForce = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 30
-  %m_angularServoTarget = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 31
-  %m_angularSpringStiffness = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 32
-  %m_angularSpringDamping = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 33
-  %m_angularEquilibriumPoint = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 34
+  %m_angularLimits = getelementptr inbounds i8, ptr %this, i64 992
+  %m_angularLowerLimit = getelementptr inbounds i8, ptr %dataBuffer, i64 440
+  %m_angularUpperLimit = getelementptr inbounds i8, ptr %dataBuffer, i64 424
+  %m_angularBounce = getelementptr inbounds i8, ptr %dataBuffer, i64 456
+  %m_angularStopERP = getelementptr inbounds i8, ptr %dataBuffer, i64 472
+  %m_angularStopCFM = getelementptr inbounds i8, ptr %dataBuffer, i64 488
+  %m_angularMotorERP = getelementptr inbounds i8, ptr %dataBuffer, i64 504
+  %m_angularMotorCFM = getelementptr inbounds i8, ptr %dataBuffer, i64 520
+  %m_angularTargetVelocity = getelementptr inbounds i8, ptr %dataBuffer, i64 536
+  %m_angularMaxMotorForce = getelementptr inbounds i8, ptr %dataBuffer, i64 552
+  %m_angularServoTarget = getelementptr inbounds i8, ptr %dataBuffer, i64 568
+  %m_angularSpringStiffness = getelementptr inbounds i8, ptr %dataBuffer, i64 584
+  %m_angularSpringDamping = getelementptr inbounds i8, ptr %dataBuffer, i64 600
+  %m_angularEquilibriumPoint = getelementptr inbounds i8, ptr %dataBuffer, i64 616
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %indvars.iv
   %4 = load float, ptr %arrayidx, align 8
   %arrayidx3 = getelementptr inbounds [4 x float], ptr %m_angularLowerLimit, i64 0, i64 %indvars.iv
   store float %4, ptr %arrayidx3, align 4
-  %m_hiLimit = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv, i32 1
+  %m_hiLimit = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %5 = load float, ptr %m_hiLimit, align 4
   %arrayidx9 = getelementptr inbounds [4 x float], ptr %m_angularUpperLimit, i64 0, i64 %indvars.iv
   store float %5, ptr %arrayidx9, align 4
-  %m_bounce = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv, i32 2
+  %m_bounce = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %6 = load float, ptr %m_bounce, align 8
   %arrayidx15 = getelementptr inbounds [4 x float], ptr %m_angularBounce, i64 0, i64 %indvars.iv
   store float %6, ptr %arrayidx15, align 4
-  %m_stopERP = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv, i32 3
+  %m_stopERP = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %7 = load float, ptr %m_stopERP, align 4
   %arrayidx21 = getelementptr inbounds [4 x float], ptr %m_angularStopERP, i64 0, i64 %indvars.iv
   store float %7, ptr %arrayidx21, align 4
-  %m_stopCFM = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv, i32 4
+  %m_stopCFM = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %8 = load float, ptr %m_stopCFM, align 8
   %arrayidx27 = getelementptr inbounds [4 x float], ptr %m_angularStopCFM, i64 0, i64 %indvars.iv
   store float %8, ptr %arrayidx27, align 4
-  %m_motorERP = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv, i32 5
+  %m_motorERP = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %9 = load float, ptr %m_motorERP, align 4
   %arrayidx33 = getelementptr inbounds [4 x float], ptr %m_angularMotorERP, i64 0, i64 %indvars.iv
   store float %9, ptr %arrayidx33, align 4
-  %m_motorCFM = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv, i32 6
+  %m_motorCFM = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %10 = load float, ptr %m_motorCFM, align 8
   %arrayidx39 = getelementptr inbounds [4 x float], ptr %m_angularMotorCFM, i64 0, i64 %indvars.iv
   store float %10, ptr %arrayidx39, align 4
-  %m_targetVelocity = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv, i32 8
+  %m_targetVelocity = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %11 = load float, ptr %m_targetVelocity, align 8
   %arrayidx45 = getelementptr inbounds [4 x float], ptr %m_angularTargetVelocity, i64 0, i64 %indvars.iv
   store float %11, ptr %arrayidx45, align 4
-  %m_maxMotorForce = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv, i32 9
+  %m_maxMotorForce = getelementptr inbounds i8, ptr %arrayidx, i64 36
   %12 = load float, ptr %m_maxMotorForce, align 4
   %arrayidx51 = getelementptr inbounds [4 x float], ptr %m_angularMaxMotorForce, i64 0, i64 %indvars.iv
   store float %12, ptr %arrayidx51, align 4
-  %m_servoTarget = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv, i32 11
+  %m_servoTarget = getelementptr inbounds i8, ptr %arrayidx, i64 44
   %13 = load float, ptr %m_servoTarget, align 4
   %arrayidx57 = getelementptr inbounds [4 x float], ptr %m_angularServoTarget, i64 0, i64 %indvars.iv
   store float %13, ptr %arrayidx57, align 4
-  %m_springStiffness = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv, i32 13
+  %m_springStiffness = getelementptr inbounds i8, ptr %arrayidx, i64 52
   %14 = load float, ptr %m_springStiffness, align 4
   %arrayidx63 = getelementptr inbounds [4 x float], ptr %m_angularSpringStiffness, i64 0, i64 %indvars.iv
   store float %14, ptr %arrayidx63, align 4
-  %m_springDamping = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv, i32 15
+  %m_springDamping = getelementptr inbounds i8, ptr %arrayidx, i64 60
   %15 = load float, ptr %m_springDamping, align 4
   %arrayidx69 = getelementptr inbounds [4 x float], ptr %m_angularSpringDamping, i64 0, i64 %indvars.iv
   store float %15, ptr %arrayidx69, align 4
-  %m_equilibriumPoint = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv, i32 17
+  %m_equilibriumPoint = getelementptr inbounds i8, ptr %arrayidx, i64 68
   %16 = load float, ptr %m_equilibriumPoint, align 4
   %arrayidx75 = getelementptr inbounds [4 x float], ptr %m_angularEquilibriumPoint, i64 0, i64 %indvars.iv
   store float %16, ptr %arrayidx75, align 4
@@ -788,78 +775,83 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body
-  %arrayidx78 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 23, i32 0, i64 3
+  %arrayidx78 = getelementptr inbounds i8, ptr %dataBuffer, i64 452
   store float 0.000000e+00, ptr %arrayidx78, align 4
-  %arrayidx81 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 22, i32 0, i64 3
+  %arrayidx81 = getelementptr inbounds i8, ptr %dataBuffer, i64 436
   store float 0.000000e+00, ptr %arrayidx81, align 4
-  %arrayidx84 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 24, i32 0, i64 3
+  %arrayidx84 = getelementptr inbounds i8, ptr %dataBuffer, i64 468
   store float 0.000000e+00, ptr %arrayidx84, align 4
-  %arrayidx87 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 25, i32 0, i64 3
+  %arrayidx87 = getelementptr inbounds i8, ptr %dataBuffer, i64 484
   store float 0.000000e+00, ptr %arrayidx87, align 4
-  %arrayidx90 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 26, i32 0, i64 3
+  %arrayidx90 = getelementptr inbounds i8, ptr %dataBuffer, i64 500
   store float 0.000000e+00, ptr %arrayidx90, align 4
-  %arrayidx93 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 27, i32 0, i64 3
+  %arrayidx93 = getelementptr inbounds i8, ptr %dataBuffer, i64 516
   store float 0.000000e+00, ptr %arrayidx93, align 4
-  %arrayidx96 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 28, i32 0, i64 3
+  %arrayidx96 = getelementptr inbounds i8, ptr %dataBuffer, i64 532
   store float 0.000000e+00, ptr %arrayidx96, align 4
-  %arrayidx99 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 29, i32 0, i64 3
+  %arrayidx99 = getelementptr inbounds i8, ptr %dataBuffer, i64 548
   store float 0.000000e+00, ptr %arrayidx99, align 4
-  %arrayidx102 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 30, i32 0, i64 3
+  %arrayidx102 = getelementptr inbounds i8, ptr %dataBuffer, i64 564
   store float 0.000000e+00, ptr %arrayidx102, align 4
-  %arrayidx105 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 31, i32 0, i64 3
+  %arrayidx105 = getelementptr inbounds i8, ptr %dataBuffer, i64 580
   store float 0.000000e+00, ptr %arrayidx105, align 4
-  %arrayidx108 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 32, i32 0, i64 3
+  %arrayidx108 = getelementptr inbounds i8, ptr %dataBuffer, i64 596
   store float 0.000000e+00, ptr %arrayidx108, align 4
-  %arrayidx111 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 33, i32 0, i64 3
+  %arrayidx111 = getelementptr inbounds i8, ptr %dataBuffer, i64 612
   store float 0.000000e+00, ptr %arrayidx111, align 4
-  %arrayidx114 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 34, i32 0, i64 3
+  %arrayidx114 = getelementptr inbounds i8, ptr %dataBuffer, i64 628
   store float 0.000000e+00, ptr %arrayidx114, align 4
+  %m_angularSpringDampingLimited = getelementptr inbounds i8, ptr %dataBuffer, i64 648
+  %m_angularEnableMotor = getelementptr inbounds i8, ptr %dataBuffer, i64 632
+  %m_angularServoMotor = getelementptr inbounds i8, ptr %dataBuffer, i64 636
+  %m_angularEnableSpring = getelementptr inbounds i8, ptr %dataBuffer, i64 640
+  %m_angularSpringStiffnessLimited = getelementptr inbounds i8, ptr %dataBuffer, i64 644
   br label %cond.end172
 
 cond.end172:                                      ; preds = %for.end, %cond.end172
-  %indvars.iv255273 = phi i64 [ 0, %for.end ], [ %indvars.iv.next256, %cond.end172 ]
-  %m_enableMotor = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv255273, i32 7
+  %indvars.iv259277 = phi i64 [ 0, %for.end ], [ %indvars.iv.next260, %cond.end172 ]
+  %m_enableMotor = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %indvars.iv259277, i32 7
   %17 = load i8, ptr %m_enableMotor, align 4
   %18 = and i8 %17, 1
-  %arrayidx124 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 35, i64 %indvars.iv255273
+  %arrayidx124 = getelementptr inbounds [4 x i8], ptr %m_angularEnableMotor, i64 0, i64 %indvars.iv259277
   store i8 %18, ptr %arrayidx124, align 1
-  %m_servoMotor = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv255273, i32 10
+  %m_servoMotor = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %indvars.iv259277, i32 10
   %19 = load i8, ptr %m_servoMotor, align 8
   %20 = and i8 %19, 1
-  %arrayidx137 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 36, i64 %indvars.iv255273
+  %arrayidx137 = getelementptr inbounds [4 x i8], ptr %m_angularServoMotor, i64 0, i64 %indvars.iv259277
   store i8 %20, ptr %arrayidx137, align 1
-  %m_enableSpring = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv255273, i32 12
+  %m_enableSpring = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %indvars.iv259277, i32 12
   %21 = load i8, ptr %m_enableSpring, align 8
   %22 = and i8 %21, 1
-  %arrayidx150 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 37, i64 %indvars.iv255273
+  %arrayidx150 = getelementptr inbounds [4 x i8], ptr %m_angularEnableSpring, i64 0, i64 %indvars.iv259277
   store i8 %22, ptr %arrayidx150, align 1
-  %m_springStiffnessLimited = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv255273, i32 14
+  %m_springStiffnessLimited = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %indvars.iv259277, i32 14
   %23 = load i8, ptr %m_springStiffnessLimited, align 8
   %24 = and i8 %23, 1
-  %arrayidx163 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 38, i64 %indvars.iv255273
+  %arrayidx163 = getelementptr inbounds [4 x i8], ptr %m_angularSpringStiffnessLimited, i64 0, i64 %indvars.iv259277
   store i8 %24, ptr %arrayidx163, align 1
-  %m_springDampingLimited = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 6, i64 %indvars.iv255273, i32 16
+  %m_springDampingLimited = getelementptr inbounds [3 x %class.btRotationalLimitMotor2], ptr %m_angularLimits, i64 0, i64 %indvars.iv259277, i32 16
   %25 = load i8, ptr %m_springDampingLimited, align 8
   %26 = and i8 %25, 1
-  %arrayidx176 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 39, i64 %indvars.iv255273
+  %arrayidx176 = getelementptr inbounds [4 x i8], ptr %m_angularSpringDampingLimited, i64 0, i64 %indvars.iv259277
   store i8 %26, ptr %arrayidx176, align 1
-  %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255273, 1
-  %cmp118.not = icmp eq i64 %indvars.iv.next256, 3
+  %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259277, 1
+  %cmp118.not = icmp eq i64 %indvars.iv.next260, 3
   br i1 %cmp118.not, label %for.end179, label %cond.end172
 
 for.end179:                                       ; preds = %cond.end172
-  %arrayidx124231 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 35, i64 3
-  store i8 0, ptr %arrayidx124231, align 1
-  %arrayidx137.c = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 36, i64 3
+  %arrayidx124232 = getelementptr inbounds i8, ptr %dataBuffer, i64 635
+  store i8 0, ptr %arrayidx124232, align 1
+  %arrayidx137.c = getelementptr inbounds i8, ptr %dataBuffer, i64 639
   store i8 0, ptr %arrayidx137.c, align 1
-  %arrayidx150236 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 37, i64 3
-  store i8 0, ptr %arrayidx150236, align 1
-  %arrayidx163.c = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 38, i64 3
+  %arrayidx150238 = getelementptr inbounds i8, ptr %dataBuffer, i64 643
+  store i8 0, ptr %arrayidx150238, align 1
+  %arrayidx163.c = getelementptr inbounds i8, ptr %dataBuffer, i64 647
   store i8 0, ptr %arrayidx163.c, align 1
-  %arrayidx176265 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 39, i64 3
-  store i8 0, ptr %arrayidx176265, align 1
-  %m_linearLimits = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5
-  %m_linearLowerLimit = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 4
+  %arrayidx176269 = getelementptr inbounds i8, ptr %dataBuffer, i64 651
+  store i8 0, ptr %arrayidx176269, align 1
+  %m_linearLimits = getelementptr inbounds i8, ptr %this, i64 704
+  %m_linearLowerLimit = getelementptr inbounds i8, ptr %dataBuffer, i64 208
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.end179
@@ -873,8 +865,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.en
   br i1 %exitcond.not.i, label %_ZNK9btVector39serializeER18btVector3FloatData.exit, label %for.body.i, !llvm.loop !21
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit: ; preds = %for.body.i
-  %m_upperLimit = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 1
-  %m_linearUpperLimit = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 3
+  %m_upperLimit = getelementptr inbounds i8, ptr %this, i64 720
+  %m_linearUpperLimit = getelementptr inbounds i8, ptr %dataBuffer, i64 192
   br label %for.body.i145
 
 for.body.i145:                                    ; preds = %for.body.i145, %_ZNK9btVector39serializeER18btVector3FloatData.exit
@@ -888,8 +880,8 @@ for.body.i145:                                    ; preds = %for.body.i145, %_ZN
   br i1 %exitcond.not.i150, label %_ZNK9btVector39serializeER18btVector3FloatData.exit151, label %for.body.i145, !llvm.loop !21
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit151: ; preds = %for.body.i145
-  %m_bounce182 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 2
-  %m_linearBounce = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 5
+  %m_bounce182 = getelementptr inbounds i8, ptr %this, i64 736
+  %m_linearBounce = getelementptr inbounds i8, ptr %dataBuffer, i64 224
   br label %for.body.i152
 
 for.body.i152:                                    ; preds = %for.body.i152, %_ZNK9btVector39serializeER18btVector3FloatData.exit151
@@ -903,8 +895,8 @@ for.body.i152:                                    ; preds = %for.body.i152, %_ZN
   br i1 %exitcond.not.i157, label %_ZNK9btVector39serializeER18btVector3FloatData.exit158, label %for.body.i152, !llvm.loop !21
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit158: ; preds = %for.body.i152
-  %m_stopERP184 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 3
-  %m_linearStopERP = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 6
+  %m_stopERP184 = getelementptr inbounds i8, ptr %this, i64 752
+  %m_linearStopERP = getelementptr inbounds i8, ptr %dataBuffer, i64 240
   br label %for.body.i159
 
 for.body.i159:                                    ; preds = %for.body.i159, %_ZNK9btVector39serializeER18btVector3FloatData.exit158
@@ -918,8 +910,8 @@ for.body.i159:                                    ; preds = %for.body.i159, %_ZN
   br i1 %exitcond.not.i164, label %_ZNK9btVector39serializeER18btVector3FloatData.exit165, label %for.body.i159, !llvm.loop !21
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit165: ; preds = %for.body.i159
-  %m_stopCFM186 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 4
-  %m_linearStopCFM = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 7
+  %m_stopCFM186 = getelementptr inbounds i8, ptr %this, i64 768
+  %m_linearStopCFM = getelementptr inbounds i8, ptr %dataBuffer, i64 256
   br label %for.body.i166
 
 for.body.i166:                                    ; preds = %for.body.i166, %_ZNK9btVector39serializeER18btVector3FloatData.exit165
@@ -933,8 +925,8 @@ for.body.i166:                                    ; preds = %for.body.i166, %_ZN
   br i1 %exitcond.not.i171, label %_ZNK9btVector39serializeER18btVector3FloatData.exit172, label %for.body.i166, !llvm.loop !21
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit172: ; preds = %for.body.i166
-  %m_motorERP188 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 5
-  %m_linearMotorERP = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 8
+  %m_motorERP188 = getelementptr inbounds i8, ptr %this, i64 784
+  %m_linearMotorERP = getelementptr inbounds i8, ptr %dataBuffer, i64 272
   br label %for.body.i173
 
 for.body.i173:                                    ; preds = %for.body.i173, %_ZNK9btVector39serializeER18btVector3FloatData.exit172
@@ -948,8 +940,8 @@ for.body.i173:                                    ; preds = %for.body.i173, %_ZN
   br i1 %exitcond.not.i178, label %_ZNK9btVector39serializeER18btVector3FloatData.exit179, label %for.body.i173, !llvm.loop !21
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit179: ; preds = %for.body.i173
-  %m_motorCFM190 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 6
-  %m_linearMotorCFM = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 9
+  %m_motorCFM190 = getelementptr inbounds i8, ptr %this, i64 800
+  %m_linearMotorCFM = getelementptr inbounds i8, ptr %dataBuffer, i64 288
   br label %for.body.i180
 
 for.body.i180:                                    ; preds = %for.body.i180, %_ZNK9btVector39serializeER18btVector3FloatData.exit179
@@ -963,8 +955,8 @@ for.body.i180:                                    ; preds = %for.body.i180, %_ZN
   br i1 %exitcond.not.i185, label %_ZNK9btVector39serializeER18btVector3FloatData.exit186, label %for.body.i180, !llvm.loop !21
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit186: ; preds = %for.body.i180
-  %m_targetVelocity192 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 16
-  %m_linearTargetVelocity = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 10
+  %m_targetVelocity192 = getelementptr inbounds i8, ptr %this, i64 900
+  %m_linearTargetVelocity = getelementptr inbounds i8, ptr %dataBuffer, i64 304
   br label %for.body.i187
 
 for.body.i187:                                    ; preds = %for.body.i187, %_ZNK9btVector39serializeER18btVector3FloatData.exit186
@@ -978,8 +970,8 @@ for.body.i187:                                    ; preds = %for.body.i187, %_ZN
   br i1 %exitcond.not.i192, label %_ZNK9btVector39serializeER18btVector3FloatData.exit193, label %for.body.i187, !llvm.loop !21
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit193: ; preds = %for.body.i187
-  %m_maxMotorForce194 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 17
-  %m_linearMaxMotorForce = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 11
+  %m_maxMotorForce194 = getelementptr inbounds i8, ptr %this, i64 916
+  %m_linearMaxMotorForce = getelementptr inbounds i8, ptr %dataBuffer, i64 320
   br label %for.body.i194
 
 for.body.i194:                                    ; preds = %for.body.i194, %_ZNK9btVector39serializeER18btVector3FloatData.exit193
@@ -993,8 +985,8 @@ for.body.i194:                                    ; preds = %for.body.i194, %_ZN
   br i1 %exitcond.not.i199, label %_ZNK9btVector39serializeER18btVector3FloatData.exit200, label %for.body.i194, !llvm.loop !21
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit200: ; preds = %for.body.i194
-  %m_servoTarget196 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 10
-  %m_linearServoTarget = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 12
+  %m_servoTarget196 = getelementptr inbounds i8, ptr %this, i64 828
+  %m_linearServoTarget = getelementptr inbounds i8, ptr %dataBuffer, i64 336
   br label %for.body.i201
 
 for.body.i201:                                    ; preds = %for.body.i201, %_ZNK9btVector39serializeER18btVector3FloatData.exit200
@@ -1008,8 +1000,8 @@ for.body.i201:                                    ; preds = %for.body.i201, %_ZN
   br i1 %exitcond.not.i206, label %_ZNK9btVector39serializeER18btVector3FloatData.exit207, label %for.body.i201, !llvm.loop !21
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit207: ; preds = %for.body.i201
-  %m_springStiffness198 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 11
-  %m_linearSpringStiffness = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 13
+  %m_springStiffness198 = getelementptr inbounds i8, ptr %this, i64 844
+  %m_linearSpringStiffness = getelementptr inbounds i8, ptr %dataBuffer, i64 352
   br label %for.body.i208
 
 for.body.i208:                                    ; preds = %for.body.i208, %_ZNK9btVector39serializeER18btVector3FloatData.exit207
@@ -1023,8 +1015,8 @@ for.body.i208:                                    ; preds = %for.body.i208, %_ZN
   br i1 %exitcond.not.i213, label %_ZNK9btVector39serializeER18btVector3FloatData.exit214, label %for.body.i208, !llvm.loop !21
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit214: ; preds = %for.body.i208
-  %m_springDamping200 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 13
-  %m_linearSpringDamping = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 14
+  %m_springDamping200 = getelementptr inbounds i8, ptr %this, i64 864
+  %m_linearSpringDamping = getelementptr inbounds i8, ptr %dataBuffer, i64 368
   br label %for.body.i215
 
 for.body.i215:                                    ; preds = %for.body.i215, %_ZNK9btVector39serializeER18btVector3FloatData.exit214
@@ -1038,8 +1030,8 @@ for.body.i215:                                    ; preds = %for.body.i215, %_ZN
   br i1 %exitcond.not.i220, label %_ZNK9btVector39serializeER18btVector3FloatData.exit221, label %for.body.i215, !llvm.loop !21
 
 _ZNK9btVector39serializeER18btVector3FloatData.exit221: ; preds = %for.body.i215
-  %m_equilibriumPoint202 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 15
-  %m_linearEquilibriumPoint = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 15
+  %m_equilibriumPoint202 = getelementptr inbounds i8, ptr %this, i64 884
+  %m_linearEquilibriumPoint = getelementptr inbounds i8, ptr %dataBuffer, i64 384
   br label %for.body.i222
 
 for.body.i222:                                    ; preds = %for.body.i222, %_ZNK9btVector39serializeER18btVector3FloatData.exit221
@@ -1050,55 +1042,68 @@ for.body.i222:                                    ; preds = %for.body.i222, %_ZN
   store float %39, ptr %arrayidx4.i225, align 4
   %indvars.iv.next.i226 = add nuw nsw i64 %indvars.iv.i223, 1
   %exitcond.not.i227 = icmp eq i64 %indvars.iv.next.i226, 4
-  br i1 %exitcond.not.i227, label %cond.end271, label %for.body.i222, !llvm.loop !21
+  br i1 %exitcond.not.i227, label %for.cond203.preheader, label %for.body.i222, !llvm.loop !21
 
-cond.end271:                                      ; preds = %for.body.i222, %cond.end271
-  %indvars.iv259274 = phi i64 [ %indvars.iv.next260, %cond.end271 ], [ 0, %for.body.i222 ]
-  %arrayidx211 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 7, i64 %indvars.iv259274
+for.cond203.preheader:                            ; preds = %for.body.i222
+  %m_linearSpringDampingLimited = getelementptr inbounds i8, ptr %dataBuffer, i64 416
+  %m_enableMotor209 = getelementptr inbounds i8, ptr %this, i64 816
+  %m_linearEnableMotor = getelementptr inbounds i8, ptr %dataBuffer, i64 400
+  %m_servoMotor223 = getelementptr inbounds i8, ptr %this, i64 819
+  %m_linearServoMotor = getelementptr inbounds i8, ptr %dataBuffer, i64 404
+  %m_enableSpring237 = getelementptr inbounds i8, ptr %this, i64 822
+  %m_linearEnableSpring = getelementptr inbounds i8, ptr %dataBuffer, i64 408
+  %m_springStiffnessLimited251 = getelementptr inbounds i8, ptr %this, i64 860
+  %m_linearSpringStiffnessLimited = getelementptr inbounds i8, ptr %dataBuffer, i64 412
+  %m_springDampingLimited265 = getelementptr inbounds i8, ptr %this, i64 880
+  br label %cond.end271
+
+cond.end271:                                      ; preds = %for.cond203.preheader, %cond.end271
+  %indvars.iv263278 = phi i64 [ 0, %for.cond203.preheader ], [ %indvars.iv.next264, %cond.end271 ]
+  %arrayidx211 = getelementptr inbounds [3 x i8], ptr %m_enableMotor209, i64 0, i64 %indvars.iv263278
   %40 = load i8, ptr %arrayidx211, align 1
   %41 = and i8 %40, 1
-  %arrayidx219 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 16, i64 %indvars.iv259274
+  %arrayidx219 = getelementptr inbounds [4 x i8], ptr %m_linearEnableMotor, i64 0, i64 %indvars.iv263278
   store i8 %41, ptr %arrayidx219, align 1
-  %arrayidx225 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 8, i64 %indvars.iv259274
+  %arrayidx225 = getelementptr inbounds [3 x i8], ptr %m_servoMotor223, i64 0, i64 %indvars.iv263278
   %42 = load i8, ptr %arrayidx225, align 1
   %43 = and i8 %42, 1
-  %arrayidx233 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 17, i64 %indvars.iv259274
+  %arrayidx233 = getelementptr inbounds [4 x i8], ptr %m_linearServoMotor, i64 0, i64 %indvars.iv263278
   store i8 %43, ptr %arrayidx233, align 1
-  %arrayidx239 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 9, i64 %indvars.iv259274
+  %arrayidx239 = getelementptr inbounds [3 x i8], ptr %m_enableSpring237, i64 0, i64 %indvars.iv263278
   %44 = load i8, ptr %arrayidx239, align 1
   %45 = and i8 %44, 1
-  %arrayidx247 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 18, i64 %indvars.iv259274
+  %arrayidx247 = getelementptr inbounds [4 x i8], ptr %m_linearEnableSpring, i64 0, i64 %indvars.iv263278
   store i8 %45, ptr %arrayidx247, align 1
-  %arrayidx253 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 12, i64 %indvars.iv259274
+  %arrayidx253 = getelementptr inbounds [3 x i8], ptr %m_springStiffnessLimited251, i64 0, i64 %indvars.iv263278
   %46 = load i8, ptr %arrayidx253, align 1
   %47 = and i8 %46, 1
-  %arrayidx261 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 19, i64 %indvars.iv259274
+  %arrayidx261 = getelementptr inbounds [4 x i8], ptr %m_linearSpringStiffnessLimited, i64 0, i64 %indvars.iv263278
   store i8 %47, ptr %arrayidx261, align 1
-  %arrayidx267 = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 5, i32 14, i64 %indvars.iv259274
+  %arrayidx267 = getelementptr inbounds [3 x i8], ptr %m_springDampingLimited265, i64 0, i64 %indvars.iv263278
   %48 = load i8, ptr %arrayidx267, align 1
   %49 = and i8 %48, 1
-  %arrayidx275 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 20, i64 %indvars.iv259274
+  %arrayidx275 = getelementptr inbounds [4 x i8], ptr %m_linearSpringDampingLimited, i64 0, i64 %indvars.iv263278
   store i8 %49, ptr %arrayidx275, align 1
-  %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259274, 1
-  %cmp206.not = icmp eq i64 %indvars.iv.next260, 3
+  %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263278, 1
+  %cmp206.not = icmp eq i64 %indvars.iv.next264, 3
   br i1 %cmp206.not, label %for.end278, label %cond.end271
 
 for.end278:                                       ; preds = %cond.end271
-  %arrayidx219241 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 16, i64 3
-  store i8 0, ptr %arrayidx219241, align 1
-  %arrayidx233.c = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 17, i64 3
+  %arrayidx219244 = getelementptr inbounds i8, ptr %dataBuffer, i64 403
+  store i8 0, ptr %arrayidx219244, align 1
+  %arrayidx233.c = getelementptr inbounds i8, ptr %dataBuffer, i64 407
   store i8 0, ptr %arrayidx233.c, align 1
-  %arrayidx247246 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 18, i64 3
-  store i8 0, ptr %arrayidx247246, align 1
-  %arrayidx261.c = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 19, i64 3
+  %arrayidx247250 = getelementptr inbounds i8, ptr %dataBuffer, i64 411
+  store i8 0, ptr %arrayidx247250, align 1
+  %arrayidx261.c = getelementptr inbounds i8, ptr %dataBuffer, i64 415
   store i8 0, ptr %arrayidx261.c, align 1
-  %arrayidx275270 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 20, i64 3
-  store i8 0, ptr %arrayidx275270, align 1
-  %m_rotateOrder = getelementptr inbounds %class.btGeneric6DofSpring2Constraint, ptr %this, i64 0, i32 7
+  %arrayidx275274 = getelementptr inbounds i8, ptr %dataBuffer, i64 419
+  store i8 0, ptr %arrayidx275274, align 1
+  %m_rotateOrder = getelementptr inbounds i8, ptr %this, i64 1256
   %50 = load i32, ptr %m_rotateOrder, align 8
-  %m_rotateOrder279 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 40
+  %m_rotateOrder279 = getelementptr inbounds i8, ptr %dataBuffer, i64 652
   store i32 %50, ptr %m_rotateOrder279, align 4
-  %m_padding1 = getelementptr inbounds %struct.btGeneric6DofSpring2ConstraintData, ptr %dataBuffer, i64 0, i32 21
+  %m_padding1 = getelementptr inbounds i8, ptr %dataBuffer, i64 420
   store i32 0, ptr %m_padding1, align 4
   ret ptr @.str
 }

@@ -3,13 +3,6 @@ source_filename = "bench/flac/original/operations_shorthand_streaminfo.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon.0 }
-%union.anon.0 = type { %struct.FLAC__StreamMetadata_CueSheet }
-%struct.FLAC__StreamMetadata_CueSheet = type { [129 x i8], i64, i32, i32, ptr }
-%struct.Operation = type { i32, %union.anon }
-%union.anon = type { %struct.Argument_VcField }
-%struct.Argument_VcField = type { ptr, ptr, i32, ptr, i32 }
-
 @.str = private unnamed_addr constant [34 x i8] c"out of memory allocating iterator\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"%s:\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"%02x\00", align 1
@@ -61,7 +54,7 @@ if.end4:                                          ; preds = %if.then2, %if.end
   ]
 
 for.cond.preheader:                               ; preds = %if.end4
-  %md5sum = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 40
+  %md5sum = getelementptr inbounds i8, ptr %call1, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
@@ -79,120 +72,120 @@ for.end:                                          ; preds = %for.body
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %if.end4
-  %data9 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3
+  %data9 = getelementptr inbounds i8, ptr %call1, i64 16
   %2 = load i32, ptr %data9, align 8
   %call10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %2)
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %if.end4
-  %max_blocksize = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 4
+  %max_blocksize = getelementptr inbounds i8, ptr %call1, i64 20
   %3 = load i32, ptr %max_blocksize, align 4
   %call13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %3)
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %if.end4
-  %min_framesize = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 8
+  %min_framesize = getelementptr inbounds i8, ptr %call1, i64 24
   %4 = load i32, ptr %min_framesize, align 8
   %call16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %4)
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %if.end4
-  %max_framesize = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 12
+  %max_framesize = getelementptr inbounds i8, ptr %call1, i64 28
   %5 = load i32, ptr %max_framesize, align 4
   %call19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %5)
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %if.end4
-  %sample_rate = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 16
+  %sample_rate = getelementptr inbounds i8, ptr %call1, i64 32
   %6 = load i32, ptr %sample_rate, align 8
   %call22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %6)
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %if.end4
-  %channels = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 20
+  %channels = getelementptr inbounds i8, ptr %call1, i64 36
   %7 = load i32, ptr %channels, align 4
   %call25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %7)
   br label %sw.epilog
 
 sw.bb26:                                          ; preds = %if.end4
-  %bits_per_sample = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 24
+  %bits_per_sample = getelementptr inbounds i8, ptr %call1, i64 40
   %8 = load i32, ptr %bits_per_sample, align 8
   %call28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %8)
   br label %sw.epilog
 
 sw.bb29:                                          ; preds = %if.end4
-  %total_samples = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 32
+  %total_samples = getelementptr inbounds i8, ptr %call1, i64 48
   %9 = load i64, ptr %total_samples, align 8
   %call31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %9)
   br label %sw.epilog
 
 sw.bb32:                                          ; preds = %if.end4
-  %md5sum34 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 40
-  %argument = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %md5sum34 = getelementptr inbounds i8, ptr %call1, i64 56
+  %argument = getelementptr inbounds i8, ptr %operation, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %md5sum34, ptr noundef nonnull align 8 dereferenceable(16) %argument, i64 16, i1 false)
   store i32 1, ptr %needs_write, align 4
   br label %sw.epilog
 
 sw.bb36:                                          ; preds = %if.end4
-  %argument37 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument37 = getelementptr inbounds i8, ptr %operation, i64 8
   %10 = load i32, ptr %argument37, align 8
-  %data39 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3
+  %data39 = getelementptr inbounds i8, ptr %call1, i64 16
   store i32 %10, ptr %data39, align 8
   store i32 1, ptr %needs_write, align 4
   br label %sw.epilog
 
 sw.bb41:                                          ; preds = %if.end4
-  %argument42 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument42 = getelementptr inbounds i8, ptr %operation, i64 8
   %11 = load i32, ptr %argument42, align 8
-  %max_blocksize45 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 4
+  %max_blocksize45 = getelementptr inbounds i8, ptr %call1, i64 20
   store i32 %11, ptr %max_blocksize45, align 4
   store i32 1, ptr %needs_write, align 4
   br label %sw.epilog
 
 sw.bb46:                                          ; preds = %if.end4
-  %argument47 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument47 = getelementptr inbounds i8, ptr %operation, i64 8
   %12 = load i32, ptr %argument47, align 8
-  %min_framesize50 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 8
+  %min_framesize50 = getelementptr inbounds i8, ptr %call1, i64 24
   store i32 %12, ptr %min_framesize50, align 8
   store i32 1, ptr %needs_write, align 4
   br label %sw.epilog
 
 sw.bb51:                                          ; preds = %if.end4
-  %argument52 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument52 = getelementptr inbounds i8, ptr %operation, i64 8
   %13 = load i32, ptr %argument52, align 8
-  %max_framesize55 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 12
+  %max_framesize55 = getelementptr inbounds i8, ptr %call1, i64 28
   store i32 %13, ptr %max_framesize55, align 4
   store i32 1, ptr %needs_write, align 4
   br label %sw.epilog
 
 sw.bb56:                                          ; preds = %if.end4
-  %argument57 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument57 = getelementptr inbounds i8, ptr %operation, i64 8
   %14 = load i32, ptr %argument57, align 8
-  %sample_rate60 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 16
+  %sample_rate60 = getelementptr inbounds i8, ptr %call1, i64 32
   store i32 %14, ptr %sample_rate60, align 8
   store i32 1, ptr %needs_write, align 4
   br label %sw.epilog
 
 sw.bb61:                                          ; preds = %if.end4
-  %argument62 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument62 = getelementptr inbounds i8, ptr %operation, i64 8
   %15 = load i32, ptr %argument62, align 8
-  %channels65 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 20
+  %channels65 = getelementptr inbounds i8, ptr %call1, i64 36
   store i32 %15, ptr %channels65, align 4
   store i32 1, ptr %needs_write, align 4
   br label %sw.epilog
 
 sw.bb66:                                          ; preds = %if.end4
-  %argument67 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument67 = getelementptr inbounds i8, ptr %operation, i64 8
   %16 = load i32, ptr %argument67, align 8
-  %bits_per_sample70 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 24
+  %bits_per_sample70 = getelementptr inbounds i8, ptr %call1, i64 40
   store i32 %16, ptr %bits_per_sample70, align 8
   store i32 1, ptr %needs_write, align 4
   br label %sw.epilog
 
 sw.bb71:                                          ; preds = %if.end4
-  %argument72 = getelementptr inbounds %struct.Operation, ptr %operation, i64 0, i32 1
+  %argument72 = getelementptr inbounds i8, ptr %operation, i64 8
   %17 = load i64, ptr %argument72, align 8
-  %total_samples75 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call1, i64 0, i32 3, i32 0, i32 0, i64 32
+  %total_samples75 = getelementptr inbounds i8, ptr %call1, i64 48
   store i64 %17, ptr %total_samples75, align 8
   store i32 1, ptr %needs_write, align 4
   br label %sw.epilog

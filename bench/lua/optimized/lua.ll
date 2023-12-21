@@ -116,7 +116,7 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.then.i
-  %arrayidx645.i = getelementptr inbounds ptr, ptr %call1, i64 1
+  %arrayidx645.i = getelementptr inbounds i8, ptr %call1, i64 8
   %2 = load ptr, ptr %arrayidx645.i, align 8
   %cmp7.not46.i = icmp eq ptr %2, null
   br i1 %cmp7.not46.i, label %collectargs.exit, label %for.body.i
@@ -481,7 +481,7 @@ if.then29:                                        ; preds = %if.end26
   br i1 %cmp.i63, label %land.lhs.true.i, label %if.end.i64
 
 land.lhs.true.i:                                  ; preds = %if.then29
-  %arrayidx1.i73 = getelementptr inbounds ptr, ptr %add.ptr, i64 -1
+  %arrayidx1.i73 = getelementptr inbounds i8, ptr %add.ptr, i64 -8
   %40 = load ptr, ptr %arrayidx1.i73, align 8
   %call2.i74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(3) @.str.20) #10
   %cmp3.not.i = icmp eq i32 %call2.i74, 0

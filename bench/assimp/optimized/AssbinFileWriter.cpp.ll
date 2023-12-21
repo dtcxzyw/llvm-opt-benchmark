@@ -11,8 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.Assimp::AssbinChunkWriter" = type { %"class.Assimp::IOStream", ptr, i32, ptr, i64, i64, i64 }
 %"class.Assimp::IOStream" = type { ptr }
-%struct.aiScene = type { i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, %struct.aiString, i32, ptr, ptr }
-%struct.aiString = type { i32, [1024 x i8] }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -23,26 +21,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %struct._Guard = type { ptr }
-%struct.aiNode = type { %struct.aiString, %class.aiMatrix4x4t, ptr, i32, ptr, i32, ptr, ptr }
-%class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%struct.aiMetadata = type { i32, ptr, ptr }
+%struct.aiString = type { i32, [1024 x i8] }
 %struct.aiMetadataEntry = type { i32, ptr }
 %class.aiVector3t = type { float, float, float }
-%struct.aiMesh = type { i32, i32, i32, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], [8 x i32], ptr, i32, ptr, i32, %struct.aiString, i32, ptr, i32, %struct.aiAABB, ptr }
-%struct.aiAABB = type { %class.aiVector3t, %class.aiVector3t }
 %class.aiColor4t = type { float, float, float, float }
 %struct.aiFace = type { i32, ptr }
-%struct.aiMaterial = type { ptr, i32, i32 }
-%struct.aiAnimation = type { %struct.aiString, double, double, i32, ptr, i32, ptr, i32, ptr }
-%struct.aiTexture = type <{ i32, i32, [9 x i8], [7 x i8], ptr, %struct.aiString, [4 x i8] }>
-%struct.aiLight = type { %struct.aiString, i32, %class.aiVector3t, %class.aiVector3t, %class.aiVector3t, float, float, float, %struct.aiColor3D, %struct.aiColor3D, %struct.aiColor3D, float, float, %class.aiVector2t }
-%struct.aiColor3D = type { float, float, float }
-%class.aiVector2t = type { float, float }
-%struct.aiCamera = type { %struct.aiString, %class.aiVector3t, %class.aiVector3t, %class.aiVector3t, float, float, float, float, float }
 %struct.aiVertexWeight = type { i32, float }
-%struct.aiBone = type { %struct.aiString, i32, ptr, ptr, ptr, %class.aiMatrix4x4t }
-%struct.aiMaterialProperty = type { %struct.aiString, i32, i32, i32, i32, ptr }
-%struct.aiNodeAnim = type { %struct.aiString, i32, ptr, i32, ptr, i32, ptr, i32, i32 }
 %struct.aiVectorKey = type <{ double, %class.aiVector3t, [4 x i8] }>
 %struct.aiQuatKey = type { double, %class.aiQuaterniont }
 %class.aiQuaterniont = type { float, float, float, float }
@@ -164,7 +148,7 @@ entry:
   %frombool.i = zext i1 %shortened to i8
   %frombool1.i = zext i1 %compressed to i8
   store i8 %frombool.i, ptr %fileWriter, align 1
-  %compressed5.i = getelementptr inbounds %"class.Assimp::AssbinFileWriter", ptr %fileWriter, i64 0, i32 1
+  %compressed5.i = getelementptr inbounds i8, ptr %fileWriter, i64 1
   store i8 %frombool1.i, ptr %compressed5.i, align 1
   call void @_ZN6Assimp16AssbinFileWriter15WriteBinaryDumpEPKcS2_PNS_8IOSystemEPK7aiScene(ptr noundef nonnull align 1 dereferenceable(2) %fileWriter, ptr noundef %pFile, ptr noundef %cmd, ptr noundef %pIOSystem, ptr noundef %pScene)
   ret void
@@ -191,7 +175,7 @@ entry:
   %uncompressedSize = alloca i64, align 8
   %compressedSize = alloca i64, align 8
   %vtable = load ptr, ptr %pIOSystem, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %pIOSystem, ptr noundef %pFile, ptr noundef nonnull @.str)
   %tobool.not = icmp eq ptr %call, null
@@ -270,7 +254,7 @@ if.end:                                           ; preds = %entry
   %call17 = call ptr @asctime(ptr noundef %call15) #15
   %call18 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %s, i64 noundef 64, ptr noundef nonnull @.str.2, ptr noundef %call17) #15
   %vtable20 = load ptr, ptr %call, align 8
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 3
+  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 24
   %5 = load ptr, ptr %vfn21, align 8
   %call24 = invoke noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %s, i64 noundef 44, i64 noundef 1)
           to label %invoke.cont23 unwind label %lpad22
@@ -279,7 +263,7 @@ invoke.cont23:                                    ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i)
   store i32 1, ptr %t.i, align 4
   %vtable.i = load ptr, ptr %call, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %6 = load ptr, ptr %vfn.i, align 8
   %call.i15 = invoke noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %t.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont26 unwind label %lpad22
@@ -289,7 +273,7 @@ invoke.cont26:                                    ; preds = %invoke.cont23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i16)
   store i32 0, ptr %t.i16, align 4
   %vtable.i17 = load ptr, ptr %call, align 8
-  %vfn.i18 = getelementptr inbounds ptr, ptr %vtable.i17, i64 3
+  %vfn.i18 = getelementptr inbounds i8, ptr %vtable.i17, i64 24
   %7 = load ptr, ptr %vfn.i18, align 8
   %call.i19 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %t.i16, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont29 unwind label %lpad22
@@ -303,7 +287,7 @@ invoke.cont32:                                    ; preds = %invoke.cont29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i21)
   store i32 %call33, ptr %t.i21, align 4
   %vtable.i22 = load ptr, ptr %call, align 8
-  %vfn.i23 = getelementptr inbounds ptr, ptr %vtable.i22, i64 3
+  %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 24
   %8 = load ptr, ptr %vfn.i23, align 8
   %call.i24 = invoke noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %t.i21, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont34 unwind label %lpad22
@@ -317,7 +301,7 @@ invoke.cont37:                                    ; preds = %invoke.cont34
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i26)
   store i32 %call38, ptr %t.i26, align 4
   %vtable.i27 = load ptr, ptr %call, align 8
-  %vfn.i28 = getelementptr inbounds ptr, ptr %vtable.i27, i64 3
+  %vfn.i28 = getelementptr inbounds i8, ptr %vtable.i27, i64 24
   %9 = load ptr, ptr %vfn.i28, align 8
   %call.i29 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %t.i26, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont39 unwind label %lpad22
@@ -329,19 +313,19 @@ invoke.cont39:                                    ; preds = %invoke.cont37
   %conv = zext nneg i8 %11 to i16
   store i16 %conv, ptr %ref.tmp41, align 2
   %vtable.i31 = load ptr, ptr %call, align 8
-  %vfn.i32 = getelementptr inbounds ptr, ptr %vtable.i31, i64 3
+  %vfn.i32 = getelementptr inbounds i8, ptr %vtable.i31, i64 24
   %12 = load ptr, ptr %vfn.i32, align 8
   %call.i33 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %ref.tmp41, i64 noundef 2, i64 noundef 1)
           to label %invoke.cont43 unwind label %lpad22
 
 invoke.cont43:                                    ; preds = %invoke.cont39
-  %compressed = getelementptr inbounds %"class.Assimp::AssbinFileWriter", ptr %this, i64 0, i32 1
+  %compressed = getelementptr inbounds i8, ptr %this, i64 1
   %13 = load i8, ptr %compressed, align 1
   %14 = and i8 %13, 1
   %conv47 = zext nneg i8 %14 to i16
   store i16 %conv47, ptr %ref.tmp45, align 2
   %vtable.i34 = load ptr, ptr %call, align 8
-  %vfn.i35 = getelementptr inbounds ptr, ptr %vtable.i34, i64 3
+  %vfn.i35 = getelementptr inbounds i8, ptr %vtable.i34, i64 24
   %15 = load ptr, ptr %vfn.i35, align 8
   %call.i36 = invoke noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %ref.tmp45, i64 noundef 2, i64 noundef 1)
           to label %invoke.cont48 unwind label %lpad22
@@ -350,7 +334,7 @@ invoke.cont48:                                    ; preds = %invoke.cont43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %buff, i8 0, i64 256, i1 false)
   %call51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buff, i64 noundef 256, ptr noundef nonnull @.str.3, ptr noundef %pFile) #15
   %vtable53 = load ptr, ptr %call, align 8
-  %vfn54 = getelementptr inbounds ptr, ptr %vtable53, i64 3
+  %vfn54 = getelementptr inbounds i8, ptr %vtable53, i64 24
   %16 = load ptr, ptr %vfn54, align 8
   %call56 = invoke noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %buff, i64 noundef 1, i64 noundef 256)
           to label %invoke.cont55 unwind label %lpad22
@@ -359,7 +343,7 @@ invoke.cont55:                                    ; preds = %invoke.cont48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %buff, i8 0, i64 256, i1 false)
   %call59 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buff, i64 noundef 128, ptr noundef nonnull @.str.3, ptr noundef %cmd) #15
   %vtable61 = load ptr, ptr %call, align 8
-  %vfn62 = getelementptr inbounds ptr, ptr %vtable61, i64 3
+  %vfn62 = getelementptr inbounds i8, ptr %vtable61, i64 24
   %17 = load ptr, ptr %vfn62, align 8
   %call64 = invoke noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %buff, i64 noundef 1, i64 noundef 128)
           to label %invoke.cont63 unwind label %lpad22
@@ -367,7 +351,7 @@ invoke.cont55:                                    ; preds = %invoke.cont48
 invoke.cont63:                                    ; preds = %invoke.cont55
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %buff, i8 -51, i64 64, i1 false)
   %vtable67 = load ptr, ptr %call, align 8
-  %vfn68 = getelementptr inbounds ptr, ptr %vtable67, i64 3
+  %vfn68 = getelementptr inbounds i8, ptr %vtable67, i64 24
   %18 = load ptr, ptr %vfn68, align 8
   %call70 = invoke noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %buff, i64 noundef 1, i64 noundef 64)
           to label %invoke.cont69 unwind label %lpad22
@@ -380,19 +364,19 @@ invoke.cont69:                                    ; preds = %invoke.cont63
 
 if.then73:                                        ; preds = %invoke.cont69
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 0, inrange i32 0, i64 2), ptr %uncompressedStream, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %uncompressedStream, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %uncompressedStream, i64 8
   store ptr null, ptr %buffer.i, align 8
-  %magic2.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %uncompressedStream, i64 0, i32 2
+  %magic2.i = getelementptr inbounds i8, ptr %uncompressedStream, i64 16
   store i32 0, ptr %magic2.i, align 8
-  %container3.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %uncompressedStream, i64 0, i32 3
-  %initial4.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %uncompressedStream, i64 0, i32 6
+  %container3.i = getelementptr inbounds i8, ptr %uncompressedStream, i64 24
+  %initial4.i = getelementptr inbounds i8, ptr %uncompressedStream, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %container3.i, i8 0, i64 24, i1 false)
   store i64 4096, ptr %initial4.i, align 8
   invoke void @_ZN6Assimp16AssbinFileWriter16WriteBinarySceneEPNS_8IOStreamEPK7aiScene(ptr noundef nonnull align 1 dereferenceable(2) %this, ptr noundef nonnull %uncompressedStream, ptr noundef %pScene)
           to label %invoke.cont76 unwind label %lpad75
 
 invoke.cont76:                                    ; preds = %if.then73
-  %cursor.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %uncompressedStream, i64 0, i32 5
+  %cursor.i = getelementptr inbounds i8, ptr %uncompressedStream, i64 40
   %21 = load i64, ptr %cursor.i, align 8
   store i64 %21, ptr %uncompressedSize, align 8
   %call80 = invoke i64 @compressBound(i64 noundef %21)
@@ -440,7 +424,7 @@ lpad89:                                           ; preds = %delete.notnull
 
 if.end92:                                         ; preds = %invoke.cont85
   %vtable93 = load ptr, ptr %call, align 8
-  %vfn94 = getelementptr inbounds ptr, ptr %vtable93, i64 3
+  %vfn94 = getelementptr inbounds i8, ptr %vtable93, i64 24
   %26 = load ptr, ptr %vfn94, align 8
   %call96 = invoke noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %uncompressedSize, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont95 unwind label %lpad75
@@ -448,7 +432,7 @@ if.end92:                                         ; preds = %invoke.cont85
 invoke.cont95:                                    ; preds = %if.end92
   %27 = load i64, ptr %compressedSize, align 8
   %vtable97 = load ptr, ptr %call, align 8
-  %vfn98 = getelementptr inbounds ptr, ptr %vtable97, i64 3
+  %vfn98 = getelementptr inbounds i8, ptr %vtable97, i64 24
   %28 = load ptr, ptr %vfn98, align 8
   %call100 = invoke noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %call82, i64 noundef 1, i64 noundef %27)
           to label %delete.notnull102 unwind label %lpad75
@@ -462,7 +446,7 @@ delete.notnull102:                                ; preds = %invoke.cont95
 
 if.then.i:                                        ; preds = %delete.notnull102
   %vtable.i39 = load ptr, ptr %29, align 8
-  %vfn.i40 = getelementptr inbounds ptr, ptr %vtable.i39, i64 3
+  %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 24
   %30 = load ptr, ptr %vfn.i40, align 8
   %call.i = invoke noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %magic2.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -470,7 +454,7 @@ if.then.i:                                        ; preds = %delete.notnull102
 invoke.cont.i:                                    ; preds = %if.then.i
   %31 = load ptr, ptr %container3.i, align 8
   %vtable4.i = load ptr, ptr %31, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 3
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %32 = load ptr, ptr %vfn5.i, align 8
   %call7.i = invoke noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull %cursor.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6.i unwind label %terminate.lpad.i
@@ -480,7 +464,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i
   %34 = load ptr, ptr %buffer.i, align 8
   %35 = load i64, ptr %cursor.i, align 8
   %vtable10.i = load ptr, ptr %33, align 8
-  %vfn11.i = getelementptr inbounds ptr, ptr %vtable10.i, i64 3
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 24
   %36 = load ptr, ptr %vfn11.i, align 8
   %call13.i = invoke noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %34, i64 noundef 1, i64 noundef %35)
           to label %if.end.i unwind label %terminate.lpad.i
@@ -511,7 +495,7 @@ if.then.i44:                                      ; preds = %lpad22, %ehcleanup1
   %exn.slot.4 = extractvalue { ptr, i32 } %.pn10.pn, 0
   %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #15
   %vtable.i45 = load ptr, ptr %pIOSystem, align 8
-  %vfn.i46 = getelementptr inbounds ptr, ptr %vtable.i45, i64 5
+  %vfn.i46 = getelementptr inbounds i8, ptr %vtable.i45, i64 40
   %41 = load ptr, ptr %vfn.i46, align 8
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(32) %pIOSystem, ptr noundef nonnull %call)
           to label %invoke.cont109 unwind label %lpad108
@@ -526,7 +510,7 @@ if.else:                                          ; preds = %invoke.cont69
 
 if.then.i49:                                      ; preds = %if.else, %if.end.i, %delete.notnull.i
   %vtable.i50 = load ptr, ptr %pIOSystem, align 8
-  %vfn.i51 = getelementptr inbounds ptr, ptr %vtable.i50, i64 5
+  %vfn.i51 = getelementptr inbounds i8, ptr %vtable.i50, i64 40
   %42 = load ptr, ptr %vfn.i51, align 8
   invoke void %42(ptr noundef nonnull align 8 dereferenceable(32) %pIOSystem, ptr noundef nonnull %call)
           to label %try.cont unwind label %lpad22
@@ -635,18 +619,18 @@ if.then.i115:
   %t.i48 = alloca i32, align 4
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 0, inrange i32 0, i64 2), ptr %chunk, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
-  %magic2.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 2
+  %magic2.i = getelementptr inbounds i8, ptr %chunk, i64 16
   store i32 4665, ptr %magic2.i, align 8
-  %container3.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 3
+  %container3.i = getelementptr inbounds i8, ptr %chunk, i64 24
   store ptr %container, ptr %container3.i, align 8
-  %cur_size.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 4
-  %initial4.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 6
+  %cur_size.i = getelementptr inbounds i8, ptr %chunk, i64 32
+  %initial4.i = getelementptr inbounds i8, ptr %chunk, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cur_size.i, i8 0, i64 16, i1 false)
   store i64 4096, ptr %initial4.i, align 8
   %0 = load i32, ptr %scene, align 4
-  %cursor.i111 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 5
+  %cursor.i111 = getelementptr inbounds i8, ptr %chunk, i64 40
   %call4.i.i116 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #17
           to label %invoke.cont6 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -654,20 +638,20 @@ invoke.cont6:                                     ; preds = %if.then.i115
   store ptr %call4.i.i116, ptr %buffer.i, align 8
   store i64 4096, ptr %cur_size.i, align 8
   store i32 %0, ptr %call4.i.i116, align 1
-  %mNumMeshes = getelementptr inbounds %struct.aiScene, ptr %scene, i64 0, i32 2
+  %mNumMeshes = getelementptr inbounds i8, ptr %scene, i64 16
   %1 = load i32, ptr %mNumMeshes, align 4
   %add.ptr.i = getelementptr inbounds i8, ptr %call4.i.i116, i64 4
   store i32 %1, ptr %add.ptr.i, align 1
-  %mNumMaterials = getelementptr inbounds %struct.aiScene, ptr %scene, i64 0, i32 4
+  %mNumMaterials = getelementptr inbounds i8, ptr %scene, i64 32
   %2 = load i32, ptr %mNumMaterials, align 4
   %add.ptr.i125 = getelementptr inbounds i8, ptr %call4.i.i116, i64 8
   store i32 %2, ptr %add.ptr.i125, align 1
-  %mNumAnimations = getelementptr inbounds %struct.aiScene, ptr %scene, i64 0, i32 6
+  %mNumAnimations = getelementptr inbounds i8, ptr %scene, i64 48
   %3 = load i32, ptr %mNumAnimations, align 4
   %add.ptr.i131 = getelementptr inbounds i8, ptr %call4.i.i116, i64 12
   store i32 %3, ptr %add.ptr.i131, align 1
   store i64 16, ptr %cursor.i111, align 8
-  %mNumTextures = getelementptr inbounds %struct.aiScene, ptr %scene, i64 0, i32 8
+  %mNumTextures = getelementptr inbounds i8, ptr %scene, i64 64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i48)
   %4 = load i32, ptr %mNumTextures, align 4
   store i32 %4, ptr %t.i48, align 4
@@ -676,31 +660,31 @@ invoke.cont6:                                     ; preds = %if.then.i115
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i48)
-  %mNumLights = getelementptr inbounds %struct.aiScene, ptr %scene, i64 0, i32 10
+  %mNumLights = getelementptr inbounds i8, ptr %scene, i64 80
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i53)
   %5 = load i32, ptr %mNumLights, align 4
   store i32 %5, ptr %t.i53, align 4
   %vtable.i54 = load ptr, ptr %chunk, align 8
-  %vfn.i55 = getelementptr inbounds ptr, ptr %vtable.i54, i64 3
+  %vfn.i55 = getelementptr inbounds i8, ptr %vtable.i54, i64 24
   %6 = load ptr, ptr %vfn.i55, align 8
   %call.i56 = invoke noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i53, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont10 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i53)
-  %mNumCameras = getelementptr inbounds %struct.aiScene, ptr %scene, i64 0, i32 12
+  %mNumCameras = getelementptr inbounds i8, ptr %scene, i64 96
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i58)
   %7 = load i32, ptr %mNumCameras, align 4
   store i32 %7, ptr %t.i58, align 4
   %vtable.i59 = load ptr, ptr %chunk, align 8
-  %vfn.i60 = getelementptr inbounds ptr, ptr %vtable.i59, i64 3
+  %vfn.i60 = getelementptr inbounds i8, ptr %vtable.i59, i64 24
   %8 = load ptr, ptr %vfn.i60, align 8
   %call.i61 = invoke noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i58, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont12 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont12:                                    ; preds = %invoke.cont10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i58)
-  %mRootNode = getelementptr inbounds %struct.aiScene, ptr %scene, i64 0, i32 1
+  %mRootNode = getelementptr inbounds i8, ptr %scene, i64 8
   %9 = load ptr, ptr %mRootNode, align 8
   invoke void @_ZN6Assimp16AssbinFileWriter15WriteBinaryNodeEPNS_8IOStreamEPK6aiNode(ptr noundef nonnull align 1 dereferenceable(2) %this, ptr noundef nonnull %chunk, ptr noundef %9)
           to label %for.cond.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -711,7 +695,7 @@ for.cond.preheader:                               ; preds = %invoke.cont12
   br i1 %cmp83.not, label %for.cond18.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mMeshes = getelementptr inbounds %struct.aiScene, ptr %scene, i64 0, i32 3
+  %mMeshes = getelementptr inbounds i8, ptr %scene, i64 24
   br label %for.body
 
 for.cond18.preheader:                             ; preds = %for.inc, %for.cond.preheader
@@ -720,7 +704,7 @@ for.cond18.preheader:                             ; preds = %for.inc, %for.cond.
   br i1 %cmp2085.not, label %for.cond29.preheader, label %for.body21.lr.ph
 
 for.body21.lr.ph:                                 ; preds = %for.cond18.preheader
-  %mMaterials = getelementptr inbounds %struct.aiScene, ptr %scene, i64 0, i32 5
+  %mMaterials = getelementptr inbounds i8, ptr %scene, i64 40
   br label %for.body21
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -784,7 +768,7 @@ for.cond29.preheader:                             ; preds = %for.inc25, %for.con
   br i1 %cmp3187.not, label %for.cond40.preheader, label %for.body32.lr.ph
 
 for.body32.lr.ph:                                 ; preds = %for.cond29.preheader
-  %mAnimations = getelementptr inbounds %struct.aiScene, ptr %scene, i64 0, i32 7
+  %mAnimations = getelementptr inbounds i8, ptr %scene, i64 56
   br label %for.body32
 
 for.body21:                                       ; preds = %for.body21.lr.ph, %for.inc25
@@ -808,7 +792,7 @@ for.cond40.preheader:                             ; preds = %for.inc36, %for.con
   br i1 %cmp4289.not, label %for.cond52.preheader, label %for.body43.lr.ph
 
 for.body43.lr.ph:                                 ; preds = %for.cond40.preheader
-  %mTextures = getelementptr inbounds %struct.aiScene, ptr %scene, i64 0, i32 9
+  %mTextures = getelementptr inbounds i8, ptr %scene, i64 72
   br label %for.body43
 
 for.body32:                                       ; preds = %for.body32.lr.ph, %for.inc36
@@ -832,7 +816,7 @@ for.cond52.preheader:                             ; preds = %for.inc48, %for.con
   br i1 %cmp5491.not, label %for.cond63.preheader, label %for.body55.lr.ph
 
 for.body55.lr.ph:                                 ; preds = %for.cond52.preheader
-  %mLights = getelementptr inbounds %struct.aiScene, ptr %scene, i64 0, i32 11
+  %mLights = getelementptr inbounds i8, ptr %scene, i64 88
   br label %for.body55
 
 for.body43:                                       ; preds = %for.body43.lr.ph, %for.inc48
@@ -856,7 +840,7 @@ for.cond63.preheader:                             ; preds = %for.inc59, %for.con
   br i1 %cmp6593.not, label %for.end72, label %for.body66.lr.ph
 
 for.body66.lr.ph:                                 ; preds = %for.cond63.preheader
-  %mCameras = getelementptr inbounds %struct.aiScene, ptr %scene, i64 0, i32 13
+  %mCameras = getelementptr inbounds i8, ptr %scene, i64 104
   br label %for.body66
 
 for.body55:                                       ; preds = %for.body55.lr.ph, %for.inc59
@@ -897,7 +881,7 @@ for.end72:                                        ; preds = %for.inc70, %for.con
 
 if.then.i:                                        ; preds = %for.end72
   %vtable.i63 = load ptr, ptr %40, align 8
-  %vfn.i64 = getelementptr inbounds ptr, ptr %vtable.i63, i64 3
+  %vfn.i64 = getelementptr inbounds i8, ptr %vtable.i63, i64 24
   %41 = load ptr, ptr %vfn.i64, align 8
   %call.i = invoke noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %magic2.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -905,7 +889,7 @@ if.then.i:                                        ; preds = %for.end72
 invoke.cont.i:                                    ; preds = %if.then.i
   %42 = load ptr, ptr %container3.i, align 8
   %vtable4.i = load ptr, ptr %42, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 3
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %43 = load ptr, ptr %vfn5.i, align 8
   %call7.i = invoke noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull %cursor.i111, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6.i unwind label %terminate.lpad.i
@@ -915,7 +899,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i
   %45 = load ptr, ptr %buffer.i, align 8
   %46 = load i64, ptr %cursor.i111, align 8
   %vtable10.i = load ptr, ptr %44, align 8
-  %vfn11.i = getelementptr inbounds ptr, ptr %vtable10.i, i64 3
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 24
   %47 = load ptr, ptr %vfn11.i, align 8
   %call13.i = invoke noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef %45, i64 noundef 1, i64 noundef %46)
           to label %if.end.i unwind label %terminate.lpad.i
@@ -943,7 +927,7 @@ _ZN6Assimp17AssbinChunkWriterD2Ev.exit:           ; preds = %if.end.i, %delete.n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK6Assimp17AssbinChunkWriter4TellEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %cursor = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 5
+  %cursor = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %cursor, align 8
   ret i64 %0
 }
@@ -989,41 +973,41 @@ entry:
 define linkonce_odr hidden void @_ZN6Assimp17AssbinChunkWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %container = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 3
+  %container = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %container, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %magic = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 2
+  %magic = getelementptr inbounds i8, ptr %this, i64 16
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call = invoke noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %magic, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then
   %2 = load ptr, ptr %container, align 8
-  %cursor = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 5
+  %cursor = getelementptr inbounds i8, ptr %this, i64 40
   %vtable4 = load ptr, ptr %2, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 3
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 24
   %3 = load ptr, ptr %vfn5, align 8
   %call7 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %cursor, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6 unwind label %terminate.lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %4 = load ptr, ptr %container, align 8
-  %buffer = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %buffer, align 8
   %6 = load i64, ptr %cursor, align 8
   %vtable10 = load ptr, ptr %4, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 3
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 24
   %7 = load ptr, ptr %vfn11, align 8
   %call13 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, i64 noundef 1, i64 noundef %6)
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %invoke.cont6, %entry
-  %buffer14 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 1
+  %buffer14 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %buffer14, align 8
   %tobool15.not = icmp eq ptr %8, null
   br i1 %tobool15.not, label %if.end18, label %delete.notnull
@@ -1198,41 +1182,41 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 define linkonce_odr hidden void @_ZN6Assimp17AssbinChunkWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %container.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 3
+  %container.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %container.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %magic.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 2
+  %magic.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = invoke noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %magic.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
   %2 = load ptr, ptr %container.i, align 8
-  %cursor.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 5
+  %cursor.i = getelementptr inbounds i8, ptr %this, i64 40
   %vtable4.i = load ptr, ptr %2, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 3
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %3 = load ptr, ptr %vfn5.i, align 8
   %call7.i = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %cursor.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6.i unwind label %terminate.lpad.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont.i
   %4 = load ptr, ptr %container.i, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %buffer.i, align 8
   %6 = load i64, ptr %cursor.i, align 8
   %vtable10.i = load ptr, ptr %4, align 8
-  %vfn11.i = getelementptr inbounds ptr, ptr %vtable10.i, i64 3
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 24
   %7 = load ptr, ptr %vfn11.i, align 8
   %call13.i = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %5, i64 noundef 1, i64 noundef %6)
           to label %if.end.i unwind label %terminate.lpad.i
 
 if.end.i:                                         ; preds = %invoke.cont6.i, %entry
-  %buffer14.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 1
+  %buffer14.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %buffer14.i, align 8
   %tobool15.not.i = icmp eq ptr %8, null
   br i1 %tobool15.not.i, label %_ZN6Assimp17AssbinChunkWriterD2Ev.exit, label %delete.notnull.i
@@ -1263,22 +1247,22 @@ entry:
 define linkonce_odr hidden noundef i64 @_ZN6Assimp17AssbinChunkWriter5WriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %pvBuffer, i64 noundef %pSize, i64 noundef %pCount) unnamed_addr #0 comdat align 2 {
 entry:
   %mul = mul i64 %pCount, %pSize
-  %cursor = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 5
+  %cursor = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %cursor, align 8
   %add = add i64 %0, %mul
-  %cur_size = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 4
+  %cur_size = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %cur_size, align 8
   %cmp = icmp ugt i64 %add, %1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %initial.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 6
+  %initial.i = getelementptr inbounds i8, ptr %this, i64 48
   %shr.i = lshr i64 %1, 1
   %add.i = add i64 %shr.i, %1
   %2 = load i64, ptr %initial.i, align 8
   %3 = tail call i64 @llvm.umax.i64(i64 %add.i, i64 %add)
   %4 = tail call i64 @llvm.umax.i64(i64 %2, i64 %3)
-  %buffer.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %buffer.i, align 8
   %call4.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %4) #17
   store ptr %call4.i, ptr %buffer.i, align 8
@@ -1298,7 +1282,7 @@ _ZN6Assimp17AssbinChunkWriter4GrowEm.exit:        ; preds = %if.then, %if.then.i
 
 if.end:                                           ; preds = %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit, %entry
   %6 = phi i64 [ %.pre, %_ZN6Assimp17AssbinChunkWriter4GrowEm.exit ], [ %0, %entry ]
-  %buffer = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 1
+  %buffer = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %buffer, align 8
   %add.ptr = getelementptr inbounds i8, ptr %7, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %pvBuffer, i64 %mul, i1 false)
@@ -1317,7 +1301,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK6Assimp17AssbinChunkWriter8FileSizeEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %cursor = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %this, i64 0, i32 5
+  %cursor = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %cursor, align 8
   ret i64 %0
 }
@@ -1344,17 +1328,17 @@ entry:
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
   %ref.tmp = alloca i16, align 2
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 0, inrange i32 0, i64 2), ptr %chunk, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
-  %magic2.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 2
+  %magic2.i = getelementptr inbounds i8, ptr %chunk, i64 16
   store i32 4668, ptr %magic2.i, align 8
-  %container3.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 3
+  %container3.i = getelementptr inbounds i8, ptr %chunk, i64 24
   store ptr %container, ptr %container3.i, align 8
-  %cur_size.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 4
-  %initial4.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 6
+  %cur_size.i = getelementptr inbounds i8, ptr %chunk, i64 32
+  %initial4.i = getelementptr inbounds i8, ptr %chunk, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cur_size.i, i8 0, i64 16, i1 false)
   store i64 4096, ptr %initial4.i, align 8
-  %mMetaData = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 7
+  %mMetaData = getelementptr inbounds i8, ptr %node, i64 1136
   %0 = load ptr, ptr %mMetaData, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.then.i158, label %cond.true
@@ -1366,7 +1350,7 @@ cond.true:                                        ; preds = %entry
 if.then.i158:                                     ; preds = %cond.true, %entry
   %cond = phi i32 [ %1, %cond.true ], [ 0, %entry ]
   %2 = load i32, ptr %node, align 4
-  %cursor.i154 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 5
+  %cursor.i154 = getelementptr inbounds i8, ptr %chunk, i64 40
   %call4.i.i159 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #17
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1376,7 +1360,7 @@ call.i.noexc:                                     ; preds = %if.then.i158
   store i32 %2, ptr %call4.i.i159, align 1
   store i64 4, ptr %cursor.i154, align 8
   %conv.i = zext i32 %2 to i64
-  %data.i = getelementptr inbounds %struct.aiString, ptr %node, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %node, i64 4
   %cmp.i = icmp ugt i32 %2, 4092
   br i1 %cmp.i, label %if.then.i172, label %invoke.cont
 
@@ -1399,10 +1383,10 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %data.i, i64 %conv.i, i1 false)
   %add6.i = add nuw nsw i64 %conv.i, 4
   store i64 %add6.i, ptr %cursor.i154, align 8
-  %mTransformation = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1
-  %c1.i.i = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 8
-  %b1.i.i = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 4
-  %d1.i.i = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 12
+  %mTransformation = getelementptr inbounds i8, ptr %node, i64 1028
+  %c1.i.i = getelementptr inbounds i8, ptr %node, i64 1060
+  %b1.i.i = getelementptr inbounds i8, ptr %node, i64 1044
+  %d1.i.i = getelementptr inbounds i8, ptr %node, i64 1076
   br label %for.cond1.preheader.i
 
 for.cond1.preheader.i:                            ; preds = %for.inc5.i, %invoke.cont
@@ -1417,7 +1401,7 @@ if.end.i.us.i:                                    ; preds = %for.cond1.preheader
   %indvars.iv39.i = phi i64 [ %indvars.iv.next40.i, %call.i.us.i.noexc ], [ 0, %for.cond1.preheader.i ]
   %arrayidx.us.i = getelementptr inbounds float, ptr %d1.i.i, i64 %indvars.iv39.i
   %vtable.i.us.i = load ptr, ptr %chunk, align 8
-  %vfn.i.us.i = getelementptr inbounds ptr, ptr %vtable.i.us.i, i64 3
+  %vfn.i.us.i = getelementptr inbounds i8, ptr %vtable.i.us.i, i64 24
   %6 = load ptr, ptr %vfn.i.us.i, align 8
   %call.i.us.i30 = invoke noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.us.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.us.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1431,7 +1415,7 @@ if.end.i.us7.i:                                   ; preds = %for.cond1.preheader
   %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %call.i.us15.i.noexc ], [ 0, %for.cond1.preheader.i ]
   %arrayidx.us12.i = getelementptr inbounds float, ptr %b1.i.i, i64 %indvars.iv35.i
   %vtable.i.us13.i = load ptr, ptr %chunk, align 8
-  %vfn.i.us14.i = getelementptr inbounds ptr, ptr %vtable.i.us13.i, i64 3
+  %vfn.i.us14.i = getelementptr inbounds i8, ptr %vtable.i.us13.i, i64 24
   %7 = load ptr, ptr %vfn.i.us14.i, align 8
   %call.i.us15.i31 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.us12.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.us15.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1445,7 +1429,7 @@ if.end.i.us19.i:                                  ; preds = %for.cond1.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %call.i.us27.i.noexc ], [ 0, %for.cond1.preheader.i ]
   %arrayidx.us24.i = getelementptr inbounds float, ptr %c1.i.i, i64 %indvars.iv.i
   %vtable.i.us25.i = load ptr, ptr %chunk, align 8
-  %vfn.i.us26.i = getelementptr inbounds ptr, ptr %vtable.i.us25.i, i64 3
+  %vfn.i.us26.i = getelementptr inbounds i8, ptr %vtable.i.us25.i, i64 24
   %8 = load ptr, ptr %vfn.i.us26.i, align 8
   %call.i.us27.i32 = invoke noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.us24.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.us27.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1459,7 +1443,7 @@ if.end.i.i:                                       ; preds = %for.cond1.preheader
   %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %call.i.i.noexc ], [ 0, %for.cond1.preheader.i ]
   %arrayidx.i = getelementptr inbounds float, ptr %mTransformation, i64 %indvars.iv43.i
   %vtable.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %9 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i33 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1475,24 +1459,24 @@ for.inc5.i:                                       ; preds = %call.i.us27.i.noexc
   br i1 %exitcond47.not.i, label %invoke.cont3, label %for.cond1.preheader.i, !llvm.loop !12
 
 invoke.cont3:                                     ; preds = %for.inc5.i
-  %mNumChildren = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 3
+  %mNumChildren = getelementptr inbounds i8, ptr %node, i64 1104
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i)
   %10 = load i32, ptr %mNumChildren, align 4
   store i32 %10, ptr %t.i, align 4
   %vtable.i34 = load ptr, ptr %chunk, align 8
-  %vfn.i35 = getelementptr inbounds ptr, ptr %vtable.i34, i64 3
+  %vfn.i35 = getelementptr inbounds i8, ptr %vtable.i34, i64 24
   %11 = load ptr, ptr %vfn.i35, align 8
   %call.i37 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont5 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont5:                                     ; preds = %invoke.cont3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i)
-  %mNumMeshes = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 5
+  %mNumMeshes = getelementptr inbounds i8, ptr %node, i64 1120
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i38)
   %12 = load i32, ptr %mNumMeshes, align 4
   store i32 %12, ptr %t.i38, align 4
   %vtable.i39 = load ptr, ptr %chunk, align 8
-  %vfn.i40 = getelementptr inbounds ptr, ptr %vtable.i39, i64 3
+  %vfn.i40 = getelementptr inbounds i8, ptr %vtable.i39, i64 24
   %13 = load ptr, ptr %vfn.i40, align 8
   %call.i42 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i38, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1502,7 +1486,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i44)
   store i32 %cond, ptr %t.i44, align 4
   %vtable.i45 = load ptr, ptr %chunk, align 8
-  %vfn.i46 = getelementptr inbounds ptr, ptr %vtable.i45, i64 3
+  %vfn.i46 = getelementptr inbounds i8, ptr %vtable.i45, i64 24
   %14 = load ptr, ptr %vfn.i46, align 8
   %call.i48 = invoke noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i44, i64 noundef 4, i64 noundef 1)
           to label %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit49 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1514,7 +1498,7 @@ _ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit49:   ; preds = %invoke.cont7
   br i1 %cmp12135.not, label %for.cond16.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit49
-  %mMeshes = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 6
+  %mMeshes = getelementptr inbounds i8, ptr %node, i64 1128
   br label %for.body
 
 for.cond16.preheader:                             ; preds = %for.inc, %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit49
@@ -1523,7 +1507,7 @@ for.cond16.preheader:                             ; preds = %for.inc, %_ZN6Assim
   br i1 %cmp18137.not, label %for.cond27.preheader, label %for.body19.lr.ph
 
 for.body19.lr.ph:                                 ; preds = %for.cond16.preheader
-  %mChildren = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 4
+  %mChildren = getelementptr inbounds i8, ptr %node, i64 1112
   br label %for.body19
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1534,7 +1518,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %18 = load i32, ptr %arrayidx, align 4
   store i32 %18, ptr %t.i50, align 4
   %vtable.i51 = load ptr, ptr %chunk, align 8
-  %vfn.i52 = getelementptr inbounds ptr, ptr %vtable.i51, i64 3
+  %vfn.i52 = getelementptr inbounds i8, ptr %vtable.i51, i64 24
   %19 = load ptr, ptr %vfn.i52, align 8
   %call.i54 = invoke noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i50, i64 noundef 4, i64 noundef 1)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1618,27 +1602,27 @@ for.inc23:                                        ; preds = %for.body19
 for.body29:                                       ; preds = %for.body29.preheader, %for.inc64
   %indvars.iv148 = phi i64 [ 0, %for.body29.preheader ], [ %indvars.iv.next149, %for.inc64 ]
   %26 = load ptr, ptr %mMetaData, align 8
-  %mKeys = getelementptr inbounds %struct.aiMetadata, ptr %26, i64 0, i32 1
+  %mKeys = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %mKeys, align 8
   %arrayidx32 = getelementptr inbounds %struct.aiString, ptr %27, i64 %indvars.iv148
-  %mValues = getelementptr inbounds %struct.aiMetadata, ptr %26, i64 0, i32 2
+  %mValues = getelementptr inbounds i8, ptr %26, i64 16
   %28 = load ptr, ptr %mValues, align 8
   %arrayidx35 = getelementptr inbounds %struct.aiMetadataEntry, ptr %28, i64 %indvars.iv148
   %29 = load i32, ptr %arrayidx35, align 8
-  %mData = getelementptr inbounds %struct.aiMetadataEntry, ptr %28, i64 %indvars.iv148, i32 1
+  %mData = getelementptr inbounds i8, ptr %arrayidx35, i64 8
   %30 = load ptr, ptr %mData, align 8
   %31 = load i32, ptr %arrayidx32, align 4
   %vtable.i57 = load ptr, ptr %chunk, align 8
-  %vfn.i58 = getelementptr inbounds ptr, ptr %vtable.i57, i64 3
+  %vfn.i58 = getelementptr inbounds i8, ptr %vtable.i57, i64 24
   %32 = load ptr, ptr %vfn.i58, align 8
   %call.i64 = invoke noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx32, i64 noundef 4, i64 noundef 1)
           to label %call.i.noexc63 unwind label %lpad.loopexit
 
 call.i.noexc63:                                   ; preds = %for.body29
   %conv.i56 = zext i32 %31 to i64
-  %data.i59 = getelementptr inbounds %struct.aiString, ptr %27, i64 %indvars.iv148, i32 1
+  %data.i59 = getelementptr inbounds i8, ptr %arrayidx32, i64 4
   %vtable1.i60 = load ptr, ptr %chunk, align 8
-  %vfn2.i61 = getelementptr inbounds ptr, ptr %vtable1.i60, i64 3
+  %vfn2.i61 = getelementptr inbounds i8, ptr %vtable1.i60, i64 24
   %33 = load ptr, ptr %vfn2.i61, align 8
   %call3.i65 = invoke noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %data.i59, i64 noundef %conv.i56, i64 noundef 1)
           to label %invoke.cont40 unwind label %lpad.loopexit
@@ -1647,7 +1631,7 @@ invoke.cont40:                                    ; preds = %call.i.noexc63
   %conv = trunc i32 %29 to i16
   store i16 %conv, ptr %ref.tmp, align 2
   %vtable.i67 = load ptr, ptr %chunk, align 8
-  %vfn.i68 = getelementptr inbounds ptr, ptr %vtable.i67, i64 3
+  %vfn.i68 = getelementptr inbounds i8, ptr %vtable.i67, i64 24
   %34 = load ptr, ptr %vfn.i68, align 8
   %call.i70 = invoke noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %ref.tmp, i64 noundef 2, i64 noundef 1)
           to label %invoke.cont42 unwind label %lpad.loopexit
@@ -1667,7 +1651,7 @@ sw.bb.invoke:                                     ; preds = %invoke.cont42, %cal
   %35 = phi ptr [ %30, %sw.bb46 ], [ %30, %sw.bb49 ], [ %30, %sw.bb52 ], [ %30, %sw.bb55 ], [ %data.i94, %call.i.noexc98 ], [ %z.i, %call.i9.i.noexc ], [ %30, %invoke.cont42 ]
   %36 = phi i64 [ 4, %sw.bb46 ], [ 8, %sw.bb49 ], [ 4, %sw.bb52 ], [ 8, %sw.bb55 ], [ %conv.i91, %call.i.noexc98 ], [ 4, %call.i9.i.noexc ], [ 1, %invoke.cont42 ]
   %vtable.i10.i.sink = load ptr, ptr %chunk, align 8
-  %vfn.i11.i = getelementptr inbounds ptr, ptr %vtable.i10.i.sink, i64 3
+  %vfn.i11.i = getelementptr inbounds i8, ptr %vtable.i10.i.sink, i64 24
   %37 = load ptr, ptr %vfn.i11.i, align 8
   %38 = invoke noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %35, i64 noundef %36, i64 noundef 1)
           to label %for.inc64 unwind label %lpad.loopexit
@@ -1687,33 +1671,33 @@ sw.bb55:                                          ; preds = %invoke.cont42
 sw.bb58:                                          ; preds = %invoke.cont42
   %39 = load i32, ptr %30, align 4
   %vtable.i92 = load ptr, ptr %chunk, align 8
-  %vfn.i93 = getelementptr inbounds ptr, ptr %vtable.i92, i64 3
+  %vfn.i93 = getelementptr inbounds i8, ptr %vtable.i92, i64 24
   %40 = load ptr, ptr %vfn.i93, align 8
   %call.i99 = invoke noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %30, i64 noundef 4, i64 noundef 1)
           to label %call.i.noexc98 unwind label %lpad.loopexit
 
 call.i.noexc98:                                   ; preds = %sw.bb58
   %conv.i91 = zext i32 %39 to i64
-  %data.i94 = getelementptr inbounds %struct.aiString, ptr %30, i64 0, i32 1
+  %data.i94 = getelementptr inbounds i8, ptr %30, i64 4
   br label %sw.bb.invoke
 
 sw.bb61:                                          ; preds = %invoke.cont42
   %vtable.i.i102 = load ptr, ptr %chunk, align 8
-  %vfn.i.i103 = getelementptr inbounds ptr, ptr %vtable.i.i102, i64 3
+  %vfn.i.i103 = getelementptr inbounds i8, ptr %vtable.i.i102, i64 24
   %41 = load ptr, ptr %vfn.i.i103, align 8
   %call.i.i105 = invoke noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %30, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc104 unwind label %lpad.loopexit
 
 call.i.i.noexc104:                                ; preds = %sw.bb61
-  %y.i = getelementptr inbounds %class.aiVector3t, ptr %30, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %30, i64 4
   %vtable.i7.i = load ptr, ptr %chunk, align 8
-  %vfn.i8.i = getelementptr inbounds ptr, ptr %vtable.i7.i, i64 3
+  %vfn.i8.i = getelementptr inbounds i8, ptr %vtable.i7.i, i64 24
   %42 = load ptr, ptr %vfn.i8.i, align 8
   %call.i9.i106 = invoke noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc unwind label %lpad.loopexit
 
 call.i9.i.noexc:                                  ; preds = %call.i.i.noexc104
-  %z.i = getelementptr inbounds %class.aiVector3t, ptr %30, i64 0, i32 2
+  %z.i = getelementptr inbounds i8, ptr %30, i64 8
   br label %sw.bb.invoke
 
 for.inc64:                                        ; preds = %sw.bb.invoke, %invoke.cont42
@@ -1729,7 +1713,7 @@ for.end66:                                        ; preds = %for.inc64, %for.con
 
 if.then.i:                                        ; preds = %for.end66
   %vtable.i108 = load ptr, ptr %43, align 8
-  %vfn.i109 = getelementptr inbounds ptr, ptr %vtable.i108, i64 3
+  %vfn.i109 = getelementptr inbounds i8, ptr %vtable.i108, i64 24
   %44 = load ptr, ptr %vfn.i109, align 8
   %call.i = invoke noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull %magic2.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -1737,7 +1721,7 @@ if.then.i:                                        ; preds = %for.end66
 invoke.cont.i:                                    ; preds = %if.then.i
   %45 = load ptr, ptr %container3.i, align 8
   %vtable4.i = load ptr, ptr %45, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 3
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %46 = load ptr, ptr %vfn5.i, align 8
   %call7.i = invoke noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull %cursor.i154, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6.i unwind label %terminate.lpad.i
@@ -1747,7 +1731,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i
   %48 = load ptr, ptr %buffer.i, align 8
   %49 = load i64, ptr %cursor.i154, align 8
   %vtable10.i = load ptr, ptr %47, align 8
-  %vfn11.i = getelementptr inbounds ptr, ptr %vtable10.i, i64 3
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 24
   %50 = load ptr, ptr %vfn11.i, align 8
   %call13.i = invoke noundef i64 %50(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef %48, i64 noundef 1, i64 noundef %49)
           to label %if.end.i unwind label %terminate.lpad.i
@@ -1784,18 +1768,18 @@ if.then.i405:
   %ref.tmp209 = alloca i16, align 2
   %ref.tmp221 = alloca i16, align 2
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 0, inrange i32 0, i64 2), ptr %chunk, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
-  %magic2.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 2
+  %magic2.i = getelementptr inbounds i8, ptr %chunk, i64 16
   store i32 4663, ptr %magic2.i, align 8
-  %container3.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 3
+  %container3.i = getelementptr inbounds i8, ptr %chunk, i64 24
   store ptr %container, ptr %container3.i, align 8
-  %cur_size.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 4
-  %initial4.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 6
+  %cur_size.i = getelementptr inbounds i8, ptr %chunk, i64 32
+  %initial4.i = getelementptr inbounds i8, ptr %chunk, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cur_size.i, i8 0, i64 16, i1 false)
   store i64 4096, ptr %initial4.i, align 8
   %0 = load i32, ptr %mesh, align 4
-  %cursor.i401 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 5
+  %cursor.i401 = getelementptr inbounds i8, ptr %chunk, i64 40
   %call4.i.i406 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #17
           to label %invoke.cont6 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1803,17 +1787,17 @@ invoke.cont6:                                     ; preds = %if.then.i405
   store ptr %call4.i.i406, ptr %buffer.i, align 8
   store i64 4096, ptr %cur_size.i, align 8
   store i32 %0, ptr %call4.i.i406, align 1
-  %mNumVertices = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 1
+  %mNumVertices = getelementptr inbounds i8, ptr %mesh, i64 4
   %add.ptr.i = getelementptr inbounds i8, ptr %call4.i.i406, i64 4
-  %mNumFaces = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 2
+  %mNumFaces = getelementptr inbounds i8, ptr %mesh, i64 8
   %1 = load <2 x i32>, ptr %mNumVertices, align 4
   store <2 x i32> %1, ptr %add.ptr.i, align 1
-  %mNumBones = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 11
+  %mNumBones = getelementptr inbounds i8, ptr %mesh, i64 216
   %2 = load i32, ptr %mNumBones, align 4
   %add.ptr.i430 = getelementptr inbounds i8, ptr %call4.i.i406, i64 12
   store i32 %2, ptr %add.ptr.i430, align 1
   store i64 16, ptr %cursor.i401, align 8
-  %mMaterialIndex = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 13
+  %mMaterialIndex = getelementptr inbounds i8, ptr %mesh, i64 232
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i104)
   %3 = load i32, ptr %mMaterialIndex, align 4
   store i32 %3, ptr %t.i104, align 4
@@ -1822,19 +1806,19 @@ invoke.cont6:                                     ; preds = %if.then.i405
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i104)
-  %mVertices = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 3
+  %mVertices = getelementptr inbounds i8, ptr %mesh, i64 16
   %4 = load ptr, ptr %mVertices, align 8
   %tobool.not = icmp ne ptr %4, null
   %spec.store.select = zext i1 %tobool.not to i32
-  %mNormals = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 4
+  %mNormals = getelementptr inbounds i8, ptr %mesh, i64 24
   %5 = load ptr, ptr %mNormals, align 8
   %tobool10.not = icmp eq ptr %5, null
   %or12 = or disjoint i32 %spec.store.select, 2
   %spec.select = select i1 %tobool10.not, i32 %spec.store.select, i32 %or12
-  %mTangents = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 5
+  %mTangents = getelementptr inbounds i8, ptr %mesh, i64 32
   %6 = load ptr, ptr %mTangents, align 8
   %tobool14.not = icmp eq ptr %6, null
-  br i1 %tobool14.not, label %for.body.preheader, label %land.lhs.true
+  br i1 %tobool14.not, label %if.end18, label %land.lhs.true
 
 lpad.loopexit:                                    ; preds = %for.body249
   %lpad.loopexit304 = landingpad { ptr, i32 }
@@ -1907,24 +1891,25 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 land.lhs.true:                                    ; preds = %invoke.cont8
-  %mBitangents = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 6
+  %mBitangents = getelementptr inbounds i8, ptr %mesh, i64 40
   %7 = load ptr, ptr %mBitangents, align 8
   %tobool15.not = icmp eq ptr %7, null
   %or17 = or disjoint i32 %spec.select, 4
   %spec.select303 = select i1 %tobool15.not, i32 %spec.select, i32 %or17
-  br label %for.body.preheader
+  br label %if.end18
 
-for.body.preheader:                               ; preds = %land.lhs.true, %invoke.cont8
-  %c.2340.ph = phi i32 [ %spec.select, %invoke.cont8 ], [ %spec.select303, %land.lhs.true ]
+if.end18:                                         ; preds = %land.lhs.true, %invoke.cont8
+  %c.1 = phi i32 [ %spec.select, %invoke.cont8 ], [ %spec.select303, %land.lhs.true ]
+  %mTextureCoords = getelementptr inbounds i8, ptr %mesh, i64 112
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %if.end21
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end21 ], [ 0, %for.body.preheader ]
-  %c.2340 = phi i32 [ %or22, %if.end21 ], [ %c.2340.ph, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 8, i64 %indvars.iv
+for.body:                                         ; preds = %if.end18, %if.end21
+  %indvars.iv = phi i64 [ 0, %if.end18 ], [ %indvars.iv.next, %if.end21 ]
+  %c.2340 = phi i32 [ %c.1, %if.end18 ], [ %or22, %if.end21 ]
+  %arrayidx = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx, align 8
   %tobool19.not = icmp eq ptr %8, null
-  br i1 %tobool19.not, label %for.body26.preheader, label %if.end21
+  br i1 %tobool19.not, label %for.end, label %if.end21
 
 if.end21:                                         ; preds = %for.body
   %9 = trunc i64 %indvars.iv to i32
@@ -1932,16 +1917,17 @@ if.end21:                                         ; preds = %for.body
   %or22 = or i32 %shl, %c.2340
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %for.body26.preheader, label %for.body, !llvm.loop !16
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
-for.body26.preheader:                             ; preds = %for.body, %if.end21
-  %c.3342.ph = phi i32 [ %or22, %if.end21 ], [ %c.2340, %for.body ]
+for.end:                                          ; preds = %for.body, %if.end21
+  %c.2.lcssa = phi i32 [ %c.2340, %for.body ], [ %or22, %if.end21 ]
+  %mColors = getelementptr inbounds i8, ptr %mesh, i64 48
   br label %for.body26
 
-for.body26:                                       ; preds = %for.body26.preheader, %if.end31
-  %indvars.iv365 = phi i64 [ %indvars.iv.next366, %if.end31 ], [ 0, %for.body26.preheader ]
-  %c.3342 = phi i32 [ %or33, %if.end31 ], [ %c.3342.ph, %for.body26.preheader ]
-  %arrayidx28 = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 7, i64 %indvars.iv365
+for.body26:                                       ; preds = %for.end, %if.end31
+  %indvars.iv365 = phi i64 [ 0, %for.end ], [ %indvars.iv.next366, %if.end31 ]
+  %c.3342 = phi i32 [ %c.2.lcssa, %for.end ], [ %or33, %if.end31 ]
+  %arrayidx28 = getelementptr inbounds [8 x ptr], ptr %mColors, i64 0, i64 %indvars.iv365
   %10 = load ptr, ptr %arrayidx28, align 8
   %tobool29.not = icmp eq ptr %10, null
   br i1 %tobool29.not, label %for.end36, label %if.end31
@@ -1959,7 +1945,7 @@ for.end36:                                        ; preds = %for.body26, %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i109)
   store i32 %c.3.lcssa, ptr %t.i109, align 4
   %vtable.i110 = load ptr, ptr %chunk, align 8
-  %vfn.i111 = getelementptr inbounds ptr, ptr %vtable.i110, i64 3
+  %vfn.i111 = getelementptr inbounds i8, ptr %vtable.i110, i64 24
   %12 = load ptr, ptr %vfn.i111, align 8
   %call.i112 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i109, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont37 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1993,23 +1979,23 @@ for.body.i:                                       ; preds = %call.i12.i.i.noexc,
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %call.i12.i.i.noexc ]
   %arrayidx.i = getelementptr inbounds %class.aiVector3t, ptr %13, i64 %indvars.iv.i
   %vtable.i.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %17 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i116 = invoke noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc:                                 ; preds = %for.body.i
-  %y.i.i = getelementptr inbounds %class.aiVector3t, ptr %13, i64 %indvars.iv.i, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %vtable.i7.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i8.i.i = getelementptr inbounds ptr, ptr %vtable.i7.i.i, i64 3
+  %vfn.i8.i.i = getelementptr inbounds i8, ptr %vtable.i7.i.i, i64 24
   %18 = load ptr, ptr %vfn.i8.i.i, align 8
   %call.i9.i.i117 = invoke noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i9.i.i.noexc:                                ; preds = %call.i.i.i.noexc
-  %z.i.i = getelementptr inbounds %class.aiVector3t, ptr %13, i64 %indvars.iv.i, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %vtable.i10.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i11.i.i = getelementptr inbounds ptr, ptr %vtable.i10.i.i, i64 3
+  %vfn.i11.i.i = getelementptr inbounds i8, ptr %vtable.i10.i.i, i64 24
   %19 = load ptr, ptr %vfn.i11.i.i, align 8
   %call.i12.i.i118 = invoke noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2047,23 +2033,23 @@ for.body.i122:                                    ; preds = %call.i12.i.i.noexc1
   %indvars.iv.i123 = phi i64 [ 0, %for.body.preheader.i120 ], [ %indvars.iv.next.i133, %call.i12.i.i.noexc141 ]
   %arrayidx.i124 = getelementptr inbounds %class.aiVector3t, ptr %20, i64 %indvars.iv.i123
   %vtable.i.i.i125 = load ptr, ptr %chunk, align 8
-  %vfn.i.i.i126 = getelementptr inbounds ptr, ptr %vtable.i.i.i125, i64 3
+  %vfn.i.i.i126 = getelementptr inbounds i8, ptr %vtable.i.i.i125, i64 24
   %24 = load ptr, ptr %vfn.i.i.i126, align 8
   %call.i.i.i138 = invoke noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i124, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.noexc137 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc137:                              ; preds = %for.body.i122
-  %y.i.i127 = getelementptr inbounds %class.aiVector3t, ptr %20, i64 %indvars.iv.i123, i32 1
+  %y.i.i127 = getelementptr inbounds i8, ptr %arrayidx.i124, i64 4
   %vtable.i7.i.i128 = load ptr, ptr %chunk, align 8
-  %vfn.i8.i.i129 = getelementptr inbounds ptr, ptr %vtable.i7.i.i128, i64 3
+  %vfn.i8.i.i129 = getelementptr inbounds i8, ptr %vtable.i7.i.i128, i64 24
   %25 = load ptr, ptr %vfn.i8.i.i129, align 8
   %call.i9.i.i140 = invoke noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i127, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.i.noexc139 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i9.i.i.noexc139:                             ; preds = %call.i.i.i.noexc137
-  %z.i.i130 = getelementptr inbounds %class.aiVector3t, ptr %20, i64 %indvars.iv.i123, i32 2
+  %z.i.i130 = getelementptr inbounds i8, ptr %arrayidx.i124, i64 8
   %vtable.i10.i.i131 = load ptr, ptr %chunk, align 8
-  %vfn.i11.i.i132 = getelementptr inbounds ptr, ptr %vtable.i10.i.i131, i64 3
+  %vfn.i11.i.i132 = getelementptr inbounds i8, ptr %vtable.i10.i.i131, i64 24
   %26 = load ptr, ptr %vfn.i11.i.i132, align 8
   %call.i12.i.i142 = invoke noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i130, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.noexc141 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2079,7 +2065,7 @@ if.end70:                                         ; preds = %call.i12.i.i.noexc1
   br i1 %tobool72.not, label %for.body102.preheader, label %land.lhs.true73
 
 land.lhs.true73:                                  ; preds = %if.end70
-  %mBitangents74 = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 6
+  %mBitangents74 = getelementptr inbounds i8, ptr %mesh, i64 40
   %28 = load ptr, ptr %mBitangents74, align 8
   %tobool75.not = icmp eq ptr %28, null
   br i1 %tobool75.not, label %for.body102.preheader, label %if.then76
@@ -2113,23 +2099,23 @@ for.body.i147:                                    ; preds = %call.i12.i.i.noexc1
   %indvars.iv.i148 = phi i64 [ 0, %for.body.preheader.i145 ], [ %indvars.iv.next.i158, %call.i12.i.i.noexc166 ]
   %arrayidx.i149 = getelementptr inbounds %class.aiVector3t, ptr %27, i64 %indvars.iv.i148
   %vtable.i.i.i150 = load ptr, ptr %chunk, align 8
-  %vfn.i.i.i151 = getelementptr inbounds ptr, ptr %vtable.i.i.i150, i64 3
+  %vfn.i.i.i151 = getelementptr inbounds i8, ptr %vtable.i.i.i150, i64 24
   %34 = load ptr, ptr %vfn.i.i.i151, align 8
   %call.i.i.i163 = invoke noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i149, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.noexc162 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc162:                              ; preds = %for.body.i147
-  %y.i.i152 = getelementptr inbounds %class.aiVector3t, ptr %27, i64 %indvars.iv.i148, i32 1
+  %y.i.i152 = getelementptr inbounds i8, ptr %arrayidx.i149, i64 4
   %vtable.i7.i.i153 = load ptr, ptr %chunk, align 8
-  %vfn.i8.i.i154 = getelementptr inbounds ptr, ptr %vtable.i7.i.i153, i64 3
+  %vfn.i8.i.i154 = getelementptr inbounds i8, ptr %vtable.i7.i.i153, i64 24
   %35 = load ptr, ptr %vfn.i8.i.i154, align 8
   %call.i9.i.i165 = invoke noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i152, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.i.noexc164 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i9.i.i.noexc164:                             ; preds = %call.i.i.i.noexc162
-  %z.i.i155 = getelementptr inbounds %class.aiVector3t, ptr %27, i64 %indvars.iv.i148, i32 2
+  %z.i.i155 = getelementptr inbounds i8, ptr %arrayidx.i149, i64 8
   %vtable.i10.i.i156 = load ptr, ptr %chunk, align 8
-  %vfn.i11.i.i157 = getelementptr inbounds ptr, ptr %vtable.i10.i.i156, i64 3
+  %vfn.i11.i.i157 = getelementptr inbounds i8, ptr %vtable.i10.i.i156, i64 24
   %36 = load ptr, ptr %vfn.i11.i.i157, align 8
   %call.i12.i.i167 = invoke noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i155, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.noexc166 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2153,23 +2139,23 @@ for.body.i172:                                    ; preds = %call.i12.i.i.noexc1
   %indvars.iv.i173 = phi i64 [ 0, %for.body.preheader.i170 ], [ %indvars.iv.next.i183, %call.i12.i.i.noexc191 ]
   %arrayidx.i174 = getelementptr inbounds %class.aiVector3t, ptr %37, i64 %indvars.iv.i173
   %vtable.i.i.i175 = load ptr, ptr %chunk, align 8
-  %vfn.i.i.i176 = getelementptr inbounds ptr, ptr %vtable.i.i.i175, i64 3
+  %vfn.i.i.i176 = getelementptr inbounds i8, ptr %vtable.i.i.i175, i64 24
   %38 = load ptr, ptr %vfn.i.i.i176, align 8
   %call.i.i.i188 = invoke noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i174, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.noexc187 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc187:                              ; preds = %for.body.i172
-  %y.i.i177 = getelementptr inbounds %class.aiVector3t, ptr %37, i64 %indvars.iv.i173, i32 1
+  %y.i.i177 = getelementptr inbounds i8, ptr %arrayidx.i174, i64 4
   %vtable.i7.i.i178 = load ptr, ptr %chunk, align 8
-  %vfn.i8.i.i179 = getelementptr inbounds ptr, ptr %vtable.i7.i.i178, i64 3
+  %vfn.i8.i.i179 = getelementptr inbounds i8, ptr %vtable.i7.i.i178, i64 24
   %39 = load ptr, ptr %vfn.i8.i.i179, align 8
   %call.i9.i.i190 = invoke noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i177, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.i.noexc189 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i9.i.i.noexc189:                             ; preds = %call.i.i.i.noexc187
-  %z.i.i180 = getelementptr inbounds %class.aiVector3t, ptr %37, i64 %indvars.iv.i173, i32 2
+  %z.i.i180 = getelementptr inbounds i8, ptr %arrayidx.i174, i64 8
   %vtable.i10.i.i181 = load ptr, ptr %chunk, align 8
-  %vfn.i11.i.i182 = getelementptr inbounds ptr, ptr %vtable.i10.i.i181, i64 3
+  %vfn.i11.i.i182 = getelementptr inbounds i8, ptr %vtable.i10.i.i181, i64 24
   %40 = load ptr, ptr %vfn.i11.i.i182, align 8
   %call.i12.i.i192 = invoke noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i180, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.noexc191 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2184,10 +2170,10 @@ for.body102.preheader:                            ; preds = %call.i12.i.i.noexc1
 
 for.body102:                                      ; preds = %for.body102.preheader, %for.inc126
   %indvars.iv369 = phi i64 [ %indvars.iv.next370, %for.inc126 ], [ 0, %for.body102.preheader ]
-  %arrayidx105 = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 7, i64 %indvars.iv369
+  %arrayidx105 = getelementptr inbounds [8 x ptr], ptr %mColors, i64 0, i64 %indvars.iv369
   %41 = load ptr, ptr %arrayidx105, align 8
   %tobool106.not = icmp eq ptr %41, null
-  br i1 %tobool106.not, label %for.body132.preheader, label %if.end108
+  br i1 %tobool106.not, label %for.end128, label %if.end108
 
 if.end108:                                        ; preds = %for.body102
   %42 = load i8, ptr %this, align 1
@@ -2212,31 +2198,31 @@ for.body.i197:                                    ; preds = %call.i18.i.i.noexc,
   %indvars.iv.i198 = phi i64 [ 0, %for.body.preheader.i195 ], [ %indvars.iv.next.i204, %call.i18.i.i.noexc ]
   %arrayidx.i199 = getelementptr inbounds %class.aiColor4t, ptr %41, i64 %indvars.iv.i198
   %vtable.i.i.i200 = load ptr, ptr %chunk, align 8
-  %vfn.i.i.i201 = getelementptr inbounds ptr, ptr %vtable.i.i.i200, i64 3
+  %vfn.i.i.i201 = getelementptr inbounds i8, ptr %vtable.i.i.i200, i64 24
   %45 = load ptr, ptr %vfn.i.i.i201, align 8
   %call.i.i.i209 = invoke noundef i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i199, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.noexc208 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc208:                              ; preds = %for.body.i197
-  %g.i.i = getelementptr inbounds %class.aiColor4t, ptr %41, i64 %indvars.iv.i198, i32 1
+  %g.i.i = getelementptr inbounds i8, ptr %arrayidx.i199, i64 4
   %vtable.i10.i.i202 = load ptr, ptr %chunk, align 8
-  %vfn.i11.i.i203 = getelementptr inbounds ptr, ptr %vtable.i10.i.i202, i64 3
+  %vfn.i11.i.i203 = getelementptr inbounds i8, ptr %vtable.i10.i.i202, i64 24
   %46 = load ptr, ptr %vfn.i11.i.i203, align 8
   %call.i12.i.i211 = invoke noundef i64 %46(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %g.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.noexc210 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i12.i.i.noexc210:                            ; preds = %call.i.i.i.noexc208
-  %b.i.i = getelementptr inbounds %class.aiColor4t, ptr %41, i64 %indvars.iv.i198, i32 2
+  %b.i.i = getelementptr inbounds i8, ptr %arrayidx.i199, i64 8
   %vtable.i13.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i14.i.i = getelementptr inbounds ptr, ptr %vtable.i13.i.i, i64 3
+  %vfn.i14.i.i = getelementptr inbounds i8, ptr %vtable.i13.i.i, i64 24
   %47 = load ptr, ptr %vfn.i14.i.i, align 8
   %call.i15.i.i212 = invoke noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %b.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i15.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i15.i.i.noexc:                               ; preds = %call.i12.i.i.noexc210
-  %a.i.i = getelementptr inbounds %class.aiColor4t, ptr %41, i64 %indvars.iv.i198, i32 3
+  %a.i.i = getelementptr inbounds i8, ptr %arrayidx.i199, i64 12
   %vtable.i16.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i17.i.i = getelementptr inbounds ptr, ptr %vtable.i16.i.i, i64 3
+  %vfn.i17.i.i = getelementptr inbounds i8, ptr %vtable.i16.i.i, i64 24
   %48 = load ptr, ptr %vfn.i17.i.i, align 8
   %call.i18.i.i213 = invoke noundef i64 %48(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %a.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i18.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2249,25 +2235,26 @@ call.i18.i.i.noexc:                               ; preds = %call.i15.i.i.noexc
 for.inc126:                                       ; preds = %call.i18.i.i.noexc, %if.else118, %if.then111
   %indvars.iv.next370 = add nuw nsw i64 %indvars.iv369, 1
   %exitcond372.not = icmp eq i64 %indvars.iv.next370, 8
-  br i1 %exitcond372.not, label %for.body132.preheader, label %for.body102, !llvm.loop !20
+  br i1 %exitcond372.not, label %for.end128, label %for.body102, !llvm.loop !20
 
-for.body132.preheader:                            ; preds = %for.body102, %for.inc126
+for.end128:                                       ; preds = %for.body102, %for.inc126
+  %mNumUVComponents = getelementptr inbounds i8, ptr %mesh, i64 176
   br label %for.body132
 
-for.body132:                                      ; preds = %for.body132.preheader, %for.inc160
-  %indvars.iv373 = phi i64 [ %indvars.iv.next374, %for.inc160 ], [ 0, %for.body132.preheader ]
-  %arrayidx135 = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 8, i64 %indvars.iv373
+for.body132:                                      ; preds = %for.end128, %for.inc160
+  %indvars.iv373 = phi i64 [ 0, %for.end128 ], [ %indvars.iv.next374, %for.inc160 ]
+  %arrayidx135 = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %indvars.iv373
   %49 = load ptr, ptr %arrayidx135, align 8
   %tobool136.not = icmp eq ptr %49, null
   br i1 %tobool136.not, label %for.end162, label %if.end138
 
 if.end138:                                        ; preds = %for.body132
-  %arrayidx140 = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 9, i64 %indvars.iv373
+  %arrayidx140 = getelementptr inbounds [8 x i32], ptr %mNumUVComponents, i64 0, i64 %indvars.iv373
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i214)
   %50 = load i32, ptr %arrayidx140, align 4
   store i32 %50, ptr %t.i214, align 4
   %vtable.i215 = load ptr, ptr %chunk, align 8
-  %vfn.i216 = getelementptr inbounds ptr, ptr %vtable.i215, i64 3
+  %vfn.i216 = getelementptr inbounds i8, ptr %vtable.i215, i64 24
   %51 = load ptr, ptr %vfn.i216, align 8
   %call.i217 = invoke noundef i64 %51(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i214, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont141 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2297,23 +2284,23 @@ for.body.i222:                                    ; preds = %call.i12.i.i.noexc2
   %indvars.iv.i223 = phi i64 [ 0, %for.body.preheader.i220 ], [ %indvars.iv.next.i233, %call.i12.i.i.noexc241 ]
   %arrayidx.i224 = getelementptr inbounds %class.aiVector3t, ptr %54, i64 %indvars.iv.i223
   %vtable.i.i.i225 = load ptr, ptr %chunk, align 8
-  %vfn.i.i.i226 = getelementptr inbounds ptr, ptr %vtable.i.i.i225, i64 3
+  %vfn.i.i.i226 = getelementptr inbounds i8, ptr %vtable.i.i.i225, i64 24
   %56 = load ptr, ptr %vfn.i.i.i226, align 8
   %call.i.i.i238 = invoke noundef i64 %56(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i224, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.noexc237 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc237:                              ; preds = %for.body.i222
-  %y.i.i227 = getelementptr inbounds %class.aiVector3t, ptr %54, i64 %indvars.iv.i223, i32 1
+  %y.i.i227 = getelementptr inbounds i8, ptr %arrayidx.i224, i64 4
   %vtable.i7.i.i228 = load ptr, ptr %chunk, align 8
-  %vfn.i8.i.i229 = getelementptr inbounds ptr, ptr %vtable.i7.i.i228, i64 3
+  %vfn.i8.i.i229 = getelementptr inbounds i8, ptr %vtable.i7.i.i228, i64 24
   %57 = load ptr, ptr %vfn.i8.i.i229, align 8
   %call.i9.i.i240 = invoke noundef i64 %57(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i227, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.i.noexc239 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i9.i.i.noexc239:                             ; preds = %call.i.i.i.noexc237
-  %z.i.i230 = getelementptr inbounds %class.aiVector3t, ptr %54, i64 %indvars.iv.i223, i32 2
+  %z.i.i230 = getelementptr inbounds i8, ptr %arrayidx.i224, i64 8
   %vtable.i10.i.i231 = load ptr, ptr %chunk, align 8
-  %vfn.i11.i.i232 = getelementptr inbounds ptr, ptr %vtable.i10.i.i231, i64 3
+  %vfn.i11.i.i232 = getelementptr inbounds i8, ptr %vtable.i10.i.i231, i64 24
   %58 = load ptr, ptr %vfn.i11.i.i232, align 8
   %call.i12.i.i242 = invoke noundef i64 %58(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i230, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.noexc241 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2341,14 +2328,14 @@ for.cond166.preheader:                            ; preds = %for.end162
 
 for.cond173.preheader.lr.ph:                      ; preds = %for.cond166.preheader
   %.sroa.speculated353 = call i32 @llvm.umin.i32(i32 %61, i32 512)
-  %mFaces = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 10
+  %mFaces = getelementptr inbounds i8, ptr %mesh, i64 208
   br label %for.cond173.preheader
 
 for.cond201.preheader:                            ; preds = %for.end162
   br i1 %cmp203359.not, label %if.end241, label %for.body204.lr.ph
 
 for.body204.lr.ph:                                ; preds = %for.cond201.preheader
-  %mFaces206 = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 10
+  %mFaces206 = getelementptr inbounds i8, ptr %mesh, i64 208
   br label %for.body204
 
 for.cond173.preheader:                            ; preds = %for.cond173.preheader.lr.ph, %for.inc196
@@ -2395,7 +2382,7 @@ for.body175:                                      ; preds = %for.body175.lr.ph, 
   br i1 %cmp182346.not, label %for.inc191, label %for.body183.lr.ph
 
 for.body183.lr.ph:                                ; preds = %for.body175
-  %mIndices = getelementptr inbounds %struct.aiFace, ptr %62, i64 %idxprom176, i32 1
+  %mIndices = getelementptr inbounds i8, ptr %arrayidx177, i64 8
   %69 = load ptr, ptr %mIndices, align 8
   %wide.trip.count = zext i32 %64 to i64
   br label %for.body183
@@ -2441,7 +2428,7 @@ for.end193:                                       ; preds = %for.inc191, %for.co
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i274)
   store i32 %hash.0.lcssa, ptr %t.i274, align 4
   %vtable.i275 = load ptr, ptr %chunk, align 8
-  %vfn.i276 = getelementptr inbounds ptr, ptr %vtable.i275, i64 3
+  %vfn.i276 = getelementptr inbounds i8, ptr %vtable.i275, i64 24
   %75 = load ptr, ptr %vfn.i276, align 8
   %call.i277 = invoke noundef i64 %75(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i274, i64 noundef 4, i64 noundef 1)
           to label %for.inc196 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2463,7 +2450,7 @@ for.body204:                                      ; preds = %for.body204.lr.ph, 
   %conv = trunc i32 %78 to i16
   store i16 %conv, ptr %ref.tmp209, align 2
   %vtable.i279 = load ptr, ptr %chunk, align 8
-  %vfn.i280 = getelementptr inbounds ptr, ptr %vtable.i279, i64 3
+  %vfn.i280 = getelementptr inbounds i8, ptr %vtable.i279, i64 24
   %79 = load ptr, ptr %vfn.i280, align 8
   %call.i281 = invoke noundef i64 %79(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %ref.tmp209, i64 noundef 2, i64 noundef 1)
           to label %for.cond214.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2474,7 +2461,7 @@ for.cond214.preheader:                            ; preds = %for.body204
   br i1 %cmp216357.not, label %for.inc238, label %for.body217.lr.ph
 
 for.body217.lr.ph:                                ; preds = %for.cond214.preheader
-  %mIndices229 = getelementptr inbounds %struct.aiFace, ptr %77, i64 %indvars.iv389, i32 1
+  %mIndices229 = getelementptr inbounds i8, ptr %arrayidx208, i64 8
   br label %for.body217
 
 for.body217:                                      ; preds = %for.body217.lr.ph, %for.inc235
@@ -2490,7 +2477,7 @@ if.then220:                                       ; preds = %for.body217
   %conv225 = trunc i32 %83 to i16
   store i16 %conv225, ptr %ref.tmp221, align 2
   %vtable.i282 = load ptr, ptr %chunk, align 8
-  %vfn.i283 = getelementptr inbounds ptr, ptr %vtable.i282, i64 3
+  %vfn.i283 = getelementptr inbounds i8, ptr %vtable.i282, i64 24
   %84 = load ptr, ptr %vfn.i283, align 8
   %call.i284 = invoke noundef i64 %84(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %ref.tmp221, i64 noundef 2, i64 noundef 1)
           to label %for.inc235 unwind label %lpad.loopexit.split-lp.loopexit
@@ -2500,7 +2487,7 @@ if.else228:                                       ; preds = %for.body217
   %85 = load i32, ptr %arrayidx224, align 4
   store i32 %85, ptr %t.i286, align 4
   %vtable.i287 = load ptr, ptr %chunk, align 8
-  %vfn.i288 = getelementptr inbounds ptr, ptr %vtable.i287, i64 3
+  %vfn.i288 = getelementptr inbounds i8, ptr %vtable.i287, i64 24
   %86 = load ptr, ptr %vfn.i288, align 8
   %call.i289 = invoke noundef i64 %86(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i286, i64 noundef 4, i64 noundef 1)
           to label %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit290 unwind label %lpad.loopexit.split-lp.loopexit
@@ -2529,7 +2516,7 @@ if.end241:                                        ; preds = %for.inc196, %for.in
   br i1 %tobool243.not, label %if.end256, label %for.body249.lr.ph
 
 for.body249.lr.ph:                                ; preds = %if.end241
-  %mBones = getelementptr inbounds %struct.aiMesh, ptr %mesh, i64 0, i32 12
+  %mBones = getelementptr inbounds i8, ptr %mesh, i64 224
   br label %for.body249
 
 for.body249:                                      ; preds = %for.body249.lr.ph, %for.inc253
@@ -2555,7 +2542,7 @@ if.end256:                                        ; preds = %for.inc253, %if.end
 
 if.then.i:                                        ; preds = %if.end256
   %vtable.i291 = load ptr, ptr %96, align 8
-  %vfn.i292 = getelementptr inbounds ptr, ptr %vtable.i291, i64 3
+  %vfn.i292 = getelementptr inbounds i8, ptr %vtable.i291, i64 24
   %97 = load ptr, ptr %vfn.i292, align 8
   %call.i = invoke noundef i64 %97(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull %magic2.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -2563,7 +2550,7 @@ if.then.i:                                        ; preds = %if.end256
 invoke.cont.i:                                    ; preds = %if.then.i
   %98 = load ptr, ptr %container3.i, align 8
   %vtable4.i = load ptr, ptr %98, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 3
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %99 = load ptr, ptr %vfn5.i, align 8
   %call7.i = invoke noundef i64 %99(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull %cursor.i401, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6.i unwind label %terminate.lpad.i
@@ -2573,7 +2560,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i
   %101 = load ptr, ptr %buffer.i, align 8
   %102 = load i64, ptr %cursor.i401, align 8
   %vtable10.i = load ptr, ptr %100, align 8
-  %vfn11.i = getelementptr inbounds ptr, ptr %vtable10.i, i64 3
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 24
   %103 = load ptr, ptr %vfn11.i, align 8
   %call13.i = invoke noundef i64 %103(ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef %101, i64 noundef 1, i64 noundef %102)
           to label %if.end.i unwind label %terminate.lpad.i
@@ -2603,19 +2590,19 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter19WriteBinaryMateri
 if.then.i18:
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 0, inrange i32 0, i64 2), ptr %chunk, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
-  %magic2.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 2
+  %magic2.i = getelementptr inbounds i8, ptr %chunk, i64 16
   store i32 4669, ptr %magic2.i, align 8
-  %container3.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 3
+  %container3.i = getelementptr inbounds i8, ptr %chunk, i64 24
   store ptr %container, ptr %container3.i, align 8
-  %cur_size.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 4
-  %initial4.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 6
+  %cur_size.i = getelementptr inbounds i8, ptr %chunk, i64 32
+  %initial4.i = getelementptr inbounds i8, ptr %chunk, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cur_size.i, i8 0, i64 16, i1 false)
   store i64 4096, ptr %initial4.i, align 8
-  %mNumProperties = getelementptr inbounds %struct.aiMaterial, ptr %mat, i64 0, i32 1
+  %mNumProperties = getelementptr inbounds i8, ptr %mat, i64 8
   %0 = load i32, ptr %mNumProperties, align 4
-  %cursor.i14 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 5
+  %cursor.i14 = getelementptr inbounds i8, ptr %chunk, i64 40
   %call4.i.i19 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #17
           to label %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit unwind label %lpad.loopexit.split-lp
 
@@ -2669,7 +2656,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 if.then.i:                                        ; preds = %for.end
   %vtable.i6 = load ptr, ptr %5, align 8
-  %vfn.i7 = getelementptr inbounds ptr, ptr %vtable.i6, i64 3
+  %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 24
   %6 = load ptr, ptr %vfn.i7, align 8
   %call.i = invoke noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %magic2.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -2677,7 +2664,7 @@ if.then.i:                                        ; preds = %for.end
 invoke.cont.i:                                    ; preds = %if.then.i
   %7 = load ptr, ptr %container3.i, align 8
   %vtable4.i = load ptr, ptr %7, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 3
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %8 = load ptr, ptr %vfn5.i, align 8
   %call7.i = invoke noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %cursor.i14, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6.i unwind label %terminate.lpad.i
@@ -2687,7 +2674,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i
   %10 = load ptr, ptr %buffer.i, align 8
   %11 = load i64, ptr %cursor.i14, align 8
   %vtable10.i = load ptr, ptr %9, align 8
-  %vfn11.i = getelementptr inbounds ptr, ptr %vtable10.i, i64 3
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 24
   %12 = load ptr, ptr %vfn11.i, align 8
   %call13.i = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, i64 noundef 1, i64 noundef %11)
           to label %if.end.i unwind label %terminate.lpad.i
@@ -2718,18 +2705,18 @@ if.then.i35:
   %t.i = alloca i32, align 4
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 0, inrange i32 0, i64 2), ptr %chunk, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
-  %magic2.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 2
+  %magic2.i = getelementptr inbounds i8, ptr %chunk, i64 16
   store i32 4667, ptr %magic2.i, align 8
-  %container3.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 3
+  %container3.i = getelementptr inbounds i8, ptr %chunk, i64 24
   store ptr %container, ptr %container3.i, align 8
-  %cur_size.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 4
-  %initial4.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 6
+  %cur_size.i = getelementptr inbounds i8, ptr %chunk, i64 32
+  %initial4.i = getelementptr inbounds i8, ptr %chunk, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cur_size.i, i8 0, i64 16, i1 false)
   store i64 4096, ptr %initial4.i, align 8
   %0 = load i32, ptr %anim, align 4
-  %cursor.i31 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 5
+  %cursor.i31 = getelementptr inbounds i8, ptr %chunk, i64 40
   %call4.i.i36 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #17
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -2739,7 +2726,7 @@ call.i.noexc:                                     ; preds = %if.then.i35
   store i32 %0, ptr %call4.i.i36, align 1
   store i64 4, ptr %cursor.i31, align 8
   %conv.i = zext i32 %0 to i64
-  %data.i = getelementptr inbounds %struct.aiString, ptr %anim, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %anim, i64 4
   %cmp.i = icmp ugt i32 %0, 4092
   br i1 %cmp.i, label %if.then.i40, label %invoke.cont
 
@@ -2763,7 +2750,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %data.i, i64 %conv.i, i1 false)
   %add6.i = add nuw nsw i64 %conv.i, 4
   store i64 %add6.i, ptr %cursor.i31, align 8
-  %mDuration = getelementptr inbounds %struct.aiAnimation, ptr %anim, i64 0, i32 1
+  %mDuration = getelementptr inbounds i8, ptr %anim, i64 1032
   %add.i = add nuw nsw i64 %conv.i, 12
   %cmp.i43 = icmp ugt i64 %add.i, %3
   br i1 %cmp.i43, label %if.then.i48, label %invoke.cont2
@@ -2790,20 +2777,20 @@ invoke.cont2:                                     ; preds = %_ZN6Assimp17AssbinC
   %8 = load i64, ptr %cursor.i31, align 8
   %add6.i47 = add i64 %8, 8
   store i64 %add6.i47, ptr %cursor.i31, align 8
-  %mTicksPerSecond = getelementptr inbounds %struct.aiAnimation, ptr %anim, i64 0, i32 2
+  %mTicksPerSecond = getelementptr inbounds i8, ptr %anim, i64 1040
   %vtable.i14 = load ptr, ptr %chunk, align 8
-  %vfn.i15 = getelementptr inbounds ptr, ptr %vtable.i14, i64 3
+  %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 24
   %9 = load ptr, ptr %vfn.i15, align 8
   %call.i17 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mTicksPerSecond, i64 noundef 8, i64 noundef 1)
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %mNumChannels = getelementptr inbounds %struct.aiAnimation, ptr %anim, i64 0, i32 3
+  %mNumChannels = getelementptr inbounds i8, ptr %anim, i64 1048
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i)
   %10 = load i32, ptr %mNumChannels, align 4
   store i32 %10, ptr %t.i, align 4
   %vtable.i19 = load ptr, ptr %chunk, align 8
-  %vfn.i20 = getelementptr inbounds ptr, ptr %vtable.i19, i64 3
+  %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 24
   %11 = load ptr, ptr %vfn.i20, align 8
   %call.i22 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i, i64 noundef 4, i64 noundef 1)
           to label %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit unwind label %lpad.loopexit.split-lp
@@ -2815,7 +2802,7 @@ _ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit:     ; preds = %invoke.cont4
   br i1 %cmp28.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6Assimp5WriteIjEEmPNS_8IOStreamERKT_.exit
-  %mChannels = getelementptr inbounds %struct.aiAnimation, ptr %anim, i64 0, i32 4
+  %mChannels = getelementptr inbounds i8, ptr %anim, i64 1056
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2856,7 +2843,7 @@ for.end:                                          ; preds = %for.inc, %_ZN6Assim
 
 if.then.i:                                        ; preds = %for.end
   %vtable.i23 = load ptr, ptr %17, align 8
-  %vfn.i24 = getelementptr inbounds ptr, ptr %vtable.i23, i64 3
+  %vfn.i24 = getelementptr inbounds i8, ptr %vtable.i23, i64 24
   %18 = load ptr, ptr %vfn.i24, align 8
   %call.i = invoke noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %magic2.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -2864,7 +2851,7 @@ if.then.i:                                        ; preds = %for.end
 invoke.cont.i:                                    ; preds = %if.then.i
   %19 = load ptr, ptr %container3.i, align 8
   %vtable4.i = load ptr, ptr %19, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 3
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %20 = load ptr, ptr %vfn5.i, align 8
   %call7.i = invoke noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %cursor.i31, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6.i unwind label %terminate.lpad.i
@@ -2874,7 +2861,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i
   %22 = load ptr, ptr %buffer.i, align 8
   %23 = load i64, ptr %cursor.i31, align 8
   %vtable10.i = load ptr, ptr %21, align 8
-  %vfn11.i = getelementptr inbounds ptr, ptr %vtable10.i, i64 3
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 24
   %24 = load ptr, ptr %vfn11.i, align 8
   %call13.i = invoke noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %22, i64 noundef 1, i64 noundef %23)
           to label %if.end.i unwind label %terminate.lpad.i
@@ -2904,18 +2891,18 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter18WriteBinaryTextur
 if.then.i79:
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 0, inrange i32 0, i64 2), ptr %chunk, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
-  %magic2.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 2
+  %magic2.i = getelementptr inbounds i8, ptr %chunk, i64 16
   store i32 4662, ptr %magic2.i, align 8
-  %container3.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 3
+  %container3.i = getelementptr inbounds i8, ptr %chunk, i64 24
   store ptr %container, ptr %container3.i, align 8
-  %cur_size.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 4
-  %initial4.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 6
+  %cur_size.i = getelementptr inbounds i8, ptr %chunk, i64 32
+  %initial4.i = getelementptr inbounds i8, ptr %chunk, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cur_size.i, i8 0, i64 16, i1 false)
   store i64 4096, ptr %initial4.i, align 8
   %0 = load i32, ptr %tex, align 4
-  %cursor.i71 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 5
+  %cursor.i71 = getelementptr inbounds i8, ptr %chunk, i64 40
   %call4.i.i88 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #17
           to label %invoke.cont4 unwind label %lpad
 
@@ -2923,11 +2910,11 @@ invoke.cont4:                                     ; preds = %if.then.i79
   store ptr %call4.i.i88, ptr %buffer.i, align 8
   store i64 4096, ptr %cur_size.i, align 8
   store i32 %0, ptr %call4.i.i88, align 1
-  %mHeight = getelementptr inbounds %struct.aiTexture, ptr %tex, i64 0, i32 1
+  %mHeight = getelementptr inbounds i8, ptr %tex, i64 4
   %1 = load i32, ptr %mHeight, align 4
   %add.ptr.i94 = getelementptr inbounds i8, ptr %call4.i.i88, i64 4
   store i32 %1, ptr %add.ptr.i94, align 1
-  %achFormatHint = getelementptr inbounds %struct.aiTexture, ptr %tex, i64 0, i32 2
+  %achFormatHint = getelementptr inbounds i8, ptr %tex, i64 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call4.i.i88, i64 8
   %2 = load i64, ptr %achFormatHint, align 1
   store i64 %2, ptr %add.ptr.i, align 1
@@ -2939,7 +2926,7 @@ invoke.cont4:                                     ; preds = %if.then.i79
 
 if.then:                                          ; preds = %invoke.cont4
   %tobool7.not = icmp eq i32 %1, 0
-  %pcData = getelementptr inbounds %struct.aiTexture, ptr %tex, i64 0, i32 4
+  %pcData = getelementptr inbounds i8, ptr %tex, i64 24
   %5 = load ptr, ptr %pcData, align 8
   br i1 %tobool7.not, label %if.then8, label %if.else
 
@@ -3001,7 +2988,7 @@ if.end19:                                         ; preds = %if.end19.sink.split
 
 if.then.i58:                                      ; preds = %if.end19
   %vtable.i59 = load ptr, ptr %container, align 8
-  %vfn.i60 = getelementptr inbounds ptr, ptr %vtable.i59, i64 3
+  %vfn.i60 = getelementptr inbounds i8, ptr %vtable.i59, i64 24
   %10 = load ptr, ptr %vfn.i60, align 8
   %call.i = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %container, ptr noundef nonnull %magic2.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -3009,7 +2996,7 @@ if.then.i58:                                      ; preds = %if.end19
 invoke.cont.i:                                    ; preds = %if.then.i58
   %11 = load ptr, ptr %container3.i, align 8
   %vtable4.i = load ptr, ptr %11, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 3
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %12 = load ptr, ptr %vfn5.i, align 8
   %call7.i = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %cursor.i71, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6.i unwind label %terminate.lpad.i
@@ -3019,7 +3006,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i
   %14 = load ptr, ptr %buffer.i, align 8
   %15 = load i64, ptr %cursor.i71, align 8
   %vtable10.i = load ptr, ptr %13, align 8
-  %vfn11.i = getelementptr inbounds ptr, ptr %vtable10.i, i64 3
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 24
   %16 = load ptr, ptr %vfn11.i, align 8
   %call13.i = invoke noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %14, i64 noundef 1, i64 noundef %15)
           to label %if.end.i unwind label %terminate.lpad.i
@@ -3050,18 +3037,18 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter16WriteBinaryLightE
 if.then.i122:
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 0, inrange i32 0, i64 2), ptr %chunk, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
-  %magic2.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 2
+  %magic2.i = getelementptr inbounds i8, ptr %chunk, i64 16
   store i32 4661, ptr %magic2.i, align 8
-  %container3.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 3
+  %container3.i = getelementptr inbounds i8, ptr %chunk, i64 24
   store ptr %container, ptr %container3.i, align 8
-  %cur_size.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 4
-  %initial4.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 6
+  %cur_size.i = getelementptr inbounds i8, ptr %chunk, i64 32
+  %initial4.i = getelementptr inbounds i8, ptr %chunk, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cur_size.i, i8 0, i64 16, i1 false)
   store i64 4096, ptr %initial4.i, align 8
   %0 = load i32, ptr %l, align 4
-  %cursor.i118 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 5
+  %cursor.i118 = getelementptr inbounds i8, ptr %chunk, i64 40
   %call4.i.i123 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #17
           to label %call.i.noexc unwind label %lpad
 
@@ -3071,7 +3058,7 @@ call.i.noexc:                                     ; preds = %if.then.i122
   store i32 %0, ptr %call4.i.i123, align 1
   store i64 4, ptr %cursor.i118, align 8
   %conv.i = zext i32 %0 to i64
-  %data.i = getelementptr inbounds %struct.aiString, ptr %l, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %l, i64 4
   %cmp.i = icmp ugt i32 %0, 4092
   br i1 %cmp.i, label %if.then.i127, label %invoke.cont
 
@@ -3095,7 +3082,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %data.i, i64 %conv.i, i1 false)
   %add6.i = add nuw nsw i64 %conv.i, 4
   store i64 %add6.i, ptr %cursor.i118, align 8
-  %mType = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 1
+  %mType = getelementptr inbounds i8, ptr %l, i64 1028
   %5 = load i32, ptr %mType, align 4
   %add.i = add nuw nsw i64 %conv.i, 8
   %cmp.i130 = icmp ugt i64 %add.i, %3
@@ -3122,73 +3109,73 @@ invoke.cont2:                                     ; preds = %_ZN6Assimp17AssbinC
   %8 = load i64, ptr %cursor.i118, align 8
   %add6.i134 = add i64 %8, 4
   store i64 %add6.i134, ptr %cursor.i118, align 8
-  %mPosition = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 2
+  %mPosition = getelementptr inbounds i8, ptr %l, i64 1032
   %vtable.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %9 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i21 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mPosition, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %invoke.cont2
-  %y.i = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 2, i32 1
+  %y.i = getelementptr inbounds i8, ptr %l, i64 1036
   %vtable.i7.i = load ptr, ptr %chunk, align 8
-  %vfn.i8.i = getelementptr inbounds ptr, ptr %vtable.i7.i, i64 3
+  %vfn.i8.i = getelementptr inbounds i8, ptr %vtable.i7.i, i64 24
   %10 = load ptr, ptr %vfn.i8.i, align 8
   %call.i9.i22 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc unwind label %lpad
 
 call.i9.i.noexc:                                  ; preds = %call.i.i.noexc
-  %z.i = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 2, i32 2
+  %z.i = getelementptr inbounds i8, ptr %l, i64 1040
   %vtable.i10.i = load ptr, ptr %chunk, align 8
-  %vfn.i11.i = getelementptr inbounds ptr, ptr %vtable.i10.i, i64 3
+  %vfn.i11.i = getelementptr inbounds i8, ptr %vtable.i10.i, i64 24
   %11 = load ptr, ptr %vfn.i11.i, align 8
   %call.i12.i23 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %call.i9.i.noexc
-  %mDirection = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 3
+  %mDirection = getelementptr inbounds i8, ptr %l, i64 1044
   %vtable.i.i24 = load ptr, ptr %chunk, align 8
-  %vfn.i.i25 = getelementptr inbounds ptr, ptr %vtable.i.i24, i64 3
+  %vfn.i.i25 = getelementptr inbounds i8, ptr %vtable.i.i24, i64 24
   %12 = load ptr, ptr %vfn.i.i25, align 8
   %call.i.i33 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mDirection, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc32 unwind label %lpad
 
 call.i.i.noexc32:                                 ; preds = %invoke.cont4
-  %y.i26 = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 3, i32 1
+  %y.i26 = getelementptr inbounds i8, ptr %l, i64 1048
   %vtable.i7.i27 = load ptr, ptr %chunk, align 8
-  %vfn.i8.i28 = getelementptr inbounds ptr, ptr %vtable.i7.i27, i64 3
+  %vfn.i8.i28 = getelementptr inbounds i8, ptr %vtable.i7.i27, i64 24
   %13 = load ptr, ptr %vfn.i8.i28, align 8
   %call.i9.i35 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i26, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc34 unwind label %lpad
 
 call.i9.i.noexc34:                                ; preds = %call.i.i.noexc32
-  %z.i29 = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 3, i32 2
+  %z.i29 = getelementptr inbounds i8, ptr %l, i64 1052
   %vtable.i10.i30 = load ptr, ptr %chunk, align 8
-  %vfn.i11.i31 = getelementptr inbounds ptr, ptr %vtable.i10.i30, i64 3
+  %vfn.i11.i31 = getelementptr inbounds i8, ptr %vtable.i10.i30, i64 24
   %14 = load ptr, ptr %vfn.i11.i31, align 8
   %call.i12.i36 = invoke noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i29, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %call.i9.i.noexc34
-  %mUp = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 4
+  %mUp = getelementptr inbounds i8, ptr %l, i64 1056
   %vtable.i.i38 = load ptr, ptr %chunk, align 8
-  %vfn.i.i39 = getelementptr inbounds ptr, ptr %vtable.i.i38, i64 3
+  %vfn.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i38, i64 24
   %15 = load ptr, ptr %vfn.i.i39, align 8
   %call.i.i47 = invoke noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mUp, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc46 unwind label %lpad
 
 call.i.i.noexc46:                                 ; preds = %invoke.cont6
-  %y.i40 = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 4, i32 1
+  %y.i40 = getelementptr inbounds i8, ptr %l, i64 1060
   %vtable.i7.i41 = load ptr, ptr %chunk, align 8
-  %vfn.i8.i42 = getelementptr inbounds ptr, ptr %vtable.i7.i41, i64 3
+  %vfn.i8.i42 = getelementptr inbounds i8, ptr %vtable.i7.i41, i64 24
   %16 = load ptr, ptr %vfn.i8.i42, align 8
   %call.i9.i49 = invoke noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i40, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc48 unwind label %lpad
 
 call.i9.i.noexc48:                                ; preds = %call.i.i.noexc46
-  %z.i43 = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 4, i32 2
+  %z.i43 = getelementptr inbounds i8, ptr %l, i64 1064
   %vtable.i10.i44 = load ptr, ptr %chunk, align 8
-  %vfn.i11.i45 = getelementptr inbounds ptr, ptr %vtable.i10.i44, i64 3
+  %vfn.i11.i45 = getelementptr inbounds i8, ptr %vtable.i10.i44, i64 24
   %17 = load ptr, ptr %vfn.i11.i45, align 8
   %call.i12.i50 = invoke noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i43, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont8 unwind label %lpad
@@ -3199,25 +3186,25 @@ invoke.cont8:                                     ; preds = %call.i9.i.noexc48
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont8
-  %mAttenuationConstant = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 5
+  %mAttenuationConstant = getelementptr inbounds i8, ptr %l, i64 1068
   %vtable.i52 = load ptr, ptr %chunk, align 8
-  %vfn.i53 = getelementptr inbounds ptr, ptr %vtable.i52, i64 3
+  %vfn.i53 = getelementptr inbounds i8, ptr %vtable.i52, i64 24
   %19 = load ptr, ptr %vfn.i53, align 8
   %call.i55 = invoke noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mAttenuationConstant, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %if.then
-  %mAttenuationLinear = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 6
+  %mAttenuationLinear = getelementptr inbounds i8, ptr %l, i64 1072
   %vtable.i56 = load ptr, ptr %chunk, align 8
-  %vfn.i57 = getelementptr inbounds ptr, ptr %vtable.i56, i64 3
+  %vfn.i57 = getelementptr inbounds i8, ptr %vtable.i56, i64 24
   %20 = load ptr, ptr %vfn.i57, align 8
   %call.i59 = invoke noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mAttenuationLinear, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %mAttenuationQuadratic = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 7
+  %mAttenuationQuadratic = getelementptr inbounds i8, ptr %l, i64 1076
   %vtable.i61 = load ptr, ptr %chunk, align 8
-  %vfn.i62 = getelementptr inbounds ptr, ptr %vtable.i61, i64 3
+  %vfn.i62 = getelementptr inbounds i8, ptr %vtable.i61, i64 24
   %21 = load ptr, ptr %vfn.i62, align 8
   %call.i64 = invoke noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mAttenuationQuadratic, i64 noundef 4, i64 noundef 1)
           to label %if.end unwind label %lpad
@@ -3229,73 +3216,73 @@ lpad:                                             ; preds = %if.then.i135, %if.t
   resume { ptr, i32 } %22
 
 if.end:                                           ; preds = %invoke.cont13, %invoke.cont8
-  %mColorDiffuse = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 8
+  %mColorDiffuse = getelementptr inbounds i8, ptr %l, i64 1080
   %vtable.i.i66 = load ptr, ptr %chunk, align 8
-  %vfn.i.i67 = getelementptr inbounds ptr, ptr %vtable.i.i66, i64 3
+  %vfn.i.i67 = getelementptr inbounds i8, ptr %vtable.i.i66, i64 24
   %23 = load ptr, ptr %vfn.i.i67, align 8
   %call.i.i73 = invoke noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mColorDiffuse, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc72 unwind label %lpad
 
 call.i.i.noexc72:                                 ; preds = %if.end
-  %g.i = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 8, i32 1
+  %g.i = getelementptr inbounds i8, ptr %l, i64 1084
   %vtable.i7.i68 = load ptr, ptr %chunk, align 8
-  %vfn.i8.i69 = getelementptr inbounds ptr, ptr %vtable.i7.i68, i64 3
+  %vfn.i8.i69 = getelementptr inbounds i8, ptr %vtable.i7.i68, i64 24
   %24 = load ptr, ptr %vfn.i8.i69, align 8
   %call.i9.i75 = invoke noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %g.i, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc74 unwind label %lpad
 
 call.i9.i.noexc74:                                ; preds = %call.i.i.noexc72
-  %b.i = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 8, i32 2
+  %b.i = getelementptr inbounds i8, ptr %l, i64 1088
   %vtable.i10.i70 = load ptr, ptr %chunk, align 8
-  %vfn.i11.i71 = getelementptr inbounds ptr, ptr %vtable.i10.i70, i64 3
+  %vfn.i11.i71 = getelementptr inbounds i8, ptr %vtable.i10.i70, i64 24
   %25 = load ptr, ptr %vfn.i11.i71, align 8
   %call.i12.i76 = invoke noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %b.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %call.i9.i.noexc74
-  %mColorSpecular = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 9
+  %mColorSpecular = getelementptr inbounds i8, ptr %l, i64 1092
   %vtable.i.i77 = load ptr, ptr %chunk, align 8
-  %vfn.i.i78 = getelementptr inbounds ptr, ptr %vtable.i.i77, i64 3
+  %vfn.i.i78 = getelementptr inbounds i8, ptr %vtable.i.i77, i64 24
   %26 = load ptr, ptr %vfn.i.i78, align 8
   %call.i.i86 = invoke noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mColorSpecular, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc85 unwind label %lpad
 
 call.i.i.noexc85:                                 ; preds = %invoke.cont17
-  %g.i79 = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 9, i32 1
+  %g.i79 = getelementptr inbounds i8, ptr %l, i64 1096
   %vtable.i7.i80 = load ptr, ptr %chunk, align 8
-  %vfn.i8.i81 = getelementptr inbounds ptr, ptr %vtable.i7.i80, i64 3
+  %vfn.i8.i81 = getelementptr inbounds i8, ptr %vtable.i7.i80, i64 24
   %27 = load ptr, ptr %vfn.i8.i81, align 8
   %call.i9.i88 = invoke noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %g.i79, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc87 unwind label %lpad
 
 call.i9.i.noexc87:                                ; preds = %call.i.i.noexc85
-  %b.i82 = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 9, i32 2
+  %b.i82 = getelementptr inbounds i8, ptr %l, i64 1100
   %vtable.i10.i83 = load ptr, ptr %chunk, align 8
-  %vfn.i11.i84 = getelementptr inbounds ptr, ptr %vtable.i10.i83, i64 3
+  %vfn.i11.i84 = getelementptr inbounds i8, ptr %vtable.i10.i83, i64 24
   %28 = load ptr, ptr %vfn.i11.i84, align 8
   %call.i12.i89 = invoke noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %b.i82, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %call.i9.i.noexc87
-  %mColorAmbient = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 10
+  %mColorAmbient = getelementptr inbounds i8, ptr %l, i64 1104
   %vtable.i.i91 = load ptr, ptr %chunk, align 8
-  %vfn.i.i92 = getelementptr inbounds ptr, ptr %vtable.i.i91, i64 3
+  %vfn.i.i92 = getelementptr inbounds i8, ptr %vtable.i.i91, i64 24
   %29 = load ptr, ptr %vfn.i.i92, align 8
   %call.i.i100 = invoke noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mColorAmbient, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc99 unwind label %lpad
 
 call.i.i.noexc99:                                 ; preds = %invoke.cont19
-  %g.i93 = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 10, i32 1
+  %g.i93 = getelementptr inbounds i8, ptr %l, i64 1108
   %vtable.i7.i94 = load ptr, ptr %chunk, align 8
-  %vfn.i8.i95 = getelementptr inbounds ptr, ptr %vtable.i7.i94, i64 3
+  %vfn.i8.i95 = getelementptr inbounds i8, ptr %vtable.i7.i94, i64 24
   %30 = load ptr, ptr %vfn.i8.i95, align 8
   %call.i9.i102 = invoke noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %g.i93, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc101 unwind label %lpad
 
 call.i9.i.noexc101:                               ; preds = %call.i.i.noexc99
-  %b.i96 = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 10, i32 2
+  %b.i96 = getelementptr inbounds i8, ptr %l, i64 1112
   %vtable.i10.i97 = load ptr, ptr %chunk, align 8
-  %vfn.i11.i98 = getelementptr inbounds ptr, ptr %vtable.i10.i97, i64 3
+  %vfn.i11.i98 = getelementptr inbounds i8, ptr %vtable.i10.i97, i64 24
   %31 = load ptr, ptr %vfn.i11.i98, align 8
   %call.i12.i103 = invoke noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %b.i96, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont21 unwind label %lpad
@@ -3306,17 +3293,17 @@ invoke.cont21:                                    ; preds = %call.i9.i.noexc101
   br i1 %cmp24, label %if.then25, label %if.end30
 
 if.then25:                                        ; preds = %invoke.cont21
-  %mAngleInnerCone = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 11
+  %mAngleInnerCone = getelementptr inbounds i8, ptr %l, i64 1116
   %vtable.i105 = load ptr, ptr %chunk, align 8
-  %vfn.i106 = getelementptr inbounds ptr, ptr %vtable.i105, i64 3
+  %vfn.i106 = getelementptr inbounds i8, ptr %vtable.i105, i64 24
   %33 = load ptr, ptr %vfn.i106, align 8
   %call.i108 = invoke noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mAngleInnerCone, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %if.then25
-  %mAngleOuterCone = getelementptr inbounds %struct.aiLight, ptr %l, i64 0, i32 12
+  %mAngleOuterCone = getelementptr inbounds i8, ptr %l, i64 1120
   %vtable.i110 = load ptr, ptr %chunk, align 8
-  %vfn.i111 = getelementptr inbounds ptr, ptr %vtable.i110, i64 3
+  %vfn.i111 = getelementptr inbounds i8, ptr %vtable.i110, i64 24
   %34 = load ptr, ptr %vfn.i111, align 8
   %call.i113 = invoke noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mAngleOuterCone, i64 noundef 4, i64 noundef 1)
           to label %if.end30 unwind label %lpad
@@ -3329,7 +3316,7 @@ if.end30:                                         ; preds = %invoke.cont26, %inv
 
 if.then.i:                                        ; preds = %if.end30
   %vtable.i115 = load ptr, ptr %35, align 8
-  %vfn.i116 = getelementptr inbounds ptr, ptr %vtable.i115, i64 3
+  %vfn.i116 = getelementptr inbounds i8, ptr %vtable.i115, i64 24
   %36 = load ptr, ptr %vfn.i116, align 8
   %call.i = invoke noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull %magic2.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -3337,7 +3324,7 @@ if.then.i:                                        ; preds = %if.end30
 invoke.cont.i:                                    ; preds = %if.then.i
   %37 = load ptr, ptr %container3.i, align 8
   %vtable4.i = load ptr, ptr %37, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 3
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %38 = load ptr, ptr %vfn5.i, align 8
   %call7.i = invoke noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull %cursor.i118, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6.i unwind label %terminate.lpad.i
@@ -3347,7 +3334,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i
   %40 = load ptr, ptr %buffer.i, align 8
   %41 = load i64, ptr %cursor.i118, align 8
   %vtable10.i = load ptr, ptr %39, align 8
-  %vfn11.i = getelementptr inbounds ptr, ptr %vtable10.i, i64 3
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 24
   %42 = load ptr, ptr %vfn11.i, align 8
   %call13.i = invoke noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %40, i64 noundef 1, i64 noundef %41)
           to label %if.end.i unwind label %terminate.lpad.i
@@ -3377,18 +3364,18 @@ define linkonce_odr hidden void @_ZN6Assimp16AssbinFileWriter17WriteBinaryCamera
 if.then.i67:
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 0, inrange i32 0, i64 2), ptr %chunk, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
-  %magic2.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 2
+  %magic2.i = getelementptr inbounds i8, ptr %chunk, i64 16
   store i32 4660, ptr %magic2.i, align 8
-  %container3.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 3
+  %container3.i = getelementptr inbounds i8, ptr %chunk, i64 24
   store ptr %container, ptr %container3.i, align 8
-  %cur_size.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 4
-  %initial4.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 6
+  %cur_size.i = getelementptr inbounds i8, ptr %chunk, i64 32
+  %initial4.i = getelementptr inbounds i8, ptr %chunk, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cur_size.i, i8 0, i64 16, i1 false)
   store i64 4096, ptr %initial4.i, align 8
   %0 = load i32, ptr %cam, align 4
-  %cursor.i63 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 5
+  %cursor.i63 = getelementptr inbounds i8, ptr %chunk, i64 40
   %call4.i.i68 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #17
           to label %call.i.noexc unwind label %lpad
 
@@ -3398,7 +3385,7 @@ call.i.noexc:                                     ; preds = %if.then.i67
   store i32 %0, ptr %call4.i.i68, align 1
   store i64 4, ptr %cursor.i63, align 8
   %conv.i = zext i32 %0 to i64
-  %data.i = getelementptr inbounds %struct.aiString, ptr %cam, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %cam, i64 4
   %cmp.i = icmp ugt i32 %0, 4092
   br i1 %cmp.i, label %if.then.i72, label %invoke.cont
 
@@ -3422,7 +3409,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %data.i, i64 %conv.i, i1 false)
   %add6.i = add nuw nsw i64 %conv.i, 4
   store i64 %add6.i, ptr %cursor.i63, align 8
-  %mPosition = getelementptr inbounds %struct.aiCamera, ptr %cam, i64 0, i32 1
+  %mPosition = getelementptr inbounds i8, ptr %cam, i64 1028
   %add.i = add nuw nsw i64 %conv.i, 8
   %cmp.i75 = icmp ugt i64 %add.i, %3
   br i1 %cmp.i75, label %if.then.i80, label %call.i.i.noexc
@@ -3449,97 +3436,97 @@ call.i.i.noexc:                                   ; preds = %_ZN6Assimp17AssbinC
   %8 = load i64, ptr %cursor.i63, align 8
   %add6.i79 = add i64 %8, 4
   store i64 %add6.i79, ptr %cursor.i63, align 8
-  %y.i = getelementptr inbounds %struct.aiCamera, ptr %cam, i64 0, i32 1, i32 1
+  %y.i = getelementptr inbounds i8, ptr %cam, i64 1032
   %vtable.i7.i = load ptr, ptr %chunk, align 8
-  %vfn.i8.i = getelementptr inbounds ptr, ptr %vtable.i7.i, i64 3
+  %vfn.i8.i = getelementptr inbounds i8, ptr %vtable.i7.i, i64 24
   %9 = load ptr, ptr %vfn.i8.i, align 8
   %call.i9.i11 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc unwind label %lpad
 
 call.i9.i.noexc:                                  ; preds = %call.i.i.noexc
-  %z.i = getelementptr inbounds %struct.aiCamera, ptr %cam, i64 0, i32 1, i32 2
+  %z.i = getelementptr inbounds i8, ptr %cam, i64 1036
   %vtable.i10.i = load ptr, ptr %chunk, align 8
-  %vfn.i11.i = getelementptr inbounds ptr, ptr %vtable.i10.i, i64 3
+  %vfn.i11.i = getelementptr inbounds i8, ptr %vtable.i10.i, i64 24
   %10 = load ptr, ptr %vfn.i11.i, align 8
   %call.i12.i12 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %call.i9.i.noexc
-  %mLookAt = getelementptr inbounds %struct.aiCamera, ptr %cam, i64 0, i32 3
+  %mLookAt = getelementptr inbounds i8, ptr %cam, i64 1052
   %vtable.i.i13 = load ptr, ptr %chunk, align 8
-  %vfn.i.i14 = getelementptr inbounds ptr, ptr %vtable.i.i13, i64 3
+  %vfn.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i13, i64 24
   %11 = load ptr, ptr %vfn.i.i14, align 8
   %call.i.i22 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mLookAt, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc21 unwind label %lpad
 
 call.i.i.noexc21:                                 ; preds = %invoke.cont2
-  %y.i15 = getelementptr inbounds %struct.aiCamera, ptr %cam, i64 0, i32 3, i32 1
+  %y.i15 = getelementptr inbounds i8, ptr %cam, i64 1056
   %vtable.i7.i16 = load ptr, ptr %chunk, align 8
-  %vfn.i8.i17 = getelementptr inbounds ptr, ptr %vtable.i7.i16, i64 3
+  %vfn.i8.i17 = getelementptr inbounds i8, ptr %vtable.i7.i16, i64 24
   %12 = load ptr, ptr %vfn.i8.i17, align 8
   %call.i9.i24 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i15, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc23 unwind label %lpad
 
 call.i9.i.noexc23:                                ; preds = %call.i.i.noexc21
-  %z.i18 = getelementptr inbounds %struct.aiCamera, ptr %cam, i64 0, i32 3, i32 2
+  %z.i18 = getelementptr inbounds i8, ptr %cam, i64 1060
   %vtable.i10.i19 = load ptr, ptr %chunk, align 8
-  %vfn.i11.i20 = getelementptr inbounds ptr, ptr %vtable.i10.i19, i64 3
+  %vfn.i11.i20 = getelementptr inbounds i8, ptr %vtable.i10.i19, i64 24
   %13 = load ptr, ptr %vfn.i11.i20, align 8
   %call.i12.i25 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i18, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %call.i9.i.noexc23
-  %mUp = getelementptr inbounds %struct.aiCamera, ptr %cam, i64 0, i32 2
+  %mUp = getelementptr inbounds i8, ptr %cam, i64 1040
   %vtable.i.i27 = load ptr, ptr %chunk, align 8
-  %vfn.i.i28 = getelementptr inbounds ptr, ptr %vtable.i.i27, i64 3
+  %vfn.i.i28 = getelementptr inbounds i8, ptr %vtable.i.i27, i64 24
   %14 = load ptr, ptr %vfn.i.i28, align 8
   %call.i.i36 = invoke noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mUp, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc35 unwind label %lpad
 
 call.i.i.noexc35:                                 ; preds = %invoke.cont4
-  %y.i29 = getelementptr inbounds %struct.aiCamera, ptr %cam, i64 0, i32 2, i32 1
+  %y.i29 = getelementptr inbounds i8, ptr %cam, i64 1044
   %vtable.i7.i30 = load ptr, ptr %chunk, align 8
-  %vfn.i8.i31 = getelementptr inbounds ptr, ptr %vtable.i7.i30, i64 3
+  %vfn.i8.i31 = getelementptr inbounds i8, ptr %vtable.i7.i30, i64 24
   %15 = load ptr, ptr %vfn.i8.i31, align 8
   %call.i9.i38 = invoke noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i29, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.noexc37 unwind label %lpad
 
 call.i9.i.noexc37:                                ; preds = %call.i.i.noexc35
-  %z.i32 = getelementptr inbounds %struct.aiCamera, ptr %cam, i64 0, i32 2, i32 2
+  %z.i32 = getelementptr inbounds i8, ptr %cam, i64 1048
   %vtable.i10.i33 = load ptr, ptr %chunk, align 8
-  %vfn.i11.i34 = getelementptr inbounds ptr, ptr %vtable.i10.i33, i64 3
+  %vfn.i11.i34 = getelementptr inbounds i8, ptr %vtable.i10.i33, i64 24
   %16 = load ptr, ptr %vfn.i11.i34, align 8
   %call.i12.i39 = invoke noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i32, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %call.i9.i.noexc37
-  %mHorizontalFOV = getelementptr inbounds %struct.aiCamera, ptr %cam, i64 0, i32 4
+  %mHorizontalFOV = getelementptr inbounds i8, ptr %cam, i64 1064
   %vtable.i41 = load ptr, ptr %chunk, align 8
-  %vfn.i42 = getelementptr inbounds ptr, ptr %vtable.i41, i64 3
+  %vfn.i42 = getelementptr inbounds i8, ptr %vtable.i41, i64 24
   %17 = load ptr, ptr %vfn.i42, align 8
   %call.i44 = invoke noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mHorizontalFOV, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  %mClipPlaneNear = getelementptr inbounds %struct.aiCamera, ptr %cam, i64 0, i32 5
+  %mClipPlaneNear = getelementptr inbounds i8, ptr %cam, i64 1068
   %vtable.i45 = load ptr, ptr %chunk, align 8
-  %vfn.i46 = getelementptr inbounds ptr, ptr %vtable.i45, i64 3
+  %vfn.i46 = getelementptr inbounds i8, ptr %vtable.i45, i64 24
   %18 = load ptr, ptr %vfn.i46, align 8
   %call.i48 = invoke noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mClipPlaneNear, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont8
-  %mClipPlaneFar = getelementptr inbounds %struct.aiCamera, ptr %cam, i64 0, i32 6
+  %mClipPlaneFar = getelementptr inbounds i8, ptr %cam, i64 1072
   %vtable.i50 = load ptr, ptr %chunk, align 8
-  %vfn.i51 = getelementptr inbounds ptr, ptr %vtable.i50, i64 3
+  %vfn.i51 = getelementptr inbounds i8, ptr %vtable.i50, i64 24
   %19 = load ptr, ptr %vfn.i51, align 8
   %call.i53 = invoke noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mClipPlaneFar, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  %mAspect = getelementptr inbounds %struct.aiCamera, ptr %cam, i64 0, i32 7
+  %mAspect = getelementptr inbounds i8, ptr %cam, i64 1076
   %vtable.i55 = load ptr, ptr %chunk, align 8
-  %vfn.i56 = getelementptr inbounds ptr, ptr %vtable.i55, i64 3
+  %vfn.i56 = getelementptr inbounds i8, ptr %vtable.i55, i64 24
   %20 = load ptr, ptr %vfn.i56, align 8
   %call.i58 = invoke noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mAspect, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont14 unwind label %lpad
@@ -3552,7 +3539,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
 
 if.then.i:                                        ; preds = %invoke.cont14
   %vtable.i60 = load ptr, ptr %21, align 8
-  %vfn.i61 = getelementptr inbounds ptr, ptr %vtable.i60, i64 3
+  %vfn.i61 = getelementptr inbounds i8, ptr %vtable.i60, i64 24
   %22 = load ptr, ptr %vfn.i61, align 8
   %call.i = invoke noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %magic2.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -3560,7 +3547,7 @@ if.then.i:                                        ; preds = %invoke.cont14
 invoke.cont.i:                                    ; preds = %if.then.i
   %23 = load ptr, ptr %container3.i, align 8
   %vtable4.i = load ptr, ptr %23, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 3
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %24 = load ptr, ptr %vfn5.i, align 8
   %call7.i = invoke noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %cursor.i63, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6.i unwind label %terminate.lpad.i
@@ -3570,7 +3557,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i
   %26 = load ptr, ptr %buffer.i, align 8
   %27 = load i64, ptr %cursor.i63, align 8
   %vtable10.i = load ptr, ptr %25, align 8
-  %vfn11.i = getelementptr inbounds ptr, ptr %vtable10.i, i64 3
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 24
   %28 = load ptr, ptr %vfn11.i, align 8
   %call13.i = invoke noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26, i64 noundef 1, i64 noundef %27)
           to label %if.end.i unwind label %terminate.lpad.i
@@ -3606,8 +3593,8 @@ define linkonce_odr hidden noundef i64 @_ZN6Assimp11WriteBoundsI10aiVector3tIfEE
 entry:
   %minc = alloca %class.aiVector3t, align 8
   %maxc = alloca %class.aiVector3t, align 8
-  %z.i = getelementptr inbounds %class.aiVector3t, ptr %minc, i64 0, i32 2
-  %z.i3 = getelementptr inbounds %class.aiVector3t, ptr %maxc, i64 0, i32 2
+  %z.i = getelementptr inbounds i8, ptr %minc, i64 8
+  %z.i3 = getelementptr inbounds i8, ptr %maxc, i64 8
   store <2 x float> <float -1.000000e+10, float -1.000000e+10>, ptr %maxc, align 8
   store float -1.000000e+10, ptr %z.i3, align 8
   store <2 x float> <float 1.000000e+10, float 1.000000e+10>, ptr %minc, align 8
@@ -3626,7 +3613,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %2 = phi <2 x float> [ <float -1.000000e+10, float -1.000000e+10>, %for.body.preheader.i ], [ %10, %for.body.i ]
   %3 = phi <2 x float> [ <float 1.000000e+10, float 1.000000e+10>, %for.body.preheader.i ], [ %8, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %class.aiVector3t, ptr %in, i64 %indvars.iv.i
-  %z.i.i = getelementptr inbounds %class.aiVector3t, ptr %in, i64 %indvars.iv.i, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load float, ptr %z.i.i, align 4
   %cmp.i7.i.i = fcmp olt float %1, %4
   %5 = select i1 %cmp.i7.i.i, float %1, float %4
@@ -3649,30 +3636,30 @@ _ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit.loopexit: ; preds = 
   br label %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit
 
 _ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit: ; preds = %_ZN6Assimp11ArrayBoundsI10aiVector3tIfEEEvPKT_jRS3_S6_.exit.loopexit, %entry
-  %y.i2 = getelementptr inbounds %class.aiVector3t, ptr %maxc, i64 0, i32 1
-  %y.i = getelementptr inbounds %class.aiVector3t, ptr %minc, i64 0, i32 1
+  %y.i2 = getelementptr inbounds i8, ptr %maxc, i64 4
+  %y.i = getelementptr inbounds i8, ptr %minc, i64 4
   %vtable.i.i = load ptr, ptr %stream, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %12 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %minc, i64 noundef 4, i64 noundef 1)
   %vtable.i7.i = load ptr, ptr %stream, align 8
-  %vfn.i8.i = getelementptr inbounds ptr, ptr %vtable.i7.i, i64 3
+  %vfn.i8.i = getelementptr inbounds i8, ptr %vtable.i7.i, i64 24
   %13 = load ptr, ptr %vfn.i8.i, align 8
   %call.i9.i = call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %y.i, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i = load ptr, ptr %stream, align 8
-  %vfn.i11.i = getelementptr inbounds ptr, ptr %vtable.i10.i, i64 3
+  %vfn.i11.i = getelementptr inbounds i8, ptr %vtable.i10.i, i64 24
   %14 = load ptr, ptr %vfn.i11.i, align 8
   %call.i12.i = call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %z.i, i64 noundef 4, i64 noundef 1)
   %vtable.i.i6 = load ptr, ptr %stream, align 8
-  %vfn.i.i7 = getelementptr inbounds ptr, ptr %vtable.i.i6, i64 3
+  %vfn.i.i7 = getelementptr inbounds i8, ptr %vtable.i.i6, i64 24
   %15 = load ptr, ptr %vfn.i.i7, align 8
   %call.i.i8 = call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %maxc, i64 noundef 4, i64 noundef 1)
   %vtable.i7.i10 = load ptr, ptr %stream, align 8
-  %vfn.i8.i11 = getelementptr inbounds ptr, ptr %vtable.i7.i10, i64 3
+  %vfn.i8.i11 = getelementptr inbounds i8, ptr %vtable.i7.i10, i64 24
   %16 = load ptr, ptr %vfn.i8.i11, align 8
   %call.i9.i12 = call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %y.i2, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i14 = load ptr, ptr %stream, align 8
-  %vfn.i11.i15 = getelementptr inbounds ptr, ptr %vtable.i10.i14, i64 3
+  %vfn.i11.i15 = getelementptr inbounds i8, ptr %vtable.i10.i14, i64 24
   %17 = load ptr, ptr %vfn.i11.i15, align 8
   %call.i12.i16 = call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %z.i3, i64 noundef 4, i64 noundef 1)
   ret i64 24
@@ -3701,7 +3688,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %2 = phi <2 x float> [ <float 1.000000e+10, float 1.000000e+10>, %for.body.preheader.i ], [ %11, %for.body.i ]
   %3 = phi <2 x float> [ <float 1.000000e+10, float 1.000000e+10>, %for.body.preheader.i ], [ %6, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %class.aiColor4t, ptr %in, i64 %indvars.iv.i
-  %b4.i.i = getelementptr inbounds %class.aiColor4t, ptr %in, i64 %indvars.iv.i, i32 2
+  %b4.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load <2 x float>, ptr %arrayidx.i, align 4
   %5 = fcmp olt <2 x float> %3, %4
   %6 = select <2 x i1> %5, <2 x float> %3, <2 x float> %4
@@ -3729,35 +3716,35 @@ _ZN6Assimp11ArrayBoundsI9aiColor4tIfEEEvPKT_jRS3_S6_.exit: ; preds = %_ZN6Assimp
   %ref.tmp.sroa.4.0.max.sroa_idx.i.i = getelementptr inbounds i8, ptr %maxc, i64 12
   %ref.tmp.sroa.2.0.max.sroa_idx.i.i = getelementptr inbounds i8, ptr %maxc, i64 4
   %vtable.i.i = load ptr, ptr %stream, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %14 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %minc, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i = load ptr, ptr %stream, align 8
-  %vfn.i11.i = getelementptr inbounds ptr, ptr %vtable.i10.i, i64 3
+  %vfn.i11.i = getelementptr inbounds i8, ptr %vtable.i10.i, i64 24
   %15 = load ptr, ptr %vfn.i11.i, align 8
   %call.i12.i = call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp2.sroa.2.0.min.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i13.i = load ptr, ptr %stream, align 8
-  %vfn.i14.i = getelementptr inbounds ptr, ptr %vtable.i13.i, i64 3
+  %vfn.i14.i = getelementptr inbounds i8, ptr %vtable.i13.i, i64 24
   %16 = load ptr, ptr %vfn.i14.i, align 8
   %call.i15.i = call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp2.sroa.3.0.min.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i16.i = load ptr, ptr %stream, align 8
-  %vfn.i17.i = getelementptr inbounds ptr, ptr %vtable.i16.i, i64 3
+  %vfn.i17.i = getelementptr inbounds i8, ptr %vtable.i16.i, i64 24
   %17 = load ptr, ptr %vfn.i17.i, align 8
   %call.i18.i = call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp2.sroa.4.0.min.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i.i2 = load ptr, ptr %stream, align 8
-  %vfn.i.i3 = getelementptr inbounds ptr, ptr %vtable.i.i2, i64 3
+  %vfn.i.i3 = getelementptr inbounds i8, ptr %vtable.i.i2, i64 24
   %18 = load ptr, ptr %vfn.i.i3, align 8
   %call.i.i4 = call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %maxc, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i6 = load ptr, ptr %stream, align 8
-  %vfn.i11.i7 = getelementptr inbounds ptr, ptr %vtable.i10.i6, i64 3
+  %vfn.i11.i7 = getelementptr inbounds i8, ptr %vtable.i10.i6, i64 24
   %19 = load ptr, ptr %vfn.i11.i7, align 8
   %call.i12.i8 = call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp.sroa.2.0.max.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i13.i10 = load ptr, ptr %stream, align 8
-  %vfn.i14.i11 = getelementptr inbounds ptr, ptr %vtable.i13.i10, i64 3
+  %vfn.i14.i11 = getelementptr inbounds i8, ptr %vtable.i13.i10, i64 24
   %20 = load ptr, ptr %vfn.i14.i11, align 8
   %call.i15.i12 = call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp.sroa.3.0.max.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i16.i14 = load ptr, ptr %stream, align 8
-  %vfn.i17.i15 = getelementptr inbounds ptr, ptr %vtable.i16.i14, i64 3
+  %vfn.i17.i15 = getelementptr inbounds i8, ptr %vtable.i16.i14, i64 24
   %21 = load ptr, ptr %vfn.i17.i15, align 8
   %call.i18.i16 = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp.sroa.4.0.max.sroa_idx.i.i, i64 noundef 4, i64 noundef 1)
   ret i64 32
@@ -3773,18 +3760,18 @@ if.then.i68:
   %maxc.i = alloca %struct.aiVertexWeight, align 8
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 0, inrange i32 0, i64 2), ptr %chunk, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
-  %magic2.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 2
+  %magic2.i = getelementptr inbounds i8, ptr %chunk, i64 16
   store i32 4666, ptr %magic2.i, align 8
-  %container3.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 3
+  %container3.i = getelementptr inbounds i8, ptr %chunk, i64 24
   store ptr %container, ptr %container3.i, align 8
-  %cur_size.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 4
-  %initial4.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 6
+  %cur_size.i = getelementptr inbounds i8, ptr %chunk, i64 32
+  %initial4.i = getelementptr inbounds i8, ptr %chunk, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cur_size.i, i8 0, i64 16, i1 false)
   store i64 4096, ptr %initial4.i, align 8
   %0 = load i32, ptr %b, align 4
-  %cursor.i64 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 5
+  %cursor.i64 = getelementptr inbounds i8, ptr %chunk, i64 40
   %call4.i.i69 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #17
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -3794,7 +3781,7 @@ call.i.noexc:                                     ; preds = %if.then.i68
   store i32 %0, ptr %call4.i.i69, align 1
   store i64 4, ptr %cursor.i64, align 8
   %conv.i = zext i32 %0 to i64
-  %data.i = getelementptr inbounds %struct.aiString, ptr %b, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %b, i64 4
   %cmp.i = icmp ugt i32 %0, 4092
   br i1 %cmp.i, label %if.then.i85, label %invoke.cont
 
@@ -3818,7 +3805,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %data.i, i64 %conv.i, i1 false)
   %add6.i = add nuw nsw i64 %conv.i, 4
   store i64 %add6.i, ptr %cursor.i64, align 8
-  %mNumWeights = getelementptr inbounds %struct.aiBone, ptr %b, i64 0, i32 1
+  %mNumWeights = getelementptr inbounds i8, ptr %b, i64 1028
   %5 = load i32, ptr %mNumWeights, align 4
   %add.i = add nuw nsw i64 %conv.i, 8
   %cmp.i100 = icmp ugt i64 %add.i, %3
@@ -3845,10 +3832,10 @@ invoke.cont2:                                     ; preds = %_ZN6Assimp17AssbinC
   %8 = load i64, ptr %cursor.i64, align 8
   %add6.i104 = add i64 %8, 4
   store i64 %add6.i104, ptr %cursor.i64, align 8
-  %mOffsetMatrix = getelementptr inbounds %struct.aiBone, ptr %b, i64 0, i32 5
-  %c1.i.i = getelementptr inbounds %struct.aiBone, ptr %b, i64 0, i32 5, i32 8
-  %b1.i.i = getelementptr inbounds %struct.aiBone, ptr %b, i64 0, i32 5, i32 4
-  %d1.i.i = getelementptr inbounds %struct.aiBone, ptr %b, i64 0, i32 5, i32 12
+  %mOffsetMatrix = getelementptr inbounds i8, ptr %b, i64 1056
+  %c1.i.i = getelementptr inbounds i8, ptr %b, i64 1088
+  %b1.i.i = getelementptr inbounds i8, ptr %b, i64 1072
+  %d1.i.i = getelementptr inbounds i8, ptr %b, i64 1104
   br label %for.cond1.preheader.i
 
 for.cond1.preheader.i:                            ; preds = %for.inc5.i, %invoke.cont2
@@ -3863,7 +3850,7 @@ if.end.i.us.i:                                    ; preds = %for.cond1.preheader
   %indvars.iv39.i = phi i64 [ %indvars.iv.next40.i, %call.i.us.i.noexc ], [ 0, %for.cond1.preheader.i ]
   %arrayidx.us.i = getelementptr inbounds float, ptr %d1.i.i, i64 %indvars.iv39.i
   %vtable.i.us.i = load ptr, ptr %chunk, align 8
-  %vfn.i.us.i = getelementptr inbounds ptr, ptr %vtable.i.us.i, i64 3
+  %vfn.i.us.i = getelementptr inbounds i8, ptr %vtable.i.us.i, i64 24
   %9 = load ptr, ptr %vfn.i.us.i, align 8
   %call.i.us.i13 = invoke noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.us.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.us.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -3877,7 +3864,7 @@ if.end.i.us7.i:                                   ; preds = %for.cond1.preheader
   %indvars.iv35.i = phi i64 [ %indvars.iv.next36.i, %call.i.us15.i.noexc ], [ 0, %for.cond1.preheader.i ]
   %arrayidx.us12.i = getelementptr inbounds float, ptr %b1.i.i, i64 %indvars.iv35.i
   %vtable.i.us13.i = load ptr, ptr %chunk, align 8
-  %vfn.i.us14.i = getelementptr inbounds ptr, ptr %vtable.i.us13.i, i64 3
+  %vfn.i.us14.i = getelementptr inbounds i8, ptr %vtable.i.us13.i, i64 24
   %10 = load ptr, ptr %vfn.i.us14.i, align 8
   %call.i.us15.i14 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.us12.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.us15.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -3891,7 +3878,7 @@ if.end.i.us19.i:                                  ; preds = %for.cond1.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %call.i.us27.i.noexc ], [ 0, %for.cond1.preheader.i ]
   %arrayidx.us24.i = getelementptr inbounds float, ptr %c1.i.i, i64 %indvars.iv.i
   %vtable.i.us25.i = load ptr, ptr %chunk, align 8
-  %vfn.i.us26.i = getelementptr inbounds ptr, ptr %vtable.i.us25.i, i64 3
+  %vfn.i.us26.i = getelementptr inbounds i8, ptr %vtable.i.us25.i, i64 24
   %11 = load ptr, ptr %vfn.i.us26.i, align 8
   %call.i.us27.i15 = invoke noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.us24.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.us27.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -3905,7 +3892,7 @@ if.end.i.i:                                       ; preds = %for.cond1.preheader
   %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %call.i.i.noexc ], [ 0, %for.cond1.preheader.i ]
   %arrayidx.i = getelementptr inbounds float, ptr %mOffsetMatrix, i64 %indvars.iv43.i
   %vtable.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %12 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i16 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
@@ -3924,7 +3911,7 @@ invoke.cont4:                                     ; preds = %for.inc5.i
   %13 = load i8, ptr %this, align 1
   %14 = and i8 %13, 1
   %tobool.not = icmp eq i8 %14, 0
-  %mWeights9 = getelementptr inbounds %struct.aiBone, ptr %b, i64 0, i32 4
+  %mWeights9 = getelementptr inbounds i8, ptr %b, i64 1048
   %15 = load ptr, ptr %mWeights9, align 8
   %16 = load i32, ptr %mNumWeights, align 4
   br i1 %tobool.not, label %if.else, label %if.then
@@ -3932,8 +3919,8 @@ invoke.cont4:                                     ; preds = %for.inc5.i
 if.then:                                          ; preds = %invoke.cont4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %minc.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %maxc.i)
-  %mWeight.i.i = getelementptr inbounds %struct.aiVertexWeight, ptr %minc.i, i64 0, i32 1
-  %mWeight.i2.i = getelementptr inbounds %struct.aiVertexWeight, ptr %maxc.i, i64 0, i32 1
+  %mWeight.i.i = getelementptr inbounds i8, ptr %minc.i, i64 4
+  %mWeight.i2.i = getelementptr inbounds i8, ptr %maxc.i, i64 4
   store i32 0, ptr %maxc.i, align 8
   store i32 -2147483648, ptr %minc.i, align 8
   store float -1.000000e+10, ptr %mWeight.i2.i, align 4
@@ -3954,7 +3941,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %arrayidx.i.i = getelementptr inbounds %struct.aiVertexWeight, ptr %15, i64 %indvars.iv.i.i
   %21 = load i32, ptr %arrayidx.i.i, align 4
   %22 = call i32 @llvm.umin.i32(i32 %20, i32 %21)
-  %mWeight.i9.i.i = getelementptr inbounds %struct.aiVertexWeight, ptr %15, i64 %indvars.iv.i.i, i32 1
+  %mWeight.i9.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   %23 = load float, ptr %mWeight.i9.i.i, align 4
   %cmp.i3.i.i.i = fcmp olt float %19, %23
   %.v.i.i.i = select i1 %cmp.i3.i.i.i, float %19, float %23
@@ -3986,7 +3973,7 @@ _ZN6Assimp11ArrayBoundsI14aiVertexWeightEEvPKT_jRS2_S5_.exit.i: ; preds = %_ZN6A
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i.i.i)
   store i32 %28, ptr %t.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %29 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i17 = invoke noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -3994,7 +3981,7 @@ _ZN6Assimp11ArrayBoundsI14aiVertexWeightEEvPKT_jRS2_S5_.exit.i: ; preds = %_ZN6A
 call.i.i.i.noexc:                                 ; preds = %_ZN6Assimp11ArrayBoundsI14aiVertexWeightEEvPKT_jRS2_S5_.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i.i.i)
   %vtable.i3.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i4.i.i = getelementptr inbounds ptr, ptr %vtable.i3.i.i, i64 3
+  %vfn.i4.i.i = getelementptr inbounds i8, ptr %vtable.i3.i.i, i64 24
   %30 = load ptr, ptr %vfn.i4.i.i, align 8
   %call.i5.i.i18 = invoke noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mWeight.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i5.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4003,7 +3990,7 @@ call.i5.i.i.noexc:                                ; preds = %call.i.i.i.noexc
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i.i4.i)
   store i32 %27, ptr %t.i.i4.i, align 4
   %vtable.i.i5.i = load ptr, ptr %chunk, align 8
-  %vfn.i.i6.i = getelementptr inbounds ptr, ptr %vtable.i.i5.i, i64 3
+  %vfn.i.i6.i = getelementptr inbounds i8, ptr %vtable.i.i5.i, i64 24
   %31 = load ptr, ptr %vfn.i.i6.i, align 8
   %call.i.i7.i19 = invoke noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i.i4.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.i7.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4011,7 +3998,7 @@ call.i5.i.i.noexc:                                ; preds = %call.i.i.i.noexc
 call.i.i7.i.noexc:                                ; preds = %call.i5.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i.i4.i)
   %vtable.i3.i9.i = load ptr, ptr %chunk, align 8
-  %vfn.i4.i10.i = getelementptr inbounds ptr, ptr %vtable.i3.i9.i, i64 3
+  %vfn.i4.i10.i = getelementptr inbounds i8, ptr %vtable.i3.i9.i, i64 24
   %32 = load ptr, ptr %vfn.i4.i10.i, align 8
   %call.i5.i11.i20 = invoke noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mWeight.i2.i, i64 noundef 4, i64 noundef 1)
           to label %_ZN6Assimp11WriteBoundsI14aiVertexWeightEEmPNS_8IOStreamEPKT_j.exit unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -4071,16 +4058,16 @@ for.body.i:                                       ; preds = %call.i5.i.i.noexc33
   %33 = load i32, ptr %arrayidx.i23, align 4
   store i32 %33, ptr %t.i.i.i21, align 4
   %vtable.i.i.i24 = load ptr, ptr %chunk, align 8
-  %vfn.i.i.i25 = getelementptr inbounds ptr, ptr %vtable.i.i.i24, i64 3
+  %vfn.i.i.i25 = getelementptr inbounds i8, ptr %vtable.i.i.i24, i64 24
   %34 = load ptr, ptr %vfn.i.i.i25, align 8
   %call.i.i.i32 = invoke noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i.i.i21, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.noexc31 unwind label %lpad.loopexit
 
 call.i.i.i.noexc31:                               ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i.i.i21)
-  %mWeight.i.i26 = getelementptr inbounds %struct.aiVertexWeight, ptr %15, i64 %indvars.iv.i22, i32 1
+  %mWeight.i.i26 = getelementptr inbounds i8, ptr %arrayidx.i23, i64 4
   %vtable.i3.i.i27 = load ptr, ptr %chunk, align 8
-  %vfn.i4.i.i28 = getelementptr inbounds ptr, ptr %vtable.i3.i.i27, i64 3
+  %vfn.i4.i.i28 = getelementptr inbounds i8, ptr %vtable.i3.i.i27, i64 24
   %35 = load ptr, ptr %vfn.i4.i.i28, align 8
   %call.i5.i.i34 = invoke noundef i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mWeight.i.i26, i64 noundef 4, i64 noundef 1)
           to label %call.i5.i.i.noexc33 unwind label %lpad.loopexit
@@ -4098,7 +4085,7 @@ if.end:                                           ; preds = %call.i5.i.i.noexc33
 
 if.then.i:                                        ; preds = %if.end
   %vtable.i35 = load ptr, ptr %36, align 8
-  %vfn.i36 = getelementptr inbounds ptr, ptr %vtable.i35, i64 3
+  %vfn.i36 = getelementptr inbounds i8, ptr %vtable.i35, i64 24
   %37 = load ptr, ptr %vfn.i36, align 8
   %call.i = invoke noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull %magic2.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -4106,7 +4093,7 @@ if.then.i:                                        ; preds = %if.end
 invoke.cont.i:                                    ; preds = %if.then.i
   %38 = load ptr, ptr %container3.i, align 8
   %vtable4.i = load ptr, ptr %38, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 3
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %39 = load ptr, ptr %vfn5.i, align 8
   %call7.i = invoke noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull %cursor.i64, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6.i unwind label %terminate.lpad.i
@@ -4116,7 +4103,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i
   %41 = load ptr, ptr %buffer.i, align 8
   %42 = load i64, ptr %cursor.i64, align 8
   %vtable10.i = load ptr, ptr %40, align 8
-  %vfn11.i = getelementptr inbounds ptr, ptr %vtable10.i, i64 3
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 24
   %43 = load ptr, ptr %vfn11.i, align 8
   %call13.i = invoke noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef %41, i64 noundef 1, i64 noundef %42)
           to label %if.end.i unwind label %terminate.lpad.i
@@ -4149,18 +4136,18 @@ if.then.i49:
   %t.i13 = alloca i32, align 4
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 0, inrange i32 0, i64 2), ptr %chunk, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
-  %magic2.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 2
+  %magic2.i = getelementptr inbounds i8, ptr %chunk, i64 16
   store i32 4670, ptr %magic2.i, align 8
-  %container3.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 3
+  %container3.i = getelementptr inbounds i8, ptr %chunk, i64 24
   store ptr %container, ptr %container3.i, align 8
-  %cur_size.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 4
-  %initial4.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 6
+  %cur_size.i = getelementptr inbounds i8, ptr %chunk, i64 32
+  %initial4.i = getelementptr inbounds i8, ptr %chunk, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cur_size.i, i8 0, i64 16, i1 false)
   store i64 4096, ptr %initial4.i, align 8
   %0 = load i32, ptr %prop, align 4
-  %cursor.i42 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 5
+  %cursor.i42 = getelementptr inbounds i8, ptr %chunk, i64 40
   %call4.i.i58 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #17
           to label %call.i.noexc unwind label %lpad
 
@@ -4170,7 +4157,7 @@ call.i.noexc:                                     ; preds = %if.then.i49
   store i32 %0, ptr %call4.i.i58, align 1
   store i64 4, ptr %cursor.i42, align 8
   %conv.i = zext i32 %0 to i64
-  %data.i = getelementptr inbounds %struct.aiString, ptr %prop, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %prop, i64 4
   %cmp.i60 = icmp ugt i32 %0, 4092
   br i1 %cmp.i60, label %if.then.i65, label %invoke.cont
 
@@ -4194,7 +4181,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i63, ptr nonnull align 1 %data.i, i64 %conv.i, i1 false)
   %add6.i64 = add nuw nsw i64 %conv.i, 4
   store i64 %add6.i64, ptr %cursor.i42, align 8
-  %mSemantic = getelementptr inbounds %struct.aiMaterialProperty, ptr %prop, i64 0, i32 1
+  %mSemantic = getelementptr inbounds i8, ptr %prop, i64 1028
   %5 = load i32, ptr %mSemantic, align 4
   %add.i = add nuw nsw i64 %conv.i, 8
   %cmp.i76 = icmp ugt i64 %add.i, %3
@@ -4221,43 +4208,43 @@ invoke.cont2:                                     ; preds = %_ZN6Assimp17AssbinC
   %8 = load i64, ptr %cursor.i42, align 8
   %add6.i80 = add i64 %8, 4
   store i64 %add6.i80, ptr %cursor.i42, align 8
-  %mIndex = getelementptr inbounds %struct.aiMaterialProperty, ptr %prop, i64 0, i32 2
+  %mIndex = getelementptr inbounds i8, ptr %prop, i64 1032
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i13)
   %9 = load i32, ptr %mIndex, align 4
   store i32 %9, ptr %t.i13, align 4
   %vtable.i14 = load ptr, ptr %chunk, align 8
-  %vfn.i15 = getelementptr inbounds ptr, ptr %vtable.i14, i64 3
+  %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 24
   %10 = load ptr, ptr %vfn.i15, align 8
   %call.i17 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i13, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i13)
-  %mDataLength = getelementptr inbounds %struct.aiMaterialProperty, ptr %prop, i64 0, i32 3
+  %mDataLength = getelementptr inbounds i8, ptr %prop, i64 1036
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i19)
   %11 = load i32, ptr %mDataLength, align 4
   store i32 %11, ptr %t.i19, align 4
   %vtable.i20 = load ptr, ptr %chunk, align 8
-  %vfn.i21 = getelementptr inbounds ptr, ptr %vtable.i20, i64 3
+  %vfn.i21 = getelementptr inbounds i8, ptr %vtable.i20, i64 24
   %12 = load ptr, ptr %vfn.i21, align 8
   %call.i23 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i19, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i19)
-  %mType = getelementptr inbounds %struct.aiMaterialProperty, ptr %prop, i64 0, i32 4
+  %mType = getelementptr inbounds i8, ptr %prop, i64 1040
   %13 = load i32, ptr %mType, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i25)
   store i32 %13, ptr %t.i25, align 4
   %vtable.i26 = load ptr, ptr %chunk, align 8
-  %vfn.i27 = getelementptr inbounds ptr, ptr %vtable.i26, i64 3
+  %vfn.i27 = getelementptr inbounds i8, ptr %vtable.i26, i64 24
   %14 = load ptr, ptr %vfn.i27, align 8
   %call.i29 = invoke noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i25, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i25)
-  %mData = getelementptr inbounds %struct.aiMaterialProperty, ptr %prop, i64 0, i32 5
+  %mData = getelementptr inbounds i8, ptr %prop, i64 1048
   %15 = load ptr, ptr %mData, align 8
   %16 = load i32, ptr %mDataLength, align 4
   %conv = zext i32 %16 to i64
@@ -4310,7 +4297,7 @@ invoke.cont11:                                    ; preds = %_ZN6Assimp17AssbinC
 
 if.then.i35:                                      ; preds = %invoke.cont11
   %vtable.i36 = load ptr, ptr %25, align 8
-  %vfn.i37 = getelementptr inbounds ptr, ptr %vtable.i36, i64 3
+  %vfn.i37 = getelementptr inbounds i8, ptr %vtable.i36, i64 24
   %26 = load ptr, ptr %vfn.i37, align 8
   %call.i = invoke noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull %magic2.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -4318,7 +4305,7 @@ if.then.i35:                                      ; preds = %invoke.cont11
 invoke.cont.i:                                    ; preds = %if.then.i35
   %27 = load ptr, ptr %container3.i, align 8
   %vtable4.i = load ptr, ptr %27, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 3
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %28 = load ptr, ptr %vfn5.i, align 8
   %call7.i = invoke noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %cursor.i42, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6.i unwind label %terminate.lpad.i
@@ -4328,7 +4315,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i
   %30 = load ptr, ptr %buffer.i, align 8
   %31 = load i64, ptr %cursor.i42, align 8
   %vtable10.i = load ptr, ptr %29, align 8
-  %vfn11.i = getelementptr inbounds ptr, ptr %vtable10.i, i64 3
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 24
   %32 = load ptr, ptr %vfn11.i, align 8
   %call13.i = invoke noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %30, i64 noundef 1, i64 noundef %31)
           to label %if.end.i unwind label %terminate.lpad.i
@@ -4368,18 +4355,18 @@ if.then.i129:
   %t.i29 = alloca i32, align 4
   %chunk = alloca %"class.Assimp::AssbinChunkWriter", align 8
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp17AssbinChunkWriterE, i64 0, inrange i32 0, i64 2), ptr %chunk, align 8
-  %buffer.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 1
+  %buffer.i = getelementptr inbounds i8, ptr %chunk, i64 8
   store ptr null, ptr %buffer.i, align 8
-  %magic2.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 2
+  %magic2.i = getelementptr inbounds i8, ptr %chunk, i64 16
   store i32 4664, ptr %magic2.i, align 8
-  %container3.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 3
+  %container3.i = getelementptr inbounds i8, ptr %chunk, i64 24
   store ptr %container, ptr %container3.i, align 8
-  %cur_size.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 4
-  %initial4.i = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 6
+  %cur_size.i = getelementptr inbounds i8, ptr %chunk, i64 32
+  %initial4.i = getelementptr inbounds i8, ptr %chunk, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cur_size.i, i8 0, i64 16, i1 false)
   store i64 4096, ptr %initial4.i, align 8
   %0 = load i32, ptr %nd, align 4
-  %cursor.i125 = getelementptr inbounds %"class.Assimp::AssbinChunkWriter", ptr %chunk, i64 0, i32 5
+  %cursor.i125 = getelementptr inbounds i8, ptr %chunk, i64 40
   %call4.i.i130 = invoke noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #17
           to label %call.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4389,7 +4376,7 @@ call.i.noexc:                                     ; preds = %if.then.i129
   store i32 %0, ptr %call4.i.i130, align 1
   store i64 4, ptr %cursor.i125, align 8
   %conv.i = zext i32 %0 to i64
-  %data.i = getelementptr inbounds %struct.aiString, ptr %nd, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %nd, i64 4
   %cmp.i = icmp ugt i32 %0, 4092
   br i1 %cmp.i, label %if.then.i134, label %invoke.cont
 
@@ -4413,7 +4400,7 @@ invoke.cont:                                      ; preds = %_ZN6Assimp17AssbinC
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 1 %data.i, i64 %conv.i, i1 false)
   %add6.i = add nuw nsw i64 %conv.i, 4
   store i64 %add6.i, ptr %cursor.i125, align 8
-  %mNumPositionKeys = getelementptr inbounds %struct.aiNodeAnim, ptr %nd, i64 0, i32 1
+  %mNumPositionKeys = getelementptr inbounds i8, ptr %nd, i64 1028
   %5 = load i32, ptr %mNumPositionKeys, align 4
   %add.i = add nuw nsw i64 %conv.i, 8
   %cmp.i137 = icmp ugt i64 %add.i, %3
@@ -4440,55 +4427,55 @@ invoke.cont2:                                     ; preds = %_ZN6Assimp17AssbinC
   %8 = load i64, ptr %cursor.i125, align 8
   %add6.i141 = add i64 %8, 4
   store i64 %add6.i141, ptr %cursor.i125, align 8
-  %mNumRotationKeys = getelementptr inbounds %struct.aiNodeAnim, ptr %nd, i64 0, i32 3
+  %mNumRotationKeys = getelementptr inbounds i8, ptr %nd, i64 1040
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i29)
   %9 = load i32, ptr %mNumRotationKeys, align 4
   store i32 %9, ptr %t.i29, align 4
   %vtable.i30 = load ptr, ptr %chunk, align 8
-  %vfn.i31 = getelementptr inbounds ptr, ptr %vtable.i30, i64 3
+  %vfn.i31 = getelementptr inbounds i8, ptr %vtable.i30, i64 24
   %10 = load ptr, ptr %vfn.i31, align 8
   %call.i33 = invoke noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i29, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i29)
-  %mNumScalingKeys = getelementptr inbounds %struct.aiNodeAnim, ptr %nd, i64 0, i32 5
+  %mNumScalingKeys = getelementptr inbounds i8, ptr %nd, i64 1056
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i35)
   %11 = load i32, ptr %mNumScalingKeys, align 4
   store i32 %11, ptr %t.i35, align 4
   %vtable.i36 = load ptr, ptr %chunk, align 8
-  %vfn.i37 = getelementptr inbounds ptr, ptr %vtable.i36, i64 3
+  %vfn.i37 = getelementptr inbounds i8, ptr %vtable.i36, i64 24
   %12 = load ptr, ptr %vfn.i37, align 8
   %call.i39 = invoke noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i35, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i35)
-  %mPreState = getelementptr inbounds %struct.aiNodeAnim, ptr %nd, i64 0, i32 7
+  %mPreState = getelementptr inbounds i8, ptr %nd, i64 1072
   %13 = load i32, ptr %mPreState, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i41)
   store i32 %13, ptr %t.i41, align 4
   %vtable.i42 = load ptr, ptr %chunk, align 8
-  %vfn.i43 = getelementptr inbounds ptr, ptr %vtable.i42, i64 3
+  %vfn.i43 = getelementptr inbounds i8, ptr %vtable.i42, i64 24
   %14 = load ptr, ptr %vfn.i43, align 8
   %call.i45 = invoke noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i41, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont8 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i41)
-  %mPostState = getelementptr inbounds %struct.aiNodeAnim, ptr %nd, i64 0, i32 8
+  %mPostState = getelementptr inbounds i8, ptr %nd, i64 1076
   %15 = load i32, ptr %mPostState, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %t.i47)
   store i32 %15, ptr %t.i47, align 4
   %vtable.i48 = load ptr, ptr %chunk, align 8
-  %vfn.i49 = getelementptr inbounds ptr, ptr %vtable.i48, i64 3
+  %vfn.i49 = getelementptr inbounds i8, ptr %vtable.i48, i64 24
   %16 = load ptr, ptr %vfn.i49, align 8
   %call.i51 = invoke noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %t.i47, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont11 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont11:                                    ; preds = %invoke.cont8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %t.i47)
-  %mPositionKeys = getelementptr inbounds %struct.aiNodeAnim, ptr %nd, i64 0, i32 2
+  %mPositionKeys = getelementptr inbounds i8, ptr %nd, i64 1032
   %17 = load ptr, ptr %mPositionKeys, align 8
   %tobool.not = icmp eq ptr %17, null
   br i1 %tobool.not, label %if.end23, label %if.then
@@ -4541,31 +4528,31 @@ for.body.i:                                       ; preds = %call.i12.i.i.i.noex
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %call.i12.i.i.i.noexc ]
   %arrayidx.i = getelementptr inbounds %struct.aiVectorKey, ptr %17, i64 %indvars.iv.i
   %vtable.i.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %21 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i53 = invoke noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i, i64 noundef 8, i64 noundef 1)
           to label %call.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc:                                 ; preds = %for.body.i
-  %mValue.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %17, i64 %indvars.iv.i, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %vtable.i.i.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 3
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %22 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i54 = invoke noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mValue.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i.i.i.i.noexc:                               ; preds = %call.i.i.i.noexc
-  %y.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %17, i64 %indvars.iv.i, i32 1, i32 1
+  %y.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
   %vtable.i7.i.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i8.i.i.i = getelementptr inbounds ptr, ptr %vtable.i7.i.i.i, i64 3
+  %vfn.i8.i.i.i = getelementptr inbounds i8, ptr %vtable.i7.i.i.i, i64 24
   %23 = load ptr, ptr %vfn.i8.i.i.i, align 8
   %call.i9.i.i.i55 = invoke noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 call.i9.i.i.i.noexc:                              ; preds = %call.i.i.i.i.noexc
-  %z.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %17, i64 %indvars.iv.i, i32 1, i32 2
+  %z.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %vtable.i10.i.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i11.i.i.i = getelementptr inbounds ptr, ptr %vtable.i10.i.i.i, i64 3
+  %vfn.i11.i.i.i = getelementptr inbounds i8, ptr %vtable.i10.i.i.i, i64 24
   %24 = load ptr, ptr %vfn.i11.i.i.i, align 8
   %call.i12.i.i.i56 = invoke noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -4576,7 +4563,7 @@ call.i12.i.i.i.noexc:                             ; preds = %call.i9.i.i.i.noexc
   br i1 %exitcond.not.i, label %if.end23, label %for.body.i, !llvm.loop !34
 
 if.end23:                                         ; preds = %call.i12.i.i.i.noexc, %if.else, %if.then14, %invoke.cont11
-  %mRotationKeys = getelementptr inbounds %struct.aiNodeAnim, ptr %nd, i64 0, i32 4
+  %mRotationKeys = getelementptr inbounds i8, ptr %nd, i64 1048
   %25 = load ptr, ptr %mRotationKeys, align 8
   %tobool24.not = icmp eq ptr %25, null
   br i1 %tobool24.not, label %if.end39, label %if.then25
@@ -4604,39 +4591,39 @@ for.body.i60:                                     ; preds = %call.i18.i.i.i.noex
   %indvars.iv.i61 = phi i64 [ 0, %for.body.preheader.i58 ], [ %indvars.iv.next.i72, %call.i18.i.i.i.noexc ]
   %arrayidx.i62 = getelementptr inbounds %struct.aiQuatKey, ptr %25, i64 %indvars.iv.i61
   %vtable.i.i.i63 = load ptr, ptr %chunk, align 8
-  %vfn.i.i.i64 = getelementptr inbounds ptr, ptr %vtable.i.i.i63, i64 3
+  %vfn.i.i.i64 = getelementptr inbounds i8, ptr %vtable.i.i.i63, i64 24
   %29 = load ptr, ptr %vfn.i.i.i64, align 8
   %call.i.i.i77 = invoke noundef i64 %29(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i62, i64 noundef 8, i64 noundef 1)
           to label %call.i.i.i.noexc76 unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i.i.i.noexc76:                               ; preds = %for.body.i60
-  %mValue.i.i65 = getelementptr inbounds %struct.aiQuatKey, ptr %25, i64 %indvars.iv.i61, i32 1
+  %mValue.i.i65 = getelementptr inbounds i8, ptr %arrayidx.i62, i64 8
   %vtable.i.i.i.i66 = load ptr, ptr %chunk, align 8
-  %vfn.i.i.i.i67 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i66, i64 3
+  %vfn.i.i.i.i67 = getelementptr inbounds i8, ptr %vtable.i.i.i.i66, i64 24
   %30 = load ptr, ptr %vfn.i.i.i.i67, align 8
   %call.i.i.i.i79 = invoke noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mValue.i.i65, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.i.noexc78 unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i.i.i.i.noexc78:                             ; preds = %call.i.i.i.noexc76
-  %x.i.i.i = getelementptr inbounds %struct.aiQuatKey, ptr %25, i64 %indvars.iv.i61, i32 1, i32 1
+  %x.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i62, i64 12
   %vtable.i10.i.i.i68 = load ptr, ptr %chunk, align 8
-  %vfn.i11.i.i.i69 = getelementptr inbounds ptr, ptr %vtable.i10.i.i.i68, i64 3
+  %vfn.i11.i.i.i69 = getelementptr inbounds i8, ptr %vtable.i10.i.i.i68, i64 24
   %31 = load ptr, ptr %vfn.i11.i.i.i69, align 8
   %call.i12.i.i.i81 = invoke noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %x.i.i.i, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.i.noexc80 unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i12.i.i.i.noexc80:                           ; preds = %call.i.i.i.i.noexc78
-  %y.i.i.i70 = getelementptr inbounds %struct.aiQuatKey, ptr %25, i64 %indvars.iv.i61, i32 1, i32 2
+  %y.i.i.i70 = getelementptr inbounds i8, ptr %arrayidx.i62, i64 16
   %vtable.i13.i.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i14.i.i.i = getelementptr inbounds ptr, ptr %vtable.i13.i.i.i, i64 3
+  %vfn.i14.i.i.i = getelementptr inbounds i8, ptr %vtable.i13.i.i.i, i64 24
   %32 = load ptr, ptr %vfn.i14.i.i.i, align 8
   %call.i15.i.i.i82 = invoke noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i.i70, i64 noundef 4, i64 noundef 1)
           to label %call.i15.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i15.i.i.i.noexc:                             ; preds = %call.i12.i.i.i.noexc80
-  %z.i.i.i71 = getelementptr inbounds %struct.aiQuatKey, ptr %25, i64 %indvars.iv.i61, i32 1, i32 3
+  %z.i.i.i71 = getelementptr inbounds i8, ptr %arrayidx.i62, i64 20
   %vtable.i16.i.i.i = load ptr, ptr %chunk, align 8
-  %vfn.i17.i.i.i = getelementptr inbounds ptr, ptr %vtable.i16.i.i.i, i64 3
+  %vfn.i17.i.i.i = getelementptr inbounds i8, ptr %vtable.i16.i.i.i, i64 24
   %33 = load ptr, ptr %vfn.i17.i.i.i, align 8
   %call.i18.i.i.i83 = invoke noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i.i71, i64 noundef 4, i64 noundef 1)
           to label %call.i18.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
@@ -4647,7 +4634,7 @@ call.i18.i.i.i.noexc:                             ; preds = %call.i15.i.i.i.noex
   br i1 %exitcond.not.i73, label %if.end39, label %for.body.i60, !llvm.loop !35
 
 if.end39:                                         ; preds = %call.i18.i.i.i.noexc, %if.else33, %if.then28, %if.end23
-  %mScalingKeys = getelementptr inbounds %struct.aiNodeAnim, ptr %nd, i64 0, i32 6
+  %mScalingKeys = getelementptr inbounds i8, ptr %nd, i64 1064
   %34 = load ptr, ptr %mScalingKeys, align 8
   %tobool40.not = icmp eq ptr %34, null
   br i1 %tobool40.not, label %if.end55, label %if.then41
@@ -4675,31 +4662,31 @@ for.body.i87:                                     ; preds = %call.i12.i.i.i.noex
   %indvars.iv.i88 = phi i64 [ 0, %for.body.preheader.i85 ], [ %indvars.iv.next.i101, %call.i12.i.i.i.noexc111 ]
   %arrayidx.i89 = getelementptr inbounds %struct.aiVectorKey, ptr %34, i64 %indvars.iv.i88
   %vtable.i.i.i90 = load ptr, ptr %chunk, align 8
-  %vfn.i.i.i91 = getelementptr inbounds ptr, ptr %vtable.i.i.i90, i64 3
+  %vfn.i.i.i91 = getelementptr inbounds i8, ptr %vtable.i.i.i90, i64 24
   %38 = load ptr, ptr %vfn.i.i.i91, align 8
   %call.i.i.i106 = invoke noundef i64 %38(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %arrayidx.i89, i64 noundef 8, i64 noundef 1)
           to label %call.i.i.i.noexc105 unwind label %lpad.loopexit
 
 call.i.i.i.noexc105:                              ; preds = %for.body.i87
-  %mValue.i.i92 = getelementptr inbounds %struct.aiVectorKey, ptr %34, i64 %indvars.iv.i88, i32 1
+  %mValue.i.i92 = getelementptr inbounds i8, ptr %arrayidx.i89, i64 8
   %vtable.i.i.i.i93 = load ptr, ptr %chunk, align 8
-  %vfn.i.i.i.i94 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i93, i64 3
+  %vfn.i.i.i.i94 = getelementptr inbounds i8, ptr %vtable.i.i.i.i93, i64 24
   %39 = load ptr, ptr %vfn.i.i.i.i94, align 8
   %call.i.i.i.i108 = invoke noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %mValue.i.i92, i64 noundef 4, i64 noundef 1)
           to label %call.i.i.i.i.noexc107 unwind label %lpad.loopexit
 
 call.i.i.i.i.noexc107:                            ; preds = %call.i.i.i.noexc105
-  %y.i.i.i95 = getelementptr inbounds %struct.aiVectorKey, ptr %34, i64 %indvars.iv.i88, i32 1, i32 1
+  %y.i.i.i95 = getelementptr inbounds i8, ptr %arrayidx.i89, i64 12
   %vtable.i7.i.i.i96 = load ptr, ptr %chunk, align 8
-  %vfn.i8.i.i.i97 = getelementptr inbounds ptr, ptr %vtable.i7.i.i.i96, i64 3
+  %vfn.i8.i.i.i97 = getelementptr inbounds i8, ptr %vtable.i7.i.i.i96, i64 24
   %40 = load ptr, ptr %vfn.i8.i.i.i97, align 8
   %call.i9.i.i.i110 = invoke noundef i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %y.i.i.i95, i64 noundef 4, i64 noundef 1)
           to label %call.i9.i.i.i.noexc109 unwind label %lpad.loopexit
 
 call.i9.i.i.i.noexc109:                           ; preds = %call.i.i.i.i.noexc107
-  %z.i.i.i98 = getelementptr inbounds %struct.aiVectorKey, ptr %34, i64 %indvars.iv.i88, i32 1, i32 2
+  %z.i.i.i98 = getelementptr inbounds i8, ptr %arrayidx.i89, i64 16
   %vtable.i10.i.i.i99 = load ptr, ptr %chunk, align 8
-  %vfn.i11.i.i.i100 = getelementptr inbounds ptr, ptr %vtable.i10.i.i.i99, i64 3
+  %vfn.i11.i.i.i100 = getelementptr inbounds i8, ptr %vtable.i10.i.i.i99, i64 24
   %41 = load ptr, ptr %vfn.i11.i.i.i100, align 8
   %call.i12.i.i.i112 = invoke noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(8) %chunk, ptr noundef nonnull %z.i.i.i98, i64 noundef 4, i64 noundef 1)
           to label %call.i12.i.i.i.noexc111 unwind label %lpad.loopexit
@@ -4717,7 +4704,7 @@ if.end55:                                         ; preds = %call.i12.i.i.i.noex
 
 if.then.i:                                        ; preds = %if.end55
   %vtable.i114 = load ptr, ptr %42, align 8
-  %vfn.i115 = getelementptr inbounds ptr, ptr %vtable.i114, i64 3
+  %vfn.i115 = getelementptr inbounds i8, ptr %vtable.i114, i64 24
   %43 = load ptr, ptr %vfn.i115, align 8
   %call.i = invoke noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull %magic2.i, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -4725,7 +4712,7 @@ if.then.i:                                        ; preds = %if.end55
 invoke.cont.i:                                    ; preds = %if.then.i
   %44 = load ptr, ptr %container3.i, align 8
   %vtable4.i = load ptr, ptr %44, align 8
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 3
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 24
   %45 = load ptr, ptr %vfn5.i, align 8
   %call7.i = invoke noundef i64 %45(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %cursor.i125, i64 noundef 4, i64 noundef 1)
           to label %invoke.cont6.i unwind label %terminate.lpad.i
@@ -4735,7 +4722,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont.i
   %47 = load ptr, ptr %buffer.i, align 8
   %48 = load i64, ptr %cursor.i125, align 8
   %vtable10.i = load ptr, ptr %46, align 8
-  %vfn11.i = getelementptr inbounds ptr, ptr %vtable10.i, i64 3
+  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 24
   %49 = load ptr, ptr %vfn11.i, align 8
   %call13.i = invoke noundef i64 %49(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef %47, i64 noundef 1, i64 noundef %48)
           to label %if.end.i unwind label %terminate.lpad.i
@@ -4767,13 +4754,13 @@ entry:
   %maxc = alloca %struct.aiVectorKey, align 8
   store double -1.000000e+10, ptr %maxc, align 8
   store double 1.000000e+10, ptr %minc, align 8
-  %mValue.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %minc, i64 0, i32 1
-  %mValue4.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %maxc, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %minc, i64 8
+  %mValue4.i.i = getelementptr inbounds i8, ptr %maxc, i64 8
   store <2 x float> <float -1.000000e+10, float -1.000000e+10>, ptr %mValue4.i.i, align 8
-  %ref.tmp.sroa.3.0.max.sroa_idx.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %maxc, i64 0, i32 1, i32 2
+  %ref.tmp.sroa.3.0.max.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %maxc, i64 16
   store float -1.000000e+10, ptr %ref.tmp.sroa.3.0.max.sroa_idx.i.i.i, align 8
   store <2 x float> <float 1.000000e+10, float 1.000000e+10>, ptr %mValue.i.i, align 8
-  %ref.tmp2.sroa.3.0.min.sroa_idx.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %minc, i64 0, i32 1, i32 2
+  %ref.tmp2.sroa.3.0.min.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %minc, i64 16
   store float 1.000000e+10, ptr %ref.tmp2.sroa.3.0.min.sroa_idx.i.i.i, align 8
   %cmp24.not.i = icmp eq i32 %size, 0
   br i1 %cmp24.not.i, label %_ZN6Assimp11ArrayBoundsI11aiVectorKeyEEvPKT_jRS2_S5_.exit, label %for.body.preheader.i
@@ -4794,8 +4781,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %6 = load double, ptr %arrayidx.i, align 8, !noalias !36
   %cmp.i.i.i = fcmp olt double %3, %6
   %7 = select i1 %cmp.i.i.i, double %3, double %6
-  %mValue.i9.i = getelementptr inbounds %struct.aiVectorKey, ptr %in, i64 %indvars.iv.i, i32 1
-  %z.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %in, i64 %indvars.iv.i, i32 1, i32 2
+  %mValue.i9.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %z.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %8 = load float, ptr %z.i.i.i, align 4, !noalias !36
   %cmp.i7.i.i.i = fcmp olt float %2, %8
   %9 = select i1 %cmp.i7.i.i.i, float %2, float %8
@@ -4822,38 +4809,38 @@ _ZN6Assimp11ArrayBoundsI11aiVectorKeyEEvPKT_jRS2_S5_.exit.loopexit: ; preds = %f
   br label %_ZN6Assimp11ArrayBoundsI11aiVectorKeyEEvPKT_jRS2_S5_.exit
 
 _ZN6Assimp11ArrayBoundsI11aiVectorKeyEEvPKT_jRS2_S5_.exit: ; preds = %_ZN6Assimp11ArrayBoundsI11aiVectorKeyEEvPKT_jRS2_S5_.exit.loopexit, %entry
-  %ref.tmp2.sroa.2.0.min.sroa_idx.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %minc, i64 0, i32 1, i32 1
-  %ref.tmp.sroa.2.0.max.sroa_idx.i.i.i = getelementptr inbounds %struct.aiVectorKey, ptr %maxc, i64 0, i32 1, i32 1
+  %ref.tmp2.sroa.2.0.min.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %minc, i64 12
+  %ref.tmp.sroa.2.0.max.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %maxc, i64 12
   %vtable.i.i = load ptr, ptr %stream, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %17 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %minc, i64 noundef 8, i64 noundef 1)
   %vtable.i.i.i = load ptr, ptr %stream, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %18 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %mValue.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i7.i.i = load ptr, ptr %stream, align 8
-  %vfn.i8.i.i = getelementptr inbounds ptr, ptr %vtable.i7.i.i, i64 3
+  %vfn.i8.i.i = getelementptr inbounds i8, ptr %vtable.i7.i.i, i64 24
   %19 = load ptr, ptr %vfn.i8.i.i, align 8
   %call.i9.i.i = call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp2.sroa.2.0.min.sroa_idx.i.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i.i = load ptr, ptr %stream, align 8
-  %vfn.i11.i.i = getelementptr inbounds ptr, ptr %vtable.i10.i.i, i64 3
+  %vfn.i11.i.i = getelementptr inbounds i8, ptr %vtable.i10.i.i, i64 24
   %20 = load ptr, ptr %vfn.i11.i.i, align 8
   %call.i12.i.i = call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp2.sroa.3.0.min.sroa_idx.i.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i.i2 = load ptr, ptr %stream, align 8
-  %vfn.i.i3 = getelementptr inbounds ptr, ptr %vtable.i.i2, i64 3
+  %vfn.i.i3 = getelementptr inbounds i8, ptr %vtable.i.i2, i64 24
   %21 = load ptr, ptr %vfn.i.i3, align 8
   %call.i.i4 = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %maxc, i64 noundef 8, i64 noundef 1)
   %vtable.i.i.i6 = load ptr, ptr %stream, align 8
-  %vfn.i.i.i7 = getelementptr inbounds ptr, ptr %vtable.i.i.i6, i64 3
+  %vfn.i.i.i7 = getelementptr inbounds i8, ptr %vtable.i.i.i6, i64 24
   %22 = load ptr, ptr %vfn.i.i.i7, align 8
   %call.i.i.i8 = call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %mValue4.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i7.i.i10 = load ptr, ptr %stream, align 8
-  %vfn.i8.i.i11 = getelementptr inbounds ptr, ptr %vtable.i7.i.i10, i64 3
+  %vfn.i8.i.i11 = getelementptr inbounds i8, ptr %vtable.i7.i.i10, i64 24
   %23 = load ptr, ptr %vfn.i8.i.i11, align 8
   %call.i9.i.i12 = call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp.sroa.2.0.max.sroa_idx.i.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i.i14 = load ptr, ptr %stream, align 8
-  %vfn.i11.i.i15 = getelementptr inbounds ptr, ptr %vtable.i10.i.i14, i64 3
+  %vfn.i11.i.i15 = getelementptr inbounds i8, ptr %vtable.i10.i.i14, i64 24
   %24 = load ptr, ptr %vfn.i11.i.i15, align 8
   %call.i12.i.i16 = call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %ref.tmp.sroa.3.0.max.sroa_idx.i.i.i, i64 noundef 4, i64 noundef 1)
   ret i64 40
@@ -4864,10 +4851,10 @@ define linkonce_odr hidden noundef i64 @_ZN6Assimp11WriteBoundsI9aiQuatKeyEEmPNS
 entry:
   %minc = alloca %struct.aiQuatKey, align 8
   %maxc = alloca %struct.aiQuatKey, align 8
-  %mValue.i = getelementptr inbounds %struct.aiQuatKey, ptr %minc, i64 0, i32 1
-  %y.i.i = getelementptr inbounds %struct.aiQuatKey, ptr %minc, i64 0, i32 1, i32 2
-  %mValue.i2 = getelementptr inbounds %struct.aiQuatKey, ptr %maxc, i64 0, i32 1
-  %y.i.i4 = getelementptr inbounds %struct.aiQuatKey, ptr %maxc, i64 0, i32 1, i32 2
+  %mValue.i = getelementptr inbounds i8, ptr %minc, i64 8
+  %y.i.i = getelementptr inbounds i8, ptr %minc, i64 16
+  %mValue.i2 = getelementptr inbounds i8, ptr %maxc, i64 8
+  %y.i.i4 = getelementptr inbounds i8, ptr %maxc, i64 16
   store double -1.000000e+10, ptr %maxc, align 8
   store double 1.000000e+10, ptr %minc, align 8
   store <4 x float> <float -1.000000e+10, float -1.000000e+10, float -1.000000e+10, float -1.000000e+10>, ptr %mValue.i2, align 8
@@ -4891,8 +4878,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %6 = load double, ptr %arrayidx.i, align 8, !noalias !36
   %cmp.i.i.i = fcmp olt double %1, %6
   %7 = select i1 %cmp.i.i.i, double %1, double %6
-  %mValue.i9.i = getelementptr inbounds %struct.aiQuatKey, ptr %in, i64 %indvars.iv.i, i32 1
-  %y.i.i.i = getelementptr inbounds %struct.aiQuatKey, ptr %in, i64 %indvars.iv.i, i32 1, i32 2
+  %mValue.i9.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %y.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %cmp.i.i10.i = fcmp olt double %6, %0
   %8 = select i1 %cmp.i.i10.i, double %0, double %6
   %9 = load <2 x float>, ptr %mValue.i9.i, align 4, !noalias !36
@@ -4919,48 +4906,48 @@ _ZN6Assimp11ArrayBoundsI9aiQuatKeyEEvPKT_jRS2_S5_.exit.loopexit: ; preds = %for.
   br label %_ZN6Assimp11ArrayBoundsI9aiQuatKeyEEvPKT_jRS2_S5_.exit
 
 _ZN6Assimp11ArrayBoundsI9aiQuatKeyEEvPKT_jRS2_S5_.exit: ; preds = %_ZN6Assimp11ArrayBoundsI9aiQuatKeyEEvPKT_jRS2_S5_.exit.loopexit, %entry
-  %z.i.i5 = getelementptr inbounds %struct.aiQuatKey, ptr %maxc, i64 0, i32 1, i32 3
-  %x.i.i3 = getelementptr inbounds %struct.aiQuatKey, ptr %maxc, i64 0, i32 1, i32 1
-  %z.i.i = getelementptr inbounds %struct.aiQuatKey, ptr %minc, i64 0, i32 1, i32 3
-  %x.i.i = getelementptr inbounds %struct.aiQuatKey, ptr %minc, i64 0, i32 1, i32 1
+  %z.i.i5 = getelementptr inbounds i8, ptr %maxc, i64 20
+  %x.i.i3 = getelementptr inbounds i8, ptr %maxc, i64 12
+  %z.i.i = getelementptr inbounds i8, ptr %minc, i64 20
+  %x.i.i = getelementptr inbounds i8, ptr %minc, i64 12
   %vtable.i.i = load ptr, ptr %stream, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %19 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %minc, i64 noundef 8, i64 noundef 1)
   %vtable.i.i.i = load ptr, ptr %stream, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %20 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %mValue.i, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i.i = load ptr, ptr %stream, align 8
-  %vfn.i11.i.i = getelementptr inbounds ptr, ptr %vtable.i10.i.i, i64 3
+  %vfn.i11.i.i = getelementptr inbounds i8, ptr %vtable.i10.i.i, i64 24
   %21 = load ptr, ptr %vfn.i11.i.i, align 8
   %call.i12.i.i = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %x.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i13.i.i = load ptr, ptr %stream, align 8
-  %vfn.i14.i.i = getelementptr inbounds ptr, ptr %vtable.i13.i.i, i64 3
+  %vfn.i14.i.i = getelementptr inbounds i8, ptr %vtable.i13.i.i, i64 24
   %22 = load ptr, ptr %vfn.i14.i.i, align 8
   %call.i15.i.i = call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %y.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i16.i.i = load ptr, ptr %stream, align 8
-  %vfn.i17.i.i = getelementptr inbounds ptr, ptr %vtable.i16.i.i, i64 3
+  %vfn.i17.i.i = getelementptr inbounds i8, ptr %vtable.i16.i.i, i64 24
   %23 = load ptr, ptr %vfn.i17.i.i, align 8
   %call.i18.i.i = call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %z.i.i, i64 noundef 4, i64 noundef 1)
   %vtable.i.i10 = load ptr, ptr %stream, align 8
-  %vfn.i.i11 = getelementptr inbounds ptr, ptr %vtable.i.i10, i64 3
+  %vfn.i.i11 = getelementptr inbounds i8, ptr %vtable.i.i10, i64 24
   %24 = load ptr, ptr %vfn.i.i11, align 8
   %call.i.i12 = call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %maxc, i64 noundef 8, i64 noundef 1)
   %vtable.i.i.i14 = load ptr, ptr %stream, align 8
-  %vfn.i.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i.i14, i64 3
+  %vfn.i.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i.i14, i64 24
   %25 = load ptr, ptr %vfn.i.i.i15, align 8
   %call.i.i.i16 = call noundef i64 %25(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %mValue.i2, i64 noundef 4, i64 noundef 1)
   %vtable.i10.i.i18 = load ptr, ptr %stream, align 8
-  %vfn.i11.i.i19 = getelementptr inbounds ptr, ptr %vtable.i10.i.i18, i64 3
+  %vfn.i11.i.i19 = getelementptr inbounds i8, ptr %vtable.i10.i.i18, i64 24
   %26 = load ptr, ptr %vfn.i11.i.i19, align 8
   %call.i12.i.i20 = call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %x.i.i3, i64 noundef 4, i64 noundef 1)
   %vtable.i13.i.i22 = load ptr, ptr %stream, align 8
-  %vfn.i14.i.i23 = getelementptr inbounds ptr, ptr %vtable.i13.i.i22, i64 3
+  %vfn.i14.i.i23 = getelementptr inbounds i8, ptr %vtable.i13.i.i22, i64 24
   %27 = load ptr, ptr %vfn.i14.i.i23, align 8
   %call.i15.i.i24 = call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %y.i.i4, i64 noundef 4, i64 noundef 1)
   %vtable.i16.i.i26 = load ptr, ptr %stream, align 8
-  %vfn.i17.i.i27 = getelementptr inbounds ptr, ptr %vtable.i16.i.i26, i64 3
+  %vfn.i17.i.i27 = getelementptr inbounds i8, ptr %vtable.i16.i.i26, i64 24
   %28 = load ptr, ptr %vfn.i17.i.i27, align 8
   %call.i18.i.i28 = call noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef nonnull %z.i.i5, i64 noundef 4, i64 noundef 1)
   ret i64 48

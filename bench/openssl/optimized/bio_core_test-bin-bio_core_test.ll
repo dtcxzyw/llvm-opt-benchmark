@@ -58,7 +58,7 @@ entry:
   %call = tail call ptr @OSSL_LIB_CTX_new_from_dispatch(ptr noundef null, ptr noundef nonnull @biocbs) #2
   %call1 = tail call ptr @BIO_s_mem() #2
   %call2 = tail call ptr @BIO_new(ptr noundef %call1) #2
-  %bio = getelementptr inbounds %struct.ossl_core_bio_st, ptr %corebio, i64 0, i32 1
+  %bio = getelementptr inbounds i8, ptr %corebio, i64 8
   store ptr %call2, ptr %bio, align 8
   %call4 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 77, ptr noundef nonnull @.str.4, ptr noundef %call2) #2
   %tobool.not = icmp eq i32 %call4, 0
@@ -185,7 +185,7 @@ declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @tst_bio_core_read_ex(ptr nocapture noundef readonly %bio, ptr noundef %data, i64 noundef %data_len, ptr noundef %bytes_read) #0 {
 entry:
-  %bio1 = getelementptr inbounds %struct.ossl_core_bio_st, ptr %bio, i64 0, i32 1
+  %bio1 = getelementptr inbounds i8, ptr %bio, i64 8
   %0 = load ptr, ptr %bio1, align 8
   %call = tail call i32 @BIO_read_ex(ptr noundef %0, ptr noundef %data, i64 noundef %data_len, ptr noundef %bytes_read) #2
   ret i32 %call
@@ -194,7 +194,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @tst_bio_core_write_ex(ptr nocapture noundef readonly %bio, ptr noundef %data, i64 noundef %data_len, ptr noundef %written) #0 {
 entry:
-  %bio1 = getelementptr inbounds %struct.ossl_core_bio_st, ptr %bio, i64 0, i32 1
+  %bio1 = getelementptr inbounds i8, ptr %bio, i64 8
   %0 = load ptr, ptr %bio1, align 8
   %call = tail call i32 @BIO_write_ex(ptr noundef %0, ptr noundef %data, i64 noundef %data_len, ptr noundef %written) #2
   ret i32 %call
@@ -203,7 +203,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @tst_bio_core_gets(ptr nocapture noundef readonly %bio, ptr noundef %buf, i32 noundef %size) #0 {
 entry:
-  %bio1 = getelementptr inbounds %struct.ossl_core_bio_st, ptr %bio, i64 0, i32 1
+  %bio1 = getelementptr inbounds i8, ptr %bio, i64 8
   %0 = load ptr, ptr %bio1, align 8
   %call = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef %buf, i32 noundef %size) #2
   ret i32 %call
@@ -212,7 +212,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @tst_bio_core_puts(ptr nocapture noundef readonly %bio, ptr noundef %str) #0 {
 entry:
-  %bio1 = getelementptr inbounds %struct.ossl_core_bio_st, ptr %bio, i64 0, i32 1
+  %bio1 = getelementptr inbounds i8, ptr %bio, i64 8
   %0 = load ptr, ptr %bio1, align 8
   %call = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef %str) #2
   ret i32 %call
@@ -221,7 +221,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i64 @tst_bio_core_ctrl(ptr nocapture noundef readonly %bio, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #0 {
 entry:
-  %bio1 = getelementptr inbounds %struct.ossl_core_bio_st, ptr %bio, i64 0, i32 1
+  %bio1 = getelementptr inbounds i8, ptr %bio, i64 8
   %0 = load ptr, ptr %bio1, align 8
   %call = tail call i64 @BIO_ctrl(ptr noundef %0, i32 noundef %cmd, i64 noundef %num, ptr noundef %ptr) #2
   ret i64 %call
@@ -230,7 +230,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @tst_bio_core_up_ref(ptr nocapture noundef readonly %bio) #0 {
 entry:
-  %bio1 = getelementptr inbounds %struct.ossl_core_bio_st, ptr %bio, i64 0, i32 1
+  %bio1 = getelementptr inbounds i8, ptr %bio, i64 8
   %0 = load ptr, ptr %bio1, align 8
   %call = tail call i32 @BIO_up_ref(ptr noundef %0) #2
   ret i32 %call
@@ -239,7 +239,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @tst_bio_core_free(ptr nocapture noundef readonly %bio) #0 {
 entry:
-  %bio1 = getelementptr inbounds %struct.ossl_core_bio_st, ptr %bio, i64 0, i32 1
+  %bio1 = getelementptr inbounds i8, ptr %bio, i64 8
   %0 = load ptr, ptr %bio1, align 8
   %call = tail call i32 @BIO_free(ptr noundef %0) #2
   ret i32 %call

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.google::protobuf::io::zc_sink_internal::ZeroCopyStreamByteSink" = type <{ ptr, ptr, i64, i64, i8, [7 x i8] }>
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -22,7 +21,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN6google8protobuf2io16zc_sink_internal22ZeroCopyStreamByteSink6AppendEPKcm(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr nocapture noundef readonly %bytes, i64 noundef %len) local_unnamed_addr #3 align 2 {
 entry:
   %size = alloca i32, align 4
-  %failed_ = getelementptr inbounds %"class.google::protobuf::io::zc_sink_internal::ZeroCopyStreamByteSink", ptr %this, i64 0, i32 4
+  %failed_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %failed_, align 8
   %1 = and i8 %0, 1
   %tobool.not13 = icmp eq i8 %1, 0
@@ -31,9 +30,9 @@ entry:
   br i1 %2, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %buffer_size_ = getelementptr inbounds %"class.google::protobuf::io::zc_sink_internal::ZeroCopyStreamByteSink", ptr %this, i64 0, i32 2
-  %buffer_ = getelementptr inbounds %"class.google::protobuf::io::zc_sink_internal::ZeroCopyStreamByteSink", ptr %this, i64 0, i32 1
-  %bytes_written_ = getelementptr inbounds %"class.google::protobuf::io::zc_sink_internal::ZeroCopyStreamByteSink", ptr %this, i64 0, i32 3
+  %buffer_size_ = getelementptr inbounds i8, ptr %this, i64 16
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytes_written_ = getelementptr inbounds i8, ptr %this, i64 24
   %.pre = load i64, ptr %buffer_size_, align 8
   br label %while.body
 
@@ -47,7 +46,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then:                                          ; preds = %while.body
   %4 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   %call = call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %buffer_, ptr noundef nonnull %size)
   br i1 %call, label %if.end, label %if.then3

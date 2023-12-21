@@ -3,49 +3,32 @@ source_filename = "bench/luajit/original/lj_udata_dyn.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.lua_State = type { %struct.GCRef, i8, i8, i8, i8, %struct.MRef, %struct.GCRef, ptr, ptr, %struct.MRef, %struct.MRef, %struct.GCRef, %struct.GCRef, ptr, i32 }
-%struct.MRef = type { i64 }
-%struct.GCRef = type { i64 }
-%struct.global_State = type { ptr, ptr, %struct.GCState, %struct.GCstr, i8, i8, i8, i8, %struct.StrInternState, i32, %struct.GCRef, %struct.SBuf, %union.TValue, %union.TValue, %struct.Node, %union.TValue, %struct.GCupval, i32, i32, ptr, ptr, ptr, i32, i32, %struct.GCRef, %struct.MRef, %struct.MRef, %struct.PRNGState, [38 x %struct.GCRef] }
-%struct.GCState = type { i64, i64, i8, i8, i8, i8, i32, %struct.GCRef, %struct.MRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, i64, i64, i32, i32, %struct.MRef }
-%struct.GCstr = type { %struct.GCRef, i8, i8, i8, i8, i32, i32, i32 }
-%struct.StrInternState = type { ptr, i32, i32, i32, i8, i8, i8, i8, i64 }
-%struct.SBuf = type { ptr, ptr, ptr, %struct.MRef }
-%struct.Node = type { %union.TValue, %union.TValue, %struct.MRef }
-%union.TValue = type { i64 }
-%struct.GCupval = type { %struct.GCRef, i8, i8, i8, i8, %union.anon, %struct.MRef, i32 }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { %struct.GCRef, %struct.GCRef }
-%struct.PRNGState = type { [4 x i64] }
-%struct.GChead = type { %struct.GCRef, i8, i8, i8, i8, %struct.GCRef, %struct.GCRef, %struct.GCRef }
-%struct.GCudata = type { %struct.GCRef, i8, i8, i8, i8, %struct.GCRef, i32, %struct.GCRef, i32 }
-
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_udata_new(ptr noundef %L, i32 noundef %sz, ptr noundef %env) local_unnamed_addr #0 {
 entry:
   %conv = zext i32 %sz to i64
   %add = add nuw nsw i64 %conv, 48
   %call = tail call ptr @lj_mem_realloc(ptr noundef %L, ptr noundef null, i64 noundef 0, i64 noundef %add) #4
-  %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
   %1 = inttoptr i64 %0 to ptr
-  %currentwhite = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 2, i32 2
+  %currentwhite = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load i8, ptr %currentwhite, align 8
   %3 = and i8 %2, 3
-  %marked = getelementptr inbounds %struct.GChead, ptr %call, i64 0, i32 1
+  %marked = getelementptr inbounds i8, ptr %call, i64 8
   store i8 %3, ptr %marked, align 8
-  %gct = getelementptr inbounds %struct.GCudata, ptr %call, i64 0, i32 2
+  %gct = getelementptr inbounds i8, ptr %call, i64 9
   store i8 12, ptr %gct, align 1
-  %udtype = getelementptr inbounds %struct.GCudata, ptr %call, i64 0, i32 3
+  %udtype = getelementptr inbounds i8, ptr %call, i64 10
   store i8 0, ptr %udtype, align 2
-  %len = getelementptr inbounds %struct.GCudata, ptr %call, i64 0, i32 6
+  %len = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %sz, ptr %len, align 8
-  %metatable = getelementptr inbounds %struct.GCudata, ptr %call, i64 0, i32 7
+  %metatable = getelementptr inbounds i8, ptr %call, i64 32
   store i64 0, ptr %metatable, align 8
   %4 = ptrtoint ptr %env to i64
-  %env3 = getelementptr inbounds %struct.GCudata, ptr %call, i64 0, i32 5
+  %env3 = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %4, ptr %env3, align 8
-  %mainthref = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 10
+  %mainthref = getelementptr inbounds i8, ptr %1, i64 192
   %5 = load i64, ptr %mainthref, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = load i64, ptr %6, align 8
@@ -62,16 +45,16 @@ declare hidden ptr @lj_mem_realloc(ptr noundef, ptr noundef, i64 noundef, i64 no
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_udata_free(ptr nocapture noundef %g, ptr noundef %ud) local_unnamed_addr #0 {
 entry:
-  %len = getelementptr inbounds %struct.GCudata, ptr %ud, i64 0, i32 6
+  %len = getelementptr inbounds i8, ptr %ud, i64 24
   %0 = load i32, ptr %len, align 8
   %conv = zext i32 %0 to i64
   %add = add nuw nsw i64 %conv, 48
-  %gc.i = getelementptr inbounds %struct.global_State, ptr %g, i64 0, i32 2
+  %gc.i = getelementptr inbounds i8, ptr %g, i64 16
   %1 = load i64, ptr %gc.i, align 8
   %sub.i = sub i64 %1, %add
   store i64 %sub.i, ptr %gc.i, align 8
   %2 = load ptr, ptr %g, align 8
-  %allocd.i = getelementptr inbounds %struct.global_State, ptr %g, i64 0, i32 1
+  %allocd.i = getelementptr inbounds i8, ptr %g, i64 8
   %3 = load ptr, ptr %allocd.i, align 8
   %call.i = tail call ptr %2(ptr noundef %3, ptr noundef %ud, i64 noundef %add, i64 noundef 0) #4
   ret void
@@ -80,17 +63,17 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_lightud_intern(ptr noundef %L, ptr noundef %p) local_unnamed_addr #0 {
 entry:
-  %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref = getelementptr inbounds i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = ptrtoint ptr %p to i64
   %3 = lshr i64 %2, 32
   %4 = trunc i64 %3 to i32
   %conv = and i32 %4, -128
-  %lightudseg = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 2, i32 17
+  %lightudseg = getelementptr inbounds i8, ptr %1, i64 112
   %5 = load i64, ptr %lightudseg, align 8
   %6 = inttoptr i64 %5 to ptr
-  %lightudnum = getelementptr inbounds %struct.global_State, ptr %1, i64 0, i32 2, i32 5
+  %lightudnum = getelementptr inbounds i8, ptr %1, i64 35
   %7 = load i8, ptr %lightudnum, align 1
   %conv3 = zext i8 %7 to i32
   %tobool.not = icmp eq i64 %5, 0

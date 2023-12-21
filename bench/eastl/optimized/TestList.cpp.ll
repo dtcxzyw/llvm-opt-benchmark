@@ -6,33 +6,23 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.A.58 = type { i32 }
 %struct.A.64 = type { i32 }
 %"struct.eastl::ListNodeBase" = type { ptr, ptr }
-%"struct.eastl::ListNode" = type <{ %"struct.eastl::ListNodeBase", i8, [7 x i8] }>
-%"class.eastl::ListBase" = type { %"class.eastl::compressed_pair", i64 }
-%"class.eastl::compressed_pair" = type { %"class.eastl::compressed_pair_imp" }
-%"class.eastl::compressed_pair_imp" = type { %"struct.eastl::ListNodeBase" }
 %"struct.eastl::ListIterator.0" = type { ptr }
 %"class.eastl::reverse_iterator" = type { %"struct.eastl::ListIterator.0" }
 %"class.eastl::reverse_iterator.1" = type { %"struct.eastl::ListIterator" }
 %"struct.eastl::ListIterator" = type { ptr }
 %"struct.eastl::less" = type { i8 }
-%"struct.eastl::ListNode.9" = type <{ %"struct.eastl::ListNodeBase", i32, [4 x i8] }>
-%"class.eastl::ListBase.3" = type { %"class.eastl::compressed_pair", i64 }
 %"struct.eastl::ListIterator.6" = type { ptr }
 %"class.eastl::reverse_iterator.7" = type { %"struct.eastl::ListIterator.6" }
 %"class.eastl::reverse_iterator.8" = type { %"struct.eastl::ListIterator.4" }
 %"struct.eastl::ListIterator.4" = type { ptr }
 %"struct.eastl::less.11" = type { i8 }
-%"struct.eastl::ListNode.19" = type { %"struct.eastl::ListNodeBase", [48 x i8], %struct.Align64 }
 %struct.Align64 = type { i32, [60 x i8] }
-%"class.eastl::ListBase.13" = type { %"class.eastl::compressed_pair", i64 }
 %"struct.eastl::ListIterator.16" = type { ptr }
 %"class.eastl::reverse_iterator.17" = type { %"struct.eastl::ListIterator.16" }
 %"class.eastl::reverse_iterator.18" = type { %"struct.eastl::ListIterator.14" }
 %"struct.eastl::ListIterator.14" = type { ptr }
 %"struct.eastl::less.20" = type { i8 }
-%"struct.eastl::ListNode.28" = type { %"struct.eastl::ListNodeBase", %struct.TestObject }
 %struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
-%"class.eastl::ListBase.22" = type { %"class.eastl::compressed_pair", i64 }
 %"struct.eastl::ListIterator.25" = type { ptr }
 %"class.eastl::reverse_iterator.26" = type { %"struct.eastl::ListIterator.25" }
 %"class.eastl::reverse_iterator.27" = type { %"struct.eastl::ListIterator.23" }
@@ -40,6 +30,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::less.29" = type { i8 }
 %"struct.eastl::ListIterator.99" = type { ptr }
 %"class.eastl::list.2" = type { %"class.eastl::ListBase.3" }
+%"class.eastl::ListBase.3" = type { %"class.eastl::compressed_pair", i64 }
+%"class.eastl::compressed_pair" = type { %"class.eastl::compressed_pair_imp" }
+%"class.eastl::compressed_pair_imp" = type { %"struct.eastl::ListNodeBase" }
 %"class.eastl::list.30" = type { %"class.eastl::ListBase.31" }
 %"class.eastl::ListBase.31" = type { %"class.eastl::compressed_pair.32", i64 }
 %"class.eastl::compressed_pair.32" = type { %"class.eastl::compressed_pair_imp.33" }
@@ -50,6 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.A = type { i32 }
 %"class.eastl::list.44" = type { %"class.eastl::ListBase.45" }
 %"class.eastl::ListBase.45" = type { %"class.eastl::compressed_pair", i64 }
+%"struct.eastl::ListNode.9" = type <{ %"struct.eastl::ListNodeBase", i32, [4 x i8] }>
 %"class.eastl::list.47" = type { %"class.eastl::ListBase.48" }
 %"class.eastl::ListBase.48" = type { %"class.eastl::compressed_pair.49", i64 }
 %"class.eastl::compressed_pair.49" = type { %"class.eastl::compressed_pair_imp.50" }
@@ -60,11 +54,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.eastl::ListBase.56" = type { %"class.eastl::compressed_pair", i64 }
 %"class.eastl::list.61" = type { %"class.eastl::ListBase.62" }
 %"class.eastl::ListBase.62" = type { %"class.eastl::compressed_pair", i64 }
-%"struct.eastl::ListNode.69" = type <{ %"struct.eastl::ListNodeBase", %struct.A, [4 x i8] }>
-%"struct.eastl::ListNode.71" = type <{ %"struct.eastl::ListNodeBase", %struct.A.46, [4 x i8] }>
-%struct.A.46 = type { i32 }
-%"struct.eastl::ListNode.73" = type <{ %"struct.eastl::ListNodeBase", %struct.A.58, [4 x i8] }>
-%"struct.eastl::ListNode.75" = type <{ %"struct.eastl::ListNodeBase", %struct.A.64, [4 x i8] }>
 
 $_ZN5eastl4listIbNS_9allocatorEEC5Ev = comdat any
 
@@ -861,7 +850,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   ret void
 }
@@ -872,7 +861,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   ret void
 }
@@ -883,7 +872,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %cmp.not2.i = icmp eq i64 %n, 0
   br i1 %cmp.not2.i, label %invoke.cont, label %for.body.i
@@ -894,11 +883,11 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 16
   store i8 0, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i1, align 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 8
   store ptr %1, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %1, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
@@ -937,20 +926,20 @@ entry:
   br i1 %cmp.not2, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %pNode, i64 0, i32 1
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %pNode, i64 8
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %n.addr.03 = phi i64 [ %n, %for.body.lr.ph ], [ %dec, %for.body ]
   %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   %0 = load i8, ptr %value, align 1
   %1 = and i8 %0, 1
   store i8 %1, ptr %mValue.i.i, align 1
   store ptr %pNode, ptr %call.i.i.i.i.i, align 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   store ptr %2, ptr %mpPrev2.i.i, align 8
   store ptr %call.i.i.i.i.i, ptr %2, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
@@ -973,7 +962,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %cmp.not2.i = icmp eq i64 %n, 0
   br i1 %cmp.not2.i, label %invoke.cont, label %for.body.i
@@ -984,13 +973,13 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 16
   %1 = load i8, ptr %value, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i1, align 8
   %3 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %3, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
@@ -1028,7 +1017,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %1 = load ptr, ptr %x, align 8
   %cmp.i.not3.i = icmp eq ptr %1, %x
@@ -1040,14 +1029,14 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.04.i, i64 0, i32 1
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i3, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 16
   %2 = load i8, ptr %mValue.i.i, align 1
   %3 = and i8 %2, 1
   store i8 %3, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i3, align 8
   %4 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i3, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 8
   store ptr %4, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i3, ptr %4, align 8
   store ptr %call.i.i.i.i.i.i3, ptr %mpPrev.i.i, align 8
@@ -1085,7 +1074,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %1 = load ptr, ptr %x, align 8
   %cmp.i.not3.i = icmp eq ptr %1, %x
@@ -1097,14 +1086,14 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.04.i, i64 0, i32 1
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i2, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 16
   %2 = load i8, ptr %mValue.i.i, align 1
   %3 = and i8 %2, 1
   store i8 %3, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i2, align 8
   %4 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i2, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 8
   store ptr %4, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i2, ptr %4, align 8
   store ptr %call.i.i.i.i.i.i2, ptr %mpPrev.i.i, align 8
@@ -1143,7 +1132,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
@@ -1161,7 +1150,7 @@ if.else.i.i.i:                                    ; preds = %entry
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -1169,7 +1158,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
-  %mpPrev9.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else11.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -1180,14 +1169,14 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   %5 = load ptr, ptr %mpPrev9.i.i.i, align 8
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
   %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
-  %mSize5.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %x, i64 0, i32 1
+  %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
   store i64 %8, ptr %0, align 8
@@ -1205,7 +1194,7 @@ if.then:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i, i64 16, i1 false)
   %0 = load ptr, ptr %this, align 8
   %cmp.i.i = icmp eq ptr %0, %x
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -1216,7 +1205,7 @@ if.else.i.i:                                      ; preds = %if.then
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev5.i.i = getelementptr inbounds i8, ptr %2, i64 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
@@ -1224,7 +1213,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   store ptr %this, ptr %mpPrev5.sink.i.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i.i = icmp eq ptr %3, %this
-  %mpPrev9.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else11.i.i
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
@@ -1235,15 +1224,15 @@ if.else11.i.i:                                    ; preds = %if.end.i.i
   %4 = load ptr, ptr %mpPrev9.i.i, align 8
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev15.i.i = getelementptr inbounds i8, ptr %5, i64 8
   br label %_ZN5eastl4listIbNS_9allocatorEE6DoSwapERS2_.exit
 
 _ZN5eastl4listIbNS_9allocatorEE6DoSwapERS2_.exit: ; preds = %if.then8.i.i, %if.else11.i.i
   %mpPrev15.sink.i.i = phi ptr [ %mpPrev15.i.i, %if.else11.i.i ], [ %x, %if.then8.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i)
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
-  %mSize5.i = getelementptr inbounds %"class.eastl::ListBase", ptr %x, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize5.i = getelementptr inbounds i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize.i, align 8
   %7 = load i64, ptr %mSize5.i, align 8
   store i64 %7, ptr %mSize.i, align 8
@@ -1258,7 +1247,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
@@ -1276,7 +1265,7 @@ if.else.i.i.i:                                    ; preds = %entry
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -1284,7 +1273,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
-  %mpPrev9.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else11.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -1295,14 +1284,14 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   %5 = load ptr, ptr %mpPrev9.i.i.i, align 8
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
   %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
-  %mSize5.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %x, i64 0, i32 1
+  %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
   store i64 %8, ptr %0, align 8
@@ -1316,7 +1305,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %ilist.coerce1
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
@@ -1328,13 +1317,13 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 16
   %1 = load i8, ptr %first.addr.04.i, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i1, align 8
   %3 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %3, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
@@ -1397,9 +1386,9 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %entry, %_ZN5eastl9a
 
 _ZN5eastl8ListBaseIbNS_9allocatorEE7DoClearEv.exit: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i, %entry
   store ptr %this, ptr %this, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mSize, align 8
   ret void
 }
@@ -1418,10 +1407,10 @@ land.rhs:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %while.body.lr.ph.i, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.016, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %first.sroa.0.016, i64 16
   %0 = load i8, ptr %mValue.i, align 1
   %1 = and i8 %0, 1
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %pNode.017, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.017, i64 16
   store i8 %1, ptr %mValue, align 8
   %2 = load ptr, ptr %first.sroa.0.016, align 8
   %pNode.0 = load ptr, ptr %pNode.017, align 8
@@ -1434,18 +1423,18 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp.i4, label %if.end, label %for.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %land.rhs
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.017, %while.body.lr.ph.i ], [ %3, %while.body.i ]
   %3 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !11
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !11
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !11
   %6 = load ptr, ptr %4, align 8, !noalias !11
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %mpPrev2.i.i.i.i, align 8, !noalias !11
   %7 = load ptr, ptr %4, align 8, !noalias !11
   store ptr %7, ptr %5, align 8, !noalias !11
@@ -1457,21 +1446,21 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !16
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %first.sroa.0.04.i = phi ptr [ %first.sroa.0.0.lcssa, %for.body.lr.ph.i ], [ %13, %for.body.i ]
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.04.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %9 = load i8, ptr %mValue.i.i, align 1
   %10 = and i8 %9, 1
   store i8 %10, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8
   %11 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %11, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %11, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -1521,7 +1510,7 @@ for.body:                                         ; preds = %entry, %for.body
   %first.addr.014 = phi ptr [ %incdec.ptr, %for.body ], [ %first, %entry ]
   %1 = load i8, ptr %first.addr.014, align 1
   %2 = and i8 %1, 1
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %pNode.015, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.015, i64 16
   store i8 %2, ptr %mValue, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.014, i64 1
   %pNode.0 = load ptr, ptr %pNode.015, align 8
@@ -1541,18 +1530,18 @@ if.then:                                          ; preds = %for.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %4, %while.body.i ]
   %4 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !18
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !18
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !18
   %7 = load ptr, ptr %5, align 8, !noalias !18
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %mpPrev2.i.i.i.i, align 8, !noalias !18
   %8 = load ptr, ptr %5, align 8, !noalias !18
   store ptr %8, ptr %6, align 8, !noalias !18
@@ -1564,20 +1553,20 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !16
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %first.addr.04.i = phi ptr [ %first.addr.0.lcssa, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %10 = load i8, ptr %first.addr.04.i, align 1
   %11 = and i8 %10, 1
   store i8 %11, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8
   %12 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %12, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %12, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -1613,9 +1602,9 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %if.then, %_ZN5eastl
 
 _ZN5eastl4listIbNS_9allocatorEE5clearEv.exit:     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %if.then
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mSize.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
@@ -1633,7 +1622,7 @@ if.else.i.i.i:                                    ; preds = %_ZN5eastl4listIbNS_
   %3 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %3, align 8
   %4 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -1641,7 +1630,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %5 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %5, %this
-  %mpPrev9.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else11.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -1652,14 +1641,14 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   %6 = load ptr, ptr %mpPrev9.i.i.i, align 8
   store ptr %x, ptr %6, align 8
   %7 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   br label %_ZN5eastl4listIbNS_9allocatorEE4swapERS2_.exit
 
 _ZN5eastl4listIbNS_9allocatorEE4swapERS2_.exit:   ; preds = %if.then8.i.i.i, %if.else11.i.i.i
   %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
-  %mSize5.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %x, i64 0, i32 1
+  %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize.i, align 8
   %9 = load i64, ptr %mSize5.i.i, align 8
   store i64 %9, ptr %mSize.i, align 8
@@ -1680,7 +1669,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i, i64 16, i1 false)
   %0 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %0, %x
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -1691,7 +1680,7 @@ if.else.i:                                        ; preds = %entry
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
-  %mpPrev5.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev5.i = getelementptr inbounds i8, ptr %2, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -1699,7 +1688,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   store ptr %this, ptr %mpPrev5.sink.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i = icmp eq ptr %3, %this
-  %mpPrev9.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i, label %if.then8.i, label %if.else11.i
 
 if.then8.i:                                       ; preds = %if.end.i
@@ -1710,15 +1699,15 @@ if.else11.i:                                      ; preds = %if.end.i
   %4 = load ptr, ptr %mpPrev9.i, align 8
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
-  %mpPrev15.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev15.i = getelementptr inbounds i8, ptr %5, i64 8
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 _ZN5eastl12ListNodeBase4swapERS0_S1_.exit:        ; preds = %if.then8.i, %if.else11.i
   %mpPrev15.sink.i = phi ptr [ %mpPrev15.i, %if.else11.i ], [ %x, %if.then8.i ]
   store ptr %x, ptr %mpPrev15.sink.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
-  %mSize5 = getelementptr inbounds %"class.eastl::ListBase", ptr %x, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize5 = getelementptr inbounds i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize, align 8
   %7 = load i64, ptr %mSize5, align 8
   store i64 %7, ptr %mSize, align 8
@@ -1747,7 +1736,7 @@ for.body:                                         ; preds = %entry, %for.body
   %n.addr.012 = phi i64 [ %dec, %for.body ], [ %n, %entry ]
   %1 = load i8, ptr %value, align 1
   %2 = and i8 %1, 1
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %pNode.013, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.013, i64 16
   store i8 %2, ptr %mValue, align 8
   %dec = add i64 %n.addr.012, -1
   %pNode.0 = load ptr, ptr %pNode.013, align 8
@@ -1763,20 +1752,20 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %tobool5.not, label %if.else, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %n.addr.03.i = phi i64 [ %n.addr.0.lcssa, %for.body.lr.ph.i ], [ %dec.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %4 = load i8, ptr %value, align 1
   %5 = and i8 %4, 1
   store i8 %5, ptr %mValue.i.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8
   %6 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %6, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %6, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -1792,18 +1781,18 @@ if.else:                                          ; preds = %for.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.else
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %8, %while.body.i ]
   %8 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !24
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %8, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !24
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !24
   %11 = load ptr, ptr %9, align 8, !noalias !24
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %11, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %10, ptr %mpPrev2.i.i.i.i, align 8, !noalias !24
   %12 = load ptr, ptr %9, align 8, !noalias !24
   store ptr %12, ptr %10, align 8, !noalias !24
@@ -1913,7 +1902,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl4listIbNS_9allocatorEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mSize, align 8
   %cmp = icmp eq i64 %0, 0
   ret i1 %cmp
@@ -1922,7 +1911,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i64 @_ZNK5eastl4listIbNS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mSize, align 8
   ret i64 %0
 }
@@ -1951,18 +1940,18 @@ if.then:                                          ; preds = %while.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %current.sroa.0.0, %while.body.lr.ph.i ], [ %1, %while.body.i ]
   %1 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !30
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !30
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !30
   %4 = load ptr, ptr %2, align 8, !noalias !30
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i.i, align 8, !noalias !30
   %5 = load ptr, ptr %2, align 8, !noalias !30
   store ptr %5, ptr %3, align 8, !noalias !30
@@ -1975,24 +1964,24 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 if.else:                                          ; preds = %while.end
   %sub = sub i64 %n, %i.0
-  %mpPrev.i.i6 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i6 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not2.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not2.i.i, label %if.end, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else
-  %mSize.i.i.i7 = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %n.addr.03.i.i = phi i64 [ %sub, %for.body.lr.ph.i.i ], [ %dec.i.i, %for.body.i.i ]
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !35
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 16
   %7 = load i8, ptr %value, align 1, !noalias !35
   %8 = and i8 %7, 1
   store i8 %8, ptr %mValue.i.i.i.i, align 1, !noalias !35
   store ptr %this, ptr %call.i.i.i.i.i.i.i, align 8, !noalias !35
   %9 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !35
-  %mpPrev2.i.i.i.i8 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i8 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 8
   store ptr %9, ptr %mpPrev2.i.i.i.i8, align 8, !noalias !35
   store ptr %call.i.i.i.i.i.i.i, ptr %9, align 8, !noalias !35
   store ptr %call.i.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !35
@@ -2014,18 +2003,18 @@ entry:
   br i1 %cmp.i.not2, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %first.sroa.0.03 = phi ptr [ %first.coerce, %while.body.lr.ph ], [ %0, %while.body ]
   %0 = load ptr, ptr %first.sroa.0.03, align 8, !noalias !38
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8, !noalias !38
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !38
   %3 = load ptr, ptr %1, align 8, !noalias !38
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %2, ptr %mpPrev2.i.i.i, align 8, !noalias !38
   %4 = load ptr, ptr %1, align 8, !noalias !38
   store ptr %4, ptr %2, align 8, !noalias !38
@@ -2044,25 +2033,25 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE6insertENS_12ListIteratorIbPKbRS4_EEmS6_(ptr noalias sret(%"struct.eastl::ListIterator.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, i64 noundef %n, ptr noundef nonnull align 1 dereferenceable(1) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   %cmp.not2.i = icmp eq i64 %n, 0
   br i1 %cmp.not2.i, label %_ZN5eastl4listIbNS_9allocatorEE14DoInsertValuesEPNS_12ListNodeBaseEmRKb.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %n.addr.03.i = phi i64 [ %n, %for.body.lr.ph.i ], [ %dec.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %1 = load i8, ptr %value, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %mValue.i.i.i, align 1
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8
   %3 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %3, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i, align 8
@@ -2103,18 +2092,18 @@ if.then.i:                                        ; preds = %while.end.i
   br i1 %cmp.i.not2.i.i, label %_ZN5eastl4listIbNS_9allocatorEE6resizeEmRKb.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then.i
-  %mSize.i.i.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.lr.ph.i.i
   %first.sroa.0.03.i.i = phi ptr [ %current.sroa.0.0.i, %while.body.lr.ph.i.i ], [ %1, %while.body.i.i ]
   %1 = load ptr, ptr %first.sroa.0.03.i.i, align 8, !noalias !41
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !41
-  %mpPrev.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i.i.i, align 8, !noalias !41
   %4 = load ptr, ptr %2, align 8, !noalias !41
-  %mpPrev2.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i.i.i, align 8, !noalias !41
   %5 = load ptr, ptr %2, align 8, !noalias !41
   store ptr %5, ptr %3, align 8, !noalias !41
@@ -2127,22 +2116,22 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 if.else.i:                                        ; preds = %while.end.i
   %sub.i = sub i64 %n, %i.0.i
-  %mpPrev.i.i6.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i6.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not2.i.i.i = icmp eq i64 %sub.i, 0
   br i1 %cmp.not2.i.i.i, label %_ZN5eastl4listIbNS_9allocatorEE6resizeEmRKb.exit, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.else.i
-  %mSize.i.i.i7.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %n.addr.03.i.i.i = phi i64 [ %sub.i, %for.body.lr.ph.i.i.i ], [ %dec.i.i.i, %for.body.i.i.i ]
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !46
-  %mValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i, i64 16
   store i8 0, ptr %mValue.i.i.i.i.i, align 1, !noalias !46
   store ptr %this, ptr %call.i.i.i.i.i.i.i.i, align 8, !noalias !46
   %7 = load ptr, ptr %mpPrev.i.i6.i, align 8, !noalias !46
-  %mpPrev2.i.i.i.i8.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i8.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i, i64 8
   store ptr %7, ptr %mpPrev2.i.i.i.i8.i, align 8, !noalias !46
   store ptr %call.i.i.i.i.i.i.i.i, ptr %7, align 8, !noalias !46
   store ptr %call.i.i.i.i.i.i.i.i, ptr %mpPrev.i.i6.i, align 8, !noalias !46
@@ -2161,7 +2150,7 @@ _ZN5eastl4listIbNS_9allocatorEE6resizeEmRKb.exit: ; preds = %for.body.i.i.i, %wh
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4listIbNS_9allocatorEE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %0, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %mValue
 }
 
@@ -2169,25 +2158,25 @@ entry:
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5eastl4listIbNS_9allocatorEE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %0, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %mValue
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN5eastl4listIbNS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %0, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %mValue
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5eastl4listIbNS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %0, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %mValue
 }
 
@@ -2196,18 +2185,18 @@ define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE10push_frontERKb(
 entry:
   %0 = load ptr, ptr %this, align 8
   %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   %1 = load i8, ptr %value, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %mValue.i.i, align 1
   store ptr %0, ptr %call.i.i.i.i.i, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   store ptr %3, ptr %mpPrev2.i.i, align 8
   store ptr %call.i.i.i.i.i, ptr %3, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %mSize.i, align 8
   %inc.i = add i64 %4, 1
   store i64 %inc.i, ptr %mSize.i, align 8
@@ -2219,18 +2208,18 @@ define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE10push_frontEOb(p
 entry:
   %0 = load ptr, ptr %this, align 8, !noalias !49
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !52
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %1 = load i8, ptr %value, align 1, !noalias !52
   %2 = and i8 %1, 1
   store i8 %2, ptr %mValue.i.i.i, align 1, !noalias !52
   store ptr %0, ptr %call.i.i.i.i.i.i, align 8, !noalias !52
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !52
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i, align 8, !noalias !52
   store ptr %call.i.i.i.i.i.i, ptr %3, align 8, !noalias !52
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !52
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %mSize.i.i, align 8, !noalias !52
   %inc.i.i = add i64 %4, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !52
@@ -2243,18 +2232,18 @@ entry:
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %call.i.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i.i, ptr %1, align 8
   store ptr %call.i.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mSize, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %mSize, align 8
   %3 = load ptr, ptr %this, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %3, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %3, i64 16
   ret ptr %mValue
 }
 
@@ -2271,17 +2260,17 @@ entry:
   %call.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %call.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i, ptr %1, align 8
   store ptr %call.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mSize, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %mSize, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   ret ptr %mValue
 }
 
@@ -2289,18 +2278,18 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE9push_backERKb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(1) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   %0 = load i8, ptr %value, align 1
   %1 = and i8 %0, 1
   store i8 %1, ptr %mValue.i.i, align 1
   store ptr %this, ptr %call.i.i.i.i.i, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   store ptr %2, ptr %mpPrev2.i.i, align 8
   store ptr %call.i.i.i.i.i, ptr %2, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %mSize.i, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %mSize.i, align 8
@@ -2311,18 +2300,18 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE9push_backEOb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(1) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !55
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %0 = load i8, ptr %value, align 1, !noalias !55
   %1 = and i8 %0, 1
   store i8 %1, ptr %mValue.i.i.i, align 1, !noalias !55
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8, !noalias !55
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !55
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %2, ptr %mpPrev2.i.i.i, align 8, !noalias !55
   store ptr %call.i.i.i.i.i.i, ptr %2, align 8, !noalias !55
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !55
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %mSize.i.i, align 8, !noalias !55
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !55
@@ -2334,17 +2323,17 @@ define weak_odr dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZN5ea
 entry:
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %this, ptr %call.i.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i.i, ptr %0, align 8
   store ptr %call.i.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %mSize, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   ret ptr %mValue
 }
 
@@ -2353,17 +2342,17 @@ define weak_odr dso_local noundef ptr @_ZN5eastl4listIbNS_9allocatorEE23push_bac
 entry:
   %call.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %this, ptr %call.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i, ptr %0, align 8
   store ptr %call.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %mSize, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   ret ptr %mValue
 }
 
@@ -2371,15 +2360,15 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE9pop_frontEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   %2 = load ptr, ptr %0, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %mpPrev2.i.i, align 8
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %1, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %0) #10
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %mSize.i, align 8
   %dec.i = add i64 %4, -1
   store i64 %dec.i, ptr %mSize.i, align 8
@@ -2389,15 +2378,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pNode) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZN5eastl8ListBaseIbNS_9allocatorEE10DoFreeNodeEPNS_8ListNodeIbEE.exit:
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %pNode, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %pNode, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   %1 = load ptr, ptr %pNode, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   %2 = load ptr, ptr %pNode, align 8
   store ptr %2, ptr %0, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %pNode) #10
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %mSize, align 8
   %dec = add i64 %3, -1
   store i64 %dec, ptr %mSize, align 8
@@ -2407,17 +2396,17 @@ _ZN5eastl8ListBaseIbNS_9allocatorEE10DoFreeNodeEPNS_8ListNodeIbEE.exit:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   %2 = load ptr, ptr %0, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %mpPrev2.i.i, align 8
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %1, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %0) #10
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %mSize.i, align 8
   %dec.i = add i64 %4, -1
   store i64 %dec.i, ptr %mSize.i, align 8
@@ -2428,16 +2417,16 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE6insertENS_12ListIteratorIbPKbRS4_EE(ptr noalias sret(%"struct.eastl::ListIterator.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store i8 0, ptr %mValue.i, align 1
   store ptr %position.coerce, ptr %call.i.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i.i, ptr %0, align 8
   store ptr %call.i.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %mSize, align 8
@@ -2449,18 +2438,18 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE6insertENS_12ListIteratorIbPKbRS4_EES6_(ptr noalias sret(%"struct.eastl::ListIterator.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr noundef nonnull align 1 dereferenceable(1) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   %0 = load i8, ptr %value, align 1
   %1 = and i8 %0, 1
   store i8 %1, ptr %mValue.i, align 1
   store ptr %position.coerce, ptr %call.i.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %2 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %2, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i.i, ptr %2, align 8
   store ptr %call.i.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %mSize, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr %mSize, align 8
@@ -2473,18 +2462,18 @@ define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE6insertENS_12List
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !58
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %0 = load i8, ptr %value, align 1, !noalias !58
   %1 = and i8 %0, 1
   store i8 %1, ptr %mValue.i.i.i, align 1, !noalias !58
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8, !noalias !58
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %2 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !58
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %2, ptr %mpPrev2.i.i.i, align 8, !noalias !58
   store ptr %call.i.i.i.i.i.i, ptr %2, align 8, !noalias !58
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !58
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %mSize.i.i, align 8, !noalias !58
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !58
@@ -2499,26 +2488,26 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE6insertENS_12ListIteratorIbPKbRS4_EESt16initializer_listIbE(ptr noalias sret(%"struct.eastl::ListIterator.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %ilist.coerce0, i64 %ilist.coerce1
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl4listIbNS_9allocatorEE8DoInsertIPKbEEvPNS_12ListNodeBaseET_S8_NS_17integral_constantIbLb0EEE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %first.addr.04.i = phi ptr [ %ilist.coerce0, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %1 = load i8, ptr %first.addr.04.i, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %mValue.i.i.i, align 1
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8
   %3 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %3, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i, align 8
@@ -2539,17 +2528,17 @@ _ZN5eastl4listIbNS_9allocatorEE8DoInsertIPKbEEvPNS_12ListNodeBaseET_S8_NS_17inte
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE5eraseENS_12ListIteratorIbPKbRS4_EE(ptr noalias sret(%"struct.eastl::ListIterator.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %position.coerce, align 8
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   %3 = load ptr, ptr %1, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %2, ptr %mpPrev2.i.i, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %2, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %1) #10
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i64, ptr %mSize.i, align 8
   %dec.i = add i64 %5, -1
   store i64 %dec.i, ptr %mSize.i, align 8
@@ -2561,21 +2550,21 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE5eraseENS_16reverse_iteratorINS_12ListIteratorIbPKbRS5_EEEE(ptr noalias sret(%"class.eastl::reverse_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %position) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %position, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %1, ptr %position, align 8
   %2 = load ptr, ptr %1, align 8, !noalias !61
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i, align 8, !noalias !61
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !61
   %5 = load ptr, ptr %3, align 8, !noalias !61
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %mpPrev2.i.i.i, align 8, !noalias !61
   %6 = load ptr, ptr %3, align 8, !noalias !61
   store ptr %6, ptr %4, align 8, !noalias !61
   tail call void @_ZdaPv(ptr noundef nonnull %3) #10, !noalias !61
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize.i.i, align 8, !noalias !61
   %dec.i.i = add i64 %7, -1
   store i64 %dec.i.i, ptr %mSize.i.i, align 8, !noalias !61
@@ -2587,29 +2576,29 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE5eraseENS_16reverse_iteratorINS_12ListIteratorIbPKbRS5_EEEES9_(ptr noalias sret(%"class.eastl::reverse_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %first, ptr noundef %last) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %last, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %1, ptr %last, align 8
   %2 = load ptr, ptr %first, align 8
-  %mpPrev.i.i1 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i1 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i1, align 8
   store ptr %3, ptr %first, align 8
   %cmp.i.not2.i = icmp eq ptr %1, %3
   br i1 %cmp.i.not2.i, label %_ZN5eastl4listIbNS_9allocatorEE5eraseENS_12ListIteratorIbPKbRS4_EES7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %1, %while.body.lr.ph.i ], [ %4, %while.body.i ]
   %4 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !64
-  %mpPrev.i.i3 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i3 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i3, align 8, !noalias !64
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !64
   %7 = load ptr, ptr %5, align 8, !noalias !64
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %mpPrev2.i.i.i.i, align 8, !noalias !64
   %8 = load ptr, ptr %5, align 8, !noalias !64
   store ptr %8, ptr %6, align 8, !noalias !64
@@ -2629,9 +2618,9 @@ _ZN5eastl4listIbNS_9allocatorEE5eraseENS_12ListIteratorIbPKbRS4_EES7_.exit: ; pr
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %this, ptr %this, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mSize, align 8
   ret void
 }
@@ -2644,13 +2633,13 @@ entry:
   br i1 %cmp.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %numRemoved.08 = phi i64 [ 0, %while.body.lr.ph ], [ %numRemoved.1, %if.end ]
   %current.sroa.0.07 = phi ptr [ %0, %while.body.lr.ph ], [ %5, %if.end ]
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %current.sroa.0.07, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %current.sroa.0.07, i64 16
   %1 = load i8, ptr %mValue.i, align 1
   %2 = load i8, ptr %value, align 1
   %3 = xor i8 %2, %1
@@ -2660,12 +2649,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp6.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %while.body
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %mpPrev, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %mpPrev.i.i, align 8
   %8 = load ptr, ptr %6, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %8, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %7, ptr %mpPrev2.i.i, align 8
   %9 = load ptr, ptr %6, align 8
   store ptr %9, ptr %7, align 8
@@ -2694,7 +2683,7 @@ entry:
 do.body.i:                                        ; preds = %do.body.i, %entry
   %pNode.0.i = phi ptr [ %this, %entry ], [ %0, %do.body.i ]
   %0 = load ptr, ptr %pNode.0.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %pNode.0.i, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %pNode.0.i, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %1, ptr %pNode.0.i, align 8
   store ptr %0, ptr %mpPrev.i, align 8
@@ -2708,20 +2697,20 @@ _ZN5eastl12ListNodeBase7reverseEv.exit:           ; preds = %do.body.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE6spliceENS_12ListIteratorIbPKbRS4_EERS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.then:
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %x, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %x, i64 16
   %0 = load i64, ptr %mSize, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end13, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %1 = load ptr, ptr %x, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %2, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %x, ptr %3, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %4 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %mpPrev4.i, align 8
@@ -2731,7 +2720,7 @@ if.then4:                                         ; preds = %if.then
   store ptr %7, ptr %mpPrev.i, align 8
   store ptr %5, ptr %mpPrev2.i, align 8
   %8 = load i64, ptr %mSize, align 8
-  %mSize8 = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize8 = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %mSize8, align 8
   %add = add i64 %9, %8
   store i64 %add, ptr %mSize8, align 8
@@ -2752,13 +2741,13 @@ if.then:
   br i1 %or.cond, label %if.then8, label %if.end18
 
 if.then8:                                         ; preds = %if.then
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %i.coerce, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %i.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %0, ptr %2, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %i.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i, align 8
@@ -2767,11 +2756,11 @@ if.then8:                                         ; preds = %if.then
   %6 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %6, ptr %mpPrev.i, align 8
   store ptr %4, ptr %mpPrev2.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize, align 8
   %inc = add i64 %7, 1
   store i64 %inc, ptr %mSize, align 8
-  %mSize12 = getelementptr inbounds %"class.eastl::ListBase", ptr %x, i64 0, i32 1
+  %mSize12 = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize12, align 8
   %dec = add i64 %8, -1
   store i64 %dec, ptr %mSize12, align 8
@@ -2796,13 +2785,13 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
   br i1 %cmp.i.not.i.i, label %if.then10, label %while.body.i.i, !llvm.loop !71
 
 if.then10:                                        ; preds = %while.body.i.i
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %last.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %last.coerce, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.coerce, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %first.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %last.coerce, ptr %2, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %first.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i, align 8
@@ -2811,11 +2800,11 @@ if.then10:                                        ; preds = %while.body.i.i
   %6 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %6, ptr %mpPrev.i, align 8
   store ptr %4, ptr %mpPrev2.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize, align 8
   %add = add i64 %7, %inc.i.i
   store i64 %add, ptr %mSize, align 8
-  %mSize13 = getelementptr inbounds %"class.eastl::ListBase", ptr %x, i64 0, i32 1
+  %mSize13 = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize13, align 8
   %sub = sub i64 %8, %inc.i.i
   store i64 %sub, ptr %mSize13, align 8
@@ -2828,20 +2817,20 @@ if.end25:                                         ; preds = %if.then, %if.then10
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listIbNS_9allocatorEE6spliceENS_12ListIteratorIbPKbRS4_EEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %x, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %x, i64 16
   %0 = load i64, ptr %mSize.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %_ZN5eastl4listIbNS_9allocatorEE6spliceENS_12ListIteratorIbPKbRS4_EERS2_.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %entry
   %1 = load ptr, ptr %x, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %position.coerce, ptr %2, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %x, ptr %3, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %4 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -2851,7 +2840,7 @@ if.then4.i:                                       ; preds = %entry
   store ptr %7, ptr %mpPrev.i.i, align 8
   store ptr %5, ptr %mpPrev2.i.i, align 8
   %8 = load i64, ptr %mSize.i, align 8
-  %mSize8.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize8.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %mSize8.i, align 8
   %add.i = add i64 %9, %8
   store i64 %add.i, ptr %mSize8.i, align 8
@@ -2872,13 +2861,13 @@ entry:
   br i1 %or.cond.i, label %if.then8.i, label %_ZN5eastl4listIbNS_9allocatorEE6spliceENS_12ListIteratorIbPKbRS4_EERS2_S7_.exit
 
 if.then8.i:                                       ; preds = %entry
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %i.coerce, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %i.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %0, ptr %2, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %i.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -2887,11 +2876,11 @@ if.then8.i:                                       ; preds = %entry
   %6 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %6, ptr %mpPrev.i.i, align 8
   store ptr %4, ptr %mpPrev2.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize.i, align 8
   %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %mSize.i, align 8
-  %mSize12.i = getelementptr inbounds %"class.eastl::ListBase", ptr %x, i64 0, i32 1
+  %mSize12.i = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize12.i, align 8
   %dec.i = add i64 %8, -1
   store i64 %dec.i, ptr %mSize12.i, align 8
@@ -2916,13 +2905,13 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.not.i.i.i, label %if.then10.i, label %while.body.i.i.i, !llvm.loop !71
 
 if.then10.i:                                      ; preds = %while.body.i.i.i
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %last.coerce, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %last.coerce, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.coerce, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %first.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %last.coerce, ptr %2, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %first.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -2931,11 +2920,11 @@ if.then10.i:                                      ; preds = %while.body.i.i.i
   %6 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %6, ptr %mpPrev.i.i, align 8
   store ptr %4, ptr %mpPrev2.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize.i, align 8
   %add.i = add i64 %7, %inc.i.i.i
   store i64 %add.i, ptr %mSize.i, align 8
-  %mSize13.i = getelementptr inbounds %"class.eastl::ListBase", ptr %x, i64 0, i32 1
+  %mSize13.i = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize13.i, align 8
   %sub.i = sub i64 %8, %inc.i.i.i
   store i64 %sub.i, ptr %mSize13.i, align 8
@@ -2960,17 +2949,17 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond37, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
-  %mSize13.i = getelementptr inbounds %"class.eastl::ListBase", ptr %x, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize13.i = getelementptr inbounds i8, ptr %x, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %first.sroa.0.039 = phi ptr [ %0, %while.body.lr.ph ], [ %first.sroa.0.1, %if.end ]
   %firstX.sroa.0.038 = phi ptr [ %1, %while.body.lr.ph ], [ %firstX.sroa.0.1, %if.end ]
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %firstX.sroa.0.038, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %firstX.sroa.0.038, i64 16
   %2 = load i8, ptr %mValue.i, align 1
   %3 = and i8 %2, 1
-  %mValue.i6 = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.039, i64 0, i32 1
+  %mValue.i6 = getelementptr inbounds i8, ptr %first.sroa.0.039, i64 16
   %4 = load i8, ptr %mValue.i6, align 1
   %5 = and i8 %4, 1
   %cmp7 = icmp ult i8 %3, %5
@@ -2990,13 +2979,13 @@ while.body.i.i.i:                                 ; preds = %if.then8, %while.bo
   br i1 %cmp.i.not.i.i.i, label %if.then10.i, label %while.body.i.i.i, !llvm.loop !71
 
 if.then10.i:                                      ; preds = %while.body.i.i.i
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %first.sroa.0.039, ptr %8, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %firstX.sroa.0.038, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %firstX.sroa.0.038, i64 8
   %9 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %6, ptr %9, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.sroa.0.039, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %first.sroa.0.039, i64 8
   %10 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %firstX.sroa.0.038, ptr %10, align 8
   %11 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -3039,13 +3028,13 @@ while.body.i.i.i9:                                ; preds = %while.end, %while.b
   br i1 %cmp.i.not.i.i.i13, label %_ZN5eastl4listIbNS_9allocatorEE6spliceENS_12ListIteratorIbPKbRS4_EERS2_S7_S7_.exit22, label %while.body.i.i.i9, !llvm.loop !71
 
 _ZN5eastl4listIbNS_9allocatorEE6spliceENS_12ListIteratorIbPKbRS4_EERS2_S7_S7_.exit22: ; preds = %while.body.i.i.i9
-  %mpPrev.i.i15 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev.i.i15 = getelementptr inbounds i8, ptr %x, i64 8
   %18 = load ptr, ptr %mpPrev.i.i15, align 8
   store ptr %this, ptr %18, align 8
-  %mpPrev2.i.i16 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %firstX.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev2.i.i16 = getelementptr inbounds i8, ptr %firstX.sroa.0.0.lcssa, i64 8
   %19 = load ptr, ptr %mpPrev2.i.i16, align 8
   store ptr %x, ptr %19, align 8
-  %mpPrev4.i.i17 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev4.i.i17 = getelementptr inbounds i8, ptr %this, i64 8
   %20 = load ptr, ptr %mpPrev4.i.i17, align 8
   store ptr %firstX.sroa.0.0.lcssa, ptr %20, align 8
   %21 = load ptr, ptr %mpPrev4.i.i17, align 8
@@ -3054,11 +3043,11 @@ _ZN5eastl4listIbNS_9allocatorEE6spliceENS_12ListIteratorIbPKbRS4_EERS2_S7_S7_.ex
   %23 = load ptr, ptr %mpPrev2.i.i16, align 8
   store ptr %23, ptr %mpPrev.i.i15, align 8
   store ptr %21, ptr %mpPrev2.i.i16, align 8
-  %mSize.i18 = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i18 = getelementptr inbounds i8, ptr %this, i64 16
   %24 = load i64, ptr %mSize.i18, align 8
   %add.i19 = add i64 %24, %inc.i.i.i12
   store i64 %add.i19, ptr %mSize.i18, align 8
-  %mSize13.i20 = getelementptr inbounds %"class.eastl::ListBase", ptr %x, i64 0, i32 1
+  %mSize13.i20 = getelementptr inbounds i8, ptr %x, i64 16
   %25 = load i64, ptr %mSize13.i20, align 8
   %sub.i21 = sub i64 %25, %inc.i.i.i12
   store i64 %sub.i21, ptr %mSize13.i20, align 8
@@ -3088,15 +3077,15 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp.i1.not9, label %if.end9, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %2 = phi ptr [ %1, %while.body.lr.ph ], [ %11, %if.end ]
   %first.sroa.0.010 = phi ptr [ %0, %while.body.lr.ph ], [ %first.sroa.0.1, %if.end ]
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %first.sroa.0.010, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %first.sroa.0.010, i64 16
   %3 = load i8, ptr %mValue.i, align 1
-  %mValue.i2 = getelementptr inbounds %"struct.eastl::ListNode", ptr %2, i64 0, i32 1
+  %mValue.i2 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i8, ptr %mValue.i2, align 1
   %5 = xor i8 %4, %3
   %6 = and i8 %5, 1
@@ -3104,10 +3093,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp, label %if.then8, label %if.end
 
 if.then8:                                         ; preds = %while.body
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %mpPrev.i.i, align 8
   %8 = load ptr, ptr %2, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %8, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %7, ptr %mpPrev2.i.i, align 8
   %9 = load ptr, ptr %2, align 8
   store ptr %9, ptr %7, align 8
@@ -3138,7 +3127,7 @@ entry:
   %0 = load ptr, ptr %this, align 8, !noalias !83
   store ptr %0, ptr %agg.tmp, align 8, !alias.scope !83
   store ptr %this, ptr %agg.tmp2, align 8, !alias.scope !86
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize.i, align 8
   call void @_ZN5eastl4listIbNS_9allocatorEE6DoSortINS_4lessIbEEEENS_12ListIteratorIbPbRbEES9_S9_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.0") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %compare)
   ret void
@@ -3167,12 +3156,12 @@ sw.bb:                                            ; preds = %entry, %entry
 
 sw.bb2:                                           ; preds = %entry
   %1 = load ptr, ptr %end2, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i, align 8
   store ptr %2, ptr %end2, align 8
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode", ptr %2, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %i1, align 8
-  %mValue.i19 = getelementptr inbounds %"struct.eastl::ListNode", ptr %3, i64 0, i32 1
+  %mValue.i19 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i8, ptr %mValue.i, align 1
   %5 = and i8 %4, 1
   %6 = load i8, ptr %mValue.i19, align 1
@@ -3181,19 +3170,19 @@ sw.bb2:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb2
-  %mpPrev.i20 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i20 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %mpPrev.i20, align 8
   %9 = load ptr, ptr %2, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %8, ptr %mpPrev2.i, align 8
   %10 = load ptr, ptr %2, align 8
   store ptr %10, ptr %8, align 8
   %11 = load ptr, ptr %end2, align 8
   %12 = load ptr, ptr %i1, align 8
   store ptr %12, ptr %11, align 8
-  %mpPrev.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %12, i64 0, i32 1
+  %mpPrev.i21 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %mpPrev.i21, align 8
-  %mpPrev2.i22 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %11, i64 0, i32 1
+  %mpPrev2.i22 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %13, ptr %mpPrev2.i22, align 8
   store ptr %11, ptr %13, align 8
   store ptr %11, ptr %mpPrev.i21, align 8
@@ -3217,8 +3206,8 @@ for.body:                                         ; preds = %sw.bb8, %for.inc
   %18 = phi ptr [ %25, %for.inc ], [ %15, %sw.bb8 ]
   %19 = phi ptr [ %26, %for.inc ], [ %15, %sw.bb8 ]
   %current.sroa.0.076 = phi ptr [ %27, %for.inc ], [ %16, %sw.bb8 ]
-  %mValue.i24 = getelementptr inbounds %"struct.eastl::ListNode", ptr %current.sroa.0.076, i64 0, i32 1
-  %mValue.i25 = getelementptr inbounds %"struct.eastl::ListNode", ptr %19, i64 0, i32 1
+  %mValue.i24 = getelementptr inbounds i8, ptr %current.sroa.0.076, i64 16
+  %mValue.i25 = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load i8, ptr %mValue.i24, align 1
   %21 = and i8 %20, 1
   %22 = load i8, ptr %mValue.i25, align 1
@@ -3247,16 +3236,16 @@ if.then17:                                        ; preds = %sw.bb8, %for.end
   br label %if.end22
 
 if.else:                                          ; preds = %for.end
-  %mpPrev.i28 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %25, i64 0, i32 1
+  %mpPrev.i28 = getelementptr inbounds i8, ptr %25, i64 8
   %28 = load ptr, ptr %mpPrev.i28, align 8
   %29 = load ptr, ptr %25, align 8
-  %mpPrev2.i29 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %29, i64 0, i32 1
+  %mpPrev2.i29 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %28, ptr %mpPrev2.i29, align 8
   %30 = load ptr, ptr %25, align 8
   store ptr %30, ptr %28, align 8
   %31 = load ptr, ptr %i1, align 8
   store ptr %31, ptr %25, align 8
-  %mpPrev.i30 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %31, i64 0, i32 1
+  %mpPrev.i30 = getelementptr inbounds i8, ptr %31, i64 8
   %32 = load ptr, ptr %mpPrev.i30, align 8
   store ptr %32, ptr %mpPrev.i28, align 8
   store ptr %25, ptr %32, align 8
@@ -3265,12 +3254,12 @@ if.else:                                          ; preds = %for.end
 
 if.end22:                                         ; preds = %if.else, %if.then17
   %33 = load ptr, ptr %end2, align 8
-  %mpPrev.i32 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %33, i64 0, i32 1
+  %mpPrev.i32 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load ptr, ptr %mpPrev.i32, align 8
   store ptr %34, ptr %end2, align 8
-  %mValue.i33 = getelementptr inbounds %"struct.eastl::ListNode", ptr %34, i64 0, i32 1
+  %mValue.i33 = getelementptr inbounds i8, ptr %34, i64 16
   %35 = load ptr, ptr %i1, align 8
-  %mValue.i34 = getelementptr inbounds %"struct.eastl::ListNode", ptr %35, i64 0, i32 1
+  %mValue.i34 = getelementptr inbounds i8, ptr %35, i64 16
   %36 = load i8, ptr %mValue.i33, align 1
   %37 = and i8 %36, 1
   %38 = load i8, ptr %mValue.i34, align 1
@@ -3279,19 +3268,19 @@ if.end22:                                         ; preds = %if.else, %if.then17
   br i1 %cmp.i35, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end22
-  %mpPrev.i36 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %34, i64 0, i32 1
+  %mpPrev.i36 = getelementptr inbounds i8, ptr %34, i64 8
   %40 = load ptr, ptr %mpPrev.i36, align 8
   %41 = load ptr, ptr %34, align 8
-  %mpPrev2.i37 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %41, i64 0, i32 1
+  %mpPrev2.i37 = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %40, ptr %mpPrev2.i37, align 8
   %42 = load ptr, ptr %34, align 8
   store ptr %42, ptr %40, align 8
   %43 = load ptr, ptr %end2, align 8
   %44 = load ptr, ptr %i1, align 8
   store ptr %44, ptr %43, align 8
-  %mpPrev.i38 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %44, i64 0, i32 1
+  %mpPrev.i38 = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load ptr, ptr %mpPrev.i38, align 8
-  %mpPrev2.i39 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %43, i64 0, i32 1
+  %mpPrev2.i39 = getelementptr inbounds i8, ptr %43, i64 8
   store ptr %45, ptr %mpPrev2.i39, align 8
   store ptr %43, ptr %45, align 8
   store ptr %43, ptr %mpPrev.i38, align 8
@@ -3323,9 +3312,9 @@ _ZN5eastl4nextINS_12ListIteratorIbPbRbEEEET_S5_NS_15iterator_traitsIS5_E15differ
   %sub = sub i64 %n, %div17
   call void @_ZN5eastl4listIbNS_9allocatorEE6DoSortINS_4lessIbEEEENS_12ListIteratorIbPbRbEES9_S9_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.0") align 8 %i2, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp34, ptr noundef nonnull %agg.tmp35, i64 noundef %sub, ptr noundef nonnull align 1 dereferenceable(1) %compare)
   %51 = load ptr, ptr %i2, align 8
-  %mValue.i40 = getelementptr inbounds %"struct.eastl::ListNode", ptr %51, i64 0, i32 1
+  %mValue.i40 = getelementptr inbounds i8, ptr %51, i64 16
   %52 = load ptr, ptr %i1, align 8
-  %mValue.i41 = getelementptr inbounds %"struct.eastl::ListNode", ptr %52, i64 0, i32 1
+  %mValue.i41 = getelementptr inbounds i8, ptr %52, i64 16
   %53 = load i8, ptr %mValue.i40, align 1
   %54 = and i8 %53, 1
   %55 = load i8, ptr %mValue.i41, align 1
@@ -3345,7 +3334,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %cmp.i43.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %mValue.i44 = getelementptr inbounds %"struct.eastl::ListNode", ptr %ix.sroa.0.0, i64 0, i32 1
+  %mValue.i44 = getelementptr inbounds i8, ptr %ix.sroa.0.0, i64 16
   %59 = load i8, ptr %mValue.i44, align 1
   %60 = and i8 %59, 1
   %cmp.i46 = icmp ult i8 %60, %56
@@ -3353,20 +3342,20 @@ land.rhs:                                         ; preds = %while.cond
 
 while.end:                                        ; preds = %while.cond, %land.rhs
   %ix.sroa.0.0.lcssa = phi ptr [ %58, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %ix.sroa.0.0.lcssa, i64 8
   %61 = load ptr, ptr %mpPrev, align 8
   store i64 %57, ptr %agg.result, align 8
   %.cast18 = ptrtoint ptr %ix.sroa.0.0.lcssa to i64
   store i64 %.cast18, ptr %i2, align 8
-  %mpPrev.i47 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %51, i64 0, i32 1
+  %mpPrev.i47 = getelementptr inbounds i8, ptr %51, i64 8
   %62 = load ptr, ptr %mpPrev.i47, align 8
   %63 = load ptr, ptr %61, align 8
-  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %63, i64 0, i32 1
+  %mpPrev1.i = getelementptr inbounds i8, ptr %63, i64 8
   store ptr %62, ptr %mpPrev1.i, align 8
   %64 = load ptr, ptr %61, align 8
   store ptr %64, ptr %62, align 8
   %65 = load ptr, ptr %i1, align 8
-  %mpPrev.i48 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %65, i64 0, i32 1
+  %mpPrev.i48 = getelementptr inbounds i8, ptr %65, i64 8
   %66 = load ptr, ptr %mpPrev.i48, align 8
   store ptr %51, ptr %66, align 8
   %67 = load ptr, ptr %mpPrev.i48, align 8
@@ -3398,8 +3387,8 @@ land.rhs53:                                       ; preds = %if.end49, %for.inc8
   br i1 %cmp.i50.not, label %return, label %for.body56
 
 for.body56:                                       ; preds = %land.rhs53
-  %mValue.i51 = getelementptr inbounds %"struct.eastl::ListNode", ptr %69, i64 0, i32 1
-  %mValue.i52 = getelementptr inbounds %"struct.eastl::ListNode", ptr %storemerge81, i64 0, i32 1
+  %mValue.i51 = getelementptr inbounds i8, ptr %69, i64 16
+  %mValue.i52 = getelementptr inbounds i8, ptr %storemerge81, i64 16
   %71 = load i8, ptr %mValue.i51, align 1
   %72 = and i8 %71, 1
   %73 = load i8, ptr %mValue.i52, align 1
@@ -3414,7 +3403,7 @@ while.cond62:                                     ; preds = %for.body56, %land.r
   br i1 %cmp.i54.not, label %while.end71, label %land.rhs64
 
 land.rhs64:                                       ; preds = %while.cond62
-  %mValue.i55 = getelementptr inbounds %"struct.eastl::ListNode", ptr %ix61.sroa.0.0, i64 0, i32 1
+  %mValue.i55 = getelementptr inbounds i8, ptr %ix61.sroa.0.0, i64 16
   %75 = load i8, ptr %mValue.i55, align 1
   %76 = and i8 %75, 1
   %cmp.i57 = icmp ult i8 %76, %74
@@ -3422,21 +3411,21 @@ land.rhs64:                                       ; preds = %while.cond62
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
   %ix61.sroa.0.0.lcssa = phi ptr [ %70, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
-  %mpPrev76 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix61.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev76 = getelementptr inbounds i8, ptr %ix61.sroa.0.0.lcssa, i64 8
   %77 = load ptr, ptr %mpPrev76, align 8
   %cmp.i58 = icmp eq ptr %end1.sroa.0.180, %69
   %spec.select = select i1 %cmp.i58, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.180
   %78 = ptrtoint ptr %ix61.sroa.0.0.lcssa to i64
   store i64 %78, ptr %i2, align 8
-  %mpPrev.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %69, i64 0, i32 1
+  %mpPrev.i59 = getelementptr inbounds i8, ptr %69, i64 8
   %79 = load ptr, ptr %mpPrev.i59, align 8
   %80 = load ptr, ptr %77, align 8
-  %mpPrev1.i60 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %80, i64 0, i32 1
+  %mpPrev1.i60 = getelementptr inbounds i8, ptr %80, i64 8
   store ptr %79, ptr %mpPrev1.i60, align 8
   %81 = load ptr, ptr %77, align 8
   store ptr %81, ptr %79, align 8
   %82 = load ptr, ptr %i1, align 8
-  %mpPrev.i61 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %82, i64 0, i32 1
+  %mpPrev.i61 = getelementptr inbounds i8, ptr %82, i64 8
   %83 = load ptr, ptr %mpPrev.i61, align 8
   store ptr %69, ptr %83, align 8
   %84 = load ptr, ptr %mpPrev.i61, align 8
@@ -3472,7 +3461,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   br i1 %cmp.i.not, label %for.end, label %for.cond, !llvm.loop !97
 
 for.end:                                          ; preds = %for.cond
-  %mSize = getelementptr inbounds %"class.eastl::ListBase", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mSize, align 8
   %cmp.not = icmp eq i64 %n.0, %0
   ret i1 %cmp.not
@@ -3509,7 +3498,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   ret void
 }
@@ -3520,7 +3509,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   ret void
 }
@@ -3531,7 +3520,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %cmp.not2.i = icmp eq i64 %n, 0
   br i1 %cmp.not2.i, label %invoke.cont, label %for.body.i
@@ -3542,11 +3531,11 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 16
   store i32 0, ptr %mValue.i.i.i, align 4
   store ptr %this, ptr %call.i.i.i.i.i.i1, align 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 8
   store ptr %1, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %1, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
@@ -3585,19 +3574,19 @@ entry:
   br i1 %cmp.not2, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %pNode, i64 0, i32 1
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %pNode, i64 8
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %n.addr.03 = phi i64 [ %n, %for.body.lr.ph ], [ %dec, %for.body ]
   %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   %0 = load i32, ptr %value, align 4
   store i32 %0, ptr %mValue.i.i, align 4
   store ptr %pNode, ptr %call.i.i.i.i.i, align 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i.i, align 8
   store ptr %call.i.i.i.i.i, ptr %1, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
@@ -3618,7 +3607,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %cmp.not2.i = icmp eq i64 %n, 0
   br i1 %cmp.not2.i, label %invoke.cont, label %for.body.i
@@ -3629,12 +3618,12 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 16
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %mValue.i.i.i, align 4
   store ptr %this, ptr %call.i.i.i.i.i.i1, align 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 8
   store ptr %2, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %2, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
@@ -3672,7 +3661,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %1 = load ptr, ptr %x, align 8
   %cmp.i.not3.i = icmp eq ptr %1, %x
@@ -3684,13 +3673,13 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first.sroa.0.04.i, i64 0, i32 1
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i3, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 16
   %2 = load i32, ptr %mValue.i.i, align 4
   store i32 %2, ptr %mValue.i.i.i, align 4
   store ptr %this, ptr %call.i.i.i.i.i.i3, align 8
   %3 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i3, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i3, ptr %3, align 8
   store ptr %call.i.i.i.i.i.i3, ptr %mpPrev.i.i, align 8
@@ -3728,7 +3717,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %1 = load ptr, ptr %x, align 8
   %cmp.i.not3.i = icmp eq ptr %1, %x
@@ -3740,13 +3729,13 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first.sroa.0.04.i, i64 0, i32 1
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i2, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 16
   %2 = load i32, ptr %mValue.i.i, align 4
   store i32 %2, ptr %mValue.i.i.i, align 4
   store ptr %this, ptr %call.i.i.i.i.i.i2, align 8
   %3 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i2, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i2, ptr %3, align 8
   store ptr %call.i.i.i.i.i.i2, ptr %mpPrev.i.i, align 8
@@ -3785,7 +3774,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
@@ -3803,7 +3792,7 @@ if.else.i.i.i:                                    ; preds = %entry
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -3811,7 +3800,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
-  %mpPrev9.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else11.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -3822,14 +3811,14 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   %5 = load ptr, ptr %mpPrev9.i.i.i, align 8
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
   %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
-  %mSize5.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %x, i64 0, i32 1
+  %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
   store i64 %8, ptr %0, align 8
@@ -3847,7 +3836,7 @@ if.then:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i, i64 16, i1 false)
   %0 = load ptr, ptr %this, align 8
   %cmp.i.i = icmp eq ptr %0, %x
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -3858,7 +3847,7 @@ if.else.i.i:                                      ; preds = %if.then
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev5.i.i = getelementptr inbounds i8, ptr %2, i64 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
@@ -3866,7 +3855,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   store ptr %this, ptr %mpPrev5.sink.i.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i.i = icmp eq ptr %3, %this
-  %mpPrev9.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else11.i.i
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
@@ -3877,15 +3866,15 @@ if.else11.i.i:                                    ; preds = %if.end.i.i
   %4 = load ptr, ptr %mpPrev9.i.i, align 8
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev15.i.i = getelementptr inbounds i8, ptr %5, i64 8
   br label %_ZN5eastl4listIiNS_9allocatorEE6DoSwapERS2_.exit
 
 _ZN5eastl4listIiNS_9allocatorEE6DoSwapERS2_.exit: ; preds = %if.then8.i.i, %if.else11.i.i
   %mpPrev15.sink.i.i = phi ptr [ %mpPrev15.i.i, %if.else11.i.i ], [ %x, %if.then8.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i)
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
-  %mSize5.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %x, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize5.i = getelementptr inbounds i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize.i, align 8
   %7 = load i64, ptr %mSize5.i, align 8
   store i64 %7, ptr %mSize.i, align 8
@@ -3900,7 +3889,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
@@ -3918,7 +3907,7 @@ if.else.i.i.i:                                    ; preds = %entry
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -3926,7 +3915,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
-  %mpPrev9.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else11.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -3937,14 +3926,14 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   %5 = load ptr, ptr %mpPrev9.i.i.i, align 8
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
   %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
-  %mSize5.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %x, i64 0, i32 1
+  %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
   store i64 %8, ptr %0, align 8
@@ -3958,7 +3947,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
@@ -3970,19 +3959,19 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 16
   %1 = load i32, ptr %first.addr.04.i, align 4
   store i32 %1, ptr %mValue.i.i.i, align 4
   store ptr %this, ptr %call.i.i.i.i.i.i1, align 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 8
   store ptr %2, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %2, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
   %3 = load i64, ptr %0, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %0, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !102
 
@@ -4026,9 +4015,9 @@ land.rhs.i:                                       ; preds = %if.end, %for.body.i
   br i1 %cmp.i.not.i, label %while.body.lr.ph.i.i, label %for.body.i
 
 for.body.i:                                       ; preds = %land.rhs.i
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first.sroa.0.016.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.016.i, i64 16
   %1 = load i32, ptr %mValue.i.i, align 4
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %pNode.017.i, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %pNode.017.i, i64 16
   store i32 %1, ptr %mValue.i, align 8
   %2 = load ptr, ptr %first.sroa.0.016.i, align 8
   %pNode.0.i = load ptr, ptr %pNode.017.i, align 8
@@ -4041,18 +4030,18 @@ for.end.i:                                        ; preds = %for.body.i, %if.end
   br i1 %cmp.i4.i, label %if.end9, label %for.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %land.rhs.i
-  %mSize.i.i.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.lr.ph.i.i
   %first.sroa.0.03.i.i = phi ptr [ %pNode.017.i, %while.body.lr.ph.i.i ], [ %3, %while.body.i.i ]
   %3 = load ptr, ptr %first.sroa.0.03.i.i, align 8, !noalias !104
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !104
-  %mpPrev.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i.i.i.i, align 8, !noalias !104
   %6 = load ptr, ptr %4, align 8, !noalias !104
-  %mpPrev2.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %mpPrev2.i.i.i.i.i, align 8, !noalias !104
   %7 = load ptr, ptr %4, align 8, !noalias !104
   store ptr %7, ptr %5, align 8, !noalias !104
@@ -4064,20 +4053,20 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   br i1 %cmp.i.not.i.i, label %if.end9, label %while.body.i.i, !llvm.loop !109
 
 for.body.lr.ph.i.i:                               ; preds = %for.end.i
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %first.sroa.0.04.i.i = phi ptr [ %first.sroa.0.0.lcssa.i, %for.body.lr.ph.i.i ], [ %12, %for.body.i.i ]
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first.sroa.0.04.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i.i, i64 16
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 16
   %9 = load i32, ptr %mValue.i.i.i, align 4
   store i32 %9, ptr %mValue.i.i.i.i, align 4
   store ptr %this, ptr %call.i.i.i.i.i.i.i, align 8
   %10 = load ptr, ptr %mpPrev.i.i.i.i, align 8
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 8
   store ptr %10, ptr %mpPrev2.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i.i, ptr %10, align 8
   store ptr %call.i.i.i.i.i.i.i, ptr %mpPrev.i.i.i.i, align 8
@@ -4108,9 +4097,9 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %entry, %_ZN5eastl9a
 
 _ZN5eastl8ListBaseIiNS_9allocatorEE7DoClearEv.exit: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i, %entry
   store ptr %this, ptr %this, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mSize, align 8
   ret void
 }
@@ -4149,9 +4138,9 @@ for.body:                                         ; preds = %entry, %for.body
   %pNode.015 = phi ptr [ %pNode.0, %for.body ], [ %pNode.011, %entry ]
   %first.addr.014 = phi ptr [ %incdec.ptr, %for.body ], [ %first, %entry ]
   %1 = load i32, ptr %first.addr.014, align 4
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %pNode.015, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.015, i64 16
   store i32 %1, ptr %mValue, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %first.addr.014, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.014, i64 4
   %pNode.0 = load ptr, ptr %pNode.015, align 8
   %cmp = icmp ne ptr %pNode.0, %this
   %cmp3 = icmp ne ptr %incdec.ptr, %last
@@ -4169,18 +4158,18 @@ if.then:                                          ; preds = %for.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %3, %while.body.i ]
   %3 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !111
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !111
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !111
   %6 = load ptr, ptr %4, align 8, !noalias !111
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %mpPrev2.i.i.i.i, align 8, !noalias !111
   %7 = load ptr, ptr %4, align 8, !noalias !111
   store ptr %7, ptr %5, align 8, !noalias !111
@@ -4192,26 +4181,26 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !109
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %first.addr.04.i = phi ptr [ %first.addr.0.lcssa, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %9 = load i32, ptr %first.addr.04.i, align 4
   store i32 %9, ptr %mValue.i.i.i, align 4
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8
   %10 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %10, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %10, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
   %11 = load i64, ptr %mSize.i.i, align 8
   %inc.i.i = add i64 %11, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %last
   br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !102
 
@@ -4240,9 +4229,9 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %if.then, %_ZN5eastl
 
 _ZN5eastl4listIiNS_9allocatorEE5clearEv.exit:     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %if.then
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mSize.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
@@ -4260,7 +4249,7 @@ if.else.i.i.i:                                    ; preds = %_ZN5eastl4listIiNS_
   %3 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %3, align 8
   %4 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -4268,7 +4257,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %5 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %5, %this
-  %mpPrev9.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else11.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -4279,14 +4268,14 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   %6 = load ptr, ptr %mpPrev9.i.i.i, align 8
   store ptr %x, ptr %6, align 8
   %7 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   br label %_ZN5eastl4listIiNS_9allocatorEE4swapERS2_.exit
 
 _ZN5eastl4listIiNS_9allocatorEE4swapERS2_.exit:   ; preds = %if.then8.i.i.i, %if.else11.i.i.i
   %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
-  %mSize5.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %x, i64 0, i32 1
+  %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize.i, align 8
   %9 = load i64, ptr %mSize5.i.i, align 8
   store i64 %9, ptr %mSize.i, align 8
@@ -4307,7 +4296,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i, i64 16, i1 false)
   %0 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %0, %x
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -4318,7 +4307,7 @@ if.else.i:                                        ; preds = %entry
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
-  %mpPrev5.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev5.i = getelementptr inbounds i8, ptr %2, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -4326,7 +4315,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   store ptr %this, ptr %mpPrev5.sink.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i = icmp eq ptr %3, %this
-  %mpPrev9.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i, label %if.then8.i, label %if.else11.i
 
 if.then8.i:                                       ; preds = %if.end.i
@@ -4337,15 +4326,15 @@ if.else11.i:                                      ; preds = %if.end.i
   %4 = load ptr, ptr %mpPrev9.i, align 8
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
-  %mpPrev15.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev15.i = getelementptr inbounds i8, ptr %5, i64 8
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 _ZN5eastl12ListNodeBase4swapERS0_S1_.exit:        ; preds = %if.then8.i, %if.else11.i
   %mpPrev15.sink.i = phi ptr [ %mpPrev15.i, %if.else11.i ], [ %x, %if.then8.i ]
   store ptr %x, ptr %mpPrev15.sink.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
-  %mSize5 = getelementptr inbounds %"class.eastl::ListBase.3", ptr %x, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize5 = getelementptr inbounds i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize, align 8
   %7 = load i64, ptr %mSize5, align 8
   store i64 %7, ptr %mSize, align 8
@@ -4376,7 +4365,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %pNode.013 = phi ptr [ %pNode.0, %for.body ], [ %pNode.09, %for.body.preheader ]
   %n.addr.012 = phi i64 [ %dec, %for.body ], [ %n, %for.body.preheader ]
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %pNode.013, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.013, i64 16
   store i32 %.pre, ptr %mValue, align 8
   %dec = add i64 %n.addr.012, -1
   %pNode.0 = load ptr, ptr %pNode.013, align 8
@@ -4392,19 +4381,19 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %tobool.not, label %if.else, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %n.addr.03.i = phi i64 [ %n.addr.0.lcssa, %for.body.lr.ph.i ], [ %dec.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %2 = load i32, ptr %value, align 4
   store i32 %2, ptr %mValue.i.i.i, align 4
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8
   %3 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %3, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -4420,18 +4409,18 @@ if.else:                                          ; preds = %for.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.else
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %5, %while.body.i ]
   %5 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !117
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !117
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !117
   %8 = load ptr, ptr %6, align 8, !noalias !117
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %8, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %7, ptr %mpPrev2.i.i.i.i, align 8, !noalias !117
   %9 = load ptr, ptr %6, align 8, !noalias !117
   store ptr %9, ptr %7, align 8, !noalias !117
@@ -4530,7 +4519,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl4listIiNS_9allocatorEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mSize, align 8
   %cmp = icmp eq i64 %0, 0
   ret i1 %cmp
@@ -4539,7 +4528,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i64 @_ZNK5eastl4listIiNS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mSize, align 8
   ret i64 %0
 }
@@ -4568,18 +4557,18 @@ if.then:                                          ; preds = %while.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %current.sroa.0.0, %while.body.lr.ph.i ], [ %1, %while.body.i ]
   %1 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !123
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !123
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !123
   %4 = load ptr, ptr %2, align 8, !noalias !123
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i.i, align 8, !noalias !123
   %5 = load ptr, ptr %2, align 8, !noalias !123
   store ptr %5, ptr %3, align 8, !noalias !123
@@ -4592,23 +4581,23 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 if.else:                                          ; preds = %while.end
   %sub = sub i64 %n, %i.0
-  %mpPrev.i.i6 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i6 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not2.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not2.i.i, label %if.end, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else
-  %mSize.i.i.i7 = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %n.addr.03.i.i = phi i64 [ %sub, %for.body.lr.ph.i.i ], [ %dec.i.i, %for.body.i.i ]
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !128
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 16
   %7 = load i32, ptr %value, align 4, !noalias !128
   store i32 %7, ptr %mValue.i.i.i.i, align 4, !noalias !128
   store ptr %this, ptr %call.i.i.i.i.i.i.i, align 8, !noalias !128
   %8 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !128
-  %mpPrev2.i.i.i.i8 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i8 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 8
   store ptr %8, ptr %mpPrev2.i.i.i.i8, align 8, !noalias !128
   store ptr %call.i.i.i.i.i.i.i, ptr %8, align 8, !noalias !128
   store ptr %call.i.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !128
@@ -4630,18 +4619,18 @@ entry:
   br i1 %cmp.i.not2, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %first.sroa.0.03 = phi ptr [ %first.coerce, %while.body.lr.ph ], [ %0, %while.body ]
   %0 = load ptr, ptr %first.sroa.0.03, align 8, !noalias !131
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8, !noalias !131
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !131
   %3 = load ptr, ptr %1, align 8, !noalias !131
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %2, ptr %mpPrev2.i.i.i, align 8, !noalias !131
   %4 = load ptr, ptr %1, align 8, !noalias !131
   store ptr %4, ptr %2, align 8, !noalias !131
@@ -4660,24 +4649,24 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE6insertENS_12ListIteratorIiPKiRS4_EEmS6_(ptr noalias sret(%"struct.eastl::ListIterator.6") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, i64 noundef %n, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   %cmp.not2.i = icmp eq i64 %n, 0
   br i1 %cmp.not2.i, label %_ZN5eastl4listIiNS_9allocatorEE14DoInsertValuesEPNS_12ListNodeBaseEmRKi.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %n.addr.03.i = phi i64 [ %n, %for.body.lr.ph.i ], [ %dec.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %mValue.i.i.i, align 4
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8
   %2 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %2, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %2, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i, align 8
@@ -4718,18 +4707,18 @@ if.then.i:                                        ; preds = %while.end.i
   br i1 %cmp.i.not2.i.i, label %_ZN5eastl4listIiNS_9allocatorEE6resizeEmRKi.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then.i
-  %mSize.i.i.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.lr.ph.i.i
   %first.sroa.0.03.i.i = phi ptr [ %current.sroa.0.0.i, %while.body.lr.ph.i.i ], [ %1, %while.body.i.i ]
   %1 = load ptr, ptr %first.sroa.0.03.i.i, align 8, !noalias !134
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !134
-  %mpPrev.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i.i.i, align 8, !noalias !134
   %4 = load ptr, ptr %2, align 8, !noalias !134
-  %mpPrev2.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i.i.i, align 8, !noalias !134
   %5 = load ptr, ptr %2, align 8, !noalias !134
   store ptr %5, ptr %3, align 8, !noalias !134
@@ -4742,22 +4731,22 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 if.else.i:                                        ; preds = %while.end.i
   %sub.i = sub i64 %n, %i.0.i
-  %mpPrev.i.i6.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i6.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not2.i.i.i = icmp eq i64 %sub.i, 0
   br i1 %cmp.not2.i.i.i, label %_ZN5eastl4listIiNS_9allocatorEE6resizeEmRKi.exit, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.else.i
-  %mSize.i.i.i7.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %n.addr.03.i.i.i = phi i64 [ %sub.i, %for.body.lr.ph.i.i.i ], [ %dec.i.i.i, %for.body.i.i.i ]
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !139
-  %mValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i, i64 16
   store i32 0, ptr %mValue.i.i.i.i.i, align 4, !noalias !139
   store ptr %this, ptr %call.i.i.i.i.i.i.i.i, align 8, !noalias !139
   %7 = load ptr, ptr %mpPrev.i.i6.i, align 8, !noalias !139
-  %mpPrev2.i.i.i.i8.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i8.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i, i64 8
   store ptr %7, ptr %mpPrev2.i.i.i.i8.i, align 8, !noalias !139
   store ptr %call.i.i.i.i.i.i.i.i, ptr %7, align 8, !noalias !139
   store ptr %call.i.i.i.i.i.i.i.i, ptr %mpPrev.i.i6.i, align 8, !noalias !139
@@ -4776,7 +4765,7 @@ _ZN5eastl4listIiNS_9allocatorEE6resizeEmRKi.exit: ; preds = %for.body.i.i.i, %wh
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl4listIiNS_9allocatorEE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %0, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %mValue
 }
 
@@ -4784,25 +4773,25 @@ entry:
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5eastl4listIiNS_9allocatorEE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %0, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %mValue
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5eastl4listIiNS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %0, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %mValue
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5eastl4listIiNS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %0, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %mValue
 }
 
@@ -4811,17 +4800,17 @@ define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE10push_frontERKi(
 entry:
   %0 = load ptr, ptr %this, align 8
   %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %mValue.i.i, align 4
   store ptr %0, ptr %call.i.i.i.i.i, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   store ptr %2, ptr %mpPrev2.i.i, align 8
   store ptr %call.i.i.i.i.i, ptr %2, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %mSize.i, align 8
   %inc.i = add i64 %3, 1
   store i64 %inc.i, ptr %mSize.i, align 8
@@ -4833,17 +4822,17 @@ define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE10push_frontEOi(p
 entry:
   %0 = load ptr, ptr %this, align 8, !noalias !142
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !145
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %1 = load i32, ptr %value, align 4, !noalias !145
   store i32 %1, ptr %mValue.i.i.i, align 4, !noalias !145
   store ptr %0, ptr %call.i.i.i.i.i.i, align 8, !noalias !145
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !145
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %2, ptr %mpPrev2.i.i.i, align 8, !noalias !145
   store ptr %call.i.i.i.i.i.i, ptr %2, align 8, !noalias !145
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !145
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %mSize.i.i, align 8, !noalias !145
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !145
@@ -4856,18 +4845,18 @@ entry:
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %call.i.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i.i, ptr %1, align 8
   store ptr %call.i.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mSize, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %mSize, align 8
   %3 = load ptr, ptr %this, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %3, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %3, i64 16
   ret ptr %mValue
 }
 
@@ -4884,17 +4873,17 @@ entry:
   %call.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %call.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i, ptr %1, align 8
   store ptr %call.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mSize, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %mSize, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   ret ptr %mValue
 }
 
@@ -4902,17 +4891,17 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE9push_backERKi(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   %0 = load i32, ptr %value, align 4
   store i32 %0, ptr %mValue.i.i, align 4
   store ptr %this, ptr %call.i.i.i.i.i, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i.i, align 8
   store ptr %call.i.i.i.i.i, ptr %1, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mSize.i, align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr %mSize.i, align 8
@@ -4923,17 +4912,17 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE9push_backEOi(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !148
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %0 = load i32, ptr %value, align 4, !noalias !148
   store i32 %0, ptr %mValue.i.i.i, align 4, !noalias !148
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8, !noalias !148
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !148
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i.i.i, align 8, !noalias !148
   store ptr %call.i.i.i.i.i.i, ptr %1, align 8, !noalias !148
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !148
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mSize.i.i, align 8, !noalias !148
   %inc.i.i = add i64 %2, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !148
@@ -4945,17 +4934,17 @@ define weak_odr dso_local noundef nonnull align 4 dereferenceable(4) ptr @_ZN5ea
 entry:
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %this, ptr %call.i.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i.i, ptr %0, align 8
   store ptr %call.i.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %mSize, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   ret ptr %mValue
 }
 
@@ -4964,17 +4953,17 @@ define weak_odr dso_local noundef ptr @_ZN5eastl4listIiNS_9allocatorEE23push_bac
 entry:
   %call.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %this, ptr %call.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i, ptr %0, align 8
   store ptr %call.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %mSize, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   ret ptr %mValue
 }
 
@@ -4982,15 +4971,15 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE9pop_frontEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   %2 = load ptr, ptr %0, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %mpPrev2.i.i, align 8
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %1, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %0) #10
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %mSize.i, align 8
   %dec.i = add i64 %4, -1
   store i64 %dec.i, ptr %mSize.i, align 8
@@ -5000,15 +4989,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pNode) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZN5eastl8ListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_8ListNodeIiEE.exit:
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %pNode, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %pNode, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   %1 = load ptr, ptr %pNode, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   %2 = load ptr, ptr %pNode, align 8
   store ptr %2, ptr %0, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %pNode) #10
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %mSize, align 8
   %dec = add i64 %3, -1
   store i64 %dec, ptr %mSize, align 8
@@ -5018,17 +5007,17 @@ _ZN5eastl8ListBaseIiNS_9allocatorEE10DoFreeNodeEPNS_8ListNodeIiEE.exit:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   %2 = load ptr, ptr %0, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %mpPrev2.i.i, align 8
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %1, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %0) #10
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %mSize.i, align 8
   %dec.i = add i64 %4, -1
   store i64 %dec.i, ptr %mSize.i, align 8
@@ -5039,16 +5028,16 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE6insertENS_12ListIteratorIiPKiRS4_EE(ptr noalias sret(%"struct.eastl::ListIterator.6") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store i32 0, ptr %mValue.i, align 4
   store ptr %position.coerce, ptr %call.i.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i.i, ptr %0, align 8
   store ptr %call.i.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %mSize, align 8
@@ -5060,17 +5049,17 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE6insertENS_12ListIteratorIiPKiRS4_EES6_(ptr noalias sret(%"struct.eastl::ListIterator.6") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   %0 = load i32, ptr %value, align 4
   store i32 %0, ptr %mValue.i, align 4
   store ptr %position.coerce, ptr %call.i.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i.i, ptr %1, align 8
   store ptr %call.i.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mSize, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %mSize, align 8
@@ -5083,17 +5072,17 @@ define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE6insertENS_12List
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !151)
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !151
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %0 = load i32, ptr %value, align 4, !noalias !151
   store i32 %0, ptr %mValue.i.i.i, align 4, !noalias !151
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8, !noalias !151
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %1 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !151
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i.i.i, align 8, !noalias !151
   store ptr %call.i.i.i.i.i.i, ptr %1, align 8, !noalias !151
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !151
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mSize.i.i, align 8, !noalias !151
   %inc.i.i = add i64 %2, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !151
@@ -5105,32 +5094,32 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE6insertENS_12ListIteratorIiPKiRS4_EESt16initializer_listIiE(ptr noalias sret(%"struct.eastl::ListIterator.6") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   %add.ptr.i = getelementptr inbounds i32, ptr %ilist.coerce0, i64 %ilist.coerce1
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl4listIiNS_9allocatorEE8DoInsertIPKiEEvPNS_12ListNodeBaseET_S8_NS_17integral_constantIbLb0EEE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %first.addr.04.i = phi ptr [ %ilist.coerce0, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %1 = load i32, ptr %first.addr.04.i, align 4
   store i32 %1, ptr %mValue.i.i.i, align 4
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8
   %2 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %2, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %2, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i, align 8
   %3 = load i64, ptr %mSize.i.i, align 8
   %inc.i.i = add i64 %3, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN5eastl4listIiNS_9allocatorEE8DoInsertIPKiEEvPNS_12ListNodeBaseET_S8_NS_17integral_constantIbLb0EEE.exit, label %for.body.i, !llvm.loop !102
 
@@ -5144,17 +5133,17 @@ _ZN5eastl4listIiNS_9allocatorEE8DoInsertIPKiEEvPNS_12ListNodeBaseET_S8_NS_17inte
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE5eraseENS_12ListIteratorIiPKiRS4_EE(ptr noalias sret(%"struct.eastl::ListIterator.6") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %position.coerce, align 8
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   %3 = load ptr, ptr %1, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %2, ptr %mpPrev2.i.i, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %2, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %1) #10
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i64, ptr %mSize.i, align 8
   %dec.i = add i64 %5, -1
   store i64 %dec.i, ptr %mSize.i, align 8
@@ -5166,21 +5155,21 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE5eraseENS_16reverse_iteratorINS_12ListIteratorIiPKiRS5_EEEE(ptr noalias sret(%"class.eastl::reverse_iterator.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %position) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %position, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %1, ptr %position, align 8
   %2 = load ptr, ptr %1, align 8, !noalias !154
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i, align 8, !noalias !154
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !154
   %5 = load ptr, ptr %3, align 8, !noalias !154
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %mpPrev2.i.i.i, align 8, !noalias !154
   %6 = load ptr, ptr %3, align 8, !noalias !154
   store ptr %6, ptr %4, align 8, !noalias !154
   tail call void @_ZdaPv(ptr noundef nonnull %3) #10, !noalias !154
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize.i.i, align 8, !noalias !154
   %dec.i.i = add i64 %7, -1
   store i64 %dec.i.i, ptr %mSize.i.i, align 8, !noalias !154
@@ -5192,29 +5181,29 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE5eraseENS_16reverse_iteratorINS_12ListIteratorIiPKiRS5_EEEES9_(ptr noalias sret(%"class.eastl::reverse_iterator.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %first, ptr noundef %last) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %last, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %1, ptr %last, align 8
   %2 = load ptr, ptr %first, align 8
-  %mpPrev.i.i1 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i1 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i1, align 8
   store ptr %3, ptr %first, align 8
   %cmp.i.not2.i = icmp eq ptr %1, %3
   br i1 %cmp.i.not2.i, label %_ZN5eastl4listIiNS_9allocatorEE5eraseENS_12ListIteratorIiPKiRS4_EES7_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %1, %while.body.lr.ph.i ], [ %4, %while.body.i ]
   %4 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !157
-  %mpPrev.i.i3 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i3 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i3, align 8, !noalias !157
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !157
   %7 = load ptr, ptr %5, align 8, !noalias !157
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %mpPrev2.i.i.i.i, align 8, !noalias !157
   %8 = load ptr, ptr %5, align 8, !noalias !157
   store ptr %8, ptr %6, align 8, !noalias !157
@@ -5234,9 +5223,9 @@ _ZN5eastl4listIiNS_9allocatorEE5eraseENS_12ListIteratorIiPKiRS4_EES7_.exit: ; pr
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %this, ptr %this, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mSize, align 8
   ret void
 }
@@ -5249,13 +5238,13 @@ entry:
   br i1 %cmp.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %numRemoved.08 = phi i64 [ 0, %while.body.lr.ph ], [ %numRemoved.1, %if.end ]
   %current.sroa.0.07 = phi ptr [ %0, %while.body.lr.ph ], [ %3, %if.end ]
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %current.sroa.0.07, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %current.sroa.0.07, i64 16
   %1 = load i32, ptr %mValue.i, align 4
   %2 = load i32, ptr %value, align 4
   %cmp4.not = icmp eq i32 %1, %2
@@ -5263,12 +5252,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp4.not, label %if.else, label %if.end
 
 if.else:                                          ; preds = %while.body
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i, align 8
   %6 = load ptr, ptr %4, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %mpPrev2.i.i, align 8
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %5, align 8
@@ -5297,7 +5286,7 @@ entry:
 do.body.i:                                        ; preds = %do.body.i, %entry
   %pNode.0.i = phi ptr [ %this, %entry ], [ %0, %do.body.i ]
   %0 = load ptr, ptr %pNode.0.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %pNode.0.i, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %pNode.0.i, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %1, ptr %pNode.0.i, align 8
   store ptr %0, ptr %mpPrev.i, align 8
@@ -5311,20 +5300,20 @@ _ZN5eastl12ListNodeBase7reverseEv.exit:           ; preds = %do.body.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE6spliceENS_12ListIteratorIiPKiRS4_EERS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.then:
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %x, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %x, i64 16
   %0 = load i64, ptr %mSize, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end13, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %1 = load ptr, ptr %x, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %2, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %x, ptr %3, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %4 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %mpPrev4.i, align 8
@@ -5334,7 +5323,7 @@ if.then4:                                         ; preds = %if.then
   store ptr %7, ptr %mpPrev.i, align 8
   store ptr %5, ptr %mpPrev2.i, align 8
   %8 = load i64, ptr %mSize, align 8
-  %mSize8 = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize8 = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %mSize8, align 8
   %add = add i64 %9, %8
   store i64 %add, ptr %mSize8, align 8
@@ -5355,13 +5344,13 @@ if.then:
   br i1 %or.cond, label %if.then8, label %if.end18
 
 if.then8:                                         ; preds = %if.then
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %i.coerce, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %i.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %0, ptr %2, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %i.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i, align 8
@@ -5370,11 +5359,11 @@ if.then8:                                         ; preds = %if.then
   %6 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %6, ptr %mpPrev.i, align 8
   store ptr %4, ptr %mpPrev2.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize, align 8
   %inc = add i64 %7, 1
   store i64 %inc, ptr %mSize, align 8
-  %mSize12 = getelementptr inbounds %"class.eastl::ListBase.3", ptr %x, i64 0, i32 1
+  %mSize12 = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize12, align 8
   %dec = add i64 %8, -1
   store i64 %dec, ptr %mSize12, align 8
@@ -5399,13 +5388,13 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
   br i1 %cmp.i.not.i.i, label %if.then10, label %while.body.i.i, !llvm.loop !163
 
 if.then10:                                        ; preds = %while.body.i.i
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %last.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %last.coerce, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.coerce, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %first.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %last.coerce, ptr %2, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %first.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i, align 8
@@ -5414,11 +5403,11 @@ if.then10:                                        ; preds = %while.body.i.i
   %6 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %6, ptr %mpPrev.i, align 8
   store ptr %4, ptr %mpPrev2.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize, align 8
   %add = add i64 %7, %inc.i.i
   store i64 %add, ptr %mSize, align 8
-  %mSize13 = getelementptr inbounds %"class.eastl::ListBase.3", ptr %x, i64 0, i32 1
+  %mSize13 = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize13, align 8
   %sub = sub i64 %8, %inc.i.i
   store i64 %sub, ptr %mSize13, align 8
@@ -5431,20 +5420,20 @@ if.end25:                                         ; preds = %if.then, %if.then10
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listIiNS_9allocatorEE6spliceENS_12ListIteratorIiPKiRS4_EEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %x, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %x, i64 16
   %0 = load i64, ptr %mSize.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %_ZN5eastl4listIiNS_9allocatorEE6spliceENS_12ListIteratorIiPKiRS4_EERS2_.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %entry
   %1 = load ptr, ptr %x, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %position.coerce, ptr %2, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %x, ptr %3, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %4 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -5454,7 +5443,7 @@ if.then4.i:                                       ; preds = %entry
   store ptr %7, ptr %mpPrev.i.i, align 8
   store ptr %5, ptr %mpPrev2.i.i, align 8
   %8 = load i64, ptr %mSize.i, align 8
-  %mSize8.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize8.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %mSize8.i, align 8
   %add.i = add i64 %9, %8
   store i64 %add.i, ptr %mSize8.i, align 8
@@ -5475,13 +5464,13 @@ entry:
   br i1 %or.cond.i, label %if.then8.i, label %_ZN5eastl4listIiNS_9allocatorEE6spliceENS_12ListIteratorIiPKiRS4_EERS2_S7_.exit
 
 if.then8.i:                                       ; preds = %entry
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %i.coerce, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %i.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %0, ptr %2, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %i.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -5490,11 +5479,11 @@ if.then8.i:                                       ; preds = %entry
   %6 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %6, ptr %mpPrev.i.i, align 8
   store ptr %4, ptr %mpPrev2.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize.i, align 8
   %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %mSize.i, align 8
-  %mSize12.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %x, i64 0, i32 1
+  %mSize12.i = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize12.i, align 8
   %dec.i = add i64 %8, -1
   store i64 %dec.i, ptr %mSize12.i, align 8
@@ -5519,13 +5508,13 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.not.i.i.i, label %if.then10.i, label %while.body.i.i.i, !llvm.loop !163
 
 if.then10.i:                                      ; preds = %while.body.i.i.i
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %last.coerce, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %last.coerce, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.coerce, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %first.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %last.coerce, ptr %2, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %first.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -5534,11 +5523,11 @@ if.then10.i:                                      ; preds = %while.body.i.i.i
   %6 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %6, ptr %mpPrev.i.i, align 8
   store ptr %4, ptr %mpPrev2.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize.i, align 8
   %add.i = add i64 %7, %inc.i.i.i
   store i64 %add.i, ptr %mSize.i, align 8
-  %mSize13.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %x, i64 0, i32 1
+  %mSize13.i = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize13.i, align 8
   %sub.i = sub i64 %8, %inc.i.i.i
   store i64 %sub.i, ptr %mSize13.i, align 8
@@ -5563,16 +5552,16 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond37, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
-  %mSize13.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %x, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize13.i = getelementptr inbounds i8, ptr %x, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %first.sroa.0.039 = phi ptr [ %0, %while.body.lr.ph ], [ %first.sroa.0.1, %if.end ]
   %firstX.sroa.0.038 = phi ptr [ %1, %while.body.lr.ph ], [ %firstX.sroa.0.1, %if.end ]
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %firstX.sroa.0.038, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %firstX.sroa.0.038, i64 16
   %2 = load i32, ptr %mValue.i, align 4
-  %mValue.i6 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first.sroa.0.039, i64 0, i32 1
+  %mValue.i6 = getelementptr inbounds i8, ptr %first.sroa.0.039, i64 16
   %3 = load i32, ptr %mValue.i6, align 4
   %cmp5 = icmp slt i32 %2, %3
   br i1 %cmp5, label %if.then6, label %if.else
@@ -5591,13 +5580,13 @@ while.body.i.i.i:                                 ; preds = %if.then6, %while.bo
   br i1 %cmp.i.not.i.i.i, label %if.then10.i, label %while.body.i.i.i, !llvm.loop !163
 
 if.then10.i:                                      ; preds = %while.body.i.i.i
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %first.sroa.0.039, ptr %6, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %firstX.sroa.0.038, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %firstX.sroa.0.038, i64 8
   %7 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %4, ptr %7, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.sroa.0.039, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %first.sroa.0.039, i64 8
   %8 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %firstX.sroa.0.038, ptr %8, align 8
   %9 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -5640,13 +5629,13 @@ while.body.i.i.i9:                                ; preds = %while.end, %while.b
   br i1 %cmp.i.not.i.i.i13, label %_ZN5eastl4listIiNS_9allocatorEE6spliceENS_12ListIteratorIiPKiRS4_EERS2_S7_S7_.exit22, label %while.body.i.i.i9, !llvm.loop !163
 
 _ZN5eastl4listIiNS_9allocatorEE6spliceENS_12ListIteratorIiPKiRS4_EERS2_S7_S7_.exit22: ; preds = %while.body.i.i.i9
-  %mpPrev.i.i15 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev.i.i15 = getelementptr inbounds i8, ptr %x, i64 8
   %16 = load ptr, ptr %mpPrev.i.i15, align 8
   store ptr %this, ptr %16, align 8
-  %mpPrev2.i.i16 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %firstX.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev2.i.i16 = getelementptr inbounds i8, ptr %firstX.sroa.0.0.lcssa, i64 8
   %17 = load ptr, ptr %mpPrev2.i.i16, align 8
   store ptr %x, ptr %17, align 8
-  %mpPrev4.i.i17 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev4.i.i17 = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load ptr, ptr %mpPrev4.i.i17, align 8
   store ptr %firstX.sroa.0.0.lcssa, ptr %18, align 8
   %19 = load ptr, ptr %mpPrev4.i.i17, align 8
@@ -5655,11 +5644,11 @@ _ZN5eastl4listIiNS_9allocatorEE6spliceENS_12ListIteratorIiPKiRS4_EERS2_S7_S7_.ex
   %21 = load ptr, ptr %mpPrev2.i.i16, align 8
   store ptr %21, ptr %mpPrev.i.i15, align 8
   store ptr %19, ptr %mpPrev2.i.i16, align 8
-  %mSize.i18 = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i18 = getelementptr inbounds i8, ptr %this, i64 16
   %22 = load i64, ptr %mSize.i18, align 8
   %add.i19 = add i64 %22, %inc.i.i.i12
   store i64 %add.i19, ptr %mSize.i18, align 8
-  %mSize13.i20 = getelementptr inbounds %"class.eastl::ListBase.3", ptr %x, i64 0, i32 1
+  %mSize13.i20 = getelementptr inbounds i8, ptr %x, i64 16
   %23 = load i64, ptr %mSize13.i20, align 8
   %sub.i21 = sub i64 %23, %inc.i.i.i12
   store i64 %sub.i21, ptr %mSize13.i20, align 8
@@ -5689,24 +5678,24 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp.i1.not9, label %if.end7, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %2 = phi ptr [ %1, %while.body.lr.ph ], [ %9, %if.end ]
   %first.sroa.0.010 = phi ptr [ %0, %while.body.lr.ph ], [ %first.sroa.0.1, %if.end ]
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first.sroa.0.010, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %first.sroa.0.010, i64 16
   %3 = load i32, ptr %mValue.i, align 4
-  %mValue.i2 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %2, i64 0, i32 1
+  %mValue.i2 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i32, ptr %mValue.i2, align 4
   %cmp = icmp eq i32 %3, %4
   br i1 %cmp, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %while.body
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %mpPrev.i.i, align 8
   %6 = load ptr, ptr %2, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %mpPrev2.i.i, align 8
   %7 = load ptr, ptr %2, align 8
   store ptr %7, ptr %5, align 8
@@ -5737,7 +5726,7 @@ entry:
   %0 = load ptr, ptr %this, align 8, !noalias !175
   store ptr %0, ptr %agg.tmp, align 8, !alias.scope !175
   store ptr %this, ptr %agg.tmp2, align 8, !alias.scope !178
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize.i, align 8
   call void @_ZN5eastl4listIiNS_9allocatorEE6DoSortINS_4lessIiEEEENS_12ListIteratorIiPiRiEES9_S9_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.6") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %compare)
   ret void
@@ -5766,31 +5755,31 @@ sw.bb:                                            ; preds = %entry, %entry
 
 sw.bb2:                                           ; preds = %entry
   %1 = load ptr, ptr %end2, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i, align 8
   store ptr %2, ptr %end2, align 8
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %2, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %i1, align 8
-  %mValue.i19 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %3, i64 0, i32 1
+  %mValue.i19 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %mValue.i, align 4
   %5 = load i32, ptr %mValue.i19, align 4
   %cmp.i = icmp slt i32 %4, %5
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb2
-  %mpPrev.i20 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i20 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %mpPrev.i20, align 8
   %7 = load ptr, ptr %2, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %mpPrev2.i, align 8
   %8 = load ptr, ptr %2, align 8
   store ptr %8, ptr %6, align 8
   %9 = load ptr, ptr %end2, align 8
   %10 = load ptr, ptr %i1, align 8
   store ptr %10, ptr %9, align 8
-  %mpPrev.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %10, i64 0, i32 1
+  %mpPrev.i21 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %mpPrev.i21, align 8
-  %mpPrev2.i22 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
+  %mpPrev2.i22 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %11, ptr %mpPrev2.i22, align 8
   store ptr %9, ptr %11, align 8
   store ptr %9, ptr %mpPrev.i21, align 8
@@ -5814,8 +5803,8 @@ for.body:                                         ; preds = %sw.bb8, %for.inc
   %16 = phi ptr [ %21, %for.inc ], [ %13, %sw.bb8 ]
   %17 = phi ptr [ %22, %for.inc ], [ %13, %sw.bb8 ]
   %current.sroa.0.076 = phi ptr [ %23, %for.inc ], [ %14, %sw.bb8 ]
-  %mValue.i24 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %current.sroa.0.076, i64 0, i32 1
-  %mValue.i25 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %17, i64 0, i32 1
+  %mValue.i24 = getelementptr inbounds i8, ptr %current.sroa.0.076, i64 16
+  %mValue.i25 = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load i32, ptr %mValue.i24, align 4
   %19 = load i32, ptr %mValue.i25, align 4
   %cmp.i26 = icmp slt i32 %18, %19
@@ -5842,16 +5831,16 @@ if.then17:                                        ; preds = %sw.bb8, %for.end
   br label %if.end22
 
 if.else:                                          ; preds = %for.end
-  %mpPrev.i28 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %21, i64 0, i32 1
+  %mpPrev.i28 = getelementptr inbounds i8, ptr %21, i64 8
   %24 = load ptr, ptr %mpPrev.i28, align 8
   %25 = load ptr, ptr %21, align 8
-  %mpPrev2.i29 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %25, i64 0, i32 1
+  %mpPrev2.i29 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %24, ptr %mpPrev2.i29, align 8
   %26 = load ptr, ptr %21, align 8
   store ptr %26, ptr %24, align 8
   %27 = load ptr, ptr %i1, align 8
   store ptr %27, ptr %21, align 8
-  %mpPrev.i30 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %27, i64 0, i32 1
+  %mpPrev.i30 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %mpPrev.i30, align 8
   store ptr %28, ptr %mpPrev.i28, align 8
   store ptr %21, ptr %28, align 8
@@ -5860,31 +5849,31 @@ if.else:                                          ; preds = %for.end
 
 if.end22:                                         ; preds = %if.else, %if.then17
   %29 = load ptr, ptr %end2, align 8
-  %mpPrev.i32 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %29, i64 0, i32 1
+  %mpPrev.i32 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load ptr, ptr %mpPrev.i32, align 8
   store ptr %30, ptr %end2, align 8
-  %mValue.i33 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %30, i64 0, i32 1
+  %mValue.i33 = getelementptr inbounds i8, ptr %30, i64 16
   %31 = load ptr, ptr %i1, align 8
-  %mValue.i34 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %31, i64 0, i32 1
+  %mValue.i34 = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load i32, ptr %mValue.i33, align 4
   %33 = load i32, ptr %mValue.i34, align 4
   %cmp.i35 = icmp slt i32 %32, %33
   br i1 %cmp.i35, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end22
-  %mpPrev.i36 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %30, i64 0, i32 1
+  %mpPrev.i36 = getelementptr inbounds i8, ptr %30, i64 8
   %34 = load ptr, ptr %mpPrev.i36, align 8
   %35 = load ptr, ptr %30, align 8
-  %mpPrev2.i37 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %35, i64 0, i32 1
+  %mpPrev2.i37 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %34, ptr %mpPrev2.i37, align 8
   %36 = load ptr, ptr %30, align 8
   store ptr %36, ptr %34, align 8
   %37 = load ptr, ptr %end2, align 8
   %38 = load ptr, ptr %i1, align 8
   store ptr %38, ptr %37, align 8
-  %mpPrev.i38 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %38, i64 0, i32 1
+  %mpPrev.i38 = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load ptr, ptr %mpPrev.i38, align 8
-  %mpPrev2.i39 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %37, i64 0, i32 1
+  %mpPrev2.i39 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %39, ptr %mpPrev2.i39, align 8
   store ptr %37, ptr %39, align 8
   store ptr %37, ptr %mpPrev.i38, align 8
@@ -5916,9 +5905,9 @@ _ZN5eastl4nextINS_12ListIteratorIiPiRiEEEET_S5_NS_15iterator_traitsIS5_E15differ
   %sub = sub i64 %n, %div17
   call void @_ZN5eastl4listIiNS_9allocatorEE6DoSortINS_4lessIiEEEENS_12ListIteratorIiPiRiEES9_S9_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.6") align 8 %i2, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp34, ptr noundef nonnull %agg.tmp35, i64 noundef %sub, ptr noundef nonnull align 1 dereferenceable(1) %compare)
   %45 = load ptr, ptr %i2, align 8
-  %mValue.i40 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %45, i64 0, i32 1
+  %mValue.i40 = getelementptr inbounds i8, ptr %45, i64 16
   %46 = load ptr, ptr %i1, align 8
-  %mValue.i41 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %46, i64 0, i32 1
+  %mValue.i41 = getelementptr inbounds i8, ptr %46, i64 16
   %47 = load i32, ptr %mValue.i40, align 4
   %48 = load i32, ptr %mValue.i41, align 4
   %cmp.i42 = icmp slt i32 %47, %48
@@ -5936,27 +5925,27 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %cmp.i43.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %mValue.i44 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ix.sroa.0.0, i64 0, i32 1
+  %mValue.i44 = getelementptr inbounds i8, ptr %ix.sroa.0.0, i64 16
   %51 = load i32, ptr %mValue.i44, align 4
   %cmp.i46 = icmp slt i32 %51, %48
   br i1 %cmp.i46, label %while.cond, label %while.end, !llvm.loop !186
 
 while.end:                                        ; preds = %while.cond, %land.rhs
   %ix.sroa.0.0.lcssa = phi ptr [ %50, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %ix.sroa.0.0.lcssa, i64 8
   %52 = load ptr, ptr %mpPrev, align 8
   store i64 %49, ptr %agg.result, align 8
   %.cast18 = ptrtoint ptr %ix.sroa.0.0.lcssa to i64
   store i64 %.cast18, ptr %i2, align 8
-  %mpPrev.i47 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %45, i64 0, i32 1
+  %mpPrev.i47 = getelementptr inbounds i8, ptr %45, i64 8
   %53 = load ptr, ptr %mpPrev.i47, align 8
   %54 = load ptr, ptr %52, align 8
-  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %54, i64 0, i32 1
+  %mpPrev1.i = getelementptr inbounds i8, ptr %54, i64 8
   store ptr %53, ptr %mpPrev1.i, align 8
   %55 = load ptr, ptr %52, align 8
   store ptr %55, ptr %53, align 8
   %56 = load ptr, ptr %i1, align 8
-  %mpPrev.i48 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %56, i64 0, i32 1
+  %mpPrev.i48 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load ptr, ptr %mpPrev.i48, align 8
   store ptr %45, ptr %57, align 8
   %58 = load ptr, ptr %mpPrev.i48, align 8
@@ -5988,8 +5977,8 @@ land.rhs53:                                       ; preds = %if.end49, %for.inc8
   br i1 %cmp.i50.not, label %return, label %for.body56
 
 for.body56:                                       ; preds = %land.rhs53
-  %mValue.i51 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %60, i64 0, i32 1
-  %mValue.i52 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %storemerge81, i64 0, i32 1
+  %mValue.i51 = getelementptr inbounds i8, ptr %60, i64 16
+  %mValue.i52 = getelementptr inbounds i8, ptr %storemerge81, i64 16
   %62 = load i32, ptr %mValue.i51, align 4
   %63 = load i32, ptr %mValue.i52, align 4
   %cmp.i53 = icmp slt i32 %62, %63
@@ -6002,28 +5991,28 @@ while.cond62:                                     ; preds = %for.body56, %land.r
   br i1 %cmp.i54.not, label %while.end71, label %land.rhs64
 
 land.rhs64:                                       ; preds = %while.cond62
-  %mValue.i55 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ix61.sroa.0.0, i64 0, i32 1
+  %mValue.i55 = getelementptr inbounds i8, ptr %ix61.sroa.0.0, i64 16
   %64 = load i32, ptr %mValue.i55, align 4
   %cmp.i57 = icmp slt i32 %64, %63
   br i1 %cmp.i57, label %while.cond62, label %while.end71, !llvm.loop !187
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
   %ix61.sroa.0.0.lcssa = phi ptr [ %61, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
-  %mpPrev76 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix61.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev76 = getelementptr inbounds i8, ptr %ix61.sroa.0.0.lcssa, i64 8
   %65 = load ptr, ptr %mpPrev76, align 8
   %cmp.i58 = icmp eq ptr %end1.sroa.0.180, %60
   %spec.select = select i1 %cmp.i58, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.180
   %66 = ptrtoint ptr %ix61.sroa.0.0.lcssa to i64
   store i64 %66, ptr %i2, align 8
-  %mpPrev.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %60, i64 0, i32 1
+  %mpPrev.i59 = getelementptr inbounds i8, ptr %60, i64 8
   %67 = load ptr, ptr %mpPrev.i59, align 8
   %68 = load ptr, ptr %65, align 8
-  %mpPrev1.i60 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %68, i64 0, i32 1
+  %mpPrev1.i60 = getelementptr inbounds i8, ptr %68, i64 8
   store ptr %67, ptr %mpPrev1.i60, align 8
   %69 = load ptr, ptr %65, align 8
   store ptr %69, ptr %67, align 8
   %70 = load ptr, ptr %i1, align 8
-  %mpPrev.i61 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %70, i64 0, i32 1
+  %mpPrev.i61 = getelementptr inbounds i8, ptr %70, i64 8
   %71 = load ptr, ptr %mpPrev.i61, align 8
   store ptr %60, ptr %71, align 8
   %72 = load ptr, ptr %mpPrev.i61, align 8
@@ -6059,7 +6048,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   br i1 %cmp.i.not, label %for.end, label %for.cond, !llvm.loop !189
 
 for.end:                                          ; preds = %for.cond
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.3", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mSize, align 8
   %cmp.not = icmp eq i64 %n.0, %0
   ret i1 %cmp.not
@@ -6096,7 +6085,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   ret void
 }
@@ -6107,7 +6096,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   ret void
 }
@@ -6118,7 +6107,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %cmp.not2.i = icmp eq i64 %n, 0
   br i1 %cmp.not2.i, label %invoke.cont2, label %for.body.i
@@ -6129,11 +6118,11 @@ for.body.i:                                       ; preds = %entry, %call.i6.i.i
           to label %call.i6.i.i.i.i.i.noexc unwind label %lpad
 
 call.i6.i.i.i.i.i.noexc:                          ; preds = %for.body.i
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i1, i64 0, i32 2
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i1, i64 64
   store i32 0, ptr %mValue.i.i.i, align 64
   store ptr %this, ptr %call.i6.i.i.i.i.i1, align 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i1, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i1, i64 8
   store ptr %1, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i6.i.i.i.i.i1, ptr %1, align 8
   store ptr %call.i6.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
@@ -6172,18 +6161,18 @@ entry:
   br i1 %cmp.not2, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %pNode, i64 0, i32 1
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %pNode, i64 8
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %n.addr.03 = phi i64 [ %n, %for.body.lr.ph ], [ %dec, %for.body ]
   %call.i6.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i, i64 0, i32 2
+  %mValue.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i, ptr noundef nonnull align 64 dereferenceable(64) %value, i64 64, i1 false)
   store ptr %pNode, ptr %call.i6.i.i.i.i, align 8
   %0 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i.i, align 8
   store ptr %call.i6.i.i.i.i, ptr %0, align 8
   store ptr %call.i6.i.i.i.i, ptr %mpPrev.i.i, align 8
@@ -6204,7 +6193,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %cmp.not2.i = icmp eq i64 %n, 0
   br i1 %cmp.not2.i, label %invoke.cont, label %for.body.i
@@ -6215,11 +6204,11 @@ for.body.i:                                       ; preds = %entry, %call.i6.i.i
           to label %call.i6.i.i.i.i.i.noexc unwind label %lpad
 
 call.i6.i.i.i.i.i.noexc:                          ; preds = %for.body.i
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i1, i64 0, i32 2
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i1, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %value, i64 64, i1 false)
   store ptr %this, ptr %call.i6.i.i.i.i.i1, align 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i1, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i1, i64 8
   store ptr %1, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i6.i.i.i.i.i1, ptr %1, align 8
   store ptr %call.i6.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
@@ -6257,7 +6246,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %1 = load ptr, ptr %x, align 8
   %cmp.i.not3.i = icmp eq ptr %1, %x
@@ -6269,12 +6258,12 @@ for.body.i:                                       ; preds = %entry, %call.i6.i.i
           to label %call.i6.i.i.i.i.i.noexc unwind label %lpad
 
 call.i6.i.i.i.i.i.noexc:                          ; preds = %for.body.i
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %first.sroa.0.04.i, i64 0, i32 2
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i3, i64 0, i32 2
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 64
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i3, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i, i64 64, i1 false)
   store ptr %this, ptr %call.i6.i.i.i.i.i3, align 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i3, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i3, i64 8
   store ptr %2, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i6.i.i.i.i.i3, ptr %2, align 8
   store ptr %call.i6.i.i.i.i.i3, ptr %mpPrev.i.i, align 8
@@ -6312,7 +6301,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %1 = load ptr, ptr %x, align 8
   %cmp.i.not3.i = icmp eq ptr %1, %x
@@ -6324,12 +6313,12 @@ for.body.i:                                       ; preds = %entry, %call.i6.i.i
           to label %call.i6.i.i.i.i.i.noexc unwind label %lpad
 
 call.i6.i.i.i.i.i.noexc:                          ; preds = %for.body.i
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %first.sroa.0.04.i, i64 0, i32 2
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i2, i64 0, i32 2
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 64
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i2, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i, i64 64, i1 false)
   store ptr %this, ptr %call.i6.i.i.i.i.i2, align 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i2, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i2, i64 8
   store ptr %2, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i6.i.i.i.i.i2, ptr %2, align 8
   store ptr %call.i6.i.i.i.i.i2, ptr %mpPrev.i.i, align 8
@@ -6368,7 +6357,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
@@ -6386,7 +6375,7 @@ if.else.i.i.i:                                    ; preds = %entry
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -6394,7 +6383,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
-  %mpPrev9.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else11.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -6405,14 +6394,14 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   %5 = load ptr, ptr %mpPrev9.i.i.i, align 8
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
   %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
-  %mSize5.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %x, i64 0, i32 1
+  %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
   store i64 %8, ptr %0, align 8
@@ -6430,7 +6419,7 @@ if.then:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i, i64 16, i1 false)
   %0 = load ptr, ptr %this, align 8
   %cmp.i.i = icmp eq ptr %0, %x
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -6441,7 +6430,7 @@ if.else.i.i:                                      ; preds = %if.then
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev5.i.i = getelementptr inbounds i8, ptr %2, i64 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
@@ -6449,7 +6438,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   store ptr %this, ptr %mpPrev5.sink.i.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i.i = icmp eq ptr %3, %this
-  %mpPrev9.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else11.i.i
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
@@ -6460,15 +6449,15 @@ if.else11.i.i:                                    ; preds = %if.end.i.i
   %4 = load ptr, ptr %mpPrev9.i.i, align 8
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev15.i.i = getelementptr inbounds i8, ptr %5, i64 8
   br label %_ZN5eastl4listI7Align64NS_9allocatorEE6DoSwapERS3_.exit
 
 _ZN5eastl4listI7Align64NS_9allocatorEE6DoSwapERS3_.exit: ; preds = %if.then8.i.i, %if.else11.i.i
   %mpPrev15.sink.i.i = phi ptr [ %mpPrev15.i.i, %if.else11.i.i ], [ %x, %if.then8.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i)
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
-  %mSize5.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %x, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize5.i = getelementptr inbounds i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize.i, align 8
   %7 = load i64, ptr %mSize5.i, align 8
   store i64 %7, ptr %mSize.i, align 8
@@ -6483,7 +6472,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
@@ -6501,7 +6490,7 @@ if.else.i.i.i:                                    ; preds = %entry
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -6509,7 +6498,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
-  %mpPrev9.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else11.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -6520,14 +6509,14 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   %5 = load ptr, ptr %mpPrev9.i.i.i, align 8
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
   %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
-  %mSize5.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %x, i64 0, i32 1
+  %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
   store i64 %8, ptr %0, align 8
@@ -6541,7 +6530,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
@@ -6553,18 +6542,18 @@ for.body.i:                                       ; preds = %entry, %call.i6.i.i
           to label %call.i6.i.i.i.i.i.noexc unwind label %lpad
 
 call.i6.i.i.i.i.i.noexc:                          ; preds = %for.body.i
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i1, i64 0, i32 2
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i1, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %first.addr.04.i, i64 64, i1 false)
   store ptr %this, ptr %call.i6.i.i.i.i.i1, align 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i1, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i1, i64 8
   store ptr %1, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i6.i.i.i.i.i1, ptr %1, align 8
   store ptr %call.i6.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
   %2 = load i64, ptr %0, align 8
   %inc.i.i = add i64 %2, 1
   store i64 %inc.i.i, ptr %0, align 8
-  %incdec.ptr.i = getelementptr inbounds %struct.Align64, ptr %first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 64
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !194
 
@@ -6608,8 +6597,8 @@ land.rhs.i:                                       ; preds = %if.end, %for.body.i
   br i1 %cmp.i.not.i, label %while.body.lr.ph.i.i, label %for.body.i
 
 for.body.i:                                       ; preds = %land.rhs.i
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %first.sroa.0.016.i, i64 0, i32 2
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %pNode.017.i, i64 0, i32 2
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.016.i, i64 64
+  %mValue.i = getelementptr inbounds i8, ptr %pNode.017.i, i64 64
   %1 = load i32, ptr %mValue.i.i, align 64
   store i32 %1, ptr %mValue.i, align 64
   %2 = load ptr, ptr %first.sroa.0.016.i, align 8
@@ -6623,18 +6612,18 @@ for.end.i:                                        ; preds = %for.body.i, %if.end
   br i1 %cmp.i4.i, label %if.end9, label %for.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %land.rhs.i
-  %mSize.i.i.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.lr.ph.i.i
   %first.sroa.0.03.i.i = phi ptr [ %pNode.017.i, %while.body.lr.ph.i.i ], [ %3, %while.body.i.i ]
   %3 = load ptr, ptr %first.sroa.0.03.i.i, align 8, !noalias !196
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !196
-  %mpPrev.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i.i.i.i, align 8, !noalias !196
   %6 = load ptr, ptr %4, align 8, !noalias !196
-  %mpPrev2.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %mpPrev2.i.i.i.i.i, align 8, !noalias !196
   %7 = load ptr, ptr %4, align 8, !noalias !196
   store ptr %7, ptr %5, align 8, !noalias !196
@@ -6646,19 +6635,19 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   br i1 %cmp.i.not.i.i, label %if.end9, label %while.body.i.i, !llvm.loop !201
 
 for.body.lr.ph.i.i:                               ; preds = %for.end.i
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %first.sroa.0.04.i.i = phi ptr [ %first.sroa.0.0.lcssa.i, %for.body.lr.ph.i.i ], [ %11, %for.body.i.i ]
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %first.sroa.0.04.i.i, i64 0, i32 2
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i.i, i64 64
   %call.i6.i.i.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i.i, i64 0, i32 2
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i, i64 64, i1 false)
   store ptr %this, ptr %call.i6.i.i.i.i.i.i, align 8
   %9 = load ptr, ptr %mpPrev.i.i.i.i, align 8
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i.i, i64 8
   store ptr %9, ptr %mpPrev2.i.i.i.i, align 8
   store ptr %call.i6.i.i.i.i.i.i, ptr %9, align 8
   store ptr %call.i6.i.i.i.i.i.i, ptr %mpPrev.i.i.i.i, align 8
@@ -6689,9 +6678,9 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %entry, %_ZN5eastl9a
 
 _ZN5eastl8ListBaseI7Align64NS_9allocatorEE7DoClearEv.exit: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i, %entry
   store ptr %this, ptr %this, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mSize, align 8
   ret void
 }
@@ -6729,10 +6718,10 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %pNode.015 = phi ptr [ %pNode.0, %for.body ], [ %pNode.011, %entry ]
   %first.addr.014 = phi ptr [ %incdec.ptr, %for.body ], [ %first, %entry ]
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %pNode.015, i64 0, i32 2
+  %mValue = getelementptr inbounds i8, ptr %pNode.015, i64 64
   %1 = load i32, ptr %first.addr.014, align 64
   store i32 %1, ptr %mValue, align 64
-  %incdec.ptr = getelementptr inbounds %struct.Align64, ptr %first.addr.014, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.014, i64 64
   %pNode.0 = load ptr, ptr %pNode.015, align 8
   %cmp = icmp ne ptr %pNode.0, %this
   %cmp3 = icmp ne ptr %incdec.ptr, %last
@@ -6750,18 +6739,18 @@ if.then:                                          ; preds = %for.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %3, %while.body.i ]
   %3 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !203
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !203
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !203
   %6 = load ptr, ptr %4, align 8, !noalias !203
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %mpPrev2.i.i.i.i, align 8, !noalias !203
   %7 = load ptr, ptr %4, align 8, !noalias !203
   store ptr %7, ptr %5, align 8, !noalias !203
@@ -6773,25 +6762,25 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !201
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %first.addr.04.i = phi ptr [ %first.addr.0.lcssa, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.body.i ]
   %call.i6.i.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i, i64 0, i32 2
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %first.addr.04.i, i64 64, i1 false)
   store ptr %this, ptr %call.i6.i.i.i.i.i, align 8
   %9 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 8
   store ptr %9, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i6.i.i.i.i.i, ptr %9, align 8
   store ptr %call.i6.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
   %10 = load i64, ptr %mSize.i.i, align 8
   %inc.i.i = add i64 %10, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %struct.Align64, ptr %first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 64
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %last
   br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !194
 
@@ -6820,9 +6809,9 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %if.then, %_ZN5eastl
 
 _ZN5eastl4listI7Align64NS_9allocatorEE5clearEv.exit: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %if.then
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mSize.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
@@ -6840,7 +6829,7 @@ if.else.i.i.i:                                    ; preds = %_ZN5eastl4listI7Ali
   %3 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %3, align 8
   %4 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -6848,7 +6837,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %5 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %5, %this
-  %mpPrev9.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else11.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -6859,14 +6848,14 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   %6 = load ptr, ptr %mpPrev9.i.i.i, align 8
   store ptr %x, ptr %6, align 8
   %7 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   br label %_ZN5eastl4listI7Align64NS_9allocatorEE4swapERS3_.exit
 
 _ZN5eastl4listI7Align64NS_9allocatorEE4swapERS3_.exit: ; preds = %if.then8.i.i.i, %if.else11.i.i.i
   %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
-  %mSize5.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %x, i64 0, i32 1
+  %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize.i, align 8
   %9 = load i64, ptr %mSize5.i.i, align 8
   store i64 %9, ptr %mSize.i, align 8
@@ -6887,7 +6876,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i, i64 16, i1 false)
   %0 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %0, %x
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -6898,7 +6887,7 @@ if.else.i:                                        ; preds = %entry
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
-  %mpPrev5.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev5.i = getelementptr inbounds i8, ptr %2, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -6906,7 +6895,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   store ptr %this, ptr %mpPrev5.sink.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i = icmp eq ptr %3, %this
-  %mpPrev9.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i, label %if.then8.i, label %if.else11.i
 
 if.then8.i:                                       ; preds = %if.end.i
@@ -6917,15 +6906,15 @@ if.else11.i:                                      ; preds = %if.end.i
   %4 = load ptr, ptr %mpPrev9.i, align 8
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
-  %mpPrev15.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev15.i = getelementptr inbounds i8, ptr %5, i64 8
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 _ZN5eastl12ListNodeBase4swapERS0_S1_.exit:        ; preds = %if.then8.i, %if.else11.i
   %mpPrev15.sink.i = phi ptr [ %mpPrev15.i, %if.else11.i ], [ %x, %if.then8.i ]
   store ptr %x, ptr %mpPrev15.sink.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
-  %mSize5 = getelementptr inbounds %"class.eastl::ListBase.13", ptr %x, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize5 = getelementptr inbounds i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize, align 8
   %7 = load i64, ptr %mSize5, align 8
   store i64 %7, ptr %mSize, align 8
@@ -6956,7 +6945,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %pNode.013 = phi ptr [ %pNode.0, %for.body ], [ %pNode.09, %for.body.preheader ]
   %n.addr.012 = phi i64 [ %dec, %for.body ], [ %n, %for.body.preheader ]
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %pNode.013, i64 0, i32 2
+  %mValue = getelementptr inbounds i8, ptr %pNode.013, i64 64
   store i32 %.pre, ptr %mValue, align 64
   %dec = add i64 %n.addr.012, -1
   %pNode.0 = load ptr, ptr %pNode.013, align 8
@@ -6972,18 +6961,18 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %tobool.not, label %if.else, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %n.addr.03.i = phi i64 [ %n.addr.0.lcssa, %for.body.lr.ph.i ], [ %dec.i, %for.body.i ]
   %call.i6.i.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i, i64 0, i32 2
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %value, i64 64, i1 false)
   store ptr %this, ptr %call.i6.i.i.i.i.i, align 8
   %2 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 8
   store ptr %2, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i6.i.i.i.i.i, ptr %2, align 8
   store ptr %call.i6.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -6999,18 +6988,18 @@ if.else:                                          ; preds = %for.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.else
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %4, %while.body.i ]
   %4 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !209
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !209
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !209
   %7 = load ptr, ptr %5, align 8, !noalias !209
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %mpPrev2.i.i.i.i, align 8, !noalias !209
   %8 = load ptr, ptr %5, align 8, !noalias !209
   store ptr %8, ptr %6, align 8, !noalias !209
@@ -7109,7 +7098,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl4listI7Align64NS_9allocatorEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mSize, align 8
   %cmp = icmp eq i64 %0, 0
   ret i1 %cmp
@@ -7118,7 +7107,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i64 @_ZNK5eastl4listI7Align64NS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mSize, align 8
   ret i64 %0
 }
@@ -7147,18 +7136,18 @@ if.then:                                          ; preds = %while.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %current.sroa.0.0, %while.body.lr.ph.i ], [ %1, %while.body.i ]
   %1 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !215
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !215
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !215
   %4 = load ptr, ptr %2, align 8, !noalias !215
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i.i, align 8, !noalias !215
   %5 = load ptr, ptr %2, align 8, !noalias !215
   store ptr %5, ptr %3, align 8, !noalias !215
@@ -7171,22 +7160,22 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 if.else:                                          ; preds = %while.end
   %sub = sub i64 %n, %i.0
-  %mpPrev.i.i6 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i6 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not2.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not2.i.i, label %if.end, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else
-  %mSize.i.i.i7 = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %n.addr.03.i.i = phi i64 [ %sub, %for.body.lr.ph.i.i ], [ %dec.i.i, %for.body.i.i ]
   %call.i6.i.i.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !220
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i.i, i64 0, i32 2
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %value, i64 64, i1 false), !noalias !220
   store ptr %this, ptr %call.i6.i.i.i.i.i.i, align 8, !noalias !220
   %7 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !220
-  %mpPrev2.i.i.i.i8 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i8 = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i.i, i64 8
   store ptr %7, ptr %mpPrev2.i.i.i.i8, align 8, !noalias !220
   store ptr %call.i6.i.i.i.i.i.i, ptr %7, align 8, !noalias !220
   store ptr %call.i6.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !220
@@ -7208,18 +7197,18 @@ entry:
   br i1 %cmp.i.not2, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %first.sroa.0.03 = phi ptr [ %first.coerce, %while.body.lr.ph ], [ %0, %while.body ]
   %0 = load ptr, ptr %first.sroa.0.03, align 8, !noalias !223
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8, !noalias !223
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !223
   %3 = load ptr, ptr %1, align 8, !noalias !223
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %2, ptr %mpPrev2.i.i.i, align 8, !noalias !223
   %4 = load ptr, ptr %1, align 8, !noalias !223
   store ptr %4, ptr %2, align 8, !noalias !223
@@ -7238,23 +7227,23 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE6insertENS_12ListIteratorIS1_PKS1_RS5_EEmS7_(ptr noalias sret(%"struct.eastl::ListIterator.16") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, i64 noundef %n, ptr noundef nonnull align 64 dereferenceable(4) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   %cmp.not2.i = icmp eq i64 %n, 0
   br i1 %cmp.not2.i, label %_ZN5eastl4listI7Align64NS_9allocatorEE14DoInsertValuesEPNS_12ListNodeBaseEmRKS1_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %n.addr.03.i = phi i64 [ %n, %for.body.lr.ph.i ], [ %dec.i, %for.body.i ]
   %call.i6.i.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i, i64 0, i32 2
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %value, i64 64, i1 false)
   store ptr %position.coerce, ptr %call.i6.i.i.i.i.i, align 8
   %1 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i6.i.i.i.i.i, ptr %1, align 8
   store ptr %call.i6.i.i.i.i.i, ptr %mpPrev.i, align 8
@@ -7295,18 +7284,18 @@ if.then.i:                                        ; preds = %while.end.i
   br i1 %cmp.i.not2.i.i, label %_ZN5eastl4listI7Align64NS_9allocatorEE6resizeEmRKS1_.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.then.i
-  %mSize.i.i.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.lr.ph.i.i
   %first.sroa.0.03.i.i = phi ptr [ %current.sroa.0.0.i, %while.body.lr.ph.i.i ], [ %1, %while.body.i.i ]
   %1 = load ptr, ptr %first.sroa.0.03.i.i, align 8, !noalias !226
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !226
-  %mpPrev.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i.i.i, align 8, !noalias !226
   %4 = load ptr, ptr %2, align 8, !noalias !226
-  %mpPrev2.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i.i.i, align 8, !noalias !226
   %5 = load ptr, ptr %2, align 8, !noalias !226
   store ptr %5, ptr %3, align 8, !noalias !226
@@ -7319,22 +7308,22 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
 
 if.else.i:                                        ; preds = %while.end.i
   %sub.i = sub i64 %n, %i.0.i
-  %mpPrev.i.i6.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i6.i = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not2.i.i.i = icmp eq i64 %sub.i, 0
   br i1 %cmp.not2.i.i.i, label %_ZN5eastl4listI7Align64NS_9allocatorEE6resizeEmRKS1_.exit, label %for.body.lr.ph.i.i.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.else.i
-  %mSize.i.i.i7.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.lr.ph.i.i.i
   %n.addr.03.i.i.i = phi i64 [ %sub.i, %for.body.lr.ph.i.i.i ], [ %dec.i.i.i, %for.body.i.i.i ]
   %call.i6.i.i.i.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !231
-  %mValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i.i.i, i64 0, i32 2
+  %mValue.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i.i.i, i64 64
   store i32 0, ptr %mValue.i.i.i.i.i, align 64, !noalias !231
   store ptr %this, ptr %call.i6.i.i.i.i.i.i.i, align 8, !noalias !231
   %7 = load ptr, ptr %mpPrev.i.i6.i, align 8, !noalias !231
-  %mpPrev2.i.i.i.i8.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i8.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i.i.i, i64 8
   store ptr %7, ptr %mpPrev2.i.i.i.i8.i, align 8, !noalias !231
   store ptr %call.i6.i.i.i.i.i.i.i, ptr %7, align 8, !noalias !231
   store ptr %call.i6.i.i.i.i.i.i.i, ptr %mpPrev.i.i6.i, align 8, !noalias !231
@@ -7353,7 +7342,7 @@ _ZN5eastl4listI7Align64NS_9allocatorEE6resizeEmRKS1_.exit: ; preds = %for.body.i
 define weak_odr dso_local noundef nonnull align 64 dereferenceable(4) ptr @_ZN5eastl4listI7Align64NS_9allocatorEE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %0, i64 0, i32 2
+  %mValue = getelementptr inbounds i8, ptr %0, i64 64
   ret ptr %mValue
 }
 
@@ -7361,25 +7350,25 @@ entry:
 define weak_odr dso_local noundef nonnull align 64 dereferenceable(4) ptr @_ZNK5eastl4listI7Align64NS_9allocatorEE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %0, i64 0, i32 2
+  %mValue = getelementptr inbounds i8, ptr %0, i64 64
   ret ptr %mValue
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 64 dereferenceable(4) ptr @_ZN5eastl4listI7Align64NS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %0, i64 0, i32 2
+  %mValue = getelementptr inbounds i8, ptr %0, i64 64
   ret ptr %mValue
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 64 dereferenceable(4) ptr @_ZNK5eastl4listI7Align64NS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %0, i64 0, i32 2
+  %mValue = getelementptr inbounds i8, ptr %0, i64 64
   ret ptr %mValue
 }
 
@@ -7388,16 +7377,16 @@ define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE10push_fro
 entry:
   %0 = load ptr, ptr %this, align 8
   %call.i6.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i, i64 0, i32 2
+  %mValue.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i, ptr noundef nonnull align 64 dereferenceable(64) %value, i64 64, i1 false)
   store ptr %0, ptr %call.i6.i.i.i.i, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i.i, align 8
   store ptr %call.i6.i.i.i.i, ptr %1, align 8
   store ptr %call.i6.i.i.i.i, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mSize.i, align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr %mSize.i, align 8
@@ -7409,16 +7398,16 @@ define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE10push_fro
 entry:
   %0 = load ptr, ptr %this, align 8, !noalias !234
   %call.i6.i.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !237
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i, i64 0, i32 2
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %value, i64 64, i1 false), !noalias !237
   store ptr %0, ptr %call.i6.i.i.i.i.i, align 8, !noalias !237
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !237
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i.i.i, align 8, !noalias !237
   store ptr %call.i6.i.i.i.i.i, ptr %1, align 8, !noalias !237
   store ptr %call.i6.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !237
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mSize.i.i, align 8, !noalias !237
   %inc.i.i = add i64 %2, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !237
@@ -7429,22 +7418,22 @@ entry:
 define weak_odr dso_local noundef nonnull align 64 dereferenceable(4) ptr @_ZN5eastl4listI7Align64NS_9allocatorEE10push_frontEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i6.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i, i64 0, i32 2
+  %mValue.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 64
   store i32 0, ptr %mValue.i, align 64
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %call.i6.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i, align 8
   store ptr %call.i6.i.i.i, ptr %1, align 8
   store ptr %call.i6.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mSize, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %mSize, align 8
   %3 = load ptr, ptr %this, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %3, i64 0, i32 2
+  %mValue = getelementptr inbounds i8, ptr %3, i64 64
   ret ptr %mValue
 }
 
@@ -7452,7 +7441,7 @@ entry:
 define weak_odr dso_local noundef ptr @_ZN5eastl4listI7Align64NS_9allocatorEE12DoCreateNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i6.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i, i64 0, i32 2
+  %mValue = getelementptr inbounds i8, ptr %call.i6.i.i, i64 64
   store i32 0, ptr %mValue, align 64
   ret ptr %call.i6.i.i
 }
@@ -7463,17 +7452,17 @@ entry:
   %call.i6.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %call.i6.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i, align 8
   store ptr %call.i6.i.i, ptr %1, align 8
   store ptr %call.i6.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mSize, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %mSize, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i, i64 0, i32 2
+  %mValue = getelementptr inbounds i8, ptr %call.i6.i.i, i64 64
   ret ptr %mValue
 }
 
@@ -7481,16 +7470,16 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 64 dereferenceable(4) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i6.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i, i64 0, i32 2
+  %mValue.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i, ptr noundef nonnull align 64 dereferenceable(64) %value, i64 64, i1 false)
   store ptr %this, ptr %call.i6.i.i.i.i, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i.i, align 8
   store ptr %call.i6.i.i.i.i, ptr %0, align 8
   store ptr %call.i6.i.i.i.i, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize.i, align 8
   %inc.i = add i64 %1, 1
   store i64 %inc.i, ptr %mSize.i, align 8
@@ -7501,16 +7490,16 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 64 dereferenceable(4) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i6.i.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !240
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i, i64 0, i32 2
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %value, i64 64, i1 false), !noalias !240
   store ptr %this, ptr %call.i6.i.i.i.i.i, align 8, !noalias !240
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !240
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i.i.i, align 8, !noalias !240
   store ptr %call.i6.i.i.i.i.i, ptr %0, align 8, !noalias !240
   store ptr %call.i6.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !240
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize.i.i, align 8, !noalias !240
   %inc.i.i = add i64 %1, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !240
@@ -7521,16 +7510,16 @@ entry:
 define weak_odr dso_local noundef nonnull align 64 dereferenceable(4) ptr @_ZN5eastl4listI7Align64NS_9allocatorEE9push_backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i6.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i, i64 0, i32 2
+  %mValue.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 64
   store i32 0, ptr %mValue.i, align 64
   store ptr %this, ptr %call.i6.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   store ptr %call.i6.i.i.i, ptr %0, align 8
   store ptr %call.i6.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %mSize, align 8
@@ -7542,17 +7531,17 @@ define weak_odr dso_local noundef ptr @_ZN5eastl4listI7Align64NS_9allocatorEE23p
 entry:
   %call.i6.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %this, ptr %call.i6.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i6.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   store ptr %call.i6.i.i, ptr %0, align 8
   store ptr %call.i6.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %mSize, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i, i64 0, i32 2
+  %mValue = getelementptr inbounds i8, ptr %call.i6.i.i, i64 64
   ret ptr %mValue
 }
 
@@ -7560,15 +7549,15 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE9pop_frontEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   %2 = load ptr, ptr %0, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %mpPrev2.i.i, align 8
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %1, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %0) #10
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %mSize.i, align 8
   %dec.i = add i64 %4, -1
   store i64 %dec.i, ptr %mSize.i, align 8
@@ -7578,15 +7567,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pNode) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZN5eastl8ListBaseI7Align64NS_9allocatorEE10DoFreeNodeEPNS_8ListNodeIS1_EE.exit:
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %pNode, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %pNode, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   %1 = load ptr, ptr %pNode, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   %2 = load ptr, ptr %pNode, align 8
   store ptr %2, ptr %0, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %pNode) #10
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %mSize, align 8
   %dec = add i64 %3, -1
   store i64 %dec, ptr %mSize, align 8
@@ -7596,17 +7585,17 @@ _ZN5eastl8ListBaseI7Align64NS_9allocatorEE10DoFreeNodeEPNS_8ListNodeIS1_EE.exit:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   %2 = load ptr, ptr %0, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %mpPrev2.i.i, align 8
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %1, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %0) #10
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %mSize.i, align 8
   %dec.i = add i64 %4, -1
   store i64 %dec.i, ptr %mSize.i, align 8
@@ -7617,16 +7606,16 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE6insertENS_12ListIteratorIS1_PKS1_RS5_EE(ptr noalias sret(%"struct.eastl::ListIterator.16") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i6.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i, i64 0, i32 2
+  %mValue.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 64
   store i32 0, ptr %mValue.i, align 64
   store ptr %position.coerce, ptr %call.i6.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   store ptr %call.i6.i.i.i, ptr %0, align 8
   store ptr %call.i6.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %mSize, align 8
@@ -7638,16 +7627,16 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE6insertENS_12ListIteratorIS1_PKS1_RS5_EES7_(ptr noalias sret(%"struct.eastl::ListIterator.16") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr noundef nonnull align 64 dereferenceable(4) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i6.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i, i64 0, i32 2
+  %mValue.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i, ptr noundef nonnull align 64 dereferenceable(64) %value, i64 64, i1 false)
   store ptr %position.coerce, ptr %call.i6.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i6.i.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   store ptr %call.i6.i.i.i, ptr %0, align 8
   store ptr %call.i6.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %mSize, align 8
@@ -7660,16 +7649,16 @@ define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE6insertENS
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
   %call.i6.i.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !243
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i, i64 0, i32 2
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %value, i64 64, i1 false), !noalias !243
   store ptr %position.coerce, ptr %call.i6.i.i.i.i.i, align 8, !noalias !243
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !243
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i.i.i, align 8, !noalias !243
   store ptr %call.i6.i.i.i.i.i, ptr %0, align 8, !noalias !243
   store ptr %call.i6.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !243
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize.i.i, align 8, !noalias !243
   %inc.i.i = add i64 %1, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !243
@@ -7681,31 +7670,31 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE6insertENS_12ListIteratorIS1_PKS1_RS5_EESt16initializer_listIS1_E(ptr noalias sret(%"struct.eastl::ListIterator.16") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %ilist.coerce0, i64 %ilist.coerce1
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl4listI7Align64NS_9allocatorEE8DoInsertIPKS1_EEvPNS_12ListNodeBaseET_S9_NS_17integral_constantIbLb0EEE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %first.addr.04.i = phi ptr [ %ilist.coerce0, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.body.i ]
   %call.i6.i.i.i.i.i = tail call noundef ptr @_ZnammmPKcijS0_i(i64 noundef 128, i64 noundef 64, i64 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %call.i6.i.i.i.i.i, i64 0, i32 2
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %mValue.i.i.i, ptr noundef nonnull align 64 dereferenceable(64) %first.addr.04.i, i64 64, i1 false)
   store ptr %position.coerce, ptr %call.i6.i.i.i.i.i, align 8
   %1 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i6.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i6.i.i.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i6.i.i.i.i.i, ptr %1, align 8
   store ptr %call.i6.i.i.i.i.i, ptr %mpPrev.i, align 8
   %2 = load i64, ptr %mSize.i.i, align 8
   %inc.i.i = add i64 %2, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %struct.Align64, ptr %first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 64
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN5eastl4listI7Align64NS_9allocatorEE8DoInsertIPKS1_EEvPNS_12ListNodeBaseET_S9_NS_17integral_constantIbLb0EEE.exit, label %for.body.i, !llvm.loop !194
 
@@ -7719,17 +7708,17 @@ _ZN5eastl4listI7Align64NS_9allocatorEE8DoInsertIPKS1_EEvPNS_12ListNodeBaseET_S9_
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE(ptr noalias sret(%"struct.eastl::ListIterator.16") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %position.coerce, align 8
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   %3 = load ptr, ptr %1, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %2, ptr %mpPrev2.i.i, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %2, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %1) #10
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i64, ptr %mSize.i, align 8
   %dec.i = add i64 %5, -1
   store i64 %dec.i, ptr %mSize.i, align 8
@@ -7741,21 +7730,21 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE5eraseENS_16reverse_iteratorINS_12ListIteratorIS1_PKS1_RS6_EEEE(ptr noalias sret(%"class.eastl::reverse_iterator.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %position) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %position, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %1, ptr %position, align 8
   %2 = load ptr, ptr %1, align 8, !noalias !246
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i, align 8, !noalias !246
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !246
   %5 = load ptr, ptr %3, align 8, !noalias !246
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %mpPrev2.i.i.i, align 8, !noalias !246
   %6 = load ptr, ptr %3, align 8, !noalias !246
   store ptr %6, ptr %4, align 8, !noalias !246
   tail call void @_ZdaPv(ptr noundef nonnull %3) #10, !noalias !246
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize.i.i, align 8, !noalias !246
   %dec.i.i = add i64 %7, -1
   store i64 %dec.i.i, ptr %mSize.i.i, align 8, !noalias !246
@@ -7767,29 +7756,29 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE5eraseENS_16reverse_iteratorINS_12ListIteratorIS1_PKS1_RS6_EEEESA_(ptr noalias sret(%"class.eastl::reverse_iterator.17") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %first, ptr noundef %last) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %last, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %1, ptr %last, align 8
   %2 = load ptr, ptr %first, align 8
-  %mpPrev.i.i1 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i1 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i1, align 8
   store ptr %3, ptr %first, align 8
   %cmp.i.not2.i = icmp eq ptr %1, %3
   br i1 %cmp.i.not2.i, label %_ZN5eastl4listI7Align64NS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EES8_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %1, %while.body.lr.ph.i ], [ %4, %while.body.i ]
   %4 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !249
-  %mpPrev.i.i3 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i3 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i3, align 8, !noalias !249
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !249
   %7 = load ptr, ptr %5, align 8, !noalias !249
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %mpPrev2.i.i.i.i, align 8, !noalias !249
   %8 = load ptr, ptr %5, align 8, !noalias !249
   store ptr %8, ptr %6, align 8, !noalias !249
@@ -7809,9 +7798,9 @@ _ZN5eastl4listI7Align64NS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EES8_
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %this, ptr %this, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mSize, align 8
   ret void
 }
@@ -7824,13 +7813,13 @@ entry:
   br i1 %cmp.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %numRemoved.08 = phi i64 [ 0, %while.body.lr.ph ], [ %numRemoved.1, %if.end ]
   %current.sroa.0.07 = phi ptr [ %0, %while.body.lr.ph ], [ %3, %if.end ]
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %current.sroa.0.07, i64 0, i32 2
+  %mValue.i = getelementptr inbounds i8, ptr %current.sroa.0.07, i64 64
   %1 = load i32, ptr %mValue.i, align 64
   %2 = load i32, ptr %value, align 64
   %cmp.i = icmp eq i32 %1, %2
@@ -7838,12 +7827,12 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %while.body
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i, align 8
   %6 = load ptr, ptr %4, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %mpPrev2.i.i, align 8
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %5, align 8
@@ -7872,7 +7861,7 @@ entry:
 do.body.i:                                        ; preds = %do.body.i, %entry
   %pNode.0.i = phi ptr [ %this, %entry ], [ %0, %do.body.i ]
   %0 = load ptr, ptr %pNode.0.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %pNode.0.i, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %pNode.0.i, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %1, ptr %pNode.0.i, align 8
   store ptr %0, ptr %mpPrev.i, align 8
@@ -7886,20 +7875,20 @@ _ZN5eastl12ListNodeBase7reverseEv.exit:           ; preds = %do.body.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EERS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.then:
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %x, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %x, i64 16
   %0 = load i64, ptr %mSize, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end13, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %1 = load ptr, ptr %x, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %2, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %x, ptr %3, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %4 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %mpPrev4.i, align 8
@@ -7909,7 +7898,7 @@ if.then4:                                         ; preds = %if.then
   store ptr %7, ptr %mpPrev.i, align 8
   store ptr %5, ptr %mpPrev2.i, align 8
   %8 = load i64, ptr %mSize, align 8
-  %mSize8 = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize8 = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %mSize8, align 8
   %add = add i64 %9, %8
   store i64 %add, ptr %mSize8, align 8
@@ -7930,13 +7919,13 @@ if.then:
   br i1 %or.cond, label %if.then8, label %if.end18
 
 if.then8:                                         ; preds = %if.then
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %i.coerce, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %i.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %0, ptr %2, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %i.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i, align 8
@@ -7945,11 +7934,11 @@ if.then8:                                         ; preds = %if.then
   %6 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %6, ptr %mpPrev.i, align 8
   store ptr %4, ptr %mpPrev2.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize, align 8
   %inc = add i64 %7, 1
   store i64 %inc, ptr %mSize, align 8
-  %mSize12 = getelementptr inbounds %"class.eastl::ListBase.13", ptr %x, i64 0, i32 1
+  %mSize12 = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize12, align 8
   %dec = add i64 %8, -1
   store i64 %dec, ptr %mSize12, align 8
@@ -7974,13 +7963,13 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
   br i1 %cmp.i.not.i.i, label %if.then10, label %while.body.i.i, !llvm.loop !255
 
 if.then10:                                        ; preds = %while.body.i.i
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %last.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %last.coerce, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.coerce, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %first.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %last.coerce, ptr %2, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %first.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i, align 8
@@ -7989,11 +7978,11 @@ if.then10:                                        ; preds = %while.body.i.i
   %6 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %6, ptr %mpPrev.i, align 8
   store ptr %4, ptr %mpPrev2.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize, align 8
   %add = add i64 %7, %inc.i.i
   store i64 %add, ptr %mSize, align 8
-  %mSize13 = getelementptr inbounds %"class.eastl::ListBase.13", ptr %x, i64 0, i32 1
+  %mSize13 = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize13, align 8
   %sub = sub i64 %8, %inc.i.i
   store i64 %sub, ptr %mSize13, align 8
@@ -8006,20 +7995,20 @@ if.end25:                                         ; preds = %if.then, %if.then10
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listI7Align64NS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %x, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %x, i64 16
   %0 = load i64, ptr %mSize.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %_ZN5eastl4listI7Align64NS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EERS3_.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %entry
   %1 = load ptr, ptr %x, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %position.coerce, ptr %2, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %x, ptr %3, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %4 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -8029,7 +8018,7 @@ if.then4.i:                                       ; preds = %entry
   store ptr %7, ptr %mpPrev.i.i, align 8
   store ptr %5, ptr %mpPrev2.i.i, align 8
   %8 = load i64, ptr %mSize.i, align 8
-  %mSize8.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize8.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %mSize8.i, align 8
   %add.i = add i64 %9, %8
   store i64 %add.i, ptr %mSize8.i, align 8
@@ -8050,13 +8039,13 @@ entry:
   br i1 %or.cond.i, label %if.then8.i, label %_ZN5eastl4listI7Align64NS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EERS3_S8_.exit
 
 if.then8.i:                                       ; preds = %entry
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %i.coerce, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %i.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %0, ptr %2, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %i.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -8065,11 +8054,11 @@ if.then8.i:                                       ; preds = %entry
   %6 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %6, ptr %mpPrev.i.i, align 8
   store ptr %4, ptr %mpPrev2.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize.i, align 8
   %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %mSize.i, align 8
-  %mSize12.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %x, i64 0, i32 1
+  %mSize12.i = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize12.i, align 8
   %dec.i = add i64 %8, -1
   store i64 %dec.i, ptr %mSize12.i, align 8
@@ -8094,13 +8083,13 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.not.i.i.i, label %if.then10.i, label %while.body.i.i.i, !llvm.loop !255
 
 if.then10.i:                                      ; preds = %while.body.i.i.i
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %last.coerce, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %last.coerce, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.coerce, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %first.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %last.coerce, ptr %2, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %first.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -8109,11 +8098,11 @@ if.then10.i:                                      ; preds = %while.body.i.i.i
   %6 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %6, ptr %mpPrev.i.i, align 8
   store ptr %4, ptr %mpPrev2.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize.i, align 8
   %add.i = add i64 %7, %inc.i.i.i
   store i64 %add.i, ptr %mSize.i, align 8
-  %mSize13.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %x, i64 0, i32 1
+  %mSize13.i = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize13.i, align 8
   %sub.i = sub i64 %8, %inc.i.i.i
   store i64 %sub.i, ptr %mSize13.i, align 8
@@ -8138,15 +8127,15 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond38, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
-  %mSize13.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %x, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize13.i = getelementptr inbounds i8, ptr %x, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %first.sroa.0.040 = phi ptr [ %0, %while.body.lr.ph ], [ %first.sroa.0.1, %if.end ]
   %firstX.sroa.0.039 = phi ptr [ %1, %while.body.lr.ph ], [ %firstX.sroa.0.1, %if.end ]
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %firstX.sroa.0.039, i64 0, i32 2
-  %mValue.i6 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %first.sroa.0.040, i64 0, i32 2
+  %mValue.i = getelementptr inbounds i8, ptr %firstX.sroa.0.039, i64 64
+  %mValue.i6 = getelementptr inbounds i8, ptr %first.sroa.0.040, i64 64
   %2 = load i32, ptr %mValue.i, align 64
   %3 = load i32, ptr %mValue.i6, align 64
   %cmp.i7 = icmp slt i32 %2, %3
@@ -8166,13 +8155,13 @@ while.body.i.i.i:                                 ; preds = %if.then6, %while.bo
   br i1 %cmp.i.not.i.i.i, label %if.then10.i, label %while.body.i.i.i, !llvm.loop !255
 
 if.then10.i:                                      ; preds = %while.body.i.i.i
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %first.sroa.0.040, ptr %6, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %firstX.sroa.0.039, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %firstX.sroa.0.039, i64 8
   %7 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %4, ptr %7, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.sroa.0.040, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %first.sroa.0.040, i64 8
   %8 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %firstX.sroa.0.039, ptr %8, align 8
   %9 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -8215,13 +8204,13 @@ while.body.i.i.i10:                               ; preds = %while.end, %while.b
   br i1 %cmp.i.not.i.i.i14, label %_ZN5eastl4listI7Align64NS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EERS3_S8_S8_.exit23, label %while.body.i.i.i10, !llvm.loop !255
 
 _ZN5eastl4listI7Align64NS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EERS3_S8_S8_.exit23: ; preds = %while.body.i.i.i10
-  %mpPrev.i.i16 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev.i.i16 = getelementptr inbounds i8, ptr %x, i64 8
   %16 = load ptr, ptr %mpPrev.i.i16, align 8
   store ptr %this, ptr %16, align 8
-  %mpPrev2.i.i17 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %firstX.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev2.i.i17 = getelementptr inbounds i8, ptr %firstX.sroa.0.0.lcssa, i64 8
   %17 = load ptr, ptr %mpPrev2.i.i17, align 8
   store ptr %x, ptr %17, align 8
-  %mpPrev4.i.i18 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev4.i.i18 = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load ptr, ptr %mpPrev4.i.i18, align 8
   store ptr %firstX.sroa.0.0.lcssa, ptr %18, align 8
   %19 = load ptr, ptr %mpPrev4.i.i18, align 8
@@ -8230,11 +8219,11 @@ _ZN5eastl4listI7Align64NS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EERS
   %21 = load ptr, ptr %mpPrev2.i.i17, align 8
   store ptr %21, ptr %mpPrev.i.i16, align 8
   store ptr %19, ptr %mpPrev2.i.i17, align 8
-  %mSize.i19 = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i19 = getelementptr inbounds i8, ptr %this, i64 16
   %22 = load i64, ptr %mSize.i19, align 8
   %add.i20 = add i64 %22, %inc.i.i.i13
   store i64 %add.i20, ptr %mSize.i19, align 8
-  %mSize13.i21 = getelementptr inbounds %"class.eastl::ListBase.13", ptr %x, i64 0, i32 1
+  %mSize13.i21 = getelementptr inbounds i8, ptr %x, i64 16
   %23 = load i64, ptr %mSize13.i21, align 8
   %sub.i22 = sub i64 %23, %inc.i.i.i13
   store i64 %sub.i22, ptr %mSize13.i21, align 8
@@ -8264,24 +8253,24 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp.i1.not10, label %if.end8, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %2 = phi ptr [ %1, %while.body.lr.ph ], [ %9, %if.end ]
   %first.sroa.0.011 = phi ptr [ %0, %while.body.lr.ph ], [ %first.sroa.0.1, %if.end ]
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %first.sroa.0.011, i64 0, i32 2
-  %mValue.i2 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %2, i64 0, i32 2
+  %mValue.i = getelementptr inbounds i8, ptr %first.sroa.0.011, i64 64
+  %mValue.i2 = getelementptr inbounds i8, ptr %2, i64 64
   %3 = load i32, ptr %mValue.i, align 64
   %4 = load i32, ptr %mValue.i2, align 64
   %cmp.i3 = icmp eq i32 %3, %4
   br i1 %cmp.i3, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %while.body
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %mpPrev.i.i, align 8
   %6 = load ptr, ptr %2, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %mpPrev2.i.i, align 8
   %7 = load ptr, ptr %2, align 8
   store ptr %7, ptr %5, align 8
@@ -8312,7 +8301,7 @@ entry:
   %0 = load ptr, ptr %this, align 8, !noalias !267
   store ptr %0, ptr %agg.tmp, align 8, !alias.scope !267
   store ptr %this, ptr %agg.tmp2, align 8, !alias.scope !270
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize.i, align 8
   call void @_ZN5eastl4listI7Align64NS_9allocatorEE6DoSortINS_4lessIS1_EEEENS_12ListIteratorIS1_PS1_RS1_EESA_SA_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.16") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %compare)
   ret void
@@ -8341,31 +8330,31 @@ sw.bb:                                            ; preds = %entry, %entry
 
 sw.bb2:                                           ; preds = %entry
   %1 = load ptr, ptr %end2, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i, align 8
   store ptr %2, ptr %end2, align 8
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %2, i64 0, i32 2
+  %mValue.i = getelementptr inbounds i8, ptr %2, i64 64
   %3 = load ptr, ptr %i1, align 8
-  %mValue.i19 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %3, i64 0, i32 2
+  %mValue.i19 = getelementptr inbounds i8, ptr %3, i64 64
   %4 = load i32, ptr %mValue.i, align 64
   %5 = load i32, ptr %mValue.i19, align 64
   %cmp.i.i = icmp slt i32 %4, %5
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb2
-  %mpPrev.i20 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i20 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %mpPrev.i20, align 8
   %7 = load ptr, ptr %2, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %mpPrev2.i, align 8
   %8 = load ptr, ptr %2, align 8
   store ptr %8, ptr %6, align 8
   %9 = load ptr, ptr %end2, align 8
   %10 = load ptr, ptr %i1, align 8
   store ptr %10, ptr %9, align 8
-  %mpPrev.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %10, i64 0, i32 1
+  %mpPrev.i21 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %mpPrev.i21, align 8
-  %mpPrev2.i22 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
+  %mpPrev2.i22 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %11, ptr %mpPrev2.i22, align 8
   store ptr %9, ptr %11, align 8
   store ptr %9, ptr %mpPrev.i21, align 8
@@ -8389,8 +8378,8 @@ for.body:                                         ; preds = %sw.bb8, %for.inc
   %16 = phi ptr [ %21, %for.inc ], [ %13, %sw.bb8 ]
   %17 = phi ptr [ %22, %for.inc ], [ %13, %sw.bb8 ]
   %current.sroa.0.075 = phi ptr [ %23, %for.inc ], [ %14, %sw.bb8 ]
-  %mValue.i23 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %current.sroa.0.075, i64 0, i32 2
-  %mValue.i24 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %17, i64 0, i32 2
+  %mValue.i23 = getelementptr inbounds i8, ptr %current.sroa.0.075, i64 64
+  %mValue.i24 = getelementptr inbounds i8, ptr %17, i64 64
   %18 = load i32, ptr %mValue.i23, align 64
   %19 = load i32, ptr %mValue.i24, align 64
   %cmp.i.i25 = icmp slt i32 %18, %19
@@ -8417,16 +8406,16 @@ if.then17:                                        ; preds = %sw.bb8, %for.end
   br label %if.end22
 
 if.else:                                          ; preds = %for.end
-  %mpPrev.i27 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %21, i64 0, i32 1
+  %mpPrev.i27 = getelementptr inbounds i8, ptr %21, i64 8
   %24 = load ptr, ptr %mpPrev.i27, align 8
   %25 = load ptr, ptr %21, align 8
-  %mpPrev2.i28 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %25, i64 0, i32 1
+  %mpPrev2.i28 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %24, ptr %mpPrev2.i28, align 8
   %26 = load ptr, ptr %21, align 8
   store ptr %26, ptr %24, align 8
   %27 = load ptr, ptr %i1, align 8
   store ptr %27, ptr %21, align 8
-  %mpPrev.i29 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %27, i64 0, i32 1
+  %mpPrev.i29 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %mpPrev.i29, align 8
   store ptr %28, ptr %mpPrev.i27, align 8
   store ptr %21, ptr %28, align 8
@@ -8435,31 +8424,31 @@ if.else:                                          ; preds = %for.end
 
 if.end22:                                         ; preds = %if.else, %if.then17
   %29 = load ptr, ptr %end2, align 8
-  %mpPrev.i31 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %29, i64 0, i32 1
+  %mpPrev.i31 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load ptr, ptr %mpPrev.i31, align 8
   store ptr %30, ptr %end2, align 8
-  %mValue.i32 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %30, i64 0, i32 2
+  %mValue.i32 = getelementptr inbounds i8, ptr %30, i64 64
   %31 = load ptr, ptr %i1, align 8
-  %mValue.i33 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %31, i64 0, i32 2
+  %mValue.i33 = getelementptr inbounds i8, ptr %31, i64 64
   %32 = load i32, ptr %mValue.i32, align 64
   %33 = load i32, ptr %mValue.i33, align 64
   %cmp.i.i34 = icmp slt i32 %32, %33
   br i1 %cmp.i.i34, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end22
-  %mpPrev.i35 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %30, i64 0, i32 1
+  %mpPrev.i35 = getelementptr inbounds i8, ptr %30, i64 8
   %34 = load ptr, ptr %mpPrev.i35, align 8
   %35 = load ptr, ptr %30, align 8
-  %mpPrev2.i36 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %35, i64 0, i32 1
+  %mpPrev2.i36 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %34, ptr %mpPrev2.i36, align 8
   %36 = load ptr, ptr %30, align 8
   store ptr %36, ptr %34, align 8
   %37 = load ptr, ptr %end2, align 8
   %38 = load ptr, ptr %i1, align 8
   store ptr %38, ptr %37, align 8
-  %mpPrev.i37 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %38, i64 0, i32 1
+  %mpPrev.i37 = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load ptr, ptr %mpPrev.i37, align 8
-  %mpPrev2.i38 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %37, i64 0, i32 1
+  %mpPrev2.i38 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %39, ptr %mpPrev2.i38, align 8
   store ptr %37, ptr %39, align 8
   store ptr %37, ptr %mpPrev.i37, align 8
@@ -8491,9 +8480,9 @@ _ZN5eastl4nextINS_12ListIteratorI7Align64PS2_RS2_EEEET_S6_NS_15iterator_traitsIS
   %sub = sub i64 %n, %div17
   call void @_ZN5eastl4listI7Align64NS_9allocatorEE6DoSortINS_4lessIS1_EEEENS_12ListIteratorIS1_PS1_RS1_EESA_SA_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.16") align 8 %i2, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp34, ptr noundef nonnull %agg.tmp35, i64 noundef %sub, ptr noundef nonnull align 1 dereferenceable(1) %compare)
   %45 = load ptr, ptr %i2, align 8
-  %mValue.i39 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %45, i64 0, i32 2
+  %mValue.i39 = getelementptr inbounds i8, ptr %45, i64 64
   %46 = load ptr, ptr %i1, align 8
-  %mValue.i40 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %46, i64 0, i32 2
+  %mValue.i40 = getelementptr inbounds i8, ptr %46, i64 64
   %47 = load i32, ptr %mValue.i39, align 64
   %48 = load i32, ptr %mValue.i40, align 64
   %cmp.i.i41 = icmp slt i32 %47, %48
@@ -8511,27 +8500,27 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %cmp.i42.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %mValue.i43 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %ix.sroa.0.0, i64 0, i32 2
+  %mValue.i43 = getelementptr inbounds i8, ptr %ix.sroa.0.0, i64 64
   %51 = load i32, ptr %mValue.i43, align 64
   %cmp.i.i45 = icmp slt i32 %51, %48
   br i1 %cmp.i.i45, label %while.cond, label %while.end, !llvm.loop !278
 
 while.end:                                        ; preds = %while.cond, %land.rhs
   %ix.sroa.0.0.lcssa = phi ptr [ %50, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %ix.sroa.0.0.lcssa, i64 8
   %52 = load ptr, ptr %mpPrev, align 8
   store i64 %49, ptr %agg.result, align 8
   %.cast18 = ptrtoint ptr %ix.sroa.0.0.lcssa to i64
   store i64 %.cast18, ptr %i2, align 8
-  %mpPrev.i46 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %45, i64 0, i32 1
+  %mpPrev.i46 = getelementptr inbounds i8, ptr %45, i64 8
   %53 = load ptr, ptr %mpPrev.i46, align 8
   %54 = load ptr, ptr %52, align 8
-  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %54, i64 0, i32 1
+  %mpPrev1.i = getelementptr inbounds i8, ptr %54, i64 8
   store ptr %53, ptr %mpPrev1.i, align 8
   %55 = load ptr, ptr %52, align 8
   store ptr %55, ptr %53, align 8
   %56 = load ptr, ptr %i1, align 8
-  %mpPrev.i47 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %56, i64 0, i32 1
+  %mpPrev.i47 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load ptr, ptr %mpPrev.i47, align 8
   store ptr %45, ptr %57, align 8
   %58 = load ptr, ptr %mpPrev.i47, align 8
@@ -8563,8 +8552,8 @@ land.rhs53:                                       ; preds = %if.end49, %for.inc8
   br i1 %cmp.i49.not, label %return, label %for.body56
 
 for.body56:                                       ; preds = %land.rhs53
-  %mValue.i50 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %60, i64 0, i32 2
-  %mValue.i51 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %storemerge80, i64 0, i32 2
+  %mValue.i50 = getelementptr inbounds i8, ptr %60, i64 64
+  %mValue.i51 = getelementptr inbounds i8, ptr %storemerge80, i64 64
   %62 = load i32, ptr %mValue.i50, align 64
   %63 = load i32, ptr %mValue.i51, align 64
   %cmp.i.i52 = icmp slt i32 %62, %63
@@ -8577,28 +8566,28 @@ while.cond62:                                     ; preds = %for.body56, %land.r
   br i1 %cmp.i53.not, label %while.end71, label %land.rhs64
 
 land.rhs64:                                       ; preds = %while.cond62
-  %mValue.i54 = getelementptr inbounds %"struct.eastl::ListNode.19", ptr %ix61.sroa.0.0, i64 0, i32 2
+  %mValue.i54 = getelementptr inbounds i8, ptr %ix61.sroa.0.0, i64 64
   %64 = load i32, ptr %mValue.i54, align 64
   %cmp.i.i56 = icmp slt i32 %64, %63
   br i1 %cmp.i.i56, label %while.cond62, label %while.end71, !llvm.loop !279
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
   %ix61.sroa.0.0.lcssa = phi ptr [ %61, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
-  %mpPrev76 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix61.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev76 = getelementptr inbounds i8, ptr %ix61.sroa.0.0.lcssa, i64 8
   %65 = load ptr, ptr %mpPrev76, align 8
   %cmp.i57 = icmp eq ptr %end1.sroa.0.179, %60
   %spec.select = select i1 %cmp.i57, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.179
   %66 = ptrtoint ptr %ix61.sroa.0.0.lcssa to i64
   store i64 %66, ptr %i2, align 8
-  %mpPrev.i58 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %60, i64 0, i32 1
+  %mpPrev.i58 = getelementptr inbounds i8, ptr %60, i64 8
   %67 = load ptr, ptr %mpPrev.i58, align 8
   %68 = load ptr, ptr %65, align 8
-  %mpPrev1.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %68, i64 0, i32 1
+  %mpPrev1.i59 = getelementptr inbounds i8, ptr %68, i64 8
   store ptr %67, ptr %mpPrev1.i59, align 8
   %69 = load ptr, ptr %65, align 8
   store ptr %69, ptr %67, align 8
   %70 = load ptr, ptr %i1, align 8
-  %mpPrev.i60 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %70, i64 0, i32 1
+  %mpPrev.i60 = getelementptr inbounds i8, ptr %70, i64 8
   %71 = load ptr, ptr %mpPrev.i60, align 8
   store ptr %60, ptr %71, align 8
   %72 = load ptr, ptr %mpPrev.i60, align 8
@@ -8634,7 +8623,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   br i1 %cmp.i.not, label %for.end, label %for.cond, !llvm.loop !281
 
 for.end:                                          ; preds = %for.cond
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.13", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mSize, align 8
   %cmp.not = icmp eq i64 %n.0, %0
   ret i1 %cmp.not
@@ -8671,7 +8660,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   ret void
 }
@@ -8682,7 +8671,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   ret void
 }
@@ -8693,7 +8682,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %1 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i = add nsw i64 %1, 1
@@ -8713,11 +8702,11 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
           to label %call.i.i.i.i.i.i.noexc unwind label %_ZN10TestObjectD2Ev.exit13
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 16
   store i32 0, ptr %mValue.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i1, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 20
   store i8 0, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i1, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 32
   store i32 32623592, ptr %mMagicValue.i.i.i.i, align 8
   %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i.i.i.i = add nsw i64 %4, 1
@@ -8728,11 +8717,11 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
   %6 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %6, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i1, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i1, align 8
   %7 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 8
   store ptr %7, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %7, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
@@ -8776,23 +8765,23 @@ entry:
   br i1 %cmp.not2, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mbThrowOnCopy3.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
-  %mMagicValue4.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %pNode, i64 0, i32 1
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
+  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %pNode, i64 8
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %n.addr.03 = phi i64 [ %n, %for.body.lr.ph ], [ %dec, %for.body ]
   %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   %0 = load i32, ptr %value, align 8
   store i32 %0, ptr %mValue.i.i, align 8
-  %mbThrowOnCopy.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 20
   %1 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
   %2 = and i8 %1, 1
   store i8 %2, ptr %mbThrowOnCopy.i.i.i, align 4
-  %mMagicValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
   %3 = load i32, ptr %mMagicValue4.i.i.i, align 8
   store i32 %3, ptr %mMagicValue.i.i.i, align 8
   %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -8804,11 +8793,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %6 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i = add nsw i64 %6, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   store ptr %pNode, ptr %call.i.i.i.i.i, align 8
   %7 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   store ptr %7, ptr %mpPrev2.i.i, align 8
   store ptr %call.i.i.i.i.i, ptr %7, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
@@ -8833,7 +8822,7 @@ entry:
 while.body.i:                                     ; preds = %entry, %_ZN5eastl9allocator10deallocateEPvm.exit.i
   %p.05.i = phi ptr [ %1, %_ZN5eastl9allocator10deallocateEPvm.exit.i ], [ %0, %entry ]
   %1 = load ptr, ptr %p.05.i, align 8
-  %mMagicValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %p.05.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %p.05.i, i64 32
   %2 = load i32, ptr %mMagicValue.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %2, 32623592
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %if.then.i.i.i
@@ -8866,14 +8855,14 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %cmp.not2.i = icmp eq i64 %n, 0
   br i1 %cmp.not2.i, label %invoke.cont, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %call.i.i.i.i.i.i.noexc, %for.body.lr.ph.i
@@ -8882,14 +8871,14 @@ for.body.i:                                       ; preds = %call.i.i.i.i.i.i.no
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 16
   %1 = load i32, ptr %value, align 8
   store i32 %1, ptr %mValue.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i1, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 20
   %2 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %3 = and i8 %2, 1
   store i8 %3, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i1, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 32
   %4 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %4, ptr %mMagicValue.i.i.i.i, align 8
   %5 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -8901,11 +8890,11 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
   %7 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i1, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i1, align 8
   %8 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 8
   store ptr %8, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %8, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
@@ -8932,7 +8921,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %1 = load ptr, ptr %x, align 8
   %cmp.i.not3.i = icmp eq ptr %1, %x
@@ -8944,17 +8933,17 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %first.sroa.0.04.i, i64 0, i32 1
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i3, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 16
   %2 = load i32, ptr %mValue.i.i, align 8
   store i32 %2, ptr %mValue.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i3, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %first.sroa.0.04.i, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 20
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 20
   %3 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %4 = and i8 %3, 1
   store i8 %4, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i3, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %first.sroa.0.04.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 32
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 32
   %5 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %5, ptr %mMagicValue.i.i.i.i, align 8
   %6 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -8966,11 +8955,11 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
   %8 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %8, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i3, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i3, align 8
   %9 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i3, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3, i64 8
   store ptr %9, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i3, ptr %9, align 8
   store ptr %call.i.i.i.i.i.i3, ptr %mpPrev.i.i, align 8
@@ -8997,7 +8986,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %1 = load ptr, ptr %x, align 8
   %cmp.i.not3.i = icmp eq ptr %1, %x
@@ -9009,17 +8998,17 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %first.sroa.0.04.i, i64 0, i32 1
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i2, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 16
   %2 = load i32, ptr %mValue.i.i, align 8
   store i32 %2, ptr %mValue.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i2, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %first.sroa.0.04.i, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 20
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 20
   %3 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %4 = and i8 %3, 1
   store i8 %4, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i2, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %first.sroa.0.04.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 32
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 32
   %5 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %5, ptr %mMagicValue.i.i.i.i, align 8
   %6 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -9031,11 +9020,11 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
   %8 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %8, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i2, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i2, align 8
   %9 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i2, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2, i64 8
   store ptr %9, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i2, ptr %9, align 8
   store ptr %call.i.i.i.i.i.i2, ptr %mpPrev.i.i, align 8
@@ -9063,7 +9052,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
@@ -9081,7 +9070,7 @@ if.else.i.i.i:                                    ; preds = %entry
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -9089,7 +9078,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
-  %mpPrev9.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else11.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -9100,14 +9089,14 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   %5 = load ptr, ptr %mpPrev9.i.i.i, align 8
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
   %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
-  %mSize5.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %x, i64 0, i32 1
+  %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
   store i64 %8, ptr %0, align 8
@@ -9125,7 +9114,7 @@ if.then:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i, i64 16, i1 false)
   %0 = load ptr, ptr %this, align 8
   %cmp.i.i = icmp eq ptr %0, %x
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then
@@ -9136,7 +9125,7 @@ if.else.i.i:                                      ; preds = %if.then
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev5.i.i = getelementptr inbounds i8, ptr %2, i64 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
@@ -9144,7 +9133,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   store ptr %this, ptr %mpPrev5.sink.i.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i.i = icmp eq ptr %3, %this
-  %mpPrev9.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.else11.i.i
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
@@ -9155,15 +9144,15 @@ if.else11.i.i:                                    ; preds = %if.end.i.i
   %4 = load ptr, ptr %mpPrev9.i.i, align 8
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev15.i.i = getelementptr inbounds i8, ptr %5, i64 8
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEE6DoSwapERS3_.exit
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEE6DoSwapERS3_.exit: ; preds = %if.then8.i.i, %if.else11.i.i
   %mpPrev15.sink.i.i = phi ptr [ %mpPrev15.i.i, %if.else11.i.i ], [ %x, %if.then8.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i)
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
-  %mSize5.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %x, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize5.i = getelementptr inbounds i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize.i, align 8
   %7 = load i64, ptr %mSize5.i, align 8
   store i64 %7, ptr %mSize.i, align 8
@@ -9178,7 +9167,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
@@ -9196,7 +9185,7 @@ if.else.i.i.i:                                    ; preds = %entry
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %2, align 8
   %3 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -9204,7 +9193,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %4 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %4, %this
-  %mpPrev9.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else11.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -9215,14 +9204,14 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   %5 = load ptr, ptr %mpPrev9.i.i.i, align 8
   store ptr %x, ptr %5, align 8
   %6 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else11.i.i.i, %if.then8.i.i.i
   %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
-  %mSize5.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %x, i64 0, i32 1
+  %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %7 = load i64, ptr %0, align 8
   %8 = load i64, ptr %mSize5.i.i, align 8
   store i64 %8, ptr %0, align 8
@@ -9236,7 +9225,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %0, align 8
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
@@ -9248,16 +9237,16 @@ for.body.i:                                       ; preds = %entry, %call.i.i.i.
           to label %call.i.i.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 16
   %1 = load i32, ptr %first.addr.04.i, align 8
   store i32 %1, ptr %mValue.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i1, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %first.addr.04.i, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 20
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 4
   %2 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %3 = and i8 %2, 1
   store i8 %3, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i1, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %first.addr.04.i, i64 0, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 32
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 16
   %4 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %4, ptr %mMagicValue.i.i.i.i, align 8
   %5 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -9269,18 +9258,18 @@ call.i.i.i.i.i.i.noexc:                           ; preds = %for.body.i
   %7 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i1, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i1, align 8
   %8 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1, i64 8
   store ptr %8, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %8, align 8
   store ptr %call.i.i.i.i.i.i1, ptr %mpPrev.i.i, align 8
   %9 = load i64, ptr %0, align 8
   %inc.i.i = add i64 %9, 1
   store i64 %inc.i.i, ptr %0, align 8
-  %incdec.ptr.i = getelementptr inbounds %struct.TestObject, ptr %first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !286
 
@@ -9319,7 +9308,7 @@ entry:
 while.body.i:                                     ; preds = %entry, %_ZN5eastl9allocator10deallocateEPvm.exit.i
   %p.05.i = phi ptr [ %1, %_ZN5eastl9allocator10deallocateEPvm.exit.i ], [ %0, %entry ]
   %1 = load ptr, ptr %p.05.i, align 8
-  %mMagicValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %p.05.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %p.05.i, i64 32
   %2 = load i32, ptr %mMagicValue.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %2, 32623592
   br i1 %cmp.not.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i, label %if.then.i.i.i
@@ -9344,9 +9333,9 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i:       ; preds = %if.then.i.i.i, %whi
 
 _ZN5eastl8ListBaseI10TestObjectNS_9allocatorEE7DoClearEv.exit: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i, %entry
   store ptr %this, ptr %this, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mSize, align 8
   ret void
 }
@@ -9376,18 +9365,18 @@ for.body:                                         ; preds = %land.rhs
   br i1 %cmp.not.i, label %_ZN10TestObjectaSERKS_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %pNode.019, i64 0, i32 1
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %first.sroa.0.018, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.019, i64 16
+  %mValue.i = getelementptr inbounds i8, ptr %first.sroa.0.018, i64 16
   %0 = load i32, ptr %mValue.i, align 8
   store i32 %0, ptr %mValue, align 8
-  %mMagicValue.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %first.sroa.0.018, i64 0, i32 1, i32 4
+  %mMagicValue.i = getelementptr inbounds i8, ptr %first.sroa.0.018, i64 32
   %1 = load i32, ptr %mMagicValue.i, align 8
-  %mMagicValue3.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %pNode.019, i64 0, i32 1, i32 4
+  %mMagicValue3.i = getelementptr inbounds i8, ptr %pNode.019, i64 32
   store i32 %1, ptr %mMagicValue3.i, align 8
-  %mbThrowOnCopy.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %first.sroa.0.018, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %first.sroa.0.018, i64 20
   %2 = load i8, ptr %mbThrowOnCopy.i, align 4
   %3 = and i8 %2, 1
-  %mbThrowOnCopy4.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %pNode.019, i64 0, i32 1, i32 1
+  %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %pNode.019, i64 20
   store i8 %3, ptr %mbThrowOnCopy4.i, align 4
   br label %_ZN10TestObjectaSERKS_.exit
 
@@ -9403,22 +9392,22 @@ for.end:                                          ; preds = %_ZN10TestObjectaSER
   br i1 %cmp.i4, label %if.end, label %for.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %land.rhs
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.019, %while.body.lr.ph.i ], [ %5, %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i ]
   %5 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !288
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !288
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !288
   %8 = load ptr, ptr %6, align 8, !noalias !288
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %8, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %7, ptr %mpPrev2.i.i.i.i, align 8, !noalias !288
   %9 = load ptr, ptr %6, align 8, !noalias !288
   store ptr %9, ptr %7, align 8, !noalias !288
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %6, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 32
   %10 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !288
   %cmp.not.i.i.i.i.i = icmp eq i32 %10, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, label %if.then.i.i.i.i.i
@@ -9445,24 +9434,24 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_E
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !293
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %first.sroa.0.04.i = phi ptr [ %first.sroa.0.0.lcssa, %for.body.lr.ph.i ], [ %24, %for.body.i ]
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %first.sroa.0.04.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 16
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %15 = load i32, ptr %mValue.i.i, align 8
   store i32 %15, ptr %mValue.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %first.sroa.0.04.i, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 20
   %16 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %17 = and i8 %16, 1
   store i8 %17, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %first.sroa.0.04.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i, i64 32
   %18 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %18, ptr %mMagicValue.i.i.i.i, align 8
   %19 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -9474,11 +9463,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %21 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %21, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8
   %22 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %22, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %22, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -9531,7 +9520,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %pNode.018 = phi ptr [ %pNode.0, %_ZN10TestObjectaSERKS_.exit ], [ %pNode.013, %for.body.preheader ]
   %first.addr.017 = phi ptr [ %incdec.ptr, %_ZN10TestObjectaSERKS_.exit ], [ %first, %for.body.preheader ]
   %inc.i1216 = phi i64 [ %inc.i, %_ZN10TestObjectaSERKS_.exit ], [ %_ZN10TestObject18sTOCopyAssignCountE.promoted, %for.body.preheader ]
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %pNode.018, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.018, i64 16
   %inc.i = add nsw i64 %inc.i1216, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %cmp.not.i = icmp eq ptr %first.addr.017, %mValue
@@ -9540,19 +9529,19 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then.i:                                        ; preds = %for.body
   %1 = load i32, ptr %first.addr.017, align 8
   store i32 %1, ptr %mValue, align 8
-  %mMagicValue.i = getelementptr inbounds %struct.TestObject, ptr %first.addr.017, i64 0, i32 4
+  %mMagicValue.i = getelementptr inbounds i8, ptr %first.addr.017, i64 16
   %2 = load i32, ptr %mMagicValue.i, align 8
-  %mMagicValue3.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %pNode.018, i64 0, i32 1, i32 4
+  %mMagicValue3.i = getelementptr inbounds i8, ptr %pNode.018, i64 32
   store i32 %2, ptr %mMagicValue3.i, align 8
-  %mbThrowOnCopy.i = getelementptr inbounds %struct.TestObject, ptr %first.addr.017, i64 0, i32 1
+  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %first.addr.017, i64 4
   %3 = load i8, ptr %mbThrowOnCopy.i, align 4
   %4 = and i8 %3, 1
-  %mbThrowOnCopy4.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %pNode.018, i64 0, i32 1, i32 1
+  %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %pNode.018, i64 20
   store i8 %4, ptr %mbThrowOnCopy4.i, align 4
   br label %_ZN10TestObjectaSERKS_.exit
 
 _ZN10TestObjectaSERKS_.exit:                      ; preds = %for.body, %if.then.i
-  %incdec.ptr = getelementptr inbounds %struct.TestObject, ptr %first.addr.017, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %first.addr.017, i64 24
   %pNode.0 = load ptr, ptr %pNode.018, align 8
   %cmp = icmp ne ptr %pNode.0, %this
   %cmp3 = icmp ne ptr %incdec.ptr, %last
@@ -9570,22 +9559,22 @@ if.then:                                          ; preds = %for.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %6, %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i ]
   %6 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !295
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !295
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !295
   %9 = load ptr, ptr %7, align 8, !noalias !295
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %8, ptr %mpPrev2.i.i.i.i, align 8, !noalias !295
   %10 = load ptr, ptr %7, align 8, !noalias !295
   store ptr %10, ptr %8, align 8, !noalias !295
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %7, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
   %11 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !295
   %cmp.not.i.i.i.i.i = icmp eq i32 %11, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, label %if.then.i.i.i.i.i
@@ -9612,23 +9601,23 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_E
   br i1 %cmp.i.not.i, label %if.end, label %while.body.i, !llvm.loop !293
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %first.addr.04.i = phi ptr [ %first.addr.0.lcssa, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %16 = load i32, ptr %first.addr.04.i, align 8
   store i32 %16, ptr %mValue.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %first.addr.04.i, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 4
   %17 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %18 = and i8 %17, 1
   store i8 %18, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %first.addr.04.i, i64 0, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 16
   %19 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %19, ptr %mMagicValue.i.i.i.i, align 8
   %20 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -9640,18 +9629,18 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %22 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %22, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8
   %23 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %23, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %23, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
   %24 = load i64, ptr %mSize.i.i, align 8
   %inc.i.i = add i64 %24, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %struct.TestObject, ptr %first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 24
   %cmp.not.i10 = icmp eq ptr %incdec.ptr.i, %last
   br i1 %cmp.not.i10, label %if.end, label %for.body.i, !llvm.loop !286
 
@@ -9674,7 +9663,7 @@ if.then:                                          ; preds = %entry
 while.body.i.i:                                   ; preds = %if.then, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
   %p.05.i.i = phi ptr [ %1, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ], [ %0, %if.then ]
   %1 = load ptr, ptr %p.05.i.i, align 8
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %p.05.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %p.05.i.i, i64 32
   %2 = load i32, ptr %mMagicValue.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %2, 32623592
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, label %if.then.i.i.i.i
@@ -9699,9 +9688,9 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %if.then.i.i.i.i, %w
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEE5clearEv.exit: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %if.then
   store ptr %this, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mSize.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 16, i1 false)
@@ -9719,7 +9708,7 @@ if.else.i.i.i:                                    ; preds = %_ZN5eastl4listI10Te
   %7 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %this, ptr %7, align 8
   %8 = load ptr, ptr %this, align 8
-  %mpPrev5.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %8, i64 0, i32 1
+  %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -9727,7 +9716,7 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   store ptr %this, ptr %mpPrev5.sink.i.i.i, align 8
   %9 = load ptr, ptr %x, align 8
   %cmp7.i.i.i = icmp eq ptr %9, %this
-  %mpPrev9.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i.i.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i.i.i, label %if.then8.i.i.i, label %if.else11.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -9738,14 +9727,14 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   %10 = load ptr, ptr %mpPrev9.i.i.i, align 8
   store ptr %x, ptr %10, align 8
   %11 = load ptr, ptr %x, align 8
-  %mpPrev15.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %11, i64 0, i32 1
+  %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   br label %_ZN5eastl4listI10TestObjectNS_9allocatorEE4swapERS3_.exit
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEE4swapERS3_.exit: ; preds = %if.then8.i.i.i, %if.else11.i.i.i
   %mpPrev15.sink.i.i.i = phi ptr [ %mpPrev15.i.i.i, %if.else11.i.i.i ], [ %x, %if.then8.i.i.i ]
   store ptr %x, ptr %mpPrev15.sink.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i.i.i)
-  %mSize5.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %x, i64 0, i32 1
+  %mSize5.i.i = getelementptr inbounds i8, ptr %x, i64 16
   %12 = load i64, ptr %mSize.i, align 8
   %13 = load i64, ptr %mSize5.i.i, align 8
   store i64 %13, ptr %mSize.i, align 8
@@ -9766,7 +9755,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x, ptr noundef nonnull align 8 dereferenceable(16) %temp.i, i64 16, i1 false)
   %0 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %0, %x
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -9777,7 +9766,7 @@ if.else.i:                                        ; preds = %entry
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %this, ptr %1, align 8
   %2 = load ptr, ptr %this, align 8
-  %mpPrev5.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev5.i = getelementptr inbounds i8, ptr %2, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -9785,7 +9774,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
   store ptr %this, ptr %mpPrev5.sink.i, align 8
   %3 = load ptr, ptr %x, align 8
   %cmp7.i = icmp eq ptr %3, %this
-  %mpPrev9.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev9.i = getelementptr inbounds i8, ptr %x, i64 8
   br i1 %cmp7.i, label %if.then8.i, label %if.else11.i
 
 if.then8.i:                                       ; preds = %if.end.i
@@ -9796,15 +9785,15 @@ if.else11.i:                                      ; preds = %if.end.i
   %4 = load ptr, ptr %mpPrev9.i, align 8
   store ptr %x, ptr %4, align 8
   %5 = load ptr, ptr %x, align 8
-  %mpPrev15.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev15.i = getelementptr inbounds i8, ptr %5, i64 8
   br label %_ZN5eastl12ListNodeBase4swapERS0_S1_.exit
 
 _ZN5eastl12ListNodeBase4swapERS0_S1_.exit:        ; preds = %if.then8.i, %if.else11.i
   %mpPrev15.sink.i = phi ptr [ %mpPrev15.i, %if.else11.i ], [ %x, %if.then8.i ]
   store ptr %x, ptr %mpPrev15.sink.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %temp.i)
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
-  %mSize5 = getelementptr inbounds %"class.eastl::ListBase.22", ptr %x, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize5 = getelementptr inbounds i8, ptr %x, i64 16
   %6 = load i64, ptr %mSize, align 8
   %7 = load i64, ptr %mSize5, align 8
   store i64 %7, ptr %mSize, align 8
@@ -9829,8 +9818,8 @@ entry:
   br i1 %0, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mMagicValue.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
-  %mbThrowOnCopy.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
+  %mMagicValue.i = getelementptr inbounds i8, ptr %value, i64 16
+  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %value, i64 4
   %.pre = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   br label %for.body
 
@@ -9838,7 +9827,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %1 = phi i64 [ %.pre, %for.body.lr.ph ], [ %inc.i, %_ZN10TestObjectaSERKS_.exit ]
   %pNode.014 = phi ptr [ %pNode.010, %for.body.lr.ph ], [ %pNode.0, %_ZN10TestObjectaSERKS_.exit ]
   %n.addr.013 = phi i64 [ %n, %for.body.lr.ph ], [ %dec, %_ZN10TestObjectaSERKS_.exit ]
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %pNode.014, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %pNode.014, i64 16
   %inc.i = add nsw i64 %1, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %cmp.not.i = icmp eq ptr %mValue, %value
@@ -9848,11 +9837,11 @@ if.then.i:                                        ; preds = %for.body
   %2 = load i32, ptr %value, align 8
   store i32 %2, ptr %mValue, align 8
   %3 = load i32, ptr %mMagicValue.i, align 8
-  %mMagicValue3.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %pNode.014, i64 0, i32 1, i32 4
+  %mMagicValue3.i = getelementptr inbounds i8, ptr %pNode.014, i64 32
   store i32 %3, ptr %mMagicValue3.i, align 8
   %4 = load i8, ptr %mbThrowOnCopy.i, align 4
   %5 = and i8 %4, 1
-  %mbThrowOnCopy4.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %pNode.014, i64 0, i32 1, i32 1
+  %mbThrowOnCopy4.i = getelementptr inbounds i8, ptr %pNode.014, i64 20
   store i8 %5, ptr %mbThrowOnCopy4.i, align 4
   br label %_ZN10TestObjectaSERKS_.exit
 
@@ -9871,23 +9860,23 @@ for.end:                                          ; preds = %_ZN10TestObjectaSER
   br i1 %tobool.not, label %if.else, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.end
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %n.addr.03.i = phi i64 [ %n.addr.0.lcssa, %for.body.lr.ph.i ], [ %dec.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %7 = load i32, ptr %value, align 8
   store i32 %7, ptr %mValue.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
   %8 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %9 = and i8 %8, 1
   store i8 %9, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
   %10 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %10, ptr %mMagicValue.i.i.i.i, align 8
   %11 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -9899,11 +9888,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %13 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %13, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8
   %14 = load ptr, ptr %mpPrev.i.i.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %14, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %14, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8
@@ -9919,22 +9908,22 @@ if.else:                                          ; preds = %for.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.else
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %pNode.0.lcssa, %while.body.lr.ph.i ], [ %16, %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i ]
   %16 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !301
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %16, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !301
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %17, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !301
   %19 = load ptr, ptr %17, align 8, !noalias !301
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %19, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %18, ptr %mpPrev2.i.i.i.i, align 8, !noalias !301
   %20 = load ptr, ptr %17, align 8, !noalias !301
   store ptr %20, ptr %18, align 8, !noalias !301
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %17, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 32
   %21 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !301
   %cmp.not.i.i.i.i.i = icmp eq i32 %21, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, label %if.then.i.i.i.i.i
@@ -10048,7 +10037,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl4listI10TestObjectNS_9allocatorEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mSize, align 8
   %cmp = icmp eq i64 %0, 0
   ret i1 %cmp
@@ -10057,7 +10046,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef i64 @_ZNK5eastl4listI10TestObjectNS_9allocatorEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mSize, align 8
   ret i64 %0
 }
@@ -10086,22 +10075,22 @@ if.then:                                          ; preds = %while.end
   br i1 %cmp.i.not2.i, label %if.end, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %current.sroa.0.0, %while.body.lr.ph.i ], [ %1, %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i ]
   %1 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !307
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !307
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !307
   %4 = load ptr, ptr %2, align 8, !noalias !307
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %mpPrev2.i.i.i.i, align 8, !noalias !307
   %5 = load ptr, ptr %2, align 8, !noalias !307
   store ptr %5, ptr %3, align 8, !noalias !307
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %2, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %6 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !307
   %cmp.not.i.i.i.i.i = icmp eq i32 %6, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, label %if.then.i.i.i.i.i
@@ -10129,27 +10118,27 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_E
 
 if.else:                                          ; preds = %while.end
   %sub = sub i64 %n, %i.0
-  %mpPrev.i.i6 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i6 = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.not2.i.i = icmp eq i64 %sub, 0
   br i1 %cmp.not2.i.i, label %if.end, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else
-  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
-  %mMagicValue4.i.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
-  %mSize.i.i.i7 = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mbThrowOnCopy3.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
+  %mMagicValue4.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
+  %mSize.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %n.addr.03.i.i = phi i64 [ %sub, %for.body.lr.ph.i.i ], [ %dec.i.i, %for.body.i.i ]
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !312
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 16
   %11 = load i32, ptr %value, align 8, !noalias !312
   store i32 %11, ptr %mValue.i.i.i.i, align 8, !noalias !312
-  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i.i, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 20
   %12 = load i8, ptr %mbThrowOnCopy3.i.i.i.i.i, align 4, !noalias !312
   %13 = and i8 %12, 1
   store i8 %13, ptr %mbThrowOnCopy.i.i.i.i.i, align 4, !noalias !312
-  %mMagicValue.i.i.i.i.i8 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i8 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 32
   %14 = load i32, ptr %mMagicValue4.i.i.i.i.i, align 8, !noalias !312
   store i32 %14, ptr %mMagicValue.i.i.i.i.i8, align 8, !noalias !312
   %15 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !312
@@ -10161,11 +10150,11 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %17 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !312
   %inc6.i.i.i.i.i = add nsw i64 %17, 1
   store i64 %inc6.i.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8, !noalias !312
-  %mId.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i.i, ptr %mId.i.i.i.i.i, align 8, !noalias !312
   store ptr %this, ptr %call.i.i.i.i.i.i.i, align 8, !noalias !312
   %18 = load ptr, ptr %mpPrev.i.i6, align 8, !noalias !312
-  %mpPrev2.i.i.i.i10 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i10 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 8
   store ptr %18, ptr %mpPrev2.i.i.i.i10, align 8, !noalias !312
   store ptr %call.i.i.i.i.i.i.i, ptr %18, align 8, !noalias !312
   store ptr %call.i.i.i.i.i.i.i, ptr %mpPrev.i.i6, align 8, !noalias !312
@@ -10187,22 +10176,22 @@ entry:
   br i1 %cmp.i.not2, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit
   %first.sroa.0.03 = phi ptr [ %first.coerce, %while.body.lr.ph ], [ %0, %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit ]
   %0 = load ptr, ptr %first.sroa.0.03, align 8, !noalias !315
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8, !noalias !315
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !315
   %3 = load ptr, ptr %1, align 8, !noalias !315
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %2, ptr %mpPrev2.i.i.i, align 8, !noalias !315
   %4 = load ptr, ptr %1, align 8, !noalias !315
   store ptr %4, ptr %2, align 8, !noalias !315
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %1, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i32, ptr %mMagicValue.i.i.i.i, align 8, !noalias !315
   %cmp.not.i.i.i.i = icmp eq i32 %5, 32623592
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit, label %if.then.i.i.i.i
@@ -10236,28 +10225,28 @@ while.end:                                        ; preds = %_ZN5eastl4listI10Te
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6insertENS_12ListIteratorIS1_PKS1_RS5_EEmS7_(ptr noalias sret(%"struct.eastl::ListIterator.25") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(20) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   %cmp.not2.i = icmp eq i64 %n, 0
   br i1 %cmp.not2.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE14DoInsertValuesEPNS_12ListNodeBaseEmRKS1_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %n.addr.03.i = phi i64 [ %n, %for.body.lr.ph.i ], [ %dec.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %1 = load i32, ptr %value, align 8
   store i32 %1, ptr %mValue.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
   %2 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %3 = and i8 %2, 1
   store i8 %3, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
   %4 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %4, ptr %mMagicValue.i.i.i.i, align 8
   %5 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -10269,11 +10258,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %7 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8
   %8 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %8, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %8, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i, align 8
@@ -10295,9 +10284,9 @@ define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6resiz
 entry:
   %ref.tmp = alloca %struct.TestObject, align 8
   store i32 0, ptr %ref.tmp, align 8
-  %mbThrowOnCopy.i = getelementptr inbounds %struct.TestObject, ptr %ref.tmp, i64 0, i32 1
+  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   store i8 0, ptr %mbThrowOnCopy.i, align 4
-  %mMagicValue.i = getelementptr inbounds %struct.TestObject, ptr %ref.tmp, i64 0, i32 4
+  %mMagicValue.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i32 32623592, ptr %mMagicValue.i, align 8
   %0 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i = add nsw i64 %0, 1
@@ -10308,7 +10297,7 @@ entry:
   %2 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i = add nsw i64 %2, 1
   store i64 %inc4.i, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mId.i = getelementptr inbounds %struct.TestObject, ptr %ref.tmp, i64 0, i32 3
+  %mId.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %inc3.i, ptr %mId.i, align 8
   invoke void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6resizeEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %n, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -10360,7 +10349,7 @@ _ZN10TestObjectD2Ev.exit10:                       ; preds = %lpad, %if.then.i6
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZN5eastl4listI10TestObjectNS_9allocatorEE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %0, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %mValue
 }
 
@@ -10368,25 +10357,25 @@ entry:
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5eastl4listI10TestObjectNS_9allocatorEE5frontEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %0, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %mValue
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZN5eastl4listI10TestObjectNS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %0, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %mValue
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5eastl4listI10TestObjectNS_9allocatorEE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %0, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %0, i64 16
   ret ptr %mValue
 }
 
@@ -10395,16 +10384,16 @@ define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE10push
 entry:
   %0 = load ptr, ptr %this, align 8
   %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   %1 = load i32, ptr %value, align 8
   store i32 %1, ptr %mValue.i.i, align 8
-  %mbThrowOnCopy.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 20
+  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %2 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
   %3 = and i8 %2, 1
   store i8 %3, ptr %mbThrowOnCopy.i.i.i, align 4
-  %mMagicValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
+  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
   %4 = load i32, ptr %mMagicValue4.i.i.i, align 8
   store i32 %4, ptr %mMagicValue.i.i.i, align 8
   %5 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -10416,16 +10405,16 @@ entry:
   %7 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i = add nsw i64 %7, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   store ptr %0, ptr %call.i.i.i.i.i, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   store ptr %8, ptr %mpPrev2.i.i, align 8
   store ptr %call.i.i.i.i.i, ptr %8, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %mSize.i, align 8
   %inc.i = add i64 %9, 1
   store i64 %inc.i, ptr %mSize.i, align 8
@@ -10437,16 +10426,16 @@ define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE10push
 entry:
   %0 = load ptr, ptr %this, align 8, !noalias !318
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !321
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %1 = load i32, ptr %value, align 8, !noalias !321
   store i32 %1, ptr %mValue.i.i.i, align 8, !noalias !321
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %2 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4, !noalias !321
   %3 = and i8 %2, 1
   store i8 %3, ptr %mbThrowOnCopy.i.i.i.i, align 4, !noalias !321
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
   %4 = load i32, ptr %mMagicValue4.i.i.i.i, align 8, !noalias !321
   store i32 %4, ptr %mMagicValue.i.i.i.i, align 8, !noalias !321
   %5 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !321
@@ -10458,17 +10447,17 @@ entry:
   %7 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !321
   %inc6.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !321
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8, !noalias !321
   store i32 0, ptr %value, align 8, !noalias !321
   store ptr %0, ptr %call.i.i.i.i.i.i, align 8, !noalias !321
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !321
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %8, ptr %mpPrev2.i.i.i, align 8, !noalias !321
   store ptr %call.i.i.i.i.i.i, ptr %8, align 8, !noalias !321
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !321
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %mSize.i.i, align 8, !noalias !321
   %inc.i.i = add i64 %9, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !321
@@ -10479,11 +10468,11 @@ entry:
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZN5eastl4listI10TestObjectNS_9allocatorEE10push_frontEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store i32 0, ptr %mValue.i, align 8
-  %mbThrowOnCopy.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 20
   store i8 0, ptr %mbThrowOnCopy.i.i, align 4
-  %mMagicValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   store i32 32623592, ptr %mMagicValue.i.i, align 8
   %0 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i.i = add nsw i64 %0, 1
@@ -10494,22 +10483,22 @@ entry:
   %2 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i.i = add nsw i64 %2, 1
   store i64 %inc4.i.i, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mId.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   store i64 %inc3.i.i, ptr %mId.i.i, align 8
   %3 = load ptr, ptr %this, align 8
   store ptr %3, ptr %call.i.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %4, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i.i, ptr %4, align 8
   store ptr %call.i.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i64, ptr %mSize, align 8
   %inc = add i64 %5, 1
   store i64 %inc, ptr %mSize, align 8
   %6 = load ptr, ptr %this, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %6, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %6, i64 16
   ret ptr %mValue
 }
 
@@ -10517,11 +10506,11 @@ entry:
 define weak_odr dso_local noundef ptr @_ZN5eastl4listI10TestObjectNS_9allocatorEE12DoCreateNodeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store i32 0, ptr %mValue, align 8
-  %mbThrowOnCopy.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 20
   store i8 0, ptr %mbThrowOnCopy.i, align 4
-  %mMagicValue.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store i32 32623592, ptr %mMagicValue.i, align 8
   %0 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i = add nsw i64 %0, 1
@@ -10532,7 +10521,7 @@ entry:
   %2 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i = add nsw i64 %2, 1
   store i64 %inc4.i, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mId.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i, i64 0, i32 1, i32 3
+  %mId.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   store i64 %inc3.i, ptr %mId.i, align 8
   ret ptr %call.i.i.i
 }
@@ -10543,17 +10532,17 @@ entry:
   %call.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %call.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr %1, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i, ptr %1, align 8
   store ptr %call.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mSize, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %mSize, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   ret ptr %mValue
 }
 
@@ -10561,16 +10550,16 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(20) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 16
   %0 = load i32, ptr %value, align 8
   store i32 %0, ptr %mValue.i.i, align 8
-  %mbThrowOnCopy.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 20
+  %mbThrowOnCopy3.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %1 = load i8, ptr %mbThrowOnCopy3.i.i.i, align 4
   %2 = and i8 %1, 1
   store i8 %2, ptr %mbThrowOnCopy.i.i.i, align 4
-  %mMagicValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
+  %mMagicValue4.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
   %3 = load i32, ptr %mMagicValue4.i.i.i, align 8
   store i32 %3, ptr %mMagicValue.i.i.i, align 8
   %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -10582,16 +10571,16 @@ entry:
   %6 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i = add nsw i64 %6, 1
   store i64 %inc6.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i, ptr %mId.i.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i.i, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   store ptr %7, ptr %mpPrev2.i.i, align 8
   store ptr %call.i.i.i.i.i, ptr %7, align 8
   store ptr %call.i.i.i.i.i, ptr %mpPrev.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i64, ptr %mSize.i, align 8
   %inc.i = add i64 %8, 1
   store i64 %inc.i, ptr %mSize.i, align 8
@@ -10602,16 +10591,16 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(20) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !324
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %0 = load i32, ptr %value, align 8, !noalias !324
   store i32 %0, ptr %mValue.i.i.i, align 8, !noalias !324
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %1 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4, !noalias !324
   %2 = and i8 %1, 1
   store i8 %2, ptr %mbThrowOnCopy.i.i.i.i, align 4, !noalias !324
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
   %3 = load i32, ptr %mMagicValue4.i.i.i.i, align 8, !noalias !324
   store i32 %3, ptr %mMagicValue.i.i.i.i, align 8, !noalias !324
   %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !324
@@ -10623,17 +10612,17 @@ entry:
   %6 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !324
   %inc6.i.i.i.i = add nsw i64 %6, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !324
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8, !noalias !324
   store i32 0, ptr %value, align 8, !noalias !324
   store ptr %this, ptr %call.i.i.i.i.i.i, align 8, !noalias !324
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !324
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %7, ptr %mpPrev2.i.i.i, align 8, !noalias !324
   store ptr %call.i.i.i.i.i.i, ptr %7, align 8, !noalias !324
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !324
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i64, ptr %mSize.i.i, align 8, !noalias !324
   %inc.i.i = add i64 %8, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !324
@@ -10644,11 +10633,11 @@ entry:
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(20) ptr @_ZN5eastl4listI10TestObjectNS_9allocatorEE9push_backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store i32 0, ptr %mValue.i, align 8
-  %mbThrowOnCopy.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 20
   store i8 0, ptr %mbThrowOnCopy.i.i, align 4
-  %mMagicValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i, i64 0, i32 1, i32 4
+  %mMagicValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   store i32 32623592, ptr %mMagicValue.i.i, align 8
   %0 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i.i = add nsw i64 %0, 1
@@ -10659,16 +10648,16 @@ entry:
   %2 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i.i = add nsw i64 %2, 1
   store i64 %inc4.i.i, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mId.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   store i64 %inc3.i.i, ptr %mId.i.i, align 8
   store ptr %this, ptr %call.i.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %3, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i.i, ptr %3, align 8
   store ptr %call.i.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %mSize, align 8
   %inc = add i64 %4, 1
   store i64 %inc, ptr %mSize, align 8
@@ -10680,17 +10669,17 @@ define weak_odr dso_local noundef ptr @_ZN5eastl4listI10TestObjectNS_9allocatorE
 entry:
   %call.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   store ptr %this, ptr %call.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i, ptr %0, align 8
   store ptr %call.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %mSize, align 8
-  %mValue = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i, i64 0, i32 1
+  %mValue = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   ret ptr %mValue
 }
 
@@ -10698,14 +10687,14 @@ entry:
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE9pop_frontEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   %2 = load ptr, ptr %0, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %mpPrev2.i.i, align 8
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %1, align 8
-  %mMagicValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %0, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %mMagicValue.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %4, 32623592
   br i1 %cmp.not.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE.exit, label %if.then.i.i.i
@@ -10725,7 +10714,7 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE.exit: ; p
   %inc3.i.i.i = add nsw i64 %7, 1
   store i64 %inc3.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %0) #10
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i64, ptr %mSize.i, align 8
   %dec.i = add i64 %8, -1
   store i64 %dec.i, ptr %mSize.i, align 8
@@ -10735,14 +10724,14 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE.exit: ; p
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pNode) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %pNode, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %pNode, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   %1 = load ptr, ptr %pNode, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %mpPrev2.i, align 8
   %2 = load ptr, ptr %pNode, align 8
   store ptr %2, ptr %0, align 8
-  %mMagicValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %pNode, i64 0, i32 1, i32 4
+  %mMagicValue.i.i = getelementptr inbounds i8, ptr %pNode, i64 32
   %3 = load i32, ptr %mMagicValue.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %3, 32623592
   br i1 %cmp.not.i.i, label %_ZN5eastl8ListBaseI10TestObjectNS_9allocatorEE10DoFreeNodeEPNS_8ListNodeIS1_EE.exit, label %if.then.i.i
@@ -10762,7 +10751,7 @@ _ZN5eastl8ListBaseI10TestObjectNS_9allocatorEE10DoFreeNodeEPNS_8ListNodeIS1_EE.e
   %inc3.i.i = add nsw i64 %6, 1
   store i64 %inc3.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %pNode) #10
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize, align 8
   %dec = add i64 %7, -1
   store i64 %dec, ptr %mSize, align 8
@@ -10772,16 +10761,16 @@ _ZN5eastl8ListBaseI10TestObjectNS_9allocatorEE10DoFreeNodeEPNS_8ListNodeIS1_EE.e
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpPrev, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   %2 = load ptr, ptr %0, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %1, ptr %mpPrev2.i.i, align 8
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %1, align 8
-  %mMagicValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %0, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %mMagicValue.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %4, 32623592
   br i1 %cmp.not.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE.exit, label %if.then.i.i.i
@@ -10801,7 +10790,7 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE.exit: ; p
   %inc3.i.i.i = add nsw i64 %7, 1
   store i64 %inc3.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %0) #10
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i64, ptr %mSize.i, align 8
   %dec.i = add i64 %8, -1
   store i64 %dec.i, ptr %mSize.i, align 8
@@ -10824,11 +10813,11 @@ entry:
           to label %_ZN10TestObjectD2Ev.exit unwind label %_ZN10TestObjectD2Ev.exit12
 
 _ZN10TestObjectD2Ev.exit:                         ; preds = %entry
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i2, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 16
   store i32 0, ptr %mValue.i, align 8
-  %mbThrowOnCopy.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i2, i64 0, i32 1, i32 1
+  %mbThrowOnCopy.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 20
   store i8 0, ptr %mbThrowOnCopy.i.i, align 4
-  %mMagicValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i2, i64 0, i32 1, i32 4
+  %mMagicValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 32
   store i32 32623592, ptr %mMagicValue.i.i, align 8
   %3 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %4 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
@@ -10837,20 +10826,20 @@ _ZN10TestObjectD2Ev.exit:                         ; preds = %entry
   %5 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
   %inc6.i.i = add nsw i64 %5, 1
   store i64 %inc6.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8
-  %mId.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i2, i64 0, i32 1, i32 3
+  %mId.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 24
   store i64 %inc5.i.i, ptr %mId.i.i, align 8
   store i64 %3, ptr @_ZN10TestObject8sTOCountE, align 8
   %6 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %inc3.i5 = add nsw i64 %6, 1
   store i64 %inc3.i5, ptr @_ZN10TestObject12sTODtorCountE, align 8
   store ptr %position.coerce, ptr %call.i.i.i.i2, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %7 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i2, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 8
   store ptr %7, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i.i2, ptr %7, align 8
   store ptr %call.i.i.i.i2, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i64, ptr %mSize, align 8
   %inc = add i64 %8, 1
   store i64 %inc, ptr %mSize, align 8
@@ -10873,16 +10862,16 @@ _ZN10TestObjectD2Ev.exit12:                       ; preds = %entry
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6insertENS_12ListIteratorIS1_PKS1_RS5_EES7_(ptr noalias sret(%"struct.eastl::ListIterator.25") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr noundef nonnull align 8 dereferenceable(20) %value) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   %0 = load i32, ptr %value, align 8
   store i32 %0, ptr %mValue.i, align 8
-  %mbThrowOnCopy.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
+  %mbThrowOnCopy.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 20
+  %mbThrowOnCopy3.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %1 = load i8, ptr %mbThrowOnCopy3.i.i, align 4
   %2 = and i8 %1, 1
   store i8 %2, ptr %mbThrowOnCopy.i.i, align 4
-  %mMagicValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
+  %mMagicValue.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
+  %mMagicValue4.i.i = getelementptr inbounds i8, ptr %value, i64 16
   %3 = load i32, ptr %mMagicValue4.i.i, align 8
   store i32 %3, ptr %mMagicValue.i.i, align 8
   %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -10894,16 +10883,16 @@ entry:
   %6 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i = add nsw i64 %6, 1
   store i64 %inc6.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 24
   store i64 %inc5.i.i, ptr %mId.i.i, align 8
   store ptr %position.coerce, ptr %call.i.i.i.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %7 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %7, ptr %mpPrev2.i, align 8
   store ptr %call.i.i.i.i, ptr %7, align 8
   store ptr %call.i.i.i.i, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i64, ptr %mSize, align 8
   %inc = add i64 %8, 1
   store i64 %inc, ptr %mSize, align 8
@@ -10916,16 +10905,16 @@ define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6inser
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !327)
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0), !noalias !327
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %0 = load i32, ptr %value, align 8, !noalias !327
   store i32 %0, ptr %mValue.i.i.i, align 8, !noalias !327
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 4
   %1 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4, !noalias !327
   %2 = and i8 %1, 1
   store i8 %2, ptr %mbThrowOnCopy.i.i.i.i, align 4, !noalias !327
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %value, i64 0, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 16
   %3 = load i32, ptr %mMagicValue4.i.i.i.i, align 8, !noalias !327
   store i32 %3, ptr %mMagicValue.i.i.i.i, align 8, !noalias !327
   %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8, !noalias !327
@@ -10937,17 +10926,17 @@ entry:
   %6 = load i64, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !327
   %inc6.i.i.i.i = add nsw i64 %6, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOMoveCtorCountE, align 8, !noalias !327
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8, !noalias !327
   store i32 0, ptr %value, align 8, !noalias !327
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8, !noalias !327
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %7 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !327
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %7, ptr %mpPrev2.i.i.i, align 8, !noalias !327
   store ptr %call.i.i.i.i.i.i, ptr %7, align 8, !noalias !327
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i.i.i, align 8, !noalias !327
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load i64, ptr %mSize.i.i, align 8, !noalias !327
   %inc.i.i = add i64 %8, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8, !noalias !327
@@ -10959,29 +10948,29 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6insertENS_12ListIteratorIS1_PKS1_RS5_EESt16initializer_listIS1_E(ptr noalias sret(%"struct.eastl::ListIterator.25") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr %ilist.coerce0, i64 %ilist.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %0 = load ptr, ptr %mpPrev.i, align 8
   %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %ilist.coerce0, i64 %ilist.coerce1
   %cmp.not3.i = icmp eq i64 %ilist.coerce1, 0
   br i1 %cmp.not3.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE8DoInsertIPKS1_EEvPNS_12ListNodeBaseET_S9_NS_17integral_constantIbLb0EEE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %first.addr.04.i = phi ptr [ %ilist.coerce0, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.body.i ]
   %call.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef 40, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   %1 = load i32, ptr %first.addr.04.i, align 8
   store i32 %1, ptr %mValue.i.i.i, align 8
-  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 1
-  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %first.addr.04.i, i64 0, i32 1
+  %mbThrowOnCopy.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 20
+  %mbThrowOnCopy3.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 4
   %2 = load i8, ptr %mbThrowOnCopy3.i.i.i.i, align 4
   %3 = and i8 %2, 1
   store i8 %3, ptr %mbThrowOnCopy.i.i.i.i, align 4
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 4
-  %mMagicValue4.i.i.i.i = getelementptr inbounds %struct.TestObject, ptr %first.addr.04.i, i64 0, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
+  %mMagicValue4.i.i.i.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 16
   %4 = load i32, ptr %mMagicValue4.i.i.i.i, align 8
   store i32 %4, ptr %mMagicValue.i.i.i.i, align 8
   %5 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -10993,18 +10982,18 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %7 = load i64, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
   %inc6.i.i.i.i = add nsw i64 %7, 1
   store i64 %inc6.i.i.i.i, ptr @_ZN10TestObject16sTOCopyCtorCountE, align 8
-  %mId.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %call.i.i.i.i.i.i, i64 0, i32 1, i32 3
+  %mId.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 24
   store i64 %inc5.i.i.i.i, ptr %mId.i.i.i.i, align 8
   store ptr %position.coerce, ptr %call.i.i.i.i.i.i, align 8
   %8 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 8
   store ptr %8, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %8, align 8
   store ptr %call.i.i.i.i.i.i, ptr %mpPrev.i, align 8
   %9 = load i64, ptr %mSize.i.i, align 8
   %inc.i.i = add i64 %9, 1
   store i64 %inc.i.i, ptr %mSize.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %struct.TestObject, ptr %first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.addr.04.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE8DoInsertIPKS1_EEvPNS_12ListNodeBaseET_S9_NS_17integral_constantIbLb0EEE.exit, label %for.body.i, !llvm.loop !286
 
@@ -11018,16 +11007,16 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE8DoInsertIPKS1_EEvPNS_12ListNodeBaseET
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE(ptr noalias sret(%"struct.eastl::ListIterator.25") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %position.coerce, align 8
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   %3 = load ptr, ptr %1, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %2, ptr %mpPrev2.i.i, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %2, align 8
-  %mMagicValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %1, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i32, ptr %mMagicValue.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %5, 32623592
   br i1 %cmp.not.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE.exit, label %if.then.i.i.i
@@ -11047,7 +11036,7 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE.exit: ; p
   %inc3.i.i.i = add nsw i64 %8, 1
   store i64 %inc3.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   tail call void @_ZdaPv(ptr noundef nonnull %1) #10
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %mSize.i, align 8
   %dec.i = add i64 %9, -1
   store i64 %dec.i, ptr %mSize.i, align 8
@@ -11059,20 +11048,20 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE.exit: ; p
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_16reverse_iteratorINS_12ListIteratorIS1_PKS1_RS6_EEEE(ptr noalias sret(%"class.eastl::reverse_iterator.26") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %position) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %position, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %1, ptr %position, align 8
   %2 = load ptr, ptr %1, align 8, !noalias !330
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i, align 8, !noalias !330
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev.i.i.i, align 8, !noalias !330
   %5 = load ptr, ptr %3, align 8, !noalias !330
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %4, ptr %mpPrev2.i.i.i, align 8, !noalias !330
   %6 = load ptr, ptr %3, align 8, !noalias !330
   store ptr %6, ptr %4, align 8, !noalias !330
-  %mMagicValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %3, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %7 = load i32, ptr %mMagicValue.i.i.i.i, align 8, !noalias !330
   %cmp.not.i.i.i.i = icmp eq i32 %7, 32623592
   br i1 %cmp.not.i.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit, label %if.then.i.i.i.i
@@ -11092,7 +11081,7 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_E
   %inc3.i.i.i.i = add nsw i64 %10, 1
   store i64 %inc3.i.i.i.i, ptr @_ZN10TestObject12sTODtorCountE, align 8, !noalias !330
   tail call void @_ZdaPv(ptr noundef nonnull %3) #10, !noalias !330
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %11 = load i64, ptr %mSize.i.i, align 8, !noalias !330
   %dec.i.i = add i64 %11, -1
   store i64 %dec.i.i, ptr %mSize.i.i, align 8, !noalias !330
@@ -11104,33 +11093,33 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_E
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_16reverse_iteratorINS_12ListIteratorIS1_PKS1_RS6_EEEESA_(ptr noalias sret(%"class.eastl::reverse_iterator.26") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %first, ptr noundef %last) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %last, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %1, ptr %last, align 8
   %2 = load ptr, ptr %first, align 8
-  %mpPrev.i.i1 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i1 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i1, align 8
   store ptr %3, ptr %first, align 8
   %cmp.i.not2.i = icmp eq ptr %1, %3
   br i1 %cmp.i.not2.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EES8_.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %mSize.i.i.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, %while.body.lr.ph.i
   %first.sroa.0.03.i = phi ptr [ %1, %while.body.lr.ph.i ], [ %4, %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i ]
   %4 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !333
-  %mpPrev.i.i3 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i3 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i3, align 8, !noalias !333
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !333
   %7 = load ptr, ptr %5, align 8, !noalias !333
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %mpPrev2.i.i.i.i, align 8, !noalias !333
   %8 = load ptr, ptr %5, align 8, !noalias !333
   store ptr %8, ptr %6, align 8, !noalias !333
-  %mMagicValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %5, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %9 = load i32, ptr %mMagicValue.i.i.i.i.i, align 8, !noalias !333
   %cmp.not.i.i.i.i.i = icmp eq i32 %9, 32623592
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_EE.exit.i, label %if.then.i.i.i.i.i
@@ -11165,9 +11154,9 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE5eraseENS_12ListIteratorIS1_PKS1_RS5_E
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE17reset_lose_memoryEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %this, ptr %this, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %this, ptr %mpPrev.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mSize, align 8
   ret void
 }
@@ -11180,13 +11169,13 @@ entry:
   br i1 %cmp.not6, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %numRemoved.08 = phi i64 [ 0, %while.body.lr.ph ], [ %numRemoved.1, %if.end ]
   %current.sroa.0.07 = phi ptr [ %0, %while.body.lr.ph ], [ %3, %if.end ]
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %current.sroa.0.07, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %current.sroa.0.07, i64 16
   %1 = load i32, ptr %mValue.i, align 8
   %2 = load i32, ptr %value, align 8
   %cmp.i = icmp eq i32 %1, %2
@@ -11194,16 +11183,16 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i, label %if.else, label %if.end
 
 if.else:                                          ; preds = %while.body
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %mpPrev, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mpPrev.i.i, align 8
   %6 = load ptr, ptr %4, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %mpPrev2.i.i, align 8
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %5, align 8
-  %mMagicValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %4, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %8 = load i32, ptr %mMagicValue.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %8, 32623592
   br i1 %cmp.not.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE.exit, label %if.then.i.i.i
@@ -11247,7 +11236,7 @@ entry:
 do.body.i:                                        ; preds = %do.body.i, %entry
   %pNode.0.i = phi ptr [ %this, %entry ], [ %0, %do.body.i ]
   %0 = load ptr, ptr %pNode.0.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %pNode.0.i, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %pNode.0.i, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %1, ptr %pNode.0.i, align 8
   store ptr %0, ptr %mpPrev.i, align 8
@@ -11261,20 +11250,20 @@ _ZN5eastl12ListNodeBase7reverseEv.exit:           ; preds = %do.body.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EERS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.then:
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %x, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %x, i64 16
   %0 = load i64, ptr %mSize, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end13, label %if.then4
 
 if.then4:                                         ; preds = %if.then
   %1 = load ptr, ptr %x, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %2, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %x, ptr %3, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %4 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %mpPrev4.i, align 8
@@ -11284,7 +11273,7 @@ if.then4:                                         ; preds = %if.then
   store ptr %7, ptr %mpPrev.i, align 8
   store ptr %5, ptr %mpPrev2.i, align 8
   %8 = load i64, ptr %mSize, align 8
-  %mSize8 = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize8 = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %mSize8, align 8
   %add = add i64 %9, %8
   store i64 %add, ptr %mSize8, align 8
@@ -11305,13 +11294,13 @@ if.then:
   br i1 %or.cond, label %if.then8, label %if.end18
 
 if.then8:                                         ; preds = %if.then
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %i.coerce, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %i.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %0, ptr %2, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %i.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i, align 8
@@ -11320,11 +11309,11 @@ if.then8:                                         ; preds = %if.then
   %6 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %6, ptr %mpPrev.i, align 8
   store ptr %4, ptr %mpPrev2.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize, align 8
   %inc = add i64 %7, 1
   store i64 %inc, ptr %mSize, align 8
-  %mSize12 = getelementptr inbounds %"class.eastl::ListBase.22", ptr %x, i64 0, i32 1
+  %mSize12 = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize12, align 8
   %dec = add i64 %8, -1
   store i64 %dec, ptr %mSize12, align 8
@@ -11349,13 +11338,13 @@ while.body.i.i:                                   ; preds = %if.then, %while.bod
   br i1 %cmp.i.not.i.i, label %if.then10, label %while.body.i.i, !llvm.loop !339
 
 if.then10:                                        ; preds = %while.body.i.i
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %last.coerce, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %last.coerce, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.coerce, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %first.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %last.coerce, ptr %2, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i, align 8
   store ptr %first.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i, align 8
@@ -11364,11 +11353,11 @@ if.then10:                                        ; preds = %while.body.i.i
   %6 = load ptr, ptr %mpPrev2.i, align 8
   store ptr %6, ptr %mpPrev.i, align 8
   store ptr %4, ptr %mpPrev2.i, align 8
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize, align 8
   %add = add i64 %7, %inc.i.i
   store i64 %add, ptr %mSize, align 8
-  %mSize13 = getelementptr inbounds %"class.eastl::ListBase.22", ptr %x, i64 0, i32 1
+  %mSize13 = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize13, align 8
   %sub = sub i64 %8, %inc.i.i
   store i64 %sub, ptr %mSize13, align 8
@@ -11381,20 +11370,20 @@ if.end25:                                         ; preds = %if.then, %if.then10
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %x, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %x, i64 16
   %0 = load i64, ptr %mSize.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EERS3_.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %entry
   %1 = load ptr, ptr %x, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %x, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %position.coerce, ptr %2, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %x, ptr %3, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %4 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -11404,7 +11393,7 @@ if.then4.i:                                       ; preds = %entry
   store ptr %7, ptr %mpPrev.i.i, align 8
   store ptr %5, ptr %mpPrev2.i.i, align 8
   %8 = load i64, ptr %mSize.i, align 8
-  %mSize8.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize8.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %mSize8.i, align 8
   %add.i = add i64 %9, %8
   store i64 %add.i, ptr %mSize8.i, align 8
@@ -11425,13 +11414,13 @@ entry:
   br i1 %or.cond.i, label %if.then8.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EERS3_S8_.exit
 
 if.then8.i:                                       ; preds = %entry
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %i.coerce, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %i.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %0, ptr %2, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %i.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -11440,11 +11429,11 @@ if.then8.i:                                       ; preds = %entry
   %6 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %6, ptr %mpPrev.i.i, align 8
   store ptr %4, ptr %mpPrev2.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize.i, align 8
   %inc.i = add i64 %7, 1
   store i64 %inc.i, ptr %mSize.i, align 8
-  %mSize12.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %x, i64 0, i32 1
+  %mSize12.i = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize12.i, align 8
   %dec.i = add i64 %8, -1
   store i64 %dec.i, ptr %mSize12.i, align 8
@@ -11469,13 +11458,13 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   br i1 %cmp.i.not.i.i.i, label %if.then10.i, label %while.body.i.i.i, !llvm.loop !339
 
 if.then10.i:                                      ; preds = %while.body.i.i.i
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %last.coerce, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %last.coerce, i64 8
   %1 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %position.coerce, ptr %1, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.coerce, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %first.coerce, i64 8
   %2 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %last.coerce, ptr %2, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %position.coerce, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 8
   %3 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %first.coerce, ptr %3, align 8
   %4 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -11484,11 +11473,11 @@ if.then10.i:                                      ; preds = %while.body.i.i.i
   %6 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %6, ptr %mpPrev.i.i, align 8
   store ptr %4, ptr %mpPrev2.i.i, align 8
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %mSize.i, align 8
   %add.i = add i64 %7, %inc.i.i.i
   store i64 %add.i, ptr %mSize.i, align 8
-  %mSize13.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %x, i64 0, i32 1
+  %mSize13.i = getelementptr inbounds i8, ptr %x, i64 16
   %8 = load i64, ptr %mSize13.i, align 8
   %sub.i = sub i64 %8, %inc.i.i.i
   store i64 %sub.i, ptr %mSize13.i, align 8
@@ -11513,15 +11502,15 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond38, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
-  %mSize13.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %x, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mSize13.i = getelementptr inbounds i8, ptr %x, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %first.sroa.0.040 = phi ptr [ %0, %while.body.lr.ph ], [ %first.sroa.0.1, %if.end ]
   %firstX.sroa.0.039 = phi ptr [ %1, %while.body.lr.ph ], [ %firstX.sroa.0.1, %if.end ]
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %firstX.sroa.0.039, i64 0, i32 1
-  %mValue.i6 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %first.sroa.0.040, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %firstX.sroa.0.039, i64 16
+  %mValue.i6 = getelementptr inbounds i8, ptr %first.sroa.0.040, i64 16
   %2 = load i32, ptr %mValue.i, align 8
   %3 = load i32, ptr %mValue.i6, align 8
   %cmp.i7 = icmp slt i32 %2, %3
@@ -11541,13 +11530,13 @@ while.body.i.i.i:                                 ; preds = %if.then6, %while.bo
   br i1 %cmp.i.not.i.i.i, label %if.then10.i, label %while.body.i.i.i, !llvm.loop !339
 
 if.then10.i:                                      ; preds = %while.body.i.i.i
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %4, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %mpPrev.i.i, align 8
   store ptr %first.sroa.0.040, ptr %6, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %firstX.sroa.0.039, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %firstX.sroa.0.039, i64 8
   %7 = load ptr, ptr %mpPrev2.i.i, align 8
   store ptr %4, ptr %7, align 8
-  %mpPrev4.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.sroa.0.040, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %first.sroa.0.040, i64 8
   %8 = load ptr, ptr %mpPrev4.i.i, align 8
   store ptr %firstX.sroa.0.039, ptr %8, align 8
   %9 = load ptr, ptr %mpPrev4.i.i, align 8
@@ -11590,13 +11579,13 @@ while.body.i.i.i10:                               ; preds = %while.end, %while.b
   br i1 %cmp.i.not.i.i.i14, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EERS3_S8_S8_.exit23, label %while.body.i.i.i10, !llvm.loop !339
 
 _ZN5eastl4listI10TestObjectNS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_EERS3_S8_S8_.exit23: ; preds = %while.body.i.i.i10
-  %mpPrev.i.i16 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %x, i64 0, i32 1
+  %mpPrev.i.i16 = getelementptr inbounds i8, ptr %x, i64 8
   %16 = load ptr, ptr %mpPrev.i.i16, align 8
   store ptr %this, ptr %16, align 8
-  %mpPrev2.i.i17 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %firstX.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev2.i.i17 = getelementptr inbounds i8, ptr %firstX.sroa.0.0.lcssa, i64 8
   %17 = load ptr, ptr %mpPrev2.i.i17, align 8
   store ptr %x, ptr %17, align 8
-  %mpPrev4.i.i18 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %this, i64 0, i32 1
+  %mpPrev4.i.i18 = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load ptr, ptr %mpPrev4.i.i18, align 8
   store ptr %firstX.sroa.0.0.lcssa, ptr %18, align 8
   %19 = load ptr, ptr %mpPrev4.i.i18, align 8
@@ -11605,11 +11594,11 @@ _ZN5eastl4listI10TestObjectNS_9allocatorEE6spliceENS_12ListIteratorIS1_PKS1_RS5_
   %21 = load ptr, ptr %mpPrev2.i.i17, align 8
   store ptr %21, ptr %mpPrev.i.i16, align 8
   store ptr %19, ptr %mpPrev2.i.i17, align 8
-  %mSize.i19 = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i19 = getelementptr inbounds i8, ptr %this, i64 16
   %22 = load i64, ptr %mSize.i19, align 8
   %add.i20 = add i64 %22, %inc.i.i.i13
   store i64 %add.i20, ptr %mSize.i19, align 8
-  %mSize13.i21 = getelementptr inbounds %"class.eastl::ListBase.22", ptr %x, i64 0, i32 1
+  %mSize13.i21 = getelementptr inbounds i8, ptr %x, i64 16
   %23 = load i64, ptr %mSize13.i21, align 8
   %sub.i22 = sub i64 %23, %inc.i.i.i13
   store i64 %sub.i22, ptr %mSize13.i21, align 8
@@ -11639,28 +11628,28 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp.i1.not10, label %if.end8, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %2 = phi ptr [ %1, %while.body.lr.ph ], [ %13, %if.end ]
   %first.sroa.0.011 = phi ptr [ %0, %while.body.lr.ph ], [ %first.sroa.0.1, %if.end ]
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %first.sroa.0.011, i64 0, i32 1
-  %mValue.i2 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %2, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %first.sroa.0.011, i64 16
+  %mValue.i2 = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i32, ptr %mValue.i, align 8
   %4 = load i32, ptr %mValue.i2, align 8
   %cmp.i3 = icmp eq i32 %3, %4
   br i1 %cmp.i3, label %if.then7, label %if.end
 
 if.then7:                                         ; preds = %while.body
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %mpPrev.i.i, align 8
   %6 = load ptr, ptr %2, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %mpPrev2.i.i, align 8
   %7 = load ptr, ptr %2, align 8
   store ptr %7, ptr %5, align 8
-  %mMagicValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %2, i64 0, i32 1, i32 4
+  %mMagicValue.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %8 = load i32, ptr %mMagicValue.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq i32 %8, 32623592
   br i1 %cmp.not.i.i.i, label %_ZN5eastl4listI10TestObjectNS_9allocatorEE7DoEraseEPNS_12ListNodeBaseE.exit, label %if.then.i.i.i
@@ -11706,7 +11695,7 @@ entry:
   %0 = load ptr, ptr %this, align 8, !noalias !351
   store ptr %0, ptr %agg.tmp, align 8, !alias.scope !351
   store ptr %this, ptr %agg.tmp2, align 8, !alias.scope !354
-  %mSize.i = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mSize.i, align 8
   call void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6DoSortINS_4lessIS1_EEEENS_12ListIteratorIS1_PS1_RS1_EESA_SA_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.25") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %compare)
   ret void
@@ -11735,31 +11724,31 @@ sw.bb:                                            ; preds = %entry, %entry
 
 sw.bb2:                                           ; preds = %entry
   %1 = load ptr, ptr %end2, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i, align 8
   store ptr %2, ptr %end2, align 8
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %2, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %i1, align 8
-  %mValue.i19 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %3, i64 0, i32 1
+  %mValue.i19 = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i32, ptr %mValue.i, align 8
   %5 = load i32, ptr %mValue.i19, align 8
   %cmp.i.i = icmp slt i32 %4, %5
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb2
-  %mpPrev.i20 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %2, i64 0, i32 1
+  %mpPrev.i20 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %mpPrev.i20, align 8
   %7 = load ptr, ptr %2, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %6, ptr %mpPrev2.i, align 8
   %8 = load ptr, ptr %2, align 8
   store ptr %8, ptr %6, align 8
   %9 = load ptr, ptr %end2, align 8
   %10 = load ptr, ptr %i1, align 8
   store ptr %10, ptr %9, align 8
-  %mpPrev.i21 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %10, i64 0, i32 1
+  %mpPrev.i21 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %mpPrev.i21, align 8
-  %mpPrev2.i22 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %9, i64 0, i32 1
+  %mpPrev2.i22 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %11, ptr %mpPrev2.i22, align 8
   store ptr %9, ptr %11, align 8
   store ptr %9, ptr %mpPrev.i21, align 8
@@ -11783,8 +11772,8 @@ for.body:                                         ; preds = %sw.bb8, %for.inc
   %16 = phi ptr [ %21, %for.inc ], [ %13, %sw.bb8 ]
   %17 = phi ptr [ %22, %for.inc ], [ %13, %sw.bb8 ]
   %current.sroa.0.075 = phi ptr [ %23, %for.inc ], [ %14, %sw.bb8 ]
-  %mValue.i23 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %current.sroa.0.075, i64 0, i32 1
-  %mValue.i24 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %17, i64 0, i32 1
+  %mValue.i23 = getelementptr inbounds i8, ptr %current.sroa.0.075, i64 16
+  %mValue.i24 = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load i32, ptr %mValue.i23, align 8
   %19 = load i32, ptr %mValue.i24, align 8
   %cmp.i.i25 = icmp slt i32 %18, %19
@@ -11811,16 +11800,16 @@ if.then17:                                        ; preds = %sw.bb8, %for.end
   br label %if.end22
 
 if.else:                                          ; preds = %for.end
-  %mpPrev.i27 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %21, i64 0, i32 1
+  %mpPrev.i27 = getelementptr inbounds i8, ptr %21, i64 8
   %24 = load ptr, ptr %mpPrev.i27, align 8
   %25 = load ptr, ptr %21, align 8
-  %mpPrev2.i28 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %25, i64 0, i32 1
+  %mpPrev2.i28 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %24, ptr %mpPrev2.i28, align 8
   %26 = load ptr, ptr %21, align 8
   store ptr %26, ptr %24, align 8
   %27 = load ptr, ptr %i1, align 8
   store ptr %27, ptr %21, align 8
-  %mpPrev.i29 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %27, i64 0, i32 1
+  %mpPrev.i29 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %mpPrev.i29, align 8
   store ptr %28, ptr %mpPrev.i27, align 8
   store ptr %21, ptr %28, align 8
@@ -11829,31 +11818,31 @@ if.else:                                          ; preds = %for.end
 
 if.end22:                                         ; preds = %if.else, %if.then17
   %29 = load ptr, ptr %end2, align 8
-  %mpPrev.i31 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %29, i64 0, i32 1
+  %mpPrev.i31 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = load ptr, ptr %mpPrev.i31, align 8
   store ptr %30, ptr %end2, align 8
-  %mValue.i32 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %30, i64 0, i32 1
+  %mValue.i32 = getelementptr inbounds i8, ptr %30, i64 16
   %31 = load ptr, ptr %i1, align 8
-  %mValue.i33 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %31, i64 0, i32 1
+  %mValue.i33 = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load i32, ptr %mValue.i32, align 8
   %33 = load i32, ptr %mValue.i33, align 8
   %cmp.i.i34 = icmp slt i32 %32, %33
   br i1 %cmp.i.i34, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end22
-  %mpPrev.i35 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %30, i64 0, i32 1
+  %mpPrev.i35 = getelementptr inbounds i8, ptr %30, i64 8
   %34 = load ptr, ptr %mpPrev.i35, align 8
   %35 = load ptr, ptr %30, align 8
-  %mpPrev2.i36 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %35, i64 0, i32 1
+  %mpPrev2.i36 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %34, ptr %mpPrev2.i36, align 8
   %36 = load ptr, ptr %30, align 8
   store ptr %36, ptr %34, align 8
   %37 = load ptr, ptr %end2, align 8
   %38 = load ptr, ptr %i1, align 8
   store ptr %38, ptr %37, align 8
-  %mpPrev.i37 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %38, i64 0, i32 1
+  %mpPrev.i37 = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load ptr, ptr %mpPrev.i37, align 8
-  %mpPrev2.i38 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %37, i64 0, i32 1
+  %mpPrev2.i38 = getelementptr inbounds i8, ptr %37, i64 8
   store ptr %39, ptr %mpPrev2.i38, align 8
   store ptr %37, ptr %39, align 8
   store ptr %37, ptr %mpPrev.i37, align 8
@@ -11885,9 +11874,9 @@ _ZN5eastl4nextINS_12ListIteratorI10TestObjectPS2_RS2_EEEET_S6_NS_15iterator_trai
   %sub = sub i64 %n, %div17
   call void @_ZN5eastl4listI10TestObjectNS_9allocatorEE6DoSortINS_4lessIS1_EEEENS_12ListIteratorIS1_PS1_RS1_EESA_SA_mRT_(ptr nonnull sret(%"struct.eastl::ListIterator.25") align 8 %i2, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %agg.tmp34, ptr noundef nonnull %agg.tmp35, i64 noundef %sub, ptr noundef nonnull align 1 dereferenceable(1) %compare)
   %45 = load ptr, ptr %i2, align 8
-  %mValue.i39 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %45, i64 0, i32 1
+  %mValue.i39 = getelementptr inbounds i8, ptr %45, i64 16
   %46 = load ptr, ptr %i1, align 8
-  %mValue.i40 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %46, i64 0, i32 1
+  %mValue.i40 = getelementptr inbounds i8, ptr %46, i64 16
   %47 = load i32, ptr %mValue.i39, align 8
   %48 = load i32, ptr %mValue.i40, align 8
   %cmp.i.i41 = icmp slt i32 %47, %48
@@ -11905,27 +11894,27 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %cmp.i42.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %mValue.i43 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %ix.sroa.0.0, i64 0, i32 1
+  %mValue.i43 = getelementptr inbounds i8, ptr %ix.sroa.0.0, i64 16
   %51 = load i32, ptr %mValue.i43, align 8
   %cmp.i.i45 = icmp slt i32 %51, %48
   br i1 %cmp.i.i45, label %while.cond, label %while.end, !llvm.loop !362
 
 while.end:                                        ; preds = %while.cond, %land.rhs
   %ix.sroa.0.0.lcssa = phi ptr [ %50, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %ix.sroa.0.0.lcssa, i64 8
   %52 = load ptr, ptr %mpPrev, align 8
   store i64 %49, ptr %agg.result, align 8
   %.cast18 = ptrtoint ptr %ix.sroa.0.0.lcssa to i64
   store i64 %.cast18, ptr %i2, align 8
-  %mpPrev.i46 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %45, i64 0, i32 1
+  %mpPrev.i46 = getelementptr inbounds i8, ptr %45, i64 8
   %53 = load ptr, ptr %mpPrev.i46, align 8
   %54 = load ptr, ptr %52, align 8
-  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %54, i64 0, i32 1
+  %mpPrev1.i = getelementptr inbounds i8, ptr %54, i64 8
   store ptr %53, ptr %mpPrev1.i, align 8
   %55 = load ptr, ptr %52, align 8
   store ptr %55, ptr %53, align 8
   %56 = load ptr, ptr %i1, align 8
-  %mpPrev.i47 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %56, i64 0, i32 1
+  %mpPrev.i47 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load ptr, ptr %mpPrev.i47, align 8
   store ptr %45, ptr %57, align 8
   %58 = load ptr, ptr %mpPrev.i47, align 8
@@ -11957,8 +11946,8 @@ land.rhs53:                                       ; preds = %if.end49, %for.inc8
   br i1 %cmp.i49.not, label %return, label %for.body56
 
 for.body56:                                       ; preds = %land.rhs53
-  %mValue.i50 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %60, i64 0, i32 1
-  %mValue.i51 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %storemerge80, i64 0, i32 1
+  %mValue.i50 = getelementptr inbounds i8, ptr %60, i64 16
+  %mValue.i51 = getelementptr inbounds i8, ptr %storemerge80, i64 16
   %62 = load i32, ptr %mValue.i50, align 8
   %63 = load i32, ptr %mValue.i51, align 8
   %cmp.i.i52 = icmp slt i32 %62, %63
@@ -11971,28 +11960,28 @@ while.cond62:                                     ; preds = %for.body56, %land.r
   br i1 %cmp.i53.not, label %while.end71, label %land.rhs64
 
 land.rhs64:                                       ; preds = %while.cond62
-  %mValue.i54 = getelementptr inbounds %"struct.eastl::ListNode.28", ptr %ix61.sroa.0.0, i64 0, i32 1
+  %mValue.i54 = getelementptr inbounds i8, ptr %ix61.sroa.0.0, i64 16
   %64 = load i32, ptr %mValue.i54, align 8
   %cmp.i.i56 = icmp slt i32 %64, %63
   br i1 %cmp.i.i56, label %while.cond62, label %while.end71, !llvm.loop !363
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
   %ix61.sroa.0.0.lcssa = phi ptr [ %61, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
-  %mpPrev76 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix61.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev76 = getelementptr inbounds i8, ptr %ix61.sroa.0.0.lcssa, i64 8
   %65 = load ptr, ptr %mpPrev76, align 8
   %cmp.i57 = icmp eq ptr %end1.sroa.0.179, %60
   %spec.select = select i1 %cmp.i57, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.179
   %66 = ptrtoint ptr %ix61.sroa.0.0.lcssa to i64
   store i64 %66, ptr %i2, align 8
-  %mpPrev.i58 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %60, i64 0, i32 1
+  %mpPrev.i58 = getelementptr inbounds i8, ptr %60, i64 8
   %67 = load ptr, ptr %mpPrev.i58, align 8
   %68 = load ptr, ptr %65, align 8
-  %mpPrev1.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %68, i64 0, i32 1
+  %mpPrev1.i59 = getelementptr inbounds i8, ptr %68, i64 8
   store ptr %67, ptr %mpPrev1.i59, align 8
   %69 = load ptr, ptr %65, align 8
   store ptr %69, ptr %67, align 8
   %70 = load ptr, ptr %i1, align 8
-  %mpPrev.i60 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %70, i64 0, i32 1
+  %mpPrev.i60 = getelementptr inbounds i8, ptr %70, i64 8
   %71 = load ptr, ptr %mpPrev.i60, align 8
   store ptr %60, ptr %71, align 8
   %72 = load ptr, ptr %mpPrev.i60, align 8
@@ -12028,7 +12017,7 @@ for.cond:                                         ; preds = %for.cond, %entry
   br i1 %cmp.i.not, label %for.end, label %for.cond, !llvm.loop !365
 
 for.end:                                          ; preds = %for.cond
-  %mSize = getelementptr inbounds %"class.eastl::ListBase.22", ptr %this, i64 0, i32 1
+  %mSize = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mSize, align 8
   %cmp.not = icmp eq i64 %n.0, %0
   ret i1 %cmp.not
@@ -12233,7 +12222,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %l, i64 16
   store i64 0, ptr %0, align 8
   store ptr %l, ptr %l, align 8
-  %mpPrev.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %l, i64 0, i32 1
+  %mpPrev.i.i.i = getelementptr inbounds i8, ptr %l, i64 8
   store ptr %l, ptr %mpPrev.i.i.i, align 8
   %call1 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 28, ptr noundef nonnull @.str.1)
           to label %invoke.cont unwind label %lpad
@@ -12281,12 +12270,12 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit:         ; preds = %_ZN5eastl9allocator
   store i32 0, ptr @_ZN15MallocAllocator13mFreeCountAllE, align 4
   store i64 0, ptr @_ZN15MallocAllocator15mAllocVolumeAllE, align 8
   store ptr null, ptr @_ZN15MallocAllocator16mpLastAllocationE, align 8
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.33", ptr %l12, i64 0, i32 1
-  %mSize.i.i = getelementptr inbounds %"class.eastl::ListBase.31", ptr %l12, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %l12, i64 16
+  %mSize.i.i = getelementptr inbounds i8, ptr %l12, i64 32
   %6 = getelementptr inbounds i8, ptr %l12, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store ptr %l12, ptr %l12, align 8
-  %mpPrev.i.i.i133 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %l12, i64 0, i32 1
+  %mpPrev.i.i.i133 = getelementptr inbounds i8, ptr %l12, i64 8
   store ptr %l12, ptr %mpPrev.i.i.i133, align 8
   %call18 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 40, ptr noundef nonnull @.str.5)
           to label %invoke.cont17 unwind label %lpad14
@@ -12297,12 +12286,12 @@ invoke.cont17:                                    ; preds = %_ZN5eastl4listIiNS_
           to label %invoke.cont20 unwind label %lpad14
 
 invoke.cont20:                                    ; preds = %invoke.cont17
-  %mValue.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i135, i64 0, i32 1
+  %mValue.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i135, i64 16
   store i32 42, ptr %mValue.i.i.i.i, align 4, !noalias !373
   store ptr %7, ptr %call.i.i.i.i.i.i135, align 8, !noalias !373
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %7, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %mpPrev.i.i.i.i, align 8, !noalias !373
-  %mpPrev2.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i135, i64 0, i32 1
+  %mpPrev2.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i135, i64 8
   store ptr %8, ptr %mpPrev2.i.i.i.i, align 8, !noalias !373
   store ptr %call.i.i.i.i.i.i135, ptr %8, align 8, !noalias !373
   store ptr %call.i.i.i.i.i.i135, ptr %mpPrev.i.i.i.i, align 8, !noalias !373
@@ -12344,7 +12333,7 @@ _ZN5eastl4listIi15MallocAllocatorED2Ev.exit:      ; preds = %.noexc.i.i, %invoke
   %17 = getelementptr inbounds i8, ptr %l26, i64 16
   store i64 0, ptr %17, align 8
   store ptr %l26, ptr %l26, align 8
-  %mpPrev.i.i.i139 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %l26, i64 0, i32 1
+  %mpPrev.i.i.i139 = getelementptr inbounds i8, ptr %l26, i64 8
   store ptr %l26, ptr %mpPrev.i.i.i139, align 8
   br label %for.body.i.i
 
@@ -12354,11 +12343,11 @@ for.body.i.i:                                     ; preds = %call.i.i.i.i.i.i.no
           to label %call.i.i.i.i.i.i.noexc.i unwind label %lpad.i
 
 call.i.i.i.i.i.i.noexc.i:                         ; preds = %for.body.i.i
-  %mValue.i.i.i.i144 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i, i64 0, i32 1
+  %mValue.i.i.i.i144 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i, i64 16
   store i32 0, ptr %mValue.i.i.i.i144, align 4
   store ptr %l26, ptr %call.i.i.i.i.i.i1.i, align 8
   %18 = load ptr, ptr %mpPrev.i.i.i139, align 8
-  %mpPrev2.i.i.i.i145 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i145 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i, i64 8
   store ptr %18, ptr %mpPrev2.i.i.i.i145, align 8
   store ptr %call.i.i.i.i.i.i1.i, ptr %18, align 8
   store ptr %call.i.i.i.i.i.i1.i, ptr %mpPrev.i.i.i139, align 8
@@ -12419,7 +12408,7 @@ invoke.cont37:                                    ; preds = %_ZNK5eastl4listIiNS
 
 for.body.i:                                       ; preds = %invoke.cont37, %for.inc.i
   %26 = phi ptr [ %28, %for.inc.i ], [ %25, %invoke.cont37 ]
-  %mValue.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %26, i64 0, i32 1
+  %mValue.i.i = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load i32, ptr %mValue.i.i, align 4
   %cmp.i1.i = icmp eq i32 %27, 0
   br i1 %cmp.i1.i, label %for.inc.i, label %invoke.cont41
@@ -12450,7 +12439,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit165:      ; preds = %_ZN5eastl9allocator
   %31 = getelementptr inbounds i8, ptr %l46, i64 16
   store i64 0, ptr %31, align 8
   store ptr %l46, ptr %l46, align 8
-  %mpPrev.i.i.i166 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %l46, i64 0, i32 1
+  %mpPrev.i.i.i166 = getelementptr inbounds i8, ptr %l46, i64 8
   store ptr %l46, ptr %mpPrev.i.i.i166, align 8
   br label %for.body.i.i.i
 
@@ -12460,11 +12449,11 @@ for.body.i.i.i:                                   ; preds = %call.i.i.i.i.i.i.i.
           to label %call.i.i.i.i.i.i.i.noexc.i unwind label %lpad.i167
 
 call.i.i.i.i.i.i.i.noexc.i:                       ; preds = %for.body.i.i.i
-  %mValue.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i.i1.i, i64 0, i32 1
+  %mValue.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i1.i, i64 16
   store i32 435, ptr %mValue.i.i.i.i.i, align 4
   store ptr %l46, ptr %call.i.i.i.i.i.i.i1.i, align 8
   %32 = load ptr, ptr %mpPrev.i.i.i166, align 8
-  %mpPrev2.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i1.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i1.i, i64 8
   store ptr %32, ptr %mpPrev2.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i.i1.i, ptr %32, align 8
   store ptr %call.i.i.i.i.i.i.i1.i, ptr %mpPrev.i.i.i166, align 8
@@ -12521,7 +12510,7 @@ invoke.cont57:                                    ; preds = %_ZNK5eastl4listIiNS
 
 for.body.i186:                                    ; preds = %invoke.cont57, %for.inc.i190
   %40 = phi ptr [ %42, %for.inc.i190 ], [ %39, %invoke.cont57 ]
-  %mValue.i.i187 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %40, i64 0, i32 1
+  %mValue.i.i187 = getelementptr inbounds i8, ptr %40, i64 16
   %41 = load i32, ptr %mValue.i.i187, align 4
   %cmp.i1.i188 = icmp eq i32 %41, 435
   br i1 %cmp.i1.i188, label %for.inc.i190, label %invoke.cont62
@@ -12552,7 +12541,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit197:      ; preds = %_ZN5eastl9allocator
   %45 = getelementptr inbounds i8, ptr %a, i64 16
   store i64 0, ptr %45, align 8
   store ptr %a, ptr %a, align 8
-  %mpPrev.i.i.i198 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a, i64 0, i32 1
+  %mpPrev.i.i.i198 = getelementptr inbounds i8, ptr %a, i64 8
   store ptr %a, ptr %mpPrev.i.i.i198, align 8
   br label %for.body.i.i199
 
@@ -12563,12 +12552,12 @@ for.body.i.i199:                                  ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i207:                      ; preds = %for.body.i.i199
   %first.addr.04.i.i.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i.idx
-  %mValue.i.i.i.i208 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i200, i64 0, i32 1
+  %mValue.i.i.i.i208 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i200, i64 16
   %46 = load i32, ptr %first.addr.04.i.i.ptr, align 4
   store i32 %46, ptr %mValue.i.i.i.i208, align 4
   store ptr %a, ptr %call.i.i.i.i.i.i1.i200, align 8
   %47 = load ptr, ptr %mpPrev.i.i.i198, align 8
-  %mpPrev2.i.i.i.i209 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i200, i64 0, i32 1
+  %mpPrev2.i.i.i.i209 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i200, i64 8
   store ptr %47, ptr %mpPrev2.i.i.i.i209, align 8
   store ptr %call.i.i.i.i.i.i1.i200, ptr %47, align 8
   store ptr %call.i.i.i.i.i.i1.i200, ptr %mpPrev.i.i.i198, align 8
@@ -12597,7 +12586,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit: ; preds = %
   %52 = getelementptr inbounds i8, ptr %b, i64 16
   store i64 0, ptr %52, align 8
   store ptr %b, ptr %b, align 8
-  %mpPrev.i.i.i212 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %b, i64 0, i32 1
+  %mpPrev.i.i.i212 = getelementptr inbounds i8, ptr %b, i64 8
   store ptr %b, ptr %mpPrev.i.i.i212, align 8
   %53 = load ptr, ptr %a, align 8
   %cmp.i.not3.i.i = icmp eq ptr %53, %a
@@ -12609,13 +12598,13 @@ for.body.i.i213:                                  ; preds = %_ZN5eastl4listIiNS_
           to label %call.i.i.i.i.i.i.noexc.i220 unwind label %lpad.i214
 
 call.i.i.i.i.i.i.noexc.i220:                      ; preds = %for.body.i.i213
-  %mValue.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first.sroa.0.04.i.i, i64 0, i32 1
-  %mValue.i.i.i.i221 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i3.i, i64 0, i32 1
+  %mValue.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.04.i.i, i64 16
+  %mValue.i.i.i.i221 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i, i64 16
   %54 = load i32, ptr %mValue.i.i.i, align 4
   store i32 %54, ptr %mValue.i.i.i.i221, align 4
   store ptr %b, ptr %call.i.i.i.i.i.i3.i, align 8
   %55 = load ptr, ptr %mpPrev.i.i.i212, align 8
-  %mpPrev2.i.i.i.i222 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i3.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i222 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i, i64 8
   store ptr %55, ptr %mpPrev2.i.i.i.i222, align 8
   store ptr %call.i.i.i.i.i.i3.i, ptr %55, align 8
   store ptr %call.i.i.i.i.i.i3.i, ptr %mpPrev.i.i.i212, align 8
@@ -12659,9 +12648,9 @@ while.cond.i:                                     ; preds = %invoke.cont70, %lan
 
 land.rhs.i:                                       ; preds = %while.cond.i
   %ib.sroa.0.0.i = load ptr, ptr %ib.sroa.0.0.in.i, align 8
-  %mValue.i.i227 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i, i64 0, i32 1
+  %mValue.i.i227 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i, i64 16
   %63 = load i32, ptr %mValue.i.i227, align 4
-  %mValue.i5.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i, i64 0, i32 1
+  %mValue.i5.i = getelementptr inbounds i8, ptr %ib.sroa.0.0.i, i64 16
   %64 = load i32, ptr %mValue.i5.i, align 4
   %cmp10.i = icmp eq i32 %63, %64
   br i1 %cmp10.i, label %while.cond.i, label %while.end.i, !llvm.loop !385
@@ -12736,12 +12725,12 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i255: ; preds = %_ZN5eastl4listIiNS
   br i1 %cmp.not.i.i.i257, label %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit259, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i255, !llvm.loop !100
 
 _ZN5eastl4listIiNS_9allocatorEED2Ev.exit259:      ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i255, %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit253
-  %mSecond.i.i.i.i260 = getelementptr inbounds %"class.eastl::compressed_pair_imp.33", ptr %a88, i64 0, i32 1
-  %mSize.i.i265 = getelementptr inbounds %"class.eastl::ListBase.31", ptr %a88, i64 0, i32 1
+  %mSecond.i.i.i.i260 = getelementptr inbounds i8, ptr %a88, i64 16
+  %mSize.i.i265 = getelementptr inbounds i8, ptr %a88, i64 32
   %73 = getelementptr inbounds i8, ptr %a88, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false)
   store ptr %a88, ptr %a88, align 8
-  %mpPrev.i.i.i266 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a88, i64 0, i32 1
+  %mpPrev.i.i.i266 = getelementptr inbounds i8, ptr %a88, i64 8
   store ptr %a88, ptr %mpPrev.i.i.i266, align 8
   br label %for.body.i.i268
 
@@ -12752,12 +12741,12 @@ for.body.i.i268:                                  ; preds = %call.i.i.i.i.i.noex
 
 call.i.i.i.i.i.noexc.i:                           ; preds = %for.body.i.i268
   %first.addr.04.i.i269.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i269.idx
-  %mValue.i.i.i.i271 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i1.i, i64 0, i32 1
+  %mValue.i.i.i.i271 = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i, i64 16
   %74 = load i32, ptr %first.addr.04.i.i269.ptr, align 4
   store i32 %74, ptr %mValue.i.i.i.i271, align 4
   store ptr %a88, ptr %call.i.i.i.i.i1.i, align 8
   %75 = load ptr, ptr %mpPrev.i.i.i266, align 8
-  %mpPrev2.i.i.i.i272 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i1.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i272 = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i, i64 8
   store ptr %75, ptr %mpPrev2.i.i.i.i272, align 8
   store ptr %call.i.i.i.i.i1.i, ptr %75, align 8
   store ptr %call.i.i.i.i.i1.i, ptr %mpPrev.i.i.i266, align 8
@@ -12775,12 +12764,12 @@ lpad.i270:                                        ; preds = %for.body.i.i268
   br label %common.resume
 
 _ZN5eastl4listIi15MallocAllocatorEC2ESt16initializer_listIiERKS1_.exit: ; preds = %call.i.i.i.i.i.noexc.i
-  %mSecond.i.i.i.i276 = getelementptr inbounds %"class.eastl::compressed_pair_imp.33", ptr %b96, i64 0, i32 1
-  %mSize.i.i281 = getelementptr inbounds %"class.eastl::ListBase.31", ptr %b96, i64 0, i32 1
+  %mSecond.i.i.i.i276 = getelementptr inbounds i8, ptr %b96, i64 16
+  %mSize.i.i281 = getelementptr inbounds i8, ptr %b96, i64 32
   %78 = getelementptr inbounds i8, ptr %b96, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   store ptr %b96, ptr %b96, align 8
-  %mpPrev.i.i.i282 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %b96, i64 0, i32 1
+  %mpPrev.i.i.i282 = getelementptr inbounds i8, ptr %b96, i64 8
   store ptr %b96, ptr %mpPrev.i.i.i282, align 8
   %79 = load ptr, ptr %a88, align 8
   %cmp.i.not3.i.i283 = icmp eq ptr %79, %a88
@@ -12792,13 +12781,13 @@ for.body.i.i284:                                  ; preds = %_ZN5eastl4listIi15M
           to label %call.i.i.i.i.i.noexc.i287 unwind label %lpad.i286
 
 call.i.i.i.i.i.noexc.i287:                        ; preds = %for.body.i.i284
-  %mValue.i.i.i288 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first.sroa.0.04.i.i285, i64 0, i32 1
-  %mValue.i.i.i.i289 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i2.i, i64 0, i32 1
+  %mValue.i.i.i288 = getelementptr inbounds i8, ptr %first.sroa.0.04.i.i285, i64 16
+  %mValue.i.i.i.i289 = getelementptr inbounds i8, ptr %call.i.i.i.i.i2.i, i64 16
   %80 = load i32, ptr %mValue.i.i.i288, align 4
   store i32 %80, ptr %mValue.i.i.i.i289, align 4
   store ptr %b96, ptr %call.i.i.i.i.i2.i, align 8
   %81 = load ptr, ptr %mpPrev.i.i.i282, align 8
-  %mpPrev2.i.i.i.i290 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i2.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i290 = getelementptr inbounds i8, ptr %call.i.i.i.i.i2.i, i64 8
   store ptr %81, ptr %mpPrev2.i.i.i.i290, align 8
   store ptr %call.i.i.i.i.i2.i, ptr %81, align 8
   store ptr %call.i.i.i.i.i2.i, ptr %mpPrev.i.i.i282, align 8
@@ -12834,9 +12823,9 @@ while.cond.i298:                                  ; preds = %invoke.cont98, %lan
 
 land.rhs.i303:                                    ; preds = %while.cond.i298
   %ib.sroa.0.0.i304 = load ptr, ptr %ib.sroa.0.0.in.i299, align 8
-  %mValue.i.i305 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i301, i64 0, i32 1
+  %mValue.i.i305 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i301, i64 16
   %87 = load i32, ptr %mValue.i.i305, align 4
-  %mValue.i5.i306 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i304, i64 0, i32 1
+  %mValue.i5.i306 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i304, i64 16
   %88 = load i32, ptr %mValue.i5.i306, align 4
   %cmp10.i307 = icmp eq i32 %87, %88
   br i1 %cmp10.i307, label %while.cond.i298, label %while.end.i308, !llvm.loop !388
@@ -12938,7 +12927,7 @@ _ZN5eastl4listIi15MallocAllocatorED2Ev.exit349:   ; preds = %.noexc.i.i347, %_ZN
   %101 = getelementptr inbounds i8, ptr %a125, i64 16
   store i64 0, ptr %101, align 8
   store ptr %a125, ptr %a125, align 8
-  %mpPrev.i.i.i350 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a125, i64 0, i32 1
+  %mpPrev.i.i.i350 = getelementptr inbounds i8, ptr %a125, i64 8
   store ptr %a125, ptr %mpPrev.i.i.i350, align 8
   br label %for.body.i.i352
 
@@ -12949,12 +12938,12 @@ for.body.i.i352:                                  ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i361:                      ; preds = %for.body.i.i352
   %first.addr.04.i.i353.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i353.idx
-  %mValue.i.i.i.i362 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i354, i64 0, i32 1
+  %mValue.i.i.i.i362 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i354, i64 16
   %102 = load i32, ptr %first.addr.04.i.i353.ptr, align 4
   store i32 %102, ptr %mValue.i.i.i.i362, align 4
   store ptr %a125, ptr %call.i.i.i.i.i.i1.i354, align 8
   %103 = load ptr, ptr %mpPrev.i.i.i350, align 8
-  %mpPrev2.i.i.i.i363 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i354, i64 0, i32 1
+  %mpPrev2.i.i.i.i363 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i354, i64 8
   store ptr %103, ptr %mpPrev2.i.i.i.i363, align 8
   store ptr %call.i.i.i.i.i.i1.i354, ptr %103, align 8
   store ptr %call.i.i.i.i.i.i1.i354, ptr %mpPrev.i.i.i350, align 8
@@ -13008,7 +12997,7 @@ invoke.cont143:                                   ; preds = %_ZNK5eastl4listIiNS
   %110 = getelementptr inbounds i8, ptr %b145, i64 16
   store i64 0, ptr %110, align 8
   store ptr %b145, ptr %b145, align 8
-  %mpPrev.i.i.i380 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %b145, i64 0, i32 1
+  %mpPrev.i.i.i380 = getelementptr inbounds i8, ptr %b145, i64 8
   store ptr %b145, ptr %mpPrev.i.i.i380, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %b145, i64 16, i1 false)
@@ -13026,7 +13015,7 @@ if.else.i.i.i.i:                                  ; preds = %invoke.cont143
   %112 = load ptr, ptr %mpPrev.i.i.i380, align 8
   store ptr %b145, ptr %112, align 8
   %113 = load ptr, ptr %b145, align 8
-  %mpPrev5.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %113, i64 0, i32 1
+  %mpPrev5.i.i.i.i = getelementptr inbounds i8, ptr %113, i64 8
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
@@ -13044,7 +13033,7 @@ if.else11.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   %115 = load ptr, ptr %mpPrev.i.i.i350, align 8
   store ptr %a125, ptr %115, align 8
   %116 = load ptr, ptr %a125, align 8
-  %mpPrev15.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %116, i64 0, i32 1
+  %mpPrev15.i.i.i.i = getelementptr inbounds i8, ptr %116, i64 8
   br label %invoke.cont147
 
 invoke.cont147:                                   ; preds = %if.else11.i.i.i.i, %if.then8.i.i.i.i
@@ -13092,9 +13081,9 @@ while.cond.i.i:                                   ; preds = %invoke.cont162, %la
 
 land.rhs.i.i:                                     ; preds = %while.cond.i.i
   %ib.sroa.0.0.i.i = load ptr, ptr %ib.sroa.0.0.in.i.i, align 8
-  %mValue.i.i.i389 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i.i, i64 0, i32 1
+  %mValue.i.i.i389 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i.i, i64 16
   %124 = load i32, ptr %mValue.i.i.i389, align 4
-  %mValue.i5.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i.i, i64 0, i32 1
+  %mValue.i5.i.i = getelementptr inbounds i8, ptr %ib.sroa.0.0.i.i, i64 16
   %125 = load i32, ptr %mValue.i5.i.i, align 4
   %cmp10.i.i = icmp eq i32 %124, %125
   br i1 %cmp10.i.i, label %while.cond.i.i, label %while.end.i.i, !llvm.loop !385
@@ -13172,7 +13161,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit421:      ; preds = %_ZN5eastl9allocator
   %134 = getelementptr inbounds i8, ptr %a181, i64 16
   store i64 0, ptr %134, align 8
   store ptr %a181, ptr %a181, align 8
-  %mpPrev.i.i.i422 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a181, i64 0, i32 1
+  %mpPrev.i.i.i422 = getelementptr inbounds i8, ptr %a181, i64 8
   store ptr %a181, ptr %mpPrev.i.i.i422, align 8
   br label %for.body.i.i424
 
@@ -13183,12 +13172,12 @@ for.body.i.i424:                                  ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i433:                      ; preds = %for.body.i.i424
   %first.addr.04.i.i425.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i425.idx
-  %mValue.i.i.i.i434 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i426, i64 0, i32 1
+  %mValue.i.i.i.i434 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i426, i64 16
   %135 = load i32, ptr %first.addr.04.i.i425.ptr, align 4
   store i32 %135, ptr %mValue.i.i.i.i434, align 4
   store ptr %a181, ptr %call.i.i.i.i.i.i1.i426, align 8
   %136 = load ptr, ptr %mpPrev.i.i.i422, align 8
-  %mpPrev2.i.i.i.i435 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i426, i64 0, i32 1
+  %mpPrev2.i.i.i.i435 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i426, i64 8
   store ptr %136, ptr %mpPrev2.i.i.i.i435, align 8
   store ptr %call.i.i.i.i.i.i1.i426, ptr %136, align 8
   store ptr %call.i.i.i.i.i.i1.i426, ptr %mpPrev.i.i.i422, align 8
@@ -13220,7 +13209,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit439: ; preds 
 
 for.body.i441:                                    ; preds = %_ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit439, %call.i.i.noexc
   %agg.tmp189.sroa.0.0 = phi ptr [ %144, %call.i.i.noexc ], [ %141, %_ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit439 ]
-  %mValue.i.i442 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %agg.tmp189.sroa.0.0, i64 0, i32 1
+  %mValue.i.i442 = getelementptr inbounds i8, ptr %agg.tmp189.sroa.0.0, i64 16
   %142 = load i32, ptr %mValue.i.i442, align 4
   %143 = load i32, ptr @"_ZZZ8TestListvENK3$_2clEiE3inc", align 4
   %inc.i.i = add nsw i32 %143, 1
@@ -13250,7 +13239,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit451:      ; preds = %_ZN5eastl9allocator
   %146 = getelementptr inbounds i8, ptr %ref, i64 16
   store i64 0, ptr %146, align 8
   store ptr %ref, ptr %ref, align 8
-  %mpPrev.i.i.i452 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref, i64 0, i32 1
+  %mpPrev.i.i.i452 = getelementptr inbounds i8, ptr %ref, i64 8
   store ptr %ref, ptr %mpPrev.i.i.i452, align 8
   br label %for.body.i.i454
 
@@ -13261,12 +13250,12 @@ for.body.i.i454:                                  ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i463:                      ; preds = %for.body.i.i454
   %first.addr.04.i.i455.ptr = getelementptr inbounds i8, ptr @constinit.44, i64 %first.addr.04.i.i455.idx
-  %mValue.i.i.i.i464 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i456, i64 0, i32 1
+  %mValue.i.i.i.i464 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i456, i64 16
   %147 = load i32, ptr %first.addr.04.i.i455.ptr, align 4
   store i32 %147, ptr %mValue.i.i.i.i464, align 4
   store ptr %ref, ptr %call.i.i.i.i.i.i1.i456, align 8
   %148 = load ptr, ptr %mpPrev.i.i.i452, align 8
-  %mpPrev2.i.i.i.i465 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i456, i64 0, i32 1
+  %mpPrev2.i.i.i.i465 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i456, i64 8
   store ptr %148, ptr %mpPrev2.i.i.i.i465, align 8
   store ptr %call.i.i.i.i.i.i1.i456, ptr %148, align 8
   store ptr %call.i.i.i.i.i.i1.i456, ptr %mpPrev.i.i.i452, align 8
@@ -13295,7 +13284,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit469: ; preds 
   %153 = getelementptr inbounds i8, ptr %a204, i64 16
   store i64 0, ptr %153, align 8
   store ptr %a204, ptr %a204, align 8
-  %mpPrev.i.i.i470 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a204, i64 0, i32 1
+  %mpPrev.i.i.i470 = getelementptr inbounds i8, ptr %a204, i64 8
   store ptr %a204, ptr %mpPrev.i.i.i470, align 8
   br label %for.body.i.i472
 
@@ -13306,12 +13295,12 @@ for.body.i.i472:                                  ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i481:                      ; preds = %for.body.i.i472
   %first.addr.04.i.i473.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i473.idx
-  %mValue.i.i.i.i482 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i474, i64 0, i32 1
+  %mValue.i.i.i.i482 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i474, i64 16
   %154 = load i32, ptr %first.addr.04.i.i473.ptr, align 4
   store i32 %154, ptr %mValue.i.i.i.i482, align 4
   store ptr %a204, ptr %call.i.i.i.i.i.i1.i474, align 8
   %155 = load ptr, ptr %mpPrev.i.i.i470, align 8
-  %mpPrev2.i.i.i.i483 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i474, i64 0, i32 1
+  %mpPrev2.i.i.i.i483 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i474, i64 8
   store ptr %155, ptr %mpPrev2.i.i.i.i483, align 8
   store ptr %call.i.i.i.i.i.i1.i474, ptr %155, align 8
   store ptr %call.i.i.i.i.i.i1.i474, ptr %mpPrev.i.i.i470, align 8
@@ -13360,7 +13349,7 @@ invoke.cont217:                                   ; preds = %while.body.i.i.i492
   %165 = getelementptr inbounds i8, ptr %b218, i64 16
   store i64 0, ptr %165, align 8
   store ptr %b218, ptr %b218, align 8
-  %mpPrev.i.i.i497 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %b218, i64 0, i32 1
+  %mpPrev.i.i.i497 = getelementptr inbounds i8, ptr %b218, i64 8
   store ptr %b218, ptr %mpPrev.i.i.i497, align 8
   %cmp.i.not1.i.i = icmp eq ptr %162, %164
   br i1 %cmp.i.not1.i.i, label %invoke.cont221, label %for.body.i.i498
@@ -13371,13 +13360,13 @@ for.body.i.i498:                                  ; preds = %invoke.cont217, %ca
           to label %call.i.i.i.i.i.i.noexc.i506 unwind label %lpad.i500
 
 call.i.i.i.i.i.i.noexc.i506:                      ; preds = %for.body.i.i498
-  %mValue.i.i.i507 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %agg.tmp.sroa.0.0.i, i64 0, i32 1
-  %mValue.i.i.i.i508 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i499, i64 0, i32 1
+  %mValue.i.i.i507 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i, i64 16
+  %mValue.i.i.i.i508 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i499, i64 16
   %166 = load i32, ptr %mValue.i.i.i507, align 4
   store i32 %166, ptr %mValue.i.i.i.i508, align 4
   store ptr %b218, ptr %call.i.i.i.i.i.i1.i499, align 8
   %167 = load ptr, ptr %mpPrev.i.i.i497, align 8
-  %mpPrev2.i.i.i.i509 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i499, i64 0, i32 1
+  %mpPrev2.i.i.i.i509 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i499, i64 8
   store ptr %167, ptr %mpPrev2.i.i.i.i509, align 8
   store ptr %call.i.i.i.i.i.i1.i499, ptr %167, align 8
   store ptr %call.i.i.i.i.i.i1.i499, ptr %mpPrev.i.i.i497, align 8
@@ -13417,9 +13406,9 @@ while.cond.i517:                                  ; preds = %invoke.cont221, %la
 
 land.rhs.i522:                                    ; preds = %while.cond.i517
   %ib.sroa.0.0.i523 = load ptr, ptr %ib.sroa.0.0.in.i518, align 8
-  %mValue.i.i524 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i520, i64 0, i32 1
+  %mValue.i.i524 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i520, i64 16
   %175 = load i32, ptr %mValue.i.i524, align 4
-  %mValue.i5.i525 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i523, i64 0, i32 1
+  %mValue.i5.i525 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i523, i64 16
   %176 = load i32, ptr %mValue.i5.i525, align 4
   %cmp10.i526 = icmp eq i32 %175, %176
   br i1 %cmp10.i526, label %while.cond.i517, label %while.end.i527, !llvm.loop !385
@@ -13526,7 +13515,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit572:      ; preds = %_ZN5eastl9allocator
   %189 = getelementptr inbounds i8, ptr %a252, i64 16
   store i64 0, ptr %189, align 8
   store ptr %a252, ptr %a252, align 8
-  %mpPrev.i.i.i573 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a252, i64 0, i32 1
+  %mpPrev.i.i.i573 = getelementptr inbounds i8, ptr %a252, i64 8
   store ptr %a252, ptr %mpPrev.i.i.i573, align 8
   br label %for.body.i.i575
 
@@ -13537,12 +13526,12 @@ for.body.i.i575:                                  ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i584:                      ; preds = %for.body.i.i575
   %first.addr.04.i.i576.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i576.idx
-  %mValue.i.i.i.i585 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i577, i64 0, i32 1
+  %mValue.i.i.i.i585 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i577, i64 16
   %190 = load i32, ptr %first.addr.04.i.i576.ptr, align 4
   store i32 %190, ptr %mValue.i.i.i.i585, align 4
   store ptr %a252, ptr %call.i.i.i.i.i.i1.i577, align 8
   %191 = load ptr, ptr %mpPrev.i.i.i573, align 8
-  %mpPrev2.i.i.i.i586 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i577, i64 0, i32 1
+  %mpPrev2.i.i.i.i586 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i577, i64 8
   store ptr %191, ptr %mpPrev2.i.i.i.i586, align 8
   store ptr %call.i.i.i.i.i.i1.i577, ptr %191, align 8
   store ptr %call.i.i.i.i.i.i1.i577, ptr %mpPrev.i.i.i573, align 8
@@ -13571,7 +13560,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit590: ; preds 
   %196 = getelementptr inbounds i8, ptr %b260, i64 16
   store i64 0, ptr %196, align 8
   store ptr %b260, ptr %b260, align 8
-  %mpPrev.i.i.i591 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %b260, i64 0, i32 1
+  %mpPrev.i.i.i591 = getelementptr inbounds i8, ptr %b260, i64 8
   store ptr %b260, ptr %mpPrev.i.i.i591, align 8
   %197 = load ptr, ptr %a252, align 8
   %cmp.i.not3.i.i592 = icmp eq ptr %197, %a252
@@ -13586,13 +13575,13 @@ for.body.i.i593:                                  ; preds = %_ZN5eastl4listIiNS_
           to label %call.i.i.i.i.i.i.noexc.i602 unwind label %lpad.i596
 
 call.i.i.i.i.i.i.noexc.i602:                      ; preds = %for.body.i.i593
-  %mValue.i.i.i603 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first.sroa.0.04.i.i594, i64 0, i32 1
-  %mValue.i.i.i.i604 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i3.i595, i64 0, i32 1
+  %mValue.i.i.i603 = getelementptr inbounds i8, ptr %first.sroa.0.04.i.i594, i64 16
+  %mValue.i.i.i.i604 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i595, i64 16
   %198 = load i32, ptr %mValue.i.i.i603, align 4
   store i32 %198, ptr %mValue.i.i.i.i604, align 4
   store ptr %b260, ptr %call.i.i.i.i.i.i3.i595, align 8
   %199 = load ptr, ptr %mpPrev.i.i.i591, align 8
-  %mpPrev2.i.i.i.i605 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i3.i595, i64 0, i32 1
+  %mpPrev2.i.i.i.i605 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i595, i64 8
   store ptr %199, ptr %mpPrev2.i.i.i.i605, align 8
   store ptr %call.i.i.i.i.i.i3.i595, ptr %199, align 8
   store ptr %call.i.i.i.i.i.i3.i595, ptr %mpPrev.i.i.i591, align 8
@@ -13684,9 +13673,9 @@ while.cond.i638:                                  ; preds = %invoke.cont284, %la
 
 land.rhs.i643:                                    ; preds = %while.cond.i638
   %ib.sroa.0.0.i644 = load ptr, ptr %ib.sroa.0.0.in.i639, align 8
-  %mValue.i.i645 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i641, i64 0, i32 1
+  %mValue.i.i645 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i641, i64 16
   %213 = load i32, ptr %mValue.i.i645, align 4
-  %mValue.i5.i646 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i644, i64 0, i32 1
+  %mValue.i5.i646 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i644, i64 16
   %214 = load i32, ptr %mValue.i5.i646, align 4
   %cmp10.i647 = icmp eq i32 %213, %214
   br i1 %cmp10.i647, label %while.cond.i638, label %while.end.i648, !llvm.loop !385
@@ -13705,7 +13694,7 @@ invoke.cont288:                                   ; preds = %_ZN5eastleqIiNS_9al
   %215 = getelementptr inbounds i8, ptr %c, i64 16
   store i64 0, ptr %215, align 8
   store ptr %c, ptr %c, align 8
-  %mpPrev.i.i.i653 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %c, i64 0, i32 1
+  %mpPrev.i.i.i653 = getelementptr inbounds i8, ptr %c, i64 8
   store ptr %c, ptr %mpPrev.i.i.i653, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %temp.i.i.i.i652)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %temp.i.i.i.i652, ptr noundef nonnull align 8 dereferenceable(16) %c, i64 16, i1 false)
@@ -13723,7 +13712,7 @@ if.else.i.i.i.i655:                               ; preds = %invoke.cont288
   %217 = load ptr, ptr %mpPrev.i.i.i653, align 8
   store ptr %c, ptr %217, align 8
   %218 = load ptr, ptr %c, align 8
-  %mpPrev5.i.i.i.i656 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %218, i64 0, i32 1
+  %mpPrev5.i.i.i.i656 = getelementptr inbounds i8, ptr %218, i64 8
   br label %if.end.i.i.i.i657
 
 if.end.i.i.i.i657:                                ; preds = %if.else.i.i.i.i655, %if.then.i.i.i.i666
@@ -13741,7 +13730,7 @@ if.else11.i.i.i.i661:                             ; preds = %if.end.i.i.i.i657
   %220 = load ptr, ptr %mpPrev.i.i.i591, align 8
   store ptr %b260, ptr %220, align 8
   %221 = load ptr, ptr %b260, align 8
-  %mpPrev15.i.i.i.i662 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %221, i64 0, i32 1
+  %mpPrev15.i.i.i.i662 = getelementptr inbounds i8, ptr %221, i64 8
   br label %invoke.cont291
 
 invoke.cont291:                                   ; preds = %if.else11.i.i.i.i661, %if.then8.i.i.i.i665
@@ -13771,9 +13760,9 @@ while.cond.i674:                                  ; preds = %invoke.cont294, %la
 
 land.rhs.i679:                                    ; preds = %while.cond.i674
   %ib.sroa.0.0.i680 = load ptr, ptr %ib.sroa.0.0.in.i675, align 8
-  %mValue.i.i681 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i677, i64 0, i32 1
+  %mValue.i.i681 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i677, i64 16
   %226 = load i32, ptr %mValue.i.i681, align 4
-  %mValue.i5.i682 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i680, i64 0, i32 1
+  %mValue.i5.i682 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i680, i64 16
   %227 = load i32, ptr %mValue.i5.i682, align 4
   %cmp10.i683 = icmp eq i32 %226, %227
   br i1 %cmp10.i683, label %while.cond.i674, label %while.end.i684, !llvm.loop !385
@@ -13848,7 +13837,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit715:      ; preds = %_ZN5eastl9allocator
   %236 = getelementptr inbounds i8, ptr %a310, i64 16
   store i64 0, ptr %236, align 8
   store ptr %a310, ptr %a310, align 8
-  %mpPrev.i.i.i716 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a310, i64 0, i32 1
+  %mpPrev.i.i.i716 = getelementptr inbounds i8, ptr %a310, i64 8
   store ptr %a310, ptr %mpPrev.i.i.i716, align 8
   br label %for.body.i.i718
 
@@ -13859,12 +13848,12 @@ for.body.i.i718:                                  ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i727:                      ; preds = %for.body.i.i718
   %first.addr.04.i.i719.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i719.idx
-  %mValue.i.i.i.i728 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i720, i64 0, i32 1
+  %mValue.i.i.i.i728 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i720, i64 16
   %237 = load i32, ptr %first.addr.04.i.i719.ptr, align 4
   store i32 %237, ptr %mValue.i.i.i.i728, align 4
   store ptr %a310, ptr %call.i.i.i.i.i.i1.i720, align 8
   %238 = load ptr, ptr %mpPrev.i.i.i716, align 8
-  %mpPrev2.i.i.i.i729 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i720, i64 0, i32 1
+  %mpPrev2.i.i.i.i729 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i720, i64 8
   store ptr %238, ptr %mpPrev2.i.i.i.i729, align 8
   store ptr %call.i.i.i.i.i.i1.i720, ptr %238, align 8
   store ptr %call.i.i.i.i.i.i1.i720, ptr %mpPrev.i.i.i716, align 8
@@ -13893,7 +13882,7 @@ invoke.cont320:                                   ; preds = %call.i.i.i.i.i.i.no
   %243 = getelementptr inbounds i8, ptr %b318, i64 16
   store i64 0, ptr %243, align 8
   store ptr %b318, ptr %b318, align 8
-  %mpPrev.i.i.i734 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %b318, i64 0, i32 1
+  %mpPrev.i.i.i734 = getelementptr inbounds i8, ptr %b318, i64 8
   store ptr %b318, ptr %mpPrev.i.i.i734, align 8
   br label %for.cond.i735
 
@@ -13953,7 +13942,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont333
   %248 = load ptr, ptr %mpPrev.i.i.i734, align 8
   store ptr %b318, ptr %248, align 8
   %249 = load ptr, ptr %b318, align 8
-  %mpPrev5.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %249, i64 0, i32 1
+  %mpPrev5.i.i.i = getelementptr inbounds i8, ptr %249, i64 8
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.then.i.i.i
@@ -13971,7 +13960,7 @@ if.else11.i.i.i:                                  ; preds = %if.end.i.i.i
   %251 = load ptr, ptr %mpPrev.i.i.i716, align 8
   store ptr %a310, ptr %251, align 8
   %252 = load ptr, ptr %a310, align 8
-  %mpPrev15.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %252, i64 0, i32 1
+  %mpPrev15.i.i.i = getelementptr inbounds i8, ptr %252, i64 8
   br label %invoke.cont335
 
 invoke.cont335:                                   ; preds = %if.else11.i.i.i, %if.then8.i.i.i
@@ -14052,7 +14041,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit792:      ; preds = %_ZN5eastl9allocator
   %262 = getelementptr inbounds i8, ptr %ref351, i64 16
   store i64 0, ptr %262, align 8
   store ptr %ref351, ptr %ref351, align 8
-  %mpPrev.i.i.i793 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref351, i64 0, i32 1
+  %mpPrev.i.i.i793 = getelementptr inbounds i8, ptr %ref351, i64 8
   store ptr %ref351, ptr %mpPrev.i.i.i793, align 8
   br label %for.body.i.i795
 
@@ -14063,12 +14052,12 @@ for.body.i.i795:                                  ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i804:                      ; preds = %for.body.i.i795
   %first.addr.04.i.i796.ptr = getelementptr inbounds i8, ptr %ref.tmp353, i64 %first.addr.04.i.i796.idx
-  %mValue.i.i.i.i805 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i797, i64 0, i32 1
+  %mValue.i.i.i.i805 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i797, i64 16
   %263 = load i32, ptr %first.addr.04.i.i796.ptr, align 4
   store i32 %263, ptr %mValue.i.i.i.i805, align 4
   store ptr %ref351, ptr %call.i.i.i.i.i.i1.i797, align 8
   %264 = load ptr, ptr %mpPrev.i.i.i793, align 8
-  %mpPrev2.i.i.i.i806 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i797, i64 0, i32 1
+  %mpPrev2.i.i.i.i806 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i797, i64 8
   store ptr %264, ptr %mpPrev2.i.i.i.i806, align 8
   store ptr %call.i.i.i.i.i.i1.i797, ptr %264, align 8
   store ptr %call.i.i.i.i.i.i1.i797, ptr %mpPrev.i.i.i793, align 8
@@ -14098,7 +14087,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit810: ; preds 
   %269 = getelementptr inbounds i8, ptr %a361, i64 16
   store i64 0, ptr %269, align 8
   store ptr %a361, ptr %a361, align 8
-  %mpPrev.i.i.i811 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a361, i64 0, i32 1
+  %mpPrev.i.i.i811 = getelementptr inbounds i8, ptr %a361, i64 8
   store ptr %a361, ptr %mpPrev.i.i.i811, align 8
   br label %for.body.i.i813
 
@@ -14109,12 +14098,12 @@ for.body.i.i813:                                  ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i822:                      ; preds = %for.body.i.i813
   %first.addr.04.i.i814.ptr = getelementptr inbounds i8, ptr %ref.tmp363, i64 %first.addr.04.i.i814.idx
-  %mValue.i.i.i.i823 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i815, i64 0, i32 1
+  %mValue.i.i.i.i823 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i815, i64 16
   %270 = load i32, ptr %first.addr.04.i.i814.ptr, align 4
   store i32 %270, ptr %mValue.i.i.i.i823, align 4
   store ptr %a361, ptr %call.i.i.i.i.i.i1.i815, align 8
   %271 = load ptr, ptr %mpPrev.i.i.i811, align 8
-  %mpPrev2.i.i.i.i824 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i815, i64 0, i32 1
+  %mpPrev2.i.i.i.i824 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i815, i64 8
   store ptr %271, ptr %mpPrev2.i.i.i.i824, align 8
   store ptr %call.i.i.i.i.i.i1.i815, ptr %271, align 8
   store ptr %call.i.i.i.i.i.i1.i815, ptr %mpPrev.i.i.i811, align 8
@@ -14147,7 +14136,7 @@ invoke.cont374:                                   ; preds = %call.i.i.i.i.i.i.no
 for.body.i5931:                                   ; preds = %invoke.cont374, %for.body.i5931
   %pNode.013.i = phi ptr [ %pNode.0.i, %for.body.i5931 ], [ %pNode.09.i, %invoke.cont374 ]
   %n.addr.012.i = phi i64 [ %dec.i5933, %for.body.i5931 ], [ 4, %invoke.cont374 ]
-  %mValue.i5932 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %pNode.013.i, i64 0, i32 1
+  %mValue.i5932 = getelementptr inbounds i8, ptr %pNode.013.i, i64 16
   store i32 42, ptr %mValue.i5932, align 8
   %dec.i5933 = add nsw i64 %n.addr.012.i, -1
   %pNode.0.i = load ptr, ptr %pNode.013.i, align 8
@@ -14170,11 +14159,11 @@ for.body.i.i5912:                                 ; preds = %for.body.i.i5912.pr
           to label %call.i.i.i.i.i.i.i.noexc5936 unwind label %lpad375.loopexit
 
 call.i.i.i.i.i.i.i.noexc5936:                     ; preds = %for.body.i.i5912
-  %mValue.i.i.i.i5914 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i.i5937, i64 0, i32 1
+  %mValue.i.i.i.i5914 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i5937, i64 16
   store i32 42, ptr %mValue.i.i.i.i5914, align 4
   store ptr %a361, ptr %call.i.i.i.i.i.i.i5937, align 8
   %277 = load ptr, ptr %mpPrev.i.i.i811, align 8
-  %mpPrev2.i.i.i.i5915 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i5937, i64 0, i32 1
+  %mpPrev2.i.i.i.i5915 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i5937, i64 8
   store ptr %277, ptr %mpPrev2.i.i.i.i5915, align 8
   store ptr %call.i.i.i.i.i.i.i5937, ptr %277, align 8
   store ptr %call.i.i.i.i.i.i.i5937, ptr %mpPrev.i.i.i811, align 8
@@ -14196,12 +14185,12 @@ if.else.i5920.invoke.cont376_crit_edge:           ; preds = %if.else.i5920
 while.body.i.i5924:                               ; preds = %if.else.i5920, %while.body.i.i5924
   %first.sroa.0.03.i.i5925 = phi ptr [ %279, %while.body.i.i5924 ], [ %pNode.0.i, %if.else.i5920 ]
   %279 = load ptr, ptr %first.sroa.0.03.i.i5925, align 8, !noalias !396
-  %mpPrev.i.i.i5926 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %279, i64 0, i32 1
+  %mpPrev.i.i.i5926 = getelementptr inbounds i8, ptr %279, i64 8
   %280 = load ptr, ptr %mpPrev.i.i.i5926, align 8, !noalias !396
-  %mpPrev.i.i.i.i.i5927 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %280, i64 0, i32 1
+  %mpPrev.i.i.i.i.i5927 = getelementptr inbounds i8, ptr %280, i64 8
   %281 = load ptr, ptr %mpPrev.i.i.i.i.i5927, align 8, !noalias !396
   %282 = load ptr, ptr %280, align 8, !noalias !396
-  %mpPrev2.i.i.i.i.i5928 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %282, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i5928 = getelementptr inbounds i8, ptr %282, i64 8
   store ptr %281, ptr %mpPrev2.i.i.i.i.i5928, align 8, !noalias !396
   %283 = load ptr, ptr %280, align 8, !noalias !396
   store ptr %283, ptr %281, align 8, !noalias !396
@@ -14227,9 +14216,9 @@ while.cond.i834:                                  ; preds = %invoke.cont376, %la
 
 land.rhs.i839:                                    ; preds = %while.cond.i834
   %ib.sroa.0.0.i840 = load ptr, ptr %ib.sroa.0.0.in.i835, align 8
-  %mValue.i.i841 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i837, i64 0, i32 1
+  %mValue.i.i841 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i837, i64 16
   %287 = load i32, ptr %mValue.i.i841, align 4
-  %mValue.i5.i842 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i840, i64 0, i32 1
+  %mValue.i5.i842 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i840, i64 16
   %288 = load i32, ptr %mValue.i5.i842, align 4
   %cmp10.i843 = icmp eq i32 %287, %288
   br i1 %cmp10.i843, label %while.cond.i834, label %while.end.i844, !llvm.loop !385
@@ -14298,7 +14287,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit871:      ; preds = %_ZN5eastl9allocator
   %296 = getelementptr inbounds i8, ptr %ref394, i64 16
   store i64 0, ptr %296, align 8
   store ptr %ref394, ptr %ref394, align 8
-  %mpPrev.i.i.i872 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref394, i64 0, i32 1
+  %mpPrev.i.i.i872 = getelementptr inbounds i8, ptr %ref394, i64 8
   store ptr %ref394, ptr %mpPrev.i.i.i872, align 8
   br label %for.body.i.i874
 
@@ -14309,12 +14298,12 @@ for.body.i.i874:                                  ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i883:                      ; preds = %for.body.i.i874
   %first.addr.04.i.i875.ptr = getelementptr inbounds i8, ptr @constinit.44, i64 %first.addr.04.i.i875.idx
-  %mValue.i.i.i.i884 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i876, i64 0, i32 1
+  %mValue.i.i.i.i884 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i876, i64 16
   %297 = load i32, ptr %first.addr.04.i.i875.ptr, align 4
   store i32 %297, ptr %mValue.i.i.i.i884, align 4
   store ptr %ref394, ptr %call.i.i.i.i.i.i1.i876, align 8
   %298 = load ptr, ptr %mpPrev.i.i.i872, align 8
-  %mpPrev2.i.i.i.i885 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i876, i64 0, i32 1
+  %mpPrev2.i.i.i.i885 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i876, i64 8
   store ptr %298, ptr %mpPrev2.i.i.i.i885, align 8
   store ptr %call.i.i.i.i.i.i1.i876, ptr %298, align 8
   store ptr %call.i.i.i.i.i.i1.i876, ptr %mpPrev.i.i.i872, align 8
@@ -14343,7 +14332,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit889: ; preds 
   %303 = getelementptr inbounds i8, ptr %a402, i64 16
   store i64 0, ptr %303, align 8
   store ptr %a402, ptr %a402, align 8
-  %mpPrev.i.i.i890 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a402, i64 0, i32 1
+  %mpPrev.i.i.i890 = getelementptr inbounds i8, ptr %a402, i64 8
   store ptr %a402, ptr %mpPrev.i.i.i890, align 8
   br label %for.body.i.i892
 
@@ -14354,12 +14343,12 @@ for.body.i.i892:                                  ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i901:                      ; preds = %for.body.i.i892
   %first.addr.04.i.i893.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i893.idx
-  %mValue.i.i.i.i902 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i894, i64 0, i32 1
+  %mValue.i.i.i.i902 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i894, i64 16
   %304 = load i32, ptr %first.addr.04.i.i893.ptr, align 4
   store i32 %304, ptr %mValue.i.i.i.i902, align 4
   store ptr %a402, ptr %call.i.i.i.i.i.i1.i894, align 8
   %305 = load ptr, ptr %mpPrev.i.i.i890, align 8
-  %mpPrev2.i.i.i.i903 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i894, i64 0, i32 1
+  %mpPrev2.i.i.i.i903 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i894, i64 8
   store ptr %305, ptr %mpPrev2.i.i.i.i903, align 8
   store ptr %call.i.i.i.i.i.i1.i894, ptr %305, align 8
   store ptr %call.i.i.i.i.i.i1.i894, ptr %mpPrev.i.i.i890, align 8
@@ -14388,7 +14377,7 @@ invoke.cont415:                                   ; preds = %call.i.i.i.i.i.i.no
   %310 = getelementptr inbounds i8, ptr %b413, i64 16
   store i64 0, ptr %310, align 8
   store ptr %b413, ptr %b413, align 8
-  %mpPrev.i.i.i909 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %b413, i64 0, i32 1
+  %mpPrev.i.i.i909 = getelementptr inbounds i8, ptr %b413, i64 8
   store ptr %b413, ptr %mpPrev.i.i.i909, align 8
   %311 = load ptr, ptr %a402, align 8, !noalias !401
   br label %while.body.i.i.i911
@@ -14419,13 +14408,13 @@ for.body.i.i.i929:                                ; preds = %for.end.i.i, %call.
           to label %call.i.i.i.i.i.i.i.i.noexc unwind label %lpad417.loopexit
 
 call.i.i.i.i.i.i.i.i.noexc:                       ; preds = %for.body.i.i.i929
-  %mValue.i.i.i.i930 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %agg.tmp12.sroa.0.0.i.i, i64 0, i32 1
-  %mValue.i.i.i.i.i931 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i.i.i937, i64 0, i32 1
+  %mValue.i.i.i.i930 = getelementptr inbounds i8, ptr %agg.tmp12.sroa.0.0.i.i, i64 16
+  %mValue.i.i.i.i.i931 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i937, i64 16
   %316 = load i32, ptr %mValue.i.i.i.i930, align 4
   store i32 %316, ptr %mValue.i.i.i.i.i931, align 4
   store ptr %b413, ptr %call.i.i.i.i.i.i.i.i937, align 8
   %317 = load ptr, ptr %mpPrev.i.i.i909, align 8
-  %mpPrev2.i.i.i.i.i932 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i.i937, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i932 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i937, i64 8
   store ptr %317, ptr %mpPrev2.i.i.i.i.i932, align 8
   store ptr %call.i.i.i.i.i.i.i.i937, ptr %317, align 8
   store ptr %call.i.i.i.i.i.i.i.i937, ptr %mpPrev.i.i.i909, align 8
@@ -14451,9 +14440,9 @@ while.cond.i942:                                  ; preds = %invoke.cont423, %la
 
 land.rhs.i947:                                    ; preds = %while.cond.i942
   %ib.sroa.0.0.i948 = load ptr, ptr %ib.sroa.0.0.in.i943, align 8
-  %mValue.i.i949 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i945, i64 0, i32 1
+  %mValue.i.i949 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i945, i64 16
   %322 = load i32, ptr %mValue.i.i949, align 4
-  %mValue.i5.i950 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i948, i64 0, i32 1
+  %mValue.i5.i950 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i948, i64 16
   %323 = load i32, ptr %mValue.i5.i950, align 4
   %cmp10.i951 = icmp eq i32 %322, %323
   br i1 %cmp10.i951, label %while.cond.i942, label %while.end.i952, !llvm.loop !385
@@ -14560,7 +14549,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit997:      ; preds = %_ZN5eastl9allocator
   %336 = getelementptr inbounds i8, ptr %ref453, i64 16
   store i64 0, ptr %336, align 8
   store ptr %ref453, ptr %ref453, align 8
-  %mpPrev.i.i.i998 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref453, i64 0, i32 1
+  %mpPrev.i.i.i998 = getelementptr inbounds i8, ptr %ref453, i64 8
   store ptr %ref453, ptr %mpPrev.i.i.i998, align 8
   br label %for.body.i.i1000
 
@@ -14571,12 +14560,12 @@ for.body.i.i1000:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1009:                     ; preds = %for.body.i.i1000
   %first.addr.04.i.i1001.ptr = getelementptr inbounds i8, ptr @constinit.44, i64 %first.addr.04.i.i1001.idx
-  %mValue.i.i.i.i1010 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1002, i64 0, i32 1
+  %mValue.i.i.i.i1010 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1002, i64 16
   %337 = load i32, ptr %first.addr.04.i.i1001.ptr, align 4
   store i32 %337, ptr %mValue.i.i.i.i1010, align 4
   store ptr %ref453, ptr %call.i.i.i.i.i.i1.i1002, align 8
   %338 = load ptr, ptr %mpPrev.i.i.i998, align 8
-  %mpPrev2.i.i.i.i1011 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1002, i64 0, i32 1
+  %mpPrev2.i.i.i.i1011 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1002, i64 8
   store ptr %338, ptr %mpPrev2.i.i.i.i1011, align 8
   store ptr %call.i.i.i.i.i.i1.i1002, ptr %338, align 8
   store ptr %call.i.i.i.i.i.i1.i1002, ptr %mpPrev.i.i.i998, align 8
@@ -14605,7 +14594,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit1015: ; preds
   %343 = getelementptr inbounds i8, ptr %a461, i64 16
   store i64 0, ptr %343, align 8
   store ptr %a461, ptr %a461, align 8
-  %mpPrev.i.i.i1016 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a461, i64 0, i32 1
+  %mpPrev.i.i.i1016 = getelementptr inbounds i8, ptr %a461, i64 8
   store ptr %a461, ptr %mpPrev.i.i.i1016, align 8
   br label %for.body.i.i1018
 
@@ -14616,12 +14605,12 @@ for.body.i.i1018:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1027:                     ; preds = %for.body.i.i1018
   %first.addr.04.i.i1019.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i1019.idx
-  %mValue.i.i.i.i1028 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1020, i64 0, i32 1
+  %mValue.i.i.i.i1028 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1020, i64 16
   %344 = load i32, ptr %first.addr.04.i.i1019.ptr, align 4
   store i32 %344, ptr %mValue.i.i.i.i1028, align 4
   store ptr %a461, ptr %call.i.i.i.i.i.i1.i1020, align 8
   %345 = load ptr, ptr %mpPrev.i.i.i1016, align 8
-  %mpPrev2.i.i.i.i1029 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1020, i64 0, i32 1
+  %mpPrev2.i.i.i.i1029 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1020, i64 8
   store ptr %345, ptr %mpPrev2.i.i.i.i1029, align 8
   store ptr %call.i.i.i.i.i.i1.i1020, ptr %345, align 8
   store ptr %call.i.i.i.i.i.i1.i1020, ptr %mpPrev.i.i.i1016, align 8
@@ -14650,7 +14639,7 @@ invoke.cont474:                                   ; preds = %call.i.i.i.i.i.i.no
   %350 = getelementptr inbounds i8, ptr %b472, i64 16
   store i64 0, ptr %350, align 8
   store ptr %b472, ptr %b472, align 8
-  %mpPrev.i.i.i1035 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %b472, i64 0, i32 1
+  %mpPrev.i.i.i1035 = getelementptr inbounds i8, ptr %b472, i64 8
   store ptr %b472, ptr %mpPrev.i.i.i1035, align 8
   %351 = load ptr, ptr %a461, align 8, !noalias !404
   br label %while.body.i.i.i1037
@@ -14681,13 +14670,13 @@ for.body.i.i.i1062:                               ; preds = %for.end.i.i1057, %c
           to label %call.i.i.i.i.i.i.i.i.noexc1078 unwind label %lpad476.loopexit
 
 call.i.i.i.i.i.i.i.i.noexc1078:                   ; preds = %for.body.i.i.i1062
-  %mValue.i.i.i.i1064 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %agg.tmp12.sroa.0.0.i.i1063, i64 0, i32 1
-  %mValue.i.i.i.i.i1065 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i.i.i1079, i64 0, i32 1
+  %mValue.i.i.i.i1064 = getelementptr inbounds i8, ptr %agg.tmp12.sroa.0.0.i.i1063, i64 16
+  %mValue.i.i.i.i.i1065 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i1079, i64 16
   %356 = load i32, ptr %mValue.i.i.i.i1064, align 4
   store i32 %356, ptr %mValue.i.i.i.i.i1065, align 4
   store ptr %b472, ptr %call.i.i.i.i.i.i.i.i1079, align 8
   %357 = load ptr, ptr %mpPrev.i.i.i1035, align 8
-  %mpPrev2.i.i.i.i.i1066 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i.i1079, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i1066 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i1079, i64 8
   store ptr %357, ptr %mpPrev2.i.i.i.i.i1066, align 8
   store ptr %call.i.i.i.i.i.i.i.i1079, ptr %357, align 8
   store ptr %call.i.i.i.i.i.i.i.i1079, ptr %mpPrev.i.i.i1035, align 8
@@ -14713,9 +14702,9 @@ while.cond.i1085:                                 ; preds = %invoke.cont482, %la
 
 land.rhs.i1090:                                   ; preds = %while.cond.i1085
   %ib.sroa.0.0.i1091 = load ptr, ptr %ib.sroa.0.0.in.i1086, align 8
-  %mValue.i.i1092 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i1088, i64 0, i32 1
+  %mValue.i.i1092 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i1088, i64 16
   %362 = load i32, ptr %mValue.i.i1092, align 4
-  %mValue.i5.i1093 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i1091, i64 0, i32 1
+  %mValue.i5.i1093 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i1091, i64 16
   %363 = load i32, ptr %mValue.i5.i1093, align 4
   %cmp10.i1094 = icmp eq i32 %362, %363
   br i1 %cmp10.i1094, label %while.cond.i1085, label %while.end.i1095, !llvm.loop !385
@@ -14822,7 +14811,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1140:     ; preds = %_ZN5eastl9allocator
   %376 = getelementptr inbounds i8, ptr %a512, i64 16
   store i64 0, ptr %376, align 8
   store ptr %a512, ptr %a512, align 8
-  %mpPrev.i.i.i1141 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a512, i64 0, i32 1
+  %mpPrev.i.i.i1141 = getelementptr inbounds i8, ptr %a512, i64 8
   store ptr %a512, ptr %mpPrev.i.i.i1141, align 8
   br label %for.body.i.i1143
 
@@ -14833,12 +14822,12 @@ for.body.i.i1143:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1152:                     ; preds = %for.body.i.i1143
   %first.addr.04.i.i1144.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i1144.idx
-  %mValue.i.i.i.i1153 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1145, i64 0, i32 1
+  %mValue.i.i.i.i1153 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1145, i64 16
   %377 = load i32, ptr %first.addr.04.i.i1144.ptr, align 4
   store i32 %377, ptr %mValue.i.i.i.i1153, align 4
   store ptr %a512, ptr %call.i.i.i.i.i.i1.i1145, align 8
   %378 = load ptr, ptr %mpPrev.i.i.i1141, align 8
-  %mpPrev2.i.i.i.i1154 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1145, i64 0, i32 1
+  %mpPrev2.i.i.i.i1154 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1145, i64 8
   store ptr %378, ptr %mpPrev2.i.i.i.i1154, align 8
   store ptr %call.i.i.i.i.i.i1.i1145, ptr %378, align 8
   store ptr %call.i.i.i.i.i.i1.i1145, ptr %mpPrev.i.i.i1141, align 8
@@ -14874,7 +14863,7 @@ while.cond:                                       ; preds = %while.body, %_ZN5ea
 
 while.body:                                       ; preds = %while.cond
   %384 = load ptr, ptr %iter.sroa.0.0, align 8, !noalias !410
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %iter.sroa.0.0, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %iter.sroa.0.0, i64 16
   %385 = load i32, ptr %mValue.i, align 4
   %386 = load i32, ptr @_ZZ8TestListvE3inc, align 4
   %inc = add nsw i32 %386, 1
@@ -15292,7 +15281,7 @@ while.cond531:                                    ; preds = %while.body536, %whi
 
 while.body536:                                    ; preds = %while.cond531
   %451 = load ptr, ptr %iter528.sroa.0.0, align 8
-  %mValue.i1311 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %iter528.sroa.0.0, i64 0, i32 1
+  %mValue.i1311 = getelementptr inbounds i8, ptr %iter528.sroa.0.0, i64 16
   %452 = load i32, ptr %mValue.i1311, align 4
   %453 = load i32, ptr @_ZZ8TestListvE3inc_0, align 4
   %inc541 = add nsw i32 %453, 1
@@ -15317,7 +15306,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1317:     ; preds = %_ZN5eastl9allocator
   %456 = getelementptr inbounds i8, ptr %a547, i64 16
   store i64 0, ptr %456, align 8
   store ptr %a547, ptr %a547, align 8
-  %mpPrev.i.i.i1318 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a547, i64 0, i32 1
+  %mpPrev.i.i.i1318 = getelementptr inbounds i8, ptr %a547, i64 8
   store ptr %a547, ptr %mpPrev.i.i.i1318, align 8
   br label %for.body.i.i1320
 
@@ -15328,12 +15317,12 @@ for.body.i.i1320:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1329:                     ; preds = %for.body.i.i1320
   %first.addr.04.i.i1321.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i1321.idx
-  %mValue.i.i.i.i1330 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1322, i64 0, i32 1
+  %mValue.i.i.i.i1330 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1322, i64 16
   %457 = load i32, ptr %first.addr.04.i.i1321.ptr, align 4
   store i32 %457, ptr %mValue.i.i.i.i1330, align 4
   store ptr %a547, ptr %call.i.i.i.i.i.i1.i1322, align 8
   %458 = load ptr, ptr %mpPrev.i.i.i1318, align 8
-  %mpPrev2.i.i.i.i1331 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1322, i64 0, i32 1
+  %mpPrev2.i.i.i.i1331 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1322, i64 8
   store ptr %458, ptr %mpPrev2.i.i.i.i1331, align 8
   store ptr %call.i.i.i.i.i.i1.i1322, ptr %458, align 8
   store ptr %call.i.i.i.i.i.i1.i1322, ptr %mpPrev.i.i.i1318, align 8
@@ -15369,9 +15358,9 @@ while.cond570.preheader:                          ; preds = %invoke.cont565
 
 while.body561:                                    ; preds = %invoke.cont559.preheader, %invoke.cont565
   %iter555.sroa.0.06231 = phi ptr [ %467, %invoke.cont565 ], [ %a547, %invoke.cont559.preheader ]
-  %mpPrev.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %iter555.sroa.0.06231, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %iter555.sroa.0.06231, i64 8
   %464 = load ptr, ptr %mpPrev.i.i, align 8
-  %mValue.i.i1337 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %464, i64 0, i32 1
+  %mValue.i.i1337 = getelementptr inbounds i8, ptr %464, i64 16
   %465 = load i32, ptr %mValue.i.i1337, align 4
   %466 = load i32, ptr @_ZZ8TestListvE3inc_1, align 4
   %dec = add nsw i32 %466, -1
@@ -15411,9 +15400,9 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1340: ; preds = %lpad558, %_ZN5eas
 
 while.body574:                                    ; preds = %while.cond570.preheader, %invoke.cont579
   %iter569.sroa.0.06233 = phi ptr [ %474, %invoke.cont579 ], [ %a547, %while.cond570.preheader ]
-  %mpPrev.i.i1346 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %iter569.sroa.0.06233, i64 0, i32 1
+  %mpPrev.i.i1346 = getelementptr inbounds i8, ptr %iter569.sroa.0.06233, i64 8
   %471 = load ptr, ptr %mpPrev.i.i1346, align 8
-  %mValue.i.i1347 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %471, i64 0, i32 1
+  %mValue.i.i1347 = getelementptr inbounds i8, ptr %471, i64 16
   %472 = load i32, ptr %mValue.i.i1347, align 4
   %473 = load i32, ptr @_ZZ8TestListvE3inc_2, align 4
   %dec577 = add nsw i32 %473, -1
@@ -15443,7 +15432,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1354:     ; preds = %_ZN5eastl9allocator
   %477 = getelementptr inbounds i8, ptr %a585, i64 16
   store i64 0, ptr %477, align 8
   store ptr %a585, ptr %a585, align 8
-  %mpPrev.i.i.i1355 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a585, i64 0, i32 1
+  %mpPrev.i.i.i1355 = getelementptr inbounds i8, ptr %a585, i64 8
   store ptr %a585, ptr %mpPrev.i.i.i1355, align 8
   br label %for.body.i.i1357
 
@@ -15454,12 +15443,12 @@ for.body.i.i1357:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1366:                     ; preds = %for.body.i.i1357
   %first.addr.04.i.i1358.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i1358.idx
-  %mValue.i.i.i.i1367 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1359, i64 0, i32 1
+  %mValue.i.i.i.i1367 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1359, i64 16
   %478 = load i32, ptr %first.addr.04.i.i1358.ptr, align 4
   store i32 %478, ptr %mValue.i.i.i.i1367, align 4
   store ptr %a585, ptr %call.i.i.i.i.i.i1.i1359, align 8
   %479 = load ptr, ptr %mpPrev.i.i.i1355, align 8
-  %mpPrev2.i.i.i.i1368 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1359, i64 0, i32 1
+  %mpPrev2.i.i.i.i1368 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1359, i64 8
   store ptr %479, ptr %mpPrev2.i.i.i.i1368, align 8
   store ptr %call.i.i.i.i.i.i1.i1359, ptr %479, align 8
   store ptr %call.i.i.i.i.i.i1.i1359, ptr %mpPrev.i.i.i1355, align 8
@@ -15505,7 +15494,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1380:     ; preds = %_ZN5eastl9allocator
   %486 = getelementptr inbounds i8, ptr %a599, i64 16
   store i64 0, ptr %486, align 8
   store ptr %a599, ptr %a599, align 8
-  %mpPrev.i.i.i1381 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a599, i64 0, i32 1
+  %mpPrev.i.i.i1381 = getelementptr inbounds i8, ptr %a599, i64 8
   store ptr %a599, ptr %mpPrev.i.i.i1381, align 8
   %call603 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 317, ptr noundef nonnull @.str.22)
           to label %invoke.cont602 unwind label %lpad601
@@ -15526,7 +15515,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1389:     ; preds = %_ZN5eastl9allocator
   %489 = getelementptr inbounds i8, ptr %a605, i64 16
   store i64 0, ptr %489, align 8
   store ptr %a605, ptr %a605, align 8
-  %mpPrev.i.i.i1390 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a605, i64 0, i32 1
+  %mpPrev.i.i.i1390 = getelementptr inbounds i8, ptr %a605, i64 8
   store ptr %a605, ptr %mpPrev.i.i.i1390, align 8
   br label %for.body.i.i1392
 
@@ -15537,12 +15526,12 @@ for.body.i.i1392:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1401:                     ; preds = %for.body.i.i1392
   %first.addr.04.i.i1393.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i1393.idx
-  %mValue.i.i.i.i1402 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1394, i64 0, i32 1
+  %mValue.i.i.i.i1402 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1394, i64 16
   %490 = load i32, ptr %first.addr.04.i.i1393.ptr, align 4
   store i32 %490, ptr %mValue.i.i.i.i1402, align 4
   store ptr %a605, ptr %call.i.i.i.i.i.i1.i1394, align 8
   %491 = load ptr, ptr %mpPrev.i.i.i1390, align 8
-  %mpPrev2.i.i.i.i1403 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1394, i64 0, i32 1
+  %mpPrev2.i.i.i.i1403 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1394, i64 8
   store ptr %491, ptr %mpPrev2.i.i.i.i1403, align 8
   store ptr %call.i.i.i.i.i.i1.i1394, ptr %491, align 8
   store ptr %call.i.i.i.i.i.i1.i1394, ptr %mpPrev.i.i.i1390, align 8
@@ -15588,7 +15577,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1414:     ; preds = %_ZN5eastl9allocator
   %498 = getelementptr inbounds i8, ptr %a619, i64 16
   store i64 0, ptr %498, align 8
   store ptr %a619, ptr %a619, align 8
-  %mpPrev.i.i.i1415 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a619, i64 0, i32 1
+  %mpPrev.i.i.i1415 = getelementptr inbounds i8, ptr %a619, i64 8
   store ptr %a619, ptr %mpPrev.i.i.i1415, align 8
   br label %for.body.i.i1417
 
@@ -15599,12 +15588,12 @@ for.body.i.i1417:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1426:                     ; preds = %for.body.i.i1417
   %first.addr.04.i.i1418.ptr = getelementptr inbounds i8, ptr @constinit.137, i64 %first.addr.04.i.i1418.idx
-  %mValue.i.i.i.i1427 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1419, i64 0, i32 1
+  %mValue.i.i.i.i1427 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1419, i64 16
   %499 = load i32, ptr %first.addr.04.i.i1418.ptr, align 4
   store i32 %499, ptr %mValue.i.i.i.i1427, align 4
   store ptr %a619, ptr %call.i.i.i.i.i.i1.i1419, align 8
   %500 = load ptr, ptr %mpPrev.i.i.i1415, align 8
-  %mpPrev2.i.i.i.i1428 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1419, i64 0, i32 1
+  %mpPrev2.i.i.i.i1428 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1419, i64 8
   store ptr %500, ptr %mpPrev2.i.i.i.i1428, align 8
   store ptr %call.i.i.i.i.i.i1.i1419, ptr %500, align 8
   store ptr %call.i.i.i.i.i.i1.i1419, ptr %mpPrev.i.i.i1415, align 8
@@ -15648,12 +15637,12 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1435: ; preds = %invoke.cont630, %
 
 _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1439:     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1435, %invoke.cont630
   store i32 0, ptr %ref.tmp635, align 4
-  %arrayinit.element637 = getelementptr inbounds i32, ptr %ref.tmp635, i64 1
+  %arrayinit.element637 = getelementptr inbounds i8, ptr %ref.tmp635, i64 4
   store i32 1, ptr %arrayinit.element637, align 4
   %507 = getelementptr inbounds i8, ptr %a633, i64 16
   store i64 0, ptr %507, align 8
   store ptr %a633, ptr %a633, align 8
-  %mpPrev.i.i.i1440 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a633, i64 0, i32 1
+  %mpPrev.i.i.i1440 = getelementptr inbounds i8, ptr %a633, i64 8
   store ptr %a633, ptr %mpPrev.i.i.i1440, align 8
   br label %for.body.i.i1442
 
@@ -15664,12 +15653,12 @@ for.body.i.i1442:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1451:                     ; preds = %for.body.i.i1442
   %first.addr.04.i.i1443.ptr = getelementptr inbounds i8, ptr %ref.tmp635, i64 %first.addr.04.i.i1443.idx
-  %mValue.i.i.i.i1452 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1444, i64 0, i32 1
+  %mValue.i.i.i.i1452 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1444, i64 16
   %508 = load i32, ptr %first.addr.04.i.i1443.ptr, align 4
   store i32 %508, ptr %mValue.i.i.i.i1452, align 4
   store ptr %a633, ptr %call.i.i.i.i.i.i1.i1444, align 8
   %509 = load ptr, ptr %mpPrev.i.i.i1440, align 8
-  %mpPrev2.i.i.i.i1453 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1444, i64 0, i32 1
+  %mpPrev2.i.i.i.i1453 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1444, i64 8
   store ptr %509, ptr %mpPrev2.i.i.i.i1453, align 8
   store ptr %call.i.i.i.i.i.i1.i1444, ptr %509, align 8
   store ptr %call.i.i.i.i.i.i1.i1444, ptr %mpPrev.i.i.i1440, align 8
@@ -15715,7 +15704,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1464:     ; preds = %_ZN5eastl9allocator
   %516 = getelementptr inbounds i8, ptr %a648, i64 16
   store i64 0, ptr %516, align 8
   store ptr %a648, ptr %a648, align 8
-  %mpPrev.i.i.i1465 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a648, i64 0, i32 1
+  %mpPrev.i.i.i1465 = getelementptr inbounds i8, ptr %a648, i64 8
   store ptr %a648, ptr %mpPrev.i.i.i1465, align 8
   %call653 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 340, ptr noundef nonnull @.str.24)
           to label %invoke.cont652 unwind label %lpad651
@@ -15736,7 +15725,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1472:     ; preds = %_ZN5eastl9allocator
   %519 = getelementptr inbounds i8, ptr %a655, i64 16
   store i64 0, ptr %519, align 8
   store ptr %a655, ptr %a655, align 8
-  %mpPrev.i.i.i1473 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a655, i64 0, i32 1
+  %mpPrev.i.i.i1473 = getelementptr inbounds i8, ptr %a655, i64 8
   store ptr %a655, ptr %mpPrev.i.i.i1473, align 8
   br label %while.cond.i.i1474
 
@@ -15761,12 +15750,12 @@ if.then.i.i:                                      ; preds = %while.end.i.i1477
 while.body.i.i.i1480:                             ; preds = %if.then.i.i, %while.body.i.i.i1480
   %first.sroa.0.03.i.i.i1481 = phi ptr [ %521, %while.body.i.i.i1480 ], [ %current.sroa.0.0.i.i, %if.then.i.i ]
   %521 = load ptr, ptr %first.sroa.0.03.i.i.i1481, align 8, !noalias !421
-  %mpPrev.i.i.i.i1482 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %521, i64 0, i32 1
+  %mpPrev.i.i.i.i1482 = getelementptr inbounds i8, ptr %521, i64 8
   %522 = load ptr, ptr %mpPrev.i.i.i.i1482, align 8, !noalias !421
-  %mpPrev.i.i.i.i.i.i1483 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %522, i64 0, i32 1
+  %mpPrev.i.i.i.i.i.i1483 = getelementptr inbounds i8, ptr %522, i64 8
   %523 = load ptr, ptr %mpPrev.i.i.i.i.i.i1483, align 8, !noalias !421
   %524 = load ptr, ptr %522, align 8, !noalias !421
-  %mpPrev2.i.i.i.i.i.i1484 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %524, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i.i1484 = getelementptr inbounds i8, ptr %524, i64 8
   store ptr %523, ptr %mpPrev2.i.i.i.i.i.i1484, align 8, !noalias !421
   %525 = load ptr, ptr %522, align 8, !noalias !421
   store ptr %525, ptr %523, align 8, !noalias !421
@@ -15787,11 +15776,11 @@ for.body.i.i.i.i:                                 ; preds = %call.i.i.i.i.i.i.i.
           to label %call.i.i.i.i.i.i.i.i.i.noexc unwind label %lpad656.loopexit
 
 call.i.i.i.i.i.i.i.i.i.noexc:                     ; preds = %for.body.i.i.i.i
-  %mValue.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i.i.i.i1487, i64 0, i32 1
+  %mValue.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i1487, i64 16
   store i32 0, ptr %mValue.i.i.i.i.i.i, align 4, !noalias !426
   store ptr %a655, ptr %call.i.i.i.i.i.i.i.i.i1487, align 8, !noalias !426
   %527 = load ptr, ptr %mpPrev.i.i.i1473, align 8, !noalias !426
-  %mpPrev2.i.i.i.i8.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i.i.i1487, i64 0, i32 1
+  %mpPrev2.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i.i1487, i64 8
   store ptr %527, ptr %mpPrev2.i.i.i.i8.i.i, align 8, !noalias !426
   store ptr %call.i.i.i.i.i.i.i.i.i1487, ptr %527, align 8, !noalias !426
   store ptr %call.i.i.i.i.i.i.i.i.i1487, ptr %mpPrev.i.i.i1473, align 8, !noalias !426
@@ -15821,7 +15810,7 @@ invoke.cont664:                                   ; preds = %invoke.cont660
 
 for.body.i1492:                                   ; preds = %invoke.cont664, %for.inc.i1496
   %532 = phi ptr [ %534, %for.inc.i1496 ], [ %531, %invoke.cont664 ]
-  %mValue.i.i1493 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %532, i64 0, i32 1
+  %mValue.i.i1493 = getelementptr inbounds i8, ptr %532, i64 16
   %533 = load i32, ptr %mValue.i.i1493, align 4
   %cmp.i1.i1494 = icmp eq i32 %533, 0
   br i1 %cmp.i1.i1494, label %for.inc.i1496, label %invoke.cont669
@@ -15852,7 +15841,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1503:     ; preds = %_ZN5eastl9allocator
   %537 = getelementptr inbounds i8, ptr %a674, i64 16
   store i64 0, ptr %537, align 8
   store ptr %a674, ptr %a674, align 8
-  %mpPrev.i.i.i1504 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a674, i64 0, i32 1
+  %mpPrev.i.i.i1504 = getelementptr inbounds i8, ptr %a674, i64 8
   store ptr %a674, ptr %mpPrev.i.i.i1504, align 8
   br label %while.cond.i1505
 
@@ -15877,12 +15866,12 @@ if.then.i:                                        ; preds = %while.end.i1508
 while.body.i.i:                                   ; preds = %if.then.i, %while.body.i.i
   %first.sroa.0.03.i.i = phi ptr [ %539, %while.body.i.i ], [ %current.sroa.0.0.i, %if.then.i ]
   %539 = load ptr, ptr %first.sroa.0.03.i.i, align 8, !noalias !433
-  %mpPrev.i.i.i1517 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %539, i64 0, i32 1
+  %mpPrev.i.i.i1517 = getelementptr inbounds i8, ptr %539, i64 8
   %540 = load ptr, ptr %mpPrev.i.i.i1517, align 8, !noalias !433
-  %mpPrev.i.i.i.i.i1518 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %540, i64 0, i32 1
+  %mpPrev.i.i.i.i.i1518 = getelementptr inbounds i8, ptr %540, i64 8
   %541 = load ptr, ptr %mpPrev.i.i.i.i.i1518, align 8, !noalias !433
   %542 = load ptr, ptr %540, align 8, !noalias !433
-  %mpPrev2.i.i.i.i.i1519 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %542, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i1519 = getelementptr inbounds i8, ptr %542, i64 8
   store ptr %541, ptr %mpPrev2.i.i.i.i.i1519, align 8, !noalias !433
   %543 = load ptr, ptr %540, align 8, !noalias !433
   store ptr %543, ptr %541, align 8, !noalias !433
@@ -15903,11 +15892,11 @@ for.body.i.i.i1510:                               ; preds = %call.i.i.i.i.i.i.i.
           to label %call.i.i.i.i.i.i.i.i.noexc1522 unwind label %lpad676.loopexit
 
 call.i.i.i.i.i.i.i.i.noexc1522:                   ; preds = %for.body.i.i.i1510
-  %mValue.i.i.i.i.i1512 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i.i.i1523, i64 0, i32 1
+  %mValue.i.i.i.i.i1512 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i1523, i64 16
   store i32 42, ptr %mValue.i.i.i.i.i1512, align 4, !noalias !438
   store ptr %a674, ptr %call.i.i.i.i.i.i.i.i1523, align 8, !noalias !438
   %545 = load ptr, ptr %mpPrev.i.i.i1504, align 8, !noalias !438
-  %mpPrev2.i.i.i.i8.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i.i1523, i64 0, i32 1
+  %mpPrev2.i.i.i.i8.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i1523, i64 8
   store ptr %545, ptr %mpPrev2.i.i.i.i8.i, align 8, !noalias !438
   store ptr %call.i.i.i.i.i.i.i.i1523, ptr %545, align 8, !noalias !438
   store ptr %call.i.i.i.i.i.i.i.i1523, ptr %mpPrev.i.i.i1504, align 8, !noalias !438
@@ -15937,7 +15926,7 @@ invoke.cont684:                                   ; preds = %invoke.cont680
 
 for.body.i1528:                                   ; preds = %invoke.cont684, %for.inc.i1532
   %550 = phi ptr [ %552, %for.inc.i1532 ], [ %549, %invoke.cont684 ]
-  %mValue.i.i1529 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %550, i64 0, i32 1
+  %mValue.i.i1529 = getelementptr inbounds i8, ptr %550, i64 16
   %551 = load i32, ptr %mValue.i.i1529, align 4
   %cmp.i1.i1530 = icmp eq i32 %551, 42
   br i1 %cmp.i1.i1530, label %for.inc.i1532, label %invoke.cont689
@@ -15968,7 +15957,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1539:     ; preds = %_ZN5eastl9allocator
   %555 = getelementptr inbounds i8, ptr %a694, i64 16
   store i64 0, ptr %555, align 8
   store ptr %a694, ptr %a694, align 8
-  %mpPrev.i.i.i1540 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a694, i64 0, i32 1
+  %mpPrev.i.i.i1540 = getelementptr inbounds i8, ptr %a694, i64 8
   store ptr %a694, ptr %mpPrev.i.i.i1540, align 8
   br label %for.body.i.i1542
 
@@ -15979,12 +15968,12 @@ for.body.i.i1542:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1551:                     ; preds = %for.body.i.i1542
   %first.addr.04.i.i1543.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i1543.idx
-  %mValue.i.i.i.i1552 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1544, i64 0, i32 1
+  %mValue.i.i.i.i1552 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1544, i64 16
   %556 = load i32, ptr %first.addr.04.i.i1543.ptr, align 4
   store i32 %556, ptr %mValue.i.i.i.i1552, align 4
   store ptr %a694, ptr %call.i.i.i.i.i.i1.i1544, align 8
   %557 = load ptr, ptr %mpPrev.i.i.i1540, align 8
-  %mpPrev2.i.i.i.i1553 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1544, i64 0, i32 1
+  %mpPrev2.i.i.i.i1553 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1544, i64 8
   store ptr %557, ptr %mpPrev2.i.i.i.i1553, align 8
   store ptr %call.i.i.i.i.i.i1.i1544, ptr %557, align 8
   store ptr %call.i.i.i.i.i.i1.i1544, ptr %mpPrev.i.i.i1540, align 8
@@ -16011,7 +16000,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1547: ; preds = %lpad.i1545, %_ZN5
 
 _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit1557: ; preds = %call.i.i.i.i.i.i.noexc.i1551
   %562 = load ptr, ptr %a694, align 8
-  %mValue.i1558 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %562, i64 0, i32 1
+  %mValue.i1558 = getelementptr inbounds i8, ptr %562, i64 16
   %563 = load i32, ptr %mValue.i1558, align 4
   %cmp703 = icmp eq i32 %563, 0
   %call706 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp703, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 371, ptr noundef nonnull @.str.58)
@@ -16019,7 +16008,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit1557: ; preds
 
 invoke.cont705:                                   ; preds = %_ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit1557
   %564 = load ptr, ptr %a694, align 8
-  %mValue.i1559 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %564, i64 0, i32 1
+  %mValue.i1559 = getelementptr inbounds i8, ptr %564, i64 16
   store i32 42, ptr %mValue.i1559, align 4
   %call711 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 374, ptr noundef nonnull @.str.59)
           to label %invoke.cont710 unwind label %lpad704
@@ -16040,7 +16029,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1566:     ; preds = %_ZN5eastl9allocator
   %567 = getelementptr inbounds i8, ptr %a713, i64 16
   store i64 0, ptr %567, align 8
   store ptr %a713, ptr %a713, align 8
-  %mpPrev.i.i.i1567 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a713, i64 0, i32 1
+  %mpPrev.i.i.i1567 = getelementptr inbounds i8, ptr %a713, i64 8
   store ptr %a713, ptr %mpPrev.i.i.i1567, align 8
   br label %for.body.i.i1569
 
@@ -16051,12 +16040,12 @@ for.body.i.i1569:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1578:                     ; preds = %for.body.i.i1569
   %first.addr.04.i.i1570.ptr = getelementptr inbounds i8, ptr @constinit.138, i64 %first.addr.04.i.i1570.idx
-  %mValue.i.i.i.i1579 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1571, i64 0, i32 1
+  %mValue.i.i.i.i1579 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1571, i64 16
   %568 = load i32, ptr %first.addr.04.i.i1570.ptr, align 4
   store i32 %568, ptr %mValue.i.i.i.i1579, align 4
   store ptr %a713, ptr %call.i.i.i.i.i.i1.i1571, align 8
   %569 = load ptr, ptr %mpPrev.i.i.i1567, align 8
-  %mpPrev2.i.i.i.i1580 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1571, i64 0, i32 1
+  %mpPrev2.i.i.i.i1580 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1571, i64 8
   store ptr %569, ptr %mpPrev2.i.i.i.i1580, align 8
   store ptr %call.i.i.i.i.i.i1.i1571, ptr %569, align 8
   store ptr %call.i.i.i.i.i.i1.i1571, ptr %mpPrev.i.i.i1567, align 8
@@ -16083,7 +16072,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1574: ; preds = %lpad.i1572, %_ZN5
 
 _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit1584: ; preds = %call.i.i.i.i.i.i.noexc.i1578
   %574 = load ptr, ptr %a713, align 8
-  %mValue.i1585 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %574, i64 0, i32 1
+  %mValue.i1585 = getelementptr inbounds i8, ptr %574, i64 16
   %575 = load i32, ptr %mValue.i1585, align 4
   %cmp722 = icmp eq i32 %575, 5
   %call725 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp722, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 379, ptr noundef nonnull @.str.61)
@@ -16105,17 +16094,17 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1591:     ; preds = %_ZN5eastl9allocator
   %578 = getelementptr inbounds i8, ptr %a727, i64 16
   store i64 0, ptr %578, align 8
   store ptr %a727, ptr %a727, align 8
-  %mpPrev.i.i.i1592 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a727, i64 0, i32 1
+  %mpPrev.i.i.i1592 = getelementptr inbounds i8, ptr %a727, i64 8
   store ptr %a727, ptr %mpPrev.i.i.i1592, align 8
   %call.i.i.i.i.i.i1.i1596 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.i.noexc.i1603 unwind label %lpad.i1597
 
 call.i.i.i.i.i.i.noexc.i1603:                     ; preds = %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit1591
-  %mValue.i.i.i.i1604 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1596, i64 0, i32 1
+  %mValue.i.i.i.i1604 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1596, i64 16
   store i32 9, ptr %mValue.i.i.i.i1604, align 4
   store ptr %a727, ptr %call.i.i.i.i.i.i1.i1596, align 8
   %579 = load ptr, ptr %mpPrev.i.i.i1592, align 8
-  %mpPrev2.i.i.i.i1605 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1596, i64 0, i32 1
+  %mpPrev2.i.i.i.i1605 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1596, i64 8
   store ptr %579, ptr %mpPrev2.i.i.i.i1605, align 8
   store ptr %call.i.i.i.i.i.i1.i1596, ptr %579, align 8
   store ptr %call.i.i.i.i.i.i1.i1596, ptr %mpPrev.i.i.i1592, align 8
@@ -16123,7 +16112,7 @@ call.i.i.i.i.i.i.noexc.i1603:                     ; preds = %_ZN5eastl4listIiNS_
   %inc.i.i.i1606 = add i64 %580, 1
   store i64 %inc.i.i.i1606, ptr %578, align 8
   %581 = load ptr, ptr %a727, align 8
-  %mValue.i1610 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %581, i64 0, i32 1
+  %mValue.i1610 = getelementptr inbounds i8, ptr %581, i64 16
   %582 = load i32, ptr %mValue.i1610, align 4
   %cmp736 = icmp eq i32 %582, 9
   %call739 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp736, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 384, ptr noundef nonnull @.str.62)
@@ -16145,7 +16134,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1599: ; preds = %lpad.i1597, %_ZN5
 
 invoke.cont738:                                   ; preds = %call.i.i.i.i.i.i.noexc.i1603
   %586 = load ptr, ptr %a727, align 8
-  %mValue.i1611 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %586, i64 0, i32 1
+  %mValue.i1611 = getelementptr inbounds i8, ptr %586, i64 16
   store i32 42, ptr %mValue.i1611, align 4
   %call744 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 387, ptr noundef nonnull @.str.59)
           to label %invoke.cont743 unwind label %lpad737
@@ -16166,7 +16155,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1618:     ; preds = %_ZN5eastl9allocator
   %589 = getelementptr inbounds i8, ptr %a746, i64 16
   store i64 0, ptr %589, align 8
   store ptr %a746, ptr %a746, align 8
-  %mpPrev.i.i.i1619 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a746, i64 0, i32 1
+  %mpPrev.i.i.i1619 = getelementptr inbounds i8, ptr %a746, i64 8
   store ptr %a746, ptr %mpPrev.i.i.i1619, align 8
   br label %for.body.i.i1621
 
@@ -16177,12 +16166,12 @@ for.body.i.i1621:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1630:                     ; preds = %for.body.i.i1621
   %first.addr.04.i.i1622.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i1622.idx
-  %mValue.i.i.i.i1631 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1623, i64 0, i32 1
+  %mValue.i.i.i.i1631 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1623, i64 16
   %590 = load i32, ptr %first.addr.04.i.i1622.ptr, align 4
   store i32 %590, ptr %mValue.i.i.i.i1631, align 4
   store ptr %a746, ptr %call.i.i.i.i.i.i1.i1623, align 8
   %591 = load ptr, ptr %mpPrev.i.i.i1619, align 8
-  %mpPrev2.i.i.i.i1632 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1623, i64 0, i32 1
+  %mpPrev2.i.i.i.i1632 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1623, i64 8
   store ptr %591, ptr %mpPrev2.i.i.i.i1632, align 8
   store ptr %call.i.i.i.i.i.i1.i1623, ptr %591, align 8
   store ptr %call.i.i.i.i.i.i1.i1623, ptr %mpPrev.i.i.i1619, align 8
@@ -16208,7 +16197,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1626: ; preds = %lpad.i1624, %_ZN5
   br i1 %cmp.not.i.i.i1628, label %common.resume, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1626, !llvm.loop !100
 
 _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit1636: ; preds = %call.i.i.i.i.i.i.noexc.i1630
-  %mValue.i.i.i.i1631.le = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1623, i64 0, i32 1
+  %mValue.i.i.i.i1631.le = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1623, i64 16
   %596 = load i32, ptr %mValue.i.i.i.i1631.le, align 4
   %cmp755 = icmp eq i32 %596, 9
   %call758 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp755, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 396, ptr noundef nonnull @.str.64)
@@ -16216,7 +16205,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit1636: ; preds
 
 invoke.cont757:                                   ; preds = %_ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit1636
   %597 = load ptr, ptr %mpPrev.i.i.i1619, align 8
-  %mValue.i1639 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %597, i64 0, i32 1
+  %mValue.i1639 = getelementptr inbounds i8, ptr %597, i64 16
   store i32 42, ptr %mValue.i1639, align 4
   %call763 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 399, ptr noundef nonnull @.str.65)
           to label %invoke.cont762 unwind label %lpad756
@@ -16237,7 +16226,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1647:     ; preds = %_ZN5eastl9allocator
   %600 = getelementptr inbounds i8, ptr %a765, i64 16
   store i64 0, ptr %600, align 8
   store ptr %a765, ptr %a765, align 8
-  %mpPrev.i.i.i1648 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a765, i64 0, i32 1
+  %mpPrev.i.i.i1648 = getelementptr inbounds i8, ptr %a765, i64 8
   store ptr %a765, ptr %mpPrev.i.i.i1648, align 8
   br label %for.body.i.i1650
 
@@ -16248,12 +16237,12 @@ for.body.i.i1650:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1659:                     ; preds = %for.body.i.i1650
   %first.addr.04.i.i1651.ptr = getelementptr inbounds i8, ptr @constinit.138, i64 %first.addr.04.i.i1651.idx
-  %mValue.i.i.i.i1660 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1652, i64 0, i32 1
+  %mValue.i.i.i.i1660 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1652, i64 16
   %601 = load i32, ptr %first.addr.04.i.i1651.ptr, align 4
   store i32 %601, ptr %mValue.i.i.i.i1660, align 4
   store ptr %a765, ptr %call.i.i.i.i.i.i1.i1652, align 8
   %602 = load ptr, ptr %mpPrev.i.i.i1648, align 8
-  %mpPrev2.i.i.i.i1661 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1652, i64 0, i32 1
+  %mpPrev2.i.i.i.i1661 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1652, i64 8
   store ptr %602, ptr %mpPrev2.i.i.i.i1661, align 8
   store ptr %call.i.i.i.i.i.i1.i1652, ptr %602, align 8
   store ptr %call.i.i.i.i.i.i1.i1652, ptr %mpPrev.i.i.i1648, align 8
@@ -16279,7 +16268,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1655: ; preds = %lpad.i1653, %_ZN5
   br i1 %cmp.not.i.i.i1657, label %common.resume, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1655, !llvm.loop !100
 
 _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit1665: ; preds = %call.i.i.i.i.i.i.noexc.i1659
-  %mValue.i.i.i.i1660.le = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1652, i64 0, i32 1
+  %mValue.i.i.i.i1660.le = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1652, i64 16
   %607 = load i32, ptr %mValue.i.i.i.i1660.le, align 4
   %cmp774 = icmp eq i32 %607, 9
   %call777 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp774, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 404, ptr noundef nonnull @.str.64)
@@ -16301,17 +16290,17 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1673:     ; preds = %_ZN5eastl9allocator
   %610 = getelementptr inbounds i8, ptr %a779, i64 16
   store i64 0, ptr %610, align 8
   store ptr %a779, ptr %a779, align 8
-  %mpPrev.i.i.i1674 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a779, i64 0, i32 1
+  %mpPrev.i.i.i1674 = getelementptr inbounds i8, ptr %a779, i64 8
   store ptr %a779, ptr %mpPrev.i.i.i1674, align 8
   %call.i.i.i.i.i.i1.i1678 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %call.i.i.i.i.i.i.noexc.i1685 unwind label %lpad.i1679
 
 call.i.i.i.i.i.i.noexc.i1685:                     ; preds = %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit1673
-  %mValue.i.i.i.i1686 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1678, i64 0, i32 1
+  %mValue.i.i.i.i1686 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1678, i64 16
   store i32 9, ptr %mValue.i.i.i.i1686, align 4
   store ptr %a779, ptr %call.i.i.i.i.i.i1.i1678, align 8
   %611 = load ptr, ptr %mpPrev.i.i.i1674, align 8
-  %mpPrev2.i.i.i.i1687 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1678, i64 0, i32 1
+  %mpPrev2.i.i.i.i1687 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1678, i64 8
   store ptr %611, ptr %mpPrev2.i.i.i.i1687, align 8
   store ptr %call.i.i.i.i.i.i1.i1678, ptr %611, align 8
   store ptr %call.i.i.i.i.i.i1.i1678, ptr %mpPrev.i.i.i1674, align 8
@@ -16339,7 +16328,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1681: ; preds = %lpad.i1679, %_ZN5
 
 invoke.cont790:                                   ; preds = %call.i.i.i.i.i.i.noexc.i1685
   %617 = load ptr, ptr %mpPrev.i.i.i1674, align 8
-  %mValue.i1695 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %617, i64 0, i32 1
+  %mValue.i1695 = getelementptr inbounds i8, ptr %617, i64 16
   store i32 42, ptr %mValue.i1695, align 4
   %call796 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 412, ptr noundef nonnull @.str.65)
           to label %invoke.cont795 unwind label %lpad789
@@ -16360,7 +16349,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1703:     ; preds = %_ZN5eastl9allocator
   %620 = getelementptr inbounds i8, ptr %ref798, i64 16
   store i64 0, ptr %620, align 8
   store ptr %ref798, ptr %ref798, align 8
-  %mpPrev.i.i.i1704 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref798, i64 0, i32 1
+  %mpPrev.i.i.i1704 = getelementptr inbounds i8, ptr %ref798, i64 8
   store ptr %ref798, ptr %mpPrev.i.i.i1704, align 8
   br label %for.body.i.i1706
 
@@ -16371,12 +16360,12 @@ for.body.i.i1706:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1715:                     ; preds = %for.body.i.i1706
   %first.addr.04.i.i1707.ptr = getelementptr inbounds i8, ptr @constinit.113, i64 %first.addr.04.i.i1707.idx
-  %mValue.i.i.i.i1716 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1708, i64 0, i32 1
+  %mValue.i.i.i.i1716 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1708, i64 16
   %621 = load i32, ptr %first.addr.04.i.i1707.ptr, align 4
   store i32 %621, ptr %mValue.i.i.i.i1716, align 4
   store ptr %ref798, ptr %call.i.i.i.i.i.i1.i1708, align 8
   %622 = load ptr, ptr %mpPrev.i.i.i1704, align 8
-  %mpPrev2.i.i.i.i1717 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1708, i64 0, i32 1
+  %mpPrev2.i.i.i.i1717 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1708, i64 8
   store ptr %622, ptr %mpPrev2.i.i.i.i1717, align 8
   store ptr %call.i.i.i.i.i.i1.i1708, ptr %622, align 8
   store ptr %call.i.i.i.i.i.i1.i1708, ptr %mpPrev.i.i.i1704, align 8
@@ -16405,7 +16394,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit1721: ; preds
   %627 = getelementptr inbounds i8, ptr %a806, i64 16
   store i64 0, ptr %627, align 8
   store ptr %a806, ptr %a806, align 8
-  %mpPrev.i.i.i1722 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a806, i64 0, i32 1
+  %mpPrev.i.i.i1722 = getelementptr inbounds i8, ptr %a806, i64 8
   store ptr %a806, ptr %mpPrev.i.i.i1722, align 8
   br label %for.body
 
@@ -16416,12 +16405,12 @@ for.body:                                         ; preds = %_ZN5eastl4listIiNS_
           to label %for.inc unwind label %lpad810.loopexit
 
 for.inc:                                          ; preds = %for.body
-  %mValue.i.i.i1723 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1727, i64 0, i32 1
+  %mValue.i.i.i1723 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1727, i64 16
   store i32 %storemerge6234, ptr %mValue.i.i.i1723, align 4
   store ptr %628, ptr %call.i.i.i.i.i.i1727, align 8
-  %mpPrev.i.i.i1724 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %628, i64 0, i32 1
+  %mpPrev.i.i.i1724 = getelementptr inbounds i8, ptr %628, i64 8
   %629 = load ptr, ptr %mpPrev.i.i.i1724, align 8
-  %mpPrev2.i.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1727, i64 0, i32 1
+  %mpPrev2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1727, i64 8
   store ptr %629, ptr %mpPrev2.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i1727, ptr %629, align 8
   store ptr %call.i.i.i.i.i.i1727, ptr %mpPrev.i.i.i1724, align 8
@@ -16683,9 +16672,9 @@ while.cond.i1822:                                 ; preds = %for.end, %land.rhs.
 
 land.rhs.i1827:                                   ; preds = %while.cond.i1822
   %ib.sroa.0.0.i1828 = load ptr, ptr %ib.sroa.0.0.in.i1823, align 8
-  %mValue.i.i1829 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i1825, i64 0, i32 1
+  %mValue.i.i1829 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i1825, i64 16
   %674 = load i32, ptr %mValue.i.i1829, align 4
-  %mValue.i5.i1830 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i1828, i64 0, i32 1
+  %mValue.i5.i1830 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i1828, i64 16
   %675 = load i32, ptr %mValue.i5.i1830, align 4
   %cmp10.i1831 = icmp eq i32 %674, %675
   br i1 %cmp10.i1831, label %while.cond.i1822, label %while.end.i1832, !llvm.loop !385
@@ -16728,7 +16717,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1847:     ; preds = %_ZN5eastl9allocator
   %680 = getelementptr inbounds i8, ptr %ref819, i64 16
   store i64 0, ptr %680, align 8
   store ptr %ref819, ptr %ref819, align 8
-  %mpPrev.i.i.i1848 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref819, i64 0, i32 1
+  %mpPrev.i.i.i1848 = getelementptr inbounds i8, ptr %ref819, i64 8
   store ptr %ref819, ptr %mpPrev.i.i.i1848, align 8
   br label %for.body.i.i1850
 
@@ -16739,12 +16728,12 @@ for.body.i.i1850:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1859:                     ; preds = %for.body.i.i1850
   %first.addr.04.i.i1851.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i1851.idx
-  %mValue.i.i.i.i1860 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i1852, i64 0, i32 1
+  %mValue.i.i.i.i1860 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1852, i64 16
   %681 = load i32, ptr %first.addr.04.i.i1851.ptr, align 4
   store i32 %681, ptr %mValue.i.i.i.i1860, align 4
   store ptr %ref819, ptr %call.i.i.i.i.i.i1.i1852, align 8
   %682 = load ptr, ptr %mpPrev.i.i.i1848, align 8
-  %mpPrev2.i.i.i.i1861 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i1852, i64 0, i32 1
+  %mpPrev2.i.i.i.i1861 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i1852, i64 8
   store ptr %682, ptr %mpPrev2.i.i.i.i1861, align 8
   store ptr %call.i.i.i.i.i.i1.i1852, ptr %682, align 8
   store ptr %call.i.i.i.i.i.i1.i1852, ptr %mpPrev.i.i.i1848, align 8
@@ -16773,7 +16762,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit1865: ; preds
   %687 = getelementptr inbounds i8, ptr %a827, i64 16
   store i64 0, ptr %687, align 8
   store ptr %a827, ptr %a827, align 8
-  %mpPrev.i.i.i1866 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a827, i64 0, i32 1
+  %mpPrev.i.i.i1866 = getelementptr inbounds i8, ptr %a827, i64 8
   store ptr %a827, ptr %mpPrev.i.i.i1866, align 8
   br label %for.body833
 
@@ -16783,11 +16772,11 @@ for.body833:                                      ; preds = %_ZN5eastl4listIiNS_
           to label %for.inc836 unwind label %lpad834.loopexit
 
 for.inc836:                                       ; preds = %for.body833
-  %mValue.i.i.i1867 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1872, i64 0, i32 1
+  %mValue.i.i.i1867 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1872, i64 16
   store i32 %storemerge326235, ptr %mValue.i.i.i1867, align 4
   store ptr %a827, ptr %call.i.i.i.i.i.i1872, align 8
   %688 = load ptr, ptr %mpPrev.i.i.i1866, align 8
-  %mpPrev2.i.i.i1869 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1872, i64 0, i32 1
+  %mpPrev2.i.i.i1869 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1872, i64 8
   store ptr %688, ptr %mpPrev2.i.i.i1869, align 8
   store ptr %call.i.i.i.i.i.i1872, ptr %688, align 8
   store ptr %call.i.i.i.i.i.i1872, ptr %mpPrev.i.i.i1866, align 8
@@ -16847,9 +16836,9 @@ while.cond.i1889:                                 ; preds = %for.end838, %land.r
 
 land.rhs.i1894:                                   ; preds = %while.cond.i1889
   %ib.sroa.0.0.i1895 = load ptr, ptr %ib.sroa.0.0.in.i1890, align 8
-  %mValue.i.i1896 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i1892, i64 0, i32 1
+  %mValue.i.i1896 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i1892, i64 16
   %695 = load i32, ptr %mValue.i.i1896, align 4
-  %mValue.i5.i1897 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i1895, i64 0, i32 1
+  %mValue.i5.i1897 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i1895, i64 16
   %696 = load i32, ptr %mValue.i5.i1897, align 4
   %cmp10.i1898 = icmp eq i32 %695, %696
   br i1 %cmp10.i1898, label %while.cond.i1889, label %while.end.i1899, !llvm.loop !385
@@ -16890,14 +16879,14 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1910: ; preds = %_ZN5eastl4listIiN
 
 _ZN5eastl4listIiNS_9allocatorEED2Ev.exit1914:     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1910, %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit1908
   store i32 1, ptr %ref.tmp847, align 4
-  %arrayinit.element849 = getelementptr inbounds %struct.A, ptr %ref.tmp847, i64 1
+  %arrayinit.element849 = getelementptr inbounds i8, ptr %ref.tmp847, i64 4
   store i32 2, ptr %arrayinit.element849, align 4
-  %arrayinit.element850 = getelementptr inbounds %struct.A, ptr %ref.tmp847, i64 2
+  %arrayinit.element850 = getelementptr inbounds i8, ptr %ref.tmp847, i64 8
   store i32 3, ptr %arrayinit.element850, align 4
   %701 = getelementptr inbounds i8, ptr %ref845, i64 16
   store i64 0, ptr %701, align 8
   store ptr %ref845, ptr %ref845, align 8
-  %mpPrev.i.i.i1915 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref845, i64 0, i32 1
+  %mpPrev.i.i.i1915 = getelementptr inbounds i8, ptr %ref845, i64 8
   store ptr %ref845, ptr %mpPrev.i.i.i1915, align 8
   br label %for.body.i.i1916
 
@@ -16908,12 +16897,12 @@ for.body.i.i1916:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1923:                     ; preds = %for.body.i.i1916
   %first.addr.04.i.ptr.i = getelementptr inbounds i8, ptr %ref.tmp847, i64 %first.addr.04.i.idx.i
-  %mValue.i.i.i.i1924 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %call.i.i.i.i.i.i3.i1917, i64 0, i32 1
+  %mValue.i.i.i.i1924 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i1917, i64 16
   %702 = load i32, ptr %first.addr.04.i.ptr.i, align 4
   store i32 %702, ptr %mValue.i.i.i.i1924, align 4
   store ptr %ref845, ptr %call.i.i.i.i.i.i3.i1917, align 8
   %703 = load ptr, ptr %mpPrev.i.i.i1915, align 8
-  %mpPrev2.i.i.i.i1925 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i3.i1917, i64 0, i32 1
+  %mpPrev2.i.i.i.i1925 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i1917, i64 8
   store ptr %703, ptr %mpPrev2.i.i.i.i1925, align 8
   store ptr %call.i.i.i.i.i.i3.i1917, ptr %703, align 8
   store ptr %call.i.i.i.i.i.i3.i1917, ptr %mpPrev.i.i.i1915, align 8
@@ -16942,17 +16931,17 @@ invoke.cont857:                                   ; preds = %call.i.i.i.i.i.i.no
   %708 = getelementptr inbounds i8, ptr %a855, i64 16
   store i64 0, ptr %708, align 8
   store ptr %a855, ptr %a855, align 8
-  %mpPrev.i.i.i1928 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a855, i64 0, i32 1
+  %mpPrev.i.i.i1928 = getelementptr inbounds i8, ptr %a855, i64 8
   store ptr %a855, ptr %mpPrev.i.i.i1928, align 8
   %call.i.i.i.i.i.i1934 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %invoke.cont860 unwind label %lpad859
 
 invoke.cont860:                                   ; preds = %invoke.cont857
-  %mValue.i.i.i1929 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %call.i.i.i.i.i.i1934, i64 0, i32 1
+  %mValue.i.i.i1929 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1934, i64 16
   store i32 1, ptr %mValue.i.i.i1929, align 4
   store ptr %a855, ptr %call.i.i.i.i.i.i1934, align 8
   %709 = load ptr, ptr %mpPrev.i.i.i1928, align 8
-  %mpPrev2.i.i.i1931 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1934, i64 0, i32 1
+  %mpPrev2.i.i.i1931 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1934, i64 8
   store ptr %709, ptr %mpPrev2.i.i.i1931, align 8
   store ptr %call.i.i.i.i.i.i1934, ptr %709, align 8
   store ptr %call.i.i.i.i.i.i1934, ptr %mpPrev.i.i.i1928, align 8
@@ -16963,11 +16952,11 @@ invoke.cont860:                                   ; preds = %invoke.cont857
           to label %invoke.cont862 unwind label %lpad859
 
 invoke.cont862:                                   ; preds = %invoke.cont860
-  %mValue.i.i.i1935 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %call.i.i.i.i.i.i1940, i64 0, i32 1
+  %mValue.i.i.i1935 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1940, i64 16
   store i32 2, ptr %mValue.i.i.i1935, align 4
   store ptr %a855, ptr %call.i.i.i.i.i.i1940, align 8
   %711 = load ptr, ptr %mpPrev.i.i.i1928, align 8
-  %mpPrev2.i.i.i1937 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1940, i64 0, i32 1
+  %mpPrev2.i.i.i1937 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1940, i64 8
   store ptr %711, ptr %mpPrev2.i.i.i1937, align 8
   store ptr %call.i.i.i.i.i.i1940, ptr %711, align 8
   store ptr %call.i.i.i.i.i.i1940, ptr %mpPrev.i.i.i1928, align 8
@@ -16978,11 +16967,11 @@ invoke.cont862:                                   ; preds = %invoke.cont860
           to label %invoke.cont864 unwind label %lpad859
 
 invoke.cont864:                                   ; preds = %invoke.cont862
-  %mValue.i.i.i1942 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %call.i.i.i.i.i.i1947, i64 0, i32 1
+  %mValue.i.i.i1942 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1947, i64 16
   store i32 3, ptr %mValue.i.i.i1942, align 4
   store ptr %a855, ptr %call.i.i.i.i.i.i1947, align 8
   %713 = load ptr, ptr %mpPrev.i.i.i1928, align 8
-  %mpPrev2.i.i.i1944 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1947, i64 0, i32 1
+  %mpPrev2.i.i.i1944 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1947, i64 8
   store ptr %713, ptr %mpPrev2.i.i.i1944, align 8
   store ptr %call.i.i.i.i.i.i1947, ptr %713, align 8
   store ptr %call.i.i.i.i.i.i1947, ptr %mpPrev.i.i.i1928, align 8
@@ -17002,8 +16991,8 @@ land.rhs.i1952:                                   ; preds = %while.cond.preheade
   %ia.sroa.0.04.i = phi ptr [ %ia.sroa.0.0.i1956, %while.body.i ], [ %ia.sroa.0.01.i, %while.cond.preheader.i ]
   %ib.sroa.0.03.i.in = phi ptr [ %ib.sroa.0.03.i, %while.body.i ], [ %ref845, %while.cond.preheader.i ]
   %ib.sroa.0.03.i = load ptr, ptr %ib.sroa.0.03.i.in, align 8
-  %mValue.i.i1953 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %ia.sroa.0.04.i, i64 0, i32 1
-  %mValue.i9.i = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %ib.sroa.0.03.i, i64 0, i32 1
+  %mValue.i.i1953 = getelementptr inbounds i8, ptr %ia.sroa.0.04.i, i64 16
+  %mValue.i9.i = getelementptr inbounds i8, ptr %ib.sroa.0.03.i, i64 16
   %call8.val.i = load i32, ptr %mValue.i.i1953, align 4
   %call9.val.i = load i32, ptr %mValue.i9.i, align 4
   %cmp.i10.i = icmp eq i32 %call8.val.i, %call9.val.i
@@ -17050,14 +17039,14 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1964: ; preds = %_ZN5eastl4listIZ8
 
 _ZN5eastl4listIZ8TestListvE1ANS_9allocatorEED2Ev.exit1968: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i1964, %_ZN5eastl4listIZ8TestListvE1ANS_9allocatorEED2Ev.exit
   store i32 1, ptr %ref.tmp873, align 4
-  %arrayinit.element875 = getelementptr inbounds %struct.A, ptr %ref.tmp873, i64 1
+  %arrayinit.element875 = getelementptr inbounds i8, ptr %ref.tmp873, i64 4
   store i32 2, ptr %arrayinit.element875, align 4
-  %arrayinit.element876 = getelementptr inbounds %struct.A, ptr %ref.tmp873, i64 2
+  %arrayinit.element876 = getelementptr inbounds i8, ptr %ref.tmp873, i64 8
   store i32 3, ptr %arrayinit.element876, align 4
   %719 = getelementptr inbounds i8, ptr %ref871, i64 16
   store i64 0, ptr %719, align 8
   store ptr %ref871, ptr %ref871, align 8
-  %mpPrev.i.i.i1969 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref871, i64 0, i32 1
+  %mpPrev.i.i.i1969 = getelementptr inbounds i8, ptr %ref871, i64 8
   store ptr %ref871, ptr %mpPrev.i.i.i1969, align 8
   br label %for.body.i.i1970
 
@@ -17068,12 +17057,12 @@ for.body.i.i1970:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i1979:                     ; preds = %for.body.i.i1970
   %first.addr.04.i.ptr.i1980 = getelementptr inbounds i8, ptr %ref.tmp873, i64 %first.addr.04.i.idx.i1971
-  %mValue.i.i.i.i1981 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %call.i.i.i.i.i.i3.i1972, i64 0, i32 1
+  %mValue.i.i.i.i1981 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i1972, i64 16
   %720 = load i32, ptr %first.addr.04.i.ptr.i1980, align 4
   store i32 %720, ptr %mValue.i.i.i.i1981, align 4
   store ptr %ref871, ptr %call.i.i.i.i.i.i3.i1972, align 8
   %721 = load ptr, ptr %mpPrev.i.i.i1969, align 8
-  %mpPrev2.i.i.i.i1982 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i3.i1972, i64 0, i32 1
+  %mpPrev2.i.i.i.i1982 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i1972, i64 8
   store ptr %721, ptr %mpPrev2.i.i.i.i1982, align 8
   store ptr %call.i.i.i.i.i.i3.i1972, ptr %721, align 8
   store ptr %call.i.i.i.i.i.i3.i1972, ptr %mpPrev.i.i.i1969, align 8
@@ -17102,17 +17091,17 @@ invoke.cont883:                                   ; preds = %call.i.i.i.i.i.i.no
   %726 = getelementptr inbounds i8, ptr %a881, i64 16
   store i64 0, ptr %726, align 8
   store ptr %a881, ptr %a881, align 8
-  %mpPrev.i.i.i1987 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a881, i64 0, i32 1
+  %mpPrev.i.i.i1987 = getelementptr inbounds i8, ptr %a881, i64 8
   store ptr %a881, ptr %mpPrev.i.i.i1987, align 8
   %call.i.i.i.i.i.i1993 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %invoke.cont887 unwind label %lpad885
 
 invoke.cont887:                                   ; preds = %invoke.cont883
-  %mValue.i.i.i1988 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %call.i.i.i.i.i.i1993, i64 0, i32 1
+  %mValue.i.i.i1988 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1993, i64 16
   store i32 1, ptr %mValue.i.i.i1988, align 4
   store ptr %a881, ptr %call.i.i.i.i.i.i1993, align 8
   %727 = load ptr, ptr %mpPrev.i.i.i1987, align 8
-  %mpPrev2.i.i.i1990 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1993, i64 0, i32 1
+  %mpPrev2.i.i.i1990 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1993, i64 8
   store ptr %727, ptr %mpPrev2.i.i.i1990, align 8
   store ptr %call.i.i.i.i.i.i1993, ptr %727, align 8
   store ptr %call.i.i.i.i.i.i1993, ptr %mpPrev.i.i.i1987, align 8
@@ -17123,11 +17112,11 @@ invoke.cont887:                                   ; preds = %invoke.cont883
           to label %invoke.cont890 unwind label %lpad885
 
 invoke.cont890:                                   ; preds = %invoke.cont887
-  %mValue.i.i.i1994 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %call.i.i.i.i.i.i1999, i64 0, i32 1
+  %mValue.i.i.i1994 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1999, i64 16
   store i32 2, ptr %mValue.i.i.i1994, align 4
   store ptr %a881, ptr %call.i.i.i.i.i.i1999, align 8
   %729 = load ptr, ptr %mpPrev.i.i.i1987, align 8
-  %mpPrev2.i.i.i1996 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1999, i64 0, i32 1
+  %mpPrev2.i.i.i1996 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1999, i64 8
   store ptr %729, ptr %mpPrev2.i.i.i1996, align 8
   store ptr %call.i.i.i.i.i.i1999, ptr %729, align 8
   store ptr %call.i.i.i.i.i.i1999, ptr %mpPrev.i.i.i1987, align 8
@@ -17138,11 +17127,11 @@ invoke.cont890:                                   ; preds = %invoke.cont887
           to label %invoke.cont893 unwind label %lpad885
 
 invoke.cont893:                                   ; preds = %invoke.cont890
-  %mValue.i.i.i2001 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %call.i.i.i.i.i.i2006, i64 0, i32 1
+  %mValue.i.i.i2001 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2006, i64 16
   store i32 3, ptr %mValue.i.i.i2001, align 4
   store ptr %a881, ptr %call.i.i.i.i.i.i2006, align 8
   %731 = load ptr, ptr %mpPrev.i.i.i1987, align 8
-  %mpPrev2.i.i.i2003 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i2006, i64 0, i32 1
+  %mpPrev2.i.i.i2003 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2006, i64 8
   store ptr %731, ptr %mpPrev2.i.i.i2003, align 8
   store ptr %call.i.i.i.i.i.i2006, ptr %731, align 8
   store ptr %call.i.i.i.i.i.i2006, ptr %mpPrev.i.i.i1987, align 8
@@ -17162,8 +17151,8 @@ land.rhs.i2014:                                   ; preds = %while.cond.preheade
   %ia.sroa.0.04.i2015 = phi ptr [ %ia.sroa.0.0.i2026, %while.body.i2025 ], [ %ia.sroa.0.01.i2012, %while.cond.preheader.i2011 ]
   %ib.sroa.0.03.i2016.in = phi ptr [ %ib.sroa.0.03.i2016, %while.body.i2025 ], [ %ref871, %while.cond.preheader.i2011 ]
   %ib.sroa.0.03.i2016 = load ptr, ptr %ib.sroa.0.03.i2016.in, align 8
-  %mValue.i.i2017 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %ia.sroa.0.04.i2015, i64 0, i32 1
-  %mValue.i9.i2018 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %ib.sroa.0.03.i2016, i64 0, i32 1
+  %mValue.i.i2017 = getelementptr inbounds i8, ptr %ia.sroa.0.04.i2015, i64 16
+  %mValue.i9.i2018 = getelementptr inbounds i8, ptr %ib.sroa.0.03.i2016, i64 16
   %call8.val.i2019 = load i32, ptr %mValue.i.i2017, align 4
   %call9.val.i2020 = load i32, ptr %mValue.i9.i2018, align 4
   %cmp.i10.i2021 = icmp eq i32 %call8.val.i2019, %call9.val.i2020
@@ -17210,14 +17199,14 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i2036: ; preds = %_ZN5eastl4listIZ8
 
 _ZN5eastl4listIZ8TestListvE1ANS_9allocatorEED2Ev.exit2040: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i2036, %_ZN5eastl4listIZ8TestListvE1ANS_9allocatorEED2Ev.exit2034
   store i32 1, ptr %ref.tmp902, align 4
-  %arrayinit.element904 = getelementptr inbounds %struct.A, ptr %ref.tmp902, i64 1
+  %arrayinit.element904 = getelementptr inbounds i8, ptr %ref.tmp902, i64 4
   store i32 2, ptr %arrayinit.element904, align 4
-  %arrayinit.element905 = getelementptr inbounds %struct.A, ptr %ref.tmp902, i64 2
+  %arrayinit.element905 = getelementptr inbounds i8, ptr %ref.tmp902, i64 8
   store i32 3, ptr %arrayinit.element905, align 4
   %737 = getelementptr inbounds i8, ptr %ref900, i64 16
   store i64 0, ptr %737, align 8
   store ptr %ref900, ptr %ref900, align 8
-  %mpPrev.i.i.i2041 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref900, i64 0, i32 1
+  %mpPrev.i.i.i2041 = getelementptr inbounds i8, ptr %ref900, i64 8
   store ptr %ref900, ptr %mpPrev.i.i.i2041, align 8
   br label %for.body.i.i2042
 
@@ -17228,12 +17217,12 @@ for.body.i.i2042:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2051:                     ; preds = %for.body.i.i2042
   %first.addr.04.i.ptr.i2052 = getelementptr inbounds i8, ptr %ref.tmp902, i64 %first.addr.04.i.idx.i2043
-  %mValue.i.i.i.i2053 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %call.i.i.i.i.i.i3.i2044, i64 0, i32 1
+  %mValue.i.i.i.i2053 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i2044, i64 16
   %738 = load i32, ptr %first.addr.04.i.ptr.i2052, align 4
   store i32 %738, ptr %mValue.i.i.i.i2053, align 4
   store ptr %ref900, ptr %call.i.i.i.i.i.i3.i2044, align 8
   %739 = load ptr, ptr %mpPrev.i.i.i2041, align 8
-  %mpPrev2.i.i.i.i2054 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i3.i2044, i64 0, i32 1
+  %mpPrev2.i.i.i.i2054 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i2044, i64 8
   store ptr %739, ptr %mpPrev2.i.i.i.i2054, align 8
   store ptr %call.i.i.i.i.i.i3.i2044, ptr %739, align 8
   store ptr %call.i.i.i.i.i.i3.i2044, ptr %mpPrev.i.i.i2041, align 8
@@ -17262,17 +17251,17 @@ invoke.cont912:                                   ; preds = %call.i.i.i.i.i.i.no
   %744 = getelementptr inbounds i8, ptr %a910, i64 16
   store i64 0, ptr %744, align 8
   store ptr %a910, ptr %a910, align 8
-  %mpPrev.i.i.i2059 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a910, i64 0, i32 1
+  %mpPrev.i.i.i2059 = getelementptr inbounds i8, ptr %a910, i64 8
   store ptr %a910, ptr %mpPrev.i.i.i2059, align 8
   %call.i.i.i.i.i.i2065 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %invoke.cont917 unwind label %lpad913
 
 invoke.cont917:                                   ; preds = %invoke.cont912
-  %mValue.i.i.i2060 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %call.i.i.i.i.i.i2065, i64 0, i32 1
+  %mValue.i.i.i2060 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2065, i64 16
   store i32 1, ptr %mValue.i.i.i2060, align 4
   store ptr %a910, ptr %call.i.i.i.i.i.i2065, align 8
   %745 = load ptr, ptr %mpPrev.i.i.i2059, align 8
-  %mpPrev2.i.i.i2062 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i2065, i64 0, i32 1
+  %mpPrev2.i.i.i2062 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2065, i64 8
   store ptr %745, ptr %mpPrev2.i.i.i2062, align 8
   store ptr %call.i.i.i.i.i.i2065, ptr %745, align 8
   store ptr %call.i.i.i.i.i.i2065, ptr %mpPrev.i.i.i2059, align 8
@@ -17283,11 +17272,11 @@ invoke.cont917:                                   ; preds = %invoke.cont912
           to label %invoke.cont918 unwind label %lpad913
 
 invoke.cont918:                                   ; preds = %invoke.cont917
-  %mValue.i.i.i2066 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %call.i.i.i.i.i.i2071, i64 0, i32 1
+  %mValue.i.i.i2066 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2071, i64 16
   store i32 2, ptr %mValue.i.i.i2066, align 4
   store ptr %a910, ptr %call.i.i.i.i.i.i2071, align 8
   %747 = load ptr, ptr %mpPrev.i.i.i2059, align 8
-  %mpPrev2.i.i.i2068 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i2071, i64 0, i32 1
+  %mpPrev2.i.i.i2068 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2071, i64 8
   store ptr %747, ptr %mpPrev2.i.i.i2068, align 8
   store ptr %call.i.i.i.i.i.i2071, ptr %747, align 8
   store ptr %call.i.i.i.i.i.i2071, ptr %mpPrev.i.i.i2059, align 8
@@ -17298,11 +17287,11 @@ invoke.cont918:                                   ; preds = %invoke.cont917
           to label %invoke.cont919 unwind label %lpad913
 
 invoke.cont919:                                   ; preds = %invoke.cont918
-  %mValue.i.i.i2073 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %call.i.i.i.i.i.i2078, i64 0, i32 1
+  %mValue.i.i.i2073 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2078, i64 16
   store i32 3, ptr %mValue.i.i.i2073, align 4
   store ptr %a910, ptr %call.i.i.i.i.i.i2078, align 8
   %749 = load ptr, ptr %mpPrev.i.i.i2059, align 8
-  %mpPrev2.i.i.i2075 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i2078, i64 0, i32 1
+  %mpPrev2.i.i.i2075 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2078, i64 8
   store ptr %749, ptr %mpPrev2.i.i.i2075, align 8
   store ptr %call.i.i.i.i.i.i2078, ptr %749, align 8
   store ptr %call.i.i.i.i.i.i2078, ptr %mpPrev.i.i.i2059, align 8
@@ -17322,8 +17311,8 @@ land.rhs.i2086:                                   ; preds = %while.cond.preheade
   %ia.sroa.0.04.i2087 = phi ptr [ %ia.sroa.0.0.i2098, %while.body.i2097 ], [ %ia.sroa.0.01.i2084, %while.cond.preheader.i2083 ]
   %ib.sroa.0.03.i2088.in = phi ptr [ %ib.sroa.0.03.i2088, %while.body.i2097 ], [ %ref900, %while.cond.preheader.i2083 ]
   %ib.sroa.0.03.i2088 = load ptr, ptr %ib.sroa.0.03.i2088.in, align 8
-  %mValue.i.i2089 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %ia.sroa.0.04.i2087, i64 0, i32 1
-  %mValue.i9.i2090 = getelementptr inbounds %"struct.eastl::ListNode.69", ptr %ib.sroa.0.03.i2088, i64 0, i32 1
+  %mValue.i.i2089 = getelementptr inbounds i8, ptr %ia.sroa.0.04.i2087, i64 16
+  %mValue.i9.i2090 = getelementptr inbounds i8, ptr %ib.sroa.0.03.i2088, i64 16
   %call8.val.i2091 = load i32, ptr %mValue.i.i2089, align 4
   %call9.val.i2092 = load i32, ptr %mValue.i9.i2090, align 4
   %cmp.i10.i2093 = icmp eq i32 %call8.val.i2091, %call9.val.i2092
@@ -17372,7 +17361,7 @@ _ZN5eastl4listIZ8TestListvE1ANS_9allocatorEED2Ev.exit2112: ; preds = %_ZN5eastl9
   %755 = getelementptr inbounds i8, ptr %ref926, i64 16
   store i64 0, ptr %755, align 8
   store ptr %ref926, ptr %ref926, align 8
-  %mpPrev.i.i.i2113 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref926, i64 0, i32 1
+  %mpPrev.i.i.i2113 = getelementptr inbounds i8, ptr %ref926, i64 8
   store ptr %ref926, ptr %mpPrev.i.i.i2113, align 8
   br label %for.body.i.i2115
 
@@ -17383,12 +17372,12 @@ for.body.i.i2115:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2124:                     ; preds = %for.body.i.i2115
   %first.addr.04.i.i2116.ptr = getelementptr inbounds i8, ptr @constinit.113, i64 %first.addr.04.i.i2116.idx
-  %mValue.i.i.i.i2125 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2117, i64 0, i32 1
+  %mValue.i.i.i.i2125 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2117, i64 16
   %756 = load i32, ptr %first.addr.04.i.i2116.ptr, align 4
   store i32 %756, ptr %mValue.i.i.i.i2125, align 4
   store ptr %ref926, ptr %call.i.i.i.i.i.i1.i2117, align 8
   %757 = load ptr, ptr %mpPrev.i.i.i2113, align 8
-  %mpPrev2.i.i.i.i2126 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2117, i64 0, i32 1
+  %mpPrev2.i.i.i.i2126 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2117, i64 8
   store ptr %757, ptr %mpPrev2.i.i.i.i2126, align 8
   store ptr %call.i.i.i.i.i.i1.i2117, ptr %757, align 8
   store ptr %call.i.i.i.i.i.i1.i2117, ptr %mpPrev.i.i.i2113, align 8
@@ -17417,7 +17406,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit2130: ; preds
   %762 = getelementptr inbounds i8, ptr %a934, i64 16
   store i64 0, ptr %762, align 8
   store ptr %a934, ptr %a934, align 8
-  %mpPrev.i.i.i2131 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a934, i64 0, i32 1
+  %mpPrev.i.i.i2131 = getelementptr inbounds i8, ptr %a934, i64 8
   store ptr %a934, ptr %mpPrev.i.i.i2131, align 8
   br label %for.body940
 
@@ -17428,12 +17417,12 @@ for.body940:                                      ; preds = %_ZN5eastl4listIiNS_
           to label %for.inc943 unwind label %lpad941.loopexit
 
 for.inc943:                                       ; preds = %for.body940
-  %mValue.i.i.i2132 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i2137, i64 0, i32 1
+  %mValue.i.i.i2132 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2137, i64 16
   store i32 %storemerge396236, ptr %mValue.i.i.i2132, align 4
   store ptr %763, ptr %call.i.i.i.i.i.i2137, align 8
-  %mpPrev.i.i.i2133 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %763, i64 0, i32 1
+  %mpPrev.i.i.i2133 = getelementptr inbounds i8, ptr %763, i64 8
   %764 = load ptr, ptr %mpPrev.i.i.i2133, align 8
-  %mpPrev2.i.i.i2134 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i2137, i64 0, i32 1
+  %mpPrev2.i.i.i2134 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2137, i64 8
   store ptr %764, ptr %mpPrev2.i.i.i2134, align 8
   store ptr %call.i.i.i.i.i.i2137, ptr %764, align 8
   store ptr %call.i.i.i.i.i.i2137, ptr %mpPrev.i.i.i2133, align 8
@@ -17571,9 +17560,9 @@ while.cond.i2190:                                 ; preds = %for.end945, %land.r
 
 land.rhs.i2195:                                   ; preds = %while.cond.i2190
   %ib.sroa.0.0.i2196 = load ptr, ptr %ib.sroa.0.0.in.i2191, align 8
-  %mValue.i.i2197 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i2193, i64 0, i32 1
+  %mValue.i.i2197 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i2193, i64 16
   %786 = load i32, ptr %mValue.i.i2197, align 4
-  %mValue.i5.i2198 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i2196, i64 0, i32 1
+  %mValue.i5.i2198 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i2196, i64 16
   %787 = load i32, ptr %mValue.i5.i2198, align 4
   %cmp10.i2199 = icmp eq i32 %786, %787
   br i1 %cmp10.i2199, label %while.cond.i2190, label %while.end.i2200, !llvm.loop !385
@@ -17616,7 +17605,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2215:     ; preds = %_ZN5eastl9allocator
   %792 = getelementptr inbounds i8, ptr %a952, i64 16
   store i64 0, ptr %792, align 8
   store ptr %a952, ptr %a952, align 8
-  %mpPrev.i.i.i2216 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a952, i64 0, i32 1
+  %mpPrev.i.i.i2216 = getelementptr inbounds i8, ptr %a952, i64 8
   store ptr %a952, ptr %mpPrev.i.i.i2216, align 8
   %call.i.i.i.i.i2221 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %invoke.cont954 unwind label %lpad953
@@ -17624,9 +17613,9 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2215:     ; preds = %_ZN5eastl9allocator
 invoke.cont954:                                   ; preds = %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit2215
   %793 = load ptr, ptr %a952, align 8
   store ptr %793, ptr %call.i.i.i.i.i2221, align 8
-  %mpPrev.i.i2217 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %793, i64 0, i32 1
+  %mpPrev.i.i2217 = getelementptr inbounds i8, ptr %793, i64 8
   %794 = load ptr, ptr %mpPrev.i.i2217, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i2221, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i2221, i64 8
   store ptr %794, ptr %mpPrev2.i.i, align 8
   store ptr %call.i.i.i.i.i2221, ptr %794, align 8
   store ptr %call.i.i.i.i.i2221, ptr %mpPrev.i.i2217, align 8
@@ -17634,7 +17623,7 @@ invoke.cont954:                                   ; preds = %_ZN5eastl4listIiNS_
   %inc.i2219 = add i64 %795, 1
   store i64 %inc.i2219, ptr %792, align 8
   %796 = load ptr, ptr %a952, align 8
-  %mValue.i2220 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %796, i64 0, i32 1
+  %mValue.i2220 = getelementptr inbounds i8, ptr %796, i64 16
   store i32 42, ptr %mValue.i2220, align 4
   %call959 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 512, ptr noundef nonnull @.str.59)
           to label %invoke.cont958 unwind label %lpad953
@@ -17655,7 +17644,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2228:     ; preds = %_ZN5eastl9allocator
   %799 = getelementptr inbounds i8, ptr %a961, i64 16
   store i64 0, ptr %799, align 8
   store ptr %a961, ptr %a961, align 8
-  %mpPrev.i.i.i2229 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a961, i64 0, i32 1
+  %mpPrev.i.i.i2229 = getelementptr inbounds i8, ptr %a961, i64 8
   store ptr %a961, ptr %mpPrev.i.i.i2229, align 8
   br label %for.cond963
 
@@ -17671,9 +17660,9 @@ for.body965:                                      ; preds = %for.cond963
 invoke.cont967:                                   ; preds = %for.body965
   %800 = load ptr, ptr %a961, align 8
   store ptr %800, ptr %call.i.i.i.i2235, align 8
-  %mpPrev.i.i2230 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %800, i64 0, i32 1
+  %mpPrev.i.i2230 = getelementptr inbounds i8, ptr %800, i64 8
   %801 = load ptr, ptr %mpPrev.i.i2230, align 8
-  %mpPrev2.i.i2231 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i2235, i64 0, i32 1
+  %mpPrev2.i.i2231 = getelementptr inbounds i8, ptr %call.i.i.i.i2235, i64 8
   store ptr %801, ptr %mpPrev2.i.i2231, align 8
   store ptr %call.i.i.i.i2235, ptr %801, align 8
   store ptr %call.i.i.i.i2235, ptr %mpPrev.i.i2230, align 8
@@ -17746,7 +17735,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2260:     ; preds = %_ZN5eastl9allocator
   %814 = getelementptr inbounds i8, ptr %ref980, i64 16
   store i64 0, ptr %814, align 8
   store ptr %ref980, ptr %ref980, align 8
-  %mpPrev.i.i.i2261 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref980, i64 0, i32 1
+  %mpPrev.i.i.i2261 = getelementptr inbounds i8, ptr %ref980, i64 8
   store ptr %ref980, ptr %mpPrev.i.i.i2261, align 8
   br label %for.body.i.i2263
 
@@ -17757,12 +17746,12 @@ for.body.i.i2263:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2272:                     ; preds = %for.body.i.i2263
   %first.addr.04.i.i2264.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i2264.idx
-  %mValue.i.i.i.i2273 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2265, i64 0, i32 1
+  %mValue.i.i.i.i2273 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2265, i64 16
   %815 = load i32, ptr %first.addr.04.i.i2264.ptr, align 4
   store i32 %815, ptr %mValue.i.i.i.i2273, align 4
   store ptr %ref980, ptr %call.i.i.i.i.i.i1.i2265, align 8
   %816 = load ptr, ptr %mpPrev.i.i.i2261, align 8
-  %mpPrev2.i.i.i.i2274 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2265, i64 0, i32 1
+  %mpPrev2.i.i.i.i2274 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2265, i64 8
   store ptr %816, ptr %mpPrev2.i.i.i.i2274, align 8
   store ptr %call.i.i.i.i.i.i1.i2265, ptr %816, align 8
   store ptr %call.i.i.i.i.i.i1.i2265, ptr %mpPrev.i.i.i2261, align 8
@@ -17791,7 +17780,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit2278: ; preds
   %821 = getelementptr inbounds i8, ptr %a988, i64 16
   store i64 0, ptr %821, align 8
   store ptr %a988, ptr %a988, align 8
-  %mpPrev.i.i.i2279 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a988, i64 0, i32 1
+  %mpPrev.i.i.i2279 = getelementptr inbounds i8, ptr %a988, i64 8
   store ptr %a988, ptr %mpPrev.i.i.i2279, align 8
   br label %for.body994
 
@@ -17801,11 +17790,11 @@ for.body994:                                      ; preds = %_ZN5eastl4listIiNS_
           to label %for.inc997 unwind label %lpad995.loopexit
 
 for.inc997:                                       ; preds = %for.body994
-  %mValue.i.i.i2280 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i2285, i64 0, i32 1
+  %mValue.i.i.i2280 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2285, i64 16
   store i32 %storemerge406237, ptr %mValue.i.i.i2280, align 4
   store ptr %a988, ptr %call.i.i.i.i.i.i2285, align 8
   %822 = load ptr, ptr %mpPrev.i.i.i2279, align 8
-  %mpPrev2.i.i.i2282 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i2285, i64 0, i32 1
+  %mpPrev2.i.i.i2282 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2285, i64 8
   store ptr %822, ptr %mpPrev2.i.i.i2282, align 8
   store ptr %call.i.i.i.i.i.i2285, ptr %822, align 8
   store ptr %call.i.i.i.i.i.i2285, ptr %mpPrev.i.i.i2279, align 8
@@ -17853,9 +17842,9 @@ while.cond.i2296:                                 ; preds = %for.end999, %land.r
 
 land.rhs.i2301:                                   ; preds = %while.cond.i2296
   %ib.sroa.0.0.i2302 = load ptr, ptr %ib.sroa.0.0.in.i2297, align 8
-  %mValue.i.i2303 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i2299, i64 0, i32 1
+  %mValue.i.i2303 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i2299, i64 16
   %827 = load i32, ptr %mValue.i.i2303, align 4
-  %mValue.i5.i2304 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i2302, i64 0, i32 1
+  %mValue.i5.i2304 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i2302, i64 16
   %828 = load i32, ptr %mValue.i5.i2304, align 4
   %cmp10.i2305 = icmp eq i32 %827, %828
   br i1 %cmp10.i2305, label %while.cond.i2296, label %while.end.i2306, !llvm.loop !385
@@ -17898,17 +17887,17 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2321:     ; preds = %_ZN5eastl9allocator
   %833 = getelementptr inbounds i8, ptr %a1006, i64 16
   store i64 0, ptr %833, align 8
   store ptr %a1006, ptr %a1006, align 8
-  %mpPrev.i.i.i2322 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1006, i64 0, i32 1
+  %mpPrev.i.i.i2322 = getelementptr inbounds i8, ptr %a1006, i64 8
   store ptr %a1006, ptr %mpPrev.i.i.i2322, align 8
   %call.i.i.i.i.i.i.i2328 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %invoke.cont1009 unwind label %lpad1008
 
 invoke.cont1009:                                  ; preds = %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit2321
-  %mValue.i.i.i.i2323 = getelementptr inbounds %"struct.eastl::ListNode.71", ptr %call.i.i.i.i.i.i.i2328, i64 0, i32 1
+  %mValue.i.i.i.i2323 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2328, i64 16
   store i32 42, ptr %mValue.i.i.i.i2323, align 4, !noalias !453
   store ptr %a1006, ptr %call.i.i.i.i.i.i.i2328, align 8, !noalias !453
   %834 = load ptr, ptr %mpPrev.i.i.i2322, align 8, !noalias !453
-  %mpPrev2.i.i.i.i2325 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i2328, i64 0, i32 1
+  %mpPrev2.i.i.i.i2325 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2328, i64 8
   store ptr %834, ptr %mpPrev2.i.i.i.i2325, align 8, !noalias !453
   store ptr %call.i.i.i.i.i.i.i2328, ptr %834, align 8, !noalias !453
   store ptr %call.i.i.i.i.i.i.i2328, ptr %mpPrev.i.i.i2322, align 8, !noalias !453
@@ -17936,7 +17925,7 @@ _ZN5eastl4listIZ8TestListvE1A_0NS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl9al
   %839 = getelementptr inbounds i8, ptr %a1017, i64 16
   store i64 0, ptr %839, align 8
   store ptr %a1017, ptr %a1017, align 8
-  %mpPrev.i.i.i2334 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1017, i64 0, i32 1
+  %mpPrev.i.i.i2334 = getelementptr inbounds i8, ptr %a1017, i64 8
   store ptr %a1017, ptr %mpPrev.i.i.i2334, align 8
   %call.i.i.i.i.i2340 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 24, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %invoke.cont1019 unwind label %lpad1018
@@ -17944,14 +17933,14 @@ _ZN5eastl4listIZ8TestListvE1A_0NS_9allocatorEED2Ev.exit: ; preds = %_ZN5eastl9al
 invoke.cont1019:                                  ; preds = %_ZN5eastl4listIZ8TestListvE1A_0NS_9allocatorEED2Ev.exit
   store ptr %a1017, ptr %call.i.i.i.i.i2340, align 8
   %840 = load ptr, ptr %mpPrev.i.i.i2334, align 8
-  %mpPrev2.i.i2336 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i2340, i64 0, i32 1
+  %mpPrev2.i.i2336 = getelementptr inbounds i8, ptr %call.i.i.i.i.i2340, i64 8
   store ptr %840, ptr %mpPrev2.i.i2336, align 8
   store ptr %call.i.i.i.i.i2340, ptr %840, align 8
   store ptr %call.i.i.i.i.i2340, ptr %mpPrev.i.i.i2334, align 8
   %841 = load i64, ptr %839, align 8
   %inc.i2338 = add i64 %841, 1
   store i64 %inc.i2338, ptr %839, align 8
-  %mValue.i2339 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i2340, i64 0, i32 1
+  %mValue.i2339 = getelementptr inbounds i8, ptr %call.i.i.i.i.i2340, i64 16
   store i32 42, ptr %mValue.i2339, align 4
   %call1024 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 552, ptr noundef nonnull @.str.65)
           to label %invoke.cont1023 unwind label %lpad1018
@@ -17972,7 +17961,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2348:     ; preds = %_ZN5eastl9allocator
   %844 = getelementptr inbounds i8, ptr %a1026, i64 16
   store i64 0, ptr %844, align 8
   store ptr %a1026, ptr %a1026, align 8
-  %mpPrev.i.i.i2349 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1026, i64 0, i32 1
+  %mpPrev.i.i.i2349 = getelementptr inbounds i8, ptr %a1026, i64 8
   store ptr %a1026, ptr %mpPrev.i.i.i2349, align 8
   br label %for.cond1028
 
@@ -17988,7 +17977,7 @@ for.body1030:                                     ; preds = %for.cond1028
 invoke.cont1032:                                  ; preds = %for.body1030
   store ptr %a1026, ptr %call.i.i.i.i2355, align 8
   %845 = load ptr, ptr %mpPrev.i.i.i2349, align 8
-  %mpPrev2.i.i2351 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i2355, i64 0, i32 1
+  %mpPrev2.i.i2351 = getelementptr inbounds i8, ptr %call.i.i.i.i2355, i64 8
   store ptr %845, ptr %mpPrev2.i.i2351, align 8
   store ptr %call.i.i.i.i2355, ptr %845, align 8
   store ptr %call.i.i.i.i2355, ptr %mpPrev.i.i.i2349, align 8
@@ -18075,7 +18064,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2385:     ; preds = %_ZN5eastl9allocator
   %861 = getelementptr inbounds i8, ptr %a1047, i64 16
   store i64 0, ptr %861, align 8
   store ptr %a1047, ptr %a1047, align 8
-  %mpPrev.i.i.i2386 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1047, i64 0, i32 1
+  %mpPrev.i.i.i2386 = getelementptr inbounds i8, ptr %a1047, i64 8
   store ptr %a1047, ptr %mpPrev.i.i.i2386, align 8
   br label %for.body.i.i2388
 
@@ -18086,12 +18075,12 @@ for.body.i.i2388:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2397:                     ; preds = %for.body.i.i2388
   %first.addr.04.i.i2389.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i2389.idx
-  %mValue.i.i.i.i2398 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2390, i64 0, i32 1
+  %mValue.i.i.i.i2398 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2390, i64 16
   %862 = load i32, ptr %first.addr.04.i.i2389.ptr, align 4
   store i32 %862, ptr %mValue.i.i.i.i2398, align 4
   store ptr %a1047, ptr %call.i.i.i.i.i.i1.i2390, align 8
   %863 = load ptr, ptr %mpPrev.i.i.i2386, align 8
-  %mpPrev2.i.i.i.i2399 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2390, i64 0, i32 1
+  %mpPrev2.i.i.i.i2399 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2390, i64 8
   store ptr %863, ptr %mpPrev2.i.i.i.i2399, align 8
   store ptr %call.i.i.i.i.i.i1.i2390, ptr %863, align 8
   store ptr %call.i.i.i.i.i.i1.i2390, ptr %mpPrev.i.i.i2386, align 8
@@ -18119,7 +18108,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i2393: ; preds = %lpad.i2391, %_ZN5
 for.body1058:                                     ; preds = %call.i.i.i.i.i.i.noexc.i2397, %for.inc1065
   %i1055.06238 = phi i32 [ %inc1066, %for.inc1065 ], [ 0, %call.i.i.i.i.i.i.noexc.i2397 ]
   %868 = load ptr, ptr %a1047, align 8
-  %mValue.i2404 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %868, i64 0, i32 1
+  %mValue.i2404 = getelementptr inbounds i8, ptr %868, i64 16
   %869 = load i32, ptr %mValue.i2404, align 4
   %cmp1060 = icmp eq i32 %869, %i1055.06238
   %call1063 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1060, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 570, ptr noundef nonnull @.str.76)
@@ -18127,10 +18116,10 @@ for.body1058:                                     ; preds = %call.i.i.i.i.i.i.no
 
 for.inc1065:                                      ; preds = %for.body1058
   %870 = load ptr, ptr %a1047, align 8
-  %mpPrev.i.i.i2405 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %870, i64 0, i32 1
+  %mpPrev.i.i.i2405 = getelementptr inbounds i8, ptr %870, i64 8
   %871 = load ptr, ptr %mpPrev.i.i.i2405, align 8
   %872 = load ptr, ptr %870, align 8
-  %mpPrev2.i.i.i2406 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %872, i64 0, i32 1
+  %mpPrev2.i.i.i2406 = getelementptr inbounds i8, ptr %872, i64 8
   store ptr %871, ptr %mpPrev2.i.i.i2406, align 8
   %873 = load ptr, ptr %870, align 8
   store ptr %873, ptr %871, align 8
@@ -18172,7 +18161,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2420:     ; preds = %_ZN5eastl9allocator
   %880 = getelementptr inbounds i8, ptr %a1069, i64 16
   store i64 0, ptr %880, align 8
   store ptr %a1069, ptr %a1069, align 8
-  %mpPrev.i.i.i2421 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1069, i64 0, i32 1
+  %mpPrev.i.i.i2421 = getelementptr inbounds i8, ptr %a1069, i64 8
   store ptr %a1069, ptr %mpPrev.i.i.i2421, align 8
   br label %for.body.i.i2423
 
@@ -18183,12 +18172,12 @@ for.body.i.i2423:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2432:                     ; preds = %for.body.i.i2423
   %first.addr.04.i.i2424.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i2424.idx
-  %mValue.i.i.i.i2433 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2425, i64 0, i32 1
+  %mValue.i.i.i.i2433 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2425, i64 16
   %881 = load i32, ptr %first.addr.04.i.i2424.ptr, align 4
   store i32 %881, ptr %mValue.i.i.i.i2433, align 4
   store ptr %a1069, ptr %call.i.i.i.i.i.i1.i2425, align 8
   %882 = load ptr, ptr %mpPrev.i.i.i2421, align 8
-  %mpPrev2.i.i.i.i2434 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2425, i64 0, i32 1
+  %mpPrev2.i.i.i.i2434 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2425, i64 8
   store ptr %882, ptr %mpPrev2.i.i.i.i2434, align 8
   store ptr %call.i.i.i.i.i.i1.i2425, ptr %882, align 8
   store ptr %call.i.i.i.i.i.i1.i2425, ptr %mpPrev.i.i.i2421, align 8
@@ -18216,7 +18205,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i2428: ; preds = %lpad.i2426, %_ZN5
 for.body1080:                                     ; preds = %call.i.i.i.i.i.i.noexc.i2432, %for.inc1087
   %i1077.06239 = phi i32 [ %inc1088, %for.inc1087 ], [ 0, %call.i.i.i.i.i.i.noexc.i2432 ]
   %887 = load ptr, ptr %mpPrev.i.i.i2421, align 8
-  %mValue.i2440 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %887, i64 0, i32 1
+  %mValue.i2440 = getelementptr inbounds i8, ptr %887, i64 16
   %888 = load i32, ptr %mValue.i2440, align 4
   %sub = sub nuw nsw i32 9, %i1077.06239
   %cmp1082 = icmp eq i32 %888, %sub
@@ -18225,10 +18214,10 @@ for.body1080:                                     ; preds = %call.i.i.i.i.i.i.no
 
 for.inc1087:                                      ; preds = %for.body1080
   %889 = load ptr, ptr %mpPrev.i.i.i2421, align 8
-  %mpPrev.i.i.i2442 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %889, i64 0, i32 1
+  %mpPrev.i.i.i2442 = getelementptr inbounds i8, ptr %889, i64 8
   %890 = load ptr, ptr %mpPrev.i.i.i2442, align 8
   %891 = load ptr, ptr %889, align 8
-  %mpPrev2.i.i.i2443 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %891, i64 0, i32 1
+  %mpPrev2.i.i.i2443 = getelementptr inbounds i8, ptr %891, i64 8
   store ptr %890, ptr %mpPrev2.i.i.i2443, align 8
   %892 = load ptr, ptr %889, align 8
   store ptr %892, ptr %890, align 8
@@ -18270,7 +18259,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2457:     ; preds = %_ZN5eastl9allocator
   %899 = getelementptr inbounds i8, ptr %ref1091, i64 16
   store i64 0, ptr %899, align 8
   store ptr %ref1091, ptr %ref1091, align 8
-  %mpPrev.i.i.i2458 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1091, i64 0, i32 1
+  %mpPrev.i.i.i2458 = getelementptr inbounds i8, ptr %ref1091, i64 8
   store ptr %ref1091, ptr %mpPrev.i.i.i2458, align 8
   br label %for.body.i.i2460
 
@@ -18281,12 +18270,12 @@ for.body.i.i2460:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2469:                     ; preds = %for.body.i.i2460
   %first.addr.04.i.i2461.ptr = getelementptr inbounds i8, ptr @constinit.96, i64 %first.addr.04.i.i2461.idx
-  %mValue.i.i.i.i2470 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2462, i64 0, i32 1
+  %mValue.i.i.i.i2470 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2462, i64 16
   %900 = load i32, ptr %first.addr.04.i.i2461.ptr, align 4
   store i32 %900, ptr %mValue.i.i.i.i2470, align 4
   store ptr %ref1091, ptr %call.i.i.i.i.i.i1.i2462, align 8
   %901 = load ptr, ptr %mpPrev.i.i.i2458, align 8
-  %mpPrev2.i.i.i.i2471 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2462, i64 0, i32 1
+  %mpPrev2.i.i.i.i2471 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2462, i64 8
   store ptr %901, ptr %mpPrev2.i.i.i.i2471, align 8
   store ptr %call.i.i.i.i.i.i1.i2462, ptr %901, align 8
   store ptr %call.i.i.i.i.i.i1.i2462, ptr %mpPrev.i.i.i2458, align 8
@@ -18315,7 +18304,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit2475: ; preds
   %906 = getelementptr inbounds i8, ptr %a1099, i64 16
   store i64 0, ptr %906, align 8
   store ptr %a1099, ptr %a1099, align 8
-  %mpPrev.i.i.i2476 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1099, i64 0, i32 1
+  %mpPrev.i.i.i2476 = getelementptr inbounds i8, ptr %a1099, i64 8
   store ptr %a1099, ptr %mpPrev.i.i.i2476, align 8
   br label %for.body.i.i2478
 
@@ -18326,12 +18315,12 @@ for.body.i.i2478:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2487:                     ; preds = %for.body.i.i2478
   %first.addr.04.i.i2479.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i2479.idx
-  %mValue.i.i.i.i2488 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2480, i64 0, i32 1
+  %mValue.i.i.i.i2488 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2480, i64 16
   %907 = load i32, ptr %first.addr.04.i.i2479.ptr, align 4
   store i32 %907, ptr %mValue.i.i.i.i2488, align 4
   store ptr %a1099, ptr %call.i.i.i.i.i.i1.i2480, align 8
   %908 = load ptr, ptr %mpPrev.i.i.i2476, align 8
-  %mpPrev2.i.i.i.i2489 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2480, i64 0, i32 1
+  %mpPrev2.i.i.i.i2489 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2480, i64 8
   store ptr %908, ptr %mpPrev2.i.i.i.i2489, align 8
   store ptr %call.i.i.i.i.i.i1.i2480, ptr %908, align 8
   store ptr %call.i.i.i.i.i.i1.i2480, ptr %mpPrev.i.i.i2476, align 8
@@ -18373,12 +18362,12 @@ invoke.cont1111:                                  ; preds = %while.body.i.i.i249
           to label %invoke.cont1116 unwind label %lpad1110
 
 invoke.cont1116:                                  ; preds = %invoke.cont1111
-  %mValue.i.i.i2501 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i2506, i64 0, i32 1
+  %mValue.i.i.i2501 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2506, i64 16
   store i32 42, ptr %mValue.i.i.i2501, align 4, !noalias !463
   store ptr %915, ptr %call.i.i.i.i.i.i2506, align 8, !noalias !463
-  %mpPrev.i.i.i2502 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %915, i64 0, i32 1
+  %mpPrev.i.i.i2502 = getelementptr inbounds i8, ptr %915, i64 8
   %916 = load ptr, ptr %mpPrev.i.i.i2502, align 8, !noalias !463
-  %mpPrev2.i.i.i2503 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i2506, i64 0, i32 1
+  %mpPrev2.i.i.i2503 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i2506, i64 8
   store ptr %916, ptr %mpPrev2.i.i.i2503, align 8, !noalias !463
   store ptr %call.i.i.i.i.i.i2506, ptr %916, align 8, !noalias !463
   store ptr %call.i.i.i.i.i.i2506, ptr %mpPrev.i.i.i2502, align 8, !noalias !463
@@ -18398,9 +18387,9 @@ while.cond.i2511:                                 ; preds = %invoke.cont1116, %l
 
 land.rhs.i2516:                                   ; preds = %while.cond.i2511
   %ib.sroa.0.0.i2517 = load ptr, ptr %ib.sroa.0.0.in.i2512, align 8
-  %mValue.i.i2518 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i2514, i64 0, i32 1
+  %mValue.i.i2518 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i2514, i64 16
   %919 = load i32, ptr %mValue.i.i2518, align 4
-  %mValue.i5.i2519 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i2517, i64 0, i32 1
+  %mValue.i5.i2519 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i2517, i64 16
   %920 = load i32, ptr %mValue.i5.i2519, align 4
   %cmp10.i2520 = icmp eq i32 %919, %920
   br i1 %cmp10.i2520, label %while.cond.i2511, label %while.end.i2521, !llvm.loop !385
@@ -18443,7 +18432,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2536:     ; preds = %_ZN5eastl9allocator
   %925 = getelementptr inbounds i8, ptr %ref1123, i64 16
   store i64 0, ptr %925, align 8
   store ptr %ref1123, ptr %ref1123, align 8
-  %mpPrev.i.i.i2537 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1123, i64 0, i32 1
+  %mpPrev.i.i.i2537 = getelementptr inbounds i8, ptr %ref1123, i64 8
   store ptr %ref1123, ptr %mpPrev.i.i.i2537, align 8
   br label %for.body.i.i2539
 
@@ -18454,12 +18443,12 @@ for.body.i.i2539:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2548:                     ; preds = %for.body.i.i2539
   %first.addr.04.i.i2540.ptr = getelementptr inbounds i8, ptr @constinit.96, i64 %first.addr.04.i.i2540.idx
-  %mValue.i.i.i.i2549 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2541, i64 0, i32 1
+  %mValue.i.i.i.i2549 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2541, i64 16
   %926 = load i32, ptr %first.addr.04.i.i2540.ptr, align 4
   store i32 %926, ptr %mValue.i.i.i.i2549, align 4
   store ptr %ref1123, ptr %call.i.i.i.i.i.i1.i2541, align 8
   %927 = load ptr, ptr %mpPrev.i.i.i2537, align 8
-  %mpPrev2.i.i.i.i2550 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2541, i64 0, i32 1
+  %mpPrev2.i.i.i.i2550 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2541, i64 8
   store ptr %927, ptr %mpPrev2.i.i.i.i2550, align 8
   store ptr %call.i.i.i.i.i.i1.i2541, ptr %927, align 8
   store ptr %call.i.i.i.i.i.i1.i2541, ptr %mpPrev.i.i.i2537, align 8
@@ -18488,7 +18477,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit2554: ; preds
   %932 = getelementptr inbounds i8, ptr %a1131, i64 16
   store i64 0, ptr %932, align 8
   store ptr %a1131, ptr %a1131, align 8
-  %mpPrev.i.i.i2555 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1131, i64 0, i32 1
+  %mpPrev.i.i.i2555 = getelementptr inbounds i8, ptr %a1131, i64 8
   store ptr %a1131, ptr %mpPrev.i.i.i2555, align 8
   br label %for.body.i.i2557
 
@@ -18499,12 +18488,12 @@ for.body.i.i2557:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2566:                     ; preds = %for.body.i.i2557
   %first.addr.04.i.i2558.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i2558.idx
-  %mValue.i.i.i.i2567 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2559, i64 0, i32 1
+  %mValue.i.i.i.i2567 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2559, i64 16
   %933 = load i32, ptr %first.addr.04.i.i2558.ptr, align 4
   store i32 %933, ptr %mValue.i.i.i.i2567, align 4
   store ptr %a1131, ptr %call.i.i.i.i.i.i1.i2559, align 8
   %934 = load ptr, ptr %mpPrev.i.i.i2555, align 8
-  %mpPrev2.i.i.i.i2568 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2559, i64 0, i32 1
+  %mpPrev2.i.i.i.i2568 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2559, i64 8
   store ptr %934, ptr %mpPrev2.i.i.i.i2568, align 8
   store ptr %call.i.i.i.i.i.i1.i2559, ptr %934, align 8
   store ptr %call.i.i.i.i.i.i1.i2559, ptr %mpPrev.i.i.i2555, align 8
@@ -18546,12 +18535,12 @@ invoke.cont1144:                                  ; preds = %while.body.i.i.i257
           to label %invoke.cont1149 unwind label %lpad1143
 
 invoke.cont1149:                                  ; preds = %invoke.cont1144
-  %mValue.i.i.i.i2580 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i.i2585, i64 0, i32 1
+  %mValue.i.i.i.i2580 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2585, i64 16
   store i32 42, ptr %mValue.i.i.i.i2580, align 4, !noalias !469
   store ptr %941, ptr %call.i.i.i.i.i.i.i2585, align 8, !noalias !469
-  %mpPrev.i.i.i.i2581 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %941, i64 0, i32 1
+  %mpPrev.i.i.i.i2581 = getelementptr inbounds i8, ptr %941, i64 8
   %942 = load ptr, ptr %mpPrev.i.i.i.i2581, align 8, !noalias !469
-  %mpPrev2.i.i.i.i2582 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i2585, i64 0, i32 1
+  %mpPrev2.i.i.i.i2582 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2585, i64 8
   store ptr %942, ptr %mpPrev2.i.i.i.i2582, align 8, !noalias !469
   store ptr %call.i.i.i.i.i.i.i2585, ptr %942, align 8, !noalias !469
   store ptr %call.i.i.i.i.i.i.i2585, ptr %mpPrev.i.i.i.i2581, align 8, !noalias !469
@@ -18571,9 +18560,9 @@ while.cond.i2590:                                 ; preds = %invoke.cont1149, %l
 
 land.rhs.i2595:                                   ; preds = %while.cond.i2590
   %ib.sroa.0.0.i2596 = load ptr, ptr %ib.sroa.0.0.in.i2591, align 8
-  %mValue.i.i2597 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i2593, i64 0, i32 1
+  %mValue.i.i2597 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i2593, i64 16
   %945 = load i32, ptr %mValue.i.i2597, align 4
-  %mValue.i5.i2598 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i2596, i64 0, i32 1
+  %mValue.i5.i2598 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i2596, i64 16
   %946 = load i32, ptr %mValue.i5.i2598, align 4
   %cmp10.i2599 = icmp eq i32 %945, %946
   br i1 %cmp10.i2599, label %while.cond.i2590, label %while.end.i2600, !llvm.loop !385
@@ -18616,7 +18605,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2615:     ; preds = %_ZN5eastl9allocator
   %951 = getelementptr inbounds i8, ptr %ref1156, i64 16
   store i64 0, ptr %951, align 8
   store ptr %ref1156, ptr %ref1156, align 8
-  %mpPrev.i.i.i2616 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1156, i64 0, i32 1
+  %mpPrev.i.i.i2616 = getelementptr inbounds i8, ptr %ref1156, i64 8
   store ptr %ref1156, ptr %mpPrev.i.i.i2616, align 8
   br label %for.body.i.i2618
 
@@ -18627,12 +18616,12 @@ for.body.i.i2618:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2627:                     ; preds = %for.body.i.i2618
   %first.addr.04.i.i2619.ptr = getelementptr inbounds i8, ptr @constinit.99, i64 %first.addr.04.i.i2619.idx
-  %mValue.i.i.i.i2628 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2620, i64 0, i32 1
+  %mValue.i.i.i.i2628 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2620, i64 16
   %952 = load i32, ptr %first.addr.04.i.i2619.ptr, align 4
   store i32 %952, ptr %mValue.i.i.i.i2628, align 4
   store ptr %ref1156, ptr %call.i.i.i.i.i.i1.i2620, align 8
   %953 = load ptr, ptr %mpPrev.i.i.i2616, align 8
-  %mpPrev2.i.i.i.i2629 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2620, i64 0, i32 1
+  %mpPrev2.i.i.i.i2629 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2620, i64 8
   store ptr %953, ptr %mpPrev2.i.i.i.i2629, align 8
   store ptr %call.i.i.i.i.i.i1.i2620, ptr %953, align 8
   store ptr %call.i.i.i.i.i.i1.i2620, ptr %mpPrev.i.i.i2616, align 8
@@ -18661,7 +18650,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit2633: ; preds
   %958 = getelementptr inbounds i8, ptr %a1164, i64 16
   store i64 0, ptr %958, align 8
   store ptr %a1164, ptr %a1164, align 8
-  %mpPrev.i.i.i2634 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1164, i64 0, i32 1
+  %mpPrev.i.i.i2634 = getelementptr inbounds i8, ptr %a1164, i64 8
   store ptr %a1164, ptr %mpPrev.i.i.i2634, align 8
   br label %for.body.i.i2636
 
@@ -18672,12 +18661,12 @@ for.body.i.i2636:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2645:                     ; preds = %for.body.i.i2636
   %first.addr.04.i.i2637.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i2637.idx
-  %mValue.i.i.i.i2646 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2638, i64 0, i32 1
+  %mValue.i.i.i.i2646 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2638, i64 16
   %959 = load i32, ptr %first.addr.04.i.i2637.ptr, align 4
   store i32 %959, ptr %mValue.i.i.i.i2646, align 4
   store ptr %a1164, ptr %call.i.i.i.i.i.i1.i2638, align 8
   %960 = load ptr, ptr %mpPrev.i.i.i2634, align 8
-  %mpPrev2.i.i.i.i2647 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2638, i64 0, i32 1
+  %mpPrev2.i.i.i.i2647 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2638, i64 8
   store ptr %960, ptr %mpPrev2.i.i.i.i2647, align 8
   store ptr %call.i.i.i.i.i.i1.i2638, ptr %960, align 8
   store ptr %call.i.i.i.i.i.i1.i2638, ptr %mpPrev.i.i.i2634, align 8
@@ -18715,7 +18704,7 @@ while.body.i.i.i2654:                             ; preds = %while.body.i.i.i265
   br i1 %tobool.not.i.i.i2657, label %invoke.cont1177, label %while.body.i.i.i2654, !llvm.loop !394
 
 invoke.cont1177:                                  ; preds = %while.body.i.i.i2654
-  %mpPrev.i.i2659 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %967, i64 0, i32 1
+  %mpPrev.i.i2659 = getelementptr inbounds i8, ptr %967, i64 8
   %968 = load ptr, ptr %mpPrev.i.i2659, align 8, !noalias !477
   br label %for.body.i.i.i2662
 
@@ -18725,11 +18714,11 @@ for.body.i.i.i2662:                               ; preds = %call.i.i.i.i.i.i.i.
           to label %call.i.i.i.i.i.i.i.i.noexc2669 unwind label %lpad1176.loopexit
 
 call.i.i.i.i.i.i.i.i.noexc2669:                   ; preds = %for.body.i.i.i2662
-  %mValue.i.i.i.i.i2664 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i.i.i2670, i64 0, i32 1
+  %mValue.i.i.i.i.i2664 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i2670, i64 16
   store i32 42, ptr %mValue.i.i.i.i.i2664, align 4, !noalias !477
   store ptr %967, ptr %call.i.i.i.i.i.i.i.i2670, align 8, !noalias !477
   %969 = load ptr, ptr %mpPrev.i.i2659, align 8, !noalias !477
-  %mpPrev2.i.i.i.i.i2665 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i.i2670, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i2665 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i.i2670, i64 8
   store ptr %969, ptr %mpPrev2.i.i.i.i.i2665, align 8, !noalias !477
   store ptr %call.i.i.i.i.i.i.i.i2670, ptr %969, align 8, !noalias !477
   store ptr %call.i.i.i.i.i.i.i.i2670, ptr %mpPrev.i.i2659, align 8, !noalias !477
@@ -18755,9 +18744,9 @@ while.cond.i2675:                                 ; preds = %invoke.cont1180, %l
 
 land.rhs.i2680:                                   ; preds = %while.cond.i2675
   %ib.sroa.0.0.i2681 = load ptr, ptr %ib.sroa.0.0.in.i2676, align 8
-  %mValue.i.i2682 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i2678, i64 0, i32 1
+  %mValue.i.i2682 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i2678, i64 16
   %973 = load i32, ptr %mValue.i.i2682, align 4
-  %mValue.i5.i2683 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i2681, i64 0, i32 1
+  %mValue.i5.i2683 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i2681, i64 16
   %974 = load i32, ptr %mValue.i5.i2683, align 4
   %cmp10.i2684 = icmp eq i32 %973, %974
   br i1 %cmp10.i2684, label %while.cond.i2675, label %while.end.i2685, !llvm.loop !385
@@ -18773,16 +18762,16 @@ _ZN5eastleqIiNS_9allocatorEEEbRKNS_4listIT_T0_EES7_.exit2688: ; preds = %invoke.
           to label %invoke.cont1183 unwind label %lpad1176.loopexit.split-lp
 
 invoke.cont1183:                                  ; preds = %_ZN5eastleqIiNS_9allocatorEEEbRKNS_4listIT_T0_EES7_.exit2688
-  %mValue.i2689 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %971, i64 0, i32 1
+  %mValue.i2689 = getelementptr inbounds i8, ptr %971, i64 16
   %975 = load i32, ptr %mValue.i2689, align 4
   %cmp1186 = icmp eq i32 %975, 42
   %call1188 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1186, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 623, ptr noundef nonnull @.str.85)
           to label %invoke.cont1187 unwind label %lpad1176.loopexit.split-lp
 
 invoke.cont1187:                                  ; preds = %invoke.cont1183
-  %mpPrev.i2690 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %971, i64 0, i32 1
+  %mpPrev.i2690 = getelementptr inbounds i8, ptr %971, i64 8
   %976 = load ptr, ptr %mpPrev.i2690, align 8
-  %mValue.i2691 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %976, i64 0, i32 1
+  %mValue.i2691 = getelementptr inbounds i8, ptr %976, i64 16
   %977 = load i32, ptr %mValue.i2691, align 4
   %cmp1191 = icmp eq i32 %977, 4
   %call1193 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1191, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 624, ptr noundef nonnull @.str.86)
@@ -18817,7 +18806,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2703:     ; preds = %_ZN5eastl9allocator
   %982 = getelementptr inbounds i8, ptr %to_insert, i64 16
   store i64 0, ptr %982, align 8
   store ptr %to_insert, ptr %to_insert, align 8
-  %mpPrev.i.i.i2704 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %to_insert, i64 0, i32 1
+  %mpPrev.i.i.i2704 = getelementptr inbounds i8, ptr %to_insert, i64 8
   store ptr %to_insert, ptr %mpPrev.i.i.i2704, align 8
   br label %for.body.i.i2706
 
@@ -18828,12 +18817,12 @@ for.body.i.i2706:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2715:                     ; preds = %for.body.i.i2706
   %first.addr.04.i.i2707.ptr = getelementptr inbounds i8, ptr %ref.tmp1197, i64 %first.addr.04.i.i2707.idx
-  %mValue.i.i.i.i2716 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2708, i64 0, i32 1
+  %mValue.i.i.i.i2716 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2708, i64 16
   %983 = load i32, ptr %first.addr.04.i.i2707.ptr, align 4
   store i32 %983, ptr %mValue.i.i.i.i2716, align 4
   store ptr %to_insert, ptr %call.i.i.i.i.i.i1.i2708, align 8
   %984 = load ptr, ptr %mpPrev.i.i.i2704, align 8
-  %mpPrev2.i.i.i.i2717 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2708, i64 0, i32 1
+  %mpPrev2.i.i.i.i2717 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2708, i64 8
   store ptr %984, ptr %mpPrev2.i.i.i.i2717, align 8
   store ptr %call.i.i.i.i.i.i1.i2708, ptr %984, align 8
   store ptr %call.i.i.i.i.i.i1.i2708, ptr %mpPrev.i.i.i2704, align 8
@@ -18862,7 +18851,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit2721: ; preds
   %989 = getelementptr inbounds i8, ptr %ref1206, i64 16
   store i64 0, ptr %989, align 8
   store ptr %ref1206, ptr %ref1206, align 8
-  %mpPrev.i.i.i2722 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1206, i64 0, i32 1
+  %mpPrev.i.i.i2722 = getelementptr inbounds i8, ptr %ref1206, i64 8
   store ptr %ref1206, ptr %mpPrev.i.i.i2722, align 8
   br label %for.body.i.i2724
 
@@ -18873,12 +18862,12 @@ for.body.i.i2724:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2733:                     ; preds = %for.body.i.i2724
   %first.addr.04.i.i2725.ptr = getelementptr inbounds i8, ptr @constinit.99, i64 %first.addr.04.i.i2725.idx
-  %mValue.i.i.i.i2734 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2726, i64 0, i32 1
+  %mValue.i.i.i.i2734 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2726, i64 16
   %990 = load i32, ptr %first.addr.04.i.i2725.ptr, align 4
   store i32 %990, ptr %mValue.i.i.i.i2734, align 4
   store ptr %ref1206, ptr %call.i.i.i.i.i.i1.i2726, align 8
   %991 = load ptr, ptr %mpPrev.i.i.i2722, align 8
-  %mpPrev2.i.i.i.i2735 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2726, i64 0, i32 1
+  %mpPrev2.i.i.i.i2735 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2726, i64 8
   store ptr %991, ptr %mpPrev2.i.i.i.i2735, align 8
   store ptr %call.i.i.i.i.i.i1.i2726, ptr %991, align 8
   store ptr %call.i.i.i.i.i.i1.i2726, ptr %mpPrev.i.i.i2722, align 8
@@ -18907,7 +18896,7 @@ invoke.cont1216:                                  ; preds = %call.i.i.i.i.i.i.no
   %996 = getelementptr inbounds i8, ptr %a1217, i64 16
   store i64 0, ptr %996, align 8
   store ptr %a1217, ptr %a1217, align 8
-  %mpPrev.i.i.i2741 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1217, i64 0, i32 1
+  %mpPrev.i.i.i2741 = getelementptr inbounds i8, ptr %a1217, i64 8
   store ptr %a1217, ptr %mpPrev.i.i.i2741, align 8
   br label %for.body.i.i2743
 
@@ -18918,12 +18907,12 @@ for.body.i.i2743:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2752:                     ; preds = %for.body.i.i2743
   %first.addr.04.i.i2744.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i2744.idx
-  %mValue.i.i.i.i2753 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2745, i64 0, i32 1
+  %mValue.i.i.i.i2753 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2745, i64 16
   %997 = load i32, ptr %first.addr.04.i.i2744.ptr, align 4
   store i32 %997, ptr %mValue.i.i.i.i2753, align 4
   store ptr %a1217, ptr %call.i.i.i.i.i.i1.i2745, align 8
   %998 = load ptr, ptr %mpPrev.i.i.i2741, align 8
-  %mpPrev2.i.i.i.i2754 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2745, i64 0, i32 1
+  %mpPrev2.i.i.i.i2754 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2745, i64 8
   store ptr %998, ptr %mpPrev2.i.i.i.i2754, align 8
   store ptr %call.i.i.i.i.i.i1.i2745, ptr %998, align 8
   store ptr %call.i.i.i.i.i.i1.i2745, ptr %mpPrev.i.i.i2741, align 8
@@ -18962,7 +18951,7 @@ while.body.i.i.i2761:                             ; preds = %while.body.i.i.i276
 
 invoke.cont1230:                                  ; preds = %while.body.i.i.i2761
   %1006 = load ptr, ptr %to_insert, align 8, !noalias !483
-  %mpPrev.i.i2766 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1005, i64 0, i32 1
+  %mpPrev.i.i2766 = getelementptr inbounds i8, ptr %1005, i64 8
   %1007 = load ptr, ptr %mpPrev.i.i2766, align 8, !noalias !486
   %cmp.i.not1.i.i2767 = icmp eq ptr %1006, %to_insert
   br i1 %cmp.i.not1.i.i2767, label %invoke.cont1236, label %for.body.i.i2769
@@ -18973,13 +18962,13 @@ for.body.i.i2769:                                 ; preds = %invoke.cont1230, %c
           to label %call.i.i.i.i.i.i.i.noexc unwind label %lpad1229.loopexit
 
 call.i.i.i.i.i.i.i.noexc:                         ; preds = %for.body.i.i2769
-  %mValue.i.i.i2771 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %agg.tmp.sroa.0.0.i2770, i64 0, i32 1
-  %mValue.i.i.i.i2772 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i.i2776, i64 0, i32 1
+  %mValue.i.i.i2771 = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i2770, i64 16
+  %mValue.i.i.i.i2772 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2776, i64 16
   %1008 = load i32, ptr %mValue.i.i.i2771, align 4, !noalias !486
   store i32 %1008, ptr %mValue.i.i.i.i2772, align 4, !noalias !486
   store ptr %1005, ptr %call.i.i.i.i.i.i.i2776, align 8, !noalias !486
   %1009 = load ptr, ptr %mpPrev.i.i2766, align 8, !noalias !486
-  %mpPrev2.i.i.i.i2773 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i2776, i64 0, i32 1
+  %mpPrev2.i.i.i.i2773 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2776, i64 8
   store ptr %1009, ptr %mpPrev2.i.i.i.i2773, align 8, !noalias !486
   store ptr %call.i.i.i.i.i.i.i2776, ptr %1009, align 8, !noalias !486
   store ptr %call.i.i.i.i.i.i.i2776, ptr %mpPrev.i.i2766, align 8, !noalias !486
@@ -19006,9 +18995,9 @@ while.cond.i2781:                                 ; preds = %invoke.cont1236, %l
 
 land.rhs.i2786:                                   ; preds = %while.cond.i2781
   %ib.sroa.0.0.i2787 = load ptr, ptr %ib.sroa.0.0.in.i2782, align 8
-  %mValue.i.i2788 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i2784, i64 0, i32 1
+  %mValue.i.i2788 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i2784, i64 16
   %1015 = load i32, ptr %mValue.i.i2788, align 4
-  %mValue.i5.i2789 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i2787, i64 0, i32 1
+  %mValue.i5.i2789 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i2787, i64 16
   %1016 = load i32, ptr %mValue.i5.i2789, align 4
   %cmp10.i2790 = icmp eq i32 %1015, %1016
   br i1 %cmp10.i2790, label %while.cond.i2781, label %while.end.i2791, !llvm.loop !385
@@ -19024,16 +19013,16 @@ _ZN5eastleqIiNS_9allocatorEEEbRKNS_4listIT_T0_EES7_.exit2794: ; preds = %invoke.
           to label %invoke.cont1239 unwind label %lpad1229.loopexit.split-lp
 
 invoke.cont1239:                                  ; preds = %_ZN5eastleqIiNS_9allocatorEEEbRKNS_4listIT_T0_EES7_.exit2794
-  %mValue.i2795 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %1013, i64 0, i32 1
+  %mValue.i2795 = getelementptr inbounds i8, ptr %1013, i64 16
   %1017 = load i32, ptr %mValue.i2795, align 4
   %cmp1242 = icmp eq i32 %1017, 42
   %call1244 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1242, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 638, ptr noundef nonnull @.str.85)
           to label %invoke.cont1243 unwind label %lpad1229.loopexit.split-lp
 
 invoke.cont1243:                                  ; preds = %invoke.cont1239
-  %mpPrev.i2796 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1013, i64 0, i32 1
+  %mpPrev.i2796 = getelementptr inbounds i8, ptr %1013, i64 8
   %1018 = load ptr, ptr %mpPrev.i2796, align 8
-  %mValue.i2797 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %1018, i64 0, i32 1
+  %mValue.i2797 = getelementptr inbounds i8, ptr %1018, i64 16
   %1019 = load i32, ptr %mValue.i2797, align 4
   %cmp1247 = icmp eq i32 %1019, 4
   %call1249 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1247, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 639, ptr noundef nonnull @.str.86)
@@ -19079,7 +19068,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2815:     ; preds = %_ZN5eastl9allocator
   %1026 = getelementptr inbounds i8, ptr %ref1253, i64 16
   store i64 0, ptr %1026, align 8
   store ptr %ref1253, ptr %ref1253, align 8
-  %mpPrev.i.i.i2816 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1253, i64 0, i32 1
+  %mpPrev.i.i.i2816 = getelementptr inbounds i8, ptr %ref1253, i64 8
   store ptr %ref1253, ptr %mpPrev.i.i.i2816, align 8
   br label %for.body.i.i2818
 
@@ -19090,12 +19079,12 @@ for.body.i.i2818:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2827:                     ; preds = %for.body.i.i2818
   %first.addr.04.i.i2819.ptr = getelementptr inbounds i8, ptr @constinit.99, i64 %first.addr.04.i.i2819.idx
-  %mValue.i.i.i.i2828 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2820, i64 0, i32 1
+  %mValue.i.i.i.i2828 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2820, i64 16
   %1027 = load i32, ptr %first.addr.04.i.i2819.ptr, align 4
   store i32 %1027, ptr %mValue.i.i.i.i2828, align 4
   store ptr %ref1253, ptr %call.i.i.i.i.i.i1.i2820, align 8
   %1028 = load ptr, ptr %mpPrev.i.i.i2816, align 8
-  %mpPrev2.i.i.i.i2829 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2820, i64 0, i32 1
+  %mpPrev2.i.i.i.i2829 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2820, i64 8
   store ptr %1028, ptr %mpPrev2.i.i.i.i2829, align 8
   store ptr %call.i.i.i.i.i.i1.i2820, ptr %1028, align 8
   store ptr %call.i.i.i.i.i.i1.i2820, ptr %mpPrev.i.i.i2816, align 8
@@ -19124,7 +19113,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit2833: ; preds
   %1033 = getelementptr inbounds i8, ptr %a1261, i64 16
   store i64 0, ptr %1033, align 8
   store ptr %a1261, ptr %a1261, align 8
-  %mpPrev.i.i.i2834 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1261, i64 0, i32 1
+  %mpPrev.i.i.i2834 = getelementptr inbounds i8, ptr %a1261, i64 8
   store ptr %a1261, ptr %mpPrev.i.i.i2834, align 8
   br label %for.body.i.i2836
 
@@ -19135,12 +19124,12 @@ for.body.i.i2836:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2845:                     ; preds = %for.body.i.i2836
   %first.addr.04.i.i2837.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i2837.idx
-  %mValue.i.i.i.i2846 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2838, i64 0, i32 1
+  %mValue.i.i.i.i2846 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2838, i64 16
   %1034 = load i32, ptr %first.addr.04.i.i2837.ptr, align 4
   store i32 %1034, ptr %mValue.i.i.i.i2846, align 4
   store ptr %a1261, ptr %call.i.i.i.i.i.i1.i2838, align 8
   %1035 = load ptr, ptr %mpPrev.i.i.i2834, align 8
-  %mpPrev2.i.i.i.i2847 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2838, i64 0, i32 1
+  %mpPrev2.i.i.i.i2847 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2838, i64 8
   store ptr %1035, ptr %mpPrev2.i.i.i.i2847, align 8
   store ptr %call.i.i.i.i.i.i1.i2838, ptr %1035, align 8
   store ptr %call.i.i.i.i.i.i1.i2838, ptr %mpPrev.i.i.i2834, align 8
@@ -19179,7 +19168,7 @@ while.body.i.i.i2854:                             ; preds = %while.body.i.i.i285
 
 invoke.cont1274:                                  ; preds = %while.body.i.i.i2854
   store <4 x i32> <i32 42, i32 42, i32 42, i32 42>, ptr %ref.tmp1277, align 16
-  %mpPrev.i.i2859 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1042, i64 0, i32 1
+  %mpPrev.i.i2859 = getelementptr inbounds i8, ptr %1042, i64 8
   br label %for.body.i.i2863
 
 for.body.i.i2863:                                 ; preds = %call.i.i.i.i.i.i.i.noexc2870, %invoke.cont1274
@@ -19189,12 +19178,12 @@ for.body.i.i2863:                                 ; preds = %call.i.i.i.i.i.i.i.
 
 call.i.i.i.i.i.i.i.noexc2870:                     ; preds = %for.body.i.i2863
   %first.addr.04.i.i2864.ptr = getelementptr inbounds i8, ptr %ref.tmp1277, i64 %first.addr.04.i.i2864.idx
-  %mValue.i.i.i.i2865 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i.i2871, i64 0, i32 1
+  %mValue.i.i.i.i2865 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2871, i64 16
   %1043 = load i32, ptr %first.addr.04.i.i2864.ptr, align 4, !noalias !492
   store i32 %1043, ptr %mValue.i.i.i.i2865, align 4, !noalias !492
   store ptr %1042, ptr %call.i.i.i.i.i.i.i2871, align 8, !noalias !492
   %1044 = load ptr, ptr %mpPrev.i.i2859, align 8, !noalias !492
-  %mpPrev2.i.i.i.i2866 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i.i2871, i64 0, i32 1
+  %mpPrev2.i.i.i.i2866 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i2871, i64 8
   store ptr %1044, ptr %mpPrev2.i.i.i.i2866, align 8, !noalias !492
   store ptr %call.i.i.i.i.i.i.i2871, ptr %1044, align 8, !noalias !492
   store ptr %call.i.i.i.i.i.i.i2871, ptr %mpPrev.i.i2859, align 8, !noalias !492
@@ -19219,9 +19208,9 @@ while.cond.i2876:                                 ; preds = %invoke.cont1287, %l
 
 land.rhs.i2881:                                   ; preds = %while.cond.i2876
   %ib.sroa.0.0.i2882 = load ptr, ptr %ib.sroa.0.0.in.i2877, align 8
-  %mValue.i.i2883 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i2879, i64 0, i32 1
+  %mValue.i.i2883 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i2879, i64 16
   %1047 = load i32, ptr %mValue.i.i2883, align 4
-  %mValue.i5.i2884 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i2882, i64 0, i32 1
+  %mValue.i5.i2884 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i2882, i64 16
   %1048 = load i32, ptr %mValue.i5.i2884, align 4
   %cmp10.i2885 = icmp eq i32 %1047, %1048
   br i1 %cmp10.i2885, label %while.cond.i2876, label %while.end.i2886, !llvm.loop !385
@@ -19264,7 +19253,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2901:     ; preds = %_ZN5eastl9allocator
   %1053 = getelementptr inbounds i8, ptr %ref1294, i64 16
   store i64 0, ptr %1053, align 8
   store ptr %ref1294, ptr %ref1294, align 8
-  %mpPrev.i.i.i2902 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1294, i64 0, i32 1
+  %mpPrev.i.i.i2902 = getelementptr inbounds i8, ptr %ref1294, i64 8
   store ptr %ref1294, ptr %mpPrev.i.i.i2902, align 8
   br label %for.body.i.i2904
 
@@ -19275,12 +19264,12 @@ for.body.i.i2904:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2913:                     ; preds = %for.body.i.i2904
   %first.addr.04.i.i2905.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i2905.idx
-  %mValue.i.i.i.i2914 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2906, i64 0, i32 1
+  %mValue.i.i.i.i2914 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2906, i64 16
   %1054 = load i32, ptr %first.addr.04.i.i2905.ptr, align 4
   store i32 %1054, ptr %mValue.i.i.i.i2914, align 4
   store ptr %ref1294, ptr %call.i.i.i.i.i.i1.i2906, align 8
   %1055 = load ptr, ptr %mpPrev.i.i.i2902, align 8
-  %mpPrev2.i.i.i.i2915 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2906, i64 0, i32 1
+  %mpPrev2.i.i.i.i2915 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2906, i64 8
   store ptr %1055, ptr %mpPrev2.i.i.i.i2915, align 8
   store ptr %call.i.i.i.i.i.i1.i2906, ptr %1055, align 8
   store ptr %call.i.i.i.i.i.i1.i2906, ptr %mpPrev.i.i.i2902, align 8
@@ -19309,7 +19298,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit2919: ; preds
   %1060 = getelementptr inbounds i8, ptr %a1302, i64 16
   store i64 0, ptr %1060, align 8
   store ptr %a1302, ptr %a1302, align 8
-  %mpPrev.i.i.i2920 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1302, i64 0, i32 1
+  %mpPrev.i.i.i2920 = getelementptr inbounds i8, ptr %a1302, i64 8
   store ptr %a1302, ptr %mpPrev.i.i.i2920, align 8
   br label %for.body.i.i2922
 
@@ -19320,12 +19309,12 @@ for.body.i.i2922:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2931:                     ; preds = %for.body.i.i2922
   %first.addr.04.i.i2923.ptr = getelementptr inbounds i8, ptr @constinit.96, i64 %first.addr.04.i.i2923.idx
-  %mValue.i.i.i.i2932 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2924, i64 0, i32 1
+  %mValue.i.i.i.i2932 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2924, i64 16
   %1061 = load i32, ptr %first.addr.04.i.i2923.ptr, align 4
   store i32 %1061, ptr %mValue.i.i.i.i2932, align 4
   store ptr %a1302, ptr %call.i.i.i.i.i.i1.i2924, align 8
   %1062 = load ptr, ptr %mpPrev.i.i.i2920, align 8
-  %mpPrev2.i.i.i.i2933 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2924, i64 0, i32 1
+  %mpPrev2.i.i.i.i2933 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2924, i64 8
   store ptr %1062, ptr %mpPrev2.i.i.i.i2933, align 8
   store ptr %call.i.i.i.i.i.i1.i2924, ptr %1062, align 8
   store ptr %call.i.i.i.i.i.i1.i2924, ptr %mpPrev.i.i.i2920, align 8
@@ -19364,12 +19353,12 @@ while.body.i.i.i2940:                             ; preds = %while.body.i.i.i294
 
 invoke.cont1317:                                  ; preds = %while.body.i.i.i2940
   %1070 = load ptr, ptr %1069, align 8, !noalias !498
-  %mpPrev.i2945 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1070, i64 0, i32 1
+  %mpPrev.i2945 = getelementptr inbounds i8, ptr %1070, i64 8
   %1071 = load ptr, ptr %mpPrev.i2945, align 8, !noalias !498
-  %mpPrev.i.i.i2946 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1071, i64 0, i32 1
+  %mpPrev.i.i.i2946 = getelementptr inbounds i8, ptr %1071, i64 8
   %1072 = load ptr, ptr %mpPrev.i.i.i2946, align 8, !noalias !498
   %1073 = load ptr, ptr %1071, align 8, !noalias !498
-  %mpPrev2.i.i.i2947 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1073, i64 0, i32 1
+  %mpPrev2.i.i.i2947 = getelementptr inbounds i8, ptr %1073, i64 8
   store ptr %1072, ptr %mpPrev2.i.i.i2947, align 8, !noalias !498
   %1074 = load ptr, ptr %1071, align 8, !noalias !498
   store ptr %1074, ptr %1072, align 8, !noalias !498
@@ -19377,7 +19366,7 @@ invoke.cont1317:                                  ; preds = %while.body.i.i.i294
   %1075 = load i64, ptr %1060, align 8, !noalias !498
   %dec.i.i2949 = add i64 %1075, -1
   store i64 %dec.i.i2949, ptr %1060, align 8, !noalias !498
-  %mValue.i2950 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %1070, i64 0, i32 1
+  %mValue.i2950 = getelementptr inbounds i8, ptr %1070, i64 16
   %1076 = load i32, ptr %mValue.i2950, align 4
   %cmp1319 = icmp eq i32 %1076, 5
   %call1321 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1319, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 663, ptr noundef nonnull @.str.93)
@@ -19398,9 +19387,9 @@ while.cond.i2955:                                 ; preds = %invoke.cont1320, %l
 
 land.rhs.i2960:                                   ; preds = %while.cond.i2955
   %ib.sroa.0.0.i2961 = load ptr, ptr %ib.sroa.0.0.in.i2956, align 8
-  %mValue.i.i2962 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i2958, i64 0, i32 1
+  %mValue.i.i2962 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i2958, i64 16
   %1079 = load i32, ptr %mValue.i.i2962, align 4
-  %mValue.i5.i2963 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i2961, i64 0, i32 1
+  %mValue.i5.i2963 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i2961, i64 16
   %1080 = load i32, ptr %mValue.i5.i2963, align 4
   %cmp10.i2964 = icmp eq i32 %1079, %1080
   br i1 %cmp10.i2964, label %while.cond.i2955, label %while.end.i2965, !llvm.loop !385
@@ -19443,7 +19432,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit2980:     ; preds = %_ZN5eastl9allocator
   %1085 = getelementptr inbounds i8, ptr %a1328, i64 16
   store i64 0, ptr %1085, align 8
   store ptr %a1328, ptr %a1328, align 8
-  %mpPrev.i.i.i2981 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1328, i64 0, i32 1
+  %mpPrev.i.i.i2981 = getelementptr inbounds i8, ptr %a1328, i64 8
   store ptr %a1328, ptr %mpPrev.i.i.i2981, align 8
   br label %for.body.i.i2983
 
@@ -19454,12 +19443,12 @@ for.body.i.i2983:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i2992:                     ; preds = %for.body.i.i2983
   %first.addr.04.i.i2984.ptr = getelementptr inbounds i8, ptr @constinit.99, i64 %first.addr.04.i.i2984.idx
-  %mValue.i.i.i.i2993 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i2985, i64 0, i32 1
+  %mValue.i.i.i.i2993 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2985, i64 16
   %1086 = load i32, ptr %first.addr.04.i.i2984.ptr, align 4
   store i32 %1086, ptr %mValue.i.i.i.i2993, align 4
   store ptr %a1328, ptr %call.i.i.i.i.i.i1.i2985, align 8
   %1087 = load ptr, ptr %mpPrev.i.i.i2981, align 8
-  %mpPrev2.i.i.i.i2994 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i2985, i64 0, i32 1
+  %mpPrev2.i.i.i.i2994 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i2985, i64 8
   store ptr %1087, ptr %mpPrev2.i.i.i.i2994, align 8
   store ptr %call.i.i.i.i.i.i1.i2985, ptr %1087, align 8
   store ptr %call.i.i.i.i.i.i1.i2985, ptr %mpPrev.i.i.i2981, align 8
@@ -19488,7 +19477,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit2998: ; preds
   %1092 = getelementptr inbounds i8, ptr %ref1336, i64 16
   store i64 0, ptr %1092, align 8
   store ptr %ref1336, ptr %ref1336, align 8
-  %mpPrev.i.i.i2999 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1336, i64 0, i32 1
+  %mpPrev.i.i.i2999 = getelementptr inbounds i8, ptr %ref1336, i64 8
   store ptr %ref1336, ptr %mpPrev.i.i.i2999, align 8
   br label %for.body.i.i3001
 
@@ -19499,12 +19488,12 @@ for.body.i.i3001:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3010:                     ; preds = %for.body.i.i3001
   %first.addr.04.i.i3002.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i3002.idx
-  %mValue.i.i.i.i3011 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3003, i64 0, i32 1
+  %mValue.i.i.i.i3011 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3003, i64 16
   %1093 = load i32, ptr %first.addr.04.i.i3002.ptr, align 4
   store i32 %1093, ptr %mValue.i.i.i.i3011, align 4
   store ptr %ref1336, ptr %call.i.i.i.i.i.i1.i3003, align 8
   %1094 = load ptr, ptr %mpPrev.i.i.i2999, align 8
-  %mpPrev2.i.i.i.i3012 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3003, i64 0, i32 1
+  %mpPrev2.i.i.i.i3012 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3003, i64 8
   store ptr %1094, ptr %mpPrev2.i.i.i.i3012, align 8
   store ptr %call.i.i.i.i.i.i1.i3003, ptr %1094, align 8
   store ptr %call.i.i.i.i.i.i1.i3003, ptr %mpPrev.i.i.i2999, align 8
@@ -19560,12 +19549,12 @@ invoke.cont1349.invoke.cont1355_crit_edge:        ; preds = %invoke.cont1349
 while.body.i3032:                                 ; preds = %invoke.cont1349, %while.body.i3032
   %first.sroa.0.03.i = phi ptr [ %1104, %while.body.i3032 ], [ %1101, %invoke.cont1349 ]
   %1104 = load ptr, ptr %first.sroa.0.03.i, align 8, !noalias !504
-  %mpPrev.i.i3033 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1104, i64 0, i32 1
+  %mpPrev.i.i3033 = getelementptr inbounds i8, ptr %1104, i64 8
   %1105 = load ptr, ptr %mpPrev.i.i3033, align 8, !noalias !504
-  %mpPrev.i.i.i.i3034 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1105, i64 0, i32 1
+  %mpPrev.i.i.i.i3034 = getelementptr inbounds i8, ptr %1105, i64 8
   %1106 = load ptr, ptr %mpPrev.i.i.i.i3034, align 8, !noalias !504
   %1107 = load ptr, ptr %1105, align 8, !noalias !504
-  %mpPrev2.i.i.i.i3035 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1107, i64 0, i32 1
+  %mpPrev2.i.i.i.i3035 = getelementptr inbounds i8, ptr %1107, i64 8
   store ptr %1106, ptr %mpPrev2.i.i.i.i3035, align 8, !noalias !504
   %1108 = load ptr, ptr %1105, align 8, !noalias !504
   store ptr %1108, ptr %1106, align 8, !noalias !504
@@ -19595,9 +19584,9 @@ while.cond.i3043:                                 ; preds = %invoke.cont1355, %l
 
 land.rhs.i3048:                                   ; preds = %while.cond.i3043
   %ib.sroa.0.0.i3049 = load ptr, ptr %ib.sroa.0.0.in.i3044, align 8
-  %mValue.i.i3050 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i3046, i64 0, i32 1
+  %mValue.i.i3050 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i3046, i64 16
   %1112 = load i32, ptr %mValue.i.i3050, align 4
-  %mValue.i5.i3051 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i3049, i64 0, i32 1
+  %mValue.i5.i3051 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i3049, i64 16
   %1113 = load i32, ptr %mValue.i5.i3051, align 4
   %cmp10.i3052 = icmp eq i32 %1112, %1113
   br i1 %cmp10.i3052, label %while.cond.i3043, label %while.end.i3053, !llvm.loop !385
@@ -19640,7 +19629,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit3068:     ; preds = %_ZN5eastl9allocator
   %1118 = getelementptr inbounds i8, ptr %a1362, i64 16
   store i64 0, ptr %1118, align 8
   store ptr %a1362, ptr %a1362, align 8
-  %mpPrev.i.i.i3069 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1362, i64 0, i32 1
+  %mpPrev.i.i.i3069 = getelementptr inbounds i8, ptr %a1362, i64 8
   store ptr %a1362, ptr %mpPrev.i.i.i3069, align 8
   br label %for.body.i.i3071
 
@@ -19651,12 +19640,12 @@ for.body.i.i3071:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3080:                     ; preds = %for.body.i.i3071
   %first.addr.04.i.i3072.ptr = getelementptr inbounds i8, ptr @constinit.96, i64 %first.addr.04.i.i3072.idx
-  %mValue.i.i.i.i3081 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3073, i64 0, i32 1
+  %mValue.i.i.i.i3081 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3073, i64 16
   %1119 = load i32, ptr %first.addr.04.i.i3072.ptr, align 4
   store i32 %1119, ptr %mValue.i.i.i.i3081, align 4
   store ptr %a1362, ptr %call.i.i.i.i.i.i1.i3073, align 8
   %1120 = load ptr, ptr %mpPrev.i.i.i3069, align 8
-  %mpPrev2.i.i.i.i3082 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3073, i64 0, i32 1
+  %mpPrev2.i.i.i.i3082 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3073, i64 8
   store ptr %1120, ptr %mpPrev2.i.i.i.i3082, align 8
   store ptr %call.i.i.i.i.i.i1.i3073, ptr %1120, align 8
   store ptr %call.i.i.i.i.i.i1.i3073, ptr %mpPrev.i.i.i3069, align 8
@@ -19685,7 +19674,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit3086: ; preds
   %1125 = getelementptr inbounds i8, ptr %ref1370, i64 16
   store i64 0, ptr %1125, align 8
   store ptr %ref1370, ptr %ref1370, align 8
-  %mpPrev.i.i.i3087 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1370, i64 0, i32 1
+  %mpPrev.i.i.i3087 = getelementptr inbounds i8, ptr %ref1370, i64 8
   store ptr %ref1370, ptr %mpPrev.i.i.i3087, align 8
   br label %for.body.i.i3089
 
@@ -19696,12 +19685,12 @@ for.body.i.i3089:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3098:                     ; preds = %for.body.i.i3089
   %first.addr.04.i.i3090.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i3090.idx
-  %mValue.i.i.i.i3099 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3091, i64 0, i32 1
+  %mValue.i.i.i.i3099 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3091, i64 16
   %1126 = load i32, ptr %first.addr.04.i.i3090.ptr, align 4
   store i32 %1126, ptr %mValue.i.i.i.i3099, align 4
   store ptr %ref1370, ptr %call.i.i.i.i.i.i1.i3091, align 8
   %1127 = load ptr, ptr %mpPrev.i.i.i3087, align 8
-  %mpPrev2.i.i.i.i3100 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3091, i64 0, i32 1
+  %mpPrev2.i.i.i.i3100 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3091, i64 8
   store ptr %1127, ptr %mpPrev2.i.i.i.i3100, align 8
   store ptr %call.i.i.i.i.i.i1.i3091, ptr %1127, align 8
   store ptr %call.i.i.i.i.i.i1.i3091, ptr %mpPrev.i.i.i3087, align 8
@@ -19730,21 +19719,21 @@ while.body.i.i.i3107:                             ; preds = %call.i.i.i.i.i.i.no
   %n.addr.08.i.i.i3108 = phi i32 [ %dec.i.i.i3109, %while.body.i.i.i3107 ], [ 5, %call.i.i.i.i.i.i.noexc.i3098 ]
   %1132 = phi ptr [ %1133, %while.body.i.i.i3107 ], [ %a1362, %call.i.i.i.i.i.i.noexc.i3098 ]
   %dec.i.i.i3109 = add nsw i32 %n.addr.08.i.i.i3108, -1
-  %mpPrev.i.i.i.i.i3110 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1132, i64 0, i32 1
+  %mpPrev.i.i.i.i.i3110 = getelementptr inbounds i8, ptr %1132, i64 8
   %1133 = load ptr, ptr %mpPrev.i.i.i.i.i3110, align 8
   %tobool.not.i.i.i3111 = icmp eq i32 %dec.i.i.i3109, 0
   br i1 %tobool.not.i.i.i3111, label %invoke.cont1385, label %while.body.i.i.i3107, !llvm.loop !509
 
 invoke.cont1385:                                  ; preds = %while.body.i.i.i3107
-  %mpPrev.i.i.i3112 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1133, i64 0, i32 1
+  %mpPrev.i.i.i3112 = getelementptr inbounds i8, ptr %1133, i64 8
   %1134 = load ptr, ptr %mpPrev.i.i.i3112, align 8, !noalias !510
   %1135 = load ptr, ptr %1134, align 8, !noalias !513
-  %mpPrev.i.i3113 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1135, i64 0, i32 1
+  %mpPrev.i.i3113 = getelementptr inbounds i8, ptr %1135, i64 8
   %1136 = load ptr, ptr %mpPrev.i.i3113, align 8, !noalias !513
-  %mpPrev.i.i.i.i3114 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1136, i64 0, i32 1
+  %mpPrev.i.i.i.i3114 = getelementptr inbounds i8, ptr %1136, i64 8
   %1137 = load ptr, ptr %mpPrev.i.i.i.i3114, align 8, !noalias !513
   %1138 = load ptr, ptr %1136, align 8, !noalias !513
-  %mpPrev2.i.i.i.i3115 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1138, i64 0, i32 1
+  %mpPrev2.i.i.i.i3115 = getelementptr inbounds i8, ptr %1138, i64 8
   store ptr %1137, ptr %mpPrev2.i.i.i.i3115, align 8, !noalias !513
   %1139 = load ptr, ptr %1136, align 8, !noalias !513
   store ptr %1139, ptr %1137, align 8, !noalias !513
@@ -19753,7 +19742,7 @@ invoke.cont1385:                                  ; preds = %while.body.i.i.i310
   %dec.i.i.i3117 = add i64 %1140, -1
   store i64 %dec.i.i.i3117, ptr %1118, align 8, !noalias !513
   %1141 = load ptr, ptr %mpPrev.i.i3113, align 8
-  %mValue.i.i3119 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %1141, i64 0, i32 1
+  %mValue.i.i3119 = getelementptr inbounds i8, ptr %1141, i64 16
   %1142 = load i32, ptr %mValue.i.i3119, align 4
   %cmp1388 = icmp eq i32 %1142, 4
   %call1390 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1388, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 691, ptr noundef nonnull @.str.98)
@@ -19774,9 +19763,9 @@ while.cond.i3124:                                 ; preds = %invoke.cont1389, %l
 
 land.rhs.i3129:                                   ; preds = %while.cond.i3124
   %ib.sroa.0.0.i3130 = load ptr, ptr %ib.sroa.0.0.in.i3125, align 8
-  %mValue.i.i3131 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i3127, i64 0, i32 1
+  %mValue.i.i3131 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i3127, i64 16
   %1145 = load i32, ptr %mValue.i.i3131, align 4
-  %mValue.i5.i3132 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i3130, i64 0, i32 1
+  %mValue.i5.i3132 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i3130, i64 16
   %1146 = load i32, ptr %mValue.i5.i3132, align 4
   %cmp10.i3133 = icmp eq i32 %1145, %1146
   br i1 %cmp10.i3133, label %while.cond.i3124, label %while.end.i3134, !llvm.loop !385
@@ -19819,7 +19808,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit3149:     ; preds = %_ZN5eastl9allocator
   %1151 = getelementptr inbounds i8, ptr %a1397, i64 16
   store i64 0, ptr %1151, align 8
   store ptr %a1397, ptr %a1397, align 8
-  %mpPrev.i.i.i3150 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1397, i64 0, i32 1
+  %mpPrev.i.i.i3150 = getelementptr inbounds i8, ptr %a1397, i64 8
   store ptr %a1397, ptr %mpPrev.i.i.i3150, align 8
   br label %for.body.i.i3152
 
@@ -19830,12 +19819,12 @@ for.body.i.i3152:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3161:                     ; preds = %for.body.i.i3152
   %first.addr.04.i.i3153.ptr = getelementptr inbounds i8, ptr @constinit.99, i64 %first.addr.04.i.i3153.idx
-  %mValue.i.i.i.i3162 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3154, i64 0, i32 1
+  %mValue.i.i.i.i3162 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3154, i64 16
   %1152 = load i32, ptr %first.addr.04.i.i3153.ptr, align 4
   store i32 %1152, ptr %mValue.i.i.i.i3162, align 4
   store ptr %a1397, ptr %call.i.i.i.i.i.i1.i3154, align 8
   %1153 = load ptr, ptr %mpPrev.i.i.i3150, align 8
-  %mpPrev2.i.i.i.i3163 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3154, i64 0, i32 1
+  %mpPrev2.i.i.i.i3163 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3154, i64 8
   store ptr %1153, ptr %mpPrev2.i.i.i.i3163, align 8
   store ptr %call.i.i.i.i.i.i1.i3154, ptr %1153, align 8
   store ptr %call.i.i.i.i.i.i1.i3154, ptr %mpPrev.i.i.i3150, align 8
@@ -19864,7 +19853,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit3167: ; preds
   %1158 = getelementptr inbounds i8, ptr %ref1405, i64 16
   store i64 0, ptr %1158, align 8
   store ptr %ref1405, ptr %ref1405, align 8
-  %mpPrev.i.i.i3168 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1405, i64 0, i32 1
+  %mpPrev.i.i.i3168 = getelementptr inbounds i8, ptr %ref1405, i64 8
   store ptr %ref1405, ptr %mpPrev.i.i.i3168, align 8
   br label %for.body.i.i3170
 
@@ -19875,12 +19864,12 @@ for.body.i.i3170:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3179:                     ; preds = %for.body.i.i3170
   %first.addr.04.i.i3171.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i3171.idx
-  %mValue.i.i.i.i3180 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3172, i64 0, i32 1
+  %mValue.i.i.i.i3180 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3172, i64 16
   %1159 = load i32, ptr %first.addr.04.i.i3171.ptr, align 4
   store i32 %1159, ptr %mValue.i.i.i.i3180, align 4
   store ptr %ref1405, ptr %call.i.i.i.i.i.i1.i3172, align 8
   %1160 = load ptr, ptr %mpPrev.i.i.i3168, align 8
-  %mpPrev2.i.i.i.i3181 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3172, i64 0, i32 1
+  %mpPrev2.i.i.i.i3181 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3172, i64 8
   store ptr %1160, ptr %mpPrev2.i.i.i.i3181, align 8
   store ptr %call.i.i.i.i.i.i1.i3172, ptr %1160, align 8
   store ptr %call.i.i.i.i.i.i1.i3172, ptr %mpPrev.i.i.i3168, align 8
@@ -19909,7 +19898,7 @@ while.body.i.i.i3188:                             ; preds = %call.i.i.i.i.i.i.no
   %n.addr.08.i.i.i3189 = phi i32 [ %dec.i.i.i3190, %while.body.i.i.i3188 ], [ 4, %call.i.i.i.i.i.i.noexc.i3179 ]
   %1165 = phi ptr [ %1166, %while.body.i.i.i3188 ], [ %a1397, %call.i.i.i.i.i.i.noexc.i3179 ]
   %dec.i.i.i3190 = add nsw i32 %n.addr.08.i.i.i3189, -1
-  %mpPrev.i.i.i.i.i3191 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1165, i64 0, i32 1
+  %mpPrev.i.i.i.i.i3191 = getelementptr inbounds i8, ptr %1165, i64 8
   %1166 = load ptr, ptr %mpPrev.i.i.i.i.i3191, align 8
   %tobool.not.i.i.i3192 = icmp eq i32 %dec.i.i.i3190, 0
   br i1 %tobool.not.i.i.i3192, label %while.body.i.i.i3194, label %while.body.i.i.i3188, !llvm.loop !516
@@ -19918,15 +19907,15 @@ while.body.i.i.i3194:                             ; preds = %while.body.i.i.i318
   %n.addr.08.i.i.i3195 = phi i32 [ %dec.i.i.i3196, %while.body.i.i.i3194 ], [ 8, %while.body.i.i.i3188 ]
   %1167 = phi ptr [ %1168, %while.body.i.i.i3194 ], [ %a1397, %while.body.i.i.i3188 ]
   %dec.i.i.i3196 = add nsw i32 %n.addr.08.i.i.i3195, -1
-  %mpPrev.i.i.i.i.i3197 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1167, i64 0, i32 1
+  %mpPrev.i.i.i.i.i3197 = getelementptr inbounds i8, ptr %1167, i64 8
   %1168 = load ptr, ptr %mpPrev.i.i.i.i.i3197, align 8
   %tobool.not.i.i.i3198 = icmp eq i32 %dec.i.i.i3196, 0
   br i1 %tobool.not.i.i.i3198, label %invoke.cont1418, label %while.body.i.i.i3194, !llvm.loop !516
 
 invoke.cont1418:                                  ; preds = %while.body.i.i.i3194
-  %mpPrev.i.i.i3200 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1168, i64 0, i32 1
+  %mpPrev.i.i.i3200 = getelementptr inbounds i8, ptr %1168, i64 8
   %1169 = load ptr, ptr %mpPrev.i.i.i3200, align 8, !noalias !517
-  %mpPrev.i.i1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1166, i64 0, i32 1
+  %mpPrev.i.i1.i = getelementptr inbounds i8, ptr %1166, i64 8
   %1170 = load ptr, ptr %mpPrev.i.i1.i, align 8, !noalias !517
   %cmp.i.not2.i.i3201 = icmp eq ptr %1169, %1170
   br i1 %cmp.i.not2.i.i3201, label %invoke.cont1424, label %while.body.i.i3204
@@ -19934,12 +19923,12 @@ invoke.cont1418:                                  ; preds = %while.body.i.i.i319
 while.body.i.i3204:                               ; preds = %invoke.cont1418, %while.body.i.i3204
   %first.sroa.0.03.i.i3205 = phi ptr [ %1171, %while.body.i.i3204 ], [ %1169, %invoke.cont1418 ]
   %1171 = load ptr, ptr %first.sroa.0.03.i.i3205, align 8, !noalias !520
-  %mpPrev.i.i3.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1171, i64 0, i32 1
+  %mpPrev.i.i3.i = getelementptr inbounds i8, ptr %1171, i64 8
   %1172 = load ptr, ptr %mpPrev.i.i3.i, align 8, !noalias !520
-  %mpPrev.i.i.i.i.i3206 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1172, i64 0, i32 1
+  %mpPrev.i.i.i.i.i3206 = getelementptr inbounds i8, ptr %1172, i64 8
   %1173 = load ptr, ptr %mpPrev.i.i.i.i.i3206, align 8, !noalias !520
   %1174 = load ptr, ptr %1172, align 8, !noalias !520
-  %mpPrev2.i.i.i.i.i3207 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1174, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i3207 = getelementptr inbounds i8, ptr %1174, i64 8
   store ptr %1173, ptr %mpPrev2.i.i.i.i.i3207, align 8, !noalias !520
   %1175 = load ptr, ptr %1172, align 8, !noalias !520
   store ptr %1175, ptr %1173, align 8, !noalias !520
@@ -19951,9 +19940,9 @@ while.body.i.i3204:                               ; preds = %invoke.cont1418, %w
   br i1 %cmp.i.not.i.i3209, label %invoke.cont1424, label %while.body.i.i3204, !llvm.loop !109
 
 invoke.cont1424:                                  ; preds = %while.body.i.i3204, %invoke.cont1418
-  %mpPrev.i.i3210 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1170, i64 0, i32 1
+  %mpPrev.i.i3210 = getelementptr inbounds i8, ptr %1170, i64 8
   %1177 = load ptr, ptr %mpPrev.i.i3210, align 8
-  %mValue.i.i3211 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %1177, i64 0, i32 1
+  %mValue.i.i3211 = getelementptr inbounds i8, ptr %1177, i64 16
   %1178 = load i32, ptr %mValue.i.i3211, align 4
   %cmp1427 = icmp eq i32 %1178, 4
   %call1429 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1427, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 707, ptr noundef nonnull @.str.101)
@@ -19974,9 +19963,9 @@ while.cond.i3216:                                 ; preds = %invoke.cont1428, %l
 
 land.rhs.i3221:                                   ; preds = %while.cond.i3216
   %ib.sroa.0.0.i3222 = load ptr, ptr %ib.sroa.0.0.in.i3217, align 8
-  %mValue.i.i3223 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i3219, i64 0, i32 1
+  %mValue.i.i3223 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i3219, i64 16
   %1181 = load i32, ptr %mValue.i.i3223, align 4
-  %mValue.i5.i3224 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i3222, i64 0, i32 1
+  %mValue.i5.i3224 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i3222, i64 16
   %1182 = load i32, ptr %mValue.i5.i3224, align 4
   %cmp10.i3225 = icmp eq i32 %1181, %1182
   br i1 %cmp10.i3225, label %while.cond.i3216, label %while.end.i3226, !llvm.loop !385
@@ -20019,7 +20008,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit3241:     ; preds = %_ZN5eastl9allocator
   %1187 = getelementptr inbounds i8, ptr %a1436, i64 16
   store i64 0, ptr %1187, align 8
   store ptr %a1436, ptr %a1436, align 8
-  %mpPrev.i.i.i3242 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1436, i64 0, i32 1
+  %mpPrev.i.i.i3242 = getelementptr inbounds i8, ptr %a1436, i64 8
   store ptr %a1436, ptr %mpPrev.i.i.i3242, align 8
   br label %for.body.i.i3244
 
@@ -20030,12 +20019,12 @@ for.body.i.i3244:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3253:                     ; preds = %for.body.i.i3244
   %first.addr.04.i.i3245.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i3245.idx
-  %mValue.i.i.i.i3254 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3246, i64 0, i32 1
+  %mValue.i.i.i.i3254 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3246, i64 16
   %1188 = load i32, ptr %first.addr.04.i.i3245.ptr, align 4
   store i32 %1188, ptr %mValue.i.i.i.i3254, align 4
   store ptr %a1436, ptr %call.i.i.i.i.i.i1.i3246, align 8
   %1189 = load ptr, ptr %mpPrev.i.i.i3242, align 8
-  %mpPrev2.i.i.i.i3255 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3246, i64 0, i32 1
+  %mpPrev2.i.i.i.i3255 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3246, i64 8
   store ptr %1189, ptr %mpPrev2.i.i.i.i3255, align 8
   store ptr %call.i.i.i.i.i.i1.i3246, ptr %1189, align 8
   store ptr %call.i.i.i.i.i.i1.i3246, ptr %mpPrev.i.i.i3242, align 8
@@ -20101,7 +20090,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit3271:     ; preds = %_ZN5eastl9allocator
   %1199 = getelementptr inbounds i8, ptr %intList1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1199, i8 0, i64 40, i1 false)
   store ptr %intList1, ptr %intList1, align 8
-  %mpPrev.i.i.i3272 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %intList1, i64 0, i32 1
+  %mpPrev.i.i.i3272 = getelementptr inbounds i8, ptr %intList1, i64 8
   store ptr %intList1, ptr %mpPrev.i.i.i3272, align 8
   invoke void @_ZN5eastl15fixed_pool_base4initEPvmmmm(ptr noundef nonnull align 8 dereferenceable(32) %1199, ptr noundef nonnull %buffer1, i64 noundef 240, i64 noundef 24, i64 noundef 8, i64 noundef 0)
           to label %invoke.cont1455 unwind label %lpad1454
@@ -20116,7 +20105,7 @@ for.body.i.i3297:                                 ; preds = %invoke.cont1455, %f
   %first.addr.015.i.i.idx = phi i64 [ %first.addr.015.i.i.add, %for.body.i.i3297 ], [ 0, %invoke.cont1455 ]
   %first.addr.015.i.i.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.015.i.i.idx
   %1200 = load i32, ptr %first.addr.015.i.i.ptr, align 4
-  %mValue.i.i3298 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %pNode.016.i.i, i64 0, i32 1
+  %mValue.i.i3298 = getelementptr inbounds i8, ptr %pNode.016.i.i, i64 16
   store i32 %1200, ptr %mValue.i.i3298, align 8
   %first.addr.015.i.i.add = add nuw nsw i64 %first.addr.015.i.i.idx, 4
   %pNode.0.i.i = load ptr, ptr %pNode.016.i.i, align 8
@@ -20131,7 +20120,7 @@ for.end.i.i3276:                                  ; preds = %for.body.i.i3297
 
 if.then.i.i3286:                                  ; preds = %for.end.i.i3276
   %cmp.i.not2.i.i.i3287 = icmp eq ptr %pNode.0.i.i, %intList1
-  %mSize.i3302.phi.trans.insert = getelementptr inbounds %"class.eastl::ListBase.48", ptr %intList1, i64 0, i32 1
+  %mSize.i3302.phi.trans.insert = getelementptr inbounds i8, ptr %intList1, i64 48
   br i1 %cmp.i.not2.i.i.i3287, label %if.then.i.i3286.invoke.cont1462_crit_edge, label %while.body.i.i.i3290
 
 if.then.i.i3286.invoke.cont1462_crit_edge:        ; preds = %if.then.i.i3286
@@ -20141,12 +20130,12 @@ if.then.i.i3286.invoke.cont1462_crit_edge:        ; preds = %if.then.i.i3286
 while.body.i.i.i3290:                             ; preds = %if.then.i.i3286, %while.body.i.i.i3290
   %first.sroa.0.03.i.i.i3291 = phi ptr [ %1202, %while.body.i.i.i3290 ], [ %pNode.0.i.i, %if.then.i.i3286 ]
   %1202 = load ptr, ptr %first.sroa.0.03.i.i.i3291, align 8, !noalias !526
-  %mpPrev.i.i.i.i3292 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1202, i64 0, i32 1
+  %mpPrev.i.i.i.i3292 = getelementptr inbounds i8, ptr %1202, i64 8
   %1203 = load ptr, ptr %mpPrev.i.i.i.i3292, align 8, !noalias !526
-  %mpPrev.i.i.i.i.i.i3293 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1203, i64 0, i32 1
+  %mpPrev.i.i.i.i.i.i3293 = getelementptr inbounds i8, ptr %1203, i64 8
   %1204 = load ptr, ptr %mpPrev.i.i.i.i.i.i3293, align 8, !noalias !526
   %1205 = load ptr, ptr %1203, align 8, !noalias !526
-  %mpPrev2.i.i.i.i.i.i3294 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1205, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i.i3294 = getelementptr inbounds i8, ptr %1205, i64 8
   store ptr %1204, ptr %mpPrev2.i.i.i.i.i.i3294, align 8, !noalias !526
   %1206 = load ptr, ptr %1203, align 8, !noalias !526
   store ptr %1206, ptr %1204, align 8, !noalias !526
@@ -20161,9 +20150,9 @@ while.body.i.i.i3290:                             ; preds = %if.then.i.i3286, %w
 
 for.body.lr.ph.i.i.i3278:                         ; preds = %invoke.cont1455, %for.end.i.i3276
   %first.addr.0.lcssa.i.i5968.idx = phi i64 [ %first.addr.015.i.i.add, %for.end.i.i3276 ], [ 0, %invoke.cont1455 ]
-  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.50", ptr %intList1, i64 0, i32 1, i32 0, i32 1
-  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.50", ptr %intList1, i64 0, i32 1, i32 0, i32 2
-  %mSize.i.i.i.i3280 = getelementptr inbounds %"class.eastl::ListBase.48", ptr %intList1, i64 0, i32 1
+  %mpNext3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %intList1, i64 24
+  %mpCapacity.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %intList1, i64 32
+  %mSize.i.i.i.i3280 = getelementptr inbounds i8, ptr %intList1, i64 48
   br label %for.body.i.i.i3281
 
 for.body.i.i.i3281:                               ; preds = %_ZN5eastl4listIiNS_15fixed_allocatorEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i, %for.body.lr.ph.i.i.i3278
@@ -20191,12 +20180,12 @@ if.then4.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i.i.i
 
 _ZN5eastl4listIiNS_15fixed_allocatorEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i: ; preds = %if.then4.i.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %result.0.i.i.i.i.i.i.i = phi ptr [ %1209, %if.then.i.i.i.i.i.i.i.i ], [ %1211, %if.then4.i.i.i.i.i.i.i.i ], [ null, %if.else.i.i.i.i.i.i.i.i ]
-  %mValue.i.i.i.i.i3282 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i.i3282 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 16
   %1213 = load i32, ptr %first.addr.04.i.i.i.ptr, align 4
   store i32 %1213, ptr %mValue.i.i.i.i.i3282, align 4
   store ptr %intList1, ptr %result.0.i.i.i.i.i.i.i, align 8
   %1214 = load ptr, ptr %mpPrev.i.i.i3272, align 8
-  %mpPrev2.i.i.i.i.i3283 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %result.0.i.i.i.i.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i.i.i.i3283 = getelementptr inbounds i8, ptr %result.0.i.i.i.i.i.i.i, i64 8
   store ptr %1214, ptr %mpPrev2.i.i.i.i.i3283, align 8
   store ptr %result.0.i.i.i.i.i.i.i, ptr %1214, align 8
   store ptr %result.0.i.i.i.i.i.i.i, ptr %mpPrev.i.i.i3272, align 8
@@ -20209,7 +20198,7 @@ _ZN5eastl4listIiNS_15fixed_allocatorEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBase
 
 invoke.cont1462:                                  ; preds = %while.body.i.i.i3290, %_ZN5eastl4listIiNS_15fixed_allocatorEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i, %if.then.i.i3286.invoke.cont1462_crit_edge
   %1216 = phi i64 [ %.pre6477, %if.then.i.i3286.invoke.cont1462_crit_edge ], [ %inc.i.i.i.i3284, %_ZN5eastl4listIiNS_15fixed_allocatorEE13DoInsertValueIJRKiEEEvPNS_12ListNodeBaseEDpOT_.exit.i.i.i ], [ %dec.i.i.i.i.i3295, %while.body.i.i.i3290 ]
-  %mSize.i3302 = getelementptr inbounds %"class.eastl::ListBase.48", ptr %intList1, i64 0, i32 1
+  %mSize.i3302 = getelementptr inbounds i8, ptr %intList1, i64 48
   %cmp.i3303 = icmp ne i64 %1216, 0
   %call1467 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i3303, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 730, ptr noundef nonnull @.str.104)
           to label %invoke.cont1466 unwind label %lpad1454
@@ -20255,7 +20244,7 @@ _ZN5eastl4listIiNS_15fixed_allocatorEED2Ev.exit:  ; preds = %while.body.i.i.i331
   %1222 = getelementptr inbounds i8, ptr %a1480, i64 16
   store i64 0, ptr %1222, align 8
   store ptr %a1480, ptr %a1480, align 8
-  %mpPrev.i.i.i3316 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1480, i64 0, i32 1
+  %mpPrev.i.i.i3316 = getelementptr inbounds i8, ptr %a1480, i64 8
   store ptr %a1480, ptr %mpPrev.i.i.i3316, align 8
   br label %for.body.i.i3318
 
@@ -20266,12 +20255,12 @@ for.body.i.i3318:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3327:                     ; preds = %for.body.i.i3318
   %first.addr.04.i.i3319.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i3319.idx
-  %mValue.i.i.i.i3328 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3320, i64 0, i32 1
+  %mValue.i.i.i.i3328 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3320, i64 16
   %1223 = load i32, ptr %first.addr.04.i.i3319.ptr, align 4
   store i32 %1223, ptr %mValue.i.i.i.i3328, align 4
   store ptr %a1480, ptr %call.i.i.i.i.i.i1.i3320, align 8
   %1224 = load ptr, ptr %mpPrev.i.i.i3316, align 8
-  %mpPrev2.i.i.i.i3329 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3320, i64 0, i32 1
+  %mpPrev2.i.i.i.i3329 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3320, i64 8
   store ptr %1224, ptr %mpPrev2.i.i.i.i3329, align 8
   store ptr %call.i.i.i.i.i.i1.i3320, ptr %1224, align 8
   store ptr %call.i.i.i.i.i.i1.i3320, ptr %mpPrev.i.i.i3316, align 8
@@ -20300,7 +20289,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit3333: ; preds
   %1229 = getelementptr inbounds i8, ptr %ref1488, i64 16
   store i64 0, ptr %1229, align 8
   store ptr %ref1488, ptr %ref1488, align 8
-  %mpPrev.i.i.i3334 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1488, i64 0, i32 1
+  %mpPrev.i.i.i3334 = getelementptr inbounds i8, ptr %ref1488, i64 8
   store ptr %ref1488, ptr %mpPrev.i.i.i3334, align 8
   br label %for.body.i.i3336
 
@@ -20311,12 +20300,12 @@ for.body.i.i3336:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3345:                     ; preds = %for.body.i.i3336
   %first.addr.04.i.i3337.ptr = getelementptr inbounds i8, ptr @constinit.111, i64 %first.addr.04.i.i3337.idx
-  %mValue.i.i.i.i3346 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3338, i64 0, i32 1
+  %mValue.i.i.i.i3346 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3338, i64 16
   %1230 = load i32, ptr %first.addr.04.i.i3337.ptr, align 4
   store i32 %1230, ptr %mValue.i.i.i.i3346, align 4
   store ptr %ref1488, ptr %call.i.i.i.i.i.i1.i3338, align 8
   %1231 = load ptr, ptr %mpPrev.i.i.i3334, align 8
-  %mpPrev2.i.i.i.i3347 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3338, i64 0, i32 1
+  %mpPrev2.i.i.i.i3347 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3338, i64 8
   store ptr %1231, ptr %mpPrev2.i.i.i.i3347, align 8
   store ptr %call.i.i.i.i.i.i1.i3338, ptr %1231, align 8
   store ptr %call.i.i.i.i.i.i1.i3338, ptr %mpPrev.i.i.i3334, align 8
@@ -20348,19 +20337,19 @@ invoke.cont1498:                                  ; preds = %call.i.i.i.i.i.i.no
 
 while.body.i3355:                                 ; preds = %invoke.cont1498, %if.end.i
   %current.sroa.0.07.i = phi ptr [ %1238, %if.end.i ], [ %1236, %invoke.cont1498 ]
-  %mValue.i.i3356 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %current.sroa.0.07.i, i64 0, i32 1
+  %mValue.i.i3356 = getelementptr inbounds i8, ptr %current.sroa.0.07.i, i64 16
   %1237 = load i32, ptr %mValue.i.i3356, align 4
   %cmp4.not.i = icmp eq i32 %1237, 4
   %1238 = load ptr, ptr %current.sroa.0.07.i, align 8
   br i1 %cmp4.not.i, label %if.else.i3359, label %if.end.i
 
 if.else.i3359:                                    ; preds = %while.body.i3355
-  %mpPrev.i3360 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1238, i64 0, i32 1
+  %mpPrev.i3360 = getelementptr inbounds i8, ptr %1238, i64 8
   %1239 = load ptr, ptr %mpPrev.i3360, align 8
-  %mpPrev.i.i.i3361 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1239, i64 0, i32 1
+  %mpPrev.i.i.i3361 = getelementptr inbounds i8, ptr %1239, i64 8
   %1240 = load ptr, ptr %mpPrev.i.i.i3361, align 8
   %1241 = load ptr, ptr %1239, align 8
-  %mpPrev2.i.i.i3362 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1241, i64 0, i32 1
+  %mpPrev2.i.i.i3362 = getelementptr inbounds i8, ptr %1241, i64 8
   store ptr %1240, ptr %mpPrev2.i.i.i3362, align 8
   %1242 = load ptr, ptr %1239, align 8
   store ptr %1242, ptr %1240, align 8
@@ -20393,9 +20382,9 @@ while.cond.i3369:                                 ; preds = %invoke.cont1501, %l
 
 land.rhs.i3374:                                   ; preds = %while.cond.i3369
   %ib.sroa.0.0.i3375 = load ptr, ptr %ib.sroa.0.0.in.i3370, align 8
-  %mValue.i.i3376 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i3372, i64 0, i32 1
+  %mValue.i.i3376 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i3372, i64 16
   %1246 = load i32, ptr %mValue.i.i3376, align 4
-  %mValue.i5.i3377 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i3375, i64 0, i32 1
+  %mValue.i5.i3377 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i3375, i64 16
   %1247 = load i32, ptr %mValue.i5.i3377, align 4
   %cmp10.i3378 = icmp eq i32 %1246, %1247
   br i1 %cmp10.i3378, label %while.cond.i3369, label %while.end.i3379, !llvm.loop !385
@@ -20438,7 +20427,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit3394:     ; preds = %_ZN5eastl9allocator
   %1252 = getelementptr inbounds i8, ptr %a1509, i64 16
   store i64 0, ptr %1252, align 8
   store ptr %a1509, ptr %a1509, align 8
-  %mpPrev.i.i.i3395 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1509, i64 0, i32 1
+  %mpPrev.i.i.i3395 = getelementptr inbounds i8, ptr %a1509, i64 8
   store ptr %a1509, ptr %mpPrev.i.i.i3395, align 8
   br label %for.body.i.i3397
 
@@ -20449,12 +20438,12 @@ for.body.i.i3397:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3406:                     ; preds = %for.body.i.i3397
   %first.addr.04.i.i3398.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i3398.idx
-  %mValue.i.i.i.i3407 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3399, i64 0, i32 1
+  %mValue.i.i.i.i3407 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3399, i64 16
   %1253 = load i32, ptr %first.addr.04.i.i3398.ptr, align 4
   store i32 %1253, ptr %mValue.i.i.i.i3407, align 4
   store ptr %a1509, ptr %call.i.i.i.i.i.i1.i3399, align 8
   %1254 = load ptr, ptr %mpPrev.i.i.i3395, align 8
-  %mpPrev2.i.i.i.i3408 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3399, i64 0, i32 1
+  %mpPrev2.i.i.i.i3408 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3399, i64 8
   store ptr %1254, ptr %mpPrev2.i.i.i.i3408, align 8
   store ptr %call.i.i.i.i.i.i1.i3399, ptr %1254, align 8
   store ptr %call.i.i.i.i.i.i1.i3399, ptr %mpPrev.i.i.i3395, align 8
@@ -20483,7 +20472,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit3412: ; preds
   %1259 = getelementptr inbounds i8, ptr %ref1517, i64 16
   store i64 0, ptr %1259, align 8
   store ptr %ref1517, ptr %ref1517, align 8
-  %mpPrev.i.i.i3413 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1517, i64 0, i32 1
+  %mpPrev.i.i.i3413 = getelementptr inbounds i8, ptr %ref1517, i64 8
   store ptr %ref1517, ptr %mpPrev.i.i.i3413, align 8
   br label %for.body.i.i3415
 
@@ -20494,12 +20483,12 @@ for.body.i.i3415:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3424:                     ; preds = %for.body.i.i3415
   %first.addr.04.i.i3416.ptr = getelementptr inbounds i8, ptr @constinit.111, i64 %first.addr.04.i.i3416.idx
-  %mValue.i.i.i.i3425 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3417, i64 0, i32 1
+  %mValue.i.i.i.i3425 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3417, i64 16
   %1260 = load i32, ptr %first.addr.04.i.i3416.ptr, align 4
   store i32 %1260, ptr %mValue.i.i.i.i3425, align 4
   store ptr %ref1517, ptr %call.i.i.i.i.i.i1.i3417, align 8
   %1261 = load ptr, ptr %mpPrev.i.i.i3413, align 8
-  %mpPrev2.i.i.i.i3426 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3417, i64 0, i32 1
+  %mpPrev2.i.i.i.i3426 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3417, i64 8
   store ptr %1261, ptr %mpPrev2.i.i.i.i3426, align 8
   store ptr %call.i.i.i.i.i.i1.i3417, ptr %1261, align 8
   store ptr %call.i.i.i.i.i.i1.i3417, ptr %mpPrev.i.i.i3413, align 8
@@ -20532,15 +20521,15 @@ invoke.cont1527:                                  ; preds = %call.i.i.i.i.i.i.no
 for.body.i3433:                                   ; preds = %invoke.cont1527, %if.end.i3436
   %first.sroa.0.07.i = phi ptr [ %1267, %if.end.i3436 ], [ %1266, %invoke.cont1527 ]
   %1267 = load ptr, ptr %first.sroa.0.07.i, align 8
-  %mValue.i3435 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first.sroa.0.07.i, i64 0, i32 1
+  %mValue.i3435 = getelementptr inbounds i8, ptr %first.sroa.0.07.i, i64 16
   %1268 = load i32, ptr %mValue.i3435, align 8
   %cmp.i2.i = icmp eq i32 %1268, 4
   br i1 %cmp.i2.i, label %if.then.i3440, label %if.end.i3436
 
 if.then.i3440:                                    ; preds = %for.body.i3433
-  %mpPrev.i.i.i3441 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.sroa.0.07.i, i64 0, i32 1
+  %mpPrev.i.i.i3441 = getelementptr inbounds i8, ptr %first.sroa.0.07.i, i64 8
   %1269 = load ptr, ptr %mpPrev.i.i.i3441, align 8
-  %mpPrev2.i.i.i3442 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1267, i64 0, i32 1
+  %mpPrev2.i.i.i3442 = getelementptr inbounds i8, ptr %1267, i64 8
   store ptr %1269, ptr %mpPrev2.i.i.i3442, align 8
   %1270 = load ptr, ptr %first.sroa.0.07.i, align 8
   store ptr %1270, ptr %1269, align 8
@@ -20573,9 +20562,9 @@ while.cond.i3449:                                 ; preds = %invoke.cont1530, %l
 
 land.rhs.i3454:                                   ; preds = %while.cond.i3449
   %ib.sroa.0.0.i3455 = load ptr, ptr %ib.sroa.0.0.in.i3450, align 8
-  %mValue.i.i3456 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i3452, i64 0, i32 1
+  %mValue.i.i3456 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i3452, i64 16
   %1274 = load i32, ptr %mValue.i.i3456, align 4
-  %mValue.i5.i3457 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i3455, i64 0, i32 1
+  %mValue.i5.i3457 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i3455, i64 16
   %1275 = load i32, ptr %mValue.i5.i3457, align 4
   %cmp10.i3458 = icmp eq i32 %1274, %1275
   br i1 %cmp10.i3458, label %while.cond.i3449, label %while.end.i3459, !llvm.loop !385
@@ -20618,7 +20607,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit3474:     ; preds = %_ZN5eastl9allocator
   %1280 = getelementptr inbounds i8, ptr %a1538, i64 16
   store i64 0, ptr %1280, align 8
   store ptr %a1538, ptr %a1538, align 8
-  %mpPrev.i.i.i3475 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1538, i64 0, i32 1
+  %mpPrev.i.i.i3475 = getelementptr inbounds i8, ptr %a1538, i64 8
   store ptr %a1538, ptr %mpPrev.i.i.i3475, align 8
   br label %for.body.i.i3477
 
@@ -20629,12 +20618,12 @@ for.body.i.i3477:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3486:                     ; preds = %for.body.i.i3477
   %first.addr.04.i.i3478.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i3478.idx
-  %mValue.i.i.i.i3487 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3479, i64 0, i32 1
+  %mValue.i.i.i.i3487 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3479, i64 16
   %1281 = load i32, ptr %first.addr.04.i.i3478.ptr, align 4
   store i32 %1281, ptr %mValue.i.i.i.i3487, align 4
   store ptr %a1538, ptr %call.i.i.i.i.i.i1.i3479, align 8
   %1282 = load ptr, ptr %mpPrev.i.i.i3475, align 8
-  %mpPrev2.i.i.i.i3488 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3479, i64 0, i32 1
+  %mpPrev2.i.i.i.i3488 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3479, i64 8
   store ptr %1282, ptr %mpPrev2.i.i.i.i3488, align 8
   store ptr %call.i.i.i.i.i.i1.i3479, ptr %1282, align 8
   store ptr %call.i.i.i.i.i.i1.i3479, ptr %mpPrev.i.i.i3475, align 8
@@ -20663,7 +20652,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit3492: ; preds
   %1287 = getelementptr inbounds i8, ptr %ref1546, i64 16
   store i64 0, ptr %1287, align 8
   store ptr %ref1546, ptr %ref1546, align 8
-  %mpPrev.i.i.i3493 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1546, i64 0, i32 1
+  %mpPrev.i.i.i3493 = getelementptr inbounds i8, ptr %ref1546, i64 8
   store ptr %ref1546, ptr %mpPrev.i.i.i3493, align 8
   br label %for.body.i.i3495
 
@@ -20674,12 +20663,12 @@ for.body.i.i3495:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3504:                     ; preds = %for.body.i.i3495
   %first.addr.04.i.i3496.ptr = getelementptr inbounds i8, ptr @constinit.113, i64 %first.addr.04.i.i3496.idx
-  %mValue.i.i.i.i3505 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3497, i64 0, i32 1
+  %mValue.i.i.i.i3505 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3497, i64 16
   %1288 = load i32, ptr %first.addr.04.i.i3496.ptr, align 4
   store i32 %1288, ptr %mValue.i.i.i.i3505, align 4
   store ptr %ref1546, ptr %call.i.i.i.i.i.i1.i3497, align 8
   %1289 = load ptr, ptr %mpPrev.i.i.i3493, align 8
-  %mpPrev2.i.i.i.i3506 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3497, i64 0, i32 1
+  %mpPrev2.i.i.i.i3506 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3497, i64 8
   store ptr %1289, ptr %mpPrev2.i.i.i.i3506, align 8
   store ptr %call.i.i.i.i.i.i1.i3497, ptr %1289, align 8
   store ptr %call.i.i.i.i.i.i1.i3497, ptr %mpPrev.i.i.i3493, align 8
@@ -20707,7 +20696,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i3500: ; preds = %lpad.i3498, %_ZN5
 do.body.i.i:                                      ; preds = %call.i.i.i.i.i.i.noexc.i3504, %do.body.i.i
   %pNode.0.i.i3512 = phi ptr [ %1294, %do.body.i.i ], [ %a1538, %call.i.i.i.i.i.i.noexc.i3504 ]
   %1294 = load ptr, ptr %pNode.0.i.i3512, align 8
-  %mpPrev.i.i3513 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %pNode.0.i.i3512, i64 0, i32 1
+  %mpPrev.i.i3513 = getelementptr inbounds i8, ptr %pNode.0.i.i3512, i64 8
   %1295 = load ptr, ptr %mpPrev.i.i3513, align 8
   store ptr %1295, ptr %pNode.0.i.i3512, align 8
   store ptr %1294, ptr %mpPrev.i.i3513, align 8
@@ -20729,9 +20718,9 @@ while.cond.i3519:                                 ; preds = %_ZN5eastl4listIiNS_
 
 land.rhs.i3524:                                   ; preds = %while.cond.i3519
   %ib.sroa.0.0.i3525 = load ptr, ptr %ib.sroa.0.0.in.i3520, align 8
-  %mValue.i.i3526 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i3522, i64 0, i32 1
+  %mValue.i.i3526 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i3522, i64 16
   %1298 = load i32, ptr %mValue.i.i3526, align 4
-  %mValue.i5.i3527 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i3525, i64 0, i32 1
+  %mValue.i5.i3527 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i3525, i64 16
   %1299 = load i32, ptr %mValue.i5.i3527, align 4
   %cmp10.i3528 = icmp eq i32 %1298, %1299
   br i1 %cmp10.i3528, label %while.cond.i3519, label %while.end.i3529, !llvm.loop !385
@@ -20774,7 +20763,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit3544:     ; preds = %_ZN5eastl9allocator
   %1304 = getelementptr inbounds i8, ptr %ref1564, i64 16
   store i64 0, ptr %1304, align 8
   store ptr %ref1564, ptr %ref1564, align 8
-  %mpPrev.i.i.i3545 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1564, i64 0, i32 1
+  %mpPrev.i.i.i3545 = getelementptr inbounds i8, ptr %ref1564, i64 8
   store ptr %ref1564, ptr %mpPrev.i.i.i3545, align 8
   br label %for.body.i.i3547
 
@@ -20785,12 +20774,12 @@ for.body.i.i3547:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3556:                     ; preds = %for.body.i.i3547
   %first.addr.04.i.i3548.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i3548.idx
-  %mValue.i.i.i.i3557 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3549, i64 0, i32 1
+  %mValue.i.i.i.i3557 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3549, i64 16
   %1305 = load i32, ptr %first.addr.04.i.i3548.ptr, align 4
   store i32 %1305, ptr %mValue.i.i.i.i3557, align 4
   store ptr %ref1564, ptr %call.i.i.i.i.i.i1.i3549, align 8
   %1306 = load ptr, ptr %mpPrev.i.i.i3545, align 8
-  %mpPrev2.i.i.i.i3558 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3549, i64 0, i32 1
+  %mpPrev2.i.i.i.i3558 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3549, i64 8
   store ptr %1306, ptr %mpPrev2.i.i.i.i3558, align 8
   store ptr %call.i.i.i.i.i.i1.i3549, ptr %1306, align 8
   store ptr %call.i.i.i.i.i.i1.i3549, ptr %mpPrev.i.i.i3545, align 8
@@ -20819,7 +20808,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit3562: ; preds
   %1311 = getelementptr inbounds i8, ptr %a11572, i64 16
   store i64 0, ptr %1311, align 8
   store ptr %a11572, ptr %a11572, align 8
-  %mpPrev.i.i.i3563 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a11572, i64 0, i32 1
+  %mpPrev.i.i.i3563 = getelementptr inbounds i8, ptr %a11572, i64 8
   store ptr %a11572, ptr %mpPrev.i.i.i3563, align 8
   br label %for.body.i.i3565
 
@@ -20830,12 +20819,12 @@ for.body.i.i3565:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3574:                     ; preds = %for.body.i.i3565
   %first.addr.04.i.i3566.ptr = getelementptr inbounds i8, ptr @constinit.137, i64 %first.addr.04.i.i3566.idx
-  %mValue.i.i.i.i3575 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3567, i64 0, i32 1
+  %mValue.i.i.i.i3575 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3567, i64 16
   %1312 = load i32, ptr %first.addr.04.i.i3566.ptr, align 4
   store i32 %1312, ptr %mValue.i.i.i.i3575, align 4
   store ptr %a11572, ptr %call.i.i.i.i.i.i1.i3567, align 8
   %1313 = load ptr, ptr %mpPrev.i.i.i3563, align 8
-  %mpPrev2.i.i.i.i3576 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3567, i64 0, i32 1
+  %mpPrev2.i.i.i.i3576 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3567, i64 8
   store ptr %1313, ptr %mpPrev2.i.i.i.i3576, align 8
   store ptr %call.i.i.i.i.i.i1.i3567, ptr %1313, align 8
   store ptr %call.i.i.i.i.i.i1.i3567, ptr %mpPrev.i.i.i3563, align 8
@@ -20864,7 +20853,7 @@ invoke.cont1582:                                  ; preds = %call.i.i.i.i.i.i.no
   %1318 = getelementptr inbounds i8, ptr %a21583, i64 16
   store i64 0, ptr %1318, align 8
   store ptr %a21583, ptr %a21583, align 8
-  %mpPrev.i.i.i3582 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a21583, i64 0, i32 1
+  %mpPrev.i.i.i3582 = getelementptr inbounds i8, ptr %a21583, i64 8
   store ptr %a21583, ptr %mpPrev.i.i.i3582, align 8
   br label %for.body.i.i3584
 
@@ -20875,12 +20864,12 @@ for.body.i.i3584:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3593:                     ; preds = %for.body.i.i3584
   %first.addr.04.i.i3585.ptr = getelementptr inbounds i8, ptr @constinit.138, i64 %first.addr.04.i.i3585.idx
-  %mValue.i.i.i.i3594 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3586, i64 0, i32 1
+  %mValue.i.i.i.i3594 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3586, i64 16
   %1319 = load i32, ptr %first.addr.04.i.i3585.ptr, align 4
   store i32 %1319, ptr %mValue.i.i.i.i3594, align 4
   store ptr %a21583, ptr %call.i.i.i.i.i.i1.i3586, align 8
   %1320 = load ptr, ptr %mpPrev.i.i.i3582, align 8
-  %mpPrev2.i.i.i.i3595 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3586, i64 0, i32 1
+  %mpPrev2.i.i.i.i3595 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3586, i64 8
   store ptr %1320, ptr %mpPrev2.i.i.i.i3595, align 8
   store ptr %call.i.i.i.i.i.i1.i3586, ptr %1320, align 8
   store ptr %call.i.i.i.i.i.i1.i3586, ptr %mpPrev.i.i.i3582, align 8
@@ -20909,7 +20898,7 @@ invoke.cont1596:                                  ; preds = %call.i.i.i.i.i.i.no
   %1325 = getelementptr inbounds i8, ptr %a1594, i64 16
   store i64 0, ptr %1325, align 8
   store ptr %a1594, ptr %a1594, align 8
-  %mpPrev.i.i.i3601 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1594, i64 0, i32 1
+  %mpPrev.i.i.i3601 = getelementptr inbounds i8, ptr %a1594, i64 8
   store ptr %a1594, ptr %mpPrev.i.i.i3601, align 8
   %tobool.not.i = icmp eq i64 %inc.i.i.i3596, 0
   br i1 %tobool.not.i, label %invoke.cont1601, label %if.then4.i
@@ -20917,7 +20906,7 @@ invoke.cont1596:                                  ; preds = %call.i.i.i.i.i.i.no
 if.then4.i:                                       ; preds = %invoke.cont1596
   %1326 = load ptr, ptr %a21583, align 8
   store ptr %a1594, ptr %call.i.i.i.i.i.i1.i3586, align 8
-  %mpPrev2.i.i3605 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1326, i64 0, i32 1
+  %mpPrev2.i.i3605 = getelementptr inbounds i8, ptr %1326, i64 8
   %1327 = load ptr, ptr %mpPrev2.i.i3605, align 8
   store ptr %a21583, ptr %1327, align 8
   %1328 = load ptr, ptr %mpPrev.i.i.i3601, align 8
@@ -20946,10 +20935,10 @@ if.then4.i3609:                                   ; preds = %invoke.cont1601
   %1337 = load ptr, ptr %a11572, align 8
   %1338 = load ptr, ptr %mpPrev.i.i.i3563, align 8
   store ptr %1336, ptr %1338, align 8
-  %mpPrev2.i.i3611 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1337, i64 0, i32 1
+  %mpPrev2.i.i3611 = getelementptr inbounds i8, ptr %1337, i64 8
   %1339 = load ptr, ptr %mpPrev2.i.i3611, align 8
   store ptr %a11572, ptr %1339, align 8
-  %mpPrev4.i.i3612 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1336, i64 0, i32 1
+  %mpPrev4.i.i3612 = getelementptr inbounds i8, ptr %1336, i64 8
   %1340 = load ptr, ptr %mpPrev4.i.i3612, align 8
   store ptr %1337, ptr %1340, align 8
   %1341 = load ptr, ptr %mpPrev4.i.i3612, align 8
@@ -20980,9 +20969,9 @@ while.cond.i3620:                                 ; preds = %invoke.cont1605, %l
 
 land.rhs.i3625:                                   ; preds = %while.cond.i3620
   %ib.sroa.0.0.i3626 = load ptr, ptr %ib.sroa.0.0.in.i3621, align 8
-  %mValue.i.i3627 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i3623, i64 0, i32 1
+  %mValue.i.i3627 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i3623, i64 16
   %1348 = load i32, ptr %mValue.i.i3627, align 4
-  %mValue.i5.i3628 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i3626, i64 0, i32 1
+  %mValue.i5.i3628 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i3626, i64 16
   %1349 = load i32, ptr %mValue.i5.i3628, align 4
   %cmp10.i3629 = icmp eq i32 %1348, %1349
   br i1 %cmp10.i3629, label %while.cond.i3620, label %while.end.i3630, !llvm.loop !385
@@ -21059,12 +21048,12 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i3657: ; preds = %_ZN5eastl4listIiN
 
 _ZN5eastl4listIiNS_9allocatorEED2Ev.exit3661:     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i3657, %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit3655
   store i32 0, ptr %ref.tmp1622, align 4
-  %arrayinit.element1624 = getelementptr inbounds i32, ptr %ref.tmp1622, i64 1
+  %arrayinit.element1624 = getelementptr inbounds i8, ptr %ref.tmp1622, i64 4
   store i32 5, ptr %arrayinit.element1624, align 4
   %1360 = getelementptr inbounds i8, ptr %ref1620, i64 16
   store i64 0, ptr %1360, align 8
   store ptr %ref1620, ptr %ref1620, align 8
-  %mpPrev.i.i.i3662 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1620, i64 0, i32 1
+  %mpPrev.i.i.i3662 = getelementptr inbounds i8, ptr %ref1620, i64 8
   store ptr %ref1620, ptr %mpPrev.i.i.i3662, align 8
   br label %for.body.i.i3664
 
@@ -21075,12 +21064,12 @@ for.body.i.i3664:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3673:                     ; preds = %for.body.i.i3664
   %first.addr.04.i.i3665.ptr = getelementptr inbounds i8, ptr %ref.tmp1622, i64 %first.addr.04.i.i3665.idx
-  %mValue.i.i.i.i3674 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3666, i64 0, i32 1
+  %mValue.i.i.i.i3674 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3666, i64 16
   %1361 = load i32, ptr %first.addr.04.i.i3665.ptr, align 4
   store i32 %1361, ptr %mValue.i.i.i.i3674, align 4
   store ptr %ref1620, ptr %call.i.i.i.i.i.i1.i3666, align 8
   %1362 = load ptr, ptr %mpPrev.i.i.i3662, align 8
-  %mpPrev2.i.i.i.i3675 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3666, i64 0, i32 1
+  %mpPrev2.i.i.i.i3675 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3666, i64 8
   store ptr %1362, ptr %mpPrev2.i.i.i.i3675, align 8
   store ptr %call.i.i.i.i.i.i1.i3666, ptr %1362, align 8
   store ptr %call.i.i.i.i.i.i1.i3666, ptr %mpPrev.i.i.i3662, align 8
@@ -21107,14 +21096,14 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i3669: ; preds = %lpad.i3667, %_ZN5
 
 _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit3679: ; preds = %call.i.i.i.i.i.i.noexc.i3673
   store i32 -1, ptr %ref.tmp1631, align 4
-  %arrayinit.element1633 = getelementptr inbounds i32, ptr %ref.tmp1631, i64 1
+  %arrayinit.element1633 = getelementptr inbounds i8, ptr %ref.tmp1631, i64 4
   store i32 -1, ptr %arrayinit.element1633, align 4
-  %arrayinit.element1634 = getelementptr inbounds i32, ptr %ref.tmp1631, i64 2
+  %arrayinit.element1634 = getelementptr inbounds i8, ptr %ref.tmp1631, i64 8
   store i32 0, ptr %arrayinit.element1634, align 4
   %1367 = getelementptr inbounds i8, ptr %a11629, i64 16
   store i64 0, ptr %1367, align 8
   store ptr %a11629, ptr %a11629, align 8
-  %mpPrev.i.i.i3680 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a11629, i64 0, i32 1
+  %mpPrev.i.i.i3680 = getelementptr inbounds i8, ptr %a11629, i64 8
   store ptr %a11629, ptr %mpPrev.i.i.i3680, align 8
   br label %for.body.i.i3682
 
@@ -21125,12 +21114,12 @@ for.body.i.i3682:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3691:                     ; preds = %for.body.i.i3682
   %first.addr.04.i.i3683.ptr = getelementptr inbounds i8, ptr %ref.tmp1631, i64 %first.addr.04.i.i3683.idx
-  %mValue.i.i.i.i3692 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3684, i64 0, i32 1
+  %mValue.i.i.i.i3692 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3684, i64 16
   %1368 = load i32, ptr %first.addr.04.i.i3683.ptr, align 4
   store i32 %1368, ptr %mValue.i.i.i.i3692, align 4
   store ptr %a11629, ptr %call.i.i.i.i.i.i1.i3684, align 8
   %1369 = load ptr, ptr %mpPrev.i.i.i3680, align 8
-  %mpPrev2.i.i.i.i3693 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3684, i64 0, i32 1
+  %mpPrev2.i.i.i.i3693 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3684, i64 8
   store ptr %1369, ptr %mpPrev2.i.i.i.i3693, align 8
   store ptr %call.i.i.i.i.i.i1.i3684, ptr %1369, align 8
   store ptr %call.i.i.i.i.i.i1.i3684, ptr %mpPrev.i.i.i3680, align 8
@@ -21157,14 +21146,14 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i3687: ; preds = %lpad.i3685, %_ZN5
 
 invoke.cont1641:                                  ; preds = %call.i.i.i.i.i.i.noexc.i3691
   store i32 -1, ptr %ref.tmp1644, align 4
-  %arrayinit.element1646 = getelementptr inbounds i32, ptr %ref.tmp1644, i64 1
+  %arrayinit.element1646 = getelementptr inbounds i8, ptr %ref.tmp1644, i64 4
   store i32 -1, ptr %arrayinit.element1646, align 4
-  %arrayinit.element1647 = getelementptr inbounds i32, ptr %ref.tmp1644, i64 2
+  %arrayinit.element1647 = getelementptr inbounds i8, ptr %ref.tmp1644, i64 8
   store i32 5, ptr %arrayinit.element1647, align 4
   %1374 = getelementptr inbounds i8, ptr %a21642, i64 16
   store i64 0, ptr %1374, align 8
   store ptr %a21642, ptr %a21642, align 8
-  %mpPrev.i.i.i3699 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a21642, i64 0, i32 1
+  %mpPrev.i.i.i3699 = getelementptr inbounds i8, ptr %a21642, i64 8
   store ptr %a21642, ptr %mpPrev.i.i.i3699, align 8
   br label %for.body.i.i3701
 
@@ -21175,12 +21164,12 @@ for.body.i.i3701:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3710:                     ; preds = %for.body.i.i3701
   %first.addr.04.i.i3702.ptr = getelementptr inbounds i8, ptr %ref.tmp1644, i64 %first.addr.04.i.i3702.idx
-  %mValue.i.i.i.i3711 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3703, i64 0, i32 1
+  %mValue.i.i.i.i3711 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3703, i64 16
   %1375 = load i32, ptr %first.addr.04.i.i3702.ptr, align 4
   store i32 %1375, ptr %mValue.i.i.i.i3711, align 4
   store ptr %a21642, ptr %call.i.i.i.i.i.i1.i3703, align 8
   %1376 = load ptr, ptr %mpPrev.i.i.i3699, align 8
-  %mpPrev2.i.i.i.i3712 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3703, i64 0, i32 1
+  %mpPrev2.i.i.i.i3712 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3703, i64 8
   store ptr %1376, ptr %mpPrev2.i.i.i.i3712, align 8
   store ptr %call.i.i.i.i.i.i1.i3703, ptr %1376, align 8
   store ptr %call.i.i.i.i.i.i1.i3703, ptr %mpPrev.i.i.i3699, align 8
@@ -21230,7 +21219,7 @@ invoke.cont1659:                                  ; preds = %while.body.i.i.i372
   %1387 = getelementptr inbounds i8, ptr %a1658, i64 16
   store i64 0, ptr %1387, align 8
   store ptr %a1658, ptr %a1658, align 8
-  %mpPrev.i.i.i3730 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1658, i64 0, i32 1
+  %mpPrev.i.i.i3730 = getelementptr inbounds i8, ptr %a1658, i64 8
   store ptr %a1658, ptr %mpPrev.i.i.i3730, align 8
   %1388 = load ptr, ptr %1386, align 8
   %cmp.i.i3732 = icmp ne ptr %a1658, %1386
@@ -21239,10 +21228,10 @@ invoke.cont1659:                                  ; preds = %while.body.i.i.i372
   br i1 %or.cond.i, label %if.then8.i, label %invoke.cont1666
 
 if.then8.i:                                       ; preds = %invoke.cont1659
-  %mpPrev.i.i3733 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1388, i64 0, i32 1
+  %mpPrev.i.i3733 = getelementptr inbounds i8, ptr %1388, i64 8
   %1389 = load ptr, ptr %mpPrev.i.i3733, align 8
   store ptr %a1658, ptr %1389, align 8
-  %mpPrev2.i.i3734 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1386, i64 0, i32 1
+  %mpPrev2.i.i3734 = getelementptr inbounds i8, ptr %1386, i64 8
   %1390 = load ptr, ptr %mpPrev2.i.i3734, align 8
   store ptr %1388, ptr %1390, align 8
   %1391 = load ptr, ptr %mpPrev.i.i.i3730, align 8
@@ -21272,13 +21261,13 @@ invoke.cont1666:                                  ; preds = %if.then8.i, %invoke
   br i1 %or.cond.i3741, label %if.then8.i3742, label %invoke.cont1672
 
 if.then8.i3742:                                   ; preds = %invoke.cont1666
-  %mpPrev.i.i3743 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1399, i64 0, i32 1
+  %mpPrev.i.i3743 = getelementptr inbounds i8, ptr %1399, i64 8
   %1400 = load ptr, ptr %mpPrev.i.i3743, align 8
   store ptr %1398, ptr %1400, align 8
-  %mpPrev2.i.i3744 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1384, i64 0, i32 1
+  %mpPrev2.i.i3744 = getelementptr inbounds i8, ptr %1384, i64 8
   %1401 = load ptr, ptr %mpPrev2.i.i3744, align 8
   store ptr %1399, ptr %1401, align 8
-  %mpPrev4.i.i3745 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1398, i64 0, i32 1
+  %mpPrev4.i.i3745 = getelementptr inbounds i8, ptr %1398, i64 8
   %1402 = load ptr, ptr %mpPrev4.i.i3745, align 8
   store ptr %1384, ptr %1402, align 8
   %1403 = load ptr, ptr %mpPrev4.i.i3745, align 8
@@ -21310,9 +21299,9 @@ while.cond.i3755:                                 ; preds = %invoke.cont1672, %l
 
 land.rhs.i3760:                                   ; preds = %while.cond.i3755
   %ib.sroa.0.0.i3761 = load ptr, ptr %ib.sroa.0.0.in.i3756, align 8
-  %mValue.i.i3762 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i3758, i64 0, i32 1
+  %mValue.i.i3762 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i3758, i64 16
   %1410 = load i32, ptr %mValue.i.i3762, align 4
-  %mValue.i5.i3763 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i3761, i64 0, i32 1
+  %mValue.i5.i3763 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i3761, i64 16
   %1411 = load i32, ptr %mValue.i5.i3763, align 4
   %cmp10.i3764 = icmp eq i32 %1410, %1411
   br i1 %cmp10.i3764, label %while.cond.i3755, label %while.end.i3765, !llvm.loop !385
@@ -21391,7 +21380,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit3796:     ; preds = %_ZN5eastl9allocator
   %1422 = getelementptr inbounds i8, ptr %ref1689, i64 16
   store i64 0, ptr %1422, align 8
   store ptr %ref1689, ptr %ref1689, align 8
-  %mpPrev.i.i.i3797 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1689, i64 0, i32 1
+  %mpPrev.i.i.i3797 = getelementptr inbounds i8, ptr %ref1689, i64 8
   store ptr %ref1689, ptr %mpPrev.i.i.i3797, align 8
   br label %for.body.i.i3799
 
@@ -21402,12 +21391,12 @@ for.body.i.i3799:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3808:                     ; preds = %for.body.i.i3799
   %first.addr.04.i.i3800.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i3800.idx
-  %mValue.i.i.i.i3809 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3801, i64 0, i32 1
+  %mValue.i.i.i.i3809 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3801, i64 16
   %1423 = load i32, ptr %first.addr.04.i.i3800.ptr, align 4
   store i32 %1423, ptr %mValue.i.i.i.i3809, align 4
   store ptr %ref1689, ptr %call.i.i.i.i.i.i1.i3801, align 8
   %1424 = load ptr, ptr %mpPrev.i.i.i3797, align 8
-  %mpPrev2.i.i.i.i3810 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3801, i64 0, i32 1
+  %mpPrev2.i.i.i.i3810 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3801, i64 8
   store ptr %1424, ptr %mpPrev2.i.i.i.i3810, align 8
   store ptr %call.i.i.i.i.i.i1.i3801, ptr %1424, align 8
   store ptr %call.i.i.i.i.i.i1.i3801, ptr %mpPrev.i.i.i3797, align 8
@@ -21436,7 +21425,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit3814: ; preds
   %1429 = getelementptr inbounds i8, ptr %a11697, i64 16
   store i64 0, ptr %1429, align 8
   store ptr %a11697, ptr %a11697, align 8
-  %mpPrev.i.i.i3815 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a11697, i64 0, i32 1
+  %mpPrev.i.i.i3815 = getelementptr inbounds i8, ptr %a11697, i64 8
   store ptr %a11697, ptr %mpPrev.i.i.i3815, align 8
   br label %for.body.i.i3817
 
@@ -21447,12 +21436,12 @@ for.body.i.i3817:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3826:                     ; preds = %for.body.i.i3817
   %first.addr.04.i.i3818.ptr = getelementptr inbounds i8, ptr @constinit.130, i64 %first.addr.04.i.i3818.idx
-  %mValue.i.i.i.i3827 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3819, i64 0, i32 1
+  %mValue.i.i.i.i3827 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3819, i64 16
   %1430 = load i32, ptr %first.addr.04.i.i3818.ptr, align 4
   store i32 %1430, ptr %mValue.i.i.i.i3827, align 4
   store ptr %a11697, ptr %call.i.i.i.i.i.i1.i3819, align 8
   %1431 = load ptr, ptr %mpPrev.i.i.i3815, align 8
-  %mpPrev2.i.i.i.i3828 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3819, i64 0, i32 1
+  %mpPrev2.i.i.i.i3828 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3819, i64 8
   store ptr %1431, ptr %mpPrev2.i.i.i.i3828, align 8
   store ptr %call.i.i.i.i.i.i1.i3819, ptr %1431, align 8
   store ptr %call.i.i.i.i.i.i1.i3819, ptr %mpPrev.i.i.i3815, align 8
@@ -21481,7 +21470,7 @@ invoke.cont1707:                                  ; preds = %call.i.i.i.i.i.i.no
   %1436 = getelementptr inbounds i8, ptr %a21708, i64 16
   store i64 0, ptr %1436, align 8
   store ptr %a21708, ptr %a21708, align 8
-  %mpPrev.i.i.i3834 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a21708, i64 0, i32 1
+  %mpPrev.i.i.i3834 = getelementptr inbounds i8, ptr %a21708, i64 8
   store ptr %a21708, ptr %mpPrev.i.i.i3834, align 8
   br label %for.body.i.i3836
 
@@ -21492,12 +21481,12 @@ for.body.i.i3836:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3845:                     ; preds = %for.body.i.i3836
   %first.addr.04.i.i3837.ptr = getelementptr inbounds i8, ptr @constinit.131, i64 %first.addr.04.i.i3837.idx
-  %mValue.i.i.i.i3846 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3838, i64 0, i32 1
+  %mValue.i.i.i.i3846 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3838, i64 16
   %1437 = load i32, ptr %first.addr.04.i.i3837.ptr, align 4
   store i32 %1437, ptr %mValue.i.i.i.i3846, align 4
   store ptr %a21708, ptr %call.i.i.i.i.i.i1.i3838, align 8
   %1438 = load ptr, ptr %mpPrev.i.i.i3834, align 8
-  %mpPrev2.i.i.i.i3847 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3838, i64 0, i32 1
+  %mpPrev2.i.i.i.i3847 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3838, i64 8
   store ptr %1438, ptr %mpPrev2.i.i.i.i3847, align 8
   store ptr %call.i.i.i.i.i.i1.i3838, ptr %1438, align 8
   store ptr %call.i.i.i.i.i.i1.i3838, ptr %mpPrev.i.i.i3834, align 8
@@ -21547,7 +21536,7 @@ while.body3.i.i.i:                                ; preds = %while.body.i.i.i386
   %n.addr.16.i.i.i = phi i32 [ %inc.i.i.i3865, %while.body3.i.i.i ], [ -2, %while.body.i.i.i3860 ]
   %1449 = phi ptr [ %1450, %while.body3.i.i.i ], [ %a11697, %while.body.i.i.i3860 ]
   %inc.i.i.i3865 = add nsw i32 %n.addr.16.i.i.i, 1
-  %mpPrev.i.i.i.i3866 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1449, i64 0, i32 1
+  %mpPrev.i.i.i.i3866 = getelementptr inbounds i8, ptr %1449, i64 8
   %1450 = load ptr, ptr %mpPrev.i.i.i.i3866, align 8
   %tobool2.not.i.i.i = icmp eq i32 %inc.i.i.i3865, 0
   br i1 %tobool2.not.i.i.i, label %while.body3.i.i.i3869, label %while.body3.i.i.i, !llvm.loop !553
@@ -21556,7 +21545,7 @@ while.body3.i.i.i3869:                            ; preds = %while.body3.i.i.i, 
   %n.addr.16.i.i.i3870 = phi i32 [ %inc.i.i.i3871, %while.body3.i.i.i3869 ], [ -2, %while.body3.i.i.i ]
   %1451 = phi ptr [ %1452, %while.body3.i.i.i3869 ], [ %a21708, %while.body3.i.i.i ]
   %inc.i.i.i3871 = add nsw i32 %n.addr.16.i.i.i3870, 1
-  %mpPrev.i.i.i.i3872 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1451, i64 0, i32 1
+  %mpPrev.i.i.i.i3872 = getelementptr inbounds i8, ptr %1451, i64 8
   %1452 = load ptr, ptr %mpPrev.i.i.i.i3872, align 8
   %tobool2.not.i.i.i3873 = icmp eq i32 %inc.i.i.i3871, 0
   br i1 %tobool2.not.i.i.i3873, label %invoke.cont1727, label %while.body3.i.i.i3869, !llvm.loop !553
@@ -21565,7 +21554,7 @@ invoke.cont1727:                                  ; preds = %while.body3.i.i.i38
   %1453 = getelementptr inbounds i8, ptr %a1726, i64 16
   store i64 0, ptr %1453, align 8
   store ptr %a1726, ptr %a1726, align 8
-  %mpPrev.i.i.i3875 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1726, i64 0, i32 1
+  %mpPrev.i.i.i3875 = getelementptr inbounds i8, ptr %a1726, i64 8
   store ptr %a1726, ptr %mpPrev.i.i.i3875, align 8
   %cmp.i.not3.i.i.i = icmp eq ptr %1448, %1452
   br i1 %cmp.i.not3.i.i.i, label %invoke.cont1736, label %while.body.i.i.i3877
@@ -21579,10 +21568,10 @@ while.body.i.i.i3877:                             ; preds = %invoke.cont1727, %w
   br i1 %cmp.i.not.i.i.i3879, label %if.then10.i, label %while.body.i.i.i3877, !llvm.loop !163
 
 if.then10.i:                                      ; preds = %while.body.i.i.i3877
-  %mpPrev.i.i3880 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1452, i64 0, i32 1
+  %mpPrev.i.i3880 = getelementptr inbounds i8, ptr %1452, i64 8
   %1455 = load ptr, ptr %mpPrev.i.i3880, align 8
   store ptr %a1726, ptr %1455, align 8
-  %mpPrev2.i.i3881 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1448, i64 0, i32 1
+  %mpPrev2.i.i3881 = getelementptr inbounds i8, ptr %1448, i64 8
   %1456 = load ptr, ptr %mpPrev2.i.i3881, align 8
   store ptr %1452, ptr %1456, align 8
   %1457 = load ptr, ptr %mpPrev.i.i.i3875, align 8
@@ -21616,13 +21605,13 @@ while.body.i.i.i3888:                             ; preds = %invoke.cont1736, %w
   br i1 %cmp.i.not.i.i.i3892, label %if.then10.i3893, label %while.body.i.i.i3888, !llvm.loop !163
 
 if.then10.i3893:                                  ; preds = %while.body.i.i.i3888
-  %mpPrev.i.i3894 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1450, i64 0, i32 1
+  %mpPrev.i.i3894 = getelementptr inbounds i8, ptr %1450, i64 8
   %1465 = load ptr, ptr %mpPrev.i.i3894, align 8
   store ptr %1463, ptr %1465, align 8
-  %mpPrev2.i.i3895 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1446, i64 0, i32 1
+  %mpPrev2.i.i3895 = getelementptr inbounds i8, ptr %1446, i64 8
   %1466 = load ptr, ptr %mpPrev2.i.i3895, align 8
   store ptr %1450, ptr %1466, align 8
-  %mpPrev4.i.i3896 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1463, i64 0, i32 1
+  %mpPrev4.i.i3896 = getelementptr inbounds i8, ptr %1463, i64 8
   %1467 = load ptr, ptr %mpPrev4.i.i3896, align 8
   store ptr %1446, ptr %1467, align 8
   %1468 = load ptr, ptr %mpPrev4.i.i3896, align 8
@@ -21644,7 +21633,7 @@ invoke.cont1744:                                  ; preds = %if.then10.i3893, %i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp1746, i8 -1, i64 16, i1 false)
   store i64 0, ptr %1473, align 8
   store ptr %rref, ptr %rref, align 8
-  %mpPrev.i.i.i3902 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %rref, i64 0, i32 1
+  %mpPrev.i.i.i3902 = getelementptr inbounds i8, ptr %rref, i64 8
   store ptr %rref, ptr %mpPrev.i.i.i3902, align 8
   br label %for.body.i.i3904
 
@@ -21655,12 +21644,12 @@ for.body.i.i3904:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i3913:                     ; preds = %for.body.i.i3904
   %first.addr.04.i.i3905.ptr = getelementptr inbounds i8, ptr %ref.tmp1746, i64 %first.addr.04.i.i3905.idx
-  %mValue.i.i.i.i3914 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i3906, i64 0, i32 1
+  %mValue.i.i.i.i3914 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3906, i64 16
   %1474 = load i32, ptr %first.addr.04.i.i3905.ptr, align 4
   store i32 %1474, ptr %mValue.i.i.i.i3914, align 4
   store ptr %rref, ptr %call.i.i.i.i.i.i1.i3906, align 8
   %1475 = load ptr, ptr %mpPrev.i.i.i3902, align 8
-  %mpPrev2.i.i.i.i3915 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i3906, i64 0, i32 1
+  %mpPrev2.i.i.i.i3915 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i3906, i64 8
   store ptr %1475, ptr %mpPrev2.i.i.i.i3915, align 8
   store ptr %call.i.i.i.i.i.i1.i3906, ptr %1475, align 8
   store ptr %call.i.i.i.i.i.i1.i3906, ptr %mpPrev.i.i.i3902, align 8
@@ -21700,9 +21689,9 @@ while.cond.i3925:                                 ; preds = %invoke.cont1756, %l
 
 land.rhs.i3930:                                   ; preds = %while.cond.i3925
   %ib.sroa.0.0.i3931 = load ptr, ptr %ib.sroa.0.0.in.i3926, align 8
-  %mValue.i.i3932 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i3928, i64 0, i32 1
+  %mValue.i.i3932 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i3928, i64 16
   %1482 = load i32, ptr %mValue.i.i3932, align 4
-  %mValue.i5.i3933 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i3931, i64 0, i32 1
+  %mValue.i5.i3933 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i3931, i64 16
   %1483 = load i32, ptr %mValue.i5.i3933, align 4
   %cmp10.i3934 = icmp eq i32 %1482, %1483
   br i1 %cmp10.i3934, label %while.cond.i3925, label %while.end.i3935, !llvm.loop !385
@@ -21732,9 +21721,9 @@ while.cond.i3943:                                 ; preds = %invoke.cont1760, %l
 
 land.rhs.i3948:                                   ; preds = %while.cond.i3943
   %ib.sroa.0.0.i3949 = load ptr, ptr %ib.sroa.0.0.in.i3944, align 8
-  %mValue.i.i3950 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i3946, i64 0, i32 1
+  %mValue.i.i3950 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i3946, i64 16
   %1486 = load i32, ptr %mValue.i.i3950, align 4
-  %mValue.i5.i3951 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i3949, i64 0, i32 1
+  %mValue.i5.i3951 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i3949, i64 16
   %1487 = load i32, ptr %mValue.i5.i3951, align 4
   %cmp10.i3952 = icmp eq i32 %1486, %1487
   br i1 %cmp10.i3952, label %while.cond.i3943, label %while.end.i3953, !llvm.loop !385
@@ -21764,9 +21753,9 @@ while.cond.i3961:                                 ; preds = %invoke.cont1764, %l
 
 land.rhs.i3966:                                   ; preds = %while.cond.i3961
   %ib.sroa.0.0.i3967 = load ptr, ptr %ib.sroa.0.0.in.i3962, align 8
-  %mValue.i.i3968 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i3964, i64 0, i32 1
+  %mValue.i.i3968 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i3964, i64 16
   %1490 = load i32, ptr %mValue.i.i3968, align 4
-  %mValue.i5.i3969 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i3967, i64 0, i32 1
+  %mValue.i5.i3969 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i3967, i64 16
   %1491 = load i32, ptr %mValue.i5.i3969, align 4
   %cmp10.i3970 = icmp eq i32 %1490, %1491
   br i1 %cmp10.i3970, label %while.cond.i3961, label %while.end.i3971, !llvm.loop !385
@@ -21845,7 +21834,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit4004:     ; preds = %_ZN5eastl9allocator
   %1502 = getelementptr inbounds i8, ptr %ref1775, i64 16
   store i64 0, ptr %1502, align 8
   store ptr %ref1775, ptr %ref1775, align 8
-  %mpPrev.i.i.i4005 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1775, i64 0, i32 1
+  %mpPrev.i.i.i4005 = getelementptr inbounds i8, ptr %ref1775, i64 8
   store ptr %ref1775, ptr %mpPrev.i.i.i4005, align 8
   br label %for.body.i.i4007
 
@@ -21856,12 +21845,12 @@ for.body.i.i4007:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4016:                     ; preds = %for.body.i.i4007
   %first.addr.04.i.i4008.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i4008.idx
-  %mValue.i.i.i.i4017 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4009, i64 0, i32 1
+  %mValue.i.i.i.i4017 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4009, i64 16
   %1503 = load i32, ptr %first.addr.04.i.i4008.ptr, align 4
   store i32 %1503, ptr %mValue.i.i.i.i4017, align 4
   store ptr %ref1775, ptr %call.i.i.i.i.i.i1.i4009, align 8
   %1504 = load ptr, ptr %mpPrev.i.i.i4005, align 8
-  %mpPrev2.i.i.i.i4018 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4009, i64 0, i32 1
+  %mpPrev2.i.i.i.i4018 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4009, i64 8
   store ptr %1504, ptr %mpPrev2.i.i.i.i4018, align 8
   store ptr %call.i.i.i.i.i.i1.i4009, ptr %1504, align 8
   store ptr %call.i.i.i.i.i.i1.i4009, ptr %mpPrev.i.i.i4005, align 8
@@ -21890,7 +21879,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit4022: ; preds
   %1509 = getelementptr inbounds i8, ptr %a11783, i64 16
   store i64 0, ptr %1509, align 8
   store ptr %a11783, ptr %a11783, align 8
-  %mpPrev.i.i.i4023 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a11783, i64 0, i32 1
+  %mpPrev.i.i.i4023 = getelementptr inbounds i8, ptr %a11783, i64 8
   store ptr %a11783, ptr %mpPrev.i.i.i4023, align 8
   br label %for.body.i.i4025
 
@@ -21901,12 +21890,12 @@ for.body.i.i4025:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4034:                     ; preds = %for.body.i.i4025
   %first.addr.04.i.i4026.ptr = getelementptr inbounds i8, ptr @constinit.137, i64 %first.addr.04.i.i4026.idx
-  %mValue.i.i.i.i4035 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4027, i64 0, i32 1
+  %mValue.i.i.i.i4035 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4027, i64 16
   %1510 = load i32, ptr %first.addr.04.i.i4026.ptr, align 4
   store i32 %1510, ptr %mValue.i.i.i.i4035, align 4
   store ptr %a11783, ptr %call.i.i.i.i.i.i1.i4027, align 8
   %1511 = load ptr, ptr %mpPrev.i.i.i4023, align 8
-  %mpPrev2.i.i.i.i4036 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4027, i64 0, i32 1
+  %mpPrev2.i.i.i.i4036 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4027, i64 8
   store ptr %1511, ptr %mpPrev2.i.i.i.i4036, align 8
   store ptr %call.i.i.i.i.i.i1.i4027, ptr %1511, align 8
   store ptr %call.i.i.i.i.i.i1.i4027, ptr %mpPrev.i.i.i4023, align 8
@@ -21935,7 +21924,7 @@ invoke.cont1793:                                  ; preds = %call.i.i.i.i.i.i.no
   %1516 = getelementptr inbounds i8, ptr %a21794, i64 16
   store i64 0, ptr %1516, align 8
   store ptr %a21794, ptr %a21794, align 8
-  %mpPrev.i.i.i4042 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a21794, i64 0, i32 1
+  %mpPrev.i.i.i4042 = getelementptr inbounds i8, ptr %a21794, i64 8
   store ptr %a21794, ptr %mpPrev.i.i.i4042, align 8
   br label %for.body.i.i4044
 
@@ -21946,12 +21935,12 @@ for.body.i.i4044:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4053:                     ; preds = %for.body.i.i4044
   %first.addr.04.i.i4045.ptr = getelementptr inbounds i8, ptr @constinit.138, i64 %first.addr.04.i.i4045.idx
-  %mValue.i.i.i.i4054 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4046, i64 0, i32 1
+  %mValue.i.i.i.i4054 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4046, i64 16
   %1517 = load i32, ptr %first.addr.04.i.i4045.ptr, align 4
   store i32 %1517, ptr %mValue.i.i.i.i4054, align 4
   store ptr %a21794, ptr %call.i.i.i.i.i.i1.i4046, align 8
   %1518 = load ptr, ptr %mpPrev.i.i.i4042, align 8
-  %mpPrev2.i.i.i.i4055 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4046, i64 0, i32 1
+  %mpPrev2.i.i.i.i4055 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4046, i64 8
   store ptr %1518, ptr %mpPrev2.i.i.i.i4055, align 8
   store ptr %call.i.i.i.i.i.i1.i4046, ptr %1518, align 8
   store ptr %call.i.i.i.i.i.i1.i4046, ptr %mpPrev.i.i.i4042, align 8
@@ -21980,7 +21969,7 @@ invoke.cont1807:                                  ; preds = %call.i.i.i.i.i.i.no
   %1523 = getelementptr inbounds i8, ptr %a1805, i64 16
   store i64 0, ptr %1523, align 8
   store ptr %a1805, ptr %a1805, align 8
-  %mpPrev.i.i.i4061 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1805, i64 0, i32 1
+  %mpPrev.i.i.i4061 = getelementptr inbounds i8, ptr %a1805, i64 8
   store ptr %a1805, ptr %mpPrev.i.i.i4061, align 8
   %tobool.not.i.i = icmp eq i64 %inc.i.i.i4056, 0
   br i1 %tobool.not.i.i, label %invoke.cont1813, label %if.then4.i.i
@@ -21988,7 +21977,7 @@ invoke.cont1807:                                  ; preds = %call.i.i.i.i.i.i.no
 if.then4.i.i:                                     ; preds = %invoke.cont1807
   %1524 = load ptr, ptr %a21794, align 8
   store ptr %a1805, ptr %call.i.i.i.i.i.i1.i4046, align 8
-  %mpPrev2.i.i.i4064 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1524, i64 0, i32 1
+  %mpPrev2.i.i.i4064 = getelementptr inbounds i8, ptr %1524, i64 8
   %1525 = load ptr, ptr %mpPrev2.i.i.i4064, align 8
   store ptr %a21794, ptr %1525, align 8
   %1526 = load ptr, ptr %mpPrev.i.i.i4061, align 8
@@ -22017,10 +22006,10 @@ if.then4.i.i4067:                                 ; preds = %invoke.cont1813
   %1535 = load ptr, ptr %a11783, align 8
   %1536 = load ptr, ptr %mpPrev.i.i.i4023, align 8
   store ptr %1534, ptr %1536, align 8
-  %mpPrev2.i.i.i4069 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1535, i64 0, i32 1
+  %mpPrev2.i.i.i4069 = getelementptr inbounds i8, ptr %1535, i64 8
   %1537 = load ptr, ptr %mpPrev2.i.i.i4069, align 8
   store ptr %a11783, ptr %1537, align 8
-  %mpPrev4.i.i.i4070 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1534, i64 0, i32 1
+  %mpPrev4.i.i.i4070 = getelementptr inbounds i8, ptr %1534, i64 8
   %1538 = load ptr, ptr %mpPrev4.i.i.i4070, align 8
   store ptr %1535, ptr %1538, align 8
   %1539 = load ptr, ptr %mpPrev4.i.i.i4070, align 8
@@ -22051,9 +22040,9 @@ while.cond.i4078:                                 ; preds = %invoke.cont1818, %l
 
 land.rhs.i4083:                                   ; preds = %while.cond.i4078
   %ib.sroa.0.0.i4084 = load ptr, ptr %ib.sroa.0.0.in.i4079, align 8
-  %mValue.i.i4085 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i4081, i64 0, i32 1
+  %mValue.i.i4085 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i4081, i64 16
   %1546 = load i32, ptr %mValue.i.i4085, align 4
-  %mValue.i5.i4086 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i4084, i64 0, i32 1
+  %mValue.i5.i4086 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i4084, i64 16
   %1547 = load i32, ptr %mValue.i5.i4086, align 4
   %cmp10.i4087 = icmp eq i32 %1546, %1547
   br i1 %cmp10.i4087, label %while.cond.i4078, label %while.end.i4088, !llvm.loop !385
@@ -22130,12 +22119,12 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i4115: ; preds = %_ZN5eastl4listIiN
 
 _ZN5eastl4listIiNS_9allocatorEED2Ev.exit4119:     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i4115, %_ZN5eastl4listIiNS_9allocatorEED2Ev.exit4113
   store i32 0, ptr %ref.tmp1835, align 4
-  %arrayinit.element1837 = getelementptr inbounds i32, ptr %ref.tmp1835, i64 1
+  %arrayinit.element1837 = getelementptr inbounds i8, ptr %ref.tmp1835, i64 4
   store i32 5, ptr %arrayinit.element1837, align 4
   %1558 = getelementptr inbounds i8, ptr %ref1833, i64 16
   store i64 0, ptr %1558, align 8
   store ptr %ref1833, ptr %ref1833, align 8
-  %mpPrev.i.i.i4120 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1833, i64 0, i32 1
+  %mpPrev.i.i.i4120 = getelementptr inbounds i8, ptr %ref1833, i64 8
   store ptr %ref1833, ptr %mpPrev.i.i.i4120, align 8
   br label %for.body.i.i4122
 
@@ -22146,12 +22135,12 @@ for.body.i.i4122:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4131:                     ; preds = %for.body.i.i4122
   %first.addr.04.i.i4123.ptr = getelementptr inbounds i8, ptr %ref.tmp1835, i64 %first.addr.04.i.i4123.idx
-  %mValue.i.i.i.i4132 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4124, i64 0, i32 1
+  %mValue.i.i.i.i4132 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4124, i64 16
   %1559 = load i32, ptr %first.addr.04.i.i4123.ptr, align 4
   store i32 %1559, ptr %mValue.i.i.i.i4132, align 4
   store ptr %ref1833, ptr %call.i.i.i.i.i.i1.i4124, align 8
   %1560 = load ptr, ptr %mpPrev.i.i.i4120, align 8
-  %mpPrev2.i.i.i.i4133 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4124, i64 0, i32 1
+  %mpPrev2.i.i.i.i4133 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4124, i64 8
   store ptr %1560, ptr %mpPrev2.i.i.i.i4133, align 8
   store ptr %call.i.i.i.i.i.i1.i4124, ptr %1560, align 8
   store ptr %call.i.i.i.i.i.i1.i4124, ptr %mpPrev.i.i.i4120, align 8
@@ -22178,14 +22167,14 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i4127: ; preds = %lpad.i4125, %_ZN5
 
 _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit4137: ; preds = %call.i.i.i.i.i.i.noexc.i4131
   store i32 -1, ptr %ref.tmp1844, align 4
-  %arrayinit.element1846 = getelementptr inbounds i32, ptr %ref.tmp1844, i64 1
+  %arrayinit.element1846 = getelementptr inbounds i8, ptr %ref.tmp1844, i64 4
   store i32 -1, ptr %arrayinit.element1846, align 4
-  %arrayinit.element1847 = getelementptr inbounds i32, ptr %ref.tmp1844, i64 2
+  %arrayinit.element1847 = getelementptr inbounds i8, ptr %ref.tmp1844, i64 8
   store i32 0, ptr %arrayinit.element1847, align 4
   %1565 = getelementptr inbounds i8, ptr %a11842, i64 16
   store i64 0, ptr %1565, align 8
   store ptr %a11842, ptr %a11842, align 8
-  %mpPrev.i.i.i4138 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a11842, i64 0, i32 1
+  %mpPrev.i.i.i4138 = getelementptr inbounds i8, ptr %a11842, i64 8
   store ptr %a11842, ptr %mpPrev.i.i.i4138, align 8
   br label %for.body.i.i4140
 
@@ -22196,12 +22185,12 @@ for.body.i.i4140:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4149:                     ; preds = %for.body.i.i4140
   %first.addr.04.i.i4141.ptr = getelementptr inbounds i8, ptr %ref.tmp1844, i64 %first.addr.04.i.i4141.idx
-  %mValue.i.i.i.i4150 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4142, i64 0, i32 1
+  %mValue.i.i.i.i4150 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4142, i64 16
   %1566 = load i32, ptr %first.addr.04.i.i4141.ptr, align 4
   store i32 %1566, ptr %mValue.i.i.i.i4150, align 4
   store ptr %a11842, ptr %call.i.i.i.i.i.i1.i4142, align 8
   %1567 = load ptr, ptr %mpPrev.i.i.i4138, align 8
-  %mpPrev2.i.i.i.i4151 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4142, i64 0, i32 1
+  %mpPrev2.i.i.i.i4151 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4142, i64 8
   store ptr %1567, ptr %mpPrev2.i.i.i.i4151, align 8
   store ptr %call.i.i.i.i.i.i1.i4142, ptr %1567, align 8
   store ptr %call.i.i.i.i.i.i1.i4142, ptr %mpPrev.i.i.i4138, align 8
@@ -22228,14 +22217,14 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i4145: ; preds = %lpad.i4143, %_ZN5
 
 invoke.cont1854:                                  ; preds = %call.i.i.i.i.i.i.noexc.i4149
   store i32 -1, ptr %ref.tmp1857, align 4
-  %arrayinit.element1859 = getelementptr inbounds i32, ptr %ref.tmp1857, i64 1
+  %arrayinit.element1859 = getelementptr inbounds i8, ptr %ref.tmp1857, i64 4
   store i32 -1, ptr %arrayinit.element1859, align 4
-  %arrayinit.element1860 = getelementptr inbounds i32, ptr %ref.tmp1857, i64 2
+  %arrayinit.element1860 = getelementptr inbounds i8, ptr %ref.tmp1857, i64 8
   store i32 5, ptr %arrayinit.element1860, align 4
   %1572 = getelementptr inbounds i8, ptr %a21855, i64 16
   store i64 0, ptr %1572, align 8
   store ptr %a21855, ptr %a21855, align 8
-  %mpPrev.i.i.i4157 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a21855, i64 0, i32 1
+  %mpPrev.i.i.i4157 = getelementptr inbounds i8, ptr %a21855, i64 8
   store ptr %a21855, ptr %mpPrev.i.i.i4157, align 8
   br label %for.body.i.i4159
 
@@ -22246,12 +22235,12 @@ for.body.i.i4159:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4168:                     ; preds = %for.body.i.i4159
   %first.addr.04.i.i4160.ptr = getelementptr inbounds i8, ptr %ref.tmp1857, i64 %first.addr.04.i.i4160.idx
-  %mValue.i.i.i.i4169 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4161, i64 0, i32 1
+  %mValue.i.i.i.i4169 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4161, i64 16
   %1573 = load i32, ptr %first.addr.04.i.i4160.ptr, align 4
   store i32 %1573, ptr %mValue.i.i.i.i4169, align 4
   store ptr %a21855, ptr %call.i.i.i.i.i.i1.i4161, align 8
   %1574 = load ptr, ptr %mpPrev.i.i.i4157, align 8
-  %mpPrev2.i.i.i.i4170 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4161, i64 0, i32 1
+  %mpPrev2.i.i.i.i4170 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4161, i64 8
   store ptr %1574, ptr %mpPrev2.i.i.i.i4170, align 8
   store ptr %call.i.i.i.i.i.i1.i4161, ptr %1574, align 8
   store ptr %call.i.i.i.i.i.i1.i4161, ptr %mpPrev.i.i.i4157, align 8
@@ -22301,7 +22290,7 @@ invoke.cont1874:                                  ; preds = %while.body.i.i.i418
   %1585 = getelementptr inbounds i8, ptr %a1873, i64 16
   store i64 0, ptr %1585, align 8
   store ptr %a1873, ptr %a1873, align 8
-  %mpPrev.i.i.i4188 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1873, i64 0, i32 1
+  %mpPrev.i.i.i4188 = getelementptr inbounds i8, ptr %a1873, i64 8
   store ptr %a1873, ptr %mpPrev.i.i.i4188, align 8
   %1586 = load ptr, ptr %1584, align 8
   %cmp.i.i.i4189 = icmp ne ptr %a1873, %1584
@@ -22310,10 +22299,10 @@ invoke.cont1874:                                  ; preds = %while.body.i.i.i418
   br i1 %or.cond.i.i, label %if.then8.i.i, label %invoke.cont1882
 
 if.then8.i.i:                                     ; preds = %invoke.cont1874
-  %mpPrev.i.i.i4190 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1586, i64 0, i32 1
+  %mpPrev.i.i.i4190 = getelementptr inbounds i8, ptr %1586, i64 8
   %1587 = load ptr, ptr %mpPrev.i.i.i4190, align 8
   store ptr %a1873, ptr %1587, align 8
-  %mpPrev2.i.i.i4191 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1584, i64 0, i32 1
+  %mpPrev2.i.i.i4191 = getelementptr inbounds i8, ptr %1584, i64 8
   %1588 = load ptr, ptr %mpPrev2.i.i.i4191, align 8
   store ptr %1586, ptr %1588, align 8
   %1589 = load ptr, ptr %mpPrev.i.i.i4188, align 8
@@ -22343,13 +22332,13 @@ invoke.cont1882:                                  ; preds = %if.then8.i.i, %invo
   br i1 %or.cond.i.i4198, label %if.then8.i.i4199, label %invoke.cont1889
 
 if.then8.i.i4199:                                 ; preds = %invoke.cont1882
-  %mpPrev.i.i.i4200 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1597, i64 0, i32 1
+  %mpPrev.i.i.i4200 = getelementptr inbounds i8, ptr %1597, i64 8
   %1598 = load ptr, ptr %mpPrev.i.i.i4200, align 8
   store ptr %1596, ptr %1598, align 8
-  %mpPrev2.i.i.i4201 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1582, i64 0, i32 1
+  %mpPrev2.i.i.i4201 = getelementptr inbounds i8, ptr %1582, i64 8
   %1599 = load ptr, ptr %mpPrev2.i.i.i4201, align 8
   store ptr %1597, ptr %1599, align 8
-  %mpPrev4.i.i.i4202 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1596, i64 0, i32 1
+  %mpPrev4.i.i.i4202 = getelementptr inbounds i8, ptr %1596, i64 8
   %1600 = load ptr, ptr %mpPrev4.i.i.i4202, align 8
   store ptr %1582, ptr %1600, align 8
   %1601 = load ptr, ptr %mpPrev4.i.i.i4202, align 8
@@ -22381,9 +22370,9 @@ while.cond.i4212:                                 ; preds = %invoke.cont1889, %l
 
 land.rhs.i4217:                                   ; preds = %while.cond.i4212
   %ib.sroa.0.0.i4218 = load ptr, ptr %ib.sroa.0.0.in.i4213, align 8
-  %mValue.i.i4219 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i4215, i64 0, i32 1
+  %mValue.i.i4219 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i4215, i64 16
   %1608 = load i32, ptr %mValue.i.i4219, align 4
-  %mValue.i5.i4220 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i4218, i64 0, i32 1
+  %mValue.i5.i4220 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i4218, i64 16
   %1609 = load i32, ptr %mValue.i5.i4220, align 4
   %cmp10.i4221 = icmp eq i32 %1608, %1609
   br i1 %cmp10.i4221, label %while.cond.i4212, label %while.end.i4222, !llvm.loop !385
@@ -22462,7 +22451,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit4253:     ; preds = %_ZN5eastl9allocator
   %1620 = getelementptr inbounds i8, ptr %ref1906, i64 16
   store i64 0, ptr %1620, align 8
   store ptr %ref1906, ptr %ref1906, align 8
-  %mpPrev.i.i.i4254 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1906, i64 0, i32 1
+  %mpPrev.i.i.i4254 = getelementptr inbounds i8, ptr %ref1906, i64 8
   store ptr %ref1906, ptr %mpPrev.i.i.i4254, align 8
   br label %for.body.i.i4256
 
@@ -22473,12 +22462,12 @@ for.body.i.i4256:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4265:                     ; preds = %for.body.i.i4256
   %first.addr.04.i.i4257.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i4257.idx
-  %mValue.i.i.i.i4266 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4258, i64 0, i32 1
+  %mValue.i.i.i.i4266 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4258, i64 16
   %1621 = load i32, ptr %first.addr.04.i.i4257.ptr, align 4
   store i32 %1621, ptr %mValue.i.i.i.i4266, align 4
   store ptr %ref1906, ptr %call.i.i.i.i.i.i1.i4258, align 8
   %1622 = load ptr, ptr %mpPrev.i.i.i4254, align 8
-  %mpPrev2.i.i.i.i4267 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4258, i64 0, i32 1
+  %mpPrev2.i.i.i.i4267 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4258, i64 8
   store ptr %1622, ptr %mpPrev2.i.i.i.i4267, align 8
   store ptr %call.i.i.i.i.i.i1.i4258, ptr %1622, align 8
   store ptr %call.i.i.i.i.i.i1.i4258, ptr %mpPrev.i.i.i4254, align 8
@@ -22507,7 +22496,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit4271: ; preds
   %1627 = getelementptr inbounds i8, ptr %a11914, i64 16
   store i64 0, ptr %1627, align 8
   store ptr %a11914, ptr %a11914, align 8
-  %mpPrev.i.i.i4272 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a11914, i64 0, i32 1
+  %mpPrev.i.i.i4272 = getelementptr inbounds i8, ptr %a11914, i64 8
   store ptr %a11914, ptr %mpPrev.i.i.i4272, align 8
   br label %for.body.i.i4274
 
@@ -22518,12 +22507,12 @@ for.body.i.i4274:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4283:                     ; preds = %for.body.i.i4274
   %first.addr.04.i.i4275.ptr = getelementptr inbounds i8, ptr @constinit.130, i64 %first.addr.04.i.i4275.idx
-  %mValue.i.i.i.i4284 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4276, i64 0, i32 1
+  %mValue.i.i.i.i4284 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4276, i64 16
   %1628 = load i32, ptr %first.addr.04.i.i4275.ptr, align 4
   store i32 %1628, ptr %mValue.i.i.i.i4284, align 4
   store ptr %a11914, ptr %call.i.i.i.i.i.i1.i4276, align 8
   %1629 = load ptr, ptr %mpPrev.i.i.i4272, align 8
-  %mpPrev2.i.i.i.i4285 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4276, i64 0, i32 1
+  %mpPrev2.i.i.i.i4285 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4276, i64 8
   store ptr %1629, ptr %mpPrev2.i.i.i.i4285, align 8
   store ptr %call.i.i.i.i.i.i1.i4276, ptr %1629, align 8
   store ptr %call.i.i.i.i.i.i1.i4276, ptr %mpPrev.i.i.i4272, align 8
@@ -22552,7 +22541,7 @@ invoke.cont1924:                                  ; preds = %call.i.i.i.i.i.i.no
   %1634 = getelementptr inbounds i8, ptr %a21925, i64 16
   store i64 0, ptr %1634, align 8
   store ptr %a21925, ptr %a21925, align 8
-  %mpPrev.i.i.i4291 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a21925, i64 0, i32 1
+  %mpPrev.i.i.i4291 = getelementptr inbounds i8, ptr %a21925, i64 8
   store ptr %a21925, ptr %mpPrev.i.i.i4291, align 8
   br label %for.body.i.i4293
 
@@ -22563,12 +22552,12 @@ for.body.i.i4293:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4302:                     ; preds = %for.body.i.i4293
   %first.addr.04.i.i4294.ptr = getelementptr inbounds i8, ptr @constinit.131, i64 %first.addr.04.i.i4294.idx
-  %mValue.i.i.i.i4303 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4295, i64 0, i32 1
+  %mValue.i.i.i.i4303 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4295, i64 16
   %1635 = load i32, ptr %first.addr.04.i.i4294.ptr, align 4
   store i32 %1635, ptr %mValue.i.i.i.i4303, align 4
   store ptr %a21925, ptr %call.i.i.i.i.i.i1.i4295, align 8
   %1636 = load ptr, ptr %mpPrev.i.i.i4291, align 8
-  %mpPrev2.i.i.i.i4304 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4295, i64 0, i32 1
+  %mpPrev2.i.i.i.i4304 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4295, i64 8
   store ptr %1636, ptr %mpPrev2.i.i.i.i4304, align 8
   store ptr %call.i.i.i.i.i.i1.i4295, ptr %1636, align 8
   store ptr %call.i.i.i.i.i.i1.i4295, ptr %mpPrev.i.i.i4291, align 8
@@ -22618,7 +22607,7 @@ while.body3.i.i.i4323:                            ; preds = %while.body.i.i.i431
   %n.addr.16.i.i.i4324 = phi i32 [ %inc.i.i.i4325, %while.body3.i.i.i4323 ], [ -2, %while.body.i.i.i4317 ]
   %1647 = phi ptr [ %1648, %while.body3.i.i.i4323 ], [ %a11914, %while.body.i.i.i4317 ]
   %inc.i.i.i4325 = add nsw i32 %n.addr.16.i.i.i4324, 1
-  %mpPrev.i.i.i.i4326 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1647, i64 0, i32 1
+  %mpPrev.i.i.i.i4326 = getelementptr inbounds i8, ptr %1647, i64 8
   %1648 = load ptr, ptr %mpPrev.i.i.i.i4326, align 8
   %tobool2.not.i.i.i4327 = icmp eq i32 %inc.i.i.i4325, 0
   br i1 %tobool2.not.i.i.i4327, label %while.body3.i.i.i4330, label %while.body3.i.i.i4323, !llvm.loop !553
@@ -22627,7 +22616,7 @@ while.body3.i.i.i4330:                            ; preds = %while.body3.i.i.i43
   %n.addr.16.i.i.i4331 = phi i32 [ %inc.i.i.i4332, %while.body3.i.i.i4330 ], [ -2, %while.body3.i.i.i4323 ]
   %1649 = phi ptr [ %1650, %while.body3.i.i.i4330 ], [ %a21925, %while.body3.i.i.i4323 ]
   %inc.i.i.i4332 = add nsw i32 %n.addr.16.i.i.i4331, 1
-  %mpPrev.i.i.i.i4333 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1649, i64 0, i32 1
+  %mpPrev.i.i.i.i4333 = getelementptr inbounds i8, ptr %1649, i64 8
   %1650 = load ptr, ptr %mpPrev.i.i.i.i4333, align 8
   %tobool2.not.i.i.i4334 = icmp eq i32 %inc.i.i.i4332, 0
   br i1 %tobool2.not.i.i.i4334, label %invoke.cont1946, label %while.body3.i.i.i4330, !llvm.loop !553
@@ -22636,7 +22625,7 @@ invoke.cont1946:                                  ; preds = %while.body3.i.i.i43
   %1651 = getelementptr inbounds i8, ptr %a1945, i64 16
   store i64 0, ptr %1651, align 8
   store ptr %a1945, ptr %a1945, align 8
-  %mpPrev.i.i.i4336 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a1945, i64 0, i32 1
+  %mpPrev.i.i.i4336 = getelementptr inbounds i8, ptr %a1945, i64 8
   store ptr %a1945, ptr %mpPrev.i.i.i4336, align 8
   %cmp.i.not3.i.i.i.i = icmp eq ptr %1646, %1650
   br i1 %cmp.i.not3.i.i.i.i, label %invoke.cont1956, label %while.body.i.i.i.i
@@ -22650,10 +22639,10 @@ while.body.i.i.i.i:                               ; preds = %invoke.cont1946, %w
   br i1 %cmp.i.not.i.i.i.i, label %if.then10.i.i, label %while.body.i.i.i.i, !llvm.loop !163
 
 if.then10.i.i:                                    ; preds = %while.body.i.i.i.i
-  %mpPrev.i.i.i4338 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1650, i64 0, i32 1
+  %mpPrev.i.i.i4338 = getelementptr inbounds i8, ptr %1650, i64 8
   %1653 = load ptr, ptr %mpPrev.i.i.i4338, align 8
   store ptr %a1945, ptr %1653, align 8
-  %mpPrev2.i.i.i4339 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1646, i64 0, i32 1
+  %mpPrev2.i.i.i4339 = getelementptr inbounds i8, ptr %1646, i64 8
   %1654 = load ptr, ptr %mpPrev2.i.i.i4339, align 8
   store ptr %1650, ptr %1654, align 8
   %1655 = load ptr, ptr %mpPrev.i.i.i4336, align 8
@@ -22687,13 +22676,13 @@ while.body.i.i.i.i4345:                           ; preds = %invoke.cont1956, %w
   br i1 %cmp.i.not.i.i.i.i4349, label %if.then10.i.i4350, label %while.body.i.i.i.i4345, !llvm.loop !163
 
 if.then10.i.i4350:                                ; preds = %while.body.i.i.i.i4345
-  %mpPrev.i.i.i4351 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1648, i64 0, i32 1
+  %mpPrev.i.i.i4351 = getelementptr inbounds i8, ptr %1648, i64 8
   %1663 = load ptr, ptr %mpPrev.i.i.i4351, align 8
   store ptr %1661, ptr %1663, align 8
-  %mpPrev2.i.i.i4352 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1644, i64 0, i32 1
+  %mpPrev2.i.i.i4352 = getelementptr inbounds i8, ptr %1644, i64 8
   %1664 = load ptr, ptr %mpPrev2.i.i.i4352, align 8
   store ptr %1648, ptr %1664, align 8
-  %mpPrev4.i.i.i4353 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1661, i64 0, i32 1
+  %mpPrev4.i.i.i4353 = getelementptr inbounds i8, ptr %1661, i64 8
   %1665 = load ptr, ptr %mpPrev4.i.i.i4353, align 8
   store ptr %1644, ptr %1665, align 8
   %1666 = load ptr, ptr %mpPrev4.i.i.i4353, align 8
@@ -22715,7 +22704,7 @@ invoke.cont1965:                                  ; preds = %if.then10.i.i4350, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp1968, i8 -1, i64 16, i1 false)
   store i64 0, ptr %1671, align 8
   store ptr %rref1966, ptr %rref1966, align 8
-  %mpPrev.i.i.i4359 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %rref1966, i64 0, i32 1
+  %mpPrev.i.i.i4359 = getelementptr inbounds i8, ptr %rref1966, i64 8
   store ptr %rref1966, ptr %mpPrev.i.i.i4359, align 8
   br label %for.body.i.i4361
 
@@ -22726,12 +22715,12 @@ for.body.i.i4361:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4370:                     ; preds = %for.body.i.i4361
   %first.addr.04.i.i4362.ptr = getelementptr inbounds i8, ptr %ref.tmp1968, i64 %first.addr.04.i.i4362.idx
-  %mValue.i.i.i.i4371 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4363, i64 0, i32 1
+  %mValue.i.i.i.i4371 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4363, i64 16
   %1672 = load i32, ptr %first.addr.04.i.i4362.ptr, align 4
   store i32 %1672, ptr %mValue.i.i.i.i4371, align 4
   store ptr %rref1966, ptr %call.i.i.i.i.i.i1.i4363, align 8
   %1673 = load ptr, ptr %mpPrev.i.i.i4359, align 8
-  %mpPrev2.i.i.i.i4372 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4363, i64 0, i32 1
+  %mpPrev2.i.i.i.i4372 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4363, i64 8
   store ptr %1673, ptr %mpPrev2.i.i.i.i4372, align 8
   store ptr %call.i.i.i.i.i.i1.i4363, ptr %1673, align 8
   store ptr %call.i.i.i.i.i.i1.i4363, ptr %mpPrev.i.i.i4359, align 8
@@ -22771,9 +22760,9 @@ while.cond.i4382:                                 ; preds = %invoke.cont1978, %l
 
 land.rhs.i4387:                                   ; preds = %while.cond.i4382
   %ib.sroa.0.0.i4388 = load ptr, ptr %ib.sroa.0.0.in.i4383, align 8
-  %mValue.i.i4389 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i4385, i64 0, i32 1
+  %mValue.i.i4389 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i4385, i64 16
   %1680 = load i32, ptr %mValue.i.i4389, align 4
-  %mValue.i5.i4390 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i4388, i64 0, i32 1
+  %mValue.i5.i4390 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i4388, i64 16
   %1681 = load i32, ptr %mValue.i5.i4390, align 4
   %cmp10.i4391 = icmp eq i32 %1680, %1681
   br i1 %cmp10.i4391, label %while.cond.i4382, label %while.end.i4392, !llvm.loop !385
@@ -22803,9 +22792,9 @@ while.cond.i4400:                                 ; preds = %invoke.cont1982, %l
 
 land.rhs.i4405:                                   ; preds = %while.cond.i4400
   %ib.sroa.0.0.i4406 = load ptr, ptr %ib.sroa.0.0.in.i4401, align 8
-  %mValue.i.i4407 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i4403, i64 0, i32 1
+  %mValue.i.i4407 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i4403, i64 16
   %1684 = load i32, ptr %mValue.i.i4407, align 4
-  %mValue.i5.i4408 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i4406, i64 0, i32 1
+  %mValue.i5.i4408 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i4406, i64 16
   %1685 = load i32, ptr %mValue.i5.i4408, align 4
   %cmp10.i4409 = icmp eq i32 %1684, %1685
   br i1 %cmp10.i4409, label %while.cond.i4400, label %while.end.i4410, !llvm.loop !385
@@ -22835,9 +22824,9 @@ while.cond.i4418:                                 ; preds = %invoke.cont1986, %l
 
 land.rhs.i4423:                                   ; preds = %while.cond.i4418
   %ib.sroa.0.0.i4424 = load ptr, ptr %ib.sroa.0.0.in.i4419, align 8
-  %mValue.i.i4425 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i4421, i64 0, i32 1
+  %mValue.i.i4425 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i4421, i64 16
   %1688 = load i32, ptr %mValue.i.i4425, align 4
-  %mValue.i5.i4426 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i4424, i64 0, i32 1
+  %mValue.i5.i4426 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i4424, i64 16
   %1689 = load i32, ptr %mValue.i5.i4426, align 4
   %cmp10.i4427 = icmp eq i32 %1688, %1689
   br i1 %cmp10.i4427, label %while.cond.i4418, label %while.end.i4428, !llvm.loop !385
@@ -22916,7 +22905,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit4461:     ; preds = %_ZN5eastl9allocator
   %1700 = getelementptr inbounds i8, ptr %ref1997, i64 16
   store i64 0, ptr %1700, align 8
   store ptr %ref1997, ptr %ref1997, align 8
-  %mpPrev.i.i.i4462 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref1997, i64 0, i32 1
+  %mpPrev.i.i.i4462 = getelementptr inbounds i8, ptr %ref1997, i64 8
   store ptr %ref1997, ptr %mpPrev.i.i.i4462, align 8
   br label %for.body.i.i4464
 
@@ -22927,12 +22916,12 @@ for.body.i.i4464:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4473:                     ; preds = %for.body.i.i4464
   %first.addr.04.i.i4465.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i4465.idx
-  %mValue.i.i.i.i4474 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4466, i64 0, i32 1
+  %mValue.i.i.i.i4474 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4466, i64 16
   %1701 = load i32, ptr %first.addr.04.i.i4465.ptr, align 4
   store i32 %1701, ptr %mValue.i.i.i.i4474, align 4
   store ptr %ref1997, ptr %call.i.i.i.i.i.i1.i4466, align 8
   %1702 = load ptr, ptr %mpPrev.i.i.i4462, align 8
-  %mpPrev2.i.i.i.i4475 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4466, i64 0, i32 1
+  %mpPrev2.i.i.i.i4475 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4466, i64 8
   store ptr %1702, ptr %mpPrev2.i.i.i.i4475, align 8
   store ptr %call.i.i.i.i.i.i1.i4466, ptr %1702, align 8
   store ptr %call.i.i.i.i.i.i1.i4466, ptr %mpPrev.i.i.i4462, align 8
@@ -22961,7 +22950,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit4479: ; preds
   %1707 = getelementptr inbounds i8, ptr %a12005, i64 16
   store i64 0, ptr %1707, align 8
   store ptr %a12005, ptr %a12005, align 8
-  %mpPrev.i.i.i4480 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a12005, i64 0, i32 1
+  %mpPrev.i.i.i4480 = getelementptr inbounds i8, ptr %a12005, i64 8
   store ptr %a12005, ptr %mpPrev.i.i.i4480, align 8
   br label %for.body.i.i4482
 
@@ -22972,12 +22961,12 @@ for.body.i.i4482:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4491:                     ; preds = %for.body.i.i4482
   %first.addr.04.i.i4483.ptr = getelementptr inbounds i8, ptr @constinit.137, i64 %first.addr.04.i.i4483.idx
-  %mValue.i.i.i.i4492 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4484, i64 0, i32 1
+  %mValue.i.i.i.i4492 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4484, i64 16
   %1708 = load i32, ptr %first.addr.04.i.i4483.ptr, align 4
   store i32 %1708, ptr %mValue.i.i.i.i4492, align 4
   store ptr %a12005, ptr %call.i.i.i.i.i.i1.i4484, align 8
   %1709 = load ptr, ptr %mpPrev.i.i.i4480, align 8
-  %mpPrev2.i.i.i.i4493 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4484, i64 0, i32 1
+  %mpPrev2.i.i.i.i4493 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4484, i64 8
   store ptr %1709, ptr %mpPrev2.i.i.i.i4493, align 8
   store ptr %call.i.i.i.i.i.i1.i4484, ptr %1709, align 8
   store ptr %call.i.i.i.i.i.i1.i4484, ptr %mpPrev.i.i.i4480, align 8
@@ -23006,7 +22995,7 @@ invoke.cont2015:                                  ; preds = %call.i.i.i.i.i.i.no
   %1714 = getelementptr inbounds i8, ptr %a22016, i64 16
   store i64 0, ptr %1714, align 8
   store ptr %a22016, ptr %a22016, align 8
-  %mpPrev.i.i.i4499 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a22016, i64 0, i32 1
+  %mpPrev.i.i.i4499 = getelementptr inbounds i8, ptr %a22016, i64 8
   store ptr %a22016, ptr %mpPrev.i.i.i4499, align 8
   br label %for.body.i.i4501
 
@@ -23017,12 +23006,12 @@ for.body.i.i4501:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4510:                     ; preds = %for.body.i.i4501
   %first.addr.04.i.i4502.ptr = getelementptr inbounds i8, ptr @constinit.138, i64 %first.addr.04.i.i4502.idx
-  %mValue.i.i.i.i4511 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4503, i64 0, i32 1
+  %mValue.i.i.i.i4511 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4503, i64 16
   %1715 = load i32, ptr %first.addr.04.i.i4502.ptr, align 4
   store i32 %1715, ptr %mValue.i.i.i.i4511, align 4
   store ptr %a22016, ptr %call.i.i.i.i.i.i1.i4503, align 8
   %1716 = load ptr, ptr %mpPrev.i.i.i4499, align 8
-  %mpPrev2.i.i.i.i4512 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4503, i64 0, i32 1
+  %mpPrev2.i.i.i.i4512 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4503, i64 8
   store ptr %1716, ptr %mpPrev2.i.i.i.i4512, align 8
   store ptr %call.i.i.i.i.i.i1.i4503, ptr %1716, align 8
   store ptr %call.i.i.i.i.i.i1.i4503, ptr %mpPrev.i.i.i4499, align 8
@@ -23066,9 +23055,9 @@ while.cond.i4522:                                 ; preds = %invoke.cont2028, %l
 
 land.rhs.i4527:                                   ; preds = %while.cond.i4522
   %ib.sroa.0.0.i4528 = load ptr, ptr %ib.sroa.0.0.in.i4523, align 8
-  %mValue.i.i4529 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i4525, i64 0, i32 1
+  %mValue.i.i4529 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i4525, i64 16
   %1723 = load i32, ptr %mValue.i.i4529, align 4
-  %mValue.i5.i4530 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i4528, i64 0, i32 1
+  %mValue.i5.i4530 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i4528, i64 16
   %1724 = load i32, ptr %mValue.i5.i4530, align 4
   %cmp10.i4531 = icmp eq i32 %1723, %1724
   br i1 %cmp10.i4531, label %while.cond.i4522, label %while.end.i4532, !llvm.loop !385
@@ -23123,7 +23112,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit4553:     ; preds = %_ZN5eastl9allocator
   %1731 = getelementptr inbounds i8, ptr %ref2036, i64 16
   store i64 0, ptr %1731, align 8
   store ptr %ref2036, ptr %ref2036, align 8
-  %mpPrev.i.i.i4554 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref2036, i64 0, i32 1
+  %mpPrev.i.i.i4554 = getelementptr inbounds i8, ptr %ref2036, i64 8
   store ptr %ref2036, ptr %mpPrev.i.i.i4554, align 8
   br label %for.body.i.i4556
 
@@ -23134,12 +23123,12 @@ for.body.i.i4556:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4565:                     ; preds = %for.body.i.i4556
   %first.addr.04.i.i4557.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i4557.idx
-  %mValue.i.i.i.i4566 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4558, i64 0, i32 1
+  %mValue.i.i.i.i4566 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4558, i64 16
   %1732 = load i32, ptr %first.addr.04.i.i4557.ptr, align 4
   store i32 %1732, ptr %mValue.i.i.i.i4566, align 4
   store ptr %ref2036, ptr %call.i.i.i.i.i.i1.i4558, align 8
   %1733 = load ptr, ptr %mpPrev.i.i.i4554, align 8
-  %mpPrev2.i.i.i.i4567 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4558, i64 0, i32 1
+  %mpPrev2.i.i.i.i4567 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4558, i64 8
   store ptr %1733, ptr %mpPrev2.i.i.i.i4567, align 8
   store ptr %call.i.i.i.i.i.i1.i4558, ptr %1733, align 8
   store ptr %call.i.i.i.i.i.i1.i4558, ptr %mpPrev.i.i.i4554, align 8
@@ -23168,7 +23157,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit4571: ; preds
   %1738 = getelementptr inbounds i8, ptr %a12044, i64 16
   store i64 0, ptr %1738, align 8
   store ptr %a12044, ptr %a12044, align 8
-  %mpPrev.i.i.i4572 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a12044, i64 0, i32 1
+  %mpPrev.i.i.i4572 = getelementptr inbounds i8, ptr %a12044, i64 8
   store ptr %a12044, ptr %mpPrev.i.i.i4572, align 8
   br label %for.body.i.i4574
 
@@ -23179,12 +23168,12 @@ for.body.i.i4574:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4583:                     ; preds = %for.body.i.i4574
   %first.addr.04.i.i4575.ptr = getelementptr inbounds i8, ptr @constinit.137, i64 %first.addr.04.i.i4575.idx
-  %mValue.i.i.i.i4584 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4576, i64 0, i32 1
+  %mValue.i.i.i.i4584 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4576, i64 16
   %1739 = load i32, ptr %first.addr.04.i.i4575.ptr, align 4
   store i32 %1739, ptr %mValue.i.i.i.i4584, align 4
   store ptr %a12044, ptr %call.i.i.i.i.i.i1.i4576, align 8
   %1740 = load ptr, ptr %mpPrev.i.i.i4572, align 8
-  %mpPrev2.i.i.i.i4585 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4576, i64 0, i32 1
+  %mpPrev2.i.i.i.i4585 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4576, i64 8
   store ptr %1740, ptr %mpPrev2.i.i.i.i4585, align 8
   store ptr %call.i.i.i.i.i.i1.i4576, ptr %1740, align 8
   store ptr %call.i.i.i.i.i.i1.i4576, ptr %mpPrev.i.i.i4572, align 8
@@ -23213,7 +23202,7 @@ invoke.cont2054:                                  ; preds = %call.i.i.i.i.i.i.no
   %1745 = getelementptr inbounds i8, ptr %a22055, i64 16
   store i64 0, ptr %1745, align 8
   store ptr %a22055, ptr %a22055, align 8
-  %mpPrev.i.i.i4591 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a22055, i64 0, i32 1
+  %mpPrev.i.i.i4591 = getelementptr inbounds i8, ptr %a22055, i64 8
   store ptr %a22055, ptr %mpPrev.i.i.i4591, align 8
   br label %for.body.i.i4593
 
@@ -23224,12 +23213,12 @@ for.body.i.i4593:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4602:                     ; preds = %for.body.i.i4593
   %first.addr.04.i.i4594.ptr = getelementptr inbounds i8, ptr @constinit.138, i64 %first.addr.04.i.i4594.idx
-  %mValue.i.i.i.i4603 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4595, i64 0, i32 1
+  %mValue.i.i.i.i4603 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4595, i64 16
   %1746 = load i32, ptr %first.addr.04.i.i4594.ptr, align 4
   store i32 %1746, ptr %mValue.i.i.i.i4603, align 4
   store ptr %a22055, ptr %call.i.i.i.i.i.i1.i4595, align 8
   %1747 = load ptr, ptr %mpPrev.i.i.i4591, align 8
-  %mpPrev2.i.i.i.i4604 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4595, i64 0, i32 1
+  %mpPrev2.i.i.i.i4604 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4595, i64 8
   store ptr %1747, ptr %mpPrev2.i.i.i.i4604, align 8
   store ptr %call.i.i.i.i.i.i1.i4595, ptr %1747, align 8
   store ptr %call.i.i.i.i.i.i1.i4595, ptr %mpPrev.i.i.i4591, align 8
@@ -23265,9 +23254,9 @@ invoke.cont2065:                                  ; preds = %call.i.i.i.i.i.i.no
 while.body.i4615:                                 ; preds = %invoke.cont2065, %if.end.i4618
   %first.sroa.0.040.i = phi ptr [ %first.sroa.0.1.i, %if.end.i4618 ], [ %1752, %invoke.cont2065 ]
   %firstX.sroa.0.039.i = phi ptr [ %firstX.sroa.0.1.i, %if.end.i4618 ], [ %1753, %invoke.cont2065 ]
-  %mValue.i.i4616 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %firstX.sroa.0.039.i, i64 0, i32 1
+  %mValue.i.i4616 = getelementptr inbounds i8, ptr %firstX.sroa.0.039.i, i64 16
   %1754 = load i32, ptr %mValue.i.i4616, align 4
-  %mValue.i6.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first.sroa.0.040.i, i64 0, i32 1
+  %mValue.i6.i = getelementptr inbounds i8, ptr %first.sroa.0.040.i, i64 16
   %1755 = load i32, ptr %mValue.i6.i, align 4
   %cmp.i7.i = icmp slt i32 %1754, %1755
   br i1 %cmp.i7.i, label %if.then6.i, label %if.else.i4617
@@ -23286,13 +23275,13 @@ while.body.i.i.i.i4622:                           ; preds = %if.then6.i, %while.
   br i1 %cmp.i.not.i.i.i.i4626, label %if.then10.i.i4627, label %while.body.i.i.i.i4622, !llvm.loop !163
 
 if.then10.i.i4627:                                ; preds = %while.body.i.i.i.i4622
-  %mpPrev.i.i.i4628 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1756, i64 0, i32 1
+  %mpPrev.i.i.i4628 = getelementptr inbounds i8, ptr %1756, i64 8
   %1758 = load ptr, ptr %mpPrev.i.i.i4628, align 8
   store ptr %first.sroa.0.040.i, ptr %1758, align 8
-  %mpPrev2.i.i.i4629 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %firstX.sroa.0.039.i, i64 0, i32 1
+  %mpPrev2.i.i.i4629 = getelementptr inbounds i8, ptr %firstX.sroa.0.039.i, i64 8
   %1759 = load ptr, ptr %mpPrev2.i.i.i4629, align 8
   store ptr %1756, ptr %1759, align 8
-  %mpPrev4.i.i.i4630 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.sroa.0.040.i, i64 0, i32 1
+  %mpPrev4.i.i.i4630 = getelementptr inbounds i8, ptr %first.sroa.0.040.i, i64 8
   %1760 = load ptr, ptr %mpPrev4.i.i.i4630, align 8
   store ptr %firstX.sroa.0.039.i, ptr %1760, align 8
   %1761 = load ptr, ptr %mpPrev4.i.i.i4630, align 8
@@ -23341,7 +23330,7 @@ while.body.i.i.i10.i:                             ; preds = %while.end.i4611, %w
 _ZN5eastl4listIiNS_9allocatorEE6spliceENS_12ListIteratorIiPKiRS4_EERS2_S7_S7_.exit23.i: ; preds = %while.body.i.i.i10.i
   %1768 = load ptr, ptr %mpPrev.i.i.i4591, align 8
   store ptr %a12044, ptr %1768, align 8
-  %mpPrev2.i.i17.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %firstX.sroa.0.0.lcssa.i, i64 0, i32 1
+  %mpPrev2.i.i17.i = getelementptr inbounds i8, ptr %firstX.sroa.0.0.lcssa.i, i64 8
   %1769 = load ptr, ptr %mpPrev2.i.i17.i, align 8
   store ptr %a22055, ptr %1769, align 8
   %1770 = load ptr, ptr %mpPrev.i.i.i4572, align 8
@@ -23375,9 +23364,9 @@ while.cond.i4637:                                 ; preds = %invoke.cont2068, %l
 
 land.rhs.i4642:                                   ; preds = %while.cond.i4637
   %ib.sroa.0.0.i4643 = load ptr, ptr %ib.sroa.0.0.in.i4638, align 8
-  %mValue.i.i4644 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i4640, i64 0, i32 1
+  %mValue.i.i4644 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i4640, i64 16
   %1778 = load i32, ptr %mValue.i.i4644, align 4
-  %mValue.i5.i4645 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i4643, i64 0, i32 1
+  %mValue.i5.i4645 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i4643, i64 16
   %1779 = load i32, ptr %mValue.i5.i4645, align 4
   %cmp10.i4646 = icmp eq i32 %1778, %1779
   br i1 %cmp10.i4646, label %while.cond.i4637, label %while.end.i4647, !llvm.loop !385
@@ -23432,7 +23421,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit4668:     ; preds = %_ZN5eastl9allocator
   %1786 = getelementptr inbounds i8, ptr %ref2076, i64 16
   store i64 0, ptr %1786, align 8
   store ptr %ref2076, ptr %ref2076, align 8
-  %mpPrev.i.i.i4669 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref2076, i64 0, i32 1
+  %mpPrev.i.i.i4669 = getelementptr inbounds i8, ptr %ref2076, i64 8
   store ptr %ref2076, ptr %mpPrev.i.i.i4669, align 8
   br label %for.body.i.i4671
 
@@ -23443,12 +23432,12 @@ for.body.i.i4671:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4680:                     ; preds = %for.body.i.i4671
   %first.addr.04.i.i4672.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i4672.idx
-  %mValue.i.i.i.i4681 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4673, i64 0, i32 1
+  %mValue.i.i.i.i4681 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4673, i64 16
   %1787 = load i32, ptr %first.addr.04.i.i4672.ptr, align 4
   store i32 %1787, ptr %mValue.i.i.i.i4681, align 4
   store ptr %ref2076, ptr %call.i.i.i.i.i.i1.i4673, align 8
   %1788 = load ptr, ptr %mpPrev.i.i.i4669, align 8
-  %mpPrev2.i.i.i.i4682 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4673, i64 0, i32 1
+  %mpPrev2.i.i.i.i4682 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4673, i64 8
   store ptr %1788, ptr %mpPrev2.i.i.i.i4682, align 8
   store ptr %call.i.i.i.i.i.i1.i4673, ptr %1788, align 8
   store ptr %call.i.i.i.i.i.i1.i4673, ptr %mpPrev.i.i.i4669, align 8
@@ -23477,7 +23466,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit4686: ; preds
   %1793 = getelementptr inbounds i8, ptr %a2084, i64 16
   store i64 0, ptr %1793, align 8
   store ptr %a2084, ptr %a2084, align 8
-  %mpPrev.i.i.i4687 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a2084, i64 0, i32 1
+  %mpPrev.i.i.i4687 = getelementptr inbounds i8, ptr %a2084, i64 8
   store ptr %a2084, ptr %mpPrev.i.i.i4687, align 8
   br label %for.body.i.i4689
 
@@ -23488,12 +23477,12 @@ for.body.i.i4689:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4698:                     ; preds = %for.body.i.i4689
   %first.addr.04.i.i4690.ptr = getelementptr inbounds i8, ptr @constinit.140, i64 %first.addr.04.i.i4690.idx
-  %mValue.i.i.i.i4699 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4691, i64 0, i32 1
+  %mValue.i.i.i.i4699 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4691, i64 16
   %1794 = load i32, ptr %first.addr.04.i.i4690.ptr, align 4
   store i32 %1794, ptr %mValue.i.i.i.i4699, align 4
   store ptr %a2084, ptr %call.i.i.i.i.i.i1.i4691, align 8
   %1795 = load ptr, ptr %mpPrev.i.i.i4687, align 8
-  %mpPrev2.i.i.i.i4700 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4691, i64 0, i32 1
+  %mpPrev2.i.i.i.i4700 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4691, i64 8
   store ptr %1795, ptr %mpPrev2.i.i.i.i4700, align 8
   store ptr %call.i.i.i.i.i.i1.i4691, ptr %1795, align 8
   store ptr %call.i.i.i.i.i.i1.i4691, ptr %mpPrev.i.i.i4687, align 8
@@ -23532,18 +23521,18 @@ while.body.i4710:                                 ; preds = %while.cond.preheade
   %1802 = phi i64 [ %1810, %if.end.i4713 ], [ %inc.i.i.i4701, %while.cond.preheader.i4707 ]
   %1803 = phi ptr [ %1811, %if.end.i4713 ], [ %1801, %while.cond.preheader.i4707 ]
   %first.sroa.0.010.i = phi ptr [ %first.sroa.0.1.i4714, %if.end.i4713 ], [ %1800, %while.cond.preheader.i4707 ]
-  %mValue.i.i4711 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first.sroa.0.010.i, i64 0, i32 1
+  %mValue.i.i4711 = getelementptr inbounds i8, ptr %first.sroa.0.010.i, i64 16
   %1804 = load i32, ptr %mValue.i.i4711, align 4
-  %mValue.i2.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %1803, i64 0, i32 1
+  %mValue.i2.i = getelementptr inbounds i8, ptr %1803, i64 16
   %1805 = load i32, ptr %mValue.i2.i, align 4
   %cmp.i4712 = icmp eq i32 %1804, %1805
   br i1 %cmp.i4712, label %if.then6.i4715, label %if.end.i4713
 
 if.then6.i4715:                                   ; preds = %while.body.i4710
-  %mpPrev.i.i.i4716 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1803, i64 0, i32 1
+  %mpPrev.i.i.i4716 = getelementptr inbounds i8, ptr %1803, i64 8
   %1806 = load ptr, ptr %mpPrev.i.i.i4716, align 8
   %1807 = load ptr, ptr %1803, align 8
-  %mpPrev2.i.i.i4717 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1807, i64 0, i32 1
+  %mpPrev2.i.i.i4717 = getelementptr inbounds i8, ptr %1807, i64 8
   store ptr %1806, ptr %mpPrev2.i.i.i4717, align 8
   %1808 = load ptr, ptr %1803, align 8
   store ptr %1808, ptr %1806, align 8
@@ -23575,9 +23564,9 @@ while.cond.i4723:                                 ; preds = %invoke.cont2096, %l
 
 land.rhs.i4728:                                   ; preds = %while.cond.i4723
   %ib.sroa.0.0.i4729 = load ptr, ptr %ib.sroa.0.0.in.i4724, align 8
-  %mValue.i.i4730 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i4726, i64 0, i32 1
+  %mValue.i.i4730 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i4726, i64 16
   %1814 = load i32, ptr %mValue.i.i4730, align 4
-  %mValue.i5.i4731 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i4729, i64 0, i32 1
+  %mValue.i5.i4731 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i4729, i64 16
   %1815 = load i32, ptr %mValue.i5.i4731, align 4
   %cmp10.i4732 = icmp eq i32 %1814, %1815
   br i1 %cmp10.i4732, label %while.cond.i4723, label %while.end.i4733, !llvm.loop !385
@@ -23620,7 +23609,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit4748:     ; preds = %_ZN5eastl9allocator
   %1820 = getelementptr inbounds i8, ptr %ref2103, i64 16
   store i64 0, ptr %1820, align 8
   store ptr %ref2103, ptr %ref2103, align 8
-  %mpPrev.i.i.i4749 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref2103, i64 0, i32 1
+  %mpPrev.i.i.i4749 = getelementptr inbounds i8, ptr %ref2103, i64 8
   store ptr %ref2103, ptr %mpPrev.i.i.i4749, align 8
   br label %for.body.i.i4751
 
@@ -23631,12 +23620,12 @@ for.body.i.i4751:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4759:                     ; preds = %for.body.i.i4751
   %first.addr.04.i.i4752.ptr = getelementptr inbounds i8, ptr @constinit.141, i64 %first.addr.04.i.i4752.idx
-  %mValue.i.i.i.i4760 = getelementptr inbounds %"struct.eastl::ListNode.73", ptr %call.i.i.i.i.i.i3.i4753, i64 0, i32 1
+  %mValue.i.i.i.i4760 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i4753, i64 16
   %1821 = load i32, ptr %first.addr.04.i.i4752.ptr, align 4
   store i32 %1821, ptr %mValue.i.i.i.i4760, align 4
   store ptr %ref2103, ptr %call.i.i.i.i.i.i3.i4753, align 8
   %1822 = load ptr, ptr %mpPrev.i.i.i4749, align 8
-  %mpPrev2.i.i.i.i4761 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i3.i4753, i64 0, i32 1
+  %mpPrev2.i.i.i.i4761 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i4753, i64 8
   store ptr %1822, ptr %mpPrev2.i.i.i.i4761, align 8
   store ptr %call.i.i.i.i.i.i3.i4753, ptr %1822, align 8
   store ptr %call.i.i.i.i.i.i3.i4753, ptr %mpPrev.i.i.i4749, align 8
@@ -23665,7 +23654,7 @@ _ZN5eastl4listIZ8TestListvE1A_1NS_9allocatorEEC2ESt16initializer_listIS1_ERKS2_.
   %1827 = getelementptr inbounds i8, ptr %a2111, i64 16
   store i64 0, ptr %1827, align 8
   store ptr %a2111, ptr %a2111, align 8
-  %mpPrev.i.i.i4765 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a2111, i64 0, i32 1
+  %mpPrev.i.i.i4765 = getelementptr inbounds i8, ptr %a2111, i64 8
   store ptr %a2111, ptr %mpPrev.i.i.i4765, align 8
   br label %for.body.i.i4767
 
@@ -23676,12 +23665,12 @@ for.body.i.i4767:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4776:                     ; preds = %for.body.i.i4767
   %first.addr.04.i.i4768.ptr = getelementptr inbounds i8, ptr @constinit.142, i64 %first.addr.04.i.i4768.idx
-  %mValue.i.i.i.i4777 = getelementptr inbounds %"struct.eastl::ListNode.73", ptr %call.i.i.i.i.i.i3.i4769, i64 0, i32 1
+  %mValue.i.i.i.i4777 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i4769, i64 16
   %1828 = load i32, ptr %first.addr.04.i.i4768.ptr, align 4
   store i32 %1828, ptr %mValue.i.i.i.i4777, align 4
   store ptr %a2111, ptr %call.i.i.i.i.i.i3.i4769, align 8
   %1829 = load ptr, ptr %mpPrev.i.i.i4765, align 8
-  %mpPrev2.i.i.i.i4778 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i3.i4769, i64 0, i32 1
+  %mpPrev2.i.i.i.i4778 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i4769, i64 8
   store ptr %1829, ptr %mpPrev2.i.i.i.i4778, align 8
   store ptr %call.i.i.i.i.i.i3.i4769, ptr %1829, align 8
   store ptr %call.i.i.i.i.i.i3.i4769, ptr %mpPrev.i.i.i4765, align 8
@@ -23728,18 +23717,18 @@ while.cond.preheader.i4809:                       ; preds = %invoke.cont2126
 while.body.i4813:                                 ; preds = %while.cond.preheader.i4809, %if.end.i4820
   %1835 = phi ptr [ %1840, %if.end.i4820 ], [ %1834, %while.cond.preheader.i4809 ]
   %first.sroa.0.09.i4814 = phi ptr [ %first.sroa.0.1.i4821, %if.end.i4820 ], [ %this.val.i4807, %while.cond.preheader.i4809 ]
-  %mValue.i.i4815 = getelementptr inbounds %"struct.eastl::ListNode.73", ptr %first.sroa.0.09.i4814, i64 0, i32 1
-  %mValue.i5.i4816 = getelementptr inbounds %"struct.eastl::ListNode.73", ptr %1835, i64 0, i32 1
+  %mValue.i.i4815 = getelementptr inbounds i8, ptr %first.sroa.0.09.i4814, i64 16
+  %mValue.i5.i4816 = getelementptr inbounds i8, ptr %1835, i64 16
   %call4.val.i4817 = load i32, ptr %mValue.i.i4815, align 4
   %call5.val.i4818 = load i32, ptr %mValue.i5.i4816, align 4
   %cmp.i6.i4819 = icmp eq i32 %call4.val.i4817, %call5.val.i4818
   br i1 %cmp.i6.i4819, label %if.then7.i4823, label %if.end.i4820
 
 if.then7.i4823:                                   ; preds = %while.body.i4813
-  %mpPrev.i.i.i4824 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1835, i64 0, i32 1
+  %mpPrev.i.i.i4824 = getelementptr inbounds i8, ptr %1835, i64 8
   %1836 = load ptr, ptr %mpPrev.i.i.i4824, align 8
   %1837 = load ptr, ptr %1835, align 8
-  %mpPrev2.i.i.i4825 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1837, i64 0, i32 1
+  %mpPrev2.i.i.i4825 = getelementptr inbounds i8, ptr %1837, i64 8
   store ptr %1836, ptr %mpPrev2.i.i.i4825, align 8
   %1838 = load ptr, ptr %1835, align 8
   store ptr %1838, ptr %1836, align 8
@@ -23770,8 +23759,8 @@ land.rhs.i4834:                                   ; preds = %while.cond.preheade
   %ia.sroa.0.04.i4835 = phi ptr [ %ia.sroa.0.0.i4845, %while.body.i4844 ], [ %ia.sroa.0.01.i4831, %while.cond.preheader.i4830 ]
   %ib.sroa.0.03.i4836.in = phi ptr [ %ib.sroa.0.03.i4836, %while.body.i4844 ], [ %ref2103, %while.cond.preheader.i4830 ]
   %ib.sroa.0.03.i4836 = load ptr, ptr %ib.sroa.0.03.i4836.in, align 8
-  %mValue.i.i4837 = getelementptr inbounds %"struct.eastl::ListNode.73", ptr %ia.sroa.0.04.i4835, i64 0, i32 1
-  %mValue.i9.i4838 = getelementptr inbounds %"struct.eastl::ListNode.73", ptr %ib.sroa.0.03.i4836, i64 0, i32 1
+  %mValue.i.i4837 = getelementptr inbounds i8, ptr %ia.sroa.0.04.i4835, i64 16
+  %mValue.i9.i4838 = getelementptr inbounds i8, ptr %ib.sroa.0.03.i4836, i64 16
   %call8.val.i4839 = load i32, ptr %mValue.i.i4837, align 4
   %call9.val.i4840 = load i32, ptr %mValue.i9.i4838, align 4
   %cmp.i10.not.i = icmp eq i32 %call8.val.i4839, %call9.val.i4840
@@ -23820,7 +23809,7 @@ _ZN5eastl4listIZ8TestListvE1A_1NS_9allocatorEED2Ev.exit4857: ; preds = %_ZN5east
   %1845 = getelementptr inbounds i8, ptr %ref2136, i64 16
   store i64 0, ptr %1845, align 8
   store ptr %ref2136, ptr %ref2136, align 8
-  %mpPrev.i.i.i4858 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref2136, i64 0, i32 1
+  %mpPrev.i.i.i4858 = getelementptr inbounds i8, ptr %ref2136, i64 8
   store ptr %ref2136, ptr %mpPrev.i.i.i4858, align 8
   br label %for.body.i.i4860
 
@@ -23831,12 +23820,12 @@ for.body.i.i4860:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4869:                     ; preds = %for.body.i.i4860
   %first.addr.04.i.i4861.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i4861.idx
-  %mValue.i.i.i.i4870 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4862, i64 0, i32 1
+  %mValue.i.i.i.i4870 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4862, i64 16
   %1846 = load i32, ptr %first.addr.04.i.i4861.ptr, align 4
   store i32 %1846, ptr %mValue.i.i.i.i4870, align 4
   store ptr %ref2136, ptr %call.i.i.i.i.i.i1.i4862, align 8
   %1847 = load ptr, ptr %mpPrev.i.i.i4858, align 8
-  %mpPrev2.i.i.i.i4871 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4862, i64 0, i32 1
+  %mpPrev2.i.i.i.i4871 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4862, i64 8
   store ptr %1847, ptr %mpPrev2.i.i.i.i4871, align 8
   store ptr %call.i.i.i.i.i.i1.i4862, ptr %1847, align 8
   store ptr %call.i.i.i.i.i.i1.i4862, ptr %mpPrev.i.i.i4858, align 8
@@ -23865,7 +23854,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit4875: ; preds
   %1852 = getelementptr inbounds i8, ptr %a2144, i64 16
   store i64 0, ptr %1852, align 8
   store ptr %a2144, ptr %a2144, align 8
-  %mpPrev.i.i.i4876 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a2144, i64 0, i32 1
+  %mpPrev.i.i.i4876 = getelementptr inbounds i8, ptr %a2144, i64 8
   store ptr %a2144, ptr %mpPrev.i.i.i4876, align 8
   br label %for.body.i.i4878
 
@@ -23876,12 +23865,12 @@ for.body.i.i4878:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4887:                     ; preds = %for.body.i.i4878
   %first.addr.04.i.i4879.ptr = getelementptr inbounds i8, ptr @constinit.145, i64 %first.addr.04.i.i4879.idx
-  %mValue.i.i.i.i4888 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i4880, i64 0, i32 1
+  %mValue.i.i.i.i4888 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4880, i64 16
   %1853 = load i32, ptr %first.addr.04.i.i4879.ptr, align 4
   store i32 %1853, ptr %mValue.i.i.i.i4888, align 4
   store ptr %a2144, ptr %call.i.i.i.i.i.i1.i4880, align 8
   %1854 = load ptr, ptr %mpPrev.i.i.i4876, align 8
-  %mpPrev2.i.i.i.i4889 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i4880, i64 0, i32 1
+  %mpPrev2.i.i.i.i4889 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i4880, i64 8
   store ptr %1854, ptr %mpPrev2.i.i.i.i4889, align 8
   store ptr %call.i.i.i.i.i.i1.i4880, ptr %1854, align 8
   store ptr %call.i.i.i.i.i.i1.i4880, ptr %mpPrev.i.i.i4876, align 8
@@ -23937,9 +23926,9 @@ while.cond.i4900:                                 ; preds = %invoke.cont2156, %l
 
 land.rhs.i4905:                                   ; preds = %while.cond.i4900
   %ib.sroa.0.0.i4906 = load ptr, ptr %ib.sroa.0.0.in.i4901, align 8
-  %mValue.i.i4907 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i4903, i64 0, i32 1
+  %mValue.i.i4907 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i4903, i64 16
   %1862 = load i32, ptr %mValue.i.i4907, align 4
-  %mValue.i5.i4908 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i4906, i64 0, i32 1
+  %mValue.i5.i4908 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i4906, i64 16
   %1863 = load i32, ptr %mValue.i5.i4908, align 4
   %cmp10.i4909 = icmp eq i32 %1862, %1863
   br i1 %cmp10.i4909, label %while.cond.i4900, label %while.end.i4910, !llvm.loop !385
@@ -23982,7 +23971,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit4925:     ; preds = %_ZN5eastl9allocator
   %1868 = getelementptr inbounds i8, ptr %ref2163, i64 16
   store i64 0, ptr %1868, align 8
   store ptr %ref2163, ptr %ref2163, align 8
-  %mpPrev.i.i.i4927 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref2163, i64 0, i32 1
+  %mpPrev.i.i.i4927 = getelementptr inbounds i8, ptr %ref2163, i64 8
   store ptr %ref2163, ptr %mpPrev.i.i.i4927, align 8
   br label %for.body.i.i4928
 
@@ -23993,12 +23982,12 @@ for.body.i.i4928:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4936:                     ; preds = %for.body.i.i4928
   %first.addr.04.i.ptr.i4937 = getelementptr inbounds i8, ptr @constinit.146, i64 %first.addr.04.i.idx.i4929
-  %mValue.i.i.i.i4938 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %call.i.i.i.i.i.i3.i4930, i64 0, i32 1
+  %mValue.i.i.i.i4938 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i4930, i64 16
   %1869 = load i32, ptr %first.addr.04.i.ptr.i4937, align 4
   store i32 %1869, ptr %mValue.i.i.i.i4938, align 4
   store ptr %ref2163, ptr %call.i.i.i.i.i.i3.i4930, align 8
   %1870 = load ptr, ptr %mpPrev.i.i.i4927, align 8
-  %mpPrev2.i.i.i.i4939 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i3.i4930, i64 0, i32 1
+  %mpPrev2.i.i.i.i4939 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i4930, i64 8
   store ptr %1870, ptr %mpPrev2.i.i.i.i4939, align 8
   store ptr %call.i.i.i.i.i.i3.i4930, ptr %1870, align 8
   store ptr %call.i.i.i.i.i.i3.i4930, ptr %mpPrev.i.i.i4927, align 8
@@ -24027,7 +24016,7 @@ _ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEEC2ESt16initializer_listIS1_ERKS2_.
   %1875 = getelementptr inbounds i8, ptr %a2171, i64 16
   store i64 0, ptr %1875, align 8
   store ptr %a2171, ptr %a2171, align 8
-  %mpPrev.i.i.i4944 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %a2171, i64 0, i32 1
+  %mpPrev.i.i.i4944 = getelementptr inbounds i8, ptr %a2171, i64 8
   store ptr %a2171, ptr %mpPrev.i.i.i4944, align 8
   br label %for.body.i.i4945
 
@@ -24038,12 +24027,12 @@ for.body.i.i4945:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i4954:                     ; preds = %for.body.i.i4945
   %first.addr.04.i.ptr.i4955 = getelementptr inbounds i8, ptr @constinit.147, i64 %first.addr.04.i.idx.i4946
-  %mValue.i.i.i.i4956 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %call.i.i.i.i.i.i3.i4947, i64 0, i32 1
+  %mValue.i.i.i.i4956 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i4947, i64 16
   %1876 = load i32, ptr %first.addr.04.i.ptr.i4955, align 4
   store i32 %1876, ptr %mValue.i.i.i.i4956, align 4
   store ptr %a2171, ptr %call.i.i.i.i.i.i3.i4947, align 8
   %1877 = load ptr, ptr %mpPrev.i.i.i4944, align 8
-  %mpPrev2.i.i.i.i4957 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i3.i4947, i64 0, i32 1
+  %mpPrev2.i.i.i.i4957 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i3.i4947, i64 8
   store ptr %1877, ptr %mpPrev2.i.i.i.i4957, align 8
   store ptr %call.i.i.i.i.i.i3.i4947, ptr %1877, align 8
   store ptr %call.i.i.i.i.i.i3.i4947, ptr %mpPrev.i.i.i4944, align 8
@@ -24093,8 +24082,8 @@ land.rhs.i4973:                                   ; preds = %while.cond.preheade
   %ia.sroa.0.04.i4974 = phi ptr [ %ia.sroa.0.0.i4985, %while.body.i4984 ], [ %ia.sroa.0.01.i4971, %while.cond.preheader.i4970 ]
   %ib.sroa.0.03.i4975.in = phi ptr [ %ib.sroa.0.03.i4975, %while.body.i4984 ], [ %ref2163, %while.cond.preheader.i4970 ]
   %ib.sroa.0.03.i4975 = load ptr, ptr %ib.sroa.0.03.i4975.in, align 8
-  %mValue.i.i4976 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %ia.sroa.0.04.i4974, i64 0, i32 1
-  %mValue.i9.i4977 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %ib.sroa.0.03.i4975, i64 0, i32 1
+  %mValue.i.i4976 = getelementptr inbounds i8, ptr %ia.sroa.0.04.i4974, i64 16
+  %mValue.i9.i4977 = getelementptr inbounds i8, ptr %ib.sroa.0.03.i4975, i64 16
   %call8.val.i4978 = load i32, ptr %mValue.i.i4976, align 4
   %call9.val.i4979 = load i32, ptr %mValue.i9.i4977, align 4
   %cmp.i10.i4980 = icmp eq i32 %call8.val.i4978, %call9.val.i4979
@@ -24144,7 +24133,7 @@ _ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEED2Ev.exit4997: ; preds = %_ZN5east
   %1886 = getelementptr inbounds i8, ptr %l2192, i64 16
   store i64 0, ptr %1886, align 8
   store ptr %l2192, ptr %l2192, align 8
-  %mpPrev.i.i.i4998 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %l2192, i64 0, i32 1
+  %mpPrev.i.i.i4998 = getelementptr inbounds i8, ptr %l2192, i64 8
   store ptr %l2192, ptr %mpPrev.i.i.i4998, align 8
   br label %for.body.i.i5000
 
@@ -24155,12 +24144,12 @@ for.body.i.i5000:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i5009:                     ; preds = %for.body.i.i5000
   %first.addr.04.i.i5001.ptr = getelementptr inbounds i8, ptr @constinit.153, i64 %first.addr.04.i.i5001.idx
-  %mValue.i.i.i.i5010 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i5002, i64 0, i32 1
+  %mValue.i.i.i.i5010 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i5002, i64 16
   %1887 = load i32, ptr %first.addr.04.i.i5001.ptr, align 4
   store i32 %1887, ptr %mValue.i.i.i.i5010, align 4
   store ptr %l2192, ptr %call.i.i.i.i.i.i1.i5002, align 8
   %1888 = load ptr, ptr %mpPrev.i.i.i4998, align 8
-  %mpPrev2.i.i.i.i5011 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i5002, i64 0, i32 1
+  %mpPrev2.i.i.i.i5011 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i5002, i64 8
   store ptr %1888, ptr %mpPrev2.i.i.i.i5011, align 8
   store ptr %call.i.i.i.i.i.i1.i5002, ptr %1888, align 8
   store ptr %call.i.i.i.i.i.i1.i5002, ptr %mpPrev.i.i.i4998, align 8
@@ -24193,19 +24182,19 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit5015: ; preds
 while.body.i.i5018:                               ; preds = %_ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit5015, %if.end.i.i
   %numRemoved.08.i.i = phi i64 [ %numRemoved.1.i.i, %if.end.i.i ], [ 0, %_ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit5015 ]
   %current.sroa.0.07.i.i = phi ptr [ %1895, %if.end.i.i ], [ %1893, %_ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit5015 ]
-  %mValue.i.i.i5019 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %current.sroa.0.07.i.i, i64 0, i32 1
+  %mValue.i.i.i5019 = getelementptr inbounds i8, ptr %current.sroa.0.07.i.i, i64 16
   %1894 = load i32, ptr %mValue.i.i.i5019, align 4
   %cmp4.not.i.i = icmp eq i32 %1894, 3
   %1895 = load ptr, ptr %current.sroa.0.07.i.i, align 8
   br i1 %cmp4.not.i.i, label %if.else.i.i5021, label %if.end.i.i
 
 if.else.i.i5021:                                  ; preds = %while.body.i.i5018
-  %mpPrev.i.i5022 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1895, i64 0, i32 1
+  %mpPrev.i.i5022 = getelementptr inbounds i8, ptr %1895, i64 8
   %1896 = load ptr, ptr %mpPrev.i.i5022, align 8
-  %mpPrev.i.i.i.i5023 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1896, i64 0, i32 1
+  %mpPrev.i.i.i.i5023 = getelementptr inbounds i8, ptr %1896, i64 8
   %1897 = load ptr, ptr %mpPrev.i.i.i.i5023, align 8
   %1898 = load ptr, ptr %1896, align 8
-  %mpPrev2.i.i.i.i5024 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1898, i64 0, i32 1
+  %mpPrev2.i.i.i.i5024 = getelementptr inbounds i8, ptr %1898, i64 8
   store ptr %1897, ptr %mpPrev2.i.i.i.i5024, align 8
   %1899 = load ptr, ptr %1896, align 8
   store ptr %1899, ptr %1897, align 8
@@ -24235,19 +24224,19 @@ invoke.cont2205:                                  ; preds = %invoke.cont2202
 while.body.i.i5030:                               ; preds = %invoke.cont2205, %if.end.i.i5035
   %numRemoved.08.i.i5031 = phi i64 [ %numRemoved.1.i.i5036, %if.end.i.i5035 ], [ 0, %invoke.cont2205 ]
   %current.sroa.0.07.i.i5032 = phi ptr [ %1903, %if.end.i.i5035 ], [ %1901, %invoke.cont2205 ]
-  %mValue.i.i.i5033 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %current.sroa.0.07.i.i5032, i64 0, i32 1
+  %mValue.i.i.i5033 = getelementptr inbounds i8, ptr %current.sroa.0.07.i.i5032, i64 16
   %1902 = load i32, ptr %mValue.i.i.i5033, align 4
   %cmp4.not.i.i5034 = icmp eq i32 %1902, 5
   %1903 = load ptr, ptr %current.sroa.0.07.i.i5032, align 8
   br i1 %cmp4.not.i.i5034, label %if.else.i.i5039, label %if.end.i.i5035
 
 if.else.i.i5039:                                  ; preds = %while.body.i.i5030
-  %mpPrev.i.i5040 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1903, i64 0, i32 1
+  %mpPrev.i.i5040 = getelementptr inbounds i8, ptr %1903, i64 8
   %1904 = load ptr, ptr %mpPrev.i.i5040, align 8
-  %mpPrev.i.i.i.i5041 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1904, i64 0, i32 1
+  %mpPrev.i.i.i.i5041 = getelementptr inbounds i8, ptr %1904, i64 8
   %1905 = load ptr, ptr %mpPrev.i.i.i.i5041, align 8
   %1906 = load ptr, ptr %1904, align 8
-  %mpPrev2.i.i.i.i5042 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1906, i64 0, i32 1
+  %mpPrev2.i.i.i.i5042 = getelementptr inbounds i8, ptr %1906, i64 8
   store ptr %1905, ptr %mpPrev2.i.i.i.i5042, align 8
   %1907 = load ptr, ptr %1904, align 8
   store ptr %1907, ptr %1905, align 8
@@ -24277,19 +24266,19 @@ invoke.cont2211:                                  ; preds = %invoke.cont2208
 while.body.i.i5049:                               ; preds = %invoke.cont2211, %if.end.i.i5054
   %numRemoved.08.i.i5050 = phi i64 [ %numRemoved.1.i.i5055, %if.end.i.i5054 ], [ 0, %invoke.cont2211 ]
   %current.sroa.0.07.i.i5051 = phi ptr [ %1911, %if.end.i.i5054 ], [ %1909, %invoke.cont2211 ]
-  %mValue.i.i.i5052 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %current.sroa.0.07.i.i5051, i64 0, i32 1
+  %mValue.i.i.i5052 = getelementptr inbounds i8, ptr %current.sroa.0.07.i.i5051, i64 16
   %1910 = load i32, ptr %mValue.i.i.i5052, align 4
   %cmp4.not.i.i5053 = icmp eq i32 %1910, 7
   %1911 = load ptr, ptr %current.sroa.0.07.i.i5051, align 8
   br i1 %cmp4.not.i.i5053, label %if.else.i.i5058, label %if.end.i.i5054
 
 if.else.i.i5058:                                  ; preds = %while.body.i.i5049
-  %mpPrev.i.i5059 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1911, i64 0, i32 1
+  %mpPrev.i.i5059 = getelementptr inbounds i8, ptr %1911, i64 8
   %1912 = load ptr, ptr %mpPrev.i.i5059, align 8
-  %mpPrev.i.i.i.i5060 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1912, i64 0, i32 1
+  %mpPrev.i.i.i.i5060 = getelementptr inbounds i8, ptr %1912, i64 8
   %1913 = load ptr, ptr %mpPrev.i.i.i.i5060, align 8
   %1914 = load ptr, ptr %1912, align 8
-  %mpPrev2.i.i.i.i5061 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1914, i64 0, i32 1
+  %mpPrev2.i.i.i.i5061 = getelementptr inbounds i8, ptr %1914, i64 8
   store ptr %1913, ptr %mpPrev2.i.i.i.i5061, align 8
   %1915 = load ptr, ptr %1912, align 8
   store ptr %1915, ptr %1913, align 8
@@ -24315,7 +24304,7 @@ invoke.cont2217:                                  ; preds = %invoke.cont2214
   %1917 = getelementptr inbounds i8, ptr %ref.tmp2219, i64 16
   store i64 0, ptr %1917, align 8
   store ptr %ref.tmp2219, ptr %ref.tmp2219, align 8
-  %mpPrev.i.i.i5065 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref.tmp2219, i64 0, i32 1
+  %mpPrev.i.i.i5065 = getelementptr inbounds i8, ptr %ref.tmp2219, i64 8
   store ptr %ref.tmp2219, ptr %mpPrev.i.i.i5065, align 8
   br label %for.body.i.i5067
 
@@ -24326,12 +24315,12 @@ for.body.i.i5067:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i5076:                     ; preds = %for.body.i.i5067
   %first.addr.04.i.i5068.ptr = getelementptr inbounds i8, ptr @constinit.151, i64 %first.addr.04.i.i5068.idx
-  %mValue.i.i.i.i5077 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i5069, i64 0, i32 1
+  %mValue.i.i.i.i5077 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i5069, i64 16
   %1918 = load i32, ptr %first.addr.04.i.i5068.ptr, align 4
   store i32 %1918, ptr %mValue.i.i.i.i5077, align 4
   store ptr %ref.tmp2219, ptr %call.i.i.i.i.i.i1.i5069, align 8
   %1919 = load ptr, ptr %mpPrev.i.i.i5065, align 8
-  %mpPrev2.i.i.i.i5078 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i5069, i64 0, i32 1
+  %mpPrev2.i.i.i.i5078 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i5069, i64 8
   store ptr %1919, ptr %mpPrev2.i.i.i.i5078, align 8
   store ptr %call.i.i.i.i.i.i1.i5069, ptr %1919, align 8
   store ptr %call.i.i.i.i.i.i1.i5069, ptr %mpPrev.i.i.i5065, align 8
@@ -24370,9 +24359,9 @@ while.cond.i5088:                                 ; preds = %invoke.cont2228, %l
 
 land.rhs.i5093:                                   ; preds = %while.cond.i5088
   %ib.sroa.0.0.i5094 = load ptr, ptr %ib.sroa.0.0.in.i5089, align 8
-  %mValue.i.i5095 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i5091, i64 0, i32 1
+  %mValue.i.i5095 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i5091, i64 16
   %1925 = load i32, ptr %mValue.i.i5095, align 4
-  %mValue.i5.i5096 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i5094, i64 0, i32 1
+  %mValue.i5.i5096 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i5094, i64 16
   %1926 = load i32, ptr %mValue.i5.i5096, align 4
   %cmp10.i5097 = icmp eq i32 %1925, %1926
   br i1 %cmp10.i5097, label %while.cond.i5088, label %while.end.i5098, !llvm.loop !385
@@ -24415,7 +24404,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit5113:     ; preds = %_ZN5eastl9allocator
   %1931 = getelementptr inbounds i8, ptr %l2236, i64 16
   store i64 0, ptr %1931, align 8
   store ptr %l2236, ptr %l2236, align 8
-  %mpPrev.i.i.i5114 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %l2236, i64 0, i32 1
+  %mpPrev.i.i.i5114 = getelementptr inbounds i8, ptr %l2236, i64 8
   store ptr %l2236, ptr %mpPrev.i.i.i5114, align 8
   br label %for.body.i.i5116
 
@@ -24426,12 +24415,12 @@ for.body.i.i5116:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i5125:                     ; preds = %for.body.i.i5116
   %first.addr.04.i.i5117.ptr = getelementptr inbounds i8, ptr @constinit.153, i64 %first.addr.04.i.i5117.idx
-  %mValue.i.i.i.i5126 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i5118, i64 0, i32 1
+  %mValue.i.i.i.i5126 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i5118, i64 16
   %1932 = load i32, ptr %first.addr.04.i.i5117.ptr, align 4
   store i32 %1932, ptr %mValue.i.i.i.i5126, align 4
   store ptr %l2236, ptr %call.i.i.i.i.i.i1.i5118, align 8
   %1933 = load ptr, ptr %mpPrev.i.i.i5114, align 8
-  %mpPrev2.i.i.i.i5127 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i5118, i64 0, i32 1
+  %mpPrev2.i.i.i.i5127 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i5118, i64 8
   store ptr %1933, ptr %mpPrev2.i.i.i.i5127, align 8
   store ptr %call.i.i.i.i.i.i1.i5118, ptr %1933, align 8
   store ptr %call.i.i.i.i.i.i1.i5118, ptr %mpPrev.i.i.i5114, align 8
@@ -24465,16 +24454,16 @@ for.body.i.i5134:                                 ; preds = %_ZN5eastl4listIiNS_
   %numRemoved.08.i.i5135 = phi i64 [ %numRemoved.1.i.i5138, %if.end.i.i5137 ], [ 0, %_ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit5131 ]
   %first.sroa.0.07.i.i = phi ptr [ %1939, %if.end.i.i5137 ], [ %1938, %_ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit5131 ]
   %1939 = load ptr, ptr %first.sroa.0.07.i.i, align 8
-  %mValue.i.i5136 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first.sroa.0.07.i.i, i64 0, i32 1
+  %mValue.i.i5136 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 16
   %1940 = load i32, ptr %mValue.i.i5136, align 8
   %1941 = and i32 %1940, 1
   %cmp.i2.i.i = icmp eq i32 %1941, 0
   br i1 %cmp.i2.i.i, label %if.then.i.i5141, label %if.end.i.i5137
 
 if.then.i.i5141:                                  ; preds = %for.body.i.i5134
-  %mpPrev.i.i.i.i5142 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %first.sroa.0.07.i.i, i64 0, i32 1
+  %mpPrev.i.i.i.i5142 = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i, i64 8
   %1942 = load ptr, ptr %mpPrev.i.i.i.i5142, align 8
-  %mpPrev2.i.i.i.i5143 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1939, i64 0, i32 1
+  %mpPrev2.i.i.i.i5143 = getelementptr inbounds i8, ptr %1939, i64 8
   store ptr %1942, ptr %mpPrev2.i.i.i.i5143, align 8
   %1943 = load ptr, ptr %first.sroa.0.07.i.i, align 8
   store ptr %1943, ptr %1942, align 8
@@ -24495,7 +24484,7 @@ invoke.cont2247:                                  ; preds = %if.end.i.i5137, %_Z
   %1945 = getelementptr inbounds i8, ptr %ref.tmp2249, i64 16
   store i64 0, ptr %1945, align 8
   store ptr %ref.tmp2249, ptr %ref.tmp2249, align 8
-  %mpPrev.i.i.i5146 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ref.tmp2249, i64 0, i32 1
+  %mpPrev.i.i.i5146 = getelementptr inbounds i8, ptr %ref.tmp2249, i64 8
   store ptr %ref.tmp2249, ptr %mpPrev.i.i.i5146, align 8
   br label %for.body.i.i5148
 
@@ -24506,12 +24495,12 @@ for.body.i.i5148:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i5157:                     ; preds = %for.body.i.i5148
   %first.addr.04.i.i5149.ptr = getelementptr inbounds i8, ptr @constinit.154, i64 %first.addr.04.i.i5149.idx
-  %mValue.i.i.i.i5158 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i5150, i64 0, i32 1
+  %mValue.i.i.i.i5158 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i5150, i64 16
   %1946 = load i32, ptr %first.addr.04.i.i5149.ptr, align 4
   store i32 %1946, ptr %mValue.i.i.i.i5158, align 4
   store ptr %ref.tmp2249, ptr %call.i.i.i.i.i.i1.i5150, align 8
   %1947 = load ptr, ptr %mpPrev.i.i.i5146, align 8
-  %mpPrev2.i.i.i.i5159 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i5150, i64 0, i32 1
+  %mpPrev2.i.i.i.i5159 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i5150, i64 8
   store ptr %1947, ptr %mpPrev2.i.i.i.i5159, align 8
   store ptr %call.i.i.i.i.i.i1.i5150, ptr %1947, align 8
   store ptr %call.i.i.i.i.i.i1.i5150, ptr %mpPrev.i.i.i5146, align 8
@@ -24550,9 +24539,9 @@ while.cond.i5169:                                 ; preds = %invoke.cont2258, %l
 
 land.rhs.i5174:                                   ; preds = %while.cond.i5169
   %ib.sroa.0.0.i5175 = load ptr, ptr %ib.sroa.0.0.in.i5170, align 8
-  %mValue.i.i5176 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i5172, i64 0, i32 1
+  %mValue.i.i5176 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i5172, i64 16
   %1953 = load i32, ptr %mValue.i.i5176, align 4
-  %mValue.i5.i5177 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i5175, i64 0, i32 1
+  %mValue.i5.i5177 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i5175, i64 16
   %1954 = load i32, ptr %mValue.i5.i5177, align 4
   %cmp10.i5178 = icmp eq i32 %1953, %1954
   br i1 %cmp10.i5178, label %while.cond.i5169, label %while.end.i5179, !llvm.loop !385
@@ -24600,7 +24589,7 @@ _ZN5eastl4listIiNS_9allocatorEED2Ev.exit5194:     ; preds = %_ZN5eastl9allocator
   %1959 = getelementptr inbounds i8, ptr %list1, i64 16
   store i64 0, ptr %1959, align 8
   store ptr %list1, ptr %list1, align 8
-  %mpPrev.i.i.i5195 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %list1, i64 0, i32 1
+  %mpPrev.i.i.i5195 = getelementptr inbounds i8, ptr %list1, i64 8
   store ptr %list1, ptr %mpPrev.i.i.i5195, align 8
   br label %for.body.i.i5197
 
@@ -24611,12 +24600,12 @@ for.body.i.i5197:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i5206:                     ; preds = %for.body.i.i5197
   %first.addr.04.i.i5198.ptr = getelementptr inbounds i8, ptr @constinit.157, i64 %first.addr.04.i.i5198.idx
-  %mValue.i.i.i.i5207 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i5199, i64 0, i32 1
+  %mValue.i.i.i.i5207 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i5199, i64 16
   %1960 = load i32, ptr %first.addr.04.i.i5198.ptr, align 4
   store i32 %1960, ptr %mValue.i.i.i.i5207, align 4
   store ptr %list1, ptr %call.i.i.i.i.i.i1.i5199, align 8
   %1961 = load ptr, ptr %mpPrev.i.i.i5195, align 8
-  %mpPrev2.i.i.i.i5208 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i5199, i64 0, i32 1
+  %mpPrev2.i.i.i.i5208 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i5199, i64 8
   store ptr %1961, ptr %mpPrev2.i.i.i.i5208, align 8
   store ptr %call.i.i.i.i.i.i1.i5199, ptr %1961, align 8
   store ptr %call.i.i.i.i.i.i1.i5199, ptr %mpPrev.i.i.i5195, align 8
@@ -24645,7 +24634,7 @@ _ZN5eastl4listIiNS_9allocatorEEC2ESt16initializer_listIiERKS1_.exit5212: ; preds
   %1966 = getelementptr inbounds i8, ptr %list2, i64 16
   store i64 0, ptr %1966, align 8
   store ptr %list2, ptr %list2, align 8
-  %mpPrev.i.i.i5213 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %list2, i64 0, i32 1
+  %mpPrev.i.i.i5213 = getelementptr inbounds i8, ptr %list2, i64 8
   store ptr %list2, ptr %mpPrev.i.i.i5213, align 8
   br label %for.body.i.i5215
 
@@ -24656,12 +24645,12 @@ for.body.i.i5215:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i5224:                     ; preds = %for.body.i.i5215
   %first.addr.04.i.i5216.ptr = getelementptr inbounds i8, ptr @constinit.158, i64 %first.addr.04.i.i5216.idx
-  %mValue.i.i.i.i5225 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i5217, i64 0, i32 1
+  %mValue.i.i.i.i5225 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i5217, i64 16
   %1967 = load i32, ptr %first.addr.04.i.i5216.ptr, align 4
   store i32 %1967, ptr %mValue.i.i.i.i5225, align 4
   store ptr %list2, ptr %call.i.i.i.i.i.i1.i5217, align 8
   %1968 = load ptr, ptr %mpPrev.i.i.i5213, align 8
-  %mpPrev2.i.i.i.i5226 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i5217, i64 0, i32 1
+  %mpPrev2.i.i.i.i5226 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i5217, i64 8
   store ptr %1968, ptr %mpPrev2.i.i.i.i5226, align 8
   store ptr %call.i.i.i.i.i.i1.i5217, ptr %1968, align 8
   store ptr %call.i.i.i.i.i.i1.i5217, ptr %mpPrev.i.i.i5213, align 8
@@ -24691,7 +24680,7 @@ invoke.cont2285:                                  ; preds = %call.i.i.i.i.i.i.no
   %1973 = getelementptr inbounds i8, ptr %list3, i64 16
   store i64 0, ptr %1973, align 8
   store ptr %list3, ptr %list3, align 8
-  %mpPrev.i.i.i5232 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %list3, i64 0, i32 1
+  %mpPrev.i.i.i5232 = getelementptr inbounds i8, ptr %list3, i64 8
   store ptr %list3, ptr %mpPrev.i.i.i5232, align 8
   br label %for.body.i.i5234
 
@@ -24702,12 +24691,12 @@ for.body.i.i5234:                                 ; preds = %call.i.i.i.i.i.i.no
 
 call.i.i.i.i.i.i.noexc.i5243:                     ; preds = %for.body.i.i5234
   %first.addr.04.i.i5235.ptr = getelementptr inbounds i8, ptr %ref.tmp2287, i64 %first.addr.04.i.i5235.idx
-  %mValue.i.i.i.i5244 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %call.i.i.i.i.i.i1.i5236, i64 0, i32 1
+  %mValue.i.i.i.i5244 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i5236, i64 16
   %1974 = load i32, ptr %first.addr.04.i.i5235.ptr, align 4
   store i32 %1974, ptr %mValue.i.i.i.i5244, align 4
   store ptr %list3, ptr %call.i.i.i.i.i.i1.i5236, align 8
   %1975 = load ptr, ptr %mpPrev.i.i.i5232, align 8
-  %mpPrev2.i.i.i.i5245 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %call.i.i.i.i.i.i1.i5236, i64 0, i32 1
+  %mpPrev2.i.i.i.i5245 = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i1.i5236, i64 8
   store ptr %1975, ptr %mpPrev2.i.i.i.i5245, align 8
   store ptr %call.i.i.i.i.i.i1.i5236, ptr %1975, align 8
   store ptr %call.i.i.i.i.i.i1.i5236, ptr %mpPrev.i.i.i5232, align 8
@@ -24741,9 +24730,9 @@ while.cond.i5255:                                 ; preds = %call.i.i.i.i.i.i.no
 
 land.rhs.i5260:                                   ; preds = %while.cond.i5255
   %ib.sroa.0.0.i5261 = load ptr, ptr %ib.sroa.0.0.in.i5256, align 8
-  %mValue.i.i5262 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i5258, i64 0, i32 1
+  %mValue.i.i5262 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i5258, i64 16
   %1980 = load i32, ptr %mValue.i.i5262, align 4
-  %mValue.i5.i5263 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i5261, i64 0, i32 1
+  %mValue.i5.i5263 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i5261, i64 16
   %1981 = load i32, ptr %mValue.i5.i5263, align 4
   %cmp10.i5264 = icmp eq i32 %1980, %1981
   br i1 %cmp10.i5264, label %while.cond.i5255, label %_ZN5eastleqIiNS_9allocatorEEEbRKNS_4listIT_T0_EES7_.exit5268, !llvm.loop !385
@@ -24763,9 +24752,9 @@ while.cond.i.i5273:                               ; preds = %_ZN5eastleqIiNS_9al
 
 land.rhs.i.i5278:                                 ; preds = %while.cond.i.i5273
   %ib.sroa.0.0.i.i5279 = load ptr, ptr %ib.sroa.0.0.in.i.i5274, align 8
-  %mValue.i.i.i5280 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i.i5276, i64 0, i32 1
+  %mValue.i.i.i5280 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i.i5276, i64 16
   %1982 = load i32, ptr %mValue.i.i.i5280, align 4
-  %mValue.i5.i.i5281 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i.i5279, i64 0, i32 1
+  %mValue.i5.i.i5281 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i.i5279, i64 16
   %1983 = load i32, ptr %mValue.i5.i.i5281, align 4
   %cmp10.i.i5282 = icmp eq i32 %1982, %1983
   br i1 %cmp10.i.i5282, label %while.cond.i.i5273, label %_ZN5eastlneIiNS_9allocatorEEEbRKNS_4listIT_T0_EES7_.exit5286, !llvm.loop !385
@@ -24791,9 +24780,9 @@ while.cond.i.i5291:                               ; preds = %invoke.cont2307, %l
 
 land.rhs.i.i5296:                                 ; preds = %while.cond.i.i5291
   %ib.sroa.0.0.i.i5297 = load ptr, ptr %ib.sroa.0.0.in.i.i5292, align 8
-  %mValue.i.i.i5298 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i.i5294, i64 0, i32 1
+  %mValue.i.i.i5298 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i.i5294, i64 16
   %1986 = load i32, ptr %mValue.i.i.i5298, align 4
-  %mValue.i5.i.i5299 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i.i5297, i64 0, i32 1
+  %mValue.i5.i.i5299 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i.i5297, i64 16
   %1987 = load i32, ptr %mValue.i5.i.i5299, align 4
   %cmp10.i.i5300 = icmp eq i32 %1986, %1987
   br i1 %cmp10.i.i5300, label %while.cond.i.i5291, label %while.end.i.i5301, !llvm.loop !385
@@ -24823,9 +24812,9 @@ while.cond.i.i5309:                               ; preds = %invoke.cont2311, %l
 
 land.rhs.i.i5314:                                 ; preds = %while.cond.i.i5309
   %ib.sroa.0.0.i.i5315 = load ptr, ptr %ib.sroa.0.0.in.i.i5310, align 8
-  %mValue.i.i.i5316 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i.i5312, i64 0, i32 1
+  %mValue.i.i.i5316 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i.i5312, i64 16
   %1990 = load i32, ptr %mValue.i.i.i5316, align 4
-  %mValue.i5.i.i5317 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i.i5315, i64 0, i32 1
+  %mValue.i5.i.i5317 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i.i5315, i64 16
   %1991 = load i32, ptr %mValue.i5.i.i5317, align 4
   %cmp10.i.i5318 = icmp eq i32 %1990, %1991
   br i1 %cmp10.i.i5318, label %while.cond.i.i5309, label %while.end.i.i5319, !llvm.loop !385
@@ -24855,9 +24844,9 @@ while.cond.i.i5327:                               ; preds = %invoke.cont2315, %l
 
 land.rhs.i.i5332:                                 ; preds = %while.cond.i.i5327
   %ib.sroa.0.0.i.i5333 = load ptr, ptr %ib.sroa.0.0.in.i.i5328, align 8
-  %mValue.i.i.i5334 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ia.sroa.0.0.i.i5330, i64 0, i32 1
+  %mValue.i.i.i5334 = getelementptr inbounds i8, ptr %ia.sroa.0.0.i.i5330, i64 16
   %1994 = load i32, ptr %mValue.i.i.i5334, align 4
-  %mValue.i5.i.i5335 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %ib.sroa.0.0.i.i5333, i64 0, i32 1
+  %mValue.i5.i.i5335 = getelementptr inbounds i8, ptr %ib.sroa.0.0.i.i5333, i64 16
   %1995 = load i32, ptr %mValue.i5.i.i5335, align 4
   %cmp10.i.i5336 = icmp eq i32 %1994, %1995
   br i1 %cmp10.i.i5336, label %while.cond.i.i5327, label %while.end.i.i5337, !llvm.loop !385
@@ -24883,9 +24872,9 @@ invoke.cont2319:                                  ; preds = %_ZN5eastlneIiNS_9al
 for.body.i.i5344:                                 ; preds = %invoke.cont2319, %for.inc.i.i
   %first1.sroa.0.023.i.i = phi ptr [ %2000, %for.inc.i.i ], [ %1996, %invoke.cont2319 ]
   %first2.sroa.0.022.i.i = phi ptr [ %2001, %for.inc.i.i ], [ %1997, %invoke.cont2319 ]
-  %mValue.i.i.i5345 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first1.sroa.0.023.i.i, i64 0, i32 1
+  %mValue.i.i.i5345 = getelementptr inbounds i8, ptr %first1.sroa.0.023.i.i, i64 16
   %1998 = load i32, ptr %mValue.i.i.i5345, align 4
-  %mValue.i2.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first2.sroa.0.022.i.i, i64 0, i32 1
+  %mValue.i2.i.i = getelementptr inbounds i8, ptr %first2.sroa.0.022.i.i, i64 16
   %1999 = load i32, ptr %mValue.i2.i.i, align 4
   %or.cond.not = icmp eq i32 %1999, %1998
   br i1 %or.cond.not, label %for.inc.i.i, label %invoke.cont2321.loopexit
@@ -24926,9 +24915,9 @@ invoke.cont2323:                                  ; preds = %invoke.cont2321
 for.body.i.i.i5350:                               ; preds = %invoke.cont2323, %for.inc.i.i.i
   %first1.sroa.0.023.i.i.i = phi ptr [ %2006, %for.inc.i.i.i ], [ %2002, %invoke.cont2323 ]
   %first2.sroa.0.022.i.i.i = phi ptr [ %2007, %for.inc.i.i.i ], [ %2003, %invoke.cont2323 ]
-  %mValue.i.i.i.i5351 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first1.sroa.0.023.i.i.i, i64 0, i32 1
+  %mValue.i.i.i.i5351 = getelementptr inbounds i8, ptr %first1.sroa.0.023.i.i.i, i64 16
   %2004 = load i32, ptr %mValue.i.i.i.i5351, align 4
-  %mValue.i2.i.i.i = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first2.sroa.0.022.i.i.i, i64 0, i32 1
+  %mValue.i2.i.i.i = getelementptr inbounds i8, ptr %first2.sroa.0.022.i.i.i, i64 16
   %2005 = load i32, ptr %mValue.i2.i.i.i, align 4
   %or.cond6939.not = icmp eq i32 %2004, %2005
   br i1 %or.cond6939.not, label %for.inc.i.i.i, label %invoke.cont2325.loopexit
@@ -24969,9 +24958,9 @@ invoke.cont2327:                                  ; preds = %invoke.cont2325
 for.body.i.i.i5363:                               ; preds = %invoke.cont2327, %for.inc.i.i.i5371
   %first1.sroa.0.023.i.i.i5364 = phi ptr [ %2012, %for.inc.i.i.i5371 ], [ %2008, %invoke.cont2327 ]
   %first2.sroa.0.022.i.i.i5365 = phi ptr [ %2013, %for.inc.i.i.i5371 ], [ %2009, %invoke.cont2327 ]
-  %mValue.i.i.i.i5366 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first1.sroa.0.023.i.i.i5364, i64 0, i32 1
+  %mValue.i.i.i.i5366 = getelementptr inbounds i8, ptr %first1.sroa.0.023.i.i.i5364, i64 16
   %2010 = load i32, ptr %mValue.i.i.i.i5366, align 4
-  %mValue.i2.i.i.i5367 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first2.sroa.0.022.i.i.i5365, i64 0, i32 1
+  %mValue.i2.i.i.i5367 = getelementptr inbounds i8, ptr %first2.sroa.0.022.i.i.i5365, i64 16
   %2011 = load i32, ptr %mValue.i2.i.i.i5367, align 4
   %or.cond6940.not = icmp eq i32 %2011, %2010
   br i1 %or.cond6940.not, label %for.inc.i.i.i5371, label %invoke.cont2329.loopexit
@@ -25012,9 +25001,9 @@ invoke.cont2331:                                  ; preds = %invoke.cont2329
 for.body.i.i.i5385:                               ; preds = %invoke.cont2331, %for.inc.i.i.i5393
   %first1.sroa.0.023.i.i.i5386 = phi ptr [ %2018, %for.inc.i.i.i5393 ], [ %2014, %invoke.cont2331 ]
   %first2.sroa.0.022.i.i.i5387 = phi ptr [ %2019, %for.inc.i.i.i5393 ], [ %2015, %invoke.cont2331 ]
-  %mValue.i.i.i.i5388 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first1.sroa.0.023.i.i.i5386, i64 0, i32 1
+  %mValue.i.i.i.i5388 = getelementptr inbounds i8, ptr %first1.sroa.0.023.i.i.i5386, i64 16
   %2016 = load i32, ptr %mValue.i.i.i.i5388, align 4
-  %mValue.i2.i.i.i5389 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first2.sroa.0.022.i.i.i5387, i64 0, i32 1
+  %mValue.i2.i.i.i5389 = getelementptr inbounds i8, ptr %first2.sroa.0.022.i.i.i5387, i64 16
   %2017 = load i32, ptr %mValue.i2.i.i.i5389, align 4
   %or.cond6941.not = icmp eq i32 %2016, %2017
   br i1 %or.cond6941.not, label %for.inc.i.i.i5393, label %invoke.cont2333.loopexit
@@ -25055,9 +25044,9 @@ invoke.cont2335:                                  ; preds = %invoke.cont2333
 for.body.i.i.i5407:                               ; preds = %invoke.cont2335, %for.inc.i.i.i5415
   %first1.sroa.0.023.i.i.i5408 = phi ptr [ %2024, %for.inc.i.i.i5415 ], [ %2020, %invoke.cont2335 ]
   %first2.sroa.0.022.i.i.i5409 = phi ptr [ %2025, %for.inc.i.i.i5415 ], [ %2021, %invoke.cont2335 ]
-  %mValue.i.i.i.i5410 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first1.sroa.0.023.i.i.i5408, i64 0, i32 1
+  %mValue.i.i.i.i5410 = getelementptr inbounds i8, ptr %first1.sroa.0.023.i.i.i5408, i64 16
   %2022 = load i32, ptr %mValue.i.i.i.i5410, align 4
-  %mValue.i2.i.i.i5411 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first2.sroa.0.022.i.i.i5409, i64 0, i32 1
+  %mValue.i2.i.i.i5411 = getelementptr inbounds i8, ptr %first2.sroa.0.022.i.i.i5409, i64 16
   %2023 = load i32, ptr %mValue.i2.i.i.i5411, align 4
   %or.cond6942.not = icmp eq i32 %2023, %2022
   br i1 %or.cond6942.not, label %for.inc.i.i.i5415, label %invoke.cont2337.loopexit
@@ -25098,9 +25087,9 @@ invoke.cont2339:                                  ; preds = %invoke.cont2337
 for.body.i.i.i5430:                               ; preds = %invoke.cont2339, %for.inc.i.i.i5438
   %first1.sroa.0.023.i.i.i5431 = phi ptr [ %2030, %for.inc.i.i.i5438 ], [ %2026, %invoke.cont2339 ]
   %first2.sroa.0.022.i.i.i5432 = phi ptr [ %2031, %for.inc.i.i.i5438 ], [ %2027, %invoke.cont2339 ]
-  %mValue.i.i.i.i5433 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first1.sroa.0.023.i.i.i5431, i64 0, i32 1
+  %mValue.i.i.i.i5433 = getelementptr inbounds i8, ptr %first1.sroa.0.023.i.i.i5431, i64 16
   %2028 = load i32, ptr %mValue.i.i.i.i5433, align 4
-  %mValue.i2.i.i.i5434 = getelementptr inbounds %"struct.eastl::ListNode.9", ptr %first2.sroa.0.022.i.i.i5432, i64 0, i32 1
+  %mValue.i2.i.i.i5434 = getelementptr inbounds i8, ptr %first2.sroa.0.022.i.i.i5432, i64 16
   %2029 = load i32, ptr %mValue.i2.i.i.i5434, align 4
   %or.cond6943.not = icmp eq i32 %2029, %2028
   br i1 %or.cond6943.not, label %for.inc.i.i.i5438, label %invoke.cont2341.loopexit
@@ -26209,7 +26198,7 @@ entry:
   br i1 %cmp.not3.i.i, label %_ZN5eastl8ListBaseIi15MallocAllocatorED2Ev.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %mSecond.i.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.33", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %.noexc.i, %while.body.lr.ph.i.i
@@ -26243,7 +26232,7 @@ entry:
   br i1 %cmp.not3.i, label %invoke.cont, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %mSecond.i.i.i.i = getelementptr inbounds %"class.eastl::compressed_pair_imp.33", ptr %this, i64 0, i32 1
+  %mSecond.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %.noexc, %while.body.lr.ph.i
@@ -26304,31 +26293,31 @@ sw.bb:                                            ; preds = %entry, %entry
 
 sw.bb2:                                           ; preds = %entry
   %0 = load ptr, ptr %end2, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %0, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %mpPrev.i, align 8
   store ptr %1, ptr %end2, align 8
-  %mValue.i = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %1, i64 0, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %1, i64 16
   %i1.val25 = load ptr, ptr %i1, align 8
-  %mValue.i49 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %i1.val25, i64 0, i32 1
+  %mValue.i49 = getelementptr inbounds i8, ptr %i1.val25, i64 16
   %call3.val = load i32, ptr %mValue.i, align 4
   %call4.val = load i32, ptr %mValue.i49, align 4
   %cmp.i = icmp slt i32 %call3.val, %call4.val
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.bb2
-  %mpPrev.i50 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %1, i64 0, i32 1
+  %mpPrev.i50 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i50, align 8
   %3 = load ptr, ptr %1, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %3, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %2, ptr %mpPrev2.i, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %2, align 8
   %5 = load ptr, ptr %end2, align 8
   %6 = load ptr, ptr %i1, align 8
   store ptr %6, ptr %5, align 8
-  %mpPrev.i51 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %6, i64 0, i32 1
+  %mpPrev.i51 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %mpPrev.i51, align 8
-  %mpPrev2.i52 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %5, i64 0, i32 1
+  %mpPrev2.i52 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %7, ptr %mpPrev2.i52, align 8
   store ptr %5, ptr %7, align 8
   store ptr %5, ptr %mpPrev.i51, align 8
@@ -26352,8 +26341,8 @@ for.body:                                         ; preds = %sw.bb8, %for.inc
   %agg.result.val45106 = phi ptr [ %agg.result.val45105, %for.inc ], [ %i1.val20, %sw.bb8 ]
   %agg.result.val = phi ptr [ %agg.result.val103, %for.inc ], [ %i1.val20, %sw.bb8 ]
   %current.sroa.0.097 = phi ptr [ %9, %for.inc ], [ %i1.val32.val, %sw.bb8 ]
-  %mValue.i54 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %current.sroa.0.097, i64 0, i32 1
-  %mValue.i55 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %agg.result.val, i64 0, i32 1
+  %mValue.i54 = getelementptr inbounds i8, ptr %current.sroa.0.097, i64 16
+  %mValue.i55 = getelementptr inbounds i8, ptr %agg.result.val, i64 16
   %call10.val = load i32, ptr %mValue.i54, align 4
   %call11.val = load i32, ptr %mValue.i55, align 4
   %cmp.i56 = icmp slt i32 %call10.val, %call11.val
@@ -26380,16 +26369,16 @@ if.then17:                                        ; preds = %sw.bb8, %for.end
   br label %if.end22
 
 if.else:                                          ; preds = %for.end
-  %mpPrev.i58 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %agg.result.val45105, i64 0, i32 1
+  %mpPrev.i58 = getelementptr inbounds i8, ptr %agg.result.val45105, i64 8
   %10 = load ptr, ptr %mpPrev.i58, align 8
   %11 = load ptr, ptr %agg.result.val45105, align 8
-  %mpPrev2.i59 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %11, i64 0, i32 1
+  %mpPrev2.i59 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %10, ptr %mpPrev2.i59, align 8
   %12 = load ptr, ptr %agg.result.val45105, align 8
   store ptr %12, ptr %10, align 8
   %13 = load ptr, ptr %i1, align 8
   store ptr %13, ptr %agg.result.val45105, align 8
-  %mpPrev.i60 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %13, i64 0, i32 1
+  %mpPrev.i60 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %mpPrev.i60, align 8
   store ptr %14, ptr %mpPrev.i58, align 8
   store ptr %agg.result.val45105, ptr %14, align 8
@@ -26398,31 +26387,31 @@ if.else:                                          ; preds = %for.end
 
 if.end22:                                         ; preds = %if.else, %if.then17
   %15 = load ptr, ptr %end2, align 8
-  %mpPrev.i62 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %15, i64 0, i32 1
+  %mpPrev.i62 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %mpPrev.i62, align 8
   store ptr %16, ptr %end2, align 8
-  %mValue.i63 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %16, i64 0, i32 1
+  %mValue.i63 = getelementptr inbounds i8, ptr %16, i64 16
   %i1.val26 = load ptr, ptr %i1, align 8
-  %mValue.i64 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %i1.val26, i64 0, i32 1
+  %mValue.i64 = getelementptr inbounds i8, ptr %i1.val26, i64 16
   %call24.val = load i32, ptr %mValue.i63, align 4
   %call25.val = load i32, ptr %mValue.i64, align 4
   %cmp.i65 = icmp slt i32 %call24.val, %call25.val
   br i1 %cmp.i65, label %if.then27, label %return
 
 if.then27:                                        ; preds = %if.end22
-  %mpPrev.i66 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %16, i64 0, i32 1
+  %mpPrev.i66 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %mpPrev.i66, align 8
   %18 = load ptr, ptr %16, align 8
-  %mpPrev2.i67 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %18, i64 0, i32 1
+  %mpPrev2.i67 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %17, ptr %mpPrev2.i67, align 8
   %19 = load ptr, ptr %16, align 8
   store ptr %19, ptr %17, align 8
   %20 = load ptr, ptr %end2, align 8
   %21 = load ptr, ptr %i1, align 8
   store ptr %21, ptr %20, align 8
-  %mpPrev.i68 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %21, i64 0, i32 1
+  %mpPrev.i68 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %mpPrev.i68, align 8
-  %mpPrev2.i69 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %20, i64 0, i32 1
+  %mpPrev2.i69 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %22, ptr %mpPrev2.i69, align 8
   store ptr %20, ptr %22, align 8
   store ptr %20, ptr %mpPrev.i68, align 8
@@ -26453,9 +26442,9 @@ _ZN5eastl4nextINS_12ListIteratorIZ8TestListvE1A_2PS2_RS2_EEEET_S6_NS_15iterator_
   %sub = sub i64 %n, %div17
   call fastcc void @"_ZN5eastl4listIZ8TestListvE1A_2NS_9allocatorEE6DoSortIZ8TestListvE3$_8EENS_12ListIteratorIS1_PS1_RS1_EES9_S9_mRT_"(ptr noalias nonnull align 8 %i2, ptr noundef nonnull %agg.tmp34, ptr noundef nonnull %agg.tmp35, i64 noundef %sub)
   %i2.val = load ptr, ptr %i2, align 8
-  %mValue.i70 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %i2.val, i64 0, i32 1
+  %mValue.i70 = getelementptr inbounds i8, ptr %i2.val, i64 16
   %i1.val27 = load ptr, ptr %i1, align 8
-  %mValue.i71 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %i1.val27, i64 0, i32 1
+  %mValue.i71 = getelementptr inbounds i8, ptr %i1.val27, i64 16
   %call36.val = load i32, ptr %mValue.i70, align 4
   %call37.val = load i32, ptr %mValue.i71, align 4
   %cmp.i72 = icmp slt i32 %call36.val, %call37.val
@@ -26473,27 +26462,27 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %cmp.i73.not, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond
-  %mValue.i74 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %ix.sroa.0.0, i64 0, i32 1
+  %mValue.i74 = getelementptr inbounds i8, ptr %ix.sroa.0.0, i64 16
   %call41.val = load i32, ptr %mValue.i74, align 4
   %cmp.i76 = icmp slt i32 %call41.val, %call37.val
   br i1 %cmp.i76, label %while.cond, label %while.end, !llvm.loop !614
 
 while.end:                                        ; preds = %while.cond, %land.rhs
   %ix.sroa.0.0.lcssa = phi ptr [ %end2.val38, %while.cond ], [ %ix.sroa.0.0, %land.rhs ]
-  %mpPrev = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %ix.sroa.0.0.lcssa, i64 8
   %27 = load ptr, ptr %mpPrev, align 8
   store i64 %26, ptr %agg.result, align 8
   %.cast18 = ptrtoint ptr %ix.sroa.0.0.lcssa to i64
   store i64 %.cast18, ptr %i2, align 8
-  %mpPrev.i77 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %i2.val, i64 0, i32 1
+  %mpPrev.i77 = getelementptr inbounds i8, ptr %i2.val, i64 8
   %28 = load ptr, ptr %mpPrev.i77, align 8
   %29 = load ptr, ptr %27, align 8
-  %mpPrev1.i = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %29, i64 0, i32 1
+  %mpPrev1.i = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %28, ptr %mpPrev1.i, align 8
   %30 = load ptr, ptr %27, align 8
   store ptr %30, ptr %28, align 8
   %31 = load ptr, ptr %i1, align 8
-  %mpPrev.i78 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %31, i64 0, i32 1
+  %mpPrev.i78 = getelementptr inbounds i8, ptr %31, i64 8
   %32 = load ptr, ptr %mpPrev.i78, align 8
   store ptr %i2.val, ptr %32, align 8
   %33 = load ptr, ptr %mpPrev.i78, align 8
@@ -26525,8 +26514,8 @@ land.rhs53:                                       ; preds = %if.end49, %for.inc8
   br i1 %cmp.i80.not, label %return, label %for.body56
 
 for.body56:                                       ; preds = %land.rhs53
-  %mValue.i81 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %i2.val41, i64 0, i32 1
-  %mValue.i82 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %storemerge102, i64 0, i32 1
+  %mValue.i81 = getelementptr inbounds i8, ptr %i2.val41, i64 16
+  %mValue.i82 = getelementptr inbounds i8, ptr %storemerge102, i64 16
   %call57.val = load i32, ptr %mValue.i81, align 4
   %call58.val = load i32, ptr %mValue.i82, align 4
   %cmp.i83 = icmp slt i32 %call57.val, %call58.val
@@ -26539,28 +26528,28 @@ while.cond62:                                     ; preds = %for.body56, %land.r
   br i1 %cmp.i84.not, label %while.end71, label %land.rhs64
 
 land.rhs64:                                       ; preds = %while.cond62
-  %mValue.i85 = getelementptr inbounds %"struct.eastl::ListNode.75", ptr %ix61.sroa.0.0, i64 0, i32 1
+  %mValue.i85 = getelementptr inbounds i8, ptr %ix61.sroa.0.0, i64 16
   %call65.val = load i32, ptr %mValue.i85, align 4
   %cmp.i87 = icmp slt i32 %call65.val, %call58.val
   br i1 %cmp.i87, label %while.cond62, label %while.end71, !llvm.loop !615
 
 while.end71:                                      ; preds = %while.cond62, %land.rhs64
   %ix61.sroa.0.0.lcssa = phi ptr [ %end2.val42, %while.cond62 ], [ %ix61.sroa.0.0, %land.rhs64 ]
-  %mpPrev76 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %ix61.sroa.0.0.lcssa, i64 0, i32 1
+  %mpPrev76 = getelementptr inbounds i8, ptr %ix61.sroa.0.0.lcssa, i64 8
   %35 = load ptr, ptr %mpPrev76, align 8
   %cmp.i88 = icmp eq ptr %end1.sroa.0.1101, %i2.val41
   %spec.select = select i1 %cmp.i88, ptr %ix61.sroa.0.0.lcssa, ptr %end1.sroa.0.1101
   %36 = ptrtoint ptr %ix61.sroa.0.0.lcssa to i64
   store i64 %36, ptr %i2, align 8
-  %mpPrev.i89 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %i2.val41, i64 0, i32 1
+  %mpPrev.i89 = getelementptr inbounds i8, ptr %i2.val41, i64 8
   %37 = load ptr, ptr %mpPrev.i89, align 8
   %38 = load ptr, ptr %35, align 8
-  %mpPrev1.i90 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %38, i64 0, i32 1
+  %mpPrev1.i90 = getelementptr inbounds i8, ptr %38, i64 8
   store ptr %37, ptr %mpPrev1.i90, align 8
   %39 = load ptr, ptr %35, align 8
   store ptr %39, ptr %37, align 8
   %40 = load ptr, ptr %i1, align 8
-  %mpPrev.i91 = getelementptr inbounds %"struct.eastl::ListNodeBase", ptr %40, i64 0, i32 1
+  %mpPrev.i91 = getelementptr inbounds i8, ptr %40, i64 8
   %41 = load ptr, ptr %mpPrev.i91, align 8
   store ptr %i2.val41, ptr %41, align 8
   %42 = load ptr, ptr %mpPrev.i91, align 8

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.cache_bin_info_s = type { i16 }
-%struct.cache_bin_s = type { ptr, %struct.cache_bin_stats_s, i16, i16, i16, %struct.cache_bin_info_s }
-%struct.cache_bin_stats_s = type { i64 }
 
 @disabled_bin = hidden constant i64 8825501086245354106, align 8
 @opt_metadata_thp = external local_unnamed_addr global i32, align 4
@@ -95,15 +93,15 @@ entry:
   store ptr %add.ptr3, ptr %bin, align 8
   %2 = ptrtoint ptr %add.ptr3 to i64
   %conv5 = trunc i64 %2 to i16
-  %low_bits_low_water = getelementptr inbounds %struct.cache_bin_s, ptr %bin, i64 0, i32 2
+  %low_bits_low_water = getelementptr inbounds i8, ptr %bin, i64 16
   store i16 %conv5, ptr %low_bits_low_water, align 8
   %3 = ptrtoint ptr %add.ptr to i64
   %conv6 = trunc i64 %3 to i16
-  %low_bits_full = getelementptr inbounds %struct.cache_bin_s, ptr %bin, i64 0, i32 3
+  %low_bits_full = getelementptr inbounds i8, ptr %bin, i64 18
   store i16 %conv6, ptr %low_bits_full, align 2
-  %low_bits_empty = getelementptr inbounds %struct.cache_bin_s, ptr %bin, i64 0, i32 4
+  %low_bits_empty = getelementptr inbounds i8, ptr %bin, i64 20
   store i16 %conv5, ptr %low_bits_empty, align 4
-  %bin_info = getelementptr inbounds %struct.cache_bin_s, ptr %bin, i64 0, i32 5
+  %bin_info = getelementptr inbounds i8, ptr %bin, i64 22
   %4 = load i16, ptr %info, align 2
   store i16 %4, ptr %bin_info, align 2
   ret void
@@ -113,13 +111,13 @@ entry:
 define hidden void @cache_bin_init_disabled(ptr nocapture noundef writeonly %bin, i16 noundef zeroext %ncached_max) local_unnamed_addr #0 {
 entry:
   store ptr @disabled_bin, ptr %bin, align 8
-  %low_bits_low_water.i = getelementptr inbounds %struct.cache_bin_s, ptr %bin, i64 0, i32 2
+  %low_bits_low_water.i = getelementptr inbounds i8, ptr %bin, i64 16
   store i16 ptrtoint (ptr @disabled_bin to i16), ptr %low_bits_low_water.i, align 8
-  %low_bits_full.i = getelementptr inbounds %struct.cache_bin_s, ptr %bin, i64 0, i32 3
+  %low_bits_full.i = getelementptr inbounds i8, ptr %bin, i64 18
   store i16 ptrtoint (ptr @disabled_bin to i16), ptr %low_bits_full.i, align 2
-  %low_bits_empty.i = getelementptr inbounds %struct.cache_bin_s, ptr %bin, i64 0, i32 4
+  %low_bits_empty.i = getelementptr inbounds i8, ptr %bin, i64 20
   store i16 ptrtoint (ptr @disabled_bin to i16), ptr %low_bits_empty.i, align 4
-  %bin_info.i = getelementptr inbounds %struct.cache_bin_s, ptr %bin, i64 0, i32 5
+  %bin_info.i = getelementptr inbounds i8, ptr %bin, i64 22
   store i16 %ncached_max, ptr %bin_info.i, align 2
   ret void
 }

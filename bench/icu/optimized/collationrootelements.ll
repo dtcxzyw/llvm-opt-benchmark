@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/collationrootelements.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::CollationRootElements" = type <{ ptr, i32, [4 x i8] }>
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK6icu_7521CollationRootElements23lastCEWithPrimaryBeforeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
 entry:
@@ -13,9 +11,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %arrayidx.i, align 4
-  %length.i = getelementptr inbounds %"class.icu_75::CollationRootElements", ptr %this, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %length.i, align 8
   %sub.i = add nsw i32 %2, -1
   %add35.i = add nsw i32 %1, 1
@@ -109,7 +107,7 @@ _ZNK6icu_7521CollationRootElements5findPEj.exit:  ; preds = %for.cond20.preheade
   br i1 %cmp2, label %if.then3, label %for.cond23
 
 if.then3:                                         ; preds = %_ZNK6icu_7521CollationRootElements5findPEj.exit
-  %arrayidx6 = getelementptr i32, ptr %arrayidx, i64 -1
+  %arrayidx6 = getelementptr i8, ptr %arrayidx, i64 -4
   %13 = load i32, ptr %arrayidx6, align 4
   %and7 = and i32 %13, 128
   %cmp8 = icmp eq i32 %and7, 0
@@ -166,9 +164,9 @@ return:                                           ; preds = %entry, %if.end32
 define noundef i32 @_ZNK6icu_7521CollationRootElements5findPEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %arrayidx, align 4
-  %length = getelementptr inbounds %"class.icu_75::CollationRootElements", ptr %this, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %length, align 8
   %sub = add nsw i32 %2, -1
   %add35 = add nsw i32 %1, 1
@@ -266,9 +264,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %arrayidx.i, align 4
-  %length.i = getelementptr inbounds %"class.icu_75::CollationRootElements", ptr %this, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %length.i, align 8
   %sub.i = add nsw i32 %2, -1
   %add35.i = add nsw i32 %1, 1
@@ -386,9 +384,9 @@ return:                                           ; preds = %entry, %if.end11
 define noundef i32 @_ZNK6icu_7521CollationRootElements16getPrimaryBeforeEja(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p, i8 noundef signext %isCompressible) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %0, i64 2
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %arrayidx.i.i, align 4
-  %length.i.i = getelementptr inbounds %"class.icu_75::CollationRootElements", ptr %this, i64 0, i32 1
+  %length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %length.i.i, align 8
   %sub.i.i = add nsw i32 %2, -1
   %add35.i.i = add nsw i32 %1, 1
@@ -500,7 +498,7 @@ do.end:                                           ; preds = %do.body
   br label %return
 
 if.else:                                          ; preds = %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit
-  %arrayidx13 = getelementptr i32, ptr %arrayidx, i64 1
+  %arrayidx13 = getelementptr i8, ptr %arrayidx, i64 4
   %14 = load i32, ptr %arrayidx13, align 4
   %and14 = and i32 %14, 127
   br label %if.end15
@@ -528,9 +526,9 @@ return:                                           ; preds = %if.else20, %if.then
 define noundef i32 @_ZNK6icu_7521CollationRootElements11findPrimaryEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %arrayidx.i, align 4
-  %length.i = getelementptr inbounds %"class.icu_75::CollationRootElements", ptr %this, i64 0, i32 1
+  %length.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %length.i, align 8
   %sub.i = add nsw i32 %2, -1
   %add35.i = add nsw i32 %1, 1
@@ -631,7 +629,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %arrayidx, align 4
   %idxprom = sext i32 %1 to i64
   %arrayidx3 = getelementptr inbounds i32, ptr %0, i64 %idxprom
@@ -639,9 +637,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %0, i64 2
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %arrayidx.i.i, align 4
-  %length.i.i = getelementptr inbounds %"class.icu_75::CollationRootElements", ptr %this, i64 0, i32 1
+  %length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %length.i.i, align 8
   %sub.i.i = add nsw i32 %4, -1
   %add35.i.i = add nsw i32 %3, 1
@@ -787,11 +785,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.else8
 
 if.then:                                          ; preds = %entry
-  %cmp2 = icmp ne i32 %s, 0
+  %cmp2 = icmp eq i32 %s, 0
   %0 = load ptr, ptr %this, align 8
-  %previousTer.0 = select i1 %cmp2, i32 256, i32 0
-  %index.0.in.idx = zext i1 %cmp2 to i64
-  %index.0.in = getelementptr inbounds i32, ptr %0, i64 %index.0.in.idx
+  %previousTer.0 = select i1 %cmp2, i32 0, i32 256
+  %index.0.in.idx = select i1 %cmp2, i64 0, i64 4
+  %index.0.in = getelementptr inbounds i8, ptr %0, i64 %index.0.in.idx
   %index.0 = load i32, ptr %index.0.in, align 4
   %idxprom = sext i32 %index.0 to i64
   %arrayidx7 = getelementptr inbounds i32, ptr %0, i64 %idxprom
@@ -801,9 +799,9 @@ if.then:                                          ; preds = %entry
 
 if.else8:                                         ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %2, i64 2
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %arrayidx.i.i, align 4
-  %length.i.i = getelementptr inbounds %"class.icu_75::CollationRootElements", ptr %this, i64 0, i32 1
+  %length.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %length.i.i, align 8
   %sub.i.i = add nsw i32 %4, -1
   %add35.i.i = add nsw i32 %3, 1
@@ -940,7 +938,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = sext i32 %index to i64
   %2 = getelementptr i32, ptr %0, i64 %1
-  %arrayidx = getelementptr i32, ptr %2, i64 1
+  %arrayidx = getelementptr i8, ptr %2, i64 4
   %3 = load i32, ptr %arrayidx, align 4
   %and = and i32 %3, 128
   %cmp = icmp eq i32 %and, 0
@@ -995,7 +993,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i32, ptr %arrayidx, align 4
   %idxprom = sext i32 %1 to i64
   %arrayidx3 = getelementptr inbounds i32, ptr %0, i64 %idxprom
@@ -1005,14 +1003,14 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   %3 = sext i32 %index to i64
   %4 = getelementptr i32, ptr %0, i64 %3
-  %arrayidx.i = getelementptr i32, ptr %4, i64 1
+  %arrayidx.i = getelementptr i8, ptr %4, i64 4
   %5 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %5, 128
   %cmp.i = icmp eq i32 %and.i, 0
   %and2.i = and i32 %5, -129
   %.and2.i = tail call i32 @llvm.umin.i32(i32 %and2.i, i32 83887360)
   %retval.0.i = select i1 %cmp.i, i32 83887360, i32 %.and2.i
-  %arrayidx.i6 = getelementptr inbounds i32, ptr %0, i64 4
+  %arrayidx.i6 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %arrayidx.i6, align 4
   %shr.i = lshr i32 %6, 8
   %and.i7 = and i32 %shr.i, 65280
@@ -1056,8 +1054,8 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.end, label %if.else
 
 if.else:                                          ; preds = %if.then
-  %arrayidx5 = getelementptr inbounds i32, ptr %0, i64 1
-  %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 4
+  %arrayidx5 = getelementptr inbounds i8, ptr %0, i64 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %arrayidx.i, align 4
   %shl.i = shl i32 %1, 8
   %and.i = and i32 %shl.i, 65280
@@ -1077,14 +1075,14 @@ if.else8:                                         ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %4 = sext i32 %index to i64
   %5 = getelementptr i32, ptr %3, i64 %4
-  %arrayidx.i10 = getelementptr i32, ptr %5, i64 1
+  %arrayidx.i10 = getelementptr i8, ptr %5, i64 4
   %6 = load i32, ptr %arrayidx.i10, align 4
   %and.i11 = and i32 %6, 128
   %cmp.i = icmp eq i32 %and.i11, 0
   %and2.i = and i32 %6, -129
   %.and2.i = tail call i32 @llvm.umin.i32(i32 %and2.i, i32 83887360)
   %retval.0.i = select i1 %cmp.i, i32 83887360, i32 %.and2.i
-  %arrayidx.i12 = getelementptr inbounds i32, ptr %3, i64 4
+  %arrayidx.i12 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load i32, ptr %arrayidx.i12, align 4
   %shl.i13 = shl i32 %7, 8
   %and.i14 = and i32 %shl.i13, 65280

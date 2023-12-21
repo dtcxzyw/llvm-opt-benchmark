@@ -78,7 +78,7 @@ entry:
   %Attr = alloca %union.pthread_attr_t, align 8
   %Thread = alloca i64, align 8
   store ptr %Fn, ptr %Info, align 8
-  %UserData1 = getelementptr inbounds %"struct.(anonymous namespace)::ThreadInfo", ptr %Info, i64 0, i32 1
+  %UserData1 = getelementptr inbounds i8, ptr %Info, i64 8
   store ptr %UserData, ptr %UserData1, align 8
   %call = call i32 @pthread_attr_init(ptr noundef nonnull %Attr) #10
   %cmp.not = icmp eq i32 %call, 0
@@ -125,7 +125,7 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 define internal noundef ptr @_ZL24ExecuteOnThread_DispatchPv(ptr nocapture noundef readonly %Arg) #1 {
 entry:
   %0 = load ptr, ptr %Arg, align 8
-  %UserData = getelementptr inbounds %"struct.(anonymous namespace)::ThreadInfo", ptr %Arg, i64 0, i32 1
+  %UserData = getelementptr inbounds i8, ptr %Arg, i64 8
   %1 = load ptr, ptr %UserData, align 8
   tail call void %0(ptr noundef %1) #10
   ret ptr null
@@ -158,9 +158,9 @@ entry:
   %Storage = alloca %"class.llvh::SmallString", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage, i64 12
   store i32 64, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Name, ptr noundef nonnull align 8 dereferenceable(16) %Storage) #10
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -199,7 +199,7 @@ declare i64 @pthread_self() local_unnamed_addr #5
 define hidden void @_ZN4llvh15get_thread_nameERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(16) %Name) local_unnamed_addr #1 {
 entry:
   %Buffer = alloca [16 x i8], align 16
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Name, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %Name, i64 8
   store i32 0, ptr %Size.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %Buffer, i8 0, i64 16, i1 false)
   %call = tail call i64 @pthread_self() #11
@@ -209,7 +209,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Buffer) #12
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Name, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %Name, i64 12
   %0 = load i32, ptr %Capacity.i.i, align 4
   %conv.i.i = zext i32 %0 to i64
   %1 = load i32, ptr %Size.i.i, align 8

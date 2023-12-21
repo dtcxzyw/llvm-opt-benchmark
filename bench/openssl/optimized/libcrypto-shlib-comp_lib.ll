@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-comp_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.comp_method_st = type { i32, ptr, ptr, ptr, ptr, ptr }
-%struct.comp_ctx_st = type { ptr, i64, i64, i64, i64, ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/comp/comp_lib.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -21,7 +18,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   store ptr %meth, ptr %call, align 8
-  %init = getelementptr inbounds %struct.comp_method_st, ptr %meth, i64 0, i32 2
+  %init = getelementptr inbounds i8, ptr %meth, i64 16
   %0 = load ptr, ptr %init, align 8
   %cmp6.not = icmp eq ptr %0, null
   br i1 %cmp6.not, label %return, label %land.lhs.true
@@ -73,7 +70,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.comp_method_st, ptr %meth, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %meth, i64 8
   %0 = load ptr, ptr %name, align 8
   br label %return
 
@@ -90,7 +87,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %ctx, align 8
-  %finish = getelementptr inbounds %struct.comp_method_st, ptr %0, i64 0, i32 3
+  %finish = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %finish, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.end5, label %if.then2
@@ -111,7 +108,7 @@ return:                                           ; preds = %entry, %if.end5
 define i32 @COMP_compress_block(ptr noundef %ctx, ptr noundef %out, i32 noundef %olen, ptr noundef %in, i32 noundef %ilen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %compress = getelementptr inbounds %struct.comp_method_st, ptr %0, i64 0, i32 4
+  %compress = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %compress, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -125,12 +122,12 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.end
-  %compress_in = getelementptr inbounds %struct.comp_ctx_st, ptr %ctx, i64 0, i32 1
+  %compress_in = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load i64, ptr %compress_in, align 8
   %add = add i64 %2, %conv3
   store i64 %add, ptr %compress_in, align 8
   %conv9 = and i64 %call, 4294967295
-  %compress_out = getelementptr inbounds %struct.comp_ctx_st, ptr %ctx, i64 0, i32 2
+  %compress_out = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load i64, ptr %compress_out, align 8
   %add10 = add i64 %3, %conv9
   store i64 %add10, ptr %compress_out, align 8
@@ -145,7 +142,7 @@ return:                                           ; preds = %if.end, %if.then7, 
 define i32 @COMP_expand_block(ptr noundef %ctx, ptr noundef %out, i32 noundef %olen, ptr noundef %in, i32 noundef %ilen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %expand = getelementptr inbounds %struct.comp_method_st, ptr %0, i64 0, i32 5
+  %expand = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %expand, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -159,12 +156,12 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.end
-  %expand_in = getelementptr inbounds %struct.comp_ctx_st, ptr %ctx, i64 0, i32 3
+  %expand_in = getelementptr inbounds i8, ptr %ctx, i64 24
   %2 = load i64, ptr %expand_in, align 8
   %add = add i64 %2, %conv3
   store i64 %add, ptr %expand_in, align 8
   %conv9 = and i64 %call, 4294967295
-  %expand_out = getelementptr inbounds %struct.comp_ctx_st, ptr %ctx, i64 0, i32 4
+  %expand_out = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load i64, ptr %expand_out, align 8
   %add10 = add i64 %3, %conv9
   store i64 %add10, ptr %expand_out, align 8

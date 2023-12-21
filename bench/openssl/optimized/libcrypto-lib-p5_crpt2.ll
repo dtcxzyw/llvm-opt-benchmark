@@ -4,12 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.PBE2PARAM_st = type { ptr, ptr }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.PBKDF2PARAM_st = type { ptr, ptr, ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"PBKDF2\00", align 1
@@ -69,21 +63,21 @@ if.end15:                                         ; preds = %if.end4
   br i1 %cmp17, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end15
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   %conv21 = sext i32 %passlen.addr.0 to i64
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull %pass.addr.0, i64 noundef %conv21) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %incdec.ptr22 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 2
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp23, ptr noundef nonnull @.str.3, ptr noundef nonnull %mode) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp23, i64 40, i1 false)
-  %incdec.ptr24 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 3
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %params, i64 120
   %conv26 = sext i32 %saltlen to i64
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp25, ptr noundef nonnull @.str.4, ptr noundef %spec.select, i64 noundef %conv26) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %incdec.ptr22, ptr noundef nonnull align 8 dereferenceable(40) %tmp25, i64 40, i1 false)
-  %incdec.ptr27 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 4
+  %incdec.ptr27 = getelementptr inbounds i8, ptr %params, i64 160
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp28, ptr noundef nonnull @.str.5, ptr noundef nonnull %iter.addr) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr24, ptr noundef nonnull align 8 dereferenceable(40) %tmp28, i64 40, i1 false)
-  %incdec.ptr29 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 5
+  %incdec.ptr29 = getelementptr inbounds i8, ptr %params, i64 200
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp30, ptr noundef nonnull @.str.6, ptr noundef %call, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %incdec.ptr27, ptr noundef nonnull align 8 dereferenceable(40) %tmp30, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp31) #5
@@ -185,7 +179,7 @@ if.then4:                                         ; preds = %if.end
   br label %err
 
 if.end5:                                          ; preds = %if.end
-  %encryption = getelementptr inbounds %struct.PBE2PARAM_st, ptr %call1, i64 0, i32 1
+  %encryption = getelementptr inbounds i8, ptr %call1, i64 8
   %2 = load ptr, ptr %encryption, align 8
   %3 = load ptr, ptr %2, align 8
   %call7 = call i32 @OBJ_obj2txt(ptr noundef nonnull %ciph_name, i32 noundef 80, ptr noundef %3, i32 noundef 0) #5
@@ -225,7 +219,7 @@ if.end22:                                         ; preds = %if.end10, %if.end18
 
 if.end27:                                         ; preds = %if.end22
   %4 = load ptr, ptr %encryption, align 8
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %4, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %parameter, align 8
   %call29 = call i32 @EVP_CIPHER_asn1_to_param(ptr noundef %ctx, ptr noundef %5) #5
   %cmp30 = icmp slt i32 %call29, 1
@@ -240,7 +234,7 @@ if.then31:                                        ; preds = %if.end27
 if.end32:                                         ; preds = %if.end27
   %6 = load ptr, ptr %kdf, align 8
   %7 = load ptr, ptr %call1, align 8
-  %parameter34 = getelementptr inbounds %struct.X509_algor_st, ptr %7, i64 0, i32 1
+  %parameter34 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %parameter34, align 8
   %call35 = call i32 %6(ptr noundef %ctx, ptr noundef %pass, i32 noundef %passlen, ptr noundef %8, ptr noundef null, ptr noundef null, i32 noundef %en_de, ptr noundef %libctx, ptr noundef %propq) #5
   br label %err
@@ -342,7 +336,7 @@ if.then13:                                        ; preds = %if.end9
   br label %err
 
 if.end14:                                         ; preds = %if.end9
-  %keylength = getelementptr inbounds %struct.PBKDF2PARAM_st, ptr %call5, i64 0, i32 2
+  %keylength = getelementptr inbounds i8, ptr %call5, i64 16
   %0 = load ptr, ptr %keylength, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end21, label %land.lhs.true
@@ -360,7 +354,7 @@ if.then20:                                        ; preds = %land.lhs.true
   br label %err
 
 if.end21:                                         ; preds = %land.lhs.true, %if.end14
-  %prf = getelementptr inbounds %struct.PBKDF2PARAM_st, ptr %call5, i64 0, i32 3
+  %prf = getelementptr inbounds i8, ptr %call5, i64 24
   %1 = load ptr, ptr %prf, align 8
   %tobool22.not = icmp eq ptr %1, null
   br i1 %tobool22.not, label %if.end26, label %if.then23
@@ -419,12 +413,12 @@ if.then49:                                        ; preds = %if.end44
   br label %err
 
 if.end50:                                         ; preds = %if.end44
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %5, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %value, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %7, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %data, align 8
   %9 = load i32, ptr %7, align 8
-  %iter54 = getelementptr inbounds %struct.PBKDF2PARAM_st, ptr %call5, i64 0, i32 1
+  %iter54 = getelementptr inbounds i8, ptr %call5, i64 8
   %10 = load ptr, ptr %iter54, align 8
   %call55 = call i64 @ASN1_INTEGER_get(ptr noundef %10) #5
   %conv56 = trunc i64 %call55 to i32

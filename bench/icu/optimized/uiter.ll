@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.UCharIterator = type { ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.icu_75::CharacterIterator" = type { %"class.icu_75::ForwardCharacterIterator", i32, i32, i32, i32 }
-%"class.icu_75::ForwardCharacterIterator" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
 
 @_ZL14stringIterator = internal unnamed_addr constant %struct.UCharIterator { ptr null, i32 0, i32 0, i32 0, i32 0, i32 0, ptr @_ZL22stringIteratorGetIndexP13UCharIterator19UCharIteratorOrigin, ptr @_ZL18stringIteratorMoveP13UCharIteratori19UCharIteratorOrigin, ptr @_ZL21stringIteratorHasNextP13UCharIterator, ptr @_ZL25stringIteratorHasPreviousP13UCharIterator, ptr @_ZL21stringIteratorCurrentP13UCharIterator, ptr @_ZL18stringIteratorNextP13UCharIterator, ptr @_ZL22stringIteratorPreviousP13UCharIterator, ptr null, ptr @_ZL22stringIteratorGetStatePK13UCharIterator, ptr @_ZL22stringIteratorSetStateP13UCharIteratorjP10UErrorCode }, align 8
 @_ZL12noopIterator = internal unnamed_addr constant %struct.UCharIterator { ptr null, i32 0, i32 0, i32 0, i32 0, i32 0, ptr @_ZL12noopGetIndexP13UCharIterator19UCharIteratorOrigin, ptr @_ZL8noopMoveP13UCharIteratori19UCharIteratorOrigin, ptr @_ZL11noopHasNextP13UCharIterator, ptr @_ZL11noopHasNextP13UCharIterator, ptr @_ZL11noopCurrentP13UCharIterator, ptr @_ZL11noopCurrentP13UCharIterator, ptr @_ZL11noopCurrentP13UCharIterator, ptr null, ptr @_ZL12noopGetStatePK13UCharIterator, ptr @_ZL12noopSetStateP13UCharIteratorjP10UErrorCode }, align 8
@@ -41,9 +38,9 @@ if.else:                                          ; preds = %if.then3
 
 if.end:                                           ; preds = %if.then3, %if.else
   %call.sink = phi i32 [ %call, %if.else ], [ %length, %if.then3 ]
-  %0 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %iter, i64 8
   store i32 %call.sink, ptr %0, align 8
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   store i32 %call.sink, ptr %limit, align 4
   br label %if.end11
 
@@ -122,9 +119,9 @@ while.end.i:                                      ; preds = %land.rhs.i
 
 if.end:                                           ; preds = %while.end.i, %if.then.i, %if.then6
   %retval.0.i.sink = phi i32 [ %shr, %if.then6 ], [ %call.i, %if.then.i ], [ %conv4.i, %while.end.i ]
-  %length10 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 1
+  %length10 = getelementptr inbounds i8, ptr %iter, i64 8
   store i32 %retval.0.i.sink, ptr %length10, align 8
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   store i32 %retval.0.i.sink, ptr %limit, align 4
   br label %if.end14
 
@@ -173,12 +170,12 @@ if.then2:                                         ; preds = %if.then
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %iter, ptr noundef nonnull align 8 dereferenceable(112) @_ZL19replaceableIterator, i64 112, i1 false)
   store ptr %rep, ptr %iter, align 8
   %vtable.i = load ptr, ptr %rep, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %rep)
-  %length = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %iter, i64 8
   store i32 %call.i, ptr %length, align 8
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   store i32 %call.i, ptr %limit, align 4
   br label %if.end3
 
@@ -215,11 +212,11 @@ if.else:                                          ; preds = %if.then3
 
 if.end:                                           ; preds = %if.then3, %if.else
   %conv.sink = phi i32 [ %conv, %if.else ], [ %length, %if.then3 ]
-  %0 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %0 = getelementptr inbounds i8, ptr %iter, i64 20
   store i32 %conv.sink, ptr %0, align 4
   %cmp8 = icmp slt i32 %conv.sink, 2
   %spec.select = select i1 %cmp8, i32 %conv.sink, i32 -1
-  %length10 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 1
+  %length10 = getelementptr inbounds i8, ptr %iter, i64 8
   store i32 %spec.select, ptr %length10, align 8
   br label %if.end13
 
@@ -237,7 +234,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define i32 @uiter_current32_75(ptr noundef %iter) local_unnamed_addr #0 {
 entry:
-  %current = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 10
+  %current = getelementptr inbounds i8, ptr %iter, i64 64
   %0 = load ptr, ptr %current, align 8
   %call = tail call noundef i32 %0(ptr noundef %iter)
   %and = and i32 %call, -2048
@@ -250,7 +247,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %move = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 7
+  %move = getelementptr inbounds i8, ptr %iter, i64 40
   %1 = load ptr, ptr %move, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull %iter, i32 noundef 1, i32 noundef 1)
   %2 = load ptr, ptr %current, align 8
@@ -264,7 +261,7 @@ if.then3:                                         ; preds = %if.then
   br label %if.end26.sink.split
 
 if.else:                                          ; preds = %if.then
-  %previous = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 12
+  %previous = getelementptr inbounds i8, ptr %iter, i64 80
   %3 = load ptr, ptr %previous, align 8
   %call12 = tail call noundef i32 %3(ptr noundef nonnull %iter)
   %and13 = and i32 %call12, -1024
@@ -277,7 +274,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp20, label %if.then21, label %if.end26
 
 if.then21:                                        ; preds = %if.else
-  %move22 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 7
+  %move22 = getelementptr inbounds i8, ptr %iter, i64 40
   br label %if.end26.sink.split
 
 if.end26.sink.split:                              ; preds = %if.then21, %if.then3
@@ -296,7 +293,7 @@ if.end26:                                         ; preds = %if.end26.sink.split
 ; Function Attrs: mustprogress uwtable
 define i32 @uiter_next32_75(ptr noundef %iter) local_unnamed_addr #0 {
 entry:
-  %next = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 11
+  %next = getelementptr inbounds i8, ptr %iter, i64 72
   %0 = load ptr, ptr %next, align 8
   %call = tail call noundef i32 %0(ptr noundef %iter)
   %and = and i32 %call, -1024
@@ -321,7 +318,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp6, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %if.else
-  %move = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 7
+  %move = getelementptr inbounds i8, ptr %iter, i64 40
   %2 = load ptr, ptr %move, align 8
   %call8 = tail call noundef i32 %2(ptr noundef nonnull %iter, i32 noundef -1, i32 noundef 1)
   br label %if.end10
@@ -334,7 +331,7 @@ if.end10:                                         ; preds = %if.then5, %if.then7
 ; Function Attrs: mustprogress uwtable
 define i32 @uiter_previous32_75(ptr noundef %iter) local_unnamed_addr #0 {
 entry:
-  %previous = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 12
+  %previous = getelementptr inbounds i8, ptr %iter, i64 80
   %0 = load ptr, ptr %previous, align 8
   %call = tail call noundef i32 %0(ptr noundef %iter)
   %and = and i32 %call, -1024
@@ -359,7 +356,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp6, label %if.then7, label %if.end10
 
 if.then7:                                         ; preds = %if.else
-  %move = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 7
+  %move = getelementptr inbounds i8, ptr %iter, i64 40
   %2 = load ptr, ptr %move, align 8
   %call8 = tail call noundef i32 %2(ptr noundef nonnull %iter, i32 noundef 1, i32 noundef 1)
   br label %if.end10
@@ -376,7 +373,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %getState = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 14
+  %getState = getelementptr inbounds i8, ptr %iter, i64 96
   %0 = load ptr, ptr %getState, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.else
@@ -410,7 +407,7 @@ if.then2:                                         ; preds = %if.else
   br label %if.end9
 
 if.else3:                                         ; preds = %if.else
-  %setState = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 15
+  %setState = getelementptr inbounds i8, ptr %iter, i64 104
   %1 = load ptr, ptr %setState, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %if.then5, label %if.else6
@@ -439,22 +436,22 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   %0 = load i32, ptr %start, align 4
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  %index = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %iter, i64 16
   %1 = load i32, ptr %index, align 8
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %2 = load i32, ptr %limit, align 4
   br label %return
 
 sw.bb4:                                           ; preds = %entry
-  %length = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %iter, i64 8
   %3 = load i32, ptr %length, align 8
   br label %return
 
@@ -478,45 +475,45 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   %0 = load i32, ptr %start, align 4
   %add = add nsw i32 %0, %delta
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %index = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %iter, i64 16
   %1 = load i32, ptr %index, align 8
   %add3 = add nsw i32 %1, %delta
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %2 = load i32, ptr %limit, align 4
   %add5 = add nsw i32 %2, %delta
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
-  %length = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %iter, i64 8
   %3 = load i32, ptr %length, align 8
   %add7 = add nsw i32 %3, %delta
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.bb6, %sw.bb4, %sw.bb2, %sw.bb1
   %pos.0 = phi i32 [ %add7, %sw.bb6 ], [ %add5, %sw.bb4 ], [ %add3, %sw.bb2 ], [ %add, %sw.bb1 ], [ %delta, %entry ]
-  %start8 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start8 = getelementptr inbounds i8, ptr %iter, i64 12
   %4 = load i32, ptr %start8, align 4
   %cmp = icmp slt i32 %pos.0, %4
   br i1 %cmp, label %if.end14, label %if.else
 
 if.else:                                          ; preds = %sw.epilog
-  %limit10 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit10 = getelementptr inbounds i8, ptr %iter, i64 20
   %5 = load i32, ptr %limit10, align 4
   %spec.select = tail call i32 @llvm.smin.i32(i32 %pos.0, i32 %5)
   br label %if.end14
 
 if.end14:                                         ; preds = %if.else, %sw.epilog
   %pos.1 = phi i32 [ %4, %sw.epilog ], [ %spec.select, %if.else ]
-  %index15 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index15 = getelementptr inbounds i8, ptr %iter, i64 16
   store i32 %pos.1, ptr %index15, align 8
   br label %return
 
@@ -528,9 +525,9 @@ return:                                           ; preds = %entry, %if.end14
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef signext i8 @_ZL21stringIteratorHasNextP13UCharIterator(ptr nocapture noundef readonly %iter) #6 {
 entry:
-  %index = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %1 = load i32, ptr %limit, align 4
   %cmp = icmp slt i32 %0, %1
   %conv = zext i1 %cmp to i8
@@ -540,9 +537,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef signext i8 @_ZL25stringIteratorHasPreviousP13UCharIterator(ptr nocapture noundef readonly %iter) #6 {
 entry:
-  %index = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   %1 = load i32, ptr %start, align 4
   %cmp = icmp sgt i32 %0, %1
   %conv = zext i1 %cmp to i8
@@ -552,9 +549,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL21stringIteratorCurrentP13UCharIterator(ptr nocapture noundef readonly %iter) #7 {
 entry:
-  %index = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %1 = load i32, ptr %limit, align 4
   %cmp = icmp slt i32 %0, %1
   br i1 %cmp, label %if.then, label %return
@@ -575,9 +572,9 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL18stringIteratorNextP13UCharIterator(ptr nocapture noundef %iter) #8 {
 entry:
-  %index = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %1 = load i32, ptr %limit, align 4
   %cmp = icmp slt i32 %0, %1
   br i1 %cmp, label %if.then, label %return
@@ -600,9 +597,9 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL22stringIteratorPreviousP13UCharIterator(ptr nocapture noundef %iter) #8 {
 entry:
-  %index = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   %1 = load i32, ptr %start, align 4
   %cmp = icmp sgt i32 %0, %1
   br i1 %cmp, label %if.then, label %return
@@ -625,7 +622,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_ZL22stringIteratorGetStatePK13UCharIterator(ptr nocapture noundef readonly %iter) #6 {
 entry:
-  %index = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
   ret i32 %0
 }
@@ -650,13 +647,13 @@ if.then2:                                         ; preds = %if.else
   br label %if.end10
 
 if.else3:                                         ; preds = %if.else
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   %1 = load i32, ptr %start, align 4
   %cmp4 = icmp sgt i32 %1, %state
   br i1 %cmp4, label %if.then7, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %if.else3
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %2 = load i32, ptr %limit, align 4
   %cmp6 = icmp slt i32 %2, %state
   br i1 %cmp6, label %if.then7, label %if.else8
@@ -666,7 +663,7 @@ if.then7:                                         ; preds = %lor.lhs.false5, %if
   br label %if.end10
 
 if.else8:                                         ; preds = %lor.lhs.false5
-  %index = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %iter, i64 16
   store i32 %state, ptr %index, align 8
   br label %if.end10
 
@@ -714,9 +711,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL22utf16BEIteratorCurrentP13UCharIterator(ptr nocapture noundef readonly %iter) #7 {
 entry:
-  %index1 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index1 = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load i32, ptr %index1, align 8
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %1 = load i32, ptr %limit, align 4
   %cmp = icmp slt i32 %0, %1
   br i1 %cmp, label %if.then, label %return
@@ -745,9 +742,9 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL19utf16BEIteratorNextP13UCharIterator(ptr nocapture noundef %iter) #8 {
 entry:
-  %index1 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index1 = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load i32, ptr %index1, align 8
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %1 = load i32, ptr %limit, align 4
   %cmp = icmp slt i32 %0, %1
   br i1 %cmp, label %if.then, label %return
@@ -778,9 +775,9 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL23utf16BEIteratorPreviousP13UCharIterator(ptr nocapture noundef %iter) #8 {
 entry:
-  %index1 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index1 = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load i32, ptr %index1, align 8
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   %1 = load i32, ptr %start, align 4
   %cmp = icmp sgt i32 %0, %1
   br i1 %cmp, label %if.then, label %return
@@ -821,25 +818,25 @@ entry:
 
 sw.bb1:                                           ; preds = %entry
   %0 = load ptr, ptr %iter, align 8
-  %begin.i = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %0, i64 0, i32 3
+  %begin.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i32, ptr %begin.i, align 8
   br label %return
 
 sw.bb2:                                           ; preds = %entry
   %2 = load ptr, ptr %iter, align 8
-  %pos.i = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %2, i64 0, i32 2
+  %pos.i = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %pos.i, align 4
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   %4 = load ptr, ptr %iter, align 8
-  %end.i = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %4, i64 0, i32 4
+  %end.i = getelementptr inbounds i8, ptr %4, i64 20
   %5 = load i32, ptr %end.i, align 4
   br label %return
 
 sw.bb8:                                           ; preds = %entry
   %6 = load ptr, ptr %iter, align 8
-  %textLength.i = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %6, i64 0, i32 1
+  %textLength.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %textLength.i, align 8
   br label %return
 
@@ -865,33 +862,33 @@ entry:
 sw.bb:                                            ; preds = %entry
   %0 = load ptr, ptr %iter, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i16 %1(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %delta)
   %2 = load ptr, ptr %iter, align 8
-  %pos.i = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %2, i64 0, i32 2
+  %pos.i = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %pos.i, align 4
   br label %return
 
 sw.bb3:                                           ; preds = %entry, %entry, %entry
   %4 = load ptr, ptr %iter, align 8
   %vtable5 = load ptr, ptr %4, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 24
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 192
   %5 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %delta, i32 noundef %origin)
   br label %return
 
 sw.bb8:                                           ; preds = %entry
   %6 = load ptr, ptr %iter, align 8
-  %textLength.i = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %6, i64 0, i32 1
+  %textLength.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i32, ptr %textLength.i, align 8
   %add = add nsw i32 %7, %delta
   %vtable12 = load ptr, ptr %6, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 15
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 120
   %8 = load ptr, ptr %vfn13, align 8
   %call14 = tail call noundef zeroext i16 %8(ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %add)
   %9 = load ptr, ptr %iter, align 8
-  %pos.i9 = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %9, i64 0, i32 2
+  %pos.i9 = getelementptr inbounds i8, ptr %9, i64 12
   %10 = load i32, ptr %pos.i9, align 4
   br label %return
 
@@ -905,7 +902,7 @@ define internal noundef signext i8 @_ZL24characterIteratorHasNextP13UCharIterato
 entry:
   %0 = load ptr, ptr %iter, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i8 %call
@@ -916,7 +913,7 @@ define internal noundef signext i8 @_ZL28characterIteratorHasPreviousP13UCharIte
 entry:
   %0 = load ptr, ptr %iter, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(24) %0)
   ret i8 %call
@@ -927,7 +924,7 @@ define internal noundef i32 @_ZL24characterIteratorCurrentP13UCharIterator(ptr n
 entry:
   %0 = load ptr, ptr %iter, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 17
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i16 %1(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %conv = zext i16 %call to i32
@@ -937,7 +934,7 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %2 = load ptr, ptr %iter, align 8
   %vtable2 = load ptr, ptr %2, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 7
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 56
   %3 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef signext i8 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %tobool.not = icmp eq i8 %call4, 0
@@ -954,7 +951,7 @@ define internal noundef i32 @_ZL21characterIteratorNextP13UCharIterator(ptr noca
 entry:
   %0 = load ptr, ptr %iter, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %tobool.not = icmp eq i8 %call, 0
@@ -963,7 +960,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %iter, align 8
   %vtable2 = load ptr, ptr %2, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 5
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 40
   %3 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef zeroext i16 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %conv = zext i16 %call4 to i32
@@ -979,7 +976,7 @@ define internal noundef i32 @_ZL25characterIteratorPreviousP13UCharIterator(ptr 
 entry:
   %0 = load ptr, ptr %iter, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 23
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 184
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef signext i8 %1(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %tobool.not = icmp eq i8 %call, 0
@@ -988,7 +985,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %iter, align 8
   %vtable2 = load ptr, ptr %2, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 21
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 168
   %3 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef zeroext i16 %3(ptr noundef nonnull align 8 dereferenceable(24) %2)
   %conv = zext i16 %call4 to i32
@@ -1003,7 +1000,7 @@ return:                                           ; preds = %entry, %if.then
 define internal noundef i32 @_ZL25characterIteratorGetStatePK13UCharIterator(ptr nocapture noundef readonly %iter) #7 {
 entry:
   %0 = load ptr, ptr %iter, align 8
-  %pos.i = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %0, i64 0, i32 2
+  %pos.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i32, ptr %pos.i, align 4
   ret i32 %1
 }
@@ -1033,13 +1030,13 @@ if.then4:                                         ; preds = %lor.lhs.false2, %if
   br label %if.end18
 
 if.else5:                                         ; preds = %lor.lhs.false2
-  %begin.i = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %1, i64 0, i32 3
+  %begin.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i32, ptr %begin.i, align 8
   %cmp8 = icmp sgt i32 %2, %state
   br i1 %cmp8, label %if.then13, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %if.else5
-  %end.i = getelementptr inbounds %"class.icu_75::CharacterIterator", ptr %1, i64 0, i32 4
+  %end.i = getelementptr inbounds i8, ptr %1, i64 20
   %3 = load i32, ptr %end.i, align 4
   %cmp12 = icmp slt i32 %3, %state
   br i1 %cmp12, label %if.then13, label %if.else14
@@ -1050,7 +1047,7 @@ if.then13:                                        ; preds = %lor.lhs.false9, %if
 
 if.else14:                                        ; preds = %lor.lhs.false9
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %4 = load ptr, ptr %vfn, align 8
   %call16 = tail call noundef zeroext i16 %4(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %state)
   br label %if.end18
@@ -1062,9 +1059,9 @@ if.end18:                                         ; preds = %if.then4, %if.else1
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL26replaceableIteratorCurrentP13UCharIterator(ptr nocapture noundef readonly %iter) #0 {
 entry:
-  %index = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %1 = load i32, ptr %limit, align 4
   %cmp = icmp slt i32 %0, %1
   br i1 %cmp, label %if.then, label %return
@@ -1072,7 +1069,7 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %iter, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i16 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %0)
   %conv = zext i16 %call.i to i32
@@ -1086,9 +1083,9 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL23replaceableIteratorNextP13UCharIterator(ptr nocapture noundef %iter) #0 {
 entry:
-  %index = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %1 = load i32, ptr %limit, align 4
   %cmp = icmp slt i32 %0, %1
   br i1 %cmp, label %if.then, label %return
@@ -1098,7 +1095,7 @@ if.then:                                          ; preds = %entry
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %index, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i16 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %0)
   %conv = zext i16 %call.i to i32
@@ -1112,9 +1109,9 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL27replaceableIteratorPreviousP13UCharIterator(ptr nocapture noundef %iter) #0 {
 entry:
-  %index = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   %1 = load i32, ptr %start, align 4
   %cmp = icmp sgt i32 %0, %1
   br i1 %cmp, label %if.then, label %return
@@ -1124,7 +1121,7 @@ if.then:                                          ; preds = %entry
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %index, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i16 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %dec)
   %conv = zext i16 %call.i to i32
@@ -1147,14 +1144,14 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %index = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %iter, i64 16
   %0 = load i32, ptr %index, align 8
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %sw.bb1
   %1 = load ptr, ptr %iter, align 8
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   %2 = load i32, ptr %start, align 4
   %cmp3164 = icmp sgt i32 %2, 0
   br i1 %cmp3164, label %do.body, label %while.end
@@ -1286,18 +1283,18 @@ while.end:                                        ; preds = %do.end.thread, %do.
   %i.0.lcssa = phi i32 [ 0, %if.then ], [ %2, %do.end.thread.thread ], [ %i.4135, %do.end.thread ]
   %index2.0.lcssa = phi i32 [ 0, %if.then ], [ %add173, %do.end.thread.thread ], [ %add, %do.end.thread ]
   store i32 %i.0.lcssa, ptr %start, align 4
-  %limit75 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit75 = getelementptr inbounds i8, ptr %iter, i64 20
   %12 = load i32, ptr %limit75, align 4
   %cmp76 = icmp eq i32 %i.0.lcssa, %12
   br i1 %cmp76, label %if.then77, label %if.end78
 
 if.then77:                                        ; preds = %while.end
-  %length = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %iter, i64 8
   store i32 %index2.0.lcssa, ptr %length, align 8
   br label %if.end78
 
 if.end78:                                         ; preds = %if.then77, %while.end
-  %reservedField = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField = getelementptr inbounds i8, ptr %iter, i64 24
   %13 = load i32, ptr %reservedField, align 8
   %cmp79.not = icmp ne i32 %13, 0
   %dec = sext i1 %cmp79.not to i32
@@ -1306,17 +1303,17 @@ if.end78:                                         ; preds = %if.then77, %while.e
   br label %return
 
 sw.bb85:                                          ; preds = %entry, %entry
-  %length86 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 1
+  %length86 = getelementptr inbounds i8, ptr %iter, i64 8
   %14 = load i32, ptr %length86, align 8
   %cmp87 = icmp slt i32 %14, 0
   br i1 %cmp87, label %if.then88, label %return
 
 if.then88:                                        ; preds = %sw.bb85
   %15 = load ptr, ptr %iter, align 8
-  %index95 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index95 = getelementptr inbounds i8, ptr %iter, i64 16
   %16 = load i32, ptr %index95, align 8
   %cmp96 = icmp slt i32 %16, 0
-  %start98 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start98 = getelementptr inbounds i8, ptr %iter, i64 12
   %17 = load i32, ptr %start98, align 4
   br i1 %cmp96, label %if.then97, label %if.else201
 
@@ -1451,7 +1448,7 @@ while.end192:                                     ; preds = %do.end188.thread, %
   %i91.0.lcssa = phi i32 [ 0, %if.then97 ], [ %17, %do.end188.thread.thread ], [ %i91.4142, %do.end188.thread ]
   %length93.0.lcssa = phi i32 [ 0, %if.then97 ], [ %add191178, %do.end188.thread.thread ], [ %add191, %do.end188.thread ]
   store i32 %i91.0.lcssa, ptr %start98, align 4
-  %reservedField194 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField194 = getelementptr inbounds i8, ptr %iter, i64 24
   %27 = load i32, ptr %reservedField194, align 8
   %cmp195.not = icmp ne i32 %27, 0
   %sub197 = sext i1 %cmp195.not to i32
@@ -1460,7 +1457,7 @@ while.end192:                                     ; preds = %do.end188.thread, %
   br label %if.end209
 
 if.else201:                                       ; preds = %if.then88
-  %reservedField204 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField204 = getelementptr inbounds i8, ptr %iter, i64 24
   %28 = load i32, ptr %reservedField204, align 8
   %cmp205.not = icmp ne i32 %28, 0
   %inc207 = zext i1 %cmp205.not to i32
@@ -1470,7 +1467,7 @@ if.else201:                                       ; preds = %if.then88
 if.end209:                                        ; preds = %if.else201, %while.end192
   %i91.5 = phi i32 [ %i91.0.lcssa, %while.end192 ], [ %17, %if.else201 ]
   %length93.1 = phi i32 [ %length93.0.lcssa, %while.end192 ], [ %spec.select130, %if.else201 ]
-  %limit210 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit210 = getelementptr inbounds i8, ptr %iter, i64 20
   %29 = load i32, ptr %limit210, align 4
   %cmp212160 = icmp slt i32 %i91.5, %29
   br i1 %cmp212160, label %do.body214, label %while.end304
@@ -1624,7 +1621,7 @@ entry:
   ]
 
 sw.bb3:                                           ; preds = %entry, %entry
-  %length = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %iter, i64 8
   %0 = load i32, ptr %length, align 8
   %cmp4 = icmp sgt i32 %0, -1
   br i1 %cmp4, label %if.then5, label %if.else8
@@ -1634,19 +1631,19 @@ if.then5:                                         ; preds = %sw.bb3
   br label %if.then15
 
 if.else8:                                         ; preds = %sw.bb3
-  %index9 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index9 = getelementptr inbounds i8, ptr %iter, i64 16
   store i32 -1, ptr %index9, align 8
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %1 = load i32, ptr %limit, align 4
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   store i32 %1, ptr %start, align 4
-  %reservedField = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField = getelementptr inbounds i8, ptr %iter, i64 24
   store i32 0, ptr %reservedField, align 8
   %cmp10 = icmp sgt i32 %delta, -1
   br i1 %cmp10, label %return, label %if.else68
 
 sw.epilog:                                        ; preds = %entry
-  %index = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index = getelementptr inbounds i8, ptr %iter, i64 16
   %2 = load i32, ptr %index, align 8
   %cmp = icmp slt i32 %2, 0
   %add = add nsw i32 %2, %delta
@@ -1658,28 +1655,28 @@ if.then15:                                        ; preds = %entry, %entry, %if.
   br i1 %cmp16, label %if.then17, label %if.else21
 
 if.then17:                                        ; preds = %if.then15
-  %reservedField18 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField18 = getelementptr inbounds i8, ptr %iter, i64 24
   store i32 0, ptr %reservedField18, align 8
-  %start19 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start19 = getelementptr inbounds i8, ptr %iter, i64 12
   store i32 0, ptr %start19, align 4
-  %index20 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index20 = getelementptr inbounds i8, ptr %iter, i64 16
   store i32 0, ptr %index20, align 8
   br label %return
 
 if.else21:                                        ; preds = %if.then15
-  %length22 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 1
+  %length22 = getelementptr inbounds i8, ptr %iter, i64 8
   %3 = load i32, ptr %length22, align 8
   %or.cond = icmp ugt i32 %3, %pos.0151
-  %index35 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index35 = getelementptr inbounds i8, ptr %iter, i64 16
   br i1 %or.cond, label %if.end34, label %if.then26
 
 if.then26:                                        ; preds = %if.else21
   store i32 %3, ptr %index35, align 8
-  %limit29 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit29 = getelementptr inbounds i8, ptr %iter, i64 20
   %4 = load i32, ptr %limit29, align 4
-  %start30 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start30 = getelementptr inbounds i8, ptr %iter, i64 12
   store i32 %4, ptr %start30, align 4
-  %reservedField31 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField31 = getelementptr inbounds i8, ptr %iter, i64 24
   store i32 0, ptr %reservedField31, align 8
   br label %return
 
@@ -1692,9 +1689,9 @@ if.end34:                                         ; preds = %if.else21
   br i1 %or.cond146, label %if.then39, label %if.else43
 
 if.then39:                                        ; preds = %if.end34
-  %reservedField40 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField40 = getelementptr inbounds i8, ptr %iter, i64 24
   store i32 0, ptr %reservedField40, align 8
-  %start41 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start41 = getelementptr inbounds i8, ptr %iter, i64 12
   store i32 0, ptr %start41, align 4
   br label %if.end58.sink.split
 
@@ -1710,11 +1707,11 @@ land.lhs.true46:                                  ; preds = %if.else43
 
 if.then51:                                        ; preds = %land.lhs.true46
   store i32 %3, ptr %index35, align 8
-  %limit54 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit54 = getelementptr inbounds i8, ptr %iter, i64 20
   %6 = load i32, ptr %limit54, align 4
-  %start55 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start55 = getelementptr inbounds i8, ptr %iter, i64 12
   store i32 %6, ptr %start55, align 4
-  %reservedField56 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField56 = getelementptr inbounds i8, ptr %iter, i64 24
   br label %if.end58.sink.split
 
 if.end58.sink.split:                              ; preds = %if.then39, %if.then51
@@ -1730,7 +1727,7 @@ if.end58:                                         ; preds = %if.end58.sink.split
   br i1 %cmp61, label %return, label %if.end58.if.end93_crit_edge
 
 if.end58.if.end93_crit_edge:                      ; preds = %if.end58
-  %start95.phi.trans.insert = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start95.phi.trans.insert = getelementptr inbounds i8, ptr %iter, i64 12
   %.pre182 = load i32, ptr %start95.phi.trans.insert, align 4
   br label %if.end93
 
@@ -1739,7 +1736,7 @@ if.else65:                                        ; preds = %sw.epilog
   br i1 %cmp66, label %return, label %if.else65.if.else68_crit_edge
 
 if.else65.if.else68_crit_edge:                    ; preds = %if.else65
-  %start70.phi.trans.insert = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start70.phi.trans.insert = getelementptr inbounds i8, ptr %iter, i64 12
   %.pre = load i32, ptr %start70.phi.trans.insert, align 4
   br label %if.else68
 
@@ -1747,32 +1744,32 @@ if.else68:                                        ; preds = %if.else65.if.else68
   %8 = phi i32 [ %2, %if.else65.if.else68_crit_edge ], [ -1, %if.else8 ]
   %9 = phi i32 [ %.pre, %if.else65.if.else68_crit_edge ], [ %1, %if.else8 ]
   %sub69 = sub nsw i32 0, %delta
-  %start70 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start70 = getelementptr inbounds i8, ptr %iter, i64 12
   %cmp71.not = icmp sgt i32 %9, %sub69
   br i1 %cmp71.not, label %if.else76, label %if.then72
 
 if.then72:                                        ; preds = %if.else68
-  %reservedField73 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField73 = getelementptr inbounds i8, ptr %iter, i64 24
   store i32 0, ptr %reservedField73, align 8
   store i32 0, ptr %start70, align 4
-  %index75 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index75 = getelementptr inbounds i8, ptr %iter, i64 16
   store i32 0, ptr %index75, align 8
   br label %return
 
 if.else76:                                        ; preds = %if.else68
-  %limit77 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit77 = getelementptr inbounds i8, ptr %iter, i64 20
   %10 = load i32, ptr %limit77, align 4
   %sub79 = sub nsw i32 %10, %9
   %cmp80.not = icmp sgt i32 %sub79, %delta
   br i1 %cmp80.not, label %if.end93, label %if.then81
 
 if.then81:                                        ; preds = %if.else76
-  %length82 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 1
+  %length82 = getelementptr inbounds i8, ptr %iter, i64 8
   %11 = load i32, ptr %length82, align 8
-  %index83 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index83 = getelementptr inbounds i8, ptr %iter, i64 16
   store i32 %11, ptr %index83, align 8
   store i32 %10, ptr %start70, align 4
-  %reservedField86 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField86 = getelementptr inbounds i8, ptr %iter, i64 24
   store i32 0, ptr %reservedField86, align 8
   %cmp88 = icmp sgt i32 %11, -1
   %spec.select = select i1 %cmp88, i32 %11, i32 -2
@@ -1783,15 +1780,15 @@ if.end93:                                         ; preds = %if.end58.if.end93_c
   %12 = phi i32 [ %7, %if.end58.if.end93_crit_edge ], [ %8, %if.else76 ]
   %delta.addr.0 = phi i32 [ %sub60, %if.end58.if.end93_crit_edge ], [ %delta, %if.else76 ]
   %13 = load ptr, ptr %iter, align 8
-  %index94 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
-  %start95 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %index94 = getelementptr inbounds i8, ptr %iter, i64 16
+  %start95 = getelementptr inbounds i8, ptr %iter, i64 12
   %cmp96 = icmp sgt i32 %delta.addr.0, 0
   br i1 %cmp96, label %if.then97, label %if.else234
 
 if.then97:                                        ; preds = %if.end93
-  %limit99 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit99 = getelementptr inbounds i8, ptr %iter, i64 20
   %14 = load i32, ptr %limit99, align 4
-  %reservedField100 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField100 = getelementptr inbounds i8, ptr %iter, i64 24
   %15 = load i32, ptr %reservedField100, align 8
   %cmp101.not = icmp eq i32 %15, 0
   br i1 %cmp101.not, label %if.end104, label %if.then102
@@ -1954,7 +1951,7 @@ while.end:                                        ; preds = %if.end197, %if.end1
   br i1 %cmp198, label %if.then199, label %if.end275thread-pre-split
 
 if.then199:                                       ; preds = %while.end
-  %length200 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 1
+  %length200 = getelementptr inbounds i8, ptr %iter, i64 8
   %28 = load i32, ptr %length200, align 8
   %cmp201 = icmp slt i32 %28, 0
   br i1 %cmp201, label %land.lhs.true202, label %if.else214
@@ -1978,7 +1975,7 @@ if.then220:                                       ; preds = %if.else214
   br label %if.end275
 
 if.else234:                                       ; preds = %if.end93
-  %reservedField235 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField235 = getelementptr inbounds i8, ptr %iter, i64 24
   %29 = load i32, ptr %reservedField235, align 8
   %cmp236.not = icmp eq i32 %29, 0
   br i1 %cmp236.not, label %if.end242, label %if.then237
@@ -2073,15 +2070,15 @@ return:                                           ; preds = %if.else281, %if.els
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef signext i8 @_ZL19utf8IteratorHasNextP13UCharIterator(ptr nocapture noundef readonly %iter) #6 {
 entry:
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   %0 = load i32, ptr %start, align 4
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %1 = load i32, ptr %limit, align 4
   %cmp = icmp slt i32 %0, %1
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %reservedField = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField = getelementptr inbounds i8, ptr %iter, i64 24
   %2 = load i32, ptr %reservedField, align 8
   %cmp1 = icmp ne i32 %2, 0
   %3 = zext i1 %cmp1 to i8
@@ -2095,7 +2092,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef signext i8 @_ZL23utf8IteratorHasPreviousP13UCharIterator(ptr nocapture noundef readonly %iter) #6 {
 entry:
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   %0 = load i32, ptr %start, align 4
   %cmp = icmp sgt i32 %0, 0
   %conv = zext i1 %cmp to i8
@@ -2105,7 +2102,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL19utf8IteratorCurrentP13UCharIterator(ptr nocapture noundef readonly %iter) #7 {
 entry:
-  %reservedField = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField = getelementptr inbounds i8, ptr %iter, i64 24
   %0 = load i32, ptr %reservedField, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.else, label %if.then
@@ -2116,9 +2113,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   %2 = load i32, ptr %start, align 4
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %3 = load i32, ptr %limit, align 4
   %cmp3 = icmp slt i32 %2, %3
   br i1 %cmp3, label %if.then4, label %return
@@ -2251,7 +2248,7 @@ return:                                           ; preds = %if.then9, %cond.tru
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL16utf8IteratorNextP13UCharIterator(ptr nocapture noundef %iter) #8 {
 entry:
-  %reservedField = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField = getelementptr inbounds i8, ptr %iter, i64 24
   %0 = load i32, ptr %reservedField, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.else, label %if.then
@@ -2260,7 +2257,7 @@ if.then:                                          ; preds = %entry
   %1 = and i32 %0, 1023
   %conv = or disjoint i32 %1, 56320
   store i32 0, ptr %reservedField, align 8
-  %index3 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index3 = getelementptr inbounds i8, ptr %iter, i64 16
   %2 = load i32, ptr %index3, align 8
   %cmp4 = icmp sgt i32 %2, -1
   br i1 %cmp4, label %if.then5, label %return
@@ -2271,9 +2268,9 @@ if.then5:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   %3 = load i32, ptr %start, align 4
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %4 = load i32, ptr %limit, align 4
   %cmp8 = icmp slt i32 %3, %4
   br i1 %cmp8, label %if.then9, label %return
@@ -2399,7 +2396,7 @@ land.lhs.true86:                                  ; preds = %land.lhs.true77
 do.end:                                           ; preds = %if.then14, %cond.true20, %cond.false, %land.lhs.true35, %land.lhs.true47, %land.lhs.true56, %land.lhs.true65, %cond.false73, %land.lhs.true77, %if.then9, %land.lhs.true86
   %16 = phi i32 [ %inc, %if.then9 ], [ %inc91, %land.lhs.true86 ], [ %14, %land.lhs.true77 ], [ %inc, %cond.false73 ], [ %4, %land.lhs.true65 ], [ %inc53, %land.lhs.true56 ], [ %4, %land.lhs.true47 ], [ %inc, %land.lhs.true35 ], [ %inc, %cond.false ], [ %inc, %cond.true20 ], [ %4, %if.then14 ]
   %c.2 = phi i32 [ %conv11, %if.then9 ], [ %or89, %land.lhs.true86 ], [ 65533, %land.lhs.true77 ], [ 65533, %cond.false73 ], [ 65533, %land.lhs.true65 ], [ 65533, %land.lhs.true56 ], [ 65533, %land.lhs.true47 ], [ 65533, %land.lhs.true35 ], [ 65533, %cond.false ], [ 65533, %cond.true20 ], [ 65533, %if.then14 ]
-  %index96 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index96 = getelementptr inbounds i8, ptr %iter, i64 16
   %17 = load i32, ptr %index96, align 8
   %cmp97 = icmp sgt i32 %17, -1
   br i1 %cmp97, label %if.then98, label %if.else113
@@ -2407,7 +2404,7 @@ do.end:                                           ; preds = %if.then14, %cond.tr
 if.then98:                                        ; preds = %do.end
   %inc99 = add nuw nsw i32 %17, 1
   store i32 %inc99, ptr %index96, align 8
-  %length = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 1
+  %length = getelementptr inbounds i8, ptr %iter, i64 8
   %18 = load i32, ptr %length, align 8
   %cmp101 = icmp slt i32 %18, 0
   %cmp105 = icmp eq i32 %16, %4
@@ -2426,7 +2423,7 @@ if.else113:                                       ; preds = %do.end
   br i1 %cmp116, label %land.lhs.true117, label %if.end131
 
 land.lhs.true117:                                 ; preds = %if.else113
-  %length118 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 1
+  %length118 = getelementptr inbounds i8, ptr %iter, i64 8
   %19 = load i32, ptr %length118, align 8
   %cmp119 = icmp sgt i32 %19, -1
   br i1 %cmp119, label %if.then120, label %if.end131
@@ -2457,7 +2454,7 @@ return:                                           ; preds = %if.else, %if.end131
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL20utf8IteratorPreviousP13UCharIterator(ptr noundef %iter) #0 {
 entry:
-  %reservedField = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField = getelementptr inbounds i8, ptr %iter, i64 24
   %0 = load i32, ptr %reservedField, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.else, label %if.then
@@ -2466,11 +2463,11 @@ if.then:                                          ; preds = %entry
   %shr = lshr i32 %0, 10
   %conv = add nuw nsw i32 %shr, 55232
   store i32 0, ptr %reservedField, align 8
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   %1 = load i32, ptr %start, align 4
   %sub = add nsw i32 %1, -4
   store i32 %sub, ptr %start, align 4
-  %index3 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index3 = getelementptr inbounds i8, ptr %iter, i64 16
   %2 = load i32, ptr %index3, align 8
   %cmp4 = icmp sgt i32 %2, 0
   br i1 %cmp4, label %if.then5, label %if.end
@@ -2485,7 +2482,7 @@ if.end:                                           ; preds = %if.then5, %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  %start9 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start9 = getelementptr inbounds i8, ptr %iter, i64 12
   %3 = load i32, ptr %start9, align 4
   %cmp10 = icmp sgt i32 %3, 0
   br i1 %cmp10, label %if.then11, label %return
@@ -2507,7 +2504,7 @@ if.then15:                                        ; preds = %if.then11
 
 do.end:                                           ; preds = %if.then11, %if.then15
   %c.0 = phi i32 [ %conv13, %if.then11 ], [ %call, %if.then15 ]
-  %index18 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %index18 = getelementptr inbounds i8, ptr %iter, i64 16
   %6 = load i32, ptr %index18, align 8
   %cmp19 = icmp sgt i32 %6, 0
   br i1 %cmp19, label %if.then20, label %if.else23
@@ -2553,10 +2550,10 @@ return:                                           ; preds = %if.else, %if.end33,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_ZL20utf8IteratorGetStatePK13UCharIterator(ptr nocapture noundef readonly %iter) #6 {
 entry:
-  %start = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %iter, i64 12
   %0 = load i32, ptr %start, align 4
   %shl = shl i32 %0, 1
-  %reservedField = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField = getelementptr inbounds i8, ptr %iter, i64 24
   %1 = load i32, ptr %reservedField, align 8
   %cmp.not = icmp ne i32 %1, 0
   %or = zext i1 %cmp.not to i32
@@ -2585,10 +2582,10 @@ if.then2:                                         ; preds = %if.else
   br label %if.end38
 
 if.else3:                                         ; preds = %if.else
-  %start.i = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 2
+  %start.i = getelementptr inbounds i8, ptr %iter, i64 12
   %1 = load i32, ptr %start.i, align 4
   %shl.i = shl i32 %1, 1
-  %reservedField.i = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 5
+  %reservedField.i = getelementptr inbounds i8, ptr %iter, i64 24
   %2 = load i32, ptr %reservedField.i, align 8
   %cmp.not.i = icmp ne i32 %2, 0
   %or.i = zext i1 %cmp.not.i to i32
@@ -2605,7 +2602,7 @@ if.else7:                                         ; preds = %if.else3
   br i1 %or.cond, label %if.then13, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %if.else7
-  %limit = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 4
+  %limit = getelementptr inbounds i8, ptr %iter, i64 20
   %4 = load i32, ptr %limit, align 4
   %cmp12 = icmp slt i32 %4, %shr
   br i1 %cmp12, label %if.then13, label %if.else14
@@ -2618,7 +2615,7 @@ if.else14:                                        ; preds = %lor.lhs.false11
   store i32 %shr, ptr %start.i, align 4
   %cmp15 = icmp ult i32 %state, 4
   %spec.select = select i1 %cmp15, i32 %shr, i32 -1
-  %5 = getelementptr inbounds %struct.UCharIterator, ptr %iter, i64 0, i32 3
+  %5 = getelementptr inbounds i8, ptr %iter, i64 16
   store i32 %spec.select, ptr %5, align 8
   br i1 %cmp8.not, label %if.then21, label %do.body
 

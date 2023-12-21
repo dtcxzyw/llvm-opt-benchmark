@@ -32,7 +32,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %arrayidx3 = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %arrayidx3, align 8
   %cmp4.not = icmp eq i64 %2, 0
   br i1 %cmp4.not, label %sw.bb11, label %if.then5
@@ -44,7 +44,7 @@ if.then5:                                         ; preds = %sw.bb
   br label %return
 
 sw.bb11:                                          ; preds = %sw.bb, %if.end
-  %arrayidx13 = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 2
+  %arrayidx13 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %arrayidx13, align 8
   %cmp14.not = icmp eq i64 %4, 0
   br i1 %cmp14.not, label %sw.bb21, label %if.then15
@@ -56,7 +56,7 @@ if.then15:                                        ; preds = %sw.bb11
   br label %return
 
 sw.bb21:                                          ; preds = %sw.bb11, %if.end
-  %arrayidx23 = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 3
+  %arrayidx23 = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i64, ptr %arrayidx23, align 8
   %cmp24.not = icmp eq i64 %6, 0
   br i1 %cmp24.not, label %return, label %if.then25

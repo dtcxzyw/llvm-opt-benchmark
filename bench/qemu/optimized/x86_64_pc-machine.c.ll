@@ -3,13 +3,6 @@ source_filename = "bench/qemu/original/x86_64_pc-machine.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QX86PCMachine = type { %struct.QOSGraphObject, %struct.QGuestAllocator, %struct.i440FX_pcihost }
-%struct.QGuestAllocator = type { i32, i64, i64, i32, ptr, ptr }
-%struct.i440FX_pcihost = type { %struct.QOSGraphObject, %struct.QPCIBusPC }
-%struct.QPCIBusPC = type { %struct.QOSGraphObject, %struct.QPCIBus }
-%struct.QPCIBus = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i8, i8 }
-
 @.str = private unnamed_addr constant [8 x i8] c"i386/pc\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"i440FX-pcihost\00", align 1
 @.str.2 = private unnamed_addr constant [10 x i8] c"x86_64/pc\00", align 1
@@ -51,16 +44,16 @@ declare void @qos_node_create_machine(ptr noundef, ptr noundef) local_unnamed_ad
 define internal ptr @qos_create_machine_pc(ptr noundef %qts) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(344) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 344) #6
-  %get_device = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 1
+  %get_device = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @pc_get_device, ptr %get_device, align 8
   store ptr @pc_get_driver, ptr %call, align 8
-  %destructor = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 3
+  %destructor = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @pc_destructor, ptr %destructor, align 8
-  %alloc = getelementptr inbounds %struct.QX86PCMachine, ptr %call, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @pc_alloc_init(ptr noundef nonnull %alloc, ptr noundef %qts, i32 noundef 0) #5
-  %get_device.i = getelementptr inbounds %struct.QX86PCMachine, ptr %call, i64 0, i32 2, i32 0, i32 1
+  %get_device.i = getelementptr inbounds i8, ptr %call, i64 96
   store ptr @i440FX_host_get_device, ptr %get_device.i, align 8
-  %pci.i = getelementptr inbounds %struct.QX86PCMachine, ptr %call, i64 0, i32 2, i32 1
+  %pci.i = getelementptr inbounds i8, ptr %call, i64 128
   tail call void @qpci_init_pc(ptr noundef nonnull %pci.i, ptr noundef %qts, ptr noundef nonnull %alloc) #5
   ret ptr %call
 }
@@ -80,7 +73,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %bridge = getelementptr inbounds %struct.QX86PCMachine, ptr %obj, i64 0, i32 2
+  %bridge = getelementptr inbounds i8, ptr %obj, i64 88
   ret ptr %bridge
 
 if.end:                                           ; preds = %entry
@@ -98,7 +91,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %alloc = getelementptr inbounds %struct.QX86PCMachine, ptr %object, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %object, i64 40
   ret ptr %alloc
 
 if.end:                                           ; preds = %entry
@@ -111,7 +104,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @pc_destructor(ptr noundef %obj) #0 {
 entry:
-  %alloc = getelementptr inbounds %struct.QX86PCMachine, ptr %obj, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %obj, i64 40
   tail call void @alloc_destroy(ptr noundef nonnull %alloc) #5
   ret void
 }
@@ -136,7 +129,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %pci = getelementptr inbounds %struct.i440FX_pcihost, ptr %obj, i64 0, i32 1
+  %pci = getelementptr inbounds i8, ptr %obj, i64 40
   ret ptr %pci
 
 if.end:                                           ; preds = %entry

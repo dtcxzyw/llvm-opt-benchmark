@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ec_method_st = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ec_group_st = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, ptr, [6 x i32], ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, %union.anon, ptr, ptr }
-%union.anon = type { ptr }
 
 @EC_GFp_mont_method.ret = internal constant %struct.ec_method_st { i32 1, i32 406, ptr @ossl_ec_GFp_mont_group_init, ptr @ossl_ec_GFp_mont_group_finish, ptr @ossl_ec_GFp_mont_group_clear_finish, ptr @ossl_ec_GFp_mont_group_copy, ptr @ossl_ec_GFp_mont_group_set_curve, ptr @ossl_ec_GFp_simple_group_get_curve, ptr @ossl_ec_GFp_simple_group_get_degree, ptr @ossl_ec_group_simple_order_bits, ptr @ossl_ec_GFp_simple_group_check_discriminant, ptr @ossl_ec_GFp_simple_point_init, ptr @ossl_ec_GFp_simple_point_finish, ptr @ossl_ec_GFp_simple_point_clear_finish, ptr @ossl_ec_GFp_simple_point_copy, ptr @ossl_ec_GFp_simple_point_set_to_infinity, ptr @ossl_ec_GFp_simple_point_set_affine_coordinates, ptr @ossl_ec_GFp_simple_point_get_affine_coordinates, ptr null, ptr null, ptr null, ptr @ossl_ec_GFp_simple_add, ptr @ossl_ec_GFp_simple_dbl, ptr @ossl_ec_GFp_simple_invert, ptr @ossl_ec_GFp_simple_is_at_infinity, ptr @ossl_ec_GFp_simple_is_on_curve, ptr @ossl_ec_GFp_simple_cmp, ptr @ossl_ec_GFp_simple_make_affine, ptr @ossl_ec_GFp_simple_points_make_affine, ptr null, ptr null, ptr null, ptr @ossl_ec_GFp_mont_field_mul, ptr @ossl_ec_GFp_mont_field_sqr, ptr null, ptr @ossl_ec_GFp_mont_field_inv, ptr @ossl_ec_GFp_mont_field_encode, ptr @ossl_ec_GFp_mont_field_decode, ptr @ossl_ec_GFp_mont_field_set_to_one, ptr @ossl_ec_key_simple_priv2oct, ptr @ossl_ec_key_simple_oct2priv, ptr null, ptr @ossl_ec_key_simple_generate_key, ptr @ossl_ec_key_simple_check_key, ptr @ossl_ec_key_simple_generate_public_key, ptr null, ptr null, ptr @ossl_ecdh_simple_compute_key, ptr @ossl_ecdsa_simple_sign_setup, ptr @ossl_ecdsa_simple_sign_sig, ptr @ossl_ecdsa_simple_verify_sig, ptr null, ptr @ossl_ec_GFp_simple_blind_coordinates, ptr @ossl_ec_GFp_simple_ladder_pre, ptr @ossl_ec_GFp_simple_ladder_step, ptr @ossl_ec_GFp_simple_ladder_post }, align 8
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/ec/ecp_mont.c\00", align 1
@@ -27,7 +25,7 @@ entry:
 define i32 @ossl_ec_GFp_mont_group_init(ptr noundef %group) #1 {
 entry:
   %call = tail call i32 @ossl_ec_GFp_simple_group_init(ptr noundef %group) #4
-  %field_data1 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 15
+  %field_data1 = getelementptr inbounds i8, ptr %group, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %field_data1, i8 0, i64 16, i1 false)
   ret i32 %call
 }
@@ -35,11 +33,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @ossl_ec_GFp_mont_group_finish(ptr noundef %group) #1 {
 entry:
-  %field_data1 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 15
+  %field_data1 = getelementptr inbounds i8, ptr %group, i64 120
   %0 = load ptr, ptr %field_data1, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %0) #4
   store ptr null, ptr %field_data1, align 8
-  %field_data2 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 16
+  %field_data2 = getelementptr inbounds i8, ptr %group, i64 128
   %1 = load ptr, ptr %field_data2, align 8
   tail call void @BN_free(ptr noundef %1) #4
   store ptr null, ptr %field_data2, align 8
@@ -50,11 +48,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @ossl_ec_GFp_mont_group_clear_finish(ptr noundef %group) #1 {
 entry:
-  %field_data1 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 15
+  %field_data1 = getelementptr inbounds i8, ptr %group, i64 120
   %0 = load ptr, ptr %field_data1, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %0) #4
   store ptr null, ptr %field_data1, align 8
-  %field_data2 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 16
+  %field_data2 = getelementptr inbounds i8, ptr %group, i64 128
   %1 = load ptr, ptr %field_data2, align 8
   tail call void @BN_clear_free(ptr noundef %1) #4
   store ptr null, ptr %field_data2, align 8
@@ -65,11 +63,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ec_GFp_mont_group_copy(ptr noundef %dest, ptr noundef %src) #1 {
 entry:
-  %field_data1 = getelementptr inbounds %struct.ec_group_st, ptr %dest, i64 0, i32 15
+  %field_data1 = getelementptr inbounds i8, ptr %dest, i64 120
   %0 = load ptr, ptr %field_data1, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %0) #4
   store ptr null, ptr %field_data1, align 8
-  %field_data2 = getelementptr inbounds %struct.ec_group_st, ptr %dest, i64 0, i32 16
+  %field_data2 = getelementptr inbounds i8, ptr %dest, i64 128
   %1 = load ptr, ptr %field_data2, align 8
   tail call void @BN_clear_free(ptr noundef %1) #4
   store ptr null, ptr %field_data2, align 8
@@ -78,7 +76,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %field_data13 = getelementptr inbounds %struct.ec_group_st, ptr %src, i64 0, i32 15
+  %field_data13 = getelementptr inbounds i8, ptr %src, i64 120
   %2 = load ptr, ptr %field_data13, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end17, label %if.then4
@@ -96,7 +94,7 @@ if.end10:                                         ; preds = %if.then4
   br i1 %tobool14.not, label %err, label %if.end17
 
 if.end17:                                         ; preds = %if.end10, %if.end
-  %field_data218 = getelementptr inbounds %struct.ec_group_st, ptr %src, i64 0, i32 16
+  %field_data218 = getelementptr inbounds i8, ptr %src, i64 128
   %4 = load ptr, ptr %field_data218, align 8
   %cmp19.not = icmp eq ptr %4, null
   br i1 %cmp19.not, label %return, label %if.then20
@@ -121,11 +119,11 @@ return:                                           ; preds = %if.end17, %if.then2
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ec_GFp_mont_group_set_curve(ptr noundef %group, ptr noundef %p, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) #1 {
 entry:
-  %field_data1 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 15
+  %field_data1 = getelementptr inbounds i8, ptr %group, i64 120
   %0 = load ptr, ptr %field_data1, align 8
   tail call void @BN_MONT_CTX_free(ptr noundef %0) #4
   store ptr null, ptr %field_data1, align 8
-  %field_data2 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 16
+  %field_data2 = getelementptr inbounds i8, ptr %group, i64 128
   %1 = load ptr, ptr %field_data2, align 8
   tail call void @BN_free(ptr noundef %1) #4
   store ptr null, ptr %field_data2, align 8
@@ -133,7 +131,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %libctx = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 21
+  %libctx = getelementptr inbounds i8, ptr %group, i64 168
   %2 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %2) #4
   %cmp3 = icmp eq ptr %call, null
@@ -239,7 +237,7 @@ declare i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef, i64 noundef, ptr
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ec_GFp_mont_field_mul(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) #1 {
 entry:
-  %field_data1 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 15
+  %field_data1 = getelementptr inbounds i8, ptr %group, i64 120
   %0 = load ptr, ptr %field_data1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -262,7 +260,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ec_GFp_mont_field_sqr(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #1 {
 entry:
-  %field_data1 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 15
+  %field_data1 = getelementptr inbounds i8, ptr %group, i64 120
   %0 = load ptr, ptr %field_data1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -285,7 +283,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ec_GFp_mont_field_inv(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #1 {
 entry:
-  %field_data1 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 15
+  %field_data1 = getelementptr inbounds i8, ptr %group, i64 120
   %0 = load ptr, ptr %field_data1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -295,7 +293,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %land.lhs.true, label %if.end4
 
 land.lhs.true:                                    ; preds = %if.end
-  %libctx = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 21
+  %libctx = getelementptr inbounds i8, ptr %group, i64 168
   %1 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_secure_new_ex(ptr noundef %1) #4
   %cmp2 = icmp eq ptr %call, null
@@ -315,7 +313,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %tobool.not, label %err, label %if.end11
 
 if.end11:                                         ; preds = %if.end8
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %field = getelementptr inbounds i8, ptr %group, i64 64
   %2 = load ptr, ptr %field, align 8
   %call12 = tail call i32 @BN_sub(ptr noundef nonnull %call5, ptr noundef %2, ptr noundef nonnull %call5) #4
   %tobool13.not = icmp eq i32 %call12, 0
@@ -353,7 +351,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ec_GFp_mont_field_encode(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #1 {
 entry:
-  %field_data1 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 15
+  %field_data1 = getelementptr inbounds i8, ptr %group, i64 120
   %0 = load ptr, ptr %field_data1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -376,7 +374,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ec_GFp_mont_field_decode(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #1 {
 entry:
-  %field_data1 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 15
+  %field_data1 = getelementptr inbounds i8, ptr %group, i64 120
   %0 = load ptr, ptr %field_data1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -399,7 +397,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ec_GFp_mont_field_set_to_one(ptr nocapture noundef readonly %group, ptr noundef %r, ptr nocapture readnone %ctx) #1 {
 entry:
-  %field_data2 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 16
+  %field_data2 = getelementptr inbounds i8, ptr %group, i64 128
   %0 = load ptr, ptr %field_data2, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end

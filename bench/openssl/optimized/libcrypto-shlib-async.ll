@@ -3,19 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-async.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.async_ctx_st = type { %struct.async_fibre_st, ptr, i32 }
-%struct.async_fibre_st = type { %struct.ucontext_t, [1 x %struct.__jmp_buf_tag], i32 }
-%struct.ucontext_t = type { i64, ptr, %struct.stack_t, %struct.mcontext_t, %struct.__sigset_t, %struct._libc_fpstate, [4 x i64] }
-%struct.stack_t = type { ptr, i32, i64 }
-%struct.mcontext_t = type { [23 x i64], ptr, [8 x i64] }
-%struct.__sigset_t = type { [16 x i64] }
-%struct._libc_fpstate = type { i16, i16, i16, i16, i64, i64, i32, i32, [8 x %struct._libc_fpxreg], [16 x %struct._libc_xmmreg], [24 x i32] }
-%struct._libc_fpxreg = type { [4 x i16], i16, [3 x i16] }
-%struct._libc_xmmreg = type { [4 x i32] }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.async_job_st = type { %struct.async_fibre_st, ptr, ptr, i32, i32, ptr, ptr }
-%struct.async_pool_st = type { ptr, i64, i64 }
-
 @ctxkey = internal global i32 0, align 4
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/async/async.c\00", align 1
 @__func__.async_start_func = private unnamed_addr constant [17 x i8] c"async_start_func\00", align 1
@@ -41,7 +28,7 @@ entry:
   br i1 %cmp, label %if.then, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %currjob = getelementptr inbounds %struct.async_ctx_st, ptr %call.i, i64 0, i32 1
+  %currjob = getelementptr inbounds i8, ptr %call.i, i64 1176
   br label %while.body
 
 if.then:                                          ; preds = %entry
@@ -52,14 +39,14 @@ if.then:                                          ; preds = %entry
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %0 = load ptr, ptr %currjob, align 8
-  %func = getelementptr inbounds %struct.async_job_st, ptr %0, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %0, i64 1176
   %1 = load ptr, ptr %func, align 8
-  %funcargs = getelementptr inbounds %struct.async_job_st, ptr %0, i64 0, i32 2
+  %funcargs = getelementptr inbounds i8, ptr %0, i64 1184
   %2 = load ptr, ptr %funcargs, align 8
   %call1 = tail call i32 %1(ptr noundef %2) #7
-  %ret = getelementptr inbounds %struct.async_job_st, ptr %0, i64 0, i32 3
+  %ret = getelementptr inbounds i8, ptr %0, i64 1192
   store i32 %call1, ptr %ret, align 8
-  %status = getelementptr inbounds %struct.async_job_st, ptr %0, i64 0, i32 4
+  %status = getelementptr inbounds i8, ptr %0, i64 1196
   store i32 3, ptr %status, align 4
   tail call fastcc void @async_fibre_swapcontext(ptr noundef %0, ptr noundef nonnull %call.i)
   br label %while.body
@@ -74,21 +61,21 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @async_fibre_swapcontext(ptr noundef %o, ptr noundef %n) unnamed_addr #0 {
 entry:
-  %env_init = getelementptr inbounds %struct.async_fibre_st, ptr %o, i64 0, i32 2
+  %env_init = getelementptr inbounds i8, ptr %o, i64 1168
   store i32 1, ptr %env_init, align 8
-  %env = getelementptr inbounds %struct.async_fibre_st, ptr %o, i64 0, i32 1
+  %env = getelementptr inbounds i8, ptr %o, i64 968
   %call = call i32 @_setjmp(ptr noundef nonnull %env) #8
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %entry
-  %env_init2 = getelementptr inbounds %struct.async_fibre_st, ptr %n, i64 0, i32 2
+  %env_init2 = getelementptr inbounds i8, ptr %n, i64 1168
   %0 = load i32, ptr %env_init2, align 8
   %tobool3.not = icmp eq i32 %0, 0
   br i1 %tobool3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %env5 = getelementptr inbounds %struct.async_fibre_st, ptr %n, i64 0, i32 1
+  %env5 = getelementptr inbounds i8, ptr %n, i64 968
   call void @_longjmp(ptr noundef nonnull %env5, i32 noundef 1) #9
   unreachable
 
@@ -123,9 +110,9 @@ if.end.i:                                         ; preds = %if.then2
   br i1 %cmp.i, label %err.i, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %currjob.i = getelementptr inbounds %struct.async_ctx_st, ptr %call1.i, i64 0, i32 1
+  %currjob.i = getelementptr inbounds i8, ptr %call1.i, i64 1176
   store ptr null, ptr %currjob.i, align 8
-  %blocked.i = getelementptr inbounds %struct.async_ctx_st, ptr %call1.i, i64 0, i32 2
+  %blocked.i = getelementptr inbounds i8, ptr %call1.i, i64 1184
   store i32 0, ptr %blocked.i, align 8
   %call4.i = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @ctxkey, ptr noundef nonnull %call1.i) #7
   %tobool5.not.i = icmp eq i32 %call4.i, 0
@@ -142,12 +129,12 @@ if.end7:                                          ; preds = %if.end, %if.end3.i
   br i1 %cmp8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %currjob = getelementptr inbounds %struct.async_ctx_st, ptr %ctx.0, i64 0, i32 1
+  %currjob = getelementptr inbounds i8, ptr %ctx.0, i64 1176
   store ptr %0, ptr %currjob, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then9, %if.end7
-  %currjob11 = getelementptr inbounds %struct.async_ctx_st, ptr %ctx.0, i64 0, i32 1
+  %currjob11 = getelementptr inbounds i8, ptr %ctx.0, i64 1176
   %cmp66.not = icmp eq ptr %args, null
   br label %for.cond
 
@@ -157,7 +144,7 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   br i1 %cmp12.not, label %if.end60, label %if.then13
 
 if.then13:                                        ; preds = %for.cond
-  %status = getelementptr inbounds %struct.async_job_st, ptr %1, i64 0, i32 4
+  %status = getelementptr inbounds i8, ptr %1, i64 1196
   %2 = load i32, ptr %status, align 4
   switch i32 %2, label %if.end57 [
     i32 3, label %if.then16
@@ -166,11 +153,11 @@ if.then13:                                        ; preds = %for.cond
   ]
 
 if.then16:                                        ; preds = %if.then13
-  %ret18 = getelementptr inbounds %struct.async_job_st, ptr %1, i64 0, i32 3
+  %ret18 = getelementptr inbounds i8, ptr %1, i64 1192
   %3 = load i32, ptr %ret18, align 8
   store i32 %3, ptr %ret, align 4
   %4 = load ptr, ptr %currjob11, align 8
-  %waitctx = getelementptr inbounds %struct.async_job_st, ptr %4, i64 0, i32 5
+  %waitctx = getelementptr inbounds i8, ptr %4, i64 1200
   store ptr null, ptr %waitctx, align 8
   %5 = load ptr, ptr %currjob11, align 8
   %call.i53 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @poolkey) #7
@@ -184,7 +171,7 @@ if.then.i:                                        ; preds = %if.then16
   br label %async_release_job.exit
 
 if.end.i55:                                       ; preds = %if.then16
-  %funcargs.i = getelementptr inbounds %struct.async_job_st, ptr %5, i64 0, i32 2
+  %funcargs.i = getelementptr inbounds i8, ptr %5, i64 1184
   %6 = load ptr, ptr %funcargs.i, align 8
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 141) #7
   store ptr null, ptr %funcargs.i, align 8
@@ -200,7 +187,7 @@ async_release_job.exit:                           ; preds = %if.then.i, %if.end.
 if.then26:                                        ; preds = %if.then13
   store ptr %1, ptr %job, align 8
   %8 = load ptr, ptr %currjob11, align 8
-  %status29 = getelementptr inbounds %struct.async_job_st, ptr %8, i64 0, i32 4
+  %status29 = getelementptr inbounds i8, ptr %8, i64 1196
   store i32 2, ptr %status29, align 4
   store ptr null, ptr %currjob11, align 8
   br label %return
@@ -212,7 +199,7 @@ if.then35:                                        ; preds = %if.then13
 
 if.end38:                                         ; preds = %if.then35
   store ptr %9, ptr %currjob11, align 8
-  %libctx41 = getelementptr inbounds %struct.async_job_st, ptr %9, i64 0, i32 6
+  %libctx41 = getelementptr inbounds i8, ptr %9, i64 1208
   %10 = load ptr, ptr %libctx41, align 8
   %call42 = tail call ptr @OSSL_LIB_CTX_set0_default(ptr noundef %10) #7
   %cmp43 = icmp eq ptr %call42, null
@@ -234,7 +221,7 @@ if.then.i61:                                      ; preds = %if.then44
   br label %async_release_job.exit62
 
 if.end.i58:                                       ; preds = %if.then44
-  %funcargs.i59 = getelementptr inbounds %struct.async_job_st, ptr %11, i64 0, i32 2
+  %funcargs.i59 = getelementptr inbounds i8, ptr %11, i64 1184
   %12 = load ptr, ptr %funcargs.i59, align 8
   tail call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 141) #7
   store ptr null, ptr %funcargs.i59, align 8
@@ -256,7 +243,7 @@ if.end45:                                         ; preds = %if.end38
 for.cond.backedge:                                ; preds = %if.end45, %if.end81
   %call54.sink = phi ptr [ %call54, %if.end45 ], [ %call94, %if.end81 ]
   %15 = load ptr, ptr %currjob11, align 8
-  %libctx56 = getelementptr inbounds %struct.async_job_st, ptr %15, i64 0, i32 6
+  %libctx56 = getelementptr inbounds i8, ptr %15, i64 1208
   store ptr %call54.sink, ptr %libctx56, align 8
   br label %for.cond
 
@@ -276,7 +263,7 @@ if.then.i68:                                      ; preds = %if.end57
   br label %async_release_job.exit69
 
 if.end.i65:                                       ; preds = %if.end57
-  %funcargs.i66 = getelementptr inbounds %struct.async_job_st, ptr %16, i64 0, i32 2
+  %funcargs.i66 = getelementptr inbounds i8, ptr %16, i64 1184
   %17 = load ptr, ptr %funcargs.i66, align 8
   tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str, i32 noundef 141) #7
   store ptr null, ptr %funcargs.i66, align 8
@@ -311,13 +298,13 @@ if.end5.i:                                        ; preds = %if.end.i77, %if.end
   br i1 %cmp7.i, label %if.then8.i, label %if.end65
 
 if.then8.i:                                       ; preds = %if.end5.i
-  %max_size.i = getelementptr inbounds %struct.async_pool_st, ptr %pool.0.i, i64 0, i32 2
+  %max_size.i = getelementptr inbounds i8, ptr %pool.0.i, i64 16
   %20 = load i64, ptr %max_size.i, align 8
   %cmp9.not.i = icmp eq i64 %20, 0
   br i1 %cmp9.not.i, label %if.end13.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then8.i
-  %curr_size.i = getelementptr inbounds %struct.async_pool_st, ptr %pool.0.i, i64 0, i32 1
+  %curr_size.i = getelementptr inbounds i8, ptr %pool.0.i, i64 8
   %21 = load i64, ptr %curr_size.i, align 8
   %cmp11.not.i = icmp ult i64 %21, %20
   br i1 %cmp11.not.i, label %if.end13.i, label %async_get_pool_job.exit.thread
@@ -328,14 +315,14 @@ if.end13.i:                                       ; preds = %land.lhs.true.i, %i
   br i1 %cmp.i.i, label %async_get_pool_job.exit.thread, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end13.i
-  %status.i.i = getelementptr inbounds %struct.async_job_st, ptr %call.i10.i, i64 0, i32 4
+  %status.i.i = getelementptr inbounds i8, ptr %call.i10.i, i64 1196
   store i32 0, ptr %status.i.i, align 4
   %call17.i = tail call i32 @async_fibre_makecontext(ptr noundef nonnull %call.i10.i) #7
   %tobool.not.i74 = icmp eq i32 %call17.i, 0
   br i1 %tobool.not.i74, label %async_job_free.exit.i, label %if.end19.i
 
 async_job_free.exit.i:                            ; preds = %if.then16.i
-  %funcargs.i.i = getelementptr inbounds %struct.async_job_st, ptr %call.i10.i, i64 0, i32 2
+  %funcargs.i.i = getelementptr inbounds i8, ptr %call.i10.i, i64 1184
   %22 = load ptr, ptr %funcargs.i.i, align 8
   tail call void @CRYPTO_free(ptr noundef %22, ptr noundef nonnull @.str, i32 noundef 94) #7
   tail call void @async_fibre_free(ptr noundef nonnull %call.i10.i) #7
@@ -343,7 +330,7 @@ async_job_free.exit.i:                            ; preds = %if.then16.i
   br label %async_get_pool_job.exit.thread
 
 if.end19.i:                                       ; preds = %if.then16.i
-  %curr_size20.i = getelementptr inbounds %struct.async_pool_st, ptr %pool.0.i, i64 0, i32 1
+  %curr_size20.i = getelementptr inbounds i8, ptr %pool.0.i, i64 8
   %23 = load i64, ptr %curr_size20.i, align 8
   %inc.i = add i64 %23, 1
   store i64 %inc.i, ptr %curr_size20.i, align 8
@@ -361,10 +348,10 @@ if.end65:                                         ; preds = %if.end19.i, %if.end
 if.then67:                                        ; preds = %if.end65
   %call68 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %size, ptr noundef nonnull @.str, i32 noundef 253) #7
   %24 = load ptr, ptr %currjob11, align 8
-  %funcargs = getelementptr inbounds %struct.async_job_st, ptr %24, i64 0, i32 2
+  %funcargs = getelementptr inbounds i8, ptr %24, i64 1184
   store ptr %call68, ptr %funcargs, align 8
   %25 = load ptr, ptr %currjob11, align 8
-  %funcargs71 = getelementptr inbounds %struct.async_job_st, ptr %25, i64 0, i32 2
+  %funcargs71 = getelementptr inbounds i8, ptr %25, i64 1184
   %26 = load ptr, ptr %funcargs71, align 8
   %cmp72 = icmp eq ptr %26, null
   br i1 %cmp72, label %if.then73, label %if.end76
@@ -381,7 +368,7 @@ if.then.i84:                                      ; preds = %if.then73
   br label %async_release_job.exit85
 
 if.end.i81:                                       ; preds = %if.then73
-  %funcargs71.le = getelementptr inbounds %struct.async_job_st, ptr %25, i64 0, i32 2
+  %funcargs71.le = getelementptr inbounds i8, ptr %25, i64 1184
   %27 = load ptr, ptr %funcargs71.le, align 8
   tail call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str, i32 noundef 141) #7
   store ptr null, ptr %funcargs71.le, align 8
@@ -398,16 +385,16 @@ if.end76:                                         ; preds = %if.then67
   br label %if.end81
 
 if.else:                                          ; preds = %if.end65
-  %funcargs80 = getelementptr inbounds %struct.async_job_st, ptr %retval.0.i73, i64 0, i32 2
+  %funcargs80 = getelementptr inbounds i8, ptr %retval.0.i73, i64 1184
   store ptr null, ptr %funcargs80, align 8
   br label %if.end81
 
 if.end81:                                         ; preds = %if.else, %if.end76
   %29 = load ptr, ptr %currjob11, align 8
-  %func83 = getelementptr inbounds %struct.async_job_st, ptr %29, i64 0, i32 1
+  %func83 = getelementptr inbounds i8, ptr %29, i64 1176
   store ptr %func, ptr %func83, align 8
   %30 = load ptr, ptr %currjob11, align 8
-  %waitctx85 = getelementptr inbounds %struct.async_job_st, ptr %30, i64 0, i32 5
+  %waitctx85 = getelementptr inbounds i8, ptr %30, i64 1200
   store ptr %wctx, ptr %waitctx85, align 8
   %call86 = tail call ptr @ossl_lib_ctx_get_concrete(ptr noundef null) #7
   %31 = load ptr, ptr %currjob11, align 8
@@ -439,22 +426,22 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %currjob = getelementptr inbounds %struct.async_ctx_st, ptr %call.i, i64 0, i32 1
+  %currjob = getelementptr inbounds i8, ptr %call.i, i64 1176
   %0 = load ptr, ptr %currjob, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %blocked = getelementptr inbounds %struct.async_ctx_st, ptr %call.i, i64 0, i32 2
+  %blocked = getelementptr inbounds i8, ptr %call.i, i64 1184
   %1 = load i32, ptr %blocked, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %status = getelementptr inbounds %struct.async_job_st, ptr %0, i64 0, i32 4
+  %status = getelementptr inbounds i8, ptr %0, i64 1196
   store i32 1, ptr %status, align 4
   tail call fastcc void @async_fibre_swapcontext(ptr noundef nonnull %0, ptr noundef nonnull %call.i)
-  %waitctx = getelementptr inbounds %struct.async_job_st, ptr %0, i64 0, i32 5
+  %waitctx = getelementptr inbounds i8, ptr %0, i64 1200
   %2 = load ptr, ptr %waitctx, align 8
   tail call void @async_wait_ctx_reset_counts(ptr noundef %2) #7
   br label %return
@@ -549,7 +536,7 @@ if.then15:                                        ; preds = %if.end10
   br label %return
 
 if.end16:                                         ; preds = %if.end10
-  %max_size17 = getelementptr inbounds %struct.async_pool_st, ptr %call7, i64 0, i32 2
+  %max_size17 = getelementptr inbounds i8, ptr %call7, i64 16
   store i64 %max_size, ptr %max_size17, align 8
   %tobool18.not26 = icmp eq i64 %init_size, 0
   br i1 %tobool18.not26, label %while.end, label %while.body
@@ -563,11 +550,11 @@ while.body:                                       ; preds = %if.end16, %if.end25
   br i1 %cmp.i, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.body
-  %status.i = getelementptr inbounds %struct.async_job_st, ptr %call.i19, i64 0, i32 4
+  %status.i = getelementptr inbounds i8, ptr %call.i19, i64 1196
   store i32 0, ptr %status.i, align 4
   %call22 = tail call i32 @async_fibre_makecontext(ptr noundef nonnull %call.i19) #7
   %tobool23.not = icmp eq i32 %call22, 0
-  %funcargs.i = getelementptr inbounds %struct.async_job_st, ptr %call.i19, i64 0, i32 2
+  %funcargs.i = getelementptr inbounds i8, ptr %call.i19, i64 1184
   br i1 %tobool23.not, label %async_job_free.exit, label %if.end25
 
 async_job_free.exit:                              ; preds = %lor.lhs.false
@@ -587,7 +574,7 @@ if.end25:                                         ; preds = %lor.lhs.false
 
 while.end:                                        ; preds = %if.end25, %while.body, %if.end16, %async_job_free.exit
   %curr_size.024 = phi i64 [ %curr_size.027, %async_job_free.exit ], [ 0, %if.end16 ], [ %init_size, %if.end25 ], [ %curr_size.027, %while.body ]
-  %curr_size28 = getelementptr inbounds %struct.async_pool_st, ptr %call7, i64 0, i32 1
+  %curr_size28 = getelementptr inbounds i8, ptr %call7, i64 8
   store i64 %curr_size.024, ptr %curr_size28, align 8
   %call29 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @poolkey, ptr noundef nonnull %call7) #7
   %tobool30.not = icmp eq i32 %call29, 0
@@ -608,7 +595,7 @@ lor.lhs.false.split.i:                            ; preds = %if.then31
 
 do.body.split.i:                                  ; preds = %lor.lhs.false.split.i, %do.body.split.i
   %call.i6.sink15.i = phi ptr [ %call.i6.i, %do.body.split.i ], [ %call.i.i, %lor.lhs.false.split.i ]
-  %funcargs.i9.i = getelementptr inbounds %struct.async_job_st, ptr %call.i6.sink15.i, i64 0, i32 2
+  %funcargs.i9.i = getelementptr inbounds i8, ptr %call.i6.sink15.i, i64 1184
   %3 = load ptr, ptr %funcargs.i9.i, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 94) #7
   tail call void @async_fibre_free(ptr noundef nonnull %call.i6.sink15.i) #7
@@ -650,7 +637,7 @@ lor.lhs.false.split.i:                            ; preds = %if.then
 
 do.body.split.i:                                  ; preds = %lor.lhs.false.split.i, %do.body.split.i
   %call.i6.sink15.i = phi ptr [ %call.i6.i, %do.body.split.i ], [ %call.i.i, %lor.lhs.false.split.i ]
-  %funcargs.i9.i = getelementptr inbounds %struct.async_job_st, ptr %call.i6.sink15.i, i64 0, i32 2
+  %funcargs.i9.i = getelementptr inbounds i8, ptr %call.i6.sink15.i, i64 1184
   %1 = load ptr, ptr %funcargs.i9.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 94) #7
   tail call void @async_fibre_free(ptr noundef nonnull %call.i6.sink15.i) #7
@@ -718,7 +705,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %currjob = getelementptr inbounds %struct.async_ctx_st, ptr %call.i, i64 0, i32 1
+  %currjob = getelementptr inbounds i8, ptr %call.i, i64 1176
   %0 = load ptr, ptr %currjob, align 8
   br label %return
 
@@ -730,7 +717,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ASYNC_get_wait_ctx(ptr nocapture noundef readonly %job) local_unnamed_addr #3 {
 entry:
-  %waitctx = getelementptr inbounds %struct.async_job_st, ptr %job, i64 0, i32 5
+  %waitctx = getelementptr inbounds i8, ptr %job, i64 1200
   %0 = load ptr, ptr %waitctx, align 8
   ret ptr %0
 }
@@ -748,13 +735,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %currjob = getelementptr inbounds %struct.async_ctx_st, ptr %call.i, i64 0, i32 1
+  %currjob = getelementptr inbounds i8, ptr %call.i, i64 1176
   %0 = load ptr, ptr %currjob, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %blocked = getelementptr inbounds %struct.async_ctx_st, ptr %call.i, i64 0, i32 2
+  %blocked = getelementptr inbounds i8, ptr %call.i, i64 1184
   %1 = load i32, ptr %blocked, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %blocked, align 8
@@ -777,13 +764,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.end8, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %currjob = getelementptr inbounds %struct.async_ctx_st, ptr %call.i, i64 0, i32 1
+  %currjob = getelementptr inbounds i8, ptr %call.i, i64 1176
   %0 = load ptr, ptr %currjob, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %if.end8, label %if.end4
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %blocked = getelementptr inbounds %struct.async_ctx_st, ptr %call.i, i64 0, i32 2
+  %blocked = getelementptr inbounds i8, ptr %call.i, i64 1184
   %1 = load i32, ptr %blocked, align 8
   %cmp5.not = icmp eq i32 %1, 0
   br i1 %cmp5.not, label %if.end8, label %if.then6

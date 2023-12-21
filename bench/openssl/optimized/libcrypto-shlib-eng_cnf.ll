@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-eng_cnf.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [8 x i8] c"engines\00", align 1
 @.str.1 = private unnamed_addr constant [35 x i8] c"../openssl/crypto/engine/eng_cnf.c\00", align 1
 @__func__.int_engine_module_init = private unnamed_addr constant [23 x i8] c"int_engine_module_init\00", align 1
@@ -55,9 +53,9 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.046 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %call5 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1, i32 noundef %i.046) #4
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call5, i64 8
   %0 = load ptr, ptr %name, align 8
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call5, i64 16
   %1 = load ptr, ptr %value, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %do_init.i)
   store i64 -1, ptr %do_init.i, align 8
@@ -90,13 +88,13 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %name.addr.086.i = phi ptr [ %name.addr.1.i, %for.inc.i ], [ %retval.0.i.i, %for.body.preheader.i ]
   %i.085.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
   %call5.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1.i, i32 noundef %i.085.i) #4
-  %name6.i = getelementptr inbounds %struct.CONF_VALUE, ptr %call5.i, i64 0, i32 1
+  %name6.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %2 = load ptr, ptr %name6.i, align 8
   %call.i36.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 46) #5
   %cmp.not.i37.i = icmp eq ptr %call.i36.i, null
   %add.ptr.i38.i = getelementptr inbounds i8, ptr %call.i36.i, i64 1
   %retval.0.i39.i = select i1 %cmp.not.i37.i, ptr %2, ptr %add.ptr.i38.i
-  %value8.i = getelementptr inbounds %struct.CONF_VALUE, ptr %call5.i, i64 0, i32 2
+  %value8.i = getelementptr inbounds i8, ptr %call5.i, i64 16
   %3 = load ptr, ptr %value8.i, align 8
   %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i39.i, ptr noundef nonnull dereferenceable(10) @.str.2) #5
   %cmp10.i = icmp eq i32 %call9.i, 0
@@ -269,8 +267,8 @@ if.then98.i:                                      ; preds = %land.lhs.true90.i, 
 
 if.else99.i:                                      ; preds = %if.then18.i, %if.end22.i, %if.end26.i, %if.end30.i, %if.end42.i, %if.then53.i, %if.then59.i, %if.then72.i, %if.else77.i, %if.then66.i, %if.then8.i.i
   %e.3.ph.ph.i = phi ptr [ %e.1.i, %if.then66.i ], [ %e.1.i, %if.then8.i.i ], [ %call19.i, %if.end30.i ], [ %call19.i, %if.end26.i ], [ %call19.i, %if.end22.i ], [ null, %if.then18.i ], [ %e.1.i, %if.then53.i ], [ %e.1.i, %if.then72.i ], [ %e.1.i, %if.else77.i ], [ null, %if.end42.i ], [ %e.1.i, %if.then59.i ]
-  %value8.i60 = getelementptr inbounds %struct.CONF_VALUE, ptr %call5.i, i64 0, i32 2
-  %name6.i65 = getelementptr inbounds %struct.CONF_VALUE, ptr %call5.i, i64 0, i32 1
+  %value8.i60 = getelementptr inbounds i8, ptr %call5.i, i64 16
+  %name6.i65 = getelementptr inbounds i8, ptr %call5.i, i64 8
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 139, ptr noundef nonnull @__func__.int_engine_configure) #4
   %10 = load ptr, ptr %call5.i, align 8

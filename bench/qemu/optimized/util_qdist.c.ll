@@ -3,9 +3,8 @@ source_filename = "bench/qemu/original/util_qdist.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.qdist = type { ptr, i64, i64 }
 %struct.qdist_entry = type { double, i64 }
-%struct._GString = type { ptr, i64, i64 }
+%struct.qdist = type { ptr, i64, i64 }
 
 @.str = private unnamed_addr constant [8 x i8] c"(empty)\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"|\00", align 1
@@ -24,9 +23,9 @@ define dso_local void @qdist_init(ptr nocapture noundef writeonly %dist) local_u
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #11
   store ptr %call, ptr %dist, align 8
-  %size = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %dist, i64 16
   store i64 1, ptr %size, align 8
-  %n = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %dist, i64 8
   store i64 0, ptr %n, align 8
   ret void
 }
@@ -48,7 +47,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 define dso_local void @qdist_add(ptr nocapture noundef %dist, double noundef %x, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   %e = alloca %struct.qdist_entry, align 8
-  %n = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %dist, i64 8
   %0 = load i64, ptr %n, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end7, label %if.end
@@ -65,7 +64,7 @@ if.end.if.end7_crit_edge:                         ; preds = %if.end
   br label %if.end7
 
 if.then5:                                         ; preds = %if.end
-  %count6 = getelementptr inbounds %struct.qdist_entry, ptr %call, i64 0, i32 1
+  %count6 = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load i64, ptr %count6, align 8
   %add = add i64 %2, %count
   store i64 %add, ptr %count6, align 8
@@ -73,7 +72,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end.if.end7_crit_edge, %entry
   %3 = phi i64 [ %.pre, %if.end.if.end7_crit_edge ], [ 0, %entry ]
-  %size = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %dist, i64 16
   %4 = load i64, ptr %size, align 8
   %cmp = icmp eq i64 %3, %4
   %.pre22 = load ptr, ptr %dist, align 8
@@ -94,7 +93,7 @@ if.end17:                                         ; preds = %if.then11, %if.end7
   store i64 %inc, ptr %n, align 8
   %arrayidx = getelementptr %struct.qdist_entry, ptr %5, i64 %6
   store double %x, ptr %arrayidx, align 8
-  %count22 = getelementptr %struct.qdist_entry, ptr %5, i64 %6, i32 1
+  %count22 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 %count, ptr %count22, align 8
   %7 = load ptr, ptr %dist, align 8
   %8 = load i64, ptr %n, align 8
@@ -129,7 +128,7 @@ define dso_local void @qdist_inc(ptr nocapture noundef %dist, double noundef %x)
 entry:
   %e.i = alloca %struct.qdist_entry, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %e.i)
-  %n.i = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 1
+  %n.i = getelementptr inbounds i8, ptr %dist, i64 8
   %0 = load i64, ptr %n.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %if.end7.i, label %if.end.i
@@ -146,7 +145,7 @@ if.end.if.end7_crit_edge.i:                       ; preds = %if.end.i
   br label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %count6.i = getelementptr inbounds %struct.qdist_entry, ptr %call.i, i64 0, i32 1
+  %count6.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %2 = load i64, ptr %count6.i, align 8
   %add.i = add i64 %2, 1
   store i64 %add.i, ptr %count6.i, align 8
@@ -154,7 +153,7 @@ if.then5.i:                                       ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.end.if.end7_crit_edge.i, %entry
   %3 = phi i64 [ %.pre.i, %if.end.if.end7_crit_edge.i ], [ 0, %entry ]
-  %size.i = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %dist, i64 16
   %4 = load i64, ptr %size.i, align 8
   %cmp.i = icmp eq i64 %3, %4
   %.pre22.i = load ptr, ptr %dist, align 8
@@ -175,7 +174,7 @@ if.end17.i:                                       ; preds = %if.then11.i, %if.en
   store i64 %inc.i, ptr %n.i, align 8
   %arrayidx.i = getelementptr %struct.qdist_entry, ptr %5, i64 %6
   store double %x, ptr %arrayidx.i, align 8
-  %count22.i = getelementptr %struct.qdist_entry, ptr %5, i64 %6, i32 1
+  %count22.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 1, ptr %count22.i, align 8
   %7 = load ptr, ptr %dist, align 8
   %8 = load i64, ptr %n.i, align 8
@@ -194,11 +193,11 @@ entry:
   %e.i = alloca %struct.qdist_entry, align 8
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #11
   store ptr %call.i, ptr %to, align 8
-  %size.i = getelementptr inbounds %struct.qdist, ptr %to, i64 0, i32 2
+  %size.i = getelementptr inbounds i8, ptr %to, i64 16
   store i64 1, ptr %size.i, align 8
-  %n.i = getelementptr inbounds %struct.qdist, ptr %to, i64 0, i32 1
+  %n.i = getelementptr inbounds i8, ptr %to, i64 8
   store i64 0, ptr %n.i, align 8
-  %n1 = getelementptr inbounds %struct.qdist, ptr %from, i64 0, i32 1
+  %n1 = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load i64, ptr %n1, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %for.end55, label %if.end
@@ -300,7 +299,7 @@ if.end17.i:                                       ; preds = %if.then11.i, %if.en
   store i64 %inc.i, ptr %n.i, align 8
   %arrayidx.i = getelementptr %struct.qdist_entry, ptr %13, i64 %14
   store double %8, ptr %arrayidx.i, align 8
-  %count22.i = getelementptr %struct.qdist_entry, ptr %13, i64 %14, i32 1
+  %count22.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i64 0, ptr %count22.i, align 8
   %15 = load ptr, ptr %to, align 8
   %16 = load i64, ptr %n.i, align 8
@@ -327,7 +326,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %qd
   br i1 %20, label %while.body, label %for.inc53
 
 while.body:                                       ; preds = %land.rhs
-  %count = getelementptr %struct.qdist_entry, ptr %18, i64 %j.174, i32 1
+  %count = getelementptr inbounds i8, ptr %arrayidx43, i64 8
   %21 = load i64, ptr %count, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %e.i49)
   %22 = load i64, ptr %n.i, align 8
@@ -346,7 +345,7 @@ if.end.if.end7_crit_edge.i57:                     ; preds = %if.end.i52
   br label %if.end7.i59
 
 if.then5.i55:                                     ; preds = %if.end.i52
-  %count6.i56 = getelementptr inbounds %struct.qdist_entry, ptr %call.i53, i64 0, i32 1
+  %count6.i56 = getelementptr inbounds i8, ptr %call.i53, i64 8
   %24 = load i64, ptr %count6.i56, align 8
   %add.i = add i64 %24, %21
   store i64 %add.i, ptr %count6.i56, align 8
@@ -374,7 +373,7 @@ if.end17.i63:                                     ; preds = %if.then11.i67, %if.
   store i64 %inc.i64, ptr %n.i, align 8
   %arrayidx.i65 = getelementptr %struct.qdist_entry, ptr %27, i64 %28
   store double %8, ptr %arrayidx.i65, align 8
-  %count22.i66 = getelementptr %struct.qdist_entry, ptr %27, i64 %28, i32 1
+  %count22.i66 = getelementptr inbounds i8, ptr %arrayidx.i65, i64 8
   store i64 %21, ptr %count22.i66, align 8
   %29 = load ptr, ptr %to, align 8
   %30 = load i64, ptr %n.i, align 8
@@ -400,7 +399,7 @@ for.end55:                                        ; preds = %for.inc53, %rebin, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local double @qdist_xmin(ptr nocapture noundef readonly %dist) local_unnamed_addr #5 {
 entry:
-  %n.i = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 1
+  %n.i = getelementptr inbounds i8, ptr %dist, i64 8
   %0 = load i64, ptr %n.i, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %qdist_x.exit, label %if.end.i
@@ -418,7 +417,7 @@ qdist_x.exit:                                     ; preds = %entry, %if.end.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local double @qdist_xmax(ptr nocapture noundef readonly %dist) local_unnamed_addr #5 {
 entry:
-  %n = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %dist, i64 8
   %0 = load i64, ptr %n, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %qdist_x.exit, label %if.end.i
@@ -447,7 +446,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local ptr @qdist_pr_plain(ptr nocapture noundef readonly %dist, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %binned = alloca %struct.qdist, align 8
-  %n1 = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 1
+  %n1 = getelementptr inbounds i8, ptr %dist, i64 8
   %0 = load i64, ptr %n1, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -459,10 +458,10 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @qdist_bin__internal(ptr noundef nonnull %binned, ptr noundef nonnull %dist, i64 noundef %n)
   %call.i = tail call ptr @g_string_new(ptr noundef nonnull @.str.2) #12
-  %n.i = getelementptr inbounds %struct.qdist, ptr %binned, i64 0, i32 1
+  %n.i = getelementptr inbounds i8, ptr %binned, i64 8
   %1 = load i64, ptr %n.i, align 8
   %2 = load ptr, ptr %binned, align 8
-  %count.i = getelementptr inbounds %struct.qdist_entry, ptr %2, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %count.i, align 8
   switch i64 %1, label %for.body.i.preheader [
     i64 1, label %if.then.i
@@ -478,10 +477,10 @@ if.then1.i:                                       ; preds = %if.then.i
   br label %qdist_pr_internal.exit
 
 if.else.i:                                        ; preds = %if.then.i
-  %len.i.i = getelementptr inbounds %struct._GString, ptr %call.i, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %4 = load i64, ptr %len.i.i, align 8
   %add.i.i = add i64 %4, 1
-  %allocated_len.i.i = getelementptr inbounds %struct._GString, ptr %call.i, i64 0, i32 2
+  %allocated_len.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %5 = load i64, ptr %allocated_len.i.i, align 8
   %cmp.i.i = icmp ult i64 %add.i.i, %5
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -507,8 +506,8 @@ for.body.i.preheader:                             ; preds = %if.end
 
 for.body33.lr.ph.i:                               ; preds = %for.body.i
   %sub42.i = fsub double %max.1.i, %min.1.i
-  %len.i24.i = getelementptr inbounds %struct._GString, ptr %call.i, i64 0, i32 1
-  %allocated_len.i26.i = getelementptr inbounds %struct._GString, ptr %call.i, i64 0, i32 2
+  %len.i24.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %allocated_len.i26.i = getelementptr inbounds i8, ptr %call.i, i64 16
   br label %for.body33.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
@@ -587,7 +586,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qdist_pr(ptr nocapture noundef readonly %dist, i64 noundef %n_bins, i32 noundef %opt) local_unnamed_addr #0 {
 entry:
-  %n = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %dist, i64 8
   %0 = load i64, ptr %n, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -638,14 +637,14 @@ if.end:                                           ; preds = %entry
   br i1 %tobool8.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.end
-  %n9 = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 1
+  %n9 = getelementptr inbounds i8, ptr %dist, i64 8
   %0 = load i64, ptr %n9, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.false
   %cond10 = phi i64 [ %0, %cond.false ], [ %n_bins, %if.end ]
   %conv11 = uitofp i64 %cond10 to double
-  %n.i.i = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 1
+  %n.i.i = getelementptr inbounds i8, ptr %dist, i64 8
   %1 = load i64, ptr %n.i.i, align 8
   %cmp.i.i = icmp eq i64 %1, 0
   br i1 %is_left, label %cond.true14, label %cond.false16
@@ -725,7 +724,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @qdist_unique_entries(ptr nocapture noundef readonly %dist) local_unnamed_addr #3 {
 entry:
-  %n = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %dist, i64 8
   %0 = load i64, ptr %n, align 8
   ret i64 %0
 }
@@ -733,7 +732,7 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @qdist_sample_count(ptr nocapture noundef readonly %dist) local_unnamed_addr #8 {
 entry:
-  %n = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 1
+  %n = getelementptr inbounds i8, ptr %dist, i64 8
   %0 = load i64, ptr %n, align 8
   %cmp5.not = icmp eq i64 %0, 0
   br i1 %cmp5.not, label %for.end, label %for.body.lr.ph
@@ -760,7 +759,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define dso_local double @qdist_avg(ptr noundef readonly %dist) local_unnamed_addr #9 {
 entry:
-  %n.i = getelementptr inbounds %struct.qdist, ptr %dist, i64 0, i32 1
+  %n.i = getelementptr inbounds i8, ptr %dist, i64 8
   %0 = load i64, ptr %n.i, align 8
   %cmp5.not.i = icmp eq i64 %0, 0
   br i1 %cmp5.not.i, label %return, label %for.body.lr.ph.i
@@ -804,19 +803,19 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %0 = load ptr, ptr %dist, align 8
+  %invariant.gep = getelementptr %struct.qdist_entry, ptr %0, i64 %index
   %conv3 = uitofp i64 %count to double
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.019 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %ret.018 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add4, %for.body ]
-  %1 = getelementptr %struct.qdist_entry, ptr %0, i64 %i.019
-  %arrayidx = getelementptr %struct.qdist_entry, ptr %1, i64 %index
-  %2 = load double, ptr %arrayidx, align 8
-  %count2 = getelementptr %struct.qdist_entry, ptr %1, i64 %index, i32 1
-  %3 = load i64, ptr %count2, align 8
-  %conv = uitofp i64 %3 to double
-  %mul = fmul double %2, %conv
+  %gep = getelementptr %struct.qdist_entry, ptr %invariant.gep, i64 %i.019
+  %1 = load double, ptr %gep, align 8
+  %count2 = getelementptr inbounds i8, ptr %gep, i64 8
+  %2 = load i64, ptr %count2, align 8
+  %conv = uitofp i64 %2 to double
+  %mul = fmul double %1, %conv
   %div = fdiv double %mul, %conv3
   %add4 = fadd double %ret.018, %div
   %inc = add nuw nsw i64 %i.019, 1

@@ -3,17 +3,9 @@ source_filename = "bench/bullet3/original/SphereTriangleDetector.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.SphereTriangleDetector = type <{ %struct.btDiscreteCollisionDetectorInterface, ptr, ptr, float, [4 x i8] }>
-%struct.btDiscreteCollisionDetectorInterface = type { ptr }
 %class.btVector3 = type { [4 x float] }
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
 %class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput" = type { %class.btTransform, %class.btTransform, float }
-%class.btTriangleShape = type { %class.btPolyhedralConvexShape, [3 x %class.btVector3] }
-%class.btPolyhedralConvexShape = type { %class.btConvexInternalShape, ptr }
-%class.btConvexInternalShape = type { %class.btConvexShape, %class.btVector3, %class.btVector3, float, float }
-%class.btConvexShape = type { %class.btCollisionShape }
-%class.btCollisionShape = type { ptr, i32, ptr, i32, i32 }
 
 $_ZN22SphereTriangleDetectorD2Ev = comdat any
 
@@ -38,11 +30,11 @@ $_ZTI36btDiscreteCollisionDetectorInterface = comdat any
 define dso_local void @_ZN22SphereTriangleDetectorC2EP13btSphereShapeP15btTriangleShapef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %sphere, ptr noundef %triangle, float noundef %contactBreakingThreshold) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22SphereTriangleDetector, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_sphere = getelementptr inbounds %struct.SphereTriangleDetector, ptr %this, i64 0, i32 1
+  %m_sphere = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %sphere, ptr %m_sphere, align 8
-  %m_triangle = getelementptr inbounds %struct.SphereTriangleDetector, ptr %this, i64 0, i32 2
+  %m_triangle = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %triangle, ptr %m_triangle, align 8
-  %m_contactBreakingThreshold = getelementptr inbounds %struct.SphereTriangleDetector, ptr %this, i64 0, i32 3
+  %m_contactBreakingThreshold = getelementptr inbounds i8, ptr %this, i64 24
   store float %contactBreakingThreshold, ptr %m_contactBreakingThreshold, align 8
   ret void
 }
@@ -58,39 +50,39 @@ entry:
   %pointOnA = alloca %class.btVector3, align 8
   %ref.tmp15 = alloca %class.btVector3, align 8
   %ref.tmp19 = alloca %class.btVector3, align 8
-  %m_transformB = getelementptr inbounds %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", ptr %input, i64 0, i32 1
+  %m_transformB = getelementptr inbounds i8, ptr %input, i64 64
   store float 0.000000e+00, ptr %depth, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  %m_origin.i.i = getelementptr inbounds %class.btTransform, ptr %input, i64 0, i32 1
-  %m_origin.i = getelementptr inbounds %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", ptr %input, i64 0, i32 1, i32 1
+  %m_origin.i.i = getelementptr inbounds i8, ptr %input, i64 48
+  %m_origin.i = getelementptr inbounds i8, ptr %input, i64 112
   %0 = load float, ptr %m_origin.i.i, align 4, !noalias !5
   %1 = load float, ptr %m_origin.i, align 4, !noalias !5
   %sub.i.i = fsub float %0, %1
-  %arrayidx5.i.i = getelementptr inbounds %class.btTransform, ptr %input, i64 0, i32 1, i32 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %input, i64 52
   %2 = load float, ptr %arrayidx5.i.i, align 4, !noalias !5
-  %arrayidx7.i.i = getelementptr inbounds %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", ptr %input, i64 0, i32 1, i32 1, i32 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %input, i64 116
   %3 = load float, ptr %arrayidx7.i.i, align 4, !noalias !5
   %sub8.i.i = fsub float %2, %3
-  %arrayidx11.i.i = getelementptr inbounds %class.btTransform, ptr %input, i64 0, i32 1, i32 0, i64 2
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %input, i64 56
   %4 = load float, ptr %arrayidx11.i.i, align 4, !noalias !5
-  %arrayidx13.i.i = getelementptr inbounds %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", ptr %input, i64 0, i32 1, i32 1, i32 0, i64 2
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %input, i64 120
   %5 = load float, ptr %arrayidx13.i.i, align 4, !noalias !5
   %sub14.i.i = fsub float %4, %5
-  %arrayidx5.i2.i = getelementptr inbounds %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", ptr %input, i64 0, i32 1, i32 0, i32 0, i64 1
-  %arrayidx.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %input, i64 0, i64 1
-  %arrayidx11.i3.i = getelementptr inbounds %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", ptr %input, i64 0, i32 1, i32 0, i32 0, i64 2
-  %arrayidx.i27.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %input, i64 0, i64 2
-  %arrayidx.i33.i.i = getelementptr inbounds [4 x float], ptr %input, i64 0, i64 2
+  %arrayidx5.i2.i = getelementptr inbounds i8, ptr %input, i64 80
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %input, i64 16
+  %arrayidx11.i3.i = getelementptr inbounds i8, ptr %input, i64 96
+  %arrayidx.i27.i.i = getelementptr inbounds i8, ptr %input, i64 32
+  %arrayidx.i33.i.i = getelementptr inbounds i8, ptr %input, i64 8
   %6 = load float, ptr %arrayidx.i33.i.i, align 4, !noalias !8
-  %arrayidx.i35.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %input, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i35.i.i = getelementptr inbounds i8, ptr %input, i64 24
   %7 = load float, ptr %arrayidx.i35.i.i, align 4, !noalias !8
-  %arrayidx.i37.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %input, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i37.i.i = getelementptr inbounds i8, ptr %input, i64 40
   %8 = load float, ptr %arrayidx.i37.i.i, align 4, !noalias !8
-  %arrayidx.i59.i.i = getelementptr inbounds %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", ptr %input, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i64 2
+  %arrayidx.i59.i.i = getelementptr inbounds i8, ptr %input, i64 72
   %9 = load float, ptr %arrayidx.i59.i.i, align 4, !noalias !5
-  %arrayidx.i60.i.i = getelementptr inbounds %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", ptr %input, i64 0, i32 1, i32 0, i32 0, i64 1, i32 0, i64 2
+  %arrayidx.i60.i.i = getelementptr inbounds i8, ptr %input, i64 88
   %10 = load float, ptr %arrayidx.i60.i.i, align 4, !noalias !5
-  %arrayidx.i62.i.i = getelementptr inbounds %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", ptr %input, i64 0, i32 1, i32 0, i32 0, i64 2, i32 0, i64 2
+  %arrayidx.i62.i.i = getelementptr inbounds i8, ptr %input, i64 104
   %11 = load float, ptr %arrayidx.i62.i.i, align 4, !noalias !5
   %mul145.i.i = fmul float %7, %10
   %12 = tail call float @llvm.fmuladd.f32(float %9, float %6, float %mul145.i.i)
@@ -137,7 +129,7 @@ entry:
   store float %21, ptr %ref.tmp.sroa.3.0.agg.result.sroa_idx.i, align 8, !alias.scope !5
   %ref.tmp.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %sphereInTr, i64 12
   store float 0.000000e+00, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx.i, align 4, !alias.scope !5
-  %arrayidx8.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %sphereInTr, i64 0, i64 1
+  %arrayidx8.i.i.i = getelementptr inbounds i8, ptr %sphereInTr, i64 16
   %47 = shufflevector <2 x float> %14, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %48 = fmul <2 x float> %39, %47
   %49 = shufflevector <2 x float> %16, <2 x float> poison, <2 x i32> <i32 1, i32 1>
@@ -145,11 +137,11 @@ entry:
   %51 = shufflevector <2 x float> %19, <2 x float> poison, <2 x i32> <i32 1, i32 1>
   %52 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %51, <2 x float> %44, <2 x float> %50)
   store <2 x float> %52, ptr %arrayidx8.i.i.i, align 8, !alias.scope !5
-  %ref.tmp.sroa.8.16.arrayidx8.i.i.sroa_idx.i = getelementptr inbounds [3 x %class.btVector3], ptr %sphereInTr, i64 0, i64 1, i32 0, i64 2
+  %ref.tmp.sroa.8.16.arrayidx8.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %sphereInTr, i64 24
   store float %26, ptr %ref.tmp.sroa.8.16.arrayidx8.i.i.sroa_idx.i, align 8, !alias.scope !5
-  %ref.tmp.sroa.9.16.arrayidx8.i.i.sroa_idx.i = getelementptr inbounds [3 x %class.btVector3], ptr %sphereInTr, i64 0, i64 1, i32 0, i64 3
+  %ref.tmp.sroa.9.16.arrayidx8.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %sphereInTr, i64 28
   store float 0.000000e+00, ptr %ref.tmp.sroa.9.16.arrayidx8.i.i.sroa_idx.i, align 4, !alias.scope !5
-  %arrayidx12.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %sphereInTr, i64 0, i64 2
+  %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %sphereInTr, i64 32
   %53 = insertelement <2 x float> poison, float %10, i64 0
   %54 = shufflevector <2 x float> %53, <2 x float> poison, <2 x i32> zeroinitializer
   %55 = fmul <2 x float> %39, %54
@@ -160,33 +152,33 @@ entry:
   %60 = shufflevector <2 x float> %59, <2 x float> poison, <2 x i32> zeroinitializer
   %61 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %60, <2 x float> %44, <2 x float> %58)
   store <2 x float> %61, ptr %arrayidx12.i.i.i, align 8, !alias.scope !5
-  %ref.tmp.sroa.13.32.arrayidx12.i.i.sroa_idx.i = getelementptr inbounds [3 x %class.btVector3], ptr %sphereInTr, i64 0, i64 2, i32 0, i64 2
+  %ref.tmp.sroa.13.32.arrayidx12.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %sphereInTr, i64 40
   store float %13, ptr %ref.tmp.sroa.13.32.arrayidx12.i.i.sroa_idx.i, align 8, !alias.scope !5
-  %ref.tmp.sroa.14.32.arrayidx12.i.i.sroa_idx.i = getelementptr inbounds [3 x %class.btVector3], ptr %sphereInTr, i64 0, i64 2, i32 0, i64 3
+  %ref.tmp.sroa.14.32.arrayidx12.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %sphereInTr, i64 44
   store float 0.000000e+00, ptr %ref.tmp.sroa.14.32.arrayidx12.i.i.sroa_idx.i, align 4, !alias.scope !5
-  %m_origin.i9.i = getelementptr inbounds %class.btTransform, ptr %sphereInTr, i64 0, i32 1
+  %m_origin.i9.i = getelementptr inbounds i8, ptr %sphereInTr, i64 48
   store <2 x float> %35, ptr %m_origin.i9.i, align 8, !alias.scope !5
-  %ref.tmp4.sroa.2.0.m_origin.i9.sroa_idx.i = getelementptr inbounds %class.btTransform, ptr %sphereInTr, i64 0, i32 1, i32 0, i64 2
+  %ref.tmp4.sroa.2.0.m_origin.i9.sroa_idx.i = getelementptr inbounds i8, ptr %sphereInTr, i64 56
   store <2 x float> %retval.sroa.3.12.vec.insert.i6.i, ptr %ref.tmp4.sroa.2.0.m_origin.i9.sroa_idx.i, align 8, !alias.scope !5
-  %m_contactBreakingThreshold = getelementptr inbounds %struct.SphereTriangleDetector, ptr %this, i64 0, i32 3
+  %m_contactBreakingThreshold = getelementptr inbounds i8, ptr %this, i64 24
   %62 = load float, ptr %m_contactBreakingThreshold, align 8
   %call2 = call noundef zeroext i1 @_ZN22SphereTriangleDetector7collideERK9btVector3RS0_S3_RfS4_f(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i9.i, ptr noundef nonnull align 4 dereferenceable(16) %point, ptr noundef nonnull align 4 dereferenceable(16) %normal, ptr noundef nonnull align 4 dereferenceable(4) %depth, ptr nonnull align 4 poison, float noundef %62)
   br i1 %call2, label %if.then, label %if.end24
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i41.i.i = getelementptr inbounds %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", ptr %input, i64 0, i32 1, i32 0, i32 0, i64 2, i32 0, i64 1
-  %arrayidx.i39.i.i = getelementptr inbounds %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", ptr %input, i64 0, i32 1, i32 0, i32 0, i64 1, i32 0, i64 1
-  %arrayidx.i38.i.i = getelementptr inbounds %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", ptr %input, i64 0, i32 1, i32 0, i32 0, i64 0, i32 0, i64 1
+  %arrayidx.i41.i.i = getelementptr inbounds i8, ptr %input, i64 100
+  %arrayidx.i39.i.i = getelementptr inbounds i8, ptr %input, i64 84
+  %arrayidx.i38.i.i = getelementptr inbounds i8, ptr %input, i64 68
   %63 = load <4 x float>, ptr %m_transformB, align 4
   %64 = shufflevector <4 x float> %63, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %65 = load float, ptr %normal, align 4
   %66 = load <4 x float>, ptr %arrayidx.i38.i.i, align 4
   %67 = shufflevector <4 x float> %66, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx7.i.i9 = getelementptr inbounds [4 x float], ptr %normal, i64 0, i64 1
+  %arrayidx7.i.i9 = getelementptr inbounds i8, ptr %normal, i64 4
   %68 = load float, ptr %arrayidx7.i.i9, align 4
   %69 = load <4 x float>, ptr %arrayidx.i59.i.i, align 4
   %70 = shufflevector <4 x float> %69, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx12.i.i = getelementptr inbounds [4 x float], ptr %normal, i64 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %normal, i64 8
   %71 = load float, ptr %arrayidx12.i.i, align 4
   %72 = load float, ptr %arrayidx5.i2.i, align 4
   %73 = load float, ptr %arrayidx.i39.i.i, align 4
@@ -216,12 +208,12 @@ if.then3:                                         ; preds = %if.then
   %fneg8.i = fneg float %91
   %retval.sroa.3.12.vec.insert.i12 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %fneg8.i, i64 0
   store <2 x float> %92, ptr %normalOnA, align 8
-  %93 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %normalOnA, i64 0, i32 1
+  %93 = getelementptr inbounds i8, ptr %normalOnA, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i12, ptr %93, align 8
   %94 = load float, ptr %point, align 4
-  %arrayidx5.i.i.i.i = getelementptr inbounds [4 x float], ptr %point, i64 0, i64 1
+  %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %point, i64 4
   %95 = load float, ptr %arrayidx5.i.i.i.i, align 4
-  %arrayidx10.i.i.i.i = getelementptr inbounds [4 x float], ptr %point, i64 0, i64 2
+  %arrayidx10.i.i.i.i = getelementptr inbounds i8, ptr %point, i64 8
   %96 = load float, ptr %arrayidx10.i.i.i.i, align 4
   %mul8.i8.i.i.i = fmul float %88, %95
   %97 = tail call float @llvm.fmuladd.f32(float %94, float %87, float %mul8.i8.i.i.i)
@@ -248,10 +240,10 @@ if.then3:                                         ; preds = %if.then
   %add14.i = fadd float %add14.i.i.i, %mul8.i
   %retval.sroa.3.12.vec.insert.i27 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
   store <2 x float> %115, ptr %pointOnA, align 8
-  %116 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %pointOnA, i64 0, i32 1
+  %116 = getelementptr inbounds i8, ptr %pointOnA, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i27, ptr %116, align 8
   %vtable = load ptr, ptr %output, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %117 = load ptr, ptr %vfn, align 8
   call void %117(ptr noundef nonnull align 8 dereferenceable(8) %output, ptr noundef nonnull align 4 dereferenceable(16) %normalOnA, ptr noundef nonnull align 4 dereferenceable(16) %pointOnA, float noundef %100)
   br label %if.end24
@@ -259,12 +251,12 @@ if.then3:                                         ; preds = %if.then
 if.else:                                          ; preds = %if.then
   %retval.sroa.3.12.vec.insert.i45 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %91, i64 0
   store <2 x float> %86, ptr %ref.tmp15, align 8
-  %118 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp15, i64 0, i32 1
+  %118 = getelementptr inbounds i8, ptr %ref.tmp15, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i45, ptr %118, align 8
   %119 = load float, ptr %point, align 4
-  %arrayidx5.i.i.i.i50 = getelementptr inbounds [4 x float], ptr %point, i64 0, i64 1
+  %arrayidx5.i.i.i.i50 = getelementptr inbounds i8, ptr %point, i64 4
   %120 = load float, ptr %arrayidx5.i.i.i.i50, align 4
-  %arrayidx10.i.i.i.i53 = getelementptr inbounds [4 x float], ptr %point, i64 0, i64 2
+  %arrayidx10.i.i.i.i53 = getelementptr inbounds i8, ptr %point, i64 8
   %121 = load float, ptr %arrayidx10.i.i.i.i53, align 4
   %mul8.i8.i.i.i59 = fmul float %88, %120
   %122 = tail call float @llvm.fmuladd.f32(float %119, float %87, float %mul8.i8.i.i.i59)
@@ -284,11 +276,11 @@ if.else:                                          ; preds = %if.then
   %add14.i.i.i66 = fadd float %123, %135
   %retval.sroa.3.12.vec.insert.i4.i.i69 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i.i.i66, i64 0
   store <2 x float> %134, ptr %ref.tmp19, align 8
-  %136 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ref.tmp19, i64 0, i32 1
+  %136 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i4.i.i69, ptr %136, align 8
   %137 = load float, ptr %depth, align 4
   %vtable22 = load ptr, ptr %output, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 4
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 32
   %138 = load ptr, ptr %vfn23, align 8
   call void %138(ptr noundef nonnull align 8 dereferenceable(8) %output, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp15, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp19, float noundef %137)
   br label %if.end24
@@ -304,28 +296,28 @@ entry:
   %lnormal.i = alloca %class.btVector3, align 8
   %pa = alloca %class.btVector3, align 8
   %pb = alloca %class.btVector3, align 8
-  %m_triangle = getelementptr inbounds %struct.SphereTriangleDetector, ptr %this, i64 0, i32 2
+  %m_triangle = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_triangle, align 8
-  %arrayidx.i = getelementptr inbounds %class.btTriangleShape, ptr %0, i64 0, i32 1, i64 0
-  %m_sphere = getelementptr inbounds %struct.SphereTriangleDetector, ptr %this, i64 0, i32 1
+  %m_vertices1.i = getelementptr inbounds i8, ptr %0, i64 80
+  %m_sphere = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_sphere, align 8
-  %m_implicitShapeDimensions.i = getelementptr inbounds %class.btConvexInternalShape, ptr %1, i64 0, i32 2
+  %m_implicitShapeDimensions.i = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load float, ptr %m_implicitShapeDimensions.i, align 4
-  %m_localScaling.i = getelementptr inbounds %class.btConvexInternalShape, ptr %1, i64 0, i32 1
+  %m_localScaling.i = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load float, ptr %m_localScaling.i, align 4
   %mul.i = fmul float %2, %3
   %add = fadd float %mul.i, %contactBreakingThreshold
-  %arrayidx = getelementptr inbounds %class.btTriangleShape, ptr %0, i64 0, i32 1, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load float, ptr %arrayidx, align 4
-  %5 = load float, ptr %arrayidx.i, align 4
+  %5 = load float, ptr %m_vertices1.i, align 4
   %sub.i = fsub float %4, %5
-  %arrayidx5.i = getelementptr inbounds %class.btTriangleShape, ptr %0, i64 0, i32 1, i64 1, i32 0, i64 1
-  %arrayidx7.i = getelementptr inbounds %class.btTriangleShape, ptr %0, i64 0, i32 1, i64 0, i32 0, i64 1
-  %arrayidx6 = getelementptr inbounds %class.btTriangleShape, ptr %0, i64 0, i32 1, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %0, i64 100
+  %arrayidx7.i = getelementptr inbounds i8, ptr %0, i64 84
+  %arrayidx6 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load float, ptr %arrayidx6, align 4
-  %arrayidx5.i27 = getelementptr inbounds %class.btTriangleShape, ptr %0, i64 0, i32 1, i64 2, i32 0, i64 1
+  %arrayidx5.i27 = getelementptr inbounds i8, ptr %0, i64 116
   %7 = load float, ptr %arrayidx5.i27, align 4
-  %arrayidx11.i30 = getelementptr inbounds %class.btTriangleShape, ptr %0, i64 0, i32 1, i64 2, i32 0, i64 2
+  %arrayidx11.i30 = getelementptr inbounds i8, ptr %0, i64 120
   %8 = load float, ptr %arrayidx11.i30, align 4
   %9 = load <2 x float>, ptr %arrayidx5.i, align 4
   %10 = load <2 x float>, ptr %arrayidx7.i, align 4
@@ -366,19 +358,19 @@ if.then:                                          ; preds = %entry
   %normal.sroa.17.8.vec.insert = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul7.i.i, i64 0
   %35 = load <2 x float>, ptr %sphereCenter, align 4
   %36 = extractelement <2 x float> %35, i64 0
-  %sub.i46 = fsub float %36, %5
+  %sub.i45 = fsub float %36, %5
   %shift = shufflevector <2 x float> %35, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %37 = fsub <2 x float> %shift, %10
-  %arrayidx11.i50 = getelementptr inbounds [4 x float], ptr %sphereCenter, i64 0, i64 2
-  %38 = load float, ptr %arrayidx11.i50, align 4
+  %arrayidx11.i49 = getelementptr inbounds i8, ptr %sphereCenter, i64 8
+  %38 = load float, ptr %arrayidx11.i49, align 4
   %39 = extractelement <2 x float> %10, i64 1
-  %sub14.i52 = fsub float %38, %39
-  %shift182 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %40 = fmul <2 x float> %shift182, %37
+  %sub14.i51 = fsub float %38, %39
+  %shift181 = shufflevector <2 x float> %34, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %40 = fmul <2 x float> %shift181, %37
   %mul8.i = extractelement <2 x float> %40, i64 0
   %41 = extractelement <2 x float> %34, i64 0
-  %42 = tail call float @llvm.fmuladd.f32(float %sub.i46, float %41, float %mul8.i)
-  %43 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i52, float %mul7.i.i, float %42)
+  %42 = tail call float @llvm.fmuladd.f32(float %sub.i45, float %41, float %mul8.i)
+  %43 = tail call noundef float @llvm.fmuladd.f32(float %sub14.i51, float %mul7.i.i, float %42)
   %cmp20 = fcmp olt float %43, 0.000000e+00
   br i1 %cmp20, label %if.then21, label %if.end
 
@@ -386,13 +378,13 @@ if.then21:                                        ; preds = %if.then
   %mul = fneg float %43
   %44 = fneg <2 x float> %34
   %mul7.i = fneg float %mul7.i.i
-  %normal.sroa.17.8.vec.insert144 = insertelement <2 x float> %normal.sroa.17.8.vec.insert, float %mul7.i, i64 0
+  %normal.sroa.17.8.vec.insert143 = insertelement <2 x float> %normal.sroa.17.8.vec.insert, float %mul7.i, i64 0
   br label %if.end
 
 if.end:                                           ; preds = %if.then21, %if.then
   %distanceFromPlane.0 = phi float [ %mul, %if.then21 ], [ %43, %if.then ]
   %normal.sroa.0.0 = phi <2 x float> [ %44, %if.then21 ], [ %34, %if.then ]
-  %normal.sroa.17.0 = phi <2 x float> [ %normal.sroa.17.8.vec.insert144, %if.then21 ], [ %normal.sroa.17.8.vec.insert, %if.then ]
+  %normal.sroa.17.0 = phi <2 x float> [ %normal.sroa.17.8.vec.insert143, %if.then21 ], [ %normal.sroa.17.8.vec.insert, %if.then ]
   %cmp24 = fcmp olt float %distanceFromPlane.0, %add
   br i1 %cmp24, label %if.then25, label %return
 
@@ -403,48 +395,48 @@ if.then25:                                        ; preds = %if.end
   store <2 x float> %normal.sroa.0.0, ptr %lnormal.i, align 8
   %normal.sroa.17.0.lnormal.i.sroa_idx = getelementptr inbounds i8, ptr %lnormal.i, i64 8
   store <2 x float> %normal.sroa.17.0, ptr %normal.sroa.17.0.lnormal.i.sroa_idx, align 8
-  %call.i62 = call noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull align 8 poison, ptr noundef nonnull %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(16) %lnormal.i, ptr noundef nonnull %lp.i)
+  %call.i61 = call noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nonnull align 8 poison, ptr noundef nonnull %m_vertices1.i, ptr noundef nonnull align 4 dereferenceable(16) %lnormal.i, ptr noundef nonnull %lp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %lnormal.i)
-  br i1 %call.i62, label %if.end47.thread153, label %if.else
+  br i1 %call.i61, label %if.end47.thread152, label %if.else
 
-if.end47.thread153:                               ; preds = %if.then25
-  %normal.sroa.17.8.vec.extract146 = extractelement <2 x float> %normal.sroa.17.0, i64 0
-  %mul8.i67 = fmul float %distanceFromPlane.0, %normal.sroa.17.8.vec.extract146
+if.end47.thread152:                               ; preds = %if.then25
+  %normal.sroa.17.8.vec.extract145 = extractelement <2 x float> %normal.sroa.17.0, i64 0
+  %mul8.i66 = fmul float %distanceFromPlane.0, %normal.sroa.17.8.vec.extract145
   %45 = insertelement <2 x float> poison, float %distanceFromPlane.0, i64 0
   %46 = shufflevector <2 x float> %45, <2 x float> poison, <2 x i32> zeroinitializer
   %47 = fmul <2 x float> %46, %normal.sroa.0.0
   %48 = fsub <2 x float> %35, %47
-  %sub14.i79 = fsub float %38, %mul8.i67
-  %retval.sroa.3.12.vec.insert.i82 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i79, i64 0
+  %sub14.i78 = fsub float %38, %mul8.i66
+  %retval.sroa.3.12.vec.insert.i81 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i78, i64 0
   br label %if.then49
 
 if.else:                                          ; preds = %if.then25
-  %vtable165 = load ptr, ptr %0, align 8
-  %vfn166 = getelementptr inbounds ptr, ptr %vtable165, i64 26
-  %49 = load ptr, ptr %vfn166, align 8
-  %call36167 = tail call noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(128) %0)
-  %cmp37168 = icmp sgt i32 %call36167, 0
-  br i1 %cmp37168, label %for.body.lr.ph, label %return
+  %vtable164 = load ptr, ptr %0, align 8
+  %vfn165 = getelementptr inbounds i8, ptr %vtable164, i64 208
+  %49 = load ptr, ptr %vfn165, align 8
+  %call36166 = tail call noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(128) %0)
+  %cmp37167 = icmp sgt i32 %call36166, 0
+  br i1 %cmp37167, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.else
   %mul34 = fmul float %add, %add
-  %arrayidx13.i.i = getelementptr inbounds [4 x float], ptr %pa, i64 0, i64 2
-  %arrayidx11.i8.i = getelementptr inbounds [4 x float], ptr %pb, i64 0, i64 2
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %pa, i64 8
+  %arrayidx11.i8.i = getelementptr inbounds i8, ptr %pb, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %hasContact.0173 = phi i8 [ 0, %for.body.lr.ph ], [ %hasContact.1, %for.inc ]
-  %minDistSqr.0172 = phi float [ %mul34, %for.body.lr.ph ], [ %minDistSqr.1, %for.inc ]
-  %i.0171 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %contactPoint.sroa.6.0170 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %contactPoint.sroa.6.1, %for.inc ]
-  %contactPoint.sroa.0.0169 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %contactPoint.sroa.0.1, %for.inc ]
+  %hasContact.0172 = phi i8 [ 0, %for.body.lr.ph ], [ %hasContact.1, %for.inc ]
+  %minDistSqr.0171 = phi float [ %mul34, %for.body.lr.ph ], [ %minDistSqr.1, %for.inc ]
+  %i.0170 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %contactPoint.sroa.6.0169 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %contactPoint.sroa.6.1, %for.inc ]
+  %contactPoint.sroa.0.0168 = phi <2 x float> [ undef, %for.body.lr.ph ], [ %contactPoint.sroa.0.1, %for.inc ]
   %50 = load ptr, ptr %m_triangle, align 8
   %vtable39 = load ptr, ptr %50, align 8
-  %vfn40 = getelementptr inbounds ptr, ptr %vtable39, i64 27
+  %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 216
   %51 = load ptr, ptr %vfn40, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(128) %50, i32 noundef %i.0171, ptr noundef nonnull align 4 dereferenceable(16) %pa, ptr noundef nonnull align 4 dereferenceable(16) %pb)
-  %52 = load float, ptr %arrayidx11.i50, align 4
+  call void %51(ptr noundef nonnull align 8 dereferenceable(128) %50, i32 noundef %i.0170, ptr noundef nonnull align 4 dereferenceable(16) %pa, ptr noundef nonnull align 4 dereferenceable(16) %pb)
+  %52 = load float, ptr %arrayidx11.i49, align 4
   %53 = load float, ptr %arrayidx13.i.i, align 8
   %sub14.i.i = fsub float %52, %53
   %retval.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i.i, i64 0
@@ -456,10 +448,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %59 = load float, ptr %arrayidx11.i8.i, align 8
   %sub14.i10.i = fsub float %59, %53
   %60 = fmul <2 x float> %56, %58
-  %mul8.i.i86 = extractelement <2 x float> %60, i64 1
+  %mul8.i.i85 = extractelement <2 x float> %60, i64 1
   %61 = extractelement <2 x float> %58, i64 0
   %62 = extractelement <2 x float> %56, i64 0
-  %63 = call float @llvm.fmuladd.f32(float %61, float %62, float %mul8.i.i86)
+  %63 = call float @llvm.fmuladd.f32(float %61, float %62, float %mul8.i.i85)
   %64 = call noundef float @llvm.fmuladd.f32(float %sub14.i10.i, float %sub14.i.i, float %63)
   %cmp.i = fcmp ogt float %64, 0.000000e+00
   br i1 %cmp.i, label %if.then.i, label %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit
@@ -473,9 +465,9 @@ if.then.i:                                        ; preds = %for.body
   br i1 %cmp5.i, label %if.then6.i, label %if.else.i
 
 if.then6.i:                                       ; preds = %if.then.i
-  %div.i87 = fdiv float %64, %67
-  %mul8.i.i.i = fmul float %sub14.i10.i, %div.i87
-  %68 = insertelement <2 x float> poison, float %div.i87, i64 0
+  %div.i86 = fdiv float %64, %67
+  %mul8.i.i.i = fmul float %sub14.i10.i, %div.i86
+  %68 = insertelement <2 x float> poison, float %div.i86, i64 0
   %69 = shufflevector <2 x float> %68, <2 x float> poison, <2 x i32> zeroinitializer
   %70 = fmul <2 x float> %58, %69
   %71 = fsub <2 x float> %56, %70
@@ -490,7 +482,7 @@ if.else.i:                                        ; preds = %if.then.i
   br label %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit
 
 _Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit: ; preds = %for.body, %if.then6.i, %if.else.i
-  %t.0.i = phi float [ %div.i87, %if.then6.i ], [ 1.000000e+00, %if.else.i ], [ 0.000000e+00, %for.body ]
+  %t.0.i = phi float [ %div.i86, %if.then6.i ], [ 1.000000e+00, %if.else.i ], [ 0.000000e+00, %for.body ]
   %diff.sroa.0.0.i = phi <2 x float> [ %71, %if.then6.i ], [ %72, %if.else.i ], [ %56, %for.body ]
   %diff.sroa.15.0.i = phi <2 x float> [ %diff.sroa.15.8.vec.insert.i, %if.then6.i ], [ %diff.sroa.15.8.vec.insert120.i, %if.else.i ], [ %retval.sroa.3.12.vec.insert.i.i, %for.body ]
   %diff.sroa.0.0.vec.extract100.i = extractelement <2 x float> %diff.sroa.0.0.i, i64 0
@@ -499,7 +491,7 @@ _Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit: ; preds = %for.body, %if.then6
   %74 = call float @llvm.fmuladd.f32(float %diff.sroa.0.0.vec.extract100.i, float %diff.sroa.0.0.vec.extract100.i, float %mul8.i57.i)
   %diff.sroa.15.8.vec.extract122.i = extractelement <2 x float> %diff.sroa.15.0.i, i64 0
   %75 = call noundef float @llvm.fmuladd.f32(float %diff.sroa.15.8.vec.extract122.i, float %diff.sroa.15.8.vec.extract122.i, float %74)
-  %cmp42 = fcmp olt float %75, %minDistSqr.0172
+  %cmp42 = fcmp olt float %75, %minDistSqr.0171
   br i1 %cmp42, label %if.then43, label %for.inc
 
 if.then43:                                        ; preds = %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit
@@ -513,14 +505,14 @@ if.then43:                                        ; preds = %_Z18SegmentSqrDista
   br label %for.inc
 
 for.inc:                                          ; preds = %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit, %if.then43
-  %contactPoint.sroa.0.1 = phi <2 x float> [ %79, %if.then43 ], [ %contactPoint.sroa.0.0169, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
-  %contactPoint.sroa.6.1 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i52.i, %if.then43 ], [ %contactPoint.sroa.6.0170, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
-  %minDistSqr.1 = phi float [ %75, %if.then43 ], [ %minDistSqr.0172, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
-  %hasContact.1 = phi i8 [ 1, %if.then43 ], [ %hasContact.0173, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
-  %inc = add nuw nsw i32 %i.0171, 1
+  %contactPoint.sroa.0.1 = phi <2 x float> [ %79, %if.then43 ], [ %contactPoint.sroa.0.0168, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
+  %contactPoint.sroa.6.1 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i52.i, %if.then43 ], [ %contactPoint.sroa.6.0169, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
+  %minDistSqr.1 = phi float [ %75, %if.then43 ], [ %minDistSqr.0171, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
+  %hasContact.1 = phi i8 [ 1, %if.then43 ], [ %hasContact.0172, %_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_.exit ]
+  %inc = add nuw nsw i32 %i.0170, 1
   %80 = load ptr, ptr %m_triangle, align 8
   %vtable = load ptr, ptr %80, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 26
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
   %81 = load ptr, ptr %vfn, align 8
   %call36 = call noundef i32 %81(ptr noundef nonnull align 8 dereferenceable(128) %80)
   %cmp37 = icmp slt i32 %inc, %call36
@@ -533,23 +525,23 @@ if.end47:                                         ; preds = %for.inc
 
 if.end47.if.then49_crit_edge:                     ; preds = %if.end47
   %84 = load <2 x float>, ptr %sphereCenter, align 4
-  %.pre177 = load float, ptr %arrayidx11.i50, align 4
+  %.pre176 = load float, ptr %arrayidx11.i49, align 4
   br label %if.then49
 
-if.then49:                                        ; preds = %if.end47.if.then49_crit_edge, %if.end47.thread153
-  %85 = phi float [ %38, %if.end47.thread153 ], [ %.pre177, %if.end47.if.then49_crit_edge ]
-  %contactPoint.sroa.6.2161 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i82, %if.end47.thread153 ], [ %contactPoint.sroa.6.1, %if.end47.if.then49_crit_edge ]
-  %contactPoint.sroa.0.2160 = phi <2 x float> [ %48, %if.end47.thread153 ], [ %contactPoint.sroa.0.1, %if.end47.if.then49_crit_edge ]
-  %86 = phi <2 x float> [ %35, %if.end47.thread153 ], [ %84, %if.end47.if.then49_crit_edge ]
-  %87 = fsub <2 x float> %86, %contactPoint.sroa.0.2160
-  %contactPoint.sroa.6.8.vec.extract = extractelement <2 x float> %contactPoint.sroa.6.2161, i64 0
-  %sub14.i94 = fsub float %85, %contactPoint.sroa.6.8.vec.extract
-  %retval.sroa.3.12.vec.insert.i97 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i94, i64 0
+if.then49:                                        ; preds = %if.end47.if.then49_crit_edge, %if.end47.thread152
+  %85 = phi float [ %38, %if.end47.thread152 ], [ %.pre176, %if.end47.if.then49_crit_edge ]
+  %contactPoint.sroa.6.2160 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i81, %if.end47.thread152 ], [ %contactPoint.sroa.6.1, %if.end47.if.then49_crit_edge ]
+  %contactPoint.sroa.0.2159 = phi <2 x float> [ %48, %if.end47.thread152 ], [ %contactPoint.sroa.0.1, %if.end47.if.then49_crit_edge ]
+  %86 = phi <2 x float> [ %35, %if.end47.thread152 ], [ %84, %if.end47.if.then49_crit_edge ]
+  %87 = fsub <2 x float> %86, %contactPoint.sroa.0.2159
+  %contactPoint.sroa.6.8.vec.extract = extractelement <2 x float> %contactPoint.sroa.6.2160, i64 0
+  %sub14.i93 = fsub float %85, %contactPoint.sroa.6.8.vec.extract
+  %retval.sroa.3.12.vec.insert.i96 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i93, i64 0
   %88 = extractelement <2 x float> %87, i64 1
-  %mul8.i.i101 = fmul float %88, %88
+  %mul8.i.i100 = fmul float %88, %88
   %89 = extractelement <2 x float> %87, i64 0
-  %90 = call float @llvm.fmuladd.f32(float %89, float %89, float %mul8.i.i101)
-  %91 = call noundef float @llvm.fmuladd.f32(float %sub14.i94, float %sub14.i94, float %90)
+  %90 = call float @llvm.fmuladd.f32(float %89, float %89, float %mul8.i.i100)
+  %91 = call noundef float @llvm.fmuladd.f32(float %sub14.i93, float %sub14.i93, float %90)
   %mul54 = fmul float %add, %add
   %cmp55 = fcmp olt float %91, %mul54
   br i1 %cmp55, label %if.then56, label %return
@@ -560,20 +552,20 @@ if.then56:                                        ; preds = %if.then49
   br i1 %cmp57, label %if.then58, label %if.else61
 
 if.then58:                                        ; preds = %if.then56
-  %sqrt164 = call float @llvm.sqrt.f32(float %91)
-  store <2 x float> %retval.sroa.3.12.vec.insert.i97, ptr %contactToCentre.sroa.4.0.resultNormal.sroa_idx, align 4
+  %sqrt163 = call float @llvm.sqrt.f32(float %91)
+  store <2 x float> %retval.sroa.3.12.vec.insert.i96, ptr %contactToCentre.sroa.4.0.resultNormal.sroa_idx, align 4
   %mul8.i.i.i.i = fmul float %88, %88
   %92 = call float @llvm.fmuladd.f32(float %89, float %89, float %mul8.i.i.i.i)
-  %93 = call noundef float @llvm.fmuladd.f32(float %sub14.i94, float %sub14.i94, float %92)
+  %93 = call noundef float @llvm.fmuladd.f32(float %sub14.i93, float %sub14.i93, float %92)
   %sqrt.i.i = call noundef float @llvm.sqrt.f32(float %93)
   %div.i.i = fdiv float 1.000000e+00, %sqrt.i.i
   %94 = insertelement <2 x float> poison, float %div.i.i, i64 0
   %95 = shufflevector <2 x float> %94, <2 x float> poison, <2 x i32> zeroinitializer
   %96 = fmul <2 x float> %87, %95
   store <2 x float> %96, ptr %resultNormal, align 4
-  %mul7.i.i.i = fmul float %sub14.i94, %div.i.i
+  %mul7.i.i.i = fmul float %sub14.i93, %div.i.i
   store float %mul7.i.i.i, ptr %contactToCentre.sroa.4.0.resultNormal.sroa_idx, align 4
-  %sub = fsub float %mul.i, %sqrt164
+  %sub = fsub float %mul.i, %sqrt163
   br label %if.end63
 
 if.else61:                                        ; preds = %if.then56
@@ -584,9 +576,9 @@ if.else61:                                        ; preds = %if.then56
 if.end63:                                         ; preds = %if.else61, %if.then58
   %mul.i.sink = phi float [ %mul.i, %if.else61 ], [ %sub, %if.then58 ]
   %fneg62 = fneg float %mul.i.sink
-  store <2 x float> %contactPoint.sroa.0.2160, ptr %point, align 4
+  store <2 x float> %contactPoint.sroa.0.2159, ptr %point, align 4
   %97 = getelementptr inbounds i8, ptr %point, i64 8
-  store <2 x float> %contactPoint.sroa.6.2161, ptr %97, align 4
+  store <2 x float> %contactPoint.sroa.6.2160, ptr %97, align 4
   store float %fneg62, ptr %depth, align 4
   br label %return
 
@@ -598,9 +590,9 @@ return:                                           ; preds = %if.else, %entry, %i
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef float @_Z18SegmentSqrDistanceRK9btVector3S1_S1_RS_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %from, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %to, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %p, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %nearest) local_unnamed_addr #2 {
 entry:
-  %arrayidx11.i = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %p, i64 8
   %0 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds [4 x float], ptr %from, i64 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %from, i64 8
   %1 = load float, ptr %arrayidx13.i, align 4
   %sub14.i = fsub float %0, %1
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i, i64 0
@@ -609,7 +601,7 @@ entry:
   %4 = fsub <2 x float> %3, %2
   %5 = load <2 x float>, ptr %to, align 4
   %6 = fsub <2 x float> %5, %2
-  %arrayidx11.i8 = getelementptr inbounds [4 x float], ptr %to, i64 0, i64 2
+  %arrayidx11.i8 = getelementptr inbounds i8, ptr %to, i64 8
   %7 = load float, ptr %arrayidx11.i8, align 4
   %sub14.i10 = fsub float %7, %1
   %8 = fmul <2 x float> %4, %6
@@ -686,37 +678,37 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN22SphereTriangleDetector15pointInTriangleEPK9btVector3RS1_PS0_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %vertices, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %normal, ptr nocapture noundef readonly %p) local_unnamed_addr #5 align 2 {
 entry:
-  %arrayidx2 = getelementptr inbounds %class.btVector3, ptr %vertices, i64 1
-  %arrayidx3 = getelementptr inbounds %class.btVector3, ptr %vertices, i64 2
+  %arrayidx2 = getelementptr inbounds i8, ptr %vertices, i64 16
+  %arrayidx3 = getelementptr inbounds i8, ptr %vertices, i64 32
   %0 = load float, ptr %arrayidx2, align 4
   %1 = load float, ptr %vertices, align 4
-  %arrayidx5.i = getelementptr inbounds %class.btVector3, ptr %vertices, i64 1, i32 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %vertices, i64 20
   %2 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %vertices, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %vertices, i64 4
   %3 = load float, ptr %arrayidx7.i, align 4
-  %arrayidx11.i = getelementptr inbounds %class.btVector3, ptr %vertices, i64 1, i32 0, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %vertices, i64 24
   %4 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds [4 x float], ptr %vertices, i64 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %vertices, i64 8
   %5 = load float, ptr %arrayidx13.i, align 4
   %6 = load float, ptr %arrayidx3, align 4
-  %arrayidx5.i20 = getelementptr inbounds %class.btVector3, ptr %vertices, i64 2, i32 0, i64 1
+  %arrayidx5.i20 = getelementptr inbounds i8, ptr %vertices, i64 36
   %7 = load float, ptr %arrayidx5.i20, align 4
-  %arrayidx11.i23 = getelementptr inbounds %class.btVector3, ptr %vertices, i64 2, i32 0, i64 2
+  %arrayidx11.i23 = getelementptr inbounds i8, ptr %vertices, i64 40
   %8 = load float, ptr %arrayidx11.i23, align 4
   %sub.i31 = fsub float %1, %6
   %sub8.i34 = fsub float %3, %7
   %sub14.i37 = fsub float %5, %8
   %9 = load float, ptr %p, align 4
-  %arrayidx5.i44 = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 1
+  %arrayidx5.i44 = getelementptr inbounds i8, ptr %p, i64 4
   %10 = load float, ptr %arrayidx5.i44, align 4
-  %arrayidx11.i47 = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 2
+  %arrayidx11.i47 = getelementptr inbounds i8, ptr %p, i64 8
   %11 = load float, ptr %arrayidx11.i47, align 4
   %sub.i67 = fsub float %9, %6
   %sub8.i70 = fsub float %10, %7
   %sub14.i73 = fsub float %11, %8
-  %arrayidx3.i = getelementptr inbounds [4 x float], ptr %normal, i64 0, i64 2
+  %arrayidx3.i = getelementptr inbounds i8, ptr %normal, i64 8
   %12 = load float, ptr %arrayidx3.i, align 4
-  %arrayidx7.i80 = getelementptr inbounds [4 x float], ptr %normal, i64 0, i64 1
+  %arrayidx7.i80 = getelementptr inbounds i8, ptr %normal, i64 4
   %13 = load float, ptr %arrayidx7.i80, align 4
   %14 = load float, ptr %normal, align 4
   %15 = fneg float %sub14.i37

@@ -3,10 +3,9 @@ source_filename = "bench/icu/original/indiancal.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::Calendar" = type <{ %"class.icu_75::UObject", i8, i8, i8, i8, [24 x i32], [24 x i8], [24 x i32], i32, double, i8, [7 x i8], ptr, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, [157 x i8], [157 x i8], [6 x i8] }>
-%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::IndianCalendar" = type { %"class.icu_75::Calendar.base", [6 x i8] }
 %"class.icu_75::Calendar.base" = type <{ %"class.icu_75::UObject", i8, i8, i8, i8, [24 x i32], [24 x i8], [24 x i32], i32, double, i8, [7 x i8], ptr, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, [157 x i8], [157 x i8] }>
+%"class.icu_75::UObject" = type { ptr }
 %"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 
 @_ZTVN6icu_7514IndianCalendarE = unnamed_addr constant { [57 x ptr] } { [57 x ptr] [ptr null, ptr @_ZTIN6icu_7514IndianCalendarE, ptr @_ZN6icu_7514IndianCalendarD1Ev, ptr @_ZN6icu_7514IndianCalendarD0Ev, ptr @_ZNK6icu_7514IndianCalendar17getDynamicClassIDEv, ptr @_ZNK6icu_7514IndianCalendar5cloneEv, ptr @_ZNK6icu_758CalendareqERKS0_, ptr @_ZNK6icu_758Calendar14isEquivalentToERKS0_, ptr @_ZN6icu_758Calendar3addENS0_11EDateFieldsEiR10UErrorCode, ptr @_ZN6icu_758Calendar3addE19UCalendarDateFieldsiR10UErrorCode, ptr @_ZN6icu_758Calendar4rollENS0_11EDateFieldsEiR10UErrorCode, ptr @_ZN6icu_758Calendar4rollE19UCalendarDateFieldsiR10UErrorCode, ptr @_ZN6icu_758Calendar15fieldDifferenceEdNS0_11EDateFieldsER10UErrorCode, ptr @_ZN6icu_758Calendar15fieldDifferenceEd19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_758Calendar14inDaylightTimeER10UErrorCode, ptr @_ZNK6icu_758Calendar10getMinimumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar10getMinimumE19UCalendarDateFields, ptr @_ZNK6icu_758Calendar10getMaximumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar10getMaximumE19UCalendarDateFields, ptr @_ZNK6icu_758Calendar18getGreatestMinimumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar18getGreatestMinimumE19UCalendarDateFields, ptr @_ZNK6icu_758Calendar15getLeastMaximumENS0_11EDateFieldsE, ptr @_ZNK6icu_758Calendar15getLeastMaximumE19UCalendarDateFields, ptr @_ZNK6icu_758Calendar16getActualMinimumE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_758Calendar16getActualMaximumE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_7514IndianCalendar7getTypeEv, ptr @_ZNK6icu_758Calendar16getDayOfWeekTypeE19UCalendarDaysOfWeekR10UErrorCode, ptr @_ZNK6icu_758Calendar20getWeekendTransitionE19UCalendarDaysOfWeekR10UErrorCode, ptr @_ZNK6icu_758Calendar9isWeekendEdR10UErrorCode, ptr @_ZNK6icu_758Calendar9isWeekendEv, ptr @_ZNK6icu_758Calendar18inTemporalLeapYearER10UErrorCode, ptr @_ZNK6icu_758Calendar20getTemporalMonthCodeER10UErrorCode, ptr @_ZN6icu_758Calendar20setTemporalMonthCodeEPKcR10UErrorCode, ptr @_ZN6icu_758Calendar11computeTimeER10UErrorCode, ptr @_ZN6icu_758Calendar13computeFieldsER10UErrorCode, ptr @_ZNK6icu_758Calendar16internalGetMonthEv, ptr @_ZNK6icu_758Calendar16internalGetMonthEi, ptr @_ZN6icu_758Calendar16prepareGetActualE19UCalendarDateFieldsaR10UErrorCode, ptr @_ZNK6icu_7514IndianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE, ptr @_ZNK6icu_758Calendar8getLimitE19UCalendarDateFieldsNS0_10ELimitTypeE, ptr @_ZNK6icu_7514IndianCalendar23handleComputeMonthStartEiia, ptr @_ZNK6icu_7514IndianCalendar20handleGetMonthLengthEii, ptr @_ZNK6icu_7514IndianCalendar19handleGetYearLengthEi, ptr @_ZN6icu_7514IndianCalendar21handleGetExtendedYearEv, ptr @_ZN6icu_758Calendar22handleComputeJulianDayE19UCalendarDateFieldsR10UErrorCode, ptr @_ZN6icu_758Calendar35handleGetExtendedYearFromWeekFieldsEii, ptr @_ZN6icu_758Calendar13validateFieldE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_758Calendar23getFieldResolutionTableEv, ptr @_ZN6icu_7514IndianCalendar19handleComputeFieldsEiR10UErrorCode, ptr @_ZN6icu_758Calendar21getDefaultMonthInYearEi, ptr @_ZN6icu_758Calendar20getDefaultDayInMonthEii, ptr @_ZN6icu_758Calendar8pinFieldE19UCalendarDateFieldsR10UErrorCode, ptr @_ZNK6icu_7514IndianCalendar18haveDefaultCenturyEv, ptr @_ZNK6icu_7514IndianCalendar19defaultCenturyStartEv, ptr @_ZNK6icu_7514IndianCalendar23defaultCenturyStartYearEv, ptr @_ZNK6icu_7514IndianCalendar14getRelatedYearER10UErrorCode, ptr @_ZN6icu_7514IndianCalendar14setRelatedYearEi] }, align 8
@@ -272,29 +271,29 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 19
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load i32, ptr %arrayidx.i, align 8
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %cond.true.i, label %if.end
 
 cond.true.i:                                      ; preds = %if.then
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load i32, ptr %arrayidx3.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %arrayidx.i1 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
-  %2 = load i32, ptr %arrayidx.i1, align 8
-  %cmp.i2 = icmp sgt i32 %2, 0
-  br i1 %cmp.i2, label %cond.true.i4, label %if.end
+  %arrayidx.i2 = getelementptr inbounds i8, ptr %this, i64 136
+  %2 = load i32, ptr %arrayidx.i2, align 8
+  %cmp.i3 = icmp sgt i32 %2, 0
+  br i1 %cmp.i3, label %cond.true.i5, label %if.end
 
-cond.true.i4:                                     ; preds = %if.else
-  %arrayidx3.i5 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  %3 = load i32, ptr %arrayidx3.i5, align 8
+cond.true.i5:                                     ; preds = %if.else
+  %arrayidx3.i7 = getelementptr inbounds i8, ptr %this, i64 16
+  %3 = load i32, ptr %arrayidx3.i7, align 8
   br label %if.end
 
-if.end:                                           ; preds = %cond.true.i4, %if.else, %cond.true.i, %if.then
-  %year.0 = phi i32 [ %1, %cond.true.i ], [ 1, %if.then ], [ %3, %cond.true.i4 ], [ 1, %if.else ]
+if.end:                                           ; preds = %cond.true.i5, %if.else, %cond.true.i, %if.then
+  %year.0 = phi i32 [ %1, %cond.true.i ], [ 1, %if.then ], [ %3, %cond.true.i5 ], [ 1, %if.else ]
   ret i32 %year.0
 }
 
@@ -310,8 +309,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %gdow.i)
   %sub.i = fadd double %conv, 0xC1429EC600000000
   %conv.i = fptosi double %sub.i to i32
-  %arrayidx1.i = getelementptr inbounds i32, ptr %gd, i64 1
-  %arrayidx2.i = getelementptr inbounds i32, ptr %gd, i64 2
+  %arrayidx1.i = getelementptr inbounds i8, ptr %gd, i64 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %gd, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %doy_unused.i.i)
   call void @_ZN6icu_755Grego11dayToFieldsEiRiS1_S1_S1_S1_(i32 noundef %conv.i, ptr noundef nonnull align 4 dereferenceable(4) %gd, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx1.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx2.i, ptr noundef nonnull align 4 dereferenceable(4) %gdow.i, ptr noundef nonnull align 4 dereferenceable(4) %doy_unused.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %doy_unused.i.i)
@@ -338,12 +337,12 @@ land.rhs.i.i:                                     ; preds = %if.then
   %rem2.i.i = srem i32 %sub7, 400
   %cmp3.i.i.not = icmp eq i32 %rem2.i.i, 0
   %or.cond = or i1 %cmp1.not.i.i, %cmp3.i.i.not
-  br i1 %or.cond, label %_ZN6icu_75L15isGregorianLeapEi.exit.thread53, label %_ZN6icu_75L15isGregorianLeapEi.exit.thread
+  br i1 %or.cond, label %_ZN6icu_75L15isGregorianLeapEi.exit.thread68, label %_ZN6icu_75L15isGregorianLeapEi.exit.thread
 
 _ZN6icu_75L15isGregorianLeapEi.exit.thread:       ; preds = %land.rhs.i.i, %if.then
-  br label %_ZN6icu_75L15isGregorianLeapEi.exit.thread53
+  br label %_ZN6icu_75L15isGregorianLeapEi.exit.thread68
 
-_ZN6icu_75L15isGregorianLeapEi.exit.thread53:     ; preds = %land.rhs.i.i, %_ZN6icu_75L15isGregorianLeapEi.exit.thread
+_ZN6icu_75L15isGregorianLeapEi.exit.thread68:     ; preds = %land.rhs.i.i, %_ZN6icu_75L15isGregorianLeapEi.exit.thread
   %2 = phi i32 [ 30, %_ZN6icu_75L15isGregorianLeapEi.exit.thread ], [ 31, %land.rhs.i.i ]
   %add10 = add nsw i32 %conv5, 255
   %add11 = add nsw i32 %add10, %2
@@ -360,21 +359,21 @@ land.rhs.i.i25:                                   ; preds = %if.else
   %cmp1.not.i.i27 = icmp ne i32 %rem.i.i26, 0
   %rem2.i.i29 = srem i32 %1, 400
   %cmp3.i.i30.not = icmp eq i32 %rem2.i.i29, 0
-  %or.cond62 = or i1 %cmp1.not.i.i27, %cmp3.i.i30.not
-  br i1 %or.cond62, label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread59, label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread
+  %or.cond77 = or i1 %cmp1.not.i.i27, %cmp3.i.i30.not
+  br i1 %or.cond77, label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74, label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread
 
 _ZN6icu_75L15isGregorianLeapEi.exit31.thread:     ; preds = %land.rhs.i.i25, %if.else
-  br label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread59
+  br label %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74
 
-_ZN6icu_75L15isGregorianLeapEi.exit31.thread59:   ; preds = %land.rhs.i.i25, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread
+_ZN6icu_75L15isGregorianLeapEi.exit31.thread74:   ; preds = %land.rhs.i.i25, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread
   %3 = phi i32 [ 30, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread ], [ 31, %land.rhs.i.i25 ]
   %sub15 = add nsw i32 %conv5, -80
   br label %if.end
 
-if.end:                                           ; preds = %_ZN6icu_75L15isGregorianLeapEi.exit31.thread59, %_ZN6icu_75L15isGregorianLeapEi.exit.thread53
-  %IndianYear.0 = phi i32 [ %sub6, %_ZN6icu_75L15isGregorianLeapEi.exit.thread53 ], [ %sub, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread59 ]
-  %yday.0 = phi i32 [ %add11, %_ZN6icu_75L15isGregorianLeapEi.exit.thread53 ], [ %sub15, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread59 ]
-  %leapMonth.0 = phi i32 [ %2, %_ZN6icu_75L15isGregorianLeapEi.exit.thread53 ], [ %3, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread59 ]
+if.end:                                           ; preds = %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74, %_ZN6icu_75L15isGregorianLeapEi.exit.thread68
+  %IndianYear.0 = phi i32 [ %sub6, %_ZN6icu_75L15isGregorianLeapEi.exit.thread68 ], [ %sub, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74 ]
+  %yday.0 = phi i32 [ %add11, %_ZN6icu_75L15isGregorianLeapEi.exit.thread68 ], [ %sub15, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74 ]
+  %leapMonth.0 = phi i32 [ %2, %_ZN6icu_75L15isGregorianLeapEi.exit.thread68 ], [ %3, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74 ]
   %cmp16 = icmp slt i32 %yday.0, %leapMonth.0
   br i1 %cmp16, label %if.end38, label %if.else19
 
@@ -406,49 +405,49 @@ if.end38:                                         ; preds = %if.end, %if.then22,
   %IndianMonth.0 = phi i32 [ %add26, %if.then22 ], [ %add34, %if.else28 ], [ 0, %if.end ]
   %IndianDayOfMonth.0.in = phi i32 [ %rem, %if.then22 ], [ %rem35, %if.else28 ], [ %yday.0, %if.end ]
   %IndianDayOfMonth.0 = add nsw i32 %IndianDayOfMonth.0.in, 1
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 0
-  store i32 0, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 0
-  store i32 1, ptr %arrayidx3.i, align 4
-  %arrayidx5.i = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 0
-  store i8 1, ptr %arrayidx5.i, align 4
-  %arrayidx.i32 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 19
-  store i32 %IndianYear.0, ptr %arrayidx.i32, align 8
-  %arrayidx3.i33 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 19
-  store i32 1, ptr %arrayidx3.i33, align 8
-  %arrayidx5.i34 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 19
-  store i8 1, ptr %arrayidx5.i34, align 1
-  %arrayidx.i35 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 1
-  store i32 %IndianYear.0, ptr %arrayidx.i35, align 8
-  %arrayidx3.i36 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 1
-  store i32 1, ptr %arrayidx3.i36, align 8
-  %arrayidx5.i37 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 1
-  store i8 1, ptr %arrayidx5.i37, align 1
-  %arrayidx.i38 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 2
-  store i32 %IndianMonth.0, ptr %arrayidx.i38, align 4
-  %arrayidx3.i39 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 2
-  store i32 1, ptr %arrayidx3.i39, align 4
-  %arrayidx5.i40 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 2
-  store i8 1, ptr %arrayidx5.i40, align 2
-  %arrayidx.i41 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 23
-  store i32 %IndianMonth.0, ptr %arrayidx.i41, align 8
-  %arrayidx3.i42 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 23
-  store i32 1, ptr %arrayidx3.i42, align 8
-  %arrayidx5.i43 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 23
-  store i8 1, ptr %arrayidx5.i43, align 1
-  %arrayidx.i44 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 5
-  store i32 %IndianDayOfMonth.0, ptr %arrayidx.i44, align 8
-  %arrayidx3.i45 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 5
-  store i32 1, ptr %arrayidx3.i45, align 8
-  %arrayidx5.i46 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 5
-  store i8 1, ptr %arrayidx5.i46, align 1
+  %fFields.i = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 0, ptr %fFields.i, align 4
+  %fStamp.i = getelementptr inbounds i8, ptr %this, i64 132
+  store i32 1, ptr %fStamp.i, align 4
+  %fIsSet.i = getelementptr inbounds i8, ptr %this, i64 108
+  store i8 1, ptr %fIsSet.i, align 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 88
+  store i32 %IndianYear.0, ptr %arrayidx.i, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 208
+  store i32 1, ptr %arrayidx3.i, align 8
+  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 127
+  store i8 1, ptr %arrayidx5.i, align 1
+  %arrayidx.i36 = getelementptr inbounds i8, ptr %this, i64 16
+  store i32 %IndianYear.0, ptr %arrayidx.i36, align 8
+  %arrayidx3.i38 = getelementptr inbounds i8, ptr %this, i64 136
+  store i32 1, ptr %arrayidx3.i38, align 8
+  %arrayidx5.i40 = getelementptr inbounds i8, ptr %this, i64 109
+  store i8 1, ptr %arrayidx5.i40, align 1
+  %arrayidx.i42 = getelementptr inbounds i8, ptr %this, i64 20
+  store i32 %IndianMonth.0, ptr %arrayidx.i42, align 4
+  %arrayidx3.i44 = getelementptr inbounds i8, ptr %this, i64 140
+  store i32 1, ptr %arrayidx3.i44, align 4
+  %arrayidx5.i46 = getelementptr inbounds i8, ptr %this, i64 110
+  store i8 1, ptr %arrayidx5.i46, align 2
+  %arrayidx.i48 = getelementptr inbounds i8, ptr %this, i64 104
+  store i32 %IndianMonth.0, ptr %arrayidx.i48, align 8
+  %arrayidx3.i50 = getelementptr inbounds i8, ptr %this, i64 224
+  store i32 1, ptr %arrayidx3.i50, align 8
+  %arrayidx5.i52 = getelementptr inbounds i8, ptr %this, i64 131
+  store i8 1, ptr %arrayidx5.i52, align 1
+  %arrayidx.i54 = getelementptr inbounds i8, ptr %this, i64 32
+  store i32 %IndianDayOfMonth.0, ptr %arrayidx.i54, align 8
+  %arrayidx3.i56 = getelementptr inbounds i8, ptr %this, i64 152
+  store i32 1, ptr %arrayidx3.i56, align 8
+  %arrayidx5.i58 = getelementptr inbounds i8, ptr %this, i64 113
+  store i8 1, ptr %arrayidx5.i58, align 1
   %add39 = add nsw i32 %yday.0, 1
-  %arrayidx.i47 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 5, i64 6
-  store i32 %add39, ptr %arrayidx.i47, align 4
-  %arrayidx3.i48 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 7, i64 6
-  store i32 1, ptr %arrayidx3.i48, align 4
-  %arrayidx5.i49 = getelementptr inbounds %"class.icu_75::Calendar", ptr %this, i64 0, i32 6, i64 6
-  store i8 1, ptr %arrayidx5.i49, align 2
+  %arrayidx.i60 = getelementptr inbounds i8, ptr %this, i64 36
+  store i32 %add39, ptr %arrayidx.i60, align 4
+  %arrayidx3.i62 = getelementptr inbounds i8, ptr %this, i64 156
+  store i32 1, ptr %arrayidx3.i62, align 4
+  %arrayidx5.i64 = getelementptr inbounds i8, ptr %this, i64 114
+  store i8 1, ptr %arrayidx5.i64, align 2
   ret void
 }
 

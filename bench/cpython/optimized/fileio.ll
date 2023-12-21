@@ -871,7 +871,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
 %struct.anon.769 = type { %struct.PyGC_Head, %struct.PyVarObject, [4 x ptr] }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct.fileio = type { %struct._object, i32, i8, i8, i32, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
@@ -986,7 +985,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @_PyFileIO_closed(ptr nocapture noundef readonly %self) local_unnamed_addr #0 {
 entry:
-  %fd = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd, align 8
   %.lobit = lshr i32 %0, 31
   ret i32 %.lobit
@@ -997,7 +996,7 @@ define internal void @fileio_dealloc(ptr noundef %self) #1 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %finalizing = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 3
+  %finalizing = getelementptr inbounds i8, ptr %self, i64 21
   store i8 1, ptr %finalizing, align 1
   %call1 = tail call i32 @_PyIOBase_finalize(ptr noundef %self) #10
   %cmp = icmp slt i32 %call1, 0
@@ -1012,7 +1011,7 @@ if.end:                                           ; preds = %entry
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %3 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %2, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %3, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %4, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -1021,7 +1020,7 @@ if.end:                                           ; preds = %entry
   %5 = load i64, ptr %1, align 8
   %and.i = and i64 %5, 1
   store i64 %and.i, ptr %1, align 8
-  %weakreflist = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 5
+  %weakreflist = getelementptr inbounds i8, ptr %self, i64 32
   %6 = load ptr, ptr %weakreflist, align 8
   %cmp2.not = icmp eq ptr %6, null
   br i1 %cmp2.not, label %if.end4, label %if.then3
@@ -1031,7 +1030,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
-  %dict.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 6
+  %dict.i = getelementptr inbounds i8, ptr %self, i64 40
   %7 = load ptr, ptr %dict.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %fileio_clear.exit, label %if.then.i
@@ -1054,7 +1053,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %fileio_clear.exit
 
 fileio_clear.exit:                                ; preds = %if.end4, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %10 = load ptr, ptr %tp_free, align 8
   tail call void %10(ptr noundef nonnull %self) #10
   %11 = load i64, ptr %self.val, align 8
@@ -1080,7 +1079,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 define internal ptr @fileio_repr(ptr noundef %self) #1 {
 entry:
   %nameobj = alloca ptr, align 8
-  %fd = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1197,7 +1196,7 @@ if.then24:                                        ; preds = %if.else22
   %16 = load ptr, ptr @PyExc_RuntimeError, align 8
   %17 = getelementptr i8, ptr %self, i64 8
   %self.val14 = load ptr, ptr %17, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val14, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val14, i64 24
   %18 = load ptr, ptr %tp_name, align 8
   %call26 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %16, ptr noundef nonnull @.str.6, ptr noundef %18) #10
   br label %if.end28
@@ -1239,7 +1238,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %dict = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 6
+  %dict = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %dict, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -1260,7 +1259,7 @@ return:                                           ; preds = %if.then8, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal i32 @fileio_clear(ptr nocapture noundef %self) #1 {
 entry:
-  %dict = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 6
+  %dict = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load ptr, ptr %dict, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -1303,13 +1302,13 @@ cond.end.thread:                                  ; preds = %entry
   %kwargs.val = load i64, ptr %1, align 8
   %add30 = add i64 %kwargs.val, %args.val
   %sub31 = add i64 %add30, -1
-  %ob_item36 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item36 = getelementptr inbounds i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
   %sub = add i64 %args.val, -1
   %or.cond1 = icmp ult i64 %sub, 4
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
@@ -1329,7 +1328,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool18.not, label %skip_optional_pos, label %if.end20
 
 if.end20:                                         ; preds = %if.end
-  %arrayidx21 = getelementptr ptr, ptr %cond1648, i64 1
+  %arrayidx21 = getelementptr i8, ptr %cond1648, i64 8
   %3 = load ptr, ptr %arrayidx21, align 8
   %tobool22.not = icmp eq ptr %3, null
   br i1 %tobool22.not, label %if.end43, label %if.then23
@@ -1371,7 +1370,7 @@ if.end39:                                         ; preds = %if.end35
 if.end43:                                         ; preds = %if.end39, %if.end20
   %noptargs.0 = phi i64 [ %dec, %if.end39 ], [ %sub4046, %if.end20 ]
   %mode.0 = phi ptr [ %call32, %if.end39 ], [ @.str.53, %if.end20 ]
-  %arrayidx44 = getelementptr ptr, ptr %cond1648, i64 2
+  %arrayidx44 = getelementptr i8, ptr %cond1648, i64 16
   %9 = load ptr, ptr %arrayidx44, align 8
   %tobool45.not = icmp eq ptr %9, null
   br i1 %tobool45.not, label %if.end56, label %if.then46
@@ -1387,7 +1386,7 @@ if.end51:                                         ; preds = %if.then46
 
 if.end56:                                         ; preds = %if.end51, %if.end43
   %closefd.0 = phi i32 [ %call48, %if.end51 ], [ 1, %if.end43 ]
-  %arrayidx57 = getelementptr ptr, ptr %cond1648, i64 3
+  %arrayidx57 = getelementptr i8, ptr %cond1648, i64 24
   %10 = load ptr, ptr %arrayidx57, align 8
   br label %skip_optional_pos
 
@@ -1398,13 +1397,13 @@ skip_optional_pos:                                ; preds = %if.end51, %if.end39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %stringobj.i)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %fdfstat.i)
   store ptr null, ptr %stringobj.i, align 8
-  %fd1.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd1.i = getelementptr inbounds i8, ptr %self, i64 16
   %11 = load i32, ptr %fd1.i, align 8
   %cmp.i26 = icmp sgt i32 %11, -1
   br i1 %cmp.i26, label %if.then.i, label %if.end8.i
 
 if.then.i:                                        ; preds = %skip_optional_pos
-  %closefd2.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 2
+  %closefd2.i = getelementptr inbounds i8, ptr %self, i64 20
   %bf.load.i = load i8, ptr %closefd2.i, align 4
   %12 = and i8 %bf.load.i, 64
   %tobool.not.i = icmp eq i8 %12, 0
@@ -1453,7 +1452,7 @@ if.then18.i:                                      ; preds = %if.then11.i
 
 if.end22.i:                                       ; preds = %if.then18.i
   %16 = load ptr, ptr %stringobj.i, align 8
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %16, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %16, i64 32
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.end22.i, %if.end8.i
@@ -1463,7 +1462,7 @@ if.end24.i:                                       ; preds = %if.end22.i, %if.end
   br i1 %tobool25.not108.i, label %bad_mode.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end24.i
-  %writable67.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 2
+  %writable67.i = getelementptr inbounds i8, ptr %self, i64 20
   br label %while.body.i
 
 while.body.i:                                     ; preds = %sw.epilog.i, %while.body.lr.ph.i
@@ -1710,7 +1709,7 @@ if.end177.i:                                      ; preds = %do.body.i, %Py_DECR
   br i1 %cmp180.i, label %if.end234.i, label %if.end184.i
 
 if.end184.i:                                      ; preds = %if.end177.i, %if.then114.i
-  %blksize.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 4
+  %blksize.i = getelementptr inbounds i8, ptr %self, i64 24
   store i32 8192, ptr %blksize.i, align 8
   %call186.i = call ptr @PyEval_SaveThread() #10
   %41 = load i32, ptr %fd1.i, align 8
@@ -1731,7 +1730,7 @@ if.then195.i:                                     ; preds = %if.then191.i
   br label %error.i
 
 if.else198.i:                                     ; preds = %if.end184.i
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %fdfstat.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %fdfstat.i, i64 24
   %44 = load i32, ptr %st_mode.i, align 8
   %and.i28 = and i32 %44, 61440
   %cmp199.i = icmp eq i32 %and.i28, 16384
@@ -1745,7 +1744,7 @@ if.then201.i:                                     ; preds = %if.else198.i
   br label %error.i
 
 if.end204.i:                                      ; preds = %if.else198.i
-  %st_blksize.i = getelementptr inbounds %struct.stat, ptr %fdfstat.i, i64 0, i32 9
+  %st_blksize.i = getelementptr inbounds i8, ptr %fdfstat.i, i64 56
   %46 = load i64, ptr %st_blksize.i, align 8
   %cmp205.i = icmp sgt i64 %46, 1
   br i1 %cmp205.i, label %if.then207.i, label %if.end212.i
@@ -1866,23 +1865,23 @@ exit:                                             ; preds = %if.then46, %if.end3
 ; Function Attrs: nounwind uwtable
 define internal ptr @fileio_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #1 {
 entry:
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc, align 8
   %call = tail call ptr %0(ptr noundef %type, i64 noundef 0) #10
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fd = getelementptr inbounds %struct.fileio, ptr %call, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %call, i64 16
   store i32 -1, ptr %fd, align 8
-  %created = getelementptr inbounds %struct.fileio, ptr %call, i64 0, i32 2
+  %created = getelementptr inbounds i8, ptr %call, i64 20
   %bf.load = load i8, ptr %created, align 4
   %bf.clear11 = and i8 %bf.load, -128
-  %blksize = getelementptr inbounds %struct.fileio, ptr %call, i64 0, i32 4
+  %blksize = getelementptr inbounds i8, ptr %call, i64 24
   store i32 0, ptr %blksize, align 8
   %bf.set15 = or disjoint i8 %bf.clear11, 112
   store i8 %bf.set15, ptr %created, align 4
-  %weakreflist = getelementptr inbounds %struct.fileio, ptr %call, i64 0, i32 5
+  %weakreflist = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %weakreflist, align 8
   br label %if.end
 
@@ -1943,7 +1942,7 @@ if.end8.skip_optional_posonly_crit_edge:          ; preds = %if.end8
 skip_optional_posonly:                            ; preds = %if.end8.skip_optional_posonly_crit_edge, %if.end
   %2 = phi i64 [ %.pre, %if.end8.skip_optional_posonly_crit_edge ], [ -1, %if.end ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.i)
-  %fd.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load i32, ptr %fd.i, align 8
   %cmp.i = icmp slt i32 %3, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1954,7 +1953,7 @@ if.then.i:                                        ; preds = %skip_optional_poson
   br label %_io_FileIO_read_impl.exit
 
 if.end.i:                                         ; preds = %skip_optional_posonly
-  %readable.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 2
+  %readable.i = getelementptr inbounds i8, ptr %self, i64 20
   %bf.load.i = load i8, ptr %readable.i, align 4
   %5 = and i8 %bf.load.i, 2
   %tobool.not.i = icmp eq i8 %5, 0
@@ -1985,7 +1984,7 @@ if.end8.i:                                        ; preds = %if.end4.i
   br i1 %cmp13.i, label %_io_FileIO_read_impl.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end8.i
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call12.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call12.i, i64 32
   %9 = load i32, ptr %fd.i, align 8
   %call18.i = call i64 @_Py_read(i32 noundef %9, ptr noundef nonnull %ob_sval.i.i, i64 noundef %2) #10
   %cmp19.i = icmp eq i64 %call18.i, -1
@@ -2099,7 +2098,7 @@ if.end10:                                         ; preds = %if.end
   %buffer.val = load ptr, ptr %buffer, align 8
   %3 = getelementptr inbounds i8, ptr %buffer, i64 16
   %buffer.val11 = load i64, ptr %3, align 8
-  %fd.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load i32, ptr %fd.i, align 8
   %cmp.i = icmp slt i32 %4, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2110,7 +2109,7 @@ if.then.i:                                        ; preds = %if.end10
   br label %exit
 
 if.end.i:                                         ; preds = %if.end10
-  %readable.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 2
+  %readable.i = getelementptr inbounds i8, ptr %self, i64 20
   %bf.load.i = load i8, ptr %readable.i, align 4
   %6 = and i8 %bf.load.i, 2
   %tobool.not.i = icmp eq i8 %6, 0
@@ -2147,7 +2146,7 @@ if.end13.i:                                       ; preds = %if.end4.i
 
 exit:                                             ; preds = %if.end13.i, %if.then11.i, %if.then9.i, %if.then1.i, %if.then.i, %cond.end, %if.then8
   %return_value.0 = phi ptr [ null, %if.then8 ], [ null, %cond.end ], [ null, %if.then.i ], [ @_Py_NoneStruct, %if.then11.i ], [ %call14.i, %if.end13.i ], [ %call.i.i, %if.then1.i ], [ null, %if.then9.i ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %buffer, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %buffer, i64 8
   %11 = load ptr, ptr %obj, align 8
   %tobool12.not = icmp eq ptr %11, null
   br i1 %tobool12.not, label %if.end14, label %if.then13
@@ -2189,7 +2188,7 @@ if.end9:                                          ; preds = %if.end
   %b.val = load ptr, ptr %b, align 8
   %2 = getelementptr inbounds i8, ptr %b, i64 16
   %b.val10 = load i64, ptr %2, align 8
-  %fd.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load i32, ptr %fd.i, align 8
   %cmp.i = icmp slt i32 %3, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2200,7 +2199,7 @@ if.then.i:                                        ; preds = %if.end9
   br label %exit
 
 if.end.i:                                         ; preds = %if.end9
-  %writable.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 2
+  %writable.i = getelementptr inbounds i8, ptr %self, i64 20
   %bf.load.i = load i8, ptr %writable.i, align 4
   %5 = and i8 %bf.load.i, 4
   %tobool.not.i = icmp eq i8 %5, 0
@@ -2237,7 +2236,7 @@ if.end13.i:                                       ; preds = %if.end4.i
 
 exit:                                             ; preds = %if.end13.i, %if.then11.i, %if.then9.i, %if.then1.i, %if.then.i, %if.end, %cond.end
   %return_value.0 = phi ptr [ null, %if.end ], [ null, %cond.end ], [ null, %if.then.i ], [ @_Py_NoneStruct, %if.then11.i ], [ %call14.i, %if.end13.i ], [ %call.i.i, %if.then1.i ], [ null, %if.then9.i ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %b, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %b, i64 8
   %10 = load ptr, ptr %obj, align 8
   %tobool11.not = icmp eq ptr %10, null
   br i1 %tobool11.not, label %if.end13, label %if.then12
@@ -2268,7 +2267,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %cmp2, label %skip_optional, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %arrayidx5 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx5 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx5, align 8
   %call6 = tail call i32 @PyLong_AsInt(ptr noundef %2) #10
   %cmp7 = icmp eq i32 %call6, -1
@@ -2281,7 +2280,7 @@ land.lhs.true8:                                   ; preds = %if.end4
 
 skip_optional:                                    ; preds = %if.end4, %land.lhs.true8, %if.end
   %whence.0 = phi i32 [ 0, %if.end ], [ -1, %land.lhs.true8 ], [ %call6, %if.end4 ]
-  %fd.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load i32, ptr %fd.i, align 8
   %cmp.i = icmp slt i32 %3, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2303,7 +2302,7 @@ exit:                                             ; preds = %if.end.i, %if.then.
 ; Function Attrs: nounwind uwtable
 define internal ptr @_io_FileIO_tell(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #1 {
 entry:
-  %fd.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd.i, align 8
   %cmp.i = icmp slt i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2317,7 +2316,7 @@ if.end.i:                                         ; preds = %entry
   %call5.i.i = tail call ptr @PyEval_SaveThread() #10
   %call6.i.i = tail call i64 @lseek64(i32 noundef %0, i64 noundef 0, i32 noundef 1) #10
   tail call void @PyEval_RestoreThread(ptr noundef %call5.i.i) #10
-  %seekable.i.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 2
+  %seekable.i.i = getelementptr inbounds i8, ptr %self, i64 20
   %bf.load.i.i = load i8, ptr %seekable.i.i, align 4
   %bf.shl.mask.i.i = and i8 %bf.load.i.i, 32
   %cmp7.not.i.i = icmp eq i8 %bf.shl.mask.i.i, 0
@@ -2378,7 +2377,7 @@ if.end8:                                          ; preds = %if.end
 
 skip_optional_posonly:                            ; preds = %if.end, %if.end8
   %posobj.0 = phi ptr [ @_Py_NoneStruct, %if.end ], [ %1, %if.end8 ]
-  %fd1.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd1.i = getelementptr inbounds i8, ptr %self, i64 16
   %2 = load i32, ptr %fd1.i, align 8
   %cmp.i = icmp slt i32 %2, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2389,7 +2388,7 @@ if.then.i:                                        ; preds = %skip_optional_poson
   br label %exit
 
 if.end.i:                                         ; preds = %skip_optional_posonly
-  %writable.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 2
+  %writable.i = getelementptr inbounds i8, ptr %self, i64 20
   %bf.load.i = load i8, ptr %writable.i, align 4
   %4 = and i8 %bf.load.i, 4
   %tobool.not.i = icmp eq i8 %4, 0
@@ -2532,18 +2531,18 @@ if.end:                                           ; preds = %entry
   %cls.val.val.val = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   store ptr %cls.val.val.val, ptr %args.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds ptr, ptr %args.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %self, ptr %arrayinit.element.i.i, align 8
   %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 266), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
-  %closefd.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 2
+  %closefd.i = getelementptr inbounds i8, ptr %self, i64 20
   %bf.load.i = load i8, ptr %closefd.i, align 4
   %4 = and i8 %bf.load.i, 64
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
-  %fd.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %self, i64 16
   store i32 -1, ptr %fd.i, align 8
   br label %return
 
@@ -2557,13 +2556,13 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end4.i:                                        ; preds = %if.then2.i, %if.end.i
   %exc.0.i = phi ptr [ %call3.i, %if.then2.i ], [ undef, %if.end.i ]
-  %finalizing.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 3
+  %finalizing.i = getelementptr inbounds i8, ptr %self, i64 21
   %5 = load i8, ptr %finalizing.i, align 1
   %tobool5.not.i = icmp eq i8 %5, 0
   br i1 %tobool5.not.i, label %if.end11.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %fd.i.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %6 = load i32, ptr %fd.i.i, align 8
   %cmp.i18.i = icmp sgt i32 %6, -1
   br i1 %cmp.i18.i, label %land.lhs.true.i.i, label %fileio_dealloc_warn.exit.i
@@ -2611,7 +2610,7 @@ if.then1.i28.i:                                   ; preds = %if.end.i25.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i28.i, %if.end.i25.i, %fileio_dealloc_warn.exit.i, %if.end4.i
-  %fd.i20.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd.i20.i = getelementptr inbounds i8, ptr %self, i64 16
   %11 = load i32, ptr %fd.i20.i, align 8
   %cmp.i21.i = icmp sgt i32 %11, -1
   br i1 %cmp.i21.i, label %if.then.i22.i, label %internal_close.exit.i
@@ -2671,7 +2670,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 ; Function Attrs: nounwind uwtable
 define internal ptr @_io_FileIO_seekable(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #1 {
 entry:
-  %fd.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd.i, align 8
   %cmp.i = icmp slt i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2682,7 +2681,7 @@ if.then.i:                                        ; preds = %entry
   br label %_io_FileIO_seekable_impl.exit
 
 if.end.i:                                         ; preds = %entry
-  %seekable.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 2
+  %seekable.i = getelementptr inbounds i8, ptr %self, i64 20
   %bf.load.i = load i8, ptr %seekable.i, align 4
   %bf.shl.mask.i = and i8 %bf.load.i, 32
   %cmp1.not.i = icmp eq i8 %bf.shl.mask.i, 0
@@ -2761,7 +2760,7 @@ _io_FileIO_seekable_impl.exit:                    ; preds = %if.then.i, %if.end7
 ; Function Attrs: nounwind uwtable
 define internal ptr @_io_FileIO_readable(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #1 {
 entry:
-  %fd.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd.i, align 8
   %cmp.i = icmp slt i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2772,7 +2771,7 @@ if.then.i:                                        ; preds = %entry
   br label %_io_FileIO_readable_impl.exit
 
 if.end.i:                                         ; preds = %entry
-  %readable.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 2
+  %readable.i = getelementptr inbounds i8, ptr %self, i64 20
   %bf.load.i = load i8, ptr %readable.i, align 4
   %bf.lshr.i = lshr i8 %bf.load.i, 1
   %bf.clear.i = and i8 %bf.lshr.i, 1
@@ -2788,7 +2787,7 @@ _io_FileIO_readable_impl.exit:                    ; preds = %if.then.i, %if.end.
 ; Function Attrs: nounwind uwtable
 define internal ptr @_io_FileIO_writable(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #1 {
 entry:
-  %fd.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd.i, align 8
   %cmp.i = icmp slt i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2799,7 +2798,7 @@ if.then.i:                                        ; preds = %entry
   br label %_io_FileIO_writable_impl.exit
 
 if.end.i:                                         ; preds = %entry
-  %writable.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 2
+  %writable.i = getelementptr inbounds i8, ptr %self, i64 20
   %bf.load.i = load i8, ptr %writable.i, align 4
   %bf.lshr.i = lshr i8 %bf.load.i, 2
   %bf.clear.i = and i8 %bf.lshr.i, 1
@@ -2838,7 +2837,7 @@ _io_FileIO_fileno_impl.exit:                      ; preds = %if.then.i, %if.end.
 ; Function Attrs: nounwind uwtable
 define internal ptr @_io_FileIO_isatty(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #1 {
 entry:
-  %fd.i = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd.i, align 8
   %cmp.i = icmp slt i32 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2865,13 +2864,13 @@ _io_FileIO_isatty_impl.exit:                      ; preds = %if.then.i, %if.end.
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @fileio_dealloc_warn(ptr noundef %self, ptr noundef %source) #1 {
 entry:
-  %fd = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp sgt i32 %0, -1
   br i1 %cmp, label %land.lhs.true, label %if.end8
 
 land.lhs.true:                                    ; preds = %entry
-  %closefd = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 2
+  %closefd = getelementptr inbounds i8, ptr %self, i64 20
   %bf.load = load i8, ptr %closefd, align 4
   %1 = and i8 %bf.load, 64
   %tobool.not = icmp eq i8 %1, 0
@@ -2912,7 +2911,7 @@ define internal fastcc ptr @_io_FileIO_readall_impl(ptr nocapture noundef readon
 entry:
   %status = alloca %struct.stat, align 8
   %result = alloca ptr, align 8
-  %fd = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -2930,7 +2929,7 @@ if.end:                                           ; preds = %entry
   %call5 = call i32 @_Py_fstat_noraise(i32 noundef %3, ptr noundef nonnull %status) #10
   call void @PyEval_RestoreThread(ptr noundef %call1) #10
   %cmp6 = icmp eq i32 %call5, 0
-  %st_size = getelementptr inbounds %struct.stat, ptr %status, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %status, i64 48
   %4 = load i64, ptr %st_size, align 8
   %end.0 = select i1 %cmp6, i64 %4, i64 -1
   %cmp9 = icmp slt i64 %end.0, 1
@@ -2997,7 +2996,7 @@ if.end38:                                         ; preds = %if.end29, %if.then3
   %bufsize.2 = phi i64 [ %add4.i, %if.then32 ], [ %add4.i, %if.end29 ], [ %bufsize.1, %while.body ]
   %12 = load i32, ptr %fd, align 8
   %13 = load ptr, ptr %result, align 8
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %13, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %13, i64 32
   %add.ptr = getelementptr i8, ptr %ob_sval.i, i64 %bytes_read.0
   %sub41 = sub i64 %bufsize.2, %bytes_read.0
   %call42 = call i64 @_Py_read(i32 noundef %12, ptr noundef %add.ptr, i64 noundef %sub41) #10
@@ -3118,7 +3117,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @portable_lseek(ptr nocapture noundef %self, ptr noundef %posobj, i32 noundef %whence, i1 noundef zeroext %suppress_pipe_error) unnamed_addr #1 {
 entry:
-  %fd1 = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd1 = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd1, align 8
   %cmp = icmp eq ptr %posobj, null
   br i1 %cmp, label %if.end4, label %if.else
@@ -3134,7 +3133,7 @@ if.end4:                                          ; preds = %entry, %if.else
   %call5 = tail call ptr @PyEval_SaveThread() #10
   %call6 = tail call i64 @lseek64(i32 noundef %0, i64 noundef %pos.0, i32 noundef %whence) #10
   tail call void @PyEval_RestoreThread(ptr noundef %call5) #10
-  %seekable = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 2
+  %seekable = getelementptr inbounds i8, ptr %self, i64 20
   %bf.load = load i8, ptr %seekable, align 4
   %bf.shl.mask = and i8 %bf.load, 32
   %cmp7.not = icmp eq i8 %bf.shl.mask, 0
@@ -3211,7 +3210,7 @@ declare void @PyErr_SetRaisedException(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_closed(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #1 {
 entry:
-  %fd = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %fd, align 8
   %.lobit = lshr i32 %0, 31
   %conv1 = zext nneg i32 %.lobit to i64
@@ -3222,7 +3221,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_closefd(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #1 {
 entry:
-  %closefd = getelementptr inbounds %struct.fileio, ptr %self, i64 0, i32 2
+  %closefd = getelementptr inbounds i8, ptr %self, i64 20
   %bf.load = load i8, ptr %closefd, align 4
   %bf.lshr = lshr i8 %bf.load, 6
   %bf.clear = and i8 %bf.lshr, 1

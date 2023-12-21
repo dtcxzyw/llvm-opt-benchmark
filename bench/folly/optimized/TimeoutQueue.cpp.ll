@@ -8,20 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.folly::TimeoutQueue" = type { %"class.boost::multi_index::multi_index_container", i64 }
-%"class.boost::multi_index::multi_index_container" = type { %"class.boost::base_from_member", %"struct.boost::multi_index::detail::header_holder", %"class.boost::multi_index::detail::ordered_index", i64 }
-%"class.boost::base_from_member" = type { %"class.std::allocator" }
-%"class.std::allocator" = type { i8 }
-%"struct.boost::multi_index::detail::header_holder" = type { ptr }
-%"class.boost::multi_index::detail::ordered_index" = type { %"class.boost::multi_index::detail::ordered_index_impl" }
-%"class.boost::multi_index::detail::ordered_index_impl" = type { %"class.boost::multi_index::detail::ordered_index.0", %"struct.boost::multi_index::member.3", %"struct.std::less" }
-%"class.boost::multi_index::detail::ordered_index.0" = type { %"class.boost::multi_index::detail::ordered_index_impl.1" }
-%"class.boost::multi_index::detail::ordered_index_impl.1" = type { %"struct.boost::multi_index::member", %"struct.std::less" }
-%"struct.boost::multi_index::member" = type { i8 }
-%"struct.boost::multi_index::member.3" = type { i8 }
-%"struct.std::less" = type { i8 }
 %"struct.boost::multi_index::detail::ordered_index_node_compressed_base<boost::multi_index::detail::null_augment_policy, std::allocator<char>>::parent_ref" = type { ptr }
-%"struct.boost::multi_index::detail::ordered_index_node_compressed_base" = type { i64, ptr, ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<folly::TimeoutQueue::Event, std::allocator<folly::TimeoutQueue::Event>>::_Vector_impl" }
 %"struct.std::_Vector_base<folly::TimeoutQueue::Event, std::allocator<folly::TimeoutQueue::Event>>::_Vector_impl" = type { %"struct.std::_Vector_base<folly::TimeoutQueue::Event, std::allocator<folly::TimeoutQueue::Event>>::_Vector_impl_data" }
@@ -52,31 +39,31 @@ define noundef i64 @_ZN5folly12TimeoutQueue3addEllSt8functionIFvllEE(ptr noundef
 entry:
   %x.i.i.i.i = alloca ptr, align 8
   %ref.tmp = alloca %"struct.folly::TimeoutQueue::Event", align 8
-  %nextId_ = getelementptr inbounds %"class.folly::TimeoutQueue", ptr %this, i64 0, i32 1
+  %nextId_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %nextId_, align 8, !tbaa !7
   %inc = add nsw i64 %0, 1
   store i64 %inc, ptr %nextId_, align 8, !tbaa !7
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp) #12
   store i64 %0, ptr %ref.tmp, align 8, !tbaa !24
-  %expiration = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 1
+  %expiration = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %add = add nsw i64 %delay, %now
   store i64 %add, ptr %expiration, align 8, !tbaa !28
-  %repeatInterval = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 2
+  %repeatInterval = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 -1, ptr %repeatInterval, align 8, !tbaa !29
-  %callback3 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 3
-  %_M_invoker.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 3, i32 1
-  %_M_invoker2.i = getelementptr inbounds %"class.std::function", ptr %callback, i64 0, i32 1
+  %callback3 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
+  %_M_invoker2.i = getelementptr inbounds i8, ptr %callback, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %callback3, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !30
   store ptr %1, ptr %_M_invoker.i, align 8, !tbaa !30
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !31
   %tobool.not.i.i.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvllEEC2EOS1_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_manager.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %callback3, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false), !tbaa.struct !32
   store ptr %2, ptr %_M_manager.i.i, align 8, !tbaa !31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -102,7 +89,7 @@ if.then.i.i.i.i:                                  ; preds = %call.i.i.i.i.noexc
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i, %call.i.i.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.i.i.i.i) #12
-  %_M_manager.i.i7 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i7 = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %5 = load ptr, ptr %_M_manager.i.i7, align 8, !tbaa !31
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZN5folly12TimeoutQueue5EventD2Ev.exit, label %if.then.i.i
@@ -125,7 +112,7 @@ _ZN5folly12TimeoutQueue5EventD2Ev.exit:           ; preds = %if.then.i.i, %invok
 lpad:                                             ; preds = %_ZNSt8functionIFvllEEC2EOS1_.exit
   %8 = landingpad { ptr, i32 }
           cleanup
-  %_M_manager.i.i8 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i8 = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %9 = load ptr, ptr %_M_manager.i.i8, align 8, !tbaa !31
   %tobool.not.i.i9 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i9, label %_ZN5folly12TimeoutQueue5EventD2Ev.exit14, label %if.then.i.i10
@@ -224,14 +211,14 @@ if.else.i.i.i:                                    ; preds = %land.rhs.i.i.i, %if
 while.cond18.preheader.i.i.i:                     ; preds = %if.else.i.i.i
   %y15.0.in49.i.i.i = and i64 %10, -2
   %y15.050.i.i.i = inttoptr i64 %y15.0.in49.i.i.i to ptr
-  %left_.i4651.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y15.050.i.i.i, i64 0, i32 1
+  %left_.i4651.i.i.i = getelementptr inbounds i8, ptr %y15.050.i.i.i, i64 8
   %16 = load ptr, ptr %left_.i4651.i.i.i, align 8, !tbaa !34
   %cmp2052.i.i.i = icmp eq ptr %add.ptr.i.i46.i, %16
   br i1 %cmp2052.i.i.i, label %while.body21.i.i.i, label %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i
 
 while.cond.i.i.i:                                 ; preds = %if.else.i.i.i, %while.cond.i.i.i
   %y.0.i.i.i = phi ptr [ %17, %while.cond.i.i.i ], [ %15, %if.else.i.i.i ]
-  %right_.i43.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y.0.i.i.i, i64 0, i32 2
+  %right_.i43.i.i.i = getelementptr inbounds i8, ptr %y.0.i.i.i, i64 16
   %17 = load ptr, ptr %right_.i43.i.i.i, align 8, !tbaa !34
   %cmp12.not.i.i.i = icmp eq ptr %17, null
   br i1 %cmp12.not.i.i.i, label %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i, label %while.cond.i.i.i, !llvm.loop !38
@@ -241,7 +228,7 @@ while.body21.i.i.i:                               ; preds = %while.cond18.prehea
   %18 = load i64, ptr %y15.053.i.i.i, align 8, !tbaa !36
   %y15.0.in.i.i.i = and i64 %18, -2
   %y15.0.i.i.i = inttoptr i64 %y15.0.in.i.i.i to ptr
-  %left_.i46.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y15.0.i.i.i, i64 0, i32 1
+  %left_.i46.i.i.i = getelementptr inbounds i8, ptr %y15.0.i.i.i, i64 8
   %19 = load ptr, ptr %left_.i46.i.i.i, align 8, !tbaa !34
   %cmp20.i.i.i = icmp eq ptr %y15.053.i.i.i, %19
   br i1 %cmp20.i.i.i, label %while.body21.i.i.i, label %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i, !llvm.loop !40
@@ -366,20 +353,20 @@ if.end:                                           ; preds = %while.body.i, %entr
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #14
   store ptr %call5.i.i.i.i, ptr %x, align 8, !tbaa !34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call5.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %v, i64 24, i1 false)
-  %callback.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %call5.i.i.i.i, i64 0, i32 3
-  %_M_invoker.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %call5.i.i.i.i, i64 0, i32 3, i32 1
-  %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %v, i64 0, i32 3, i32 1
+  %callback.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 24
+  %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 48
+  %_M_invoker2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %v, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %callback.i.i.i.i.i, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i, align 8, !tbaa !30
   store ptr %7, ptr %_M_invoker.i.i.i.i.i.i, align 8, !tbaa !30
-  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %v, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %v, i64 40
   %8 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8, !tbaa !31
   %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i, label %if.then6, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end
-  %callback3.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %v, i64 0, i32 3
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %call5.i.i.i.i, i64 0, i32 3, i32 0, i32 1
+  %callback3.i.i.i.i.i = getelementptr inbounds i8, ptr %v, i64 24
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback3.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !32
   store ptr %8, ptr %_M_manager.i.i.i.i.i.i.i, align 8, !tbaa !31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
@@ -503,13 +490,13 @@ while.body:                                       ; preds = %land.rhs.preheader,
   %x.addr.0293309 = phi ptr [ %x.addr.5, %land.rhs ], [ %x, %land.rhs.preheader ]
   %12 = phi ptr [ %112, %land.rhs ], [ %1, %land.rhs.preheader ]
   %13 = inttoptr i64 %9 to ptr
-  %left_.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %13, i64 0, i32 1
+  %left_.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %left_.i, align 8, !tbaa !34
   %cmp14 = icmp eq ptr %14, %10
   br i1 %cmp14, label %if.then, label %if.else66
 
 if.then:                                          ; preds = %while.body
-  %right_.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %13, i64 0, i32 2
+  %right_.i = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load ptr, ptr %right_.i, align 8, !tbaa !34
   %cmp20.not = icmp eq ptr %15, null
   br i1 %cmp20.not, label %if.else, label %land.rhs21
@@ -544,13 +531,13 @@ if.then26:                                        ; preds = %land.rhs21
   br label %if.end122
 
 if.else:                                          ; preds = %land.rhs21, %if.then
-  %right_.i174 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %10, i64 0, i32 2
+  %right_.i174 = getelementptr inbounds i8, ptr %10, i64 16
   %27 = load ptr, ptr %right_.i174, align 8, !tbaa !34
   %cmp46 = icmp eq ptr %x.addr.0293309, %27
   br i1 %cmp46, label %if.then47, label %if.end
 
 if.then47:                                        ; preds = %if.else
-  %left_.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %x.addr.0293309, i64 0, i32 1
+  %left_.i.i = getelementptr inbounds i8, ptr %x.addr.0293309, i64 8
   %28 = load ptr, ptr %left_.i.i, align 8, !tbaa !34
   store ptr %28, ptr %right_.i174, align 8, !tbaa !34
   %cmp.not.i = icmp eq ptr %28, null
@@ -590,7 +577,7 @@ if.else.i:                                        ; preds = %if.end.i
   %35 = load i64, ptr %10, align 8, !tbaa !36
   %and.i.i56.i = and i64 %35, -2
   %36 = inttoptr i64 %and.i.i56.i to ptr
-  %left_.i57.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %36, i64 0, i32 1
+  %left_.i57.i = getelementptr inbounds i8, ptr %36, i64 8
   %37 = load ptr, ptr %left_.i57.i, align 8, !tbaa !34
   %cmp16.i = icmp eq ptr %37, %10
   br i1 %cmp16.i, label %if.then17.i, label %if.else21.i
@@ -600,7 +587,7 @@ if.then17.i:                                      ; preds = %if.else.i
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
 if.else21.i:                                      ; preds = %if.else.i
-  %right_.i61.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %36, i64 0, i32 2
+  %right_.i61.i = getelementptr inbounds i8, ptr %36, i64 16
   store ptr %x.addr.0293309, ptr %right_.i61.i, align 8, !tbaa !34
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
@@ -639,9 +626,9 @@ if.end:                                           ; preds = %_ZN5boost11multi_in
   %49 = load i64, ptr %48, align 8, !tbaa !36
   %and.i184 = and i64 %49, -2
   %50 = inttoptr i64 %and.i184 to ptr
-  %left_.i.i185 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %50, i64 0, i32 1
+  %left_.i.i185 = getelementptr inbounds i8, ptr %50, i64 8
   %51 = load ptr, ptr %left_.i.i185, align 8, !tbaa !34
-  %right_.i.i186 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %51, i64 0, i32 2
+  %right_.i.i186 = getelementptr inbounds i8, ptr %51, i64 16
   %52 = load ptr, ptr %right_.i.i186, align 8, !tbaa !34
   store ptr %52, ptr %left_.i.i185, align 8, !tbaa !34
   %cmp.not.i187 = icmp eq ptr %52, null
@@ -679,7 +666,7 @@ if.else.i197:                                     ; preds = %if.end.i191
   %59 = load i64, ptr %50, align 8, !tbaa !36
   %and.i.i56.i198 = and i64 %59, -2
   %60 = inttoptr i64 %and.i.i56.i198 to ptr
-  %right_.i57.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %60, i64 0, i32 2
+  %right_.i57.i = getelementptr inbounds i8, ptr %60, i64 16
   %61 = load ptr, ptr %right_.i57.i, align 8, !tbaa !34
   %cmp16.i199 = icmp eq ptr %61, %50
   br i1 %cmp16.i199, label %if.then17.i203, label %if.else21.i200
@@ -689,7 +676,7 @@ if.then17.i203:                                   ; preds = %if.else.i197
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
 if.else21.i200:                                   ; preds = %if.else.i197
-  %left_.i61.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %60, i64 0, i32 1
+  %left_.i61.i = getelementptr inbounds i8, ptr %60, i64 8
   store ptr %51, ptr %left_.i61.i, align 8, !tbaa !34
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
@@ -736,13 +723,13 @@ if.then79:                                        ; preds = %land.rhs74
   br label %if.end122
 
 if.else96:                                        ; preds = %land.rhs74, %if.else66
-  %left_.i223 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %10, i64 0, i32 1
+  %left_.i223 = getelementptr inbounds i8, ptr %10, i64 8
   %75 = load ptr, ptr %left_.i223, align 8, !tbaa !34
   %cmp100 = icmp eq ptr %x.addr.0293309, %75
   br i1 %cmp100, label %if.then101, label %if.end105
 
 if.then101:                                       ; preds = %if.else96
-  %right_.i.i226 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %x.addr.0293309, i64 0, i32 2
+  %right_.i.i226 = getelementptr inbounds i8, ptr %x.addr.0293309, i64 16
   %76 = load ptr, ptr %right_.i.i226, align 8, !tbaa !34
   store ptr %76, ptr %left_.i223, align 8, !tbaa !34
   %cmp.not.i227 = icmp eq ptr %76, null
@@ -782,7 +769,7 @@ if.else.i237:                                     ; preds = %if.end.i231
   %83 = load i64, ptr %10, align 8, !tbaa !36
   %and.i.i56.i238 = and i64 %83, -2
   %84 = inttoptr i64 %and.i.i56.i238 to ptr
-  %right_.i57.i239 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %84, i64 0, i32 2
+  %right_.i57.i239 = getelementptr inbounds i8, ptr %84, i64 16
   %85 = load ptr, ptr %right_.i57.i239, align 8, !tbaa !34
   %cmp16.i240 = icmp eq ptr %85, %10
   br i1 %cmp16.i240, label %if.then17.i245, label %if.else21.i241
@@ -792,7 +779,7 @@ if.then17.i245:                                   ; preds = %if.else.i237
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit250
 
 if.else21.i241:                                   ; preds = %if.else.i237
-  %left_.i61.i242 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %84, i64 0, i32 1
+  %left_.i61.i242 = getelementptr inbounds i8, ptr %84, i64 8
   store ptr %x.addr.0293309, ptr %left_.i61.i242, align 8, !tbaa !34
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit250
 
@@ -831,9 +818,9 @@ if.end105:                                        ; preds = %_ZN5boost11multi_in
   %97 = load i64, ptr %96, align 8, !tbaa !36
   %and.i258 = and i64 %97, -2
   %98 = inttoptr i64 %and.i258 to ptr
-  %right_.i.i259 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %98, i64 0, i32 2
+  %right_.i.i259 = getelementptr inbounds i8, ptr %98, i64 16
   %99 = load ptr, ptr %right_.i.i259, align 8, !tbaa !34
-  %left_.i.i260 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %99, i64 0, i32 1
+  %left_.i.i260 = getelementptr inbounds i8, ptr %99, i64 8
   %100 = load ptr, ptr %left_.i.i260, align 8, !tbaa !34
   store ptr %100, ptr %right_.i.i259, align 8, !tbaa !34
   %cmp.not.i261 = icmp eq ptr %100, null
@@ -871,7 +858,7 @@ if.else.i271:                                     ; preds = %if.end.i265
   %107 = load i64, ptr %98, align 8, !tbaa !36
   %and.i.i56.i272 = and i64 %107, -2
   %108 = inttoptr i64 %and.i.i56.i272 to ptr
-  %left_.i57.i273 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %108, i64 0, i32 1
+  %left_.i57.i273 = getelementptr inbounds i8, ptr %108, i64 8
   %109 = load ptr, ptr %left_.i57.i273, align 8, !tbaa !34
   %cmp16.i274 = icmp eq ptr %109, %98
   br i1 %cmp16.i274, label %if.then17.i279, label %if.else21.i275
@@ -881,7 +868,7 @@ if.then17.i279:                                   ; preds = %if.else.i271
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit284
 
 if.else21.i275:                                   ; preds = %if.else.i271
-  %right_.i61.i276 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %108, i64 0, i32 2
+  %right_.i61.i276 = getelementptr inbounds i8, ptr %108, i64 16
   store ptr %99, ptr %right_.i61.i276, align 8, !tbaa !34
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit284
 
@@ -924,31 +911,31 @@ define noundef i64 @_ZN5folly12TimeoutQueue12addRepeatingEllSt8functionIFvllEE(p
 entry:
   %x.i.i.i.i = alloca ptr, align 8
   %ref.tmp = alloca %"struct.folly::TimeoutQueue::Event", align 8
-  %nextId_ = getelementptr inbounds %"class.folly::TimeoutQueue", ptr %this, i64 0, i32 1
+  %nextId_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %nextId_, align 8, !tbaa !7
   %inc = add nsw i64 %0, 1
   store i64 %inc, ptr %nextId_, align 8, !tbaa !7
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp) #12
   store i64 %0, ptr %ref.tmp, align 8, !tbaa !24
-  %expiration = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 1
+  %expiration = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %add = add nsw i64 %interval, %now
   store i64 %add, ptr %expiration, align 8, !tbaa !28
-  %repeatInterval = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 2
+  %repeatInterval = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %interval, ptr %repeatInterval, align 8, !tbaa !29
-  %callback3 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 3
-  %_M_invoker.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 3, i32 1
-  %_M_invoker2.i = getelementptr inbounds %"class.std::function", ptr %callback, i64 0, i32 1
+  %callback3 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
+  %_M_invoker2.i = getelementptr inbounds i8, ptr %callback, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %callback3, i8 0, i64 24, i1 false)
   %1 = load ptr, ptr %_M_invoker2.i, align 8, !tbaa !30
   store ptr %1, ptr %_M_invoker.i, align 8, !tbaa !30
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !31
   %tobool.not.i.i.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvllEEC2EOS1_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_manager.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %callback3, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false), !tbaa.struct !32
   store ptr %2, ptr %_M_manager.i.i, align 8, !tbaa !31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -974,7 +961,7 @@ if.then.i.i.i.i:                                  ; preds = %call.i.i.i.i.noexc
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i, %call.i.i.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %x.i.i.i.i) #12
-  %_M_manager.i.i8 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i8 = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %5 = load ptr, ptr %_M_manager.i.i8, align 8, !tbaa !31
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZN5folly12TimeoutQueue5EventD2Ev.exit, label %if.then.i.i
@@ -997,7 +984,7 @@ _ZN5folly12TimeoutQueue5EventD2Ev.exit:           ; preds = %if.then.i.i, %invok
 lpad:                                             ; preds = %_ZNSt8functionIFvllEEC2EOS1_.exit
   %8 = landingpad { ptr, i32 }
           cleanup
-  %_M_manager.i.i9 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i9 = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %9 = load ptr, ptr %_M_manager.i.i9, align 8, !tbaa !31
   %tobool.not.i.i10 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i10, label %_ZN5folly12TimeoutQueue5EventD2Ev.exit15, label %if.then.i.i11
@@ -1034,7 +1021,7 @@ cond.false:                                       ; preds = %entry
   %3 = icmp eq ptr %2, null
   %sub.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 -56
   %4 = select i1 %3, ptr null, ptr %sub.ptr.i.i.i
-  %expiration = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %4, i64 0, i32 1
+  %expiration = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %expiration, align 8, !tbaa !28
   br label %cond.end
 
@@ -1185,14 +1172,14 @@ while.cond6.preheader.i.i.i.i:                    ; preds = %entry
   %y.0.in.in36.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i, align 8, !tbaa !36
   %y.0.in37.i.i.i.i = and i64 %y.0.in.in36.i.i.i.i, -2
   %y.038.i.i.i.i = inttoptr i64 %y.0.in37.i.i.i.i to ptr
-  %right_.i3339.i.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y.038.i.i.i.i, i64 0, i32 2
+  %right_.i3339.i.i.i.i = getelementptr inbounds i8, ptr %y.038.i.i.i.i, i64 16
   %1 = load ptr, ptr %right_.i3339.i.i.i.i, align 8, !tbaa !34
   %cmp840.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i, %1
   br i1 %cmp840.i.i.i.i, label %while.body9.i.i.i.i, label %while.end12.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %entry, %while.cond.i.i.i.i
   %storemerge.i.i.i.i = phi ptr [ %2, %while.cond.i.i.i.i ], [ %0, %entry ]
-  %left_.i.i.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %storemerge.i.i.i.i, i64 0, i32 1
+  %left_.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i, i64 8
   %2 = load ptr, ptr %left_.i.i.i.i.i, align 8, !tbaa !34
   %cmp3.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp3.not.i.i.i.i, label %_ZN5boost14operators_implppERNS_11multi_index6detail19bidir_node_iteratorINS2_18ordered_index_nodeINS2_19null_augment_policyENS4_IS5_NS2_15index_node_baseIN5folly12TimeoutQueue5EventESaIS9_EEEEEEEEEi.exit, label %while.cond.i.i.i.i, !llvm.loop !54
@@ -1202,13 +1189,13 @@ while.body9.i.i.i.i:                              ; preds = %while.cond6.prehead
   %y.0.in.in.i.i.i.i = load i64, ptr %y.041.i.i.i.i, align 8, !tbaa !36
   %y.0.in.i.i.i.i = and i64 %y.0.in.in.i.i.i.i, -2
   %y.0.i.i.i.i = inttoptr i64 %y.0.in.i.i.i.i to ptr
-  %right_.i33.i.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y.0.i.i.i.i, i64 0, i32 2
+  %right_.i33.i.i.i.i = getelementptr inbounds i8, ptr %y.0.i.i.i.i, i64 16
   %3 = load ptr, ptr %right_.i33.i.i.i.i, align 8, !tbaa !34
   %cmp8.i.i.i.i = icmp eq ptr %y.041.i.i.i.i, %3
   br i1 %cmp8.i.i.i.i, label %while.body9.i.i.i.i, label %while.end12.loopexit.i.i.i.i, !llvm.loop !55
 
 while.end12.loopexit.i.i.i.i:                     ; preds = %while.body9.i.i.i.i
-  %right_.i35.phi.trans.insert.i.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y.041.i.i.i.i, i64 0, i32 2
+  %right_.i35.phi.trans.insert.i.i.i.i = getelementptr inbounds i8, ptr %y.041.i.i.i.i, i64 16
   %.pre.i.i.i.i = load ptr, ptr %right_.i35.phi.trans.insert.i.i.i.i, align 8, !tbaa !34
   br label %while.end12.i.i.i.i
 
@@ -1245,13 +1232,13 @@ _ZN5boost14operators_implppERNS_11multi_index6detail19bidir_node_iteratorINS2_18
   %call7.i.i.i.i = call noundef ptr @_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE21rebalance_for_extractEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refERS6_SA_(ptr noundef nonnull %add.ptr.i.i.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %left_.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %right_.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
-  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %position.coerce, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 40
   %8 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8, !tbaa !31
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN5boost11multi_index6detail10index_baseIN5folly12TimeoutQueue5EventENS0_10indexed_byINS0_14ordered_uniqueINS0_6memberIS5_lXadL_ZNS5_2idEEEEEN4mpl_2naESB_EENS0_18ordered_non_uniqueINS8_IS5_lXadL_ZNS5_10expirationEEEEESB_SB_EESB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_EESaIS5_EE12final_erase_EPNS1_18ordered_index_nodeINS1_19null_augment_policyENSJ_ISK_NS1_15index_node_baseIS5_SH_EEEEEE.exit, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN5boost14operators_implppERNS_11multi_index6detail19bidir_node_iteratorINS2_18ordered_index_nodeINS2_19null_augment_policyENS4_IS5_NS2_15index_node_baseIN5folly12TimeoutQueue5EventESaIS9_EEEEEEEEEi.exit
-  %callback.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %position.coerce, i64 0, i32 3
+  %callback.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %position.coerce, i64 24
   %call.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i.i.i, i32 noundef 3)
           to label %_ZN5boost11multi_index6detail10index_baseIN5folly12TimeoutQueue5EventENS0_10indexed_byINS0_14ordered_uniqueINS0_6memberIS5_lXadL_ZNS5_2idEEEEEN4mpl_2naESB_EENS0_18ordered_non_uniqueINS8_IS5_lXadL_ZNS5_10expirationEEEEESB_SB_EESB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_SB_EESaIS5_EE12final_erase_EPNS1_18ordered_index_nodeINS1_19null_augment_policyENSJ_ISK_NS1_15index_node_baseIS5_SH_EEEEEE.exit unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
@@ -1271,10 +1258,10 @@ _ZN5boost11multi_index6detail10index_baseIN5folly12TimeoutQueue5EventENS0_10inde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE21rebalance_for_extractEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refERS6_SA_(ptr noundef %z, ptr noundef %root, ptr noundef nonnull align 8 dereferenceable(8) %leftmost, ptr noundef nonnull align 8 dereferenceable(8) %rightmost) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %left_.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %z, i64 0, i32 1
+  %left_.i = getelementptr inbounds i8, ptr %z, i64 8
   %0 = load ptr, ptr %left_.i, align 8, !tbaa !34
   %cmp = icmp eq ptr %0, null
-  %right_.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %z, i64 0, i32 2
+  %right_.i = getelementptr inbounds i8, ptr %z, i64 16
   br i1 %cmp, label %if.end12.thread, label %if.else
 
 if.else:                                          ; preds = %entry
@@ -1284,7 +1271,7 @@ if.else:                                          ; preds = %entry
 
 while.cond:                                       ; preds = %if.else, %while.cond
   %y.0 = phi ptr [ %2, %while.cond ], [ %1, %if.else ]
-  %left_.i420 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y.0, i64 0, i32 1
+  %left_.i420 = getelementptr inbounds i8, ptr %y.0, i64 8
   %2 = load ptr, ptr %left_.i420, align 8, !tbaa !34
   %cmp9.not = icmp eq ptr %2, null
   br i1 %cmp9.not, label %if.end12, label %while.cond, !llvm.loop !66
@@ -1295,13 +1282,13 @@ if.end12.thread:                                  ; preds = %if.else, %entry
   br label %if.else70
 
 if.end12:                                         ; preds = %while.cond
-  %right_.i422 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y.0, i64 0, i32 2
+  %right_.i422 = getelementptr inbounds i8, ptr %y.0, i64 16
   %x.0 = load ptr, ptr %right_.i422, align 8, !tbaa !34
   %cmp14.not = icmp eq ptr %y.0, %z
   br i1 %cmp14.not, label %if.else70, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
-  %left_.i420.le = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y.0, i64 0, i32 1
+  %left_.i420.le = getelementptr inbounds i8, ptr %y.0, i64 8
   %3 = ptrtoint ptr %y.0 to i64
   %4 = load i64, ptr %0, align 8, !tbaa !36
   %and.i424 = and i64 %4, 1
@@ -1331,7 +1318,7 @@ if.then26:                                        ; preds = %if.then22
 
 if.end30:                                         ; preds = %if.then26, %if.then22
   %.pre-phi = phi ptr [ %.pre743, %if.then26 ], [ %7, %if.then22 ]
-  %left_.i430 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %.pre-phi, i64 0, i32 1
+  %left_.i430 = getelementptr inbounds i8, ptr %.pre-phi, i64 8
   store ptr %x.0, ptr %left_.i430, align 8, !tbaa !34
   %9 = load ptr, ptr %right_.i, align 8, !tbaa !34
   store ptr %9, ptr %right_.i422, align 8, !tbaa !34
@@ -1362,7 +1349,7 @@ if.else45:                                        ; preds = %if.end40
   %14 = load i64, ptr %z, align 8, !tbaa !36
   %and.i.i439 = and i64 %14, -2
   %15 = inttoptr i64 %and.i.i439 to ptr
-  %left_.i440 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %15, i64 0, i32 1
+  %left_.i440 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %left_.i440, align 8, !tbaa !34
   %cmp49 = icmp eq ptr %16, %z
   br i1 %cmp49, label %if.then50, label %if.else54
@@ -1372,7 +1359,7 @@ if.then50:                                        ; preds = %if.else45
   br label %if.end59
 
 if.else54:                                        ; preds = %if.else45
-  %right_.i444 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %15, i64 0, i32 2
+  %right_.i444 = getelementptr inbounds i8, ptr %15, i64 16
   store ptr %y.0, ptr %right_.i444, align 8, !tbaa !34
   br label %if.end59
 
@@ -1426,7 +1413,7 @@ if.else83:                                        ; preds = %if.end78
   %27 = load i64, ptr %z, align 8, !tbaa !36
   %and.i.i460 = and i64 %27, -2
   %28 = inttoptr i64 %and.i.i460 to ptr
-  %left_.i461 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %28, i64 0, i32 1
+  %left_.i461 = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %left_.i461, align 8, !tbaa !34
   %cmp87 = icmp eq ptr %29, %z
   br i1 %cmp87, label %if.then88, label %if.else92
@@ -1436,7 +1423,7 @@ if.then88:                                        ; preds = %if.else83
   br label %if.end97
 
 if.else92:                                        ; preds = %if.else83
-  %right_.i465 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %28, i64 0, i32 2
+  %right_.i465 = getelementptr inbounds i8, ptr %28, i64 16
   store ptr %x.0681, ptr %right_.i465, align 8, !tbaa !34
   br label %if.end97
 
@@ -1458,7 +1445,7 @@ if.then102:                                       ; preds = %if.then99
 
 while.cond.i:                                     ; preds = %if.then99, %while.cond.i
   %x.addr.0.i = phi ptr [ %34, %while.cond.i ], [ %x.0681, %if.then99 ]
-  %left_.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %x.addr.0.i, i64 0, i32 1
+  %left_.i.i = getelementptr inbounds i8, ptr %x.addr.0.i, i64 8
   %34 = load ptr, ptr %left_.i.i, align 8, !tbaa !34
   %cmp.not.i = icmp eq ptr %34, null
   br i1 %cmp.not.i, label %if.end108.sink.split, label %while.cond.i, !llvm.loop !67
@@ -1487,7 +1474,7 @@ if.then113:                                       ; preds = %if.then110
 
 while.cond.i470:                                  ; preds = %if.then110, %while.cond.i470
   %x.addr.0.i471 = phi ptr [ %39, %while.cond.i470 ], [ %x.0681, %if.then110 ]
-  %right_.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %x.addr.0.i471, i64 0, i32 2
+  %right_.i.i = getelementptr inbounds i8, ptr %x.addr.0.i471, i64 16
   %39 = load ptr, ptr %right_.i.i, align 8, !tbaa !34
   %cmp.not.i472 = icmp eq ptr %39, null
   br i1 %cmp.not.i472, label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE7maximumEPS5_.exit, label %while.cond.i470, !llvm.loop !68
@@ -1526,13 +1513,13 @@ lor.rhs:                                          ; preds = %land.rhs
   br i1 %cmp131.not, label %if.then282, label %while.body132
 
 while.body132:                                    ; preds = %lor.rhs, %land.rhs
-  %left_.i476 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %x_parent.2719, i64 0, i32 1
+  %left_.i476 = getelementptr inbounds i8, ptr %x_parent.2719, i64 8
   %46 = load ptr, ptr %left_.i476, align 8, !tbaa !34
   %cmp134 = icmp eq ptr %x.1718, %46
   br i1 %cmp134, label %if.then135, label %if.else204
 
 if.then135:                                       ; preds = %while.body132
-  %right_.i477 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %x_parent.2719, i64 0, i32 2
+  %right_.i477 = getelementptr inbounds i8, ptr %x_parent.2719, i64 16
   %47 = load ptr, ptr %right_.i477, align 8, !tbaa !34
   %48 = load i64, ptr %47, align 8, !tbaa !36
   %conv.i478700 = and i64 %48, 1
@@ -1545,7 +1532,7 @@ if.then140:                                       ; preds = %if.then135
   %49 = load i64, ptr %x_parent.2719, align 8, !tbaa !36
   %and.i481 = and i64 %49, -2
   store i64 %and.i481, ptr %x_parent.2719, align 8, !tbaa !36
-  %left_.i.i483 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %47, i64 0, i32 1
+  %left_.i.i483 = getelementptr inbounds i8, ptr %47, i64 8
   %50 = load ptr, ptr %left_.i.i483, align 8, !tbaa !34
   store ptr %50, ptr %right_.i477, align 8, !tbaa !34
   %cmp.not.i484 = icmp eq ptr %50, null
@@ -1585,7 +1572,7 @@ if.else.i:                                        ; preds = %if.end.i
   %58 = load i64, ptr %x_parent.2719, align 8, !tbaa !36
   %and.i.i56.i = and i64 %58, -2
   %59 = inttoptr i64 %and.i.i56.i to ptr
-  %left_.i57.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %59, i64 0, i32 1
+  %left_.i57.i = getelementptr inbounds i8, ptr %59, i64 8
   %60 = load ptr, ptr %left_.i57.i, align 8, !tbaa !34
   %cmp16.i = icmp eq ptr %60, %x_parent.2719
   br i1 %cmp16.i, label %if.then17.i, label %if.else21.i
@@ -1595,7 +1582,7 @@ if.then17.i:                                      ; preds = %if.else.i
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
 if.else21.i:                                      ; preds = %if.else.i
-  %right_.i61.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %59, i64 0, i32 2
+  %right_.i61.i = getelementptr inbounds i8, ptr %59, i64 16
   store ptr %47, ptr %right_.i61.i, align 8, !tbaa !34
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
@@ -1611,7 +1598,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
 
 if.end146:                                        ; preds = %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit, %if.then135
   %w.0 = phi ptr [ %63, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %47, %if.then135 ]
-  %left_.i488 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %w.0, i64 0, i32 1
+  %left_.i488 = getelementptr inbounds i8, ptr %w.0, i64 8
   %64 = load ptr, ptr %left_.i488, align 8, !tbaa !34
   %cmp148 = icmp eq ptr %64, null
   br i1 %cmp148, label %land.rhs153, label %lor.lhs.false
@@ -1623,7 +1610,7 @@ lor.lhs.false:                                    ; preds = %if.end146
   br i1 %cmp152.not, label %if.else168, label %land.rhs153
 
 land.rhs153:                                      ; preds = %lor.lhs.false, %if.end146
-  %right_.i491 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %w.0, i64 0, i32 2
+  %right_.i491 = getelementptr inbounds i8, ptr %w.0, i64 16
   %66 = load ptr, ptr %right_.i491, align 8, !tbaa !34
   %cmp155 = icmp eq ptr %66, null
   br i1 %cmp155, label %if.end279, label %lor.rhs156
@@ -1635,8 +1622,8 @@ lor.rhs156:                                       ; preds = %land.rhs153
   br i1 %cmp160.not, label %if.end189, label %if.end279
 
 if.else168:                                       ; preds = %lor.lhs.false
-  %left_.i488.le = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %w.0, i64 0, i32 1
-  %right_.i496.phi.trans.insert = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %w.0, i64 0, i32 2
+  %left_.i488.le = getelementptr inbounds i8, ptr %w.0, i64 8
+  %right_.i496.phi.trans.insert = getelementptr inbounds i8, ptr %w.0, i64 16
   %.pre737 = load ptr, ptr %right_.i496.phi.trans.insert, align 8, !tbaa !34
   %cmp170 = icmp eq ptr %.pre737, null
   br i1 %cmp170, label %if.end184, label %lor.rhs171.thread
@@ -1654,7 +1641,7 @@ if.end184:                                        ; preds = %if.else168, %lor.rh
   %and.i503 = and i64 %69, -2
   store i64 %and.i503, ptr %w.0, align 8, !tbaa !36
   %70 = load ptr, ptr %root, align 8, !tbaa !41
-  %right_.i.i505 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %64, i64 0, i32 2
+  %right_.i.i505 = getelementptr inbounds i8, ptr %64, i64 16
   %71 = load ptr, ptr %right_.i.i505, align 8, !tbaa !34
   store ptr %71, ptr %left_.i488.le, align 8, !tbaa !34
   %cmp.not.i506 = icmp eq ptr %71, null
@@ -1694,7 +1681,7 @@ if.else.i516:                                     ; preds = %if.end.i510
   %79 = load i64, ptr %w.0, align 8, !tbaa !36
   %and.i.i56.i517 = and i64 %79, -2
   %80 = inttoptr i64 %and.i.i56.i517 to ptr
-  %right_.i57.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %80, i64 0, i32 2
+  %right_.i57.i = getelementptr inbounds i8, ptr %80, i64 16
   %81 = load ptr, ptr %right_.i57.i, align 8, !tbaa !34
   %cmp16.i518 = icmp eq ptr %81, %w.0
   br i1 %cmp16.i518, label %if.then17.i522, label %if.else21.i519
@@ -1704,7 +1691,7 @@ if.then17.i522:                                   ; preds = %if.else.i516
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
 if.else21.i519:                                   ; preds = %if.else.i516
-  %left_.i61.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %80, i64 0, i32 1
+  %left_.i61.i = getelementptr inbounds i8, ptr %80, i64 8
   store ptr %64, ptr %left_.i61.i, align 8, !tbaa !34
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
@@ -1716,7 +1703,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   %or.i64.i521 = or i64 %and.i63.i520, %83
   store i64 %or.i64.i521, ptr %w.0, align 8, !tbaa !36
   %84 = load ptr, ptr %right_.i477, align 8, !tbaa !34
-  %right_.i533.phi.trans.insert = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %84, i64 0, i32 2
+  %right_.i533.phi.trans.insert = getelementptr inbounds i8, ptr %84, i64 16
   %.pre739 = load ptr, ptr %right_.i533.phi.trans.insert, align 8, !tbaa !34
   br label %if.end189
 
@@ -1743,7 +1730,7 @@ if.then197:                                       ; preds = %if.end189
 
 if.end201:                                        ; preds = %if.then197, %if.end189
   %91 = load ptr, ptr %root, align 8, !tbaa !41
-  %left_.i.i538 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %86, i64 0, i32 1
+  %left_.i.i538 = getelementptr inbounds i8, ptr %86, i64 8
   %92 = load ptr, ptr %left_.i.i538, align 8, !tbaa !34
   store ptr %92, ptr %right_.i477, align 8, !tbaa !34
   %cmp.not.i539 = icmp eq ptr %92, null
@@ -1782,7 +1769,7 @@ if.else.i549:                                     ; preds = %if.end.i543
   %100 = load i64, ptr %x_parent.2719, align 8, !tbaa !36
   %and.i.i56.i550 = and i64 %100, -2
   %101 = inttoptr i64 %and.i.i56.i550 to ptr
-  %left_.i57.i551 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %101, i64 0, i32 1
+  %left_.i57.i551 = getelementptr inbounds i8, ptr %101, i64 8
   %102 = load ptr, ptr %left_.i57.i551, align 8, !tbaa !34
   %cmp16.i552 = icmp eq ptr %102, %x_parent.2719
   br i1 %cmp16.i552, label %if.then17.i557, label %if.else21.i553
@@ -1792,7 +1779,7 @@ if.then17.i557:                                   ; preds = %if.else.i549
   br label %while.end280.sink.split
 
 if.else21.i553:                                   ; preds = %if.else.i549
-  %right_.i61.i554 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %101, i64 0, i32 2
+  %right_.i61.i554 = getelementptr inbounds i8, ptr %101, i64 16
   store ptr %86, ptr %right_.i61.i554, align 8, !tbaa !34
   br label %while.end280.sink.split
 
@@ -1808,7 +1795,7 @@ if.then210:                                       ; preds = %if.else204
   %104 = load i64, ptr %x_parent.2719, align 8, !tbaa !36
   %and.i567 = and i64 %104, -2
   store i64 %and.i567, ptr %x_parent.2719, align 8, !tbaa !36
-  %right_.i.i569 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %46, i64 0, i32 2
+  %right_.i.i569 = getelementptr inbounds i8, ptr %46, i64 16
   %105 = load ptr, ptr %right_.i.i569, align 8, !tbaa !34
   store ptr %105, ptr %left_.i476, align 8, !tbaa !34
   %cmp.not.i570 = icmp eq ptr %105, null
@@ -1848,7 +1835,7 @@ if.else.i580:                                     ; preds = %if.end.i574
   %113 = load i64, ptr %x_parent.2719, align 8, !tbaa !36
   %and.i.i56.i581 = and i64 %113, -2
   %114 = inttoptr i64 %and.i.i56.i581 to ptr
-  %right_.i57.i582 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %114, i64 0, i32 2
+  %right_.i57.i582 = getelementptr inbounds i8, ptr %114, i64 16
   %115 = load ptr, ptr %right_.i57.i582, align 8, !tbaa !34
   %cmp16.i583 = icmp eq ptr %115, %x_parent.2719
   br i1 %cmp16.i583, label %if.then17.i588, label %if.else21.i584
@@ -1858,7 +1845,7 @@ if.then17.i588:                                   ; preds = %if.else.i580
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit593
 
 if.else21.i584:                                   ; preds = %if.else.i580
-  %left_.i61.i585 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %114, i64 0, i32 1
+  %left_.i61.i585 = getelementptr inbounds i8, ptr %114, i64 8
   store ptr %46, ptr %left_.i61.i585, align 8, !tbaa !34
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit593
 
@@ -1874,7 +1861,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
 
 if.end217:                                        ; preds = %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit593, %if.else204
   %w205.0 = phi ptr [ %118, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit593 ], [ %46, %if.else204 ]
-  %right_.i595 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %w205.0, i64 0, i32 2
+  %right_.i595 = getelementptr inbounds i8, ptr %w205.0, i64 16
   %119 = load ptr, ptr %right_.i595, align 8, !tbaa !34
   %cmp219 = icmp eq ptr %119, null
   br i1 %cmp219, label %land.rhs225, label %lor.lhs.false220
@@ -1886,7 +1873,7 @@ lor.lhs.false220:                                 ; preds = %if.end217
   br i1 %cmp224.not, label %if.else240, label %land.rhs225
 
 land.rhs225:                                      ; preds = %lor.lhs.false220, %if.end217
-  %left_.i598 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %w205.0, i64 0, i32 1
+  %left_.i598 = getelementptr inbounds i8, ptr %w205.0, i64 8
   %121 = load ptr, ptr %left_.i598, align 8, !tbaa !34
   %cmp227 = icmp eq ptr %121, null
   br i1 %cmp227, label %if.end279, label %lor.rhs228
@@ -1898,8 +1885,8 @@ lor.rhs228:                                       ; preds = %land.rhs225
   br i1 %cmp232.not, label %if.end261, label %if.end279
 
 if.else240:                                       ; preds = %lor.lhs.false220
-  %right_.i595.le = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %w205.0, i64 0, i32 2
-  %left_.i603.phi.trans.insert = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %w205.0, i64 0, i32 1
+  %right_.i595.le = getelementptr inbounds i8, ptr %w205.0, i64 16
+  %left_.i603.phi.trans.insert = getelementptr inbounds i8, ptr %w205.0, i64 8
   %.pre733 = load ptr, ptr %left_.i603.phi.trans.insert, align 8, !tbaa !34
   %cmp242 = icmp eq ptr %.pre733, null
   br i1 %cmp242, label %if.end256, label %lor.rhs243.thread
@@ -1917,7 +1904,7 @@ if.end256:                                        ; preds = %if.else240, %lor.rh
   %and.i610 = and i64 %124, -2
   store i64 %and.i610, ptr %w205.0, align 8, !tbaa !36
   %125 = load ptr, ptr %root, align 8, !tbaa !41
-  %left_.i.i612 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %119, i64 0, i32 1
+  %left_.i.i612 = getelementptr inbounds i8, ptr %119, i64 8
   %126 = load ptr, ptr %left_.i.i612, align 8, !tbaa !34
   store ptr %126, ptr %right_.i595.le, align 8, !tbaa !34
   %cmp.not.i613 = icmp eq ptr %126, null
@@ -1957,7 +1944,7 @@ if.else.i623:                                     ; preds = %if.end.i617
   %134 = load i64, ptr %w205.0, align 8, !tbaa !36
   %and.i.i56.i624 = and i64 %134, -2
   %135 = inttoptr i64 %and.i.i56.i624 to ptr
-  %left_.i57.i625 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %135, i64 0, i32 1
+  %left_.i57.i625 = getelementptr inbounds i8, ptr %135, i64 8
   %136 = load ptr, ptr %left_.i57.i625, align 8, !tbaa !34
   %cmp16.i626 = icmp eq ptr %136, %w205.0
   br i1 %cmp16.i626, label %if.then17.i631, label %if.else21.i627
@@ -1967,7 +1954,7 @@ if.then17.i631:                                   ; preds = %if.else.i623
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit636
 
 if.else21.i627:                                   ; preds = %if.else.i623
-  %right_.i61.i628 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %135, i64 0, i32 2
+  %right_.i61.i628 = getelementptr inbounds i8, ptr %135, i64 16
   store ptr %119, ptr %right_.i61.i628, align 8, !tbaa !34
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit636
 
@@ -1979,7 +1966,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   %or.i64.i630 = or i64 %and.i63.i629, %138
   store i64 %or.i64.i630, ptr %w205.0, align 8, !tbaa !36
   %139 = load ptr, ptr %left_.i476, align 8, !tbaa !34
-  %left_.i643.phi.trans.insert = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %139, i64 0, i32 1
+  %left_.i643.phi.trans.insert = getelementptr inbounds i8, ptr %139, i64 8
   %.pre735 = load ptr, ptr %left_.i643.phi.trans.insert, align 8, !tbaa !34
   br label %if.end261
 
@@ -2006,7 +1993,7 @@ if.then269:                                       ; preds = %if.end261
 
 if.end273:                                        ; preds = %if.then269, %if.end261
   %146 = load ptr, ptr %root, align 8, !tbaa !41
-  %right_.i.i648 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %141, i64 0, i32 2
+  %right_.i.i648 = getelementptr inbounds i8, ptr %141, i64 16
   %147 = load ptr, ptr %right_.i.i648, align 8, !tbaa !34
   store ptr %147, ptr %left_.i476, align 8, !tbaa !34
   %cmp.not.i649 = icmp eq ptr %147, null
@@ -2045,7 +2032,7 @@ if.else.i659:                                     ; preds = %if.end.i653
   %155 = load i64, ptr %x_parent.2719, align 8, !tbaa !36
   %and.i.i56.i660 = and i64 %155, -2
   %156 = inttoptr i64 %and.i.i56.i660 to ptr
-  %right_.i57.i661 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %156, i64 0, i32 2
+  %right_.i57.i661 = getelementptr inbounds i8, ptr %156, i64 16
   %157 = load ptr, ptr %right_.i57.i661, align 8, !tbaa !34
   %cmp16.i662 = icmp eq ptr %157, %x_parent.2719
   br i1 %cmp16.i662, label %if.then17.i667, label %if.else21.i663
@@ -2055,7 +2042,7 @@ if.then17.i667:                                   ; preds = %if.else.i659
   br label %while.end280.sink.split
 
 if.else21.i663:                                   ; preds = %if.else.i659
-  %left_.i61.i664 = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %156, i64 0, i32 1
+  %left_.i61.i664 = getelementptr inbounds i8, ptr %156, i64 8
   store ptr %141, ptr %left_.i61.i664, align 8, !tbaa !34
   br label %while.end280.sink.split
 
@@ -2118,12 +2105,12 @@ entry:
   %ref.tmp = alloca %"struct.folly::TimeoutQueue::Event", align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TimeoutQueue::Event, std::allocator<folly::TimeoutQueue::Event>>::_Vector_impl_data", ptr %expired, i64 0, i32 1
-  %expiration = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 1
-  %repeatInterval34 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 2
-  %callback = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 3
-  %_M_manager.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 3, i32 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %ref.tmp, i64 0, i32 3, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %expired, i64 8
+  %expiration = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %repeatInterval34 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %callback = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
   br label %do.body
 
 do.body:                                          ; preds = %_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EED2Ev.exit, %entry
@@ -2197,14 +2184,14 @@ while.cond6.preheader.i.i.i.i.i:                  ; preds = %while.body.i
   %y.0.in.in36.i.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i131, align 8, !tbaa !36
   %y.0.in37.i.i.i.i.i = and i64 %y.0.in.in36.i.i.i.i.i, -2
   %y.038.i.i.i.i.i = inttoptr i64 %y.0.in37.i.i.i.i.i to ptr
-  %right_.i3339.i.i.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y.038.i.i.i.i.i, i64 0, i32 2
+  %right_.i3339.i.i.i.i.i = getelementptr inbounds i8, ptr %y.038.i.i.i.i.i, i64 16
   %17 = load ptr, ptr %right_.i3339.i.i.i.i.i, align 8, !tbaa !34
   %cmp840.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i.i.i131, %17
   br i1 %cmp840.i.i.i.i.i, label %while.body9.i.i.i.i.i, label %while.end12.i.i.i.i.i
 
 while.cond.i.i.i.i.i:                             ; preds = %while.body.i, %while.cond.i.i.i.i.i
   %storemerge.i.i.i.i.i = phi ptr [ %18, %while.cond.i.i.i.i.i ], [ %16, %while.body.i ]
-  %left_.i.i.i.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %storemerge.i.i.i.i.i, i64 0, i32 1
+  %left_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i.i.i, i64 8
   %18 = load ptr, ptr %left_.i.i.i.i.i.i, align 8, !tbaa !34
   %cmp3.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %cmp3.not.i.i.i.i.i, label %_ZN5boost14operators_implppERNS_11multi_index6detail19bidir_node_iteratorINS2_18ordered_index_nodeINS2_19null_augment_policyENS2_15index_node_baseIN5folly12TimeoutQueue5EventESaIS9_EEEEEEEi.exit.i, label %while.cond.i.i.i.i.i, !llvm.loop !71
@@ -2214,13 +2201,13 @@ while.body9.i.i.i.i.i:                            ; preds = %while.cond6.prehead
   %y.0.in.in.i.i.i.i.i = load i64, ptr %y.041.i.i.i.i.i, align 8, !tbaa !36
   %y.0.in.i.i.i.i.i = and i64 %y.0.in.in.i.i.i.i.i, -2
   %y.0.i.i.i.i.i = inttoptr i64 %y.0.in.i.i.i.i.i to ptr
-  %right_.i33.i.i.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y.0.i.i.i.i.i, i64 0, i32 2
+  %right_.i33.i.i.i.i.i = getelementptr inbounds i8, ptr %y.0.i.i.i.i.i, i64 16
   %19 = load ptr, ptr %right_.i33.i.i.i.i.i, align 8, !tbaa !34
   %cmp8.i.i.i.i.i = icmp eq ptr %y.041.i.i.i.i.i, %19
   br i1 %cmp8.i.i.i.i.i, label %while.body9.i.i.i.i.i, label %while.end12.loopexit.i.i.i.i.i, !llvm.loop !72
 
 while.end12.loopexit.i.i.i.i.i:                   ; preds = %while.body9.i.i.i.i.i
-  %right_.i35.phi.trans.insert.i.i.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y.041.i.i.i.i.i, i64 0, i32 2
+  %right_.i35.phi.trans.insert.i.i.i.i.i = getelementptr inbounds i8, ptr %y.041.i.i.i.i.i, i64 16
   %.pre.i.i.i.i.i = load ptr, ptr %right_.i35.phi.trans.insert.i.i.i.i.i, align 8, !tbaa !34
   br label %while.end12.i.i.i.i.i
 
@@ -2261,13 +2248,13 @@ call7.i.i.i.i.noexc:                              ; preds = %_ZN5boost14operator
 call7.i.i.i.i.i.noexc:                            ; preds = %call7.i.i.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i)
-  %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %first.sroa.0.08.i, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i, i64 40
   %24 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8, !tbaa !31
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %call4.i.noexc, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %call7.i.i.i.i.i.noexc
-  %callback.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %first.sroa.0.08.i, i64 0, i32 3
+  %callback.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i, i64 24
   %call.i.i.i.i.i.i.i.i.i = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i.i.i.i, i32 noundef 3)
           to label %call4.i.noexc unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
 
@@ -2308,7 +2295,7 @@ lpad.loopexit.split-lp200:                        ; preds = %invoke.cont
 
 for.body:                                         ; preds = %invoke.cont21, %if.end
   %__begin2.sroa.0.0210 = phi ptr [ %incdec.ptr.i, %if.end ], [ %27, %invoke.cont21 ]
-  %repeatInterval = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__begin2.sroa.0.0210, i64 0, i32 2
+  %repeatInterval = getelementptr inbounds i8, ptr %__begin2.sroa.0.0210, i64 16
   %29 = load i64, ptr %repeatInterval, align 8, !tbaa !29
   %cmp = icmp sgt i64 %29, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -2320,19 +2307,19 @@ if.then:                                          ; preds = %for.body
   %add = add nsw i64 %29, %now
   store i64 %add, ptr %expiration, align 8, !tbaa !28
   store i64 %29, ptr %repeatInterval34, align 8, !tbaa !29
-  %_M_manager.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__begin2.sroa.0.0210, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0210, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %callback, i8 0, i64 32, i1 false)
   %31 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !31
   %tobool.not.i.i.not.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.not.i, label %invoke.cont38, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %callback36 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__begin2.sroa.0.0210, i64 0, i32 3
+  %callback36 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0210, i64 24
   %call3.i = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %callback, ptr noundef nonnull align 8 dereferenceable(16) %callback36, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__begin2.sroa.0.0210, i64 0, i32 3, i32 1
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0210, i64 48
   %32 = load ptr, ptr %_M_invoker4.i, align 8, !tbaa !30
   store ptr %32, ptr %_M_invoker.i, align 8, !tbaa !30
   %33 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !31
@@ -2426,14 +2413,14 @@ if.else.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i, %
 while.cond18.preheader.i.i.i.i:                   ; preds = %if.else.i.i.i.i
   %y15.0.in49.i.i.i.i = and i64 %50, -2
   %y15.050.i.i.i.i = inttoptr i64 %y15.0.in49.i.i.i.i to ptr
-  %left_.i4651.i.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y15.050.i.i.i.i, i64 0, i32 1
+  %left_.i4651.i.i.i.i = getelementptr inbounds i8, ptr %y15.050.i.i.i.i, i64 8
   %56 = load ptr, ptr %left_.i4651.i.i.i.i, align 8, !tbaa !34
   %cmp2052.i.i.i.i = icmp eq ptr %add.ptr.i.i46.i.i, %56
   br i1 %cmp2052.i.i.i.i, label %while.body21.i.i.i.i, label %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i.i
 
 while.cond.i.i.i.i:                               ; preds = %if.else.i.i.i.i, %while.cond.i.i.i.i
   %y.0.i.i.i.i = phi ptr [ %57, %while.cond.i.i.i.i ], [ %55, %if.else.i.i.i.i ]
-  %right_.i43.i.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y.0.i.i.i.i, i64 0, i32 2
+  %right_.i43.i.i.i.i = getelementptr inbounds i8, ptr %y.0.i.i.i.i, i64 16
   %57 = load ptr, ptr %right_.i43.i.i.i.i, align 8, !tbaa !34
   %cmp12.not.i.i.i.i = icmp eq ptr %57, null
   br i1 %cmp12.not.i.i.i.i, label %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i.i, label %while.cond.i.i.i.i, !llvm.loop !84
@@ -2443,7 +2430,7 @@ while.body21.i.i.i.i:                             ; preds = %while.cond18.prehea
   %58 = load i64, ptr %y15.053.i.i.i.i, align 8, !tbaa !36
   %y15.0.in.i.i.i.i = and i64 %58, -2
   %y15.0.i.i.i.i = inttoptr i64 %y15.0.in.i.i.i.i to ptr
-  %left_.i46.i.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y15.0.i.i.i.i, i64 0, i32 1
+  %left_.i46.i.i.i.i = getelementptr inbounds i8, ptr %y15.0.i.i.i.i, i64 8
   %59 = load ptr, ptr %left_.i46.i.i.i.i, align 8, !tbaa !34
   %cmp20.i.i.i.i = icmp eq ptr %y15.053.i.i.i.i, %59
   br i1 %cmp20.i.i.i.i, label %while.body21.i.i.i.i, label %_ZN5boost11multi_index6detail18ordered_index_nodeINS1_19null_augment_policyENS2_IS3_NS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS7_EEEEEE9decrementERPSB_.exit.i.i, !llvm.loop !85
@@ -2497,15 +2484,15 @@ if.end.i156:                                      ; preds = %while.body.i.i150, 
 
 call5.i.i.i.i.i.noexc:                            ; preds = %if.end.i156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call5.i.i.i.i.i183, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i64 24, i1 false)
-  %callback.i.i.i.i.i.i158 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %call5.i.i.i.i.i183, i64 0, i32 3
-  %_M_invoker.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %call5.i.i.i.i.i183, i64 0, i32 3, i32 1
+  %callback.i.i.i.i.i.i158 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i183, i64 24
+  %_M_invoker.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i183, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %callback.i.i.i.i.i.i158, i8 0, i64 24, i1 false)
   store ptr %39, ptr %_M_invoker.i.i.i.i.i.i.i, align 8, !tbaa !30
   %tobool.not.i.i.not.i.i.i.i.i.i.i = icmp eq ptr %38, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i, label %if.then6.i161, label %if.then.i.i.i.i.i.i.i160
 
 if.then.i.i.i.i.i.i.i160:                         ; preds = %call5.i.i.i.i.i.noexc
-  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %call5.i.i.i.i.i183, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i183, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i.i158, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false), !tbaa.struct !32
   store ptr %38, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8, !tbaa !31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
@@ -2671,7 +2658,7 @@ ehcleanup:                                        ; preds = %if.then.i.i111, %lp
   br label %ehcleanup74
 
 if.end:                                           ; preds = %_ZN5folly12TimeoutQueue5EventD2Ev.exit, %for.body
-  %incdec.ptr.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__begin2.sroa.0.0210, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0210, i64 56
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %28
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
@@ -2687,7 +2674,7 @@ cond.false.i:                                     ; preds = %for.cond.cleanup57
   %91 = icmp eq ptr %90, null
   %sub.ptr.i.i.i.i = getelementptr inbounds i8, ptr %90, i64 -56
   %92 = select i1 %91, ptr null, ptr %sub.ptr.i.i.i.i
-  %expiration.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %92, i64 0, i32 1
+  %expiration.i = getelementptr inbounds i8, ptr %92, i64 8
   %93 = load i64, ptr %expiration.i, align 8, !tbaa !28
   br label %invoke.cont72
 
@@ -2698,7 +2685,7 @@ for.body58:                                       ; preds = %for.cond.cleanup, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
   store i64 %94, ptr %__args.addr.i, align 8, !tbaa !36
   store i64 %now, ptr %__args.addr2.i, align 8, !tbaa !36
-  %_M_manager.i.i121 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__begin249.sroa.0.0213, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i121 = getelementptr inbounds i8, ptr %__begin249.sroa.0.0213, i64 40
   %95 = load ptr, ptr %_M_manager.i.i121, align 8, !tbaa !31
   %tobool.not.i.i122 = icmp eq ptr %95, null
   br i1 %tobool.not.i.i122, label %if.then.i124, label %if.end.i
@@ -2711,8 +2698,8 @@ if.then.i124:                                     ; preds = %for.body58
   unreachable
 
 if.end.i:                                         ; preds = %for.body58
-  %callback61 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__begin249.sroa.0.0213, i64 0, i32 3
-  %_M_invoker.i123 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__begin249.sroa.0.0213, i64 0, i32 3, i32 1
+  %callback61 = getelementptr inbounds i8, ptr %__begin249.sroa.0.0213, i64 24
+  %_M_invoker.i123 = getelementptr inbounds i8, ptr %__begin249.sroa.0.0213, i64 48
   %96 = load ptr, ptr %_M_invoker.i123, align 8, !tbaa !30
   invoke void %96(ptr noundef nonnull align 8 dereferenceable(16) %callback61, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr2.i)
           to label %invoke.cont64 unwind label %lpad63.loopexit
@@ -2720,7 +2707,7 @@ if.end.i:                                         ; preds = %for.body58
 invoke.cont64:                                    ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr2.i)
-  %incdec.ptr.i126 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__begin249.sroa.0.0213, i64 1
+  %incdec.ptr.i126 = getelementptr inbounds i8, ptr %__begin249.sroa.0.0213, i64 56
   %cmp.i117.not = icmp eq ptr %incdec.ptr.i126, %.pre219
   br i1 %cmp.i117.not, label %for.cond.cleanup57, label %for.body58
 
@@ -2743,13 +2730,13 @@ invoke.cont72:                                    ; preds = %cond.false.i, %for.
 
 for.body.i.i.i.i:                                 ; preds = %invoke.cont72, %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i ], [ %97, %invoke.cont72 ]
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.addr.04.i.i.i.i, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 40
   %99 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i, align 8, !tbaa !31
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %99, null
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i
-  %callback.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.addr.04.i.i.i.i, i64 0, i32 3
+  %callback.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 24
   %call.i.i.i.i.i.i.i = invoke noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
@@ -2761,7 +2748,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 56
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %98
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !95
 
@@ -2798,20 +2785,20 @@ ehcleanup74:                                      ; preds = %lpad63.loopexit.spl
 define linkonce_odr void @_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !92
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<folly::TimeoutQueue::Event, std::allocator<folly::TimeoutQueue::Event>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8, !tbaa !94
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i ], [ %0, %entry ]
-  %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.addr.04.i.i.i, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 40
   %2 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !tbaa !31
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
-  %callback.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.addr.04.i.i.i, i64 0, i32 3
+  %callback.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 24
   %call.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i, i32 noundef 3)
           to label %_ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
@@ -2823,7 +2810,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN5folly12TimeoutQueue5EventEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 56
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !97
 
@@ -2851,8 +2838,8 @@ entry:
   br i1 %cmp.i.i.not11, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TimeoutQueue::Event, std::allocator<folly::TimeoutQueue::Event>>::_Vector_impl_data", ptr %__result.coerce, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TimeoutQueue::Event, std::allocator<folly::TimeoutQueue::Event>>::_Vector_impl_data", ptr %__result.coerce, i64 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %__result.coerce, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %__result.coerce, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %_ZN5boost11multi_index6detail19bidir_node_iteratorINS1_18ordered_index_nodeINS1_19null_augment_policyENS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS8_EEEEEEppEv.exit, %for.body.lr.ph
@@ -2864,16 +2851,16 @@ for.body:                                         ; preds = %_ZN5boost11multi_in
 
 if.then.i.i:                                      ; preds = %for.body
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %__first.sroa.0.012, i64 24, i1 false)
-  %callback.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %0, i64 0, i32 3
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %0, i64 0, i32 3, i32 0, i32 1
-  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.sroa.0.012, i64 0, i32 3, i32 0, i32 1
+  %callback.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
+  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.012, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %callback.i.i.i.i.i, i8 0, i64 32, i1 false)
   %2 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8, !tbaa !31
   %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIN5folly12TimeoutQueue5EventEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i
-  %callback3.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.sroa.0.012, i64 0, i32 3
+  %callback3.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.012, i64 24
   %call3.i.i.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback3.i.i.i.i.i, i32 noundef 2)
           to label %invoke.cont.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i
 
@@ -2905,7 +2892,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i.i.i.i:       ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt16allocator_traitsISaIN5folly12TimeoutQueue5EventEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i: ; preds = %invoke.cont.i.i.i.i.i.i, %if.then.i.i
   %8 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !94
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %8, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 56
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !94
   br label %_ZNSt20back_insert_iteratorISt6vectorIN5folly12TimeoutQueue5EventESaIS3_EEEaSERKS3_.exit
 
@@ -2924,14 +2911,14 @@ while.cond6.preheader.i.i.i:                      ; preds = %_ZNSt20back_insert_
   %y.0.in.in36.i.i.i = load i64, ptr %add.ptr.i.i.i, align 8, !tbaa !36
   %y.0.in37.i.i.i = and i64 %y.0.in.in36.i.i.i, -2
   %y.038.i.i.i = inttoptr i64 %y.0.in37.i.i.i to ptr
-  %right_.i3339.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y.038.i.i.i, i64 0, i32 2
+  %right_.i3339.i.i.i = getelementptr inbounds i8, ptr %y.038.i.i.i, i64 16
   %10 = load ptr, ptr %right_.i3339.i.i.i, align 8, !tbaa !34
   %cmp840.i.i.i = icmp eq ptr %add.ptr.i.i.i, %10
   br i1 %cmp840.i.i.i, label %while.body9.i.i.i, label %while.end12.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN5folly12TimeoutQueue5EventESaIS3_EEEaSERKS3_.exit, %while.cond.i.i.i
   %storemerge.i.i.i = phi ptr [ %11, %while.cond.i.i.i ], [ %9, %_ZNSt20back_insert_iteratorISt6vectorIN5folly12TimeoutQueue5EventESaIS3_EEEaSERKS3_.exit ]
-  %left_.i.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %storemerge.i.i.i, i64 0, i32 1
+  %left_.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 8
   %11 = load ptr, ptr %left_.i.i.i.i, align 8, !tbaa !34
   %cmp3.not.i.i.i = icmp eq ptr %11, null
   br i1 %cmp3.not.i.i.i, label %_ZN5boost11multi_index6detail19bidir_node_iteratorINS1_18ordered_index_nodeINS1_19null_augment_policyENS1_15index_node_baseIN5folly12TimeoutQueue5EventESaIS8_EEEEEEppEv.exit, label %while.cond.i.i.i, !llvm.loop !99
@@ -2941,13 +2928,13 @@ while.body9.i.i.i:                                ; preds = %while.cond6.prehead
   %y.0.in.in.i.i.i = load i64, ptr %y.041.i.i.i, align 8, !tbaa !36
   %y.0.in.i.i.i = and i64 %y.0.in.in.i.i.i, -2
   %y.0.i.i.i = inttoptr i64 %y.0.in.i.i.i to ptr
-  %right_.i33.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y.0.i.i.i, i64 0, i32 2
+  %right_.i33.i.i.i = getelementptr inbounds i8, ptr %y.0.i.i.i, i64 16
   %12 = load ptr, ptr %right_.i33.i.i.i, align 8, !tbaa !34
   %cmp8.i.i.i = icmp eq ptr %y.041.i.i.i, %12
   br i1 %cmp8.i.i.i, label %while.body9.i.i.i, label %while.end12.loopexit.i.i.i, !llvm.loop !100
 
 while.end12.loopexit.i.i.i:                       ; preds = %while.body9.i.i.i
-  %right_.i35.phi.trans.insert.i.i.i = getelementptr inbounds %"struct.boost::multi_index::detail::ordered_index_node_compressed_base", ptr %y.041.i.i.i, i64 0, i32 2
+  %right_.i35.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %y.041.i.i.i, i64 16
   %.pre.i.i.i = load ptr, ptr %right_.i35.phi.trans.insert.i.i.i, align 8, !tbaa !34
   br label %while.end12.i.i.i
 
@@ -2972,7 +2959,7 @@ for.end:                                          ; preds = %_ZN5boost11multi_in
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(56) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TimeoutQueue::Event, std::allocator<folly::TimeoutQueue::Event>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !94
   %1 = load ptr, ptr %this, align 8, !tbaa !34
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -3010,14 +2997,14 @@ _ZNSt12_Vector_baseIN5folly12TimeoutQueue5EventESaIS2_EE11_M_allocateEm.exit: ; 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %__args, i64 24, i1 false)
   %callback.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %cond.i47, i64 %sub.ptr.div.i, i32 3
   %_M_manager.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %cond.i47, i64 %sub.ptr.div.i, i32 3, i32 0, i32 1
-  %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__args, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %callback.i.i.i, i8 0, i64 32, i1 false)
   %2 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !tbaa !31
   %tobool.not.i.i.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseIN5folly12TimeoutQueue5EventESaIS2_EE11_M_allocateEm.exit
-  %callback3.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__args, i64 0, i32 3
+  %callback3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   %call3.i.i.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback3.i.i.i, i32 noundef 2)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
@@ -3054,34 +3041,34 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %_ZSt1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.08.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.07.i.i.i, i64 24, i1 false), !alias.scope !107
-  %callback.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__cur.08.i.i.i, i64 0, i32 3
-  %_M_invoker.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__cur.08.i.i.i, i64 0, i32 3, i32 1
-  %_M_invoker2.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.addr.07.i.i.i, i64 0, i32 3, i32 1
+  %callback.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 24
+  %_M_invoker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 48
+  %_M_invoker2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %callback.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !102, !noalias !105
   %8 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i.i, align 8, !tbaa !30, !alias.scope !105, !noalias !102
   store ptr %8, ptr %_M_invoker.i.i.i.i.i.i.i.i, align 8, !tbaa !30, !alias.scope !102, !noalias !105
-  %_M_manager.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.addr.07.i.i.i, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 40
   %9 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !31, !alias.scope !105, !noalias !102
   %tobool.not.i.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN5folly12TimeoutQueue5EventES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, label %_ZNSt16allocator_traitsISaIN5folly12TimeoutQueue5EventEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i
 
 _ZNSt16allocator_traitsISaIN5folly12TimeoutQueue5EventEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i: ; preds = %for.body.i.i.i
-  %callback3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.addr.07.i.i.i, i64 0, i32 3
-  %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__cur.08.i.i.i, i64 0, i32 3, i32 0, i32 1
+  %callback3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 24
+  %_M_manager.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %callback3.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !32, !alias.scope !107
   store ptr %9, ptr %_M_manager.i.i.i.i.i.i.i.i.i, align 8, !tbaa !31, !alias.scope !102, !noalias !105
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !105, !noalias !102
   br label %_ZSt19__relocate_object_aIN5folly12TimeoutQueue5EventES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN5folly12TimeoutQueue5EventES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN5folly12TimeoutQueue5EventEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.addr.07.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__cur.08.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i, i64 56
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 56
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !108
 
 _ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %_ZSt19__relocate_object_aIN5folly12TimeoutQueue5EventES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i47, %invoke.cont ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN5folly12TimeoutQueue5EventES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 56
   %cmp.not6.i.i.i48 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not6.i.i.i48, label %_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit65, label %for.body.i.i.i49
 
@@ -3091,28 +3078,28 @@ for.body.i.i.i49:                                 ; preds = %_ZNSt6vectorIN5foll
   tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__cur.08.i.i.i50, ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.07.i.i.i51, i64 24, i1 false), !alias.scope !114
-  %callback.i.i.i.i.i.i.i52 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__cur.08.i.i.i50, i64 0, i32 3
-  %_M_invoker.i.i.i.i.i.i.i.i53 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__cur.08.i.i.i50, i64 0, i32 3, i32 1
-  %_M_invoker2.i.i.i.i.i.i.i.i54 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.addr.07.i.i.i51, i64 0, i32 3, i32 1
+  %callback.i.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %__cur.08.i.i.i50, i64 24
+  %_M_invoker.i.i.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %__cur.08.i.i.i50, i64 48
+  %_M_invoker2.i.i.i.i.i.i.i.i54 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i51, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %callback.i.i.i.i.i.i.i52, i8 0, i64 24, i1 false), !alias.scope !109, !noalias !112
   %10 = load ptr, ptr %_M_invoker2.i.i.i.i.i.i.i.i54, align 8, !tbaa !30, !alias.scope !112, !noalias !109
   store ptr %10, ptr %_M_invoker.i.i.i.i.i.i.i.i53, align 8, !tbaa !30, !alias.scope !109, !noalias !112
-  %_M_manager.i.i.i.i.i.i.i.i.i.i55 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.addr.07.i.i.i51, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i51, i64 40
   %11 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i.i.i55, align 8, !tbaa !31, !alias.scope !112, !noalias !109
   %tobool.not.i.i.not.i.i.i.i.i.i.i.i56 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i.i.i56, label %_ZSt19__relocate_object_aIN5folly12TimeoutQueue5EventES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i60, label %_ZNSt16allocator_traitsISaIN5folly12TimeoutQueue5EventEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i57
 
 _ZNSt16allocator_traitsISaIN5folly12TimeoutQueue5EventEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i57: ; preds = %for.body.i.i.i49
-  %callback3.i.i.i.i.i.i.i58 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.addr.07.i.i.i51, i64 0, i32 3
-  %_M_manager.i.i.i.i.i.i.i.i.i59 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__cur.08.i.i.i50, i64 0, i32 3, i32 0, i32 1
+  %callback3.i.i.i.i.i.i.i58 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i51, i64 24
+  %_M_manager.i.i.i.i.i.i.i.i.i59 = getelementptr inbounds i8, ptr %__cur.08.i.i.i50, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %callback.i.i.i.i.i.i.i52, ptr noundef nonnull align 8 dereferenceable(16) %callback3.i.i.i.i.i.i.i58, i64 16, i1 false), !tbaa.struct !32, !alias.scope !114
   store ptr %11, ptr %_M_manager.i.i.i.i.i.i.i.i.i59, align 8, !tbaa !31, !alias.scope !109, !noalias !112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i.i.i55, i8 0, i64 16, i1 false), !alias.scope !112, !noalias !109
   br label %_ZSt19__relocate_object_aIN5folly12TimeoutQueue5EventES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i60
 
 _ZSt19__relocate_object_aIN5folly12TimeoutQueue5EventES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i60: ; preds = %_ZNSt16allocator_traitsISaIN5folly12TimeoutQueue5EventEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i.i.i.i57, %for.body.i.i.i49
-  %incdec.ptr.i.i.i61 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__first.addr.07.i.i.i51, i64 1
-  %incdec.ptr1.i.i.i62 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %__cur.08.i.i.i50, i64 1
+  %incdec.ptr.i.i.i61 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i51, i64 56
+  %incdec.ptr1.i.i.i62 = getelementptr inbounds i8, ptr %__cur.08.i.i.i50, i64 56
   %cmp.not.i.i.i63 = icmp eq ptr %incdec.ptr.i.i.i61, %0
   br i1 %cmp.not.i.i.i63, label %_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit65, label %for.body.i.i.i49, !llvm.loop !115
 
@@ -3126,7 +3113,7 @@ if.then.i66:                                      ; preds = %_ZNSt6vectorIN5foll
   br label %_ZNSt12_Vector_baseIN5folly12TimeoutQueue5EventESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN5folly12TimeoutQueue5EventESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i66, %_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit65
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<folly::TimeoutQueue::Event, std::allocator<folly::TimeoutQueue::Event>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i47, ptr %this, align 8, !tbaa !92
   store ptr %__cur.0.lcssa.i.i.i64, ptr %_M_finish.i.i, align 8, !tbaa !94
   %add.ptr26 = getelementptr inbounds %"struct.folly::TimeoutQueue::Event", ptr %cond.i47, i64 %cond.i

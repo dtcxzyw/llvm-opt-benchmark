@@ -9,21 +9,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__atomic_base.69" = type { i8 }
 %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache" = type { i64, i64, ptr, [8 x i8] }
 %class.anon = type { ptr, ptr, ptr }
-%"class.absl::lts_20230802::container_internal::btree" = type { ptr, %"class.absl::lts_20230802::container_internal::CompressedTuple.44", i64 }
-%"class.absl::lts_20230802::container_internal::CompressedTuple.44" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.45" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.45" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.51" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.51" = type { ptr }
 %"union.absl::lts_20230802::container_internal::map_slot_type" = type { %"struct.std::pair" }
 %"struct.std::pair" = type { i32, %"struct.google::protobuf::internal::ExtensionSet::Extension" }
 %"struct.google::protobuf::internal::ExtensionSet::Extension" = type { %union.anon, i8, i8, i8, i8, i32, ptr }
 %union.anon = type { i64 }
 %"struct.google::protobuf::internal::ExtensionSet::KeyValue" = type { i32, %"struct.google::protobuf::internal::ExtensionSet::Extension" }
-%"class.google::protobuf::FieldDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i8, i8, i32, ptr, ptr, ptr, ptr, %union.anon.0, %union.anon.1, ptr, ptr, ptr, %union.anon.2 }
-%"class.google::protobuf::internal::SymbolBase" = type { i8 }
-%union.anon.0 = type { ptr }
-%union.anon.1 = type { ptr }
-%union.anon.2 = type { i64 }
-%"class.google::protobuf::internal::RepeatedPtrFieldBase" = type { ptr, i32, i32, ptr }
 %"class.absl::lts_20230802::log_internal::LogMessageFatal" = type { %"class.absl::lts_20230802::log_internal::LogMessage" }
 %"class.absl::lts_20230802::log_internal::LogMessage" = type { %"class.absl::lts_20230802::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
 %"class.absl::lts_20230802::base_internal::ErrnoSaver" = type { i32 }
@@ -33,58 +23,19 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
 %"struct.std::_Head_base.4" = type { ptr }
-%"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep" = type { i32, [268435454 x ptr] }
+%"class.google::protobuf::internal::GeneratedExtensionFinder" = type { ptr }
 %"class.google::protobuf::internal::DescriptorPoolExtensionFinder" = type { ptr, ptr, ptr }
 %"struct.google::protobuf::internal::ExtensionInfo" = type { ptr, i32, i8, i8, i8, i8, %union.anon.36, ptr, ptr }
 %union.anon.36 = type { %"struct.google::protobuf::internal::ExtensionInfo::EnumValidityCheck" }
 %"struct.google::protobuf::internal::ExtensionInfo::EnumValidityCheck" = type { ptr, ptr }
+%class.anon.94 = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.40 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.40 = type { i64, [8 x i8] }
-%"class.google::protobuf::FieldOptions" = type { %"class.google::protobuf::Message", %union.anon.41 }
-%"class.google::protobuf::Message" = type { %"class.google::protobuf::MessageLite" }
-%"class.google::protobuf::MessageLite" = type { ptr, %"class.google::protobuf::internal::InternalMetadata" }
-%"class.google::protobuf::internal::InternalMetadata" = type { i64 }
-%union.anon.41 = type { %"struct.google::protobuf::FieldOptions::Impl_" }
-%"struct.google::protobuf::FieldOptions::Impl_" = type <{ %"class.google::protobuf::internal::ExtensionSet", %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", %"class.google::protobuf::RepeatedField", %"class.google::protobuf::RepeatedPtrField.42", %"class.google::protobuf::RepeatedPtrField.43", ptr, i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8], i32, [4 x i8] }>
-%"class.google::protobuf::internal::ExtensionSet" = type { ptr, i16, i16, %"union.google::protobuf::internal::ExtensionSet::AllocatedData" }
-%"union.google::protobuf::internal::ExtensionSet::AllocatedData" = type { ptr }
-%"class.google::protobuf::internal::HasBits" = type { [1 x i32] }
-%"class.google::protobuf::internal::CachedSize" = type { i32 }
-%"class.google::protobuf::RepeatedField" = type { i32, i32, ptr }
-%"class.google::protobuf::RepeatedPtrField.42" = type { %"class.google::protobuf::internal::RepeatedPtrFieldBase" }
-%"class.google::protobuf::RepeatedPtrField.43" = type { %"class.google::protobuf::internal::RepeatedPtrFieldBase" }
-%"class.google::protobuf::internal::GeneratedExtensionFinder" = type { ptr }
 %"class.google::protobuf::internal::ParseContext" = type { %"class.google::protobuf::internal::EpsCopyInputStream", i32, i32, %"struct.google::protobuf::internal::ParseContext::Data" }
 %"class.google::protobuf::internal::EpsCopyInputStream" = type { ptr, ptr, ptr, i32, i32, ptr, [32 x i8], i64, i32, i32 }
 %"struct.google::protobuf::internal::ParseContext::Data" = type { ptr, ptr }
-%"struct.google::protobuf::internal::InternalMetadata::Container" = type { %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", %"class.google::protobuf::UnknownFieldSet" }
-%"struct.google::protobuf::internal::InternalMetadata::ContainerBase" = type { ptr }
-%"class.google::protobuf::UnknownFieldSet" = type { %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl" }
-%"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl" = type { %"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<google::protobuf::UnknownField, std::allocator<google::protobuf::UnknownField>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.anon.94 = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.google::protobuf::RepeatedField.53" = type { i32, i32, ptr }
-%"class.google::protobuf::RepeatedField.55" = type { i32, i32, ptr }
-%"class.google::protobuf::RepeatedField.57" = type { i32, i32, ptr }
-%"class.google::protobuf::RepeatedField.59" = type { i32, i32, ptr }
-%"class.google::protobuf::RepeatedField.61" = type { i32, i32, ptr }
-%"class.google::protobuf::RepeatedField.63" = type { i32, i32, ptr }
 %"class.google::protobuf::io::EpsCopyOutputStream" = type <{ ptr, ptr, [32 x i8], ptr, i8, i8, i8, i8, [4 x i8] }>
-%"struct.std::_Vector_base<const google::protobuf::FieldDescriptor *, std::allocator<const google::protobuf::FieldDescriptor *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.google::protobuf::RepeatedField<int>::Rep" = type { %union.anon.97 }
-%union.anon.97 = type { ptr }
-%"class.google::protobuf::internal::SerialArena" = type { %"struct.std::atomic.86", ptr, ptr, ptr, %"struct.std::atomic.88", %"struct.std::atomic.90", %"struct.std::atomic.92", %"struct.std::atomic.90", %"struct.std::atomic.90", ptr, i8, ptr }
-%"struct.std::atomic.86" = type { %"struct.std::__atomic_base.87" }
-%"struct.std::__atomic_base.87" = type { ptr }
-%"struct.std::atomic.88" = type { %"struct.std::__atomic_base.89" }
-%"struct.std::__atomic_base.89" = type { ptr }
-%"struct.std::atomic.92" = type { %"struct.std::__atomic_base.93" }
-%"struct.std::__atomic_base.93" = type { ptr }
-%"struct.std::atomic.90" = type { %"struct.std::__atomic_base.91" }
-%"struct.std::__atomic_base.91" = type { i64 }
 
 $_ZN6google8protobuf8internal12ExtensionSet27ParseFieldWithExtensionInfoINS0_15UnknownFieldSetEEEPKcibRKNS1_13ExtensionInfoEPNS1_16InternalMetadataES6_PNS1_12ParseContextE = comdat any
 
@@ -145,7 +96,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr %this.val1, align 8, !noalias !4
   %3 = load ptr, ptr %2, align 8, !noalias !4
-  %rightmost_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %this.val1, i64 0, i32 1
+  %rightmost_.i.i.i.i = getelementptr inbounds i8, ptr %this.val1, i64 8
   %4 = load ptr, ptr %rightmost_.i.i.i.i, align 8, !noalias !4
   %arrayidx.i.i.i.i = getelementptr i8, ptr %4, i64 10
   %5 = load i8, ptr %arrayidx.i.i.i.i, align 1, !noalias !4
@@ -169,7 +120,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %_ZN4abs
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.025.i.i, i64 16
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %conv6.i.i.i.i
   %7 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 8, !noalias !7
-  %second.i.i = getelementptr inbounds %"struct.std::pair", ptr %arrayidx.i.i.i.i.i.i, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i, i64 8
   call fastcc void @"_ZZNK6google8protobuf8internal12ExtensionSet12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISC_EEENK3$_0clEiRKNS2_9ExtensionE"(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp63.i, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(24) %second.i.i), !noalias !7
   %arrayidx.i.i.i.i.i = getelementptr i8, ptr %it.sroa.0.025.i.i, i64 11
   %8 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !noalias !7
@@ -181,8 +132,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %for.body.i.i
   %arrayidx.i1.i.i.i.i = getelementptr i8, ptr %it.sroa.0.025.i.i, i64 10
   %9 = load i8, ptr %arrayidx.i1.i.i.i.i, align 1, !noalias !7
   %conv.i.i.i.i = zext i8 %9 to i32
-  %cmp10.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i, %conv.i.i.i.i
-  br i1 %cmp10.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i
+  %cmp8.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i, %conv.i.i.i.i
+  br i1 %cmp8.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %land.lhs.true.i.i.i.i, %while.body.i.i.i.i.i
   %10 = phi ptr [ %11, %while.body.i.i.i.i.i ], [ %it.sroa.0.025.i.i, %land.lhs.true.i.i.i.i ]
@@ -248,9 +199,9 @@ if.end.i:                                         ; preds = %entry
 for.body.i7.i:                                    ; preds = %if.end.i, %for.body.i7.i
   %it.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i7.i ], [ %this.val1, %if.end.i ]
   %18 = load i32, ptr %it.05.i.i, align 8, !noalias !14
-  %second.i8.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %it.05.i.i, i64 0, i32 1
+  %second.i8.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 8
   call fastcc void @"_ZZNK6google8protobuf8internal12ExtensionSet12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISC_EEENK3$_0clEiRKNS2_9ExtensionE"(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp96.i, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(24) %second.i8.i), !noalias !14
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %it.05.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %"_ZN6google8protobuf8internal12ExtensionSet7ForEachIPKNS2_8KeyValueEZNKS2_12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISG_EEE3$_0EET0_T_SM_SL_.exit.i", label %for.body.i7.i, !llvm.loop !17
 
@@ -270,7 +221,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %is_cleared = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %call, i64 0, i32 3
+  %is_cleared = getelementptr inbounds i8, ptr %call, i64 10
   %bf.load = load i8, ptr %is_cleared, align 2
   %0 = and i8 %bf.load, 1
   %bf.cast.not = icmp eq i8 %0, 0
@@ -278,7 +229,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %vtable = load ptr, ptr %factory, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %factory, ptr noundef %message_type)
   br label %return
@@ -291,12 +242,12 @@ while.end8:                                       ; preds = %lor.lhs.false
 
 if.then11:                                        ; preds = %while.end8
   %vtable12 = load ptr, ptr %factory, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 2
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 16
   %4 = load ptr, ptr %vfn13, align 8
   %call14 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %factory, ptr noundef %message_type)
   %5 = load ptr, ptr %this, align 8
   %vtable15 = load ptr, ptr %3, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 3
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 24
   %6 = load ptr, ptr %vfn16, align 8
   %call17 = tail call noundef nonnull align 8 dereferenceable(16) ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(16) %call14, ptr noundef %5)
   br label %return
@@ -312,13 +263,13 @@ declare noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi(p
 define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet14MutableMessageEPKNS0_15FieldDescriptorEPNS0_14MessageFactoryE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %descriptor, ptr noundef %factory) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %extension = alloca ptr, align 8
-  %number_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %descriptor, i64 0, i32 4
+  %number_.i = getelementptr inbounds i8, ptr %descriptor, i64 4
   %0 = load i32, ptr %number_.i, align 4
   %call2 = call noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet17MaybeNewExtensionEiPKNS0_15FieldDescriptorEPPNS2_9ExtensionE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %0, ptr noundef nonnull %descriptor, ptr noundef nonnull %extension)
   br i1 %call2, label %if.then, label %while.end22
 
 if.then:                                          ; preds = %entry
-  %type_once_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %descriptor, i64 0, i32 7
+  %type_once_.i = getelementptr inbounds i8, ptr %descriptor, i64 24
   %1 = load ptr, ptr %type_once_.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %if.then.i
@@ -349,34 +300,34 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %if.then, %if.then.i, %lor.lhs.false.i.i.i, %if.then.i.i.i, %if.then5.i.i.i
-  %type_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %descriptor, i64 0, i32 2
+  %type_.i = getelementptr inbounds i8, ptr %descriptor, i64 2
   %6 = load i8, ptr %type_.i, align 2
   %7 = load ptr, ptr %extension, align 8
-  %type = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %7, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %7, i64 8
   store i8 %6, ptr %type, align 8
-  %is_repeated = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %7, i64 0, i32 2
+  %is_repeated = getelementptr inbounds i8, ptr %7, i64 9
   store i8 0, ptr %is_repeated, align 1
-  %is_packed = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %7, i64 0, i32 4
+  %is_packed = getelementptr inbounds i8, ptr %7, i64 11
   store i8 0, ptr %is_packed, align 1
   %call5 = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %descriptor)
   %vtable = load ptr, ptr %factory, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %8 = load ptr, ptr %vfn, align 8
   %call6 = call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %factory, ptr noundef %call5)
   %9 = load ptr, ptr %extension, align 8
-  %is_lazy = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %9, i64 0, i32 3
+  %is_lazy = getelementptr inbounds i8, ptr %9, i64 10
   %bf.load = load i8, ptr %is_lazy, align 2
   %bf.clear = and i8 %bf.load, 15
   store i8 %bf.clear, ptr %is_lazy, align 2
   %10 = load ptr, ptr %this, align 8
   %vtable7 = load ptr, ptr %call6, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 2
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 16
   %11 = load ptr, ptr %vfn8, align 8
   %call9 = call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %call6, ptr noundef %10)
   %12 = load ptr, ptr %extension, align 8
   store ptr %call9, ptr %12, align 8
   %13 = load ptr, ptr %extension, align 8
-  %is_cleared = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %13, i64 0, i32 3
+  %is_cleared = getelementptr inbounds i8, ptr %13, i64 10
   %bf.load10 = load i8, ptr %is_cleared, align 2
   %bf.clear11 = and i8 %bf.load10, -16
   store i8 %bf.clear11, ptr %is_cleared, align 2
@@ -385,7 +336,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %if.then, %if.then.
 
 while.end22:                                      ; preds = %entry
   %15 = load ptr, ptr %extension, align 8
-  %is_cleared23 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %15, i64 0, i32 3
+  %is_cleared23 = getelementptr inbounds i8, ptr %15, i64 10
   %bf.load24 = load i8, ptr %is_cleared23, align 2
   %bf.clear25 = and i8 %bf.load24, -16
   store i8 %bf.clear25, ptr %is_cleared23, align 2
@@ -397,12 +348,12 @@ while.end22:                                      ; preds = %entry
 if.then29:                                        ; preds = %while.end22
   %call30 = call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %descriptor)
   %vtable31 = load ptr, ptr %factory, align 8
-  %vfn32 = getelementptr inbounds ptr, ptr %vtable31, i64 2
+  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 16
   %18 = load ptr, ptr %vfn32, align 8
   %call33 = call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %factory, ptr noundef %call30)
   %19 = load ptr, ptr %this, align 8
   %vtable35 = load ptr, ptr %17, align 8
-  %vfn36 = getelementptr inbounds ptr, ptr %vtable35, i64 4
+  %vfn36 = getelementptr inbounds i8, ptr %vtable35, i64 32
   %20 = load ptr, ptr %vfn36, align 8
   %call37 = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(16) %call33, ptr noundef %19)
   br label %return
@@ -419,14 +370,14 @@ declare noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr n
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet14ReleaseMessageEPKNS0_15FieldDescriptorEPNS0_14MessageFactoryE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %descriptor, ptr noundef %factory) local_unnamed_addr #3 align 2 {
 entry:
-  %number_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %descriptor, i64 0, i32 4
+  %number_.i = getelementptr inbounds i8, ptr %descriptor, i64 4
   %0 = load i32, ptr %number_.i, align 4
   %call2 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %0)
   %cmp = icmp eq ptr %call2, null
   br i1 %cmp, label %return, label %while.end8
 
 while.end8:                                       ; preds = %entry
-  %is_lazy = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %call2, i64 0, i32 3
+  %is_lazy = getelementptr inbounds i8, ptr %call2, i64 10
   %bf.load = load i8, ptr %is_lazy, align 2
   %1 = and i8 %bf.load, 16
   %bf.cast.not = icmp eq i8 %1, 0
@@ -436,12 +387,12 @@ if.then9:                                         ; preds = %while.end8
   %2 = load ptr, ptr %call2, align 8
   %call10 = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %descriptor)
   %vtable = load ptr, ptr %factory, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call11 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %factory, ptr noundef %call10)
   %4 = load ptr, ptr %this, align 8
   %vtable12 = load ptr, ptr %2, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 7
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 56
   %5 = load ptr, ptr %vfn13, align 8
   %call14 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %call11, ptr noundef %4)
   %6 = load ptr, ptr %this, align 8
@@ -455,7 +406,7 @@ if.then17:                                        ; preds = %if.then9
 
 delete.notnull:                                   ; preds = %if.then17
   %vtable18 = load ptr, ptr %7, align 8
-  %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 1
+  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 8
   %8 = load ptr, ptr %vfn19, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
   br label %if.end29
@@ -468,12 +419,12 @@ if.else20:                                        ; preds = %while.end8
 
 if.then23:                                        ; preds = %if.else20
   %vtable.i = load ptr, ptr %10, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %11 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null)
   %12 = load ptr, ptr %call2, align 8
   %vtable25 = load ptr, ptr %call.i, align 8
-  %vfn26 = getelementptr inbounds ptr, ptr %vtable25, i64 5
+  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 40
   %13 = load ptr, ptr %vfn26, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %call.i, ptr noundef nonnull align 8 dereferenceable(16) %12)
   br label %if.end29
@@ -496,14 +447,14 @@ declare void @_ZN6google8protobuf8internal12ExtensionSet5EraseEi(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet25UnsafeArenaReleaseMessageEPKNS0_15FieldDescriptorEPNS0_14MessageFactoryE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %descriptor, ptr noundef %factory) local_unnamed_addr #3 align 2 {
 entry:
-  %number_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %descriptor, i64 0, i32 4
+  %number_.i = getelementptr inbounds i8, ptr %descriptor, i64 4
   %0 = load i32, ptr %number_.i, align 4
   %call2 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %0)
   %cmp = icmp eq ptr %call2, null
   br i1 %cmp, label %return, label %while.end8
 
 while.end8:                                       ; preds = %entry
-  %is_lazy = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %call2, i64 0, i32 3
+  %is_lazy = getelementptr inbounds i8, ptr %call2, i64 10
   %bf.load = load i8, ptr %is_lazy, align 2
   %1 = and i8 %bf.load, 16
   %bf.cast.not = icmp eq i8 %1, 0
@@ -513,12 +464,12 @@ while.end8:                                       ; preds = %entry
 if.then9:                                         ; preds = %while.end8
   %call10 = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %descriptor)
   %vtable = load ptr, ptr %factory, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call11 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %factory, ptr noundef %call10)
   %4 = load ptr, ptr %this, align 8
   %vtable12 = load ptr, ptr %2, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 8
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 64
   %5 = load ptr, ptr %vfn13, align 8
   %call14 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %call11, ptr noundef %4)
   %6 = load ptr, ptr %this, align 8
@@ -532,7 +483,7 @@ if.then17:                                        ; preds = %if.then9
 
 delete.notnull:                                   ; preds = %if.then17
   %vtable18 = load ptr, ptr %7, align 8
-  %vfn19 = getelementptr inbounds ptr, ptr %vtable18, i64 1
+  %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 8
   %8 = load ptr, ptr %vfn19, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #18
   br label %if.end21
@@ -552,13 +503,13 @@ return:                                           ; preds = %entry, %if.end21
 define noundef ptr @_ZN6google8protobuf8internal12ExtensionSet25MaybeNewRepeatedExtensionEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %descriptor) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %extension = alloca ptr, align 8
-  %number_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %descriptor, i64 0, i32 4
+  %number_.i = getelementptr inbounds i8, ptr %descriptor, i64 4
   %0 = load i32, ptr %number_.i, align 4
   %call2 = call noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet17MaybeNewExtensionEiPKNS0_15FieldDescriptorEPPNS2_9ExtensionE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %0, ptr noundef nonnull %descriptor, ptr noundef nonnull %extension)
   br i1 %call2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %type_once_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %descriptor, i64 0, i32 7
+  %type_once_.i = getelementptr inbounds i8, ptr %descriptor, i64 24
   %1 = load ptr, ptr %type_once_.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %if.then.i4
@@ -589,12 +540,12 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %if.then, %if.then.i4, %lor.lhs.false.i.i.i, %if.then.i.i.i, %if.then5.i.i.i
-  %type_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %descriptor, i64 0, i32 2
+  %type_.i = getelementptr inbounds i8, ptr %descriptor, i64 2
   %6 = load i8, ptr %type_.i, align 2
   %7 = load ptr, ptr %extension, align 8
-  %type = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %7, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %7, i64 8
   store i8 %6, ptr %type, align 8
-  %is_repeated = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %7, i64 0, i32 2
+  %is_repeated = getelementptr inbounds i8, ptr %7, i64 9
   store i8 1, ptr %is_repeated, align 1
   %8 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %8, null
@@ -607,7 +558,7 @@ if.then.i:                                        ; preds = %_ZNK6google8protobu
 
 if.else.i:                                        ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
   %call2.i6 = call noundef ptr @_ZN6google8protobuf5Arena8AllocateEm(ptr noundef nonnull align 8 dereferenceable(144) %8, i64 noundef 24)
-  %arena_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %call2.i6, i64 0, i32 3
+  %arena_.i.i.i = getelementptr inbounds i8, ptr %call2.i6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2.i6, i8 0, i64 16, i1 false)
   store ptr %8, ptr %arena_.i.i.i, align 8
   %.pre = load ptr, ptr %extension, align 8
@@ -630,7 +581,7 @@ entry:
   %ref.tmp8 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %call = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet25MaybeNewRepeatedExtensionEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %descriptor)
   %0 = load ptr, ptr %call, align 8
-  %current_size_.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %0, i64 0, i32 1
+  %current_size_.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %current_size_.i, align 8
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
@@ -659,8 +610,9 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase14AddFromClearedINS1_18Generic
   store i32 %add.i, ptr %current_size_.i, align 4
   %sub.i.i.i = add i64 %3, -1
   %6 = inttoptr i64 %sub.i.i.i to ptr
+  %elements.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %idxprom.i.i = sext i32 %1 to i64
-  %arrayidx.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %6, i64 0, i32 1, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i.i, i64 0, i64 %idxprom.i.i
   %retval.0.i.i = select i1 %cmp.i.i.i, ptr %0, ptr %arrayidx.i.i
   %7 = load ptr, ptr %retval.0.i.i, align 8
   %cmp = icmp eq ptr %7, null
@@ -668,7 +620,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase14AddFromClearedINS1_18Generic
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase14AddFromClearedINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEPNT_4TypeEv.exit.if.then_crit_edge: ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase14AddFromClearedINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEPNT_4TypeEv.exit
   %.pre = load ptr, ptr %call, align 8
-  %current_size_.i.i.phi.trans.insert = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %.pre, i64 0, i32 1
+  %current_size_.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
   %.pre10 = load i32, ptr %current_size_.i.i.phi.trans.insert, align 8
   br label %if.then
 
@@ -681,7 +633,7 @@ if.then:                                          ; preds = %_ZN6google8protobuf
 if.then4:                                         ; preds = %if.then
   %call5 = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %descriptor)
   %vtable = load ptr, ptr %factory, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %10 = load ptr, ptr %vfn, align 8
   %call6 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %factory, ptr noundef %call5)
   %cmp7.not = icmp eq ptr %call6, null
@@ -699,8 +651,8 @@ if.else:                                          ; preds = %if.then
   %cmp.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   %sub.i.i.i.i.i = add i64 %12, -1
   %13 = inttoptr i64 %sub.i.i.i.i.i to ptr
-  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %13, i64 0, i32 1, i64 0
-  %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %9, ptr %arrayidx.i.i.i.i
+  %elements.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %retval.0.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %9, ptr %elements.i.i.i.i
   %14 = load ptr, ptr %retval.0.i.i.i.i, align 8
   br label %if.end
 
@@ -708,7 +660,7 @@ if.end:                                           ; preds = %if.then4, %if.else
   %prototype.0 = phi ptr [ %14, %if.else ], [ %call6, %if.then4 ]
   %15 = load ptr, ptr %this, align 8
   %vtable15 = load ptr, ptr %prototype.0, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 2
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 16
   %16 = load ptr, ptr %vfn16, align 8
   %call17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(16) %prototype.0, ptr noundef %15)
   %17 = load ptr, ptr %call, align 8
@@ -751,14 +703,14 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf8internal29DescriptorPoolEx
 entry:
   %ref.tmp14 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %0 = load ptr, ptr %this, align 8
-  %containing_type_ = getelementptr inbounds %"class.google::protobuf::internal::DescriptorPoolExtensionFinder", ptr %this, i64 0, i32 2
+  %containing_type_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %containing_type_, align 8
   %call = tail call noundef ptr @_ZNK6google8protobuf14DescriptorPool21FindExtensionByNumberEPKNS0_10DescriptorEi(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i32 noundef %number)
   %cmp = icmp ne ptr %call, null
   br i1 %cmp, label %if.else, label %return
 
 if.else:                                          ; preds = %entry
-  %type_once_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %call, i64 0, i32 7
+  %type_once_.i = getelementptr inbounds i8, ptr %call, i64 24
   %2 = load ptr, ptr %type_once_.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, label %if.then.i
@@ -789,22 +741,22 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %if.else, %if.then.i, %lor.lhs.false.i.i.i, %if.then.i.i.i, %if.then5.i.i.i
-  %type_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %call, i64 0, i32 2
+  %type_.i = getelementptr inbounds i8, ptr %call, i64 2
   %7 = load i8, ptr %type_.i, align 2
-  %type = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %output, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %output, i64 12
   store i8 %7, ptr %type, align 4
-  %label_.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %call, i64 0, i32 1
+  %label_.i.i = getelementptr inbounds i8, ptr %call, i64 1
   %bf.load.i.i = load i8, ptr %label_.i.i, align 1
   %8 = and i8 %bf.load.i.i, 96
   %cmp.i = icmp eq i8 %8, 96
-  %is_repeated = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %output, i64 0, i32 3
+  %is_repeated = getelementptr inbounds i8, ptr %output, i64 13
   %frombool = zext i1 %cmp.i to i8
   store i8 %frombool, ptr %is_repeated, align 1
   %call4 = tail call noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor9is_packedEv(ptr noundef nonnull align 8 dereferenceable(88) %call)
-  %is_packed = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %output, i64 0, i32 4
+  %is_packed = getelementptr inbounds i8, ptr %output, i64 14
   %frombool5 = zext i1 %call4 to i8
   store i8 %frombool5, ptr %is_packed, align 2
-  %descriptor = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %output, i64 0, i32 7
+  %descriptor = getelementptr inbounds i8, ptr %output, i64 32
   store ptr %call, ptr %descriptor, align 8
   %9 = load ptr, ptr %type_once_.i, align 8
   %tobool.not.i.i = icmp eq ptr %9, null
@@ -844,14 +796,14 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %_ZNK6google8pr
   br i1 %cmp7, label %if.then8, label %if.else31
 
 if.then8:                                         ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
-  %factory_ = getelementptr inbounds %"class.google::protobuf::internal::DescriptorPoolExtensionFinder", ptr %this, i64 0, i32 1
+  %factory_ = getelementptr inbounds i8, ptr %this, i64 8
   %16 = load ptr, ptr %factory_, align 8
   %call9 = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %call)
   %vtable = load ptr, ptr %16, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %17 = load ptr, ptr %vfn, align 8
   %call10 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %call9)
-  %18 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %output, i64 0, i32 6
+  %18 = getelementptr inbounds i8, ptr %output, i64 16
   store ptr %call10, ptr %18, align 8
   %cmp12.not = icmp eq ptr %call10, null
   br i1 %cmp12.not, label %cond.false, label %cleanup.done
@@ -862,9 +814,9 @@ cond.false:                                       ; preds = %if.then8
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %cond.false
-  %all_names_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %call, i64 0, i32 5
+  %all_names_.i = getelementptr inbounds i8, ptr %call, i64 8
   %19 = load ptr, ptr %all_names_.i, align 8
-  %arrayidx.i22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %19, i64 1
+  %arrayidx.i22 = getelementptr inbounds i8, ptr %19, i64 32
   %call21 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2023080212log_internal10LogMessagelsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i22)
           to label %cleanup.action unwind label %lpad
 
@@ -879,21 +831,21 @@ lpad:                                             ; preds = %cond.false, %invoke
   unreachable
 
 cleanup.done:                                     ; preds = %if.then8
-  %options_.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %call, i64 0, i32 11
+  %options_.i = getelementptr inbounds i8, ptr %call, i64 56
   %21 = load ptr, ptr %options_.i, align 8
-  %_has_bits_.i = getelementptr inbounds %"class.google::protobuf::FieldOptions", ptr %21, i64 0, i32 1, i32 0, i32 1
+  %_has_bits_.i = getelementptr inbounds i8, ptr %21, i64 40
   %22 = load i32, ptr %_has_bits_.i, align 4
   %and.i = and i32 %22, 16
   %cmp.i23.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i23.not, label %return, label %if.then28
 
 if.then28:                                        ; preds = %cleanup.done
-  %lazy_.i.i = getelementptr inbounds %"class.google::protobuf::FieldOptions", ptr %21, i64 0, i32 1, i32 0, i32 10
+  %lazy_.i.i = getelementptr inbounds i8, ptr %21, i64 129
   %23 = load i8, ptr %lazy_.i.i, align 1
   %24 = and i8 %23, 1
   %tobool.i.i.not = icmp eq i8 %24, 0
   %cond = select i1 %tobool.i.i.not, i8 2, i8 1
-  %is_lazy = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %output, i64 0, i32 5
+  %is_lazy = getelementptr inbounds i8, ptr %output, i64 15
   store i8 %cond, ptr %is_lazy, align 1
   br label %return
 
@@ -936,10 +888,10 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit39: ; preds = %if.else31, %
   br i1 %cmp33, label %if.then34, label %return
 
 if.then34:                                        ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit39
-  %32 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %output, i64 0, i32 6
+  %32 = getelementptr inbounds i8, ptr %output, i64 16
   store ptr @_ZN6google8protobuf8internalL27ValidateEnumUsingDescriptorEPKvi, ptr %32, align 8
   %call35 = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor9enum_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %call)
-  %arg = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %output, i64 0, i32 6, i32 0, i32 1
+  %arg = getelementptr inbounds i8, ptr %output, i64 24
   store ptr %call35, ptr %arg, align 8
   br label %return
 
@@ -976,7 +928,7 @@ entry:
   %conv2 = and i32 %0, 7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %finder.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %finder4.i)
-  %data_.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 3
+  %data_.i.i = getelementptr inbounds i8, ptr %ctx, i64 96
   %1 = load ptr, ptr %data_.i.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.then.i9, label %if.else.i8
@@ -987,12 +939,12 @@ if.then.i9:                                       ; preds = %entry
   br i1 %call.i.i, label %if.end.i.i, label %if.then
 
 if.end.i.i:                                       ; preds = %if.then.i9
-  %type.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 2
+  %type.i.i = getelementptr inbounds i8, ptr %extension, i64 12
   %2 = load i8, ptr %type.i.i, align 4
   %idxprom.i.i.i = zext i8 %2 to i64
   %arrayidx.i.i.i = getelementptr inbounds [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %idxprom.i.i.i
   %3 = load i32, ptr %arrayidx.i.i.i, align 4
-  %is_repeated.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated.i.i = getelementptr inbounds i8, ptr %extension, i64 13
   %4 = load i8, ptr %is_repeated.i.i, align 1
   %5 = and i8 %4, 1
   %tobool.i.i = icmp ne i8 %5, 0
@@ -1008,28 +960,28 @@ _ZNK6google8protobuf8internal12ExtensionSet32FindExtensionInfoFromFieldNumberINS
   br i1 %cmp7.i.i, label %if.end, label %if.then
 
 if.else.i8:                                       ; preds = %entry
-  %factory.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 3, i32 1
+  %factory.i = getelementptr inbounds i8, ptr %ctx, i64 104
   %7 = load ptr, ptr %factory.i, align 8
   %vtable.i.i = load ptr, ptr %extendee, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 10
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 80
   %8 = load ptr, ptr %vfn.i.i, align 8
   %call.i10.i = tail call { ptr, ptr } %8(ptr noundef nonnull align 8 dereferenceable(16) %extendee)
   %9 = extractvalue { ptr, ptr } %call.i10.i, 0
   store ptr %1, ptr %finder4.i, align 8
-  %factory_.i.i = getelementptr inbounds %"class.google::protobuf::internal::DescriptorPoolExtensionFinder", ptr %finder4.i, i64 0, i32 1
+  %factory_.i.i = getelementptr inbounds i8, ptr %finder4.i, i64 8
   store ptr %7, ptr %factory_.i.i, align 8
-  %containing_type_.i.i = getelementptr inbounds %"class.google::protobuf::internal::DescriptorPoolExtensionFinder", ptr %finder4.i, i64 0, i32 2
+  %containing_type_.i.i = getelementptr inbounds i8, ptr %finder4.i, i64 16
   store ptr %9, ptr %containing_type_.i.i, align 8
   %call.i11.i = call noundef zeroext i1 @_ZN6google8protobuf8internal29DescriptorPoolExtensionFinder4FindEiPNS1_13ExtensionInfoE(ptr noundef nonnull align 8 dereferenceable(24) %finder4.i, i32 noundef %conv, ptr noundef nonnull %extension)
   br i1 %call.i11.i, label %if.end.i13.i, label %if.then
 
 if.end.i13.i:                                     ; preds = %if.else.i8
-  %type.i14.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 2
+  %type.i14.i = getelementptr inbounds i8, ptr %extension, i64 12
   %10 = load i8, ptr %type.i14.i, align 4
   %idxprom.i.i15.i = zext i8 %10 to i64
   %arrayidx.i.i16.i = getelementptr inbounds [0 x i32], ptr @_ZN6google8protobuf8internal14WireFormatLite21kWireTypeForFieldTypeE, i64 0, i64 %idxprom.i.i15.i
   %11 = load i32, ptr %arrayidx.i.i16.i, align 4
-  %is_repeated.i17.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated.i17.i = getelementptr inbounds i8, ptr %extension, i64 13
   %12 = load i8, ptr %is_repeated.i17.i, align 1
   %13 = and i8 %12, 1
   %tobool.i18.i = icmp ne i8 %13, 0
@@ -1055,7 +1007,7 @@ if.then:                                          ; preds = %_ZNK6google8protobu
 if.then.i:                                        ; preds = %if.then
   %and.i10 = and i64 %15, -2
   %16 = inttoptr i64 %and.i10 to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %16, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %16, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i:                                        ; preds = %if.then
@@ -1086,7 +1038,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal12ExtensionSet27Par
 entry:
   %agg.tmp1.i = alloca %class.anon.94, align 8
   %ref.tmp97 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %type = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %extension, i64 12
   %0 = load i8, ptr %type, align 4
   br i1 %was_packed_on_wire, label %if.then, label %if.else
 
@@ -1113,157 +1065,157 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.then
-  %is_packed = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed = getelementptr inbounds i8, ptr %extension, i64 14
   %1 = load i8, ptr %is_packed, align 2
   %2 = and i8 %1, 1
   %tobool3 = icmp ne i8 %2, 0
-  %descriptor = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor = getelementptr inbounds i8, ptr %extension, i64 32
   %3 = load ptr, ptr %descriptor, align 8
   %call = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 5, i1 noundef zeroext %tobool3, ptr noundef %3)
   %call4 = tail call noundef ptr @_ZN6google8protobuf8internal17PackedInt32ParserEPvPKcPNS1_12ParseContextE(ptr noundef %call, ptr noundef %ptr, ptr noundef %ctx)
   br label %return
 
 sw.bb5:                                           ; preds = %if.then
-  %is_packed7 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed7 = getelementptr inbounds i8, ptr %extension, i64 14
   %4 = load i8, ptr %is_packed7, align 2
   %5 = and i8 %4, 1
   %tobool8 = icmp ne i8 %5, 0
-  %descriptor9 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor9 = getelementptr inbounds i8, ptr %extension, i64 32
   %6 = load ptr, ptr %descriptor9, align 8
   %call10 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 3, i1 noundef zeroext %tobool8, ptr noundef %6)
   %call11 = tail call noundef ptr @_ZN6google8protobuf8internal17PackedInt64ParserEPvPKcPNS1_12ParseContextE(ptr noundef %call10, ptr noundef %ptr, ptr noundef %ctx)
   br label %return
 
 sw.bb12:                                          ; preds = %if.then
-  %is_packed14 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed14 = getelementptr inbounds i8, ptr %extension, i64 14
   %7 = load i8, ptr %is_packed14, align 2
   %8 = and i8 %7, 1
   %tobool15 = icmp ne i8 %8, 0
-  %descriptor16 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor16 = getelementptr inbounds i8, ptr %extension, i64 32
   %9 = load ptr, ptr %descriptor16, align 8
   %call17 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 13, i1 noundef zeroext %tobool15, ptr noundef %9)
   %call18 = tail call noundef ptr @_ZN6google8protobuf8internal18PackedUInt32ParserEPvPKcPNS1_12ParseContextE(ptr noundef %call17, ptr noundef %ptr, ptr noundef %ctx)
   br label %return
 
 sw.bb19:                                          ; preds = %if.then
-  %is_packed21 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed21 = getelementptr inbounds i8, ptr %extension, i64 14
   %10 = load i8, ptr %is_packed21, align 2
   %11 = and i8 %10, 1
   %tobool22 = icmp ne i8 %11, 0
-  %descriptor23 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor23 = getelementptr inbounds i8, ptr %extension, i64 32
   %12 = load ptr, ptr %descriptor23, align 8
   %call24 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 4, i1 noundef zeroext %tobool22, ptr noundef %12)
   %call25 = tail call noundef ptr @_ZN6google8protobuf8internal18PackedUInt64ParserEPvPKcPNS1_12ParseContextE(ptr noundef %call24, ptr noundef %ptr, ptr noundef %ctx)
   br label %return
 
 sw.bb26:                                          ; preds = %if.then
-  %is_packed28 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed28 = getelementptr inbounds i8, ptr %extension, i64 14
   %13 = load i8, ptr %is_packed28, align 2
   %14 = and i8 %13, 1
   %tobool29 = icmp ne i8 %14, 0
-  %descriptor30 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor30 = getelementptr inbounds i8, ptr %extension, i64 32
   %15 = load ptr, ptr %descriptor30, align 8
   %call31 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 17, i1 noundef zeroext %tobool29, ptr noundef %15)
   %call32 = tail call noundef ptr @_ZN6google8protobuf8internal18PackedSInt32ParserEPvPKcPNS1_12ParseContextE(ptr noundef %call31, ptr noundef %ptr, ptr noundef %ctx)
   br label %return
 
 sw.bb33:                                          ; preds = %if.then
-  %is_packed35 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed35 = getelementptr inbounds i8, ptr %extension, i64 14
   %16 = load i8, ptr %is_packed35, align 2
   %17 = and i8 %16, 1
   %tobool36 = icmp ne i8 %17, 0
-  %descriptor37 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor37 = getelementptr inbounds i8, ptr %extension, i64 32
   %18 = load ptr, ptr %descriptor37, align 8
   %call38 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 18, i1 noundef zeroext %tobool36, ptr noundef %18)
   %call39 = tail call noundef ptr @_ZN6google8protobuf8internal18PackedSInt64ParserEPvPKcPNS1_12ParseContextE(ptr noundef %call38, ptr noundef %ptr, ptr noundef %ctx)
   br label %return
 
 sw.bb40:                                          ; preds = %if.then
-  %is_packed42 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed42 = getelementptr inbounds i8, ptr %extension, i64 14
   %19 = load i8, ptr %is_packed42, align 2
   %20 = and i8 %19, 1
   %tobool43 = icmp ne i8 %20, 0
-  %descriptor44 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor44 = getelementptr inbounds i8, ptr %extension, i64 32
   %21 = load ptr, ptr %descriptor44, align 8
   %call45 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 7, i1 noundef zeroext %tobool43, ptr noundef %21)
   %call46 = tail call noundef ptr @_ZN6google8protobuf8internal19PackedFixed32ParserEPvPKcPNS1_12ParseContextE(ptr noundef %call45, ptr noundef %ptr, ptr noundef %ctx)
   br label %return
 
 sw.bb47:                                          ; preds = %if.then
-  %is_packed49 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed49 = getelementptr inbounds i8, ptr %extension, i64 14
   %22 = load i8, ptr %is_packed49, align 2
   %23 = and i8 %22, 1
   %tobool50 = icmp ne i8 %23, 0
-  %descriptor51 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor51 = getelementptr inbounds i8, ptr %extension, i64 32
   %24 = load ptr, ptr %descriptor51, align 8
   %call52 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 6, i1 noundef zeroext %tobool50, ptr noundef %24)
   %call53 = tail call noundef ptr @_ZN6google8protobuf8internal19PackedFixed64ParserEPvPKcPNS1_12ParseContextE(ptr noundef %call52, ptr noundef %ptr, ptr noundef %ctx)
   br label %return
 
 sw.bb54:                                          ; preds = %if.then
-  %is_packed56 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed56 = getelementptr inbounds i8, ptr %extension, i64 14
   %25 = load i8, ptr %is_packed56, align 2
   %26 = and i8 %25, 1
   %tobool57 = icmp ne i8 %26, 0
-  %descriptor58 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor58 = getelementptr inbounds i8, ptr %extension, i64 32
   %27 = load ptr, ptr %descriptor58, align 8
   %call59 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 15, i1 noundef zeroext %tobool57, ptr noundef %27)
   %call60 = tail call noundef ptr @_ZN6google8protobuf8internal20PackedSFixed32ParserEPvPKcPNS1_12ParseContextE(ptr noundef %call59, ptr noundef %ptr, ptr noundef %ctx)
   br label %return
 
 sw.bb61:                                          ; preds = %if.then
-  %is_packed63 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed63 = getelementptr inbounds i8, ptr %extension, i64 14
   %28 = load i8, ptr %is_packed63, align 2
   %29 = and i8 %28, 1
   %tobool64 = icmp ne i8 %29, 0
-  %descriptor65 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor65 = getelementptr inbounds i8, ptr %extension, i64 32
   %30 = load ptr, ptr %descriptor65, align 8
   %call66 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 16, i1 noundef zeroext %tobool64, ptr noundef %30)
   %call67 = tail call noundef ptr @_ZN6google8protobuf8internal20PackedSFixed64ParserEPvPKcPNS1_12ParseContextE(ptr noundef %call66, ptr noundef %ptr, ptr noundef %ctx)
   br label %return
 
 sw.bb68:                                          ; preds = %if.then
-  %is_packed70 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed70 = getelementptr inbounds i8, ptr %extension, i64 14
   %31 = load i8, ptr %is_packed70, align 2
   %32 = and i8 %31, 1
   %tobool71 = icmp ne i8 %32, 0
-  %descriptor72 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor72 = getelementptr inbounds i8, ptr %extension, i64 32
   %33 = load ptr, ptr %descriptor72, align 8
   %call73 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 2, i1 noundef zeroext %tobool71, ptr noundef %33)
   %call74 = tail call noundef ptr @_ZN6google8protobuf8internal17PackedFloatParserEPvPKcPNS1_12ParseContextE(ptr noundef %call73, ptr noundef %ptr, ptr noundef %ctx)
   br label %return
 
 sw.bb75:                                          ; preds = %if.then
-  %is_packed77 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed77 = getelementptr inbounds i8, ptr %extension, i64 14
   %34 = load i8, ptr %is_packed77, align 2
   %35 = and i8 %34, 1
   %tobool78 = icmp ne i8 %35, 0
-  %descriptor79 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor79 = getelementptr inbounds i8, ptr %extension, i64 32
   %36 = load ptr, ptr %descriptor79, align 8
   %call80 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 1, i1 noundef zeroext %tobool78, ptr noundef %36)
   %call81 = tail call noundef ptr @_ZN6google8protobuf8internal18PackedDoubleParserEPvPKcPNS1_12ParseContextE(ptr noundef %call80, ptr noundef %ptr, ptr noundef %ctx)
   br label %return
 
 sw.bb82:                                          ; preds = %if.then
-  %is_packed84 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed84 = getelementptr inbounds i8, ptr %extension, i64 14
   %37 = load i8, ptr %is_packed84, align 2
   %38 = and i8 %37, 1
   %tobool85 = icmp ne i8 %38, 0
-  %descriptor86 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor86 = getelementptr inbounds i8, ptr %extension, i64 32
   %39 = load ptr, ptr %descriptor86, align 8
   %call87 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 8, i1 noundef zeroext %tobool85, ptr noundef %39)
   %call88 = tail call noundef ptr @_ZN6google8protobuf8internal16PackedBoolParserEPvPKcPNS1_12ParseContextE(ptr noundef %call87, ptr noundef %ptr, ptr noundef %ctx)
   br label %return
 
 sw.bb89:                                          ; preds = %if.then
-  %is_packed91 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed91 = getelementptr inbounds i8, ptr %extension, i64 14
   %40 = load i8, ptr %is_packed91, align 2
   %41 = and i8 %40, 1
   %tobool92 = icmp ne i8 %41, 0
-  %descriptor93 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor93 = getelementptr inbounds i8, ptr %extension, i64 32
   %42 = load ptr, ptr %descriptor93, align 8
   %call94 = tail call noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRawRepeatedFieldEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 14, i1 noundef zeroext %tobool92, ptr noundef %42)
-  %43 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 6
+  %43 = getelementptr inbounds i8, ptr %extension, i64 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp1.i)
   store ptr %call94, ptr %agg.tmp1.i, align 8
   %agg.tmp.sroa.2.0.agg.tmp1.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
@@ -1335,26 +1287,26 @@ _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit: ; preds = %sw.bb102
 if.end:                                           ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit
   %retval.0.i328 = phi ptr [ %add.ptr.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread ], [ %47, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ]
   %.sink.i327 = phi i64 [ %conv1.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.thread ], [ %48, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit ]
-  %is_repeated = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated = getelementptr inbounds i8, ptr %extension, i64 13
   %49 = load i8, ptr %is_repeated, align 1
   %50 = and i8 %49, 1
   %tobool106.not = icmp eq i8 %50, 0
   br i1 %tobool106.not, label %if.else112, label %if.then107
 
 if.then107:                                       ; preds = %if.end
-  %is_packed108 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed108 = getelementptr inbounds i8, ptr %extension, i64 14
   %51 = load i8, ptr %is_packed108, align 2
   %52 = and i8 %51, 1
   %tobool109 = icmp ne i8 %52, 0
   %conv110 = trunc i64 %.sink.i327 to i32
-  %descriptor111 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor111 = getelementptr inbounds i8, ptr %extension, i64 32
   %53 = load ptr, ptr %descriptor111, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 5, i1 noundef zeroext %tobool109, i32 noundef %conv110, ptr noundef %53)
   br label %return
 
 if.else112:                                       ; preds = %if.end
   %conv113 = trunc i64 %.sink.i327 to i32
-  %descriptor114 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor114 = getelementptr inbounds i8, ptr %extension, i64 32
   %54 = load ptr, ptr %descriptor114, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 5, i32 noundef %conv113, ptr noundef %54)
   br label %return
@@ -1380,24 +1332,24 @@ _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit210: ; preds = %sw.bb
 if.end121:                                        ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit210.thread, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit210
   %retval.0.i206333 = phi ptr [ %add.ptr.i209, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit210.thread ], [ %56, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit210 ]
   %.sink.i205332 = phi i64 [ %conv1.i208, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit210.thread ], [ %57, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit210 ]
-  %is_repeated122 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated122 = getelementptr inbounds i8, ptr %extension, i64 13
   %58 = load i8, ptr %is_repeated122, align 1
   %59 = and i8 %58, 1
   %tobool123.not = icmp eq i8 %59, 0
   br i1 %tobool123.not, label %if.else128, label %if.then124
 
 if.then124:                                       ; preds = %if.end121
-  %is_packed125 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed125 = getelementptr inbounds i8, ptr %extension, i64 14
   %60 = load i8, ptr %is_packed125, align 2
   %61 = and i8 %60, 1
   %tobool126 = icmp ne i8 %61, 0
-  %descriptor127 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor127 = getelementptr inbounds i8, ptr %extension, i64 32
   %62 = load ptr, ptr %descriptor127, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 3, i1 noundef zeroext %tobool126, i64 noundef %.sink.i205332, ptr noundef %62)
   br label %return
 
 if.else128:                                       ; preds = %if.end121
-  %descriptor129 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor129 = getelementptr inbounds i8, ptr %extension, i64 32
   %63 = load ptr, ptr %descriptor129, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 3, i64 noundef %.sink.i205332, ptr noundef %63)
   br label %return
@@ -1423,26 +1375,26 @@ _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit220: ; preds = %sw.bb
 if.end136:                                        ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit220.thread, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit220
   %retval.0.i216338 = phi ptr [ %add.ptr.i219, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit220.thread ], [ %65, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit220 ]
   %.sink.i215337 = phi i64 [ %conv1.i218, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit220.thread ], [ %66, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit220 ]
-  %is_repeated137 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated137 = getelementptr inbounds i8, ptr %extension, i64 13
   %67 = load i8, ptr %is_repeated137, align 1
   %68 = and i8 %67, 1
   %tobool138.not = icmp eq i8 %68, 0
   br i1 %tobool138.not, label %if.else144, label %if.then139
 
 if.then139:                                       ; preds = %if.end136
-  %is_packed140 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed140 = getelementptr inbounds i8, ptr %extension, i64 14
   %69 = load i8, ptr %is_packed140, align 2
   %70 = and i8 %69, 1
   %tobool141 = icmp ne i8 %70, 0
   %conv142 = trunc i64 %.sink.i215337 to i32
-  %descriptor143 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor143 = getelementptr inbounds i8, ptr %extension, i64 32
   %71 = load ptr, ptr %descriptor143, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt32EihbjPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 13, i1 noundef zeroext %tobool141, i32 noundef %conv142, ptr noundef %71)
   br label %return
 
 if.else144:                                       ; preds = %if.end136
   %conv145 = trunc i64 %.sink.i215337 to i32
-  %descriptor146 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor146 = getelementptr inbounds i8, ptr %extension, i64 32
   %72 = load ptr, ptr %descriptor146, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 13, i32 noundef %conv145, ptr noundef %72)
   br label %return
@@ -1468,24 +1420,24 @@ _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit230: ; preds = %sw.bb
 if.end153:                                        ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit230.thread, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit230
   %retval.0.i226343 = phi ptr [ %add.ptr.i229, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit230.thread ], [ %74, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit230 ]
   %.sink.i225342 = phi i64 [ %conv1.i228, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit230.thread ], [ %75, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit230 ]
-  %is_repeated154 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated154 = getelementptr inbounds i8, ptr %extension, i64 13
   %76 = load i8, ptr %is_repeated154, align 1
   %77 = and i8 %76, 1
   %tobool155.not = icmp eq i8 %77, 0
   br i1 %tobool155.not, label %if.else160, label %if.then156
 
 if.then156:                                       ; preds = %if.end153
-  %is_packed157 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed157 = getelementptr inbounds i8, ptr %extension, i64 14
   %78 = load i8, ptr %is_packed157, align 2
   %79 = and i8 %78, 1
   %tobool158 = icmp ne i8 %79, 0
-  %descriptor159 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor159 = getelementptr inbounds i8, ptr %extension, i64 32
   %80 = load ptr, ptr %descriptor159, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt64EihbmPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 4, i1 noundef zeroext %tobool158, i64 noundef %.sink.i225342, ptr noundef %80)
   br label %return
 
 if.else160:                                       ; preds = %if.end153
-  %descriptor161 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor161 = getelementptr inbounds i8, ptr %extension, i64 32
   %81 = load ptr, ptr %descriptor161, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 4, i64 noundef %.sink.i225342, ptr noundef %81)
   br label %return
@@ -1511,26 +1463,26 @@ _ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240: ; preds = %sw.bb
 if.end168:                                        ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240.thread, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240
   %retval.0.i236348 = phi ptr [ %add.ptr.i239, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240.thread ], [ %83, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240 ]
   %.sink.i235347 = phi i64 [ %conv1.i238, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240.thread ], [ %84, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit240 ]
-  %is_repeated169 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated169 = getelementptr inbounds i8, ptr %extension, i64 13
   %85 = load i8, ptr %is_repeated169, align 1
   %86 = and i8 %85, 1
   %tobool170.not = icmp eq i8 %86, 0
   br i1 %tobool170.not, label %if.else176, label %if.then171
 
 if.then171:                                       ; preds = %if.end168
-  %is_packed172 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed172 = getelementptr inbounds i8, ptr %extension, i64 14
   %87 = load i8, ptr %is_packed172, align 2
   %88 = and i8 %87, 1
   %tobool173 = icmp ne i8 %88, 0
   %tobool174 = icmp ne i64 %.sink.i235347, 0
-  %descriptor175 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor175 = getelementptr inbounds i8, ptr %extension, i64 32
   %89 = load ptr, ptr %descriptor175, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet7AddBoolEihbbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 8, i1 noundef zeroext %tobool173, i1 noundef zeroext %tobool174, ptr noundef %89)
   br label %return
 
 if.else176:                                       ; preds = %if.end168
   %tobool177 = icmp ne i64 %.sink.i235347, 0
-  %descriptor178 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor178 = getelementptr inbounds i8, ptr %extension, i64 32
   %90 = load ptr, ptr %descriptor178, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet7SetBoolEihbPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 8, i1 noundef zeroext %tobool177, ptr noundef %90)
   br label %return
@@ -1561,24 +1513,24 @@ if.end184:                                        ; preds = %_ZN6google8protobuf
   %and.i251 = and i32 %conv186, 1
   %add.i = sub nsw i32 0, %and.i251
   %xor.i = xor i32 %shr.i, %add.i
-  %is_repeated188 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated188 = getelementptr inbounds i8, ptr %extension, i64 13
   %94 = load i8, ptr %is_repeated188, align 1
   %95 = and i8 %94, 1
   %tobool189.not = icmp eq i8 %95, 0
   br i1 %tobool189.not, label %if.else194, label %if.then190
 
 if.then190:                                       ; preds = %if.end184
-  %is_packed191 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed191 = getelementptr inbounds i8, ptr %extension, i64 14
   %96 = load i8, ptr %is_packed191, align 2
   %97 = and i8 %96, 1
   %tobool192 = icmp ne i8 %97, 0
-  %descriptor193 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor193 = getelementptr inbounds i8, ptr %extension, i64 32
   %98 = load ptr, ptr %descriptor193, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 17, i1 noundef zeroext %tobool192, i32 noundef %xor.i, ptr noundef %98)
   br label %return
 
 if.else194:                                       ; preds = %if.end184
-  %descriptor195 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor195 = getelementptr inbounds i8, ptr %extension, i64 32
   %99 = load ptr, ptr %descriptor195, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 17, i32 noundef %xor.i, ptr noundef %99)
   br label %return
@@ -1608,24 +1560,24 @@ if.end202:                                        ; preds = %_ZN6google8protobuf
   %and.i263 = and i64 %.sink.i256357, 1
   %add.i264 = sub nsw i64 0, %and.i263
   %xor.i265 = xor i64 %shr.i262, %add.i264
-  %is_repeated205 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated205 = getelementptr inbounds i8, ptr %extension, i64 13
   %103 = load i8, ptr %is_repeated205, align 1
   %104 = and i8 %103, 1
   %tobool206.not = icmp eq i8 %104, 0
   br i1 %tobool206.not, label %if.else211, label %if.then207
 
 if.then207:                                       ; preds = %if.end202
-  %is_packed208 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed208 = getelementptr inbounds i8, ptr %extension, i64 14
   %105 = load i8, ptr %is_packed208, align 2
   %106 = and i8 %105, 1
   %tobool209 = icmp ne i8 %106, 0
-  %descriptor210 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor210 = getelementptr inbounds i8, ptr %extension, i64 32
   %107 = load ptr, ptr %descriptor210, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 18, i1 noundef zeroext %tobool209, i64 noundef %xor.i265, ptr noundef %107)
   br label %return
 
 if.else211:                                       ; preds = %if.end202
-  %descriptor212 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor212 = getelementptr inbounds i8, ptr %extension, i64 32
   %108 = load ptr, ptr %descriptor212, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 18, i64 noundef %xor.i265, ptr noundef %108)
   br label %return
@@ -1633,24 +1585,24 @@ if.else211:                                       ; preds = %if.end202
 sw.bb214:                                         ; preds = %if.else
   %tmp.0.copyload.i.i = load i32, ptr %ptr, align 1
   %add.ptr = getelementptr inbounds i8, ptr %ptr, i64 4
-  %is_repeated217 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated217 = getelementptr inbounds i8, ptr %extension, i64 13
   %109 = load i8, ptr %is_repeated217, align 1
   %110 = and i8 %109, 1
   %tobool218.not = icmp eq i8 %110, 0
   br i1 %tobool218.not, label %if.else223, label %if.then219
 
 if.then219:                                       ; preds = %sw.bb214
-  %is_packed220 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed220 = getelementptr inbounds i8, ptr %extension, i64 14
   %111 = load i8, ptr %is_packed220, align 2
   %112 = and i8 %111, 1
   %tobool221 = icmp ne i8 %112, 0
-  %descriptor222 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor222 = getelementptr inbounds i8, ptr %extension, i64 32
   %113 = load ptr, ptr %descriptor222, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt32EihbjPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 7, i1 noundef zeroext %tobool221, i32 noundef %tmp.0.copyload.i.i, ptr noundef %113)
   br label %return
 
 if.else223:                                       ; preds = %sw.bb214
-  %descriptor224 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor224 = getelementptr inbounds i8, ptr %extension, i64 32
   %114 = load ptr, ptr %descriptor224, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet9SetUInt32EihjPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 7, i32 noundef %tmp.0.copyload.i.i, ptr noundef %114)
   br label %return
@@ -1658,24 +1610,24 @@ if.else223:                                       ; preds = %sw.bb214
 sw.bb226:                                         ; preds = %if.else
   %tmp.0.copyload.i.i266 = load i64, ptr %ptr, align 1
   %add.ptr229 = getelementptr inbounds i8, ptr %ptr, i64 8
-  %is_repeated230 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated230 = getelementptr inbounds i8, ptr %extension, i64 13
   %115 = load i8, ptr %is_repeated230, align 1
   %116 = and i8 %115, 1
   %tobool231.not = icmp eq i8 %116, 0
   br i1 %tobool231.not, label %if.else236, label %if.then232
 
 if.then232:                                       ; preds = %sw.bb226
-  %is_packed233 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed233 = getelementptr inbounds i8, ptr %extension, i64 14
   %117 = load i8, ptr %is_packed233, align 2
   %118 = and i8 %117, 1
   %tobool234 = icmp ne i8 %118, 0
-  %descriptor235 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor235 = getelementptr inbounds i8, ptr %extension, i64 32
   %119 = load ptr, ptr %descriptor235, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddUInt64EihbmPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 6, i1 noundef zeroext %tobool234, i64 noundef %tmp.0.copyload.i.i266, ptr noundef %119)
   br label %return
 
 if.else236:                                       ; preds = %sw.bb226
-  %descriptor237 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor237 = getelementptr inbounds i8, ptr %extension, i64 32
   %120 = load ptr, ptr %descriptor237, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet9SetUInt64EihmPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 6, i64 noundef %tmp.0.copyload.i.i266, ptr noundef %120)
   br label %return
@@ -1683,24 +1635,24 @@ if.else236:                                       ; preds = %sw.bb226
 sw.bb239:                                         ; preds = %if.else
   %tmp.0.copyload.i.i267 = load i32, ptr %ptr, align 1
   %add.ptr242 = getelementptr inbounds i8, ptr %ptr, i64 4
-  %is_repeated243 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated243 = getelementptr inbounds i8, ptr %extension, i64 13
   %121 = load i8, ptr %is_repeated243, align 1
   %122 = and i8 %121, 1
   %tobool244.not = icmp eq i8 %122, 0
   br i1 %tobool244.not, label %if.else249, label %if.then245
 
 if.then245:                                       ; preds = %sw.bb239
-  %is_packed246 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed246 = getelementptr inbounds i8, ptr %extension, i64 14
   %123 = load i8, ptr %is_packed246, align 2
   %124 = and i8 %123, 1
   %tobool247 = icmp ne i8 %124, 0
-  %descriptor248 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor248 = getelementptr inbounds i8, ptr %extension, i64 32
   %125 = load ptr, ptr %descriptor248, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt32EihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 15, i1 noundef zeroext %tobool247, i32 noundef %tmp.0.copyload.i.i267, ptr noundef %125)
   br label %return
 
 if.else249:                                       ; preds = %sw.bb239
-  %descriptor250 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor250 = getelementptr inbounds i8, ptr %extension, i64 32
   %126 = load ptr, ptr %descriptor250, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 15, i32 noundef %tmp.0.copyload.i.i267, ptr noundef %126)
   br label %return
@@ -1708,24 +1660,24 @@ if.else249:                                       ; preds = %sw.bb239
 sw.bb252:                                         ; preds = %if.else
   %tmp.0.copyload.i.i268 = load i64, ptr %ptr, align 1
   %add.ptr255 = getelementptr inbounds i8, ptr %ptr, i64 8
-  %is_repeated256 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated256 = getelementptr inbounds i8, ptr %extension, i64 13
   %127 = load i8, ptr %is_repeated256, align 1
   %128 = and i8 %127, 1
   %tobool257.not = icmp eq i8 %128, 0
   br i1 %tobool257.not, label %if.else262, label %if.then258
 
 if.then258:                                       ; preds = %sw.bb252
-  %is_packed259 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed259 = getelementptr inbounds i8, ptr %extension, i64 14
   %129 = load i8, ptr %is_packed259, align 2
   %130 = and i8 %129, 1
   %tobool260 = icmp ne i8 %130, 0
-  %descriptor261 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor261 = getelementptr inbounds i8, ptr %extension, i64 32
   %131 = load ptr, ptr %descriptor261, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddInt64EihblPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 16, i1 noundef zeroext %tobool260, i64 noundef %tmp.0.copyload.i.i268, ptr noundef %131)
   br label %return
 
 if.else262:                                       ; preds = %sw.bb252
-  %descriptor263 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor263 = getelementptr inbounds i8, ptr %extension, i64 32
   %132 = load ptr, ptr %descriptor263, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet8SetInt64EihlPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 16, i64 noundef %tmp.0.copyload.i.i268, ptr noundef %132)
   br label %return
@@ -1733,24 +1685,24 @@ if.else262:                                       ; preds = %sw.bb252
 sw.bb265:                                         ; preds = %if.else
   %tmp.0.copyload.i1.i = load float, ptr %ptr, align 1
   %add.ptr268 = getelementptr inbounds i8, ptr %ptr, i64 4
-  %is_repeated269 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated269 = getelementptr inbounds i8, ptr %extension, i64 13
   %133 = load i8, ptr %is_repeated269, align 1
   %134 = and i8 %133, 1
   %tobool270.not = icmp eq i8 %134, 0
   br i1 %tobool270.not, label %if.else275, label %if.then271
 
 if.then271:                                       ; preds = %sw.bb265
-  %is_packed272 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed272 = getelementptr inbounds i8, ptr %extension, i64 14
   %135 = load i8, ptr %is_packed272, align 2
   %136 = and i8 %135, 1
   %tobool273 = icmp ne i8 %136, 0
-  %descriptor274 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor274 = getelementptr inbounds i8, ptr %extension, i64 32
   %137 = load ptr, ptr %descriptor274, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet8AddFloatEihbfPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 2, i1 noundef zeroext %tobool273, float noundef %tmp.0.copyload.i1.i, ptr noundef %137)
   br label %return
 
 if.else275:                                       ; preds = %sw.bb265
-  %descriptor276 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor276 = getelementptr inbounds i8, ptr %extension, i64 32
   %138 = load ptr, ptr %descriptor276, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet8SetFloatEihfPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 2, float noundef %tmp.0.copyload.i1.i, ptr noundef %138)
   br label %return
@@ -1758,24 +1710,24 @@ if.else275:                                       ; preds = %sw.bb265
 sw.bb278:                                         ; preds = %if.else
   %tmp.0.copyload.i1.i269 = load double, ptr %ptr, align 1
   %add.ptr281 = getelementptr inbounds i8, ptr %ptr, i64 8
-  %is_repeated282 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated282 = getelementptr inbounds i8, ptr %extension, i64 13
   %139 = load i8, ptr %is_repeated282, align 1
   %140 = and i8 %139, 1
   %tobool283.not = icmp eq i8 %140, 0
   br i1 %tobool283.not, label %if.else288, label %if.then284
 
 if.then284:                                       ; preds = %sw.bb278
-  %is_packed285 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed285 = getelementptr inbounds i8, ptr %extension, i64 14
   %141 = load i8, ptr %is_packed285, align 2
   %142 = and i8 %141, 1
   %tobool286 = icmp ne i8 %142, 0
-  %descriptor287 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor287 = getelementptr inbounds i8, ptr %extension, i64 32
   %143 = load ptr, ptr %descriptor287, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet9AddDoubleEihbdPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 1, i1 noundef zeroext %tobool286, double noundef %tmp.0.copyload.i1.i269, ptr noundef %143)
   br label %return
 
 if.else288:                                       ; preds = %sw.bb278
-  %descriptor289 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor289 = getelementptr inbounds i8, ptr %extension, i64 32
   %144 = load ptr, ptr %descriptor289, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet9SetDoubleEihdPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 1, double noundef %tmp.0.copyload.i1.i269, ptr noundef %144)
   br label %return
@@ -1802,9 +1754,9 @@ if.end295:                                        ; preds = %_ZN6google8protobuf
   %retval.0.i275363 = phi ptr [ %add.ptr.i278, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit279.thread ], [ %146, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit279 ]
   %.sink.i274362 = phi i64 [ %conv1.i277, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit279.thread ], [ %147, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit279 ]
   %conv297 = trunc i64 %.sink.i274362 to i32
-  %148 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 6
+  %148 = getelementptr inbounds i8, ptr %extension, i64 16
   %149 = load ptr, ptr %148, align 8
-  %arg299 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 6, i32 0, i32 1
+  %arg299 = getelementptr inbounds i8, ptr %extension, i64 24
   %150 = load ptr, ptr %arg299, align 8
   %call300 = tail call noundef zeroext i1 %149(ptr noundef %150, i32 noundef %conv297)
   br i1 %call300, label %if.else304, label %if.then301
@@ -1820,7 +1772,7 @@ if.then301:                                       ; preds = %if.end295
 if.then.i:                                        ; preds = %if.then301
   %and.i280 = and i64 %151, -2
   %152 = inttoptr i64 %and.i280 to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %152, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %152, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i:                                        ; preds = %if.then301
@@ -1833,34 +1785,34 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br label %return
 
 if.else304:                                       ; preds = %if.end295
-  %is_repeated305 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated305 = getelementptr inbounds i8, ptr %extension, i64 13
   %153 = load i8, ptr %is_repeated305, align 1
   %154 = and i8 %153, 1
   %tobool306.not = icmp eq i8 %154, 0
   br i1 %tobool306.not, label %if.else311, label %if.then307
 
 if.then307:                                       ; preds = %if.else304
-  %is_packed308 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 4
+  %is_packed308 = getelementptr inbounds i8, ptr %extension, i64 14
   %155 = load i8, ptr %is_packed308, align 2
   %156 = and i8 %155, 1
   %tobool309 = icmp ne i8 %156, 0
-  %descriptor310 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor310 = getelementptr inbounds i8, ptr %extension, i64 32
   %157 = load ptr, ptr %descriptor310, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet7AddEnumEihbiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 14, i1 noundef zeroext %tobool309, i32 noundef %conv297, ptr noundef %157)
   br label %return
 
 if.else311:                                       ; preds = %if.else304
-  %descriptor312 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor312 = getelementptr inbounds i8, ptr %extension, i64 32
   %158 = load ptr, ptr %descriptor312, align 8
   tail call void @_ZN6google8protobuf8internal12ExtensionSet7SetEnumEihiPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %number, i8 noundef zeroext 14, i32 noundef %conv297, ptr noundef %158)
   br label %return
 
 sw.bb315:                                         ; preds = %if.else, %if.else
-  %is_repeated317 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated317 = getelementptr inbounds i8, ptr %extension, i64 13
   %159 = load i8, ptr %is_repeated317, align 1
   %160 = and i8 %159, 1
   %tobool318.not = icmp eq i8 %160, 0
-  %descriptor321 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor321 = getelementptr inbounds i8, ptr %extension, i64 32
   %161 = load ptr, ptr %descriptor321, align 8
   br i1 %tobool318.not, label %cond.false, label %cond.true
 
@@ -1894,7 +1846,7 @@ if.end326:                                        ; preds = %_ZN6google8protobuf
   %retval.0.i285368 = phi i32 [ %conv.i281, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %164, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
   %storemerge.i367 = phi ptr [ %add.ptr.i287, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %163, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
   %conv.i288 = sext i32 %retval.0.i285368 to i64
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %165 = load ptr, ptr %buffer_end_.i, align 8
   %add.ptr.i289 = getelementptr inbounds i8, ptr %165, i64 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i289 to i64
@@ -1915,13 +1867,13 @@ if.end.i293:                                      ; preds = %if.end326
   br label %return
 
 sw.bb328:                                         ; preds = %if.else
-  %is_repeated330 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated330 = getelementptr inbounds i8, ptr %extension, i64 13
   %166 = load i8, ptr %is_repeated330, align 1
   %167 = and i8 %166, 1
   %tobool331.not = icmp eq i8 %167, 0
-  %168 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 6
+  %168 = getelementptr inbounds i8, ptr %extension, i64 16
   %169 = load ptr, ptr %168, align 8
-  %descriptor337 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor337 = getelementptr inbounds i8, ptr %extension, i64 32
   %170 = load ptr, ptr %descriptor337, align 8
   br i1 %tobool331.not, label %cond.false335, label %cond.true332
 
@@ -1935,7 +1887,7 @@ cond.false335:                                    ; preds = %sw.bb328
 
 cond.end339:                                      ; preds = %cond.false335, %cond.true332
   %cond340 = phi ptr [ %call334, %cond.true332 ], [ %call338, %cond.false335 ]
-  %depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 1
+  %depth_.i = getelementptr inbounds i8, ptr %ctx, i64 88
   %171 = load i32, ptr %depth_.i, align 8
   %dec.i = add nsw i32 %171, -1
   store i32 %dec.i, ptr %depth_.i, align 8
@@ -1945,18 +1897,18 @@ cond.end339:                                      ; preds = %cond.false335, %con
 if.end.i:                                         ; preds = %cond.end339
   %shl = shl i32 %number, 3
   %add = or disjoint i32 %shl, 3
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
   %172 = load i32, ptr %group_depth_.i, align 4
   %inc.i = add nsw i32 %172, 1
   store i32 %inc.i, ptr %group_depth_.i, align 4
   %vtable.i = load ptr, ptr %cond340, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %173 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %173(ptr noundef nonnull align 8 dereferenceable(16) %cond340, ptr noundef %ptr, ptr noundef nonnull %ctx)
   %174 = load <2 x i32>, ptr %depth_.i, align 8
   %175 = add nsw <2 x i32> %174, <i32 1, i32 -1>
   store <2 x i32> %175, ptr %depth_.i, align 8
-  %last_tag_minus_1_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %ctx, i64 80
   %176 = load i32, ptr %last_tag_minus_1_.i, align 8
   %cmp.i294 = icmp eq i32 %176, %add
   store i32 0, ptr %last_tag_minus_1_.i, align 8
@@ -1964,13 +1916,13 @@ if.end.i:                                         ; preds = %cond.end339
   br label %return
 
 sw.bb342:                                         ; preds = %if.else
-  %is_repeated344 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
+  %is_repeated344 = getelementptr inbounds i8, ptr %extension, i64 13
   %177 = load i8, ptr %is_repeated344, align 1
   %178 = and i8 %177, 1
   %tobool345.not = icmp eq i8 %178, 0
-  %179 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 6
+  %179 = getelementptr inbounds i8, ptr %extension, i64 16
   %180 = load ptr, ptr %179, align 8
-  %descriptor352 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
+  %descriptor352 = getelementptr inbounds i8, ptr %extension, i64 32
   %181 = load ptr, ptr %descriptor352, align 8
   br i1 %tobool345.not, label %cond.false350, label %cond.true346
 
@@ -2016,30 +1968,30 @@ entry:
   %tmp_ctx = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %tmp54 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload) #18
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
-  %data_.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 3
-  %factory.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 3, i32 1
-  %factory_.i.i = getelementptr inbounds %"class.google::protobuf::internal::DescriptorPoolExtensionFinder", ptr %finder4.i, i64 0, i32 1
-  %containing_type_.i.i = getelementptr inbounds %"class.google::protobuf::internal::DescriptorPoolExtensionFinder", ptr %finder4.i, i64 0, i32 2
-  %type.i14.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 2
-  %is_repeated.i17.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 3
-  %0 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 6
-  %descriptor = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionInfo", ptr %extension, i64 0, i32 7
-  %zcis_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %tmp_ctx, i64 0, i32 5
-  %aliasing_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %tmp_ctx, i64 0, i32 7
-  %overall_limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %tmp_ctx, i64 0, i32 9
-  %depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %tmp_ctx, i64 0, i32 1
-  %depth_2.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 1
-  %group_depth_.i38 = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %tmp_ctx, i64 0, i32 2
-  %data_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %tmp_ctx, i64 0, i32 3
-  %patch_buffer_11.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %tmp_ctx, i64 0, i32 6
-  %limit_16.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %tmp_ctx, i64 0, i32 4
-  %buffer_end_21.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %tmp_ctx, i64 0, i32 1
-  %next_chunk_23.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %tmp_ctx, i64 0, i32 2
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
+  %data_.i.i = getelementptr inbounds i8, ptr %ctx, i64 96
+  %factory.i = getelementptr inbounds i8, ptr %ctx, i64 104
+  %factory_.i.i = getelementptr inbounds i8, ptr %finder4.i, i64 8
+  %containing_type_.i.i = getelementptr inbounds i8, ptr %finder4.i, i64 16
+  %type.i14.i = getelementptr inbounds i8, ptr %extension, i64 12
+  %is_repeated.i17.i = getelementptr inbounds i8, ptr %extension, i64 13
+  %0 = getelementptr inbounds i8, ptr %extension, i64 16
+  %descriptor = getelementptr inbounds i8, ptr %extension, i64 32
+  %zcis_.i.i = getelementptr inbounds i8, ptr %tmp_ctx, i64 32
+  %aliasing_.i.i = getelementptr inbounds i8, ptr %tmp_ctx, i64 72
+  %overall_limit_.i.i = getelementptr inbounds i8, ptr %tmp_ctx, i64 84
+  %depth_.i = getelementptr inbounds i8, ptr %tmp_ctx, i64 88
+  %depth_2.i = getelementptr inbounds i8, ptr %ctx, i64 88
+  %group_depth_.i38 = getelementptr inbounds i8, ptr %tmp_ctx, i64 92
+  %data_.i = getelementptr inbounds i8, ptr %tmp_ctx, i64 96
+  %patch_buffer_11.i.i = getelementptr inbounds i8, ptr %tmp_ctx, i64 40
+  %limit_16.i.i = getelementptr inbounds i8, ptr %tmp_ctx, i64 28
+  %buffer_end_21.i.i = getelementptr inbounds i8, ptr %tmp_ctx, i64 8
+  %next_chunk_23.i.i = getelementptr inbounds i8, ptr %tmp_ctx, i64 16
   %1 = ptrtoint ptr %patch_buffer_11.i.i to i64
-  %last_tag_minus_1_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %tmp_ctx, i64 0, i32 8
+  %last_tag_minus_1_.i = getelementptr inbounds i8, ptr %tmp_ctx, i64 80
   br label %while.cond.outer.outer
 
 while.cond.outer.outer:                           ; preds = %while.cond.outer.outer.backedge, %entry
@@ -2075,7 +2027,7 @@ if.end.i.i:                                       ; preds = %while.cond
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %cmp4.i.i = icmp sgt i32 %conv.i.i, 0
-  %next_chunk_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 2
+  %next_chunk_.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %6 = load ptr, ptr %next_chunk_.i.i, align 8
   %cmp5.i.i = icmp eq ptr %6, null
   %or.cond.i.i = select i1 %cmp4.i.i, i1 %cmp5.i.i, i1 false
@@ -2215,7 +2167,7 @@ if.end.i.i30:                                     ; preds = %call.i.i.noexc
 if.else.i27:                                      ; preds = %if.then12
   %20 = load ptr, ptr %factory.i, align 8
   %vtable.i.i = load ptr, ptr %extendee, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 10
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 80
   %21 = load ptr, ptr %vfn.i.i, align 8
   %call.i10.i33 = invoke { ptr, ptr } %21(ptr noundef nonnull align 8 dereferenceable(16) %extendee)
           to label %call.i10.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -2260,7 +2212,7 @@ if.then17:                                        ; preds = %if.end.i13.i, %if.e
 if.then.i:                                        ; preds = %if.then17
   %and.i35 = and i64 %30, -2
   %31 = inttoptr i64 %and.i35 to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %31, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %31, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit
 
 if.else.i:                                        ; preds = %if.then17
@@ -2352,7 +2304,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream8InitFromESt17basic_string_viewI
 invoke.cont30:                                    ; preds = %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromESt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i, %if.end15.i.i, %if.then.i.i
   %retval.0.i.i40 = phi ptr [ %patch_buffer_11.i.i, %if.end15.i.i ], [ %38, %if.then.i.i ], [ %retval.0.i.ph.i, %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromESt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i ]
   %vtable = load ptr, ptr %cond, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %42 = load ptr, ptr %vfn, align 8
   %call32 = invoke noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(16) %cond, ptr noundef %retval.0.i.i40, ptr noundef nonnull %tmp_ctx)
           to label %invoke.cont31 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -2501,7 +2453,7 @@ invoke.cont72:                                    ; preds = %if.else71, %call.i6
 
 if.then76:                                        ; preds = %invoke.cont72
   %sub.i74 = add i32 %tag.0, -1
-  %last_tag_minus_1_.i75 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i75 = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 %sub.i74, ptr %last_tag_minus_1_.i75, align 8
   br label %cleanup87
 
@@ -2540,20 +2492,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet26SpaceUsedExcludingSelfLongEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %flat_size_.i = getelementptr inbounds %"class.google::protobuf::internal::ExtensionSet", ptr %this, i64 0, i32 2
+  %flat_size_.i = getelementptr inbounds i8, ptr %this, i64 10
   %0 = load i16, ptr %flat_size_.i, align 2
   %cmp.i = icmp slt i16 %0, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %map_ = getelementptr inbounds %"class.google::protobuf::internal::ExtensionSet", ptr %this, i64 0, i32 3
+  %map_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %map_, align 8
-  %size_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %1, i64 0, i32 2
+  %size_.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i64, ptr %size_.i.i, align 8
   %mul5 = shl i64 %2, 5
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
-  %rightmost_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::btree", ptr %1, i64 0, i32 1
+  %rightmost_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %rightmost_.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr i8, ptr %5, i64 10
   %6 = load i8, ptr %arrayidx.i.i.i.i, align 1
@@ -2583,8 +2535,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %for.body.i.i
   %arrayidx.i1.i.i.i.i = getelementptr i8, ptr %it.sroa.0.025.i.i, i64 10
   %9 = load i8, ptr %arrayidx.i1.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %9 to i32
-  %cmp10.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i, %conv.i.i.i.i
-  br i1 %cmp10.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i
+  %cmp8.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i, %conv.i.i.i.i
+  br i1 %cmp8.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS9_EELi256ELb0EEEEERSE_PSE_EppEv.exit.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %land.lhs.true.i.i.i.i, %while.body.i.i.i.i.i
   %10 = phi ptr [ %11, %while.body.i.i.i.i.i ], [ %it.sroa.0.025.i.i, %land.lhs.true.i.i.i.i ]
@@ -2632,7 +2584,7 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   br i1 %.not.i.i.i, label %for.body.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.exit", !llvm.loop !20
 
 if.end.i:                                         ; preds = %entry
-  %flat_capacity_ = getelementptr inbounds %"class.google::protobuf::internal::ExtensionSet", ptr %this, i64 0, i32 1
+  %flat_capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load i16, ptr %flat_capacity_, align 8
   %conv = zext i16 %18 to i64
   %mul = shl nuw nsw i64 %conv, 5
@@ -2646,10 +2598,10 @@ if.end.i:                                         ; preds = %entry
 for.body.i5.i:                                    ; preds = %if.end.i, %for.body.i5.i
   %total_size.1 = phi i64 [ %add.i.i8.i, %for.body.i5.i ], [ %mul, %if.end.i ]
   %it.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i5.i ], [ %this.val1, %if.end.i ]
-  %second.i6.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %it.05.i.i, i64 0, i32 1
+  %second.i6.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 8
   %call.i.i7.i = tail call noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet9Extension26SpaceUsedExcludingSelfLongEv(ptr noundef nonnull align 8 dereferenceable(24) %second.i6.i)
   %add.i.i8.i = add i64 %call.i.i7.i, %total_size.1
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %it.05.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.05.i.i, i64 32
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %"_ZNK6google8protobuf8internal12ExtensionSet7ForEachIZNKS2_26SpaceUsedExcludingSelfLongEvE3$_0EET_S5_.exit", label %for.body.i5.i, !llvm.loop !21
 
@@ -2661,11 +2613,11 @@ for.body.i5.i:                                    ; preds = %if.end.i, %for.body
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet9Extension26SpaceUsedExcludingSelfLongEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %is_repeated = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %this, i64 0, i32 2
+  %is_repeated = getelementptr inbounds i8, ptr %this, i64 9
   %0 = load i8, ptr %is_repeated, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %type40 = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %this, i64 0, i32 1
+  %type40 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i8, ptr %type40, align 8
   %idxprom.i.i82 = zext i8 %2 to i64
   %arrayidx.i.i83 = getelementptr inbounds [19 x i32], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 0, i64 %idxprom.i.i82
@@ -2688,7 +2640,7 @@ if.then:                                          ; preds = %entry
 
 sw.bb:                                            ; preds = %if.then
   %4 = load ptr, ptr %this, align 8
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %4, i64 0, i32 1
+  %total_size_.i = getelementptr inbounds i8, ptr %4, i64 4
   %5 = load i32, ptr %total_size_.i, align 4
   %cmp.i = icmp sgt i32 %5, 0
   %conv.i = zext nneg i32 %5 to i64
@@ -2699,7 +2651,7 @@ sw.bb:                                            ; preds = %if.then
 
 sw.bb4:                                           ; preds = %if.then
   %7 = load ptr, ptr %this, align 8
-  %total_size_.i14 = getelementptr inbounds %"class.google::protobuf::RepeatedField.53", ptr %7, i64 0, i32 1
+  %total_size_.i14 = getelementptr inbounds i8, ptr %7, i64 4
   %8 = load i32, ptr %total_size_.i14, align 4
   %cmp.i15 = icmp sgt i32 %8, 0
   %conv.i16 = zext nneg i32 %8 to i64
@@ -2710,7 +2662,7 @@ sw.bb4:                                           ; preds = %if.then
 
 sw.bb8:                                           ; preds = %if.then
   %10 = load ptr, ptr %this, align 8
-  %total_size_.i20 = getelementptr inbounds %"class.google::protobuf::RepeatedField.55", ptr %10, i64 0, i32 1
+  %total_size_.i20 = getelementptr inbounds i8, ptr %10, i64 4
   %11 = load i32, ptr %total_size_.i20, align 4
   %cmp.i21 = icmp sgt i32 %11, 0
   %conv.i22 = zext nneg i32 %11 to i64
@@ -2721,7 +2673,7 @@ sw.bb8:                                           ; preds = %if.then
 
 sw.bb12:                                          ; preds = %if.then
   %13 = load ptr, ptr %this, align 8
-  %total_size_.i26 = getelementptr inbounds %"class.google::protobuf::RepeatedField.57", ptr %13, i64 0, i32 1
+  %total_size_.i26 = getelementptr inbounds i8, ptr %13, i64 4
   %14 = load i32, ptr %total_size_.i26, align 4
   %cmp.i27 = icmp sgt i32 %14, 0
   %conv.i28 = zext nneg i32 %14 to i64
@@ -2732,7 +2684,7 @@ sw.bb12:                                          ; preds = %if.then
 
 sw.bb16:                                          ; preds = %if.then
   %16 = load ptr, ptr %this, align 8
-  %total_size_.i32 = getelementptr inbounds %"class.google::protobuf::RepeatedField.59", ptr %16, i64 0, i32 1
+  %total_size_.i32 = getelementptr inbounds i8, ptr %16, i64 4
   %17 = load i32, ptr %total_size_.i32, align 4
   %cmp.i33 = icmp sgt i32 %17, 0
   %conv.i34 = zext nneg i32 %17 to i64
@@ -2743,7 +2695,7 @@ sw.bb16:                                          ; preds = %if.then
 
 sw.bb20:                                          ; preds = %if.then
   %19 = load ptr, ptr %this, align 8
-  %total_size_.i38 = getelementptr inbounds %"class.google::protobuf::RepeatedField.61", ptr %19, i64 0, i32 1
+  %total_size_.i38 = getelementptr inbounds i8, ptr %19, i64 4
   %20 = load i32, ptr %total_size_.i38, align 4
   %cmp.i39 = icmp sgt i32 %20, 0
   %conv.i40 = zext nneg i32 %20 to i64
@@ -2754,7 +2706,7 @@ sw.bb20:                                          ; preds = %if.then
 
 sw.bb24:                                          ; preds = %if.then
   %22 = load ptr, ptr %this, align 8
-  %total_size_.i44 = getelementptr inbounds %"class.google::protobuf::RepeatedField.63", ptr %22, i64 0, i32 1
+  %total_size_.i44 = getelementptr inbounds i8, ptr %22, i64 4
   %23 = load i32, ptr %total_size_.i44, align 4
   %cmp.i45 = icmp sgt i32 %23, 0
   %narrow.i = add nuw i32 %23, 8
@@ -2765,7 +2717,7 @@ sw.bb24:                                          ; preds = %if.then
 
 sw.bb28:                                          ; preds = %if.then
   %24 = load ptr, ptr %this, align 8
-  %total_size_.i47 = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %24, i64 0, i32 1
+  %total_size_.i47 = getelementptr inbounds i8, ptr %24, i64 4
   %25 = load i32, ptr %total_size_.i47, align 4
   %cmp.i48 = icmp sgt i32 %25, 0
   %conv.i49 = zext nneg i32 %25 to i64
@@ -2790,7 +2742,7 @@ cond.true.i.i.i:                                  ; preds = %sw.bb32
   br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i
 
 cond.false.i.i.i:                                 ; preds = %sw.bb32
-  %capacity_proxy_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %27, i64 0, i32 2
+  %capacity_proxy_.i.i.i = getelementptr inbounds i8, ptr %27, i64 12
   %30 = load i32, ptr %capacity_proxy_.i.i.i, align 4
   %add.i.i.i = add nsw i32 %30, 1
   %conv.i.i = sext i32 %add.i.i.i to i64
@@ -2805,7 +2757,7 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i: 
   %.pre-phi.i.i = phi ptr [ %.pre16.i.i, %cond.true.i.i.i ], [ %31, %cond.false.i.i.i ]
   %cond10.i.i = phi i64 [ 0, %cond.true.i.i.i ], [ %add.i.i, %cond.false.i.i.i ]
   %cond3.i.i.i = phi i32 [ %cond.i.i.i, %cond.true.i.i.i ], [ %32, %cond.false.i.i.i ]
-  %elements.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %.pre-phi.i.i, i64 0, i32 1
+  %elements.i.i.i = getelementptr inbounds i8, ptr %.pre-phi.i.i, i64 8
   %cond.i7.i.i = select i1 %cmp.i.i.i, ptr %27, ptr %elements.i.i.i
   %cmp12.i.i = icmp sgt i32 %cond3.i.i.i, 0
   br i1 %cmp12.i.i, label %for.body.preheader.i.i, label %_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE26SpaceUsedExcludingSelfLongEv.exit
@@ -2847,7 +2799,7 @@ cond.true.i.i.i78:                                ; preds = %sw.bb36
   br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i63
 
 cond.false.i.i.i56:                               ; preds = %sw.bb36
-  %capacity_proxy_.i.i.i57 = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %34, i64 0, i32 2
+  %capacity_proxy_.i.i.i57 = getelementptr inbounds i8, ptr %34, i64 12
   %37 = load i32, ptr %capacity_proxy_.i.i.i57, align 4
   %add.i.i.i58 = add nsw i32 %37, 1
   %conv.i.i59 = sext i32 %add.i.i.i58 to i64
@@ -2862,7 +2814,7 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i63
   %.pre-phi.i.i64 = phi ptr [ %.pre15.i.i, %cond.true.i.i.i78 ], [ %38, %cond.false.i.i.i56 ]
   %cond9.i.i = phi i64 [ 0, %cond.true.i.i.i78 ], [ %add.i.i61, %cond.false.i.i.i56 ]
   %cond3.i.i.i65 = phi i32 [ %cond.i.i.i80, %cond.true.i.i.i78 ], [ %39, %cond.false.i.i.i56 ]
-  %elements.i.i.i66 = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %.pre-phi.i.i64, i64 0, i32 1
+  %elements.i.i.i66 = getelementptr inbounds i8, ptr %.pre-phi.i.i64, i64 8
   %cond.i7.i.i67 = select i1 %cmp.i.i.i55, ptr %34, ptr %elements.i.i.i66
   %cmp11.i.i = icmp sgt i32 %cond3.i.i.i65, 0
   br i1 %cmp11.i.i, label %for.body.preheader.i.i69, label %_ZN6google8protobuf8internal12ExtensionSet42RepeatedMessage_SpaceUsedExcludingSelfLongEPNS1_20RepeatedPtrFieldBaseE.exit
@@ -2900,7 +2852,7 @@ sw.bb42:                                          ; preds = %if.else
   br label %if.end55
 
 sw.bb46:                                          ; preds = %if.else
-  %is_lazy = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %this, i64 0, i32 3
+  %is_lazy = getelementptr inbounds i8, ptr %this, i64 10
   %bf.load = load i8, ptr %is_lazy, align 2
   %42 = and i8 %bf.load, 16
   %bf.cast.not = icmp eq i8 %42, 0
@@ -2909,7 +2861,7 @@ sw.bb46:                                          ; preds = %if.else
 
 if.then47:                                        ; preds = %sw.bb46
   %vtable = load ptr, ptr %43, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %44 = load ptr, ptr %vfn, align 8
   %call48 = tail call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(8) %43)
   br label %if.end55
@@ -2938,17 +2890,17 @@ entry:
   %idx.ext.i = ashr exact i64 %sext, 32
   %add.ptr.i = getelementptr inbounds i8, ptr %target, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %stream, align 8
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %stream, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %stream, i64 8
   store ptr null, ptr %buffer_end_.i, align 8
-  %stream_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %stream, i64 0, i32 3
+  %stream_.i = getelementptr inbounds i8, ptr %stream, i64 48
   store ptr null, ptr %stream_.i, align 8
-  %had_error_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %stream, i64 0, i32 4
+  %had_error_.i = getelementptr inbounds i8, ptr %stream, i64 56
   store i8 0, ptr %had_error_.i, align 8
-  %aliasing_enabled_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %stream, i64 0, i32 5
+  %aliasing_enabled_.i = getelementptr inbounds i8, ptr %stream, i64 57
   store i8 0, ptr %aliasing_enabled_.i, align 1
-  %is_serialization_deterministic_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %stream, i64 0, i32 6
+  %is_serialization_deterministic_.i = getelementptr inbounds i8, ptr %stream, i64 58
   store i8 %1, ptr %is_serialization_deterministic_.i, align 2
-  %skip_check_consistency.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %stream, i64 0, i32 7
+  %skip_check_consistency.i = getelementptr inbounds i8, ptr %stream, i64 59
   store i8 0, ptr %skip_check_consistency.i, align 1
   %call3 = call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet49InternalSerializeMessageSetWithCachedSizesToArrayEPKNS0_11MessageLiteEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %extendee, ptr noundef %target, ptr noundef nonnull %stream)
   ret ptr %call3
@@ -2982,7 +2934,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @"_ZZNK6google8protobuf8internal12ExtensionSet12AppendToListEPKNS0_10DescriptorEPKNS0_14DescriptorPoolEPSt6vectorIPKNS0_15FieldDescriptorESaISC_EEENK3$_0clEiRKNS2_9ExtensionE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %number, ptr noundef nonnull align 8 dereferenceable(24) %ext) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %is_repeated = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %ext, i64 0, i32 2
+  %is_repeated = getelementptr inbounds i8, ptr %ext, i64 9
   %0 = load i8, ptr %is_repeated, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -2994,29 +2946,29 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then4, label %if.end11
 
 if.end:                                           ; preds = %entry
-  %is_cleared = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %ext, i64 0, i32 3
+  %is_cleared = getelementptr inbounds i8, ptr %ext, i64 10
   %bf.load = load i8, ptr %is_cleared, align 2
   %frombool2 = and i8 %bf.load, 1
   %2 = icmp eq i8 %frombool2, 0
   br i1 %2, label %if.then4, label %if.end11
 
 if.then4:                                         ; preds = %if.then, %if.end
-  %descriptor = getelementptr inbounds %"struct.google::protobuf::internal::ExtensionSet::Extension", ptr %ext, i64 0, i32 6
+  %descriptor = getelementptr inbounds i8, ptr %ext, i64 16
   %3 = load ptr, ptr %descriptor, align 8
   %cmp5 = icmp eq ptr %3, null
-  %4 = getelementptr inbounds %class.anon, ptr %this, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   br i1 %cmp5, label %if.then6, label %if.else8
 
 if.then6:                                         ; preds = %if.then4
-  %7 = getelementptr inbounds %class.anon, ptr %this, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %this, align 8
   %call7 = tail call noundef ptr @_ZNK6google8protobuf14DescriptorPool21FindExtensionByNumberEPKNS0_10DescriptorEi(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef %9, i32 noundef %number)
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<const google::protobuf::FieldDescriptor *, std::allocator<const google::protobuf::FieldDescriptor *>>::_Vector_impl_data", ptr %6, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<const google::protobuf::FieldDescriptor *, std::allocator<const google::protobuf::FieldDescriptor *>>::_Vector_impl_data", ptr %6, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %10, %11
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -3024,7 +2976,7 @@ if.then6:                                         ; preds = %if.then4
 if.then.i.i:                                      ; preds = %if.then6
   store ptr %call7, ptr %10, align 8
   %12 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %12, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %if.end11
 
@@ -3068,7 +3020,7 @@ if.then.i.i.i12.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i.i: ; preds = %if.then.i.i.i12.i.i.i, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %if.then.i21.i.i.i
 
@@ -3084,9 +3036,9 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJS
   br label %if.end11
 
 if.else8:                                         ; preds = %if.then4
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<const google::protobuf::FieldDescriptor *, std::allocator<const google::protobuf::FieldDescriptor *>>::_Vector_impl_data", ptr %6, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %6, i64 8
   %14 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<const google::protobuf::FieldDescriptor *, std::allocator<const google::protobuf::FieldDescriptor *>>::_Vector_impl_data", ptr %6, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %6, i64 16
   %15 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %14, %15
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -3094,7 +3046,7 @@ if.else8:                                         ; preds = %if.then4
 if.then.i:                                        ; preds = %if.else8
   store ptr %3, ptr %14, align 8
   %16 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %16, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end11
 
@@ -3138,7 +3090,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i5 = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i5 = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -3176,7 +3128,7 @@ declare noundef ptr @_ZN6google8protobuf5Arena8AllocateEm(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase12AddAllocatedINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPNT_4TypeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %value) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_internal_metadata_.i.i = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %value, i64 0, i32 1
+  %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %0 = load i64, ptr %_internal_metadata_.i.i, align 8
   %and.i.i.i.i = and i64 %0, 1
   %tobool.i.i.not.i.i = icmp eq i64 %and.i.i.i.i, 0
@@ -3194,7 +3146,7 @@ if.else.i.i.i:                                    ; preds = %entry
 
 _ZN6google8protobuf8internal18GenericTypeHandlerINS0_11MessageLiteEE8GetArenaEPS3_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %retval.i.0.i.i = phi ptr [ %2, %if.then.i.i.i ], [ %3, %if.else.i.i.i ]
-  %arena_.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 3
+  %arena_.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %arena_.i, align 8
   %cmp.not = icmp eq ptr %4, %retval.i.0.i.i
   br i1 %cmp.not, label %lor.lhs.false, label %if.then.thread
@@ -3214,7 +3166,7 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.e
   %sub.i.i.i = add nsw i64 %6, -1
   %7 = inttoptr i64 %sub.i.i.i to ptr
   %8 = load i32, ptr %7, align 8
-  %capacity_proxy_.i.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 2
+  %capacity_proxy_.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %9 = load i32, ptr %capacity_proxy_.i.i, align 4
   %cmp10.i = icmp sgt i32 %8, %9
   br i1 %cmp10.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase24AddAllocatedSlowWithCopyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPNT_4TypeEPNS0_5ArenaESB_.exit, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
@@ -3244,14 +3196,14 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase24AddAllocatedSlowWithCopyINS1
   br label %if.end21
 
 _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit: ; preds = %cond.true.i
-  %current_size_36 = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 1
+  %current_size_36 = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load i32, ptr %current_size_36, align 8
   %cmp7 = icmp slt i32 %10, 0
   br i1 %cmp7, label %cond.true.i22, label %if.end13
 
 _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit
-  %elements.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %7, i64 0, i32 1
-  %current_size_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %7, i64 8
+  %current_size_ = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load i32, ptr %current_size_, align 8
   %cmp744 = icmp slt i32 %11, %8
   br i1 %cmp744, label %cond.false.i19, label %if.end13
@@ -3310,9 +3262,9 @@ declare void @_ZN6google8protobuf8internal18GenericTypeHandlerINS0_11MessageLite
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPNT_4TypeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %value) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %current_size_.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 1
+  %current_size_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %current_size_.i, align 8
-  %capacity_proxy_.i.i = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 2
+  %capacity_proxy_.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %capacity_proxy_.i.i, align 4
   %cmp.i = icmp sgt i32 %0, %1
   br i1 %cmp.i, label %if.then, label %if.else
@@ -3347,7 +3299,7 @@ _ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.e
   br i1 %cmp10.i, label %if.then6, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
 
 if.then6:                                         ; preds = %cond.true.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit
-  %arena_ = getelementptr inbounds %"class.google::protobuf::internal::RepeatedPtrFieldBase", ptr %this, i64 0, i32 3
+  %arena_ = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %arena_, align 8
   %cmp.not.i.i = icmp eq ptr %10, null
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.end27
@@ -3355,8 +3307,9 @@ if.then6:                                         ; preds = %cond.true.i, %_ZNK6
 if.end.i.i:                                       ; preds = %if.then6
   %sub.i.i = add i64 %7, -1
   %11 = inttoptr i64 %sub.i.i to ptr
+  %elements.i = getelementptr inbounds i8, ptr %11, i64 8
   %idxprom.i = sext i32 %0 to i64
-  %arrayidx.i = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %11, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [268435454 x ptr], ptr %elements.i, i64 0, i64 %idxprom.i
   %retval.0.i = select i1 %cmp.i.i, ptr %this, ptr %arrayidx.i
   %12 = load ptr, ptr %retval.0.i, align 8
   tail call void @_ZN6google8protobuf8internal34InternalOutOfLineDeleteMessageLiteEPNS0_11MessageLiteE(ptr noundef %12)
@@ -3364,33 +3317,34 @@ if.end.i.i:                                       ; preds = %if.then6
 
 _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit: ; preds = %cond.true.i
   %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25, label %if.end27
+  br i1 %cmp, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26, label %if.end27
 
 _ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase23AllocatedSizeAtCapacityEv.exit
-  %cmp43 = icmp slt i32 %0, %9
-  br i1 %cmp43, label %cond.false.i19, label %if.then21
+  %cmp46 = icmp slt i32 %0, %9
+  br i1 %cmp46, label %cond.false.i20, label %if.then21
 
-cond.false.i19:                                   ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
-  %idxprom.i1445 = sext i32 %0 to i64
-  %arrayidx.i1546 = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %8, i64 0, i32 1, i64 %idxprom.i1445
+cond.false.i20:                                   ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
+  %elements.i1448 = getelementptr inbounds i8, ptr %8, i64 8
+  %idxprom.i1549 = sext i32 %0 to i64
+  %arrayidx.i1650 = getelementptr inbounds [268435454 x ptr], ptr %elements.i1448, i64 0, i64 %idxprom.i1549
   %13 = sext i32 %9 to i64
-  %.pre = load ptr, ptr %arrayidx.i1546, align 8
-  br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25
+  %.pre = load ptr, ptr %arrayidx.i1650, align 8
+  br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26
 
-_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %cond.false.i19
-  %14 = phi ptr [ %.pre, %cond.false.i19 ], [ null, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %15 = phi ptr [ %8, %cond.false.i19 ], [ inttoptr (i64 -1 to ptr), %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %cond3.i21 = phi i64 [ %13, %cond.false.i19 ], [ 0, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %arrayidx.i30 = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %15, i64 0, i32 1, i64 %cond3.i21
-  %retval.0.i31 = select i1 %cmp.i.i, ptr %this, ptr %arrayidx.i30
-  store ptr %14, ptr %retval.0.i31, align 8
-  %16 = load ptr, ptr %this, align 8
-  %17 = ptrtoint ptr %16 to i64
-  %sub.i32 = add i64 %17, -1
-  %18 = inttoptr i64 %sub.i32 to ptr
-  %19 = load i32, ptr %18, align 8
-  %inc18 = add nsw i32 %19, 1
-  store i32 %inc18, ptr %18, align 8
+_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26: ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %cond.false.i20
+  %14 = phi ptr [ %.pre, %cond.false.i20 ], [ null, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
+  %elements.i1452 = phi ptr [ %elements.i1448, %cond.false.i20 ], [ inttoptr (i64 7 to ptr), %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
+  %cond3.i22 = phi i64 [ %13, %cond.false.i20 ], [ 0, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
+  %arrayidx.i32 = getelementptr inbounds [268435454 x ptr], ptr %elements.i1452, i64 0, i64 %cond3.i22
+  %retval.0.i33 = select i1 %cmp.i.i, ptr %this, ptr %arrayidx.i32
+  store ptr %14, ptr %retval.0.i33, align 8
+  %15 = load ptr, ptr %this, align 8
+  %16 = ptrtoint ptr %15 to i64
+  %sub.i34 = add i64 %16, -1
+  %17 = inttoptr i64 %sub.i34 to ptr
+  %18 = load i32, ptr %17, align 8
+  %inc18 = add nsw i32 %18, 1
+  store i32 %inc18, ptr %17, align 8
   br label %if.end27
 
 if.then21:                                        ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.thread
@@ -3398,20 +3352,21 @@ if.then21:                                        ; preds = %_ZNK6google8protobu
   store i32 %inc24, ptr %8, align 8
   br label %if.end27
 
-if.end27:                                         ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %if.end.i.i, %if.then6, %if.then21, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit25, %if.then
-  %20 = load i32, ptr %current_size_.i, align 8
-  %add = add nsw i32 %20, 1
+if.end27:                                         ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %if.end.i.i, %if.then6, %if.then21, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit26, %if.then
+  %19 = load i32, ptr %current_size_.i, align 8
+  %add = add nsw i32 %19, 1
   store i32 %add, ptr %current_size_.i, align 8
-  %21 = load ptr, ptr %this, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %and.i.i36 = and i64 %22, 1
-  %cmp.i.i37 = icmp eq i64 %and.i.i36, 0
-  %sub.i.i38 = add i64 %22, -1
-  %23 = inttoptr i64 %sub.i.i38 to ptr
-  %idxprom.i39 = sext i32 %20 to i64
-  %arrayidx.i40 = getelementptr inbounds %"struct.google::protobuf::internal::RepeatedPtrFieldBase::Rep", ptr %23, i64 0, i32 1, i64 %idxprom.i39
-  %retval.0.i41 = select i1 %cmp.i.i37, ptr %this, ptr %arrayidx.i40
-  store ptr %value, ptr %retval.0.i41, align 8
+  %20 = load ptr, ptr %this, align 8
+  %21 = ptrtoint ptr %20 to i64
+  %and.i.i38 = and i64 %21, 1
+  %cmp.i.i39 = icmp eq i64 %and.i.i38, 0
+  %sub.i.i40 = add i64 %21, -1
+  %22 = inttoptr i64 %sub.i.i40 to ptr
+  %elements.i41 = getelementptr inbounds i8, ptr %22, i64 8
+  %idxprom.i42 = sext i32 %19 to i64
+  %arrayidx.i43 = getelementptr inbounds [268435454 x ptr], ptr %elements.i41, i64 0, i64 %idxprom.i42
+  %retval.0.i44 = select i1 %cmp.i.i39, ptr %this, ptr %arrayidx.i43
+  store ptr %value, ptr %retval.0.i44, align 8
   ret void
 }
 
@@ -3425,7 +3380,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %object, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %object) #18
   br label %delete.end
@@ -3546,7 +3501,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit:  ; preds = %entry
 if.end:                                           ; preds = %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit
   %retval.0.i133 = phi i32 [ %conv.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %2, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
   %storemerge.i132 = phi ptr [ %add.ptr.i, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread ], [ %1, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit ]
-  %buffer_end_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %buffer_end_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %storemerge.i132 to i64
@@ -3560,7 +3515,7 @@ while.body.lr.ph:                                 ; preds = %if.end
   %agg.tmp.sroa.3.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 16
   %agg.tmp.sroa.4.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 24
   %agg.tmp.sroa.5.0.add.sroa_idx = getelementptr inbounds i8, ptr %add, i64 32
-  %limit_ = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 4
+  %limit_ = getelementptr inbounds i8, ptr %this, i64 28
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end58
@@ -3577,8 +3532,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp12.i, label %while.body.i.preheader, label %if.end6
 
 while.body.i.preheader:                           ; preds = %while.body
-  %total_size_.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %agg.tmp.sroa.0.0.copyload, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %agg.tmp.sroa.0.0.copyload, i64 0, i32 2
+  %total_size_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 4
+  %arena_or_elements_.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload, i64 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %_ZZN6google8protobuf8internal19PackedEnumParserArgINS0_15UnknownFieldSetEEEPKcPvS5_PNS1_12ParseContextEPFbPKviESA_PNS1_16InternalMetadataEiENKUliE_clEi.exit.i
@@ -3651,7 +3606,7 @@ if.else.i.i:                                      ; preds = %if.end.i21
 if.then.i.i.i:                                    ; preds = %if.else.i.i
   %and.i4.i.i = and i64 %15, -2
   %16 = inttoptr i64 %and.i4.i.i to ptr
-  %unknown_fields.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %16, i64 0, i32 1
+  %unknown_fields.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %if.else.i.i
@@ -3698,8 +3653,8 @@ while.end:                                        ; preds = %if.end6
   br i1 %cmp12.i27, label %while.body.i30.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINS0_15UnknownFieldSetEEEPKcPvS6_PNS1_12ParseContextEPFbPKviESB_PNS1_16InternalMetadataEiEUliE_EES6_S6_S6_T_.exit75
 
 while.body.i30.preheader:                         ; preds = %while.end
-  %total_size_.i.i.i57 = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %agg.tmp32.sroa.0.0.copyload, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i61 = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %agg.tmp32.sroa.0.0.copyload, i64 0, i32 2
+  %total_size_.i.i.i57 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.0.0.copyload, i64 4
+  %arena_or_elements_.i.i.i.i61 = getelementptr inbounds i8, ptr %agg.tmp32.sroa.0.0.copyload, i64 8
   br label %while.body.i30
 
 while.body.i30:                                   ; preds = %while.body.i30.preheader, %_ZZN6google8protobuf8internal19PackedEnumParserArgINS0_15UnknownFieldSetEEEPKcPvS5_PNS1_12ParseContextEPFbPKviESA_PNS1_16InternalMetadataEiENKUliE_clEi.exit.i52
@@ -3772,7 +3727,7 @@ if.else.i.i42:                                    ; preds = %if.end.i37
 if.then.i.i.i47:                                  ; preds = %if.else.i.i42
   %and.i4.i.i48 = and i64 %28, -2
   %29 = inttoptr i64 %and.i4.i.i48 to ptr
-  %unknown_fields.i.i.i49 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %29, i64 0, i32 1
+  %unknown_fields.i.i.i49 = getelementptr inbounds i8, ptr %29, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i50
 
 if.else.i.i.i54:                                  ; preds = %if.else.i.i42
@@ -3841,8 +3796,8 @@ while.end66:                                      ; preds = %if.end58, %if.end
   br i1 %cmp12.i77, label %while.body.i80.preheader, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_19PackedEnumParserArgINS0_15UnknownFieldSetEEEPKcPvS6_PNS1_12ParseContextEPFbPKviESB_PNS1_16InternalMetadataEiEUliE_EES6_S6_S6_T_.exit125
 
 while.body.i80.preheader:                         ; preds = %while.end66
-  %total_size_.i.i.i107 = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %agg.tmp70.sroa.0.0.copyload, i64 0, i32 1
-  %arena_or_elements_.i.i.i.i111 = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %agg.tmp70.sroa.0.0.copyload, i64 0, i32 2
+  %total_size_.i.i.i107 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.0.0.copyload, i64 4
+  %arena_or_elements_.i.i.i.i111 = getelementptr inbounds i8, ptr %agg.tmp70.sroa.0.0.copyload, i64 8
   br label %while.body.i80
 
 while.body.i80:                                   ; preds = %while.body.i80.preheader, %_ZZN6google8protobuf8internal19PackedEnumParserArgINS0_15UnknownFieldSetEEEPKcPvS5_PNS1_12ParseContextEPFbPKviESA_PNS1_16InternalMetadataEiENKUliE_clEi.exit.i102
@@ -3915,7 +3870,7 @@ if.else.i.i92:                                    ; preds = %if.end.i87
 if.then.i.i.i97:                                  ; preds = %if.else.i.i92
   %and.i4.i.i98 = and i64 %44, -2
   %45 = inttoptr i64 %and.i4.i.i98 to ptr
-  %unknown_fields.i.i.i99 = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %45, i64 0, i32 1
+  %unknown_fields.i.i.i99 = getelementptr inbounds i8, ptr %45, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit.i.i100
 
 if.else.i.i.i104:                                 ; preds = %if.else.i.i92
@@ -3953,10 +3908,10 @@ declare void @llvm.assume(i1 noundef) #13
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %current_size, i32 noundef %new_size) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %this, i64 0, i32 1
+  %total_size_.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
   %cmp.i = icmp eq i32 %0, 0
-  %arena_or_elements_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %this, i64 0, i32 2
+  %arena_or_elements_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %cond.in.i = select i1 %cmp.i, ptr %arena_or_elements_.i, ptr %add.ptr.i.i
@@ -4004,7 +3959,7 @@ if.then26:                                        ; preds = %if.end
   br i1 %cmp27, label %if.then28, label %if.end33
 
 if.then28:                                        ; preds = %if.then26
-  %add.ptr.i = getelementptr inbounds %"struct.google::protobuf::RepeatedField<int>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   %3 = load ptr, ptr %arena_or_elements_.i, align 8
   %conv31 = zext nneg i32 %current_size to i64
   %mul32 = shl nuw nsw i64 %conv31, 2
@@ -4029,11 +3984,11 @@ if.then.i:                                        ; preds = %if.end33
 
 if.else.i24:                                      ; preds = %if.end33
   %7 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %7, i64 0, i32 1
+  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %last_lifecycle_id_seen.i.i.i.i, align 8
   %9 = load i64, ptr %6, align 8
   %cmp.i.i.i.i = icmp eq i64 %8, %9
-  %last_serial_arena.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %7, i64 0, i32 2
+  %last_serial_arena.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load ptr, ptr %last_serial_arena.i.i.i.i, align 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end34
 
@@ -4042,7 +3997,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i24
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
   %11 = tail call i64 @llvm.ctlz.i64(i64 %add.i21, i1 true), !range !26
   %sub.i.i.i.i = sub nuw nsw i64 59, %11
-  %cached_block_length_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 10
+  %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %12 to i64
   %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
@@ -4050,7 +4005,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i24
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %div10.i.i.i.i = lshr i64 %add.i21, 3
-  %cached_blocks_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 11
+  %cached_blocks_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 88
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i, label %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
 
@@ -4082,7 +4037,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
   br label %if.end34
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cached_blocks_19.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 11
+  %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
@@ -4092,7 +4047,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end34:                                         ; preds = %if.end.i.i.i.i, %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, %if.else.i24, %if.then.i, %if.end
   store i32 %retval.0.i, ptr %total_size_.i, align 4
-  %add.ptr.i26 = getelementptr inbounds %"struct.google::protobuf::RepeatedField<int>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i26 = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   store ptr %add.ptr.i26, ptr %arena_or_elements_.i, align 8
   ret void
 }

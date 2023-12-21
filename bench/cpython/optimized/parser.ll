@@ -8,22 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._object = type { %union.anon.26, ptr }
 %union.anon.26 = type { i64 }
 %struct._PyLongValue = type { i64, [1 x i32] }
-%struct.Parser = type { ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, %struct.growable_comment_array, ptr, i32, i32, i32 }
-%struct.growable_comment_array = type { ptr, i64, i64 }
-%struct.Token = type { i32, ptr, i32, i32, i32, i32, i32, ptr, ptr }
-%struct.asdl_seq = type { i64, ptr }
-%struct._expr = type { i32, %union.anon, i32, i32, i32, i32 }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.PyBytesObject = type { %struct.PyVarObject, i64, [1 x i8] }
-%struct.PyVarObject = type { %struct._object, i64 }
-%struct.KeyValuePair = type { ptr, ptr }
-%struct._arg = type { ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.asdl_pattern_seq = type { i64, ptr, [1 x ptr] }
-%struct._pattern = type { i32, %union.anon.27, i32, i32, i32, i32 }
-%union.anon.27 = type { %struct.anon.32 }
-%struct.anon.32 = type { ptr, ptr, ptr, ptr }
 
 @reserved_keywords = internal global [9 x ptr] [ptr @.compoundliteral, ptr @.compoundliteral.1, ptr @.compoundliteral.6, ptr @.compoundliteral.13, ptr @.compoundliteral.21, ptr @.compoundliteral.30, ptr @.compoundliteral.37, ptr @.compoundliteral.39, ptr @.compoundliteral.42], align 16
 @soft_keywords = internal global [5 x ptr] [ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr null], align 16
@@ -189,13 +174,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyPegen_parse(ptr noundef %p) local_unnamed_addr #0 {
 entry:
-  %keywords = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 6
+  %keywords = getelementptr inbounds i8, ptr %p, i64 40
   store ptr @reserved_keywords, ptr %keywords, align 8
-  %n_keyword_lists = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 8
+  %n_keyword_lists = getelementptr inbounds i8, ptr %p, i64 56
   store i32 9, ptr %n_keyword_lists, align 8
-  %soft_keywords = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 7
+  %soft_keywords = getelementptr inbounds i8, ptr %p, i64 48
   store ptr @soft_keywords, ptr %soft_keywords, align 8
-  %start_rule = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 9
+  %start_rule = getelementptr inbounds i8, ptr %p, i64 60
   %0 = load i32, ptr %start_rule, align 4
   switch i32 %0, label %if.end17 [
     i32 257, label %if.then
@@ -205,7 +190,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %level.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level.i = getelementptr inbounds i8, ptr %p, i64 144
   %1 = load i32, ptr %level.i, align 8
   %inc.i = add i32 %1, 1
   store i32 %inc.i, ptr %level.i, align 8
@@ -217,13 +202,13 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
   %2 = load i32, ptr %error_indicator.i, align 8
   %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %if.end3.i, label %file_rule.exit
 
 if.end3.i:                                        ; preds = %if.end.i
-  %mark.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark.i = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark.i, align 8
   %call.i = tail call fastcc ptr @statements_rule(ptr noundef nonnull %p)
   %4 = load i32, ptr %error_indicator.i, align 8
@@ -259,7 +244,7 @@ file_rule.exit:                                   ; preds = %if.end.i, %if.then1
   br label %if.end17.sink.split
 
 if.then3:                                         ; preds = %entry
-  %level.i11 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level.i11 = getelementptr inbounds i8, ptr %p, i64 144
   %6 = load i32, ptr %level.i11, align 8
   %inc.i12 = add i32 %6, 1
   store i32 %inc.i12, ptr %level.i11, align 8
@@ -271,7 +256,7 @@ if.then.i22:                                      ; preds = %if.then3
   br label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.then.i22, %if.then3
-  %error_indicator.i15 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator.i15 = getelementptr inbounds i8, ptr %p, i64 96
   %7 = load i32, ptr %error_indicator.i15, align 8
   %tobool.not.i16 = icmp eq i32 %7, 0
   br i1 %tobool.not.i16, label %if.end3.i18, label %if.then1.i
@@ -281,7 +266,7 @@ if.then1.i:                                       ; preds = %if.end.i14
   br label %if.end17.sink.split
 
 if.end3.i18:                                      ; preds = %if.end.i14
-  %mark.i19 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark.i19 = getelementptr inbounds i8, ptr %p, i64 16
   %9 = load i32, ptr %mark.i19, align 8
   %10 = load i32, ptr %level.i11, align 8
   %inc.i.i = add i32 %10, 1
@@ -301,13 +286,13 @@ if.end.i.i.if.end3.i.i_crit_edge:                 ; preds = %if.end.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i.if.end3.i.i_crit_edge, %if.end3.i18
   %11 = phi i32 [ %.pre, %if.end.i.i.if.end3.i.i_crit_edge ], [ %9, %if.end3.i18 ]
-  %fill.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill.i.i = getelementptr inbounds i8, ptr %p, i64 20
   %12 = load i32, ptr %fill.i.i, align 4
   %cmp5.i.i = icmp eq i32 %11, %12
   br i1 %cmp5.i.i, label %land.lhs.true.i.i, label %if.end11.thread.i.i
 
 if.end11.thread.i.i:                              ; preds = %if.end3.i.i
-  %tokens54.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens54.i.i = getelementptr inbounds i8, ptr %p, i64 8
   %13 = load ptr, ptr %tokens54.i.i, align 8
   %idxprom55.i.i = sext i32 %11 to i64
   %arrayidx56.i.i = getelementptr ptr, ptr %13, i64 %idxprom55.i.i
@@ -321,7 +306,7 @@ land.lhs.true.i.i:                                ; preds = %if.end3.i.i
 if.end11.i.i:                                     ; preds = %land.lhs.true.i.i
   %.pre.i.i = load i32, ptr %error_indicator.i15, align 8
   %14 = icmp eq i32 %.pre.i.i, 0
-  %tokens.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i.i = getelementptr inbounds i8, ptr %p, i64 8
   %15 = load ptr, ptr %tokens.i.i, align 8
   %idxprom.i.i = sext i32 %11 to i64
   %arrayidx.i.i = getelementptr ptr, ptr %15, i64 %idxprom.i.i
@@ -330,9 +315,9 @@ if.end11.i.i:                                     ; preds = %land.lhs.true.i.i
 if.end22.i.i:                                     ; preds = %if.end11.i.i, %if.end11.thread.i.i
   %.pn.in.i.i = phi ptr [ %arrayidx56.i.i, %if.end11.thread.i.i ], [ %arrayidx.i.i, %if.end11.i.i ]
   %.pn.i.i = load ptr, ptr %.pn.in.i.i, align 8
-  %.in59.i.i = getelementptr inbounds %struct.Token, ptr %.pn.i.i, i64 0, i32 3
+  %.in59.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 20
   %16 = load i32, ptr %.in59.i.i, align 4
-  %.in.i.i = getelementptr inbounds %struct.Token, ptr %.pn.i.i, i64 0, i32 4
+  %.in.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 24
   %17 = load i32, ptr %.in.i.i, align 8
   %call23.i.i = tail call fastcc ptr @compound_stmt_rule(ptr noundef nonnull %p)
   %tobool24.not.i.i = icmp eq ptr %call23.i.i, null
@@ -381,11 +366,11 @@ if.then61.i.i:                                    ; preds = %if.end57.i.i
   br i1 %cmp63.i.i, label %if.end21.i, label %if.end67.i.i
 
 if.end67.i.i:                                     ; preds = %if.then61.i.i
-  %end_lineno.i.i = getelementptr inbounds %struct.Token, ptr %call62.i.i, i64 0, i32 5
+  %end_lineno.i.i = getelementptr inbounds i8, ptr %call62.i.i, i64 28
   %20 = load i32, ptr %end_lineno.i.i, align 4
-  %end_col_offset.i.i = getelementptr inbounds %struct.Token, ptr %call62.i.i, i64 0, i32 6
+  %end_col_offset.i.i = getelementptr inbounds i8, ptr %call62.i.i, i64 32
   %21 = load i32, ptr %end_col_offset.i.i, align 8
-  %arena.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %22 = load ptr, ptr %arena.i.i, align 8
   %call72.i.i = tail call ptr @_PyAST_Pass(i32 noundef %16, i32 noundef %17, i32 noundef %20, i32 noundef %21, ptr noundef %22) #4
   %cmp.i.i.i = icmp eq ptr %call72.i.i, null
@@ -431,7 +416,7 @@ if.then11.i:                                      ; preds = %if.then94.i.i, %CHE
   %24 = load i32, ptr %level.i11, align 8
   %dec108.i.i = add i32 %24, -1
   store i32 %dec108.i.i, ptr %level.i11, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %25 = load ptr, ptr %arena.i, align 8
   %call12.i20 = tail call ptr @_PyAST_Interactive(ptr noundef nonnull %retval.0.i.i, ptr noundef %25) #4
   %cmp13.i = icmp eq ptr %call12.i20, null
@@ -462,7 +447,7 @@ if.end21.i:                                       ; preds = %if.end21.sink.split
   br label %if.end17.sink.split
 
 if.then8:                                         ; preds = %entry
-  %level.i23 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level.i23 = getelementptr inbounds i8, ptr %p, i64 144
   %27 = load i32, ptr %level.i23, align 8
   %inc.i24 = add i32 %27, 1
   store i32 %inc.i24, ptr %level.i23, align 8
@@ -474,13 +459,13 @@ if.then.i46:                                      ; preds = %if.then8
   br label %if.end.i26
 
 if.end.i26:                                       ; preds = %if.then.i46, %if.then8
-  %error_indicator.i27 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator.i27 = getelementptr inbounds i8, ptr %p, i64 96
   %28 = load i32, ptr %error_indicator.i27, align 8
   %tobool.not.i28 = icmp eq i32 %28, 0
   br i1 %tobool.not.i28, label %if.end3.i30, label %eval_rule.exit
 
 if.end3.i30:                                      ; preds = %if.end.i26
-  %mark.i31 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark.i31 = getelementptr inbounds i8, ptr %p, i64 16
   %29 = load i32, ptr %mark.i31, align 8
   %call.i32 = tail call fastcc ptr @expressions_rule(ptr noundef nonnull %p)
   %tobool10.not.i = icmp eq ptr %call.i32, null
@@ -556,7 +541,7 @@ while.end.i.i:                                    ; preds = %if.end30.i.i, %whil
   %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ %inc31.i.i, %if.end30.i.i ]
   %_mark.0.lcssa.i.i = phi i32 [ %32, %while.cond.preheader.i.i ], [ %34, %if.end30.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark.i31, align 8
-  %arena.i.i41 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i41 = getelementptr inbounds i8, ptr %p, i64 32
   %35 = load ptr, ptr %arena.i.i41, align 8
   %call34.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %35) #4
   %tobool35.not.i.i = icmp eq ptr %call34.i.i, null
@@ -567,7 +552,7 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   br i1 %cmp4246.i.i, label %for.body.lr.ph.i.i, label %land.lhs.true13.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %elements.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i.i, i64 0, i32 1
+  %elements.i.i = getelementptr inbounds i8, ptr %call34.i.i, i64 8
   br label %for.body.i.i
 
 if.then36.i.i:                                    ; preds = %while.end.i.i
@@ -632,7 +617,7 @@ eval_rule.exit:                                   ; preds = %if.end.i26, %if.the
   br label %if.end17.sink.split
 
 if.then13:                                        ; preds = %entry
-  %level.i47 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level.i47 = getelementptr inbounds i8, ptr %p, i64 144
   %42 = load i32, ptr %level.i47, align 8
   %inc.i48 = add i32 %42, 1
   store i32 %inc.i48, ptr %level.i47, align 8
@@ -644,13 +629,13 @@ if.then.i133:                                     ; preds = %if.then13
   br label %if.end.i50
 
 if.end.i50:                                       ; preds = %if.then.i133, %if.then13
-  %error_indicator.i51 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator.i51 = getelementptr inbounds i8, ptr %p, i64 96
   %43 = load i32, ptr %error_indicator.i51, align 8
   %tobool.not.i52 = icmp eq i32 %43, 0
   br i1 %tobool.not.i52, label %if.end3.i54, label %func_type_rule.exit
 
 if.end3.i54:                                      ; preds = %if.end.i50
-  %mark.i55 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark.i55 = getelementptr inbounds i8, ptr %p, i64 16
   %44 = load i32, ptr %mark.i55, align 8
   %call.i56 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 7) #4
   %tobool10.not.i57 = icmp eq ptr %call.i56, null
@@ -775,7 +760,7 @@ while.end.i.i.i.i:                                ; preds = %if.end40.i.i.i.i, %
   %_children.0.lcssa.i.i.i.i = phi ptr [ %call.i.i.i.i, %while.cond.preheader.i.i.i.i ], [ %call.i.i.i.i, %land.rhs.i.preheader.i.i.i ], [ %_children.1.i.i.i.i, %land.rhs.i.i.i.i ], [ %_children.1.i.i.i.i, %if.end40.i.i.i.i ]
   %_mark.0.lcssa.i.i.i.i = phi i32 [ %50, %while.cond.preheader.i.i.i.i ], [ %50, %land.rhs.i.preheader.i.i.i ], [ %52, %land.rhs.i.i.i.i ], [ %52, %if.end40.i.i.i.i ]
   store i32 %_mark.0.lcssa.i.i.i.i, ptr %mark.i55, align 8
-  %arena.i.i.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %53 = load ptr, ptr %arena.i.i.i.i, align 8
   %call44.i.i.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i.i.i, ptr noundef %53) #4
   %tobool45.not.i.i.i.i = icmp eq ptr %call44.i.i.i.i, null
@@ -786,7 +771,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.end.i.i.i.i
   br i1 %cmp5254.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_gather_141_rule.exit.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %for.cond.preheader.i.i.i.i
-  %elements.i.i.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i.i.i, i64 0, i32 1
+  %elements.i.i.i.i = getelementptr inbounds i8, ptr %call44.i.i.i.i, i64 8
   br label %for.body.i.i.i.i
 
 if.then46.i.i.i.i:                                ; preds = %while.end.i.i.i.i
@@ -995,7 +980,7 @@ while.end.i.i140.i.i:                             ; preds = %if.end40.i.i130.i.i
   %_children.0.lcssa.i.i142.i.i = phi ptr [ %call.i.i114.i.i, %while.cond.preheader.i.i118.i.i ], [ %call.i.i114.i.i, %land.rhs.i.preheader.i121.i.i ], [ %_children.1.i.i132.i.i, %land.rhs.i.i137.i.i ], [ %_children.1.i.i132.i.i, %if.end40.i.i130.i.i ]
   %_mark.0.lcssa.i.i143.i.i = phi i32 [ %61, %while.cond.preheader.i.i118.i.i ], [ %61, %land.rhs.i.preheader.i121.i.i ], [ %63, %land.rhs.i.i137.i.i ], [ %63, %if.end40.i.i130.i.i ]
   store i32 %_mark.0.lcssa.i.i143.i.i, ptr %mark.i55, align 8
-  %arena.i.i144.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i144.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %64 = load ptr, ptr %arena.i.i144.i.i, align 8
   %call44.i.i145.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i141.i.i, ptr noundef %64) #4
   %tobool45.not.i.i146.i.i = icmp eq ptr %call44.i.i145.i.i, null
@@ -1006,7 +991,7 @@ for.cond.preheader.i.i147.i.i:                    ; preds = %while.end.i.i140.i.
   br i1 %cmp5254.i.i148.i.i, label %for.body.lr.ph.i.i152.i.i, label %_gather_143_rule.exit.i.i
 
 for.body.lr.ph.i.i152.i.i:                        ; preds = %for.cond.preheader.i.i147.i.i
-  %elements.i.i153.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i145.i.i, i64 0, i32 1
+  %elements.i.i153.i.i = getelementptr inbounds i8, ptr %call44.i.i145.i.i, i64 8
   br label %for.body.i.i154.i.i
 
 if.then46.i.i162.i.i:                             ; preds = %while.end.i.i140.i.i
@@ -1191,7 +1176,7 @@ while.end.i.i220.i.i:                             ; preds = %if.end40.i.i210.i.i
   %_children.0.lcssa.i.i222.i.i = phi ptr [ %call.i.i194.i.i, %while.cond.preheader.i.i198.i.i ], [ %call.i.i194.i.i, %land.rhs.i.preheader.i201.i.i ], [ %_children.1.i.i212.i.i, %land.rhs.i.i217.i.i ], [ %_children.1.i.i212.i.i, %if.end40.i.i210.i.i ]
   %_mark.0.lcssa.i.i223.i.i = phi i32 [ %72, %while.cond.preheader.i.i198.i.i ], [ %72, %land.rhs.i.preheader.i201.i.i ], [ %74, %land.rhs.i.i217.i.i ], [ %74, %if.end40.i.i210.i.i ]
   store i32 %_mark.0.lcssa.i.i223.i.i, ptr %mark.i55, align 8
-  %arena.i.i224.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i224.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %75 = load ptr, ptr %arena.i.i224.i.i, align 8
   %call44.i.i225.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i221.i.i, ptr noundef %75) #4
   %tobool45.not.i.i226.i.i = icmp eq ptr %call44.i.i225.i.i, null
@@ -1202,7 +1187,7 @@ for.cond.preheader.i.i227.i.i:                    ; preds = %while.end.i.i220.i.
   br i1 %cmp5254.i.i228.i.i, label %for.body.lr.ph.i.i232.i.i, label %_gather_145_rule.exit.i.i
 
 for.body.lr.ph.i.i232.i.i:                        ; preds = %for.cond.preheader.i.i227.i.i
-  %elements.i.i233.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i225.i.i, i64 0, i32 1
+  %elements.i.i233.i.i = getelementptr inbounds i8, ptr %call44.i.i225.i.i, i64 8
   br label %for.body.i.i234.i.i
 
 if.then46.i.i242.i.i:                             ; preds = %while.end.i.i220.i.i
@@ -1490,7 +1475,7 @@ while.end.i.i89:                                  ; preds = %if.end30.i.i84, %wh
   %_n.0.lcssa.i.i91 = phi i64 [ 0, %while.cond.preheader.i.i75 ], [ %inc31.i.i87, %if.end30.i.i84 ]
   %_mark.0.lcssa.i.i92 = phi i32 [ %87, %while.cond.preheader.i.i75 ], [ %89, %if.end30.i.i84 ]
   store i32 %_mark.0.lcssa.i.i92, ptr %mark.i55, align 8
-  %arena.i.i93 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i93 = getelementptr inbounds i8, ptr %p, i64 32
   %90 = load ptr, ptr %arena.i.i93, align 8
   %call34.i33.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i91, ptr noundef %90) #4
   %tobool35.not.i34.i = icmp eq ptr %call34.i33.i, null
@@ -1501,7 +1486,7 @@ for.cond.preheader.i.i94:                         ; preds = %while.end.i.i89
   br i1 %cmp4246.i.i95, label %for.body.lr.ph.i.i97, label %land.lhs.true26.i
 
 for.body.lr.ph.i.i97:                             ; preds = %for.cond.preheader.i.i94
-  %elements.i.i98 = getelementptr inbounds %struct.asdl_seq, ptr %call34.i33.i, i64 0, i32 1
+  %elements.i.i98 = getelementptr inbounds i8, ptr %call34.i33.i, i64 8
   br label %for.body.i.i99
 
 if.then36.i35.i:                                  ; preds = %while.end.i.i89
@@ -1587,7 +1572,7 @@ declare void @_Pypegen_stack_overflow(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @statements_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -1599,7 +1584,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -1609,7 +1594,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load i32, ptr %level, align 8
   %inc.i = add i32 %4, 1
@@ -1741,7 +1726,7 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
   br label %if.end21
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %16 = load ptr, ptr %arena.i, align 8
   %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i, ptr noundef %16) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -1752,7 +1737,7 @@ for.cond.i.preheader:                             ; preds = %if.end40.i
   br i1 %cmp49.i57, label %for.body.i.lr.ph, label %if.then11
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -1832,7 +1817,7 @@ declare ptr @_Py_asdl_generic_seq_new(i64 noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @compound_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -1844,7 +1829,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -1854,9 +1839,9 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %4 = load i32, ptr %call_invalid_rules, align 4
   %tobool4.not = icmp eq i32 %4, 0
   br i1 %tobool4.not, label %if.end22, label %if.end11
@@ -1892,10 +1877,10 @@ land.lhs.true13.i:                                ; preds = %land.lhs.true.i
 
 if.then16.i:                                      ; preds = %land.lhs.true13.i
   %7 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call.i, i64 20
   %8 = load i32, ptr %lineno.i, align 4
   %conv.i = sext i32 %8 to i64
-  %col_offset.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 4
+  %col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %9 = load i32, ptr %col_offset.i, align 8
   %conv17.i = sext i32 %9 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i, i64 noundef %conv17.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.47)
@@ -1921,10 +1906,10 @@ land.lhs.true41.i:                                ; preds = %if.end36.i
 
 if.then44.i:                                      ; preds = %land.lhs.true41.i
   %11 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno45.i = getelementptr inbounds %struct.Token, ptr %call39.i, i64 0, i32 3
+  %lineno45.i = getelementptr inbounds i8, ptr %call39.i, i64 20
   %12 = load i32, ptr %lineno45.i, align 4
   %conv46.i = sext i32 %12 to i64
-  %col_offset47.i = getelementptr inbounds %struct.Token, ptr %call39.i, i64 0, i32 4
+  %col_offset47.i = getelementptr inbounds i8, ptr %call39.i, i64 24
   %13 = load i32, ptr %col_offset47.i, align 8
   %conv48.i = sext i32 %13 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %11, i64 noundef %conv46.i, i64 noundef %conv48.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.48)
@@ -2062,7 +2047,7 @@ if.end.i76:                                       ; preds = %if.then.i94, %land.
 
 if.end3.i82:                                      ; preds = %if.end.i76
   %26 = load i32, ptr %mark, align 8
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
   %27 = load i32, ptr %fill.i, align 4
   %cmp5.i = icmp eq i32 %26, %27
   br i1 %cmp5.i, label %land.lhs.true.i92, label %if.end11.i
@@ -2078,14 +2063,14 @@ land.lhs.true.i92.if.end11.i_crit_edge:           ; preds = %land.lhs.true.i92
 
 if.end11.i:                                       ; preds = %land.lhs.true.i92.if.end11.i_crit_edge, %if.end3.i82
   %.pre119 = phi i32 [ %.pre119.pre, %land.lhs.true.i92.if.end11.i_crit_edge ], [ 0, %if.end3.i82 ]
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
   %28 = load ptr, ptr %tokens.i, align 8
   %idxprom.i = sext i32 %26 to i64
   %arrayidx.i = getelementptr ptr, ptr %28, i64 %idxprom.i
   %29 = load ptr, ptr %arrayidx.i, align 8
-  %lineno.i84 = getelementptr inbounds %struct.Token, ptr %29, i64 0, i32 3
+  %lineno.i84 = getelementptr inbounds i8, ptr %29, i64 20
   %30 = load i32, ptr %lineno.i84, align 4
-  %col_offset.i85 = getelementptr inbounds %struct.Token, ptr %29, i64 0, i32 4
+  %col_offset.i85 = getelementptr inbounds i8, ptr %29, i64 24
   %31 = load i32, ptr %col_offset.i85, align 8
   %32 = load i32, ptr %call_invalid_rules, align 4
   %tobool17.not.i = icmp eq i32 %32, 0
@@ -2141,9 +2126,9 @@ if.then51.i:                                      ; preds = %land.lhs.true48.i
   br i1 %cmp53.i, label %if.end42.sink.split, label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.then51.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call52.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call52.i, i64 28
   %34 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call52.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call52.i, i64 32
   %35 = load i32, ptr %end_col_offset.i, align 8
   %call62.i = tail call ptr @_PyPegen_singleton_seq(ptr noundef nonnull %p, ptr noundef nonnull %call49.i91) #4
   %cmp.i95 = icmp eq ptr %call62.i, null
@@ -2154,7 +2139,7 @@ if.then.i97:                                      ; preds = %if.end57.i
   br label %CHECK_CALL.exit
 
 CHECK_CALL.exit:                                  ; preds = %if.end57.i, %if.then.i97
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %36 = load ptr, ptr %arena.i, align 8
   %call64.i = tail call ptr @_PyAST_If(ptr noundef nonnull %call40.i, ptr noundef nonnull %call46.i, ptr noundef %call62.i, i32 noundef %30, i32 noundef %31, i32 noundef %34, i32 noundef %35, ptr noundef %36) #4
   %cmp65.i = icmp eq ptr %call64.i, null
@@ -2203,11 +2188,11 @@ if.then102.i:                                     ; preds = %land.lhs.true98.i
   br i1 %cmp105.i, label %if.end42.sink.split, label %if.end109.i
 
 if.end109.i:                                      ; preds = %if.then102.i
-  %end_lineno111.i = getelementptr inbounds %struct.Token, ptr %call104.i, i64 0, i32 5
+  %end_lineno111.i = getelementptr inbounds i8, ptr %call104.i, i64 28
   %39 = load i32, ptr %end_lineno111.i, align 4
-  %end_col_offset115.i = getelementptr inbounds %struct.Token, ptr %call104.i, i64 0, i32 6
+  %end_col_offset115.i = getelementptr inbounds i8, ptr %call104.i, i64 32
   %40 = load i32, ptr %end_col_offset115.i, align 8
-  %arena118.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena118.i = getelementptr inbounds i8, ptr %p, i64 32
   %41 = load ptr, ptr %arena118.i, align 8
   %call119.i = tail call ptr @_PyAST_If(ptr noundef nonnull %call90.i, ptr noundef nonnull %call96.i, ptr noundef %call99.i, i32 noundef %30, i32 noundef %31, i32 noundef %39, i32 noundef %40, ptr noundef %41) #4
   %cmp120.i = icmp eq ptr %call119.i, null
@@ -2375,7 +2360,7 @@ declare ptr @_PyPegen_singleton_seq(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @simple_stmts_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -2387,13 +2372,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @simple_stmt_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -2527,7 +2512,7 @@ while.end.i.i:                                    ; preds = %if.end40.i.i, %land
   %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
   %_mark.0.lcssa.i.i = phi i32 [ %8, %while.cond.preheader.i.i ], [ %8, %land.rhs.i.preheader.i ], [ %10, %land.rhs.i.i ], [ %10, %if.end40.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark, align 8
-  %arena.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena.i.i, align 8
   %call44.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %11) #4
   %tobool45.not.i.i = icmp eq ptr %call44.i.i, null
@@ -2538,7 +2523,7 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   br i1 %cmp5254.i.i, label %for.body.lr.ph.i.i, label %_gather_4_rule.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %elements.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i, i64 0, i32 1
+  %elements.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 8
   br label %for.body.i.i
 
 if.then46.i.i:                                    ; preds = %while.end.i.i
@@ -2620,7 +2605,7 @@ declare i32 @_PyPegen_lookahead(i32 noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_7_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -2632,13 +2617,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 671) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -2683,7 +2668,7 @@ declare i32 @_PyPegen_lookahead_with_int(i32 noundef, ptr noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_8_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -2695,13 +2680,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 673) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -2733,7 +2718,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @class_def_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -2745,13 +2730,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @decorators_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -2802,7 +2787,7 @@ return:                                           ; preds = %if.end35, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_9_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -2814,13 +2799,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 631) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -2852,7 +2837,7 @@ return:                                           ; preds = %if.end24, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @with_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -2864,15 +2849,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11
@@ -2892,16 +2877,16 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true.if.end11_crit_edge, %if.end3
   %.pre158 = phi i32 [ %.pre158.pre, %land.lhs.true.if.end11_crit_edge ], [ 0, %if.end3 ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %5, i64 20
   %6 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %col_offset, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %8 = load i32, ptr %call_invalid_rules, align 4
   %tobool17.not = icmp eq i32 %8, 0
   br i1 %tobool17.not, label %if.end30, label %if.then18
@@ -3040,7 +3025,7 @@ while.end.i.i.i:                                  ; preds = %if.end40.i.i.i, %la
   %_children.0.lcssa.i.i.i = phi ptr [ %call.i.i.i, %while.cond.preheader.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ], [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %_children.1.i.i.i, %if.end40.i.i.i ]
   %_mark.0.lcssa.i.i.i = phi i32 [ %15, %while.cond.preheader.i.i.i ], [ %15, %land.rhs.i.preheader.i.i ], [ %17, %land.rhs.i.i.i ], [ %17, %if.end40.i.i.i ]
   store i32 %_mark.0.lcssa.i.i.i, ptr %mark, align 8
-  %arena.i.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %18 = load ptr, ptr %arena.i.i.i, align 8
   %call44.i.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i.i, ptr noundef %18) #4
   %tobool45.not.i.i.i = icmp eq ptr %call44.i.i.i, null
@@ -3051,7 +3036,7 @@ for.cond.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   br i1 %cmp5254.i.i.i, label %for.body.lr.ph.i.i.i, label %_gather_209_rule.exit.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.i.i.i
-  %elements.i.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i.i, i64 0, i32 1
+  %elements.i.i.i = getelementptr inbounds i8, ptr %call44.i.i.i, i64 8
   br label %for.body.i.i.i
 
 if.then46.i.i.i:                                  ; preds = %while.end.i.i.i
@@ -3116,7 +3101,7 @@ land.lhs.true23.i:                                ; preds = %land.lhs.true20.i
 
 if.then26.i:                                      ; preds = %land.lhs.true23.i
   %23 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call12.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call12.i, i64 20
   %24 = load i32, ptr %lineno.i, align 4
   %call27.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %23, i32 noundef 0, ptr noundef nonnull @.str.122, i32 noundef %24) #4
   %cmp28.i = icmp eq ptr %call27.i, null
@@ -3182,7 +3167,7 @@ land.lhs.true80.i:                                ; preds = %land.lhs.true77.i
 
 if.then83.i:                                      ; preds = %land.lhs.true80.i
   %27 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno84.i = getelementptr inbounds %struct.Token, ptr %call58.i, i64 0, i32 3
+  %lineno84.i = getelementptr inbounds i8, ptr %call58.i, i64 20
   %28 = load i32, ptr %lineno84.i, align 4
   %call85.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %27, i32 noundef 0, ptr noundef nonnull @.str.122, i32 noundef %28) #4
   %cmp86.i = icmp eq ptr %call85.i, null
@@ -3328,7 +3313,7 @@ while.end.i.i:                                    ; preds = %if.end40.i.i, %land
   %_children.0.lcssa.i.i = phi ptr [ %call.i.i134, %while.cond.preheader.i.i ], [ %call.i.i134, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
   %_mark.0.lcssa.i.i = phi i32 [ %36, %while.cond.preheader.i.i ], [ %36, %land.rhs.i.preheader.i ], [ %38, %land.rhs.i.i ], [ %38, %if.end40.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark, align 8
-  %arena.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %39 = load ptr, ptr %arena.i.i, align 8
   %call44.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %39) #4
   %tobool45.not.i.i = icmp eq ptr %call44.i.i, null
@@ -3339,7 +3324,7 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   br i1 %cmp5254.i.i, label %for.body.lr.ph.i.i, label %_gather_51_rule.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %elements.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i, i64 0, i32 1
+  %elements.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 8
   br label %for.body.i.i
 
 if.then46.i.i:                                    ; preds = %while.end.i.i
@@ -3421,9 +3406,9 @@ if.then65:                                        ; preds = %land.lhs.true62
   br i1 %cmp67, label %return.sink.split, label %if.end71
 
 if.end71:                                         ; preds = %if.then65
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call66, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call66, i64 28
   %46 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call66, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call66, i64 32
   %47 = load i32, ptr %end_col_offset, align 8
   %call76 = tail call fastcc ptr @NEW_TYPE_COMMENT(ptr noundef nonnull %p, ptr noundef %call58)
   %48 = load ptr, ptr %arena.i.i, align 8
@@ -3487,12 +3472,12 @@ if.then117:                                       ; preds = %land.lhs.true114
   br i1 %cmp120, label %return.sink.split, label %if.end124
 
 if.end124:                                        ; preds = %if.then117
-  %end_lineno126 = getelementptr inbounds %struct.Token, ptr %call119, i64 0, i32 5
+  %end_lineno126 = getelementptr inbounds i8, ptr %call119, i64 28
   %50 = load i32, ptr %end_lineno126, align 4
-  %end_col_offset130 = getelementptr inbounds %struct.Token, ptr %call119, i64 0, i32 6
+  %end_col_offset130 = getelementptr inbounds i8, ptr %call119, i64 32
   %51 = load i32, ptr %end_col_offset130, align 8
   %call133 = tail call fastcc ptr @NEW_TYPE_COMMENT(ptr noundef nonnull %p, ptr noundef %call110)
-  %arena134 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena134 = getelementptr inbounds i8, ptr %p, i64 32
   %52 = load ptr, ptr %arena134, align 8
   %call135 = tail call ptr @_PyAST_With(ptr noundef nonnull %call104, ptr noundef nonnull %call115, ptr noundef %call133, i32 noundef %6, i32 noundef %7, i32 noundef %50, i32 noundef %51, ptr noundef %52) #4
   %cmp136 = icmp eq ptr %call135, null
@@ -3564,11 +3549,11 @@ if.then187:                                       ; preds = %land.lhs.true184
   br i1 %cmp190, label %return.sink.split, label %if.end194
 
 if.end194:                                        ; preds = %if.then187
-  %end_lineno196 = getelementptr inbounds %struct.Token, ptr %call189, i64 0, i32 5
+  %end_lineno196 = getelementptr inbounds i8, ptr %call189, i64 28
   %54 = load i32, ptr %end_lineno196, align 4
-  %end_col_offset200 = getelementptr inbounds %struct.Token, ptr %call189, i64 0, i32 6
+  %end_col_offset200 = getelementptr inbounds i8, ptr %call189, i64 32
   %55 = load i32, ptr %end_col_offset200, align 8
-  %arena203 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena203 = getelementptr inbounds i8, ptr %p, i64 32
   %56 = load ptr, ptr %arena203, align 8
   %call204 = tail call ptr @_PyAST_AsyncWith(ptr noundef nonnull %call171, ptr noundef nonnull %call185, ptr noundef null, i32 noundef %6, i32 noundef %7, i32 noundef %54, i32 noundef %55, ptr noundef %56) #4
   %call205 = tail call fastcc ptr @INVALID_VERSION_CHECK(ptr noundef nonnull %p, i32 noundef 5, ptr noundef nonnull @.str.121, ptr noundef %call204)
@@ -3627,12 +3612,12 @@ if.then248:                                       ; preds = %land.lhs.true245
   br i1 %cmp251, label %return.sink.split, label %if.end255
 
 if.end255:                                        ; preds = %if.then248
-  %end_lineno257 = getelementptr inbounds %struct.Token, ptr %call250, i64 0, i32 5
+  %end_lineno257 = getelementptr inbounds i8, ptr %call250, i64 28
   %58 = load i32, ptr %end_lineno257, align 4
-  %end_col_offset261 = getelementptr inbounds %struct.Token, ptr %call250, i64 0, i32 6
+  %end_col_offset261 = getelementptr inbounds i8, ptr %call250, i64 32
   %59 = load i32, ptr %end_col_offset261, align 8
   %call264 = tail call fastcc ptr @NEW_TYPE_COMMENT(ptr noundef nonnull %p, ptr noundef %call241)
-  %arena265 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena265 = getelementptr inbounds i8, ptr %p, i64 32
   %60 = load ptr, ptr %arena265, align 8
   %call266 = tail call ptr @_PyAST_AsyncWith(ptr noundef nonnull %call235, ptr noundef nonnull %call246, ptr noundef %call264, i32 noundef %6, i32 noundef %7, i32 noundef %58, i32 noundef %59, ptr noundef %60) #4
   %call267 = tail call fastcc ptr @INVALID_VERSION_CHECK(ptr noundef nonnull %p, i32 noundef 5, ptr noundef nonnull @.str.121, ptr noundef %call266)
@@ -3684,7 +3669,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_10_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -3696,13 +3681,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 668) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -3734,7 +3719,7 @@ return:                                           ; preds = %if.end24, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @for_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -3746,15 +3731,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11
@@ -3774,16 +3759,16 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true.if.end11_crit_edge, %if.end3
   %.pre82 = phi i32 [ %.pre82.pre, %land.lhs.true.if.end11_crit_edge ], [ 0, %if.end3 ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %5, i64 20
   %6 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %col_offset, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %8 = load i32, ptr %call_invalid_rules, align 4
   %tobool17.not = icmp eq i32 %8, 0
   br i1 %tobool17.not, label %if.end30, label %if.then18
@@ -3897,7 +3882,7 @@ land.lhs.true74.i:                                ; preds = %land.lhs.true71.i
 
 if.then77.i:                                      ; preds = %land.lhs.true74.i
   %14 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call57.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call57.i, i64 20
   %15 = load i32, ptr %lineno.i, align 4
   %call78.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %14, i32 noundef 0, ptr noundef nonnull @.str.124, i32 noundef %15) #4
   %cmp79.i = icmp eq ptr %call78.i, null
@@ -3980,12 +3965,12 @@ if.then64:                                        ; preds = %land.lhs.true59
   br i1 %cmp66, label %return.sink.split, label %if.end70
 
 if.end70:                                         ; preds = %if.then64
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call65, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call65, i64 28
   %21 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call65, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call65, i64 32
   %22 = load i32, ptr %end_col_offset, align 8
   %call75 = tail call fastcc ptr @NEW_TYPE_COMMENT(ptr noundef nonnull %p, ptr noundef %call53)
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %23 = load ptr, ptr %arena, align 8
   %call76 = tail call ptr @_PyAST_For(ptr noundef nonnull %call40, ptr noundef nonnull %call47, ptr noundef nonnull %call57, ptr noundef %call60, ptr noundef %call75, i32 noundef %6, i32 noundef %7, i32 noundef %21, i32 noundef %22, ptr noundef %23) #4
   %cmp77 = icmp eq ptr %call76, null
@@ -4063,12 +4048,12 @@ if.then139:                                       ; preds = %land.lhs.true134
   br i1 %cmp142, label %return.sink.split, label %if.end146
 
 if.end146:                                        ; preds = %if.then139
-  %end_lineno148 = getelementptr inbounds %struct.Token, ptr %call141, i64 0, i32 5
+  %end_lineno148 = getelementptr inbounds i8, ptr %call141, i64 28
   %27 = load i32, ptr %end_lineno148, align 4
-  %end_col_offset152 = getelementptr inbounds %struct.Token, ptr %call141, i64 0, i32 6
+  %end_col_offset152 = getelementptr inbounds i8, ptr %call141, i64 32
   %28 = load i32, ptr %end_col_offset152, align 8
   %call155 = tail call fastcc ptr @NEW_TYPE_COMMENT(ptr noundef nonnull %p, ptr noundef %call127)
-  %arena156 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena156 = getelementptr inbounds i8, ptr %p, i64 32
   %29 = load ptr, ptr %arena156, align 8
   %call157 = tail call ptr @_PyAST_AsyncFor(ptr noundef nonnull %call114, ptr noundef nonnull %call121, ptr noundef nonnull %call132, ptr noundef %call135, ptr noundef %call155, i32 noundef %6, i32 noundef %7, i32 noundef %27, i32 noundef %28, ptr noundef %29) #4
   %call158 = tail call fastcc ptr @INVALID_VERSION_CHECK(ptr noundef nonnull %p, i32 noundef 5, ptr noundef nonnull @.str.123, ptr noundef %call157)
@@ -4120,7 +4105,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @try_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -4132,15 +4117,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11
@@ -4160,16 +4145,16 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true.if.end11_crit_edge, %if.end3
   %.pre92 = phi i32 [ %.pre92.pre, %land.lhs.true.if.end11_crit_edge ], [ 0, %if.end3 ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %5, i64 20
   %6 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %col_offset, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %8 = load i32, ptr %call_invalid_rules, align 4
   %tobool17.not = icmp eq i32 %8, 0
   br i1 %tobool17.not, label %if.end30, label %if.then18
@@ -4220,7 +4205,7 @@ land.lhs.true16.i:                                ; preds = %land.lhs.true13.i
 
 if.then19.i:                                      ; preds = %land.lhs.true16.i
   %12 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call.i, i64 20
   %13 = load i32, ptr %lineno.i, align 4
   %call20.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %12, i32 noundef 0, ptr noundef nonnull @.str.126, i32 noundef %13) #4
   %cmp21.i = icmp eq ptr %call20.i, null
@@ -4352,16 +4337,16 @@ land.lhs.true96.i:                                ; preds = %land.lhs.true92.i
 
 if.then99.i:                                      ; preds = %land.lhs.true96.i
   %22 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno100.i = getelementptr inbounds %struct.Token, ptr %call84.i, i64 0, i32 3
+  %lineno100.i = getelementptr inbounds i8, ptr %call84.i, i64 20
   %23 = load i32, ptr %lineno100.i, align 4
   %conv.i = sext i32 %23 to i64
-  %col_offset.i = getelementptr inbounds %struct.Token, ptr %call84.i, i64 0, i32 4
+  %col_offset.i = getelementptr inbounds i8, ptr %call84.i, i64 24
   %24 = load i32, ptr %col_offset.i, align 8
   %conv101.i = sext i32 %24 to i64
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call87.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call87.i, i64 28
   %25 = load i32, ptr %end_lineno.i, align 4
   %conv102.i = sext i32 %25 to i64
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call87.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call87.i, i64 32
   %26 = load i32, ptr %end_col_offset.i, align 8
   %conv103.i = sext i32 %26 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %22, i64 noundef %conv.i, i64 noundef %conv101.i, i64 noundef %conv102.i, i64 noundef %conv103.i, ptr noundef nonnull @.str.128)
@@ -4427,16 +4412,16 @@ land.lhs.true149.i:                               ; preds = %land.lhs.true144.i
 
 if.then152.i:                                     ; preds = %land.lhs.true149.i
   %30 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno153.i = getelementptr inbounds %struct.Token, ptr %call142.i, i64 0, i32 3
+  %lineno153.i = getelementptr inbounds i8, ptr %call142.i, i64 20
   %31 = load i32, ptr %lineno153.i, align 4
   %conv154.i = sext i32 %31 to i64
-  %col_offset155.i = getelementptr inbounds %struct.Token, ptr %call142.i, i64 0, i32 4
+  %col_offset155.i = getelementptr inbounds i8, ptr %call142.i, i64 24
   %32 = load i32, ptr %col_offset155.i, align 8
   %conv156.i = sext i32 %32 to i64
-  %end_lineno157.i = getelementptr inbounds %struct.Token, ptr %call142.i, i64 0, i32 5
+  %end_lineno157.i = getelementptr inbounds i8, ptr %call142.i, i64 28
   %33 = load i32, ptr %end_lineno157.i, align 4
   %conv158.i = sext i32 %33 to i64
-  %end_col_offset159.i = getelementptr inbounds %struct.Token, ptr %call142.i, i64 0, i32 6
+  %end_col_offset159.i = getelementptr inbounds i8, ptr %call142.i, i64 32
   %34 = load i32, ptr %end_col_offset159.i, align 8
   %conv160.i = sext i32 %34 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %30, i64 noundef %conv154.i, i64 noundef %conv156.i, i64 noundef %conv158.i, i64 noundef %conv160.i, ptr noundef nonnull @.str.128)
@@ -4505,11 +4490,11 @@ if.then48:                                        ; preds = %land.lhs.true45
   br i1 %cmp50, label %return.sink.split, label %if.end54
 
 if.end54:                                         ; preds = %if.then48
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call49, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call49, i64 28
   %39 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call49, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call49, i64 32
   %40 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %41 = load ptr, ptr %arena, align 8
   %call59 = tail call ptr @_PyAST_Try(ptr noundef nonnull %call43, ptr noundef null, ptr noundef null, ptr noundef nonnull %call46, i32 noundef %6, i32 noundef %7, i32 noundef %39, i32 noundef %40, ptr noundef %41) #4
   %cmp60 = icmp eq ptr %call59, null
@@ -4568,11 +4553,11 @@ if.then101:                                       ; preds = %land.lhs.true96
   br i1 %cmp104, label %return.sink.split, label %if.end108
 
 if.end108:                                        ; preds = %if.then101
-  %end_lineno110 = getelementptr inbounds %struct.Token, ptr %call103, i64 0, i32 5
+  %end_lineno110 = getelementptr inbounds i8, ptr %call103, i64 28
   %45 = load i32, ptr %end_lineno110, align 4
-  %end_col_offset114 = getelementptr inbounds %struct.Token, ptr %call103, i64 0, i32 6
+  %end_col_offset114 = getelementptr inbounds i8, ptr %call103, i64 32
   %46 = load i32, ptr %end_col_offset114, align 8
-  %arena117 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena117 = getelementptr inbounds i8, ptr %p, i64 32
   %47 = load ptr, ptr %arena117, align 8
   %call118 = tail call ptr @_PyAST_Try(ptr noundef nonnull %call87, ptr noundef nonnull %call90, ptr noundef %call93, ptr noundef %call97, i32 noundef %6, i32 noundef %7, i32 noundef %45, i32 noundef %46, ptr noundef %47) #4
   %cmp119 = icmp eq ptr %call118, null
@@ -4635,11 +4620,11 @@ if.then163:                                       ; preds = %land.lhs.true158
   br i1 %cmp166, label %return.sink.split, label %if.end170
 
 if.end170:                                        ; preds = %if.then163
-  %end_lineno172 = getelementptr inbounds %struct.Token, ptr %call165, i64 0, i32 5
+  %end_lineno172 = getelementptr inbounds i8, ptr %call165, i64 28
   %50 = load i32, ptr %end_lineno172, align 4
-  %end_col_offset176 = getelementptr inbounds %struct.Token, ptr %call165, i64 0, i32 6
+  %end_col_offset176 = getelementptr inbounds i8, ptr %call165, i64 32
   %51 = load i32, ptr %end_col_offset176, align 8
-  %arena179 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena179 = getelementptr inbounds i8, ptr %p, i64 32
   %52 = load ptr, ptr %arena179, align 8
   %call180 = tail call ptr @_PyAST_TryStar(ptr noundef nonnull %call148, ptr noundef nonnull %call151, ptr noundef %call154, ptr noundef %call159, i32 noundef %6, i32 noundef %7, i32 noundef %50, i32 noundef %51, ptr noundef %52) #4
   %call181 = tail call fastcc ptr @INVALID_VERSION_CHECK(ptr noundef nonnull %p, i32 noundef 11, ptr noundef nonnull @.str.125, ptr noundef %call180)
@@ -4675,7 +4660,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @while_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -4687,15 +4672,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11
@@ -4715,16 +4700,16 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true.if.end11_crit_edge, %if.end3
   %.pre42 = phi i32 [ %.pre42.pre, %land.lhs.true.if.end11_crit_edge ], [ 0, %if.end3 ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %5, i64 20
   %6 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %col_offset, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %8 = load i32, ptr %call_invalid_rules, align 4
   %tobool17.not = icmp eq i32 %8, 0
   br i1 %tobool17.not, label %if.end30, label %if.then18
@@ -4806,7 +4791,7 @@ land.lhs.true48.i:                                ; preds = %land.lhs.true45.i
 
 if.then51.i:                                      ; preds = %land.lhs.true48.i
   %13 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call37.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call37.i, i64 20
   %14 = load i32, ptr %lineno.i, align 4
   %call52.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %13, i32 noundef 0, ptr noundef nonnull @.str.134, i32 noundef %14) #4
   %cmp53.i = icmp eq ptr %call52.i, null
@@ -4873,11 +4858,11 @@ if.then52:                                        ; preds = %land.lhs.true48
   br i1 %cmp54, label %return.sink.split, label %if.end58
 
 if.end58:                                         ; preds = %if.then52
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call53, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call53, i64 28
   %19 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call53, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call53, i64 32
   %20 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %21 = load ptr, ptr %arena, align 8
   %call63 = tail call ptr @_PyAST_While(ptr noundef nonnull %call40, ptr noundef nonnull %call46, ptr noundef %call49, i32 noundef %6, i32 noundef %7, i32 noundef %19, i32 noundef %20, ptr noundef %21) #4
   %cmp64 = icmp eq ptr %call63, null
@@ -4912,7 +4897,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @match_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -4924,21 +4909,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens44 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens44 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens44, align 8
   %idxprom45 = sext i32 %2 to i64
   %arrayidx46 = getelementptr ptr, ptr %4, i64 %idxprom45
@@ -4955,7 +4940,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
@@ -4965,9 +4950,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx46, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in51 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in51 = getelementptr inbounds i8, ptr %.pn, i64 20
   %6 = load i32, ptr %.in51, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %7 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_soft_keyword(ptr noundef nonnull %p, ptr noundef nonnull @.str.45) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -5026,8 +5011,8 @@ if.end10.i:                                       ; preds = %if.end3.i57
   br i1 %tobool12.not.i59, label %while.cond.preheader.i, label %_loop1_64_rule.exit.thread
 
 while.cond.preheader.i:                           ; preds = %if.end10.i
-  %call_invalid_rules.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
-  %arena.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %call_invalid_rules.i.i = getelementptr inbounds i8, ptr %p, i64 148
+  %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end30.i, %while.cond.preheader.i
@@ -5244,7 +5229,7 @@ land.lhs.true60.i.i:                              ; preds = %land.lhs.true57.i.i
 
 if.then63.i.i:                                    ; preds = %land.lhs.true60.i.i
   %27 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno.i.i = getelementptr inbounds %struct._expr, ptr %call44.i.i, i64 0, i32 2
+  %lineno.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 32
   %28 = load i32, ptr %lineno.i.i, align 8
   %call64.i.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %27, i32 noundef 0, ptr noundef nonnull @.str.136, i32 noundef %28) #4
   %cmp65.i.i = icmp eq ptr %call64.i.i, null
@@ -5434,7 +5419,7 @@ for.cond.preheader.i:                             ; preds = %if.end40.i
   br i1 %cmp49118.i, label %for.body.lr.ph.i, label %land.lhs.true40
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -5477,9 +5462,9 @@ if.then43:                                        ; preds = %land.lhs.true40
   br i1 %cmp45, label %return.sink.split, label %if.end49
 
 if.end49:                                         ; preds = %if.then43
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call44, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call44, i64 28
   %43 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call44, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call44, i64 32
   %44 = load i32, ptr %end_col_offset, align 8
   %45 = load ptr, ptr %arena.i.i, align 8
   %call54 = tail call ptr @_PyAST_Match(ptr noundef nonnull %call26, ptr noundef nonnull %call41.i, i32 noundef %6, i32 noundef %7, i32 noundef %43, i32 noundef %44, ptr noundef %45) #4
@@ -5498,7 +5483,7 @@ if.then60:                                        ; preds = %land.lhs.true57
 
 if.end65:                                         ; preds = %_loop1_64_rule.exit.thread, %land.lhs.true40, %land.lhs.true34, %land.lhs.true31, %land.lhs.true28, %land.lhs.true25, %if.end22
   store i32 %2, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %46 = load i32, ptr %call_invalid_rules, align 4
   %tobool67.not = icmp eq i32 %46, 0
   br i1 %tobool67.not, label %return.sink.split, label %if.then68
@@ -5552,7 +5537,7 @@ INVALID_VERSION_CHECK.exit.thread.i:              ; preds = %if.then16.i
   br label %land.lhs.true20.i
 
 if.end.i.i:                                       ; preds = %if.then16.i
-  %feature_version.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 17
+  %feature_version.i.i = getelementptr inbounds i8, ptr %p, i64 104
   %52 = load i32, ptr %feature_version.i.i, align 8
   %cmp1.i.i = icmp slt i32 %52, 10
   br i1 %cmp1.i.i, label %INVALID_VERSION_CHECK.exit.i, label %invalid_match_stmt_rule.exit
@@ -5602,7 +5587,7 @@ land.lhs.true48.i:                                ; preds = %land.lhs.true45.i
 
 if.then51.i:                                      ; preds = %land.lhs.true48.i
   %55 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno.i = getelementptr inbounds %struct._expr, ptr %call37.i, i64 0, i32 2
+  %lineno.i = getelementptr inbounds i8, ptr %call37.i, i64 32
   %56 = load i32, ptr %lineno.i, align 8
   %call52.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %55, i32 noundef 0, ptr noundef nonnull @.str.140, i32 noundef %56) #4
   %cmp53.i = icmp eq ptr %call52.i, null
@@ -5648,7 +5633,7 @@ return:                                           ; preds = %return.sink.split, 
 define internal fastcc ptr @named_expression_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res.i = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -5660,13 +5645,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @assignment_expression_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -5674,7 +5659,7 @@ if.end3:                                          ; preds = %if.end
 
 if.end12:                                         ; preds = %if.end3
   store i32 %2, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %3 = load i32, ptr %call_invalid_rules, align 4
   %tobool14.not = icmp eq i32 %3, 0
   %.pre25 = load i32, ptr %error_indicator, align 8
@@ -5727,16 +5712,16 @@ land.lhs.true19.i:                                ; preds = %land.lhs.true.i
 
 if.then22.i:                                      ; preds = %land.lhs.true19.i
   %7 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct._expr, ptr %call15.i, i64 0, i32 2
+  %lineno.i = getelementptr inbounds i8, ptr %call15.i, i64 32
   %8 = load i32, ptr %lineno.i, align 8
   %conv.i = sext i32 %8 to i64
-  %col_offset.i = getelementptr inbounds %struct._expr, ptr %call15.i, i64 0, i32 3
+  %col_offset.i = getelementptr inbounds i8, ptr %call15.i, i64 36
   %9 = load i32, ptr %col_offset.i, align 4
   %conv23.i = sext i32 %9 to i64
-  %end_lineno.i = getelementptr inbounds %struct._expr, ptr %call15.i, i64 0, i32 4
+  %end_lineno.i = getelementptr inbounds i8, ptr %call15.i, i64 40
   %10 = load i32, ptr %end_lineno.i, align 8
   %conv24.i = sext i32 %10 to i64
-  %end_col_offset.i = getelementptr inbounds %struct._expr, ptr %call15.i, i64 0, i32 5
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call15.i, i64 44
   %11 = load i32, ptr %end_col_offset.i, align 4
   %conv25.i = sext i32 %11 to i64
   %call26.i = call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call15.i) #4
@@ -5774,16 +5759,16 @@ land.lhs.true56.i:                                ; preds = %land.lhs.true53.i
 
 if.then59.i:                                      ; preds = %land.lhs.true56.i
   %13 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno60.i = getelementptr inbounds %struct._expr, ptr %call48.i, i64 0, i32 2
+  %lineno60.i = getelementptr inbounds i8, ptr %call48.i, i64 32
   %14 = load i32, ptr %lineno60.i, align 8
   %conv61.i = sext i32 %14 to i64
-  %col_offset62.i = getelementptr inbounds %struct._expr, ptr %call48.i, i64 0, i32 3
+  %col_offset62.i = getelementptr inbounds i8, ptr %call48.i, i64 36
   %15 = load i32, ptr %col_offset62.i, align 4
   %conv63.i = sext i32 %15 to i64
-  %end_lineno64.i = getelementptr inbounds %struct._expr, ptr %call54.i, i64 0, i32 4
+  %end_lineno64.i = getelementptr inbounds i8, ptr %call54.i, i64 40
   %16 = load i32, ptr %end_lineno64.i, align 8
   %conv65.i = sext i32 %16 to i64
-  %end_col_offset66.i = getelementptr inbounds %struct._expr, ptr %call54.i, i64 0, i32 5
+  %end_col_offset66.i = getelementptr inbounds i8, ptr %call54.i, i64 44
   %17 = load i32, ptr %end_col_offset66.i, align 4
   %conv67.i = sext i32 %17 to i64
   call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %13, i64 noundef %conv61.i, i64 noundef %conv63.i, i64 noundef %conv65.i, i64 noundef %conv67.i, ptr noundef nonnull @.str.52)
@@ -5825,16 +5810,16 @@ land.lhs.true100.i:                               ; preds = %land.lhs.true97.i
 
 if.then103.i:                                     ; preds = %land.lhs.true100.i
   %19 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno104.i = getelementptr inbounds %struct._expr, ptr %call92.i, i64 0, i32 2
+  %lineno104.i = getelementptr inbounds i8, ptr %call92.i, i64 32
   %20 = load i32, ptr %lineno104.i, align 8
   %conv105.i = sext i32 %20 to i64
-  %col_offset106.i = getelementptr inbounds %struct._expr, ptr %call92.i, i64 0, i32 3
+  %col_offset106.i = getelementptr inbounds i8, ptr %call92.i, i64 36
   %21 = load i32, ptr %col_offset106.i, align 4
   %conv107.i = sext i32 %21 to i64
-  %end_lineno108.i = getelementptr inbounds %struct._expr, ptr %call92.i, i64 0, i32 4
+  %end_lineno108.i = getelementptr inbounds i8, ptr %call92.i, i64 40
   %22 = load i32, ptr %end_lineno108.i, align 8
   %conv109.i = sext i32 %22 to i64
-  %end_col_offset110.i = getelementptr inbounds %struct._expr, ptr %call92.i, i64 0, i32 5
+  %end_col_offset110.i = getelementptr inbounds i8, ptr %call92.i, i64 44
   %23 = load i32, ptr %end_col_offset110.i, align 4
   %conv111.i = sext i32 %23 to i64
   %call112.i = call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call92.i) #4
@@ -5930,7 +5915,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @assignment_expression_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -5942,21 +5927,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens34 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens34 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens34, align 8
   %idxprom35 = sext i32 %2 to i64
   %arrayidx36 = getelementptr ptr, ptr %4, i64 %idxprom35
@@ -5974,7 +5959,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -5983,9 +5968,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx36, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in39 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in39 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in39, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %p) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -6007,9 +5992,9 @@ if.then32:                                        ; preds = %land.lhs.true28
   br i1 %cmp34, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.then32
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call33, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call33, i64 28
   %9 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call33, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call33, i64 32
   %10 = load i32, ptr %end_col_offset, align 8
   %call43 = tail call ptr @_PyPegen_set_expr_context(ptr noundef nonnull %p, ptr noundef nonnull %call23, i32 noundef 2) #4
   %cmp.i = icmp eq ptr %call43, null
@@ -6020,7 +6005,7 @@ if.then.i:                                        ; preds = %if.end38
   br label %CHECK_CALL.exit
 
 CHECK_CALL.exit:                                  ; preds = %if.end38, %if.then.i
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena, align 8
   %call45 = tail call ptr @_PyAST_NamedExpr(ptr noundef %call43, ptr noundef nonnull %call30, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) #4
   %cmp.i41 = icmp eq ptr %call45, null
@@ -6031,7 +6016,7 @@ INVALID_VERSION_CHECK.exit.thread:                ; preds = %CHECK_CALL.exit
   br label %land.lhs.true48
 
 if.end.i:                                         ; preds = %CHECK_CALL.exit
-  %feature_version.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 17
+  %feature_version.i = getelementptr inbounds i8, ptr %p, i64 104
   %12 = load i32, ptr %feature_version.i, align 8
   %cmp1.i = icmp slt i32 %12, 8
   br i1 %cmp1.i, label %INVALID_VERSION_CHECK.exit, label %return
@@ -6072,7 +6057,7 @@ return:                                           ; preds = %if.end.i, %if.end56
 define internal fastcc ptr @expression_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -6084,7 +6069,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -6109,9 +6094,9 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill, align 4
   %cmp10 = icmp eq i32 %5, %6
   br i1 %cmp10, label %land.lhs.true, label %if.end17
@@ -6129,16 +6114,16 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %col_offset, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %12 = load i32, ptr %call_invalid_rules, align 4
   %tobool23.not = icmp eq i32 %12, 0
   %.pre58 = load i32, ptr %error_indicator, align 8
@@ -6200,23 +6185,23 @@ cond.false.i:                                     ; preds = %if.then16.i
   %idxprom.i = sext i32 %sub.i to i64
   %arrayidx.i = getelementptr ptr, ptr %16, i64 %idxprom.i
   %18 = load ptr, ptr %arrayidx.i, align 8
-  %level20.i = getelementptr inbounds %struct.Token, ptr %18, i64 0, i32 2
+  %level20.i = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load i32, ptr %level20.i, align 8
   %cmp21.i = icmp eq i32 %19, 0
   br i1 %cmp21.i, label %land.lhs.true32.i, label %cond.false23.i
 
 cond.false23.i:                                   ; preds = %cond.false.i
   %20 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct._expr, ptr %call11.i, i64 0, i32 2
+  %lineno.i = getelementptr inbounds i8, ptr %call11.i, i64 32
   %21 = load i32, ptr %lineno.i, align 8
   %conv.i = sext i32 %21 to i64
-  %col_offset.i = getelementptr inbounds %struct._expr, ptr %call11.i, i64 0, i32 3
+  %col_offset.i = getelementptr inbounds i8, ptr %call11.i, i64 36
   %22 = load i32, ptr %col_offset.i, align 4
   %conv24.i = sext i32 %22 to i64
-  %end_lineno.i = getelementptr inbounds %struct._expr, ptr %call14.i, i64 0, i32 4
+  %end_lineno.i = getelementptr inbounds i8, ptr %call14.i, i64 40
   %23 = load i32, ptr %end_lineno.i, align 8
   %conv25.i = sext i32 %23 to i64
-  %end_col_offset.i = getelementptr inbounds %struct._expr, ptr %call14.i, i64 0, i32 5
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call14.i, i64 44
   %24 = load i32, ptr %end_col_offset.i, align 4
   %conv26.i = sext i32 %24 to i64
   call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %20, i64 noundef %conv.i, i64 noundef %conv24.i, i64 noundef %conv25.i, i64 noundef %conv26.i, ptr noundef nonnull @.str.85)
@@ -6268,16 +6253,16 @@ land.lhs.true58.i:                                ; preds = %land.lhs.true55.i
 
 if.then61.i:                                      ; preds = %land.lhs.true58.i
   %28 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno62.i = getelementptr inbounds %struct._expr, ptr %call50.i, i64 0, i32 2
+  %lineno62.i = getelementptr inbounds i8, ptr %call50.i, i64 32
   %29 = load i32, ptr %lineno62.i, align 8
   %conv63.i = sext i32 %29 to i64
-  %col_offset64.i = getelementptr inbounds %struct._expr, ptr %call50.i, i64 0, i32 3
+  %col_offset64.i = getelementptr inbounds i8, ptr %call50.i, i64 36
   %30 = load i32, ptr %col_offset64.i, align 4
   %conv65.i = sext i32 %30 to i64
-  %end_lineno66.i = getelementptr inbounds %struct._expr, ptr %call56.i, i64 0, i32 4
+  %end_lineno66.i = getelementptr inbounds i8, ptr %call56.i, i64 40
   %31 = load i32, ptr %end_lineno66.i, align 8
   %conv67.i = sext i32 %31 to i64
-  %end_col_offset68.i = getelementptr inbounds %struct._expr, ptr %call56.i, i64 0, i32 5
+  %end_col_offset68.i = getelementptr inbounds i8, ptr %call56.i, i64 44
   %32 = load i32, ptr %end_col_offset68.i, align 4
   %conv69.i = sext i32 %32 to i64
   call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %28, i64 noundef %conv63.i, i64 noundef %conv65.i, i64 noundef %conv67.i, i64 noundef %conv69.i, ptr noundef nonnull @.str.86)
@@ -6327,16 +6312,16 @@ land.lhs.true100.i:                               ; preds = %land.lhs.true97.i
 
 if.then103.i:                                     ; preds = %land.lhs.true100.i
   %37 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno104.i = getelementptr inbounds %struct.Token, ptr %call91.i, i64 0, i32 3
+  %lineno104.i = getelementptr inbounds i8, ptr %call91.i, i64 20
   %38 = load i32, ptr %lineno104.i, align 4
   %conv105.i = sext i32 %38 to i64
-  %col_offset106.i = getelementptr inbounds %struct.Token, ptr %call91.i, i64 0, i32 4
+  %col_offset106.i = getelementptr inbounds i8, ptr %call91.i, i64 24
   %39 = load i32, ptr %col_offset106.i, align 8
   %conv107.i = sext i32 %39 to i64
-  %end_lineno108.i = getelementptr inbounds %struct.Token, ptr %call98.i, i64 0, i32 5
+  %end_lineno108.i = getelementptr inbounds i8, ptr %call98.i, i64 28
   %40 = load i32, ptr %end_lineno108.i, align 4
   %conv109.i = sext i32 %40 to i64
-  %end_col_offset110.i = getelementptr inbounds %struct.Token, ptr %call98.i, i64 0, i32 6
+  %end_col_offset110.i = getelementptr inbounds i8, ptr %call98.i, i64 32
   %41 = load i32, ptr %end_col_offset110.i, align 8
   %conv111.i = sext i32 %41 to i64
   call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %37, i64 noundef %conv105.i, i64 noundef %conv107.i, i64 noundef %conv109.i, i64 noundef %conv111.i, ptr noundef nonnull @.str.87)
@@ -6433,11 +6418,11 @@ if.then75:                                        ; preds = %if.then72
   br label %return
 
 if.end78:                                         ; preds = %if.then72
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call73, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call73, i64 28
   %48 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call73, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call73, i64 32
   %49 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %50 = load ptr, ptr %arena, align 8
   %call83 = call ptr @_PyAST_IfExp(ptr noundef nonnull %call64, ptr noundef nonnull %call58, ptr noundef nonnull %call70, i32 noundef %10, i32 noundef %11, i32 noundef %48, i32 noundef %49, ptr noundef %50) #4
   store ptr %call83, ptr %_res, align 8
@@ -6534,18 +6519,18 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %feature_version = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 17
+  %feature_version = getelementptr inbounds i8, ptr %p, i64 104
   %0 = load i32, ptr %feature_version, align 8
   %cmp1 = icmp slt i32 %0, %version
   br i1 %cmp1, label %if.then2, label %return
 
 if.then2:                                         ; preds = %if.end
-  %error_indicator3 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator3 = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator3, align 8
   %1 = load ptr, ptr @PyExc_SyntaxError, align 8
   %call = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %1, i32 noundef 0, ptr noundef nonnull @.str.50, ptr noundef %msg, i32 noundef %version) #4
@@ -6570,7 +6555,7 @@ declare ptr @_PyPegen_get_expr_name(ptr noundef) local_unnamed_addr #1
 define internal fastcc ptr @bitwise_or_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -6595,7 +6580,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load ptr, ptr %_res, align 8
   %call528 = call i32 @_PyPegen_update_memo(ptr noundef nonnull %p, i32 noundef %3, i32 noundef 1126, ptr noundef %4) #4
@@ -6603,10 +6588,10 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool6.not29, label %if.end10.lr.ph, label %if.then7
 
 if.end10.lr.ph:                                   ; preds = %if.end3
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   br label %if.end10
 
 if.then7:                                         ; preds = %if.end22, %if.end3
@@ -6662,9 +6647,9 @@ if.end11.i:                                       ; preds = %land.lhs.true.i
 if.end22.i:                                       ; preds = %if.end11.i.thread, %if.end11.i
   %.pn.in = phi ptr [ %arrayidx.i36, %if.end11.i.thread ], [ %arrayidx.i, %if.end11.i ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in46 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in46 = getelementptr inbounds i8, ptr %.pn, i64 20
   %13 = load i32, ptr %.in46, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %14 = load i32, ptr %.in, align 8
   %call23.i = call fastcc ptr @bitwise_or_rule(ptr noundef nonnull %p)
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -6686,9 +6671,9 @@ if.then31.i:                                      ; preds = %land.lhs.true28.i
   br i1 %cmp33.i, label %bitwise_or_raw.exit, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then31.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call32.i, i64 28
   %15 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call32.i, i64 32
   %16 = load i32, ptr %end_col_offset.i, align 8
   %17 = load ptr, ptr %arena.i, align 8
   %call42.i = call ptr @_PyAST_BinOp(ptr noundef nonnull %call23.i, i32 noundef 10, ptr noundef nonnull %call29.i, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
@@ -6766,7 +6751,7 @@ return:                                           ; preds = %while.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_158_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -6778,13 +6763,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 22) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -6816,7 +6801,7 @@ return:                                           ; preds = %if.end24, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_159_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -6828,13 +6813,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @list_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -6910,7 +6895,7 @@ return:                                           ; preds = %if.end69, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_160_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -6922,13 +6907,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 22) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -6965,7 +6950,7 @@ declare i32 @_PyPegen_update_memo(ptr noundef, i32 noundef, i32 noundef, ptr nou
 define internal fastcc ptr @bitwise_xor_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -6990,7 +6975,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load ptr, ptr %_res, align 8
   %call528 = call i32 @_PyPegen_update_memo(ptr noundef nonnull %p, i32 noundef %3, i32 noundef 1127, ptr noundef %4) #4
@@ -6998,10 +6983,10 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool6.not29, label %if.end10.lr.ph, label %if.then7
 
 if.end10.lr.ph:                                   ; preds = %if.end3
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   br label %if.end10
 
 if.then7:                                         ; preds = %if.end22, %if.end3
@@ -7057,9 +7042,9 @@ if.end11.i:                                       ; preds = %land.lhs.true.i
 if.end22.i:                                       ; preds = %if.end11.i.thread, %if.end11.i
   %.pn.in = phi ptr [ %arrayidx.i36, %if.end11.i.thread ], [ %arrayidx.i, %if.end11.i ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in46 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in46 = getelementptr inbounds i8, ptr %.pn, i64 20
   %13 = load i32, ptr %.in46, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %14 = load i32, ptr %.in, align 8
   %call23.i = call fastcc ptr @bitwise_xor_rule(ptr noundef nonnull %p)
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -7081,9 +7066,9 @@ if.then31.i:                                      ; preds = %land.lhs.true28.i
   br i1 %cmp33.i, label %bitwise_xor_raw.exit, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then31.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call32.i, i64 28
   %15 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call32.i, i64 32
   %16 = load i32, ptr %end_col_offset.i, align 8
   %17 = load ptr, ptr %arena.i, align 8
   %call42.i = call ptr @_PyAST_BinOp(ptr noundef nonnull %call23.i, i32 noundef 11, ptr noundef nonnull %call29.i, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
@@ -7164,7 +7149,7 @@ declare ptr @_PyAST_BinOp(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i3
 define internal fastcc ptr @bitwise_and_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -7189,7 +7174,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load ptr, ptr %_res, align 8
   %call528 = call i32 @_PyPegen_update_memo(ptr noundef nonnull %p, i32 noundef %3, i32 noundef 1128, ptr noundef %4) #4
@@ -7197,10 +7182,10 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool6.not29, label %if.end10.lr.ph, label %if.then7
 
 if.end10.lr.ph:                                   ; preds = %if.end3
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   br label %if.end10
 
 if.then7:                                         ; preds = %if.end22, %if.end3
@@ -7256,9 +7241,9 @@ if.end11.i:                                       ; preds = %land.lhs.true.i
 if.end22.i:                                       ; preds = %if.end11.i.thread, %if.end11.i
   %.pn.in = phi ptr [ %arrayidx.i36, %if.end11.i.thread ], [ %arrayidx.i, %if.end11.i ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in46 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in46 = getelementptr inbounds i8, ptr %.pn, i64 20
   %13 = load i32, ptr %.in46, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %14 = load i32, ptr %.in, align 8
   %call23.i = call fastcc ptr @bitwise_and_rule(ptr noundef nonnull %p)
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -7280,9 +7265,9 @@ if.then31.i:                                      ; preds = %land.lhs.true28.i
   br i1 %cmp33.i, label %bitwise_and_raw.exit, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then31.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call32.i, i64 28
   %15 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call32.i, i64 32
   %16 = load i32, ptr %end_col_offset.i, align 8
   %17 = load ptr, ptr %arena.i, align 8
   %call42.i = call ptr @_PyAST_BinOp(ptr noundef nonnull %call23.i, i32 noundef 12, ptr noundef nonnull %call29.i, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
@@ -7361,7 +7346,7 @@ return:                                           ; preds = %while.end, %if.then
 define internal fastcc ptr @shift_expr_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -7386,7 +7371,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load ptr, ptr %_res, align 8
   %call530 = call i32 @_PyPegen_update_memo(ptr noundef nonnull %p, i32 noundef %3, i32 noundef 1129, ptr noundef %4) #4
@@ -7394,10 +7379,10 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool6.not31, label %if.end10.lr.ph, label %if.then7
 
 if.end10.lr.ph:                                   ; preds = %if.end3
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   br label %if.end10
 
 if.then7:                                         ; preds = %if.end22, %if.end3
@@ -7453,9 +7438,9 @@ if.end11.i:                                       ; preds = %land.lhs.true.i
 if.end22.i:                                       ; preds = %if.end11.i.thread, %if.end11.i
   %.pn.in = phi ptr [ %arrayidx.i39, %if.end11.i.thread ], [ %arrayidx.i, %if.end11.i ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in50 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in50 = getelementptr inbounds i8, ptr %.pn, i64 20
   %13 = load i32, ptr %.in50, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %14 = load i32, ptr %.in, align 8
   %call23.i = call fastcc ptr @shift_expr_rule(ptr noundef nonnull %p)
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -7477,9 +7462,9 @@ if.then31.i:                                      ; preds = %land.lhs.true28.i
   br i1 %cmp33.i, label %shift_expr_raw.exit, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then31.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call32.i, i64 28
   %15 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call32.i, i64 32
   %16 = load i32, ptr %end_col_offset.i, align 8
   %17 = load ptr, ptr %arena.i, align 8
   %call42.i = call ptr @_PyAST_BinOp(ptr noundef nonnull %call23.i, i32 noundef 8, ptr noundef nonnull %call29.i, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
@@ -7518,9 +7503,9 @@ if.then71.i:                                      ; preds = %land.lhs.true68.i
   br i1 %cmp74.i, label %shift_expr_raw.exit, label %if.end78.i
 
 if.end78.i:                                       ; preds = %if.then71.i
-  %end_lineno80.i = getelementptr inbounds %struct.Token, ptr %call73.i, i64 0, i32 5
+  %end_lineno80.i = getelementptr inbounds i8, ptr %call73.i, i64 28
   %19 = load i32, ptr %end_lineno80.i, align 4
-  %end_col_offset84.i = getelementptr inbounds %struct.Token, ptr %call73.i, i64 0, i32 6
+  %end_col_offset84.i = getelementptr inbounds i8, ptr %call73.i, i64 32
   %20 = load i32, ptr %end_col_offset84.i, align 8
   %21 = load ptr, ptr %arena.i, align 8
   %call88.i = call ptr @_PyAST_BinOp(ptr noundef nonnull %call63.i, i32 noundef 9, ptr noundef nonnull %call69.i, i32 noundef %13, i32 noundef %14, i32 noundef %19, i32 noundef %20, ptr noundef %21) #4
@@ -7599,7 +7584,7 @@ return:                                           ; preds = %while.end, %if.then
 define internal fastcc ptr @sum_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -7624,7 +7609,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load ptr, ptr %_res, align 8
   %call530 = call i32 @_PyPegen_update_memo(ptr noundef nonnull %p, i32 noundef %3, i32 noundef 1130, ptr noundef %4) #4
@@ -7632,10 +7617,10 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool6.not31, label %if.end10.lr.ph, label %if.then7
 
 if.end10.lr.ph:                                   ; preds = %if.end3
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   br label %if.end10
 
 if.then7:                                         ; preds = %if.end22, %if.end3
@@ -7691,9 +7676,9 @@ if.end11.i:                                       ; preds = %land.lhs.true.i
 if.end22.i:                                       ; preds = %if.end11.i.thread, %if.end11.i
   %.pn.in = phi ptr [ %arrayidx.i39, %if.end11.i.thread ], [ %arrayidx.i, %if.end11.i ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in50 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in50 = getelementptr inbounds i8, ptr %.pn, i64 20
   %13 = load i32, ptr %.in50, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %14 = load i32, ptr %.in, align 8
   %call23.i = call fastcc ptr @sum_rule(ptr noundef nonnull %p)
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -7715,9 +7700,9 @@ if.then31.i:                                      ; preds = %land.lhs.true28.i
   br i1 %cmp33.i, label %sum_raw.exit, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then31.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call32.i, i64 28
   %15 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call32.i, i64 32
   %16 = load i32, ptr %end_col_offset.i, align 8
   %17 = load ptr, ptr %arena.i, align 8
   %call42.i = call ptr @_PyAST_BinOp(ptr noundef nonnull %call23.i, i32 noundef 1, ptr noundef nonnull %call29.i, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
@@ -7756,9 +7741,9 @@ if.then71.i:                                      ; preds = %land.lhs.true68.i
   br i1 %cmp74.i, label %sum_raw.exit, label %if.end78.i
 
 if.end78.i:                                       ; preds = %if.then71.i
-  %end_lineno80.i = getelementptr inbounds %struct.Token, ptr %call73.i, i64 0, i32 5
+  %end_lineno80.i = getelementptr inbounds i8, ptr %call73.i, i64 28
   %19 = load i32, ptr %end_lineno80.i, align 4
-  %end_col_offset84.i = getelementptr inbounds %struct.Token, ptr %call73.i, i64 0, i32 6
+  %end_col_offset84.i = getelementptr inbounds i8, ptr %call73.i, i64 32
   %20 = load i32, ptr %end_col_offset84.i, align 8
   %21 = load ptr, ptr %arena.i, align 8
   %call88.i = call ptr @_PyAST_BinOp(ptr noundef nonnull %call63.i, i32 noundef 2, ptr noundef nonnull %call69.i, i32 noundef %13, i32 noundef %14, i32 noundef %19, i32 noundef %20, ptr noundef %21) #4
@@ -7837,7 +7822,7 @@ return:                                           ; preds = %while.end, %if.then
 define internal fastcc ptr @term_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -7862,7 +7847,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load ptr, ptr %_res, align 8
   %call536 = call i32 @_PyPegen_update_memo(ptr noundef nonnull %p, i32 noundef %3, i32 noundef 1131, ptr noundef %4) #4
@@ -7870,10 +7855,10 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool6.not37, label %if.end10.lr.ph, label %if.then7
 
 if.end10.lr.ph:                                   ; preds = %if.end3
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   br label %if.end10
 
 if.then7:                                         ; preds = %if.end22, %if.end3
@@ -7929,9 +7914,9 @@ if.end11.i:                                       ; preds = %land.lhs.true.i
 if.end22.i:                                       ; preds = %if.end11.i.thread, %if.end11.i
   %.pn.in = phi ptr [ %arrayidx.i48, %if.end11.i.thread ], [ %arrayidx.i, %if.end11.i ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in62 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in62 = getelementptr inbounds i8, ptr %.pn, i64 20
   %13 = load i32, ptr %.in62, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %14 = load i32, ptr %.in, align 8
   %call23.i = call fastcc ptr @term_rule(ptr noundef nonnull %p)
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -7953,9 +7938,9 @@ if.then31.i:                                      ; preds = %land.lhs.true28.i
   br i1 %cmp33.i, label %term_raw.exit, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then31.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call32.i, i64 28
   %15 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call32.i, i64 32
   %16 = load i32, ptr %end_col_offset.i, align 8
   %17 = load ptr, ptr %arena.i, align 8
   %call42.i = call ptr @_PyAST_BinOp(ptr noundef nonnull %call23.i, i32 noundef 3, ptr noundef nonnull %call29.i, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
@@ -7994,9 +7979,9 @@ if.then71.i:                                      ; preds = %land.lhs.true68.i
   br i1 %cmp74.i, label %term_raw.exit, label %if.end78.i
 
 if.end78.i:                                       ; preds = %if.then71.i
-  %end_lineno80.i = getelementptr inbounds %struct.Token, ptr %call73.i, i64 0, i32 5
+  %end_lineno80.i = getelementptr inbounds i8, ptr %call73.i, i64 28
   %19 = load i32, ptr %end_lineno80.i, align 4
-  %end_col_offset84.i = getelementptr inbounds %struct.Token, ptr %call73.i, i64 0, i32 6
+  %end_col_offset84.i = getelementptr inbounds i8, ptr %call73.i, i64 32
   %20 = load i32, ptr %end_col_offset84.i, align 8
   %21 = load ptr, ptr %arena.i, align 8
   %call88.i = call ptr @_PyAST_BinOp(ptr noundef nonnull %call63.i, i32 noundef 5, ptr noundef nonnull %call69.i, i32 noundef %13, i32 noundef %14, i32 noundef %19, i32 noundef %20, ptr noundef %21) #4
@@ -8035,9 +8020,9 @@ if.then117.i:                                     ; preds = %land.lhs.true114.i
   br i1 %cmp120.i, label %term_raw.exit, label %if.end124.i
 
 if.end124.i:                                      ; preds = %if.then117.i
-  %end_lineno126.i = getelementptr inbounds %struct.Token, ptr %call119.i, i64 0, i32 5
+  %end_lineno126.i = getelementptr inbounds i8, ptr %call119.i, i64 28
   %23 = load i32, ptr %end_lineno126.i, align 4
-  %end_col_offset130.i = getelementptr inbounds %struct.Token, ptr %call119.i, i64 0, i32 6
+  %end_col_offset130.i = getelementptr inbounds i8, ptr %call119.i, i64 32
   %24 = load i32, ptr %end_col_offset130.i, align 8
   %25 = load ptr, ptr %arena.i, align 8
   %call134.i = call ptr @_PyAST_BinOp(ptr noundef nonnull %call109.i, i32 noundef 13, ptr noundef nonnull %call115.i, i32 noundef %13, i32 noundef %14, i32 noundef %23, i32 noundef %24, ptr noundef %25) #4
@@ -8076,9 +8061,9 @@ if.then163.i:                                     ; preds = %land.lhs.true160.i
   br i1 %cmp166.i, label %term_raw.exit, label %if.end170.i
 
 if.end170.i:                                      ; preds = %if.then163.i
-  %end_lineno172.i = getelementptr inbounds %struct.Token, ptr %call165.i, i64 0, i32 5
+  %end_lineno172.i = getelementptr inbounds i8, ptr %call165.i, i64 28
   %27 = load i32, ptr %end_lineno172.i, align 4
-  %end_col_offset176.i = getelementptr inbounds %struct.Token, ptr %call165.i, i64 0, i32 6
+  %end_col_offset176.i = getelementptr inbounds i8, ptr %call165.i, i64 32
   %28 = load i32, ptr %end_col_offset176.i, align 8
   %29 = load ptr, ptr %arena.i, align 8
   %call180.i = call ptr @_PyAST_BinOp(ptr noundef nonnull %call155.i, i32 noundef 6, ptr noundef nonnull %call161.i, i32 noundef %13, i32 noundef %14, i32 noundef %27, i32 noundef %28, ptr noundef %29) #4
@@ -8117,9 +8102,9 @@ if.then209.i:                                     ; preds = %land.lhs.true206.i
   br i1 %cmp212.i, label %term_raw.exit, label %if.end216.i
 
 if.end216.i:                                      ; preds = %if.then209.i
-  %end_lineno218.i = getelementptr inbounds %struct.Token, ptr %call211.i, i64 0, i32 5
+  %end_lineno218.i = getelementptr inbounds i8, ptr %call211.i, i64 28
   %31 = load i32, ptr %end_lineno218.i, align 4
-  %end_col_offset222.i = getelementptr inbounds %struct.Token, ptr %call211.i, i64 0, i32 6
+  %end_col_offset222.i = getelementptr inbounds i8, ptr %call211.i, i64 32
   %32 = load i32, ptr %end_col_offset222.i, align 8
   %33 = load ptr, ptr %arena.i, align 8
   %call226.i = call ptr @_PyAST_BinOp(ptr noundef nonnull %call201.i, i32 noundef 4, ptr noundef nonnull %call207.i, i32 noundef %13, i32 noundef %14, i32 noundef %31, i32 noundef %32, ptr noundef %33) #4
@@ -8199,7 +8184,7 @@ return:                                           ; preds = %while.end, %if.then
 define internal fastcc ptr @factor_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -8211,7 +8196,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -8236,9 +8221,9 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill, align 4
   %cmp10 = icmp eq i32 %5, %6
   br i1 %cmp10, label %land.lhs.true, label %if.end17
@@ -8256,14 +8241,14 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %col_offset, align 8
   %12 = load i32, ptr %error_indicator, align 8
   %tobool24.not = icmp eq i32 %12, 0
@@ -8297,11 +8282,11 @@ if.then37:                                        ; preds = %if.then34
   br label %return
 
 if.end40:                                         ; preds = %if.then34
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call35, i64 28
   %15 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call35, i64 32
   %16 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena, align 8
   %call45 = call ptr @_PyAST_UnaryOp(i32 noundef 3, ptr noundef nonnull %call32, i32 noundef %10, i32 noundef %11, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
   store ptr %call45, ptr %_res, align 8
@@ -8354,11 +8339,11 @@ if.then74:                                        ; preds = %if.then70
   br label %return
 
 if.end77:                                         ; preds = %if.then70
-  %end_lineno79 = getelementptr inbounds %struct.Token, ptr %call72, i64 0, i32 5
+  %end_lineno79 = getelementptr inbounds i8, ptr %call72, i64 28
   %22 = load i32, ptr %end_lineno79, align 4
-  %end_col_offset83 = getelementptr inbounds %struct.Token, ptr %call72, i64 0, i32 6
+  %end_col_offset83 = getelementptr inbounds i8, ptr %call72, i64 32
   %23 = load i32, ptr %end_col_offset83, align 8
-  %arena86 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena86 = getelementptr inbounds i8, ptr %p, i64 32
   %24 = load ptr, ptr %arena86, align 8
   %call87 = call ptr @_PyAST_UnaryOp(i32 noundef 4, ptr noundef nonnull %call68, i32 noundef %10, i32 noundef %11, i32 noundef %22, i32 noundef %23, ptr noundef %24) #4
   store ptr %call87, ptr %_res, align 8
@@ -8411,11 +8396,11 @@ if.then116:                                       ; preds = %if.then112
   br label %return
 
 if.end119:                                        ; preds = %if.then112
-  %end_lineno121 = getelementptr inbounds %struct.Token, ptr %call114, i64 0, i32 5
+  %end_lineno121 = getelementptr inbounds i8, ptr %call114, i64 28
   %29 = load i32, ptr %end_lineno121, align 4
-  %end_col_offset125 = getelementptr inbounds %struct.Token, ptr %call114, i64 0, i32 6
+  %end_col_offset125 = getelementptr inbounds i8, ptr %call114, i64 32
   %30 = load i32, ptr %end_col_offset125, align 8
-  %arena128 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena128 = getelementptr inbounds i8, ptr %p, i64 32
   %31 = load ptr, ptr %arena128, align 8
   %call129 = call ptr @_PyAST_UnaryOp(i32 noundef 1, ptr noundef nonnull %call110, i32 noundef %10, i32 noundef %11, i32 noundef %29, i32 noundef %30, ptr noundef %31) #4
   store ptr %call129, ptr %_res, align 8
@@ -8479,7 +8464,7 @@ declare ptr @_PyAST_UnaryOp(i32 noundef, ptr noundef, i32 noundef, i32 noundef, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @power_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -8491,21 +8476,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens35 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens35 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens35, align 8
   %idxprom36 = sext i32 %2 to i64
   %arrayidx37 = getelementptr ptr, ptr %4, i64 %idxprom36
@@ -8523,7 +8508,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -8532,9 +8517,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx37, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in40 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in40 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in40, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call fastcc ptr @await_primary_rule(ptr noundef nonnull %p)
   %tobool24.not = icmp eq ptr %call23, null
@@ -8556,11 +8541,11 @@ if.then31:                                        ; preds = %land.lhs.true28
   br i1 %cmp33, label %return, label %if.end37
 
 if.end37:                                         ; preds = %if.then31
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call32, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call32, i64 28
   %9 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call32, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call32, i64 32
   %10 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena, align 8
   %call42 = tail call ptr @_PyAST_BinOp(ptr noundef nonnull %call23, i32 noundef 7, ptr noundef nonnull %call29, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) #4
   %cmp43 = icmp eq ptr %call42, null
@@ -8602,7 +8587,7 @@ return:                                           ; preds = %if.end63, %land.lhs
 define internal fastcc ptr @await_primary_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -8614,7 +8599,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -8639,9 +8624,9 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill, align 4
   %cmp10 = icmp eq i32 %5, %6
   br i1 %cmp10, label %land.lhs.true, label %if.end17
@@ -8659,14 +8644,14 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %col_offset, align 8
   %12 = load i32, ptr %error_indicator, align 8
   %tobool24.not = icmp eq i32 %12, 0
@@ -8700,11 +8685,11 @@ if.then37:                                        ; preds = %if.then34
   br label %return
 
 if.end40:                                         ; preds = %if.then34
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call35, i64 28
   %15 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call35, i64 32
   %16 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena, align 8
   %call45 = call ptr @_PyAST_Await(ptr noundef nonnull %call32, i32 noundef %10, i32 noundef %11, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
   %call46 = call fastcc ptr @INVALID_VERSION_CHECK(ptr noundef nonnull %p, i32 noundef 5, ptr noundef nonnull @.str.55, ptr noundef %call45)
@@ -8772,7 +8757,7 @@ return:                                           ; preds = %done, %if.then60, %
 define internal fastcc ptr @primary_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -8797,7 +8782,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load ptr, ptr %_res, align 8
   %call542 = call i32 @_PyPegen_update_memo(ptr noundef nonnull %p, i32 noundef %3, i32 noundef 1135, ptr noundef %4) #4
@@ -8805,10 +8790,10 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool6.not43, label %if.end10.lr.ph, label %if.then7
 
 if.end10.lr.ph:                                   ; preds = %if.end3
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   br label %if.end10
 
 if.then7:                                         ; preds = %if.end22, %if.end3
@@ -8864,9 +8849,9 @@ if.end11.i:                                       ; preds = %land.lhs.true.i
 if.end22.i:                                       ; preds = %if.end11.i.thread, %if.end11.i
   %.pn.in = phi ptr [ %arrayidx.i53, %if.end11.i.thread ], [ %arrayidx.i, %if.end11.i ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in66 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in66 = getelementptr inbounds i8, ptr %.pn, i64 20
   %13 = load i32, ptr %.in66, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %14 = load i32, ptr %.in, align 8
   %call23.i = call fastcc ptr @primary_rule(ptr noundef nonnull %p)
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -8888,11 +8873,11 @@ if.then31.i:                                      ; preds = %land.lhs.true28.i
   br i1 %cmp33.i, label %primary_raw.exit, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then31.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call32.i, i64 28
   %15 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call32.i, i64 32
   %16 = load i32, ptr %end_col_offset.i, align 8
-  %v.i = getelementptr inbounds %struct._expr, ptr %call29.i, i64 0, i32 1
+  %v.i = getelementptr inbounds i8, ptr %call29.i, i64 8
   %17 = load ptr, ptr %v.i, align 8
   %18 = load ptr, ptr %arena.i, align 8
   %call42.i = call ptr @_PyAST_Attribute(ptr noundef nonnull %call23.i, ptr noundef %17, i32 noundef 1, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %18) #4
@@ -8926,9 +8911,9 @@ if.then67.i:                                      ; preds = %land.lhs.true64.i
   br i1 %cmp70.i, label %primary_raw.exit, label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.then67.i
-  %end_lineno76.i = getelementptr inbounds %struct.Token, ptr %call69.i, i64 0, i32 5
+  %end_lineno76.i = getelementptr inbounds i8, ptr %call69.i, i64 28
   %20 = load i32, ptr %end_lineno76.i, align 4
-  %end_col_offset80.i = getelementptr inbounds %struct.Token, ptr %call69.i, i64 0, i32 6
+  %end_col_offset80.i = getelementptr inbounds i8, ptr %call69.i, i64 32
   %21 = load i32, ptr %end_col_offset80.i, align 8
   %call83.i = call ptr @_PyPegen_singleton_seq(ptr noundef nonnull %p, ptr noundef nonnull %call65.i) #4
   %cmp.i19 = icmp eq ptr %call83.i, null
@@ -8982,17 +8967,17 @@ if.then119.i:                                     ; preds = %land.lhs.true116.i
   br i1 %cmp122.i, label %primary_raw.exit, label %if.end126.i
 
 if.end126.i:                                      ; preds = %if.then119.i
-  %end_lineno128.i = getelementptr inbounds %struct.Token, ptr %call121.i, i64 0, i32 5
+  %end_lineno128.i = getelementptr inbounds i8, ptr %call121.i, i64 28
   %25 = load i32, ptr %end_lineno128.i, align 4
-  %end_col_offset132.i = getelementptr inbounds %struct.Token, ptr %call121.i, i64 0, i32 6
+  %end_col_offset132.i = getelementptr inbounds i8, ptr %call121.i, i64 32
   %26 = load i32, ptr %end_col_offset132.i, align 8
   %tobool135.not.i = icmp eq ptr %call113.i, null
   br i1 %tobool135.not.i, label %cond.end141.i, label %cond.true138.i
 
 cond.true138.i:                                   ; preds = %if.end126.i
-  %args.i = getelementptr inbounds %struct._expr, ptr %call113.i, i64 0, i32 1, i32 0, i32 1
+  %args.i = getelementptr inbounds i8, ptr %call113.i, i64 16
   %27 = load ptr, ptr %args.i, align 8
-  %keywords.i = getelementptr inbounds %struct._expr, ptr %call113.i, i64 0, i32 1, i32 0, i32 2
+  %keywords.i = getelementptr inbounds i8, ptr %call113.i, i64 24
   %28 = load ptr, ptr %keywords.i, align 8
   br label %cond.end141.i
 
@@ -9041,9 +9026,9 @@ if.then177.i:                                     ; preds = %land.lhs.true174.i
   br i1 %cmp180.i, label %primary_raw.exit, label %if.end184.i
 
 if.end184.i:                                      ; preds = %if.then177.i
-  %end_lineno186.i = getelementptr inbounds %struct.Token, ptr %call179.i, i64 0, i32 5
+  %end_lineno186.i = getelementptr inbounds i8, ptr %call179.i, i64 28
   %30 = load i32, ptr %end_lineno186.i, align 4
-  %end_col_offset190.i = getelementptr inbounds %struct.Token, ptr %call179.i, i64 0, i32 6
+  %end_col_offset190.i = getelementptr inbounds i8, ptr %call179.i, i64 32
   %31 = load i32, ptr %end_col_offset190.i, align 8
   %32 = load ptr, ptr %arena.i, align 8
   %call194.i = call ptr @_PyAST_Subscript(ptr noundef nonnull %call166.i, ptr noundef nonnull %call172.i, i32 noundef 1, i32 noundef %13, i32 noundef %14, i32 noundef %30, i32 noundef %31, ptr noundef %32) #4
@@ -9125,7 +9110,7 @@ declare ptr @_PyAST_Attribute(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @genexp_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -9137,21 +9122,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens61 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens61 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens61, align 8
   %idxprom62 = sext i32 %2 to i64
   %arrayidx63 = getelementptr ptr, ptr %4, i64 %idxprom62
@@ -9169,7 +9154,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -9178,9 +9163,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx63, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in66 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in66 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in66, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 7) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -9258,11 +9243,11 @@ if.then34:                                        ; preds = %land.lhs.true31
   br i1 %cmp36, label %return, label %if.end40
 
 if.end40:                                         ; preds = %if.then34
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call35, i64 28
   %15 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call35, i64 32
   %16 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena, align 8
   %call45 = tail call ptr @_PyAST_GeneratorExp(ptr noundef nonnull %_res.0.i.ph, ptr noundef nonnull %call.i45, i32 noundef %7, i32 noundef %8, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
   %cmp46 = icmp eq ptr %call45, null
@@ -9285,7 +9270,7 @@ if.end55.sink.split:                              ; preds = %if.end.i39, %if.end
 
 if.end55:                                         ; preds = %if.end55.sink.split, %land.lhs.true31, %if.end22
   store i32 %2, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %19 = load i32, ptr %call_invalid_rules, align 4
   %tobool57.not = icmp eq i32 %19, 0
   br i1 %tobool57.not, label %return, label %if.then58
@@ -9314,7 +9299,7 @@ declare ptr @_PyAST_Call(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32
 define internal fastcc ptr @arguments_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -9326,7 +9311,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -9351,7 +9336,7 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
   %6 = load i32, ptr %error_indicator, align 8
   %tobool10.not = icmp eq i32 %6, 0
@@ -9385,7 +9370,7 @@ if.then23:                                        ; preds = %land.lhs.true20
 
 if.end33:                                         ; preds = %land.lhs.true20, %land.lhs.true, %do.end
   store i32 %5, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %9 = load i32, ptr %call_invalid_rules, align 4
   %tobool35.not = icmp eq i32 %9, 0
   br i1 %tobool35.not, label %if.end48, label %if.then36
@@ -9435,7 +9420,7 @@ return:                                           ; preds = %done, %if.then39, %
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @slices_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -9447,21 +9432,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens44 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens44 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens44, align 8
   %idxprom45 = sext i32 %2 to i64
   %arrayidx46 = getelementptr ptr, ptr %4, i64 %idxprom45
@@ -9479,7 +9464,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -9488,9 +9473,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx46, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in50 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in50 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in50, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call fastcc ptr @slice_rule(ptr noundef nonnull %p)
   %tobool24.not = icmp eq ptr %call23, null
@@ -9667,7 +9652,7 @@ while.end.i:                                      ; preds = %if.end40.i, %while.
   %_children.057.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %_children.069.i, %while.end.sink.split.i ], [ %_children.1.i, %if.end40.i ]
   %_mark.052.i = phi i32 [ %17, %while.cond.preheader.i ], [ %_mark.070.i, %while.end.sink.split.i ], [ %24, %if.end40.i ]
   store i32 %_mark.052.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %26 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.062.i, ptr noundef %26) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -9678,7 +9663,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp5273.i, label %for.body.lr.ph.i, label %_gather_90_rule.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 if.then46.i:                                      ; preds = %while.end.i
@@ -9738,9 +9723,9 @@ if.then55:                                        ; preds = %land.lhs.true51
   br i1 %cmp57, label %return.sink.split, label %if.end61
 
 if.end61:                                         ; preds = %if.then55
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call56, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call56, i64 28
   %32 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call56, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call56, i64 32
   %33 = load i32, ptr %end_col_offset, align 8
   %34 = load ptr, ptr %arena.i, align 8
   %call66 = tail call ptr @_PyAST_Tuple(ptr noundef nonnull %call14.i, i32 noundef 1, i32 noundef %7, i32 noundef %8, i32 noundef %32, i32 noundef %33, ptr noundef %34) #4
@@ -9778,7 +9763,7 @@ declare ptr @_PyAST_Subscript(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @atom_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -9790,21 +9775,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens106 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens106 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens106, align 8
   %idxprom107 = sext i32 %2 to i64
   %arrayidx108 = getelementptr ptr, ptr %4, i64 %idxprom107
@@ -9821,7 +9806,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
@@ -9831,9 +9816,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx108, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in112 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in112 = getelementptr inbounds i8, ptr %.pn, i64 20
   %6 = load i32, ptr %.in112, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %7 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %p) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -9856,11 +9841,11 @@ if.then36:                                        ; preds = %if.end33
   br i1 %cmp38, label %return, label %if.end42
 
 if.end42:                                         ; preds = %if.then36
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call37, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call37, i64 28
   %9 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call37, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call37, i64 32
   %10 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena, align 8
   %call47 = tail call ptr @_PyAST_Constant(ptr noundef nonnull @_Py_TrueStruct, ptr noundef null, i32 noundef %6, i32 noundef %7, i32 noundef %9, i32 noundef %10, ptr noundef %11) #4
   %cmp48 = icmp eq ptr %call47, null
@@ -9892,11 +9877,11 @@ if.then68:                                        ; preds = %if.end64
   br i1 %cmp71, label %return, label %if.end75
 
 if.end75:                                         ; preds = %if.then68
-  %end_lineno77 = getelementptr inbounds %struct.Token, ptr %call70, i64 0, i32 5
+  %end_lineno77 = getelementptr inbounds i8, ptr %call70, i64 28
   %13 = load i32, ptr %end_lineno77, align 4
-  %end_col_offset81 = getelementptr inbounds %struct.Token, ptr %call70, i64 0, i32 6
+  %end_col_offset81 = getelementptr inbounds i8, ptr %call70, i64 32
   %14 = load i32, ptr %end_col_offset81, align 8
-  %arena84 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena84 = getelementptr inbounds i8, ptr %p, i64 32
   %15 = load ptr, ptr %arena84, align 8
   %call85 = tail call ptr @_PyAST_Constant(ptr noundef nonnull @_Py_FalseStruct, ptr noundef null, i32 noundef %6, i32 noundef %7, i32 noundef %13, i32 noundef %14, ptr noundef %15) #4
   %cmp86 = icmp eq ptr %call85, null
@@ -9928,11 +9913,11 @@ if.then106:                                       ; preds = %if.end102
   br i1 %cmp109, label %return, label %if.end113
 
 if.end113:                                        ; preds = %if.then106
-  %end_lineno115 = getelementptr inbounds %struct.Token, ptr %call108, i64 0, i32 5
+  %end_lineno115 = getelementptr inbounds i8, ptr %call108, i64 28
   %17 = load i32, ptr %end_lineno115, align 4
-  %end_col_offset119 = getelementptr inbounds %struct.Token, ptr %call108, i64 0, i32 6
+  %end_col_offset119 = getelementptr inbounds i8, ptr %call108, i64 32
   %18 = load i32, ptr %end_col_offset119, align 8
-  %arena122 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena122 = getelementptr inbounds i8, ptr %p, i64 32
   %19 = load ptr, ptr %arena122, align 8
   %call123 = tail call ptr @_PyAST_Constant(ptr noundef nonnull @_Py_NoneStruct, ptr noundef null, i32 noundef %6, i32 noundef %7, i32 noundef %17, i32 noundef %18, ptr noundef %19) #4
   %cmp124 = icmp eq ptr %call123, null
@@ -10039,11 +10024,11 @@ if.then210:                                       ; preds = %if.end207
   br i1 %cmp213, label %return, label %if.end217
 
 if.end217:                                        ; preds = %if.then210
-  %end_lineno219 = getelementptr inbounds %struct.Token, ptr %call212, i64 0, i32 5
+  %end_lineno219 = getelementptr inbounds i8, ptr %call212, i64 28
   %26 = load i32, ptr %end_lineno219, align 4
-  %end_col_offset223 = getelementptr inbounds %struct.Token, ptr %call212, i64 0, i32 6
+  %end_col_offset223 = getelementptr inbounds i8, ptr %call212, i64 32
   %27 = load i32, ptr %end_col_offset223, align 8
-  %arena226 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena226 = getelementptr inbounds i8, ptr %p, i64 32
   %28 = load ptr, ptr %arena226, align 8
   %call227 = tail call ptr @_PyAST_Constant(ptr noundef nonnull @_Py_EllipsisObject, ptr noundef null, i32 noundef %6, i32 noundef %7, i32 noundef %26, i32 noundef %27, ptr noundef %28) #4
   %cmp228 = icmp eq ptr %call227, null
@@ -10073,7 +10058,7 @@ return:                                           ; preds = %if.end237, %land.lh
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @for_if_clauses_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -10085,13 +10070,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @_loop1_119_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -10114,7 +10099,7 @@ declare ptr @_PyAST_GeneratorExp(ptr noundef, ptr noundef, i32 noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_comprehension_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -10126,7 +10111,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -10136,7 +10121,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load i32, ptr %level, align 8
   %inc.i = add i32 %4, 1
@@ -10212,16 +10197,16 @@ if.then16:                                        ; preds = %if.end3.i55
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %level, align 8
   %11 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno = getelementptr inbounds %struct._expr, ptr %call11, i64 0, i32 2
+  %lineno = getelementptr inbounds i8, ptr %call11, i64 32
   %12 = load i32, ptr %lineno, align 8
   %conv = sext i32 %12 to i64
-  %col_offset = getelementptr inbounds %struct._expr, ptr %call11, i64 0, i32 3
+  %col_offset = getelementptr inbounds i8, ptr %call11, i64 36
   %13 = load i32, ptr %col_offset, align 4
   %conv17 = sext i32 %13 to i64
-  %end_lineno = getelementptr inbounds %struct._expr, ptr %call11, i64 0, i32 4
+  %end_lineno = getelementptr inbounds i8, ptr %call11, i64 40
   %14 = load i32, ptr %end_lineno, align 8
   %conv18 = sext i32 %14 to i64
-  %end_col_offset = getelementptr inbounds %struct._expr, ptr %call11, i64 0, i32 5
+  %end_col_offset = getelementptr inbounds i8, ptr %call11, i64 44
   %15 = load i32, ptr %end_col_offset, align 4
   %conv19 = sext i32 %15 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %11, i64 noundef %conv, i64 noundef %conv17, i64 noundef %conv18, i64 noundef %conv19, ptr noundef nonnull @.str.59)
@@ -10326,18 +10311,18 @@ land.lhs.true52:                                  ; preds = %land.lhs.true.i
 
 if.then55:                                        ; preds = %land.lhs.true52
   %24 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno56 = getelementptr inbounds %struct._expr, ptr %call44, i64 0, i32 2
+  %lineno56 = getelementptr inbounds i8, ptr %call44, i64 32
   %25 = load i32, ptr %lineno56, align 8
   %conv57 = sext i32 %25 to i64
-  %col_offset58 = getelementptr inbounds %struct._expr, ptr %call44, i64 0, i32 3
+  %col_offset58 = getelementptr inbounds i8, ptr %call44, i64 36
   %26 = load i32, ptr %col_offset58, align 4
   %conv59 = sext i32 %26 to i64
   %call60 = tail call ptr @_PyPegen_seq_last_item(ptr noundef nonnull %call.i89) #4
-  %end_lineno61 = getelementptr inbounds %struct._expr, ptr %call60, i64 0, i32 4
+  %end_lineno61 = getelementptr inbounds i8, ptr %call60, i64 40
   %27 = load i32, ptr %end_lineno61, align 8
   %conv62 = sext i32 %27 to i64
   %call63 = tail call ptr @_PyPegen_seq_last_item(ptr noundef nonnull %call.i89) #4
-  %end_col_offset64 = getelementptr inbounds %struct._expr, ptr %call63, i64 0, i32 5
+  %end_col_offset64 = getelementptr inbounds i8, ptr %call63, i64 44
   %28 = load i32, ptr %end_col_offset64, align 4
   %conv65 = sext i32 %28 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %24, i64 noundef %conv57, i64 noundef %conv59, i64 noundef %conv62, i64 noundef %conv65, ptr noundef nonnull @.str.60)
@@ -10418,16 +10403,16 @@ land.lhs.true96:                                  ; preds = %land.lhs.true93
 
 if.then99:                                        ; preds = %land.lhs.true96
   %36 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno100 = getelementptr inbounds %struct._expr, ptr %call91, i64 0, i32 2
+  %lineno100 = getelementptr inbounds i8, ptr %call91, i64 32
   %37 = load i32, ptr %lineno100, align 8
   %conv101 = sext i32 %37 to i64
-  %col_offset102 = getelementptr inbounds %struct._expr, ptr %call91, i64 0, i32 3
+  %col_offset102 = getelementptr inbounds i8, ptr %call91, i64 36
   %38 = load i32, ptr %col_offset102, align 4
   %conv103 = sext i32 %38 to i64
-  %end_lineno104 = getelementptr inbounds %struct.Token, ptr %call94, i64 0, i32 5
+  %end_lineno104 = getelementptr inbounds i8, ptr %call94, i64 28
   %39 = load i32, ptr %end_lineno104, align 4
   %conv105 = sext i32 %39 to i64
-  %end_col_offset106 = getelementptr inbounds %struct.Token, ptr %call94, i64 0, i32 6
+  %end_col_offset106 = getelementptr inbounds i8, ptr %call94, i64 32
   %40 = load i32, ptr %end_col_offset106, align 8
   %conv107 = sext i32 %40 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %36, i64 noundef %conv101, i64 noundef %conv103, i64 noundef %conv105, i64 noundef %conv107, ptr noundef nonnull @.str.60)
@@ -10455,7 +10440,7 @@ return:                                           ; preds = %if.end119, %if.then
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop1_119_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -10467,13 +10452,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -10490,8 +10475,8 @@ if.end10:                                         ; preds = %if.end3
   br i1 %tobool12.not, label %while.cond.preheader, label %return
 
 while.cond.preheader:                             ; preds = %if.end10
-  %arena.i111 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
-  %feature_version.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 17
+  %arena.i111 = getelementptr inbounds i8, ptr %p, i64 32
+  %feature_version.i = getelementptr inbounds i8, ptr %p, i64 104
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %if.end30
@@ -10667,7 +10652,7 @@ for.cond.i114.preheader:                          ; preds = %while.end.i110
   br i1 %cmp42.i117276, label %for.body.i120.lr.ph, label %if.then26.i
 
 for.body.i120.lr.ph:                              ; preds = %for.cond.i114.preheader
-  %elements.i122 = getelementptr inbounds %struct.asdl_seq, ptr %call34.i112, i64 0, i32 1
+  %elements.i122 = getelementptr inbounds i8, ptr %call34.i112, i64 8
   br label %for.body.i120
 
 if.then36.i125:                                   ; preds = %while.end.i110
@@ -10880,7 +10865,7 @@ for.cond.i.preheader:                             ; preds = %while.end.i
   br i1 %cmp42.i279, label %for.body.i.lr.ph, label %if.then72.i
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
 
 if.then36.i:                                      ; preds = %while.end.i
@@ -10926,7 +10911,7 @@ if.then79.i:                                      ; preds = %land.lhs.true76.i
 
 if.end84.i:                                       ; preds = %land.lhs.true62.i, %land.lhs.true59.i, %if.end50.i
   store i32 %7, ptr %mark, align 8
-  %call_invalid_rules.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules.i = getelementptr inbounds i8, ptr %p, i64 148
   %46 = load i32, ptr %call_invalid_rules.i, align 4
   %tobool91.not.i = icmp eq i32 %46, 0
   br i1 %tobool91.not.i, label %for_if_clause_rule.exit.thread161, label %if.then92.i
@@ -11010,7 +10995,7 @@ for.cond.preheader:                               ; preds = %if.end40
   br i1 %cmp49282, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call41, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call41, i64 8
   br label %for.body
 
 if.then43:                                        ; preds = %if.end40
@@ -11047,7 +11032,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @star_targets_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -11059,21 +11044,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens42 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens42 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens42, align 8
   %idxprom43 = sext i32 %2 to i64
   %arrayidx44 = getelementptr ptr, ptr %4, i64 %idxprom43
@@ -11091,7 +11076,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -11100,9 +11085,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx44, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in47 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in47 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in47, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call fastcc ptr @star_target_rule(ptr noundef nonnull %p)
   %tobool24.not = icmp eq ptr %call23, null
@@ -11212,7 +11197,7 @@ while.end.i:                                      ; preds = %land.lhs.true.i.i, 
   %storemerge.i37.i = add i32 %storemerge.in.i36.i, -1
   store i32 %storemerge.i37.i, ptr %level, align 8
   store i32 %_mark.0.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i, ptr noundef %17) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
@@ -11223,7 +11208,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp4249.i, label %for.body.lr.ph.i, label %land.lhs.true54
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -11270,9 +11255,9 @@ if.then58:                                        ; preds = %land.lhs.true54
   br i1 %cmp60, label %return, label %if.end64
 
 if.end64:                                         ; preds = %if.then58
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call59, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call59, i64 28
   %23 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call59, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call59, i64 32
   %24 = load i32, ptr %end_col_offset, align 8
   %call69 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call49, ptr noundef nonnull %call34.i) #4
   %cmp.i = icmp eq ptr %call69, null
@@ -11313,7 +11298,7 @@ return:                                           ; preds = %if.end81, %land.lhs
 define internal fastcc ptr @disjunction_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -11325,7 +11310,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -11350,9 +11335,9 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill, align 4
   %cmp10 = icmp eq i32 %5, %6
   br i1 %cmp10, label %land.lhs.true, label %if.end17
@@ -11370,14 +11355,14 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %col_offset, align 8
   %12 = load i32, ptr %error_indicator, align 8
   %tobool24.not = icmp eq i32 %12, 0
@@ -11506,7 +11491,7 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
   br label %if.end57.sink.split
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %22 = load ptr, ptr %arena.i, align 8
   %call41.i = call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i, ptr noundef %22) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -11517,7 +11502,7 @@ for.cond.i.preheader:                             ; preds = %if.end40.i
   br i1 %cmp49.i70, label %for.body.i.lr.ph, label %if.then34
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -11555,9 +11540,9 @@ if.then37:                                        ; preds = %if.then34
   br label %return
 
 if.end40:                                         ; preds = %if.then34
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call35, i64 28
   %27 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call35, i64 32
   %28 = load i32, ptr %end_col_offset, align 8
   %call45 = call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call29, ptr noundef nonnull %call41.i) #4
   %cmp.i38 = icmp eq ptr %call45, null
@@ -11641,7 +11626,7 @@ declare ptr @_PyAST_comprehension(ptr noundef, ptr noundef, ptr noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_for_target_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -11653,13 +11638,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 670) #4
   %3 = load i32, ptr %error_indicator, align 8
@@ -11692,16 +11677,16 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 
 if.then.i:                                        ; preds = %if.then17
   %4 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct._expr, ptr %call.i, i64 0, i32 2
+  %lineno.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %5 = load i32, ptr %lineno.i, align 8
   %conv.i = sext i32 %5 to i64
-  %col_offset.i = getelementptr inbounds %struct._expr, ptr %call.i, i64 0, i32 3
+  %col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 36
   %6 = load i32, ptr %col_offset.i, align 4
   %conv5.i = sext i32 %6 to i64
-  %end_lineno.i = getelementptr inbounds %struct._expr, ptr %call.i, i64 0, i32 4
+  %end_lineno.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %7 = load i32, ptr %end_lineno.i, align 8
   %conv6.i = sext i32 %7 to i64
-  %end_col_offset.i = getelementptr inbounds %struct._expr, ptr %call.i, i64 0, i32 5
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 44
   %8 = load i32, ptr %end_col_offset.i, align 4
   %conv7.i = sext i32 %8 to i64
   %call8.i = tail call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call.i) #4
@@ -11732,7 +11717,7 @@ return:                                           ; preds = %if.end28, %_RAISE_S
 define internal fastcc ptr @star_target_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -11744,7 +11729,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -11769,9 +11754,9 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill, align 4
   %cmp10 = icmp eq i32 %5, %6
   br i1 %cmp10, label %land.lhs.true, label %if.end17
@@ -11789,14 +11774,14 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %col_offset, align 8
   %12 = load i32, ptr %error_indicator, align 8
   %tobool24.not = icmp eq i32 %12, 0
@@ -11860,9 +11845,9 @@ if.then37:                                        ; preds = %if.then34
   br label %return
 
 if.end40:                                         ; preds = %if.then34
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call35, i64 28
   %17 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call35, i64 32
   %18 = load i32, ptr %end_col_offset, align 8
   %call45 = call ptr @_PyPegen_set_expr_context(ptr noundef nonnull %p, ptr noundef nonnull %call11.i, i32 noundef 2) #4
   %cmp.i38 = icmp eq ptr %call45, null
@@ -11873,7 +11858,7 @@ if.then.i40:                                      ; preds = %if.end40
   br label %CHECK_CALL.exit
 
 CHECK_CALL.exit:                                  ; preds = %if.end40, %if.then.i40
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %19 = load ptr, ptr %arena, align 8
   %call47 = call ptr @_PyAST_Starred(ptr noundef %call45, i32 noundef 2, i32 noundef %10, i32 noundef %11, i32 noundef %17, i32 noundef %18, ptr noundef %19) #4
   store ptr %call47, ptr %_res, align 8
@@ -11946,7 +11931,7 @@ declare ptr @_PyAST_Starred(ptr noundef, i32 noundef, i32 noundef, i32 noundef, 
 define internal fastcc ptr @target_with_star_atom_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -11958,7 +11943,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -11983,9 +11968,9 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill, align 4
   %cmp10 = icmp eq i32 %5, %6
   br i1 %cmp10, label %land.lhs.true, label %if.end17
@@ -12003,14 +11988,14 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %col_offset, align 8
   %12 = load i32, ptr %error_indicator, align 8
   %tobool24.not = icmp eq i32 %12, 0
@@ -12054,13 +12039,13 @@ if.then43:                                        ; preds = %if.then40
   br label %return
 
 if.end46:                                         ; preds = %if.then40
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call41, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call41, i64 28
   %15 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call41, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call41, i64 32
   %16 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call35, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call35, i64 8
   %17 = load ptr, ptr %v, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %18 = load ptr, ptr %arena, align 8
   %call51 = call ptr @_PyAST_Attribute(ptr noundef nonnull %call29, ptr noundef %17, i32 noundef 2, i32 noundef %10, i32 noundef %11, i32 noundef %15, i32 noundef %16, ptr noundef %18) #4
   store ptr %call51, ptr %_res, align 8
@@ -12128,11 +12113,11 @@ if.then90:                                        ; preds = %if.then86
   br label %return
 
 if.end93:                                         ; preds = %if.then86
-  %end_lineno95 = getelementptr inbounds %struct.Token, ptr %call88, i64 0, i32 5
+  %end_lineno95 = getelementptr inbounds i8, ptr %call88, i64 28
   %23 = load i32, ptr %end_lineno95, align 4
-  %end_col_offset99 = getelementptr inbounds %struct.Token, ptr %call88, i64 0, i32 6
+  %end_col_offset99 = getelementptr inbounds i8, ptr %call88, i64 32
   %24 = load i32, ptr %end_col_offset99, align 8
-  %arena102 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena102 = getelementptr inbounds i8, ptr %p, i64 32
   %25 = load ptr, ptr %arena102, align 8
   %call103 = call ptr @_PyAST_Subscript(ptr noundef nonnull %call72, ptr noundef nonnull %call78, i32 noundef 2, i32 noundef %10, i32 noundef %11, i32 noundef %23, i32 noundef %24, ptr noundef %25) #4
   store ptr %call103, ptr %_res, align 8
@@ -12195,7 +12180,7 @@ return:                                           ; preds = %done, %if.then117, 
 define internal fastcc ptr @t_primary_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -12220,7 +12205,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load ptr, ptr %_res, align 8
   %call542 = call i32 @_PyPegen_update_memo(ptr noundef nonnull %p, i32 noundef %3, i32 noundef 1186, ptr noundef %4) #4
@@ -12228,10 +12213,10 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool6.not43, label %if.end10.lr.ph, label %if.then7
 
 if.end10.lr.ph:                                   ; preds = %if.end3
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   br label %if.end10
 
 if.then7:                                         ; preds = %if.end22, %if.end3
@@ -12287,9 +12272,9 @@ if.end11.i:                                       ; preds = %land.lhs.true.i
 if.end22.i:                                       ; preds = %if.end11.i.thread, %if.end11.i
   %.pn.in = phi ptr [ %arrayidx.i53, %if.end11.i.thread ], [ %arrayidx.i, %if.end11.i ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in66 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in66 = getelementptr inbounds i8, ptr %.pn, i64 20
   %13 = load i32, ptr %.in66, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %14 = load i32, ptr %.in, align 8
   %call23.i = call fastcc ptr @t_primary_rule(ptr noundef nonnull %p)
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -12316,11 +12301,11 @@ if.then34.i:                                      ; preds = %land.lhs.true31.i
   br i1 %cmp36.i, label %t_primary_raw.exit, label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.then34.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call35.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call35.i, i64 28
   %15 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call35.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call35.i, i64 32
   %16 = load i32, ptr %end_col_offset.i, align 8
-  %v.i = getelementptr inbounds %struct._expr, ptr %call29.i, i64 0, i32 1
+  %v.i = getelementptr inbounds i8, ptr %call29.i, i64 8
   %17 = load ptr, ptr %v.i, align 8
   %18 = load ptr, ptr %arena.i, align 8
   %call45.i = call ptr @_PyAST_Attribute(ptr noundef nonnull %call23.i, ptr noundef %17, i32 noundef 1, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef %18) #4
@@ -12369,9 +12354,9 @@ if.then80.i:                                      ; preds = %land.lhs.true77.i
   br i1 %cmp83.i, label %t_primary_raw.exit, label %if.end87.i
 
 if.end87.i:                                       ; preds = %if.then80.i
-  %end_lineno89.i = getelementptr inbounds %struct.Token, ptr %call82.i, i64 0, i32 5
+  %end_lineno89.i = getelementptr inbounds i8, ptr %call82.i, i64 28
   %20 = load i32, ptr %end_lineno89.i, align 4
-  %end_col_offset93.i = getelementptr inbounds %struct.Token, ptr %call82.i, i64 0, i32 6
+  %end_col_offset93.i = getelementptr inbounds i8, ptr %call82.i, i64 32
   %21 = load i32, ptr %end_col_offset93.i, align 8
   %22 = load ptr, ptr %arena.i, align 8
   %call97.i = call ptr @_PyAST_Subscript(ptr noundef nonnull %call66.i, ptr noundef nonnull %call72.i, i32 noundef 1, i32 noundef %13, i32 noundef %14, i32 noundef %20, i32 noundef %21, ptr noundef %22) #4
@@ -12410,9 +12395,9 @@ if.then125.i:                                     ; preds = %land.lhs.true122.i
   br i1 %cmp128.i, label %t_primary_raw.exit, label %if.end132.i
 
 if.end132.i:                                      ; preds = %if.then125.i
-  %end_lineno134.i = getelementptr inbounds %struct.Token, ptr %call127.i, i64 0, i32 5
+  %end_lineno134.i = getelementptr inbounds i8, ptr %call127.i, i64 28
   %24 = load i32, ptr %end_lineno134.i, align 4
-  %end_col_offset138.i = getelementptr inbounds %struct.Token, ptr %call127.i, i64 0, i32 6
+  %end_col_offset138.i = getelementptr inbounds i8, ptr %call127.i, i64 32
   %25 = load i32, ptr %end_col_offset138.i, align 8
   %call141.i = call ptr @_PyPegen_singleton_seq(ptr noundef nonnull %p, ptr noundef nonnull %call120.i) #4
   %cmp.i19 = icmp eq ptr %call141.i, null
@@ -12471,17 +12456,17 @@ if.then181.i:                                     ; preds = %land.lhs.true178.i
   br i1 %cmp184.i, label %t_primary_raw.exit, label %if.end188.i
 
 if.end188.i:                                      ; preds = %if.then181.i
-  %end_lineno190.i = getelementptr inbounds %struct.Token, ptr %call183.i, i64 0, i32 5
+  %end_lineno190.i = getelementptr inbounds i8, ptr %call183.i, i64 28
   %29 = load i32, ptr %end_lineno190.i, align 4
-  %end_col_offset194.i = getelementptr inbounds %struct.Token, ptr %call183.i, i64 0, i32 6
+  %end_col_offset194.i = getelementptr inbounds i8, ptr %call183.i, i64 32
   %30 = load i32, ptr %end_col_offset194.i, align 8
   %tobool197.not.i = icmp eq ptr %call172.i, null
   br i1 %tobool197.not.i, label %cond.end203.i, label %cond.true200.i
 
 cond.true200.i:                                   ; preds = %if.end188.i
-  %args.i = getelementptr inbounds %struct._expr, ptr %call172.i, i64 0, i32 1, i32 0, i32 1
+  %args.i = getelementptr inbounds i8, ptr %call172.i, i64 16
   %31 = load ptr, ptr %args.i, align 8
-  %keywords.i = getelementptr inbounds %struct._expr, ptr %call172.i, i64 0, i32 1, i32 0, i32 2
+  %keywords.i = getelementptr inbounds i8, ptr %call172.i, i64 24
   %32 = load ptr, ptr %keywords.i, align 8
   br label %cond.end203.i
 
@@ -12569,7 +12554,7 @@ return:                                           ; preds = %while.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal ptr @t_lookahead_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -12581,13 +12566,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 7) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -12630,7 +12615,7 @@ return:                                           ; preds = %if.end36, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @star_atom_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -12642,21 +12627,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens69 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens69 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens69, align 8
   %idxprom70 = sext i32 %2 to i64
   %arrayidx71 = getelementptr ptr, ptr %4, i64 %idxprom70
@@ -12673,7 +12658,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
@@ -12683,9 +12668,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx71, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in75 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in75 = getelementptr inbounds i8, ptr %.pn, i64 20
   %6 = load i32, ptr %.in75, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %7 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %p) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -12772,11 +12757,11 @@ if.then84:                                        ; preds = %land.lhs.true81
   br i1 %cmp86, label %return, label %if.end90
 
 if.end90:                                         ; preds = %if.then84
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call85, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call85, i64 28
   %11 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call85, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call85, i64 32
   %12 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %13 = load ptr, ptr %arena, align 8
   %call95 = tail call ptr @_PyAST_Tuple(ptr noundef %call78, i32 noundef 2, i32 noundef %6, i32 noundef %7, i32 noundef %11, i32 noundef %12, ptr noundef %13) #4
   %cmp96 = icmp eq ptr %call95, null
@@ -12819,11 +12804,11 @@ if.then126:                                       ; preds = %land.lhs.true123
   br i1 %cmp129, label %return, label %if.end133
 
 if.end133:                                        ; preds = %if.then126
-  %end_lineno135 = getelementptr inbounds %struct.Token, ptr %call128, i64 0, i32 5
+  %end_lineno135 = getelementptr inbounds i8, ptr %call128, i64 28
   %15 = load i32, ptr %end_lineno135, align 4
-  %end_col_offset139 = getelementptr inbounds %struct.Token, ptr %call128, i64 0, i32 6
+  %end_col_offset139 = getelementptr inbounds i8, ptr %call128, i64 32
   %16 = load i32, ptr %end_col_offset139, align 8
-  %arena142 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena142 = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena142, align 8
   %call143 = tail call ptr @_PyAST_List(ptr noundef %call119, i32 noundef 2, i32 noundef %6, i32 noundef %7, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
   %cmp144 = icmp eq ptr %call143, null
@@ -12853,7 +12838,7 @@ return:                                           ; preds = %if.end153, %land.lh
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @star_targets_tuple_seq_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -12865,13 +12850,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @star_target_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -12989,7 +12974,7 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
   br label %if.end28.sink.split
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena.i, align 8
   %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i, ptr noundef %11) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -13000,7 +12985,7 @@ for.cond.i.preheader:                             ; preds = %if.end40.i
   br i1 %cmp49.i56, label %for.body.i.lr.ph, label %land.lhs.true13
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -13101,7 +13086,7 @@ return:                                           ; preds = %if.end53, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @star_targets_list_seq_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -13113,13 +13098,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %3 = load i32, ptr %level, align 8
   %inc.i = add i32 %3, 1
@@ -13214,7 +13199,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.i.lcssa = phi ptr [ %call.i24, %while.cond.i.preheader ], [ %call.i24, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %7, %while.cond.i.preheader ], [ %7, %land.rhs.i.preheader ], [ %9, %if.end40.i ], [ %9, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %10 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %10) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -13225,7 +13210,7 @@ for.cond.i.preheader:                             ; preds = %while.end.i
   br i1 %cmp52.i48, label %for.body.i.lr.ph, label %_gather_135_rule.exit
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
@@ -13299,7 +13284,7 @@ declare ptr @_PyAST_List(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32
 define internal fastcc ptr @conjunction_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -13311,7 +13296,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -13336,9 +13321,9 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill, align 4
   %cmp10 = icmp eq i32 %5, %6
   br i1 %cmp10, label %land.lhs.true, label %if.end17
@@ -13356,14 +13341,14 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %col_offset, align 8
   %12 = load i32, ptr %error_indicator, align 8
   %tobool24.not = icmp eq i32 %12, 0
@@ -13492,7 +13477,7 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
   br label %if.end57.sink.split
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %22 = load ptr, ptr %arena.i, align 8
   %call41.i = call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i, ptr noundef %22) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -13503,7 +13488,7 @@ for.cond.i.preheader:                             ; preds = %if.end40.i
   br i1 %cmp49.i70, label %for.body.i.lr.ph, label %if.then34
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -13541,9 +13526,9 @@ if.then37:                                        ; preds = %if.then34
   br label %return
 
 if.end40:                                         ; preds = %if.then34
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call35, i64 28
   %27 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call35, i64 32
   %28 = load i32, ptr %end_col_offset, align 8
   %call45 = call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call29, ptr noundef nonnull %call41.i) #4
   %cmp.i38 = icmp eq ptr %call45, null
@@ -13628,7 +13613,7 @@ declare ptr @_PyAST_BoolOp(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i
 define internal fastcc ptr @inversion_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -13640,7 +13625,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -13665,9 +13650,9 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill, align 4
   %cmp10 = icmp eq i32 %5, %6
   br i1 %cmp10, label %land.lhs.true, label %if.end17
@@ -13685,14 +13670,14 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %col_offset, align 8
   %12 = load i32, ptr %error_indicator, align 8
   %tobool24.not = icmp eq i32 %12, 0
@@ -13726,11 +13711,11 @@ if.then37:                                        ; preds = %if.then34
   br label %return
 
 if.end40:                                         ; preds = %if.then34
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call35, i64 28
   %15 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call35, i64 32
   %16 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena, align 8
   %call45 = call ptr @_PyAST_UnaryOp(i32 noundef 2, ptr noundef nonnull %call32, i32 noundef %10, i32 noundef %11, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
   store ptr %call45, ptr %_res, align 8
@@ -13796,7 +13781,7 @@ return:                                           ; preds = %done, %if.then59, %
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @comparison_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -13808,21 +13793,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens213 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens213 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens213, align 8
   %idxprom214 = sext i32 %2 to i64
   %arrayidx215 = getelementptr ptr, ptr %4, i64 %idxprom214
@@ -13839,7 +13824,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
@@ -13849,9 +13834,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx215, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in322 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in322 = getelementptr inbounds i8, ptr %.pn, i64 20
   %6 = load i32, ptr %.in322, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %7 = load i32, ptr %.in, align 8
   %call23 = tail call fastcc ptr @bitwise_or_rule(ptr noundef nonnull %p)
   %tobool24.not = icmp eq ptr %call23, null
@@ -14331,7 +14316,7 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
   br label %if.end53.sink.split
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %39 = load ptr, ptr %arena.i, align 8
   %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i, ptr noundef %39) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -14342,7 +14327,7 @@ for.cond.i.preheader:                             ; preds = %if.end40.i
   br i1 %cmp49.i148, label %for.body.i.lr.ph, label %if.then28
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -14374,9 +14359,9 @@ if.then28:                                        ; preds = %for.body.i, %for.co
   br i1 %cmp30, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.then28
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call29, i64 28
   %43 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call29, i64 32
   %44 = load i32, ptr %end_col_offset, align 8
   %call39 = tail call ptr @_PyPegen_get_cmpops(ptr noundef nonnull %p, ptr noundef nonnull %call41.i) #4
   %cmp.i38 = icmp eq ptr %call39, null
@@ -14448,7 +14433,7 @@ declare ptr @_PyPegen_get_exprs(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @gt_bitwise_or_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -14460,13 +14445,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 21) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -14506,7 +14491,7 @@ return:                                           ; preds = %if.end24, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @notin_bitwise_or_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -14518,13 +14503,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 588) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -14569,7 +14554,7 @@ return:                                           ; preds = %if.end27, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @in_bitwise_or_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -14581,13 +14566,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 669) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -14627,7 +14612,7 @@ return:                                           ; preds = %if.end24, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @isnot_bitwise_or_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -14639,13 +14624,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 589) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -14690,7 +14675,7 @@ return:                                           ; preds = %if.end27, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @is_bitwise_or_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -14702,13 +14687,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 589) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -14752,7 +14737,7 @@ declare i32 @_PyPegen_check_barry_as_flufl(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @star_expressions_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -14764,21 +14749,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens106 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens106 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens106, align 8
   %idxprom107 = sext i32 %2 to i64
   %arrayidx108 = getelementptr ptr, ptr %4, i64 %idxprom107
@@ -14795,7 +14780,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
@@ -14805,9 +14790,9 @@ if.end11:                                         ; preds = %land.lhs.true
 do.end24:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx108, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in121 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in121 = getelementptr inbounds i8, ptr %.pn, i64 20
   %6 = load i32, ptr %.in121, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %7 = load i32, ptr %.in, align 8
   %call25 = tail call fastcc ptr @star_expression_rule(ptr noundef nonnull %p)
   %tobool26.not = icmp eq ptr %call25, null
@@ -14925,7 +14910,7 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
   br label %if.end57.sink.split
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %16 = load ptr, ptr %arena.i, align 8
   %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i, ptr noundef %16) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -14936,7 +14921,7 @@ for.cond.i.preheader:                             ; preds = %if.end40.i
   br i1 %cmp49.i93, label %for.body.i.lr.ph, label %land.lhs.true30
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -14978,9 +14963,9 @@ if.then34:                                        ; preds = %land.lhs.true30
   br i1 %cmp36, label %return, label %if.end40
 
 if.end40:                                         ; preds = %if.then34
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call35, i64 28
   %21 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call35, i64 32
   %22 = load i32, ptr %end_col_offset, align 8
   %call45 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call25, ptr noundef nonnull %call41.i) #4
   %cmp.i55 = icmp eq ptr %call45, null
@@ -15033,9 +15018,9 @@ if.then71:                                        ; preds = %land.lhs.true68
   br i1 %cmp74, label %return, label %if.end78
 
 if.end78:                                         ; preds = %if.then71
-  %end_lineno80 = getelementptr inbounds %struct.Token, ptr %call73, i64 0, i32 5
+  %end_lineno80 = getelementptr inbounds i8, ptr %call73, i64 28
   %25 = load i32, ptr %end_lineno80, align 4
-  %end_col_offset84 = getelementptr inbounds %struct.Token, ptr %call73, i64 0, i32 6
+  %end_col_offset84 = getelementptr inbounds i8, ptr %call73, i64 32
   %26 = load i32, ptr %end_col_offset84, align 8
   %call87 = tail call ptr @_PyPegen_singleton_seq(ptr noundef nonnull %p, ptr noundef nonnull %call66) #4
   %cmp.i59 = icmp eq ptr %call87, null
@@ -15046,7 +15031,7 @@ if.then.i61:                                      ; preds = %if.end78
   br label %CHECK_CALL.exit63
 
 CHECK_CALL.exit63:                                ; preds = %if.end78, %if.then.i61
-  %arena89 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena89 = getelementptr inbounds i8, ptr %p, i64 32
   %27 = load ptr, ptr %arena89, align 8
   %call90 = tail call ptr @_PyAST_Tuple(ptr noundef %call87, i32 noundef 1, i32 noundef %6, i32 noundef %7, i32 noundef %25, i32 noundef %26, ptr noundef %27) #4
   %cmp91 = icmp eq ptr %call90, null
@@ -15097,7 +15082,7 @@ land.lhs.true.i:                                  ; preds = %entry
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator.i, align 8
   br label %return
 
@@ -15106,16 +15091,16 @@ if.then:                                          ; preds = %entry
   %or.cond = icmp eq i32 %0, 0
   %.str.57..str.58 = select i1 %or.cond, ptr @.str.57, ptr @.str.58
   %1 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno = getelementptr inbounds %struct._expr, ptr %call, i64 0, i32 2
+  %lineno = getelementptr inbounds i8, ptr %call, i64 32
   %2 = load i32, ptr %lineno, align 8
   %conv = sext i32 %2 to i64
-  %col_offset = getelementptr inbounds %struct._expr, ptr %call, i64 0, i32 3
+  %col_offset = getelementptr inbounds i8, ptr %call, i64 36
   %3 = load i32, ptr %col_offset, align 4
   %conv5 = sext i32 %3 to i64
-  %end_lineno = getelementptr inbounds %struct._expr, ptr %call, i64 0, i32 4
+  %end_lineno = getelementptr inbounds i8, ptr %call, i64 40
   %4 = load i32, ptr %end_lineno, align 8
   %conv6 = sext i32 %4 to i64
-  %end_col_offset = getelementptr inbounds %struct._expr, ptr %call, i64 0, i32 5
+  %end_col_offset = getelementptr inbounds i8, ptr %call, i64 44
   %5 = load i32, ptr %end_col_offset, align 4
   %conv7 = sext i32 %5 to i64
   %call8 = tail call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call) #4
@@ -15130,7 +15115,7 @@ return:                                           ; preds = %if.then.i, %land.lh
 define internal fastcc ptr @star_expression_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -15142,7 +15127,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -15167,9 +15152,9 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill, align 4
   %cmp10 = icmp eq i32 %5, %6
   br i1 %cmp10, label %land.lhs.true, label %if.end17
@@ -15187,14 +15172,14 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %col_offset, align 8
   %12 = load i32, ptr %error_indicator, align 8
   %tobool24.not = icmp eq i32 %12, 0
@@ -15228,11 +15213,11 @@ if.then37:                                        ; preds = %if.then34
   br label %return
 
 if.end40:                                         ; preds = %if.then34
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call35, i64 28
   %15 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call35, i64 32
   %16 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena, align 8
   %call45 = call ptr @_PyAST_Starred(ptr noundef nonnull %call32, i32 noundef 1, i32 noundef %10, i32 noundef %11, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
   store ptr %call45, ptr %_res, align 8
@@ -15300,7 +15285,7 @@ declare ptr @_PyPegen_get_invalid_target(ptr noundef, i32 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @starred_expression_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -15312,15 +15297,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11
@@ -15340,16 +15325,16 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true.if.end11_crit_edge, %if.end3
   %.pre35 = phi i32 [ %.pre35.pre, %land.lhs.true.if.end11_crit_edge ], [ 0, %if.end3 ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %5, i64 20
   %6 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %col_offset, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %8 = load i32, ptr %call_invalid_rules, align 4
   %tobool17.not = icmp eq i32 %8, 0
   br i1 %tobool17.not, label %if.end30, label %if.then18
@@ -15399,16 +15384,16 @@ land.lhs.true16.i:                                ; preds = %land.lhs.true13.i
 
 if.then19.i:                                      ; preds = %land.lhs.true16.i
   %11 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call.i, i64 20
   %12 = load i32, ptr %lineno.i, align 4
   %conv.i = sext i32 %12 to i64
-  %col_offset.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 4
+  %col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %13 = load i32, ptr %col_offset.i, align 8
   %conv20.i = sext i32 %13 to i64
-  %end_lineno.i = getelementptr inbounds %struct._expr, ptr %call17.i, i64 0, i32 4
+  %end_lineno.i = getelementptr inbounds i8, ptr %call17.i, i64 40
   %14 = load i32, ptr %end_lineno.i, align 8
   %conv21.i = sext i32 %14 to i64
-  %end_col_offset.i = getelementptr inbounds %struct._expr, ptr %call17.i, i64 0, i32 5
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call17.i, i64 44
   %15 = load i32, ptr %end_col_offset.i, align 4
   %conv22.i = sext i32 %15 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %11, i64 noundef %conv.i, i64 noundef %conv20.i, i64 noundef %conv21.i, i64 noundef %conv22.i, ptr noundef nonnull @.str.61)
@@ -15456,11 +15441,11 @@ if.then42:                                        ; preds = %land.lhs.true39
   br i1 %cmp44, label %return.sink.split, label %if.end48
 
 if.end48:                                         ; preds = %if.then42
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call43, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call43, i64 28
   %19 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call43, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call43, i64 32
   %20 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %21 = load ptr, ptr %arena, align 8
   %call53 = tail call ptr @_PyAST_Starred(ptr noundef nonnull %call40, i32 noundef 1, i32 noundef %6, i32 noundef %7, i32 noundef %19, i32 noundef %20, ptr noundef %21) #4
   %cmp54 = icmp eq ptr %call53, null
@@ -15495,7 +15480,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @star_named_expression_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -15507,21 +15492,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens34 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens34 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens34, align 8
   %idxprom35 = sext i32 %2 to i64
   %arrayidx36 = getelementptr ptr, ptr %4, i64 %idxprom35
@@ -15539,7 +15524,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -15548,9 +15533,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx36, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in39 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in39 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in39, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 16) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -15567,11 +15552,11 @@ if.then28:                                        ; preds = %land.lhs.true25
   br i1 %cmp30, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.then28
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call29, i64 28
   %9 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call29, i64 32
   %10 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena, align 8
   %call39 = tail call ptr @_PyAST_Starred(ptr noundef nonnull %call26, i32 noundef 1, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) #4
   %cmp40 = icmp eq ptr %call39, null
@@ -15612,7 +15597,7 @@ return:                                           ; preds = %if.end60, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @star_named_expressions_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -15624,13 +15609,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %3 = load i32, ptr %level, align 8
   %inc.i = add i32 %3, 1
@@ -15691,7 +15676,7 @@ declare ptr @_PyPegen_seq_last_item(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_gather_84_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -15703,13 +15688,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @star_named_expression_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -15739,7 +15724,7 @@ return:                                           ; preds = %if.then13, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_85_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -15751,13 +15736,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -15828,7 +15813,7 @@ while.end:                                        ; preds = %if.end40, %land.rhs
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %call, %land.rhs.preheader ], [ %_children.1, %land.rhs ], [ %_children.1, %if.end40 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %2, %land.rhs.preheader ], [ %4, %land.rhs ], [ %4, %if.end40 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call44 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool45.not = icmp eq ptr %call44, null
@@ -15839,7 +15824,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp5254, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call44, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call44, i64 8
   br label %for.body
 
 if.then46:                                        ; preds = %while.end
@@ -15876,7 +15861,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @args_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -15888,7 +15873,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -15898,15 +15883,15 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %4 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %3, %4
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens127 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens127 = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens127, align 8
   %idxprom128 = sext i32 %3 to i64
   %arrayidx129 = getelementptr ptr, ptr %5, i64 %idxprom128
@@ -15924,7 +15909,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %7 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr ptr, ptr %7, i64 %idxprom
@@ -15938,9 +15923,9 @@ if.then19:                                        ; preds = %if.end11
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx129, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in135 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in135 = getelementptr inbounds i8, ptr %.pn, i64 20
   %9 = load i32, ptr %.in135, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %10 = load i32, ptr %.in, align 8
   %11 = load i32, ptr %level, align 8
   %inc.i = add i32 %11, 1
@@ -16035,7 +16020,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.i.lcssa = phi ptr [ %call.i92, %while.cond.i.preheader ], [ %call.i92, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %14, %while.cond.i.preheader ], [ %14, %land.rhs.i.preheader ], [ %16, %if.end40.i ], [ %16, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %17) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -16046,7 +16031,7 @@ for.cond.i.preheader:                             ; preds = %while.end.i
   br i1 %cmp52.i122, label %for.body.i.lr.ph, label %_gather_123_rule.exit
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
@@ -16142,9 +16127,9 @@ if.then32:                                        ; preds = %if.then29
   br label %return
 
 if.end35:                                         ; preds = %if.then29
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call30, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call30, i64 28
   %25 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call30, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call30, i64 32
   %26 = load i32, ptr %end_col_offset, align 8
   %27 = load ptr, ptr %arena.i, align 8
   %call40 = tail call ptr @_PyPegen_collect_call_seqs(ptr noundef nonnull %p, ptr noundef nonnull %call14.i, ptr noundef %retval.0.i57.ph, i32 noundef %9, i32 noundef %10, i32 noundef %25, i32 noundef %26, ptr noundef %27) #4
@@ -16189,9 +16174,9 @@ if.then65:                                        ; preds = %if.then61
   br label %return
 
 if.end68:                                         ; preds = %if.then61
-  %end_lineno70 = getelementptr inbounds %struct.Token, ptr %call63, i64 0, i32 5
+  %end_lineno70 = getelementptr inbounds i8, ptr %call63, i64 28
   %31 = load i32, ptr %end_lineno70, align 4
-  %end_col_offset74 = getelementptr inbounds %struct.Token, ptr %call63, i64 0, i32 6
+  %end_col_offset74 = getelementptr inbounds i8, ptr %call63, i64 32
   %32 = load i32, ptr %end_col_offset74, align 8
   %call77 = tail call ptr (ptr, ...) @_PyPegen_dummy_name(ptr noundef nonnull %p) #4
   %call78 = tail call ptr @_PyPegen_seq_extract_starred_exprs(ptr noundef nonnull %p, ptr noundef nonnull %call59) #4
@@ -16222,7 +16207,7 @@ if.then.i80:                                      ; preds = %land.lhs.true.i77
   br label %CHECK_CALL_NULL_ALLOWED.exit82
 
 CHECK_CALL_NULL_ALLOWED.exit82:                   ; preds = %CHECK_CALL_NULL_ALLOWED.exit, %land.lhs.true.i77, %if.then.i80
-  %arena82 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena82 = getelementptr inbounds i8, ptr %p, i64 32
   %33 = load ptr, ptr %arena82, align 8
   %call83 = tail call ptr @_PyAST_Call(ptr noundef %call77, ptr noundef %call78, ptr noundef %call80, i32 noundef %9, i32 noundef %10, i32 noundef %31, i32 noundef %32, ptr noundef %33) #4
   %cmp84 = icmp eq ptr %call83, null
@@ -16258,7 +16243,7 @@ return:                                           ; preds = %if.end50, %if.end50
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_arguments_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -16270,7 +16255,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -16280,7 +16265,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load i32, ptr %level, align 8
   %inc.i = add i32 %4, 1
@@ -16416,7 +16401,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %8, %while.cond.preheader.i ], [ %8, %land.rhs.i.preheader ], [ %10, %if.end40.i ], [ %10, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %11) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -16427,7 +16412,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp5254.i, label %for.body.lr.ph.i, label %_gather_274_rule.exit.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 if.then46.i:                                      ; preds = %while.end.i
@@ -16536,16 +16521,16 @@ land.lhs.true13:                                  ; preds = %land.lhs.true
 
 if.then16:                                        ; preds = %land.lhs.true13
   %18 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %call14, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %call14, i64 20
   %19 = load i32, ptr %lineno, align 4
   %conv = sext i32 %19 to i64
-  %col_offset = getelementptr inbounds %struct.Token, ptr %call14, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %call14, i64 24
   %20 = load i32, ptr %col_offset, align 8
   %conv17 = sext i32 %20 to i64
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call14, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call14, i64 28
   %21 = load i32, ptr %end_lineno, align 4
   %conv18 = sext i32 %21 to i64
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call14, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call14, i64 32
   %22 = load i32, ptr %end_col_offset, align 8
   %conv19 = sext i32 %22 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %18, i64 noundef %conv, i64 noundef %conv17, i64 noundef %conv18, i64 noundef %conv19, ptr noundef nonnull @.str.64)
@@ -16684,20 +16669,20 @@ if.end77.thread:                                  ; preds = %if.end77.thread.sin
 
 if.then53:                                        ; preds = %_tmp_151_rule.exit
   %34 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno54 = getelementptr inbounds %struct._expr, ptr %call41, i64 0, i32 2
+  %lineno54 = getelementptr inbounds i8, ptr %call41, i64 32
   %35 = load i32, ptr %lineno54, align 8
   %conv55 = sext i32 %35 to i64
-  %col_offset56 = getelementptr inbounds %struct._expr, ptr %call41, i64 0, i32 3
+  %col_offset56 = getelementptr inbounds i8, ptr %call41, i64 36
   %36 = load i32, ptr %col_offset56, align 4
   %conv57 = sext i32 %36 to i64
   %call58 = tail call ptr @_PyPegen_seq_last_item(ptr noundef nonnull %call.i107) #4
   %call59 = tail call ptr @_PyPegen_get_last_comprehension_item(ptr noundef %call58) #4
-  %end_lineno60 = getelementptr inbounds %struct._expr, ptr %call59, i64 0, i32 4
+  %end_lineno60 = getelementptr inbounds i8, ptr %call59, i64 40
   %37 = load i32, ptr %end_lineno60, align 8
   %conv61 = sext i32 %37 to i64
   %call62 = tail call ptr @_PyPegen_seq_last_item(ptr noundef nonnull %call.i107) #4
   %call63 = tail call ptr @_PyPegen_get_last_comprehension_item(ptr noundef %call62) #4
-  %end_col_offset64 = getelementptr inbounds %struct._expr, ptr %call63, i64 0, i32 5
+  %end_col_offset64 = getelementptr inbounds i8, ptr %call63, i64 44
   %38 = load i32, ptr %end_col_offset64, align 4
   %conv65 = sext i32 %38 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %34, i64 noundef %conv55, i64 noundef %conv57, i64 noundef %conv61, i64 noundef %conv65, ptr noundef nonnull @.str.65)
@@ -16742,16 +16727,16 @@ land.lhs.true95:                                  ; preds = %land.lhs.true92
 
 if.then98:                                        ; preds = %land.lhs.true95
   %40 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno99 = getelementptr inbounds %struct._expr, ptr %call87, i64 0, i32 2
+  %lineno99 = getelementptr inbounds i8, ptr %call87, i64 32
   %41 = load i32, ptr %lineno99, align 8
   %conv100 = sext i32 %41 to i64
-  %col_offset101 = getelementptr inbounds %struct._expr, ptr %call87, i64 0, i32 3
+  %col_offset101 = getelementptr inbounds i8, ptr %call87, i64 36
   %42 = load i32, ptr %col_offset101, align 4
   %conv102 = sext i32 %42 to i64
-  %end_lineno103 = getelementptr inbounds %struct.Token, ptr %call90, i64 0, i32 5
+  %end_lineno103 = getelementptr inbounds i8, ptr %call90, i64 28
   %43 = load i32, ptr %end_lineno103, align 4
   %conv104 = sext i32 %43 to i64
-  %end_col_offset105 = getelementptr inbounds %struct.Token, ptr %call90, i64 0, i32 6
+  %end_col_offset105 = getelementptr inbounds i8, ptr %call90, i64 32
   %44 = load i32, ptr %end_col_offset105, align 8
   %conv106 = sext i32 %44 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %40, i64 noundef %conv100, i64 noundef %conv102, i64 noundef %conv104, i64 noundef %conv106, ptr noundef nonnull @.str.52)
@@ -16801,16 +16786,16 @@ land.lhs.true141:                                 ; preds = %land.lhs.true138
 
 if.then144:                                       ; preds = %land.lhs.true141
   %49 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno145 = getelementptr inbounds %struct._expr, ptr %call136, i64 0, i32 2
+  %lineno145 = getelementptr inbounds i8, ptr %call136, i64 32
   %50 = load i32, ptr %lineno145, align 8
   %conv146 = sext i32 %50 to i64
-  %col_offset147 = getelementptr inbounds %struct._expr, ptr %call136, i64 0, i32 3
+  %col_offset147 = getelementptr inbounds i8, ptr %call136, i64 36
   %51 = load i32, ptr %col_offset147, align 4
   %conv148 = sext i32 %51 to i64
-  %end_lineno149 = getelementptr inbounds %struct.Token, ptr %call139, i64 0, i32 5
+  %end_lineno149 = getelementptr inbounds i8, ptr %call139, i64 28
   %52 = load i32, ptr %end_lineno149, align 4
   %conv150 = sext i32 %52 to i64
-  %end_col_offset151 = getelementptr inbounds %struct.Token, ptr %call139, i64 0, i32 6
+  %end_col_offset151 = getelementptr inbounds i8, ptr %call139, i64 32
   %53 = load i32, ptr %end_col_offset151, align 8
   %conv152 = sext i32 %53 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %49, i64 noundef %conv146, i64 noundef %conv148, i64 noundef %conv150, i64 noundef %conv152, ptr noundef nonnull @.str.66)
@@ -16890,20 +16875,20 @@ land.lhs.true210:                                 ; preds = %land.lhs.true207
 
 if.then213:                                       ; preds = %land.lhs.true210
   %59 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno214 = getelementptr inbounds %struct._expr, ptr %call208, i64 0, i32 2
+  %lineno214 = getelementptr inbounds i8, ptr %call208, i64 32
   %60 = load i32, ptr %lineno214, align 8
   %conv215 = sext i32 %60 to i64
-  %col_offset216 = getelementptr inbounds %struct._expr, ptr %call208, i64 0, i32 3
+  %col_offset216 = getelementptr inbounds i8, ptr %call208, i64 36
   %61 = load i32, ptr %col_offset216, align 4
   %conv217 = sext i32 %61 to i64
   %call218 = tail call ptr @_PyPegen_seq_last_item(ptr noundef nonnull %call211) #4
   %call219 = tail call ptr @_PyPegen_get_last_comprehension_item(ptr noundef %call218) #4
-  %end_lineno220 = getelementptr inbounds %struct._expr, ptr %call219, i64 0, i32 4
+  %end_lineno220 = getelementptr inbounds i8, ptr %call219, i64 40
   %62 = load i32, ptr %end_lineno220, align 8
   %conv221 = sext i32 %62 to i64
   %call222 = tail call ptr @_PyPegen_seq_last_item(ptr noundef nonnull %call211) #4
   %call223 = tail call ptr @_PyPegen_get_last_comprehension_item(ptr noundef %call222) #4
-  %end_col_offset224 = getelementptr inbounds %struct._expr, ptr %call223, i64 0, i32 5
+  %end_col_offset224 = getelementptr inbounds i8, ptr %call223, i64 44
   %63 = load i32, ptr %end_col_offset224, align 4
   %conv225 = sext i32 %63 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %59, i64 noundef %conv215, i64 noundef %conv217, i64 noundef %conv221, i64 noundef %conv225, ptr noundef nonnull @.str.65)
@@ -16978,7 +16963,7 @@ declare ptr @_PyPegen_collect_call_seqs(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @kwargs_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -16990,13 +16975,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %3 = load i32, ptr %level, align 8
   %inc.i = add i32 %3, 1
@@ -17091,7 +17076,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.i.lcssa = phi ptr [ %call.i75, %while.cond.i.preheader ], [ %call.i75, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %6, %while.cond.i.preheader ], [ %6, %land.rhs.i.preheader ], [ %8, %if.end40.i ], [ %8, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %9 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %9) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -17102,7 +17087,7 @@ for.cond.i.preheader:                             ; preds = %while.end.i
   br i1 %cmp52.i248, label %for.body.i.lr.ph, label %_gather_126_rule.exit
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
@@ -17242,7 +17227,7 @@ for.cond.i126.preheader:                          ; preds = %while.end.i122
   br i1 %cmp52.i129263, label %for.body.i132.lr.ph, label %_gather_128_rule.exit
 
 for.body.i132.lr.ph:                              ; preds = %for.cond.i126.preheader
-  %elements.i134 = getelementptr inbounds %struct.asdl_seq, ptr %call44.i124, i64 0, i32 1
+  %elements.i134 = getelementptr inbounds i8, ptr %call44.i124, i64 8
   br label %for.body.i132
 
 for.body.i132:                                    ; preds = %for.body.i132.lr.ph, %for.body.i132
@@ -17409,7 +17394,7 @@ while.end.i187:                                   ; preds = %land.rhs.i168, %if.
   %_children.0.i164.lcssa = phi ptr [ %call.i155, %while.cond.i161.preheader ], [ %call.i155, %land.rhs.i168.preheader ], [ %_children.1.i175, %if.end40.i173 ], [ %_children.1.i175, %land.rhs.i168 ]
   %_mark.0.i165.lcssa = phi i32 [ %28, %while.cond.i161.preheader ], [ %28, %land.rhs.i168.preheader ], [ %30, %if.end40.i173 ], [ %30, %land.rhs.i168 ]
   store i32 %_mark.0.i165.lcssa, ptr %mark, align 8
-  %arena.i188 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i188 = getelementptr inbounds i8, ptr %p, i64 32
   %31 = load ptr, ptr %arena.i188, align 8
   %call44.i189 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i163.lcssa, ptr noundef %31) #4
   %tobool45.not.i190 = icmp eq ptr %call44.i189, null
@@ -17420,7 +17405,7 @@ for.cond.i191.preheader:                          ; preds = %while.end.i187
   br i1 %cmp52.i194278, label %for.body.i197.lr.ph, label %_gather_130_rule.exit
 
 for.body.i197.lr.ph:                              ; preds = %for.cond.i191.preheader
-  %elements.i199 = getelementptr inbounds %struct.asdl_seq, ptr %call44.i189, i64 0, i32 1
+  %elements.i199 = getelementptr inbounds i8, ptr %call44.i189, i64 8
   br label %for.body.i197
 
 for.body.i197:                                    ; preds = %for.body.i197.lr.ph, %for.body.i197
@@ -17568,7 +17553,7 @@ while.end.i.i:                                    ; preds = %land.rhs.i.i, %if.e
   %_children.0.i.lcssa.i = phi ptr [ %call.i.i, %while.cond.i.preheader.i ], [ %call.i.i, %land.rhs.i.i.preheader ], [ %_children.1.i.i, %if.end40.i.i ], [ %_children.1.i.i, %land.rhs.i.i ]
   %_mark.0.i.lcssa.i = phi i32 [ %41, %while.cond.i.preheader.i ], [ %41, %land.rhs.i.i.preheader ], [ %43, %if.end40.i.i ], [ %43, %land.rhs.i.i ]
   store i32 %_mark.0.i.lcssa.i, ptr %mark, align 8
-  %arena.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %44 = load ptr, ptr %arena.i.i, align 8
   %call44.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa.i, ptr noundef %44) #4
   %tobool45.not.i.i = icmp eq ptr %call44.i.i, null
@@ -17579,7 +17564,7 @@ for.cond.i.preheader.i:                           ; preds = %while.end.i.i
   br i1 %cmp52.i28.i, label %for.body.i.lr.ph.i, label %_gather_132_rule.exit
 
 for.body.i.lr.ph.i:                               ; preds = %for.cond.i.preheader.i
-  %elements.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i, i64 0, i32 1
+  %elements.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.lr.ph.i
@@ -17655,7 +17640,7 @@ declare ptr @_PyPegen_seq_delete_starred_exprs(ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_260_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -17667,13 +17652,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @starred_expression_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -17757,7 +17742,7 @@ declare ptr @_PyPegen_join_sequences(ptr noundef, ptr noundef, ptr noundef) loca
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @kwarg_or_starred_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -17769,15 +17754,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11
@@ -17797,16 +17782,16 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true.if.end11_crit_edge, %if.end3
   %.pre46 = phi i32 [ %.pre46.pre, %land.lhs.true.if.end11_crit_edge ], [ 0, %if.end3 ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %5, i64 20
   %6 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %col_offset, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %8 = load i32, ptr %call_invalid_rules, align 4
   %tobool17.not = icmp eq i32 %8, 0
   br i1 %tobool17.not, label %if.end30, label %if.then18
@@ -17847,13 +17832,13 @@ if.then45:                                        ; preds = %land.lhs.true42
   br i1 %cmp47, label %return, label %if.end51
 
 if.end51:                                         ; preds = %if.then45
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call46, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call46, i64 28
   %10 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call46, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call46, i64 32
   %11 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call37, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call37, i64 8
   %12 = load ptr, ptr %v, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %13 = load ptr, ptr %arena, align 8
   %call56 = tail call ptr @_PyAST_keyword(ptr noundef %12, ptr noundef nonnull %call43, i32 noundef %6, i32 noundef %7, i32 noundef %10, i32 noundef %11, ptr noundef %13) #4
   %cmp.i = icmp eq ptr %call56, null
@@ -17917,7 +17902,7 @@ return:                                           ; preds = %if.end90, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_kwarg_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -17929,13 +17914,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %3 = load i32, ptr %level, align 8
   %inc.i = add i32 %3, 1
@@ -17994,21 +17979,21 @@ land.lhs.true:                                    ; preds = %if.end31.i, %if.end
 
 if.then13:                                        ; preds = %land.lhs.true
   %9 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %retval.0.i, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %retval.0.i, i64 20
   %10 = load i32, ptr %lineno, align 4
   %conv = sext i32 %10 to i64
-  %col_offset = getelementptr inbounds %struct.Token, ptr %retval.0.i, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %11 = load i32, ptr %col_offset, align 8
   %conv14 = sext i32 %11 to i64
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call11, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call11, i64 28
   %12 = load i32, ptr %end_lineno, align 4
   %conv15 = sext i32 %12 to i64
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call11, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call11, i64 32
   %13 = load i32, ptr %end_col_offset, align 8
   %conv16 = sext i32 %13 to i64
-  %bytes = getelementptr inbounds %struct.Token, ptr %retval.0.i, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %14 = load ptr, ptr %bytes, align 8
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %14, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %14, i64 32
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %9, i64 noundef %conv, i64 noundef %conv14, i64 noundef %conv15, i64 noundef %conv16, ptr noundef nonnull @.str.57, ptr noundef nonnull %ob_sval.i)
   %call22 = tail call ptr @PyErr_Occurred() #4
   %tobool23.not = icmp eq ptr %call22, null
@@ -18071,16 +18056,16 @@ if.then50:                                        ; preds = %if.end3.i66
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %level, align 8
   %18 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno51 = getelementptr inbounds %struct._expr, ptr %call39, i64 0, i32 2
+  %lineno51 = getelementptr inbounds i8, ptr %call39, i64 32
   %19 = load i32, ptr %lineno51, align 8
   %conv52 = sext i32 %19 to i64
-  %col_offset53 = getelementptr inbounds %struct._expr, ptr %call39, i64 0, i32 3
+  %col_offset53 = getelementptr inbounds i8, ptr %call39, i64 36
   %20 = load i32, ptr %col_offset53, align 4
   %conv54 = sext i32 %20 to i64
-  %end_lineno55 = getelementptr inbounds %struct.Token, ptr %call42, i64 0, i32 5
+  %end_lineno55 = getelementptr inbounds i8, ptr %call42, i64 28
   %21 = load i32, ptr %end_lineno55, align 4
   %conv56 = sext i32 %21 to i64
-  %end_col_offset57 = getelementptr inbounds %struct.Token, ptr %call42, i64 0, i32 6
+  %end_col_offset57 = getelementptr inbounds i8, ptr %call42, i64 32
   %22 = load i32, ptr %end_col_offset57, align 8
   %conv58 = sext i32 %22 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %18, i64 noundef %conv52, i64 noundef %conv54, i64 noundef %conv56, i64 noundef %conv58, ptr noundef nonnull @.str.52)
@@ -18115,16 +18100,16 @@ land.lhs.true85:                                  ; preds = %land.lhs.true82
 
 if.then88:                                        ; preds = %land.lhs.true85
   %24 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno89 = getelementptr inbounds %struct._expr, ptr %call83, i64 0, i32 2
+  %lineno89 = getelementptr inbounds i8, ptr %call83, i64 32
   %25 = load i32, ptr %lineno89, align 8
   %conv90 = sext i32 %25 to i64
-  %col_offset91 = getelementptr inbounds %struct._expr, ptr %call83, i64 0, i32 3
+  %col_offset91 = getelementptr inbounds i8, ptr %call83, i64 36
   %26 = load i32, ptr %col_offset91, align 4
   %conv92 = sext i32 %26 to i64
-  %end_lineno93 = getelementptr inbounds %struct.Token, ptr %call86, i64 0, i32 5
+  %end_lineno93 = getelementptr inbounds i8, ptr %call86, i64 28
   %27 = load i32, ptr %end_lineno93, align 4
   %conv94 = sext i32 %27 to i64
-  %end_col_offset95 = getelementptr inbounds %struct.Token, ptr %call86, i64 0, i32 6
+  %end_col_offset95 = getelementptr inbounds i8, ptr %call86, i64 32
   %28 = load i32, ptr %end_col_offset95, align 8
   %conv96 = sext i32 %28 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %24, i64 noundef %conv90, i64 noundef %conv92, i64 noundef %conv94, i64 noundef %conv96, ptr noundef nonnull @.str.62)
@@ -18164,16 +18149,16 @@ land.lhs.true127:                                 ; preds = %land.lhs.true124
 
 if.then130:                                       ; preds = %land.lhs.true127
   %30 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno131 = getelementptr inbounds %struct.Token, ptr %call119, i64 0, i32 3
+  %lineno131 = getelementptr inbounds i8, ptr %call119, i64 20
   %31 = load i32, ptr %lineno131, align 4
   %conv132 = sext i32 %31 to i64
-  %col_offset133 = getelementptr inbounds %struct.Token, ptr %call119, i64 0, i32 4
+  %col_offset133 = getelementptr inbounds i8, ptr %call119, i64 24
   %32 = load i32, ptr %col_offset133, align 8
   %conv134 = sext i32 %32 to i64
-  %end_lineno135 = getelementptr inbounds %struct._expr, ptr %call128, i64 0, i32 4
+  %end_lineno135 = getelementptr inbounds i8, ptr %call128, i64 40
   %33 = load i32, ptr %end_lineno135, align 8
   %conv136 = sext i32 %33 to i64
-  %end_col_offset137 = getelementptr inbounds %struct._expr, ptr %call128, i64 0, i32 5
+  %end_col_offset137 = getelementptr inbounds i8, ptr %call128, i64 44
   %34 = load i32, ptr %end_col_offset137, align 4
   %conv138 = sext i32 %34 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %30, i64 noundef %conv132, i64 noundef %conv134, i64 noundef %conv136, i64 noundef %conv138, ptr noundef nonnull @.str.63)
@@ -18203,7 +18188,7 @@ declare ptr @_PyAST_keyword(ptr noundef, ptr noundef, i32 noundef, i32 noundef, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_155_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -18215,13 +18200,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %p) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -18251,7 +18236,7 @@ return:                                           ; preds = %if.then13, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @kwarg_or_double_starred_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -18263,15 +18248,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11
@@ -18291,16 +18276,16 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true.if.end11_crit_edge, %if.end3
   %.pre59 = phi i32 [ %.pre59.pre, %land.lhs.true.if.end11_crit_edge ], [ 0, %if.end3 ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %5, i64 20
   %6 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %col_offset, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %8 = load i32, ptr %call_invalid_rules, align 4
   %tobool17.not = icmp eq i32 %8, 0
   br i1 %tobool17.not, label %if.end30, label %if.then18
@@ -18341,13 +18326,13 @@ if.then45:                                        ; preds = %land.lhs.true42
   br i1 %cmp47, label %return, label %if.end51
 
 if.end51:                                         ; preds = %if.then45
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call46, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call46, i64 28
   %10 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call46, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call46, i64 32
   %11 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call37, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call37, i64 8
   %12 = load ptr, ptr %v, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %13 = load ptr, ptr %arena, align 8
   %call56 = tail call ptr @_PyAST_keyword(ptr noundef %12, ptr noundef nonnull %call43, i32 noundef %6, i32 noundef %7, i32 noundef %10, i32 noundef %11, ptr noundef %13) #4
   %cmp.i = icmp eq ptr %call56, null
@@ -18393,11 +18378,11 @@ if.then83:                                        ; preds = %land.lhs.true80
   br i1 %cmp86, label %return, label %if.end90
 
 if.end90:                                         ; preds = %if.then83
-  %end_lineno92 = getelementptr inbounds %struct.Token, ptr %call85, i64 0, i32 5
+  %end_lineno92 = getelementptr inbounds i8, ptr %call85, i64 28
   %15 = load i32, ptr %end_lineno92, align 4
-  %end_col_offset96 = getelementptr inbounds %struct.Token, ptr %call85, i64 0, i32 6
+  %end_col_offset96 = getelementptr inbounds i8, ptr %call85, i64 32
   %16 = load i32, ptr %end_col_offset96, align 8
-  %arena99 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena99 = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena99, align 8
   %call100 = tail call ptr @_PyAST_keyword(ptr noundef null, ptr noundef nonnull %call81, i32 noundef %6, i32 noundef %7, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
   %cmp.i55 = icmp eq ptr %call100, null
@@ -18438,7 +18423,7 @@ declare ptr @_PyPegen_get_last_comprehension_item(ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_tmp_152_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -18450,13 +18435,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @args_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -18485,7 +18470,7 @@ return:                                           ; preds = %if.then13, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_153_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -18497,13 +18482,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -18539,7 +18524,7 @@ declare ptr @_PyPegen_arguments_parsing_error(ptr noundef, ptr noundef) local_un
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_280_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -18551,13 +18536,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @starred_expression_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -18639,7 +18624,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @slice_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -18651,21 +18636,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens43 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens43 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens43, align 8
   %idxprom44 = sext i32 %2 to i64
   %arrayidx45 = getelementptr ptr, ptr %4, i64 %idxprom44
@@ -18683,7 +18668,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -18692,9 +18677,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx45, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in48 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in48 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in48, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
   %9 = load i32, ptr %error_indicator, align 8
@@ -18781,11 +18766,11 @@ if.then39:                                        ; preds = %_tmp_92_rule.exit.t
   br i1 %cmp41, label %return, label %if.end45
 
 if.end45:                                         ; preds = %if.then39
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call40, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call40, i64 28
   %18 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call40, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call40, i64 32
   %19 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %20 = load ptr, ptr %arena, align 8
   %call50 = tail call ptr @_PyAST_Slice(ptr noundef %call23, ptr noundef %call30, ptr noundef %retval.0.i58, i32 noundef %7, i32 noundef %8, i32 noundef %18, i32 noundef %19, ptr noundef %20) #4
   %cmp51 = icmp eq ptr %call50, null
@@ -18834,7 +18819,7 @@ declare ptr @_PyAST_Constant(ptr noundef, ptr noundef, i32 noundef, i32 noundef,
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_93_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -18846,13 +18831,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_string_token(ptr noundef nonnull %p) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -18885,7 +18870,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 define internal fastcc ptr @strings_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -18897,7 +18882,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -18922,9 +18907,9 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill, align 4
   %cmp10 = icmp eq i32 %5, %6
   br i1 %cmp10, label %land.lhs.true, label %if.end17
@@ -18942,14 +18927,14 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %col_offset, align 8
   %12 = load i32, ptr %error_indicator, align 8
   %tobool24.not = icmp eq i32 %12, 0
@@ -18990,7 +18975,7 @@ if.end10.i:                                       ; preds = %if.end3.i
   br i1 %tobool12.not.i, label %while.cond.i.preheader, label %if.end52
 
 while.cond.i.preheader:                           ; preds = %if.end10.i
-  %arena.i200 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i200 = getelementptr inbounds i8, ptr %p, i64 32
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %if.end30.i
@@ -19157,7 +19142,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i199
   br i1 %cmp4263.i, label %for.body.lr.ph.i, label %land.lhs.true13.i.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i201 = getelementptr inbounds %struct.asdl_seq, ptr %call34.i, i64 0, i32 1
+  %elements.i201 = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i202
 
 for.body.i202:                                    ; preds = %for.body.i202, %for.body.lr.ph.i
@@ -19325,7 +19310,7 @@ for.cond.i.preheader:                             ; preds = %if.end40.i
   br i1 %cmp49.i99, label %for.body.i.lr.ph, label %if.then31
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -19363,9 +19348,9 @@ if.then34:                                        ; preds = %if.then31
   br label %return
 
 if.end37:                                         ; preds = %if.then31
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call32, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call32, i64 28
   %46 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call32, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call32, i64 32
   %47 = load i32, ptr %end_col_offset, align 8
   %48 = load ptr, ptr %arena.i200, align 8
   %call42 = call ptr @_PyPegen_concatenate_strings(ptr noundef nonnull %p, ptr noundef nonnull %call41.i, i32 noundef %10, i32 noundef %11, i32 noundef %46, i32 noundef %47, ptr noundef %48) #4
@@ -19416,7 +19401,7 @@ declare ptr @_PyPegen_number_token(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_94_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -19428,7 +19413,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -19438,7 +19423,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @tuple_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -19523,7 +19508,7 @@ land.lhs.true13.i:                                ; preds = %if.end19.i, %if.end
 
 if.end26.i:                                       ; preds = %_tmp_97_rule.exit.thread, %land.lhs.true13.i, %if.end3.i
   store i32 %7, ptr %mark, align 8
-  %call_invalid_rules.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules.i = getelementptr inbounds i8, ptr %p, i64 148
   %14 = load i32, ptr %call_invalid_rules.i, align 4
   %tobool28.not.i = icmp eq i32 %14, 0
   %.pre27.pre41 = load i32, ptr %error_indicator, align 8
@@ -19584,7 +19569,7 @@ return:                                           ; preds = %if.end23, %if.end23
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_95_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -19596,7 +19581,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -19606,7 +19591,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @list_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -19637,13 +19622,13 @@ if.end.i:                                         ; preds = %if.end19
 
 if.end3.i:                                        ; preds = %if.end19, %if.end.i
   %7 = load i32, ptr %mark, align 8
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
   %8 = load i32, ptr %fill.i, align 4
   %cmp5.i = icmp eq i32 %7, %8
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.end11.i.thread
 
 if.end11.i.thread:                                ; preds = %if.end3.i
-  %tokens.i26 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i26 = getelementptr inbounds i8, ptr %p, i64 8
   %9 = load ptr, ptr %tokens.i26, align 8
   %idxprom.i27 = sext i32 %7 to i64
   %arrayidx.i28 = getelementptr ptr, ptr %9, i64 %idxprom.i27
@@ -19661,7 +19646,7 @@ if.then7.i:                                       ; preds = %land.lhs.true.i
 if.end11.i:                                       ; preds = %land.lhs.true.i
   %.pre22 = load i32, ptr %error_indicator, align 8
   %10 = icmp eq i32 %.pre22, 0
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
   %11 = load ptr, ptr %tokens.i, align 8
   %idxprom.i = sext i32 %7 to i64
   %arrayidx.i = getelementptr ptr, ptr %11, i64 %idxprom.i
@@ -19670,9 +19655,9 @@ if.end11.i:                                       ; preds = %land.lhs.true.i
 if.end22.i:                                       ; preds = %if.end11.i.thread, %if.end11.i
   %.pn.in = phi ptr [ %arrayidx.i28, %if.end11.i.thread ], [ %arrayidx.i, %if.end11.i ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in31 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in31 = getelementptr inbounds i8, ptr %.pn, i64 20
   %12 = load i32, ptr %.in31, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %13 = load i32, ptr %.in, align 8
   %call23.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 9) #4
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -19699,11 +19684,11 @@ if.then34.i:                                      ; preds = %land.lhs.true31.i
   br i1 %cmp36.i, label %if.end23, label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.then34.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call35.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call35.i, i64 28
   %14 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call35.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call35.i, i64 32
   %15 = load i32, ptr %end_col_offset.i, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %16 = load ptr, ptr %arena.i, align 8
   %call45.i = tail call ptr @_PyAST_ListComp(ptr noundef nonnull %call26.i, ptr noundef nonnull %call29.i, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %16) #4
   %cmp46.i = icmp eq ptr %call45.i, null
@@ -19720,7 +19705,7 @@ if.then50.i:                                      ; preds = %land.lhs.true47.i
 
 if.end55.i:                                       ; preds = %land.lhs.true31.i, %land.lhs.true28.i, %land.lhs.true25.i, %if.end22.i
   store i32 %7, ptr %mark, align 8
-  %call_invalid_rules.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules.i = getelementptr inbounds i8, ptr %p, i64 148
   %17 = load i32, ptr %call_invalid_rules.i, align 4
   %tobool57.not.i = icmp eq i32 %17, 0
   br i1 %tobool57.not.i, label %if.end23, label %if.then58.i
@@ -19756,7 +19741,7 @@ return:                                           ; preds = %if.end23, %listcomp
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_96_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -19768,7 +19753,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -19778,7 +19763,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load i32, ptr %level, align 8
   %inc.i = add i32 %4, 1
@@ -19798,13 +19783,13 @@ if.end.i.if.end3.i_crit_edge:                     ; preds = %if.end.i
 
 if.end3.i:                                        ; preds = %if.end.i.if.end3.i_crit_edge, %if.end3
   %5 = phi i32 [ %.pre270, %if.end.i.if.end3.i_crit_edge ], [ %3, %if.end3 ]
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill.i, align 4
   %cmp5.i = icmp eq i32 %5, %6
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.end11.i.thread
 
 if.end11.i.thread:                                ; preds = %if.end3.i
-  %tokens.i128 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i128 = getelementptr inbounds i8, ptr %p, i64 8
   %7 = load ptr, ptr %tokens.i128, align 8
   %idxprom.i129 = sext i32 %5 to i64
   %arrayidx.i130 = getelementptr ptr, ptr %7, i64 %idxprom.i129
@@ -19817,7 +19802,7 @@ land.lhs.true.i:                                  ; preds = %if.end3.i
 
 if.end11.i:                                       ; preds = %land.lhs.true.i
   %.pre122 = load i32, ptr %error_indicator, align 8
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens.i, align 8
   %idxprom.i = sext i32 %5 to i64
   %arrayidx.i = getelementptr ptr, ptr %8, i64 %idxprom.i
@@ -19827,9 +19812,9 @@ if.end11.i:                                       ; preds = %land.lhs.true.i
 if.end22.i:                                       ; preds = %if.end11.i.thread, %if.end11.i
   %.pn.in = phi ptr [ %arrayidx.i130, %if.end11.i.thread ], [ %arrayidx.i, %if.end11.i ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in146 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in146 = getelementptr inbounds i8, ptr %.pn, i64 20
   %9 = load i32, ptr %.in146, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %10 = load i32, ptr %.in, align 8
   %call23.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 25) #4
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -19924,9 +19909,9 @@ if.then32.i:                                      ; preds = %land.lhs.true29.i
   br i1 %cmp34.i, label %if.end12, label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.then32.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call33.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call33.i, i64 28
   %16 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call33.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call33.i, i64 32
   %17 = load i32, ptr %end_col_offset.i, align 8
   %call43.i = tail call ptr @_PyPegen_get_keys(ptr noundef nonnull %p, ptr noundef %retval.0.i8093) #4
   %cmp.i69 = icmp eq ptr %call43.i, null
@@ -19946,7 +19931,7 @@ if.then.i67:                                      ; preds = %CHECK_CALL.exit73
   br label %CHECK_CALL.exit
 
 CHECK_CALL.exit:                                  ; preds = %CHECK_CALL.exit73, %if.then.i67
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %18 = load ptr, ptr %arena.i, align 8
   %call47.i = tail call ptr @_PyAST_Dict(ptr noundef %call43.i, ptr noundef %call45.i, i32 noundef %9, i32 noundef %10, i32 noundef %16, i32 noundef %17, ptr noundef %18) #4
   %cmp48.i = icmp eq ptr %call47.i, null
@@ -20083,7 +20068,7 @@ while.end.i.i:                                    ; preds = %land.rhs.i.i, %if.e
   %_children.0.i.lcssa.i = phi ptr [ %call.i66.i, %while.cond.i.preheader.i ], [ %call.i66.i, %land.rhs.i.i.preheader ], [ %_children.1.i.i, %if.end40.i.i ], [ %_children.1.i.i, %land.rhs.i.i ]
   %_mark.0.i.lcssa.i = phi i32 [ %26, %while.cond.i.preheader.i ], [ %26, %land.rhs.i.i.preheader ], [ %28, %if.end40.i.i ], [ %28, %land.rhs.i.i ]
   store i32 %_mark.0.i.lcssa.i, ptr %mark, align 8
-  %arena.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %29 = load ptr, ptr %arena.i.i, align 8
   %call44.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa.i, ptr noundef %29) #4
   %tobool45.not.i.i = icmp eq ptr %call44.i.i, null
@@ -20094,7 +20079,7 @@ for.cond.i.preheader.i:                           ; preds = %while.end.i.i
   br i1 %cmp52.i93.i, label %for.body.i.lr.ph.i, label %_gather_229_rule.exit.i
 
 for.body.i.lr.ph.i:                               ; preds = %for.cond.i.preheader.i
-  %elements.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i, i64 0, i32 1
+  %elements.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.lr.ph.i
@@ -20172,14 +20157,14 @@ land.lhs.true.i50.i:                              ; preds = %if.end3.i46.i
 
 if.then13.i53.i:                                  ; preds = %land.lhs.true.i50.i
   %37 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i.i = getelementptr inbounds %struct._expr, ptr %call.i48.i, i64 0, i32 2
+  %lineno.i.i = getelementptr inbounds i8, ptr %call.i48.i, i64 32
   %38 = load i32, ptr %lineno.i.i, align 8
   %conv.i.i = sext i32 %38 to i64
-  %end_col_offset.i.i = getelementptr inbounds %struct._expr, ptr %call.i48.i, i64 0, i32 5
+  %end_col_offset.i.i = getelementptr inbounds i8, ptr %call.i48.i, i64 44
   %39 = load i32, ptr %end_col_offset.i.i, align 4
   %sub.i.i = add i32 %39, -1
   %conv14.i.i = sext i32 %sub.i.i to i64
-  %end_lineno.i.i = getelementptr inbounds %struct._expr, ptr %call.i48.i, i64 0, i32 4
+  %end_lineno.i.i = getelementptr inbounds i8, ptr %call.i48.i, i64 40
   %40 = load i32, ptr %end_lineno.i.i, align 8
   %conv15.i.i = sext i32 %40 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %37, i64 noundef %conv.i.i, i64 noundef %conv14.i.i, i64 noundef %conv15.i.i, i64 noundef -1, ptr noundef nonnull @.str.83)
@@ -20215,10 +20200,10 @@ land.lhs.true44.i.i:                              ; preds = %land.lhs.true41.i.i
 
 if.then47.i.i:                                    ; preds = %land.lhs.true44.i.i
   %42 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno48.i.i = getelementptr inbounds %struct.Token, ptr %call42.i.i, i64 0, i32 3
+  %lineno48.i.i = getelementptr inbounds i8, ptr %call42.i.i, i64 20
   %43 = load i32, ptr %lineno48.i.i, align 4
   %conv49.i.i = sext i32 %43 to i64
-  %col_offset.i.i = getelementptr inbounds %struct.Token, ptr %call42.i.i, i64 0, i32 4
+  %col_offset.i.i = getelementptr inbounds i8, ptr %call42.i.i, i64 24
   %44 = load i32, ptr %col_offset.i.i, align 8
   %conv50.i.i = sext i32 %44 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %42, i64 noundef %conv49.i.i, i64 noundef %conv50.i.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.81)
@@ -20249,16 +20234,16 @@ land.lhs.true77.i.i:                              ; preds = %land.lhs.true74.i.i
 
 if.then80.i.i:                                    ; preds = %land.lhs.true77.i.i
   %46 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno81.i.i = getelementptr inbounds %struct.Token, ptr %call75.i.i, i64 0, i32 3
+  %lineno81.i.i = getelementptr inbounds i8, ptr %call75.i.i, i64 20
   %47 = load i32, ptr %lineno81.i.i, align 4
   %conv82.i.i = sext i32 %47 to i64
-  %col_offset83.i.i = getelementptr inbounds %struct.Token, ptr %call75.i.i, i64 0, i32 4
+  %col_offset83.i.i = getelementptr inbounds i8, ptr %call75.i.i, i64 24
   %48 = load i32, ptr %col_offset83.i.i, align 8
   %conv84.i.i = sext i32 %48 to i64
-  %end_lineno85.i.i = getelementptr inbounds %struct.Token, ptr %call75.i.i, i64 0, i32 5
+  %end_lineno85.i.i = getelementptr inbounds i8, ptr %call75.i.i, i64 28
   %49 = load i32, ptr %end_lineno85.i.i, align 4
   %conv86.i.i = sext i32 %49 to i64
-  %end_col_offset87.i.i = getelementptr inbounds %struct.Token, ptr %call75.i.i, i64 0, i32 6
+  %end_col_offset87.i.i = getelementptr inbounds i8, ptr %call75.i.i, i64 32
   %50 = load i32, ptr %end_col_offset87.i.i, align 8
   %conv88.i.i = sext i32 %50 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %46, i64 noundef %conv82.i.i, i64 noundef %conv84.i.i, i64 noundef %conv86.i.i, i64 noundef %conv88.i.i, ptr noundef nonnull @.str.82)
@@ -20310,10 +20295,10 @@ land.lhs.true35.i:                                ; preds = %land.lhs.true32.i
 
 if.then38.i:                                      ; preds = %land.lhs.true35.i
   %53 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call33.i167, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call33.i167, i64 20
   %54 = load i32, ptr %lineno.i, align 4
   %conv.i = sext i32 %54 to i64
-  %col_offset.i = getelementptr inbounds %struct.Token, ptr %call33.i167, i64 0, i32 4
+  %col_offset.i = getelementptr inbounds i8, ptr %call33.i167, i64 24
   %55 = load i32, ptr %col_offset.i, align 8
   %conv39.i = sext i32 %55 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %53, i64 noundef %conv.i, i64 noundef %conv39.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.81)
@@ -20353,16 +20338,16 @@ land.lhs.true66.i:                                ; preds = %land.lhs.true63.i
 
 if.then69.i:                                      ; preds = %land.lhs.true66.i
   %59 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno70.i = getelementptr inbounds %struct.Token, ptr %call64.i, i64 0, i32 3
+  %lineno70.i = getelementptr inbounds i8, ptr %call64.i, i64 20
   %60 = load i32, ptr %lineno70.i, align 4
   %conv71.i = sext i32 %60 to i64
-  %col_offset72.i = getelementptr inbounds %struct.Token, ptr %call64.i, i64 0, i32 4
+  %col_offset72.i = getelementptr inbounds i8, ptr %call64.i, i64 24
   %61 = load i32, ptr %col_offset72.i, align 8
   %conv73.i = sext i32 %61 to i64
-  %end_lineno.i170 = getelementptr inbounds %struct.Token, ptr %call64.i, i64 0, i32 5
+  %end_lineno.i170 = getelementptr inbounds i8, ptr %call64.i, i64 28
   %62 = load i32, ptr %end_lineno.i170, align 4
   %conv74.i = sext i32 %62 to i64
-  %end_col_offset.i171 = getelementptr inbounds %struct.Token, ptr %call64.i, i64 0, i32 6
+  %end_col_offset.i171 = getelementptr inbounds i8, ptr %call64.i, i64 32
   %63 = load i32, ptr %end_col_offset.i171, align 8
   %conv75.i = sext i32 %63 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %59, i64 noundef %conv71.i, i64 noundef %conv73.i, i64 noundef %conv74.i, i64 noundef %conv75.i, ptr noundef nonnull @.str.82)
@@ -20445,7 +20430,7 @@ if.end3.i34:                                      ; preds = %if.end.i28.if.end3.
   br i1 %cmp5.i37, label %land.lhs.true.i59, label %if.end11.i38.thread
 
 if.end11.i38.thread:                              ; preds = %if.end3.i34
-  %tokens.i39139 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i39139 = getelementptr inbounds i8, ptr %p, i64 8
   %73 = load ptr, ptr %tokens.i39139, align 8
   %idxprom.i40140 = sext i32 %71 to i64
   %arrayidx.i41141 = getelementptr ptr, ptr %73, i64 %idxprom.i40140
@@ -20459,7 +20444,7 @@ land.lhs.true.i59:                                ; preds = %if.end3.i34
 if.end11.i38:                                     ; preds = %land.lhs.true.i59
   %.pre126 = load i32, ptr %error_indicator, align 8
   %74 = icmp eq i32 %.pre126, 0
-  %tokens.i39 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i39 = getelementptr inbounds i8, ptr %p, i64 8
   %75 = load ptr, ptr %tokens.i39, align 8
   %idxprom.i40 = sext i32 %71 to i64
   %arrayidx.i41 = getelementptr ptr, ptr %75, i64 %idxprom.i40
@@ -20468,9 +20453,9 @@ if.end11.i38:                                     ; preds = %land.lhs.true.i59
 if.end22.i47:                                     ; preds = %if.end11.i38.thread, %if.end11.i38
   %.pn149.in = phi ptr [ %arrayidx.i41141, %if.end11.i38.thread ], [ %arrayidx.i41, %if.end11.i38 ]
   %.pn149 = load ptr, ptr %.pn149.in, align 8
-  %.in150 = getelementptr inbounds %struct.Token, ptr %.pn149, i64 0, i32 3
+  %.in150 = getelementptr inbounds i8, ptr %.pn149, i64 20
   %76 = load i32, ptr %.in150, align 4
-  %.in148 = getelementptr inbounds %struct.Token, ptr %.pn149, i64 0, i32 4
+  %.in148 = getelementptr inbounds i8, ptr %.pn149, i64 24
   %77 = load i32, ptr %.in148, align 8
   %call23.i48 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 25) #4
   %tobool24.not.i49 = icmp eq ptr %call23.i48, null
@@ -20492,11 +20477,11 @@ if.then31.i:                                      ; preds = %land.lhs.true28.i
   br i1 %cmp33.i, label %if.end23, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then31.i
-  %end_lineno.i52 = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 5
+  %end_lineno.i52 = getelementptr inbounds i8, ptr %call32.i, i64 28
   %78 = load i32, ptr %end_lineno.i52, align 4
-  %end_col_offset.i53 = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 6
+  %end_col_offset.i53 = getelementptr inbounds i8, ptr %call32.i, i64 32
   %79 = load i32, ptr %end_col_offset.i53, align 8
-  %arena.i54 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i54 = getelementptr inbounds i8, ptr %p, i64 32
   %80 = load ptr, ptr %arena.i54, align 8
   %call42.i = tail call ptr @_PyAST_Set(ptr noundef nonnull %call26.i51, i32 noundef %76, i32 noundef %77, i32 noundef %78, i32 noundef %79, ptr noundef %80) #4
   %cmp43.i = icmp eq ptr %call42.i, null
@@ -20546,7 +20531,7 @@ if.end3.i187:                                     ; preds = %if.end30, %if.end.i
   br i1 %cmp5.i190, label %land.lhs.true.i226, label %if.end11.thread.i
 
 if.end11.thread.i:                                ; preds = %if.end3.i187
-  %tokens53.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens53.i = getelementptr inbounds i8, ptr %p, i64 8
   %85 = load ptr, ptr %tokens53.i, align 8
   %idxprom54.i = sext i32 %83 to i64
   %arrayidx55.i = getelementptr ptr, ptr %85, i64 %idxprom54.i
@@ -20559,7 +20544,7 @@ land.lhs.true.i226:                               ; preds = %if.end3.i187
 
 if.end11.i229:                                    ; preds = %land.lhs.true.i226
   %.pre.i230 = load i32, ptr %error_indicator, align 8
-  %tokens.i231 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i231 = getelementptr inbounds i8, ptr %p, i64 8
   %86 = load ptr, ptr %tokens.i231, align 8
   %idxprom.i232 = sext i32 %83 to i64
   %arrayidx.i233 = getelementptr ptr, ptr %86, i64 %idxprom.i232
@@ -20569,9 +20554,9 @@ if.end11.i229:                                    ; preds = %land.lhs.true.i226
 if.end22.i191:                                    ; preds = %if.end11.i229, %if.end11.thread.i
   %.pn.in.i = phi ptr [ %arrayidx55.i, %if.end11.thread.i ], [ %arrayidx.i233, %if.end11.i229 ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
-  %.in60.i = getelementptr inbounds %struct.Token, ptr %.pn.i, i64 0, i32 3
+  %.in60.i = getelementptr inbounds i8, ptr %.pn.i, i64 20
   %87 = load i32, ptr %.in60.i, align 4
-  %.in.i = getelementptr inbounds %struct.Token, ptr %.pn.i, i64 0, i32 4
+  %.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %88 = load i32, ptr %.in.i, align 8
   %call23.i192 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 25) #4
   %tobool24.not.i193 = icmp eq ptr %call23.i192, null
@@ -20627,14 +20612,14 @@ if.then34.i:                                      ; preds = %land.lhs.true31.i
   br i1 %cmp36.i, label %if.end34, label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.then34.i
-  %end_lineno.i222 = getelementptr inbounds %struct.Token, ptr %call35.i, i64 0, i32 5
+  %end_lineno.i222 = getelementptr inbounds i8, ptr %call35.i, i64 28
   %91 = load i32, ptr %end_lineno.i222, align 4
-  %end_col_offset.i223 = getelementptr inbounds %struct.Token, ptr %call35.i, i64 0, i32 6
+  %end_col_offset.i223 = getelementptr inbounds i8, ptr %call35.i, i64 32
   %92 = load i32, ptr %end_col_offset.i223, align 8
   %93 = load ptr, ptr %call26.i, align 8
-  %value.i = getelementptr inbounds %struct.KeyValuePair, ptr %call26.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %call26.i, i64 8
   %94 = load ptr, ptr %value.i, align 8
-  %arena.i224 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i224 = getelementptr inbounds i8, ptr %p, i64 32
   %95 = load ptr, ptr %arena.i224, align 8
   %call45.i225 = tail call ptr @_PyAST_DictComp(ptr noundef %93, ptr noundef %94, ptr noundef nonnull %call.i.i217, i32 noundef %87, i32 noundef %88, i32 noundef %91, i32 noundef %92, ptr noundef %95) #4
   %cmp46.i = icmp eq ptr %call45.i225, null
@@ -20647,7 +20632,7 @@ land.lhs.true47.i:                                ; preds = %if.end40.i
 
 if.end55.i:                                       ; preds = %land.lhs.true31.i, %for_if_clauses_rule.exit.thread.i, %land.lhs.true25.i194, %if.end22.i191
   store i32 %83, ptr %mark, align 8
-  %call_invalid_rules.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules.i = getelementptr inbounds i8, ptr %p, i64 148
   %96 = load i32, ptr %call_invalid_rules.i, align 4
   %tobool57.not.i = icmp eq i32 %96, 0
   br i1 %tobool57.not.i, label %if.end34, label %if.then58.i
@@ -20702,16 +20687,16 @@ land.lhs.true19.i.i:                              ; preds = %land.lhs.true16.i.i
 
 if.then22.i.i:                                    ; preds = %land.lhs.true19.i.i
   %100 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i.i211 = getelementptr inbounds %struct.Token, ptr %call11.i.i204, i64 0, i32 3
+  %lineno.i.i211 = getelementptr inbounds i8, ptr %call11.i.i204, i64 20
   %101 = load i32, ptr %lineno.i.i211, align 4
   %conv.i.i212 = sext i32 %101 to i64
-  %col_offset.i.i213 = getelementptr inbounds %struct.Token, ptr %call11.i.i204, i64 0, i32 4
+  %col_offset.i.i213 = getelementptr inbounds i8, ptr %call11.i.i204, i64 24
   %102 = load i32, ptr %col_offset.i.i213, align 8
   %conv23.i.i = sext i32 %102 to i64
-  %end_lineno.i.i214 = getelementptr inbounds %struct.Token, ptr %call11.i.i204, i64 0, i32 5
+  %end_lineno.i.i214 = getelementptr inbounds i8, ptr %call11.i.i204, i64 28
   %103 = load i32, ptr %end_lineno.i.i214, align 4
   %conv24.i.i = sext i32 %103 to i64
-  %end_col_offset.i.i215 = getelementptr inbounds %struct.Token, ptr %call11.i.i204, i64 0, i32 6
+  %end_col_offset.i.i215 = getelementptr inbounds i8, ptr %call11.i.i204, i64 32
   %104 = load i32, ptr %end_col_offset.i.i215, align 8
   %conv25.i.i = sext i32 %104 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %100, i64 noundef %conv.i.i212, i64 noundef %conv23.i.i, i64 noundef %conv24.i.i, i64 noundef %conv25.i.i, ptr noundef nonnull @.str.84)
@@ -20785,7 +20770,7 @@ declare ptr @_PyPegen_joined_str(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @fstring_replacement_field_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -20797,21 +20782,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens95 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens95 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens95, align 8
   %idxprom96 = sext i32 %2 to i64
   %arrayidx97 = getelementptr ptr, ptr %4, i64 %idxprom96
@@ -20828,7 +20813,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
@@ -20838,9 +20823,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx97, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in102 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in102 = getelementptr inbounds i8, ptr %.pn, i64 20
   %6 = load i32, ptr %.in102, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %7 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 25) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -20912,11 +20897,11 @@ if.then45:                                        ; preds = %land.lhs.true42
   br i1 %cmp47, label %return.sink.split, label %if.end51
 
 if.end51:                                         ; preds = %if.then45
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call46, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call46, i64 28
   %16 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call46, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call46, i64 32
   %17 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %18 = load ptr, ptr %arena, align 8
   %call56 = tail call ptr @_PyPegen_formatted_value(ptr noundef nonnull %p, ptr noundef nonnull %_res.0.i.ph, ptr noundef %call29, ptr noundef %call33, ptr noundef %call38, ptr noundef nonnull %call43, i32 noundef %6, i32 noundef %7, i32 noundef %16, i32 noundef %17, ptr noundef %18) #4
   %cmp57 = icmp eq ptr %call56, null
@@ -20939,7 +20924,7 @@ if.end66.sink.split:                              ; preds = %if.end19.i, %if.end
 
 if.end66:                                         ; preds = %if.end66.sink.split, %land.lhs.true42, %land.lhs.true37, %land.lhs.true32, %land.lhs.true28, %if.end22
   store i32 %2, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %20 = load i32, ptr %call_invalid_rules, align 4
   %tobool68.not = icmp eq i32 %20, 0
   br i1 %tobool68.not, label %return.sink.split, label %if.then69
@@ -20975,16 +20960,16 @@ land.lhs.true.i:                                  ; preds = %if.end3.i51
 
 if.then13.i:                                      ; preds = %land.lhs.true.i
   %24 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call11.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call11.i, i64 20
   %25 = load i32, ptr %lineno.i, align 4
   %conv.i = sext i32 %25 to i64
-  %col_offset.i = getelementptr inbounds %struct.Token, ptr %call11.i, i64 0, i32 4
+  %col_offset.i = getelementptr inbounds i8, ptr %call11.i, i64 24
   %26 = load i32, ptr %col_offset.i, align 8
   %conv14.i = sext i32 %26 to i64
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call11.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call11.i, i64 28
   %27 = load i32, ptr %end_lineno.i, align 4
   %conv15.i = sext i32 %27 to i64
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call11.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call11.i, i64 32
   %28 = load i32, ptr %end_col_offset.i, align 8
   %conv16.i = sext i32 %28 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %24, i64 noundef %conv.i, i64 noundef %conv14.i, i64 noundef %conv15.i, i64 noundef %conv16.i, ptr noundef nonnull @.str.67)
@@ -21014,16 +20999,16 @@ land.lhs.true40.i:                                ; preds = %if.end35.i
 
 if.then43.i:                                      ; preds = %land.lhs.true40.i
   %30 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno44.i = getelementptr inbounds %struct.Token, ptr %call41.i, i64 0, i32 3
+  %lineno44.i = getelementptr inbounds i8, ptr %call41.i, i64 20
   %31 = load i32, ptr %lineno44.i, align 4
   %conv45.i = sext i32 %31 to i64
-  %col_offset46.i = getelementptr inbounds %struct.Token, ptr %call41.i, i64 0, i32 4
+  %col_offset46.i = getelementptr inbounds i8, ptr %call41.i, i64 24
   %32 = load i32, ptr %col_offset46.i, align 8
   %conv47.i = sext i32 %32 to i64
-  %end_lineno48.i = getelementptr inbounds %struct.Token, ptr %call41.i, i64 0, i32 5
+  %end_lineno48.i = getelementptr inbounds i8, ptr %call41.i, i64 28
   %33 = load i32, ptr %end_lineno48.i, align 4
   %conv49.i = sext i32 %33 to i64
-  %end_col_offset50.i = getelementptr inbounds %struct.Token, ptr %call41.i, i64 0, i32 6
+  %end_col_offset50.i = getelementptr inbounds i8, ptr %call41.i, i64 32
   %34 = load i32, ptr %end_col_offset50.i, align 8
   %conv51.i = sext i32 %34 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %30, i64 noundef %conv45.i, i64 noundef %conv47.i, i64 noundef %conv49.i, i64 noundef %conv51.i, ptr noundef nonnull @.str.68)
@@ -21053,16 +21038,16 @@ land.lhs.true75.i:                                ; preds = %if.end70.i
 
 if.then78.i:                                      ; preds = %land.lhs.true75.i
   %36 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno79.i = getelementptr inbounds %struct.Token, ptr %call76.i, i64 0, i32 3
+  %lineno79.i = getelementptr inbounds i8, ptr %call76.i, i64 20
   %37 = load i32, ptr %lineno79.i, align 4
   %conv80.i = sext i32 %37 to i64
-  %col_offset81.i = getelementptr inbounds %struct.Token, ptr %call76.i, i64 0, i32 4
+  %col_offset81.i = getelementptr inbounds i8, ptr %call76.i, i64 24
   %38 = load i32, ptr %col_offset81.i, align 8
   %conv82.i = sext i32 %38 to i64
-  %end_lineno83.i = getelementptr inbounds %struct.Token, ptr %call76.i, i64 0, i32 5
+  %end_lineno83.i = getelementptr inbounds i8, ptr %call76.i, i64 28
   %39 = load i32, ptr %end_lineno83.i, align 4
   %conv84.i = sext i32 %39 to i64
-  %end_col_offset85.i = getelementptr inbounds %struct.Token, ptr %call76.i, i64 0, i32 6
+  %end_col_offset85.i = getelementptr inbounds i8, ptr %call76.i, i64 32
   %40 = load i32, ptr %end_col_offset85.i, align 8
   %conv86.i = sext i32 %40 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %36, i64 noundef %conv80.i, i64 noundef %conv82.i, i64 noundef %conv84.i, i64 noundef %conv86.i, ptr noundef nonnull @.str.69)
@@ -21092,16 +21077,16 @@ land.lhs.true110.i:                               ; preds = %if.end105.i
 
 if.then113.i:                                     ; preds = %land.lhs.true110.i
   %42 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno114.i = getelementptr inbounds %struct.Token, ptr %call111.i, i64 0, i32 3
+  %lineno114.i = getelementptr inbounds i8, ptr %call111.i, i64 20
   %43 = load i32, ptr %lineno114.i, align 4
   %conv115.i = sext i32 %43 to i64
-  %col_offset116.i = getelementptr inbounds %struct.Token, ptr %call111.i, i64 0, i32 4
+  %col_offset116.i = getelementptr inbounds i8, ptr %call111.i, i64 24
   %44 = load i32, ptr %col_offset116.i, align 8
   %conv117.i = sext i32 %44 to i64
-  %end_lineno118.i = getelementptr inbounds %struct.Token, ptr %call111.i, i64 0, i32 5
+  %end_lineno118.i = getelementptr inbounds i8, ptr %call111.i, i64 28
   %45 = load i32, ptr %end_lineno118.i, align 4
   %conv119.i = sext i32 %45 to i64
-  %end_col_offset120.i = getelementptr inbounds %struct.Token, ptr %call111.i, i64 0, i32 6
+  %end_col_offset120.i = getelementptr inbounds i8, ptr %call111.i, i64 32
   %46 = load i32, ptr %end_col_offset120.i, align 8
   %conv121.i = sext i32 %46 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %42, i64 noundef %conv115.i, i64 noundef %conv117.i, i64 noundef %conv119.i, i64 noundef %conv121.i, ptr noundef nonnull @.str.70)
@@ -21486,7 +21471,7 @@ declare ptr @_PyPegen_constant_from_token(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @fstring_conversion_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -21498,13 +21483,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 54) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -21544,7 +21529,7 @@ return:                                           ; preds = %if.end25, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @fstring_full_format_spec_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -21556,21 +21541,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens47 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens47 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens47, align 8
   %idxprom48 = sext i32 %2 to i64
   %arrayidx49 = getelementptr ptr, ptr %4, i64 %idxprom48
@@ -21588,7 +21573,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -21597,9 +21582,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx49, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in53 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in53 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in53, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 11) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -21675,7 +21660,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ %inc31.i, %if.end30.i ]
   %_mark.0.i.lcssa = phi i32 [ %11, %while.cond.i.preheader ], [ %13, %if.end30.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %14 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %14) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
@@ -21686,7 +21671,7 @@ for.cond.i.preheader:                             ; preds = %while.end.i
   br i1 %cmp42.i42, label %for.body.i.lr.ph, label %if.then28
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
 
 if.then36.i:                                      ; preds = %while.end.i
@@ -21716,9 +21701,9 @@ if.then28:                                        ; preds = %for.body.i, %for.co
   br i1 %cmp30, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.then28
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call29, i64 28
   %18 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call29, i64 32
   %19 = load i32, ptr %end_col_offset, align 8
   %20 = load ptr, ptr %arena.i, align 8
   %call39 = tail call ptr @_PyPegen_setup_full_format_spec(ptr noundef nonnull %p, ptr noundef nonnull %call23, ptr noundef nonnull %call34.i, i32 noundef %7, i32 noundef %8, i32 noundef %18, i32 noundef %19, ptr noundef %20) #4
@@ -21762,7 +21747,7 @@ declare ptr @_PyPegen_formatted_value(ptr noundef, ptr noundef, ptr noundef, ptr
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @yield_expr_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -21774,21 +21759,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens47 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens47 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens47, align 8
   %idxprom48 = sext i32 %2 to i64
   %arrayidx49 = getelementptr ptr, ptr %4, i64 %idxprom48
@@ -21806,7 +21791,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -21815,9 +21800,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx49, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in52 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in52 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in52, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 580) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -21839,11 +21824,11 @@ if.then31:                                        ; preds = %land.lhs.true28
   br i1 %cmp33, label %return, label %if.end37
 
 if.end37:                                         ; preds = %if.then31
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call32, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call32, i64 28
   %9 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call32, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call32, i64 32
   %10 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena, align 8
   %call42 = tail call ptr @_PyAST_YieldFrom(ptr noundef nonnull %call29, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) #4
   %cmp43 = icmp eq ptr %call42, null
@@ -21881,11 +21866,11 @@ if.then68:                                        ; preds = %land.lhs.true64
   br i1 %cmp71, label %return, label %if.end75
 
 if.end75:                                         ; preds = %if.then68
-  %end_lineno77 = getelementptr inbounds %struct.Token, ptr %call70, i64 0, i32 5
+  %end_lineno77 = getelementptr inbounds i8, ptr %call70, i64 28
   %14 = load i32, ptr %end_lineno77, align 4
-  %end_col_offset81 = getelementptr inbounds %struct.Token, ptr %call70, i64 0, i32 6
+  %end_col_offset81 = getelementptr inbounds i8, ptr %call70, i64 32
   %15 = load i32, ptr %end_col_offset81, align 8
-  %arena84 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena84 = getelementptr inbounds i8, ptr %p, i64 32
   %16 = load ptr, ptr %arena84, align 8
   %call85 = tail call ptr @_PyAST_Yield(ptr noundef %call65, i32 noundef %7, i32 noundef %8, i32 noundef %14, i32 noundef %15, ptr noundef %16) #4
   %cmp86 = icmp eq ptr %call85, null
@@ -21923,7 +21908,7 @@ declare ptr @_PyPegen_setup_full_format_spec(ptr noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @fstring_format_spec_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -21935,13 +21920,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 60) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -21989,7 +21974,7 @@ declare ptr @_PyPegen_decoded_constant_from_token(ptr noundef, ptr noundef) loca
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_233_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22001,13 +21986,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @yield_expr_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -22039,7 +22024,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_234_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22051,13 +22036,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @yield_expr_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -22089,7 +22074,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_235_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22101,13 +22086,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 22) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -22161,7 +22146,7 @@ return:                                           ; preds = %if.end48, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_236_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22173,13 +22158,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @yield_expr_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -22211,7 +22196,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_237_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22223,13 +22208,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 54) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -22272,7 +22257,7 @@ return:                                           ; preds = %if.end36, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_238_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22284,13 +22269,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @yield_expr_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -22322,7 +22307,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_conversion_character_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22334,13 +22319,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 54) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -22412,7 +22397,7 @@ return:                                           ; preds = %if.end49, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_239_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22424,13 +22409,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @yield_expr_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -22462,7 +22447,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_tmp_240_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22474,13 +22459,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 54) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -22509,7 +22494,7 @@ return:                                           ; preds = %if.then13, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_241_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22521,13 +22506,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 11) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -22559,7 +22544,7 @@ return:                                           ; preds = %if.end24, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_242_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22571,13 +22556,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @yield_expr_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -22609,7 +22594,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_tmp_243_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22621,13 +22606,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 54) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -22656,7 +22641,7 @@ return:                                           ; preds = %if.then13, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_244_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22668,13 +22653,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -22735,7 +22720,7 @@ while.end:                                        ; preds = %if.end30, %while.co
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -22746,7 +22731,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4246, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -22783,7 +22768,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_245_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22795,13 +22780,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @yield_expr_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -22833,7 +22818,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_tmp_246_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22845,13 +22830,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 54) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -22880,7 +22865,7 @@ return:                                           ; preds = %if.then13, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_247_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22892,13 +22877,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 11) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -22934,7 +22919,7 @@ declare ptr @_PyPegen_constant_from_string(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @tuple_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -22946,21 +22931,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens33 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens33 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens33, align 8
   %idxprom34 = sext i32 %2 to i64
   %arrayidx35 = getelementptr ptr, ptr %4, i64 %idxprom34
@@ -22978,7 +22963,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -22987,9 +22972,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx35, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in44 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in44 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in44, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 7) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -23066,11 +23051,11 @@ if.then32:                                        ; preds = %land.lhs.true29
   br i1 %cmp34, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.then32
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call33, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call33, i64 28
   %13 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call33, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call33, i64 32
   %14 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %15 = load ptr, ptr %arena, align 8
   %call43 = tail call ptr @_PyAST_Tuple(ptr noundef %retval.0.i.ph.ph, i32 noundef 1, i32 noundef %7, i32 noundef %8, i32 noundef %13, i32 noundef %14, ptr noundef %15) #4
   %cmp44 = icmp eq ptr %call43, null
@@ -23106,7 +23091,7 @@ return:                                           ; preds = %if.end53, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_group_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -23118,13 +23103,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 7) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -23142,16 +23127,16 @@ land.lhs.true13:                                  ; preds = %land.lhs.true
 
 if.then16:                                        ; preds = %land.lhs.true13
   %3 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno = getelementptr inbounds %struct._expr, ptr %call11, i64 0, i32 2
+  %lineno = getelementptr inbounds i8, ptr %call11, i64 32
   %4 = load i32, ptr %lineno, align 8
   %conv = sext i32 %4 to i64
-  %col_offset = getelementptr inbounds %struct._expr, ptr %call11, i64 0, i32 3
+  %col_offset = getelementptr inbounds i8, ptr %call11, i64 36
   %5 = load i32, ptr %col_offset, align 4
   %conv17 = sext i32 %5 to i64
-  %end_lineno = getelementptr inbounds %struct._expr, ptr %call11, i64 0, i32 4
+  %end_lineno = getelementptr inbounds i8, ptr %call11, i64 40
   %6 = load i32, ptr %end_lineno, align 8
   %conv18 = sext i32 %6 to i64
-  %end_col_offset = getelementptr inbounds %struct._expr, ptr %call11, i64 0, i32 5
+  %end_col_offset = getelementptr inbounds i8, ptr %call11, i64 44
   %7 = load i32, ptr %end_col_offset, align 4
   %conv19 = sext i32 %7 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv17, i64 noundef %conv18, i64 noundef %conv19, ptr noundef nonnull @.str.79)
@@ -23191,16 +23176,16 @@ land.lhs.true50:                                  ; preds = %land.lhs.true47
 
 if.then53:                                        ; preds = %land.lhs.true50
   %9 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno54 = getelementptr inbounds %struct.Token, ptr %call45, i64 0, i32 3
+  %lineno54 = getelementptr inbounds i8, ptr %call45, i64 20
   %10 = load i32, ptr %lineno54, align 4
   %conv55 = sext i32 %10 to i64
-  %col_offset56 = getelementptr inbounds %struct.Token, ptr %call45, i64 0, i32 4
+  %col_offset56 = getelementptr inbounds i8, ptr %call45, i64 24
   %11 = load i32, ptr %col_offset56, align 8
   %conv57 = sext i32 %11 to i64
-  %end_lineno58 = getelementptr inbounds %struct.Token, ptr %call45, i64 0, i32 5
+  %end_lineno58 = getelementptr inbounds i8, ptr %call45, i64 28
   %12 = load i32, ptr %end_lineno58, align 4
   %conv59 = sext i32 %12 to i64
-  %end_col_offset60 = getelementptr inbounds %struct.Token, ptr %call45, i64 0, i32 6
+  %end_col_offset60 = getelementptr inbounds i8, ptr %call45, i64 32
   %13 = load i32, ptr %end_col_offset60, align 8
   %conv61 = sext i32 %13 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %9, i64 noundef %conv55, i64 noundef %conv57, i64 noundef %conv59, i64 noundef %conv61, ptr noundef nonnull @.str.80)
@@ -23226,7 +23211,7 @@ return:                                           ; preds = %if.end73, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @list_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -23238,21 +23223,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens68 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens68 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens68, align 8
   %idxprom69 = sext i32 %2 to i64
   %arrayidx70 = getelementptr ptr, ptr %4, i64 %idxprom69
@@ -23270,7 +23255,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -23279,9 +23264,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx70, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in74 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in74 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in74, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 9) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -23376,11 +23361,11 @@ if.then32:                                        ; preds = %land.lhs.true29
   br i1 %cmp34, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.then32
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call33, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call33, i64 28
   %15 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call33, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call33, i64 32
   %16 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena, align 8
   %call43 = tail call ptr @_PyAST_List(ptr noundef %retval.0.i54, i32 noundef 1, i32 noundef %7, i32 noundef %8, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
   %cmp44 = icmp eq ptr %call43, null
@@ -23412,7 +23397,7 @@ declare ptr @_PyAST_ListComp(ptr noundef, ptr noundef, i32 noundef, i32 noundef,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @setcomp_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -23424,21 +23409,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens41 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens41 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens41, align 8
   %idxprom42 = sext i32 %2 to i64
   %arrayidx43 = getelementptr ptr, ptr %4, i64 %idxprom42
@@ -23456,7 +23441,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -23465,9 +23450,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx43, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in46 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in46 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in46, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 25) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -23519,11 +23504,11 @@ if.then34:                                        ; preds = %land.lhs.true31
   br i1 %cmp36, label %return, label %if.end40
 
 if.end40:                                         ; preds = %if.then34
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call35, i64 28
   %11 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call35, i64 32
   %12 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %13 = load ptr, ptr %arena, align 8
   %call45 = tail call ptr @_PyAST_SetComp(ptr noundef nonnull %call26, ptr noundef nonnull %call.i, i32 noundef %7, i32 noundef %8, i32 noundef %11, i32 noundef %12, ptr noundef %13) #4
   %cmp46 = icmp eq ptr %call45, null
@@ -23540,7 +23525,7 @@ if.then50:                                        ; preds = %land.lhs.true47
 
 if.end55:                                         ; preds = %for_if_clauses_rule.exit.thread, %land.lhs.true31, %land.lhs.true25, %if.end22
   store i32 %2, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %14 = load i32, ptr %call_invalid_rules, align 4
   %tobool57.not = icmp eq i32 %14, 0
   br i1 %tobool57.not, label %return, label %if.then58
@@ -23572,7 +23557,7 @@ declare ptr @_PyPegen_get_values(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @double_starred_kvpair_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -23584,13 +23569,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 35) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -23641,7 +23626,7 @@ return:                                           ; preds = %if.end35, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_118_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -23653,13 +23638,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -23730,7 +23715,7 @@ while.end:                                        ; preds = %if.end40, %land.rhs
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %call, %land.rhs.preheader ], [ %_children.1, %land.rhs ], [ %_children.1, %if.end40 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %2, %land.rhs.preheader ], [ %4, %land.rhs ], [ %4, %if.end40 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call44 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool45.not = icmp eq ptr %call44, null
@@ -23741,7 +23726,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp5254, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call44, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call44, i64 8
   br label %for.body
 
 if.then46:                                        ; preds = %while.end
@@ -23780,7 +23765,7 @@ declare ptr @_PyPegen_key_value_pair(ptr noundef, ptr noundef, ptr noundef) loca
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @kvpair_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -23792,13 +23777,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -23843,7 +23828,7 @@ return:                                           ; preds = %if.end27, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_231_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -23855,13 +23840,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 26) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -23893,7 +23878,7 @@ return:                                           ; preds = %if.end24, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_232_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -23905,13 +23890,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 26) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -23949,7 +23934,7 @@ declare ptr @_PyAST_SetComp(ptr noundef, ptr noundef, i32 noundef, i32 noundef, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_legacy_expression_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -23961,13 +23946,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %p) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -23990,19 +23975,19 @@ if.then16:                                        ; preds = %land.lhs.true13
 
 cond.true:                                        ; preds = %if.then16
   %3 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno = getelementptr inbounds %struct._expr, ptr %call, i64 0, i32 2
+  %lineno = getelementptr inbounds i8, ptr %call, i64 32
   %4 = load i32, ptr %lineno, align 8
   %conv = sext i32 %4 to i64
-  %col_offset = getelementptr inbounds %struct._expr, ptr %call, i64 0, i32 3
+  %col_offset = getelementptr inbounds i8, ptr %call, i64 36
   %5 = load i32, ptr %col_offset, align 4
   %conv19 = sext i32 %5 to i64
-  %end_lineno = getelementptr inbounds %struct._expr, ptr %call14, i64 0, i32 4
+  %end_lineno = getelementptr inbounds i8, ptr %call14, i64 40
   %6 = load i32, ptr %end_lineno, align 8
   %conv20 = sext i32 %6 to i64
-  %end_col_offset = getelementptr inbounds %struct._expr, ptr %call14, i64 0, i32 5
+  %end_col_offset = getelementptr inbounds i8, ptr %call14, i64 44
   %7 = load i32, ptr %end_col_offset, align 4
   %conv21 = sext i32 %7 to i64
-  %v = getelementptr inbounds %struct._expr, ptr %call, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call, i64 8
   %8 = load ptr, ptr %v, align 8
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv19, i64 noundef %conv20, i64 noundef %conv21, ptr noundef nonnull @.str.101, ptr noundef %8, ptr noundef %8)
   br label %land.lhs.true27
@@ -24032,7 +24017,7 @@ declare ptr @_PyAST_IfExp(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i3
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lambdef_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -24044,21 +24029,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens41 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens41 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens41, align 8
   %idxprom42 = sext i32 %2 to i64
   %arrayidx43 = getelementptr ptr, ptr %4, i64 %idxprom42
@@ -24076,7 +24061,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -24085,9 +24070,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx43, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in49 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in49 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in49, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 609) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -24111,7 +24096,7 @@ if.end.i:                                         ; preds = %if.then.i, %land.lh
 
 if.end3.i:                                        ; preds = %if.end.i
   %11 = load i32, ptr %mark, align 8
-  %call_invalid_rules.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules.i = getelementptr inbounds i8, ptr %p, i64 148
   %12 = load i32, ptr %call_invalid_rules.i, align 4
   %tobool4.not.i = icmp eq i32 %12, 0
   br i1 %tobool4.not.i, label %if.end22.i, label %if.end16.i
@@ -24156,9 +24141,9 @@ if.then35:                                        ; preds = %land.lhs.true32
   br i1 %cmp37, label %return, label %if.end41
 
 if.end41:                                         ; preds = %if.then35
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call36, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call36, i64 28
   %16 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call36, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call36, i64 32
   %17 = load i32, ptr %end_col_offset, align 8
   %tobool46.not = icmp eq ptr %call23.i, null
   br i1 %tobool46.not, label %cond.false, label %cond.end
@@ -24174,7 +24159,7 @@ if.then.i36:                                      ; preds = %cond.false
 
 cond.end:                                         ; preds = %if.then.i36, %cond.false, %if.end41
   %cond = phi ptr [ %call23.i, %if.end41 ], [ %call47, %cond.false ], [ null, %if.then.i36 ]
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %18 = load ptr, ptr %arena, align 8
   %call49 = tail call ptr @_PyAST_Lambda(ptr noundef %cond, ptr noundef nonnull %call33, i32 noundef %7, i32 noundef %8, i32 noundef %16, i32 noundef %17, ptr noundef %18) #4
   %cmp50 = icmp eq ptr %call49, null
@@ -24210,7 +24195,7 @@ return:                                           ; preds = %if.end59, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_156_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -24222,13 +24207,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %p) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -24269,10 +24254,10 @@ return:                                           ; preds = %if.then13, %if.end2
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @expression_without_invalid_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %0 = load i32, ptr %call_invalid_rules, align 4
   store i32 0, ptr %call_invalid_rules, align 4
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %1 = load i32, ptr %level, align 8
   %inc = add i32 %1, 1
   store i32 %inc, ptr %level, align 8
@@ -24284,21 +24269,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %2 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %4 = load i32, ptr %fill, align 4
   %cmp7 = icmp eq i32 %3, %4
   br i1 %cmp7, label %land.lhs.true, label %if.end14.thread
 
 if.end14.thread:                                  ; preds = %if.end5
-  %tokens59 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens59 = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens59, align 8
   %idxprom60 = sext i32 %3 to i64
   %arrayidx61 = getelementptr ptr, ptr %5, i64 %idxprom60
@@ -24316,7 +24301,7 @@ if.then9:                                         ; preds = %land.lhs.true
 if.end14:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %6 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %7 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr ptr, ptr %7, i64 %idxprom
@@ -24325,9 +24310,9 @@ if.end14:                                         ; preds = %land.lhs.true
 if.end26:                                         ; preds = %if.end14.thread, %if.end14
   %.pn.in = phi ptr [ %arrayidx61, %if.end14.thread ], [ %arrayidx, %if.end14 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in64 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in64 = getelementptr inbounds i8, ptr %.pn, i64 20
   %8 = load i32, ptr %.in64, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %9 = load i32, ptr %.in, align 8
   %call27 = tail call fastcc ptr @disjunction_rule(ptr noundef nonnull %p)
   %tobool28.not = icmp eq ptr %call27, null
@@ -24359,11 +24344,11 @@ if.then41:                                        ; preds = %land.lhs.true38
   br i1 %cmp43, label %return, label %if.end48
 
 if.end48:                                         ; preds = %if.then41
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call42, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call42, i64 28
   %10 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call42, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call42, i64 32
   %11 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %12 = load ptr, ptr %arena, align 8
   %call53 = tail call ptr @_PyAST_IfExp(ptr noundef nonnull %call33, ptr noundef nonnull %call27, ptr noundef nonnull %call39, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12) #4
   %cmp54 = icmp eq ptr %call53, null
@@ -24418,7 +24403,7 @@ declare i32 @_PyPegen_check_legacy_stmt(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_157_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -24430,13 +24415,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 661) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -24468,7 +24453,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @lambda_params_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -24480,15 +24465,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %3 = load i32, ptr %call_invalid_rules, align 4
   %tobool4.not = icmp eq i32 %3, 0
   br i1 %tobool4.not, label %if.end22, label %if.end16
@@ -24521,7 +24506,7 @@ declare ptr @_PyPegen_soft_keyword_token(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_lambda_parameters_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -24533,13 +24518,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 17) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -24552,16 +24537,16 @@ land.lhs.true:                                    ; preds = %if.end3
 
 if.then13:                                        ; preds = %land.lhs.true
   %3 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %call, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %call, i64 20
   %4 = load i32, ptr %lineno, align 4
   %conv = sext i32 %4 to i64
-  %col_offset = getelementptr inbounds %struct.Token, ptr %call, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %call, i64 24
   %5 = load i32, ptr %col_offset, align 8
   %conv14 = sext i32 %5 to i64
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call, i64 28
   %6 = load i32, ptr %end_lineno, align 4
   %conv15 = sext i32 %6 to i64
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call, i64 32
   %7 = load i32, ptr %end_col_offset, align 8
   %conv16 = sext i32 %7 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %3, i64 noundef %conv, i64 noundef %conv14, i64 noundef %conv15, i64 noundef %conv16, ptr noundef nonnull @.str.88)
@@ -24677,7 +24662,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ %inc31.i, %if.end30.i ]
   %_mark.0.i.lcssa = phi i32 [ %14, %while.cond.i.preheader ], [ %16, %if.end30.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %17) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
@@ -24688,7 +24673,7 @@ for.cond.i.preheader:                             ; preds = %while.end.i
   br i1 %cmp42.i134, label %for.body.i.lr.ph, label %land.lhs.true42
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
 
 if.then36.i:                                      ; preds = %while.end.i
@@ -24719,16 +24704,16 @@ land.lhs.true42:                                  ; preds = %for.body.i, %for.co
 
 if.then45:                                        ; preds = %land.lhs.true42
   %21 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno46 = getelementptr inbounds %struct.Token, ptr %call43, i64 0, i32 3
+  %lineno46 = getelementptr inbounds i8, ptr %call43, i64 20
   %22 = load i32, ptr %lineno46, align 4
   %conv47 = sext i32 %22 to i64
-  %col_offset48 = getelementptr inbounds %struct.Token, ptr %call43, i64 0, i32 4
+  %col_offset48 = getelementptr inbounds i8, ptr %call43, i64 24
   %23 = load i32, ptr %col_offset48, align 8
   %conv49 = sext i32 %23 to i64
-  %end_lineno50 = getelementptr inbounds %struct.Token, ptr %call43, i64 0, i32 5
+  %end_lineno50 = getelementptr inbounds i8, ptr %call43, i64 28
   %24 = load i32, ptr %end_lineno50, align 4
   %conv51 = sext i32 %24 to i64
-  %end_col_offset52 = getelementptr inbounds %struct.Token, ptr %call43, i64 0, i32 6
+  %end_col_offset52 = getelementptr inbounds i8, ptr %call43, i64 32
   %25 = load i32, ptr %end_col_offset52, align 8
   %conv53 = sext i32 %25 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %21, i64 noundef %conv47, i64 noundef %conv49, i64 noundef %conv51, i64 noundef %conv53, ptr noundef nonnull @.str.89)
@@ -24784,16 +24769,16 @@ land.lhs.true83:                                  ; preds = %land.lhs.true80
 
 if.then86:                                        ; preds = %land.lhs.true83
   %29 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno87 = getelementptr inbounds %struct._arg, ptr %call84, i64 0, i32 3
+  %lineno87 = getelementptr inbounds i8, ptr %call84, i64 24
   %30 = load i32, ptr %lineno87, align 8
   %conv88 = sext i32 %30 to i64
-  %col_offset89 = getelementptr inbounds %struct._arg, ptr %call84, i64 0, i32 4
+  %col_offset89 = getelementptr inbounds i8, ptr %call84, i64 28
   %31 = load i32, ptr %col_offset89, align 4
   %conv90 = sext i32 %31 to i64
-  %end_lineno91 = getelementptr inbounds %struct._arg, ptr %call84, i64 0, i32 5
+  %end_lineno91 = getelementptr inbounds i8, ptr %call84, i64 32
   %32 = load i32, ptr %end_lineno91, align 8
   %conv92 = sext i32 %32 to i64
-  %end_col_offset93 = getelementptr inbounds %struct._arg, ptr %call84, i64 0, i32 6
+  %end_col_offset93 = getelementptr inbounds i8, ptr %call84, i64 36
   %33 = load i32, ptr %end_col_offset93, align 4
   %conv94 = sext i32 %33 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %29, i64 noundef %conv88, i64 noundef %conv90, i64 noundef %conv92, i64 noundef %conv94, ptr noundef nonnull @.str.90)
@@ -24843,16 +24828,16 @@ land.lhs.true131:                                 ; preds = %land.lhs.true126
 
 if.then134:                                       ; preds = %land.lhs.true131
   %35 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno135 = getelementptr inbounds %struct.Token, ptr %call121, i64 0, i32 3
+  %lineno135 = getelementptr inbounds i8, ptr %call121, i64 20
   %36 = load i32, ptr %lineno135, align 4
   %conv136 = sext i32 %36 to i64
-  %col_offset137 = getelementptr inbounds %struct.Token, ptr %call121, i64 0, i32 4
+  %col_offset137 = getelementptr inbounds i8, ptr %call121, i64 24
   %37 = load i32, ptr %col_offset137, align 8
   %conv138 = sext i32 %37 to i64
-  %end_lineno139 = getelementptr inbounds %struct.Token, ptr %call132, i64 0, i32 5
+  %end_lineno139 = getelementptr inbounds i8, ptr %call132, i64 28
   %38 = load i32, ptr %end_lineno139, align 4
   %conv140 = sext i32 %38 to i64
-  %end_col_offset141 = getelementptr inbounds %struct.Token, ptr %call132, i64 0, i32 6
+  %end_col_offset141 = getelementptr inbounds i8, ptr %call132, i64 32
   %39 = load i32, ptr %end_col_offset141, align 8
   %conv142 = sext i32 %39 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %35, i64 noundef %conv136, i64 noundef %conv138, i64 noundef %conv140, i64 noundef %conv142, ptr noundef nonnull @.str.91)
@@ -24907,16 +24892,16 @@ land.lhs.true183:                                 ; preds = %land.lhs.true180
 
 if.then186:                                       ; preds = %land.lhs.true183
   %41 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno187 = getelementptr inbounds %struct.Token, ptr %call184, i64 0, i32 3
+  %lineno187 = getelementptr inbounds i8, ptr %call184, i64 20
   %42 = load i32, ptr %lineno187, align 4
   %conv188 = sext i32 %42 to i64
-  %col_offset189 = getelementptr inbounds %struct.Token, ptr %call184, i64 0, i32 4
+  %col_offset189 = getelementptr inbounds i8, ptr %call184, i64 24
   %43 = load i32, ptr %col_offset189, align 8
   %conv190 = sext i32 %43 to i64
-  %end_lineno191 = getelementptr inbounds %struct.Token, ptr %call184, i64 0, i32 5
+  %end_lineno191 = getelementptr inbounds i8, ptr %call184, i64 28
   %44 = load i32, ptr %end_lineno191, align 4
   %conv192 = sext i32 %44 to i64
-  %end_col_offset193 = getelementptr inbounds %struct.Token, ptr %call184, i64 0, i32 6
+  %end_col_offset193 = getelementptr inbounds i8, ptr %call184, i64 32
   %45 = load i32, ptr %end_col_offset193, align 8
   %conv194 = sext i32 %45 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %41, i64 noundef %conv188, i64 noundef %conv190, i64 noundef %conv192, i64 noundef %conv194, ptr noundef nonnull @.str.92)
@@ -24951,16 +24936,16 @@ land.lhs.true221:                                 ; preds = %land.lhs.true218
 
 if.then224:                                       ; preds = %land.lhs.true221
   %46 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno225 = getelementptr inbounds %struct.Token, ptr %call222, i64 0, i32 3
+  %lineno225 = getelementptr inbounds i8, ptr %call222, i64 20
   %47 = load i32, ptr %lineno225, align 4
   %conv226 = sext i32 %47 to i64
-  %col_offset227 = getelementptr inbounds %struct.Token, ptr %call222, i64 0, i32 4
+  %col_offset227 = getelementptr inbounds i8, ptr %call222, i64 24
   %48 = load i32, ptr %col_offset227, align 8
   %conv228 = sext i32 %48 to i64
-  %end_lineno229 = getelementptr inbounds %struct.Token, ptr %call222, i64 0, i32 5
+  %end_lineno229 = getelementptr inbounds i8, ptr %call222, i64 28
   %49 = load i32, ptr %end_lineno229, align 4
   %conv230 = sext i32 %49 to i64
-  %end_col_offset231 = getelementptr inbounds %struct.Token, ptr %call222, i64 0, i32 6
+  %end_col_offset231 = getelementptr inbounds i8, ptr %call222, i64 32
   %50 = load i32, ptr %end_col_offset231, align 8
   %conv232 = sext i32 %50 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %46, i64 noundef %conv226, i64 noundef %conv228, i64 noundef %conv230, i64 noundef %conv232, ptr noundef nonnull @.str.93)
@@ -24990,7 +24975,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lambda_parameters_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -25002,13 +24987,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @lambda_slash_no_default_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -25084,7 +25069,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %inc31.i, %if.end30.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %7, %if.end30.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
@@ -25095,7 +25080,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp4246.i, label %for.body.lr.ph.i, label %land.lhs.true13
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
 
 if.then36.i:                                      ; preds = %while.end.i
@@ -25194,7 +25179,7 @@ for.cond.i.preheader:                             ; preds = %while.end.i94
   br i1 %cmp42.i99329, label %for.body.i102.lr.ph, label %land.lhs.true16
 
 for.body.i102.lr.ph:                              ; preds = %for.cond.i.preheader
-  %elements.i104 = getelementptr inbounds %struct.asdl_seq, ptr %call34.i96, i64 0, i32 1
+  %elements.i104 = getelementptr inbounds i8, ptr %call34.i96, i64 8
   br label %for.body.i102
 
 if.then36.i107:                                   ; preds = %while.end.i94
@@ -25238,7 +25223,7 @@ INVALID_VERSION_CHECK.exit.thread:                ; preds = %if.then20
   br label %land.lhs.true24
 
 if.end.i113:                                      ; preds = %if.then20
-  %feature_version.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 17
+  %feature_version.i = getelementptr inbounds i8, ptr %p, i64 104
   %21 = load i32, ptr %feature_version.i, align 8
   %cmp1.i = icmp slt i32 %21, 8
   br i1 %cmp1.i, label %INVALID_VERSION_CHECK.exit, label %return.sink.split
@@ -25351,7 +25336,7 @@ while.end.i158:                                   ; preds = %if.end30.i144, %whi
   %_n.0.i138.lcssa = phi i64 [ 0, %while.cond.i135.preheader ], [ %inc31.i147, %if.end30.i144 ]
   %_mark.0.i139.lcssa = phi i32 [ %25, %while.cond.i135.preheader ], [ %27, %if.end30.i144 ]
   store i32 %_mark.0.i139.lcssa, ptr %mark, align 8
-  %arena.i159 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i159 = getelementptr inbounds i8, ptr %p, i64 32
   %28 = load ptr, ptr %arena.i159, align 8
   %call34.i160 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i138.lcssa, ptr noundef %28) #4
   %tobool35.not.i161 = icmp eq ptr %call34.i160, null
@@ -25362,7 +25347,7 @@ for.cond.i162.preheader:                          ; preds = %while.end.i158
   br i1 %cmp42.i165341, label %for.body.i168.lr.ph, label %land.lhs.true48
 
 for.body.i168.lr.ph:                              ; preds = %for.cond.i162.preheader
-  %elements.i170 = getelementptr inbounds %struct.asdl_seq, ptr %call34.i160, i64 0, i32 1
+  %elements.i170 = getelementptr inbounds i8, ptr %call34.i160, i64 8
   br label %for.body.i168
 
 if.then36.i173:                                   ; preds = %while.end.i158
@@ -25517,7 +25502,7 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
   br label %if.end97
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i204 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i204 = getelementptr inbounds i8, ptr %p, i64 32
   %37 = load ptr, ptr %arena.i204, align 8
   %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31.i199, ptr noundef %37) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -25528,7 +25513,7 @@ for.cond.preheader.i205:                          ; preds = %if.end40.i
   br i1 %cmp4950.i, label %for.body.lr.ph.i207, label %land.lhs.true78
 
 for.body.lr.ph.i207:                              ; preds = %for.cond.preheader.i205
-  %elements.i208 = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i208 = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i209
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -25636,7 +25621,7 @@ for.cond.i266.preheader:                          ; preds = %while.end.i262
   br i1 %cmp42.i269353, label %for.body.i272.lr.ph, label %land.lhs.true81
 
 for.body.i272.lr.ph:                              ; preds = %for.cond.i266.preheader
-  %elements.i274 = getelementptr inbounds %struct.asdl_seq, ptr %call34.i264, i64 0, i32 1
+  %elements.i274 = getelementptr inbounds i8, ptr %call34.i264, i64 8
   br label %for.body.i272
 
 if.then36.i277:                                   ; preds = %while.end.i262
@@ -25769,7 +25754,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lambda_slash_no_default_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -25781,13 +25766,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %3 = load i32, ptr %level, align 8
   %inc.i = add i32 %3, 1
@@ -25877,7 +25862,7 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
   br label %_loop1_104_rule.exit.thread
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
   %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31.i, ptr noundef %8) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -25888,7 +25873,7 @@ for.cond.preheader.i:                             ; preds = %if.end40.i
   br i1 %cmp4950.i, label %for.body.lr.ph.i, label %land.lhs.true
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -26025,7 +26010,7 @@ if.then37.i59:                                    ; preds = %lor.lhs.false.i57, 
   br label %_loop1_105_rule.exit.thread
 
 if.end40.i61:                                     ; preds = %lor.lhs.false.i57
-  %arena.i62 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i62 = getelementptr inbounds i8, ptr %p, i64 32
   %20 = load ptr, ptr %arena.i62, align 8
   %call41.i63 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31.i51, ptr noundef %20) #4
   %tobool42.not.i64 = icmp eq ptr %call41.i63, null
@@ -26036,7 +26021,7 @@ for.cond.preheader.i65:                           ; preds = %if.end40.i61
   br i1 %cmp4950.i66, label %for.body.lr.ph.i68, label %land.lhs.true38
 
 for.body.lr.ph.i68:                               ; preds = %for.cond.preheader.i65
-  %elements.i69 = getelementptr inbounds %struct.asdl_seq, ptr %call41.i63, i64 0, i32 1
+  %elements.i69 = getelementptr inbounds i8, ptr %call41.i63, i64 8
   br label %for.body.i70
 
 if.then43.i78:                                    ; preds = %if.end40.i61
@@ -26098,7 +26083,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_187_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -26110,13 +26095,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -26177,7 +26162,7 @@ while.end:                                        ; preds = %if.end30, %while.co
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -26188,7 +26173,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4246, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -26225,7 +26210,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_lambda_parameters_helper_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -26237,7 +26222,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -26247,7 +26232,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @lambda_slash_with_default_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -26367,7 +26352,7 @@ if.then37.i:                                      ; preds = %while.end.i.thread,
   br label %if.end32
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena.i, align 8
   %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31.i, ptr noundef %11) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -26378,7 +26363,7 @@ for.cond.i.preheader:                             ; preds = %if.end40.i
   br i1 %cmp49.i32, label %for.body.i.lr.ph, label %_loop1_196_rule.exit
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -26423,7 +26408,7 @@ return:                                           ; preds = %if.end32, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lambda_param_no_default_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -26435,13 +26420,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @lambda_param_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -26483,7 +26468,7 @@ return:                                           ; preds = %if.end47, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_188_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -26495,13 +26480,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -26562,7 +26547,7 @@ while.end:                                        ; preds = %if.end30, %while.co
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -26573,7 +26558,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4246, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -26610,7 +26595,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_gather_189_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -26622,13 +26607,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @lambda_param_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -26714,7 +26699,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -26725,7 +26710,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp5254.i, label %for.body.lr.ph.i, label %if.then13
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 if.then46.i:                                      ; preds = %while.end.i
@@ -26779,7 +26764,7 @@ return:                                           ; preds = %if.then13, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_tmp_191_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -26791,13 +26776,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @lambda_slash_no_default_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -26828,7 +26813,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_192_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -26840,13 +26825,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -26907,7 +26892,7 @@ while.end:                                        ; preds = %if.end30, %while.co
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -26918,7 +26903,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4246, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -26955,7 +26940,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_193_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -26967,13 +26952,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -27005,7 +26990,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_194_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -27017,13 +27002,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -27084,7 +27069,7 @@ while.end:                                        ; preds = %if.end30, %while.co
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -27095,7 +27080,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4246, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -27132,7 +27117,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop1_195_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -27144,13 +27129,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -27226,7 +27211,7 @@ if.then37:                                        ; preds = %while.end.thread, %
   br label %return
 
 if.end40:                                         ; preds = %lor.lhs.false
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %6 = load ptr, ptr %arena, align 8
   %call41 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31, ptr noundef %6) #4
   %tobool42.not = icmp eq ptr %call41, null
@@ -27237,7 +27222,7 @@ for.cond.preheader:                               ; preds = %if.end40
   br i1 %cmp4950, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call41, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call41, i64 8
   br label %for.body
 
 if.then43:                                        ; preds = %if.end40
@@ -27274,7 +27259,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lambda_slash_with_default_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -27286,13 +27271,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %3 = load i32, ptr %level, align 8
   %inc.i = add i32 %3, 1
@@ -27360,7 +27345,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %inc31.i, %if.end30.i ]
   %_mark.0.lcssa.i = phi i32 [ %4, %while.cond.preheader.i ], [ %6, %if.end30.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %7 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %7) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
@@ -27371,7 +27356,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp4246.i, label %for.body.lr.ph.i, label %land.lhs.true
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
 
 if.then36.i:                                      ; preds = %while.end.i
@@ -27497,7 +27482,7 @@ for.cond.i.preheader:                             ; preds = %if.end40.i
   br i1 %cmp49.i226, label %for.body.i63.lr.ph, label %land.lhs.true13
 
 for.body.i63.lr.ph:                               ; preds = %for.cond.i.preheader
-  %elements.i64 = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i64 = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i63
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -27626,7 +27611,7 @@ while.end.i98:                                    ; preds = %if.end30.i91, %whil
   %_n.0.lcssa.i100 = phi i64 [ 0, %while.cond.preheader.i82 ], [ %inc31.i94, %if.end30.i91 ]
   %_mark.0.lcssa.i101 = phi i32 [ %23, %while.cond.preheader.i82 ], [ %25, %if.end30.i91 ]
   store i32 %_mark.0.lcssa.i101, ptr %mark, align 8
-  %arena.i102 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i102 = getelementptr inbounds i8, ptr %p, i64 32
   %26 = load ptr, ptr %arena.i102, align 8
   %call34.i103 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i100, ptr noundef %26) #4
   %tobool35.not.i104 = icmp eq ptr %call34.i103, null
@@ -27637,7 +27622,7 @@ for.cond.preheader.i105:                          ; preds = %while.end.i98
   br i1 %cmp4246.i106, label %for.body.lr.ph.i108, label %land.lhs.true43
 
 for.body.lr.ph.i108:                              ; preds = %for.cond.preheader.i105
-  %elements.i109 = getelementptr inbounds %struct.asdl_seq, ptr %call34.i103, i64 0, i32 1
+  %elements.i109 = getelementptr inbounds i8, ptr %call34.i103, i64 8
   br label %for.body.i110
 
 if.then36.i118:                                   ; preds = %while.end.i98
@@ -27763,7 +27748,7 @@ for.cond.i181.preheader:                          ; preds = %if.end40.i177
   br i1 %cmp49.i184238, label %for.body.i187.lr.ph, label %land.lhs.true46
 
 for.body.i187.lr.ph:                              ; preds = %for.cond.i181.preheader
-  %elements.i189 = getelementptr inbounds %struct.asdl_seq, ptr %call41.i179, i64 0, i32 1
+  %elements.i189 = getelementptr inbounds i8, ptr %call41.i179, i64 8
   br label %for.body.i187
 
 if.then43.i192:                                   ; preds = %if.end40.i177
@@ -27836,7 +27821,7 @@ declare ptr @_PyPegen_slash_with_default(ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lambda_param_with_default_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -27848,13 +27833,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @lambda_param_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -27934,7 +27919,7 @@ return:                                           ; preds = %if.end56, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lambda_param_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -27946,21 +27931,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens28 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens28 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens28, align 8
   %idxprom29 = sext i32 %2 to i64
   %arrayidx30 = getelementptr ptr, ptr %4, i64 %idxprom29
@@ -27978,7 +27963,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -27987,9 +27972,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx30, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in33 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in33 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in33, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %p) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -28001,13 +27986,13 @@ if.then25:                                        ; preds = %if.end22
   br i1 %cmp27, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.then25
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call26, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call26, i64 28
   %9 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call26, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call26, i64 32
   %10 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call23, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call23, i64 8
   %11 = load ptr, ptr %v, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %12 = load ptr, ptr %arena, align 8
   %call36 = tail call ptr @_PyAST_arg(ptr noundef %11, ptr noundef null, ptr noundef null, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %12) #4
   %cmp37 = icmp eq ptr %call36, null
@@ -28037,7 +28022,7 @@ return:                                           ; preds = %if.end46, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @default_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -28049,13 +28034,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 22) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -28068,7 +28053,7 @@ land.lhs.true:                                    ; preds = %if.end3
 
 if.end23:                                         ; preds = %land.lhs.true, %if.end3
   store i32 %2, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %3 = load i32, ptr %call_invalid_rules, align 4
   %tobool25.not = icmp eq i32 %3, 0
   br i1 %tobool25.not, label %return.sink.split, label %if.then26
@@ -28103,16 +28088,16 @@ land.lhs.true.i:                                  ; preds = %if.end3.i
 
 if.then13.i:                                      ; preds = %land.lhs.true.i
   %7 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call.i, i64 20
   %8 = load i32, ptr %lineno.i, align 4
   %conv.i = sext i32 %8 to i64
-  %col_offset.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 4
+  %col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %9 = load i32, ptr %col_offset.i, align 8
   %conv14.i = sext i32 %9 to i64
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call.i, i64 28
   %10 = load i32, ptr %end_lineno.i, align 4
   %conv15.i = sext i32 %10 to i64
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %11 = load i32, ptr %end_col_offset.i, align 8
   %conv16.i = sext i32 %11 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i, i64 noundef %conv14.i, i64 noundef %conv15.i, i64 noundef %conv16.i, ptr noundef nonnull @.str.94)
@@ -28151,7 +28136,7 @@ declare ptr @_PyAST_arg(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_178_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -28163,13 +28148,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 8) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -28201,7 +28186,7 @@ return:                                           ; preds = %if.end24, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lambda_param_maybe_default_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -28213,13 +28198,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @lambda_param_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -28305,7 +28290,7 @@ return:                                           ; preds = %if.end59, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lambda_star_etc_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -28317,15 +28302,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %3 = load i32, ptr %call_invalid_rules, align 4
   %tobool4.not = icmp eq i32 %3, 0
   br i1 %tobool4.not, label %if.end22, label %if.end11
@@ -28483,16 +28468,16 @@ land.lhs.true38.i:                                ; preds = %land.lhs.true35.i
 
 if.then41.i:                                      ; preds = %land.lhs.true38.i
   %21 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call39.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call39.i, i64 20
   %22 = load i32, ptr %lineno.i, align 4
   %conv.i = sext i32 %22 to i64
-  %col_offset.i = getelementptr inbounds %struct.Token, ptr %call39.i, i64 0, i32 4
+  %col_offset.i = getelementptr inbounds i8, ptr %call39.i, i64 24
   %23 = load i32, ptr %col_offset.i, align 8
   %conv42.i = sext i32 %23 to i64
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call39.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call39.i, i64 28
   %24 = load i32, ptr %end_lineno.i, align 4
   %conv43.i = sext i32 %24 to i64
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call39.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call39.i, i64 32
   %25 = load i32, ptr %end_col_offset.i, align 8
   %conv44.i = sext i32 %25 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %21, i64 noundef %conv.i, i64 noundef %conv42.i, i64 noundef %conv43.i, i64 noundef %conv44.i, ptr noundef nonnull @.str.97)
@@ -28533,16 +28518,16 @@ land.lhs.true77.i:                                ; preds = %land.lhs.true74.i
 
 if.then80.i:                                      ; preds = %land.lhs.true77.i
   %27 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno81.i = getelementptr inbounds %struct.Token, ptr %call75.i, i64 0, i32 3
+  %lineno81.i = getelementptr inbounds i8, ptr %call75.i, i64 20
   %28 = load i32, ptr %lineno81.i, align 4
   %conv82.i = sext i32 %28 to i64
-  %col_offset83.i = getelementptr inbounds %struct.Token, ptr %call75.i, i64 0, i32 4
+  %col_offset83.i = getelementptr inbounds i8, ptr %call75.i, i64 24
   %29 = load i32, ptr %col_offset83.i, align 8
   %conv84.i = sext i32 %29 to i64
-  %end_lineno85.i = getelementptr inbounds %struct.Token, ptr %call75.i, i64 0, i32 5
+  %end_lineno85.i = getelementptr inbounds i8, ptr %call75.i, i64 28
   %30 = load i32, ptr %end_lineno85.i, align 4
   %conv86.i = sext i32 %30 to i64
-  %end_col_offset87.i = getelementptr inbounds %struct.Token, ptr %call75.i, i64 0, i32 6
+  %end_col_offset87.i = getelementptr inbounds i8, ptr %call75.i, i64 32
   %31 = load i32, ptr %end_col_offset87.i, align 8
   %conv88.i = sext i32 %31 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %27, i64 noundef %conv82.i, i64 noundef %conv84.i, i64 noundef %conv86.i, i64 noundef %conv88.i, ptr noundef nonnull @.str.98)
@@ -28656,7 +28641,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ %inc31.i, %if.end30.i ]
   %_mark.0.i.lcssa = phi i32 [ %37, %while.cond.i.preheader ], [ %39, %if.end30.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %40 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %40) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
@@ -28667,7 +28652,7 @@ for.cond.i.preheader:                             ; preds = %while.end.i
   br i1 %cmp42.i109, label %for.body.i.lr.ph, label %land.lhs.true30
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
 
 if.then36.i:                                      ; preds = %while.end.i
@@ -28834,7 +28819,7 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
   br label %_loop1_111_rule.exit.thread
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i142 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i142 = getelementptr inbounds i8, ptr %p, i64 32
   %52 = load ptr, ptr %arena.i142, align 8
   %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31.i137, ptr noundef %52) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -28845,7 +28830,7 @@ for.cond.preheader.i:                             ; preds = %if.end40.i
   br i1 %cmp4950.i, label %for.body.lr.ph.i, label %land.lhs.true64
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i143 = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i143 = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i144
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -28943,7 +28928,7 @@ declare ptr @_PyPegen_make_arguments(ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop1_103_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -28955,13 +28940,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -29037,7 +29022,7 @@ if.then37:                                        ; preds = %while.end.thread, %
   br label %return
 
 if.end40:                                         ; preds = %lor.lhs.false
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %6 = load ptr, ptr %arena, align 8
   %call41 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31, ptr noundef %6) #4
   %tobool42.not = icmp eq ptr %call41, null
@@ -29048,7 +29033,7 @@ for.cond.preheader:                               ; preds = %if.end40
   br i1 %cmp4950, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call41, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call41, i64 8
   br label %for.body
 
 if.then43:                                        ; preds = %if.end40
@@ -29085,7 +29070,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @lambda_kwds_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -29097,15 +29082,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %3 = load i32, ptr %call_invalid_rules, align 4
   %tobool4.not = icmp eq i32 %3, 0
   br i1 %tobool4.not, label %if.end22, label %if.end11
@@ -29141,16 +29126,16 @@ land.lhs.true13.i:                                ; preds = %land.lhs.true.i
 
 if.then16.i:                                      ; preds = %land.lhs.true13.i
   %7 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call14.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call14.i, i64 20
   %8 = load i32, ptr %lineno.i, align 4
   %conv.i = sext i32 %8 to i64
-  %col_offset.i = getelementptr inbounds %struct.Token, ptr %call14.i, i64 0, i32 4
+  %col_offset.i = getelementptr inbounds i8, ptr %call14.i, i64 24
   %9 = load i32, ptr %col_offset.i, align 8
   %conv17.i = sext i32 %9 to i64
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call14.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call14.i, i64 28
   %10 = load i32, ptr %end_lineno.i, align 4
   %conv18.i = sext i32 %10 to i64
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call14.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call14.i, i64 32
   %11 = load i32, ptr %end_col_offset.i, align 8
   %conv19.i = sext i32 %11 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i, i64 noundef %conv17.i, i64 noundef %conv18.i, i64 noundef %conv19.i, ptr noundef nonnull @.str.99)
@@ -29186,16 +29171,16 @@ land.lhs.true50.i:                                ; preds = %land.lhs.true47.i
 
 if.then53.i:                                      ; preds = %land.lhs.true50.i
   %13 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno54.i = getelementptr inbounds %struct._arg, ptr %call51.i, i64 0, i32 3
+  %lineno54.i = getelementptr inbounds i8, ptr %call51.i, i64 24
   %14 = load i32, ptr %lineno54.i, align 8
   %conv55.i = sext i32 %14 to i64
-  %col_offset56.i = getelementptr inbounds %struct._arg, ptr %call51.i, i64 0, i32 4
+  %col_offset56.i = getelementptr inbounds i8, ptr %call51.i, i64 28
   %15 = load i32, ptr %col_offset56.i, align 4
   %conv57.i = sext i32 %15 to i64
-  %end_lineno58.i = getelementptr inbounds %struct._arg, ptr %call51.i, i64 0, i32 5
+  %end_lineno58.i = getelementptr inbounds i8, ptr %call51.i, i64 32
   %16 = load i32, ptr %end_lineno58.i, align 8
   %conv59.i = sext i32 %16 to i64
-  %end_col_offset60.i = getelementptr inbounds %struct._arg, ptr %call51.i, i64 0, i32 6
+  %end_col_offset60.i = getelementptr inbounds i8, ptr %call51.i, i64 36
   %17 = load i32, ptr %end_col_offset60.i, align 4
   %conv61.i = sext i32 %17 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %13, i64 noundef %conv55.i, i64 noundef %conv57.i, i64 noundef %conv59.i, i64 noundef %conv61.i, ptr noundef nonnull @.str.100)
@@ -29231,16 +29216,16 @@ land.lhs.true93.i:                                ; preds = %land.lhs.true90.i
 
 if.then96.i:                                      ; preds = %land.lhs.true93.i
   %19 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno97.i = getelementptr inbounds %struct.Token, ptr %call94.i, i64 0, i32 3
+  %lineno97.i = getelementptr inbounds i8, ptr %call94.i, i64 20
   %20 = load i32, ptr %lineno97.i, align 4
   %conv98.i = sext i32 %20 to i64
-  %col_offset99.i = getelementptr inbounds %struct.Token, ptr %call94.i, i64 0, i32 4
+  %col_offset99.i = getelementptr inbounds i8, ptr %call94.i, i64 24
   %21 = load i32, ptr %col_offset99.i, align 8
   %conv100.i = sext i32 %21 to i64
-  %end_lineno101.i = getelementptr inbounds %struct.Token, ptr %call94.i, i64 0, i32 5
+  %end_lineno101.i = getelementptr inbounds i8, ptr %call94.i, i64 28
   %22 = load i32, ptr %end_lineno101.i, align 4
   %conv102.i = sext i32 %22 to i64
-  %end_col_offset103.i = getelementptr inbounds %struct.Token, ptr %call94.i, i64 0, i32 6
+  %end_col_offset103.i = getelementptr inbounds i8, ptr %call94.i, i64 32
   %23 = load i32, ptr %end_col_offset103.i, align 8
   %conv104.i = sext i32 %23 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %19, i64 noundef %conv98.i, i64 noundef %conv100.i, i64 noundef %conv102.i, i64 noundef %conv104.i, ptr noundef nonnull @.str.100)
@@ -29294,7 +29279,7 @@ declare ptr @_PyPegen_star_etc(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_198_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -29306,13 +29291,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @lambda_param_no_default_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -29344,7 +29329,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_199_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -29356,13 +29341,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -29423,7 +29408,7 @@ while.end:                                        ; preds = %if.end30, %while.co
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -29434,7 +29419,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4246, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -29471,7 +29456,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_200_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -29483,13 +29468,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @lambda_param_no_default_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -29521,7 +29506,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_201_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -29533,13 +29518,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 16) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -29594,7 +29579,7 @@ declare void @llvm.va_end(ptr) #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @decorators_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -29608,13 +29593,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %if.then ], [ %inc, %entry ]
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %inc.i = add i32 %storemerge.in.pre, 1
   store i32 %inc.i, ptr %level, align 8
@@ -29728,7 +29713,7 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
   br label %if.end20
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %10 = load ptr, ptr %arena.i, align 8
   %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i, ptr noundef %10) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -29739,7 +29724,7 @@ for.cond.preheader.i:                             ; preds = %if.end40.i
   br i1 %cmp4953.i, label %for.body.lr.ph.i, label %_loop1_32_rule.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -29784,7 +29769,7 @@ return:                                           ; preds = %_loop1_32_rule.exit
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @function_def_raw_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -29796,15 +29781,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11
@@ -29824,16 +29809,16 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true.if.end11_crit_edge, %if.end3
   %.pre98 = phi i32 [ %.pre98.pre, %land.lhs.true.if.end11_crit_edge ], [ 0, %if.end3 ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %5, i64 20
   %6 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %col_offset, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %8 = load i32, ptr %call_invalid_rules, align 4
   %tobool17.not = icmp eq i32 %8, 0
   br i1 %tobool17.not, label %if.end30, label %if.then18
@@ -29916,7 +29901,7 @@ land.lhs.true50.i:                                ; preds = %land.lhs.true47.i
 
 if.then53.i:                                      ; preds = %land.lhs.true50.i
   %14 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call18.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call18.i, i64 20
   %15 = load i32, ptr %lineno.i, align 4
   %call54.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %14, i32 noundef 0, ptr noundef nonnull @.str.105, i32 noundef %15) #4
   %cmp55.i = icmp eq ptr %call54.i, null
@@ -30010,11 +29995,11 @@ if.then73:                                        ; preds = %land.lhs.true70
   br i1 %cmp75, label %return.sink.split, label %if.end79
 
 if.end79:                                         ; preds = %if.then73
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call74, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call74, i64 28
   %23 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call74, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call74, i64 32
   %24 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call40, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call40, i64 8
   %25 = load ptr, ptr %v, align 8
   %tobool84.not = icmp eq ptr %call50, null
   br i1 %tobool84.not, label %cond.false, label %cond.end
@@ -30031,7 +30016,7 @@ if.then.i86:                                      ; preds = %cond.false
 cond.end:                                         ; preds = %if.then.i86, %cond.false, %if.end79
   %cond = phi ptr [ %call50, %if.end79 ], [ %call85, %cond.false ], [ null, %if.then.i86 ]
   %call87 = tail call fastcc ptr @NEW_TYPE_COMMENT(ptr noundef nonnull %p, ptr noundef %call66)
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %26 = load ptr, ptr %arena, align 8
   %call88 = tail call ptr @_PyAST_FunctionDef(ptr noundef %25, ptr noundef %cond, ptr noundef nonnull %call71, ptr noundef null, ptr noundef %call58, ptr noundef %call87, ptr noundef %call43, i32 noundef %6, i32 noundef %7, i32 noundef %23, i32 noundef %24, ptr noundef %26) #4
   %cmp89 = icmp eq ptr %call88, null
@@ -30121,11 +30106,11 @@ if.then156:                                       ; preds = %land.lhs.true153
   br i1 %cmp159, label %return.sink.split, label %if.end163
 
 if.end163:                                        ; preds = %if.then156
-  %end_lineno165 = getelementptr inbounds %struct.Token, ptr %call158, i64 0, i32 5
+  %end_lineno165 = getelementptr inbounds i8, ptr %call158, i64 28
   %31 = load i32, ptr %end_lineno165, align 4
-  %end_col_offset169 = getelementptr inbounds %struct.Token, ptr %call158, i64 0, i32 6
+  %end_col_offset169 = getelementptr inbounds i8, ptr %call158, i64 32
   %32 = load i32, ptr %end_col_offset169, align 8
-  %v172 = getelementptr inbounds %struct._expr, ptr %call122, i64 0, i32 1
+  %v172 = getelementptr inbounds i8, ptr %call122, i64 8
   %33 = load ptr, ptr %v172, align 8
   %tobool174.not = icmp eq ptr %call133, null
   br i1 %tobool174.not, label %cond.false176, label %cond.end179
@@ -30142,7 +30127,7 @@ if.then.i90:                                      ; preds = %cond.false176
 cond.end179:                                      ; preds = %if.then.i90, %cond.false176, %if.end163
   %cond180 = phi ptr [ %call133, %if.end163 ], [ %call177, %cond.false176 ], [ null, %if.then.i90 ]
   %call181 = tail call fastcc ptr @NEW_TYPE_COMMENT(ptr noundef nonnull %p, ptr noundef %call149)
-  %arena182 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena182 = getelementptr inbounds i8, ptr %p, i64 32
   %34 = load ptr, ptr %arena182, align 8
   %call183 = tail call ptr @_PyAST_AsyncFunctionDef(ptr noundef %33, ptr noundef %cond180, ptr noundef nonnull %call154, ptr noundef null, ptr noundef %call141, ptr noundef %call181, ptr noundef %call125, i32 noundef %6, i32 noundef %7, i32 noundef %31, i32 noundef %32, ptr noundef %34) #4
   %call184 = tail call fastcc ptr @INVALID_VERSION_CHECK(ptr noundef nonnull %p, i32 noundef 5, ptr noundef nonnull @.str.104, ptr noundef %call183)
@@ -30180,7 +30165,7 @@ declare ptr @_PyPegen_function_def_decorators(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @type_params_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -30192,13 +30177,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 9) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -30323,7 +30308,7 @@ while.end.i.i.i:                                  ; preds = %if.end40.i.i.i, %la
   %_children.0.lcssa.i.i.i = phi ptr [ %call.i.i.i, %while.cond.preheader.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ], [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %_children.1.i.i.i, %if.end40.i.i.i ]
   %_mark.0.lcssa.i.i.i = phi i32 [ %7, %while.cond.preheader.i.i.i ], [ %7, %land.rhs.i.preheader.i.i ], [ %9, %land.rhs.i.i.i ], [ %9, %if.end40.i.i.i ]
   store i32 %_mark.0.lcssa.i.i.i, ptr %mark, align 8
-  %arena.i.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %10 = load ptr, ptr %arena.i.i.i, align 8
   %call44.i.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i.i, ptr noundef %10) #4
   %tobool45.not.i.i.i = icmp eq ptr %call44.i.i.i, null
@@ -30334,7 +30319,7 @@ for.cond.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   br i1 %cmp5254.i.i.i, label %for.body.lr.ph.i.i.i, label %_gather_80_rule.exit.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.i.i.i
-  %elements.i.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i.i, i64 0, i32 1
+  %elements.i.i.i = getelementptr inbounds i8, ptr %call44.i.i.i, i64 8
   br label %for.body.i.i.i
 
 if.then46.i.i.i:                                  ; preds = %while.end.i.i.i
@@ -30402,7 +30387,7 @@ land.lhs.true13:                                  ; preds = %land.lhs.true.i
   br i1 %tobool15.not, label %if.end27, label %if.end.i17
 
 if.end.i17:                                       ; preds = %land.lhs.true13
-  %feature_version.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 17
+  %feature_version.i = getelementptr inbounds i8, ptr %p, i64 104
   %16 = load i32, ptr %feature_version.i, align 8
   %cmp1.i = icmp slt i32 %16, 12
   br i1 %cmp1.i, label %INVALID_VERSION_CHECK.exit, label %return
@@ -30440,7 +30425,7 @@ declare ptr @_PyPegen_expect_forced_token(ptr noundef, i32 noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @params_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -30452,7 +30437,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -30462,9 +30447,9 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %4 = load i32, ptr %call_invalid_rules, align 4
   %tobool4.not = icmp eq i32 %4, 0
   %.pr = load i32, ptr %level, align 8
@@ -30495,16 +30480,16 @@ land.lhs.true.i:                                  ; preds = %if.end3.i
 
 if.then13.i:                                      ; preds = %land.lhs.true.i
   %6 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call.i, i64 20
   %7 = load i32, ptr %lineno.i, align 4
   %conv.i = sext i32 %7 to i64
-  %col_offset.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 4
+  %col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %8 = load i32, ptr %col_offset.i, align 8
   %conv14.i = sext i32 %8 to i64
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call.i, i64 28
   %9 = load i32, ptr %end_lineno.i, align 4
   %conv15.i = sext i32 %9 to i64
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %10 = load i32, ptr %end_col_offset.i, align 8
   %conv16.i = sext i32 %10 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %6, i64 noundef %conv.i, i64 noundef %conv14.i, i64 noundef %conv15.i, i64 noundef %conv16.i, ptr noundef nonnull @.str.88)
@@ -30624,7 +30609,7 @@ while.end.i.i:                                    ; preds = %if.end30.i.i, %whil
   %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ %inc31.i.i, %if.end30.i.i ]
   %_mark.0.lcssa.i.i = phi i32 [ %17, %while.cond.preheader.i.i ], [ %19, %if.end30.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark, align 8
-  %arena.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %20 = load ptr, ptr %arena.i.i, align 8
   %call34.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %20) #4
   %tobool35.not.i.i = icmp eq ptr %call34.i.i, null
@@ -30635,7 +30620,7 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   br i1 %cmp4246.i.i, label %for.body.lr.ph.i.i, label %land.lhs.true42.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %elements.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i.i, i64 0, i32 1
+  %elements.i.i = getelementptr inbounds i8, ptr %call34.i.i, i64 8
   br label %for.body.i.i
 
 if.then36.i.i:                                    ; preds = %while.end.i.i
@@ -30671,16 +30656,16 @@ land.lhs.true42.i:                                ; preds = %for.body.i.i, %for.
 
 if.then45.i:                                      ; preds = %land.lhs.true42.i
   %24 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno46.i = getelementptr inbounds %struct.Token, ptr %call43.i, i64 0, i32 3
+  %lineno46.i = getelementptr inbounds i8, ptr %call43.i, i64 20
   %25 = load i32, ptr %lineno46.i, align 4
   %conv47.i = sext i32 %25 to i64
-  %col_offset48.i = getelementptr inbounds %struct.Token, ptr %call43.i, i64 0, i32 4
+  %col_offset48.i = getelementptr inbounds i8, ptr %call43.i, i64 24
   %26 = load i32, ptr %col_offset48.i, align 8
   %conv49.i = sext i32 %26 to i64
-  %end_lineno50.i = getelementptr inbounds %struct.Token, ptr %call43.i, i64 0, i32 5
+  %end_lineno50.i = getelementptr inbounds i8, ptr %call43.i, i64 28
   %27 = load i32, ptr %end_lineno50.i, align 4
   %conv51.i = sext i32 %27 to i64
-  %end_col_offset52.i = getelementptr inbounds %struct.Token, ptr %call43.i, i64 0, i32 6
+  %end_col_offset52.i = getelementptr inbounds i8, ptr %call43.i, i64 32
   %28 = load i32, ptr %end_col_offset52.i, align 8
   %conv53.i = sext i32 %28 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %24, i64 noundef %conv47.i, i64 noundef %conv49.i, i64 noundef %conv51.i, i64 noundef %conv53.i, ptr noundef nonnull @.str.89)
@@ -30731,16 +30716,16 @@ land.lhs.true83.i:                                ; preds = %land.lhs.true80.i
 
 if.then86.i:                                      ; preds = %land.lhs.true83.i
   %32 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno87.i = getelementptr inbounds %struct._arg, ptr %call84.i, i64 0, i32 3
+  %lineno87.i = getelementptr inbounds i8, ptr %call84.i, i64 24
   %33 = load i32, ptr %lineno87.i, align 8
   %conv88.i = sext i32 %33 to i64
-  %col_offset89.i = getelementptr inbounds %struct._arg, ptr %call84.i, i64 0, i32 4
+  %col_offset89.i = getelementptr inbounds i8, ptr %call84.i, i64 28
   %34 = load i32, ptr %col_offset89.i, align 4
   %conv90.i = sext i32 %34 to i64
-  %end_lineno91.i = getelementptr inbounds %struct._arg, ptr %call84.i, i64 0, i32 5
+  %end_lineno91.i = getelementptr inbounds i8, ptr %call84.i, i64 32
   %35 = load i32, ptr %end_lineno91.i, align 8
   %conv92.i = sext i32 %35 to i64
-  %end_col_offset93.i = getelementptr inbounds %struct._arg, ptr %call84.i, i64 0, i32 6
+  %end_col_offset93.i = getelementptr inbounds i8, ptr %call84.i, i64 36
   %36 = load i32, ptr %end_col_offset93.i, align 4
   %conv94.i = sext i32 %36 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %32, i64 noundef %conv88.i, i64 noundef %conv90.i, i64 noundef %conv92.i, i64 noundef %conv94.i, ptr noundef nonnull @.str.90)
@@ -30786,16 +30771,16 @@ land.lhs.true131.i:                               ; preds = %land.lhs.true126.i
 
 if.then134.i:                                     ; preds = %land.lhs.true131.i
   %38 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno135.i = getelementptr inbounds %struct.Token, ptr %call121.i, i64 0, i32 3
+  %lineno135.i = getelementptr inbounds i8, ptr %call121.i, i64 20
   %39 = load i32, ptr %lineno135.i, align 4
   %conv136.i = sext i32 %39 to i64
-  %col_offset137.i = getelementptr inbounds %struct.Token, ptr %call121.i, i64 0, i32 4
+  %col_offset137.i = getelementptr inbounds i8, ptr %call121.i, i64 24
   %40 = load i32, ptr %col_offset137.i, align 8
   %conv138.i = sext i32 %40 to i64
-  %end_lineno139.i = getelementptr inbounds %struct.Token, ptr %call132.i, i64 0, i32 5
+  %end_lineno139.i = getelementptr inbounds i8, ptr %call132.i, i64 28
   %41 = load i32, ptr %end_lineno139.i, align 4
   %conv140.i = sext i32 %41 to i64
-  %end_col_offset141.i = getelementptr inbounds %struct.Token, ptr %call132.i, i64 0, i32 6
+  %end_col_offset141.i = getelementptr inbounds i8, ptr %call132.i, i64 32
   %42 = load i32, ptr %end_col_offset141.i, align 8
   %conv142.i = sext i32 %42 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %38, i64 noundef %conv136.i, i64 noundef %conv138.i, i64 noundef %conv140.i, i64 noundef %conv142.i, ptr noundef nonnull @.str.111)
@@ -30846,16 +30831,16 @@ land.lhs.true183.i:                               ; preds = %land.lhs.true180.i
 
 if.then186.i:                                     ; preds = %land.lhs.true183.i
   %44 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno187.i = getelementptr inbounds %struct.Token, ptr %call184.i, i64 0, i32 3
+  %lineno187.i = getelementptr inbounds i8, ptr %call184.i, i64 20
   %45 = load i32, ptr %lineno187.i, align 4
   %conv188.i = sext i32 %45 to i64
-  %col_offset189.i = getelementptr inbounds %struct.Token, ptr %call184.i, i64 0, i32 4
+  %col_offset189.i = getelementptr inbounds i8, ptr %call184.i, i64 24
   %46 = load i32, ptr %col_offset189.i, align 8
   %conv190.i = sext i32 %46 to i64
-  %end_lineno191.i = getelementptr inbounds %struct.Token, ptr %call184.i, i64 0, i32 5
+  %end_lineno191.i = getelementptr inbounds i8, ptr %call184.i, i64 28
   %47 = load i32, ptr %end_lineno191.i, align 4
   %conv192.i = sext i32 %47 to i64
-  %end_col_offset193.i = getelementptr inbounds %struct.Token, ptr %call184.i, i64 0, i32 6
+  %end_col_offset193.i = getelementptr inbounds i8, ptr %call184.i, i64 32
   %48 = load i32, ptr %end_col_offset193.i, align 8
   %conv194.i = sext i32 %48 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %44, i64 noundef %conv188.i, i64 noundef %conv190.i, i64 noundef %conv192.i, i64 noundef %conv194.i, ptr noundef nonnull @.str.92)
@@ -30890,16 +30875,16 @@ land.lhs.true221.i:                               ; preds = %land.lhs.true218.i
 
 if.then224.i:                                     ; preds = %land.lhs.true221.i
   %49 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno225.i = getelementptr inbounds %struct.Token, ptr %call222.i, i64 0, i32 3
+  %lineno225.i = getelementptr inbounds i8, ptr %call222.i, i64 20
   %50 = load i32, ptr %lineno225.i, align 4
   %conv226.i = sext i32 %50 to i64
-  %col_offset227.i = getelementptr inbounds %struct.Token, ptr %call222.i, i64 0, i32 4
+  %col_offset227.i = getelementptr inbounds i8, ptr %call222.i, i64 24
   %51 = load i32, ptr %col_offset227.i, align 8
   %conv228.i = sext i32 %51 to i64
-  %end_lineno229.i = getelementptr inbounds %struct.Token, ptr %call222.i, i64 0, i32 5
+  %end_lineno229.i = getelementptr inbounds i8, ptr %call222.i, i64 28
   %52 = load i32, ptr %end_lineno229.i, align 4
   %conv230.i = sext i32 %52 to i64
-  %end_col_offset231.i = getelementptr inbounds %struct.Token, ptr %call222.i, i64 0, i32 6
+  %end_col_offset231.i = getelementptr inbounds i8, ptr %call222.i, i64 32
   %53 = load i32, ptr %end_col_offset231.i, align 8
   %conv232.i = sext i32 %53 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %49, i64 noundef %conv226.i, i64 noundef %conv228.i, i64 noundef %conv230.i, i64 noundef %conv232.i, ptr noundef nonnull @.str.93)
@@ -31028,7 +31013,7 @@ while.end.i.i67:                                  ; preds = %if.end30.i.i60, %wh
   %_n.0.lcssa.i.i69 = phi i64 [ 0, %while.cond.preheader.i.i51 ], [ %inc31.i.i63, %if.end30.i.i60 ]
   %_mark.0.lcssa.i.i70 = phi i32 [ %62, %while.cond.preheader.i.i51 ], [ %64, %if.end30.i.i60 ]
   store i32 %_mark.0.lcssa.i.i70, ptr %mark, align 8
-  %arena.i.i71 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i71 = getelementptr inbounds i8, ptr %p, i64 32
   %65 = load ptr, ptr %arena.i.i71, align 8
   %call34.i.i72 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i69, ptr noundef %65) #4
   %tobool35.not.i.i73 = icmp eq ptr %call34.i.i72, null
@@ -31039,7 +31024,7 @@ for.cond.preheader.i.i74:                         ; preds = %while.end.i.i67
   br i1 %cmp4246.i.i75, label %for.body.lr.ph.i.i78, label %land.lhs.true13.i
 
 for.body.lr.ph.i.i78:                             ; preds = %for.cond.preheader.i.i74
-  %elements.i.i79 = getelementptr inbounds %struct.asdl_seq, ptr %call34.i.i72, i64 0, i32 1
+  %elements.i.i79 = getelementptr inbounds i8, ptr %call34.i.i72, i64 8
   br label %for.body.i.i80
 
 if.then36.i.i88:                                  ; preds = %while.end.i.i67
@@ -31138,7 +31123,7 @@ for.cond.preheader.i101.i:                        ; preds = %while.end.i94.i
   br i1 %cmp4246.i102.i, label %for.body.lr.ph.i104.i, label %land.lhs.true16.i
 
 for.body.lr.ph.i104.i:                            ; preds = %for.cond.preheader.i101.i
-  %elements.i105.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i99.i, i64 0, i32 1
+  %elements.i105.i = getelementptr inbounds i8, ptr %call34.i99.i, i64 8
   br label %for.body.i106.i
 
 if.then36.i114.i:                                 ; preds = %while.end.i94.i
@@ -31182,7 +31167,7 @@ INVALID_VERSION_CHECK.exit.thread.i:              ; preds = %if.then20.i
   br label %land.lhs.true24.i
 
 if.end.i128.i:                                    ; preds = %if.then20.i
-  %feature_version.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 17
+  %feature_version.i.i = getelementptr inbounds i8, ptr %p, i64 104
   %78 = load i32, ptr %feature_version.i.i, align 8
   %cmp1.i.i = icmp slt i32 %78, 8
   br i1 %cmp1.i.i, label %INVALID_VERSION_CHECK.exit.i, label %parameters_rule.exit
@@ -31300,7 +31285,7 @@ while.end.i163.i:                                 ; preds = %if.end30.i156.i, %w
   %_n.0.lcssa.i165.i = phi i64 [ 0, %while.cond.preheader.i147.i ], [ %inc31.i159.i, %if.end30.i156.i ]
   %_mark.0.lcssa.i166.i = phi i32 [ %84, %while.cond.preheader.i147.i ], [ %86, %if.end30.i156.i ]
   store i32 %_mark.0.lcssa.i166.i, ptr %mark, align 8
-  %arena.i167.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i167.i = getelementptr inbounds i8, ptr %p, i64 32
   %87 = load ptr, ptr %arena.i167.i, align 8
   %call34.i168.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i165.i, ptr noundef %87) #4
   %tobool35.not.i169.i = icmp eq ptr %call34.i168.i, null
@@ -31311,7 +31296,7 @@ for.cond.preheader.i170.i:                        ; preds = %while.end.i163.i
   br i1 %cmp4246.i171.i, label %for.body.lr.ph.i173.i, label %land.lhs.true48.i
 
 for.body.lr.ph.i173.i:                            ; preds = %for.cond.preheader.i170.i
-  %elements.i174.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i168.i, i64 0, i32 1
+  %elements.i174.i = getelementptr inbounds i8, ptr %call34.i168.i, i64 8
   br label %for.body.i175.i
 
 if.then36.i183.i:                                 ; preds = %while.end.i163.i
@@ -31470,7 +31455,7 @@ if.then37.i.i:                                    ; preds = %lor.lhs.false.i.i, 
   br label %if.end97.i
 
 if.end40.i.i:                                     ; preds = %lor.lhs.false.i.i
-  %arena.i220.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i220.i = getelementptr inbounds i8, ptr %p, i64 32
   %98 = load ptr, ptr %arena.i220.i, align 8
   %call41.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31.i215.i, ptr noundef %98) #4
   %tobool42.not.i.i = icmp eq ptr %call41.i.i, null
@@ -31481,7 +31466,7 @@ for.cond.preheader.i221.i:                        ; preds = %if.end40.i.i
   br i1 %cmp4950.i.i, label %for.body.lr.ph.i223.i, label %land.lhs.true78.i
 
 for.body.lr.ph.i223.i:                            ; preds = %for.cond.preheader.i221.i
-  %elements.i224.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i.i, i64 0, i32 1
+  %elements.i224.i = getelementptr inbounds i8, ptr %call41.i.i, i64 8
   br label %for.body.i225.i
 
 if.then43.i.i:                                    ; preds = %if.end40.i.i
@@ -31589,7 +31574,7 @@ for.cond.preheader.i275.i:                        ; preds = %while.end.i268.i
   br i1 %cmp4246.i276.i, label %for.body.lr.ph.i278.i, label %land.lhs.true81.i
 
 for.body.lr.ph.i278.i:                            ; preds = %for.cond.preheader.i275.i
-  %elements.i279.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i273.i, i64 0, i32 1
+  %elements.i279.i = getelementptr inbounds i8, ptr %call34.i273.i, i64 8
   br label %for.body.i280.i
 
 if.then36.i288.i:                                 ; preds = %while.end.i268.i
@@ -31745,7 +31730,7 @@ return:                                           ; preds = %if.end26, %paramete
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_34_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -31757,13 +31742,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 51) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -31789,7 +31774,7 @@ return:                                           ; preds = %if.end23, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @func_type_comment_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -31801,13 +31786,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 4) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -31825,7 +31810,7 @@ land.lhs.true13:                                  ; preds = %land.lhs.true
 
 if.end26:                                         ; preds = %land.lhs.true13, %land.lhs.true, %if.end3
   store i32 %2, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %3 = load i32, ptr %call_invalid_rules, align 4
   %tobool28.not = icmp eq i32 %3, 0
   %.pre30 = load i32, ptr %error_indicator, align 8
@@ -31933,7 +31918,7 @@ return:                                           ; preds = %return.sink.split, 
 define internal fastcc ptr @block_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -31945,7 +31930,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -31970,7 +31955,7 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
   %6 = load i32, ptr %error_indicator, align 8
   %tobool10.not = icmp eq i32 %6, 0
@@ -32029,7 +32014,7 @@ if.then45:                                        ; preds = %if.end42
 
 if.end46:                                         ; preds = %if.end42
   store i32 %5, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %10 = load i32, ptr %call_invalid_rules, align 4
   %tobool48.not = icmp eq i32 %10, 0
   br i1 %tobool48.not, label %if.end61, label %if.then49
@@ -32085,7 +32070,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bytes1 = getelementptr inbounds %struct.Token, ptr %tc, i64 0, i32 1
+  %bytes1 = getelementptr inbounds i8, ptr %tc, i64 8
   %0 = load ptr, ptr %bytes1, align 8
   %call = tail call ptr @PyBytes_AsString(ptr noundef %0) #4
   %cmp2 = icmp eq ptr %call, null
@@ -32097,7 +32082,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %error, label %return
 
 error:                                            ; preds = %if.end4, %if.end
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator, align 8
   br label %return
 
@@ -32109,7 +32094,7 @@ return:                                           ; preds = %if.end4, %entry, %e
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_35_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -32121,13 +32106,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 51) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -32155,7 +32140,7 @@ declare ptr @_PyAST_AsyncFunctionDef(ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_tmp_226_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -32167,13 +32152,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 51) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -32203,7 +32188,7 @@ return:                                           ; preds = %if.then13, %if.end1
 define internal fastcc ptr @type_param_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -32215,7 +32200,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -32240,9 +32225,9 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill, align 4
   %cmp10 = icmp eq i32 %5, %6
   br i1 %cmp10, label %land.lhs.true, label %if.end17
@@ -32260,14 +32245,14 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %col_offset, align 8
   %12 = load i32, ptr %error_indicator, align 8
   %tobool24.not = icmp eq i32 %12, 0
@@ -32347,13 +32332,13 @@ if.then38:                                        ; preds = %if.then35
   br label %return
 
 if.end41:                                         ; preds = %if.then35
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call36, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call36, i64 28
   %18 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call36, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call36, i64 32
   %19 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call29, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call29, i64 8
   %20 = load ptr, ptr %v, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %21 = load ptr, ptr %arena, align 8
   %call46 = call ptr @_PyAST_TypeVar(ptr noundef %20, ptr noundef %retval.0.i.ph, i32 noundef %10, i32 noundef %11, i32 noundef %18, i32 noundef %19, ptr noundef %21) #4
   store ptr %call46, ptr %_res, align 8
@@ -32410,10 +32395,10 @@ land.lhs.true73:                                  ; preds = %land.lhs.true70
 
 if.then76:                                        ; preds = %land.lhs.true73
   %24 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno77 = getelementptr inbounds %struct.Token, ptr %call71, i64 0, i32 3
+  %lineno77 = getelementptr inbounds i8, ptr %call71, i64 20
   %25 = load i32, ptr %lineno77, align 4
   %conv = sext i32 %25 to i64
-  %col_offset78 = getelementptr inbounds %struct.Token, ptr %call71, i64 0, i32 4
+  %col_offset78 = getelementptr inbounds i8, ptr %call71, i64 24
   %26 = load i32, ptr %col_offset78, align 8
   %conv79 = sext i32 %26 to i64
   %27 = load i32, ptr %call74, align 8
@@ -32466,13 +32451,13 @@ if.then113:                                       ; preds = %if.then108
   br label %return
 
 if.end116:                                        ; preds = %if.then108
-  %end_lineno118 = getelementptr inbounds %struct.Token, ptr %call110, i64 0, i32 5
+  %end_lineno118 = getelementptr inbounds i8, ptr %call110, i64 28
   %32 = load i32, ptr %end_lineno118, align 4
-  %end_col_offset122 = getelementptr inbounds %struct.Token, ptr %call110, i64 0, i32 6
+  %end_col_offset122 = getelementptr inbounds i8, ptr %call110, i64 32
   %33 = load i32, ptr %end_col_offset122, align 8
-  %v125 = getelementptr inbounds %struct._expr, ptr %call106, i64 0, i32 1
+  %v125 = getelementptr inbounds i8, ptr %call106, i64 8
   %34 = load ptr, ptr %v125, align 8
-  %arena127 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena127 = getelementptr inbounds i8, ptr %p, i64 32
   %35 = load ptr, ptr %arena127, align 8
   %call128 = call ptr @_PyAST_TypeVarTuple(ptr noundef %34, i32 noundef %10, i32 noundef %11, i32 noundef %32, i32 noundef %33, ptr noundef %35) #4
   store ptr %call128, ptr %_res, align 8
@@ -32525,10 +32510,10 @@ land.lhs.true159:                                 ; preds = %land.lhs.true156
 
 if.then162:                                       ; preds = %land.lhs.true159
   %39 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno163 = getelementptr inbounds %struct.Token, ptr %call157, i64 0, i32 3
+  %lineno163 = getelementptr inbounds i8, ptr %call157, i64 20
   %40 = load i32, ptr %lineno163, align 4
   %conv164 = sext i32 %40 to i64
-  %col_offset165 = getelementptr inbounds %struct.Token, ptr %call157, i64 0, i32 4
+  %col_offset165 = getelementptr inbounds i8, ptr %call157, i64 24
   %41 = load i32, ptr %col_offset165, align 8
   %conv166 = sext i32 %41 to i64
   %42 = load i32, ptr %call160, align 8
@@ -32581,13 +32566,13 @@ if.then202:                                       ; preds = %if.then197
   br label %return
 
 if.end205:                                        ; preds = %if.then197
-  %end_lineno207 = getelementptr inbounds %struct.Token, ptr %call199, i64 0, i32 5
+  %end_lineno207 = getelementptr inbounds i8, ptr %call199, i64 28
   %47 = load i32, ptr %end_lineno207, align 4
-  %end_col_offset211 = getelementptr inbounds %struct.Token, ptr %call199, i64 0, i32 6
+  %end_col_offset211 = getelementptr inbounds i8, ptr %call199, i64 32
   %48 = load i32, ptr %end_col_offset211, align 8
-  %v214 = getelementptr inbounds %struct._expr, ptr %call195, i64 0, i32 1
+  %v214 = getelementptr inbounds i8, ptr %call195, i64 8
   %49 = load ptr, ptr %v214, align 8
-  %arena216 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena216 = getelementptr inbounds i8, ptr %p, i64 32
   %50 = load ptr, ptr %arena216, align 8
   %call217 = call ptr @_PyAST_ParamSpec(ptr noundef %49, i32 noundef %10, i32 noundef %11, i32 noundef %47, i32 noundef %48, ptr noundef %50) #4
   store ptr %call217, ptr %_res, align 8
@@ -32634,7 +32619,7 @@ declare ptr @_PyAST_ParamSpec(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @slash_no_default_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -32646,13 +32631,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %3 = load i32, ptr %level, align 8
   %inc.i = add i32 %3, 1
@@ -32742,7 +32727,7 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
   br label %_loop1_42_rule.exit.thread
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
   %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31.i, ptr noundef %8) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -32753,7 +32738,7 @@ for.cond.preheader.i:                             ; preds = %if.end40.i
   br i1 %cmp4950.i, label %for.body.lr.ph.i, label %land.lhs.true
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -32890,7 +32875,7 @@ if.then37.i59:                                    ; preds = %lor.lhs.false.i57, 
   br label %_loop1_43_rule.exit.thread
 
 if.end40.i61:                                     ; preds = %lor.lhs.false.i57
-  %arena.i62 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i62 = getelementptr inbounds i8, ptr %p, i64 32
   %20 = load ptr, ptr %arena.i62, align 8
   %call41.i63 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31.i51, ptr noundef %20) #4
   %tobool42.not.i64 = icmp eq ptr %call41.i63, null
@@ -32901,7 +32886,7 @@ for.cond.preheader.i65:                           ; preds = %if.end40.i61
   br i1 %cmp4950.i66, label %for.body.lr.ph.i68, label %land.lhs.true38
 
 for.body.lr.ph.i68:                               ; preds = %for.cond.preheader.i65
-  %elements.i69 = getelementptr inbounds %struct.asdl_seq, ptr %call41.i63, i64 0, i32 1
+  %elements.i69 = getelementptr inbounds i8, ptr %call41.i63, i64 8
   br label %for.body.i70
 
 if.then43.i78:                                    ; preds = %if.end40.i61
@@ -32963,7 +32948,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_170_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -32975,13 +32960,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -33042,7 +33027,7 @@ while.end:                                        ; preds = %if.end30, %while.co
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -33053,7 +33038,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4246, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -33090,7 +33075,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_parameters_helper_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -33102,7 +33087,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -33112,7 +33097,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @slash_with_default_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -33232,7 +33217,7 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
   br label %if.end32
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena.i, align 8
   %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31.i, ptr noundef %11) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -33243,7 +33228,7 @@ for.cond.preheader.i:                             ; preds = %if.end40.i
   br i1 %cmp4950.i, label %for.body.lr.ph.i, label %_loop1_184_rule.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -33288,7 +33273,7 @@ return:                                           ; preds = %if.end32, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @param_no_default_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -33300,13 +33285,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @param_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -33392,7 +33377,7 @@ return:                                           ; preds = %if.end59, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_171_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -33404,13 +33389,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -33471,7 +33456,7 @@ while.end:                                        ; preds = %if.end30, %while.co
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -33482,7 +33467,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4246, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -33519,7 +33504,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop1_172_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -33531,13 +33516,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -33613,7 +33598,7 @@ if.then37:                                        ; preds = %while.end.thread, %
   br label %return
 
 if.end40:                                         ; preds = %lor.lhs.false
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %6 = load ptr, ptr %arena, align 8
   %call41 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31, ptr noundef %6) #4
   %tobool42.not = icmp eq ptr %call41, null
@@ -33624,7 +33609,7 @@ for.cond.preheader:                               ; preds = %if.end40
   br i1 %cmp4950, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call41, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call41, i64 8
   br label %for.body
 
 if.then43:                                        ; preds = %if.end40
@@ -33661,7 +33646,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_tmp_173_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -33673,13 +33658,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @slash_no_default_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -33710,7 +33695,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_174_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -33722,13 +33707,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -33789,7 +33774,7 @@ while.end:                                        ; preds = %if.end30, %while.co
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -33800,7 +33785,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4246, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -33837,7 +33822,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_175_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -33849,13 +33834,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -33887,7 +33872,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_176_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -33899,13 +33884,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -33966,7 +33951,7 @@ while.end:                                        ; preds = %if.end30, %while.co
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -33977,7 +33962,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4246, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -34014,7 +33999,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop1_177_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -34026,13 +34011,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -34108,7 +34093,7 @@ if.then37:                                        ; preds = %while.end.thread, %
   br label %return
 
 if.end40:                                         ; preds = %lor.lhs.false
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %6 = load ptr, ptr %arena, align 8
   %call41 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31, ptr noundef %6) #4
   %tobool42.not = icmp eq ptr %call41, null
@@ -34119,7 +34104,7 @@ for.cond.preheader:                               ; preds = %if.end40
   br i1 %cmp4950, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call41, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call41, i64 8
   br label %for.body
 
 if.then43:                                        ; preds = %if.end40
@@ -34156,7 +34141,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @slash_with_default_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -34168,13 +34153,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %3 = load i32, ptr %level, align 8
   %inc.i = add i32 %3, 1
@@ -34242,7 +34227,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %inc31.i, %if.end30.i ]
   %_mark.0.lcssa.i = phi i32 [ %4, %while.cond.preheader.i ], [ %6, %if.end30.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %7 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %7) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
@@ -34253,7 +34238,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp4246.i, label %for.body.lr.ph.i, label %land.lhs.true
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
 
 if.then36.i:                                      ; preds = %while.end.i
@@ -34379,7 +34364,7 @@ for.cond.preheader.i54:                           ; preds = %if.end40.i
   br i1 %cmp4950.i, label %for.body.lr.ph.i56, label %land.lhs.true13
 
 for.body.lr.ph.i56:                               ; preds = %for.cond.preheader.i54
-  %elements.i57 = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i57 = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i58
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -34508,7 +34493,7 @@ while.end.i101:                                   ; preds = %if.end30.i94, %whil
   %_n.0.lcssa.i103 = phi i64 [ 0, %while.cond.preheader.i85 ], [ %inc31.i97, %if.end30.i94 ]
   %_mark.0.lcssa.i104 = phi i32 [ %23, %while.cond.preheader.i85 ], [ %25, %if.end30.i94 ]
   store i32 %_mark.0.lcssa.i104, ptr %mark, align 8
-  %arena.i105 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i105 = getelementptr inbounds i8, ptr %p, i64 32
   %26 = load ptr, ptr %arena.i105, align 8
   %call34.i106 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i103, ptr noundef %26) #4
   %tobool35.not.i107 = icmp eq ptr %call34.i106, null
@@ -34519,7 +34504,7 @@ for.cond.preheader.i108:                          ; preds = %while.end.i101
   br i1 %cmp4246.i109, label %for.body.lr.ph.i111, label %land.lhs.true43
 
 for.body.lr.ph.i111:                              ; preds = %for.cond.preheader.i108
-  %elements.i112 = getelementptr inbounds %struct.asdl_seq, ptr %call34.i106, i64 0, i32 1
+  %elements.i112 = getelementptr inbounds i8, ptr %call34.i106, i64 8
   br label %for.body.i113
 
 if.then36.i121:                                   ; preds = %while.end.i101
@@ -34645,7 +34630,7 @@ for.cond.preheader.i174:                          ; preds = %if.end40.i170
   br i1 %cmp4950.i175, label %for.body.lr.ph.i177, label %land.lhs.true46
 
 for.body.lr.ph.i177:                              ; preds = %for.cond.preheader.i174
-  %elements.i178 = getelementptr inbounds %struct.asdl_seq, ptr %call41.i172, i64 0, i32 1
+  %elements.i178 = getelementptr inbounds i8, ptr %call41.i172, i64 8
   br label %for.body.i179
 
 if.then43.i187:                                   ; preds = %if.end40.i170
@@ -34716,7 +34701,7 @@ return:                                           ; preds = %if.end63, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @param_with_default_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -34728,13 +34713,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @param_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -34830,7 +34815,7 @@ return:                                           ; preds = %if.end66, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @param_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -34842,21 +34827,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens34 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens34 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens34, align 8
   %idxprom35 = sext i32 %2 to i64
   %arrayidx36 = getelementptr ptr, ptr %4, i64 %idxprom35
@@ -34874,7 +34859,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -34883,9 +34868,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx36, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in39 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in39 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in39, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %p) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -34943,13 +34928,13 @@ if.then29:                                        ; preds = %annotation_rule.exi
   br i1 %cmp31, label %return, label %if.end35
 
 if.end35:                                         ; preds = %if.then29
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call30, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call30, i64 28
   %12 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call30, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call30, i64 32
   %13 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call23, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call23, i64 8
   %14 = load ptr, ptr %v, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %15 = load ptr, ptr %arena, align 8
   %call40 = tail call ptr @_PyAST_arg(ptr noundef %14, ptr noundef %retval.0.i.ph, ptr noundef null, i32 noundef %7, i32 noundef %8, i32 noundef %12, i32 noundef %13, ptr noundef %15) #4
   %cmp41 = icmp eq ptr %call40, null
@@ -34979,7 +34964,7 @@ return:                                           ; preds = %if.end50, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @param_maybe_default_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -34991,13 +34976,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @param_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -35097,7 +35082,7 @@ declare ptr @_PyPegen_add_type_comment_to_arg(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @star_etc_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -35109,15 +35094,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %3 = load i32, ptr %call_invalid_rules, align 4
   %tobool4.not = icmp eq i32 %3, 0
   br i1 %tobool4.not, label %if.end22, label %if.end11
@@ -35239,16 +35224,16 @@ _tmp_179_rule.exit.i:                             ; preds = %if.end19.i.i.i, %if
 
 if.then13.i:                                      ; preds = %_tmp_179_rule.exit.i, %_tmp_179_rule.exit.thread62.i
   %19 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call.i, i64 20
   %20 = load i32, ptr %lineno.i, align 4
   %conv.i = sext i32 %20 to i64
-  %col_offset.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 4
+  %col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %21 = load i32, ptr %col_offset.i, align 8
   %conv14.i = sext i32 %21 to i64
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call.i, i64 28
   %22 = load i32, ptr %end_lineno.i, align 4
   %conv15.i = sext i32 %22 to i64
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %23 = load i32, ptr %end_col_offset.i, align 8
   %conv16.i = sext i32 %23 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %19, i64 noundef %conv.i, i64 noundef %conv14.i, i64 noundef %conv15.i, i64 noundef %conv16.i, ptr noundef nonnull @.str.96)
@@ -35311,16 +35296,16 @@ land.lhs.true71.i:                                ; preds = %land.lhs.true68.i
 
 if.then74.i:                                      ; preds = %land.lhs.true71.i
   %27 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno75.i = getelementptr inbounds %struct.Token, ptr %call72.i, i64 0, i32 3
+  %lineno75.i = getelementptr inbounds i8, ptr %call72.i, i64 20
   %28 = load i32, ptr %lineno75.i, align 4
   %conv76.i = sext i32 %28 to i64
-  %col_offset77.i = getelementptr inbounds %struct.Token, ptr %call72.i, i64 0, i32 4
+  %col_offset77.i = getelementptr inbounds i8, ptr %call72.i, i64 24
   %29 = load i32, ptr %col_offset77.i, align 8
   %conv78.i = sext i32 %29 to i64
-  %end_lineno79.i = getelementptr inbounds %struct.Token, ptr %call72.i, i64 0, i32 5
+  %end_lineno79.i = getelementptr inbounds i8, ptr %call72.i, i64 28
   %30 = load i32, ptr %end_lineno79.i, align 4
   %conv80.i = sext i32 %30 to i64
-  %end_col_offset81.i = getelementptr inbounds %struct.Token, ptr %call72.i, i64 0, i32 6
+  %end_col_offset81.i = getelementptr inbounds i8, ptr %call72.i, i64 32
   %31 = load i32, ptr %end_col_offset81.i, align 8
   %conv82.i = sext i32 %31 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %27, i64 noundef %conv76.i, i64 noundef %conv78.i, i64 noundef %conv80.i, i64 noundef %conv82.i, ptr noundef nonnull @.str.97)
@@ -35361,16 +35346,16 @@ land.lhs.true115.i:                               ; preds = %land.lhs.true112.i
 
 if.then118.i:                                     ; preds = %land.lhs.true115.i
   %33 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno119.i = getelementptr inbounds %struct.Token, ptr %call113.i, i64 0, i32 3
+  %lineno119.i = getelementptr inbounds i8, ptr %call113.i, i64 20
   %34 = load i32, ptr %lineno119.i, align 4
   %conv120.i = sext i32 %34 to i64
-  %col_offset121.i = getelementptr inbounds %struct.Token, ptr %call113.i, i64 0, i32 4
+  %col_offset121.i = getelementptr inbounds i8, ptr %call113.i, i64 24
   %35 = load i32, ptr %col_offset121.i, align 8
   %conv122.i = sext i32 %35 to i64
-  %end_lineno123.i = getelementptr inbounds %struct.Token, ptr %call113.i, i64 0, i32 5
+  %end_lineno123.i = getelementptr inbounds i8, ptr %call113.i, i64 28
   %36 = load i32, ptr %end_lineno123.i, align 4
   %conv124.i = sext i32 %36 to i64
-  %end_col_offset125.i = getelementptr inbounds %struct.Token, ptr %call113.i, i64 0, i32 6
+  %end_col_offset125.i = getelementptr inbounds i8, ptr %call113.i, i64 32
   %37 = load i32, ptr %end_col_offset125.i, align 8
   %conv126.i = sext i32 %37 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %33, i64 noundef %conv120.i, i64 noundef %conv122.i, i64 noundef %conv124.i, i64 noundef %conv126.i, ptr noundef nonnull @.str.98)
@@ -35484,7 +35469,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %inc31.i, %if.end30.i ]
   %_mark.0.lcssa.i = phi i32 [ %43, %while.cond.preheader.i ], [ %45, %if.end30.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %46 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %46) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
@@ -35495,7 +35480,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp4246.i, label %for.body.lr.ph.i, label %land.lhs.true30
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
 
 if.then36.i:                                      ; preds = %while.end.i
@@ -35684,7 +35669,7 @@ return:                                           ; preds = %if.end138, %land.lh
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop1_41_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -35696,13 +35681,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -35778,7 +35763,7 @@ if.then37:                                        ; preds = %while.end.thread, %
   br label %return
 
 if.end40:                                         ; preds = %lor.lhs.false
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %6 = load ptr, ptr %arena, align 8
   %call41 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31, ptr noundef %6) #4
   %tobool42.not = icmp eq ptr %call41, null
@@ -35789,7 +35774,7 @@ for.cond.preheader:                               ; preds = %if.end40
   br i1 %cmp4950, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call41, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call41, i64 8
   br label %for.body
 
 if.then43:                                        ; preds = %if.end40
@@ -35826,7 +35811,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @kwds_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -35838,15 +35823,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %3 = load i32, ptr %call_invalid_rules, align 4
   %tobool4.not = icmp eq i32 %3, 0
   br i1 %tobool4.not, label %if.end22, label %if.end11
@@ -35882,16 +35867,16 @@ land.lhs.true13.i:                                ; preds = %land.lhs.true.i
 
 if.then16.i:                                      ; preds = %land.lhs.true13.i
   %7 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call14.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call14.i, i64 20
   %8 = load i32, ptr %lineno.i, align 4
   %conv.i = sext i32 %8 to i64
-  %col_offset.i = getelementptr inbounds %struct.Token, ptr %call14.i, i64 0, i32 4
+  %col_offset.i = getelementptr inbounds i8, ptr %call14.i, i64 24
   %9 = load i32, ptr %col_offset.i, align 8
   %conv17.i = sext i32 %9 to i64
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call14.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call14.i, i64 28
   %10 = load i32, ptr %end_lineno.i, align 4
   %conv18.i = sext i32 %10 to i64
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call14.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call14.i, i64 32
   %11 = load i32, ptr %end_col_offset.i, align 8
   %conv19.i = sext i32 %11 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv.i, i64 noundef %conv17.i, i64 noundef %conv18.i, i64 noundef %conv19.i, ptr noundef nonnull @.str.99)
@@ -35927,16 +35912,16 @@ land.lhs.true50.i:                                ; preds = %land.lhs.true47.i
 
 if.then53.i:                                      ; preds = %land.lhs.true50.i
   %13 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno54.i = getelementptr inbounds %struct._arg, ptr %call51.i, i64 0, i32 3
+  %lineno54.i = getelementptr inbounds i8, ptr %call51.i, i64 24
   %14 = load i32, ptr %lineno54.i, align 8
   %conv55.i = sext i32 %14 to i64
-  %col_offset56.i = getelementptr inbounds %struct._arg, ptr %call51.i, i64 0, i32 4
+  %col_offset56.i = getelementptr inbounds i8, ptr %call51.i, i64 28
   %15 = load i32, ptr %col_offset56.i, align 4
   %conv57.i = sext i32 %15 to i64
-  %end_lineno58.i = getelementptr inbounds %struct._arg, ptr %call51.i, i64 0, i32 5
+  %end_lineno58.i = getelementptr inbounds i8, ptr %call51.i, i64 32
   %16 = load i32, ptr %end_lineno58.i, align 8
   %conv59.i = sext i32 %16 to i64
-  %end_col_offset60.i = getelementptr inbounds %struct._arg, ptr %call51.i, i64 0, i32 6
+  %end_col_offset60.i = getelementptr inbounds i8, ptr %call51.i, i64 36
   %17 = load i32, ptr %end_col_offset60.i, align 4
   %conv61.i = sext i32 %17 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %13, i64 noundef %conv55.i, i64 noundef %conv57.i, i64 noundef %conv59.i, i64 noundef %conv61.i, ptr noundef nonnull @.str.100)
@@ -35972,16 +35957,16 @@ land.lhs.true93.i:                                ; preds = %land.lhs.true90.i
 
 if.then96.i:                                      ; preds = %land.lhs.true93.i
   %19 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno97.i = getelementptr inbounds %struct.Token, ptr %call94.i, i64 0, i32 3
+  %lineno97.i = getelementptr inbounds i8, ptr %call94.i, i64 20
   %20 = load i32, ptr %lineno97.i, align 4
   %conv98.i = sext i32 %20 to i64
-  %col_offset99.i = getelementptr inbounds %struct.Token, ptr %call94.i, i64 0, i32 4
+  %col_offset99.i = getelementptr inbounds i8, ptr %call94.i, i64 24
   %21 = load i32, ptr %col_offset99.i, align 8
   %conv100.i = sext i32 %21 to i64
-  %end_lineno101.i = getelementptr inbounds %struct.Token, ptr %call94.i, i64 0, i32 5
+  %end_lineno101.i = getelementptr inbounds i8, ptr %call94.i, i64 28
   %22 = load i32, ptr %end_lineno101.i, align 4
   %conv102.i = sext i32 %22 to i64
-  %end_col_offset103.i = getelementptr inbounds %struct.Token, ptr %call94.i, i64 0, i32 6
+  %end_col_offset103.i = getelementptr inbounds i8, ptr %call94.i, i64 32
   %23 = load i32, ptr %end_col_offset103.i, align 8
   %conv104.i = sext i32 %23 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %19, i64 noundef %conv98.i, i64 noundef %conv100.i, i64 noundef %conv102.i, i64 noundef %conv104.i, ptr noundef nonnull @.str.100)
@@ -36033,7 +36018,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @param_no_default_star_annotation_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -36045,13 +36030,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @param_star_annotation_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -36137,7 +36122,7 @@ return:                                           ; preds = %if.end59, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_49_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -36149,13 +36134,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -36216,7 +36201,7 @@ while.end:                                        ; preds = %if.end30, %while.co
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -36227,7 +36212,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4246, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -36264,7 +36249,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop1_50_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -36276,13 +36261,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -36358,7 +36343,7 @@ if.then37:                                        ; preds = %while.end.thread, %
   br label %return
 
 if.end40:                                         ; preds = %lor.lhs.false
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %6 = load ptr, ptr %arena, align 8
   %call41 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31, ptr noundef %6) #4
   %tobool42.not = icmp eq ptr %call41, null
@@ -36369,7 +36354,7 @@ for.cond.preheader:                               ; preds = %if.end40
   br i1 %cmp4950, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call41, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call41, i64 8
   br label %for.body
 
 if.then43:                                        ; preds = %if.end40
@@ -36406,7 +36391,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_180_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -36418,13 +36403,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @param_no_default_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -36456,7 +36441,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_181_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -36468,13 +36453,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -36535,7 +36520,7 @@ while.end:                                        ; preds = %if.end30, %while.co
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -36546,7 +36531,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4246, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -36583,7 +36568,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_182_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -36595,13 +36580,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @param_no_default_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -36633,7 +36618,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_183_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -36645,13 +36630,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 16) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -36694,7 +36679,7 @@ return:                                           ; preds = %if.end36, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @param_star_annotation_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -36706,21 +36691,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens33 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens33 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens33, align 8
   %idxprom34 = sext i32 %2 to i64
   %arrayidx35 = getelementptr ptr, ptr %4, i64 %idxprom34
@@ -36738,7 +36723,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -36747,9 +36732,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx35, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in38 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in38 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in38, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %p) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -36796,13 +36781,13 @@ if.then28:                                        ; preds = %land.lhs.true.i
   br i1 %cmp30, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.then28
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call29, i64 28
   %11 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call29, i64 32
   %12 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call23, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call23, i64 8
   %13 = load ptr, ptr %v, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %14 = load ptr, ptr %arena, align 8
   %call39 = tail call ptr @_PyAST_arg(ptr noundef %13, ptr noundef nonnull %call11.i, ptr noundef null, i32 noundef %7, i32 noundef %8, i32 noundef %11, i32 noundef %12, ptr noundef %14) #4
   %cmp40 = icmp eq ptr %call39, null
@@ -36832,7 +36817,7 @@ return:                                           ; preds = %if.end49, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_149_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -36844,13 +36829,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 4) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -36880,7 +36865,7 @@ return:                                           ; preds = %if.then13, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_block_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -36892,13 +36877,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 4) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -36943,7 +36928,7 @@ declare ptr @_PyPegen_new_type_comment(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_if_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -36955,13 +36940,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 658) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -37025,7 +37010,7 @@ land.lhs.true47:                                  ; preds = %land.lhs.true44
 
 if.then50:                                        ; preds = %land.lhs.true47
   %5 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %call36, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %call36, i64 20
   %6 = load i32, ptr %lineno, align 4
   %call51 = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %5, i32 noundef 0, ptr noundef nonnull @.str.116, i32 noundef %6) #4
   %cmp52 = icmp eq ptr %call51, null
@@ -37055,7 +37040,7 @@ return:                                           ; preds = %if.end61, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @elif_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -37067,15 +37052,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11
@@ -37095,16 +37080,16 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true.if.end11_crit_edge, %if.end3
   %.pre67 = phi i32 [ %.pre67.pre, %land.lhs.true.if.end11_crit_edge ], [ 0, %if.end3 ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %5, i64 20
   %6 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %col_offset, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %8 = load i32, ptr %call_invalid_rules, align 4
   %tobool17.not = icmp eq i32 %8, 0
   br i1 %tobool17.not, label %if.end30, label %if.then18
@@ -37186,7 +37171,7 @@ land.lhs.true48.i:                                ; preds = %land.lhs.true45.i
 
 if.then51.i:                                      ; preds = %land.lhs.true48.i
   %13 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call37.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call37.i, i64 20
   %14 = load i32, ptr %lineno.i, align 4
   %call52.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %13, i32 noundef 0, ptr noundef nonnull @.str.117, i32 noundef %14) #4
   %cmp53.i = icmp eq ptr %call52.i, null
@@ -37252,9 +37237,9 @@ if.then51:                                        ; preds = %land.lhs.true48
   br i1 %cmp53, label %return.sink.split, label %if.end57
 
 if.end57:                                         ; preds = %if.then51
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call52, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call52, i64 28
   %18 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call52, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call52, i64 32
   %19 = load i32, ptr %end_col_offset, align 8
   %call62 = tail call ptr @_PyPegen_singleton_seq(ptr noundef nonnull %p, ptr noundef nonnull %call49) #4
   %cmp.i59 = icmp eq ptr %call62, null
@@ -37265,7 +37250,7 @@ if.then.i61:                                      ; preds = %if.end57
   br label %CHECK_CALL.exit
 
 CHECK_CALL.exit:                                  ; preds = %if.end57, %if.then.i61
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %20 = load ptr, ptr %arena, align 8
   %call64 = tail call ptr @_PyAST_If(ptr noundef nonnull %call40, ptr noundef nonnull %call46, ptr noundef %call62, i32 noundef %6, i32 noundef %7, i32 noundef %18, i32 noundef %19, ptr noundef %20) #4
   %cmp65 = icmp eq ptr %call64, null
@@ -37318,11 +37303,11 @@ if.then102:                                       ; preds = %land.lhs.true98
   br i1 %cmp105, label %return.sink.split, label %if.end109
 
 if.end109:                                        ; preds = %if.then102
-  %end_lineno111 = getelementptr inbounds %struct.Token, ptr %call104, i64 0, i32 5
+  %end_lineno111 = getelementptr inbounds i8, ptr %call104, i64 28
   %23 = load i32, ptr %end_lineno111, align 4
-  %end_col_offset115 = getelementptr inbounds %struct.Token, ptr %call104, i64 0, i32 6
+  %end_col_offset115 = getelementptr inbounds i8, ptr %call104, i64 32
   %24 = load i32, ptr %end_col_offset115, align 8
-  %arena118 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena118 = getelementptr inbounds i8, ptr %p, i64 32
   %25 = load ptr, ptr %arena118, align 8
   %call119 = tail call ptr @_PyAST_If(ptr noundef nonnull %call90, ptr noundef nonnull %call96, ptr noundef %call99, i32 noundef %6, i32 noundef %7, i32 noundef %23, i32 noundef %24, ptr noundef %25) #4
   %cmp120 = icmp eq ptr %call119, null
@@ -37359,7 +37344,7 @@ declare ptr @_PyAST_If(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @else_block_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -37371,15 +37356,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %3 = load i32, ptr %call_invalid_rules, align 4
   %tobool4.not = icmp eq i32 %3, 0
   br i1 %tobool4.not, label %if.end22, label %if.end11
@@ -37419,7 +37404,7 @@ land.lhs.true16.i:                                ; preds = %land.lhs.true13.i
 
 if.then19.i:                                      ; preds = %land.lhs.true16.i
   %6 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call.i, i64 20
   %7 = load i32, ptr %lineno.i, align 4
   %call20.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %6, i32 noundef 0, ptr noundef nonnull @.str.118, i32 noundef %7) #4
   %cmp21.i = icmp eq ptr %call20.i, null
@@ -37486,7 +37471,7 @@ return:                                           ; preds = %if.end40, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @class_def_raw_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -37498,15 +37483,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11
@@ -37526,16 +37511,16 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true.if.end11_crit_edge, %if.end3
   %.pre49 = phi i32 [ %.pre49.pre, %land.lhs.true.if.end11_crit_edge ], [ 0, %if.end3 ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %5, i64 20
   %6 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %col_offset, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %8 = load i32, ptr %call_invalid_rules, align 4
   %tobool17.not = icmp eq i32 %8, 0
   br i1 %tobool17.not, label %if.end30, label %if.then18
@@ -37687,7 +37672,7 @@ land.lhs.true75.i:                                ; preds = %land.lhs.true72.i
 
 if.then78.i:                                      ; preds = %land.lhs.true75.i
   %19 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call54.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call54.i, i64 20
   %20 = load i32, ptr %lineno.i, align 4
   %call79.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %19, i32 noundef 0, ptr noundef nonnull @.str.119, i32 noundef %20) #4
   %cmp80.i = icmp eq ptr %call79.i, null
@@ -37760,26 +37745,26 @@ if.then57:                                        ; preds = %land.lhs.true54
   br i1 %cmp59, label %return.sink.split, label %if.end63
 
 if.end63:                                         ; preds = %if.then57
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call58, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call58, i64 28
   %26 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call58, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call58, i64 32
   %27 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call40, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call40, i64 8
   %28 = load ptr, ptr %v, align 8
   %tobool68.not = icmp eq ptr %call47, null
   br i1 %tobool68.not, label %cond.end74, label %cond.true71
 
 cond.true71:                                      ; preds = %if.end63
-  %args = getelementptr inbounds %struct._expr, ptr %call47, i64 0, i32 1, i32 0, i32 1
+  %args = getelementptr inbounds i8, ptr %call47, i64 16
   %29 = load ptr, ptr %args, align 8
-  %keywords = getelementptr inbounds %struct._expr, ptr %call47, i64 0, i32 1, i32 0, i32 2
+  %keywords = getelementptr inbounds i8, ptr %call47, i64 24
   %30 = load ptr, ptr %keywords, align 8
   br label %cond.end74
 
 cond.end74:                                       ; preds = %if.end63, %cond.true71
   %cond47 = phi ptr [ %29, %cond.true71 ], [ null, %if.end63 ]
   %cond75 = phi ptr [ %30, %cond.true71 ], [ null, %if.end63 ]
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %31 = load ptr, ptr %arena, align 8
   %call76 = tail call ptr @_PyAST_ClassDef(ptr noundef %28, ptr noundef %cond47, ptr noundef %cond75, ptr noundef nonnull %call55, ptr noundef null, ptr noundef %call43, i32 noundef %6, i32 noundef %7, i32 noundef %26, i32 noundef %27, ptr noundef %31) #4
   %cmp77 = icmp eq ptr %call76, null
@@ -37816,7 +37801,7 @@ declare ptr @_PyPegen_class_def_decorators(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_33_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -37828,13 +37813,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 7) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -37881,7 +37866,7 @@ declare ptr @_PyAST_ClassDef(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_tmp_228_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -37893,13 +37878,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 7) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -37936,7 +37921,7 @@ declare ptr @_PyAST_With(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_gather_53_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -37948,13 +37933,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @with_item_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -38040,7 +38025,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -38051,7 +38036,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp5254.i, label %for.body.lr.ph.i, label %if.then13
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 if.then46.i:                                      ; preds = %while.end.i
@@ -38105,7 +38090,7 @@ return:                                           ; preds = %if.then13, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_gather_55_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -38117,13 +38102,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @with_item_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -38209,7 +38194,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -38220,7 +38205,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp5254.i, label %for.body.lr.ph.i, label %if.then13
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 if.then46.i:                                      ; preds = %while.end.i
@@ -38276,7 +38261,7 @@ declare ptr @_PyAST_AsyncWith(ptr noundef, ptr noundef, ptr noundef, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_gather_57_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -38288,13 +38273,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @with_item_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -38380,7 +38365,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -38391,7 +38376,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp5254.i, label %for.body.lr.ph.i, label %if.then13
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 if.then46.i:                                      ; preds = %while.end.i
@@ -38445,7 +38430,7 @@ return:                                           ; preds = %if.then13, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_with_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -38457,13 +38442,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 670) #4
   %3 = load i32, ptr %error_indicator, align 8
@@ -38580,7 +38565,7 @@ while.end.i.i:                                    ; preds = %if.end40.i.i, %land
   %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
   %_mark.0.lcssa.i.i = phi i32 [ %8, %while.cond.preheader.i.i ], [ %8, %land.rhs.i.preheader.i ], [ %10, %land.rhs.i.i ], [ %10, %if.end40.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark, align 8
-  %arena.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena.i.i, align 8
   %call44.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %11) #4
   %tobool45.not.i.i = icmp eq ptr %call44.i.i, null
@@ -38591,7 +38576,7 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   br i1 %cmp5254.i.i, label %for.body.lr.ph.i.i, label %_gather_205_rule.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %elements.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i, i64 0, i32 1
+  %elements.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 8
   br label %for.body.i.i
 
 if.then46.i.i:                                    ; preds = %while.end.i.i
@@ -38733,7 +38718,7 @@ return:                                           ; preds = %if.end81, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_gather_211_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -38745,13 +38730,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @_tmp_271_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -38837,7 +38822,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -38848,7 +38833,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp5254.i, label %for.body.lr.ph.i, label %if.then13
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 if.then46.i:                                      ; preds = %while.end.i
@@ -38902,7 +38887,7 @@ return:                                           ; preds = %if.then13, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_270_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -38914,13 +38899,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -38995,7 +38980,7 @@ return:                                           ; preds = %if.then14, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_271_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -39007,13 +38992,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @expressions_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -39088,7 +39073,7 @@ return:                                           ; preds = %if.then14, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @expressions_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -39100,21 +39085,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens74 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens74 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens74, align 8
   %idxprom75 = sext i32 %2 to i64
   %arrayidx76 = getelementptr ptr, ptr %4, i64 %idxprom75
@@ -39131,7 +39116,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
@@ -39141,9 +39126,9 @@ if.end11:                                         ; preds = %land.lhs.true
 do.end24:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx76, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in83 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in83 = getelementptr inbounds i8, ptr %.pn, i64 20
   %6 = load i32, ptr %.in83, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %7 = load i32, ptr %.in, align 8
   %call25 = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
   %tobool26.not = icmp eq ptr %call25, null
@@ -39261,7 +39246,7 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
   br label %_loop1_82_rule.exit.thread
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %16 = load ptr, ptr %arena.i, align 8
   %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i, ptr noundef %16) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -39272,7 +39257,7 @@ for.cond.preheader.i:                             ; preds = %if.end40.i
   br i1 %cmp4953.i, label %for.body.lr.ph.i, label %land.lhs.true30
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -39320,9 +39305,9 @@ if.then34:                                        ; preds = %land.lhs.true30
   br i1 %cmp36, label %return, label %if.end40
 
 if.end40:                                         ; preds = %if.then34
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call35, i64 28
   %22 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call35, i64 32
   %23 = load i32, ptr %end_col_offset, align 8
   %call45 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call25, ptr noundef nonnull %call41.i) #4
   %cmp.i55 = icmp eq ptr %call45, null
@@ -39369,9 +39354,9 @@ if.then71:                                        ; preds = %land.lhs.true68
   br i1 %cmp74, label %return, label %if.end78
 
 if.end78:                                         ; preds = %if.then71
-  %end_lineno80 = getelementptr inbounds %struct.Token, ptr %call73, i64 0, i32 5
+  %end_lineno80 = getelementptr inbounds i8, ptr %call73, i64 28
   %25 = load i32, ptr %end_lineno80, align 4
-  %end_col_offset84 = getelementptr inbounds %struct.Token, ptr %call73, i64 0, i32 6
+  %end_col_offset84 = getelementptr inbounds i8, ptr %call73, i64 32
   %26 = load i32, ptr %end_col_offset84, align 8
   %call87 = tail call ptr @_PyPegen_singleton_seq(ptr noundef nonnull %p, ptr noundef nonnull %call66) #4
   %cmp.i59 = icmp eq ptr %call87, null
@@ -39382,7 +39367,7 @@ if.then.i61:                                      ; preds = %if.end78
   br label %CHECK_CALL.exit63
 
 CHECK_CALL.exit63:                                ; preds = %if.end78, %if.then.i61
-  %arena89 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena89 = getelementptr inbounds i8, ptr %p, i64 32
   %27 = load ptr, ptr %arena89, align 8
   %call90 = tail call ptr @_PyAST_Tuple(ptr noundef %call87, i32 noundef 1, i32 noundef %6, i32 noundef %7, i32 noundef %25, i32 noundef %26, ptr noundef %27) #4
   %cmp91 = icmp eq ptr %call90, null
@@ -39423,7 +39408,7 @@ return:                                           ; preds = %if.end111, %land.lh
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @with_item_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -39435,13 +39420,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -39463,7 +39448,7 @@ land.lhs.true16:                                  ; preds = %land.lhs.true13
   br i1 %tobool18.not, label %if.end30, label %if.then19
 
 if.then19:                                        ; preds = %land.lhs.true16
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %3 = load ptr, ptr %arena, align 8
   %call20 = tail call ptr @_PyAST_withitem(ptr noundef nonnull %call, ptr noundef nonnull %call14, ptr noundef %3) #4
   %cmp21 = icmp eq ptr %call20, null
@@ -39480,7 +39465,7 @@ if.then25:                                        ; preds = %land.lhs.true22
 
 if.end30:                                         ; preds = %land.lhs.true16, %land.lhs.true13, %land.lhs.true, %if.end3
   store i32 %2, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %4 = load i32, ptr %call_invalid_rules, align 4
   %tobool32.not = icmp eq i32 %4, 0
   %.pre33 = load i32, ptr %error_indicator, align 8
@@ -39539,16 +39524,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 
 if.then.i.i:                                      ; preds = %if.then19.i
   %7 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i.i = getelementptr inbounds %struct._expr, ptr %call.i.i, i64 0, i32 2
+  %lineno.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %8 = load i32, ptr %lineno.i.i, align 8
   %conv.i.i = sext i32 %8 to i64
-  %col_offset.i.i = getelementptr inbounds %struct._expr, ptr %call.i.i, i64 0, i32 3
+  %col_offset.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 36
   %9 = load i32, ptr %col_offset.i.i, align 4
   %conv5.i.i = sext i32 %9 to i64
-  %end_lineno.i.i = getelementptr inbounds %struct._expr, ptr %call.i.i, i64 0, i32 4
+  %end_lineno.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %10 = load i32, ptr %end_lineno.i.i, align 8
   %conv6.i.i = sext i32 %10 to i64
-  %end_col_offset.i.i = getelementptr inbounds %struct._expr, ptr %call.i.i, i64 0, i32 5
+  %end_col_offset.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 44
   %11 = load i32, ptr %end_col_offset.i.i, align 4
   %conv7.i.i = sext i32 %11 to i64
   %call8.i.i = tail call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call.i.i) #4
@@ -39583,7 +39568,7 @@ if.end51:                                         ; preds = %if.end45
   br i1 %tobool54.not, label %if.end67, label %if.then55
 
 if.then55:                                        ; preds = %if.end51
-  %arena56 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena56 = getelementptr inbounds i8, ptr %p, i64 32
   %14 = load ptr, ptr %arena56, align 8
   %call57 = tail call ptr @_PyAST_withitem(ptr noundef nonnull %call53, ptr noundef null, ptr noundef %14) #4
   %cmp58 = icmp eq ptr %call57, null
@@ -39618,7 +39603,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_59_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -39630,13 +39615,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -39681,7 +39666,7 @@ declare ptr @_PyAST_withitem(ptr noundef, ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_202_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -39693,13 +39678,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -39742,7 +39727,7 @@ return:                                           ; preds = %if.end36, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_gather_207_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -39754,13 +39739,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @_tmp_269_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -39846,7 +39831,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -39857,7 +39842,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp5254.i, label %for.body.lr.ph.i, label %if.then13
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 if.then46.i:                                      ; preds = %while.end.i
@@ -39911,7 +39896,7 @@ return:                                           ; preds = %if.then13, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_268_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -39923,13 +39908,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -40004,7 +39989,7 @@ return:                                           ; preds = %if.then14, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_269_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -40016,13 +40001,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @expressions_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -40101,7 +40086,7 @@ declare ptr @_PyAST_AsyncFor(ptr noundef, ptr noundef, ptr noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @finally_block_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -40113,15 +40098,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %3 = load i32, ptr %call_invalid_rules, align 4
   %tobool4.not = icmp eq i32 %3, 0
   br i1 %tobool4.not, label %if.end22, label %if.end11
@@ -40161,7 +40146,7 @@ land.lhs.true16.i:                                ; preds = %land.lhs.true13.i
 
 if.then19.i:                                      ; preds = %land.lhs.true16.i
   %6 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call.i, i64 20
   %7 = load i32, ptr %lineno.i, align 4
   %call20.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %6, i32 noundef 0, ptr noundef nonnull @.str.133, i32 noundef %7) #4
   %cmp21.i = icmp eq ptr %call20.i, null
@@ -40230,7 +40215,7 @@ declare ptr @_PyAST_Try(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop1_60_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -40242,13 +40227,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -40324,7 +40309,7 @@ if.then37:                                        ; preds = %while.end.thread, %
   br label %return
 
 if.end40:                                         ; preds = %lor.lhs.false
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %6 = load ptr, ptr %arena, align 8
   %call41 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31, ptr noundef %6) #4
   %tobool42.not = icmp eq ptr %call41, null
@@ -40335,7 +40320,7 @@ for.cond.preheader:                               ; preds = %if.end40
   br i1 %cmp4950, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call41, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call41, i64 8
   br label %for.body
 
 if.then43:                                        ; preds = %if.end40
@@ -40372,7 +40357,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop1_61_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -40384,13 +40369,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -40466,7 +40451,7 @@ if.then37:                                        ; preds = %while.end.thread, %
   br label %return
 
 if.end40:                                         ; preds = %lor.lhs.false
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %6 = load ptr, ptr %arena, align 8
   %call41 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31, ptr noundef %6) #4
   %tobool42.not = icmp eq ptr %call41, null
@@ -40477,7 +40462,7 @@ for.cond.preheader:                               ; preds = %if.end40
   br i1 %cmp4950, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call41, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call41, i64 8
   br label %for.body
 
 if.then43:                                        ; preds = %if.end40
@@ -40516,7 +40501,7 @@ declare ptr @_PyAST_TryStar(ptr noundef, ptr noundef, ptr noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_213_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -40528,13 +40513,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 653) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -40566,7 +40551,7 @@ return:                                           ; preds = %if.end24, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_214_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -40578,13 +40563,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -40645,7 +40630,7 @@ while.end:                                        ; preds = %if.end30, %while.co
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -40656,7 +40641,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4246, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -40693,7 +40678,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop1_215_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -40705,13 +40690,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -40787,7 +40772,7 @@ if.then37:                                        ; preds = %while.end.thread, %
   br label %return
 
 if.end40:                                         ; preds = %lor.lhs.false
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %6 = load ptr, ptr %arena, align 8
   %call41 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31, ptr noundef %6) #4
   %tobool42.not = icmp eq ptr %call41, null
@@ -40798,7 +40783,7 @@ for.cond.preheader:                               ; preds = %if.end40
   br i1 %cmp4950, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call41, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call41, i64 8
   br label %for.body
 
 if.then43:                                        ; preds = %if.end40
@@ -40835,7 +40820,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_tmp_216_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -40847,13 +40832,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 656) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -40882,7 +40867,7 @@ return:                                           ; preds = %if.then13, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_217_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -40894,13 +40879,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -40961,7 +40946,7 @@ while.end:                                        ; preds = %if.end30, %while.co
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa, ptr noundef %5) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -40972,7 +40957,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4246, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -41009,7 +40994,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop1_218_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -41021,13 +41006,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -41103,7 +41088,7 @@ if.then37:                                        ; preds = %while.end.thread, %
   br label %return
 
 if.end40:                                         ; preds = %lor.lhs.false
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %6 = load ptr, ptr %arena, align 8
   %call41 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31, ptr noundef %6) #4
   %tobool42.not = icmp eq ptr %call41, null
@@ -41114,7 +41099,7 @@ for.cond.preheader:                               ; preds = %if.end40
   br i1 %cmp4950, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call41, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call41, i64 8
   br label %for.body
 
 if.then43:                                        ; preds = %if.end40
@@ -41151,7 +41136,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_tmp_219_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -41163,13 +41148,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -41243,7 +41228,7 @@ return:                                           ; preds = %if.then14, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @except_block_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -41255,7 +41240,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -41265,9 +41250,9 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %4 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %3, %4
   br i1 %cmp5, label %land.lhs.true, label %if.end11
@@ -41288,16 +41273,16 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true.if.end11_crit_edge, %if.end3
   %.pre93 = phi i32 [ %.pre93.pre, %land.lhs.true.if.end11_crit_edge ], [ 0, %if.end3 ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %7, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %7, i64 20
   %8 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %7, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load i32, ptr %col_offset, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %10 = load i32, ptr %call_invalid_rules, align 4
   %tobool17.not = icmp eq i32 %10, 0
   br i1 %tobool17.not, label %if.end30, label %if.then18
@@ -41400,7 +41385,7 @@ land.lhs.true23.i:                                ; preds = %land.lhs.true20.i
 
 if.then26.i:                                      ; preds = %land.lhs.true23.i
   %17 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call.i, i64 20
   %18 = load i32, ptr %lineno.i, align 4
   %call27.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %17, i32 noundef 0, ptr noundef nonnull @.str.129, i32 noundef %18) #4
   %cmp28.i = icmp eq ptr %call27.i, null
@@ -41448,7 +41433,7 @@ land.lhs.true56.i:                                ; preds = %land.lhs.true53.i
 
 if.then59.i:                                      ; preds = %land.lhs.true56.i
   %20 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno60.i = getelementptr inbounds %struct.Token, ptr %call48.i, i64 0, i32 3
+  %lineno60.i = getelementptr inbounds i8, ptr %call48.i, i64 20
   %21 = load i32, ptr %lineno60.i, align 4
   %call61.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %20, i32 noundef 0, ptr noundef nonnull @.str.129, i32 noundef %21) #4
   %cmp62.i = icmp eq ptr %call61.i, null
@@ -41573,21 +41558,21 @@ if.then55:                                        ; preds = %if.then52
   br label %return
 
 if.end58:                                         ; preds = %if.then52
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call53, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call53, i64 28
   %31 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call53, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call53, i64 32
   %32 = load i32, ptr %end_col_offset, align 8
   %tobool63.not = icmp eq ptr %retval.0.i68.ph, null
   br i1 %tobool63.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end58
-  %v = getelementptr inbounds %struct._expr, ptr %retval.0.i68.ph, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %retval.0.i68.ph, i64 8
   %33 = load ptr, ptr %v, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end58, %cond.true
   %cond = phi ptr [ %33, %cond.true ], [ null, %if.end58 ]
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %34 = load ptr, ptr %arena, align 8
   %call64 = tail call ptr @_PyAST_ExceptHandler(ptr noundef nonnull %call40, ptr noundef %cond, ptr noundef nonnull %call50, i32 noundef %8, i32 noundef %9, i32 noundef %31, i32 noundef %32, ptr noundef %34) #4
   %cmp65 = icmp eq ptr %call64, null
@@ -41638,11 +41623,11 @@ if.then97:                                        ; preds = %if.then93
   br label %return
 
 if.end100:                                        ; preds = %if.then93
-  %end_lineno102 = getelementptr inbounds %struct.Token, ptr %call95, i64 0, i32 5
+  %end_lineno102 = getelementptr inbounds i8, ptr %call95, i64 28
   %37 = load i32, ptr %end_lineno102, align 4
-  %end_col_offset106 = getelementptr inbounds %struct.Token, ptr %call95, i64 0, i32 6
+  %end_col_offset106 = getelementptr inbounds i8, ptr %call95, i64 32
   %38 = load i32, ptr %end_col_offset106, align 8
-  %arena109 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena109 = getelementptr inbounds i8, ptr %p, i64 32
   %39 = load ptr, ptr %arena109, align 8
   %call110 = tail call ptr @_PyAST_ExceptHandler(ptr noundef null, ptr noundef null, ptr noundef nonnull %call91, i32 noundef %8, i32 noundef %9, i32 noundef %37, i32 noundef %38, ptr noundef %39) #4
   %cmp111 = icmp eq ptr %call110, null
@@ -41700,7 +41685,7 @@ declare ptr @_PyAST_ExceptHandler(ptr noundef, ptr noundef, ptr noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_except_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -41712,13 +41697,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 653) #4
   %tobool12.not = icmp eq ptr %call, null
@@ -41801,10 +41786,10 @@ land.lhs.true30:                                  ; preds = %_tmp_220_rule.exit
 
 if.then33:                                        ; preds = %land.lhs.true30
   %7 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno = getelementptr inbounds %struct._expr, ptr %call17, i64 0, i32 2
+  %lineno = getelementptr inbounds i8, ptr %call17, i64 32
   %8 = load i32, ptr %lineno, align 8
   %conv = sext i32 %8 to i64
-  %col_offset = getelementptr inbounds %struct._expr, ptr %call17, i64 0, i32 3
+  %col_offset = getelementptr inbounds i8, ptr %call17, i64 36
   %9 = load i32, ptr %col_offset, align 4
   %conv34 = sext i32 %9 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %7, i64 noundef %conv, i64 noundef %conv34, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.130)
@@ -41997,7 +41982,7 @@ return:                                           ; preds = %if.end148, %if.then
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_222_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -42009,13 +41994,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 4) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -42047,7 +42032,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @except_star_block_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -42059,15 +42044,15 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11
@@ -42087,16 +42072,16 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true.if.end11_crit_edge, %if.end3
   %.pre50 = phi i32 [ %.pre50.pre, %land.lhs.true.if.end11_crit_edge ], [ 0, %if.end3 ]
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %4, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %5, i64 20
   %6 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %5, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i32, ptr %col_offset, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %8 = load i32, ptr %call_invalid_rules, align 4
   %tobool17.not = icmp eq i32 %8, 0
   br i1 %tobool17.not, label %if.end30, label %if.then18
@@ -42199,7 +42184,7 @@ land.lhs.true26.i:                                ; preds = %land.lhs.true23.i
 
 if.then29.i:                                      ; preds = %land.lhs.true26.i
   %13 = load ptr, ptr @PyExc_IndentationError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call.i, i64 20
   %14 = load i32, ptr %lineno.i, align 4
   %call30.i = tail call ptr (ptr, ptr, i32, ptr, ...) @_PyPegen_raise_error(ptr noundef nonnull %p, ptr noundef %13, i32 noundef 0, ptr noundef nonnull @.str.132, i32 noundef %14) #4
   %cmp31.i = icmp eq ptr %call30.i, null
@@ -42270,21 +42255,21 @@ if.then55:                                        ; preds = %land.lhs.true52
   br i1 %cmp57, label %return.sink.split, label %if.end61
 
 if.end61:                                         ; preds = %if.then55
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call56, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call56, i64 28
   %19 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call56, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call56, i64 32
   %20 = load i32, ptr %end_col_offset, align 8
   %tobool66.not = icmp eq ptr %call46, null
   br i1 %tobool66.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end61
-  %v = getelementptr inbounds %struct._expr, ptr %call46, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call46, i64 8
   %21 = load ptr, ptr %v, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end61, %cond.true
   %cond = phi ptr [ %21, %cond.true ], [ null, %if.end61 ]
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %22 = load ptr, ptr %arena, align 8
   %call67 = tail call ptr @_PyAST_ExceptHandler(ptr noundef nonnull %call43, ptr noundef %cond, ptr noundef nonnull %call53, i32 noundef %6, i32 noundef %7, i32 noundef %19, i32 noundef %20, ptr noundef %22) #4
   %cmp68 = icmp eq ptr %call67, null
@@ -42335,7 +42320,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_63_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -42347,13 +42332,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 656) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -42383,7 +42368,7 @@ declare ptr @_PyPegen_expect_soft_keyword(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @subject_expr_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -42395,21 +42380,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens39 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens39 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens39, align 8
   %idxprom40 = sext i32 %2 to i64
   %arrayidx41 = getelementptr ptr, ptr %4, i64 %idxprom40
@@ -42427,7 +42412,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -42436,9 +42421,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx41, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in44 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in44 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in44, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call fastcc ptr @star_named_expression_rule(ptr noundef nonnull %p)
   %tobool24.not = icmp eq ptr %call23, null
@@ -42465,9 +42450,9 @@ if.then32:                                        ; preds = %land.lhs.true28
   br i1 %cmp34, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.then32
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call33, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call33, i64 28
   %10 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call33, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call33, i64 32
   %11 = load i32, ptr %end_col_offset, align 8
   %call43 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef nonnull %p, ptr noundef nonnull %call23, ptr noundef %call29) #4
   %cmp.i = icmp eq ptr %call43, null
@@ -42478,7 +42463,7 @@ if.then.i:                                        ; preds = %if.end38
   br label %CHECK_CALL.exit
 
 CHECK_CALL.exit:                                  ; preds = %if.end38, %if.then.i
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %12 = load ptr, ptr %arena, align 8
   %call45 = tail call ptr @_PyAST_Tuple(ptr noundef %call43, i32 noundef 1, i32 noundef %7, i32 noundef %8, i32 noundef %10, i32 noundef %11, ptr noundef %12) #4
   %cmp46 = icmp eq ptr %call45, null
@@ -42521,7 +42506,7 @@ declare ptr @_PyAST_Match(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i3
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @patterns_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -42533,21 +42518,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens33 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens33 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens33, align 8
   %idxprom34 = sext i32 %2 to i64
   %arrayidx35 = getelementptr ptr, ptr %4, i64 %idxprom34
@@ -42565,7 +42550,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -42574,9 +42559,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx35, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in38 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in38 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in38, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call fastcc ptr @open_sequence_pattern_rule(ptr noundef nonnull %p)
   %tobool24.not = icmp eq ptr %call23, null
@@ -42588,11 +42573,11 @@ if.then25:                                        ; preds = %if.end22
   br i1 %cmp27, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.then25
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call26, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call26, i64 28
   %9 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call26, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call26, i64 32
   %10 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena, align 8
   %call36 = tail call ptr @_PyAST_MatchSequence(ptr noundef nonnull %call23, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) #4
   %cmp37 = icmp eq ptr %call36, null
@@ -42635,7 +42620,7 @@ declare ptr @_PyAST_match_case(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @open_sequence_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -42647,13 +42632,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %3 = load i32, ptr %level, align 8
   %inc.i = add i32 %3, 1
@@ -42815,7 +42800,7 @@ declare ptr @_PyAST_MatchSequence(ptr noundef, i32 noundef, i32 noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -42827,13 +42812,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @as_pattern_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -42865,7 +42850,7 @@ return:                                           ; preds = %if.end23, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @maybe_star_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -42877,7 +42862,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -42887,7 +42872,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @star_pattern_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -42957,7 +42942,7 @@ return:                                           ; preds = %if.end23, %pattern_
 define internal fastcc ptr @star_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -42969,7 +42954,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -42994,9 +42979,9 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill, align 4
   %cmp10 = icmp eq i32 %5, %6
   br i1 %cmp10, label %land.lhs.true, label %if.end17
@@ -43014,14 +42999,14 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %col_offset, align 8
   %12 = load i32, ptr %error_indicator, align 8
   %tobool24.not = icmp eq i32 %12, 0
@@ -43055,13 +43040,13 @@ if.then37:                                        ; preds = %if.then34
   br label %return
 
 if.end40:                                         ; preds = %if.then34
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call35, i64 28
   %15 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call35, i64 32
   %16 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call32, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call32, i64 8
   %17 = load ptr, ptr %v, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %18 = load ptr, ptr %arena, align 8
   %call45 = call ptr @_PyAST_MatchStar(ptr noundef %17, i32 noundef %10, i32 noundef %11, i32 noundef %15, i32 noundef %16, ptr noundef %18) #4
   store ptr %call45, ptr %_res, align 8
@@ -43114,11 +43099,11 @@ if.then73:                                        ; preds = %if.then69
   br label %return
 
 if.end76:                                         ; preds = %if.then69
-  %end_lineno78 = getelementptr inbounds %struct.Token, ptr %call71, i64 0, i32 5
+  %end_lineno78 = getelementptr inbounds i8, ptr %call71, i64 28
   %23 = load i32, ptr %end_lineno78, align 4
-  %end_col_offset82 = getelementptr inbounds %struct.Token, ptr %call71, i64 0, i32 6
+  %end_col_offset82 = getelementptr inbounds i8, ptr %call71, i64 32
   %24 = load i32, ptr %end_col_offset82, align 8
-  %arena85 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena85 = getelementptr inbounds i8, ptr %p, i64 32
   %25 = load ptr, ptr %arena85, align 8
   %call86 = call ptr @_PyAST_MatchStar(ptr noundef null, i32 noundef %10, i32 noundef %11, i32 noundef %23, i32 noundef %24, ptr noundef %25) #4
   store ptr %call86, ptr %_res, align 8
@@ -43159,7 +43144,7 @@ return:                                           ; preds = %done, %if.then91, %
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @pattern_capture_target_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -43171,13 +43156,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call i32 @_PyPegen_lookahead_with_string(i32 noundef 0, ptr noundef nonnull @_PyPegen_expect_soft_keyword, ptr noundef nonnull %p, ptr noundef nonnull @.str.43) #4
   %tobool10.not = icmp eq i32 %call, 0
@@ -43224,7 +43209,7 @@ declare ptr @_PyAST_MatchStar(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @wildcard_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -43236,21 +43221,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens28 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens28 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens28, align 8
   %idxprom29 = sext i32 %2 to i64
   %arrayidx30 = getelementptr ptr, ptr %4, i64 %idxprom29
@@ -43268,7 +43253,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -43277,9 +43262,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx30, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in33 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in33 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in33, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_soft_keyword(ptr noundef nonnull %p, ptr noundef nonnull @.str.43) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -43291,11 +43276,11 @@ if.then25:                                        ; preds = %if.end22
   br i1 %cmp27, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.then25
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call26, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call26, i64 28
   %9 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call26, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call26, i64 32
   %10 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena, align 8
   %call36 = tail call ptr @_PyAST_MatchAs(ptr noundef null, ptr noundef null, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) #4
   %cmp37 = icmp eq ptr %call36, null
@@ -43327,7 +43312,7 @@ declare i32 @_PyPegen_lookahead_with_string(i32 noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_69_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -43339,13 +43324,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 23) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -43390,7 +43375,7 @@ declare ptr @_PyAST_MatchAs(ptr noundef, ptr noundef, i32 noundef, i32 noundef, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_gather_71_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -43402,13 +43387,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @maybe_star_pattern_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -43490,7 +43475,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.i.lcssa = phi ptr [ %call.i, %while.cond.i.preheader ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %5, %while.cond.i.preheader ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -43501,7 +43486,7 @@ for.cond.i.preheader:                             ; preds = %while.end.i
   br i1 %cmp52.i28, label %for.body.i.lr.ph, label %if.then13
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
@@ -43556,7 +43541,7 @@ return:                                           ; preds = %if.then13, %if.end1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @as_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -43568,21 +43553,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens36 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens36 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens36, align 8
   %idxprom37 = sext i32 %2 to i64
   %arrayidx38 = getelementptr ptr, ptr %4, i64 %idxprom37
@@ -43599,7 +43584,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
@@ -43609,9 +43594,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx38, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in43 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in43 = getelementptr inbounds i8, ptr %.pn, i64 20
   %6 = load i32, ptr %.in43, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %7 = load i32, ptr %.in, align 8
   %call23 = tail call fastcc ptr @or_pattern_rule(ptr noundef nonnull %p)
   %tobool24.not = icmp eq ptr %call23, null
@@ -43633,13 +43618,13 @@ if.then31:                                        ; preds = %land.lhs.true28
   br i1 %cmp33, label %return.sink.split, label %if.end37
 
 if.end37:                                         ; preds = %if.then31
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call32, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call32, i64 28
   %8 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call32, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call32, i64 32
   %9 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call29, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call29, i64 8
   %10 = load ptr, ptr %v, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena, align 8
   %call42 = tail call ptr @_PyAST_MatchAs(ptr noundef nonnull %call23, ptr noundef %10, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %11) #4
   %cmp43 = icmp eq ptr %call42, null
@@ -43656,7 +43641,7 @@ if.then47:                                        ; preds = %land.lhs.true44
 
 if.end52:                                         ; preds = %land.lhs.true28, %land.lhs.true25, %if.end22
   store i32 %2, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %12 = load i32, ptr %call_invalid_rules, align 4
   %tobool54.not = icmp eq i32 %12, 0
   br i1 %tobool54.not, label %return.sink.split, label %if.then55
@@ -43697,16 +43682,16 @@ land.lhs.true13.i:                                ; preds = %land.lhs.true.i
 
 if.then16.i:                                      ; preds = %land.lhs.true13.i
   %17 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct._expr, ptr %call14.i, i64 0, i32 2
+  %lineno.i = getelementptr inbounds i8, ptr %call14.i, i64 32
   %18 = load i32, ptr %lineno.i, align 8
   %conv.i = sext i32 %18 to i64
-  %col_offset.i = getelementptr inbounds %struct._expr, ptr %call14.i, i64 0, i32 3
+  %col_offset.i = getelementptr inbounds i8, ptr %call14.i, i64 36
   %19 = load i32, ptr %col_offset.i, align 4
   %conv17.i = sext i32 %19 to i64
-  %end_lineno.i = getelementptr inbounds %struct._expr, ptr %call14.i, i64 0, i32 4
+  %end_lineno.i = getelementptr inbounds i8, ptr %call14.i, i64 40
   %20 = load i32, ptr %end_lineno.i, align 8
   %conv18.i = sext i32 %20 to i64
-  %end_col_offset.i = getelementptr inbounds %struct._expr, ptr %call14.i, i64 0, i32 5
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call14.i, i64 44
   %21 = load i32, ptr %end_col_offset.i, align 4
   %conv19.i = sext i32 %21 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %17, i64 noundef %conv.i, i64 noundef %conv17.i, i64 noundef %conv18.i, i64 noundef %conv19.i, ptr noundef nonnull @.str.137)
@@ -43742,16 +43727,16 @@ land.lhs.true50.i:                                ; preds = %land.lhs.true47.i
 
 if.then53.i:                                      ; preds = %land.lhs.true50.i
   %23 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno54.i = getelementptr inbounds %struct._expr, ptr %call51.i, i64 0, i32 2
+  %lineno54.i = getelementptr inbounds i8, ptr %call51.i, i64 32
   %24 = load i32, ptr %lineno54.i, align 8
   %conv55.i = sext i32 %24 to i64
-  %col_offset56.i = getelementptr inbounds %struct._expr, ptr %call51.i, i64 0, i32 3
+  %col_offset56.i = getelementptr inbounds i8, ptr %call51.i, i64 36
   %25 = load i32, ptr %col_offset56.i, align 4
   %conv57.i = sext i32 %25 to i64
-  %end_lineno58.i = getelementptr inbounds %struct._expr, ptr %call51.i, i64 0, i32 4
+  %end_lineno58.i = getelementptr inbounds i8, ptr %call51.i, i64 40
   %26 = load i32, ptr %end_lineno58.i, align 8
   %conv59.i = sext i32 %26 to i64
-  %end_col_offset60.i = getelementptr inbounds %struct._expr, ptr %call51.i, i64 0, i32 5
+  %end_col_offset60.i = getelementptr inbounds i8, ptr %call51.i, i64 44
   %27 = load i32, ptr %end_col_offset60.i, align 4
   %conv61.i = sext i32 %27 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %23, i64 noundef %conv55.i, i64 noundef %conv57.i, i64 noundef %conv59.i, i64 noundef %conv61.i, ptr noundef nonnull @.str.138)
@@ -43786,7 +43771,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @or_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -43798,7 +43783,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -43808,15 +43793,15 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %4 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %3, %4
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens70 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens70 = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens70, align 8
   %idxprom71 = sext i32 %3 to i64
   %arrayidx72 = getelementptr ptr, ptr %5, i64 %idxprom71
@@ -43834,7 +43819,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %7 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr ptr, ptr %7, i64 %idxprom
@@ -43848,9 +43833,9 @@ if.then19:                                        ; preds = %if.end11
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx72, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in78 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in78 = getelementptr inbounds i8, ptr %.pn, i64 20
   %9 = load i32, ptr %.in78, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %10 = load i32, ptr %.in, align 8
   %11 = load i32, ptr %level, align 8
   %inc.i = add i32 %11, 1
@@ -43945,7 +43930,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.i.lcssa = phi ptr [ %call.i39, %while.cond.i.preheader ], [ %call.i39, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %14, %while.cond.i.preheader ], [ %14, %land.rhs.i.preheader ], [ %16, %if.end40.i ], [ %16, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %17) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -43956,7 +43941,7 @@ for.cond.i.preheader:                             ; preds = %while.end.i
   br i1 %cmp52.i63, label %for.body.i.lr.ph, label %_gather_65_rule.exit
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
@@ -44020,14 +44005,14 @@ if.end31:                                         ; preds = %if.then25
   br i1 %cmp37, label %cond.true38, label %cond.false40
 
 cond.true38:                                      ; preds = %if.end31
-  %typed_elements = getelementptr inbounds %struct.asdl_pattern_seq, ptr %call14.i, i64 0, i32 2
+  %typed_elements = getelementptr inbounds i8, ptr %call14.i, i64 16
   %24 = load ptr, ptr %typed_elements, align 8
   br label %cond.end42
 
 cond.false40:                                     ; preds = %if.end31
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call26, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call26, i64 32
   %25 = load i32, ptr %end_col_offset, align 8
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call26, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call26, i64 28
   %26 = load i32, ptr %end_lineno, align 4
   %27 = load ptr, ptr %arena.i, align 8
   %call41 = tail call ptr @_PyAST_MatchOr(ptr noundef nonnull %call14.i, i32 noundef %9, i32 noundef %10, i32 noundef %26, i32 noundef %25, ptr noundef %27) #4
@@ -44071,7 +44056,7 @@ declare ptr @_PyAST_MatchOr(ptr noundef, i32 noundef, i32 noundef, i32 noundef, 
 define internal fastcc ptr @closed_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -44083,7 +44068,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -44108,7 +44093,7 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
   %6 = load i32, ptr %error_indicator, align 8
   %tobool10.not = icmp eq i32 %6, 0
@@ -44134,13 +44119,13 @@ if.end.i:                                         ; preds = %if.end14
 
 if.end3.i:                                        ; preds = %if.end14, %if.end.i
   %8 = load i32, ptr %mark, align 8
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
   %9 = load i32, ptr %fill.i, align 4
   %cmp5.i = icmp eq i32 %8, %9
   br i1 %cmp5.i, label %land.lhs.true.i, label %if.end11.thread.i
 
 if.end11.thread.i:                                ; preds = %if.end3.i
-  %tokens103.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens103.i = getelementptr inbounds i8, ptr %p, i64 8
   %10 = load ptr, ptr %tokens103.i, align 8
   %idxprom104.i = sext i32 %8 to i64
   %arrayidx105.i = getelementptr ptr, ptr %10, i64 %idxprom104.i
@@ -44153,7 +44138,7 @@ land.lhs.true.i:                                  ; preds = %if.end3.i
 
 if.end11.i:                                       ; preds = %land.lhs.true.i
   %.pre.i = load i32, ptr %error_indicator, align 8
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
   %11 = load ptr, ptr %tokens.i, align 8
   %idxprom.i = sext i32 %8 to i64
   %arrayidx.i = getelementptr ptr, ptr %11, i64 %idxprom.i
@@ -44163,9 +44148,9 @@ if.end11.i:                                       ; preds = %land.lhs.true.i
 if.end22.i:                                       ; preds = %if.end11.i, %if.end11.thread.i
   %.pn.in.i = phi ptr [ %arrayidx105.i, %if.end11.thread.i ], [ %arrayidx.i, %if.end11.i ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
-  %.in109.i = getelementptr inbounds %struct.Token, ptr %.pn.i, i64 0, i32 3
+  %.in109.i = getelementptr inbounds i8, ptr %.pn.i, i64 20
   %12 = load i32, ptr %.in109.i, align 4
-  %.in.i = getelementptr inbounds %struct.Token, ptr %.pn.i, i64 0, i32 4
+  %.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %13 = load i32, ptr %.in.i, align 8
   %call23.i = call fastcc ptr @signed_number_rule(ptr noundef nonnull %p)
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -44182,11 +44167,11 @@ if.then28.i:                                      ; preds = %land.lhs.true25.i
   br i1 %cmp30.i, label %if.end18, label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.then28.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call29.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call29.i, i64 28
   %14 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call29.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call29.i, i64 32
   %15 = load i32, ptr %end_col_offset.i, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %16 = load ptr, ptr %arena.i, align 8
   %call39.i = call ptr @_PyAST_MatchValue(ptr noundef nonnull %call23.i, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %16) #4
   %cmp40.i = icmp eq ptr %call39.i, null
@@ -44214,11 +44199,11 @@ if.then60.i:                                      ; preds = %if.end56.i
   br i1 %cmp63.i, label %if.end18, label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.then60.i
-  %end_lineno69.i = getelementptr inbounds %struct.Token, ptr %call62.i, i64 0, i32 5
+  %end_lineno69.i = getelementptr inbounds i8, ptr %call62.i, i64 28
   %18 = load i32, ptr %end_lineno69.i, align 4
-  %end_col_offset73.i = getelementptr inbounds %struct.Token, ptr %call62.i, i64 0, i32 6
+  %end_col_offset73.i = getelementptr inbounds i8, ptr %call62.i, i64 32
   %19 = load i32, ptr %end_col_offset73.i, align 8
-  %arena76.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena76.i = getelementptr inbounds i8, ptr %p, i64 32
   %20 = load ptr, ptr %arena76.i, align 8
   %call77.i = call ptr @_PyAST_MatchValue(ptr noundef nonnull %call58.i, i32 noundef %12, i32 noundef %13, i32 noundef %18, i32 noundef %19, ptr noundef %20) #4
   %cmp78.i = icmp eq ptr %call77.i, null
@@ -44246,11 +44231,11 @@ if.then98.i:                                      ; preds = %if.end94.i
   br i1 %cmp101.i, label %if.end18, label %if.end105.i
 
 if.end105.i:                                      ; preds = %if.then98.i
-  %end_lineno107.i = getelementptr inbounds %struct.Token, ptr %call100.i, i64 0, i32 5
+  %end_lineno107.i = getelementptr inbounds i8, ptr %call100.i, i64 28
   %22 = load i32, ptr %end_lineno107.i, align 4
-  %end_col_offset111.i = getelementptr inbounds %struct.Token, ptr %call100.i, i64 0, i32 6
+  %end_col_offset111.i = getelementptr inbounds i8, ptr %call100.i, i64 32
   %23 = load i32, ptr %end_col_offset111.i, align 8
-  %arena114.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena114.i = getelementptr inbounds i8, ptr %p, i64 32
   %24 = load ptr, ptr %arena114.i, align 8
   %call115.i = call ptr @_PyAST_MatchValue(ptr noundef nonnull %call96.i, i32 noundef %12, i32 noundef %13, i32 noundef %22, i32 noundef %23, ptr noundef %24) #4
   %cmp116.i = icmp eq ptr %call115.i, null
@@ -44278,11 +44263,11 @@ if.then135.i:                                     ; preds = %if.end132.i
   br i1 %cmp138.i, label %if.end18, label %if.end142.i
 
 if.end142.i:                                      ; preds = %if.then135.i
-  %end_lineno144.i = getelementptr inbounds %struct.Token, ptr %call137.i, i64 0, i32 5
+  %end_lineno144.i = getelementptr inbounds i8, ptr %call137.i, i64 28
   %26 = load i32, ptr %end_lineno144.i, align 4
-  %end_col_offset148.i = getelementptr inbounds %struct.Token, ptr %call137.i, i64 0, i32 6
+  %end_col_offset148.i = getelementptr inbounds i8, ptr %call137.i, i64 32
   %27 = load i32, ptr %end_col_offset148.i, align 8
-  %arena151.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena151.i = getelementptr inbounds i8, ptr %p, i64 32
   %28 = load ptr, ptr %arena151.i, align 8
   %call152.i = call ptr @_PyAST_MatchSingleton(ptr noundef nonnull @_Py_NoneStruct, i32 noundef %12, i32 noundef %13, i32 noundef %26, i32 noundef %27, ptr noundef %28) #4
   %cmp153.i = icmp eq ptr %call152.i, null
@@ -44310,11 +44295,11 @@ if.then173.i:                                     ; preds = %if.end169.i
   br i1 %cmp176.i, label %if.end18, label %if.end180.i
 
 if.end180.i:                                      ; preds = %if.then173.i
-  %end_lineno182.i = getelementptr inbounds %struct.Token, ptr %call175.i, i64 0, i32 5
+  %end_lineno182.i = getelementptr inbounds i8, ptr %call175.i, i64 28
   %30 = load i32, ptr %end_lineno182.i, align 4
-  %end_col_offset186.i = getelementptr inbounds %struct.Token, ptr %call175.i, i64 0, i32 6
+  %end_col_offset186.i = getelementptr inbounds i8, ptr %call175.i, i64 32
   %31 = load i32, ptr %end_col_offset186.i, align 8
-  %arena189.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena189.i = getelementptr inbounds i8, ptr %p, i64 32
   %32 = load ptr, ptr %arena189.i, align 8
   %call190.i = call ptr @_PyAST_MatchSingleton(ptr noundef nonnull @_Py_TrueStruct, i32 noundef %12, i32 noundef %13, i32 noundef %30, i32 noundef %31, ptr noundef %32) #4
   %cmp191.i = icmp eq ptr %call190.i, null
@@ -44342,11 +44327,11 @@ if.then211.i:                                     ; preds = %if.end207.i
   br i1 %cmp214.i, label %if.end18, label %if.end218.i
 
 if.end218.i:                                      ; preds = %if.then211.i
-  %end_lineno220.i = getelementptr inbounds %struct.Token, ptr %call213.i, i64 0, i32 5
+  %end_lineno220.i = getelementptr inbounds i8, ptr %call213.i, i64 28
   %34 = load i32, ptr %end_lineno220.i, align 4
-  %end_col_offset224.i = getelementptr inbounds %struct.Token, ptr %call213.i, i64 0, i32 6
+  %end_col_offset224.i = getelementptr inbounds i8, ptr %call213.i, i64 32
   %35 = load i32, ptr %end_col_offset224.i, align 8
-  %arena227.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena227.i = getelementptr inbounds i8, ptr %p, i64 32
   %36 = load ptr, ptr %arena227.i, align 8
   %call228.i = call ptr @_PyAST_MatchSingleton(ptr noundef nonnull @_Py_FalseStruct, i32 noundef %12, i32 noundef %13, i32 noundef %34, i32 noundef %35, ptr noundef %36) #4
   %cmp229.i = icmp eq ptr %call228.i, null
@@ -44547,7 +44532,7 @@ return:                                           ; preds = %done, %if.then88, %
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @capture_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -44559,21 +44544,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens28 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens28 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens28, align 8
   %idxprom29 = sext i32 %2 to i64
   %arrayidx30 = getelementptr ptr, ptr %4, i64 %idxprom29
@@ -44591,7 +44576,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -44600,9 +44585,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx30, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in33 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in33 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in33, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call fastcc ptr @pattern_capture_target_rule(ptr noundef nonnull %p)
   %tobool24.not = icmp eq ptr %call23, null
@@ -44614,13 +44599,13 @@ if.then25:                                        ; preds = %if.end22
   br i1 %cmp27, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.then25
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call26, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call26, i64 28
   %9 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call26, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call26, i64 32
   %10 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call23, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call23, i64 8
   %11 = load ptr, ptr %v, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %12 = load ptr, ptr %arena, align 8
   %call36 = tail call ptr @_PyAST_MatchAs(ptr noundef null, ptr noundef %11, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %12) #4
   %cmp37 = icmp eq ptr %call36, null
@@ -44650,7 +44635,7 @@ return:                                           ; preds = %if.end46, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @value_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -44662,21 +44647,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens29 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens29 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens29, align 8
   %idxprom30 = sext i32 %2 to i64
   %arrayidx31 = getelementptr ptr, ptr %4, i64 %idxprom30
@@ -44694,7 +44679,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -44703,9 +44688,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx31, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in34 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in34 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in34, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call fastcc ptr @attr_rule(ptr noundef nonnull %p)
   %tobool24.not = icmp eq ptr %call23, null
@@ -44722,11 +44707,11 @@ if.then28:                                        ; preds = %land.lhs.true25
   br i1 %cmp30, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.then28
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call29, i64 28
   %9 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call29, i64 32
   %10 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena, align 8
   %call39 = tail call ptr @_PyAST_MatchValue(ptr noundef nonnull %call23, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) #4
   %cmp40 = icmp eq ptr %call39, null
@@ -44756,7 +44741,7 @@ return:                                           ; preds = %if.end49, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @group_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -44768,13 +44753,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 7) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -44843,7 +44828,7 @@ return:                                           ; preds = %if.end26, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @sequence_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -44855,21 +44840,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens64 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens64 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens64, align 8
   %idxprom65 = sext i32 %2 to i64
   %arrayidx66 = getelementptr ptr, ptr %4, i64 %idxprom65
@@ -44887,7 +44872,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -44896,9 +44881,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx66, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in69 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in69 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in69, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 9) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -44961,11 +44946,11 @@ if.then32:                                        ; preds = %land.lhs.true29
   br i1 %cmp34, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.then32
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call33, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call33, i64 28
   %13 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call33, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call33, i64 32
   %14 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %15 = load ptr, ptr %arena, align 8
   %call43 = tail call ptr @_PyAST_MatchSequence(ptr noundef %call.i, i32 noundef %7, i32 noundef %8, i32 noundef %13, i32 noundef %14, ptr noundef %15) #4
   %cmp44 = icmp eq ptr %call43, null
@@ -45008,11 +44993,11 @@ if.then74:                                        ; preds = %land.lhs.true71
   br i1 %cmp77, label %return, label %if.end81
 
 if.end81:                                         ; preds = %if.then74
-  %end_lineno83 = getelementptr inbounds %struct.Token, ptr %call76, i64 0, i32 5
+  %end_lineno83 = getelementptr inbounds i8, ptr %call76, i64 28
   %18 = load i32, ptr %end_lineno83, align 4
-  %end_col_offset87 = getelementptr inbounds %struct.Token, ptr %call76, i64 0, i32 6
+  %end_col_offset87 = getelementptr inbounds i8, ptr %call76, i64 32
   %19 = load i32, ptr %end_col_offset87, align 8
-  %arena90 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena90 = getelementptr inbounds i8, ptr %p, i64 32
   %20 = load ptr, ptr %arena90, align 8
   %call91 = tail call ptr @_PyAST_MatchSequence(ptr noundef %call67, i32 noundef %7, i32 noundef %8, i32 noundef %18, i32 noundef %19, ptr noundef %20) #4
   %cmp92 = icmp eq ptr %call91, null
@@ -45042,7 +45027,7 @@ return:                                           ; preds = %if.end101, %land.lh
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @mapping_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -45054,21 +45039,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens112 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens112 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens112, align 8
   %idxprom113 = sext i32 %2 to i64
   %arrayidx114 = getelementptr ptr, ptr %4, i64 %idxprom113
@@ -45085,7 +45070,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
@@ -45095,9 +45080,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx114, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in118 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in118 = getelementptr inbounds i8, ptr %.pn, i64 20
   %6 = load i32, ptr %.in118, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %7 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 25) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -45114,11 +45099,11 @@ if.then28:                                        ; preds = %land.lhs.true25
   br i1 %cmp30, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.then28
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call29, i64 28
   %8 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call29, i64 32
   %9 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %10 = load ptr, ptr %arena, align 8
   %call39 = tail call ptr @_PyAST_MatchMapping(ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) #4
   %cmp40 = icmp eq ptr %call39, null
@@ -45200,13 +45185,13 @@ if.then73:                                        ; preds = %land.lhs.true70
   br i1 %cmp76, label %return, label %if.end80
 
 if.end80:                                         ; preds = %if.then73
-  %end_lineno82 = getelementptr inbounds %struct.Token, ptr %call75, i64 0, i32 5
+  %end_lineno82 = getelementptr inbounds i8, ptr %call75, i64 28
   %15 = load i32, ptr %end_lineno82, align 4
-  %end_col_offset86 = getelementptr inbounds %struct.Token, ptr %call75, i64 0, i32 6
+  %end_col_offset86 = getelementptr inbounds i8, ptr %call75, i64 32
   %16 = load i32, ptr %end_col_offset86, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call11.i, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call11.i, i64 8
   %17 = load ptr, ptr %v, align 8
-  %arena89 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena89 = getelementptr inbounds i8, ptr %p, i64 32
   %18 = load ptr, ptr %arena89, align 8
   %call90 = tail call ptr @_PyAST_MatchMapping(ptr noundef null, ptr noundef null, ptr noundef %17, i32 noundef %6, i32 noundef %7, i32 noundef %15, i32 noundef %16, ptr noundef %18) #4
   %cmp91 = icmp eq ptr %call90, null
@@ -45268,9 +45253,9 @@ if.then133:                                       ; preds = %land.lhs.true130
   br i1 %cmp136, label %return, label %if.end140
 
 if.end140:                                        ; preds = %if.then133
-  %end_lineno142 = getelementptr inbounds %struct.Token, ptr %call135, i64 0, i32 5
+  %end_lineno142 = getelementptr inbounds i8, ptr %call135, i64 28
   %20 = load i32, ptr %end_lineno142, align 4
-  %end_col_offset146 = getelementptr inbounds %struct.Token, ptr %call135, i64 0, i32 6
+  %end_col_offset146 = getelementptr inbounds i8, ptr %call135, i64 32
   %21 = load i32, ptr %end_col_offset146, align 8
   %call149 = tail call ptr @_PyPegen_get_pattern_keys(ptr noundef nonnull %p, ptr noundef nonnull %call117) #4
   %cmp.i = icmp eq ptr %call149, null
@@ -45290,9 +45275,9 @@ if.then.i98:                                      ; preds = %CHECK_CALL.exit
   br label %CHECK_CALL.exit100
 
 CHECK_CALL.exit100:                               ; preds = %CHECK_CALL.exit, %if.then.i98
-  %v153 = getelementptr inbounds %struct._expr, ptr %call123, i64 0, i32 1
+  %v153 = getelementptr inbounds i8, ptr %call123, i64 8
   %22 = load ptr, ptr %v153, align 8
-  %arena155 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena155 = getelementptr inbounds i8, ptr %p, i64 32
   %23 = load ptr, ptr %arena155, align 8
   %call156 = tail call ptr @_PyAST_MatchMapping(ptr noundef %call149, ptr noundef %call151, ptr noundef %22, i32 noundef %6, i32 noundef %7, i32 noundef %20, i32 noundef %21, ptr noundef %23) #4
   %cmp157 = icmp eq ptr %call156, null
@@ -45340,9 +45325,9 @@ if.then193:                                       ; preds = %land.lhs.true190
   br i1 %cmp196, label %return, label %if.end200
 
 if.end200:                                        ; preds = %if.then193
-  %end_lineno202 = getelementptr inbounds %struct.Token, ptr %call195, i64 0, i32 5
+  %end_lineno202 = getelementptr inbounds i8, ptr %call195, i64 28
   %25 = load i32, ptr %end_lineno202, align 4
-  %end_col_offset206 = getelementptr inbounds %struct.Token, ptr %call195, i64 0, i32 6
+  %end_col_offset206 = getelementptr inbounds i8, ptr %call195, i64 32
   %26 = load i32, ptr %end_col_offset206, align 8
   %call209 = tail call ptr @_PyPegen_get_pattern_keys(ptr noundef nonnull %p, ptr noundef nonnull %call183) #4
   %cmp.i101 = icmp eq ptr %call209, null
@@ -45362,7 +45347,7 @@ if.then.i106:                                     ; preds = %CHECK_CALL.exit104
   br label %CHECK_CALL.exit108
 
 CHECK_CALL.exit108:                               ; preds = %CHECK_CALL.exit104, %if.then.i106
-  %arena213 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena213 = getelementptr inbounds i8, ptr %p, i64 32
   %27 = load ptr, ptr %arena213, align 8
   %call214 = tail call ptr @_PyAST_MatchMapping(ptr noundef %call209, ptr noundef %call211, ptr noundef null, i32 noundef %6, i32 noundef %7, i32 noundef %25, i32 noundef %26, ptr noundef %27) #4
   %cmp215 = icmp eq ptr %call214, null
@@ -45392,7 +45377,7 @@ return:                                           ; preds = %if.end224, %land.lh
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @class_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -45404,21 +45389,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens171 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens171 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens171, align 8
   %idxprom172 = sext i32 %2 to i64
   %arrayidx173 = getelementptr ptr, ptr %4, i64 %idxprom172
@@ -45435,7 +45420,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
@@ -45445,9 +45430,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx173, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in179 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in179 = getelementptr inbounds i8, ptr %.pn, i64 20
   %6 = load i32, ptr %.in179, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %7 = load i32, ptr %.in, align 8
   %8 = load i32, ptr %level, align 8
   %inc.i = add i32 %8, 1
@@ -45503,11 +45488,11 @@ if.then31:                                        ; preds = %land.lhs.true28
   br i1 %cmp33, label %return.sink.split, label %if.end37
 
 if.end37:                                         ; preds = %if.then31
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call32, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call32, i64 28
   %13 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call32, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call32, i64 32
   %14 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %15 = load ptr, ptr %arena, align 8
   %call42 = tail call ptr @_PyAST_MatchClass(ptr noundef nonnull %retval.0.i, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %6, i32 noundef %7, i32 noundef %13, i32 noundef %14, ptr noundef %15) #4
   %cmp43 = icmp eq ptr %call42, null
@@ -45607,11 +45592,11 @@ if.then80:                                        ; preds = %land.lhs.true77
   br i1 %cmp83, label %return.sink.split, label %if.end87
 
 if.end87:                                         ; preds = %if.then80
-  %end_lineno89 = getelementptr inbounds %struct.Token, ptr %call82, i64 0, i32 5
+  %end_lineno89 = getelementptr inbounds i8, ptr %call82, i64 28
   %23 = load i32, ptr %end_lineno89, align 4
-  %end_col_offset93 = getelementptr inbounds %struct.Token, ptr %call82, i64 0, i32 6
+  %end_col_offset93 = getelementptr inbounds i8, ptr %call82, i64 32
   %24 = load i32, ptr %end_col_offset93, align 8
-  %arena96 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena96 = getelementptr inbounds i8, ptr %p, i64 32
   %25 = load ptr, ptr %arena96, align 8
   %call97 = tail call ptr @_PyAST_MatchClass(ptr noundef nonnull %retval.0.i117, ptr noundef nonnull %call71, ptr noundef null, ptr noundef null, i32 noundef %6, i32 noundef %7, i32 noundef %23, i32 noundef %24, ptr noundef %25) #4
   %cmp98 = icmp eq ptr %call97, null
@@ -45703,9 +45688,9 @@ if.then137:                                       ; preds = %land.lhs.true134
   br i1 %cmp140, label %return.sink.split, label %if.end144
 
 if.end144:                                        ; preds = %if.then137
-  %end_lineno146 = getelementptr inbounds %struct.Token, ptr %call139, i64 0, i32 5
+  %end_lineno146 = getelementptr inbounds i8, ptr %call139, i64 28
   %32 = load i32, ptr %end_lineno146, align 4
-  %end_col_offset150 = getelementptr inbounds %struct.Token, ptr %call139, i64 0, i32 6
+  %end_col_offset150 = getelementptr inbounds i8, ptr %call139, i64 32
   %33 = load i32, ptr %end_col_offset150, align 8
   %call153 = tail call ptr @_PyPegen_get_pattern_keys(ptr noundef nonnull %p, ptr noundef nonnull %call127) #4
   %cmp.i131 = icmp eq ptr %call153, null
@@ -45734,7 +45719,7 @@ if.then.i142:                                     ; preds = %CHECK_CALL.exit139
   br label %CHECK_CALL.exit144
 
 CHECK_CALL.exit144:                               ; preds = %CHECK_CALL.exit139, %if.then.i142
-  %arena159 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena159 = getelementptr inbounds i8, ptr %p, i64 32
   %34 = load ptr, ptr %arena159, align 8
   %call160 = tail call ptr @_PyAST_MatchClass(ptr noundef nonnull %retval.0.i185, ptr noundef null, ptr noundef %call155, ptr noundef %call157, i32 noundef %6, i32 noundef %7, i32 noundef %32, i32 noundef %33, ptr noundef %34) #4
   %cmp161 = icmp eq ptr %call160, null
@@ -45797,9 +45782,9 @@ if.then208:                                       ; preds = %land.lhs.true205
   br i1 %cmp211, label %return.sink.split, label %if.end215
 
 if.end215:                                        ; preds = %if.then208
-  %end_lineno217 = getelementptr inbounds %struct.Token, ptr %call210, i64 0, i32 5
+  %end_lineno217 = getelementptr inbounds i8, ptr %call210, i64 28
   %36 = load i32, ptr %end_lineno217, align 4
-  %end_col_offset221 = getelementptr inbounds %struct.Token, ptr %call210, i64 0, i32 6
+  %end_col_offset221 = getelementptr inbounds i8, ptr %call210, i64 32
   %37 = load i32, ptr %end_col_offset221, align 8
   %call224 = tail call ptr @_PyPegen_get_pattern_keys(ptr noundef nonnull %p, ptr noundef nonnull %call198) #4
   %cmp.i145 = icmp eq ptr %call224, null
@@ -45828,7 +45813,7 @@ if.then.i157:                                     ; preds = %CHECK_CALL.exit154
   br label %CHECK_CALL.exit159
 
 CHECK_CALL.exit159:                               ; preds = %CHECK_CALL.exit154, %if.then.i157
-  %arena230 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena230 = getelementptr inbounds i8, ptr %p, i64 32
   %38 = load ptr, ptr %arena230, align 8
   %call231 = tail call ptr @_PyAST_MatchClass(ptr noundef nonnull %call186, ptr noundef nonnull %call192, ptr noundef %call226, ptr noundef %call228, i32 noundef %6, i32 noundef %7, i32 noundef %36, i32 noundef %37, ptr noundef %38) #4
   %cmp232 = icmp eq ptr %call231, null
@@ -45845,7 +45830,7 @@ if.then236:                                       ; preds = %land.lhs.true233
 
 if.end241:                                        ; preds = %land.lhs.true205, %land.lhs.true200, %land.lhs.true197, %land.lhs.true194, %land.lhs.true191, %land.lhs.true188, %do.end182
   store i32 %2, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %39 = load i32, ptr %call_invalid_rules, align 4
   %tobool243.not = icmp eq i32 %39, 0
   br i1 %tobool243.not, label %return.sink.split, label %if.then244
@@ -45876,7 +45861,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @signed_number_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -45888,21 +45873,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens34 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens34 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens34, align 8
   %idxprom35 = sext i32 %2 to i64
   %arrayidx36 = getelementptr ptr, ptr %4, i64 %idxprom35
@@ -45920,7 +45905,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -45929,9 +45914,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx36, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in39 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in39 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in39, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_number_token(ptr noundef nonnull %p) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -45959,11 +45944,11 @@ if.then39:                                        ; preds = %land.lhs.true36
   br i1 %cmp41, label %return, label %if.end45
 
 if.end45:                                         ; preds = %if.then39
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call40, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call40, i64 28
   %10 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call40, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call40, i64 32
   %11 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %12 = load ptr, ptr %arena, align 8
   %call50 = tail call ptr @_PyAST_UnaryOp(i32 noundef 4, ptr noundef nonnull %call37, i32 noundef %7, i32 noundef %8, i32 noundef %10, i32 noundef %11, ptr noundef %12) #4
   %cmp51 = icmp eq ptr %call50, null
@@ -45993,7 +45978,7 @@ return:                                           ; preds = %if.end60, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_67_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -46005,13 +45990,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 14) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -46045,7 +46030,7 @@ declare ptr @_PyAST_MatchValue(ptr noundef, i32 noundef, i32 noundef, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @complex_number_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -46057,21 +46042,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens50 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens50 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens50, align 8
   %idxprom51 = sext i32 %2 to i64
   %arrayidx52 = getelementptr ptr, ptr %4, i64 %idxprom51
@@ -46089,7 +46074,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -46098,9 +46083,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx52, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in55 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in55 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in55, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call fastcc ptr @signed_real_number_rule(ptr noundef nonnull %p)
   %tobool24.not = icmp eq ptr %call23, null
@@ -46161,11 +46146,11 @@ if.then31:                                        ; preds = %if.then11.i
   br i1 %cmp33, label %return, label %if.end37
 
 if.end37:                                         ; preds = %if.then31
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call32, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call32, i64 28
   %13 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call32, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call32, i64 32
   %14 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %15 = load ptr, ptr %arena, align 8
   %call42 = tail call ptr @_PyAST_BinOp(ptr noundef nonnull %call23, i32 noundef 1, ptr noundef nonnull %call12.i, i32 noundef %7, i32 noundef %8, i32 noundef %13, i32 noundef %14, ptr noundef %15) #4
   %cmp43 = icmp eq ptr %call42, null
@@ -46207,11 +46192,11 @@ if.then71:                                        ; preds = %land.lhs.true68
   br i1 %cmp74, label %return, label %if.end78
 
 if.end78:                                         ; preds = %if.then71
-  %end_lineno80 = getelementptr inbounds %struct.Token, ptr %call73, i64 0, i32 5
+  %end_lineno80 = getelementptr inbounds i8, ptr %call73, i64 28
   %17 = load i32, ptr %end_lineno80, align 4
-  %end_col_offset84 = getelementptr inbounds %struct.Token, ptr %call73, i64 0, i32 6
+  %end_col_offset84 = getelementptr inbounds i8, ptr %call73, i64 32
   %18 = load i32, ptr %end_col_offset84, align 8
-  %arena87 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena87 = getelementptr inbounds i8, ptr %p, i64 32
   %19 = load ptr, ptr %arena87, align 8
   %call88 = tail call ptr @_PyAST_BinOp(ptr noundef nonnull %call63, i32 noundef 2, ptr noundef nonnull %call69, i32 noundef %7, i32 noundef %8, i32 noundef %17, i32 noundef %18, ptr noundef %19) #4
   %cmp89 = icmp eq ptr %call88, null
@@ -46243,7 +46228,7 @@ declare ptr @_PyAST_MatchSingleton(ptr noundef, i32 noundef, i32 noundef, i32 no
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @signed_real_number_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -46255,7 +46240,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -46265,15 +46250,15 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %4 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %3, %4
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens42 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens42 = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens42, align 8
   %idxprom43 = sext i32 %3 to i64
   %arrayidx44 = getelementptr ptr, ptr %5, i64 %idxprom43
@@ -46292,7 +46277,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %7 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
@@ -46305,9 +46290,9 @@ if.then19:                                        ; preds = %if.end11
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx44, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in48 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in48 = getelementptr inbounds i8, ptr %.pn, i64 20
   %10 = load i32, ptr %.in48, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %11 = load i32, ptr %.in, align 8
   %12 = load i32, ptr %level, align 8
   %inc.i = add i32 %12, 1
@@ -46381,11 +46366,11 @@ if.then42:                                        ; preds = %if.then39
   br label %return
 
 if.end45:                                         ; preds = %if.then39
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call40, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call40, i64 28
   %18 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call40, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call40, i64 32
   %19 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %20 = load ptr, ptr %arena, align 8
   %call50 = tail call ptr @_PyAST_UnaryOp(i32 noundef 4, ptr noundef nonnull %call37, i32 noundef %10, i32 noundef %11, i32 noundef %18, i32 noundef %19, ptr noundef %20) #4
   %cmp51 = icmp eq ptr %call50, null
@@ -46421,7 +46406,7 @@ return:                                           ; preds = %if.end26, %if.end26
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @imaginary_number_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -46433,13 +46418,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_number_token(ptr noundef nonnull %p) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -46474,7 +46459,7 @@ return:                                           ; preds = %if.end21, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @real_number_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -46486,13 +46471,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_number_token(ptr noundef nonnull %p) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -46532,7 +46517,7 @@ declare ptr @_PyPegen_ensure_imaginary(ptr noundef, ptr noundef) local_unnamed_a
 define internal fastcc ptr @attr_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -46557,7 +46542,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load ptr, ptr %_res, align 8
   %call551 = call i32 @_PyPegen_update_memo(ptr noundef nonnull %p, i32 noundef %3, i32 noundef 1081, ptr noundef %4) #4
@@ -46565,10 +46550,10 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool6.not52, label %if.end10.lr.ph, label %if.then7
 
 if.end10.lr.ph:                                   ; preds = %if.end3
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   br label %if.end10
 
 if.then7:                                         ; preds = %if.end22, %if.end3
@@ -46624,9 +46609,9 @@ if.end11.i:                                       ; preds = %land.lhs.true.i
 if.end22.i:                                       ; preds = %if.end11.i.thread, %if.end11.i
   %.pn.in = phi ptr [ %arrayidx.i60, %if.end11.i.thread ], [ %arrayidx.i, %if.end11.i ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in71 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in71 = getelementptr inbounds i8, ptr %.pn, i64 20
   %13 = load i32, ptr %.in71, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %14 = load i32, ptr %.in, align 8
   %15 = load i32, ptr %level, align 8
   %inc.i20 = add i32 %15, 1
@@ -46677,11 +46662,11 @@ if.then31.i:                                      ; preds = %land.lhs.true28.i
   br i1 %cmp33.i, label %attr_raw.exit, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then31.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call32.i, i64 28
   %19 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call32.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call32.i, i64 32
   %20 = load i32, ptr %end_col_offset.i, align 8
-  %v.i = getelementptr inbounds %struct._expr, ptr %call29.i, i64 0, i32 1
+  %v.i = getelementptr inbounds i8, ptr %call29.i, i64 8
   %21 = load ptr, ptr %v.i, align 8
   %22 = load ptr, ptr %arena.i, align 8
   %call42.i = call ptr @_PyAST_Attribute(ptr noundef nonnull %_res.0.i32.ph, ptr noundef %21, i32 noundef 1, i32 noundef %13, i32 noundef %14, i32 noundef %19, i32 noundef %20, ptr noundef %22) #4
@@ -46754,7 +46739,7 @@ return:                                           ; preds = %while.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_70_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -46766,13 +46751,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 23) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -46815,7 +46800,7 @@ return:                                           ; preds = %if.end36, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @name_or_attr_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -46827,13 +46812,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @attr_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -46867,7 +46852,7 @@ declare ptr @_PyAST_MatchMapping(ptr noundef, ptr noundef, ptr noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @double_star_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -46879,13 +46864,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 35) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -46911,7 +46896,7 @@ return:                                           ; preds = %if.end23, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @items_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -46925,13 +46910,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %if.then ], [ %inc, %entry ]
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %inc.i = add i32 %storemerge.in.pre, 1
   store i32 %inc.i, ptr %level, align 8
@@ -47025,7 +47010,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.i.lcssa = phi ptr [ %call.i19, %while.cond.i.preheader ], [ %call.i19, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %6, %while.cond.i.preheader ], [ %6, %land.rhs.i.preheader ], [ %8, %if.end40.i ], [ %8, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %9 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %9) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -47036,7 +47021,7 @@ for.cond.i.preheader:                             ; preds = %while.end.i
   br i1 %cmp52.i43, label %for.body.i.lr.ph, label %_gather_73_rule.exit
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
@@ -47104,7 +47089,7 @@ declare ptr @_PyPegen_get_patterns(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @key_value_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -47116,13 +47101,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %3 = load i32, ptr %level, align 8
   %inc.i = add i32 %3, 1
@@ -47157,13 +47142,13 @@ if.end.i.i.if.end3.i.i_crit_edge:                 ; preds = %if.end.i.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i.if.end3.i.i_crit_edge, %if.end3.i
   %6 = phi i32 [ %.pre54, %if.end.i.i.if.end3.i.i_crit_edge ], [ %5, %if.end3.i ]
-  %fill.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill.i.i = getelementptr inbounds i8, ptr %p, i64 20
   %7 = load i32, ptr %fill.i.i, align 4
   %cmp5.i.i = icmp eq i32 %6, %7
   br i1 %cmp5.i.i, label %land.lhs.true.i.i, label %if.end11.thread.i.i
 
 if.end11.thread.i.i:                              ; preds = %if.end3.i.i
-  %tokens73.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens73.i.i = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens73.i.i, align 8
   %idxprom74.i.i = sext i32 %6 to i64
   %arrayidx75.i.i = getelementptr ptr, ptr %8, i64 %idxprom74.i.i
@@ -47176,7 +47161,7 @@ land.lhs.true.i.i:                                ; preds = %if.end3.i.i
 
 if.end11.i.i:                                     ; preds = %land.lhs.true.i.i
   %.pre.i.i = load i32, ptr %error_indicator, align 8
-  %tokens.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i.i = getelementptr inbounds i8, ptr %p, i64 8
   %9 = load ptr, ptr %tokens.i.i, align 8
   %idxprom.i.i = sext i32 %6 to i64
   %arrayidx.i.i = getelementptr ptr, ptr %9, i64 %idxprom.i.i
@@ -47186,9 +47171,9 @@ if.end11.i.i:                                     ; preds = %land.lhs.true.i.i
 if.end22.i.i:                                     ; preds = %if.end11.i.i, %if.end11.thread.i.i
   %.pn.in.i.i = phi ptr [ %arrayidx75.i.i, %if.end11.thread.i.i ], [ %arrayidx.i.i, %if.end11.i.i ]
   %.pn.i.i = load ptr, ptr %.pn.in.i.i, align 8
-  %.in79.i.i = getelementptr inbounds %struct.Token, ptr %.pn.i.i, i64 0, i32 3
+  %.in79.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 20
   %10 = load i32, ptr %.in79.i.i, align 4
-  %.in.i.i = getelementptr inbounds %struct.Token, ptr %.pn.i.i, i64 0, i32 4
+  %.in.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 24
   %11 = load i32, ptr %.in.i.i, align 8
   %call23.i.i = tail call fastcc ptr @signed_number_rule(ptr noundef nonnull %p)
   %tobool24.not.i.i = icmp eq ptr %call23.i.i, null
@@ -47238,11 +47223,11 @@ if.then61.i.i:                                    ; preds = %if.end58.i.i
   br i1 %cmp63.i.i, label %if.end12.i, label %if.end67.i.i
 
 if.end67.i.i:                                     ; preds = %if.then61.i.i
-  %end_lineno.i.i = getelementptr inbounds %struct.Token, ptr %call62.i.i, i64 0, i32 5
+  %end_lineno.i.i = getelementptr inbounds i8, ptr %call62.i.i, i64 28
   %15 = load i32, ptr %end_lineno.i.i, align 4
-  %end_col_offset.i.i = getelementptr inbounds %struct.Token, ptr %call62.i.i, i64 0, i32 6
+  %end_col_offset.i.i = getelementptr inbounds i8, ptr %call62.i.i, i64 32
   %16 = load i32, ptr %end_col_offset.i.i, align 8
-  %arena.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena.i.i, align 8
   %call72.i.i = tail call ptr @_PyAST_Constant(ptr noundef nonnull @_Py_NoneStruct, ptr noundef null, i32 noundef %10, i32 noundef %11, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
   %cmp73.i.i = icmp eq ptr %call72.i.i, null
@@ -47270,11 +47255,11 @@ if.then93.i.i:                                    ; preds = %if.end89.i.i
   br i1 %cmp96.i.i, label %if.end12.i, label %if.end100.i.i
 
 if.end100.i.i:                                    ; preds = %if.then93.i.i
-  %end_lineno102.i.i = getelementptr inbounds %struct.Token, ptr %call95.i.i, i64 0, i32 5
+  %end_lineno102.i.i = getelementptr inbounds i8, ptr %call95.i.i, i64 28
   %19 = load i32, ptr %end_lineno102.i.i, align 4
-  %end_col_offset106.i.i = getelementptr inbounds %struct.Token, ptr %call95.i.i, i64 0, i32 6
+  %end_col_offset106.i.i = getelementptr inbounds i8, ptr %call95.i.i, i64 32
   %20 = load i32, ptr %end_col_offset106.i.i, align 8
-  %arena109.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena109.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %21 = load ptr, ptr %arena109.i.i, align 8
   %call110.i.i = tail call ptr @_PyAST_Constant(ptr noundef nonnull @_Py_TrueStruct, ptr noundef null, i32 noundef %10, i32 noundef %11, i32 noundef %19, i32 noundef %20, ptr noundef %21) #4
   %cmp111.i.i = icmp eq ptr %call110.i.i, null
@@ -47302,11 +47287,11 @@ if.then131.i.i:                                   ; preds = %if.end127.i.i
   br i1 %cmp134.i.i, label %if.end12.i, label %if.end138.i.i
 
 if.end138.i.i:                                    ; preds = %if.then131.i.i
-  %end_lineno140.i.i = getelementptr inbounds %struct.Token, ptr %call133.i.i, i64 0, i32 5
+  %end_lineno140.i.i = getelementptr inbounds i8, ptr %call133.i.i, i64 28
   %23 = load i32, ptr %end_lineno140.i.i, align 4
-  %end_col_offset144.i.i = getelementptr inbounds %struct.Token, ptr %call133.i.i, i64 0, i32 6
+  %end_col_offset144.i.i = getelementptr inbounds i8, ptr %call133.i.i, i64 32
   %24 = load i32, ptr %end_col_offset144.i.i, align 8
-  %arena147.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena147.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %25 = load ptr, ptr %arena147.i.i, align 8
   %call148.i.i = tail call ptr @_PyAST_Constant(ptr noundef nonnull @_Py_FalseStruct, ptr noundef null, i32 noundef %10, i32 noundef %11, i32 noundef %23, i32 noundef %24, ptr noundef %25) #4
   %cmp149.i.i = icmp eq ptr %call148.i.i, null
@@ -47443,7 +47428,7 @@ declare ptr @_PyPegen_key_pattern_pair(ptr noundef, ptr noundef, ptr noundef) lo
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_68_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -47455,13 +47440,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 14) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -47495,7 +47480,7 @@ declare ptr @_PyAST_MatchClass(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @positional_patterns_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -47509,13 +47494,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %if.then ], [ %inc, %entry ]
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %inc.i = add i32 %storemerge.in.pre, 1
   store i32 %inc.i, ptr %level, align 8
@@ -47615,7 +47600,7 @@ return:                                           ; preds = %if.end20, %_gather_
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @keyword_patterns_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -47629,13 +47614,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %if.then ], [ %inc, %entry ]
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %inc.i = add i32 %storemerge.in.pre, 1
   store i32 %inc.i, ptr %level, align 8
@@ -47729,7 +47714,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.i.lcssa = phi ptr [ %call.i19, %while.cond.i.preheader ], [ %call.i19, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %6, %while.cond.i.preheader ], [ %6, %land.rhs.i.preheader ], [ %8, %if.end40.i ], [ %8, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %9 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %9) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -47740,7 +47725,7 @@ for.cond.i.preheader:                             ; preds = %while.end.i
   br i1 %cmp52.i43, label %for.body.i.lr.ph, label %_gather_78_rule.exit
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
@@ -47806,7 +47791,7 @@ declare ptr @_PyPegen_map_names_to_ids(ptr noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_class_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -47818,7 +47803,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -47828,7 +47813,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load i32, ptr %level, align 8
   %inc.i = add i32 %4, 1
@@ -48065,19 +48050,19 @@ if.then16:                                        ; preds = %land.lhs.true17.i
   store i32 %storemerge.i, ptr %level, align 8
   %22 = load ptr, ptr @PyExc_SyntaxError, align 8
   %call17 = tail call ptr @_PyPegen_seq_first_item(ptr noundef nonnull %call18.i) #4
-  %lineno = getelementptr inbounds %struct._pattern, ptr %call17, i64 0, i32 2
+  %lineno = getelementptr inbounds i8, ptr %call17, i64 40
   %23 = load i32, ptr %lineno, align 8
   %conv = sext i32 %23 to i64
   %call18 = tail call ptr @_PyPegen_seq_first_item(ptr noundef nonnull %call18.i) #4
-  %col_offset = getelementptr inbounds %struct._pattern, ptr %call18, i64 0, i32 3
+  %col_offset = getelementptr inbounds i8, ptr %call18, i64 44
   %24 = load i32, ptr %col_offset, align 4
   %conv19 = sext i32 %24 to i64
   %call20 = tail call ptr @_PyPegen_seq_last_item(ptr noundef nonnull %call18.i) #4
-  %end_lineno = getelementptr inbounds %struct._pattern, ptr %call20, i64 0, i32 4
+  %end_lineno = getelementptr inbounds i8, ptr %call20, i64 48
   %25 = load i32, ptr %end_lineno, align 8
   %conv21 = sext i32 %25 to i64
   %call22 = tail call ptr @_PyPegen_seq_last_item(ptr noundef nonnull %call18.i) #4
-  %end_col_offset = getelementptr inbounds %struct._pattern, ptr %call22, i64 0, i32 5
+  %end_col_offset = getelementptr inbounds i8, ptr %call22, i64 52
   %26 = load i32, ptr %end_col_offset, align 4
   %conv23 = sext i32 %26 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %22, i64 noundef %conv, i64 noundef %conv19, i64 noundef %conv21, i64 noundef %conv23, ptr noundef nonnull @.str.139)
@@ -48105,7 +48090,7 @@ return:                                           ; preds = %if.end35, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_77_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -48117,13 +48102,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -48227,7 +48212,7 @@ while.end:                                        ; preds = %if.end40, %while.en
   %_children.057 = phi ptr [ %call, %while.cond.preheader ], [ %_children.069, %while.end.sink.split ], [ %_children.1, %if.end40 ]
   %_mark.052 = phi i32 [ %2, %while.cond.preheader ], [ %_mark.070, %while.end.sink.split ], [ %9, %if.end40 ]
   store i32 %_mark.052, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena, align 8
   %call44 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.062, ptr noundef %11) #4
   %tobool45.not = icmp eq ptr %call44, null
@@ -48238,7 +48223,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp5273, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call44, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call44, i64 8
   br label %for.body
 
 if.then46:                                        ; preds = %while.end
@@ -48275,7 +48260,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @keyword_pattern_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -48287,13 +48272,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %p) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -48379,7 +48364,7 @@ declare ptr @_PyPegen_seq_first_item(ptr noundef) local_unnamed_addr #1
 define internal fastcc ptr @simple_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -48391,7 +48376,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -48416,9 +48401,9 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill, align 4
   %cmp10 = icmp eq i32 %5, %6
   br i1 %cmp10, label %land.lhs.true, label %if.end17
@@ -48436,14 +48421,14 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %col_offset, align 8
   %12 = load i32, ptr %error_indicator, align 8
   %tobool24.not = icmp eq i32 %12, 0
@@ -48499,9 +48484,9 @@ if.then19.i:                                      ; preds = %if.end11.i
 if.end22.i:                                       ; preds = %if.end11.i, %if.end11.thread.i
   %.pn.in.i = phi ptr [ %arrayidx134.i, %if.end11.thread.i ], [ %arrayidx.i, %if.end11.i ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
-  %.in139.i = getelementptr inbounds %struct.Token, ptr %.pn.i, i64 0, i32 3
+  %.in139.i = getelementptr inbounds i8, ptr %.pn.i, i64 20
   %19 = load i32, ptr %.in139.i, align 4
-  %.in.i = getelementptr inbounds %struct.Token, ptr %.pn.i, i64 0, i32 4
+  %.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %20 = load i32, ptr %.in.i, align 8
   %call23.i = call ptr @_PyPegen_name_token(ptr noundef nonnull %p) #4
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -48612,9 +48597,9 @@ if.then38.i:                                      ; preds = %if.then35.i
   br label %if.end32
 
 if.end41.i:                                       ; preds = %if.then35.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call36.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call36.i, i64 28
   %30 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call36.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call36.i, i64 32
   %31 = load i32, ptr %end_col_offset.i, align 8
   %call46.i = call ptr @_PyPegen_set_expr_context(ptr noundef nonnull %p, ptr noundef nonnull %call23.i, i32 noundef 2) #4
   %cmp.i98.i = icmp eq ptr %call46.i, null
@@ -48625,7 +48610,7 @@ if.then.i100.i:                                   ; preds = %if.end41.i
   br label %CHECK_CALL.exit.i
 
 CHECK_CALL.exit.i:                                ; preds = %if.then.i100.i, %if.end41.i
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %32 = load ptr, ptr %arena.i, align 8
   %call48.i = call ptr @_PyAST_AnnAssign(ptr noundef %call46.i, ptr noundef nonnull %call29.i, ptr noundef %retval.0.i.ph.i, i32 noundef 1, i32 noundef %19, i32 noundef %20, i32 noundef %30, i32 noundef %31, ptr noundef %32) #4
   %call49.i = call fastcc ptr @INVALID_VERSION_CHECK(ptr noundef nonnull %p, i32 noundef 6, ptr noundef nonnull @.str.141, ptr noundef %call48.i)
@@ -48723,11 +48708,11 @@ if.then88.i:                                      ; preds = %if.then84.i
   br label %if.end32
 
 if.end91.i:                                       ; preds = %if.then84.i
-  %end_lineno93.i = getelementptr inbounds %struct.Token, ptr %call86.i, i64 0, i32 5
+  %end_lineno93.i = getelementptr inbounds i8, ptr %call86.i, i64 28
   %39 = load i32, ptr %end_lineno93.i, align 4
-  %end_col_offset97.i = getelementptr inbounds %struct.Token, ptr %call86.i, i64 0, i32 6
+  %end_col_offset97.i = getelementptr inbounds i8, ptr %call86.i, i64 32
   %40 = load i32, ptr %end_col_offset97.i, align 8
-  %arena100.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena100.i = getelementptr inbounds i8, ptr %p, i64 32
   %41 = load ptr, ptr %arena100.i, align 8
   %call101.i = call ptr @_PyAST_AnnAssign(ptr noundef nonnull %retval.0.i108.i, ptr noundef nonnull %call77.i, ptr noundef %call80.i, i32 noundef 0, i32 noundef %19, i32 noundef %20, i32 noundef %39, i32 noundef %40, ptr noundef %41) #4
   %call102.i = call fastcc ptr @INVALID_VERSION_CHECK(ptr noundef nonnull %p, i32 noundef 6, ptr noundef nonnull @.str.142, ptr noundef %call101.i)
@@ -48780,12 +48765,12 @@ if.then139.i:                                     ; preds = %if.then135.i
   br label %if.end32
 
 if.end142.i:                                      ; preds = %if.then135.i
-  %end_lineno144.i = getelementptr inbounds %struct.Token, ptr %call137.i, i64 0, i32 5
+  %end_lineno144.i = getelementptr inbounds i8, ptr %call137.i, i64 28
   %45 = load i32, ptr %end_lineno144.i, align 4
-  %end_col_offset148.i = getelementptr inbounds %struct.Token, ptr %call137.i, i64 0, i32 6
+  %end_col_offset148.i = getelementptr inbounds i8, ptr %call137.i, i64 32
   %46 = load i32, ptr %end_col_offset148.i, align 8
   %call151.i = call fastcc ptr @NEW_TYPE_COMMENT(ptr noundef nonnull %p, ptr noundef %call131.i)
-  %arena152.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena152.i = getelementptr inbounds i8, ptr %p, i64 32
   %47 = load ptr, ptr %arena152.i, align 8
   %call153.i = call ptr @_PyAST_Assign(ptr noundef nonnull %call122.i, ptr noundef nonnull %call125.i, ptr noundef %call151.i, i32 noundef %19, i32 noundef %20, i32 noundef %45, i32 noundef %46, ptr noundef %47) #4
   %cmp154.i = icmp eq ptr %call153.i, null
@@ -48831,12 +48816,12 @@ if.then187.i:                                     ; preds = %if.then183.i
   br label %if.end32
 
 if.end190.i:                                      ; preds = %if.then183.i
-  %end_lineno192.i = getelementptr inbounds %struct.Token, ptr %call185.i, i64 0, i32 5
+  %end_lineno192.i = getelementptr inbounds i8, ptr %call185.i, i64 28
   %50 = load i32, ptr %end_lineno192.i, align 4
-  %end_col_offset196.i = getelementptr inbounds %struct.Token, ptr %call185.i, i64 0, i32 6
+  %end_col_offset196.i = getelementptr inbounds i8, ptr %call185.i, i64 32
   %51 = load i32, ptr %end_col_offset196.i, align 8
   %52 = load i32, ptr %call177.i, align 4
-  %arena199.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena199.i = getelementptr inbounds i8, ptr %p, i64 32
   %53 = load ptr, ptr %arena199.i, align 8
   %call200.i = call ptr @_PyAST_AugAssign(ptr noundef nonnull %call174.i, i32 noundef %52, ptr noundef nonnull %call181.i, i32 noundef %19, i32 noundef %20, i32 noundef %50, i32 noundef %51, ptr noundef %53) #4
   %cmp201.i = icmp eq ptr %call200.i, null
@@ -48849,7 +48834,7 @@ land.lhs.true202.i:                               ; preds = %if.end190.i
 
 if.end210.i:                                      ; preds = %land.lhs.true176.i, %if.end170.i
   store i32 %14, ptr %mark, align 8
-  %call_invalid_rules.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules.i = getelementptr inbounds i8, ptr %p, i64 148
   %54 = load i32, ptr %call_invalid_rules.i, align 4
   %tobool217.not.i = icmp eq i32 %54, 0
   br i1 %tobool217.not.i, label %assignment_rule.exit.thread137, label %if.then218.i
@@ -48951,11 +48936,11 @@ if.then59:                                        ; preds = %if.then56
   br label %return
 
 if.end62:                                         ; preds = %if.then56
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call57, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call57, i64 28
   %63 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call57, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call57, i64 32
   %64 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %65 = load ptr, ptr %arena, align 8
   %call67 = call ptr @_PyAST_Expr(ptr noundef nonnull %call54, i32 noundef %10, i32 noundef %11, i32 noundef %63, i32 noundef %64, ptr noundef %65) #4
   store ptr %call67, ptr %_res, align 8
@@ -49081,11 +49066,11 @@ if.then133:                                       ; preds = %if.then129
   br label %return
 
 if.end136:                                        ; preds = %if.then129
-  %end_lineno138 = getelementptr inbounds %struct.Token, ptr %call131, i64 0, i32 5
+  %end_lineno138 = getelementptr inbounds i8, ptr %call131, i64 28
   %76 = load i32, ptr %end_lineno138, align 4
-  %end_col_offset142 = getelementptr inbounds %struct.Token, ptr %call131, i64 0, i32 6
+  %end_col_offset142 = getelementptr inbounds i8, ptr %call131, i64 32
   %77 = load i32, ptr %end_col_offset142, align 8
-  %arena145 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena145 = getelementptr inbounds i8, ptr %p, i64 32
   %78 = load ptr, ptr %arena145, align 8
   %call146 = call ptr @_PyAST_Pass(i32 noundef %10, i32 noundef %11, i32 noundef %76, i32 noundef %77, ptr noundef %78) #4
   store ptr %call146, ptr %_res, align 8
@@ -49211,11 +49196,11 @@ if.then213:                                       ; preds = %if.then209
   br label %return
 
 if.end216:                                        ; preds = %if.then209
-  %end_lineno218 = getelementptr inbounds %struct.Token, ptr %call211, i64 0, i32 5
+  %end_lineno218 = getelementptr inbounds i8, ptr %call211, i64 28
   %89 = load i32, ptr %end_lineno218, align 4
-  %end_col_offset222 = getelementptr inbounds %struct.Token, ptr %call211, i64 0, i32 6
+  %end_col_offset222 = getelementptr inbounds i8, ptr %call211, i64 32
   %90 = load i32, ptr %end_col_offset222, align 8
-  %arena225 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena225 = getelementptr inbounds i8, ptr %p, i64 32
   %91 = load ptr, ptr %arena225, align 8
   %call226 = call ptr @_PyAST_Break(i32 noundef %10, i32 noundef %11, i32 noundef %89, i32 noundef %90, ptr noundef %91) #4
   store ptr %call226, ptr %_res, align 8
@@ -49263,11 +49248,11 @@ if.then251:                                       ; preds = %if.then247
   br label %return
 
 if.end254:                                        ; preds = %if.then247
-  %end_lineno256 = getelementptr inbounds %struct.Token, ptr %call249, i64 0, i32 5
+  %end_lineno256 = getelementptr inbounds i8, ptr %call249, i64 28
   %96 = load i32, ptr %end_lineno256, align 4
-  %end_col_offset260 = getelementptr inbounds %struct.Token, ptr %call249, i64 0, i32 6
+  %end_col_offset260 = getelementptr inbounds i8, ptr %call249, i64 32
   %97 = load i32, ptr %end_col_offset260, align 8
-  %arena263 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena263 = getelementptr inbounds i8, ptr %p, i64 32
   %98 = load ptr, ptr %arena263, align 8
   %call264 = call ptr @_PyAST_Continue(i32 noundef %10, i32 noundef %11, i32 noundef %96, i32 noundef %97, ptr noundef %98) #4
   store ptr %call264, ptr %_res, align 8
@@ -49360,7 +49345,7 @@ return:                                           ; preds = %done, %if.then292, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @type_alias_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -49372,21 +49357,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens36 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens36 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens36, align 8
   %idxprom37 = sext i32 %2 to i64
   %arrayidx38 = getelementptr ptr, ptr %4, i64 %idxprom37
@@ -49404,7 +49389,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -49413,9 +49398,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx38, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in41 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in41 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in41, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_soft_keyword(ptr noundef nonnull %p, ptr noundef nonnull @.str.46) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -49448,9 +49433,9 @@ if.then38:                                        ; preds = %land.lhs.true35
   br i1 %cmp40, label %return, label %if.end44
 
 if.end44:                                         ; preds = %if.then38
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call39, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call39, i64 28
   %10 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call39, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call39, i64 32
   %11 = load i32, ptr %end_col_offset, align 8
   %call49 = tail call ptr @_PyPegen_set_expr_context(ptr noundef nonnull %p, ptr noundef nonnull %call26, i32 noundef 2) #4
   %cmp.i = icmp eq ptr %call49, null
@@ -49461,7 +49446,7 @@ if.then.i:                                        ; preds = %if.end44
   br label %CHECK_CALL.exit
 
 CHECK_CALL.exit:                                  ; preds = %if.end44, %if.then.i
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %12 = load ptr, ptr %arena, align 8
   %call51 = tail call ptr @_PyAST_TypeAlias(ptr noundef %call49, ptr noundef %call29, ptr noundef nonnull %call36, i32 noundef %7, i32 noundef %8, i32 noundef %10, i32 noundef %11, ptr noundef %12) #4
   %call52 = tail call fastcc ptr @INVALID_VERSION_CHECK(ptr noundef nonnull %p, i32 noundef 12, ptr noundef nonnull @.str.148, ptr noundef %call51)
@@ -49494,7 +49479,7 @@ declare ptr @_PyAST_Expr(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @return_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -49506,21 +49491,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens30 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens30 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens30, align 8
   %idxprom31 = sext i32 %2 to i64
   %arrayidx32 = getelementptr ptr, ptr %4, i64 %idxprom31
@@ -49538,7 +49523,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -49547,9 +49532,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx32, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in35 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in35 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in35, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 522) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -49567,11 +49552,11 @@ if.then29:                                        ; preds = %land.lhs.true25
   br i1 %cmp31, label %return, label %if.end35
 
 if.end35:                                         ; preds = %if.then29
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call30, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call30, i64 28
   %10 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call30, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call30, i64 32
   %11 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %12 = load ptr, ptr %arena, align 8
   %call40 = tail call ptr @_PyAST_Return(ptr noundef %call26, i32 noundef %7, i32 noundef %8, i32 noundef %10, i32 noundef %11, ptr noundef %12) #4
   %cmp41 = icmp eq ptr %call40, null
@@ -49601,7 +49586,7 @@ return:                                           ; preds = %if.end50, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_6_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -49613,13 +49598,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 617) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -49651,7 +49636,7 @@ return:                                           ; preds = %if.end24, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @import_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -49663,7 +49648,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -49673,9 +49658,9 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %4 = load i32, ptr %call_invalid_rules, align 4
   %tobool4.not = icmp eq i32 %4, 0
   %.pr72 = load i32, ptr %level, align 8
@@ -49807,7 +49792,7 @@ while.end.i.i.i:                                  ; preds = %if.end40.i.i.i, %la
   %_children.0.lcssa.i.i.i = phi ptr [ %call.i.i.i, %while.cond.preheader.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ], [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %_children.1.i.i.i, %if.end40.i.i.i ]
   %_mark.0.lcssa.i.i.i = phi i32 [ %9, %while.cond.preheader.i.i.i ], [ %9, %land.rhs.i.preheader.i.i ], [ %11, %land.rhs.i.i.i ], [ %11, %if.end40.i.i.i ]
   store i32 %_mark.0.lcssa.i.i.i, ptr %mark, align 8
-  %arena.i.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %12 = load ptr, ptr %arena.i.i.i, align 8
   %call44.i.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i.i, ptr noundef %12) #4
   %tobool45.not.i.i.i = icmp eq ptr %call44.i.i.i, null
@@ -49818,7 +49803,7 @@ for.cond.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   br i1 %cmp5254.i.i.i, label %for.body.lr.ph.i.i.i, label %_gather_203_rule.exit.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %for.cond.preheader.i.i.i
-  %elements.i.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i.i, i64 0, i32 1
+  %elements.i.i.i = getelementptr inbounds i8, ptr %call44.i.i.i, i64 8
   br label %for.body.i.i.i
 
 if.then46.i.i.i:                                  ; preds = %while.end.i.i.i
@@ -49878,10 +49863,10 @@ land.lhs.true16.i:                                ; preds = %land.lhs.true13.i
 
 if.then19.i:                                      ; preds = %land.lhs.true16.i
   %17 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 3
+  %lineno.i = getelementptr inbounds i8, ptr %call.i, i64 20
   %18 = load i32, ptr %lineno.i, align 4
   %conv.i = sext i32 %18 to i64
-  %col_offset.i = getelementptr inbounds %struct.Token, ptr %call.i, i64 0, i32 4
+  %col_offset.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %19 = load i32, ptr %col_offset.i, align 8
   %conv20.i = sext i32 %19 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %17, i64 noundef %conv.i, i64 noundef %conv20.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.149)
@@ -49933,13 +49918,13 @@ if.end.i24:                                       ; preds = %if.end22
 
 if.end3.i27:                                      ; preds = %if.end22, %if.end.i24
   %22 = load i32, ptr %mark, align 8
-  %fill.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill.i = getelementptr inbounds i8, ptr %p, i64 20
   %23 = load i32, ptr %fill.i, align 4
   %cmp5.i = icmp eq i32 %22, %23
   br i1 %cmp5.i, label %land.lhs.true.i42, label %if.end11.thread.i
 
 if.end11.thread.i:                                ; preds = %if.end3.i27
-  %tokens36.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens36.i = getelementptr inbounds i8, ptr %p, i64 8
   %24 = load ptr, ptr %tokens36.i, align 8
   %idxprom37.i = sext i32 %22 to i64
   %arrayidx38.i = getelementptr ptr, ptr %24, i64 %idxprom37.i
@@ -49952,7 +49937,7 @@ land.lhs.true.i42:                                ; preds = %if.end3.i27
 
 if.end11.i:                                       ; preds = %land.lhs.true.i42
   %.pre.i44 = load i32, ptr %error_indicator, align 8
-  %tokens.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens.i = getelementptr inbounds i8, ptr %p, i64 8
   %25 = load ptr, ptr %tokens.i, align 8
   %idxprom.i = sext i32 %22 to i64
   %arrayidx.i = getelementptr ptr, ptr %25, i64 %idxprom.i
@@ -49962,9 +49947,9 @@ if.end11.i:                                       ; preds = %land.lhs.true.i42
 if.end22.i:                                       ; preds = %if.end11.i, %if.end11.thread.i
   %.pn.in.i = phi ptr [ %arrayidx38.i, %if.end11.thread.i ], [ %arrayidx.i, %if.end11.i ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
-  %.in43.i = getelementptr inbounds %struct.Token, ptr %.pn.i, i64 0, i32 3
+  %.in43.i = getelementptr inbounds i8, ptr %.pn.i, i64 20
   %26 = load i32, ptr %.in43.i, align 4
-  %.in.i = getelementptr inbounds %struct.Token, ptr %.pn.i, i64 0, i32 4
+  %.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %27 = load i32, ptr %.in.i, align 8
   %call23.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 617) #4
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -50089,7 +50074,7 @@ while.end.i.i.i.i:                                ; preds = %if.end40.i.i.i.i, %
   %_children.0.lcssa.i.i.i.i = phi ptr [ %call.i.i.i.i, %while.cond.preheader.i.i.i.i ], [ %call.i.i.i.i, %land.rhs.i.preheader.i.i.i ], [ %_children.1.i.i.i.i, %land.rhs.i.i.i.i ], [ %_children.1.i.i.i.i, %if.end40.i.i.i.i ]
   %_mark.0.lcssa.i.i.i.i = phi i32 [ %32, %while.cond.preheader.i.i.i.i ], [ %32, %land.rhs.i.preheader.i.i.i ], [ %34, %land.rhs.i.i.i.i ], [ %34, %if.end40.i.i.i.i ]
   store i32 %_mark.0.lcssa.i.i.i.i, ptr %mark, align 8
-  %arena.i.i.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %35 = load ptr, ptr %arena.i.i.i.i, align 8
   %call44.i.i.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i.i.i, ptr noundef %35) #4
   %tobool45.not.i.i.i.i = icmp eq ptr %call44.i.i.i.i, null
@@ -50100,7 +50085,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %while.end.i.i.i.i
   br i1 %cmp5254.i.i.i.i, label %for.body.lr.ph.i.i.i.i, label %_gather_29_rule.exit.i.i
 
 for.body.lr.ph.i.i.i.i:                           ; preds = %for.cond.preheader.i.i.i.i
-  %elements.i.i.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i.i.i, i64 0, i32 1
+  %elements.i.i.i.i = getelementptr inbounds i8, ptr %call44.i.i.i.i, i64 8
   br label %for.body.i.i.i.i
 
 if.then46.i.i.i.i:                                ; preds = %while.end.i.i.i.i
@@ -50159,9 +50144,9 @@ if.then28.i:                                      ; preds = %_gather_29_rule.exi
   br i1 %cmp30.i, label %if.end26, label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.then28.i
-  %end_lineno.i = getelementptr inbounds %struct.Token, ptr %call29.i, i64 0, i32 5
+  %end_lineno.i = getelementptr inbounds i8, ptr %call29.i, i64 28
   %40 = load i32, ptr %end_lineno.i, align 4
-  %end_col_offset.i = getelementptr inbounds %struct.Token, ptr %call29.i, i64 0, i32 6
+  %end_col_offset.i = getelementptr inbounds i8, ptr %call29.i, i64 32
   %41 = load i32, ptr %end_col_offset.i, align 8
   %42 = load ptr, ptr %arena.i.i.i.i, align 8
   %call39.i = tail call ptr @_PyAST_Import(ptr noundef nonnull %call14.i.i.i, i32 noundef %26, i32 noundef %27, i32 noundef %40, i32 noundef %41, ptr noundef %42) #4
@@ -50223,7 +50208,7 @@ return:                                           ; preds = %if.end26, %if.end26
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @raise_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -50235,7 +50220,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -50245,15 +50230,15 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %4 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %3, %4
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens53 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens53 = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens53, align 8
   %idxprom54 = sext i32 %3 to i64
   %arrayidx55 = getelementptr ptr, ptr %5, i64 %idxprom54
@@ -50272,7 +50257,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %7 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %3 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
@@ -50285,9 +50270,9 @@ if.then19:                                        ; preds = %if.end11
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx55, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in58 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in58 = getelementptr inbounds i8, ptr %.pn, i64 20
   %10 = load i32, ptr %.in58, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %11 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 525) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -50358,11 +50343,11 @@ if.then35:                                        ; preds = %if.then32
   br label %return
 
 if.end38:                                         ; preds = %if.then32
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call33, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call33, i64 28
   %16 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call33, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call33, i64 32
   %17 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %18 = load ptr, ptr %arena, align 8
   %call43 = tail call ptr @_PyAST_Raise(ptr noundef nonnull %call26, ptr noundef %retval.0.i.ph, i32 noundef %10, i32 noundef %11, i32 noundef %16, i32 noundef %17, ptr noundef %18) #4
   %cmp44 = icmp eq ptr %call43, null
@@ -50403,11 +50388,11 @@ if.then68:                                        ; preds = %if.then64
   br label %return
 
 if.end71:                                         ; preds = %if.then64
-  %end_lineno73 = getelementptr inbounds %struct.Token, ptr %call66, i64 0, i32 5
+  %end_lineno73 = getelementptr inbounds i8, ptr %call66, i64 28
   %21 = load i32, ptr %end_lineno73, align 4
-  %end_col_offset77 = getelementptr inbounds %struct.Token, ptr %call66, i64 0, i32 6
+  %end_col_offset77 = getelementptr inbounds i8, ptr %call66, i64 32
   %22 = load i32, ptr %end_col_offset77, align 8
-  %arena80 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena80 = getelementptr inbounds i8, ptr %p, i64 32
   %23 = load ptr, ptr %arena80, align 8
   %call81 = tail call ptr @_PyAST_Raise(ptr noundef null, ptr noundef null, i32 noundef %10, i32 noundef %11, i32 noundef %21, i32 noundef %22, ptr noundef %23) #4
   %cmp82 = icmp eq ptr %call81, null
@@ -50445,7 +50430,7 @@ declare ptr @_PyAST_Pass(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @del_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -50457,21 +50442,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return.sink.split
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens37 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens37 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens37, align 8
   %idxprom38 = sext i32 %2 to i64
   %arrayidx39 = getelementptr ptr, ptr %4, i64 %idxprom38
@@ -50489,7 +50474,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -50498,9 +50483,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx39, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in43 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in43 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in43, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 613) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -50522,11 +50507,11 @@ if.then31:                                        ; preds = %land.lhs.true28
   br i1 %cmp33, label %return.sink.split, label %if.end37
 
 if.end37:                                         ; preds = %if.then31
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call32, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call32, i64 28
   %9 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call32, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call32, i64 32
   %10 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena, align 8
   %call42 = tail call ptr @_PyAST_Delete(ptr noundef nonnull %call26, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) #4
   %cmp43 = icmp eq ptr %call42, null
@@ -50543,7 +50528,7 @@ if.then47:                                        ; preds = %land.lhs.true44
 
 if.end52:                                         ; preds = %land.lhs.true28, %land.lhs.true25, %if.end22
   store i32 %2, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %12 = load i32, ptr %call_invalid_rules, align 4
   %tobool54.not = icmp eq i32 %12, 0
   br i1 %tobool54.not, label %return.sink.split, label %if.then55
@@ -50592,16 +50577,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
 
 if.then.i.i:                                      ; preds = %if.then13.i
   %16 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i.i = getelementptr inbounds %struct._expr, ptr %call.i.i, i64 0, i32 2
+  %lineno.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %17 = load i32, ptr %lineno.i.i, align 8
   %conv.i.i = sext i32 %17 to i64
-  %col_offset.i.i = getelementptr inbounds %struct._expr, ptr %call.i.i, i64 0, i32 3
+  %col_offset.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 36
   %18 = load i32, ptr %col_offset.i.i, align 4
   %conv5.i.i = sext i32 %18 to i64
-  %end_lineno.i.i = getelementptr inbounds %struct._expr, ptr %call.i.i, i64 0, i32 4
+  %end_lineno.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %19 = load i32, ptr %end_lineno.i.i, align 8
   %conv6.i.i = sext i32 %19 to i64
-  %end_col_offset.i.i = getelementptr inbounds %struct._expr, ptr %call.i.i, i64 0, i32 5
+  %end_col_offset.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 44
   %20 = load i32, ptr %end_col_offset.i.i, align 4
   %conv7.i.i = sext i32 %20 to i64
   %call8.i.i = tail call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call.i.i) #4
@@ -50640,7 +50625,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @yield_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -50652,21 +50637,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens28 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens28 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens28, align 8
   %idxprom29 = sext i32 %2 to i64
   %arrayidx30 = getelementptr ptr, ptr %4, i64 %idxprom29
@@ -50684,7 +50669,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -50693,9 +50678,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx30, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in33 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in33 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in33, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call fastcc ptr @yield_expr_rule(ptr noundef nonnull %p)
   %tobool24.not = icmp eq ptr %call23, null
@@ -50707,11 +50692,11 @@ if.then25:                                        ; preds = %if.end22
   br i1 %cmp27, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.then25
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call26, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call26, i64 28
   %9 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call26, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call26, i64 32
   %10 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena, align 8
   %call36 = tail call ptr @_PyAST_Expr(ptr noundef nonnull %call23, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11) #4
   %cmp37 = icmp eq ptr %call36, null
@@ -50741,7 +50726,7 @@ return:                                           ; preds = %if.end46, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @assert_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -50753,21 +50738,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens35 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens35 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens35, align 8
   %idxprom36 = sext i32 %2 to i64
   %arrayidx37 = getelementptr ptr, ptr %4, i64 %idxprom36
@@ -50785,7 +50770,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -50794,9 +50779,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx37, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in40 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in40 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in40, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 529) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -50859,11 +50844,11 @@ if.then32:                                        ; preds = %_tmp_23_rule.exit
   br i1 %cmp34, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.then32
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call33, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call33, i64 28
   %12 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call33, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call33, i64 32
   %13 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %14 = load ptr, ptr %arena, align 8
   %call43 = tail call ptr @_PyAST_Assert(ptr noundef nonnull %call26, ptr noundef %retval.0.i.ph, i32 noundef %7, i32 noundef %8, i32 noundef %12, i32 noundef %13, ptr noundef %14) #4
   %cmp44 = icmp eq ptr %call43, null
@@ -50897,7 +50882,7 @@ declare ptr @_PyAST_Continue(i32 noundef, i32 noundef, i32 noundef, i32 noundef,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @global_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -50909,21 +50894,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens40 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens40 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens40, align 8
   %idxprom41 = sext i32 %2 to i64
   %arrayidx42 = getelementptr ptr, ptr %4, i64 %idxprom41
@@ -50940,7 +50925,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
@@ -50950,9 +50935,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx42, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in47 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in47 = getelementptr inbounds i8, ptr %.pn, i64 20
   %6 = load i32, ptr %.in47, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %7 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 526) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -51059,7 +51044,7 @@ while.end.i.i:                                    ; preds = %if.end40.i.i, %land
   %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
   %_mark.0.lcssa.i.i = phi i32 [ %12, %while.cond.preheader.i.i ], [ %12, %land.rhs.i.preheader.i ], [ %14, %land.rhs.i.i ], [ %14, %if.end40.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark, align 8
-  %arena.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %15 = load ptr, ptr %arena.i.i, align 8
   %call44.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %15) #4
   %tobool45.not.i.i = icmp eq ptr %call44.i.i, null
@@ -51070,7 +51055,7 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   br i1 %cmp5254.i.i, label %for.body.lr.ph.i.i, label %_gather_18_rule.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %elements.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i, i64 0, i32 1
+  %elements.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 8
   br label %for.body.i.i
 
 if.then46.i.i:                                    ; preds = %while.end.i.i
@@ -51125,9 +51110,9 @@ if.then28:                                        ; preds = %_gather_18_rule.exi
   br i1 %cmp30, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.then28
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call29, i64 28
   %20 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call29, i64 32
   %21 = load i32, ptr %end_col_offset, align 8
   %call39 = tail call ptr @_PyPegen_map_names_to_ids(ptr noundef nonnull %p, ptr noundef nonnull %call14.i) #4
   %cmp.i30 = icmp eq ptr %call39, null
@@ -51167,7 +51152,7 @@ return:                                           ; preds = %if.end51, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @nonlocal_stmt_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -51179,21 +51164,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens40 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens40 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens40, align 8
   %idxprom41 = sext i32 %2 to i64
   %arrayidx42 = getelementptr ptr, ptr %4, i64 %idxprom41
@@ -51210,7 +51195,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
@@ -51220,9 +51205,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx42, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in47 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in47 = getelementptr inbounds i8, ptr %.pn, i64 20
   %6 = load i32, ptr %.in47, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %7 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 527) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -51329,7 +51314,7 @@ while.end.i.i:                                    ; preds = %if.end40.i.i, %land
   %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
   %_mark.0.lcssa.i.i = phi i32 [ %12, %while.cond.preheader.i.i ], [ %12, %land.rhs.i.preheader.i ], [ %14, %land.rhs.i.i ], [ %14, %if.end40.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark, align 8
-  %arena.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %15 = load ptr, ptr %arena.i.i, align 8
   %call44.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %15) #4
   %tobool45.not.i.i = icmp eq ptr %call44.i.i, null
@@ -51340,7 +51325,7 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   br i1 %cmp5254.i.i, label %for.body.lr.ph.i.i, label %_gather_20_rule.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %elements.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i, i64 0, i32 1
+  %elements.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 8
   br label %for.body.i.i
 
 if.then46.i.i:                                    ; preds = %while.end.i.i
@@ -51395,9 +51380,9 @@ if.then28:                                        ; preds = %_gather_20_rule.exi
   br i1 %cmp30, label %return, label %if.end34
 
 if.end34:                                         ; preds = %if.then28
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call29, i64 28
   %20 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call29, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call29, i64 32
   %21 = load i32, ptr %end_col_offset, align 8
   %call39 = tail call ptr @_PyPegen_map_names_to_ids(ptr noundef nonnull %p, ptr noundef nonnull %call14.i) #4
   %cmp.i30 = icmp eq ptr %call39, null
@@ -51439,7 +51424,7 @@ declare ptr @_PyAST_AnnAssign(ptr noundef, ptr noundef, ptr noundef, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_13_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -51451,13 +51436,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 22) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -51524,7 +51509,7 @@ return:                                           ; preds = %annotated_rhs_rule.
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop1_14_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -51536,13 +51521,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -51638,7 +51623,7 @@ if.then37:                                        ; preds = %lor.lhs.false, %whi
   br label %return
 
 if.end40:                                         ; preds = %lor.lhs.false
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena, align 8
   %call41 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0, ptr noundef %8) #4
   %tobool42.not = icmp eq ptr %call41, null
@@ -51649,7 +51634,7 @@ for.cond.preheader:                               ; preds = %if.end40
   br i1 %cmp4953, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call41, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call41, i64 8
   br label %for.body
 
 if.then43:                                        ; preds = %if.end40
@@ -51686,7 +51671,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_15_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -51698,13 +51683,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @yield_expr_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -51738,7 +51723,7 @@ declare ptr @_PyAST_Assign(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @single_target_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -51750,13 +51735,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @single_subscript_attribute_target_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -51823,7 +51808,7 @@ return:                                           ; preds = %if.end59, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @augassign_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -51835,13 +51820,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 36) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -52177,7 +52162,7 @@ return:                                           ; preds = %if.end286, %land.lh
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_16_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -52189,13 +52174,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @yield_expr_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -52229,7 +52214,7 @@ declare ptr @_PyAST_AugAssign(ptr noundef, i32 noundef, ptr noundef, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @invalid_assignment_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -52241,13 +52226,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @invalid_ann_assign_target_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -52265,16 +52250,16 @@ land.lhs.true13:                                  ; preds = %land.lhs.true
 
 if.then16:                                        ; preds = %land.lhs.true13
   %3 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno = getelementptr inbounds %struct._expr, ptr %call, i64 0, i32 2
+  %lineno = getelementptr inbounds i8, ptr %call, i64 32
   %4 = load i32, ptr %lineno, align 8
   %conv = sext i32 %4 to i64
-  %col_offset = getelementptr inbounds %struct._expr, ptr %call, i64 0, i32 3
+  %col_offset = getelementptr inbounds i8, ptr %call, i64 36
   %5 = load i32, ptr %col_offset, align 4
   %conv17 = sext i32 %5 to i64
-  %end_lineno = getelementptr inbounds %struct._expr, ptr %call, i64 0, i32 4
+  %end_lineno = getelementptr inbounds i8, ptr %call, i64 40
   %6 = load i32, ptr %end_lineno, align 8
   %conv18 = sext i32 %6 to i64
-  %end_col_offset = getelementptr inbounds %struct._expr, ptr %call, i64 0, i32 5
+  %end_col_offset = getelementptr inbounds i8, ptr %call, i64 44
   %7 = load i32, ptr %end_col_offset, align 4
   %conv19 = sext i32 %7 to i64
   %call20 = tail call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call) #4
@@ -52373,7 +52358,7 @@ while.end.i:                                      ; preds = %if.end30.i, %while.
   %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %inc31.i, %if.end30.i ]
   %_mark.0.lcssa.i = phi i32 [ %11, %while.cond.preheader.i ], [ %13, %if.end30.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %14 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %14) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
@@ -52384,7 +52369,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp4246.i, label %for.body.lr.ph.i, label %land.lhs.true51
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
 
 if.then36.i:                                      ; preds = %while.end.i
@@ -52431,16 +52416,16 @@ land.lhs.true54:                                  ; preds = %land.lhs.true51
 
 if.then57:                                        ; preds = %land.lhs.true54
   %19 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno58 = getelementptr inbounds %struct._expr, ptr %call43, i64 0, i32 2
+  %lineno58 = getelementptr inbounds i8, ptr %call43, i64 32
   %20 = load i32, ptr %lineno58, align 8
   %conv59 = sext i32 %20 to i64
-  %col_offset60 = getelementptr inbounds %struct._expr, ptr %call43, i64 0, i32 3
+  %col_offset60 = getelementptr inbounds i8, ptr %call43, i64 36
   %21 = load i32, ptr %col_offset60, align 4
   %conv61 = sext i32 %21 to i64
-  %end_lineno62 = getelementptr inbounds %struct._expr, ptr %call43, i64 0, i32 4
+  %end_lineno62 = getelementptr inbounds i8, ptr %call43, i64 40
   %22 = load i32, ptr %end_lineno62, align 8
   %conv63 = sext i32 %22 to i64
-  %end_col_offset64 = getelementptr inbounds %struct._expr, ptr %call43, i64 0, i32 5
+  %end_col_offset64 = getelementptr inbounds i8, ptr %call43, i64 44
   %23 = load i32, ptr %end_col_offset64, align 4
   %conv65 = sext i32 %23 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %19, i64 noundef %conv59, i64 noundef %conv61, i64 noundef %conv63, i64 noundef %conv65, ptr noundef nonnull @.str.144)
@@ -52475,16 +52460,16 @@ land.lhs.true93:                                  ; preds = %land.lhs.true90
 
 if.then96:                                        ; preds = %land.lhs.true93
   %25 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno97 = getelementptr inbounds %struct._expr, ptr %call88, i64 0, i32 2
+  %lineno97 = getelementptr inbounds i8, ptr %call88, i64 32
   %26 = load i32, ptr %lineno97, align 8
   %conv98 = sext i32 %26 to i64
-  %col_offset99 = getelementptr inbounds %struct._expr, ptr %call88, i64 0, i32 3
+  %col_offset99 = getelementptr inbounds i8, ptr %call88, i64 36
   %27 = load i32, ptr %col_offset99, align 4
   %conv100 = sext i32 %27 to i64
-  %end_lineno101 = getelementptr inbounds %struct._expr, ptr %call88, i64 0, i32 4
+  %end_lineno101 = getelementptr inbounds i8, ptr %call88, i64 40
   %28 = load i32, ptr %end_lineno101, align 8
   %conv102 = sext i32 %28 to i64
-  %end_col_offset103 = getelementptr inbounds %struct._expr, ptr %call88, i64 0, i32 5
+  %end_col_offset103 = getelementptr inbounds i8, ptr %call88, i64 44
   %29 = load i32, ptr %end_col_offset103, align 4
   %conv104 = sext i32 %29 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %25, i64 noundef %conv98, i64 noundef %conv100, i64 noundef %conv102, i64 noundef %conv104, ptr noundef nonnull @.str.145)
@@ -52550,16 +52535,16 @@ land.lhs.true161:                                 ; preds = %land.lhs.true158
 
 if.then164:                                       ; preds = %land.lhs.true161
   %32 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno165 = getelementptr inbounds %struct._expr, ptr %call159, i64 0, i32 2
+  %lineno165 = getelementptr inbounds i8, ptr %call159, i64 32
   %33 = load i32, ptr %lineno165, align 8
   %conv166 = sext i32 %33 to i64
-  %col_offset167 = getelementptr inbounds %struct._expr, ptr %call159, i64 0, i32 3
+  %col_offset167 = getelementptr inbounds i8, ptr %call159, i64 36
   %34 = load i32, ptr %col_offset167, align 4
   %conv168 = sext i32 %34 to i64
-  %end_lineno169 = getelementptr inbounds %struct._expr, ptr %call159, i64 0, i32 4
+  %end_lineno169 = getelementptr inbounds i8, ptr %call159, i64 40
   %35 = load i32, ptr %end_lineno169, align 8
   %conv170 = sext i32 %35 to i64
-  %end_col_offset171 = getelementptr inbounds %struct._expr, ptr %call159, i64 0, i32 5
+  %end_col_offset171 = getelementptr inbounds i8, ptr %call159, i64 44
   %36 = load i32, ptr %end_col_offset171, align 4
   %conv172 = sext i32 %36 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %32, i64 noundef %conv166, i64 noundef %conv168, i64 noundef %conv170, i64 noundef %conv172, ptr noundef nonnull @.str.146)
@@ -52594,16 +52579,16 @@ land.lhs.true198:                                 ; preds = %land.lhs.true195
 
 if.then201:                                       ; preds = %land.lhs.true198
   %38 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno202 = getelementptr inbounds %struct._expr, ptr %call193, i64 0, i32 2
+  %lineno202 = getelementptr inbounds i8, ptr %call193, i64 32
   %39 = load i32, ptr %lineno202, align 8
   %conv203 = sext i32 %39 to i64
-  %col_offset204 = getelementptr inbounds %struct._expr, ptr %call193, i64 0, i32 3
+  %col_offset204 = getelementptr inbounds i8, ptr %call193, i64 36
   %40 = load i32, ptr %col_offset204, align 4
   %conv205 = sext i32 %40 to i64
-  %end_lineno206 = getelementptr inbounds %struct._expr, ptr %call193, i64 0, i32 4
+  %end_lineno206 = getelementptr inbounds i8, ptr %call193, i64 40
   %41 = load i32, ptr %end_lineno206, align 8
   %conv207 = sext i32 %41 to i64
-  %end_col_offset208 = getelementptr inbounds %struct._expr, ptr %call193, i64 0, i32 5
+  %end_col_offset208 = getelementptr inbounds i8, ptr %call193, i64 44
   %42 = load i32, ptr %end_col_offset208, align 4
   %conv209 = sext i32 %42 to i64
   %call210 = tail call ptr @_PyPegen_get_expr_name(ptr noundef nonnull %call193) #4
@@ -52630,7 +52615,7 @@ return:                                           ; preds = %if.end222, %if.then
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @single_subscript_attribute_target_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -52642,21 +52627,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens50 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens50 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens50, align 8
   %idxprom51 = sext i32 %2 to i64
   %arrayidx52 = getelementptr ptr, ptr %4, i64 %idxprom51
@@ -52674,7 +52659,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -52683,9 +52668,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx52, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in55 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in55 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in55, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call fastcc ptr @t_primary_rule(ptr noundef nonnull %p)
   %tobool24.not = icmp eq ptr %call23, null
@@ -52712,13 +52697,13 @@ if.then34:                                        ; preds = %land.lhs.true31
   br i1 %cmp36, label %return, label %if.end40
 
 if.end40:                                         ; preds = %if.then34
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call35, i64 28
   %9 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call35, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call35, i64 32
   %10 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call29, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call29, i64 8
   %11 = load ptr, ptr %v, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %12 = load ptr, ptr %arena, align 8
   %call45 = tail call ptr @_PyAST_Attribute(ptr noundef nonnull %call23, ptr noundef %11, i32 noundef 2, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %12) #4
   %cmp46 = icmp eq ptr %call45, null
@@ -52770,11 +52755,11 @@ if.then80:                                        ; preds = %land.lhs.true77
   br i1 %cmp83, label %return, label %if.end87
 
 if.end87:                                         ; preds = %if.then80
-  %end_lineno89 = getelementptr inbounds %struct.Token, ptr %call82, i64 0, i32 5
+  %end_lineno89 = getelementptr inbounds i8, ptr %call82, i64 28
   %14 = load i32, ptr %end_lineno89, align 4
-  %end_col_offset93 = getelementptr inbounds %struct.Token, ptr %call82, i64 0, i32 6
+  %end_col_offset93 = getelementptr inbounds i8, ptr %call82, i64 32
   %15 = load i32, ptr %end_col_offset93, align 8
-  %arena96 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena96 = getelementptr inbounds i8, ptr %p, i64 32
   %16 = load ptr, ptr %arena96, align 8
   %call97 = tail call ptr @_PyAST_Subscript(ptr noundef nonnull %call66, ptr noundef nonnull %call72, i32 noundef 2, i32 noundef %7, i32 noundef %8, i32 noundef %14, i32 noundef %15, ptr noundef %16) #4
   %cmp98 = icmp eq ptr %call97, null
@@ -52806,7 +52791,7 @@ declare ptr @_PyPegen_augoperator(ptr noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_ann_assign_target_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -52818,13 +52803,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @list_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -52877,7 +52862,7 @@ return:                                           ; preds = %if.end48, %if.end3,
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_162_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -52889,13 +52874,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -52986,7 +52971,7 @@ if.end30:                                         ; preds = %if.end29, %while.bo
 
 while.end:                                        ; preds = %_tmp_264_rule.exit, %_tmp_264_rule.exit.thread
   store i32 %_mark.0, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %7 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0, ptr noundef %7) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -52997,7 +52982,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4256, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -53034,7 +53019,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_loop0_163_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -53046,13 +53031,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not = icmp eq ptr %call, null
@@ -53143,7 +53128,7 @@ if.end30:                                         ; preds = %if.end29, %while.bo
 
 while.end:                                        ; preds = %_tmp_265_rule.exit, %_tmp_265_rule.exit.thread
   store i32 %_mark.0, ptr %mark, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %7 = load ptr, ptr %arena, align 8
   %call34 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0, ptr noundef %7) #4
   %tobool35.not = icmp eq ptr %call34, null
@@ -53154,7 +53139,7 @@ for.cond.preheader:                               ; preds = %while.end
   br i1 %cmp4256, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %struct.asdl_seq, ptr %call34, i64 0, i32 1
+  %elements = getelementptr inbounds i8, ptr %call34, i64 8
   br label %for.body
 
 if.then36:                                        ; preds = %while.end
@@ -53191,7 +53176,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_tmp_164_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -53203,13 +53188,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @yield_expr_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -53245,7 +53230,7 @@ declare ptr @_PyAST_Return(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @import_from_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -53257,21 +53242,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens126 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens126 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens126, align 8
   %idxprom127 = sext i32 %2 to i64
   %arrayidx128 = getelementptr ptr, ptr %4, i64 %idxprom127
@@ -53288,7 +53273,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
@@ -53298,9 +53283,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx128, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in138 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in138 = getelementptr inbounds i8, ptr %.pn, i64 20
   %6 = load i32, ptr %.in138, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %7 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 618) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -53402,7 +53387,7 @@ while.end.i:                                      ; preds = %if.end19.i.i, %if.e
   %dec27.i36.i = add i32 %18, -1
   store i32 %dec27.i36.i, ptr %level, align 8
   store i32 %_mark.0.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %19 = load ptr, ptr %arena.i, align 8
   %call34.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i, ptr noundef %19) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
@@ -53413,7 +53398,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp4248.i, label %for.body.lr.ph.i, label %land.lhs.true28
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call34.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call34.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -53469,11 +53454,11 @@ if.then37:                                        ; preds = %land.lhs.true34
   br i1 %cmp39, label %return, label %if.end43
 
 if.end43:                                         ; preds = %if.then37
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call38, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call38, i64 28
   %24 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call38, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call38, i64 32
   %25 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call29, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call29, i64 8
   %26 = load ptr, ptr %v, align 8
   %call48 = tail call i32 @_PyPegen_seq_count_dots(ptr noundef nonnull %call34.i) #4
   %27 = load ptr, ptr %arena.i, align 8
@@ -53621,7 +53606,7 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
   br label %_loop1_25_rule.exit.thread
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
-  %arena.i72 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i72 = getelementptr inbounds i8, ptr %p, i64 32
   %41 = load ptr, ptr %arena.i72, align 8
   %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i65, ptr noundef %41) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
@@ -53632,7 +53617,7 @@ for.cond.preheader.i73:                           ; preds = %if.end40.i
   br i1 %cmp4952.i, label %for.body.lr.ph.i75, label %land.lhs.true76
 
 for.body.lr.ph.i75:                               ; preds = %for.cond.preheader.i73
-  %elements.i76 = getelementptr inbounds %struct.asdl_seq, ptr %call41.i, i64 0, i32 1
+  %elements.i76 = getelementptr inbounds i8, ptr %call41.i, i64 8
   br label %for.body.i77
 
 if.then43.i:                                      ; preds = %if.end40.i
@@ -53680,9 +53665,9 @@ if.then82:                                        ; preds = %land.lhs.true79
   br i1 %cmp85, label %return, label %if.end89
 
 if.end89:                                         ; preds = %if.then82
-  %end_lineno91 = getelementptr inbounds %struct.Token, ptr %call84, i64 0, i32 5
+  %end_lineno91 = getelementptr inbounds i8, ptr %call84, i64 28
   %46 = load i32, ptr %end_lineno91, align 4
-  %end_col_offset95 = getelementptr inbounds %struct.Token, ptr %call84, i64 0, i32 6
+  %end_col_offset95 = getelementptr inbounds i8, ptr %call84, i64 32
   %47 = load i32, ptr %end_col_offset95, align 8
   %call98 = tail call i32 @_PyPegen_seq_count_dots(ptr noundef nonnull %call41.i) #4
   %48 = load ptr, ptr %arena.i72, align 8
@@ -53715,7 +53700,7 @@ return:                                           ; preds = %if.end110, %land.lh
 define internal fastcc ptr @dotted_name_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -53740,7 +53725,7 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %3 = load i32, ptr %mark, align 8
   %4 = load ptr, ptr %_res, align 8
   %call526 = call i32 @_PyPegen_update_memo(ptr noundef nonnull %p, i32 noundef %3, i32 noundef 1028, ptr noundef %4) #4
@@ -53748,7 +53733,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool6.not27, label %if.end10.lr.ph, label %if.then7
 
 if.end10.lr.ph:                                   ; preds = %if.end3
-  %error_indicator.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator.i = getelementptr inbounds i8, ptr %p, i64 96
   br label %if.end10
 
 if.then7:                                         ; preds = %if.end22, %if.end3
@@ -53875,7 +53860,7 @@ declare ptr @_PyAST_Import(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @dotted_as_name_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -53887,21 +53872,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens35 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens35 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens35, align 8
   %idxprom36 = sext i32 %2 to i64
   %arrayidx37 = getelementptr ptr, ptr %4, i64 %idxprom36
@@ -53919,7 +53904,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -53928,9 +53913,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx37, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in40 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in40 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in40, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call fastcc ptr @dotted_name_rule(ptr noundef nonnull %p)
   %tobool24.not = icmp eq ptr %call23, null
@@ -53988,23 +53973,23 @@ if.then29:                                        ; preds = %_tmp_31_rule.exit
   br i1 %cmp31, label %return, label %if.end35
 
 if.end35:                                         ; preds = %if.then29
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call30, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call30, i64 28
   %12 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call30, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call30, i64 32
   %13 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call23, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call23, i64 8
   %14 = load ptr, ptr %v, align 8
   %tobool40.not = icmp eq ptr %retval.0.i.ph, null
   br i1 %tobool40.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end35
-  %v41 = getelementptr inbounds %struct._expr, ptr %retval.0.i.ph, i64 0, i32 1
+  %v41 = getelementptr inbounds i8, ptr %retval.0.i.ph, i64 8
   %15 = load ptr, ptr %v41, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end35, %cond.true
   %cond = phi ptr [ %15, %cond.true ], [ null, %if.end35 ]
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %16 = load ptr, ptr %arena, align 8
   %call43 = tail call ptr @_PyAST_alias(ptr noundef %14, ptr noundef %cond, i32 noundef %7, i32 noundef %8, i32 noundef %12, i32 noundef %13, ptr noundef %16) #4
   %cmp44 = icmp eq ptr %call43, null
@@ -54036,7 +54021,7 @@ declare ptr @_PyAST_alias(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i3
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @import_from_targets_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -54048,21 +54033,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens56 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens56 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens56, align 8
   %idxprom57 = sext i32 %2 to i64
   %arrayidx58 = getelementptr ptr, ptr %4, i64 %idxprom57
@@ -54080,7 +54065,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -54089,9 +54074,9 @@ if.end11:                                         ; preds = %land.lhs.true
 do.end24:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx58, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in61 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in61 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in61, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call25 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 7) #4
   %tobool26.not = icmp eq ptr %call25, null
@@ -54150,11 +54135,11 @@ if.then72:                                        ; preds = %if.end68
   br i1 %cmp74, label %return, label %if.end78
 
 if.end78:                                         ; preds = %if.then72
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call73, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call73, i64 28
   %11 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call73, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call73, i64 32
   %12 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %13 = load ptr, ptr %arena, align 8
   %call83 = tail call ptr @_PyPegen_alias_for_star(ptr noundef nonnull %p, i32 noundef %7, i32 noundef %8, i32 noundef %11, i32 noundef %12, ptr noundef %13) #4
   %cmp.i = icmp eq ptr %call83, null
@@ -54180,7 +54165,7 @@ if.then90:                                        ; preds = %land.lhs.true87
 
 if.end95:                                         ; preds = %if.end68
   store i32 %2, ptr %mark, align 8
-  %call_invalid_rules = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 21
+  %call_invalid_rules = getelementptr inbounds i8, ptr %p, i64 148
   %14 = load i32, ptr %call_invalid_rules, align 4
   %tobool97.not = icmp eq i32 %14, 0
   br i1 %tobool97.not, label %return, label %if.then98
@@ -54214,7 +54199,7 @@ declare i32 @_PyPegen_seq_count_dots(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @import_from_as_names_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -54228,13 +54213,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %if.then ], [ %inc, %entry ]
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %inc.i = add i32 %storemerge.in.pre, 1
   store i32 %inc.i, ptr %level, align 8
@@ -54332,7 +54317,7 @@ while.end.i.i:                                    ; preds = %if.end40.i.i, %land
   %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
   %_mark.0.lcssa.i.i = phi i32 [ %6, %while.cond.preheader.i.i ], [ %6, %land.rhs.i.preheader.i ], [ %8, %land.rhs.i.i ], [ %8, %if.end40.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark, align 8
-  %arena.i.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %9 = load ptr, ptr %arena.i.i, align 8
   %call44.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i, ptr noundef %9) #4
   %tobool45.not.i.i = icmp eq ptr %call44.i.i, null
@@ -54343,7 +54328,7 @@ for.cond.preheader.i.i:                           ; preds = %while.end.i.i
   br i1 %cmp5254.i.i, label %for.body.lr.ph.i.i, label %_gather_26_rule.exit
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %elements.i.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i.i, i64 0, i32 1
+  %elements.i.i = getelementptr inbounds i8, ptr %call44.i.i, i64 8
   br label %for.body.i.i
 
 if.then46.i.i:                                    ; preds = %while.end.i.i
@@ -54408,7 +54393,7 @@ declare ptr @_PyPegen_alias_for_star(ptr noundef, i32 noundef, i32 noundef, i32 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @invalid_import_from_targets_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -54420,13 +54405,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @import_from_as_names_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -54472,7 +54457,7 @@ return:                                           ; preds = %if.end27, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @import_from_as_name_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -54484,21 +54469,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens35 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens35 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens35, align 8
   %idxprom36 = sext i32 %2 to i64
   %arrayidx37 = getelementptr ptr, ptr %4, i64 %idxprom36
@@ -54516,7 +54501,7 @@ if.then7:                                         ; preds = %land.lhs.true
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
   %5 = icmp eq i32 %.pre, 0
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %6 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %6, i64 %idxprom
@@ -54525,9 +54510,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx37, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in40 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in40 = getelementptr inbounds i8, ptr %.pn, i64 20
   %7 = load i32, ptr %.in40, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %8 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %p) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -54585,23 +54570,23 @@ if.then29:                                        ; preds = %_tmp_28_rule.exit
   br i1 %cmp31, label %return, label %if.end35
 
 if.end35:                                         ; preds = %if.then29
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call30, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call30, i64 28
   %12 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call30, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call30, i64 32
   %13 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call23, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call23, i64 8
   %14 = load ptr, ptr %v, align 8
   %tobool40.not = icmp eq ptr %retval.0.i.ph, null
   br i1 %tobool40.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end35
-  %v41 = getelementptr inbounds %struct._expr, ptr %retval.0.i.ph, i64 0, i32 1
+  %v41 = getelementptr inbounds i8, ptr %retval.0.i.ph, i64 8
   %15 = load ptr, ptr %v41, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end35, %cond.true
   %cond = phi ptr [ %15, %cond.true ], [ null, %if.end35 ]
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %16 = load ptr, ptr %arena, align 8
   %call43 = tail call ptr @_PyAST_alias(ptr noundef %14, ptr noundef %cond, i32 noundef %7, i32 noundef %8, i32 noundef %12, i32 noundef %13, ptr noundef %16) #4
   %cmp44 = icmp eq ptr %call43, null
@@ -54633,7 +54618,7 @@ declare ptr @_PyAST_Raise(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i3
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @del_targets_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -54645,13 +54630,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %3 = load i32, ptr %level, align 8
   %inc.i = add i32 %3, 1
@@ -54746,7 +54731,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.i.lcssa = phi ptr [ %call.i24, %while.cond.i.preheader ], [ %call.i24, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %7, %while.cond.i.preheader ], [ %7, %land.rhs.i.preheader ], [ %9, %if.end40.i ], [ %9, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %10 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %10) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -54757,7 +54742,7 @@ for.cond.i.preheader:                             ; preds = %while.end.i
   br i1 %cmp52.i48, label %for.body.i.lr.ph, label %_gather_139_rule.exit
 
 for.body.i.lr.ph:                                 ; preds = %for.cond.i.preheader
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %for.body.i
@@ -54828,7 +54813,7 @@ return:                                           ; preds = %if.end24, %land.lhs
 ; Function Attrs: nounwind uwtable
 define internal ptr @_tmp_22_rule(ptr noundef %p) #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -54840,13 +54825,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 13) #4
   %tobool10.not = icmp eq ptr %call, null
@@ -54881,7 +54866,7 @@ declare ptr @_PyAST_Delete(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i
 define internal fastcc ptr @del_target_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
   %_res = alloca ptr, align 8
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -54893,7 +54878,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
@@ -54918,9 +54903,9 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %5 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill, align 4
   %cmp10 = icmp eq i32 %5, %6
   br i1 %cmp10, label %land.lhs.true, label %if.end17
@@ -54938,14 +54923,14 @@ if.then13:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true, %if.end8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %8 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx, align 8
-  %lineno = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 3
+  %lineno = getelementptr inbounds i8, ptr %9, i64 20
   %10 = load i32, ptr %lineno, align 4
-  %col_offset = getelementptr inbounds %struct.Token, ptr %9, i64 0, i32 4
+  %col_offset = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load i32, ptr %col_offset, align 8
   %12 = load i32, ptr %error_indicator, align 8
   %tobool24.not = icmp eq i32 %12, 0
@@ -54989,13 +54974,13 @@ if.then43:                                        ; preds = %if.then40
   br label %return
 
 if.end46:                                         ; preds = %if.then40
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call41, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call41, i64 28
   %15 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call41, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call41, i64 32
   %16 = load i32, ptr %end_col_offset, align 8
-  %v = getelementptr inbounds %struct._expr, ptr %call35, i64 0, i32 1
+  %v = getelementptr inbounds i8, ptr %call35, i64 8
   %17 = load ptr, ptr %v, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %18 = load ptr, ptr %arena, align 8
   %call51 = call ptr @_PyAST_Attribute(ptr noundef nonnull %call29, ptr noundef %17, i32 noundef 3, i32 noundef %10, i32 noundef %11, i32 noundef %15, i32 noundef %16, ptr noundef %18) #4
   store ptr %call51, ptr %_res, align 8
@@ -55063,11 +55048,11 @@ if.then90:                                        ; preds = %if.then86
   br label %return
 
 if.end93:                                         ; preds = %if.then86
-  %end_lineno95 = getelementptr inbounds %struct.Token, ptr %call88, i64 0, i32 5
+  %end_lineno95 = getelementptr inbounds i8, ptr %call88, i64 28
   %23 = load i32, ptr %end_lineno95, align 4
-  %end_col_offset99 = getelementptr inbounds %struct.Token, ptr %call88, i64 0, i32 6
+  %end_col_offset99 = getelementptr inbounds i8, ptr %call88, i64 32
   %24 = load i32, ptr %end_col_offset99, align 8
-  %arena102 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena102 = getelementptr inbounds i8, ptr %p, i64 32
   %25 = load ptr, ptr %arena102, align 8
   %call103 = call ptr @_PyAST_Subscript(ptr noundef nonnull %call72, ptr noundef nonnull %call78, i32 noundef 3, i32 noundef %10, i32 noundef %11, i32 noundef %23, i32 noundef %24, ptr noundef %25) #4
   store ptr %call103, ptr %_res, align 8
@@ -55129,7 +55114,7 @@ return:                                           ; preds = %done, %if.then117, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @del_t_atom_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -55141,21 +55126,21 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
-  %fill = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 3
+  %fill = getelementptr inbounds i8, ptr %p, i64 20
   %3 = load i32, ptr %fill, align 4
   %cmp5 = icmp eq i32 %2, %3
   br i1 %cmp5, label %land.lhs.true, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end3
-  %tokens69 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens69 = getelementptr inbounds i8, ptr %p, i64 8
   %4 = load ptr, ptr %tokens69, align 8
   %idxprom70 = sext i32 %2 to i64
   %arrayidx71 = getelementptr ptr, ptr %4, i64 %idxprom70
@@ -55172,7 +55157,7 @@ if.then7:                                         ; preds = %land.lhs.true
 
 if.end11:                                         ; preds = %land.lhs.true
   %.pre = load i32, ptr %error_indicator, align 8
-  %tokens = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 1
+  %tokens = getelementptr inbounds i8, ptr %p, i64 8
   %5 = load ptr, ptr %tokens, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr ptr, ptr %5, i64 %idxprom
@@ -55182,9 +55167,9 @@ if.end11:                                         ; preds = %land.lhs.true
 if.end22:                                         ; preds = %if.end11.thread, %if.end11
   %.pn.in = phi ptr [ %arrayidx71, %if.end11.thread ], [ %arrayidx, %if.end11 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in75 = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 3
+  %.in75 = getelementptr inbounds i8, ptr %.pn, i64 20
   %6 = load i32, ptr %.in75, align 4
-  %.in = getelementptr inbounds %struct.Token, ptr %.pn, i64 0, i32 4
+  %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %7 = load i32, ptr %.in, align 8
   %call23 = tail call ptr @_PyPegen_name_token(ptr noundef nonnull %p) #4
   %tobool24.not = icmp eq ptr %call23, null
@@ -55271,11 +55256,11 @@ if.then84:                                        ; preds = %land.lhs.true81
   br i1 %cmp86, label %return, label %if.end90
 
 if.end90:                                         ; preds = %if.then84
-  %end_lineno = getelementptr inbounds %struct.Token, ptr %call85, i64 0, i32 5
+  %end_lineno = getelementptr inbounds i8, ptr %call85, i64 28
   %11 = load i32, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.Token, ptr %call85, i64 0, i32 6
+  %end_col_offset = getelementptr inbounds i8, ptr %call85, i64 32
   %12 = load i32, ptr %end_col_offset, align 8
-  %arena = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena = getelementptr inbounds i8, ptr %p, i64 32
   %13 = load ptr, ptr %arena, align 8
   %call95 = tail call ptr @_PyAST_Tuple(ptr noundef %call78, i32 noundef 3, i32 noundef %6, i32 noundef %7, i32 noundef %11, i32 noundef %12, ptr noundef %13) #4
   %cmp96 = icmp eq ptr %call95, null
@@ -55318,11 +55303,11 @@ if.then126:                                       ; preds = %land.lhs.true123
   br i1 %cmp129, label %return, label %if.end133
 
 if.end133:                                        ; preds = %if.then126
-  %end_lineno135 = getelementptr inbounds %struct.Token, ptr %call128, i64 0, i32 5
+  %end_lineno135 = getelementptr inbounds i8, ptr %call128, i64 28
   %15 = load i32, ptr %end_lineno135, align 4
-  %end_col_offset139 = getelementptr inbounds %struct.Token, ptr %call128, i64 0, i32 6
+  %end_col_offset139 = getelementptr inbounds i8, ptr %call128, i64 32
   %16 = load i32, ptr %end_col_offset139, align 8
-  %arena142 = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena142 = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena142, align 8
   %call143 = tail call ptr @_PyAST_List(ptr noundef %call119, i32 noundef 3, i32 noundef %6, i32 noundef %7, i32 noundef %15, i32 noundef %16, ptr noundef %17) #4
   %cmp144 = icmp eq ptr %call143, null
@@ -55368,7 +55353,7 @@ declare ptr @_PyPegen_seq_append_to_end(ptr noundef, ptr noundef, ptr noundef) l
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_gather_147_rule(ptr noundef %p) unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 20
+  %level = getelementptr inbounds i8, ptr %p, i64 144
   %0 = load i32, ptr %level, align 8
   %inc = add i32 %0, 1
   store i32 %inc, ptr %level, align 8
@@ -55380,13 +55365,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %error_indicator = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 15
+  %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   %1 = load i32, ptr %error_indicator, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %mark = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 2
+  %mark = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load i32, ptr %mark, align 8
   %call = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
   %tobool10.not = icmp eq ptr %call, null
@@ -55472,7 +55457,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %if.end
   %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
-  %arena.i = getelementptr inbounds %struct.Parser, ptr %p, i64 0, i32 5
+  %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
   %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i, ptr noundef %8) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
@@ -55483,7 +55468,7 @@ for.cond.preheader.i:                             ; preds = %while.end.i
   br i1 %cmp5254.i, label %for.body.lr.ph.i, label %if.then13
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %struct.asdl_seq, ptr %call44.i, i64 0, i32 1
+  %elements.i = getelementptr inbounds i8, ptr %call44.i, i64 8
   br label %for.body.i
 
 if.then46.i:                                      ; preds = %while.end.i

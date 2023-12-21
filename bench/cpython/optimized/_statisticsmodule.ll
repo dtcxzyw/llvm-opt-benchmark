@@ -67,7 +67,7 @@ land.lhs.true10:                                  ; preds = %if.else
 
 if.end15:                                         ; preds = %if.else, %land.lhs.true10, %if.then4
   %p.0 = phi double [ %.val17, %if.then4 ], [ -1.000000e+00, %land.lhs.true10 ], [ %call8, %if.else ]
-  %arrayidx16 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx16 = getelementptr i8, ptr %args, i64 8
   %3 = load ptr, ptr %arrayidx16, align 8
   %4 = getelementptr i8, ptr %3, i64 8
   %.val15 = load ptr, ptr %4, align 8
@@ -91,7 +91,7 @@ land.lhs.true26:                                  ; preds = %if.else22
 
 if.end31:                                         ; preds = %if.else22, %land.lhs.true26, %if.then19
   %mu.0 = phi double [ %.val18, %if.then19 ], [ -1.000000e+00, %land.lhs.true26 ], [ %call24, %if.else22 ]
-  %arrayidx32 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx32 = getelementptr i8, ptr %args, i64 16
   %6 = load ptr, ptr %arrayidx32, align 8
   %7 = getelementptr i8, ptr %6, i64 8
   %.val16 = load ptr, ptr %7, align 8

@@ -3,11 +3,6 @@ source_filename = "bench/icu/original/numparse_affixes.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
-%"class.icu_75::numparse::impl::AffixPatternMatcherBuilder" = type { %"class.icu_75::number::impl::TokenConsumer", %"class.icu_75::numparse::impl::MutableMatcherCollection", %"class.icu_75::MaybeStackArray.0", i32, i32, ptr, ptr, ptr }
-%"class.icu_75::number::impl::TokenConsumer" = type { ptr }
-%"class.icu_75::numparse::impl::MutableMatcherCollection" = type { ptr }
-%"class.icu_75::MaybeStackArray.0" = type { ptr, i32, i8, [3 x ptr] }
 %"class.icu_75::numparse::impl::PermilleMatcher" = type { %"class.icu_75::numparse::impl::SymbolMatcher" }
 %"class.icu_75::numparse::impl::SymbolMatcher" = type { %"class.icu_75::numparse::impl::NumberParseMatcher", %"class.icu_75::UnicodeString", ptr }
 %"class.icu_75::numparse::impl::NumberParseMatcher" = type { ptr }
@@ -19,28 +14,21 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.icu_75::numparse::impl::PercentMatcher" = type { %"class.icu_75::numparse::impl::SymbolMatcher" }
 %"class.icu_75::numparse::impl::PlusSignMatcher" = type <{ %"class.icu_75::numparse::impl::SymbolMatcher", i8, [7 x i8] }>
 %"class.icu_75::numparse::impl::MinusSignMatcher" = type <{ %"class.icu_75::numparse::impl::SymbolMatcher", i8, [7 x i8] }>
-%"struct.icu_75::numparse::impl::AffixTokenMatcherSetupData" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse" = type { ptr, %"class.icu_75::numparse::impl::MinusSignMatcher", %"class.icu_75::numparse::impl::PlusSignMatcher", %"class.icu_75::numparse::impl::PercentMatcher", %"class.icu_75::numparse::impl::PermilleMatcher", %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", %"class.icu_75::MemoryPool" }
 %"class.icu_75::numparse::impl::CombinedCurrencyMatcher" = type { %"class.icu_75::numparse::impl::NumberParseMatcher", [4 x i16], %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", i8, [8 x %"class.icu_75::UnicodeString"], %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", %"class.icu_75::CharString" }
 %"class.icu_75::CharString" = type { %"class.icu_75::MaybeStackArray", i32, [4 x i8] }
-%"class.icu_75::MemoryPool" = type { i32, %"class.icu_75::MaybeStackArray.2" }
-%"class.icu_75::MaybeStackArray.2" = type { ptr, i32, i8, [8 x ptr] }
+%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_75::numparse::impl::AffixPatternMatcher" = type { %"class.icu_75::numparse::impl::ArraySeriesMatcher.base", [4 x i8], %"class.icu_75::numparse::impl::CompactUnicodeString" }
 %"class.icu_75::numparse::impl::ArraySeriesMatcher.base" = type <{ %"class.icu_75::numparse::impl::SeriesMatcher", %"class.icu_75::MaybeStackArray.0", i32 }>
 %"class.icu_75::numparse::impl::SeriesMatcher" = type { %"class.icu_75::numparse::impl::CompositionMatcher" }
 %"class.icu_75::numparse::impl::CompositionMatcher" = type { %"class.icu_75::numparse::impl::NumberParseMatcher" }
+%"class.icu_75::MaybeStackArray.0" = type { ptr, i32, i8, [3 x ptr] }
 %"class.icu_75::numparse::impl::CompactUnicodeString" = type { %"class.icu_75::MaybeStackArray.3" }
 %"class.icu_75::MaybeStackArray.3" = type <{ ptr, i32, i8, i8, [4 x i16], [2 x i8] }>
-%"class.icu_75::numparse::impl::CodePointMatcher" = type <{ %"class.icu_75::numparse::impl::NumberParseMatcher", i32, [4 x i8] }>
-%"class.icu_75::numparse::impl::ArraySeriesMatcher" = type <{ %"class.icu_75::numparse::impl::SeriesMatcher", %"class.icu_75::MaybeStackArray.0", i32, [4 x i8] }>
+%"class.icu_75::numparse::impl::AffixPatternMatcherBuilder" = type { %"class.icu_75::number::impl::TokenConsumer", %"class.icu_75::numparse::impl::MutableMatcherCollection", %"class.icu_75::MaybeStackArray.0", i32, i32, ptr, ptr, ptr }
+%"class.icu_75::number::impl::TokenConsumer" = type { ptr }
+%"class.icu_75::numparse::impl::MutableMatcherCollection" = type { ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
-%"class.icu_75::numparse::impl::AffixMatcherWarehouse" = type { [18 x %"class.icu_75::numparse::impl::AffixMatcher"], [12 x %"class.icu_75::numparse::impl::AffixPatternMatcher"], ptr }
 %"class.icu_75::numparse::impl::AffixMatcher" = type <{ %"class.icu_75::numparse::impl::NumberParseMatcher", ptr, ptr, i32, [4 x i8] }>
-%"class.icu_75::numparse::impl::ParsedNumber" = type { %"class.icu_75::number::impl::DecimalQuantity", i32, i32, %"class.icu_75::UnicodeString", %"class.icu_75::UnicodeString", [4 x i16] }
-%"class.icu_75::number::impl::DecimalQuantity" = type <{ %"class.icu_75::IFixedDecimal", i8, [3 x i8], i32, i32, i8, i8, [2 x i8], double, i32, i32, i32, i32, %union.anon, i8, i8, [6 x i8] }>
-%"class.icu_75::IFixedDecimal" = type { ptr }
-%union.anon = type { %struct.anon.5 }
-%struct.anon.5 = type { ptr, i32 }
 
 $_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev = comdat any
 
@@ -180,11 +168,11 @@ $_ZTIN6icu_758numparse4impl19AffixPatternMatcherE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -192,11 +180,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -257,7 +245,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -267,7 +255,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -279,7 +267,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -292,7 +280,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -316,7 +304,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -346,21 +334,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
-  %capacity3 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
-  %needToRelease4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -383,11 +371,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -395,7 +383,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -406,20 +394,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -447,7 +435,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -463,7 +451,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -495,7 +483,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -507,7 +495,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -522,7 +510,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -536,7 +524,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
   %conv = sext i32 %spec.select to i64
@@ -553,9 +541,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.1, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -573,7 +561,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -585,7 +573,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -601,7 +589,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -620,22 +608,22 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_758numparse4impl26AffixPatternMatcherBuilderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_758numparse4impl26AffixPatternMatcherBuilderE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
-  %fMatchers = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 2
-  %stackArray.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 2, i32 3
+  %fMatchers = getelementptr inbounds i8, ptr %this, i64 16
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %stackArray.i, ptr %fMatchers, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 2, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 3, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 2, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 28
   store i8 0, ptr %needToRelease.i, align 4
-  %fMatchersLen = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 3
+  %fMatchersLen = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %fMatchersLen, align 8
-  %fLastTypeOrCp = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 4
+  %fLastTypeOrCp = getelementptr inbounds i8, ptr %this, i64 60
   store i32 0, ptr %fLastTypeOrCp, align 4
-  %fPattern = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 5
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %pattern, ptr %fPattern, align 8
-  %fWarehouse = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 6
+  %fWarehouse = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %warehouse, ptr %fWarehouse, align 8
-  %fIgnorables = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 7
+  %fIgnorables = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %ignorables, ptr %fIgnorables, align 8
   ret void
 }
@@ -651,17 +639,17 @@ entry:
   %ref.tmp.i18 = alloca %"class.icu_75::numparse::impl::PercentMatcher", align 8
   %ref.tmp.i9 = alloca %"class.icu_75::numparse::impl::PlusSignMatcher", align 8
   %ref.tmp.i = alloca %"class.icu_75::numparse::impl::MinusSignMatcher", align 8
-  %fIgnorables = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 7
+  %fIgnorables = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %fIgnorables, align 8
   %cmp.not = icmp ne ptr %0, null
-  %fMatchersLen = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 3
+  %fMatchersLen = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i32, ptr %fMatchersLen, align 8
   %cmp2 = icmp sgt i32 %1, 0
   %or.cond = select i1 %cmp.not, i1 %cmp2, i1 false
   br i1 %or.cond, label %land.lhs.true3, label %if.end
 
 land.lhs.true3:                                   ; preds = %entry
-  %fLastTypeOrCp = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 4
+  %fLastTypeOrCp = getelementptr inbounds i8, ptr %this, i64 60
   %2 = load i32, ptr %fLastTypeOrCp, align 4
   %cmp4 = icmp slt i32 %2, 0
   br i1 %cmp4, label %if.then, label %lor.lhs.false
@@ -680,7 +668,7 @@ lor.lhs.false.if.then_crit_edge:                  ; preds = %lor.lhs.false
 if.then:                                          ; preds = %lor.lhs.false.if.then_crit_edge, %land.lhs.true3
   %4 = phi ptr [ %.pre, %lor.lhs.false.if.then_crit_edge ], [ %0, %land.lhs.true3 ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %if.end
@@ -700,125 +688,125 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %fWarehouse = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 6
+  %fWarehouse = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load ptr, ptr %fWarehouse, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %ref.tmp.i)
   %7 = load ptr, ptr %6, align 8
-  %dfs.i = getelementptr inbounds %"struct.icu_75::numparse::impl::AffixTokenMatcherSetupData", ptr %7, i64 0, i32 1
+  %dfs.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %dfs.i, align 8
   call void @_ZN6icu_758numparse4impl16MinusSignMatcherC1ERKNS_20DecimalFormatSymbolsEb(ptr noundef nonnull align 8 dereferenceable(81) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(2883) %8, i1 noundef zeroext true)
-  %fMinusSign.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %6, i64 0, i32 1
-  %fString.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %6, i64 0, i32 1, i32 0, i32 1
-  %fString2.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp.i, i64 0, i32 1
+  %fMinusSign.i = getelementptr inbounds i8, ptr %6, i64 8
+  %fString.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %fString2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %call3.i.i.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i.i) #16
-  %fUniSet.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp.i, i64 0, i32 2
+  %fUniSet.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   %9 = load ptr, ptr %fUniSet.i.i.i, align 8
-  %fUniSet4.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %6, i64 0, i32 1, i32 0, i32 2
+  %fUniSet4.i.i.i = getelementptr inbounds i8, ptr %6, i64 80
   store ptr %9, ptr %fUniSet4.i.i.i, align 8
-  %fAllowTrailing.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::MinusSignMatcher", ptr %ref.tmp.i, i64 0, i32 1
+  %fAllowTrailing.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
   %10 = load i8, ptr %fAllowTrailing.i.i, align 8
   %11 = and i8 %10, 1
-  %fAllowTrailing2.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %6, i64 0, i32 1, i32 1
+  %fAllowTrailing2.i.i = getelementptr inbounds i8, ptr %6, i64 88
   store i8 %11, ptr %fAllowTrailing2.i.i, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i.i) #16
   call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i) #16
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i)
   %vtable12 = load ptr, ptr %this, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 3
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 24
   %12 = load ptr, ptr %vfn13, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %fMinusSign.i)
   br label %if.end52
 
 sw.bb14:                                          ; preds = %if.end
-  %fWarehouse15 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 6
+  %fWarehouse15 = getelementptr inbounds i8, ptr %this, i64 72
   %13 = load ptr, ptr %fWarehouse15, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %ref.tmp.i9)
   %14 = load ptr, ptr %13, align 8
-  %dfs.i10 = getelementptr inbounds %"struct.icu_75::numparse::impl::AffixTokenMatcherSetupData", ptr %14, i64 0, i32 1
+  %dfs.i10 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %dfs.i10, align 8
   call void @_ZN6icu_758numparse4impl15PlusSignMatcherC1ERKNS_20DecimalFormatSymbolsEb(ptr noundef nonnull align 8 dereferenceable(81) %ref.tmp.i9, ptr noundef nonnull align 8 dereferenceable(2883) %15, i1 noundef zeroext true)
-  %fPlusSign.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %13, i64 0, i32 2
-  %fString.i.i.i11 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %13, i64 0, i32 2, i32 0, i32 1
-  %fString2.i.i.i12 = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp.i9, i64 0, i32 1
+  %fPlusSign.i = getelementptr inbounds i8, ptr %13, i64 96
+  %fString.i.i.i11 = getelementptr inbounds i8, ptr %13, i64 104
+  %fString2.i.i.i12 = getelementptr inbounds i8, ptr %ref.tmp.i9, i64 8
   %call3.i.i.i13 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i.i11, ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i.i12) #16
-  %fUniSet.i.i.i14 = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp.i9, i64 0, i32 2
+  %fUniSet.i.i.i14 = getelementptr inbounds i8, ptr %ref.tmp.i9, i64 72
   %16 = load ptr, ptr %fUniSet.i.i.i14, align 8
-  %fUniSet4.i.i.i15 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %13, i64 0, i32 2, i32 0, i32 2
+  %fUniSet4.i.i.i15 = getelementptr inbounds i8, ptr %13, i64 168
   store ptr %16, ptr %fUniSet4.i.i.i15, align 8
-  %fAllowTrailing.i.i16 = getelementptr inbounds %"class.icu_75::numparse::impl::PlusSignMatcher", ptr %ref.tmp.i9, i64 0, i32 1
+  %fAllowTrailing.i.i16 = getelementptr inbounds i8, ptr %ref.tmp.i9, i64 80
   %17 = load i8, ptr %fAllowTrailing.i.i16, align 8
   %18 = and i8 %17, 1
-  %fAllowTrailing2.i.i17 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %13, i64 0, i32 2, i32 1
+  %fAllowTrailing2.i.i17 = getelementptr inbounds i8, ptr %13, i64 176
   store i8 %18, ptr %fAllowTrailing2.i.i17, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i9, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i.i12) #16
   call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i9) #16
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %ref.tmp.i9)
   %vtable17 = load ptr, ptr %this, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 3
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 24
   %19 = load ptr, ptr %vfn18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %fPlusSign.i)
   br label %if.end52
 
 sw.bb19:                                          ; preds = %if.end
-  %fWarehouse20 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 6
+  %fWarehouse20 = getelementptr inbounds i8, ptr %this, i64 72
   %20 = load ptr, ptr %fWarehouse20, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i18)
   %21 = load ptr, ptr %20, align 8
-  %dfs.i19 = getelementptr inbounds %"struct.icu_75::numparse::impl::AffixTokenMatcherSetupData", ptr %21, i64 0, i32 1
+  %dfs.i19 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %dfs.i19, align 8
   call void @_ZN6icu_758numparse4impl14PercentMatcherC1ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp.i18, ptr noundef nonnull align 8 dereferenceable(2883) %22)
-  %fPercent.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %20, i64 0, i32 3
-  %fString.i.i.i20 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %20, i64 0, i32 3, i32 0, i32 1
-  %fString2.i.i.i21 = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp.i18, i64 0, i32 1
+  %fPercent.i = getelementptr inbounds i8, ptr %20, i64 184
+  %fString.i.i.i20 = getelementptr inbounds i8, ptr %20, i64 192
+  %fString2.i.i.i21 = getelementptr inbounds i8, ptr %ref.tmp.i18, i64 8
   %call3.i.i.i22 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i.i20, ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i.i21) #16
-  %fUniSet.i.i.i23 = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp.i18, i64 0, i32 2
+  %fUniSet.i.i.i23 = getelementptr inbounds i8, ptr %ref.tmp.i18, i64 72
   %23 = load ptr, ptr %fUniSet.i.i.i23, align 8
-  %fUniSet4.i.i.i24 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %20, i64 0, i32 3, i32 0, i32 2
+  %fUniSet4.i.i.i24 = getelementptr inbounds i8, ptr %20, i64 256
   store ptr %23, ptr %fUniSet4.i.i.i24, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i18, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i.i21) #16
   call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i18) #16
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i18)
   %vtable22 = load ptr, ptr %this, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 3
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 24
   %24 = load ptr, ptr %vfn23, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %fPercent.i)
   br label %if.end52
 
 sw.bb24:                                          ; preds = %if.end
-  %fWarehouse25 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 6
+  %fWarehouse25 = getelementptr inbounds i8, ptr %this, i64 72
   %25 = load ptr, ptr %fWarehouse25, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i25)
   %26 = load ptr, ptr %25, align 8
-  %dfs.i26 = getelementptr inbounds %"struct.icu_75::numparse::impl::AffixTokenMatcherSetupData", ptr %26, i64 0, i32 1
+  %dfs.i26 = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %dfs.i26, align 8
   call void @_ZN6icu_758numparse4impl15PermilleMatcherC1ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp.i25, ptr noundef nonnull align 8 dereferenceable(2883) %27)
-  %fPermille.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %25, i64 0, i32 4
-  %fString.i.i.i27 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %25, i64 0, i32 4, i32 0, i32 1
-  %fString2.i.i.i28 = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp.i25, i64 0, i32 1
+  %fPermille.i = getelementptr inbounds i8, ptr %25, i64 264
+  %fString.i.i.i27 = getelementptr inbounds i8, ptr %25, i64 272
+  %fString2.i.i.i28 = getelementptr inbounds i8, ptr %ref.tmp.i25, i64 8
   %call3.i.i.i29 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i.i27, ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i.i28) #16
-  %fUniSet.i.i.i30 = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp.i25, i64 0, i32 2
+  %fUniSet.i.i.i30 = getelementptr inbounds i8, ptr %ref.tmp.i25, i64 72
   %28 = load ptr, ptr %fUniSet.i.i.i30, align 8
-  %fUniSet4.i.i.i31 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %25, i64 0, i32 4, i32 0, i32 2
+  %fUniSet4.i.i.i31 = getelementptr inbounds i8, ptr %25, i64 336
   store ptr %28, ptr %fUniSet4.i.i.i31, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i25, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i.i28) #16
   call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i25) #16
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i25)
   %vtable27 = load ptr, ptr %this, align 8
-  %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 3
+  %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 24
   %29 = load ptr, ptr %vfn28, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %fPermille.i)
   br label %if.end52
 
 sw.bb29:                                          ; preds = %if.end, %if.end, %if.end, %if.end, %if.end
-  %fWarehouse30 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 6
+  %fWarehouse30 = getelementptr inbounds i8, ptr %this, i64 72
   %30 = load ptr, ptr %fWarehouse30, align 8
   %call31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_758numparse4impl26AffixTokenMatcherWarehouse8currencyER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1288) %30, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %vtable32 = load ptr, ptr %this, align 8
-  %vfn33 = getelementptr inbounds ptr, ptr %vtable32, i64 3
+  %vfn33 = getelementptr inbounds i8, ptr %vtable32, i64 24
   %31 = load ptr, ptr %vfn33, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %call31)
   br label %if.end52
@@ -839,7 +827,7 @@ land.lhs.true36:                                  ; preds = %if.else
   br i1 %tobool40.not, label %if.else42, label %if.end52
 
 if.else42:                                        ; preds = %land.lhs.true36, %if.else
-  %fWarehouse43 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 6
+  %fWarehouse43 = getelementptr inbounds i8, ptr %this, i64 72
   %33 = load ptr, ptr %fWarehouse43, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %cp.addr.i)
   store i32 %cp, ptr %cp.addr.i, align 4
@@ -848,7 +836,7 @@ if.else42:                                        ; preds = %land.lhs.true36, %i
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_758numparse4impl26AffixTokenMatcherWarehouse20nextCodePointMatcherEiR10UErrorCode.exit.thread
 
 if.end.i:                                         ; preds = %if.else42
-  %fCodePoints.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %33, i64 0, i32 6
+  %fCodePoints.i = getelementptr inbounds i8, ptr %33, i64 1200
   %call2.i = call noundef ptr @_ZN6icu_7510MemoryPoolINS_8numparse4impl16CodePointMatcherELi8EE6createIJRiEEEPS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %fCodePoints.i, ptr noundef nonnull align 4 dereferenceable(4) %cp.addr.i)
   %cmp.i = icmp eq ptr %call2.i, null
   br i1 %cmp.i, label %if.then3.i, label %if.then46
@@ -864,14 +852,14 @@ _ZN6icu_758numparse4impl26AffixTokenMatcherWarehouse20nextCodePointMatcherEiR10U
 if.then46:                                        ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cp.addr.i)
   %vtable47 = load ptr, ptr %this, align 8
-  %vfn48 = getelementptr inbounds ptr, ptr %vtable47, i64 3
+  %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 24
   %35 = load ptr, ptr %vfn48, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %call2.i)
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then46, %land.lhs.true36, %sw.bb, %sw.bb14, %sw.bb19, %sw.bb24, %sw.bb29
   %cond = phi i32 [ %cp, %if.then46 ], [ %cp, %land.lhs.true36 ], [ -1, %sw.bb ], [ -2, %sw.bb14 ], [ -4, %sw.bb19 ], [ -5, %sw.bb24 ], [ %type, %sw.bb29 ]
-  %fLastTypeOrCp54 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 4
+  %fLastTypeOrCp54 = getelementptr inbounds i8, ptr %this, i64 60
   store i32 %cond, ptr %fLastTypeOrCp54, align 4
   br label %return
 
@@ -888,21 +876,21 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_758numparse4impl2
 entry:
   %ref.tmp = alloca %"class.icu_75::numparse::impl::MinusSignMatcher", align 8
   %0 = load ptr, ptr %this, align 8
-  %dfs = getelementptr inbounds %"struct.icu_75::numparse::impl::AffixTokenMatcherSetupData", ptr %0, i64 0, i32 1
+  %dfs = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %dfs, align 8
   call void @_ZN6icu_758numparse4impl16MinusSignMatcherC1ERKNS_20DecimalFormatSymbolsEb(ptr noundef nonnull align 8 dereferenceable(81) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(2883) %1, i1 noundef zeroext true)
-  %fMinusSign = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 1
-  %fString.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %fString2.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp, i64 0, i32 1
+  %fMinusSign = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fString2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %call3.i.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i, ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i) #16
-  %fUniSet.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp, i64 0, i32 2
+  %fUniSet.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   %2 = load ptr, ptr %fUniSet.i.i, align 8
-  %fUniSet4.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %fUniSet4.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %2, ptr %fUniSet4.i.i, align 8
-  %fAllowTrailing.i = getelementptr inbounds %"class.icu_75::numparse::impl::MinusSignMatcher", ptr %ref.tmp, i64 0, i32 1
+  %fAllowTrailing.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
   %3 = load i8, ptr %fAllowTrailing.i, align 8
   %4 = and i8 %3, 1
-  %fAllowTrailing2.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 1, i32 1
+  %fAllowTrailing2.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 %4, ptr %fAllowTrailing2.i, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i) #16
@@ -915,21 +903,21 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_758numparse4impl2
 entry:
   %ref.tmp = alloca %"class.icu_75::numparse::impl::PlusSignMatcher", align 8
   %0 = load ptr, ptr %this, align 8
-  %dfs = getelementptr inbounds %"struct.icu_75::numparse::impl::AffixTokenMatcherSetupData", ptr %0, i64 0, i32 1
+  %dfs = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %dfs, align 8
   call void @_ZN6icu_758numparse4impl15PlusSignMatcherC1ERKNS_20DecimalFormatSymbolsEb(ptr noundef nonnull align 8 dereferenceable(81) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(2883) %1, i1 noundef zeroext true)
-  %fPlusSign = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 2
-  %fString.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 2, i32 0, i32 1
-  %fString2.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp, i64 0, i32 1
+  %fPlusSign = getelementptr inbounds i8, ptr %this, i64 96
+  %fString.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %fString2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %call3.i.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i, ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i) #16
-  %fUniSet.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp, i64 0, i32 2
+  %fUniSet.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   %2 = load ptr, ptr %fUniSet.i.i, align 8
-  %fUniSet4.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 2, i32 0, i32 2
+  %fUniSet4.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %2, ptr %fUniSet4.i.i, align 8
-  %fAllowTrailing.i = getelementptr inbounds %"class.icu_75::numparse::impl::PlusSignMatcher", ptr %ref.tmp, i64 0, i32 1
+  %fAllowTrailing.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
   %3 = load i8, ptr %fAllowTrailing.i, align 8
   %4 = and i8 %3, 1
-  %fAllowTrailing2.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 2, i32 1
+  %fAllowTrailing2.i = getelementptr inbounds i8, ptr %this, i64 176
   store i8 %4, ptr %fAllowTrailing2.i, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i) #16
@@ -942,16 +930,16 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_758numparse4impl2
 entry:
   %ref.tmp = alloca %"class.icu_75::numparse::impl::PercentMatcher", align 8
   %0 = load ptr, ptr %this, align 8
-  %dfs = getelementptr inbounds %"struct.icu_75::numparse::impl::AffixTokenMatcherSetupData", ptr %0, i64 0, i32 1
+  %dfs = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %dfs, align 8
   call void @_ZN6icu_758numparse4impl14PercentMatcherC1ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(2883) %1)
-  %fPercent = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 3
-  %fString.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 3, i32 0, i32 1
-  %fString2.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp, i64 0, i32 1
+  %fPercent = getelementptr inbounds i8, ptr %this, i64 184
+  %fString.i.i = getelementptr inbounds i8, ptr %this, i64 192
+  %fString2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %call3.i.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i, ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i) #16
-  %fUniSet.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp, i64 0, i32 2
+  %fUniSet.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   %2 = load ptr, ptr %fUniSet.i.i, align 8
-  %fUniSet4.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 3, i32 0, i32 2
+  %fUniSet4.i.i = getelementptr inbounds i8, ptr %this, i64 256
   store ptr %2, ptr %fUniSet4.i.i, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i) #16
@@ -964,16 +952,16 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_758numparse4impl2
 entry:
   %ref.tmp = alloca %"class.icu_75::numparse::impl::PermilleMatcher", align 8
   %0 = load ptr, ptr %this, align 8
-  %dfs = getelementptr inbounds %"struct.icu_75::numparse::impl::AffixTokenMatcherSetupData", ptr %0, i64 0, i32 1
+  %dfs = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %dfs, align 8
   call void @_ZN6icu_758numparse4impl15PermilleMatcherC1ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(2883) %1)
-  %fPermille = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 4
-  %fString.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 4, i32 0, i32 1
-  %fString2.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp, i64 0, i32 1
+  %fPermille = getelementptr inbounds i8, ptr %this, i64 264
+  %fString.i.i = getelementptr inbounds i8, ptr %this, i64 272
+  %fString2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %call3.i.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i, ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i) #16
-  %fUniSet.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::SymbolMatcher", ptr %ref.tmp, i64 0, i32 2
+  %fUniSet.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 72
   %2 = load ptr, ptr %fUniSet.i.i, align 8
-  %fUniSet4.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 4, i32 0, i32 2
+  %fUniSet4.i.i = getelementptr inbounds i8, ptr %this, i64 336
   store ptr %2, ptr %fUniSet4.i.i, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString2.i.i) #16
@@ -987,19 +975,19 @@ entry:
   %ref.tmp = alloca %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", align 8
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
-  %dfs = getelementptr inbounds %"struct.icu_75::numparse::impl::AffixTokenMatcherSetupData", ptr %0, i64 0, i32 1
+  %dfs = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %dfs, align 8
-  %parseFlags = getelementptr inbounds %"struct.icu_75::numparse::impl::AffixTokenMatcherSetupData", ptr %0, i64 0, i32 4
+  %parseFlags = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %parseFlags, align 8
   call void @_ZN6icu_758numparse4impl23CombinedCurrencyMatcherC1ERKNS_6number4impl15CurrencySymbolsERKNS_20DecimalFormatSymbolsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(856) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr noundef nonnull align 8 dereferenceable(2883) %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %fCurrency = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 5
+  %fCurrency = getelementptr inbounds i8, ptr %this, i64 344
   %call = call noundef nonnull align 8 dereferenceable(856) ptr @_ZN6icu_758numparse4impl23CombinedCurrencyMatcheraSEOS2_(ptr noundef nonnull align 8 dereferenceable(856) %fCurrency, ptr noundef nonnull align 8 dereferenceable(856) %ref.tmp) #16
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
-  %fLocaleName.i = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %ref.tmp, i64 0, i32 8
+  %fLocaleName.i = getelementptr inbounds i8, ptr %ref.tmp, i64 792
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName.i) #16
-  %beforeSuffixInsert.i = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %ref.tmp, i64 0, i32 7
+  %beforeSuffixInsert.i = getelementptr inbounds i8, ptr %ref.tmp, i64 728
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %beforeSuffixInsert.i) #16
-  %afterPrefixInsert.i = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %ref.tmp, i64 0, i32 6
+  %afterPrefixInsert.i = getelementptr inbounds i8, ptr %ref.tmp, i64 664
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %afterPrefixInsert.i) #16
   br label %arraydestroy.body.i
 
@@ -1012,9 +1000,9 @@ arraydestroy.body.i:                              ; preds = %arraydestroy.body.i
   br i1 %arraydestroy.done.i, label %_ZN6icu_758numparse4impl23CombinedCurrencyMatcherD2Ev.exit, label %arraydestroy.body.i
 
 _ZN6icu_758numparse4impl23CombinedCurrencyMatcherD2Ev.exit: ; preds = %arraydestroy.body.i
-  %fCurrency2.i = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %ref.tmp, i64 0, i32 3
+  %fCurrency2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrency2.i) #16
-  %fCurrency1.i = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %ref.tmp, i64 0, i32 2
+  %fCurrency1.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fCurrency1.i) #16
   call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #16
   ret ptr %call
@@ -1033,7 +1021,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fCodePoints = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 6
+  %fCodePoints = getelementptr inbounds i8, ptr %this, i64 1200
   %call2 = call noundef ptr @_ZN6icu_7510MemoryPoolINS_8numparse4impl16CodePointMatcherELi8EE6createIJRiEEEPS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %fCodePoints, ptr noundef nonnull align 4 dereferenceable(4) %cp.addr)
   %cmp = icmp eq ptr %call2, null
   br i1 %cmp, label %if.then3, label %return
@@ -1050,10 +1038,10 @@ return:                                           ; preds = %if.end, %if.then3, 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_758numparse4impl26AffixPatternMatcherBuilder10addMatcherERNS1_18NumberParseMatcherE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %matcher) unnamed_addr #1 align 2 {
 entry:
-  %fMatchersLen = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 3
+  %fMatchersLen = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %fMatchersLen, align 8
-  %fMatchers = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 2
-  %capacity.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 2, i32 1
+  %fMatchers = getelementptr inbounds i8, ptr %this, i64 16
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %capacity.i, align 8
   %cmp.not = icmp slt i32 %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1078,7 +1066,7 @@ if.then5.i:                                       ; preds = %if.then.i
   %conv12.i = sext i32 %length.addr.1.i to i64
   %mul13.i = shl nsw i64 %conv12.i, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i, ptr align 8 %3, i64 %mul13.i, i1 false)
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 2, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %4 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i, label %_ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EE12releaseArrayEv.exit.i, label %if.then.i.i
@@ -1164,10 +1152,10 @@ _ZN6icu_758numparse4impl26AffixPatternMatcherBuilder10addMatcherERNS1_18NumberPa
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_758numparse4impl26AffixPatternMatcherBuilder5buildER10UErrorCode(ptr noalias sret(%"class.icu_75::numparse::impl::AffixPatternMatcher") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %fMatchers = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 2
-  %fMatchersLen = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 3
+  %fMatchers = getelementptr inbounds i8, ptr %this, i64 16
+  %fMatchersLen = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %fMatchersLen, align 8
-  %fPattern = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 5
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %fPattern, align 8
   tail call void @_ZN6icu_758numparse4impl19AffixPatternMatcherC1ERNS_15MaybeStackArrayIPKNS1_18NumberParseMatcherELi3EEEiRKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %fMatchers, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
@@ -1177,43 +1165,43 @@ entry:
 define void @_ZN6icu_758numparse4impl26AffixTokenMatcherWarehouseC2EPKNS1_26AffixTokenMatcherSetupDataE(ptr noundef nonnull align 8 dereferenceable(1288) %this, ptr noundef %setupData) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   store ptr %setupData, ptr %this, align 8
-  %fMinusSign = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 1
-  %fString.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %fMinusSign = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fString.i.i, align 8
-  %fUnion2.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 1, i32 0, i32 1, i32 1
+  %fUnion2.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i.i.i, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl16MinusSignMatcherE, i64 0, inrange i32 0, i64 2), ptr %fMinusSign, align 8
-  %fPlusSign = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 2
-  %fString.i.i5 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %fPlusSign = getelementptr inbounds i8, ptr %this, i64 96
+  %fString.i.i5 = getelementptr inbounds i8, ptr %this, i64 104
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fString.i.i5, align 8
-  %fUnion2.i.i.i6 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 2, i32 0, i32 1, i32 1
+  %fUnion2.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 112
   store i16 2, ptr %fUnion2.i.i.i6, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl15PlusSignMatcherE, i64 0, inrange i32 0, i64 2), ptr %fPlusSign, align 8
-  %fPercent = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 3
-  %fString.i.i7 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %fPercent = getelementptr inbounds i8, ptr %this, i64 184
+  %fString.i.i7 = getelementptr inbounds i8, ptr %this, i64 192
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fString.i.i7, align 8
-  %fUnion2.i.i.i8 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 3, i32 0, i32 1, i32 1
+  %fUnion2.i.i.i8 = getelementptr inbounds i8, ptr %this, i64 200
   store i16 2, ptr %fUnion2.i.i.i8, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl14PercentMatcherE, i64 0, inrange i32 0, i64 2), ptr %fPercent, align 8
-  %fPermille = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 4
-  %fString.i.i9 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %fPermille = getelementptr inbounds i8, ptr %this, i64 264
+  %fString.i.i9 = getelementptr inbounds i8, ptr %this, i64 272
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fString.i.i9, align 8
-  %fUnion2.i.i.i10 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 4, i32 0, i32 1, i32 1
+  %fUnion2.i.i.i10 = getelementptr inbounds i8, ptr %this, i64 280
   store i16 2, ptr %fUnion2.i.i.i10, align 8
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_758numparse4impl15PermilleMatcherE, i64 0, inrange i32 0, i64 2), ptr %fPermille, align 8
-  %fCurrency = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 5
+  %fCurrency = getelementptr inbounds i8, ptr %this, i64 344
   invoke void @_ZN6icu_758numparse4impl23CombinedCurrencyMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(856) %fCurrency)
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %invoke.cont5
-  %fCodePoints = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 6
+  %fCodePoints = getelementptr inbounds i8, ptr %this, i64 1200
   store i32 0, ptr %fCodePoints, align 8
-  %fPool.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 6, i32 1
-  %stackArray.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 6, i32 1, i32 3
+  %fPool.i = getelementptr inbounds i8, ptr %this, i64 1208
+  %stackArray.i.i = getelementptr inbounds i8, ptr %this, i64 1224
   store ptr %stackArray.i.i, ptr %fPool.i, align 8
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 6, i32 1, i32 1
+  %capacity.i.i = getelementptr inbounds i8, ptr %this, i64 1216
   store i32 8, ptr %capacity.i.i, align 8
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixTokenMatcherWarehouse", ptr %this, i64 0, i32 6, i32 1, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 1220
   store i8 0, ptr %needToRelease.i.i, align 4
   ret void
 
@@ -1239,13 +1227,13 @@ lpad6:                                            ; preds = %invoke.cont5
 define linkonce_odr void @_ZN6icu_758numparse4impl23CombinedCurrencyMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(856) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl23CombinedCurrencyMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fCurrency1 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 2
+  %fCurrency1 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fCurrency1, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 2, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i, align 8
-  %fCurrency2 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 3
+  %fCurrency2 = getelementptr inbounds i8, ptr %this, i64 80
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fCurrency2, align 8
-  %fUnion2.i6 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 3, i32 1
+  %fUnion2.i6 = getelementptr inbounds i8, ptr %this, i64 88
   store i16 2, ptr %fUnion2.i6, align 8
   br label %invoke.cont5
 
@@ -1253,27 +1241,27 @@ invoke.cont5:                                     ; preds = %invoke.cont5, %invo
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %invoke.cont5 ], [ 152, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
-  %fUnion2.i7 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr, i64 0, i32 1
+  %fUnion2.i7 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i7, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 664
   br i1 %arrayctor.done, label %invoke.cont10, label %invoke.cont5
 
 invoke.cont10:                                    ; preds = %invoke.cont5
-  %afterPrefixInsert = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 6
+  %afterPrefixInsert = getelementptr inbounds i8, ptr %this, i64 664
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %afterPrefixInsert, align 8
-  %fUnion2.i8 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 6, i32 1
+  %fUnion2.i8 = getelementptr inbounds i8, ptr %this, i64 672
   store i16 2, ptr %fUnion2.i8, align 8
-  %beforeSuffixInsert = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 7
+  %beforeSuffixInsert = getelementptr inbounds i8, ptr %this, i64 728
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %beforeSuffixInsert, align 8
-  %fUnion2.i9 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 7, i32 1
+  %fUnion2.i9 = getelementptr inbounds i8, ptr %this, i64 736
   store i16 2, ptr %fUnion2.i9, align 8
-  %fLocaleName = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 8
+  %fLocaleName = getelementptr inbounds i8, ptr %this, i64 792
   invoke void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(53) %fLocaleName)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  %len.i = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 8, i32 1
+  %len.i = getelementptr inbounds i8, ptr %this, i64 848
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %fLocaleName, align 8
   store i8 0, ptr %0, align 1
@@ -1314,41 +1302,43 @@ declare void @_ZN6icu_758numparse4impl23CombinedCurrencyMatcherC1ERKNS_6number4i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(856) ptr @_ZN6icu_758numparse4impl23CombinedCurrencyMatcheraSEOS2_(ptr noundef nonnull align 8 dereferenceable(856) %this, ptr noundef nonnull align 8 dereferenceable(856) %0) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %fCurrencyCode = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 1
-  %fCurrencyCode2 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %0, i64 0, i32 1
+  %fCurrencyCode = getelementptr inbounds i8, ptr %this, i64 8
+  %fCurrencyCode2 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %fCurrencyCode2, align 8
   store i64 %1, ptr %fCurrencyCode, align 8
-  %fCurrency1 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 2
-  %fCurrency13 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %0, i64 0, i32 2
+  %fCurrency1 = getelementptr inbounds i8, ptr %this, i64 16
+  %fCurrency13 = getelementptr inbounds i8, ptr %0, i64 16
   %call4 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %fCurrency1, ptr noundef nonnull align 8 dereferenceable(64) %fCurrency13) #16
-  %fCurrency2 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 3
-  %fCurrency25 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %0, i64 0, i32 3
+  %fCurrency2 = getelementptr inbounds i8, ptr %this, i64 80
+  %fCurrency25 = getelementptr inbounds i8, ptr %0, i64 80
   %call6 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %fCurrency2, ptr noundef nonnull align 8 dereferenceable(64) %fCurrency25) #16
-  %fUseFullCurrencyData = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %0, i64 0, i32 4
+  %fUseFullCurrencyData = getelementptr inbounds i8, ptr %0, i64 144
   %2 = load i8, ptr %fUseFullCurrencyData, align 8
   %3 = and i8 %2, 1
-  %fUseFullCurrencyData7 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 4
+  %fUseFullCurrencyData7 = getelementptr inbounds i8, ptr %this, i64 144
   store i8 %3, ptr %fUseFullCurrencyData7, align 8
+  %fLocalLongNames = getelementptr inbounds i8, ptr %this, i64 152
+  %fLocalLongNames8 = getelementptr inbounds i8, ptr %0, i64 152
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %__i0.012 = phi i64 [ 0, %entry ], [ %inc, %for.body ]
-  %arrayidx = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 5, i64 %__i0.012
-  %arrayidx9 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %0, i64 0, i32 5, i64 %__i0.012
+  %arrayidx = getelementptr inbounds [8 x %"class.icu_75::UnicodeString"], ptr %fLocalLongNames, i64 0, i64 %__i0.012
+  %arrayidx9 = getelementptr inbounds [8 x %"class.icu_75::UnicodeString"], ptr %fLocalLongNames8, i64 0, i64 %__i0.012
   %call10 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx9) #16
   %inc = add nuw nsw i64 %__i0.012, 1
   %cmp.not = icmp eq i64 %inc, 8
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body
-  %afterPrefixInsert = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 6
-  %afterPrefixInsert11 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %0, i64 0, i32 6
+  %afterPrefixInsert = getelementptr inbounds i8, ptr %this, i64 664
+  %afterPrefixInsert11 = getelementptr inbounds i8, ptr %0, i64 664
   %call12 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %afterPrefixInsert, ptr noundef nonnull align 8 dereferenceable(64) %afterPrefixInsert11) #16
-  %beforeSuffixInsert = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 7
-  %beforeSuffixInsert13 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %0, i64 0, i32 7
+  %beforeSuffixInsert = getelementptr inbounds i8, ptr %this, i64 728
+  %beforeSuffixInsert13 = getelementptr inbounds i8, ptr %0, i64 728
   %call14 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %beforeSuffixInsert, ptr noundef nonnull align 8 dereferenceable(64) %beforeSuffixInsert13) #16
-  %fLocaleName = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %this, i64 0, i32 8
-  %fLocaleName15 = getelementptr inbounds %"class.icu_75::numparse::impl::CombinedCurrencyMatcher", ptr %0, i64 0, i32 8
+  %fLocaleName = getelementptr inbounds i8, ptr %this, i64 792
+  %fLocaleName15 = getelementptr inbounds i8, ptr %0, i64 792
   %call16 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName, ptr noundef nonnull align 8 dereferenceable(60) %fLocaleName15) #16
   ret ptr %this
 }
@@ -1357,7 +1347,7 @@ for.end:                                          ; preds = %for.body
 define noundef nonnull align 8 dereferenceable(80) ptr @_ZN6icu_758numparse4impl26AffixTokenMatcherWarehouse10ignorablesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %this) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %ignorables = getelementptr inbounds %"struct.icu_75::numparse::impl::AffixTokenMatcherSetupData", ptr %0, i64 0, i32 2
+  %ignorables = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %ignorables, align 8
   ret ptr %1
 }
@@ -1365,8 +1355,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN6icu_7510MemoryPoolINS_8numparse4impl16CodePointMatcherELi8EE6createIJRiEEEPS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 4 dereferenceable(4) %args) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fPool = getelementptr inbounds %"class.icu_75::MemoryPool", ptr %this, i64 0, i32 1
-  %capacity.i = getelementptr inbounds %"class.icu_75::MemoryPool", ptr %this, i64 0, i32 1, i32 1
+  %fPool = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %capacity.i, align 8
   %1 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %1, %0
@@ -1401,7 +1391,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then5.i, %if.then3.i
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MemoryPool", ptr %this, i64 0, i32 1, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i, label %_ZN6icu_7515MaybeStackArrayIPNS_8numparse4impl16CodePointMatcherELi8EE6resizeEii.exit, label %if.then.i.i
@@ -1463,7 +1453,7 @@ declare noundef zeroext i1 @_ZNK6icu_756number4impl15CurrencySymbols22hasEmptyCu
 define void @_ZN6icu_758numparse4impl16CodePointMatcherC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %cp) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl16CodePointMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fCp = getelementptr inbounds %"class.icu_75::numparse::impl::CodePointMatcher", ptr %this, i64 0, i32 1
+  %fCp = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %cp, ptr %fCp, align 8
   ret void
 }
@@ -1471,7 +1461,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl16CodePointMatcher5matchERNS_13StringSegmentERNS1_12ParsedNumberER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
 entry:
-  %fCp = getelementptr inbounds %"class.icu_75::numparse::impl::CodePointMatcher", ptr %this, i64 0, i32 1
+  %fCp = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %fCp, align 8
   %call = tail call noundef zeroext i1 @_ZNK6icu_7513StringSegment10startsWithEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %1)
   br i1 %call, label %if.then, label %if.end
@@ -1494,7 +1484,7 @@ declare void @_ZN6icu_758numparse4impl12ParsedNumber16setCharsConsumedERKNS_13St
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl16CodePointMatcher9smokeTestERKNS_13StringSegmentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment) unnamed_addr #1 align 2 {
 entry:
-  %fCp = getelementptr inbounds %"class.icu_75::numparse::impl::CodePointMatcher", ptr %this, i64 0, i32 1
+  %fCp = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fCp, align 8
   %call = tail call noundef zeroext i1 @_ZNK6icu_7513StringSegment10startsWithEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %0)
   ret i1 %call
@@ -1513,7 +1503,7 @@ declare void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 deref
 define void @_ZN6icu_758numparse4impl19AffixPatternMatcher16fromAffixPatternERKNS_13UnicodeStringERNS1_26AffixTokenMatcherWarehouseEiPbR10UErrorCode(ptr noalias sret(%"class.icu_75::numparse::impl::AffixPatternMatcher") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %affixPattern, ptr noundef nonnull align 8 dereferenceable(1288) %tokenWarehouse, i32 noundef %parseFlags, ptr nocapture noundef writeonly %success, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder = alloca %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", align 8
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %affixPattern, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %affixPattern, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
   %cmp.i = icmp ugt i16 %0, 31
   br i1 %cmp.i, label %if.end, label %if.then
@@ -1523,12 +1513,12 @@ if.then:                                          ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, i8 0, i64 80, i1 false)
   tail call void @_ZN6icu_758numparse4impl18ArraySeriesMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %agg.result)
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl19AffixPatternMatcherE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
-  %fPattern.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %agg.result, i64 0, i32 2
-  %stackArray.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %agg.result, i64 0, i32 2, i32 0, i32 4
+  %fPattern.i = getelementptr inbounds i8, ptr %agg.result, i64 56
+  %stackArray.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 70
   store ptr %stackArray.i.i.i, ptr %fPattern.i, align 8
-  %capacity.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %agg.result, i64 0, i32 2, i32 0, i32 1
+  %capacity.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i32 4, ptr %capacity.i.i.i, align 8
-  %needToRelease.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %agg.result, i64 0, i32 2, i32 0, i32 2
+  %needToRelease.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 68
   store i8 0, ptr %needToRelease.i.i.i, align 4
   store i16 0, ptr %stackArray.i.i.i, align 2
   br label %return
@@ -1541,7 +1531,7 @@ if.end:                                           ; preds = %entry
 
 if.else:                                          ; preds = %if.end
   %1 = load ptr, ptr %tokenWarehouse, align 8
-  %ignorables.i = getelementptr inbounds %"struct.icu_75::numparse::impl::AffixTokenMatcherSetupData", ptr %1, i64 0, i32 2
+  %ignorables.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %ignorables.i, align 8
   br label %if.end3
 
@@ -1552,10 +1542,10 @@ if.end3:                                          ; preds = %if.end, %if.else
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end3
-  %fMatchers.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %builder, i64 0, i32 2
-  %fMatchersLen.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %builder, i64 0, i32 3
+  %fMatchers.i = getelementptr inbounds i8, ptr %builder, i64 16
+  %fMatchersLen.i = getelementptr inbounds i8, ptr %builder, i64 56
   %3 = load i32, ptr %fMatchersLen.i, align 8, !noalias !6
-  %fPattern.i6 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %builder, i64 0, i32 5
+  %fPattern.i6 = getelementptr inbounds i8, ptr %builder, i64 64
   %4 = load ptr, ptr %fPattern.i6, align 8, !noalias !6
   invoke void @_ZN6icu_758numparse4impl19AffixPatternMatcherC1ERNS_15MaybeStackArrayIPKNS1_18NumberParseMatcherELi3EEEiRKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %fMatchers.i, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont4 unwind label %lpad
@@ -1564,7 +1554,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_758numparse4impl26AffixPatternMatcherBuilderE, i64 0, inrange i32 0, i64 2), ptr %builder, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %builder, i64 8
   store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_758numparse4impl26AffixPatternMatcherBuilderE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
-  %needToRelease.i.i.i7 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %builder, i64 0, i32 2, i32 2
+  %needToRelease.i.i.i7 = getelementptr inbounds i8, ptr %builder, i64 28
   %5 = load i8, ptr %needToRelease.i.i.i7, align 4
   %tobool.not.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i.i, label %_ZN6icu_758numparse4impl26AffixPatternMatcherBuilderD2Ev.exit, label %if.then.i.i.i
@@ -1606,13 +1596,13 @@ entry:
   store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_758numparse4impl26AffixPatternMatcherBuilderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_758numparse4impl26AffixPatternMatcherBuilderE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 2, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i, label %_ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %fMatchers = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 2
+  %fMatchers = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fMatchers, align 8
   invoke void @uprv_free_75(ptr noundef %1)
           to label %_ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EED2Ev.exit unwind label %terminate.lpad.i
@@ -1634,7 +1624,7 @@ define void @_ZN6icu_758numparse4impl19AffixPatternMatcherC2ERNS_15MaybeStackArr
 entry:
   tail call void @_ZN6icu_758numparse4impl18ArraySeriesMatcherC2ERNS_15MaybeStackArrayIPKNS1_18NumberParseMatcherELi3EEEi(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(40) %matchers, i32 noundef %matchersLen)
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl19AffixPatternMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fPattern = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %this, i64 0, i32 2
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 56
   invoke void @_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EEC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %fPattern, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
@@ -1653,21 +1643,21 @@ declare void @_ZN6icu_758numparse4impl18ArraySeriesMatcherC2ERNS_15MaybeStackArr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EEC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %text, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %text, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %text, i64 0, i32 1, i32 0, i32 1
+  %fLength.i = getelementptr inbounds i8, ptr %text, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   %add = add nsw i32 %cond.i, 1
   %3 = load i32, ptr %status, align 4
-  %stackArray.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray.3", ptr %this, i64 0, i32 4
+  %stackArray.i.i = getelementptr inbounds i8, ptr %this, i64 14
   store ptr %stackArray.i.i, ptr %this, align 8
-  %capacity.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray.3", ptr %this, i64 0, i32 1
+  %capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 4, ptr %capacity.i.i, align 8
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray.3", ptr %this, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i.i, align 4
   %cmp.i.i5 = icmp slt i32 %3, 1
   %cmp.i = icmp sgt i32 %cond.i, 3
@@ -1729,7 +1719,7 @@ if.then7.i:                                       ; preds = %if.else.i
   br label %invoke.cont10
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %text, i64 0, i32 1, i32 0, i32 3
+  %fArray.i = getelementptr inbounds i8, ptr %text, i64 24
   %11 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont10
 
@@ -1763,13 +1753,13 @@ return:                                           ; preds = %_ZN6icu_7515MaybeSt
 define linkonce_odr void @_ZN6icu_758numparse4impl18ArraySeriesMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i, label %_ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %fMatchers = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1
+  %fMatchers = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fMatchers, align 8
   invoke void @uprv_free_75(ptr noundef %1)
           to label %_ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EED2Ev.exit unwind label %terminate.lpad.i
@@ -1790,7 +1780,7 @@ _ZN6icu_7515MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi3EED2Ev.ex
 define void @_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %fPattern = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %this, i64 0, i32 2
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %0 = load ptr, ptr %fPattern, align 8, !noalias !9
   store ptr %0, ptr %agg.tmp.i, align 8, !noalias !9
@@ -1814,8 +1804,8 @@ _ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EE22toAliasedUnicodeStringEv.
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl19AffixPatternMatchereqERKS2_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %other) local_unnamed_addr #1 align 2 {
 entry:
-  %fPattern = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %this, i64 0, i32 2
-  %fPattern2 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %other, i64 0, i32 2
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 56
+  %fPattern2 = getelementptr inbounds i8, ptr %other, i64 56
   %call = tail call noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2)
   ret i1 %call
 }
@@ -1865,14 +1855,14 @@ invoke.cont:                                      ; preds = %_ZNK6icu_758numpars
   %7 = load ptr, ptr %agg.tmp.i2, align 8, !noalias !16
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #16, !srcloc !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i2)
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %8 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i14.i = and i16 %8, 1
   %tobool.not.i = icmp eq i16 %conv2.i14.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %fUnion.i5.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp2, i64 0, i32 1
+  %fUnion.i5.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %9 = load i16, ptr %fUnion.i5.i, align 8
   %conv2.i615.i = and i16 %9, 1
   %tobool3.i = icmp ne i16 %conv2.i615.i, 0
@@ -1882,15 +1872,15 @@ if.else.i:                                        ; preds = %invoke.cont
   %cmp.i.i.i = icmp slt i16 %8, 0
   %10 = ashr i16 %8, 5
   %shr.i.i.i = sext i16 %10 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   %11 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %11, i32 %shr.i.i.i
-  %fUnion.i.i7.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp2, i64 0, i32 1
+  %fUnion.i.i7.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %12 = load i16, ptr %fUnion.i.i7.i, align 8
   %cmp.i.i8.i = icmp slt i16 %12, 0
   %13 = ashr i16 %12, 5
   %shr.i.i9.i = sext i16 %13 to i32
-  %fLength.i10.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp2, i64 0, i32 1, i32 0, i32 1
+  %fLength.i10.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 12
   %14 = load i32, ptr %fLength.i10.i, align 4
   %cond.i11.i = select i1 %cmp.i.i8.i, i32 %14, i32 %shr.i.i9.i
   %conv2.i1316.i = and i16 %12, 1
@@ -1950,12 +1940,12 @@ arrayctor.loop4:                                  ; preds = %arrayctor.loop4.pre
 
 invoke.cont:                                      ; preds = %arrayctor.loop4
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl19AffixPatternMatcherE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur5.ptr.ptr, align 8
-  %fPattern.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %arrayctor.cur5.ptr.ptr, i64 0, i32 2
-  %stackArray.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %arrayctor.cur5.ptr.ptr, i64 0, i32 2, i32 0, i32 4
+  %fPattern.i = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.ptr, i64 56
+  %stackArray.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.ptr, i64 70
   store ptr %stackArray.i.i.i, ptr %fPattern.i, align 8
-  %capacity.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %arrayctor.cur5.ptr.ptr, i64 0, i32 2, i32 0, i32 1
+  %capacity.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.ptr, i64 64
   store i32 4, ptr %capacity.i.i.i, align 8
-  %needToRelease.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %arrayctor.cur5.ptr.ptr, i64 0, i32 2, i32 0, i32 2
+  %needToRelease.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur5.ptr.ptr, i64 68
   store i8 0, ptr %needToRelease.i.i.i, align 4
   store i16 0, ptr %stackArray.i.i.i, align 2
   %arrayctor.cur5.add = add nuw nsw i64 %arrayctor.cur5.idx, 80
@@ -1963,7 +1953,7 @@ invoke.cont:                                      ; preds = %arrayctor.loop4
   br i1 %arrayctor.done8, label %arrayctor.cont9, label %arrayctor.loop4
 
 arrayctor.cont9:                                  ; preds = %invoke.cont
-  %fTokenWarehouse = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcherWarehouse", ptr %this, i64 0, i32 2
+  %fTokenWarehouse = getelementptr inbounds i8, ptr %this, i64 1536
   store ptr %tokenWarehouse, ptr %fTokenWarehouse, align 8
   ret void
 
@@ -1986,7 +1976,7 @@ arraydestroy.body11.preheader:                    ; preds = %arraydestroy.body, 
 
 arraydestroy.body11:                              ; preds = %arraydestroy.body11.preheader, %arraydestroy.body11
   %arraydestroy.elementPast12 = phi ptr [ %arraydestroy.element13, %arraydestroy.body11 ], [ %arrayctor.end.ptr, %arraydestroy.body11.preheader ]
-  %arraydestroy.element13 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %arraydestroy.elementPast12, i64 -1
+  %arraydestroy.element13 = getelementptr inbounds i8, ptr %arraydestroy.elementPast12, i64 -32
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element13) #16
   %arraydestroy.done14 = icmp eq ptr %arraydestroy.element13, %this
   br i1 %arraydestroy.done14, label %eh.resume, label %arraydestroy.body11
@@ -1999,13 +1989,13 @@ eh.resume:                                        ; preds = %arraydestroy.body11
 define linkonce_odr void @_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl19AffixPatternMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %needToRelease.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %this, i64 0, i32 2, i32 0, i32 2
+  %needToRelease.i.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %0 = load i8, ptr %needToRelease.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i.i, label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %fPattern = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %this, i64 0, i32 2
+  %fPattern = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %fPattern, align 8
   invoke void @uprv_free_75(ptr noundef %1)
           to label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit unwind label %terminate.lpad.i.i
@@ -2019,13 +2009,13 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
 
 _ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %needToRelease.i.i.i1 = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1, i32 2
+  %needToRelease.i.i.i1 = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i8, ptr %needToRelease.i.i.i1, align 4
   %tobool.not.i.i.i2 = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i.i2, label %_ZN6icu_758numparse4impl18ArraySeriesMatcherD2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit
-  %fMatchers.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1
+  %fMatchers.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %fMatchers.i, align 8
   invoke void @uprv_free_75(ptr noundef %5)
           to label %_ZN6icu_758numparse4impl18ArraySeriesMatcherD2Ev.exit unwind label %terminate.lpad.i.i4
@@ -2059,24 +2049,24 @@ entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp15 = alloca %"class.icu_75::UnicodeString", align 8
   %vtable = load ptr, ptr %patternInfo, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %posPrefixString, ptr noundef nonnull align 8 dereferenceable(8) %patternInfo, i32 noundef 256)
   %vtable1 = load ptr, ptr %patternInfo, align 8
-  %vfn2 = getelementptr inbounds ptr, ptr %vtable1, i64 4
+  %vfn2 = getelementptr inbounds i8, ptr %vtable1, i64 32
   %1 = load ptr, ptr %vfn2, align 8
   invoke void %1(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %posSuffixString, ptr noundef nonnull align 8 dereferenceable(8) %patternInfo, i32 noundef 0)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %entry
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %negPrefixString, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %negPrefixString, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %negPrefixString, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %negSuffixString, align 8
-  %fUnion2.i18 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %negSuffixString, i64 0, i32 1
+  %fUnion2.i18 = getelementptr inbounds i8, ptr %negSuffixString, i64 8
   store i16 2, ptr %fUnion2.i18, align 8
   %vtable7 = load ptr, ptr %patternInfo, align 8
-  %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 7
+  %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 56
   %2 = load ptr, ptr %vfn8, align 8
   %call = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %patternInfo)
           to label %invoke.cont10 unwind label %lpad9
@@ -2086,7 +2076,7 @@ invoke.cont10:                                    ; preds = %invoke.cont6
 
 if.then:                                          ; preds = %invoke.cont10
   %vtable11 = load ptr, ptr %patternInfo, align 8
-  %vfn12 = getelementptr inbounds ptr, ptr %vtable11, i64 4
+  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 32
   %3 = load ptr, ptr %vfn12, align 8
   invoke void %3(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %patternInfo, i32 noundef 768)
           to label %invoke.cont13 unwind label %lpad9
@@ -2095,7 +2085,7 @@ invoke.cont13:                                    ; preds = %if.then
   %call14 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %negPrefixString, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #16
   %vtable16 = load ptr, ptr %patternInfo, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 4
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 32
   %4 = load ptr, ptr %vfn17, align 8
   invoke void %4(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(8) %patternInfo, i32 noundef 512)
           to label %invoke.cont18 unwind label %lpad9
@@ -2239,39 +2229,40 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %sb, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %sb, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %sb, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %and = and i32 %parseFlags, 128
   %cmp = icmp ne i32 %and, 0
-  %fTokenWarehouse = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcherWarehouse", ptr %this, i64 0, i32 2
+  %fTokenWarehouse = getelementptr inbounds i8, ptr %this, i64 1536
   %and18 = and i32 %parseFlags, 1024
   %cmp19.not = icmp eq i32 %and18, 0
-  %fMatchers2.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %ref.tmp, i64 0, i32 1
-  %capacity.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %ref.tmp, i64 0, i32 1, i32 1
-  %needToRelease.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %ref.tmp, i64 0, i32 1, i32 2
-  %stackArray.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %ref.tmp, i64 0, i32 1, i32 3
-  %fMatchersLen.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %ref.tmp, i64 0, i32 2
-  %fPattern2.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %ref.tmp, i64 0, i32 2
-  %capacity.i.i7.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %ref.tmp, i64 0, i32 2, i32 0, i32 1
-  %needToRelease.i.i9.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %ref.tmp, i64 0, i32 2, i32 0, i32 2
-  %stackArray.i.i10.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %ref.tmp, i64 0, i32 2, i32 0, i32 4
-  %fMatchers2.i.i70 = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %ref.tmp39, i64 0, i32 1
-  %capacity.i.i.i76 = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %ref.tmp39, i64 0, i32 1, i32 1
-  %needToRelease.i.i.i78 = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %ref.tmp39, i64 0, i32 1, i32 2
-  %stackArray.i.i.i79 = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %ref.tmp39, i64 0, i32 1, i32 3
-  %fMatchersLen.i.i83 = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %ref.tmp39, i64 0, i32 2
-  %fPattern2.i86 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %ref.tmp39, i64 0, i32 2
-  %capacity.i.i7.i92 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %ref.tmp39, i64 0, i32 2, i32 0, i32 1
-  %needToRelease.i.i9.i94 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %ref.tmp39, i64 0, i32 2, i32 0, i32 2
-  %stackArray.i.i10.i95 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %ref.tmp39, i64 0, i32 2, i32 0, i32 4
-  %fPrefix2.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %ref.tmp67, i64 0, i32 1
-  %fPrefix2.i143 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %ref.tmp83, i64 0, i32 1
-  %fPrefix2.i156 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %ref.tmp96, i64 0, i32 1
+  %fAffixPatternMatchers = getelementptr inbounds i8, ptr %this, i64 576
+  %fMatchers2.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %capacity.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %needToRelease.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 20
+  %stackArray.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %fMatchersLen.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
+  %fPattern2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
+  %capacity.i.i7.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
+  %needToRelease.i.i9.i = getelementptr inbounds i8, ptr %ref.tmp, i64 68
+  %stackArray.i.i10.i = getelementptr inbounds i8, ptr %ref.tmp, i64 70
+  %fMatchers2.i.i70 = getelementptr inbounds i8, ptr %ref.tmp39, i64 8
+  %capacity.i.i.i76 = getelementptr inbounds i8, ptr %ref.tmp39, i64 16
+  %needToRelease.i.i.i78 = getelementptr inbounds i8, ptr %ref.tmp39, i64 20
+  %stackArray.i.i.i79 = getelementptr inbounds i8, ptr %ref.tmp39, i64 24
+  %fMatchersLen.i.i83 = getelementptr inbounds i8, ptr %ref.tmp39, i64 48
+  %fPattern2.i86 = getelementptr inbounds i8, ptr %ref.tmp39, i64 56
+  %capacity.i.i7.i92 = getelementptr inbounds i8, ptr %ref.tmp39, i64 64
+  %needToRelease.i.i9.i94 = getelementptr inbounds i8, ptr %ref.tmp39, i64 68
+  %stackArray.i.i10.i95 = getelementptr inbounds i8, ptr %ref.tmp39, i64 70
+  %fPrefix2.i = getelementptr inbounds i8, ptr %ref.tmp67, i64 8
+  %fPrefix2.i143 = getelementptr inbounds i8, ptr %ref.tmp83, i64 8
+  %fPrefix2.i156 = getelementptr inbounds i8, ptr %ref.tmp96, i64 8
   br label %for.body
 
 do.body.preheader:                                ; preds = %for.inc
   %cmp107203 = icmp sgt i32 %numAffixMatchers.2, 1
-  %fPrefix.i157 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %temp, i64 0, i32 1
+  %fPrefix.i157 = getelementptr inbounds i8, ptr %temp, i64 8
   br i1 %cmp107203, label %do.body.us.preheader, label %for.cond142.preheader
 
 do.body.us.preheader:                             ; preds = %do.body.preheader
@@ -2293,9 +2284,9 @@ invoke.cont115.us:                                ; preds = %for.body108.us
 
 if.then119.us:                                    ; preds = %invoke.cont115.us
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl12AffixMatcherE, i64 0, inrange i32 0, i64 2), ptr %temp, align 8
-  %fPrefix2.i158.us = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %this, i64 0, i64 %0, i32 1
+  %fPrefix2.i158.us = getelementptr inbounds i8, ptr %arrayidx111.us, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %fPrefix.i157, ptr noundef nonnull align 8 dereferenceable(20) %fPrefix2.i158.us, i64 20, i1 false)
-  %fPrefix2.i160.us = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %this, i64 0, i64 %indvars.iv209, i32 1
+  %fPrefix2.i160.us = getelementptr inbounds i8, ptr %arrayidx114.us, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %fPrefix2.i158.us, ptr noundef nonnull align 8 dereferenceable(20) %fPrefix2.i160.us, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %fPrefix2.i160.us, ptr noundef nonnull align 8 dereferenceable(20) %fPrefix.i157, i64 20, i1 false)
   call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %temp) #16
@@ -2336,7 +2327,7 @@ for.body:                                         ; preds = %if.end, %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
   %vtable = load ptr, ptr %patternInfo, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %3 = load ptr, ptr %vfn, align 8
   %call7 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %patternInfo)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -2392,9 +2383,9 @@ invoke.cont29:                                    ; preds = %if.end27
 
 invoke.cont31:                                    ; preds = %invoke.cont29
   %idxprom = sext i32 %numAffixPatternMatchers.0201 to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcherWarehouse", ptr %this, i64 0, i32 1, i64 %idxprom
-  %fMatchers.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %arrayidx, i64 0, i32 1
-  %needToRelease.i.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %arrayidx, i64 0, i32 1, i32 2
+  %arrayidx = getelementptr inbounds [12 x %"class.icu_75::numparse::impl::AffixPatternMatcher"], ptr %fAffixPatternMatchers, i64 0, i64 %idxprom
+  %fMatchers.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %needToRelease.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 20
   %9 = load i8, ptr %needToRelease.i.i.i.i, align 4
   %tobool.not.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i.i.i.i, label %invoke.cont.i.i.i, label %if.then.i.i.i.i
@@ -2406,7 +2397,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont31
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i.i, %invoke.cont31
   %11 = load i32, ptr %capacity.i.i.i, align 8
-  %capacity2.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %arrayidx, i64 0, i32 1, i32 1
+  %capacity2.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i32 %11, ptr %capacity2.i.i.i, align 8
   %12 = load i8, ptr %needToRelease.i.i.i, align 4
   store i8 %12, ptr %needToRelease.i.i.i.i, align 4
@@ -2415,7 +2406,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i.i, %i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i.i.i
-  %stackArray4.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %arrayidx, i64 0, i32 1, i32 3
+  %stackArray4.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store ptr %stackArray4.i.i.i, ptr %fMatchers.i.i, align 8
   %conv.i.i.i = sext i32 %11 to i64
   %mul.i.i.i = shl nsw i64 %conv.i.i.i, 3
@@ -2438,10 +2429,10 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
 
 _ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
   %16 = load i32, ptr %fMatchersLen.i.i, align 8
-  %fMatchersLen4.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %arrayidx, i64 0, i32 2
+  %fMatchersLen4.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   store i32 %16, ptr %fMatchersLen4.i.i, align 8
-  %fPattern.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcherWarehouse", ptr %this, i64 0, i32 1, i64 %idxprom, i32 2
-  %needToRelease.i.i.i2.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcherWarehouse", ptr %this, i64 0, i32 1, i64 %idxprom, i32 2, i32 0, i32 2
+  %fPattern.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
+  %needToRelease.i.i.i2.i = getelementptr inbounds i8, ptr %arrayidx, i64 68
   %17 = load i8, ptr %needToRelease.i.i.i2.i, align 4
   %tobool.not.i.i.i3.i = icmp eq i8 %17, 0
   br i1 %tobool.not.i.i.i3.i, label %invoke.cont.i.i6.i, label %if.then.i.i.i4.i
@@ -2453,7 +2444,7 @@ if.then.i.i.i4.i:                                 ; preds = %_ZN6icu_758numparse
 
 invoke.cont.i.i6.i:                               ; preds = %if.then.i.i.i4.i, %_ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i
   %19 = load i32, ptr %capacity.i.i7.i, align 8
-  %capacity2.i.i8.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcherWarehouse", ptr %this, i64 0, i32 1, i64 %idxprom, i32 2, i32 0, i32 1
+  %capacity2.i.i8.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store i32 %19, ptr %capacity2.i.i8.i, align 8
   %20 = load i8, ptr %needToRelease.i.i9.i, align 4
   store i8 %20, ptr %needToRelease.i.i.i2.i, align 4
@@ -2476,7 +2467,7 @@ terminate.lpad.i.i5.i:                            ; preds = %if.then.i.i.i4.i
   unreachable
 
 _ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit: ; preds = %invoke.cont.i.i6.i
-  %stackArray4.i.i14.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcherWarehouse", ptr %this, i64 0, i32 1, i64 %idxprom, i32 2, i32 0, i32 4
+  %stackArray4.i.i14.i = getelementptr inbounds i8, ptr %arrayidx, i64 70
   store ptr %stackArray4.i.i14.i, ptr %fPattern.i, align 8
   %conv.i.i15.i = sext i32 %19 to i64
   %mul.i.i16.i = shl nsw i64 %conv.i.i15.i, 1
@@ -2533,9 +2524,9 @@ invoke.cont38:                                    ; preds = %_ZN6icu_758numparse
 
 invoke.cont41:                                    ; preds = %invoke.cont38
   %idxprom43 = sext i32 %spec.select to i64
-  %arrayidx44 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcherWarehouse", ptr %this, i64 0, i32 1, i64 %idxprom43
-  %fMatchers.i.i69 = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %arrayidx44, i64 0, i32 1
-  %needToRelease.i.i.i.i71 = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %arrayidx44, i64 0, i32 1, i32 2
+  %arrayidx44 = getelementptr inbounds [12 x %"class.icu_75::numparse::impl::AffixPatternMatcher"], ptr %fAffixPatternMatchers, i64 0, i64 %idxprom43
+  %fMatchers.i.i69 = getelementptr inbounds i8, ptr %arrayidx44, i64 8
+  %needToRelease.i.i.i.i71 = getelementptr inbounds i8, ptr %arrayidx44, i64 20
   %34 = load i8, ptr %needToRelease.i.i.i.i71, align 4
   %tobool.not.i.i.i.i72 = icmp eq i8 %34, 0
   br i1 %tobool.not.i.i.i.i72, label %invoke.cont.i.i.i75, label %if.then.i.i.i.i73
@@ -2547,7 +2538,7 @@ if.then.i.i.i.i73:                                ; preds = %invoke.cont41
 
 invoke.cont.i.i.i75:                              ; preds = %if.then.i.i.i.i73, %invoke.cont41
   %36 = load i32, ptr %capacity.i.i.i76, align 8
-  %capacity2.i.i.i77 = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %arrayidx44, i64 0, i32 1, i32 1
+  %capacity2.i.i.i77 = getelementptr inbounds i8, ptr %arrayidx44, i64 16
   store i32 %36, ptr %capacity2.i.i.i77, align 8
   %37 = load i8, ptr %needToRelease.i.i.i78, align 4
   store i8 %37, ptr %needToRelease.i.i.i.i71, align 4
@@ -2556,7 +2547,7 @@ invoke.cont.i.i.i75:                              ; preds = %if.then.i.i.i.i73, 
   br i1 %cmp.i.i.i80, label %if.then.i.i.i102, label %if.else.i.i.i81
 
 if.then.i.i.i102:                                 ; preds = %invoke.cont.i.i.i75
-  %stackArray4.i.i.i103 = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %arrayidx44, i64 0, i32 1, i32 3
+  %stackArray4.i.i.i103 = getelementptr inbounds i8, ptr %arrayidx44, i64 24
   store ptr %stackArray4.i.i.i103, ptr %fMatchers.i.i69, align 8
   %conv.i.i.i104 = sext i32 %36 to i64
   %mul.i.i.i105 = shl nsw i64 %conv.i.i.i104, 3
@@ -2579,10 +2570,10 @@ terminate.lpad.i.i.i74:                           ; preds = %if.then.i.i.i.i73
 
 _ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i82: ; preds = %if.else.i.i.i81, %if.then.i.i.i102
   %41 = load i32, ptr %fMatchersLen.i.i83, align 8
-  %fMatchersLen4.i.i84 = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %arrayidx44, i64 0, i32 2
+  %fMatchersLen4.i.i84 = getelementptr inbounds i8, ptr %arrayidx44, i64 48
   store i32 %41, ptr %fMatchersLen4.i.i84, align 8
-  %fPattern.i85 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcherWarehouse", ptr %this, i64 0, i32 1, i64 %idxprom43, i32 2
-  %needToRelease.i.i.i2.i87 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcherWarehouse", ptr %this, i64 0, i32 1, i64 %idxprom43, i32 2, i32 0, i32 2
+  %fPattern.i85 = getelementptr inbounds i8, ptr %arrayidx44, i64 56
+  %needToRelease.i.i.i2.i87 = getelementptr inbounds i8, ptr %arrayidx44, i64 68
   %42 = load i8, ptr %needToRelease.i.i.i2.i87, align 4
   %tobool.not.i.i.i3.i88 = icmp eq i8 %42, 0
   br i1 %tobool.not.i.i.i3.i88, label %invoke.cont.i.i6.i91, label %if.then.i.i.i4.i89
@@ -2594,7 +2585,7 @@ if.then.i.i.i4.i89:                               ; preds = %_ZN6icu_758numparse
 
 invoke.cont.i.i6.i91:                             ; preds = %if.then.i.i.i4.i89, %_ZN6icu_758numparse4impl18ArraySeriesMatcheraSEOS2_.exit.i82
   %44 = load i32, ptr %capacity.i.i7.i92, align 8
-  %capacity2.i.i8.i93 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcherWarehouse", ptr %this, i64 0, i32 1, i64 %idxprom43, i32 2, i32 0, i32 1
+  %capacity2.i.i8.i93 = getelementptr inbounds i8, ptr %arrayidx44, i64 64
   store i32 %44, ptr %capacity2.i.i8.i93, align 8
   %45 = load i8, ptr %needToRelease.i.i9.i94, align 4
   store i8 %45, ptr %needToRelease.i.i.i2.i87, align 4
@@ -2617,7 +2608,7 @@ terminate.lpad.i.i5.i90:                          ; preds = %if.then.i.i.i4.i89
   unreachable
 
 _ZN6icu_758numparse4impl19AffixPatternMatcheraSEOS2_.exit106: ; preds = %invoke.cont.i.i6.i91
-  %stackArray4.i.i14.i99 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcherWarehouse", ptr %this, i64 0, i32 1, i64 %idxprom43, i32 2, i32 0, i32 4
+  %stackArray4.i.i14.i99 = getelementptr inbounds i8, ptr %arrayidx44, i64 70
   store ptr %stackArray4.i.i14.i99, ptr %fPattern.i85, align 8
   %conv.i.i15.i100 = sext i32 %44 to i64
   %mul.i.i16.i101 = shl nsw i64 %conv.i.i15.i100, 1
@@ -2675,8 +2666,8 @@ if.end.i:                                         ; preds = %if.else
   br i1 %or.cond1.i, label %if.end64, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %fPattern.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %spec.select59, i64 0, i32 2
-  %fPattern2.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %posPrefix.0200, i64 0, i32 2
+  %fPattern.i.i = getelementptr inbounds i8, ptr %spec.select59, i64 56
+  %fPattern2.i.i = getelementptr inbounds i8, ptr %posPrefix.0200, i64 56
   %call.i.i119 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i)
           to label %invoke.cont57 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -2693,8 +2684,8 @@ if.end.i122:                                      ; preds = %land.lhs.true59
   br i1 %or.cond1.i123, label %if.end64, label %if.end5.i124
 
 if.end5.i124:                                     ; preds = %if.end.i122
-  %fPattern.i.i125 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %spec.select61, i64 0, i32 2
-  %fPattern2.i.i126 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %posSuffix.0199, i64 0, i32 2
+  %fPattern.i.i125 = getelementptr inbounds i8, ptr %spec.select61, i64 56
+  %fPattern2.i.i126 = getelementptr inbounds i8, ptr %posSuffix.0199, i64 56
   %call.i.i129 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i125, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i126)
           to label %invoke.cont60 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -2733,8 +2724,8 @@ if.end.i133:                                      ; preds = %lor.lhs.false
   br i1 %or.cond1.i134, label %if.then82, label %if.end5.i135
 
 if.end5.i135:                                     ; preds = %if.end.i133
-  %fPattern.i.i136 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %spec.select59, i64 0, i32 2
-  %fPattern2.i.i137 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %posPrefix.1, i64 0, i32 2
+  %fPattern.i.i136 = getelementptr inbounds i8, ptr %spec.select59, i64 56
+  %fPattern2.i.i137 = getelementptr inbounds i8, ptr %posPrefix.1, i64 56
   %call.i.i140 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i136, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i137)
           to label %invoke.cont80 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -2764,8 +2755,8 @@ if.end.i146:                                      ; preds = %lor.lhs.false92
   br i1 %or.cond1.i147, label %if.then95, label %if.end5.i148
 
 if.end5.i148:                                     ; preds = %if.end.i146
-  %fPattern.i.i149 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %spec.select61, i64 0, i32 2
-  %fPattern2.i.i150 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %posSuffix.1, i64 0, i32 2
+  %fPattern.i.i149 = getelementptr inbounds i8, ptr %spec.select61, i64 56
+  %fPattern2.i.i150 = getelementptr inbounds i8, ptr %posSuffix.1, i64 56
   %call.i.i153 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i149, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i150)
           to label %invoke.cont93 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -2806,7 +2797,7 @@ for.body144:                                      ; preds = %for.body144.prehead
   %indvars.iv213 = phi i64 [ 0, %for.body144.preheader ], [ %indvars.iv.next214, %for.inc151 ]
   %arrayidx147 = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %this, i64 0, i64 %indvars.iv213
   %vtable148 = load ptr, ptr %output, align 8
-  %vfn149 = getelementptr inbounds ptr, ptr %vtable148, i64 2
+  %vfn149 = getelementptr inbounds i8, ptr %vtable148, i64 16
   %59 = load ptr, ptr %vfn149, align 8
   invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %output, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx147)
           to label %for.inc151 unwind label %lpad.loopexit
@@ -2845,14 +2836,14 @@ entry:
   %ref.tmp.i8 = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp.i.i.i = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %ref.tmp.i = alloca %"class.icu_75::UnicodeString", align 8
-  %fPrefix = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 1
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fPrefix, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i)
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %entry
-  %fPattern.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %0, i64 0, i32 2
+  %fPattern.i.i = getelementptr inbounds i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !23
   %1 = load ptr, ptr %fPattern.i.i, align 8, !noalias !26
   store ptr %1, ptr %agg.tmp.i.i.i, align 8, !noalias !26
@@ -2874,12 +2865,12 @@ cleanup.action.i:                                 ; preds = %cond.false.i
   %4 = load ptr, ptr %agg.tmp.i.i.i, align 8, !noalias !26
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #16, !srcloc !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !23
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %5 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %5, 0
   %6 = ashr i16 %5, 5
   %shr.i.i.i = sext i16 %6 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 12
   %7 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %7, i32 %shr.i.i.i
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i) #16
@@ -2888,14 +2879,14 @@ cleanup.action.i:                                 ; preds = %cond.false.i
 _ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit: ; preds = %entry, %cleanup.action.i
   %cond3.i = phi i32 [ %cond.i.i, %cleanup.action.i ], [ 0, %entry ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i)
-  %fPrefix2 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %rhs, i64 0, i32 1
+  %fPrefix2 = getelementptr inbounds i8, ptr %rhs, i64 8
   %8 = load ptr, ptr %fPrefix2, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i8)
   %cmp.not.i9 = icmp eq ptr %8, null
   br i1 %cmp.not.i9, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit20, label %cond.false.i10
 
 cond.false.i10:                                   ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit
-  %fPattern.i.i11 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %8, i64 0, i32 2
+  %fPattern.i.i11 = getelementptr inbounds i8, ptr %8, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i7), !noalias !29
   %9 = load ptr, ptr %fPattern.i.i11, align 8, !noalias !32
   store ptr %9, ptr %agg.tmp.i.i.i7, align 8, !noalias !32
@@ -2913,12 +2904,12 @@ cleanup.action.i13:                               ; preds = %cond.false.i10
   %12 = load ptr, ptr %agg.tmp.i.i.i7, align 8, !noalias !32
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %12) #16, !srcloc !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i7), !noalias !29
-  %fUnion.i.i.i14 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i8, i64 0, i32 1
+  %fUnion.i.i.i14 = getelementptr inbounds i8, ptr %ref.tmp.i8, i64 8
   %13 = load i16, ptr %fUnion.i.i.i14, align 8
   %cmp.i.i.i15 = icmp slt i16 %13, 0
   %14 = ashr i16 %13, 5
   %shr.i.i.i16 = sext i16 %14 to i32
-  %fLength.i.i17 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i8, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i17 = getelementptr inbounds i8, ptr %ref.tmp.i8, i64 12
   %15 = load i32, ptr %fLength.i.i17, align 4
   %cond.i.i18 = select i1 %cmp.i.i.i15, i32 %15, i32 %shr.i.i.i16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i8) #16
@@ -2937,7 +2928,7 @@ if.then:                                          ; preds = %_ZN12_GLOBAL__N_16l
   br i1 %cmp.not.i23, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit34, label %cond.false.i24
 
 cond.false.i24:                                   ; preds = %if.then
-  %fPattern.i.i25 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %16, i64 0, i32 2
+  %fPattern.i.i25 = getelementptr inbounds i8, ptr %16, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i21), !noalias !35
   %17 = load ptr, ptr %fPattern.i.i25, align 8, !noalias !38
   store ptr %17, ptr %agg.tmp.i.i.i21, align 8, !noalias !38
@@ -2955,12 +2946,12 @@ cleanup.action.i27:                               ; preds = %cond.false.i24
   %20 = load ptr, ptr %agg.tmp.i.i.i21, align 8, !noalias !38
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20) #16, !srcloc !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i21), !noalias !35
-  %fUnion.i.i.i28 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i22, i64 0, i32 1
+  %fUnion.i.i.i28 = getelementptr inbounds i8, ptr %ref.tmp.i22, i64 8
   %21 = load i16, ptr %fUnion.i.i.i28, align 8
   %cmp.i.i.i29 = icmp slt i16 %21, 0
   %22 = ashr i16 %21, 5
   %shr.i.i.i30 = sext i16 %22 to i32
-  %fLength.i.i31 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i22, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i31 = getelementptr inbounds i8, ptr %ref.tmp.i22, i64 12
   %23 = load i32, ptr %fLength.i.i31, align 4
   %cond.i.i32 = select i1 %cmp.i.i.i29, i32 %23, i32 %shr.i.i.i30
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i22) #16
@@ -2975,7 +2966,7 @@ _ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit34: 
   br i1 %cmp.not.i37, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit48, label %cond.false.i38
 
 cond.false.i38:                                   ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit34
-  %fPattern.i.i39 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %24, i64 0, i32 2
+  %fPattern.i.i39 = getelementptr inbounds i8, ptr %24, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i35), !noalias !41
   %25 = load ptr, ptr %fPattern.i.i39, align 8, !noalias !44
   store ptr %25, ptr %agg.tmp.i.i.i35, align 8, !noalias !44
@@ -2993,12 +2984,12 @@ cleanup.action.i41:                               ; preds = %cond.false.i38
   %28 = load ptr, ptr %agg.tmp.i.i.i35, align 8, !noalias !44
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %28) #16, !srcloc !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i35), !noalias !41
-  %fUnion.i.i.i42 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i36, i64 0, i32 1
+  %fUnion.i.i.i42 = getelementptr inbounds i8, ptr %ref.tmp.i36, i64 8
   %29 = load i16, ptr %fUnion.i.i.i42, align 8
   %cmp.i.i.i43 = icmp slt i16 %29, 0
   %30 = ashr i16 %29, 5
   %shr.i.i.i44 = sext i16 %30 to i32
-  %fLength.i.i45 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i36, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i45 = getelementptr inbounds i8, ptr %ref.tmp.i36, i64 12
   %31 = load i32, ptr %fLength.i.i45, align 4
   %cond.i.i46 = select i1 %cmp.i.i.i43, i32 %31, i32 %shr.i.i.i44
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i36) #16
@@ -3012,14 +3003,14 @@ _ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit48: 
   br label %return
 
 if.else:                                          ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit20
-  %fSuffix = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 2
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 16
   %32 = load ptr, ptr %fSuffix, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i50)
   %cmp.not.i51 = icmp eq ptr %32, null
   br i1 %cmp.not.i51, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit62, label %cond.false.i52
 
 cond.false.i52:                                   ; preds = %if.else
-  %fPattern.i.i53 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %32, i64 0, i32 2
+  %fPattern.i.i53 = getelementptr inbounds i8, ptr %32, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i49), !noalias !47
   %33 = load ptr, ptr %fPattern.i.i53, align 8, !noalias !50
   store ptr %33, ptr %agg.tmp.i.i.i49, align 8, !noalias !50
@@ -3037,12 +3028,12 @@ cleanup.action.i55:                               ; preds = %cond.false.i52
   %36 = load ptr, ptr %agg.tmp.i.i.i49, align 8, !noalias !50
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %36) #16, !srcloc !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i49), !noalias !47
-  %fUnion.i.i.i56 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i50, i64 0, i32 1
+  %fUnion.i.i.i56 = getelementptr inbounds i8, ptr %ref.tmp.i50, i64 8
   %37 = load i16, ptr %fUnion.i.i.i56, align 8
   %cmp.i.i.i57 = icmp slt i16 %37, 0
   %38 = ashr i16 %37, 5
   %shr.i.i.i58 = sext i16 %38 to i32
-  %fLength.i.i59 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i50, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i59 = getelementptr inbounds i8, ptr %ref.tmp.i50, i64 12
   %39 = load i32, ptr %fLength.i.i59, align 4
   %cond.i.i60 = select i1 %cmp.i.i.i57, i32 %39, i32 %shr.i.i.i58
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i50) #16
@@ -3051,14 +3042,14 @@ cleanup.action.i55:                               ; preds = %cond.false.i52
 _ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit62: ; preds = %if.else, %cleanup.action.i55
   %cond3.i61 = phi i32 [ %cond.i.i60, %cleanup.action.i55 ], [ 0, %if.else ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i50)
-  %fSuffix10 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %rhs, i64 0, i32 2
+  %fSuffix10 = getelementptr inbounds i8, ptr %rhs, i64 16
   %40 = load ptr, ptr %fSuffix10, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i64)
   %cmp.not.i65 = icmp eq ptr %40, null
   br i1 %cmp.not.i65, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit76, label %cond.false.i66
 
 cond.false.i66:                                   ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit62
-  %fPattern.i.i67 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %40, i64 0, i32 2
+  %fPattern.i.i67 = getelementptr inbounds i8, ptr %40, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i63), !noalias !53
   %41 = load ptr, ptr %fPattern.i.i67, align 8, !noalias !56
   store ptr %41, ptr %agg.tmp.i.i.i63, align 8, !noalias !56
@@ -3076,12 +3067,12 @@ cleanup.action.i69:                               ; preds = %cond.false.i66
   %44 = load ptr, ptr %agg.tmp.i.i.i63, align 8, !noalias !56
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %44) #16, !srcloc !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i63), !noalias !53
-  %fUnion.i.i.i70 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i64, i64 0, i32 1
+  %fUnion.i.i.i70 = getelementptr inbounds i8, ptr %ref.tmp.i64, i64 8
   %45 = load i16, ptr %fUnion.i.i.i70, align 8
   %cmp.i.i.i71 = icmp slt i16 %45, 0
   %46 = ashr i16 %45, 5
   %shr.i.i.i72 = sext i16 %46 to i32
-  %fLength.i.i73 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i64, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i73 = getelementptr inbounds i8, ptr %ref.tmp.i64, i64 12
   %47 = load i32, ptr %fLength.i.i73, align 4
   %cond.i.i74 = select i1 %cmp.i.i.i71, i32 %47, i32 %shr.i.i.i72
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i64) #16
@@ -3100,7 +3091,7 @@ if.then13:                                        ; preds = %_ZN12_GLOBAL__N_16l
   br i1 %cmp.not.i79, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit90, label %cond.false.i80
 
 cond.false.i80:                                   ; preds = %if.then13
-  %fPattern.i.i81 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %48, i64 0, i32 2
+  %fPattern.i.i81 = getelementptr inbounds i8, ptr %48, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i77), !noalias !59
   %49 = load ptr, ptr %fPattern.i.i81, align 8, !noalias !62
   store ptr %49, ptr %agg.tmp.i.i.i77, align 8, !noalias !62
@@ -3118,12 +3109,12 @@ cleanup.action.i83:                               ; preds = %cond.false.i80
   %52 = load ptr, ptr %agg.tmp.i.i.i77, align 8, !noalias !62
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %52) #16, !srcloc !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i77), !noalias !59
-  %fUnion.i.i.i84 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i78, i64 0, i32 1
+  %fUnion.i.i.i84 = getelementptr inbounds i8, ptr %ref.tmp.i78, i64 8
   %53 = load i16, ptr %fUnion.i.i.i84, align 8
   %cmp.i.i.i85 = icmp slt i16 %53, 0
   %54 = ashr i16 %53, 5
   %shr.i.i.i86 = sext i16 %54 to i32
-  %fLength.i.i87 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i78, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i87 = getelementptr inbounds i8, ptr %ref.tmp.i78, i64 12
   %55 = load i32, ptr %fLength.i.i87, align 4
   %cond.i.i88 = select i1 %cmp.i.i.i85, i32 %55, i32 %shr.i.i.i86
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i78) #16
@@ -3138,7 +3129,7 @@ _ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit90: 
   br i1 %cmp.not.i93, label %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit104, label %cond.false.i94
 
 cond.false.i94:                                   ; preds = %_ZN12_GLOBAL__N_16lengthEPKN6icu_758numparse4impl19AffixPatternMatcherE.exit90
-  %fPattern.i.i95 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %56, i64 0, i32 2
+  %fPattern.i.i95 = getelementptr inbounds i8, ptr %56, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i91), !noalias !65
   %57 = load ptr, ptr %fPattern.i.i95, align 8, !noalias !68
   store ptr %57, ptr %agg.tmp.i.i.i91, align 8, !noalias !68
@@ -3156,12 +3147,12 @@ cleanup.action.i97:                               ; preds = %cond.false.i94
   %60 = load ptr, ptr %agg.tmp.i.i.i91, align 8, !noalias !68
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %60) #16, !srcloc !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i91), !noalias !65
-  %fUnion.i.i.i98 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i92, i64 0, i32 1
+  %fUnion.i.i.i98 = getelementptr inbounds i8, ptr %ref.tmp.i92, i64 8
   %61 = load i16, ptr %fUnion.i.i.i98, align 8
   %cmp.i.i.i99 = icmp slt i16 %61, 0
   %62 = ashr i16 %61, 5
   %shr.i.i.i100 = sext i16 %62 to i32
-  %fLength.i.i101 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp.i92, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i101 = getelementptr inbounds i8, ptr %ref.tmp.i92, i64 12
   %63 = load i32, ptr %fLength.i.i101, align 4
   %cond.i.i102 = select i1 %cmp.i.i.i99, i32 %63, i32 %shr.i.i.i100
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i92) #16
@@ -3183,11 +3174,11 @@ return:                                           ; preds = %_ZN12_GLOBAL__N_16l
 define void @_ZN6icu_758numparse4impl12AffixMatcherC2EPNS1_19AffixPatternMatcherES4_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %prefix, ptr noundef %suffix, i32 noundef %flags) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_758numparse4impl12AffixMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fPrefix = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 1
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %prefix, ptr %fPrefix, align 8
-  %fSuffix = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 2
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %suffix, ptr %fSuffix, align 8
-  %fFlags = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 3
+  %fFlags = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %flags, ptr %fFlags, align 8
   ret void
 }
@@ -3203,15 +3194,15 @@ entry:
   br i1 %call, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %prefix = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 3
-  %fUnion.i = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 3, i32 1
+  %prefix = getelementptr inbounds i8, ptr %result, i64 80
+  %fUnion.i = getelementptr inbounds i8, ptr %result, i64 88
   %0 = load i16, ptr %fUnion.i, align 8
   %conv2.i20 = and i16 %0, 1
   %tobool.not = icmp eq i16 %conv2.i20, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
-  %fPrefix = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 1
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fPrefix, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -3220,7 +3211,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %call4 = tail call noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %2 = load ptr, ptr %fPrefix, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   %call6 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %call7 = tail call noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
@@ -3229,7 +3220,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.then9:                                         ; preds = %if.end
   %4 = load ptr, ptr %fPrefix, align 8
-  %fPattern.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %4, i64 0, i32 2
+  %fPattern.i = getelementptr inbounds i8, ptr %4, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !71
   %5 = load ptr, ptr %fPattern.i, align 8, !noalias !74
   store ptr %5, ptr %agg.tmp.i.i, align 8, !noalias !74
@@ -3255,23 +3246,23 @@ _ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv.exit: ; preds = %if
   br label %return.sink.split
 
 if.else:                                          ; preds = %entry
-  %suffix = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 4
-  %fUnion.i14 = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 4, i32 1
+  %suffix = getelementptr inbounds i8, ptr %result, i64 144
+  %fUnion.i14 = getelementptr inbounds i8, ptr %result, i64 152
   %9 = load i16, ptr %fUnion.i14, align 8
   %conv2.i1521 = and i16 %9, 1
   %tobool16.not = icmp eq i16 %conv2.i1521, 0
   br i1 %tobool16.not, label %return, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %if.else
-  %fSuffix = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 2
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load ptr, ptr %fSuffix, align 8
   %cmp18 = icmp eq ptr %10, null
   br i1 %cmp18, label %return, label %lor.lhs.false19
 
 lor.lhs.false19:                                  ; preds = %lor.lhs.false17
-  %fPrefix20 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 1
+  %fPrefix20 = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %fPrefix20, align 8
-  %prefix21 = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 3
+  %prefix21 = getelementptr inbounds i8, ptr %result, i64 80
   %call22 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17matchedEPKN6icu_758numparse4impl19AffixPatternMatcherERKNS0_13UnicodeStringE(ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(64) %prefix21)
   br i1 %call22, label %if.end24, label %return
 
@@ -3279,7 +3270,7 @@ if.end24:                                         ; preds = %lor.lhs.false19
   %call26 = tail call noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %12 = load ptr, ptr %fSuffix, align 8
   %vtable29 = load ptr, ptr %12, align 8
-  %vfn30 = getelementptr inbounds ptr, ptr %vtable29, i64 3
+  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 24
   %13 = load ptr, ptr %vfn30, align 8
   %call31 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %call33 = tail call noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
@@ -3288,7 +3279,7 @@ if.end24:                                         ; preds = %lor.lhs.false19
 
 if.then35:                                        ; preds = %if.end24
   %14 = load ptr, ptr %fSuffix, align 8
-  %fPattern.i17 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %14, i64 0, i32 2
+  %fPattern.i17 = getelementptr inbounds i8, ptr %14, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i16), !noalias !77
   %15 = load ptr, ptr %fPattern.i17, align 8, !noalias !80
   store ptr %15, ptr %agg.tmp.i.i16, align 8, !noalias !80
@@ -3333,14 +3324,14 @@ entry:
   br i1 %cond, label %land.lhs.true, label %land.rhs
 
 land.lhs.true:                                    ; preds = %entry
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %patternString, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %patternString, i64 8
   %0 = load i16, ptr %fUnion.i, align 8
   %conv2.i6 = and i16 %0, 1
   %tobool.not = icmp ne i16 %conv2.i6, 0
   br label %cleanup.done
 
 land.rhs:                                         ; preds = %entry
-  %fPattern.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %affix, i64 0, i32 2
+  %fPattern.i = getelementptr inbounds i8, ptr %affix, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !83
   %1 = load ptr, ptr %fPattern.i, align 8, !noalias !86
   store ptr %1, ptr %agg.tmp.i.i, align 8, !noalias !86
@@ -3362,14 +3353,14 @@ _ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv.exit: ; preds = %la
   %4 = load ptr, ptr %agg.tmp.i.i, align 8, !noalias !86
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %4) #16, !srcloc !12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !83
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %5 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i14.i = and i16 %5, 1
   %tobool.not.i = icmp eq i16 %conv2.i14.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZNK6icu_758numparse4impl19AffixPatternMatcher10getPatternEv.exit
-  %fUnion.i5.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %patternString, i64 0, i32 1
+  %fUnion.i5.i = getelementptr inbounds i8, ptr %patternString, i64 8
   %6 = load i16, ptr %fUnion.i5.i, align 8
   %conv2.i615.i = and i16 %6, 1
   %tobool3.i = icmp ne i16 %conv2.i615.i, 0
@@ -3379,15 +3370,15 @@ if.else.i:                                        ; preds = %_ZNK6icu_758numpars
   %cmp.i.i.i = icmp slt i16 %5, 0
   %7 = ashr i16 %5, 5
   %shr.i.i.i = sext i16 %7 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   %8 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %8, i32 %shr.i.i.i
-  %fUnion.i.i7.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %patternString, i64 0, i32 1
+  %fUnion.i.i7.i = getelementptr inbounds i8, ptr %patternString, i64 8
   %9 = load i16, ptr %fUnion.i.i7.i, align 8
   %cmp.i.i8.i = icmp slt i16 %9, 0
   %10 = ashr i16 %9, 5
   %shr.i.i9.i = sext i16 %10 to i32
-  %fLength.i10.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %patternString, i64 0, i32 1, i32 0, i32 1
+  %fLength.i10.i = getelementptr inbounds i8, ptr %patternString, i64 12
   %11 = load i32, ptr %fLength.i10.i, align 4
   %cond.i11.i = select i1 %cmp.i.i8.i, i32 %11, i32 %shr.i.i9.i
   %conv2.i1316.i = and i16 %9, 1
@@ -3423,27 +3414,27 @@ lpad:                                             ; preds = %land.rhs.i
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl12AffixMatcher9smokeTestERKNS_13StringSegmentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment) unnamed_addr #1 align 2 {
 entry:
-  %fPrefix = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 1
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fPrefix, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %lor.rhs, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(17) %segment)
   br i1 %call, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.lhs.true, %entry
-  %fSuffix = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 2
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %fSuffix, align 8
   %cmp3.not = icmp eq ptr %2, null
   br i1 %cmp3.not, label %lor.end, label %land.rhs
 
 land.rhs:                                         ; preds = %lor.rhs
   %vtable5 = load ptr, ptr %2, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 4
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 32
   %3 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(17) %segment)
   br label %lor.end
@@ -3458,21 +3449,21 @@ define void @_ZNK6icu_758numparse4impl12AffixMatcher11postProcessERNS1_12ParsedN
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp12 = alloca %"class.icu_75::UnicodeString", align 8
-  %fPrefix = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 1
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fPrefix, align 8
-  %prefix = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 3
+  %prefix = getelementptr inbounds i8, ptr %result, i64 80
   %call = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17matchedEPKN6icu_758numparse4impl19AffixPatternMatcherERKNS0_13UnicodeStringE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %prefix)
   br i1 %call, label %land.lhs.true, label %if.end27
 
 land.lhs.true:                                    ; preds = %entry
-  %fSuffix = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 2
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fSuffix, align 8
-  %suffix = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 4
+  %suffix = getelementptr inbounds i8, ptr %result, i64 144
   %call2 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_17matchedEPKN6icu_758numparse4impl19AffixPatternMatcherERKNS0_13UnicodeStringE(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %suffix)
   br i1 %call2, label %if.then, label %if.end27
 
 if.then:                                          ; preds = %land.lhs.true
-  %fUnion.i = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 3, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %result, i64 88
   %2 = load i16, ptr %fUnion.i, align 8
   %conv2.i13 = and i16 %2, 1
   %tobool.not = icmp eq i16 %conv2.i13, 0
@@ -3480,14 +3471,14 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.then5:                                         ; preds = %if.then
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call7 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %prefix, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #16
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %if.then
-  %fUnion.i10 = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 4, i32 1
+  %fUnion.i10 = getelementptr inbounds i8, ptr %result, i64 152
   %3 = load i16, ptr %fUnion.i10, align 8
   %conv2.i1114 = and i16 %3, 1
   %tobool10.not = icmp eq i16 %conv2.i1114, 0
@@ -3495,16 +3486,16 @@ if.end:                                           ; preds = %if.then5, %if.then
 
 if.then11:                                        ; preds = %if.end
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp12, align 8
-  %fUnion2.i12 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp12, i64 0, i32 1
+  %fUnion2.i12 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   store i16 2, ptr %fUnion2.i12, align 8
   %call14 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %suffix, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp12) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp12) #16
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then11, %if.end
-  %fFlags = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 3
+  %fFlags = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i32, ptr %fFlags, align 8
-  %flags = getelementptr inbounds %"class.icu_75::numparse::impl::ParsedNumber", ptr %result, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %result, i64 76
   %5 = load i32, ptr %flags, align 4
   %or = or i32 %5, %4
   store i32 %or, ptr %flags, align 4
@@ -3514,7 +3505,7 @@ if.end15:                                         ; preds = %if.then11, %if.end
 
 if.then17:                                        ; preds = %if.end15
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %7 = load ptr, ptr %vfn, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(216) %result)
   br label %if.end19
@@ -3526,7 +3517,7 @@ if.end19:                                         ; preds = %if.then17, %if.end1
 
 if.then22:                                        ; preds = %if.end19
   %vtable24 = load ptr, ptr %8, align 8
-  %vfn25 = getelementptr inbounds ptr, ptr %vtable24, i64 5
+  %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 40
   %9 = load ptr, ptr %vfn25, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(216) %result)
   br label %if.end27
@@ -3550,7 +3541,7 @@ entry:
   %ref.tmp17 = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp22 = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp33 = alloca %"class.icu_75::UnicodeString", align 8
-  %fFlags = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 3
+  %fFlags = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %fFlags, align 8
   %and = and i32 %0, 1
   %cmp.not = icmp eq i32 %and, 0
@@ -3564,13 +3555,13 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont
-  %fPrefix = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 1
+  %fPrefix = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %fPrefix, align 8
   %tobool10.not = icmp eq ptr %1, null
   br i1 %tobool10.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %invoke.cont8
-  %fPattern.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %1, i64 0, i32 2
+  %fPattern.i = getelementptr inbounds i8, ptr %1, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i), !noalias !89
   %2 = load ptr, ptr %fPattern.i, align 8, !noalias !92
   store ptr %2, ptr %agg.tmp.i.i, align 8, !noalias !92
@@ -3607,13 +3598,13 @@ invoke.cont19:                                    ; preds = %invoke.cont16
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont19
-  %fSuffix = getelementptr inbounds %"class.icu_75::numparse::impl::AffixMatcher", ptr %this, i64 0, i32 2
+  %fSuffix = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %fSuffix, align 8
   %tobool23.not = icmp eq ptr %6, null
   br i1 %tobool23.not, label %cond.false28, label %cond.true24
 
 cond.true24:                                      ; preds = %invoke.cont21
-  %fPattern.i12 = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %6, i64 0, i32 2
+  %fPattern.i12 = getelementptr inbounds i8, ptr %6, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i11), !noalias !95
   %7 = load ptr, ptr %fPattern.i12, align 8, !noalias !98
   store ptr %7, ptr %agg.tmp.i.i11, align 8, !noalias !98
@@ -3767,13 +3758,13 @@ entry:
   store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_758numparse4impl26AffixPatternMatcherBuilderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_758numparse4impl26AffixPatternMatcherBuilderE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
-  %needToRelease.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 2, i32 2
+  %needToRelease.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i8, ptr %needToRelease.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i.i, label %_ZN6icu_758numparse4impl26AffixPatternMatcherBuilderD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %fMatchers.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcherBuilder", ptr %this, i64 0, i32 2
+  %fMatchers.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fMatchers.i, align 8
   invoke void @uprv_free_75(ptr noundef %1)
           to label %_ZN6icu_758numparse4impl26AffixPatternMatcherBuilderD2Ev.exit unwind label %terminate.lpad.i.i
@@ -3889,13 +3880,13 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl19AffixPatternMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl19AffixPatternMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %needToRelease.i.i.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %this, i64 0, i32 2, i32 0, i32 2
+  %needToRelease.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 68
   %0 = load i8, ptr %needToRelease.i.i.i.i, align 4
   %tobool.not.i.i.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %fPattern.i = getelementptr inbounds %"class.icu_75::numparse::impl::AffixPatternMatcher", ptr %this, i64 0, i32 2
+  %fPattern.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %fPattern.i, align 8
   invoke void @uprv_free_75(ptr noundef %1)
           to label %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i unwind label %terminate.lpad.i.i.i
@@ -3909,13 +3900,13 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
 
 _ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
   store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6icu_758numparse4impl18ArraySeriesMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %needToRelease.i.i.i1.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1, i32 2
+  %needToRelease.i.i.i1.i = getelementptr inbounds i8, ptr %this, i64 20
   %4 = load i8, ptr %needToRelease.i.i.i1.i, align 4
   %tobool.not.i.i.i2.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i.i2.i, label %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit, label %if.then.i.i.i3.i
 
 if.then.i.i.i3.i:                                 ; preds = %_ZN6icu_758numparse4impl20CompactUnicodeStringILi4EED2Ev.exit.i
-  %fMatchers.i.i = getelementptr inbounds %"class.icu_75::numparse::impl::ArraySeriesMatcher", ptr %this, i64 0, i32 1
+  %fMatchers.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %fMatchers.i.i, align 8
   invoke void @uprv_free_75(ptr noundef %5)
           to label %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit unwind label %terminate.lpad.i.i4.i
@@ -3958,7 +3949,7 @@ declare void @_ZN6icu_758numparse4impl18ArraySeriesMatcherC2Ev(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7515MaybeStackArrayIDsLi4EED2Ev(ptr noundef nonnull align 8 dereferenceable(22) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray.3", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i

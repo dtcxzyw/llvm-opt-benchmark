@@ -7,37 +7,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.OpenColorIO_v2_4dev::RangeTransformImpl" = type { %"class.OpenColorIO_v2_4dev::RangeTransform", i32, [4 x i8], %"class.OpenColorIO_v2_4dev::RangeOpData" }
-%"class.OpenColorIO_v2_4dev::RangeTransform" = type { %"class.OpenColorIO_v2_4dev::Transform" }
-%"class.OpenColorIO_v2_4dev::Transform" = type { ptr }
-%"class.OpenColorIO_v2_4dev::RangeOpData" = type <{ %"class.OpenColorIO_v2_4dev::OpData", double, double, double, double, double, double, i32, i32, i32, [4 x i8] }>
-%"class.OpenColorIO_v2_4dev::OpData" = type { ptr, %"class.std::mutex", %"class.OpenColorIO_v2_4dev::FormatMetadataImpl" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.OpenColorIO_v2_4dev::FormatMetadataImpl" = type { %"class.OpenColorIO_v2_4dev::FormatMetadata", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::vector.3" }
-%"class.OpenColorIO_v2_4dev::FormatMetadata" = type { ptr }
+%"class.std::shared_ptr.8" = type { %"class.std::__shared_ptr.9" }
+%"class.std::__shared_ptr.9" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_deleter" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_deleter<OpenColorIO_v2_4dev::RangeTransformImpl *, void (*)(OpenColorIO_v2_4dev::RangeTransform *), std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_deleter<OpenColorIO_v2_4dev::RangeTransformImpl *, void (*)(OpenColorIO_v2_4dev::RangeTransform *), std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.std::_Sp_ebo_helper", ptr }
-%"struct.std::_Sp_ebo_helper" = type { ptr }
-%"class.std::shared_ptr.8" = type { %"class.std::__shared_ptr.9" }
-%"class.std::__shared_ptr.9" = type { ptr, %"class.std::__shared_count" }
 %"class.std::allocator" = type { i8 }
-%"class.std::type_info" = type { ptr, ptr }
 
 $_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14RangeTransformEED2Ev = comdat any
 
@@ -127,15 +102,15 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(248) %call, i8 0, i64 248, i1 false)
   store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18RangeTransformImplE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %m_style.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %call, i64 0, i32 1
+  %m_style.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %m_style.i, align 8
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %call, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %call, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11RangeOpDataC1Ev(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %_M_refcount.i.i, align 8
   %call5.i.i.i4.i.i.i.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14RangeTransformEEC2INS0_18RangeTransformImplEPFvPS1_EvEEPT_T0_.exit unwind label %invoke.cont7.i.i.i.i
@@ -146,7 +121,7 @@ invoke.cont7.i.i.i.i:                             ; preds = %invoke.cont
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #18
   %vtable.i = load ptr, ptr %call, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %3 = load ptr, ptr %vfn.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(248) %call) #18
   invoke void @__cxa_rethrow() #19
@@ -173,14 +148,14 @@ unreachable.i.i.i.i:                              ; preds = %invoke.cont7.i.i.i.
   unreachable
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14RangeTransformEEC2INS0_18RangeTransformImplEPFvPS1_EvEEPT_T0_.exit: ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i4.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i4.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev18RangeTransformImplEPFvPNS0_14RangeTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i4.i.i.i.i, align 8
-  %_M_impl.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %call5.i.i.i4.i.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i.i, i64 16
   store ptr @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl7deleterEPNS_14RangeTransformE, ptr %_M_impl.i.i.i.i.i, align 8
-  %_M_ptr.i.i5.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %call5.i.i.i4.i.i.i.i, i64 0, i32 1, i32 1
+  %_M_ptr.i.i5.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i.i, i64 24
   store ptr %call, ptr %_M_ptr.i.i5.i.i.i.i, align 8
   store ptr %call5.i.i.i4.i.i.i.i, ptr %_M_refcount.i.i, align 8
   ret void
@@ -211,7 +186,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %t, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(248) %t) #18
   br label %delete.end
@@ -225,26 +200,26 @@ define hidden void @_ZNK19OpenColorIO_v2_4dev18RangeTransformImpl18createEditabl
 entry:
   %transform = alloca %"class.std::shared_ptr", align 8
   call void @_ZN19OpenColorIO_v2_4dev14RangeTransform6CreateEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %transform)
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %transform, align 8, !nonnull !4, !noundef !4
   %1 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev14RangeTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev18RangeTransformImplE, i64 0) #18
-  %m_data.i1 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %1, i64 0, i32 3
+  %m_data.i1 = getelementptr inbounds i8, ptr %1, i64 16
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i1, ptr noundef nonnull align 8 dereferenceable(168) %m_data.i)
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14RangeTransformEED2Ev.exit unwind label %lpad
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14RangeTransformEED2Ev.exit: ; preds = %entry
-  %m_minInValue.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %1, i64 0, i32 3, i32 1
-  %m_minInValue2.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3, i32 1
+  %m_minInValue.i = getelementptr inbounds i8, ptr %1, i64 184
+  %m_minInValue2.i = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %m_minInValue.i, ptr noundef nonnull align 8 dereferenceable(60) %m_minInValue2.i, i64 60, i1 false)
-  %m_style = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 1
+  %m_style = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %m_style, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %2) #18
   store ptr %0, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.9", ptr %agg.result, i64 0, i32 1
-  %_M_refcount4.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %transform, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %transform, i64 8
   %4 = load ptr, ptr %_M_refcount4.i.i, align 8
   store ptr %4, ptr %_M_refcount.i.i, align 8
   ret void
@@ -262,13 +237,13 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev14RangeTransformEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev14RangeTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -276,10 +251,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %if.end8.sink.split.i.i.i
@@ -305,10 +280,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -330,7 +305,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev14RangeTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -342,7 +317,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev14RangeTransformELN9__gnu_cxx12_Lock_p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev18RangeTransformImpl12getDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #9 align 2 {
 entry:
-  %m_direction.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3, i32 9
+  %m_direction.i = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load i32, ptr %m_direction.i, align 8
   ret i32 %0
 }
@@ -350,7 +325,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(248) %this, i32 noundef %dir) unnamed_addr #7 align 2 {
 entry:
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev11RangeOpData12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i, i32 noundef %dir) #18
   ret void
 }
@@ -361,7 +336,7 @@ declare void @_ZN19OpenColorIO_v2_4dev11RangeOpData12setDirectionENS_18Transform
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev18RangeTransformImpl8getStyleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #9 align 2 {
 entry:
-  %m_style = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 1
+  %m_style = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_style, align 8
   ret i32 %0
 }
@@ -369,7 +344,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl8setStyleENS_10RangeStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) %this, i32 noundef %style) unnamed_addr #10 align 2 {
 entry:
-  %m_style = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 1
+  %m_style = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %style, ptr %m_style, align 8
   ret void
 }
@@ -383,15 +358,15 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable = load ptr, ptr %m_data.i, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %m_style = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 1
+  %m_style = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_style, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %if.then, label %try.cont
@@ -448,7 +423,7 @@ catch:                                            ; preds = %catch.dispatch
 invoke.cont14:                                    ; preds = %catch
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
   %vtable15 = load ptr, ptr %5, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 2
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 16
   %6 = load ptr, ptr %vfn16, align 8
   %call17 = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
   %call20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %errMsg, ptr noundef %call17)
@@ -561,21 +536,21 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(248) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_metadata.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3, i32 0, i32 2
+  %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 64
   ret ptr %m_metadata.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev18RangeTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(248) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_metadata.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3, i32 0, i32 2
+  %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 64
   ret ptr %m_metadata.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev18RangeTransformImpl20getFileInputBitDepthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_fileInBitDepth.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3, i32 7
+  %m_fileInBitDepth.i = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load i32, ptr %m_fileInBitDepth.i, align 8
   ret i32 %0
 }
@@ -583,7 +558,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev18RangeTransformImpl21getFileOutputBitDepthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_fileOutBitDepth.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3, i32 8
+  %m_fileOutBitDepth.i = getelementptr inbounds i8, ptr %this, i64 236
   %0 = load i32, ptr %m_fileOutBitDepth.i, align 4
   ret i32 %0
 }
@@ -591,7 +566,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl20setFileInputBitDepthENS_8BitDepthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) %this, i32 noundef %bitDepth) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_fileInBitDepth.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3, i32 7
+  %m_fileInBitDepth.i = getelementptr inbounds i8, ptr %this, i64 232
   store i32 %bitDepth, ptr %m_fileInBitDepth.i, align 8
   ret void
 }
@@ -599,7 +574,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl21setFileOutputBitDepthENS_8BitDepthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) %this, i32 noundef %bitDepth) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_fileOutBitDepth.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3, i32 8
+  %m_fileOutBitDepth.i = getelementptr inbounds i8, ptr %this, i64 236
   store i32 %bitDepth, ptr %m_fileOutBitDepth.i, align 4
   ret void
 }
@@ -611,9 +586,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev14RangeTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev18RangeTransformImplE, i64 0) #18
-  %m_data.i3 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %0, i64 0, i32 3
+  %m_data.i3 = getelementptr inbounds i8, ptr %0, i64 16
   %call3 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11RangeOpDataES2_(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i, ptr noundef nonnull align 8 dereferenceable(228) %m_data.i3)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -621,10 +596,10 @@ invoke.cont:                                      ; preds = %if.end
   br i1 %call3, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %invoke.cont
-  %m_style = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 1
+  %m_style = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_style, align 8
   %vtable = load ptr, ptr %other, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %other) #18
   %cmp5 = icmp eq i32 %1, %call4
@@ -647,7 +622,7 @@ declare noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11RangeOpDataES2_(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl13setMinInValueEd(ptr noundef nonnull align 8 dereferenceable(248) %this, double noundef %val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11RangeOpData13setMinInValueEd(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i, double noundef %val)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -667,7 +642,7 @@ declare void @_ZN19OpenColorIO_v2_4dev11RangeOpData13setMinInValueEd(ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_ZNK19OpenColorIO_v2_4dev18RangeTransformImpl13getMinInValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_minInValue.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3, i32 1
+  %m_minInValue.i = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load double, ptr %m_minInValue.i, align 8
   ret double %0
 }
@@ -675,7 +650,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev18RangeTransformImpl13hasMinInValueEv(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %call2 = invoke noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11RangeOpData13hasMinInValueEv(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -695,7 +670,7 @@ declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11RangeOpData13hasMinInValu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl15unsetMinInValueEv(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11RangeOpData15unsetMinInValueEv(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -715,7 +690,7 @@ declare void @_ZN19OpenColorIO_v2_4dev11RangeOpData15unsetMinInValueEv(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl13setMaxInValueEd(ptr noundef nonnull align 8 dereferenceable(248) %this, double noundef %val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11RangeOpData13setMaxInValueEd(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i, double noundef %val)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -735,7 +710,7 @@ declare void @_ZN19OpenColorIO_v2_4dev11RangeOpData13setMaxInValueEd(ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_ZNK19OpenColorIO_v2_4dev18RangeTransformImpl13getMaxInValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_maxInValue.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3, i32 2
+  %m_maxInValue.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load double, ptr %m_maxInValue.i, align 8
   ret double %0
 }
@@ -743,7 +718,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev18RangeTransformImpl13hasMaxInValueEv(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %call2 = invoke noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11RangeOpData13hasMaxInValueEv(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -763,7 +738,7 @@ declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11RangeOpData13hasMaxInValu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl15unsetMaxInValueEv(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11RangeOpData15unsetMaxInValueEv(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -783,7 +758,7 @@ declare void @_ZN19OpenColorIO_v2_4dev11RangeOpData15unsetMaxInValueEv(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl14setMinOutValueEd(ptr noundef nonnull align 8 dereferenceable(248) %this, double noundef %val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11RangeOpData14setMinOutValueEd(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i, double noundef %val)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -803,7 +778,7 @@ declare void @_ZN19OpenColorIO_v2_4dev11RangeOpData14setMinOutValueEd(ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_ZNK19OpenColorIO_v2_4dev18RangeTransformImpl14getMinOutValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_minOutValue.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3, i32 3
+  %m_minOutValue.i = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load double, ptr %m_minOutValue.i, align 8
   ret double %0
 }
@@ -811,7 +786,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev18RangeTransformImpl14hasMinOutValueEv(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %call2 = invoke noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11RangeOpData14hasMinOutValueEv(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -831,7 +806,7 @@ declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11RangeOpData14hasMinOutVal
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl16unsetMinOutValueEv(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11RangeOpData16unsetMinOutValueEv(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -851,7 +826,7 @@ declare void @_ZN19OpenColorIO_v2_4dev11RangeOpData16unsetMinOutValueEv(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl14setMaxOutValueEd(ptr noundef nonnull align 8 dereferenceable(248) %this, double noundef %val) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11RangeOpData14setMaxOutValueEd(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i, double noundef %val)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -871,7 +846,7 @@ declare void @_ZN19OpenColorIO_v2_4dev11RangeOpData14setMaxOutValueEd(ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_ZNK19OpenColorIO_v2_4dev18RangeTransformImpl14getMaxOutValueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_maxOutValue.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3, i32 4
+  %m_maxOutValue.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load double, ptr %m_maxOutValue.i, align 8
   ret double %0
 }
@@ -879,7 +854,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev18RangeTransformImpl14hasMaxOutValueEv(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   %call2 = invoke noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11RangeOpData14hasMaxOutValueEv(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -899,7 +874,7 @@ declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11RangeOpData14hasMaxOutVal
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl16unsetMaxOutValueEv(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN19OpenColorIO_v2_4dev11RangeOpData16unsetMaxOutValueEv(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -928,7 +903,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont1:                                     ; preds = %invoke.cont
   %vtable = load ptr, ptr %t, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %t) #18
   %call5 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev26TransformDirectionToStringENS_18TransformDirectionE(i32 noundef %call3)
@@ -944,7 +919,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
 
 invoke.cont8:                                     ; preds = %invoke.cont6
   %vtable10 = load ptr, ptr %t, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 12
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 96
   %1 = load ptr, ptr %vfn11, align 8
   %call12 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %t) #18
   %call14 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev16BitDepthToStringENS_8BitDepthE(i32 noundef %call12)
@@ -960,7 +935,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
 
 invoke.cont17:                                    ; preds = %invoke.cont15
   %vtable19 = load ptr, ptr %t, align 8
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 14
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 112
   %2 = load ptr, ptr %vfn20, align 8
   %call21 = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %t) #18
   %call23 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev16BitDepthToStringENS_8BitDepthE(i32 noundef %call21)
@@ -972,7 +947,7 @@ invoke.cont22:                                    ; preds = %invoke.cont17
 
 invoke.cont24:                                    ; preds = %invoke.cont22
   %vtable26 = load ptr, ptr %t, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 7
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 56
   %3 = load ptr, ptr %vfn27, align 8
   %call28 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %t) #18
   %cmp.not = icmp eq i32 %call28, 1
@@ -984,7 +959,7 @@ if.then:                                          ; preds = %invoke.cont24
 
 invoke.cont29:                                    ; preds = %if.then
   %vtable31 = load ptr, ptr %t, align 8
-  %vfn32 = getelementptr inbounds ptr, ptr %vtable31, i64 7
+  %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 56
   %4 = load ptr, ptr %vfn32, align 8
   %call33 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(8) %t) #18
   %call35 = invoke noundef ptr @_ZN19OpenColorIO_v2_4dev18RangeStyleToStringENS_10RangeStyleE(i32 noundef %call33)
@@ -996,7 +971,7 @@ invoke.cont34:                                    ; preds = %invoke.cont29
 
 if.end:                                           ; preds = %invoke.cont34, %invoke.cont24
   %vtable38 = load ptr, ptr %t, align 8
-  %vfn39 = getelementptr inbounds ptr, ptr %vtable38, i64 18
+  %vfn39 = getelementptr inbounds i8, ptr %vtable38, i64 144
   %5 = load ptr, ptr %vfn39, align 8
   %call40 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %t) #18
   br i1 %call40, label %if.then41, label %if.end49
@@ -1007,7 +982,7 @@ if.then41:                                        ; preds = %if.end
 
 invoke.cont42:                                    ; preds = %if.then41
   %vtable44 = load ptr, ptr %t, align 8
-  %vfn45 = getelementptr inbounds ptr, ptr %vtable44, i64 16
+  %vfn45 = getelementptr inbounds i8, ptr %vtable44, i64 128
   %6 = load ptr, ptr %vfn45, align 8
   %call46 = tail call noundef double %6(ptr noundef nonnull align 8 dereferenceable(8) %t) #18
   %call48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call43, double noundef %call46)
@@ -1015,7 +990,7 @@ invoke.cont42:                                    ; preds = %if.then41
 
 if.end49:                                         ; preds = %invoke.cont42, %if.end
   %vtable50 = load ptr, ptr %t, align 8
-  %vfn51 = getelementptr inbounds ptr, ptr %vtable50, i64 22
+  %vfn51 = getelementptr inbounds i8, ptr %vtable50, i64 176
   %7 = load ptr, ptr %vfn51, align 8
   %call52 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(8) %t) #18
   br i1 %call52, label %if.then53, label %if.end61
@@ -1026,7 +1001,7 @@ if.then53:                                        ; preds = %if.end49
 
 invoke.cont54:                                    ; preds = %if.then53
   %vtable56 = load ptr, ptr %t, align 8
-  %vfn57 = getelementptr inbounds ptr, ptr %vtable56, i64 21
+  %vfn57 = getelementptr inbounds i8, ptr %vtable56, i64 168
   %8 = load ptr, ptr %vfn57, align 8
   %call58 = tail call noundef double %8(ptr noundef nonnull align 8 dereferenceable(8) %t) #18
   %call60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call55, double noundef %call58)
@@ -1034,7 +1009,7 @@ invoke.cont54:                                    ; preds = %if.then53
 
 if.end61:                                         ; preds = %invoke.cont54, %if.end49
   %vtable62 = load ptr, ptr %t, align 8
-  %vfn63 = getelementptr inbounds ptr, ptr %vtable62, i64 26
+  %vfn63 = getelementptr inbounds i8, ptr %vtable62, i64 208
   %9 = load ptr, ptr %vfn63, align 8
   %call64 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %t) #18
   br i1 %call64, label %if.then65, label %if.end73
@@ -1045,7 +1020,7 @@ if.then65:                                        ; preds = %if.end61
 
 invoke.cont66:                                    ; preds = %if.then65
   %vtable68 = load ptr, ptr %t, align 8
-  %vfn69 = getelementptr inbounds ptr, ptr %vtable68, i64 25
+  %vfn69 = getelementptr inbounds i8, ptr %vtable68, i64 200
   %10 = load ptr, ptr %vfn69, align 8
   %call70 = tail call noundef double %10(ptr noundef nonnull align 8 dereferenceable(8) %t) #18
   %call72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call67, double noundef %call70)
@@ -1053,7 +1028,7 @@ invoke.cont66:                                    ; preds = %if.then65
 
 if.end73:                                         ; preds = %invoke.cont66, %if.end61
   %vtable74 = load ptr, ptr %t, align 8
-  %vfn75 = getelementptr inbounds ptr, ptr %vtable74, i64 30
+  %vfn75 = getelementptr inbounds i8, ptr %vtable74, i64 240
   %11 = load ptr, ptr %vfn75, align 8
   %call76 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %t) #18
   br i1 %call76, label %if.then77, label %if.end85
@@ -1064,7 +1039,7 @@ if.then77:                                        ; preds = %if.end73
 
 invoke.cont78:                                    ; preds = %if.then77
   %vtable80 = load ptr, ptr %t, align 8
-  %vfn81 = getelementptr inbounds ptr, ptr %vtable80, i64 29
+  %vfn81 = getelementptr inbounds i8, ptr %vtable80, i64 232
   %12 = load ptr, ptr %vfn81, align 8
   %call82 = tail call noundef double %12(ptr noundef nonnull align 8 dereferenceable(8) %t) #18
   %call84 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call79, double noundef %call82)
@@ -1105,7 +1080,7 @@ entry:
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImplD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #7 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18RangeTransformImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev11RangeOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(228) %m_data) #18
   ret void
 }
@@ -1114,7 +1089,7 @@ entry:
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImplD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #7 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18RangeTransformImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::RangeTransformImpl", ptr %this, i64 0, i32 3
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN19OpenColorIO_v2_4dev11RangeOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(228) %m_data.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
@@ -1148,9 +1123,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev18RangeTransformImplEPFvPNS0_14RangeTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this, i64 0, i32 1
+  %_M_impl = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_impl, align 8
-  %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this, i64 0, i32 1, i32 1
+  %_M_ptr = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_ptr, align 8
   invoke void %0(ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1176,7 +1151,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev18Range
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev18RangeTransformImplEPFvPNS0_14RangeTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSPFvPN19OpenColorIO_v2_4dev14RangeTransformEE
   br i1 %cmp.i, label %cond.true, label %if.end.i
@@ -1192,7 +1167,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   br i1 %cmp7.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry, %_ZNKSt9type_infoeqERKS_.exit
-  %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this, i64 0, i32 1
+  %_M_impl = getelementptr inbounds i8, ptr %this, i64 16
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit, %cond.true

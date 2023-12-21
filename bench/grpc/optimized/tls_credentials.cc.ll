@@ -6,15 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"class.grpc_core::UniqueTypeName::Factory" = type { ptr }
 %"class.grpc_core::NoDestruct" = type { [8 x i8] }
-%"class.grpc_core::RefCounted" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
-%"class.grpc_core::PolymorphicRefCount" = type { ptr }
-%"class.grpc_core::RefCount" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%class.TlsCredentials = type { %struct.grpc_channel_credentials, %"class.grpc_core::RefCountedPtr" }
-%struct.grpc_channel_credentials = type { %"class.grpc_core::RefCounted" }
-%"class.grpc_core::RefCountedPtr" = type { ptr }
-%"class.grpc_core::RefCounted.10" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
 %"class.grpc_core::RefCountedPtr.0" = type { ptr }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
@@ -26,31 +17,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.grpc_core::RefCountedPtr.5" = type { ptr }
+%"class.grpc_core::RefCountedPtr" = type { ptr }
 %"class.grpc_core::RefCountedPtr.1" = type { ptr }
 %"class.grpc_core::ChannelArgs" = type { %"class.grpc_core::AVL" }
 %"class.grpc_core::AVL" = type { %"class.grpc_core::RefCountedPtr.4" }
 %"class.grpc_core::RefCountedPtr.4" = type { ptr }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8, [7 x i8] }>
-%"class.grpc_core::RefCounted.19" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
-%"class.grpc_core::RefCounted.20" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
 %"class.grpc_core::UniqueTypeName" = type { %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::allocator" = type { i8 }
-%struct.grpc_tls_credentials_options = type <{ %"class.grpc_core::RefCounted.10", i32, i8, [3 x i8], i32, i32, %"class.grpc_core::RefCountedPtr.11", i8, [7 x i8], %"class.grpc_core::RefCountedPtr.12", i8, [7 x i8], %"class.std::__cxx11::basic_string", i8, [7 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::shared_ptr", i8, [7 x i8] }>
-%"class.grpc_core::RefCountedPtr.11" = type { ptr }
-%"class.grpc_core::RefCountedPtr.12" = type { ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.grpc_core::RefCounted.13" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
-%struct.grpc_server_credentials = type { %"class.grpc_core::RefCounted.13", %struct.grpc_auth_metadata_processor }
-%struct.grpc_auth_metadata_processor = type { ptr, ptr, ptr }
-%class.TlsServerCredentials = type { %struct.grpc_server_credentials, %"class.grpc_core::RefCountedPtr" }
 %"class.grpc_core::RefCountedPtr.14" = type { ptr }
 %"class.grpc_core::RefCountedPtr.15" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.grpc_core::RefCounted.16" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
 
 $_ZN9grpc_core14UniqueTypeName7FactoryC2ESt17basic_string_viewIcSt11char_traitsIcEE = comdat any
 
@@ -164,10 +141,10 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN14TlsCredentialsC2EN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14TlsCredentials, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %options_ = getelementptr inbounds %class.TlsCredentials, ptr %this, i64 0, i32 1
+  %options_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %options_, align 8
   %0 = load ptr, ptr %options, align 8
   store ptr %0, ptr %options_, align 8
@@ -178,20 +155,20 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN14TlsCredentialsD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %options_ = getelementptr inbounds %class.TlsCredentials, ptr %this, i64 0, i32 1
+  %options_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %options_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted.10", ptr %0, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %1, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(217) %0) #18
   br label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit
@@ -226,16 +203,16 @@ entry:
 
 invoke.cont3:                                     ; preds = %entry
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !4
   store ptr %this, ptr %agg.tmp2, align 8, !alias.scope !4
-  %options_ = getelementptr inbounds %class.TlsCredentials, ptr %this, i64 0, i32 1
+  %options_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %options_, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %invoke.cont6, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont3
-  %refs_.i.i10 = getelementptr inbounds %"class.grpc_core::RefCounted.10", ptr %1, i64 0, i32 1
+  %refs_.i.i10 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = atomicrmw add ptr %refs_.i.i10, i64 1 monotonic, align 8
   %.pre.i = load ptr, ptr %options_, align 8
   br label %invoke.cont6
@@ -246,7 +223,7 @@ invoke.cont6:                                     ; preds = %if.then.i, %invoke.
   %4 = load ptr, ptr %call_creds, align 8
   store ptr %4, ptr %agg.tmp7, align 8
   store ptr null, ptr %call_creds, align 8
-  %_M_engaged.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %overridden_target_name, i64 0, i32 1
+  %_M_engaged.i.i = getelementptr inbounds i8, ptr %overridden_target_name, i64 32
   %5 = load i8, ptr %_M_engaged.i.i, align 8
   %6 = and i8 %5, 1
   %tobool.i.i.not = icmp eq i8 %6, 0
@@ -267,14 +244,14 @@ invoke.cont18:                                    ; preds = %cond.end
   br i1 %cmp.not.i11, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit, label %if.then.i12
 
 if.then.i12:                                      ; preds = %invoke.cont18
-  %refs_.i.i13 = getelementptr inbounds %"class.grpc_core::RefCounted.19", ptr %7, i64 0, i32 1
+  %refs_.i.i13 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = atomicrmw sub ptr %refs_.i.i13, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %8, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.then.i12
   %vtable.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(20) %7) #18
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit
@@ -285,14 +262,14 @@ _ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit: ; preds = %invok
   br i1 %cmp.not.i14, label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit, label %if.then.i15
 
 if.then.i15:                                      ; preds = %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit
-  %refs_.i.i16 = getelementptr inbounds %"class.grpc_core::RefCounted.10", ptr %10, i64 0, i32 1
+  %refs_.i.i16 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = atomicrmw sub ptr %refs_.i.i16, i64 1 acq_rel, align 8
   %cmp.i.i.i17 = icmp eq i64 %11, 1
   br i1 %cmp.i.i.i17, label %if.then.i.i18, label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit
 
 if.then.i.i18:                                    ; preds = %if.then.i15
   %vtable.i.i.i19 = load ptr, ptr %10, align 8
-  %vfn.i.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i.i19, i64 1
+  %vfn.i.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i.i19, i64 8
   %12 = load ptr, ptr %vfn.i.i.i20, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(217) %10) #18
   br label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit
@@ -303,14 +280,14 @@ _ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit: ; preds =
   br i1 %cmp.not.i21, label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit, label %if.then.i22
 
 if.then.i22:                                      ; preds = %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit
-  %refs_.i.i23 = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %13, i64 0, i32 1
+  %refs_.i.i23 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = atomicrmw sub ptr %refs_.i.i23, i64 1 acq_rel, align 8
   %cmp.i.i.i24 = icmp eq i64 %14, 1
   br i1 %cmp.i.i.i24, label %if.then.i.i25, label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit
 
 if.then.i.i25:                                    ; preds = %if.then.i22
   %vtable.i.i.i26 = load ptr, ptr %13, align 8
-  %vfn.i.i.i27 = getelementptr inbounds ptr, ptr %vtable.i.i.i26, i64 1
+  %vfn.i.i.i27 = getelementptr inbounds i8, ptr %vtable.i.i.i26, i64 8
   %15 = load ptr, ptr %vfn.i.i.i27, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
   br label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit
@@ -337,14 +314,14 @@ lpad13:                                           ; preds = %cond.end
   br i1 %cmp.not.i28, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit35, label %if.then.i29
 
 if.then.i29:                                      ; preds = %lpad13
-  %refs_.i.i30 = getelementptr inbounds %"class.grpc_core::RefCounted.19", ptr %19, i64 0, i32 1
+  %refs_.i.i30 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = atomicrmw sub ptr %refs_.i.i30, i64 1 acq_rel, align 8
   %cmp.i.i.i31 = icmp eq i64 %20, 1
   br i1 %cmp.i.i.i31, label %if.then.i.i32, label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit35
 
 if.then.i.i32:                                    ; preds = %if.then.i29
   %vtable.i.i.i33 = load ptr, ptr %19, align 8
-  %vfn.i.i.i34 = getelementptr inbounds ptr, ptr %vtable.i.i.i33, i64 1
+  %vfn.i.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i.i33, i64 8
   %21 = load ptr, ptr %vfn.i.i.i34, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(20) %19) #18
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit35
@@ -355,14 +332,14 @@ _ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit35: ; preds = %lpa
   br i1 %cmp.not.i36, label %ehcleanup, label %if.then.i37
 
 if.then.i37:                                      ; preds = %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit35
-  %refs_.i.i38 = getelementptr inbounds %"class.grpc_core::RefCounted.10", ptr %22, i64 0, i32 1
+  %refs_.i.i38 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = atomicrmw sub ptr %refs_.i.i38, i64 1 acq_rel, align 8
   %cmp.i.i.i39 = icmp eq i64 %23, 1
   br i1 %cmp.i.i.i39, label %if.then.i.i40, label %ehcleanup
 
 if.then.i.i40:                                    ; preds = %if.then.i37
   %vtable.i.i.i41 = load ptr, ptr %22, align 8
-  %vfn.i.i.i42 = getelementptr inbounds ptr, ptr %vtable.i.i.i41, i64 1
+  %vfn.i.i.i42 = getelementptr inbounds i8, ptr %vtable.i.i.i41, i64 8
   %24 = load ptr, ptr %vfn.i.i.i42, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(217) %22) #18
   br label %ehcleanup
@@ -373,14 +350,14 @@ ehcleanup:                                        ; preds = %if.then.i.i40, %if.
   br i1 %cmp.not.i44, label %ehcleanup28, label %if.then.i45
 
 if.then.i45:                                      ; preds = %ehcleanup
-  %refs_.i.i46 = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %25, i64 0, i32 1
+  %refs_.i.i46 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = atomicrmw sub ptr %refs_.i.i46, i64 1 acq_rel, align 8
   %cmp.i.i.i47 = icmp eq i64 %26, 1
   br i1 %cmp.i.i.i47, label %if.then.i.i48, label %ehcleanup28
 
 if.then.i.i48:                                    ; preds = %if.then.i45
   %vtable.i.i.i49 = load ptr, ptr %25, align 8
-  %vfn.i.i.i50 = getelementptr inbounds ptr, ptr %vtable.i.i.i49, i64 1
+  %vfn.i.i.i50 = getelementptr inbounds i8, ptr %vtable.i.i.i49, i64 8
   %27 = load ptr, ptr %vfn.i.i.i50, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %25) #18
   br label %ehcleanup28
@@ -393,14 +370,14 @@ lpad19:                                           ; preds = %if.end
   br i1 %cmp.not.i52, label %ehcleanup28, label %if.then.i53
 
 if.then.i53:                                      ; preds = %lpad19
-  %refs_.i.i54 = getelementptr inbounds %"class.grpc_core::RefCounted.20", ptr %29, i64 0, i32 1
+  %refs_.i.i54 = getelementptr inbounds i8, ptr %29, i64 8
   %30 = atomicrmw sub ptr %refs_.i.i54, i64 1 acq_rel, align 8
   %cmp.i.i.i55 = icmp eq i64 %30, 1
   br i1 %cmp.i.i.i55, label %if.then.i.i56, label %ehcleanup28
 
 if.then.i.i56:                                    ; preds = %if.then.i53
   %vtable.i.i.i57 = load ptr, ptr %29, align 8
-  %vfn.i.i.i58 = getelementptr inbounds ptr, ptr %vtable.i.i.i57, i64 1
+  %vfn.i.i.i58 = getelementptr inbounds i8, ptr %vtable.i.i.i57, i64 8
   %31 = load ptr, ptr %vfn.i.i.i58, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(32) %29) #18
   br label %ehcleanup28
@@ -433,7 +410,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 
 ehcleanup28:                                      ; preds = %if.then.i.i56, %if.then.i53, %lpad19, %if.then.i.i48, %if.then.i45, %ehcleanup, %lpad
   %.pn6 = phi { ptr, i32 } [ %17, %lpad ], [ %18, %ehcleanup ], [ %18, %if.then.i45 ], [ %18, %if.then.i.i48 ], [ %28, %lpad19 ], [ %28, %if.then.i53 ], [ %28, %if.then.i.i56 ]
-  %_M_engaged.i.i.i.i69 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %overridden_target_name, i64 0, i32 1
+  %_M_engaged.i.i.i.i69 = getelementptr inbounds i8, ptr %overridden_target_name, i64 32
   %35 = load i8, ptr %_M_engaged.i.i.i.i69, align 8
   %36 = and i8 %35, 1
   %tobool.not.i.i.i.i70 = icmp eq i8 %36, 0
@@ -519,7 +496,7 @@ entry:
   %1 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %0, ptr %1) #18
   %2 = load i64, ptr %agg.tmp.i, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %call, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -547,9 +524,9 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK14TlsCredentials8cmp_implEPK24grpc_channel_credentials(ptr noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef readonly %other) unnamed_addr #6 align 2 {
 entry:
-  %options_ = getelementptr inbounds %class.TlsCredentials, ptr %this, i64 0, i32 1
+  %options_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %options_, align 8
-  %options_2 = getelementptr inbounds %class.TlsCredentials, ptr %other, i64 0, i32 1
+  %options_2 = getelementptr inbounds i8, ptr %other, i64 16
   %1 = load ptr, ptr %options_2, align 8
   %call4 = tail call noundef zeroext i1 @_ZNK28grpc_tls_credentials_optionseqERKS_(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull align 8 dereferenceable(217) %1)
   %cmp.i = icmp ult ptr %this, %other
@@ -563,17 +540,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK28grpc_tls_credentials_optionseqERKS_(ptr noundef nonnull align 8 dereferenceable(217) %this, ptr noundef nonnull align 8 dereferenceable(217) %other) local_unnamed_addr #6 comdat align 2 {
 entry:
-  %cert_request_type_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 1
+  %cert_request_type_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %cert_request_type_, align 8
-  %cert_request_type_2 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 1
+  %cert_request_type_2 = getelementptr inbounds i8, ptr %other, i64 16
   %1 = load i32, ptr %cert_request_type_2, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %verify_server_cert_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 2
+  %verify_server_cert_ = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i8, ptr %verify_server_cert_, align 4
-  %verify_server_cert_3 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 2
+  %verify_server_cert_3 = getelementptr inbounds i8, ptr %other, i64 20
   %3 = load i8, ptr %verify_server_cert_3, align 4
   %4 = xor i8 %3, %2
   %5 = and i8 %4, 1
@@ -581,24 +558,24 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp6, label %land.lhs.true7, label %land.end
 
 land.lhs.true7:                                   ; preds = %land.lhs.true
-  %min_tls_version_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 4
+  %min_tls_version_ = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i32, ptr %min_tls_version_, align 8
-  %min_tls_version_8 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 4
+  %min_tls_version_8 = getelementptr inbounds i8, ptr %other, i64 24
   %7 = load i32, ptr %min_tls_version_8, align 8
   %cmp9 = icmp eq i32 %6, %7
   br i1 %cmp9, label %land.lhs.true10, label %land.end
 
 land.lhs.true10:                                  ; preds = %land.lhs.true7
-  %max_tls_version_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 5
+  %max_tls_version_ = getelementptr inbounds i8, ptr %this, i64 28
   %8 = load i32, ptr %max_tls_version_, align 4
-  %max_tls_version_11 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 5
+  %max_tls_version_11 = getelementptr inbounds i8, ptr %other, i64 28
   %9 = load i32, ptr %max_tls_version_11, align 4
   %cmp12 = icmp eq i32 %8, %9
   br i1 %cmp12, label %land.lhs.true13, label %land.end
 
 land.lhs.true13:                                  ; preds = %land.lhs.true10
-  %certificate_verifier_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 6
-  %certificate_verifier_14 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 6
+  %certificate_verifier_ = getelementptr inbounds i8, ptr %this, i64 32
+  %certificate_verifier_14 = getelementptr inbounds i8, ptr %other, i64 32
   %10 = load ptr, ptr %certificate_verifier_, align 8
   %11 = load ptr, ptr %certificate_verifier_14, align 8
   %cmp.i = icmp eq ptr %10, %11
@@ -616,9 +593,9 @@ land.lhs.true20:                                  ; preds = %lor.lhs.false
   br i1 %cmp26, label %land.lhs.true27, label %land.end
 
 land.lhs.true27:                                  ; preds = %land.lhs.true20, %land.lhs.true13
-  %check_call_host_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 7
+  %check_call_host_ = getelementptr inbounds i8, ptr %this, i64 40
   %12 = load i8, ptr %check_call_host_, align 8
-  %check_call_host_30 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 7
+  %check_call_host_30 = getelementptr inbounds i8, ptr %other, i64 40
   %13 = load i8, ptr %check_call_host_30, align 8
   %14 = xor i8 %13, %12
   %15 = and i8 %14, 1
@@ -626,8 +603,8 @@ land.lhs.true27:                                  ; preds = %land.lhs.true20, %l
   br i1 %cmp33, label %land.lhs.true34, label %land.end
 
 land.lhs.true34:                                  ; preds = %land.lhs.true27
-  %certificate_provider_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 9
-  %certificate_provider_35 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 9
+  %certificate_provider_ = getelementptr inbounds i8, ptr %this, i64 48
+  %certificate_provider_35 = getelementptr inbounds i8, ptr %other, i64 48
   %16 = load ptr, ptr %certificate_provider_, align 8
   %17 = load ptr, ptr %certificate_provider_35, align 8
   %cmp.i21 = icmp eq ptr %16, %17
@@ -645,9 +622,9 @@ land.lhs.true43:                                  ; preds = %lor.lhs.false37
   br i1 %cmp49, label %land.lhs.true50, label %land.end
 
 land.lhs.true50:                                  ; preds = %land.lhs.true43, %land.lhs.true34
-  %watch_root_cert_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 10
+  %watch_root_cert_ = getelementptr inbounds i8, ptr %this, i64 56
   %18 = load i8, ptr %watch_root_cert_, align 8
-  %watch_root_cert_53 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 10
+  %watch_root_cert_53 = getelementptr inbounds i8, ptr %other, i64 56
   %19 = load i8, ptr %watch_root_cert_53, align 8
   %20 = xor i8 %19, %18
   %21 = and i8 %20, 1
@@ -655,15 +632,15 @@ land.lhs.true50:                                  ; preds = %land.lhs.true43, %l
   br i1 %cmp56, label %land.lhs.true57, label %land.end
 
 land.lhs.true57:                                  ; preds = %land.lhs.true50
-  %root_cert_name_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 12
-  %root_cert_name_58 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 12
+  %root_cert_name_ = getelementptr inbounds i8, ptr %this, i64 64
+  %root_cert_name_58 = getelementptr inbounds i8, ptr %other, i64 64
   %call59 = tail call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %root_cert_name_, ptr noundef nonnull align 8 dereferenceable(32) %root_cert_name_58) #18
   br i1 %call59, label %land.lhs.true60, label %land.end
 
 land.lhs.true60:                                  ; preds = %land.lhs.true57
-  %watch_identity_pair_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 13
+  %watch_identity_pair_ = getelementptr inbounds i8, ptr %this, i64 96
   %22 = load i8, ptr %watch_identity_pair_, align 8
-  %watch_identity_pair_63 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 13
+  %watch_identity_pair_63 = getelementptr inbounds i8, ptr %other, i64 96
   %23 = load i8, ptr %watch_identity_pair_63, align 8
   %24 = xor i8 %23, %22
   %25 = and i8 %24, 1
@@ -671,35 +648,35 @@ land.lhs.true60:                                  ; preds = %land.lhs.true57
   br i1 %cmp66, label %land.lhs.true67, label %land.end
 
 land.lhs.true67:                                  ; preds = %land.lhs.true60
-  %identity_cert_name_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 15
-  %identity_cert_name_68 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 15
+  %identity_cert_name_ = getelementptr inbounds i8, ptr %this, i64 104
+  %identity_cert_name_68 = getelementptr inbounds i8, ptr %other, i64 104
   %call69 = tail call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %identity_cert_name_, ptr noundef nonnull align 8 dereferenceable(32) %identity_cert_name_68) #18
   br i1 %call69, label %land.lhs.true70, label %land.end
 
 land.lhs.true70:                                  ; preds = %land.lhs.true67
-  %tls_session_key_log_file_path_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 16
-  %tls_session_key_log_file_path_71 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 16
+  %tls_session_key_log_file_path_ = getelementptr inbounds i8, ptr %this, i64 136
+  %tls_session_key_log_file_path_71 = getelementptr inbounds i8, ptr %other, i64 136
   %call72 = tail call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %tls_session_key_log_file_path_, ptr noundef nonnull align 8 dereferenceable(32) %tls_session_key_log_file_path_71) #18
   br i1 %call72, label %land.lhs.true73, label %land.end
 
 land.lhs.true73:                                  ; preds = %land.lhs.true70
-  %crl_directory_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 17
-  %crl_directory_74 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 17
+  %crl_directory_ = getelementptr inbounds i8, ptr %this, i64 168
+  %crl_directory_74 = getelementptr inbounds i8, ptr %other, i64 168
   %call75 = tail call noundef zeroext i1 @_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_(ptr noundef nonnull align 8 dereferenceable(32) %crl_directory_, ptr noundef nonnull align 8 dereferenceable(32) %crl_directory_74) #18
   br i1 %call75, label %land.lhs.true76, label %land.end
 
 land.lhs.true76:                                  ; preds = %land.lhs.true73
-  %crl_provider_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 18
-  %crl_provider_77 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 18
+  %crl_provider_ = getelementptr inbounds i8, ptr %this, i64 200
+  %crl_provider_77 = getelementptr inbounds i8, ptr %other, i64 200
   %26 = load ptr, ptr %crl_provider_, align 8
   %27 = load ptr, ptr %crl_provider_77, align 8
   %cmp.i24 = icmp eq ptr %26, %27
   br i1 %cmp.i24, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true76
-  %send_client_ca_list_ = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %this, i64 0, i32 19
+  %send_client_ca_list_ = getelementptr inbounds i8, ptr %this, i64 216
   %28 = load i8, ptr %send_client_ca_list_, align 8
-  %send_client_ca_list_81 = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %other, i64 0, i32 19
+  %send_client_ca_list_81 = getelementptr inbounds i8, ptr %other, i64 216
   %29 = load i8, ptr %send_client_ca_list_81, align 8
   %30 = xor i8 %29, %28
   %31 = and i8 %30, 1
@@ -714,12 +691,12 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN20TlsServerCredentialsC2EN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr nocapture noundef %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted.13", ptr %this, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
-  %processor_.i = getelementptr inbounds %struct.grpc_server_credentials, ptr %this, i64 0, i32 1
+  %processor_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %processor_.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV20TlsServerCredentials, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %options_ = getelementptr inbounds %class.TlsServerCredentials, ptr %this, i64 0, i32 1
+  %options_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %options_, align 8
   %0 = load ptr, ptr %options, align 8
   store ptr %0, ptr %options_, align 8
@@ -730,33 +707,33 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN20TlsServerCredentialsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %options_ = getelementptr inbounds %class.TlsServerCredentials, ptr %this, i64 0, i32 1
+  %options_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %options_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted.10", ptr %0, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %1, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(217) %0) #18
   br label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit: ; preds = %entry, %if.then.i, %if.then.i.i
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %destroy.i.i = getelementptr inbounds %struct.grpc_server_credentials, ptr %this, i64 0, i32 1, i32 1
+  %destroy.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %destroy.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %_ZN23grpc_server_credentialsD2Ev.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit
-  %state.i.i = getelementptr inbounds %struct.grpc_server_credentials, ptr %this, i64 0, i32 1, i32 2
+  %state.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %state.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %4, null
   br i1 %cmp3.not.i.i, label %_ZN23grpc_server_credentialsD2Ev.exit, label %if.then.i.i1
@@ -790,16 +767,16 @@ entry:
   %agg.tmp = alloca %"class.grpc_core::RefCountedPtr.15", align 8
   %agg.tmp2 = alloca %"class.grpc_core::RefCountedPtr", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted.13", ptr %this, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !11
   store ptr %this, ptr %agg.tmp, align 8, !alias.scope !11
-  %options_ = getelementptr inbounds %class.TlsServerCredentials, ptr %this, i64 0, i32 1
+  %options_ = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %options_, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %refs_.i.i2 = getelementptr inbounds %"class.grpc_core::RefCounted.10", ptr %2, i64 0, i32 1
+  %refs_.i.i2 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = atomicrmw add ptr %refs_.i.i2, i64 1 monotonic, align 8
   %.pre.i = load ptr, ptr %options_, align 8
   br label %invoke.cont
@@ -816,14 +793,14 @@ invoke.cont4:                                     ; preds = %invoke.cont
   br i1 %cmp.not.i3, label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %invoke.cont4
-  %refs_.i.i5 = getelementptr inbounds %"class.grpc_core::RefCounted.10", ptr %5, i64 0, i32 1
+  %refs_.i.i5 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = atomicrmw sub ptr %refs_.i.i5, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %6, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit
 
 if.then.i.i:                                      ; preds = %if.then.i4
   %vtable.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(217) %5) #18
   br label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit
@@ -834,14 +811,14 @@ _ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit: ; preds =
   br i1 %cmp.not.i6, label %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit, label %if.then.i7
 
 if.then.i7:                                       ; preds = %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit
-  %refs_.i.i8 = getelementptr inbounds %"class.grpc_core::RefCounted.13", ptr %8, i64 0, i32 1
+  %refs_.i.i8 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = atomicrmw sub ptr %refs_.i.i8, i64 1 acq_rel, align 8
   %cmp.i.i.i9 = icmp eq i64 %9, 1
   br i1 %cmp.i.i.i9, label %if.then.i.i10, label %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit
 
 if.then.i.i10:                                    ; preds = %if.then.i7
   %vtable.i.i.i11 = load ptr, ptr %8, align 8
-  %vfn.i.i.i12 = getelementptr inbounds ptr, ptr %vtable.i.i.i11, i64 1
+  %vfn.i.i.i12 = getelementptr inbounds i8, ptr %vtable.i.i.i11, i64 8
   %10 = load ptr, ptr %vfn.i.i.i12, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(40) %8) #18
   br label %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit
@@ -857,14 +834,14 @@ lpad3:                                            ; preds = %invoke.cont
   br i1 %cmp.not.i13, label %ehcleanup, label %if.then.i14
 
 if.then.i14:                                      ; preds = %lpad3
-  %refs_.i.i15 = getelementptr inbounds %"class.grpc_core::RefCounted.10", ptr %12, i64 0, i32 1
+  %refs_.i.i15 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = atomicrmw sub ptr %refs_.i.i15, i64 1 acq_rel, align 8
   %cmp.i.i.i16 = icmp eq i64 %13, 1
   br i1 %cmp.i.i.i16, label %if.then.i.i17, label %ehcleanup
 
 if.then.i.i17:                                    ; preds = %if.then.i14
   %vtable.i.i.i18 = load ptr, ptr %12, align 8
-  %vfn.i.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i.i18, i64 1
+  %vfn.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i18, i64 8
   %14 = load ptr, ptr %vfn.i.i.i19, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(217) %12) #18
   br label %ehcleanup
@@ -875,14 +852,14 @@ ehcleanup:                                        ; preds = %if.then.i.i17, %if.
   br i1 %cmp.not.i21, label %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit28, label %if.then.i22
 
 if.then.i22:                                      ; preds = %ehcleanup
-  %refs_.i.i23 = getelementptr inbounds %"class.grpc_core::RefCounted.13", ptr %15, i64 0, i32 1
+  %refs_.i.i23 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = atomicrmw sub ptr %refs_.i.i23, i64 1 acq_rel, align 8
   %cmp.i.i.i24 = icmp eq i64 %16, 1
   br i1 %cmp.i.i.i24, label %if.then.i.i25, label %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit28
 
 if.then.i.i25:                                    ; preds = %if.then.i22
   %vtable.i.i.i26 = load ptr, ptr %15, align 8
-  %vfn.i.i.i27 = getelementptr inbounds ptr, ptr %vtable.i.i.i26, i64 1
+  %vfn.i.i.i27 = getelementptr inbounds i8, ptr %vtable.i.i.i26, i64 8
   %17 = load ptr, ptr %vfn.i.i.i27, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(40) %15) #18
   br label %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit28
@@ -950,14 +927,14 @@ invoke.cont3:                                     ; preds = %if.end
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont3
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted.10", ptr %0, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %1, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %return
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(217) %0) #18
   br label %return
@@ -970,14 +947,14 @@ lpad2:                                            ; preds = %if.end
   br i1 %cmp.not.i2, label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit9, label %if.then.i3
 
 if.then.i3:                                       ; preds = %lpad2
-  %refs_.i.i4 = getelementptr inbounds %"class.grpc_core::RefCounted.10", ptr %4, i64 0, i32 1
+  %refs_.i.i4 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = atomicrmw sub ptr %refs_.i.i4, i64 1 acq_rel, align 8
   %cmp.i.i.i5 = icmp eq i64 %5, 1
   br i1 %cmp.i.i.i5, label %if.then.i.i6, label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit9
 
 if.then.i.i6:                                     ; preds = %if.then.i3
   %vtable.i.i.i7 = load ptr, ptr %4, align 8
-  %vfn.i.i.i8 = getelementptr inbounds ptr, ptr %vtable.i.i.i7, i64 1
+  %vfn.i.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i.i7, i64 8
   %6 = load ptr, ptr %vfn.i.i.i8, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(217) %4) #18
   br label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit9
@@ -1002,9 +979,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %min_tls_version_.i = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %options, i64 0, i32 4
+  %min_tls_version_.i = getelementptr inbounds i8, ptr %options, i64 24
   %0 = load i32, ptr %min_tls_version_.i, align 8
-  %max_tls_version_.i = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %options, i64 0, i32 5
+  %max_tls_version_.i = getelementptr inbounds i8, ptr %options, i64 28
   %1 = load i32, ptr %max_tls_version_.i, align 4
   %cmp2 = icmp sgt i32 %0, %1
   br i1 %cmp2, label %if.then3, label %if.end4
@@ -1033,20 +1010,20 @@ if.then11:                                        ; preds = %if.end8
   br label %return
 
 if.end12:                                         ; preds = %if.end8
-  %crl_directory_.i = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %options, i64 0, i32 17
+  %crl_directory_.i = getelementptr inbounds i8, ptr %options, i64 168
   %call14 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %crl_directory_.i) #18
   br i1 %call14, label %if.end17, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end12
-  %crl_provider_.i = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %options, i64 0, i32 18
+  %crl_provider_.i = getelementptr inbounds i8, ptr %options, i64 200
   %2 = load ptr, ptr %crl_provider_.i, align 8, !noalias !17
-  %_M_refcount3.i.i.i = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %options, i64 0, i32 18, i32 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %options, i64 208
   %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !17
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %cleanup.action, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.rhs
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1, !noalias !17
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1074,10 +1051,10 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i18:                                ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %if.end8.sink.split.i.i.i.i
@@ -1103,10 +1080,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1128,7 +1105,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i18
   %vtable2.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br i1 %cmp.i.i34.not, label %if.end17, label %if.then16
@@ -1144,7 +1121,7 @@ if.end17:                                         ; preds = %if.end12, %if.end8.
   br i1 %is_client, label %land.lhs.true, label %land.lhs.true23
 
 land.lhs.true:                                    ; preds = %if.end17
-  %cert_request_type_.i = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %options, i64 0, i32 1
+  %cert_request_type_.i = getelementptr inbounds i8, ptr %options, i64 16
   %17 = load i32, ptr %cert_request_type_.i, align 8
   %cmp19.not = icmp eq i32 %17, 0
   br i1 %cmp19.not, label %land.lhs.true28, label %if.then20
@@ -1154,7 +1131,7 @@ if.then20:                                        ; preds = %land.lhs.true
   br label %land.lhs.true28
 
 land.lhs.true23:                                  ; preds = %if.end17
-  %verify_server_cert_.i = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %options, i64 0, i32 2
+  %verify_server_cert_.i = getelementptr inbounds i8, ptr %options, i64 20
   %18 = load i8, ptr %verify_server_cert_.i, align 4
   %19 = and i8 %18, 1
   %tobool.i.not = icmp eq i8 %19, 0
@@ -1165,7 +1142,7 @@ if.then25:                                        ; preds = %land.lhs.true23
   br label %return
 
 land.lhs.true28:                                  ; preds = %land.lhs.true, %if.then20
-  %certificate_verifier_.i = getelementptr inbounds %struct.grpc_tls_credentials_options, ptr %options, i64 0, i32 6
+  %certificate_verifier_.i = getelementptr inbounds i8, ptr %options, i64 32
   %20 = load ptr, ptr %certificate_verifier_.i, align 8
   %cmp30 = icmp eq ptr %20, null
   br i1 %cmp30, label %if.then31, label %return
@@ -1173,7 +1150,7 @@ land.lhs.true28:                                  ; preds = %land.lhs.true, %if.
 if.then31:                                        ; preds = %land.lhs.true28
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.8, i32 noundef 89, i32 noundef 1, ptr noundef nonnull @.str.16)
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20, !noalias !20
-  %refs_.i.i.i.i = getelementptr inbounds %"class.grpc_core::RefCounted.16", ptr %call.i, i64 0, i32 1
+  %refs_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !20
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core27HostNameCertificateVerifierE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !20
   %21 = load ptr, ptr %certificate_verifier_.i, align 8
@@ -1182,14 +1159,14 @@ if.then31:                                        ; preds = %land.lhs.true28
   br i1 %cmp.not.i.i.i20, label %return, label %if.then.i.i.i21
 
 if.then.i.i.i21:                                  ; preds = %if.then31
-  %refs_.i.i.i.i22 = getelementptr inbounds %"class.grpc_core::RefCounted.16", ptr %21, i64 0, i32 1
+  %refs_.i.i.i.i22 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = atomicrmw sub ptr %refs_.i.i.i.i22, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %22, 1
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i23, label %return
 
 if.then.i.i.i.i23:                                ; preds = %if.then.i.i.i21
   %vtable.i.i.i.i.i = load ptr, ptr %21, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %23 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %21) #18
   br label %return
@@ -1221,14 +1198,14 @@ invoke.cont3:                                     ; preds = %if.end
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont3
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted.10", ptr %0, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %refs_.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %1, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %return
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(217) %0) #18
   br label %return
@@ -1241,14 +1218,14 @@ lpad2:                                            ; preds = %if.end
   br i1 %cmp.not.i2, label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit9, label %if.then.i3
 
 if.then.i3:                                       ; preds = %lpad2
-  %refs_.i.i4 = getelementptr inbounds %"class.grpc_core::RefCounted.10", ptr %4, i64 0, i32 1
+  %refs_.i.i4 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = atomicrmw sub ptr %refs_.i.i4, i64 1 acq_rel, align 8
   %cmp.i.i.i5 = icmp eq i64 %5, 1
   br i1 %cmp.i.i.i5, label %if.then.i.i6, label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit9
 
 if.then.i.i6:                                     ; preds = %if.then.i3
   %vtable.i.i.i7 = load ptr, ptr %4, align 8
-  %vfn.i.i.i8 = getelementptr inbounds ptr, ptr %vtable.i.i.i7, i64 1
+  %vfn.i.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i.i7, i64 8
   %6 = load ptr, ptr %vfn.i.i.i8, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(217) %4) #18
   br label %_ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit9
@@ -1266,7 +1243,7 @@ return:                                           ; preds = %if.then.i.i, %if.th
 define linkonce_odr void @_ZN24grpc_channel_credentials34duplicate_without_call_credentialsEv(ptr noalias sret(%"class.grpc_core::RefCountedPtr.5") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 comdat align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !23
   store ptr %this, ptr %agg.result, align 8, !alias.scope !23
   ret void
@@ -1384,16 +1361,16 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.grpc_core::UniqueTypeName") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable3 = load ptr, ptr %other, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 4
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 32
   %1 = load ptr, ptr %vfn4, align 8
   call void %1(ptr nonnull sret(%"class.grpc_core::UniqueTypeName") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %other)
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load ptr, ptr %_M_str.i.i, align 8
-  %_M_str.i1.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp2, i64 0, i32 1
+  %_M_str.i1.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %3 = load ptr, ptr %_M_str.i1.i, align 8
   %cmp.i.i = icmp ult ptr %2, %3
   %cmp1.i.i = icmp ult ptr %3, %2
@@ -1404,7 +1381,7 @@ do.end:                                           ; preds = %entry
 
 if.end7:                                          ; preds = %do.end
   %vtable8 = load ptr, ptr %this, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 5
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 40
   %4 = load ptr, ptr %vfn9, align 8
   %call10 = call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %other)
   br label %return
@@ -1428,16 +1405,16 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   call void %0(ptr nonnull sret(%"class.grpc_core::UniqueTypeName") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable3 = load ptr, ptr %other, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 3
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 24
   %1 = load ptr, ptr %vfn4, align 8
   call void %1(ptr nonnull sret(%"class.grpc_core::UniqueTypeName") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %other)
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %2 = load ptr, ptr %_M_str.i.i, align 8
-  %_M_str.i1.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp2, i64 0, i32 1
+  %_M_str.i1.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %3 = load ptr, ptr %_M_str.i1.i, align 8
   %cmp.i.i = icmp ult ptr %2, %3
   %cmp1.i.i = icmp ult ptr %3, %2
@@ -1448,7 +1425,7 @@ do.end:                                           ; preds = %entry
 
 if.end7:                                          ; preds = %do.end
   %vtable8 = load ptr, ptr %this, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 4
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 32
   %4 = load ptr, ptr %vfn9, align 8
   %call10 = call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %other)
   br label %return
@@ -1499,13 +1476,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define linkonce_odr void @_ZN23grpc_server_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %destroy.i = getelementptr inbounds %struct.grpc_server_credentials, ptr %this, i64 0, i32 1, i32 1
+  %destroy.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %destroy.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %invoke.cont, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %state.i = getelementptr inbounds %struct.grpc_server_credentials, ptr %this, i64 0, i32 1, i32 2
+  %state.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %state.i, align 8
   %cmp3.not.i = icmp eq ptr %1, null
   br i1 %cmp3.not.i, label %invoke.cont, label %if.then.i

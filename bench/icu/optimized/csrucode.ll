@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/csrucode.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::InputText" = type <{ ptr, i32, [4 x i8], ptr, i8, [7 x i8], ptr, ptr, i32, [4 x i8] }>
-
 @.str = private unnamed_addr constant [9 x i8] c"UTF-16BE\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"UTF-16LE\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"UTF-32BE\00", align 1
@@ -84,9 +82,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7522CharsetRecog_UTF_16_BE5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
-  %fRawInput = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 7
+  %fRawInput = getelementptr inbounds i8, ptr %textIn, i64 40
   %0 = load ptr, ptr %fRawInput, align 8
-  %fRawLength = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 8
+  %fRawLength = getelementptr inbounds i8, ptr %textIn, i64 48
   %1 = load i32, ptr %fRawLength, align 8
   %cond = tail call i32 @llvm.smin.i32(i32 %1, i32 30)
   %sub = add nsw i32 %cond, -1
@@ -180,9 +178,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7522CharsetRecog_UTF_16_LE5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
-  %fRawInput = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 7
+  %fRawInput = getelementptr inbounds i8, ptr %textIn, i64 40
   %0 = load ptr, ptr %fRawInput, align 8
-  %fRawLength = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 8
+  %fRawLength = getelementptr inbounds i8, ptr %textIn, i64 48
   %1 = load i32, ptr %fRawLength, align 8
   %cond = tail call i32 @llvm.smin.i32(i32 %1, i32 30)
   %sub = add nsw i32 %cond, -1
@@ -284,9 +282,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_7519CharsetRecog_UTF_325matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %textIn, ptr noundef %results) unnamed_addr #5 align 2 {
 entry:
-  %fRawInput = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 7
+  %fRawInput = getelementptr inbounds i8, ptr %textIn, i64 40
   %0 = load ptr, ptr %fRawInput, align 8
-  %fRawLength = getelementptr inbounds %"class.icu_75::InputText", ptr %textIn, i64 0, i32 8
+  %fRawLength = getelementptr inbounds i8, ptr %textIn, i64 48
   %1 = load i32, ptr %fRawLength, align 8
   %div = sdiv i32 %1, 4
   %mul = shl nsw i32 %div, 2
@@ -295,7 +293,7 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0, i32 noundef 0)
   %cmp2 = icmp eq i32 %call, 65279
@@ -306,7 +304,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %i.031 = phi i32 [ %add16, %for.body ], [ 0, %for.body.preheader ]
   %numInvalid.030 = phi i32 [ %numInvalid.1, %for.body ], [ 0, %for.body.preheader ]
   %vtable4 = load ptr, ptr %this, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 5
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 40
   %3 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0, i32 noundef %i.031)
   %or.cond = icmp ugt i32 %call6, 1114110

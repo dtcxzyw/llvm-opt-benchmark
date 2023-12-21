@@ -3,11 +3,6 @@ source_filename = "bench/openssl/original/ssl_test-bin-handshake_srp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.SSL_TEST_EXTRA_CONF = type { %struct.SSL_TEST_CLIENT_CONF, %struct.SSL_TEST_SERVER_CONF, %struct.SSL_TEST_SERVER_CONF }
-%struct.SSL_TEST_CLIENT_CONF = type { i32, i32, i32, ptr, ptr, i32, ptr, ptr, ptr, i32, i32 }
-%struct.SSL_TEST_SERVER_CONF = type { i32, ptr, ptr, i32, i32, ptr, ptr, i32, ptr }
-%struct.ctx_data_st = type { ptr, i64, ptr, i64, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [40 x i8] c"../openssl/test/helpers/handshake_srp.c\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"server2_ctx\00", align 1
 @.str.2 = private unnamed_addr constant [61 x i8] c"SSL_CTX_set_srp_username(client_ctx, extra->client.srp_user)\00", align 1
@@ -16,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @configure_handshake_ctx_for_srp(ptr noundef %server_ctx, ptr noundef %server2_ctx, ptr noundef %client_ctx, ptr nocapture noundef readonly %extra, ptr noundef %server_ctx_data, ptr noundef %server2_ctx_data, ptr noundef %client_ctx_data) local_unnamed_addr #0 {
 entry:
-  %srp_user = getelementptr inbounds %struct.SSL_TEST_EXTRA_CONF, ptr %extra, i64 0, i32 1, i32 5
+  %srp_user = getelementptr inbounds i8, ptr %extra, i64 104
   %0 = load ptr, ptr %srp_user, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end18, label %if.then
@@ -25,12 +20,12 @@ if.then:                                          ; preds = %entry
   %call = tail call i32 @SSL_CTX_set_srp_username_callback(ptr noundef %server_ctx, ptr noundef nonnull @server_srp_cb) #4
   %1 = load ptr, ptr %srp_user, align 8
   %call3 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 51) #4
-  %srp_user4 = getelementptr inbounds %struct.ctx_data_st, ptr %server_ctx_data, i64 0, i32 4
+  %srp_user4 = getelementptr inbounds i8, ptr %server_ctx_data, i64 32
   store ptr %call3, ptr %srp_user4, align 8
-  %srp_password = getelementptr inbounds %struct.SSL_TEST_EXTRA_CONF, ptr %extra, i64 0, i32 1, i32 6
+  %srp_password = getelementptr inbounds i8, ptr %extra, i64 112
   %2 = load ptr, ptr %srp_password, align 8
   %call6 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 52) #4
-  %srp_password7 = getelementptr inbounds %struct.ctx_data_st, ptr %server_ctx_data, i64 0, i32 5
+  %srp_password7 = getelementptr inbounds i8, ptr %server_ctx_data, i64 40
   store ptr %call6, ptr %srp_password7, align 8
   %3 = load ptr, ptr %srp_user4, align 8
   %cmp9 = icmp eq ptr %3, null
@@ -50,7 +45,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end, %entry
-  %srp_user19 = getelementptr inbounds %struct.SSL_TEST_EXTRA_CONF, ptr %extra, i64 0, i32 2, i32 5
+  %srp_user19 = getelementptr inbounds i8, ptr %extra, i64 168
   %5 = load ptr, ptr %srp_user19, align 8
   %cmp20.not = icmp eq ptr %5, null
   br i1 %cmp20.not, label %if.end46, label %if.then21
@@ -64,12 +59,12 @@ if.end24:                                         ; preds = %if.then21
   %call25 = tail call i32 @SSL_CTX_set_srp_username_callback(ptr noundef %server2_ctx, ptr noundef nonnull @server_srp_cb) #4
   %6 = load ptr, ptr %srp_user19, align 8
   %call28 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 66) #4
-  %srp_user29 = getelementptr inbounds %struct.ctx_data_st, ptr %server2_ctx_data, i64 0, i32 4
+  %srp_user29 = getelementptr inbounds i8, ptr %server2_ctx_data, i64 32
   store ptr %call28, ptr %srp_user29, align 8
-  %srp_password31 = getelementptr inbounds %struct.SSL_TEST_EXTRA_CONF, ptr %extra, i64 0, i32 2, i32 6
+  %srp_password31 = getelementptr inbounds i8, ptr %extra, i64 176
   %7 = load ptr, ptr %srp_password31, align 8
   %call32 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 67) #4
-  %srp_password33 = getelementptr inbounds %struct.ctx_data_st, ptr %server2_ctx_data, i64 0, i32 5
+  %srp_password33 = getelementptr inbounds i8, ptr %server2_ctx_data, i64 40
   store ptr %call32, ptr %srp_password33, align 8
   %8 = load ptr, ptr %srp_user29, align 8
   %cmp35 = icmp eq ptr %8, null
@@ -89,7 +84,7 @@ if.end44:                                         ; preds = %if.end24
   br label %if.end46
 
 if.end46:                                         ; preds = %if.end44, %if.end18
-  %srp_user47 = getelementptr inbounds %struct.SSL_TEST_CLIENT_CONF, ptr %extra, i64 0, i32 7
+  %srp_user47 = getelementptr inbounds i8, ptr %extra, i64 48
   %10 = load ptr, ptr %srp_user47, align 8
   %cmp48.not = icmp eq ptr %10, null
   br i1 %cmp48.not, label %return, label %if.then49
@@ -104,10 +99,10 @@ if.then49:                                        ; preds = %if.end46
 
 if.end57:                                         ; preds = %if.then49
   %call58 = tail call i32 @SSL_CTX_set_srp_client_pwd_callback(ptr noundef %client_ctx, ptr noundef nonnull @client_srp_cb) #4
-  %srp_password60 = getelementptr inbounds %struct.SSL_TEST_CLIENT_CONF, ptr %extra, i64 0, i32 8
+  %srp_password60 = getelementptr inbounds i8, ptr %extra, i64 56
   %11 = load ptr, ptr %srp_password60, align 8
   %call61 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 82) #4
-  %srp_password62 = getelementptr inbounds %struct.ctx_data_st, ptr %client_ctx_data, i64 0, i32 5
+  %srp_password62 = getelementptr inbounds i8, ptr %client_ctx_data, i64 40
   store ptr %call61, ptr %srp_password62, align 8
   %cmp64 = icmp eq ptr %call61, null
   br i1 %cmp64, label %return, label %if.end67
@@ -126,7 +121,7 @@ declare i32 @SSL_CTX_set_srp_username_callback(ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind uwtable
 define internal i32 @server_srp_cb(ptr noundef %s, ptr nocapture noundef writeonly %ad, ptr nocapture noundef readonly %arg) #0 {
 entry:
-  %srp_user = getelementptr inbounds %struct.ctx_data_st, ptr %arg, i64 0, i32 4
+  %srp_user = getelementptr inbounds i8, ptr %arg, i64 32
   %0 = load ptr, ptr %srp_user, align 8
   %call = tail call ptr @SSL_get_srp_username(ptr noundef %s) #4
   %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %call) #5
@@ -135,7 +130,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %srp_user, align 8
-  %srp_password = getelementptr inbounds %struct.ctx_data_st, ptr %arg, i64 0, i32 5
+  %srp_password = getelementptr inbounds i8, ptr %arg, i64 40
   %2 = load ptr, ptr %srp_password, align 8
   %call3 = tail call i32 @SSL_set_srp_server_param_pw(ptr noundef %s, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.3) #4
   %cmp4 = icmp slt i32 %call3, 0
@@ -167,7 +162,7 @@ declare i32 @SSL_CTX_set_srp_client_pwd_callback(ptr noundef, ptr noundef) local
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @client_srp_cb(ptr nocapture readnone %s, ptr nocapture noundef readonly %arg) #0 {
 entry:
-  %srp_password = getelementptr inbounds %struct.ctx_data_st, ptr %arg, i64 0, i32 5
+  %srp_password = getelementptr inbounds i8, ptr %arg, i64 40
   %0 = load ptr, ptr %srp_password, align 8
   %call = tail call noalias ptr @CRYPTO_strdup(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 25) #4
   ret ptr %call

@@ -3,15 +3,11 @@ source_filename = "bench/jemalloc/original/counter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.counter_accum_s = type { %struct.locked_u64_s, i64 }
-%struct.locked_u64_s = type { %struct.atomic_u64_t }
-%struct.atomic_u64_t = type { i64 }
-
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden zeroext i1 @counter_accum_init(ptr nocapture noundef writeonly %counter, i64 noundef %interval) local_unnamed_addr #0 {
 entry:
   store atomic i64 0, ptr %counter monotonic, align 8
-  %interval1 = getelementptr inbounds %struct.counter_accum_s, ptr %counter, i64 0, i32 1
+  %interval1 = getelementptr inbounds i8, ptr %counter, i64 8
   store i64 %interval, ptr %interval1, align 8
   ret i1 false
 }

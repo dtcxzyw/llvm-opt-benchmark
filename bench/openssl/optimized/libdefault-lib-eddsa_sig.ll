@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
-%struct.PROV_EDDSA_CTX = type { ptr, ptr, [256 x i8], ptr, i64, i32, i8, [255 x i8], i64 }
-%struct.ecx_key_st = type { ptr, ptr, i8, [57 x i8], ptr, i64, i32, %struct.CRYPTO_REF_COUNT }
-%struct.CRYPTO_REF_COUNT = type { i32 }
 
 @ossl_ed25519_signature_functions = local_unnamed_addr constant [12 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @eddsa_newctx }, %struct.ossl_dispatch_st { i32 8, ptr @eddsa_digest_signverify_init }, %struct.ossl_dispatch_st { i32 11, ptr @ed25519_digest_sign }, %struct.ossl_dispatch_st { i32 12, ptr @eddsa_digest_signverify_init }, %struct.ossl_dispatch_st { i32 15, ptr @ed25519_digest_verify }, %struct.ossl_dispatch_st { i32 16, ptr @eddsa_freectx }, %struct.ossl_dispatch_st { i32 17, ptr @eddsa_dupctx }, %struct.ossl_dispatch_st { i32 18, ptr @eddsa_get_ctx_params }, %struct.ossl_dispatch_st { i32 19, ptr @eddsa_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 20, ptr @eddsa_set_ctx_params }, %struct.ossl_dispatch_st { i32 21, ptr @eddsa_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @ossl_ed448_signature_functions = local_unnamed_addr constant [12 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @eddsa_newctx }, %struct.ossl_dispatch_st { i32 8, ptr @eddsa_digest_signverify_init }, %struct.ossl_dispatch_st { i32 11, ptr @ed448_digest_sign }, %struct.ossl_dispatch_st { i32 12, ptr @eddsa_digest_signverify_init }, %struct.ossl_dispatch_st { i32 15, ptr @ed448_digest_verify }, %struct.ossl_dispatch_st { i32 16, ptr @eddsa_freectx }, %struct.ossl_dispatch_st { i32 17, ptr @eddsa_dupctx }, %struct.ossl_dispatch_st { i32 18, ptr @eddsa_get_ctx_params }, %struct.ossl_dispatch_st { i32 19, ptr @eddsa_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 20, ptr @eddsa_set_ctx_params }, %struct.ossl_dispatch_st { i32 21, ptr @eddsa_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -80,7 +77,7 @@ if.end4:                                          ; preds = %land.lhs.true, %if.
   br i1 %cmp5, label %if.then7, label %if.end13
 
 if.then7:                                         ; preds = %if.end4
-  %key = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
   %1 = load ptr, ptr %key, align 8
   %cmp8.not = icmp eq ptr %1, null
   br i1 %cmp8.not, label %if.end12, label %if.then10
@@ -107,17 +104,17 @@ if.then16:                                        ; preds = %if.end13
   br label %return
 
 if.end17:                                         ; preds = %if.end13
-  %dom2_flag = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 6
+  %dom2_flag = getelementptr inbounds i8, ptr %vpeddsactx, i64 292
   %bf.load = load i8, ptr %dom2_flag, align 4
   %bf.clear22 = and i8 %bf.load, -8
   store i8 %bf.clear22, ptr %dom2_flag, align 4
-  %context_string_len = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 8
+  %context_string_len = getelementptr inbounds i8, ptr %vpeddsactx, i64 552
   store i64 0, ptr %context_string_len, align 8
-  %aid_len = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 4
+  %aid_len = getelementptr inbounds i8, ptr %vpeddsactx, i64 280
   store i64 0, ptr %aid_len, align 8
-  %aid_buf = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 2
+  %aid_buf = getelementptr inbounds i8, ptr %vpeddsactx, i64 16
   %call24 = call i32 @WPACKET_init_der(ptr noundef nonnull %pkt, ptr noundef nonnull %aid_buf, i64 noundef 256) #5
-  %type = getelementptr inbounds %struct.ecx_key_st, ptr %vedkey, i64 0, i32 6
+  %type = getelementptr inbounds i8, ptr %vedkey, i64 96
   %2 = load i32, ptr %type, align 8
   switch i32 %2, label %sw.default [
     i32 2, label %sw.bb
@@ -151,7 +148,7 @@ sw.epilog:                                        ; preds = %land.rhs30, %land.r
   %call31.sink = phi i32 [ %call31, %land.rhs30 ], [ %call26, %land.rhs ]
   %.sink = phi i32 [ 4, %land.rhs30 ], [ 1, %land.rhs ]
   %tobool32.not = icmp eq i32 %call31.sink, 0
-  %instance_id35 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 5
+  %instance_id35 = getelementptr inbounds i8, ptr %vpeddsactx, i64 288
   store i32 %.sink, ptr %instance_id35, align 8
   br i1 %tobool32.not, label %if.end44, label %land.lhs.true37
 
@@ -163,19 +160,19 @@ land.lhs.true37:                                  ; preds = %sw.epilog
 if.then40:                                        ; preds = %land.lhs.true37
   %call42 = call i32 @WPACKET_get_total_written(ptr noundef nonnull %pkt, ptr noundef nonnull %aid_len) #5
   %call43 = call ptr @WPACKET_get_curr(ptr noundef nonnull %pkt) #5
-  %aid = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 3
+  %aid = getelementptr inbounds i8, ptr %vpeddsactx, i64 272
   store ptr %call43, ptr %aid, align 8
   br label %if.end44
 
 if.end44.critedge:                                ; preds = %sw.bb28, %sw.bb
   %.sink.ph = phi i32 [ 4, %sw.bb28 ], [ 1, %sw.bb ]
-  %instance_id35.c = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 5
+  %instance_id35.c = getelementptr inbounds i8, ptr %vpeddsactx, i64 288
   store i32 %.sink.ph, ptr %instance_id35.c, align 8
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end44.critedge, %if.then40, %land.lhs.true37, %sw.epilog
   call void @WPACKET_cleanup(ptr noundef nonnull %pkt) #5
-  %key45 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 1
+  %key45 = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
   store ptr %vedkey, ptr %key45, align 8
   %call46 = call i32 @eddsa_set_ctx_params(ptr noundef nonnull %vpeddsactx, ptr noundef %params), !range !4
   br label %return
@@ -190,7 +187,7 @@ define internal i32 @ed25519_digest_sign(ptr noundef %vpeddsactx, ptr noundef %s
 entry:
   %md = alloca [64 x i8], align 16
   %mdlen = alloca i64, align 8
-  %key = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
   %0 = load ptr, ptr %key, align 8
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -215,7 +212,7 @@ if.then4:                                         ; preds = %if.end2
   br label %return
 
 if.end5:                                          ; preds = %if.end2
-  %privkey = getelementptr inbounds %struct.ecx_key_st, ptr %0, i64 0, i32 4
+  %privkey = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %privkey, align 8
   %cmp6 = icmp eq ptr %1, null
   br i1 %cmp6, label %if.then7, label %if.end8
@@ -227,7 +224,7 @@ if.then7:                                         ; preds = %if.end5
   br label %return
 
 if.end8:                                          ; preds = %if.end5
-  %prehash_flag = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 6
+  %prehash_flag = getelementptr inbounds i8, ptr %vpeddsactx, i64 292
   %bf.load = load i8, ptr %prehash_flag, align 4
   %2 = and i8 %bf.load, 2
   %tobool9.not = icmp eq i8 %2, 0
@@ -252,14 +249,14 @@ if.end17:                                         ; preds = %if.then10.if.end17_
   %5 = phi ptr [ %1, %if.end8 ], [ %.pre, %if.then10.if.end17_crit_edge ]
   %tbslen.addr.0 = phi i64 [ %tbslen, %if.end8 ], [ 64, %if.then10.if.end17_crit_edge ]
   %tbs.addr.0 = phi ptr [ %tbs, %if.end8 ], [ %md, %if.then10.if.end17_crit_edge ]
-  %pubkey = getelementptr inbounds %struct.ecx_key_st, ptr %0, i64 0, i32 3
+  %pubkey = getelementptr inbounds i8, ptr %0, i64 17
   %bf.clear21 = and i8 %bf.load20, 1
   %bf.lshr25 = lshr i8 %bf.load20, 1
   %bf.clear26 = and i8 %bf.lshr25, 1
   %bf.lshr30 = lshr i8 %bf.load20, 2
   %bf.clear31 = and i8 %bf.lshr30, 1
-  %context_string = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 7
-  %context_string_len = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 8
+  %context_string = getelementptr inbounds i8, ptr %vpeddsactx, i64 293
+  %context_string_len = getelementptr inbounds i8, ptr %vpeddsactx, i64 552
   %6 = load i64, ptr %context_string_len, align 8
   %7 = load ptr, ptr %vpeddsactx, align 8
   %call36 = call i32 @ossl_ed25519_sign(ptr noundef nonnull %sigret, ptr noundef %tbs.addr.0, i64 noundef %tbslen.addr.0, ptr noundef nonnull %pubkey, ptr noundef %5, i8 noundef zeroext %bf.clear21, i8 noundef zeroext %bf.clear26, i8 noundef zeroext %bf.clear31, ptr noundef nonnull %context_string, i64 noundef %6, ptr noundef %7, ptr noundef null) #5
@@ -286,7 +283,7 @@ define internal i32 @ed25519_digest_verify(ptr noundef %vpeddsactx, ptr noundef 
 entry:
   %md = alloca [64 x i8], align 16
   %mdlen = alloca i64, align 8
-  %key = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
   %0 = load ptr, ptr %key, align 8
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool = icmp eq i32 %call, 0
@@ -295,7 +292,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %prehash_flag = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 6
+  %prehash_flag = getelementptr inbounds i8, ptr %vpeddsactx, i64 292
   %bf.load = load i8, ptr %prehash_flag, align 4
   %1 = and i8 %bf.load, 2
   %tobool1.not = icmp eq i8 %1, 0
@@ -318,17 +315,17 @@ if.end10:                                         ; preds = %if.then2.if.end10_c
   %bf.load12 = phi i8 [ %bf.load, %if.end ], [ %bf.load12.pre, %if.then2.if.end10_crit_edge ]
   %tbslen.addr.0 = phi i64 [ %tbslen, %if.end ], [ 64, %if.then2.if.end10_crit_edge ]
   %tbs.addr.0 = phi ptr [ %tbs, %if.end ], [ %md, %if.then2.if.end10_crit_edge ]
-  %pubkey = getelementptr inbounds %struct.ecx_key_st, ptr %0, i64 0, i32 3
+  %pubkey = getelementptr inbounds i8, ptr %0, i64 17
   %bf.clear13 = and i8 %bf.load12, 1
   %bf.lshr17 = lshr i8 %bf.load12, 1
   %bf.clear18 = and i8 %bf.lshr17, 1
   %bf.lshr22 = lshr i8 %bf.load12, 2
   %bf.clear23 = and i8 %bf.lshr22, 1
-  %context_string = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 7
-  %context_string_len = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 8
+  %context_string = getelementptr inbounds i8, ptr %vpeddsactx, i64 293
+  %context_string_len = getelementptr inbounds i8, ptr %vpeddsactx, i64 552
   %4 = load i64, ptr %context_string_len, align 8
   %5 = load ptr, ptr %vpeddsactx, align 8
-  %propq = getelementptr inbounds %struct.ecx_key_st, ptr %0, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %propq, align 8
   %call28 = call i32 @ossl_ed25519_verify(ptr noundef %tbs.addr.0, i64 noundef %tbslen.addr.0, ptr noundef %sig, ptr noundef nonnull %pubkey, i8 noundef zeroext %bf.clear13, i8 noundef zeroext %bf.clear18, i8 noundef zeroext %bf.clear23, ptr noundef nonnull %context_string, i64 noundef %4, ptr noundef %5, ptr noundef %6) #5
   br label %return
@@ -341,7 +338,7 @@ return:                                           ; preds = %if.then2, %entry, %
 ; Function Attrs: nounwind uwtable
 define internal void @eddsa_freectx(ptr noundef %vpeddsactx) #0 {
 entry:
-  %key = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
   %0 = load ptr, ptr %key, align 8
   tail call void @ossl_ecx_key_free(ptr noundef %0) #5
   tail call void @CRYPTO_free(ptr noundef %vpeddsactx, ptr noundef nonnull @.str, i32 noundef 455) #5
@@ -362,9 +359,9 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(560) %call1, ptr noundef nonnull align 8 dereferenceable(560) %vpeddsactx, i64 560, i1 false)
-  %key = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %call1, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr null, ptr %key, align 8
-  %key4 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 1
+  %key4 = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
   %0 = load ptr, ptr %key4, align 8
   %cmp5.not = icmp eq ptr %0, null
   br i1 %cmp5.not, label %if.end10, label %land.lhs.true
@@ -408,9 +405,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %aid = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 3
+  %aid = getelementptr inbounds i8, ptr %vpeddsactx, i64 272
   %0 = load ptr, ptr %aid, align 8
-  %aid_len = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 4
+  %aid_len = getelementptr inbounds i8, ptr %vpeddsactx, i64 280
   %1 = load i64, ptr %aid_len, align 8
   %call2 = tail call i32 @OSSL_PARAM_set_octet_string(ptr noundef nonnull %call, ptr noundef %0, i64 noundef %1) #5
   %tobool.not = icmp eq i32 %call2, 0
@@ -462,17 +459,17 @@ if.end8:                                          ; preds = %if.then5
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end8
-  %instance_id = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 5
+  %instance_id = getelementptr inbounds i8, ptr %vpeddsactx, i64 288
   store i32 1, ptr %instance_id, align 8
-  %key = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
   %1 = load ptr, ptr %key, align 8
-  %type = getelementptr inbounds %struct.ecx_key_st, ptr %1, i64 0, i32 6
+  %type = getelementptr inbounds i8, ptr %1, i64 96
   %2 = load i32, ptr %type, align 8
   %cmp12.not = icmp eq i32 %2, 2
   br i1 %cmp12.not, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.then11
-  %dom2_flag = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 6
+  %dom2_flag = getelementptr inbounds i8, ptr %vpeddsactx, i64 292
   %bf.load = load i8, ptr %dom2_flag, align 4
   %bf.clear19 = and i8 %bf.load, -8
   store i8 %bf.clear19, ptr %dom2_flag, align 4
@@ -485,17 +482,17 @@ if.else:                                          ; preds = %if.end8
   br i1 %cmp22, label %if.then23, label %if.else42
 
 if.then23:                                        ; preds = %if.else
-  %instance_id24 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 5
+  %instance_id24 = getelementptr inbounds i8, ptr %vpeddsactx, i64 288
   store i32 2, ptr %instance_id24, align 8
-  %key25 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 1
+  %key25 = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
   %4 = load ptr, ptr %key25, align 8
-  %type26 = getelementptr inbounds %struct.ecx_key_st, ptr %4, i64 0, i32 6
+  %type26 = getelementptr inbounds i8, ptr %4, i64 96
   %5 = load i32, ptr %type26, align 8
   %cmp27.not = icmp eq i32 %5, 2
   br i1 %cmp27.not, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.then23
-  %dom2_flag30 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 6
+  %dom2_flag30 = getelementptr inbounds i8, ptr %vpeddsactx, i64 292
   %bf.load31 = load i8, ptr %dom2_flag30, align 4
   %bf.set33 = and i8 %bf.load31, -8
   %bf.set41 = or disjoint i8 %bf.set33, 5
@@ -509,17 +506,17 @@ if.else42:                                        ; preds = %if.else
   br i1 %cmp44, label %if.then45, label %if.else64
 
 if.then45:                                        ; preds = %if.else42
-  %instance_id46 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 5
+  %instance_id46 = getelementptr inbounds i8, ptr %vpeddsactx, i64 288
   store i32 3, ptr %instance_id46, align 8
-  %key47 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 1
+  %key47 = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
   %7 = load ptr, ptr %key47, align 8
-  %type48 = getelementptr inbounds %struct.ecx_key_st, ptr %7, i64 0, i32 6
+  %type48 = getelementptr inbounds i8, ptr %7, i64 96
   %8 = load i32, ptr %type48, align 8
   %cmp49.not = icmp eq i32 %8, 2
   br i1 %cmp49.not, label %if.end51, label %return
 
 if.end51:                                         ; preds = %if.then45
-  %dom2_flag52 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 6
+  %dom2_flag52 = getelementptr inbounds i8, ptr %vpeddsactx, i64 292
   %bf.load53 = load i8, ptr %dom2_flag52, align 4
   %bf.set59 = and i8 %bf.load53, -8
   %bf.clear62 = or disjoint i8 %bf.set59, 3
@@ -533,17 +530,17 @@ if.else64:                                        ; preds = %if.else42
   br i1 %cmp66, label %if.then67, label %if.else82
 
 if.then67:                                        ; preds = %if.else64
-  %instance_id68 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 5
+  %instance_id68 = getelementptr inbounds i8, ptr %vpeddsactx, i64 288
   store i32 4, ptr %instance_id68, align 8
-  %key69 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 1
+  %key69 = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
   %10 = load ptr, ptr %key69, align 8
-  %type70 = getelementptr inbounds %struct.ecx_key_st, ptr %10, i64 0, i32 6
+  %type70 = getelementptr inbounds i8, ptr %10, i64 96
   %11 = load i32, ptr %type70, align 8
   %cmp71.not = icmp eq i32 %11, 3
   br i1 %cmp71.not, label %if.end73, label %return
 
 if.end73:                                         ; preds = %if.then67
-  %prehash_flag74 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 6
+  %prehash_flag74 = getelementptr inbounds i8, ptr %vpeddsactx, i64 292
   %bf.load75 = load i8, ptr %prehash_flag74, align 4
   %bf.clear80 = and i8 %bf.load75, -7
   store i8 %bf.clear80, ptr %prehash_flag74, align 4
@@ -556,17 +553,17 @@ if.else82:                                        ; preds = %if.else64
   br i1 %cmp84, label %if.then85, label %return
 
 if.then85:                                        ; preds = %if.else82
-  %instance_id86 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 5
+  %instance_id86 = getelementptr inbounds i8, ptr %vpeddsactx, i64 288
   store i32 5, ptr %instance_id86, align 8
-  %key87 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 1
+  %key87 = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
   %13 = load ptr, ptr %key87, align 8
-  %type88 = getelementptr inbounds %struct.ecx_key_st, ptr %13, i64 0, i32 6
+  %type88 = getelementptr inbounds i8, ptr %13, i64 96
   %14 = load i32, ptr %type88, align 8
   %cmp89.not = icmp eq i32 %14, 3
   br i1 %cmp89.not, label %if.end91, label %return
 
 if.end91:                                         ; preds = %if.then85
-  %prehash_flag92 = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 6
+  %prehash_flag92 = getelementptr inbounds i8, ptr %vpeddsactx, i64 292
   %bf.load93 = load i8, ptr %prehash_flag92, align 4
   %bf.set95 = and i8 %bf.load93, -7
   %bf.clear98 = or disjoint i8 %bf.set95, 2
@@ -579,9 +576,9 @@ if.end106:                                        ; preds = %if.end14, %if.end51
   br i1 %cmp108.not, label %return, label %if.then109
 
 if.then109:                                       ; preds = %if.end106
-  %context_string = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 7
+  %context_string = getelementptr inbounds i8, ptr %vpeddsactx, i64 293
   store ptr %context_string, ptr %vp_context_string, align 8
-  %context_string_len = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 8
+  %context_string_len = getelementptr inbounds i8, ptr %vpeddsactx, i64 552
   %call111 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %call107, ptr noundef nonnull %vp_context_string, i64 noundef 255, ptr noundef nonnull %context_string_len) #5
   %tobool112.not = icmp eq i32 %call111, 0
   br i1 %tobool112.not, label %if.then113, label %return
@@ -605,7 +602,7 @@ entry:
 define internal i32 @ed448_digest_sign(ptr noundef %vpeddsactx, ptr noundef %sigret, ptr nocapture noundef writeonly %siglen, i64 noundef %sigsize, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %md = alloca [64 x i8], align 16
-  %key = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
   %0 = load ptr, ptr %key, align 8
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -630,7 +627,7 @@ if.then4:                                         ; preds = %if.end2
   br label %return
 
 if.end5:                                          ; preds = %if.end2
-  %privkey = getelementptr inbounds %struct.ecx_key_st, ptr %0, i64 0, i32 4
+  %privkey = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load ptr, ptr %privkey, align 8
   %cmp6 = icmp eq ptr %1, null
   br i1 %cmp6, label %if.then7, label %if.end8
@@ -642,7 +639,7 @@ if.then7:                                         ; preds = %if.end5
   br label %return
 
 if.end8:                                          ; preds = %if.end5
-  %prehash_flag = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 6
+  %prehash_flag = getelementptr inbounds i8, ptr %vpeddsactx, i64 292
   %bf.load = load i8, ptr %prehash_flag, align 4
   %2 = and i8 %bf.load, 2
   %tobool9.not = icmp eq i8 %2, 0
@@ -665,13 +662,13 @@ if.end16:                                         ; preds = %if.then10.if.end16_
   %tbslen.addr.0 = phi i64 [ %tbslen, %if.end8 ], [ 64, %if.then10.if.end16_crit_edge ]
   %tbs.addr.0 = phi ptr [ %tbs, %if.end8 ], [ %md, %if.then10.if.end16_crit_edge ]
   %5 = load ptr, ptr %vpeddsactx, align 8
-  %pubkey = getelementptr inbounds %struct.ecx_key_st, ptr %0, i64 0, i32 3
-  %context_string = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 7
-  %context_string_len = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 8
+  %pubkey = getelementptr inbounds i8, ptr %0, i64 17
+  %context_string = getelementptr inbounds i8, ptr %vpeddsactx, i64 293
+  %context_string_len = getelementptr inbounds i8, ptr %vpeddsactx, i64 552
   %6 = load i64, ptr %context_string_len, align 8
   %bf.lshr23 = lshr i8 %bf.load22, 1
   %bf.clear24 = and i8 %bf.lshr23, 1
-  %propq = getelementptr inbounds %struct.ecx_key_st, ptr %0, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %propq, align 8
   %call26 = call i32 @ossl_ed448_sign(ptr noundef %5, ptr noundef nonnull %sigret, ptr noundef %tbs.addr.0, i64 noundef %tbslen.addr.0, ptr noundef nonnull %pubkey, ptr noundef %4, ptr noundef nonnull %context_string, i64 noundef %6, i8 noundef zeroext %bf.clear24, ptr noundef %7) #5
   %cmp27 = icmp eq i32 %call26, 0
@@ -696,7 +693,7 @@ return:                                           ; preds = %if.then10, %entry, 
 define internal i32 @ed448_digest_verify(ptr noundef %vpeddsactx, ptr noundef %sig, i64 noundef %siglen, ptr noundef %tbs, i64 noundef %tbslen) #0 {
 entry:
   %md = alloca [64 x i8], align 16
-  %key = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %vpeddsactx, i64 8
   %0 = load ptr, ptr %key, align 8
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool = icmp eq i32 %call, 0
@@ -705,7 +702,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %prehash_flag = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 6
+  %prehash_flag = getelementptr inbounds i8, ptr %vpeddsactx, i64 292
   %bf.load = load i8, ptr %prehash_flag, align 4
   %1 = and i8 %bf.load, 2
   %tobool1.not = icmp eq i8 %1, 0
@@ -726,13 +723,13 @@ if.end8:                                          ; preds = %if.then2.if.end8_cr
   %tbslen.addr.0 = phi i64 [ %tbslen, %if.end ], [ 64, %if.then2.if.end8_crit_edge ]
   %tbs.addr.0 = phi ptr [ %tbs, %if.end ], [ %md, %if.then2.if.end8_crit_edge ]
   %3 = load ptr, ptr %vpeddsactx, align 8
-  %pubkey = getelementptr inbounds %struct.ecx_key_st, ptr %0, i64 0, i32 3
-  %context_string = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 7
-  %context_string_len = getelementptr inbounds %struct.PROV_EDDSA_CTX, ptr %vpeddsactx, i64 0, i32 8
+  %pubkey = getelementptr inbounds i8, ptr %0, i64 17
+  %context_string = getelementptr inbounds i8, ptr %vpeddsactx, i64 293
+  %context_string_len = getelementptr inbounds i8, ptr %vpeddsactx, i64 552
   %4 = load i64, ptr %context_string_len, align 8
   %bf.lshr14 = lshr i8 %bf.load13, 1
   %bf.clear15 = and i8 %bf.lshr14, 1
-  %propq = getelementptr inbounds %struct.ecx_key_st, ptr %0, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %propq, align 8
   %call17 = call i32 @ossl_ed448_verify(ptr noundef %3, ptr noundef %tbs.addr.0, i64 noundef %tbslen.addr.0, ptr noundef %sig, ptr noundef nonnull %pubkey, ptr noundef nonnull %context_string, i64 noundef %4, i8 noundef zeroext %bf.clear15, ptr noundef %5) #5
   br label %return

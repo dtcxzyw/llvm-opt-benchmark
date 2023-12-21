@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%struct.prov_cipher_hw_chacha20_st = type { %struct.prov_cipher_hw_st, ptr }
-%struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
 
 @ossl_chacha20_functions = local_unnamed_addr constant [15 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @chacha20_newctx }, %struct.ossl_dispatch_st { i32 7, ptr @chacha20_freectx }, %struct.ossl_dispatch_st { i32 8, ptr @chacha20_dupctx }, %struct.ossl_dispatch_st { i32 2, ptr @ossl_chacha20_einit }, %struct.ossl_dispatch_st { i32 3, ptr @ossl_chacha20_dinit }, %struct.ossl_dispatch_st { i32 4, ptr @ossl_cipher_generic_stream_update }, %struct.ossl_dispatch_st { i32 5, ptr @ossl_cipher_generic_stream_final }, %struct.ossl_dispatch_st { i32 6, ptr @ossl_cipher_generic_cipher }, %struct.ossl_dispatch_st { i32 9, ptr @chacha20_get_params }, %struct.ossl_dispatch_st { i32 12, ptr @ossl_cipher_generic_gettable_params }, %struct.ossl_dispatch_st { i32 10, ptr @chacha20_get_ctx_params }, %struct.ossl_dispatch_st { i32 13, ptr @chacha20_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @chacha20_set_ctx_params }, %struct.ossl_dispatch_st { i32 14, ptr @chacha20_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [7 x i8] c"keylen\00", align 1
@@ -41,9 +37,9 @@ entry:
   br i1 %or.cond, label %if.end.thread, label %if.end
 
 if.end.thread:                                    ; preds = %entry
-  %hw1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw1 = getelementptr inbounds i8, ptr %vctx, i64 168
   %0 = load ptr, ptr %hw1, align 8
-  %initiv = getelementptr inbounds %struct.prov_cipher_hw_chacha20_st, ptr %0, i64 0, i32 1
+  %initiv = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %initiv, align 8
   %call2 = tail call i32 %1(ptr noundef %vctx) #3
   br label %land.lhs.true4
@@ -124,9 +120,9 @@ entry:
   br i1 %or.cond, label %if.end.thread, label %if.end
 
 if.end.thread:                                    ; preds = %entry
-  %hw1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 19
+  %hw1 = getelementptr inbounds i8, ptr %vctx, i64 168
   %0 = load ptr, ptr %hw1, align 8
-  %initiv = getelementptr inbounds %struct.prov_cipher_hw_chacha20_st, ptr %0, i64 0, i32 1
+  %initiv = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %initiv, align 8
   %call2 = tail call i32 %1(ptr noundef %vctx) #3
   br label %land.lhs.true4
@@ -196,19 +192,19 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1.not, label %if.end17, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %tlsmac = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %call, i64 0, i32 13
+  %tlsmac = getelementptr inbounds i8, ptr %call, i64 120
   %0 = load ptr, ptr %tlsmac, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %if.end17, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %alloced = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %call, i64 0, i32 14
+  %alloced = getelementptr inbounds i8, ptr %call, i64 128
   %1 = load i32, ptr %alloced, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end17, label %if.then5
 
 if.then5:                                         ; preds = %land.lhs.true3
-  %tlsmacsize = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %call, i64 0, i32 15
+  %tlsmacsize = getelementptr inbounds i8, ptr %call, i64 136
   %2 = load i64, ptr %tlsmacsize, align 8
   %call9 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %0, i64 noundef %2, ptr noundef nonnull @.str.1, i32 noundef 77) #3
   store ptr %call9, ptr %tlsmac, align 8

@@ -970,9 +970,9 @@ lor.lhs.false:                                    ; preds = %for.body
   br i1 %tobool5.not, label %bad_err, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %xA = getelementptr inbounds %struct.rfc5114_td, ptr @rfctd, i64 %indvars.iv, i32 1
+  %xA = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %1 = load ptr, ptr %xA, align 8
-  %xA_len = getelementptr inbounds %struct.rfc5114_td, ptr @rfctd, i64 %indvars.iv, i32 2
+  %xA_len = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %2 = load i64, ptr %xA_len, align 8
   %conv = trunc i64 %2 to i32
   %call6 = call ptr @BN_bin2bn(ptr noundef %1, i32 noundef %conv, ptr noundef null) #3
@@ -981,9 +981,9 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool8.not, label %bad_err, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %if.end
-  %yA = getelementptr inbounds %struct.rfc5114_td, ptr @rfctd, i64 %indvars.iv, i32 3
+  %yA = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %3 = load ptr, ptr %yA, align 8
-  %yA_len = getelementptr inbounds %struct.rfc5114_td, ptr @rfctd, i64 %indvars.iv, i32 4
+  %yA_len = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %4 = load i64, ptr %yA_len, align 8
   %conv10 = trunc i64 %4 to i32
   %call11 = call ptr @BN_bin2bn(ptr noundef %3, i32 noundef %conv10, ptr noundef null) #3
@@ -1000,9 +1000,9 @@ lor.lhs.false14:                                  ; preds = %lor.lhs.false9
   br i1 %tobool19.not, label %bad_err, label %if.end21
 
 if.end21:                                         ; preds = %lor.lhs.false14
-  %xB = getelementptr inbounds %struct.rfc5114_td, ptr @rfctd, i64 %indvars.iv, i32 5
+  %xB = getelementptr inbounds i8, ptr %add.ptr, i64 40
   %5 = load ptr, ptr %xB, align 8
-  %xB_len = getelementptr inbounds %struct.rfc5114_td, ptr @rfctd, i64 %indvars.iv, i32 6
+  %xB_len = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %6 = load i64, ptr %xB_len, align 8
   %conv22 = trunc i64 %6 to i32
   %call23 = call ptr @BN_bin2bn(ptr noundef %5, i32 noundef %conv22, ptr noundef null) #3
@@ -1011,9 +1011,9 @@ if.end21:                                         ; preds = %lor.lhs.false14
   br i1 %tobool25.not, label %bad_err, label %lor.lhs.false26
 
 lor.lhs.false26:                                  ; preds = %if.end21
-  %yB = getelementptr inbounds %struct.rfc5114_td, ptr @rfctd, i64 %indvars.iv, i32 7
+  %yB = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %7 = load ptr, ptr %yB, align 8
-  %yB_len = getelementptr inbounds %struct.rfc5114_td, ptr @rfctd, i64 %indvars.iv, i32 8
+  %yB_len = getelementptr inbounds i8, ptr %add.ptr, i64 64
   %8 = load i64, ptr %yB_len, align 8
   %conv27 = trunc i64 %8 to i32
   %call28 = call ptr @BN_bin2bn(ptr noundef %7, i32 noundef %conv27, ptr noundef null) #3
@@ -1042,7 +1042,7 @@ lor.lhs.false42:                                  ; preds = %if.end38
   br i1 %tobool45.not, label %err, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false42
-  %Z_len = getelementptr inbounds %struct.rfc5114_td, ptr @rfctd, i64 %indvars.iv, i32 10
+  %Z_len = getelementptr inbounds i8, ptr %add.ptr, i64 80
   %9 = load i64, ptr %Z_len, align 8
   %conv47 = sext i32 %call39 to i64
   %call48 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.9, i32 noundef 609, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i64 noundef %9, i64 noundef %conv47) #3
@@ -1084,7 +1084,7 @@ if.end72:                                         ; preds = %if.end67
   br i1 %tobool75.not, label %bad_err, label %if.end77
 
 if.end77:                                         ; preds = %if.end72
-  %Z = getelementptr inbounds %struct.rfc5114_td, ptr @rfctd, i64 %indvars.iv, i32 9
+  %Z = getelementptr inbounds i8, ptr %add.ptr, i64 72
   %12 = load ptr, ptr %Z, align 8
   %call80 = call i32 @test_mem_eq(ptr noundef nonnull @.str.9, i32 noundef 628, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107, ptr noundef %call58, i64 noundef %9, ptr noundef %12, i64 noundef %9) #3
   %tobool81.not = icmp eq i32 %call80, 0

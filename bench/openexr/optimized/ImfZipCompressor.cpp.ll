@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Imf_3_2::ZipCompressor" = type { %"class.Imf_3_2::Compressor", i32, i32, ptr, %"class.Imf_3_2::Zip" }
-%"class.Imf_3_2::Compressor" = type { ptr, ptr }
-%"class.Imf_3_2::Zip" = type <{ i64, ptr, i32, [4 x i8] }>
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -33,15 +30,15 @@ define hidden void @_ZN7Imf_3_213ZipCompressorC2ERKNS_6HeaderEmm(ptr noundef non
 entry:
   tail call void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(49) %hdr)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213ZipCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_maxScanLineSize = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 1
+  %_maxScanLineSize = getelementptr inbounds i8, ptr %this, i64 16
   %conv = trunc i64 %maxScanLineSize to i32
   store i32 %conv, ptr %_maxScanLineSize, align 8
-  %_numScanLines = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 2
+  %_numScanLines = getelementptr inbounds i8, ptr %this, i64 20
   %conv2 = trunc i64 %numScanLines to i32
   store i32 %conv2, ptr %_numScanLines, align 4
-  %_outBuffer = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 3
+  %_outBuffer = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %_outBuffer, align 8
-  %_zip = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 4
+  %_zip = getelementptr inbounds i8, ptr %this, i64 32
   %call = invoke noundef i32 @_ZNK7Imf_3_26Header19zipCompressionLevelEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
           to label %invoke.cont unwind label %lpad
 
@@ -101,7 +98,7 @@ declare void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenc
 define hidden void @_ZN7Imf_3_213ZipCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213ZipCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_outBuffer = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 3
+  %_outBuffer = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_outBuffer, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -111,7 +108,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %_zip = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 4
+  %_zip = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN7Imf_3_23ZipD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %_zip) #10
   tail call void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #10
   ret void
@@ -124,7 +121,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 define hidden void @_ZN7Imf_3_213ZipCompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213ZipCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_outBuffer.i = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 3
+  %_outBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_outBuffer.i, align 8
   %isnull.i = icmp eq ptr %0, null
   br i1 %isnull.i, label %_ZN7Imf_3_213ZipCompressorD2Ev.exit, label %delete.notnull.i
@@ -134,7 +131,7 @@ delete.notnull.i:                                 ; preds = %entry
   br label %_ZN7Imf_3_213ZipCompressorD2Ev.exit
 
 _ZN7Imf_3_213ZipCompressorD2Ev.exit:              ; preds = %entry, %delete.notnull.i
-  %_zip.i = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 4
+  %_zip.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN7Imf_3_23ZipD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %_zip.i) #10
   tail call void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #10
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11
@@ -147,7 +144,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK7Imf_3_213ZipCompressor12numScanLinesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 {
 entry:
-  %_numScanLines = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 2
+  %_numScanLines = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %_numScanLines, align 4
   ret i32 %0
 }
@@ -159,12 +156,12 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %_outBuffer = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 3
+  %_outBuffer = getelementptr inbounds i8, ptr %this, i64 24
   br label %return
 
 if.end:                                           ; preds = %entry
-  %_zip = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 4
-  %_outBuffer2 = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 3
+  %_zip = getelementptr inbounds i8, ptr %this, i64 32
+  %_outBuffer2 = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_outBuffer2, align 8
   %call = tail call noundef i32 @_ZN7Imf_3_23Zip8compressEPKciPc(ptr noundef nonnull align 8 dereferenceable(20) %_zip, ptr noundef %inPtr, i32 noundef %inSize, ptr noundef %0)
   br label %return
@@ -186,12 +183,12 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %_outBuffer = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 3
+  %_outBuffer = getelementptr inbounds i8, ptr %this, i64 24
   br label %return
 
 if.end:                                           ; preds = %entry
-  %_zip = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 4
-  %_outBuffer2 = getelementptr inbounds %"class.Imf_3_2::ZipCompressor", ptr %this, i64 0, i32 3
+  %_zip = getelementptr inbounds i8, ptr %this, i64 32
+  %_outBuffer2 = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_outBuffer2, align 8
   %call = tail call noundef i32 @_ZN7Imf_3_23Zip10uncompressEPKciPc(ptr noundef nonnull align 8 dereferenceable(20) %_zip, ptr noundef %inPtr, i32 noundef %inSize, ptr noundef %0)
   br label %return

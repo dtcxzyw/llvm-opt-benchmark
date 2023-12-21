@@ -8,13 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.UConverterSharedData = type { i32, i32, ptr, ptr, i8, i8, ptr, i32, %struct.UConverterMBCSTable }
 %struct.UConverterMBCSTable = type { i8, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, [64 x i16], ptr, ptr, i32, i8, i8, i8, i16, i32, ptr, ptr, ptr, ptr }
 %struct.LookupDataStruct = type { i32, i32, i32 }
-%struct.UConverterLoadArgs = type { i32, i32, i8, i8, i16, i32, ptr, ptr, ptr }
-%struct.UConverter = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8, i8, i8, i8, i8, [7 x i8], i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, [8 x i8], [32 x i8], [2 x i16], [2 x i16], [32 x i16], i32, [19 x i16], [31 x i8], i8, i8, i8, i32 }
-%struct.UConverterDataISCII = type { i16, i16, i16, i16, i16, i32, i32, i32, i8, i8, [16 x i8], i32 }
-%struct.UConverterToUnicodeArgs = type { i16, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.UConverterFromUnicodeArgs = type { i16, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.cloneISCIIStruct = type { %struct.UConverter, %struct.UConverterDataISCII }
-%struct.USetAdder = type { ptr, ptr, ptr, ptr, ptr, ptr }
 
 @_ZL16_ISCIIStaticData = internal constant %struct.UConverterStaticData { i32 100, [60 x i8] c"ISCII\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00", i32 0, i8 0, i8 25, i8 1, i8 4, [4 x i8] c"\1A\00\00\00", i8 1, i8 0, i8 0, i8 0, i8 0, [19 x i8] zeroinitializer }, align 4
 @_ZL10_ISCIIImpl = internal constant %struct.UConverterImpl { i32 25, ptr null, ptr null, ptr @_ZL10_ISCIIOpenP10UConverterP18UConverterLoadArgsP10UErrorCode, ptr @_ZL11_ISCIICloseP10UConverter, ptr @_ZL11_ISCIIResetP10UConverter21UConverterResetChoice, ptr @_ZL40UConverter_toUnicode_ISCII_OFFSETS_LOGICP23UConverterToUnicodeArgsP10UErrorCode, ptr @_ZL40UConverter_toUnicode_ISCII_OFFSETS_LOGICP23UConverterToUnicodeArgsP10UErrorCode, ptr @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConverterFromUnicodeArgsP10UErrorCode, ptr @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConverterFromUnicodeArgsP10UErrorCode, ptr null, ptr null, ptr @_ZL13_ISCIIgetNamePK10UConverter, ptr null, ptr @_ZL16_ISCII_SafeClonePK10UConverterPvPiP10UErrorCode, ptr @_ZL19_ISCIIGetUnicodeSetPK10UConverterPK9USetAdder20UConverterUnicodeSetP10UErrorCode, ptr null, ptr null }, align 8
@@ -31,27 +24,27 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL10_ISCIIOpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr nocapture noundef writeonly %cnv, ptr nocapture noundef readonly %pArgs, ptr nocapture noundef writeonly %errorCode) #0 {
 entry:
-  %onlyTestIsLoadable = getelementptr inbounds %struct.UConverterLoadArgs, ptr %pArgs, i64 0, i32 2
+  %onlyTestIsLoadable = getelementptr inbounds i8, ptr %pArgs, i64 8
   %0 = load i8, ptr %onlyTestIsLoadable, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.end31
 
 if.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(48) ptr @uprv_malloc_75(i64 noundef 48) #9
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 2
+  %extraInfo = getelementptr inbounds i8, ptr %cnv, i64 16
   store ptr %call, ptr %extraInfo, align 8
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.else30, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   store i16 -2, ptr %call, align 4
-  %toUnicodeStatus = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 14
+  %toUnicodeStatus = getelementptr inbounds i8, ptr %cnv, i64 72
   store i32 65535, ptr %toUnicodeStatus, align 8
-  %contextCharFromUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %call, i64 0, i32 1
+  %contextCharFromUnicode = getelementptr inbounds i8, ptr %call, i64 2
   store i16 0, ptr %contextCharFromUnicode, align 2
-  %resetToDefaultToUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %call, i64 0, i32 9
+  %resetToDefaultToUnicode = getelementptr inbounds i8, ptr %call, i64 25
   store i8 0, ptr %resetToDefaultToUnicode, align 1
-  %options = getelementptr inbounds %struct.UConverterLoadArgs, ptr %pArgs, i64 0, i32 5
+  %options = getelementptr inbounds i8, ptr %pArgs, i64 12
   %1 = load i32, ptr %options, align 4
   %and = and i32 %1, 15
   %cmp4 = icmp ult i32 %and, 9
@@ -63,23 +56,23 @@ if.then5:                                         ; preds = %if.then2
   %2 = load i32, ptr %arrayidx, align 4
   %.tr = trunc i32 %2 to i16
   %conv = shl i16 %.tr, 7
-  %defDeltaToUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %call, i64 0, i32 2
+  %defDeltaToUnicode = getelementptr inbounds i8, ptr %call, i64 4
   store i16 %conv, ptr %defDeltaToUnicode, align 4
-  %currentDeltaToUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %call, i64 0, i32 4
+  %currentDeltaToUnicode = getelementptr inbounds i8, ptr %call, i64 8
   store i16 %conv, ptr %currentDeltaToUnicode, align 4
-  %currentDeltaFromUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %call, i64 0, i32 3
+  %currentDeltaFromUnicode = getelementptr inbounds i8, ptr %call, i64 6
   store i16 %conv, ptr %currentDeltaFromUnicode, align 2
   %maskEnum = getelementptr inbounds [9 x %struct.LookupDataStruct], ptr @_ZL17lookupInitialData, i64 0, i64 %idxprom, i32 1
   %3 = load i32, ptr %maskEnum, align 4
-  %defMaskToUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %call, i64 0, i32 7
+  %defMaskToUnicode = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %3, ptr %defMaskToUnicode, align 4
-  %currentMaskToUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %call, i64 0, i32 6
+  %currentMaskToUnicode = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %3, ptr %currentMaskToUnicode, align 4
-  %currentMaskFromUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %call, i64 0, i32 5
+  %currentMaskFromUnicode = getelementptr inbounds i8, ptr %call, i64 12
   store i32 %3, ptr %currentMaskFromUnicode, align 4
-  %isFirstBuffer = getelementptr inbounds %struct.UConverterDataISCII, ptr %call, i64 0, i32 8
+  %isFirstBuffer = getelementptr inbounds i8, ptr %call, i64 24
   store i8 1, ptr %isFirstBuffer, align 4
-  %name = getelementptr inbounds %struct.UConverterDataISCII, ptr %call, i64 0, i32 10
+  %name = getelementptr inbounds i8, ptr %call, i64 26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %name, ptr noundef nonnull align 1 dereferenceable(15) @.str, i64 15, i1 false) #10
   %call15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #11
   %4 = trunc i32 %1 to i8
@@ -87,13 +80,13 @@ if.then5:                                         ; preds = %if.then2
   %conv19 = or disjoint i8 %5, 48
   %sext = shl i64 %call15, 32
   %idxprom21 = ashr exact i64 %sext, 32
-  %arrayidx22 = getelementptr inbounds %struct.UConverterDataISCII, ptr %call, i64 0, i32 10, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds [16 x i8], ptr %name, i64 0, i64 %idxprom21
   store i8 %conv19, ptr %arrayidx22, align 1
   %sext26 = add i64 %sext, 4294967296
   %idxprom25 = ashr exact i64 %sext26, 32
-  %arrayidx26 = getelementptr inbounds %struct.UConverterDataISCII, ptr %call, i64 0, i32 10, i64 %idxprom25
+  %arrayidx26 = getelementptr inbounds [16 x i8], ptr %name, i64 0, i64 %idxprom25
   store i8 0, ptr %arrayidx26, align 1
-  %prevToUnicodeStatus = getelementptr inbounds %struct.UConverterDataISCII, ptr %call, i64 0, i32 11
+  %prevToUnicodeStatus = getelementptr inbounds i8, ptr %call, i64 44
   store i32 0, ptr %prevToUnicodeStatus, align 4
   br label %if.end31
 
@@ -114,13 +107,13 @@ if.end31:                                         ; preds = %if.then5, %if.else,
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL11_ISCIICloseP10UConverter(ptr nocapture noundef %cnv) #0 {
 entry:
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 2
+  %extraInfo = getelementptr inbounds i8, ptr %cnv, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %isExtraLocal = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 10
+  %isExtraLocal = getelementptr inbounds i8, ptr %cnv, i64 62
   %1 = load i8, ptr %isExtraLocal, align 2
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then1, label %if.end
@@ -140,46 +133,46 @@ if.end4:                                          ; preds = %if.end, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL11_ISCIIResetP10UConverter21UConverterResetChoice(ptr nocapture noundef %cnv, i32 noundef %choice) #1 {
 entry:
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 2
+  %extraInfo = getelementptr inbounds i8, ptr %cnv, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
   %cmp = icmp slt i32 %choice, 2
   br i1 %cmp, label %if.end, label %if.then2
 
 if.end:                                           ; preds = %entry
-  %toUnicodeStatus = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 14
+  %toUnicodeStatus = getelementptr inbounds i8, ptr %cnv, i64 72
   store i32 65535, ptr %toUnicodeStatus, align 8
-  %mode = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 15
+  %mode = getelementptr inbounds i8, ptr %cnv, i64 76
   store i32 0, ptr %mode, align 4
-  %defDeltaToUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %0, i64 0, i32 2
+  %defDeltaToUnicode = getelementptr inbounds i8, ptr %0, i64 4
   %1 = load i16, ptr %defDeltaToUnicode, align 4
-  %currentDeltaToUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %0, i64 0, i32 4
+  %currentDeltaToUnicode = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %1, ptr %currentDeltaToUnicode, align 4
-  %defMaskToUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %0, i64 0, i32 7
+  %defMaskToUnicode = getelementptr inbounds i8, ptr %0, i64 20
   %2 = load i32, ptr %defMaskToUnicode, align 4
-  %currentMaskToUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %0, i64 0, i32 6
+  %currentMaskToUnicode = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %2, ptr %currentMaskToUnicode, align 4
   store i16 -2, ptr %0, align 4
-  %prevToUnicodeStatus = getelementptr inbounds %struct.UConverterDataISCII, ptr %0, i64 0, i32 11
+  %prevToUnicodeStatus = getelementptr inbounds i8, ptr %0, i64 44
   store i32 0, ptr %prevToUnicodeStatus, align 4
   %cmp1.not = icmp eq i32 %choice, 1
   br i1 %cmp1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %entry, %if.end
-  %fromUChar32 = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 17
+  %fromUChar32 = getelementptr inbounds i8, ptr %cnv, i64 84
   store i32 0, ptr %fromUChar32, align 4
-  %contextCharFromUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %0, i64 0, i32 1
+  %contextCharFromUnicode = getelementptr inbounds i8, ptr %0, i64 2
   store i16 0, ptr %contextCharFromUnicode, align 2
-  %defMaskToUnicode3 = getelementptr inbounds %struct.UConverterDataISCII, ptr %0, i64 0, i32 7
+  %defMaskToUnicode3 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %defMaskToUnicode3, align 4
-  %currentMaskFromUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %0, i64 0, i32 5
+  %currentMaskFromUnicode = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %3, ptr %currentMaskFromUnicode, align 4
-  %defDeltaToUnicode4 = getelementptr inbounds %struct.UConverterDataISCII, ptr %0, i64 0, i32 2
+  %defDeltaToUnicode4 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i16, ptr %defDeltaToUnicode4, align 4
-  %currentDeltaFromUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %0, i64 0, i32 3
+  %currentDeltaFromUnicode = getelementptr inbounds i8, ptr %0, i64 6
   store i16 %4, ptr %currentDeltaFromUnicode, align 2
-  %isFirstBuffer = getelementptr inbounds %struct.UConverterDataISCII, ptr %0, i64 0, i32 8
+  %isFirstBuffer = getelementptr inbounds i8, ptr %0, i64 24
   store i8 1, ptr %isFirstBuffer, align 4
-  %resetToDefaultToUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %0, i64 0, i32 9
+  %resetToDefaultToUnicode = getelementptr inbounds i8, ptr %0, i64 25
   store i8 0, ptr %resetToDefaultToUnicode, align 1
   br label %if.end5
 
@@ -190,13 +183,13 @@ if.end5:                                          ; preds = %if.then2, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL40UConverter_toUnicode_ISCII_OFFSETS_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef %args, ptr nocapture noundef %err) #2 {
 entry:
-  %source1 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %args, i64 0, i32 3
-  %target2 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %args, i64 0, i32 5
-  %sourceLimit3 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %args, i64 0, i32 4
+  %source1 = getelementptr inbounds i8, ptr %args, i64 16
+  %target2 = getelementptr inbounds i8, ptr %args, i64 32
+  %sourceLimit3 = getelementptr inbounds i8, ptr %args, i64 24
   %0 = load ptr, ptr %sourceLimit3, align 8
-  %targetLimit4 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %args, i64 0, i32 6
+  %targetLimit4 = getelementptr inbounds i8, ptr %args, i64 40
   %1 = load ptr, ptr %targetLimit4, align 8
-  %converter = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %args, i64 0, i32 2
+  %converter = getelementptr inbounds i8, ptr %args, i64 8
   %2 = load ptr, ptr %converter, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %if.then, label %if.end
@@ -208,29 +201,29 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %target2, align 8
   %4 = load ptr, ptr %source1, align 8
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %2, i64 0, i32 2
+  %extraInfo = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %extraInfo, align 8
-  %toUnicodeStatus13 = getelementptr inbounds %struct.UConverter, ptr %2, i64 0, i32 14
+  %toUnicodeStatus13 = getelementptr inbounds i8, ptr %2, i64 72
   %6 = load i32, ptr %err, align 4
-  %cmp.i701731 = icmp slt i32 %6, 1
-  %cmp14702732 = icmp ult ptr %4, %0
-  %7 = select i1 %cmp.i701731, i1 %cmp14702732, i1 false
+  %cmp.i702732 = icmp slt i32 %6, 1
+  %cmp14703733 = icmp ult ptr %4, %0
+  %7 = select i1 %cmp.i702732, i1 %cmp14703733, i1 false
   br i1 %7, label %while.body.lr.ph.lr.ph, label %while.end
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end
-  %defDeltaToUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %5, i64 0, i32 2
-  %currentDeltaToUnicode37 = getelementptr inbounds %struct.UConverterDataISCII, ptr %5, i64 0, i32 4
-  %defMaskToUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %5, i64 0, i32 7
-  %currentMaskToUnicode38 = getelementptr inbounds %struct.UConverterDataISCII, ptr %5, i64 0, i32 6
-  %prevToUnicodeStatus174 = getelementptr inbounds %struct.UConverterDataISCII, ptr %5, i64 0, i32 11
-  %offsets202 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %args, i64 0, i32 7
-  %resetToDefaultToUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %5, i64 0, i32 9
+  %defDeltaToUnicode = getelementptr inbounds i8, ptr %5, i64 4
+  %currentDeltaToUnicode37 = getelementptr inbounds i8, ptr %5, i64 8
+  %defMaskToUnicode = getelementptr inbounds i8, ptr %5, i64 20
+  %currentMaskToUnicode38 = getelementptr inbounds i8, ptr %5, i64 16
+  %prevToUnicodeStatus174 = getelementptr inbounds i8, ptr %5, i64 44
+  %offsets202 = getelementptr inbounds i8, ptr %args, i64 48
+  %resetToDefaultToUnicode = getelementptr inbounds i8, ptr %5, i64 25
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %while.cond.outer.backedge
-  %source.0.ph734 = phi ptr [ %4, %while.body.lr.ph.lr.ph ], [ %incdec.ptr.us, %while.cond.outer.backedge ]
-  %target.0.ph733 = phi ptr [ %3, %while.body.lr.ph.lr.ph ], [ %target.0.ph.be, %while.cond.outer.backedge ]
-  %cmp15 = icmp ult ptr %target.0.ph733, %1
+  %source.0.ph735 = phi ptr [ %4, %while.body.lr.ph.lr.ph ], [ %incdec.ptr.us, %while.cond.outer.backedge ]
+  %target.0.ph734 = phi ptr [ %3, %while.body.lr.ph.lr.ph ], [ %target.0.ph.be, %while.cond.outer.backedge ]
+  %cmp15 = icmp ult ptr %target.0.ph734, %1
   br i1 %cmp15, label %while.body.us.preheader, label %while.end.thread
 
 while.body.us.preheader:                          ; preds = %while.body.lr.ph
@@ -239,9 +232,9 @@ while.body.us.preheader:                          ; preds = %while.body.lr.ph
 
 while.body.us:                                    ; preds = %while.body.us.preheader, %if.end48.us
   %8 = phi i16 [ -2, %if.end48.us ], [ %.pre, %while.body.us.preheader ]
-  %source.0703.us = phi ptr [ %incdec.ptr.us, %if.end48.us ], [ %source.0.ph734, %while.body.us.preheader ]
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %source.0703.us, i64 1
-  %9 = load i8, ptr %source.0703.us, align 1
+  %source.0704.us = phi ptr [ %incdec.ptr.us, %if.end48.us ], [ %source.0.ph735, %while.body.us.preheader ]
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %source.0704.us, i64 1
+  %9 = load i8, ptr %source.0704.us, align 1
   switch i16 %8, label %if.end273 [
     i16 239, label %if.then18.us
     i16 240, label %if.then52.split.us
@@ -275,7 +268,7 @@ if.then23.us:                                     ; preds = %if.then18.us
   %15 = load i16, ptr %arrayidx.us, align 4
   %mul.us = shl i16 %15, 7
   store i16 %mul.us, ptr %currentDeltaToUnicode37, align 4
-  %arrayidx32.us = getelementptr inbounds [12 x [2 x i16]], ptr @_ZL11lookupTable, i64 0, i64 %idxprom.us, i64 1
+  %arrayidx32.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 2
   %16 = load i16, ptr %arrayidx32.us, align 2
   %conv33.us = zext i16 %16 to i32
   br label %if.end48.us.sink.split
@@ -302,7 +295,7 @@ if.then168.split.us:                              ; preds = %while.body.us
   %cmp170.not = icmp eq i8 %9, -24
   %20 = load i32, ptr %prevToUnicodeStatus174, align 4
   %tobool175.not = icmp eq i32 %20, 0
-  %.pre768 = load ptr, ptr %targetLimit4, align 8
+  %.pre769 = load ptr, ptr %targetLimit4, align 8
   br i1 %tobool175.not, label %if.end242, label %do.body177
 
 if.else45:                                        ; preds = %if.else39.us
@@ -337,13 +330,13 @@ if.then74:                                        ; preds = %if.then64
 
 do.body:                                          ; preds = %if.then74
   %25 = load ptr, ptr %targetLimit4, align 8
-  %cmp95 = icmp ult ptr %target.0.ph733, %25
+  %cmp95 = icmp ult ptr %target.0.ph734, %25
   %conv98 = trunc i32 %24 to i16
   br i1 %cmp95, label %if.then96, label %if.else108
 
 if.then96:                                        ; preds = %do.body
-  %incdec.ptr99 = getelementptr inbounds i16, ptr %target.0.ph733, i64 1
-  store i16 %conv98, ptr %target.0.ph733, align 2
+  %incdec.ptr99 = getelementptr inbounds i8, ptr %target.0.ph734, i64 2
+  store i16 %conv98, ptr %target.0.ph734, align 2
   %26 = load ptr, ptr %offsets202, align 8
   %tobool100.not = icmp eq ptr %26, null
   br i1 %tobool100.not, label %do.end, label %if.then101
@@ -355,30 +348,31 @@ if.then101:                                       ; preds = %if.then96
   %28 = xor i64 %sub.ptr.rhs.cast, -1
   %sub103 = add i64 %28, %sub.ptr.lhs.cast
   %conv104 = trunc i64 %sub103 to i32
-  %incdec.ptr106 = getelementptr inbounds i32, ptr %26, i64 1
+  %incdec.ptr106 = getelementptr inbounds i8, ptr %26, i64 4
   store ptr %incdec.ptr106, ptr %offsets202, align 8
   store i32 %conv104, ptr %26, align 4
   br label %do.end
 
 if.else108:                                       ; preds = %do.body
   %29 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength = getelementptr inbounds %struct.UConverter, ptr %29, i64 0, i32 23
+  %UCharErrorBuffer = getelementptr inbounds i8, ptr %29, i64 144
+  %UCharErrorBufferLength = getelementptr inbounds i8, ptr %29, i64 93
   %30 = load i8, ptr %UCharErrorBufferLength, align 1
   %inc = add i8 %30, 1
   store i8 %inc, ptr %UCharErrorBufferLength, align 1
   %idxprom113 = sext i8 %30 to i64
-  %arrayidx114 = getelementptr inbounds %struct.UConverter, ptr %29, i64 0, i32 30, i64 %idxprom113
+  %arrayidx114 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer, i64 0, i64 %idxprom113
   store i16 %conv98, ptr %arrayidx114, align 2
   store i32 15, ptr %err, align 4
   br label %do.end
 
 do.end:                                           ; preds = %if.else108, %if.then101, %if.then96
-  %target.1 = phi ptr [ %incdec.ptr99, %if.then101 ], [ %incdec.ptr99, %if.then96 ], [ %target.0.ph733, %if.else108 ]
+  %target.1 = phi ptr [ %incdec.ptr99, %if.then101 ], [ %incdec.ptr99, %if.then96 ], [ %target.0.ph734, %if.else108 ]
   store i32 0, ptr %prevToUnicodeStatus174, align 4
   br label %if.then128
 
 if.then128:                                       ; preds = %do.end, %if.then74
-  %target.2 = phi ptr [ %target.1, %do.end ], [ %target.0.ph733, %if.then74 ]
+  %target.2 = phi ptr [ %target.1, %do.end ], [ %target.0.ph734, %if.then74 ]
   %31 = load i16, ptr %currentDeltaToUnicode37, align 4
   %32 = load ptr, ptr %targetLimit4, align 8
   %cmp134 = icmp ult ptr %target.2, %32
@@ -387,7 +381,7 @@ if.then128:                                       ; preds = %do.end, %if.then74
   br i1 %cmp134, label %if.then135, label %if.else150
 
 if.then135:                                       ; preds = %if.then128
-  %incdec.ptr137 = getelementptr inbounds i16, ptr %target.2, i64 1
+  %incdec.ptr137 = getelementptr inbounds i8, ptr %target.2, i64 2
   store i16 %conv136, ptr %target.2, align 2
   %34 = load ptr, ptr %offsets202, align 8
   %tobool139.not = icmp eq ptr %34, null
@@ -400,19 +394,20 @@ if.then140:                                       ; preds = %if.then135
   %sub.ptr.sub144 = sub i64 %sub.ptr.lhs.cast142, %sub.ptr.rhs.cast143
   %36 = trunc i64 %sub.ptr.sub144 to i32
   %conv146 = add i32 %36, -2
-  %incdec.ptr148 = getelementptr inbounds i32, ptr %34, i64 1
+  %incdec.ptr148 = getelementptr inbounds i8, ptr %34, i64 4
   store ptr %incdec.ptr148, ptr %offsets202, align 8
   store i32 %conv146, ptr %34, align 4
   br label %while.cond.outer.backedge
 
 if.else150:                                       ; preds = %if.then128
   %37 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength155 = getelementptr inbounds %struct.UConverter, ptr %37, i64 0, i32 23
+  %UCharErrorBuffer153 = getelementptr inbounds i8, ptr %37, i64 144
+  %UCharErrorBufferLength155 = getelementptr inbounds i8, ptr %37, i64 93
   %38 = load i8, ptr %UCharErrorBufferLength155, align 1
   %inc156 = add i8 %38, 1
   store i8 %inc156, ptr %UCharErrorBufferLength155, align 1
   %idxprom157 = sext i8 %38 to i64
-  %arrayidx158 = getelementptr inbounds %struct.UConverter, ptr %37, i64 0, i32 30, i64 %idxprom157
+  %arrayidx158 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer153, i64 0, i64 %idxprom157
   store i16 %conv136, ptr %arrayidx158, align 2
   store i32 15, ptr %err, align 4
   br label %while.cond.outer.backedge
@@ -420,9 +415,9 @@ if.else150:                                       ; preds = %if.then128
 while.cond.outer.backedge:                        ; preds = %if.then1177, %if.then1182, %if.then846, %if.then851, %if.else861, %sw.bb, %do.end374, %if.then135, %if.then140, %if.else150, %do.end1005, %if.end738
   %target.0.ph.be = phi ptr [ %target.16, %if.end738 ], [ %target.21, %do.end1005 ], [ %incdec.ptr137, %if.then140 ], [ %incdec.ptr137, %if.then135 ], [ %target.2, %if.else150 ], [ %target.10, %do.end374 ], [ %target.7, %sw.bb ], [ %incdec.ptr848, %if.then851 ], [ %incdec.ptr848, %if.then846 ], [ %target.18, %if.else861 ], [ %target.25671, %if.then1182 ], [ %target.25671, %if.then1177 ]
   %39 = load i32, ptr %err, align 4
-  %cmp.i701 = icmp slt i32 %39, 1
-  %cmp14702 = icmp ult ptr %incdec.ptr.us, %0
-  %40 = select i1 %cmp.i701, i1 %cmp14702, i1 false
+  %cmp.i702 = icmp slt i32 %39, 1
+  %cmp14703 = icmp ult ptr %incdec.ptr.us, %0
+  %40 = select i1 %cmp.i702, i1 %cmp14703, i1 false
   br i1 %40, label %while.body.lr.ph, label %while.end, !llvm.loop !4
 
 if.end162:                                        ; preds = %if.then58, %if.then64
@@ -435,13 +430,13 @@ if.else163:                                       ; preds = %if.then52.split.us
   br label %CALLBACK
 
 do.body177:                                       ; preds = %if.then168.split.us
-  %cmp197 = icmp ult ptr %target.0.ph733, %.pre768
+  %cmp197 = icmp ult ptr %target.0.ph734, %.pre769
   %conv200 = trunc i32 %20 to i16
   br i1 %cmp197, label %if.then198, label %if.else214
 
 if.then198:                                       ; preds = %do.body177
-  %incdec.ptr201 = getelementptr inbounds i16, ptr %target.0.ph733, i64 1
-  store i16 %conv200, ptr %target.0.ph733, align 2
+  %incdec.ptr201 = getelementptr inbounds i8, ptr %target.0.ph734, i64 2
+  store i16 %conv200, ptr %target.0.ph734, align 2
   %41 = load ptr, ptr %offsets202, align 8
   %tobool203.not = icmp eq ptr %41, null
   br i1 %tobool203.not, label %do.end225, label %if.then204
@@ -453,38 +448,39 @@ if.then204:                                       ; preds = %if.then198
   %43 = xor i64 %sub.ptr.rhs.cast207, -1
   %sub209 = add i64 %43, %sub.ptr.lhs.cast206
   %conv210 = trunc i64 %sub209 to i32
-  %incdec.ptr212 = getelementptr inbounds i32, ptr %41, i64 1
+  %incdec.ptr212 = getelementptr inbounds i8, ptr %41, i64 4
   store ptr %incdec.ptr212, ptr %offsets202, align 8
   store i32 %conv210, ptr %41, align 4
   br label %do.end225
 
 if.else214:                                       ; preds = %do.body177
   %44 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength220 = getelementptr inbounds %struct.UConverter, ptr %44, i64 0, i32 23
+  %UCharErrorBuffer218 = getelementptr inbounds i8, ptr %44, i64 144
+  %UCharErrorBufferLength220 = getelementptr inbounds i8, ptr %44, i64 93
   %45 = load i8, ptr %UCharErrorBufferLength220, align 1
   %inc221 = add i8 %45, 1
   store i8 %inc221, ptr %UCharErrorBufferLength220, align 1
   %idxprom222 = sext i8 %45 to i64
-  %arrayidx223 = getelementptr inbounds %struct.UConverter, ptr %44, i64 0, i32 30, i64 %idxprom222
+  %arrayidx223 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer218, i64 0, i64 %idxprom222
   store i16 %conv200, ptr %arrayidx223, align 2
   store i32 15, ptr %err, align 4
   br label %do.end225
 
 do.end225:                                        ; preds = %if.else214, %if.then204, %if.then198
-  %target.4 = phi ptr [ %incdec.ptr201, %if.then204 ], [ %incdec.ptr201, %if.then198 ], [ %target.0.ph733, %if.else214 ]
+  %target.4 = phi ptr [ %incdec.ptr201, %if.then204 ], [ %incdec.ptr201, %if.then198 ], [ %target.0.ph734, %if.else214 ]
   store i32 0, ptr %prevToUnicodeStatus174, align 4
-  %.pre767 = load ptr, ptr %targetLimit4, align 8
+  %.pre768 = load ptr, ptr %targetLimit4, align 8
   br label %if.end242
 
 if.end242:                                        ; preds = %do.end225, %if.then168.split.us
-  %46 = phi ptr [ %.pre767, %do.end225 ], [ %.pre768, %if.then168.split.us ]
-  %target.5 = phi ptr [ %target.4, %do.end225 ], [ %target.0.ph733, %if.then168.split.us ]
+  %46 = phi ptr [ %.pre768, %do.end225 ], [ %.pre769, %if.then168.split.us ]
+  %target.5 = phi ptr [ %target.4, %do.end225 ], [ %target.0.ph734, %if.then168.split.us ]
   %cmp244 = icmp ult ptr %target.5, %46
   %conv246 = select i1 %cmp170.not, i16 32, i16 8205
   br i1 %cmp244, label %if.then245, label %if.else260
 
 if.then245:                                       ; preds = %if.end242
-  %incdec.ptr247 = getelementptr inbounds i16, ptr %target.5, i64 1
+  %incdec.ptr247 = getelementptr inbounds i8, ptr %target.5, i64 2
   store i16 %conv246, ptr %target.5, align 2
   %47 = load ptr, ptr %offsets202, align 8
   %tobool249.not = icmp eq ptr %47, null
@@ -497,19 +493,20 @@ if.then250:                                       ; preds = %if.then245
   %sub.ptr.sub254 = sub i64 %sub.ptr.lhs.cast252, %sub.ptr.rhs.cast253
   %49 = trunc i64 %sub.ptr.sub254 to i32
   %conv256 = add i32 %49, -2
-  %incdec.ptr258 = getelementptr inbounds i32, ptr %47, i64 1
+  %incdec.ptr258 = getelementptr inbounds i8, ptr %47, i64 4
   store ptr %incdec.ptr258, ptr %offsets202, align 8
   store i32 %conv256, ptr %47, align 4
   br label %do.end270
 
 if.else260:                                       ; preds = %if.end242
   %50 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength265 = getelementptr inbounds %struct.UConverter, ptr %50, i64 0, i32 23
+  %UCharErrorBuffer263 = getelementptr inbounds i8, ptr %50, i64 144
+  %UCharErrorBufferLength265 = getelementptr inbounds i8, ptr %50, i64 93
   %51 = load i8, ptr %UCharErrorBufferLength265, align 1
   %inc266 = add i8 %51, 1
   store i8 %inc266, ptr %UCharErrorBufferLength265, align 1
   %idxprom267 = sext i8 %51 to i64
-  %arrayidx268 = getelementptr inbounds %struct.UConverter, ptr %50, i64 0, i32 30, i64 %idxprom267
+  %arrayidx268 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer263, i64 0, i64 %idxprom267
   store i16 %conv246, ptr %arrayidx268, align 2
   store i32 15, ptr %err, align 4
   br label %do.end270
@@ -521,7 +518,7 @@ do.end270:                                        ; preds = %if.else260, %if.the
 
 if.end273:                                        ; preds = %while.body.us, %do.end270
   %52 = phi i16 [ -2, %do.end270 ], [ %8, %while.body.us ]
-  %target.7 = phi ptr [ %target.6, %do.end270 ], [ %target.0.ph733, %while.body.us ]
+  %target.7 = phi ptr [ %target.6, %do.end270 ], [ %target.0.ph734, %while.body.us ]
   switch i8 %9, label %do.body877 [
     i8 -39, label %sw.bb
     i8 -16, label %sw.bb
@@ -553,7 +550,7 @@ do.body281:                                       ; preds = %if.then277
   br i1 %cmp301, label %if.then302, label %if.else318
 
 if.then302:                                       ; preds = %do.body281
-  %incdec.ptr305 = getelementptr inbounds i16, ptr %target.7, i64 1
+  %incdec.ptr305 = getelementptr inbounds i8, ptr %target.7, i64 2
   store i16 %conv304, ptr %target.7, align 2
   %56 = load ptr, ptr %offsets202, align 8
   %tobool307.not = icmp eq ptr %56, null
@@ -566,19 +563,20 @@ if.then308:                                       ; preds = %if.then302
   %58 = xor i64 %sub.ptr.rhs.cast311, -1
   %sub313 = add i64 %58, %sub.ptr.lhs.cast310
   %conv314 = trunc i64 %sub313 to i32
-  %incdec.ptr316 = getelementptr inbounds i32, ptr %56, i64 1
+  %incdec.ptr316 = getelementptr inbounds i8, ptr %56, i64 4
   store ptr %incdec.ptr316, ptr %offsets202, align 8
   store i32 %conv314, ptr %56, align 4
   br label %do.end329
 
 if.else318:                                       ; preds = %do.body281
   %59 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength324 = getelementptr inbounds %struct.UConverter, ptr %59, i64 0, i32 23
+  %UCharErrorBuffer322 = getelementptr inbounds i8, ptr %59, i64 144
+  %UCharErrorBufferLength324 = getelementptr inbounds i8, ptr %59, i64 93
   %60 = load i8, ptr %UCharErrorBufferLength324, align 1
   %inc325 = add i8 %60, 1
   store i8 %inc325, ptr %UCharErrorBufferLength324, align 1
   %idxprom326 = sext i8 %60 to i64
-  %arrayidx327 = getelementptr inbounds %struct.UConverter, ptr %59, i64 0, i32 30, i64 %idxprom326
+  %arrayidx327 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer322, i64 0, i64 %idxprom326
   store i16 %conv304, ptr %arrayidx327, align 2
   store i32 15, ptr %err, align 4
   br label %do.end329
@@ -586,18 +584,18 @@ if.else318:                                       ; preds = %do.body281
 do.end329:                                        ; preds = %if.else318, %if.then308, %if.then302
   %target.8 = phi ptr [ %incdec.ptr305, %if.then308 ], [ %incdec.ptr305, %if.then302 ], [ %target.7, %if.else318 ]
   store i32 0, ptr %prevToUnicodeStatus174, align 4
-  %.pre772 = load i32, ptr %toUnicodeStatus13, align 4
+  %.pre773 = load i32, ptr %toUnicodeStatus13, align 4
   br label %do.body332
 
 do.body332:                                       ; preds = %if.then277, %do.end329
-  %61 = phi i32 [ %.pre772, %do.end329 ], [ %53, %if.then277 ]
+  %61 = phi i32 [ %.pre773, %do.end329 ], [ %53, %if.then277 ]
   %target.9 = phi ptr [ %target.8, %do.end329 ], [ %target.7, %if.then277 ]
-  %.fr = freeze i32 %61
-  %cmp333 = icmp slt i32 %.fr, 161
+  %.fr676 = freeze i32 %61
+  %cmp333 = icmp slt i32 %.fr676, 161
   br i1 %cmp333, label %if.end346, label %switch.early.test629
 
 switch.early.test629:                             ; preds = %do.body332
-  switch i32 %.fr, label %if.then342 [
+  switch i32 %.fr676, label %if.then342 [
     i32 8205, label %if.end346
     i32 8204, label %if.end346
     i32 2405, label %if.end346
@@ -607,19 +605,19 @@ switch.early.test629:                             ; preds = %do.body332
 if.then342:                                       ; preds = %switch.early.test629
   %62 = load i16, ptr %currentDeltaToUnicode37, align 4
   %conv344 = zext i16 %62 to i32
-  %add345 = add nuw nsw i32 %.fr, %conv344
+  %add345 = add nuw nsw i32 %.fr676, %conv344
   store i32 %add345, ptr %toUnicodeStatus13, align 4
   br label %if.end346
 
 if.end346:                                        ; preds = %switch.early.test629, %switch.early.test629, %switch.early.test629, %switch.early.test629, %do.body332, %if.then342
-  %63 = phi i32 [ %.fr, %switch.early.test629 ], [ %.fr, %switch.early.test629 ], [ %.fr, %switch.early.test629 ], [ %.fr, %switch.early.test629 ], [ %.fr, %do.body332 ], [ %add345, %if.then342 ]
+  %63 = phi i32 [ %.fr676, %switch.early.test629 ], [ %.fr676, %switch.early.test629 ], [ %.fr676, %switch.early.test629 ], [ %.fr676, %switch.early.test629 ], [ %.fr676, %do.body332 ], [ %add345, %if.then342 ]
   %64 = load ptr, ptr %targetLimit4, align 8
   %cmp348 = icmp ult ptr %target.9, %64
   %conv350 = trunc i32 %63 to i16
   br i1 %cmp348, label %if.then349, label %if.else364
 
 if.then349:                                       ; preds = %if.end346
-  %incdec.ptr351 = getelementptr inbounds i16, ptr %target.9, i64 1
+  %incdec.ptr351 = getelementptr inbounds i8, ptr %target.9, i64 2
   store i16 %conv350, ptr %target.9, align 2
   %65 = load ptr, ptr %offsets202, align 8
   %tobool353.not = icmp eq ptr %65, null
@@ -632,19 +630,20 @@ if.then354:                                       ; preds = %if.then349
   %sub.ptr.sub358 = sub i64 %sub.ptr.lhs.cast356, %sub.ptr.rhs.cast357
   %67 = trunc i64 %sub.ptr.sub358 to i32
   %conv360 = add i32 %67, -2
-  %incdec.ptr362 = getelementptr inbounds i32, ptr %65, i64 1
+  %incdec.ptr362 = getelementptr inbounds i8, ptr %65, i64 4
   store ptr %incdec.ptr362, ptr %offsets202, align 8
   store i32 %conv360, ptr %65, align 4
   br label %do.end374
 
 if.else364:                                       ; preds = %if.end346
   %68 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength369 = getelementptr inbounds %struct.UConverter, ptr %68, i64 0, i32 23
+  %UCharErrorBuffer367 = getelementptr inbounds i8, ptr %68, i64 144
+  %UCharErrorBufferLength369 = getelementptr inbounds i8, ptr %68, i64 93
   %69 = load i8, ptr %UCharErrorBufferLength369, align 1
   %inc370 = add i8 %69, 1
   store i8 %inc370, ptr %UCharErrorBufferLength369, align 1
   %idxprom371 = sext i8 %69 to i64
-  %arrayidx372 = getelementptr inbounds %struct.UConverter, ptr %68, i64 0, i32 30, i64 %idxprom371
+  %arrayidx372 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer367, i64 0, i64 %idxprom371
   store i16 %conv350, ptr %arrayidx372, align 2
   store i32 15, ptr %err, align 4
   br label %do.end374
@@ -688,16 +687,16 @@ do.end462:                                        ; preds = %if.end273, %if.end2
 for.body.critedge:                                ; preds = %if.end273
   %73 = and i16 %52, 255
   %cmp473 = icmp ne i16 %73, 164
-  %.pre771 = load i32, ptr %currentMaskToUnicode38, align 4
-  %and488 = and i32 %.pre771, 128
+  %.pre772 = load i32, ptr %currentMaskToUnicode38, align 4
+  %and488 = and i32 %.pre772, 128
   %tobool489.not = icmp eq i32 %and488, 0
   %or.cond = select i1 %cmp473, i1 true, i1 %tobool489.not
   br i1 %or.cond, label %do.body493, label %if.then1177.sink.split, !llvm.loop !6
 
 do.body493:                                       ; preds = %for.body.critedge
-  %and505 = and i32 %.pre771, 135
+  %and505 = and i32 %.pre772, 135
   %cmp506 = icmp eq i32 %and505, 0
-  %spec.select737 = select i1 %cmp506, i32 65535, i32 2374
+  %spec.select738 = select i1 %cmp506, i32 65535, i32 2374
   br label %sw.epilog
 
 sw.bb518:                                         ; preds = %if.end273
@@ -718,16 +717,16 @@ for.cond741.preheader:                            ; preds = %if.else522
 if.then530:                                       ; preds = %if.else522
   %76 = load i32, ptr %prevToUnicodeStatus174, align 4
   %tobool532.not = icmp eq i32 %76, 0
-  %.pre770 = load ptr, ptr %targetLimit4, align 8
+  %.pre771 = load ptr, ptr %targetLimit4, align 8
   br i1 %tobool532.not, label %if.end597, label %do.body534
 
 do.body534:                                       ; preds = %if.then530
-  %cmp554 = icmp ult ptr %target.7, %.pre770
+  %cmp554 = icmp ult ptr %target.7, %.pre771
   %conv557 = trunc i32 %76 to i16
   br i1 %cmp554, label %if.then555, label %if.else571
 
 if.then555:                                       ; preds = %do.body534
-  %incdec.ptr558 = getelementptr inbounds i16, ptr %target.7, i64 1
+  %incdec.ptr558 = getelementptr inbounds i8, ptr %target.7, i64 2
   store i16 %conv557, ptr %target.7, align 2
   %77 = load ptr, ptr %offsets202, align 8
   %tobool560.not = icmp eq ptr %77, null
@@ -740,19 +739,20 @@ if.then561:                                       ; preds = %if.then555
   %79 = xor i64 %sub.ptr.rhs.cast564, -1
   %sub566 = add i64 %79, %sub.ptr.lhs.cast563
   %conv567 = trunc i64 %sub566 to i32
-  %incdec.ptr569 = getelementptr inbounds i32, ptr %77, i64 1
+  %incdec.ptr569 = getelementptr inbounds i8, ptr %77, i64 4
   store ptr %incdec.ptr569, ptr %offsets202, align 8
   store i32 %conv567, ptr %77, align 4
   br label %do.end582
 
 if.else571:                                       ; preds = %do.body534
   %80 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength577 = getelementptr inbounds %struct.UConverter, ptr %80, i64 0, i32 23
+  %UCharErrorBuffer575 = getelementptr inbounds i8, ptr %80, i64 144
+  %UCharErrorBufferLength577 = getelementptr inbounds i8, ptr %80, i64 93
   %81 = load i8, ptr %UCharErrorBufferLength577, align 1
   %inc578 = add i8 %81, 1
   store i8 %inc578, ptr %UCharErrorBufferLength577, align 1
   %idxprom579 = sext i8 %81 to i64
-  %arrayidx580 = getelementptr inbounds %struct.UConverter, ptr %80, i64 0, i32 30, i64 %idxprom579
+  %arrayidx580 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer575, i64 0, i64 %idxprom579
   store i16 %conv557, ptr %arrayidx580, align 2
   store i32 15, ptr %err, align 4
   br label %do.end582
@@ -760,17 +760,17 @@ if.else571:                                       ; preds = %do.body534
 do.end582:                                        ; preds = %if.else571, %if.then561, %if.then555
   %target.12 = phi ptr [ %incdec.ptr558, %if.then561 ], [ %incdec.ptr558, %if.then555 ], [ %target.7, %if.else571 ]
   store i32 0, ptr %prevToUnicodeStatus174, align 4
-  %.pre769 = load ptr, ptr %targetLimit4, align 8
+  %.pre770 = load ptr, ptr %targetLimit4, align 8
   br label %if.end597
 
 if.end597:                                        ; preds = %do.end582, %if.then530
-  %82 = phi ptr [ %.pre769, %do.end582 ], [ %.pre770, %if.then530 ]
+  %82 = phi ptr [ %.pre770, %do.end582 ], [ %.pre771, %if.then530 ]
   %target.13 = phi ptr [ %target.12, %do.end582 ], [ %target.7, %if.then530 ]
   %cmp599 = icmp ult ptr %target.13, %82
   br i1 %cmp599, label %if.then600, label %do.end625.thread
 
 if.then600:                                       ; preds = %if.end597
-  %incdec.ptr602 = getelementptr inbounds i16, ptr %target.13, i64 1
+  %incdec.ptr602 = getelementptr inbounds i8, ptr %target.13, i64 2
   store i16 2652, ptr %target.13, align 2
   %83 = load ptr, ptr %offsets202, align 8
   %tobool604.not = icmp eq ptr %83, null
@@ -783,26 +783,27 @@ if.then605:                                       ; preds = %if.then600
   %sub.ptr.sub609 = sub i64 %sub.ptr.lhs.cast607, %sub.ptr.rhs.cast608
   %85 = trunc i64 %sub.ptr.sub609 to i32
   %conv611 = add i32 %85, -2
-  %incdec.ptr613 = getelementptr inbounds i32, ptr %83, i64 1
+  %incdec.ptr613 = getelementptr inbounds i8, ptr %83, i64 4
   store ptr %incdec.ptr613, ptr %offsets202, align 8
   store i32 %conv611, ptr %83, align 4
   br label %do.end625
 
 do.end625.thread:                                 ; preds = %if.end597
   %86 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength620 = getelementptr inbounds %struct.UConverter, ptr %86, i64 0, i32 23
+  %UCharErrorBuffer618 = getelementptr inbounds i8, ptr %86, i64 144
+  %UCharErrorBufferLength620 = getelementptr inbounds i8, ptr %86, i64 93
   %87 = load i8, ptr %UCharErrorBufferLength620, align 1
   %inc621 = add i8 %87, 1
   store i8 %inc621, ptr %UCharErrorBufferLength620, align 1
   %idxprom622 = sext i8 %87 to i64
-  %arrayidx623 = getelementptr inbounds %struct.UConverter, ptr %86, i64 0, i32 30, i64 %idxprom622
+  %arrayidx623 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer618, i64 0, i64 %idxprom622
   store i16 2652, ptr %arrayidx623, align 2
   store i32 15, ptr %err, align 4
   br label %if.else723
 
 do.end625:                                        ; preds = %if.then605, %if.then600
-  %.pr777 = load i32, ptr %err, align 4
-  %cmp.i633 = icmp sgt i32 %.pr777, 0
+  %.pr778 = load i32, ptr %err, align 4
+  %cmp.i633 = icmp sgt i32 %.pr778, 0
   br i1 %cmp.i633, label %if.else723, label %if.end641
 
 if.end641:                                        ; preds = %do.end625
@@ -811,7 +812,7 @@ if.end641:                                        ; preds = %do.end625
   br i1 %cmp643, label %if.then644, label %do.end669.thread
 
 if.then644:                                       ; preds = %if.end641
-  %incdec.ptr646 = getelementptr inbounds i16, ptr %target.13, i64 2
+  %incdec.ptr646 = getelementptr inbounds i8, ptr %target.13, i64 4
   store i16 2637, ptr %incdec.ptr602, align 2
   %89 = load ptr, ptr %offsets202, align 8
   %tobool648.not = icmp eq ptr %89, null
@@ -824,26 +825,27 @@ if.then649:                                       ; preds = %if.then644
   %sub.ptr.sub653 = sub i64 %sub.ptr.lhs.cast651, %sub.ptr.rhs.cast652
   %91 = trunc i64 %sub.ptr.sub653 to i32
   %conv655 = add i32 %91, -2
-  %incdec.ptr657 = getelementptr inbounds i32, ptr %89, i64 1
+  %incdec.ptr657 = getelementptr inbounds i8, ptr %89, i64 4
   store ptr %incdec.ptr657, ptr %offsets202, align 8
   store i32 %conv655, ptr %89, align 4
   br label %do.end669
 
 do.end669.thread:                                 ; preds = %if.end641
   %92 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength664 = getelementptr inbounds %struct.UConverter, ptr %92, i64 0, i32 23
+  %UCharErrorBuffer662 = getelementptr inbounds i8, ptr %92, i64 144
+  %UCharErrorBufferLength664 = getelementptr inbounds i8, ptr %92, i64 93
   %93 = load i8, ptr %UCharErrorBufferLength664, align 1
   %inc665 = add i8 %93, 1
   store i8 %inc665, ptr %UCharErrorBufferLength664, align 1
   %idxprom666 = sext i8 %93 to i64
-  %arrayidx667 = getelementptr inbounds %struct.UConverter, ptr %92, i64 0, i32 30, i64 %idxprom666
+  %arrayidx667 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer662, i64 0, i64 %idxprom666
   store i16 2637, ptr %arrayidx667, align 2
   store i32 15, ptr %err, align 4
   br label %if.else714
 
 do.end669:                                        ; preds = %if.then649, %if.then644
-  %.pr781 = load i32, ptr %err, align 4
-  %cmp.i635 = icmp sgt i32 %.pr781, 0
+  %.pr782 = load i32, ptr %err, align 4
+  %cmp.i635 = icmp sgt i32 %.pr782, 0
   br i1 %cmp.i635, label %if.else714, label %if.end685
 
 if.end685:                                        ; preds = %do.end669
@@ -852,7 +854,7 @@ if.end685:                                        ; preds = %do.end669
   br i1 %cmp687, label %if.then688, label %if.else703
 
 if.then688:                                       ; preds = %if.end685
-  %incdec.ptr690 = getelementptr inbounds i16, ptr %target.13, i64 3
+  %incdec.ptr690 = getelementptr inbounds i8, ptr %target.13, i64 6
   store i16 2617, ptr %incdec.ptr646, align 2
   %95 = load ptr, ptr %offsets202, align 8
   %tobool692.not = icmp eq ptr %95, null
@@ -865,57 +867,61 @@ if.then693:                                       ; preds = %if.then688
   %sub.ptr.sub697 = sub i64 %sub.ptr.lhs.cast695, %sub.ptr.rhs.cast696
   %97 = trunc i64 %sub.ptr.sub697 to i32
   %conv699 = add i32 %97, -2
-  %incdec.ptr701 = getelementptr inbounds i32, ptr %95, i64 1
+  %incdec.ptr701 = getelementptr inbounds i8, ptr %95, i64 4
   store ptr %incdec.ptr701, ptr %offsets202, align 8
   store i32 %conv699, ptr %95, align 4
   br label %if.end738
 
 if.else703:                                       ; preds = %if.end685
   %98 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength708 = getelementptr inbounds %struct.UConverter, ptr %98, i64 0, i32 23
+  %UCharErrorBuffer706 = getelementptr inbounds i8, ptr %98, i64 144
+  %UCharErrorBufferLength708 = getelementptr inbounds i8, ptr %98, i64 93
   %99 = load i8, ptr %UCharErrorBufferLength708, align 1
   %inc709 = add i8 %99, 1
   store i8 %inc709, ptr %UCharErrorBufferLength708, align 1
   %idxprom710 = sext i8 %99 to i64
-  %arrayidx711 = getelementptr inbounds %struct.UConverter, ptr %98, i64 0, i32 30, i64 %idxprom710
+  %arrayidx711 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer706, i64 0, i64 %idxprom710
   store i16 2617, ptr %arrayidx711, align 2
   store i32 15, ptr %err, align 4
   br label %if.end738
 
 if.else714:                                       ; preds = %do.end669.thread, %do.end669
-  %target.15784 = phi ptr [ %incdec.ptr602, %do.end669.thread ], [ %incdec.ptr646, %do.end669 ]
+  %target.15785 = phi ptr [ %incdec.ptr602, %do.end669.thread ], [ %incdec.ptr646, %do.end669 ]
   %100 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength718 = getelementptr inbounds %struct.UConverter, ptr %100, i64 0, i32 23
+  %UCharErrorBuffer716 = getelementptr inbounds i8, ptr %100, i64 144
+  %UCharErrorBufferLength718 = getelementptr inbounds i8, ptr %100, i64 93
   %101 = load i8, ptr %UCharErrorBufferLength718, align 1
   %inc719 = add i8 %101, 1
   store i8 %inc719, ptr %UCharErrorBufferLength718, align 1
   %idxprom720 = sext i8 %101 to i64
-  %arrayidx721 = getelementptr inbounds %struct.UConverter, ptr %100, i64 0, i32 30, i64 %idxprom720
+  %arrayidx721 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer716, i64 0, i64 %idxprom720
   store i16 2617, ptr %arrayidx721, align 2
   br label %if.end738
 
 if.else723:                                       ; preds = %do.end625.thread, %do.end625
-  %target.14780 = phi ptr [ %target.13, %do.end625.thread ], [ %incdec.ptr602, %do.end625 ]
+  %target.14781 = phi ptr [ %target.13, %do.end625.thread ], [ %incdec.ptr602, %do.end625 ]
   %102 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength727 = getelementptr inbounds %struct.UConverter, ptr %102, i64 0, i32 23
+  %UCharErrorBuffer725 = getelementptr inbounds i8, ptr %102, i64 144
+  %UCharErrorBufferLength727 = getelementptr inbounds i8, ptr %102, i64 93
   %103 = load i8, ptr %UCharErrorBufferLength727, align 1
   %inc728 = add i8 %103, 1
   store i8 %inc728, ptr %UCharErrorBufferLength727, align 1
   %idxprom729 = sext i8 %103 to i64
-  %arrayidx730 = getelementptr inbounds %struct.UConverter, ptr %102, i64 0, i32 30, i64 %idxprom729
+  %arrayidx730 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer725, i64 0, i64 %idxprom729
   store i16 2637, ptr %arrayidx730, align 2
   %104 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength734 = getelementptr inbounds %struct.UConverter, ptr %104, i64 0, i32 23
+  %UCharErrorBuffer732 = getelementptr inbounds i8, ptr %104, i64 144
+  %UCharErrorBufferLength734 = getelementptr inbounds i8, ptr %104, i64 93
   %105 = load i8, ptr %UCharErrorBufferLength734, align 1
   %inc735 = add i8 %105, 1
   store i8 %inc735, ptr %UCharErrorBufferLength734, align 1
   %idxprom736 = sext i8 %105 to i64
-  %arrayidx737 = getelementptr inbounds %struct.UConverter, ptr %104, i64 0, i32 30, i64 %idxprom736
+  %arrayidx737 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer732, i64 0, i64 %idxprom736
   store i16 2617, ptr %arrayidx737, align 2
   br label %if.end738
 
 if.end738:                                        ; preds = %if.else714, %if.else703, %if.then693, %if.then688, %if.else723
-  %target.16 = phi ptr [ %incdec.ptr690, %if.then693 ], [ %incdec.ptr690, %if.then688 ], [ %incdec.ptr646, %if.else703 ], [ %target.15784, %if.else714 ], [ %target.14780, %if.else723 ]
+  %target.16 = phi ptr [ %incdec.ptr690, %if.then693 ], [ %incdec.ptr690, %if.then688 ], [ %incdec.ptr646, %if.else703 ], [ %target.15785, %if.else714 ], [ %target.14781, %if.else723 ]
   store i32 65535, ptr %toUnicodeStatus13, align 4
   store i16 -2, ptr %5, align 4
   br label %while.cond.outer.backedge
@@ -933,9 +939,10 @@ for.body744:                                      ; preds = %for.cond741.prehead
   br i1 %cmp751, label %if.then762, label %for.cond741
 
 if.then762:                                       ; preds = %for.body744
-  %arrayidx755 = getelementptr inbounds [16 x [2 x i16]], ptr @_ZL17nuktaSpecialCases, i64 0, i64 %indvars.iv, i64 1
-  %107 = load i16, ptr %arrayidx755, align 2
-  %conv756 = zext i16 %107 to i32
+  %gep = getelementptr inbounds [16 x [2 x i16]], ptr getelementptr inbounds ([16 x [2 x i16]], ptr @_ZL17nuktaSpecialCases, i64 0, i64 0, i64 1), i64 0, i64 %indvars.iv
+  %107 = load i16, ptr %gep, align 2
+  %.fr = freeze i16 %107
+  %conv756 = zext i16 %.fr to i32
   %108 = and i32 %conv756, 255
   %idxprom764 = zext nneg i32 %108 to i64
   %arrayidx765 = getelementptr inbounds [128 x i8], ptr @_ZL13validityTable, i64 0, i64 %idxprom764
@@ -956,7 +963,7 @@ if.then770:                                       ; preds = %if.then762
 if.then774:                                       ; preds = %if.then770
   %112 = load i32, ptr %prevToUnicodeStatus174, align 4
   %tobool776.not = icmp eq i32 %112, 0
-  br i1 %tobool776.not, label %switch.early.test, label %do.body778
+  br i1 %tobool776.not, label %do.body829, label %do.body778
 
 do.body778:                                       ; preds = %if.then774
   %113 = load ptr, ptr %targetLimit4, align 8
@@ -965,7 +972,7 @@ do.body778:                                       ; preds = %if.then774
   br i1 %cmp798, label %if.then799, label %if.else815
 
 if.then799:                                       ; preds = %do.body778
-  %incdec.ptr802 = getelementptr inbounds i16, ptr %target.7, i64 1
+  %incdec.ptr802 = getelementptr inbounds i8, ptr %target.7, i64 2
   store i16 %conv801, ptr %target.7, align 2
   %114 = load ptr, ptr %offsets202, align 8
   %tobool804.not = icmp eq ptr %114, null
@@ -978,19 +985,20 @@ if.then805:                                       ; preds = %if.then799
   %116 = xor i64 %sub.ptr.rhs.cast808, -1
   %sub810 = add i64 %116, %sub.ptr.lhs.cast807
   %conv811 = trunc i64 %sub810 to i32
-  %incdec.ptr813 = getelementptr inbounds i32, ptr %114, i64 1
+  %incdec.ptr813 = getelementptr inbounds i8, ptr %114, i64 4
   store ptr %incdec.ptr813, ptr %offsets202, align 8
   store i32 %conv811, ptr %114, align 4
   br label %do.end826
 
 if.else815:                                       ; preds = %do.body778
   %117 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength821 = getelementptr inbounds %struct.UConverter, ptr %117, i64 0, i32 23
+  %UCharErrorBuffer819 = getelementptr inbounds i8, ptr %117, i64 144
+  %UCharErrorBufferLength821 = getelementptr inbounds i8, ptr %117, i64 93
   %118 = load i8, ptr %UCharErrorBufferLength821, align 1
   %inc822 = add i8 %118, 1
   store i8 %inc822, ptr %UCharErrorBufferLength821, align 1
   %idxprom823 = sext i8 %118 to i64
-  %arrayidx824 = getelementptr inbounds %struct.UConverter, ptr %117, i64 0, i32 30, i64 %idxprom823
+  %arrayidx824 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer819, i64 0, i64 %idxprom823
   store i16 %conv801, ptr %arrayidx824, align 2
   store i32 15, ptr %err, align 4
   br label %do.end826
@@ -998,11 +1006,15 @@ if.else815:                                       ; preds = %do.body778
 do.end826:                                        ; preds = %if.else815, %if.then805, %if.then799
   %target.17 = phi ptr [ %incdec.ptr802, %if.then805 ], [ %incdec.ptr802, %if.then799 ], [ %target.7, %if.else815 ]
   store i32 0, ptr %prevToUnicodeStatus174, align 4
-  br label %switch.early.test
+  br label %do.body829
 
-switch.early.test:                                ; preds = %do.end826, %if.then774
+do.body829:                                       ; preds = %if.then774, %do.end826
   %target.18 = phi ptr [ %target.17, %do.end826 ], [ %target.7, %if.then774 ]
-  switch i16 %107, label %if.then839 [
+  %cmp830 = icmp ugt i16 %.fr, 160
+  br i1 %cmp830, label %switch.early.test, label %if.end843
+
+switch.early.test:                                ; preds = %do.body829
+  switch i16 %.fr, label %if.then839 [
     i16 8205, label %if.end843
     i16 8204, label %if.end843
     i16 2405, label %if.end843
@@ -1011,17 +1023,17 @@ switch.early.test:                                ; preds = %do.end826, %if.then
 
 if.then839:                                       ; preds = %switch.early.test
   %119 = load i16, ptr %currentDeltaToUnicode37, align 4
-  %add842 = add i16 %119, %107
+  %add842 = add i16 %119, %.fr
   br label %if.end843
 
-if.end843:                                        ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %if.then839
-  %targetUniChar.13 = phi i16 [ %add842, %if.then839 ], [ %107, %switch.early.test ], [ %107, %switch.early.test ], [ %107, %switch.early.test ], [ %107, %switch.early.test ]
+if.end843:                                        ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %do.body829, %if.then839
+  %targetUniChar.13 = phi i16 [ %add842, %if.then839 ], [ %.fr, %switch.early.test ], [ %.fr, %do.body829 ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ], [ %.fr, %switch.early.test ]
   %120 = load ptr, ptr %targetLimit4, align 8
   %cmp845 = icmp ult ptr %target.18, %120
   br i1 %cmp845, label %if.then846, label %if.else861
 
 if.then846:                                       ; preds = %if.end843
-  %incdec.ptr848 = getelementptr inbounds i16, ptr %target.18, i64 1
+  %incdec.ptr848 = getelementptr inbounds i8, ptr %target.18, i64 2
   store i16 %targetUniChar.13, ptr %target.18, align 2
   %121 = load ptr, ptr %offsets202, align 8
   %tobool850.not = icmp eq ptr %121, null
@@ -1034,19 +1046,20 @@ if.then851:                                       ; preds = %if.then846
   %sub.ptr.sub855 = sub i64 %sub.ptr.lhs.cast853, %sub.ptr.rhs.cast854
   %123 = trunc i64 %sub.ptr.sub855 to i32
   %conv857 = add i32 %123, -2
-  %incdec.ptr859 = getelementptr inbounds i32, ptr %121, i64 1
+  %incdec.ptr859 = getelementptr inbounds i8, ptr %121, i64 4
   store ptr %incdec.ptr859, ptr %offsets202, align 8
   store i32 %conv857, ptr %121, align 4
   br label %while.cond.outer.backedge
 
 if.else861:                                       ; preds = %if.end843
   %124 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength866 = getelementptr inbounds %struct.UConverter, ptr %124, i64 0, i32 23
+  %UCharErrorBuffer864 = getelementptr inbounds i8, ptr %124, i64 144
+  %UCharErrorBufferLength866 = getelementptr inbounds i8, ptr %124, i64 93
   %125 = load i8, ptr %UCharErrorBufferLength866, align 1
   %inc867 = add i8 %125, 1
   store i8 %inc867, ptr %UCharErrorBufferLength866, align 1
   %idxprom868 = sext i8 %125 to i64
-  %arrayidx869 = getelementptr inbounds %struct.UConverter, ptr %124, i64 0, i32 30, i64 %idxprom868
+  %arrayidx869 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer864, i64 0, i64 %idxprom868
   store i16 %targetUniChar.13, ptr %arrayidx869, align 2
   store i32 15, ptr %err, align 4
   br label %while.cond.outer.backedge
@@ -1085,7 +1098,7 @@ do.end900:                                        ; preds = %if.then891, %do.bod
 
 sw.epilog:                                        ; preds = %sw.bb518, %sw.bb407, %do.body412, %do.body381, %do.end900, %do.body493, %do.end462
   %.sink = phi i16 [ 232, %do.body412 ], [ 234, %do.body381 ], [ %conv901, %do.end900 ], [ 224, %do.body493 ], [ %conv463, %do.end462 ], [ -2, %sw.bb407 ], [ -2, %sw.bb518 ]
-  %targetUniChar.15.ph = phi i32 [ %spec.select672, %do.body412 ], [ %spec.select, %do.body381 ], [ %targetUniChar.14, %do.end900 ], [ %spec.select737, %do.body493 ], [ %conv442, %do.end462 ], [ 8204, %sw.bb407 ], [ 8205, %sw.bb518 ]
+  %targetUniChar.15.ph = phi i32 [ %spec.select672, %do.body412 ], [ %spec.select, %do.body381 ], [ %targetUniChar.14, %do.end900 ], [ %spec.select738, %do.body493 ], [ %conv442, %do.end462 ], [ 8204, %sw.bb407 ], [ 8205, %sw.bb518 ]
   store i16 %.sink, ptr %5, align 2
   %.pr = load i32, ptr %toUnicodeStatus13, align 4
   %cmp902.not = icmp eq i32 %.pr, 65535
@@ -1094,14 +1107,14 @@ sw.epilog:                                        ; preds = %sw.bb518, %sw.bb407
 if.then903:                                       ; preds = %sw.epilog
   %130 = load i16, ptr %currentDeltaToUnicode37, align 4
   %cmp906 = icmp ne i16 %130, 256
-  %.pre773 = load i32, ptr %prevToUnicodeStatus174, align 4
-  %131 = add i32 %.pre773, -2640
+  %.pre774 = load i32, ptr %prevToUnicodeStatus174, align 4
+  %131 = add i32 %.pre774, -2640
   %or.cond.i = icmp ult i32 %131, -80
-  %or.cond825 = select i1 %cmp906, i1 true, i1 %or.cond.i
-  br i1 %or.cond825, label %if.else1007, label %_ZL14isPNJConsonanti.exit
+  %or.cond826 = select i1 %cmp906, i1 true, i1 %or.cond.i
+  br i1 %or.cond826, label %if.else1007, label %_ZL14isPNJConsonanti.exit
 
 _ZL14isPNJConsonanti.exit:                        ; preds = %if.then903
-  %sub.i = add nsw i32 %.pre773, -2560
+  %sub.i = add nsw i32 %.pre774, -2560
   %idxprom.i = zext nneg i32 %sub.i to i64
   %arrayidx.i = getelementptr inbounds [80 x i8], ptr @_ZL6pnjMap, i64 0, i64 %idxprom.i
   %132 = load i8, ptr %arrayidx.i, align 1
@@ -1110,7 +1123,7 @@ _ZL14isPNJConsonanti.exit:                        ; preds = %if.then903
   %cmp916 = icmp eq i32 %.pr, 2381
   %or.cond674 = and i1 %cmp916, %tobool913.not
   %add918 = add nuw nsw i32 %targetUniChar.15.ph, 256
-  %cmp920 = icmp eq i32 %add918, %.pre773
+  %cmp920 = icmp eq i32 %add918, %.pre774
   %or.cond675 = select i1 %or.cond674, i1 %cmp920, i1 false
   br i1 %or.cond675, label %if.then921, label %do.body1011
 
@@ -1126,26 +1139,27 @@ if.then921:                                       ; preds = %_ZL14isPNJConsonant
   br i1 %cmp942, label %if.then943, label %if.else952
 
 if.then943:                                       ; preds = %if.then921
-  %incdec.ptr945 = getelementptr inbounds i16, ptr %target.7, i64 1
+  %incdec.ptr945 = getelementptr inbounds i8, ptr %target.7, i64 2
   store i16 2673, ptr %target.7, align 2
   %137 = load ptr, ptr %offsets202, align 8
   %tobool947.not = icmp eq ptr %137, null
   br i1 %tobool947.not, label %do.body963, label %if.then948
 
 if.then948:                                       ; preds = %if.then943
-  %incdec.ptr950 = getelementptr inbounds i32, ptr %137, i64 1
+  %incdec.ptr950 = getelementptr inbounds i8, ptr %137, i64 4
   store ptr %incdec.ptr950, ptr %offsets202, align 8
   store i32 %conv927, ptr %137, align 4
   br label %do.body963
 
 if.else952:                                       ; preds = %if.then921
   %138 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength957 = getelementptr inbounds %struct.UConverter, ptr %138, i64 0, i32 23
+  %UCharErrorBuffer955 = getelementptr inbounds i8, ptr %138, i64 144
+  %UCharErrorBufferLength957 = getelementptr inbounds i8, ptr %138, i64 93
   %139 = load i8, ptr %UCharErrorBufferLength957, align 1
   %inc958 = add i8 %139, 1
   store i8 %inc958, ptr %UCharErrorBufferLength957, align 1
   %idxprom959 = sext i8 %139 to i64
-  %arrayidx960 = getelementptr inbounds %struct.UConverter, ptr %138, i64 0, i32 30, i64 %idxprom959
+  %arrayidx960 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer955, i64 0, i64 %idxprom959
   store i16 2673, ptr %arrayidx960, align 2
   store i32 15, ptr %err, align 4
   br label %do.body963
@@ -1159,26 +1173,27 @@ do.body963:                                       ; preds = %if.then943, %if.the
   br i1 %cmp983, label %if.then984, label %if.else994
 
 if.then984:                                       ; preds = %do.body963
-  %incdec.ptr987 = getelementptr inbounds i16, ptr %target.20, i64 1
+  %incdec.ptr987 = getelementptr inbounds i8, ptr %target.20, i64 2
   store i16 %conv986, ptr %target.20, align 2
   %142 = load ptr, ptr %offsets202, align 8
   %tobool989.not = icmp eq ptr %142, null
   br i1 %tobool989.not, label %do.end1005, label %if.then990
 
 if.then990:                                       ; preds = %if.then984
-  %incdec.ptr992 = getelementptr inbounds i32, ptr %142, i64 1
+  %incdec.ptr992 = getelementptr inbounds i8, ptr %142, i64 4
   store ptr %incdec.ptr992, ptr %offsets202, align 8
   store i32 %conv927, ptr %142, align 4
   br label %do.end1005
 
 if.else994:                                       ; preds = %do.body963
   %143 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength1000 = getelementptr inbounds %struct.UConverter, ptr %143, i64 0, i32 23
+  %UCharErrorBuffer998 = getelementptr inbounds i8, ptr %143, i64 144
+  %UCharErrorBufferLength1000 = getelementptr inbounds i8, ptr %143, i64 93
   %144 = load i8, ptr %UCharErrorBufferLength1000, align 1
   %inc1001 = add i8 %144, 1
   store i8 %inc1001, ptr %UCharErrorBufferLength1000, align 1
   %idxprom1002 = sext i8 %144 to i64
-  %arrayidx1003 = getelementptr inbounds %struct.UConverter, ptr %143, i64 0, i32 30, i64 %idxprom1002
+  %arrayidx1003 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer998, i64 0, i64 %idxprom1002
   store i16 %conv986, ptr %arrayidx1003, align 2
   store i32 15, ptr %err, align 4
   br label %do.end1005
@@ -1190,17 +1205,17 @@ do.end1005:                                       ; preds = %if.else994, %if.the
   br label %while.cond.outer.backedge
 
 if.else1007:                                      ; preds = %if.then903
-  %tobool1009.not = icmp eq i32 %.pre773, 0
+  %tobool1009.not = icmp eq i32 %.pre774, 0
   br i1 %tobool1009.not, label %if.end1061, label %do.body1011
 
 do.body1011:                                      ; preds = %_ZL14isPNJConsonanti.exit, %if.else1007
   %145 = load ptr, ptr %targetLimit4, align 8
   %cmp1031 = icmp ult ptr %target.7, %145
-  %conv1034 = trunc i32 %.pre773 to i16
+  %conv1034 = trunc i32 %.pre774 to i16
   br i1 %cmp1031, label %if.then1032, label %if.else1048
 
 if.then1032:                                      ; preds = %do.body1011
-  %incdec.ptr1035 = getelementptr inbounds i16, ptr %target.7, i64 1
+  %incdec.ptr1035 = getelementptr inbounds i8, ptr %target.7, i64 2
   store i16 %conv1034, ptr %target.7, align 2
   %146 = load ptr, ptr %offsets202, align 8
   %tobool1037.not = icmp eq ptr %146, null
@@ -1213,19 +1228,20 @@ if.then1038:                                      ; preds = %if.then1032
   %148 = xor i64 %sub.ptr.rhs.cast1041, -1
   %sub1043 = add i64 %148, %sub.ptr.lhs.cast1040
   %conv1044 = trunc i64 %sub1043 to i32
-  %incdec.ptr1046 = getelementptr inbounds i32, ptr %146, i64 1
+  %incdec.ptr1046 = getelementptr inbounds i8, ptr %146, i64 4
   store ptr %incdec.ptr1046, ptr %offsets202, align 8
   store i32 %conv1044, ptr %146, align 4
   br label %do.end1059
 
 if.else1048:                                      ; preds = %do.body1011
   %149 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength1054 = getelementptr inbounds %struct.UConverter, ptr %149, i64 0, i32 23
+  %UCharErrorBuffer1052 = getelementptr inbounds i8, ptr %149, i64 144
+  %UCharErrorBufferLength1054 = getelementptr inbounds i8, ptr %149, i64 93
   %150 = load i8, ptr %UCharErrorBufferLength1054, align 1
   %inc1055 = add i8 %150, 1
   store i8 %inc1055, ptr %UCharErrorBufferLength1054, align 1
   %idxprom1056 = sext i8 %150 to i64
-  %arrayidx1057 = getelementptr inbounds %struct.UConverter, ptr %149, i64 0, i32 30, i64 %idxprom1056
+  %arrayidx1057 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer1052, i64 0, i64 %idxprom1056
   store i16 %conv1034, ptr %arrayidx1057, align 2
   store i32 15, ptr %err, align 4
   br label %do.end1059
@@ -1233,11 +1249,11 @@ if.else1048:                                      ; preds = %do.body1011
 do.end1059:                                       ; preds = %if.else1048, %if.then1038, %if.then1032
   %target.22 = phi ptr [ %incdec.ptr1035, %if.then1038 ], [ %incdec.ptr1035, %if.then1032 ], [ %target.7, %if.else1048 ]
   store i32 0, ptr %prevToUnicodeStatus174, align 4
-  %.pre774 = load i16, ptr %currentDeltaToUnicode37, align 4
+  %.pre775 = load i16, ptr %currentDeltaToUnicode37, align 4
   br label %if.end1061
 
 if.end1061:                                       ; preds = %do.end1059, %if.else1007
-  %151 = phi i16 [ %.pre774, %do.end1059 ], [ %130, %if.else1007 ]
+  %151 = phi i16 [ %.pre775, %do.end1059 ], [ %130, %if.else1007 ]
   %target.23 = phi ptr [ %target.22, %do.end1059 ], [ %target.7, %if.else1007 ]
   %cmp1064 = icmp eq i16 %151, 256
   %cmp1067 = icmp eq i32 %targetUniChar.15.ph, 2306
@@ -1246,14 +1262,14 @@ if.end1061:                                       ; preds = %do.end1059, %if.els
 
 land.lhs.true1068:                                ; preds = %if.end1061
   %152 = load i32, ptr %toUnicodeStatus13, align 4
-  %.fr676 = freeze i32 %152
-  %add1069 = add nsw i32 %.fr676, 256
-  %153 = add i32 %.fr676, -2384
+  %.fr677 = freeze i32 %152
+  %add1069 = add nsw i32 %.fr677, 256
+  %153 = add i32 %.fr677, -2384
   %or.cond.i637 = icmp ult i32 %153, -80
   br i1 %or.cond.i637, label %do.body1129, label %_ZL15isPNJBindiTippii.exit
 
 _ZL15isPNJBindiTippii.exit:                       ; preds = %land.lhs.true1068
-  %sub.i639 = add nsw i32 %.fr676, -2304
+  %sub.i639 = add nsw i32 %.fr677, -2304
   %idxprom.i640 = zext nneg i32 %sub.i639 to i64
   %arrayidx.i641 = getelementptr inbounds [80 x i8], ptr @_ZL6pnjMap, i64 0, i64 %idxprom.i640
   %154 = load i8, ptr %arrayidx.i641, align 1
@@ -1268,7 +1284,7 @@ if.then1083:                                      ; preds = %_ZL15isPNJBindiTipp
   br i1 %cmp1087, label %if.then1088, label %if.else1103
 
 if.then1088:                                      ; preds = %if.then1083
-  %incdec.ptr1090 = getelementptr inbounds i16, ptr %target.23, i64 1
+  %incdec.ptr1090 = getelementptr inbounds i8, ptr %target.23, i64 2
   store i16 %conv1089, ptr %target.23, align 2
   %156 = load ptr, ptr %offsets202, align 8
   %tobool1092.not = icmp eq ptr %156, null
@@ -1281,19 +1297,20 @@ if.then1093:                                      ; preds = %if.then1088
   %sub.ptr.sub1097 = sub i64 %sub.ptr.lhs.cast1095, %sub.ptr.rhs.cast1096
   %158 = trunc i64 %sub.ptr.sub1097 to i32
   %conv1099 = add i32 %158, -2
-  %incdec.ptr1101 = getelementptr inbounds i32, ptr %156, i64 1
+  %incdec.ptr1101 = getelementptr inbounds i8, ptr %156, i64 4
   store ptr %incdec.ptr1101, ptr %offsets202, align 8
   store i32 %conv1099, ptr %156, align 4
   br label %if.end1174
 
 if.else1103:                                      ; preds = %if.then1083
   %159 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength1108 = getelementptr inbounds %struct.UConverter, ptr %159, i64 0, i32 23
+  %UCharErrorBuffer1106 = getelementptr inbounds i8, ptr %159, i64 144
+  %UCharErrorBufferLength1108 = getelementptr inbounds i8, ptr %159, i64 93
   %160 = load i8, ptr %UCharErrorBufferLength1108, align 1
   %inc1109 = add i8 %160, 1
   store i8 %inc1109, ptr %UCharErrorBufferLength1108, align 1
   %idxprom1110 = sext i8 %160 to i64
-  %arrayidx1111 = getelementptr inbounds %struct.UConverter, ptr %159, i64 0, i32 30, i64 %idxprom1110
+  %arrayidx1111 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer1106, i64 0, i64 %idxprom1110
   store i16 %conv1089, ptr %arrayidx1111, align 2
   store i32 15, ptr %err, align 4
   br label %if.end1174
@@ -1324,13 +1341,13 @@ if.then1125:                                      ; preds = %_ZL14isPNJConsonant
   br label %if.end1174
 
 do.body1129:                                      ; preds = %if.else1114, %_ZL14isPNJConsonanti.exit649, %_ZL15isPNJBindiTippii.exit, %land.lhs.true1068, %land.lhs.true1121
-  %164 = phi i32 [ %.pr666.pre, %land.lhs.true1121 ], [ %.fr676, %land.lhs.true1068 ], [ %.fr676, %_ZL15isPNJBindiTippii.exit ], [ %.pr666.pre, %_ZL14isPNJConsonanti.exit649 ], [ %.pr666.pre, %if.else1114 ]
-  %.fr677 = freeze i32 %164
-  %cmp1130 = icmp slt i32 %.fr677, 161
+  %164 = phi i32 [ %.pr666.pre, %land.lhs.true1121 ], [ %.fr677, %land.lhs.true1068 ], [ %.fr677, %_ZL15isPNJBindiTippii.exit ], [ %.pr666.pre, %_ZL14isPNJConsonanti.exit649 ], [ %.pr666.pre, %if.else1114 ]
+  %.fr678 = freeze i32 %164
+  %cmp1130 = icmp slt i32 %.fr678, 161
   br i1 %cmp1130, label %if.end1143, label %switch.early.test631
 
 switch.early.test631:                             ; preds = %do.body1129
-  switch i32 %.fr677, label %if.then1139 [
+  switch i32 %.fr678, label %if.then1139 [
     i32 8205, label %if.end1143
     i32 8204, label %if.end1143
     i32 2405, label %if.end1143
@@ -1339,19 +1356,19 @@ switch.early.test631:                             ; preds = %do.body1129
 
 if.then1139:                                      ; preds = %switch.early.test631
   %conv1141 = zext i16 %151 to i32
-  %add1142 = add nuw nsw i32 %.fr677, %conv1141
+  %add1142 = add nuw nsw i32 %.fr678, %conv1141
   store i32 %add1142, ptr %toUnicodeStatus13, align 4
   br label %if.end1143
 
 if.end1143:                                       ; preds = %switch.early.test631, %switch.early.test631, %switch.early.test631, %switch.early.test631, %do.body1129, %if.then1139
-  %165 = phi i32 [ %.fr677, %switch.early.test631 ], [ %.fr677, %switch.early.test631 ], [ %.fr677, %switch.early.test631 ], [ %.fr677, %switch.early.test631 ], [ %.fr677, %do.body1129 ], [ %add1142, %if.then1139 ]
+  %165 = phi i32 [ %.fr678, %switch.early.test631 ], [ %.fr678, %switch.early.test631 ], [ %.fr678, %switch.early.test631 ], [ %.fr678, %switch.early.test631 ], [ %.fr678, %do.body1129 ], [ %add1142, %if.then1139 ]
   %166 = load ptr, ptr %targetLimit4, align 8
   %cmp1145 = icmp ult ptr %target.23, %166
   %conv1147 = trunc i32 %165 to i16
   br i1 %cmp1145, label %if.then1146, label %if.else1161
 
 if.then1146:                                      ; preds = %if.end1143
-  %incdec.ptr1148 = getelementptr inbounds i16, ptr %target.23, i64 1
+  %incdec.ptr1148 = getelementptr inbounds i8, ptr %target.23, i64 2
   store i16 %conv1147, ptr %target.23, align 2
   %167 = load ptr, ptr %offsets202, align 8
   %tobool1150.not = icmp eq ptr %167, null
@@ -1364,19 +1381,20 @@ if.then1151:                                      ; preds = %if.then1146
   %sub.ptr.sub1155 = sub i64 %sub.ptr.lhs.cast1153, %sub.ptr.rhs.cast1154
   %169 = trunc i64 %sub.ptr.sub1155 to i32
   %conv1157 = add i32 %169, -2
-  %incdec.ptr1159 = getelementptr inbounds i32, ptr %167, i64 1
+  %incdec.ptr1159 = getelementptr inbounds i8, ptr %167, i64 4
   store ptr %incdec.ptr1159, ptr %offsets202, align 8
   store i32 %conv1157, ptr %167, align 4
   br label %if.end1174
 
 if.else1161:                                      ; preds = %if.end1143
   %170 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength1166 = getelementptr inbounds %struct.UConverter, ptr %170, i64 0, i32 23
+  %UCharErrorBuffer1164 = getelementptr inbounds i8, ptr %170, i64 144
+  %UCharErrorBufferLength1166 = getelementptr inbounds i8, ptr %170, i64 93
   %171 = load i8, ptr %UCharErrorBufferLength1166, align 1
   %inc1167 = add i8 %171, 1
   store i8 %inc1167, ptr %UCharErrorBufferLength1166, align 1
   %idxprom1168 = sext i8 %171 to i64
-  %arrayidx1169 = getelementptr inbounds %struct.UConverter, ptr %170, i64 0, i32 30, i64 %idxprom1168
+  %arrayidx1169 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer1164, i64 0, i64 %idxprom1168
   store i16 %conv1147, ptr %arrayidx1169, align 2
   store i32 15, ptr %err, align 4
   br label %if.end1174
@@ -1419,14 +1437,14 @@ if.else1189:                                      ; preds = %if.end1175
   br label %CALLBACK
 
 CALLBACK:                                         ; preds = %if.end162, %if.else163, %if.else1189, %if.else45
-  %target.26 = phi ptr [ %target.0.ph733, %if.else45 ], [ %target.0.ph733, %if.end162 ], [ %target.0.ph733, %if.else163 ], [ %target.25, %if.else1189 ]
+  %target.26 = phi ptr [ %target.0.ph734, %if.else45 ], [ %target.0.ph734, %if.end162 ], [ %target.0.ph734, %if.else163 ], [ %target.25, %if.else1189 ]
   %175 = load ptr, ptr %converter, align 8
-  %toUBytes = getelementptr inbounds %struct.UConverter, ptr %175, i64 0, i32 13
+  %toUBytes = getelementptr inbounds i8, ptr %175, i64 65
   store i8 %9, ptr %toUBytes, align 1
   %176 = load ptr, ptr %converter, align 8
-  %toULength = getelementptr inbounds %struct.UConverter, ptr %176, i64 0, i32 12
+  %toULength = getelementptr inbounds i8, ptr %176, i64 64
   store i8 1, ptr %toULength, align 8
-  %.pre776 = load i32, ptr %err, align 4
+  %.pre777 = load i32, ptr %err, align 4
   br label %while.end
 
 while.end.thread:                                 ; preds = %while.body.lr.ph
@@ -1434,14 +1452,14 @@ while.end.thread:                                 ; preds = %while.body.lr.ph
   br label %if.end1266
 
 while.end:                                        ; preds = %while.cond.outer.backedge, %if.end48.us, %if.end, %CALLBACK
-  %177 = phi i32 [ %.pre776, %CALLBACK ], [ %6, %if.end ], [ %17, %if.end48.us ], [ %39, %while.cond.outer.backedge ]
-  %target.27 = phi ptr [ %target.26, %CALLBACK ], [ %3, %if.end ], [ %target.0.ph733, %if.end48.us ], [ %target.0.ph.be, %while.cond.outer.backedge ]
+  %177 = phi i32 [ %.pre777, %CALLBACK ], [ %6, %if.end ], [ %17, %if.end48.us ], [ %39, %while.cond.outer.backedge ]
+  %target.27 = phi ptr [ %target.26, %CALLBACK ], [ %3, %if.end ], [ %target.0.ph734, %if.end48.us ], [ %target.0.ph.be, %while.cond.outer.backedge ]
   %source.1 = phi ptr [ %incdec.ptr.us, %CALLBACK ], [ %4, %if.end ], [ %incdec.ptr.us, %if.end48.us ], [ %incdec.ptr.us, %while.cond.outer.backedge ]
   %cmp.i650 = icmp sgt i32 %177, 0
   br i1 %cmp.i650, label %if.end1266, label %land.lhs.true1198
 
 land.lhs.true1198:                                ; preds = %while.end
-  %flush = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %args, i64 0, i32 1
+  %flush = getelementptr inbounds i8, ptr %args, i64 2
   %178 = load i8, ptr %flush, align 2
   %tobool1199.not = icmp ne i8 %178, 0
   %cmp1201 = icmp eq ptr %source.1, %0
@@ -1459,30 +1477,30 @@ if.then1202:                                      ; preds = %land.lhs.true1198
 
 if.then1212:                                      ; preds = %if.then1202, %if.then1202, %if.then1202
   %conv1213 = trunc i16 %180 to i8
-  %toUBytes1214 = getelementptr inbounds %struct.UConverter, ptr %179, i64 0, i32 13
+  %toUBytes1214 = getelementptr inbounds i8, ptr %179, i64 65
   store i8 %conv1213, ptr %toUBytes1214, align 1
-  %toULength1216 = getelementptr inbounds %struct.UConverter, ptr %179, i64 0, i32 12
+  %toULength1216 = getelementptr inbounds i8, ptr %179, i64 64
   store i8 1, ptr %toULength1216, align 8
   store i16 -2, ptr %5, align 2
   br label %if.end1219
 
 if.else1217:                                      ; preds = %if.then1202
-  %toULength1218 = getelementptr inbounds %struct.UConverter, ptr %179, i64 0, i32 12
+  %toULength1218 = getelementptr inbounds i8, ptr %179, i64 64
   store i8 0, ptr %toULength1218, align 8
   br label %if.end1219
 
 if.end1219:                                       ; preds = %if.else1217, %if.then1212
   %181 = load i32, ptr %toUnicodeStatus13, align 4
-  %.fr678 = freeze i32 %181
-  %cmp1220.not = icmp eq i32 %.fr678, 65535
+  %.fr679 = freeze i32 %181
+  %cmp1220.not = icmp eq i32 %.fr679, 65535
   br i1 %cmp1220.not, label %if.end1266, label %do.body1222
 
 do.body1222:                                      ; preds = %if.end1219
-  %cmp1223 = icmp slt i32 %.fr678, 161
+  %cmp1223 = icmp slt i32 %.fr679, 161
   br i1 %cmp1223, label %if.end1236, label %switch.early.test632
 
 switch.early.test632:                             ; preds = %do.body1222
-  switch i32 %.fr678, label %if.then1232 [
+  switch i32 %.fr679, label %if.then1232 [
     i32 8205, label %if.end1236
     i32 8204, label %if.end1236
     i32 2405, label %if.end1236
@@ -1490,24 +1508,24 @@ switch.early.test632:                             ; preds = %do.body1222
   ]
 
 if.then1232:                                      ; preds = %switch.early.test632
-  %currentDeltaToUnicode1233 = getelementptr inbounds %struct.UConverterDataISCII, ptr %5, i64 0, i32 4
+  %currentDeltaToUnicode1233 = getelementptr inbounds i8, ptr %5, i64 8
   %182 = load i16, ptr %currentDeltaToUnicode1233, align 4
   %conv1234 = zext i16 %182 to i32
-  %add1235 = add nuw nsw i32 %.fr678, %conv1234
+  %add1235 = add nuw nsw i32 %.fr679, %conv1234
   store i32 %add1235, ptr %toUnicodeStatus13, align 4
   br label %if.end1236
 
 if.end1236:                                       ; preds = %switch.early.test632, %switch.early.test632, %switch.early.test632, %switch.early.test632, %do.body1222, %if.then1232
-  %183 = phi i32 [ %.fr678, %switch.early.test632 ], [ %.fr678, %switch.early.test632 ], [ %.fr678, %switch.early.test632 ], [ %.fr678, %switch.early.test632 ], [ %.fr678, %do.body1222 ], [ %add1235, %if.then1232 ]
+  %183 = phi i32 [ %.fr679, %switch.early.test632 ], [ %.fr679, %switch.early.test632 ], [ %.fr679, %switch.early.test632 ], [ %.fr679, %switch.early.test632 ], [ %.fr679, %do.body1222 ], [ %add1235, %if.then1232 ]
   %184 = load ptr, ptr %targetLimit4, align 8
   %cmp1238 = icmp ult ptr %target.27, %184
   %conv1240 = trunc i32 %183 to i16
   br i1 %cmp1238, label %if.then1239, label %if.else1254
 
 if.then1239:                                      ; preds = %if.end1236
-  %incdec.ptr1241 = getelementptr inbounds i16, ptr %target.27, i64 1
+  %incdec.ptr1241 = getelementptr inbounds i8, ptr %target.27, i64 2
   store i16 %conv1240, ptr %target.27, align 2
-  %offsets1242 = getelementptr inbounds %struct.UConverterToUnicodeArgs, ptr %args, i64 0, i32 7
+  %offsets1242 = getelementptr inbounds i8, ptr %args, i64 48
   %185 = load ptr, ptr %offsets1242, align 8
   %tobool1243.not = icmp eq ptr %185, null
   br i1 %tobool1243.not, label %do.end1264, label %if.then1244
@@ -1519,19 +1537,20 @@ if.then1244:                                      ; preds = %if.then1239
   %187 = xor i64 %sub.ptr.rhs.cast1247, -1
   %sub1249 = add i64 %187, %sub.ptr.lhs.cast1246
   %conv1250 = trunc i64 %sub1249 to i32
-  %incdec.ptr1252 = getelementptr inbounds i32, ptr %185, i64 1
+  %incdec.ptr1252 = getelementptr inbounds i8, ptr %185, i64 4
   store ptr %incdec.ptr1252, ptr %offsets1242, align 8
   store i32 %conv1250, ptr %185, align 4
   br label %do.end1264
 
 if.else1254:                                      ; preds = %if.end1236
   %188 = load ptr, ptr %converter, align 8
-  %UCharErrorBufferLength1259 = getelementptr inbounds %struct.UConverter, ptr %188, i64 0, i32 23
+  %UCharErrorBuffer1257 = getelementptr inbounds i8, ptr %188, i64 144
+  %UCharErrorBufferLength1259 = getelementptr inbounds i8, ptr %188, i64 93
   %189 = load i8, ptr %UCharErrorBufferLength1259, align 1
   %inc1260 = add i8 %189, 1
   store i8 %inc1260, ptr %UCharErrorBufferLength1259, align 1
   %idxprom1261 = sext i8 %189 to i64
-  %arrayidx1262 = getelementptr inbounds %struct.UConverter, ptr %188, i64 0, i32 30, i64 %idxprom1261
+  %arrayidx1262 = getelementptr inbounds [32 x i16], ptr %UCharErrorBuffer1257, i64 0, i64 %idxprom1261
   store i16 %conv1240, ptr %arrayidx1262, align 2
   store i32 15, ptr %err, align 4
   br label %do.end1264
@@ -1542,10 +1561,10 @@ do.end1264:                                       ; preds = %if.else1254, %if.th
   br label %if.end1266
 
 if.end1266:                                       ; preds = %while.end.thread, %if.end1219, %do.end1264, %land.lhs.true1198, %while.end
-  %source.1789 = phi ptr [ %source.1, %do.end1264 ], [ %source.1, %if.end1219 ], [ %source.1, %land.lhs.true1198 ], [ %source.1, %while.end ], [ %source.0.ph734, %while.end.thread ]
-  %target.29 = phi ptr [ %target.28, %do.end1264 ], [ %target.27, %if.end1219 ], [ %target.27, %land.lhs.true1198 ], [ %target.27, %while.end ], [ %target.0.ph733, %while.end.thread ]
+  %source.1790 = phi ptr [ %source.1, %do.end1264 ], [ %source.1, %if.end1219 ], [ %source.1, %land.lhs.true1198 ], [ %source.1, %while.end ], [ %source.0.ph735, %while.end.thread ]
+  %target.29 = phi ptr [ %target.28, %do.end1264 ], [ %target.27, %if.end1219 ], [ %target.27, %land.lhs.true1198 ], [ %target.27, %while.end ], [ %target.0.ph734, %while.end.thread ]
   store ptr %target.29, ptr %target2, align 8
-  store ptr %source.1789, ptr %source1, align 8
+  store ptr %source.1790, ptr %source1, align 8
   br label %return
 
 return:                                           ; preds = %if.end1266, %if.then
@@ -1555,15 +1574,15 @@ return:                                           ; preds = %if.end1266, %if.the
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL42UConverter_fromUnicode_ISCII_OFFSETS_LOGICP25UConverterFromUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef %err) #2 {
 entry:
-  %source1 = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %args, i64 0, i32 3
+  %source1 = getelementptr inbounds i8, ptr %args, i64 16
   %0 = load ptr, ptr %source1, align 8
-  %sourceLimit2 = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %args, i64 0, i32 4
+  %sourceLimit2 = getelementptr inbounds i8, ptr %args, i64 24
   %1 = load ptr, ptr %sourceLimit2, align 8
-  %target3 = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %args, i64 0, i32 5
+  %target3 = getelementptr inbounds i8, ptr %args, i64 32
   %2 = load ptr, ptr %target3, align 8
-  %targetLimit4 = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %args, i64 0, i32 6
+  %targetLimit4 = getelementptr inbounds i8, ptr %args, i64 40
   %3 = load ptr, ptr %targetLimit4, align 8
-  %converter = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %args, i64 0, i32 2
+  %converter = getelementptr inbounds i8, ptr %args, i64 8
   %4 = load ptr, ptr %converter, align 8
   %cmp = icmp eq ptr %4, null
   %cmp8 = icmp ult ptr %3, %2
@@ -1577,43 +1596,43 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %offsets5 = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %args, i64 0, i32 7
+  %offsets5 = getelementptr inbounds i8, ptr %args, i64 48
   %5 = load ptr, ptr %offsets5, align 8
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %4, i64 0, i32 2
+  %extraInfo = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %extraInfo, align 8
-  %currentDeltaFromUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %6, i64 0, i32 3
+  %currentDeltaFromUnicode = getelementptr inbounds i8, ptr %6, i64 6
   %7 = load i16, ptr %currentDeltaFromUnicode, align 2
   %8 = lshr i16 %7, 7
-  %fromUChar32 = getelementptr inbounds %struct.UConverter, ptr %4, i64 0, i32 17
+  %fromUChar32 = getelementptr inbounds i8, ptr %4, i64 84
   %9 = load i32, ptr %fromUChar32, align 4
   %cmp16.not = icmp eq i32 %9, 0
   br i1 %cmp16.not, label %while.cond.preheader, label %getTrail
 
 while.cond.preheader:                             ; preds = %if.end
-  %cmp19446457 = icmp ult ptr %0, %1
-  br i1 %cmp19446457, label %while.body.lr.ph.lr.ph, label %while.end
+  %cmp19448459 = icmp ult ptr %0, %1
+  br i1 %cmp19448459, label %while.body.lr.ph.lr.ph, label %while.end
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.cond.preheader
-  %contextCharFromUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %6, i64 0, i32 1
-  %isFirstBuffer = getelementptr inbounds %struct.UConverterDataISCII, ptr %6, i64 0, i32 8
-  %currentMaskFromUnicode = getelementptr inbounds %struct.UConverterDataISCII, ptr %6, i64 0, i32 5
+  %contextCharFromUnicode = getelementptr inbounds i8, ptr %6, i64 2
+  %isFirstBuffer = getelementptr inbounds i8, ptr %6, i64 24
+  %currentMaskFromUnicode = getelementptr inbounds i8, ptr %6, i64 12
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %while.cond.outer.backedge
-  %source.0.ph461 = phi ptr [ %0, %while.body.lr.ph.lr.ph ], [ %incdec.ptr129, %while.cond.outer.backedge ]
-  %range.0.ph460 = phi i16 [ %8, %while.body.lr.ph.lr.ph ], [ %range.0.ph.be, %while.cond.outer.backedge ]
-  %target.0.ph459 = phi ptr [ %2, %while.body.lr.ph.lr.ph ], [ %target.0.ph.be, %while.cond.outer.backedge ]
-  %offsets.0.ph458 = phi ptr [ %5, %while.body.lr.ph.lr.ph ], [ %offsets.0.ph.be, %while.cond.outer.backedge ]
-  %idxprom = zext i16 %range.0.ph460 to i64
+  %source.0.ph463 = phi ptr [ %0, %while.body.lr.ph.lr.ph ], [ %incdec.ptr129, %while.cond.outer.backedge ]
+  %range.0.ph462 = phi i16 [ %8, %while.body.lr.ph.lr.ph ], [ %range.0.ph.be, %while.cond.outer.backedge ]
+  %target.0.ph461 = phi ptr [ %2, %while.body.lr.ph.lr.ph ], [ %target.0.ph.be, %while.cond.outer.backedge ]
+  %offsets.0.ph460 = phi ptr [ %5, %while.body.lr.ph.lr.ph ], [ %offsets.0.ph.be, %while.cond.outer.backedge ]
+  %idxprom = zext i16 %range.0.ph462 to i64
   %isciiLang = getelementptr inbounds [9 x %struct.LookupDataStruct], ptr @_ZL17lookupInitialData, i64 0, i64 %idxprom, i32 2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %source.0449 = phi ptr [ %source.0.ph461, %while.body.lr.ph ], [ %incdec.ptr129, %while.cond.backedge ]
-  %target.0448 = phi ptr [ %target.0.ph459, %while.body.lr.ph ], [ %target.0.be, %while.cond.backedge ]
-  %offsets.0447 = phi ptr [ %offsets.0.ph458, %while.body.lr.ph ], [ %offsets.0.be, %while.cond.backedge ]
+  %source.0451 = phi ptr [ %source.0.ph463, %while.body.lr.ph ], [ %incdec.ptr129, %while.cond.backedge ]
+  %target.0450 = phi ptr [ %target.0.ph461, %while.body.lr.ph ], [ %target.0.be, %while.cond.backedge ]
+  %offsets.0449 = phi ptr [ %offsets.0.ph460, %while.body.lr.ph ], [ %offsets.0.be, %while.cond.backedge ]
   %10 = load ptr, ptr %converter, align 8
-  %fromUnicodeStatus = getelementptr inbounds %struct.UConverter, ptr %10, i64 0, i32 16
+  %fromUnicodeStatus = getelementptr inbounds i8, ptr %10, i64 80
   %11 = load i32, ptr %fromUnicodeStatus, align 8
   %cmp21 = icmp eq i32 %11, 10
   br i1 %cmp21, label %if.then22, label %if.end128
@@ -1622,23 +1641,23 @@ if.then22:                                        ; preds = %while.body
   %12 = load i32, ptr %isciiLang, align 4
   store i32 0, ptr %fromUnicodeStatus, align 8
   %13 = load ptr, ptr %source1, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %source.0449 to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %source.0451 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %13 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 1
   %14 = trunc i64 %sub.ptr.div to i32
   %conv28 = add i32 %14, -1
-  %cmp29 = icmp ult ptr %target.0448, %3
+  %cmp29 = icmp ult ptr %target.0450, %3
   br i1 %cmp29, label %if.else62, label %if.then105
 
 if.else62:                                        ; preds = %if.then22
-  %incdec.ptr65 = getelementptr inbounds i8, ptr %target.0448, i64 1
-  store i8 -17, ptr %target.0448, align 1
-  %tobool66.not = icmp eq ptr %offsets.0447, null
+  %incdec.ptr65 = getelementptr inbounds i8, ptr %target.0450, i64 1
+  store i8 -17, ptr %target.0450, align 1
+  %tobool66.not = icmp eq ptr %offsets.0449, null
   br i1 %tobool66.not, label %if.end69.thread, label %if.end69
 
 if.end69:                                         ; preds = %if.else62
-  store i32 %conv28, ptr %offsets.0447, align 4
+  store i32 %conv28, ptr %offsets.0449, align 4
   %cmp70 = icmp ult ptr %incdec.ptr65, %3
   br i1 %cmp70, label %if.then75, label %if.else78
 
@@ -1652,59 +1671,62 @@ if.then71.thread:                                 ; preds = %if.end69.thread
   br label %do.end
 
 if.then75:                                        ; preds = %if.end69
-  %incdec.ptr68 = getelementptr inbounds i32, ptr %offsets.0447, i64 1
+  %incdec.ptr68 = getelementptr inbounds i8, ptr %offsets.0449, i64 4
   %conv72 = trunc i32 %12 to i8
   store i8 %conv72, ptr %incdec.ptr65, align 1
-  %incdec.ptr76 = getelementptr inbounds i32, ptr %offsets.0447, i64 2
+  %incdec.ptr76 = getelementptr inbounds i8, ptr %offsets.0449, i64 8
   store i32 %conv28, ptr %incdec.ptr68, align 4
   br label %do.end
 
 if.else78:                                        ; preds = %if.end69.thread, %if.end69
   %conv79 = trunc i32 %12 to i8
   %15 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength83 = getelementptr inbounds %struct.UConverter, ptr %15, i64 0, i32 21
+  %charErrorBuffer81 = getelementptr inbounds i8, ptr %15, i64 104
+  %charErrorBufferLength83 = getelementptr inbounds i8, ptr %15, i64 91
   %16 = load i8, ptr %charErrorBufferLength83, align 1
   %inc84 = add i8 %16, 1
   store i8 %inc84, ptr %charErrorBufferLength83, align 1
   %idxprom85 = sext i8 %16 to i64
-  %arrayidx86 = getelementptr inbounds %struct.UConverter, ptr %15, i64 0, i32 27, i64 %idxprom85
+  %arrayidx86 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer81, i64 0, i64 %idxprom85
   store i8 %conv79, ptr %arrayidx86, align 1
   store i32 15, ptr %err, align 4
   br label %while.end
 
 if.then105:                                       ; preds = %if.then22
   %17 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength111 = getelementptr inbounds %struct.UConverter, ptr %17, i64 0, i32 21
+  %charErrorBuffer109 = getelementptr inbounds i8, ptr %17, i64 104
+  %charErrorBufferLength111 = getelementptr inbounds i8, ptr %17, i64 91
   %18 = load i8, ptr %charErrorBufferLength111, align 1
   %inc112 = add i8 %18, 1
   store i8 %inc112, ptr %charErrorBufferLength111, align 1
   %idxprom113 = sext i8 %18 to i64
-  %arrayidx114 = getelementptr inbounds %struct.UConverter, ptr %17, i64 0, i32 27, i64 %idxprom113
+  %arrayidx114 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer109, i64 0, i64 %idxprom113
   store i8 -17, ptr %arrayidx114, align 1
   %conv116 = trunc i32 %12 to i8
   %19 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength120 = getelementptr inbounds %struct.UConverter, ptr %19, i64 0, i32 21
+  %charErrorBuffer118 = getelementptr inbounds i8, ptr %19, i64 104
+  %charErrorBufferLength120 = getelementptr inbounds i8, ptr %19, i64 91
   %20 = load i8, ptr %charErrorBufferLength120, align 1
   %inc121 = add i8 %20, 1
   store i8 %inc121, ptr %charErrorBufferLength120, align 1
   %idxprom122 = sext i8 %20 to i64
-  %arrayidx123 = getelementptr inbounds %struct.UConverter, ptr %19, i64 0, i32 27, i64 %idxprom122
+  %arrayidx123 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer118, i64 0, i64 %idxprom122
   store i8 %conv116, ptr %arrayidx123, align 1
   store i32 15, ptr %err, align 4
   br label %while.end
 
 do.end:                                           ; preds = %if.then71.thread, %if.then75
   %offsets.3.ph = phi ptr [ null, %if.then71.thread ], [ %incdec.ptr76, %if.then75 ]
-  %target.2.ph = getelementptr inbounds i8, ptr %target.0448, i64 2
+  %target.2.ph = getelementptr inbounds i8, ptr %target.0450, i64 2
   %.pr = load i32, ptr %err, align 4
   %cmp.i = icmp slt i32 %.pr, 1
   br i1 %cmp.i, label %if.end128, label %while.end
 
 if.end128:                                        ; preds = %do.end, %while.body
-  %offsets.4 = phi ptr [ %offsets.3.ph, %do.end ], [ %offsets.0447, %while.body ]
-  %target.3 = phi ptr [ %target.2.ph, %do.end ], [ %target.0448, %while.body ]
-  %incdec.ptr129 = getelementptr inbounds i16, ptr %source.0449, i64 1
-  %21 = load i16, ptr %source.0449, align 2
+  %offsets.4 = phi ptr [ %offsets.3.ph, %do.end ], [ %offsets.0449, %while.body ]
+  %target.3 = phi ptr [ %target.2.ph, %do.end ], [ %target.0450, %while.body ]
+  %incdec.ptr129 = getelementptr inbounds i8, ptr %source.0451, i64 2
+  %21 = load i16, ptr %source.0451, align 2
   %conv130 = zext i16 %21 to i32
   %22 = load i16, ptr %contextCharFromUnicode, align 2
   %cmp132 = icmp ult i16 %21, 161
@@ -1712,7 +1734,7 @@ if.end128:                                        ; preds = %do.end, %while.body
 
 if.then133:                                       ; preds = %if.end128
   %23 = load ptr, ptr %converter, align 8
-  %fromUnicodeStatus135 = getelementptr inbounds %struct.UConverter, ptr %23, i64 0, i32 16
+  %fromUnicodeStatus135 = getelementptr inbounds i8, ptr %23, i64 80
   store i32 %conv130, ptr %fromUnicodeStatus135, align 8
   %24 = load ptr, ptr %source1, align 8
   %sub.ptr.lhs.cast139 = ptrtoint ptr %incdec.ptr129 to i64
@@ -1732,26 +1754,27 @@ if.then148:                                       ; preds = %if.then133
   br i1 %tobool151.not, label %do.end250, label %if.then152
 
 if.then152:                                       ; preds = %if.then148
-  %incdec.ptr153 = getelementptr inbounds i32, ptr %offsets.4, i64 1
+  %incdec.ptr153 = getelementptr inbounds i8, ptr %offsets.4, i64 4
   store i32 %conv144, ptr %offsets.4, align 4
   br label %do.end250
 
 do.end250.thread:                                 ; preds = %if.then133
   %26 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength245 = getelementptr inbounds %struct.UConverter, ptr %26, i64 0, i32 21
+  %charErrorBuffer243 = getelementptr inbounds i8, ptr %26, i64 104
+  %charErrorBufferLength245 = getelementptr inbounds i8, ptr %26, i64 91
   %27 = load i8, ptr %charErrorBufferLength245, align 1
   %inc246 = add i8 %27, 1
   store i8 %inc246, ptr %charErrorBufferLength245, align 1
   %idxprom247 = sext i8 %27 to i64
-  %arrayidx248 = getelementptr inbounds %struct.UConverter, ptr %26, i64 0, i32 27, i64 %idxprom247
+  %arrayidx248 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer243, i64 0, i64 %idxprom247
   store i8 %conv149, ptr %arrayidx248, align 1
   store i32 15, ptr %err, align 4
   br label %while.end
 
 do.end250:                                        ; preds = %if.then148, %if.then152
   %offsets.7.ph = phi ptr [ null, %if.then148 ], [ %incdec.ptr153, %if.then152 ]
-  %.pr488 = load i32, ptr %err, align 4
-  %cmp.i357 = icmp slt i32 %.pr488, 1
+  %.pr490 = load i32, ptr %err, align 4
+  %cmp.i357 = icmp slt i32 %.pr490, 1
   br i1 %cmp.i357, label %while.cond.backedge, label %while.end
 
 if.end255:                                        ; preds = %if.end128
@@ -1837,7 +1860,7 @@ if.end307:                                        ; preds = %if.then298, %if.end
 
 if.end311:                                        ; preds = %if.end307, %if.then274
   %sourceChar.1 = phi i32 [ %sub310, %if.end307 ], [ %conv130, %if.then274 ]
-  %range.1 = phi i16 [ %conv280, %if.end307 ], [ %range.0.ph460, %if.then274 ]
+  %range.1 = phi i16 [ %conv280, %if.end307 ], [ %range.0.ph462, %if.then274 ]
   %deltaChanged.2 = phi i8 [ %deltaChanged.1, %if.end307 ], [ 0, %if.then274 ]
   %33 = and i32 %sourceChar.1, 255
   %idxprom313 = zext nneg i32 %33 to i64
@@ -1886,7 +1909,7 @@ if.else391:                                       ; preds = %if.then333
   br i1 %tobool395.not, label %if.end398.thread, label %if.end398
 
 if.end398:                                        ; preds = %if.else391
-  %incdec.ptr397 = getelementptr inbounds i32, ptr %offsets.4, i64 1
+  %incdec.ptr397 = getelementptr inbounds i8, ptr %offsets.4, i64 4
   store i32 %conv349, ptr %offsets.4, align 4
   %cmp399 = icmp ult ptr %incdec.ptr394, %3
   br i1 %cmp399, label %if.then404, label %if.else407
@@ -1903,7 +1926,7 @@ if.then400.thread:                                ; preds = %if.end398.thread
 if.then404:                                       ; preds = %if.end398
   %conv401 = trunc i32 %38 to i8
   store i8 %conv401, ptr %incdec.ptr394, align 1
-  %incdec.ptr405 = getelementptr inbounds i32, ptr %offsets.4, i64 2
+  %incdec.ptr405 = getelementptr inbounds i8, ptr %offsets.4, i64 8
   store i32 %conv349, ptr %incdec.ptr397, align 4
   br label %do.end455
 
@@ -1911,33 +1934,36 @@ if.else407:                                       ; preds = %if.end398.thread, %
   %offsets.9376 = phi ptr [ null, %if.end398.thread ], [ %incdec.ptr397, %if.end398 ]
   %conv408 = trunc i32 %38 to i8
   %41 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength412 = getelementptr inbounds %struct.UConverter, ptr %41, i64 0, i32 21
+  %charErrorBuffer410 = getelementptr inbounds i8, ptr %41, i64 104
+  %charErrorBufferLength412 = getelementptr inbounds i8, ptr %41, i64 91
   %42 = load i8, ptr %charErrorBufferLength412, align 1
   %inc413 = add i8 %42, 1
   store i8 %inc413, ptr %charErrorBufferLength412, align 1
   %idxprom414 = sext i8 %42 to i64
-  %arrayidx415 = getelementptr inbounds %struct.UConverter, ptr %41, i64 0, i32 27, i64 %idxprom414
+  %arrayidx415 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer410, i64 0, i64 %idxprom414
   store i8 %conv408, ptr %arrayidx415, align 1
   store i32 15, ptr %err, align 4
   br label %sw.epilog
 
 if.then435:                                       ; preds = %if.then333
   %43 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength441 = getelementptr inbounds %struct.UConverter, ptr %43, i64 0, i32 21
+  %charErrorBuffer439 = getelementptr inbounds i8, ptr %43, i64 104
+  %charErrorBufferLength441 = getelementptr inbounds i8, ptr %43, i64 91
   %44 = load i8, ptr %charErrorBufferLength441, align 1
   %inc442 = add i8 %44, 1
   store i8 %inc442, ptr %charErrorBufferLength441, align 1
   %idxprom443 = sext i8 %44 to i64
-  %arrayidx444 = getelementptr inbounds %struct.UConverter, ptr %43, i64 0, i32 27, i64 %idxprom443
+  %arrayidx444 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer439, i64 0, i64 %idxprom443
   store i8 -17, ptr %arrayidx444, align 1
   %conv446 = trunc i32 %38 to i8
   %45 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength450 = getelementptr inbounds %struct.UConverter, ptr %45, i64 0, i32 21
+  %charErrorBuffer448 = getelementptr inbounds i8, ptr %45, i64 104
+  %charErrorBufferLength450 = getelementptr inbounds i8, ptr %45, i64 91
   %46 = load i8, ptr %charErrorBufferLength450, align 1
   %inc451 = add i8 %46, 1
   store i8 %inc451, ptr %charErrorBufferLength450, align 1
   %idxprom452 = sext i8 %46 to i64
-  %arrayidx453 = getelementptr inbounds %struct.UConverter, ptr %45, i64 0, i32 27, i64 %idxprom452
+  %arrayidx453 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer448, i64 0, i64 %idxprom452
   store i8 %conv446, ptr %arrayidx453, align 1
   store i32 15, ptr %err, align 4
   br label %sw.epilog
@@ -1945,8 +1971,8 @@ if.then435:                                       ; preds = %if.then333
 do.end455:                                        ; preds = %if.then400.thread, %if.then404
   %offsets.10.ph = phi ptr [ null, %if.then400.thread ], [ %incdec.ptr405, %if.then404 ]
   %target.7.ph = getelementptr inbounds i8, ptr %target.3, i64 2
-  %.pr492 = load i32, ptr %err, align 4
-  %cmp.i359 = icmp slt i32 %.pr492, 1
+  %.pr494 = load i32, ptr %err, align 4
+  %cmp.i359 = icmp slt i32 %.pr494, 1
   br i1 %cmp.i359, label %if.end460, label %sw.epilog
 
 if.end460:                                        ; preds = %do.end455, %if.end331
@@ -1963,7 +1989,7 @@ if.end469:                                        ; preds = %if.end460, %sw.defa
   %targetByteUnit.2 = phi i32 [ %targetByteUnit.1, %if.end460 ], [ 65535, %sw.default ]
   %sourceChar.2 = phi i32 [ %sourceChar.1, %if.end460 ], [ %conv130, %sw.default ]
   %target.9 = phi ptr [ %target.8, %if.end460 ], [ %target.3, %sw.default ]
-  %range.2 = phi i16 [ %range.1, %if.end460 ], [ %range.0.ph460, %sw.default ]
+  %range.2 = phi i16 [ %range.1, %if.end460 ], [ %range.0.ph462, %sw.default ]
   store i16 0, ptr %contextCharFromUnicode, align 2
   br label %sw.epilog
 
@@ -1972,14 +1998,14 @@ sw.epilog:                                        ; preds = %sw.bb, %if.else407,
   %targetByteUnit.3 = phi i32 [ %targetByteUnit.1, %do.end455 ], [ %targetByteUnit.2, %if.end469 ], [ %., %sw.bb263 ], [ %targetByteUnit.1, %if.then435 ], [ %targetByteUnit.1, %if.else407 ], [ 232, %sw.bb ]
   %sourceChar.3 = phi i32 [ %sourceChar.1, %do.end455 ], [ %sourceChar.2, %if.end469 ], [ 8205, %sw.bb263 ], [ %sourceChar.1, %if.then435 ], [ %sourceChar.1, %if.else407 ], [ 8204, %sw.bb ]
   %target.10 = phi ptr [ %target.7.ph, %do.end455 ], [ %target.9, %if.end469 ], [ %target.3, %sw.bb263 ], [ %target.3, %if.then435 ], [ %incdec.ptr394, %if.else407 ], [ %target.3, %sw.bb ]
-  %range.3 = phi i16 [ %range.1, %do.end455 ], [ %range.2, %if.end469 ], [ %range.0.ph460, %sw.bb263 ], [ %range.1, %if.then435 ], [ %range.1, %if.else407 ], [ %range.0.ph460, %sw.bb ]
+  %range.3 = phi i16 [ %range.1, %do.end455 ], [ %range.2, %if.end469 ], [ %range.0.ph462, %sw.bb263 ], [ %range.1, %if.then435 ], [ %range.1, %if.else407 ], [ %range.0.ph462, %sw.bb ]
   %48 = load i16, ptr %currentDeltaFromUnicode, align 2
   %cmp473 = icmp ne i16 %48, 256
   %cmp475 = icmp ne i16 %22, 2673
-  %or.cond2.not464 = select i1 %cmp473, i1 true, i1 %cmp475
+  %or.cond2.not466 = select i1 %cmp473, i1 true, i1 %cmp475
   %49 = add nsw i32 %sourceChar.3, -2384
   %or.cond.i = icmp ult i32 %49, -80
-  %or.cond422 = select i1 %or.cond2.not464, i1 true, i1 %or.cond.i
+  %or.cond422 = select i1 %or.cond2.not466, i1 true, i1 %or.cond.i
   br i1 %or.cond422, label %if.else602, label %_ZL14isPNJConsonanti.exit
 
 _ZL14isPNJConsonanti.exit:                        ; preds = %sw.epilog
@@ -2020,7 +2046,7 @@ if.then504:                                       ; preds = %if.else502
 
 if.then509:                                       ; preds = %if.then504
   %dec510 = add i32 %53, -2
-  %incdec.ptr511 = getelementptr inbounds i32, ptr %offsets.13, i64 1
+  %incdec.ptr511 = getelementptr inbounds i8, ptr %offsets.13, i64 4
   store i32 %dec510, ptr %offsets.13, align 4
   br label %if.end513
 
@@ -2047,21 +2073,23 @@ if.then515:                                       ; preds = %if.end513.thread, %
   %shr516 = lshr i32 %or482, 8
   %conv517 = trunc i32 %shr516 to i8
   %54 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength521 = getelementptr inbounds %struct.UConverter, ptr %54, i64 0, i32 21
+  %charErrorBuffer519 = getelementptr inbounds i8, ptr %54, i64 104
+  %charErrorBufferLength521 = getelementptr inbounds i8, ptr %54, i64 91
   %55 = load i8, ptr %charErrorBufferLength521, align 1
   %inc522 = add i8 %55, 1
   store i8 %inc522, ptr %charErrorBufferLength521, align 1
   %idxprom523 = sext i8 %55 to i64
-  %arrayidx524 = getelementptr inbounds %struct.UConverter, ptr %54, i64 0, i32 27, i64 %idxprom523
+  %arrayidx524 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer519, i64 0, i64 %idxprom523
   store i8 %conv517, ptr %arrayidx524, align 1
   %conv525 = trunc i32 %targetByteUnit.3 to i8
   %56 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength529 = getelementptr inbounds %struct.UConverter, ptr %56, i64 0, i32 21
+  %charErrorBuffer527 = getelementptr inbounds i8, ptr %56, i64 104
+  %charErrorBufferLength529 = getelementptr inbounds i8, ptr %56, i64 91
   %57 = load i8, ptr %charErrorBufferLength529, align 1
   %inc530 = add i8 %57, 1
   store i8 %inc530, ptr %charErrorBufferLength529, align 1
   %idxprom531 = sext i8 %57 to i64
-  %arrayidx532 = getelementptr inbounds %struct.UConverter, ptr %56, i64 0, i32 27, i64 %idxprom531
+  %arrayidx532 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer527, i64 0, i64 %idxprom531
   store i8 %conv525, ptr %arrayidx532, align 1
   store i32 15, ptr %err, align 4
   br label %while.end
@@ -2075,7 +2103,7 @@ if.else533:                                       ; preds = %if.end513
   br i1 %tobool537.not, label %if.end540, label %if.then538
 
 if.then538:                                       ; preds = %if.else533
-  %incdec.ptr539 = getelementptr inbounds i32, ptr %offsets.14, i64 1
+  %incdec.ptr539 = getelementptr inbounds i8, ptr %offsets.14, i64 4
   store i32 %offset484.0, ptr %offsets.14, align 4
   br label %if.end540
 
@@ -2095,18 +2123,19 @@ if.then542:                                       ; preds = %if.end540
   br i1 %tobool545.not, label %do.end597, label %if.then546
 
 if.then546:                                       ; preds = %if.then542
-  %incdec.ptr547 = getelementptr inbounds i32, ptr %offsets.15, i64 1
+  %incdec.ptr547 = getelementptr inbounds i8, ptr %offsets.15, i64 4
   store i32 %offset484.0391399, ptr %offsets.15, align 4
   br label %do.end597
 
 if.else549:                                       ; preds = %if.end540
   %58 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength554 = getelementptr inbounds %struct.UConverter, ptr %58, i64 0, i32 21
+  %charErrorBuffer552 = getelementptr inbounds i8, ptr %58, i64 104
+  %charErrorBufferLength554 = getelementptr inbounds i8, ptr %58, i64 91
   %59 = load i8, ptr %charErrorBufferLength554, align 1
   %inc555 = add i8 %59, 1
   store i8 %inc555, ptr %charErrorBufferLength554, align 1
   %idxprom556 = sext i8 %59 to i64
-  %arrayidx557 = getelementptr inbounds %struct.UConverter, ptr %58, i64 0, i32 27, i64 %idxprom556
+  %arrayidx557 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer552, i64 0, i64 %idxprom556
   store i8 %conv543, ptr %arrayidx557, align 1
   store i32 15, ptr %err, align 4
   br label %while.end
@@ -2120,12 +2149,13 @@ if.then564:                                       ; preds = %if.else561
   %shr565 = lshr i32 %or, 16
   %conv566 = trunc i32 %shr565 to i8
   %60 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength570 = getelementptr inbounds %struct.UConverter, ptr %60, i64 0, i32 21
+  %charErrorBuffer568 = getelementptr inbounds i8, ptr %60, i64 104
+  %charErrorBufferLength570 = getelementptr inbounds i8, ptr %60, i64 91
   %61 = load i8, ptr %charErrorBufferLength570, align 1
   %inc571 = add i8 %61, 1
   store i8 %inc571, ptr %charErrorBufferLength570, align 1
   %idxprom572 = sext i8 %61 to i64
-  %arrayidx573 = getelementptr inbounds %struct.UConverter, ptr %60, i64 0, i32 27, i64 %idxprom572
+  %arrayidx573 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer568, i64 0, i64 %idxprom572
   store i8 %conv566, ptr %arrayidx573, align 1
   br label %if.then577
 
@@ -2133,29 +2163,31 @@ if.then577:                                       ; preds = %if.else561, %if.the
   %shr578 = lshr i32 %or482, 8
   %conv579 = trunc i32 %shr578 to i8
   %62 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength583 = getelementptr inbounds %struct.UConverter, ptr %62, i64 0, i32 21
+  %charErrorBuffer581 = getelementptr inbounds i8, ptr %62, i64 104
+  %charErrorBufferLength583 = getelementptr inbounds i8, ptr %62, i64 91
   %63 = load i8, ptr %charErrorBufferLength583, align 1
   %inc584 = add i8 %63, 1
   store i8 %inc584, ptr %charErrorBufferLength583, align 1
   %idxprom585 = sext i8 %63 to i64
-  %arrayidx586 = getelementptr inbounds %struct.UConverter, ptr %62, i64 0, i32 27, i64 %idxprom585
+  %arrayidx586 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer581, i64 0, i64 %idxprom585
   store i8 %conv579, ptr %arrayidx586, align 1
   %conv588 = trunc i32 %targetByteUnit.3 to i8
   %64 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength592 = getelementptr inbounds %struct.UConverter, ptr %64, i64 0, i32 21
+  %charErrorBuffer590 = getelementptr inbounds i8, ptr %64, i64 104
+  %charErrorBufferLength592 = getelementptr inbounds i8, ptr %64, i64 91
   %65 = load i8, ptr %charErrorBufferLength592, align 1
   %inc593 = add i8 %65, 1
   store i8 %inc593, ptr %charErrorBufferLength592, align 1
   %idxprom594 = sext i8 %65 to i64
-  %arrayidx595 = getelementptr inbounds %struct.UConverter, ptr %64, i64 0, i32 27, i64 %idxprom594
+  %arrayidx595 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer590, i64 0, i64 %idxprom594
   store i8 %conv588, ptr %arrayidx595, align 1
   store i32 15, ptr %err, align 4
   br label %while.end
 
 do.end597:                                        ; preds = %if.then542, %if.then546
   %offsets.16.ph = phi ptr [ null, %if.then542 ], [ %incdec.ptr547, %if.then546 ]
-  %.pr498 = load i32, ptr %err, align 4
-  %cmp.i361 = icmp slt i32 %.pr498, 1
+  %.pr500 = load i32, ptr %err, align 4
+  %cmp.i361 = icmp slt i32 %.pr500, 1
   br i1 %cmp.i361, label %while.cond.outer.backedge, label %while.end
 
 if.else602:                                       ; preds = %_ZL14isPNJConsonanti.exit, %sw.epilog
@@ -2200,7 +2232,7 @@ if.then622:                                       ; preds = %do.body610.thread, 
   br i1 %tobool625.not, label %do.end724, label %if.then626
 
 if.then626:                                       ; preds = %if.then622
-  %incdec.ptr627 = getelementptr inbounds i32, ptr %offsets.13, i64 1
+  %incdec.ptr627 = getelementptr inbounds i8, ptr %offsets.13, i64 4
   store i32 %conv618408411, ptr %offsets.13, align 4
   br label %do.end724
 
@@ -2228,23 +2260,24 @@ if.then669.thread:                                ; preds = %if.end667.thread
   br label %do.end724
 
 if.then673:                                       ; preds = %if.end667
-  %incdec.ptr666 = getelementptr inbounds i32, ptr %offsets.13, i64 1
+  %incdec.ptr666 = getelementptr inbounds i8, ptr %offsets.13, i64 4
   %conv670 = trunc i32 %targetByteUnit.3 to i8
   %incdec.ptr671 = getelementptr inbounds i8, ptr %target.10, i64 2
   store i8 %conv670, ptr %incdec.ptr663, align 1
-  %incdec.ptr674 = getelementptr inbounds i32, ptr %offsets.13, i64 2
+  %incdec.ptr674 = getelementptr inbounds i8, ptr %offsets.13, i64 8
   store i32 %conv618, ptr %incdec.ptr666, align 4
   br label %do.end724
 
 if.else676:                                       ; preds = %if.end667.thread, %if.end667
   %conv677 = trunc i32 %targetByteUnit.3 to i8
   %70 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength681 = getelementptr inbounds %struct.UConverter, ptr %70, i64 0, i32 21
+  %charErrorBuffer679 = getelementptr inbounds i8, ptr %70, i64 104
+  %charErrorBufferLength681 = getelementptr inbounds i8, ptr %70, i64 91
   %71 = load i8, ptr %charErrorBufferLength681, align 1
   %inc682 = add i8 %71, 1
   store i8 %inc682, ptr %charErrorBufferLength681, align 1
   %idxprom683 = sext i8 %71 to i64
-  %arrayidx684 = getelementptr inbounds %struct.UConverter, ptr %70, i64 0, i32 27, i64 %idxprom683
+  %arrayidx684 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer679, i64 0, i64 %idxprom683
   store i8 %conv677, ptr %arrayidx684, align 1
   store i32 15, ptr %err, align 4
   br label %while.end
@@ -2258,24 +2291,26 @@ if.then704:                                       ; preds = %if.end701
   %shr705 = lshr i32 %targetByteUnit.3, 8
   %conv706 = trunc i32 %shr705 to i8
   %72 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength710 = getelementptr inbounds %struct.UConverter, ptr %72, i64 0, i32 21
+  %charErrorBuffer708 = getelementptr inbounds i8, ptr %72, i64 104
+  %charErrorBufferLength710 = getelementptr inbounds i8, ptr %72, i64 91
   %73 = load i8, ptr %charErrorBufferLength710, align 1
   %inc711 = add i8 %73, 1
   store i8 %inc711, ptr %charErrorBufferLength710, align 1
   %idxprom712 = sext i8 %73 to i64
-  %arrayidx713 = getelementptr inbounds %struct.UConverter, ptr %72, i64 0, i32 27, i64 %idxprom712
+  %arrayidx713 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer708, i64 0, i64 %idxprom712
   store i8 %conv706, ptr %arrayidx713, align 1
   br label %if.end714
 
 if.end714:                                        ; preds = %do.body610.thread, %if.then704, %if.end701
   %conv715 = trunc i32 %targetByteUnit.3 to i8
   %74 = load ptr, ptr %converter, align 8
-  %charErrorBufferLength719 = getelementptr inbounds %struct.UConverter, ptr %74, i64 0, i32 21
+  %charErrorBuffer717 = getelementptr inbounds i8, ptr %74, i64 104
+  %charErrorBufferLength719 = getelementptr inbounds i8, ptr %74, i64 91
   %75 = load i8, ptr %charErrorBufferLength719, align 1
   %inc720 = add i8 %75, 1
   store i8 %inc720, ptr %charErrorBufferLength719, align 1
   %idxprom721 = sext i8 %75 to i64
-  %arrayidx722 = getelementptr inbounds %struct.UConverter, ptr %74, i64 0, i32 27, i64 %idxprom721
+  %arrayidx722 = getelementptr inbounds [32 x i8], ptr %charErrorBuffer717, i64 0, i64 %idxprom721
   store i8 %conv715, ptr %arrayidx722, align 1
   store i32 15, ptr %err, align 4
   br label %while.end
@@ -2283,8 +2318,8 @@ if.end714:                                        ; preds = %do.body610.thread, 
 do.end724:                                        ; preds = %if.then669.thread, %if.then673, %if.then622, %if.then626
   %offsets.19.ph = phi ptr [ null, %if.then669.thread ], [ %incdec.ptr674, %if.then673 ], [ null, %if.then622 ], [ %incdec.ptr627, %if.then626 ]
   %target.14.ph = phi ptr [ %incdec.ptr671418, %if.then669.thread ], [ %incdec.ptr671, %if.then673 ], [ %incdec.ptr624, %if.then622 ], [ %incdec.ptr624, %if.then626 ]
-  %.pr503 = load i32, ptr %err, align 4
-  %cmp.i363 = icmp slt i32 %.pr503, 1
+  %.pr505 = load i32, ptr %err, align 4
+  %cmp.i363 = icmp slt i32 %.pr505, 1
   br i1 %cmp.i363, label %while.cond.outer.backedge, label %while.end
 
 if.else729:                                       ; preds = %if.else602
@@ -2312,7 +2347,7 @@ if.then737:                                       ; preds = %getTrail
   br i1 %cmp740, label %if.then741, label %if.end754
 
 if.then741:                                       ; preds = %if.then737
-  %incdec.ptr742 = getelementptr inbounds i16, ptr %source.1, i64 1
+  %incdec.ptr742 = getelementptr inbounds i8, ptr %source.1, i64 2
   %shl743 = shl i32 %sourceChar.4, 10
   %add745 = add i32 %shl743, -56613888
   %sub746 = add i32 %add745, %conv738
@@ -2325,7 +2360,7 @@ if.end754:                                        ; preds = %if.else729, %if.the
   %source.2 = phi ptr [ %incdec.ptr742, %if.then741 ], [ %source.1, %if.then737 ], [ %source.1, %getTrail ], [ %incdec.ptr129, %if.then732 ], [ %incdec.ptr129, %if.else729 ]
   store i32 %.sink, ptr %err, align 4
   %77 = load ptr, ptr %converter, align 8
-  %fromUChar32756 = getelementptr inbounds %struct.UConverter, ptr %77, i64 0, i32 17
+  %fromUChar32756 = getelementptr inbounds i8, ptr %77, i64 84
   store i32 %sourceChar.5, ptr %fromUChar32756, align 4
   br label %while.end
 
@@ -2333,12 +2368,12 @@ while.cond.outer.backedge:                        ; preds = %do.end597, %do.end7
   %offsets.0.ph.be = phi ptr [ %offsets.11, %if.end460 ], [ %offsets.16.ph, %do.end597 ], [ %offsets.19.ph, %do.end724 ]
   %target.0.ph.be = phi ptr [ %target.8, %if.end460 ], [ %incdec.ptr544, %do.end597 ], [ %target.14.ph, %do.end724 ]
   %range.0.ph.be = phi i16 [ %range.1, %if.end460 ], [ %range.3, %do.end597 ], [ %range.3, %do.end724 ]
-  %cmp19446 = icmp ult ptr %incdec.ptr129, %1
-  br i1 %cmp19446, label %while.body.lr.ph, label %while.end, !llvm.loop !8
+  %cmp19448 = icmp ult ptr %incdec.ptr129, %1
+  br i1 %cmp19448, label %while.body.lr.ph, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %while.cond.outer.backedge, %do.end724, %do.end597, %while.cond.backedge, %do.end, %do.end250, %if.else676, %if.end714, %if.else549, %if.then515, %if.then577, %if.else78, %if.then105, %do.end250.thread, %while.cond.preheader, %if.end754
-  %target.18 = phi ptr [ %target.16, %if.end754 ], [ %2, %while.cond.preheader ], [ %target.3, %do.end250.thread ], [ %target.0448, %if.then105 ], [ %incdec.ptr65, %if.else78 ], [ %target.10, %if.then577 ], [ %target.11390, %if.then515 ], [ %incdec.ptr536401, %if.else549 ], [ %target.10, %if.end714 ], [ %incdec.ptr663, %if.else676 ], [ %incdec.ptr150, %do.end250 ], [ %target.2.ph, %do.end ], [ %target.0.be, %while.cond.backedge ], [ %target.0.ph.be, %while.cond.outer.backedge ], [ %incdec.ptr544, %do.end597 ], [ %target.14.ph, %do.end724 ]
-  %source.3 = phi ptr [ %source.2, %if.end754 ], [ %0, %while.cond.preheader ], [ %incdec.ptr129, %do.end250.thread ], [ %source.0449, %if.then105 ], [ %source.0449, %if.else78 ], [ %incdec.ptr129, %if.then577 ], [ %incdec.ptr129, %if.then515 ], [ %incdec.ptr129, %if.else549 ], [ %incdec.ptr129, %if.end714 ], [ %incdec.ptr129, %if.else676 ], [ %incdec.ptr129, %do.end250 ], [ %source.0449, %do.end ], [ %incdec.ptr129, %while.cond.backedge ], [ %incdec.ptr129, %do.end597 ], [ %incdec.ptr129, %do.end724 ], [ %incdec.ptr129, %while.cond.outer.backedge ]
+  %target.18 = phi ptr [ %target.16, %if.end754 ], [ %2, %while.cond.preheader ], [ %target.3, %do.end250.thread ], [ %target.0450, %if.then105 ], [ %incdec.ptr65, %if.else78 ], [ %target.10, %if.then577 ], [ %target.11390, %if.then515 ], [ %incdec.ptr536401, %if.else549 ], [ %target.10, %if.end714 ], [ %incdec.ptr663, %if.else676 ], [ %incdec.ptr150, %do.end250 ], [ %target.2.ph, %do.end ], [ %target.0.be, %while.cond.backedge ], [ %target.0.ph.be, %while.cond.outer.backedge ], [ %incdec.ptr544, %do.end597 ], [ %target.14.ph, %do.end724 ]
+  %source.3 = phi ptr [ %source.2, %if.end754 ], [ %0, %while.cond.preheader ], [ %incdec.ptr129, %do.end250.thread ], [ %source.0451, %if.then105 ], [ %source.0451, %if.else78 ], [ %incdec.ptr129, %if.then577 ], [ %incdec.ptr129, %if.then515 ], [ %incdec.ptr129, %if.else549 ], [ %incdec.ptr129, %if.end714 ], [ %incdec.ptr129, %if.else676 ], [ %incdec.ptr129, %do.end250 ], [ %source.0451, %do.end ], [ %incdec.ptr129, %while.cond.backedge ], [ %incdec.ptr129, %do.end597 ], [ %incdec.ptr129, %do.end724 ], [ %incdec.ptr129, %while.cond.outer.backedge ]
   store ptr %source.3, ptr %source1, align 8
   store ptr %target.18, ptr %target3, align 8
   br label %return
@@ -2350,10 +2385,10 @@ return:                                           ; preds = %while.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef ptr @_ZL13_ISCIIgetNamePK10UConverter(ptr nocapture noundef readonly %cnv) #3 {
 entry:
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 2
+  %extraInfo = getelementptr inbounds i8, ptr %cnv, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
   %tobool.not = icmp eq ptr %0, null
-  %name = getelementptr inbounds %struct.UConverterDataISCII, ptr %0, i64 0, i32 10
+  %name = getelementptr inbounds i8, ptr %0, i64 26
   %retval.0 = select i1 %tobool.not, ptr null, ptr %name
   ret ptr %retval.0
 }
@@ -2375,13 +2410,13 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %mydata = getelementptr inbounds %struct.cloneISCIIStruct, ptr %stackBuffer, i64 0, i32 1
-  %extraInfo = getelementptr inbounds %struct.UConverter, ptr %cnv, i64 0, i32 2
+  %mydata = getelementptr inbounds i8, ptr %stackBuffer, i64 288
+  %extraInfo = getelementptr inbounds i8, ptr %cnv, i64 16
   %2 = load ptr, ptr %extraInfo, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %mydata, ptr noundef nonnull align 1 dereferenceable(48) %2, i64 48, i1 false)
-  %extraInfo5 = getelementptr inbounds %struct.UConverter, ptr %stackBuffer, i64 0, i32 2
+  %extraInfo5 = getelementptr inbounds i8, ptr %stackBuffer, i64 16
   store ptr %mydata, ptr %extraInfo5, align 8
-  %isExtraLocal = getelementptr inbounds %struct.UConverter, ptr %stackBuffer, i64 0, i32 10
+  %isExtraLocal = getelementptr inbounds i8, ptr %stackBuffer, i64 62
   store i8 1, ptr %isExtraLocal, align 2
   br label %return
 
@@ -2393,11 +2428,11 @@ return:                                           ; preds = %entry, %if.end2, %i
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL19_ISCIIGetUnicodeSetPK10UConverterPK9USetAdder20UConverterUnicodeSetP10UErrorCode(ptr nocapture readnone %cnv, ptr nocapture noundef readonly %sa, i32 %which, ptr nocapture readnone %pErrorCode) #0 {
 entry:
-  %addRange = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 2
+  %addRange = getelementptr inbounds i8, ptr %sa, i64 16
   %0 = load ptr, ptr %addRange, align 8
   %1 = load ptr, ptr %sa, align 8
   tail call void %0(ptr noundef %1, i32 noundef 0, i32 noundef 160)
-  %add = getelementptr inbounds %struct.USetAdder, ptr %sa, i64 0, i32 1
+  %add = getelementptr inbounds i8, ptr %sa, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc13

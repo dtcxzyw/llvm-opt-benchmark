@@ -3,27 +3,7 @@ source_filename = "bench/rocksdb/original/log_buffer.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.rocksdb::LogBuffer" = type { i8, ptr, %"class.rocksdb::Arena", %"class.rocksdb::autovector", [8 x i8] }
-%"class.rocksdb::Arena" = type { %"class.rocksdb::Allocator", [8 x i8], [2048 x i8], i64, %"class.std::deque", %"class.std::deque.0", i64, ptr, ptr, i64, i64, i64, ptr }
-%"class.rocksdb::Allocator" = type { ptr }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<std::unique_ptr<char[]>, std::allocator<std::unique_ptr<char[]>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::unique_ptr<char[]>, std::allocator<std::unique_ptr<char[]>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::unique_ptr<char[]>, std::allocator<std::unique_ptr<char[]>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::unique_ptr<char[]>, std::allocator<std::unique_ptr<char[]>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::deque.0" = type { %"class.std::_Deque_base.1" }
-%"class.std::_Deque_base.1" = type { %"struct.std::_Deque_base<rocksdb::MemMapping, std::allocator<rocksdb::MemMapping>>::_Deque_impl" }
-%"struct.std::_Deque_base<rocksdb::MemMapping, std::allocator<rocksdb::MemMapping>>::_Deque_impl" = type { %"struct.std::_Deque_base<rocksdb::MemMapping, std::allocator<rocksdb::MemMapping>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<rocksdb::MemMapping, std::allocator<rocksdb::MemMapping>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.5", %"struct.std::_Deque_iterator.5" }
-%"struct.std::_Deque_iterator.5" = type { ptr, ptr, ptr, ptr }
-%"class.rocksdb::autovector" = type { i64, [64 x i8], ptr, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<rocksdb::LogBuffer::BufferedLog *, std::allocator<rocksdb::LogBuffer::BufferedLog *>>::_Vector_impl" }
-%"struct.std::_Vector_base<rocksdb::LogBuffer::BufferedLog *, std::allocator<rocksdb::LogBuffer::BufferedLog *>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::LogBuffer::BufferedLog *, std::allocator<rocksdb::LogBuffer::BufferedLog *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<rocksdb::LogBuffer::BufferedLog *, std::allocator<rocksdb::LogBuffer::BufferedLog *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"struct.rocksdb::LogBuffer::BufferedLog" = type { %struct.timeval, [1 x i8] }
-%struct.timeval = type { i64, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 
 $_ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE9push_backERKS3_ = comdat any
@@ -37,16 +17,16 @@ $_ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE9push_backERKS3_ = com
 define void @_ZN7rocksdb9LogBufferC2ENS_12InfoLogLevelEPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2408) %this, i8 noundef zeroext %log_level, ptr noundef %info_log) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 %log_level, ptr %this, align 16
-  %info_log_ = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %this, i64 0, i32 1
+  %info_log_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %info_log, ptr %info_log_, align 8
-  %arena_ = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %this, i64 0, i32 2
+  %arena_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7rocksdb5ArenaC1EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2288) %arena_, i64 noundef 4096, ptr noundef null, i64 noundef 0)
-  %logs_ = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %this, i64 0, i32 3
+  %logs_ = getelementptr inbounds i8, ptr %this, i64 2304
   store i64 0, ptr %logs_, align 16
-  %values_.i = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %this, i64 0, i32 3, i32 2
-  %buf_.i = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %this, i64 0, i32 3, i32 1
+  %values_.i = getelementptr inbounds i8, ptr %this, i64 2376
+  %buf_.i = getelementptr inbounds i8, ptr %this, i64 2312
   store ptr %buf_.i, ptr %values_.i, align 8
-  %vect_.i = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %this, i64 0, i32 3, i32 3
+  %vect_.i = getelementptr inbounds i8, ptr %this, i64 2384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %vect_.i, i8 0, i64 24, i1 false)
   ret void
 }
@@ -60,7 +40,7 @@ define void @_ZN7rocksdb9LogBuffer14AddLogToBufferEmPKcP13__va_list_tag(ptr noun
 entry:
   %buffered_log = alloca ptr, align 8
   %backup_ap = alloca [1 x %struct.__va_list_tag], align 16
-  %info_log_ = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %this, i64 0, i32 1
+  %info_log_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %info_log_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -68,18 +48,18 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %1 = load i8, ptr %this, align 16
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i8 %2(ptr noundef nonnull align 8 dereferenceable(18) %0)
   %cmp = icmp ult i8 %1, %call
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %arena_ = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %this, i64 0, i32 2
+  %arena_ = getelementptr inbounds i8, ptr %this, i64 16
   %call4 = tail call noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_, i64 noundef %max_log_size, i64 noundef 0, ptr noundef null)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call4, i8 0, i64 24, i1 false)
   store ptr %call4, ptr %buffered_log, align 8
-  %message = getelementptr inbounds %"struct.rocksdb::LogBuffer::BufferedLog", ptr %call4, i64 0, i32 1
+  %message = getelementptr inbounds i8, ptr %call4, i64 16
   %3 = getelementptr i8, ptr %call4, i64 %max_log_size
   %add.ptr5.ptr = getelementptr i8, ptr %3, i64 -1
   %call.i = tail call i32 @gettimeofday(ptr noundef %call4, ptr noundef null) #12
@@ -104,7 +84,7 @@ if.end16:                                         ; preds = %if.then7, %if.end
   %cmp17 = icmp ugt ptr %p.1, %add.ptr5.ptr
   %spec.select = select i1 %cmp17, ptr %add.ptr5.ptr, ptr %p.1
   store i8 0, ptr %spec.select, align 1
-  %logs_ = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %this, i64 0, i32 3
+  %logs_ = getelementptr inbounds i8, ptr %this, i64 2304
   call void @_ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(104) %logs_, ptr noundef nonnull align 8 dereferenceable(8) %buffered_log)
   br label %return
 
@@ -134,7 +114,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %values_ = getelementptr inbounds %"class.rocksdb::autovector", ptr %this, i64 0, i32 2
+  %values_ = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %values_, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %0
   store ptr null, ptr %arrayidx, align 8
@@ -148,10 +128,10 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %vect_ = getelementptr inbounds %"class.rocksdb::autovector", ptr %this, i64 0, i32 3
-  %_M_finish.i = getelementptr inbounds %"class.rocksdb::autovector", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %vect_ = getelementptr inbounds i8, ptr %this, i64 80
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.rocksdb::autovector", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 96
   %6 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -160,7 +140,7 @@ if.then.i:                                        ; preds = %if.else
   %7 = load ptr, ptr %item, align 8
   store ptr %7, ptr %5, align 8
   %8 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %8, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end
 
@@ -205,7 +185,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i
 
 _ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -229,10 +209,10 @@ define void @_ZN7rocksdb9LogBuffer16FlushBufferToLogEv(ptr nocapture noundef non
 entry:
   %seconds = alloca i64, align 8
   %t = alloca %struct.tm, align 8
-  %logs_ = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %this, i64 0, i32 3
+  %logs_ = getelementptr inbounds i8, ptr %this, i64 2304
   %0 = load i64, ptr %logs_, align 16
-  %vect_.i.i = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %this, i64 0, i32 3, i32 3
-  %_M_finish.i.i.i = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %this, i64 0, i32 3, i32 3, i32 0, i32 0, i32 0, i32 1
+  %vect_.i.i = getelementptr inbounds i8, ptr %this, i64 2384
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 2392
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !4
   %2 = load ptr, ptr %vect_.i.i, align 16, !noalias !4
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -244,13 +224,13 @@ entry:
   br i1 %cmp.i.i.not13, label %for.cond.cleanup, label %invoke.cont4.lr.ph
 
 invoke.cont4.lr.ph:                               ; preds = %entry
-  %values_.i.i = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %this, i64 0, i32 3, i32 2
-  %info_log_ = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %this, i64 0, i32 1
-  %tm_year = getelementptr inbounds %struct.tm, ptr %t, i64 0, i32 5
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %t, i64 0, i32 4
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %t, i64 0, i32 3
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %t, i64 0, i32 2
-  %tm_min = getelementptr inbounds %struct.tm, ptr %t, i64 0, i32 1
+  %values_.i.i = getelementptr inbounds i8, ptr %this, i64 2376
+  %info_log_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tm_year = getelementptr inbounds i8, ptr %t, i64 20
+  %tm_mon = getelementptr inbounds i8, ptr %t, i64 16
+  %tm_mday = getelementptr inbounds i8, ptr %t, i64 12
+  %tm_hour = getelementptr inbounds i8, ptr %t, i64 8
+  %tm_min = getelementptr inbounds i8, ptr %t, i64 4
   br label %invoke.cont4
 
 for.cond.cleanup.loopexit:                        ; preds = %for.inc
@@ -286,7 +266,7 @@ invoke.cont4:                                     ; preds = %invoke.cont4.lr.ph,
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %5, i64 %__begin1.sroa.2.014
   %6 = load ptr, ptr %vect_.i.i, align 16
   %7 = getelementptr ptr, ptr %6, i64 %__begin1.sroa.2.014
-  %add.ptr.i.i.i = getelementptr ptr, ptr %7, i64 -8
+  %add.ptr.i.i.i = getelementptr i8, ptr %7, i64 -64
   %retval.0.i.i = select i1 %cmp.i.i8, ptr %arrayidx.i.i, ptr %add.ptr.i.i.i
   %8 = load ptr, ptr %retval.0.i.i, align 8
   %9 = load i64, ptr %8, align 8
@@ -306,10 +286,10 @@ if.then:                                          ; preds = %invoke.cont4
   %15 = load i32, ptr %tm_hour, align 8
   %16 = load i32, ptr %tm_min, align 4
   %17 = load i32, ptr %t, align 8
-  %tv_usec = getelementptr inbounds %struct.timeval, ptr %8, i64 0, i32 1
+  %tv_usec = getelementptr inbounds i8, ptr %8, i64 8
   %18 = load i64, ptr %tv_usec, align 8
   %conv = trunc i64 %18 to i32
-  %message = getelementptr inbounds %"struct.rocksdb::LogBuffer::BufferedLog", ptr %8, i64 0, i32 1
+  %message = getelementptr inbounds i8, ptr %8, i64 16
   call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext %10, ptr noundef %11, ptr noundef nonnull @.str, i32 noundef %add, i32 noundef %add8, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17, i32 noundef %conv, ptr noundef nonnull %message)
   br label %for.inc
 
@@ -354,7 +334,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.va_start(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buffered_log.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %backup_ap.i)
-  %info_log_.i = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %log_buffer, i64 0, i32 1
+  %info_log_.i = getelementptr inbounds i8, ptr %log_buffer, i64 8
   %0 = load ptr, ptr %info_log_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZN7rocksdb9LogBuffer14AddLogToBufferEmPKcP13__va_list_tag.exit, label %lor.lhs.false.i
@@ -362,18 +342,18 @@ if.then:                                          ; preds = %entry
 lor.lhs.false.i:                                  ; preds = %if.then
   %1 = load i8, ptr %log_buffer, align 16
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef zeroext i8 %2(ptr noundef nonnull align 8 dereferenceable(18) %0)
   %cmp.i = icmp ult i8 %1, %call.i
   br i1 %cmp.i, label %_ZN7rocksdb9LogBuffer14AddLogToBufferEmPKcP13__va_list_tag.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %arena_.i = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %log_buffer, i64 0, i32 2
+  %arena_.i = getelementptr inbounds i8, ptr %log_buffer, i64 16
   %call4.i = call noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i, i64 noundef 512, i64 noundef 0, ptr noundef null)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call4.i, i8 0, i64 24, i1 false)
   store ptr %call4.i, ptr %buffered_log.i, align 8
-  %message.i = getelementptr inbounds %"struct.rocksdb::LogBuffer::BufferedLog", ptr %call4.i, i64 0, i32 1
+  %message.i = getelementptr inbounds i8, ptr %call4.i, i64 16
   %add.ptr5.ptr.i = getelementptr i8, ptr %call4.i, i64 511
   %call.i.i = call i32 @gettimeofday(ptr noundef %call4.i, ptr noundef null) #12
   call void @llvm.va_copy(ptr nonnull %backup_ap.i, ptr nonnull %ap)
@@ -386,7 +366,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %cmp17.i = icmp ugt ptr %p.0.i, %add.ptr5.ptr.i
   %spec.select.i = select i1 %cmp17.i, ptr %add.ptr5.ptr.i, ptr %p.0.i
   store i8 0, ptr %spec.select.i, align 1
-  %logs_.i = getelementptr inbounds %"class.rocksdb::LogBuffer", ptr %log_buffer, i64 0, i32 3
+  %logs_.i = getelementptr inbounds i8, ptr %log_buffer, i64 2304
   call void @_ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(104) %logs_.i, ptr noundef nonnull align 8 dereferenceable(8) %buffered_log.i)
   br label %_ZN7rocksdb9LogBuffer14AddLogToBufferEmPKcP13__va_list_tag.exit
 

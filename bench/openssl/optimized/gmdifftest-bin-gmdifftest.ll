@@ -101,45 +101,45 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %tm_year = getelementptr inbounds %struct.tm, ptr %tm1, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %tm1, i64 20
   %1 = load i32, ptr %tm_year, align 4
-  %tm_year5 = getelementptr inbounds %struct.tm, ptr %tm2, i64 0, i32 5
+  %tm_year5 = getelementptr inbounds i8, ptr %tm2, i64 20
   %2 = load i32, ptr %tm_year5, align 4
   %call6 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 36, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef %1, i32 noundef %2) #4
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %tm1, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %tm1, i64 16
   %3 = load i32, ptr %tm_mon, align 8
-  %tm_mon9 = getelementptr inbounds %struct.tm, ptr %tm2, i64 0, i32 4
+  %tm_mon9 = getelementptr inbounds i8, ptr %tm2, i64 16
   %4 = load i32, ptr %tm_mon9, align 8
   %call10 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 37, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %3, i32 noundef %4) #4
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %lor.lhs.false12
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false8
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %tm1, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %tm1, i64 12
   %5 = load i32, ptr %tm_mday, align 4
-  %tm_mday13 = getelementptr inbounds %struct.tm, ptr %tm2, i64 0, i32 3
+  %tm_mday13 = getelementptr inbounds i8, ptr %tm2, i64 12
   %6 = load i32, ptr %tm_mday13, align 4
   %call14 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 38, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef %5, i32 noundef %6) #4
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false12
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %tm1, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %tm1, i64 8
   %7 = load i32, ptr %tm_hour, align 8
-  %tm_hour17 = getelementptr inbounds %struct.tm, ptr %tm2, i64 0, i32 2
+  %tm_hour17 = getelementptr inbounds i8, ptr %tm2, i64 8
   %8 = load i32, ptr %tm_hour17, align 8
   %call18 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 39, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef %7, i32 noundef %8) #4
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %return, label %lor.lhs.false20
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false16
-  %tm_min = getelementptr inbounds %struct.tm, ptr %tm1, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %tm1, i64 4
   %9 = load i32, ptr %tm_min, align 4
-  %tm_min21 = getelementptr inbounds %struct.tm, ptr %tm2, i64 0, i32 1
+  %tm_min21 = getelementptr inbounds i8, ptr %tm2, i64 4
   %10 = load i32, ptr %tm_min21, align 4
   %call22 = call i32 @test_int_eq(ptr noundef nonnull @.str.1, i32 noundef 40, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef %9, i32 noundef %10) #4
   %tobool23.not = icmp eq i32 %call22, 0

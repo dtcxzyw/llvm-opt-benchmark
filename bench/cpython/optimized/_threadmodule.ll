@@ -874,13 +874,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyMemberDef = type { ptr, i32, i64, i32, ptr }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 %struct.PyStructSequence_Field = type { ptr, ptr }
-%struct.thread_module_state = type { ptr, ptr, ptr, ptr, ptr }
-%struct.ThreadHandleObject = type { %struct._object, i64, i64, i8 }
-%struct.lockobject = type { %struct._object, ptr, ptr, i8 }
-%struct.bootstate = type { ptr, ptr, ptr, ptr }
-%struct.rlockobject = type { %struct._object, ptr, i64, i64, ptr }
-%struct.localdummyobject = type { %struct._object, ptr, ptr }
-%struct.localobject = type { %struct._object, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @thread_module = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @thread_doc, i64 40, ptr @thread_methods, ptr @thread_module_slots, ptr @thread_module_traverse, ptr @thread_module_clear, ptr @thread_module_free }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"_thread\00", align 1
@@ -1080,7 +1073,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %lock_type = getelementptr inbounds %struct.thread_module_state, ptr %module.val, i64 0, i32 1
+  %lock_type = getelementptr inbounds i8, ptr %module.val, i64 8
   %2 = load ptr, ptr %lock_type, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -1091,7 +1084,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %local_type = getelementptr inbounds %struct.thread_module_state, ptr %module.val, i64 0, i32 2
+  %local_type = getelementptr inbounds i8, ptr %module.val, i64 16
   %3 = load ptr, ptr %local_type, align 8
   %tobool18.not = icmp eq ptr %3, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -1102,7 +1095,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %local_dummy_type = getelementptr inbounds %struct.thread_module_state, ptr %module.val, i64 0, i32 3
+  %local_dummy_type = getelementptr inbounds i8, ptr %module.val, i64 24
   %4 = load ptr, ptr %local_dummy_type, align 8
   %tobool29.not = icmp eq ptr %4, null
   br i1 %tobool29.not, label %do.body39, label %if.then30
@@ -1113,7 +1106,7 @@ if.then30:                                        ; preds = %do.body28
   br i1 %tobool34.not, label %do.body39, label %return
 
 do.body39:                                        ; preds = %if.then30, %do.body28
-  %thread_handle_type = getelementptr inbounds %struct.thread_module_state, ptr %module.val, i64 0, i32 4
+  %thread_handle_type = getelementptr inbounds i8, ptr %module.val, i64 32
   %5 = load ptr, ptr %thread_handle_type, align 8
   %tobool40.not = icmp eq ptr %5, null
   br i1 %tobool40.not, label %do.end49, label %if.then41
@@ -1158,7 +1151,7 @@ if.then1.i62:                                     ; preds = %if.end.i59
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i59, %if.then1.i62, %if.then, %entry
-  %lock_type = getelementptr inbounds %struct.thread_module_state, ptr %module.val, i64 0, i32 1
+  %lock_type = getelementptr inbounds i8, ptr %module.val, i64 8
   %4 = load ptr, ptr %lock_type, align 8
   %cmp4.not = icmp eq ptr %4, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -1181,7 +1174,7 @@ if.then1.i53:                                     ; preds = %if.end.i50
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i50, %if.then1.i53, %if.then5, %do.body1
-  %local_type = getelementptr inbounds %struct.thread_module_state, ptr %module.val, i64 0, i32 2
+  %local_type = getelementptr inbounds i8, ptr %module.val, i64 16
   %7 = load ptr, ptr %local_type, align 8
   %cmp11.not = icmp eq ptr %7, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -1204,7 +1197,7 @@ if.then1.i44:                                     ; preds = %if.end.i41
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i41, %if.then1.i44, %if.then12, %do.body8
-  %local_dummy_type = getelementptr inbounds %struct.thread_module_state, ptr %module.val, i64 0, i32 3
+  %local_dummy_type = getelementptr inbounds i8, ptr %module.val, i64 24
   %10 = load ptr, ptr %local_dummy_type, align 8
   %cmp18.not = icmp eq ptr %10, null
   br i1 %cmp18.not, label %do.body22, label %if.then19
@@ -1227,7 +1220,7 @@ if.then1.i35:                                     ; preds = %if.end.i32
   br label %do.body22
 
 do.body22:                                        ; preds = %if.end.i32, %if.then1.i35, %if.then19, %do.body15
-  %thread_handle_type = getelementptr inbounds %struct.thread_module_state, ptr %module.val, i64 0, i32 4
+  %thread_handle_type = getelementptr inbounds i8, ptr %module.val, i64 32
   %13 = load ptr, ptr %thread_handle_type, align 8
   %cmp25.not = icmp eq ptr %13, null
   br i1 %cmp25.not, label %do.end28, label %if.then26
@@ -1392,9 +1385,9 @@ if.then1.i41:                                     ; preds = %if.end.i38
   br label %return
 
 if.end12:                                         ; preds = %if.end8
-  %ident.i = getelementptr inbounds %struct.ThreadHandleObject, ptr %call.i, i64 0, i32 1
+  %ident.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %ident.i, i8 0, i64 17, i1 false)
-  %handle = getelementptr inbounds %struct.ThreadHandleObject, ptr %call.i, i64 0, i32 2
+  %handle = getelementptr inbounds i8, ptr %call.i, i64 24
   %call13 = tail call fastcc i32 @do_start_new_thread(ptr noundef %func, ptr noundef nonnull %call5, ptr noundef null, i32 noundef 1, ptr noundef nonnull %ident.i, ptr noundef nonnull %handle)
   %tobool14.not = icmp eq i32 %call13, 0
   %5 = load i64, ptr %call5, align 8
@@ -1445,7 +1438,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end16, %if.then1.i, %if.end.i
-  %joinable = getelementptr inbounds %struct.ThreadHandleObject, ptr %call.i, i64 0, i32 3
+  %joinable = getelementptr inbounds i8, ptr %call.i, i64 32
   store i8 1, ptr %joinable, align 8
   br label %return
 
@@ -1459,9 +1452,9 @@ define internal nonnull ptr @thread_daemon_threads_allowed(ptr nocapture readnon
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %feature_flags = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 23
+  %feature_flags = getelementptr inbounds i8, ptr %2, i64 2040
   %3 = load i64, ptr %feature_flags, align 8
   %and = and i64 %3, 2048
   %tobool.not = icmp eq i64 %and, 0
@@ -1476,7 +1469,7 @@ entry:
   %module.val = load ptr, ptr %0, align 8
   %1 = getelementptr i8, ptr %module.val, i64 8
   %module.val.val = load ptr, ptr %1, align 8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %module.val.val, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %module.val.val, i64 304
   %2 = load ptr, ptr %tp_alloc.i, align 8
   %call1.i = tail call ptr %2(ptr noundef %module.val.val, i64 noundef 0) #8
   %cmp.i = icmp eq ptr %call1.i, null
@@ -1484,11 +1477,11 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %call2.i = tail call ptr @PyThread_allocate_lock() #8
-  %lock_lock.i = getelementptr inbounds %struct.lockobject, ptr %call1.i, i64 0, i32 1
+  %lock_lock.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   store ptr %call2.i, ptr %lock_lock.i, align 8
-  %locked.i = getelementptr inbounds %struct.lockobject, ptr %call1.i, i64 0, i32 3
+  %locked.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   store i8 0, ptr %locked.i, align 8
-  %in_weakreflist.i = getelementptr inbounds %struct.lockobject, ptr %call1.i, i64 0, i32 2
+  %in_weakreflist.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr null, ptr %in_weakreflist.i, align 8
   %cmp4.i = icmp eq ptr %call2.i, null
   br i1 %cmp4.i, label %if.then5.i, label %newlockobject.exit
@@ -1586,9 +1579,9 @@ define internal ptr @thread__count(ptr nocapture readnone %self, ptr nocapture r
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %count = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 9, i32 3
+  %count = getelementptr inbounds i8, ptr %2, i64 960
   %3 = load i64, ptr %count, align 8
   %call1 = tail call ptr @PyLong_FromLong(i64 noundef %3) #8
   ret ptr %call1
@@ -1647,13 +1640,13 @@ define internal ptr @thread__set_sentinel(ptr nocapture noundef readonly %module
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %on_delete_data = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 27
+  %on_delete_data = getelementptr inbounds i8, ptr %1, i64 192
   %2 = load ptr, ptr %on_delete_data, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %on_delete = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 26
+  %on_delete = getelementptr inbounds i8, ptr %1, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %on_delete, i8 0, i64 16, i1 false)
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 2147483648
@@ -1675,7 +1668,7 @@ if.end:                                           ; preds = %if.end.i16, %if.the
   %module.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %module.val, i64 8
   %module.val.val = load ptr, ptr %6, align 8
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %module.val.val, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %module.val.val, i64 304
   %7 = load ptr, ptr %tp_alloc.i, align 8
   %call1.i = tail call ptr %7(ptr noundef %module.val.val, i64 noundef 0) #8
   %cmp.i15 = icmp eq ptr %call1.i, null
@@ -1683,11 +1676,11 @@ if.end:                                           ; preds = %if.end.i16, %if.the
 
 if.end.i17:                                       ; preds = %if.end
   %call2.i = tail call ptr @PyThread_allocate_lock() #8
-  %lock_lock.i = getelementptr inbounds %struct.lockobject, ptr %call1.i, i64 0, i32 1
+  %lock_lock.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   store ptr %call2.i, ptr %lock_lock.i, align 8
-  %locked.i = getelementptr inbounds %struct.lockobject, ptr %call1.i, i64 0, i32 3
+  %locked.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   store i8 0, ptr %locked.i, align 8
-  %in_weakreflist.i = getelementptr inbounds %struct.lockobject, ptr %call1.i, i64 0, i32 2
+  %in_weakreflist.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr null, ptr %in_weakreflist.i, align 8
   %cmp4.i = icmp eq ptr %call2.i, null
   br i1 %cmp4.i, label %if.then5.i, label %if.end6
@@ -1736,7 +1729,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end10:                                         ; preds = %if.end6
   store ptr %call7, ptr %on_delete_data, align 8
-  %on_delete12 = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 26
+  %on_delete12 = getelementptr inbounds i8, ptr %1, i64 184
   store ptr @release_sentinel, ptr %on_delete12, align 8
   br label %return
 
@@ -1959,7 +1952,7 @@ define internal ptr @thread__is_main_interpreter(ptr nocapture readnone %module,
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %3 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
   %cmp.i = icmp eq ptr %3, %2
@@ -1981,7 +1974,7 @@ define internal fastcc i32 @do_start_new_thread(ptr noundef %func, ptr noundef %
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %call1 = tail call i32 @_PyInterpreterState_HasFeature(ptr noundef %2, i64 noundef 1024) #8
   %tobool.not = icmp eq i32 %call1, 0
@@ -1993,7 +1986,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %finalizing = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 7
+  %finalizing = getelementptr inbounds i8, ptr %2, i64 924
   %4 = load i32, ptr %finalizing, align 4
   %tobool2.not = icmp eq i32 %4, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
@@ -2039,7 +2032,7 @@ if.end.i.i:                                       ; preds = %if.end18
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end18, %if.end.i.i
-  %func20 = getelementptr inbounds %struct.bootstate, ptr %call5, i64 0, i32 1
+  %func20 = getelementptr inbounds i8, ptr %call5, i64 8
   store ptr %func, ptr %func20, align 8
   %7 = load i32, ptr %args, align 8
   %add.i.i16 = add i32 %7, 1
@@ -2051,7 +2044,7 @@ if.end.i.i18:                                     ; preds = %_Py_NewRef.exit
   br label %_Py_NewRef.exit19
 
 _Py_NewRef.exit19:                                ; preds = %_Py_NewRef.exit, %if.end.i.i18
-  %args22 = getelementptr inbounds %struct.bootstate, ptr %call5, i64 0, i32 2
+  %args22 = getelementptr inbounds i8, ptr %call5, i64 16
   store ptr %args, ptr %args22, align 8
   %cmp.not.i.i = icmp eq ptr %kwargs, null
   br i1 %cmp.not.i.i, label %_Py_XNewRef.exit, label %if.then.i.i
@@ -2067,7 +2060,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %_Py_NewRef.exit19, %if.then.i.i, %if.end.i.i.i
-  %kwargs24 = getelementptr inbounds %struct.bootstate, ptr %call5, i64 0, i32 3
+  %kwargs24 = getelementptr inbounds i8, ptr %call5, i64 24
   store ptr %kwargs, ptr %kwargs24, align 8
   %tobool25.not = icmp eq i32 %joinable, 0
   br i1 %tobool25.not, label %if.else, label %if.then26
@@ -2188,17 +2181,17 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   tail call void @_PyThreadState_Bind(ptr noundef %0) #8
   tail call void @PyEval_AcquireThread(ptr noundef %0) #8
-  %interp = getelementptr inbounds %struct._ts, ptr %0, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %interp, align 8
-  %count = getelementptr inbounds %struct._is, ptr %1, i64 0, i32 9, i32 3
+  %count = getelementptr inbounds i8, ptr %1, i64 960
   %2 = load i64, ptr %count, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %count, align 8
-  %func = getelementptr inbounds %struct.bootstate, ptr %boot_raw, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %boot_raw, i64 8
   %3 = load ptr, ptr %func, align 8
-  %args = getelementptr inbounds %struct.bootstate, ptr %boot_raw, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %boot_raw, i64 16
   %4 = load ptr, ptr %args, align 8
-  %kwargs = getelementptr inbounds %struct.bootstate, ptr %boot_raw, i64 0, i32 3
+  %kwargs = getelementptr inbounds i8, ptr %boot_raw, i64 24
   %5 = load ptr, ptr %kwargs, align 8
   %call2 = tail call ptr @PyObject_Call(ptr noundef %3, ptr noundef %4, ptr noundef %5) #8
   %cmp = icmp eq ptr %call2, null
@@ -2293,7 +2286,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 thread_bootstate_free.exit:                       ; preds = %Py_DECREF.exit.i, %if.then.i.i, %if.end.i.i.i, %if.then1.i.i.i
   tail call void @PyMem_RawFree(ptr noundef nonnull %boot_raw) #8
   %19 = load ptr, ptr %interp, align 8
-  %count13 = getelementptr inbounds %struct._is, ptr %19, i64 0, i32 9, i32 3
+  %count13 = getelementptr inbounds i8, ptr %19, i64 960
   %20 = load i64, ptr %count13, align 8
   %dec = add i64 %20, -1
   store i64 %dec, ptr %count13, align 8
@@ -2384,13 +2377,13 @@ if.end.i.i.i:                                     ; preds = %if.end3.i
   br label %if.then
 
 if.then:                                          ; preds = %if.end.i.i.i, %if.end3.i
-  %locked = getelementptr inbounds %struct.lockobject, ptr %weakref_raw.val, i64 0, i32 3
+  %locked = getelementptr inbounds i8, ptr %weakref_raw.val, i64 32
   %2 = load i8, ptr %locked, align 8
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %lock_lock = getelementptr inbounds %struct.lockobject, ptr %weakref_raw.val, i64 0, i32 1
+  %lock_lock = getelementptr inbounds i8, ptr %weakref_raw.val, i64 16
   %3 = load ptr, ptr %lock_lock, align 8
   tail call void @PyThread_release_lock(ptr noundef %3) #8
   store i8 0, ptr %locked, align 8
@@ -2462,7 +2455,7 @@ entry:
   %call1 = tail call ptr @PyModule_GetDict(ptr noundef %module) #8
   tail call void @PyThread_init_thread() #8
   %call2 = tail call ptr @PyType_FromSpec(ptr noundef nonnull @ThreadHandle_Type_spec) #8
-  %thread_handle_type = getelementptr inbounds %struct.thread_module_state, ptr %module.val, i64 0, i32 4
+  %thread_handle_type = getelementptr inbounds i8, ptr %module.val, i64 32
   store ptr %call2, ptr %thread_handle_type, align 8
   %cmp = icmp eq ptr %call2, null
   br i1 %cmp, label %return, label %if.end
@@ -2474,7 +2467,7 @@ if.end:                                           ; preds = %entry
 
 if.end8:                                          ; preds = %if.end
   %call9 = tail call ptr @PyType_FromSpec(ptr noundef nonnull @lock_type_spec) #8
-  %lock_type = getelementptr inbounds %struct.thread_module_state, ptr %module.val, i64 0, i32 1
+  %lock_type = getelementptr inbounds i8, ptr %module.val, i64 8
   store ptr %call9, ptr %lock_type, align 8
   %cmp11 = icmp eq ptr %call9, null
   br i1 %cmp11, label %return, label %if.end13
@@ -2525,14 +2518,14 @@ if.then1.i:                                       ; preds = %if.end.i
 
 Py_DECREF.exit:                                   ; preds = %if.end26, %if.then1.i, %if.end.i
   %call27 = tail call ptr @PyType_FromSpec(ptr noundef nonnull @local_dummy_type_spec) #8
-  %local_dummy_type = getelementptr inbounds %struct.thread_module_state, ptr %module.val, i64 0, i32 3
+  %local_dummy_type = getelementptr inbounds i8, ptr %module.val, i64 24
   store ptr %call27, ptr %local_dummy_type, align 8
   %cmp29 = icmp eq ptr %call27, null
   br i1 %cmp29, label %return, label %if.end31
 
 if.end31:                                         ; preds = %Py_DECREF.exit
   %call32 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %module, ptr noundef nonnull @local_type_spec, ptr noundef null) #8
-  %local_type = getelementptr inbounds %struct.thread_module_state, ptr %module.val, i64 0, i32 2
+  %local_type = getelementptr inbounds i8, ptr %module.val, i64 16
   store ptr %call32, ptr %local_type, align 8
   %cmp34 = icmp eq ptr %call32, null
   br i1 %cmp34, label %return, label %if.end36
@@ -2605,13 +2598,13 @@ define internal void @ThreadHandle_dealloc(ptr noundef %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %joinable = getelementptr inbounds %struct.ThreadHandleObject, ptr %self, i64 0, i32 3
+  %joinable = getelementptr inbounds i8, ptr %self, i64 32
   %1 = load i8, ptr %joinable, align 8
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %handle = getelementptr inbounds %struct.ThreadHandleObject, ptr %self, i64 0, i32 2
+  %handle = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i64, ptr %handle, align 8
   %call1 = tail call i32 @PyThread_detach_thread(i64 noundef %2) #8
   %tobool2.not = icmp eq i32 %call1, 0
@@ -2649,9 +2642,9 @@ define internal ptr @ThreadHandle_repr(ptr nocapture noundef readonly %self) #0 
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %1 = load ptr, ptr %tp_name, align 8
-  %ident = getelementptr inbounds %struct.ThreadHandleObject, ptr %self, i64 0, i32 1
+  %ident = getelementptr inbounds i8, ptr %self, i64 16
   %2 = load i64, ptr %ident, align 8
   %call1 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.49, ptr noundef %1, i64 noundef %2) #8
   ret ptr %call1
@@ -2666,7 +2659,7 @@ declare void @PyObject_Free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @ThreadHandle_get_ident(ptr nocapture noundef readonly %self, ptr nocapture readnone %ignored) #0 {
 entry:
-  %ident = getelementptr inbounds %struct.ThreadHandleObject, ptr %self, i64 0, i32 1
+  %ident = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i64, ptr %ident, align 8
   %call = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %0) #8
   ret ptr %call
@@ -2675,8 +2668,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @ThreadHandle_after_fork_alive(ptr noundef %self, ptr nocapture readnone %ignored) #0 {
 entry:
-  %ident = getelementptr inbounds %struct.ThreadHandleObject, ptr %self, i64 0, i32 1
-  %handle = getelementptr inbounds %struct.ThreadHandleObject, ptr %self, i64 0, i32 2
+  %ident = getelementptr inbounds i8, ptr %self, i64 16
+  %handle = getelementptr inbounds i8, ptr %self, i64 24
   tail call void @PyThread_update_thread_after_fork(ptr noundef nonnull %ident, ptr noundef nonnull %handle) #8
   ret ptr @_Py_NoneStruct
 }
@@ -2684,7 +2677,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal nonnull ptr @ThreadHandle_after_fork_dead(ptr nocapture noundef writeonly %self, ptr nocapture readnone %ignored) #4 {
 entry:
-  %joinable = getelementptr inbounds %struct.ThreadHandleObject, ptr %self, i64 0, i32 3
+  %joinable = getelementptr inbounds i8, ptr %self, i64 32
   store i8 0, ptr %joinable, align 8
   ret ptr @_Py_NoneStruct
 }
@@ -2692,14 +2685,14 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @ThreadHandle_detach(ptr nocapture noundef %self, ptr nocapture readnone %ignored) #0 {
 entry:
-  %joinable = getelementptr inbounds %struct.ThreadHandleObject, ptr %self, i64 0, i32 3
+  %joinable = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i8, ptr %joinable, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %joinable, align 8
-  %handle = getelementptr inbounds %struct.ThreadHandleObject, ptr %self, i64 0, i32 2
+  %handle = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i64, ptr %handle, align 8
   %call = tail call i32 @PyThread_detach_thread(i64 noundef %1) #8
   %tobool2.not = icmp eq i32 %call, 0
@@ -2720,13 +2713,13 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ThreadHandle_join(ptr nocapture noundef %self, ptr nocapture readnone %ignored) #0 {
 entry:
-  %joinable = getelementptr inbounds %struct.ThreadHandleObject, ptr %self, i64 0, i32 3
+  %joinable = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i8, ptr %joinable, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ident = getelementptr inbounds %struct.ThreadHandleObject, ptr %self, i64 0, i32 1
+  %ident = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load i64, ptr %ident, align 8
   %call = tail call i64 @PyThread_get_thread_ident_ex() #8
   %cmp = icmp eq i64 %1, %call
@@ -2735,7 +2728,7 @@ if.end:                                           ; preds = %entry
 if.end2:                                          ; preds = %if.end
   store i8 0, ptr %joinable, align 8
   %call4 = tail call ptr @PyEval_SaveThread() #8
-  %handle = getelementptr inbounds %struct.ThreadHandleObject, ptr %self, i64 0, i32 2
+  %handle = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i64, ptr %handle, align 8
   %call5 = tail call i32 @PyThread_join_thread(i64 noundef %2) #8
   tail call void @PyEval_RestoreThread(ptr noundef %call4) #8
@@ -2766,7 +2759,7 @@ declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 define internal void @lock_dealloc(ptr noundef %self) #0 {
 entry:
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #8
-  %in_weakreflist = getelementptr inbounds %struct.lockobject, ptr %self, i64 0, i32 2
+  %in_weakreflist = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %in_weakreflist, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2776,13 +2769,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %lock_lock = getelementptr inbounds %struct.lockobject, ptr %self, i64 0, i32 1
+  %lock_lock = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %lock_lock, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.end7, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %locked = getelementptr inbounds %struct.lockobject, ptr %self, i64 0, i32 3
+  %locked = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load i8, ptr %locked, align 8
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end5, label %if.then3
@@ -2800,7 +2793,7 @@ if.end5:                                          ; preds = %if.then3, %if.then2
 if.end7:                                          ; preds = %if.end5, %if.end
   %4 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %4, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %5 = load ptr, ptr %tp_free, align 8
   tail call void %5(ptr noundef nonnull %self) #8
   %6 = load i64, ptr %self.val, align 8
@@ -2825,13 +2818,13 @@ Py_DECREF.exit:                                   ; preds = %if.end7, %if.then1.
 ; Function Attrs: nounwind uwtable
 define internal ptr @lock_repr(ptr noundef %self) #0 {
 entry:
-  %locked = getelementptr inbounds %struct.lockobject, ptr %self, i64 0, i32 3
+  %locked = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i8, ptr %locked, align 8
   %tobool.not = icmp eq i8 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.62, ptr @.str.61
   %1 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %1, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %2 = load ptr, ptr %tp_name, align 8
   %call1 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.60, ptr noundef nonnull %cond, ptr noundef %2, ptr noundef %self) #8
   ret ptr %call1
@@ -2873,7 +2866,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %lock_lock = getelementptr inbounds %struct.lockobject, ptr %self, i64 0, i32 1
+  %lock_lock = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %lock_lock, align 8
   %1 = load i64, ptr %timeout, align 8
   %call.i = call i32 @PyThread_acquire_lock_timed_with_retries(ptr noundef %0, i64 noundef %1) #8
@@ -2885,7 +2878,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp5, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
-  %locked = getelementptr inbounds %struct.lockobject, ptr %self, i64 0, i32 3
+  %locked = getelementptr inbounds i8, ptr %self, i64 32
   store i8 1, ptr %locked, align 8
   br label %if.end7
 
@@ -2902,7 +2895,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind uwtable
 define internal ptr @lock_PyThread_release_lock(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %locked = getelementptr inbounds %struct.lockobject, ptr %self, i64 0, i32 3
+  %locked = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i8, ptr %locked, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -2913,7 +2906,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %lock_lock = getelementptr inbounds %struct.lockobject, ptr %self, i64 0, i32 1
+  %lock_lock = getelementptr inbounds i8, ptr %self, i64 16
   %2 = load ptr, ptr %lock_lock, align 8
   tail call void @PyThread_release_lock(ptr noundef %2) #8
   store i8 0, ptr %locked, align 8
@@ -2927,7 +2920,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal ptr @lock_locked_lock(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %locked = getelementptr inbounds %struct.lockobject, ptr %self, i64 0, i32 3
+  %locked = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i8, ptr %locked, align 8
   %conv = sext i8 %0 to i64
   %call = tail call ptr @PyBool_FromLong(i64 noundef %conv) #8
@@ -2937,7 +2930,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @lock__at_fork_reinit(ptr noundef %self, ptr nocapture readnone %_unused_args) #0 {
 entry:
-  %lock_lock = getelementptr inbounds %struct.lockobject, ptr %self, i64 0, i32 1
+  %lock_lock = getelementptr inbounds i8, ptr %self, i64 16
   %call = tail call i32 @_PyThread_at_fork_reinit(ptr noundef nonnull %lock_lock) #8
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -2948,7 +2941,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %locked = getelementptr inbounds %struct.lockobject, ptr %self, i64 0, i32 3
+  %locked = getelementptr inbounds i8, ptr %self, i64 32
   store i8 0, ptr %locked, align 8
   br label %return
 
@@ -3050,7 +3043,7 @@ declare i32 @_PyThread_at_fork_reinit(ptr noundef) local_unnamed_addr #1
 define internal void @rlock_dealloc(ptr noundef %self) #0 {
 entry:
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #8
-  %in_weakreflist = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 4
+  %in_weakreflist = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load ptr, ptr %in_weakreflist, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3060,13 +3053,13 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %rlock_lock = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 1
+  %rlock_lock = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %rlock_lock, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.end8, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %rlock_count = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 3
+  %rlock_count = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load i64, ptr %rlock_count, align 8
   %cmp3.not = icmp eq i64 %2, 0
   br i1 %cmp3.not, label %if.end6, label %if.then4
@@ -3084,7 +3077,7 @@ if.end6:                                          ; preds = %if.then4, %if.then2
 if.end8:                                          ; preds = %if.end6, %if.end
   %4 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %4, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %5 = load ptr, ptr %tp_free, align 8
   tail call void %5(ptr noundef nonnull %self) #8
   %6 = load i64, ptr %self.val, align 8
@@ -3109,15 +3102,15 @@ Py_DECREF.exit:                                   ; preds = %if.end8, %if.then1.
 ; Function Attrs: nounwind uwtable
 define internal ptr @rlock_repr(ptr noundef %self) #0 {
 entry:
-  %rlock_count = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 3
+  %rlock_count = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i64, ptr %rlock_count, align 8
   %tobool.not = icmp eq i64 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.62, ptr @.str.61
   %1 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %1, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %2 = load ptr, ptr %tp_name, align 8
-  %rlock_owner = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 2
+  %rlock_owner = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load i64, ptr %rlock_owner, align 8
   %call2 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.81, ptr noundef nonnull %cond, ptr noundef %2, i64 noundef %3, i64 noundef %0, ptr noundef %self) #8
   ret ptr %call2
@@ -3128,17 +3121,17 @@ declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @rlock_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #0 {
 entry:
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc, align 8
   %call = tail call ptr %0(ptr noundef %type, i64 noundef 0) #8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rlock_owner = getelementptr inbounds %struct.rlockobject, ptr %call, i64 0, i32 2
+  %rlock_owner = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rlock_owner, i8 0, i64 24, i1 false)
   %call1 = tail call ptr @PyThread_allocate_lock() #8
-  %rlock_lock = getelementptr inbounds %struct.rlockobject, ptr %call, i64 0, i32 1
+  %rlock_lock = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call1, ptr %rlock_lock, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.then4, label %return
@@ -3200,13 +3193,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = call i64 @PyThread_get_thread_ident_ex() #8
-  %rlock_count = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 3
+  %rlock_count = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i64, ptr %rlock_count, align 8
   %cmp2.not = icmp eq i64 %0, 0
   br i1 %cmp2.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %rlock_owner = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 2
+  %rlock_owner = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i64, ptr %rlock_owner, align 8
   %cmp3 = icmp eq i64 %call1, %1
   br i1 %cmp3, label %if.then4, label %if.end11
@@ -3226,7 +3219,7 @@ if.end9:                                          ; preds = %if.then4
   br label %return
 
 if.end11:                                         ; preds = %land.lhs.true, %if.end
-  %rlock_lock = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 1
+  %rlock_lock = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load ptr, ptr %rlock_lock, align 8
   %4 = load i64, ptr %timeout, align 8
   %call.i = call i32 @PyThread_acquire_lock_timed_with_retries(ptr noundef %3, i64 noundef %4) #8
@@ -3234,7 +3227,7 @@ if.end11:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp13, label %if.then14, label %if.else
 
 if.then14:                                        ; preds = %if.end11
-  %rlock_owner15 = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 2
+  %rlock_owner15 = getelementptr inbounds i8, ptr %self, i64 24
   store i64 %call1, ptr %rlock_owner15, align 8
   store i64 1, ptr %rlock_count, align 8
   br label %if.end20
@@ -3257,13 +3250,13 @@ return:                                           ; preds = %if.else, %entry, %i
 define internal ptr @rlock_release(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call i64 @PyThread_get_thread_ident_ex() #8
-  %rlock_count = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 3
+  %rlock_count = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i64, ptr %rlock_count, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %rlock_owner = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 2
+  %rlock_owner = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i64, ptr %rlock_owner, align 8
   %cmp1.not = icmp eq i64 %1, %call
   br i1 %cmp1.not, label %if.end, label %if.then
@@ -3281,7 +3274,7 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.then4:                                         ; preds = %if.end
   store i64 0, ptr %rlock_owner, align 8
-  %rlock_lock = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 1
+  %rlock_lock = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load ptr, ptr %rlock_lock, align 8
   tail call void @PyThread_release_lock(ptr noundef %3) #8
   br label %return
@@ -3295,13 +3288,13 @@ return:                                           ; preds = %if.end, %if.then4, 
 define internal nonnull ptr @rlock_is_owned(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call i64 @PyThread_get_thread_ident_ex() #8
-  %rlock_count = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 3
+  %rlock_count = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i64, ptr %rlock_count, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %rlock_owner = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 2
+  %rlock_owner = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i64, ptr %rlock_owner, align 8
   %cmp1 = icmp eq i64 %1, %call
   br i1 %cmp1, label %return, label %if.end
@@ -3324,7 +3317,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %rlock_lock = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 1
+  %rlock_lock = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %rlock_lock, align 8
   %call1 = call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 0) #8
   %tobool2.not = icmp eq i32 %call1, 0
@@ -3345,10 +3338,10 @@ if.then9:                                         ; preds = %if.then3
 
 if.end10:                                         ; preds = %if.end, %if.then3
   %4 = load i64, ptr %owner, align 8
-  %rlock_owner = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 2
+  %rlock_owner = getelementptr inbounds i8, ptr %self, i64 24
   store i64 %4, ptr %rlock_owner, align 8
   %5 = load i64, ptr %count, align 8
-  %rlock_count = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 3
+  %rlock_count = getelementptr inbounds i8, ptr %self, i64 32
   store i64 %5, ptr %rlock_count, align 8
   br label %return
 
@@ -3360,7 +3353,7 @@ return:                                           ; preds = %entry, %if.end10, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @rlock_release_save(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %rlock_count = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 3
+  %rlock_count = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i64, ptr %rlock_count, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -3371,9 +3364,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %rlock_owner = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 2
+  %rlock_owner = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i64, ptr %rlock_owner, align 8
-  %rlock_lock = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 1
+  %rlock_lock = getelementptr inbounds i8, ptr %self, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rlock_owner, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %rlock_lock, align 8
   tail call void @PyThread_release_lock(ptr noundef %3) #8
@@ -3389,13 +3382,13 @@ return:                                           ; preds = %if.end, %if.then
 define internal ptr @rlock_recursion_count(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call i64 @PyThread_get_thread_ident_ex() #8
-  %rlock_owner = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 2
+  %rlock_owner = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i64, ptr %rlock_owner, align 8
   %cmp = icmp eq i64 %0, %call
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %rlock_count = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 3
+  %rlock_count = getelementptr inbounds i8, ptr %self, i64 32
   %1 = load i64, ptr %rlock_count, align 8
   br label %cond.end
 
@@ -3408,7 +3401,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: nounwind uwtable
 define internal ptr @rlock__at_fork_reinit(ptr noundef %self, ptr nocapture readnone %_unused_args) #0 {
 entry:
-  %rlock_lock = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 1
+  %rlock_lock = getelementptr inbounds i8, ptr %self, i64 16
   %call = tail call i32 @_PyThread_at_fork_reinit(ptr noundef nonnull %rlock_lock) #8
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -3419,7 +3412,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %rlock_owner = getelementptr inbounds %struct.rlockobject, ptr %self, i64 0, i32 2
+  %rlock_owner = getelementptr inbounds i8, ptr %self, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rlock_owner, i8 0, i64 16, i1 false)
   br label %return
 
@@ -3435,7 +3428,7 @@ declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @localdummy_dealloc(ptr noundef %self) #0 {
 entry:
-  %weakreflist = getelementptr inbounds %struct.localdummyobject, ptr %self, i64 0, i32 2
+  %weakreflist = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %weakreflist, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3447,7 +3440,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %1 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %1, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %2 = load ptr, ptr %tp_free, align 8
   tail call void %2(ptr noundef nonnull %self) #8
   %3 = load i64, ptr %self.val, align 8
@@ -3472,7 +3465,7 @@ Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i
 ; Function Attrs: nounwind uwtable
 define internal void @local_dealloc(ptr noundef %self) #0 {
 entry:
-  %weakreflist = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 4
+  %weakreflist = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load ptr, ptr %weakreflist, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -3484,7 +3477,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   tail call void @PyObject_GC_UnTrack(ptr noundef nonnull %self) #8
   %call = tail call i32 @local_clear(ptr noundef nonnull %self)
-  %key = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %key, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -3508,7 +3501,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 Py_XDECREF.exit:                                  ; preds = %if.end, %if.then.i, %if.end.i.i, %if.then1.i.i
   %4 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %4, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %5 = load ptr, ptr %tp_free, align 8
   tail call void %5(ptr noundef nonnull %self) #8
   %6 = load i64, ptr %self.val, align 8
@@ -3561,7 +3554,7 @@ if.end.i.i:                                       ; preds = %if.then6
   br label %return
 
 if.end11:                                         ; preds = %if.end
-  %local_type = getelementptr inbounds %struct.thread_module_state, ptr %call1.val, i64 0, i32 2
+  %local_type = getelementptr inbounds i8, ptr %call1.val, i64 16
   %3 = load ptr, ptr %local_type, align 8
   %self.val14 = load ptr, ptr %0, align 8
   %cmp.i.not = icmp eq ptr %self.val14, %3
@@ -3611,7 +3604,7 @@ if.end:                                           ; preds = %entry
 if.then9:                                         ; preds = %if.end
   %2 = load ptr, ptr @PyExc_AttributeError, align 8
   %self.val = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %3 = load ptr, ptr %tp_name, align 8
   %call11 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.96, ptr noundef %3, ptr noundef %name) #8
   br label %return
@@ -3639,7 +3632,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %args = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load ptr, ptr %args, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -3650,7 +3643,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %kw = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 3
+  %kw = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load ptr, ptr %kw, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -3661,7 +3654,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %dummies = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 5
+  %dummies = getelementptr inbounds i8, ptr %self, i64 48
   %3 = load ptr, ptr %dummies, align 8
   %tobool29.not = icmp eq ptr %3, null
   br i1 %tobool29.not, label %do.end38, label %if.then30
@@ -3682,7 +3675,7 @@ return:                                           ; preds = %if.then30, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @local_clear(ptr nocapture noundef %self) #0 {
 entry:
-  %args = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %args, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.body1, label %if.then
@@ -3705,7 +3698,7 @@ if.then1.i66:                                     ; preds = %if.end.i63
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i63, %if.then1.i66, %if.then, %entry
-  %kw = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 3
+  %kw = getelementptr inbounds i8, ptr %self, i64 32
   %3 = load ptr, ptr %kw, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -3728,7 +3721,7 @@ if.then1.i57:                                     ; preds = %if.end.i54
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i54, %if.then1.i57, %if.then5, %do.body1
-  %dummies = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 5
+  %dummies = getelementptr inbounds i8, ptr %self, i64 48
   %6 = load ptr, ptr %dummies, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -3751,7 +3744,7 @@ if.then1.i48:                                     ; preds = %if.end.i45
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i45, %if.then1.i48, %if.then12, %do.body8
-  %wr_callback = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 6
+  %wr_callback = getelementptr inbounds i8, ptr %self, i64 56
   %9 = load ptr, ptr %wr_callback, align 8
   %cmp18.not = icmp eq ptr %9, null
   br i1 %cmp18.not, label %do.end21, label %if.then19
@@ -3774,7 +3767,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %do.end21
 
 do.end21:                                         ; preds = %do.body15, %if.then19, %if.then1.i, %if.end.i
-  %key = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %self, i64 16
   %12 = load ptr, ptr %key, align 8
   %tobool.not = icmp eq ptr %12, null
   br i1 %tobool.not, label %if.end41, label %if.then22
@@ -3782,7 +3775,7 @@ do.end21:                                         ; preds = %do.body15, %if.then
 if.then22:                                        ; preds = %do.end21
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %14 = load ptr, ptr %13, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %14, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %interp.i, align 8
   %16 = cmpxchg ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8), i8 0, i8 1 seq_cst seq_cst, align 1
   %17 = extractvalue { i8, i1 } %16, 1
@@ -3808,7 +3801,7 @@ PyMutex_Unlock.exit:                              ; preds = %PyMutex_LockFlags.e
 
 while.body:                                       ; preds = %PyMutex_Unlock.exit, %PyMutex_Unlock.exit41
   %tstate.043 = phi ptr [ %call38, %PyMutex_Unlock.exit41 ], [ %call23, %PyMutex_Unlock.exit ]
-  %dict = getelementptr inbounds %struct._ts, ptr %tstate.043, i64 0, i32 19
+  %dict = getelementptr inbounds i8, ptr %tstate.043, i64 120
   %20 = load ptr, ptr %dict, align 8
   %tobool27.not = icmp eq ptr %20, null
   br i1 %tobool27.not, label %if.end35, label %if.then28
@@ -3853,7 +3846,7 @@ if.end41:                                         ; preds = %PyMutex_Unlock.exit
 ; Function Attrs: nounwind uwtable
 define internal ptr @local_new(ptr noundef %type, ptr noundef %args, ptr noundef %kw) #0 {
 entry:
-  %tp_init = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 35
+  %tp_init = getelementptr inbounds i8, ptr %type, i64 296
   %0 = load ptr, ptr %tp_init, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyBaseObject_Type, i64 0, i32 35), align 8
   %cmp = icmp eq ptr %0, %1
@@ -3896,7 +3889,7 @@ if.end14:                                         ; preds = %if.end7, %entry
   %call15 = tail call ptr @PyType_GetModuleByDef(ptr noundef nonnull %type, ptr noundef nonnull @thread_module) #8
   %3 = getelementptr i8, ptr %call15, i64 32
   %call15.val = load ptr, ptr %3, align 8
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %4 = load ptr, ptr %tp_alloc, align 8
   %call17 = tail call ptr %4(ptr noundef nonnull %type, i64 noundef 0) #8
   %cmp18 = icmp eq ptr %call17, null
@@ -3917,7 +3910,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
   br label %_Py_XNewRef.exit
 
 _Py_XNewRef.exit:                                 ; preds = %if.end20, %if.then.i.i, %if.end.i.i.i
-  %args22 = getelementptr inbounds %struct.localobject, ptr %call17, i64 0, i32 2
+  %args22 = getelementptr inbounds i8, ptr %call17, i64 24
   store ptr %args, ptr %args22, align 8
   %cmp.not.i.i29 = icmp eq ptr %kw, null
   br i1 %cmp.not.i.i29, label %_Py_XNewRef.exit34, label %if.then.i.i30
@@ -3933,17 +3926,17 @@ if.end.i.i.i33:                                   ; preds = %if.then.i.i30
   br label %_Py_XNewRef.exit34
 
 _Py_XNewRef.exit34:                               ; preds = %_Py_XNewRef.exit, %if.then.i.i30, %if.end.i.i.i33
-  %kw24 = getelementptr inbounds %struct.localobject, ptr %call17, i64 0, i32 3
+  %kw24 = getelementptr inbounds i8, ptr %call17, i64 32
   store ptr %kw, ptr %kw24, align 8
   %call25 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.99, ptr noundef nonnull %call17) #8
-  %key = getelementptr inbounds %struct.localobject, ptr %call17, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %call17, i64 16
   store ptr %call25, ptr %key, align 8
   %cmp27 = icmp eq ptr %call25, null
   br i1 %cmp27, label %err, label %if.end29
 
 if.end29:                                         ; preds = %_Py_XNewRef.exit34
   %call30 = tail call ptr @PyDict_New() #8
-  %dummies = getelementptr inbounds %struct.localobject, ptr %call17, i64 0, i32 5
+  %dummies = getelementptr inbounds i8, ptr %call17, i64 48
   store ptr %call30, ptr %dummies, align 8
   %cmp32 = icmp eq ptr %call30, null
   br i1 %cmp32, label %err, label %if.end34
@@ -3955,7 +3948,7 @@ if.end34:                                         ; preds = %if.end29
 
 if.end38:                                         ; preds = %if.end34
   %call39 = tail call ptr @PyCMethod_New(ptr noundef nonnull @local_new.wr_callback_def, ptr noundef nonnull %call35, ptr noundef null, ptr noundef null) #8
-  %wr_callback = getelementptr inbounds %struct.localobject, ptr %call17, i64 0, i32 6
+  %wr_callback = getelementptr inbounds i8, ptr %call17, i64 56
   store ptr %call39, ptr %wr_callback, align 8
   %7 = load i64, ptr %call35, align 8
   %8 = and i64 %7, 2147483648
@@ -4024,7 +4017,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %key = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %key, align 8
   %call1 = tail call ptr @PyDict_GetItemWithError(ptr noundef nonnull %call, ptr noundef %1) #8
   %cmp2 = icmp eq ptr %call1, null
@@ -4045,16 +4038,16 @@ if.end6:                                          ; preds = %if.then3
 if.end10:                                         ; preds = %if.end6
   %3 = getelementptr i8, ptr %self, i64 8
   %self.val12 = load ptr, ptr %3, align 8
-  %tp_init = getelementptr inbounds %struct._typeobject, ptr %self.val12, i64 0, i32 35
+  %tp_init = getelementptr inbounds i8, ptr %self.val12, i64 296
   %4 = load ptr, ptr %tp_init, align 8
   %5 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyBaseObject_Type, i64 0, i32 35), align 8
   %cmp12.not = icmp eq ptr %4, %5
   br i1 %cmp12.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end10
-  %args = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 2
+  %args = getelementptr inbounds i8, ptr %self, i64 24
   %6 = load ptr, ptr %args, align 8
-  %kw = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 3
+  %kw = getelementptr inbounds i8, ptr %self, i64 32
   %7 = load ptr, ptr %kw, align 8
   %call15 = tail call i32 %4(ptr noundef nonnull %self, ptr noundef %6, ptr noundef %7) #8
   %cmp16 = icmp slt i32 %call15, 0
@@ -4066,7 +4059,7 @@ if.then17:                                        ; preds = %land.lhs.true
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %localdict = getelementptr inbounds %struct.localdummyobject, ptr %call1, i64 0, i32 1
+  %localdict = getelementptr inbounds i8, ptr %call1, i64 16
   %9 = load ptr, ptr %localdict, align 8
   br label %return
 
@@ -4103,23 +4096,23 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %state.24.val, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %state.24.val, i64 304
   %1 = load ptr, ptr %tp_alloc, align 8
   %call5 = tail call ptr %1(ptr noundef %state.24.val, i64 noundef 0) #8
   %cmp6 = icmp eq ptr %call5, null
   br i1 %cmp6, label %if.then.i, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %localdict = getelementptr inbounds %struct.localdummyobject, ptr %call5, i64 0, i32 1
+  %localdict = getelementptr inbounds i8, ptr %call5, i64 16
   store ptr %call1, ptr %localdict, align 8
-  %wr_callback = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 6
+  %wr_callback = getelementptr inbounds i8, ptr %self, i64 56
   %2 = load ptr, ptr %wr_callback, align 8
   %call9 = tail call ptr @PyWeakref_NewRef(ptr noundef nonnull %call5, ptr noundef %2) #8
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %if.then.i, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %dummies = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 5
+  %dummies = getelementptr inbounds i8, ptr %self, i64 48
   %3 = load ptr, ptr %dummies, align 8
   %call13 = tail call i32 @PyDict_SetItem(ptr noundef %3, ptr noundef nonnull %call9, ptr noundef nonnull %call1) #8
   %cmp14 = icmp slt i32 %call13, 0
@@ -4142,7 +4135,7 @@ if.then1.i46:                                     ; preds = %if.end.i43
   br label %do.end
 
 do.end:                                           ; preds = %if.then18, %if.then1.i46, %if.end.i43
-  %key = getelementptr inbounds %struct.localobject, ptr %self, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %self, i64 16
   %6 = load ptr, ptr %key, align 8
   %call20 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %call, ptr noundef %6, ptr noundef nonnull %call5) #8
   %cmp21 = icmp slt i32 %call20, 0
@@ -4283,7 +4276,7 @@ if.end.i.i.i:                                     ; preds = %if.end3.i
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i.i.i, %if.end3.i
-  %dummies = getelementptr inbounds %struct.localobject, ptr %localweakref.val, i64 0, i32 5
+  %dummies = getelementptr inbounds i8, ptr %localweakref.val, i64 48
   %2 = load ptr, ptr %dummies, align 8
   %cmp1.not = icmp eq ptr %2, null
   br i1 %cmp1.not, label %if.end13, label %if.then2

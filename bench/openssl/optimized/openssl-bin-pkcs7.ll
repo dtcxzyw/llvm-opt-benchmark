@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.pkcs7_st = type { ptr, i64, i32, i32, ptr, %union.anon, %struct.PKCS7_CTX_st }
-%union.anon = type { ptr }
-%struct.PKCS7_CTX_st = type { ptr, ptr }
-%struct.pkcs7_signed_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.pkcs7_signedandenveloped_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @OPT_SECTION_STR = external constant [0 x i8], align 1
 @.str = private unnamed_addr constant [18 x i8] c"General options:\0A\00", align 1
@@ -229,7 +224,7 @@ if.end62:                                         ; preds = %if.then60, %if.end5
 
 if.then64:                                        ; preds = %if.end62
   %9 = load ptr, ptr %p7, align 8
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %9, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %type, align 8
   %call65 = call i32 @OBJ_obj2nid(ptr noundef %10) #2
   switch i32 %call65, label %end [
@@ -239,40 +234,31 @@ if.then64:                                        ; preds = %if.end62
 
 sw.bb66:                                          ; preds = %if.then64
   %11 = load ptr, ptr %p7, align 8
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %11, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %11, i64 32
   %12 = load ptr, ptr %d, align 8
   %cmp67.not = icmp eq ptr %12, null
-  br i1 %cmp67.not, label %end, label %if.then68
-
-if.then68:                                        ; preds = %sw.bb66
-  %cert = getelementptr inbounds %struct.pkcs7_signed_st, ptr %12, i64 0, i32 2
-  %crl = getelementptr inbounds %struct.pkcs7_signed_st, ptr %12, i64 0, i32 3
-  br label %sw.epilog81
+  br i1 %cmp67.not, label %end, label %sw.epilog81
 
 sw.bb72:                                          ; preds = %if.then64
   %13 = load ptr, ptr %p7, align 8
-  %d73 = getelementptr inbounds %struct.pkcs7_st, ptr %13, i64 0, i32 5
+  %d73 = getelementptr inbounds i8, ptr %13, i64 32
   %14 = load ptr, ptr %d73, align 8
   %cmp74.not = icmp eq ptr %14, null
-  br i1 %cmp74.not, label %end, label %if.then75
+  br i1 %cmp74.not, label %end, label %sw.epilog81
 
-if.then75:                                        ; preds = %sw.bb72
-  %cert77 = getelementptr inbounds %struct.pkcs7_signedandenveloped_st, ptr %14, i64 0, i32 2
-  %crl79 = getelementptr inbounds %struct.pkcs7_signedandenveloped_st, ptr %14, i64 0, i32 3
-  br label %sw.epilog81
-
-sw.epilog81:                                      ; preds = %if.then75, %if.then68
-  %certs.0.in = phi ptr [ %cert77, %if.then75 ], [ %cert, %if.then68 ]
-  %crls.0.in = phi ptr [ %crl79, %if.then75 ], [ %crl, %if.then68 ]
+sw.epilog81:                                      ; preds = %sw.bb72, %sw.bb66
+  %.pn = phi ptr [ %12, %sw.bb66 ], [ %14, %sw.bb72 ]
+  %crls.0.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %crls.0 = load ptr, ptr %crls.0.in, align 8
+  %certs.0.in = getelementptr inbounds i8, ptr %.pn, i64 16
   %certs.0 = load ptr, ptr %certs.0.in, align 8
   %cmp82.not = icmp eq ptr %certs.0, null
   br i1 %cmp82.not, label %if.end102, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %sw.epilog81
-  %call8566 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %certs.0) #2
-  %cmp8667 = icmp sgt i32 %call8566, 0
-  br i1 %cmp8667, label %for.body.lr.ph, label %if.end102
+  %call8567 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %certs.0) #2
+  %cmp8668 = icmp sgt i32 %call8567, 0
+  br i1 %cmp8668, label %for.body.lr.ph, label %if.end102
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %tobool89.not = icmp eq i32 %text.0, 0
@@ -287,88 +273,88 @@ for.body.lr.ph.split.us.split.us:                 ; preds = %for.body.lr.ph.spli
   br i1 %tobool97.not, label %for.body.us.us.us, label %for.body.us.us
 
 for.body.us.us.us:                                ; preds = %for.body.lr.ph.split.us.split.us, %for.body.us.us.us
-  %i.068.us.us.us = phi i32 [ %inc.us.us.us, %for.body.us.us.us ], [ 0, %for.body.lr.ph.split.us.split.us ]
-  %call88.us.us.us = call ptr @OPENSSL_sk_value(ptr noundef nonnull %certs.0, i32 noundef %i.068.us.us.us) #2
+  %i.069.us.us.us = phi i32 [ %inc.us.us.us, %for.body.us.us.us ], [ 0, %for.body.lr.ph.split.us.split.us ]
+  %call88.us.us.us = call ptr @OPENSSL_sk_value(ptr noundef nonnull %certs.0, i32 noundef %i.069.us.us.us) #2
   call void @dump_cert_text(ptr noundef nonnull %call55, ptr noundef %call88.us.us.us) #2
   %call99.us.us.us = call i32 @PEM_write_bio_X509(ptr noundef nonnull %call55, ptr noundef %call88.us.us.us) #2
   %call101.us.us.us = call i32 @BIO_puts(ptr noundef nonnull %call55, ptr noundef nonnull @.str.35) #2
-  %inc.us.us.us = add nuw nsw i32 %i.068.us.us.us, 1
+  %inc.us.us.us = add nuw nsw i32 %i.069.us.us.us, 1
   %call85.us.us.us = call i32 @OPENSSL_sk_num(ptr noundef nonnull %certs.0) #2
   %cmp86.us.us.us = icmp slt i32 %inc.us.us.us, %call85.us.us.us
   br i1 %cmp86.us.us.us, label %for.body.us.us.us, label %if.end102, !llvm.loop !7
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us.split.us, %for.body.us.us
-  %i.068.us.us = phi i32 [ %inc.us.us, %for.body.us.us ], [ 0, %for.body.lr.ph.split.us.split.us ]
-  %call88.us.us = call ptr @OPENSSL_sk_value(ptr noundef nonnull %certs.0, i32 noundef %i.068.us.us) #2
+  %i.069.us.us = phi i32 [ %inc.us.us, %for.body.us.us ], [ 0, %for.body.lr.ph.split.us.split.us ]
+  %call88.us.us = call ptr @OPENSSL_sk_value(ptr noundef nonnull %certs.0, i32 noundef %i.069.us.us) #2
   call void @dump_cert_text(ptr noundef nonnull %call55, ptr noundef %call88.us.us) #2
   %call101.us.us = call i32 @BIO_puts(ptr noundef nonnull %call55, ptr noundef nonnull @.str.35) #2
-  %inc.us.us = add nuw nsw i32 %i.068.us.us, 1
+  %inc.us.us = add nuw nsw i32 %i.069.us.us, 1
   %call85.us.us = call i32 @OPENSSL_sk_num(ptr noundef nonnull %certs.0) #2
   %cmp86.us.us = icmp slt i32 %inc.us.us, %call85.us.us
   br i1 %cmp86.us.us, label %for.body.us.us, label %if.end102, !llvm.loop !7
 
 for.body.lr.ph.split.us.split:                    ; preds = %for.body.lr.ph.split.us
-  br i1 %tobool97.not, label %for.body.us.us79, label %for.body.us
+  br i1 %tobool97.not, label %for.body.us.us80, label %for.body.us
 
-for.body.us.us79:                                 ; preds = %for.body.lr.ph.split.us.split, %for.body.us.us79
-  %i.068.us.us80 = phi i32 [ %inc.us.us86, %for.body.us.us79 ], [ 0, %for.body.lr.ph.split.us.split ]
-  %call88.us.us81 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %certs.0, i32 noundef %i.068.us.us80) #2
-  %call99.us.us83 = call i32 @PEM_write_bio_X509(ptr noundef nonnull %call55, ptr noundef %call88.us.us81) #2
-  %call101.us.us85 = call i32 @BIO_puts(ptr noundef nonnull %call55, ptr noundef nonnull @.str.35) #2
-  %inc.us.us86 = add nuw nsw i32 %i.068.us.us80, 1
-  %call85.us.us87 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %certs.0) #2
-  %cmp86.us.us88 = icmp slt i32 %inc.us.us86, %call85.us.us87
-  br i1 %cmp86.us.us88, label %for.body.us.us79, label %if.end102, !llvm.loop !7
+for.body.us.us80:                                 ; preds = %for.body.lr.ph.split.us.split, %for.body.us.us80
+  %i.069.us.us81 = phi i32 [ %inc.us.us87, %for.body.us.us80 ], [ 0, %for.body.lr.ph.split.us.split ]
+  %call88.us.us82 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %certs.0, i32 noundef %i.069.us.us81) #2
+  %call99.us.us84 = call i32 @PEM_write_bio_X509(ptr noundef nonnull %call55, ptr noundef %call88.us.us82) #2
+  %call101.us.us86 = call i32 @BIO_puts(ptr noundef nonnull %call55, ptr noundef nonnull @.str.35) #2
+  %inc.us.us87 = add nuw nsw i32 %i.069.us.us81, 1
+  %call85.us.us88 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %certs.0) #2
+  %cmp86.us.us89 = icmp slt i32 %inc.us.us87, %call85.us.us88
+  br i1 %cmp86.us.us89, label %for.body.us.us80, label %if.end102, !llvm.loop !7
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us.split, %for.body.us
-  %i.068.us = phi i32 [ %inc.us, %for.body.us ], [ 0, %for.body.lr.ph.split.us.split ]
-  %call88.us = call ptr @OPENSSL_sk_value(ptr noundef nonnull %certs.0, i32 noundef %i.068.us) #2
+  %i.069.us = phi i32 [ %inc.us, %for.body.us ], [ 0, %for.body.lr.ph.split.us.split ]
+  %call88.us = call ptr @OPENSSL_sk_value(ptr noundef nonnull %certs.0, i32 noundef %i.069.us) #2
   %call101.us = call i32 @BIO_puts(ptr noundef nonnull %call55, ptr noundef nonnull @.str.35) #2
-  %inc.us = add nuw nsw i32 %i.068.us, 1
+  %inc.us = add nuw nsw i32 %i.069.us, 1
   %call85.us = call i32 @OPENSSL_sk_num(ptr noundef nonnull %certs.0) #2
   %cmp86.us = icmp slt i32 %inc.us, %call85.us
   br i1 %cmp86.us, label %for.body.us, label %if.end102, !llvm.loop !7
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
-  br i1 %tobool97.not, label %for.body.us69, label %for.body
+  br i1 %tobool97.not, label %for.body.us70, label %for.body
 
-for.body.us69:                                    ; preds = %for.body.lr.ph.split, %for.body.us69
-  %i.068.us70 = phi i32 [ %inc.us76, %for.body.us69 ], [ 0, %for.body.lr.ph.split ]
-  %call88.us71 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %certs.0, i32 noundef %i.068.us70) #2
-  %call91.us = call i32 @X509_print(ptr noundef nonnull %call55, ptr noundef %call88.us71) #2
-  %call99.us73 = call i32 @PEM_write_bio_X509(ptr noundef nonnull %call55, ptr noundef %call88.us71) #2
-  %call101.us75 = call i32 @BIO_puts(ptr noundef nonnull %call55, ptr noundef nonnull @.str.35) #2
-  %inc.us76 = add nuw nsw i32 %i.068.us70, 1
-  %call85.us77 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %certs.0) #2
-  %cmp86.us78 = icmp slt i32 %inc.us76, %call85.us77
-  br i1 %cmp86.us78, label %for.body.us69, label %if.end102, !llvm.loop !7
+for.body.us70:                                    ; preds = %for.body.lr.ph.split, %for.body.us70
+  %i.069.us71 = phi i32 [ %inc.us77, %for.body.us70 ], [ 0, %for.body.lr.ph.split ]
+  %call88.us72 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %certs.0, i32 noundef %i.069.us71) #2
+  %call91.us = call i32 @X509_print(ptr noundef nonnull %call55, ptr noundef %call88.us72) #2
+  %call99.us74 = call i32 @PEM_write_bio_X509(ptr noundef nonnull %call55, ptr noundef %call88.us72) #2
+  %call101.us76 = call i32 @BIO_puts(ptr noundef nonnull %call55, ptr noundef nonnull @.str.35) #2
+  %inc.us77 = add nuw nsw i32 %i.069.us71, 1
+  %call85.us78 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %certs.0) #2
+  %cmp86.us79 = icmp slt i32 %inc.us77, %call85.us78
+  br i1 %cmp86.us79, label %for.body.us70, label %if.end102, !llvm.loop !7
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.body
-  %i.068 = phi i32 [ %inc, %for.body ], [ 0, %for.body.lr.ph.split ]
-  %call88 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %certs.0, i32 noundef %i.068) #2
+  %i.069 = phi i32 [ %inc, %for.body ], [ 0, %for.body.lr.ph.split ]
+  %call88 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %certs.0, i32 noundef %i.069) #2
   %call91 = call i32 @X509_print(ptr noundef nonnull %call55, ptr noundef %call88) #2
   %call101 = call i32 @BIO_puts(ptr noundef nonnull %call55, ptr noundef nonnull @.str.35) #2
-  %inc = add nuw nsw i32 %i.068, 1
+  %inc = add nuw nsw i32 %i.069, 1
   %call85 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %certs.0) #2
   %cmp86 = icmp slt i32 %inc, %call85
   br i1 %cmp86, label %for.body, label %if.end102, !llvm.loop !7
 
-if.end102:                                        ; preds = %for.body, %for.body.us69, %for.body.us, %for.body.us.us79, %for.body.us.us, %for.body.us.us.us, %for.cond.preheader, %sw.epilog81
+if.end102:                                        ; preds = %for.body, %for.body.us70, %for.body.us, %for.body.us.us80, %for.body.us.us, %for.body.us.us.us, %for.cond.preheader, %sw.epilog81
   %cmp103.not = icmp eq ptr %crls.0, null
   br i1 %cmp103.not, label %end, label %for.cond106.preheader
 
 for.cond106.preheader:                            ; preds = %if.end102
-  %call10891 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %crls.0) #2
-  %cmp10992 = icmp sgt i32 %call10891, 0
-  br i1 %cmp10992, label %for.body110.lr.ph, label %end
+  %call10892 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %crls.0) #2
+  %cmp10993 = icmp sgt i32 %call10892, 0
+  br i1 %cmp10993, label %for.body110.lr.ph, label %end
 
 for.body110.lr.ph:                                ; preds = %for.cond106.preheader
   %tobool115.not = icmp eq i32 %noout.0, 0
   br label %for.body110
 
 for.body110:                                      ; preds = %for.body110.lr.ph, %if.end118
-  %i.193 = phi i32 [ 0, %for.body110.lr.ph ], [ %inc121, %if.end118 ]
-  %call112 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %crls.0, i32 noundef %i.193) #2
+  %i.194 = phi i32 [ 0, %for.body110.lr.ph ], [ %inc121, %if.end118 ]
+  %call112 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %crls.0, i32 noundef %i.194) #2
   %call113 = call i64 @get_nameopt() #2
   %call114 = call i32 @X509_CRL_print_ex(ptr noundef nonnull %call55, ptr noundef %call112, i64 noundef %call113) #2
   br i1 %tobool115.not, label %if.then116, label %if.end118
@@ -379,7 +365,7 @@ if.then116:                                       ; preds = %for.body110
 
 if.end118:                                        ; preds = %if.then116, %for.body110
   %call119 = call i32 @BIO_puts(ptr noundef nonnull %call55, ptr noundef nonnull @.str.35) #2
-  %inc121 = add nuw nsw i32 %i.193, 1
+  %inc121 = add nuw nsw i32 %i.194, 1
   %call108 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %crls.0) #2
   %cmp109 = icmp slt i32 %inc121, %call108
   br i1 %cmp109, label %for.body110, label %end, !llvm.loop !8

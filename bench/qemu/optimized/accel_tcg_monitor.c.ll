@@ -14,36 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.qht_stats = type { i64, i64, i64, %struct.qdist, %struct.qdist }
 %struct.qdist = type { ptr, i64, i64 }
 %struct.tb_tree_stats = type { i64, i64, i64, i64, i64, i64, i64 }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.TranslationBlock = type { i64, i64, i32, i32, i16, i16, %struct.tb_tc, [2 x i64], [2 x i64], %struct.QemuSpin, [2 x i16], [2 x i16], [2 x i64], i64, [2 x i64], [2 x i64] }
-%struct.tb_tc = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @tcg_allowed = external local_unnamed_addr global i8, align 1
@@ -126,29 +96,29 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %cond.end7.critedge.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end
-  %target_size.i = getelementptr inbounds %struct.tb_tree_stats, ptr %tst.i, i64 0, i32 2
+  %target_size.i = getelementptr inbounds i8, ptr %tst.i, i64 16
   %3 = load i64, ptr %target_size.i, align 8
   %div.i = udiv i64 %3, %2
-  %max_target_size.i = getelementptr inbounds %struct.tb_tree_stats, ptr %tst.i, i64 0, i32 3
+  %max_target_size.i = getelementptr inbounds i8, ptr %tst.i, i64 24
   %4 = load i64, ptr %max_target_size.i, align 8
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.12, i64 noundef %div.i, i64 noundef %4) #6
-  %host_size.i = getelementptr inbounds %struct.tb_tree_stats, ptr %tst.i, i64 0, i32 1
+  %host_size.i = getelementptr inbounds i8, ptr %tst.i, i64 8
   %5 = load i64, ptr %host_size.i, align 8
   %div5.i = udiv i64 %5, %2
   br label %cond.end7.i
 
 cond.end7.critedge.i:                             ; preds = %if.end
-  %max_target_size.c.i = getelementptr inbounds %struct.tb_tree_stats, ptr %tst.i, i64 0, i32 3
+  %max_target_size.c.i = getelementptr inbounds i8, ptr %tst.i, i64 24
   %6 = load i64, ptr %max_target_size.c.i, align 8
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.12, i64 noundef 0, i64 noundef %6) #6
-  %host_size12.phi.trans.insert.i = getelementptr inbounds %struct.tb_tree_stats, ptr %tst.i, i64 0, i32 1
+  %host_size12.phi.trans.insert.i = getelementptr inbounds i8, ptr %tst.i, i64 8
   %.pre.i = load i64, ptr %host_size12.phi.trans.insert.i, align 8
   br label %cond.end7.i
 
 cond.end7.i:                                      ; preds = %cond.end7.critedge.i, %cond.true.i
   %7 = phi i64 [ %5, %cond.true.i ], [ %.pre.i, %cond.end7.critedge.i ]
   %cond8.i = phi i64 [ %div5.i, %cond.true.i ], [ 0, %cond.end7.critedge.i ]
-  %target_size9.i = getelementptr inbounds %struct.tb_tree_stats, ptr %tst.i, i64 0, i32 2
+  %target_size9.i = getelementptr inbounds i8, ptr %tst.i, i64 16
   %8 = load i64, ptr %target_size9.i, align 8
   %tobool10.not.i = icmp eq i64 %8, 0
   %conv.i = uitofp i64 %7 to double
@@ -156,15 +126,15 @@ cond.end7.i:                                      ; preds = %cond.end7.critedge.
   %div15.i = fdiv double %conv.i, %conv14.i
   %cond18.i = select i1 %tobool10.not.i, double 0.000000e+00, double %div15.i
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.13, i64 noundef %cond8.i, double noundef %cond18.i) #6
-  %cross_page.i = getelementptr inbounds %struct.tb_tree_stats, ptr %tst.i, i64 0, i32 6
+  %cross_page.i = getelementptr inbounds i8, ptr %tst.i, i64 48
   %9 = load i64, ptr %cross_page.i, align 8
   br i1 %tobool.not.i, label %cond.end32.thread.i, label %cond.true35.i
 
 cond.end32.thread.i:                              ; preds = %cond.end7.i
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.14, i64 noundef %9, i64 noundef 0) #6
-  %direct_jmp_count29.i = getelementptr inbounds %struct.tb_tree_stats, ptr %tst.i, i64 0, i32 4
+  %direct_jmp_count29.i = getelementptr inbounds i8, ptr %tst.i, i64 32
   %10 = load i64, ptr %direct_jmp_count29.i, align 8
-  %direct_jmp2_count31.i = getelementptr inbounds %struct.tb_tree_stats, ptr %tst.i, i64 0, i32 5
+  %direct_jmp2_count31.i = getelementptr inbounds i8, ptr %tst.i, i64 40
   %11 = load i64, ptr %direct_jmp2_count31.i, align 8
   br label %cond.end40.i
 
@@ -172,11 +142,11 @@ cond.true35.i:                                    ; preds = %cond.end7.i
   %mul.i = mul i64 %9, 100
   %div22.i = udiv i64 %mul.i, %2
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.14, i64 noundef %9, i64 noundef %div22.i) #6
-  %direct_jmp_count.i = getelementptr inbounds %struct.tb_tree_stats, ptr %tst.i, i64 0, i32 4
+  %direct_jmp_count.i = getelementptr inbounds i8, ptr %tst.i, i64 32
   %12 = load i64, ptr %direct_jmp_count.i, align 8
   %mul29.i = mul i64 %12, 100
   %div30.i = udiv i64 %mul29.i, %2
-  %direct_jmp2_count.i = getelementptr inbounds %struct.tb_tree_stats, ptr %tst.i, i64 0, i32 5
+  %direct_jmp2_count.i = getelementptr inbounds i8, ptr %tst.i, i64 40
   %13 = load i64, ptr %direct_jmp2_count.i, align 8
   %mul37.i = mul i64 %13, 100
   %div38.i = udiv i64 %mul37.i, %2
@@ -196,14 +166,14 @@ cond.end40.i:                                     ; preds = %cond.true35.i, %con
   br i1 %tobool.not.i.i, label %print_qht_statistics.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.end40.i
-  %used_head_buckets.i.i = getelementptr inbounds %struct.qht_stats, ptr %hst26.i, i64 0, i32 1
+  %used_head_buckets.i.i = getelementptr inbounds i8, ptr %hst26.i, i64 8
   %17 = load i64, ptr %used_head_buckets.i.i, align 8
   %conv.i.i = uitofp i64 %17 to double
   %conv4.i.i = uitofp i64 %16 to double
   %div.i.i = fdiv double %conv.i.i, %conv4.i.i
   %mul.i.i = fmul double %div.i.i, 1.000000e+02
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.22, i64 noundef %17, i64 noundef %16, double noundef %mul.i.i) #6
-  %occupancy.i.i = getelementptr inbounds %struct.qht_stats, ptr %hst26.i, i64 0, i32 4
+  %occupancy.i.i = getelementptr inbounds i8, ptr %hst26.i, i64 48
   %call.i.i = call double @qdist_xmax(ptr noundef nonnull %occupancy.i.i) #6
   %call8.i.i = call double @qdist_xmin(ptr noundef nonnull %occupancy.i.i) #6
   %sub.i.i = fsub double %call.i.i, %call8.i.i
@@ -214,7 +184,7 @@ if.end.i.i:                                       ; preds = %cond.end40.i
   %mul19.i.i = fmul double %call18.i.i, 1.000000e+02
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.23, double noundef %mul19.i.i, ptr noundef %call16.i.i) #6
   call void @g_free(ptr noundef %call16.i.i) #6
-  %chain.i.i = getelementptr inbounds %struct.qht_stats, ptr %hst26.i, i64 0, i32 3
+  %chain.i.i = getelementptr inbounds i8, ptr %hst26.i, i64 24
   %call20.i.i = call double @qdist_xmax(ptr noundef nonnull %chain.i.i) #6
   %call22.i.i = call double @qdist_xmin(ptr noundef nonnull %chain.i.i) #6
   %sub23.i.i = fsub double %call20.i.i, %call22.i.i
@@ -247,16 +217,16 @@ while.end5.i.i:                                   ; preds = %print_qht_statistic
   %part.010.i.i = phi i64 [ %add17.i.i, %while.end5.i.i ], [ 0, %print_qht_statistics.exit.i ]
   %elide.09.i.i = phi i64 [ %add28.i.i, %while.end5.i.i ], [ 0, %print_qht_statistics.exit.i ]
   %cpu.0.i.i = inttoptr i64 %cpu.0.in12.i.i to ptr
-  %full_flush_count.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu.0.i.i, i64 0, i32 65, i32 0, i32 0, i32 2
+  %full_flush_count.i.i = getelementptr inbounds i8, ptr %cpu.0.i.i, i64 792
   %21 = load atomic i64, ptr %full_flush_count.i.i monotonic, align 8
   %add.i.i = add i64 %21, %full.011.i.i
-  %part_flush_count.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu.0.i.i, i64 0, i32 65, i32 0, i32 0, i32 3
+  %part_flush_count.i.i = getelementptr inbounds i8, ptr %cpu.0.i.i, i64 800
   %22 = load atomic i64, ptr %part_flush_count.i.i monotonic, align 16
   %add17.i.i = add i64 %22, %part.010.i.i
-  %elide_flush_count.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu.0.i.i, i64 0, i32 65, i32 0, i32 0, i32 4
+  %elide_flush_count.i.i = getelementptr inbounds i8, ptr %cpu.0.i.i, i64 808
   %23 = load atomic i64, ptr %elide_flush_count.i.i monotonic, align 8
   %add28.i.i = add i64 %23, %elide.09.i.i
-  %node.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu.0.i.i, i64 0, i32 35
+  %node.i.i = getelementptr inbounds i8, ptr %cpu.0.i.i, i64 568
   %24 = load atomic i64, ptr %node.i.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %tobool.not.i27.i = icmp eq i64 %24, 0
@@ -391,22 +361,22 @@ entry:
   %0 = load i64, ptr %data, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %data, align 8
-  %size = getelementptr inbounds %struct.TranslationBlock, ptr %value, i64 0, i32 6, i32 1
+  %size = getelementptr inbounds i8, ptr %value, i64 40
   %1 = load i64, ptr %size, align 8
-  %host_size = getelementptr inbounds %struct.tb_tree_stats, ptr %data, i64 0, i32 1
+  %host_size = getelementptr inbounds i8, ptr %data, i64 8
   %2 = load i64, ptr %host_size, align 8
   %add = add i64 %2, %1
   store i64 %add, ptr %host_size, align 8
-  %size1 = getelementptr inbounds %struct.TranslationBlock, ptr %value, i64 0, i32 4
+  %size1 = getelementptr inbounds i8, ptr %value, i64 24
   %3 = load i16, ptr %size1, align 8
   %conv = zext i16 %3 to i64
-  %target_size = getelementptr inbounds %struct.tb_tree_stats, ptr %data, i64 0, i32 2
+  %target_size = getelementptr inbounds i8, ptr %data, i64 16
   %4 = load i64, ptr %target_size, align 8
   %add2 = add i64 %4, %conv
   store i64 %add2, ptr %target_size, align 8
   %5 = load i16, ptr %size1, align 8
   %conv4 = zext i16 %5 to i64
-  %max_target_size = getelementptr inbounds %struct.tb_tree_stats, ptr %data, i64 0, i32 3
+  %max_target_size = getelementptr inbounds i8, ptr %data, i64 24
   %6 = load i64, ptr %max_target_size, align 8
   %cmp = icmp ult i64 %6, %conv4
   br i1 %cmp, label %if.then, label %if.end
@@ -416,36 +386,36 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %arrayidx = getelementptr %struct.TranslationBlock, ptr %value, i64 0, i32 8, i64 1
+  %arrayidx = getelementptr i8, ptr %value, i64 72
   %7 = load i64, ptr %arrayidx, align 8
   %cmp9.not = icmp eq i64 %7, -1
   br i1 %cmp9.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.end
-  %cross_page = getelementptr inbounds %struct.tb_tree_stats, ptr %data, i64 0, i32 6
+  %cross_page = getelementptr inbounds i8, ptr %data, i64 48
   %8 = load i64, ptr %cross_page, align 8
   %inc12 = add i64 %8, 1
   store i64 %inc12, ptr %cross_page, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %if.end
-  %jmp_reset_offset = getelementptr inbounds %struct.TranslationBlock, ptr %value, i64 0, i32 10
+  %jmp_reset_offset = getelementptr inbounds i8, ptr %value, i64 84
   %9 = load i16, ptr %jmp_reset_offset, align 4
   %cmp16.not = icmp eq i16 %9, -1
   br i1 %cmp16.not, label %if.end28, label %if.then18
 
 if.then18:                                        ; preds = %if.end13
-  %direct_jmp_count = getelementptr inbounds %struct.tb_tree_stats, ptr %data, i64 0, i32 4
+  %direct_jmp_count = getelementptr inbounds i8, ptr %data, i64 32
   %10 = load i64, ptr %direct_jmp_count, align 8
   %inc19 = add i64 %10, 1
   store i64 %inc19, ptr %direct_jmp_count, align 8
-  %arrayidx21 = getelementptr %struct.TranslationBlock, ptr %value, i64 0, i32 10, i64 1
+  %arrayidx21 = getelementptr i8, ptr %value, i64 86
   %11 = load i16, ptr %arrayidx21, align 2
   %cmp23.not = icmp eq i16 %11, -1
   br i1 %cmp23.not, label %if.end28, label %if.then25
 
 if.then25:                                        ; preds = %if.then18
-  %direct_jmp2_count = getelementptr inbounds %struct.tb_tree_stats, ptr %data, i64 0, i32 5
+  %direct_jmp2_count = getelementptr inbounds i8, ptr %data, i64 40
   %12 = load i64, ptr %direct_jmp2_count, align 8
   %inc26 = add i64 %12, 1
   store i64 %inc26, ptr %direct_jmp2_count, align 8

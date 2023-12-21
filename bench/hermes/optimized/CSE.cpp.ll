@@ -48,28 +48,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::DenseMap.12" = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %"class.llvh::RecyclingAllocator.15" = type { %"class.llvh::Recycler.16", %"class.llvh::BumpPtrAllocatorImpl" }
 %"class.llvh::Recycler.16" = type { ptr }
-%"class.hermes::BasicBlock" = type { %"class.llvh::ilist_node_with_parent", %"class.hermes::Value", %"class.llvh::iplist", ptr }
-%"class.llvh::ilist_node_with_parent" = type { %"class.llvh::ilist_node" }
-%"class.llvh::ilist_node" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::ilist_node_impl" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::ilist_node_base" = type { ptr, ptr }
-%"class.hermes::Value" = type { i8, %"class.hermes::Type", %"class.llvh::SmallVector.41" }
-%"class.hermes::Type" = type { i16, i16 }
-%"class.llvh::SmallVector.41" = type { %"class.llvh::SmallVectorImpl.36", %"struct.llvh::SmallVectorStorage.42" }
-%"struct.llvh::SmallVectorStorage.42" = type { [2 x %"struct.llvh::AlignedCharArrayUnion.40"] }
-%"class.llvh::iplist" = type { %"class.llvh::iplist_impl" }
-%"class.llvh::iplist_impl" = type { %"class.llvh::simple_ilist" }
-%"class.llvh::simple_ilist" = type { %"class.llvh::ilist_sentinel" }
-%"class.llvh::ilist_sentinel" = type { %"class.llvh::ilist_node_impl.43" }
-%"class.llvh::ilist_node_impl.43" = type { %"class.llvh::ilist_node_base" }
 %"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair" }
 %"struct.std::pair" = type { %"struct.(anonymous namespace)::CSEValue", ptr }
-%"class.llvh::ScopedHashTableVal" = type { ptr, ptr, %"struct.(anonymous namespace)::CSEValue", ptr }
-%"class.hermes::DomTreeDFS::StackNode" = type <{ ptr, %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator", i8, [7 x i8] }>
-%"class.__gnu_cxx::__normal_iterator" = type { ptr }
-%"class.(anonymous namespace)::StackNode" = type { %"class.hermes::DomTreeDFS::StackNode.base", %"class.llvh::ScopedHashTableScope" }
-%"class.hermes::DomTreeDFS::StackNode.base" = type <{ ptr, %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator", i8 }>
-%"class.llvh::ScopedHashTableScope" = type { ptr, ptr, ptr }
 %"struct.std::pair.33" = type { ptr, i64 }
 %"struct.llvh::detail::DenseMapPair.53" = type { %"struct.std::pair.54" }
 %"struct.std::pair.54" = type { ptr, %"class.std::unique_ptr.56" }
@@ -79,19 +59,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.59" = type { %"struct.std::_Tuple_impl.60" }
 %"struct.std::_Tuple_impl.60" = type { %"struct.std::_Head_base.63" }
 %"struct.std::_Head_base.63" = type { ptr }
-%"class.llvh::DomTreeNodeBase" = type { ptr, ptr, i32, %"class.std::vector", i32, i32 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<llvh::DomTreeNodeBase<hermes::BasicBlock> *, std::allocator<llvh::DomTreeNodeBase<hermes::BasicBlock> *>>::_Vector_impl" }
-%"struct.std::_Vector_base<llvh::DomTreeNodeBase<hermes::BasicBlock> *, std::allocator<llvh::DomTreeNodeBase<hermes::BasicBlock> *>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvh::DomTreeNodeBase<hermes::BasicBlock> *, std::allocator<llvh::DomTreeNodeBase<hermes::BasicBlock> *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<llvh::DomTreeNodeBase<hermes::BasicBlock> *, std::allocator<llvh::DomTreeNodeBase<hermes::BasicBlock> *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.18" }
 %"struct.std::_Head_base.18" = type { ptr }
-%"class.hermes::Pass" = type { ptr, i32, %"class.llvh::StringRef" }
-%"class.llvh::StringRef" = type { ptr, i64 }
 
 $_ZN6hermes3CSED2Ev = comdat any
 
@@ -110,44 +83,44 @@ entry:
   %DT = alloca %"class.hermes::DominanceInfo", align 8
   %CCtx = alloca %"class.(anonymous namespace)::CSEContext", align 8
   call void @_ZN6hermes13DominanceInfoC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(72) %DT, ptr noundef %F) #10
-  %Slabs.i.i.i.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %CCtx, i64 0, i32 1, i32 2
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %CCtx, i64 0, i32 1, i32 2, i32 1
+  %Slabs.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 24
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %CCtx, i8 0, i64 24, i1 false)
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %Slabs.i.i.i.i, align 8
-  %Size.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %CCtx, i64 0, i32 1, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 32
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %CCtx, i64 0, i32 1, i32 2, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 36
   store i32 4, ptr %Capacity2.i.i.i.i.i.i.i.i.i, align 4
-  %CustomSizedSlabs.i.i.i.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %CCtx, i64 0, i32 1, i32 3
-  %add.ptr.i.i.i.i.i1.i.i.i.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %CCtx, i64 0, i32 1, i32 4
+  %CustomSizedSlabs.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 72
+  %add.ptr.i.i.i.i.i1.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 88
   store ptr %add.ptr.i.i.i.i.i1.i.i.i.i, ptr %CustomSizedSlabs.i.i.i.i, align 8
-  %Size.i.i.i.i.i2.i.i.i.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %CCtx, i64 0, i32 1, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
-  %RedZoneSize.i.i.i.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %CCtx, i64 0, i32 1, i32 5
+  %Size.i.i.i.i.i2.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 80
+  %RedZoneSize.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Size.i.i.i.i.i2.i.i.i.i, i8 0, i64 16, i1 false)
   store i64 1, ptr %RedZoneSize.i.i.i.i, align 8
-  %DT_.i.i = getelementptr inbounds %"class.hermes::DomTreeDFS::Visitor", ptr %CCtx, i64 0, i32 1
+  %DT_.i.i = getelementptr inbounds i8, ptr %CCtx, i64 112
   store ptr %DT, ptr %DT_.i.i, align 8
-  %availableValues_.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1
-  %Slabs.i.i.i1.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 2, i32 1, i32 2
-  %add.ptr.i.i.i.i.i.i.i.i2.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 2, i32 1, i32 2, i32 1
+  %availableValues_.i = getelementptr inbounds i8, ptr %CCtx, i64 120
+  %Slabs.i.i.i1.i = getelementptr inbounds i8, ptr %CCtx, i64 176
+  %add.ptr.i.i.i.i.i.i.i.i2.i = getelementptr inbounds i8, ptr %CCtx, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %availableValues_.i, i8 0, i64 144, i1 false)
   store ptr %add.ptr.i.i.i.i.i.i.i.i2.i, ptr %Slabs.i.i.i1.i, align 8
-  %Capacity2.i.i.i.i.i.i.i.i4.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 2, i32 1, i32 2, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i.i4.i = getelementptr inbounds i8, ptr %CCtx, i64 188
   store i32 4, ptr %Capacity2.i.i.i.i.i.i.i.i4.i, align 4
-  %CustomSizedSlabs.i.i.i5.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 2, i32 1, i32 3
-  %add.ptr.i.i.i.i.i1.i.i.i6.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 2, i32 1, i32 4
+  %CustomSizedSlabs.i.i.i5.i = getelementptr inbounds i8, ptr %CCtx, i64 224
+  %add.ptr.i.i.i.i.i1.i.i.i6.i = getelementptr inbounds i8, ptr %CCtx, i64 240
   store ptr %add.ptr.i.i.i.i.i1.i.i.i6.i, ptr %CustomSizedSlabs.i.i.i5.i, align 8
-  %Size.i.i.i.i.i2.i.i.i7.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 2, i32 1, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
-  %RedZoneSize.i.i.i8.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 2, i32 1, i32 5
+  %Size.i.i.i.i.i2.i.i.i7.i = getelementptr inbounds i8, ptr %CCtx, i64 232
+  %RedZoneSize.i.i.i8.i = getelementptr inbounds i8, ptr %CCtx, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Size.i.i.i.i.i2.i.i.i7.i, i8 0, i64 16, i1 false)
   store i64 1, ptr %RedZoneSize.i.i.i8.i, align 8
   %call.i.i = call noundef ptr @_ZNK4llvh17DominatorTreeBaseIN6hermes10BasicBlockELb0EE11getRootNodeEv(ptr noundef nonnull align 8 dereferenceable(72) %DT) #10
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %nodesToProcess.i.i.i)
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %nodesToProcess.i.i.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %nodesToProcess.i.i.i, align 8
-  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %nodesToProcess.i.i.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %nodesToProcess.i.i.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %nodesToProcess.i.i.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %nodesToProcess.i.i.i, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
   %call.i.i.i = call fastcc noundef ptr @_ZN6hermes10DomTreeDFS7VisitorIN12_GLOBAL__N_110CSEContextENS2_9StackNodeEE7newNodeEPKN4llvh15DomTreeNodeBaseINS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(120) %CCtx, ptr noundef %call.i.i)
   %0 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
@@ -175,14 +148,14 @@ _ZN4llvh23SmallVectorTemplateBaseIPN12_GLOBAL__N_19StackNodeELb1EE9push_backERKS
 
 while.body.lr.ph.i.i.i:                           ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN12_GLOBAL__N_19StackNodeELb1EE9push_backERKS3_.exit.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %destroyer.i.i.i.i, i64 16
-  %Size.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %destroyer.i.i.i.i, i64 0, i32 1
-  %Capacity2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %destroyer.i.i.i.i, i64 0, i32 2
-  %6 = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 0, i32 3
-  %CurScope.i.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 1
-  %Allocator.i.i.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 2
-  %Allocator.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 2, i32 1
-  %End.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 2, i32 1, i32 1
-  %Size.i.i13.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 2, i32 1, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %destroyer.i.i.i.i, i64 8
+  %Capacity2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %destroyer.i.i.i.i, i64 12
+  %6 = getelementptr inbounds i8, ptr %CCtx, i64 136
+  %CurScope.i.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 144
+  %Allocator.i.i.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 152
+  %Allocator.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 160
+  %End.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 168
+  %Size.i.i13.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 184
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end16.i.i.i, %while.body.lr.ph.i.i.i
@@ -191,7 +164,7 @@ while.body.i.i.i:                                 ; preds = %if.end16.i.i.i, %wh
   %nodesToProcess.val.i.i.i = load ptr, ptr %nodesToProcess.i.i.i, align 8
   %conv.i.i.i.i.i = zext i32 %7 to i64
   %add.ptr.i.i8.i.i.i = getelementptr inbounds ptr, ptr %nodesToProcess.val.i.i.i, i64 %conv.i.i.i.i.i
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i8.i.i.i, i64 -1
+  %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i8.i.i.i, i64 -8
   %8 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %9 = getelementptr i8, ptr %8, i64 24
   %.val.i.i.i = load i8, ptr %9, align 8
@@ -207,8 +180,8 @@ if.then.i.i.i:                                    ; preds = %while.body.i.i.i
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %destroyer.i.i.i.i, align 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i.i.i, align 8
   store i32 8, ptr %Capacity2.i.i.i.i.i.i.i.i.i.i, align 4
-  %Next.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %call2.i.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %InstList.i.i.i.i.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %call2.i.i.i.i, i64 0, i32 2
+  %Next.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i.i, i64 64
+  %InstList.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i.i, i64 56
   %__begin1.sroa.0.014.i.i.i.i = load ptr, ptr %Next.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.not15.i.i.i.i = icmp eq ptr %__begin1.sroa.0.014.i.i.i.i, %InstList.i.i.i.i.i
   br i1 %cmp.i.not15.i.i.i.i, label %_ZN12_GLOBAL__N_110CSEContext11processNodeEPNS_9StackNodeE.exit.i.i.i, label %for.body.i.i.i.i
@@ -332,9 +305,9 @@ _ZNK4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTa
   br i1 %cmp.i.i5.not.i.i.i.i.i, label %if.end12.i.i.i.i, label %_ZNK4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMapInfoIS2_EENS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_18ScopedHashTableValIS2_S5_EELm32ELm8EEEE6lookupERKS2_.exit.i.i.i.i
 
 _ZNK4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMapInfoIS2_EENS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_18ScopedHashTableValIS2_S5_EELm32ELm8EEEE6lookupERKS2_.exit.i.i.i.i: ; preds = %_ZNK4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4findERKS3_.exit.i.i.i.i.i
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %add.ptr.i.pn.i.i.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.pn.i.i.i.i.i.i, i64 8
   %14 = load ptr, ptr %second.i.i.i.i.i, align 8
-  %Val.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ScopedHashTableVal", ptr %14, i64 0, i32 3
+  %Val.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %Val.i.i.i.i.i.i, align 8
   %tobool.not.i11.i.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i11.i.i.i, label %if.end12.i.i.i.i, label %if.then10.i.i.i.i
@@ -451,12 +424,12 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSla
 
 _ZN4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMapInfoIS2_EENS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_18ScopedHashTableValIS2_S5_EELm32ELm8EEEE6insertERKS2_RKS5_.exit.i.i.i.i: ; preds = %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSlabEv.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i.i.i = phi ptr [ %25, %cond.true.i.i.i.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i9.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %40, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSlabEv.exit.i.i.i.i.i.i.i.i.i.i ]
-  %Key.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ScopedHashTableVal", ptr %cond.i.i.i.i.i.i.i.i.i, i64 0, i32 2
+  %Key.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i.i.i.i, i64 16
   store i64 %26, ptr %Key.i.i.i.i.i.i.i.i, align 8
-  %Val.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ScopedHashTableVal", ptr %cond.i.i.i.i.i.i.i.i.i, i64 0, i32 3
+  %Val.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i.i.i.i, i64 24
   store ptr %add.ptr16.i.i.i.i, ptr %Val.i.i.i.i.i.i.i.i, align 8
   store ptr %S.val.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i.i.i.i, align 8
-  %NextForKey.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ScopedHashTableVal", ptr %cond.i.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %NextForKey.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i.i.i.i.i.i.i.i.i, i64 8
   store ptr %24, ptr %NextForKey.i.i.i.i.i.i.i, align 8
   store ptr %cond.i.i.i.i.i.i.i.i.i, ptr %call.i.i.i.i.i.i, align 8
   store ptr %cond.i.i.i.i.i.i.i.i.i, ptr %23, align 8
@@ -464,7 +437,7 @@ _ZN4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMap
 
 for.inc.i.i.i.i:                                  ; preds = %_ZN4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMapInfoIS2_EENS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_18ScopedHashTableValIS2_S5_EELm32ELm8EEEE6insertERKS2_RKS5_.exit.i.i.i.i, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i.i.i, %for.body.i.i.i.i
   %changed.1.i.i.i.i = phi i8 [ 1, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i.i.i ], [ %changed.016.i.i.i.i, %_ZN4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMapInfoIS2_EENS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_18ScopedHashTableValIS2_S5_EELm32ELm8EEEE6insertERKS2_RKS5_.exit.i.i.i.i ], [ %changed.016.i.i.i.i, %for.body.i.i.i.i ]
-  %Next.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin1.sroa.0.017.i.i.i.i, i64 0, i32 1
+  %Next.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.017.i.i.i.i, i64 8
   %__begin1.sroa.0.0.i.i.i.i = load ptr, ptr %Next.i.i.i.i.i.i.i, align 8
   %cmp.i.not.i.i.i.i = icmp eq ptr %__begin1.sroa.0.0.i.i.i.i, %InstList.i.i.i.i.i
   br i1 %cmp.i.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
@@ -483,7 +456,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.end.i.i.i.i, %f
   %__begin2.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %.pre.i9.i.i.i, %for.end.i.i.i.i ]
   %43 = load ptr, ptr %__begin2.05.i.i.i.i.i, align 8
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %43) #10
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %__begin2.05.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.05.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i, label %for.body.i.i.i.i.i
 
@@ -511,15 +484,15 @@ _ZN12_GLOBAL__N_110CSEContext11processNodeEPNS_9StackNodeE.exit.i.i.i: ; preds =
   br label %if.end16thread-pre-split.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
-  %childIter_.i.i.i.i = getelementptr inbounds %"class.hermes::DomTreeDFS::StackNode", ptr %8, i64 0, i32 1
-  %endIter_.i.i.i.i = getelementptr inbounds %"class.hermes::DomTreeDFS::StackNode", ptr %8, i64 0, i32 2
+  %childIter_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  %endIter_.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %48 = load ptr, ptr %childIter_.i.i.i.i, align 8
   %49 = load ptr, ptr %endIter_.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %48, %49
   br i1 %cmp.i.i.i.i.i, label %if.else14.i.i.i, label %_ZN6hermes10DomTreeDFS9StackNodeIN12_GLOBAL__N_110CSEContextEE9nextChildEv.exit.i.i.i
 
 _ZN6hermes10DomTreeDFS9StackNodeIN12_GLOBAL__N_110CSEContextEE9nextChildEv.exit.i.i.i: ; preds = %if.else.i.i.i
-  %incdec.ptr.i.i13.i.i.i = getelementptr inbounds ptr, ptr %48, i64 1
+  %incdec.ptr.i.i13.i.i.i = getelementptr inbounds i8, ptr %48, i64 8
   store ptr %incdec.ptr.i.i13.i.i.i, ptr %childIter_.i.i.i.i, align 8
   %50 = load ptr, ptr %48, align 8
   %tobool10.not.i.i.i = icmp eq ptr %50, null
@@ -529,7 +502,7 @@ _ZN6hermes10DomTreeDFS9StackNodeIN12_GLOBAL__N_110CSEContextEE9nextChildEv.exit.
   %this.val1.i.pre.i.i.i = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
   %conv.i.i.i25.phi.trans.insert.i.i.i = zext i32 %this.val1.i.pre.i.i.i to i64
   %add.ptr.i.i.i26.phi.trans.insert.i.i.i = getelementptr inbounds ptr, ptr %nodesToProcess.val.i.i.i, i64 %conv.i.i.i25.phi.trans.insert.i.i.i
-  %arrayidx.i.i.phi.trans.insert.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i26.phi.trans.insert.i.i.i, i64 -1
+  %arrayidx.i.i.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i26.phi.trans.insert.i.i.i, i64 -8
   %.pre.i.i.i = load ptr, ptr %arrayidx.i.i.phi.trans.insert.i.i.i, align 8
   br label %if.else14.i.i.i
 
@@ -562,13 +535,13 @@ if.else14.i.i.i:                                  ; preds = %_ZN6hermes10DomTree
   %this.val1.i.i.i.i = phi i32 [ %this.val1.i.pre.i.i.i, %_ZN6hermes10DomTreeDFS9StackNodeIN12_GLOBAL__N_110CSEContextEE9nextChildEv.exit.if.else14_crit_edge.i.i.i ], [ %7, %if.else.i.i.i ]
   %sub.i.i.i.i.i = add i32 %this.val1.i.i.i.i, -1
   store i32 %sub.i.i.i.i.i, ptr %Size.i.i.i.i.i.i.i.i, align 8
-  %scope_.i.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::StackNode", ptr %57, i64 0, i32 1
-  %PrevScope.i.i.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::StackNode", ptr %57, i64 0, i32 1, i32 1
+  %scope_.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 32
+  %PrevScope.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 40
   %58 = load ptr, ptr %PrevScope.i.i.i.i.i.i, align 8
   %59 = load ptr, ptr %scope_.i.i.i.i.i, align 8
-  %CurScope.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ScopedHashTable", ptr %59, i64 0, i32 1
+  %CurScope.i.i.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 24
   store ptr %58, ptr %CurScope.i.i.i.i.i.i, align 8
-  %LastValInScope.i.i.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::StackNode", ptr %57, i64 0, i32 1, i32 2
+  %LastValInScope.i.i.i.i.i.i = getelementptr inbounds i8, ptr %57, i64 48
   %60 = load ptr, ptr %LastValInScope.i.i.i.i.i.i, align 8
   %tobool.not11.i.i.i.i.i.i = icmp eq ptr %60, null
   br i1 %tobool.not11.i.i.i.i.i.i, label %_ZN6hermes10DomTreeDFS7VisitorIN12_GLOBAL__N_110CSEContextENS2_9StackNodeEE8freeNodeEPS4_.exit.i.i.i, label %while.body.i.i.i.i.i.i
@@ -579,7 +552,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.else14.i.i.i, %i
   %.val.i.i.i.i.i.i = load ptr, ptr %62, align 8
   %tobool2.not.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i, null
   %63 = load ptr, ptr %scope_.i.i.i.i.i, align 8
-  %Key.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ScopedHashTableVal", ptr %61, i64 0, i32 2
+  %Key.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %61, i64 16
   br i1 %tobool2.not.i.i.i.i.i.i, label %if.then.i.i.i28.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i28.i.i.i:                            ; preds = %while.body.i.i.i.i.i.i
@@ -665,7 +638,7 @@ if.end.i.i.i27.i.i.i:                             ; preds = %if.end13.i.i.i.i.i.
   %.val8.i.i.i.i.i.i = load ptr, ptr %61, align 8
   store ptr %.val8.i.i.i.i.i.i, ptr %LastValInScope.i.i.i.i.i.i, align 8
   %70 = load ptr, ptr %scope_.i.i.i.i.i, align 8
-  %Allocator.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::ScopedHashTable", ptr %70, i64 0, i32 2
+  %Allocator.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %70, i64 32
   %71 = load ptr, ptr %Allocator.i.i.i.i.i.i.i, align 8
   store ptr %71, ptr %61, align 8
   store ptr %61, ptr %Allocator.i.i.i.i.i.i.i, align 8
@@ -707,10 +680,10 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i
 
 _ZN12_GLOBAL__N_110CSEContext3runEv.exit:         ; preds = %while.end.i.i.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %nodesToProcess.i.i.i)
-  %Allocator.i.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 2
+  %Allocator.i.i = getelementptr inbounds i8, ptr %CCtx, i64 152
   store ptr null, ptr %Allocator.i.i, align 8
   %77 = load ptr, ptr %Slabs.i.i.i1.i, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %CCtx, i64 0, i32 1, i32 2, i32 1, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %CCtx, i64 184
   %78 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i.i.i.i.i5 = zext i32 %78 to i64
   %add.ptr.i.i.i.i.i6 = getelementptr inbounds ptr, ptr %77, i64 %conv.i.i.i.i.i5
@@ -721,7 +694,7 @@ for.body.i.i.i.i.i8:                              ; preds = %_ZN12_GLOBAL__N_110
   %I.addr.05.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i9, %for.body.i.i.i.i.i8 ], [ %77, %_ZN12_GLOBAL__N_110CSEContext3runEv.exit ]
   %79 = load ptr, ptr %I.addr.05.i.i.i.i.i, align 8
   call void @free(ptr noundef %79) #10
-  %incdec.ptr.i.i.i.i.i9 = getelementptr inbounds ptr, ptr %I.addr.05.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i9 = getelementptr inbounds i8, ptr %I.addr.05.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i10 = icmp eq ptr %incdec.ptr.i.i.i.i.i9, %add.ptr.i.i.i.i.i6
   br i1 %cmp.not.i.i.i.i.i10, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i.i, label %for.body.i.i.i.i.i8, !llvm.loop !8
 
@@ -737,7 +710,7 @@ for.body.i1.i.i.i.i:                              ; preds = %_ZN4llvh20BumpPtrAl
   %__begin2.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i2.i.i.i.i, %for.body.i1.i.i.i.i ], [ %80, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i.i ]
   %82 = load ptr, ptr %__begin2.06.i.i.i.i.i, align 8
   call void @free(ptr noundef %82) #10
-  %incdec.ptr.i2.i.i.i.i = getelementptr inbounds %"struct.std::pair.33", ptr %__begin2.06.i.i.i.i.i, i64 1
+  %incdec.ptr.i2.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.06.i.i.i.i.i, i64 16
   %cmp.not.i3.i.i.i.i = icmp eq ptr %incdec.ptr.i2.i.i.i.i, %add.ptr.i.i.i.i.i.i12
   br i1 %cmp.not.i3.i.i.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i.i, label %for.body.i1.i.i.i.i
 
@@ -778,7 +751,7 @@ for.body.i.i.i.i6.i:                              ; preds = %_ZN4llvh15ScopedHas
   %I.addr.05.i.i.i.i7.i = phi ptr [ %incdec.ptr.i.i.i.i8.i, %for.body.i.i.i.i6.i ], [ %85, %_ZN4llvh15ScopedHashTableIN12_GLOBAL__N_18CSEValueEPN6hermes5ValueENS_12DenseMapInfoIS2_EENS_18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEENS_18ScopedHashTableValIS2_S5_EELm32ELm8EEEED2Ev.exit.i ]
   %87 = load ptr, ptr %I.addr.05.i.i.i.i7.i, align 8
   call void @free(ptr noundef %87) #10
-  %incdec.ptr.i.i.i.i8.i = getelementptr inbounds ptr, ptr %I.addr.05.i.i.i.i7.i, i64 1
+  %incdec.ptr.i.i.i.i8.i = getelementptr inbounds i8, ptr %I.addr.05.i.i.i.i7.i, i64 8
   %cmp.not.i.i.i.i9.i = icmp eq ptr %incdec.ptr.i.i.i.i8.i, %add.ptr.i.i.i.i4.i
   br i1 %cmp.not.i.i.i.i9.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i10.i, label %for.body.i.i.i.i6.i, !llvm.loop !8
 
@@ -794,7 +767,7 @@ for.body.i1.i.i.i16.i:                            ; preds = %_ZN4llvh20BumpPtrAl
   %__begin2.06.i.i.i.i17.i = phi ptr [ %incdec.ptr.i2.i.i.i18.i, %for.body.i1.i.i.i16.i ], [ %88, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i.i.i10.i ]
   %90 = load ptr, ptr %__begin2.06.i.i.i.i17.i, align 8
   call void @free(ptr noundef %90) #10
-  %incdec.ptr.i2.i.i.i18.i = getelementptr inbounds %"struct.std::pair.33", ptr %__begin2.06.i.i.i.i17.i, i64 1
+  %incdec.ptr.i2.i.i.i18.i = getelementptr inbounds i8, ptr %__begin2.06.i.i.i.i17.i, i64 16
   %cmp.not.i3.i.i.i19.i = icmp eq ptr %incdec.ptr.i2.i.i.i18.i, %add.ptr.i.i.i.i.i14.i
   br i1 %cmp.not.i3.i.i.i19.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i.i.i20.i, label %for.body.i1.i.i.i16.i
 
@@ -821,8 +794,8 @@ if.then.i.i6.i.i.i29.i:                           ; preds = %_ZN4llvh11SmallVect
   br label %_ZN12_GLOBAL__N_110CSEContextD2Ev.exit
 
 _ZN12_GLOBAL__N_110CSEContextD2Ev.exit:           ; preds = %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i.i.i26.i, %if.then.i.i6.i.i.i29.i
-  %DomTreeNodes.i.i = getelementptr inbounds %"class.llvh::DominatorTreeBase", ptr %DT, i64 0, i32 1
-  %NumBuckets.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::DominatorTreeBase", ptr %DT, i64 0, i32 1, i32 3
+  %DomTreeNodes.i.i = getelementptr inbounds i8, ptr %DT, i64 24
+  %NumBuckets.i.i.i.i.i.i = getelementptr inbounds i8, ptr %DT, i64 40
   %93 = load i32, ptr %NumBuckets.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i32 %93, 0
   %.pre1.i.i.i = load ptr, ptr %DomTreeNodes.i.i, align 8
@@ -843,13 +816,13 @@ for.body.i.i.i.i19:                               ; preds = %if.end13.i.i.i.i, %
   ]
 
 if.then11.i.i.i.i:                                ; preds = %for.body.i.i.i.i19
-  %second.i.i.i.i.i24 = getelementptr inbounds %"struct.std::pair.54", ptr %P.08.i.i.i.i, i64 0, i32 1
+  %second.i.i.i.i.i24 = getelementptr inbounds i8, ptr %P.08.i.i.i.i, i64 8
   %95 = load ptr, ptr %second.i.i.i.i.i24, align 8
   %cmp.not.i.i.i.i.i25 = icmp eq ptr %95, null
   br i1 %cmp.not.i.i.i.i.i25, label %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, label %delete.notnull.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.then11.i.i.i.i
-  %Children.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::DomTreeNodeBase", ptr %95, i64 0, i32 3
+  %Children.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %95, i64 24
   %96 = load ptr, ptr %Children.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %96, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEEEclEPS4_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i26
@@ -867,7 +840,7 @@ _ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_del
   br label %if.end13.i.i.i.i
 
 if.end13.i.i.i.i:                                 ; preds = %_ZNSt10unique_ptrIN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEESt14default_deleteIS4_EED2Ev.exit.i.i.i.i, %for.body.i.i.i.i19, %for.body.i.i.i.i19
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.53", ptr %P.08.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %P.08.i.i.i.i, i64 16
   %cmp6.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i.i18
   br i1 %cmp6.not.i.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockESt10unique_ptrINS_15DomTreeNodeBaseIS3_EESt14default_deleteIS7_EENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_SA_EEEES4_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i.i, label %for.body.i.i.i.i19, !llvm.loop !9
 
@@ -897,11 +870,11 @@ declare void @_ZN6hermes13DominanceInfoC1EPNS_8FunctionE(ptr noundef nonnull ali
 define hidden void @_ZN6hermes9createCSEEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes3CSEESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13, !noalias !10
-  %kind.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 1
+  %kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 0, ptr %kind.i.i.i.i, align 8, !noalias !10
-  %name2.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 2
+  %name2.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @.str.1, ptr %name2.i.i.i.i, align 8, !noalias !10
-  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds %"class.hermes::Pass", ptr %call.i, i64 0, i32 2, i32 1
+  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 3, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3CSEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !10
   store ptr %call.i, ptr %agg.result, align 8
@@ -932,7 +905,7 @@ declare noundef ptr @_ZNK4llvh17DominatorTreeBaseIN6hermes10BasicBlockELb0EE11ge
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef ptr @_ZN6hermes10DomTreeDFS7VisitorIN12_GLOBAL__N_110CSEContextENS2_9StackNodeEE7newNodeEPKN4llvh15DomTreeNodeBaseINS_10BasicBlockEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %n) unnamed_addr #0 align 2 {
 entry:
-  %Allocator.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %this, i64 0, i32 1
+  %Allocator.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %cond.true.i.i.i
@@ -943,7 +916,7 @@ cond.true.i.i.i:                                  ; preds = %entry
   br label %_ZN4llvh18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEEN12_GLOBAL__N_19StackNodeELm56ELm8EE8AllocateEv.exit
 
 cond.false.i.i.i:                                 ; preds = %entry
-  %BytesAllocated.i.i.i.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %this, i64 0, i32 1, i32 4
+  %BytesAllocated.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i64, ptr %BytesAllocated.i.i.i.i, align 8
   %add.i.i.i.i = add i64 %2, 56
   store i64 %add.i.i.i.i, ptr %BytesAllocated.i.i.i.i, align 8
@@ -953,7 +926,7 @@ cond.false.i.i.i:                                 ; preds = %entry
   %and.i.i.i.i.i.i = and i64 %sub.i.i.i.i.i.i, -8
   %sub.i.i.i.i.i = sub i64 %and.i.i.i.i.i.i, %4
   %add2.i.i.i.i = add i64 %sub.i.i.i.i.i, 56
-  %End.i.i.i.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %this, i64 0, i32 1, i32 1
+  %End.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %End.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %4
@@ -967,8 +940,8 @@ if.then.i.i.i.i:                                  ; preds = %cond.false.i.i.i
   br label %_ZN4llvh18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEEN12_GLOBAL__N_19StackNodeELm56ELm8EE8AllocateEv.exit
 
 if.end.i.i.i.i:                                   ; preds = %cond.false.i.i.i
-  %Slabs.i.i.i.i.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %this, i64 0, i32 1, i32 2
-  %Size.i.i13.i.i.i.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %Slabs.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %Size.i.i13.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %6 = load i32, ptr %Size.i.i13.i.i.i.i, align 8
   %div1.i.i.i.i.i.i = lshr i32 %6, 7
   %7 = tail call i32 @llvm.umin.i32(i32 %div1.i.i.i.i.i.i, i32 30)
@@ -985,13 +958,13 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i
 
 _ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.end.i.i.i.i
   %8 = phi i32 [ %6, %if.end.i.i.i.i ], [ %.pre.i16.i.i.i.i, %if.then.i.i.i.i.i.i.i ]
-  %Capacity.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 0, i32 0, i32 0, i32 2
+  %Capacity.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   %9 = load i32, ptr %Capacity.i.i.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i.i = icmp ult i32 %8, %9
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSlabEv.exit.i.i.i.i, label %if.then.i.i14.i.i.i.i
 
 if.then.i.i14.i.i.i.i:                            ; preds = %_ZN4llvh15MallocAllocator8AllocateEmm.exit.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::RecyclingAllocator", ptr %this, i64 0, i32 1, i32 2, i32 1
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %Slabs.i.i.i.i.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i.i.i.i, i64 noundef 0, i64 noundef 8) #10
   %.pre.i.i.i.i.i.i = load i32, ptr %Size.i.i13.i.i.i.i, align 8
   br label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSlabEv.exit.i.i.i.i
@@ -1018,23 +991,23 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSla
 _ZN4llvh18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEEN12_GLOBAL__N_19StackNodeELm56ELm8EE8AllocateEv.exit: ; preds = %cond.true.i.i.i, %if.then.i.i.i.i, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSlabEv.exit.i.i.i.i
   %cond.i.i.i = phi ptr [ %0, %cond.true.i.i.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %14, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSlabEv.exit.i.i.i.i ]
   store ptr %n, ptr %cond.i.i.i, align 8
-  %childIter_.i.i = getelementptr inbounds %"class.hermes::DomTreeDFS::StackNode", ptr %cond.i.i.i, i64 0, i32 1
+  %childIter_.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 8
   %call.i.i = tail call ptr @_ZNK4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEE5beginEv(ptr noundef nonnull align 8 dereferenceable(56) %n) #10
   store ptr %call.i.i, ptr %childIter_.i.i, align 8
-  %endIter_.i.i = getelementptr inbounds %"class.hermes::DomTreeDFS::StackNode", ptr %cond.i.i.i, i64 0, i32 2
+  %endIter_.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 16
   %call2.i.i = tail call ptr @_ZNK4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEE3endEv(ptr noundef nonnull align 8 dereferenceable(56) %n) #10
   store ptr %call2.i.i, ptr %endIter_.i.i, align 8
-  %done_.i.i = getelementptr inbounds %"class.hermes::DomTreeDFS::StackNode", ptr %cond.i.i.i, i64 0, i32 3
+  %done_.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 24
   store i8 0, ptr %done_.i.i, align 8
-  %scope_.i = getelementptr inbounds %"class.(anonymous namespace)::StackNode", ptr %cond.i.i.i, i64 0, i32 1
-  %availableValues_.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %this, i64 0, i32 1
+  %scope_.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 32
+  %availableValues_.i = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %availableValues_.i, ptr %scope_.i, align 8
-  %CurScope.i.i = getelementptr inbounds %"class.(anonymous namespace)::CSEContext", ptr %this, i64 0, i32 1, i32 1
+  %CurScope.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %15 = load ptr, ptr %CurScope.i.i, align 8
-  %PrevScope.i.i = getelementptr inbounds %"class.(anonymous namespace)::StackNode", ptr %cond.i.i.i, i64 0, i32 1, i32 1
+  %PrevScope.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 40
   store ptr %15, ptr %PrevScope.i.i, align 8
   store ptr %scope_.i, ptr %CurScope.i.i, align 8
-  %LastValInScope.i.i = getelementptr inbounds %"class.(anonymous namespace)::StackNode", ptr %cond.i.i.i, i64 0, i32 1, i32 2
+  %LastValInScope.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 48
   store ptr null, ptr %LastValInScope.i.i, align 8
   ret ptr %cond.i.i.i
 }
@@ -1329,20 +1302,20 @@ if.then19.i.i.i:                                  ; preds = %if.end12.i.i.i
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E16InsertIntoBucketIRKS3_JEEEPSE_SK_OT_DpOT0_.exit.i: ; preds = %if.then19.i.i.i, %if.end12.i.i.i
   %10 = load i64, ptr %Key, align 8
   store i64 %10, ptr %TheBucket.addr.0.i.i.i, align 8
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %TheBucket.addr.0.i.i.i, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %TheBucket.addr.0.i.i.i, i64 8
   store ptr null, ptr %second.i.i.i, align 8
   br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E16FindAndConstructERKS3_.exit
 
 _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E16FindAndConstructERKS3_.exit: ; preds = %if.then.i.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E16InsertIntoBucketIRKS3_JEEEPSE_SK_OT_DpOT0_.exit.i
   %retval.0.i = phi ptr [ %TheBucket.addr.0.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E16InsertIntoBucketIRKS3_JEEEPSE_SK_OT_DpOT0_.exit.i ], [ %add.ptr.i.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i.i ], [ %add.ptr.i.i.i, %if.then.i.i.i.i ]
-  %second = getelementptr inbounds %"struct.std::pair", ptr %retval.0.i, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   ret ptr %second
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %AtLeast) unnamed_addr #0 align 2 {
 entry:
-  %NumBuckets.i = getelementptr inbounds %"class.llvh::DenseMap.12", ptr %this, i64 0, i32 3
+  %NumBuckets.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.i = add i32 %AtLeast, -1
@@ -1369,9 +1342,9 @@ entry:
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %NumEntries.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.12", ptr %this, i64 0, i32 1
+  %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
-  %NumTombstones.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.12", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %this.val4.i.i = load i32, ptr %NumBuckets.i, align 8
   %idx.ext.i.i.i = zext i32 %this.val4.i.i to i64
@@ -1382,16 +1355,16 @@ if.then.i:                                        ; preds = %entry
 for.body.i.i:                                     ; preds = %if.then.i, %for.body.i.i
   %B.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i, %if.then.i ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.06.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.06.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %B.06.i.i, i64 16
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS2_PN6hermes5ValueEEENS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_S8_EEE4growEj.exit, label %for.body.i.i, !llvm.loop !13
 
 if.end.i:                                         ; preds = %entry
   %idx.ext.i = zext i32 %0 to i64
   %add.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext.i
-  %NumEntries.i.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.12", ptr %this, i64 0, i32 1
+  %NumEntries.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i.i, align 8
-  %NumTombstones.i.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap.12", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i.i, align 4
   %this.val4.i.i.i = load i32, ptr %NumBuckets.i, align 8
   %idx.ext.i.i.i.i = zext i32 %this.val4.i.i.i to i64
@@ -1402,7 +1375,7 @@ if.end.i:                                         ; preds = %entry
 for.body.i.i.i:                                   ; preds = %if.end.i, %for.body.i.i.i
   %B.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %call.i.i, %if.end.i ]
   store ptr inttoptr (i64 -8 to ptr), ptr %B.06.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.06.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %B.06.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E9initEmptyEv.exit.i.i, label %for.body.i.i.i, !llvm.loop !13
 
@@ -1494,8 +1467,8 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTab
   %cond.sink.i.i.i.i = phi ptr [ %cond.i.i.i.i, %if.then20.i.i.i.i ], [ %add.ptr.i.i15.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i15.i.i, %_ZN4llvh12DenseMapInfoIN12_GLOBAL__N_18CSEValueEE7isEqualES2_S2_.exit.i.i.i.i ]
   %5 = load i64, ptr %B.023.i.i, align 8
   store i64 %5, ptr %cond.sink.i.i.i.i, align 8
-  %second.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %cond.sink.i.i.i.i, i64 0, i32 1
-  %second.i16.i.i = getelementptr inbounds %"struct.std::pair", ptr %B.023.i.i, i64 0, i32 1
+  %second.i.i.i = getelementptr inbounds i8, ptr %cond.sink.i.i.i.i, i64 8
+  %second.i16.i.i = getelementptr inbounds i8, ptr %B.023.i.i, i64 8
   %6 = load ptr, ptr %second.i16.i.i, align 8
   store ptr %6, ptr %second.i.i.i, align 8
   %this.val.i17.i.i = load i32, ptr %NumEntries.i.i.i.i.i, align 8
@@ -1504,7 +1477,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTab
   br label %if.end.i6.i
 
 if.end.i6.i:                                      ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E15LookupBucketForIS3_EEbRKT_RPSE_.exit.i.i, %for.body.i5.i, %for.body.i5.i
-  %incdec.ptr.i7.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.023.i.i, i64 1
+  %incdec.ptr.i7.i = getelementptr inbounds i8, ptr %B.023.i.i, i64 16
   %cmp.not.i8.i = icmp eq ptr %incdec.ptr.i7.i, %add.ptr.i
   br i1 %cmp.not.i8.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_18CSEValueEPNS_18ScopedHashTableValIS3_PN6hermes5ValueEEENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E18moveFromOldBucketsEPSE_SH_.exit.i, label %for.body.i5.i, !llvm.loop !14
 

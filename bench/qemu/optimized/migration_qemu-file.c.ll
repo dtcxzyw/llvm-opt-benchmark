@@ -5,10 +5,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.MigrationAtomicStats = type { %struct.Stat64, %struct.Stat64, %struct.Stat64, %struct.Stat64, %struct.Stat64, %struct.Stat64, %struct.Stat64, %struct.Stat64, %struct.Stat64, %struct.Stat64, %struct.Stat64, %struct.Stat64, %struct.Stat64, %struct.Stat64, %struct.Stat64 }
 %struct.Stat64 = type { i64 }
-%struct.QEMUFile = type { ptr, i8, i32, i32, [32768 x i8], [1 x i64], [64 x %struct.iovec], i32, i32, ptr }
 %struct.iovec = type { ptr, i64 }
 %struct.timeval = type { i64, i64 }
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 
 @.str = private unnamed_addr constant [30 x i8] c"../qemu/migration/qemu-file.c\00", align 1
 @__func__.qemu_file_get_error_obj = private unnamed_addr constant [24 x i8] c"qemu_file_get_error_obj\00", align 1
@@ -44,14 +42,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_file_shutdown(ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %last_error = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %qemu_file_set_error.exit, label %if.end
 
 qemu_file_set_error.exit:                         ; preds = %entry
   store i32 -5, ptr %last_error, align 4
-  %last_error_obj.i.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 9
+  %last_error_obj.i.i = getelementptr inbounds i8, ptr %f, i64 33832
   tail call void @error_propagate(ptr noundef nonnull %last_error_obj.i.i, ptr noundef null) #15
   br label %if.end
 
@@ -75,7 +73,7 @@ return:                                           ; preds = %if.end2, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_file_set_error(ptr noundef %f, i32 noundef %ret) local_unnamed_addr #0 {
 entry:
-  %last_error.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error.i = getelementptr inbounds i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error.i, align 4
   %cmp.i = icmp eq i32 %0, 0
   %tobool.i = icmp ne i32 %ret, 0
@@ -84,7 +82,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   store i32 %ret, ptr %last_error.i, align 4
-  %last_error_obj.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 9
+  %last_error_obj.i = getelementptr inbounds i8, ptr %f, i64 33832
   tail call void @error_propagate(ptr noundef nonnull %last_error_obj.i, ptr noundef null) #15
   br label %qemu_file_set_error_obj.exit
 
@@ -100,14 +98,14 @@ declare i32 @qio_channel_shutdown(ptr noundef, i32 noundef, ptr noundef) local_u
 define dso_local noalias ptr @qemu_file_get_return_path(ptr nocapture noundef readonly %f) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %f, align 8
-  %is_writable = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 1
+  %is_writable = getelementptr inbounds i8, ptr %f, i64 8
   %1 = load i8, ptr %is_writable, align 8
   %2 = and i8 %1, 1
   %frombool.i = xor i8 %2, 1
   %call.i = tail call noalias dereferenceable_or_null(33840) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 33840) #16
   %call1.i = tail call ptr @object_ref(ptr noundef %0) #15
   store ptr %0, ptr %call.i, align 8
-  %is_writable3.i = getelementptr inbounds %struct.QEMUFile, ptr %call.i, i64 0, i32 1
+  %is_writable3.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 %frombool.i, ptr %is_writable3.i, align 8
   ret ptr %call.i
 }
@@ -118,7 +116,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(33840) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 33840) #16
   %call1.i = tail call ptr @object_ref(ptr noundef %ioc) #15
   store ptr %ioc, ptr %call.i, align 8
-  %is_writable3.i = getelementptr inbounds %struct.QEMUFile, ptr %call.i, i64 0, i32 1
+  %is_writable3.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 1, ptr %is_writable3.i, align 8
   ret ptr %call.i
 }
@@ -129,7 +127,7 @@ entry:
   %call.i = tail call noalias dereferenceable_or_null(33840) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 33840) #16
   %call1.i = tail call ptr @object_ref(ptr noundef %ioc) #15
   store ptr %ioc, ptr %call.i, align 8
-  %is_writable3.i = getelementptr inbounds %struct.QEMUFile, ptr %call.i, i64 0, i32 1
+  %is_writable3.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i8 0, ptr %is_writable3.i, align 8
   ret ptr %call.i
 }
@@ -137,7 +135,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_file_get_error_obj(ptr nocapture noundef readonly %f, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %last_error = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -147,7 +145,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end8, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %last_error_obj = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 9
+  %last_error_obj = getelementptr inbounds i8, ptr %f, i64 33832
   %1 = load ptr, ptr %last_error_obj, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.else, label %if.then4
@@ -182,7 +180,7 @@ entry:
   br i1 %tobool.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  %last_error.i = getelementptr inbounds %struct.QEMUFile, ptr %f1, i64 0, i32 8
+  %last_error.i = getelementptr inbounds i8, ptr %f1, i64 33828
   %0 = load i32, ptr %last_error.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end3, label %if.end.i
@@ -192,7 +190,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %last_error_obj.i = getelementptr inbounds %struct.QEMUFile, ptr %f1, i64 0, i32 9
+  %last_error_obj.i = getelementptr inbounds i8, ptr %f1, i64 33832
   %1 = load ptr, ptr %last_error_obj.i, align 8
   %tobool3.not.i = icmp eq ptr %1, null
   br i1 %tobool3.not.i, label %if.else.i, label %if.then4.i
@@ -217,7 +215,7 @@ if.end3:                                          ; preds = %if.then, %qemu_file
   br i1 %tobool4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %last_error.i6 = getelementptr inbounds %struct.QEMUFile, ptr %f2, i64 0, i32 8
+  %last_error.i6 = getelementptr inbounds i8, ptr %f2, i64 33828
   %2 = load i32, ptr %last_error.i6, align 4
   %tobool.not.i7 = icmp eq i32 %2, 0
   br i1 %tobool.not.i7, label %return, label %if.end.i8
@@ -227,7 +225,7 @@ if.end.i8:                                        ; preds = %if.then5
   br i1 %tobool1.not.i9, label %if.end8.i15, label %if.then2.i10
 
 if.then2.i10:                                     ; preds = %if.end.i8
-  %last_error_obj.i11 = getelementptr inbounds %struct.QEMUFile, ptr %f2, i64 0, i32 9
+  %last_error_obj.i11 = getelementptr inbounds i8, ptr %f2, i64 33832
   %3 = load ptr, ptr %last_error_obj.i11, align 8
   %tobool3.not.i12 = icmp eq ptr %3, null
   br i1 %tobool3.not.i12, label %if.else.i17, label %if.then4.i13
@@ -254,7 +252,7 @@ return:                                           ; preds = %if.end.i, %if.end8.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_file_set_error_obj(ptr noundef %f, i32 noundef %ret, ptr noundef %err) local_unnamed_addr #0 {
 entry:
-  %last_error = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error, align 4
   %cmp = icmp eq i32 %0, 0
   %tobool = icmp ne i32 %ret, 0
@@ -263,7 +261,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 %ret, ptr %last_error, align 4
-  %last_error_obj = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 9
+  %last_error_obj = getelementptr inbounds i8, ptr %f, i64 33832
   tail call void @error_propagate(ptr noundef nonnull %last_error_obj, ptr noundef %err) #15
   br label %if.end4
 
@@ -286,7 +284,7 @@ declare void @error_report_err(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @qemu_file_get_error(ptr nocapture noundef readonly %f) local_unnamed_addr #2 {
 entry:
-  %last_error = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error, align 4
   ret i32 %0
 }
@@ -299,14 +297,14 @@ entry:
   %f.val = load i8, ptr %0, align 8
   %1 = and i8 %f.val, 1
   %tobool.i.not = icmp ne i8 %1, 0
-  %last_error = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
   %2 = load i32, ptr %last_error, align 4
   %tobool.not = icmp eq i32 %2, 0
   %or.cond = select i1 %tobool.i.not, i1 %tobool.not, i1 false
   br i1 %or.cond, label %if.end4, label %return
 
 if.end4:                                          ; preds = %entry
-  %iovcnt = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 7
+  %iovcnt = getelementptr inbounds i8, ptr %f, i64 33824
   %3 = load i32, ptr %iovcnt, align 8
   %cmp.not = icmp eq i32 %3, 0
   br i1 %cmp.not, label %if.end16, label %if.then5
@@ -314,7 +312,7 @@ if.end4:                                          ; preds = %entry
 if.then5:                                         ; preds = %if.end4
   store ptr null, ptr %local_error, align 8
   %4 = load ptr, ptr %f, align 8
-  %iov = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 6
+  %iov = getelementptr inbounds i8, ptr %f, i64 32800
   %conv = zext i32 %3 to i64
   %call7 = call i32 @qio_channel_writev_all(ptr noundef %4, ptr noundef nonnull %iov, i64 noundef %conv, ptr noundef nonnull %local_error) #15
   %cmp8 = icmp slt i32 %call7, 0
@@ -328,7 +326,7 @@ if.then10:                                        ; preds = %if.then5
 
 if.then.i:                                        ; preds = %if.then10
   store i32 -5, ptr %last_error, align 4
-  %last_error_obj.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 9
+  %last_error_obj.i = getelementptr inbounds i8, ptr %f, i64 33832
   call void @error_propagate(ptr noundef nonnull %last_error_obj.i, ptr noundef %5) #15
   br label %if.end15
 
@@ -347,7 +345,7 @@ if.else:                                          ; preds = %if.then5
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then3.i, %if.else.i, %if.then.i, %if.else
-  %may_free.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 5
+  %may_free.i = getelementptr inbounds i8, ptr %f, i64 32792
   %9 = load i32, ptr %iovcnt, align 8
   %conv.i = zext i32 %9 to i64
   %call.i = call i64 @find_next_bit(ptr noundef nonnull %may_free.i, i64 noundef %conv.i, i64 noundef 0) #15
@@ -357,7 +355,7 @@ if.end15:                                         ; preds = %if.then3.i, %if.els
   br i1 %cmp.not.i, label %if.end.i, label %if.end16
 
 if.end.i:                                         ; preds = %if.end15
-  %arrayidx.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 6, i64 %call.i
+  %arrayidx.i = getelementptr [64 x %struct.iovec], ptr %iov, i64 0, i64 %call.i
   %iov.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i, align 8
   %iov.sroa.7.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %iov.sroa.7.0.copyload.i = load i64, ptr %iov.sroa.7.0.arrayidx.sroa_idx.i, align 8
@@ -380,13 +378,13 @@ while.body.i:                                     ; preds = %if.then19.i, %while
   %call935.i = phi i64 [ %call93146.i, %while.body.lr.ph.i ], [ %call9.i, %if.then19.i ]
   %iov.sroa.7.034.i = phi i64 [ %iov.sroa.7.0.ph44.i, %while.body.lr.ph.i ], [ %add24.i, %if.then19.i ]
   %add.ptr.i = getelementptr i8, ptr %iov.sroa.0.0.ph45.i, i64 %iov.sroa.7.034.i
-  %arrayidx15.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 6, i64 %call935.i
+  %arrayidx15.i = getelementptr [64 x %struct.iovec], ptr %iov, i64 0, i64 %call935.i
   %14 = load ptr, ptr %arrayidx15.i, align 8
   %cmp17.i = icmp eq ptr %add.ptr.i, %14
   br i1 %cmp17.i, label %if.then19.i, label %if.end25.i
 
 if.then19.i:                                      ; preds = %while.body.i
-  %iov_len22.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 6, i64 %call935.i, i32 1
+  %iov_len22.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 8
   %15 = load i64, ptr %iov_len22.i, align 8
   %add24.i = add i64 %15, %iov.sroa.7.034.i
   %conv8.i = zext i32 %13 to i64
@@ -441,7 +439,7 @@ if.end49.i:                                       ; preds = %if.then44.i, %while
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end49.i, %if.end15, %if.end4
-  %buf_index = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
   store i32 0, ptr %buf_index, align 4
   store i32 0, ptr %iovcnt, align 8
   %21 = load i32, ptr %last_error, align 4
@@ -473,7 +471,7 @@ if.then3:                                         ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then3
-  %last_error_obj = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 9
+  %last_error_obj = getelementptr inbounds i8, ptr %f, i64 33832
   %2 = load ptr, ptr %last_error_obj, align 8
   tail call void @error_free(ptr noundef %2) #15
   tail call void @g_free(ptr noundef nonnull %f) #15
@@ -501,7 +499,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #15
   %call10.i.i = tail call i32 @qemu_get_thread_id() #15
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9) #15
   br label %trace_qemu_file_fclose.exit
@@ -528,7 +526,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_put_buffer_async(ptr noundef %f, ptr noundef %buf, i64 noundef %size, i1 noundef zeroext %may_free) local_unnamed_addr #0 {
 entry:
-  %last_error = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -544,24 +542,25 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @add_to_iovec(ptr noundef %f, ptr noundef %buf, i64 noundef %size, i1 noundef zeroext %may_free) unnamed_addr #0 {
 entry:
-  %iovcnt = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 7
+  %iovcnt = getelementptr inbounds i8, ptr %f, i64 33824
   %0 = load i32, ptr %iovcnt, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end30, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
+  %iov = getelementptr inbounds i8, ptr %f, i64 32800
   %sub = add i32 %0, -1
   %idxprom = zext i32 %sub to i64
-  %arrayidx = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 6, i64 %idxprom
+  %arrayidx = getelementptr [64 x %struct.iovec], ptr %iov, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
-  %iov_len = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 6, i64 %idxprom, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %add.ptr = getelementptr i8, ptr %1, i64 %2
   %cmp7 = icmp eq ptr %add.ptr, %buf
   br i1 %cmp7, label %land.lhs.true8, label %if.else
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
-  %may_free12 = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 5
+  %may_free12 = getelementptr inbounds i8, ptr %f, i64 32792
   %div2.i = lshr i64 %idxprom, 6
   %arrayidx.i = getelementptr i64, ptr %may_free12, i64 %div2.i
   %3 = load i64, ptr %arrayidx.i, align 8
@@ -573,8 +572,9 @@ land.lhs.true8:                                   ; preds = %land.lhs.true
   br i1 %cmp13, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true8
+  %iov_len20 = getelementptr [64 x %struct.iovec], ptr %iov, i64 0, i64 %idxprom, i32 1
   %add = add i64 %2, %size
-  store i64 %add, ptr %iov_len, align 8
+  store i64 %add, ptr %iov_len20, align 8
   br label %if.end48
 
 if.else:                                          ; preds = %land.lhs.true8, %land.lhs.true
@@ -582,7 +582,7 @@ if.else:                                          ; preds = %land.lhs.true8, %la
   br i1 %cmp22, label %if.then24, label %if.end30
 
 if.then24:                                        ; preds = %if.else
-  %last_error.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error.i = getelementptr inbounds i8, ptr %f, i64 33828
   %7 = load i32, ptr %last_error.i, align 4
   %tobool26.not = icmp eq i32 %7, 0
   br i1 %tobool26.not, label %lor.lhs.false, label %return
@@ -603,7 +603,7 @@ if.end30:                                         ; preds = %entry, %if.else
   br i1 %may_free, label %if.then32, label %if.end37
 
 if.then32:                                        ; preds = %if.end30
-  %may_free35 = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 5
+  %may_free35 = getelementptr inbounds i8, ptr %f, i64 32792
   %shl.i = shl nuw i64 1, %conv34
   %10 = load i64, ptr %may_free35, align 8
   %or.i = or i64 %10, %shl.i
@@ -611,13 +611,14 @@ if.then32:                                        ; preds = %if.end30
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end30, %if.then32
-  %arrayidx41 = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 6, i64 %conv34
+  %iov38 = getelementptr inbounds i8, ptr %f, i64 32800
+  %arrayidx41 = getelementptr [64 x %struct.iovec], ptr %iov38, i64 0, i64 %conv34
   store ptr %buf, ptr %arrayidx41, align 8
   %11 = load i32, ptr %iovcnt, align 8
   %inc = add i32 %11, 1
   store i32 %inc, ptr %iovcnt, align 8
   %idxprom45 = zext i32 %11 to i64
-  %iov_len47 = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 6, i64 %idxprom45, i32 1
+  %iov_len47 = getelementptr [64 x %struct.iovec], ptr %iov38, i64 0, i64 %idxprom45, i32 1
   store i64 %size, ptr %iov_len47, align 8
   br label %if.end48
 
@@ -637,7 +638,7 @@ return:                                           ; preds = %if.end48, %lor.lhs.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_put_buffer(ptr noundef %f, ptr nocapture noundef readonly %buf, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %last_error = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error, align 4
   %tobool = icmp eq i32 %0, 0
   %cmp = icmp ne i64 %size, 0
@@ -645,8 +646,8 @@ entry:
   br i1 %or.cond, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %entry
-  %buf_index = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
-  %buf5 = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 4
+  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
+  %buf5 = getelementptr inbounds i8, ptr %f, i64 20
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
@@ -678,29 +679,30 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @add_buf_to_iovec(ptr noundef %f, i64 noundef %len) unnamed_addr #0 {
 entry:
-  %buf = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 4
-  %buf_index = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %f, i64 20
+  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
   %0 = load i32, ptr %buf_index, align 4
   %idx.ext = sext i32 %0 to i64
   %add.ptr = getelementptr i8, ptr %buf, i64 %idx.ext
-  %iovcnt.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 7
+  %iovcnt.i = getelementptr inbounds i8, ptr %f, i64 33824
   %1 = load i32, ptr %iovcnt.i, align 8
   %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end30.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
+  %iov.i = getelementptr inbounds i8, ptr %f, i64 32800
   %sub.i = add i32 %1, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 6, i64 %idxprom.i
+  %arrayidx.i = getelementptr [64 x %struct.iovec], ptr %iov.i, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
-  %iov_len.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 6, i64 %idxprom.i, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %3 = load i64, ptr %iov_len.i, align 8
   %add.ptr.i = getelementptr i8, ptr %2, i64 %3
   %cmp7.i = icmp eq ptr %add.ptr.i, %add.ptr
   br i1 %cmp7.i, label %land.lhs.true8.i, label %if.else.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
-  %may_free12.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 5
+  %may_free12.i = getelementptr inbounds i8, ptr %f, i64 32792
   %div2.i.i = lshr i64 %idxprom.i, 6
   %arrayidx.i.i = getelementptr i64, ptr %may_free12.i, i64 %div2.i.i
   %4 = load i64, ptr %arrayidx.i.i, align 8
@@ -711,8 +713,9 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
   br i1 %7, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %land.lhs.true8.i
+  %iov_len20.i = getelementptr [64 x %struct.iovec], ptr %iov.i, i64 0, i64 %idxprom.i, i32 1
   %add.i = add i64 %3, %len
-  store i64 %add.i, ptr %iov_len.i, align 8
+  store i64 %add.i, ptr %iov_len20.i, align 8
   br label %if.end48.i
 
 if.else.i:                                        ; preds = %land.lhs.true8.i, %land.lhs.true.i
@@ -720,7 +723,7 @@ if.else.i:                                        ; preds = %land.lhs.true8.i, %
   br i1 %cmp22.i, label %if.then24.i, label %if.end30.i
 
 if.then24.i:                                      ; preds = %if.else.i
-  %last_error.i.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error.i.i = getelementptr inbounds i8, ptr %f, i64 33828
   %8 = load i32, ptr %last_error.i.i, align 4
   %tobool26.not.i = icmp eq i32 %8, 0
   br i1 %tobool26.not.i, label %lor.lhs.false.i, label %if.end7
@@ -738,13 +741,14 @@ if.else29.i:                                      ; preds = %lor.lhs.false.i
 
 if.end30.i:                                       ; preds = %if.else.i, %entry
   %conv34.i = zext nneg i32 %1 to i64
-  %arrayidx41.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 6, i64 %conv34.i
+  %iov38.i = getelementptr inbounds i8, ptr %f, i64 32800
+  %arrayidx41.i = getelementptr [64 x %struct.iovec], ptr %iov38.i, i64 0, i64 %conv34.i
   store ptr %add.ptr, ptr %arrayidx41.i, align 8
   %11 = load i32, ptr %iovcnt.i, align 8
   %inc.i = add i32 %11, 1
   store i32 %inc.i, ptr %iovcnt.i, align 8
   %idxprom45.i = zext i32 %11 to i64
-  %iov_len47.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 6, i64 %idxprom45.i, i32 1
+  %iov_len47.i = getelementptr [64 x %struct.iovec], ptr %iov38.i, i64 0, i64 %idxprom45.i, i32 1
   store i64 %len, ptr %iov_len47.i, align 8
   br label %if.end48.i
 
@@ -771,17 +775,18 @@ if.end7:                                          ; preds = %if.end7.sink.split,
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_put_byte(ptr noundef %f, i32 noundef %v) local_unnamed_addr #0 {
 entry:
-  %last_error = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error = getelementptr inbounds i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %conv = trunc i32 %v to i8
-  %buf_index = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %f, i64 20
+  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
   %1 = load i32, ptr %buf_index, align 4
   %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom
+  %arrayidx = getelementptr [32768 x i8], ptr %buf, i64 0, i64 %idxprom
   store i8 %conv, ptr %arrayidx, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
   br label %return
@@ -793,10 +798,10 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @qemu_file_skip(ptr nocapture noundef %f, i32 noundef %size) local_unnamed_addr #4 {
 entry:
-  %buf_index = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
   %0 = load i32, ptr %buf_index, align 4
   %add = add i32 %0, %size
-  %buf_size = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 3
+  %buf_size = getelementptr inbounds i8, ptr %f, i64 16
   %1 = load i32, ptr %buf_size, align 8
   %cmp.not = icmp sgt i32 %add, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -840,11 +845,11 @@ if.else6:                                         ; preds = %if.end3
   unreachable
 
 if.end7:                                          ; preds = %if.end3
-  %buf_index = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
   %2 = load i32, ptr %buf_index, align 4
   %conv = sext i32 %2 to i64
   %add = add nsw i64 %conv, %offset
-  %buf_size = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 3
+  %buf_size = getelementptr inbounds i8, ptr %f, i64 16
   %3 = load i32, ptr %buf_size, align 8
   %conv8 = sext i32 %3 to i64
   %sub9 = sub nsw i64 %conv8, %add
@@ -881,7 +886,7 @@ while.end:                                        ; preds = %while.body, %if.end
 
 if.end27:                                         ; preds = %while.end
   %spec.select = tail call i64 @llvm.umin.i64(i64 %pending.0.lcssa, i64 %size)
-  %buf32 = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 4
+  %buf32 = getelementptr inbounds i8, ptr %f, i64 20
   %add.ptr = getelementptr i8, ptr %buf32, i64 %index.0.lcssa
   store ptr %add.ptr, ptr %buf, align 8
   br label %return
@@ -910,16 +915,16 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %buf_size = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 3
+  %buf_size = getelementptr inbounds i8, ptr %f, i64 16
   %2 = load i32, ptr %buf_size, align 8
-  %buf_index = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
   %3 = load i32, ptr %buf_index, align 4
   %sub = sub i32 %2, %3
   %cmp = icmp sgt i32 %sub, 0
   br i1 %cmp, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.end
-  %buf = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 4
+  %buf = getelementptr inbounds i8, ptr %f, i64 20
   %idx.ext = sext i32 %3 to i64
   %add.ptr = getelementptr i8, ptr %buf, i64 %idx.ext
   %conv = zext nneg i32 %sub to i64
@@ -929,13 +934,13 @@ if.then1:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.then1, %if.end
   store i32 0, ptr %buf_index, align 4
   store i32 %sub, ptr %buf_size, align 8
-  %last_error.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error.i = getelementptr inbounds i8, ptr %f, i64 33828
   %4 = load i32, ptr %last_error.i, align 4
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %do.body.preheader, label %return
 
 do.body.preheader:                                ; preds = %if.end5
-  %buf11 = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 4
+  %buf11 = getelementptr inbounds i8, ptr %f, i64 20
   %idx.ext13 = sext i32 %sub to i64
   %add.ptr14 = getelementptr i8, ptr %buf11, i64 %idx.ext13
   %sub15 = sub i32 32768, %sub
@@ -991,7 +996,7 @@ if.then43:                                        ; preds = %if.else40
 
 if.then.i:                                        ; preds = %if.then43
   store i32 -5, ptr %last_error.i, align 4
-  %last_error_obj.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 9
+  %last_error_obj.i = getelementptr inbounds i8, ptr %f, i64 33832
   call void @error_propagate(ptr noundef nonnull %last_error_obj.i, ptr noundef %9) #15
   br label %if.end46
 
@@ -1008,7 +1013,7 @@ if.else44:                                        ; preds = %if.else40
 
 if.then.i34:                                      ; preds = %if.else44
   store i32 %spec.store.select, ptr %last_error.i, align 4
-  %last_error_obj.i35 = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 9
+  %last_error_obj.i35 = getelementptr inbounds i8, ptr %f, i64 33832
   call void @error_propagate(ptr noundef nonnull %last_error_obj.i35, ptr noundef %9) #15
   br label %if.end46
 
@@ -1037,9 +1042,9 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %0 = getelementptr i8, ptr %f, i64 8
-  %buf_index.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
-  %buf_size.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 3
-  %buf32.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 4
+  %buf_index.i = getelementptr inbounds i8, ptr %f, i64 12
+  %buf_size.i = getelementptr inbounds i8, ptr %f, i64 16
+  %buf32.i = getelementptr inbounds i8, ptr %f, i64 20
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %qemu_file_skip.exit
@@ -1137,10 +1142,10 @@ if.else.i:                                        ; preds = %if.then
   unreachable
 
 if.end7.i:                                        ; preds = %if.then
-  %buf_index.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf_index.i = getelementptr inbounds i8, ptr %f, i64 12
   %2 = load i32, ptr %buf_index.i, align 4
   %conv.i = sext i32 %2 to i64
-  %buf_size.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 3
+  %buf_size.i = getelementptr inbounds i8, ptr %f, i64 16
   %3 = load i32, ptr %buf_size.i, align 8
   %conv8.i = sext i32 %3 to i64
   %sub9.i = sub nsw i64 %conv8.i, %conv.i
@@ -1173,7 +1178,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   %index.0.lcssa.i = phi i64 [ %conv.i, %if.end7.i ], [ %conv.i, %while.body.i.preheader ], [ %conv19.i, %if.end17.i ], [ %conv19.i, %while.body.i ]
   %cmp24.i = icmp slt i64 %pending.0.lcssa.i, 1
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %pending.0.lcssa.i, i64 %size)
-  %buf32.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 4
+  %buf32.i = getelementptr inbounds i8, ptr %f, i64 20
   %add.ptr.i = getelementptr i8, ptr %buf32.i, i64 %index.0.lcssa.i
   %src.0 = select i1 %cmp24.i, ptr null, ptr %add.ptr.i
   %retval.0.i = select i1 %cmp24.i, i64 0, i64 %spec.select.i
@@ -1209,7 +1214,7 @@ return:                                           ; preds = %if.end3, %qemu_file
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_peek_byte(ptr noundef %f, i32 noundef %offset) #0 {
 entry:
-  %buf_index = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
   %0 = load i32, ptr %buf_index, align 4
   %add = add i32 %0, %offset
   %1 = getelementptr i8, ptr %f, i64 8
@@ -1231,7 +1236,7 @@ if.else2:                                         ; preds = %if.end
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %buf_size = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 3
+  %buf_size = getelementptr inbounds i8, ptr %f, i64 16
   %3 = load i32, ptr %buf_size, align 8
   %cmp4.not = icmp slt i32 %add, %3
   br i1 %cmp4.not, label %if.end13, label %if.then5
@@ -1246,8 +1251,9 @@ if.then5:                                         ; preds = %if.end3
 
 if.end13:                                         ; preds = %if.then5, %if.end3
   %index.0 = phi i32 [ %add8, %if.then5 ], [ %add, %if.end3 ]
+  %buf = getelementptr inbounds i8, ptr %f, i64 20
   %idxprom = sext i32 %index.0 to i64
-  %arrayidx = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom
+  %arrayidx = getelementptr [32768 x i8], ptr %buf, i64 0, i64 %idxprom
   %6 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %6 to i32
   br label %return
@@ -1260,7 +1266,7 @@ return:                                           ; preds = %if.then5, %if.end13
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_get_byte(ptr noundef %f) #0 {
 entry:
-  %buf_index.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf_index.i = getelementptr inbounds i8, ptr %f, i64 12
   %0 = getelementptr i8, ptr %f, i64 8
   %f.val.i = load i8, ptr %0, align 8
   %1 = and i8 %f.val.i, 1
@@ -1273,7 +1279,7 @@ if.else.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   %2 = load i32, ptr %buf_index.i, align 4
-  %buf_size.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 3
+  %buf_size.i = getelementptr inbounds i8, ptr %f, i64 16
   %3 = load i32, ptr %buf_size.i, align 8
   %cmp4.not.i = icmp slt i32 %2, %3
   br i1 %cmp4.not.i, label %if.end13.i, label %if.then5.i
@@ -1288,8 +1294,9 @@ if.then5.i:                                       ; preds = %if.end.i
 if.end13.i:                                       ; preds = %if.then5.i, %if.end.i
   %6 = phi i32 [ %5, %if.then5.i ], [ %3, %if.end.i ]
   %index.0.i = phi i32 [ %4, %if.then5.i ], [ %2, %if.end.i ]
+  %buf.i = getelementptr inbounds i8, ptr %f, i64 20
   %idxprom.i = sext i32 %index.0.i to i64
-  %arrayidx.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i
+  %arrayidx.i = getelementptr [32768 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %7 to i32
   br label %qemu_peek_byte.exit
@@ -1321,20 +1328,24 @@ entry:
   br i1 %tobool.i.not, label %if.else, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %iovcnt = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 7
+  %iovcnt = getelementptr inbounds i8, ptr %f, i64 33824
   %3 = load i32, ptr %iovcnt, align 8
   %cmp6.not = icmp eq i32 %3, 0
-  br i1 %cmp6.not, label %for.end, label %for.body
+  br i1 %cmp6.not, label %for.end, label %for.body.lr.ph
+
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %iov = getelementptr inbounds i8, ptr %f, i64 32800
+  br label %for.body
 
 if.else:                                          ; preds = %entry
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 617, ptr noundef nonnull @__func__.qemu_file_transferred, ptr noundef nonnull @.str.5) #18
   unreachable
 
-for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %i.08 = phi i32 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %ret.07 = phi i64 [ %add, %for.body ], [ %0, %for.cond.preheader ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %i.08 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %ret.07 = phi i64 [ %0, %for.body.lr.ph ], [ %add, %for.body ]
   %idxprom = sext i32 %i.08 to i64
-  %iov_len = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 6, i64 %idxprom, i32 1
+  %iov_len = getelementptr [64 x %struct.iovec], ptr %iov, i64 0, i64 %idxprom, i32 1
   %4 = load i64, ptr %iov_len, align 8
   %add = add i64 %4, %ret.07
   %inc = add nuw i32 %i.08, 1
@@ -1352,92 +1363,94 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_put_be16(ptr noundef %f, i32 noundef %v) local_unnamed_addr #0 {
 entry:
-  %last_error.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error.i = getelementptr inbounds i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
-  br i1 %tobool.not.i, label %qemu_put_byte.exit, label %qemu_put_byte.exit10
+  br i1 %tobool.not.i, label %qemu_put_byte.exit, label %qemu_put_byte.exit11
 
 qemu_put_byte.exit:                               ; preds = %entry
   %shr = lshr i32 %v, 8
   %conv.i = trunc i32 %shr to i8
-  %buf_index.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %f, i64 20
+  %buf_index.i = getelementptr inbounds i8, ptr %f, i64 12
   %1 = load i32, ptr %buf_index.i, align 4
   %idxprom.i = sext i32 %1 to i64
-  %arrayidx.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i
+  %arrayidx.i = getelementptr [32768 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
   %.pr = load i32, ptr %last_error.i, align 4
   %tobool.not.i4 = icmp eq i32 %.pr, 0
-  br i1 %tobool.not.i4, label %if.end.i5, label %qemu_put_byte.exit10
+  br i1 %tobool.not.i4, label %if.end.i5, label %qemu_put_byte.exit11
 
 if.end.i5:                                        ; preds = %qemu_put_byte.exit
   %conv.i6 = trunc i32 %v to i8
   %2 = load i32, ptr %buf_index.i, align 4
-  %idxprom.i8 = sext i32 %2 to i64
-  %arrayidx.i9 = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i8
-  store i8 %conv.i6, ptr %arrayidx.i9, align 1
+  %idxprom.i9 = sext i32 %2 to i64
+  %arrayidx.i10 = getelementptr [32768 x i8], ptr %buf.i, i64 0, i64 %idxprom.i9
+  store i8 %conv.i6, ptr %arrayidx.i10, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
-  br label %qemu_put_byte.exit10
+  br label %qemu_put_byte.exit11
 
-qemu_put_byte.exit10:                             ; preds = %entry, %qemu_put_byte.exit, %if.end.i5
+qemu_put_byte.exit11:                             ; preds = %entry, %qemu_put_byte.exit, %if.end.i5
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_put_be32(ptr noundef %f, i32 noundef %v) local_unnamed_addr #0 {
 entry:
-  %last_error.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error.i = getelementptr inbounds i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
-  br i1 %tobool.not.i, label %qemu_put_byte.exit, label %qemu_put_byte.exit30
+  br i1 %tobool.not.i, label %qemu_put_byte.exit, label %qemu_put_byte.exit33
 
 qemu_put_byte.exit:                               ; preds = %entry
   %shr = lshr i32 %v, 24
   %conv.i = trunc i32 %shr to i8
-  %buf_index.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %f, i64 20
+  %buf_index.i = getelementptr inbounds i8, ptr %f, i64 12
   %1 = load i32, ptr %buf_index.i, align 4
   %idxprom.i = sext i32 %1 to i64
-  %arrayidx.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i
+  %arrayidx.i = getelementptr [32768 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
   %.pr = load i32, ptr %last_error.i, align 4
   %tobool.not.i8 = icmp eq i32 %.pr, 0
-  br i1 %tobool.not.i8, label %qemu_put_byte.exit14, label %qemu_put_byte.exit30
+  br i1 %tobool.not.i8, label %qemu_put_byte.exit15, label %qemu_put_byte.exit33
 
-qemu_put_byte.exit14:                             ; preds = %qemu_put_byte.exit
+qemu_put_byte.exit15:                             ; preds = %qemu_put_byte.exit
   %shr1 = lshr i32 %v, 16
   %conv.i10 = trunc i32 %shr1 to i8
   %2 = load i32, ptr %buf_index.i, align 4
-  %idxprom.i12 = sext i32 %2 to i64
-  %arrayidx.i13 = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i12
-  store i8 %conv.i10, ptr %arrayidx.i13, align 1
+  %idxprom.i13 = sext i32 %2 to i64
+  %arrayidx.i14 = getelementptr [32768 x i8], ptr %buf.i, i64 0, i64 %idxprom.i13
+  store i8 %conv.i10, ptr %arrayidx.i14, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
-  %.pr33 = load i32, ptr %last_error.i, align 4
-  %tobool.not.i16 = icmp eq i32 %.pr33, 0
-  br i1 %tobool.not.i16, label %qemu_put_byte.exit22, label %qemu_put_byte.exit30
+  %.pr36 = load i32, ptr %last_error.i, align 4
+  %tobool.not.i17 = icmp eq i32 %.pr36, 0
+  br i1 %tobool.not.i17, label %qemu_put_byte.exit24, label %qemu_put_byte.exit33
 
-qemu_put_byte.exit22:                             ; preds = %qemu_put_byte.exit14
+qemu_put_byte.exit24:                             ; preds = %qemu_put_byte.exit15
   %shr2 = lshr i32 %v, 8
-  %conv.i18 = trunc i32 %shr2 to i8
+  %conv.i19 = trunc i32 %shr2 to i8
   %3 = load i32, ptr %buf_index.i, align 4
-  %idxprom.i20 = sext i32 %3 to i64
-  %arrayidx.i21 = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i20
-  store i8 %conv.i18, ptr %arrayidx.i21, align 1
+  %idxprom.i22 = sext i32 %3 to i64
+  %arrayidx.i23 = getelementptr [32768 x i8], ptr %buf.i, i64 0, i64 %idxprom.i22
+  store i8 %conv.i19, ptr %arrayidx.i23, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
-  %.pr36.pr = load i32, ptr %last_error.i, align 4
-  %tobool.not.i24 = icmp eq i32 %.pr36.pr, 0
-  br i1 %tobool.not.i24, label %if.end.i25, label %qemu_put_byte.exit30
+  %.pr39.pr = load i32, ptr %last_error.i, align 4
+  %tobool.not.i26 = icmp eq i32 %.pr39.pr, 0
+  br i1 %tobool.not.i26, label %if.end.i27, label %qemu_put_byte.exit33
 
-if.end.i25:                                       ; preds = %qemu_put_byte.exit22
-  %conv.i26 = trunc i32 %v to i8
+if.end.i27:                                       ; preds = %qemu_put_byte.exit24
+  %conv.i28 = trunc i32 %v to i8
   %4 = load i32, ptr %buf_index.i, align 4
-  %idxprom.i28 = sext i32 %4 to i64
-  %arrayidx.i29 = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i28
-  store i8 %conv.i26, ptr %arrayidx.i29, align 1
+  %idxprom.i31 = sext i32 %4 to i64
+  %arrayidx.i32 = getelementptr [32768 x i8], ptr %buf.i, i64 0, i64 %idxprom.i31
+  store i8 %conv.i28, ptr %arrayidx.i32, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
-  br label %qemu_put_byte.exit30
+  br label %qemu_put_byte.exit33
 
-qemu_put_byte.exit30:                             ; preds = %qemu_put_byte.exit, %entry, %qemu_put_byte.exit14, %qemu_put_byte.exit22, %if.end.i25
+qemu_put_byte.exit33:                             ; preds = %qemu_put_byte.exit, %entry, %qemu_put_byte.exit15, %qemu_put_byte.exit24, %if.end.i27
   ret void
 }
 
@@ -1445,112 +1458,113 @@ qemu_put_byte.exit30:                             ; preds = %qemu_put_byte.exit,
 define dso_local void @qemu_put_be64(ptr noundef %f, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %shr = lshr i64 %v, 32
-  %last_error.i.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error.i.i = getelementptr inbounds i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %0, 0
-  br i1 %tobool.not.i.i, label %qemu_put_byte.exit.i, label %qemu_put_be32.exit31
+  br i1 %tobool.not.i.i, label %qemu_put_byte.exit.i, label %qemu_put_be32.exit32
 
 qemu_put_byte.exit.i:                             ; preds = %entry
-  %shr.i34 = lshr i64 %v, 56
-  %conv.i.i = trunc i64 %shr.i34 to i8
-  %buf_index.i.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %shr.i35 = lshr i64 %v, 56
+  %conv.i.i = trunc i64 %shr.i35 to i8
+  %buf.i.i = getelementptr inbounds i8, ptr %f, i64 20
+  %buf_index.i.i = getelementptr inbounds i8, ptr %f, i64 12
   %1 = load i32, ptr %buf_index.i.i, align 4
   %idxprom.i.i = sext i32 %1 to i64
-  %arrayidx.i.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i.i
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
   %.pr.i = load i32, ptr %last_error.i.i, align 4
   %tobool.not.i8.i = icmp eq i32 %.pr.i, 0
-  br i1 %tobool.not.i8.i, label %qemu_put_byte.exit14.i, label %qemu_put_be32.exit31
+  br i1 %tobool.not.i8.i, label %qemu_put_byte.exit15.i, label %qemu_put_be32.exit32
 
-qemu_put_byte.exit14.i:                           ; preds = %qemu_put_byte.exit.i
-  %shr1.i35 = lshr i64 %v, 48
-  %conv.i10.i = trunc i64 %shr1.i35 to i8
+qemu_put_byte.exit15.i:                           ; preds = %qemu_put_byte.exit.i
+  %shr1.i36 = lshr i64 %v, 48
+  %conv.i10.i = trunc i64 %shr1.i36 to i8
   %2 = load i32, ptr %buf_index.i.i, align 4
-  %idxprom.i12.i = sext i32 %2 to i64
-  %arrayidx.i13.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i12.i
-  store i8 %conv.i10.i, ptr %arrayidx.i13.i, align 1
+  %idxprom.i13.i = sext i32 %2 to i64
+  %arrayidx.i14.i = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i13.i
+  store i8 %conv.i10.i, ptr %arrayidx.i14.i, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
-  %.pr33.i = load i32, ptr %last_error.i.i, align 4
-  %tobool.not.i16.i = icmp eq i32 %.pr33.i, 0
-  br i1 %tobool.not.i16.i, label %qemu_put_byte.exit22.i, label %qemu_put_be32.exit31
+  %.pr36.i = load i32, ptr %last_error.i.i, align 4
+  %tobool.not.i17.i = icmp eq i32 %.pr36.i, 0
+  br i1 %tobool.not.i17.i, label %qemu_put_byte.exit24.i, label %qemu_put_be32.exit32
 
-qemu_put_byte.exit22.i:                           ; preds = %qemu_put_byte.exit14.i
-  %shr2.i36 = lshr i64 %v, 40
-  %conv.i18.i = trunc i64 %shr2.i36 to i8
+qemu_put_byte.exit24.i:                           ; preds = %qemu_put_byte.exit15.i
+  %shr2.i37 = lshr i64 %v, 40
+  %conv.i19.i = trunc i64 %shr2.i37 to i8
   %3 = load i32, ptr %buf_index.i.i, align 4
-  %idxprom.i20.i = sext i32 %3 to i64
-  %arrayidx.i21.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i20.i
-  store i8 %conv.i18.i, ptr %arrayidx.i21.i, align 1
+  %idxprom.i22.i = sext i32 %3 to i64
+  %arrayidx.i23.i = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i22.i
+  store i8 %conv.i19.i, ptr %arrayidx.i23.i, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
-  %.pr36.pr.i = load i32, ptr %last_error.i.i, align 4
-  %tobool.not.i24.i = icmp eq i32 %.pr36.pr.i, 0
-  br i1 %tobool.not.i24.i, label %qemu_put_be32.exit, label %qemu_put_be32.exit31
+  %.pr39.pr.i = load i32, ptr %last_error.i.i, align 4
+  %tobool.not.i26.i = icmp eq i32 %.pr39.pr.i, 0
+  br i1 %tobool.not.i26.i, label %qemu_put_be32.exit, label %qemu_put_be32.exit32
 
-qemu_put_be32.exit:                               ; preds = %qemu_put_byte.exit22.i
-  %conv.i26.i = trunc i64 %shr to i8
+qemu_put_be32.exit:                               ; preds = %qemu_put_byte.exit24.i
+  %conv.i28.i = trunc i64 %shr to i8
   %4 = load i32, ptr %buf_index.i.i, align 4
-  %idxprom.i28.i = sext i32 %4 to i64
-  %arrayidx.i29.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i28.i
-  store i8 %conv.i26.i, ptr %arrayidx.i29.i, align 1
+  %idxprom.i31.i = sext i32 %4 to i64
+  %arrayidx.i32.i = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i31.i
+  store i8 %conv.i28.i, ptr %arrayidx.i32.i, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
   %.pr = load i32, ptr %last_error.i.i, align 4
   %tobool.not.i.i4 = icmp eq i32 %.pr, 0
-  br i1 %tobool.not.i.i4, label %qemu_put_byte.exit.i5, label %qemu_put_be32.exit31
+  br i1 %tobool.not.i.i4, label %qemu_put_byte.exit.i5, label %qemu_put_be32.exit32
 
 qemu_put_byte.exit.i5:                            ; preds = %qemu_put_be32.exit
-  %shr.i637 = lshr i64 %v, 24
-  %conv.i.i7 = trunc i64 %shr.i637 to i8
+  %shr.i638 = lshr i64 %v, 24
+  %conv.i.i7 = trunc i64 %shr.i638 to i8
   %5 = load i32, ptr %buf_index.i.i, align 4
-  %idxprom.i.i9 = sext i32 %5 to i64
-  %arrayidx.i.i10 = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i.i9
-  store i8 %conv.i.i7, ptr %arrayidx.i.i10, align 1
+  %idxprom.i.i10 = sext i32 %5 to i64
+  %arrayidx.i.i11 = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i.i10
+  store i8 %conv.i.i7, ptr %arrayidx.i.i11, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
-  %.pr.i11 = load i32, ptr %last_error.i.i, align 4
-  %tobool.not.i8.i12 = icmp eq i32 %.pr.i11, 0
-  br i1 %tobool.not.i8.i12, label %qemu_put_byte.exit14.i13, label %qemu_put_be32.exit31
+  %.pr.i12 = load i32, ptr %last_error.i.i, align 4
+  %tobool.not.i8.i13 = icmp eq i32 %.pr.i12, 0
+  br i1 %tobool.not.i8.i13, label %qemu_put_byte.exit15.i14, label %qemu_put_be32.exit32
 
-qemu_put_byte.exit14.i13:                         ; preds = %qemu_put_byte.exit.i5
-  %shr1.i1438 = lshr i64 %v, 16
-  %conv.i10.i15 = trunc i64 %shr1.i1438 to i8
+qemu_put_byte.exit15.i14:                         ; preds = %qemu_put_byte.exit.i5
+  %shr1.i1539 = lshr i64 %v, 16
+  %conv.i10.i16 = trunc i64 %shr1.i1539 to i8
   %6 = load i32, ptr %buf_index.i.i, align 4
-  %idxprom.i12.i16 = sext i32 %6 to i64
-  %arrayidx.i13.i17 = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i12.i16
-  store i8 %conv.i10.i15, ptr %arrayidx.i13.i17, align 1
+  %idxprom.i13.i17 = sext i32 %6 to i64
+  %arrayidx.i14.i18 = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i13.i17
+  store i8 %conv.i10.i16, ptr %arrayidx.i14.i18, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
-  %.pr33.i18 = load i32, ptr %last_error.i.i, align 4
-  %tobool.not.i16.i19 = icmp eq i32 %.pr33.i18, 0
-  br i1 %tobool.not.i16.i19, label %qemu_put_byte.exit22.i20, label %qemu_put_be32.exit31
+  %.pr36.i19 = load i32, ptr %last_error.i.i, align 4
+  %tobool.not.i17.i20 = icmp eq i32 %.pr36.i19, 0
+  br i1 %tobool.not.i17.i20, label %qemu_put_byte.exit24.i21, label %qemu_put_be32.exit32
 
-qemu_put_byte.exit22.i20:                         ; preds = %qemu_put_byte.exit14.i13
-  %shr2.i2139 = lshr i64 %v, 8
-  %conv.i18.i22 = trunc i64 %shr2.i2139 to i8
+qemu_put_byte.exit24.i21:                         ; preds = %qemu_put_byte.exit15.i14
+  %shr2.i2240 = lshr i64 %v, 8
+  %conv.i19.i23 = trunc i64 %shr2.i2240 to i8
   %7 = load i32, ptr %buf_index.i.i, align 4
-  %idxprom.i20.i23 = sext i32 %7 to i64
-  %arrayidx.i21.i24 = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i20.i23
-  store i8 %conv.i18.i22, ptr %arrayidx.i21.i24, align 1
+  %idxprom.i22.i24 = sext i32 %7 to i64
+  %arrayidx.i23.i25 = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i22.i24
+  store i8 %conv.i19.i23, ptr %arrayidx.i23.i25, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
-  %.pr36.pr.i25 = load i32, ptr %last_error.i.i, align 4
-  %tobool.not.i24.i26 = icmp eq i32 %.pr36.pr.i25, 0
-  br i1 %tobool.not.i24.i26, label %if.end.i25.i27, label %qemu_put_be32.exit31
+  %.pr39.pr.i26 = load i32, ptr %last_error.i.i, align 4
+  %tobool.not.i26.i27 = icmp eq i32 %.pr39.pr.i26, 0
+  br i1 %tobool.not.i26.i27, label %if.end.i27.i28, label %qemu_put_be32.exit32
 
-if.end.i25.i27:                                   ; preds = %qemu_put_byte.exit22.i20
-  %conv.i26.i28 = trunc i64 %v to i8
+if.end.i27.i28:                                   ; preds = %qemu_put_byte.exit24.i21
+  %conv.i28.i29 = trunc i64 %v to i8
   %8 = load i32, ptr %buf_index.i.i, align 4
-  %idxprom.i28.i29 = sext i32 %8 to i64
-  %arrayidx.i29.i30 = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i28.i29
-  store i8 %conv.i26.i28, ptr %arrayidx.i29.i30, align 1
+  %idxprom.i31.i30 = sext i32 %8 to i64
+  %arrayidx.i32.i31 = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i31.i30
+  store i8 %conv.i28.i29, ptr %arrayidx.i32.i31, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
-  br label %qemu_put_be32.exit31
+  br label %qemu_put_be32.exit32
 
-qemu_put_be32.exit31:                             ; preds = %qemu_put_byte.exit22.i, %qemu_put_byte.exit14.i, %qemu_put_byte.exit.i, %entry, %qemu_put_be32.exit, %qemu_put_byte.exit.i5, %qemu_put_byte.exit14.i13, %qemu_put_byte.exit22.i20, %if.end.i25.i27
+qemu_put_be32.exit32:                             ; preds = %qemu_put_byte.exit24.i, %qemu_put_byte.exit15.i, %qemu_put_byte.exit.i, %entry, %qemu_put_be32.exit, %qemu_put_byte.exit.i5, %qemu_put_byte.exit15.i14, %qemu_put_byte.exit24.i21, %if.end.i27.i28
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_get_be16(ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %buf_index.i.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf_index.i.i = getelementptr inbounds i8, ptr %f, i64 12
   %0 = getelementptr i8, ptr %f, i64 8
   %f.val.i.i = load i8, ptr %0, align 8
   %1 = and i8 %f.val.i.i, 1
@@ -1563,7 +1577,7 @@ if.else.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %2 = load i32, ptr %buf_index.i.i, align 4
-  %buf_size.i.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 3
+  %buf_size.i.i = getelementptr inbounds i8, ptr %f, i64 16
   %3 = load i32, ptr %buf_size.i.i, align 8
   %cmp4.not.i.i = icmp slt i32 %2, %3
   br i1 %cmp4.not.i.i, label %if.end13.i.i, label %if.then5.i.i
@@ -1578,8 +1592,9 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 if.end13.i.i:                                     ; preds = %if.then5.i.i, %if.end.i.i
   %6 = phi i32 [ %5, %if.then5.i.i ], [ %3, %if.end.i.i ]
   %index.0.i.i = phi i32 [ %4, %if.then5.i.i ], [ %2, %if.end.i.i ]
+  %buf.i.i = getelementptr inbounds i8, ptr %f, i64 20
   %idxprom.i.i = sext i32 %index.0.i.i to i64
-  %arrayidx.i.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i.i
   %7 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %7 to i32
   %8 = shl nuw nsw i32 %conv.i.i, 8
@@ -1622,25 +1637,26 @@ if.then5.i.i10:                                   ; preds = %if.end.i.i7
 if.end13.i.i18:                                   ; preds = %if.then5.i.i10, %if.end.i.i7
   %15 = phi i32 [ %14, %if.then5.i.i10 ], [ %9, %if.end.i.i7 ]
   %index.0.i.i19 = phi i32 [ %13, %if.then5.i.i10 ], [ %11, %if.end.i.i7 ]
-  %idxprom.i.i20 = sext i32 %index.0.i.i19 to i64
-  %arrayidx.i.i21 = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i.i20
-  %16 = load i8, ptr %arrayidx.i.i21, align 1
-  %conv.i.i22 = zext i8 %16 to i32
+  %buf.i.i20 = getelementptr inbounds i8, ptr %f, i64 20
+  %idxprom.i.i21 = sext i32 %index.0.i.i19 to i64
+  %arrayidx.i.i22 = getelementptr [32768 x i8], ptr %buf.i.i20, i64 0, i64 %idxprom.i.i21
+  %16 = load i8, ptr %arrayidx.i.i22, align 1
+  %conv.i.i23 = zext i8 %16 to i32
   br label %qemu_peek_byte.exit.i13
 
 qemu_peek_byte.exit.i13:                          ; preds = %if.end13.i.i18, %if.then5.i.i10
   %17 = phi i32 [ %15, %if.end13.i.i18 ], [ %14, %if.then5.i.i10 ]
   %18 = phi i32 [ %index.0.i.i19, %if.end13.i.i18 ], [ %13, %if.then5.i.i10 ]
-  %retval.0.i.i14 = phi i32 [ %conv.i.i22, %if.end13.i.i18 ], [ 0, %if.then5.i.i10 ]
+  %retval.0.i.i14 = phi i32 [ %conv.i.i23, %if.end13.i.i18 ], [ 0, %if.then5.i.i10 ]
   %add.i.i15 = add i32 %18, 1
   %cmp.not.i.i16 = icmp sgt i32 %add.i.i15, %17
-  br i1 %cmp.not.i.i16, label %qemu_get_byte.exit23, label %if.then.i.i17
+  br i1 %cmp.not.i.i16, label %qemu_get_byte.exit24, label %if.then.i.i17
 
 if.then.i.i17:                                    ; preds = %qemu_peek_byte.exit.i13
   store i32 %add.i.i15, ptr %buf_index.i.i, align 4
-  br label %qemu_get_byte.exit23
+  br label %qemu_get_byte.exit24
 
-qemu_get_byte.exit23:                             ; preds = %qemu_peek_byte.exit.i13, %if.then.i.i17
+qemu_get_byte.exit24:                             ; preds = %qemu_peek_byte.exit.i13, %if.then.i.i17
   %or = or disjoint i32 %retval.0.i.i14, %retval.0.i.i
   ret i32 %or
 }
@@ -1648,7 +1664,7 @@ qemu_get_byte.exit23:                             ; preds = %qemu_peek_byte.exit
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_get_be32(ptr noundef %f) local_unnamed_addr #0 {
 entry:
-  %buf_index.i.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf_index.i.i = getelementptr inbounds i8, ptr %f, i64 12
   %0 = getelementptr i8, ptr %f, i64 8
   %f.val.i.i = load i8, ptr %0, align 8
   %1 = and i8 %f.val.i.i, 1
@@ -1661,7 +1677,7 @@ if.else.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %2 = load i32, ptr %buf_index.i.i, align 4
-  %buf_size.i.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 3
+  %buf_size.i.i = getelementptr inbounds i8, ptr %f, i64 16
   %3 = load i32, ptr %buf_size.i.i, align 8
   %cmp4.not.i.i = icmp slt i32 %2, %3
   br i1 %cmp4.not.i.i, label %if.end13.i.i, label %if.then5.i.i
@@ -1676,8 +1692,9 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 if.end13.i.i:                                     ; preds = %if.then5.i.i, %if.end.i.i
   %6 = phi i32 [ %5, %if.then5.i.i ], [ %3, %if.end.i.i ]
   %index.0.i.i = phi i32 [ %4, %if.then5.i.i ], [ %2, %if.end.i.i ]
+  %buf.i.i = getelementptr inbounds i8, ptr %f, i64 20
   %idxprom.i.i = sext i32 %index.0.i.i to i64
-  %arrayidx.i.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i.i
   %7 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %7 to i32
   %8 = shl nuw i32 %conv.i.i, 24
@@ -1720,11 +1737,12 @@ if.then5.i.i14:                                   ; preds = %if.end.i.i11
 if.end13.i.i22:                                   ; preds = %if.then5.i.i14, %if.end.i.i11
   %15 = phi i32 [ %14, %if.then5.i.i14 ], [ %9, %if.end.i.i11 ]
   %index.0.i.i23 = phi i32 [ %13, %if.then5.i.i14 ], [ %11, %if.end.i.i11 ]
-  %idxprom.i.i24 = sext i32 %index.0.i.i23 to i64
-  %arrayidx.i.i25 = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i.i24
-  %16 = load i8, ptr %arrayidx.i.i25, align 1
-  %conv.i.i26 = zext i8 %16 to i32
-  %17 = shl nuw nsw i32 %conv.i.i26, 16
+  %buf.i.i24 = getelementptr inbounds i8, ptr %f, i64 20
+  %idxprom.i.i25 = sext i32 %index.0.i.i23 to i64
+  %arrayidx.i.i26 = getelementptr [32768 x i8], ptr %buf.i.i24, i64 0, i64 %idxprom.i.i25
+  %16 = load i8, ptr %arrayidx.i.i26, align 1
+  %conv.i.i27 = zext i8 %16 to i32
+  %17 = shl nuw nsw i32 %conv.i.i27, 16
   br label %qemu_peek_byte.exit.i17
 
 qemu_peek_byte.exit.i17:                          ; preds = %if.end13.i.i22, %if.then5.i.i14
@@ -1733,103 +1751,105 @@ qemu_peek_byte.exit.i17:                          ; preds = %if.end13.i.i22, %if
   %retval.0.i.i18 = phi i32 [ %17, %if.end13.i.i22 ], [ 0, %if.then5.i.i14 ]
   %add.i.i19 = add i32 %19, 1
   %cmp.not.i.i20 = icmp sgt i32 %add.i.i19, %18
-  br i1 %cmp.not.i.i20, label %qemu_get_byte.exit27, label %if.then.i.i21
+  br i1 %cmp.not.i.i20, label %qemu_get_byte.exit28, label %if.then.i.i21
 
 if.then.i.i21:                                    ; preds = %qemu_peek_byte.exit.i17
   store i32 %add.i.i19, ptr %buf_index.i.i, align 4
-  br label %qemu_get_byte.exit27
+  br label %qemu_get_byte.exit28
 
-qemu_get_byte.exit27:                             ; preds = %qemu_peek_byte.exit.i17, %if.then.i.i21
+qemu_get_byte.exit28:                             ; preds = %qemu_peek_byte.exit.i17, %if.then.i.i21
   %20 = phi i32 [ %19, %qemu_peek_byte.exit.i17 ], [ %add.i.i19, %if.then.i.i21 ]
-  %f.val.i.i29 = load i8, ptr %0, align 8
-  %21 = and i8 %f.val.i.i29, 1
-  %tobool.i.not.i.i30 = icmp eq i8 %21, 0
-  br i1 %tobool.i.not.i.i30, label %if.end.i.i32, label %if.else.i.i31
+  %f.val.i.i30 = load i8, ptr %0, align 8
+  %21 = and i8 %f.val.i.i30, 1
+  %tobool.i.not.i.i31 = icmp eq i8 %21, 0
+  br i1 %tobool.i.not.i.i31, label %if.end.i.i33, label %if.else.i.i32
 
-if.else.i.i31:                                    ; preds = %qemu_get_byte.exit27
+if.else.i.i32:                                    ; preds = %qemu_get_byte.exit28
   tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 590, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_peek_byte) #18
   unreachable
 
-if.end.i.i32:                                     ; preds = %qemu_get_byte.exit27
-  %cmp4.not.i.i34 = icmp slt i32 %20, %18
-  br i1 %cmp4.not.i.i34, label %if.end13.i.i43, label %if.then5.i.i35
+if.end.i.i33:                                     ; preds = %qemu_get_byte.exit28
+  %cmp4.not.i.i35 = icmp slt i32 %20, %18
+  br i1 %cmp4.not.i.i35, label %if.end13.i.i44, label %if.then5.i.i36
 
-if.then5.i.i35:                                   ; preds = %if.end.i.i32
-  %call6.i.i36 = tail call i64 @qemu_fill_buffer(ptr noundef nonnull %f), !range !7
+if.then5.i.i36:                                   ; preds = %if.end.i.i33
+  %call6.i.i37 = tail call i64 @qemu_fill_buffer(ptr noundef nonnull %f), !range !7
   %22 = load i32, ptr %buf_index.i.i, align 4
   %23 = load i32, ptr %buf_size.i.i, align 8
-  %cmp10.not.i.i37 = icmp slt i32 %22, %23
-  br i1 %cmp10.not.i.i37, label %if.end13.i.i43, label %qemu_peek_byte.exit.i38
+  %cmp10.not.i.i38 = icmp slt i32 %22, %23
+  br i1 %cmp10.not.i.i38, label %if.end13.i.i44, label %qemu_peek_byte.exit.i39
 
-if.end13.i.i43:                                   ; preds = %if.then5.i.i35, %if.end.i.i32
-  %24 = phi i32 [ %23, %if.then5.i.i35 ], [ %18, %if.end.i.i32 ]
-  %index.0.i.i44 = phi i32 [ %22, %if.then5.i.i35 ], [ %20, %if.end.i.i32 ]
-  %idxprom.i.i45 = sext i32 %index.0.i.i44 to i64
-  %arrayidx.i.i46 = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i.i45
-  %25 = load i8, ptr %arrayidx.i.i46, align 1
-  %conv.i.i47 = zext i8 %25 to i32
-  %26 = shl nuw nsw i32 %conv.i.i47, 8
-  br label %qemu_peek_byte.exit.i38
+if.end13.i.i44:                                   ; preds = %if.then5.i.i36, %if.end.i.i33
+  %24 = phi i32 [ %23, %if.then5.i.i36 ], [ %18, %if.end.i.i33 ]
+  %index.0.i.i45 = phi i32 [ %22, %if.then5.i.i36 ], [ %20, %if.end.i.i33 ]
+  %buf.i.i46 = getelementptr inbounds i8, ptr %f, i64 20
+  %idxprom.i.i47 = sext i32 %index.0.i.i45 to i64
+  %arrayidx.i.i48 = getelementptr [32768 x i8], ptr %buf.i.i46, i64 0, i64 %idxprom.i.i47
+  %25 = load i8, ptr %arrayidx.i.i48, align 1
+  %conv.i.i49 = zext i8 %25 to i32
+  %26 = shl nuw nsw i32 %conv.i.i49, 8
+  br label %qemu_peek_byte.exit.i39
 
-qemu_peek_byte.exit.i38:                          ; preds = %if.end13.i.i43, %if.then5.i.i35
-  %27 = phi i32 [ %24, %if.end13.i.i43 ], [ %23, %if.then5.i.i35 ]
-  %28 = phi i32 [ %index.0.i.i44, %if.end13.i.i43 ], [ %22, %if.then5.i.i35 ]
-  %retval.0.i.i39 = phi i32 [ %26, %if.end13.i.i43 ], [ 0, %if.then5.i.i35 ]
-  %add.i.i40 = add i32 %28, 1
-  %cmp.not.i.i41 = icmp sgt i32 %add.i.i40, %27
-  br i1 %cmp.not.i.i41, label %qemu_get_byte.exit48, label %if.then.i.i42
+qemu_peek_byte.exit.i39:                          ; preds = %if.end13.i.i44, %if.then5.i.i36
+  %27 = phi i32 [ %24, %if.end13.i.i44 ], [ %23, %if.then5.i.i36 ]
+  %28 = phi i32 [ %index.0.i.i45, %if.end13.i.i44 ], [ %22, %if.then5.i.i36 ]
+  %retval.0.i.i40 = phi i32 [ %26, %if.end13.i.i44 ], [ 0, %if.then5.i.i36 ]
+  %add.i.i41 = add i32 %28, 1
+  %cmp.not.i.i42 = icmp sgt i32 %add.i.i41, %27
+  br i1 %cmp.not.i.i42, label %qemu_get_byte.exit50, label %if.then.i.i43
 
-if.then.i.i42:                                    ; preds = %qemu_peek_byte.exit.i38
-  store i32 %add.i.i40, ptr %buf_index.i.i, align 4
-  br label %qemu_get_byte.exit48
+if.then.i.i43:                                    ; preds = %qemu_peek_byte.exit.i39
+  store i32 %add.i.i41, ptr %buf_index.i.i, align 4
+  br label %qemu_get_byte.exit50
 
-qemu_get_byte.exit48:                             ; preds = %qemu_peek_byte.exit.i38, %if.then.i.i42
-  %29 = phi i32 [ %28, %qemu_peek_byte.exit.i38 ], [ %add.i.i40, %if.then.i.i42 ]
-  %f.val.i.i50 = load i8, ptr %0, align 8
-  %30 = and i8 %f.val.i.i50, 1
-  %tobool.i.not.i.i51 = icmp eq i8 %30, 0
-  br i1 %tobool.i.not.i.i51, label %if.end.i.i53, label %if.else.i.i52
+qemu_get_byte.exit50:                             ; preds = %qemu_peek_byte.exit.i39, %if.then.i.i43
+  %29 = phi i32 [ %28, %qemu_peek_byte.exit.i39 ], [ %add.i.i41, %if.then.i.i43 ]
+  %f.val.i.i52 = load i8, ptr %0, align 8
+  %30 = and i8 %f.val.i.i52, 1
+  %tobool.i.not.i.i53 = icmp eq i8 %30, 0
+  br i1 %tobool.i.not.i.i53, label %if.end.i.i55, label %if.else.i.i54
 
-if.else.i.i52:                                    ; preds = %qemu_get_byte.exit48
+if.else.i.i54:                                    ; preds = %qemu_get_byte.exit50
   tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 590, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_peek_byte) #18
   unreachable
 
-if.end.i.i53:                                     ; preds = %qemu_get_byte.exit48
-  %cmp4.not.i.i55 = icmp slt i32 %29, %27
-  br i1 %cmp4.not.i.i55, label %if.end13.i.i64, label %if.then5.i.i56
+if.end.i.i55:                                     ; preds = %qemu_get_byte.exit50
+  %cmp4.not.i.i57 = icmp slt i32 %29, %27
+  br i1 %cmp4.not.i.i57, label %if.end13.i.i66, label %if.then5.i.i58
 
-if.then5.i.i56:                                   ; preds = %if.end.i.i53
-  %call6.i.i57 = tail call i64 @qemu_fill_buffer(ptr noundef nonnull %f), !range !7
+if.then5.i.i58:                                   ; preds = %if.end.i.i55
+  %call6.i.i59 = tail call i64 @qemu_fill_buffer(ptr noundef nonnull %f), !range !7
   %31 = load i32, ptr %buf_index.i.i, align 4
   %32 = load i32, ptr %buf_size.i.i, align 8
-  %cmp10.not.i.i58 = icmp slt i32 %31, %32
-  br i1 %cmp10.not.i.i58, label %if.end13.i.i64, label %qemu_peek_byte.exit.i59
+  %cmp10.not.i.i60 = icmp slt i32 %31, %32
+  br i1 %cmp10.not.i.i60, label %if.end13.i.i66, label %qemu_peek_byte.exit.i61
 
-if.end13.i.i64:                                   ; preds = %if.then5.i.i56, %if.end.i.i53
-  %33 = phi i32 [ %32, %if.then5.i.i56 ], [ %27, %if.end.i.i53 ]
-  %index.0.i.i65 = phi i32 [ %31, %if.then5.i.i56 ], [ %29, %if.end.i.i53 ]
-  %idxprom.i.i66 = sext i32 %index.0.i.i65 to i64
-  %arrayidx.i.i67 = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i.i66
-  %34 = load i8, ptr %arrayidx.i.i67, align 1
-  %conv.i.i68 = zext i8 %34 to i32
-  br label %qemu_peek_byte.exit.i59
+if.end13.i.i66:                                   ; preds = %if.then5.i.i58, %if.end.i.i55
+  %33 = phi i32 [ %32, %if.then5.i.i58 ], [ %27, %if.end.i.i55 ]
+  %index.0.i.i67 = phi i32 [ %31, %if.then5.i.i58 ], [ %29, %if.end.i.i55 ]
+  %buf.i.i68 = getelementptr inbounds i8, ptr %f, i64 20
+  %idxprom.i.i69 = sext i32 %index.0.i.i67 to i64
+  %arrayidx.i.i70 = getelementptr [32768 x i8], ptr %buf.i.i68, i64 0, i64 %idxprom.i.i69
+  %34 = load i8, ptr %arrayidx.i.i70, align 1
+  %conv.i.i71 = zext i8 %34 to i32
+  br label %qemu_peek_byte.exit.i61
 
-qemu_peek_byte.exit.i59:                          ; preds = %if.end13.i.i64, %if.then5.i.i56
-  %35 = phi i32 [ %33, %if.end13.i.i64 ], [ %32, %if.then5.i.i56 ]
-  %36 = phi i32 [ %index.0.i.i65, %if.end13.i.i64 ], [ %31, %if.then5.i.i56 ]
-  %retval.0.i.i60 = phi i32 [ %conv.i.i68, %if.end13.i.i64 ], [ 0, %if.then5.i.i56 ]
-  %add.i.i61 = add i32 %36, 1
-  %cmp.not.i.i62 = icmp sgt i32 %add.i.i61, %35
-  br i1 %cmp.not.i.i62, label %qemu_get_byte.exit69, label %if.then.i.i63
+qemu_peek_byte.exit.i61:                          ; preds = %if.end13.i.i66, %if.then5.i.i58
+  %35 = phi i32 [ %33, %if.end13.i.i66 ], [ %32, %if.then5.i.i58 ]
+  %36 = phi i32 [ %index.0.i.i67, %if.end13.i.i66 ], [ %31, %if.then5.i.i58 ]
+  %retval.0.i.i62 = phi i32 [ %conv.i.i71, %if.end13.i.i66 ], [ 0, %if.then5.i.i58 ]
+  %add.i.i63 = add i32 %36, 1
+  %cmp.not.i.i64 = icmp sgt i32 %add.i.i63, %35
+  br i1 %cmp.not.i.i64, label %qemu_get_byte.exit72, label %if.then.i.i65
 
-if.then.i.i63:                                    ; preds = %qemu_peek_byte.exit.i59
-  store i32 %add.i.i61, ptr %buf_index.i.i, align 4
-  br label %qemu_get_byte.exit69
+if.then.i.i65:                                    ; preds = %qemu_peek_byte.exit.i61
+  store i32 %add.i.i63, ptr %buf_index.i.i, align 4
+  br label %qemu_get_byte.exit72
 
-qemu_get_byte.exit69:                             ; preds = %qemu_peek_byte.exit.i59, %if.then.i.i63
+qemu_get_byte.exit72:                             ; preds = %qemu_peek_byte.exit.i61, %if.then.i.i65
   %or = or disjoint i32 %retval.0.i.i18, %retval.0.i.i
-  %or5 = or disjoint i32 %or, %retval.0.i.i39
-  %or7 = or disjoint i32 %or5, %retval.0.i.i60
+  %or5 = or disjoint i32 %or, %retval.0.i.i40
+  %or7 = or disjoint i32 %or5, %retval.0.i.i62
   ret i32 %or7
 }
 
@@ -1848,7 +1868,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qemu_put_compression_data(ptr noundef %f, ptr noundef %stream, ptr noundef %p, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %buf_index = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
   %0 = load i32, ptr %buf_index, align 4
   %sub = sub i32 32768, %0
   %conv = sext i32 %sub to i64
@@ -1858,7 +1878,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %buf = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 4
+  %buf = getelementptr inbounds i8, ptr %f, i64 20
   %1 = load i32, ptr %buf_index, align 4
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr i8, ptr %buf, i64 %idx.ext
@@ -1869,13 +1889,13 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   %conv.i = trunc i64 %size to i32
-  %avail_in.i = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 1
+  %avail_in.i = getelementptr inbounds i8, ptr %stream, i64 8
   store i32 %conv.i, ptr %avail_in.i, align 8
   store ptr %p, ptr %stream, align 8
   %conv1.i = trunc i64 %sub1 to i32
-  %avail_out.i = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 4
+  %avail_out.i = getelementptr inbounds i8, ptr %stream, i64 32
   store i32 %conv1.i, ptr %avail_out.i, align 8
-  %next_out.i = getelementptr inbounds %struct.z_stream_s, ptr %stream, i64 0, i32 3
+  %next_out.i = getelementptr inbounds i8, ptr %stream, i64 24
   store ptr %add.ptr4, ptr %next_out.i, align 8
   %call2.i = tail call i32 @deflate(ptr noundef nonnull %stream, i32 noundef 4) #15
   %cmp3.not.i = icmp eq i32 %call2.i, 1
@@ -1892,7 +1912,7 @@ qemu_compress_data.exit:                          ; preds = %if.end.i
 
 if.end10:                                         ; preds = %qemu_compress_data.exit
   %conv6 = and i64 %sub.ptr.sub.i, 2147483647
-  %last_error.i.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error.i.i = getelementptr inbounds i8, ptr %f, i64 33828
   %4 = load i32, ptr %last_error.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i.i, label %qemu_put_byte.exit.i, label %qemu_put_be32.exit
@@ -1902,47 +1922,47 @@ qemu_put_byte.exit.i:                             ; preds = %if.end10
   %conv.i.i = trunc i64 %shr.i13 to i8
   %5 = load i32, ptr %buf_index, align 4
   %idxprom.i.i = sext i32 %5 to i64
-  %arrayidx.i.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [32768 x i8], ptr %buf, i64 0, i64 %idxprom.i.i
   store i8 %conv.i.i, ptr %arrayidx.i.i, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
   %.pr.i = load i32, ptr %last_error.i.i, align 4
   %tobool.not.i8.i = icmp eq i32 %.pr.i, 0
-  br i1 %tobool.not.i8.i, label %qemu_put_byte.exit14.i, label %qemu_put_be32.exit
+  br i1 %tobool.not.i8.i, label %qemu_put_byte.exit15.i, label %qemu_put_be32.exit
 
-qemu_put_byte.exit14.i:                           ; preds = %qemu_put_byte.exit.i
+qemu_put_byte.exit15.i:                           ; preds = %qemu_put_byte.exit.i
   %shr1.i14 = lshr i64 %sub.ptr.sub.i, 16
   %conv.i10.i = trunc i64 %shr1.i14 to i8
   %6 = load i32, ptr %buf_index, align 4
-  %idxprom.i12.i = sext i32 %6 to i64
-  %arrayidx.i13.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i12.i
-  store i8 %conv.i10.i, ptr %arrayidx.i13.i, align 1
+  %idxprom.i13.i = sext i32 %6 to i64
+  %arrayidx.i14.i = getelementptr [32768 x i8], ptr %buf, i64 0, i64 %idxprom.i13.i
+  store i8 %conv.i10.i, ptr %arrayidx.i14.i, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
-  %.pr33.i = load i32, ptr %last_error.i.i, align 4
-  %tobool.not.i16.i = icmp eq i32 %.pr33.i, 0
-  br i1 %tobool.not.i16.i, label %qemu_put_byte.exit22.i, label %qemu_put_be32.exit
+  %.pr36.i = load i32, ptr %last_error.i.i, align 4
+  %tobool.not.i17.i = icmp eq i32 %.pr36.i, 0
+  br i1 %tobool.not.i17.i, label %qemu_put_byte.exit24.i, label %qemu_put_be32.exit
 
-qemu_put_byte.exit22.i:                           ; preds = %qemu_put_byte.exit14.i
+qemu_put_byte.exit24.i:                           ; preds = %qemu_put_byte.exit15.i
   %shr2.i15 = lshr i64 %sub.ptr.sub.i, 8
-  %conv.i18.i = trunc i64 %shr2.i15 to i8
+  %conv.i19.i = trunc i64 %shr2.i15 to i8
   %7 = load i32, ptr %buf_index, align 4
-  %idxprom.i20.i = sext i32 %7 to i64
-  %arrayidx.i21.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i20.i
-  store i8 %conv.i18.i, ptr %arrayidx.i21.i, align 1
+  %idxprom.i22.i = sext i32 %7 to i64
+  %arrayidx.i23.i = getelementptr [32768 x i8], ptr %buf, i64 0, i64 %idxprom.i22.i
+  store i8 %conv.i19.i, ptr %arrayidx.i23.i, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
-  %.pr36.pr.i = load i32, ptr %last_error.i.i, align 4
-  %tobool.not.i24.i = icmp eq i32 %.pr36.pr.i, 0
-  br i1 %tobool.not.i24.i, label %if.end.i25.i, label %qemu_put_be32.exit
+  %.pr39.pr.i = load i32, ptr %last_error.i.i, align 4
+  %tobool.not.i26.i = icmp eq i32 %.pr39.pr.i, 0
+  br i1 %tobool.not.i26.i, label %if.end.i27.i, label %qemu_put_be32.exit
 
-if.end.i25.i:                                     ; preds = %qemu_put_byte.exit22.i
-  %conv.i26.i = trunc i64 %sub.ptr.sub.i to i8
+if.end.i27.i:                                     ; preds = %qemu_put_byte.exit24.i
+  %conv.i28.i = trunc i64 %sub.ptr.sub.i to i8
   %8 = load i32, ptr %buf_index, align 4
-  %idxprom.i28.i = sext i32 %8 to i64
-  %arrayidx.i29.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i28.i
-  store i8 %conv.i26.i, ptr %arrayidx.i29.i, align 1
+  %idxprom.i31.i = sext i32 %8 to i64
+  %arrayidx.i32.i = getelementptr [32768 x i8], ptr %buf, i64 0, i64 %idxprom.i31.i
+  store i8 %conv.i28.i, ptr %arrayidx.i32.i, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
   br label %qemu_put_be32.exit
 
-qemu_put_be32.exit:                               ; preds = %if.end10, %qemu_put_byte.exit.i, %qemu_put_byte.exit14.i, %qemu_put_byte.exit22.i, %if.end.i25.i
+qemu_put_be32.exit:                               ; preds = %if.end10, %qemu_put_byte.exit.i, %qemu_put_byte.exit15.i, %qemu_put_byte.exit24.i, %if.end.i27.i
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef %conv6)
   %add = add nuw nsw i64 %conv6, 4
   br label %return
@@ -1957,22 +1977,22 @@ declare i64 @compressBound(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_put_qemu_file(ptr noundef %f_des, ptr nocapture noundef %f_src) local_unnamed_addr #0 {
 entry:
-  %buf_index = getelementptr inbounds %struct.QEMUFile, ptr %f_src, i64 0, i32 2
+  %buf_index = getelementptr inbounds i8, ptr %f_src, i64 12
   %0 = load i32, ptr %buf_index, align 4
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %last_error.i = getelementptr inbounds %struct.QEMUFile, ptr %f_des, i64 0, i32 8
+  %last_error.i = getelementptr inbounds i8, ptr %f_des, i64 33828
   %1 = load i32, ptr %last_error.i, align 4
   %tobool.i = icmp eq i32 %1, 0
   br i1 %tobool.i, label %while.body.preheader.i, label %qemu_put_buffer.exit
 
 while.body.preheader.i:                           ; preds = %if.then
   %conv = zext nneg i32 %0 to i64
-  %buf = getelementptr inbounds %struct.QEMUFile, ptr %f_src, i64 0, i32 4
-  %buf_index.i = getelementptr inbounds %struct.QEMUFile, ptr %f_des, i64 0, i32 2
-  %buf5.i = getelementptr inbounds %struct.QEMUFile, ptr %f_des, i64 0, i32 4
+  %buf = getelementptr inbounds i8, ptr %f_src, i64 20
+  %buf_index.i = getelementptr inbounds i8, ptr %f_des, i64 12
+  %buf5.i = getelementptr inbounds i8, ptr %f_des, i64 20
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
@@ -1996,7 +2016,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
 
 qemu_put_buffer.exit:                             ; preds = %while.body.i, %if.then
   store i32 0, ptr %buf_index, align 4
-  %iovcnt = getelementptr inbounds %struct.QEMUFile, ptr %f_src, i64 0, i32 7
+  %iovcnt = getelementptr inbounds i8, ptr %f_src, i64 33824
   store i32 0, ptr %iovcnt, align 8
   br label %if.end
 
@@ -2019,7 +2039,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %iovcnt = getelementptr inbounds %struct.QEMUFile, ptr %file, i64 0, i32 7
+  %iovcnt = getelementptr inbounds i8, ptr %file, i64 33824
   %2 = load i32, ptr %iovcnt, align 8
   %tobool.not = icmp eq i32 %2, 0
   ret i1 %tobool.not
@@ -2028,7 +2048,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qemu_get_counted_string(ptr noundef %f, ptr nocapture noundef writeonly %buf) #0 {
 entry:
-  %buf_index.i.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf_index.i.i = getelementptr inbounds i8, ptr %f, i64 12
   %0 = getelementptr i8, ptr %f, i64 8
   %f.val.i.i = load i8, ptr %0, align 8
   %1 = and i8 %f.val.i.i, 1
@@ -2041,7 +2061,7 @@ if.else.i.i:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry
   %2 = load i32, ptr %buf_index.i.i, align 4
-  %buf_size.i.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 3
+  %buf_size.i.i = getelementptr inbounds i8, ptr %f, i64 16
   %3 = load i32, ptr %buf_size.i.i, align 8
   %cmp4.not.i.i = icmp slt i32 %2, %3
   br i1 %cmp4.not.i.i, label %if.end13.i.i, label %if.then5.i.i
@@ -2056,8 +2076,9 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
 if.end13.i.i:                                     ; preds = %if.then5.i.i, %if.end.i.i
   %6 = phi i32 [ %5, %if.then5.i.i ], [ %3, %if.end.i.i ]
   %index.0.i.i = phi i32 [ %4, %if.then5.i.i ], [ %2, %if.end.i.i ]
+  %buf.i.i = getelementptr inbounds i8, ptr %f, i64 20
   %idxprom.i.i = sext i32 %index.0.i.i to i64
-  %arrayidx.i.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [32768 x i8], ptr %buf.i.i, i64 0, i64 %idxprom.i.i
   %7 = load i8, ptr %arrayidx.i.i, align 1
   %8 = zext i8 %7 to i64
   br label %qemu_peek_byte.exit.i
@@ -2095,17 +2116,18 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %last_error.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 8
+  %last_error.i = getelementptr inbounds i8, ptr %f, i64 33828
   %0 = load i32, ptr %last_error.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %qemu_put_byte.exit, label %qemu_put_buffer.exit
 
 qemu_put_byte.exit:                               ; preds = %if.end
   %conv.i = trunc i64 %call to i8
-  %buf_index.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %f, i64 20
+  %buf_index.i = getelementptr inbounds i8, ptr %f, i64 12
   %1 = load i32, ptr %buf_index.i, align 4
   %idxprom.i = sext i32 %1 to i64
-  %arrayidx.i = getelementptr %struct.QEMUFile, ptr %f, i64 0, i32 4, i64 %idxprom.i
+  %arrayidx.i = getelementptr [32768 x i8], ptr %buf.i, i64 0, i64 %idxprom.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   tail call fastcc void @add_buf_to_iovec(ptr noundef nonnull %f, i64 noundef 1)
   %.pre = load i32, ptr %last_error.i, align 4
@@ -2115,8 +2137,8 @@ qemu_put_byte.exit:                               ; preds = %if.end
   br i1 %or.cond.i, label %while.body.preheader.i, label %qemu_put_buffer.exit
 
 while.body.preheader.i:                           ; preds = %qemu_put_byte.exit
-  %buf_index.i6 = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
-  %buf5.i = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 4
+  %buf_index.i6 = getelementptr inbounds i8, ptr %f, i64 12
+  %buf5.i = getelementptr inbounds i8, ptr %f, i64 20
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
@@ -2165,9 +2187,9 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_file_get_to_fd(ptr noundef %f, i32 noundef %fd, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %buf_size = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 3
-  %buf_index = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 2
-  %buf = getelementptr inbounds %struct.QEMUFile, ptr %f, i64 0, i32 4
+  %buf_size = getelementptr inbounds i8, ptr %f, i64 16
+  %buf_index = getelementptr inbounds i8, ptr %f, i64 12
+  %buf = getelementptr inbounds i8, ptr %f, i64 20
   %tobool.not43 = icmp eq i64 %size, 0
   br i1 %tobool.not43, label %return, label %while.cond.preheader
 

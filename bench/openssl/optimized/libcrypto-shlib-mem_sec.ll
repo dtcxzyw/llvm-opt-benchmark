@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.sh_st = type { ptr, i64, ptr, i64, ptr, i64, i64, ptr, ptr, i64 }
-%struct.sh_list_st = type { ptr, ptr }
 
 @secure_mem_initialized = internal unnamed_addr global i1 false, align 4
 @sec_malloc_lock = internal unnamed_addr global ptr null, align 8
@@ -417,12 +416,12 @@ cond.end.i:                                       ; preds = %sh_testbit.exit.i
   tail call fastcc void @sh_clearbit(ptr noundef %6, i32 noundef %conv.i, ptr noundef %13)
   %14 = load ptr, ptr %6, align 8
   %cmp.not.i.i = icmp eq ptr %14, null
-  %p_next4.phi.trans.insert.i.i = getelementptr inbounds %struct.sh_list_st, ptr %6, i64 0, i32 1
+  %p_next4.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %6, i64 8
   %.pre16.i.i = load ptr, ptr %p_next4.phi.trans.insert.i.i, align 8
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cond.end.i
-  %p_next2.i.i = getelementptr inbounds %struct.sh_list_st, ptr %14, i64 0, i32 1
+  %p_next2.i.i = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %.pre16.i.i, ptr %p_next2.i.i, align 8
   %.pre.i.i = load ptr, ptr %6, align 8
   br label %if.end.i.i
@@ -436,7 +435,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %cond.
   br i1 %cmp6.i.i, label %sh_remove_from_list.exit.i, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %p_next10.i.i = getelementptr inbounds %struct.sh_list_st, ptr %16, i64 0, i32 1
+  %p_next10.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %p_next10.i.i, align 8
   %cmp11.not.i.i = icmp uge ptr %17, %.pre.i
   %18 = load i64, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i64 0, i32 5), align 8
@@ -734,12 +733,12 @@ cond.end75.i:                                     ; preds = %sh_testbit.exit157.
   tail call fastcc void @sh_setbit(ptr noundef %50, i32 noundef %conv70.i, ptr noundef %54)
   %55 = load ptr, ptr %50, align 8
   %cmp.not.i158.i = icmp eq ptr %55, null
-  %p_next4.phi.trans.insert.i159.i = getelementptr inbounds %struct.sh_list_st, ptr %50, i64 0, i32 1
+  %p_next4.phi.trans.insert.i159.i = getelementptr inbounds i8, ptr %50, i64 8
   %.pre16.i160.i = load ptr, ptr %p_next4.phi.trans.insert.i159.i, align 8
   br i1 %cmp.not.i158.i, label %if.end.i164.i, label %if.then.i161.i
 
 if.then.i161.i:                                   ; preds = %cond.end75.i
-  %p_next2.i162.i = getelementptr inbounds %struct.sh_list_st, ptr %55, i64 0, i32 1
+  %p_next2.i162.i = getelementptr inbounds i8, ptr %55, i64 8
   store ptr %.pre16.i160.i, ptr %p_next2.i162.i, align 8
   %.pre.i163.i = load ptr, ptr %50, align 8
   br label %if.end.i164.i
@@ -757,7 +756,7 @@ if.end.i164.sh_remove_from_list.exit178_crit_edge.i: ; preds = %if.end.i164.i
   br label %sh_remove_from_list.exit178.i
 
 if.end8.i166.i:                                   ; preds = %if.end.i164.i
-  %p_next10.i167.i = getelementptr inbounds %struct.sh_list_st, ptr %57, i64 0, i32 1
+  %p_next10.i167.i = getelementptr inbounds i8, ptr %57, i64 8
   %58 = load ptr, ptr %p_next10.i167.i, align 8
   %59 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i64 0, i32 4), align 8
   %cmp11.not.i168.i = icmp uge ptr %58, %59
@@ -1294,12 +1293,12 @@ cond.end39:                                       ; preds = %sh_testbit.exit125
   tail call fastcc void @sh_clearbit(ptr noundef %ptr.addr.0, i32 noundef %conv16, ptr noundef nonnull %11)
   %19 = load ptr, ptr %ptr.addr.0, align 8
   %cmp.not.i = icmp eq ptr %19, null
-  %p_next4.phi.trans.insert.i = getelementptr inbounds %struct.sh_list_st, ptr %ptr.addr.0, i64 0, i32 1
+  %p_next4.phi.trans.insert.i = getelementptr inbounds i8, ptr %ptr.addr.0, i64 8
   %.pre16.i = load ptr, ptr %p_next4.phi.trans.insert.i, align 8
   br i1 %cmp.not.i, label %if.end.i127, label %if.then.i126
 
 if.then.i126:                                     ; preds = %cond.end39
-  %p_next2.i = getelementptr inbounds %struct.sh_list_st, ptr %19, i64 0, i32 1
+  %p_next2.i = getelementptr inbounds i8, ptr %19, i64 8
   store ptr %.pre16.i, ptr %p_next2.i, align 8
   %.pre.i = load ptr, ptr %ptr.addr.0, align 8
   br label %if.end.i127
@@ -1313,7 +1312,7 @@ if.end.i127:                                      ; preds = %if.then.i126, %cond
   br i1 %cmp6.i, label %sh_remove_from_list.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i127
-  %p_next10.i = getelementptr inbounds %struct.sh_list_st, ptr %21, i64 0, i32 1
+  %p_next10.i = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %p_next10.i, align 8
   %23 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i64 0, i32 4), align 8
   %cmp11.not.i = icmp uge ptr %22, %23
@@ -1392,12 +1391,12 @@ cond.end47:                                       ; preds = %sh_testbit.exit161
   tail call fastcc void @sh_clearbit(ptr noundef nonnull %add.ptr.i66, i32 noundef %conv16, ptr noundef %31)
   %32 = load ptr, ptr %add.ptr.i66, align 8
   %cmp.not.i162 = icmp eq ptr %32, null
-  %p_next4.phi.trans.insert.i163 = getelementptr inbounds %struct.sh_list_st, ptr %add.ptr.i66, i64 0, i32 1
+  %p_next4.phi.trans.insert.i163 = getelementptr inbounds i8, ptr %add.ptr.i66, i64 8
   %.pre16.i164 = load ptr, ptr %p_next4.phi.trans.insert.i163, align 8
   br i1 %cmp.not.i162, label %if.end.i168, label %if.then.i165
 
 if.then.i165:                                     ; preds = %cond.end47
-  %p_next2.i166 = getelementptr inbounds %struct.sh_list_st, ptr %32, i64 0, i32 1
+  %p_next2.i166 = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %.pre16.i164, ptr %p_next2.i166, align 8
   %.pre.i167 = load ptr, ptr %add.ptr.i66, align 8
   br label %if.end.i168
@@ -1411,7 +1410,7 @@ if.end.i168:                                      ; preds = %if.then.i165, %cond
   br i1 %cmp6.i169, label %sh_remove_from_list.exit182, label %if.end8.i170
 
 if.end8.i170:                                     ; preds = %if.end.i168
-  %p_next10.i171 = getelementptr inbounds %struct.sh_list_st, ptr %34, i64 0, i32 1
+  %p_next10.i171 = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load ptr, ptr %p_next10.i171, align 8
   %36 = load ptr, ptr getelementptr inbounds (%struct.sh_st, ptr @sh, i64 0, i32 4), align 8
   %cmp11.not.i172 = icmp uge ptr %35, %36
@@ -1714,7 +1713,7 @@ cond.end8:                                        ; preds = %cond.end
   br i1 %cmp11, label %cond.end20.thread, label %lor.lhs.false
 
 cond.end20.thread:                                ; preds = %cond.end8
-  %p_next23 = getelementptr inbounds %struct.sh_list_st, ptr %ptr, i64 0, i32 1
+  %p_next23 = getelementptr inbounds i8, ptr %ptr, i64 8
   store ptr %list, ptr %p_next23, align 8
   br label %if.end
 
@@ -1729,9 +1728,9 @@ cond.false19:                                     ; preds = %lor.lhs.false
   unreachable
 
 if.then:                                          ; preds = %lor.lhs.false
-  %p_next = getelementptr inbounds %struct.sh_list_st, ptr %ptr, i64 0, i32 1
+  %p_next = getelementptr inbounds i8, ptr %ptr, i64 8
   store ptr %list, ptr %p_next, align 8
-  %p_next25 = getelementptr inbounds %struct.sh_list_st, ptr %4, i64 0, i32 1
+  %p_next25 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %p_next25, align 8
   %cmp26 = icmp eq ptr %5, %list
   br i1 %cmp26, label %cond.end29, label %cond.false28

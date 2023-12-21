@@ -3,15 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-cms_pwri.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CMS_RecipientInfo_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.CMS_PasswordRecipientInfo_st = type { i32, ptr, ptr, ptr, ptr, i64, ptr }
-%struct.CMS_EncryptedContentInfo_st = type { ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, i32 }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/cms/cms_pwri.c\00", align 1
 @__func__.CMS_RecipientInfo_set0_password = private unnamed_addr constant [32 x i8] c"CMS_RecipientInfo_set0_password\00", align 1
 @__func__.CMS_add0_recipient_password = private unnamed_addr constant [28 x i8] c"CMS_add0_recipient_password\00", align 1
@@ -31,9 +22,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %d = getelementptr inbounds %struct.CMS_RecipientInfo_st, ptr %ri, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %ri, i64 8
   %1 = load ptr, ptr %d, align 8
-  %pass1 = getelementptr inbounds %struct.CMS_PasswordRecipientInfo_st, ptr %1, i64 0, i32 4
+  %pass1 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %pass, ptr %pass1, align 8
   %tobool = icmp ne ptr %pass, null
   %cmp2 = icmp slt i64 %passlen, 0
@@ -46,7 +37,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.then3, %if.end
   %passlen.addr.0 = phi i64 [ %call, %if.then3 ], [ %passlen, %if.end ]
-  %passlen5 = getelementptr inbounds %struct.CMS_PasswordRecipientInfo_st, ptr %1, i64 0, i32 5
+  %passlen5 = getelementptr inbounds i8, ptr %1, i64 40
   store i64 %passlen.addr.0, ptr %passlen5, align 8
   br label %return
 
@@ -84,7 +75,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp12, label %if.end14, label %if.end17
 
 if.end14:                                         ; preds = %if.end5
-  %cipher = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 3
+  %cipher = getelementptr inbounds i8, ptr %call1, i64 24
   %0 = load ptr, ptr %cipher, align 8
   %cmp15 = icmp eq ptr %0, null
   br i1 %cmp15, label %if.then16, label %if.end17
@@ -175,7 +166,7 @@ if.then49:                                        ; preds = %if.end44
 
 if.end50:                                         ; preds = %if.end44
   %call51 = call ptr @ASN1_TYPE_new() #4
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %call21, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %call21, i64 8
   store ptr %call51, ptr %parameter, align 8
   %tobool.not = icmp eq ptr %call51, null
   br i1 %tobool.not, label %if.then53, label %if.end54
@@ -217,16 +208,16 @@ if.then69:                                        ; preds = %if.end61
 if.end70:                                         ; preds = %if.end61
   %call71 = call ptr @CMS_PasswordRecipientInfo_it() #4
   %call72 = call ptr @ASN1_item_new(ptr noundef %call71) #4
-  %d = getelementptr inbounds %struct.CMS_RecipientInfo_st, ptr %call66, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %call66, i64 8
   store ptr %call72, ptr %d, align 8
   %cmp74 = icmp eq ptr %call72, null
   br i1 %cmp74, label %if.then123.sink.split, label %if.end77
 
 if.end77:                                         ; preds = %if.end70
   store i32 3, ptr %call66, align 8
-  %cms_ctx79 = getelementptr inbounds %struct.CMS_PasswordRecipientInfo_st, ptr %call72, i64 0, i32 6
+  %cms_ctx79 = getelementptr inbounds i8, ptr %call72, i64 48
   store ptr %call, ptr %cms_ctx79, align 8
-  %keyEncryptionAlgorithm = getelementptr inbounds %struct.CMS_PasswordRecipientInfo_st, ptr %call72, i64 0, i32 2
+  %keyEncryptionAlgorithm = getelementptr inbounds i8, ptr %call72, i64 16
   %1 = load ptr, ptr %keyEncryptionAlgorithm, align 8
   call void @X509_ALGOR_free(ptr noundef %1) #4
   %call80 = call ptr @X509_ALGOR_new() #4
@@ -240,10 +231,10 @@ if.end86:                                         ; preds = %if.end77
   store ptr %call87, ptr %2, align 8
   %call90 = call ptr @ASN1_TYPE_new() #4
   %3 = load ptr, ptr %keyEncryptionAlgorithm, align 8
-  %parameter92 = getelementptr inbounds %struct.X509_algor_st, ptr %3, i64 0, i32 1
+  %parameter92 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %call90, ptr %parameter92, align 8
   %4 = load ptr, ptr %keyEncryptionAlgorithm, align 8
-  %parameter94 = getelementptr inbounds %struct.X509_algor_st, ptr %4, i64 0, i32 1
+  %parameter94 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %parameter94, align 8
   %cmp95 = icmp eq ptr %5, null
   br i1 %cmp95, label %if.then123.sink.split, label %if.end98
@@ -251,21 +242,21 @@ if.end86:                                         ; preds = %if.end77
 if.end98:                                         ; preds = %if.end86
   %call99 = call ptr @X509_ALGOR_it() #4
   %6 = load ptr, ptr %keyEncryptionAlgorithm, align 8
-  %parameter101 = getelementptr inbounds %struct.X509_algor_st, ptr %6, i64 0, i32 1
+  %parameter101 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %parameter101, align 8
-  %value = getelementptr inbounds %struct.asn1_type_st, ptr %7, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %7, i64 8
   %call102 = call ptr @ASN1_item_pack(ptr noundef nonnull %call21, ptr noundef %call99, ptr noundef nonnull %value) #4
   %tobool103.not = icmp eq ptr %call102, null
   br i1 %tobool103.not, label %if.then123.sink.split, label %if.end105
 
 if.end105:                                        ; preds = %if.end98
   %8 = load ptr, ptr %keyEncryptionAlgorithm, align 8
-  %parameter107 = getelementptr inbounds %struct.X509_algor_st, ptr %8, i64 0, i32 1
+  %parameter107 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %parameter107, align 8
   store i32 16, ptr %9, align 8
   call void @X509_ALGOR_free(ptr noundef nonnull %call21) #4
   %call109 = call ptr @PKCS5_pbkdf2_set(i32 noundef %iter, ptr noundef null, i32 noundef 0, i32 noundef -1, i32 noundef -1) #4
-  %keyDerivationAlgorithm = getelementptr inbounds %struct.CMS_PasswordRecipientInfo_st, ptr %call72, i64 0, i32 1
+  %keyDerivationAlgorithm = getelementptr inbounds i8, ptr %call72, i64 8
   store ptr %call109, ptr %keyDerivationAlgorithm, align 8
   %cmp111 = icmp eq ptr %call109, null
   br i1 %cmp111, label %if.then123, label %if.end114
@@ -363,9 +354,9 @@ entry:
   %keylen = alloca i64, align 8
   %call = tail call ptr @ossl_cms_get0_cmsctx(ptr noundef %cms) #4
   %call1 = tail call ptr @ossl_cms_get0_env_enc_content(ptr noundef %cms) #4
-  %d = getelementptr inbounds %struct.CMS_RecipientInfo_st, ptr %ri, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %ri, i64 8
   %0 = load ptr, ptr %d, align 8
-  %pass = getelementptr inbounds %struct.CMS_PasswordRecipientInfo_st, ptr %0, i64 0, i32 4
+  %pass = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %pass, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end
@@ -377,7 +368,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %keyEncryptionAlgorithm = getelementptr inbounds %struct.CMS_PasswordRecipientInfo_st, ptr %0, i64 0, i32 2
+  %keyEncryptionAlgorithm = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %keyEncryptionAlgorithm, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.then4, label %lor.lhs.false
@@ -396,7 +387,7 @@ if.then4:                                         ; preds = %lor.lhs.false, %if.
 
 if.end5:                                          ; preds = %lor.lhs.false
   %call6 = tail call ptr @X509_ALGOR_it() #4
-  %parameter = getelementptr inbounds %struct.X509_algor_st, ptr %2, i64 0, i32 1
+  %parameter = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %parameter, align 8
   %call7 = tail call ptr @ASN1_TYPE_unpack_sequence(ptr noundef %call6, ptr noundef %4) #4
   %cmp8 = icmp eq ptr %call7, null
@@ -441,7 +432,7 @@ if.end23:                                         ; preds = %if.end19
 
 if.end27:                                         ; preds = %if.end23
   %call28 = call i32 @EVP_CIPHER_CTX_set_padding(ptr noundef nonnull %call20, i32 noundef 0) #4
-  %parameter29 = getelementptr inbounds %struct.X509_algor_st, ptr %call7, i64 0, i32 1
+  %parameter29 = getelementptr inbounds i8, ptr %call7, i64 8
   %6 = load ptr, ptr %parameter29, align 8
   %call30 = call i32 @EVP_CIPHER_asn1_to_param(ptr noundef nonnull %call20, ptr noundef %6) #4
   %cmp31 = icmp slt i32 %call30, 1
@@ -454,14 +445,14 @@ if.then32:                                        ; preds = %if.end27
   br label %err
 
 if.end33:                                         ; preds = %if.end27
-  %keyDerivationAlgorithm = getelementptr inbounds %struct.CMS_PasswordRecipientInfo_st, ptr %0, i64 0, i32 1
+  %keyDerivationAlgorithm = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %keyDerivationAlgorithm, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %pass, align 8
-  %passlen = getelementptr inbounds %struct.CMS_PasswordRecipientInfo_st, ptr %0, i64 0, i32 5
+  %passlen = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i64, ptr %passlen, align 8
   %conv = trunc i64 %10 to i32
-  %parameter36 = getelementptr inbounds %struct.X509_algor_st, ptr %7, i64 0, i32 1
+  %parameter36 = getelementptr inbounds i8, ptr %7, i64 8
   %11 = load ptr, ptr %parameter36, align 8
   %call37 = call i32 @EVP_PBE_CipherInit(ptr noundef %8, ptr noundef %9, i32 noundef %conv, ptr noundef %11, ptr noundef nonnull %call20, i32 noundef %en_de) #4
   %cmp38 = icmp slt i32 %call37, 0
@@ -478,8 +469,8 @@ if.end41:                                         ; preds = %if.end33
   br i1 %tobool42.not, label %if.else, label %if.then43
 
 if.then43:                                        ; preds = %if.end41
-  %key44 = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 4
-  %keylen45 = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 5
+  %key44 = getelementptr inbounds i8, ptr %call1, i64 32
+  %keylen45 = getelementptr inbounds i8, ptr %call1, i64 40
   %12 = load i64, ptr %keylen45, align 8
   %call.i = call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef nonnull %call20) #4
   %call.fr.i = freeze i32 %call.i
@@ -508,9 +499,9 @@ if.end54:                                         ; preds = %if.end49
   br i1 %tobool58.not, label %err, label %if.end60
 
 if.end60:                                         ; preds = %if.end54
-  %encryptedKey = getelementptr inbounds %struct.CMS_PasswordRecipientInfo_st, ptr %0, i64 0, i32 3
+  %encryptedKey = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load ptr, ptr %encryptedKey, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %16, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %call50, ptr %data, align 8
   %17 = load i64, ptr %keylen, align 8
   %conv61 = trunc i64 %17 to i32
@@ -519,7 +510,7 @@ if.end60:                                         ; preds = %if.end54
   br label %err
 
 if.else:                                          ; preds = %if.end41
-  %encryptedKey63 = getelementptr inbounds %struct.CMS_PasswordRecipientInfo_st, ptr %0, i64 0, i32 3
+  %encryptedKey63 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load ptr, ptr %encryptedKey63, align 8
   %20 = load i32, ptr %19, align 8
   %conv65 = sext i32 %20 to i64
@@ -529,7 +520,7 @@ if.else:                                          ; preds = %if.end41
 
 if.end70:                                         ; preds = %if.else
   %21 = load ptr, ptr %encryptedKey63, align 8
-  %data72 = getelementptr inbounds %struct.asn1_string_st, ptr %21, i64 0, i32 2
+  %data72 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %data72, align 8
   %23 = load i32, ptr %21, align 8
   %conv75 = sext i32 %23 to i64
@@ -544,9 +535,9 @@ if.then78:                                        ; preds = %if.end70
   br label %err
 
 if.end79:                                         ; preds = %if.end70
-  %key80 = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 4
+  %key80 = getelementptr inbounds i8, ptr %call1, i64 32
   %24 = load ptr, ptr %key80, align 8
-  %keylen81 = getelementptr inbounds %struct.CMS_EncryptedContentInfo_st, ptr %call1, i64 0, i32 5
+  %keylen81 = getelementptr inbounds i8, ptr %call1, i64 40
   %25 = load i64, ptr %keylen81, align 8
   call void @CRYPTO_clear_free(ptr noundef %24, i64 noundef %25, ptr noundef nonnull @.str, i32 noundef 397) #4
   store ptr %call66, ptr %key80, align 8

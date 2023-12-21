@@ -156,11 +156,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %prov, align 4
   %cmp3 = icmp eq i32 %0, %major
-  %minor5 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov, i64 0, i32 1
+  %minor5 = getelementptr inbounds i8, ptr %prov, i64 4
   %1 = load i32, ptr %minor5, align 4
   %cmp6 = icmp eq i32 %1, %minor
   %or.cond = select i1 %cmp3, i1 %cmp6, i1 false
-  %patch8 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov, i64 0, i32 2
+  %patch8 = getelementptr inbounds i8, ptr %prov, i64 8
   %2 = load i32, ptr %patch8, align 4
   %cmp9 = icmp eq i32 %2, %patch
   %narrow = select i1 %or.cond, i1 %cmp9, i1 false
@@ -198,8 +198,8 @@ if.end3:                                          ; preds = %if.end
 
 lor.lhs.false:                                    ; preds = %if.end3
   %1 = load ptr, ptr %vs, align 8
-  %minor = getelementptr inbounds %struct.FIPS_VERSION, ptr %vers, i64 0, i32 1
-  %patch = getelementptr inbounds %struct.FIPS_VERSION, ptr %vers, i64 0, i32 2
+  %minor = getelementptr inbounds i8, ptr %vers, i64 4
+  %patch = getelementptr inbounds i8, ptr %vers, i64 8
   %call7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef %vers, ptr noundef nonnull %minor, ptr noundef nonnull %patch) #8
   %cmp8.not = icmp eq i32 %call7, 3
   br i1 %cmp8.not, label %if.end10, label %err
@@ -234,11 +234,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %prov, align 4
   %cmp3.not = icmp ne i32 %0, %major
-  %minor5 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov, i64 0, i32 1
+  %minor5 = getelementptr inbounds i8, ptr %prov, i64 4
   %1 = load i32, ptr %minor5, align 4
   %cmp6.not = icmp ne i32 %1, %minor
   %or.cond.not = select i1 %cmp3.not, i1 true, i1 %cmp6.not
-  %patch8 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov, i64 0, i32 2
+  %patch8 = getelementptr inbounds i8, ptr %prov, i64 8
   %2 = load i32, ptr %patch8, align 4
   %cmp9 = icmp ne i32 %2, %patch
   %narrow = select i1 %or.cond.not, i1 true, i1 %cmp9
@@ -272,14 +272,14 @@ lor.rhs:                                          ; preds = %if.end
   br i1 %cmp6, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %lor.rhs
-  %minor8 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov, i64 0, i32 1
+  %minor8 = getelementptr inbounds i8, ptr %prov, i64 4
   %1 = load i32, ptr %minor8, align 4
   %cmp9 = icmp slt i32 %1, %minor
   br i1 %cmp9, label %return, label %lor.rhs11
 
 lor.rhs11:                                        ; preds = %land.rhs
   %cmp13 = icmp eq i32 %1, %minor
-  %patch16 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov, i64 0, i32 2
+  %patch16 = getelementptr inbounds i8, ptr %prov, i64 8
   %2 = load i32, ptr %patch16, align 4
   %cmp17 = icmp sle i32 %2, %patch
   %3 = select i1 %cmp13, i1 %cmp17, i1 false
@@ -313,14 +313,14 @@ lor.rhs:                                          ; preds = %if.end
   br i1 %cmp6, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %lor.rhs
-  %minor8 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov, i64 0, i32 1
+  %minor8 = getelementptr inbounds i8, ptr %prov, i64 4
   %1 = load i32, ptr %minor8, align 4
   %cmp9 = icmp slt i32 %1, %minor
   br i1 %cmp9, label %return, label %lor.rhs11
 
 lor.rhs11:                                        ; preds = %land.rhs
   %cmp13 = icmp eq i32 %1, %minor
-  %patch16 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov, i64 0, i32 2
+  %patch16 = getelementptr inbounds i8, ptr %prov, i64 8
   %2 = load i32, ptr %patch16, align 4
   %cmp17 = icmp slt i32 %2, %patch
   %3 = select i1 %cmp13, i1 %cmp17, i1 false
@@ -354,14 +354,14 @@ lor.rhs:                                          ; preds = %if.end
   br i1 %cmp6, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %lor.rhs
-  %minor8 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov, i64 0, i32 1
+  %minor8 = getelementptr inbounds i8, ptr %prov, i64 4
   %1 = load i32, ptr %minor8, align 4
   %cmp9 = icmp sgt i32 %1, %minor
   br i1 %cmp9, label %return, label %lor.rhs11
 
 lor.rhs11:                                        ; preds = %land.rhs
   %cmp13 = icmp eq i32 %1, %minor
-  %patch16 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov, i64 0, i32 2
+  %patch16 = getelementptr inbounds i8, ptr %prov, i64 8
   %2 = load i32, ptr %patch16, align 4
   %cmp17 = icmp sgt i32 %2, %patch
   %3 = select i1 %cmp13, i1 %cmp17, i1 false
@@ -395,14 +395,14 @@ lor.rhs:                                          ; preds = %if.end
   br i1 %cmp6, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %lor.rhs
-  %minor8 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov, i64 0, i32 1
+  %minor8 = getelementptr inbounds i8, ptr %prov, i64 4
   %1 = load i32, ptr %minor8, align 4
   %cmp9 = icmp sgt i32 %1, %minor
   br i1 %cmp9, label %return, label %lor.rhs11
 
 lor.rhs11:                                        ; preds = %land.rhs
   %cmp13 = icmp eq i32 %1, %minor
-  %patch16 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov, i64 0, i32 2
+  %patch16 = getelementptr inbounds i8, ptr %prov, i64 8
   %2 = load i32, ptr %patch16, align 4
   %cmp17 = icmp sge i32 %2, %patch
   %3 = select i1 %cmp13, i1 %cmp17, i1 false
@@ -426,18 +426,18 @@ entry:
   %major = alloca i32, align 4
   %minor = alloca i32, align 4
   %patch = alloca i32, align 4
-  %minor8.i99 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i89, i64 0, i32 1
-  %patch16.i103 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i89, i64 0, i32 2
-  %minor8.i81 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i71, i64 0, i32 1
-  %patch16.i85 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i71, i64 0, i32 2
-  %minor8.i63 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i53, i64 0, i32 1
-  %patch16.i67 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i53, i64 0, i32 2
-  %minor8.i = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i43, i64 0, i32 1
-  %patch16.i = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i43, i64 0, i32 2
-  %minor5.i35 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i31, i64 0, i32 1
-  %patch8.i36 = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i31, i64 0, i32 2
-  %minor5.i = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i, i64 0, i32 1
-  %patch8.i = getelementptr inbounds %struct.FIPS_VERSION, ptr %prov.i, i64 0, i32 2
+  %minor8.i99 = getelementptr inbounds i8, ptr %prov.i89, i64 4
+  %patch16.i103 = getelementptr inbounds i8, ptr %prov.i89, i64 8
+  %minor8.i81 = getelementptr inbounds i8, ptr %prov.i71, i64 4
+  %patch16.i85 = getelementptr inbounds i8, ptr %prov.i71, i64 8
+  %minor8.i63 = getelementptr inbounds i8, ptr %prov.i53, i64 4
+  %patch16.i67 = getelementptr inbounds i8, ptr %prov.i53, i64 8
+  %minor8.i = getelementptr inbounds i8, ptr %prov.i43, i64 4
+  %patch16.i = getelementptr inbounds i8, ptr %prov.i43, i64 8
+  %minor5.i35 = getelementptr inbounds i8, ptr %prov.i31, i64 4
+  %patch8.i36 = getelementptr inbounds i8, ptr %prov.i31, i64 8
+  %minor5.i = getelementptr inbounds i8, ptr %prov.i, i64 4
+  %patch8.i = getelementptr inbounds i8, ptr %prov.i, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end100, %entry

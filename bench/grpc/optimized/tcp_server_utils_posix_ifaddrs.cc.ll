@@ -21,39 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.5 = type { i64, [8 x i8] }
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
-%struct.grpc_tcp_server = type <{ %struct.gpr_refcount, ptr, ptr, i64, i64, i64, i8, i8, i8, i8, [4 x i8], ptr, ptr, i32, [4 x i8], %struct.grpc_closure_list, ptr, ptr, i64, %"struct.grpc_core::PosixTcpOptions", ptr, %"class.std::shared_ptr", i32, [4 x i8], %"class.absl::lts_20230802::flat_hash_map", %"class.std::unique_ptr", i32, [4 x i8] }>
-%struct.gpr_refcount = type { i64 }
-%struct.grpc_closure_list = type { ptr, ptr }
-%"struct.grpc_core::PosixTcpOptions" = type { i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i8, i8, %"class.grpc_core::RefCountedPtr", ptr }
-%"class.grpc_core::RefCountedPtr" = type { ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.absl::lts_20230802::flat_hash_map" = type { %"class.absl::lts_20230802::container_internal::raw_hash_map" }
-%"class.absl::lts_20230802::container_internal::raw_hash_map" = type { %"class.absl::lts_20230802::container_internal::raw_hash_set" }
-%"class.absl::lts_20230802::container_internal::raw_hash_set" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage" = type { %"class.absl::lts_20230802::container_internal::CommonFields" }
-%"class.absl::lts_20230802::container_internal::CommonFields" = type { ptr, ptr, i64, %"class.absl::lts_20230802::container_internal::CompressedTuple.9" }
-%"class.absl::lts_20230802::container_internal::CompressedTuple.9" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.10" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.10" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.11" }
-%"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.11" = type { i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.20" }
-%"struct.std::_Head_base.20" = type { ptr }
-%struct.ifaddrs = type { ptr, ptr, i32, ptr, ptr, %union.anon, ptr }
-%union.anon = type { ptr }
-%struct.grpc_tcp_listener = type { i32, ptr, ptr, %struct.grpc_resolved_address, i32, i32, i32, %struct.grpc_closure, %struct.grpc_closure, ptr, ptr, i32, %struct.grpc_closure, %struct.grpc_timer, i64 }
-%struct.grpc_closure = type { %union.anon.6, ptr, ptr, %union.anon.7 }
-%union.anon.6 = type { ptr }
-%union.anon.7 = type { i64 }
-%struct.grpc_timer = type { i64, i32, i8, ptr, ptr, ptr, %union.anon.8 }
-%union.anon.8 = type { %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle" }
-%"struct.grpc_event_engine::experimental::EventEngine::TaskHandle" = type { [2 x i64] }
 %"class.std::allocator.2" = type { i8 }
 %struct._Guard = type { ptr }
 
@@ -205,7 +172,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end3.i:                                        ; preds = %if.then1.i, %if.end.i
   %3 = load i32, ptr %fd.i, align 4, !noalias !4
-  %len.i = getelementptr inbounds %struct.grpc_resolved_address, ptr %wild.i, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %wild.i, i64 128
   %4 = load i32, ptr %len.i, align 4, !noalias !4
   %call4.i = call i32 @bind(i32 noundef %3, ptr noundef nonnull %wild.i, i32 noundef %4) #17, !noalias !4
   %cmp5.not.i = icmp eq i32 %call4.i, 0
@@ -435,7 +402,7 @@ cond.end.i:                                       ; preds = %invoke.cont43.i
 
 cleanup.action.i:                                 ; preds = %cond.true.i
   %31 = load ptr, ptr %agg.tmp49.i, align 8, !noalias !4
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp49.i, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.tmp49.i, i64 8
   %32 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !4
   %cmp.not3.i.i.i.i.i = icmp eq ptr %31, %32
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
@@ -459,7 +426,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %32
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !18
 
@@ -567,7 +534,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i41
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont4, %invoke.cont6, %if.then.i.i41
-  %lnot.i318 = phi i1 [ %44, %invoke.cont6 ], [ %44, %if.then.i.i41 ], [ false, %invoke.cont4 ]
+  %lnot.i319 = phi i1 [ %44, %invoke.cont6 ], [ %44, %if.then.i.i41 ], [ false, %invoke.cont4 ]
   %47 = load i64, ptr %ref.tmp, align 8
   %and.i.i.i42 = and i64 %47, 1
   %cmp.i.i.i43 = icmp eq i64 %and.i.i.i42, 0
@@ -585,7 +552,7 @@ terminate.lpad.i45:                               ; preds = %if.then.i.i44
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit46:         ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.then.i.i44
-  br i1 %lnot.i318, label %if.then8, label %if.else
+  br i1 %lnot.i319, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit46
   %50 = load i64, ptr %err, align 8
@@ -630,7 +597,7 @@ if.then10:                                        ; preds = %if.else
 
 invoke.cont15:                                    ; preds = %if.then10
   %53 = load ptr, ptr %agg.tmp13, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp13, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %agg.tmp13, i64 8
   %54 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %53, %54
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -654,7 +621,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %54
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !18
 
@@ -691,14 +658,14 @@ if.end19:                                         ; preds = %if.end17, %entry
   br i1 %or.cond, label %if.then23, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end19
-  %len48 = getelementptr inbounds %struct.grpc_resolved_address, ptr %addr, i64 0, i32 1
-  %_M_finish.i91 = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp88, i64 0, i32 1
-  %61 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %addr_str, i64 0, i32 1
-  %mu.i = getelementptr inbounds %struct.grpc_tcp_server, ptr %s, i64 0, i32 3
-  %head.i = getelementptr inbounds %struct.grpc_tcp_server, ptr %s, i64 0, i32 11
-  %62 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp122, i64 0, i32 1
-  %63 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp124, i64 0, i32 1
-  %_M_finish.i156 = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp133, i64 0, i32 1
+  %len48 = getelementptr inbounds i8, ptr %addr, i64 128
+  %_M_finish.i91 = getelementptr inbounds i8, ptr %agg.tmp88, i64 8
+  %61 = getelementptr inbounds i8, ptr %addr_str, i64 8
+  %mu.i = getelementptr inbounds i8, ptr %s, i64 24
+  %head.i = getelementptr inbounds i8, ptr %s, i64 56
+  %62 = getelementptr inbounds i8, ptr %ref.tmp122, i64 8
+  %63 = getelementptr inbounds i8, ptr %ref.tmp124, i64 8
+  %_M_finish.i156 = getelementptr inbounds i8, ptr %agg.tmp133, i64 8
   br label %for.body
 
 if.then23:                                        ; preds = %if.end19
@@ -736,11 +703,11 @@ for.body:                                         ; preds = %for.cond.preheader,
   %fd_index.0280 = phi i32 [ 0, %for.cond.preheader ], [ %fd_index.2, %for.inc ]
   %sp.0279 = phi ptr [ null, %for.cond.preheader ], [ %sp.2, %for.inc ]
   store ptr null, ptr %new_sp, align 8
-  %ifa_name34 = getelementptr inbounds %struct.ifaddrs, ptr %ifa_it.0281, i64 0, i32 1
+  %ifa_name34 = getelementptr inbounds i8, ptr %ifa_it.0281, i64 8
   %67 = load ptr, ptr %ifa_name34, align 8
   %tobool.not = icmp eq ptr %67, null
   %spec.select = select i1 %tobool.not, ptr @.str.4, ptr %67
-  %ifa_addr = getelementptr inbounds %struct.ifaddrs, ptr %ifa_it.0281, i64 0, i32 3
+  %ifa_addr = getelementptr inbounds i8, ptr %ifa_it.0281, i64 24
   %68 = load ptr, ptr %ifa_addr, align 8
   %cmp36 = icmp eq ptr %68, null
   br i1 %cmp36, label %for.inc, label %if.else38
@@ -791,11 +758,11 @@ if.then.i.i63:                                    ; preds = %if.then.i60
           to label %if.then.i.i63.invoke.cont69_crit_edge unwind label %lpad68
 
 if.then.i.i63.invoke.cont69_crit_edge:            ; preds = %if.then.i.i63
-  %.pre314 = load i64, ptr %ref.tmp61, align 8
+  %.pre315 = load i64, ptr %ref.tmp61, align 8
   br label %invoke.cont69
 
 invoke.cont69:                                    ; preds = %if.then.i.i63.invoke.cont69_crit_edge, %invoke.cont67
-  %73 = phi i64 [ %.pre314, %if.then.i.i63.invoke.cont69_crit_edge ], [ %71, %invoke.cont67 ]
+  %73 = phi i64 [ %.pre315, %if.then.i.i63.invoke.cont69_crit_edge ], [ %71, %invoke.cont67 ]
   %and.i.i.i67 = and i64 %73, 1
   %cmp.i.i.i68 = icmp eq i64 %and.i.i.i67, 0
   br i1 %cmp.i.i.i68, label %_ZN4absl12lts_202308026StatusD2Ev.exit72, label %if.then.i.i69
@@ -813,7 +780,7 @@ terminate.lpad.i70:                               ; preds = %if.then.i.i69
 
 _ZN4absl12lts_202308026StatusD2Ev.exit72:         ; preds = %if.then.i60, %invoke.cont69, %if.then.i.i69
   %76 = load ptr, ptr %agg.tmp65, align 8
-  %_M_finish.i73 = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp65, i64 0, i32 1
+  %_M_finish.i73 = getelementptr inbounds i8, ptr %agg.tmp65, i64 8
   %77 = load ptr, ptr %_M_finish.i73, align 8
   %cmp.not3.i.i.i.i74 = icmp eq ptr %76, %77
   br i1 %cmp.not3.i.i.i.i74, label %invoke.cont.i86, label %for.body.i.i.i.i75
@@ -837,7 +804,7 @@ terminate.lpad.i.i.i.i.i.i80:                     ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i81: ; preds = %if.then.i.i.i.i.i.i.i79, %for.body.i.i.i.i75
-  %incdec.ptr.i.i.i.i82 = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i76, i64 1
+  %incdec.ptr.i.i.i.i82 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i76, i64 8
   %cmp.not.i.i.i.i83 = icmp eq ptr %incdec.ptr.i.i.i.i82, %77
   br i1 %cmp.not.i.i.i.i83, label %invoke.contthread-pre-split.i84, label %for.body.i.i.i.i75, !llvm.loop !18
 
@@ -916,7 +883,7 @@ terminate.lpad.i.i.i.i.i.i98:                     ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i99: ; preds = %if.then.i.i.i.i.i.i.i97, %for.body.i.i.i.i93
-  %incdec.ptr.i.i.i.i100 = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i94, i64 1
+  %incdec.ptr.i.i.i.i100 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i94, i64 8
   %cmp.not.i.i.i.i101 = icmp eq ptr %incdec.ptr.i.i.i.i100, %88
   br i1 %cmp.not.i.i.i.i101, label %invoke.contthread-pre-split.i102, label %for.body.i.i.i.i93, !llvm.loop !18
 
@@ -955,7 +922,7 @@ lpad89:                                           ; preds = %invoke.cont83
   br label %ehcleanup164
 
 invoke.cont94:                                    ; preds = %invoke.cont74
-  %ifa_flags = getelementptr inbounds %struct.ifaddrs, ptr %ifa_it.0281, i64 0, i32 2
+  %ifa_flags = getelementptr inbounds i8, ptr %ifa_it.0281, i64 16
   %94 = load i32, ptr %ifa_flags, align 8
   %call96 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %61) #17
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 140, i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull %spec.select, i32 noundef %94, ptr noundef %call96)
@@ -977,19 +944,19 @@ for.body.lr.ph.i:                                 ; preds = %.noexc114
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %l.011.i = phi ptr [ %l.09.i, %for.body.lr.ph.i ], [ %l.0.i, %for.inc.i ]
-  %len.i111 = getelementptr inbounds %struct.grpc_tcp_listener, ptr %l.011.i, i64 0, i32 3, i32 1
+  %len.i111 = getelementptr inbounds i8, ptr %l.011.i, i64 152
   %96 = load i32, ptr %len.i111, align 8
   %cmp3.not.i = icmp eq i32 %96, %95
   br i1 %cmp3.not.i, label %if.end.i113, label %for.inc.i
 
 if.end.i113:                                      ; preds = %for.body.i
-  %addr1.i = getelementptr inbounds %struct.grpc_tcp_listener, ptr %l.011.i, i64 0, i32 3
+  %addr1.i = getelementptr inbounds i8, ptr %l.011.i, i64 24
   %bcmp.i = call i32 @bcmp(ptr nonnull %addr1.i, ptr nonnull %addr, i64 %conv.i)
   %cmp9.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp9.i, label %for.end.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end.i113, %for.body.i
-  %next.i = getelementptr inbounds %struct.grpc_tcp_listener, ptr %l.011.i, i64 0, i32 9
+  %next.i = getelementptr inbounds i8, ptr %l.011.i, i64 232
   %l.0.i = load ptr, ptr %next.i, align 8
   %cmp.not.i112 = icmp eq ptr %l.0.i, null
   br i1 %cmp.not.i112, label %for.end.i, label %for.body.i, !llvm.loop !26
@@ -1056,13 +1023,13 @@ lor.rhs.i.i129:                                   ; preds = %invoke.cont113
 
 invoke.cont115:                                   ; preds = %lor.rhs.i.i129
   %101 = xor i1 %call.i.i130132, true
-  %.pre312 = load i64, ptr %ref.tmp112, align 8
-  %and.i.i.i134 = and i64 %.pre312, 1
+  %.pre313 = load i64, ptr %ref.tmp112, align 8
+  %and.i.i.i134 = and i64 %.pre313, 1
   %cmp.i.i.i135 = icmp eq i64 %and.i.i.i134, 0
   br i1 %cmp.i.i.i135, label %_ZN4absl12lts_202308026StatusD2Ev.exit139, label %if.then.i.i136
 
 if.then.i.i136:                                   ; preds = %invoke.cont115
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.pre312)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %.pre313)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit139 unwind label %terminate.lpad.i137
 
 terminate.lpad.i137:                              ; preds = %if.then.i.i136
@@ -1073,7 +1040,7 @@ terminate.lpad.i137:                              ; preds = %if.then.i.i136
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit139:        ; preds = %invoke.cont113, %invoke.cont115, %if.then.i.i136
-  %lnot.i131324 = phi i1 [ %101, %invoke.cont115 ], [ %101, %if.then.i.i136 ], [ false, %invoke.cont113 ]
+  %lnot.i131325 = phi i1 [ %101, %invoke.cont115 ], [ %101, %if.then.i.i136 ], [ false, %invoke.cont113 ]
   %104 = load i64, ptr %ref.tmp107, align 8
   %and.i.i.i140 = and i64 %104, 1
   %cmp.i.i.i141 = icmp eq i64 %and.i.i.i140, 0
@@ -1091,7 +1058,7 @@ terminate.lpad.i143:                              ; preds = %if.then.i.i142
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit145:        ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit139, %if.then.i.i142
-  br i1 %lnot.i131324, label %invoke.cont123, label %do.body
+  br i1 %lnot.i131325, label %invoke.cont123, label %do.body
 
 invoke.cont123:                                   ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit145
   store i64 24, ptr %ref.tmp122, align 8
@@ -1169,7 +1136,7 @@ terminate.lpad.i.i.i.i.i.i163:                    ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i164: ; preds = %if.then.i.i.i.i.i.i.i162, %for.body.i.i.i.i158
-  %incdec.ptr.i.i.i.i165 = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i159, i64 1
+  %incdec.ptr.i.i.i.i165 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i159, i64 8
   %cmp.not.i.i.i.i166 = icmp eq ptr %incdec.ptr.i.i.i.i165, %116
   br i1 %cmp.not.i.i.i.i166, label %invoke.contthread-pre-split.i167, label %for.body.i.i.i.i158, !llvm.loop !18
 
@@ -1235,11 +1202,11 @@ if.then.i.i185:                                   ; preds = %if.then.i182
           to label %if.then.i.i185.invoke.cont148_crit_edge unwind label %lpad147
 
 if.then.i.i185.invoke.cont148_crit_edge:          ; preds = %if.then.i.i185
-  %.pre313 = load i64, ptr %ref.tmp138, align 8
+  %.pre314 = load i64, ptr %ref.tmp138, align 8
   br label %invoke.cont148
 
 invoke.cont148:                                   ; preds = %if.then.i.i185.invoke.cont148_crit_edge, %invoke.cont146
-  %129 = phi i64 [ %.pre313, %if.then.i.i185.invoke.cont148_crit_edge ], [ %127, %invoke.cont146 ]
+  %129 = phi i64 [ %.pre314, %if.then.i.i185.invoke.cont148_crit_edge ], [ %127, %invoke.cont146 ]
   %and.i.i.i189 = and i64 %129, 1
   %cmp.i.i.i190 = icmp eq i64 %and.i.i.i189, 0
   br i1 %cmp.i.i.i190, label %_ZN4absl12lts_202308026StatusD2Ev.exit194, label %if.then.i.i191
@@ -1349,7 +1316,7 @@ ehcleanup151:                                     ; preds = %lpad147, %lpad145
 
 do.body:                                          ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit145
   %146 = load ptr, ptr %new_sp, align 8
-  %port = getelementptr inbounds %struct.grpc_tcp_listener, ptr %146, i64 0, i32 4
+  %port = getelementptr inbounds i8, ptr %146, i64 156
   %147 = load i32, ptr %port, align 4
   %cmp155.not = icmp eq i32 %requested_port.addr.1, %147
   br i1 %cmp155.not, label %do.end, label %if.then157
@@ -1367,9 +1334,9 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp160.not, label %cleanup, label %if.then161
 
 if.then161:                                       ; preds = %do.end
-  %is_sibling = getelementptr inbounds %struct.grpc_tcp_listener, ptr %146, i64 0, i32 11
+  %is_sibling = getelementptr inbounds i8, ptr %146, i64 248
   store i32 1, ptr %is_sibling, align 8
-  %sibling = getelementptr inbounds %struct.grpc_tcp_listener, ptr %sp.0279, i64 0, i32 10
+  %sibling = getelementptr inbounds i8, ptr %sp.0279, i64 240
   store ptr %146, ptr %sibling, align 8
   br label %cleanup
 
@@ -1444,7 +1411,7 @@ if.then170:                                       ; preds = %if.else168
 
 invoke.cont176:                                   ; preds = %if.then170
   %154 = load ptr, ptr %agg.tmp174, align 8
-  %_M_finish.i217 = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %agg.tmp174, i64 0, i32 1
+  %_M_finish.i217 = getelementptr inbounds i8, ptr %agg.tmp174, i64 8
   %155 = load ptr, ptr %_M_finish.i217, align 8
   %cmp.not3.i.i.i.i218 = icmp eq ptr %154, %155
   br i1 %cmp.not3.i.i.i.i218, label %invoke.cont.i230, label %for.body.i.i.i.i219
@@ -1468,7 +1435,7 @@ terminate.lpad.i.i.i.i.i.i224:                    ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i.i225: ; preds = %if.then.i.i.i.i.i.i.i223, %for.body.i.i.i.i219
-  %incdec.ptr.i.i.i.i226 = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i.i220, i64 1
+  %incdec.ptr.i.i.i.i226 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i220, i64 8
   %cmp.not.i.i.i.i227 = icmp eq ptr %incdec.ptr.i.i.i.i226, %155
   br i1 %cmp.not.i.i.i.i227, label %invoke.contthread-pre-split.i228, label %for.body.i.i.i.i219, !llvm.loop !18
 
@@ -1492,7 +1459,7 @@ lpad175:                                          ; preds = %if.then170
   br label %ehcleanup182
 
 if.else178:                                       ; preds = %if.else168
-  %port179 = getelementptr inbounds %struct.grpc_tcp_listener, ptr %sp.3, i64 0, i32 4
+  %port179 = getelementptr inbounds i8, ptr %sp.3, i64 156
   %161 = load i32, ptr %port179, align 4
   store i32 %161, ptr %out_port, align 4
   store i64 0, ptr %agg.result, align 8, !alias.scope !31
@@ -1558,7 +1525,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<absl::lts_20230802::Status, std::allocator<absl::lts_20230802::Status>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -1582,7 +1549,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4absl12lts_202308026StatusEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::Status", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !18
 
@@ -1695,7 +1662,7 @@ entry:
   br i1 %cmp.i.i.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i, label %if.else.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %entry
-  %1 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   br label %_ZN4absl12lts_2023080217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 

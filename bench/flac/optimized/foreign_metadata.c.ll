@@ -3,7 +3,6 @@ source_filename = "bench/flac/original/foreign_metadata.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.foreign_metadata_t = type { i32, ptr, i64, i64, i64, i32, i32, i32, i32, i32, i32 }
 %struct.foreign_block_t = type { i64, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"aiff\00", align 1
@@ -162,7 +161,7 @@ entry:
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %blocks = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 1
+  %blocks = getelementptr inbounds i8, ptr %fm, i64 8
   %0 = load ptr, ptr %blocks, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.end, label %if.then2
@@ -247,8 +246,8 @@ if.then.i.i:                                      ; preds = %if.end20.i
   br i1 %tobool.not.i.i, label %read_from_aiff_.exit, label %return.sink.split.i
 
 if.end2.i.i:                                      ; preds = %if.end20.i
-  %blocks.i.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 1
-  %num_blocks.i.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 2
+  %blocks.i.i = getelementptr inbounds i8, ptr %fm, i64 8
+  %num_blocks.i.i = getelementptr inbounds i8, ptr %fm, i64 16
   %2 = load i64, ptr %num_blocks.i.i, align 8
   %or.cond.i.i.i = icmp ugt i64 %2, 1152921504606846974
   br i1 %or.cond.i.i.i, label %if.end12.i.i, label %safe_realloc_nofree_muladd2_.exit.i.i
@@ -293,12 +292,12 @@ if.end24.i:                                       ; preds = %safe_realloc_nofree
   %conv9.i.i = zext i8 %8 to i64
   %add10.i.i = or disjoint i64 %add7.i.i, %conv9.i.i
   %add.i = add nuw nsw i64 %add10.i.i, 8
-  %audio_block82.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 4
-  %format_block89.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 3
+  %audio_block82.i = getelementptr inbounds i8, ptr %fm, i64 32
+  %format_block89.i = getelementptr inbounds i8, ptr %fm, i64 24
   %arrayidx1.i78.i = getelementptr inbounds i8, ptr %buffer.i, i64 9
   %arrayidx4.i82.i = getelementptr inbounds i8, ptr %buffer.i, i64 10
   %arrayidx8.i86.i = getelementptr inbounds i8, ptr %buffer.i, i64 11
-  %ssnd_offset_size.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 10
+  %ssnd_offset_size.i = getelementptr inbounds i8, ptr %fm, i64 60
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end130.i, %if.end24.i
@@ -599,12 +598,12 @@ if.end19.i:                                       ; preds = %lor.lhs.false11.i
   br i1 %tobool22.not.i, label %if.then23.i, label %if.end24.i
 
 if.then23.i:                                      ; preds = %if.end19.i
-  %is_rf64.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 5
+  %is_rf64.i = getelementptr inbounds i8, ptr %fm, i64 40
   store i32 1, ptr %is_rf64.i, align 8
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.then23.i, %if.end19.i
-  %is_rf6425.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 5
+  %is_rf6425.i = getelementptr inbounds i8, ptr %fm, i64 40
   %0 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %shl.i.i = shl nuw i32 1, %0
   %1 = load i32, ptr @FLAC__STREAM_METADATA_APPLICATION_ID_LEN, align 4
@@ -618,8 +617,8 @@ if.then.i.i:                                      ; preds = %if.end24.i
   br i1 %tobool.not.i.i, label %read_from_wave_.exit, label %return.sink.split.i
 
 if.end2.i.i:                                      ; preds = %if.end24.i
-  %blocks.i.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 1
-  %num_blocks.i.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 2
+  %blocks.i.i = getelementptr inbounds i8, ptr %fm, i64 8
+  %num_blocks.i.i = getelementptr inbounds i8, ptr %fm, i64 16
   %2 = load i64, ptr %num_blocks.i.i, align 8
   %or.cond.i.i.i = icmp ugt i64 %2, 1152921504606846974
   br i1 %or.cond.i.i.i, label %if.end12.i.i, label %safe_realloc_nofree_muladd2_.exit.i.i
@@ -661,8 +660,8 @@ if.end36.i:                                       ; preds = %safe_realloc_nofree
   br i1 %tobool53.not205.i, label %while.body.lr.ph.i, label %while.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.end36.i
-  %audio_block108.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 4
-  %format_block115.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 3
+  %audio_block108.i = getelementptr inbounds i8, ptr %fm, i64 32
+  %format_block115.i = getelementptr inbounds i8, ptr %fm, i64 24
   %add.ptr189.i = getelementptr inbounds i8, ptr %buffer2.i, i64 8
   %arrayidx11.i.i = getelementptr inbounds i8, ptr %buffer2.i, i64 12
   %add.ptr211.i = getelementptr inbounds i8, ptr %buffer2.i, i64 24
@@ -962,7 +961,7 @@ if.then280.i:                                     ; preds = %if.end276.i
   br i1 %tobool281.not.i, label %read_from_wave_.exit, label %return.sink.split.i
 
 if.end284.i:                                      ; preds = %if.end276.i
-  %format_block285.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 3
+  %format_block285.i = getelementptr inbounds i8, ptr %fm, i64 24
   %34 = load i64, ptr %format_block285.i, align 8
   %tobool286.not.i = icmp eq i64 %34, 0
   br i1 %tobool286.not.i, label %if.then287.i, label %if.end291.i
@@ -972,7 +971,7 @@ if.then287.i:                                     ; preds = %if.end284.i
   br i1 %tobool288.not.i, label %read_from_wave_.exit, label %return.sink.split.i
 
 if.end291.i:                                      ; preds = %if.end284.i
-  %audio_block292.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 4
+  %audio_block292.i = getelementptr inbounds i8, ptr %fm, i64 32
   %35 = load i64, ptr %audio_block292.i, align 8
   %tobool293.not.i = icmp eq i64 %35, 0
   br i1 %tobool293.not.i, label %if.then294.i, label %read_from_wave_.exit
@@ -1058,8 +1057,8 @@ if.then.i.i:                                      ; preds = %if.end16.i
   br i1 %tobool.not.i.i, label %read_from_wave64_.exit, label %return.sink.split.i
 
 if.end2.i.i:                                      ; preds = %if.end16.i
-  %blocks.i.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 1
-  %num_blocks.i.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 2
+  %blocks.i.i = getelementptr inbounds i8, ptr %fm, i64 8
+  %num_blocks.i.i = getelementptr inbounds i8, ptr %fm, i64 16
   %2 = load i64, ptr %num_blocks.i.i, align 8
   %or.cond.i.i.i = icmp ugt i64 %2, 1152921504606846974
   br i1 %or.cond.i.i.i, label %if.end12.i.i, label %safe_realloc_nofree_muladd2_.exit.i.i
@@ -1108,8 +1107,8 @@ if.end20.i:                                       ; preds = %safe_realloc_nofree
   %conv24.i.i = zext i8 %10 to i64
   %shl25.i.i = shl nuw i64 %conv24.i.i, 56
   %add26.i.i = or disjoint i64 %add22.i.i, %shl25.i.i
-  %audio_block74.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 4
-  %format_block81.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 3
+  %audio_block74.i = getelementptr inbounds i8, ptr %fm, i64 32
+  %format_block81.i = getelementptr inbounds i8, ptr %fm, i64 24
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end98.i, %if.end20.i
@@ -1370,13 +1369,13 @@ if.end24:                                         ; preds = %if.end16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %buffer.i)
   %0 = load i32, ptr @FLAC__STREAM_METADATA_APPLICATION_ID_LEN, align 4
   %div35.i = lshr i32 %0, 3
-  %num_blocks.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 2
+  %num_blocks.i = getelementptr inbounds i8, ptr %fm, i64 16
   %1 = load i64, ptr %num_blocks.i, align 8
   %cmp39.not.i = icmp eq i64 %1, 0
   br i1 %cmp39.not.i, label %write_to_flac_.exit, label %do.body.preheader.lr.ph.i
 
 do.body.preheader.lr.ph.i:                        ; preds = %if.end24
-  %blocks.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 1
+  %blocks.i = getelementptr inbounds i8, ptr %fm, i64 8
   %2 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %div4536.i = lshr i32 %2, 3
   %conv46.i = zext nneg i32 %div4536.i to i64
@@ -1408,7 +1407,8 @@ do.cond.i:                                        ; preds = %do.body.i
 do.end.i:                                         ; preds = %do.cond.i
   %call6.i = tail call i32 @FLAC__metadata_simple_iterator_get_block_length(ptr noundef nonnull %call) #14
   %3 = load ptr, ptr %blocks.i, align 8
-  %size.i = getelementptr inbounds %struct.foreign_block_t, ptr %3, i64 %block_num.040.i, i32 1
+  %arrayidx.i = getelementptr inbounds %struct.foreign_block_t, ptr %3, i64 %block_num.040.i
+  %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load i32, ptr %size.i, align 8
   %add.i = add i32 %4, %div35.i
   %cmp7.not.i = icmp eq i32 %call6.i, %add.i
@@ -1423,7 +1423,6 @@ if.then10.i:                                      ; preds = %if.then8.i
   br label %write_to_flac_.exit
 
 if.end12.i:                                       ; preds = %do.end.i
-  %arrayidx.i = getelementptr inbounds %struct.foreign_block_t, ptr %3, i64 %block_num.040.i
   %5 = load i64, ptr %arrayidx.i, align 8
   %call15.i = tail call i32 @fseeko64(ptr noundef nonnull %call11, i64 noundef %5, i32 noundef 0)
   %cmp16.i = icmp slt i32 %call15.i, 0
@@ -1637,26 +1636,26 @@ if.end16:                                         ; preds = %if.end10
   %2 = load i32, ptr @FLAC__STREAM_METADATA_LENGTH_LEN, align 4
   %add31.i = add i32 %add.i, %2
   %div126.i = lshr i32 %add31.i, 3
-  %num_blocks.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 2
-  %audio_block293.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 4
-  %format_block300.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 3
+  %num_blocks.i = getelementptr inbounds i8, ptr %fm, i64 16
+  %audio_block293.i = getelementptr inbounds i8, ptr %fm, i64 32
+  %format_block300.i = getelementptr inbounds i8, ptr %fm, i64 24
   %add.ptr310.i = getelementptr inbounds i8, ptr %buffer.i, i64 4
   %add.ptr320.i = getelementptr inbounds i8, ptr %buffer.i, i64 8
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 9
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 10
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 11
-  %ssnd_offset_size.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 10
-  %is_aifc268.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 7
+  %ssnd_offset_size.i = getelementptr inbounds i8, ptr %fm, i64 60
+  %is_aifc268.i = getelementptr inbounds i8, ptr %fm, i64 48
   %add.ptr282.i = getelementptr inbounds i8, ptr %buffer.i, i64 26
-  %is_sowt286.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 8
-  %aifc_comm_length.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 9
-  %is_wavefmtex154.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 6
-  %is_rf64177.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 5
+  %is_sowt286.i = getelementptr inbounds i8, ptr %fm, i64 52
+  %aifc_comm_length.i = getelementptr inbounds i8, ptr %fm, i64 56
+  %is_wavefmtex154.i = getelementptr inbounds i8, ptr %fm, i64 44
+  %is_rf64177.i = getelementptr inbounds i8, ptr %fm, i64 40
   %shl.i141.i = shl nuw i32 1, %2
   %3 = load i32, ptr @FLAC__STREAM_METADATA_APPLICATION_ID_LEN, align 4
   %div13.i.i = lshr i32 %3, 3
   %sub.i.i = sub i32 %shl.i141.i, %div13.i.i
-  %blocks.i.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 1
+  %blocks.i.i = getelementptr inbounds i8, ptr %fm, i64 8
   %narrow = add nuw nsw i32 %div126.i, 4
   %add32.i = zext nneg i32 %narrow to i64
   br label %while.cond.outer.outer.i
@@ -2205,17 +2204,17 @@ if.then1.i:                                       ; preds = %if.then.i
   br label %write_to_iff_.exit
 
 if.end2.i:                                        ; preds = %if.end10
-  %is_rf64.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 5
+  %is_rf64.i = getelementptr inbounds i8, ptr %fm, i64 40
   %0 = load i32, ptr %is_rf64.i, align 8
   %tobool3.not.i = icmp eq i32 %0, 0
   %cond.i = select i1 %tobool3.not.i, i64 1, i64 2
-  %format_block.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 3
+  %format_block.i = getelementptr inbounds i8, ptr %fm, i64 24
   %1 = load i64, ptr %format_block.i, align 8
   %cmp4144.i = icmp ult i64 %cond.i, %1
   br i1 %cmp4144.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end2.i
-  %blocks.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 1
+  %blocks.i = getelementptr inbounds i8, ptr %fm, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -2290,7 +2289,7 @@ for.inc.i:                                        ; preds = %for.cond.i.i, %if.e
 
 for.end.i:                                        ; preds = %for.inc.i, %if.end2.i
   %i.0.lcssa.i = phi i64 [ %cond.i, %if.end2.i ], [ %inc.i, %for.inc.i ]
-  %is_aifc.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 7
+  %is_aifc.i = getelementptr inbounds i8, ptr %fm, i64 48
   %7 = load i32, ptr %is_aifc.i, align 8
   %tobool21.not.i = icmp eq i32 %7, 0
   br i1 %tobool21.not.i, label %if.end58.i, label %if.then22.i
@@ -2309,7 +2308,7 @@ if.then28.i:                                      ; preds = %if.then26.i
   br label %write_to_iff_.exit
 
 if.end30.i:                                       ; preds = %if.then22.i
-  %blocks31.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 1
+  %blocks31.i = getelementptr inbounds i8, ptr %fm, i64 8
   %8 = load ptr, ptr %blocks31.i, align 8
   %arrayidx32.i = getelementptr inbounds %struct.foreign_block_t, ptr %8, i64 %i.0.lcssa.i
   %9 = load i64, ptr %arrayidx32.i, align 8
@@ -2327,7 +2326,7 @@ if.then39.i:                                      ; preds = %if.then37.i
   br label %write_to_iff_.exit
 
 if.end41.i:                                       ; preds = %if.end30.i
-  %aifc_comm_length.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 9
+  %aifc_comm_length.i = getelementptr inbounds i8, ptr %fm, i64 56
   %10 = load i32, ptr %aifc_comm_length.i, align 8
   %sub.i = add i32 %10, -34
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %buffer.i64.i)
@@ -2408,14 +2407,14 @@ if.then64.i:                                      ; preds = %if.then62.i
 
 if.end66.i:                                       ; preds = %if.end58.i
   %13 = load i64, ptr %format_block.i, align 8
-  %audio_block.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 4
+  %audio_block.i = getelementptr inbounds i8, ptr %fm, i64 32
   %i.1146.i = add i64 %13, 1
   %14 = load i64, ptr %audio_block.i, align 8
   %cmp70147.i = icmp ult i64 %i.1146.i, %14
   br i1 %cmp70147.i, label %for.body72.lr.ph.i, label %for.end94.i
 
 for.body72.lr.ph.i:                               ; preds = %if.end66.i
-  %blocks73.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 1
+  %blocks73.i = getelementptr inbounds i8, ptr %fm, i64 8
   br label %for.body72.i
 
 for.body72.i:                                     ; preds = %copy_data_.exit105.i, %for.body72.lr.ph.i
@@ -2503,14 +2502,14 @@ if.then100.i:                                     ; preds = %if.then98.i
 
 if.end102.i:                                      ; preds = %for.end94.i
   %20 = load i64, ptr %audio_block.i, align 8
-  %num_blocks.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 2
+  %num_blocks.i = getelementptr inbounds i8, ptr %fm, i64 16
   %i.2149.i = add i64 %20, 1
   %21 = load i64, ptr %num_blocks.i, align 8
   %cmp106150.i = icmp ult i64 %i.2149.i, %21
   br i1 %cmp106150.i, label %for.body108.lr.ph.i, label %write_to_iff_.exit
 
 for.body108.lr.ph.i:                              ; preds = %if.end102.i
-  %blocks109.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 1
+  %blocks109.i = getelementptr inbounds i8, ptr %fm, i64 8
   br label %for.body108.i
 
 for.body108.i:                                    ; preds = %copy_data_.exit126.i, %for.body108.lr.ph.i
@@ -2631,9 +2630,9 @@ if.end8:                                          ; preds = %if.then7, %if.then5
   br label %return
 
 if.end10:                                         ; preds = %if.end2
-  %audio_block.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 4
-  %blocks.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 1
-  %format_block.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 3
+  %audio_block.i = getelementptr inbounds i8, ptr %fm, i64 32
+  %blocks.i = getelementptr inbounds i8, ptr %fm, i64 8
+  %format_block.i = getelementptr inbounds i8, ptr %fm, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end10
@@ -2737,7 +2736,7 @@ for.end.i:                                        ; preds = %for.inc.i
   br i1 %cmp23.i, label %if.then25.i, label %for.cond30.preheader.i
 
 for.cond30.preheader.i:                           ; preds = %for.end.i
-  %num_blocks.i = getelementptr inbounds %struct.foreign_metadata_t, ptr %fm, i64 0, i32 2
+  %num_blocks.i = getelementptr inbounds i8, ptr %fm, i64 16
   %7 = load i64, ptr %num_blocks.i, align 8
   %cmp3168.i = icmp ult i64 %inc.i, %7
   br i1 %cmp3168.i, label %for.body33.i, label %compare_with_iff_.exit

@@ -3,10 +3,7 @@ source_filename = "bench/openssl/original/libapps-lib-tlssrp_depr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.srp_arg_st = type { ptr, ptr, i32, i32, i32, i32 }
 %struct.pw_cb_data = type { ptr, ptr }
-%struct.srpsrvparm_st = type { ptr, ptr, ptr }
-%struct.SRP_user_pwd_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
 
 @bio_err = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [28 x i8] c"Unable to set SRP username\0A\00", align 1
@@ -38,7 +35,7 @@ entry:
   br i1 %tobool.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %srplogin = getelementptr inbounds %struct.srp_arg_st, ptr %srp_arg, i64 0, i32 1
+  %srplogin = getelementptr inbounds i8, ptr %srp_arg, i64 8
   %0 = load ptr, ptr %srplogin, align 8
   %call = tail call i32 @SSL_CTX_set_srp_username(ptr noundef %ctx, ptr noundef %0) #3
   %tobool1.not = icmp eq i32 %call, 0
@@ -50,14 +47,14 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %msg = getelementptr inbounds %struct.srp_arg_st, ptr %srp_arg, i64 0, i32 2
+  %msg = getelementptr inbounds i8, ptr %srp_arg, i64 16
   store i32 %c_msg, ptr %msg, align 8
-  %debug = getelementptr inbounds %struct.srp_arg_st, ptr %srp_arg, i64 0, i32 3
+  %debug = getelementptr inbounds i8, ptr %srp_arg, i64 20
   store i32 %c_debug, ptr %debug, align 4
   %call3 = call i32 @SSL_CTX_set_srp_cb_arg(ptr noundef %ctx, ptr noundef nonnull %srp_arg.addr) #3
   %call4 = call i32 @SSL_CTX_set_srp_client_pwd_callback(ptr noundef %ctx, ptr noundef nonnull @ssl_give_srp_client_pwd_cb) #3
   %2 = load ptr, ptr %srp_arg.addr, align 8
-  %strength = getelementptr inbounds %struct.srp_arg_st, ptr %2, i64 0, i32 5
+  %strength = getelementptr inbounds i8, ptr %2, i64 28
   %3 = load i32, ptr %strength, align 4
   %call5 = call i32 @SSL_CTX_set_srp_strength(ptr noundef %ctx, i32 noundef %3) #3
   %4 = or i32 %c_debug, %c_msg
@@ -66,7 +63,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 lor.lhs.false8:                                   ; preds = %if.end
   %5 = load ptr, ptr %srp_arg.addr, align 8
-  %amp = getelementptr inbounds %struct.srp_arg_st, ptr %5, i64 0, i32 4
+  %amp = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load i32, ptr %amp, align 8
   %cmp = icmp eq i32 %6, 0
   br i1 %cmp, label %if.then9, label %return
@@ -95,7 +92,7 @@ entry:
   %call = tail call ptr @app_malloc(i64 noundef 1025, ptr noundef nonnull @.str.5) #3
   %0 = load ptr, ptr %arg, align 8
   store ptr %0, ptr %cb_tmp, align 8
-  %prompt_info = getelementptr inbounds %struct.pw_cb_data, ptr %cb_tmp, i64 0, i32 1
+  %prompt_info = getelementptr inbounds i8, ptr %cb_tmp, i64 8
   store ptr @.str.6, ptr %prompt_info, align 8
   %call1 = call i32 @password_callback(ptr noundef %call, i32 noundef 1024, i32 noundef 0, ptr noundef nonnull %cb_tmp) #3
   %cmp = icmp slt i32 %call1, 0
@@ -135,19 +132,19 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %debug = getelementptr inbounds %struct.srp_arg_st, ptr %arg, i64 0, i32 3
+  %debug = getelementptr inbounds i8, ptr %arg, i64 20
   %0 = load i32, ptr %debug, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %lor.lhs.false3, label %if.then7
 
 lor.lhs.false3:                                   ; preds = %if.end
-  %msg = getelementptr inbounds %struct.srp_arg_st, ptr %arg, i64 0, i32 2
+  %msg = getelementptr inbounds i8, ptr %arg, i64 16
   %1 = load i32, ptr %msg, align 8
   %tobool4.not = icmp eq i32 %1, 0
   br i1 %tobool4.not, label %lor.lhs.false5, label %if.then7
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false3
-  %amp = getelementptr inbounds %struct.srp_arg_st, ptr %arg, i64 0, i32 4
+  %amp = getelementptr inbounds i8, ptr %arg, i64 24
   %2 = load i32, ptr %amp, align 8
   %cmp6 = icmp eq i32 %2, 1
   br i1 %cmp6, label %if.then7, label %if.end14
@@ -173,7 +170,7 @@ if.end14:                                         ; preds = %if.then7, %lor.lhs.
   br i1 %tobool16.not, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.end14
-  %amp19 = getelementptr inbounds %struct.srp_arg_st, ptr %arg, i64 0, i32 4
+  %amp19 = getelementptr inbounds i8, ptr %arg, i64 24
   %9 = load i32, ptr %amp19, align 8
   %cmp20 = icmp eq i32 %9, 1
   br i1 %cmp20, label %if.then21, label %if.end33
@@ -277,9 +274,9 @@ entry:
   %srp_callback_parm.addr = alloca ptr, align 8
   store ptr %srp_callback_parm, ptr %srp_callback_parm.addr, align 8
   %call = tail call ptr @SRP_VBASE_new(ptr noundef %srpuserseed) #3
-  %vb = getelementptr inbounds %struct.srpsrvparm_st, ptr %srp_callback_parm, i64 0, i32 1
+  %vb = getelementptr inbounds i8, ptr %srp_callback_parm, i64 8
   store ptr %call, ptr %vb, align 8
-  %user = getelementptr inbounds %struct.srpsrvparm_st, ptr %srp_callback_parm, i64 0, i32 2
+  %user = getelementptr inbounds i8, ptr %srp_callback_parm, i64 16
   store ptr null, ptr %user, align 8
   store ptr null, ptr %srp_callback_parm, align 8
   %cmp = icmp eq ptr %call, null
@@ -326,7 +323,7 @@ define internal i32 @ssl_srp_server_param_cb(ptr noundef %s, ptr nocapture nound
 entry:
   %0 = load ptr, ptr %arg, align 8
   %cmp = icmp eq ptr %0, null
-  %user = getelementptr inbounds %struct.srpsrvparm_st, ptr %arg, i64 0, i32 2
+  %user = getelementptr inbounds i8, ptr %arg, i64 16
   %1 = load ptr, ptr %user, align 8
   br i1 %cmp, label %land.lhs.true, label %if.end
 
@@ -335,7 +332,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %if.end.thread
 
 if.end.thread:                                    ; preds = %land.lhs.true
-  %user517 = getelementptr inbounds %struct.srpsrvparm_st, ptr %arg, i64 0, i32 2
+  %user517 = getelementptr inbounds i8, ptr %arg, i64 16
   br label %if.end10
 
 if.then:                                          ; preds = %land.lhs.true
@@ -346,7 +343,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %entry
-  %user5 = getelementptr inbounds %struct.srpsrvparm_st, ptr %arg, i64 0, i32 2
+  %user5 = getelementptr inbounds i8, ptr %arg, i64 16
   %cmp6 = icmp eq ptr %1, null
   br i1 %cmp6, label %if.then7, label %if.end10
 
@@ -356,16 +353,16 @@ if.then7:                                         ; preds = %if.end
   br label %err
 
 if.end10:                                         ; preds = %if.end.thread, %if.end
-  %user520 = phi ptr [ %user517, %if.end.thread ], [ %user5, %if.end ]
-  %N = getelementptr inbounds %struct.SRP_user_pwd_st, ptr %1, i64 0, i32 4
+  %user519 = phi ptr [ %user517, %if.end.thread ], [ %user5, %if.end ]
+  %N = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %N, align 8
-  %g = getelementptr inbounds %struct.SRP_user_pwd_st, ptr %1, i64 0, i32 3
+  %g = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %g, align 8
-  %s14 = getelementptr inbounds %struct.SRP_user_pwd_st, ptr %1, i64 0, i32 1
+  %s14 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %s14, align 8
-  %v = getelementptr inbounds %struct.SRP_user_pwd_st, ptr %1, i64 0, i32 2
+  %v = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %v, align 8
-  %info = getelementptr inbounds %struct.SRP_user_pwd_st, ptr %1, i64 0, i32 5
+  %info = getelementptr inbounds i8, ptr %1, i64 40
   %8 = load ptr, ptr %info, align 8
   %call17 = tail call i32 @SSL_set_srp_server_param(ptr noundef %s, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) #3
   %cmp18 = icmp slt i32 %call17, 0
@@ -378,18 +375,18 @@ if.then19:                                        ; preds = %if.end10
 if.end20:                                         ; preds = %if.end10
   %9 = load ptr, ptr @bio_err, align 8
   %10 = load ptr, ptr %arg, align 8
-  %11 = load ptr, ptr %user520, align 8
-  %info23 = getelementptr inbounds %struct.SRP_user_pwd_st, ptr %11, i64 0, i32 5
+  %11 = load ptr, ptr %user519, align 8
+  %info23 = getelementptr inbounds i8, ptr %11, i64 40
   %12 = load ptr, ptr %info23, align 8
   %call24 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.18, ptr noundef %10, ptr noundef %12) #3
   br label %err
 
 err:                                              ; preds = %if.end20, %if.then19, %if.then7
-  %user519 = phi ptr [ %user5, %if.then7 ], [ %user520, %if.then19 ], [ %user520, %if.end20 ]
+  %user520 = phi ptr [ %user5, %if.then7 ], [ %user519, %if.then19 ], [ %user519, %if.end20 ]
   %ret.0 = phi i32 [ 2, %if.then7 ], [ 2, %if.then19 ], [ 0, %if.end20 ]
-  %13 = load ptr, ptr %user519, align 8
+  %13 = load ptr, ptr %user520, align 8
   tail call void @SRP_user_pwd_free(ptr noundef %13) #3
-  store ptr null, ptr %user519, align 8
+  store ptr null, ptr %user520, align 8
   store ptr null, ptr %arg, align 8
   br label %return
 
@@ -401,10 +398,10 @@ return:                                           ; preds = %err, %if.then
 ; Function Attrs: nounwind uwtable
 define void @lookup_srp_user(ptr nocapture noundef %srp_callback_parm, ptr noundef %bio_s_out) local_unnamed_addr #0 {
 entry:
-  %user = getelementptr inbounds %struct.srpsrvparm_st, ptr %srp_callback_parm, i64 0, i32 2
+  %user = getelementptr inbounds i8, ptr %srp_callback_parm, i64 16
   %0 = load ptr, ptr %user, align 8
   tail call void @SRP_user_pwd_free(ptr noundef %0) #3
-  %vb = getelementptr inbounds %struct.srpsrvparm_st, ptr %srp_callback_parm, i64 0, i32 1
+  %vb = getelementptr inbounds i8, ptr %srp_callback_parm, i64 8
   %1 = load ptr, ptr %vb, align 8
   %2 = load ptr, ptr %srp_callback_parm, align 8
   %call = tail call ptr @SRP_VBASE_get1_by_user(ptr noundef %1, ptr noundef %2) #3
@@ -413,7 +410,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %info = getelementptr inbounds %struct.SRP_user_pwd_st, ptr %call, i64 0, i32 5
+  %info = getelementptr inbounds i8, ptr %call, i64 40
   %3 = load ptr, ptr %info, align 8
   %call4 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio_s_out, ptr noundef nonnull @.str.3, ptr noundef %3) #3
   br label %if.end

@@ -3,23 +3,22 @@ source_filename = "bench/icu/original/dcfmtsym.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
 %"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"class.icu_75::DecimalFormatSymbols" = type <{ %"class.icu_75::UObject", [29 x %"class.icu_75::UnicodeString"], %"class.icu_75::UnicodeString", i32, [4 x i8], %"class.icu_75::Locale", [157 x i8], [157 x i8], [6 x i8], ptr, [3 x %"class.icu_75::UnicodeString"], [3 x %"class.icu_75::UnicodeString"], i8, i8, [9 x i8], [5 x i8] }>
-%"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 %"class.icu_75::LocalUResourceBundlePointer" = type { %"class.icu_75::LocalPointerBase.1" }
 %"class.icu_75::LocalPointerBase.1" = type { ptr }
 %"class.icu_75::LocaleBased" = type { ptr, ptr }
 %"struct.icu_75::(anonymous namespace)::DecFmtSymDataSink" = type <{ %"class.icu_75::ResourceSink", ptr, [29 x i8], [3 x i8] }>
 %"class.icu_75::ResourceSink" = type { %"class.icu_75::UObject" }
 %"class.icu_75::CharString" = type { %"class.icu_75::MaybeStackArray", i32, [4 x i8] }
+%"class.icu_75::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_75::StringPiece" = type <{ ptr, i32, [4 x i8] }>
 %"struct.icu_75::(anonymous namespace)::CurrencySpacingSink" = type <{ %"class.icu_75::ResourceSink", ptr, i8, i8, [6 x i8] }>
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
+%"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 %"class.icu_75::ResourceTable" = type <{ ptr, ptr, ptr, ptr, i32, %"class.icu_75::ResourceTracer", [3 x i8] }>
 %"class.icu_75::ResourceTracer" = type { i8 }
 
@@ -121,11 +120,11 @@ $_ZN6icu_7520DecimalFormatSymbols9setSymbolENS0_19ENumberFormatSymbolERKNS_13Uni
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -133,11 +132,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -198,7 +197,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %0, i32 %length)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -208,7 +207,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -220,7 +219,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -233,7 +232,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -257,7 +256,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -287,21 +286,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
-  %capacity3 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
-  %needToRelease4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -324,11 +323,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -336,7 +335,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -347,20 +346,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 3
+  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -388,7 +387,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -404,7 +403,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -436,7 +435,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -448,7 +447,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -463,7 +462,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -477,7 +476,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %length)
   %conv = sext i32 %spec.select to i64
@@ -494,9 +493,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.1, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -514,7 +513,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %src, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -526,7 +525,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -542,7 +541,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 1
+  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -577,23 +576,23 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 8, %entry ], [ %arrayctor.cur.add, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1864
   br i1 %arrayctor.done, label %invoke.cont4, label %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %fNoSymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 2
+  %fNoSymbol = getelementptr inbounds i8, ptr %this, i64 1864
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fNoSymbol, align 8
-  %fUnion2.i6 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 2, i32 1
+  %fUnion2.i6 = getelementptr inbounds i8, ptr %this, i64 1872
   store i16 2, ptr %fUnion2.i6, align 8
-  %locale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 5
+  %locale = getelementptr inbounds i8, ptr %this, i64 1936
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %currPattern = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 9
+  %currPattern = getelementptr inbounds i8, ptr %this, i64 2480
   store ptr null, ptr %currPattern, align 8
   br label %invoke.cont12
 
@@ -601,7 +600,7 @@ invoke.cont12:                                    ; preds = %invoke.cont6, %invo
   %arrayctor.cur10.idx = phi i64 [ 2488, %invoke.cont6 ], [ %arrayctor.cur10.add, %invoke.cont12 ]
   %arrayctor.cur10.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur10.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur10.ptr.ptr, align 8
-  %fUnion2.i7 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur10.ptr.ptr, i64 0, i32 1
+  %fUnion2.i7 = getelementptr inbounds i8, ptr %arrayctor.cur10.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i7, align 8
   %arrayctor.cur10.add = add nuw nsw i64 %arrayctor.cur10.idx, 64
   %arrayctor.done20 = icmp eq i64 %arrayctor.cur10.add, 2680
@@ -611,7 +610,7 @@ invoke.cont27:                                    ; preds = %invoke.cont12, %inv
   %arrayctor.cur25.idx = phi i64 [ %arrayctor.cur25.add, %invoke.cont27 ], [ 2680, %invoke.cont12 ]
   %arrayctor.cur25.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur25.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur25.ptr.ptr, align 8
-  %fUnion2.i8 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur25.ptr.ptr, i64 0, i32 1
+  %fUnion2.i8 = getelementptr inbounds i8, ptr %arrayctor.cur25.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur25.add = add nuw nsw i64 %arrayctor.cur25.idx, 64
   %arrayctor.done35 = icmp eq i64 %arrayctor.cur25.add, 2872
@@ -706,9 +705,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %cleanup.cont195
 
 if.end:                                           ; preds = %entry
-  %actualLocale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 6
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 2160
   store i8 0, ptr %actualLocale, align 8
-  %validLocale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 7
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 2317
   store i8 0, ptr %validLocale, align 1
   tail call void @_ZN6icu_7520DecimalFormatSymbols10initializeEv(ptr noundef nonnull align 8 dereferenceable(2883) %this)
   %cmp = icmp eq ptr %ns, null
@@ -753,7 +752,7 @@ if.then19:                                        ; preds = %invoke.cont16
 
 invoke.cont20:                                    ; preds = %if.then19
   %vtable = load ptr, ptr %ns.addr.0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %digitString, ptr noundef nonnull align 8 dereferenceable(86) %ns.addr.0)
           to label %invoke.cont22 unwind label %lpad
@@ -763,17 +762,18 @@ invoke.cont22:                                    ; preds = %invoke.cont20
           to label %invoke.cont24 unwind label %lpad23.loopexit.split-lp
 
 invoke.cont24:                                    ; preds = %invoke.cont22
-  %arrayidx = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 4
+  %fSymbols = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 264
   invoke void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx)
           to label %.noexc unwind label %lpad23.loopexit.split-lp
 
 .noexc:                                           ; preds = %invoke.cont24
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 4, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %4 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %4, 0
   %5 = ashr i16 %4, 5
   %shr.i.i.i = sext i16 %5 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 4, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 276
   %6 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %6, i32 %shr.i.i.i
   %call2.i55 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString7replaceEiii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, i32 noundef 0, i32 noundef %cond.i.i, i32 noundef %call25)
@@ -781,26 +781,26 @@ invoke.cont24:                                    ; preds = %invoke.cont22
 
 for.body:                                         ; preds = %.noexc, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 18, %.noexc ]
-  %digit.0135 = phi i32 [ %call31, %for.inc ], [ %call25, %.noexc ]
-  %digitIndex.0134 = phi i32 [ %add, %for.inc ], [ 0, %.noexc ]
-  %cmp29 = icmp ult i32 %digit.0135, 65536
+  %digit.0136 = phi i32 [ %call31, %for.inc ], [ %call25, %.noexc ]
+  %digitIndex.0135 = phi i32 [ %add, %for.inc ], [ 0, %.noexc ]
+  %cmp29 = icmp ult i32 %digit.0136, 65536
   %cond = select i1 %cmp29, i32 1, i32 2
-  %add = add nuw nsw i32 %cond, %digitIndex.0134
+  %add = add nuw nsw i32 %cond, %digitIndex.0135
   %call31 = invoke noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %digitString, i32 noundef %add)
           to label %invoke.cont30 unwind label %lpad23.loopexit
 
 invoke.cont30:                                    ; preds = %for.body
-  %arrayidx33 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx33 = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i64 0, i64 %indvars.iv
   invoke void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx33)
           to label %.noexc61 unwind label %lpad23.loopexit
 
 .noexc61:                                         ; preds = %invoke.cont30
-  %fUnion.i.i.i56 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 %indvars.iv, i32 1
+  %fUnion.i.i.i56 = getelementptr inbounds i8, ptr %arrayidx33, i64 8
   %7 = load i16, ptr %fUnion.i.i.i56, align 8
   %cmp.i.i.i57 = icmp slt i16 %7, 0
   %8 = ashr i16 %7, 5
   %shr.i.i.i58 = sext i16 %8 to i32
-  %fLength.i.i59 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 %indvars.iv, i32 1, i32 0, i32 1
+  %fLength.i.i59 = getelementptr inbounds i8, ptr %arrayidx33, i64 12
   %9 = load i32, ptr %fLength.i.i59, align 4
   %cond.i.i60 = select i1 %cmp.i.i.i57, i32 %9, i32 %shr.i.i.i58
   %call2.i62 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString7replaceEiii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx33, i32 noundef 0, i32 noundef %cond.i.i60, i32 noundef %call31)
@@ -812,17 +812,17 @@ for.inc:                                          ; preds = %.noexc61
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 lpad23.loopexit:                                  ; preds = %for.body, %invoke.cont30, %.noexc61
-  %lpad.loopexit131 = landingpad { ptr, i32 }
+  %lpad.loopexit132 = landingpad { ptr, i32 }
           cleanup
   br label %lpad23
 
 lpad23.loopexit.split-lp:                         ; preds = %invoke.cont22, %invoke.cont24, %.noexc
-  %lpad.loopexit.split-lp132 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp133 = landingpad { ptr, i32 }
           cleanup
   br label %lpad23
 
 lpad23:                                           ; preds = %lpad23.loopexit.split-lp, %lpad23.loopexit
-  %lpad.phi133 = phi { ptr, i32 } [ %lpad.loopexit131, %lpad23.loopexit ], [ %lpad.loopexit.split-lp132, %lpad23.loopexit.split-lp ]
+  %lpad.phi134 = phi { ptr, i32 } [ %lpad.loopexit132, %lpad23.loopexit ], [ %lpad.loopexit.split-lp133, %lpad23.loopexit.split-lp ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %digitString) #15
   br label %ehcleanup196
 
@@ -832,9 +832,9 @@ for.end:                                          ; preds = %for.inc
 
 if.end36:                                         ; preds = %if.end8, %invoke.cont12, %invoke.cont16, %for.end
   %nsName.0 = phi ptr [ %call21, %for.end ], [ @_ZN6icu_75L5gLatnE, %invoke.cont16 ], [ @_ZN6icu_75L5gLatnE, %invoke.cont12 ], [ @_ZN6icu_75L5gLatnE, %if.end8 ]
-  %nsName37 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 14
+  %nsName37 = getelementptr inbounds i8, ptr %this, i64 2874
   %call39 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %nsName37, ptr noundef nonnull dereferenceable(1) %nsName.0) #15
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %loc, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %loc, i64 40
   %10 = load ptr, ptr %fullName.i, align 8
   %call43 = invoke ptr @ures_open_75(ptr noundef null, ptr noundef %10, ptr noundef nonnull %status)
           to label %invoke.cont44 unwind label %lpad
@@ -871,7 +871,7 @@ lpad51:                                           ; preds = %invoke.cont72, %inv
 
 if.end60:                                         ; preds = %invoke.cont50
   store ptr %validLocale, ptr %locBased, align 8
-  %actual.i = getelementptr inbounds %"class.icu_75::LocaleBased", ptr %locBased, i64 0, i32 1
+  %actual.i = getelementptr inbounds i8, ptr %locBased, i64 8
   store ptr %actualLocale, ptr %actual.i, align 8
   %call69 = invoke ptr @ures_getLocaleByType_75(ptr noundef %call49, i32 noundef 1, ptr noundef nonnull %status)
           to label %invoke.cont68 unwind label %lpad51
@@ -886,9 +886,9 @@ invoke.cont72:                                    ; preds = %invoke.cont68
 
 invoke.cont75:                                    ; preds = %invoke.cont72
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_117DecFmtSymDataSinkE, i64 0, inrange i32 0, i64 2), ptr %sink, align 8
-  %dfs.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DecFmtSymDataSink", ptr %sink, i64 0, i32 1
+  %dfs.i = getelementptr inbounds i8, ptr %sink, i64 8
   store ptr %this, ptr %dfs.i, align 8
-  %seenSymbol.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DecFmtSymDataSink", ptr %sink, i64 0, i32 2
+  %seenSymbol.i = getelementptr inbounds i8, ptr %sink, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(29) %seenSymbol.i, i8 0, i64 29, i1 false)
   %call76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %nsName.0, ptr noundef nonnull dereferenceable(5) @_ZN6icu_75L5gLatnE) #18
   %cmp77.not = icmp eq i32 %call76, 0
@@ -902,7 +902,7 @@ if.then78:                                        ; preds = %invoke.cont75
           to label %invoke.cont80 unwind label %lpad79.loopexit.split-lp
 
 invoke.cont80:                                    ; preds = %if.then78
-  %len.i = getelementptr inbounds %"class.icu_75::CharString", ptr %path, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %path, i64 56
   store i32 0, ptr %len.i, align 8
   %14 = load ptr, ptr %path, align 8
   store i8 0, ptr %14, align 1
@@ -911,7 +911,7 @@ invoke.cont80:                                    ; preds = %if.then78
 
 invoke.cont82:                                    ; preds = %invoke.cont80
   %15 = load ptr, ptr %agg.tmp, align 8
-  %16 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i64 0, i32 1
+  %16 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %17 = load i32, ptr %16, align 8
   %call3.i67 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %path, ptr noundef %15, i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont83 unwind label %lpad81
@@ -926,7 +926,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
 
 invoke.cont88:                                    ; preds = %invoke.cont85
   %18 = load ptr, ptr %agg.tmp87, align 8
-  %19 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp87, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %agg.tmp87, i64 8
   %20 = load i32, ptr %19, align 8
   %call3.i68 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %call86, ptr noundef %18, i32 noundef %20, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont89 unwind label %lpad81
@@ -941,7 +941,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
 
 invoke.cont94:                                    ; preds = %invoke.cont91
   %21 = load ptr, ptr %agg.tmp93, align 8
-  %22 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp93, i64 0, i32 1
+  %22 = getelementptr inbounds i8, ptr %agg.tmp93, i64 8
   %23 = load i32, ptr %22, align 8
   %call3.i70 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %call92, ptr noundef %21, i32 noundef %23, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont95 unwind label %lpad81
@@ -961,7 +961,7 @@ if.then103:                                       ; preds = %invoke.cont101
   br label %if.end110
 
 lpad79.loopexit:                                  ; preds = %for.body131, %if.end138
-  %lpad.loopexit129 = landingpad { ptr, i32 }
+  %lpad.loopexit130 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup188
 
@@ -995,7 +995,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DecFmtSymDataSink", ptr %sink, i64 0, i32 2, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [29 x i8], ptr %seenSymbol.i, i64 0, i64 %indvars.iv.i
   %27 = load i8, ptr %arrayidx.i, align 1
   %tobool.not.i = icmp eq i8 %27, 0
   br i1 %tobool.not.i, label %if.then115, label %for.cond.i
@@ -1006,48 +1006,48 @@ if.then115:                                       ; preds = %for.body.i
 
 invoke.cont118:                                   ; preds = %if.then115
   %28 = load i32, ptr %status, align 4
-  %cmp.i74 = icmp slt i32 %28, 1
-  br i1 %cmp.i74, label %if.end124, label %cleanup187
+  %cmp.i75 = icmp slt i32 %28, 1
+  br i1 %cmp.i75, label %if.end124, label %cleanup187
 
 if.end124:                                        ; preds = %for.cond.i, %invoke.cont118
-  %arrayidx.i76 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DecFmtSymDataSink", ptr %sink, i64 0, i32 2, i64 10
-  %29 = load i8, ptr %arrayidx.i76, align 2
-  %tobool.not.i77 = icmp eq i8 %29, 0
-  br i1 %tobool.not.i77, label %if.then.i, label %if.end.i
+  %fSymbols125 = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx.i77 = getelementptr inbounds i8, ptr %sink, i64 26
+  %29 = load i8, ptr %arrayidx.i77, align 2
+  %tobool.not.i78 = icmp eq i8 %29, 0
+  br i1 %tobool.not.i78, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end124
-  %fSymbols125 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1
   %30 = load ptr, ptr %dfs.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %30, i64 0, i32 1, i64 10
-  %call.i.i79 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(64) %fSymbols125)
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %30, i64 648
+  %call.i.i80 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(64) %fSymbols125)
           to label %if.end.i unwind label %lpad79.loopexit.split-lp
 
 if.end.i:                                         ; preds = %if.then.i, %if.end124
-  %arrayidx4.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DecFmtSymDataSink", ptr %sink, i64 0, i32 2, i64 17
+  %arrayidx4.i = getelementptr inbounds i8, ptr %sink, i64 33
   %31 = load i8, ptr %arrayidx4.i, align 1
   %tobool5.not.i = icmp eq i8 %31, 0
   br i1 %tobool5.not.i, label %if.then6.i, label %_ZN6icu_7512_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPKNS_13UnicodeStringE.exit
 
 if.then6.i:                                       ; preds = %if.end.i
   %32 = load ptr, ptr %dfs.i, align 8
-  %arrayidx8.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 1
-  %arrayidx.i2.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %32, i64 0, i32 1, i64 17
-  %call.i3.i80 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i2.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx8.i)
+  %arrayidx8.i = getelementptr inbounds i8, ptr %this, i64 72
+  %arrayidx.i3.i = getelementptr inbounds i8, ptr %32, i64 1096
+  %call.i4.i81 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i3.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx8.i)
           to label %_ZN6icu_7512_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPKNS_13UnicodeStringE.exit unwind label %lpad79.loopexit.split-lp
 
 _ZN6icu_7512_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPKNS_13UnicodeStringE.exit: ; preds = %if.then6.i, %if.end.i
-  %arrayidx.i81 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 4
+  %arrayidx.i82 = getelementptr inbounds i8, ptr %this, i64 264
   br label %for.body131
 
 for.body131:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPKNS_13UnicodeStringE.exit, %for.inc149
-  %indvars.iv140 = phi i64 [ 0, %_ZN6icu_7512_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPKNS_13UnicodeStringE.exit ], [ %indvars.iv.next141, %for.inc149 ]
-  %tempCodePointZero.0137 = phi i32 [ -1, %_ZN6icu_7512_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPKNS_13UnicodeStringE.exit ], [ %tempCodePointZero.1, %for.inc149 ]
-  %indvars143 = trunc i64 %indvars.iv140 to i32
-  %cmp3.i = icmp eq i64 %indvars.iv140, 0
-  %33 = add nuw nsw i64 %indvars.iv140, 17
-  %arrayidx7.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 %33
-  %retval.0.i82 = select i1 %cmp3.i, ptr %arrayidx.i81, ptr %arrayidx7.i
-  %call135 = invoke noundef i32 @_ZNK6icu_7513UnicodeString11countChar32Eii(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i82, i32 noundef 0, i32 noundef 2147483647)
+  %indvars.iv141 = phi i64 [ 0, %_ZN6icu_7512_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPKNS_13UnicodeStringE.exit ], [ %indvars.iv.next142, %for.inc149 ]
+  %tempCodePointZero.0138 = phi i32 [ -1, %_ZN6icu_7512_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPKNS_13UnicodeStringE.exit ], [ %tempCodePointZero.1, %for.inc149 ]
+  %indvars144 = trunc i64 %indvars.iv141 to i32
+  %cmp3.i = icmp eq i64 %indvars.iv141, 0
+  %33 = add nuw nsw i64 %indvars.iv141, 17
+  %arrayidx7.i = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols125, i64 0, i64 %33
+  %retval.0.i83 = select i1 %cmp3.i, ptr %arrayidx.i82, ptr %arrayidx7.i
+  %call135 = invoke noundef i32 @_ZNK6icu_7513UnicodeString11countChar32Eii(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i83, i32 noundef 0, i32 noundef 2147483647)
           to label %invoke.cont134 unwind label %lpad79.loopexit
 
 invoke.cont134:                                   ; preds = %for.body131
@@ -1055,39 +1055,39 @@ invoke.cont134:                                   ; preds = %for.body131
   br i1 %cmp136.not, label %if.end138, label %invoke.cont152
 
 if.end138:                                        ; preds = %invoke.cont134
-  %call140 = invoke noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i82, i32 noundef 0)
+  %call140 = invoke noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i83, i32 noundef 0)
           to label %invoke.cont139 unwind label %lpad79.loopexit
 
 invoke.cont139:                                   ; preds = %if.end138
   br i1 %cmp3.i, label %for.inc149, label %if.else143
 
 if.else143:                                       ; preds = %invoke.cont139
-  %add144 = add nsw i32 %tempCodePointZero.0137, %indvars143
+  %add144 = add nsw i32 %tempCodePointZero.0138, %indvars144
   %cmp145.not = icmp eq i32 %call140, %add144
   br i1 %cmp145.not, label %for.inc149, label %invoke.cont152
 
 for.inc149:                                       ; preds = %invoke.cont139, %if.else143
-  %tempCodePointZero.1 = phi i32 [ %tempCodePointZero.0137, %if.else143 ], [ %call140, %invoke.cont139 ]
-  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %exitcond144.not = icmp eq i64 %indvars.iv.next141, 10
-  br i1 %exitcond144.not, label %invoke.cont152, label %for.body131, !llvm.loop !7
+  %tempCodePointZero.1 = phi i32 [ %tempCodePointZero.0138, %if.else143 ], [ %call140, %invoke.cont139 ]
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond145.not = icmp eq i64 %indvars.iv.next142, 10
+  br i1 %exitcond145.not, label %invoke.cont152, label %for.body131, !llvm.loop !7
 
 invoke.cont152:                                   ; preds = %for.inc149, %invoke.cont134, %if.else143
   %tempCodePointZero.2 = phi i32 [ %tempCodePointZero.1, %for.inc149 ], [ -1, %invoke.cont134 ], [ -1, %if.else143 ]
-  %fCodePointZero = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 3
+  %fCodePointZero = getelementptr inbounds i8, ptr %this, i64 1928
   store i32 %tempCodePointZero.2, ptr %fCodePointZero, align 8
   store i32 0, ptr %internalStatus, align 4
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %tempStr, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %tempStr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %tempStr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call156 = invoke i32 @ucurr_forLocale_75(ptr noundef %10, ptr noundef nonnull %curriso, i32 noundef 4, ptr noundef nonnull %internalStatus)
           to label %invoke.cont155 unwind label %lpad154
 
 invoke.cont155:                                   ; preds = %invoke.cont152
   %34 = load i32, ptr %internalStatus, align 4
-  %cmp.i83 = icmp slt i32 %34, 1
+  %cmp.i84 = icmp slt i32 %34, 1
   %cmp161 = icmp eq i32 %call156, 3
-  %or.cond = select i1 %cmp.i83, i1 %cmp161, i1 false
+  %or.cond = select i1 %cmp.i84, i1 %cmp161, i1 false
   br i1 %or.cond, label %if.then162, label %if.end167
 
 if.then162:                                       ; preds = %invoke.cont155
@@ -1106,11 +1106,11 @@ if.end167:                                        ; preds = %invoke.cont155, %if
 invoke.cont170:                                   ; preds = %if.end167
   store ptr %call169, ptr %currencyResource, align 8
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_119CurrencySpacingSinkE, i64 0, inrange i32 0, i64 2), ptr %currencySink, align 8
-  %dfs.i85 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CurrencySpacingSink", ptr %currencySink, i64 0, i32 1
-  store ptr %this, ptr %dfs.i85, align 8
-  %hasBeforeCurrency.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CurrencySpacingSink", ptr %currencySink, i64 0, i32 2
+  %dfs.i86 = getelementptr inbounds i8, ptr %currencySink, i64 8
+  store ptr %this, ptr %dfs.i86, align 8
+  %hasBeforeCurrency.i = getelementptr inbounds i8, ptr %currencySink, i64 16
   store i8 0, ptr %hasBeforeCurrency.i, align 8
-  %hasAfterCurrency.i = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CurrencySpacingSink", ptr %currencySink, i64 0, i32 3
+  %hasAfterCurrency.i = getelementptr inbounds i8, ptr %currencySink, i64 17
   store i8 0, ptr %hasAfterCurrency.i, align 1
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call169, ptr noundef nonnull @_ZN6icu_75L19gCurrencySpacingTagE, ptr noundef nonnull align 8 dereferenceable(8) %currencySink, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont176 unwind label %lpad173.loopexit.split-lp.loopexit.split-lp
@@ -1119,56 +1119,58 @@ invoke.cont176:                                   ; preds = %invoke.cont170
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp8.i)
   %36 = load i8, ptr %hasBeforeCurrency.i, align 8
-  %tobool.not.i87 = icmp eq i8 %36, 0
+  %tobool.not.i88 = icmp eq i8 %36, 0
   %37 = load i8, ptr %hasAfterCurrency.i, align 1
   %tobool2.not.i = icmp eq i8 %37, 0
-  %or.cond.i = select i1 %tobool.not.i87, i1 true, i1 %tobool2.not.i
-  br i1 %or.cond.i, label %for.body.i91, label %invoke.cont177
+  %or.cond.i = select i1 %tobool.not.i88, i1 true, i1 %tobool2.not.i
+  br i1 %or.cond.i, label %for.body.i92, label %invoke.cont177
 
-for.body.i91:                                     ; preds = %invoke.cont176, %invoke.cont.i
-  %indvars.iv.i92 = phi i64 [ %indvars.iv.next.i94, %invoke.cont.i ], [ 0, %invoke.cont176 ]
-  %38 = load ptr, ptr %dfs.i85, align 8
-  %arrayidx.i93 = getelementptr inbounds [3 x ptr], ptr @_ZZN6icu_7512_GLOBAL__N_119CurrencySpacingSink14resolveMissingEvE8defaults, i64 0, i64 %indvars.iv.i92
-  %39 = load ptr, ptr %arrayidx.i93, align 8
+for.body.i92:                                     ; preds = %invoke.cont176, %invoke.cont.i
+  %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i95, %invoke.cont.i ], [ 0, %invoke.cont176 ]
+  %38 = load ptr, ptr %dfs.i86, align 8
+  %arrayidx.i94 = getelementptr inbounds [3 x ptr], ptr @_ZZN6icu_7512_GLOBAL__N_119CurrencySpacingSink14resolveMissingEvE8defaults, i64 0, i64 %indvars.iv.i93
+  %39 = load ptr, ptr %arrayidx.i94, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i, ptr noundef %39, i32 noundef -1, i32 noundef 0)
-          to label %.noexc96 unwind label %lpad173.loopexit.split-lp.loopexit
+          to label %.noexc97 unwind label %lpad173.loopexit.split-lp.loopexit
 
-.noexc96:                                         ; preds = %for.body.i91
-  %arrayidx3.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %38, i64 0, i32 11, i64 %indvars.iv.i92
+.noexc97:                                         ; preds = %for.body.i92
+  %currencySpcAfterSym.i.i = getelementptr inbounds i8, ptr %38, i64 2680
+  %arrayidx3.i.i = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym.i.i, i64 0, i64 %indvars.iv.i93
   %call4.i8.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx3.i.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
-invoke.cont.i:                                    ; preds = %.noexc96
+invoke.cont.i:                                    ; preds = %.noexc97
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp.i) #15
-  %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i92, 1
-  %exitcond.not.i95 = icmp eq i64 %indvars.iv.next.i94, 3
-  br i1 %exitcond.not.i95, label %for.body6.i, label %for.body.i91, !llvm.loop !8
+  %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i93, 1
+  %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, 3
+  br i1 %exitcond.not.i96, label %for.body6.i, label %for.body.i92, !llvm.loop !8
 
-lpad.i:                                           ; preds = %.noexc96
+lpad.i:                                           ; preds = %.noexc97
   %40 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.i
 
 for.body6.i:                                      ; preds = %invoke.cont.i, %invoke.cont12.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %invoke.cont12.i ], [ 0, %invoke.cont.i ]
-  %41 = load ptr, ptr %dfs.i85, align 8
+  %41 = load ptr, ptr %dfs.i86, align 8
   %arrayidx10.i = getelementptr inbounds [3 x ptr], ptr @_ZZN6icu_7512_GLOBAL__N_119CurrencySpacingSink14resolveMissingEvE8defaults, i64 0, i64 %indvars.iv17.i
   %42 = load ptr, ptr %arrayidx10.i, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i, ptr noundef %42, i32 noundef -1, i32 noundef 0)
-          to label %.noexc97 unwind label %lpad173.loopexit
+          to label %.noexc98 unwind label %lpad173.loopexit
 
-.noexc97:                                         ; preds = %for.body6.i
-  %arrayidx.i11.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %41, i64 0, i32 10, i64 %indvars.iv17.i
-  %call4.i12.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i11.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i)
+.noexc98:                                         ; preds = %for.body6.i
+  %currencySpcAfterSym.i10.i = getelementptr inbounds i8, ptr %41, i64 2488
+  %arrayidx3.i11.i = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym.i10.i, i64 0, i64 %indvars.iv17.i
+  %call4.i12.i = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx3.i11.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i)
           to label %invoke.cont12.i unwind label %lpad11.i
 
-invoke.cont12.i:                                  ; preds = %.noexc97
+invoke.cont12.i:                                  ; preds = %.noexc98
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp8.i) #15
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 3
   br i1 %exitcond20.not.i, label %invoke.cont177, label %for.body6.i, !llvm.loop !9
 
-lpad11.i:                                         ; preds = %.noexc97
+lpad11.i:                                         ; preds = %.noexc98
   %43 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume.i
@@ -1184,20 +1186,20 @@ invoke.cont177:                                   ; preds = %invoke.cont12.i, %i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp8.i)
   call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %currencySink) #15
   %cmp.not.i = icmp eq ptr %call169, null
-  br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i100
+  br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i101
 
-if.then.i100:                                     ; preds = %invoke.cont177
+if.then.i101:                                     ; preds = %invoke.cont177
   invoke void @ures_close_75(ptr noundef nonnull %call169)
           to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit unwind label %terminate.lpad.i
 
-terminate.lpad.i:                                 ; preds = %if.then.i100
+terminate.lpad.i:                                 ; preds = %if.then.i101
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
   call void @__clang_call_terminate(ptr %45) #17
   unreachable
 
-_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %invoke.cont177, %if.then.i100
+_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %invoke.cont177, %if.then.i101
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %tempStr) #15
   br label %cleanup187
 
@@ -1206,18 +1208,18 @@ lpad173.loopexit:                                 ; preds = %for.body6.i
           cleanup
   br label %lpad173.body
 
-lpad173.loopexit.split-lp.loopexit:               ; preds = %for.body.i91
-  %lpad.loopexit126 = landingpad { ptr, i32 }
+lpad173.loopexit.split-lp.loopexit:               ; preds = %for.body.i92
+  %lpad.loopexit127 = landingpad { ptr, i32 }
           cleanup
   br label %lpad173.body
 
 lpad173.loopexit.split-lp.loopexit.split-lp:      ; preds = %invoke.cont170
-  %lpad.loopexit.split-lp127 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp128 = landingpad { ptr, i32 }
           cleanup
   br label %lpad173.body
 
 lpad173.body:                                     ; preds = %lpad173.loopexit, %lpad173.loopexit.split-lp.loopexit.split-lp, %lpad173.loopexit.split-lp.loopexit, %eh.resume.i
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %eh.resume.i ], [ %lpad.loopexit, %lpad173.loopexit ], [ %lpad.loopexit126, %lpad173.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp127, %lpad173.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn.i, %eh.resume.i ], [ %lpad.loopexit, %lpad173.loopexit ], [ %lpad.loopexit127, %lpad173.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp128, %lpad173.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %currencySink) #15
   call void @_ZN6icu_7527LocalUResourceBundlePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %currencyResource) #15
   br label %ehcleanup186
@@ -1227,47 +1229,47 @@ cleanup187:                                       ; preds = %invoke.cont118, %cl
   br label %cleanup189
 
 cleanup189:                                       ; preds = %if.then55, %if.then57, %cleanup187
-  %cmp.not.i102 = icmp eq ptr %call49, null
-  br i1 %cmp.not.i102, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit106, label %if.then.i103
+  %cmp.not.i103 = icmp eq ptr %call49, null
+  br i1 %cmp.not.i103, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit107, label %if.then.i104
 
-if.then.i103:                                     ; preds = %cleanup189
+if.then.i104:                                     ; preds = %cleanup189
   invoke void @ures_close_75(ptr noundef nonnull %call49)
-          to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit106 unwind label %terminate.lpad.i104
+          to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit107 unwind label %terminate.lpad.i105
 
-terminate.lpad.i104:                              ; preds = %if.then.i103
+terminate.lpad.i105:                              ; preds = %if.then.i104
   %46 = landingpad { ptr, i32 }
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
   call void @__clang_call_terminate(ptr %47) #17
   unreachable
 
-_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit106: ; preds = %cleanup189, %if.then.i103
-  %cmp.not.i107 = icmp eq ptr %call43, null
-  br i1 %cmp.not.i107, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit111, label %if.then.i108
+_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit107: ; preds = %cleanup189, %if.then.i104
+  %cmp.not.i108 = icmp eq ptr %call43, null
+  br i1 %cmp.not.i108, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit112, label %if.then.i109
 
-if.then.i108:                                     ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit106
+if.then.i109:                                     ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit107
   invoke void @ures_close_75(ptr noundef nonnull %call43)
-          to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit111 unwind label %terminate.lpad.i109
+          to label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit112 unwind label %terminate.lpad.i110
 
-terminate.lpad.i109:                              ; preds = %if.then.i108
+terminate.lpad.i110:                              ; preds = %if.then.i109
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
   call void @__clang_call_terminate(ptr %49) #17
   unreachable
 
-_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit111: ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit106, %if.then.i108
-  %isnull.i112 = icmp eq ptr %nsLocal.sroa.0.1, null
-  br i1 %isnull.i112, label %cleanup.cont195, label %delete.notnull.i113
+_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit112: ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit107, %if.then.i109
+  %isnull.i113 = icmp eq ptr %nsLocal.sroa.0.1, null
+  br i1 %isnull.i113, label %cleanup.cont195, label %delete.notnull.i114
 
-delete.notnull.i113:                              ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit111
-  %vtable.i114 = load ptr, ptr %nsLocal.sroa.0.1, align 8
-  %vfn.i115 = getelementptr inbounds ptr, ptr %vtable.i114, i64 1
-  %50 = load ptr, ptr %vfn.i115, align 8
+delete.notnull.i114:                              ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit112
+  %vtable.i115 = load ptr, ptr %nsLocal.sroa.0.1, align 8
+  %vfn.i116 = getelementptr inbounds i8, ptr %vtable.i115, i64 8
+  %50 = load ptr, ptr %vfn.i116, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(86) %nsLocal.sroa.0.1) #15
   br label %cleanup.cont195
 
-cleanup.cont195:                                  ; preds = %delete.notnull.i113, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit111, %entry
+cleanup.cont195:                                  ; preds = %delete.notnull.i114, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit112, %entry
   ret void
 
 ehcleanup186:                                     ; preds = %lpad173.body, %lpad154
@@ -1276,7 +1278,7 @@ ehcleanup186:                                     ; preds = %lpad173.body, %lpad
   br label %ehcleanup188
 
 ehcleanup188:                                     ; preds = %lpad79.loopexit, %lpad79.loopexit.split-lp, %ehcleanup186, %lpad81
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup186 ], [ %26, %lpad81 ], [ %lpad.loopexit129, %lpad79.loopexit ], [ %lpad.loopexit.split-lp, %lpad79.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup186 ], [ %26, %lpad81 ], [ %lpad.loopexit130, %lpad79.loopexit ], [ %lpad.loopexit.split-lp, %lpad79.loopexit.split-lp ]
   call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink) #15
   br label %ehcleanup190
 
@@ -1292,18 +1294,18 @@ ehcleanup192:                                     ; preds = %ehcleanup190, %lpad
 
 ehcleanup196:                                     ; preds = %ehcleanup192, %lpad23, %lpad
   %nsLocal.sroa.0.2 = phi ptr [ %nsLocal.sroa.0.1, %ehcleanup192 ], [ %nsLocal.sroa.0.0, %lpad ], [ %nsLocal.sroa.0.1, %lpad23 ]
-  %.pn49.pn.pn = phi { ptr, i32 } [ %.pn49.pn, %ehcleanup192 ], [ %1, %lpad ], [ %lpad.phi133, %lpad23 ]
-  %isnull.i116 = icmp eq ptr %nsLocal.sroa.0.2, null
-  br i1 %isnull.i116, label %_ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit120, label %delete.notnull.i117
+  %.pn49.pn.pn = phi { ptr, i32 } [ %.pn49.pn, %ehcleanup192 ], [ %1, %lpad ], [ %lpad.phi134, %lpad23 ]
+  %isnull.i117 = icmp eq ptr %nsLocal.sroa.0.2, null
+  br i1 %isnull.i117, label %_ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit121, label %delete.notnull.i118
 
-delete.notnull.i117:                              ; preds = %ehcleanup196
-  %vtable.i118 = load ptr, ptr %nsLocal.sroa.0.2, align 8
-  %vfn.i119 = getelementptr inbounds ptr, ptr %vtable.i118, i64 1
-  %51 = load ptr, ptr %vfn.i119, align 8
+delete.notnull.i118:                              ; preds = %ehcleanup196
+  %vtable.i119 = load ptr, ptr %nsLocal.sroa.0.2, align 8
+  %vfn.i120 = getelementptr inbounds i8, ptr %vtable.i119, i64 8
+  %51 = load ptr, ptr %vfn.i120, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(86) %nsLocal.sroa.0.2) #15
-  br label %_ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit120
+  br label %_ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit121
 
-_ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit120: ; preds = %ehcleanup196, %delete.notnull.i117
+_ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit121: ; preds = %ehcleanup196, %delete.notnull.i118
   resume { ptr, i32 } %.pn49.pn.pn
 }
 
@@ -1323,23 +1325,23 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 8, %entry ], [ %arrayctor.cur.add, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1864
   br i1 %arrayctor.done, label %invoke.cont4, label %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %fNoSymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 2
+  %fNoSymbol = getelementptr inbounds i8, ptr %this, i64 1864
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fNoSymbol, align 8
-  %fUnion2.i6 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 2, i32 1
+  %fUnion2.i6 = getelementptr inbounds i8, ptr %this, i64 1872
   store i16 2, ptr %fUnion2.i6, align 8
-  %locale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 5
+  %locale = getelementptr inbounds i8, ptr %this, i64 1936
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %currPattern = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 9
+  %currPattern = getelementptr inbounds i8, ptr %this, i64 2480
   store ptr null, ptr %currPattern, align 8
   br label %invoke.cont12
 
@@ -1347,7 +1349,7 @@ invoke.cont12:                                    ; preds = %invoke.cont6, %invo
   %arrayctor.cur10.idx = phi i64 [ 2488, %invoke.cont6 ], [ %arrayctor.cur10.add, %invoke.cont12 ]
   %arrayctor.cur10.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur10.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur10.ptr.ptr, align 8
-  %fUnion2.i7 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur10.ptr.ptr, i64 0, i32 1
+  %fUnion2.i7 = getelementptr inbounds i8, ptr %arrayctor.cur10.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i7, align 8
   %arrayctor.cur10.add = add nuw nsw i64 %arrayctor.cur10.idx, 64
   %arrayctor.done20 = icmp eq i64 %arrayctor.cur10.add, 2680
@@ -1357,7 +1359,7 @@ invoke.cont27:                                    ; preds = %invoke.cont12, %inv
   %arrayctor.cur25.idx = phi i64 [ %arrayctor.cur25.add, %invoke.cont27 ], [ 2680, %invoke.cont12 ]
   %arrayctor.cur25.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur25.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur25.ptr.ptr, align 8
-  %fUnion2.i8 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur25.ptr.ptr, i64 0, i32 1
+  %fUnion2.i8 = getelementptr inbounds i8, ptr %arrayctor.cur25.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur25.add = add nuw nsw i64 %arrayctor.cur25.idx, 64
   %arrayctor.done35 = icmp eq i64 %arrayctor.cur25.add, 2872
@@ -1432,23 +1434,23 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 8, %entry ], [ %arrayctor.cur.add, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1864
   br i1 %arrayctor.done, label %invoke.cont4, label %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %fNoSymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 2
+  %fNoSymbol = getelementptr inbounds i8, ptr %this, i64 1864
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fNoSymbol, align 8
-  %fUnion2.i6 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 2, i32 1
+  %fUnion2.i6 = getelementptr inbounds i8, ptr %this, i64 1872
   store i16 2, ptr %fUnion2.i6, align 8
-  %locale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 5
+  %locale = getelementptr inbounds i8, ptr %this, i64 1936
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %loc)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %currPattern = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 9
+  %currPattern = getelementptr inbounds i8, ptr %this, i64 2480
   store ptr null, ptr %currPattern, align 8
   br label %invoke.cont12
 
@@ -1456,7 +1458,7 @@ invoke.cont12:                                    ; preds = %invoke.cont6, %invo
   %arrayctor.cur10.idx = phi i64 [ 2488, %invoke.cont6 ], [ %arrayctor.cur10.add, %invoke.cont12 ]
   %arrayctor.cur10.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur10.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur10.ptr.ptr, align 8
-  %fUnion2.i7 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur10.ptr.ptr, i64 0, i32 1
+  %fUnion2.i7 = getelementptr inbounds i8, ptr %arrayctor.cur10.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i7, align 8
   %arrayctor.cur10.add = add nuw nsw i64 %arrayctor.cur10.idx, 64
   %arrayctor.done20 = icmp eq i64 %arrayctor.cur10.add, 2680
@@ -1466,7 +1468,7 @@ invoke.cont27:                                    ; preds = %invoke.cont12, %inv
   %arrayctor.cur25.idx = phi i64 [ %arrayctor.cur25.add, %invoke.cont27 ], [ 2680, %invoke.cont12 ]
   %arrayctor.cur25.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur25.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur25.ptr.ptr, align 8
-  %fUnion2.i8 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur25.ptr.ptr, i64 0, i32 1
+  %fUnion2.i8 = getelementptr inbounds i8, ptr %arrayctor.cur25.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur25.add = add nuw nsw i64 %arrayctor.cur25.idx, 64
   %arrayctor.done35 = icmp eq i64 %arrayctor.cur25.add, 2872
@@ -1539,18 +1541,18 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 8, %entry ], [ %arrayctor.cur.add, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1864
   br i1 %arrayctor.done, label %invoke.cont4, label %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %fNoSymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 2
+  %fNoSymbol = getelementptr inbounds i8, ptr %this, i64 1864
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fNoSymbol, align 8
-  %fUnion2.i6 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 2, i32 1
+  %fUnion2.i6 = getelementptr inbounds i8, ptr %this, i64 1872
   store i16 2, ptr %fUnion2.i6, align 8
-  %locale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 5
+  %locale = getelementptr inbounds i8, ptr %this, i64 1936
   %call = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale7getRootEv()
           to label %invoke.cont6 unwind label %lpad5
 
@@ -1559,7 +1561,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
           to label %invoke.cont7 unwind label %lpad5
 
 invoke.cont7:                                     ; preds = %invoke.cont6
-  %currPattern = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 9
+  %currPattern = getelementptr inbounds i8, ptr %this, i64 2480
   store ptr null, ptr %currPattern, align 8
   br label %invoke.cont13
 
@@ -1567,7 +1569,7 @@ invoke.cont13:                                    ; preds = %invoke.cont7, %invo
   %arrayctor.cur11.idx = phi i64 [ 2488, %invoke.cont7 ], [ %arrayctor.cur11.add, %invoke.cont13 ]
   %arrayctor.cur11.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur11.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur11.ptr.ptr, align 8
-  %fUnion2.i7 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur11.ptr.ptr, i64 0, i32 1
+  %fUnion2.i7 = getelementptr inbounds i8, ptr %arrayctor.cur11.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i7, align 8
   %arrayctor.cur11.add = add nuw nsw i64 %arrayctor.cur11.idx, 64
   %arrayctor.done21 = icmp eq i64 %arrayctor.cur11.add, 2680
@@ -1577,7 +1579,7 @@ invoke.cont28:                                    ; preds = %invoke.cont13, %inv
   %arrayctor.cur26.idx = phi i64 [ %arrayctor.cur26.add, %invoke.cont28 ], [ 2680, %invoke.cont13 ]
   %arrayctor.cur26.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur26.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur26.ptr.ptr, align 8
-  %fUnion2.i8 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur26.ptr.ptr, i64 0, i32 1
+  %fUnion2.i8 = getelementptr inbounds i8, ptr %arrayctor.cur26.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur26.add = add nuw nsw i64 %arrayctor.cur26.idx, 64
   %arrayctor.done36 = icmp eq i64 %arrayctor.cur26.add, 2872
@@ -1586,9 +1588,9 @@ invoke.cont28:                                    ; preds = %invoke.cont13, %inv
 arrayinit.body.preheader:                         ; preds = %invoke.cont28
   %scevgep = getelementptr inbounds i8, ptr %this, i64 2874
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(9) %scevgep, i8 0, i64 9, i1 false)
-  %actualLocale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 6
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 2160
   store i8 0, ptr %actualLocale, align 8
-  %validLocale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 7
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 2317
   store i8 0, ptr %validLocale, align 1
   invoke void @_ZN6icu_7520DecimalFormatSymbols10initializeEv(ptr noundef nonnull align 8 dereferenceable(2883) %this)
           to label %invoke.cont41 unwind label %lpad40
@@ -1676,235 +1678,235 @@ entry:
   %ch.addr.i1 = alloca i16, align 2
   %ch.addr.i = alloca i16, align 2
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %fSymbols = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1
+  %fSymbols = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i)
   store i16 46, ptr %ch.addr.i, align 2
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i.i = sext i16 %1 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %2, i32 %shr.i.i.i
   %call2.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %fSymbols, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef nonnull %ch.addr.i, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i)
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 1, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i3.i = and i16 %3, 1
   %tobool.not.i = icmp eq i16 %conv2.i3.i, 0
   %4 = and i16 %3, 30
   %storemerge.i = select i1 %tobool.not.i, i16 %4, i16 2
   store i16 %storemerge.i, ptr %fUnion.i.i, align 8
-  %arrayidx6 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %this, i64 136
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i1)
   store i16 59, ptr %ch.addr.i1, align 2
-  %fUnion.i.i.i2 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 2, i32 1
+  %fUnion.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 144
   %5 = load i16, ptr %fUnion.i.i.i2, align 8
   %cmp.i.i.i3 = icmp slt i16 %5, 0
   %6 = ashr i16 %5, 5
   %shr.i.i.i4 = sext i16 %6 to i32
-  %fLength.i.i5 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 2, i32 1, i32 0, i32 1
+  %fLength.i.i5 = getelementptr inbounds i8, ptr %this, i64 148
   %7 = load i32, ptr %fLength.i.i5, align 4
   %cond.i.i6 = select i1 %cmp.i.i.i3, i32 %7, i32 %shr.i.i.i4
   %call2.i7 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx6, i32 noundef 0, i32 noundef %cond.i.i6, ptr noundef nonnull %ch.addr.i1, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i1)
-  %arrayidx9 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %this, i64 200
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i8)
   store i16 37, ptr %ch.addr.i8, align 2
-  %fUnion.i.i.i9 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 3, i32 1
+  %fUnion.i.i.i9 = getelementptr inbounds i8, ptr %this, i64 208
   %8 = load i16, ptr %fUnion.i.i.i9, align 8
   %cmp.i.i.i10 = icmp slt i16 %8, 0
   %9 = ashr i16 %8, 5
   %shr.i.i.i11 = sext i16 %9 to i32
-  %fLength.i.i12 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 3, i32 1, i32 0, i32 1
+  %fLength.i.i12 = getelementptr inbounds i8, ptr %this, i64 212
   %10 = load i32, ptr %fLength.i.i12, align 4
   %cond.i.i13 = select i1 %cmp.i.i.i10, i32 %10, i32 %shr.i.i.i11
   %call2.i14 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx9, i32 noundef 0, i32 noundef %cond.i.i13, ptr noundef nonnull %ch.addr.i8, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i8)
-  %arrayidx12 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 4
+  %arrayidx12 = getelementptr inbounds i8, ptr %this, i64 264
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i15)
   store i16 48, ptr %ch.addr.i15, align 2
-  %fUnion.i.i.i16 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 4, i32 1
+  %fUnion.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 272
   %11 = load i16, ptr %fUnion.i.i.i16, align 8
   %cmp.i.i.i17 = icmp slt i16 %11, 0
   %12 = ashr i16 %11, 5
   %shr.i.i.i18 = sext i16 %12 to i32
-  %fLength.i.i19 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 4, i32 1, i32 0, i32 1
+  %fLength.i.i19 = getelementptr inbounds i8, ptr %this, i64 276
   %13 = load i32, ptr %fLength.i.i19, align 4
   %cond.i.i20 = select i1 %cmp.i.i.i17, i32 %13, i32 %shr.i.i.i18
   %call2.i21 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx12, i32 noundef 0, i32 noundef %cond.i.i20, ptr noundef nonnull %ch.addr.i15, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i15)
-  %arrayidx15 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 18
+  %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 1160
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i22)
   store i16 49, ptr %ch.addr.i22, align 2
-  %fUnion.i.i.i23 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 18, i32 1
+  %fUnion.i.i.i23 = getelementptr inbounds i8, ptr %this, i64 1168
   %14 = load i16, ptr %fUnion.i.i.i23, align 8
   %cmp.i.i.i24 = icmp slt i16 %14, 0
   %15 = ashr i16 %14, 5
   %shr.i.i.i25 = sext i16 %15 to i32
-  %fLength.i.i26 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 18, i32 1, i32 0, i32 1
+  %fLength.i.i26 = getelementptr inbounds i8, ptr %this, i64 1172
   %16 = load i32, ptr %fLength.i.i26, align 4
   %cond.i.i27 = select i1 %cmp.i.i.i24, i32 %16, i32 %shr.i.i.i25
   %call2.i28 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx15, i32 noundef 0, i32 noundef %cond.i.i27, ptr noundef nonnull %ch.addr.i22, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i22)
-  %arrayidx18 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 19
+  %arrayidx18 = getelementptr inbounds i8, ptr %this, i64 1224
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i29)
   store i16 50, ptr %ch.addr.i29, align 2
-  %fUnion.i.i.i30 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 19, i32 1
+  %fUnion.i.i.i30 = getelementptr inbounds i8, ptr %this, i64 1232
   %17 = load i16, ptr %fUnion.i.i.i30, align 8
   %cmp.i.i.i31 = icmp slt i16 %17, 0
   %18 = ashr i16 %17, 5
   %shr.i.i.i32 = sext i16 %18 to i32
-  %fLength.i.i33 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 19, i32 1, i32 0, i32 1
+  %fLength.i.i33 = getelementptr inbounds i8, ptr %this, i64 1236
   %19 = load i32, ptr %fLength.i.i33, align 4
   %cond.i.i34 = select i1 %cmp.i.i.i31, i32 %19, i32 %shr.i.i.i32
   %call2.i35 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx18, i32 noundef 0, i32 noundef %cond.i.i34, ptr noundef nonnull %ch.addr.i29, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i29)
-  %arrayidx21 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 20
+  %arrayidx21 = getelementptr inbounds i8, ptr %this, i64 1288
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i36)
   store i16 51, ptr %ch.addr.i36, align 2
-  %fUnion.i.i.i37 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 20, i32 1
+  %fUnion.i.i.i37 = getelementptr inbounds i8, ptr %this, i64 1296
   %20 = load i16, ptr %fUnion.i.i.i37, align 8
   %cmp.i.i.i38 = icmp slt i16 %20, 0
   %21 = ashr i16 %20, 5
   %shr.i.i.i39 = sext i16 %21 to i32
-  %fLength.i.i40 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 20, i32 1, i32 0, i32 1
+  %fLength.i.i40 = getelementptr inbounds i8, ptr %this, i64 1300
   %22 = load i32, ptr %fLength.i.i40, align 4
   %cond.i.i41 = select i1 %cmp.i.i.i38, i32 %22, i32 %shr.i.i.i39
   %call2.i42 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx21, i32 noundef 0, i32 noundef %cond.i.i41, ptr noundef nonnull %ch.addr.i36, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i36)
-  %arrayidx24 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 21
+  %arrayidx24 = getelementptr inbounds i8, ptr %this, i64 1352
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i43)
   store i16 52, ptr %ch.addr.i43, align 2
-  %fUnion.i.i.i44 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 21, i32 1
+  %fUnion.i.i.i44 = getelementptr inbounds i8, ptr %this, i64 1360
   %23 = load i16, ptr %fUnion.i.i.i44, align 8
   %cmp.i.i.i45 = icmp slt i16 %23, 0
   %24 = ashr i16 %23, 5
   %shr.i.i.i46 = sext i16 %24 to i32
-  %fLength.i.i47 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 21, i32 1, i32 0, i32 1
+  %fLength.i.i47 = getelementptr inbounds i8, ptr %this, i64 1364
   %25 = load i32, ptr %fLength.i.i47, align 4
   %cond.i.i48 = select i1 %cmp.i.i.i45, i32 %25, i32 %shr.i.i.i46
   %call2.i49 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx24, i32 noundef 0, i32 noundef %cond.i.i48, ptr noundef nonnull %ch.addr.i43, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i43)
-  %arrayidx27 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 22
+  %arrayidx27 = getelementptr inbounds i8, ptr %this, i64 1416
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i50)
   store i16 53, ptr %ch.addr.i50, align 2
-  %fUnion.i.i.i51 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 22, i32 1
+  %fUnion.i.i.i51 = getelementptr inbounds i8, ptr %this, i64 1424
   %26 = load i16, ptr %fUnion.i.i.i51, align 8
   %cmp.i.i.i52 = icmp slt i16 %26, 0
   %27 = ashr i16 %26, 5
   %shr.i.i.i53 = sext i16 %27 to i32
-  %fLength.i.i54 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 22, i32 1, i32 0, i32 1
+  %fLength.i.i54 = getelementptr inbounds i8, ptr %this, i64 1428
   %28 = load i32, ptr %fLength.i.i54, align 4
   %cond.i.i55 = select i1 %cmp.i.i.i52, i32 %28, i32 %shr.i.i.i53
   %call2.i56 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx27, i32 noundef 0, i32 noundef %cond.i.i55, ptr noundef nonnull %ch.addr.i50, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i50)
-  %arrayidx30 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 23
+  %arrayidx30 = getelementptr inbounds i8, ptr %this, i64 1480
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i57)
   store i16 54, ptr %ch.addr.i57, align 2
-  %fUnion.i.i.i58 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 23, i32 1
+  %fUnion.i.i.i58 = getelementptr inbounds i8, ptr %this, i64 1488
   %29 = load i16, ptr %fUnion.i.i.i58, align 8
   %cmp.i.i.i59 = icmp slt i16 %29, 0
   %30 = ashr i16 %29, 5
   %shr.i.i.i60 = sext i16 %30 to i32
-  %fLength.i.i61 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 23, i32 1, i32 0, i32 1
+  %fLength.i.i61 = getelementptr inbounds i8, ptr %this, i64 1492
   %31 = load i32, ptr %fLength.i.i61, align 4
   %cond.i.i62 = select i1 %cmp.i.i.i59, i32 %31, i32 %shr.i.i.i60
   %call2.i63 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx30, i32 noundef 0, i32 noundef %cond.i.i62, ptr noundef nonnull %ch.addr.i57, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i57)
-  %arrayidx33 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 24
+  %arrayidx33 = getelementptr inbounds i8, ptr %this, i64 1544
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i64)
   store i16 55, ptr %ch.addr.i64, align 2
-  %fUnion.i.i.i65 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 24, i32 1
+  %fUnion.i.i.i65 = getelementptr inbounds i8, ptr %this, i64 1552
   %32 = load i16, ptr %fUnion.i.i.i65, align 8
   %cmp.i.i.i66 = icmp slt i16 %32, 0
   %33 = ashr i16 %32, 5
   %shr.i.i.i67 = sext i16 %33 to i32
-  %fLength.i.i68 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 24, i32 1, i32 0, i32 1
+  %fLength.i.i68 = getelementptr inbounds i8, ptr %this, i64 1556
   %34 = load i32, ptr %fLength.i.i68, align 4
   %cond.i.i69 = select i1 %cmp.i.i.i66, i32 %34, i32 %shr.i.i.i67
   %call2.i70 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx33, i32 noundef 0, i32 noundef %cond.i.i69, ptr noundef nonnull %ch.addr.i64, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i64)
-  %arrayidx36 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 25
+  %arrayidx36 = getelementptr inbounds i8, ptr %this, i64 1608
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i71)
   store i16 56, ptr %ch.addr.i71, align 2
-  %fUnion.i.i.i72 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 25, i32 1
+  %fUnion.i.i.i72 = getelementptr inbounds i8, ptr %this, i64 1616
   %35 = load i16, ptr %fUnion.i.i.i72, align 8
   %cmp.i.i.i73 = icmp slt i16 %35, 0
   %36 = ashr i16 %35, 5
   %shr.i.i.i74 = sext i16 %36 to i32
-  %fLength.i.i75 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 25, i32 1, i32 0, i32 1
+  %fLength.i.i75 = getelementptr inbounds i8, ptr %this, i64 1620
   %37 = load i32, ptr %fLength.i.i75, align 4
   %cond.i.i76 = select i1 %cmp.i.i.i73, i32 %37, i32 %shr.i.i.i74
   %call2.i77 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx36, i32 noundef 0, i32 noundef %cond.i.i76, ptr noundef nonnull %ch.addr.i71, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i71)
-  %arrayidx39 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 26
+  %arrayidx39 = getelementptr inbounds i8, ptr %this, i64 1672
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i78)
   store i16 57, ptr %ch.addr.i78, align 2
-  %fUnion.i.i.i79 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 26, i32 1
+  %fUnion.i.i.i79 = getelementptr inbounds i8, ptr %this, i64 1680
   %38 = load i16, ptr %fUnion.i.i.i79, align 8
   %cmp.i.i.i80 = icmp slt i16 %38, 0
   %39 = ashr i16 %38, 5
   %shr.i.i.i81 = sext i16 %39 to i32
-  %fLength.i.i82 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 26, i32 1, i32 0, i32 1
+  %fLength.i.i82 = getelementptr inbounds i8, ptr %this, i64 1684
   %40 = load i32, ptr %fLength.i.i82, align 4
   %cond.i.i83 = select i1 %cmp.i.i.i80, i32 %40, i32 %shr.i.i.i81
   %call2.i84 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx39, i32 noundef 0, i32 noundef %cond.i.i83, ptr noundef nonnull %ch.addr.i78, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i78)
-  %arrayidx42 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 5
+  %arrayidx42 = getelementptr inbounds i8, ptr %this, i64 328
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i85)
   store i16 35, ptr %ch.addr.i85, align 2
-  %fUnion.i.i.i86 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 5, i32 1
+  %fUnion.i.i.i86 = getelementptr inbounds i8, ptr %this, i64 336
   %41 = load i16, ptr %fUnion.i.i.i86, align 8
   %cmp.i.i.i87 = icmp slt i16 %41, 0
   %42 = ashr i16 %41, 5
   %shr.i.i.i88 = sext i16 %42 to i32
-  %fLength.i.i89 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 5, i32 1, i32 0, i32 1
+  %fLength.i.i89 = getelementptr inbounds i8, ptr %this, i64 340
   %43 = load i32, ptr %fLength.i.i89, align 4
   %cond.i.i90 = select i1 %cmp.i.i.i87, i32 %43, i32 %shr.i.i.i88
   %call2.i91 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx42, i32 noundef 0, i32 noundef %cond.i.i90, ptr noundef nonnull %ch.addr.i85, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i85)
-  %arrayidx45 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 7
+  %arrayidx45 = getelementptr inbounds i8, ptr %this, i64 456
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i92)
   store i16 43, ptr %ch.addr.i92, align 2
-  %fUnion.i.i.i93 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 7, i32 1
+  %fUnion.i.i.i93 = getelementptr inbounds i8, ptr %this, i64 464
   %44 = load i16, ptr %fUnion.i.i.i93, align 8
   %cmp.i.i.i94 = icmp slt i16 %44, 0
   %45 = ashr i16 %44, 5
   %shr.i.i.i95 = sext i16 %45 to i32
-  %fLength.i.i96 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 7, i32 1, i32 0, i32 1
+  %fLength.i.i96 = getelementptr inbounds i8, ptr %this, i64 468
   %46 = load i32, ptr %fLength.i.i96, align 4
   %cond.i.i97 = select i1 %cmp.i.i.i94, i32 %46, i32 %shr.i.i.i95
   %call2.i98 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx45, i32 noundef 0, i32 noundef %cond.i.i97, ptr noundef nonnull %ch.addr.i92, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i92)
-  %arrayidx48 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 6
+  %arrayidx48 = getelementptr inbounds i8, ptr %this, i64 392
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i99)
   store i16 45, ptr %ch.addr.i99, align 2
-  %fUnion.i.i.i100 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 6, i32 1
+  %fUnion.i.i.i100 = getelementptr inbounds i8, ptr %this, i64 400
   %47 = load i16, ptr %fUnion.i.i.i100, align 8
   %cmp.i.i.i101 = icmp slt i16 %47, 0
   %48 = ashr i16 %47, 5
   %shr.i.i.i102 = sext i16 %48 to i32
-  %fLength.i.i103 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 6, i32 1, i32 0, i32 1
+  %fLength.i.i103 = getelementptr inbounds i8, ptr %this, i64 404
   %49 = load i32, ptr %fLength.i.i103, align 4
   %cond.i.i104 = select i1 %cmp.i.i.i101, i32 %49, i32 %shr.i.i.i102
   %call2.i105 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx48, i32 noundef 0, i32 noundef %cond.i.i104, ptr noundef nonnull %ch.addr.i99, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i99)
-  %arrayidx51 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 8
+  %arrayidx51 = getelementptr inbounds i8, ptr %this, i64 520
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i106)
   store i16 164, ptr %ch.addr.i106, align 2
-  %fUnion.i.i.i107 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 8, i32 1
+  %fUnion.i.i.i107 = getelementptr inbounds i8, ptr %this, i64 528
   %50 = load i16, ptr %fUnion.i.i.i107, align 8
   %cmp.i.i.i108 = icmp slt i16 %50, 0
   %51 = ashr i16 %50, 5
   %shr.i.i.i109 = sext i16 %51 to i32
-  %fLength.i.i110 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 8, i32 1, i32 0, i32 1
+  %fLength.i.i110 = getelementptr inbounds i8, ptr %this, i64 532
   %52 = load i32, ptr %fLength.i.i110, align 4
   %cond.i.i111 = select i1 %cmp.i.i.i108, i32 %52, i32 %shr.i.i.i109
   %call2.i112 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx51, i32 noundef 0, i32 noundef %cond.i.i111, ptr noundef nonnull %ch.addr.i106, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i106)
-  %arrayidx54 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 9
+  %arrayidx54 = getelementptr inbounds i8, ptr %this, i64 584
   store ptr @_ZN6icu_75L24INTL_CURRENCY_SYMBOL_STRE, ptr %agg.tmp, align 8
   %call55 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx54, i8 noundef signext 1, ptr noundef nonnull %agg.tmp, i32 noundef 2)
           to label %invoke.cont unwind label %lpad
@@ -1912,139 +1914,139 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %53 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %53) #15, !srcloc !10
-  %arrayidx57 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 10
+  %arrayidx57 = getelementptr inbounds i8, ptr %this, i64 648
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i113)
   store i16 46, ptr %ch.addr.i113, align 2
-  %fUnion.i.i.i114 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 10, i32 1
+  %fUnion.i.i.i114 = getelementptr inbounds i8, ptr %this, i64 656
   %54 = load i16, ptr %fUnion.i.i.i114, align 8
   %cmp.i.i.i115 = icmp slt i16 %54, 0
   %55 = ashr i16 %54, 5
   %shr.i.i.i116 = sext i16 %55 to i32
-  %fLength.i.i117 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 10, i32 1, i32 0, i32 1
+  %fLength.i.i117 = getelementptr inbounds i8, ptr %this, i64 660
   %56 = load i32, ptr %fLength.i.i117, align 4
   %cond.i.i118 = select i1 %cmp.i.i.i115, i32 %56, i32 %shr.i.i.i116
   %call2.i119 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx57, i32 noundef 0, i32 noundef %cond.i.i118, ptr noundef nonnull %ch.addr.i113, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i113)
-  %arrayidx60 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 11
+  %arrayidx60 = getelementptr inbounds i8, ptr %this, i64 712
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i120)
   store i16 69, ptr %ch.addr.i120, align 2
-  %fUnion.i.i.i121 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 11, i32 1
+  %fUnion.i.i.i121 = getelementptr inbounds i8, ptr %this, i64 720
   %57 = load i16, ptr %fUnion.i.i.i121, align 8
   %cmp.i.i.i122 = icmp slt i16 %57, 0
   %58 = ashr i16 %57, 5
   %shr.i.i.i123 = sext i16 %58 to i32
-  %fLength.i.i124 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 11, i32 1, i32 0, i32 1
+  %fLength.i.i124 = getelementptr inbounds i8, ptr %this, i64 724
   %59 = load i32, ptr %fLength.i.i124, align 4
   %cond.i.i125 = select i1 %cmp.i.i.i122, i32 %59, i32 %shr.i.i.i123
   %call2.i126 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx60, i32 noundef 0, i32 noundef %cond.i.i125, ptr noundef nonnull %ch.addr.i120, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i120)
-  %arrayidx63 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 12
+  %arrayidx63 = getelementptr inbounds i8, ptr %this, i64 776
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i127)
   store i16 8240, ptr %ch.addr.i127, align 2
-  %fUnion.i.i.i128 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 12, i32 1
+  %fUnion.i.i.i128 = getelementptr inbounds i8, ptr %this, i64 784
   %60 = load i16, ptr %fUnion.i.i.i128, align 8
   %cmp.i.i.i129 = icmp slt i16 %60, 0
   %61 = ashr i16 %60, 5
   %shr.i.i.i130 = sext i16 %61 to i32
-  %fLength.i.i131 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 12, i32 1, i32 0, i32 1
+  %fLength.i.i131 = getelementptr inbounds i8, ptr %this, i64 788
   %62 = load i32, ptr %fLength.i.i131, align 4
   %cond.i.i132 = select i1 %cmp.i.i.i129, i32 %62, i32 %shr.i.i.i130
   %call2.i133 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx63, i32 noundef 0, i32 noundef %cond.i.i132, ptr noundef nonnull %ch.addr.i127, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i127)
-  %arrayidx66 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 13
+  %arrayidx66 = getelementptr inbounds i8, ptr %this, i64 840
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i134)
   store i16 42, ptr %ch.addr.i134, align 2
-  %fUnion.i.i.i135 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 13, i32 1
+  %fUnion.i.i.i135 = getelementptr inbounds i8, ptr %this, i64 848
   %63 = load i16, ptr %fUnion.i.i.i135, align 8
   %cmp.i.i.i136 = icmp slt i16 %63, 0
   %64 = ashr i16 %63, 5
   %shr.i.i.i137 = sext i16 %64 to i32
-  %fLength.i.i138 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 13, i32 1, i32 0, i32 1
+  %fLength.i.i138 = getelementptr inbounds i8, ptr %this, i64 852
   %65 = load i32, ptr %fLength.i.i138, align 4
   %cond.i.i139 = select i1 %cmp.i.i.i136, i32 %65, i32 %shr.i.i.i137
   %call2.i140 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx66, i32 noundef 0, i32 noundef %cond.i.i139, ptr noundef nonnull %ch.addr.i134, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i134)
-  %arrayidx69 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 14
+  %arrayidx69 = getelementptr inbounds i8, ptr %this, i64 904
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i141)
   store i16 8734, ptr %ch.addr.i141, align 2
-  %fUnion.i.i.i142 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 14, i32 1
+  %fUnion.i.i.i142 = getelementptr inbounds i8, ptr %this, i64 912
   %66 = load i16, ptr %fUnion.i.i.i142, align 8
   %cmp.i.i.i143 = icmp slt i16 %66, 0
   %67 = ashr i16 %66, 5
   %shr.i.i.i144 = sext i16 %67 to i32
-  %fLength.i.i145 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 14, i32 1, i32 0, i32 1
+  %fLength.i.i145 = getelementptr inbounds i8, ptr %this, i64 916
   %68 = load i32, ptr %fLength.i.i145, align 4
   %cond.i.i146 = select i1 %cmp.i.i.i143, i32 %68, i32 %shr.i.i.i144
   %call2.i147 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx69, i32 noundef 0, i32 noundef %cond.i.i146, ptr noundef nonnull %ch.addr.i141, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i141)
-  %arrayidx72 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 15
+  %arrayidx72 = getelementptr inbounds i8, ptr %this, i64 968
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i148)
   store i16 -3, ptr %ch.addr.i148, align 2
-  %fUnion.i.i.i149 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 15, i32 1
+  %fUnion.i.i.i149 = getelementptr inbounds i8, ptr %this, i64 976
   %69 = load i16, ptr %fUnion.i.i.i149, align 8
   %cmp.i.i.i150 = icmp slt i16 %69, 0
   %70 = ashr i16 %69, 5
   %shr.i.i.i151 = sext i16 %70 to i32
-  %fLength.i.i152 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 15, i32 1, i32 0, i32 1
+  %fLength.i.i152 = getelementptr inbounds i8, ptr %this, i64 980
   %71 = load i32, ptr %fLength.i.i152, align 4
   %cond.i.i153 = select i1 %cmp.i.i.i150, i32 %71, i32 %shr.i.i.i151
   %call2.i154 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx72, i32 noundef 0, i32 noundef %cond.i.i153, ptr noundef nonnull %ch.addr.i148, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i148)
-  %arrayidx75 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 16
+  %arrayidx75 = getelementptr inbounds i8, ptr %this, i64 1032
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i155)
   store i16 64, ptr %ch.addr.i155, align 2
-  %fUnion.i.i.i156 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 16, i32 1
+  %fUnion.i.i.i156 = getelementptr inbounds i8, ptr %this, i64 1040
   %72 = load i16, ptr %fUnion.i.i.i156, align 8
   %cmp.i.i.i157 = icmp slt i16 %72, 0
   %73 = ashr i16 %72, 5
   %shr.i.i.i158 = sext i16 %73 to i32
-  %fLength.i.i159 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 16, i32 1, i32 0, i32 1
+  %fLength.i.i159 = getelementptr inbounds i8, ptr %this, i64 1044
   %74 = load i32, ptr %fLength.i.i159, align 4
   %cond.i.i160 = select i1 %cmp.i.i.i157, i32 %74, i32 %shr.i.i.i158
   %call2.i161 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx75, i32 noundef 0, i32 noundef %cond.i.i160, ptr noundef nonnull %ch.addr.i155, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i155)
-  %fUnion.i.i162 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 17, i32 1
+  %fUnion.i.i162 = getelementptr inbounds i8, ptr %this, i64 1104
   %75 = load i16, ptr %fUnion.i.i162, align 8
   %conv2.i3.i163 = and i16 %75, 1
   %tobool.not.i164 = icmp eq i16 %conv2.i3.i163, 0
   %76 = and i16 %75, 30
   %storemerge.i165 = select i1 %tobool.not.i164, i16 %76, i16 2
   store i16 %storemerge.i165, ptr %fUnion.i.i162, align 8
-  %arrayidx81 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 27
+  %arrayidx81 = getelementptr inbounds i8, ptr %this, i64 1736
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i166)
   store i16 215, ptr %ch.addr.i166, align 2
-  %fUnion.i.i.i167 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 27, i32 1
+  %fUnion.i.i.i167 = getelementptr inbounds i8, ptr %this, i64 1744
   %77 = load i16, ptr %fUnion.i.i.i167, align 8
   %cmp.i.i.i168 = icmp slt i16 %77, 0
   %78 = ashr i16 %77, 5
   %shr.i.i.i169 = sext i16 %78 to i32
-  %fLength.i.i170 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 27, i32 1, i32 0, i32 1
+  %fLength.i.i170 = getelementptr inbounds i8, ptr %this, i64 1748
   %79 = load i32, ptr %fLength.i.i170, align 4
   %cond.i.i171 = select i1 %cmp.i.i.i168, i32 %79, i32 %shr.i.i.i169
   %call2.i172 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx81, i32 noundef 0, i32 noundef %cond.i.i171, ptr noundef nonnull %ch.addr.i166, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i166)
-  %arrayidx84 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 28
+  %arrayidx84 = getelementptr inbounds i8, ptr %this, i64 1800
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %ch.addr.i173)
   store i16 126, ptr %ch.addr.i173, align 2
-  %fUnion.i.i.i174 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 28, i32 1
+  %fUnion.i.i.i174 = getelementptr inbounds i8, ptr %this, i64 1808
   %80 = load i16, ptr %fUnion.i.i.i174, align 8
   %cmp.i.i.i175 = icmp slt i16 %80, 0
   %81 = ashr i16 %80, 5
   %shr.i.i.i176 = sext i16 %81 to i32
-  %fLength.i.i177 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 28, i32 1, i32 0, i32 1
+  %fLength.i.i177 = getelementptr inbounds i8, ptr %this, i64 1812
   %82 = load i32, ptr %fLength.i.i177, align 4
   %cond.i.i178 = select i1 %cmp.i.i.i175, i32 %82, i32 %shr.i.i.i176
   %call2.i179 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx84, i32 noundef 0, i32 noundef %cond.i.i178, ptr noundef nonnull %ch.addr.i173, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %ch.addr.i173)
-  %fIsCustomCurrencySymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 12
+  %fIsCustomCurrencySymbol = getelementptr inbounds i8, ptr %this, i64 2872
   store i8 0, ptr %fIsCustomCurrencySymbol, align 8
-  %fIsCustomIntlCurrencySymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 13
+  %fIsCustomIntlCurrencySymbol = getelementptr inbounds i8, ptr %this, i64 2873
   store i8 0, ptr %fIsCustomIntlCurrencySymbol, align 1
-  %fCodePointZero = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 3
+  %fCodePointZero = getelementptr inbounds i8, ptr %this, i64 1928
   store i32 48, ptr %fCodePointZero, align 8
-  %currPattern = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 9
+  %currPattern = getelementptr inbounds i8, ptr %this, i64 2480
   store ptr null, ptr %currPattern, align 8
-  %nsName = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 14
+  %nsName = getelementptr inbounds i8, ptr %this, i64 2874
   store i8 0, ptr %nsName, align 2
   ret void
 
@@ -2116,9 +2118,9 @@ arraydestroy.body4:                               ; preds = %arraydestroy.body, 
   br i1 %arraydestroy.done7, label %arraydestroy.done8, label %arraydestroy.body4
 
 arraydestroy.done8:                               ; preds = %arraydestroy.body4
-  %locale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 5
+  %locale = getelementptr inbounds i8, ptr %this, i64 1936
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale) #15
-  %fNoSymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 2
+  %fNoSymbol = getelementptr inbounds i8, ptr %this, i64 1864
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fNoSymbol) #15
   br label %arraydestroy.body10
 
@@ -2153,23 +2155,23 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 8, %entry ], [ %arrayctor.cur.add, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr.ptr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1864
   br i1 %arrayctor.done, label %invoke.cont4, label %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %fNoSymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 2
+  %fNoSymbol = getelementptr inbounds i8, ptr %this, i64 1864
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fNoSymbol, align 8
-  %fUnion2.i7 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 2, i32 1
+  %fUnion2.i7 = getelementptr inbounds i8, ptr %this, i64 1872
   store i16 2, ptr %fUnion2.i7, align 8
-  %locale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 5
+  %locale = getelementptr inbounds i8, ptr %this, i64 1936
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  %currPattern = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 9
+  %currPattern = getelementptr inbounds i8, ptr %this, i64 2480
   store ptr null, ptr %currPattern, align 8
   br label %invoke.cont12
 
@@ -2177,7 +2179,7 @@ invoke.cont12:                                    ; preds = %invoke.cont6, %invo
   %arrayctor.cur10.idx = phi i64 [ 2488, %invoke.cont6 ], [ %arrayctor.cur10.add, %invoke.cont12 ]
   %arrayctor.cur10.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur10.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur10.ptr.ptr, align 8
-  %fUnion2.i8 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur10.ptr.ptr, i64 0, i32 1
+  %fUnion2.i8 = getelementptr inbounds i8, ptr %arrayctor.cur10.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur10.add = add nuw nsw i64 %arrayctor.cur10.idx, 64
   %arrayctor.done20 = icmp eq i64 %arrayctor.cur10.add, 2680
@@ -2187,7 +2189,7 @@ invoke.cont27:                                    ; preds = %invoke.cont12, %inv
   %arrayctor.cur25.idx = phi i64 [ %arrayctor.cur25.add, %invoke.cont27 ], [ 2680, %invoke.cont12 ]
   %arrayctor.cur25.ptr.ptr = getelementptr inbounds i8, ptr %this, i64 %arrayctor.cur25.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur25.ptr.ptr, align 8
-  %fUnion2.i9 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur25.ptr.ptr, i64 0, i32 1
+  %fUnion2.i9 = getelementptr inbounds i8, ptr %arrayctor.cur25.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i9, align 8
   %arrayctor.cur25.add = add nuw nsw i64 %arrayctor.cur25.idx, 64
   %arrayctor.done35 = icmp eq i64 %arrayctor.cur25.add, 2872
@@ -2254,57 +2256,69 @@ ehcleanup61:                                      ; preds = %arraydestroy.body56
 define noundef nonnull align 8 dereferenceable(2883) ptr @_ZN6icu_7520DecimalFormatSymbolsaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(2883) %this, ptr noundef nonnull align 8 dereferenceable(2883) %rhs) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %rhs
-  br i1 %cmp.not, label %if.end, label %for.body
+  br i1 %cmp.not, label %if.end, label %for.cond.preheader
 
-for.body:                                         ; preds = %entry, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 %indvars.iv
-  %arrayidx5 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %rhs, i64 0, i32 1, i64 %indvars.iv
+for.cond.preheader:                               ; preds = %entry
+  %fSymbols = getelementptr inbounds i8, ptr %this, i64 8
+  %fSymbols3 = getelementptr inbounds i8, ptr %rhs, i64 8
+  br label %for.body
+
+for.cond7.preheader:                              ; preds = %for.body
+  %currencySpcBeforeSym = getelementptr inbounds i8, ptr %this, i64 2488
+  %currencySpcBeforeSym12 = getelementptr inbounds i8, ptr %rhs, i64 2488
+  %currencySpcAfterSym = getelementptr inbounds i8, ptr %this, i64 2680
+  %currencySpcAfterSym18 = getelementptr inbounds i8, ptr %rhs, i64 2680
+  br label %for.body9
+
+for.body:                                         ; preds = %for.cond.preheader, %for.body
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i64 0, i64 %indvars.iv
+  %arrayidx5 = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols3, i64 0, i64 %indvars.iv
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 29
-  br i1 %exitcond.not, label %for.body9, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.cond7.preheader, label %for.body, !llvm.loop !11
 
-for.body9:                                        ; preds = %for.body, %for.body9
-  %indvars.iv23 = phi i64 [ %indvars.iv.next24, %for.body9 ], [ 0, %for.body ]
-  %arrayidx11 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 10, i64 %indvars.iv23
-  %arrayidx14 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %rhs, i64 0, i32 10, i64 %indvars.iv23
+for.body9:                                        ; preds = %for.cond7.preheader, %for.body9
+  %indvars.iv23 = phi i64 [ 0, %for.cond7.preheader ], [ %indvars.iv.next24, %for.body9 ]
+  %arrayidx11 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcBeforeSym, i64 0, i64 %indvars.iv23
+  %arrayidx14 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcBeforeSym12, i64 0, i64 %indvars.iv23
   %call15 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx11, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx14)
-  %arrayidx17 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 11, i64 %indvars.iv23
-  %arrayidx20 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %rhs, i64 0, i32 11, i64 %indvars.iv23
+  %arrayidx17 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym, i64 0, i64 %indvars.iv23
+  %arrayidx20 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym18, i64 0, i64 %indvars.iv23
   %call21 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx17, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx20)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 3
   br i1 %exitcond26.not, label %for.end24, label %for.body9, !llvm.loop !12
 
 for.end24:                                        ; preds = %for.body9
-  %locale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %rhs, i64 0, i32 5
-  %locale25 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 5
+  %locale = getelementptr inbounds i8, ptr %rhs, i64 1936
+  %locale25 = getelementptr inbounds i8, ptr %this, i64 1936
   %call26 = tail call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale25, ptr noundef nonnull align 8 dereferenceable(217) %locale)
-  %validLocale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 7
-  %validLocale27 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %rhs, i64 0, i32 7
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 2317
+  %validLocale27 = getelementptr inbounds i8, ptr %rhs, i64 2317
   %call29 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %validLocale, ptr noundef nonnull dereferenceable(1) %validLocale27) #15
-  %actualLocale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 6
-  %actualLocale31 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %rhs, i64 0, i32 6
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 2160
+  %actualLocale31 = getelementptr inbounds i8, ptr %rhs, i64 2160
   %call33 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %actualLocale, ptr noundef nonnull dereferenceable(1) %actualLocale31) #15
-  %fIsCustomCurrencySymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %rhs, i64 0, i32 12
+  %fIsCustomCurrencySymbol = getelementptr inbounds i8, ptr %rhs, i64 2872
   %0 = load i8, ptr %fIsCustomCurrencySymbol, align 8
-  %fIsCustomCurrencySymbol34 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 12
+  %fIsCustomCurrencySymbol34 = getelementptr inbounds i8, ptr %this, i64 2872
   store i8 %0, ptr %fIsCustomCurrencySymbol34, align 8
-  %fIsCustomIntlCurrencySymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %rhs, i64 0, i32 13
+  %fIsCustomIntlCurrencySymbol = getelementptr inbounds i8, ptr %rhs, i64 2873
   %1 = load i8, ptr %fIsCustomIntlCurrencySymbol, align 1
-  %fIsCustomIntlCurrencySymbol35 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 13
+  %fIsCustomIntlCurrencySymbol35 = getelementptr inbounds i8, ptr %this, i64 2873
   store i8 %1, ptr %fIsCustomIntlCurrencySymbol35, align 1
-  %fCodePointZero = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %rhs, i64 0, i32 3
+  %fCodePointZero = getelementptr inbounds i8, ptr %rhs, i64 1928
   %2 = load i32, ptr %fCodePointZero, align 8
-  %fCodePointZero36 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 3
+  %fCodePointZero36 = getelementptr inbounds i8, ptr %this, i64 1928
   store i32 %2, ptr %fCodePointZero36, align 8
-  %currPattern = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %rhs, i64 0, i32 9
+  %currPattern = getelementptr inbounds i8, ptr %rhs, i64 2480
   %3 = load ptr, ptr %currPattern, align 8
-  %currPattern37 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 9
+  %currPattern37 = getelementptr inbounds i8, ptr %this, i64 2480
   store ptr %3, ptr %currPattern37, align 8
-  %nsName = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 14
-  %nsName39 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %rhs, i64 0, i32 14
+  %nsName = getelementptr inbounds i8, ptr %this, i64 2874
+  %nsName39 = getelementptr inbounds i8, ptr %rhs, i64 2874
   %call41 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %nsName, ptr noundef nonnull dereferenceable(1) %nsName39) #15
   br label %if.end
 
@@ -2326,38 +2340,50 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fIsCustomCurrencySymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 12
+  %fIsCustomCurrencySymbol = getelementptr inbounds i8, ptr %this, i64 2872
   %0 = load i8, ptr %fIsCustomCurrencySymbol, align 8
-  %fIsCustomCurrencySymbol2 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 12
+  %fIsCustomCurrencySymbol2 = getelementptr inbounds i8, ptr %that, i64 2872
   %1 = load i8, ptr %fIsCustomCurrencySymbol2, align 8
   %cmp4.not = icmp eq i8 %0, %1
   br i1 %cmp4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end
-  %fIsCustomIntlCurrencySymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 13
+  %fIsCustomIntlCurrencySymbol = getelementptr inbounds i8, ptr %this, i64 2873
   %2 = load i8, ptr %fIsCustomIntlCurrencySymbol, align 1
-  %fIsCustomIntlCurrencySymbol8 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 13
+  %fIsCustomIntlCurrencySymbol8 = getelementptr inbounds i8, ptr %that, i64 2873
   %3 = load i8, ptr %fIsCustomIntlCurrencySymbol8, align 1
   %cmp10.not = icmp eq i8 %2, %3
-  br i1 %cmp10.not, label %for.body, label %return
+  br i1 %cmp10.not, label %for.cond.preheader, label %return
+
+for.cond.preheader:                               ; preds = %if.end6
+  %fSymbols = getelementptr inbounds i8, ptr %this, i64 8
+  %fSymbols14 = getelementptr inbounds i8, ptr %that, i64 8
+  br label %for.body
 
 for.cond:                                         ; preds = %if.then.i.i, %_ZNK6icu_7513UnicodeStringneERKS0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 29
-  br i1 %exitcond.not, label %for.body22, label %for.body, !llvm.loop !13
+  br i1 %exitcond.not, label %for.cond20.preheader, label %for.body, !llvm.loop !13
 
-for.body:                                         ; preds = %if.end6, %for.cond
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %if.end6 ]
-  %arrayidx = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 %indvars.iv
-  %arrayidx16 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 1, i64 %indvars.iv
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 %indvars.iv, i32 1
+for.cond20.preheader:                             ; preds = %for.cond
+  %currencySpcBeforeSym = getelementptr inbounds i8, ptr %this, i64 2488
+  %currencySpcBeforeSym25 = getelementptr inbounds i8, ptr %that, i64 2488
+  %currencySpcAfterSym = getelementptr inbounds i8, ptr %this, i64 2680
+  %currencySpcAfterSym33 = getelementptr inbounds i8, ptr %that, i64 2680
+  br label %for.body22
+
+for.body:                                         ; preds = %for.cond.preheader, %for.cond
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.cond ]
+  %arrayidx = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i64 0, i64 %indvars.iv
+  %arrayidx16 = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols14, i64 0, i64 %indvars.iv
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i16, ptr %fUnion.i.i.i, align 8
   %conv2.i14.i.i = and i16 %4, 1
   %tobool.not.i.i = icmp eq i16 %conv2.i14.i.i, 0
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  %fUnion.i5.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 1, i64 %indvars.iv, i32 1
+  %fUnion.i5.i.i = getelementptr inbounds i8, ptr %arrayidx16, i64 8
   %5 = load i16, ptr %fUnion.i5.i.i, align 8
   %conv2.i615.i.i = and i16 %5, 1
   %tobool3.i.i.not = icmp eq i16 %conv2.i615.i.i, 0
@@ -2367,15 +2393,15 @@ if.else.i.i:                                      ; preds = %for.body
   %cmp.i.i.i.i = icmp slt i16 %4, 0
   %6 = ashr i16 %4, 5
   %shr.i.i.i.i = sext i16 %6 to i32
-  %fLength.i.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 %indvars.iv, i32 1, i32 0, i32 1
+  %fLength.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %7 = load i32, ptr %fLength.i.i.i, align 4
   %cond.i.i.i = select i1 %cmp.i.i.i.i, i32 %7, i32 %shr.i.i.i.i
-  %fUnion.i.i7.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 1, i64 %indvars.iv, i32 1
+  %fUnion.i.i7.i.i = getelementptr inbounds i8, ptr %arrayidx16, i64 8
   %8 = load i16, ptr %fUnion.i.i7.i.i, align 8
   %cmp.i.i8.i.i = icmp slt i16 %8, 0
   %9 = ashr i16 %8, 5
   %shr.i.i9.i.i = sext i16 %9 to i32
-  %fLength.i10.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 1, i64 %indvars.iv, i32 1, i32 0, i32 1
+  %fLength.i10.i.i = getelementptr inbounds i8, ptr %arrayidx16, i64 12
   %10 = load i32, ptr %fLength.i10.i.i, align 4
   %cond.i11.i.i = select i1 %cmp.i.i8.i.i, i32 %10, i32 %shr.i.i9.i.i
   %conv2.i1316.i.i = and i16 %8, 1
@@ -2394,18 +2420,18 @@ for.cond20:                                       ; preds = %if.then.i.i47, %_ZN
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 3
   br i1 %exitcond85.not, label %for.end41, label %for.body22, !llvm.loop !14
 
-for.body22:                                       ; preds = %for.cond, %for.cond20
-  %indvars.iv82 = phi i64 [ %indvars.iv.next83, %for.cond20 ], [ 0, %for.cond ]
-  %arrayidx24 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 10, i64 %indvars.iv82
-  %arrayidx27 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 10, i64 %indvars.iv82
-  %fUnion.i.i.i17 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 10, i64 %indvars.iv82, i32 1
+for.body22:                                       ; preds = %for.cond20.preheader, %for.cond20
+  %indvars.iv82 = phi i64 [ 0, %for.cond20.preheader ], [ %indvars.iv.next83, %for.cond20 ]
+  %arrayidx24 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcBeforeSym, i64 0, i64 %indvars.iv82
+  %arrayidx27 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcBeforeSym25, i64 0, i64 %indvars.iv82
+  %fUnion.i.i.i17 = getelementptr inbounds i8, ptr %arrayidx24, i64 8
   %11 = load i16, ptr %fUnion.i.i.i17, align 8
   %conv2.i14.i.i18 = and i16 %11, 1
   %tobool.not.i.i19 = icmp eq i16 %conv2.i14.i.i18, 0
   br i1 %tobool.not.i.i19, label %if.else.i.i26, label %if.then.i.i20
 
 if.then.i.i20:                                    ; preds = %for.body22
-  %fUnion.i5.i.i21 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 10, i64 %indvars.iv82, i32 1
+  %fUnion.i5.i.i21 = getelementptr inbounds i8, ptr %arrayidx27, i64 8
   %12 = load i16, ptr %fUnion.i5.i.i21, align 8
   %conv2.i615.i.i22 = and i16 %12, 1
   %tobool3.i.i23.not = icmp eq i16 %conv2.i615.i.i22, 0
@@ -2415,15 +2441,15 @@ if.else.i.i26:                                    ; preds = %for.body22
   %cmp.i.i.i.i27 = icmp slt i16 %11, 0
   %13 = ashr i16 %11, 5
   %shr.i.i.i.i28 = sext i16 %13 to i32
-  %fLength.i.i.i29 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 10, i64 %indvars.iv82, i32 1, i32 0, i32 1
+  %fLength.i.i.i29 = getelementptr inbounds i8, ptr %arrayidx24, i64 12
   %14 = load i32, ptr %fLength.i.i.i29, align 4
   %cond.i.i.i30 = select i1 %cmp.i.i.i.i27, i32 %14, i32 %shr.i.i.i.i28
-  %fUnion.i.i7.i.i31 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 10, i64 %indvars.iv82, i32 1
+  %fUnion.i.i7.i.i31 = getelementptr inbounds i8, ptr %arrayidx27, i64 8
   %15 = load i16, ptr %fUnion.i.i7.i.i31, align 8
   %cmp.i.i8.i.i32 = icmp slt i16 %15, 0
   %16 = ashr i16 %15, 5
   %shr.i.i9.i.i33 = sext i16 %16 to i32
-  %fLength.i10.i.i34 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 10, i64 %indvars.iv82, i32 1, i32 0, i32 1
+  %fLength.i10.i.i34 = getelementptr inbounds i8, ptr %arrayidx27, i64 12
   %17 = load i32, ptr %fLength.i10.i.i34, align 4
   %cond.i11.i.i35 = select i1 %cmp.i.i8.i.i32, i32 %17, i32 %shr.i.i9.i.i33
   %conv2.i1316.i.i36 = and i16 %15, 1
@@ -2438,16 +2464,16 @@ _ZNK6icu_7513UnicodeStringneERKS0_.exit43:        ; preds = %if.else.i.i26
   br i1 %tobool9.i.i42.not, label %return, label %if.end30
 
 if.end30:                                         ; preds = %if.then.i.i20, %_ZNK6icu_7513UnicodeStringneERKS0_.exit43
-  %arrayidx32 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 11, i64 %indvars.iv82
-  %arrayidx35 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 11, i64 %indvars.iv82
-  %fUnion.i.i.i44 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 11, i64 %indvars.iv82, i32 1
+  %arrayidx32 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym, i64 0, i64 %indvars.iv82
+  %arrayidx35 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym33, i64 0, i64 %indvars.iv82
+  %fUnion.i.i.i44 = getelementptr inbounds i8, ptr %arrayidx32, i64 8
   %18 = load i16, ptr %fUnion.i.i.i44, align 8
   %conv2.i14.i.i45 = and i16 %18, 1
   %tobool.not.i.i46 = icmp eq i16 %conv2.i14.i.i45, 0
   br i1 %tobool.not.i.i46, label %if.else.i.i53, label %if.then.i.i47
 
 if.then.i.i47:                                    ; preds = %if.end30
-  %fUnion.i5.i.i48 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 11, i64 %indvars.iv82, i32 1
+  %fUnion.i5.i.i48 = getelementptr inbounds i8, ptr %arrayidx35, i64 8
   %19 = load i16, ptr %fUnion.i5.i.i48, align 8
   %conv2.i615.i.i49 = and i16 %19, 1
   %tobool3.i.i50.not = icmp eq i16 %conv2.i615.i.i49, 0
@@ -2457,15 +2483,15 @@ if.else.i.i53:                                    ; preds = %if.end30
   %cmp.i.i.i.i54 = icmp slt i16 %18, 0
   %20 = ashr i16 %18, 5
   %shr.i.i.i.i55 = sext i16 %20 to i32
-  %fLength.i.i.i56 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 11, i64 %indvars.iv82, i32 1, i32 0, i32 1
+  %fLength.i.i.i56 = getelementptr inbounds i8, ptr %arrayidx32, i64 12
   %21 = load i32, ptr %fLength.i.i.i56, align 4
   %cond.i.i.i57 = select i1 %cmp.i.i.i.i54, i32 %21, i32 %shr.i.i.i.i55
-  %fUnion.i.i7.i.i58 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 11, i64 %indvars.iv82, i32 1
+  %fUnion.i.i7.i.i58 = getelementptr inbounds i8, ptr %arrayidx35, i64 8
   %22 = load i16, ptr %fUnion.i.i7.i.i58, align 8
   %cmp.i.i8.i.i59 = icmp slt i16 %22, 0
   %23 = ashr i16 %22, 5
   %shr.i.i9.i.i60 = sext i16 %23 to i32
-  %fLength.i10.i.i61 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 11, i64 %indvars.iv82, i32 1, i32 0, i32 1
+  %fLength.i10.i.i61 = getelementptr inbounds i8, ptr %arrayidx35, i64 12
   %24 = load i32, ptr %fLength.i10.i.i61, align 4
   %cond.i11.i.i62 = select i1 %cmp.i.i8.i.i59, i32 %24, i32 %shr.i.i9.i.i60
   %conv2.i1316.i.i63 = and i16 %22, 1
@@ -2480,21 +2506,21 @@ _ZNK6icu_7513UnicodeStringneERKS0_.exit70:        ; preds = %if.else.i.i53
   br i1 %tobool9.i.i69.not, label %return, label %for.cond20
 
 for.end41:                                        ; preds = %for.cond20
-  %locale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 5
-  %locale42 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 5
+  %locale = getelementptr inbounds i8, ptr %this, i64 1936
+  %locale42 = getelementptr inbounds i8, ptr %that, i64 1936
   %call43 = tail call noundef zeroext i1 @_ZNK6icu_756LocaleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(217) %locale42)
   br i1 %call43, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %for.end41
-  %validLocale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 7
-  %validLocale44 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 7
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 2317
+  %validLocale44 = getelementptr inbounds i8, ptr %that, i64 2317
   %call46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %validLocale, ptr noundef nonnull dereferenceable(1) %validLocale44) #18
   %cmp47 = icmp eq i32 %call46, 0
   br i1 %cmp47, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %actualLocale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 6
-  %actualLocale49 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %that, i64 0, i32 6
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 2160
+  %actualLocale49 = getelementptr inbounds i8, ptr %that, i64 2160
   %call51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %actualLocale, ptr noundef nonnull dereferenceable(1) %actualLocale49) #18
   %cmp52 = icmp eq i32 %call51, 0
   br label %return
@@ -2557,9 +2583,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %tempStr, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %tempStr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %tempStr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  %fullName.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 5, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %this, i64 1976
   %0 = load ptr, ptr %fullName.i, align 8
   invoke void @uprv_getStaticCurrencyName_75(ptr noundef nonnull %currency, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %tempStr, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont2 unwind label %lpad
@@ -2570,24 +2596,24 @@ invoke.cont2:                                     ; preds = %if.end
   br i1 %cmp.i, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %invoke.cont2
-  %arrayidx = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 9
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 584
   invoke void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then6
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 9, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %this, i64 592
   %2 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %2, 0
   %3 = ashr i16 %2, 5
   %shr.i.i.i = sext i16 %3 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 9, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %this, i64 596
   %4 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %4, i32 %shr.i.i.i
   %call2.i9 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, i32 noundef 0, i32 noundef %cond.i.i, ptr noundef nonnull %currency, i32 noundef 0, i32 noundef 3)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %.noexc
-  %arrayidx10 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 8
+  %arrayidx10 = getelementptr inbounds i8, ptr %this, i64 520
   %call12 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx10, ptr noundef nonnull align 8 dereferenceable(64) %tempStr)
           to label %if.end13 unwind label %lpad
 
@@ -2640,13 +2666,13 @@ invoke.cont47:                                    ; preds = %if.then42
           to label %invoke.cont51 unwind label %lpad27
 
 invoke.cont51:                                    ; preds = %invoke.cont47
-  %currPattern = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 9
+  %currPattern = getelementptr inbounds i8, ptr %this, i64 2480
   store ptr %call52, ptr %currPattern, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %decimalSep, align 8, !alias.scope !15
-  %fUnion2.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %decimalSep, i64 0, i32 1
+  %fUnion2.i.i = getelementptr inbounds i8, ptr %decimalSep, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !15
   store i32 0, ptr %len.i, align 4, !noalias !15
   %call.i = invoke ptr @ures_getStringByIndex_75(ptr noundef %call25, i32 noundef 1, ptr noundef nonnull %len.i, ptr noundef nonnull %localStatus)
@@ -2697,7 +2723,7 @@ invoke.cont55:                                    ; preds = %if.else.i, %invoke.
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i14)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %groupingSep, align 8, !alias.scope !18
-  %fUnion2.i.i15 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %groupingSep, i64 0, i32 1
+  %fUnion2.i.i15 = getelementptr inbounds i8, ptr %groupingSep, i64 8
   store i16 2, ptr %fUnion2.i.i15, align 8, !alias.scope !18
   store i32 0, ptr %len.i13, align 4, !noalias !18
   %call.i16 = invoke ptr @ures_getStringByIndex_75(ptr noundef %call25, i32 noundef 2, ptr noundef nonnull %len.i13, ptr noundef nonnull %localStatus)
@@ -2744,12 +2770,12 @@ invoke.cont59:                                    ; preds = %if.else.i26, %invok
   br i1 %cmp.i29, label %if.end73, label %if.then64
 
 if.then64:                                        ; preds = %invoke.cont59
-  %arrayidx66 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 17
+  %arrayidx66 = getelementptr inbounds i8, ptr %this, i64 1096
   %call68 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx66, ptr noundef nonnull align 8 dereferenceable(64) %groupingSep)
           to label %invoke.cont67 unwind label %lpad60
 
 invoke.cont67:                                    ; preds = %if.then64
-  %arrayidx70 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 10
+  %arrayidx70 = getelementptr inbounds i8, ptr %this, i64 648
   %call72 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx70, ptr noundef nonnull align 8 dereferenceable(64) %decimalSep)
           to label %if.end73 unwind label %lpad60
 
@@ -2886,10 +2912,10 @@ declare ptr @ures_getStringByIndex_75(ptr noundef, i32 noundef, ptr noundef, ptr
 define void @_ZNK6icu_7520DecimalFormatSymbols9getLocaleE18ULocDataLocaleTypeR10UErrorCode(ptr noalias sret(%"class.icu_75::Locale") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(2883) %this, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %locBased = alloca %"class.icu_75::LocaleBased", align 8
-  %validLocale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 7
-  %actualLocale = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 6
+  %validLocale = getelementptr inbounds i8, ptr %this, i64 2317
+  %actualLocale = getelementptr inbounds i8, ptr %this, i64 2160
   store ptr %validLocale, ptr %locBased, align 8
-  %actual.i = getelementptr inbounds %"class.icu_75::LocaleBased", ptr %locBased, i64 0, i32 1
+  %actual.i = getelementptr inbounds i8, ptr %locBased, i64 8
   store ptr %actualLocale, ptr %actual.i, align 8
   call void @_ZNK6icu_7511LocaleBased9getLocaleE18ULocDataLocaleTypeR10UErrorCode(ptr sret(%"class.icu_75::Locale") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %locBased, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
@@ -2905,7 +2931,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fNoSymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 2
+  %fNoSymbol = getelementptr inbounds i8, ptr %this, i64 1864
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2914,11 +2940,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %arrayidx = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 10, i64 %idxprom4
+  %currencySpcBeforeSym = getelementptr inbounds i8, ptr %this, i64 2488
+  %arrayidx = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcBeforeSym, i64 0, i64 %idxprom4
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %arrayidx5 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 11, i64 %idxprom4
+  %currencySpcAfterSym = getelementptr inbounds i8, ptr %this, i64 2680
+  %arrayidx5 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym, i64 0, i64 %idxprom4
   br label %return
 
 return:                                           ; preds = %if.else, %if.then3, %if.then
@@ -2931,10 +2959,10 @@ define void @_ZN6icu_7520DecimalFormatSymbols28setPatternForCurrencySpacingE16UC
 entry:
   %tobool.not = icmp eq i8 %beforeCurrency, 0
   %idxprom2 = sext i32 %type to i64
-  %arrayidx3 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 11, i64 %idxprom2
-  %arrayidx = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 10, i64 %idxprom2
-  %arrayidx3.sink = select i1 %tobool.not, ptr %arrayidx3, ptr %arrayidx
-  %call4 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx3.sink, ptr noundef nonnull align 8 dereferenceable(64) %pattern)
+  %. = select i1 %tobool.not, i64 2680, i64 2488
+  %currencySpcAfterSym = getelementptr inbounds i8, ptr %this, i64 %.
+  %arrayidx3 = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym, i64 0, i64 %idxprom2
+  %call4 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(64) %pattern)
   ret void
 }
 
@@ -2964,7 +2992,7 @@ entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   store ptr %key, ptr %key.addr, align 8
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %symbolsTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %2 = load i32, ptr %errorCode, align 4
@@ -2977,7 +3005,8 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %tobool3.not18, label %for.end27, label %for.cond4.preheader.lr.ph
 
 for.cond4.preheader.lr.ph:                        ; preds = %for.cond.preheader
-  %dfs = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DecFmtSymDataSink", ptr %this, i64 0, i32 1
+  %seenSymbol = getelementptr inbounds i8, ptr %this, i64 16
+  %dfs = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.cond4.preheader
 
 for.cond4.preheader:                              ; preds = %for.cond4.preheader.lr.ph, %for.inc25
@@ -3001,7 +3030,7 @@ land.lhs.true:                                    ; preds = %for.body5
 
 if.then11:                                        ; preds = %land.lhs.true
   %7 = trunc i64 %indvars.iv to i32
-  %arrayidx13 = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::DecFmtSymDataSink", ptr %this, i64 0, i32 2, i64 %indvars.iv
+  %arrayidx13 = getelementptr inbounds [29 x i8], ptr %seenSymbol, i64 0, i64 %indvars.iv
   %8 = load i8, ptr %arrayidx13, align 1
   %tobool14.not = icmp eq i8 %8, 0
   br i1 %tobool14.not, label %if.then15, label %for.inc25
@@ -3013,7 +3042,7 @@ if.then15:                                        ; preds = %if.then11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i32 0, ptr %len.i, align 4, !noalias !21
   %vtable.i = load ptr, ptr %value, align 8, !noalias !21
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %10 = load ptr, ptr %vfn.i, align 8, !noalias !21
   %call.i = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !noalias !21
   store ptr %call.i, ptr %agg.tmp.i, align 8, !noalias !21
@@ -3079,19 +3108,20 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %fIsCustomCurrencySymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 12
+  %fIsCustomCurrencySymbol = getelementptr inbounds i8, ptr %this, i64 2872
   store i8 1, ptr %fIsCustomCurrencySymbol, align 8
   br label %if.end7.thread16
 
 if.then3:                                         ; preds = %entry
-  %fIsCustomIntlCurrencySymbol = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 13
+  %fIsCustomIntlCurrencySymbol = getelementptr inbounds i8, ptr %this, i64 2873
   store i8 1, ptr %fIsCustomIntlCurrencySymbol, align 1
   br label %if.end7.thread16
 
 if.end7.thread16:                                 ; preds = %if.then, %if.then3
-  %idxprom17 = zext nneg i32 %symbol to i64
-  %arrayidx18 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 %idxprom17
-  %call19 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx18, ptr noundef nonnull align 8 dereferenceable(64) %value)
+  %fSymbols17 = getelementptr inbounds i8, ptr %this, i64 8
+  %idxprom18 = zext nneg i32 %symbol to i64
+  %arrayidx19 = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols17, i64 0, i64 %idxprom18
+  %call20 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx19, ptr noundef nonnull align 8 dereferenceable(64) %value)
   br label %if.end34
 
 if.end4:                                          ; preds = %entry
@@ -3099,8 +3129,9 @@ if.end4:                                          ; preds = %entry
   br i1 %cmp5, label %if.end7, label %if.end34
 
 if.end7:                                          ; preds = %if.end4
+  %fSymbols = getelementptr inbounds i8, ptr %this, i64 8
   %idxprom = zext i32 %symbol to i64
-  %arrayidx = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i64 0, i64 %idxprom
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, ptr noundef nonnull align 8 dereferenceable(64) %value)
   %cmp8 = icmp eq i32 %symbol, 4
   br i1 %cmp8, label %if.then9, label %if.else27
@@ -3121,17 +3152,17 @@ land.lhs.true13:                                  ; preds = %land.lhs.true
   br i1 %cmp15, label %if.then16, label %if.else24
 
 if.then16:                                        ; preds = %land.lhs.true13
-  %fCodePointZero = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 3
+  %fCodePointZero = getelementptr inbounds i8, ptr %this, i64 1928
   store i32 %call10, ptr %fCodePointZero, align 8
   br label %for.body
 
 for.body:                                         ; preds = %if.then16, %for.body
   %indvars.iv = phi i64 [ 1, %if.then16 ], [ %indvars.iv.next, %for.body ]
-  %sym.022 = phi i32 [ %call10, %if.then16 ], [ %inc, %for.body ]
-  %inc = add nsw i32 %sym.022, 1
+  %sym.023 = phi i32 [ %call10, %if.then16 ], [ %inc, %for.body ]
+  %inc = add nsw i32 %sym.023, 1
   call void @_ZN6icu_7513UnicodeStringC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef %inc)
   %0 = add nuw nsw i64 %indvars.iv, 17
-  %arrayidx21 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 1, i64 %0
+  %arrayidx21 = getelementptr inbounds [29 x %"class.icu_75::UnicodeString"], ptr %fSymbols, i64 0, i64 %0
   %call22 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx21, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #15
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3139,7 +3170,7 @@ for.body:                                         ; preds = %if.then16, %for.bod
   br i1 %exitcond.not, label %if.end34, label %for.body, !llvm.loop !26
 
 if.else24:                                        ; preds = %land.lhs.true13, %land.lhs.true, %if.then9
-  %fCodePointZero25 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 3
+  %fCodePointZero25 = getelementptr inbounds i8, ptr %this, i64 1928
   store i32 -1, ptr %fCodePointZero25, align 8
   br label %if.end34
 
@@ -3149,7 +3180,7 @@ if.else27:                                        ; preds = %if.end7
   br i1 %or.cond, label %if.then31, label %if.end34
 
 if.then31:                                        ; preds = %if.else27
-  %fCodePointZero32 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %this, i64 0, i32 3
+  %fCodePointZero32 = getelementptr inbounds i8, ptr %this, i64 1928
   store i32 -1, ptr %fCodePointZero32, align 8
   br label %if.end34
 
@@ -3187,7 +3218,7 @@ entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   store ptr %key, ptr %key.addr, align 8
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %spacingTypesTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %call17 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %spacingTypesTable, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
@@ -3195,9 +3226,9 @@ entry:
   br i1 %tobool.not18, label %for.end37, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %hasAfterCurrency = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CurrencySpacingSink", ptr %this, i64 0, i32 3
-  %hasBeforeCurrency = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CurrencySpacingSink", ptr %this, i64 0, i32 2
-  %dfs = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::CurrencySpacingSink", ptr %this, i64 0, i32 1
+  %hasAfterCurrency = getelementptr inbounds i8, ptr %this, i64 17
+  %hasBeforeCurrency = getelementptr inbounds i8, ptr %this, i64 16
+  %dfs = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc35
@@ -3222,15 +3253,19 @@ if.then5:                                         ; preds = %if.else
 
 if.end7:                                          ; preds = %if.then5, %if.then
   %vtable8 = load ptr, ptr %value, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 11
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 88
   %3 = load ptr, ptr %vfn9, align 8
   call void %3(ptr nonnull sret(%"class.icu_75::ResourceTable") align 8 %patternsTable, ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %call1114 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %patternsTable, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool12.not15 = icmp eq i8 %call1114, 0
-  br i1 %tobool12.not15, label %for.inc35, label %for.body13
+  br i1 %tobool12.not15, label %for.inc35, label %for.body13.lr.ph
 
-for.body13:                                       ; preds = %if.end7, %for.inc
-  %j.016 = phi i32 [ %inc, %for.inc ], [ 0, %if.end7 ]
+for.body13.lr.ph:                                 ; preds = %if.end7
+  %..i = select i1 %cmp.not.not, i64 2488, i64 2680
+  br label %for.body13
+
+for.body13:                                       ; preds = %for.body13.lr.ph, %for.inc
+  %j.016 = phi i32 [ 0, %for.body13.lr.ph ], [ %inc, %for.inc ]
   %4 = load ptr, ptr %key.addr, align 8
   %call14 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(14) @_ZN6icu_75L17gCurrencyMatchTagE) #18
   %cmp15 = icmp eq i32 %call14, 0
@@ -3254,23 +3289,25 @@ if.end28:                                         ; preds = %if.else21, %if.else
   br i1 %cmp.i.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end28
-  %fNoSymbol.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %5, i64 0, i32 2
+  %fNoSymbol.i = getelementptr inbounds i8, ptr %5, i64 1864
   br label %_ZNK6icu_7520DecimalFormatSymbols28getPatternForCurrencySpacingE16UCurrencySpacingaR10UErrorCode.exit
 
 if.end.i:                                         ; preds = %if.end28
   br i1 %cmp.not.not, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %arrayidx.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %5, i64 0, i32 10, i64 %pattern.0
+  %currencySpcBeforeSym.i = getelementptr inbounds i8, ptr %5, i64 2488
+  %arrayidx.i = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcBeforeSym.i, i64 0, i64 %pattern.0
   br label %_ZNK6icu_7520DecimalFormatSymbols28getPatternForCurrencySpacingE16UCurrencySpacingaR10UErrorCode.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %arrayidx5.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %5, i64 0, i32 11, i64 %pattern.0
+  %currencySpcAfterSym.i = getelementptr inbounds i8, ptr %5, i64 2680
+  %arrayidx5.i = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym.i, i64 0, i64 %pattern.0
   br label %_ZNK6icu_7520DecimalFormatSymbols28getPatternForCurrencySpacingE16UCurrencySpacingaR10UErrorCode.exit
 
 _ZNK6icu_7520DecimalFormatSymbols28getPatternForCurrencySpacingE16UCurrencySpacingaR10UErrorCode.exit: ; preds = %if.then.i, %if.then3.i, %if.else.i
   %retval.0.i = phi ptr [ %fNoSymbol.i, %if.then.i ], [ %arrayidx.i, %if.then3.i ], [ %arrayidx5.i, %if.else.i ]
-  %fUnion.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %retval.0.i, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %7 = load i16, ptr %fUnion.i, align 8
   %cmp.i = icmp ugt i16 %7, 31
   br i1 %cmp.i, label %for.inc, label %if.then32
@@ -3280,7 +3317,7 @@ if.then32:                                        ; preds = %_ZNK6icu_7520Decima
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i32 0, ptr %len.i, align 4, !noalias !27
   %vtable.i = load ptr, ptr %value, align 8, !noalias !27
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %8 = load ptr, ptr %vfn.i, align 8, !noalias !27
   %call.i = call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 4 dereferenceable(4) %len.i, ptr noundef nonnull align 4 dereferenceable(4) %errorCode), !noalias !27
   store ptr %call.i, ptr %agg.tmp.i, align 8, !noalias !27
@@ -3304,10 +3341,9 @@ _ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit: ; preds = %if.t
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %12) #15, !srcloc !10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %arrayidx3.i = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %5, i64 0, i32 11, i64 %pattern.0
-  %arrayidx.i12 = getelementptr inbounds %"class.icu_75::DecimalFormatSymbols", ptr %5, i64 0, i32 10, i64 %pattern.0
-  %arrayidx3.sink.i = select i1 %cmp.not.not, ptr %arrayidx.i12, ptr %arrayidx3.i
-  %call4.i13 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx3.sink.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp)
+  %currencySpcAfterSym.i12 = getelementptr inbounds i8, ptr %5, i64 %..i
+  %arrayidx3.i = getelementptr inbounds [3 x %"class.icu_75::UnicodeString"], ptr %currencySpcAfterSym.i12, i64 0, i64 %pattern.0
+  %call4.i13 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx3.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK6icu_7513ResourceValue16getUnicodeStringER10UErrorCode.exit

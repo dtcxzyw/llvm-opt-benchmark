@@ -14,7 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.redisOpArray = type { ptr, i32, i32 }
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.connection = type { ptr, i32, i32, i32, i16, i16, i16, ptr, ptr, ptr, ptr }
 
 @CT_Socket = internal global %struct.ConnectionType { ptr @connSocketGetType, ptr null, ptr null, ptr null, ptr @connSocketEventHandler, ptr @connSocketAcceptHandler, ptr @connSocketAddr, ptr @connSocketIsLocal, ptr @connSocketListen, ptr @connCreateSocket, ptr @connCreateAcceptedSocket, ptr @connSocketShutdown, ptr @connSocketClose, ptr @connSocketConnect, ptr @connSocketBlockingConnect, ptr @connSocketAccept, ptr @connSocketWrite, ptr @connSocketWritev, ptr @connSocketRead, ptr @connSocketSetWriteHandler, ptr @connSocketSetReadHandler, ptr @connSocketGetLastError, ptr @connSocketSyncWrite, ptr @connSocketSyncRead, ptr @connSocketSyncReadLine, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [4 x i8] c"tcp\00", align 1
@@ -25,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @connBlock(ptr nocapture noundef readonly %conn) local_unnamed_addr #0 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.end
@@ -44,7 +43,7 @@ declare i32 @anetBlock(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @connNonBlock(ptr nocapture noundef readonly %conn) local_unnamed_addr #0 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.end
@@ -63,7 +62,7 @@ declare i32 @anetNonBlock(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @connEnableTcpNoDelay(ptr nocapture noundef readonly %conn) local_unnamed_addr #0 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.end
@@ -82,7 +81,7 @@ declare i32 @anetEnableTcpNoDelay(ptr noundef, i32 noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @connDisableTcpNoDelay(ptr nocapture noundef readonly %conn) local_unnamed_addr #0 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.end
@@ -101,7 +100,7 @@ declare i32 @anetDisableTcpNoDelay(ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @connKeepAlive(ptr nocapture noundef readonly %conn, i32 noundef %interval) local_unnamed_addr #0 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.end
@@ -120,7 +119,7 @@ declare i32 @anetKeepAlive(ptr noundef, i32 noundef, i32 noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @connSendTimeout(ptr nocapture noundef readonly %conn, i64 noundef %ms) local_unnamed_addr #0 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %call = tail call i32 @anetSendTimeout(ptr noundef null, i32 noundef %0, i64 noundef %ms) #9
   ret i32 %call
@@ -131,7 +130,7 @@ declare i32 @anetSendTimeout(ptr noundef, i32 noundef, i64 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @connRecvTimeout(ptr nocapture noundef readonly %conn, i64 noundef %ms) local_unnamed_addr #0 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %call = tail call i32 @anetRecvTimeout(ptr noundef null, i32 noundef %0, i64 noundef %ms) #9
   ret i32 %call
@@ -157,7 +156,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @connSocketEventHandler(ptr nocapture readnone %el, i32 %fd, ptr noundef %clientData, i32 noundef %mask) #0 {
 entry:
-  %state = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %clientData, i64 8
   %0 = load i32, ptr %state, align 8
   %cmp = icmp ne i32 %0, 1
   %and = and i32 %mask, 2
@@ -166,32 +165,32 @@ entry:
   br i1 %or.cond27, label %if.end18, label %land.lhs.true1
 
 land.lhs.true1:                                   ; preds = %entry
-  %conn_handler = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 8
+  %conn_handler = getelementptr inbounds i8, ptr %clientData, i64 40
   %1 = load ptr, ptr %conn_handler, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %land.lhs.true1.if.end18.thread_crit_edge, label %if.then
 
 land.lhs.true1.if.end18.thread_crit_edge:         ; preds = %land.lhs.true1
-  %flags77.phi.trans.insert = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 4
+  %flags77.phi.trans.insert = getelementptr inbounds i8, ptr %clientData, i64 20
   %.pre = load i16, ptr %flags77.phi.trans.insert, align 4
   br label %if.end18.thread
 
 if.then:                                          ; preds = %land.lhs.true1
-  %fd3 = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 3
+  %fd3 = getelementptr inbounds i8, ptr %clientData, i64 16
   %2 = load i32, ptr %fd3, align 8
   %call = tail call i32 @anetGetError(i32 noundef %2) #9
   %tobool4.not = icmp eq i32 %call, 0
   br i1 %tobool4.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %last_errno = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 2
+  %last_errno = getelementptr inbounds i8, ptr %clientData, i64 12
   store i32 %call, ptr %last_errno, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %if.then5
   %storemerge = phi i32 [ 5, %if.then5 ], [ 3, %if.then ]
   store i32 %storemerge, ptr %state, align 8
-  %write_handler = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 9
+  %write_handler = getelementptr inbounds i8, ptr %clientData, i64 48
   %3 = load ptr, ptr %write_handler, align 8
   %tobool8.not = icmp eq ptr %3, null
   br i1 %tobool8.not, label %if.then9, label %if.end11
@@ -204,7 +203,7 @@ if.then9:                                         ; preds = %if.end
 
 if.end11:                                         ; preds = %if.then9, %if.end
   %6 = load ptr, ptr %conn_handler, align 8
-  %refs.i.i = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 5
+  %refs.i.i = getelementptr inbounds i8, ptr %clientData, i64 22
   %7 = load i16, ptr %refs.i.i, align 2
   %inc.i.i = add i16 %7, 1
   store i16 %inc.i.i, ptr %refs.i.i, align 2
@@ -220,7 +219,7 @@ if.then.i:                                        ; preds = %if.end11
 if.end.i:                                         ; preds = %if.then.i, %if.end11
   %dec.i.i = phi i16 [ %8, %if.then.i ], [ %7, %if.end11 ]
   store i16 %dec.i.i, ptr %refs.i.i, align 2
-  %flags.i = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %clientData, i64 20
   %9 = load i16, ptr %flags.i, align 4
   %10 = and i16 %9, 1
   %tobool1.not.i = icmp eq i16 %10, 0
@@ -236,12 +235,12 @@ if.end16:                                         ; preds = %if.end.i
 
 if.end18.thread:                                  ; preds = %land.lhs.true1.if.end18.thread_crit_edge, %if.end16
   %11 = phi i16 [ %.pre, %land.lhs.true1.if.end18.thread_crit_edge ], [ %9, %if.end16 ]
-  %flags77 = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 4
+  %flags77 = getelementptr inbounds i8, ptr %clientData, i64 20
   %12 = and i16 %11, 2
   br label %land.rhs
 
 if.end18:                                         ; preds = %entry
-  %flags = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %clientData, i64 20
   %13 = load i16, ptr %flags, align 4
   %14 = and i16 %13, 2
   br i1 %tobool.not, label %land.end, label %land.rhs
@@ -249,7 +248,7 @@ if.end18:                                         ; preds = %entry
 land.rhs:                                         ; preds = %if.end18.thread, %if.end18
   %15 = phi i16 [ %12, %if.end18.thread ], [ %14, %if.end18 ]
   %flags78 = phi ptr [ %flags77, %if.end18.thread ], [ %flags, %if.end18 ]
-  %write_handler22 = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 9
+  %write_handler22 = getelementptr inbounds i8, ptr %clientData, i64 48
   %16 = load ptr, ptr %write_handler22, align 8
   %tobool23 = icmp ne ptr %16, null
   br label %land.end
@@ -267,7 +266,7 @@ land.end28.thread:                                ; preds = %land.end
   br label %if.end39
 
 land.end28:                                       ; preds = %land.end
-  %read_handler = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 10
+  %read_handler = getelementptr inbounds i8, ptr %clientData, i64 56
   %19 = load ptr, ptr %read_handler, align 8
   %tobool27 = icmp ne ptr %19, null
   %tobool30 = icmp eq i16 %17, 0
@@ -275,7 +274,7 @@ land.end28:                                       ; preds = %land.end
   br i1 %or.cond, label %if.end.i35, label %if.end39
 
 if.end.i35:                                       ; preds = %land.end28
-  %refs.i.i30 = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 5
+  %refs.i.i30 = getelementptr inbounds i8, ptr %clientData, i64 22
   %20 = load i16, ptr %refs.i.i30, align 2
   %inc.i.i31 = add i16 %20, 1
   store i16 %inc.i.i31, ptr %refs.i.i30, align 2
@@ -298,9 +297,9 @@ if.end39:                                         ; preds = %if.end.i35, %land.e
   br i1 %18, label %if.then41, label %if.end47
 
 if.then41:                                        ; preds = %if.end39
-  %write_handler42 = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 9
+  %write_handler42 = getelementptr inbounds i8, ptr %clientData, i64 48
   %25 = load ptr, ptr %write_handler42, align 8
-  %refs.i.i45 = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 5
+  %refs.i.i45 = getelementptr inbounds i8, ptr %clientData, i64 22
   %26 = load i16, ptr %refs.i.i45, align 2
   %inc.i.i46 = add i16 %26, 1
   store i16 %inc.i.i46, ptr %refs.i.i45, align 2
@@ -336,15 +335,15 @@ if.end47:                                         ; preds = %if.end39
   br i1 %brmerge29, label %if.end57, label %if.end47.if.then51_crit_edge
 
 if.end47.if.then51_crit_edge:                     ; preds = %if.end47
-  %refs.i.i60.phi.trans.insert = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 5
+  %refs.i.i60.phi.trans.insert = getelementptr inbounds i8, ptr %clientData, i64 22
   %.pre93 = load i16, ptr %refs.i.i60.phi.trans.insert, align 2
   br label %if.then51
 
 if.then51:                                        ; preds = %if.end47.if.then51_crit_edge, %callHandler.exit59
   %30 = phi i16 [ %.pre93, %if.end47.if.then51_crit_edge ], [ %dec.i.i51, %callHandler.exit59 ]
-  %read_handler52 = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 10
+  %read_handler52 = getelementptr inbounds i8, ptr %clientData, i64 56
   %31 = load ptr, ptr %read_handler52, align 8
-  %refs.i.i60 = getelementptr inbounds %struct.connection, ptr %clientData, i64 0, i32 5
+  %refs.i.i60 = getelementptr inbounds i8, ptr %clientData, i64 22
   %inc.i.i61 = add i16 %30, 1
   store i16 %inc.i.i61, ptr %refs.i.i60, align 2
   %tobool.not.i62 = icmp eq ptr %31, null
@@ -368,7 +367,7 @@ if.end.i65:                                       ; preds = %if.then.i63, %if.th
 
 if.end57.sink.split:                              ; preds = %if.end.i65, %if.then2.i54, %if.then2.i39, %if.then2.i
   %35 = load ptr, ptr %clientData, align 8
-  %close.i.i58 = getelementptr inbounds %struct.ConnectionType, ptr %35, i64 0, i32 12
+  %close.i.i58 = getelementptr inbounds i8, ptr %35, i64 96
   %36 = load ptr, ptr %close.i.i58, align 8
   tail call void %36(ptr noundef nonnull %clientData) #9
   br label %if.end57
@@ -416,11 +415,11 @@ if.end11:                                         ; preds = %do.body8
 do.end13:                                         ; preds = %do.body8, %if.end11
   %call.i.i = call noalias dereferenceable_or_null(64) ptr @zcalloc(i64 noundef 64) #11
   store ptr @CT_Socket, ptr %call.i.i, align 8
-  %fd.i.i = getelementptr inbounds %struct.connection, ptr %call.i.i, i64 0, i32 3
-  %iovcnt.i.i = getelementptr inbounds %struct.connection, ptr %call.i.i, i64 0, i32 6
+  %fd.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %iovcnt.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i16 1024, ptr %iovcnt.i.i, align 8
   store i32 %call, ptr %fd.i.i, align 8
-  %state.i = getelementptr inbounds %struct.connection, ptr %call.i.i, i64 0, i32 1
+  %state.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i32 2, ptr %state.i, align 8
   call void @acceptCommonHandler(ptr noundef nonnull %call.i.i, i32 noundef 0, ptr noundef nonnull %cip) #9
   %dec = add nsw i32 %dec2, -1
@@ -434,7 +433,7 @@ while.end:                                        ; preds = %do.end13, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal i32 @connSocketAddr(ptr nocapture noundef %conn, ptr noundef %ip, i64 noundef %ip_len, ptr noundef %port, i32 noundef %remote) #0 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %call = tail call i32 @anetFdToString(i32 noundef %0, ptr noundef %ip, i64 noundef %ip_len, ptr noundef %port, i32 noundef %remote) #9
   %cmp = icmp eq i32 %call, 0
@@ -443,7 +442,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @__errno_location() #10
   %1 = load i32, ptr %call1, align 4
-  %last_errno = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 2
+  %last_errno = getelementptr inbounds i8, ptr %conn, i64 12
   store i32 %1, ptr %last_errno, align 4
   br label %return
 
@@ -457,7 +456,7 @@ define internal i32 @connSocketIsLocal(ptr nocapture noundef %conn) #0 {
 entry:
   %cip = alloca [47 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(47) %cip, i8 0, i64 47, i1 false)
-  %fd.i = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd.i = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd.i, align 8
   %call.i = call i32 @anetFdToString(i32 noundef %0, ptr noundef nonnull %cip, i64 noundef 46, ptr noundef null, i32 noundef 1) #9
   %cmp.i = icmp eq i32 %call.i, 0
@@ -466,7 +465,7 @@ entry:
 connSocketAddr.exit.thread:                       ; preds = %entry
   %call1.i = tail call ptr @__errno_location() #10
   %1 = load i32, ptr %call1.i, align 4
-  %last_errno.i = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 2
+  %last_errno.i = getelementptr inbounds i8, ptr %conn, i64 12
   store i32 %1, ptr %last_errno.i, align 4
   br label %return
 
@@ -495,9 +494,9 @@ define internal noalias ptr @connCreateSocket() #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(64) ptr @zcalloc(i64 noundef 64) #11
   store ptr @CT_Socket, ptr %call, align 8
-  %fd = getelementptr inbounds %struct.connection, ptr %call, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %call, i64 16
   store i32 -1, ptr %fd, align 8
-  %iovcnt = getelementptr inbounds %struct.connection, ptr %call, i64 0, i32 6
+  %iovcnt = getelementptr inbounds i8, ptr %call, i64 24
   store i16 1024, ptr %iovcnt, align 8
   ret ptr %call
 }
@@ -507,11 +506,11 @@ define internal noalias ptr @connCreateAcceptedSocket(i32 noundef %fd, ptr nocap
 entry:
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @zcalloc(i64 noundef 64) #11
   store ptr @CT_Socket, ptr %call.i, align 8
-  %fd.i = getelementptr inbounds %struct.connection, ptr %call.i, i64 0, i32 3
-  %iovcnt.i = getelementptr inbounds %struct.connection, ptr %call.i, i64 0, i32 6
+  %fd.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %iovcnt.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i16 1024, ptr %iovcnt.i, align 8
   store i32 %fd, ptr %fd.i, align 8
-  %state = getelementptr inbounds %struct.connection, ptr %call.i, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 2, ptr %state, align 8
   ret ptr %call.i
 }
@@ -519,7 +518,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @connSocketShutdown(ptr nocapture noundef readonly %conn) #0 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %return, label %if.end
@@ -535,7 +534,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal void @connSocketClose(ptr noundef %conn) #0 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -555,7 +554,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %flags = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %conn, i64 20
   %4 = load i16, ptr %flags, align 4
   %5 = or i16 %4, 1
   store i16 %5, ptr %flags, align 4
@@ -577,24 +576,24 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %state = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %conn, i64 8
   store i32 5, ptr %state, align 8
   %call1 = tail call ptr @__errno_location() #10
   %0 = load i32, ptr %call1, align 4
-  %last_errno = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 2
+  %last_errno = getelementptr inbounds i8, ptr %conn, i64 12
   store i32 %0, ptr %last_errno, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %fd2 = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd2 = getelementptr inbounds i8, ptr %conn, i64 16
   store i32 %call, ptr %fd2, align 8
-  %state3 = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 1
+  %state3 = getelementptr inbounds i8, ptr %conn, i64 8
   store i32 1, ptr %state3, align 8
-  %conn_handler = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 8
+  %conn_handler = getelementptr inbounds i8, ptr %conn, i64 40
   store ptr %connect_handler, ptr %conn_handler, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 14), align 8
   %2 = load ptr, ptr %conn, align 8
-  %ae_handler = getelementptr inbounds %struct.ConnectionType, ptr %2, i64 0, i32 4
+  %ae_handler = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %ae_handler, align 8
   %call5 = tail call i32 @aeCreateFileEvent(ptr noundef %1, i32 noundef %call, i32 noundef 2, ptr noundef %3, ptr noundef nonnull %conn) #9
   br label %return
@@ -612,11 +611,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %state = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %conn, i64 8
   store i32 5, ptr %state, align 8
   %call1 = tail call ptr @__errno_location() #10
   %0 = load i32, ptr %call1, align 4
-  %last_errno = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 2
+  %last_errno = getelementptr inbounds i8, ptr %conn, i64 12
   store i32 %0, ptr %last_errno, align 4
   br label %return
 
@@ -627,14 +626,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %if.end
-  %last_errno6 = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 2
+  %last_errno6 = getelementptr inbounds i8, ptr %conn, i64 12
   store i32 110, ptr %last_errno6, align 4
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then4, %if.end
-  %fd8 = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd8 = getelementptr inbounds i8, ptr %conn, i64 16
   store i32 %call, ptr %fd8, align 8
-  %state9 = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 1
+  %state9 = getelementptr inbounds i8, ptr %conn, i64 8
   store i32 3, ptr %state9, align 8
   br label %return
 
@@ -646,14 +645,14 @@ return:                                           ; preds = %if.end7, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i32 @connSocketAccept(ptr noundef %conn, ptr noundef readonly %accept_handler) #0 {
 entry:
-  %state = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %conn, i64 8
   %0 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %0, 2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   store i32 3, ptr %state, align 8
-  %refs.i = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 5
+  %refs.i = getelementptr inbounds i8, ptr %conn, i64 22
   %1 = load i16, ptr %refs.i, align 2
   %inc.i = add i16 %1, 1
   %inc.i.i = add i16 %1, 2
@@ -670,7 +669,7 @@ if.then.i:                                        ; preds = %if.end
 if.end.i:                                         ; preds = %if.then.i, %if.end
   %dec.i.i = phi i16 [ %2, %if.then.i ], [ %inc.i, %if.end ]
   store i16 %dec.i.i, ptr %refs.i, align 2
-  %flags.i = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 4
+  %flags.i = getelementptr inbounds i8, ptr %conn, i64 20
   %3 = load i16, ptr %flags.i, align 4
   %4 = and i16 %3, 1
   %tobool1.not.i = icmp eq i16 %4, 0
@@ -682,7 +681,7 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.then4.i:                                       ; preds = %if.then2.i
   %5 = load ptr, ptr %conn, align 8
-  %close.i.i = getelementptr inbounds %struct.ConnectionType, ptr %5, i64 0, i32 12
+  %close.i.i = getelementptr inbounds i8, ptr %5, i64 96
   %6 = load ptr, ptr %close.i.i, align 8
   tail call void %6(ptr noundef nonnull %conn) #9
   %.pre = load i16, ptr %refs.i, align 2
@@ -703,7 +702,7 @@ return:                                           ; preds = %entry, %callHandler
 ; Function Attrs: nofree nounwind uwtable
 define internal i32 @connSocketWrite(ptr nocapture noundef %conn, ptr nocapture noundef readonly %data, i64 noundef %data_len) #3 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %call = tail call i64 @write(i32 noundef %0, ptr noundef %data, i64 noundef %data_len) #9
   %conv = trunc i64 %call to i32
@@ -717,14 +716,14 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp3.not, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %last_errno = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 2
+  %last_errno = getelementptr inbounds i8, ptr %conn, i64 12
   store i32 %1, ptr %last_errno, align 4
   %2 = load i32, ptr %call2, align 4
   %cmp7.not = icmp eq i32 %2, 4
   br i1 %cmp7.not, label %if.end14, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %if.then
-  %state = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %conn, i64 8
   %3 = load i32, ptr %state, align 8
   %cmp10 = icmp eq i32 %3, 3
   br i1 %cmp10, label %if.then12, label %if.end14
@@ -740,7 +739,7 @@ if.end14:                                         ; preds = %if.then, %land.lhs.
 ; Function Attrs: nounwind uwtable
 define internal i32 @connSocketWritev(ptr nocapture noundef %conn, ptr noundef %iov, i32 noundef %iovcnt) #0 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %call = tail call i64 @writev(i32 noundef %0, ptr noundef %iov, i32 noundef %iovcnt) #9
   %conv = trunc i64 %call to i32
@@ -754,14 +753,14 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp3.not, label %if.end14, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %last_errno = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 2
+  %last_errno = getelementptr inbounds i8, ptr %conn, i64 12
   store i32 %1, ptr %last_errno, align 4
   %2 = load i32, ptr %call2, align 4
   %cmp7.not = icmp eq i32 %2, 4
   br i1 %cmp7.not, label %if.end14, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %if.then
-  %state = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %conn, i64 8
   %3 = load i32, ptr %state, align 8
   %cmp10 = icmp eq i32 %3, 3
   br i1 %cmp10, label %if.then12, label %if.end14
@@ -777,7 +776,7 @@ if.end14:                                         ; preds = %if.then, %land.lhs.
 ; Function Attrs: nofree nounwind uwtable
 define internal i32 @connSocketRead(ptr nocapture noundef %conn, ptr nocapture noundef %buf, i64 noundef %buf_len) #3 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %call = tail call i64 @read(i32 noundef %0, ptr noundef %buf, i64 noundef %buf_len) #9
   %conv = trunc i64 %call to i32
@@ -785,7 +784,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %state = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %conn, i64 8
   store i32 4, ptr %state, align 8
   br label %if.end17
 
@@ -800,14 +799,14 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %cmp3.not, label %if.end17, label %if.then5
 
 if.then5:                                         ; preds = %land.lhs.true
-  %last_errno = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 2
+  %last_errno = getelementptr inbounds i8, ptr %conn, i64 12
   store i32 %1, ptr %last_errno, align 4
   %2 = load i32, ptr %call2, align 4
   %cmp8.not = icmp eq i32 %2, 4
   br i1 %cmp8.not, label %if.end17, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %if.then5
-  %state11 = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 1
+  %state11 = getelementptr inbounds i8, ptr %conn, i64 8
   %3 = load i32, ptr %state11, align 8
   %cmp12 = icmp eq i32 %3, 3
   br i1 %cmp12, label %if.then14, label %if.end17
@@ -823,7 +822,7 @@ if.end17:                                         ; preds = %if.else, %land.lhs.
 ; Function Attrs: nounwind uwtable
 define internal i32 @connSocketSetWriteHandler(ptr noundef %conn, ptr noundef %func, i32 noundef %barrier) #0 {
 entry:
-  %write_handler = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 9
+  %write_handler = getelementptr inbounds i8, ptr %conn, i64 48
   %0 = load ptr, ptr %write_handler, align 8
   %cmp = icmp eq ptr %0, %func
   br i1 %cmp, label %return, label %if.end
@@ -831,7 +830,7 @@ entry:
 if.end:                                           ; preds = %entry
   store ptr %func, ptr %write_handler, align 8
   %tobool.not = icmp eq i32 %barrier, 0
-  %flags4 = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 4
+  %flags4 = getelementptr inbounds i8, ptr %conn, i64 20
   %1 = load i16, ptr %flags4, align 4
   %2 = and i16 %1, -3
   %masksel = select i1 %tobool.not, i16 0, i16 2
@@ -839,7 +838,7 @@ if.end:                                           ; preds = %entry
   store i16 %.sink, ptr %flags4, align 4
   %tobool9.not = icmp eq ptr %func, null
   %3 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 14), align 8
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %4 = load i32, ptr %fd, align 8
   br i1 %tobool9.not, label %if.then10, label %if.else11
 
@@ -849,7 +848,7 @@ if.then10:                                        ; preds = %if.end
 
 if.else11:                                        ; preds = %if.end
   %5 = load ptr, ptr %conn, align 8
-  %ae_handler = getelementptr inbounds %struct.ConnectionType, ptr %5, i64 0, i32 4
+  %ae_handler = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load ptr, ptr %ae_handler, align 8
   %call = tail call i32 @aeCreateFileEvent(ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef %6, ptr noundef nonnull %conn) #9
   %cmp13 = icmp eq i32 %call, -1
@@ -866,7 +865,7 @@ return:                                           ; preds = %if.else11, %entry, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @connSocketSetReadHandler(ptr noundef %conn, ptr noundef %func) #0 {
 entry:
-  %read_handler = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 10
+  %read_handler = getelementptr inbounds i8, ptr %conn, i64 56
   %0 = load ptr, ptr %read_handler, align 8
   %cmp = icmp eq ptr %0, %func
   br i1 %cmp, label %return, label %if.end
@@ -875,7 +874,7 @@ if.end:                                           ; preds = %entry
   store ptr %func, ptr %read_handler, align 8
   %tobool.not = icmp eq ptr %func, null
   %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 14), align 8
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %2 = load i32, ptr %fd, align 8
   br i1 %tobool.not, label %if.then3, label %if.else
 
@@ -885,7 +884,7 @@ if.then3:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %3 = load ptr, ptr %conn, align 8
-  %ae_handler = getelementptr inbounds %struct.ConnectionType, ptr %3, i64 0, i32 4
+  %ae_handler = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %ae_handler, align 8
   %call = tail call i32 @aeCreateFileEvent(ptr noundef %1, i32 noundef %2, i32 noundef 1, ptr noundef %4, ptr noundef nonnull %conn) #9
   %cmp5 = icmp eq i32 %call, -1
@@ -902,7 +901,7 @@ return:                                           ; preds = %if.else, %entry, %i
 ; Function Attrs: nounwind uwtable
 define internal ptr @connSocketGetLastError(ptr nocapture noundef readonly %conn) #0 {
 entry:
-  %last_errno = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 2
+  %last_errno = getelementptr inbounds i8, ptr %conn, i64 12
   %0 = load i32, ptr %last_errno, align 4
   %call = tail call ptr @strerror(i32 noundef %0) #9
   ret ptr %call
@@ -911,7 +910,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i64 @connSocketSyncWrite(ptr nocapture noundef readonly %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %call = tail call i64 @syncWrite(i32 noundef %0, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #9
   ret i64 %call
@@ -920,7 +919,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i64 @connSocketSyncRead(ptr nocapture noundef readonly %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %call = tail call i64 @syncRead(i32 noundef %0, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #9
   ret i64 %call
@@ -929,7 +928,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i64 @connSocketSyncReadLine(ptr nocapture noundef readonly %conn, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #0 {
 entry:
-  %fd = getelementptr inbounds %struct.connection, ptr %conn, i64 0, i32 3
+  %fd = getelementptr inbounds i8, ptr %conn, i64 16
   %0 = load i32, ptr %fd, align 8
   %call = tail call i64 @syncReadLine(i32 noundef %0, ptr noundef %ptr, i64 noundef %size, i64 noundef %timeout) #9
   ret i64 %call

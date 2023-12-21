@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::c_array" = type { [20 x i64] }
 %"struct.folly::c_array.1" = type { [100 x i16] }
 %"class.google::LogMessage" = type { ptr, ptr }
-%"class.folly::JemallocNodumpAllocator" = type { i32, i32 }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -50,7 +49,7 @@ define void @_ZN5folly23JemallocNodumpAllocatorC2ENS0_5StateE(ptr noundef nonnul
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   store i32 0, ptr %this, align 4, !tbaa !7
-  %flags_ = getelementptr inbounds %"class.folly::JemallocNodumpAllocator", ptr %this, i64 0, i32 1
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %flags_, align 4, !tbaa !12
   %cmp = icmp eq i32 %state, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -156,12 +155,12 @@ lpad9:                                            ; preds = %invoke.cont8
   %2 = landingpad { ptr, i32 }
           cleanup
   %3 = load ptr, ptr %ref.tmp6, align 8, !tbaa !15
-  %4 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp6, i64 0, i32 2
+  %4 = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad9
-  %_M_string_length.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp6, i64 0, i32 1
+  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !19
   %cmp3.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -183,13 +182,13 @@ if.end14:                                         ; preds = %if.end
   %6 = load i32, ptr %this, align 4, !tbaa !20
   %add = shl i32 %6, 20
   %or = add i32 %add, 1048832
-  %flags_ = getelementptr inbounds %"class.folly::JemallocNodumpAllocator", ptr %this, i64 0, i32 1
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %or, ptr %flags_, align 4, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %key) #20
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
-  %7 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %key, i64 0, i32 2
+  %7 = getelementptr inbounds i8, ptr %key, i64 16
   store ptr %7, ptr %key, align 8, !tbaa !24, !alias.scope !21
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %key, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %key, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !19, !alias.scope !21
   store i8 0, ptr %7, align 8, !tbaa !25, !alias.scope !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i) #20, !noalias !21
@@ -286,12 +285,12 @@ lpad34:                                           ; preds = %invoke.cont33
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = load ptr, ptr %ref.tmp31, align 8, !tbaa !15
-  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp31, i64 0, i32 2
+  %17 = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
   %cmp.i.i.i115 = icmp eq ptr %16, %17
   br i1 %cmp.i.i.i115, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i117, label %if.then.i.i116
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i117: ; preds = %lpad34
-  %_M_string_length.i.i.i118 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp31, i64 0, i32 1
+  %_M_string_length.i.i.i118 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
   %18 = load i64, ptr %_M_string_length.i.i.i118, align 8, !tbaa !19
   %cmp3.i.i.i119 = icmp ult i64 %18, 16
   call void @llvm.assume(i1 %cmp3.i.i.i119)
@@ -378,12 +377,12 @@ lpad84:                                           ; preds = %invoke.cont83
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = load ptr, ptr %ref.tmp81, align 8, !tbaa !15
-  %27 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp81, i64 0, i32 2
+  %27 = getelementptr inbounds i8, ptr %ref.tmp81, i64 16
   %cmp.i.i.i124 = icmp eq ptr %26, %27
   br i1 %cmp.i.i.i124, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i126, label %if.then.i.i125
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i126: ; preds = %lpad84
-  %_M_string_length.i.i.i127 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp81, i64 0, i32 1
+  %_M_string_length.i.i.i127 = getelementptr inbounds i8, ptr %ref.tmp81, i64 8
   %28 = load i64, ptr %_M_string_length.i.i.i127, align 8, !tbaa !19
   %cmp3.i.i.i128 = icmp ult i64 %28, 16
   call void @llvm.assume(i1 %cmp3.i.i.i128)
@@ -404,9 +403,9 @@ ehcleanup89:                                      ; preds = %ehcleanup88, %lpad7
 if.end91:                                         ; preds = %if.end67
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %arenaNameKey) #20
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  %29 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arenaNameKey, i64 0, i32 2
+  %29 = getelementptr inbounds i8, ptr %arenaNameKey, i64 16
   store ptr %29, ptr %arenaNameKey, align 8, !tbaa !24, !alias.scope !30
-  %_M_string_length.i.i.i.i131 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %arenaNameKey, i64 0, i32 1
+  %_M_string_length.i.i.i.i131 = getelementptr inbounds i8, ptr %arenaNameKey, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i131, align 8, !tbaa !19, !alias.scope !30
   store i8 0, ptr %29, align 8, !tbaa !25, !alias.scope !30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i130) #20, !noalias !30
@@ -609,14 +608,14 @@ invoke.cont10:                                    ; preds = %invoke.cont
 
 invoke.cont15:                                    ; preds = %invoke.cont10
   %3 = load ptr, ptr %ref.tmp12, align 8, !tbaa !15
-  %_M_string_length.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp12, i64 0, i32 1
+  %_M_string_length.i.i = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   %4 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !19
   %call2.i57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call9, ptr noundef %3, i64 noundef %4)
           to label %cleanup.action unwind label %lpad17
 
 cleanup.action:                                   ; preds = %invoke.cont15
   %5 = load ptr, ptr %ref.tmp12, align 8, !tbaa !15
-  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp12, i64 0, i32 2
+  %6 = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
   %cmp.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
@@ -650,7 +649,7 @@ lpad17:                                           ; preds = %invoke.cont15
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = load ptr, ptr %ref.tmp12, align 8, !tbaa !15
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp12, i64 0, i32 2
+  %12 = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
   %cmp.i.i.i58 = icmp eq ptr %11, %12
   br i1 %cmp.i.i.i58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i60, label %if.then.i.i59
 
@@ -803,7 +802,7 @@ entry:
   %buffer.i = alloca [20 x i8], align 16
   %0 = load ptr, ptr %v5, align 8, !tbaa !26
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %v) #20
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !19
   %sub3.i.i.i = sub i64 4611686018427387903, %1
   %cmp.i.i.i = icmp ult i64 %sub3.i.i.i, %call.i.i.i
@@ -1006,7 +1005,7 @@ entry:
   %buffer.i = alloca [20 x i8], align 16
   %0 = load ptr, ptr %v5, align 8, !tbaa !26
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %v) #20
-  %_M_string_length.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 0, i32 1
+  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !19
   %sub3.i.i.i = sub i64 4611686018427387903, %1
   %cmp.i.i.i = icmp ult i64 %sub3.i.i.i, %call.i.i.i
@@ -1055,7 +1054,7 @@ entry:
   br i1 icmp ne (ptr @mallocx, ptr null), label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %flags_ = getelementptr inbounds %"class.folly::JemallocNodumpAllocator", ptr %this, i64 0, i32 1
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %flags_, align 4, !tbaa !12
   %call = tail call noalias ptr @mallocx(i64 noundef %size, i32 noundef %0) #24
   br label %cond.end
@@ -1081,7 +1080,7 @@ entry:
   br i1 icmp ne (ptr @rallocx, ptr null), label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %flags_ = getelementptr inbounds %"class.folly::JemallocNodumpAllocator", ptr %this, i64 0, i32 1
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %flags_, align 4, !tbaa !12
   %call = tail call ptr @rallocx(ptr noundef %p, i64 noundef %size, i32 noundef %0) #25
   br label %cond.end
@@ -1112,7 +1111,7 @@ entry:
   br i1 icmp ne (ptr @dallocx, ptr null), label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %flags_ = getelementptr inbounds %"class.folly::JemallocNodumpAllocator", ptr %this, i64 0, i32 1
+  %flags_ = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %flags_, align 4, !tbaa !12
   tail call void @dallocx(ptr noundef %p, i32 noundef %1) #20
   br label %cond.end

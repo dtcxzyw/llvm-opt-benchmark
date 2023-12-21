@@ -17,9 +17,9 @@ entry:
   %vendor.i = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cpu_info.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %vendor.i)
-  %arrayidx1.i.i = getelementptr inbounds i32, ptr %cpu_info.i, i64 1
-  %arrayidx2.i.i = getelementptr inbounds i32, ptr %cpu_info.i, i64 2
-  %arrayidx3.i.i = getelementptr inbounds i32, ptr %cpu_info.i, i64 3
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %cpu_info.i, i64 4
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %cpu_info.i, i64 8
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %cpu_info.i, i64 12
   %0 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid \0A\09", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0, i32 0) #5, !srcloc !5
   %asmresult.i.i = extractvalue { i32, i32, i32, i32 } %0, 0
   %asmresult4.i.i = extractvalue { i32, i32, i32, i32 } %0, 1

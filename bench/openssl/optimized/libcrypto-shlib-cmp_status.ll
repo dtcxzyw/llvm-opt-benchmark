@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-cmp_status.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_cmp_pkisi_st = type { ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [20 x i8] c"PKIStatus: accepted\00", align 1
 @.str.1 = private unnamed_addr constant [38 x i8] c"PKIStatus: granted with modifications\00", align 1
 @.str.2 = private unnamed_addr constant [21 x i8] c"PKIStatus: rejection\00", align 1
@@ -117,7 +115,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %statusString = getelementptr inbounds %struct.ossl_cmp_pkisi_st, ptr %si, i64 0, i32 1
+  %statusString = getelementptr inbounds i8, ptr %si, i64 8
   %0 = load ptr, ptr %statusString, align 8
   br label %return
 
@@ -133,7 +131,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %failInfo = getelementptr inbounds %struct.ossl_cmp_pkisi_st, ptr %si, i64 0, i32 2
+  %failInfo = getelementptr inbounds i8, ptr %si, i64 16
   %0 = load ptr, ptr %failInfo, align 8
   %cmp5.not = icmp eq ptr %0, null
   br i1 %cmp5.not, label %return, label %for.body
@@ -165,7 +163,7 @@ entry:
   br i1 %cmp.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %failInfo = getelementptr inbounds %struct.ossl_cmp_pkisi_st, ptr %si, i64 0, i32 2
+  %failInfo = getelementptr inbounds i8, ptr %si, i64 16
   %0 = load ptr, ptr %failInfo, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %return, label %if.end
@@ -202,7 +200,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end.i:                                         ; preds = %entry
-  %failInfo.i = getelementptr inbounds %struct.ossl_cmp_pkisi_st, ptr %statusInfo, i64 0, i32 2
+  %failInfo.i = getelementptr inbounds i8, ptr %statusInfo, i64 16
   %0 = load ptr, ptr %failInfo.i, align 8
   %cmp5.not.i = icmp eq ptr %0, null
   br i1 %cmp5.not.i, label %ossl_cmp_pkisi_get_pkifailureinfo.exit, label %for.body.i
@@ -225,7 +223,7 @@ ossl_cmp_pkisi_get_pkifailureinfo.exit:           ; preds = %for.body.i, %if.end
   %2 = load ptr, ptr %statusInfo, align 8
   %call1 = tail call i64 @ASN1_INTEGER_get(ptr noundef %2) #3
   %conv = trunc i64 %call1 to i32
-  %statusString = getelementptr inbounds %struct.ossl_cmp_pkisi_st, ptr %statusInfo, i64 0, i32 1
+  %statusString = getelementptr inbounds i8, ptr %statusInfo, i64 8
   %3 = load ptr, ptr %statusString, align 8
   %call2 = tail call fastcc ptr @snprint_PKIStatusInfo_parts(i32 noundef %conv, i32 noundef %retval.0.i, ptr noundef %3, ptr noundef %buf, i64 noundef %bufsize)
   br label %return
@@ -472,7 +470,7 @@ lor.lhs.false:                                    ; preds = %if.then7
 
 if.end14:                                         ; preds = %lor.lhs.false
   %call15 = tail call ptr @OPENSSL_sk_new_null() #3
-  %statusString = getelementptr inbounds %struct.ossl_cmp_pkisi_st, ptr %call, i64 0, i32 1
+  %statusString = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call15, ptr %statusString, align 8
   %cmp16 = icmp eq ptr %call15, null
   br i1 %cmp16, label %err, label %if.end19
@@ -483,7 +481,7 @@ if.end19:                                         ; preds = %if.end14
   br i1 %tobool24.not, label %err, label %if.end27
 
 if.end27:                                         ; preds = %if.end19, %if.end4
-  %failInfo = getelementptr inbounds %struct.ossl_cmp_pkisi_st, ptr %call, i64 0, i32 2
+  %failInfo = getelementptr inbounds i8, ptr %call, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %if.end27, %for.inc

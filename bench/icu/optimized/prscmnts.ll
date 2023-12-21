@@ -60,7 +60,7 @@ lpad:                                             ; preds = %if.end
 
 invoke.cont7:                                     ; preds = %invoke.cont
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %dest, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %dest, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %dest, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7512RegexMatcher10replaceAllERKNS_13UnicodeStringER10UErrorCode(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(336) %myMatcher, ptr noundef nonnull align 8 dereferenceable(64) %replaceText, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont9 unwind label %lpad8
@@ -142,7 +142,7 @@ invoke.cont:
   %agg.tmp14 = alloca %"class.icu_75::UnicodeString", align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp, ptr noundef nonnull @.str.2)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp1, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.tmp1, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke i32 @removeText(ptr noundef %src, i32 noundef %srcLen, ptr noundef nonnull %agg.tmp, i32 noundef 0, ptr noundef nonnull %agg.tmp1, ptr noundef %status)
           to label %invoke.cont7 unwind label %lpad2
@@ -152,7 +152,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp) #5
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp4, ptr noundef nonnull @.str.3)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp5, align 8
-  %fUnion2.i14 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.tmp5, i64 0, i32 1
+  %fUnion2.i14 = getelementptr inbounds i8, ptr %agg.tmp5, i64 8
   store i16 2, ptr %fUnion2.i14, align 8
   %call10 = invoke i32 @removeText(ptr noundef %src, i32 noundef %call, ptr noundef nonnull %agg.tmp4, i32 noundef 0, ptr noundef nonnull %agg.tmp5, ptr noundef %status)
           to label %invoke.cont16 unwind label %lpad8
@@ -162,7 +162,7 @@ invoke.cont16:                                    ; preds = %invoke.cont7
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp4) #5
   call void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp13, ptr noundef nonnull @.str.4)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp14, align 8
-  %fUnion2.i15 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.tmp14, i64 0, i32 1
+  %fUnion2.i15 = getelementptr inbounds i8, ptr %agg.tmp14, i64 8
   store i16 2, ptr %fUnion2.i15, align 8
   %call19 = invoke i32 @removeText(ptr noundef %src, i32 noundef %call10, ptr noundef nonnull %agg.tmp13, i32 noundef 0, ptr noundef nonnull %agg.tmp14, ptr noundef %status)
           to label %invoke.cont18 unwind label %lpad17
@@ -213,7 +213,7 @@ entry:
 
 invoke.cont3:                                     ; preds = %entry
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp1, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %agg.tmp1, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %agg.tmp1, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call6 = invoke i32 @removeText(ptr noundef %source, i32 noundef %call, ptr noundef nonnull %agg.tmp, i32 noundef 8, ptr noundef nonnull %agg.tmp1, ptr noundef %status)
           to label %invoke.cont5 unwind label %lpad4
@@ -295,14 +295,14 @@ invoke.cont:                                      ; preds = %lor.lhs.false, %inv
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %invoke.cont ], [ 0, %lor.lhs.false ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %stringArray, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr, align 16
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1280
   br i1 %arrayctor.done, label %arrayctor.cont, label %invoke.cont
 
 arrayctor.cont:                                   ; preds = %invoke.cont
-  %arrayctor.end = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %stringArray, i64 20
+  %arrayctor.end = getelementptr inbounds i8, ptr %stringArray, i64 1280
   invoke void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull @.str.8)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -424,7 +424,7 @@ ehcleanup39:                                      ; preds = %ehcleanup37, %lpad8
 
 arraydestroy.body42:                              ; preds = %arraydestroy.body42, %cleanup38
   %arraydestroy.elementPast43 = phi ptr [ %arrayctor.end, %cleanup38 ], [ %arraydestroy.element44, %arraydestroy.body42 ]
-  %arraydestroy.element44 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast43, i64 -1
+  %arraydestroy.element44 = getelementptr inbounds i8, ptr %arraydestroy.elementPast43, i64 -64
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element44) #5
   %arraydestroy.done45 = icmp eq ptr %arraydestroy.element44, %stringArray
   br i1 %arraydestroy.done45, label %return, label %arraydestroy.body42
@@ -435,7 +435,7 @@ ehcleanup47:                                      ; preds = %ehcleanup39, %lpad4
 
 arraydestroy.body49:                              ; preds = %arraydestroy.body49, %ehcleanup47
   %arraydestroy.elementPast50 = phi ptr [ %arrayctor.end, %ehcleanup47 ], [ %arraydestroy.element51, %arraydestroy.body49 ]
-  %arraydestroy.element51 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast50, i64 -1
+  %arraydestroy.element51 = getelementptr inbounds i8, ptr %arraydestroy.elementPast50, i64 -64
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element51) #5
   %arraydestroy.done52 = icmp eq ptr %arraydestroy.element51, %stringArray
   br i1 %arraydestroy.done52, label %eh.resume, label %arraydestroy.body49
@@ -479,14 +479,14 @@ invoke.cont:                                      ; preds = %lor.lhs.false, %inv
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %invoke.cont ], [ 0, %lor.lhs.false ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %stringArray, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr, align 16
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1280
   br i1 %arrayctor.done, label %arrayctor.cont, label %invoke.cont
 
 arrayctor.cont:                                   ; preds = %invoke.cont
-  %arrayctor.end = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %stringArray, i64 20
+  %arrayctor.end = getelementptr inbounds i8, ptr %stringArray, i64 1280
   invoke void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull @.str.8)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -525,12 +525,12 @@ if.end13:                                         ; preds = %invoke.cont7
           to label %invoke.cont14 unwind label %lpad8
 
 invoke.cont14:                                    ; preds = %if.end13
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %stringArray, i64 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %stringArray, i64 8
   %5 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %5, 0
   %6 = ashr i16 %5, 5
   %shr.i.i.i = sext i16 %6 to i32
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %stringArray, i64 0, i32 1, i32 0, i32 1
+  %fLength.i.i = getelementptr inbounds i8, ptr %stringArray, i64 12
   %7 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %7, i32 %shr.i.i.i
   %call2.i13 = invoke noundef i32 @_ZNK6icu_7513UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64) %stringArray, i16 noundef zeroext 64, i32 noundef 0, i32 noundef %cond.i.i)
@@ -572,7 +572,7 @@ ehcleanup:                                        ; preds = %lpad22, %lpad8
 
 arraydestroy.body30:                              ; preds = %arraydestroy.body30, %cleanup
   %arraydestroy.elementPast31 = phi ptr [ %arrayctor.end, %cleanup ], [ %arraydestroy.element32, %arraydestroy.body30 ]
-  %arraydestroy.element32 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast31, i64 -1
+  %arraydestroy.element32 = getelementptr inbounds i8, ptr %arraydestroy.elementPast31, i64 -64
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element32) #5
   %arraydestroy.done33 = icmp eq ptr %arraydestroy.element32, %stringArray
   br i1 %arraydestroy.done33, label %return, label %arraydestroy.body30
@@ -583,7 +583,7 @@ ehcleanup35:                                      ; preds = %ehcleanup, %lpad4, 
 
 arraydestroy.body37:                              ; preds = %arraydestroy.body37, %ehcleanup35
   %arraydestroy.elementPast38 = phi ptr [ %arrayctor.end, %ehcleanup35 ], [ %arraydestroy.element39, %arraydestroy.body37 ]
-  %arraydestroy.element39 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast38, i64 -1
+  %arraydestroy.element39 = getelementptr inbounds i8, ptr %arraydestroy.elementPast38, i64 -64
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element39) #5
   %arraydestroy.done40 = icmp eq ptr %arraydestroy.element39, %stringArray
   br i1 %arraydestroy.done40, label %eh.resume, label %arraydestroy.body37
@@ -616,14 +616,14 @@ invoke.cont:                                      ; preds = %lor.lhs.false, %inv
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %invoke.cont ], [ 0, %lor.lhs.false ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %stringArray, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr, align 16
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1280
   br i1 %arrayctor.done, label %arrayctor.cont, label %invoke.cont
 
 arrayctor.cont:                                   ; preds = %invoke.cont
-  %arrayctor.end = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %stringArray, i64 20
+  %arrayctor.end = getelementptr inbounds i8, ptr %stringArray, i64 1280
   invoke void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull @.str.8)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -748,7 +748,7 @@ ehcleanup44:                                      ; preds = %ehcleanup, %lpad8
 
 arraydestroy.body47:                              ; preds = %arraydestroy.body47, %cleanup43
   %arraydestroy.elementPast48 = phi ptr [ %arrayctor.end, %cleanup43 ], [ %arraydestroy.element49, %arraydestroy.body47 ]
-  %arraydestroy.element49 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast48, i64 -1
+  %arraydestroy.element49 = getelementptr inbounds i8, ptr %arraydestroy.elementPast48, i64 -64
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element49) #5
   %arraydestroy.done50 = icmp eq ptr %arraydestroy.element49, %stringArray
   br i1 %arraydestroy.done50, label %return, label %arraydestroy.body47
@@ -759,7 +759,7 @@ ehcleanup52:                                      ; preds = %ehcleanup44, %lpad4
 
 arraydestroy.body54:                              ; preds = %arraydestroy.body54, %ehcleanup52
   %arraydestroy.elementPast55 = phi ptr [ %arrayctor.end, %ehcleanup52 ], [ %arraydestroy.element56, %arraydestroy.body54 ]
-  %arraydestroy.element56 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast55, i64 -1
+  %arraydestroy.element56 = getelementptr inbounds i8, ptr %arraydestroy.elementPast55, i64 -64
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element56) #5
   %arraydestroy.done57 = icmp eq ptr %arraydestroy.element56, %stringArray
   br i1 %arraydestroy.done57, label %eh.resume, label %arraydestroy.body54
@@ -797,14 +797,14 @@ invoke.cont:                                      ; preds = %lor.lhs.false, %inv
   %arrayctor.cur.idx = phi i64 [ %arrayctor.cur.add, %invoke.cont ], [ 0, %lor.lhs.false ]
   %arrayctor.cur.ptr = getelementptr inbounds i8, ptr %stringArray, i64 %arrayctor.cur.idx
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr, align 16
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arrayctor.cur.ptr, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1280
   br i1 %arrayctor.done, label %arrayctor.cont, label %invoke.cont
 
 arrayctor.cont:                                   ; preds = %invoke.cont
-  %arrayctor.end = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %stringArray, i64 20
+  %arrayctor.end = getelementptr inbounds i8, ptr %stringArray, i64 1280
   invoke void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull @.str.8)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -960,7 +960,7 @@ ehcleanup49:                                      ; preds = %ehcleanup47, %lpad8
 
 arraydestroy.body52:                              ; preds = %arraydestroy.body52, %cleanup48
   %arraydestroy.elementPast53 = phi ptr [ %arrayctor.end, %cleanup48 ], [ %arraydestroy.element54, %arraydestroy.body52 ]
-  %arraydestroy.element54 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast53, i64 -1
+  %arraydestroy.element54 = getelementptr inbounds i8, ptr %arraydestroy.elementPast53, i64 -64
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element54) #5
   %arraydestroy.done55 = icmp eq ptr %arraydestroy.element54, %stringArray
   br i1 %arraydestroy.done55, label %return, label %arraydestroy.body52
@@ -971,7 +971,7 @@ ehcleanup57:                                      ; preds = %ehcleanup49, %lpad4
 
 arraydestroy.body59:                              ; preds = %arraydestroy.body59, %ehcleanup57
   %arraydestroy.elementPast60 = phi ptr [ %arrayctor.end, %ehcleanup57 ], [ %arraydestroy.element61, %arraydestroy.body59 ]
-  %arraydestroy.element61 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %arraydestroy.elementPast60, i64 -1
+  %arraydestroy.element61 = getelementptr inbounds i8, ptr %arraydestroy.elementPast60, i64 -64
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %arraydestroy.element61) #5
   %arraydestroy.done62 = icmp eq ptr %arraydestroy.element61, %stringArray
   br i1 %arraydestroy.done62, label %eh.resume, label %arraydestroy.body59

@@ -15,24 +15,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QemuOptDesc = type { ptr, i32, ptr, ptr }
 %struct.MonitorQAPIEventConf = type { i64 }
 %union.QmpCommandList = type { %struct.QTailQLink }
-%struct.Monitor = type { %struct.CharBackend, i32, i8, i8, i8, ptr, %union.anon, %struct.QemuMutex, %struct.anon, ptr, i32, i32, i32 }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.anon = type { ptr }
-%struct._GString = type { ptr, i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.MonitorQAPIEventState = type { i32, ptr, ptr, ptr }
-%struct.QObjectBase_ = type { i32, i64 }
-%struct.MonitorQapiEvent = type { i32, ptr, %struct.anon.2 }
-%struct.anon.2 = type { ptr }
-%struct.MonitorHMP = type { %struct.Monitor, i8, ptr }
 %struct.ErrorPropagator = type { ptr, ptr }
-%struct.MonitorOptions = type { ptr, i8, i32, i8, i8, ptr }
-%struct.MonitorQMP = type { %struct.Monitor, %struct.JSONMessageParser, i8, ptr, [1 x i8], [1 x i8], %struct.QemuMutex, ptr }
-%struct.JSONMessageParser = type { ptr, ptr, ptr, %struct.JSONLexer, i32, i32, %struct._GQueue, i64 }
-%struct.JSONLexer = type { i32, i32, ptr, i32, i32 }
-%struct._GQueue = type { ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [26 x i8] c"../qemu/monitor/monitor.c\00", align 1
 @qemu_mutex_lock_func = external local_unnamed_addr global ptr, align 8
@@ -194,23 +180,23 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @monitor_flush_locked(ptr noundef %mon) local_unnamed_addr #0 {
 entry:
-  %skip_flush = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 3
+  %skip_flush = getelementptr inbounds i8, ptr %mon, i64 61
   %0 = load i8, ptr %skip_flush, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.end32
 
 if.end:                                           ; preds = %entry
-  %outbuf = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 9
+  %outbuf = getelementptr inbounds i8, ptr %mon, i64 144
   %2 = load ptr, ptr %outbuf, align 8
   %3 = load ptr, ptr %2, align 8
-  %len2 = getelementptr inbounds %struct._GString, ptr %2, i64 0, i32 1
+  %len2 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %len2, align 8
   %tobool3.not = icmp eq i64 %4, 0
   br i1 %tobool3.not, label %if.end32, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %mux_out = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 11
+  %mux_out = getelementptr inbounds i8, ptr %mon, i64 156
   %5 = load i32, ptr %mux_out, align 4
   %tobool4.not = icmp eq i32 %5, 0
   br i1 %tobool4.not, label %if.then5, label %if.end32
@@ -247,7 +233,7 @@ if.then20:                                        ; preds = %if.end17
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then20, %if.end17
-  %out_watch = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 10
+  %out_watch = getelementptr inbounds i8, ptr %mon, i64 152
   %9 = load i32, ptr %out_watch, align 8
   %cmp25 = icmp eq i32 %9, 0
   br i1 %cmp25, label %if.then27, label %if.end32
@@ -275,11 +261,11 @@ declare i32 @qemu_chr_fe_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @monitor_unblocked(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef %opaque) #0 {
 glib_autoptr_cleanup_QemuLockable.exit:
-  %mon_lock = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 7
+  %mon_lock = getelementptr inbounds i8, ptr %opaque, i64 88
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull %mon_lock, ptr noundef nonnull @.str.18, i32 noundef 122) #13
-  %out_watch = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 10
+  %out_watch = getelementptr inbounds i8, ptr %opaque, i64 152
   store i32 0, ptr %out_watch, align 8
   tail call void @monitor_flush_locked(ptr noundef %opaque)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mon_lock, ptr noundef nonnull @.str.18, i32 noundef 132) #13
@@ -289,7 +275,7 @@ glib_autoptr_cleanup_QemuLockable.exit:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @monitor_flush(ptr noundef %mon) local_unnamed_addr #0 {
 glib_autoptr_cleanup_QemuLockable.exit:
-  %mon_lock = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 7
+  %mon_lock = getelementptr inbounds i8, ptr %mon, i64 88
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull %mon_lock, ptr noundef nonnull @.str.18, i32 noundef 122) #13
@@ -301,7 +287,7 @@ glib_autoptr_cleanup_QemuLockable.exit:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @monitor_puts_locked(ptr noundef %mon, ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
 entry:
-  %outbuf = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 9
+  %outbuf = getelementptr inbounds i8, ptr %mon, i64 144
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -316,10 +302,10 @@ for.cond:                                         ; preds = %for.inc, %entry
 
 if.then:                                          ; preds = %for.cond
   %1 = load ptr, ptr %outbuf, align 8
-  %len.i = getelementptr inbounds %struct._GString, ptr %1, i64 0, i32 1
+  %len.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %len.i, align 8
   %add.i = add i64 %2, 1
-  %allocated_len.i = getelementptr inbounds %struct._GString, ptr %1, i64 0, i32 2
+  %allocated_len.i = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load i64, ptr %allocated_len.i, align 8
   %cmp.i = icmp ult i64 %add.i, %3
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -341,10 +327,10 @@ if.else.i:                                        ; preds = %if.then
 
 g_string_append_c_inline.exit:                    ; preds = %if.then.i, %if.else.i
   %7 = load ptr, ptr %outbuf, align 8
-  %len.i9 = getelementptr inbounds %struct._GString, ptr %7, i64 0, i32 1
+  %len.i9 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %len.i9, align 8
   %add.i10 = add i64 %8, 1
-  %allocated_len.i11 = getelementptr inbounds %struct._GString, ptr %7, i64 0, i32 2
+  %allocated_len.i11 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %allocated_len.i11, align 8
   %cmp.i12 = icmp ult i64 %add.i10, %9
   br i1 %cmp.i12, label %if.then.i15, label %if.else.i13
@@ -370,10 +356,10 @@ g_string_append_c_inline.exit18:                  ; preds = %if.then.i15, %if.el
 
 for.inc.critedge:                                 ; preds = %for.cond
   %13 = load ptr, ptr %outbuf, align 8
-  %len.i19 = getelementptr inbounds %struct._GString, ptr %13, i64 0, i32 1
+  %len.i19 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i64, ptr %len.i19, align 8
   %add.i20 = add i64 %14, 1
-  %allocated_len.i21 = getelementptr inbounds %struct._GString, ptr %13, i64 0, i32 2
+  %allocated_len.i21 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i64, ptr %allocated_len.i21, align 8
   %cmp.i22 = icmp ult i64 %add.i20, %15
   br i1 %cmp.i22, label %if.then.i25, label %if.else.i23
@@ -404,7 +390,7 @@ for.end:                                          ; preds = %for.cond
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @monitor_puts(ptr noundef %mon, ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
 glib_autoptr_cleanup_QemuLockable.exit:
-  %mon_lock = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 7
+  %mon_lock = getelementptr inbounds i8, ptr %mon, i64 88
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull %mon_lock, ptr noundef nonnull @.str.18, i32 noundef 122) #13
@@ -428,7 +414,7 @@ if.end:                                           ; preds = %entry
 
 if.end2:                                          ; preds = %if.end
   %call3 = tail call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef %ap) #13
-  %mon_lock.i = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 7
+  %mon_lock.i = getelementptr inbounds i8, ptr %mon, i64 88
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void %3(ptr noundef nonnull %mon_lock.i, ptr noundef nonnull @.str.18, i32 noundef 122) #13
@@ -463,7 +449,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end2.i:                                        ; preds = %if.end.i
   %call3.i = call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef nonnull %ap) #13
-  %mon_lock.i.i = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 7
+  %mon_lock.i.i = getelementptr inbounds i8, ptr %mon, i64 88
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   call void %3(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 122) #13
@@ -569,7 +555,7 @@ if.end.i:                                         ; preds = %land.lhs.true, %mon
 
 if.end2.i:                                        ; preds = %if.end.i
   %call3.i = tail call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef %ap) #13
-  %mon_lock.i.i = getelementptr inbounds %struct.Monitor, ptr %call1.i, i64 0, i32 7
+  %mon_lock.i.i = getelementptr inbounds i8, ptr %call1.i, i64 88
   %10 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %11 = inttoptr i64 %10 to ptr
   tail call void %11(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 122) #13
@@ -636,7 +622,7 @@ if.end.i:                                         ; preds = %if.end, %monitor_cu
 
 if.end2.i:                                        ; preds = %if.end.i
   %call3.i = tail call noalias ptr @g_strdup_vprintf(ptr noundef %fmt, ptr noundef %ap) #13
-  %mon_lock.i.i = getelementptr inbounds %struct.Monitor, ptr %call1.i, i64 0, i32 7
+  %mon_lock.i.i = getelementptr inbounds i8, ptr %call1.i, i64 88
   %11 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %12 = inttoptr i64 %11 to ptr
   tail call void %12(ptr noundef nonnull %mon_lock.i.i, ptr noundef nonnull @.str.18, i32 noundef 122) #13
@@ -674,7 +660,7 @@ entry:
 do.body:                                          ; preds = %entry
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @qapi_event_emit.event_queue)
   store ptr null, ptr %3, align 8
-  %sqh_last = getelementptr inbounds %struct.anon.0, ptr %3, i64 0, i32 1
+  %sqh_last = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %3, ptr %sqh_last, align 8
   br label %if.end
 
@@ -684,20 +670,20 @@ if.end:                                           ; preds = %do.body, %entry
   br i1 %tobool2.not, label %qobject_ref_impl.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %qdict, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %qdict, i64 8
   %4 = load i64, ptr %refcnt.i, align 8
   %inc.i = add i64 %4, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
   br label %qobject_ref_impl.exit
 
 qobject_ref_impl.exit:                            ; preds = %if.end, %if.then.i
-  %qdict5 = getelementptr inbounds %struct.MonitorQapiEvent, ptr %call, i64 0, i32 1
+  %qdict5 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %qdict, ptr %qdict5, align 8
   store i32 %event, ptr %call, align 8
-  %entry8 = getelementptr inbounds %struct.MonitorQapiEvent, ptr %call, i64 0, i32 2
+  %entry8 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %entry8, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @qapi_event_emit.event_queue)
-  %sqh_last9 = getelementptr inbounds %struct.anon.0, ptr %5, i64 0, i32 1
+  %sqh_last9 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %sqh_last9, align 8
   store ptr %call, ptr %6, align 8
   store ptr %entry8, ptr %sqh_last9, align 8
@@ -713,14 +699,14 @@ if.end16:                                         ; preds = %qobject_ref_impl.ex
   br i1 %cmp.not19, label %while.end, label %do.body18.lr.ph
 
 do.body18.lr.ph:                                  ; preds = %if.end16
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
-  %data8.i = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %key.i, i64 0, i32 1
-  %timer.i = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %key.i, i64 0, i32 2
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %data8.i = getelementptr inbounds i8, ptr %key.i, i64 8
+  %timer.i = getelementptr inbounds i8, ptr %key.i, i64 16
   br label %do.body18
 
 do.body18:                                        ; preds = %do.body18.lr.ph, %qobject_unref_impl.exit
   %10 = phi ptr [ %9, %do.body18.lr.ph ], [ %39, %qobject_unref_impl.exit ]
-  %entry20 = getelementptr inbounds %struct.MonitorQapiEvent, ptr %10, i64 0, i32 2
+  %entry20 = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %entry20, align 8
   store ptr %11, ptr %5, align 8
   %cmp23 = icmp eq ptr %11, null
@@ -733,7 +719,7 @@ if.then24:                                        ; preds = %do.body18
 if.end27:                                         ; preds = %if.then24, %do.body18
   store ptr null, ptr %entry20, align 8
   %12 = load i32, ptr %10, align 8
-  %qdict32 = getelementptr inbounds %struct.MonitorQapiEvent, ptr %10, i64 0, i32 1
+  %qdict32 = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load ptr, ptr %qdict32, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %key.i)
   %cmp.i = icmp ult i32 %12, 54
@@ -824,7 +810,7 @@ qobject_check_type.exit.i:                        ; preds = %if.else.i.i, %qobje
   br i1 %tobool11.not.i, label %if.else34.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %qobject_check_type.exit.i
-  %timer12.i = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %call10.i, i64 0, i32 2
+  %timer12.i = getelementptr inbounds i8, ptr %call10.i, i64 16
   %26 = load ptr, ptr %timer12.i, align 8
   %call13.i = call zeroext i1 @timer_pending(ptr noundef %26) #13
   br i1 %call13.i, label %if.then18.i, label %if.else15.i
@@ -834,13 +820,13 @@ if.else15.i:                                      ; preds = %lor.lhs.false.i
   unreachable
 
 if.then18.i:                                      ; preds = %lor.lhs.false.i
-  %qdict19.i = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %call10.i, i64 0, i32 3
+  %qdict19.i = getelementptr inbounds i8, ptr %call10.i, i64 24
   %27 = load ptr, ptr %qdict19.i, align 8
   %tobool20.not.i = icmp eq ptr %27, null
   br i1 %tobool20.not.i, label %qobject_unref_impl.exit.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then18.i
-  %refcnt.i.i = getelementptr inbounds %struct.QObjectBase_, ptr %27, i64 0, i32 1
+  %refcnt.i.i = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load i64, ptr %refcnt.i.i, align 8
   %tobool1.not.i.i = icmp eq i64 %28, 0
   br i1 %tobool1.not.i.i, label %if.else.i35.i, label %land.lhs.true.i33.i
@@ -864,7 +850,7 @@ qobject_unref_impl.exit.i:                        ; preds = %if.then5.i.i, %land
   br i1 %tobool23.not.i, label %qobject_ref_impl.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %qobject_unref_impl.exit.i
-  %refcnt.i36.i = getelementptr inbounds %struct.QObjectBase_, ptr %13, i64 0, i32 1
+  %refcnt.i36.i = getelementptr inbounds i8, ptr %13, i64 8
   %29 = load i64, ptr %refcnt.i36.i, align 8
   %inc.i.i = add i64 %29, 1
   store i64 %inc.i.i, ptr %refcnt.i36.i, align 8
@@ -886,23 +872,23 @@ if.else34.i:                                      ; preds = %qobject_check_type.
   br i1 %tobool41.not.i, label %qobject_ref_impl.exit40.i, label %if.then.i37.i
 
 if.then.i37.i:                                    ; preds = %if.else34.i
-  %refcnt.i38.i = getelementptr inbounds %struct.QObjectBase_, ptr %retval.0.i.i, i64 0, i32 1
+  %refcnt.i38.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   %32 = load i64, ptr %refcnt.i38.i, align 8
   %inc.i39.i = add i64 %32, 1
   store i64 %inc.i39.i, ptr %refcnt.i38.i, align 8
   br label %qobject_ref_impl.exit40.i
 
 qobject_ref_impl.exit40.i:                        ; preds = %if.then.i37.i, %if.else34.i
-  %data51.i = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %call37.i, i64 0, i32 1
+  %data51.i = getelementptr inbounds i8, ptr %call37.i, i64 8
   store ptr %retval.0.i.i, ptr %data51.i, align 8
-  %qdict52.i = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %call37.i, i64 0, i32 3
+  %qdict52.i = getelementptr inbounds i8, ptr %call37.i, i64 24
   store ptr null, ptr %qdict52.i, align 8
   %33 = load i8, ptr @qtest_allowed, align 1
   %34 = and i8 %33, 1
   %cond.i41.i = zext nneg i8 %34 to i32
   %call.i.i.i.i = call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #16
   call void @timer_init_full(ptr noundef %call.i.i.i.i, ptr noundef null, i32 noundef %cond.i41.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @monitor_qapi_event_handler, ptr noundef nonnull %call37.i) #13
-  %timer55.i = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %call37.i, i64 0, i32 2
+  %timer55.i = getelementptr inbounds i8, ptr %call37.i, i64 16
   store ptr %call.i.i.i.i, ptr %timer55.i, align 8
   %35 = load ptr, ptr @monitor_qapi_event_state, align 8
   %call56.i = call i32 @g_hash_table_add(ptr noundef %35, ptr noundef nonnull %call37.i) #13
@@ -919,7 +905,7 @@ monitor_qapi_event_queue_no_reenter.exit:         ; preds = %if.then3.i, %qobjec
   br i1 %tobool35.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i15
 
 lor.lhs.false.i15:                                ; preds = %monitor_qapi_event_queue_no_reenter.exit
-  %refcnt.i16 = getelementptr inbounds %struct.QObjectBase_, ptr %37, i64 0, i32 1
+  %refcnt.i16 = getelementptr inbounds i8, ptr %37, i64 8
   %38 = load i64, ptr %refcnt.i16, align 8
   %tobool1.not.i = icmp eq i64 %38, 0
   br i1 %tobool1.not.i, label %if.else.i18, label %land.lhs.true.i
@@ -976,9 +962,9 @@ monitor_is_hmp_non_interactive.exit:              ; preds = %entry
   br i1 %tobool.i3.not.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %monitor_is_hmp_non_interactive.exit
-  %suspend_cnt = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 1
+  %suspend_cnt = getelementptr inbounds i8, ptr %mon, i64 56
   %4 = atomicrmw add ptr %suspend_cnt, i32 1 seq_cst, align 8
-  %use_io_thread = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 4
+  %use_io_thread = getelementptr inbounds i8, ptr %mon, i64 62
   %5 = load i8, ptr %use_io_thread, align 2
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
@@ -1015,7 +1001,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %mon, i32 noundef 1) #13
   br label %trace_monitor_suspend.exit
@@ -1055,13 +1041,13 @@ monitor_is_hmp_non_interactive.exit:              ; preds = %entry
   br i1 %tobool.i3.not.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %monitor_is_hmp_non_interactive.exit
-  %suspend_cnt = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 1
+  %suspend_cnt = getelementptr inbounds i8, ptr %mon, i64 56
   %4 = atomicrmw sub ptr %suspend_cnt, i32 1 seq_cst, align 8
   %cmp = icmp eq i32 %4, 1
   br i1 %cmp, label %if.then1, label %if.end6
 
 if.then1:                                         ; preds = %if.end
-  %use_io_thread = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 4
+  %use_io_thread = getelementptr inbounds i8, ptr %mon, i64 62
   %5 = load i8, ptr %use_io_thread, align 2
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
@@ -1106,7 +1092,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %13 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %13, i64 noundef %14, ptr noundef nonnull %mon, i32 noundef -1) #13
   br label %trace_monitor_suspend.exit
@@ -1132,7 +1118,7 @@ define internal void @monitor_accept_input(ptr noundef %opaque) #0 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %mon_lock = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 7
+  %mon_lock = getelementptr inbounds i8, ptr %opaque, i64 88
   tail call void %1(ptr noundef nonnull %mon_lock, ptr noundef nonnull @.str, i32 noundef 555) #13
   %2 = getelementptr i8, ptr %opaque, i64 60
   %opaque.val = load i8, ptr %2, align 4
@@ -1141,13 +1127,13 @@ entry:
   br i1 %tobool.i.not, label %land.lhs.true, label %if.else7
 
 land.lhs.true:                                    ; preds = %entry
-  %reset_seen = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 12
+  %reset_seen = getelementptr inbounds i8, ptr %opaque, i64 160
   %4 = load i32, ptr %reset_seen, align 8
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %if.else7, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %rs = getelementptr inbounds %struct.MonitorHMP, ptr %opaque, i64 0, i32 2
+  %rs = getelementptr inbounds i8, ptr %opaque, i64 176
   %5 = load ptr, ptr %rs, align 8
   %tobool2.not = icmp eq ptr %5, null
   br i1 %tobool2.not, label %if.else, label %if.end
@@ -1175,7 +1161,7 @@ if.end9:                                          ; preds = %if.else7, %if.end
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local i32 @monitor_can_read(ptr nocapture noundef readonly %opaque) local_unnamed_addr #8 {
 entry:
-  %suspend_cnt = getelementptr inbounds %struct.Monitor, ptr %opaque, i64 0, i32 1
+  %suspend_cnt = getelementptr inbounds i8, ptr %opaque, i64 56
   %0 = load atomic i32, ptr %suspend_cnt monotonic, align 8
   %tobool.not = icmp eq i32 %0, 0
   %lnot.ext = zext i1 %tobool.not to i32
@@ -1193,14 +1179,14 @@ entry:
 
 do.body1:                                         ; preds = %entry
   %2 = load ptr, ptr @mon_list, align 8
-  %entry2 = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 6
+  %entry2 = getelementptr inbounds i8, ptr %mon, i64 72
   store ptr %2, ptr %entry2, align 8
   %cmp.not = icmp eq ptr %2, null
-  %tql_prev = getelementptr inbounds %struct.Monitor, ptr %2, i64 0, i32 6, i32 0, i32 1
+  %tql_prev = getelementptr inbounds i8, ptr %2, i64 80
   %tql_prev.sink = select i1 %cmp.not, ptr getelementptr inbounds (%union.MonitorList, ptr @mon_list, i64 0, i32 0, i32 1), ptr %tql_prev
   store ptr %entry2, ptr %tql_prev.sink, align 8
   store ptr %mon, ptr @mon_list, align 8
-  %tql_prev8 = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 6, i32 0, i32 1
+  %tql_prev8 = getelementptr inbounds i8, ptr %mon, i64 80
   store ptr @mon_list, ptr %tql_prev8, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @monitor_lock, ptr noundef nonnull @.str, i32 noundef 609) #13
   br label %if.end13
@@ -1211,7 +1197,7 @@ if.end10:                                         ; preds = %entry
   br i1 %tobool11.not, label %if.end13, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %mon_cpu_path.i = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 5
+  %mon_cpu_path.i = getelementptr inbounds i8, ptr %mon, i64 64
   %3 = load ptr, ptr %mon_cpu_path.i, align 8
   tail call void @g_free(ptr noundef %3) #13
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %mon, i1 noundef zeroext false) #13
@@ -1226,16 +1212,16 @@ if.then.i:                                        ; preds = %if.then12
   br label %monitor_data_destroy.exit
 
 if.else.i:                                        ; preds = %if.then12
-  %rs.i = getelementptr inbounds %struct.MonitorHMP, ptr %mon, i64 0, i32 2
+  %rs.i = getelementptr inbounds i8, ptr %mon, i64 176
   %6 = load ptr, ptr %rs.i, align 8
   tail call void @readline_free(ptr noundef %6) #13
   br label %monitor_data_destroy.exit
 
 monitor_data_destroy.exit:                        ; preds = %if.then.i, %if.else.i
-  %outbuf.i = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 9
+  %outbuf.i = getelementptr inbounds i8, ptr %mon, i64 144
   %7 = load ptr, ptr %outbuf.i, align 8
   %call4.i = tail call ptr @g_string_free(ptr noundef %7, i32 noundef 1) #13
-  %mon_lock.i = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 7
+  %mon_lock.i = getelementptr inbounds i8, ptr %mon, i64 88
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %mon_lock.i) #13
   tail call void @g_free(ptr noundef nonnull %mon) #13
   br label %if.end13
@@ -1247,7 +1233,7 @@ if.end13:                                         ; preds = %do.body1, %monitor_
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @monitor_data_destroy(ptr noundef %mon) local_unnamed_addr #0 {
 entry:
-  %mon_cpu_path = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 5
+  %mon_cpu_path = getelementptr inbounds i8, ptr %mon, i64 64
   %0 = load ptr, ptr %mon_cpu_path, align 8
   tail call void @g_free(ptr noundef %0) #13
   tail call void @qemu_chr_fe_deinit(ptr noundef %mon, i1 noundef zeroext false) #13
@@ -1262,16 +1248,16 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %rs = getelementptr inbounds %struct.MonitorHMP, ptr %mon, i64 0, i32 2
+  %rs = getelementptr inbounds i8, ptr %mon, i64 176
   %3 = load ptr, ptr %rs, align 8
   tail call void @readline_free(ptr noundef %3) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %outbuf = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 9
+  %outbuf = getelementptr inbounds i8, ptr %mon, i64 144
   %4 = load ptr, ptr %outbuf, align 8
   %call4 = tail call ptr @g_string_free(ptr noundef %4, i32 noundef 1) #13
-  %mon_lock = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 7
+  %mon_lock = getelementptr inbounds i8, ptr %mon, i64 88
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %mon_lock) #13
   ret void
 }
@@ -1293,16 +1279,16 @@ if.end:                                           ; preds = %if.then, %entry
   %frombool2 = zext i1 %use_io_thread to i8
   %frombool1 = zext i1 %skip_flush to i8
   %frombool = zext i1 %is_qmp to i8
-  %mon_lock = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 7
+  %mon_lock = getelementptr inbounds i8, ptr %mon, i64 88
   tail call void @qemu_mutex_init(ptr noundef nonnull %mon_lock) #13
-  %is_qmp5 = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 2
+  %is_qmp5 = getelementptr inbounds i8, ptr %mon, i64 60
   store i8 %frombool, ptr %is_qmp5, align 4
   %call = tail call ptr @g_string_new(ptr noundef null) #13
-  %outbuf = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 9
+  %outbuf = getelementptr inbounds i8, ptr %mon, i64 144
   store ptr %call, ptr %outbuf, align 8
-  %skip_flush8 = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 3
+  %skip_flush8 = getelementptr inbounds i8, ptr %mon, i64 61
   store i8 %frombool1, ptr %skip_flush8, align 1
-  %use_io_thread11 = getelementptr inbounds %struct.Monitor, ptr %mon, i64 0, i32 4
+  %use_io_thread11 = getelementptr inbounds i8, ptr %mon, i64 62
   store i8 %frombool2, ptr %use_io_thread11, align 2
   ret void
 }
@@ -1378,15 +1364,15 @@ while.end44:                                      ; preds = %if.then38, %if.end3
 
 while.body49:                                     ; preds = %while.end44, %monitor_data_destroy.exit
   %10 = phi ptr [ %23, %monitor_data_destroy.exit ], [ %9, %while.end44 ]
-  %entry51 = getelementptr inbounds %struct.Monitor, ptr %10, i64 0, i32 6
+  %entry51 = getelementptr inbounds i8, ptr %10, i64 72
   %11 = load ptr, ptr %entry51, align 8
   %cmp52.not = icmp eq ptr %11, null
-  %tql_prev60 = getelementptr inbounds %struct.Monitor, ptr %10, i64 0, i32 6, i32 0, i32 1
+  %tql_prev60 = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load ptr, ptr %tql_prev60, align 8
   br i1 %cmp52.not, label %if.else58, label %if.then53
 
 if.then53:                                        ; preds = %while.body49
-  %tql_prev57 = getelementptr inbounds %struct.Monitor, ptr %11, i64 0, i32 6, i32 0, i32 1
+  %tql_prev57 = getelementptr inbounds i8, ptr %11, i64 80
   store ptr %12, ptr %tql_prev57, align 8
   %.pre = load ptr, ptr %entry51, align 8
   br label %if.end61
@@ -1400,13 +1386,13 @@ if.end61:                                         ; preds = %if.else58, %if.then
   store ptr %13, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %entry51, i8 0, i64 16, i1 false)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @monitor_lock, ptr noundef nonnull @.str, i32 noundef 691) #13
-  %mon_lock.i = getelementptr inbounds %struct.Monitor, ptr %10, i64 0, i32 7
+  %mon_lock.i = getelementptr inbounds i8, ptr %10, i64 88
   %14 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %15 = inttoptr i64 %14 to ptr
   tail call void %15(ptr noundef nonnull %mon_lock.i, ptr noundef nonnull @.str.18, i32 noundef 122) #13
   tail call void @monitor_flush_locked(ptr noundef nonnull %10)
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mon_lock.i, ptr noundef nonnull @.str.18, i32 noundef 132) #13
-  %mon_cpu_path.i = getelementptr inbounds %struct.Monitor, ptr %10, i64 0, i32 5
+  %mon_cpu_path.i = getelementptr inbounds i8, ptr %10, i64 64
   %16 = load ptr, ptr %mon_cpu_path.i, align 8
   tail call void @g_free(ptr noundef %16) #13
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %10, i1 noundef zeroext false) #13
@@ -1421,13 +1407,13 @@ if.then.i19:                                      ; preds = %if.end61
   br label %monitor_data_destroy.exit
 
 if.else.i:                                        ; preds = %if.end61
-  %rs.i = getelementptr inbounds %struct.MonitorHMP, ptr %10, i64 0, i32 2
+  %rs.i = getelementptr inbounds i8, ptr %10, i64 176
   %19 = load ptr, ptr %rs.i, align 8
   tail call void @readline_free(ptr noundef %19) #13
   br label %monitor_data_destroy.exit
 
 monitor_data_destroy.exit:                        ; preds = %if.then.i19, %if.else.i
-  %outbuf.i = getelementptr inbounds %struct.Monitor, ptr %10, i64 0, i32 9
+  %outbuf.i = getelementptr inbounds i8, ptr %10, i64 144
   %20 = load ptr, ptr %outbuf.i, align 8
   %call4.i = tail call ptr @g_string_free(ptr noundef %20, i32 noundef 1) #13
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %mon_lock.i) #13
@@ -1498,13 +1484,13 @@ define dso_local i32 @monitor_init(ptr nocapture noundef %opts, i1 noundef zeroe
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds %struct.ErrorPropagator, ptr %_auto_errp_prop, i64 0, i32 1
+  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
   %or.cond = or i1 %tobool, %cmp
   %spec.select = select i1 %or.cond, ptr %_auto_errp_prop, ptr %errp
-  %chardev = getelementptr inbounds %struct.MonitorOptions, ptr %opts, i64 0, i32 5
+  %chardev = getelementptr inbounds i8, ptr %opts, i64 24
   %0 = load ptr, ptr %chardev, align 8
   %call = tail call ptr @qemu_chr_find(ptr noundef %0) #13
   %cmp3 = icmp eq ptr %call, null
@@ -1516,21 +1502,21 @@ if.then4:                                         ; preds = %entry
   br label %cleanup
 
 if.end6:                                          ; preds = %entry
-  %has_mode = getelementptr inbounds %struct.MonitorOptions, ptr %opts, i64 0, i32 1
+  %has_mode = getelementptr inbounds i8, ptr %opts, i64 8
   %2 = load i8, ptr %has_mode, align 8
   %3 = and i8 %2, 1
   %tobool7.not = icmp eq i8 %3, 0
   br i1 %tobool7.not, label %if.then8, label %if.end6.if.end10_crit_edge
 
 if.end6.if.end10_crit_edge:                       ; preds = %if.end6
-  %mode11.phi.trans.insert = getelementptr inbounds %struct.MonitorOptions, ptr %opts, i64 0, i32 2
+  %mode11.phi.trans.insert = getelementptr inbounds i8, ptr %opts, i64 12
   %.pre = load i32, ptr %mode11.phi.trans.insert, align 4
   br label %if.end10
 
 if.then8:                                         ; preds = %if.end6
   %not.allow_hmp = xor i1 %allow_hmp, true
   %cond = zext i1 %not.allow_hmp to i32
-  %mode = getelementptr inbounds %struct.MonitorOptions, ptr %opts, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %opts, i64 12
   store i32 %cond, ptr %mode, align 4
   br label %if.end10
 
@@ -1542,7 +1528,7 @@ if.end10:                                         ; preds = %if.end6.if.end10_cr
   ]
 
 sw.bb:                                            ; preds = %if.end10
-  %pretty = getelementptr inbounds %struct.MonitorOptions, ptr %opts, i64 0, i32 4
+  %pretty = getelementptr inbounds i8, ptr %opts, i64 17
   %5 = load i8, ptr %pretty, align 1
   %6 = and i8 %5, 1
   %tobool12 = icmp ne i8 %6, 0
@@ -1557,7 +1543,7 @@ if.then15:                                        ; preds = %sw.bb13
   br label %cleanup
 
 if.end16:                                         ; preds = %sw.bb13
-  %pretty17 = getelementptr inbounds %struct.MonitorOptions, ptr %opts, i64 0, i32 4
+  %pretty17 = getelementptr inbounds i8, ptr %opts, i64 17
   %7 = load i8, ptr %pretty17, align 1
   %8 = and i8 %7, 1
   %tobool18.not = icmp eq i8 %8, 0
@@ -1657,7 +1643,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %event, ptr noundef %qdict) #13
   br label %trace_monitor_protocol_event_emit.exit
@@ -1681,7 +1667,7 @@ for.body:                                         ; preds = %trace_monitor_proto
   br i1 %tobool.i.not, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %commands = getelementptr inbounds %struct.MonitorQMP, ptr %mon.08, i64 0, i32 3
+  %commands = getelementptr inbounds i8, ptr %mon.08, i64 264
   %9 = load ptr, ptr %commands, align 8
   %cmp.not = icmp eq ptr %9, @qmp_cap_negotiation_commands
   br i1 %cmp.not, label %for.inc, label %if.then1
@@ -1691,7 +1677,7 @@ if.then1:                                         ; preds = %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.then1, %for.body
-  %entry3 = getelementptr inbounds %struct.Monitor, ptr %mon.08, i64 0, i32 6
+  %entry3 = getelementptr inbounds i8, ptr %mon.08, i64 72
   %mon.0 = load ptr, ptr %entry3, align 8
   %tobool.not = icmp eq ptr %mon.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !11
@@ -1713,7 +1699,7 @@ entry:
   %0 = load i32, ptr %opaque, align 8
   %idxprom = zext i32 %0 to i64
   %arrayidx = getelementptr [54 x %struct.MonitorQAPIEventConf], ptr @monitor_qapi_event_conf, i64 0, i64 %idxprom
-  %qdict = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %opaque, i64 0, i32 3
+  %qdict = getelementptr inbounds i8, ptr %opaque, i64 24
   %1 = load ptr, ptr %qdict, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1739,7 +1725,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #13
   %call10.i.i = tail call i32 @qemu_get_thread_id() #13
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %0, ptr noundef %1) #13
   br label %trace_monitor_protocol_event_handler.exit
@@ -1770,7 +1756,7 @@ if.then:                                          ; preds = %trace_monitor_proto
   br i1 %tobool9.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %16, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %17, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -1791,7 +1777,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
 
 qobject_unref_impl.exit:                          ; preds = %if.then, %land.lhs.true.i, %if.then5.i
   store ptr null, ptr %qdict, align 8
-  %timer = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %opaque, i64 0, i32 2
+  %timer = getelementptr inbounds i8, ptr %opaque, i64 16
   %18 = load ptr, ptr %timer, align 8
   %19 = load i64, ptr %arrayidx, align 8
   %add = add i64 %19, %call5
@@ -1801,13 +1787,13 @@ qobject_unref_impl.exit:                          ; preds = %if.then, %land.lhs.
 if.else:                                          ; preds = %trace_monitor_protocol_event_handler.exit
   %20 = load ptr, ptr @monitor_qapi_event_state, align 8
   %call12 = tail call i32 @g_hash_table_remove(ptr noundef %20, ptr noundef nonnull %opaque) #13
-  %data = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %opaque, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %opaque, i64 8
   %21 = load ptr, ptr %data, align 8
   %tobool14.not = icmp eq ptr %21, null
   br i1 %tobool14.not, label %qobject_unref_impl.exit25, label %lor.lhs.false.i17
 
 lor.lhs.false.i17:                                ; preds = %if.else
-  %refcnt.i18 = getelementptr inbounds %struct.QObjectBase_, ptr %21, i64 0, i32 1
+  %refcnt.i18 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load i64, ptr %refcnt.i18, align 8
   %tobool1.not.i19 = icmp eq i64 %22, 0
   br i1 %tobool1.not.i19, label %if.else.i24, label %land.lhs.true.i20
@@ -1827,7 +1813,7 @@ if.then5.i23:                                     ; preds = %land.lhs.true.i20
   br label %qobject_unref_impl.exit25
 
 qobject_unref_impl.exit25:                        ; preds = %if.else, %land.lhs.true.i20, %if.then5.i23
-  %timer23 = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %opaque, i64 0, i32 2
+  %timer23 = getelementptr inbounds i8, ptr %opaque, i64 16
   %23 = load ptr, ptr %timer23, align 8
   %tobool.not.i = icmp eq ptr %23, null
   br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
@@ -1885,7 +1871,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %data = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %key, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load ptr, ptr %data, align 8
   %call = tail call ptr @qdict_get_str(ptr noundef %1, ptr noundef nonnull @.str.35) #13
   %call2 = tail call i32 @g_str_hash(ptr noundef %call) #13
@@ -1900,7 +1886,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.end
-  %data6 = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %key, i64 0, i32 1
+  %data6 = getelementptr inbounds i8, ptr %key, i64 8
   %3 = load ptr, ptr %data6, align 8
   %call7 = tail call ptr @qdict_get_str(ptr noundef %3, ptr noundef nonnull @.str.36) #13
   %call8 = tail call i32 @g_str_hash(ptr noundef %call7) #13
@@ -1915,7 +1901,7 @@ if.end10:                                         ; preds = %if.then5, %if.end
   br i1 %cmp12, label %if.then13, label %if.end18
 
 if.then13:                                        ; preds = %if.end10
-  %data14 = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %key, i64 0, i32 1
+  %data14 = getelementptr inbounds i8, ptr %key, i64 8
   %5 = load ptr, ptr %data14, align 8
   %call15 = tail call ptr @qdict_get_str(ptr noundef %5, ptr noundef nonnull @.str.37) #13
   %call16 = tail call i32 @g_str_hash(ptr noundef %call15) #13
@@ -1950,10 +1936,10 @@ if.then23:                                        ; preds = %if.end
 
 return.sink.split:                                ; preds = %if.end, %if.then11, %if.then23
   %.str.37.sink10 = phi ptr [ @.str.37, %if.then23 ], [ @.str.36, %if.then11 ], [ @.str.35, %if.end ]
-  %data24 = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %a, i64 0, i32 1
+  %data24 = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %data24, align 8
   %call25 = tail call ptr @qdict_get_str(ptr noundef %2, ptr noundef nonnull %.str.37.sink10) #13
-  %data26 = getelementptr inbounds %struct.MonitorQAPIEventState, ptr %b, i64 0, i32 1
+  %data26 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load ptr, ptr %data26, align 8
   %call27 = tail call ptr @qdict_get_str(ptr noundef %3, ptr noundef nonnull %.str.37.sink10) #13
   %call28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call25, ptr noundef nonnull dereferenceable(1) %call27) #18

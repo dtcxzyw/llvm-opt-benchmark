@@ -406,9 +406,9 @@ if.then21:                                        ; preds = %if.end17
 if.end22:                                         ; preds = %if.end17
   %dec = add nsw i32 %argc, -1
   store i32 %dec, ptr %argc.addr, align 4
-  %incdec.ptr = getelementptr inbounds ptr, ptr %argv, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %argv, i64 8
   store ptr %incdec.ptr, ptr %argv.addr, align 8
-  %app_verify = getelementptr inbounds %struct.app_verify_arg, ptr %app_verify_arg, i64 0, i32 1
+  %app_verify = getelementptr inbounds i8, ptr %app_verify_arg, i64 8
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %if.end641, %if.end22
@@ -533,7 +533,7 @@ if.then69:                                        ; preds = %if.else66
   br i1 %cmp71, label %bad, label %if.end73
 
 if.end73:                                         ; preds = %if.then69
-  %incdec.ptr74 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr74 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr74, ptr %argv.addr, align 8
   %11 = load ptr, ptr %incdec.ptr74, align 8
   store ptr %11, ptr @psk_key, align 8
@@ -589,7 +589,7 @@ if.then112:                                       ; preds = %if.else109
   br i1 %cmp114, label %bad, label %if.end116
 
 if.end116:                                        ; preds = %if.then112
-  %incdec.ptr117 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr117 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr117, ptr %argv.addr, align 8
   %12 = load ptr, ptr %incdec.ptr117, align 8
   %call118 = call i32 @atoi(ptr nocapture noundef %12) #22
@@ -608,7 +608,7 @@ if.then125:                                       ; preds = %if.else122
   br i1 %cmp127, label %bad, label %if.end129
 
 if.end129:                                        ; preds = %if.then125
-  %incdec.ptr130 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr130 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr130, ptr %argv.addr, align 8
   %13 = load ptr, ptr %incdec.ptr130, align 8
   %call131 = call i64 @atol(ptr nocapture noundef %13) #22
@@ -639,7 +639,7 @@ if.then157:                                       ; preds = %if.else153
   br i1 %cmp159, label %bad, label %if.end162
 
 if.end162:                                        ; preds = %if.then157
-  %incdec.ptr163 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr163 = getelementptr inbounds i8, ptr %7, i64 8
   %15 = load ptr, ptr %incdec.ptr163, align 8
   store ptr %15, ptr @cipher, align 8
   br label %if.end641
@@ -656,7 +656,7 @@ if.then168:                                       ; preds = %if.else164
   br i1 %cmp170, label %bad, label %if.end173
 
 if.end173:                                        ; preds = %if.then168
-  %incdec.ptr174 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr174 = getelementptr inbounds i8, ptr %7, i64 8
   %16 = load ptr, ptr %incdec.ptr174, align 8
   store ptr %16, ptr @ciphersuites, align 8
   br label %if.end641
@@ -673,7 +673,7 @@ if.then179:                                       ; preds = %if.else175
   br i1 %cmp181, label %bad, label %if.end184
 
 if.end184:                                        ; preds = %if.then179
-  %incdec.ptr185 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr185 = getelementptr inbounds i8, ptr %7, i64 8
   %17 = load ptr, ptr %incdec.ptr185, align 8
   br label %if.end641
 
@@ -689,7 +689,7 @@ if.then190:                                       ; preds = %if.else186
   br i1 %cmp192, label %bad, label %if.end195
 
 if.end195:                                        ; preds = %if.then190
-  %incdec.ptr196 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr196 = getelementptr inbounds i8, ptr %7, i64 8
   %18 = load ptr, ptr %incdec.ptr196, align 8
   br label %if.end641
 
@@ -799,7 +799,7 @@ if.then271:                                       ; preds = %if.else267
   br i1 %cmp273, label %bad, label %if.end276
 
 if.end276:                                        ; preds = %if.then271
-  %incdec.ptr277 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr277 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr277, ptr %argv.addr, align 8
   %19 = load ptr, ptr %incdec.ptr277, align 8
   store ptr %19, ptr @serverinfo_file, align 8
@@ -826,7 +826,7 @@ if.then287:                                       ; preds = %if.else283
   br i1 %cmp289, label %bad, label %if.end292
 
 if.end292:                                        ; preds = %if.then287
-  %incdec.ptr293 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr293 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr293, ptr %argv.addr, align 8
   %20 = load ptr, ptr %incdec.ptr293, align 8
   store ptr %20, ptr @alpn_client, align 8
@@ -849,7 +849,7 @@ if.then302:                                       ; preds = %lor.lhs.false298, %
   br i1 %cmp304, label %bad, label %if.end307
 
 if.end307:                                        ; preds = %if.then302
-  %incdec.ptr308 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr308 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr308, ptr %argv.addr, align 8
   %21 = load ptr, ptr %incdec.ptr308, align 8
   store ptr %21, ptr @alpn_server, align 8
@@ -867,7 +867,7 @@ if.then313:                                       ; preds = %if.else309
   br i1 %cmp315, label %bad, label %if.end318
 
 if.end318:                                        ; preds = %if.then313
-  %incdec.ptr319 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr319 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr319, ptr %argv.addr, align 8
   %22 = load ptr, ptr %incdec.ptr319, align 8
   store ptr %22, ptr @alpn_server2, align 8
@@ -885,7 +885,7 @@ if.then324:                                       ; preds = %if.else320
   br i1 %cmp326, label %bad, label %if.end329
 
 if.end329:                                        ; preds = %if.then324
-  %incdec.ptr330 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr330 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr330, ptr %argv.addr, align 8
   %23 = load ptr, ptr %incdec.ptr330, align 8
   store ptr %23, ptr @alpn_expected, align 8
@@ -903,7 +903,7 @@ if.then335:                                       ; preds = %if.else331
   br i1 %cmp337, label %bad, label %if.end340
 
 if.end340:                                        ; preds = %if.then335
-  %incdec.ptr341 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr341 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr341, ptr %argv.addr, align 8
   %24 = load ptr, ptr %incdec.ptr341, align 8
   store ptr %24, ptr @server_min_proto, align 8
@@ -921,7 +921,7 @@ if.then346:                                       ; preds = %if.else342
   br i1 %cmp348, label %bad, label %if.end351
 
 if.end351:                                        ; preds = %if.then346
-  %incdec.ptr352 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr352 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr352, ptr %argv.addr, align 8
   %25 = load ptr, ptr %incdec.ptr352, align 8
   store ptr %25, ptr @server_max_proto, align 8
@@ -939,7 +939,7 @@ if.then357:                                       ; preds = %if.else353
   br i1 %cmp359, label %bad, label %if.end362
 
 if.end362:                                        ; preds = %if.then357
-  %incdec.ptr363 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr363 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr363, ptr %argv.addr, align 8
   %26 = load ptr, ptr %incdec.ptr363, align 8
   store ptr %26, ptr @client_min_proto, align 8
@@ -957,7 +957,7 @@ if.then368:                                       ; preds = %if.else364
   br i1 %cmp370, label %bad, label %if.end373
 
 if.end373:                                        ; preds = %if.then368
-  %incdec.ptr374 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr374 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr374, ptr %argv.addr, align 8
   %27 = load ptr, ptr %incdec.ptr374, align 8
   store ptr %27, ptr @client_max_proto, align 8
@@ -975,7 +975,7 @@ if.then379:                                       ; preds = %if.else375
   br i1 %cmp381, label %bad, label %if.end384
 
 if.end384:                                        ; preds = %if.then379
-  %incdec.ptr385 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr385 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr385, ptr %argv.addr, align 8
   %28 = load ptr, ptr %incdec.ptr385, align 8
   store ptr %28, ptr @should_negotiate, align 8
@@ -993,7 +993,7 @@ if.then390:                                       ; preds = %if.else386
   br i1 %cmp392, label %bad, label %if.end395
 
 if.end395:                                        ; preds = %if.then390
-  %incdec.ptr396 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr396 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr396, ptr %argv.addr, align 8
   %29 = load ptr, ptr %incdec.ptr396, align 8
   store ptr %29, ptr @sn_client, align 8
@@ -1011,7 +1011,7 @@ if.then401:                                       ; preds = %if.else397
   br i1 %cmp403, label %bad, label %if.end406
 
 if.end406:                                        ; preds = %if.then401
-  %incdec.ptr407 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr407 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr407, ptr %argv.addr, align 8
   %30 = load ptr, ptr %incdec.ptr407, align 8
   store ptr %30, ptr @sn_server1, align 8
@@ -1029,7 +1029,7 @@ if.then412:                                       ; preds = %if.else408
   br i1 %cmp414, label %bad, label %if.end417
 
 if.end417:                                        ; preds = %if.then412
-  %incdec.ptr418 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr418 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr418, ptr %argv.addr, align 8
   %31 = load ptr, ptr %incdec.ptr418, align 8
   store ptr %31, ptr @sn_server2, align 8
@@ -1065,7 +1065,7 @@ if.then433:                                       ; preds = %if.else429
   br i1 %cmp435, label %bad, label %if.end438
 
 if.end438:                                        ; preds = %if.then433
-  %incdec.ptr439 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr439 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr439, ptr %argv.addr, align 8
   %32 = load ptr, ptr %incdec.ptr439, align 8
   store ptr %32, ptr @server_sess_out, align 8
@@ -1083,7 +1083,7 @@ if.then444:                                       ; preds = %if.else440
   br i1 %cmp446, label %bad, label %if.end449
 
 if.end449:                                        ; preds = %if.then444
-  %incdec.ptr450 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr450 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr450, ptr %argv.addr, align 8
   %33 = load ptr, ptr %incdec.ptr450, align 8
   store ptr %33, ptr @server_sess_in, align 8
@@ -1101,7 +1101,7 @@ if.then455:                                       ; preds = %if.else451
   br i1 %cmp457, label %bad, label %if.end460
 
 if.end460:                                        ; preds = %if.then455
-  %incdec.ptr461 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr461 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr461, ptr %argv.addr, align 8
   %34 = load ptr, ptr %incdec.ptr461, align 8
   store ptr %34, ptr @client_sess_out, align 8
@@ -1119,7 +1119,7 @@ if.then466:                                       ; preds = %if.else462
   br i1 %cmp468, label %bad, label %if.end471
 
 if.end471:                                        ; preds = %if.then466
-  %incdec.ptr472 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr472 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr472, ptr %argv.addr, align 8
   %35 = load ptr, ptr %incdec.ptr472, align 8
   store ptr %35, ptr @client_sess_in, align 8
@@ -1137,7 +1137,7 @@ if.then477:                                       ; preds = %if.else473
   br i1 %cmp479, label %bad, label %if.end482
 
 if.end482:                                        ; preds = %if.then477
-  %incdec.ptr483 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr483 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr483, ptr %argv.addr, align 8
   %36 = load ptr, ptr %incdec.ptr483, align 8
   %call484 = call i32 @atoi(ptr nocapture noundef %36) #22
@@ -1172,7 +1172,7 @@ if.then506:                                       ; preds = %if.else502
   br i1 %cmp508, label %bad, label %if.end511
 
 if.end511:                                        ; preds = %if.then506
-  %incdec.ptr512 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr512 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr512, ptr %argv.addr, align 8
   %37 = load ptr, ptr %incdec.ptr512, align 8
   br label %if.end641
@@ -1189,13 +1189,13 @@ if.then517:                                       ; preds = %if.else513
   br i1 %cmp519, label %bad, label %if.end522
 
 if.end522:                                        ; preds = %if.then517
-  %incdec.ptr523 = getelementptr inbounds ptr, ptr %7, i64 1
+  %incdec.ptr523 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr523, ptr %argv.addr, align 8
   %38 = load ptr, ptr %incdec.ptr523, align 8
   br label %if.end641
 
 if.else524:                                       ; preds = %if.else513
-  %arrayidx526 = getelementptr inbounds ptr, ptr %7, i64 1
+  %arrayidx526 = getelementptr inbounds i8, ptr %7, i64 8
   %39 = load ptr, ptr %arrayidx526, align 8
   %call527 = call i32 @SSL_CONF_cmd_argv(ptr noundef nonnull %call4, ptr noundef nonnull %argc.addr, ptr noundef nonnull %argv.addr) #21
   %cmp528 = icmp eq i32 %call527, 0
@@ -1275,7 +1275,7 @@ if.end641:                                        ; preds = %if.else497, %if.els
   %CApath.1 = phi ptr [ %CApath.0.ph, %if.then37 ], [ %CApath.0.ph, %if.then41 ], [ %CApath.0.ph, %if.end73 ], [ %CApath.0.ph, %if.end116 ], [ %CApath.0.ph, %if.end162 ], [ %CApath.0.ph, %if.end173 ], [ %17, %if.end184 ], [ %CApath.0.ph, %if.end195 ], [ %CApath.0.ph, %if.then241 ], [ %CApath.0.ph, %if.then246 ], [ %CApath.0.ph, %if.then251 ], [ %CApath.0.ph, %if.then256 ], [ %CApath.0.ph, %if.then261 ], [ %CApath.0.ph, %if.then266 ], [ %CApath.0.ph, %if.end276 ], [ %CApath.0.ph, %if.then282 ], [ %CApath.0.ph, %if.end292 ], [ %CApath.0.ph, %if.end307 ], [ %CApath.0.ph, %if.end318 ], [ %CApath.0.ph, %if.end329 ], [ %CApath.0.ph, %if.end340 ], [ %CApath.0.ph, %if.end351 ], [ %CApath.0.ph, %if.end362 ], [ %CApath.0.ph, %if.end373 ], [ %CApath.0.ph, %if.end384 ], [ %CApath.0.ph, %if.end395 ], [ %CApath.0.ph, %if.end406 ], [ %CApath.0.ph, %if.end417 ], [ %CApath.0.ph, %if.then423 ], [ %CApath.0.ph, %if.then428 ], [ %CApath.0.ph, %if.end438 ], [ %CApath.0.ph, %if.end449 ], [ %CApath.0.ph, %if.end460 ], [ %CApath.0.ph, %if.end471 ], [ %CApath.0.ph, %if.end482 ], [ %CApath.0.ph, %if.end511 ], [ %CApath.0.ph, %if.end522 ], [ %CApath.0.ph, %if.end129 ], [ %CApath.0.ph, %if.else62 ], [ %CApath.0.ph, %if.else ], [ %CApath.0.ph, %if.else30 ], [ %CApath.0.ph, %if.else42 ], [ %CApath.0.ph, %if.else46 ], [ %CApath.0.ph, %if.else50 ], [ %CApath.0.ph, %if.else54 ], [ %CApath.0.ph, %if.else58 ], [ %CApath.0.ph, %if.else81 ], [ %CApath.0.ph, %if.else85 ], [ %CApath.0.ph, %if.else89 ], [ %CApath.0.ph, %if.else93 ], [ %CApath.0.ph, %if.else97 ], [ %CApath.0.ph, %if.else101 ], [ %CApath.0.ph, %if.else105 ], [ %CApath.0.ph, %if.else197 ], [ %CApath.0.ph, %if.else202 ], [ %CApath.0.ph, %if.else207 ], [ %CApath.0.ph, %if.else212 ], [ %CApath.0.ph, %if.else217 ], [ %CApath.0.ph, %if.else222 ], [ %CApath.0.ph, %if.else227 ], [ %CApath.0.ph, %if.else232 ], [ %CApath.0.ph, %if.else487 ], [ %CApath.0.ph, %if.else492 ], [ %CApath.0.ph, %if.else497 ]
   %dec642 = add nsw i32 %41, -1
   store i32 %dec642, ptr %argc.addr, align 4
-  %incdec.ptr643 = getelementptr inbounds ptr, ptr %40, i64 1
+  %incdec.ptr643 = getelementptr inbounds i8, ptr %40, i64 8
   store ptr %incdec.ptr643, ptr %argv.addr, align 8
   br label %while.cond.outer, !llvm.loop !5
 
@@ -2855,7 +2855,7 @@ declare void @SSL_CTX_set_cert_verify_callback(ptr noundef, ptr noundef, ptr nou
 define internal i32 @app_verify_callback(ptr noundef %ctx, ptr nocapture noundef readonly %arg) #8 {
 entry:
   %buf = alloca [256 x i8], align 16
-  %app_verify = getelementptr inbounds %struct.app_verify_arg, ptr %arg, i64 0, i32 1
+  %app_verify = getelementptr inbounds i8, ptr %arg, i64 8
   %0 = load i32, ptr %app_verify, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end13, label %if.then
@@ -3477,28 +3477,32 @@ entry:
   %cmp.not = icmp eq ptr %version, null
   br i1 %cmp.not, label %return, label %for.body.i
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %i.05.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds [7 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %i.05.i
-  %0 = load ptr, ptr %arrayidx.i, align 16
-  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %version) #22
-  %cmp1.i = icmp eq i32 %call.i, 0
-  br i1 %cmp1.i, label %if.end, label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.05.i, 1
+for.cond.i:                                       ; preds = %for.body.i
+  %inc.i = add nuw nsw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 7
   br i1 %exitcond.not.i, label %if.then2, label %for.body.i, !llvm.loop !12
 
-if.then2:                                         ; preds = %for.inc.i
-  %1 = load ptr, ptr @bio_err, align 8
-  %call3 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.111, ptr noundef nonnull %version) #21
+for.body.i:                                       ; preds = %entry, %for.cond.i
+  %i.04.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
+  %arrayidx.i = getelementptr inbounds [7 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %i.04.i
+  %0 = load ptr, ptr %arrayidx.i, align 16
+  %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %version) #22
+  %cmp1.i = icmp eq i32 %call.i, 0
+  br i1 %cmp1.i, label %protocol_from_string.exit, label %for.cond.i
+
+protocol_from_string.exit:                        ; preds = %for.body.i
+  %version.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %1 = load i32, ptr %version.i, align 8
+  %cmp1 = icmp slt i32 %1, 0
+  br i1 %cmp1, label %if.then2, label %if.end
+
+if.then2:                                         ; preds = %for.cond.i, %protocol_from_string.exit
+  %2 = load ptr, ptr @bio_err, align 8
+  %call3 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.111, ptr noundef nonnull %version) #21
   br label %return
 
-if.end:                                           ; preds = %for.body.i
-  %version.i = getelementptr inbounds [7 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %i.05.i, i32 1
-  %2 = load i32, ptr %version.i, align 8
-  %conv = zext nneg i32 %2 to i64
+if.end:                                           ; preds = %protocol_from_string.exit
+  %conv = zext nneg i32 %1 to i64
   %call4 = tail call i64 @SSL_ctrl(ptr noundef %ssl, i32 noundef %setting, i64 noundef %conv, ptr noundef null) #21
   %conv5 = trunc i64 %call4 to i32
   br label %return
@@ -4903,26 +4907,26 @@ define internal fastcc i32 @protocol_from_string(ptr nocapture noundef readonly 
 entry:
   br label %for.body
 
-for.body:                                         ; preds = %entry, %for.inc
-  %i.05 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds [7 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %i.05
-  %0 = load ptr, ptr %arrayidx, align 16
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %value) #22
-  %cmp1 = icmp eq i32 %call, 0
-  br i1 %cmp1, label %if.then, label %for.inc
-
-if.then:                                          ; preds = %for.body
-  %version = getelementptr inbounds [7 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %i.05, i32 1
-  %1 = load i32, ptr %version, align 8
-  br label %return
-
-for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i64 %i.05, 1
+for.cond:                                         ; preds = %for.body
+  %inc = add nuw nsw i64 %i.04, 1
   %exitcond.not = icmp eq i64 %inc, 7
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !12
 
-return:                                           ; preds = %for.inc, %if.then
-  %retval.0 = phi i32 [ %1, %if.then ], [ -1, %for.inc ]
+for.body:                                         ; preds = %entry, %for.cond
+  %i.04 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [7 x %struct.protocol_versions], ptr @protocol_from_string.versions, i64 0, i64 %i.04
+  %0 = load ptr, ptr %arrayidx, align 16
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %value) #22
+  %cmp1 = icmp eq i32 %call, 0
+  br i1 %cmp1, label %if.then, label %for.cond
+
+if.then:                                          ; preds = %for.body
+  %version = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %1 = load i32, ptr %version, align 8
+  br label %return
+
+return:                                           ; preds = %for.cond, %if.then
+  %retval.0 = phi i32 [ %1, %if.then ], [ -1, %for.cond ]
   ret i32 %retval.0
 }
 

@@ -4,35 +4,21 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.btConvexHullInternal::Int128" = type { i64, i64 }
+%"class.btConvexHullInternal::IntermediateHull" = type { ptr, ptr, ptr, ptr }
+%"class.btConvexHullInternal::Point32" = type { i32, i32, i32, i32 }
+%"class.btConvexHullInternal::Point64" = type { i64, i64, i64 }
 %"class.btConvexHullInternal::Rational64" = type <{ i64, i64, i32, [4 x i8] }>
+%class.btAlignedObjectArray.4 = type <{ %class.btAlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedAllocator.5 = type { i8 }
+%class.btVector3 = type { [4 x float] }
+%class.pointCmp = type { i8 }
+%class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btAlignedAllocator = type { i8 }
 %"class.btConvexHullInternal::Rational128" = type <{ %"class.btConvexHullInternal::Int128", %"class.btConvexHullInternal::Int128", i32, i8, [3 x i8] }>
 %class.btConvexHullInternal = type { %class.btVector3, %class.btVector3, %"class.btConvexHullInternal::Pool", %"class.btConvexHullInternal::Pool.0", %"class.btConvexHullInternal::Pool.2", %class.btAlignedObjectArray, i32, i32, i32, i32, i32, i32, ptr }
-%class.btVector3 = type { [4 x float] }
 %"class.btConvexHullInternal::Pool" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.btConvexHullInternal::Pool.0" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.btConvexHullInternal::Pool.2" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
-%class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator = type { i8 }
-%"class.btConvexHullInternal::PoolArray.24" = type { ptr, i32, ptr }
-%"class.btConvexHullInternal::Edge" = type <{ ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.btConvexHullInternal::IntermediateHull" = type { ptr, ptr, ptr, ptr }
-%"class.btConvexHullInternal::Vertex" = type <{ ptr, ptr, ptr, ptr, ptr, %"class.btConvexHullInternal::PointR128", %"class.btConvexHullInternal::Point32", i32, [4 x i8] }>
-%"class.btConvexHullInternal::PointR128" = type { %"class.btConvexHullInternal::Int128", %"class.btConvexHullInternal::Int128", %"class.btConvexHullInternal::Int128", %"class.btConvexHullInternal::Int128" }
-%"class.btConvexHullInternal::Point32" = type { i32, i32, i32, i32 }
-%"class.btConvexHullInternal::Point64" = type { i64, i64, i64 }
-%class.btAlignedObjectArray.4 = type <{ %class.btAlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.5 = type { i8 }
-%class.pointCmp = type { i8 }
-%"class.btConvexHullInternal::PoolArray.25" = type { ptr, i32, ptr }
-%"class.btConvexHullInternal::Face" = type { ptr, ptr, ptr, %"class.btConvexHullInternal::Point32", %"class.btConvexHullInternal::Point32", %"class.btConvexHullInternal::Point32" }
-%"class.btConvexHullInternal::PoolArray" = type { ptr, i32, ptr }
-%class.btAlignedObjectArray.12 = type <{ %class.btAlignedAllocator.13, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.13 = type { i8 }
-%class.btConvexHullComputer = type { %class.btAlignedObjectArray.12, %class.btAlignedObjectArray.16, %class.btAlignedObjectArray.20, %class.btAlignedObjectArray.16 }
-%class.btAlignedObjectArray.20 = type <{ %class.btAlignedAllocator.21, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.21 = type { i8 }
-%class.btAlignedObjectArray.16 = type <{ %class.btAlignedAllocator.17, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.17 = type { i8 }
 %"class.btConvexHullComputer::Edge" = type { i32, i32, i32 }
 
 $_ZN20btConvexHullInternal4DMulINS_6Int128EmE3mulES1_S1_RS1_S3_ = comdat any
@@ -60,7 +46,7 @@ $_ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE17quickSortInternalI
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local { i64, i64 } @_ZNK20btConvexHullInternal6Int128mlEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %b) local_unnamed_addr #0 align 2 {
 entry:
-  %high = getelementptr inbounds %"class.btConvexHullInternal::Int128", ptr %this, i64 0, i32 1
+  %high = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %high, align 8
   %cmp = icmp sgt i64 %0, -1
   %frombool = icmp slt i64 %0, 0
@@ -208,9 +194,9 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK20btConvexHullInternal10Rational647compareERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %b) local_unnamed_addr #4 align 2 {
 entry:
-  %sign = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %this, i64 0, i32 2
+  %sign = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %sign, align 8
-  %sign2 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %b, i64 0, i32 2
+  %sign2 = getelementptr inbounds i8, ptr %b, i64 16
   %1 = load i32, ptr %sign2, align 8
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.else, label %if.then
@@ -225,7 +211,7 @@ if.else:                                          ; preds = %entry
 
 if.end8:                                          ; preds = %if.else
   %2 = load i64, ptr %this, align 8
-  %m_denominator = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %b, i64 0, i32 1
+  %m_denominator = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i64, ptr %m_denominator, align 8
   %conv.i16.i.i = and i64 %2, 4294967295
   %conv1.i.i.i = and i64 %3, 4294967295
@@ -249,7 +235,7 @@ if.end8:                                          ; preds = %if.else
   %cmp.i.i = icmp ult i64 %add24.i.i, %shl.i.i.i
   %inc.i.i = zext i1 %cmp.i.i to i64
   %spec.select.i.i = add nuw i64 %add23.i.i, %inc.i.i
-  %m_denominator11 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %this, i64 0, i32 1
+  %m_denominator11 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %m_denominator11, align 8
   %5 = load i64, ptr %b, align 8
   %conv.i16.i.i5 = and i64 %4, 4294967295
@@ -307,9 +293,9 @@ entry:
   %nbdHigh = alloca %"class.btConvexHullInternal::Int128", align 8
   %dbnLow = alloca %"class.btConvexHullInternal::Int128", align 8
   %dbnHigh = alloca %"class.btConvexHullInternal::Int128", align 8
-  %sign = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %this, i64 0, i32 2
+  %sign = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %sign, align 8
-  %sign2 = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %b, i64 0, i32 2
+  %sign2 = getelementptr inbounds i8, ptr %b, i64 32
   %1 = load i32, ptr %sign2, align 8
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.else, label %if.then
@@ -323,7 +309,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.else
-  %isInt64 = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %this, i64 0, i32 3
+  %isInt64 = getelementptr inbounds i8, ptr %this, i64 36
   %2 = load i8, ptr %isInt64, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -341,22 +327,22 @@ if.end12:                                         ; preds = %if.end8
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %this, align 8
   %agg.tmp.sroa.2.0.numerator13.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.numerator13.sroa_idx, align 8
-  %denominator = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %b, i64 0, i32 1
+  %denominator = getelementptr inbounds i8, ptr %b, i64 16
   %agg.tmp14.sroa.0.0.copyload = load i64, ptr %denominator, align 8
-  %agg.tmp14.sroa.2.0.denominator.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %b, i64 0, i32 1, i32 1
+  %agg.tmp14.sroa.2.0.denominator.sroa_idx = getelementptr inbounds i8, ptr %b, i64 24
   %agg.tmp14.sroa.2.0.copyload = load i64, ptr %agg.tmp14.sroa.2.0.denominator.sroa_idx, align 8
   call void @_ZN20btConvexHullInternal4DMulINS_6Int128EmE3mulES1_S1_RS1_S3_(i64 %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, i64 %agg.tmp14.sroa.0.0.copyload, i64 %agg.tmp14.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %nbdLow, ptr noundef nonnull align 8 dereferenceable(16) %nbdHigh)
-  %denominator16 = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %this, i64 0, i32 1
+  %denominator16 = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp15.sroa.0.0.copyload = load i64, ptr %denominator16, align 8
-  %agg.tmp15.sroa.2.0.denominator16.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp15.sroa.2.0.denominator16.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp15.sroa.2.0.copyload = load i64, ptr %agg.tmp15.sroa.2.0.denominator16.sroa_idx, align 8
   %agg.tmp17.sroa.0.0.copyload = load i64, ptr %b, align 8
   %agg.tmp17.sroa.2.0.numerator18.sroa_idx = getelementptr inbounds i8, ptr %b, i64 8
   %agg.tmp17.sroa.2.0.copyload = load i64, ptr %agg.tmp17.sroa.2.0.numerator18.sroa_idx, align 8
   call void @_ZN20btConvexHullInternal4DMulINS_6Int128EmE3mulES1_S1_RS1_S3_(i64 %agg.tmp15.sroa.0.0.copyload, i64 %agg.tmp15.sroa.2.0.copyload, i64 %agg.tmp17.sroa.0.0.copyload, i64 %agg.tmp17.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %dbnLow, ptr noundef nonnull align 8 dereferenceable(16) %dbnHigh)
-  %high.i = getelementptr inbounds %"class.btConvexHullInternal::Int128", ptr %nbdHigh, i64 0, i32 1
+  %high.i = getelementptr inbounds i8, ptr %nbdHigh, i64 8
   %5 = load i64, ptr %high.i, align 8
-  %high2.i = getelementptr inbounds %"class.btConvexHullInternal::Int128", ptr %dbnHigh, i64 0, i32 1
+  %high2.i = getelementptr inbounds i8, ptr %dbnHigh, i64 8
   %6 = load i64, ptr %high2.i, align 8
   %cmp.i = icmp ult i64 %5, %6
   br i1 %cmp.i, label %if.then22, label %if.end.i
@@ -382,9 +368,9 @@ if.then22:                                        ; preds = %if.end7.i, %if.end.
   br label %return
 
 if.end25:                                         ; preds = %_ZNK20btConvexHullInternal6Int1284ucmpERKS0_.exit
-  %high.i7 = getelementptr inbounds %"class.btConvexHullInternal::Int128", ptr %nbdLow, i64 0, i32 1
+  %high.i7 = getelementptr inbounds i8, ptr %nbdLow, i64 8
   %10 = load i64, ptr %high.i7, align 8
-  %high2.i8 = getelementptr inbounds %"class.btConvexHullInternal::Int128", ptr %dbnLow, i64 0, i32 1
+  %high2.i8 = getelementptr inbounds i8, ptr %dbnLow, i64 8
   %11 = load i64, ptr %high2.i8, align 8
   %cmp.i9 = icmp ult i64 %10, %11
   br i1 %cmp.i9, label %_ZNK20btConvexHullInternal6Int1284ucmpERKS0_.exit18, label %if.end.i10
@@ -418,14 +404,14 @@ return:                                           ; preds = %if.else, %_ZNK20btC
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %this, i64 noundef %b) local_unnamed_addr #4 align 2 {
 entry:
-  %isInt64 = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %this, i64 0, i32 3
+  %isInt64 = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i8, ptr %isInt64, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sign = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %this, i64 0, i32 2
+  %sign = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i32, ptr %sign, align 8
   %conv = sext i32 %2 to i64
   %3 = load i64, ptr %this, align 8
@@ -441,14 +427,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end
-  %sign6 = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %this, i64 0, i32 2
+  %sign6 = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load i32, ptr %sign6, align 8
   %cmp7 = icmp slt i32 %4, 1
   br i1 %cmp7, label %return, label %if.end19
 
 if.else:                                          ; preds = %if.end
   %cmp10 = icmp slt i64 %b, 0
-  %sign12 = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %this, i64 0, i32 2
+  %sign12 = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load i32, ptr %sign12, align 8
   br i1 %cmp10, label %if.then11, label %return
 
@@ -463,8 +449,8 @@ if.end15:                                         ; preds = %if.then11
 if.end19:                                         ; preds = %if.then5, %if.end15
   %6 = phi i32 [ %4, %if.then5 ], [ %5, %if.end15 ]
   %b.addr.0 = phi i64 [ %b, %if.then5 ], [ %sub, %if.end15 ]
-  %denominator = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %this, i64 0, i32 1
-  %high.i = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %this, i64 0, i32 1, i32 1
+  %denominator = getelementptr inbounds i8, ptr %this, i64 16
+  %high.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load i64, ptr %high.i, align 8
   %cmp.i = icmp sgt i64 %7, -1
   %frombool.i = icmp slt i64 %7, 0
@@ -519,7 +505,7 @@ cond.true9.i:                                     ; preds = %cond.end.i
 _ZNK20btConvexHullInternal6Int128mlEl.exit:       ; preds = %cond.end.i, %cond.true9.i
   %retval.sroa.0.0.i = phi i64 [ %sub.i9.i, %cond.true9.i ], [ %add24.i.i.i, %cond.end.i ]
   %retval.sroa.3.0.i = phi i64 [ %add.i14.i, %cond.true9.i ], [ %add.i, %cond.end.i ]
-  %high.i7 = getelementptr inbounds %"class.btConvexHullInternal::Int128", ptr %this, i64 0, i32 1
+  %high.i7 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %high.i7, align 8
   %cmp.i8 = icmp ult i64 %8, %retval.sroa.3.0.i
   br i1 %cmp.i8, label %_ZNK20btConvexHullInternal6Int1284ucmpERKS0_.exit, label %if.end.i
@@ -666,31 +652,31 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN20btConvexHullInternal11newEdgePairEPNS_6VertexES1_(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %from, ptr noundef %to) local_unnamed_addr #5 align 2 {
 entry:
-  %edgePool = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 3
-  %freeObjects.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 3, i32 2
+  %edgePool = getelementptr inbounds i8, ptr %this, i64 64
+  %freeObjects.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %freeObjects.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.then.i, label %_ZN20btConvexHullInternal4PoolINS_4EdgeEE9newObjectEv.exit
 
 if.then.i:                                        ; preds = %entry
-  %nextArray.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 3, i32 1
+  %nextArray.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %nextArray.i, align 8
   %tobool2.not.i = icmp eq ptr %1, null
   br i1 %tobool2.not.i, label %if.else.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %next.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.24", ptr %1, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %next.i, align 8
   store ptr %2, ptr %nextArray.i, align 8
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.then.i
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 24, i32 noundef 16)
-  %arraySize.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 3, i32 3
+  %arraySize.i = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load i32, ptr %arraySize.i, align 8
-  %size2.i.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.24", ptr %call.i, i64 0, i32 1
+  %size2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %3, ptr %size2.i.i, align 8
-  %next.i.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.24", ptr %call.i, i64 0, i32 2
+  %next.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr null, ptr %next.i.i, align 8
   %conv.i.i = sext i32 %3 to i64
   %mul.i.i = mul nsw i64 %conv.i.i, 48
@@ -704,7 +690,7 @@ if.else.i:                                        ; preds = %if.then.i
 if.end.i:                                         ; preds = %if.else.i, %if.then3.i
   %p.0.i = phi ptr [ %1, %if.then3.i ], [ %call.i, %if.else.i ]
   %5 = load ptr, ptr %p.0.i, align 8
-  %size.i.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.24", ptr %p.0.i, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %p.0.i, i64 8
   %6 = load i32, ptr %size.i.i, align 8
   %cmp5.i.i = icmp sgt i32 %6, 0
   br i1 %cmp5.i.i, label %for.body.i.i, label %_ZN20btConvexHullInternal4PoolINS_4EdgeEE9newObjectEv.exit
@@ -715,7 +701,7 @@ for.body.i.i:                                     ; preds = %if.end.i, %for.body
   %o.06.i.i = phi ptr [ %add.ptr.i.i, %for.body.i.i ], [ %5, %if.end.i ]
   %add.i.i = add nuw nsw i32 %i.07.i.i, 1
   %cmp3.i.i = icmp slt i32 %add.i.i, %7
-  %add.ptr.i.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %o.06.i.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %o.06.i.i, i64 48
   %cond.i.i = select i1 %cmp3.i.i, ptr %add.ptr.i.i, ptr null
   store ptr %cond.i.i, ptr %o.06.i.i, align 8
   %8 = load i32, ptr %size.i.i, align 8
@@ -736,24 +722,24 @@ _ZN20btConvexHullInternal4PoolINS_4EdgeEE9newObjectEv.exit: ; preds = %entry, %i
   br i1 %tobool.not.i11, label %if.then.i13, label %_ZN20btConvexHullInternal4PoolINS_4EdgeEE9newObjectEv.exit40
 
 if.then.i13:                                      ; preds = %_ZN20btConvexHullInternal4PoolINS_4EdgeEE9newObjectEv.exit
-  %nextArray.i14 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 3, i32 1
+  %nextArray.i14 = getelementptr inbounds i8, ptr %this, i64 72
   %11 = load ptr, ptr %nextArray.i14, align 8
   %tobool2.not.i15 = icmp eq ptr %11, null
   br i1 %tobool2.not.i15, label %if.else.i32, label %if.then3.i16
 
 if.then3.i16:                                     ; preds = %if.then.i13
-  %next.i17 = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.24", ptr %11, i64 0, i32 2
+  %next.i17 = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %next.i17, align 8
   store ptr %12, ptr %nextArray.i14, align 8
   br label %if.end.i18
 
 if.else.i32:                                      ; preds = %if.then.i13
   %call.i33 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 24, i32 noundef 16)
-  %arraySize.i34 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 3, i32 3
+  %arraySize.i34 = getelementptr inbounds i8, ptr %this, i64 88
   %13 = load i32, ptr %arraySize.i34, align 8
-  %size2.i.i35 = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.24", ptr %call.i33, i64 0, i32 1
+  %size2.i.i35 = getelementptr inbounds i8, ptr %call.i33, i64 8
   store i32 %13, ptr %size2.i.i35, align 8
-  %next.i.i36 = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.24", ptr %call.i33, i64 0, i32 2
+  %next.i.i36 = getelementptr inbounds i8, ptr %call.i33, i64 16
   store ptr null, ptr %next.i.i36, align 8
   %conv.i.i37 = sext i32 %13 to i64
   %mul.i.i38 = mul nsw i64 %conv.i.i37, 48
@@ -767,7 +753,7 @@ if.else.i32:                                      ; preds = %if.then.i13
 if.end.i18:                                       ; preds = %if.else.i32, %if.then3.i16
   %p.0.i19 = phi ptr [ %11, %if.then3.i16 ], [ %call.i33, %if.else.i32 ]
   %15 = load ptr, ptr %p.0.i19, align 8
-  %size.i.i20 = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.24", ptr %p.0.i19, i64 0, i32 1
+  %size.i.i20 = getelementptr inbounds i8, ptr %p.0.i19, i64 8
   %16 = load i32, ptr %size.i.i20, align 8
   %cmp5.i.i21 = icmp sgt i32 %16, 0
   br i1 %cmp5.i.i21, label %for.body.i.i22, label %_ZN20btConvexHullInternal4PoolINS_4EdgeEE9newObjectEv.exit40
@@ -778,7 +764,7 @@ for.body.i.i22:                                   ; preds = %if.end.i18, %for.bo
   %o.06.i.i24 = phi ptr [ %add.ptr.i.i27, %for.body.i.i22 ], [ %15, %if.end.i18 ]
   %add.i.i25 = add nuw nsw i32 %i.07.i.i23, 1
   %cmp3.i.i26 = icmp slt i32 %add.i.i25, %17
-  %add.ptr.i.i27 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %o.06.i.i24, i64 1
+  %add.ptr.i.i27 = getelementptr inbounds i8, ptr %o.06.i.i24, i64 48
   %cond.i.i28 = select i1 %cmp3.i.i26, ptr %add.ptr.i.i27, ptr null
   store ptr %cond.i.i28, ptr %o.06.i.i24, align 8
   %18 = load i32, ptr %size.i.i20, align 8
@@ -794,29 +780,29 @@ _ZN20btConvexHullInternal4PoolINS_4EdgeEE9newObjectEv.exit40: ; preds = %_ZN20bt
   %19 = load ptr, ptr %o.0.i12, align 8
   store ptr %19, ptr %freeObjects.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %o.0.i12, i8 0, i64 48, i1 false)
-  %reverse = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %o.0.i, i64 0, i32 2
+  %reverse = getelementptr inbounds i8, ptr %o.0.i, i64 16
   store ptr %o.0.i12, ptr %reverse, align 8
-  %reverse4 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %o.0.i12, i64 0, i32 2
+  %reverse4 = getelementptr inbounds i8, ptr %o.0.i12, i64 16
   store ptr %o.0.i, ptr %reverse4, align 8
-  %mergeStamp = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 6
+  %mergeStamp = getelementptr inbounds i8, ptr %this, i64 160
   %20 = load i32, ptr %mergeStamp, align 8
-  %copy = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %o.0.i, i64 0, i32 5
+  %copy = getelementptr inbounds i8, ptr %o.0.i, i64 40
   store i32 %20, ptr %copy, align 8
-  %copy6 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %o.0.i12, i64 0, i32 5
+  %copy6 = getelementptr inbounds i8, ptr %o.0.i12, i64 40
   store i32 %20, ptr %copy6, align 8
-  %target = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %o.0.i, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %o.0.i, i64 24
   store ptr %to, ptr %target, align 8
-  %target7 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %o.0.i12, i64 0, i32 3
+  %target7 = getelementptr inbounds i8, ptr %o.0.i12, i64 24
   store ptr %from, ptr %target7, align 8
-  %face = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %o.0.i, i64 0, i32 4
+  %face = getelementptr inbounds i8, ptr %o.0.i, i64 32
   store ptr null, ptr %face, align 8
-  %face8 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %o.0.i12, i64 0, i32 4
+  %face8 = getelementptr inbounds i8, ptr %o.0.i12, i64 32
   store ptr null, ptr %face8, align 8
-  %usedEdgePairs = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 10
+  %usedEdgePairs = getelementptr inbounds i8, ptr %this, i64 176
   %21 = load i32, ptr %usedEdgePairs, align 8
   %inc = add nsw i32 %21, 1
   store i32 %inc, ptr %usedEdgePairs, align 8
-  %maxUsedEdgePairs = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 11
+  %maxUsedEdgePairs = getelementptr inbounds i8, ptr %this, i64 180
   %22 = load i32, ptr %maxUsedEdgePairs, align 4
   %cmp.not = icmp slt i32 %21, %22
   br i1 %cmp.not, label %if.end, label %if.then
@@ -832,56 +818,56 @@ if.end:                                           ; preds = %if.then, %_ZN20btCo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN20btConvexHullInternal15mergeProjectionERNS_16IntermediateHullES1_RPNS_6VertexES4_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %h0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %h1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %c0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %c1) local_unnamed_addr #6 align 2 {
 entry:
-  %maxYx = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %h0, i64 0, i32 3
+  %maxYx = getelementptr inbounds i8, ptr %h0, i64 24
   %0 = load ptr, ptr %maxYx, align 8
-  %minYx = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %h1, i64 0, i32 2
+  %minYx = getelementptr inbounds i8, ptr %h1, i64 16
   %1 = load ptr, ptr %minYx, align 8
-  %point = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %0, i64 0, i32 6
+  %point = getelementptr inbounds i8, ptr %0, i64 104
   %2 = load i32, ptr %point, align 8
-  %point2 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 0, i32 6
+  %point2 = getelementptr inbounds i8, ptr %1, i64 104
   %3 = load i32, ptr %point2, align 8
   %cmp = icmp eq i32 %2, %3
   br i1 %cmp, label %land.lhs.true, label %if.end63
 
 land.lhs.true:                                    ; preds = %entry
-  %y = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %0, i64 0, i32 6, i32 1
+  %y = getelementptr inbounds i8, ptr %0, i64 108
   %4 = load i32, ptr %y, align 4
-  %y6 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 0, i32 6, i32 1
+  %y6 = getelementptr inbounds i8, ptr %1, i64 108
   %5 = load i32, ptr %y6, align 4
   %cmp7 = icmp eq i32 %4, %5
   br i1 %cmp7, label %if.then, label %if.end63
 
 if.then:                                          ; preds = %land.lhs.true
-  %prev = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 0, i32 1
+  %prev = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %prev, align 8
   %cmp8 = icmp eq ptr %6, %1
   br i1 %cmp8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.then
   store ptr %0, ptr %c0, align 8
-  %edges = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 0, i32 2
+  %edges = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %edges, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %return, label %if.then10
 
 if.then10:                                        ; preds = %if.then9
-  %target = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %7, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %target, align 8
   br label %return
 
 if.end12:                                         ; preds = %if.then
   %9 = load ptr, ptr %1, align 8
   store ptr %9, ptr %6, align 8
-  %prev14 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %9, i64 0, i32 1
+  %prev14 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %6, ptr %prev14, align 8
   %10 = load ptr, ptr %h1, align 8
   %cmp15 = icmp eq ptr %1, %10
   br i1 %cmp15, label %if.then16, label %if.end37
 
 if.then16:                                        ; preds = %if.end12
-  %point17 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %9, i64 0, i32 6
+  %point17 = getelementptr inbounds i8, ptr %9, i64 104
   %11 = load i32, ptr %point17, align 8
-  %point19 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %6, i64 0, i32 6
+  %point19 = getelementptr inbounds i8, ptr %6, i64 104
   %12 = load i32, ptr %point19, align 8
   %cmp21 = icmp slt i32 %11, %12
   br i1 %cmp21, label %if.end37.sink.split, label %lor.lhs.false
@@ -891,9 +877,9 @@ lor.lhs.false:                                    ; preds = %if.then16
   br i1 %cmp26, label %land.lhs.true27, label %if.else
 
 land.lhs.true27:                                  ; preds = %lor.lhs.false
-  %y29 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %9, i64 0, i32 6, i32 1
+  %y29 = getelementptr inbounds i8, ptr %9, i64 108
   %13 = load i32, ptr %y29, align 4
-  %y31 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %6, i64 0, i32 6, i32 1
+  %y31 = getelementptr inbounds i8, ptr %6, i64 108
   %14 = load i32, ptr %y31, align 4
   %cmp32 = icmp slt i32 %13, %14
   br i1 %cmp32, label %if.end37.sink.split, label %if.else
@@ -907,15 +893,15 @@ if.end37.sink.split:                              ; preds = %if.then16, %land.lh
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end37.sink.split, %if.end12
-  %maxXy = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %h1, i64 0, i32 1
+  %maxXy = getelementptr inbounds i8, ptr %h1, i64 8
   %15 = load ptr, ptr %maxXy, align 8
   %cmp38 = icmp eq ptr %1, %15
   br i1 %cmp38, label %if.then39, label %if.end63
 
 if.then39:                                        ; preds = %if.end37
-  %point40 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %9, i64 0, i32 6
+  %point40 = getelementptr inbounds i8, ptr %9, i64 104
   %16 = load i32, ptr %point40, align 8
-  %point42 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %6, i64 0, i32 6
+  %point42 = getelementptr inbounds i8, ptr %6, i64 104
   %17 = load i32, ptr %point42, align 8
   %cmp44 = icmp sgt i32 %16, %17
   br i1 %cmp44, label %if.end63.sink.split, label %lor.lhs.false45
@@ -925,9 +911,9 @@ lor.lhs.false45:                                  ; preds = %if.then39
   br i1 %cmp50, label %land.lhs.true51, label %if.else59
 
 land.lhs.true51:                                  ; preds = %lor.lhs.false45
-  %y53 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %9, i64 0, i32 6, i32 1
+  %y53 = getelementptr inbounds i8, ptr %9, i64 108
   %18 = load i32, ptr %y53, align 4
-  %y55 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %6, i64 0, i32 6, i32 1
+  %y55 = getelementptr inbounds i8, ptr %6, i64 108
   %19 = load i32, ptr %y55, align 4
   %cmp56 = icmp sgt i32 %18, %19
   br i1 %cmp56, label %if.end63.sink.split, label %if.else59
@@ -936,211 +922,143 @@ if.else59:                                        ; preds = %land.lhs.true51, %l
   br label %if.end63.sink.split
 
 if.end63.sink.split:                              ; preds = %if.then39, %land.lhs.true51, %if.else59
-  %.sink744 = phi ptr [ %6, %if.else59 ], [ %9, %land.lhs.true51 ], [ %9, %if.then39 ]
-  store ptr %.sink744, ptr %maxXy, align 8
+  %.sink575 = phi ptr [ %6, %if.else59 ], [ %9, %land.lhs.true51 ], [ %9, %if.then39 ]
+  store ptr %.sink575, ptr %maxXy, align 8
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end63.sink.split, %if.end37, %land.lhs.true, %entry
-  %maxXy64 = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %h0, i64 0, i32 1
+  %maxXy64 = getelementptr inbounds i8, ptr %h0, i64 8
   %20 = load ptr, ptr %maxXy64, align 8
-  %maxXy65 = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %h1, i64 0, i32 1
+  %maxXy65 = getelementptr inbounds i8, ptr %h1, i64 8
   %21 = load ptr, ptr %maxXy65, align 8
   %22 = load ptr, ptr %h0, align 8
   %23 = load ptr, ptr %h1, align 8
   br label %for.body
 
-for.body:                                         ; preds = %if.end63, %for.inc
-  %v0.0587 = phi ptr [ %20, %if.end63 ], [ %v0.4, %for.inc ]
-  %v1.1586 = phi ptr [ %21, %if.end63 ], [ %v1.5, %for.inc ]
-  %v00.0585 = phi ptr [ null, %if.end63 ], [ %v00.1, %for.inc ]
-  %v10.0584 = phi ptr [ null, %if.end63 ], [ %v10.1, %for.inc ]
-  %sign.0575 = phi i32 [ 1, %if.end63 ], [ %sign.1, %for.inc ]
-  %side.0574 = phi i32 [ 0, %if.end63 ], [ %inc, %for.inc ]
-  %point67 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v1.1586, i64 0, i32 6
+for.body:                                         ; preds = %if.end300, %if.end63
+  %v0.0473 = phi ptr [ %20, %if.end63 ], [ %22, %if.end300 ]
+  %v1.1472 = phi ptr [ %21, %if.end63 ], [ %23, %if.end300 ]
+  %v00.0471 = phi ptr [ null, %if.end63 ], [ %v0.3, %if.end300 ]
+  %v10.0470 = phi ptr [ null, %if.end63 ], [ %v1.4, %if.end300 ]
+  %sign.0463 = phi i32 [ 1, %if.end63 ], [ -1, %if.end300 ]
+  %tobool255.not = phi i1 [ true, %if.end63 ], [ false, %if.end300 ]
+  %point67 = getelementptr inbounds i8, ptr %v1.1472, i64 104
   %24 = load i32, ptr %point67, align 8
-  %point69 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.0587, i64 0, i32 6
+  %point69 = getelementptr inbounds i8, ptr %v0.0473, i64 104
   %25 = load i32, ptr %point69, align 8
   %sub = sub nsw i32 %24, %25
-  %mul = mul nsw i32 %sub, %sign.0575
+  %mul = mul nsw i32 %sub, %sign.0463
   %cmp71 = icmp sgt i32 %mul, 0
   br i1 %cmp71, label %while.body.preheader, label %if.else152
 
 while.body.preheader:                             ; preds = %for.body
-  %tobool78.not = icmp eq i32 %side.0574, 0
-  %y74.phi.trans.insert = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v1.1586, i64 0, i32 6, i32 1
-  %.pre655 = load i32, ptr %y74.phi.trans.insert, align 4
+  %cond.in.idx = select i1 %tobool255.not, i64 8, i64 0
+  %y74.phi.trans.insert = getelementptr inbounds i8, ptr %v1.1472, i64 108
+  %.pre522 = load i32, ptr %y74.phi.trans.insert, align 4
   br label %while.body.outer
 
 while.body.outer:                                 ; preds = %while.body.outer.backedge, %while.body.preheader
-  %26 = phi i32 [ %24, %while.body.preheader ], [ %41, %while.body.outer.backedge ]
-  %27 = phi i32 [ %.pre655, %while.body.preheader ], [ %42, %while.body.outer.backedge ]
+  %26 = phi i32 [ %24, %while.body.preheader ], [ %36, %while.body.outer.backedge ]
+  %27 = phi i32 [ %.pre522, %while.body.preheader ], [ %37, %while.body.outer.backedge ]
   %dx.0.ph = phi i32 [ %mul, %while.body.preheader ], [ %mul137, %while.body.outer.backedge ]
-  %v1.2.ph = phi ptr [ %v1.1586, %while.body.preheader ], [ %cond118, %while.body.outer.backedge ]
-  %v0.1.ph = phi ptr [ %v0.0587, %while.body.preheader ], [ %v0.1.lcssa667, %while.body.outer.backedge ]
-  %point75506 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.1.ph, i64 0, i32 6
-  %y76507 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.1.ph, i64 0, i32 6, i32 1
-  %28 = load i32, ptr %y76507, align 4
-  %sub77508 = sub nsw i32 %27, %28
-  %prev80509 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.1.ph, i64 0, i32 1
-  %cond.in510 = select i1 %tobool78.not, ptr %prev80509, ptr %v0.1.ph
-  %cond511 = load ptr, ptr %cond.in510, align 8
-  %cmp81.not512 = icmp eq ptr %cond511, %v0.1.ph
-  br i1 %cmp81.not512, label %if.end111, label %if.then82.lr.ph
+  %v1.2.ph = phi ptr [ %v1.1472, %while.body.preheader ], [ %cond118, %while.body.outer.backedge ]
+  %v0.1.ph = phi ptr [ %v0.0473, %while.body.preheader ], [ %v0.1.lcssa, %while.body.outer.backedge ]
+  %point75423 = getelementptr inbounds i8, ptr %v0.1.ph, i64 104
+  %y76424 = getelementptr inbounds i8, ptr %v0.1.ph, i64 108
+  %28 = load i32, ptr %y76424, align 4
+  %sub77425 = sub nsw i32 %27, %28
+  %cond.in426 = getelementptr inbounds i8, ptr %v0.1.ph, i64 %cond.in.idx
+  %cond427 = load ptr, ptr %cond.in426, align 8
+  %cmp81.not428 = icmp eq ptr %cond427, %v0.1.ph
+  br i1 %cmp81.not428, label %if.end111, label %if.then82.preheader
 
-if.then82.lr.ph:                                  ; preds = %while.body.outer
-  %.pre657 = load i32, ptr %point75506, align 8
-  %y90.us890 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond511, i64 0, i32 6, i32 1
-  %29 = load i32, ptr %y90.us890, align 4
-  %sub93.us891 = sub nsw i32 %29, %28
-  %cmp94.us892 = icmp slt i32 %sub93.us891, 1
-  br i1 %tobool78.not, label %if.then82.us.preheader, label %if.then82.preheader
-
-if.then82.preheader:                              ; preds = %if.then82.lr.ph
-  br i1 %cmp94.us892, label %land.lhs.true95.lr.ph, label %if.end111.thread679
+if.then82.preheader:                              ; preds = %while.body.outer
+  %y90674 = getelementptr inbounds i8, ptr %cond427, i64 108
+  %29 = load i32, ptr %y90674, align 4
+  %sub93675 = sub nsw i32 %29, %28
+  %cmp94676 = icmp slt i32 %sub93675, 1
+  br i1 %cmp94676, label %land.lhs.true95.lr.ph, label %if.end111
 
 land.lhs.true95.lr.ph:                            ; preds = %if.then82.preheader
-  %point83857 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond511, i64 0, i32 6
-  %30 = load i32, ptr %point83857, align 8
-  %sub87858 = sub nsw i32 %30, %.pre657
+  %point83671 = getelementptr inbounds i8, ptr %cond427, i64 104
+  %30 = load i32, ptr %point83671, align 8
+  %.pre523 = load i32, ptr %point75423, align 8
+  %sub87672 = sub nsw i32 %30, %.pre523
   br label %land.lhs.true95
 
-if.then82.us.preheader:                           ; preds = %if.then82.lr.ph
-  br i1 %cmp94.us892, label %land.lhs.true95.us.lr.ph, label %if.end111.thread
-
-land.lhs.true95.us.lr.ph:                         ; preds = %if.then82.us.preheader
-  %point83.us887 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond511, i64 0, i32 6
-  %31 = load i32, ptr %point83.us887, align 8
-  %sub87.us888 = sub nsw i32 %31, %.pre657
-  br label %land.lhs.true95.us
-
-if.then82.us:                                     ; preds = %if.then103.us
-  %point83.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond.us, i64 0, i32 6
-  %32 = load i32, ptr %point83.us, align 8
-  %sub87.us = sub nsw i32 %32, %35
-  %y90.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond.us, i64 0, i32 6, i32 1
-  %33 = load i32, ptr %y90.us, align 4
-  %sub93.us = sub nsw i32 %33, %34
-  %cmp94.us = icmp slt i32 %sub93.us, 1
-  br i1 %cmp94.us, label %land.lhs.true95.us, label %if.end111.thread, !llvm.loop !7
-
-land.lhs.true95.us:                               ; preds = %land.lhs.true95.us.lr.ph, %if.then82.us
-  %sub93.us900 = phi i32 [ %sub93.us891, %land.lhs.true95.us.lr.ph ], [ %sub93.us, %if.then82.us ]
-  %34 = phi i32 [ %29, %land.lhs.true95.us.lr.ph ], [ %33, %if.then82.us ]
-  %sub87.us888.pn = phi i32 [ %sub87.us888, %land.lhs.true95.us.lr.ph ], [ %sub87.us, %if.then82.us ]
-  %35 = phi i32 [ %31, %land.lhs.true95.us.lr.ph ], [ %32, %if.then82.us ]
-  %point83.us898 = phi ptr [ %point83.us887, %land.lhs.true95.us.lr.ph ], [ %point83.us, %if.then82.us ]
-  %dx.0513.us897 = phi i32 [ %dx.0.ph, %land.lhs.true95.us.lr.ph ], [ %mul109.us, %if.then82.us ]
-  %v0.1514.us896 = phi ptr [ %v0.1.ph, %land.lhs.true95.us.lr.ph ], [ %cond517.us893, %if.then82.us ]
-  %point75515.us895 = phi ptr [ %point75506, %land.lhs.true95.us.lr.ph ], [ %point83.us898, %if.then82.us ]
-  %sub77516.us894 = phi i32 [ %sub77508, %land.lhs.true95.us.lr.ph ], [ %sub77.us, %if.then82.us ]
-  %cond517.us893 = phi ptr [ %cond511, %land.lhs.true95.us.lr.ph ], [ %cond.us, %if.then82.us ]
-  %mul88.us899 = mul nsw i32 %sub87.us888.pn, %sign.0575
-  %cmp96.us = icmp eq i32 %mul88.us899, 0
-  br i1 %cmp96.us, label %if.then103.us, label %lor.lhs.false97.us
-
-lor.lhs.false97.us:                               ; preds = %land.lhs.true95.us
-  %cmp98.us = icmp slt i32 %mul88.us899, 0
-  br i1 %cmp98.us, label %land.lhs.true99.us, label %if.end111.thread
-
-land.lhs.true99.us:                               ; preds = %lor.lhs.false97.us
-  %mul100.us = mul nsw i32 %sub93.us900, %dx.0513.us897
-  %mul101.us = mul nsw i32 %mul88.us899, %sub77516.us894
-  %cmp102.not.us = icmp sgt i32 %mul100.us, %mul101.us
-  br i1 %cmp102.not.us, label %if.end111.thread, label %if.then103.us
-
-if.then103.us:                                    ; preds = %land.lhs.true99.us, %land.lhs.true95.us
-  %sub108.us = sub nsw i32 %26, %35
-  %mul109.us = mul nsw i32 %sub108.us, %sign.0575
-  %sub77.us = sub nsw i32 %27, %34
-  %prev80.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond517.us893, i64 0, i32 1
-  %cond.us = load ptr, ptr %prev80.us, align 8
-  %cmp81.not.us = icmp eq ptr %cond.us, %cond517.us893
-  br i1 %cmp81.not.us, label %if.end111.thread, label %if.then82.us, !llvm.loop !7
-
 if.then82:                                        ; preds = %if.then103
-  %point83 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond, i64 0, i32 6
-  %36 = load i32, ptr %point83, align 8
-  %sub87 = sub nsw i32 %36, %39
-  %y90 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond, i64 0, i32 6, i32 1
-  %37 = load i32, ptr %y90, align 4
-  %sub93 = sub nsw i32 %37, %38
+  %point83 = getelementptr inbounds i8, ptr %cond, i64 104
+  %31 = load i32, ptr %point83, align 8
+  %sub87 = sub nsw i32 %31, %34
+  %y90 = getelementptr inbounds i8, ptr %cond, i64 108
+  %32 = load i32, ptr %y90, align 4
+  %sub93 = sub nsw i32 %32, %33
   %cmp94 = icmp slt i32 %sub93, 1
-  br i1 %cmp94, label %land.lhs.true95, label %if.end111.thread679, !llvm.loop !7
+  br i1 %cmp94, label %land.lhs.true95, label %if.end111, !llvm.loop !7
 
 land.lhs.true95:                                  ; preds = %land.lhs.true95.lr.ph, %if.then82
-  %sub93870 = phi i32 [ %sub93.us891, %land.lhs.true95.lr.ph ], [ %sub93, %if.then82 ]
-  %38 = phi i32 [ %29, %land.lhs.true95.lr.ph ], [ %37, %if.then82 ]
-  %sub87858.pn = phi i32 [ %sub87858, %land.lhs.true95.lr.ph ], [ %sub87, %if.then82 ]
-  %39 = phi i32 [ %30, %land.lhs.true95.lr.ph ], [ %36, %if.then82 ]
-  %point83868 = phi ptr [ %point83857, %land.lhs.true95.lr.ph ], [ %point83, %if.then82 ]
-  %dx.0513867 = phi i32 [ %dx.0.ph, %land.lhs.true95.lr.ph ], [ %mul109, %if.then82 ]
-  %v0.1514866 = phi ptr [ %v0.1.ph, %land.lhs.true95.lr.ph ], [ %cond517863, %if.then82 ]
-  %point75515865 = phi ptr [ %point75506, %land.lhs.true95.lr.ph ], [ %point83868, %if.then82 ]
-  %sub77516864 = phi i32 [ %sub77508, %land.lhs.true95.lr.ph ], [ %sub77, %if.then82 ]
-  %cond517863 = phi ptr [ %cond511, %land.lhs.true95.lr.ph ], [ %cond, %if.then82 ]
-  %mul88869 = mul nsw i32 %sub87858.pn, %sign.0575
-  %cmp96 = icmp eq i32 %mul88869, 0
+  %sub93684 = phi i32 [ %sub93675, %land.lhs.true95.lr.ph ], [ %sub93, %if.then82 ]
+  %33 = phi i32 [ %29, %land.lhs.true95.lr.ph ], [ %32, %if.then82 ]
+  %sub87672.pn = phi i32 [ %sub87672, %land.lhs.true95.lr.ph ], [ %sub87, %if.then82 ]
+  %34 = phi i32 [ %30, %land.lhs.true95.lr.ph ], [ %31, %if.then82 ]
+  %point83682 = phi ptr [ %point83671, %land.lhs.true95.lr.ph ], [ %point83, %if.then82 ]
+  %dx.0429681 = phi i32 [ %dx.0.ph, %land.lhs.true95.lr.ph ], [ %mul109, %if.then82 ]
+  %v0.1430680 = phi ptr [ %v0.1.ph, %land.lhs.true95.lr.ph ], [ %cond433677, %if.then82 ]
+  %point75431679 = phi ptr [ %point75423, %land.lhs.true95.lr.ph ], [ %point83682, %if.then82 ]
+  %sub77432678 = phi i32 [ %sub77425, %land.lhs.true95.lr.ph ], [ %sub77, %if.then82 ]
+  %cond433677 = phi ptr [ %cond427, %land.lhs.true95.lr.ph ], [ %cond, %if.then82 ]
+  %35 = phi i32 [ %.pre523, %land.lhs.true95.lr.ph ], [ %34, %if.then82 ]
+  %mul88683 = mul nsw i32 %sub87672.pn, %sign.0463
+  %cmp96 = icmp eq i32 %34, %35
   br i1 %cmp96, label %if.then103, label %lor.lhs.false97
 
 lor.lhs.false97:                                  ; preds = %land.lhs.true95
-  %cmp98 = icmp slt i32 %mul88869, 0
-  br i1 %cmp98, label %land.lhs.true99, label %if.end111.thread679
+  %cmp98 = icmp slt i32 %mul88683, 0
+  br i1 %cmp98, label %land.lhs.true99, label %if.end111
 
 land.lhs.true99:                                  ; preds = %lor.lhs.false97
-  %mul100 = mul nsw i32 %sub93870, %dx.0513867
-  %mul101 = mul nsw i32 %mul88869, %sub77516864
+  %mul100 = mul nsw i32 %sub93684, %dx.0429681
+  %mul101 = mul nsw i32 %mul88683, %sub77432678
   %cmp102.not = icmp sgt i32 %mul100, %mul101
-  br i1 %cmp102.not, label %if.end111.thread679, label %if.then103
+  br i1 %cmp102.not, label %if.end111, label %if.then103
 
 if.then103:                                       ; preds = %land.lhs.true99, %land.lhs.true95
-  %sub108 = sub nsw i32 %26, %39
-  %mul109 = mul nsw i32 %sub108, %sign.0575
-  %sub77 = sub nsw i32 %27, %38
-  %cond = load ptr, ptr %cond517863, align 8
-  %cmp81.not = icmp eq ptr %cond, %cond517863
-  br i1 %cmp81.not, label %if.end111.thread679, label %if.then82, !llvm.loop !7
+  %sub108 = sub nsw i32 %26, %34
+  %mul109 = mul nsw i32 %sub108, %sign.0463
+  %sub77 = sub nsw i32 %27, %33
+  %cond.in = getelementptr inbounds i8, ptr %cond433677, i64 %cond.in.idx
+  %cond = load ptr, ptr %cond.in, align 8
+  %cmp81.not = icmp eq ptr %cond, %cond433677
+  br i1 %cmp81.not, label %if.end111, label %if.then82, !llvm.loop !7
 
-if.end111.thread:                                 ; preds = %if.then103.us, %land.lhs.true99.us, %lor.lhs.false97.us, %if.then82.us, %if.then82.us.preheader
-  %dx.0.lcssa.ph = phi i32 [ %dx.0.ph, %if.then82.us.preheader ], [ %mul109.us, %if.then103.us ], [ %dx.0513.us897, %land.lhs.true99.us ], [ %dx.0513.us897, %lor.lhs.false97.us ], [ %mul109.us, %if.then82.us ]
-  %v0.1.lcssa.ph = phi ptr [ %v0.1.ph, %if.then82.us.preheader ], [ %cond517.us893, %if.then103.us ], [ %v0.1514.us896, %land.lhs.true99.us ], [ %v0.1514.us896, %lor.lhs.false97.us ], [ %cond517.us893, %if.then82.us ]
-  %point75.lcssa.ph = phi ptr [ %point75506, %if.then82.us.preheader ], [ %point83.us898, %if.then103.us ], [ %point75515.us895, %land.lhs.true99.us ], [ %point75515.us895, %lor.lhs.false97.us ], [ %point83.us898, %if.then82.us ]
-  %sub77.lcssa.ph = phi i32 [ %sub77508, %if.then82.us.preheader ], [ %sub77.us, %if.then103.us ], [ %sub77516.us894, %land.lhs.true99.us ], [ %sub77516.us894, %lor.lhs.false97.us ], [ %sub77.us, %if.then82.us ]
-  %prev116663 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v1.2.ph, i64 0, i32 1
-  br label %if.end111.thread679
-
-if.end111:                                        ; preds = %while.body.outer
-  %prev116 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v1.2.ph, i64 0, i32 1
-  %spec.select = select i1 %tobool78.not, ptr %prev116, ptr %v1.2.ph
-  br label %if.end111.thread679
-
-if.end111.thread679:                              ; preds = %if.then82, %lor.lhs.false97, %land.lhs.true99, %if.then103, %if.then82.preheader, %if.end111, %if.end111.thread
-  %sub77.lcssa671 = phi i32 [ %sub77.lcssa.ph, %if.end111.thread ], [ %sub77508, %if.end111 ], [ %sub77508, %if.then82.preheader ], [ %sub77, %if.then103 ], [ %sub77516864, %land.lhs.true99 ], [ %sub77516864, %lor.lhs.false97 ], [ %sub77, %if.then82 ]
-  %point75.lcssa669 = phi ptr [ %point75.lcssa.ph, %if.end111.thread ], [ %point75506, %if.end111 ], [ %point75506, %if.then82.preheader ], [ %point83868, %if.then103 ], [ %point75515865, %land.lhs.true99 ], [ %point75515865, %lor.lhs.false97 ], [ %point83868, %if.then82 ]
-  %v0.1.lcssa667 = phi ptr [ %v0.1.lcssa.ph, %if.end111.thread ], [ %v0.1.ph, %if.end111 ], [ %v0.1.ph, %if.then82.preheader ], [ %cond517863, %if.then103 ], [ %v0.1514866, %land.lhs.true99 ], [ %v0.1514866, %lor.lhs.false97 ], [ %cond517863, %if.then82 ]
-  %dx.0.lcssa665 = phi i32 [ %dx.0.lcssa.ph, %if.end111.thread ], [ %dx.0.ph, %if.end111 ], [ %dx.0.ph, %if.then82.preheader ], [ %mul109, %if.then103 ], [ %dx.0513867, %land.lhs.true99 ], [ %dx.0513867, %lor.lhs.false97 ], [ %mul109, %if.then82 ]
-  %40 = phi ptr [ %prev116663, %if.end111.thread ], [ %spec.select, %if.end111 ], [ %v1.2.ph, %if.then82.preheader ], [ %v1.2.ph, %if.then103 ], [ %v1.2.ph, %land.lhs.true99 ], [ %v1.2.ph, %lor.lhs.false97 ], [ %v1.2.ph, %if.then82 ]
-  %cond118 = load ptr, ptr %40, align 8
+if.end111:                                        ; preds = %if.then82, %lor.lhs.false97, %land.lhs.true99, %if.then103, %if.then82.preheader, %while.body.outer
+  %dx.0.lcssa = phi i32 [ %dx.0.ph, %while.body.outer ], [ %dx.0.ph, %if.then82.preheader ], [ %mul109, %if.then103 ], [ %dx.0429681, %land.lhs.true99 ], [ %dx.0429681, %lor.lhs.false97 ], [ %mul109, %if.then82 ]
+  %v0.1.lcssa = phi ptr [ %v0.1.ph, %while.body.outer ], [ %v0.1.ph, %if.then82.preheader ], [ %cond433677, %if.then103 ], [ %v0.1430680, %land.lhs.true99 ], [ %v0.1430680, %lor.lhs.false97 ], [ %cond433677, %if.then82 ]
+  %point75.lcssa = phi ptr [ %point75423, %while.body.outer ], [ %point75423, %if.then82.preheader ], [ %point83682, %if.then103 ], [ %point75431679, %land.lhs.true99 ], [ %point75431679, %lor.lhs.false97 ], [ %point83682, %if.then82 ]
+  %sub77.lcssa = phi i32 [ %sub77425, %while.body.outer ], [ %sub77425, %if.then82.preheader ], [ %sub77, %if.then103 ], [ %sub77432678, %land.lhs.true99 ], [ %sub77432678, %lor.lhs.false97 ], [ %sub77, %if.then82 ]
+  %cond118.in = getelementptr inbounds i8, ptr %v1.2.ph, i64 %cond.in.idx
+  %cond118 = load ptr, ptr %cond118.in, align 8
   %cmp119.not = icmp eq ptr %cond118, %v1.2.ph
   br i1 %cmp119.not, label %if.end300, label %if.then120
 
-if.then120:                                       ; preds = %if.end111.thread679
-  %point121 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond118, i64 0, i32 6
-  %41 = load i32, ptr %point121, align 8
-  %sub125 = sub nsw i32 %41, %26
-  %mul126 = mul nsw i32 %sub125, %sign.0575
-  %y128 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond118, i64 0, i32 6, i32 1
-  %42 = load i32, ptr %y128, align 4
-  %sub131 = sub nsw i32 %42, %27
-  %43 = load i32, ptr %point75.lcssa669, align 8
-  %sub136 = sub nsw i32 %41, %43
-  %mul137 = mul nsw i32 %sub136, %sign.0575
+if.then120:                                       ; preds = %if.end111
+  %point121 = getelementptr inbounds i8, ptr %cond118, i64 104
+  %36 = load i32, ptr %point121, align 8
+  %sub125 = sub nsw i32 %36, %26
+  %mul126 = mul nsw i32 %sub125, %sign.0463
+  %y128 = getelementptr inbounds i8, ptr %cond118, i64 108
+  %37 = load i32, ptr %y128, align 4
+  %sub131 = sub nsw i32 %37, %27
+  %38 = load i32, ptr %point75.lcssa, align 8
+  %sub136 = sub nsw i32 %36, %38
+  %mul137 = mul nsw i32 %sub136, %sign.0463
   %cmp138 = icmp sgt i32 %mul137, 0
   %cmp140 = icmp slt i32 %sub131, 0
   %or.cond = select i1 %cmp138, i1 %cmp140, i1 false
   br i1 %or.cond, label %land.lhs.true141, label %if.end300
 
 land.lhs.true141:                                 ; preds = %if.then120
-  %cmp142 = icmp eq i32 %mul126, 0
+  %cmp142 = icmp eq i32 %36, %26
   br i1 %cmp142, label %while.body.outer.backedge, label %lor.lhs.false143
 
 lor.lhs.false143:                                 ; preds = %land.lhs.true141
@@ -1148,8 +1066,8 @@ lor.lhs.false143:                                 ; preds = %land.lhs.true141
   br i1 %cmp144, label %land.lhs.true145, label %if.end300
 
 land.lhs.true145:                                 ; preds = %lor.lhs.false143
-  %mul146 = mul nsw i32 %sub131, %dx.0.lcssa665
-  %mul147 = mul nsw i32 %mul126, %sub77.lcssa671
+  %mul146 = mul nsw i32 %sub131, %dx.0.lcssa
+  %mul147 = mul nsw i32 %mul126, %sub77.lcssa
   %cmp148 = icmp slt i32 %mul146, %mul147
   br i1 %cmp148, label %while.body.outer.backedge, label %if.end300
 
@@ -1161,56 +1079,54 @@ if.else152:                                       ; preds = %for.body
   br i1 %cmp153, label %while.body155.preheader, label %if.else248
 
 while.body155.preheader:                          ; preds = %if.else152
-  %tobool163.not = icmp eq i32 %side.0574, 0
-  %y158486 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v1.1586, i64 0, i32 6, i32 1
-  %44 = load i32, ptr %y158486, align 4
-  %prev165487 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v1.1586, i64 0, i32 1
-  %cond169.in488 = select i1 %tobool163.not, ptr %v1.1586, ptr %prev165487
-  %cond169489 = load ptr, ptr %cond169.in488, align 8
-  %cmp170.not490 = icmp eq ptr %cond169489, %v1.1586
-  br i1 %cmp170.not490, label %while.body155.outer.split.us, label %while.body155.outer.split
+  %cond169.in.idx = select i1 %tobool255.not, i64 0, i64 8
+  %y158404 = getelementptr inbounds i8, ptr %v1.1472, i64 108
+  %39 = load i32, ptr %y158404, align 4
+  %cond169.in405 = getelementptr inbounds i8, ptr %v1.1472, i64 %cond169.in.idx
+  %cond169406 = load ptr, ptr %cond169.in405, align 8
+  %cmp170.not407 = icmp eq ptr %cond169406, %v1.1472
+  br i1 %cmp170.not407, label %while.body155.outer.split.us, label %while.body155.outer.split
 
 while.body155.outer.split.us:                     ; preds = %if.then194.split.us, %while.body155.preheader
-  %45 = phi i32 [ %24, %while.body155.preheader ], [ %52, %if.then194.split.us ]
+  %40 = phi i32 [ %24, %while.body155.preheader ], [ %47, %if.then194.split.us ]
   %dx.1.ph.lcssa = phi i32 [ %mul, %while.body155.preheader ], [ %mul200, %if.then194.split.us ]
-  %v1.3.ph.lcssa188 = phi ptr [ %v1.1586, %while.body155.preheader ], [ %cond169497, %if.then194.split.us ]
-  %v0.2.ph.lcssa = phi ptr [ %v0.0587, %while.body155.preheader ], [ %v0.2.lcssa.us, %if.then194.split.us ]
-  %.lcssa184 = phi i32 [ %44, %while.body155.preheader ], [ %53, %if.then194.split.us ]
-  %prev206.us845 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.2.ph.lcssa, i64 0, i32 1
-  %cond210.in.us846 = select i1 %tobool163.not, ptr %v0.2.ph.lcssa, ptr %prev206.us845
-  %cond210.us847 = load ptr, ptr %cond210.in.us846, align 8
-  %cmp211.not.us848 = icmp eq ptr %cond210.us847, %v0.2.ph.lcssa
-  br i1 %cmp211.not.us848, label %if.end300, label %if.then212.us.lr.ph
+  %v1.3.ph.lcssa186 = phi ptr [ %v1.1472, %while.body155.preheader ], [ %cond169414, %if.then194.split.us ]
+  %v0.2.ph.lcssa = phi ptr [ %v0.0473, %while.body155.preheader ], [ %v0.2.lcssa.us, %if.then194.split.us ]
+  %.lcssa182 = phi i32 [ %39, %while.body155.preheader ], [ %48, %if.then194.split.us ]
+  %cond210.in.us660 = getelementptr inbounds i8, ptr %v0.2.ph.lcssa, i64 %cond169.in.idx
+  %cond210.us661 = load ptr, ptr %cond210.in.us660, align 8
+  %cmp211.not.us662 = icmp eq ptr %cond210.us661, %v0.2.ph.lcssa
+  br i1 %cmp211.not.us662, label %if.end300, label %if.then212.us.lr.ph
 
 if.then212.us.lr.ph:                              ; preds = %while.body155.outer.split.us
-  %y160.us.phi.trans.insert = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.2.ph.lcssa, i64 0, i32 6, i32 1
-  %.pre654 = load i32, ptr %y160.us.phi.trans.insert, align 4
+  %y160.us.phi.trans.insert = getelementptr inbounds i8, ptr %v0.2.ph.lcssa, i64 108
+  %.pre521 = load i32, ptr %y160.us.phi.trans.insert, align 4
   br label %if.then212.us
 
 if.then212.us:                                    ; preds = %if.then212.us.lr.ph, %if.then244.us
-  %cond210.us852 = phi ptr [ %cond210.us847, %if.then212.us.lr.ph ], [ %cond210.us, %if.then244.us ]
-  %v0.2.us850 = phi ptr [ %v0.2.ph.lcssa, %if.then212.us.lr.ph ], [ %cond210.us852, %if.then244.us ]
-  %dx.1.us849 = phi i32 [ %dx.1.ph.lcssa, %if.then212.us.lr.ph ], [ %mul232.us, %if.then244.us ]
-  %46 = phi i32 [ %.pre654, %if.then212.us.lr.ph ], [ %49, %if.then244.us ]
-  %sub161.us851 = sub nsw i32 %.lcssa184, %46
-  %point159.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.2.us850, i64 0, i32 6
-  %point214.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210.us852, i64 0, i32 6
-  %47 = load i32, ptr %point214.us, align 8
-  %48 = load i32, ptr %point159.us, align 8
-  %sub218.us = sub nsw i32 %47, %48
-  %mul219.us = mul nsw i32 %sub218.us, %sign.0575
-  %y222.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210.us852, i64 0, i32 6, i32 1
-  %49 = load i32, ptr %y222.us, align 4
-  %sub225.us = sub nsw i32 %49, %46
-  %sub231.us = sub nsw i32 %45, %47
-  %mul232.us = mul nsw i32 %sub231.us, %sign.0575
+  %cond210.us666 = phi ptr [ %cond210.us661, %if.then212.us.lr.ph ], [ %cond210.us, %if.then244.us ]
+  %v0.2.us664 = phi ptr [ %v0.2.ph.lcssa, %if.then212.us.lr.ph ], [ %cond210.us666, %if.then244.us ]
+  %dx.1.us663 = phi i32 [ %dx.1.ph.lcssa, %if.then212.us.lr.ph ], [ %mul232.us, %if.then244.us ]
+  %41 = phi i32 [ %.pre521, %if.then212.us.lr.ph ], [ %44, %if.then244.us ]
+  %sub161.us665 = sub nsw i32 %.lcssa182, %41
+  %point159.us = getelementptr inbounds i8, ptr %v0.2.us664, i64 104
+  %point214.us = getelementptr inbounds i8, ptr %cond210.us666, i64 104
+  %42 = load i32, ptr %point214.us, align 8
+  %43 = load i32, ptr %point159.us, align 8
+  %sub218.us = sub nsw i32 %42, %43
+  %mul219.us = mul nsw i32 %sub218.us, %sign.0463
+  %y222.us = getelementptr inbounds i8, ptr %cond210.us666, i64 108
+  %44 = load i32, ptr %y222.us, align 4
+  %sub225.us = sub nsw i32 %44, %41
+  %sub231.us = sub nsw i32 %40, %42
+  %mul232.us = mul nsw i32 %sub231.us, %sign.0463
   %cmp233.us = icmp slt i32 %mul232.us, 0
   %cmp235.us = icmp sgt i32 %sub225.us, 0
   %or.cond1.us = select i1 %cmp233.us, i1 %cmp235.us, i1 false
   br i1 %or.cond1.us, label %land.lhs.true236.us, label %if.end300
 
 land.lhs.true236.us:                              ; preds = %if.then212.us
-  %cmp237.us = icmp eq i32 %mul219.us, 0
+  %cmp237.us = icmp eq i32 %42, %43
   br i1 %cmp237.us, label %if.then244.us, label %lor.lhs.false238.us
 
 lor.lhs.false238.us:                              ; preds = %land.lhs.true236.us
@@ -1218,450 +1134,358 @@ lor.lhs.false238.us:                              ; preds = %land.lhs.true236.us
   br i1 %cmp239.us, label %land.lhs.true240.us, label %if.end300
 
 land.lhs.true240.us:                              ; preds = %lor.lhs.false238.us
-  %mul241.us = mul nsw i32 %sub225.us, %dx.1.us849
-  %mul242.us = mul nsw i32 %mul219.us, %sub161.us851
+  %mul241.us = mul nsw i32 %sub225.us, %dx.1.us663
+  %mul242.us = mul nsw i32 %mul219.us, %sub161.us665
   %cmp243.us = icmp slt i32 %mul241.us, %mul242.us
   br i1 %cmp243.us, label %if.then244.us, label %if.end300
 
 if.then244.us:                                    ; preds = %land.lhs.true240.us, %land.lhs.true236.us
-  %prev206.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210.us852, i64 0, i32 1
-  %cond210.in.us = select i1 %tobool163.not, ptr %cond210.us852, ptr %prev206.us
+  %cond210.in.us = getelementptr inbounds i8, ptr %cond210.us666, i64 %cond169.in.idx
   %cond210.us = load ptr, ptr %cond210.in.us, align 8
-  %cmp211.not.us = icmp eq ptr %cond210.us, %cond210.us852
+  %cmp211.not.us = icmp eq ptr %cond210.us, %cond210.us666
   br i1 %cmp211.not.us, label %if.end300, label %if.then212.us, !llvm.loop !8
 
 while.body155.outer.split:                        ; preds = %while.body155.preheader, %if.then194.split.us
-  %50 = phi i32 [ %52, %if.then194.split.us ], [ %24, %while.body155.preheader ]
-  %cond169497 = phi ptr [ %cond169, %if.then194.split.us ], [ %cond169489, %while.body155.preheader ]
-  %51 = phi i32 [ %53, %if.then194.split.us ], [ %44, %while.body155.preheader ]
-  %point157496 = phi ptr [ %point173498, %if.then194.split.us ], [ %point67, %while.body155.preheader ]
-  %v0.2.ph495 = phi ptr [ %v0.2.lcssa.us, %if.then194.split.us ], [ %v0.0587, %while.body155.preheader ]
-  %v1.3.ph494 = phi ptr [ %cond169497, %if.then194.split.us ], [ %v1.1586, %while.body155.preheader ]
-  %dx.1.ph493 = phi i32 [ %mul200, %if.then194.split.us ], [ %mul, %while.body155.preheader ]
-  %point173498 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond169497, i64 0, i32 6
-  %y181499 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond169497, i64 0, i32 6, i32 1
-  %52 = load i32, ptr %point173498, align 8
-  %sub177 = sub nsw i32 %52, %50
-  %mul178 = mul nsw i32 %sub177, %sign.0575
-  %53 = load i32, ptr %y181499, align 4
-  %sub184 = sub nsw i32 %53, %51
+  %45 = phi i32 [ %47, %if.then194.split.us ], [ %24, %while.body155.preheader ]
+  %cond169414 = phi ptr [ %cond169, %if.then194.split.us ], [ %cond169406, %while.body155.preheader ]
+  %46 = phi i32 [ %48, %if.then194.split.us ], [ %39, %while.body155.preheader ]
+  %point157413 = phi ptr [ %point173415, %if.then194.split.us ], [ %point67, %while.body155.preheader ]
+  %v0.2.ph412 = phi ptr [ %v0.2.lcssa.us, %if.then194.split.us ], [ %v0.0473, %while.body155.preheader ]
+  %v1.3.ph411 = phi ptr [ %cond169414, %if.then194.split.us ], [ %v1.1472, %while.body155.preheader ]
+  %dx.1.ph410 = phi i32 [ %mul200, %if.then194.split.us ], [ %mul, %while.body155.preheader ]
+  %point173415 = getelementptr inbounds i8, ptr %cond169414, i64 104
+  %y181416 = getelementptr inbounds i8, ptr %cond169414, i64 108
+  %47 = load i32, ptr %point173415, align 8
+  %sub177 = sub nsw i32 %47, %45
+  %mul178 = mul nsw i32 %sub177, %sign.0463
+  %48 = load i32, ptr %y181416, align 4
+  %sub184 = sub nsw i32 %48, %46
   %cmp185 = icmp sgt i32 %sub184, -1
   %cmp189 = icmp slt i32 %mul178, 0
   br i1 %cmp185, label %while.body155.outer.split.split.us, label %while.body155.outer.split.split
 
 while.body155.outer.split.split.us:               ; preds = %while.body155.outer.split
-  %cmp187 = icmp eq i32 %mul178, 0
-  %point159.us194266 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.2.ph495, i64 0, i32 6
-  %y160.us195267 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.2.ph495, i64 0, i32 6, i32 1
-  %54 = load i32, ptr %y160.us195267, align 4
-  %sub161.us196268 = sub nsw i32 %51, %54
+  %cmp187 = icmp eq i32 %47, %45
+  %point159.us192262 = getelementptr inbounds i8, ptr %v0.2.ph412, i64 104
+  %y160.us193263 = getelementptr inbounds i8, ptr %v0.2.ph412, i64 108
+  %49 = load i32, ptr %y160.us193263, align 4
+  %sub161.us194264 = sub nsw i32 %46, %49
   br i1 %cmp187, label %if.then194.split.us, label %lor.lhs.false188.us.lr.ph
 
 lor.lhs.false188.us.lr.ph:                        ; preds = %while.body155.outer.split.split.us
-  br i1 %cmp189, label %lor.lhs.false188.us.lr.ph.split.us, label %lor.lhs.false188.us.lr.ph.split.split
+  br i1 %cmp189, label %lor.lhs.false188.us.lr.ph.split.us.split, label %lor.lhs.false188.us.lr.ph.split.split
 
-lor.lhs.false188.us.lr.ph.split.us:               ; preds = %lor.lhs.false188.us.lr.ph
-  %mul191.us.us.us474 = mul nsw i32 %sub184, %dx.1.ph493
-  %mul192.us.us.us475 = mul nsw i32 %mul178, %sub161.us196268
-  %cmp193.not.us.us.us476 = icmp sgt i32 %mul191.us.us.us474, %mul192.us.us.us475
-  br i1 %tobool163.not, label %lor.lhs.false188.us.lr.ph.split.us.split.us.split, label %lor.lhs.false188.us.lr.ph.split.us.split.split
+lor.lhs.false188.us.lr.ph.split.us.split:         ; preds = %lor.lhs.false188.us.lr.ph
+  %mul191.us.us392 = mul nsw i32 %sub184, %dx.1.ph410
+  %mul192.us.us393 = mul nsw i32 %mul178, %sub161.us194264
+  %cmp193.not.us.us394 = icmp sgt i32 %mul191.us.us392, %mul192.us.us393
+  br i1 %cmp193.not.us.us394, label %if.end202.us195.us, label %if.then194.split.us
 
-lor.lhs.false188.us.lr.ph.split.us.split.us.split: ; preds = %lor.lhs.false188.us.lr.ph.split.us
-  br i1 %cmp193.not.us.us.us476, label %if.end202.us197.us.us, label %if.then194.split.us
+if.end202.us195.us:                               ; preds = %lor.lhs.false188.us.lr.ph.split.us.split, %if.then244.us218.us
+  %dx.1.us190265.us398 = phi i32 [ %mul232.us206.us, %if.then244.us218.us ], [ %dx.1.ph410, %lor.lhs.false188.us.lr.ph.split.us.split ]
+  %v0.2.us191266.us397 = phi ptr [ %cond210.us197.us, %if.then244.us218.us ], [ %v0.2.ph412, %lor.lhs.false188.us.lr.ph.split.us.split ]
+  %point159.us192267.us396 = phi ptr [ %point214.us200.us, %if.then244.us218.us ], [ %point159.us192262, %lor.lhs.false188.us.lr.ph.split.us.split ]
+  %50 = phi i32 [ %53, %if.then244.us218.us ], [ %49, %lor.lhs.false188.us.lr.ph.split.us.split ]
+  %sub161.us194268.us395 = phi i32 [ %sub161.us194.us, %if.then244.us218.us ], [ %sub161.us194264, %lor.lhs.false188.us.lr.ph.split.us.split ]
+  %cond210.in.us196.us = getelementptr inbounds i8, ptr %v0.2.us191266.us397, i64 %cond169.in.idx
+  %cond210.us197.us = load ptr, ptr %cond210.in.us196.us, align 8
+  %cmp211.not.us198.us = icmp eq ptr %cond210.us197.us, %v0.2.us191266.us397
+  br i1 %cmp211.not.us198.us, label %if.end300, label %if.then212.us199.us
 
-if.end202.us197.us.us:                            ; preds = %lor.lhs.false188.us.lr.ph.split.us.split.us.split, %if.then244.us221.us.us
-  %dx.1.us192269.us.us480 = phi i32 [ %mul232.us209.us.us, %if.then244.us221.us.us ], [ %dx.1.ph493, %lor.lhs.false188.us.lr.ph.split.us.split.us.split ]
-  %v0.2.us193270.us.us479 = phi ptr [ %cond210.us200.us.us, %if.then244.us221.us.us ], [ %v0.2.ph495, %lor.lhs.false188.us.lr.ph.split.us.split.us.split ]
-  %point159.us194271.us.us478 = phi ptr [ %point214.us203.us.us, %if.then244.us221.us.us ], [ %point159.us194266, %lor.lhs.false188.us.lr.ph.split.us.split.us.split ]
-  %55 = phi i32 [ %58, %if.then244.us221.us.us ], [ %54, %lor.lhs.false188.us.lr.ph.split.us.split.us.split ]
-  %sub161.us196272.us.us477 = phi i32 [ %sub161.us196.us.us, %if.then244.us221.us.us ], [ %sub161.us196268, %lor.lhs.false188.us.lr.ph.split.us.split.us.split ]
-  %cond210.us200.us.us = load ptr, ptr %v0.2.us193270.us.us479, align 8
-  %cmp211.not.us201.us.us = icmp eq ptr %cond210.us200.us.us, %v0.2.us193270.us.us479
-  br i1 %cmp211.not.us201.us.us, label %if.end300, label %if.then212.us202.us.us
+if.then212.us199.us:                              ; preds = %if.end202.us195.us
+  %point214.us200.us = getelementptr inbounds i8, ptr %cond210.us197.us, i64 104
+  %51 = load i32, ptr %point214.us200.us, align 8
+  %52 = load i32, ptr %point159.us192267.us396, align 8
+  %sub218.us201.us = sub nsw i32 %51, %52
+  %mul219.us202.us = mul nsw i32 %sub218.us201.us, %sign.0463
+  %y222.us203.us = getelementptr inbounds i8, ptr %cond210.us197.us, i64 108
+  %53 = load i32, ptr %y222.us203.us, align 4
+  %sub225.us204.us = sub nsw i32 %53, %50
+  %54 = load i32, ptr %point157413, align 8
+  %sub231.us205.us = sub nsw i32 %54, %51
+  %mul232.us206.us = mul nsw i32 %sub231.us205.us, %sign.0463
+  %cmp233.us207.us = icmp slt i32 %mul232.us206.us, 0
+  %cmp235.us208.us = icmp sgt i32 %sub225.us204.us, 0
+  %or.cond1.us209.us = select i1 %cmp233.us207.us, i1 %cmp235.us208.us, i1 false
+  br i1 %or.cond1.us209.us, label %land.lhs.true236.us210.us, label %if.end300
 
-if.then212.us202.us.us:                           ; preds = %if.end202.us197.us.us
-  %point214.us203.us.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210.us200.us.us, i64 0, i32 6
-  %56 = load i32, ptr %point214.us203.us.us, align 8
-  %57 = load i32, ptr %point159.us194271.us.us478, align 8
-  %sub218.us204.us.us = sub nsw i32 %56, %57
-  %mul219.us205.us.us = mul nsw i32 %sub218.us204.us.us, %sign.0575
-  %y222.us206.us.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210.us200.us.us, i64 0, i32 6, i32 1
-  %58 = load i32, ptr %y222.us206.us.us, align 4
-  %sub225.us207.us.us = sub nsw i32 %58, %55
-  %59 = load i32, ptr %point157496, align 8
-  %sub231.us208.us.us = sub nsw i32 %59, %56
-  %mul232.us209.us.us = mul nsw i32 %sub231.us208.us.us, %sign.0575
-  %cmp233.us210.us.us = icmp slt i32 %mul232.us209.us.us, 0
-  %cmp235.us211.us.us = icmp sgt i32 %sub225.us207.us.us, 0
-  %or.cond1.us212.us.us = select i1 %cmp233.us210.us.us, i1 %cmp235.us211.us.us, i1 false
-  br i1 %or.cond1.us212.us.us, label %land.lhs.true236.us213.us.us, label %if.end300
+land.lhs.true236.us210.us:                        ; preds = %if.then212.us199.us
+  %cmp237.us211.us = icmp eq i32 %51, %52
+  br i1 %cmp237.us211.us, label %if.then244.us218.us, label %lor.lhs.false238.us212.us
 
-land.lhs.true236.us213.us.us:                     ; preds = %if.then212.us202.us.us
-  %cmp237.us214.us.us = icmp eq i32 %mul219.us205.us.us, 0
-  br i1 %cmp237.us214.us.us, label %if.then244.us221.us.us, label %lor.lhs.false238.us215.us.us
+lor.lhs.false238.us212.us:                        ; preds = %land.lhs.true236.us210.us
+  %cmp239.us213.us = icmp slt i32 %mul219.us202.us, 0
+  br i1 %cmp239.us213.us, label %land.lhs.true240.us214.us, label %if.end300
 
-lor.lhs.false238.us215.us.us:                     ; preds = %land.lhs.true236.us213.us.us
-  %cmp239.us216.us.us = icmp slt i32 %mul219.us205.us.us, 0
-  br i1 %cmp239.us216.us.us, label %land.lhs.true240.us217.us.us, label %if.end300
+land.lhs.true240.us214.us:                        ; preds = %lor.lhs.false238.us212.us
+  %mul241.us215.us = mul nsw i32 %sub225.us204.us, %dx.1.us190265.us398
+  %mul242.us216.us = mul nsw i32 %mul219.us202.us, %sub161.us194268.us395
+  %cmp243.us217.us = icmp slt i32 %mul241.us215.us, %mul242.us216.us
+  br i1 %cmp243.us217.us, label %if.then244.us218.us, label %if.end300
 
-land.lhs.true240.us217.us.us:                     ; preds = %lor.lhs.false238.us215.us.us
-  %mul241.us218.us.us = mul nsw i32 %sub225.us207.us.us, %dx.1.us192269.us.us480
-  %mul242.us219.us.us = mul nsw i32 %mul219.us205.us.us, %sub161.us196272.us.us477
-  %cmp243.us220.us.us = icmp slt i32 %mul241.us218.us.us, %mul242.us219.us.us
-  br i1 %cmp243.us220.us.us, label %if.then244.us221.us.us, label %if.end300
-
-if.then244.us221.us.us:                           ; preds = %land.lhs.true240.us217.us.us, %land.lhs.true236.us213.us.us
-  %sub161.us196.us.us = sub nsw i32 %51, %58
-  %mul191.us.us.us = mul nsw i32 %sub184, %mul232.us209.us.us
-  %mul192.us.us.us = mul nsw i32 %mul178, %sub161.us196.us.us
-  %cmp193.not.us.us.us = icmp sgt i32 %mul191.us.us.us, %mul192.us.us.us
-  br i1 %cmp193.not.us.us.us, label %if.end202.us197.us.us, label %if.then194.split.us
-
-lor.lhs.false188.us.lr.ph.split.us.split.split:   ; preds = %lor.lhs.false188.us.lr.ph.split.us
-  br i1 %cmp193.not.us.us.us476, label %if.end202.us197.us, label %if.then194.split.us
-
-if.end202.us197.us:                               ; preds = %lor.lhs.false188.us.lr.ph.split.us.split.split, %if.then244.us221.us
-  %dx.1.us192269.us459 = phi i32 [ %mul232.us209.us, %if.then244.us221.us ], [ %dx.1.ph493, %lor.lhs.false188.us.lr.ph.split.us.split.split ]
-  %v0.2.us193270.us458 = phi ptr [ %cond210.us200.us, %if.then244.us221.us ], [ %v0.2.ph495, %lor.lhs.false188.us.lr.ph.split.us.split.split ]
-  %point159.us194271.us457 = phi ptr [ %point214.us203.us, %if.then244.us221.us ], [ %point159.us194266, %lor.lhs.false188.us.lr.ph.split.us.split.split ]
-  %60 = phi i32 [ %63, %if.then244.us221.us ], [ %54, %lor.lhs.false188.us.lr.ph.split.us.split.split ]
-  %sub161.us196272.us456 = phi i32 [ %sub161.us196.us, %if.then244.us221.us ], [ %sub161.us196268, %lor.lhs.false188.us.lr.ph.split.us.split.split ]
-  %prev206.us198.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.2.us193270.us458, i64 0, i32 1
-  %cond210.us200.us = load ptr, ptr %prev206.us198.us, align 8
-  %cmp211.not.us201.us = icmp eq ptr %cond210.us200.us, %v0.2.us193270.us458
-  br i1 %cmp211.not.us201.us, label %if.end300, label %if.then212.us202.us
-
-if.then212.us202.us:                              ; preds = %if.end202.us197.us
-  %point214.us203.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210.us200.us, i64 0, i32 6
-  %61 = load i32, ptr %point214.us203.us, align 8
-  %62 = load i32, ptr %point159.us194271.us457, align 8
-  %sub218.us204.us = sub nsw i32 %61, %62
-  %mul219.us205.us = mul nsw i32 %sub218.us204.us, %sign.0575
-  %y222.us206.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210.us200.us, i64 0, i32 6, i32 1
-  %63 = load i32, ptr %y222.us206.us, align 4
-  %sub225.us207.us = sub nsw i32 %63, %60
-  %64 = load i32, ptr %point157496, align 8
-  %sub231.us208.us = sub nsw i32 %64, %61
-  %mul232.us209.us = mul nsw i32 %sub231.us208.us, %sign.0575
-  %cmp233.us210.us = icmp slt i32 %mul232.us209.us, 0
-  %cmp235.us211.us = icmp sgt i32 %sub225.us207.us, 0
-  %or.cond1.us212.us = select i1 %cmp233.us210.us, i1 %cmp235.us211.us, i1 false
-  br i1 %or.cond1.us212.us, label %land.lhs.true236.us213.us, label %if.end300
-
-land.lhs.true236.us213.us:                        ; preds = %if.then212.us202.us
-  %cmp237.us214.us = icmp eq i32 %mul219.us205.us, 0
-  br i1 %cmp237.us214.us, label %if.then244.us221.us, label %lor.lhs.false238.us215.us
-
-lor.lhs.false238.us215.us:                        ; preds = %land.lhs.true236.us213.us
-  %cmp239.us216.us = icmp slt i32 %mul219.us205.us, 0
-  br i1 %cmp239.us216.us, label %land.lhs.true240.us217.us, label %if.end300
-
-land.lhs.true240.us217.us:                        ; preds = %lor.lhs.false238.us215.us
-  %mul241.us218.us = mul nsw i32 %sub225.us207.us, %dx.1.us192269.us459
-  %mul242.us219.us = mul nsw i32 %mul219.us205.us, %sub161.us196272.us456
-  %cmp243.us220.us = icmp slt i32 %mul241.us218.us, %mul242.us219.us
-  br i1 %cmp243.us220.us, label %if.then244.us221.us, label %if.end300
-
-if.then244.us221.us:                              ; preds = %land.lhs.true240.us217.us, %land.lhs.true236.us213.us
-  %sub161.us196.us = sub nsw i32 %51, %63
-  %mul191.us.us = mul nsw i32 %sub184, %mul232.us209.us
-  %mul192.us.us = mul nsw i32 %mul178, %sub161.us196.us
+if.then244.us218.us:                              ; preds = %land.lhs.true240.us214.us, %land.lhs.true236.us210.us
+  %sub161.us194.us = sub nsw i32 %46, %53
+  %mul191.us.us = mul nsw i32 %sub184, %mul232.us206.us
+  %mul192.us.us = mul nsw i32 %mul178, %sub161.us194.us
   %cmp193.not.us.us = icmp sgt i32 %mul191.us.us, %mul192.us.us
-  br i1 %cmp193.not.us.us, label %if.end202.us197.us, label %if.then194.split.us
+  br i1 %cmp193.not.us.us, label %if.end202.us195.us, label %if.then194.split.us
 
 lor.lhs.false188.us.lr.ph.split.split:            ; preds = %lor.lhs.false188.us.lr.ph
-  %prev206.us198371 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.2.ph495, i64 0, i32 1
-  %cond210.in.us199372 = select i1 %tobool163.not, ptr %v0.2.ph495, ptr %prev206.us198371
-  %cond210.us200373 = load ptr, ptr %cond210.in.us199372, align 8
-  %cmp211.not.us201374 = icmp eq ptr %cond210.us200373, %v0.2.ph495
-  br i1 %cmp211.not.us201374, label %if.end300, label %if.then212.us202.lr.ph
+  %cond210.in.us196366 = getelementptr inbounds i8, ptr %v0.2.ph412, i64 %cond169.in.idx
+  %cond210.us197367 = load ptr, ptr %cond210.in.us196366, align 8
+  %cmp211.not.us198368 = icmp eq ptr %cond210.us197367, %v0.2.ph412
+  br i1 %cmp211.not.us198368, label %if.end300, label %if.then212.us199.lr.ph
 
-if.then212.us202.lr.ph:                           ; preds = %lor.lhs.false188.us.lr.ph.split.split
-  %65 = load i32, ptr %point157496, align 8
-  %point214.us203823 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210.us200373, i64 0, i32 6
-  %66 = load i32, ptr %point214.us203823, align 8
-  %y222.us206826 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210.us200373, i64 0, i32 6, i32 1
-  %67 = load i32, ptr %y222.us206826, align 4
-  %sub225.us207827 = sub nsw i32 %67, %54
-  %sub231.us208828 = sub nsw i32 %65, %66
-  %mul232.us209829 = mul nsw i32 %sub231.us208828, %sign.0575
-  %cmp233.us210830 = icmp slt i32 %mul232.us209829, 0
-  %cmp235.us211831 = icmp sgt i32 %sub225.us207827, 0
-  %or.cond1.us212832 = select i1 %cmp233.us210830, i1 %cmp235.us211831, i1 false
-  br i1 %or.cond1.us212832, label %land.lhs.true236.us213.lr.ph, label %if.end300
+if.then212.us199.lr.ph:                           ; preds = %lor.lhs.false188.us.lr.ph.split.split
+  %55 = load i32, ptr %point157413, align 8
+  %point214.us200638 = getelementptr inbounds i8, ptr %cond210.us197367, i64 104
+  %56 = load i32, ptr %point214.us200638, align 8
+  %y222.us203641 = getelementptr inbounds i8, ptr %cond210.us197367, i64 108
+  %57 = load i32, ptr %y222.us203641, align 4
+  %sub225.us204642 = sub nsw i32 %57, %49
+  %sub231.us205643 = sub nsw i32 %55, %56
+  %mul232.us206644 = mul nsw i32 %sub231.us205643, %sign.0463
+  %cmp233.us207645 = icmp slt i32 %mul232.us206644, 0
+  %cmp235.us208646 = icmp sgt i32 %sub225.us204642, 0
+  %or.cond1.us209647 = select i1 %cmp233.us207645, i1 %cmp235.us208646, i1 false
+  br i1 %or.cond1.us209647, label %land.lhs.true236.us210.lr.ph, label %if.end300
 
-land.lhs.true236.us213.lr.ph:                     ; preds = %if.then212.us202.lr.ph
-  %.pre653 = load i32, ptr %point159.us194266, align 8
-  %sub218.us204824 = sub nsw i32 %66, %.pre653
-  br label %land.lhs.true236.us213
+land.lhs.true236.us210.lr.ph:                     ; preds = %if.then212.us199.lr.ph
+  %.pre520 = load i32, ptr %point159.us192262, align 8
+  %sub218.us201639 = sub nsw i32 %56, %.pre520
+  br label %land.lhs.true236.us210
 
-if.then212.us202:                                 ; preds = %if.then244.us221
-  %sub161.us196 = sub nsw i32 %51, %70
-  %point214.us203 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210.us200, i64 0, i32 6
-  %68 = load i32, ptr %point214.us203, align 8
-  %sub218.us204 = sub nsw i32 %68, %71
-  %y222.us206 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210.us200, i64 0, i32 6, i32 1
-  %69 = load i32, ptr %y222.us206, align 4
-  %sub225.us207 = sub nsw i32 %69, %70
-  %sub231.us208 = sub nsw i32 %65, %68
-  %mul232.us209 = mul nsw i32 %sub231.us208, %sign.0575
-  %cmp233.us210 = icmp slt i32 %mul232.us209, 0
-  %cmp235.us211 = icmp sgt i32 %sub225.us207, 0
-  %or.cond1.us212 = select i1 %cmp233.us210, i1 %cmp235.us211, i1 false
-  br i1 %or.cond1.us212, label %land.lhs.true236.us213, label %if.end300
+if.then212.us199:                                 ; preds = %if.then244.us218
+  %sub161.us194 = sub nsw i32 %46, %60
+  %point214.us200 = getelementptr inbounds i8, ptr %cond210.us197, i64 104
+  %58 = load i32, ptr %point214.us200, align 8
+  %sub218.us201 = sub nsw i32 %58, %61
+  %y222.us203 = getelementptr inbounds i8, ptr %cond210.us197, i64 108
+  %59 = load i32, ptr %y222.us203, align 4
+  %sub225.us204 = sub nsw i32 %59, %60
+  %sub231.us205 = sub nsw i32 %55, %58
+  %mul232.us206 = mul nsw i32 %sub231.us205, %sign.0463
+  %cmp233.us207 = icmp slt i32 %mul232.us206, 0
+  %cmp235.us208 = icmp sgt i32 %sub225.us204, 0
+  %or.cond1.us209 = select i1 %cmp233.us207, i1 %cmp235.us208, i1 false
+  br i1 %or.cond1.us209, label %land.lhs.true236.us210, label %if.end300
 
-land.lhs.true236.us213:                           ; preds = %land.lhs.true236.us213.lr.ph, %if.then212.us202
-  %mul232.us209839 = phi i32 [ %mul232.us209829, %land.lhs.true236.us213.lr.ph ], [ %mul232.us209, %if.then212.us202 ]
-  %sub225.us207838 = phi i32 [ %sub225.us207827, %land.lhs.true236.us213.lr.ph ], [ %sub225.us207, %if.then212.us202 ]
-  %70 = phi i32 [ %67, %land.lhs.true236.us213.lr.ph ], [ %69, %if.then212.us202 ]
-  %sub218.us204824.pn = phi i32 [ %sub218.us204824, %land.lhs.true236.us213.lr.ph ], [ %sub218.us204, %if.then212.us202 ]
-  %71 = phi i32 [ %66, %land.lhs.true236.us213.lr.ph ], [ %68, %if.then212.us202 ]
-  %sub161.us196272375836 = phi i32 [ %sub161.us196268, %land.lhs.true236.us213.lr.ph ], [ %sub161.us196, %if.then212.us202 ]
-  %v0.2.us193270377835 = phi ptr [ %v0.2.ph495, %land.lhs.true236.us213.lr.ph ], [ %cond210.us200379833, %if.then212.us202 ]
-  %dx.1.us192269378834 = phi i32 [ %dx.1.ph493, %land.lhs.true236.us213.lr.ph ], [ %mul232.us209839, %if.then212.us202 ]
-  %cond210.us200379833 = phi ptr [ %cond210.us200373, %land.lhs.true236.us213.lr.ph ], [ %cond210.us200, %if.then212.us202 ]
-  %mul219.us205837 = mul nsw i32 %sub218.us204824.pn, %sign.0575
-  %cmp237.us214 = icmp eq i32 %mul219.us205837, 0
-  br i1 %cmp237.us214, label %if.then244.us221, label %lor.lhs.false238.us215
+land.lhs.true236.us210:                           ; preds = %land.lhs.true236.us210.lr.ph, %if.then212.us199
+  %mul232.us206654 = phi i32 [ %mul232.us206644, %land.lhs.true236.us210.lr.ph ], [ %mul232.us206, %if.then212.us199 ]
+  %sub225.us204653 = phi i32 [ %sub225.us204642, %land.lhs.true236.us210.lr.ph ], [ %sub225.us204, %if.then212.us199 ]
+  %60 = phi i32 [ %57, %land.lhs.true236.us210.lr.ph ], [ %59, %if.then212.us199 ]
+  %sub218.us201639.pn = phi i32 [ %sub218.us201639, %land.lhs.true236.us210.lr.ph ], [ %sub218.us201, %if.then212.us199 ]
+  %61 = phi i32 [ %56, %land.lhs.true236.us210.lr.ph ], [ %58, %if.then212.us199 ]
+  %sub161.us194268369651 = phi i32 [ %sub161.us194264, %land.lhs.true236.us210.lr.ph ], [ %sub161.us194, %if.then212.us199 ]
+  %v0.2.us191266371650 = phi ptr [ %v0.2.ph412, %land.lhs.true236.us210.lr.ph ], [ %cond210.us197373648, %if.then212.us199 ]
+  %dx.1.us190265372649 = phi i32 [ %dx.1.ph410, %land.lhs.true236.us210.lr.ph ], [ %mul232.us206654, %if.then212.us199 ]
+  %cond210.us197373648 = phi ptr [ %cond210.us197367, %land.lhs.true236.us210.lr.ph ], [ %cond210.us197, %if.then212.us199 ]
+  %62 = phi i32 [ %.pre520, %land.lhs.true236.us210.lr.ph ], [ %61, %if.then212.us199 ]
+  %mul219.us202652 = mul nsw i32 %sub218.us201639.pn, %sign.0463
+  %cmp237.us211 = icmp eq i32 %61, %62
+  br i1 %cmp237.us211, label %if.then244.us218, label %lor.lhs.false238.us212
 
-lor.lhs.false238.us215:                           ; preds = %land.lhs.true236.us213
-  %cmp239.us216 = icmp slt i32 %mul219.us205837, 0
-  br i1 %cmp239.us216, label %land.lhs.true240.us217, label %if.end300
+lor.lhs.false238.us212:                           ; preds = %land.lhs.true236.us210
+  %cmp239.us213 = icmp slt i32 %mul219.us202652, 0
+  br i1 %cmp239.us213, label %land.lhs.true240.us214, label %if.end300
 
-land.lhs.true240.us217:                           ; preds = %lor.lhs.false238.us215
-  %mul241.us218 = mul nsw i32 %sub225.us207838, %dx.1.us192269378834
-  %mul242.us219 = mul nsw i32 %mul219.us205837, %sub161.us196272375836
-  %cmp243.us220 = icmp slt i32 %mul241.us218, %mul242.us219
-  br i1 %cmp243.us220, label %if.then244.us221, label %if.end300
+land.lhs.true240.us214:                           ; preds = %lor.lhs.false238.us212
+  %mul241.us215 = mul nsw i32 %sub225.us204653, %dx.1.us190265372649
+  %mul242.us216 = mul nsw i32 %mul219.us202652, %sub161.us194268369651
+  %cmp243.us217 = icmp slt i32 %mul241.us215, %mul242.us216
+  br i1 %cmp243.us217, label %if.then244.us218, label %if.end300
 
-if.then244.us221:                                 ; preds = %land.lhs.true240.us217, %land.lhs.true236.us213
-  %prev206.us198 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210.us200379833, i64 0, i32 1
-  %cond210.in.us199 = select i1 %tobool163.not, ptr %cond210.us200379833, ptr %prev206.us198
-  %cond210.us200 = load ptr, ptr %cond210.in.us199, align 8
-  %cmp211.not.us201 = icmp eq ptr %cond210.us200, %cond210.us200379833
-  br i1 %cmp211.not.us201, label %if.end300, label %if.then212.us202
+if.then244.us218:                                 ; preds = %land.lhs.true240.us214, %land.lhs.true236.us210
+  %cond210.in.us196 = getelementptr inbounds i8, ptr %cond210.us197373648, i64 %cond169.in.idx
+  %cond210.us197 = load ptr, ptr %cond210.in.us196, align 8
+  %cmp211.not.us198 = icmp eq ptr %cond210.us197, %cond210.us197373648
+  br i1 %cmp211.not.us198, label %if.end300, label %if.then212.us199
 
-if.then194.split.us:                              ; preds = %if.then244.us221.us, %if.then244.us221.us.us, %lor.lhs.false188.us.lr.ph.split.us.split.us.split, %lor.lhs.false188.us.lr.ph.split.us.split.split, %while.body155.outer.split.split.us
-  %v0.2.lcssa.us = phi ptr [ %v0.2.ph495, %while.body155.outer.split.split.us ], [ %v0.2.ph495, %lor.lhs.false188.us.lr.ph.split.us.split.us.split ], [ %v0.2.ph495, %lor.lhs.false188.us.lr.ph.split.us.split.split ], [ %cond210.us200.us.us, %if.then244.us221.us.us ], [ %cond210.us200.us, %if.then244.us221.us ]
-  %point159.lcssa.us = phi ptr [ %point159.us194266, %while.body155.outer.split.split.us ], [ %point159.us194266, %lor.lhs.false188.us.lr.ph.split.us.split.us.split ], [ %point159.us194266, %lor.lhs.false188.us.lr.ph.split.us.split.split ], [ %point214.us203.us.us, %if.then244.us221.us.us ], [ %point214.us203.us, %if.then244.us221.us ]
-  %72 = load i32, ptr %point159.lcssa.us, align 8
-  %sub199 = sub nsw i32 %52, %72
-  %mul200 = mul nsw i32 %sub199, %sign.0575
-  %prev165 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond169497, i64 0, i32 1
-  %cond169.in = select i1 %tobool163.not, ptr %cond169497, ptr %prev165
+if.then194.split.us:                              ; preds = %if.then244.us218.us, %lor.lhs.false188.us.lr.ph.split.us.split, %while.body155.outer.split.split.us
+  %v0.2.lcssa.us = phi ptr [ %v0.2.ph412, %while.body155.outer.split.split.us ], [ %v0.2.ph412, %lor.lhs.false188.us.lr.ph.split.us.split ], [ %cond210.us197.us, %if.then244.us218.us ]
+  %point159.lcssa.us = phi ptr [ %point159.us192262, %while.body155.outer.split.split.us ], [ %point159.us192262, %lor.lhs.false188.us.lr.ph.split.us.split ], [ %point214.us200.us, %if.then244.us218.us ]
+  %63 = load i32, ptr %point159.lcssa.us, align 8
+  %sub199 = sub nsw i32 %47, %63
+  %mul200 = mul nsw i32 %sub199, %sign.0463
+  %cond169.in = getelementptr inbounds i8, ptr %cond169414, i64 %cond169.in.idx
   %cond169 = load ptr, ptr %cond169.in, align 8
-  %cmp170.not = icmp eq ptr %cond169, %cond169497
+  %cmp170.not = icmp eq ptr %cond169, %cond169414
   br i1 %cmp170.not, label %while.body155.outer.split.us, label %while.body155.outer.split, !llvm.loop !8
 
 while.body155.outer.split.split:                  ; preds = %while.body155.outer.split
-  %prev206250 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.2.ph495, i64 0, i32 1
-  %cond210.in251 = select i1 %tobool163.not, ptr %v0.2.ph495, ptr %prev206250
-  %cond210252 = load ptr, ptr %cond210.in251, align 8
-  %cmp211.not253 = icmp eq ptr %cond210252, %v0.2.ph495
-  br i1 %cmp211.not253, label %if.end300, label %if.then212.lr.ph
+  %cond210.in247 = getelementptr inbounds i8, ptr %v0.2.ph412, i64 %cond169.in.idx
+  %cond210248 = load ptr, ptr %cond210.in247, align 8
+  %cmp211.not249 = icmp eq ptr %cond210248, %v0.2.ph412
+  br i1 %cmp211.not249, label %if.end300, label %if.then212.lr.ph
 
 if.then212.lr.ph:                                 ; preds = %while.body155.outer.split.split
-  %73 = load i32, ptr %point157496, align 8
-  %.in.phi.trans.insert = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.2.ph495, i64 0, i32 6, i32 1
+  %64 = load i32, ptr %point157413, align 8
+  %.in.phi.trans.insert = getelementptr inbounds i8, ptr %v0.2.ph412, i64 108
   %.pre = load i32, ptr %.in.phi.trans.insert, align 4
-  %point214803 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210252, i64 0, i32 6
-  %74 = load i32, ptr %point214803, align 8
-  %y222806 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210252, i64 0, i32 6, i32 1
-  %75 = load i32, ptr %y222806, align 4
-  %sub225807 = sub nsw i32 %75, %.pre
-  %sub231808 = sub nsw i32 %73, %74
-  %mul232809 = mul nsw i32 %sub231808, %sign.0575
-  %cmp233810 = icmp slt i32 %mul232809, 0
-  %cmp235811 = icmp sgt i32 %sub225807, 0
-  %or.cond1812 = select i1 %cmp233810, i1 %cmp235811, i1 false
-  br i1 %or.cond1812, label %land.lhs.true236.lr.ph, label %if.end300
+  %point214618 = getelementptr inbounds i8, ptr %cond210248, i64 104
+  %65 = load i32, ptr %point214618, align 8
+  %y222621 = getelementptr inbounds i8, ptr %cond210248, i64 108
+  %66 = load i32, ptr %y222621, align 4
+  %sub225622 = sub nsw i32 %66, %.pre
+  %sub231623 = sub nsw i32 %64, %65
+  %mul232624 = mul nsw i32 %sub231623, %sign.0463
+  %cmp233625 = icmp slt i32 %mul232624, 0
+  %cmp235626 = icmp sgt i32 %sub225622, 0
+  %or.cond1627 = select i1 %cmp233625, i1 %cmp235626, i1 false
+  br i1 %or.cond1627, label %land.lhs.true236.lr.ph, label %if.end300
 
 land.lhs.true236.lr.ph:                           ; preds = %if.then212.lr.ph
-  %point159256.phi.trans.insert = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.2.ph495, i64 0, i32 6
-  %.pre652 = load i32, ptr %point159256.phi.trans.insert, align 8
-  %sub218804 = sub nsw i32 %74, %.pre652
+  %point159252.phi.trans.insert = getelementptr inbounds i8, ptr %v0.2.ph412, i64 104
+  %.pre519 = load i32, ptr %point159252.phi.trans.insert, align 8
+  %sub218619 = sub nsw i32 %65, %.pre519
   br label %land.lhs.true236
 
 if.then212:                                       ; preds = %if.then244
-  %point214 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210, i64 0, i32 6
-  %76 = load i32, ptr %point214, align 8
-  %sub218 = sub nsw i32 %76, %79
-  %y222 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210, i64 0, i32 6, i32 1
-  %77 = load i32, ptr %y222, align 4
-  %sub225 = sub nsw i32 %77, %78
-  %sub231 = sub nsw i32 %73, %76
-  %mul232 = mul nsw i32 %sub231, %sign.0575
+  %point214 = getelementptr inbounds i8, ptr %cond210, i64 104
+  %67 = load i32, ptr %point214, align 8
+  %sub218 = sub nsw i32 %67, %70
+  %y222 = getelementptr inbounds i8, ptr %cond210, i64 108
+  %68 = load i32, ptr %y222, align 4
+  %sub225 = sub nsw i32 %68, %69
+  %sub231 = sub nsw i32 %64, %67
+  %mul232 = mul nsw i32 %sub231, %sign.0463
   %cmp233 = icmp slt i32 %mul232, 0
   %cmp235 = icmp sgt i32 %sub225, 0
   %or.cond1 = select i1 %cmp233, i1 %cmp235, i1 false
   br i1 %or.cond1, label %land.lhs.true236, label %if.end300, !llvm.loop !8
 
 land.lhs.true236:                                 ; preds = %land.lhs.true236.lr.ph, %if.then212
-  %mul232819 = phi i32 [ %mul232809, %land.lhs.true236.lr.ph ], [ %mul232, %if.then212 ]
-  %sub225818 = phi i32 [ %sub225807, %land.lhs.true236.lr.ph ], [ %sub225, %if.then212 ]
-  %78 = phi i32 [ %75, %land.lhs.true236.lr.ph ], [ %77, %if.then212 ]
-  %sub218804.pn = phi i32 [ %sub218804, %land.lhs.true236.lr.ph ], [ %sub218, %if.then212 ]
-  %79 = phi i32 [ %74, %land.lhs.true236.lr.ph ], [ %76, %if.then212 ]
-  %.pre.pn = phi i32 [ %.pre, %land.lhs.true236.lr.ph ], [ %78, %if.then212 ]
-  %dx.1254815 = phi i32 [ %dx.1.ph493, %land.lhs.true236.lr.ph ], [ %mul232819, %if.then212 ]
-  %v0.2255814 = phi ptr [ %v0.2.ph495, %land.lhs.true236.lr.ph ], [ %cond210258813, %if.then212 ]
-  %cond210258813 = phi ptr [ %cond210252, %land.lhs.true236.lr.ph ], [ %cond210, %if.then212 ]
-  %sub161257816 = sub nsw i32 %51, %.pre.pn
-  %mul219817 = mul nsw i32 %sub218804.pn, %sign.0575
-  %cmp237 = icmp eq i32 %mul219817, 0
+  %mul232634 = phi i32 [ %mul232624, %land.lhs.true236.lr.ph ], [ %mul232, %if.then212 ]
+  %sub225633 = phi i32 [ %sub225622, %land.lhs.true236.lr.ph ], [ %sub225, %if.then212 ]
+  %69 = phi i32 [ %66, %land.lhs.true236.lr.ph ], [ %68, %if.then212 ]
+  %sub218619.pn = phi i32 [ %sub218619, %land.lhs.true236.lr.ph ], [ %sub218, %if.then212 ]
+  %70 = phi i32 [ %65, %land.lhs.true236.lr.ph ], [ %67, %if.then212 ]
+  %.pre.pn = phi i32 [ %.pre, %land.lhs.true236.lr.ph ], [ %69, %if.then212 ]
+  %dx.1250630 = phi i32 [ %dx.1.ph410, %land.lhs.true236.lr.ph ], [ %mul232634, %if.then212 ]
+  %v0.2251629 = phi ptr [ %v0.2.ph412, %land.lhs.true236.lr.ph ], [ %cond210254628, %if.then212 ]
+  %cond210254628 = phi ptr [ %cond210248, %land.lhs.true236.lr.ph ], [ %cond210, %if.then212 ]
+  %71 = phi i32 [ %.pre519, %land.lhs.true236.lr.ph ], [ %70, %if.then212 ]
+  %sub161253631 = sub nsw i32 %46, %.pre.pn
+  %mul219632 = mul nsw i32 %sub218619.pn, %sign.0463
+  %cmp237 = icmp eq i32 %70, %71
   br i1 %cmp237, label %if.then244, label %lor.lhs.false238
 
 lor.lhs.false238:                                 ; preds = %land.lhs.true236
-  %cmp239 = icmp slt i32 %mul219817, 0
+  %cmp239 = icmp slt i32 %mul219632, 0
   br i1 %cmp239, label %land.lhs.true240, label %if.end300
 
 land.lhs.true240:                                 ; preds = %lor.lhs.false238
-  %mul241 = mul nsw i32 %sub225818, %dx.1254815
-  %mul242 = mul nsw i32 %mul219817, %sub161257816
+  %mul241 = mul nsw i32 %sub225633, %dx.1250630
+  %mul242 = mul nsw i32 %mul219632, %sub161253631
   %cmp243 = icmp slt i32 %mul241, %mul242
   br i1 %cmp243, label %if.then244, label %if.end300
 
 if.then244:                                       ; preds = %land.lhs.true240, %land.lhs.true236
-  %prev206 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond210258813, i64 0, i32 1
-  %cond210.in = select i1 %tobool163.not, ptr %cond210258813, ptr %prev206
+  %cond210.in = getelementptr inbounds i8, ptr %cond210254628, i64 %cond169.in.idx
   %cond210 = load ptr, ptr %cond210.in, align 8
-  %cmp211.not = icmp eq ptr %cond210, %cond210258813
+  %cmp211.not = icmp eq ptr %cond210, %cond210254628
   br i1 %cmp211.not, label %if.end300, label %if.then212, !llvm.loop !8
 
 if.else248:                                       ; preds = %if.else152
-  %y253 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.0587, i64 0, i32 6, i32 1
-  %80 = load i32, ptr %y253, align 4
-  %tobool255.not = icmp eq i32 %side.0574, 0
-  br i1 %tobool255.not, label %while.cond.us, label %while.cond
+  %y253 = getelementptr inbounds i8, ptr %v0.0473, i64 108
+  %72 = load i32, ptr %y253, align 4
+  %cond261.in.idx = select i1 %tobool255.not, i64 8, i64 0
+  br label %while.cond
 
-while.cond.us:                                    ; preds = %if.else248, %land.rhs.us
-  %y0.0.us = phi i32 [ %82, %land.rhs.us ], [ %80, %if.else248 ]
-  %w0254.0.us = phi ptr [ %cond261.us, %land.rhs.us ], [ %v0.0587, %if.else248 ]
-  %prev259.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %w0254.0.us, i64 0, i32 1
-  %cond261.us = load ptr, ptr %prev259.us, align 8
-  %cmp262.not.us = icmp eq ptr %cond261.us, %v0.0587
-  br i1 %cmp262.not.us, label %while.end273, label %land.lhs.true263.us
-
-land.lhs.true263.us:                              ; preds = %while.cond.us
-  %point264.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond261.us, i64 0, i32 6
-  %81 = load i32, ptr %point264.us, align 8
-  %cmp266.us = icmp eq i32 %81, %25
-  br i1 %cmp266.us, label %land.rhs.us, label %while.end273
-
-land.rhs.us:                                      ; preds = %land.lhs.true263.us
-  %y268.us = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond261.us, i64 0, i32 6, i32 1
-  %82 = load i32, ptr %y268.us, align 4
-  %cmp269.not.us = icmp sgt i32 %82, %y0.0.us
-  br i1 %cmp269.not.us, label %while.end273, label %while.cond.us, !llvm.loop !9
-
-while.cond:                                       ; preds = %if.else248, %land.rhs
-  %y0.0 = phi i32 [ %84, %land.rhs ], [ %80, %if.else248 ]
-  %w0254.0 = phi ptr [ %cond261, %land.rhs ], [ %v0.0587, %if.else248 ]
-  %cond261 = load ptr, ptr %w0254.0, align 8
-  %cmp262.not = icmp eq ptr %cond261, %v0.0587
+while.cond:                                       ; preds = %land.rhs, %if.else248
+  %y0.0 = phi i32 [ %72, %if.else248 ], [ %74, %land.rhs ]
+  %w0254.0 = phi ptr [ %v0.0473, %if.else248 ], [ %cond261, %land.rhs ]
+  %cond261.in = getelementptr inbounds i8, ptr %w0254.0, i64 %cond261.in.idx
+  %cond261 = load ptr, ptr %cond261.in, align 8
+  %cmp262.not = icmp eq ptr %cond261, %v0.0473
   br i1 %cmp262.not, label %while.end273, label %land.lhs.true263
 
 land.lhs.true263:                                 ; preds = %while.cond
-  %point264 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond261, i64 0, i32 6
-  %83 = load i32, ptr %point264, align 8
-  %cmp266 = icmp eq i32 %83, %25
+  %point264 = getelementptr inbounds i8, ptr %cond261, i64 104
+  %73 = load i32, ptr %point264, align 8
+  %cmp266 = icmp eq i32 %73, %25
   br i1 %cmp266, label %land.rhs, label %while.end273
 
 land.rhs:                                         ; preds = %land.lhs.true263
-  %y268 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond261, i64 0, i32 6, i32 1
-  %84 = load i32, ptr %y268, align 4
-  %cmp269.not = icmp sgt i32 %84, %y0.0
+  %y268 = getelementptr inbounds i8, ptr %cond261, i64 108
+  %74 = load i32, ptr %y268, align 4
+  %cmp269.not = icmp sgt i32 %74, %y0.0
   br i1 %cmp269.not, label %while.end273, label %while.cond, !llvm.loop !9
 
-while.end273:                                     ; preds = %land.rhs, %while.cond, %land.lhs.true263, %land.lhs.true263.us, %land.rhs.us, %while.cond.us
-  %.us-phi = phi ptr [ %w0254.0.us, %while.cond.us ], [ %w0254.0.us, %land.rhs.us ], [ %w0254.0.us, %land.lhs.true263.us ], [ %w0254.0, %land.lhs.true263 ], [ %w0254.0, %while.cond ], [ %w0254.0, %land.rhs ]
-  %y275 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v1.1586, i64 0, i32 6, i32 1
-  %85 = load i32, ptr %y275, align 4
+while.end273:                                     ; preds = %land.lhs.true263, %while.cond, %land.rhs
+  %y275 = getelementptr inbounds i8, ptr %v1.1472, i64 108
+  %75 = load i32, ptr %y275, align 4
+  %cond284.in.idx = select i1 %tobool255.not, i64 0, i64 8
   br label %while.cond277
 
 while.cond277:                                    ; preds = %land.rhs290, %while.end273
-  %y1.0 = phi i32 [ %85, %while.end273 ], [ %87, %land.rhs290 ]
-  %w1276.0 = phi ptr [ %v1.1586, %while.end273 ], [ %cond284, %land.rhs290 ]
-  %prev280 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %w1276.0, i64 0, i32 1
-  %cond284.in = select i1 %tobool255.not, ptr %w1276.0, ptr %prev280
+  %y1.0 = phi i32 [ %75, %while.end273 ], [ %77, %land.rhs290 ]
+  %w1276.0 = phi ptr [ %v1.1472, %while.end273 ], [ %cond284, %land.rhs290 ]
+  %cond284.in = getelementptr inbounds i8, ptr %w1276.0, i64 %cond284.in.idx
   %cond284 = load ptr, ptr %cond284.in, align 8
-  %cmp285.not = icmp eq ptr %cond284, %v1.1586
+  %cmp285.not = icmp eq ptr %cond284, %v1.1472
   br i1 %cmp285.not, label %if.end300, label %land.lhs.true286
 
 land.lhs.true286:                                 ; preds = %while.cond277
-  %point287 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond284, i64 0, i32 6
-  %86 = load i32, ptr %point287, align 8
-  %cmp289 = icmp eq i32 %86, %25
+  %point287 = getelementptr inbounds i8, ptr %cond284, i64 104
+  %76 = load i32, ptr %point287, align 8
+  %cmp289 = icmp eq i32 %76, %25
   br i1 %cmp289, label %land.rhs290, label %if.end300
 
 land.rhs290:                                      ; preds = %land.lhs.true286
-  %y292 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %cond284, i64 0, i32 6, i32 1
-  %87 = load i32, ptr %y292, align 4
-  %cmp293.not = icmp slt i32 %87, %y1.0
+  %y292 = getelementptr inbounds i8, ptr %cond284, i64 108
+  %77 = load i32, ptr %y292, align 4
+  %cmp293.not = icmp slt i32 %77, %y1.0
   br i1 %cmp293.not, label %if.end300, label %while.cond277, !llvm.loop !10
 
-if.end300:                                        ; preds = %land.rhs290, %while.cond277, %land.lhs.true286, %if.then244, %land.lhs.true240, %lor.lhs.false238, %if.then212, %if.then244.us221, %if.then212.us202, %lor.lhs.false238.us215, %land.lhs.true240.us217, %if.then244.us, %if.then212.us, %lor.lhs.false238.us, %land.lhs.true240.us, %if.then120, %lor.lhs.false143, %land.lhs.true145, %if.end111.thread679, %land.lhs.true240.us217.us, %lor.lhs.false238.us215.us, %if.then212.us202.us, %if.end202.us197.us, %if.end202.us197.us.us, %land.lhs.true240.us217.us.us, %lor.lhs.false238.us215.us.us, %if.then212.us202.us.us, %if.then212.lr.ph, %if.then212.us202.lr.ph, %while.body155.outer.split.us, %while.body155.outer.split.split, %lor.lhs.false188.us.lr.ph.split.split
-  %v1.4 = phi ptr [ %v1.3.ph494, %lor.lhs.false188.us.lr.ph.split.split ], [ %v1.3.ph494, %while.body155.outer.split.split ], [ %v1.3.ph.lcssa188, %while.body155.outer.split.us ], [ %v1.3.ph494, %if.then212.us202.lr.ph ], [ %v1.3.ph494, %if.then212.lr.ph ], [ %v1.3.ph494, %if.then212.us202.us.us ], [ %v1.3.ph494, %lor.lhs.false238.us215.us.us ], [ %v1.3.ph494, %land.lhs.true240.us217.us.us ], [ %v1.3.ph494, %if.end202.us197.us.us ], [ %v1.3.ph494, %if.end202.us197.us ], [ %v1.3.ph494, %if.then212.us202.us ], [ %v1.3.ph494, %lor.lhs.false238.us215.us ], [ %v1.3.ph494, %land.lhs.true240.us217.us ], [ %v1.2.ph, %if.end111.thread679 ], [ %v1.2.ph, %land.lhs.true145 ], [ %v1.2.ph, %lor.lhs.false143 ], [ %v1.2.ph, %if.then120 ], [ %v1.3.ph.lcssa188, %land.lhs.true240.us ], [ %v1.3.ph.lcssa188, %lor.lhs.false238.us ], [ %v1.3.ph.lcssa188, %if.then212.us ], [ %v1.3.ph.lcssa188, %if.then244.us ], [ %v1.3.ph494, %land.lhs.true240.us217 ], [ %v1.3.ph494, %lor.lhs.false238.us215 ], [ %v1.3.ph494, %if.then212.us202 ], [ %v1.3.ph494, %if.then244.us221 ], [ %v1.3.ph494, %if.then212 ], [ %v1.3.ph494, %lor.lhs.false238 ], [ %v1.3.ph494, %land.lhs.true240 ], [ %v1.3.ph494, %if.then244 ], [ %w1276.0, %land.lhs.true286 ], [ %w1276.0, %while.cond277 ], [ %w1276.0, %land.rhs290 ]
-  %v0.3 = phi ptr [ %v0.2.ph495, %lor.lhs.false188.us.lr.ph.split.split ], [ %v0.2.ph495, %while.body155.outer.split.split ], [ %v0.2.ph.lcssa, %while.body155.outer.split.us ], [ %v0.2.ph495, %if.then212.us202.lr.ph ], [ %v0.2.ph495, %if.then212.lr.ph ], [ %v0.2.us193270.us.us479, %if.then212.us202.us.us ], [ %v0.2.us193270.us.us479, %lor.lhs.false238.us215.us.us ], [ %v0.2.us193270.us.us479, %land.lhs.true240.us217.us.us ], [ %v0.2.us193270.us.us479, %if.end202.us197.us.us ], [ %v0.2.us193270.us458, %if.end202.us197.us ], [ %v0.2.us193270.us458, %if.then212.us202.us ], [ %v0.2.us193270.us458, %lor.lhs.false238.us215.us ], [ %v0.2.us193270.us458, %land.lhs.true240.us217.us ], [ %v0.1.lcssa667, %if.end111.thread679 ], [ %v0.1.lcssa667, %land.lhs.true145 ], [ %v0.1.lcssa667, %lor.lhs.false143 ], [ %v0.1.lcssa667, %if.then120 ], [ %cond210.us852, %if.then244.us ], [ %v0.2.us850, %if.then212.us ], [ %v0.2.us850, %lor.lhs.false238.us ], [ %v0.2.us850, %land.lhs.true240.us ], [ %cond210.us200379833, %if.then244.us221 ], [ %cond210.us200379833, %if.then212.us202 ], [ %v0.2.us193270377835, %lor.lhs.false238.us215 ], [ %v0.2.us193270377835, %land.lhs.true240.us217 ], [ %cond210258813, %if.then244 ], [ %v0.2255814, %land.lhs.true240 ], [ %v0.2255814, %lor.lhs.false238 ], [ %cond210258813, %if.then212 ], [ %.us-phi, %land.lhs.true286 ], [ %.us-phi, %while.cond277 ], [ %.us-phi, %land.rhs290 ]
-  %cmp301 = icmp eq i32 %side.0574, 0
-  br i1 %cmp301, label %if.then302, label %for.inc
+if.end300:                                        ; preds = %land.rhs290, %while.cond277, %land.lhs.true286, %if.then244, %land.lhs.true240, %lor.lhs.false238, %if.then212, %if.then244.us218, %if.then212.us199, %lor.lhs.false238.us212, %land.lhs.true240.us214, %if.then244.us, %if.then212.us, %lor.lhs.false238.us, %land.lhs.true240.us, %if.then120, %lor.lhs.false143, %land.lhs.true145, %if.end111, %if.end202.us195.us, %if.then212.us199.us, %lor.lhs.false238.us212.us, %land.lhs.true240.us214.us, %if.then212.lr.ph, %if.then212.us199.lr.ph, %while.body155.outer.split.us, %while.body155.outer.split.split, %lor.lhs.false188.us.lr.ph.split.split
+  %v1.4 = phi ptr [ %v1.3.ph411, %lor.lhs.false188.us.lr.ph.split.split ], [ %v1.3.ph411, %while.body155.outer.split.split ], [ %v1.3.ph.lcssa186, %while.body155.outer.split.us ], [ %v1.3.ph411, %if.then212.us199.lr.ph ], [ %v1.3.ph411, %if.then212.lr.ph ], [ %v1.3.ph411, %land.lhs.true240.us214.us ], [ %v1.3.ph411, %lor.lhs.false238.us212.us ], [ %v1.3.ph411, %if.then212.us199.us ], [ %v1.3.ph411, %if.end202.us195.us ], [ %v1.2.ph, %if.end111 ], [ %v1.2.ph, %land.lhs.true145 ], [ %v1.2.ph, %lor.lhs.false143 ], [ %v1.2.ph, %if.then120 ], [ %v1.3.ph.lcssa186, %land.lhs.true240.us ], [ %v1.3.ph.lcssa186, %lor.lhs.false238.us ], [ %v1.3.ph.lcssa186, %if.then212.us ], [ %v1.3.ph.lcssa186, %if.then244.us ], [ %v1.3.ph411, %land.lhs.true240.us214 ], [ %v1.3.ph411, %lor.lhs.false238.us212 ], [ %v1.3.ph411, %if.then212.us199 ], [ %v1.3.ph411, %if.then244.us218 ], [ %v1.3.ph411, %if.then212 ], [ %v1.3.ph411, %lor.lhs.false238 ], [ %v1.3.ph411, %land.lhs.true240 ], [ %v1.3.ph411, %if.then244 ], [ %w1276.0, %land.lhs.true286 ], [ %w1276.0, %while.cond277 ], [ %w1276.0, %land.rhs290 ]
+  %v0.3 = phi ptr [ %v0.2.ph412, %lor.lhs.false188.us.lr.ph.split.split ], [ %v0.2.ph412, %while.body155.outer.split.split ], [ %v0.2.ph.lcssa, %while.body155.outer.split.us ], [ %v0.2.ph412, %if.then212.us199.lr.ph ], [ %v0.2.ph412, %if.then212.lr.ph ], [ %v0.2.us191266.us397, %land.lhs.true240.us214.us ], [ %v0.2.us191266.us397, %lor.lhs.false238.us212.us ], [ %v0.2.us191266.us397, %if.then212.us199.us ], [ %v0.2.us191266.us397, %if.end202.us195.us ], [ %v0.1.lcssa, %if.end111 ], [ %v0.1.lcssa, %land.lhs.true145 ], [ %v0.1.lcssa, %lor.lhs.false143 ], [ %v0.1.lcssa, %if.then120 ], [ %cond210.us666, %if.then244.us ], [ %v0.2.us664, %if.then212.us ], [ %v0.2.us664, %lor.lhs.false238.us ], [ %v0.2.us664, %land.lhs.true240.us ], [ %cond210.us197373648, %if.then244.us218 ], [ %cond210.us197373648, %if.then212.us199 ], [ %v0.2.us191266371650, %lor.lhs.false238.us212 ], [ %v0.2.us191266371650, %land.lhs.true240.us214 ], [ %cond210254628, %if.then244 ], [ %v0.2251629, %land.lhs.true240 ], [ %v0.2251629, %lor.lhs.false238 ], [ %cond210254628, %if.then212 ], [ %w0254.0, %land.lhs.true286 ], [ %w0254.0, %while.cond277 ], [ %w0254.0, %land.rhs290 ]
+  br i1 %tobool255.not, label %for.body, label %for.end, !llvm.loop !11
 
-if.then302:                                       ; preds = %if.end300
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end300, %if.then302
-  %sign.1 = phi i32 [ -1, %if.then302 ], [ %sign.0575, %if.end300 ]
-  %v10.1 = phi ptr [ %v1.4, %if.then302 ], [ %v10.0584, %if.end300 ]
-  %v00.1 = phi ptr [ %v0.3, %if.then302 ], [ %v00.0585, %if.end300 ]
-  %v1.5 = phi ptr [ %23, %if.then302 ], [ %v1.4, %if.end300 ]
-  %v0.4 = phi ptr [ %22, %if.then302 ], [ %v0.3, %if.end300 ]
-  %inc = add i32 %side.0574, 1
-  %exitcond.not = icmp eq i32 %inc, 2
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
-
-for.end:                                          ; preds = %for.inc
-  %prev306 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v0.4, i64 0, i32 1
-  store ptr %v1.5, ptr %prev306, align 8
-  store ptr %v0.4, ptr %v1.5, align 8
-  store ptr %v10.1, ptr %v00.1, align 8
-  %prev309 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v10.1, i64 0, i32 1
-  store ptr %v00.1, ptr %prev309, align 8
-  %88 = load ptr, ptr %h1, align 8
-  %point311 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %88, i64 0, i32 6
-  %89 = load i32, ptr %point311, align 8
-  %90 = load ptr, ptr %h0, align 8
-  %point314 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %90, i64 0, i32 6
-  %91 = load i32, ptr %point314, align 8
-  %cmp316 = icmp slt i32 %89, %91
+for.end:                                          ; preds = %if.end300
+  %prev306 = getelementptr inbounds i8, ptr %v0.3, i64 8
+  store ptr %v1.4, ptr %prev306, align 8
+  store ptr %v0.3, ptr %v1.4, align 8
+  store ptr %v10.0470, ptr %v00.0471, align 8
+  %prev309 = getelementptr inbounds i8, ptr %v10.0470, i64 8
+  store ptr %v00.0471, ptr %prev309, align 8
+  %78 = load ptr, ptr %h1, align 8
+  %point311 = getelementptr inbounds i8, ptr %78, i64 104
+  %79 = load i32, ptr %point311, align 8
+  %80 = load ptr, ptr %h0, align 8
+  %point314 = getelementptr inbounds i8, ptr %80, i64 104
+  %81 = load i32, ptr %point314, align 8
+  %cmp316 = icmp slt i32 %79, %81
   br i1 %cmp316, label %if.then317, label %if.end320
 
 if.then317:                                       ; preds = %for.end
-  store ptr %88, ptr %h0, align 8
+  store ptr %78, ptr %h0, align 8
   br label %if.end320
 
 if.end320:                                        ; preds = %if.then317, %for.end
-  %92 = load ptr, ptr %maxXy65, align 8
-  %point322 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %92, i64 0, i32 6
-  %93 = load i32, ptr %point322, align 8
-  %94 = load ptr, ptr %maxXy64, align 8
-  %point325 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %94, i64 0, i32 6
-  %95 = load i32, ptr %point325, align 8
-  %cmp327.not = icmp slt i32 %93, %95
+  %82 = load ptr, ptr %maxXy65, align 8
+  %point322 = getelementptr inbounds i8, ptr %82, i64 104
+  %83 = load i32, ptr %point322, align 8
+  %84 = load ptr, ptr %maxXy64, align 8
+  %point325 = getelementptr inbounds i8, ptr %84, i64 104
+  %85 = load i32, ptr %point325, align 8
+  %cmp327.not = icmp slt i32 %83, %85
   br i1 %cmp327.not, label %if.end331, label %if.then328
 
 if.then328:                                       ; preds = %if.end320
-  store ptr %92, ptr %maxXy64, align 8
+  store ptr %82, ptr %maxXy64, align 8
   br label %if.end331
 
 if.end331:                                        ; preds = %if.then328, %if.end320
-  %maxYx332 = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %h1, i64 0, i32 3
-  %96 = load ptr, ptr %maxYx332, align 8
-  store ptr %96, ptr %maxYx, align 8
-  store ptr %v00.1, ptr %c0, align 8
+  %maxYx332 = getelementptr inbounds i8, ptr %h1, i64 24
+  %86 = load ptr, ptr %maxYx332, align 8
+  store ptr %86, ptr %maxYx, align 8
+  store ptr %v00.0471, ptr %c0, align 8
   br label %return
 
 return:                                           ; preds = %if.then9, %if.then10, %if.end331
-  %storemerge = phi ptr [ %v10.1, %if.end331 ], [ %8, %if.then10 ], [ %1, %if.then9 ]
+  %storemerge = phi ptr [ %v10.0470, %if.end331 ], [ %8, %if.then10 ], [ %1, %if.then9 ]
   %retval.0 = phi i1 [ true, %if.end331 ], [ false, %if.then10 ], [ false, %if.then9 ]
   store ptr %storemerge, ptr %c1, align 8
   ret i1 %retval.0
@@ -1683,46 +1507,46 @@ sw.bb:                                            ; preds = %entry
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = sext i32 %start to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
-  %add.ptr = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 1
-  %point = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 0, i32 6
-  %point3 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 1, i32 6
+  %add.ptr = getelementptr inbounds i8, ptr %1, i64 128
+  %point = getelementptr inbounds i8, ptr %1, i64 104
+  %point3 = getelementptr inbounds i8, ptr %1, i64 232
   %2 = load i32, ptr %point, align 4
   %3 = load i32, ptr %point3, align 4
   %cmp.not.i = icmp eq i32 %2, %3
-  %y.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 0, i32 6, i32 1
+  %y.i = getelementptr inbounds i8, ptr %1, i64 108
   %4 = load i32, ptr %y.i, align 4
-  %y3.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 1, i32 6, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %1, i64 236
   %5 = load i32, ptr %y3.i, align 4
   %cmp4.not.i = icmp eq i32 %4, %5
   %6 = select i1 %cmp.not.i, i1 %cmp4.not.i, i1 false
   br i1 %6, label %_ZNK20btConvexHullInternal7Point32neERKS0_.exit, label %if.else
 
 _ZNK20btConvexHullInternal7Point32neERKS0_.exit:  ; preds = %sw.bb2
-  %z.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 0, i32 6, i32 2
+  %z.i = getelementptr inbounds i8, ptr %1, i64 112
   %7 = load i32, ptr %z.i, align 4
-  %z5.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 1, i32 6, i32 2
+  %z5.i = getelementptr inbounds i8, ptr %1, i64 240
   %8 = load i32, ptr %z5.i, align 4
   %cmp6.i.not = icmp eq i32 %7, %8
   br i1 %cmp6.i.not, label %if.end54, label %if.then14
 
 if.then14:                                        ; preds = %_ZNK20btConvexHullInternal7Point32neERKS0_.exit
-  %z = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 0, i32 6, i32 2
+  %z = getelementptr inbounds i8, ptr %1, i64 112
   %9 = load i32, ptr %z, align 8
-  %z17 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 1, i32 6, i32 2
+  %z17 = getelementptr inbounds i8, ptr %1, i64 240
   %10 = load i32, ptr %z17, align 8
   %cmp18 = icmp sgt i32 %9, %10
   %spec.select = select i1 %cmp18, ptr %1, ptr %add.ptr
   %spec.select106 = select i1 %cmp18, ptr %add.ptr, ptr %1
   store ptr %spec.select106, ptr %spec.select106, align 8
-  %prev = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %spec.select106, i64 0, i32 1
+  %prev = getelementptr inbounds i8, ptr %spec.select106, i64 8
   store ptr %spec.select106, ptr %prev, align 8
   store ptr %spec.select106, ptr %result, align 8
-  %maxXy21 = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %result, i64 0, i32 1
+  %maxXy21 = getelementptr inbounds i8, ptr %result, i64 8
   store ptr %spec.select106, ptr %maxXy21, align 8
   br label %if.end51
 
@@ -1730,10 +1554,10 @@ if.else:                                          ; preds = %sw.bb2
   %cmp.not.i.not = xor i1 %cmp.not.i, true
   %cmp4.not.i.mux = select i1 %cmp.not.i.not, i1 %cmp4.not.i, i1 false
   store ptr %add.ptr, ptr %1, align 8
-  %prev25 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 0, i32 1
+  %prev25 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %add.ptr, ptr %prev25, align 8
   store ptr %1, ptr %add.ptr, align 8
-  %prev27 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 1, i32 1
+  %prev27 = getelementptr inbounds i8, ptr %1, i64 136
   store ptr %1, ptr %prev27, align 8
   %cmp28 = icmp slt i32 %2, %3
   %cmp31 = icmp slt i32 %4, %5
@@ -1742,7 +1566,7 @@ if.else:                                          ; preds = %sw.bb2
   %spec.select150 = select i1 %or.cond107, ptr %1, ptr %add.ptr
   %spec.select151 = select i1 %or.cond107, ptr %add.ptr, ptr %1
   store ptr %spec.select150, ptr %result, align 8
-  %11 = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %result, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %result, i64 8
   store ptr %spec.select151, ptr %11, align 8
   %or.cond2 = and i1 %cmp28, %cmp4.not.i.mux
   %or.cond108 = or i1 %or.cond2, %cmp31
@@ -1755,74 +1579,74 @@ if.end51:                                         ; preds = %if.else, %if.then14
   %add.ptr.sink = phi ptr [ %spec.select106, %if.then14 ], [ %add.ptr., %if.else ]
   %w.1 = phi ptr [ %spec.select, %if.then14 ], [ %add.ptr, %if.else ]
   %v.1 = phi ptr [ %spec.select106, %if.then14 ], [ %1, %if.else ]
-  %minYx45 = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %result, i64 0, i32 2
+  %minYx45 = getelementptr inbounds i8, ptr %result, i64 16
   store ptr %.sink, ptr %minYx45, align 8
-  %maxYx46 = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %result, i64 0, i32 3
+  %maxYx46 = getelementptr inbounds i8, ptr %result, i64 24
   store ptr %add.ptr.sink, ptr %maxYx46, align 8
   %call52 = tail call noundef ptr @_ZN20btConvexHullInternal11newEdgePairEPNS_6VertexES1_(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull %v.1, ptr noundef nonnull %w.1)
   store ptr %call52, ptr %call52, align 8
-  %prev.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %call52, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %call52, i64 8
   store ptr %call52, ptr %prev.i, align 8
-  %edges = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v.1, i64 0, i32 2
+  %edges = getelementptr inbounds i8, ptr %v.1, i64 16
   store ptr %call52, ptr %edges, align 8
-  %reverse = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %call52, i64 0, i32 2
+  %reverse = getelementptr inbounds i8, ptr %call52, i64 16
   %12 = load ptr, ptr %reverse, align 8
   store ptr %12, ptr %12, align 8
-  %prev.i109 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %12, i64 0, i32 1
+  %prev.i109 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %12, ptr %prev.i109, align 8
-  %edges53 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %w.1, i64 0, i32 2
+  %edges53 = getelementptr inbounds i8, ptr %w.1, i64 16
   store ptr %12, ptr %edges53, align 8
   br label %return
 
 if.end54:                                         ; preds = %_ZNK20btConvexHullInternal7Point32neERKS0_.exit
-  %edges58 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 0, i32 2
+  %edges58 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr null, ptr %edges58, align 8
   store ptr %1, ptr %1, align 8
-  %prev60 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %1, i64 0, i32 1
+  %prev60 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %1, ptr %prev60, align 8
   store ptr %1, ptr %result, align 8
-  %maxXy62 = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %result, i64 0, i32 1
+  %maxXy62 = getelementptr inbounds i8, ptr %result, i64 8
   store ptr %1, ptr %maxXy62, align 8
-  %minYx63 = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %result, i64 0, i32 2
+  %minYx63 = getelementptr inbounds i8, ptr %result, i64 16
   store ptr %1, ptr %minYx63, align 8
-  %maxYx64 = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %result, i64 0, i32 3
+  %maxYx64 = getelementptr inbounds i8, ptr %result, i64 24
   store ptr %1, ptr %maxYx64, align 8
   br label %return
 
 sw.bb65:                                          ; preds = %entry
-  %m_data.i113 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 5
+  %m_data.i113 = getelementptr inbounds i8, ptr %this, i64 144
   %13 = load ptr, ptr %m_data.i113, align 8
   %idxprom.i114 = sext i32 %start to i64
   %arrayidx.i115 = getelementptr inbounds ptr, ptr %13, i64 %idxprom.i114
   %14 = load ptr, ptr %arrayidx.i115, align 8
-  %edges69 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %14, i64 0, i32 2
+  %edges69 = getelementptr inbounds i8, ptr %14, i64 16
   store ptr null, ptr %edges69, align 8
   store ptr %14, ptr %14, align 8
-  %prev71 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %14, i64 0, i32 1
+  %prev71 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %14, ptr %prev71, align 8
   store ptr %14, ptr %result, align 8
-  %maxXy73 = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %result, i64 0, i32 1
+  %maxXy73 = getelementptr inbounds i8, ptr %result, i64 8
   store ptr %14, ptr %maxXy73, align 8
-  %minYx74 = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %result, i64 0, i32 2
+  %minYx74 = getelementptr inbounds i8, ptr %result, i64 16
   store ptr %14, ptr %minYx74, align 8
-  %maxYx75 = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %result, i64 0, i32 3
+  %maxYx75 = getelementptr inbounds i8, ptr %result, i64 24
   store ptr %14, ptr %maxYx75, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %entry
   %div = sdiv i32 %sub, 2
   %add = add nsw i32 %div, %start
-  %m_data.i116 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 5
+  %m_data.i116 = getelementptr inbounds i8, ptr %this, i64 144
   %15 = load ptr, ptr %m_data.i116, align 8
   %16 = sext i32 %add to i64
   %17 = getelementptr ptr, ptr %15, i64 %16
-  %arrayidx.i118 = getelementptr ptr, ptr %17, i64 -1
+  %arrayidx.i118 = getelementptr i8, ptr %17, i64 -8
   %18 = load ptr, ptr %arrayidx.i118, align 8
-  %point79 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %18, i64 0, i32 6
+  %point79 = getelementptr inbounds i8, ptr %18, i64 104
   %p.sroa.0.0.copyload = load i32, ptr %point79, align 8
-  %p.sroa.2.0.point79.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %18, i64 0, i32 6, i32 1
+  %p.sroa.2.0.point79.sroa_idx = getelementptr inbounds i8, ptr %18, i64 108
   %p.sroa.2.0.copyload = load i32, ptr %p.sroa.2.0.point79.sroa_idx, align 4
-  %p.sroa.3.0.point79.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %18, i64 0, i32 6, i32 2
+  %p.sroa.3.0.point79.sroa_idx = getelementptr inbounds i8, ptr %18, i64 112
   %p.sroa.3.0.copyload = load i32, ptr %p.sroa.3.0.point79.sroa_idx, align 8
   %cmp80134 = icmp slt i32 %add, %end
   br i1 %cmp80134, label %land.rhs.preheader, label %while.end
@@ -1835,19 +1659,19 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %indvars.iv = phi i64 [ %16, %land.rhs.preheader ], [ %indvars.iv.next, %while.body ]
   %arrayidx.i121 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
   %20 = load ptr, ptr %arrayidx.i121, align 8
-  %point83 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %20, i64 0, i32 6
+  %point83 = getelementptr inbounds i8, ptr %20, i64 104
   %21 = load i32, ptr %point83, align 4
   %cmp.i = icmp eq i32 %21, %p.sroa.0.0.copyload
   br i1 %cmp.i, label %land.lhs.true.i, label %while.end.loopexit.split.loop.exit
 
 land.lhs.true.i:                                  ; preds = %land.rhs
-  %y.i122 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %20, i64 0, i32 6, i32 1
+  %y.i122 = getelementptr inbounds i8, ptr %20, i64 108
   %22 = load i32, ptr %y.i122, align 4
   %cmp4.i = icmp eq i32 %22, %p.sroa.2.0.copyload
   br i1 %cmp4.i, label %_ZNK20btConvexHullInternal7Point32eqERKS0_.exit, label %while.end.loopexit.split.loop.exit142
 
 _ZNK20btConvexHullInternal7Point32eqERKS0_.exit:  ; preds = %land.lhs.true.i
-  %z.i124 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %20, i64 0, i32 6, i32 2
+  %z.i124 = getelementptr inbounds i8, ptr %20, i64 112
   %23 = load i32, ptr %z.i124, align 4
   %cmp6.i126 = icmp eq i32 %23, %p.sroa.3.0.copyload
   br i1 %cmp6.i126, label %while.body, label %while.end.loopexit.split.loop.exit146
@@ -1895,13 +1719,13 @@ entry:
   %minCot1 = alloca %"class.btConvexHullInternal::Rational64", align 8
   %e0 = alloca ptr, align 8
   %e1 = alloca ptr, align 8
-  %maxXy = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %h1, i64 0, i32 1
+  %maxXy = getelementptr inbounds i8, ptr %h1, i64 8
   %0 = load ptr, ptr %maxXy, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %maxXy2 = getelementptr inbounds %"class.btConvexHullInternal::IntermediateHull", ptr %h0, i64 0, i32 1
+  %maxXy2 = getelementptr inbounds i8, ptr %h0, i64 8
   %1 = load ptr, ptr %maxXy2, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.then4, label %if.end5
@@ -1911,7 +1735,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %mergeStamp = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 6
+  %mergeStamp = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load i32, ptr %mergeStamp, align 8
   %dec = add nsw i32 %2, -1
   store i32 %dec, ptr %mergeStamp, align 8
@@ -1923,19 +1747,19 @@ if.end5:                                          ; preds = %if.end
 
 if.then6:                                         ; preds = %if.end5
   %4 = load ptr, ptr %c0, align 8
-  %point.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %3, i64 0, i32 6
-  %point2.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %4, i64 0, i32 6
+  %point.i = getelementptr inbounds i8, ptr %3, i64 104
+  %point2.i = getelementptr inbounds i8, ptr %4, i64 104
   %5 = load i32, ptr %point.i, align 4
   %6 = load i32, ptr %point2.i, align 4
   %sub.i.i = sub nsw i32 %5, %6
-  %y.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %3, i64 0, i32 6, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %3, i64 108
   %7 = load i32, ptr %y.i.i, align 4
-  %y3.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %4, i64 0, i32 6, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %4, i64 108
   %8 = load i32, ptr %y3.i.i, align 4
   %sub4.i.i = sub nsw i32 %7, %8
-  %z.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %3, i64 0, i32 6, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %3, i64 112
   %9 = load i32, ptr %z.i.i, align 4
-  %z5.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %4, i64 0, i32 6, i32 2
+  %z5.i.i = getelementptr inbounds i8, ptr %4, i64 112
   %10 = load i32, ptr %z5.i.i, align 4
   %sub6.i.i = sub nsw i32 %9, %10
   %conv2.i = sext i32 %sub6.i.i to i64
@@ -1947,7 +1771,7 @@ if.then6:                                         ; preds = %if.end5
   %mul17.i = mul nsw i64 %mul11.i, %conv10.i
   %mul21.i = mul nsw i64 %conv6.i, %conv6.i
   %sub22.i = sub nsw i64 %mul17.i, %mul21.i
-  %edges = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %4, i64 0, i32 2
+  %edges = getelementptr inbounds i8, ptr %4, i64 16
   %11 = load ptr, ptr %edges, align 8
   store ptr null, ptr %start0, align 8
   %tobool8.not = icmp eq ptr %11, null
@@ -1956,15 +1780,15 @@ if.then6:                                         ; preds = %if.end5
 do.body:                                          ; preds = %if.then6, %if.end25
   %e.0518 = phi ptr [ %e.0517, %if.end25 ], [ null, %if.then6 ]
   %e.0 = phi ptr [ %28, %if.end25 ], [ %11, %if.then6 ]
-  %target = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.0, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %e.0, i64 24
   %12 = load ptr, ptr %target, align 8
-  %point.i116 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %12, i64 0, i32 6
+  %point.i116 = getelementptr inbounds i8, ptr %12, i64 104
   %13 = load i32, ptr %point.i116, align 4
   %sub.i.i118 = sub nsw i32 %13, %6
-  %y.i.i119 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %12, i64 0, i32 6, i32 1
+  %y.i.i119 = getelementptr inbounds i8, ptr %12, i64 108
   %14 = load i32, ptr %y.i.i119, align 4
   %sub4.i.i121 = sub nsw i32 %14, %8
-  %z.i.i122 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %12, i64 0, i32 6, i32 2
+  %z.i.i122 = getelementptr inbounds i8, ptr %12, i64 112
   %15 = load i32, ptr %z.i.i122, align 4
   %conv.i133 = sext i32 %sub.i.i118 to i64
   %conv3.i136 = sext i32 %sub4.i.i121 to i64
@@ -1992,7 +1816,7 @@ if.then18:                                        ; preds = %land.rhs
 lor.rhs:                                          ; preds = %if.then18
   %17 = load ptr, ptr %e.0518, align 8
   %cmp.i = icmp eq ptr %17, %e.0
-  %prev2.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.0518, i64 0, i32 1
+  %prev2.i = getelementptr inbounds i8, ptr %e.0518, i64 8
   %18 = load ptr, ptr %prev2.i, align 8
   %cmp3.i = icmp eq ptr %18, %e.0
   br i1 %cmp.i, label %if.then.i, label %_ZN20btConvexHullInternal14getOrientationEPKNS_4EdgeES2_RKNS_7Point32ES5_.exit
@@ -2001,25 +1825,25 @@ if.then.i:                                        ; preds = %lor.rhs
   br i1 %cmp3.i, label %if.then4.i, label %if.end25
 
 if.then4.i:                                       ; preds = %if.then.i
-  %target.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.0518, i64 0, i32 3
+  %target.i = getelementptr inbounds i8, ptr %e.0518, i64 24
   %19 = load ptr, ptr %target.i, align 8
-  %reverse.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.0, i64 0, i32 2
+  %reverse.i = getelementptr inbounds i8, ptr %e.0, i64 16
   %20 = load ptr, ptr %reverse.i, align 8
-  %target5.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %20, i64 0, i32 3
+  %target5.i = getelementptr inbounds i8, ptr %20, i64 24
   %21 = load ptr, ptr %target5.i, align 8
-  %point.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %19, i64 0, i32 6
-  %point2.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %21, i64 0, i32 6
+  %point.i.i = getelementptr inbounds i8, ptr %19, i64 104
+  %point2.i.i = getelementptr inbounds i8, ptr %21, i64 104
   %22 = load i32, ptr %point.i.i, align 4
   %23 = load i32, ptr %point2.i.i, align 4
   %sub.i.i.i = sub nsw i32 %22, %23
-  %y.i.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %19, i64 0, i32 6, i32 1
+  %y.i.i.i = getelementptr inbounds i8, ptr %19, i64 108
   %24 = load i32, ptr %y.i.i.i, align 4
-  %y3.i.i9.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %21, i64 0, i32 6, i32 1
+  %y3.i.i9.i = getelementptr inbounds i8, ptr %21, i64 108
   %25 = load i32, ptr %y3.i.i9.i, align 4
   %sub4.i.i.i = sub nsw i32 %24, %25
-  %z.i.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %19, i64 0, i32 6, i32 2
+  %z.i.i.i = getelementptr inbounds i8, ptr %19, i64 112
   %26 = load i32, ptr %z.i.i.i, align 4
-  %z5.i.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %21, i64 0, i32 6, i32 2
+  %z5.i.i.i = getelementptr inbounds i8, ptr %21, i64 112
   %27 = load i32, ptr %z5.i.i.i, align 4
   %sub6.i.i.i = sub nsw i32 %26, %27
   %sub.i.i12.i = sub nsw i32 %13, %23
@@ -2062,7 +1886,7 @@ if.end28.loopexit:                                ; preds = %if.end25
 
 if.end28:                                         ; preds = %if.end28.loopexit, %if.then6
   %tobool62 = phi i1 [ %29, %if.end28.loopexit ], [ false, %if.then6 ]
-  %edges29 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %3, i64 0, i32 2
+  %edges29 = getelementptr inbounds i8, ptr %3, i64 16
   %30 = load ptr, ptr %edges29, align 8
   store ptr null, ptr %start1, align 8
   %tobool30.not = icmp eq ptr %30, null
@@ -2071,15 +1895,15 @@ if.end28:                                         ; preds = %if.end28.loopexit, 
 do.body32:                                        ; preds = %if.end28, %if.end55
   %e.1520 = phi ptr [ %e.1519, %if.end55 ], [ null, %if.end28 ]
   %e.1 = phi ptr [ %47, %if.end55 ], [ %30, %if.end28 ]
-  %target35 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.1, i64 0, i32 3
+  %target35 = getelementptr inbounds i8, ptr %e.1, i64 24
   %31 = load ptr, ptr %target35, align 8
-  %point.i177 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %31, i64 0, i32 6
+  %point.i177 = getelementptr inbounds i8, ptr %31, i64 104
   %32 = load i32, ptr %point.i177, align 4
   %sub.i.i179 = sub nsw i32 %32, %5
-  %y.i.i180 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %31, i64 0, i32 6, i32 1
+  %y.i.i180 = getelementptr inbounds i8, ptr %31, i64 108
   %33 = load i32, ptr %y.i.i180, align 4
   %sub4.i.i182 = sub nsw i32 %33, %7
-  %z.i.i183 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %31, i64 0, i32 6, i32 2
+  %z.i.i183 = getelementptr inbounds i8, ptr %31, i64 112
   %34 = load i32, ptr %z.i.i183, align 4
   %conv.i194 = sext i32 %sub.i.i179 to i64
   %conv3.i197 = sext i32 %sub4.i.i182 to i64
@@ -2110,31 +1934,31 @@ lor.rhs48:                                        ; preds = %if.then46
   br i1 %cmp.i238, label %if.then.i244, label %if.end55
 
 if.then.i244:                                     ; preds = %lor.rhs48
-  %prev2.i239 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.1520, i64 0, i32 1
+  %prev2.i239 = getelementptr inbounds i8, ptr %e.1520, i64 8
   %37 = load ptr, ptr %prev2.i239, align 8
   %cmp3.i240 = icmp eq ptr %37, %e.1
   br i1 %cmp3.i240, label %if.then4.i245, label %if.then53
 
 if.then4.i245:                                    ; preds = %if.then.i244
-  %target.i265 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.1520, i64 0, i32 3
+  %target.i265 = getelementptr inbounds i8, ptr %e.1520, i64 24
   %38 = load ptr, ptr %target.i265, align 8
-  %reverse.i266 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.1, i64 0, i32 2
+  %reverse.i266 = getelementptr inbounds i8, ptr %e.1, i64 16
   %39 = load ptr, ptr %reverse.i266, align 8
-  %target5.i267 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %39, i64 0, i32 3
+  %target5.i267 = getelementptr inbounds i8, ptr %39, i64 24
   %40 = load ptr, ptr %target5.i267, align 8
-  %point.i.i268 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %38, i64 0, i32 6
-  %point2.i.i269 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %40, i64 0, i32 6
+  %point.i.i268 = getelementptr inbounds i8, ptr %38, i64 104
+  %point2.i.i269 = getelementptr inbounds i8, ptr %40, i64 104
   %41 = load i32, ptr %point.i.i268, align 4
   %42 = load i32, ptr %point2.i.i269, align 4
   %sub.i.i.i270 = sub nsw i32 %41, %42
-  %y.i.i.i271 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %38, i64 0, i32 6, i32 1
+  %y.i.i.i271 = getelementptr inbounds i8, ptr %38, i64 108
   %43 = load i32, ptr %y.i.i.i271, align 4
-  %y3.i.i9.i272 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %40, i64 0, i32 6, i32 1
+  %y3.i.i9.i272 = getelementptr inbounds i8, ptr %40, i64 108
   %44 = load i32, ptr %y3.i.i9.i272, align 4
   %sub4.i.i.i273 = sub nsw i32 %43, %44
-  %z.i.i.i274 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %38, i64 0, i32 6, i32 2
+  %z.i.i.i274 = getelementptr inbounds i8, ptr %38, i64 112
   %45 = load i32, ptr %z.i.i.i274, align 4
-  %z5.i.i.i275 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %40, i64 0, i32 6, i32 2
+  %z5.i.i.i275 = getelementptr inbounds i8, ptr %40, i64 112
   %46 = load i32, ptr %z5.i.i.i275, align 4
   %sub6.i.i.i276 = sub nsw i32 %45, %46
   %sub.i.i12.i279 = sub nsw i32 %32, %42
@@ -2184,7 +2008,7 @@ if.then64:                                        ; preds = %if.end61
   br i1 %tobool65.not, label %if.end68, label %if.then66
 
 if.then66:                                        ; preds = %if.then64
-  %target67 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %49, i64 0, i32 3
+  %target67 = getelementptr inbounds i8, ptr %49, i64 24
   %50 = load ptr, ptr %target67, align 8
   store ptr %50, ptr %c0, align 8
   br label %if.end68
@@ -2196,12 +2020,12 @@ if.end68:                                         ; preds = %if.then66, %if.then
   br i1 %tobool69.not, label %if.end73, label %if.then70
 
 if.then70:                                        ; preds = %if.end68
-  %target71 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %52, i64 0, i32 3
+  %target71 = getelementptr inbounds i8, ptr %52, i64 24
   %53 = load ptr, ptr %target71, align 8
   store ptr %53, ptr %c1, align 8
-  %point.phi.trans.insert = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %53, i64 0, i32 6
+  %point.phi.trans.insert = getelementptr inbounds i8, ptr %53, i64 104
   %prevPoint.sroa.0.0.copyload.pre = load i32, ptr %point.phi.trans.insert, align 8
-  %prevPoint.sroa.8.0.point.sroa_idx.phi.trans.insert = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %53, i64 0, i32 6, i32 2
+  %prevPoint.sroa.8.0.point.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %53, i64 112
   %prevPoint.sroa.8.0.copyload.pre = load i32, ptr %prevPoint.sroa.8.0.point.sroa_idx.phi.trans.insert, align 8
   br label %if.end73
 
@@ -2214,9 +2038,9 @@ if.end73:                                         ; preds = %if.end68, %if.then7
   br label %if.end76
 
 if.else:                                          ; preds = %if.end5
-  %point74 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %3, i64 0, i32 6
+  %point74 = getelementptr inbounds i8, ptr %3, i64 104
   %prevPoint.sroa.0.0.copyload473 = load i32, ptr %point74, align 8
-  %prevPoint.sroa.8.0.point74.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %3, i64 0, i32 6, i32 2
+  %prevPoint.sroa.8.0.point74.sroa_idx = getelementptr inbounds i8, ptr %3, i64 112
   %prevPoint.sroa.8.0.copyload479 = load i32, ptr %prevPoint.sroa.8.0.point74.sroa_idx, align 8
   %inc75 = add nsw i32 %prevPoint.sroa.0.0.copyload473, 1
   %.pre = load ptr, ptr %c0, align 8
@@ -2227,19 +2051,19 @@ if.end76:                                         ; preds = %if.else, %if.end73
   %prevPoint.sroa.0.0 = phi i32 [ %prevPoint.sroa.0.0.copyload, %if.end73 ], [ %inc75, %if.else ]
   %57 = phi ptr [ %55, %if.end73 ], [ %3, %if.else ]
   %prevPoint.sroa.8.0 = phi i32 [ %inc, %if.end73 ], [ %prevPoint.sroa.8.0.copyload479, %if.else ]
-  %prevPoint.sroa.7.0.in = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %57, i64 0, i32 6, i32 1
+  %prevPoint.sroa.7.0.in = getelementptr inbounds i8, ptr %57, i64 108
   %prevPoint.sroa.7.0 = load i32, ptr %prevPoint.sroa.7.0.in, align 4
-  %58 = getelementptr inbounds { i64, i64 }, ptr %s77, i64 0, i32 1
-  %y3.i.i347 = getelementptr inbounds %"class.btConvexHullInternal::Point64", ptr %rxs, i64 0, i32 1
-  %z4.i.i348 = getelementptr inbounds %"class.btConvexHullInternal::Point64", ptr %rxs, i64 0, i32 2
-  %y3.i.i365 = getelementptr inbounds %"class.btConvexHullInternal::Point64", ptr %sxrxs, i64 0, i32 1
-  %z4.i.i366 = getelementptr inbounds %"class.btConvexHullInternal::Point64", ptr %sxrxs, i64 0, i32 2
-  %sign4.i = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %minCot0, i64 0, i32 2
-  %m_denominator19.i = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %minCot0, i64 0, i32 1
-  %sign4.i369 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %minCot1, i64 0, i32 2
-  %m_denominator19.i370 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %minCot1, i64 0, i32 1
-  %freeObjects.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 3, i32 2
-  %usedEdgePairs.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 10
+  %58 = getelementptr inbounds i8, ptr %s77, i64 8
+  %y3.i.i347 = getelementptr inbounds i8, ptr %rxs, i64 8
+  %z4.i.i348 = getelementptr inbounds i8, ptr %rxs, i64 16
+  %y3.i.i365 = getelementptr inbounds i8, ptr %sxrxs, i64 8
+  %z4.i.i366 = getelementptr inbounds i8, ptr %sxrxs, i64 16
+  %sign4.i = getelementptr inbounds i8, ptr %minCot0, i64 16
+  %m_denominator19.i = getelementptr inbounds i8, ptr %minCot0, i64 8
+  %sign4.i369 = getelementptr inbounds i8, ptr %minCot1, i64 16
+  %m_denominator19.i370 = getelementptr inbounds i8, ptr %minCot1, i64 8
+  %freeObjects.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %usedEdgePairs.i = getelementptr inbounds i8, ptr %this, i64 176
   br label %while.body
 
 while.body:                                       ; preds = %if.end184, %if.end76
@@ -2257,19 +2081,19 @@ while.body:                                       ; preds = %if.end184, %if.end7
   %pendingHead0.0 = phi ptr [ null, %if.end76 ], [ %pendingHead0.4, %if.end184 ]
   %firstNew0.0 = phi ptr [ null, %if.end76 ], [ %firstNew0.3, %if.end184 ]
   %toPrev0.0 = phi ptr [ null, %if.end76 ], [ %toPrev0.1, %if.end184 ]
-  %point.i307 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %60, i64 0, i32 6
-  %point2.i308 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %59, i64 0, i32 6
+  %point.i307 = getelementptr inbounds i8, ptr %60, i64 104
+  %point2.i308 = getelementptr inbounds i8, ptr %59, i64 104
   %61 = load i32, ptr %point.i307, align 4
   %62 = load i32, ptr %point2.i308, align 4
   %sub.i.i309 = sub nsw i32 %61, %62
-  %y.i.i310 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %60, i64 0, i32 6, i32 1
+  %y.i.i310 = getelementptr inbounds i8, ptr %60, i64 108
   %63 = load i32, ptr %y.i.i310, align 4
-  %y3.i.i311 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %59, i64 0, i32 6, i32 1
+  %y3.i.i311 = getelementptr inbounds i8, ptr %59, i64 108
   %64 = load i32, ptr %y3.i.i311, align 4
   %sub4.i.i312 = sub nsw i32 %63, %64
-  %z.i.i313 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %60, i64 0, i32 6, i32 2
+  %z.i.i313 = getelementptr inbounds i8, ptr %60, i64 112
   %65 = load i32, ptr %z.i.i313, align 4
-  %z5.i.i314 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %59, i64 0, i32 6, i32 2
+  %z5.i.i314 = getelementptr inbounds i8, ptr %59, i64 112
   %66 = load i32, ptr %z5.i.i314, align 4
   %sub6.i.i315 = sub nsw i32 %65, %66
   %retval.sroa.2.0.insert.ext.i.i316 = zext i32 %sub4.i.i312 to i64
@@ -2325,16 +2149,16 @@ while.body:                                       ; preds = %if.end184, %if.end7
 if.then85:                                        ; preds = %while.body
   %call87 = tail call noundef ptr @_ZN20btConvexHullInternal11newEdgePairEPNS_6VertexES1_(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull %59, ptr noundef nonnull %60)
   store ptr %call87, ptr %call87, align 8
-  %prev.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %call87, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %call87, i64 8
   store ptr %call87, ptr %prev.i, align 8
-  %edges88 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %59, i64 0, i32 2
+  %edges88 = getelementptr inbounds i8, ptr %59, i64 16
   store ptr %call87, ptr %edges88, align 8
-  %reverse = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %call87, i64 0, i32 2
+  %reverse = getelementptr inbounds i8, ptr %call87, i64 16
   %67 = load ptr, ptr %reverse, align 8
   store ptr %67, ptr %67, align 8
-  %prev.i371 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %67, i64 0, i32 1
+  %prev.i371 = getelementptr inbounds i8, ptr %67, i64 8
   store ptr %67, ptr %prev.i371, align 8
-  %edges89 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %60, i64 0, i32 2
+  %edges89 = getelementptr inbounds i8, ptr %60, i64 16
   store ptr %67, ptr %edges89, align 8
   br label %return
 
@@ -2382,14 +2206,14 @@ if.then106:                                       ; preds = %cond.false104, %con
   br i1 %tobool109.not, label %if.end112, label %if.then110
 
 if.then110:                                       ; preds = %if.then106
-  %prev = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %pendingTail0.0, i64 0, i32 1
+  %prev = getelementptr inbounds i8, ptr %pendingTail0.0, i64 8
   store ptr %call108, ptr %prev, align 8
   br label %if.end112
 
 if.end112:                                        ; preds = %if.then106, %if.then110
   %pendingHead0.1 = phi ptr [ %pendingHead0.0, %if.then110 ], [ %call108, %if.then106 ]
   store ptr %pendingTail0.0, ptr %call108, align 8
-  %reverse114 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %call108, i64 0, i32 2
+  %reverse114 = getelementptr inbounds i8, ptr %call108, i64 16
   %74 = load ptr, ptr %reverse114, align 8
   %tobool115.not = icmp eq ptr %pendingTail1.0, null
   br i1 %tobool115.not, label %if.end119, label %if.then116
@@ -2400,7 +2224,7 @@ if.then116:                                       ; preds = %if.end112
 
 if.end119:                                        ; preds = %if.end112, %if.then116
   %pendingHead1.1 = phi ptr [ %pendingHead1.0, %if.then116 ], [ %74, %if.end112 ]
-  %prev120 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %74, i64 0, i32 1
+  %prev120 = getelementptr inbounds i8, ptr %74, i64 8
   store ptr %pendingTail1.0, ptr %prev120, align 8
   br label %if.end121
 
@@ -2440,42 +2264,42 @@ if.then130:                                       ; preds = %if.then128
 for.body:                                         ; preds = %if.then130, %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit
   %e131.0522 = phi ptr [ %79, %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit ], [ %78, %if.then130 ]
   %79 = load ptr, ptr %e131.0522, align 8
-  %reverse.i377 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e131.0522, i64 0, i32 2
+  %reverse.i377 = getelementptr inbounds i8, ptr %e131.0522, i64 16
   %80 = load ptr, ptr %reverse.i377, align 8
   %cmp.not.i = icmp eq ptr %79, %e131.0522
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i378
 
 if.then.i378:                                     ; preds = %for.body
-  %prev.i379 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e131.0522, i64 0, i32 1
+  %prev.i379 = getelementptr inbounds i8, ptr %e131.0522, i64 8
   %81 = load ptr, ptr %prev.i379, align 8
-  %prev2.i380 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %79, i64 0, i32 1
+  %prev2.i380 = getelementptr inbounds i8, ptr %79, i64 8
   store ptr %81, ptr %prev2.i380, align 8
   store ptr %79, ptr %81, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i378, %for.body
   %.sink.i = phi ptr [ %79, %if.then.i378 ], [ null, %for.body ]
-  %target5.i381 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %80, i64 0, i32 3
+  %target5.i381 = getelementptr inbounds i8, ptr %80, i64 24
   %82 = load ptr, ptr %target5.i381, align 8
-  %edges6.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %82, i64 0, i32 2
+  %edges6.i = getelementptr inbounds i8, ptr %82, i64 16
   store ptr %.sink.i, ptr %edges6.i, align 8
   %83 = load ptr, ptr %80, align 8
   %cmp8.not.i = icmp eq ptr %83, %80
   br i1 %cmp8.not.i, label %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i
-  %prev10.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %80, i64 0, i32 1
+  %prev10.i = getelementptr inbounds i8, ptr %80, i64 8
   %84 = load ptr, ptr %prev10.i, align 8
-  %prev11.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %83, i64 0, i32 1
+  %prev11.i = getelementptr inbounds i8, ptr %83, i64 8
   store ptr %84, ptr %prev11.i, align 8
   store ptr %83, ptr %84, align 8
   br label %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit
 
 _ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit: ; preds = %if.end.i, %if.then9.i
   %.sink25.i = phi ptr [ %83, %if.then9.i ], [ null, %if.end.i ]
-  %target17.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e131.0522, i64 0, i32 3
+  %target17.i = getelementptr inbounds i8, ptr %e131.0522, i64 24
   %85 = load ptr, ptr %target17.i, align 8
-  %edges18.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %85, i64 0, i32 2
+  %edges18.i = getelementptr inbounds i8, ptr %85, i64 16
   store ptr %.sink25.i, ptr %edges18.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %e131.0522, i8 0, i64 40, i1 false)
   %86 = load ptr, ptr %freeObjects.i.i, align 8
@@ -2500,7 +2324,7 @@ if.end135.thread:                                 ; preds = %if.then128
   br i1 %tobool136.not512, label %if.end147, label %if.else140
 
 if.else140:                                       ; preds = %if.end135.thread
-  %prev141 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %call82, i64 0, i32 1
+  %prev141 = getelementptr inbounds i8, ptr %call82, i64 8
   %89 = load ptr, ptr %prev141, align 8
   br label %if.end142
 
@@ -2508,10 +2332,10 @@ if.end142:                                        ; preds = %if.end135, %if.else
   %.sink541 = phi ptr [ %89, %if.else140 ], [ %toPrev1.0, %if.end135 ]
   %firstNew1.1 = phi ptr [ %pendingHead1.2, %if.else140 ], [ %firstNew1.0, %if.end135 ]
   store ptr %pendingHead1.2, ptr %.sink541, align 8
-  %prev.i383 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %pendingHead1.2, i64 0, i32 1
+  %prev.i383 = getelementptr inbounds i8, ptr %pendingHead1.2, i64 8
   store ptr %.sink541, ptr %prev.i383, align 8
   store ptr %call82, ptr %pendingTail1.1, align 8
-  %prev.i384 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %call82, i64 0, i32 1
+  %prev.i384 = getelementptr inbounds i8, ptr %call82, i64 8
   store ptr %pendingTail1.1, ptr %prev.i384, align 8
   %.pre535 = load ptr, ptr %e1, align 8
   br label %if.end147
@@ -2521,16 +2345,16 @@ if.end147:                                        ; preds = %if.end135, %if.end1
   %pendingHead1.3 = phi ptr [ null, %if.end142 ], [ %pendingHead1.2, %if.end135.thread ], [ %pendingHead1.2, %if.end135 ]
   %firstNew1.2 = phi ptr [ %firstNew1.1, %if.end142 ], [ %call82, %if.end135.thread ], [ %firstNew1.0, %if.end135 ]
   %91 = load ptr, ptr %c1, align 8
-  %point148 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %91, i64 0, i32 6
+  %point148 = getelementptr inbounds i8, ptr %91, i64 104
   %prevPoint.sroa.0.0.copyload474 = load i32, ptr %point148, align 8
-  %prevPoint.sroa.7.0.point148.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %91, i64 0, i32 6, i32 1
+  %prevPoint.sroa.7.0.point148.sroa_idx = getelementptr inbounds i8, ptr %91, i64 108
   %prevPoint.sroa.7.0.copyload477 = load i32, ptr %prevPoint.sroa.7.0.point148.sroa_idx, align 4
-  %prevPoint.sroa.8.0.point148.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %91, i64 0, i32 6, i32 2
+  %prevPoint.sroa.8.0.point148.sroa_idx = getelementptr inbounds i8, ptr %91, i64 112
   %prevPoint.sroa.8.0.copyload480 = load i32, ptr %prevPoint.sroa.8.0.point148.sroa_idx, align 8
-  %target149 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %90, i64 0, i32 3
+  %target149 = getelementptr inbounds i8, ptr %90, i64 24
   %92 = load ptr, ptr %target149, align 8
   store ptr %92, ptr %c1, align 8
-  %reverse150 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %90, i64 0, i32 2
+  %reverse150 = getelementptr inbounds i8, ptr %90, i64 16
   %93 = load ptr, ptr %reverse150, align 8
   br label %if.end151
 
@@ -2559,50 +2383,50 @@ if.then155:                                       ; preds = %if.end151
   br i1 %tobool156.not, label %if.end167.thread, label %if.then157
 
 if.then157:                                       ; preds = %if.then155
-  %prev159 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %toPrev0.0, i64 0, i32 1
+  %prev159 = getelementptr inbounds i8, ptr %toPrev0.0, i64 8
   %95 = load ptr, ptr %prev159, align 8
   %cmp162.not523 = icmp eq ptr %95, %call81
   br i1 %cmp162.not523, label %if.end167, label %for.body163
 
 for.body163:                                      ; preds = %if.then157, %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit404
   %e158.0524 = phi ptr [ %96, %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit404 ], [ %95, %if.then157 ]
-  %prev164 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e158.0524, i64 0, i32 1
+  %prev164 = getelementptr inbounds i8, ptr %e158.0524, i64 8
   %96 = load ptr, ptr %prev164, align 8
   %97 = load ptr, ptr %e158.0524, align 8
-  %reverse.i385 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e158.0524, i64 0, i32 2
+  %reverse.i385 = getelementptr inbounds i8, ptr %e158.0524, i64 16
   %98 = load ptr, ptr %reverse.i385, align 8
   %cmp.not.i386 = icmp eq ptr %97, %e158.0524
   br i1 %cmp.not.i386, label %if.end.i390, label %if.then.i387
 
 if.then.i387:                                     ; preds = %for.body163
-  %prev2.i389 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %97, i64 0, i32 1
+  %prev2.i389 = getelementptr inbounds i8, ptr %97, i64 8
   store ptr %96, ptr %prev2.i389, align 8
   store ptr %97, ptr %96, align 8
   br label %if.end.i390
 
 if.end.i390:                                      ; preds = %if.then.i387, %for.body163
   %.sink.i391 = phi ptr [ %97, %if.then.i387 ], [ null, %for.body163 ]
-  %target5.i392 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %98, i64 0, i32 3
+  %target5.i392 = getelementptr inbounds i8, ptr %98, i64 24
   %99 = load ptr, ptr %target5.i392, align 8
-  %edges6.i393 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %99, i64 0, i32 2
+  %edges6.i393 = getelementptr inbounds i8, ptr %99, i64 16
   store ptr %.sink.i391, ptr %edges6.i393, align 8
   %100 = load ptr, ptr %98, align 8
   %cmp8.not.i394 = icmp eq ptr %100, %98
   br i1 %cmp8.not.i394, label %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit404, label %if.then9.i395
 
 if.then9.i395:                                    ; preds = %if.end.i390
-  %prev10.i396 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %98, i64 0, i32 1
+  %prev10.i396 = getelementptr inbounds i8, ptr %98, i64 8
   %101 = load ptr, ptr %prev10.i396, align 8
-  %prev11.i397 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %100, i64 0, i32 1
+  %prev11.i397 = getelementptr inbounds i8, ptr %100, i64 8
   store ptr %101, ptr %prev11.i397, align 8
   store ptr %100, ptr %101, align 8
   br label %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit404
 
 _ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit404: ; preds = %if.end.i390, %if.then9.i395
   %.sink25.i398 = phi ptr [ %100, %if.then9.i395 ], [ null, %if.end.i390 ]
-  %target17.i399 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e158.0524, i64 0, i32 3
+  %target17.i399 = getelementptr inbounds i8, ptr %e158.0524, i64 24
   %102 = load ptr, ptr %target17.i399, align 8
-  %edges18.i400 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %102, i64 0, i32 2
+  %edges18.i400 = getelementptr inbounds i8, ptr %102, i64 16
   store ptr %.sink25.i398, ptr %edges18.i400, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %e158.0524, i8 0, i64 40, i1 false)
   %103 = load ptr, ptr %freeObjects.i.i, align 8
@@ -2633,7 +2457,7 @@ if.then169:                                       ; preds = %if.end167
 if.else172:                                       ; preds = %if.end167.thread
   %106 = load ptr, ptr %call81, align 8
   store ptr %106, ptr %pendingHead0.2502510, align 8
-  %prev.i406 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %106, i64 0, i32 1
+  %prev.i406 = getelementptr inbounds i8, ptr %106, i64 8
   br label %if.end174
 
 if.end174:                                        ; preds = %if.else172, %if.then169
@@ -2641,7 +2465,7 @@ if.end174:                                        ; preds = %if.else172, %if.the
   %firstNew0.1 = phi ptr [ %pendingHead0.2502510, %if.else172 ], [ %firstNew0.0, %if.then169 ]
   store ptr %pendingHead0.2502510, ptr %prev.i406.sink, align 8
   store ptr %pendingTail0.1501511, ptr %call81, align 8
-  %prev.i407 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %pendingTail0.1501511, i64 0, i32 1
+  %prev.i407 = getelementptr inbounds i8, ptr %pendingTail0.1501511, i64 8
   store ptr %call81, ptr %prev.i407, align 8
   %.pre536 = load ptr, ptr %e0, align 8
   br label %if.end179
@@ -2651,16 +2475,16 @@ if.end179:                                        ; preds = %if.end167, %if.end1
   %pendingHead0.3 = phi ptr [ null, %if.end174 ], [ %pendingHead0.2502510, %if.end167.thread ], [ %pendingHead0.2502510, %if.end167 ]
   %firstNew0.2 = phi ptr [ %firstNew0.1, %if.end174 ], [ %call81, %if.end167.thread ], [ %firstNew0.0, %if.end167 ]
   %108 = load ptr, ptr %c0, align 8
-  %point180 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %108, i64 0, i32 6
+  %point180 = getelementptr inbounds i8, ptr %108, i64 104
   %prevPoint.sroa.0.0.copyload475 = load i32, ptr %point180, align 8
-  %prevPoint.sroa.7.0.point180.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %108, i64 0, i32 6, i32 1
+  %prevPoint.sroa.7.0.point180.sroa_idx = getelementptr inbounds i8, ptr %108, i64 108
   %prevPoint.sroa.7.0.copyload478 = load i32, ptr %prevPoint.sroa.7.0.point180.sroa_idx, align 4
-  %prevPoint.sroa.8.0.point180.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %108, i64 0, i32 6, i32 2
+  %prevPoint.sroa.8.0.point180.sroa_idx = getelementptr inbounds i8, ptr %108, i64 112
   %prevPoint.sroa.8.0.copyload481 = load i32, ptr %prevPoint.sroa.8.0.point180.sroa_idx, align 8
-  %target181 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %107, i64 0, i32 3
+  %target181 = getelementptr inbounds i8, ptr %107, i64 24
   %109 = load ptr, ptr %target181, align 8
   store ptr %109, ptr %c0, align 8
-  %reverse182 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %107, i64 0, i32 2
+  %reverse182 = getelementptr inbounds i8, ptr %107, i64 16
   %110 = load ptr, ptr %reverse182, align 8
   br label %if.end184
 
@@ -2685,58 +2509,58 @@ if.then188:                                       ; preds = %if.end184
 
 if.then190:                                       ; preds = %if.then188
   store ptr %pendingTail0.3, ptr %pendingHead0.4, align 8
-  %prev.i408 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %pendingTail0.3, i64 0, i32 1
+  %prev.i408 = getelementptr inbounds i8, ptr %pendingTail0.3, i64 8
   store ptr %pendingHead0.4, ptr %prev.i408, align 8
   %113 = load ptr, ptr %c0, align 8
-  %edges191 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %113, i64 0, i32 2
+  %edges191 = getelementptr inbounds i8, ptr %113, i64 16
   store ptr %pendingTail0.3, ptr %edges191, align 8
   br label %if.end205
 
 if.else192:                                       ; preds = %if.then188
-  %prev194 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %toPrev0.1, i64 0, i32 1
+  %prev194 = getelementptr inbounds i8, ptr %toPrev0.1, i64 8
   %114 = load ptr, ptr %prev194, align 8
   %cmp197.not525 = icmp eq ptr %114, %firstNew0.3
   br i1 %cmp197.not525, label %for.end201, label %for.body198
 
 for.body198:                                      ; preds = %if.else192, %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit428
   %e193.0526 = phi ptr [ %115, %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit428 ], [ %114, %if.else192 ]
-  %prev199 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e193.0526, i64 0, i32 1
+  %prev199 = getelementptr inbounds i8, ptr %e193.0526, i64 8
   %115 = load ptr, ptr %prev199, align 8
   %116 = load ptr, ptr %e193.0526, align 8
-  %reverse.i409 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e193.0526, i64 0, i32 2
+  %reverse.i409 = getelementptr inbounds i8, ptr %e193.0526, i64 16
   %117 = load ptr, ptr %reverse.i409, align 8
   %cmp.not.i410 = icmp eq ptr %116, %e193.0526
   br i1 %cmp.not.i410, label %if.end.i414, label %if.then.i411
 
 if.then.i411:                                     ; preds = %for.body198
-  %prev2.i413 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %116, i64 0, i32 1
+  %prev2.i413 = getelementptr inbounds i8, ptr %116, i64 8
   store ptr %115, ptr %prev2.i413, align 8
   store ptr %116, ptr %115, align 8
   br label %if.end.i414
 
 if.end.i414:                                      ; preds = %if.then.i411, %for.body198
   %.sink.i415 = phi ptr [ %116, %if.then.i411 ], [ null, %for.body198 ]
-  %target5.i416 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %117, i64 0, i32 3
+  %target5.i416 = getelementptr inbounds i8, ptr %117, i64 24
   %118 = load ptr, ptr %target5.i416, align 8
-  %edges6.i417 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %118, i64 0, i32 2
+  %edges6.i417 = getelementptr inbounds i8, ptr %118, i64 16
   store ptr %.sink.i415, ptr %edges6.i417, align 8
   %119 = load ptr, ptr %117, align 8
   %cmp8.not.i418 = icmp eq ptr %119, %117
   br i1 %cmp8.not.i418, label %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit428, label %if.then9.i419
 
 if.then9.i419:                                    ; preds = %if.end.i414
-  %prev10.i420 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %117, i64 0, i32 1
+  %prev10.i420 = getelementptr inbounds i8, ptr %117, i64 8
   %120 = load ptr, ptr %prev10.i420, align 8
-  %prev11.i421 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %119, i64 0, i32 1
+  %prev11.i421 = getelementptr inbounds i8, ptr %119, i64 8
   store ptr %120, ptr %prev11.i421, align 8
   store ptr %119, ptr %120, align 8
   br label %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit428
 
 _ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit428: ; preds = %if.end.i414, %if.then9.i419
   %.sink25.i422 = phi ptr [ %119, %if.then9.i419 ], [ null, %if.end.i414 ]
-  %target17.i423 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e193.0526, i64 0, i32 3
+  %target17.i423 = getelementptr inbounds i8, ptr %e193.0526, i64 24
   %121 = load ptr, ptr %target17.i423, align 8
-  %edges18.i424 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %121, i64 0, i32 2
+  %edges18.i424 = getelementptr inbounds i8, ptr %121, i64 16
   store ptr %.sink25.i422, ptr %edges18.i424, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %e193.0526, i8 0, i64 40, i1 false)
   %122 = load ptr, ptr %freeObjects.i.i, align 8
@@ -2760,7 +2584,7 @@ if.then203:                                       ; preds = %for.end201
   store ptr %toPrev0.1, ptr %pendingHead0.4, align 8
   store ptr %pendingHead0.4, ptr %prev194, align 8
   store ptr %pendingTail0.3, ptr %firstNew0.3, align 8
-  %prev.i430 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %pendingTail0.3, i64 0, i32 1
+  %prev.i430 = getelementptr inbounds i8, ptr %pendingTail0.3, i64 8
   store ptr %firstNew0.3, ptr %prev.i430, align 8
   br label %if.end205
 
@@ -2770,10 +2594,10 @@ if.end205:                                        ; preds = %for.end201, %if.the
 
 if.then207:                                       ; preds = %if.end205
   store ptr %pendingHead1.4, ptr %pendingTail1.3, align 8
-  %prev.i431 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %pendingHead1.4, i64 0, i32 1
+  %prev.i431 = getelementptr inbounds i8, ptr %pendingHead1.4, i64 8
   store ptr %pendingTail1.3, ptr %prev.i431, align 8
   %125 = load ptr, ptr %c1, align 8
-  %edges208 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %125, i64 0, i32 2
+  %edges208 = getelementptr inbounds i8, ptr %125, i64 16
   store ptr %pendingTail1.3, ptr %edges208, align 8
   br label %return
 
@@ -2785,42 +2609,42 @@ if.else209:                                       ; preds = %if.end205
 for.body215:                                      ; preds = %if.else209, %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit451
   %e210.0528 = phi ptr [ %127, %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit451 ], [ %126, %if.else209 ]
   %127 = load ptr, ptr %e210.0528, align 8
-  %reverse.i432 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e210.0528, i64 0, i32 2
+  %reverse.i432 = getelementptr inbounds i8, ptr %e210.0528, i64 16
   %128 = load ptr, ptr %reverse.i432, align 8
   %cmp.not.i433 = icmp eq ptr %127, %e210.0528
   br i1 %cmp.not.i433, label %if.end.i437, label %if.then.i434
 
 if.then.i434:                                     ; preds = %for.body215
-  %prev.i435 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e210.0528, i64 0, i32 1
+  %prev.i435 = getelementptr inbounds i8, ptr %e210.0528, i64 8
   %129 = load ptr, ptr %prev.i435, align 8
-  %prev2.i436 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %127, i64 0, i32 1
+  %prev2.i436 = getelementptr inbounds i8, ptr %127, i64 8
   store ptr %129, ptr %prev2.i436, align 8
   store ptr %127, ptr %129, align 8
   br label %if.end.i437
 
 if.end.i437:                                      ; preds = %if.then.i434, %for.body215
   %.sink.i438 = phi ptr [ %127, %if.then.i434 ], [ null, %for.body215 ]
-  %target5.i439 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %128, i64 0, i32 3
+  %target5.i439 = getelementptr inbounds i8, ptr %128, i64 24
   %130 = load ptr, ptr %target5.i439, align 8
-  %edges6.i440 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %130, i64 0, i32 2
+  %edges6.i440 = getelementptr inbounds i8, ptr %130, i64 16
   store ptr %.sink.i438, ptr %edges6.i440, align 8
   %131 = load ptr, ptr %128, align 8
   %cmp8.not.i441 = icmp eq ptr %131, %128
   br i1 %cmp8.not.i441, label %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit451, label %if.then9.i442
 
 if.then9.i442:                                    ; preds = %if.end.i437
-  %prev10.i443 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %128, i64 0, i32 1
+  %prev10.i443 = getelementptr inbounds i8, ptr %128, i64 8
   %132 = load ptr, ptr %prev10.i443, align 8
-  %prev11.i444 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %131, i64 0, i32 1
+  %prev11.i444 = getelementptr inbounds i8, ptr %131, i64 8
   store ptr %132, ptr %prev11.i444, align 8
   store ptr %131, ptr %132, align 8
   br label %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit451
 
 _ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit451: ; preds = %if.end.i437, %if.then9.i442
   %.sink25.i445 = phi ptr [ %131, %if.then9.i442 ], [ null, %if.end.i437 ]
-  %target17.i446 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e210.0528, i64 0, i32 3
+  %target17.i446 = getelementptr inbounds i8, ptr %e210.0528, i64 24
   %133 = load ptr, ptr %target17.i446, align 8
-  %edges18.i447 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %133, i64 0, i32 2
+  %edges18.i447 = getelementptr inbounds i8, ptr %133, i64 16
   store ptr %.sink25.i445, ptr %edges18.i447, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %e210.0528, i8 0, i64 40, i1 false)
   %134 = load ptr, ptr %freeObjects.i.i, align 8
@@ -2842,10 +2666,10 @@ for.end218:                                       ; preds = %_ZN20btConvexHullIn
 
 if.then220:                                       ; preds = %for.end218
   store ptr %pendingHead1.4, ptr %toPrev1.1, align 8
-  %prev.i452 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %pendingHead1.4, i64 0, i32 1
+  %prev.i452 = getelementptr inbounds i8, ptr %pendingHead1.4, i64 8
   store ptr %toPrev1.1, ptr %prev.i452, align 8
   store ptr %firstNew1.3, ptr %pendingTail1.3, align 8
-  %prev.i453 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %firstNew1.3, i64 0, i32 1
+  %prev.i453 = getelementptr inbounds i8, ptr %firstNew1.3, i64 8
   store ptr %pendingTail1.3, ptr %prev.i453, align 8
   br label %return
 
@@ -2858,7 +2682,7 @@ define dso_local noundef i32 @_ZN20btConvexHullInternal14getOrientationEPKNS_4Ed
 entry:
   %0 = load ptr, ptr %prev, align 8
   %cmp = icmp eq ptr %0, %next
-  %prev2 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %prev, i64 0, i32 1
+  %prev2 = getelementptr inbounds i8, ptr %prev, i64 8
   %1 = load ptr, ptr %prev2, align 8
   %cmp3 = icmp eq ptr %1, %next
   br i1 %cmp, label %if.then, label %if.else
@@ -2867,17 +2691,17 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.then
-  %y.i = getelementptr inbounds %"class.btConvexHullInternal::Point32", ptr %t, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %t, i64 4
   %2 = load i32, ptr %y.i, align 4, !noalias !26
   %conv.i = sext i32 %2 to i64
-  %z.i = getelementptr inbounds %"class.btConvexHullInternal::Point32", ptr %s, i64 0, i32 2
+  %z.i = getelementptr inbounds i8, ptr %s, i64 8
   %3 = load i32, ptr %z.i, align 4, !noalias !26
   %conv2.i = sext i32 %3 to i64
   %mul.i = mul nsw i64 %conv2.i, %conv.i
-  %z3.i = getelementptr inbounds %"class.btConvexHullInternal::Point32", ptr %t, i64 0, i32 2
+  %z3.i = getelementptr inbounds i8, ptr %t, i64 8
   %4 = load i32, ptr %z3.i, align 4, !noalias !26
   %conv4.i = sext i32 %4 to i64
-  %y5.i = getelementptr inbounds %"class.btConvexHullInternal::Point32", ptr %s, i64 0, i32 1
+  %y5.i = getelementptr inbounds i8, ptr %s, i64 4
   %5 = load i32, ptr %y5.i, align 4, !noalias !26
   %conv6.i = sext i32 %5 to i64
   %mul7.i = mul nsw i64 %conv6.i, %conv4.i
@@ -2892,36 +2716,36 @@ if.then4:                                         ; preds = %if.then
   %mul22.i = mul nsw i64 %conv13.i, %conv6.i
   %mul27.i = mul nsw i64 %conv10.i, %conv.i
   %sub28.i = sub nsw i64 %mul22.i, %mul27.i
-  %target = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %prev, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %prev, i64 24
   %8 = load ptr, ptr %target, align 8
-  %reverse = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %next, i64 0, i32 2
+  %reverse = getelementptr inbounds i8, ptr %next, i64 16
   %9 = load ptr, ptr %reverse, align 8
-  %target5 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %9, i64 0, i32 3
+  %target5 = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %target5, align 8
-  %point.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %8, i64 0, i32 6
-  %point2.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %10, i64 0, i32 6
+  %point.i = getelementptr inbounds i8, ptr %8, i64 104
+  %point2.i = getelementptr inbounds i8, ptr %10, i64 104
   %11 = load i32, ptr %point.i, align 4
   %12 = load i32, ptr %point2.i, align 4
   %sub.i.i = sub nsw i32 %11, %12
-  %y.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %8, i64 0, i32 6, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %8, i64 108
   %13 = load i32, ptr %y.i.i, align 4
-  %y3.i.i9 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %10, i64 0, i32 6, i32 1
+  %y3.i.i9 = getelementptr inbounds i8, ptr %10, i64 108
   %14 = load i32, ptr %y3.i.i9, align 4
   %sub4.i.i = sub nsw i32 %13, %14
-  %z.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %8, i64 0, i32 6, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %15 = load i32, ptr %z.i.i, align 4
-  %z5.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %10, i64 0, i32 6, i32 2
+  %z5.i.i = getelementptr inbounds i8, ptr %10, i64 112
   %16 = load i32, ptr %z5.i.i, align 4
   %sub6.i.i = sub nsw i32 %15, %16
-  %target7 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %next, i64 0, i32 3
+  %target7 = getelementptr inbounds i8, ptr %next, i64 24
   %17 = load ptr, ptr %target7, align 8
-  %point.i10 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %17, i64 0, i32 6
+  %point.i10 = getelementptr inbounds i8, ptr %17, i64 104
   %18 = load i32, ptr %point.i10, align 4
   %sub.i.i12 = sub nsw i32 %18, %12
-  %y.i.i13 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %17, i64 0, i32 6, i32 1
+  %y.i.i13 = getelementptr inbounds i8, ptr %17, i64 108
   %19 = load i32, ptr %y.i.i13, align 4
   %sub4.i.i15 = sub nsw i32 %19, %14
-  %z.i.i16 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %17, i64 0, i32 6, i32 2
+  %z.i.i16 = getelementptr inbounds i8, ptr %17, i64 112
   %20 = load i32, ptr %z.i.i16, align 4
   %sub6.i.i18 = sub nsw i32 %20, %16
   %conv.i28 = sext i32 %sub4.i.i to i64
@@ -2962,46 +2786,46 @@ define dso_local noundef ptr @_ZN20btConvexHullInternal12findMaxAngleEbPKNS_6Ver
 entry:
   %t = alloca %"class.btConvexHullInternal::Point32", align 8
   %cot = alloca %"class.btConvexHullInternal::Rational64", align 8
-  %edges = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %start, i64 0, i32 2
+  %edges = getelementptr inbounds i8, ptr %start, i64 16
   %0 = load ptr, ptr %edges, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end28, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %entry
-  %mergeStamp = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 6
-  %point2.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %start, i64 0, i32 6
-  %y3.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %start, i64 0, i32 6, i32 1
-  %z5.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %start, i64 0, i32 6, i32 2
-  %1 = getelementptr inbounds { i64, i64 }, ptr %t, i64 0, i32 1
-  %y4.i = getelementptr inbounds %"class.btConvexHullInternal::Point64", ptr %sxrxs, i64 0, i32 1
-  %z7.i = getelementptr inbounds %"class.btConvexHullInternal::Point64", ptr %sxrxs, i64 0, i32 2
-  %y4.i20 = getelementptr inbounds %"class.btConvexHullInternal::Point64", ptr %rxs, i64 0, i32 1
-  %z7.i25 = getelementptr inbounds %"class.btConvexHullInternal::Point64", ptr %rxs, i64 0, i32 2
-  %sign4.i = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %cot, i64 0, i32 2
-  %m_denominator19.i = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %cot, i64 0, i32 1
+  %mergeStamp = getelementptr inbounds i8, ptr %this, i64 160
+  %point2.i = getelementptr inbounds i8, ptr %start, i64 104
+  %y3.i.i = getelementptr inbounds i8, ptr %start, i64 108
+  %z5.i.i = getelementptr inbounds i8, ptr %start, i64 112
+  %1 = getelementptr inbounds i8, ptr %t, i64 8
+  %y4.i = getelementptr inbounds i8, ptr %sxrxs, i64 8
+  %z7.i = getelementptr inbounds i8, ptr %sxrxs, i64 16
+  %y4.i20 = getelementptr inbounds i8, ptr %rxs, i64 8
+  %z7.i25 = getelementptr inbounds i8, ptr %rxs, i64 16
+  %sign4.i = getelementptr inbounds i8, ptr %cot, i64 16
+  %m_denominator19.i = getelementptr inbounds i8, ptr %cot, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end25
   %e.0 = phi ptr [ %18, %if.end25 ], [ %0, %do.body.preheader ]
   %minEdge.0 = phi ptr [ %minEdge.1, %if.end25 ], [ null, %do.body.preheader ]
-  %copy = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.0, i64 0, i32 5
+  %copy = getelementptr inbounds i8, ptr %e.0, i64 40
   %2 = load i32, ptr %copy, align 8
   %3 = load i32, ptr %mergeStamp, align 8
   %cmp = icmp sgt i32 %2, %3
   br i1 %cmp, label %if.then2, label %if.end25
 
 if.then2:                                         ; preds = %do.body
-  %target = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.0, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %e.0, i64 24
   %4 = load ptr, ptr %target, align 8
-  %point.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %4, i64 0, i32 6
+  %point.i = getelementptr inbounds i8, ptr %4, i64 104
   %5 = load i32, ptr %point.i, align 4
   %6 = load i32, ptr %point2.i, align 4
   %sub.i.i = sub nsw i32 %5, %6
-  %y.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %4, i64 0, i32 6, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %4, i64 108
   %7 = load i32, ptr %y.i.i, align 4
   %8 = load i32, ptr %y3.i.i, align 4
   %sub4.i.i = sub nsw i32 %7, %8
-  %z.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %4, i64 0, i32 6, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %4, i64 112
   %9 = load i32, ptr %z.i.i, align 4
   %10 = load i32, ptr %z5.i.i, align 4
   %sub6.i.i = sub nsw i32 %9, %10
@@ -3135,59 +2959,59 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %target = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %0, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %target, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %.pn = phi ptr [ %2, %cond.true ], [ %c0, %entry ]
-  %cond-lvalue = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %.pn, i64 0, i32 6
+  %cond-lvalue = getelementptr inbounds i8, ptr %.pn, i64 104
   %et0.sroa.0.0.copyload = load i32, ptr %cond-lvalue, align 8
-  %et0.sroa.13.0.cond-lvalue.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %.pn, i64 0, i32 6, i32 1
+  %et0.sroa.13.0.cond-lvalue.sroa_idx = getelementptr inbounds i8, ptr %.pn, i64 108
   %et0.sroa.13.0.copyload = load i32, ptr %et0.sroa.13.0.cond-lvalue.sroa_idx, align 4
-  %et0.sroa.22.0.cond-lvalue.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %.pn, i64 0, i32 6, i32 2
+  %et0.sroa.22.0.cond-lvalue.sroa_idx = getelementptr inbounds i8, ptr %.pn, i64 112
   %et0.sroa.22.0.copyload = load i32, ptr %et0.sroa.22.0.cond-lvalue.sroa_idx, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %cond.end9, label %cond.true4
 
 cond.true4:                                       ; preds = %cond.end
-  %target5 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %1, i64 0, i32 3
+  %target5 = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %target5, align 8
   br label %cond.end9
 
 cond.end9:                                        ; preds = %cond.end, %cond.true4
   %.pn97 = phi ptr [ %3, %cond.true4 ], [ %c1, %cond.end ]
-  %cond-lvalue10 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %.pn97, i64 0, i32 6
+  %cond-lvalue10 = getelementptr inbounds i8, ptr %.pn97, i64 104
   %et1.sroa.0.0.copyload = load i32, ptr %cond-lvalue10, align 8
-  %et1.sroa.13.0.cond-lvalue10.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %.pn97, i64 0, i32 6, i32 1
+  %et1.sroa.13.0.cond-lvalue10.sroa_idx = getelementptr inbounds i8, ptr %.pn97, i64 108
   %et1.sroa.13.0.copyload = load i32, ptr %et1.sroa.13.0.cond-lvalue10.sroa_idx, align 4
-  %et1.sroa.22.0.cond-lvalue10.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %.pn97, i64 0, i32 6, i32 2
+  %et1.sroa.22.0.cond-lvalue10.sroa_idx = getelementptr inbounds i8, ptr %.pn97, i64 112
   %et1.sroa.22.0.copyload = load i32, ptr %et1.sroa.22.0.cond-lvalue10.sroa_idx, align 8
-  %point11 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %c1, i64 0, i32 6
-  %point12 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %c0, i64 0, i32 6
+  %point11 = getelementptr inbounds i8, ptr %c1, i64 104
+  %point12 = getelementptr inbounds i8, ptr %c0, i64 104
   %4 = load i32, ptr %point11, align 4
   %5 = load i32, ptr %point12, align 4
   %sub.i = sub nsw i32 %4, %5
-  %y.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %c1, i64 0, i32 6, i32 1
+  %y.i = getelementptr inbounds i8, ptr %c1, i64 108
   %6 = load i32, ptr %y.i, align 4
-  %y3.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %c0, i64 0, i32 6, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %c0, i64 108
   %7 = load i32, ptr %y3.i, align 4
   %sub4.i = sub nsw i32 %6, %7
-  %z.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %c1, i64 0, i32 6, i32 2
+  %z.i = getelementptr inbounds i8, ptr %c1, i64 112
   %8 = load i32, ptr %z.i, align 4
-  %z5.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %c0, i64 0, i32 6, i32 2
+  %z5.i = getelementptr inbounds i8, ptr %c0, i64 112
   %9 = load i32, ptr %z5.i, align 4
   %sub6.i = sub nsw i32 %8, %9
   %cond = select i1 %tobool.not, ptr %1, ptr %0
-  %target17 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %cond, i64 0, i32 3
+  %target17 = getelementptr inbounds i8, ptr %cond, i64 24
   %10 = load ptr, ptr %target17, align 8
-  %point18 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %10, i64 0, i32 6
+  %point18 = getelementptr inbounds i8, ptr %10, i64 104
   %11 = load i32, ptr %point18, align 4
   %sub.i98 = sub nsw i32 %11, %5
-  %y.i99 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %10, i64 0, i32 6, i32 1
+  %y.i99 = getelementptr inbounds i8, ptr %10, i64 108
   %12 = load i32, ptr %y.i99, align 4
   %sub4.i101 = sub nsw i32 %12, %7
-  %z.i102 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %10, i64 0, i32 6, i32 2
+  %z.i102 = getelementptr inbounds i8, ptr %10, i64 112
   %13 = load i32, ptr %z.i102, align 4
   %sub6.i104 = sub nsw i32 %13, %9
   %conv.i = sext i32 %sub4.i101 to i64
@@ -3233,29 +3057,29 @@ cond.end9:                                        ; preds = %cond.end, %cond.tru
   br i1 %tobool.not, label %if.end42, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %cond.end9
-  %target25902 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %0, i64 0, i32 3
+  %target25902 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load ptr, ptr %target25902, align 8
   %cmp.not903 = icmp eq ptr %14, %stop0
   br i1 %cmp.not903, label %if.end42, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %mergeStamp = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 6
-  %reverse1029 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %0, i64 0, i32 2
+  %mergeStamp = getelementptr inbounds i8, ptr %this, i64 160
+  %reverse1029 = getelementptr inbounds i8, ptr %0, i64 16
   %15 = load ptr, ptr %reverse1029, align 8
-  %prev1030 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %15, i64 0, i32 1
+  %prev1030 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %prev1030, align 8
-  %target261031 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %16, i64 0, i32 3
+  %target261031 = getelementptr inbounds i8, ptr %16, i64 24
   %17 = load ptr, ptr %target261031, align 8
-  %point271032 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %17, i64 0, i32 6
+  %point271032 = getelementptr inbounds i8, ptr %17, i64 104
   %18 = load i32, ptr %point271032, align 4
   %conv.i1451033 = sext i32 %18 to i64
   %mul.i1461034 = mul nsw i64 %sub.i115, %conv.i1451033
-  %y.i1471035 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %17, i64 0, i32 6, i32 1
+  %y.i1471035 = getelementptr inbounds i8, ptr %17, i64 108
   %19 = load i32, ptr %y.i1471035, align 4
   %conv3.i1481036 = sext i32 %19 to i64
   %mul5.i1501037 = mul nsw i64 %sub17.i, %conv3.i1481036
   %add.i1511038 = add nsw i64 %mul5.i1501037, %mul.i1461034
-  %z.i1521039 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %17, i64 0, i32 6, i32 2
+  %z.i1521039 = getelementptr inbounds i8, ptr %17, i64 112
   %20 = load i32, ptr %z.i1521039, align 4
   %conv6.i1531040 = sext i32 %20 to i64
   %mul8.i1551041 = mul nsw i64 %sub28.i, %conv6.i1531040
@@ -3264,22 +3088,22 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   br i1 %cmp291043, label %if.end42.loopexit, label %if.end
 
 while.body:                                       ; preds = %if.end39
-  %reverse = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %27, i64 0, i32 2
+  %reverse = getelementptr inbounds i8, ptr %27, i64 16
   %21 = load ptr, ptr %reverse, align 8
-  %prev = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %21, i64 0, i32 1
+  %prev = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %prev, align 8
-  %target26 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %22, i64 0, i32 3
+  %target26 = getelementptr inbounds i8, ptr %22, i64 24
   %23 = load ptr, ptr %target26, align 8
-  %point27 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %23, i64 0, i32 6
+  %point27 = getelementptr inbounds i8, ptr %23, i64 104
   %24 = load i32, ptr %point27, align 4
   %conv.i145 = sext i32 %24 to i64
   %mul.i146 = mul nsw i64 %sub.i115, %conv.i145
-  %y.i147 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %23, i64 0, i32 6, i32 1
+  %y.i147 = getelementptr inbounds i8, ptr %23, i64 108
   %25 = load i32, ptr %y.i147, align 4
   %conv3.i148 = sext i32 %25 to i64
   %mul5.i150 = mul nsw i64 %sub17.i, %conv3.i148
   %add.i151 = add nsw i64 %mul5.i150, %mul.i146
-  %z.i152 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %23, i64 0, i32 6, i32 2
+  %z.i152 = getelementptr inbounds i8, ptr %23, i64 112
   %26 = load i32, ptr %z.i152, align 4
   %conv6.i153 = sext i32 %26 to i64
   %mul8.i155 = mul nsw i64 %sub28.i, %conv6.i153
@@ -3297,7 +3121,7 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   %et0.sroa.13.09051046 = phi i32 [ %et0.sroa.13.0.copyload868, %while.body ], [ %et0.sroa.13.0.copyload, %while.body.lr.ph ]
   %et0.sroa.22.09061045 = phi i32 [ %et0.sroa.22.0.copyload879, %while.body ], [ %et0.sroa.22.0.copyload, %while.body.lr.ph ]
   %maxDot0.09071044 = phi i64 [ %add9.i168, %while.body ], [ %add9.i144, %while.body.lr.ph ]
-  %copy = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %27, i64 0, i32 5
+  %copy = getelementptr inbounds i8, ptr %27, i64 40
   %28 = load i32, ptr %copy, align 8
   %29 = load i32, ptr %mergeStamp, align 8
   %cmp31 = icmp eq i32 %28, %29
@@ -3315,11 +3139,11 @@ if.end33:                                         ; preds = %if.end
 if.end39:                                         ; preds = %if.end33
   store ptr %27, ptr %e0, align 8
   %30 = load ptr, ptr %target261048, align 8
-  %point41 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %30, i64 0, i32 6
+  %point41 = getelementptr inbounds i8, ptr %30, i64 104
   %et0.sroa.0.0.copyload865 = load i32, ptr %point41, align 8
-  %et0.sroa.13.0.point41.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %30, i64 0, i32 6, i32 1
+  %et0.sroa.13.0.point41.sroa_idx = getelementptr inbounds i8, ptr %30, i64 108
   %et0.sroa.13.0.copyload868 = load i32, ptr %et0.sroa.13.0.point41.sroa_idx, align 4
-  %et0.sroa.22.0.point41.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %30, i64 0, i32 6, i32 2
+  %et0.sroa.22.0.point41.sroa_idx = getelementptr inbounds i8, ptr %30, i64 112
   %et0.sroa.22.0.copyload879 = load i32, ptr %et0.sroa.22.0.point41.sroa_idx, align 8
   %cmp.not = icmp eq ptr %30, %stop0
   br i1 %cmp.not, label %if.end42.loopexit, label %while.body, !llvm.loop !31
@@ -3350,28 +3174,28 @@ if.end42:                                         ; preds = %if.end42.loopexit, 
   br i1 %tobool44.not, label %if.end73, label %while.cond46.preheader
 
 while.cond46.preheader:                           ; preds = %if.end42
-  %target47923 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e1.promoted, i64 0, i32 3
+  %target47923 = getelementptr inbounds i8, ptr %e1.promoted, i64 24
   %31 = load ptr, ptr %target47923, align 8
   %cmp48.not924 = icmp eq ptr %31, %stop1
   br i1 %cmp48.not924, label %if.end73, label %while.body49.lr.ph
 
 while.body49.lr.ph:                               ; preds = %while.cond46.preheader
-  %mergeStamp59 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 6
-  %reverse511067 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e1.promoted, i64 0, i32 2
+  %mergeStamp59 = getelementptr inbounds i8, ptr %this, i64 160
+  %reverse511067 = getelementptr inbounds i8, ptr %e1.promoted, i64 16
   %32 = load ptr, ptr %reverse511067, align 8
   %33 = load ptr, ptr %32, align 8
-  %target521068 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %33, i64 0, i32 3
+  %target521068 = getelementptr inbounds i8, ptr %33, i64 24
   %34 = load ptr, ptr %target521068, align 8
-  %point531069 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %34, i64 0, i32 6
+  %point531069 = getelementptr inbounds i8, ptr %34, i64 104
   %35 = load i32, ptr %point531069, align 4
   %conv.i1811070 = sext i32 %35 to i64
   %mul.i1821071 = mul nsw i64 %sub.i115, %conv.i1811070
-  %y.i1831072 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %34, i64 0, i32 6, i32 1
+  %y.i1831072 = getelementptr inbounds i8, ptr %34, i64 108
   %36 = load i32, ptr %y.i1831072, align 4
   %conv3.i1841073 = sext i32 %36 to i64
   %mul5.i1861074 = mul nsw i64 %sub17.i, %conv3.i1841073
   %add.i1871075 = add nsw i64 %mul5.i1861074, %mul.i1821071
-  %z.i1881076 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %34, i64 0, i32 6, i32 2
+  %z.i1881076 = getelementptr inbounds i8, ptr %34, i64 112
   %37 = load i32, ptr %z.i1881076, align 4
   %conv6.i1891077 = sext i32 %37 to i64
   %mul8.i1911078 = mul nsw i64 %sub28.i, %conv6.i1891077
@@ -3380,21 +3204,21 @@ while.body49.lr.ph:                               ; preds = %while.cond46.prehea
   br i1 %cmp551080, label %if.end73, label %if.end57
 
 while.body49:                                     ; preds = %if.end69
-  %reverse51 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %44, i64 0, i32 2
+  %reverse51 = getelementptr inbounds i8, ptr %44, i64 16
   %38 = load ptr, ptr %reverse51, align 8
   %39 = load ptr, ptr %38, align 8
-  %target52 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %39, i64 0, i32 3
+  %target52 = getelementptr inbounds i8, ptr %39, i64 24
   %40 = load ptr, ptr %target52, align 8
-  %point53 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %40, i64 0, i32 6
+  %point53 = getelementptr inbounds i8, ptr %40, i64 104
   %41 = load i32, ptr %point53, align 4
   %conv.i181 = sext i32 %41 to i64
   %mul.i182 = mul nsw i64 %sub.i115, %conv.i181
-  %y.i183 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %40, i64 0, i32 6, i32 1
+  %y.i183 = getelementptr inbounds i8, ptr %40, i64 108
   %42 = load i32, ptr %y.i183, align 4
   %conv3.i184 = sext i32 %42 to i64
   %mul5.i186 = mul nsw i64 %sub17.i, %conv3.i184
   %add.i187 = add nsw i64 %mul5.i186, %mul.i182
-  %z.i188 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %40, i64 0, i32 6, i32 2
+  %z.i188 = getelementptr inbounds i8, ptr %40, i64 112
   %43 = load i32, ptr %z.i188, align 4
   %conv6.i189 = sext i32 %43 to i64
   %mul8.i191 = mul nsw i64 %sub28.i, %conv6.i189
@@ -3413,7 +3237,7 @@ if.end57:                                         ; preds = %while.body49.lr.ph,
   %et1.sroa.13.09261083 = phi i32 [ %et1.sroa.13.0.copyload832, %while.body49 ], [ %et1.sroa.13.0.copyload, %while.body49.lr.ph ]
   %et1.sroa.22.09271082 = phi i32 [ %et1.sroa.22.0.copyload843, %while.body49 ], [ %et1.sroa.22.0.copyload, %while.body49.lr.ph ]
   %maxDot1.09281081 = phi i64 [ %add9.i204, %while.body49 ], [ %add9.i180, %while.body49.lr.ph ]
-  %copy58 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %44, i64 0, i32 5
+  %copy58 = getelementptr inbounds i8, ptr %44, i64 40
   %46 = load i32, ptr %copy58, align 8
   %47 = load i32, ptr %mergeStamp59, align 8
   %cmp60 = icmp eq i32 %46, %47
@@ -3431,11 +3255,11 @@ if.end62:                                         ; preds = %if.end57
 if.end69:                                         ; preds = %if.end62
   store ptr %44, ptr %e1, align 8
   %48 = load ptr, ptr %target521085, align 8
-  %point71 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %48, i64 0, i32 6
+  %point71 = getelementptr inbounds i8, ptr %48, i64 104
   %et1.sroa.0.0.copyload829 = load i32, ptr %point71, align 8
-  %et1.sroa.13.0.point71.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %48, i64 0, i32 6, i32 1
+  %et1.sroa.13.0.point71.sroa_idx = getelementptr inbounds i8, ptr %48, i64 108
   %et1.sroa.13.0.copyload832 = load i32, ptr %et1.sroa.13.0.point71.sroa_idx, align 4
-  %et1.sroa.22.0.point71.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %48, i64 0, i32 6, i32 2
+  %et1.sroa.22.0.point71.sroa_idx = getelementptr inbounds i8, ptr %48, i64 112
   %et1.sroa.22.0.copyload843 = load i32, ptr %et1.sroa.22.0.point71.sroa_idx, align 8
   %cmp48.not = icmp eq ptr %48, %stop1
   br i1 %cmp48.not, label %if.end73, label %while.body49, !llvm.loop !32
@@ -3451,15 +3275,15 @@ if.end73:                                         ; preds = %if.end69, %while.bo
   br i1 %cmp74, label %while.body77.preheader, label %if.else174
 
 while.body77.preheader:                           ; preds = %if.end73
-  %mergeStamp88 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 6
-  %sign4.i = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp106, i64 0, i32 2
-  %m_denominator19.i = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp106, i64 0, i32 1
-  %sign4.i293 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp107, i64 0, i32 2
-  %m_denominator19.i302 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp107, i64 0, i32 1
-  %sign4.i422 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp158, i64 0, i32 2
-  %m_denominator19.i431 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp158, i64 0, i32 1
-  %sign4.i443 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp159, i64 0, i32 2
-  %m_denominator19.i452 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp159, i64 0, i32 1
+  %mergeStamp88 = getelementptr inbounds i8, ptr %this, i64 160
+  %sign4.i = getelementptr inbounds i8, ptr %ref.tmp106, i64 16
+  %m_denominator19.i = getelementptr inbounds i8, ptr %ref.tmp106, i64 8
+  %sign4.i293 = getelementptr inbounds i8, ptr %ref.tmp107, i64 16
+  %m_denominator19.i302 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
+  %sign4.i422 = getelementptr inbounds i8, ptr %ref.tmp158, i64 16
+  %m_denominator19.i431 = getelementptr inbounds i8, ptr %ref.tmp158, i64 8
+  %sign4.i443 = getelementptr inbounds i8, ptr %ref.tmp159, i64 16
+  %m_denominator19.i452 = getelementptr inbounds i8, ptr %ref.tmp159, i64 8
   br label %while.body77.outer
 
 while.body77.outer:                               ; preds = %while.body77.preheader, %if.then166
@@ -3493,31 +3317,31 @@ land.lhs.true:                                    ; preds = %while.body77.outer,
   %et0.sroa.13.2959 = phi i32 [ %59, %if.then112 ], [ %et0.sroa.13.2.ph, %while.body77.outer ]
   %et0.sroa.0.2958 = phi i32 [ %58, %if.then112 ], [ %et0.sroa.0.2.ph, %while.body77.outer ]
   %51 = phi ptr [ %54, %if.then112 ], [ %e0.promoted945, %while.body77.outer ]
-  %target82 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %51, i64 0, i32 3
+  %target82 = getelementptr inbounds i8, ptr %51, i64 24
   %52 = load ptr, ptr %target82, align 8
   %cmp83.not = icmp eq ptr %52, %stop0
   br i1 %cmp83.not, label %if.end125.loopexit, label %if.then84
 
 if.then84:                                        ; preds = %land.lhs.true
   %53 = load ptr, ptr %51, align 8
-  %reverse86 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %53, i64 0, i32 2
+  %reverse86 = getelementptr inbounds i8, ptr %53, i64 16
   %54 = load ptr, ptr %reverse86, align 8
-  %copy87 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %54, i64 0, i32 5
+  %copy87 = getelementptr inbounds i8, ptr %54, i64 40
   %55 = load i32, ptr %copy87, align 8
   %56 = load i32, ptr %mergeStamp88, align 8
   %cmp89 = icmp sgt i32 %55, %56
   br i1 %cmp89, label %if.then90, label %if.end125.loopexit
 
 if.then90:                                        ; preds = %if.then84
-  %target92 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %54, i64 0, i32 3
+  %target92 = getelementptr inbounds i8, ptr %54, i64 24
   %57 = load ptr, ptr %target92, align 8
-  %point93 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %57, i64 0, i32 6
+  %point93 = getelementptr inbounds i8, ptr %57, i64 104
   %58 = load i32, ptr %point93, align 4
   %sub.i232 = sub nsw i32 %58, %et0.sroa.0.2958
-  %y.i233 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %57, i64 0, i32 6, i32 1
+  %y.i233 = getelementptr inbounds i8, ptr %57, i64 108
   %59 = load i32, ptr %y.i233, align 4
   %sub4.i235 = sub nsw i32 %59, %et0.sroa.13.2959
-  %z.i236 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %57, i64 0, i32 6, i32 2
+  %z.i236 = getelementptr inbounds i8, ptr %57, i64 112
   %60 = load i32, ptr %z.i236, align 4
   %sub6.i238 = sub nsw i32 %60, %et0.sroa.22.2960
   %conv.i247 = sext i32 %sub.i232 to i64
@@ -3643,31 +3467,31 @@ if.end125:                                        ; preds = %if.end125.loopexit,
   br i1 %tobool126.not, label %if.end288, label %land.lhs.true127
 
 land.lhs.true127:                                 ; preds = %if.end125
-  %target128 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %61, i64 0, i32 3
+  %target128 = getelementptr inbounds i8, ptr %61, i64 24
   %62 = load ptr, ptr %target128, align 8
   %cmp129.not = icmp eq ptr %62, %stop1
   br i1 %cmp129.not, label %if.end288, label %if.then130
 
 if.then130:                                       ; preds = %land.lhs.true127
-  %reverse131 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %61, i64 0, i32 2
+  %reverse131 = getelementptr inbounds i8, ptr %61, i64 16
   %63 = load ptr, ptr %reverse131, align 8
   %64 = load ptr, ptr %63, align 8
-  %copy133 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %64, i64 0, i32 5
+  %copy133 = getelementptr inbounds i8, ptr %64, i64 40
   %65 = load i32, ptr %copy133, align 8
   %66 = load i32, ptr %mergeStamp88, align 8
   %cmp135 = icmp sgt i32 %65, %66
   br i1 %cmp135, label %if.then136, label %if.end288
 
 if.then136:                                       ; preds = %if.then130
-  %target137 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %64, i64 0, i32 3
+  %target137 = getelementptr inbounds i8, ptr %64, i64 24
   %67 = load ptr, ptr %target137, align 8
-  %point138 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %67, i64 0, i32 6
+  %point138 = getelementptr inbounds i8, ptr %67, i64 104
   %68 = load i32, ptr %point138, align 4
   %sub.i338 = sub nsw i32 %68, %et1.sroa.0.2.ph
-  %y.i339 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %67, i64 0, i32 6, i32 1
+  %y.i339 = getelementptr inbounds i8, ptr %67, i64 108
   %69 = load i32, ptr %y.i339, align 4
   %sub4.i341 = sub nsw i32 %69, %et1.sroa.13.2.ph
-  %z.i342 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %67, i64 0, i32 6, i32 2
+  %z.i342 = getelementptr inbounds i8, ptr %67, i64 112
   %70 = load i32, ptr %z.i342, align 4
   %sub6.i344 = sub nsw i32 %70, %et1.sroa.22.2.ph
   %conv.i353 = sext i32 %sub.i338 to i64
@@ -3777,11 +3601,11 @@ land.end165:                                      ; preds = %if.then14.i453, %if
 if.then166:                                       ; preds = %cond.true153, %land.end165
   store ptr %64, ptr %e1, align 8
   %72 = load ptr, ptr %target137, align 8
-  %point168 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %72, i64 0, i32 6
+  %point168 = getelementptr inbounds i8, ptr %72, i64 104
   %et1.sroa.0.0.copyload830 = load i32, ptr %point168, align 8
-  %et1.sroa.13.0.point168.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %72, i64 0, i32 6, i32 1
+  %et1.sroa.13.0.point168.sroa_idx = getelementptr inbounds i8, ptr %72, i64 108
   %et1.sroa.13.0.copyload833 = load i32, ptr %et1.sroa.13.0.point168.sroa_idx, align 4
-  %et1.sroa.22.0.point168.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %72, i64 0, i32 6, i32 2
+  %et1.sroa.22.0.point168.sroa_idx = getelementptr inbounds i8, ptr %72, i64 112
   %et1.sroa.22.0.copyload844 = load i32, ptr %et1.sroa.22.0.point168.sroa_idx, align 8
   br label %while.body77.outer, !llvm.loop !33
 
@@ -3790,15 +3614,15 @@ if.else174:                                       ; preds = %if.end73
   br i1 %cmp175, label %while.body178.preheader, label %if.end288
 
 while.body178.preheader:                          ; preds = %if.else174
-  %mergeStamp192 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 6
-  %sign4.i551 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp213, i64 0, i32 2
-  %m_denominator19.i560 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp213, i64 0, i32 1
-  %sign4.i572 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp214, i64 0, i32 2
-  %m_denominator19.i581 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp214, i64 0, i32 1
-  %sign4.i701 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp270, i64 0, i32 2
-  %m_denominator19.i710 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp270, i64 0, i32 1
-  %sign4.i722 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp271, i64 0, i32 2
-  %m_denominator19.i731 = getelementptr inbounds %"class.btConvexHullInternal::Rational64", ptr %ref.tmp271, i64 0, i32 1
+  %mergeStamp192 = getelementptr inbounds i8, ptr %this, i64 160
+  %sign4.i551 = getelementptr inbounds i8, ptr %ref.tmp213, i64 16
+  %m_denominator19.i560 = getelementptr inbounds i8, ptr %ref.tmp213, i64 8
+  %sign4.i572 = getelementptr inbounds i8, ptr %ref.tmp214, i64 16
+  %m_denominator19.i581 = getelementptr inbounds i8, ptr %ref.tmp214, i64 8
+  %sign4.i701 = getelementptr inbounds i8, ptr %ref.tmp270, i64 16
+  %m_denominator19.i710 = getelementptr inbounds i8, ptr %ref.tmp270, i64 8
+  %sign4.i722 = getelementptr inbounds i8, ptr %ref.tmp271, i64 16
+  %m_denominator19.i731 = getelementptr inbounds i8, ptr %ref.tmp271, i64 8
   br label %while.body178.outer
 
 while.body178.outer:                              ; preds = %while.body178.preheader, %if.then220
@@ -3833,32 +3657,32 @@ while.body178:                                    ; preds = %while.body178.outer
   br i1 %tobool183.not, label %if.end233, label %land.lhs.true184
 
 land.lhs.true184:                                 ; preds = %while.body178
-  %target185 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %74, i64 0, i32 3
+  %target185 = getelementptr inbounds i8, ptr %74, i64 24
   %75 = load ptr, ptr %target185, align 8
   %cmp186.not = icmp eq ptr %75, %stop1
   br i1 %cmp186.not, label %if.end233, label %if.then187
 
 if.then187:                                       ; preds = %land.lhs.true184
-  %prev189 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %74, i64 0, i32 1
+  %prev189 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load ptr, ptr %prev189, align 8
-  %reverse190 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %76, i64 0, i32 2
+  %reverse190 = getelementptr inbounds i8, ptr %76, i64 16
   %77 = load ptr, ptr %reverse190, align 8
-  %copy191 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %77, i64 0, i32 5
+  %copy191 = getelementptr inbounds i8, ptr %77, i64 40
   %78 = load i32, ptr %copy191, align 8
   %79 = load i32, ptr %mergeStamp192, align 8
   %cmp193 = icmp sgt i32 %78, %79
   br i1 %cmp193, label %if.then194, label %if.end233
 
 if.then194:                                       ; preds = %if.then187
-  %target197 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %77, i64 0, i32 3
+  %target197 = getelementptr inbounds i8, ptr %77, i64 24
   %80 = load ptr, ptr %target197, align 8
-  %point198 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %80, i64 0, i32 6
+  %point198 = getelementptr inbounds i8, ptr %80, i64 104
   %81 = load i32, ptr %point198, align 4
   %sub.i491 = sub nsw i32 %81, %et1.sroa.0.3.ph
-  %y.i492 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %80, i64 0, i32 6, i32 1
+  %y.i492 = getelementptr inbounds i8, ptr %80, i64 108
   %82 = load i32, ptr %y.i492, align 4
   %sub4.i494 = sub nsw i32 %82, %et1.sroa.13.3.ph
-  %z.i495 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %80, i64 0, i32 6, i32 2
+  %z.i495 = getelementptr inbounds i8, ptr %80, i64 112
   %83 = load i32, ptr %z.i495, align 4
   %sub6.i497 = sub nsw i32 %83, %et1.sroa.22.3.ph
   %conv.i506 = sext i32 %sub.i491 to i64
@@ -3964,32 +3788,32 @@ if.end233:                                        ; preds = %cond.true208, %if.t
   br i1 %tobool234.not, label %if.end288, label %land.lhs.true235
 
 land.lhs.true235:                                 ; preds = %if.end233
-  %target236 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %84, i64 0, i32 3
+  %target236 = getelementptr inbounds i8, ptr %84, i64 24
   %85 = load ptr, ptr %target236, align 8
   %cmp237.not = icmp eq ptr %85, %stop0
   br i1 %cmp237.not, label %if.end288, label %if.then238
 
 if.then238:                                       ; preds = %land.lhs.true235
-  %reverse240 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %84, i64 0, i32 2
+  %reverse240 = getelementptr inbounds i8, ptr %84, i64 16
   %86 = load ptr, ptr %reverse240, align 8
-  %prev241 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %86, i64 0, i32 1
+  %prev241 = getelementptr inbounds i8, ptr %86, i64 8
   %87 = load ptr, ptr %prev241, align 8
-  %copy242 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %87, i64 0, i32 5
+  %copy242 = getelementptr inbounds i8, ptr %87, i64 40
   %88 = load i32, ptr %copy242, align 8
   %89 = load i32, ptr %mergeStamp192, align 8
   %cmp244 = icmp sgt i32 %88, %89
   br i1 %cmp244, label %if.then245, label %if.end288
 
 if.then245:                                       ; preds = %if.then238
-  %target246 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %87, i64 0, i32 3
+  %target246 = getelementptr inbounds i8, ptr %87, i64 24
   %90 = load ptr, ptr %target246, align 8
-  %point247 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %90, i64 0, i32 6
+  %point247 = getelementptr inbounds i8, ptr %90, i64 104
   %91 = load i32, ptr %point247, align 4
   %sub.i617 = sub nsw i32 %91, %et0.sroa.0.3
-  %y.i618 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %90, i64 0, i32 6, i32 1
+  %y.i618 = getelementptr inbounds i8, ptr %90, i64 108
   %92 = load i32, ptr %y.i618, align 4
   %sub4.i620 = sub nsw i32 %92, %et0.sroa.13.3
-  %z.i621 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %90, i64 0, i32 6, i32 2
+  %z.i621 = getelementptr inbounds i8, ptr %90, i64 112
   %93 = load i32, ptr %z.i621, align 4
   %sub6.i623 = sub nsw i32 %93, %et0.sroa.22.3
   %conv.i632 = sext i32 %sub.i617 to i64
@@ -4099,11 +3923,11 @@ land.end277:                                      ; preds = %if.then14.i732, %if
 if.then278:                                       ; preds = %cond.true265, %land.end277
   store ptr %87, ptr %e0, align 8
   %95 = load ptr, ptr %target246, align 8
-  %point280 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %95, i64 0, i32 6
+  %point280 = getelementptr inbounds i8, ptr %95, i64 104
   %et0.sroa.0.0.copyload867 = load i32, ptr %point280, align 8
-  %et0.sroa.13.0.point280.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %95, i64 0, i32 6, i32 1
+  %et0.sroa.13.0.point280.sroa_idx = getelementptr inbounds i8, ptr %95, i64 108
   %et0.sroa.13.0.copyload870 = load i32, ptr %et0.sroa.13.0.point280.sroa_idx, align 4
-  %et0.sroa.22.0.point280.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %95, i64 0, i32 6, i32 2
+  %et0.sroa.22.0.point280.sroa_idx = getelementptr inbounds i8, ptr %95, i64 112
   %et0.sroa.22.0.copyload881 = load i32, ptr %et0.sroa.22.0.point280.sroa_idx, align 8
   %.pre1002 = load ptr, ptr %e1, align 8
   br label %while.body178, !llvm.loop !34
@@ -4144,7 +3968,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %max.sroa.14.0413 = phi float [ 0xC6293E5940000000, %for.body.lr.ph ], [ %max.sroa.14.1, %for.body ]
   %0 = phi <2 x float> [ <float 0xC6293E5940000000, float 0xC6293E5940000000>, %for.body.lr.ph ], [ %8, %for.body ]
   %1 = phi <2 x float> [ <float 0x46293E5940000000, float 0x46293E5940000000>, %for.body.lr.ph ], [ %6, %for.body ]
-  %arrayidx12 = getelementptr inbounds double, ptr %ptr.0418, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %ptr.0418, i64 16
   %2 = load double, ptr %arrayidx12, align 8
   %conv13 = fptrunc double %2 to float
   %add.ptr = getelementptr inbounds i8, ptr %ptr.0418, i64 %idx.ext
@@ -4169,7 +3993,7 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
   %max.sroa.14.2399 = phi float [ 0xC6293E5940000000, %for.body17.lr.ph ], [ %max.sroa.14.3, %for.body17 ]
   %9 = phi <2 x float> [ <float 0xC6293E5940000000, float 0xC6293E5940000000>, %for.body17.lr.ph ], [ %16, %for.body17 ]
   %10 = phi <2 x float> [ <float 0x46293E5940000000, float 0x46293E5940000000>, %for.body17.lr.ph ], [ %14, %for.body17 ]
-  %arrayidx22 = getelementptr inbounds float, ptr %ptr.1404, i64 2
+  %arrayidx22 = getelementptr inbounds i8, ptr %ptr.1404, i64 8
   %11 = load float, ptr %arrayidx22, align 4
   %add.ptr24 = getelementptr inbounds i8, ptr %ptr.1404, i64 %idx.ext23
   %cmp.i7.i83 = fcmp olt float %11, %min.sroa.14.2402
@@ -4191,9 +4015,9 @@ if.end:                                           ; preds = %for.body17, %for.bo
   %17 = phi <2 x float> [ <float 0xC6293E5940000000, float 0xC6293E5940000000>, %for.cond.preheader ], [ <float 0xC6293E5940000000, float 0xC6293E5940000000>, %for.cond15.preheader ], [ %8, %for.body ], [ %16, %for.body17 ]
   %18 = phi <2 x float> [ <float 0x46293E5940000000, float 0x46293E5940000000>, %for.cond.preheader ], [ <float 0x46293E5940000000, float 0x46293E5940000000>, %for.cond15.preheader ], [ %6, %for.body ], [ %14, %for.body17 ]
   %sub14.i = fsub float %max.sroa.14.4, %min.sroa.14.4
-  %maxAxis = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 9
-  %minAxis = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 7
-  %medAxis = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 8
+  %maxAxis = getelementptr inbounds i8, ptr %this, i64 172
+  %minAxis = getelementptr inbounds i8, ptr %this, i64 164
+  %medAxis = getelementptr inbounds i8, ptr %this, i64 168
   %19 = fsub <2 x float> %17, %18
   %20 = extractelement <2 x float> %19, i64 0
   %21 = extractelement <2 x float> %19, i64 1
@@ -4252,17 +4076,17 @@ if.end:                                           ; preds = %for.body17, %for.bo
   %26 = fmul <2 x float> %25, <float 5.000000e-01, float 5.000000e-01>
   %mul8.i = fmul float %add14.i, 5.000000e-01
   %retval.sroa.3.12.vec.insert.i140 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i, i64 0
-  %center = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 1
+  %center = getelementptr inbounds i8, ptr %this, i64 16
   store <2 x float> %26, ptr %center, align 8
-  %ref.tmp80.sroa.2.0.center.sroa_idx = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 1, i32 0, i64 2
+  %ref.tmp80.sroa.2.0.center.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   store <2 x float> %retval.sroa.3.12.vec.insert.i140, ptr %ref.tmp80.sroa.2.0.center.sroa_idx, align 8
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %points, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %points, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %points, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %points, i64 16
   store ptr null, ptr %m_data.i.i, align 8
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %points, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %points, i64 4
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %points, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %points, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   %or.cond = icmp sgt i32 %count, 0
   br i1 %or.cond, label %if.then.i.i.i, label %invoke.cont88.thread
@@ -4328,7 +4152,7 @@ for.cond148.preheader:                            ; preds = %invoke.cont88
   br i1 %or.cond, label %invoke.cont165.lr.ph, label %invoke.cont203
 
 invoke.cont165.lr.ph:                             ; preds = %invoke.cont88.thread450, %for.cond148.preheader
-  %arrayidx5.i186 = getelementptr inbounds [4 x float], ptr %p152, i64 0, i64 2
+  %arrayidx5.i186 = getelementptr inbounds i8, ptr %p152, i64 8
   %idx.ext157 = sext i32 %stride to i64
   %s.sroa.24.8.vec.extract361 = extractelement <2 x float> %s.sroa.24.1, i64 0
   %wide.trip.count = zext nneg i32 %count to i64
@@ -4338,7 +4162,7 @@ for.cond92.preheader:                             ; preds = %invoke.cont88
   br i1 %or.cond, label %invoke.cont115.lr.ph, label %invoke.cont203
 
 invoke.cont115.lr.ph:                             ; preds = %invoke.cont88.thread450, %for.cond92.preheader
-  %arrayidx5.i151 = getelementptr inbounds [4 x float], ptr %p96, i64 0, i64 2
+  %arrayidx5.i151 = getelementptr inbounds i8, ptr %p96, i64 8
   %idx.ext107 = sext i32 %stride to i64
   %s.sroa.24.8.vec.extract359 = extractelement <2 x float> %s.sroa.24.1, i64 0
   %wide.trip.count441 = zext nneg i32 %count to i64
@@ -4347,7 +4171,7 @@ invoke.cont115.lr.ph:                             ; preds = %invoke.cont88.threa
 invoke.cont115:                                   ; preds = %invoke.cont115.lr.ph, %invoke.cont115
   %indvars.iv438 = phi i64 [ 0, %invoke.cont115.lr.ph ], [ %indvars.iv.next439, %invoke.cont115 ]
   %ptr.2430 = phi ptr [ %coords, %invoke.cont115.lr.ph ], [ %add.ptr108, %invoke.cont115 ]
-  %arrayidx104 = getelementptr inbounds double, ptr %ptr.2430, i64 2
+  %arrayidx104 = getelementptr inbounds i8, ptr %ptr.2430, i64 16
   %29 = load double, ptr %arrayidx104, align 8
   %conv105 = fptrunc double %29 to float
   %add.ptr108 = getelementptr inbounds i8, ptr %ptr.2430, i64 %idx.ext107
@@ -4412,7 +4236,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 invoke.cont165:                                   ; preds = %invoke.cont165.lr.ph, %invoke.cont165
   %indvars.iv = phi i64 [ 0, %invoke.cont165.lr.ph ], [ %indvars.iv.next, %invoke.cont165 ]
   %ptr.3427 = phi ptr [ %coords, %invoke.cont165.lr.ph ], [ %add.ptr158, %invoke.cont165 ]
-  %arrayidx155 = getelementptr inbounds float, ptr %ptr.3427, i64 2
+  %arrayidx155 = getelementptr inbounds i8, ptr %ptr.3427, i64 8
   %47 = load float, ptr %arrayidx155, align 4
   %add.ptr158 = getelementptr inbounds i8, ptr %ptr.3427, i64 %idx.ext157
   %48 = load float, ptr %ref.tmp80.sroa.2.0.center.sroa_idx, align 8
@@ -4468,21 +4292,21 @@ if.then.i:                                        ; preds = %if.end201
           to label %invoke.cont203 unwind label %lpad.loopexit.split-lp
 
 invoke.cont203:                                   ; preds = %invoke.cont88.thread, %for.cond92.preheader, %for.cond148.preheader, %if.end201, %if.then.i
-  %vertexPool = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 2
+  %vertexPool = getelementptr inbounds i8, ptr %this, i64 32
   %64 = load ptr, ptr %vertexPool, align 8
-  %nextArray.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 2, i32 1
+  %nextArray.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %64, ptr %nextArray.i, align 8
-  %freeObjects.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 2, i32 2
+  %freeObjects.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %freeObjects.i, align 8
-  %arraySize2.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 2, i32 3
+  %arraySize2.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %count, ptr %arraySize2.i, align 8
-  %m_size.i.i229 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 2
+  %m_size.i.i229 = getelementptr inbounds i8, ptr %this, i64 132
   %65 = load i32, ptr %m_size.i.i229, align 4
   %cmp3.i232 = icmp slt i32 %65, %count
   br i1 %cmp3.i232, label %if.then4.i233, label %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE6resizeEiRKS2_.exit
 
 if.then4.i233:                                    ; preds = %invoke.cont203
-  %m_capacity.i.i.i234 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 3
+  %m_capacity.i.i.i234 = getelementptr inbounds i8, ptr %this, i64 136
   %66 = load i32, ptr %m_capacity.i.i.i234, align 8
   %cmp.i.i235 = icmp slt i32 %66, %count
   br i1 %cmp.i.i235, label %if.then.i.i244, label %for.body8.lr.ph.i236
@@ -4508,7 +4332,7 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE8allocateEi.exit.i.i:
   br i1 %cmp4.i.i.i251, label %for.body.lr.ph.i.i.i260, label %_ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i
 
 for.body.lr.ph.i.i.i260:                          ; preds = %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE8allocateEi.exit.i.i
-  %m_data.i.i.i261 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 5
+  %m_data.i.i.i261 = getelementptr inbounds i8, ptr %this, i64 144
   %wide.trip.count.i.i.i262 = zext nneg i32 %67 to i64
   br label %for.body.i.i.i263
 
@@ -4524,13 +4348,13 @@ for.body.i.i.i263:                                ; preds = %for.body.i.i.i263, 
   br i1 %exitcond.not.i.i.i268, label %_ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i, label %for.body.i.i.i263, !llvm.loop !40
 
 _ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i: ; preds = %for.body.i.i.i263, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE8allocateEi.exit.i.i
-  %m_data.i5.i.i252 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 5
+  %m_data.i5.i.i252 = getelementptr inbounds i8, ptr %this, i64 144
   %70 = load ptr, ptr %m_data.i5.i.i252, align 8
   %tobool.not.i6.i.i253 = icmp eq ptr %70, null
   br i1 %tobool.not.i6.i.i253, label %if.end.i258, label %if.then.i7.i.i254
 
 if.then.i7.i.i254:                                ; preds = %_ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i
-  %m_ownsMemory.i.i.i255 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 6
+  %m_ownsMemory.i.i.i255 = getelementptr inbounds i8, ptr %this, i64 152
   %71 = load i8, ptr %m_ownsMemory.i.i.i255, align 8
   %72 = and i8 %71, 1
   %tobool2.not.i.i.i256 = icmp eq i8 %72, 0
@@ -4541,14 +4365,14 @@ if.then3.i.i.i257:                                ; preds = %if.then.i7.i.i254
           to label %if.end.i258 unwind label %lpad.loopexit.split-lp
 
 if.end.i258:                                      ; preds = %if.then3.i.i.i257, %if.then.i7.i.i254, %_ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i
-  %m_ownsMemory.i.i259 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 6
+  %m_ownsMemory.i.i259 = getelementptr inbounds i8, ptr %this, i64 152
   store i8 1, ptr %m_ownsMemory.i.i259, align 8
   store ptr %retval.0.i.i.i250, ptr %m_data.i5.i.i252, align 8
   store i32 %count, ptr %m_capacity.i.i.i234, align 8
   br label %for.body8.lr.ph.i236
 
 for.body8.lr.ph.i236:                             ; preds = %if.end.i258, %if.then4.i233
-  %m_data9.i237 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 5
+  %m_data9.i237 = getelementptr inbounds i8, ptr %this, i64 144
   %73 = sext i32 %65 to i64
   %wide.trip.count.i238 = sext i32 %count to i64
   br label %for.body8.i239
@@ -4567,7 +4391,7 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE6resizeEiRKS2_.exit: 
   br i1 %or.cond, label %for.body212.lr.ph, label %for.end224
 
 for.body212.lr.ph:                                ; preds = %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE6resizeEiRKS2_.exit
-  %m_data.i284 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 5
+  %m_data.i284 = getelementptr inbounds i8, ptr %this, i64 144
   %wide.trip.count446 = zext nneg i32 %count to i64
   br label %for.body212
 
@@ -4583,7 +4407,7 @@ if.then.i273:                                     ; preds = %for.body212
   br i1 %tobool2.not.i, label %if.else.i277, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i273
-  %next.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.25", ptr %76, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %76, i64 16
   %77 = load ptr, ptr %next.i, align 8
   store ptr %77, ptr %nextArray.i, align 8
   br label %if.end.i275
@@ -4594,9 +4418,9 @@ if.else.i277:                                     ; preds = %if.then.i273
 
 call.i.noexc:                                     ; preds = %if.else.i277
   %78 = load i32, ptr %arraySize2.i, align 8
-  %size2.i.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.25", ptr %call.i279, i64 0, i32 1
+  %size2.i.i = getelementptr inbounds i8, ptr %call.i279, i64 8
   store i32 %78, ptr %size2.i.i, align 8
-  %next.i.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.25", ptr %call.i279, i64 0, i32 2
+  %next.i.i = getelementptr inbounds i8, ptr %call.i279, i64 16
   store ptr null, ptr %next.i.i, align 8
   %conv.i.i = sext i32 %78 to i64
   %mul.i.i278 = shl nsw i64 %conv.i.i, 7
@@ -4613,7 +4437,7 @@ call.i.i.noexc:                                   ; preds = %call.i.noexc
 if.end.i275:                                      ; preds = %call.i.i.noexc, %if.then3.i
   %p.0.i = phi ptr [ %76, %if.then3.i ], [ %call.i279, %call.i.i.noexc ]
   %80 = load ptr, ptr %p.0.i, align 8
-  %size.i.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.25", ptr %p.0.i, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %p.0.i, i64 8
   %81 = load i32, ptr %size.i.i, align 8
   %cmp5.i.i = icmp sgt i32 %81, 0
   br i1 %cmp5.i.i, label %for.body.i.i, label %invoke.cont215
@@ -4624,7 +4448,7 @@ for.body.i.i:                                     ; preds = %if.end.i275, %for.b
   %o.06.i.i = phi ptr [ %add.ptr.i.i, %for.body.i.i ], [ %80, %if.end.i275 ]
   %add.i.i = add nuw nsw i32 %i.07.i.i, 1
   %cmp3.i.i = icmp slt i32 %add.i.i, %82
-  %add.ptr.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.06.i.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %o.06.i.i, i64 128
   %cond.i.i = select i1 %cmp3.i.i, ptr %add.ptr.i.i, ptr null
   store ptr %cond.i.i, ptr %o.06.i.i, align 8
   %83 = load i32, ptr %size.i.i, align 8
@@ -4639,12 +4463,12 @@ invoke.cont215:                                   ; preds = %for.end.loopexit.i.
   %o.0.i = phi ptr [ %75, %for.body212 ], [ %.pre.i.i, %for.end.loopexit.i.i ], [ %80, %if.end.i275 ]
   %84 = load ptr, ptr %o.0.i, align 8
   store ptr %84, ptr %freeObjects.i, align 8
-  %copy.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 7
+  %copy.i.i = getelementptr inbounds i8, ptr %o.0.i, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %o.0.i, i8 0, i64 40, i1 false)
   store i32 -1, ptr %copy.i.i, align 8
   %85 = load ptr, ptr %m_data.i.i, align 8
   %arrayidx.i283 = getelementptr inbounds %"class.btConvexHullInternal::Point32", ptr %85, i64 %indvars.iv443
-  %point = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 6
+  %point = getelementptr inbounds i8, ptr %o.0.i, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %point, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i283, i64 16, i1 false)
   %86 = load ptr, ptr %m_data.i284, align 8
   %arrayidx.i286 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv443
@@ -4673,20 +4497,20 @@ invoke.cont225:                                   ; preds = %if.then.i.i288, %fo
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
   store i32 0, ptr %m_capacity.i.i, align 8
-  %edgePool = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 3
+  %edgePool = getelementptr inbounds i8, ptr %this, i64 64
   %90 = load ptr, ptr %edgePool, align 8
-  %nextArray.i293 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 3, i32 1
+  %nextArray.i293 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %90, ptr %nextArray.i293, align 8
-  %freeObjects.i294 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 3, i32 2
+  %freeObjects.i294 = getelementptr inbounds i8, ptr %this, i64 80
   store ptr null, ptr %freeObjects.i294, align 8
   %mul = mul nsw i32 %count, 6
-  %arraySize2.i295 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 3, i32 3
+  %arraySize2.i295 = getelementptr inbounds i8, ptr %this, i64 88
   store i32 %mul, ptr %arraySize2.i295, align 8
-  %usedEdgePairs = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 10
+  %usedEdgePairs = getelementptr inbounds i8, ptr %this, i64 176
   store i32 0, ptr %usedEdgePairs, align 8
-  %maxUsedEdgePairs = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 11
+  %maxUsedEdgePairs = getelementptr inbounds i8, ptr %this, i64 180
   store i32 0, ptr %maxUsedEdgePairs, align 4
-  %mergeStamp = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 6
+  %mergeStamp = getelementptr inbounds i8, ptr %this, i64 160
   store i32 -3, ptr %mergeStamp, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %hull, i8 0, i64 32, i1 false)
   invoke void @_ZN20btConvexHullInternal15computeInternalEiiRNS_16IntermediateHullE(ptr noundef nonnull align 8 dereferenceable(192) %this, i32 noundef 0, i32 noundef %count, ptr noundef nonnull align 8 dereferenceable(32) %hull)
@@ -4694,7 +4518,7 @@ invoke.cont225:                                   ; preds = %if.then.i.i288, %fo
 
 invoke.cont230:                                   ; preds = %invoke.cont225
   %91 = load ptr, ptr %hull, align 8
-  %vertexList = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 12
+  %vertexList = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %91, ptr %vertexList, align 8
   %92 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i.i297 = icmp eq ptr %92, null
@@ -4726,7 +4550,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE6resizeEiRKS2_(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %newsize, ptr noundef nonnull align 8 dereferenceable(8) %fillData) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
   %cmp = icmp sgt i32 %0, %newsize
   br i1 %cmp, label %if.end15, label %if.else
@@ -4736,7 +4560,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end15
 
 if.then4:                                         ; preds = %if.else
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i = icmp slt i32 %1, %newsize
   br i1 %cmp.i, label %if.then.i, label %for.body8.lr.ph
@@ -4759,7 +4583,7 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE8allocateEi.exit.i: ;
   br i1 %cmp4.i.i, label %for.body.lr.ph.i.i, label %_ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE8allocateEi.exit.i
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i.i = zext nneg i32 %2 to i64
   br label %for.body.i.i
 
@@ -4775,13 +4599,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %_ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i, label %for.body.i.i, !llvm.loop !40
 
 _ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i: ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE8allocateEi.exit.i
-  %m_data.i5.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i5.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %m_data.i5.i, align 8
   %tobool.not.i6.i = icmp eq ptr %5, null
   br i1 %tobool.not.i6.i, label %if.end, label %if.then.i7.i
 
 if.then.i7.i:                                     ; preds = %_ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i8, ptr %m_ownsMemory.i.i, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i = icmp eq i8 %7, 0
@@ -4792,14 +4616,14 @@ if.then3.i.i:                                     ; preds = %if.then.i7.i
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i, %if.then.i7.i, %if.then3.i.i
-  %m_ownsMemory.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i, align 8
   store ptr %retval.0.i.i, ptr %m_data.i5.i, align 8
   store i32 %newsize, ptr %m_capacity.i.i, align 8
   br i1 %cmp3, label %for.body8.lr.ph, label %if.end15
 
 for.body8.lr.ph:                                  ; preds = %if.then4, %if.end
-  %m_data9 = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data9 = getelementptr inbounds i8, ptr %this, i64 16
   %8 = sext i32 %0 to i64
   %wide.trip.count = sext i32 %newsize to i64
   %.pre17 = load ptr, ptr %fillData, align 8
@@ -4822,13 +4646,13 @@ if.end15:                                         ; preds = %for.body8, %if.else
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -4839,12 +4663,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -4862,23 +4686,23 @@ entry:
   %p = alloca %class.btVector3, align 4
   %0 = load i32, ptr %v, align 4
   %conv = sitofp i32 %0 to float
-  %medAxis = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 8
+  %medAxis = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load i32, ptr %medAxis, align 8
   %idxprom = sext i32 %1 to i64
   %arrayidx = getelementptr inbounds float, ptr %p, i64 %idxprom
   store float %conv, ptr %arrayidx, align 4
-  %y = getelementptr inbounds %"class.btConvexHullInternal::Point32", ptr %v, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %v, i64 4
   %2 = load i32, ptr %y, align 4
   %conv2 = sitofp i32 %2 to float
-  %maxAxis = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 9
+  %maxAxis = getelementptr inbounds i8, ptr %this, i64 172
   %3 = load i32, ptr %maxAxis, align 4
   %idxprom4 = sext i32 %3 to i64
   %arrayidx5 = getelementptr inbounds float, ptr %p, i64 %idxprom4
   store float %conv2, ptr %arrayidx5, align 4
-  %z = getelementptr inbounds %"class.btConvexHullInternal::Point32", ptr %v, i64 0, i32 2
+  %z = getelementptr inbounds i8, ptr %v, i64 8
   %4 = load i32, ptr %z, align 4
   %conv6 = sitofp i32 %4 to float
-  %minAxis = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 7
+  %minAxis = getelementptr inbounds i8, ptr %this, i64 164
   %5 = load i32, ptr %minAxis, align 4
   %idxprom8 = sext i32 %5 to i64
   %arrayidx9 = getelementptr inbounds float, ptr %p, i64 %idxprom8
@@ -4886,8 +4710,8 @@ entry:
   %6 = load float, ptr %p, align 4
   %7 = load float, ptr %this, align 8
   %mul.i = fmul float %6, %7
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 1
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %p, i64 4
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 4
   %8 = load <2 x float>, ptr %arrayidx5.i, align 4
   %9 = load <2 x float>, ptr %arrayidx7.i, align 4
   %10 = fmul <2 x float> %8, %9
@@ -4904,27 +4728,27 @@ define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal11getBtN
 entry:
   %p.i2 = alloca %class.btVector3, align 16
   %p.i = alloca %class.btVector3, align 4
-  %dir0 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 4
+  %dir0 = getelementptr inbounds i8, ptr %face, i64 40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
   %0 = load i32, ptr %dir0, align 4
   %conv.i = sitofp i32 %0 to float
-  %medAxis.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 8
+  %medAxis.i = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load i32, ptr %medAxis.i, align 8
   %idxprom.i = sext i32 %1 to i64
   %arrayidx.i = getelementptr inbounds float, ptr %p.i, i64 %idxprom.i
   store float %conv.i, ptr %arrayidx.i, align 4
-  %y.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 4, i32 1
+  %y.i = getelementptr inbounds i8, ptr %face, i64 44
   %2 = load i32, ptr %y.i, align 4
   %conv2.i = sitofp i32 %2 to float
-  %maxAxis.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 9
+  %maxAxis.i = getelementptr inbounds i8, ptr %this, i64 172
   %3 = load i32, ptr %maxAxis.i, align 4
   %idxprom4.i = sext i32 %3 to i64
   %arrayidx5.i = getelementptr inbounds float, ptr %p.i, i64 %idxprom4.i
   store float %conv2.i, ptr %arrayidx5.i, align 4
-  %z.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 4, i32 2
+  %z.i = getelementptr inbounds i8, ptr %face, i64 48
   %4 = load i32, ptr %z.i, align 4
   %conv6.i = sitofp i32 %4 to float
-  %minAxis.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 7
+  %minAxis.i = getelementptr inbounds i8, ptr %this, i64 164
   %5 = load i32, ptr %minAxis.i, align 4
   %idxprom8.i = sext i32 %5 to i64
   %arrayidx9.i = getelementptr inbounds float, ptr %p.i, i64 %idxprom8.i
@@ -4932,16 +4756,16 @@ entry:
   %6 = load float, ptr %p.i, align 4
   %7 = load float, ptr %this, align 8
   %mul.i.i = fmul float %6, %7
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %p.i, i64 0, i64 1
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 1
-  %dir1 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 5
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %p.i, i64 4
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %dir1 = getelementptr inbounds i8, ptr %face, i64 56
   %arrayidx.i6 = getelementptr inbounds float, ptr %p.i2, i64 %idxprom.i
-  %y.i7 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 5, i32 1
+  %y.i7 = getelementptr inbounds i8, ptr %face, i64 60
   %arrayidx5.i11 = getelementptr inbounds float, ptr %p.i2, i64 %idxprom4.i
-  %z.i12 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 5, i32 2
+  %z.i12 = getelementptr inbounds i8, ptr %face, i64 64
   %arrayidx9.i16 = getelementptr inbounds float, ptr %p.i2, i64 %idxprom8.i
-  %arrayidx5.i.i18 = getelementptr inbounds [4 x float], ptr %p.i2, i64 0, i64 1
-  %arrayidx11.i.i21 = getelementptr inbounds [4 x float], ptr %p.i2, i64 0, i64 2
+  %arrayidx5.i.i18 = getelementptr inbounds i8, ptr %p.i2, i64 4
+  %arrayidx11.i.i21 = getelementptr inbounds i8, ptr %p.i2, i64 8
   %8 = load <2 x float>, ptr %arrayidx5.i.i, align 4
   %9 = load <2 x float>, ptr %arrayidx7.i.i, align 4
   %10 = fmul <2 x float> %8, %9
@@ -4999,16 +4823,16 @@ entry:
 define dso_local { <2 x float>, <2 x float> } @_ZN20btConvexHullInternal14getCoordinatesEPKNS_6VertexE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, ptr noundef %v) local_unnamed_addr #10 align 2 {
 entry:
   %p = alloca %class.btVector3, align 4
-  %index.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v, i64 0, i32 6, i32 3
+  %index.i = getelementptr inbounds i8, ptr %v, i64 116
   %0 = load i32, ptr %index.i, align 4
   %cmp.i = icmp sgt i32 %0, -1
   br i1 %cmp.i, label %_ZNK20btConvexHullInternal6Vertex6xvalueEv.exit.thread, label %_ZNK20btConvexHullInternal6Vertex6xvalueEv.exit
 
 _ZNK20btConvexHullInternal6Vertex6xvalueEv.exit.thread: ; preds = %entry
-  %point.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v, i64 0, i32 6
+  %point.i = getelementptr inbounds i8, ptr %v, i64 104
   %1 = load i32, ptr %point.i, align 8
   %conv.i = sitofp i32 %1 to float
-  %medAxis35 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 8
+  %medAxis35 = getelementptr inbounds i8, ptr %this, i64 168
   %2 = load i32, ptr %medAxis35, align 8
   %idxprom36 = sext i32 %2 to i64
   %arrayidx37 = getelementptr inbounds float, ptr %p, i64 %idxprom36
@@ -5016,14 +4840,14 @@ _ZNK20btConvexHullInternal6Vertex6xvalueEv.exit.thread: ; preds = %entry
   br label %_ZNK20btConvexHullInternal6Vertex6yvalueEv.exit.thread
 
 _ZNK20btConvexHullInternal6Vertex6xvalueEv.exit:  ; preds = %entry
-  %point128.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v, i64 0, i32 5
+  %point128.i = getelementptr inbounds i8, ptr %v, i64 40
   %call.i.i = tail call noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %point128.i)
-  %denominator.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v, i64 0, i32 5, i32 3
+  %denominator.i.i = getelementptr inbounds i8, ptr %v, i64 88
   %call2.i.i = tail call noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %denominator.i.i)
   %div.i.i = fdiv float %call.i.i, %call2.i.i
   %.pre = load i32, ptr %index.i, align 4
   %3 = icmp sgt i32 %.pre, -1
-  %medAxis = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 8
+  %medAxis = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load i32, ptr %medAxis, align 8
   %idxprom = sext i32 %4 to i64
   %arrayidx = getelementptr inbounds float, ptr %p, i64 %idxprom
@@ -5031,10 +4855,10 @@ _ZNK20btConvexHullInternal6Vertex6xvalueEv.exit:  ; preds = %entry
   br i1 %3, label %_ZNK20btConvexHullInternal6Vertex6yvalueEv.exit.thread, label %_ZNK20btConvexHullInternal6Vertex6yvalueEv.exit
 
 _ZNK20btConvexHullInternal6Vertex6yvalueEv.exit.thread: ; preds = %_ZNK20btConvexHullInternal6Vertex6xvalueEv.exit, %_ZNK20btConvexHullInternal6Vertex6xvalueEv.exit.thread
-  %y.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v, i64 0, i32 6, i32 1
+  %y.i = getelementptr inbounds i8, ptr %v, i64 108
   %5 = load i32, ptr %y.i, align 4
   %conv.i12 = sitofp i32 %5 to float
-  %maxAxis40 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 9
+  %maxAxis40 = getelementptr inbounds i8, ptr %this, i64 172
   %6 = load i32, ptr %maxAxis40, align 4
   %idxprom541 = sext i32 %6 to i64
   %arrayidx642 = getelementptr inbounds float, ptr %p, i64 %idxprom541
@@ -5042,14 +4866,14 @@ _ZNK20btConvexHullInternal6Vertex6yvalueEv.exit.thread: ; preds = %_ZNK20btConve
   br label %cond.true.i21
 
 _ZNK20btConvexHullInternal6Vertex6yvalueEv.exit:  ; preds = %_ZNK20btConvexHullInternal6Vertex6xvalueEv.exit
-  %y.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v, i64 0, i32 5, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %v, i64 56
   %call.i.i6 = tail call noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %y.i.i)
-  %denominator.i.i7 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v, i64 0, i32 5, i32 3
+  %denominator.i.i7 = getelementptr inbounds i8, ptr %v, i64 88
   %call2.i.i8 = tail call noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %denominator.i.i7)
   %div.i.i9 = fdiv float %call.i.i6, %call2.i.i8
   %.pre32 = load i32, ptr %index.i, align 4
   %7 = icmp sgt i32 %.pre32, -1
-  %maxAxis = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 9
+  %maxAxis = getelementptr inbounds i8, ptr %this, i64 172
   %8 = load i32, ptr %maxAxis, align 4
   %idxprom5 = sext i32 %8 to i64
   %arrayidx6 = getelementptr inbounds float, ptr %p, i64 %idxprom5
@@ -5057,22 +4881,22 @@ _ZNK20btConvexHullInternal6Vertex6yvalueEv.exit:  ; preds = %_ZNK20btConvexHullI
   br i1 %7, label %cond.true.i21, label %cond.false.i15
 
 cond.true.i21:                                    ; preds = %_ZNK20btConvexHullInternal6Vertex6yvalueEv.exit.thread, %_ZNK20btConvexHullInternal6Vertex6yvalueEv.exit
-  %z.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v, i64 0, i32 6, i32 2
+  %z.i = getelementptr inbounds i8, ptr %v, i64 112
   %9 = load i32, ptr %z.i, align 8
   %conv.i22 = sitofp i32 %9 to float
   br label %_ZNK20btConvexHullInternal6Vertex6zvalueEv.exit
 
 cond.false.i15:                                   ; preds = %_ZNK20btConvexHullInternal6Vertex6yvalueEv.exit
-  %z.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v, i64 0, i32 5, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %v, i64 72
   %call.i.i16 = tail call noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %z.i.i)
-  %denominator.i.i17 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %v, i64 0, i32 5, i32 3
+  %denominator.i.i17 = getelementptr inbounds i8, ptr %v, i64 88
   %call2.i.i18 = tail call noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %denominator.i.i17)
   %div.i.i19 = fdiv float %call.i.i16, %call2.i.i18
   br label %_ZNK20btConvexHullInternal6Vertex6zvalueEv.exit
 
 _ZNK20btConvexHullInternal6Vertex6zvalueEv.exit:  ; preds = %cond.true.i21, %cond.false.i15
   %cond.i20 = phi float [ %conv.i22, %cond.true.i21 ], [ %div.i.i19, %cond.false.i15 ]
-  %minAxis = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 7
+  %minAxis = getelementptr inbounds i8, ptr %this, i64 164
   %10 = load i32, ptr %minAxis, align 4
   %idxprom9 = sext i32 %10 to i64
   %arrayidx10 = getelementptr inbounds float, ptr %p, i64 %idxprom9
@@ -5080,12 +4904,12 @@ _ZNK20btConvexHullInternal6Vertex6zvalueEv.exit:  ; preds = %cond.true.i21, %con
   %11 = load float, ptr %p, align 4
   %12 = load float, ptr %this, align 8
   %mul.i = fmul float %11, %12
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %p, i64 0, i64 1
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 1
-  %center = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %p, i64 4
+  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 4
+  %center = getelementptr inbounds i8, ptr %this, i64 16
   %13 = load float, ptr %center, align 8
   %add.i = fadd float %mul.i, %13
-  %arrayidx7.i24 = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 1, i32 0, i64 1
+  %arrayidx7.i24 = getelementptr inbounds i8, ptr %this, i64 20
   %14 = load <2 x float>, ptr %arrayidx5.i, align 4
   %15 = load <2 x float>, ptr %arrayidx7.i, align 4
   %16 = fmul <2 x float> %14, %15
@@ -5111,38 +4935,38 @@ entry:
   %volume = alloca %"class.btConvexHullInternal::Int128", align 8
   %hullCenter = alloca %class.btVector3, align 8
   %agg.tmp = alloca %class.btAlignedObjectArray, align 8
-  %vertexList = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 12
+  %vertexList = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %vertexList, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %mergeStamp = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 6
+  %mergeStamp = getelementptr inbounds i8, ptr %this, i64 160
   %1 = load i32, ptr %mergeStamp, align 8
   %dec = add nsw i32 %1, -1
   store i32 %dec, ptr %mergeStamp, align 8
-  %copy = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %0, i64 0, i32 7
+  %copy = getelementptr inbounds i8, ptr %0, i64 120
   store i32 %dec, ptr %copy, align 8
   %call.i.i.i.i55 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 8, i32 noundef 16)
   %2 = load ptr, ptr %vertexList, align 8
   store ptr %2, ptr %call.i.i.i.i55, align 8
-  %point = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %2, i64 0, i32 6
+  %point = getelementptr inbounds i8, ptr %2, i64 104
   %ref.sroa.0.0.copyload = load i32, ptr %point, align 8
-  %ref.sroa.5.0.point.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %2, i64 0, i32 6, i32 1
+  %ref.sroa.5.0.point.sroa_idx = getelementptr inbounds i8, ptr %2, i64 108
   %ref.sroa.5.0.copyload = load i32, ptr %ref.sroa.5.0.point.sroa_idx, align 4
-  %ref.sroa.9.0.point.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %2, i64 0, i32 6, i32 2
+  %ref.sroa.9.0.point.sroa_idx = getelementptr inbounds i8, ptr %2, i64 112
   %ref.sroa.9.0.copyload = load i32, ptr %ref.sroa.9.0.point.sroa_idx, align 8
-  %high3.i = getelementptr inbounds %"class.btConvexHullInternal::Int128", ptr %hullCenterX, i64 0, i32 1
+  %high3.i = getelementptr inbounds i8, ptr %hullCenterX, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hullCenterX, i8 0, i64 16, i1 false)
-  %high3.i60 = getelementptr inbounds %"class.btConvexHullInternal::Int128", ptr %hullCenterY, i64 0, i32 1
+  %high3.i60 = getelementptr inbounds i8, ptr %hullCenterY, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hullCenterY, i8 0, i64 16, i1 false)
-  %high3.i61 = getelementptr inbounds %"class.btConvexHullInternal::Int128", ptr %hullCenterZ, i64 0, i32 1
+  %high3.i61 = getelementptr inbounds i8, ptr %hullCenterZ, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %hullCenterZ, i8 0, i64 16, i1 false)
-  %high3.i62 = getelementptr inbounds %"class.btConvexHullInternal::Int128", ptr %volume, i64 0, i32 1
-  %facePool = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 4
-  %freeObjects.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 4, i32 2
-  %nextArray.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 4, i32 1
-  %arraySize.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 4, i32 3
+  %high3.i62 = getelementptr inbounds i8, ptr %volume, i64 8
+  %facePool = getelementptr inbounds i8, ptr %this, i64 96
+  %freeObjects.i = getelementptr inbounds i8, ptr %this, i64 112
+  %nextArray.i = getelementptr inbounds i8, ptr %this, i64 104
+  %arraySize.i = getelementptr inbounds i8, ptr %this, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %volume, i8 0, i64 16, i1 false)
   br label %while.body
 
@@ -5157,15 +4981,15 @@ while.body:                                       ; preds = %if.then.i.i.i, %if.
   %idxprom.i65 = zext nneg i32 %sub to i64
   %arrayidx.i66 = getelementptr inbounds ptr, ptr %stack.sroa.25.1520, i64 %idxprom.i65
   %3 = load ptr, ptr %arrayidx.i66, align 8
-  %edges = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %3, i64 0, i32 2
+  %edges = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %edges, align 8
   %tobool17.not = icmp eq ptr %4, null
   br i1 %tobool17.not, label %if.end98, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %while.body
-  %point.i8.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %3, i64 0, i32 6
-  %y.i.i11.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %3, i64 0, i32 6, i32 1
-  %z.i.i14.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %3, i64 0, i32 6, i32 2
+  %point.i8.i = getelementptr inbounds i8, ptr %3, i64 104
+  %y.i.i11.i = getelementptr inbounds i8, ptr %3, i64 108
+  %z.i.i14.i = getelementptr inbounds i8, ptr %3, i64 112
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end93
@@ -5176,9 +5000,9 @@ do.body:                                          ; preds = %do.body.preheader, 
   %stack.sroa.18.2 = phi i32 [ %stack.sroa.18.4, %if.end93 ], [ %stack.sroa.18.1519, %do.body.preheader ]
   %stack.sroa.25.2 = phi ptr [ %stack.sroa.25.5, %if.end93 ], [ %stack.sroa.25.1520, %do.body.preheader ]
   %e.0 = phi ptr [ %54, %if.end93 ], [ %4, %do.body.preheader ]
-  %target = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.0, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %e.0, i64 24
   %5 = load ptr, ptr %target, align 8
-  %copy19 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %5, i64 0, i32 7
+  %copy19 = getelementptr inbounds i8, ptr %5, i64 120
   %6 = load i32, ptr %copy19, align 8
   %cmp20.not = icmp eq i32 %6, %dec
   br i1 %cmp20.not, label %if.end26, label %if.then21
@@ -5246,7 +5070,7 @@ if.end26:                                         ; preds = %_ZN20btAlignedObjec
   %stack.sroa.0.2 = phi i32 [ %stack.sroa.0.1, %do.body ], [ %inc.i74, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit111 ]
   %stack.sroa.18.4 = phi i32 [ %stack.sroa.18.2, %do.body ], [ %stack.sroa.18.3, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit111 ]
   %stack.sroa.25.5 = phi ptr [ %stack.sroa.25.2, %do.body ], [ %stack.sroa.25.3, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit111 ]
-  %copy27 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.0, i64 0, i32 5
+  %copy27 = getelementptr inbounds i8, ptr %e.0, i64 40
   %9 = load i32, ptr %copy27, align 8
   %cmp28.not = icmp eq i32 %9, %dec
   br i1 %cmp28.not, label %if.end93, label %if.then29
@@ -5262,7 +5086,7 @@ if.then.i112:                                     ; preds = %if.then29
   br i1 %tobool2.not.i, label %if.else.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i112
-  %next.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray", ptr %11, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %next.i, align 8
   store ptr %12, ptr %nextArray.i, align 8
   br label %if.end.i
@@ -5273,9 +5097,9 @@ if.else.i:                                        ; preds = %if.then.i112
 
 call.i.noexc:                                     ; preds = %if.else.i
   %13 = load i32, ptr %arraySize.i, align 8
-  %size2.i.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray", ptr %call.i116, i64 0, i32 1
+  %size2.i.i = getelementptr inbounds i8, ptr %call.i116, i64 8
   store i32 %13, ptr %size2.i.i, align 8
-  %next.i.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray", ptr %call.i116, i64 0, i32 2
+  %next.i.i = getelementptr inbounds i8, ptr %call.i116, i64 16
   store ptr null, ptr %next.i.i, align 8
   %conv.i.i = sext i32 %13 to i64
   %mul.i.i115 = mul nsw i64 %conv.i.i, 72
@@ -5292,7 +5116,7 @@ call.i.i.noexc:                                   ; preds = %call.i.noexc
 if.end.i:                                         ; preds = %call.i.i.noexc, %if.then3.i
   %p.0.i = phi ptr [ %11, %if.then3.i ], [ %call.i116, %call.i.i.noexc ]
   %15 = load ptr, ptr %p.0.i, align 8
-  %size.i.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray", ptr %p.0.i, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %p.0.i, i64 8
   %16 = load i32, ptr %size.i.i, align 8
   %cmp5.i.i = icmp sgt i32 %16, 0
   br i1 %cmp5.i.i, label %for.body.i.i, label %invoke.cont34
@@ -5303,7 +5127,7 @@ for.body.i.i:                                     ; preds = %if.end.i, %for.body
   %o.06.i.i = phi ptr [ %add.ptr.i.i, %for.body.i.i ], [ %15, %if.end.i ]
   %add.i.i = add nuw nsw i32 %i.07.i.i, 1
   %cmp3.i.i = icmp slt i32 %add.i.i, %17
-  %add.ptr.i.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %o.06.i.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %o.06.i.i, i64 72
   %cond.i.i113 = select i1 %cmp3.i.i, ptr %add.ptr.i.i, ptr null
   store ptr %cond.i.i113, ptr %o.06.i.i, align 8
   %18 = load i32, ptr %size.i.i, align 8
@@ -5320,29 +5144,29 @@ invoke.cont34:                                    ; preds = %if.then29, %if.end.
   store ptr %19, ptr %freeObjects.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %o.0.i, i8 0, i64 24, i1 false)
   %20 = load ptr, ptr %target, align 8
-  %reverse = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.0, i64 0, i32 2
+  %reverse = getelementptr inbounds i8, ptr %e.0, i64 16
   %21 = load ptr, ptr %reverse, align 8
-  %prev = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %21, i64 0, i32 1
+  %prev = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %prev, align 8
-  %target33 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %22, i64 0, i32 3
+  %target33 = getelementptr inbounds i8, ptr %22, i64 24
   %23 = load ptr, ptr %target33, align 8
-  %nearbyVertex.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %o.0.i, i64 0, i32 1
+  %nearbyVertex.i = getelementptr inbounds i8, ptr %o.0.i, i64 8
   store ptr %20, ptr %nearbyVertex.i, align 8
-  %point.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %20, i64 0, i32 6
-  %origin.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %o.0.i, i64 0, i32 3
+  %point.i = getelementptr inbounds i8, ptr %20, i64 104
+  %origin.i = getelementptr inbounds i8, ptr %o.0.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %origin.i, ptr noundef nonnull align 8 dereferenceable(16) %point.i, i64 16, i1 false)
-  %point.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %23, i64 0, i32 6
+  %point.i.i = getelementptr inbounds i8, ptr %23, i64 104
   %24 = load i32, ptr %point.i.i, align 4
   %25 = load i32, ptr %point.i, align 4
   %sub.i.i.i = sub nsw i32 %24, %25
-  %y.i.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %23, i64 0, i32 6, i32 1
+  %y.i.i.i = getelementptr inbounds i8, ptr %23, i64 108
   %26 = load i32, ptr %y.i.i.i, align 4
-  %y3.i.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %20, i64 0, i32 6, i32 1
+  %y3.i.i.i = getelementptr inbounds i8, ptr %20, i64 108
   %27 = load i32, ptr %y3.i.i.i, align 4
   %sub4.i.i.i = sub nsw i32 %26, %27
-  %z.i.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %23, i64 0, i32 6, i32 2
+  %z.i.i.i = getelementptr inbounds i8, ptr %23, i64 112
   %28 = load i32, ptr %z.i.i.i, align 4
-  %z5.i.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %20, i64 0, i32 6, i32 2
+  %z5.i.i.i = getelementptr inbounds i8, ptr %20, i64 112
   %29 = load i32, ptr %z5.i.i.i, align 4
   %sub6.i.i.i = sub nsw i32 %28, %29
   %retval.sroa.2.0.insert.ext.i.i.i = zext i32 %sub4.i.i.i to i64
@@ -5351,9 +5175,9 @@ invoke.cont34:                                    ; preds = %if.then29, %if.end.
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i
   %retval.sroa.3.8.insert.ext.i.i.i = zext i32 %sub6.i.i.i to i64
   %retval.sroa.3.8.insert.insert.i.i.i = or disjoint i64 %retval.sroa.3.8.insert.ext.i.i.i, -4294967296
-  %dir0.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %o.0.i, i64 0, i32 4
+  %dir0.i = getelementptr inbounds i8, ptr %o.0.i, i64 40
   store i64 %retval.sroa.0.0.insert.insert.i.i.i, ptr %dir0.i, align 8
-  %ref.tmp.sroa.2.0.dir0.sroa_idx.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %o.0.i, i64 0, i32 4, i32 2
+  %ref.tmp.sroa.2.0.dir0.sroa_idx.i = getelementptr inbounds i8, ptr %o.0.i, i64 48
   store i64 %retval.sroa.3.8.insert.insert.i.i.i, ptr %ref.tmp.sroa.2.0.dir0.sroa_idx.i, align 8
   %30 = load i32, ptr %point.i8.i, align 4
   %31 = load i32, ptr %point.i, align 4
@@ -5370,15 +5194,15 @@ invoke.cont34:                                    ; preds = %if.then29, %if.end.
   %retval.sroa.0.0.insert.insert.i.i20.i = or disjoint i64 %retval.sroa.2.0.insert.shift.i.i18.i, %retval.sroa.0.0.insert.ext.i.i19.i
   %retval.sroa.3.8.insert.ext.i.i22.i = zext i32 %sub6.i.i16.i to i64
   %retval.sroa.3.8.insert.insert.i.i23.i = or disjoint i64 %retval.sroa.3.8.insert.ext.i.i22.i, -4294967296
-  %dir1.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %o.0.i, i64 0, i32 5
+  %dir1.i = getelementptr inbounds i8, ptr %o.0.i, i64 56
   store i64 %retval.sroa.0.0.insert.insert.i.i20.i, ptr %dir1.i, align 8
-  %ref.tmp2.sroa.2.0.dir1.sroa_idx.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %o.0.i, i64 0, i32 5, i32 2
+  %ref.tmp2.sroa.2.0.dir1.sroa_idx.i = getelementptr inbounds i8, ptr %o.0.i, i64 64
   store i64 %retval.sroa.3.8.insert.insert.i.i23.i, ptr %ref.tmp2.sroa.2.0.dir1.sroa_idx.i, align 8
-  %lastNearbyFace.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %20, i64 0, i32 4
+  %lastNearbyFace.i = getelementptr inbounds i8, ptr %20, i64 32
   %36 = load ptr, ptr %lastNearbyFace.i, align 8
   %tobool.not.i118 = icmp eq ptr %36, null
-  %firstNearbyFace.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %20, i64 0, i32 3
-  %nextWithSameNearbyVertex.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %36, i64 0, i32 2
+  %firstNearbyFace.i = getelementptr inbounds i8, ptr %20, i64 24
+  %nextWithSameNearbyVertex.i = getelementptr inbounds i8, ptr %36, i64 16
   %firstNearbyFace.sink.i = select i1 %tobool.not.i118, ptr %firstNearbyFace.i, ptr %nextWithSameNearbyVertex.i
   store ptr %o.0.i, ptr %firstNearbyFace.sink.i, align 8
   store ptr %o.0.i, ptr %lastNearbyFace.i, align 8
@@ -5474,22 +5298,22 @@ invoke.cont64:                                    ; preds = %do.body36
   %sub4.i = sub nsw i32 %40, %ref.sroa.5.0.copyload
   %41 = load i32, ptr %z.i.i14.i, align 4
   %sub6.i = sub nsw i32 %41, %ref.sroa.9.0.copyload
-  %point45 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %a.0, i64 0, i32 6
+  %point45 = getelementptr inbounds i8, ptr %a.0, i64 104
   %42 = load i32, ptr %point45, align 4
   %sub.i160 = sub nsw i32 %42, %ref.sroa.0.0.copyload
-  %y.i161 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %a.0, i64 0, i32 6, i32 1
+  %y.i161 = getelementptr inbounds i8, ptr %a.0, i64 108
   %43 = load i32, ptr %y.i161, align 4
   %sub4.i163 = sub nsw i32 %43, %ref.sroa.5.0.copyload
-  %z.i164 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %a.0, i64 0, i32 6, i32 2
+  %z.i164 = getelementptr inbounds i8, ptr %a.0, i64 112
   %44 = load i32, ptr %z.i164, align 4
   %sub6.i166 = sub nsw i32 %44, %ref.sroa.9.0.copyload
-  %point49 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %b.0, i64 0, i32 6
+  %point49 = getelementptr inbounds i8, ptr %b.0, i64 104
   %45 = load i32, ptr %point49, align 4
   %sub.i175 = sub nsw i32 %45, %ref.sroa.0.0.copyload
-  %y.i176 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %b.0, i64 0, i32 6, i32 1
+  %y.i176 = getelementptr inbounds i8, ptr %b.0, i64 108
   %46 = load i32, ptr %y.i176, align 4
   %sub4.i178 = sub nsw i32 %46, %ref.sroa.5.0.copyload
-  %z.i179 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %b.0, i64 0, i32 6, i32 2
+  %z.i179 = getelementptr inbounds i8, ptr %b.0, i64 112
   %47 = load i32, ptr %z.i179, align 4
   %sub6.i181 = sub nsw i32 %47, %ref.sroa.9.0.copyload
   %conv.i = sext i32 %sub4.i163 to i64
@@ -5573,15 +5397,15 @@ if.end86:                                         ; preds = %invoke.cont64, %do.
   %add.i249503 = phi i64 [ %add.i249, %invoke.cont64 ], [ %add.i249504, %do.body36 ]
   %add7.i501 = phi i64 [ %add7.i, %invoke.cont64 ], [ %add7.i502, %do.body36 ]
   %add.i241499 = phi i64 [ %add.i241, %invoke.cont64 ], [ %add.i241500, %do.body36 ]
-  %copy87 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %f.0, i64 0, i32 5
+  %copy87 = getelementptr inbounds i8, ptr %f.0, i64 40
   store i32 %dec, ptr %copy87, align 8
-  %face88 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %f.0, i64 0, i32 4
+  %face88 = getelementptr inbounds i8, ptr %f.0, i64 32
   store ptr %o.0.i, ptr %face88, align 8
-  %target89 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %f.0, i64 0, i32 3
+  %target89 = getelementptr inbounds i8, ptr %f.0, i64 24
   %51 = load ptr, ptr %target89, align 8
-  %reverse90 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %f.0, i64 0, i32 2
+  %reverse90 = getelementptr inbounds i8, ptr %f.0, i64 16
   %52 = load ptr, ptr %reverse90, align 8
-  %prev91 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %52, i64 0, i32 1
+  %prev91 = getelementptr inbounds i8, ptr %52, i64 8
   %53 = load ptr, ptr %prev91, align 8
   %cmp92.not = icmp eq ptr %53, %e.0
   br i1 %cmp92.not, label %if.end93.loopexit, label %do.body36, !llvm.loop !46
@@ -5626,7 +5450,7 @@ if.end103:                                        ; preds = %_ZNK20btConvexHullI
           to label %invoke.cont105 unwind label %ehcleanup.loopexit.split-lp
 
 invoke.cont105:                                   ; preds = %if.end103
-  %medAxis = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 8
+  %medAxis = getelementptr inbounds i8, ptr %this, i64 168
   %58 = load i32, ptr %medAxis, align 8
   %idxprom = sext i32 %58 to i64
   %arrayidx = getelementptr inbounds float, ptr %hullCenter, i64 %idxprom
@@ -5635,7 +5459,7 @@ invoke.cont105:                                   ; preds = %if.end103
           to label %invoke.cont109 unwind label %ehcleanup.loopexit.split-lp
 
 invoke.cont109:                                   ; preds = %invoke.cont105
-  %maxAxis = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 9
+  %maxAxis = getelementptr inbounds i8, ptr %this, i64 172
   %59 = load i32, ptr %maxAxis, align 4
   %idxprom113 = sext i32 %59 to i64
   %arrayidx114 = getelementptr inbounds float, ptr %hullCenter, i64 %idxprom113
@@ -5644,7 +5468,7 @@ invoke.cont109:                                   ; preds = %invoke.cont105
           to label %invoke.cont115 unwind label %ehcleanup.loopexit.split-lp
 
 invoke.cont115:                                   ; preds = %invoke.cont109
-  %minAxis = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 7
+  %minAxis = getelementptr inbounds i8, ptr %this, i64 164
   %60 = load i32, ptr %minAxis, align 4
   %idxprom119 = sext i32 %60 to i64
   %arrayidx120 = getelementptr inbounds float, ptr %hullCenter, i64 %idxprom119
@@ -5655,7 +5479,7 @@ invoke.cont115:                                   ; preds = %invoke.cont109
 invoke.cont125:                                   ; preds = %invoke.cont115
   %mul124 = fmul float %call123, 4.000000e+00
   %div.i = fdiv float 1.000000e+00, %mul124
-  %arrayidx6.i.i = getelementptr inbounds [4 x float], ptr %hullCenter, i64 0, i64 2
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %hullCenter, i64 8
   %61 = load float, ptr %arrayidx6.i.i, align 8
   %mul7.i.i = fmul float %div.i, %61
   %62 = load <2 x float>, ptr %hullCenter, align 8
@@ -5665,7 +5489,7 @@ invoke.cont125:                                   ; preds = %invoke.cont115
   %66 = load <2 x float>, ptr %this, align 8
   %67 = fmul <2 x float> %65, %66
   store <2 x float> %67, ptr %hullCenter, align 8
-  %arrayidx10.i = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %this, i64 8
   %68 = load float, ptr %arrayidx10.i, align 8
   %mul13.i = fmul float %mul7.i.i, %68
   store float %mul13.i, ptr %arrayidx6.i.i, align 8
@@ -5686,18 +5510,18 @@ invoke.cont145.lr.ph:                             ; preds = %for.cond.preheader
   %71 = load i32, ptr %minAxis, align 4
   %idxprom8.i.i = sext i32 %71 to i64
   %arrayidx9.i.i = getelementptr inbounds float, ptr %p.i.i, i64 %idxprom8.i.i
-  %arrayidx5.i.i.i = getelementptr inbounds [4 x float], ptr %p.i.i, i64 0, i64 1
-  %arrayidx11.i.i.i = getelementptr inbounds [4 x float], ptr %p.i.i, i64 0, i64 2
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %p.i.i, i64 4
+  %arrayidx11.i.i.i = getelementptr inbounds i8, ptr %p.i.i, i64 8
   %arrayidx.i6.i = getelementptr inbounds float, ptr %p.i2.i, i64 %idxprom.i.i
   %arrayidx5.i11.i = getelementptr inbounds float, ptr %p.i2.i, i64 %idxprom4.i.i
   %arrayidx9.i16.i = getelementptr inbounds float, ptr %p.i2.i, i64 %idxprom8.i.i
-  %arrayidx5.i.i18.i = getelementptr inbounds [4 x float], ptr %p.i2.i, i64 0, i64 1
-  %arrayidx11.i.i21.i = getelementptr inbounds [4 x float], ptr %p.i2.i, i64 0, i64 2
+  %arrayidx5.i.i18.i = getelementptr inbounds i8, ptr %p.i2.i, i64 4
+  %arrayidx11.i.i21.i = getelementptr inbounds i8, ptr %p.i2.i, i64 8
   %arrayidx.i301 = getelementptr inbounds float, ptr %p.i, i64 %idxprom.i.i
   %arrayidx5.i304 = getelementptr inbounds float, ptr %p.i, i64 %idxprom4.i.i
   %arrayidx9.i = getelementptr inbounds float, ptr %p.i, i64 %idxprom8.i.i
-  %arrayidx5.i.i308 = getelementptr inbounds [4 x float], ptr %p.i, i64 0, i64 1
-  %arrayidx11.i.i = getelementptr inbounds [4 x float], ptr %p.i, i64 0, i64 2
+  %arrayidx5.i.i308 = getelementptr inbounds i8, ptr %p.i, i64 4
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %p.i, i64 8
   %wide.trip.count = zext nneg i32 %faces.sroa.0.3 to i64
   %72 = extractelement <2 x float> %67, i64 0
   %73 = extractelement <2 x float> %67, i64 1
@@ -5710,16 +5534,16 @@ invoke.cont145:                                   ; preds = %invoke.cont145.lr.p
   %minDist.0522 = phi float [ 0x47EFFFFFE0000000, %invoke.cont145.lr.ph ], [ %minDist.1, %invoke.cont145 ]
   %arrayidx.i292 = getelementptr inbounds ptr, ptr %faces.sroa.14.5, i64 %indvars.iv
   %76 = load ptr, ptr %arrayidx.i292, align 8
-  %dir0.i293 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %76, i64 0, i32 4
+  %dir0.i293 = getelementptr inbounds i8, ptr %76, i64 40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i.i)
   %77 = load i32, ptr %dir0.i293, align 4
   %conv.i.i294 = sitofp i32 %77 to float
   store float %conv.i.i294, ptr %arrayidx.i.i, align 4
-  %y.i.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %76, i64 0, i32 4, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %76, i64 44
   %78 = load i32, ptr %y.i.i, align 4
   %conv2.i.i = sitofp i32 %78 to float
   store float %conv2.i.i, ptr %arrayidx5.i.i, align 4
-  %z.i.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %76, i64 0, i32 4, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %76, i64 48
   %79 = load i32, ptr %z.i.i, align 4
   %conv6.i.i = sitofp i32 %79 to float
   store float %conv6.i.i, ptr %arrayidx9.i.i, align 4
@@ -5730,16 +5554,16 @@ invoke.cont145:                                   ; preds = %invoke.cont145.lr.p
   %82 = load float, ptr %arrayidx11.i.i.i, align 4
   %mul14.i.i.i = fmul float %68, %82
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %p.i.i)
-  %dir1.i295 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %76, i64 0, i32 5
+  %dir1.i295 = getelementptr inbounds i8, ptr %76, i64 56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i2.i)
   %83 = load i32, ptr %dir1.i295, align 4
   %conv.i3.i = sitofp i32 %83 to float
   store float %conv.i3.i, ptr %arrayidx.i6.i, align 4
-  %y.i7.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %76, i64 0, i32 5, i32 1
+  %y.i7.i = getelementptr inbounds i8, ptr %76, i64 60
   %84 = load i32, ptr %y.i7.i, align 4
   %conv2.i8.i = sitofp i32 %84 to float
   store float %conv2.i8.i, ptr %arrayidx5.i11.i, align 4
-  %z.i12.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %76, i64 0, i32 5, i32 2
+  %z.i12.i = getelementptr inbounds i8, ptr %76, i64 64
   %85 = load i32, ptr %z.i12.i, align 4
   %conv6.i13.i = sitofp i32 %85 to float
   store float %conv6.i13.i, ptr %arrayidx9.i16.i, align 4
@@ -5768,16 +5592,16 @@ invoke.cont145:                                   ; preds = %invoke.cont145.lr.p
   %mul4.i.i.i.i.i = fmul float %92, %div.i.i.i.i
   %mul7.i.i.i.i.i = fmul float %94, %div.i.i.i.i
   %97 = load ptr, ptr %arrayidx.i292, align 8
-  %origin = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %97, i64 0, i32 3
+  %origin = getelementptr inbounds i8, ptr %97, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i)
   %98 = load i32, ptr %origin, align 4
   %conv.i299 = sitofp i32 %98 to float
   store float %conv.i299, ptr %arrayidx.i301, align 4
-  %y.i302 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %97, i64 0, i32 3, i32 1
+  %y.i302 = getelementptr inbounds i8, ptr %97, i64 28
   %99 = load i32, ptr %y.i302, align 4
   %conv2.i303 = sitofp i32 %99 to float
   store float %conv2.i303, ptr %arrayidx5.i304, align 4
-  %z.i305 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %97, i64 0, i32 3, i32 2
+  %z.i305 = getelementptr inbounds i8, ptr %97, i64 32
   %100 = load i32, ptr %z.i305, align 4
   %conv6.i306 = sitofp i32 %100 to float
   store float %conv6.i306, ptr %arrayidx9.i, align 4
@@ -5824,10 +5648,10 @@ for.cond175.preheader:                            ; preds = %for.body164
   br i1 %cmp163524, label %invoke.cont180.lr.ph, label %if.then3.i.i.i353
 
 invoke.cont180.lr.ph:                             ; preds = %for.cond175.preheader
-  %m_ownsMemory.i.i329 = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.tmp, i64 0, i32 6
-  %m_data.i.i330 = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.tmp, i64 0, i32 5
-  %m_size.i.i331 = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.tmp, i64 0, i32 2
-  %m_capacity.i.i332 = getelementptr inbounds %class.btAlignedObjectArray, ptr %agg.tmp, i64 0, i32 3
+  %m_ownsMemory.i.i329 = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %m_data.i.i330 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %m_size.i.i331 = getelementptr inbounds i8, ptr %agg.tmp, i64 4
+  %m_capacity.i.i332 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %wide.trip.count543 = zext nneg i32 %faces.sroa.0.3 to i64
   br label %invoke.cont180
 
@@ -5996,9 +5820,9 @@ return:                                           ; preds = %if.then3.i.i.i363, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %_Val) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size.i, align 4
-  %m_capacity.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_capacity.i, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %if.then, label %if.end
@@ -6028,7 +5852,7 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE8allocateEi.exit.i: ;
   br i1 %cmp4.i.i, label %for.body.lr.ph.i.i, label %_ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE8allocateEi.exit.i
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count.i.i = zext nneg i32 %2 to i64
   br label %for.body.i.i
 
@@ -6044,13 +5868,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %_ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i, label %for.body.i.i, !llvm.loop !40
 
 _ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i: ; preds = %for.body.i.i, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE8allocateEi.exit.i
-  %m_data.i5.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i5.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %m_data.i5.i, align 8
   %tobool.not.i6.i = icmp eq ptr %5, null
   br i1 %tobool.not.i6.i, label %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE10deallocateEv.exit.i, label %if.then.i7.i
 
 if.then.i7.i:                                     ; preds = %_ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i8, ptr %m_ownsMemory.i.i, align 8
   %7 = and i8 %6, 1
   %tobool2.not.i.i = icmp eq i8 %7, 0
@@ -6061,7 +5885,7 @@ if.then3.i.i:                                     ; preds = %if.then.i7.i
   br label %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE10deallocateEv.exit.i
 
 _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE10deallocateEv.exit.i: ; preds = %if.then3.i.i, %if.then.i7.i, %_ZNK20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE4copyEiiPS2_.exit.i
-  %m_ownsMemory.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i, align 8
   store ptr %retval.0.i.i, ptr %m_data.i5.i, align 8
   store i32 %cond.i, ptr %m_capacity.i, align 8
@@ -6070,7 +5894,7 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE10deallocateEv.exit.i
 
 if.end:                                           ; preds = %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE10deallocateEv.exit.i, %if.then, %entry
   %8 = phi i32 [ %.pre2, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE10deallocateEv.exit.i ], [ %0, %if.then ], [ %0, %entry ]
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %m_data, align 8
   %idxprom = sext i32 %8 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %idxprom
@@ -6086,7 +5910,7 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
 define linkonce_odr dso_local noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #5 comdat align 2 {
 entry:
   %ref.tmp = alloca %"class.btConvexHullInternal::Int128", align 8
-  %high = getelementptr inbounds %"class.btConvexHullInternal::Int128", ptr %this, i64 0, i32 1
+  %high = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %high, align 8
   %cmp = icmp sgt i64 %0, -1
   br i1 %cmp, label %cond.true, label %cond.false
@@ -6106,7 +5930,7 @@ cond.false:                                       ; preds = %entry
   %conv.i = zext i1 %cmp.i to i64
   %add.i = add nuw i64 %conv.i, %not.i
   store i64 %sub.i, ptr %ref.tmp, align 8
-  %4 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %add.i, ptr %4, align 8
   %call4 = call noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   %fneg = fneg float %call4
@@ -6132,27 +5956,27 @@ entry:
   %ref.tmp141 = alloca %"class.btConvexHullInternal::Rational128", align 8
   %ref.tmp401 = alloca ptr, align 8
   %ref.tmp438 = alloca ptr, align 8
-  %dir0.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 4
+  %dir0.i = getelementptr inbounds i8, ptr %face, i64 40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %p.i.i)
   %0 = load i32, ptr %dir0.i, align 4
   %conv.i.i = sitofp i32 %0 to float
-  %medAxis.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 8
+  %medAxis.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %1 = load i32, ptr %medAxis.i.i, align 8
   %idxprom.i.i = sext i32 %1 to i64
   %arrayidx.i.i = getelementptr inbounds float, ptr %p.i.i, i64 %idxprom.i.i
   store float %conv.i.i, ptr %arrayidx.i.i, align 4
-  %y.i.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 4, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %face, i64 44
   %2 = load i32, ptr %y.i.i, align 4
   %conv2.i.i = sitofp i32 %2 to float
-  %maxAxis.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 9
+  %maxAxis.i.i = getelementptr inbounds i8, ptr %this, i64 172
   %3 = load i32, ptr %maxAxis.i.i, align 4
   %idxprom4.i.i = sext i32 %3 to i64
   %arrayidx5.i.i = getelementptr inbounds float, ptr %p.i.i, i64 %idxprom4.i.i
   store float %conv2.i.i, ptr %arrayidx5.i.i, align 4
-  %z.i.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 4, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %face, i64 48
   %4 = load i32, ptr %z.i.i, align 4
   %conv6.i.i = sitofp i32 %4 to float
-  %minAxis.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 7
+  %minAxis.i.i = getelementptr inbounds i8, ptr %this, i64 164
   %5 = load i32, ptr %minAxis.i.i, align 4
   %idxprom8.i.i = sext i32 %5 to i64
   %arrayidx9.i.i = getelementptr inbounds float, ptr %p.i.i, i64 %idxprom8.i.i
@@ -6160,16 +5984,16 @@ entry:
   %6 = load float, ptr %p.i.i, align 4
   %7 = load float, ptr %this, align 8
   %mul.i.i.i = fmul float %6, %7
-  %arrayidx5.i.i.i = getelementptr inbounds [4 x float], ptr %p.i.i, i64 0, i64 1
-  %arrayidx7.i.i.i = getelementptr inbounds [4 x float], ptr %this, i64 0, i64 1
-  %dir1.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 5
+  %arrayidx5.i.i.i = getelementptr inbounds i8, ptr %p.i.i, i64 4
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %dir1.i = getelementptr inbounds i8, ptr %face, i64 56
   %arrayidx.i6.i = getelementptr inbounds float, ptr %p.i2.i, i64 %idxprom.i.i
-  %y.i7.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 5, i32 1
+  %y.i7.i = getelementptr inbounds i8, ptr %face, i64 60
   %arrayidx5.i11.i = getelementptr inbounds float, ptr %p.i2.i, i64 %idxprom4.i.i
-  %z.i12.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 5, i32 2
+  %z.i12.i = getelementptr inbounds i8, ptr %face, i64 64
   %arrayidx9.i16.i = getelementptr inbounds float, ptr %p.i2.i, i64 %idxprom8.i.i
-  %arrayidx5.i.i18.i = getelementptr inbounds [4 x float], ptr %p.i2.i, i64 0, i64 1
-  %arrayidx11.i.i21.i = getelementptr inbounds [4 x float], ptr %p.i2.i, i64 0, i64 2
+  %arrayidx5.i.i18.i = getelementptr inbounds i8, ptr %p.i2.i, i64 4
+  %arrayidx11.i.i21.i = getelementptr inbounds i8, ptr %p.i2.i, i64 8
   %fneg = fneg float %amount
   %8 = load <2 x float>, ptr %arrayidx5.i.i.i, align 4
   %9 = load <2 x float>, ptr %arrayidx7.i.i.i, align 4
@@ -6224,7 +6048,7 @@ entry:
   %mul8.i = fmul float %mul7.i.i.i.i.i, %fneg
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul8.i, i64 0
   store <2 x float> %42, ptr %origShift, align 8
-  %43 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %origShift, i64 0, i32 1
+  %43 = getelementptr inbounds i8, ptr %origShift, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %43, align 8
   %cmp = fcmp une float %7, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
@@ -6240,7 +6064,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp14, label %if.then15, label %if.end22
 
 if.then15:                                        ; preds = %if.end
-  %arrayidx20 = getelementptr inbounds float, ptr %origShift, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %origShift, i64 4
   %45 = extractelement <2 x float> %42, i64 1
   %div21 = fdiv float %45, %17
   store float %div21, ptr %arrayidx20, align 4
@@ -6290,20 +6114,20 @@ if.end47:                                         ; preds = %if.end34
   %mul27.i.i = mul nsw i64 %conv10.i.i, %conv.i.i169
   %sub28.i.i = sub nsw i64 %mul22.i.i, %mul27.i.i
   store i64 %sub.i.i, ptr %normal, align 8, !alias.scope !52
-  %y3.i.i.i = getelementptr inbounds %"class.btConvexHullInternal::Point64", ptr %normal, i64 0, i32 1
+  %y3.i.i.i = getelementptr inbounds i8, ptr %normal, i64 8
   store i64 %sub17.i.i, ptr %y3.i.i.i, align 8, !alias.scope !52
-  %z4.i.i.i = getelementptr inbounds %"class.btConvexHullInternal::Point64", ptr %normal, i64 0, i32 2
+  %z4.i.i.i = getelementptr inbounds i8, ptr %normal, i64 16
   store i64 %sub28.i.i, ptr %z4.i.i.i, align 8, !alias.scope !52
-  %origin = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 3
+  %origin = getelementptr inbounds i8, ptr %face, i64 24
   %50 = load i32, ptr %origin, align 4
   %conv.i = sext i32 %50 to i64
   %mul.i173 = mul nsw i64 %sub.i.i, %conv.i
-  %y.i174 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 3, i32 1
+  %y.i174 = getelementptr inbounds i8, ptr %face, i64 28
   %51 = load i32, ptr %y.i174, align 4
   %conv3.i = sext i32 %51 to i64
   %mul5.i = mul nsw i64 %sub17.i.i, %conv3.i
   %add.i = add nsw i64 %mul5.i, %mul.i173
-  %z.i175 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 3, i32 2
+  %z.i175 = getelementptr inbounds i8, ptr %face, i64 32
   %52 = load i32, ptr %z.i175, align 4
   %conv6.i = sext i32 %52 to i64
   %mul8.i176 = mul nsw i64 %sub28.i.i, %conv6.i
@@ -6327,9 +6151,9 @@ if.end47:                                         ; preds = %if.end34
   br i1 %cmp52.not, label %if.end54, label %return
 
 if.end54:                                         ; preds = %if.end47
-  %nearbyVertex = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %face, i64 0, i32 1
+  %nearbyVertex = getelementptr inbounds i8, ptr %face, i64 8
   %53 = load ptr, ptr %nearbyVertex, align 8
-  %edges = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %53, i64 0, i32 2
+  %edges = getelementptr inbounds i8, ptr %53, i64 16
   %54 = load ptr, ptr %edges, align 8
   call void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr nonnull sret(%"class.btConvexHullInternal::Rational128") align 8 %optDot, ptr noundef nonnull align 8 dereferenceable(124) %53, ptr noundef nonnull align 8 dereferenceable(24) %normal)
   %call57 = call noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareEl(ptr noundef nonnull align 8 dereferenceable(37) %optDot, i64 noundef %add9.i194)
@@ -6340,7 +6164,7 @@ do.body:                                          ; preds = %if.end54, %if.end67
   %e.0 = phi ptr [ %57, %if.end67 ], [ %54, %if.end54 ]
   %cmp56.0 = phi i32 [ %cmp56.1, %if.end67 ], [ %call57, %if.end54 ]
   %startEdge.0 = phi ptr [ %startEdge.1, %if.end67 ], [ %54, %if.end54 ]
-  %target = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.0, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %e.0, i64 24
   %55 = load ptr, ptr %target, align 8
   call void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr nonnull sret(%"class.btConvexHullInternal::Rational128") align 8 %dot, ptr noundef nonnull align 8 dereferenceable(124) %55, ptr noundef nonnull align 8 dereferenceable(24) %normal)
   %call60 = call noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareERKS0_(ptr noundef nonnull align 8 dereferenceable(37) %dot, ptr noundef nonnull align 8 dereferenceable(37) %optDot)
@@ -6350,7 +6174,7 @@ do.body:                                          ; preds = %if.end54, %if.end67
 if.then62:                                        ; preds = %do.body
   %call63 = call noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareEl(ptr noundef nonnull align 8 dereferenceable(37) %dot, i64 noundef %add9.i194)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %optDot, ptr noundef nonnull align 8 dereferenceable(37) %dot, i64 37, i1 false)
-  %reverse = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.0, i64 0, i32 2
+  %reverse = getelementptr inbounds i8, ptr %e.0, i64 16
   %56 = load ptr, ptr %reverse, align 8
   %cmp64 = icmp slt i32 %call63, 0
   br i1 %cmp64, label %do.end, label %if.end67
@@ -6359,7 +6183,7 @@ if.end67:                                         ; preds = %if.then62, %do.body
   %e.1 = phi ptr [ %e.0, %do.body ], [ %56, %if.then62 ]
   %cmp56.1 = phi i32 [ %cmp56.0, %do.body ], [ %call63, %if.then62 ]
   %startEdge.1 = phi ptr [ %startEdge.0, %do.body ], [ %56, %if.then62 ]
-  %prev = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.1, i64 0, i32 1
+  %prev = getelementptr inbounds i8, ptr %e.1, i64 8
   %57 = load ptr, ptr %prev, align 8
   %cmp68.not = icmp eq ptr %57, %startEdge.1
   br i1 %cmp68.not, label %return, label %do.body, !llvm.loop !57
@@ -6371,7 +6195,7 @@ do.end:                                           ; preds = %if.then62
 do.body72:                                        ; preds = %if.end54, %if.end83
   %e71.0 = phi ptr [ %60, %if.end83 ], [ %54, %if.end54 ]
   %startEdge.2 = phi ptr [ %startEdge.3, %if.end83 ], [ %54, %if.end54 ]
-  %target74 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e71.0, i64 0, i32 3
+  %target74 = getelementptr inbounds i8, ptr %e71.0, i64 24
   %58 = load ptr, ptr %target74, align 8
   call void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr nonnull sret(%"class.btConvexHullInternal::Rational128") align 8 %dot73, ptr noundef nonnull align 8 dereferenceable(124) %58, ptr noundef nonnull align 8 dereferenceable(24) %normal)
   %call75 = call noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareERKS0_(ptr noundef nonnull align 8 dereferenceable(37) %dot73, ptr noundef nonnull align 8 dereferenceable(37) %optDot)
@@ -6385,14 +6209,14 @@ if.then77:                                        ; preds = %do.body72
 
 if.end81:                                         ; preds = %if.then77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %optDot, ptr noundef nonnull align 8 dereferenceable(37) %dot73, i64 37, i1 false)
-  %reverse82 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e71.0, i64 0, i32 2
+  %reverse82 = getelementptr inbounds i8, ptr %e71.0, i64 16
   %59 = load ptr, ptr %reverse82, align 8
   br label %if.end83
 
 if.end83:                                         ; preds = %if.end81, %do.body72
   %e71.1 = phi ptr [ %59, %if.end81 ], [ %e71.0, %do.body72 ]
   %startEdge.3 = phi ptr [ %59, %if.end81 ], [ %startEdge.2, %do.body72 ]
-  %prev84 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e71.1, i64 0, i32 1
+  %prev84 = getelementptr inbounds i8, ptr %e71.1, i64 8
   %60 = load ptr, ptr %prev84, align 8
   %cmp86.not = icmp eq ptr %60, %startEdge.3
   br i1 %cmp86.not, label %return, label %do.body72, !llvm.loop !58
@@ -6404,14 +6228,14 @@ if.end91:                                         ; preds = %if.then77, %do.end
   br i1 %cmp92, label %if.then93, label %if.end105
 
 if.then93:                                        ; preds = %if.end91
-  %reverse95 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %intersection.2, i64 0, i32 2
+  %reverse95 = getelementptr inbounds i8, ptr %intersection.2, i64 16
   %61 = load ptr, ptr %reverse95, align 8
   %62 = load ptr, ptr %61, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.then93
   %e94.0 = phi ptr [ %62, %if.then93 ], [ %64, %while.body ]
-  %target97 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e94.0, i64 0, i32 3
+  %target97 = getelementptr inbounds i8, ptr %e94.0, i64 24
   %63 = load ptr, ptr %target97, align 8
   call void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr nonnull sret(%"class.btConvexHullInternal::Rational128") align 8 %ref.tmp96, ptr noundef nonnull align 8 dereferenceable(124) %63, ptr noundef nonnull align 8 dereferenceable(24) %normal)
   %call98 = call noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareEl(ptr noundef nonnull align 8 dereferenceable(37) %ref.tmp96, i64 noundef %add9.i194)
@@ -6425,10 +6249,10 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp102, label %return, label %while.cond, !llvm.loop !59
 
 if.end105:                                        ; preds = %while.cond, %if.end91
-  %vertexPool = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 2
-  %freeObjects.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 2, i32 2
-  %nextArray.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 2, i32 1
-  %arraySize.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 2, i32 3
+  %vertexPool = getelementptr inbounds i8, ptr %this, i64 32
+  %freeObjects.i = getelementptr inbounds i8, ptr %this, i64 48
+  %nextArray.i = getelementptr inbounds i8, ptr %this, i64 40
+  %arraySize.i = getelementptr inbounds i8, ptr %this, i64 56
   %cmp2.i592 = icmp slt i32 %add.i177, 0
   %spec.select.i593 = call i64 @llvm.abs.i64(i64 %conv.i183, i1 true)
   %conv1.i.i.i.i = and i64 %spec.select.i593, 4294967295
@@ -6438,12 +6262,12 @@ if.end105:                                        ; preds = %while.cond, %if.end
   %cmp2.i1072 = icmp slt i32 %add6.i, 0
   %spec.select.i1073 = call i64 @llvm.abs.i64(i64 %conv6.i191, i1 true)
   %conv1.i.i.i.i1076 = and i64 %spec.select.i1073, 4294967295
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %stack, i64 0, i32 2
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %stack, i64 0, i32 3
-  %m_data.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %stack, i64 0, i32 5
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %stack, i64 0, i32 6
-  %freeObjects.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 3, i32 2
-  %usedEdgePairs.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 10
+  %m_size.i.i = getelementptr inbounds i8, ptr %stack, i64 4
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %stack, i64 8
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %stack, i64 16
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %stack, i64 24
+  %freeObjects.i.i = getelementptr inbounds i8, ptr %this, i64 80
+  %usedEdgePairs.i = getelementptr inbounds i8, ptr %this, i64 176
   br label %while.body107
 
 while.body107:                                    ; preds = %if.end370, %if.end105
@@ -6456,10 +6280,10 @@ while.body107:                                    ; preds = %if.end370, %if.end1
   br i1 %cmp108, label %if.then109, label %if.end127
 
 if.then109:                                       ; preds = %while.body107
-  %reverse111 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %intersection.3, i64 0, i32 2
+  %reverse111 = getelementptr inbounds i8, ptr %intersection.3, i64 16
   %66 = load ptr, ptr %reverse111, align 8
   %67 = load ptr, ptr %66, align 8
-  %target1161661 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %67, i64 0, i32 3
+  %target1161661 = getelementptr inbounds i8, ptr %67, i64 24
   %68 = load ptr, ptr %target1161661, align 8
   call void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr nonnull sret(%"class.btConvexHullInternal::Rational128") align 8 %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(124) %68, ptr noundef nonnull align 8 dereferenceable(24) %normal)
   %call1171662 = call noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareEl(ptr noundef nonnull align 8 dereferenceable(37) %ref.tmp115, i64 noundef %add9.i194)
@@ -6467,9 +6291,9 @@ if.then109:                                       ; preds = %while.body107
   br i1 %cmp1181663, label %if.end127, label %if.end120
 
 while.body114:                                    ; preds = %if.end120
-  %reverse121 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e110.01664, i64 0, i32 2
+  %reverse121 = getelementptr inbounds i8, ptr %e110.01664, i64 16
   %69 = load ptr, ptr %reverse121, align 8
-  %target116 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %71, i64 0, i32 3
+  %target116 = getelementptr inbounds i8, ptr %71, i64 24
   %70 = load ptr, ptr %target116, align 8
   call void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr nonnull sret(%"class.btConvexHullInternal::Rational128") align 8 %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(124) %70, ptr noundef nonnull align 8 dereferenceable(24) %normal)
   %call117 = call noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareEl(ptr noundef nonnull align 8 dereferenceable(37) %ref.tmp115, i64 noundef %add9.i194)
@@ -6493,17 +6317,17 @@ if.else130:                                       ; preds = %if.end127
 
 if.end134:                                        ; preds = %if.end127, %if.else130
   %firstIntersection.1 = phi ptr [ %firstIntersection.0, %if.else130 ], [ %intersection.5, %if.end127 ]
-  %reverse136 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %intersection.5, i64 0, i32 2
+  %reverse136 = getelementptr inbounds i8, ptr %intersection.5, i64 16
   %72 = load ptr, ptr %reverse136, align 8
   br label %while.body138
 
 while.body138:                                    ; preds = %while.body138, %if.end134
   %e135.0 = phi ptr [ %72, %if.end134 ], [ %74, %while.body138 ]
-  %reverse139 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e135.0, i64 0, i32 2
+  %reverse139 = getelementptr inbounds i8, ptr %e135.0, i64 16
   %73 = load ptr, ptr %reverse139, align 8
-  %prev140 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %73, i64 0, i32 1
+  %prev140 = getelementptr inbounds i8, ptr %73, i64 8
   %74 = load ptr, ptr %prev140, align 8
-  %target142 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %74, i64 0, i32 3
+  %target142 = getelementptr inbounds i8, ptr %74, i64 24
   %75 = load ptr, ptr %target142, align 8
   call void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr nonnull sret(%"class.btConvexHullInternal::Rational128") align 8 %ref.tmp141, ptr noundef nonnull align 8 dereferenceable(124) %75, ptr noundef nonnull align 8 dereferenceable(24) %normal)
   %call143 = call noundef i32 @_ZNK20btConvexHullInternal11Rational1287compareEl(ptr noundef nonnull align 8 dereferenceable(37) %ref.tmp141, i64 noundef %add9.i194)
@@ -6511,18 +6335,18 @@ while.body138:                                    ; preds = %while.body138, %if.
   br i1 %cmp144, label %if.then145, label %while.body138, !llvm.loop !61
 
 if.then145:                                       ; preds = %while.body138
-  %target142.le = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %74, i64 0, i32 3
+  %target142.le = getelementptr inbounds i8, ptr %74, i64 24
   %cmp148.not = icmp eq i32 %call143, 0
   br i1 %cmp148.not, label %if.end311, label %if.then149
 
 if.then149:                                       ; preds = %if.then145
   %76 = load ptr, ptr %target142.le, align 8
-  %reverse151 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %74, i64 0, i32 2
+  %reverse151 = getelementptr inbounds i8, ptr %74, i64 16
   %77 = load ptr, ptr %reverse151, align 8
-  %prev152 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %77, i64 0, i32 1
+  %prev152 = getelementptr inbounds i8, ptr %77, i64 8
   %78 = load ptr, ptr %prev152, align 8
   %cmp153 = icmp eq ptr %78, %77
-  %edges155 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %76, i64 0, i32 2
+  %edges155 = getelementptr inbounds i8, ptr %76, i64 16
   br i1 %cmp153, label %if.then154, label %if.else156
 
 if.then154:                                       ; preds = %if.then149
@@ -6534,28 +6358,28 @@ if.else156:                                       ; preds = %if.then149
   %79 = load ptr, ptr %prev152, align 8
   %80 = load ptr, ptr %77, align 8
   store ptr %80, ptr %79, align 8
-  %prev.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %80, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %80, i64 8
   store ptr %79, ptr %prev.i, align 8
   store ptr %77, ptr %77, align 8
   store ptr %77, ptr %prev152, align 8
   br label %if.end161
 
 if.end161:                                        ; preds = %if.else156, %if.then154
-  %face162 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %74, i64 0, i32 4
+  %face162 = getelementptr inbounds i8, ptr %74, i64 32
   %81 = load ptr, ptr %face162, align 8
-  %dir0.i196 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %81, i64 0, i32 4
-  %dir1.i197 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %81, i64 0, i32 5
-  %y.i.i198 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %81, i64 0, i32 4, i32 1
+  %dir0.i196 = getelementptr inbounds i8, ptr %81, i64 40
+  %dir1.i197 = getelementptr inbounds i8, ptr %81, i64 56
+  %y.i.i198 = getelementptr inbounds i8, ptr %81, i64 44
   %82 = load i32, ptr %y.i.i198, align 4, !noalias !62
   %conv.i.i199 = sext i32 %82 to i64
-  %z.i.i200 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %81, i64 0, i32 5, i32 2
+  %z.i.i200 = getelementptr inbounds i8, ptr %81, i64 64
   %83 = load i32, ptr %z.i.i200, align 4, !noalias !62
   %conv2.i.i201 = sext i32 %83 to i64
   %mul.i.i202 = mul nsw i64 %conv2.i.i201, %conv.i.i199
-  %z3.i.i203 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %81, i64 0, i32 4, i32 2
+  %z3.i.i203 = getelementptr inbounds i8, ptr %81, i64 48
   %84 = load i32, ptr %z3.i.i203, align 4, !noalias !62
   %conv4.i.i204 = sext i32 %84 to i64
-  %y5.i.i205 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %81, i64 0, i32 5, i32 1
+  %y5.i.i205 = getelementptr inbounds i8, ptr %81, i64 60
   %85 = load i32, ptr %y5.i.i205, align 4, !noalias !62
   %conv6.i.i206 = sext i32 %85 to i64
   %mul7.i.i207 = mul nsw i64 %conv6.i.i206, %conv4.i.i204
@@ -6571,21 +6395,21 @@ if.end161:                                        ; preds = %if.else156, %if.the
   %mul27.i.i215 = mul nsw i64 %conv10.i.i209, %conv.i.i199
   %sub28.i.i216 = sub nsw i64 %mul22.i.i214, %mul27.i.i215
   %88 = load ptr, ptr %reverse151, align 8
-  %face164 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %88, i64 0, i32 4
+  %face164 = getelementptr inbounds i8, ptr %88, i64 32
   %89 = load ptr, ptr %face164, align 8
-  %dir0.i219 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %89, i64 0, i32 4
-  %dir1.i220 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %89, i64 0, i32 5
-  %y.i.i221 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %89, i64 0, i32 4, i32 1
+  %dir0.i219 = getelementptr inbounds i8, ptr %89, i64 40
+  %dir1.i220 = getelementptr inbounds i8, ptr %89, i64 56
+  %y.i.i221 = getelementptr inbounds i8, ptr %89, i64 44
   %90 = load i32, ptr %y.i.i221, align 4, !noalias !67
   %conv.i.i222 = sext i32 %90 to i64
-  %z.i.i223 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %89, i64 0, i32 5, i32 2
+  %z.i.i223 = getelementptr inbounds i8, ptr %89, i64 64
   %91 = load i32, ptr %z.i.i223, align 4, !noalias !67
   %conv2.i.i224 = sext i32 %91 to i64
   %mul.i.i225 = mul nsw i64 %conv2.i.i224, %conv.i.i222
-  %z3.i.i226 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %89, i64 0, i32 4, i32 2
+  %z3.i.i226 = getelementptr inbounds i8, ptr %89, i64 48
   %92 = load i32, ptr %z3.i.i226, align 4, !noalias !67
   %conv4.i.i227 = sext i32 %92 to i64
-  %y5.i.i228 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %89, i64 0, i32 5, i32 1
+  %y5.i.i228 = getelementptr inbounds i8, ptr %89, i64 60
   %93 = load i32, ptr %y5.i.i228, align 4, !noalias !67
   %conv6.i.i229 = sext i32 %93 to i64
   %mul7.i.i230 = mul nsw i64 %conv6.i.i229, %conv4.i.i227
@@ -6632,13 +6456,13 @@ if.end161:                                        ; preds = %if.else156, %if.the
   %add.i284 = add nsw i64 %mul5.i283, %mul.i279
   %mul8.i288 = mul nsw i64 %sub28.i.i239, %conv6.i262
   %add9.i289 = add nsw i64 %add.i284, %mul8.i288
-  %origin173 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %81, i64 0, i32 3
+  %origin173 = getelementptr inbounds i8, ptr %81, i64 24
   %102 = load i32, ptr %origin173, align 4
   %sub.i = sub nsw i32 %102, %add.i177
-  %y.i290 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %81, i64 0, i32 3, i32 1
+  %y.i290 = getelementptr inbounds i8, ptr %81, i64 28
   %103 = load i32, ptr %y.i290, align 4
   %sub4.i = sub nsw i32 %103, %add4.i
-  %z.i292 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %81, i64 0, i32 3, i32 2
+  %z.i292 = getelementptr inbounds i8, ptr %81, i64 32
   %104 = load i32, ptr %z.i292, align 4
   %sub6.i = sub nsw i32 %104, %add6.i
   %conv.i302 = sext i32 %sub.i to i64
@@ -6649,13 +6473,13 @@ if.end161:                                        ; preds = %if.else156, %if.the
   %conv6.i310 = sext i32 %sub6.i to i64
   %mul8.i312 = mul nsw i64 %sub28.i.i216, %conv6.i310
   %add9.i313 = add nsw i64 %add.i308, %mul8.i312
-  %origin179 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %89, i64 0, i32 3
+  %origin179 = getelementptr inbounds i8, ptr %89, i64 24
   %105 = load i32, ptr %origin179, align 4
   %sub.i314 = sub nsw i32 %105, %add.i177
-  %y.i315 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %89, i64 0, i32 3, i32 1
+  %y.i315 = getelementptr inbounds i8, ptr %89, i64 28
   %106 = load i32, ptr %y.i315, align 4
   %sub4.i317 = sub nsw i32 %106, %add4.i
-  %z.i318 = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %89, i64 0, i32 3, i32 2
+  %z.i318 = getelementptr inbounds i8, ptr %89, i64 32
   %107 = load i32, ptr %z.i318, align 4
   %sub6.i320 = sub nsw i32 %107, %add6.i
   %conv.i329 = sext i32 %sub.i314 to i64
@@ -6767,7 +6591,7 @@ if.then.i:                                        ; preds = %_ZN20btConvexHullIn
   br i1 %tobool2.not.i, label %if.else.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %next.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.25", ptr %109, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %109, i64 16
   %110 = load ptr, ptr %next.i, align 8
   store ptr %110, ptr %nextArray.i, align 8
   br label %if.end.i
@@ -6775,9 +6599,9 @@ if.then3.i:                                       ; preds = %if.then.i
 if.else.i:                                        ; preds = %if.then.i
   %call.i = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 24, i32 noundef 16)
   %111 = load i32, ptr %arraySize.i, align 8
-  %size2.i.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.25", ptr %call.i, i64 0, i32 1
+  %size2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %111, ptr %size2.i.i, align 8
-  %next.i.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.25", ptr %call.i, i64 0, i32 2
+  %next.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr null, ptr %next.i.i, align 8
   %conv.i.i392 = sext i32 %111 to i64
   %mul.i.i393 = shl nsw i64 %conv.i.i392, 7
@@ -6791,7 +6615,7 @@ if.else.i:                                        ; preds = %if.then.i
 if.end.i:                                         ; preds = %if.else.i, %if.then3.i
   %p.0.i = phi ptr [ %109, %if.then3.i ], [ %call.i, %if.else.i ]
   %113 = load ptr, ptr %p.0.i, align 8
-  %size.i.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.25", ptr %p.0.i, i64 0, i32 1
+  %size.i.i = getelementptr inbounds i8, ptr %p.0.i, i64 8
   %114 = load i32, ptr %size.i.i, align 8
   %cmp5.i.i = icmp sgt i32 %114, 0
   br i1 %cmp5.i.i, label %for.body.i.i, label %_ZN20btConvexHullInternal4PoolINS_6VertexEE9newObjectEv.exit
@@ -6802,7 +6626,7 @@ for.body.i.i:                                     ; preds = %if.end.i, %for.body
   %o.06.i.i = phi ptr [ %add.ptr.i.i, %for.body.i.i ], [ %113, %if.end.i ]
   %add.i.i390 = add nuw nsw i32 %i.07.i.i, 1
   %cmp3.i.i = icmp slt i32 %add.i.i390, %115
-  %add.ptr.i.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.06.i.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %o.06.i.i, i64 128
   %cond.i.i = select i1 %cmp3.i.i, ptr %add.ptr.i.i, ptr null
   store ptr %cond.i.i, ptr %o.06.i.i, align 8
   %116 = load i32, ptr %size.i.i, align 8
@@ -6818,7 +6642,7 @@ _ZN20btConvexHullInternal4PoolINS_6VertexEE9newObjectEv.exit: ; preds = %_ZN20bt
   %117 = load ptr, ptr %o.0.i, align 8
   store ptr %117, ptr %freeObjects.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %o.0.i, i8 0, i64 40, i1 false)
-  %index = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 6, i32 3
+  %index = getelementptr inbounds i8, ptr %o.0.i, i64 116
   store i64 -1, ptr %index, align 4
   %118 = load i32, ptr %dir0.i, align 8
   %conv194 = sext i32 %118 to i64
@@ -7488,42 +7312,42 @@ _ZNK20btConvexHullInternal6Int128mlEl.exit1109:   ; preds = %cond.end.i1069, %co
   %add6.i.i1056 = add i64 %reass.sub1630, %conv.i4.i1055
   %add4.i1113 = add i64 %add6.i.i1056, %retval.sroa.3.0.i1100
   %add6.i1116 = add i64 %add4.i1113, %conv.i1115
-  %point128 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 5
+  %point128 = getelementptr inbounds i8, ptr %o.0.i, i64 40
   store i64 %add.i600, ptr %point128, align 8
-  %ref.tmp188.sroa.2.0.point128.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 5, i32 0, i32 1
+  %ref.tmp188.sroa.2.0.point128.sroa_idx = getelementptr inbounds i8, ptr %o.0.i, i64 48
   store i64 %add6.i606, ptr %ref.tmp188.sroa.2.0.point128.sroa_idx, align 8
-  %ref.tmp188.sroa.3.0.point128.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 5, i32 1
+  %ref.tmp188.sroa.3.0.point128.sroa_idx = getelementptr inbounds i8, ptr %o.0.i, i64 56
   store i64 %add.i855, ptr %ref.tmp188.sroa.3.0.point128.sroa_idx, align 8
-  %ref.tmp188.sroa.4.0.point128.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 5, i32 1, i32 1
+  %ref.tmp188.sroa.4.0.point128.sroa_idx = getelementptr inbounds i8, ptr %o.0.i, i64 64
   store i64 %add6.i861, ptr %ref.tmp188.sroa.4.0.point128.sroa_idx, align 8
-  %ref.tmp188.sroa.5.0.point128.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 5, i32 2
+  %ref.tmp188.sroa.5.0.point128.sroa_idx = getelementptr inbounds i8, ptr %o.0.i, i64 72
   store i64 %add.i1110, ptr %ref.tmp188.sroa.5.0.point128.sroa_idx, align 8
-  %ref.tmp188.sroa.5.sroa.2.0.ref.tmp188.sroa.5.0.point128.sroa_idx.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 5, i32 2, i32 1
+  %ref.tmp188.sroa.5.sroa.2.0.ref.tmp188.sroa.5.0.point128.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %o.0.i, i64 80
   store i64 %add6.i1116, ptr %ref.tmp188.sroa.5.sroa.2.0.ref.tmp188.sroa.5.0.point128.sroa_idx.sroa_idx, align 8
-  %ref.tmp188.sroa.6.0.point128.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 5, i32 3
+  %ref.tmp188.sroa.6.0.point128.sroa_idx = getelementptr inbounds i8, ptr %o.0.i, i64 88
   store i64 %add.i1.i, ptr %ref.tmp188.sroa.6.0.point128.sroa_idx, align 8
-  %ref.tmp188.sroa.6.sroa.2.0.ref.tmp188.sroa.6.0.point128.sroa_idx.sroa_idx = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 5, i32 3, i32 1
+  %ref.tmp188.sroa.6.sroa.2.0.ref.tmp188.sroa.6.0.point128.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %o.0.i, i64 96
   store i64 %add6.i.i, ptr %ref.tmp188.sroa.6.sroa.2.0.ref.tmp188.sroa.6.0.point128.sroa_idx.sroa_idx, align 8
   %call.i1123 = call noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %point128)
   %call2.i = call noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp188.sroa.6.0.point128.sroa_idx)
   %div.i = fdiv float %call.i1123, %call2.i
   %conv295 = fptosi float %div.i to i32
-  %point296 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 6
+  %point296 = getelementptr inbounds i8, ptr %o.0.i, i64 104
   store i32 %conv295, ptr %point296, align 8
   %call.i1125 = call noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp188.sroa.3.0.point128.sroa_idx)
   %call2.i1127 = call noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp188.sroa.6.0.point128.sroa_idx)
   %div.i1128 = fdiv float %call.i1125, %call2.i1127
   %conv300 = fptosi float %div.i1128 to i32
-  %y302 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 6, i32 1
+  %y302 = getelementptr inbounds i8, ptr %o.0.i, i64 108
   store i32 %conv300, ptr %y302, align 4
   %call.i1130 = call noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp188.sroa.5.0.point128.sroa_idx)
   %call2.i1132 = call noundef float @_ZNK20btConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp188.sroa.6.0.point128.sroa_idx)
   %div.i1133 = fdiv float %call.i1130, %call2.i1132
   %conv305 = fptosi float %div.i1133 to i32
-  %z307 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 6, i32 2
+  %z307 = getelementptr inbounds i8, ptr %o.0.i, i64 112
   store i32 %conv305, ptr %z307, align 8
   store ptr %o.0.i, ptr %target142.le, align 8
-  %edges309 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %o.0.i, i64 0, i32 2
+  %edges309 = getelementptr inbounds i8, ptr %o.0.i, i64 16
   store ptr %77, ptr %edges309, align 8
   %124 = load i32, ptr %m_size.i.i, align 4
   %125 = load i32, ptr %m_capacity.i.i, align 8
@@ -7759,13 +7583,13 @@ if.end311:                                        ; preds = %_ZN20btAlignedObjec
 lor.lhs.false314:                                 ; preds = %if.end311
   %156 = load ptr, ptr %reverse136, align 8
   %157 = load ptr, ptr %156, align 8
-  %target317 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %157, i64 0, i32 3
+  %target317 = getelementptr inbounds i8, ptr %157, i64 24
   %158 = load ptr, ptr %target317, align 8
   %cmp319.not = icmp eq ptr %158, %.pre1709
   br i1 %cmp319.not, label %if.end346, label %if.then320
 
 if.then320:                                       ; preds = %lor.lhs.false314, %if.end311
-  %target321 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %intersection.5, i64 0, i32 3
+  %target321 = getelementptr inbounds i8, ptr %intersection.5, i64 24
   %159 = load ptr, ptr %target321, align 8
   %call323 = call noundef ptr @_ZN20btConvexHullInternal11newEdgePairEPNS_6VertexES1_(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %159, ptr noundef %.pre1709)
   br i1 %cmp108, label %if.end328.thread, label %if.end328
@@ -7774,7 +7598,7 @@ if.end328.thread:                                 ; preds = %if.then320
   %160 = load ptr, ptr %reverse136, align 8
   %161 = load ptr, ptr %160, align 8
   store ptr %161, ptr %call323, align 8
-  %prev.i1227 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %161, i64 0, i32 1
+  %prev.i1227 = getelementptr inbounds i8, ptr %161, i64 8
   store ptr %call323, ptr %prev.i1227, align 8
   br label %if.then332
 
@@ -7785,7 +7609,7 @@ if.end328:                                        ; preds = %if.then320
 if.then332:                                       ; preds = %if.end328.thread, %if.end328
   %162 = load ptr, ptr %reverse136, align 8
   store ptr %call323, ptr %162, align 8
-  %prev.i1228 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %call323, i64 0, i32 1
+  %prev.i1228 = getelementptr inbounds i8, ptr %call323, i64 8
   store ptr %162, ptr %prev.i1228, align 8
   br label %if.end334
 
@@ -7793,24 +7617,24 @@ if.end334:                                        ; preds = %if.end328, %if.then
   br i1 %cmp148.not, label %if.then336, label %if.end340
 
 if.then336:                                       ; preds = %if.end334
-  %reverse337 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %74, i64 0, i32 2
+  %reverse337 = getelementptr inbounds i8, ptr %74, i64 16
   %163 = load ptr, ptr %reverse337, align 8
-  %prev338 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %163, i64 0, i32 1
+  %prev338 = getelementptr inbounds i8, ptr %163, i64 8
   %164 = load ptr, ptr %prev338, align 8
-  %reverse339 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %call323, i64 0, i32 2
+  %reverse339 = getelementptr inbounds i8, ptr %call323, i64 16
   %165 = load ptr, ptr %reverse339, align 8
   store ptr %165, ptr %164, align 8
-  %prev.i1229 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %165, i64 0, i32 1
+  %prev.i1229 = getelementptr inbounds i8, ptr %165, i64 8
   store ptr %164, ptr %prev.i1229, align 8
   br label %if.end340
 
 if.end340:                                        ; preds = %if.then336, %if.end334
-  %reverse341 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %call323, i64 0, i32 2
+  %reverse341 = getelementptr inbounds i8, ptr %call323, i64 16
   %166 = load ptr, ptr %reverse341, align 8
-  %reverse342 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %74, i64 0, i32 2
+  %reverse342 = getelementptr inbounds i8, ptr %74, i64 16
   %167 = load ptr, ptr %reverse342, align 8
   store ptr %167, ptr %166, align 8
-  %prev.i1230 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %167, i64 0, i32 1
+  %prev.i1230 = getelementptr inbounds i8, ptr %167, i64 8
   store ptr %166, ptr %prev.i1230, align 8
   br label %if.end346
 
@@ -7821,13 +7645,13 @@ if.end346:                                        ; preds = %lor.lhs.false314, %
 
 if.then348:                                       ; preds = %if.end346
   %cmp349 = icmp sgt i32 %cmp56.7, 0
-  %reverse351 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %faceEdge.0, i64 0, i32 2
+  %reverse351 = getelementptr inbounds i8, ptr %faceEdge.0, i64 16
   %168 = load ptr, ptr %reverse351, align 8
   br i1 %cmp349, label %if.then350, label %if.else352
 
 if.then350:                                       ; preds = %if.then348
   store ptr %168, ptr %faceEdge.1, align 8
-  %prev.i1231 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %168, i64 0, i32 1
+  %prev.i1231 = getelementptr inbounds i8, ptr %168, i64 8
   store ptr %faceEdge.1, ptr %prev.i1231, align 8
   br label %if.end370
 
@@ -7836,7 +7660,7 @@ if.else352:                                       ; preds = %if.then348
   br i1 %cmp354.not, label %if.end370, label %if.then355
 
 if.then355:                                       ; preds = %if.else352
-  %target356 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %faceEdge.0, i64 0, i32 3
+  %target356 = getelementptr inbounds i8, ptr %faceEdge.0, i64 24
   %169 = load i32, ptr %m_size.i.i, align 4
   %170 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i1234 = icmp eq i32 %169, %170
@@ -7920,36 +7744,36 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit
 
 while.body361:                                    ; preds = %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1274, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1320
   %182 = phi ptr [ %204, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1320 ], [ %180, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1274 ]
-  %target364 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %182, i64 0, i32 3
+  %target364 = getelementptr inbounds i8, ptr %182, i64 24
   %183 = load ptr, ptr %target364, align 8
   %184 = load ptr, ptr %182, align 8
-  %reverse.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %182, i64 0, i32 2
+  %reverse.i = getelementptr inbounds i8, ptr %182, i64 16
   %185 = load ptr, ptr %reverse.i, align 8
   %cmp.not.i = icmp eq ptr %184, %182
   br i1 %cmp.not.i, label %if.end.i1277, label %if.then.i1275
 
 if.then.i1275:                                    ; preds = %while.body361
-  %prev.i1276 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %182, i64 0, i32 1
+  %prev.i1276 = getelementptr inbounds i8, ptr %182, i64 8
   %186 = load ptr, ptr %prev.i1276, align 8
-  %prev2.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %184, i64 0, i32 1
+  %prev2.i = getelementptr inbounds i8, ptr %184, i64 8
   store ptr %186, ptr %prev2.i, align 8
   store ptr %184, ptr %186, align 8
   br label %if.end.i1277
 
 if.end.i1277:                                     ; preds = %if.then.i1275, %while.body361
   %.sink.i = phi ptr [ %184, %if.then.i1275 ], [ null, %while.body361 ]
-  %target5.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %185, i64 0, i32 3
+  %target5.i = getelementptr inbounds i8, ptr %185, i64 24
   %187 = load ptr, ptr %target5.i, align 8
-  %edges6.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %187, i64 0, i32 2
+  %edges6.i = getelementptr inbounds i8, ptr %187, i64 16
   store ptr %.sink.i, ptr %edges6.i, align 8
   %188 = load ptr, ptr %185, align 8
   %cmp8.not.i = icmp eq ptr %188, %185
   br i1 %cmp8.not.i, label %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i1277
-  %prev10.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %185, i64 0, i32 1
+  %prev10.i = getelementptr inbounds i8, ptr %185, i64 8
   %189 = load ptr, ptr %prev10.i, align 8
-  %prev11.i = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %188, i64 0, i32 1
+  %prev11.i = getelementptr inbounds i8, ptr %188, i64 8
   store ptr %189, ptr %prev11.i, align 8
   store ptr %188, ptr %189, align 8
   br label %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit
@@ -7957,7 +7781,7 @@ if.then9.i:                                       ; preds = %if.end.i1277
 _ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit: ; preds = %if.end.i1277, %if.then9.i
   %.sink25.i = phi ptr [ %188, %if.then9.i ], [ null, %if.end.i1277 ]
   %190 = load ptr, ptr %target364, align 8
-  %edges18.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %190, i64 0, i32 2
+  %edges18.i = getelementptr inbounds i8, ptr %190, i64 16
   store ptr %.sink25.i, ptr %edges18.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %182, i8 0, i64 40, i1 false)
   %191 = load ptr, ptr %freeObjects.i.i, align 8
@@ -8129,13 +7953,13 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit
   br label %if.end370
 
 if.end370:                                        ; preds = %if.then350, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1363, %if.else352, %if.end346
-  %face371 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %faceEdge.1, i64 0, i32 4
+  %face371 = getelementptr inbounds i8, ptr %faceEdge.1, i64 32
   store ptr %face, ptr %face371, align 8
-  %face372 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %74, i64 0, i32 4
+  %face372 = getelementptr inbounds i8, ptr %74, i64 32
   %217 = load ptr, ptr %face372, align 8
-  %reverse373 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %faceEdge.1, i64 0, i32 2
+  %reverse373 = getelementptr inbounds i8, ptr %faceEdge.1, i64 16
   %218 = load ptr, ptr %reverse373, align 8
-  %face374 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %218, i64 0, i32 4
+  %face374 = getelementptr inbounds i8, ptr %218, i64 32
   store ptr %217, ptr %face374, align 8
   %tobool375.not = icmp eq ptr %firstFaceEdge.0, null
   %spec.select = select i1 %tobool375.not, ptr %faceEdge.1, ptr %firstFaceEdge.0
@@ -8146,32 +7970,32 @@ while.end378:                                     ; preds = %if.else130
   br i1 %cmp379, label %if.then380, label %if.else386
 
 if.then380:                                       ; preds = %while.end378
-  %target381 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %faceEdge.0, i64 0, i32 3
+  %target381 = getelementptr inbounds i8, ptr %faceEdge.0, i64 24
   %219 = load ptr, ptr %target381, align 8
-  %reverse382 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %firstFaceEdge.0, i64 0, i32 2
+  %reverse382 = getelementptr inbounds i8, ptr %firstFaceEdge.0, i64 16
   %220 = load ptr, ptr %reverse382, align 8
-  %target383 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %220, i64 0, i32 3
+  %target383 = getelementptr inbounds i8, ptr %220, i64 24
   store ptr %219, ptr %target383, align 8
-  %reverse384 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %firstIntersection.0, i64 0, i32 2
+  %reverse384 = getelementptr inbounds i8, ptr %firstIntersection.0, i64 16
   %221 = load ptr, ptr %reverse384, align 8
   store ptr %firstFaceEdge.0, ptr %221, align 8
-  %prev.i1364 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %firstFaceEdge.0, i64 0, i32 1
+  %prev.i1364 = getelementptr inbounds i8, ptr %firstFaceEdge.0, i64 8
   store ptr %221, ptr %prev.i1364, align 8
-  %reverse385 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %faceEdge.0, i64 0, i32 2
+  %reverse385 = getelementptr inbounds i8, ptr %faceEdge.0, i64 16
   %222 = load ptr, ptr %reverse385, align 8
   store ptr %222, ptr %firstFaceEdge.0, align 8
-  %prev.i1365 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %222, i64 0, i32 1
+  %prev.i1365 = getelementptr inbounds i8, ptr %222, i64 8
   store ptr %firstFaceEdge.0, ptr %prev.i1365, align 8
   br label %if.end403
 
 if.else386:                                       ; preds = %while.end378
-  %reverse387 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %faceEdge.0, i64 0, i32 2
+  %reverse387 = getelementptr inbounds i8, ptr %faceEdge.0, i64 16
   %223 = load ptr, ptr %reverse387, align 8
   %cmp388.not = icmp eq ptr %firstFaceEdge.0, %223
   br i1 %cmp388.not, label %if.end403, label %if.then389
 
 if.then389:                                       ; preds = %if.else386
-  %target390 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %faceEdge.0, i64 0, i32 3
+  %target390 = getelementptr inbounds i8, ptr %faceEdge.0, i64 24
   call void @_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(25) %stack, ptr noundef nonnull align 8 dereferenceable(8) %target390)
   %224 = load ptr, ptr %firstFaceEdge.0, align 8
   %225 = load ptr, ptr %reverse387, align 8
@@ -8180,36 +8004,36 @@ if.then389:                                       ; preds = %if.else386
 
 while.body395:                                    ; preds = %if.then389, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1428
   %226 = phi ptr [ %249, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1428 ], [ %224, %if.then389 ]
-  %target398 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %226, i64 0, i32 3
+  %target398 = getelementptr inbounds i8, ptr %226, i64 24
   %227 = load ptr, ptr %target398, align 8
   %228 = load ptr, ptr %226, align 8
-  %reverse.i1366 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %226, i64 0, i32 2
+  %reverse.i1366 = getelementptr inbounds i8, ptr %226, i64 16
   %229 = load ptr, ptr %reverse.i1366, align 8
   %cmp.not.i1367 = icmp eq ptr %228, %226
   br i1 %cmp.not.i1367, label %if.end.i1371, label %if.then.i1368
 
 if.then.i1368:                                    ; preds = %while.body395
-  %prev.i1369 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %226, i64 0, i32 1
+  %prev.i1369 = getelementptr inbounds i8, ptr %226, i64 8
   %230 = load ptr, ptr %prev.i1369, align 8
-  %prev2.i1370 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %228, i64 0, i32 1
+  %prev2.i1370 = getelementptr inbounds i8, ptr %228, i64 8
   store ptr %230, ptr %prev2.i1370, align 8
   store ptr %228, ptr %230, align 8
   br label %if.end.i1371
 
 if.end.i1371:                                     ; preds = %if.then.i1368, %while.body395
   %.sink.i1372 = phi ptr [ %228, %if.then.i1368 ], [ null, %while.body395 ]
-  %target5.i1373 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %229, i64 0, i32 3
+  %target5.i1373 = getelementptr inbounds i8, ptr %229, i64 24
   %231 = load ptr, ptr %target5.i1373, align 8
-  %edges6.i1374 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %231, i64 0, i32 2
+  %edges6.i1374 = getelementptr inbounds i8, ptr %231, i64 16
   store ptr %.sink.i1372, ptr %edges6.i1374, align 8
   %232 = load ptr, ptr %229, align 8
   %cmp8.not.i1375 = icmp eq ptr %232, %229
   br i1 %cmp8.not.i1375, label %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit1385, label %if.then9.i1376
 
 if.then9.i1376:                                   ; preds = %if.end.i1371
-  %prev10.i1377 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %229, i64 0, i32 1
+  %prev10.i1377 = getelementptr inbounds i8, ptr %229, i64 8
   %233 = load ptr, ptr %prev10.i1377, align 8
-  %prev11.i1378 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %232, i64 0, i32 1
+  %prev11.i1378 = getelementptr inbounds i8, ptr %232, i64 8
   store ptr %233, ptr %prev11.i1378, align 8
   store ptr %232, ptr %233, align 8
   br label %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit1385
@@ -8217,7 +8041,7 @@ if.then9.i1376:                                   ; preds = %if.end.i1371
 _ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit1385: ; preds = %if.end.i1371, %if.then9.i1376
   %.sink25.i1379 = phi ptr [ %232, %if.then9.i1376 ], [ null, %if.end.i1371 ]
   %234 = load ptr, ptr %target398, align 8
-  %edges18.i1381 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %234, i64 0, i32 2
+  %edges18.i1381 = getelementptr inbounds i8, ptr %234, i64 16
   store ptr %.sink25.i1379, ptr %edges18.i1381, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %226, i8 0, i64 40, i1 false)
   %235 = load ptr, ptr %freeObjects.i.i, align 8
@@ -8318,7 +8142,7 @@ while.end400:                                     ; preds = %_ZN20btAlignedObjec
 if.end403:                                        ; preds = %if.else386, %while.end400, %if.then380
   %251 = load ptr, ptr %m_data.i.i.i, align 8
   %252 = load ptr, ptr %251, align 8
-  %vertexList = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 12
+  %vertexList = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %252, ptr %vertexList, align 8
   %253 = load i32, ptr %m_size.i.i, align 4
   %cmp4071682 = icmp sgt i32 %253, 0
@@ -8341,14 +8165,14 @@ while.body412:                                    ; preds = %while.cond410.prehe
   %arrayidx.i1433 = getelementptr ptr, ptr %256, i64 %idxprom.i1432
   %257 = load ptr, ptr %arrayidx.i1433, align 8
   %inc4161673 = add i32 %pos.11681, 2
-  %arrayidx.i14361675 = getelementptr ptr, ptr %arrayidx.i1433, i64 1
+  %arrayidx.i14361675 = getelementptr i8, ptr %arrayidx.i1433, i64 8
   %258 = load ptr, ptr %arrayidx.i14361675, align 8
   %cmp418.not1676 = icmp eq ptr %258, null
   br i1 %cmp418.not1676, label %if.end435, label %while.body419.lr.ph
 
 while.body419.lr.ph:                              ; preds = %while.body412
-  %lastNearbyFace.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %257, i64 0, i32 4
-  %firstNearbyFace4.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %257, i64 0, i32 3
+  %lastNearbyFace.i = getelementptr inbounds i8, ptr %257, i64 32
+  %firstNearbyFace4.i = getelementptr inbounds i8, ptr %257, i64 24
   %259 = sext i32 %inc4161673 to i64
   br label %while.body419
 
@@ -8367,12 +8191,12 @@ while.body419:                                    ; preds = %while.body419.lr.ph
   %deeper.01677 = phi i8 [ 0, %while.body419.lr.ph ], [ %deeper.1.lcssa, %while.cond415.loopexit ]
   %263 = load ptr, ptr %lastNearbyFace.i, align 8
   %tobool.not.i1437 = icmp eq ptr %263, null
-  %firstNearbyFace3.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %262, i64 0, i32 3
+  %firstNearbyFace3.i = getelementptr inbounds i8, ptr %262, i64 24
   %264 = load ptr, ptr %firstNearbyFace3.i, align 8
-  %nextWithSameNearbyVertex.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %263, i64 0, i32 2
+  %nextWithSameNearbyVertex.i = getelementptr inbounds i8, ptr %263, i64 16
   %firstNearbyFace4.sink.i = select i1 %tobool.not.i1437, ptr %firstNearbyFace4.i, ptr %nextWithSameNearbyVertex.i
   store ptr %264, ptr %firstNearbyFace4.sink.i, align 8
-  %lastNearbyFace5.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %262, i64 0, i32 4
+  %lastNearbyFace5.i = getelementptr inbounds i8, ptr %262, i64 32
   %265 = load ptr, ptr %lastNearbyFace5.i, align 8
   %tobool6.not.i = icmp eq ptr %265, null
   br i1 %tobool6.not.i, label %if.end10.i, label %if.then7.i
@@ -8389,16 +8213,16 @@ if.end10.i:                                       ; preds = %if.then7.i, %while.
 
 for.body.i:                                       ; preds = %if.end10.i, %for.body.i
   %f.012.i = phi ptr [ %f.0.i, %for.body.i ], [ %f.010.i, %if.end10.i ]
-  %nearbyVertex.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %f.012.i, i64 0, i32 1
+  %nearbyVertex.i = getelementptr inbounds i8, ptr %f.012.i, i64 8
   store ptr %257, ptr %nearbyVertex.i, align 8
-  %nextWithSameNearbyVertex13.i = getelementptr inbounds %"class.btConvexHullInternal::Face", ptr %f.012.i, i64 0, i32 2
+  %nextWithSameNearbyVertex13.i = getelementptr inbounds i8, ptr %f.012.i, i64 16
   %f.0.i = load ptr, ptr %nextWithSameNearbyVertex13.i, align 8
   %tobool12.not.i = icmp eq ptr %f.0.i, null
   br i1 %tobool12.not.i, label %_ZN20btConvexHullInternal6Vertex18receiveNearbyFacesEPS0_.exit, label %for.body.i, !llvm.loop !77
 
 _ZN20btConvexHullInternal6Vertex18receiveNearbyFacesEPS0_.exit: ; preds = %for.body.i, %if.end10.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %firstNearbyFace3.i, i8 0, i64 16, i1 false)
-  %edges421 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %262, i64 0, i32 2
+  %edges421 = getelementptr inbounds i8, ptr %262, i64 16
   %266 = load ptr, ptr %edges421, align 8
   %tobool422.not1670 = icmp eq ptr %266, null
   br i1 %tobool422.not1670, label %while.cond415.loopexit, label %while.body423
@@ -8493,7 +8317,7 @@ if.end426:                                        ; preds = %_ZN20btAlignedObjec
   %279 = phi i32 [ %.pre1708, %while.body423 ], [ %inc.i1445, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1480 ]
   %280 = phi ptr [ %267, %while.body423 ], [ %.pre, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1480 ]
   %deeper.2 = phi i8 [ %deeper.11671, %while.body423 ], [ 1, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1480 ]
-  %target428 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %280, i64 0, i32 3
+  %target428 = getelementptr inbounds i8, ptr %280, i64 24
   %281 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i1483 = icmp eq i32 %279, %281
   br i1 %cmp.i1483, label %if.then.i1489, label %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1523
@@ -8571,42 +8395,42 @@ _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit
   store i32 %inc.i1488, ptr %m_size.i.i, align 4
   %292 = load ptr, ptr %edges421, align 8
   %293 = load ptr, ptr %292, align 8
-  %reverse.i1524 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %292, i64 0, i32 2
+  %reverse.i1524 = getelementptr inbounds i8, ptr %292, i64 16
   %294 = load ptr, ptr %reverse.i1524, align 8
   %cmp.not.i1525 = icmp eq ptr %293, %292
   br i1 %cmp.not.i1525, label %if.end.i1529, label %if.then.i1526
 
 if.then.i1526:                                    ; preds = %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1523
-  %prev.i1527 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %292, i64 0, i32 1
+  %prev.i1527 = getelementptr inbounds i8, ptr %292, i64 8
   %295 = load ptr, ptr %prev.i1527, align 8
-  %prev2.i1528 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %293, i64 0, i32 1
+  %prev2.i1528 = getelementptr inbounds i8, ptr %293, i64 8
   store ptr %295, ptr %prev2.i1528, align 8
   store ptr %293, ptr %295, align 8
   br label %if.end.i1529
 
 if.end.i1529:                                     ; preds = %if.then.i1526, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1523
   %.sink.i1530 = phi ptr [ %293, %if.then.i1526 ], [ null, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit1523 ]
-  %target5.i1531 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %294, i64 0, i32 3
+  %target5.i1531 = getelementptr inbounds i8, ptr %294, i64 24
   %296 = load ptr, ptr %target5.i1531, align 8
-  %edges6.i1532 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %296, i64 0, i32 2
+  %edges6.i1532 = getelementptr inbounds i8, ptr %296, i64 16
   store ptr %.sink.i1530, ptr %edges6.i1532, align 8
   %297 = load ptr, ptr %294, align 8
   %cmp8.not.i1533 = icmp eq ptr %297, %294
   br i1 %cmp8.not.i1533, label %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit1543, label %if.then9.i1534
 
 if.then9.i1534:                                   ; preds = %if.end.i1529
-  %prev10.i1535 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %294, i64 0, i32 1
+  %prev10.i1535 = getelementptr inbounds i8, ptr %294, i64 8
   %298 = load ptr, ptr %prev10.i1535, align 8
-  %prev11.i1536 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %297, i64 0, i32 1
+  %prev11.i1536 = getelementptr inbounds i8, ptr %297, i64 8
   store ptr %298, ptr %prev11.i1536, align 8
   store ptr %297, ptr %298, align 8
   br label %_ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit1543
 
 _ZN20btConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit1543: ; preds = %if.end.i1529, %if.then9.i1534
   %.sink25.i1537 = phi ptr [ %297, %if.then9.i1534 ], [ null, %if.end.i1529 ]
-  %target17.i1538 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %292, i64 0, i32 3
+  %target17.i1538 = getelementptr inbounds i8, ptr %292, i64 24
   %299 = load ptr, ptr %target17.i1538, align 8
-  %edges18.i1539 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %299, i64 0, i32 2
+  %edges18.i1539 = getelementptr inbounds i8, ptr %299, i64 16
   store ptr %.sink25.i1537, ptr %edges18.i1539, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %292, i8 0, i64 40, i1 false)
   %300 = load ptr, ptr %freeObjects.i.i, align 8
@@ -8729,13 +8553,13 @@ return:                                           ; preds = %if.end83, %if.end67
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -8746,12 +8570,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %if.then.i.i, %entry, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   ret void
 
@@ -8766,28 +8590,28 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK20btConvexHullInternal6Vertex3dotERKNS_7Point64E(ptr noalias sret(%"class.btConvexHullInternal::Rational128") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(124) %this, ptr noundef nonnull align 8 dereferenceable(24) %b) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %index = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %this, i64 0, i32 6, i32 3
+  %index = getelementptr inbounds i8, ptr %this, i64 116
   %0 = load i32, ptr %index, align 4
   %cmp = icmp sgt i32 %0, -1
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %point = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %this, i64 0, i32 6
+  %point = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load i32, ptr %point, align 8
   %conv.i = sext i32 %1 to i64
   %2 = load i64, ptr %b, align 8
   %mul.i = mul nsw i64 %2, %conv.i
-  %y.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %this, i64 0, i32 6, i32 1
+  %y.i = getelementptr inbounds i8, ptr %this, i64 108
   %3 = load i32, ptr %y.i, align 4
   %conv3.i = sext i32 %3 to i64
-  %y4.i = getelementptr inbounds %"class.btConvexHullInternal::Point64", ptr %b, i64 0, i32 1
+  %y4.i = getelementptr inbounds i8, ptr %b, i64 8
   %4 = load i64, ptr %y4.i, align 8
   %mul5.i = mul nsw i64 %4, %conv3.i
   %add.i = add nsw i64 %mul5.i, %mul.i
-  %z.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %this, i64 0, i32 6, i32 2
+  %z.i = getelementptr inbounds i8, ptr %this, i64 112
   %5 = load i32, ptr %z.i, align 8
   %conv6.i = sext i32 %5 to i64
-  %z7.i = getelementptr inbounds %"class.btConvexHullInternal::Point64", ptr %b, i64 0, i32 2
+  %z7.i = getelementptr inbounds i8, ptr %b, i64 16
   %6 = load i64, ptr %z7.i, align 8
   %mul8.i = mul nsw i64 %6, %conv6.i
   %add9.i = add nsw i64 %add.i, %mul8.i
@@ -8795,7 +8619,7 @@ cond.true:                                        ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %cond.true
-  %sign.i = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %agg.result, i64 0, i32 2
+  %sign.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i32 1, ptr %sign.i, align 8
   store i64 %add9.i, ptr %agg.result, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -8804,7 +8628,7 @@ if.then.i:                                        ; preds = %cond.true
 
 if.else.i:                                        ; preds = %cond.true
   %cmp3.i = icmp slt i64 %add9.i, 0
-  %sign5.i = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %agg.result, i64 0, i32 2
+  %sign5.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   br i1 %cmp3.i, label %if.then4.i, label %if.else8.i
 
 if.then4.i:                                       ; preds = %if.else.i
@@ -8821,16 +8645,16 @@ if.else8.i:                                       ; preds = %if.else.i
   br label %_ZN20btConvexHullInternal11Rational128C2El.exit
 
 _ZN20btConvexHullInternal11Rational128C2El.exit:  ; preds = %if.then.i, %if.then4.i, %if.else8.i
-  %denominator.i = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %agg.result, i64 0, i32 1
+  %denominator.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 1, ptr %denominator.i, align 8
-  %ref.tmp13.sroa.2.0.denominator.sroa_idx.i = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %agg.result, i64 0, i32 1, i32 1
+  %ref.tmp13.sroa.2.0.denominator.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 0, ptr %ref.tmp13.sroa.2.0.denominator.sroa_idx.i, align 8
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %point128 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %this, i64 0, i32 5
+  %point128 = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load i64, ptr %b, align 8
-  %high.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %high.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load i64, ptr %high.i, align 8
   %cmp.i4 = icmp sgt i64 %8, -1
   %frombool.i = icmp slt i64 %8, 0
@@ -8888,10 +8712,10 @@ cond.true9.i:                                     ; preds = %cond.end.i
 _ZNK20btConvexHullInternal6Int128mlEl.exit:       ; preds = %cond.end.i, %cond.true9.i
   %retval.sroa.0.0.i = phi i64 [ %sub.i9.i, %cond.true9.i ], [ %add24.i.i.i, %cond.end.i ]
   %retval.sroa.3.0.i = phi i64 [ %add.i14.i, %cond.true9.i ], [ %add.i6, %cond.end.i ]
-  %y = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %this, i64 0, i32 5, i32 1
-  %y9 = getelementptr inbounds %"class.btConvexHullInternal::Point64", ptr %b, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %this, i64 56
+  %y9 = getelementptr inbounds i8, ptr %b, i64 8
   %9 = load i64, ptr %y9, align 8
-  %high.i7 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %this, i64 0, i32 5, i32 1, i32 1
+  %high.i7 = getelementptr inbounds i8, ptr %this, i64 64
   %10 = load i64, ptr %high.i7, align 8
   %cmp.i8 = icmp sgt i64 %10, -1
   %frombool.i9 = icmp slt i64 %10, 0
@@ -8954,10 +8778,10 @@ _ZNK20btConvexHullInternal6Int128mlEl.exit57:     ; preds = %cond.end.i17, %cond
   %cmp.i60 = icmp ult i64 %add.i58, %retval.sroa.0.0.i
   %conv.i61 = zext i1 %cmp.i60 to i64
   %add6.i = add i64 %add4.i, %conv.i61
-  %z = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %this, i64 0, i32 5, i32 2
-  %z14 = getelementptr inbounds %"class.btConvexHullInternal::Point64", ptr %b, i64 0, i32 2
+  %z = getelementptr inbounds i8, ptr %this, i64 72
+  %z14 = getelementptr inbounds i8, ptr %b, i64 16
   %11 = load i64, ptr %z14, align 8
-  %high.i64 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %this, i64 0, i32 5, i32 2, i32 1
+  %high.i64 = getelementptr inbounds i8, ptr %this, i64 80
   %12 = load i64, ptr %high.i64, align 8
   %cmp.i65 = icmp sgt i64 %12, -1
   %frombool.i66 = icmp slt i64 %12, 0
@@ -9020,8 +8844,8 @@ _ZNK20btConvexHullInternal6Int128mlEl.exit114:    ; preds = %cond.end.i74, %cond
   %cmp.i119 = icmp ult i64 %add.i115, %add.i58
   %conv.i120 = zext i1 %cmp.i119 to i64
   %add6.i121 = add i64 %add4.i118, %conv.i120
-  %denominator = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %this, i64 0, i32 5, i32 3
-  %denominator3.i = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %agg.result, i64 0, i32 1
+  %denominator = getelementptr inbounds i8, ptr %this, i64 88
+  %denominator3.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %cmp.i.i124 = icmp slt i64 %add6.i121, 0
   br i1 %cmp.i.i124, label %if.else.i127, label %if.then.i125
 
@@ -9030,12 +8854,12 @@ if.then.i125:                                     ; preds = %_ZNK20btConvexHullI
   %narrow.i.i = icmp ne i64 %13, 0
   %cond.i.neg.i = sext i1 %narrow.i.i to i32
   %cond.i.i = zext i1 %narrow.i.i to i32
-  %sign25.i = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %agg.result, i64 0, i32 2
+  %sign25.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i32 %cond.i.i, ptr %sign25.i, align 8
   br label %if.end.i
 
 if.else.i127:                                     ; preds = %_ZNK20btConvexHullInternal6Int128mlEl.exit114
-  %sign.i128 = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %agg.result, i64 0, i32 2
+  %sign.i128 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i32 -1, ptr %sign.i128, align 8
   %sub.i.i129 = sub nsw i64 0, %add.i115
   %not.i.i130 = xor i64 %add6.i121, -1
@@ -9052,7 +8876,7 @@ if.end.i:                                         ; preds = %if.else.i127, %if.t
   store i64 %add.i115.sink, ptr %agg.result, align 8
   %14 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %add6.i121.sink, ptr %14, align 8
-  %high.i7.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %this, i64 0, i32 5, i32 3, i32 1
+  %high.i7.i = getelementptr inbounds i8, ptr %this, i64 96
   %15 = load i64, ptr %high.i7.i, align 8
   %cmp.i8.i = icmp slt i64 %15, 0
   br i1 %cmp.i8.i, label %if.else12.i, label %if.then10.i
@@ -9070,13 +8894,13 @@ if.else12.i:                                      ; preds = %if.end.i
   %conv.i20.i = zext i1 %cmp.i19.i to i64
   %add.i21.i = add nuw i64 %conv.i20.i, %not.i18.i
   store i64 %sub.i16.i, ptr %denominator3.i, align 8
-  %ref.tmp15.sroa.2.0.denominator17.sroa_idx.i = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %agg.result, i64 0, i32 1, i32 1
+  %ref.tmp15.sroa.2.0.denominator17.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %add.i21.i, ptr %ref.tmp15.sroa.2.0.denominator17.sroa_idx.i, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.else12.i, %if.then10.i, %_ZN20btConvexHullInternal11Rational128C2El.exit
   %.sink = phi i8 [ 1, %_ZN20btConvexHullInternal11Rational128C2El.exit ], [ 0, %if.then10.i ], [ 0, %if.else12.i ]
-  %isInt64.i126 = getelementptr inbounds %"class.btConvexHullInternal::Rational128", ptr %agg.result, i64 0, i32 3
+  %isInt64.i126 = getelementptr inbounds i8, ptr %agg.result, i64 36
   store i8 %.sink, ptr %isInt64.i126, align 4
   ret void
 }
@@ -9090,13 +8914,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i8, ptr %m_ownsMemory.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i = icmp eq i8 %2, 0
@@ -9107,20 +8931,20 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   br label %_ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit
 
 _ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit: ; preds = %if.then, %if.then.i.i, %if.then3.i.i
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
-  %m_data.i.i44 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i.i44 = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load ptr, ptr %m_data.i.i44, align 8
   %tobool.not.i.i45 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i45, label %_ZN20btAlignedObjectArrayIN20btConvexHullComputer4EdgeEE5clearEv.exit, label %if.then.i.i46
 
 if.then.i.i46:                                    ; preds = %_ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit
-  %m_ownsMemory.i.i47 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i47 = getelementptr inbounds i8, ptr %this, i64 88
   %4 = load i8, ptr %m_ownsMemory.i.i47, align 8
   %5 = and i8 %4, 1
   %tobool2.not.i.i48 = icmp eq i8 %5, 0
@@ -9131,20 +8955,20 @@ if.then3.i.i49:                                   ; preds = %if.then.i.i46
   br label %_ZN20btAlignedObjectArrayIN20btConvexHullComputer4EdgeEE5clearEv.exit
 
 _ZN20btAlignedObjectArrayIN20btConvexHullComputer4EdgeEE5clearEv.exit: ; preds = %_ZN20btAlignedObjectArrayI9btVector3E5clearEv.exit, %if.then.i.i46, %if.then3.i.i49
-  %m_size.i.i50 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 2
-  %m_ownsMemory.i1.i51 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 6
+  %m_size.i.i50 = getelementptr inbounds i8, ptr %this, i64 68
+  %m_ownsMemory.i1.i51 = getelementptr inbounds i8, ptr %this, i64 88
   store i8 1, ptr %m_ownsMemory.i1.i51, align 8
   store ptr null, ptr %m_data.i.i44, align 8
   store i32 0, ptr %m_size.i.i50, align 4
-  %m_capacity.i.i52 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i.i52 = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %m_capacity.i.i52, align 8
-  %m_data.i.i53 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i.i53 = getelementptr inbounds i8, ptr %this, i64 112
   %6 = load ptr, ptr %m_data.i.i53, align 8
   %tobool.not.i.i54 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i54, label %_ZN20btAlignedObjectArrayIiE5clearEv.exit, label %if.then.i.i55
 
 if.then.i.i55:                                    ; preds = %_ZN20btAlignedObjectArrayIN20btConvexHullComputer4EdgeEE5clearEv.exit
-  %m_ownsMemory.i.i56 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i56 = getelementptr inbounds i8, ptr %this, i64 120
   %7 = load i8, ptr %m_ownsMemory.i.i56, align 8
   %8 = and i8 %7, 1
   %tobool2.not.i.i57 = icmp eq i8 %8, 0
@@ -9155,35 +8979,35 @@ if.then3.i.i58:                                   ; preds = %if.then.i.i55
   br label %_ZN20btAlignedObjectArrayIiE5clearEv.exit
 
 _ZN20btAlignedObjectArrayIiE5clearEv.exit:        ; preds = %_ZN20btAlignedObjectArrayIN20btConvexHullComputer4EdgeEE5clearEv.exit, %if.then.i.i55, %if.then3.i.i58
-  %m_size.i.i59 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 2
-  %m_ownsMemory.i1.i60 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 6
+  %m_size.i.i59 = getelementptr inbounds i8, ptr %this, i64 100
+  %m_ownsMemory.i1.i60 = getelementptr inbounds i8, ptr %this, i64 120
   store i8 1, ptr %m_ownsMemory.i1.i60, align 8
   store ptr null, ptr %m_data.i.i53, align 8
   store i32 0, ptr %m_size.i.i59, align 4
-  %m_capacity.i.i61 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i61 = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i61, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %vertexPool.i = getelementptr inbounds %class.btConvexHullInternal, ptr %hull, i64 0, i32 2
-  %arraySize.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %hull, i64 0, i32 2, i32 3
+  %vertexPool.i = getelementptr inbounds i8, ptr %hull, i64 32
+  %arraySize.i.i = getelementptr inbounds i8, ptr %hull, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vertexPool.i, i8 0, i64 24, i1 false)
   store i32 256, ptr %arraySize.i.i, align 8
-  %edgePool.i = getelementptr inbounds %class.btConvexHullInternal, ptr %hull, i64 0, i32 3
-  %arraySize.i1.i = getelementptr inbounds %class.btConvexHullInternal, ptr %hull, i64 0, i32 3, i32 3
+  %edgePool.i = getelementptr inbounds i8, ptr %hull, i64 64
+  %arraySize.i1.i = getelementptr inbounds i8, ptr %hull, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %edgePool.i, i8 0, i64 24, i1 false)
   store i32 256, ptr %arraySize.i1.i, align 8
-  %facePool.i = getelementptr inbounds %class.btConvexHullInternal, ptr %hull, i64 0, i32 4
-  %arraySize.i2.i = getelementptr inbounds %class.btConvexHullInternal, ptr %hull, i64 0, i32 4, i32 3
+  %facePool.i = getelementptr inbounds i8, ptr %hull, i64 96
+  %arraySize.i2.i = getelementptr inbounds i8, ptr %hull, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %facePool.i, i8 0, i64 24, i1 false)
   store i32 256, ptr %arraySize.i2.i, align 8
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %hull, i64 0, i32 5, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %hull, i64 152
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
-  %m_data.i.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %hull, i64 0, i32 5, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %hull, i64 144
   store ptr null, ptr %m_data.i.i.i, align 8
-  %m_size.i.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %hull, i64 0, i32 5, i32 2
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %hull, i64 132
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %hull, i64 0, i32 5, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %hull, i64 136
   store i32 0, ptr %m_capacity.i.i.i, align 8
   invoke void @_ZN20btConvexHullInternal7computeEPKvbii(ptr noundef nonnull align 8 dereferenceable(192) %hull, ptr noundef %coords, i1 noundef zeroext %doubleCoords, i32 noundef %stride, i32 noundef %count)
           to label %invoke.cont unwind label %lpad
@@ -9201,13 +9025,13 @@ invoke.cont3:                                     ; preds = %land.lhs.true
   br i1 %cmp4, label %if.then5, label %if.end12
 
 if.then5:                                         ; preds = %invoke.cont3
-  %m_data.i.i62 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 5
+  %m_data.i.i62 = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %m_data.i.i62, align 8
   %tobool.not.i.i63 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i63, label %invoke.cont7, label %if.then.i.i64
 
 if.then.i.i64:                                    ; preds = %if.then5
-  %m_ownsMemory.i.i65 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i65 = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load i8, ptr %m_ownsMemory.i.i65, align 8
   %11 = and i8 %10, 1
   %tobool2.not.i.i66 = icmp eq i8 %11, 0
@@ -9218,20 +9042,20 @@ if.then3.i.i67:                                   ; preds = %if.then.i.i64
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %if.then.i.i64, %if.then5, %if.then3.i.i67
-  %m_size.i.i68 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 2
-  %m_ownsMemory.i1.i69 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_size.i.i68 = getelementptr inbounds i8, ptr %this, i64 4
+  %m_ownsMemory.i1.i69 = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i1.i69, align 8
   store ptr null, ptr %m_data.i.i62, align 8
   store i32 0, ptr %m_size.i.i68, align 4
-  %m_capacity.i.i70 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 3
+  %m_capacity.i.i70 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_capacity.i.i70, align 8
-  %m_data.i.i72 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i.i72 = getelementptr inbounds i8, ptr %this, i64 80
   %12 = load ptr, ptr %m_data.i.i72, align 8
   %tobool.not.i.i73 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i73, label %invoke.cont9, label %if.then.i.i74
 
 if.then.i.i74:                                    ; preds = %invoke.cont7
-  %m_ownsMemory.i.i75 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i75 = getelementptr inbounds i8, ptr %this, i64 88
   %13 = load i8, ptr %m_ownsMemory.i.i75, align 8
   %14 = and i8 %13, 1
   %tobool2.not.i.i76 = icmp eq i8 %14, 0
@@ -9242,20 +9066,20 @@ if.then3.i.i77:                                   ; preds = %if.then.i.i74
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %if.then.i.i74, %invoke.cont7, %if.then3.i.i77
-  %m_size.i.i78 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 2
-  %m_ownsMemory.i1.i79 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 6
+  %m_size.i.i78 = getelementptr inbounds i8, ptr %this, i64 68
+  %m_ownsMemory.i1.i79 = getelementptr inbounds i8, ptr %this, i64 88
   store i8 1, ptr %m_ownsMemory.i1.i79, align 8
   store ptr null, ptr %m_data.i.i72, align 8
   store i32 0, ptr %m_size.i.i78, align 4
-  %m_capacity.i.i80 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i.i80 = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %m_capacity.i.i80, align 8
-  %m_data.i.i83 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i.i83 = getelementptr inbounds i8, ptr %this, i64 112
   %15 = load ptr, ptr %m_data.i.i83, align 8
   %tobool.not.i.i84 = icmp eq ptr %15, null
   br i1 %tobool.not.i.i84, label %_ZN20btAlignedObjectArrayIiE5clearEv.exit93, label %if.then.i.i85
 
 if.then.i.i85:                                    ; preds = %invoke.cont9
-  %m_ownsMemory.i.i86 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i86 = getelementptr inbounds i8, ptr %this, i64 120
   %16 = load i8, ptr %m_ownsMemory.i.i86, align 8
   %17 = and i8 %16, 1
   %tobool2.not.i.i87 = icmp eq i8 %17, 0
@@ -9266,12 +9090,12 @@ if.then3.i.i88:                                   ; preds = %if.then.i.i85
           to label %_ZN20btAlignedObjectArrayIiE5clearEv.exit93 unwind label %lpad
 
 _ZN20btAlignedObjectArrayIiE5clearEv.exit93:      ; preds = %if.then3.i.i88, %invoke.cont9, %if.then.i.i85
-  %m_size.i.i89 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 2
-  %m_ownsMemory.i1.i90 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 6
+  %m_size.i.i89 = getelementptr inbounds i8, ptr %this, i64 100
+  %m_ownsMemory.i1.i90 = getelementptr inbounds i8, ptr %this, i64 120
   store i8 1, ptr %m_ownsMemory.i1.i90, align 8
   store ptr null, ptr %m_data.i.i83, align 8
   store i32 0, ptr %m_size.i.i89, align 4
-  %m_capacity.i.i91 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i91 = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_capacity.i.i91, align 8
   br label %cleanup
 
@@ -9282,25 +9106,25 @@ lpad:                                             ; preds = %if.then3.i.i.i192, 
 
 if.end12:                                         ; preds = %invoke.cont3, %invoke.cont
   %shift.0 = phi float [ %call, %invoke.cont3 ], [ 0.000000e+00, %invoke.cont ]
-  %m_size.i.i94 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 2
+  %m_size.i.i94 = getelementptr inbounds i8, ptr %this, i64 4
   %19 = load i32, ptr %m_size.i.i94, align 4
   %cmp3.i = icmp slt i32 %19, 0
   br i1 %cmp3.i, label %if.then4.i, label %invoke.cont15
 
 if.then4.i:                                       ; preds = %if.end12
-  %m_capacity.i.i.i95 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 3
+  %m_capacity.i.i.i95 = getelementptr inbounds i8, ptr %this, i64 8
   %20 = load i32, ptr %m_capacity.i.i.i95, align 8
   %cmp.i.i = icmp slt i32 %20, 0
   br i1 %cmp.i.i, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i, label %invoke.cont15
 
 _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %if.then4.i
-  %m_data.i5.i.i = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 5
+  %m_data.i5.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %21 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i.i97 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i.i97 = getelementptr inbounds i8, ptr %this, i64 24
   %22 = load i8, ptr %m_ownsMemory.i.i.i97, align 8
   %23 = and i8 %22, 1
   %tobool2.not.i.i.i = icmp eq i8 %23, 0
@@ -9311,7 +9135,7 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
           to label %if.end.i unwind label %lpad
 
 if.end.i:                                         ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i98 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
+  %m_ownsMemory.i.i98 = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i.i98, align 8
   store ptr null, ptr %m_data.i5.i.i, align 8
   store i32 0, ptr %m_capacity.i.i.i95, align 8
@@ -9319,25 +9143,25 @@ if.end.i:                                         ; preds = %if.then3.i.i.i, %if
 
 invoke.cont15:                                    ; preds = %if.then4.i, %if.end.i, %if.end12
   store i32 0, ptr %m_size.i.i94, align 4
-  %m_size.i.i101 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 1, i32 2
+  %m_size.i.i101 = getelementptr inbounds i8, ptr %this, i64 36
   %24 = load i32, ptr %m_size.i.i101, align 4
   %cmp3.i104 = icmp slt i32 %24, 0
   br i1 %cmp3.i104, label %if.then4.i105, label %invoke.cont17
 
 if.then4.i105:                                    ; preds = %invoke.cont15
-  %m_capacity.i.i.i106 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 1, i32 3
+  %m_capacity.i.i.i106 = getelementptr inbounds i8, ptr %this, i64 40
   %25 = load i32, ptr %m_capacity.i.i.i106, align 8
   %cmp.i.i107 = icmp slt i32 %25, 0
   br i1 %cmp.i.i107, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i, label %for.body8.lr.ph.i108
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %if.then4.i105
-  %m_data.i5.i.i117 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 1, i32 5
+  %m_data.i5.i.i117 = getelementptr inbounds i8, ptr %this, i64 48
   %26 = load ptr, ptr %m_data.i5.i.i117, align 8
   %tobool.not.i6.i.i118 = icmp eq ptr %26, null
   br i1 %tobool.not.i6.i.i118, label %if.end.i123, label %if.then.i7.i.i119
 
 if.then.i7.i.i119:                                ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
-  %m_ownsMemory.i.i.i120 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i.i120 = getelementptr inbounds i8, ptr %this, i64 56
   %27 = load i8, ptr %m_ownsMemory.i.i.i120, align 8
   %28 = and i8 %27, 1
   %tobool2.not.i.i.i121 = icmp eq i8 %28, 0
@@ -9348,14 +9172,14 @@ if.then3.i.i.i122:                                ; preds = %if.then.i7.i.i119
           to label %if.end.i123 unwind label %lpad
 
 if.end.i123:                                      ; preds = %if.then3.i.i.i122, %if.then.i7.i.i119, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
-  %m_ownsMemory.i.i124 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 1, i32 6
+  %m_ownsMemory.i.i124 = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i.i124, align 8
   store ptr null, ptr %m_data.i5.i.i117, align 8
   store i32 0, ptr %m_capacity.i.i.i106, align 8
   br label %for.body8.lr.ph.i108
 
 for.body8.lr.ph.i108:                             ; preds = %if.end.i123, %if.then4.i105
-  %m_data9.i109 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 1, i32 5
+  %m_data9.i109 = getelementptr inbounds i8, ptr %this, i64 48
   %29 = sext i32 %24 to i64
   br label %for.body8.i110
 
@@ -9370,25 +9194,25 @@ for.body8.i110:                                   ; preds = %for.body8.i110, %fo
 
 invoke.cont17:                                    ; preds = %for.body8.i110, %invoke.cont15
   store i32 0, ptr %m_size.i.i101, align 4
-  %m_size.i.i135 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 2
+  %m_size.i.i135 = getelementptr inbounds i8, ptr %this, i64 68
   %31 = load i32, ptr %m_size.i.i135, align 4
   %cmp3.i138 = icmp slt i32 %31, 0
   br i1 %cmp3.i138, label %if.then4.i139, label %invoke.cont20
 
 if.then4.i139:                                    ; preds = %invoke.cont17
-  %m_capacity.i.i.i140 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 3
+  %m_capacity.i.i.i140 = getelementptr inbounds i8, ptr %this, i64 72
   %32 = load i32, ptr %m_capacity.i.i.i140, align 8
   %cmp.i.i141 = icmp slt i32 %32, 0
   br i1 %cmp.i.i141, label %_ZNK20btAlignedObjectArrayIN20btConvexHullComputer4EdgeEE4copyEiiPS1_.exit.i.i, label %for.body8.lr.ph.i142
 
 _ZNK20btAlignedObjectArrayIN20btConvexHullComputer4EdgeEE4copyEiiPS1_.exit.i.i: ; preds = %if.then4.i139
-  %m_data.i5.i.i151 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 5
+  %m_data.i5.i.i151 = getelementptr inbounds i8, ptr %this, i64 80
   %33 = load ptr, ptr %m_data.i5.i.i151, align 8
   %tobool.not.i6.i.i152 = icmp eq ptr %33, null
   br i1 %tobool.not.i6.i.i152, label %if.end.i157, label %if.then.i7.i.i153
 
 if.then.i7.i.i153:                                ; preds = %_ZNK20btAlignedObjectArrayIN20btConvexHullComputer4EdgeEE4copyEiiPS1_.exit.i.i
-  %m_ownsMemory.i.i.i154 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i.i154 = getelementptr inbounds i8, ptr %this, i64 88
   %34 = load i8, ptr %m_ownsMemory.i.i.i154, align 8
   %35 = and i8 %34, 1
   %tobool2.not.i.i.i155 = icmp eq i8 %35, 0
@@ -9399,14 +9223,14 @@ if.then3.i.i.i156:                                ; preds = %if.then.i7.i.i153
           to label %if.end.i157 unwind label %lpad
 
 if.end.i157:                                      ; preds = %if.then3.i.i.i156, %if.then.i7.i.i153, %_ZNK20btAlignedObjectArrayIN20btConvexHullComputer4EdgeEE4copyEiiPS1_.exit.i.i
-  %m_ownsMemory.i.i158 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 6
+  %m_ownsMemory.i.i158 = getelementptr inbounds i8, ptr %this, i64 88
   store i8 1, ptr %m_ownsMemory.i.i158, align 8
   store ptr null, ptr %m_data.i5.i.i151, align 8
   store i32 0, ptr %m_capacity.i.i.i140, align 8
   br label %for.body8.lr.ph.i142
 
 for.body8.lr.ph.i142:                             ; preds = %if.end.i157, %if.then4.i139
-  %m_data9.i143 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 5
+  %m_data9.i143 = getelementptr inbounds i8, ptr %this, i64 80
   %36 = sext i32 %31 to i64
   br label %for.body8.i144
 
@@ -9421,25 +9245,25 @@ for.body8.i144:                                   ; preds = %for.body8.i144, %fo
 
 invoke.cont20:                                    ; preds = %for.body8.i144, %invoke.cont17
   store i32 0, ptr %m_size.i.i135, align 4
-  %m_size.i.i169 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 2
+  %m_size.i.i169 = getelementptr inbounds i8, ptr %this, i64 100
   %38 = load i32, ptr %m_size.i.i169, align 4
   %cmp3.i172 = icmp slt i32 %38, 0
   br i1 %cmp3.i172, label %if.then4.i173, label %invoke.cont24
 
 if.then4.i173:                                    ; preds = %invoke.cont20
-  %m_capacity.i.i.i174 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 3
+  %m_capacity.i.i.i174 = getelementptr inbounds i8, ptr %this, i64 104
   %39 = load i32, ptr %m_capacity.i.i.i174, align 8
   %cmp.i.i175 = icmp slt i32 %39, 0
   br i1 %cmp.i.i175, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i186, label %for.body8.lr.ph.i176
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i186: ; preds = %if.then4.i173
-  %m_data.i5.i.i187 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 5
+  %m_data.i5.i.i187 = getelementptr inbounds i8, ptr %this, i64 112
   %40 = load ptr, ptr %m_data.i5.i.i187, align 8
   %tobool.not.i6.i.i188 = icmp eq ptr %40, null
   br i1 %tobool.not.i6.i.i188, label %if.end.i193, label %if.then.i7.i.i189
 
 if.then.i7.i.i189:                                ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i186
-  %m_ownsMemory.i.i.i190 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i.i190 = getelementptr inbounds i8, ptr %this, i64 120
   %41 = load i8, ptr %m_ownsMemory.i.i.i190, align 8
   %42 = and i8 %41, 1
   %tobool2.not.i.i.i191 = icmp eq i8 %42, 0
@@ -9450,14 +9274,14 @@ if.then3.i.i.i192:                                ; preds = %if.then.i7.i.i189
           to label %if.end.i193 unwind label %lpad
 
 if.end.i193:                                      ; preds = %if.then3.i.i.i192, %if.then.i7.i.i189, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i186
-  %m_ownsMemory.i.i194 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 6
+  %m_ownsMemory.i.i194 = getelementptr inbounds i8, ptr %this, i64 120
   store i8 1, ptr %m_ownsMemory.i.i194, align 8
   store ptr null, ptr %m_data.i5.i.i187, align 8
   store i32 0, ptr %m_capacity.i.i.i174, align 8
   br label %for.body8.lr.ph.i176
 
 for.body8.lr.ph.i176:                             ; preds = %if.end.i193, %if.then4.i173
-  %m_data9.i177 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 5
+  %m_data9.i177 = getelementptr inbounds i8, ptr %this, i64 112
   %43 = sext i32 %38 to i64
   br label %for.body8.i179
 
@@ -9472,17 +9296,17 @@ for.body8.i179:                                   ; preds = %for.body8.i179, %fo
 
 invoke.cont24:                                    ; preds = %for.body8.i179, %invoke.cont20
   store i32 0, ptr %m_size.i.i169, align 4
-  %m_ownsMemory.i.i206 = getelementptr inbounds %class.btAlignedObjectArray, ptr %oldVertices, i64 0, i32 6
+  %m_ownsMemory.i.i206 = getelementptr inbounds i8, ptr %oldVertices, i64 24
   store i8 1, ptr %m_ownsMemory.i.i206, align 8
-  %m_data.i.i207 = getelementptr inbounds %class.btAlignedObjectArray, ptr %oldVertices, i64 0, i32 5
+  %m_data.i.i207 = getelementptr inbounds i8, ptr %oldVertices, i64 16
   store ptr null, ptr %m_data.i.i207, align 8
-  %m_size.i.i208 = getelementptr inbounds %class.btAlignedObjectArray, ptr %oldVertices, i64 0, i32 2
+  %m_size.i.i208 = getelementptr inbounds i8, ptr %oldVertices, i64 4
   store i32 0, ptr %m_size.i.i208, align 4
-  %m_capacity.i.i209 = getelementptr inbounds %class.btAlignedObjectArray, ptr %oldVertices, i64 0, i32 3
+  %m_capacity.i.i209 = getelementptr inbounds i8, ptr %oldVertices, i64 8
   store i32 0, ptr %m_capacity.i.i209, align 8
-  %vertexList = getelementptr inbounds %class.btConvexHullInternal, ptr %hull, i64 0, i32 12
+  %vertexList = getelementptr inbounds i8, ptr %hull, i64 184
   %45 = load ptr, ptr %vertexList, align 8
-  %copy.i = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %45, i64 0, i32 7
+  %copy.i = getelementptr inbounds i8, ptr %45, i64 120
   %46 = load i32, ptr %copy.i, align 8
   %cmp.i210 = icmp slt i32 %46, 0
   br i1 %cmp.i210, label %if.then.i.i.i.i, label %cleanup
@@ -9498,15 +9322,15 @@ while.body.lr.ph:                                 ; preds = %if.then.i.i.i.i
   store i32 1, ptr %m_capacity.i.i209, align 8
   store ptr %45, ptr %call.i.i.i.i.i218, align 8
   store i32 1, ptr %m_size.i.i208, align 4
-  %m_capacity.i.i221 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 3
-  %m_data.i.i.i243 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 5
-  %m_ownsMemory.i.i.i238 = getelementptr inbounds %class.btAlignedObjectArray.12, ptr %this, i64 0, i32 6
-  %m_capacity.i.i254 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 1, i32 3
-  %m_data.i.i.i284 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 1, i32 5
-  %m_ownsMemory.i.i.i278 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 1, i32 6
-  %m_capacity.i.i297 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 3
-  %m_data.i.i.i327 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 5
-  %m_ownsMemory.i.i.i321 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 2, i32 6
+  %m_capacity.i.i221 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_data.i.i.i243 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_ownsMemory.i.i.i238 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_capacity.i.i254 = getelementptr inbounds i8, ptr %this, i64 40
+  %m_data.i.i.i284 = getelementptr inbounds i8, ptr %this, i64 48
+  %m_ownsMemory.i.i.i278 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_capacity.i.i297 = getelementptr inbounds i8, ptr %this, i64 72
+  %m_data.i.i.i327 = getelementptr inbounds i8, ptr %this, i64 80
+  %m_ownsMemory.i.i.i321 = getelementptr inbounds i8, ptr %this, i64 88
   br label %while.body
 
 for.cond.preheader:                               ; preds = %if.end86
@@ -9515,9 +9339,9 @@ for.cond.preheader:                               ; preds = %if.end86
   br i1 %cmp87513.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %m_capacity.i.i449 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 3
-  %m_data.i.i.i481 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 5
-  %m_ownsMemory.i.i.i474 = getelementptr inbounds %class.btConvexHullComputer, ptr %this, i64 0, i32 3, i32 6
+  %m_capacity.i.i449 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_data.i.i.i481 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_ownsMemory.i.i.i474 = getelementptr inbounds i8, ptr %this, i64 120
   %wide.trip.count = and i64 %indvars.iv.next, 4294967295
   br label %for.body
 
@@ -9614,7 +9438,7 @@ invoke.cont37:                                    ; preds = %_ZN20btAlignedObjec
   %64 = load i32, ptr %m_size.i.i94, align 4
   %inc.i = add nsw i32 %64, 1
   store i32 %inc.i, ptr %m_size.i.i94, align 4
-  %index = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %52, i64 0, i32 6, i32 3
+  %index = getelementptr inbounds i8, ptr %52, i64 116
   %65 = load i32, ptr %m_size.i.i101, align 4
   %66 = load i32, ptr %m_capacity.i.i254, align 8
   %cmp.i255 = icmp eq i32 %65, %66
@@ -9694,7 +9518,7 @@ invoke.cont39:                                    ; preds = %_ZN20btAlignedObjec
   %76 = load i32, ptr %m_size.i.i101, align 4
   %inc.i260 = add nsw i32 %76, 1
   store i32 %inc.i260, ptr %m_size.i.i101, align 4
-  %edges40 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %52, i64 0, i32 2
+  %edges40 = getelementptr inbounds i8, ptr %52, i64 16
   %77 = load ptr, ptr %edges40, align 8
   %tobool41.not = icmp eq ptr %77, null
   br i1 %tobool41.not, label %if.end86, label %do.body.preheader
@@ -9712,7 +9536,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %firstCopy.0 = phi i32 [ %firstCopy.1, %if.end77 ], [ -1, %do.body.preheader ]
   %prevCopy.0 = phi i32 [ %124, %if.end77 ], [ -1, %do.body.preheader ]
   %e.0 = phi ptr [ %125, %if.end77 ], [ %77, %do.body.preheader ]
-  %copy = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.0, i64 0, i32 5
+  %copy = getelementptr inbounds i8, ptr %e.0, i64 40
   %83 = load i32, ptr %copy, align 8
   %cmp43 = icmp slt i32 %83, 0
   br i1 %cmp43, label %if.then44, label %if.end68
@@ -9873,20 +9697,22 @@ invoke.cont53:                                    ; preds = %_ZN20btAlignedObjec
   store i32 %inc.i345, ptr %m_size.i.i135, align 4
   %103 = load ptr, ptr %m_data.i.i.i327, align 8
   %idxprom.i384 = sext i32 %84 to i64
+  %arrayidx.i385 = getelementptr inbounds %"class.btConvexHullComputer::Edge", ptr %103, i64 %idxprom.i384
   %add = add nsw i32 %84, 1
   %idxprom.i387 = sext i32 %add to i64
+  %arrayidx.i388 = getelementptr inbounds %"class.btConvexHullComputer::Edge", ptr %103, i64 %idxprom.i387
   store i32 %84, ptr %copy, align 8
-  %reverse = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.0, i64 0, i32 2
+  %reverse = getelementptr inbounds i8, ptr %e.0, i64 16
   %104 = load ptr, ptr %reverse, align 8
-  %copy62 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %104, i64 0, i32 5
+  %copy62 = getelementptr inbounds i8, ptr %104, i64 40
   store i32 %add, ptr %copy62, align 8
-  %reverse63 = getelementptr inbounds %"class.btConvexHullComputer::Edge", ptr %103, i64 %idxprom.i384, i32 1
+  %reverse63 = getelementptr inbounds i8, ptr %arrayidx.i385, i64 4
   store i32 1, ptr %reverse63, align 4
-  %reverse64 = getelementptr inbounds %"class.btConvexHullComputer::Edge", ptr %103, i64 %idxprom.i387, i32 1
+  %reverse64 = getelementptr inbounds i8, ptr %arrayidx.i388, i64 4
   store i32 -1, ptr %reverse64, align 4
-  %target = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e.0, i64 0, i32 3
+  %target = getelementptr inbounds i8, ptr %e.0, i64 24
   %105 = load ptr, ptr %target, align 8
-  %copy.i389 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %105, i64 0, i32 7
+  %copy.i389 = getelementptr inbounds i8, ptr %105, i64 120
   %106 = load i32, ptr %copy.i389, align 8
   %cmp.i390 = icmp slt i32 %106, 0
   br i1 %cmp.i390, label %if.then.i393, label %invoke.cont65
@@ -9970,9 +9796,9 @@ invoke.cont65:                                    ; preds = %_ZN20btAlignedObjec
   %115 = phi i32 [ %inc.i.i401, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit.i397 ], [ %.pre.i.i412, %invoke.cont53 ]
   %116 = phi ptr [ %108, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit.i397 ], [ %82, %invoke.cont53 ]
   %index.0.i392 = phi i32 [ %.pre.i.i412, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEE9push_backERKS2_.exit.i397 ], [ %106, %invoke.cont53 ]
-  %targetVertex = getelementptr inbounds %"class.btConvexHullComputer::Edge", ptr %103, i64 %idxprom.i384, i32 2
+  %targetVertex = getelementptr inbounds i8, ptr %arrayidx.i385, i64 8
   store i32 %index.0.i392, ptr %targetVertex, align 4
-  %targetVertex67 = getelementptr inbounds %"class.btConvexHullComputer::Edge", ptr %103, i64 %idxprom.i387, i32 2
+  %targetVertex67 = getelementptr inbounds i8, ptr %arrayidx.i388, i64 8
   store i32 %78, ptr %targetVertex67, align 4
   br label %if.end68
 
@@ -10049,14 +9875,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv516 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next517, %for.inc ]
   %arrayidx.i447 = getelementptr inbounds ptr, ptr %128, i64 %indvars.iv516
   %132 = load ptr, ptr %arrayidx.i447, align 8
-  %edges92 = getelementptr inbounds %"class.btConvexHullInternal::Vertex", ptr %132, i64 0, i32 2
+  %edges92 = getelementptr inbounds i8, ptr %132, i64 16
   %133 = load ptr, ptr %edges92, align 8
   %tobool93.not = icmp eq ptr %133, null
   br i1 %tobool93.not, label %for.inc, label %do.body96
 
 do.body96:                                        ; preds = %for.body, %if.end109
   %e95.0 = phi ptr [ %149, %if.end109 ], [ %133, %for.body ]
-  %copy97 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %e95.0, i64 0, i32 5
+  %copy97 = getelementptr inbounds i8, ptr %e95.0, i64 40
   %134 = load i32, ptr %copy97, align 8
   %cmp98 = icmp sgt i32 %134, -1
   br i1 %cmp98, label %if.then99, label %if.end109
@@ -10146,11 +9972,11 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit492: ; preds = %if.then99, %if.th
 
 do.body103:                                       ; preds = %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit492, %do.body103
   %f.0 = phi ptr [ %148, %do.body103 ], [ %e95.0, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit492 ]
-  %copy104 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %f.0, i64 0, i32 5
+  %copy104 = getelementptr inbounds i8, ptr %f.0, i64 40
   store i32 -1, ptr %copy104, align 8
-  %reverse105 = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %f.0, i64 0, i32 2
+  %reverse105 = getelementptr inbounds i8, ptr %f.0, i64 16
   %147 = load ptr, ptr %reverse105, align 8
-  %prev = getelementptr inbounds %"class.btConvexHullInternal::Edge", ptr %147, i64 0, i32 1
+  %prev = getelementptr inbounds i8, ptr %147, i64 8
   %148 = load ptr, ptr %prev, align 8
   %cmp107.not = icmp eq ptr %148, %e95.0
   br i1 %cmp107.not, label %if.end109, label %do.body103, !llvm.loop !87
@@ -10201,13 +10027,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btConvexHullInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_data.i.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 5
+  %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %1 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %2 = and i8 %1, 1
   %tobool2.not.i.i.i = icmp eq i8 %2, 0
@@ -10225,14 +10051,14 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i
   unreachable
 
 _ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev.exit: ; preds = %entry, %if.then.i.i.i, %if.then3.i.i.i
-  %m_size.i.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 2
-  %m_ownsMemory.i1.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 6
+  %m_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 132
+  %m_ownsMemory.i1.i.i = getelementptr inbounds i8, ptr %this, i64 152
   store i8 1, ptr %m_ownsMemory.i1.i.i, align 8
   store ptr null, ptr %m_data.i.i.i, align 8
   store i32 0, ptr %m_size.i.i.i, align 4
-  %m_capacity.i.i.i = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 5, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   store i32 0, ptr %m_capacity.i.i.i, align 8
-  %facePool = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 4
+  %facePool = getelementptr inbounds i8, ptr %this, i64 96
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %_ZN20btConvexHullInternal9PoolArrayINS_4FaceEED2Ev.exit.i, %_ZN20btAlignedObjectArrayIPN20btConvexHullInternal6VertexEED2Ev.exit
@@ -10241,7 +10067,7 @@ while.cond.i:                                     ; preds = %_ZN20btConvexHullIn
   br i1 %tobool.not.i, label %_ZN20btConvexHullInternal4PoolINS_4FaceEED2Ev.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %next.i = getelementptr inbounds %"class.btConvexHullInternal::PoolArray", ptr %5, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %next.i, align 8
   store ptr %6, ptr %facePool, align 8
   %7 = load ptr, ptr %5, align 8
@@ -10267,7 +10093,7 @@ terminate.lpad.i1:                                ; preds = %_ZN20btConvexHullIn
   unreachable
 
 _ZN20btConvexHullInternal4PoolINS_4FaceEED2Ev.exit: ; preds = %while.cond.i
-  %edgePool = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 3
+  %edgePool = getelementptr inbounds i8, ptr %this, i64 64
   br label %while.cond.i2
 
 while.cond.i2:                                    ; preds = %_ZN20btConvexHullInternal9PoolArrayINS_4EdgeEED2Ev.exit.i, %_ZN20btConvexHullInternal4PoolINS_4FaceEED2Ev.exit
@@ -10276,7 +10102,7 @@ while.cond.i2:                                    ; preds = %_ZN20btConvexHullIn
   br i1 %tobool.not.i3, label %_ZN20btConvexHullInternal4PoolINS_4EdgeEED2Ev.exit, label %while.body.i4
 
 while.body.i4:                                    ; preds = %while.cond.i2
-  %next.i5 = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.24", ptr %12, i64 0, i32 2
+  %next.i5 = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %next.i5, align 8
   store ptr %13, ptr %edgePool, align 8
   %14 = load ptr, ptr %12, align 8
@@ -10302,7 +10128,7 @@ terminate.lpad.i7:                                ; preds = %_ZN20btConvexHullIn
   unreachable
 
 _ZN20btConvexHullInternal4PoolINS_4EdgeEED2Ev.exit: ; preds = %while.cond.i2
-  %vertexPool = getelementptr inbounds %class.btConvexHullInternal, ptr %this, i64 0, i32 2
+  %vertexPool = getelementptr inbounds i8, ptr %this, i64 32
   br label %while.cond.i8
 
 while.cond.i8:                                    ; preds = %_ZN20btConvexHullInternal9PoolArrayINS_6VertexEED2Ev.exit.i, %_ZN20btConvexHullInternal4PoolINS_4EdgeEED2Ev.exit
@@ -10311,7 +10137,7 @@ while.cond.i8:                                    ; preds = %_ZN20btConvexHullIn
   br i1 %tobool.not.i9, label %_ZN20btConvexHullInternal4PoolINS_6VertexEED2Ev.exit, label %while.body.i10
 
 while.body.i10:                                   ; preds = %while.cond.i8
-  %next.i11 = getelementptr inbounds %"class.btConvexHullInternal::PoolArray.25", ptr %19, i64 0, i32 2
+  %next.i11 = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %next.i11, align 8
   store ptr %20, ptr %vertexPool, align 8
   %21 = load ptr, ptr %19, align 8
@@ -10362,7 +10188,7 @@ declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) loca
 define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN20btConvexHullInternal7Point32EE17quickSortInternalI8pointCmpEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 1 dereferenceable(1) %CompareFunc, i32 noundef %lo, i32 noundef %hi) local_unnamed_addr #5 comdat align 2 {
 entry:
   %temp.i = alloca %"class.btConvexHullInternal::Point32", align 4
-  %m_data = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %this, i64 0, i32 5
+  %m_data = getelementptr inbounds i8, ptr %this, i64 16
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %if.end17, %entry
@@ -10389,7 +10215,7 @@ do.body:                                          ; preds = %do.cond, %tailrecur
 while.cond:                                       ; preds = %while.body, %do.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %while.body ], [ %2, %do.body ]
   %arrayidx4 = getelementptr inbounds %"class.btConvexHullInternal::Point32", ptr %1, i64 %indvars.iv
-  %y.i = getelementptr inbounds %"class.btConvexHullInternal::Point32", ptr %1, i64 %indvars.iv, i32 1
+  %y.i = getelementptr inbounds i8, ptr %arrayidx4, i64 4
   %3 = load i32, ptr %y.i, align 4
   %cmp.i = icmp slt i32 %3, %x.sroa.3.0.copyload
   br i1 %cmp.i, label %while.body, label %lor.rhs.i
@@ -10408,7 +10234,7 @@ lor.rhs8.i:                                       ; preds = %land.rhs.i
   br i1 %cmp11.i, label %land.rhs12.i, label %while.cond5.preheader
 
 land.rhs12.i:                                     ; preds = %lor.rhs8.i
-  %z.i = getelementptr inbounds %"class.btConvexHullInternal::Point32", ptr %1, i64 %indvars.iv, i32 2
+  %z.i = getelementptr inbounds i8, ptr %arrayidx4, i64 8
   %5 = load i32, ptr %z.i, align 4
   %cmp14.i = icmp slt i32 %5, %x.sroa.5.0.copyload
   br i1 %cmp14.i, label %while.body, label %while.cond5.preheader
@@ -10425,7 +10251,7 @@ while.body:                                       ; preds = %land.rhs.i, %while.
 while.cond5:                                      ; preds = %while.cond5.preheader, %while.body10
   %indvars.iv49 = phi i64 [ %7, %while.cond5.preheader ], [ %indvars.iv.next50, %while.body10 ]
   %arrayidx8 = getelementptr inbounds %"class.btConvexHullInternal::Point32", ptr %1, i64 %indvars.iv49
-  %y2.i25 = getelementptr inbounds %"class.btConvexHullInternal::Point32", ptr %1, i64 %indvars.iv49, i32 1
+  %y2.i25 = getelementptr inbounds i8, ptr %arrayidx8, i64 4
   %8 = load i32, ptr %y2.i25, align 4
   %cmp.i26 = icmp slt i32 %x.sroa.3.0.copyload, %8
   br i1 %cmp.i26, label %while.body10, label %lor.rhs.i27
@@ -10444,7 +10270,7 @@ lor.rhs8.i31:                                     ; preds = %land.rhs.i29
   br i1 %cmp11.i32, label %_ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit37, label %while.end11
 
 _ZNK8pointCmpclERKN20btConvexHullInternal7Point32ES3_.exit37: ; preds = %lor.rhs8.i31
-  %z13.i35 = getelementptr inbounds %"class.btConvexHullInternal::Point32", ptr %1, i64 %indvars.iv49, i32 2
+  %z13.i35 = getelementptr inbounds i8, ptr %arrayidx8, i64 8
   %10 = load i32, ptr %z13.i35, align 4
   %cmp14.i36 = icmp slt i32 %x.sroa.5.0.copyload, %10
   br i1 %cmp14.i36, label %while.body10, label %while.end11

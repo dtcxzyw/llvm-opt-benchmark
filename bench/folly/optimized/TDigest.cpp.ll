@@ -43,17 +43,17 @@ entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %ref.tmp = alloca %"class.folly::TDigest", align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
-  %maxSize_ = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 1
+  %maxSize_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %maxSize, ptr %maxSize_, align 8, !tbaa !7
-  %sum_ = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 2
+  %sum_ = getelementptr inbounds i8, ptr %this, i64 32
   store double %sum, ptr %sum_, align 8, !tbaa !18
-  %count_ = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 3
+  %count_ = getelementptr inbounds i8, ptr %this, i64 40
   store double %count, ptr %count_, align 8, !tbaa !19
-  %max_ = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 4
+  %max_ = getelementptr inbounds i8, ptr %this, i64 48
   store double %max_val, ptr %max_, align 8, !tbaa !20
-  %min_ = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 5
+  %min_ = getelementptr inbounds i8, ptr %this, i64 56
   store double %min_val, ptr %min_, align 8, !tbaa !21
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %centroids, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %centroids, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !22
   %1 = load ptr, ptr %centroids, align 8, !tbaa !23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -64,11 +64,11 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %1, ptr %this, align 8, !tbaa !23
   store ptr %0, ptr %_M_finish.i.i.i.i, align 8, !tbaa !22
-  %_M_end_of_storage.i5.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %centroids, i64 0, i32 2
+  %_M_end_of_storage.i5.i.i.i = getelementptr inbounds i8, ptr %centroids, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i5.i.i.i, align 8, !tbaa !24
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %centroids, i8 0, i64 24, i1 false)
@@ -77,18 +77,18 @@ if.then:                                          ; preds = %entry
 if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %digests) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %digests, i8 0, i64 24, i1 false)
-  %maxSize_.i = getelementptr inbounds %"class.folly::TDigest", ptr %digests, i64 0, i32 1
+  %maxSize_.i = getelementptr inbounds i8, ptr %digests, i64 24
   store i64 %maxSize, ptr %maxSize_.i, align 8, !tbaa !7
-  %sum_.i = getelementptr inbounds %"class.folly::TDigest", ptr %digests, i64 0, i32 2
-  %max_.i = getelementptr inbounds %"class.folly::TDigest", ptr %digests, i64 0, i32 4
+  %sum_.i = getelementptr inbounds i8, ptr %digests, i64 32
+  %max_.i = getelementptr inbounds i8, ptr %digests, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sum_.i, i8 0, i64 16, i1 false)
   store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %max_.i, align 8, !tbaa !25
-  %arrayinit.element = getelementptr inbounds %"class.folly::TDigest", ptr %digests, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %digests, i64 64
   store ptr %1, ptr %agg.tmp, align 8, !tbaa !23
-  %_M_finish.i.i.i.i31 = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %agg.tmp, i64 0, i32 1
+  %_M_finish.i.i.i.i31 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %0, ptr %_M_finish.i.i.i.i31, align 8, !tbaa !22
-  %_M_end_of_storage.i.i.i.i32 = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %agg.tmp, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %centroids, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i32 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %centroids, i64 16
   %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8, !tbaa !24
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i32, align 8, !tbaa !24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %centroids, i8 0, i64 24, i1 false)
@@ -110,16 +110,16 @@ if.then.i.i.i:                                    ; preds = %invoke.cont12
 
 invoke.cont16:                                    ; preds = %if.then.i.i.i, %invoke.cont12
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp) #13
-  %add.ptr.i.i = getelementptr inbounds %"class.folly::TDigest", ptr %digests, i64 2
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %digests, i64 128
   invoke void @_ZN5folly7TDigest5mergeENS_5RangeIPKS0_EE(ptr nonnull sret(%"class.folly::TDigest") align 8 %ref.tmp, ptr nonnull %digests, ptr nonnull %add.ptr.i.i)
           to label %invoke.cont17 unwind label %lpad15
 
 invoke.cont17:                                    ; preds = %invoke.cont16
   %9 = load ptr, ptr %this, align 8, !tbaa !23
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load <2 x ptr>, ptr %ref.tmp, align 16, !tbaa !26
   store <2 x ptr> %10, ptr %this, align 8, !tbaa !26
-  %_M_end_of_storage.i5.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
+  %_M_end_of_storage.i5.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %11 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i, align 16, !tbaa !24
   store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !24
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %9, null
@@ -130,7 +130,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont17
   br label %_ZN5folly7TDigestaSEOS0_.exit
 
 _ZN5folly7TDigestaSEOS0_.exit:                    ; preds = %if.then.i.i.i.i.i.i, %invoke.cont17
-  %maxSize_3.i = getelementptr inbounds %"class.folly::TDigest", ptr %ref.tmp, i64 0, i32 1
+  %maxSize_3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %maxSize_, ptr noundef nonnull align 8 dereferenceable(40) %maxSize_3.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp) #13
   %12 = load ptr, ptr %arrayinit.element, align 8, !tbaa !23
@@ -218,7 +218,7 @@ for.cond.cleanup:                                 ; preds = %for.body
 for.body:                                         ; preds = %entry, %for.body
   %nCentroids.0706 = phi i64 [ %add, %for.body ], [ 0, %entry ]
   %__begin1.0705 = phi ptr [ %incdec.ptr, %for.body ], [ %digests.coerce0, %entry ]
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %__begin1.0705, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__begin1.0705, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !22
   %1 = load ptr, ptr %__begin1.0705, align 8, !tbaa !23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -226,16 +226,16 @@ for.body:                                         ; preds = %entry, %for.body
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %add = add i64 %sub.ptr.div.i, %nCentroids.0706
-  %incdec.ptr = getelementptr inbounds %"class.folly::TDigest", ptr %__begin1.0705, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0705, i64 64
   %cmp.not = icmp eq ptr %incdec.ptr, %digests.coerce1
   br i1 %cmp.not, label %for.cond.cleanup, label %for.body
 
 if.then:                                          ; preds = %for.cond.cleanup, %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %maxSize_.i = getelementptr inbounds %"class.folly::TDigest", ptr %agg.result, i64 0, i32 1
+  %maxSize_.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 100, ptr %maxSize_.i, align 8, !tbaa !7
-  %sum_.i = getelementptr inbounds %"class.folly::TDigest", ptr %agg.result, i64 0, i32 2
-  %max_.i = getelementptr inbounds %"class.folly::TDigest", ptr %agg.result, i64 0, i32 4
+  %sum_.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %max_.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sum_.i, i8 0, i64 16, i1 false)
   store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %max_.i, align 8, !tbaa !25
   br label %cleanup
@@ -259,8 +259,8 @@ _ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit.i: ; p
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit.i
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %centroids, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %centroids, i64 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %centroids, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %centroids, i64 16
   store ptr %call5.i.i.i.i379, ptr %centroids, align 8, !tbaa !23
   store ptr %call5.i.i.i.i379, ptr %_M_finish.i.i, align 8, !tbaa !22
   %add.ptr21.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %call5.i.i.i.i379, i64 %add
@@ -383,8 +383,8 @@ invoke.cont26:                                    ; preds = %_ZNSt6vectorImSaImE
   %starts.sroa.20.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %starts.sroa.20.1710, %if.then.i.i419 ]
   %add.ptr.i.i.i.pn = phi ptr [ %add.ptr.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %starts.sroa.14.1711, %if.then.i.i419 ]
   %starts.sroa.0.2 = phi ptr [ %cond.i31.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %starts.sroa.0.1712, %if.then.i.i419 ]
-  %starts.sroa.14.2 = getelementptr inbounds i64, ptr %add.ptr.i.i.i.pn, i64 1
-  %count_.i = getelementptr inbounds %"class.folly::TDigest", ptr %__begin111.0713, i64 0, i32 3
+  %starts.sroa.14.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.pn, i64 8
+  %count_.i = getelementptr inbounds i8, ptr %__begin111.0713, i64 40
   %7 = load double, ptr %count_.i, align 8, !tbaa !19
   %cmp30 = fcmp ogt double %7, 0.000000e+00
   br i1 %cmp30, label %while.end97, label %if.end121
@@ -400,11 +400,11 @@ lpad25.loopexit.split-lp:                         ; preds = %if.then.i.i.i.i
   br label %ehcleanup324
 
 while.end97:                                      ; preds = %invoke.cont26
-  %max_100 = getelementptr inbounds %"class.folly::TDigest", ptr %__begin111.0713, i64 0, i32 4
+  %max_100 = getelementptr inbounds i8, ptr %__begin111.0713, i64 48
   %8 = load <2 x double>, ptr %max_100, align 8, !tbaa !25
   %9 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !26
   %10 = load ptr, ptr %__begin111.0713, align 8, !tbaa !26
-  %_M_finish.i427 = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %__begin111.0713, i64 0, i32 1
+  %_M_finish.i427 = getelementptr inbounds i8, ptr %__begin111.0713, i64 8
   %11 = load ptr, ptr %_M_finish.i427, align 8, !tbaa !26
   %12 = load ptr, ptr %centroids, align 8, !tbaa !26
   %sub.ptr.lhs.cast.i.i428 = ptrtoint ptr %9 to i64
@@ -431,7 +431,7 @@ lpad116:                                          ; preds = %while.end97
 if.end121:                                        ; preds = %invoke.cont117, %invoke.cont26
   %count.1 = phi double [ %add102, %invoke.cont117 ], [ %count.0714, %invoke.cont26 ]
   %18 = phi <2 x double> [ %16, %invoke.cont117 ], [ %4, %invoke.cont26 ]
-  %incdec.ptr125 = getelementptr inbounds %"class.folly::TDigest", ptr %__begin111.0713, i64 1
+  %incdec.ptr125 = getelementptr inbounds i8, ptr %__begin111.0713, i64 64
   %cmp20.not = icmp eq ptr %incdec.ptr125, %digests.coerce1
   br i1 %cmp20.not, label %for.cond.cleanup21, label %for.body22
 
@@ -441,13 +441,13 @@ for.cond135.preheader:                            ; preds = %for.cond.cleanup21,
   br label %for.body138
 
 for.cond.cleanup133:                              ; preds = %for.cond.cleanup137, %for.cond.cleanup21
-  %maxSize_ = getelementptr inbounds %"class.folly::TDigest", ptr %digests.coerce0, i64 0, i32 1
+  %maxSize_ = getelementptr inbounds i8, ptr %digests.coerce0, i64 24
   %19 = load i64, ptr %maxSize_, align 8, !tbaa !7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %maxSize_.i433 = getelementptr inbounds %"class.folly::TDigest", ptr %agg.result, i64 0, i32 1
+  %maxSize_.i433 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %19, ptr %maxSize_.i433, align 8, !tbaa !7
-  %sum_.i434 = getelementptr inbounds %"class.folly::TDigest", ptr %agg.result, i64 0, i32 2
-  %max_.i435 = getelementptr inbounds %"class.folly::TDigest", ptr %agg.result, i64 0, i32 4
+  %sum_.i434 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %max_.i435 = getelementptr inbounds i8, ptr %agg.result, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sum_.i434, i8 0, i64 16, i1 false)
   store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %max_.i435, align 8, !tbaa !25
   %cmp.i437 = icmp ugt i64 %19, 576460752303423487
@@ -554,15 +554,15 @@ if.then.i.i585:                                   ; preds = %while.body.i.i.i
   br i1 %cmp1.not16.i.i.i.i, label %if.else.i589, label %for.body.i.i.preheader.i.i
 
 for.body.i.i.preheader.i.i:                       ; preds = %if.then.i.i585
-  %__cur.015.i.i.i.i = getelementptr %"class.folly::TDigest::Centroid", ptr %call.i.i.i, i64 1
+  %__cur.015.i.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 16
   br label %for.body.i.i.i.i588
 
 for.body.i.i.i.i588:                              ; preds = %for.body.i.i.i.i588, %for.body.i.i.preheader.i.i
   %__cur.018.i.i.i.i = phi ptr [ %__cur.0.i.i.i.i, %for.body.i.i.i.i588 ], [ %__cur.015.i.i.i.i, %for.body.i.i.preheader.i.i ]
   %__prev.017.i.i.i.i = phi ptr [ %incdec.ptr3.i.i.i.i, %for.body.i.i.i.i588 ], [ %call.i.i.i, %for.body.i.i.preheader.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.018.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__prev.017.i.i.i.i, i64 16, i1 false), !tbaa.struct !31
-  %incdec.ptr3.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__prev.017.i.i.i.i, i64 1
-  %__cur.0.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.018.i.i.i.i, i64 1
+  %incdec.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %__prev.017.i.i.i.i, i64 16
+  %__cur.0.i.i.i.i = getelementptr inbounds i8, ptr %__cur.018.i.i.i.i, i64 16
   %cmp1.not.i.i.i.i = icmp eq ptr %__cur.0.i.i.i.i, %add.ptr.i.i586
   br i1 %cmp1.not.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i, label %for.body.i.i.i.i588, !llvm.loop !32
 
@@ -621,7 +621,7 @@ _ZN5follyL6k_to_qEdd.exit:                        ; preds = %if.else.i, %if.then
   %cur.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
   %cur.sroa.13.0.copyload = load double, ptr %cur.sroa.13.0..sroa_idx, align 8, !tbaa.struct !34
   %29 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !26
-  %it.sroa.0.0723 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %28, i64 1
+  %it.sroa.0.0723 = getelementptr inbounds i8, ptr %28, i64 16
   %cmp.i485.not724 = icmp eq ptr %it.sroa.0.0723, %29
   br i1 %cmp.i485.not724, label %for.cond.cleanup262, label %for.body263.preheader
 
@@ -699,8 +699,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i31.i.i, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %compressed.sroa.0.1.lcssa, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !31, !alias.scope !35
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %compressed.sroa.17.1.lcssa
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i, label %for.body.i.i.i.i.i, !llvm.loop !39
 
@@ -735,7 +735,7 @@ for.body263:                                      ; preds = %for.inc286, %for.bo
   %compressed.sroa.32.1727 = phi ptr [ %compressed.sroa.32.4, %for.inc286 ], [ %compressed.sroa.32.0, %for.body263.preheader ]
   %compressed.sroa.17.1726 = phi ptr [ %compressed.sroa.17.4, %for.inc286 ], [ %compressed.sroa.0.0, %for.body263.preheader ]
   %compressed.sroa.0.1725 = phi ptr [ %compressed.sroa.0.4, %for.inc286 ], [ %compressed.sroa.0.0, %for.body263.preheader ]
-  %weight_.i496 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %.pn730, i64 1, i32 1
+  %weight_.i496 = getelementptr inbounds i8, ptr %.pn730, i64 24
   %33 = load double, ptr %weight_.i496, align 8, !tbaa !40
   %add266 = fadd double %weightSoFar.0733, %33
   %cmp267 = fcmp ugt double %add266, %q_limit_times_count.0732
@@ -806,8 +806,8 @@ for.body.i.i.i.i.i528:                            ; preds = %_ZNSt12_Vector_base
   %__cur.08.i.i.i.i.i529 = phi ptr [ %incdec.ptr1.i.i.i.i.i532, %for.body.i.i.i.i.i528 ], [ %cond.i31.i.i525, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit.i.i524 ]
   %__first.addr.07.i.i.i.i.i530 = phi ptr [ %incdec.ptr.i.i.i.i.i531, %for.body.i.i.i.i.i528 ], [ %compressed.sroa.0.1725, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit.i.i524 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i529, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i530, i64 16, i1 false), !tbaa.struct !31, !alias.scope !43
-  %incdec.ptr.i.i.i.i.i531 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.addr.07.i.i.i.i.i530, i64 1
-  %incdec.ptr1.i.i.i.i.i532 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.08.i.i.i.i.i529, i64 1
+  %incdec.ptr.i.i.i.i.i531 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i530, i64 16
+  %incdec.ptr1.i.i.i.i.i532 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i529, i64 16
   %cmp.not.i.i.i.i.i533 = icmp eq ptr %incdec.ptr.i.i.i.i.i531, %compressed.sroa.32.1727
   br i1 %cmp.not.i.i.i.i.i533, label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i534, label %for.body.i.i.i.i.i528, !llvm.loop !47
 
@@ -828,7 +828,7 @@ invoke.cont280:                                   ; preds = %_ZNSt6vectorIN5foll
   %compressed.sroa.0.3 = phi ptr [ %cond.i31.i.i525, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i539 ], [ %compressed.sroa.0.1725, %if.then.i505 ]
   %__cur.0.lcssa.i.i.i.i.i535.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i535, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i539 ], [ %compressed.sroa.17.1726, %if.then.i505 ]
   %compressed.sroa.32.3 = phi ptr [ %add.ptr19.i.i540, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i539 ], [ %compressed.sroa.32.1727, %if.then.i505 ]
-  %compressed.sroa.17.3 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.0.lcssa.i.i.i.i.i535.pn, i64 1
+  %compressed.sroa.17.3 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i535.pn, i64 16
   %inc = fadd double %k_limit.0731, 1.000000e+00
   %div.i546 = fdiv double %k_limit.0731, %conv248
   %cmp.i547 = fcmp ult double %div.i546, 5.000000e-01
@@ -872,7 +872,7 @@ for.inc286:                                       ; preds = %_ZN5follyL6k_to_qEd
   %q_limit_times_count.1 = phi double [ %mul283, %_ZN5follyL6k_to_qEdd.exit555 ], [ %q_limit_times_count.0732, %if.then268 ]
   %sumsToMerge.1 = phi double [ 0.000000e+00, %_ZN5follyL6k_to_qEdd.exit555 ], [ %35, %if.then268 ]
   %weightsToMerge.1 = phi double [ 0.000000e+00, %_ZN5follyL6k_to_qEdd.exit555 ], [ %add276, %if.then268 ]
-  %it.sroa.0.0 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %it.sroa.0.0736, i64 1
+  %it.sroa.0.0 = getelementptr inbounds i8, ptr %it.sroa.0.0736, i64 16
   %cmp.i485.not = icmp eq ptr %it.sroa.0.0, %29
   br i1 %cmp.i485.not, label %for.cond.cleanup262.loopexit, label %for.body263, !llvm.loop !48
 
@@ -880,7 +880,7 @@ invoke.cont295:                                   ; preds = %_ZNSt6vectorIN5foll
   %compressed.sroa.0.2 = phi ptr [ %cond.i31.i.i, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %compressed.sroa.0.1.lcssa, %if.then.i489 ]
   %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %compressed.sroa.17.1.lcssa, %if.then.i489 ]
   %compressed.sroa.32.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %compressed.sroa.32.1.lcssa, %if.then.i489 ]
-  %compressed.sroa.17.2 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 1
+  %compressed.sroa.17.2 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 16
   %cmp.i.i = icmp eq ptr %compressed.sroa.32.2, %compressed.sroa.17.2
   br i1 %cmp.i.i, label %invoke.cont296, label %if.end.i.i
 
@@ -962,12 +962,12 @@ if.then.i.i558:                                   ; preds = %invoke.cont296
           to label %invoke.cont305 unwind label %lpad294
 
 invoke.cont305:                                   ; preds = %.noexc559, %invoke.cont296
-  %count_ = getelementptr inbounds %"class.folly::TDigest", ptr %agg.result, i64 0, i32 3
+  %count_ = getelementptr inbounds i8, ptr %agg.result, i64 40
   store double %count.1, ptr %count_, align 8, !tbaa !19
   store <2 x double> %18, ptr %max_.i435, align 8, !tbaa !25
   %45 = load ptr, ptr %agg.result, align 8, !tbaa !23
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %compressed.sroa.0.6, ptr %agg.result, align 8, !tbaa !23
   store ptr %compressed.sroa.17.6, ptr %_M_finish.i.i.i.i, align 8, !tbaa !22
   store ptr %compressed.sroa.32.6, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !24
@@ -1059,7 +1059,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt5arrayIN5folly7TDigestELm2EED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arraydestroy.element = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %arraydestroy.element, align 8, !tbaa !23
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN5folly7TDigestD2Ev.exit, label %if.then.i.i.i.i
@@ -1164,7 +1164,7 @@ entry:
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !26
   %1 = load ptr, ptr %this, align 8, !tbaa !26
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
@@ -1176,9 +1176,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i.thread, label %cond.true.i.i.i.i.i
 
 invoke.cont.i.i.thread:                           ; preds = %if.then
-  %_M_finish.i.i.i.i328 = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i.i.i328 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %add.ptr.i.i.i.i329 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr null, i64 %sub.ptr.div.i.i.i
-  %_M_end_of_storage.i.i.i.i330 = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i330 = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i329, ptr %_M_end_of_storage.i.i.i.i330, align 8, !tbaa !24
   br label %_ZN5folly7TDigestC2ERKS0_.exit
@@ -1194,10 +1194,10 @@ if.then3.i.i.i.i.i.i.i:                           ; preds = %cond.true.i.i.i.i.i
 invoke.cont.i.i:                                  ; preds = %cond.true.i.i.i.i.i
   %call5.i.i.i.i4.i20.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i) #16
   store ptr %call5.i.i.i.i4.i20.i.i, ptr %agg.result, align 8, !tbaa !23
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i.i4.i20.i.i, ptr %_M_finish.i.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %call5.i.i.i.i4.i20.i.i, i64 %sub.ptr.div.i.i.i
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !24
   br label %for.body.i.i.i.i.i.i
 
@@ -1205,8 +1205,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %__cur.015.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i4.i20.i.i, %invoke.cont.i.i ]
   %__first.sroa.0.014.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %1, %invoke.cont.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.015.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.014.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !31
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.sroa.0.014.i.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.015.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.014.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.015.i.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %0
   br i1 %cmp.i.not.i.i.i.i.i.i, label %_ZN5folly7TDigestC2ERKS0_.exit, label %for.body.i.i.i.i.i.i, !llvm.loop !51
 
@@ -1214,23 +1214,23 @@ _ZN5folly7TDigestC2ERKS0_.exit:                   ; preds = %for.body.i.i.i.i.i.
   %_M_finish.i.i.i.i331 = phi ptr [ %_M_finish.i.i.i.i328, %invoke.cont.i.i.thread ], [ %_M_finish.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %invoke.cont.i.i.thread ], [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i331, align 8, !tbaa !22
-  %maxSize_.i = getelementptr inbounds %"class.folly::TDigest", ptr %agg.result, i64 0, i32 1
-  %maxSize_3.i = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 1
+  %maxSize_.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %maxSize_3.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %maxSize_.i, ptr noundef nonnull align 8 dereferenceable(40) %maxSize_3.i, i64 40, i1 false)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %maxSize_ = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 1
+  %maxSize_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %maxSize_, align 8, !tbaa !7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %maxSize_.i159 = getelementptr inbounds %"class.folly::TDigest", ptr %agg.result, i64 0, i32 1
+  %maxSize_.i159 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %2, ptr %maxSize_.i159, align 8, !tbaa !7
-  %sum_.i = getelementptr inbounds %"class.folly::TDigest", ptr %agg.result, i64 0, i32 2
-  %max_.i = getelementptr inbounds %"class.folly::TDigest", ptr %agg.result, i64 0, i32 4
+  %sum_.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %max_.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i64 0, ptr %sum_.i, align 8
-  %min_.i = getelementptr inbounds %"class.folly::TDigest", ptr %agg.result, i64 0, i32 5
+  %min_.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %max_.i, align 8, !tbaa !25
-  %count_ = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 3
+  %count_ = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load double, ptr %count_, align 8, !tbaa !19
   %sub.ptr.lhs.cast.i = ptrtoint ptr %sortedValues.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %sortedValues.coerce0 to i64
@@ -1238,20 +1238,20 @@ if.end:                                           ; preds = %entry
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %conv = uitofp i64 %sub.ptr.div.i to double
   %add = fadd double %3, %conv
-  %count_3 = getelementptr inbounds %"class.folly::TDigest", ptr %agg.result, i64 0, i32 3
+  %count_3 = getelementptr inbounds i8, ptr %agg.result, i64 40
   store double %add, ptr %count_3, align 8, !tbaa !19
   %4 = load double, ptr %sortedValues.coerce0, align 8, !tbaa !25
-  %add.ptr = getelementptr inbounds double, ptr %sortedValues.coerce1, i64 -1
+  %add.ptr = getelementptr inbounds i8, ptr %sortedValues.coerce1, i64 -8
   %5 = load double, ptr %add.ptr, align 8, !tbaa !25
   %cmp = fcmp ogt double %3, 0.000000e+00
   br i1 %cmp, label %if.then7, label %if.end15
 
 if.then7:                                         ; preds = %if.end
-  %min_ = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 5
+  %min_ = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load double, ptr %min_, align 8, !tbaa !25
   %cmp.i162 = fcmp olt double %4, %6
   %.sroa.speculated319 = select i1 %cmp.i162, double %4, double %6
-  %max_ = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 4
+  %max_ = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load double, ptr %max_, align 8, !tbaa !25
   %cmp.i163 = fcmp olt double %7, %5
   %.sroa.speculated = select i1 %cmp.i163, double %5, double %7
@@ -1308,7 +1308,7 @@ _ZN5follyL6k_to_qEdd.exit:                        ; preds = %if.else.i, %if.then
   %retval.0.i = phi double [ %8, %if.then.i168 ], [ %mul3.i, %if.else.i ]
   %mul = fmul double %add, %retval.0.i
   %9 = load ptr, ptr %this, align 8, !tbaa !26
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %10 = load ptr, ptr %_M_finish.i, align 8, !tbaa !26
   %cmp.i169.not = icmp eq ptr %9, %10
   br i1 %cmp.i169.not, label %if.else43, label %land.rhs
@@ -1319,7 +1319,7 @@ land.rhs:                                         ; preds = %_ZN5follyL6k_to_qEd
   br i1 %cmp37, label %if.then38, label %if.else43
 
 if.then38:                                        ; preds = %land.rhs
-  %incdec.ptr.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %9, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 16
   %cur.sroa.15.0.ref.tmp39.sroa.0.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   %cur.sroa.15.0.copyload = load double, ptr %cur.sroa.15.0.ref.tmp39.sroa.0.0..sroa_idx, align 8, !tbaa.struct !34
   br label %while.cond.outer.preheader
@@ -1330,7 +1330,7 @@ ehcleanup140.thread:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EED2Ev.exit266
 
 if.else43:                                        ; preds = %land.rhs, %_ZN5follyL6k_to_qEdd.exit
-  %incdec.ptr = getelementptr inbounds double, ptr %sortedValues.coerce0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %sortedValues.coerce0, i64 8
   br label %while.cond.outer.preheader
 
 while.cond.outer.preheader:                       ; preds = %if.else43, %if.then38
@@ -1377,13 +1377,13 @@ lor.rhs68:                                        ; preds = %land.rhs65
   br i1 %cmp73, label %if.then76, label %if.else81
 
 if.then76:                                        ; preds = %lor.rhs68, %land.rhs65
-  %incdec.ptr.i179 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %it_centroids.sroa.0.1, i64 1
+  %incdec.ptr.i179 = getelementptr inbounds i8, ptr %it_centroids.sroa.0.1, i64 16
   %next.sroa.8.0.ref.tmp77.sroa.0.0..sroa_idx = getelementptr inbounds i8, ptr %it_centroids.sroa.0.1, i64 8
   %next.sroa.8.0.copyload = load double, ptr %next.sroa.8.0.ref.tmp77.sroa.0.0..sroa_idx, align 8, !tbaa.struct !34
   br label %if.end86
 
 if.else81:                                        ; preds = %lor.rhs68, %lor.rhs
-  %incdec.ptr83 = getelementptr inbounds double, ptr %it_sortedValues.1, i64 1
+  %incdec.ptr83 = getelementptr inbounds i8, ptr %it_sortedValues.1, i64 8
   br label %if.end86
 
 if.end86:                                         ; preds = %if.else81, %if.then76
@@ -1471,8 +1471,8 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i31.i.i, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %compressed.sroa.0.1.ph, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !31, !alias.scope !53
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.addr.07.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.08.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i191 = icmp eq ptr %incdec.ptr.i.i.i.i.i, %compressed.sroa.32.1.ph
   br i1 %cmp.not.i.i.i.i.i191, label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i, label %for.body.i.i.i.i.i, !llvm.loop !57
 
@@ -1493,7 +1493,7 @@ invoke.cont106:                                   ; preds = %_ZNSt6vectorIN5foll
   %compressed.sroa.32.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %compressed.sroa.32.1.ph, %if.then.i187 ]
   %__cur.0.lcssa.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %compressed.sroa.17.1.ph, %if.then.i187 ]
   %compressed.sroa.0.2 = phi ptr [ %cond.i31.i.i, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %compressed.sroa.0.1.ph, %if.then.i187 ]
-  %compressed.sroa.17.2 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 1
+  %compressed.sroa.17.2 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn, i64 16
   %inc107 = fadd double %k_limit.0.ph, 1.000000e+00
   %17 = load i64, ptr %maxSize_, align 8, !tbaa !7
   %conv109 = uitofp i64 %17 to double
@@ -1578,8 +1578,8 @@ for.body.i.i.i.i.i233:                            ; preds = %_ZNSt12_Vector_base
   %__cur.08.i.i.i.i.i234 = phi ptr [ %incdec.ptr1.i.i.i.i.i237, %for.body.i.i.i.i.i233 ], [ %cond.i31.i.i230, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit.i.i229 ]
   %__first.addr.07.i.i.i.i.i235 = phi ptr [ %incdec.ptr.i.i.i.i.i236, %for.body.i.i.i.i.i233 ], [ %compressed.sroa.0.1.ph, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit.i.i229 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.08.i.i.i.i.i234, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.07.i.i.i.i.i235, i64 16, i1 false), !tbaa.struct !31, !alias.scope !58
-  %incdec.ptr.i.i.i.i.i236 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.addr.07.i.i.i.i.i235, i64 1
-  %incdec.ptr1.i.i.i.i.i237 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.08.i.i.i.i.i234, i64 1
+  %incdec.ptr.i.i.i.i.i236 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i235, i64 16
+  %incdec.ptr1.i.i.i.i.i237 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i234, i64 16
   %cmp.not.i.i.i.i.i238 = icmp eq ptr %incdec.ptr.i.i.i.i.i236, %compressed.sroa.32.1.ph
   br i1 %cmp.not.i.i.i.i.i238, label %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i239, label %for.body.i.i.i.i.i233, !llvm.loop !62
 
@@ -1600,7 +1600,7 @@ invoke.cont120:                                   ; preds = %_ZNSt6vectorIN5foll
   %compressed.sroa.32.4 = phi ptr [ %add.ptr19.i.i245, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i244 ], [ %compressed.sroa.32.1.ph, %if.then.i210 ]
   %__cur.0.lcssa.i.i.i.i.i240.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i240, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i244 ], [ %compressed.sroa.17.1.ph, %if.then.i210 ]
   %compressed.sroa.0.4 = phi ptr [ %cond.i31.i.i230, %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i244 ], [ %compressed.sroa.0.1.ph, %if.then.i210 ]
-  %compressed.sroa.17.4 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.0.lcssa.i.i.i.i.i240.pn, i64 1
+  %compressed.sroa.17.4 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i240.pn, i64 16
   %cmp.i.i = icmp eq ptr %compressed.sroa.32.4, %compressed.sroa.17.4
   br i1 %cmp.i.i, label %invoke.cont121, label %if.end.i.i
 
@@ -1683,8 +1683,8 @@ if.then.i.i253:                                   ; preds = %invoke.cont121
 
 invoke.cont129:                                   ; preds = %.noexc258, %invoke.cont121
   %28 = load ptr, ptr %agg.result, align 8, !tbaa !23
-  %_M_finish.i.i.i.i260 = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i.i.i261 = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i.i.i260 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i.i261 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %compressed.sroa.0.6, ptr %agg.result, align 8, !tbaa !23
   store ptr %compressed.sroa.17.6, ptr %_M_finish.i.i.i.i260, align 8, !tbaa !22
   store ptr %compressed.sroa.32.6, ptr %_M_end_of_storage.i.i.i.i261, align 8, !tbaa !24
@@ -1768,7 +1768,7 @@ entry:
   br i1 %cmp45, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr.i28.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.coerce.fr, i64 1
+  %add.ptr.i28.i = getelementptr inbounds i8, ptr %__first.coerce.fr, i64 16
   %cmp259 = icmp eq i64 %__depth_limit, 0
   br i1 %cmp259, label %if.then, label %if.end
 
@@ -1863,7 +1863,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6
 
 while.body.i.i:                                   ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i
   %__last.sroa.0.012.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i.i ], [ %storemerge46.lcssa, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_T0_.exit ]
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__last.sroa.0.012.i.i, i64 -1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.012.i.i, i64 -16
   %6 = load <2 x double>, ptr %incdec.ptr.i.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce.fr, i64 16, i1 false), !tbaa.struct !31
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
@@ -1949,7 +1949,7 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   %dec = add nsw i64 %__depth_limit.addr.04761, -1
   %div.i3536 = lshr i64 %sub.ptr.div.i4960, 1
   %add.ptr.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.coerce.fr, i64 %div.i3536
-  %add.ptr.i29.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %storemerge4662, i64 -1
+  %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge4662, i64 -16
   %12 = load double, ptr %add.ptr.i28.i, align 8, !tbaa !42
   %13 = load double, ptr %add.ptr.i.i, align 8, !tbaa !42
   %cmp.i.i.i.i23 = fcmp olt double %12, %13
@@ -2033,12 +2033,12 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
   %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i24 ], [ %incdec.ptr.i.i.i25, %while.cond3.i.i ]
   %16 = load double, ptr %__first.sroa.0.1.i.i, align 8, !tbaa !42
   %cmp.i.i.i32.i = fcmp olt double %16, %15
-  %incdec.ptr.i.i.i25 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.sroa.0.1.i.i, i64 1
+  %incdec.ptr.i.i.i25 = getelementptr inbounds i8, ptr %__first.sroa.0.1.i.i, i64 16
   br i1 %cmp.i.i.i32.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !70
 
 while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
-  %__last.sroa.0.1.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__last.sroa.0.0.pn.i.i, i64 -1
+  %__last.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -16
   %17 = load double, ptr %__last.sroa.0.1.i.i, align 8, !tbaa !42
   %cmp.i.i27.i.i = fcmp olt double %15, %17
   br i1 %cmp.i.i27.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !71
@@ -2100,7 +2100,7 @@ if.then9.i:                                       ; preds = %for.body.i
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %__val.sroa.5.0..sroa_idx.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.coerce.pn38.i, i64 1, i32 1
+  %__val.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %__first.coerce.pn38.i, i64 24
   %__val.sroa.5.0.copyload.i.i = load double, ptr %__val.sroa.5.0..sroa_idx.i.i, align 8, !tbaa.struct !34
   %2 = load double, ptr %__first.coerce.pn38.i, align 8, !tbaa !42
   %cmp.i.i17.i.i = fcmp olt double %0, %2
@@ -2110,7 +2110,7 @@ while.body.i.i:                                   ; preds = %if.else.i, %while.b
   %__next.sroa.0.019.i.i = phi ptr [ %__next.sroa.0.0.i.i, %while.body.i.i ], [ %__first.coerce.pn38.i, %if.else.i ]
   %__last.sroa.0.018.i.i = phi ptr [ %__next.sroa.0.019.i.i, %while.body.i.i ], [ %__i.sroa.0.039.i.ptr, %if.else.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.018.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__next.sroa.0.019.i.i, i64 16, i1 false), !tbaa.struct !31
-  %__next.sroa.0.0.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__next.sroa.0.019.i.i, i64 -1
+  %__next.sroa.0.0.i.i = getelementptr inbounds i8, ptr %__next.sroa.0.019.i.i, i64 -16
   %3 = load double, ptr %__next.sroa.0.0.i.i, align 8, !tbaa !42
   %cmp.i.i.i.i = fcmp olt double %0, %3
   br i1 %cmp.i.i.i.i, label %while.body.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i, !llvm.loop !73
@@ -2128,14 +2128,14 @@ for.inc.i:                                        ; preds = %_ZSt25__unguarded_l
   br i1 %cmp.i28.not.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit, label %for.body.i, !llvm.loop !74
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit: ; preds = %for.inc.i
-  %add.ptr.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.coerce, i64 16
+  %add.ptr.i = getelementptr inbounds i8, ptr %__first.coerce, i64 256
   %cmp.i.not7.i = icmp eq ptr %add.ptr.i, %__last.coerce
   br i1 %cmp.i.not7.i, label %if.end, label %for.body.i21
 
 for.body.i21:                                     ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i25
   %__i.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i25 ], [ %add.ptr.i, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_T0_.exit ]
   %4 = load <2 x double>, ptr %__i.sroa.0.08.i, align 8
-  %__next.sroa.0.016.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__i.sroa.0.08.i, i64 -1
+  %__next.sroa.0.016.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.08.i, i64 -16
   %5 = load double, ptr %__next.sroa.0.016.i.i, align 8, !tbaa !42
   %6 = extractelement <2 x double> %4, i64 0
   %cmp.i.i17.i.i24 = fcmp olt double %6, %5
@@ -2145,7 +2145,7 @@ while.body.i.i28:                                 ; preds = %for.body.i21, %whil
   %__next.sroa.0.019.i.i29 = phi ptr [ %__next.sroa.0.0.i.i31, %while.body.i.i28 ], [ %__next.sroa.0.016.i.i, %for.body.i21 ]
   %__last.sroa.0.018.i.i30 = phi ptr [ %__next.sroa.0.019.i.i29, %while.body.i.i28 ], [ %__i.sroa.0.08.i, %for.body.i21 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.018.i.i30, ptr noundef nonnull align 8 dereferenceable(16) %__next.sroa.0.019.i.i29, i64 16, i1 false), !tbaa.struct !31
-  %__next.sroa.0.0.i.i31 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__next.sroa.0.019.i.i29, i64 -1
+  %__next.sroa.0.0.i.i31 = getelementptr inbounds i8, ptr %__next.sroa.0.019.i.i29, i64 -16
   %7 = load double, ptr %__next.sroa.0.0.i.i31, align 8, !tbaa !42
   %cmp.i.i.i.i32 = fcmp olt double %6, %7
   br i1 %cmp.i.i.i.i32, label %while.body.i.i28, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i25, !llvm.loop !75
@@ -2153,13 +2153,13 @@ while.body.i.i28:                                 ; preds = %for.body.i21, %whil
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i25: ; preds = %while.body.i.i28, %for.body.i21
   %__last.sroa.0.0.lcssa.i.i26 = phi ptr [ %__i.sroa.0.08.i, %for.body.i21 ], [ %__next.sroa.0.019.i.i29, %while.body.i.i28 ]
   store <2 x double> %4, ptr %__last.sroa.0.0.lcssa.i.i26, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__i.sroa.0.08.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__i.sroa.0.08.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__last.coerce
   br i1 %cmp.i.not.i, label %if.end, label %for.body.i21, !llvm.loop !76
 
 if.else:                                          ; preds = %entry
   %cmp.i.i34 = icmp eq ptr %__first.coerce, %__last.coerce
-  %__i.sroa.0.036.i36 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.coerce, i64 1
+  %__i.sroa.0.036.i36 = getelementptr inbounds i8, ptr %__first.coerce, i64 16
   %cmp.i28.not37.i37 = icmp eq ptr %__i.sroa.0.036.i36, %__last.coerce
   %or.cond = select i1 %cmp.i.i34, i1 true, i1 %cmp.i28.not37.i37
   br i1 %or.cond, label %if.end, label %for.body.i40
@@ -2179,7 +2179,7 @@ if.then9.i59:                                     ; preds = %for.body.i40
   %sub.ptr.sub.i.i.i.i.i.i63 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i62, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i64 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i63, 4
   %.pre.i.i.i.i.i.i65 = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i64
-  %add.ptr.i29.i66 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.coerce.pn38.i42, i64 2
+  %add.ptr.i29.i66 = getelementptr inbounds i8, ptr %__first.coerce.pn38.i42, i64 32
   %add.ptr.i.i.i.i.i.i67 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %add.ptr.i29.i66, i64 %.pre.i.i.i.i.i.i65
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i67, ptr nonnull align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i.i.i.i63, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__val.i33, i64 16, i1 false), !tbaa.struct !31
@@ -2187,7 +2187,7 @@ if.then9.i59:                                     ; preds = %for.body.i40
   br label %for.inc.i51
 
 if.else.i44:                                      ; preds = %for.body.i40
-  %__val.sroa.5.0..sroa_idx.i.i45 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.coerce.pn38.i42, i64 1, i32 1
+  %__val.sroa.5.0..sroa_idx.i.i45 = getelementptr inbounds i8, ptr %__first.coerce.pn38.i42, i64 24
   %__val.sroa.5.0.copyload.i.i46 = load double, ptr %__val.sroa.5.0..sroa_idx.i.i45, align 8, !tbaa.struct !34
   %10 = load double, ptr %__first.coerce.pn38.i42, align 8, !tbaa !42
   %cmp.i.i17.i.i47 = fcmp olt double %8, %10
@@ -2197,7 +2197,7 @@ while.body.i.i54:                                 ; preds = %if.else.i44, %while
   %__next.sroa.0.019.i.i55 = phi ptr [ %__next.sroa.0.0.i.i57, %while.body.i.i54 ], [ %__first.coerce.pn38.i42, %if.else.i44 ]
   %__last.sroa.0.018.i.i56 = phi ptr [ %__next.sroa.0.019.i.i55, %while.body.i.i54 ], [ %__i.sroa.0.039.i41, %if.else.i44 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__last.sroa.0.018.i.i56, ptr noundef nonnull align 8 dereferenceable(16) %__next.sroa.0.019.i.i55, i64 16, i1 false), !tbaa.struct !31
-  %__next.sroa.0.0.i.i57 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__next.sroa.0.019.i.i55, i64 -1
+  %__next.sroa.0.0.i.i57 = getelementptr inbounds i8, ptr %__next.sroa.0.019.i.i55, i64 -16
   %11 = load double, ptr %__next.sroa.0.0.i.i57, align 8, !tbaa !42
   %cmp.i.i.i.i58 = fcmp olt double %8, %11
   br i1 %cmp.i.i.i.i58, label %while.body.i.i54, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i48, !llvm.loop !77
@@ -2210,7 +2210,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8
   br label %for.inc.i51
 
 for.inc.i51:                                      ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i48, %if.then9.i59
-  %__i.sroa.0.0.i52 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__i.sroa.0.039.i41, i64 1
+  %__i.sroa.0.0.i52 = getelementptr inbounds i8, ptr %__i.sroa.0.039.i41, i64 16
   %cmp.i28.not.i53 = icmp eq ptr %__i.sroa.0.0.i52, %__last.coerce
   br i1 %cmp.i28.not.i53, label %if.end, label %for.body.i40, !llvm.loop !78
 
@@ -2232,9 +2232,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 4
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !24
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8, !tbaa !26
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -2259,8 +2259,8 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %__cur.019.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %for.body.i.i.i.i.i.preheader ]
   %__first.sroa.0.018.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr, %for.body.i.i.i.i.i.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.019.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.018.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !31
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.sroa.0.018.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.019.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.018.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.019.i.i.i.i.i, i64 16
   %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
   br i1 %cmp.i.i.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN5folly7TDigest8CentroidES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !79
 
@@ -2293,8 +2293,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZSt7advanceIN9__gn
   %__cur.015.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   %__first.sroa.0.014.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i144, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.015.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.014.i.i.i.i, i64 16, i1 false), !tbaa.struct !31
-  %incdec.ptr.i.i.i.i.i144 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.sroa.0.014.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.015.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i144 = getelementptr inbounds i8, ptr %__first.sroa.0.014.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.015.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i144, %__last.coerce
   br i1 %cmp.i.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, label %for.body.i.i.i.i, !llvm.loop !80
 
@@ -2314,8 +2314,8 @@ for.body.i.i.i.i.i146:                            ; preds = %_ZSt22__uninitializ
   %__cur.019.i.i.i.i.i147 = phi ptr [ %incdec.ptr.i.i.i.i.i150, %for.body.i.i.i.i.i146 ], [ %add.ptr50, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit ]
   %__first.sroa.0.018.i.i.i.i.i148 = phi ptr [ %incdec.ptr.i.i.i.i.i.i149, %for.body.i.i.i.i.i146 ], [ %__position.coerce, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.019.i.i.i.i.i147, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.018.i.i.i.i.i148, i64 16, i1 false), !tbaa.struct !31
-  %incdec.ptr.i.i.i.i.i.i149 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.sroa.0.018.i.i.i.i.i148, i64 1
-  %incdec.ptr.i.i.i.i.i150 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.019.i.i.i.i.i147, i64 1
+  %incdec.ptr.i.i.i.i.i.i149 = getelementptr inbounds i8, ptr %__first.sroa.0.018.i.i.i.i.i148, i64 16
+  %incdec.ptr.i.i.i.i.i150 = getelementptr inbounds i8, ptr %__cur.019.i.i.i.i.i147, i64 16
   %cmp.i.i.not.i.i.i.i.i151 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i149, %1
   br i1 %cmp.i.i.not.i.i.i.i.i151, label %if.then.i.i.i.i.i158, label %for.body.i.i.i.i.i146, !llvm.loop !81
 
@@ -2363,8 +2363,8 @@ for.body.i.i.i.i.i165:                            ; preds = %_ZNSt12_Vector_base
   %__cur.019.i.i.i.i.i166 = phi ptr [ %incdec.ptr.i.i.i.i.i169, %for.body.i.i.i.i.i165 ], [ %cond.i163, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit ]
   %__first.sroa.0.018.i.i.i.i.i167 = phi ptr [ %incdec.ptr.i.i.i.i.i.i168, %for.body.i.i.i.i.i165 ], [ %3, %_ZNSt12_Vector_baseIN5folly7TDigest8CentroidESaIS2_EE11_M_allocateEm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.019.i.i.i.i.i166, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.018.i.i.i.i.i167, i64 16, i1 false), !tbaa.struct !31
-  %incdec.ptr.i.i.i.i.i.i168 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.sroa.0.018.i.i.i.i.i167, i64 1
-  %incdec.ptr.i.i.i.i.i169 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.019.i.i.i.i.i166, i64 1
+  %incdec.ptr.i.i.i.i.i.i168 = getelementptr inbounds i8, ptr %__first.sroa.0.018.i.i.i.i.i167, i64 16
+  %incdec.ptr.i.i.i.i.i169 = getelementptr inbounds i8, ptr %__cur.019.i.i.i.i.i166, i64 16
   %cmp.i.i.not.i.i.i.i.i170 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i168, %__position.coerce
   br i1 %cmp.i.i.not.i.i.i.i.i170, label %for.body.i.i.i.i173.preheader, label %for.body.i.i.i.i.i165, !llvm.loop !82
 
@@ -2376,8 +2376,8 @@ for.body.i.i.i.i173:                              ; preds = %for.body.i.i.i.i173
   %__cur.015.i.i.i.i174 = phi ptr [ %incdec.ptr.i.i.i.i177, %for.body.i.i.i.i173 ], [ %__cur.015.i.i.i.i174.ph, %for.body.i.i.i.i173.preheader ]
   %__first.sroa.0.014.i.i.i.i175 = phi ptr [ %incdec.ptr.i.i.i.i.i176, %for.body.i.i.i.i173 ], [ %__first.coerce, %for.body.i.i.i.i173.preheader ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.015.i.i.i.i174, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.014.i.i.i.i175, i64 16, i1 false), !tbaa.struct !31
-  %incdec.ptr.i.i.i.i.i176 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.sroa.0.014.i.i.i.i175, i64 1
-  %incdec.ptr.i.i.i.i177 = getelementptr %"class.folly::TDigest::Centroid", ptr %__cur.015.i.i.i.i174, i64 1
+  %incdec.ptr.i.i.i.i.i176 = getelementptr inbounds i8, ptr %__first.sroa.0.014.i.i.i.i175, i64 16
+  %incdec.ptr.i.i.i.i177 = getelementptr i8, ptr %__cur.015.i.i.i.i174, i64 16
   %cmp.i.not.i.i.i.i178 = icmp eq ptr %incdec.ptr.i.i.i.i.i176, %__last.coerce
   br i1 %cmp.i.not.i.i.i.i178, label %invoke.cont83, label %for.body.i.i.i.i173, !llvm.loop !83
 
@@ -2389,8 +2389,8 @@ for.body.i.i.i.i.i182:                            ; preds = %invoke.cont83, %for
   %__cur.019.i.i.i.i.i183 = phi ptr [ %incdec.ptr.i.i.i.i.i186, %for.body.i.i.i.i.i182 ], [ %incdec.ptr.i.i.i.i177, %invoke.cont83 ]
   %__first.sroa.0.018.i.i.i.i.i184 = phi ptr [ %incdec.ptr.i.i.i.i.i.i185, %for.body.i.i.i.i.i182 ], [ %__position.coerce, %invoke.cont83 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.019.i.i.i.i.i183, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.018.i.i.i.i.i184, i64 16, i1 false), !tbaa.struct !31
-  %incdec.ptr.i.i.i.i.i.i185 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.sroa.0.018.i.i.i.i.i184, i64 1
-  %incdec.ptr.i.i.i.i.i186 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__cur.019.i.i.i.i.i183, i64 1
+  %incdec.ptr.i.i.i.i.i.i185 = getelementptr inbounds i8, ptr %__first.sroa.0.018.i.i.i.i.i184, i64 16
+  %incdec.ptr.i.i.i.i.i186 = getelementptr inbounds i8, ptr %__cur.019.i.i.i.i.i183, i64 16
   %cmp.i.i.not.i.i.i.i.i187 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i185, %1
   br i1 %cmp.i.i.not.i.i.i.i.i187, label %invoke.cont87, label %for.body.i.i.i.i.i182, !llvm.loop !84
 
@@ -2482,7 +2482,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %incdec.ptr.i15.sink.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.sroa.0.018.i, i64 %shr.i
   %3 = load double, ptr %incdec.ptr.i15.sink.i.i.i, align 8, !tbaa !42
   %cmp.i.i15.i = fcmp olt double %3, %2
-  %incdec.ptr.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %incdec.ptr.i15.sink.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i15.sink.i.i.i, i64 16
   %4 = xor i64 %shr.i, -1
   %sub9.i = add nsw i64 %__len.019.i, %4
   %__first.sroa.0.1.i = select i1 %cmp.i.i15.i, ptr %incdec.ptr.i.i, ptr %__first.sroa.0.018.i
@@ -2521,7 +2521,7 @@ while.body.i106:                                  ; preds = %while.body.i106, %w
   %incdec.ptr.i15.sink.i.i.i113 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.sroa.0.018.i108, i64 %shr.i109
   %6 = load double, ptr %incdec.ptr.i15.sink.i.i.i113, align 8, !tbaa !42
   %cmp.i.i15.i114 = fcmp olt double %5, %6
-  %incdec.ptr.i.i115 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %incdec.ptr.i15.sink.i.i.i113, i64 1
+  %incdec.ptr.i.i115 = getelementptr inbounds i8, ptr %incdec.ptr.i15.sink.i.i.i113, i64 16
   %7 = xor i64 %shr.i109, -1
   %sub9.i116 = add nsw i64 %__len.019.i107, %7
   %__first.sroa.0.1.i117 = select i1 %cmp.i.i15.i114, ptr %__first.sroa.0.018.i108, ptr %incdec.ptr.i.i115
@@ -2571,8 +2571,8 @@ for.body.i.i.i:                                   ; preds = %if.end5.i.i, %for.b
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first1.sroa.0.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first2.sroa.0.013.i.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first2.sroa.0.013.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i.i)
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first1.sroa.0.012.i.i.i, i64 1
-  %incdec.ptr.i9.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first2.sroa.0.013.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.012.i.i.i, i64 16
+  %incdec.ptr.i9.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.013.i.i.i, i64 16
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__middle.coerce.tr144
   br i1 %cmp.i.not.i.i.i, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit, label %for.body.i.i.i, !llvm.loop !87
 
@@ -2618,7 +2618,7 @@ for.body.i.i.epil:                                ; preds = %for.cond.cleanup.i.
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__p.sroa.0.1128.i.i.unr, ptr noundef nonnull align 8 dereferenceable(16) %__q.sroa.0.0129.i.i.unr, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__q.sroa.0.0129.i.i.unr, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
-  %incdec.ptr.i.i.i132.epil = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__p.sroa.0.1128.i.i.unr, i64 1
+  %incdec.ptr.i.i.i132.epil = getelementptr inbounds i8, ptr %__p.sroa.0.1128.i.i.unr, i64 16
   br label %for.cond.cleanup.i.i
 
 for.cond.cleanup.i.i:                             ; preds = %for.body.i.i.epil, %for.cond.cleanup.i.i.loopexit.unr-lcssa, %if.then22.i.i
@@ -2636,15 +2636,15 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__p.sroa.0.1128.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__q.sroa.0.0129.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__q.sroa.0.0129.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
-  %incdec.ptr.i.i.i132 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__p.sroa.0.1128.i.i, i64 1
-  %incdec.ptr.i90.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__q.sroa.0.0129.i.i, i64 1
+  %incdec.ptr.i.i.i132 = getelementptr inbounds i8, ptr %__p.sroa.0.1128.i.i, i64 16
+  %incdec.ptr.i90.i.i = getelementptr inbounds i8, ptr %__q.sroa.0.0129.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i132, i64 16, i1 false), !tbaa.struct !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i132, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i90.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i90.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
-  %incdec.ptr.i.i.i132.1 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__p.sroa.0.1128.i.i, i64 2
-  %incdec.ptr.i90.i.i.1 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__q.sroa.0.0129.i.i, i64 2
+  %incdec.ptr.i.i.i132.1 = getelementptr inbounds i8, ptr %__p.sroa.0.1128.i.i, i64 32
+  %incdec.ptr.i90.i.i.1 = getelementptr inbounds i8, ptr %__q.sroa.0.0129.i.i, i64 32
   %niter165.next.1 = add i64 %niter165, 2
   %niter165.ncmp.1 = icmp eq i64 %niter165.next.1, %unroll_iter164
   br i1 %niter165.ncmp.1, label %for.cond.cleanup.i.i.loopexit.unr-lcssa, label %for.body.i.i, !llvm.loop !88
@@ -2676,8 +2676,8 @@ for.cond.cleanup49.i.i.loopexit.unr-lcssa:        ; preds = %for.body50.i.i
 for.body50.i.i.epil:                              ; preds = %for.body50.i.i.preheader, %for.cond.cleanup49.i.i.loopexit.unr-lcssa
   %__p.sroa.0.2124.i.i.unr5 = phi ptr [ %incdec.ptr.i93.i.i.1, %for.cond.cleanup49.i.i.loopexit.unr-lcssa ], [ %add.ptr.i92.i.i, %for.body50.i.i.preheader ]
   %__q40.sroa.0.0125.i.i.unr4 = phi ptr [ %incdec.ptr.i94.i.i.1, %for.cond.cleanup49.i.i.loopexit.unr-lcssa ], [ %add.ptr.i91.i.i, %for.body50.i.i.preheader ]
-  %incdec.ptr.i93.i.i.epil = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__p.sroa.0.2124.i.i.unr5, i64 -1
-  %incdec.ptr.i94.i.i.epil = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__q40.sroa.0.0125.i.i.unr4, i64 -1
+  %incdec.ptr.i93.i.i.epil = getelementptr inbounds i8, ptr %__p.sroa.0.2124.i.i.unr5, i64 -16
+  %incdec.ptr.i94.i.i.epil = getelementptr inbounds i8, ptr %__q40.sroa.0.0125.i.i.unr4, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i95.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i95.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i93.i.i.epil, i64 16, i1 false), !tbaa.struct !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i93.i.i.epil, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i94.i.i.epil, i64 16, i1 false), !tbaa.struct !31
@@ -2701,15 +2701,15 @@ for.body50.i.i:                                   ; preds = %for.body50.i.i, %fo
   %__q40.sroa.0.0125.i.i = phi ptr [ %add.ptr.i91.i.i, %for.body50.i.i.preheader.new ], [ %incdec.ptr.i94.i.i.1, %for.body50.i.i ]
   %__p.sroa.0.2124.i.i = phi ptr [ %add.ptr.i92.i.i, %for.body50.i.i.preheader.new ], [ %incdec.ptr.i93.i.i.1, %for.body50.i.i ]
   %niter = phi i64 [ 0, %for.body50.i.i.preheader.new ], [ %niter.next.1, %for.body50.i.i ]
-  %incdec.ptr.i93.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__p.sroa.0.2124.i.i, i64 -1
-  %incdec.ptr.i94.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__q40.sroa.0.0125.i.i, i64 -1
+  %incdec.ptr.i93.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.2124.i.i, i64 -16
+  %incdec.ptr.i94.i.i = getelementptr inbounds i8, ptr %__q40.sroa.0.0125.i.i, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i95.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i95.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i93.i.i, i64 16, i1 false), !tbaa.struct !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i93.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i94.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i94.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i95.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i95.i.i)
-  %incdec.ptr.i93.i.i.1 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__p.sroa.0.2124.i.i, i64 -2
-  %incdec.ptr.i94.i.i.1 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__q40.sroa.0.0125.i.i, i64 -2
+  %incdec.ptr.i93.i.i.1 = getelementptr inbounds i8, ptr %__p.sroa.0.2124.i.i, i64 -32
+  %incdec.ptr.i94.i.i.1 = getelementptr inbounds i8, ptr %__q40.sroa.0.0125.i.i, i64 -32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i95.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i95.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i93.i.i.1, i64 16, i1 false), !tbaa.struct !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i93.i.i.1, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i94.i.i.1, i64 16, i1 false), !tbaa.struct !31
@@ -2775,18 +2775,18 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 if.then.i:                                        ; preds = %while.body.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.sroa.0.033.i, ptr noundef nonnull align 8 dereferenceable(16) %__first2.sroa.0.032.i, i64 16, i1 false), !tbaa.struct !31
-  %incdec.ptr.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first2.sroa.0.032.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.032.i, i64 16
   br label %if.end.i
 
 if.else.i:                                        ; preds = %while.body.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__result.sroa.0.033.i, ptr noundef nonnull align 8 dereferenceable(16) %__first1.addr.034.i, i64 16, i1 false), !tbaa.struct !31
-  %incdec.ptr.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first1.addr.034.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first1.addr.034.i, i64 16
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
   %__first2.sroa.0.1.i = phi ptr [ %incdec.ptr.i.i, %if.then.i ], [ %__first2.sroa.0.032.i, %if.else.i ]
   %__first1.addr.1.i = phi ptr [ %__first1.addr.034.i, %if.then.i ], [ %incdec.ptr.i, %if.else.i ]
-  %incdec.ptr.i24.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__result.sroa.0.033.i, i64 1
+  %incdec.ptr.i24.i = getelementptr inbounds i8, ptr %__result.sroa.0.033.i, i64 16
   %cmp.not.i = icmp eq ptr %__first1.addr.1.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.not.i, label %if.end89, label %land.rhs.i, !llvm.loop !91
 
@@ -2826,18 +2826,18 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZSt4moveIN9__gnu_c
 
 if.end7.i:                                        ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5folly7TDigest8CentroidESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit122.thread
   %add.ptr.i.i.i.i.i121206 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__buffer, i64 %sub.ptr.div.i.i.i.i.i120205
-  %incdec.ptr.i125 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %add.ptr.i.i.i.i.i121206, i64 -1
+  %incdec.ptr.i125 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i121206, i64 -16
   br label %while.body.i126.outer
 
 while.body.i126.outer:                            ; preds = %if.then12.i, %if.end7.i
   %__last1.sroa.0.0.i.ph.pn = phi ptr [ %__middle.coerce.tr190, %if.end7.i ], [ %__last1.sroa.0.0.i.ph, %if.then12.i ]
   %__result.sroa.0.0.i.ph = phi ptr [ %__last.coerce, %if.end7.i ], [ %incdec.ptr.i44.i.lcssa, %if.then12.i ]
   %__last2.addr.0.i.ph = phi ptr [ %incdec.ptr.i125, %if.end7.i ], [ %__last2.addr.0.i.lcssa, %if.then12.i ]
-  %__last1.sroa.0.0.i.ph = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__last1.sroa.0.0.i.ph.pn, i64 -1
+  %__last1.sroa.0.0.i.ph = getelementptr inbounds i8, ptr %__last1.sroa.0.0.i.ph.pn, i64 -16
   %2 = load double, ptr %__last2.addr.0.i.ph, align 8, !tbaa !42
   %3 = load double, ptr %__last1.sroa.0.0.i.ph, align 8, !tbaa !42
   %cmp.i.i.i1279 = fcmp olt double %2, %3
-  %incdec.ptr.i44.i10 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__result.sroa.0.0.i.ph, i64 -1
+  %incdec.ptr.i44.i10 = getelementptr inbounds i8, ptr %__result.sroa.0.0.i.ph, i64 -16
   br i1 %cmp.i.i.i1279, label %if.then12.i, label %if.else26.i
 
 if.then12.i:                                      ; preds = %if.end31.i, %while.body.i126.outer
@@ -2848,7 +2848,7 @@ if.then12.i:                                      ; preds = %if.end31.i, %while.
   br i1 %cmp.i45.i, label %if.then17.i, label %while.body.i126.outer, !llvm.loop !92
 
 if.then17.i:                                      ; preds = %if.then12.i
-  %incdec.ptr18.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__last2.addr.0.i.lcssa, i64 1
+  %incdec.ptr18.i = getelementptr inbounds i8, ptr %__last2.addr.0.i.lcssa, i64 16
   %tobool.not.i.i.i.i.i50.i = icmp eq ptr %incdec.ptr18.i, %__buffer
   br i1 %tobool.not.i.i.i.i.i50.i, label %if.end89, label %if.then.i.i.i.i.i52.i
 
@@ -2870,11 +2870,11 @@ if.else26.i:                                      ; preds = %while.body.i126.out
   br i1 %cmp29.i, label %if.end89, label %if.end31.i
 
 if.end31.i:                                       ; preds = %if.else26.i
-  %incdec.ptr32.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__last2.addr.0.i11, i64 -1
+  %incdec.ptr32.i = getelementptr inbounds i8, ptr %__last2.addr.0.i11, i64 -16
   %4 = load double, ptr %incdec.ptr32.i, align 8, !tbaa !42
   %5 = load double, ptr %__last1.sroa.0.0.i.ph, align 8, !tbaa !42
   %cmp.i.i.i127 = fcmp olt double %4, %5
-  %incdec.ptr.i44.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %incdec.ptr.i44.i12, i64 -1
+  %incdec.ptr.i44.i = getelementptr inbounds i8, ptr %incdec.ptr.i44.i12, i64 -16
   br i1 %cmp.i.i.i127, label %if.then12.i, label %if.else26.i, !llvm.loop !92
 
 if.else29:                                        ; preds = %if.else
@@ -2899,7 +2899,7 @@ while.body.i133:                                  ; preds = %while.body.i133, %w
   %incdec.ptr.i15.sink.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.sroa.0.018.i, i64 %shr.i
   %7 = load double, ptr %incdec.ptr.i15.sink.i.i.i, align 8, !tbaa !42
   %cmp.i.i15.i = fcmp olt double %7, %6
-  %incdec.ptr.i.i135 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %incdec.ptr.i15.sink.i.i.i, i64 1
+  %incdec.ptr.i.i135 = getelementptr inbounds i8, ptr %incdec.ptr.i15.sink.i.i.i, i64 16
   %8 = xor i64 %shr.i, -1
   %sub9.i = add nsw i64 %__len.019.i, %8
   %__first.sroa.0.1.i = select i1 %cmp.i.i15.i, ptr %incdec.ptr.i.i135, ptr %__first.sroa.0.018.i
@@ -2938,7 +2938,7 @@ while.body.i157:                                  ; preds = %while.body.i157, %w
   %incdec.ptr.i15.sink.i.i.i164 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first.sroa.0.018.i159, i64 %shr.i160
   %10 = load double, ptr %incdec.ptr.i15.sink.i.i.i164, align 8, !tbaa !42
   %cmp.i.i15.i165 = fcmp olt double %9, %10
-  %incdec.ptr.i.i166 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %incdec.ptr.i15.sink.i.i.i164, i64 1
+  %incdec.ptr.i.i166 = getelementptr inbounds i8, ptr %incdec.ptr.i15.sink.i.i.i164, i64 16
   %11 = xor i64 %shr.i160, -1
   %sub9.i167 = add nsw i64 %__len.019.i158, %11
   %__first.sroa.0.1.i168 = select i1 %cmp.i.i15.i165, ptr %__first.sroa.0.018.i159, ptr %incdec.ptr.i.i166
@@ -3100,8 +3100,8 @@ for.body.i.i.i:                                   ; preds = %if.end5.i.i, %for.b
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first1.sroa.0.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first2.sroa.0.013.i.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first2.sroa.0.013.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i.i)
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first1.sroa.0.012.i.i.i, i64 1
-  %incdec.ptr.i9.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__first2.sroa.0.013.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.012.i.i.i, i64 16
+  %incdec.ptr.i9.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.013.i.i.i, i64 16
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %__middle.coerce
   br i1 %cmp.i.not.i.i.i, label %cleanup, label %for.body.i.i.i, !llvm.loop !95
 
@@ -3147,7 +3147,7 @@ for.body.i.i.epil:                                ; preds = %for.cond.cleanup.i.
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__p.sroa.0.1128.i.i.unr, ptr noundef nonnull align 8 dereferenceable(16) %__q.sroa.0.0129.i.i.unr, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__q.sroa.0.0129.i.i.unr, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
-  %incdec.ptr.i.i.i.epil = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__p.sroa.0.1128.i.i.unr, i64 1
+  %incdec.ptr.i.i.i.epil = getelementptr inbounds i8, ptr %__p.sroa.0.1128.i.i.unr, i64 16
   br label %for.cond.cleanup.i.i
 
 for.cond.cleanup.i.i:                             ; preds = %for.body.i.i.epil, %for.cond.cleanup.i.i.loopexit.unr-lcssa, %if.then22.i.i
@@ -3165,15 +3165,15 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__p.sroa.0.1128.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__q.sroa.0.0129.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__q.sroa.0.0129.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__p.sroa.0.1128.i.i, i64 1
-  %incdec.ptr.i90.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__q.sroa.0.0129.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.1128.i.i, i64 16
+  %incdec.ptr.i90.i.i = getelementptr inbounds i8, ptr %__q.sroa.0.0129.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i, i64 16, i1 false), !tbaa.struct !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i90.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i90.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i.i.i)
-  %incdec.ptr.i.i.i.1 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__p.sroa.0.1128.i.i, i64 2
-  %incdec.ptr.i90.i.i.1 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__q.sroa.0.0129.i.i, i64 2
+  %incdec.ptr.i.i.i.1 = getelementptr inbounds i8, ptr %__p.sroa.0.1128.i.i, i64 32
+  %incdec.ptr.i90.i.i.1 = getelementptr inbounds i8, ptr %__q.sroa.0.0129.i.i, i64 32
   %niter110.next.1 = add i64 %niter110, 2
   %niter110.ncmp.1 = icmp eq i64 %niter110.next.1, %unroll_iter109
   br i1 %niter110.ncmp.1, label %for.cond.cleanup.i.i.loopexit.unr-lcssa, label %for.body.i.i, !llvm.loop !96
@@ -3205,8 +3205,8 @@ for.cond.cleanup49.i.i.loopexit.unr-lcssa:        ; preds = %for.body50.i.i
 for.body50.i.i.epil:                              ; preds = %for.body50.i.i.preheader, %for.cond.cleanup49.i.i.loopexit.unr-lcssa
   %__p.sroa.0.2124.i.i.unr5 = phi ptr [ %incdec.ptr.i93.i.i.1, %for.cond.cleanup49.i.i.loopexit.unr-lcssa ], [ %add.ptr.i92.i.i, %for.body50.i.i.preheader ]
   %__q40.sroa.0.0125.i.i.unr4 = phi ptr [ %incdec.ptr.i94.i.i.1, %for.cond.cleanup49.i.i.loopexit.unr-lcssa ], [ %add.ptr.i91.i.i, %for.body50.i.i.preheader ]
-  %incdec.ptr.i93.i.i.epil = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__p.sroa.0.2124.i.i.unr5, i64 -1
-  %incdec.ptr.i94.i.i.epil = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__q40.sroa.0.0125.i.i.unr4, i64 -1
+  %incdec.ptr.i93.i.i.epil = getelementptr inbounds i8, ptr %__p.sroa.0.2124.i.i.unr5, i64 -16
+  %incdec.ptr.i94.i.i.epil = getelementptr inbounds i8, ptr %__q40.sroa.0.0125.i.i.unr4, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i95.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i95.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i93.i.i.epil, i64 16, i1 false), !tbaa.struct !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i93.i.i.epil, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i94.i.i.epil, i64 16, i1 false), !tbaa.struct !31
@@ -3230,15 +3230,15 @@ for.body50.i.i:                                   ; preds = %for.body50.i.i, %fo
   %__q40.sroa.0.0125.i.i = phi ptr [ %add.ptr.i91.i.i, %for.body50.i.i.preheader.new ], [ %incdec.ptr.i94.i.i.1, %for.body50.i.i ]
   %__p.sroa.0.2124.i.i = phi ptr [ %add.ptr.i92.i.i, %for.body50.i.i.preheader.new ], [ %incdec.ptr.i93.i.i.1, %for.body50.i.i ]
   %niter = phi i64 [ 0, %for.body50.i.i.preheader.new ], [ %niter.next.1, %for.body50.i.i ]
-  %incdec.ptr.i93.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__p.sroa.0.2124.i.i, i64 -1
-  %incdec.ptr.i94.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__q40.sroa.0.0125.i.i, i64 -1
+  %incdec.ptr.i93.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.2124.i.i, i64 -16
+  %incdec.ptr.i94.i.i = getelementptr inbounds i8, ptr %__q40.sroa.0.0125.i.i, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i95.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i95.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i93.i.i, i64 16, i1 false), !tbaa.struct !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i93.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i94.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i94.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i95.i.i, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i95.i.i)
-  %incdec.ptr.i93.i.i.1 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__p.sroa.0.2124.i.i, i64 -2
-  %incdec.ptr.i94.i.i.1 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %__q40.sroa.0.0125.i.i, i64 -2
+  %incdec.ptr.i93.i.i.1 = getelementptr inbounds i8, ptr %__p.sroa.0.2124.i.i, i64 -32
+  %incdec.ptr.i94.i.i.1 = getelementptr inbounds i8, ptr %__q40.sroa.0.0125.i.i, i64 -32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i95.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i95.i.i, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i93.i.i.1, i64 16, i1 false), !tbaa.struct !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i93.i.i.1, ptr noundef nonnull align 8 dereferenceable(16) %incdec.ptr.i94.i.i.1, i64 16, i1 false), !tbaa.struct !31
@@ -3257,13 +3257,13 @@ cleanup:                                          ; preds = %for.cond.cleanup49.
 define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, double noundef %q) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !26
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<folly::TDigest::Centroid, std::allocator<folly::TDigest::Centroid>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !26
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %count_ = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 3
+  %count_ = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load double, ptr %count_, align 8, !tbaa !19
   %mul = fmul double %2, %q
   %cmp = fcmp ogt double %q, 5.000000e-01
@@ -3274,7 +3274,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp3, label %for.cond, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
-  %max_ = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 4
+  %max_ = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load double, ptr %max_, align 8, !tbaa !20
   br label %return
 
@@ -3285,8 +3285,8 @@ for.cond:                                         ; preds = %if.then2, %for.body
   br i1 %cmp.i.i.i.not, label %if.end56.thread, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %incdec.ptr.i.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %rit.sroa.0.0, i64 -1
-  %weight_.i = getelementptr %"class.folly::TDigest::Centroid", ptr %rit.sroa.0.0, i64 -1, i32 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %rit.sroa.0.0, i64 -16
+  %weight_.i = getelementptr i8, ptr %rit.sroa.0.0, i64 -8
   %4 = load double, ptr %weight_.i, align 8, !tbaa !40
   %sub = fsub double %t.0, %4
   %cmp12 = fcmp ult double %mul, %sub
@@ -3308,7 +3308,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp20, label %for.body35.preheader, label %if.then21
 
 if.then21:                                        ; preds = %if.else
-  %min_ = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 5
+  %min_ = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load double, ptr %min_, align 8, !tbaa !21
   br label %return
 
@@ -3323,7 +3323,7 @@ for.body35.preheader:                             ; preds = %if.else
 for.body35:                                       ; preds = %if.end48, %for.body35.preheader
   %t.2213 = phi double [ %add, %if.end48 ], [ 0.000000e+00, %for.body35.preheader ]
   %it.sroa.0.0212 = phi ptr [ %incdec.ptr.i, %if.end48 ], [ %0, %for.body35.preheader ]
-  %weight_.i159 = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %it.sroa.0.0212, i64 0, i32 1
+  %weight_.i159 = getelementptr inbounds i8, ptr %it.sroa.0.0212, i64 8
   %8 = load double, ptr %weight_.i159, align 8, !tbaa !40
   %add = fadd double %t.2213, %8
   %cmp38 = fcmp olt double %mul, %add
@@ -3336,7 +3336,7 @@ if.then39:                                        ; preds = %for.body35
   br label %if.end56
 
 if.end48:                                         ; preds = %for.body35
-  %incdec.ptr.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %it.sroa.0.0212, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.0212, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %if.end56, label %for.body35, !llvm.loop !100
 
@@ -3344,17 +3344,17 @@ if.end56:                                         ; preds = %if.end48, %if.then3
   %sub.ptr.div.i165.pre-phi = phi i64 [ %sub.ptr.div.i, %if.then39 ], [ %.pre220, %if.then13 ], [ %sub.ptr.div.i, %if.end48 ]
   %t.3 = phi double [ %t.2213, %if.then39 ], [ %sub, %if.then13 ], [ %add, %if.end48 ]
   %pos.2 = phi i64 [ %sub.ptr.div.i.i.i, %if.then39 ], [ %sub17, %if.then13 ], [ %sub25, %if.end48 ]
-  %min_57 = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 5
+  %min_57 = getelementptr inbounds i8, ptr %this, i64 56
   %9 = load double, ptr %min_57, align 8, !tbaa !21
-  %max_58 = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 4
+  %max_58 = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load double, ptr %max_58, align 8, !tbaa !20
   %cmp61 = icmp ugt i64 %sub.ptr.div.i165.pre-phi, 1
   br i1 %cmp61, label %if.then62, label %if.end115
 
 if.end56.thread:                                  ; preds = %for.cond
-  %min_57189 = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 5
+  %min_57189 = getelementptr inbounds i8, ptr %this, i64 56
   %11 = load double, ptr %min_57189, align 8, !tbaa !21
-  %max_58190 = getelementptr inbounds %"class.folly::TDigest", ptr %this, i64 0, i32 4
+  %max_58190 = getelementptr inbounds i8, ptr %this, i64 48
   %12 = load double, ptr %max_58190, align 8, !tbaa !20
   %sub.ptr.lhs.cast.i162191 = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i163192 = ptrtoint ptr %0 to i64
@@ -3369,7 +3369,7 @@ if.then62:                                        ; preds = %if.end56
 if.then64:                                        ; preds = %if.then62, %if.end56.thread
   %t.3197206 = phi double [ %t.3, %if.then62 ], [ %t.0, %if.end56.thread ]
   %13 = phi double [ %9, %if.then62 ], [ %11, %if.end56.thread ]
-  %add.ptr.i = getelementptr inbounds %"class.folly::TDigest::Centroid", ptr %0, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load double, ptr %add.ptr.i, align 8, !tbaa !42
   %15 = load double, ptr %0, align 8, !tbaa !42
   %sub72 = fsub double %14, %15
@@ -3383,15 +3383,15 @@ if.else77:                                        ; preds = %if.then62
 
 if.then82:                                        ; preds = %if.else77
   %16 = load double, ptr %add.ptr.i172, align 8, !tbaa !42
-  %add.ptr.i173 = getelementptr %"class.folly::TDigest::Centroid", ptr %add.ptr.i172, i64 -1
+  %add.ptr.i173 = getelementptr i8, ptr %add.ptr.i172, i64 -16
   %17 = load double, ptr %add.ptr.i173, align 8, !tbaa !42
   %sub90 = fsub double %16, %17
   br label %if.end115
 
 if.else95:                                        ; preds = %if.else77
-  %add.ptr.i175 = getelementptr %"class.folly::TDigest::Centroid", ptr %add.ptr.i172, i64 1
+  %add.ptr.i175 = getelementptr i8, ptr %add.ptr.i172, i64 16
   %18 = load double, ptr %add.ptr.i175, align 8, !tbaa !42
-  %add.ptr.i176 = getelementptr %"class.folly::TDigest::Centroid", ptr %add.ptr.i172, i64 -1
+  %add.ptr.i176 = getelementptr i8, ptr %add.ptr.i172, i64 -16
   %19 = load double, ptr %add.ptr.i176, align 8, !tbaa !42
   %sub104 = fsub double %18, %19
   %div = fmul double %sub104, 5.000000e-01

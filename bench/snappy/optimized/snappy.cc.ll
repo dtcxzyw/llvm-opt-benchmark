@@ -6,10 +6,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::array" = type { [256 x i16] }
 %"struct.std::array.10" = type { [16 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.snappy::internal::WorkingMemory" = type { ptr, i64, ptr, ptr, ptr }
-%"class.snappy::SnappyDecompressor" = type <{ ptr, ptr, ptr, ptr, i32, i8, [5 x i8], [6 x i8] }>
 %"class.snappy::ByteArraySource" = type { %"class.snappy::Source", ptr, i64 }
 %"class.snappy::Source" = type { ptr }
+%"class.snappy::SnappyDecompressor" = type <{ ptr, ptr, ptr, ptr, i32, i8, [5 x i8], [6 x i8] }>
 %"class.snappy::SnappyIOVecWriter" = type { ptr, ptr, ptr, i64, i64, i64 }
 %struct.iovec = type { ptr, i64 }
 %"class.snappy::SnappyArrayWriter" = type { ptr, ptr, ptr, ptr }
@@ -190,7 +189,7 @@ _ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit: ; preds = %entry, %if.end.i
   %add.i = add nuw nsw i64 %factor, 32
   %add1.i = add nuw nsw i64 %add.i, %div.i.zext
   %add5 = add nuw nsw i64 %add1.i, %retval.0.i
-  %size_ = getelementptr inbounds %"class.snappy::internal::WorkingMemory", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %add5, ptr %size_, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
   %3 = load i64, ptr %size_, align 8
@@ -206,13 +205,13 @@ _ZNSt15__new_allocatorIcE8allocateEmPKv.exit:     ; preds = %_ZN6snappy12_GLOBAL
   store ptr %call5.i, ptr %this, align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
   %4 = load ptr, ptr %this, align 8
-  %table_ = getelementptr inbounds %"class.snappy::internal::WorkingMemory", ptr %this, i64 0, i32 2
+  %table_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %4, ptr %table_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %4, i64 %retval.0.i
-  %input_ = getelementptr inbounds %"class.snappy::internal::WorkingMemory", ptr %this, i64 0, i32 3
+  %input_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr, ptr %input_, align 8
   %add.ptr12 = getelementptr inbounds i8, ptr %add.ptr, i64 %.sroa.speculated
-  %output_ = getelementptr inbounds %"class.snappy::internal::WorkingMemory", ptr %this, i64 0, i32 4
+  %output_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr12, ptr %output_, align 8
   ret void
 }
@@ -254,7 +253,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 _ZN6snappy12_GLOBAL__N_118CalculateTableSizeEj.exit: ; preds = %entry, %if.end.i, %if.end4.i
   %retval.0.i = phi i32 [ %shl.i, %if.end4.i ], [ 16384, %entry ], [ 256, %if.end.i ]
-  %table_ = getelementptr inbounds %"class.snappy::internal::WorkingMemory", ptr %this, i64 0, i32 2
+  %table_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %table_, align 8
   %2 = shl nuw nsw i32 %retval.0.i, 1
   %mul = zext nneg i32 %2 to i64
@@ -837,32 +836,32 @@ define dso_local noundef zeroext i1 @_ZN6snappy18SnappyDecompressor9RefillTagEv(
 entry:
   %n = alloca i64, align 8
   %length = alloca i64, align 8
-  %ip_ = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 1
+  %ip_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ip_, align 8
-  %ip_limit_ = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 2
+  %ip_limit_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %ip_limit_, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %peeked_ = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 4
+  %peeked_ = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i32, ptr %peeked_, align 8
   %conv = zext i32 %3 to i64
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %conv) #20
   %5 = load ptr, ptr %this, align 8
   %vtable3 = load ptr, ptr %5, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 3
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 24
   %6 = load ptr, ptr %vfn4, align 8
   %call = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %n) #20
   %7 = load i64, ptr %n, align 8
   %conv5 = trunc i64 %7 to i32
   store i32 %conv5, ptr %peeked_, align 8
   %cmp7 = icmp eq i64 %7, 0
-  %eof_ = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 5
+  %eof_ = getelementptr inbounds i8, ptr %this, i64 36
   %frombool = zext i1 %cmp7 to i8
   store i8 %frombool, ptr %eof_, align 4
   br i1 %cmp7, label %return, label %if.end
@@ -905,15 +904,15 @@ _ZN6snappy15CalculateNeededEh.exit:               ; preds = %cond.true.i, %cond.
   br i1 %cmp15, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %_ZN6snappy15CalculateNeededEh.exit
-  %scratch_ = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 6
+  %scratch_ = getelementptr inbounds i8, ptr %this, i64 37
   %conv17 = and i64 %sub.ptr.sub, 4294967295
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %scratch_, ptr nonnull align 1 %ip.0, i64 %conv17, i1 false)
   %10 = load ptr, ptr %this, align 8
-  %peeked_19 = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 4
+  %peeked_19 = getelementptr inbounds i8, ptr %this, i64 32
   %11 = load i32, ptr %peeked_19, align 8
   %conv20 = zext i32 %11 to i64
   %vtable21 = load ptr, ptr %10, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 4
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 32
   %12 = load ptr, ptr %vfn22, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %conv20) #20
   store i32 0, ptr %peeked_19, align 8
@@ -923,7 +922,7 @@ while.body:                                       ; preds = %if.then16, %if.end3
   %nbuf.023 = phi i32 [ %conv14, %if.then16 ], [ %add, %if.end31 ]
   %13 = load ptr, ptr %this, align 8
   %vtable26 = load ptr, ptr %13, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 3
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 24
   %14 = load ptr, ptr %vfn27, align 8
   %call28 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %length) #20
   %15 = load i64, ptr %length, align 8
@@ -941,7 +940,7 @@ if.end31:                                         ; preds = %while.body
   %add = add i32 %.sroa.speculated, %nbuf.023
   %16 = load ptr, ptr %this, align 8
   %vtable41 = load ptr, ptr %16, align 8
-  %vfn42 = getelementptr inbounds ptr, ptr %vtable41, i64 4
+  %vfn42 = getelementptr inbounds i8, ptr %vtable41, i64 32
   %17 = load ptr, ptr %vfn42, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, i64 noundef %conv38) #20
   %cmp24 = icmp ult i32 %add, %cond.i
@@ -959,15 +958,15 @@ if.else:                                          ; preds = %_ZN6snappy15Calcula
   br i1 %cmp51, label %if.then52, label %if.else70
 
 if.then52:                                        ; preds = %if.else
-  %scratch_53 = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 6
+  %scratch_53 = getelementptr inbounds i8, ptr %this, i64 37
   %conv55 = and i64 %sub.ptr.sub, 4294967295
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %scratch_53, ptr nonnull align 1 %ip.0, i64 %conv55, i1 false)
   %18 = load ptr, ptr %this, align 8
-  %peeked_57 = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 4
+  %peeked_57 = getelementptr inbounds i8, ptr %this, i64 32
   %19 = load i32, ptr %peeked_57, align 8
   %conv58 = zext i32 %19 to i64
   %vtable59 = load ptr, ptr %18, align 8
-  %vfn60 = getelementptr inbounds ptr, ptr %vtable59, i64 4
+  %vfn60 = getelementptr inbounds i8, ptr %vtable59, i64 32
   %20 = load ptr, ptr %vfn60, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %conv58) #20
   store i32 0, ptr %peeked_57, align 8
@@ -1004,7 +1003,7 @@ while.body.i:                                     ; preds = %if.end11.i
 if.end.i:                                         ; preds = %while.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %while.body.i ]
   %vtable.i = load ptr, ptr %source, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %source, ptr noundef nonnull %n.i) #20
   %1 = load i64, ptr %n.i, align 8
@@ -1014,7 +1013,7 @@ if.end.i:                                         ; preds = %while.body.i, %entr
 if.end4.i:                                        ; preds = %if.end.i
   %2 = load i8, ptr %call.i, align 1
   %vtable6.i = load ptr, ptr %source, align 8
-  %vfn7.i = getelementptr inbounds ptr, ptr %vtable6.i, i64 4
+  %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 32
   %3 = load ptr, ptr %vfn7.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %source, i64 noundef 1) #20
   %4 = and i8 %2, 127
@@ -1038,7 +1037,7 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit: ; preds = %while
   %retval.0.i = phi i1 [ false, %while.body.i ], [ false, %if.end.i ], [ false, %if.end4.i ], [ true, %if.end11.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)
   %vtable.i2 = load ptr, ptr %source, align 8
-  %vfn.i3 = getelementptr inbounds ptr, ptr %vtable.i2, i64 4
+  %vfn.i3 = getelementptr inbounds i8, ptr %vtable.i2, i64 32
   %8 = load ptr, ptr %vfn.i3, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %source, i64 noundef 0) #20
   ret i1 %retval.0.i
@@ -1052,7 +1051,7 @@ entry:
   %ulength = alloca [5 x i8], align 1
   %fragment_size = alloca i64, align 8
   %vtable = load ptr, ptr %reader, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %reader) #20
   %conv = trunc i64 %call to i32
@@ -1141,7 +1140,7 @@ _ZN6snappy6Varint8Encode32EPcj.exit:              ; preds = %if.then.i, %if.then
   %sub.ptr.rhs.cast = ptrtoint ptr %ulength to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %vtable4 = load ptr, ptr %writer, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 2
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 16
   %7 = load ptr, ptr %vfn5, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %writer, ptr noundef nonnull %ulength, i64 noundef %sub.ptr.sub) #20
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
@@ -1183,7 +1182,7 @@ while.body:                                       ; preds = %_ZN6snappy8internal
   %written.074 = phi i64 [ %add45, %_ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit ], [ %sub.ptr.sub, %_ZN6snappy8internal13WorkingMemoryC2Em.exit ]
   %N.073 = phi i64 [ %sub46, %_ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit ], [ %call, %_ZN6snappy8internal13WorkingMemoryC2Em.exit ]
   %vtable10 = load ptr, ptr %reader, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 3
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 24
   %11 = load ptr, ptr %vfn11, align 8
   %call12 = call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %reader, ptr noundef nonnull %fragment_size) #20
   %.sroa.speculated60 = call i64 @llvm.umin.i64(i64 %N.073, i64 65536)
@@ -1194,7 +1193,7 @@ while.body:                                       ; preds = %_ZN6snappy8internal
 if.else:                                          ; preds = %while.body
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %call12, i64 %12, i1 false)
   %vtable16 = load ptr, ptr %reader, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 4
+  %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 32
   %13 = load ptr, ptr %vfn17, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %reader, i64 noundef %12) #20
   br label %while.body20
@@ -1202,7 +1201,7 @@ if.else:                                          ; preds = %while.body
 while.body20:                                     ; preds = %if.else, %while.body20
   %bytes_read.071 = phi i64 [ %12, %if.else ], [ %add25, %while.body20 ]
   %vtable21 = load ptr, ptr %reader, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 3
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 24
   %14 = load ptr, ptr %vfn22, align 8
   %call23 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %reader, ptr noundef nonnull %fragment_size) #20
   %sub = sub i64 %.sroa.speculated60, %bytes_read.071
@@ -1212,7 +1211,7 @@ while.body20:                                     ; preds = %if.else, %while.bod
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %call23, i64 %.sroa.speculated, i1 false)
   %add25 = add i64 %.sroa.speculated, %bytes_read.071
   %vtable26 = load ptr, ptr %reader, align 8
-  %vfn27 = getelementptr inbounds ptr, ptr %vtable26, i64 4
+  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 32
   %16 = load ptr, ptr %vfn27, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %reader, i64 noundef %.sroa.speculated) #20
   %cmp19 = icmp ult i64 %add25, %.sroa.speculated60
@@ -1246,7 +1245,7 @@ _ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit: ; preds = %if.end, %
   %div.i = udiv i64 %.sroa.speculated60, 6
   %add1.i = add nuw nsw i64 %add.i, %div.i
   %vtable33 = load ptr, ptr %writer, align 8
-  %vfn34 = getelementptr inbounds ptr, ptr %vtable33, i64 3
+  %vfn34 = getelementptr inbounds i8, ptr %vtable33, i64 24
   %19 = load ptr, ptr %vfn34, align 8
   %call35 = call noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %writer, i64 noundef %add1.i, ptr noundef nonnull %add.ptr12.i) #20
   %20 = load i64, ptr %fragment_size, align 8
@@ -1255,13 +1254,13 @@ _ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit: ; preds = %if.end, %
   %sub.ptr.rhs.cast38 = ptrtoint ptr %call35 to i64
   %sub.ptr.sub39 = sub i64 %sub.ptr.lhs.cast37, %sub.ptr.rhs.cast38
   %vtable40 = load ptr, ptr %writer, align 8
-  %vfn41 = getelementptr inbounds ptr, ptr %vtable40, i64 2
+  %vfn41 = getelementptr inbounds i8, ptr %vtable40, i64 16
   %21 = load ptr, ptr %vfn41, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %writer, ptr noundef %call35, i64 noundef %sub.ptr.sub39) #20
   %add45 = add i64 %sub.ptr.sub39, %written.074
   %sub46 = sub i64 %N.073, %.sroa.speculated60
   %vtable47 = load ptr, ptr %reader, align 8
-  %vfn48 = getelementptr inbounds ptr, ptr %vtable47, i64 4
+  %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 32
   %22 = load ptr, ptr %vfn48, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(8) %reader, i64 noundef %pending_advance.0) #20
   %cmp.not = icmp eq i64 %sub46, 0
@@ -1282,9 +1281,9 @@ define dso_local noundef zeroext i1 @_ZN6snappy20RawUncompressToIOVecEPKcmPK5iov
 entry:
   %reader = alloca %"class.snappy::ByteArraySource", align 8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6snappy15ByteArraySourceE, i64 0, inrange i32 0, i64 2), ptr %reader, align 8
-  %ptr_.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader, i64 0, i32 1
+  %ptr_.i = getelementptr inbounds i8, ptr %reader, i64 8
   store ptr %compressed, ptr %ptr_.i, align 8
-  %left_.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader, i64 0, i32 2
+  %left_.i = getelementptr inbounds i8, ptr %reader, i64 16
   store i64 %compressed_length, ptr %left_.i, align 8
   %call = call noundef zeroext i1 @_ZN6snappy20RawUncompressToIOVecEPNS_6SourceEPK5iovecm(ptr noundef nonnull %reader, ptr noundef %iov, i64 noundef %iov_cnt)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader) #20
@@ -1299,15 +1298,15 @@ entry:
   %output = alloca %"class.snappy::SnappyIOVecWriter", align 8
   %add.ptr.i = getelementptr inbounds %struct.iovec, ptr %iov, i64 %iov_cnt
   store ptr %add.ptr.i, ptr %output, align 8
-  %curr_iov_.i = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %output, i64 0, i32 1
+  %curr_iov_.i = getelementptr inbounds i8, ptr %output, i64 8
   store ptr %iov, ptr %curr_iov_.i, align 8
-  %curr_iov_output_.i = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %output, i64 0, i32 2
+  %curr_iov_output_.i = getelementptr inbounds i8, ptr %output, i64 16
   %tobool.not.i = icmp eq i64 %iov_cnt, 0
   br i1 %tobool.not.i, label %_ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
   %0 = load ptr, ptr %iov, align 8
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov, i64 8
   %1 = load i64, ptr %iov_len.i, align 8
   br label %_ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit
 
@@ -1315,18 +1314,18 @@ _ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit:   ; preds = %entry, %cond.true.i
   %.sink = phi ptr [ %0, %cond.true.i ], [ null, %entry ]
   %cond6.i = phi i64 [ %1, %cond.true.i ], [ 0, %entry ]
   store ptr %.sink, ptr %curr_iov_output_.i, align 8
-  %curr_iov_remaining_.i = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %output, i64 0, i32 3
+  %curr_iov_remaining_.i = getelementptr inbounds i8, ptr %output, i64 24
   store i64 %cond6.i, ptr %curr_iov_remaining_.i, align 8
-  %total_written_.i = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %output, i64 0, i32 4
+  %total_written_.i = getelementptr inbounds i8, ptr %output, i64 32
   store i64 0, ptr %total_written_.i, align 8
-  %output_limit_.i = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %output, i64 0, i32 5
+  %output_limit_.i = getelementptr inbounds i8, ptr %output, i64 40
   store i64 -1, ptr %output_limit_.i, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %decompressor.i)
   store ptr %compressed, ptr %decompressor.i, align 8
-  %ip_.i.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor.i, i64 0, i32 1
-  %peeked_.i.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor.i, i64 0, i32 4
+  %ip_.i.i = getelementptr inbounds i8, ptr %decompressor.i, i64 8
+  %peeked_.i.i = getelementptr inbounds i8, ptr %decompressor.i, i64 32
   store i32 0, ptr %peeked_.i.i, align 8
-  %eof_.i.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor.i, i64 0, i32 5
+  %eof_.i.i = getelementptr inbounds i8, ptr %decompressor.i, i64 36
   store i8 0, ptr %eof_.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ip_.i.i, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i.i)
@@ -1341,7 +1340,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i, %_Z
   %uncompressed_len.0.i = phi i32 [ 0, %_ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit ], [ %or.i.i, %while.body.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %_ZN6snappy17SnappyIOVecWriterC2EPK5iovecm.exit ], [ %indvars.iv.next.i.i, %while.body.i.i ]
   %vtable.i.i = load ptr, ptr %compressed, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %2 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %compressed, ptr noundef nonnull %n.i.i) #20
   %3 = load i64, ptr %n.i.i, align 8
@@ -1351,7 +1350,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i, %_Z
 if.end4.i.i:                                      ; preds = %if.end.i.i
   %4 = load i8, ptr %call.i.i, align 1
   %vtable6.i.i = load ptr, ptr %compressed, align 8
-  %vfn7.i.i = getelementptr inbounds ptr, ptr %vtable6.i.i, i64 4
+  %vfn7.i.i = getelementptr inbounds i8, ptr %vtable6.i.i, i64 32
   %5 = load ptr, ptr %vfn7.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %compressed, i64 noundef 1) #20
   %6 = and i8 %4, 127
@@ -1376,7 +1375,7 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread.i: ; preds
 if.end.i:                                         ; preds = %if.end11.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i.i)
   %vtable.i = load ptr, ptr %compressed, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %9 = load ptr, ptr %vfn.i, align 8
   %call1.i = call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %compressed) #20
   %conv1.i.i = zext i32 %or.i.i to i64
@@ -1399,7 +1398,7 @@ _ZN6snappyL18InternalUncompressINS_17SnappyIOVecWriterEEEbPNS_6SourceEPT_.exit: 
   %15 = load i32, ptr %peeked_.i.i, align 8
   %conv.i.i = zext i32 %15 to i64
   %vtable.i3.i = load ptr, ptr %14, align 8
-  %vfn.i4.i = getelementptr inbounds ptr, ptr %vtable.i3.i, i64 4
+  %vfn.i4.i = getelementptr inbounds i8, ptr %vtable.i3.i, i64 32
   %16 = load ptr, ptr %vfn.i4.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %14, i64 noundef %conv.i.i) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %decompressor.i)
@@ -1414,9 +1413,9 @@ define dso_local noundef zeroext i1 @_ZN6snappy13RawUncompressEPKcmPc(ptr nounde
 entry:
   %reader = alloca %"class.snappy::ByteArraySource", align 8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6snappy15ByteArraySourceE, i64 0, inrange i32 0, i64 2), ptr %reader, align 8
-  %ptr_.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader, i64 0, i32 1
+  %ptr_.i = getelementptr inbounds i8, ptr %reader, i64 8
   store ptr %compressed, ptr %ptr_.i, align 8
-  %left_.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader, i64 0, i32 2
+  %left_.i = getelementptr inbounds i8, ptr %reader, i64 16
   store i64 %compressed_length, ptr %left_.i, align 8
   %call = call noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(ptr noundef nonnull %reader, ptr noundef %uncompressed)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader) #20
@@ -1430,18 +1429,18 @@ entry:
   %decompressor.i = alloca %"class.snappy::SnappyDecompressor", align 8
   %output = alloca %"class.snappy::SnappyArrayWriter", align 8
   store ptr %uncompressed, ptr %output, align 8
-  %op_.i = getelementptr inbounds %"class.snappy::SnappyArrayWriter", ptr %output, i64 0, i32 1
+  %op_.i = getelementptr inbounds i8, ptr %output, i64 8
   store ptr %uncompressed, ptr %op_.i, align 8
-  %op_limit_.i = getelementptr inbounds %"class.snappy::SnappyArrayWriter", ptr %output, i64 0, i32 2
+  %op_limit_.i = getelementptr inbounds i8, ptr %output, i64 16
   store ptr %uncompressed, ptr %op_limit_.i, align 8
-  %op_limit_min_slop_.i = getelementptr inbounds %"class.snappy::SnappyArrayWriter", ptr %output, i64 0, i32 3
+  %op_limit_min_slop_.i = getelementptr inbounds i8, ptr %output, i64 24
   store ptr %uncompressed, ptr %op_limit_min_slop_.i, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %decompressor.i)
   store ptr %compressed, ptr %decompressor.i, align 8
-  %ip_.i.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor.i, i64 0, i32 1
-  %peeked_.i.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor.i, i64 0, i32 4
+  %ip_.i.i = getelementptr inbounds i8, ptr %decompressor.i, i64 8
+  %peeked_.i.i = getelementptr inbounds i8, ptr %decompressor.i, i64 32
   store i32 0, ptr %peeked_.i.i, align 8
-  %eof_.i.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor.i, i64 0, i32 5
+  %eof_.i.i = getelementptr inbounds i8, ptr %decompressor.i, i64 36
   store i8 0, ptr %eof_.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ip_.i.i, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i.i)
@@ -1456,7 +1455,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i, %en
   %uncompressed_len.0.i = phi i32 [ 0, %entry ], [ %or.i.i, %while.body.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i.i, %while.body.i.i ]
   %vtable.i.i = load ptr, ptr %compressed, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %compressed, ptr noundef nonnull %n.i.i) #20
   %1 = load i64, ptr %n.i.i, align 8
@@ -1466,7 +1465,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i, %en
 if.end4.i.i:                                      ; preds = %if.end.i.i
   %2 = load i8, ptr %call.i.i, align 1
   %vtable6.i.i = load ptr, ptr %compressed, align 8
-  %vfn7.i.i = getelementptr inbounds ptr, ptr %vtable6.i.i, i64 4
+  %vfn7.i.i = getelementptr inbounds i8, ptr %vtable6.i.i, i64 32
   %3 = load ptr, ptr %vfn7.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %compressed, i64 noundef 1) #20
   %4 = and i8 %2, 127
@@ -1491,7 +1490,7 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread.i: ; preds
 if.end.i:                                         ; preds = %if.end11.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i.i)
   %vtable.i = load ptr, ptr %compressed, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
   %call1.i = call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %compressed) #20
   %conv1.i.i = zext i32 %or.i.i to i64
@@ -1519,7 +1518,7 @@ _ZN6snappyL18InternalUncompressINS_17SnappyArrayWriterEEEbPNS_6SourceEPT_.exit: 
   %13 = load i32, ptr %peeked_.i.i, align 8
   %conv.i.i = zext i32 %13 to i64
   %vtable.i3.i = load ptr, ptr %12, align 8
-  %vfn.i4.i = getelementptr inbounds ptr, ptr %vtable.i3.i, i64 4
+  %vfn.i4.i = getelementptr inbounds i8, ptr %vtable.i3.i, i64 32
   %14 = load ptr, ptr %vfn.i4.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %conv.i.i) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %decompressor.i)
@@ -1615,9 +1614,9 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %cond.i = phi ptr [ %call1.i, %cond.false.i ], [ null, %if.end3 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %reader.i)
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6snappy15ByteArraySourceE, i64 0, inrange i32 0, i64 2), ptr %reader.i, align 8
-  %ptr_.i.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader.i, i64 0, i32 1
+  %ptr_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 8
   store ptr %compressed, ptr %ptr_.i.i, align 8
-  %left_.i.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader.i, i64 0, i32 2
+  %left_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 16
   store i64 %compressed_length, ptr %left_.i.i, align 8
   %call.i5 = call noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(ptr noundef nonnull %reader.i, ptr noundef %cond.i)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %reader.i) #20
@@ -1638,9 +1637,9 @@ entry:
   %reader = alloca %"class.snappy::ByteArraySource", align 8
   %writer = alloca %"class.snappy::SnappyDecompressionValidator", align 8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6snappy15ByteArraySourceE, i64 0, inrange i32 0, i64 2), ptr %reader, align 8
-  %ptr_.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader, i64 0, i32 1
+  %ptr_.i = getelementptr inbounds i8, ptr %reader, i64 8
   store ptr %compressed, ptr %ptr_.i, align 8
-  %left_.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader, i64 0, i32 2
+  %left_.i = getelementptr inbounds i8, ptr %reader, i64 16
   store i64 %compressed_length, ptr %left_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %writer, i8 0, i64 16, i1 false)
   %call = call fastcc noundef zeroext i1 @_ZN6snappyL18InternalUncompressINS_28SnappyDecompressionValidatorEEEbPNS_6SourceEPT_(ptr noundef nonnull %reader, ptr noundef nonnull %writer)
@@ -1654,10 +1653,10 @@ entry:
   %n.i = alloca i64, align 8
   %decompressor = alloca %"class.snappy::SnappyDecompressor", align 8
   store ptr %r, ptr %decompressor, align 8
-  %ip_.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor, i64 0, i32 1
-  %peeked_.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor, i64 0, i32 4
+  %ip_.i = getelementptr inbounds i8, ptr %decompressor, i64 8
+  %peeked_.i = getelementptr inbounds i8, ptr %decompressor, i64 32
   store i32 0, ptr %peeked_.i, align 8
-  %eof_.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor, i64 0, i32 5
+  %eof_.i = getelementptr inbounds i8, ptr %decompressor, i64 36
   store i8 0, ptr %eof_.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ip_.i, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i)
@@ -1672,7 +1671,7 @@ if.end.i:                                         ; preds = %while.body.i, %entr
   %uncompressed_len.0 = phi i32 [ 0, %entry ], [ %or.i, %while.body.i ]
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %while.body.i ]
   %vtable.i = load ptr, ptr %r, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %r, ptr noundef nonnull %n.i) #20
   %1 = load i64, ptr %n.i, align 8
@@ -1682,7 +1681,7 @@ if.end.i:                                         ; preds = %while.body.i, %entr
 if.end4.i:                                        ; preds = %if.end.i
   %2 = load i8, ptr %call.i, align 1
   %vtable6.i = load ptr, ptr %r, align 8
-  %vfn7.i = getelementptr inbounds ptr, ptr %vtable6.i, i64 4
+  %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 32
   %3 = load ptr, ptr %vfn7.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %r, i64 noundef 1) #20
   %4 = and i8 %2, 127
@@ -1707,7 +1706,7 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread: ; preds =
 if.end:                                           ; preds = %if.end11.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)
   %vtable = load ptr, ptr %r, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %7 = load ptr, ptr %vfn, align 8
   %call1 = call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %r) #20
   %conv1.i = zext i32 %or.i to i64
@@ -1720,7 +1719,7 @@ if.end:                                           ; preds = %if.end11.i
 
 land.rhs.i:                                       ; preds = %if.end
   %10 = load i64, ptr %writer, align 8
-  %produced_.i.i = getelementptr inbounds %"class.snappy::SnappyDecompressionValidator", ptr %writer, i64 0, i32 1
+  %produced_.i.i = getelementptr inbounds i8, ptr %writer, i64 8
   %11 = load i64, ptr %produced_.i.i, align 8
   %cmp.i.i = icmp eq i64 %10, %11
   br label %cleanup
@@ -1731,7 +1730,7 @@ cleanup:                                          ; preds = %land.rhs.i, %if.end
   %13 = load i32, ptr %peeked_.i, align 8
   %conv.i = zext i32 %13 to i64
   %vtable.i3 = load ptr, ptr %12, align 8
-  %vfn.i4 = getelementptr inbounds ptr, ptr %vtable.i3, i64 4
+  %vfn.i4 = getelementptr inbounds i8, ptr %vtable.i3, i64 32
   %14 = load ptr, ptr %vfn.i4, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %conv.i) #20
   ret i1 %retval.0
@@ -1752,12 +1751,12 @@ entry:
   %reader = alloca %"class.snappy::ByteArraySource", align 8
   %writer = alloca %"class.snappy::UncheckedByteArraySink", align 8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6snappy15ByteArraySourceE, i64 0, inrange i32 0, i64 2), ptr %reader, align 8
-  %ptr_.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader, i64 0, i32 1
+  %ptr_.i = getelementptr inbounds i8, ptr %reader, i64 8
   store ptr %input, ptr %ptr_.i, align 8
-  %left_.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader, i64 0, i32 2
+  %left_.i = getelementptr inbounds i8, ptr %reader, i64 16
   store i64 %input_length, ptr %left_.i, align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 0, inrange i32 0, i64 2), ptr %writer, align 8
-  %dest_.i = getelementptr inbounds %"class.snappy::UncheckedByteArraySink", ptr %writer, i64 0, i32 1
+  %dest_.i = getelementptr inbounds i8, ptr %writer, i64 8
   store ptr %compressed, ptr %dest_.i, align 8
   %call = call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkE(ptr noundef nonnull %reader, ptr noundef nonnull %writer)
   %0 = load ptr, ptr %dest_.i, align 8
@@ -1779,30 +1778,30 @@ entry:
   %reader = alloca %"class.snappy::SnappyIOVecReader", align 8
   %writer = alloca %"class.snappy::UncheckedByteArraySink", align 8
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 0, inrange i32 0, i64 2), ptr %reader, align 8
-  %curr_iov_.i = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %reader, i64 0, i32 1
+  %curr_iov_.i = getelementptr inbounds i8, ptr %reader, i64 8
   store ptr %iov, ptr %curr_iov_.i, align 8
-  %curr_pos_.i = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %reader, i64 0, i32 2
+  %curr_pos_.i = getelementptr inbounds i8, ptr %reader, i64 16
   %cmp.not.i = icmp eq i64 %uncompressed_length, 0
   br i1 %cmp.not.i, label %if.end.critedge.i, label %cond.true3.i
 
 cond.true3.i:                                     ; preds = %entry
   %0 = load ptr, ptr %iov, align 8
   store ptr %0, ptr %curr_pos_.i, align 8
-  %curr_size_remaining_.i = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %reader, i64 0, i32 3
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %curr_size_remaining_.i = getelementptr inbounds i8, ptr %reader, i64 24
+  %iov_len.i = getelementptr inbounds i8, ptr %iov, i64 8
   %1 = load i64, ptr %iov_len.i, align 8
   store i64 %1, ptr %curr_size_remaining_.i, align 8
-  %total_size_remaining_.i = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %reader, i64 0, i32 4
+  %total_size_remaining_.i = getelementptr inbounds i8, ptr %reader, i64 32
   store i64 %uncompressed_length, ptr %total_size_remaining_.i, align 8
   %cmp9.i = icmp eq i64 %1, 0
   br i1 %cmp9.i, label %do.body.i.i, label %_ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit
 
 do.body.i.i:                                      ; preds = %cond.true3.i, %do.body.i.i
-  %incdec.ptr3.i.i = phi ptr [ %incdec.ptr.i.i, %do.body.i.i ], [ %iov, %cond.true3.i ]
-  %incdec.ptr.i.i = getelementptr inbounds %struct.iovec, ptr %incdec.ptr3.i.i, i64 1
-  %iov_len.i.i = getelementptr inbounds %struct.iovec, ptr %incdec.ptr3.i.i, i64 1, i32 1
-  %2 = load i64, ptr %iov_len.i.i, align 8
-  %cmp9.i.i = icmp eq i64 %2, 0
+  %2 = phi ptr [ %incdec.ptr.i.i, %do.body.i.i ], [ %iov, %cond.true3.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %iov_len.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = load i64, ptr %iov_len.i.i, align 8
+  %cmp9.i.i = icmp eq i64 %3, 0
   br i1 %cmp9.i.i, label %do.body.i.i, label %_ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit.loopexit, !llvm.loop !23
 
 if.end.critedge.i:                                ; preds = %entry
@@ -1810,19 +1809,19 @@ if.end.critedge.i:                                ; preds = %entry
   br label %_ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit
 
 _ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit.loopexit: ; preds = %do.body.i.i
-  %3 = load ptr, ptr %incdec.ptr.i.i, align 8
+  %4 = load ptr, ptr %incdec.ptr.i.i, align 8
   store ptr %incdec.ptr.i.i, ptr %curr_iov_.i, align 8
-  store ptr %3, ptr %curr_pos_.i, align 8
-  store i64 %2, ptr %curr_size_remaining_.i, align 8
+  store ptr %4, ptr %curr_pos_.i, align 8
+  store i64 %3, ptr %curr_size_remaining_.i, align 8
   br label %_ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit
 
 _ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit:   ; preds = %_ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit.loopexit, %cond.true3.i, %if.end.critedge.i
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 0, inrange i32 0, i64 2), ptr %writer, align 8
-  %dest_.i = getelementptr inbounds %"class.snappy::UncheckedByteArraySink", ptr %writer, i64 0, i32 1
+  %dest_.i = getelementptr inbounds i8, ptr %writer, i64 8
   store ptr %compressed, ptr %dest_.i, align 8
   %call = call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkE(ptr noundef nonnull %reader, ptr noundef nonnull %writer)
-  %4 = load ptr, ptr %dest_.i, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %4 to i64
+  %5 = load ptr, ptr %dest_.i, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %compressed to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   store i64 %sub.ptr.sub, ptr %compressed_length, align 8
@@ -1859,12 +1858,12 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %reader.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %writer.i)
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6snappy15ByteArraySourceE, i64 0, inrange i32 0, i64 2), ptr %reader.i, align 8
-  %ptr_.i.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader.i, i64 0, i32 1
+  %ptr_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 8
   store ptr %input, ptr %ptr_.i.i, align 8
-  %left_.i.i = getelementptr inbounds %"class.snappy::ByteArraySource", ptr %reader.i, i64 0, i32 2
+  %left_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 16
   store i64 %input_length, ptr %left_.i.i, align 8
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 0, inrange i32 0, i64 2), ptr %writer.i, align 8
-  %dest_.i.i = getelementptr inbounds %"class.snappy::UncheckedByteArraySink", ptr %writer.i, i64 0, i32 1
+  %dest_.i.i = getelementptr inbounds i8, ptr %writer.i, i64 8
   store ptr %cond.i, ptr %dest_.i.i, align 8
   %call.i4 = call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkE(ptr noundef nonnull %reader.i, ptr noundef nonnull %writer.i)
   %0 = load ptr, ptr %dest_.i.i, align 8
@@ -1917,30 +1916,30 @@ _ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %reader.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %writer.i)
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6snappy17SnappyIOVecReaderE, i64 0, inrange i32 0, i64 2), ptr %reader.i, align 8
-  %curr_iov_.i.i = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %reader.i, i64 0, i32 1
+  %curr_iov_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 8
   store ptr %iov, ptr %curr_iov_.i.i, align 8
-  %curr_pos_.i.i = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %reader.i, i64 0, i32 2
+  %curr_pos_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 16
   %cmp.not.i.i = icmp eq i64 %uncompressed_length.0.lcssa, 0
   br i1 %cmp.not.i.i, label %if.end.critedge.i.i, label %cond.true3.i.i
 
 cond.true3.i.i:                                   ; preds = %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %1 = load ptr, ptr %iov, align 8
   store ptr %1, ptr %curr_pos_.i.i, align 8
-  %curr_size_remaining_.i.i = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %reader.i, i64 0, i32 3
-  %iov_len.i.i = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %curr_size_remaining_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 24
+  %iov_len.i.i = getelementptr inbounds i8, ptr %iov, i64 8
   %2 = load i64, ptr %iov_len.i.i, align 8
   store i64 %2, ptr %curr_size_remaining_.i.i, align 8
-  %total_size_remaining_.i.i = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %reader.i, i64 0, i32 4
+  %total_size_remaining_.i.i = getelementptr inbounds i8, ptr %reader.i, i64 32
   store i64 %uncompressed_length.0.lcssa, ptr %total_size_remaining_.i.i, align 8
   %cmp9.i.i = icmp eq i64 %2, 0
   br i1 %cmp9.i.i, label %do.body.i.i.i, label %_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm.exit
 
 do.body.i.i.i:                                    ; preds = %cond.true3.i.i, %do.body.i.i.i
-  %incdec.ptr3.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %do.body.i.i.i ], [ %iov, %cond.true3.i.i ]
-  %incdec.ptr.i.i.i = getelementptr inbounds %struct.iovec, ptr %incdec.ptr3.i.i.i, i64 1
-  %iov_len.i.i.i = getelementptr inbounds %struct.iovec, ptr %incdec.ptr3.i.i.i, i64 1, i32 1
-  %3 = load i64, ptr %iov_len.i.i.i, align 8
-  %cmp9.i.i.i = icmp eq i64 %3, 0
+  %3 = phi ptr [ %incdec.ptr.i.i.i, %do.body.i.i.i ], [ %iov, %cond.true3.i.i ]
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %iov_len.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = load i64, ptr %iov_len.i.i.i, align 8
+  %cmp9.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp9.i.i.i, label %do.body.i.i.i, label %_ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit.loopexit.i, !llvm.loop !23
 
 if.end.critedge.i.i:                              ; preds = %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -1948,19 +1947,19 @@ if.end.critedge.i.i:                              ; preds = %_ZN6snappy15string_
   br label %_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm.exit
 
 _ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit.loopexit.i: ; preds = %do.body.i.i.i
-  %4 = load ptr, ptr %incdec.ptr.i.i.i, align 8
+  %5 = load ptr, ptr %incdec.ptr.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i, ptr %curr_iov_.i.i, align 8
-  store ptr %4, ptr %curr_pos_.i.i, align 8
-  store i64 %3, ptr %curr_size_remaining_.i.i, align 8
+  store ptr %5, ptr %curr_pos_.i.i, align 8
+  store i64 %4, ptr %curr_size_remaining_.i.i, align 8
   br label %_ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm.exit
 
 _ZN6snappy20RawCompressFromIOVecEPK5iovecmPcPm.exit: ; preds = %cond.true3.i.i, %if.end.critedge.i.i, %_ZN6snappy17SnappyIOVecReaderC2EPK5iovecm.exit.loopexit.i
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 0, inrange i32 0, i64 2), ptr %writer.i, align 8
-  %dest_.i.i = getelementptr inbounds %"class.snappy::UncheckedByteArraySink", ptr %writer.i, i64 0, i32 1
+  %dest_.i.i = getelementptr inbounds i8, ptr %writer.i, i64 8
   store ptr %cond.i, ptr %dest_.i.i, align 8
   %call.i8 = call noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkE(ptr noundef nonnull %reader.i, ptr noundef nonnull %writer.i)
-  %5 = load ptr, ptr %dest_.i.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %5 to i64
+  %6 = load ptr, ptr %dest_.i.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %cond.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   call void @_ZN6snappy22UncheckedByteArraySinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %writer.i) #20
@@ -1978,18 +1977,18 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit:
   %decompressor.i = alloca %"class.snappy::SnappyDecompressor", align 8
   %writer = alloca %"class.snappy::SnappyScatteredWriter", align 8
   store ptr %uncompressed, ptr %writer, align 8
-  %blocks_.i.i = getelementptr inbounds %"class.snappy::SnappySinkAllocator", ptr %writer, i64 0, i32 1
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"class.snappy::SnappySinkAllocator", ptr %writer, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %blocks_.i1 = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer, i64 0, i32 1
-  %full_size_.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer, i64 0, i32 3
+  %blocks_.i.i = getelementptr inbounds i8, ptr %writer, i64 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %writer, i64 16
+  %blocks_.i1 = getelementptr inbounds i8, ptr %writer, i64 32
+  %full_size_.i = getelementptr inbounds i8, ptr %writer, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %full_size_.i, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %blocks_.i.i, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %decompressor.i)
   store ptr %compressed, ptr %decompressor.i, align 8
-  %ip_.i.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor.i, i64 0, i32 1
-  %peeked_.i.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor.i, i64 0, i32 4
+  %ip_.i.i = getelementptr inbounds i8, ptr %decompressor.i, i64 8
+  %peeked_.i.i = getelementptr inbounds i8, ptr %decompressor.i, i64 32
   store i32 0, ptr %peeked_.i.i, align 8
-  %eof_.i.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor.i, i64 0, i32 5
+  %eof_.i.i = getelementptr inbounds i8, ptr %decompressor.i, i64 36
   store i8 0, ptr %eof_.i.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ip_.i.i, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i.i)
@@ -2004,7 +2003,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i, %_Z
   %uncompressed_len.0.i = phi i32 [ 0, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit ], [ %or.i.i, %while.body.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit ], [ %indvars.iv.next.i.i, %while.body.i.i ]
   %vtable.i.i = load ptr, ptr %compressed, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %compressed, ptr noundef nonnull %n.i.i) #20
   %1 = load i64, ptr %n.i.i, align 8
@@ -2014,7 +2013,7 @@ if.end.i.i:                                       ; preds = %while.body.i.i, %_Z
 if.end4.i.i:                                      ; preds = %if.end.i.i
   %2 = load i8, ptr %call.i.i, align 1
   %vtable6.i.i = load ptr, ptr %compressed, align 8
-  %vfn7.i.i = getelementptr inbounds ptr, ptr %vtable6.i.i, i64 4
+  %vfn7.i.i = getelementptr inbounds i8, ptr %vtable6.i.i, i64 32
   %3 = load ptr, ptr %vfn7.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %compressed, i64 noundef 1) #20
   %4 = and i8 %2, 127
@@ -2039,11 +2038,11 @@ _ZN6snappy18SnappyDecompressor22ReadUncompressedLengthEPj.exit.thread.i: ; preds
 if.end.i:                                         ; preds = %if.end11.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i.i)
   %vtable.i = load ptr, ptr %compressed, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
   %call1.i = call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %compressed) #20
   %conv1.i.i = zext i32 %or.i.i to i64
-  %expected_.i.i.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer, i64 0, i32 2
+  %expected_.i.i.i = getelementptr inbounds i8, ptr %writer, i64 56
   store i64 %conv1.i.i, ptr %expected_.i.i.i, align 8
   call void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %decompressor.i, ptr noundef nonnull %writer)
   %8 = load ptr, ptr %blocks_.i.i, align 8
@@ -2052,10 +2051,10 @@ if.end.i:                                         ; preds = %if.end11.i.i
   br i1 %cmp.i.not9.i.i.i.i, label %_ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEbPNS_6SourceEPT_.exit, label %for.body.i.preheader.i.i.i
 
 for.body.i.preheader.i.i.i:                       ; preds = %if.end.i
-  %op_base_.i.i.i.i.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer, i64 0, i32 4
+  %op_base_.i.i.i.i.i = getelementptr inbounds i8, ptr %writer, i64 72
   %10 = load ptr, ptr %op_base_.i.i.i.i.i, align 8
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %10 to i64
-  %op_ptr_.i.i.i.i.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer, i64 0, i32 5
+  %op_ptr_.i.i.i.i.i = getelementptr inbounds i8, ptr %writer, i64 80
   %11 = load ptr, ptr %op_ptr_.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %11 to i64
   %12 = load i64, ptr %full_size_.i, align 8
@@ -2065,7 +2064,7 @@ for.body.i.preheader.i.i.i:                       ; preds = %if.end.i
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.preheader.i.i.i
   %size_written.011.i.i.i.i = phi i64 [ %add.i.i.i.i, %for.body.i.i.i.i ], [ 0, %for.body.i.preheader.i.i.i ]
   %__begin2.sroa.0.010.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.body.i.preheader.i.i.i ]
-  %size6.i.i.i.i = getelementptr inbounds %"struct.snappy::SnappySinkAllocator::Datablock", ptr %__begin2.sroa.0.010.i.i.i.i, i64 0, i32 1
+  %size6.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.010.i.i.i.i, i64 8
   %14 = add i64 %size_written.011.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.i.i.i.i = sub i64 %13, %14
   %15 = load i64, ptr %size6.i.i.i.i, align 8
@@ -2073,11 +2072,11 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   %16 = load ptr, ptr %writer, align 8
   %17 = load ptr, ptr %__begin2.sroa.0.010.i.i.i.i, align 8
   %vtable.i.i.i.i = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %18 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %17, i64 noundef %.sroa.speculated.i.i.i.i, ptr noundef nonnull @_ZN6snappy19SnappySinkAllocator7DeleterEPvPKcm, ptr noundef null) #20
   %add.i.i.i.i = add i64 %.sroa.speculated.i.i.i.i, %size_written.011.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.snappy::SnappySinkAllocator::Datablock", ptr %__begin2.sroa.0.010.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.010.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %9
   br i1 %cmp.i.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
@@ -2096,14 +2095,14 @@ _ZN6snappyL18InternalUncompressINS_21SnappyScatteredWriterINS_19SnappySinkAlloca
   %20 = load i32, ptr %peeked_.i.i, align 8
   %conv.i.i = zext i32 %20 to i64
   %vtable.i3.i = load ptr, ptr %19, align 8
-  %vfn.i4.i = getelementptr inbounds ptr, ptr %vtable.i3.i, i64 4
+  %vfn.i4.i = getelementptr inbounds i8, ptr %vtable.i3.i, i64 32
   %21 = load ptr, ptr %vfn.i4.i, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %conv.i.i) #20
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %decompressor.i)
   %22 = load i64, ptr %full_size_.i, align 8
-  %op_ptr_.i.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer, i64 0, i32 5
+  %op_ptr_.i.i = getelementptr inbounds i8, ptr %writer, i64 80
   %23 = load ptr, ptr %op_ptr_.i.i, align 8
-  %op_base_.i.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer, i64 0, i32 4
+  %op_base_.i.i = getelementptr inbounds i8, ptr %writer, i64 72
   %24 = load ptr, ptr %op_base_.i.i, align 8
   %25 = load ptr, ptr %blocks_.i1, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %25, null
@@ -2140,10 +2139,10 @@ entry:
   %writer = alloca %"class.snappy::SnappyArrayWriter", align 8
   %writer12 = alloca %"class.snappy::SnappyScatteredWriter", align 8
   store ptr %compressed, ptr %decompressor, align 8
-  %ip_.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor, i64 0, i32 1
-  %peeked_.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor, i64 0, i32 4
+  %ip_.i = getelementptr inbounds i8, ptr %decompressor, i64 8
+  %peeked_.i = getelementptr inbounds i8, ptr %decompressor, i64 32
   store i32 0, ptr %peeked_.i, align 8
-  %eof_.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %decompressor, i64 0, i32 5
+  %eof_.i = getelementptr inbounds i8, ptr %decompressor, i64 36
   store i8 0, ptr %eof_.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ip_.i, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i)
@@ -2158,7 +2157,7 @@ if.end.i:                                         ; preds = %while.body.i, %entr
   %uncompressed_len.0 = phi i32 [ 0, %entry ], [ %or.i, %while.body.i ]
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %while.body.i ]
   %vtable.i = load ptr, ptr %compressed, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %compressed, ptr noundef nonnull %n.i) #20
   %1 = load i64, ptr %n.i, align 8
@@ -2168,7 +2167,7 @@ if.end.i:                                         ; preds = %while.body.i, %entr
 if.end4.i:                                        ; preds = %if.end.i
   %2 = load i8, ptr %call.i, align 1
   %vtable6.i = load ptr, ptr %compressed, align 8
-  %vfn7.i = getelementptr inbounds ptr, ptr %vtable6.i, i64 4
+  %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 32
   %3 = load ptr, ptr %vfn7.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %compressed, i64 noundef 1) #20
   %4 = and i8 %2, 127
@@ -2194,11 +2193,11 @@ if.end:                                           ; preds = %if.end11.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n.i)
   %conv = zext i32 %or.i to i64
   %vtable = load ptr, ptr %uncompressed, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %7 = load ptr, ptr %vfn, align 8
   %call1 = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %uncompressed, i64 noundef 1, i64 noundef %conv, ptr noundef nonnull %c, i64 noundef 1, ptr noundef nonnull %allocated_size) #20
   %vtable2 = load ptr, ptr %compressed, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 2
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 16
   %8 = load ptr, ptr %vfn3, align 8
   %call4 = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %compressed) #20
   %9 = load i64, ptr %allocated_size, align 8
@@ -2207,10 +2206,10 @@ if.end:                                           ; preds = %if.end11.i
 
 if.then6:                                         ; preds = %if.end
   store ptr %call1, ptr %writer, align 8
-  %op_.i = getelementptr inbounds %"class.snappy::SnappyArrayWriter", ptr %writer, i64 0, i32 1
+  %op_.i = getelementptr inbounds i8, ptr %writer, i64 8
   store ptr %call1, ptr %op_.i, align 8
-  %op_limit_.i = getelementptr inbounds %"class.snappy::SnappyArrayWriter", ptr %writer, i64 0, i32 2
-  %op_limit_min_slop_.i = getelementptr inbounds %"class.snappy::SnappyArrayWriter", ptr %writer, i64 0, i32 3
+  %op_limit_.i = getelementptr inbounds i8, ptr %writer, i64 16
+  %op_limit_min_slop_.i = getelementptr inbounds i8, ptr %writer, i64 24
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call1, i64 %conv
   store ptr %add.ptr.i.i, ptr %op_limit_.i, align 8
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %conv, i64 63)
@@ -2230,19 +2229,19 @@ if.then6:                                         ; preds = %if.end
   %sub.ptr.rhs.cast.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %vtable10 = load ptr, ptr %uncompressed, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 2
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 16
   %16 = load ptr, ptr %vfn11, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %uncompressed, ptr noundef %call1, i64 noundef %sub.ptr.sub.i) #20
   br label %cleanup
 
 _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit: ; preds = %if.end
   store ptr %uncompressed, ptr %writer12, align 8
-  %blocks_.i.i = getelementptr inbounds %"class.snappy::SnappySinkAllocator", ptr %writer12, i64 0, i32 1
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"class.snappy::SnappySinkAllocator", ptr %writer12, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %blocks_.i7 = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer12, i64 0, i32 1
-  %full_size_.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer12, i64 0, i32 3
+  %blocks_.i.i = getelementptr inbounds i8, ptr %writer12, i64 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %writer12, i64 16
+  %blocks_.i7 = getelementptr inbounds i8, ptr %writer12, i64 32
+  %full_size_.i = getelementptr inbounds i8, ptr %writer12, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %full_size_.i, i8 0, i64 40, i1 false)
-  %expected_.i.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer12, i64 0, i32 2
+  %expected_.i.i = getelementptr inbounds i8, ptr %writer12, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %blocks_.i.i, i8 0, i64 48, i1 false)
   store i64 %conv, ptr %expected_.i.i, align 8
   call void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_21SnappyScatteredWriterINS_19SnappySinkAllocatorEEEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %decompressor, ptr noundef nonnull %writer12)
@@ -2252,10 +2251,10 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit: ; pre
   br i1 %cmp.i.not9.i.i.i, label %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE5FlushEv.exit.i, label %for.body.i.preheader.i.i
 
 for.body.i.preheader.i.i:                         ; preds = %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEEC2ERKS1_.exit
-  %op_base_.i.i.i.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer12, i64 0, i32 4
+  %op_base_.i.i.i.i = getelementptr inbounds i8, ptr %writer12, i64 72
   %19 = load ptr, ptr %op_base_.i.i.i.i, align 8
   %sub.ptr.rhs.cast.i.i.i.i10 = ptrtoint ptr %19 to i64
-  %op_ptr_.i.i.i.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer12, i64 0, i32 5
+  %op_ptr_.i.i.i.i = getelementptr inbounds i8, ptr %writer12, i64 80
   %20 = load ptr, ptr %op_ptr_.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i11 = ptrtoint ptr %20 to i64
   %21 = load i64, ptr %full_size_.i, align 8
@@ -2265,7 +2264,7 @@ for.body.i.preheader.i.i:                         ; preds = %_ZN6snappy21SnappyS
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %for.body.i.preheader.i.i
   %size_written.011.i.i.i = phi i64 [ %add.i.i.i, %for.body.i.i.i ], [ 0, %for.body.i.preheader.i.i ]
   %__begin2.sroa.0.010.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %17, %for.body.i.preheader.i.i ]
-  %size6.i.i.i = getelementptr inbounds %"struct.snappy::SnappySinkAllocator::Datablock", ptr %__begin2.sroa.0.010.i.i.i, i64 0, i32 1
+  %size6.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.010.i.i.i, i64 8
   %23 = add i64 %size_written.011.i.i.i, %sub.ptr.rhs.cast.i.i.i.i10
   %sub.i.i.i = sub i64 %22, %23
   %24 = load i64, ptr %size6.i.i.i, align 8
@@ -2273,11 +2272,11 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %25 = load ptr, ptr %writer12, align 8
   %26 = load ptr, ptr %__begin2.sroa.0.010.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %25, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 4
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 32
   %27 = load ptr, ptr %vfn.i.i.i, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26, i64 noundef %.sroa.speculated.i.i.i, ptr noundef nonnull @_ZN6snappy19SnappySinkAllocator7DeleterEPvPKcm, ptr noundef null) #20
   %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %size_written.011.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.snappy::SnappySinkAllocator::Datablock", ptr %__begin2.sroa.0.010.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.010.i.i.i, i64 16
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %18
   br i1 %cmp.i.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
@@ -2300,9 +2299,9 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE5FlushEv.exit.i: ; p
 
 land.rhs.i14:                                     ; preds = %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE5FlushEv.exit.i
   %31 = load i64, ptr %full_size_.i, align 8
-  %op_ptr_.i.i.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer12, i64 0, i32 5
+  %op_ptr_.i.i.i = getelementptr inbounds i8, ptr %writer12, i64 80
   %32 = load ptr, ptr %op_ptr_.i.i.i, align 8
-  %op_base_.i.i.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer12, i64 0, i32 4
+  %op_base_.i.i.i = getelementptr inbounds i8, ptr %writer12, i64 72
   %33 = load ptr, ptr %op_base_.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %32 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %33 to i64
@@ -2338,7 +2337,7 @@ cleanup:                                          ; preds = %_ZNSt6vectorIPcSaIS
   %39 = load i32, ptr %peeked_.i, align 8
   %conv.i = zext i32 %39 to i64
   %vtable.i24 = load ptr, ptr %38, align 8
-  %vfn.i25 = getelementptr inbounds ptr, ptr %vtable.i24, i64 4
+  %vfn.i25 = getelementptr inbounds i8, ptr %vtable.i24, i64 32
   %40 = load ptr, ptr %vfn.i25, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(8) %38, i64 noundef %conv.i) #20
   ret i1 %retval.0
@@ -2372,7 +2371,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK6snappy17SnappyIOVecReader9AvailableEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %total_size_remaining_ = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %this, i64 0, i32 4
+  %total_size_remaining_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %total_size_remaining_, align 8
   ret i64 %0
 }
@@ -2380,10 +2379,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6snappy17SnappyIOVecReader4PeekEPm(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %len) unnamed_addr #2 comdat align 2 {
 entry:
-  %curr_size_remaining_ = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %this, i64 0, i32 3
+  %curr_size_remaining_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %curr_size_remaining_, align 8
   store i64 %0, ptr %len, align 8
-  %curr_pos_ = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %this, i64 0, i32 2
+  %curr_pos_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %curr_pos_, align 8
   ret ptr %1
 }
@@ -2391,13 +2390,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6snappy17SnappyIOVecReader4SkipEm(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %n) unnamed_addr #2 comdat align 2 {
 entry:
-  %curr_size_remaining_ = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %this, i64 0, i32 3
+  %curr_size_remaining_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %curr_size_remaining_, align 8
   %cmp6 = icmp ule i64 %0, %n
   %cmp27 = icmp ne i64 %n, 0
   %1 = and i1 %cmp27, %cmp6
-  %total_size_remaining_.i = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %this, i64 0, i32 4
-  %curr_pos_5.i = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %this, i64 0, i32 2
+  %total_size_remaining_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %curr_pos_5.i = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %1, label %while.body.lr.ph, label %entry.while.end_crit_edge
 
 entry.while.end_crit_edge:                        ; preds = %entry
@@ -2406,7 +2405,7 @@ entry.while.end_crit_edge:                        ; preds = %entry
   br label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %curr_iov_.i = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %this, i64 0, i32 1
+  %curr_iov_.i = getelementptr inbounds i8, ptr %this, i64 8
   %total_size_remaining_.i.promoted = load i64, ptr %total_size_remaining_.i, align 8
   %curr_iov_.i.promoted = load ptr, ptr %curr_iov_.i, align 8
   br label %while.body
@@ -2414,18 +2413,18 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit
   %incdec.ptr.i14 = phi ptr [ %curr_iov_.i.promoted, %while.body.lr.ph ], [ %incdec.ptr.i12, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
   %sub.i11 = phi i64 [ %total_size_remaining_.i.promoted, %while.body.lr.ph ], [ %sub.i, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
-  %2 = phi i64 [ %0, %while.body.lr.ph ], [ %7, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
+  %2 = phi i64 [ %0, %while.body.lr.ph ], [ %8, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
   %n.addr.08 = phi i64 [ %n, %while.body.lr.ph ], [ %sub, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
   %sub = sub i64 %n.addr.08, %2
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i, %while.body
   %incdec.ptr.i13 = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %incdec.ptr.i14, %while.body ]
-  %sub2.i = phi i64 [ %sub.i, %if.end.i ], [ %sub.i11, %while.body ]
-  %3 = phi i64 [ 0, %if.end.i ], [ %2, %while.body ]
-  %sub.i = sub i64 %sub2.i, %3
+  %3 = phi i64 [ %sub.i, %if.end.i ], [ %sub.i11, %while.body ]
+  %4 = phi i64 [ 0, %if.end.i ], [ %2, %while.body ]
+  %sub.i = sub i64 %3, %4
   store i64 %sub.i, ptr %total_size_remaining_.i, align 8
-  %cmp.i = icmp eq i64 %sub2.i, %3
+  %cmp.i = icmp eq i64 %3, %4
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.body.i
@@ -2433,37 +2432,37 @@ if.then.i:                                        ; preds = %do.body.i
   br label %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit
 
 if.end.i:                                         ; preds = %do.body.i
-  %incdec.ptr.i = getelementptr inbounds %struct.iovec, ptr %incdec.ptr.i13, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i13, i64 16
   store ptr %incdec.ptr.i, ptr %curr_iov_.i, align 8
-  %4 = load ptr, ptr %incdec.ptr.i, align 8
-  store ptr %4, ptr %curr_pos_5.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %incdec.ptr.i13, i64 1, i32 1
-  %5 = load i64, ptr %iov_len.i, align 8
-  store i64 %5, ptr %curr_size_remaining_, align 8
-  %cmp9.i = icmp eq i64 %5, 0
+  %5 = load ptr, ptr %incdec.ptr.i, align 8
+  store ptr %5, ptr %curr_pos_5.i, align 8
+  %iov_len.i = getelementptr inbounds i8, ptr %incdec.ptr.i13, i64 24
+  %6 = load i64, ptr %iov_len.i, align 8
+  store i64 %6, ptr %curr_size_remaining_, align 8
+  %cmp9.i = icmp eq i64 %6, 0
   br i1 %cmp9.i, label %do.body.i, label %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit, !llvm.loop !23
 
 _ZN6snappy17SnappyIOVecReader7AdvanceEv.exit:     ; preds = %if.end.i, %if.then.i
-  %6 = phi ptr [ null, %if.then.i ], [ %4, %if.end.i ]
-  %7 = phi i64 [ 0, %if.then.i ], [ %5, %if.end.i ]
+  %7 = phi ptr [ null, %if.then.i ], [ %5, %if.end.i ]
+  %8 = phi i64 [ 0, %if.then.i ], [ %6, %if.end.i ]
   %incdec.ptr.i12 = phi ptr [ %incdec.ptr.i13, %if.then.i ], [ %incdec.ptr.i, %if.end.i ]
-  %cmp = icmp uge i64 %sub, %7
+  %cmp = icmp uge i64 %sub, %8
   %cmp2 = icmp ne i64 %sub, 0
-  %8 = and i1 %cmp2, %cmp
-  br i1 %8, label %while.body, label %while.end, !llvm.loop !25
+  %9 = and i1 %cmp2, %cmp
+  br i1 %9, label %while.body, label %while.end, !llvm.loop !25
 
 while.end:                                        ; preds = %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit, %entry.while.end_crit_edge
-  %9 = phi ptr [ %.pre22, %entry.while.end_crit_edge ], [ %6, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
-  %10 = phi i64 [ %.pre, %entry.while.end_crit_edge ], [ %sub.i, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
+  %10 = phi ptr [ %.pre22, %entry.while.end_crit_edge ], [ %7, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
+  %11 = phi i64 [ %.pre, %entry.while.end_crit_edge ], [ %sub.i, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
   %n.addr.0.lcssa = phi i64 [ %n, %entry.while.end_crit_edge ], [ %sub, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
-  %.lcssa = phi i64 [ %0, %entry.while.end_crit_edge ], [ %7, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
+  %.lcssa = phi i64 [ %0, %entry.while.end_crit_edge ], [ %8, %_ZN6snappy17SnappyIOVecReader7AdvanceEv.exit ]
   %sub5 = sub i64 %.lcssa, %n.addr.0.lcssa
   store i64 %sub5, ptr %curr_size_remaining_, align 8
-  %total_size_remaining_ = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %this, i64 0, i32 4
-  %sub6 = sub i64 %10, %n.addr.0.lcssa
+  %total_size_remaining_ = getelementptr inbounds i8, ptr %this, i64 32
+  %sub6 = sub i64 %11, %n.addr.0.lcssa
   store i64 %sub6, ptr %total_size_remaining_, align 8
-  %curr_pos_ = getelementptr inbounds %"class.snappy::SnappyIOVecReader", ptr %this, i64 0, i32 2
-  %add.ptr = getelementptr inbounds i8, ptr %9, i64 %n.addr.0.lcssa
+  %curr_pos_ = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %10, i64 %n.addr.0.lcssa
   store ptr %add.ptr, ptr %curr_pos_, align 8
   ret void
 }
@@ -2485,9 +2484,9 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
 entry:
   %op = alloca ptr, align 8
   %n = alloca i64, align 8
-  %ip_ = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 1
+  %ip_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ip_, align 8
-  %ip_limit_.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 2
+  %ip_limit_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %ip_limit_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -2495,7 +2494,7 @@ entry:
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %sub.ptr.sub.i, i64 4)
   %idx.neg.i = sub i64 0, %.sroa.speculated.i
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %idx.neg.i
-  %ip_limit_min_maxtaglen_.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 3
+  %ip_limit_min_maxtaglen_.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i, ptr %ip_limit_min_maxtaglen_.i, align 8
   store ptr null, ptr %op, align 8
   %cmp.not = icmp ult ptr %0, %add.ptr.i
@@ -2521,12 +2520,12 @@ if.end6:                                          ; preds = %if.end, %entry
   %ip.0 = phi ptr [ %2, %if.end ], [ %0, %entry ]
   %4 = load i8, ptr %ip.0, align 1
   %conv = zext i8 %4 to i32
-  %output_limit_.i = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %writer, i64 0, i32 5
-  %total_written_.i = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %writer, i64 0, i32 4
-  %curr_iov_remaining_.i = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %writer, i64 0, i32 3
-  %curr_iov_.i.i = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %writer, i64 0, i32 1
-  %curr_iov_output_.i.i = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %writer, i64 0, i32 2
-  %peeked_ = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 4
+  %output_limit_.i = getelementptr inbounds i8, ptr %writer, i64 40
+  %total_written_.i = getelementptr inbounds i8, ptr %writer, i64 32
+  %curr_iov_remaining_.i = getelementptr inbounds i8, ptr %writer, i64 24
+  %curr_iov_.i.i = getelementptr inbounds i8, ptr %writer, i64 8
+  %curr_iov_output_.i.i = getelementptr inbounds i8, ptr %writer, i64 16
+  %peeked_ = getelementptr inbounds i8, ptr %this, i64 32
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end23.backedge, %if.end6
@@ -2636,7 +2635,7 @@ while.body.if.end9_crit_edge.i.i:                 ; preds = %while.body.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
   %18 = load ptr, ptr %curr_iov_.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %struct.iovec, ptr %18, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %writer, align 8
   %cmp3.not.i.i = icmp ult ptr %add.ptr.i.i, %19
   br i1 %cmp3.not.i.i, label %if.end.i.i, label %exit
@@ -2645,7 +2644,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   store ptr %add.ptr.i.i, ptr %curr_iov_.i.i, align 8
   %20 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr %20, ptr %curr_iov_output_.i.i, align 8
-  %iov_len.i.i = getelementptr inbounds %struct.iovec, ptr %18, i64 1, i32 1
+  %iov_len.i.i = getelementptr inbounds i8, ptr %18, i64 24
   %21 = load i64, ptr %iov_len.i.i, align 8
   store i64 %21, ptr %curr_iov_remaining_.i, align 8
   br label %if.end9.i.i
@@ -2674,12 +2673,12 @@ if.end57:                                         ; preds = %if.end9.i.i, %if.en
   %28 = load i32, ptr %peeked_, align 8
   %conv59 = zext i32 %28 to i64
   %vtable = load ptr, ptr %27, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %29 = load ptr, ptr %vfn, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef %conv59) #20
   %30 = load ptr, ptr %this, align 8
   %vtable61 = load ptr, ptr %30, align 8
-  %vfn62 = getelementptr inbounds ptr, ptr %vtable61, i64 3
+  %vfn62 = getelementptr inbounds i8, ptr %vtable61, i64 24
   %31 = load ptr, ptr %vfn62, align 8
   %call63 = call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull %n) #20
   %32 = load i64, ptr %n, align 8
@@ -2734,7 +2733,7 @@ while.body.if.end9_crit_edge.i.i116:              ; preds = %while.body.i.i112
 
 if.then.i.i127:                                   ; preds = %while.body.i.i112
   %36 = load ptr, ptr %curr_iov_.i.i, align 8
-  %add.ptr.i.i128 = getelementptr inbounds %struct.iovec, ptr %36, i64 1
+  %add.ptr.i.i128 = getelementptr inbounds i8, ptr %36, i64 16
   %37 = load ptr, ptr %writer, align 8
   %cmp3.not.i.i129 = icmp ult ptr %add.ptr.i.i128, %37
   br i1 %cmp3.not.i.i129, label %if.end.i.i130, label %exit
@@ -2743,7 +2742,7 @@ if.end.i.i130:                                    ; preds = %if.then.i.i127
   store ptr %add.ptr.i.i128, ptr %curr_iov_.i.i, align 8
   %38 = load ptr, ptr %add.ptr.i.i128, align 8
   store ptr %38, ptr %curr_iov_output_.i.i, align 8
-  %iov_len.i.i131 = getelementptr inbounds %struct.iovec, ptr %36, i64 1, i32 1
+  %iov_len.i.i131 = getelementptr inbounds i8, ptr %36, i64 24
   %39 = load i64, ptr %iov_len.i.i131, align 8
   store i64 %39, ptr %curr_iov_remaining_.i, align 8
   br label %if.end9.i.i118
@@ -3143,24 +3142,24 @@ if.end57:                                         ; preds = %entry, %if.end51.th
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy17SnappyIOVecWriter14AppendFromSelfEmmPPc(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %offset, i64 noundef %len, ptr noundef %0) local_unnamed_addr #2 comdat align 2 {
 entry:
   %sub = add i64 %offset, -1
-  %total_written_ = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %this, i64 0, i32 4
+  %total_written_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %total_written_, align 8
   %cmp.not = icmp ult i64 %sub, %1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %output_limit_ = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %this, i64 0, i32 5
+  %output_limit_ = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i64, ptr %output_limit_, align 8
   %sub3 = sub i64 %2, %1
   %cmp4 = icmp ult i64 %sub3, %len
   br i1 %cmp4, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %if.end
-  %curr_iov_ = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %this, i64 0, i32 1
+  %curr_iov_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %curr_iov_, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %3, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i64, ptr %iov_len, align 8
-  %curr_iov_remaining_ = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %this, i64 0, i32 3
+  %curr_iov_remaining_ = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i64, ptr %curr_iov_remaining_, align 8
   %sub8 = sub i64 %4, %5
   br label %while.body
@@ -3178,8 +3177,8 @@ if.then11:                                        ; preds = %while.body
 
 if.end13:                                         ; preds = %while.body
   %sub14 = sub i64 %offset.addr.042, %from_iov_offset.044
-  %incdec.ptr = getelementptr inbounds %struct.iovec, ptr %from_iov.043, i64 -1
-  %iov_len15 = getelementptr %struct.iovec, ptr %from_iov.043, i64 -1, i32 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %from_iov.043, i64 -16
+  %iov_len15 = getelementptr inbounds i8, ptr %from_iov.043, i64 -8
   %6 = load i64, ptr %iov_len15, align 8
   %cmp9.not = icmp eq i64 %sub14, 0
   br i1 %cmp9.not, label %while.end, label %while.body, !llvm.loop !38
@@ -3187,53 +3186,53 @@ if.end13:                                         ; preds = %while.body
 while.end:                                        ; preds = %if.end13, %if.then11
   %from_iov.039 = phi ptr [ %from_iov.043, %if.then11 ], [ %incdec.ptr, %if.end13 ]
   %from_iov_offset.1 = phi i64 [ %sub12, %if.then11 ], [ %6, %if.end13 ]
-  %cmp17.not58 = icmp eq i64 %len, 0
-  br i1 %cmp17.not58, label %return, label %while.body18.lr.ph.lr.ph
+  %cmp17.not56 = icmp eq i64 %len, 0
+  br i1 %cmp17.not56, label %return, label %while.body18.lr.ph.lr.ph
 
 while.body18.lr.ph.lr.ph:                         ; preds = %while.end
-  %curr_iov_output_ = getelementptr inbounds %"class.snappy::SnappyIOVecWriter", ptr %this, i64 0, i32 2
+  %curr_iov_output_ = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body18.lr.ph.split
 
 while.body18.lr.ph.split:                         ; preds = %if.end64, %while.body18.lr.ph.lr.ph
-  %.pre.i90 = phi i64 [ %5, %while.body18.lr.ph.lr.ph ], [ %.pre.i91, %if.end64 ]
-  %curr_iov_remaining_.promoted67 = phi i64 [ %5, %while.body18.lr.ph.lr.ph ], [ %curr_iov_remaining_.promoted6784, %if.end64 ]
-  %from_iov_offset.2.ph64 = phi i64 [ %from_iov_offset.1, %while.body18.lr.ph.lr.ph ], [ %from_iov_offset.3, %if.end64 ]
-  %from_iov.1.ph62 = phi ptr [ %from_iov.039, %while.body18.lr.ph.lr.ph ], [ %from_iov.2, %if.end64 ]
-  %len.addr.0.ph61 = phi i64 [ %len, %while.body18.lr.ph.lr.ph ], [ %len.addr.1, %if.end64 ]
+  %.pre.i88 = phi i64 [ %5, %while.body18.lr.ph.lr.ph ], [ %.pre.i89, %if.end64 ]
+  %curr_iov_remaining_.promoted65 = phi i64 [ %5, %while.body18.lr.ph.lr.ph ], [ %curr_iov_remaining_.promoted6582, %if.end64 ]
+  %from_iov_offset.2.ph62 = phi i64 [ %from_iov_offset.1, %while.body18.lr.ph.lr.ph ], [ %from_iov_offset.3, %if.end64 ]
+  %from_iov.1.ph60 = phi ptr [ %from_iov.039, %while.body18.lr.ph.lr.ph ], [ %from_iov.2, %if.end64 ]
+  %len.addr.0.ph59 = phi i64 [ %len, %while.body18.lr.ph.lr.ph ], [ %len.addr.1, %if.end64 ]
   %7 = load ptr, ptr %this, align 8
-  %curr_iov_.promoted66 = load ptr, ptr %curr_iov_, align 8
-  %cmp20.not56 = icmp eq ptr %from_iov.1.ph62, %curr_iov_.promoted66
-  br i1 %cmp20.not56, label %if.else, label %if.then21
+  %curr_iov_.promoted64 = load ptr, ptr %curr_iov_, align 8
+  %cmp20.not55 = icmp eq ptr %from_iov.1.ph60, %curr_iov_.promoted64
+  br i1 %cmp20.not55, label %if.else, label %if.then21
 
 if.then21.loopexit:                               ; preds = %if.then34
   store ptr %add.ptr, ptr %curr_iov_, align 8
   %8 = load ptr, ptr %add.ptr, align 8
   store ptr %8, ptr %curr_iov_output_, align 8
-  %iov_len43 = getelementptr inbounds %struct.iovec, ptr %from_iov.1.ph62, i64 1, i32 1
+  %iov_len43 = getelementptr inbounds i8, ptr %from_iov.1.ph60, i64 24
   %9 = load i64, ptr %iov_len43, align 8
   store i64 %9, ptr %curr_iov_remaining_, align 8
   br label %if.then21
 
 if.then21:                                        ; preds = %if.then21.loopexit, %while.body18.lr.ph.split
-  %.pre.i = phi i64 [ %9, %if.then21.loopexit ], [ %.pre.i90, %while.body18.lr.ph.split ]
-  %curr_iov_remaining_.promoted6782 = phi i64 [ %9, %if.then21.loopexit ], [ %curr_iov_remaining_.promoted67, %while.body18.lr.ph.split ]
-  %iov_len22 = getelementptr inbounds %struct.iovec, ptr %from_iov.1.ph62, i64 0, i32 1
+  %.pre.i = phi i64 [ %9, %if.then21.loopexit ], [ %.pre.i88, %while.body18.lr.ph.split ]
+  %curr_iov_remaining_.promoted6580 = phi i64 [ %9, %if.then21.loopexit ], [ %curr_iov_remaining_.promoted65, %while.body18.lr.ph.split ]
+  %iov_len22 = getelementptr inbounds i8, ptr %from_iov.1.ph60, i64 8
   %10 = load i64, ptr %iov_len22, align 8
-  %sub23 = sub i64 %10, %from_iov_offset.2.ph64
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %len.addr.0.ph61, i64 %sub23)
-  %cmp.not10.i = icmp eq i64 %10, %from_iov_offset.2.ph64
+  %sub23 = sub i64 %10, %from_iov_offset.2.ph62
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %len.addr.0.ph59, i64 %sub23)
+  %cmp.not10.i = icmp eq i64 %10, %from_iov_offset.2.ph62
   br i1 %cmp.not10.i, label %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then21
-  %11 = load ptr, ptr %from_iov.1.ph62, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 %from_iov_offset.2.ph64
+  %11 = load ptr, ptr %from_iov.1.ph60, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 %from_iov_offset.2.ph62
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end9.i, %while.body.lr.ph.i
-  %.pre.i87 = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %sub.i, %if.end9.i ]
+  %.pre.i85 = phi i64 [ %.pre.i, %while.body.lr.ph.i ], [ %sub.i, %if.end9.i ]
   %ip.addr.012.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i ], [ %add.ptr15.i, %if.end9.i ]
   %storemerge11.i = phi i64 [ %.sroa.speculated, %while.body.lr.ph.i ], [ %sub16.i, %if.end9.i ]
-  %cmp2.i = icmp eq i64 %.pre.i87, 0
+  %cmp2.i = icmp eq i64 %.pre.i85, 0
   br i1 %cmp2.i, label %if.then.i, label %while.body.if.end9_crit_edge.i
 
 while.body.if.end9_crit_edge.i:                   ; preds = %while.body.i
@@ -3242,7 +3241,7 @@ while.body.if.end9_crit_edge.i:                   ; preds = %while.body.i
 
 if.then.i:                                        ; preds = %while.body.i
   %12 = load ptr, ptr %curr_iov_, align 8
-  %add.ptr.i30 = getelementptr inbounds %struct.iovec, ptr %12, i64 1
+  %add.ptr.i30 = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %this, align 8
   %cmp3.not.i = icmp ult ptr %add.ptr.i30, %13
   br i1 %cmp3.not.i, label %if.end.i, label %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit
@@ -3251,14 +3250,14 @@ if.end.i:                                         ; preds = %if.then.i
   store ptr %add.ptr.i30, ptr %curr_iov_, align 8
   %14 = load ptr, ptr %add.ptr.i30, align 8
   store ptr %14, ptr %curr_iov_output_, align 8
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %12, i64 1, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %12, i64 24
   %15 = load i64, ptr %iov_len.i, align 8
   store i64 %15, ptr %curr_iov_remaining_, align 8
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i, %while.body.if.end9_crit_edge.i
   %16 = phi ptr [ %14, %if.end.i ], [ %.pre15.i, %while.body.if.end9_crit_edge.i ]
-  %17 = phi i64 [ %15, %if.end.i ], [ %.pre.i87, %while.body.if.end9_crit_edge.i ]
+  %17 = phi i64 [ %15, %if.end.i ], [ %.pre.i85, %while.body.if.end9_crit_edge.i ]
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %17, i64 %storemerge11.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %ip.addr.012.i, i64 %.sroa.speculated.i, i1 false)
   %18 = load ptr, ptr %curr_iov_output_, align 8
@@ -3276,30 +3275,30 @@ if.end9.i:                                        ; preds = %if.end.i, %while.bo
   br i1 %cmp.not.i, label %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit, label %while.body.i, !llvm.loop !26
 
 _ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit: ; preds = %if.then.i, %if.end9.i, %if.then21
-  %.pre.i88 = phi i64 [ %.pre.i, %if.then21 ], [ 0, %if.then.i ], [ %sub.i, %if.end9.i ]
-  %curr_iov_remaining_.promoted6781 = phi i64 [ %curr_iov_remaining_.promoted6782, %if.then21 ], [ 0, %if.then.i ], [ %sub.i, %if.end9.i ]
-  %cmp27.not.not = icmp ugt i64 %len.addr.0.ph61, %sub23
-  %spec.select.idx = zext i1 %cmp27.not.not to i64
-  %spec.select = getelementptr inbounds %struct.iovec, ptr %from_iov.1.ph62, i64 %spec.select.idx
-  %spec.select28 = select i1 %cmp27.not.not, i64 0, i64 %from_iov_offset.2.ph64
+  %.pre.i86 = phi i64 [ %.pre.i, %if.then21 ], [ 0, %if.then.i ], [ %sub.i, %if.end9.i ]
+  %curr_iov_remaining_.promoted6579 = phi i64 [ %curr_iov_remaining_.promoted6580, %if.then21 ], [ 0, %if.then.i ], [ %sub.i, %if.end9.i ]
+  %cmp27.not.not = icmp ugt i64 %len.addr.0.ph59, %sub23
+  %spec.select.idx = select i1 %cmp27.not.not, i64 16, i64 0
+  %spec.select = getelementptr inbounds i8, ptr %from_iov.1.ph60, i64 %spec.select.idx
+  %spec.select28 = select i1 %cmp27.not.not, i64 0, i64 %from_iov_offset.2.ph62
   br label %if.end64
 
 if.else:                                          ; preds = %while.body18.lr.ph.split
-  %cmp33 = icmp eq i64 %curr_iov_remaining_.promoted67, 0
+  %cmp33 = icmp eq i64 %curr_iov_remaining_.promoted65, 0
   br i1 %cmp33, label %if.then34, label %if.end45
 
 if.then34:                                        ; preds = %if.else
-  %add.ptr = getelementptr inbounds %struct.iovec, ptr %from_iov.1.ph62, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %from_iov.1.ph60, i64 16
   %cmp36.not = icmp ult ptr %add.ptr, %7
   br i1 %cmp36.not, label %if.then21.loopexit, label %return
 
 if.end45:                                         ; preds = %if.else
-  %spec.select29 = tail call i64 @llvm.umin.i64(i64 %curr_iov_remaining_.promoted67, i64 %len.addr.0.ph61)
-  %21 = load ptr, ptr %from_iov.1.ph62, align 8
-  %add.ptr.i31 = getelementptr inbounds i8, ptr %21, i64 %from_iov_offset.2.ph64
+  %spec.select29 = tail call i64 @llvm.umin.i64(i64 %curr_iov_remaining_.promoted65, i64 %len.addr.0.ph59)
+  %21 = load ptr, ptr %from_iov.1.ph60, align 8
+  %add.ptr.i31 = getelementptr inbounds i8, ptr %21, i64 %from_iov_offset.2.ph62
   %22 = load ptr, ptr %curr_iov_output_, align 8
   %add.ptr52 = getelementptr inbounds i8, ptr %22, i64 %spec.select29
-  %add.ptr55 = getelementptr inbounds i8, ptr %22, i64 %curr_iov_remaining_.promoted67
+  %add.ptr55 = getelementptr inbounds i8, ptr %22, i64 %curr_iov_remaining_.promoted65
   %call56 = tail call fastcc noundef ptr @_ZN6snappy12_GLOBAL__N_115IncrementalCopyEPKcPcS3_S3_(ptr noundef %add.ptr.i31, ptr noundef %22, ptr noundef nonnull %add.ptr52, ptr noundef nonnull %add.ptr55)
   %23 = load ptr, ptr %curr_iov_output_, align 8
   %add.ptr58 = getelementptr inbounds i8, ptr %23, i64 %spec.select29
@@ -3307,19 +3306,19 @@ if.end45:                                         ; preds = %if.else
   %24 = load i64, ptr %curr_iov_remaining_, align 8
   %sub60 = sub i64 %24, %spec.select29
   store i64 %sub60, ptr %curr_iov_remaining_, align 8
-  %add = add i64 %spec.select29, %from_iov_offset.2.ph64
+  %add = add i64 %spec.select29, %from_iov_offset.2.ph62
   %25 = load i64, ptr %total_written_, align 8
   %add62 = add i64 %25, %spec.select29
   store i64 %add62, ptr %total_written_, align 8
   br label %if.end64
 
 if.end64:                                         ; preds = %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit, %if.end45
-  %.pre.i91 = phi i64 [ %sub60, %if.end45 ], [ %.pre.i88, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
-  %curr_iov_remaining_.promoted6784 = phi i64 [ %sub60, %if.end45 ], [ %curr_iov_remaining_.promoted6781, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %.pre.i89 = phi i64 [ %sub60, %if.end45 ], [ %.pre.i86, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %curr_iov_remaining_.promoted6582 = phi i64 [ %sub60, %if.end45 ], [ %curr_iov_remaining_.promoted6579, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
   %spec.select29.pn = phi i64 [ %spec.select29, %if.end45 ], [ %.sroa.speculated, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
-  %from_iov.2 = phi ptr [ %from_iov.1.ph62, %if.end45 ], [ %spec.select, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
+  %from_iov.2 = phi ptr [ %from_iov.1.ph60, %if.end45 ], [ %spec.select, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
   %from_iov_offset.3 = phi i64 [ %add, %if.end45 ], [ %spec.select28, %_ZN6snappy17SnappyIOVecWriter13AppendNoCheckEPKcm.exit ]
-  %len.addr.1 = sub i64 %len.addr.0.ph61, %spec.select29.pn
+  %len.addr.1 = sub i64 %len.addr.0.ph59, %spec.select29.pn
   %cmp17.not = icmp eq i64 %len.addr.1, 0
   br i1 %cmp17.not, label %return, label %while.body18.lr.ph.split, !llvm.loop !39
 
@@ -3511,9 +3510,9 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
 entry:
   %kExtractMasksCombined.i.i = alloca i64, align 8
   %n = alloca i64, align 8
-  %ip_ = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 1
+  %ip_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ip_, align 8
-  %ip_limit_.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 2
+  %ip_limit_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %ip_limit_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -3521,9 +3520,9 @@ entry:
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %sub.ptr.sub.i, i64 4)
   %idx.neg.i = sub i64 0, %.sroa.speculated.i
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %idx.neg.i
-  %ip_limit_min_maxtaglen_.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 3
+  %ip_limit_min_maxtaglen_.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i, ptr %ip_limit_min_maxtaglen_.i, align 8
-  %produced_.i = getelementptr inbounds %"class.snappy::SnappyDecompressionValidator", ptr %writer, i64 0, i32 1
+  %produced_.i = getelementptr inbounds i8, ptr %writer, i64 8
   %2 = load i64, ptr %produced_.i, align 8
   %cmp.not = icmp ult ptr %0, %add.ptr.i
   br i1 %cmp.not, label %if.end6, label %if.then
@@ -3547,7 +3546,7 @@ if.end:                                           ; preds = %if.then
 if.end6:                                          ; preds = %if.end, %entry
   %5 = phi ptr [ %4, %if.end ], [ %1, %entry ]
   %ip.0 = phi ptr [ %3, %if.end ], [ %0, %entry ]
-  %peeked_ = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 4
+  %peeked_ = getelementptr inbounds i8, ptr %this, i64 32
   br label %if.then8
 
 if.then8:                                         ; preds = %if.then8.backedge, %if.end6
@@ -3755,12 +3754,12 @@ if.end55:                                         ; preds = %while.body
   %24 = load i32, ptr %peeked_, align 8
   %conv57 = zext i32 %24 to i64
   %vtable = load ptr, ptr %23, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %25 = load ptr, ptr %vfn, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(8) %23, i64 noundef %conv57) #20
   %26 = load ptr, ptr %this, align 8
   %vtable59 = load ptr, ptr %26, align 8
-  %vfn60 = getelementptr inbounds ptr, ptr %vtable59, i64 3
+  %vfn60 = getelementptr inbounds i8, ptr %vtable59, i64 24
   %27 = load ptr, ptr %vfn60, align 8
   %call61 = call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull %n) #20
   %28 = load i64, ptr %n, align 8
@@ -3893,9 +3892,9 @@ exit:                                             ; preds = %if.else101, %if.the
 define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAllTagsINS_17SnappyArrayWriterEEEvPT_(ptr noundef nonnull align 8 dereferenceable(42) %this, ptr noundef %writer) local_unnamed_addr #2 comdat align 32 {
 entry:
   %n = alloca i64, align 8
-  %ip_ = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 1
+  %ip_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ip_, align 8
-  %ip_limit_.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 2
+  %ip_limit_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %ip_limit_.i, align 8
   %sub.ptr.lhs.cast.i106 = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i107 = ptrtoint ptr %0 to i64
@@ -3903,9 +3902,9 @@ entry:
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %sub.ptr.sub.i108, i64 4)
   %idx.neg.i109 = sub i64 0, %.sroa.speculated.i
   %add.ptr.i110 = getelementptr inbounds i8, ptr %1, i64 %idx.neg.i109
-  %ip_limit_min_maxtaglen_.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 3
+  %ip_limit_min_maxtaglen_.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i110, ptr %ip_limit_min_maxtaglen_.i, align 8
-  %op_.i = getelementptr inbounds %"class.snappy::SnappyArrayWriter", ptr %writer, i64 0, i32 1
+  %op_.i = getelementptr inbounds i8, ptr %writer, i64 8
   %2 = load ptr, ptr %op_.i, align 8
   %cmp.not = icmp ult ptr %0, %add.ptr.i110
   br i1 %cmp.not, label %if.end6, label %if.then
@@ -3930,9 +3929,9 @@ if.end6:                                          ; preds = %if.end, %entry
   %ip.0 = phi ptr [ %3, %if.end ], [ %0, %entry ]
   %5 = load i8, ptr %ip.0, align 1
   %conv = zext i8 %5 to i32
-  %op_limit_min_slop_.i119 = getelementptr inbounds %"class.snappy::SnappyArrayWriter", ptr %writer, i64 0, i32 3
-  %op_limit_.i174 = getelementptr inbounds %"class.snappy::SnappyArrayWriter", ptr %writer, i64 0, i32 2
-  %peeked_ = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 4
+  %op_limit_min_slop_.i119 = getelementptr inbounds i8, ptr %writer, i64 24
+  %op_limit_.i174 = getelementptr inbounds i8, ptr %writer, i64 16
+  %peeked_ = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end6
@@ -4078,12 +4077,12 @@ if.end57:                                         ; preds = %while.body
   %22 = load i32, ptr %peeked_, align 8
   %conv59 = zext i32 %22 to i64
   %vtable = load ptr, ptr %21, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %23 = load ptr, ptr %vfn, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %conv59) #20
   %24 = load ptr, ptr %this, align 8
   %vtable61 = load ptr, ptr %24, align 8
-  %vfn62 = getelementptr inbounds ptr, ptr %vtable61, i64 3
+  %vfn62 = getelementptr inbounds i8, ptr %vtable61, i64 24
   %25 = load ptr, ptr %vfn62, align 8
   %call63 = call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %n) #20
   %26 = load i64, ptr %n, align 8
@@ -4266,9 +4265,9 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
 entry:
   %op = alloca ptr, align 8
   %n = alloca i64, align 8
-  %ip_ = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 1
+  %ip_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ip_, align 8
-  %ip_limit_.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 2
+  %ip_limit_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %ip_limit_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -4276,9 +4275,9 @@ entry:
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %sub.ptr.sub.i, i64 4)
   %idx.neg.i = sub i64 0, %.sroa.speculated.i
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %idx.neg.i
-  %ip_limit_min_maxtaglen_.i = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 3
+  %ip_limit_min_maxtaglen_.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %add.ptr.i, ptr %ip_limit_min_maxtaglen_.i, align 8
-  %op_ptr_.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer, i64 0, i32 5
+  %op_ptr_.i = getelementptr inbounds i8, ptr %writer, i64 80
   %2 = load ptr, ptr %op_ptr_.i, align 8
   store ptr %2, ptr %op, align 8
   %cmp.not = icmp ult ptr %0, %add.ptr.i
@@ -4304,10 +4303,10 @@ if.end6:                                          ; preds = %if.end, %entry
   %ip.0 = phi ptr [ %3, %if.end ], [ %0, %entry ]
   %5 = load i8, ptr %ip.0, align 1
   %conv = zext i8 %5 to i32
-  %op_base_.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer, i64 0, i32 4
-  %op_limit_min_slop_.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer, i64 0, i32 7
-  %op_limit_.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %writer, i64 0, i32 6
-  %peeked_ = getelementptr inbounds %"class.snappy::SnappyDecompressor", ptr %this, i64 0, i32 4
+  %op_base_.i = getelementptr inbounds i8, ptr %writer, i64 72
+  %op_limit_min_slop_.i = getelementptr inbounds i8, ptr %writer, i64 96
+  %op_limit_.i = getelementptr inbounds i8, ptr %writer, i64 88
+  %peeked_ = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.end6
@@ -4465,12 +4464,12 @@ if.end57:                                         ; preds = %_ZN6snappy21SnappyS
   %26 = load i32, ptr %peeked_, align 8
   %conv59 = zext i32 %26 to i64
   %vtable = load ptr, ptr %25, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %27 = load ptr, ptr %vfn, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(8) %25, i64 noundef %conv59) #20
   %28 = load ptr, ptr %this, align 8
   %vtable61 = load ptr, ptr %28, align 8
-  %vfn62 = getelementptr inbounds ptr, ptr %vtable61, i64 3
+  %vfn62 = getelementptr inbounds i8, ptr %vtable61, i64 24
   %29 = load ptr, ptr %vfn62, align 8
   %call63 = call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %n) #20
   %30 = load i64, ptr %n, align 8
@@ -4605,13 +4604,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWri
 entry:
   %c.i = alloca i8, align 1
   %0 = load ptr, ptr %op_p, align 8
-  %op_base_ = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 4
+  %op_base_ = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %op_base_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp ult i64 %sub.ptr.sub, %offset
-  %op_limit_min_slop_ = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 7
+  %op_limit_min_slop_ = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load ptr, ptr %op_limit_min_slop_, align 8
   %cmp2.not = icmp uge ptr %0, %2
   %or.cond.not26 = select i1 %cmp, i1 true, i1 %cmp2.not
@@ -4628,16 +4627,16 @@ if.end:                                           ; preds = %if.then
 
 lor.rhs11:                                        ; preds = %if.end
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %len
-  %op_limit_ = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 6
+  %op_limit_ = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load ptr, ptr %op_limit_, align 8
   %cmp12 = icmp ugt ptr %add.ptr, %3
   br i1 %cmp12, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.end, %lor.rhs11
-  %op_ptr_ = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 5
+  %op_ptr_ = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %0, ptr %op_ptr_, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i)
-  %full_size_.i.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 3
+  %full_size_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load i64, ptr %full_size_.i.i, align 8
   %add.i.i = add i64 %sub.ptr.sub, %4
   %sub.i = add i64 %offset, -1
@@ -4645,7 +4644,7 @@ if.then14:                                        ; preds = %if.end, %lor.rhs11
   br i1 %cmp.not.i, label %if.end.i, label %_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE18SlowAppendFromSelfEmm.exit
 
 if.end.i:                                         ; preds = %if.then14
-  %expected_.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 2
+  %expected_.i = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load i64, ptr %expected_.i, align 8
   %sub2.i = sub i64 %5, %add.i.i
   %cmp3.i = icmp ult i64 %sub2.i, %len
@@ -4657,8 +4656,8 @@ if.end5.i:                                        ; preds = %if.end.i
 
 while.body.lr.ph.i:                               ; preds = %if.end5.i
   %sub6.i = sub i64 %add.i.i, %offset
-  %blocks_.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 1
-  %op_limit_.i.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 6
+  %blocks_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %op_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end12.i, %while.body.lr.ph.i
@@ -4733,9 +4732,9 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE10SlowAppendEPKcm(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %ip, i64 noundef %len) local_unnamed_addr #2 comdat align 2 {
 entry:
-  %op_limit_ = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 6
+  %op_limit_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %op_limit_, align 8
-  %op_ptr_ = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 5
+  %op_ptr_ = getelementptr inbounds i8, ptr %this, i64 80
   %1 = load ptr, ptr %op_ptr_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -4744,13 +4743,13 @@ entry:
   br i1 %cmp27.not, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %op_base_ = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 4
-  %full_size_ = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 3
-  %expected_ = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 2
-  %op_limit_min_slop_ = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 7
-  %blocks_ = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"class.snappy::SnappyScatteredWriter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %op_base_ = getelementptr inbounds i8, ptr %this, i64 72
+  %full_size_ = getelementptr inbounds i8, ptr %this, i64 64
+  %expected_ = getelementptr inbounds i8, ptr %this, i64 56
+  %op_limit_min_slop_ = getelementptr inbounds i8, ptr %this, i64 96
+  %blocks_ = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
@@ -4797,7 +4796,7 @@ if.end:                                           ; preds = %while.body
 if.then.i:                                        ; preds = %if.end
   store ptr %call15, ptr %7, align 8
   %9 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %9, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
 
@@ -4841,7 +4840,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit18.i.i
 
 _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit18.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPcSaIS0_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, label %if.then.i19.i.i
 
@@ -4886,10 +4885,10 @@ entry:
   %1 = icmp slt i32 %size, 0
   %2 = select i1 %1, i64 -1, i64 %0
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %2) #22
-  %blocks_ = getelementptr inbounds %"class.snappy::SnappySinkAllocator", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.snappy::SnappySinkAllocator", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %blocks_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.snappy::SnappySinkAllocator", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -4899,7 +4898,7 @@ if.then.i:                                        ; preds = %entry
   %block.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %0, ptr %block.sroa.4.0..sroa_idx, align 8
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.snappy::SnappySinkAllocator::Datablock", ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE9push_backERKS2_.exit
 
@@ -4944,14 +4943,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_M_allocateEm.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !54
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.snappy::SnappySinkAllocator::Datablock", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"struct.snappy::SnappySinkAllocator::Datablock", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !58
 
 _ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"struct.snappy::SnappySinkAllocator::Datablock", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i20.i.i
 

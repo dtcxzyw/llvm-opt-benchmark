@@ -3,50 +3,8 @@ source_filename = "bench/qemu/original/linux-user_linuxload.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.TaskState = type { i32, i32, i64, i64, i64, i64, i32, ptr, ptr, %struct.emulated_sigtable, [64 x %struct.emulated_sigtable], %struct.__sigset_t, %struct.__sigset_t, i32, i32, %struct.target_sigaltstack, i64 }
-%struct.emulated_sigtable = type { i32, %struct.target_siginfo }
-%struct.target_siginfo = type { i32, i32, i32, %union.anon.6 }
-%union.anon.6 = type { %struct.anon.10, [80 x i8] }
-%struct.anon.10 = type { i32, i32, i32, i64, i64 }
-%struct.target_sigaltstack = type { i64, i32, i64 }
-%struct.image_info = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i8, i64, i64, i64, i16, ptr, i64, i64, i64, ptr, i32 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.linux_binprm = type { [1024 x i8], %struct.ImageSource, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, [8 x i8] }
-%struct.ImageSource = type { ptr, i32, i32 }
 
 @thread_cpu = external thread_local global ptr, align 8
 @.str = private unnamed_addr constant [31 x i8] c"../qemu/linux-user/linuxload.c\00", align 1
@@ -86,7 +44,7 @@ define dso_local i64 @loader_build_argptr(i32 noundef %envc, i32 noundef %argc, 
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
   %add = shl i32 %envc, 3
   %mul = add i32 %add, 8
@@ -96,20 +54,20 @@ entry:
   %mul2 = add i32 %add1, 8
   %conv3 = sext i32 %mul2 to i64
   %sub4 = sub i64 %sub, %conv3
-  %info = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 7
+  %info = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %info, align 8
-  %envp5 = getelementptr inbounds %struct.image_info, ptr %3, i64 0, i32 18
+  %envp5 = getelementptr inbounds i8, ptr %3, i64 144
   store i64 %sub, ptr %envp5, align 8
   %conv6 = sext i32 %envc to i64
   %4 = load ptr, ptr %info, align 8
-  %envc8 = getelementptr inbounds %struct.image_info, ptr %4, i64 0, i32 17
+  %envc8 = getelementptr inbounds i8, ptr %4, i64 136
   store i64 %conv6, ptr %envc8, align 8
   %5 = load ptr, ptr %info, align 8
-  %argv10 = getelementptr inbounds %struct.image_info, ptr %5, i64 0, i32 16
+  %argv10 = getelementptr inbounds i8, ptr %5, i64 128
   store i64 %sub4, ptr %argv10, align 8
   %conv11 = sext i32 %argc to i64
   %6 = load ptr, ptr %info, align 8
-  %argc13 = getelementptr inbounds %struct.image_info, ptr %6, i64 0, i32 15
+  %argc13 = getelementptr inbounds i8, ptr %6, i64 120
   store i64 %conv11, ptr %argc13, align 8
   %tobool.not = icmp eq i32 %push_ptr, 0
   br i1 %tobool.not, label %if.end31, label %if.then
@@ -147,7 +105,7 @@ do.body40:                                        ; preds = %if.end31
 
 if.end44:                                         ; preds = %if.end31, %do.body40
   %7 = load ptr, ptr %info, align 8
-  %arg_strings = getelementptr inbounds %struct.image_info, ptr %7, i64 0, i32 24
+  %arg_strings = getelementptr inbounds i8, ptr %7, i64 184
   store i64 %stringp, ptr %arg_strings, align 8
   %cmp57 = icmp sgt i32 %argc, 0
   br i1 %cmp57, label %while.body, label %while.end
@@ -186,7 +144,7 @@ do.body70:                                        ; preds = %while.end
 
 if.end73:                                         ; preds = %while.end, %do.body70
   %8 = load ptr, ptr %info, align 8
-  %env_strings = getelementptr inbounds %struct.image_info, ptr %8, i64 0, i32 25
+  %env_strings = getelementptr inbounds i8, ptr %8, i64 192
   store i64 %stringp.addr.0.lcssa, ptr %env_strings, align 8
   %cmp7863 = icmp sgt i32 %envc, 0
   br i1 %cmp7863, label %while.body80, label %while.end97
@@ -235,9 +193,9 @@ declare i64 @target_strlen(i64 noundef) local_unnamed_addr #1
 define dso_local i32 @loader_exec(i32 noundef %fdexec, ptr noundef %filename, ptr noundef %argv, ptr noundef %envp, ptr noundef %regs, ptr noundef %infop, ptr noundef %bprm) local_unnamed_addr #0 {
 entry:
   %st.i = alloca %struct.stat, align 8
-  %fd = getelementptr inbounds %struct.linux_binprm, ptr %bprm, i64 0, i32 1, i32 2
+  %fd = getelementptr inbounds i8, ptr %bprm, i64 1036
   store i32 %fdexec, ptr %fd, align 4
-  %filename2 = getelementptr inbounds %struct.linux_binprm, ptr %bprm, i64 0, i32 9
+  %filename2 = getelementptr inbounds i8, ptr %bprm, i64 1080
   store ptr %filename, ptr %filename2, align 8
   %0 = load ptr, ptr %argv, align 8
   %tobool.not3.i = icmp eq ptr %0, null
@@ -246,7 +204,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %i.05.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %entry ]
   %vec.addr.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %argv, %entry ]
-  %incdec.ptr.i = getelementptr ptr, ptr %vec.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %vec.addr.04.i, i64 8
   %inc.i = add i32 %i.05.i, 1
   %1 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
@@ -254,9 +212,9 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 
 count.exit:                                       ; preds = %for.body.i, %entry
   %i.0.lcssa.i = phi i32 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %argc = getelementptr inbounds %struct.linux_binprm, ptr %bprm, i64 0, i32 5
+  %argc = getelementptr inbounds i8, ptr %bprm, i64 1056
   store i32 %i.0.lcssa.i, ptr %argc, align 16
-  %argv3 = getelementptr inbounds %struct.linux_binprm, ptr %bprm, i64 0, i32 7
+  %argv3 = getelementptr inbounds i8, ptr %bprm, i64 1064
   store ptr %argv, ptr %argv3, align 8
   %2 = load ptr, ptr %envp, align 8
   %tobool.not3.i17 = icmp eq ptr %2, null
@@ -265,7 +223,7 @@ count.exit:                                       ; preds = %for.body.i, %entry
 for.body.i18:                                     ; preds = %count.exit, %for.body.i18
   %i.05.i19 = phi i32 [ %inc.i22, %for.body.i18 ], [ 0, %count.exit ]
   %vec.addr.04.i20 = phi ptr [ %incdec.ptr.i21, %for.body.i18 ], [ %envp, %count.exit ]
-  %incdec.ptr.i21 = getelementptr ptr, ptr %vec.addr.04.i20, i64 1
+  %incdec.ptr.i21 = getelementptr i8, ptr %vec.addr.04.i20, i64 8
   %inc.i22 = add i32 %i.05.i19, 1
   %3 = load ptr, ptr %incdec.ptr.i21, align 8
   %tobool.not.i23 = icmp eq ptr %3, null
@@ -273,12 +231,12 @@ for.body.i18:                                     ; preds = %count.exit, %for.bo
 
 count.exit25:                                     ; preds = %for.body.i18, %count.exit
   %i.0.lcssa.i24 = phi i32 [ 0, %count.exit ], [ %inc.i22, %for.body.i18 ]
-  %envc = getelementptr inbounds %struct.linux_binprm, ptr %bprm, i64 0, i32 6
+  %envc = getelementptr inbounds i8, ptr %bprm, i64 1060
   store i32 %i.0.lcssa.i24, ptr %envc, align 4
-  %envp5 = getelementptr inbounds %struct.linux_binprm, ptr %bprm, i64 0, i32 8
+  %envp5 = getelementptr inbounds i8, ptr %bprm, i64 1072
   store ptr %envp, ptr %envp5, align 16
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
-  %src.i = getelementptr inbounds %struct.linux_binprm, ptr %bprm, i64 0, i32 1
+  %src.i = getelementptr inbounds i8, ptr %bprm, i64 1024
   %call.i = call i32 @fstat64(i32 noundef %fdexec, ptr noundef nonnull %st.i) #12
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -290,7 +248,7 @@ if.then.i:                                        ; preds = %count.exit25
   br label %prepare_binprm.exit
 
 if.end.i:                                         ; preds = %count.exit25
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
   %5 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %5, 61440
   %cmp3.i = icmp ne i32 %and.i, 32768
@@ -305,17 +263,17 @@ prepare_binprm.exit.thread:                       ; preds = %if.end.i
 
 if.end8.i:                                        ; preds = %if.end.i
   %call9.i = tail call i32 @geteuid() #12
-  %e_uid.i = getelementptr inbounds %struct.linux_binprm, ptr %bprm, i64 0, i32 3
+  %e_uid.i = getelementptr inbounds i8, ptr %bprm, i64 1048
   store i32 %call9.i, ptr %e_uid.i, align 8
   %call10.i = tail call i32 @getegid() #12
-  %e_gid.i = getelementptr inbounds %struct.linux_binprm, ptr %bprm, i64 0, i32 4
+  %e_gid.i = getelementptr inbounds i8, ptr %bprm, i64 1052
   store i32 %call10.i, ptr %e_gid.i, align 4
   %and11.i = and i32 %5, 2048
   %tobool12.not.i = icmp eq i32 %and11.i, 0
   br i1 %tobool12.not.i, label %if.end15.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end8.i
-  %st_uid.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 4
+  %st_uid.i = getelementptr inbounds i8, ptr %st.i, i64 28
   %6 = load i32, ptr %st_uid.i, align 4
   store i32 %6, ptr %e_uid.i, align 8
   br label %if.end15.i
@@ -326,7 +284,7 @@ if.end15.i:                                       ; preds = %if.then13.i, %if.en
   br i1 %cmp17.i, label %if.then18.i, label %if.end20.i
 
 if.then18.i:                                      ; preds = %if.end15.i
-  %st_gid.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 5
+  %st_gid.i = getelementptr inbounds i8, ptr %st.i, i64 32
   %7 = load i32, ptr %st_gid.i, align 8
   store i32 %7, ptr %e_gid.i, align 4
   br label %if.end20.i
@@ -357,7 +315,7 @@ if.then30.i:                                      ; preds = %if.end27.i
 
 if.end35.i:                                       ; preds = %if.then30.i, %if.end27.i
   store ptr %bprm, ptr %src.i, align 16
-  %cache_size.i = getelementptr inbounds %struct.linux_binprm, ptr %bprm, i64 0, i32 1, i32 1
+  %cache_size.i = getelementptr inbounds i8, ptr %bprm, i64 1032
   store i32 %conv.i, ptr %cache_size.i, align 8
   br label %prepare_binprm.exit
 
@@ -373,19 +331,19 @@ if.end:                                           ; preds = %prepare_binprm.exit
   br i1 %cmp7, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %arrayidx10 = getelementptr [1024 x i8], ptr %bprm, i64 0, i64 1
+  %arrayidx10 = getelementptr i8, ptr %bprm, i64 1
   %10 = load i8, ptr %arrayidx10, align 1
   %cmp12 = icmp eq i8 %10, 69
   br i1 %cmp12, label %land.lhs.true14, label %return
 
 land.lhs.true14:                                  ; preds = %land.lhs.true
-  %arrayidx16 = getelementptr [1024 x i8], ptr %bprm, i64 0, i64 2
+  %arrayidx16 = getelementptr i8, ptr %bprm, i64 2
   %11 = load i8, ptr %arrayidx16, align 2
   %cmp18 = icmp eq i8 %11, 76
   br i1 %cmp18, label %land.lhs.true20, label %return
 
 land.lhs.true20:                                  ; preds = %land.lhs.true14
-  %arrayidx22 = getelementptr [1024 x i8], ptr %bprm, i64 0, i64 3
+  %arrayidx22 = getelementptr i8, ptr %bprm, i64 3
   %12 = load i8, ptr %arrayidx22, align 1
   %cmp24 = icmp eq i8 %12, 70
   br i1 %cmp24, label %if.then26, label %return
@@ -412,7 +370,7 @@ declare void @do_init_thread(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @imgsrc_read(ptr noundef %dst, i64 noundef %offset, i64 noundef %len, ptr nocapture noundef readonly %img, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %add = add i64 %len, %offset
-  %cache_size = getelementptr inbounds %struct.ImageSource, ptr %img, i64 0, i32 1
+  %cache_size = getelementptr inbounds i8, ptr %img, i64 8
   %0 = load i32, ptr %cache_size, align 8
   %conv = zext i32 %0 to i64
   %cmp.not = icmp ugt i64 %add, %conv
@@ -425,7 +383,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds %struct.ImageSource, ptr %img, i64 0, i32 2
+  %fd = getelementptr inbounds i8, ptr %img, i64 12
   %2 = load i32, ptr %fd, align 4
   %cmp2 = icmp slt i32 %2, 0
   br i1 %cmp2, label %if.then4, label %if.end5
@@ -499,7 +457,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds %struct.ImageSource, ptr %src, i64 0, i32 2
+  %fd = getelementptr inbounds i8, ptr %src, i64 12
   %0 = load i32, ptr %fd, align 4
   %cmp1 = icmp sgt i32 %0, -1
   br i1 %cmp1, label %if.then2, label %if.end4
@@ -509,7 +467,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %cache_size = getelementptr inbounds %struct.ImageSource, ptr %src, i64 0, i32 1
+  %cache_size = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %cache_size, align 8
   %conv = zext i32 %1 to i64
   %cmp5 = icmp ugt i64 %conv, %offset

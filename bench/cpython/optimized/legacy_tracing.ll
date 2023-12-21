@@ -7,71 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyVarObject = type { %struct._object, i64 }
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
-%struct._frame = type { %struct._object, ptr, ptr, ptr, i32, i8, i8, i8, [1 x ptr] }
-%struct._ts = type { ptr, ptr, ptr, %struct.anon.3, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i64, i64, %struct._py_trashcan, i64, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, ptr, ptr, ptr, %struct._err_stackitem }
-%struct.anon.3 = type { i32 }
-%struct._py_trashcan = type { i32, ptr }
-%struct._err_stackitem = type { ptr, ptr }
-%struct._is = type { %struct._ceval_state, ptr, i64, i64, i32, ptr, i32, i32, i64, %struct.pythreads, ptr, ptr, i64, %struct._gc_runtime_state, ptr, ptr, %struct._import_state, %struct._gil_runtime_state, ptr, ptr, ptr, i32, %struct.PyConfig, i64, ptr, ptr, ptr, ptr, [8 x ptr], i8, i64, [255 x ptr], %struct._xi_state, ptr, ptr, ptr, %struct._warnings_runtime_state, %struct.atexit_state, %struct._obmalloc_state, ptr, [8 x ptr], [8 x ptr], i8, %struct._py_object_state, %struct._Py_unicode_state, %struct._Py_float_state, %struct._Py_long_state, %struct._dtoa_state, %struct._py_func_state, ptr, %struct._Py_tuple_state, %struct._Py_list_state, %struct._Py_dict_state, %struct._Py_async_gen_state, %struct._Py_context_state, %struct._Py_exc_state, %struct.ast_state, %struct.types_state, %struct.callable_cache, ptr, ptr, i16, i16, i32, %struct._Py_GlobalMonitors, i8, i8, i64, i64, [8 x [17 x ptr]], [8 x ptr], %struct._Py_interp_cached_objects, %struct._Py_interp_static_objects, %struct._PyThreadStateImpl, i64 }
-%struct._ceval_state = type { i64, [7 x i64], i32, ptr, i32, %struct._pending_calls }
-%struct._pending_calls = type { i32, %struct._PyMutex, i32, [32 x %struct._pending_call], i32, i32 }
-%struct._PyMutex = type { i8 }
-%struct._pending_call = type { ptr, ptr, i32 }
-%struct.pythreads = type { i64, ptr, ptr, i64, i64 }
-%struct._gc_runtime_state = type { ptr, i32, i32, i32, [3 x %struct.gc_generation], ptr, %struct.gc_generation, [3 x %struct.gc_generation_stats], i32, ptr, ptr, i64, i64 }
-%struct.gc_generation = type { %struct.PyGC_Head, i32, i32 }
-%struct.PyGC_Head = type { i64, i64 }
-%struct.gc_generation_stats = type { i64, i64, i64 }
-%struct._import_state = type { ptr, ptr, ptr, i32, i32, i32, ptr, %struct.anon, %struct.anon.0 }
-%struct.anon = type { ptr, i64, i32 }
-%struct.anon.0 = type { i32, i64, i32 }
-%struct._gil_runtime_state = type { i64, ptr, i32, i64, %union.pthread_cond_t, %union.pthread_mutex_t, %union.pthread_cond_t, %union.pthread_mutex_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.PyConfig = type { i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, ptr, i32, %struct.PyWideStringList, %struct.PyWideStringList, %struct.PyWideStringList, %struct.PyWideStringList, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, i32, %struct.PyWideStringList, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, i32 }
-%struct.PyWideStringList = type { i64, ptr }
-%struct._xi_state = type { %struct._xidregistry, ptr }
-%struct._xidregistry = type { i32, i32, %struct._PyMutex, ptr }
-%struct._warnings_runtime_state = type { ptr, ptr, ptr, i64 }
-%struct.atexit_state = type { ptr, ptr, ptr, i32, i32 }
-%struct._obmalloc_state = type { %struct._obmalloc_pools, %struct._obmalloc_mgmt, %struct._obmalloc_usage }
-%struct._obmalloc_pools = type { [64 x ptr] }
-%struct._obmalloc_mgmt = type { ptr, i32, ptr, ptr, [65 x ptr], i64, i64, i64, i64 }
-%struct._obmalloc_usage = type { %struct.arena_map_top, i32, i32 }
-%struct.arena_map_top = type { [32768 x ptr] }
-%struct._py_object_state = type { i32 }
-%struct._Py_unicode_state = type { %struct._Py_unicode_fs_codec, ptr, %struct._Py_unicode_ids }
-%struct._Py_unicode_fs_codec = type { ptr, i32, ptr, i32 }
-%struct._Py_unicode_ids = type { i64, ptr }
-%struct._Py_float_state = type { i32, ptr }
-%struct._Py_long_state = type { i32 }
-%struct._dtoa_state = type { [8 x ptr], [8 x ptr], [288 x double], ptr }
-%struct._py_func_state = type { i32, [4096 x ptr] }
-%struct._Py_tuple_state = type { [20 x ptr], [20 x i32] }
-%struct._Py_list_state = type { [80 x ptr], i32 }
-%struct._Py_dict_state = type { i64, i32, [80 x ptr], [80 x ptr], i32, i32, [8 x ptr] }
-%struct._Py_async_gen_state = type { [80 x ptr], i32, [80 x ptr], i32 }
-%struct._Py_context_state = type { ptr, i32 }
-%struct._Py_exc_state = type { ptr, ptr, i32, ptr }
-%struct.ast_state = type { %struct._PyOnceFlag, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._PyOnceFlag = type { i8 }
-%struct.types_state = type { i32, %struct.type_cache, i64, [200 x %struct.static_builtin_state] }
-%struct.type_cache = type { [4096 x %struct.type_cache_entry] }
-%struct.type_cache_entry = type { i32, ptr, ptr }
-%struct.static_builtin_state = type { ptr, i32, i32, ptr, ptr, ptr }
-%struct.callable_cache = type { ptr, ptr, ptr, ptr }
-%struct._Py_GlobalMonitors = type { [15 x i8] }
-%struct._Py_interp_cached_objects = type { ptr, ptr, ptr, ptr, [10 x ptr], ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._Py_interp_static_objects = type { %struct.anon.2 }
-%struct.anon.2 = type { i32, %struct.PyGC_Head, %struct.PyHamtObject, %struct.PyBaseExceptionObject }
-%struct.PyHamtObject = type { %struct._object, ptr, ptr, i64 }
-%struct.PyBaseExceptionObject = type { %struct._object, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct._PyThreadStateImpl = type { %struct._ts }
-%struct._PyLegacyEventHandler = type { %struct._object, ptr, i32 }
 
 @PyType_Type = external global %struct._typeobject, align 8
 @.str = private unnamed_addr constant [25 x i8] c"sys.legacy_event_handler\00", align 1
@@ -92,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden i32 @_PyEval_SetOpcodeTrace(ptr nocapture noundef readonly %frame, i1 noundef zeroext %enable) local_unnamed_addr #0 {
 entry:
   %events = alloca i32, align 4
-  %f_frame = getelementptr inbounds %struct._frame, ptr %frame, i64 0, i32 2
+  %f_frame = getelementptr inbounds i8, ptr %frame, i64 24
   %0 = load ptr, ptr %f_frame, align 8
   %1 = load ptr, ptr %0, align 8
   store i32 0, ptr %events, align 4
@@ -149,9 +84,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %interp = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %2 = load ptr, ptr %interp, align 8
-  %sys_profile_initialized = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 65
+  %sys_profile_initialized = getelementptr inbounds i8, ptr %2, i64 414959
   %3 = load i8, ptr %sys_profile_initialized, align 1
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -169,9 +104,9 @@ if.end8:                                          ; preds = %if.then2
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end8
-  %vectorcall1.i = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %call.i, i64 0, i32 1
+  %vectorcall1.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @sys_profile_throw, ptr %vectorcall1.i, align 8
-  %event.i = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %call.i, i64 0, i32 2
+  %event.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i32 0, ptr %event.i, align 8
   %call2.i = tail call ptr @_PyMonitoring_RegisterCallback(i32 noundef 6, i32 noundef 13, ptr noundef nonnull %call.i) #4
   %cmp.not.i.i = icmp eq ptr %call2.i, null
@@ -237,13 +172,13 @@ if.end28:                                         ; preds = %if.end24
 if.end33:                                         ; preds = %if.end28, %if.end
   %cmp34 = icmp ne ptr %func, null
   %conv = zext i1 %cmp34 to i64
-  %c_profilefunc = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 13
+  %c_profilefunc = getelementptr inbounds i8, ptr %tstate, i64 72
   %9 = load ptr, ptr %c_profilefunc, align 8
   %cmp35 = icmp ne ptr %9, null
   %conv36.neg = sext i1 %cmp35 to i64
   %sub = add nsw i64 %conv36.neg, %conv
   store ptr %func, ptr %c_profilefunc, align 8
-  %c_profileobj = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 15
+  %c_profileobj = getelementptr inbounds i8, ptr %tstate, i64 88
   %10 = load ptr, ptr %c_profileobj, align 8
   %cmp.not.i.i9 = icmp eq ptr %arg, null
   br i1 %cmp.not.i.i9, label %_Py_XNewRef.exit, label %if.then.i.i10
@@ -281,12 +216,12 @@ if.then1.i.i17:                                   ; preds = %if.end.i.i14
 
 Py_XDECREF.exit:                                  ; preds = %_Py_XNewRef.exit, %if.then.i, %if.end.i.i14, %if.then1.i.i17
   %14 = load ptr, ptr %interp, align 8
-  %sys_profiling_threads = getelementptr inbounds %struct._is, ptr %14, i64 0, i32 67
+  %sys_profiling_threads = getelementptr inbounds i8, ptr %14, i64 414968
   %15 = load i64, ptr %sys_profiling_threads, align 8
   %add = add i64 %sub, %15
   store i64 %add, ptr %sys_profiling_threads, align 8
   %16 = load ptr, ptr %interp, align 8
-  %sys_profiling_threads43 = getelementptr inbounds %struct._is, ptr %16, i64 0, i32 67
+  %sys_profiling_threads43 = getelementptr inbounds i8, ptr %16, i64 414968
   %17 = load i64, ptr %sys_profiling_threads43, align 8
   %tobool44.not = icmp eq i64 %17, 0
   %spec.store.select = select i1 %tobool44.not, i32 0, i32 12319
@@ -308,9 +243,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %vectorcall1 = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %call, i64 0, i32 1
+  %vectorcall1 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %vectorcall, ptr %vectorcall1, align 8
-  %event = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %call, i64 0, i32 2
+  %event = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %legacy_event, ptr %event, align 8
   %call2 = tail call ptr @_PyMonitoring_RegisterCallback(i32 noundef %tool, i32 noundef %event1, ptr noundef nonnull %call) #4
   %cmp.not.i = icmp eq ptr %call2, null
@@ -383,7 +318,7 @@ define internal ptr @sys_profile_start(ptr nocapture noundef readonly %self, ptr
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %c_profilefunc.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 13
+  %c_profilefunc.i = getelementptr inbounds i8, ptr %1, i64 72
   %2 = load ptr, ptr %c_profilefunc.i, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %call_profile_func.exit, label %if.end.i
@@ -410,9 +345,9 @@ if.end.i13.i:                                     ; preds = %if.end4.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i13.i, %if.end4.i
   %5 = load ptr, ptr %c_profilefunc.i, align 8
-  %c_profileobj.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 15
+  %c_profileobj.i = getelementptr inbounds i8, ptr %1, i64 88
   %6 = load ptr, ptr %c_profileobj.i, align 8
-  %event.i = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %self, i64 0, i32 2
+  %event.i = getelementptr inbounds i8, ptr %self, i64 24
   %7 = load i32, ptr %event.i, align 8
   %call6.i = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %call1.i, i32 noundef %7, ptr noundef nonnull @_Py_NoneStruct) #4
   %8 = load i64, ptr %call1.i, align 8
@@ -445,7 +380,7 @@ define internal ptr @sys_profile_throw(ptr nocapture noundef readonly %self, ptr
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %c_profilefunc.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 13
+  %c_profilefunc.i = getelementptr inbounds i8, ptr %1, i64 72
   %2 = load ptr, ptr %c_profilefunc.i, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %call_profile_func.exit, label %if.end.i
@@ -472,9 +407,9 @@ if.end.i13.i:                                     ; preds = %if.end4.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i13.i, %if.end4.i
   %5 = load ptr, ptr %c_profilefunc.i, align 8
-  %c_profileobj.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 15
+  %c_profileobj.i = getelementptr inbounds i8, ptr %1, i64 88
   %6 = load ptr, ptr %c_profileobj.i, align 8
-  %event.i = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %self, i64 0, i32 2
+  %event.i = getelementptr inbounds i8, ptr %self, i64 24
   %7 = load i32, ptr %event.i, align 8
   %call6.i = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %call1.i, i32 noundef %7, ptr noundef nonnull @_Py_NoneStruct) #4
   %8 = load i64, ptr %call1.i, align 8
@@ -505,11 +440,11 @@ call_profile_func.exit:                           ; preds = %entry, %if.then3.i,
 ; Function Attrs: nounwind uwtable
 define internal ptr @sys_profile_return(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
 entry:
-  %arrayidx = getelementptr ptr, ptr %args, i64 2
+  %arrayidx = getelementptr i8, ptr %args, i64 16
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %c_profilefunc.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 13
+  %c_profilefunc.i = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load ptr, ptr %c_profilefunc.i, align 8
   %cmp.i = icmp eq ptr %3, null
   br i1 %cmp.i, label %call_profile_func.exit, label %if.end.i
@@ -536,9 +471,9 @@ if.end.i13.i:                                     ; preds = %if.end4.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i13.i, %if.end4.i
   %6 = load ptr, ptr %c_profilefunc.i, align 8
-  %c_profileobj.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 15
+  %c_profileobj.i = getelementptr inbounds i8, ptr %2, i64 88
   %7 = load ptr, ptr %c_profileobj.i, align 8
-  %event.i = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %self, i64 0, i32 2
+  %event.i = getelementptr inbounds i8, ptr %self, i64 24
   %8 = load i32, ptr %event.i, align 8
   %call6.i = tail call i32 %6(ptr noundef %7, ptr noundef nonnull %call1.i, i32 noundef %8, ptr noundef %0) #4
   %9 = load i64, ptr %call1.i, align 8
@@ -571,7 +506,7 @@ define internal ptr @sys_profile_unwind(ptr nocapture noundef readonly %self, pt
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %c_profilefunc.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 13
+  %c_profilefunc.i = getelementptr inbounds i8, ptr %1, i64 72
   %2 = load ptr, ptr %c_profilefunc.i, align 8
   %cmp.i = icmp eq ptr %2, null
   br i1 %cmp.i, label %call_profile_func.exit, label %if.end.i
@@ -598,9 +533,9 @@ if.end.i13.i:                                     ; preds = %if.end4.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i13.i, %if.end4.i
   %5 = load ptr, ptr %c_profilefunc.i, align 8
-  %c_profileobj.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 15
+  %c_profileobj.i = getelementptr inbounds i8, ptr %1, i64 88
   %6 = load ptr, ptr %c_profileobj.i, align 8
-  %event.i = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %self, i64 0, i32 2
+  %event.i = getelementptr inbounds i8, ptr %self, i64 24
   %7 = load i32, ptr %event.i, align 8
   %call6.i = tail call i32 %5(ptr noundef %6, ptr noundef nonnull %call1.i, i32 noundef %7, ptr noundef null) #4
   %8 = load i64, ptr %call1.i, align 8
@@ -631,7 +566,7 @@ call_profile_func.exit:                           ; preds = %entry, %if.then3.i,
 ; Function Attrs: nounwind uwtable
 define internal ptr @sys_profile_call_or_return(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
 entry:
-  %arrayidx = getelementptr ptr, ptr %args, i64 2
+  %arrayidx = getelementptr i8, ptr %args, i64 16
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = getelementptr i8, ptr %0, i64 8
   %.val15 = load ptr, ptr %1, align 8
@@ -646,7 +581,7 @@ PyObject_TypeCheck.exit:                          ; preds = %entry
 if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8
-  %c_profilefunc.i = getelementptr inbounds %struct._ts, ptr %3, i64 0, i32 13
+  %c_profilefunc.i = getelementptr inbounds i8, ptr %3, i64 72
   %4 = load ptr, ptr %c_profilefunc.i, align 8
   %cmp.i16 = icmp eq ptr %4, null
   br i1 %cmp.i16, label %return, label %if.end.i17
@@ -673,9 +608,9 @@ if.end.i13.i:                                     ; preds = %if.end4.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i13.i, %if.end4.i
   %7 = load ptr, ptr %c_profilefunc.i, align 8
-  %c_profileobj.i = getelementptr inbounds %struct._ts, ptr %3, i64 0, i32 15
+  %c_profileobj.i = getelementptr inbounds i8, ptr %3, i64 88
   %8 = load ptr, ptr %c_profileobj.i, align 8
-  %event.i = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %self, i64 0, i32 2
+  %event.i = getelementptr inbounds i8, ptr %self, i64 24
   %9 = load i32, ptr %event.i, align 8
   %call6.i = tail call i32 %7(ptr noundef %8, ptr noundef nonnull %call1.i, i32 noundef %9, ptr noundef nonnull %0) #4
   %10 = load i64, ptr %call1.i, align 8
@@ -704,7 +639,7 @@ if.end:                                           ; preds = %PyObject_TypeCheck.
   br i1 %cmp, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
-  %arrayidx4 = getelementptr ptr, ptr %args, i64 3
+  %arrayidx4 = getelementptr i8, ptr %args, i64 24
   %12 = load ptr, ptr %arrayidx4, align 8
   %cmp5 = icmp eq ptr %12, @_PyInstrumentation_MISSING
   br i1 %cmp5, label %return, label %if.end7
@@ -720,7 +655,7 @@ if.end7:                                          ; preds = %if.then3
 if.end13:                                         ; preds = %if.end7
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %16 = load ptr, ptr %15, align 8
-  %c_profilefunc.i18 = getelementptr inbounds %struct._ts, ptr %16, i64 0, i32 13
+  %c_profilefunc.i18 = getelementptr inbounds i8, ptr %16, i64 72
   %17 = load ptr, ptr %c_profilefunc.i18, align 8
   %cmp.i19 = icmp eq ptr %17, null
   br i1 %cmp.i19, label %call_profile_func.exit41, label %if.end.i20
@@ -747,9 +682,9 @@ if.end.i13.i26:                                   ; preds = %if.end4.i23
 
 Py_INCREF.exit.i27:                               ; preds = %if.end.i13.i26, %if.end4.i23
   %20 = load ptr, ptr %c_profilefunc.i18, align 8
-  %c_profileobj.i28 = getelementptr inbounds %struct._ts, ptr %16, i64 0, i32 15
+  %c_profileobj.i28 = getelementptr inbounds i8, ptr %16, i64 88
   %21 = load ptr, ptr %c_profileobj.i28, align 8
-  %event.i29 = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %self, i64 0, i32 2
+  %event.i29 = getelementptr inbounds i8, ptr %self, i64 24
   %22 = load i32, ptr %event.i29, align 8
   %call6.i30 = tail call i32 %20(ptr noundef %21, ptr noundef nonnull %call1.i21, i32 noundef %22, ptr noundef nonnull %call10) #4
   %23 = load i64, ptr %call1.i21, align 8
@@ -807,9 +742,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %interp = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %2 = load ptr, ptr %interp, align 8
-  %sys_trace_initialized = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 66
+  %sys_trace_initialized = getelementptr inbounds i8, ptr %2, i64 414960
   %3 = load i8, ptr %sys_trace_initialized, align 8
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
@@ -827,9 +762,9 @@ if.end8:                                          ; preds = %if.then2
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end8
-  %vectorcall1.i = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %call.i, i64 0, i32 1
+  %vectorcall1.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr @sys_trace_throw, ptr %vectorcall1.i, align 8
-  %event.i = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %call.i, i64 0, i32 2
+  %event.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i32 0, ptr %event.i, align 8
   %call2.i = tail call ptr @_PyMonitoring_RegisterCallback(i32 noundef 7, i32 noundef 13, ptr noundef nonnull %call.i) #4
   %cmp.not.i.i = icmp eq ptr %call2.i, null
@@ -873,9 +808,9 @@ if.end12:                                         ; preds = %Py_XDECREF.exit.i, 
   br i1 %cmp.i12, label %return, label %if.end.i13
 
 if.end.i13:                                       ; preds = %if.end12
-  %vectorcall1.i14 = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %call.i11, i64 0, i32 1
+  %vectorcall1.i14 = getelementptr inbounds i8, ptr %call.i11, i64 16
   store ptr @sys_trace_return, ptr %vectorcall1.i14, align 8
-  %event.i15 = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %call.i11, i64 0, i32 2
+  %event.i15 = getelementptr inbounds i8, ptr %call.i11, i64 24
   store i32 3, ptr %event.i15, align 8
   %call2.i16 = tail call ptr @_PyMonitoring_RegisterCallback(i32 noundef 7, i32 noundef 2, ptr noundef nonnull %call.i11) #4
   %cmp.not.i.i17 = icmp eq ptr %call2.i16, null
@@ -946,13 +881,13 @@ if.end36:                                         ; preds = %if.end32
 if.end41:                                         ; preds = %if.end36, %if.end
   %cmp42 = icmp ne ptr %func, null
   %conv = zext i1 %cmp42 to i64
-  %c_tracefunc = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 14
+  %c_tracefunc = getelementptr inbounds i8, ptr %tstate, i64 80
   %13 = load ptr, ptr %c_tracefunc, align 8
   %cmp43 = icmp ne ptr %13, null
   %conv44.neg = sext i1 %cmp43 to i64
   %sub = add nsw i64 %conv44.neg, %conv
   store ptr %func, ptr %c_tracefunc, align 8
-  %c_traceobj = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 16
+  %c_traceobj = getelementptr inbounds i8, ptr %tstate, i64 96
   %14 = load ptr, ptr %c_traceobj, align 8
   %cmp.not.i.i32 = icmp eq ptr %arg, null
   br i1 %cmp.not.i.i32, label %_Py_XNewRef.exit, label %if.then.i.i33
@@ -990,26 +925,26 @@ if.then1.i.i40:                                   ; preds = %if.end.i.i37
 
 Py_XDECREF.exit:                                  ; preds = %_Py_XNewRef.exit, %if.then.i, %if.end.i.i37, %if.then1.i.i40
   %18 = load ptr, ptr %interp, align 8
-  %sys_tracing_threads = getelementptr inbounds %struct._is, ptr %18, i64 0, i32 68
+  %sys_tracing_threads = getelementptr inbounds i8, ptr %18, i64 414976
   %19 = load i64, ptr %sys_tracing_threads, align 8
   %add = add i64 %sub, %19
   store i64 %add, ptr %sys_tracing_threads, align 8
   %20 = load ptr, ptr %interp, align 8
-  %sys_tracing_threads51 = getelementptr inbounds %struct._is, ptr %20, i64 0, i32 68
+  %sys_tracing_threads51 = getelementptr inbounds i8, ptr %20, i64 414976
   %21 = load i64, ptr %sys_tracing_threads51, align 8
   %tobool52.not = icmp eq i64 %21, 0
   br i1 %tobool52.not, label %if.end63, label %if.then53
 
 if.then53:                                        ; preds = %Py_XDECREF.exit
   %call54 = tail call ptr @PyEval_GetFrame() #4
-  %f_trace_opcodes = getelementptr inbounds %struct._frame, ptr %call54, i64 0, i32 6
+  %f_trace_opcodes = getelementptr inbounds i8, ptr %call54, i64 45
   %22 = load i8, ptr %f_trace_opcodes, align 1
   %tobool55.not = icmp eq i8 %22, 0
   br i1 %tobool55.not, label %if.end63, label %if.then56
 
 if.then56:                                        ; preds = %if.then53
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %events.i)
-  %f_frame.i = getelementptr inbounds %struct._frame, ptr %call54, i64 0, i32 2
+  %f_frame.i = getelementptr inbounds i8, ptr %call54, i64 24
   %23 = load ptr, ptr %f_frame.i, align 8
   %24 = load ptr, ptr %23, align 8
   store i32 0, ptr %events.i, align 4
@@ -1066,7 +1001,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @sys_trace_return(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
 entry:
-  %arrayidx = getelementptr ptr, ptr %args, i64 2
+  %arrayidx = getelementptr i8, ptr %args, i64 16
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call fastcc ptr @call_trace_func(ptr noundef %self, ptr noundef %0)
   ret ptr %call
@@ -1075,7 +1010,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @sys_trace_yield(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
 entry:
-  %arrayidx = getelementptr ptr, ptr %args, i64 2
+  %arrayidx = getelementptr i8, ptr %args, i64 16
   %0 = load ptr, ptr %arrayidx, align 8
   %call = tail call fastcc ptr @call_trace_func(ptr noundef %self, ptr noundef %0)
   ret ptr %call
@@ -1084,7 +1019,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @sys_trace_exception_func(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 %nargsf, ptr nocapture readnone %kwnames) #0 {
 entry:
-  %arrayidx = getelementptr ptr, ptr %args, i64 2
+  %arrayidx = getelementptr i8, ptr %args, i64 16
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %1, align 8
@@ -1151,13 +1086,13 @@ define internal ptr @sys_trace_line_func(ptr nocapture noundef readonly %self, p
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %c_tracefunc = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 14
+  %c_tracefunc = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load ptr, ptr %c_tracefunc, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr ptr, ptr %args, i64 1
+  %arrayidx = getelementptr i8, ptr %args, i64 8
   %3 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call i32 @PyLong_AsInt(ptr noundef %3) #4
   %call2 = tail call ptr @PyEval_GetFrame() #4
@@ -1170,7 +1105,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %f_trace_lines.i = getelementptr inbounds %struct._frame, ptr %call2, i64 0, i32 5
+  %f_trace_lines.i = getelementptr inbounds i8, ptr %call2, i64 44
   %5 = load i8, ptr %f_trace_lines.i, align 4
   %tobool.not.i = icmp eq i8 %5, 0
   %cmp.i = icmp slt i32 %call1, 0
@@ -1188,12 +1123,12 @@ if.end.i11.i:                                     ; preds = %if.end2.i
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i11.i, %if.end2.i
-  %f_lineno.i = getelementptr inbounds %struct._frame, ptr %call2, i64 0, i32 4
+  %f_lineno.i = getelementptr inbounds i8, ptr %call2, i64 40
   store i32 %call1, ptr %f_lineno.i, align 8
   %7 = load ptr, ptr %c_tracefunc, align 8
-  %c_traceobj.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 16
+  %c_traceobj.i = getelementptr inbounds i8, ptr %1, i64 96
   %8 = load ptr, ptr %c_traceobj.i, align 8
-  %event.i = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %self, i64 0, i32 2
+  %event.i = getelementptr inbounds i8, ptr %self, i64 24
   %9 = load i32, ptr %event.i, align 8
   %call.i = tail call i32 %7(ptr noundef %8, ptr noundef nonnull %call2, i32 noundef %9, ptr noundef nonnull @_Py_NoneStruct) #4
   store i32 0, ptr %f_lineno.i, align 8
@@ -1234,17 +1169,17 @@ define internal ptr @sys_trace_jump_func(ptr nocapture noundef readonly %self, p
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %c_tracefunc = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 14
+  %c_tracefunc = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load ptr, ptr %c_tracefunc, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr ptr, ptr %args, i64 1
+  %arrayidx = getelementptr i8, ptr %args, i64 8
   %3 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call i32 @PyLong_AsInt(ptr noundef %3) #4
   %conv2 = ashr i32 %call1, 1
-  %arrayidx3 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx3 = getelementptr i8, ptr %args, i64 16
   %4 = load ptr, ptr %arrayidx3, align 8
   %call4 = tail call i32 @PyLong_AsInt(ptr noundef %4) #4
   %conv7 = ashr i32 %call4, 1
@@ -1269,7 +1204,7 @@ if.then22:                                        ; preds = %if.end18
   br label %return
 
 if.end23:                                         ; preds = %if.end18
-  %f_trace_lines = getelementptr inbounds %struct._frame, ptr %call19, i64 0, i32 5
+  %f_trace_lines = getelementptr inbounds i8, ptr %call19, i64 44
   %7 = load i8, ptr %f_trace_lines, align 4
   %tobool.not = icmp eq i8 %7, 0
   %cmp.i = icmp slt i32 %call13, 0
@@ -1287,12 +1222,12 @@ if.end.i11.i:                                     ; preds = %if.end2.i
   br label %Py_INCREF.exit.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i11.i, %if.end2.i
-  %f_lineno.i = getelementptr inbounds %struct._frame, ptr %call19, i64 0, i32 4
+  %f_lineno.i = getelementptr inbounds i8, ptr %call19, i64 40
   store i32 %call13, ptr %f_lineno.i, align 8
   %9 = load ptr, ptr %c_tracefunc, align 8
-  %c_traceobj.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 16
+  %c_traceobj.i = getelementptr inbounds i8, ptr %1, i64 96
   %10 = load ptr, ptr %c_traceobj.i, align 8
-  %event.i = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %self, i64 0, i32 2
+  %event.i = getelementptr inbounds i8, ptr %self, i64 24
   %11 = load i32, ptr %event.i, align 8
   %call.i = tail call i32 %9(ptr noundef %10, ptr noundef nonnull %call19, i32 noundef %11, ptr noundef nonnull @_Py_NoneStruct) #4
   store i32 0, ptr %f_lineno.i, align 8
@@ -1337,20 +1272,20 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %c_tracefunc = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 14
+  %c_tracefunc = getelementptr inbounds i8, ptr %2, i64 80
   %3 = load ptr, ptr %c_tracefunc, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.then3, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %f_trace_opcodes = getelementptr inbounds %struct._frame, ptr %call, i64 0, i32 6
+  %f_trace_opcodes = getelementptr inbounds i8, ptr %call, i64 45
   %4 = load i8, ptr %f_trace_opcodes, align 1
   %tobool2.not = icmp eq i8 %4, 0
   br i1 %tobool2.not, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %lor.lhs.false, %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %events.i)
-  %f_frame.i = getelementptr inbounds %struct._frame, ptr %call, i64 0, i32 2
+  %f_frame.i = getelementptr inbounds i8, ptr %call, i64 24
   %5 = load ptr, ptr %f_frame.i, align 8
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %events.i, align 4
@@ -1397,12 +1332,12 @@ if.end.i18:                                       ; preds = %if.end8
 
 Py_INCREF.exit:                                   ; preds = %if.end8, %if.end.i18
   %10 = phi ptr [ %3, %if.end8 ], [ %.pre, %if.end.i18 ]
-  %c_traceobj = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 16
+  %c_traceobj = getelementptr inbounds i8, ptr %2, i64 96
   %11 = load ptr, ptr %c_traceobj, align 8
-  %event = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %self, i64 0, i32 2
+  %event = getelementptr inbounds i8, ptr %self, i64 24
   %12 = load i32, ptr %event, align 8
   %call10 = tail call i32 %10(ptr noundef %11, ptr noundef nonnull %call, i32 noundef %12, ptr noundef nonnull @_Py_NoneStruct) #4
-  %f_lineno = getelementptr inbounds %struct._frame, ptr %call, i64 0, i32 4
+  %f_lineno = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %f_lineno, align 8
   %13 = load i64, ptr %call, align 8
   %14 = and i64 %13, 2147483648
@@ -1450,7 +1385,7 @@ entry:
   %events.i = alloca i32, align 4
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %c_tracefunc = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 14
+  %c_tracefunc = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load ptr, ptr %c_tracefunc, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %if.end
@@ -1466,14 +1401,14 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %f_trace_opcodes = getelementptr inbounds %struct._frame, ptr %call1, i64 0, i32 6
+  %f_trace_opcodes = getelementptr inbounds i8, ptr %call1, i64 45
   %4 = load i8, ptr %f_trace_opcodes, align 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %if.end10, label %if.then5
 
 if.then5:                                         ; preds = %if.end4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %events.i)
-  %f_frame.i = getelementptr inbounds %struct._frame, ptr %call1, i64 0, i32 2
+  %f_frame.i = getelementptr inbounds i8, ptr %call1, i64 24
   %5 = load ptr, ptr %f_frame.i, align 8
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %events.i, align 4
@@ -1515,9 +1450,9 @@ if.end.i20:                                       ; preds = %if.end10
 
 Py_INCREF.exit:                                   ; preds = %if.end10, %if.end.i20
   %9 = load ptr, ptr %c_tracefunc, align 8
-  %c_traceobj = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 16
+  %c_traceobj = getelementptr inbounds i8, ptr %1, i64 96
   %10 = load ptr, ptr %c_traceobj, align 8
-  %event = getelementptr inbounds %struct._PyLegacyEventHandler, ptr %self, i64 0, i32 2
+  %event = getelementptr inbounds i8, ptr %self, i64 24
   %11 = load i32, ptr %event, align 8
   %call12 = call i32 %9(ptr noundef %10, ptr noundef nonnull %call1, i32 noundef %11, ptr noundef %arg) #4
   %12 = load i64, ptr %call1, align 8

@@ -3,13 +3,10 @@ source_filename = "bench/icu/original/regextxt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.icu_75::URegexUTextUnescapeCharContext" = type { ptr, i32 }
-%struct.UText = type { i32, i32, i32, i32, i64, i32, i32, i64, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i64, i32, i32 }
-
 ; Function Attrs: mustprogress uwtable
 define zeroext i16 @uregex_utext_unescape_charAt_75(i32 noundef %offset, ptr nocapture noundef %ct) local_unnamed_addr #0 {
 entry:
-  %lastOffset = getelementptr inbounds %"struct.icu_75::URegexUTextUnescapeCharContext", ptr %ct, i64 0, i32 1
+  %lastOffset = getelementptr inbounds i8, ptr %ct, i64 8
   %0 = load i32, ptr %lastOffset, align 8
   %add = add nsw i32 %0, 1
   %cmp = icmp eq i32 %add, %offset
@@ -17,15 +14,15 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %ct, align 8
-  %chunkOffset = getelementptr inbounds %struct.UText, ptr %1, i64 0, i32 8
+  %chunkOffset = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load i32, ptr %chunkOffset, align 8
-  %chunkLength = getelementptr inbounds %struct.UText, ptr %1, i64 0, i32 9
+  %chunkLength = getelementptr inbounds i8, ptr %1, i64 44
   %3 = load i32, ptr %chunkLength, align 4
   %cmp2 = icmp slt i32 %2, %3
   br i1 %cmp2, label %land.lhs.true, label %cond.false
 
 land.lhs.true:                                    ; preds = %if.then
-  %chunkContents = getelementptr inbounds %struct.UText, ptr %1, i64 0, i32 10
+  %chunkContents = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %chunkContents, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
@@ -57,13 +54,13 @@ if.else:                                          ; preds = %entry
   br i1 %cmp18, label %if.then19, label %if.else73
 
 if.then19:                                        ; preds = %if.else
-  %chunkOffset21 = getelementptr inbounds %struct.UText, ptr %8, i64 0, i32 8
+  %chunkOffset21 = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load i32, ptr %chunkOffset21, align 8
   %cmp22 = icmp sgt i32 %9, 0
   br i1 %cmp22, label %land.lhs.true23, label %cond.false40
 
 land.lhs.true23:                                  ; preds = %if.then19
-  %chunkContents25 = getelementptr inbounds %struct.UText, ptr %8, i64 0, i32 10
+  %chunkContents25 = getelementptr inbounds i8, ptr %8, i64 48
   %10 = load ptr, ptr %chunkContents25, align 8
   %sub = add nsw i32 %9, -1
   %idxprom28 = zext nneg i32 %sub to i64
@@ -85,15 +82,15 @@ cond.false40:                                     ; preds = %land.lhs.true23, %i
 cond.end43:                                       ; preds = %cond.false40, %cond.true32
   %cond44 = phi i32 [ %conv39, %cond.true32 ], [ %call42, %cond.false40 ]
   %13 = load ptr, ptr %ct, align 8
-  %chunkOffset46 = getelementptr inbounds %struct.UText, ptr %13, i64 0, i32 8
+  %chunkOffset46 = getelementptr inbounds i8, ptr %13, i64 40
   %14 = load i32, ptr %chunkOffset46, align 8
-  %chunkLength48 = getelementptr inbounds %struct.UText, ptr %13, i64 0, i32 9
+  %chunkLength48 = getelementptr inbounds i8, ptr %13, i64 44
   %15 = load i32, ptr %chunkLength48, align 4
   %cmp49 = icmp slt i32 %14, %15
   br i1 %cmp49, label %land.lhs.true50, label %cond.false68
 
 land.lhs.true50:                                  ; preds = %cond.end43
-  %chunkContents52 = getelementptr inbounds %struct.UText, ptr %13, i64 0, i32 10
+  %chunkContents52 = getelementptr inbounds i8, ptr %13, i64 48
   %16 = load ptr, ptr %chunkContents52, align 8
   %idxprom55 = sext i32 %14 to i64
   %arrayidx56 = getelementptr inbounds i16, ptr %16, i64 %idxprom55
@@ -115,15 +112,15 @@ if.else73:                                        ; preds = %if.else
   %sub77 = add i32 %18, %offset
   %call78 = tail call signext i8 @utext_moveIndex32_75(ptr noundef %8, i32 noundef %sub77)
   %19 = load ptr, ptr %ct, align 8
-  %chunkOffset80 = getelementptr inbounds %struct.UText, ptr %19, i64 0, i32 8
+  %chunkOffset80 = getelementptr inbounds i8, ptr %19, i64 40
   %20 = load i32, ptr %chunkOffset80, align 8
-  %chunkLength82 = getelementptr inbounds %struct.UText, ptr %19, i64 0, i32 9
+  %chunkLength82 = getelementptr inbounds i8, ptr %19, i64 44
   %21 = load i32, ptr %chunkLength82, align 4
   %cmp83 = icmp slt i32 %20, %21
   br i1 %cmp83, label %land.lhs.true84, label %cond.false102
 
 land.lhs.true84:                                  ; preds = %if.else73
-  %chunkContents86 = getelementptr inbounds %struct.UText, ptr %19, i64 0, i32 10
+  %chunkContents86 = getelementptr inbounds i8, ptr %19, i64 48
   %22 = load ptr, ptr %chunkContents86, align 8
   %idxprom89 = sext i32 %20 to i64
   %arrayidx90 = getelementptr inbounds i16, ptr %22, i64 %idxprom89

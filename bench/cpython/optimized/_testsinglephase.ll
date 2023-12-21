@@ -166,21 +166,21 @@ if.end.i22:                                       ; preds = %if.then5
   br i1 %cmp.i24, label %return.sink.split, label %return
 
 if.end7:                                          ; preds = %if.end
-  %error.i = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 1
+  %error.i = getelementptr inbounds i8, ptr %state, i64 8
   %2 = load ptr, ptr %error.i, align 8
   %call.i = tail call i32 @PyModule_AddObjectRef(ptr noundef nonnull %call, ptr noundef nonnull @.str.14, ptr noundef %2) #4
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.end.i13, label %if.then15
 
 if.end.i13:                                       ; preds = %if.end7
-  %int_const.i = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 2
+  %int_const.i = getelementptr inbounds i8, ptr %state, i64 16
   %3 = load ptr, ptr %int_const.i, align 8
   %call1.i = tail call i32 @PyModule_AddObjectRef(ptr noundef nonnull %call, ptr noundef nonnull @.str.15, ptr noundef %3) #4
   %cmp2.not.i = icmp eq i32 %call1.i, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %if.then15
 
 if.end4.i:                                        ; preds = %if.end.i13
-  %str_const.i = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 3
+  %str_const.i = getelementptr inbounds i8, ptr %state, i64 24
   %4 = load ptr, ptr %str_const.i, align 8
   %call5.i = tail call i32 @PyModule_AddObjectRef(ptr noundef nonnull %call, ptr noundef nonnull @.str.16, ptr noundef %4) #4
   %cmp6.not.i = icmp eq i32 %call5.i, 0
@@ -232,7 +232,7 @@ if.then1.i30.i:                                   ; preds = %if.end.i27.i
   br label %do.body1.i
 
 do.body1.i:                                       ; preds = %if.then1.i30.i, %if.end.i27.i, %if.then.i, %finally
-  %int_const.i16 = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 2
+  %int_const.i16 = getelementptr inbounds i8, ptr %state, i64 16
   %10 = load ptr, ptr %int_const.i16, align 8
   %cmp4.not.i = icmp eq ptr %10, null
   br i1 %cmp4.not.i, label %do.body8.i, label %if.then5.i
@@ -254,7 +254,7 @@ if.then1.i21.i:                                   ; preds = %if.end.i18.i
   br label %do.body8.i
 
 do.body8.i:                                       ; preds = %if.then1.i21.i, %if.end.i18.i, %if.then5.i, %do.body1.i
-  %str_const.i17 = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 3
+  %str_const.i17 = getelementptr inbounds i8, ptr %state, i64 24
   %13 = load ptr, ptr %str_const.i17, align 8
   %cmp11.not.i = icmp eq ptr %13, null
   br i1 %cmp11.not.i, label %return, label %if.then12.i
@@ -319,21 +319,21 @@ if.end:                                           ; preds = %do.cond.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %prev.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t.i)
   %call1 = call ptr @PyErr_NewException(ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef null) #4
-  %error = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %state, i64 8
   store ptr %call1, ptr %error, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %error16, label %if.end5
 
 if.end5:                                          ; preds = %if.end
   %call6 = call ptr @PyLong_FromLong(i64 noundef 1969) #4
-  %int_const = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 2
+  %int_const = getelementptr inbounds i8, ptr %state, i64 16
   store ptr %call6, ptr %int_const, align 8
   %cmp8 = icmp eq ptr %call6, null
   br i1 %cmp8, label %error16, label %if.end10
 
 if.end10:                                         ; preds = %if.end5
   %call11 = call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.13) #4
-  %str_const = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 3
+  %str_const = getelementptr inbounds i8, ptr %state, i64 24
   store ptr %call11, ptr %str_const, align 8
   %cmp13 = icmp eq ptr %call11, null
   br i1 %cmp13, label %error16, label %return
@@ -350,21 +350,21 @@ return:                                           ; preds = %if.end10, %error16
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @init_module(ptr noundef %module, ptr nocapture noundef readonly %state) unnamed_addr #0 {
 entry:
-  %error = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %state, i64 8
   %0 = load ptr, ptr %error, align 8
   %call = tail call i32 @PyModule_AddObjectRef(ptr noundef %module, ptr noundef nonnull @.str.14, ptr noundef %0) #4
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %int_const = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 2
+  %int_const = getelementptr inbounds i8, ptr %state, i64 16
   %1 = load ptr, ptr %int_const, align 8
   %call1 = tail call i32 @PyModule_AddObjectRef(ptr noundef %module, ptr noundef nonnull @.str.15, ptr noundef %1) #4
   %cmp2.not = icmp eq i32 %call1, 0
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %str_const = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 3
+  %str_const = getelementptr inbounds i8, ptr %state, i64 24
   %2 = load ptr, ptr %str_const, align 8
   %call5 = tail call i32 @PyModule_AddObjectRef(ptr noundef %module, ptr noundef nonnull @.str.16, ptr noundef %2) #4
   %cmp6.not = icmp eq i32 %call5, 0
@@ -387,7 +387,7 @@ return:                                           ; preds = %if.end8, %if.end4, 
 define internal fastcc void @clear_state(ptr nocapture noundef %state) unnamed_addr #0 {
 entry:
   store i64 0, ptr %state, align 8
-  %error = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %state, i64 8
   %0 = load ptr, ptr %error, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.body1, label %if.then
@@ -410,7 +410,7 @@ if.then1.i30:                                     ; preds = %if.end.i27
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i27, %if.then1.i30, %if.then, %entry
-  %int_const = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 2
+  %int_const = getelementptr inbounds i8, ptr %state, i64 16
   %3 = load ptr, ptr %int_const, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -433,7 +433,7 @@ if.then1.i21:                                     ; preds = %if.end.i18
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i18, %if.then1.i21, %if.then5, %do.body1
-  %str_const = getelementptr inbounds %struct.module_state, ptr %state, i64 0, i32 3
+  %str_const = getelementptr inbounds i8, ptr %state, i64 24
   %6 = load ptr, ptr %str_const, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %do.end14, label %if.then12
@@ -468,7 +468,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyModule_GetDef(ptr noundef nonnull %call) #4
-  %m_size.i = getelementptr inbounds %struct.PyModuleDef, ptr %call.i, i64 0, i32 3
+  %m_size.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load i64, ptr %m_size.i, align 8
   switch i64 %0, label %if.else4.i [
     i64 -1, label %get_module_state.exit
@@ -575,7 +575,7 @@ return:                                           ; preds = %entry, %if.end
 define internal ptr @common_state_initialized(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetDef(ptr noundef %self) #4
-  %m_size.i = getelementptr inbounds %struct.PyModuleDef, ptr %call.i, i64 0, i32 3
+  %m_size.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load i64, ptr %m_size.i, align 8
   switch i64 %0, label %get_module_state.exit [
     i64 -1, label %if.end
@@ -644,7 +644,7 @@ declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 define internal nonnull ptr @basic__clear_module_state(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetDef(ptr noundef %self) #4
-  %m_size.i = getelementptr inbounds %struct.PyModuleDef, ptr %call.i, i64 0, i32 3
+  %m_size.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load i64, ptr %m_size.i, align 8
   switch i64 %0, label %get_module_state.exit [
     i64 -1, label %if.then

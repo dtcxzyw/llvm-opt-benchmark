@@ -8,9 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct.nlmsghdr = type { i32, i16, i16, i32, i32 }
-%struct.rtattr = type { i16, i16 }
-%struct.nlattr = type { i16, i16 }
 
 @target_packet_trans = dso_local local_unnamed_addr global %struct.TargetFdTrans { ptr null, ptr null, ptr @packet_target_to_host_sockaddr }, align 8
 @target_netlink_route_trans = dso_local local_unnamed_addr global %struct.TargetFdTrans { ptr @netlink_route_host_to_target, ptr @netlink_route_target_to_host, ptr null }, align 8
@@ -85,7 +82,7 @@ while.body.i.i:                                   ; preds = %entry, %sw.epilog.i
   br i1 %or.cond.i.i, label %host_to_target_nlmsg_route.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %nlmsg_type.i.i = getelementptr inbounds %struct.nlmsghdr, ptr %nlh.addr.021.i.i, i64 0, i32 1
+  %nlmsg_type.i.i = getelementptr inbounds i8, ptr %nlh.addr.021.i.i, i64 4
   %1 = load i16, ptr %nlmsg_type.i.i, align 4
   switch i16 %1, label %host_to_target_nlmsg_route.exit.loopexit [
     i16 3, label %host_to_target_nlmsg_route.exit
@@ -127,7 +124,7 @@ while.body.i.i.i.i:                               ; preds = %if.end15.i.i.i.i, %
   br i1 %or.cond.i.i.i.i, label %sw.epilog.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %while.body.i.i.i.i
-  %rta_type.i.i.i.i = getelementptr inbounds %struct.rtattr, ptr %rtattr.addr.017.i.i.i.i, i64 0, i32 1
+  %rta_type.i.i.i.i = getelementptr inbounds i8, ptr %rtattr.addr.017.i.i.i.i, i64 2
   %3 = load i16, ptr %rta_type.i.i.i.i, align 2
   switch i16 %3, label %do.body.i.i.i.i [
     i16 1, label %if.end15.i.i.i.i
@@ -193,7 +190,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end15.i.i.i.i.i,
   br i1 %or.cond.i.i.i.i.i, label %if.end15.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i.i
-  %nla_type.i.i.i.i.i = getelementptr inbounds %struct.nlattr, ptr %nlattr.addr.017.i.i.i.i.i, i64 0, i32 1
+  %nla_type.i.i.i.i.i = getelementptr inbounds i8, ptr %nlattr.addr.017.i.i.i.i.i, i64 2
   %5 = load i16, ptr %nla_type.i.i.i.i.i, align 2
   switch i16 %5, label %do.body62.i.i.i.i.i [
     i16 1, label %sw.bb.i.i.i.i.i
@@ -240,7 +237,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.end15.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i.i, label %if.end15.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.i.i
-  %nla_type.i.i.i.i.i.i = getelementptr inbounds %struct.nlattr, ptr %nlattr.addr.017.i.i.i.i.i.i, i64 0, i32 1
+  %nla_type.i.i.i.i.i.i = getelementptr inbounds i8, ptr %nlattr.addr.017.i.i.i.i.i.i, i64 2
   %7 = load i16, ptr %nla_type.i.i.i.i.i.i, align 2
   switch i16 %7, label %do.body.i.i.i.i.i.i [
     i16 21, label %if.end15.i.i.i.i.i.i
@@ -336,7 +333,7 @@ while.body.i25.i.i.i.i.i:                         ; preds = %if.end15.i35.i.i.i.
   br i1 %or.cond.i31.i.i.i.i.i, label %if.end15.i.i.i.i.i, label %if.end.i32.i.i.i.i.i
 
 if.end.i32.i.i.i.i.i:                             ; preds = %while.body.i25.i.i.i.i.i
-  %nla_type.i73.i.i.i.i.i = getelementptr inbounds %struct.nlattr, ptr %nlattr.addr.017.i26.i.i.i.i.i, i64 0, i32 1
+  %nla_type.i73.i.i.i.i.i = getelementptr inbounds i8, ptr %nlattr.addr.017.i26.i.i.i.i.i, i64 2
   %10 = load i16, ptr %nla_type.i73.i.i.i.i.i, align 2
   %.off.i.i.i.i.i.i = add i16 %10, -1
   %switch.i.i.i.i.i.i = icmp ult i16 %.off.i.i.i.i.i.i, 9
@@ -399,7 +396,7 @@ while.body.i49.i.i.i.i.i:                         ; preds = %if.end15.i59.i.i.i.
   br i1 %or.cond.i55.i.i.i.i.i, label %if.end15.i.i.i.i.i, label %if.end.i56.i.i.i.i.i
 
 if.end.i56.i.i.i.i.i:                             ; preds = %while.body.i49.i.i.i.i.i
-  %nla_type.i78.i.i.i.i.i = getelementptr inbounds %struct.nlattr, ptr %nlattr.addr.017.i50.i.i.i.i.i, i64 0, i32 1
+  %nla_type.i78.i.i.i.i.i = getelementptr inbounds i8, ptr %nlattr.addr.017.i50.i.i.i.i.i, i64 2
   %14 = load i16, ptr %nla_type.i78.i.i.i.i.i, align 2
   switch i16 %14, label %do.body.i79.i.i.i.i.i [
     i16 1, label %if.end15.i59.i.i.i.i.i
@@ -517,7 +514,7 @@ while.body.i114.i.i.i.i:                          ; preds = %if.end15.i124.i.i.i
   br i1 %or.cond.i120.i.i.i.i, label %if.end15.i.i.i.i, label %if.end.i121.i.i.i.i
 
 if.end.i121.i.i.i.i:                              ; preds = %while.body.i114.i.i.i.i
-  %nla_type.i184.i.i.i.i = getelementptr inbounds %struct.nlattr, ptr %nlattr.addr.017.i115.i.i.i.i, i64 0, i32 1
+  %nla_type.i184.i.i.i.i = getelementptr inbounds i8, ptr %nlattr.addr.017.i115.i.i.i.i, i64 2
   %19 = load i16, ptr %nla_type.i184.i.i.i.i, align 2
   switch i16 %19, label %do.body.i215.i.i.i.i [
     i16 2, label %sw.bb.i188.i.i.i.i
@@ -543,7 +540,7 @@ while.body.i.i193.i.i.i.i:                        ; preds = %if.end15.i.i206.i.i
   br i1 %or.cond.i.i199.i.i.i.i, label %if.end15.i124.i.i.i.i, label %if.end.i.i200.i.i.i.i
 
 if.end.i.i200.i.i.i.i:                            ; preds = %while.body.i.i193.i.i.i.i
-  %nla_type.i.i201.i.i.i.i = getelementptr inbounds %struct.nlattr, ptr %nlattr.addr.017.i.i194.i.i.i.i, i64 0, i32 1
+  %nla_type.i.i201.i.i.i.i = getelementptr inbounds i8, ptr %nlattr.addr.017.i.i194.i.i.i.i, i64 2
   %21 = load i16, ptr %nla_type.i.i201.i.i.i.i, align 2
   %cond.i.i.i.i.i.i = icmp eq i16 %21, 1
   br i1 %cond.i.i.i.i.i.i, label %if.end15.i.i206.i.i.i.i, label %do.body.i.i202.i.i.i.i
@@ -589,7 +586,7 @@ while.body.i8.i.i.i.i.i:                          ; preds = %if.end15.i18.i.i.i.
   br i1 %or.cond.i14.i.i.i.i.i, label %if.end15.i124.i.i.i.i, label %if.end.i15.i.i.i.i.i
 
 if.end.i15.i.i.i.i.i:                             ; preds = %while.body.i8.i.i.i.i.i
-  %nla_type.i30.i.i.i.i.i = getelementptr inbounds %struct.nlattr, ptr %nlattr.addr.017.i9.i.i.i.i.i, i64 0, i32 1
+  %nla_type.i30.i.i.i.i.i = getelementptr inbounds i8, ptr %nlattr.addr.017.i9.i.i.i.i.i, i64 2
   %24 = load i16, ptr %nla_type.i30.i.i.i.i.i, align 2
   switch i16 %24, label %do.body.i31.i.i.i.i.i [
     i16 7, label %if.end15.i18.i.i.i.i.i
@@ -664,7 +661,7 @@ while.body.i136.i.i.i.i:                          ; preds = %if.end15.i146.i.i.i
   br i1 %or.cond.i142.i.i.i.i, label %if.end15.i.i.i.i, label %if.end.i143.i.i.i.i
 
 if.end.i143.i.i.i.i:                              ; preds = %while.body.i136.i.i.i.i
-  %nla_type.i218.i.i.i.i = getelementptr inbounds %struct.nlattr, ptr %nlattr.addr.017.i137.i.i.i.i, i64 0, i32 1
+  %nla_type.i218.i.i.i.i = getelementptr inbounds i8, ptr %nlattr.addr.017.i137.i.i.i.i, i64 2
   %28 = load i16, ptr %nla_type.i218.i.i.i.i, align 2
   switch i16 %28, label %do.body.i219.i.i.i.i [
     i16 2, label %if.end15.i146.i.i.i.i
@@ -712,7 +709,7 @@ while.body.i158.i.i.i.i:                          ; preds = %if.end15.i168.i.i.i
   br i1 %or.cond.i164.i.i.i.i, label %if.end15.i.i.i.i, label %if.end.i165.i.i.i.i
 
 if.end.i165.i.i.i.i:                              ; preds = %while.body.i158.i.i.i.i
-  %nla_type.i222.i.i.i.i = getelementptr inbounds %struct.nlattr, ptr %nlattr.addr.017.i159.i.i.i.i, i64 0, i32 1
+  %nla_type.i222.i.i.i.i = getelementptr inbounds i8, ptr %nlattr.addr.017.i159.i.i.i.i, i64 2
   %31 = load i16, ptr %nla_type.i222.i.i.i.i, align 2
   switch i16 %31, label %do.body.i250.i.i.i.i [
     i16 1, label %if.end15.i168.i.i.i.i
@@ -756,7 +753,7 @@ while.body.i.i226.i.i.i.i:                        ; preds = %if.end15.i.i240.i.i
   br i1 %or.cond.i.i232.i.i.i.i, label %if.end15.i168.i.i.i.i, label %if.end.i.i233.i.i.i.i
 
 if.end.i.i233.i.i.i.i:                            ; preds = %while.body.i.i226.i.i.i.i
-  %nla_type.i.i234.i.i.i.i = getelementptr inbounds %struct.nlattr, ptr %nlattr.addr.017.i.i227.i.i.i.i, i64 0, i32 1
+  %nla_type.i.i234.i.i.i.i = getelementptr inbounds i8, ptr %nlattr.addr.017.i.i227.i.i.i.i, i64 2
   %34 = load i16, ptr %nla_type.i.i234.i.i.i.i, align 2
   %cond.i.i235.i.i.i.i = icmp eq i16 %34, 1
   br i1 %cond.i.i235.i.i.i.i, label %if.end15.i.i240.i.i.i.i, label %do.body.i.i236.i.i.i.i
@@ -802,7 +799,7 @@ while.body.i48.i.i.i.i.i:                         ; preds = %if.end15.i58.i.i.i.
   br i1 %or.cond.i54.i.i.i.i.i, label %if.end15.i168.i.i.i.i, label %if.end.i55.i.i.i.i.i
 
 if.end.i55.i.i.i.i.i:                             ; preds = %while.body.i48.i.i.i.i.i
-  %nla_type.i70.i.i.i.i.i = getelementptr inbounds %struct.nlattr, ptr %nlattr.addr.017.i49.i.i.i.i.i, i64 0, i32 1
+  %nla_type.i70.i.i.i.i.i = getelementptr inbounds i8, ptr %nlattr.addr.017.i49.i.i.i.i.i, i64 2
   %37 = load i16, ptr %nla_type.i70.i.i.i.i.i, align 2
   %switch.i.i223.i.i.i.i = icmp ult i16 %37, 9
   br i1 %switch.i.i223.i.i.i.i, label %if.end15.i58.i.i.i.i.i, label %do.body.i71.i.i.i.i.i
@@ -898,7 +895,7 @@ while.body.i.i25.i.i:                             ; preds = %if.end15.i.i34.i.i,
   br i1 %or.cond.i.i31.i.i, label %sw.epilog.i.i, label %if.end.i.i32.i.i
 
 if.end.i.i32.i.i:                                 ; preds = %while.body.i.i25.i.i
-  %rta_type.i.i33.i.i = getelementptr inbounds %struct.rtattr, ptr %rtattr.addr.017.i.i26.i.i, i64 0, i32 1
+  %rta_type.i.i33.i.i = getelementptr inbounds i8, ptr %rtattr.addr.017.i.i26.i.i, i64 2
   %42 = load i16, ptr %rta_type.i.i33.i.i, align 2
   switch i16 %42, label %do.body.i.i43.i.i [
     i16 1, label %if.end15.i.i34.i.i
@@ -956,7 +953,7 @@ while.body.i.i49.i.i:                             ; preds = %if.end15.i.i58.i.i,
   br i1 %or.cond.i.i55.i.i, label %sw.epilog.i.i, label %if.end.i.i56.i.i
 
 if.end.i.i56.i.i:                                 ; preds = %while.body.i.i49.i.i
-  %rta_type.i.i57.i.i = getelementptr inbounds %struct.rtattr, ptr %rtattr.addr.017.i.i50.i.i, i64 0, i32 1
+  %rta_type.i.i57.i.i = getelementptr inbounds i8, ptr %rtattr.addr.017.i.i50.i.i, i64 2
   %45 = load i16, ptr %rta_type.i.i57.i.i, align 2
   switch i16 %45, label %do.body.i.i67.i.i [
     i16 5, label %if.end15.i.i58.i.i
@@ -1027,7 +1024,7 @@ while.body.i.i:                                   ; preds = %entry, %sw.epilog.i
   br i1 %or.cond.i.i, label %target_to_host_nlmsg_route.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %nlmsg_type.i.i = getelementptr inbounds %struct.nlmsghdr, ptr %nlh.addr.018.i.i, i64 0, i32 1
+  %nlmsg_type.i.i = getelementptr inbounds i8, ptr %nlh.addr.018.i.i, i64 4
   %1 = load i16, ptr %nlmsg_type.i.i, align 4
   switch i16 %1, label %target_to_host_nlmsg_route.exit.loopexit [
     i16 3, label %target_to_host_nlmsg_route.exit
@@ -1070,7 +1067,7 @@ while.body.i.i.i.i:                               ; preds = %if.end17.i.i.i.i, %
   br i1 %or.cond.i.i.i.i, label %sw.default.sw.epilog_crit_edge.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %while.body.i.i.i.i
-  %rta_type.i.i.i.i = getelementptr inbounds %struct.rtattr, ptr %rtattr.addr.017.i.i.i.i, i64 0, i32 1
+  %rta_type.i.i.i.i = getelementptr inbounds i8, ptr %rtattr.addr.017.i.i.i.i, i64 2
   %3 = load i16, ptr %rta_type.i.i.i.i, align 2
   %4 = and i16 %3, 16383
   %and.i1.i.i.i = zext nneg i16 %4 to i32
@@ -1100,7 +1097,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end17.i.i.i.i.i,
   br i1 %or.cond.i.i.i.i.i, label %if.end17.i.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %while.body.i.i.i.i.i
-  %nla_type.i.i.i.i.i = getelementptr inbounds %struct.nlattr, ptr %nlattr.addr.017.i.i.i.i.i, i64 0, i32 1
+  %nla_type.i.i.i.i.i = getelementptr inbounds i8, ptr %nlattr.addr.017.i.i.i.i.i, i64 2
   %6 = load i16, ptr %nla_type.i.i.i.i.i, align 2
   %7 = and i16 %6, 16383
   %cond.i.i.i.i.i = icmp eq i16 %7, 10
@@ -1125,7 +1122,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.end17.i.i.i.i.i.
   br i1 %or.cond.i.i.i.i.i.i, label %if.end17.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.i.i
-  %nla_type.i.i.i.i.i.i = getelementptr inbounds %struct.nlattr, ptr %nlattr.addr.017.i.i.i.i.i.i, i64 0, i32 1
+  %nla_type.i.i.i.i.i.i = getelementptr inbounds i8, ptr %nlattr.addr.017.i.i.i.i.i.i, i64 2
   %9 = load i16, ptr %nla_type.i.i.i.i.i.i, align 2
   %cond.i.i.i.i.i.i = icmp eq i16 %9, 8
   br i1 %cond.i.i.i.i.i.i, label %if.end17.i.i.i.i.i.i, label %do.body.i.i.i.i.i.i
@@ -1225,7 +1222,7 @@ while.body.i.i25.i.i:                             ; preds = %if.end17.i.i37.i.i,
   br i1 %or.cond.i.i31.i.i, label %sw.default.sw.epilog_crit_edge.i.i, label %if.end.i.i32.i.i
 
 if.end.i.i32.i.i:                                 ; preds = %while.body.i.i25.i.i
-  %rta_type.i.i33.i.i = getelementptr inbounds %struct.rtattr, ptr %rtattr.addr.017.i.i26.i.i, i64 0, i32 1
+  %rta_type.i.i33.i.i = getelementptr inbounds i8, ptr %rtattr.addr.017.i.i26.i.i, i64 2
   %17 = load i16, ptr %rta_type.i.i33.i.i, align 2
   %.off.i.i.i.i = add i16 %17, -1
   %switch.i.i.i.i = icmp ult i16 %.off.i.i.i.i, 2
@@ -1280,7 +1277,7 @@ while.body.i.i49.i.i:                             ; preds = %if.end17.i.i58.i.i,
   br i1 %or.cond.i.i55.i.i, label %sw.default.sw.epilog_crit_edge.i.i, label %if.end.i.i56.i.i
 
 if.end.i.i56.i.i:                                 ; preds = %while.body.i.i49.i.i
-  %rta_type.i.i57.i.i = getelementptr inbounds %struct.rtattr, ptr %rtattr.addr.017.i.i50.i.i, i64 0, i32 1
+  %rta_type.i.i57.i.i = getelementptr inbounds i8, ptr %rtattr.addr.017.i.i50.i.i, i64 2
   %21 = load i16, ptr %rta_type.i.i57.i.i, align 2
   switch i16 %21, label %do.body.i.i67.i.i [
     i16 1, label %if.end17.i.i58.i.i
@@ -1356,7 +1353,7 @@ while.body.i.i:                                   ; preds = %entry, %sw.epilog.i
   br i1 %or.cond.i.i, label %host_to_target_nlmsg_audit.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %nlmsg_type.i.i = getelementptr inbounds %struct.nlmsghdr, ptr %nlh.addr.021.i.i, i64 0, i32 1
+  %nlmsg_type.i.i = getelementptr inbounds i8, ptr %nlh.addr.021.i.i, i64 4
   %1 = load i16, ptr %nlmsg_type.i.i, align 4
   switch i16 %1, label %sw.default.i.i [
     i16 3, label %host_to_target_nlmsg_audit.exit
@@ -1408,7 +1405,7 @@ while.body.i.i:                                   ; preds = %entry, %sw.epilog.i
   br i1 %or.cond.i.i, label %target_to_host_nlmsg_audit.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i.i
-  %nlmsg_type.i.i = getelementptr inbounds %struct.nlmsghdr, ptr %nlh.addr.018.i.i, i64 0, i32 1
+  %nlmsg_type.i.i = getelementptr inbounds i8, ptr %nlh.addr.018.i.i, i64 4
   %1 = load i16, ptr %nlmsg_type.i.i, align 4
   switch i16 %1, label %sw.caserange3.i.i [
     i16 3, label %target_to_host_nlmsg_audit.exit

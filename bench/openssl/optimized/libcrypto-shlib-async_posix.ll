@@ -10,8 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._libc_fpstate = type { i16, i16, i16, i16, i64, i64, i32, i32, [8 x %struct._libc_fpxreg], [16 x %struct._libc_xmmreg], [24 x i32] }
 %struct._libc_fpxreg = type { [4 x i16], i16, [3 x i16] }
 %struct._libc_xmmreg = type { [4 x i32] }
-%struct.async_fibre_st = type { %struct.ucontext_t, [1 x %struct.__jmp_buf_tag], i32 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 
 @async_mem_lock = internal unnamed_addr global ptr null, align 8
 @allow_customize = internal unnamed_addr global i1 false, align 4
@@ -130,7 +128,7 @@ entry:
 define i32 @async_fibre_makecontext(ptr noundef %fibre) local_unnamed_addr #0 {
 entry:
   %num = alloca i64, align 8
-  %env_init = getelementptr inbounds %struct.async_fibre_st, ptr %fibre, i64 0, i32 2
+  %env_init = getelementptr inbounds i8, ptr %fibre, i64 1168
   store i32 0, ptr %env_init, align 8
   %call = call i32 @getcontext(ptr noundef %fibre) #7
   %cmp = icmp eq i32 %call, 0
@@ -156,22 +154,22 @@ if.end:                                           ; preds = %if.then2
 if.end7:                                          ; preds = %if.end, %if.then
   %2 = load ptr, ptr @stack_alloc_impl, align 8
   %call8 = call ptr %2(ptr noundef nonnull %num) #6
-  %uc_stack = getelementptr inbounds %struct.ucontext_t, ptr %fibre, i64 0, i32 2
+  %uc_stack = getelementptr inbounds i8, ptr %fibre, i64 16
   store ptr %call8, ptr %uc_stack, align 8
   %cmp13.not = icmp eq ptr %call8, null
   br i1 %cmp13.not, label %return, label %if.then14
 
 if.then14:                                        ; preds = %if.end7
   %3 = load i64, ptr %num, align 8
-  %ss_size = getelementptr inbounds %struct.ucontext_t, ptr %fibre, i64 0, i32 2, i32 2
+  %ss_size = getelementptr inbounds i8, ptr %fibre, i64 32
   store i64 %3, ptr %ss_size, align 8
-  %uc_link = getelementptr inbounds %struct.ucontext_t, ptr %fibre, i64 0, i32 1
+  %uc_link = getelementptr inbounds i8, ptr %fibre, i64 8
   store ptr null, ptr %uc_link, align 8
   call void (ptr, ptr, i32, ...) @makecontext(ptr noundef nonnull %fibre, ptr noundef nonnull @async_start_func, i32 noundef 0) #6
   br label %return
 
 if.else:                                          ; preds = %entry
-  %uc_stack21 = getelementptr inbounds %struct.ucontext_t, ptr %fibre, i64 0, i32 2
+  %uc_stack21 = getelementptr inbounds i8, ptr %fibre, i64 16
   store ptr null, ptr %uc_stack21, align 8
   br label %return
 
@@ -189,7 +187,7 @@ declare void @async_start_func() #1
 define void @async_fibre_free(ptr nocapture noundef %fibre) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @stack_free_impl, align 8
-  %uc_stack = getelementptr inbounds %struct.ucontext_t, ptr %fibre, i64 0, i32 2
+  %uc_stack = getelementptr inbounds i8, ptr %fibre, i64 16
   %1 = load ptr, ptr %uc_stack, align 8
   tail call void %0(ptr noundef %1) #6
   store ptr null, ptr %uc_stack, align 8

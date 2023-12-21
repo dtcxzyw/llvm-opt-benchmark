@@ -9,52 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct.TranslationBlock = type { i64, i64, i32, i32, i16, i16, %struct.tb_tc, %struct.IntervalTreeNode, %struct.QemuSpin, [2 x i16], [2 x i16], [2 x i64], i64, [2 x i64], [2 x i64] }
-%struct.tb_tc = type { ptr, i64 }
-%struct.IntervalTreeNode = type { %struct.RBNode, i64, i64, i64 }
-%struct.RBNode = type { i64, ptr, ptr }
-%struct.QemuSpin = type { i32 }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.CPUClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.TCGCPUOps = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.TCGContext = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, %struct.anon.6, ptr, ptr, ptr, ptr, [6 x ptr], [6 x %struct.TCGTempSet], [512 x %struct.TCGTemp], %union.anon.7, %union.anon.7, %struct.anon.8, [32 x ptr], [512 x i16], ptr, [1 x %struct.__jmp_buf_tag] }
-%struct.anon.6 = type { ptr, ptr }
-%struct.TCGTempSet = type { [8 x i64] }
-%struct.TCGTemp = type { i48, i64, ptr, i64, ptr, i64, ptr }
-%union.anon.7 = type { %struct.QTailQLink }
-%struct.anon.8 = type { ptr, ptr }
-%struct.CPUJumpCache = type { %struct.rcu_head, [4096 x %struct.anon.9] }
-%struct.rcu_head = type { ptr, ptr }
 %struct.anon.9 = type { ptr, i64 }
 
 @use_icount = external local_unnamed_addr global i32, align 4
@@ -92,13 +47,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @cpu_restore_state_from_tb(ptr noundef %cpu, ptr noundef %tb, i64 noundef %host_pc) local_unnamed_addr #0 {
 entry:
   %data = alloca [2 x i64], align 16
-  %tc.i = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 6
+  %tc.i = getelementptr inbounds i8, ptr %tb, i64 32
   %0 = load ptr, ptr %tc.i, align 8
   %1 = ptrtoint ptr %0 to i64
-  %size.i = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 6, i32 1
+  %size.i = getelementptr inbounds i8, ptr %tb, i64 40
   %2 = load i64, ptr %size.i, align 8
   %add.ptr.i = getelementptr i8, ptr %0, i64 %2
-  %icount.i = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 5
+  %icount.i = getelementptr inbounds i8, ptr %tb, i64 26
   %3 = load i16, ptr %icount.i, align 2
   %conv.i = zext i16 %3 to i32
   %sub.i = add i64 %host_pc, -2
@@ -107,7 +62,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %data, i8 0, i64 16, i1 false)
-  %cflags.i.i = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 3
+  %cflags.i.i = getelementptr inbounds i8, ptr %tb, i64 20
   %4 = load atomic i32, ptr %cflags.i.i monotonic, align 4
   %and.i = and i32 %4, 131072
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -216,7 +171,7 @@ if.else:                                          ; preds = %if.then2
   unreachable
 
 if.end5:                                          ; preds = %if.then2
-  %icount_decr = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 65, i32 1
+  %icount_decr = getelementptr inbounds i8, ptr %cpu, i64 10160
   %13 = load i16, ptr %icount_decr, align 16
   %14 = trunc i32 %sub20.i to i16
   %conv6 = add i16 %13, %14
@@ -224,11 +179,11 @@ if.end5:                                          ; preds = %if.then2
   br label %if.end7
 
 if.end7:                                          ; preds = %if.end5, %if.end
-  %cc = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 1
+  %cc = getelementptr inbounds i8, ptr %cpu, i64 160
   %15 = load ptr, ptr %cc, align 16
-  %tcg_ops = getelementptr inbounds %struct.CPUClass, ptr %15, i64 0, i32 20
+  %tcg_ops = getelementptr inbounds i8, ptr %15, i64 328
   %16 = load ptr, ptr %tcg_ops, align 8
-  %restore_state_to_opc = getelementptr inbounds %struct.TCGCPUOps, ptr %16, i64 0, i32 2
+  %restore_state_to_opc = getelementptr inbounds i8, ptr %16, i64 16
   %17 = load ptr, ptr %restore_state_to_opc, align 8
   call void %17(ptr noundef %cpu, ptr noundef nonnull %tb, ptr noundef nonnull %data) #13
   br label %return
@@ -282,13 +237,13 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %tc.i = getelementptr inbounds %struct.TranslationBlock, ptr %call1, i64 0, i32 6
+  %tc.i = getelementptr inbounds i8, ptr %call1, i64 32
   %2 = load ptr, ptr %tc.i, align 8
   %3 = ptrtoint ptr %2 to i64
-  %size.i = getelementptr inbounds %struct.TranslationBlock, ptr %call1, i64 0, i32 6, i32 1
+  %size.i = getelementptr inbounds i8, ptr %call1, i64 40
   %4 = load i64, ptr %size.i, align 8
   %add.ptr.i = getelementptr i8, ptr %2, i64 %4
-  %icount.i = getelementptr inbounds %struct.TranslationBlock, ptr %call1, i64 0, i32 5
+  %icount.i = getelementptr inbounds i8, ptr %call1, i64 26
   %5 = load i16, ptr %icount.i, align 2
   %conv.i = zext i16 %5 to i32
   %sub.i = add i64 %host_pc, -2
@@ -297,7 +252,7 @@ if.then2:                                         ; preds = %if.then
 
 if.end.i:                                         ; preds = %if.then2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data, i8 0, i64 16, i1 false)
-  %cflags.i.i = getelementptr inbounds %struct.TranslationBlock, ptr %call1, i64 0, i32 3
+  %cflags.i.i = getelementptr inbounds i8, ptr %call1, i64 20
   %6 = load atomic i32, ptr %cflags.i.i monotonic, align 4
   %and.i = and i32 %6, 131072
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -409,7 +364,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %max_insns = alloca i32, align 4
   %host_pc = alloca ptr, align 8
-  %add.ptr.i = getelementptr %struct.CPUState, ptr %cpu, i64 1
+  %add.ptr.i = getelementptr i8, ptr %cpu, i64 10176
   %call1 = tail call zeroext i1 @have_mmap_lock() #13
   tail call void @llvm.assume(i1 %call1)
   %call2 = call i64 @get_page_addr_code_hostp(ptr noundef %add.ptr.i, i64 noundef %pc, ptr noundef nonnull %host_pc) #13
@@ -430,13 +385,13 @@ entry:
 if.end14.lr.ph:                                   ; preds = %entry
   %and16 = and i32 %cflags.addr.0, 131072
   %tobool17.not = icmp eq i32 %and16, 0
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %if.end14
 
 if.then13:                                        ; preds = %buffer_overflow.backedge, %entry
   call void @tb_flush(ptr noundef %cpu) #13
   call void @mmap_unlock() #13
-  %exception_index = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 55
+  %exception_index = getelementptr inbounds i8, ptr %cpu, i64 728
   store i32 65536, ptr %exception_index, align 8
   call void @cpu_loop_exit(ptr noundef %cpu) #12
   unreachable
@@ -444,13 +399,13 @@ if.then13:                                        ; preds = %buffer_overflow.bac
 if.end14:                                         ; preds = %if.end14.lr.ph, %buffer_overflow.backedge
   %call9153 = phi ptr [ %call9151, %if.end14.lr.ph ], [ %call9, %buffer_overflow.backedge ]
   %2 = load ptr, ptr %0, align 8
-  %code_gen_ptr = getelementptr inbounds %struct.TCGContext, ptr %2, i64 0, i32 26
+  %code_gen_ptr = getelementptr inbounds i8, ptr %2, i64 152
   %3 = load ptr, ptr %code_gen_ptr, align 8
   %tobool.not.i = icmp eq ptr %3, null
   %4 = load i64, ptr @tcg_splitwx_diff, align 8
   %add.ptr.i110 = getelementptr i8, ptr %3, i64 %4
   %cond.i = select i1 %tobool.not.i, ptr null, ptr %add.ptr.i110
-  %tc = getelementptr inbounds %struct.TranslationBlock, ptr %call9153, i64 0, i32 6
+  %tc = getelementptr inbounds i8, ptr %call9153, i64 32
   store ptr %cond.i, ptr %tc, align 8
   br i1 %tobool17.not, label %if.then18, label %if.end20
 
@@ -459,15 +414,15 @@ if.then18:                                        ; preds = %if.end14
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then18, %if.end14
-  %cs_base21 = getelementptr inbounds %struct.TranslationBlock, ptr %call9153, i64 0, i32 1
+  %cs_base21 = getelementptr inbounds i8, ptr %call9153, i64 8
   store i64 %cs_base, ptr %cs_base21, align 8
-  %flags22 = getelementptr inbounds %struct.TranslationBlock, ptr %call9153, i64 0, i32 2
+  %flags22 = getelementptr inbounds i8, ptr %call9153, i64 16
   store i32 %flags, ptr %flags22, align 8
-  %cflags23 = getelementptr inbounds %struct.TranslationBlock, ptr %call9153, i64 0, i32 3
+  %cflags23 = getelementptr inbounds i8, ptr %call9153, i64 20
   store i32 %cflags.addr.0, ptr %cflags23, align 4
-  %start.i = getelementptr inbounds %struct.TranslationBlock, ptr %call9153, i64 0, i32 7, i32 1
+  %start.i = getelementptr inbounds i8, ptr %call9153, i64 72
   store i64 %call2, ptr %start.i, align 8
-  %last.i = getelementptr inbounds %struct.TranslationBlock, ptr %call9153, i64 0, i32 7, i32 2
+  %last.i = getelementptr inbounds i8, ptr %call9153, i64 80
   store i64 -1, ptr %last.i, align 8
   br i1 %cmp, label %if.end27, label %if.then26
 
@@ -477,16 +432,16 @@ if.then26:                                        ; preds = %if.end20
 
 if.end27:                                         ; preds = %if.then26, %if.end20
   %5 = load ptr, ptr %0, align 8
-  %gen_tb = getelementptr inbounds %struct.TCGContext, ptr %5, i64 0, i32 21
+  %gen_tb = getelementptr inbounds i8, ptr %5, i64 112
   store ptr %call9153, ptr %gen_tb, align 8
   %6 = load ptr, ptr %0, align 8
-  %addr_type = getelementptr inbounds %struct.TCGContext, ptr %6, i64 0, i32 10
+  %addr_type = getelementptr inbounds i8, ptr %6, i64 60
   store i32 1, ptr %addr_type, align 4
   %7 = load ptr, ptr %0, align 8
-  %insn_start_words = getelementptr inbounds %struct.TCGContext, ptr %7, i64 0, i32 14
+  %insn_start_words = getelementptr inbounds i8, ptr %7, i64 70
   store i8 2, ptr %insn_start_words, align 2
   %8 = load ptr, ptr %0, align 8
-  %guest_mo = getelementptr inbounds %struct.TCGContext, ptr %8, i64 0, i32 15
+  %guest_mo = getelementptr inbounds i8, ptr %8, i64 72
   store i32 0, ptr %guest_mo, align 8
   br label %restart_translate
 
@@ -550,7 +505,7 @@ if.then48:                                        ; preds = %do.body40
 
 do.end50:                                         ; preds = %do.body40, %if.then48
   %19 = load ptr, ptr %0, align 8
-  %gen_tb51 = getelementptr inbounds %struct.TCGContext, ptr %19, i64 0, i32 21
+  %gen_tb51 = getelementptr inbounds i8, ptr %19, i64 112
   store ptr null, ptr %gen_tb51, align 8
   br label %buffer_overflow.backedge
 
@@ -611,17 +566,17 @@ do.body91:                                        ; preds = %if.then39
 
 if.end93:                                         ; preds = %trace_translate_block.exit
   %25 = load ptr, ptr %0, align 8
-  %gen_tb94 = getelementptr inbounds %struct.TCGContext, ptr %25, i64 0, i32 21
+  %gen_tb94 = getelementptr inbounds i8, ptr %25, i64 112
   store ptr null, ptr %gen_tb94, align 8
   %idx.ext = zext nneg i32 %call30 to i64
   %add.ptr = getelementptr i8, ptr %3, i64 %idx.ext
   %26 = load ptr, ptr %0, align 8
-  %code_gen_highwater.i = getelementptr inbounds %struct.TCGContext, ptr %26, i64 0, i32 28
+  %code_gen_highwater.i = getelementptr inbounds i8, ptr %26, i64 168
   %27 = load ptr, ptr %code_gen_highwater.i, align 8
-  %gen_insn_data.i = getelementptr inbounds %struct.TCGContext, ptr %26, i64 0, i32 43
+  %gen_insn_data.i = getelementptr inbounds i8, ptr %26, i64 30664
   %28 = load ptr, ptr %gen_insn_data.i, align 8
-  %gen_insn_end_off.i = getelementptr inbounds %struct.TCGContext, ptr %26, i64 0, i32 42
-  %icount.i = getelementptr inbounds %struct.TranslationBlock, ptr %call9153, i64 0, i32 5
+  %gen_insn_end_off.i = getelementptr inbounds i8, ptr %26, i64 29640
+  %icount.i = getelementptr inbounds i8, ptr %call9153, i64 26
   %29 = load i16, ptr %icount.i, align 2
   %invariant.gep.i = getelementptr i8, ptr %26, i64 29638
   %cmp42.not.i = icmp eq i16 %29, 0
@@ -629,7 +584,7 @@ if.end93:                                         ; preds = %trace_translate_blo
 
 for.cond2.preheader.lr.ph.i:                      ; preds = %if.end93
   %wide.trip.count.i = zext i16 %29 to i64
-  %invariant.gep67.i = getelementptr i64, ptr %28, i64 -2
+  %invariant.gep67.i = getelementptr i8, ptr %28, i64 -16
   br label %for.cond2.preheader.i
 
 for.cond.i:                                       ; preds = %encode_sleb128.exit38.i
@@ -795,8 +750,8 @@ encode_search.exit:                               ; preds = %for.cond.i, %if.end
   br i1 %cmp96.not, label %if.end105, label %buffer_overflow.backedge
 
 if.end105:                                        ; preds = %encode_search.exit
-  %icount.i.le = getelementptr inbounds %struct.TranslationBlock, ptr %call9153, i64 0, i32 5
-  %size = getelementptr inbounds %struct.TranslationBlock, ptr %call9153, i64 0, i32 6, i32 1
+  %icount.i.le = getelementptr inbounds i8, ptr %call9153, i64 26
+  %size = getelementptr inbounds i8, ptr %call9153, i64 40
   store i64 %idx.ext, ptr %size, align 8
   %50 = load i64, ptr @tcg_splitwx_diff, align 8
   %add.ptr.i122 = getelementptr i8, ptr %3, i64 %50
@@ -818,7 +773,7 @@ if.then113:                                       ; preds = %land.lhs.true
 
 if.then116:                                       ; preds = %if.then113
   %52 = load ptr, ptr %0, align 8
-  %data_gen_ptr = getelementptr inbounds %struct.TCGContext, ptr %52, i64 0, i32 27
+  %data_gen_ptr = getelementptr inbounds i8, ptr %52, i64 160
   %53 = load ptr, ptr %data_gen_ptr, align 8
   %tobool117.not = icmp eq ptr %53, null
   br i1 %tobool117.not, label %if.end125, label %if.then118
@@ -840,12 +795,12 @@ if.end125:                                        ; preds = %if.then116, %if.the
   %code_size.0 = phi i32 [ %conv123, %if.then118 ], [ %call30, %if.then116 ]
   %call126 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call114, ptr noundef nonnull @.str.6, i32 noundef %call30)
   %56 = load ptr, ptr %0, align 8
-  %gen_insn_data = getelementptr inbounds %struct.TCGContext, ptr %56, i64 0, i32 43
+  %gen_insn_data = getelementptr inbounds i8, ptr %56, i64 30664
   %57 = load ptr, ptr %gen_insn_data, align 8
   %58 = load i64, ptr %57, align 8
   %call127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call114, ptr noundef nonnull @.str.7, i64 noundef %58)
   %59 = load ptr, ptr %0, align 8
-  %gen_insn_end_off = getelementptr inbounds %struct.TCGContext, ptr %59, i64 0, i32 42
+  %gen_insn_end_off = getelementptr inbounds i8, ptr %59, i64 29640
   %60 = load i16, ptr %gen_insn_end_off, align 2
   %conv130 = zext i16 %60 to i64
   %61 = load ptr, ptr %tc, align 8
@@ -859,14 +814,15 @@ while.body:                                       ; preds = %if.end125, %if.end1
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end152 ], [ 0, %if.end125 ]
   %chunk_start.0156 = phi i64 [ %chunk_start.1, %if.end152 ], [ %conv130, %if.end125 ]
   %64 = load ptr, ptr %0, align 8
-  %arrayidx138 = getelementptr %struct.TCGContext, ptr %64, i64 0, i32 42, i64 %indvars.iv
+  %gen_insn_end_off136 = getelementptr inbounds i8, ptr %64, i64 29640
+  %arrayidx138 = getelementptr [512 x i16], ptr %gen_insn_end_off136, i64 0, i64 %indvars.iv
   %65 = load i16, ptr %arrayidx138, align 2
   %conv139 = zext i16 %65 to i64
   %cmp140 = icmp ult i64 %chunk_start.0156, %conv139
   br i1 %cmp140, label %if.then142, label %if.end152
 
 if.then142:                                       ; preds = %while.body
-  %gen_insn_data143 = getelementptr inbounds %struct.TCGContext, ptr %64, i64 0, i32 43
+  %gen_insn_data143 = getelementptr inbounds i8, ptr %64, i64 30664
   %66 = load ptr, ptr %gen_insn_data143, align 8
   %67 = shl nuw i64 %indvars.iv, 1
   %arrayidx146 = getelementptr i64, ptr %66, i64 %67
@@ -931,7 +887,7 @@ if.end178:                                        ; preds = %for.body, %if.then1
 
 while.end187:                                     ; preds = %if.end105, %land.lhs.true, %if.end178, %if.then113
   %76 = load ptr, ptr %0, align 8
-  %code_gen_ptr188 = getelementptr inbounds %struct.TCGContext, ptr %76, i64 0, i32 26
+  %code_gen_ptr188 = getelementptr inbounds i8, ptr %76, i64 152
   %77 = ptrtoint ptr %3 to i64
   %conv190 = and i64 %sub.ptr.sub.i, 2147483647
   %add = add i64 %77, 15
@@ -939,10 +895,10 @@ while.end187:                                     ; preds = %if.end105, %land.lh
   %sub193 = add i64 %add191, %conv190
   %and194 = and i64 %sub193, -16
   store atomic i64 %and194, ptr %code_gen_ptr188 monotonic, align 8
-  %jmp_lock = getelementptr inbounds %struct.TranslationBlock, ptr %call9153, i64 0, i32 8
+  %jmp_lock = getelementptr inbounds i8, ptr %call9153, i64 96
   store atomic i32 0, ptr %jmp_lock monotonic, align 4
-  %jmp_list_head = getelementptr inbounds %struct.TranslationBlock, ptr %call9153, i64 0, i32 12
-  %jmp_reset_offset = getelementptr inbounds %struct.TranslationBlock, ptr %call9153, i64 0, i32 9
+  %jmp_list_head = getelementptr inbounds i8, ptr %call9153, i64 128
+  %jmp_reset_offset = getelementptr inbounds i8, ptr %call9153, i64 100
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %jmp_list_head, i8 0, i64 40, i1 false)
   %78 = load i16, ptr %jmp_reset_offset, align 4
   %cmp204.not = icmp eq i16 %78, -1
@@ -953,7 +909,7 @@ if.then206:                                       ; preds = %while.end187
   br label %if.end207
 
 if.end207:                                        ; preds = %if.then206, %while.end187
-  %arrayidx209 = getelementptr %struct.TranslationBlock, ptr %call9153, i64 0, i32 9, i64 1
+  %arrayidx209 = getelementptr i8, ptr %call9153, i64 102
   %79 = load i16, ptr %arrayidx209, align 2
   %cmp211.not = icmp eq i16 %79, -1
   br i1 %cmp211.not, label %if.end214, label %if.then213
@@ -981,7 +937,7 @@ if.then229:                                       ; preds = %if.end219
   %and235 = and i64 %sub232, %sub234
   %sub236 = sub i64 %77, %and235
   %81 = load ptr, ptr %0, align 8
-  %code_gen_ptr243 = getelementptr inbounds %struct.TCGContext, ptr %81, i64 0, i32 26
+  %code_gen_ptr243 = getelementptr inbounds i8, ptr %81, i64 152
   store atomic i64 %sub236, ptr %code_gen_ptr243 monotonic, align 8
   call void @tcg_tb_remove(ptr noundef nonnull %call9153) #13
   br label %return
@@ -1012,7 +968,7 @@ define internal fastcc i32 @setjmp_gen_code(ptr noundef %env, ptr noundef %tb, i
 entry:
   %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8
-  %jmp_trans = getelementptr inbounds %struct.TCGContext, ptr %1, i64 0, i32 44
+  %jmp_trans = getelementptr inbounds i8, ptr %1, i64 30672
   %call = call i32 @__sigsetjmp(ptr noundef nonnull %jmp_trans, i32 noundef 0) #14
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
@@ -1022,10 +978,10 @@ if.end:                                           ; preds = %entry
   call void @tcg_func_start(ptr noundef %2) #13
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %3 = load ptr, ptr %0, align 8
-  %cpu = getelementptr inbounds %struct.TCGContext, ptr %3, i64 0, i32 29
+  %cpu = getelementptr inbounds i8, ptr %3, i64 176
   store ptr %add.ptr.i, ptr %cpu, align 8
   call void @gen_intermediate_code(ptr noundef %add.ptr.i, ptr noundef %tb, ptr noundef %max_insns, i64 noundef %pc, ptr noundef %host_pc) #13
-  %size = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %tb, i64 24
   %4 = load i16, ptr %size, align 8
   %cmp5.not = icmp eq i16 %4, 0
   br i1 %cmp5.not, label %if.else, label %if.end8
@@ -1036,9 +992,9 @@ if.else:                                          ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end
   %5 = load ptr, ptr %0, align 8
-  %cpu9 = getelementptr inbounds %struct.TCGContext, ptr %5, i64 0, i32 29
+  %cpu9 = getelementptr inbounds i8, ptr %5, i64 176
   store ptr null, ptr %cpu9, align 8
-  %icount = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 5
+  %icount = getelementptr inbounds i8, ptr %tb, i64 26
   %6 = load i16, ptr %icount, align 2
   %conv10 = zext i16 %6 to i32
   store i32 %conv10, ptr %max_insns, align 4
@@ -1095,7 +1051,7 @@ if.then2:                                         ; preds = %entry
   br label %if.end7
 
 if.else:                                          ; preds = %entry
-  %add.ptr.i = getelementptr %struct.CPUState, ptr %cpu, i64 1
+  %add.ptr.i = getelementptr i8, ptr %cpu, i64 10176
   call void @cpu_get_tb_cpu_state(ptr noundef %add.ptr.i, ptr noundef nonnull %pc, ptr noundef nonnull %cs_base, ptr noundef nonnull %flags) #13
   %0 = load i64, ptr %pc, align 8
   %call.i = call i64 @get_page_addr_code_hostp(ptr noundef %add.ptr.i, i64 noundef %0, ptr noundef null) #13
@@ -1127,7 +1083,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %interrupt_request = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 19
+  %interrupt_request = getelementptr inbounds i8, ptr %cpu, i64 216
   %0 = load i32, ptr %interrupt_request, align 8
   %or = or i32 %0, %mask
   store i32 %or, ptr %interrupt_request, align 8
@@ -1141,14 +1097,18 @@ declare zeroext i1 @qemu_mutex_iothread_locked() local_unnamed_addr #2
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @tcg_flush_jmp_cache(ptr nocapture noundef readonly %cpu) local_unnamed_addr #6 {
 entry:
-  %tb_jmp_cache = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 31
+  %tb_jmp_cache = getelementptr inbounds i8, ptr %cpu, i64 544
   %0 = load ptr, ptr %tb_jmp_cache, align 16
   %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %for.end, label %while.end
+  br i1 %cmp, label %for.end, label %for.cond.preheader
 
-while.end:                                        ; preds = %entry, %while.end
-  %indvars.iv = phi i64 [ %indvars.iv.next, %while.end ], [ 0, %entry ]
-  %arrayidx = getelementptr %struct.CPUJumpCache, ptr %0, i64 0, i32 1, i64 %indvars.iv
+for.cond.preheader:                               ; preds = %entry
+  %array = getelementptr inbounds i8, ptr %0, i64 16
+  br label %while.end
+
+while.end:                                        ; preds = %for.cond.preheader, %while.end
+  %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %while.end ]
+  %arrayidx = getelementptr [4096 x %struct.anon.9], ptr %array, i64 0, i64 %indvars.iv
   store atomic i64 0, ptr %arrayidx monotonic, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4096

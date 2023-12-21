@@ -4,12 +4,12 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%class.buffer = type { ptr, i32, i32, [16 x %"union.std::aligned_storage<4, 4>::type"] }
-%"union.std::aligned_storage<4, 4>::type" = type { [4 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %class.zstring = type { %class.buffer }
+%class.buffer = type { ptr, i32, i32, [16 x %"union.std::aligned_storage<4, 4>::type"] }
+%"union.std::aligned_storage<4, 4>::type" = type { [4 x i8] }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -253,11 +253,11 @@ entry:
   %s.addr = alloca ptr, align 8
   %ch = alloca i32, align 4
   store ptr %s, ptr %s.addr, align 8
-  %m_initial_buffer.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 3
+  %m_initial_buffer.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %m_initial_buffer.i, ptr %this, align 8
-  %m_pos.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_pos.i, align 8
-  %m_capacity.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 2
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 16, ptr %m_capacity.i, align 4
   %0 = load i8, ptr %s, align 1
   %tobool.not38 = icmp eq i8 %0, 0
@@ -436,7 +436,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr hidden void @_ZN6bufferIjLb1ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_initial_buffer.i.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 3
+  %m_initial_buffer.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.not.i.i = icmp eq ptr %0, %m_initial_buffer.i.i
   %cmp.i.i.i = icmp eq ptr %0, null
   %or.cond.i.i = or i1 %cmp.not.i.i, %cmp.i.i.i
@@ -498,7 +498,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define hidden noundef zeroext i1 @_ZNK7zstring11well_formedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_pos.i.i, align 8
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %0, i64 %idx.ext.i
@@ -506,7 +506,7 @@ entry:
   br i1 %cmp.not8, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i32, ptr %__begin1.09, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.09, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %return, label %for.body
 
@@ -564,10 +564,10 @@ declare void @_Z14verbose_unlockv() local_unnamed_addr #0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN7zstringC2Ej(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %ch) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %m_initial_buffer.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 3
+  %m_initial_buffer.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %m_initial_buffer.i, ptr %this, align 8
-  %m_pos.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
-  %m_capacity.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 2
+  %m_pos.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 16, ptr %m_capacity.i, align 4
   store i32 %ch, ptr %m_initial_buffer.i, align 8
   store i32 1, ptr %m_pos.i, align 8
@@ -577,13 +577,13 @@ invoke.cont:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK7zstring7reverseEv(ptr noalias sret(%class.zstring) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_initial_buffer.i.i = getelementptr inbounds %class.buffer, ptr %agg.result, i64 0, i32 3
+  %m_initial_buffer.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %m_initial_buffer.i.i, ptr %agg.result, align 8
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %agg.result, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
-  %m_capacity.i.i = getelementptr inbounds %class.buffer, ptr %agg.result, i64 0, i32 2
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
-  %m_pos.i.i2 = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i.i2 = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_pos.i.i2, align 8
   %cmp.not4 = icmp eq i32 %0, 0
   br i1 %cmp.not4, label %nrvo.skipdtor, label %for.body.preheader
@@ -680,7 +680,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN6bufferIjLb1ELj1
 define linkonce_odr hidden void @_ZN7zstringD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_initial_buffer.i.i.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 3
+  %m_initial_buffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.not.i.i.i = icmp eq ptr %0, %m_initial_buffer.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %0, null
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp.i.i.i.i
@@ -706,25 +706,25 @@ define hidden void @_ZNK7zstring7replaceERKS_S1_(ptr noalias sret(%class.zstring
 invoke.cont2:
   %result = alloca %class.zstring, align 8
   %ref.tmp = alloca %class.zstring, align 8
-  %m_initial_buffer.i.i = getelementptr inbounds %class.buffer, ptr %result, i64 0, i32 3
+  %m_initial_buffer.i.i = getelementptr inbounds i8, ptr %result, i64 16
   store ptr %m_initial_buffer.i.i, ptr %result, align 8
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %result, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
-  %m_capacity.i.i = getelementptr inbounds %class.buffer, ptr %result, i64 0, i32 2
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %result, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
-  %m_pos.i.i17 = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i.i17 = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_pos.i.i17, align 8
-  %m_pos.i.i18 = getelementptr inbounds %class.buffer, ptr %src, i64 0, i32 1
+  %m_pos.i.i18 = getelementptr inbounds i8, ptr %src, i64 8
   %1 = load i32, ptr %m_pos.i.i18, align 8
   %cmp = icmp ult i32 %0, %1
   br i1 %cmp, label %if.then, label %invoke.cont5
 
 if.then:                                          ; preds = %invoke.cont2
-  %m_initial_buffer.i.i19 = getelementptr inbounds %class.buffer, ptr %agg.result, i64 0, i32 3
+  %m_initial_buffer.i.i19 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %m_initial_buffer.i.i19, ptr %agg.result, align 8
-  %m_pos.i.i20 = getelementptr inbounds %class.buffer, ptr %agg.result, i64 0, i32 1
+  %m_pos.i.i20 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %m_pos.i.i20, align 8
-  %m_capacity.i.i21 = getelementptr inbounds %class.buffer, ptr %agg.result, i64 0, i32 2
+  %m_capacity.i.i21 = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 16, ptr %m_capacity.i.i21, align 4
   %cmp5.not.i.i = icmp eq i32 %0, 0
   br i1 %cmp5.not.i.i, label %cleanup, label %for.body.preheader.i.i
@@ -836,15 +836,15 @@ invoke.cont13.preheader:                          ; preds = %invoke.cont5
   br i1 %cmp15144.not, label %for.end52, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont13.preheader
-  %m_pos.i.i74 = getelementptr inbounds %class.buffer, ptr %dst, i64 0, i32 1
+  %m_pos.i.i74 = getelementptr inbounds i8, ptr %dst, i64 8
   br label %for.body
 
 if.then8:                                         ; preds = %invoke.cont5
-  %m_initial_buffer.i.i24 = getelementptr inbounds %class.buffer, ptr %ref.tmp, i64 0, i32 3
+  %m_initial_buffer.i.i24 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %m_initial_buffer.i.i24, ptr %ref.tmp, align 8
-  %m_pos.i.i25 = getelementptr inbounds %class.buffer, ptr %ref.tmp, i64 0, i32 1
+  %m_pos.i.i25 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i32 0, ptr %m_pos.i.i25, align 8
-  %m_capacity.i.i26 = getelementptr inbounds %class.buffer, ptr %ref.tmp, i64 0, i32 2
+  %m_capacity.i.i26 = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   store i32 16, ptr %m_capacity.i.i26, align 4
   %cmp5.not.i.i28 = icmp eq i32 %0, 0
   br i1 %cmp5.not.i.i28, label %invoke.cont9, label %for.body.preheader.i.i29
@@ -1198,13 +1198,13 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK7zstringplERKS_(ptr noalias sret(%class.zstring) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_initial_buffer.i.i = getelementptr inbounds %class.buffer, ptr %agg.result, i64 0, i32 3
+  %m_initial_buffer.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %m_initial_buffer.i.i, ptr %agg.result, align 8
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %agg.result, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
-  %m_capacity.i.i = getelementptr inbounds %class.buffer, ptr %agg.result, i64 0, i32 2
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
-  %m_pos.i.i.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_pos.i.i.i, align 8
   %cmp5.not.i.i = icmp eq i32 %0, 0
   br i1 %cmp5.not.i.i, label %_ZN7zstringC2ERKS_.exit, label %for.body.preheader.i.i
@@ -1283,7 +1283,7 @@ _ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i:    ; preds = %_ZN6bufferIjLb1ELj1
 
 _ZN7zstringC2ERKS_.exit:                          ; preds = %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i, %entry
   %.pre.i.i = phi i32 [ 0, %entry ], [ %inc.i.i.i, %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i ]
-  %m_pos.i.i1 = getelementptr inbounds %class.buffer, ptr %other, i64 0, i32 1
+  %m_pos.i.i1 = getelementptr inbounds i8, ptr %other, i64 8
   %10 = load i32, ptr %m_pos.i.i1, align 8
   %11 = load ptr, ptr %other, align 8
   %cmp3.not.i.i = icmp eq i32 %10, 0
@@ -1382,13 +1382,13 @@ entry:
   %strm = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %buffer = alloca [100 x i8], align 16
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %strm)
-  %m_pos.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_pos.i, align 8
   %cmp23.not = icmp eq i32 %0, 0
   br i1 %cmp23.not, label %if.end55, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx38 = getelementptr inbounds [100 x i8], ptr %buffer, i64 0, i64 99
+  %arrayidx38 = getelementptr inbounds i8, ptr %buffer, i64 99
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1517,7 +1517,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #3 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 8
@@ -1528,7 +1528,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3decRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #3 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 2
@@ -1544,9 +1544,9 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK7zstring8suffixofERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %other) local_unnamed_addr #6 align 2 {
 entry:
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_pos.i.i, align 8
-  %m_pos.i.i7 = getelementptr inbounds %class.buffer, ptr %other, i64 0, i32 1
+  %m_pos.i.i7 = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i32, ptr %m_pos.i.i7, align 8
   %cmp = icmp ugt i32 %0, %1
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -1585,9 +1585,9 @@ return:                                           ; preds = %land.rhs, %for.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK7zstring8prefixofERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %other) local_unnamed_addr #6 align 2 {
 entry:
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_pos.i.i, align 8
-  %m_pos.i.i6 = getelementptr inbounds %class.buffer, ptr %other, i64 0, i32 1
+  %m_pos.i.i6 = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i32, ptr %m_pos.i.i6, align 8
   %cmp = icmp ugt i32 %0, %1
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -1620,9 +1620,9 @@ return:                                           ; preds = %land.rhs, %for.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK7zstring8containsERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %other) local_unnamed_addr #6 align 2 {
 entry:
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %other, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %m_pos.i.i, align 8
-  %m_pos.i.i11 = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i.i11 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_pos.i.i11, align 8
   %cmp = icmp ugt i32 %0, %1
   br i1 %cmp, label %return, label %if.end
@@ -1671,10 +1671,10 @@ return:                                           ; preds = %for.cond6.for.inc16
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK7zstring8indexofuERKS_j(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %other, i32 noundef %offset) local_unnamed_addr #6 align 2 {
 entry:
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_pos.i.i, align 8
   %cmp.not = icmp uge i32 %0, %offset
-  %m_pos.i.i19 = getelementptr inbounds %class.buffer, ptr %other, i64 0, i32 1
+  %m_pos.i.i19 = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i32, ptr %m_pos.i.i19, align 8
   %cmp3 = icmp eq i32 %1, 0
   %or.cond = select i1 %cmp.not, i1 %cmp3, i1 false
@@ -1737,10 +1737,10 @@ return:                                           ; preds = %for.inc32, %land.rh
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK7zstring12last_indexofERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %other) local_unnamed_addr #6 align 2 {
 entry:
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %other, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %m_pos.i.i, align 8
   %cmp = icmp eq i32 %0, 0
-  %m_pos.i.i11 = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i.i11 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_pos.i.i11, align 8
   br i1 %cmp, label %return, label %if.end
 
@@ -1793,18 +1793,18 @@ return:                                           ; preds = %for.cond.loopexit, 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK7zstring7extractEjj(ptr noalias sret(%class.zstring) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, i32 noundef %offset, i32 noundef %len) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_initial_buffer.i.i = getelementptr inbounds %class.buffer, ptr %agg.result, i64 0, i32 3
+  %m_initial_buffer.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %m_initial_buffer.i.i, ptr %agg.result, align 8
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %agg.result, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %m_pos.i.i, align 8
-  %m_capacity.i.i = getelementptr inbounds %class.buffer, ptr %agg.result, i64 0, i32 2
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
   %add = add i32 %len, %offset
   %cmp = icmp ult i32 %add, %offset
   br i1 %cmp, label %nrvo.skipdtor, label %invoke.cont
 
 invoke.cont:                                      ; preds = %entry
-  %m_pos.i.i7 = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i.i7 = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_pos.i.i7, align 8
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %0, i32 %add)
   %cmp611 = icmp sgt i32 %.sroa.speculated, %offset
@@ -1899,7 +1899,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %invoke.co
 define hidden noundef i32 @_ZNK7zstring4hashEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_pos.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %m_pos.i, align 8
   %mul.i = shl i32 %1, 2
   %call.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef %0, i32 noundef %mul.i, i32 noundef 23)
@@ -1909,9 +1909,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK7zstringeqERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %other) local_unnamed_addr #6 align 2 {
 entry:
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_pos.i.i, align 8
-  %m_pos.i.i5 = getelementptr inbounds %class.buffer, ptr %other, i64 0, i32 1
+  %m_pos.i.i5 = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i32, ptr %m_pos.i.i5, align 8
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %for.cond.preheader, label %return
@@ -1946,9 +1946,9 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK7zstringneERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %other) local_unnamed_addr #6 align 2 {
 entry:
-  %m_pos.i.i.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_pos.i.i.i, align 8
-  %m_pos.i.i5.i = getelementptr inbounds %class.buffer, ptr %other, i64 0, i32 1
+  %m_pos.i.i5.i = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i32, ptr %m_pos.i.i5.i, align 8
   %cmp.not.i = icmp eq i32 %0, %1
   br i1 %cmp.not.i, label %for.cond.preheader.i, label %_ZNK7zstringeqERKS_.exit
@@ -2004,9 +2004,9 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZltRK7zstringS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %rhs) local_unnamed_addr #7 {
 entry:
-  %m_pos.i.i = getelementptr inbounds %class.buffer, ptr %lhs, i64 0, i32 1
+  %m_pos.i.i = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i32, ptr %m_pos.i.i, align 8
-  %m_pos.i.i12 = getelementptr inbounds %class.buffer, ptr %rhs, i64 0, i32 1
+  %m_pos.i.i12 = getelementptr inbounds i8, ptr %rhs, i64 8
   %1 = load i32, ptr %m_pos.i.i12, align 8
   %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 %0)
   %cmp319.not = icmp eq i32 %spec.select, 0
@@ -2048,19 +2048,19 @@ return:                                           ; preds = %for.end, %if.then7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6bufferIjLb1ELj16EEC2EOS0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %source) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_initial_buffer = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 3
+  %m_initial_buffer = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %m_initial_buffer, ptr %this, align 8
-  %m_pos = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 1
+  %m_pos = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_pos, align 8
-  %m_capacity = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 2
+  %m_capacity = getelementptr inbounds i8, ptr %this, i64 12
   store i32 16, ptr %m_capacity, align 4
   %0 = load ptr, ptr %source, align 8
-  %m_initial_buffer4 = getelementptr inbounds %class.buffer, ptr %source, i64 0, i32 3
+  %m_initial_buffer4 = getelementptr inbounds i8, ptr %source, i64 16
   %cmp = icmp eq ptr %0, %m_initial_buffer4
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_pos.i = getelementptr inbounds %class.buffer, ptr %source, i64 0, i32 1
+  %m_pos.i = getelementptr inbounds i8, ptr %source, i64 8
   %1 = load i32, ptr %m_pos.i, align 8
   %cmp615.not = icmp eq i32 %1, 0
   br i1 %cmp615.not, label %if.end, label %for.body.preheader
@@ -2145,10 +2145,10 @@ for.inc:                                          ; preds = %_ZN6bufferIjLb1ELj1
 
 if.else:                                          ; preds = %entry
   store ptr %0, ptr %this, align 8
-  %m_pos11 = getelementptr inbounds %class.buffer, ptr %source, i64 0, i32 1
+  %m_pos11 = getelementptr inbounds i8, ptr %source, i64 8
   %11 = load i32, ptr %m_pos11, align 8
   store i32 %11, ptr %m_pos, align 8
-  %m_capacity13 = getelementptr inbounds %class.buffer, ptr %source, i64 0, i32 2
+  %m_capacity13 = getelementptr inbounds i8, ptr %source, i64 12
   %12 = load i32, ptr %m_capacity13, align 4
   store i32 %12, ptr %m_capacity, align 4
   store ptr %m_initial_buffer4, ptr %source, align 8

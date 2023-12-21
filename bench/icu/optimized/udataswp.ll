@@ -3,11 +3,7 @@ source_filename = "bench/icu/original/udataswp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UDataSwapper = type { i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.MappedData = type { i16, i8, i8 }
-%struct.DataHeader = type { %struct.MappedData, %struct.UDataInfo }
-%struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
 
 @.str = private unnamed_addr constant [65 x i8] c"udata_swapDataHeader(): initial bytes do not look like ICU data\0A\00", align 1
 @.str.1 = private unnamed_addr constant [84 x i8] c"udata_swapDataHeader(): header size mismatch - headerSize %d infoSize %d length %d\0A\00", align 1
@@ -15,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define signext i16 @udata_readInt16_75(ptr nocapture noundef readonly %ds, i16 noundef signext %x) local_unnamed_addr #0 {
 entry:
-  %readUInt16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 4
+  %readUInt16 = getelementptr inbounds i8, ptr %ds, i64 8
   %0 = load ptr, ptr %readUInt16, align 8
   %call = tail call noundef zeroext i16 %0(i16 noundef zeroext %x)
   ret i16 %call
@@ -24,7 +20,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define i32 @udata_readInt32_75(ptr nocapture noundef readonly %ds, i32 noundef %x) local_unnamed_addr #0 {
 entry:
-  %readUInt32 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 5
+  %readUInt32 = getelementptr inbounds i8, ptr %ds, i64 16
   %0 = load ptr, ptr %readUInt32, align 8
   %call = tail call noundef i32 %0(i32 noundef %x)
   ret i32 %call
@@ -82,7 +78,7 @@ while.end.split.loop.exit32:                      ; preds = %land.rhs
 
 while.end:                                        ; preds = %while.cond, %while.end.split.loop.exit32
   %stringsLength.0.lcssa = phi i32 [ %3, %while.end.split.loop.exit32 ], [ 0, %while.cond ]
-  %swapInvChars = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 12
+  %swapInvChars = getelementptr inbounds i8, ptr %ds, i64 72
   %4 = load ptr, ptr %swapInvChars, align 8
   %call13 = tail call noundef i32 %4(ptr noundef %ds, ptr noundef nonnull %inData, i32 noundef %stringsLength.0.lcssa, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
   %cmp14.not = icmp ne ptr %inData, %outData
@@ -117,7 +113,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @udata_printError_75(ptr nocapture noundef readonly %ds, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
-  %printError = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 13
+  %printError = getelementptr inbounds i8, ptr %ds, i64 80
   %0 = load ptr, ptr %printError, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -125,7 +121,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.va_start(ptr nonnull %args)
   %1 = load ptr, ptr %printError, align 8
-  %printErrorContext = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 14
+  %printErrorContext = getelementptr inbounds i8, ptr %ds, i64 88
   %2 = load ptr, ptr %printErrorContext, align 8
   call void %1(ptr noundef %2, ptr noundef %fmt, ptr noundef nonnull %args)
   call void @llvm.va_end(ptr nonnull %args)
@@ -175,20 +171,20 @@ if.end10:                                         ; preds = %lor.lhs.false6
   br i1 %or.cond3, label %if.then23, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %if.end10
-  %magic1 = getelementptr inbounds %struct.MappedData, ptr %inData, i64 0, i32 1
+  %magic1 = getelementptr inbounds i8, ptr %inData, i64 2
   %1 = load i8, ptr %magic1, align 2
   %cmp15.not = icmp eq i8 %1, -38
   br i1 %cmp15.not, label %lor.lhs.false16, label %if.then23
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false14
-  %magic2 = getelementptr inbounds %struct.MappedData, ptr %inData, i64 0, i32 2
+  %magic2 = getelementptr inbounds i8, ptr %inData, i64 3
   %2 = load i8, ptr %magic2, align 1
   %cmp19.not = icmp eq i8 %2, 39
   br i1 %cmp19.not, label %lor.lhs.false20, label %if.then23
 
 lor.lhs.false20:                                  ; preds = %lor.lhs.false16
-  %info = getelementptr inbounds %struct.DataHeader, ptr %inData, i64 0, i32 1
-  %sizeofUChar = getelementptr inbounds %struct.DataHeader, ptr %inData, i64 0, i32 1, i32 4
+  %info = getelementptr inbounds i8, ptr %inData, i64 4
+  %sizeofUChar = getelementptr inbounds i8, ptr %inData, i64 10
   %3 = load i8, ptr %sizeofUChar, align 2
   %cmp22.not = icmp eq i8 %3, 2
   br i1 %cmp22.not, label %if.end24, label %if.then23
@@ -199,7 +195,7 @@ if.then23:                                        ; preds = %if.end10, %lor.lhs.
   br label %return
 
 if.end24:                                         ; preds = %lor.lhs.false20
-  %readUInt16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 4
+  %readUInt16 = getelementptr inbounds i8, ptr %ds, i64 8
   %4 = load ptr, ptr %readUInt16, align 8
   %5 = load i16, ptr %inData, align 2
   %call27 = tail call noundef zeroext i16 %4(i16 noundef zeroext %5)
@@ -242,16 +238,16 @@ do.body:                                          ; preds = %if.then50
   br label %if.end54
 
 if.end54:                                         ; preds = %do.body, %if.then50
-  %outIsBigEndian = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 2
+  %outIsBigEndian = getelementptr inbounds i8, ptr %ds, i64 2
   %8 = load i8, ptr %outIsBigEndian, align 2
-  %info55 = getelementptr inbounds %struct.DataHeader, ptr %outData, i64 0, i32 1
-  %isBigEndian = getelementptr inbounds %struct.DataHeader, ptr %outData, i64 0, i32 1, i32 2
+  %info55 = getelementptr inbounds i8, ptr %outData, i64 4
+  %isBigEndian = getelementptr inbounds i8, ptr %outData, i64 8
   store i8 %8, ptr %isBigEndian, align 2
-  %outCharset = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 3
+  %outCharset = getelementptr inbounds i8, ptr %ds, i64 3
   %9 = load i8, ptr %outCharset, align 1
-  %charsetFamily = getelementptr inbounds %struct.DataHeader, ptr %outData, i64 0, i32 1, i32 3
+  %charsetFamily = getelementptr inbounds i8, ptr %outData, i64 9
   store i8 %9, ptr %charsetFamily, align 1
-  %swapArray16 = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 9
+  %swapArray16 = getelementptr inbounds i8, ptr %ds, i64 48
   %10 = load ptr, ptr %swapArray16, align 8
   %call61 = tail call noundef i32 %10(ptr noundef nonnull %ds, ptr noundef nonnull %inData, i32 noundef 2, ptr noundef %outData, ptr noundef nonnull %pErrorCode)
   %11 = load ptr, ptr %swapArray16, align 8
@@ -286,7 +282,7 @@ for.end.loopexit.split.loop.exit70:               ; preds = %land.rhs
 
 for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit70, %if.end54
   %length.addr.0.lcssa = phi i32 [ 0, %if.end54 ], [ %13, %for.end.loopexit.split.loop.exit70 ], [ %sub, %for.inc ]
-  %swapInvChars = getelementptr inbounds %struct.UDataSwapper, ptr %ds, i64 0, i32 12
+  %swapInvChars = getelementptr inbounds i8, ptr %ds, i64 72
   %14 = load ptr, ptr %swapInvChars, align 8
   %add.ptr79 = getelementptr inbounds i8, ptr %outData, i64 %idx.ext
   %call80 = tail call noundef i32 %14(ptr noundef %ds, ptr noundef nonnull %add.ptr, i32 noundef %length.addr.0.lcssa, ptr noundef %add.ptr79, ptr noundef nonnull %pErrorCode)
@@ -329,53 +325,53 @@ if.then9:                                         ; preds = %if.end6
 if.end10:                                         ; preds = %if.end6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %call7, i8 0, i64 96, i1 false)
   store i8 %inIsBigEndian, ptr %call7, align 8
-  %inCharset12 = getelementptr inbounds %struct.UDataSwapper, ptr %call7, i64 0, i32 1
+  %inCharset12 = getelementptr inbounds i8, ptr %call7, i64 1
   store i8 %inCharset, ptr %inCharset12, align 1
-  %outIsBigEndian13 = getelementptr inbounds %struct.UDataSwapper, ptr %call7, i64 0, i32 2
+  %outIsBigEndian13 = getelementptr inbounds i8, ptr %call7, i64 2
   store i8 %outIsBigEndian, ptr %outIsBigEndian13, align 2
-  %outCharset14 = getelementptr inbounds %struct.UDataSwapper, ptr %call7, i64 0, i32 3
+  %outCharset14 = getelementptr inbounds i8, ptr %call7, i64 3
   store i8 %outCharset, ptr %outCharset14, align 1
   %cmp16 = icmp eq i8 %inIsBigEndian, 0
   %_ZL21uprv_readDirectUInt16t._ZL19uprv_readSwapUInt16t = select i1 %cmp16, ptr @_ZL21uprv_readDirectUInt16t, ptr @_ZL19uprv_readSwapUInt16t
-  %readUInt16 = getelementptr inbounds %struct.UDataSwapper, ptr %call7, i64 0, i32 4
+  %readUInt16 = getelementptr inbounds i8, ptr %call7, i64 8
   store ptr %_ZL21uprv_readDirectUInt16t._ZL19uprv_readSwapUInt16t, ptr %readUInt16, align 8
   %cond-lvalue22 = select i1 %cmp16, ptr @_ZL21uprv_readDirectUInt32j, ptr @_ZL19uprv_readSwapUInt32j
-  %readUInt32 = getelementptr inbounds %struct.UDataSwapper, ptr %call7, i64 0, i32 5
+  %readUInt32 = getelementptr inbounds i8, ptr %call7, i64 16
   store ptr %cond-lvalue22, ptr %readUInt32, align 8
   %cmp24 = icmp eq i8 %outIsBigEndian, 0
   %cond-lvalue28 = select i1 %cmp24, ptr @_ZL22uprv_writeDirectUInt16Ptt, ptr @_ZL20uprv_writeSwapUInt16Ptt
-  %writeUInt16 = getelementptr inbounds %struct.UDataSwapper, ptr %call7, i64 0, i32 7
+  %writeUInt16 = getelementptr inbounds i8, ptr %call7, i64 32
   store ptr %cond-lvalue28, ptr %writeUInt16, align 8
   %cond-lvalue34 = select i1 %cmp24, ptr @_ZL22uprv_writeDirectUInt32Pjj, ptr @_ZL20uprv_writeSwapUInt32Pjj
-  %writeUInt32 = getelementptr inbounds %struct.UDataSwapper, ptr %call7, i64 0, i32 8
+  %writeUInt32 = getelementptr inbounds i8, ptr %call7, i64 40
   store ptr %cond-lvalue34, ptr %writeUInt32, align 8
   %cmp36 = icmp eq i8 %outCharset, 0
   %cond-lvalue40 = select i1 %cmp36, ptr @uprv_compareInvAscii_75, ptr @uprv_compareInvEbcdic_75
-  %compareInvChars = getelementptr inbounds %struct.UDataSwapper, ptr %call7, i64 0, i32 6
+  %compareInvChars = getelementptr inbounds i8, ptr %call7, i64 24
   store ptr %cond-lvalue40, ptr %compareInvChars, align 8
   %cmp43 = icmp eq i8 %inIsBigEndian, %outIsBigEndian
   %_ZL16uprv_swapArray16PK12UDataSwapperPKviPvP10UErrorCode.sink = select i1 %cmp43, ptr @_ZL16uprv_copyArray16PK12UDataSwapperPKviPvP10UErrorCode, ptr @_ZL16uprv_swapArray16PK12UDataSwapperPKviPvP10UErrorCode
   %_ZL16uprv_swapArray32PK12UDataSwapperPKviPvP10UErrorCode.sink = select i1 %cmp43, ptr @_ZL16uprv_copyArray32PK12UDataSwapperPKviPvP10UErrorCode, ptr @_ZL16uprv_swapArray32PK12UDataSwapperPKviPvP10UErrorCode
   %_ZL16uprv_swapArray64PK12UDataSwapperPKviPvP10UErrorCode.sink = select i1 %cmp43, ptr @_ZL16uprv_copyArray64PK12UDataSwapperPKviPvP10UErrorCode, ptr @_ZL16uprv_swapArray64PK12UDataSwapperPKviPvP10UErrorCode
-  %2 = getelementptr inbounds %struct.UDataSwapper, ptr %call7, i64 0, i32 9
+  %2 = getelementptr inbounds i8, ptr %call7, i64 48
   store ptr %_ZL16uprv_swapArray16PK12UDataSwapperPKviPvP10UErrorCode.sink, ptr %2, align 8
-  %3 = getelementptr inbounds %struct.UDataSwapper, ptr %call7, i64 0, i32 10
+  %3 = getelementptr inbounds i8, ptr %call7, i64 56
   store ptr %_ZL16uprv_swapArray32PK12UDataSwapperPKviPvP10UErrorCode.sink, ptr %3, align 8
-  %4 = getelementptr inbounds %struct.UDataSwapper, ptr %call7, i64 0, i32 11
+  %4 = getelementptr inbounds i8, ptr %call7, i64 64
   store ptr %_ZL16uprv_swapArray64PK12UDataSwapperPKviPvP10UErrorCode.sink, ptr %4, align 8
   %cmp50 = icmp eq i8 %inCharset, 0
   br i1 %cmp50, label %if.then51, label %if.else58
 
 if.then51:                                        ; preds = %if.end10
   %uprv_copyAscii_75.uprv_ebcdicFromAscii_75 = select i1 %cmp36, ptr @uprv_copyAscii_75, ptr @uprv_ebcdicFromAscii_75
-  %swapInvChars = getelementptr inbounds %struct.UDataSwapper, ptr %call7, i64 0, i32 12
+  %swapInvChars = getelementptr inbounds i8, ptr %call7, i64 72
   store ptr %uprv_copyAscii_75.uprv_ebcdicFromAscii_75, ptr %swapInvChars, align 8
   br label %return
 
 if.else58:                                        ; preds = %if.end10
   %cmp60 = icmp eq i8 %outCharset, 1
   %uprv_copyEbcdic_75.uprv_asciiFromEbcdic_75 = select i1 %cmp60, ptr @uprv_copyEbcdic_75, ptr @uprv_asciiFromEbcdic_75
-  %swapInvChars65 = getelementptr inbounds %struct.UDataSwapper, ptr %call7, i64 0, i32 12
+  %swapInvChars65 = getelementptr inbounds i8, ptr %call7, i64 72
   store ptr %uprv_copyEbcdic_75.uprv_asciiFromEbcdic_75, ptr %swapInvChars65, align 8
   br label %return
 
@@ -630,10 +626,10 @@ while.body:                                       ; preds = %while.body.preheade
   %count.016 = phi i32 [ %dec, %while.body ], [ %div12, %while.body.preheader ]
   %q.015 = phi ptr [ %incdec.ptr15, %while.body ], [ %outData, %while.body.preheader ]
   %p.014 = phi ptr [ %incdec.ptr, %while.body ], [ %inData, %while.body.preheader ]
-  %incdec.ptr = getelementptr inbounds i16, ptr %p.014, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.014, i64 2
   %1 = load i16, ptr %p.014, align 2
   %or = tail call i16 @llvm.bswap.i16(i16 %1)
-  %incdec.ptr15 = getelementptr inbounds i16, ptr %q.015, i64 1
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %q.015, i64 2
   store i16 %or, ptr %q.015, align 2
   %dec = add nsw i32 %count.016, -1
   %cmp12 = icmp ugt i32 %count.016, 1
@@ -686,10 +682,10 @@ while.body:                                       ; preds = %while.body.preheade
   %count.018 = phi i32 [ %dec, %while.body ], [ %div14, %while.body.preheader ]
   %q.017 = phi ptr [ %incdec.ptr19, %while.body ], [ %outData, %while.body.preheader ]
   %p.016 = phi ptr [ %incdec.ptr, %while.body ], [ %inData, %while.body.preheader ]
-  %incdec.ptr = getelementptr inbounds i32, ptr %p.016, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.016, i64 4
   %1 = load i32, ptr %p.016, align 4
   %or18 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %incdec.ptr19 = getelementptr inbounds i32, ptr %q.017, i64 1
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %q.017, i64 4
   store i32 %or18, ptr %q.017, align 4
   %dec = add nsw i32 %count.018, -1
   %cmp12 = icmp ugt i32 %count.018, 1
@@ -742,10 +738,10 @@ while.body:                                       ; preds = %while.body.preheade
   %count.023 = phi i32 [ %dec, %while.body ], [ %div19, %while.body.preheader ]
   %q.022 = phi ptr [ %incdec.ptr31, %while.body ], [ %outData, %while.body.preheader ]
   %p.021 = phi ptr [ %incdec.ptr, %while.body ], [ %inData, %while.body.preheader ]
-  %incdec.ptr = getelementptr inbounds i64, ptr %p.021, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.021, i64 8
   %1 = load i64, ptr %p.021, align 8
   %or30 = tail call i64 @llvm.bswap.i64(i64 %1)
-  %incdec.ptr31 = getelementptr inbounds i64, ptr %q.022, i64 1
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %q.022, i64 8
   store i64 %or30, ptr %q.022, align 8
   %dec = add nsw i32 %count.023, -1
   %cmp12 = icmp ugt i32 %count.023, 1
@@ -790,20 +786,20 @@ if.then7:                                         ; preds = %lor.lhs.false2, %if
   br label %return
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false2
-  %magic1 = getelementptr inbounds %struct.MappedData, ptr %data, i64 0, i32 1
+  %magic1 = getelementptr inbounds i8, ptr %data, i64 2
   %1 = load i8, ptr %magic1, align 2
   %cmp14.not = icmp eq i8 %1, -38
   br i1 %cmp14.not, label %lor.lhs.false15, label %if.then22
 
 lor.lhs.false15:                                  ; preds = %lor.lhs.false12
-  %magic2 = getelementptr inbounds %struct.MappedData, ptr %data, i64 0, i32 2
+  %magic2 = getelementptr inbounds i8, ptr %data, i64 3
   %2 = load i8, ptr %magic2, align 1
   %cmp18.not = icmp eq i8 %2, 39
   br i1 %cmp18.not, label %lor.lhs.false19, label %if.then22
 
 lor.lhs.false19:                                  ; preds = %lor.lhs.false15
-  %info = getelementptr inbounds %struct.DataHeader, ptr %data, i64 0, i32 1
-  %sizeofUChar = getelementptr inbounds %struct.DataHeader, ptr %data, i64 0, i32 1, i32 4
+  %info = getelementptr inbounds i8, ptr %data, i64 4
+  %sizeofUChar = getelementptr inbounds i8, ptr %data, i64 10
   %3 = load i8, ptr %sizeofUChar, align 2
   %cmp21.not = icmp eq i8 %3, 2
   br i1 %cmp21.not, label %if.end23, label %if.then22
@@ -813,9 +809,9 @@ if.then22:                                        ; preds = %lor.lhs.false19, %l
   br label %return
 
 if.end23:                                         ; preds = %lor.lhs.false19
-  %isBigEndian = getelementptr inbounds %struct.DataHeader, ptr %data, i64 0, i32 1, i32 2
+  %isBigEndian = getelementptr inbounds i8, ptr %data, i64 8
   %4 = load i8, ptr %isBigEndian, align 2
-  %charsetFamily = getelementptr inbounds %struct.DataHeader, ptr %data, i64 0, i32 1, i32 3
+  %charsetFamily = getelementptr inbounds i8, ptr %data, i64 9
   %5 = load i8, ptr %charsetFamily, align 1
   %cmp27 = icmp eq i8 %4, 0
   %6 = load i16, ptr %data, align 2

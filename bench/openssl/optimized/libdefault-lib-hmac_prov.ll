@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.hmac_data_st = type { ptr, ptr, %struct.PROV_DIGEST, ptr, i64, i64, [13 x i8], i32, [64 x i8], i64 }
-%struct.PROV_DIGEST = type { ptr, ptr, ptr }
 
 @ossl_hmac_functions = local_unnamed_addr constant [11 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @hmac_new }, %struct.ossl_dispatch_st { i32 2, ptr @hmac_dup }, %struct.ossl_dispatch_st { i32 3, ptr @hmac_free }, %struct.ossl_dispatch_st { i32 4, ptr @hmac_init }, %struct.ossl_dispatch_st { i32 5, ptr @hmac_update }, %struct.ossl_dispatch_st { i32 6, ptr @hmac_final }, %struct.ossl_dispatch_st { i32 11, ptr @hmac_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 8, ptr @hmac_get_ctx_params }, %struct.ossl_dispatch_st { i32 12, ptr @hmac_settable_ctx_params }, %struct.ossl_dispatch_st { i32 9, ptr @hmac_set_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [54 x i8] c"../openssl/providers/implementations/macs/hmac_prov.c\00", align 1
@@ -35,7 +33,7 @@ if.end:                                           ; preds = %entry
 
 lor.lhs.false:                                    ; preds = %if.end
   %call2 = tail call ptr @HMAC_CTX_new() #7
-  %ctx = getelementptr inbounds %struct.hmac_data_st, ptr %call1, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %call2, ptr %ctx, align 8
   %cmp3 = icmp eq ptr %call2, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -72,7 +70,7 @@ if.end.i:                                         ; preds = %if.end
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
   %call2.i = tail call ptr @HMAC_CTX_new() #7
-  %ctx.i = getelementptr inbounds %struct.hmac_data_st, ptr %call1.i, i64 0, i32 1
+  %ctx.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call2.i, ptr %ctx.i, align 8
   %cmp3.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.i, label %if.then4.i, label %if.end3
@@ -84,9 +82,9 @@ if.then4.i:                                       ; preds = %lor.lhs.false.i, %i
 if.end3:                                          ; preds = %lor.lhs.false.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %call1.i, ptr noundef nonnull align 8 dereferenceable(160) %vsrc, i64 160, i1 false)
   store ptr %call2.i, ptr %ctx.i, align 8
-  %key = getelementptr inbounds %struct.hmac_data_st, ptr %call1.i, i64 0, i32 3
-  %digest = getelementptr inbounds %struct.hmac_data_st, ptr %call1.i, i64 0, i32 2
-  %ctx7 = getelementptr inbounds %struct.hmac_data_st, ptr %vsrc, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %digest = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %ctx7 = getelementptr inbounds i8, ptr %vsrc, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %digest, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %ctx7, align 8
   %call8 = tail call i32 @HMAC_CTX_copy(ptr noundef nonnull %call2.i, ptr noundef %0) #7
@@ -94,7 +92,7 @@ if.end3:                                          ; preds = %lor.lhs.false.i
   br i1 %tobool9.not, label %hmac_free.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %digest11 = getelementptr inbounds %struct.hmac_data_st, ptr %vsrc, i64 0, i32 2
+  %digest11 = getelementptr inbounds i8, ptr %vsrc, i64 16
   %call12 = tail call i32 @ossl_prov_digest_copy(ptr noundef nonnull %digest, ptr noundef nonnull %digest11) #7
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %hmac_free.exit, label %if.end15
@@ -104,20 +102,20 @@ hmac_free.exit:                                   ; preds = %lor.lhs.false, %if.
   tail call void @HMAC_CTX_free(ptr noundef %1) #7
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest) #7
   %2 = load ptr, ptr %key, align 8
-  %keylen.i = getelementptr inbounds %struct.hmac_data_st, ptr %call1.i, i64 0, i32 4
+  %keylen.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   %3 = load i64, ptr %keylen.i, align 8
   tail call void @CRYPTO_secure_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 88) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str, i32 noundef 89) #7
   br label %return
 
 if.end15:                                         ; preds = %lor.lhs.false
-  %key16 = getelementptr inbounds %struct.hmac_data_st, ptr %vsrc, i64 0, i32 3
+  %key16 = getelementptr inbounds i8, ptr %vsrc, i64 40
   %4 = load ptr, ptr %key16, align 8
   %cmp17.not = icmp eq ptr %4, null
   br i1 %cmp17.not, label %return, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
-  %keylen = getelementptr inbounds %struct.hmac_data_st, ptr %vsrc, i64 0, i32 4
+  %keylen = getelementptr inbounds i8, ptr %vsrc, i64 48
   %5 = load i64, ptr %keylen, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %5, i64 1)
   %call21 = tail call noalias ptr @CRYPTO_secure_malloc(i64 noundef %spec.select, ptr noundef nonnull @.str, i32 noundef 118) #7
@@ -130,7 +128,7 @@ hmac_free.exit31:                                 ; preds = %if.then18
   tail call void @HMAC_CTX_free(ptr noundef %6) #7
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest) #7
   %7 = load ptr, ptr %key, align 8
-  %keylen.i29 = getelementptr inbounds %struct.hmac_data_st, ptr %call1.i, i64 0, i32 4
+  %keylen.i29 = getelementptr inbounds i8, ptr %call1.i, i64 48
   %8 = load i64, ptr %keylen.i29, align 8
   tail call void @CRYPTO_secure_clear_free(ptr noundef %7, i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 88) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str, i32 noundef 89) #7
@@ -154,14 +152,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ctx = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %vmacctx, i64 8
   %0 = load ptr, ptr %ctx, align 8
   tail call void @HMAC_CTX_free(ptr noundef %0) #7
-  %digest = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 2
+  %digest = getelementptr inbounds i8, ptr %vmacctx, i64 16
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest) #7
-  %key = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 3
+  %key = getelementptr inbounds i8, ptr %vmacctx, i64 40
   %1 = load ptr, ptr %key, align 8
-  %keylen = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 4
+  %keylen = getelementptr inbounds i8, ptr %vmacctx, i64 48
   %2 = load i64, ptr %keylen, align 8
   tail call void @CRYPTO_secure_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 88) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %vmacctx, ptr noundef nonnull @.str, i32 noundef 89) #7
@@ -188,13 +186,13 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %key1.i = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 3
+  %key1.i = getelementptr inbounds i8, ptr %vmacctx, i64 40
   %0 = load ptr, ptr %key1.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then3
-  %keylen3.i = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 4
+  %keylen3.i = getelementptr inbounds i8, ptr %vmacctx, i64 48
   %1 = load i64, ptr %keylen3.i, align 8
   tail call void @CRYPTO_secure_clear_free(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 148) #7
   br label %if.end.i
@@ -208,11 +206,11 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 if.then17.i:                                      ; preds = %if.end.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i, ptr nonnull align 1 %key, i64 %keylen, i1 false)
-  %keylen11.i = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 4
+  %keylen11.i = getelementptr inbounds i8, ptr %vmacctx, i64 48
   store i64 %keylen, ptr %keylen11.i, align 8
-  %digest12.i = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 2
+  %digest12.i = getelementptr inbounds i8, ptr %vmacctx, i64 16
   %call13.i = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest12.i) #7
-  %ctx.i = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 1
+  %ctx.i = getelementptr inbounds i8, ptr %vmacctx, i64 8
   %2 = load ptr, ptr %ctx.i, align 8
   %conv.i = trunc i64 %keylen to i32
   %call19.i = tail call ptr @ossl_prov_digest_engine(ptr noundef nonnull %digest12.i) #7
@@ -220,7 +218,7 @@ if.then17.i:                                      ; preds = %if.end.i
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %ctx = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %vmacctx, i64 8
   %3 = load ptr, ptr %ctx, align 8
   %call6 = tail call i32 @HMAC_Init_ex(ptr noundef %3, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #7
   br label %return
@@ -233,13 +231,13 @@ return:                                           ; preds = %if.then17.i, %if.en
 ; Function Attrs: nounwind uwtable
 define internal i32 @hmac_update(ptr noundef %vmacctx, ptr noundef %data, i64 noundef %datalen) #0 {
 entry:
-  %tls_data_size = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 5
+  %tls_data_size = getelementptr inbounds i8, ptr %vmacctx, i64 56
   %0 = load i64, ptr %tls_data_size, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end15, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tls_header_set = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 7
+  %tls_header_set = getelementptr inbounds i8, ptr %vmacctx, i64 80
   %1 = load i32, ptr %tls_header_set, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.then1, label %if.end5
@@ -249,7 +247,7 @@ if.then1:                                         ; preds = %if.then
   br i1 %cmp2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then1
-  %tls_header = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 6
+  %tls_header = getelementptr inbounds i8, ptr %vmacctx, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %tls_header, ptr noundef nonnull align 1 dereferenceable(13) %data, i64 13, i1 false)
   store i32 1, ptr %tls_header_set, align 8
   br label %return
@@ -259,21 +257,21 @@ if.end5:                                          ; preds = %if.then
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
-  %digest = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 2
+  %digest = getelementptr inbounds i8, ptr %vmacctx, i64 16
   %call = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest) #7
-  %tls_mac_out = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 8
-  %tls_mac_out_size = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 9
-  %tls_header11 = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 6
+  %tls_mac_out = getelementptr inbounds i8, ptr %vmacctx, i64 84
+  %tls_mac_out_size = getelementptr inbounds i8, ptr %vmacctx, i64 152
+  %tls_header11 = getelementptr inbounds i8, ptr %vmacctx, i64 64
   %2 = load i64, ptr %tls_data_size, align 8
-  %key = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 3
+  %key = getelementptr inbounds i8, ptr %vmacctx, i64 40
   %3 = load ptr, ptr %key, align 8
-  %keylen = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 4
+  %keylen = getelementptr inbounds i8, ptr %vmacctx, i64 48
   %4 = load i64, ptr %keylen, align 8
   %call14 = tail call i32 @ssl3_cbc_digest_record(ptr noundef %call, ptr noundef nonnull %tls_mac_out, ptr noundef nonnull %tls_mac_out_size, ptr noundef nonnull %tls_header11, ptr noundef %data, i64 noundef %datalen, i64 noundef %2, ptr noundef %3, i64 noundef %4, i8 noundef signext 0) #7
   br label %return
 
 if.end15:                                         ; preds = %entry
-  %ctx = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %vmacctx, i64 8
   %5 = load ptr, ptr %ctx, align 8
   %call16 = tail call i32 @HMAC_Update(ptr noundef %5, ptr noundef %data, i64 noundef %datalen) #7
   br label %return
@@ -292,13 +290,13 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tls_data_size = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 5
+  %tls_data_size = getelementptr inbounds i8, ptr %vmacctx, i64 56
   %0 = load i64, ptr %tls_data_size, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end10, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %tls_mac_out_size = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 9
+  %tls_mac_out_size = getelementptr inbounds i8, ptr %vmacctx, i64 152
   %1 = load i64, ptr %tls_mac_out_size, align 8
   %cmp2 = icmp eq i64 %1, 0
   br i1 %cmp2, label %return, label %if.end4
@@ -314,12 +312,12 @@ if.then6:                                         ; preds = %if.end4
 
 if.end8:                                          ; preds = %if.then6, %if.end4
   %2 = phi i64 [ %.pre, %if.then6 ], [ %1, %if.end4 ]
-  %tls_mac_out = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 8
+  %tls_mac_out = getelementptr inbounds i8, ptr %vmacctx, i64 84
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out, ptr nonnull align 4 %tls_mac_out, i64 %2, i1 false)
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %ctx = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %vmacctx, i64 8
   %3 = load ptr, ptr %ctx, align 8
   %call11 = call i32 @HMAC_Final(ptr noundef %3, ptr noundef %out, ptr noundef nonnull %hlen) #7
   %tobool12.not = icmp eq i32 %call11, 0
@@ -363,7 +361,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp4.not, label %if.end10, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %if.end
-  %digest.i = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 2
+  %digest.i = getelementptr inbounds i8, ptr %vmacctx, i64 16
   %call.i4 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest.i) #7
   %cmp.i = icmp eq ptr %call.i4, null
   br i1 %cmp.i, label %hmac_block_size.exit, label %if.end.i
@@ -403,7 +401,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %digest = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 2
+  %digest = getelementptr inbounds i8, ptr %vmacctx, i64 16
   %call1 = tail call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest, ptr noundef nonnull %params, ptr noundef %call) #7
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end3
@@ -465,7 +463,7 @@ if.end11:                                         ; preds = %if.end.i19, %if.end
 
 if.then13:                                        ; preds = %if.end11.thread, %if.end11
   %flags.1.ph43 = phi i32 [ %or.i22, %if.end11.thread ], [ %flags.0.ph, %if.end11 ]
-  %ctx14 = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 1
+  %ctx14 = getelementptr inbounds i8, ptr %vmacctx, i64 8
   %3 = load ptr, ptr %ctx14, align 8
   %conv = zext nneg i32 %flags.1.ph43 to i64
   call void @HMAC_CTX_set_flags(ptr noundef %3, i64 noundef %conv) #7
@@ -477,15 +475,15 @@ if.end15:                                         ; preds = %if.then13, %if.end1
   br i1 %cmp17.not, label %if.end28, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call16, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call16, i64 8
   %4 = load i32, ptr %data_type, align 8
   %cmp20.not = icmp eq i32 %4, 5
   br i1 %cmp20.not, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.then19
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call16, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call16, i64 16
   %5 = load ptr, ptr %data, align 8
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call16, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call16, i64 24
   %6 = load i64, ptr %data_size, align 8
   %call24 = call fastcc i32 @hmac_setkey(ptr noundef nonnull %vmacctx, ptr noundef %5, i64 noundef %6)
   %tobool25.not = icmp eq i32 %call24, 0
@@ -497,7 +495,7 @@ if.end28:                                         ; preds = %if.end23, %if.end15
   br i1 %cmp30.not, label %if.end37, label %if.then32
 
 if.then32:                                        ; preds = %if.end28
-  %tls_data_size = getelementptr inbounds %struct.hmac_data_st, ptr %vmacctx, i64 0, i32 5
+  %tls_data_size = getelementptr inbounds i8, ptr %vmacctx, i64 56
   %call33 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call29, ptr noundef nonnull %tls_data_size) #7
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %return, label %if.end37
@@ -539,13 +537,13 @@ declare void @CRYPTO_secure_clear_free(ptr noundef, i64 noundef, ptr noundef, i3
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @hmac_setkey(ptr noundef %macctx, ptr noundef %key, i64 noundef %keylen) unnamed_addr #0 {
 entry:
-  %key1 = getelementptr inbounds %struct.hmac_data_st, ptr %macctx, i64 0, i32 3
+  %key1 = getelementptr inbounds i8, ptr %macctx, i64 40
   %0 = load ptr, ptr %key1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %keylen3 = getelementptr inbounds %struct.hmac_data_st, ptr %macctx, i64 0, i32 4
+  %keylen3 = getelementptr inbounds i8, ptr %macctx, i64 48
   %1 = load i64, ptr %keylen3, align 8
   tail call void @CRYPTO_secure_clear_free(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull @.str, i32 noundef 148) #7
   br label %if.end
@@ -559,15 +557,15 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.end9:                                          ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr align 1 %key, i64 %keylen, i1 false)
-  %keylen11 = getelementptr inbounds %struct.hmac_data_st, ptr %macctx, i64 0, i32 4
+  %keylen11 = getelementptr inbounds i8, ptr %macctx, i64 48
   store i64 %keylen, ptr %keylen11, align 8
-  %digest12 = getelementptr inbounds %struct.hmac_data_st, ptr %macctx, i64 0, i32 2
+  %digest12 = getelementptr inbounds i8, ptr %macctx, i64 16
   %call13 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest12) #7
   %cmp14.not = icmp eq ptr %key, null
   br i1 %cmp14.not, label %lor.lhs.false, label %if.then17
 
 lor.lhs.false:                                    ; preds = %if.end9
-  %tls_data_size = getelementptr inbounds %struct.hmac_data_st, ptr %macctx, i64 0, i32 5
+  %tls_data_size = getelementptr inbounds i8, ptr %macctx, i64 56
   %2 = load i64, ptr %tls_data_size, align 8
   %cmp15 = icmp eq i64 %2, 0
   %cmp16 = icmp ne ptr %call13, null
@@ -575,7 +573,7 @@ lor.lhs.false:                                    ; preds = %if.end9
   br i1 %or.cond, label %if.then17, label %return
 
 if.then17:                                        ; preds = %lor.lhs.false, %if.end9
-  %ctx = getelementptr inbounds %struct.hmac_data_st, ptr %macctx, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %macctx, i64 8
   %3 = load ptr, ptr %ctx, align 8
   %conv = trunc i64 %keylen to i32
   %call19 = tail call ptr @ossl_prov_digest_engine(ptr noundef nonnull %digest12) #7

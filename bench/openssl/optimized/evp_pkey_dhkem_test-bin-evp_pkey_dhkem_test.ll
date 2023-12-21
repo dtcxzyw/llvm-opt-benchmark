@@ -334,13 +334,14 @@ entry:
   %idxprom = sext i32 %tstid to i64
   %arrayidx = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %1 = add i32 %tstid, -5
-  %cmp.not = icmp ult i32 %1, -2
+  %spriv1 = getelementptr inbounds i8, ptr %arrayidx, i64 104
+  %1 = load ptr, ptr %spriv1, align 8
+  %cmp.not = icmp eq ptr %1, null
   %cond = select i1 %cmp.not, ptr @.str.39, ptr @.str.38
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.37, ptr noundef %0, ptr noundef nonnull %cond) #5
-  %rpub3 = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 3
+  %rpub3 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %2 = load ptr, ptr %rpub3, align 8
-  %rpublen = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 4
+  %rpublen = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %3 = load i64, ptr %rpublen, align 8
   %call = tail call fastcc ptr @new_raw_public_key(ptr noundef %0, ptr noundef %2, i64 noundef %3)
   %call4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @.str.40, ptr noundef %call) #5
@@ -351,15 +352,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end15, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %spriv1 = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 13
-  %4 = load ptr, ptr %spriv1, align 8
-  %sprivlen = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 14
-  %5 = load i64, ptr %sprivlen, align 8
-  %spub = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 11
-  %6 = load ptr, ptr %spub, align 8
-  %spublen = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 12
-  %7 = load i64, ptr %spublen, align 8
-  %call10 = tail call fastcc ptr @new_raw_private_key(ptr noundef %0, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7)
+  %sprivlen = getelementptr inbounds i8, ptr %arrayidx, i64 112
+  %4 = load i64, ptr %sprivlen, align 8
+  %spub = getelementptr inbounds i8, ptr %arrayidx, i64 88
+  %5 = load ptr, ptr %spub, align 8
+  %spublen = getelementptr inbounds i8, ptr %arrayidx, i64 96
+  %6 = load i64, ptr %spublen, align 8
+  %call10 = tail call fastcc ptr @new_raw_private_key(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %4, ptr noundef %5, i64 noundef %6)
   %call11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 54, ptr noundef nonnull @.str.41, ptr noundef %call10) #5
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %err, label %if.end15
@@ -378,20 +377,20 @@ if.end15:                                         ; preds = %if.then7, %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %enc.i, i8 0, i64 256, i1 false)
   store i64 0, ptr %secretlen.i, align 8
   store i64 0, ptr %enclen.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %struct.ossl_param_st, ptr %params.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %params.i, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %incdec.ptr1.i = getelementptr inbounds %struct.ossl_param_st, ptr %params.i, i64 2
-  %ikmE.i = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 1
-  %8 = load ptr, ptr %ikmE.i, align 8
-  %ikmElen.i = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 2
-  %9 = load i64, ptr %ikmElen.i, align 8
-  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i, ptr noundef nonnull @.str.46, ptr noundef %8, i64 noundef %9) #5
+  %incdec.ptr1.i = getelementptr inbounds i8, ptr %params.i, i64 80
+  %ikmE.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %7 = load ptr, ptr %ikmE.i, align 8
+  %ikmElen.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %8 = load i64, ptr %ikmElen.i, align 8
+  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i, ptr noundef nonnull @.str.46, ptr noundef %7, i64 noundef %8) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp2.i, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp3.i) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %incdec.ptr1.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp3.i, i64 40, i1 false)
-  %10 = load ptr, ptr @libctx, align 8
-  %call.i = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %10, ptr noundef %call, ptr noundef null) #5
+  %9 = load ptr, ptr @libctx, align 8
+  %call.i = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %9, ptr noundef %call, ptr noundef null) #5
   %call4.i = call i32 @test_ptr(ptr noundef nonnull @.str.47, i32 noundef 667, ptr noundef nonnull @.str.48, ptr noundef %call.i) #5
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %do_encap.exit, label %if.end.i
@@ -424,28 +423,28 @@ land.lhs.true.i:                                  ; preds = %if.end19.i
   br i1 %tobool27.not.i, label %do_encap.exit, label %land.lhs.true28.i
 
 land.lhs.true28.i:                                ; preds = %land.lhs.true.i
-  %11 = load i64, ptr %enclen.i, align 8
-  %expected_enc.i = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 7
-  %12 = load ptr, ptr %expected_enc.i, align 8
-  %expected_enclen.i = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 8
-  %13 = load i64, ptr %expected_enclen.i, align 8
-  %call30.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.47, i32 noundef 680, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull %enc.i, i64 noundef %11, ptr noundef %12, i64 noundef %13) #5
+  %10 = load i64, ptr %enclen.i, align 8
+  %expected_enc.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
+  %11 = load ptr, ptr %expected_enc.i, align 8
+  %expected_enclen.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %12 = load i64, ptr %expected_enclen.i, align 8
+  %call30.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.47, i32 noundef 680, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull %enc.i, i64 noundef %10, ptr noundef %11, i64 noundef %12) #5
   %tobool31.not.i = icmp eq i32 %call30.i, 0
   br i1 %tobool31.not.i, label %do_encap.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true28.i
-  %14 = load i64, ptr %secretlen.i, align 8
-  %expected_secret.i = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 9
-  %15 = load ptr, ptr %expected_secret.i, align 8
-  %expected_secretlen.i = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 10
-  %16 = load i64, ptr %expected_secretlen.i, align 8
-  %call33.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.47, i32 noundef 682, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull %secret.i, i64 noundef %14, ptr noundef %15, i64 noundef %16) #5
+  %13 = load i64, ptr %secretlen.i, align 8
+  %expected_secret.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
+  %14 = load ptr, ptr %expected_secret.i, align 8
+  %expected_secretlen.i = getelementptr inbounds i8, ptr %arrayidx, i64 80
+  %15 = load i64, ptr %expected_secretlen.i, align 8
+  %call33.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.47, i32 noundef 682, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull %secret.i, i64 noundef %13, ptr noundef %14, i64 noundef %15) #5
   %tobool34.i = icmp ne i32 %call33.i, 0
-  %17 = zext i1 %tobool34.i to i32
+  %16 = zext i1 %tobool34.i to i32
   br label %do_encap.exit
 
 do_encap.exit:                                    ; preds = %if.end15, %if.then6.i, %if.else.i, %if.end19.i, %land.lhs.true.i, %land.lhs.true28.i, %land.rhs.i
-  %ret.0.i = phi i32 [ 0, %if.then6.i ], [ 0, %if.else.i ], [ 0, %if.end15 ], [ 0, %land.lhs.true28.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end19.i ], [ %17, %land.rhs.i ]
+  %ret.0.i = phi i32 [ 0, %if.then6.i ], [ 0, %if.else.i ], [ 0, %if.end15 ], [ 0, %land.lhs.true28.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end19.i ], [ %16, %land.rhs.i ]
   call void @EVP_PKEY_CTX_free(ptr noundef %call.i) #5
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %secret.i)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %enc.i)
@@ -473,17 +472,18 @@ entry:
   %idxprom = sext i32 %tstid to i64
   %arrayidx = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %1 = add i32 %tstid, -5
-  %cmp.not = icmp ult i32 %1, -2
+  %spub1 = getelementptr inbounds i8, ptr %arrayidx, i64 88
+  %1 = load ptr, ptr %spub1, align 8
+  %cmp.not = icmp eq ptr %1, null
   %cond = select i1 %cmp.not, ptr @.str.39, ptr @.str.38
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.37, ptr noundef %0, ptr noundef nonnull %cond) #5
-  %rpriv3 = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 5
+  %rpriv3 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %2 = load ptr, ptr %rpriv3, align 8
-  %rprivlen = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 6
+  %rprivlen = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %3 = load i64, ptr %rprivlen, align 8
-  %rpub = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 3
+  %rpub = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %4 = load ptr, ptr %rpub, align 8
-  %rpublen = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 4
+  %rpublen = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %5 = load i64, ptr %rpublen, align 8
   %call = tail call fastcc ptr @new_raw_private_key(ptr noundef %0, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5)
   %call4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 74, ptr noundef nonnull @.str.58, ptr noundef %call) #5
@@ -494,11 +494,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end15, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %spub1 = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 11
-  %6 = load ptr, ptr %spub1, align 8
-  %spublen = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 12
-  %7 = load i64, ptr %spublen, align 8
-  %call10 = tail call fastcc ptr @new_raw_public_key(ptr noundef %0, ptr noundef %6, i64 noundef %7)
+  %spublen = getelementptr inbounds i8, ptr %arrayidx, i64 96
+  %6 = load i64, ptr %spublen, align 8
+  %call10 = tail call fastcc ptr @new_raw_public_key(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %6)
   %call11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @.str.59, ptr noundef %call10) #5
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %err, label %if.end15
@@ -509,8 +507,8 @@ if.end15:                                         ; preds = %if.then7, %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %secretlen.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %secret.i, i8 0, i64 256, i1 false)
   store i64 0, ptr %secretlen.i, align 8
-  %8 = load ptr, ptr @libctx, align 8
-  %call.i = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %8, ptr noundef %call, ptr noundef null) #5
+  %7 = load ptr, ptr @libctx, align 8
+  %call.i = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %7, ptr noundef %call, ptr noundef null) #5
   %call1.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.47, i32 noundef 696, ptr noundef nonnull @.str.60, ptr noundef %call.i) #5
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %do_decap.exit, label %if.end.i
@@ -531,34 +529,34 @@ if.else.i:                                        ; preds = %if.end.i
   br i1 %tobool11.not.i, label %do_decap.exit, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.else.i, %if.then3.i
-  %expected_enc.i = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 7
-  %9 = load ptr, ptr %expected_enc.i, align 8
-  %expected_enclen.i = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 8
-  %10 = load i64, ptr %expected_enclen.i, align 8
-  %call15.i = call i32 @EVP_PKEY_decapsulate(ptr noundef %call.i, ptr noundef null, ptr noundef nonnull %secretlen.i, ptr noundef %9, i64 noundef %10) #5
+  %expected_enc.i = getelementptr inbounds i8, ptr %arrayidx, i64 56
+  %8 = load ptr, ptr %expected_enc.i, align 8
+  %expected_enclen.i = getelementptr inbounds i8, ptr %arrayidx, i64 64
+  %9 = load i64, ptr %expected_enclen.i, align 8
+  %call15.i = call i32 @EVP_PKEY_decapsulate(ptr noundef %call.i, ptr noundef null, ptr noundef nonnull %secretlen.i, ptr noundef %8, i64 noundef %9) #5
   %call16.i = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 708, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.50, i32 noundef %call15.i, i32 noundef 1) #5
   %tobool17.not.i = icmp eq i32 %call16.i, 0
   br i1 %tobool17.not.i, label %do_decap.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end14.i
-  %call20.i = call i32 @EVP_PKEY_decapsulate(ptr noundef %call.i, ptr noundef nonnull %secret.i, ptr noundef nonnull %secretlen.i, ptr noundef %9, i64 noundef %10) #5
+  %call20.i = call i32 @EVP_PKEY_decapsulate(ptr noundef %call.i, ptr noundef nonnull %secret.i, ptr noundef nonnull %secretlen.i, ptr noundef %8, i64 noundef %9) #5
   %call21.i = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 711, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.50, i32 noundef %call20.i, i32 noundef 1) #5
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   br i1 %tobool22.not.i, label %do_decap.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
-  %11 = load i64, ptr %secretlen.i, align 8
-  %expected_secret.i = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 9
-  %12 = load ptr, ptr %expected_secret.i, align 8
-  %expected_secretlen.i = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 10
-  %13 = load i64, ptr %expected_secretlen.i, align 8
-  %call24.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.47, i32 noundef 713, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull %secret.i, i64 noundef %11, ptr noundef %12, i64 noundef %13) #5
+  %10 = load i64, ptr %secretlen.i, align 8
+  %expected_secret.i = getelementptr inbounds i8, ptr %arrayidx, i64 72
+  %11 = load ptr, ptr %expected_secret.i, align 8
+  %expected_secretlen.i = getelementptr inbounds i8, ptr %arrayidx, i64 80
+  %12 = load i64, ptr %expected_secretlen.i, align 8
+  %call24.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.47, i32 noundef 713, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull %secret.i, i64 noundef %10, ptr noundef %11, i64 noundef %12) #5
   %tobool25.i = icmp ne i32 %call24.i, 0
-  %14 = zext i1 %tobool25.i to i32
+  %13 = zext i1 %tobool25.i to i32
   br label %do_decap.exit
 
 do_decap.exit:                                    ; preds = %if.end15, %if.then3.i, %if.else.i, %if.end14.i, %land.lhs.true.i, %land.rhs.i
-  %ret.0.i = phi i32 [ 0, %if.then3.i ], [ 0, %if.else.i ], [ 0, %if.end15 ], [ 0, %land.lhs.true.i ], [ 0, %if.end14.i ], [ %14, %land.rhs.i ]
+  %ret.0.i = phi i32 [ 0, %if.then3.i ], [ 0, %if.else.i ], [ 0, %if.end15 ], [ 0, %land.lhs.true.i ], [ 0, %if.end14.i ], [ %13, %land.rhs.i ]
   call void @EVP_PKEY_CTX_free(ptr noundef %call.i) #5
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %secret.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %secretlen.i)
@@ -596,7 +594,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
   br i1 %tobool8.not, label %land.end, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true5
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call6, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call6, i64 8
   %1 = load i32, ptr %data_type, align 8
   %call10 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.3, i32 noundef 98, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i32 noundef %1, i32 noundef 4) #5
   %tobool11.not = icmp eq i32 %call10, 0
@@ -609,7 +607,7 @@ land.lhs.true12:                                  ; preds = %land.lhs.true9
   br i1 %tobool15.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true12
-  %data_type16 = getelementptr inbounds %struct.ossl_param_st, ptr %call13, i64 0, i32 1
+  %data_type16 = getelementptr inbounds i8, ptr %call13, i64 8
   %2 = load i32, ptr %data_type16, align 8
   %call17 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.3, i32 noundef 101, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.71, i32 noundef %2, i32 noundef 5) #5
   %tobool18 = icmp ne i32 %call17, 0
@@ -678,6 +676,7 @@ entry:
   %idxprom = sext i32 %tstid to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
+  %arrayidx2 = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom
   store i64 0, ptr %len, align 8
   %call = tail call i32 @EVP_PKEY_encapsulate_init(ptr noundef %0, ptr noundef null) #5
   %call3 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 174, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.50, i32 noundef %call, i32 noundef 1) #5
@@ -697,9 +696,9 @@ land.lhs.true7:                                   ; preds = %land.lhs.true
   br i1 %tobool10.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true7
-  %expected_enc = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 7
+  %expected_enc = getelementptr inbounds i8, ptr %arrayidx2, i64 56
   %1 = load ptr, ptr %expected_enc, align 8
-  %expected_enclen = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 8
+  %expected_enclen = getelementptr inbounds i8, ptr %arrayidx2, i64 64
   %2 = load i64, ptr %expected_enclen, align 8
   %call11 = call i32 @EVP_PKEY_decapsulate(ptr noundef %0, ptr noundef null, ptr noundef nonnull %len, ptr noundef %1, i64 noundef %2) #5
   %call12 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 179, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.76, i32 noundef %call11, i32 noundef -2) #5
@@ -732,10 +731,10 @@ entry:
   %0 = load ptr, ptr %arrayidx, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp2, i64 40, i1 false)
-  %arrayidx3 = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4, ptr noundef nonnull @.str.46, ptr noundef nonnull %tmp, i64 noundef 16) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(40) %tmp4, i64 40, i1 false)
-  %arrayidx5 = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %params, i64 0, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx5, ptr noundef nonnull align 8 dereferenceable(40) %tmp6, i64 40, i1 false)
   %call = call i32 @EVP_PKEY_encapsulate_init(ptr noundef %0, ptr noundef nonnull %params) #5
@@ -840,6 +839,7 @@ entry:
   %idxprom = sext i32 %tstid to i64
   %arrayidx = getelementptr inbounds [2 x ptr], ptr @rctx, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
+  %arrayidx2 = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom
   %call = tail call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %0, ptr noundef null, ptr noundef nonnull @opparam) #5
   %call3 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 330, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.74, i32 noundef %call, i32 noundef 0) #5
   %tobool.not = icmp eq i32 %call3, 0
@@ -858,9 +858,9 @@ land.lhs.true7:                                   ; preds = %land.lhs.true
   br i1 %tobool10.not, label %land.end, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %land.lhs.true7
-  %expected_enc = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 7
+  %expected_enc = getelementptr inbounds i8, ptr %arrayidx2, i64 56
   %1 = load ptr, ptr %expected_enc, align 8
-  %expected_enclen = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 8
+  %expected_enclen = getelementptr inbounds i8, ptr %arrayidx2, i64 64
   %2 = load i64, ptr %expected_enclen, align 8
   %call12 = tail call i32 @EVP_PKEY_decapsulate(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef %1, i64 noundef %2) #5
   %call13 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 336, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.74, i32 noundef %call12, i32 noundef 0) #5
@@ -908,7 +908,7 @@ entry:
   store i32 1, ptr %val, align 4
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.2, ptr noundef nonnull %val) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %badparams, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx2 = getelementptr inbounds [4 x %struct.ossl_param_st], ptr %badparams, i64 0, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %badparams, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp3) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx2, ptr noundef nonnull align 8 dereferenceable(40) %tmp3, i64 40, i1 false)
   %call = call i32 @EVP_PKEY_encapsulate_init(ptr noundef %0, ptr noundef nonnull %badparams) #5
@@ -982,9 +982,9 @@ entry:
   %0 = load ptr, ptr %arrayidx, align 8
   %cond = select i1 %cmp, ptr @.str.93, ptr @.str.94
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.92, ptr noundef %0, ptr noundef nonnull %cond) #5
-  %rpriv = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 5
+  %rpriv = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %1 = load ptr, ptr %rpriv, align 8
-  %rprivlen = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 6
+  %rprivlen = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %2 = load i64, ptr %rprivlen, align 8
   %call = tail call fastcc ptr @new_raw_private_key(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0)
   %call6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 405, ptr noundef nonnull @.str.95, ptr noundef %call) #5
@@ -1052,9 +1052,9 @@ entry:
   %1 = load ptr, ptr %arrayidx, align 8
   %cond = select i1 %cmp, ptr @.str.93, ptr @.str.94
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.92, ptr noundef %1, ptr noundef nonnull %cond) #5
-  %rpriv = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 5
+  %rpriv = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %2 = load ptr, ptr %rpriv, align 8
-  %rprivlen = getelementptr inbounds [5 x %struct.TEST_ENCAPDATA], ptr @ec_encapdata, i64 0, i64 %idxprom, i32 6
+  %rprivlen = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %3 = load i64, ptr %rprivlen, align 8
   %call = tail call fastcc ptr @new_raw_private_key(ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef null, i64 noundef %idxprom)
   %call9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 440, ptr noundef nonnull @.str.100, ptr noundef %call) #5
@@ -1119,14 +1119,14 @@ entry:
   %0 = load ptr, ptr %arrayidx, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.43, ptr noundef %0, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx2 = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
-  %ikm = getelementptr inbounds [3 x %struct.TEST_DERIVEKEY_DATA], ptr @ec_derivekey_data, i64 0, i64 %idxprom, i32 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %params, i64 40
+  %ikm = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %ikm, align 8
-  %ikmlen = getelementptr inbounds [3 x %struct.TEST_DERIVEKEY_DATA], ptr @ec_derivekey_data, i64 0, i64 %idxprom, i32 2
+  %ikmlen = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load i64, ptr %ikmlen, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp3, ptr noundef nonnull @.str.103, ptr noundef %1, i64 noundef %2) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx2, ptr noundef nonnull align 8 dereferenceable(40) %tmp3, i64 40, i1 false)
-  %arrayidx4 = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %params, i64 0, i64 2
+  %arrayidx4 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp5) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx4, ptr noundef nonnull align 8 dereferenceable(40) %tmp5, i64 40, i1 false)
   %3 = load ptr, ptr @libctx, align 8
@@ -1185,9 +1185,9 @@ land.lhs.true36:                                  ; preds = %land.lhs.true29
   br i1 %tobool39.not, label %land.end, label %land.lhs.true40
 
 land.lhs.true40:                                  ; preds = %land.lhs.true36
-  %priv42 = getelementptr inbounds [3 x %struct.TEST_DERIVEKEY_DATA], ptr @ec_derivekey_data, i64 0, i64 %idxprom, i32 5
+  %priv42 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %7 = load ptr, ptr %priv42, align 8
-  %privlen = getelementptr inbounds [3 x %struct.TEST_DERIVEKEY_DATA], ptr @ec_derivekey_data, i64 0, i64 %idxprom, i32 6
+  %privlen = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %8 = load i64, ptr %privlen, align 8
   %call43 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 494, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115, ptr noundef nonnull %privkey, i64 noundef %conv32, ptr noundef %7, i64 noundef %8) #5
   %tobool44.not = icmp eq i32 %call43, 0
@@ -1195,9 +1195,9 @@ land.lhs.true40:                                  ; preds = %land.lhs.true36
 
 land.rhs:                                         ; preds = %land.lhs.true40
   %9 = load i64, ptr %pubkeylen, align 8
-  %pub = getelementptr inbounds [3 x %struct.TEST_DERIVEKEY_DATA], ptr @ec_derivekey_data, i64 0, i64 %idxprom, i32 3
+  %pub = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %10 = load ptr, ptr %pub, align 8
-  %publen = getelementptr inbounds [3 x %struct.TEST_DERIVEKEY_DATA], ptr @ec_derivekey_data, i64 0, i64 %idxprom, i32 4
+  %publen = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %11 = load i64, ptr %publen, align 8
   %call46 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 495, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117, ptr noundef nonnull %pubkey, i64 noundef %9, ptr noundef %10, i64 noundef %11) #5
   %tobool47 = icmp ne i32 %call46, 0
@@ -1425,10 +1425,10 @@ entry:
   store ptr null, ptr %pkey, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.137, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx1 = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2, ptr noundef nonnull @.str.103, ptr noundef nonnull @p256_ikme, i64 noundef 32) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1, ptr noundef nonnull align 8 dereferenceable(40) %tmp2, i64 40, i1 false)
-  %arrayidx3 = getelementptr inbounds [3 x %struct.ossl_param_st], ptr %params, i64 0, i64 2
+  %arrayidx3 = getelementptr inbounds i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(40) %tmp4, i64 40, i1 false)
   %0 = load ptr, ptr @libctx, align 8
@@ -1774,9 +1774,9 @@ entry:
   store i64 0, ptr %privkeylen, align 8
   %idxprom = sext i32 %tstid to i64
   %arrayidx = getelementptr inbounds [2 x %struct.TEST_DERIVEKEY_DATA], ptr @ecx_derivekey_data, i64 0, i64 %idxprom
-  %priv = getelementptr inbounds [2 x %struct.TEST_DERIVEKEY_DATA], ptr @ecx_derivekey_data, i64 0, i64 %idxprom, i32 5
+  %priv = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %0 = load ptr, ptr %priv, align 8
-  %privlen = getelementptr inbounds [2 x %struct.TEST_DERIVEKEY_DATA], ptr @ecx_derivekey_data, i64 0, i64 %idxprom, i32 6
+  %privlen = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %1 = load i64, ptr %privlen, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %masked_priv, ptr align 1 %0, i64 %1, i1 false)
   %2 = load ptr, ptr %arrayidx, align 8
@@ -1805,13 +1805,13 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %if.then
   %.sink = phi i8 [ %10, %if.else ], [ %7, %if.then ]
   store i8 %.sink, ptr %arrayidx4, align 1
-  %ikm = getelementptr inbounds [2 x %struct.TEST_DERIVEKEY_DATA], ptr @ecx_derivekey_data, i64 0, i64 %idxprom, i32 1
+  %ikm = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %11 = load ptr, ptr %ikm, align 8
-  %ikmlen = getelementptr inbounds [2 x %struct.TEST_DERIVEKEY_DATA], ptr @ecx_derivekey_data, i64 0, i64 %idxprom, i32 2
+  %ikmlen = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %12 = load i64, ptr %ikmlen, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.103, ptr noundef %11, i64 noundef %12) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx24 = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
+  %arrayidx24 = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp25) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx24, ptr noundef nonnull align 8 dereferenceable(40) %tmp25, i64 40, i1 false)
   %13 = load ptr, ptr @libctx, align 8
@@ -1853,9 +1853,9 @@ land.lhs.true46:                                  ; preds = %land.lhs.true41
   br i1 %tobool50.not, label %land.end, label %land.lhs.true51
 
 land.lhs.true51:                                  ; preds = %land.lhs.true46
-  %pub = getelementptr inbounds [2 x %struct.TEST_DERIVEKEY_DATA], ptr @ecx_derivekey_data, i64 0, i64 %idxprom, i32 3
+  %pub = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %16 = load ptr, ptr %pub, align 8
-  %publen = getelementptr inbounds [2 x %struct.TEST_DERIVEKEY_DATA], ptr @ecx_derivekey_data, i64 0, i64 %idxprom, i32 4
+  %publen = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %17 = load i64, ptr %publen, align 8
   %18 = load i64, ptr %pubkeylen, align 8
   %call53 = call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 746, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.116, ptr noundef %16, i64 noundef %17, ptr noundef nonnull %pubkey, i64 noundef %18) #5
@@ -1990,7 +1990,7 @@ if.end.thread:                                    ; preds = %entry
   br i1 %cmp310, label %return, label %if.then8
 
 if.then8:                                         ; preds = %if.end.thread
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.43, ptr noundef nonnull %curvename, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   br label %if.end9
@@ -1998,7 +1998,7 @@ if.then8:                                         ; preds = %if.end.thread
 if.end9:                                          ; preds = %if.end, %if.then8
   %ctx.01115 = phi ptr [ %call2, %if.then8 ], [ %call, %if.end ]
   %p.0 = phi ptr [ %incdec.ptr, %if.then8 ], [ %params, %if.end ]
-  %incdec.ptr10 = getelementptr inbounds %struct.ossl_param_st, ptr %p.0, i64 1
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %p.0, i64 40
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp11, ptr noundef nonnull @.str.44, ptr noundef %pub, i64 noundef %publen) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %p.0, ptr noundef nonnull align 8 dereferenceable(40) %tmp11, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp12) #5

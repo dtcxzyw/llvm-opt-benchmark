@@ -3,13 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-p12_mutl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PKCS12_st = type { ptr, ptr, ptr }
-%struct.PKCS12_MAC_DATA_st = type { ptr, ptr, ptr }
-%struct.pkcs7_st = type { ptr, i64, i32, i32, ptr, %union.anon, %struct.PKCS7_CTX_st }
-%union.anon = type { ptr }
-%struct.PKCS7_CTX_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/pkcs12/p12_mutl.c\00", align 1
 @__func__.PKCS12_verify_mac = private unnamed_addr constant [18 x i8] c"PKCS12_verify_mac\00", align 1
 @__func__.PKCS12_set_mac = private unnamed_addr constant [15 x i8] c"PKCS12_set_mac\00", align 1
@@ -20,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @PKCS12_mac_present(ptr nocapture noundef readonly %p12) local_unnamed_addr #0 {
 entry:
-  %mac = getelementptr inbounds %struct.PKCS12_st, ptr %p12, i64 0, i32 1
+  %mac = getelementptr inbounds i8, ptr %p12, i64 8
   %0 = load ptr, ptr %mac, align 8
   %tobool.not = icmp ne ptr %0, null
   %cond = zext i1 %tobool.not to i32
@@ -30,7 +23,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @PKCS12_get0_mac(ptr noundef %pmac, ptr noundef %pmacalg, ptr noundef writeonly %psalt, ptr noundef writeonly %piter, ptr nocapture noundef readonly %p12) local_unnamed_addr #1 {
 entry:
-  %mac = getelementptr inbounds %struct.PKCS12_st, ptr %p12, i64 0, i32 1
+  %mac = getelementptr inbounds i8, ptr %p12, i64 8
   %0 = load ptr, ptr %mac, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -43,7 +36,7 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   %2 = load ptr, ptr %mac, align 8
-  %salt = getelementptr inbounds %struct.PKCS12_MAC_DATA_st, ptr %2, i64 0, i32 1
+  %salt = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %salt, align 8
   store ptr %3, ptr %psalt, align 8
   br label %if.end
@@ -54,7 +47,7 @@ if.end:                                           ; preds = %if.then3, %if.then
 
 if.then6:                                         ; preds = %if.end
   %4 = load ptr, ptr %mac, align 8
-  %iter = getelementptr inbounds %struct.PKCS12_MAC_DATA_st, ptr %4, i64 0, i32 2
+  %iter = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %iter, align 8
   br label %if.end21.sink.split
 
@@ -112,9 +105,9 @@ entry:
   %md_name = alloca [80 x i8], align 16
   %macalg = alloca ptr, align 8
   %macoid = alloca ptr, align 8
-  %authsafes = getelementptr inbounds %struct.PKCS12_st, ptr %p12, i64 0, i32 2
+  %authsafes = getelementptr inbounds i8, ptr %p12, i64 16
   %0 = load ptr, ptr %authsafes, align 8
-  %type = getelementptr inbounds %struct.pkcs7_st, ptr %0, i64 0, i32 4
+  %type = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %type, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %1) #5
   %cmp = icmp eq i32 %call, 21
@@ -127,14 +120,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mac1 = getelementptr inbounds %struct.PKCS12_st, ptr %p12, i64 0, i32 1
+  %mac1 = getelementptr inbounds i8, ptr %p12, i64 8
   %2 = load ptr, ptr %mac1, align 8
-  %salt2 = getelementptr inbounds %struct.PKCS12_MAC_DATA_st, ptr %2, i64 0, i32 1
+  %salt2 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %salt2, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data, align 8
   %5 = load i32, ptr %3, align 8
-  %iter6 = getelementptr inbounds %struct.PKCS12_MAC_DATA_st, ptr %2, i64 0, i32 2
+  %iter6 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %iter6, align 8
   %cmp7 = icmp eq ptr %6, null
   br i1 %cmp7, label %if.end12, label %if.else
@@ -160,9 +153,9 @@ if.end12:                                         ; preds = %if.end, %if.else
 if.end18:                                         ; preds = %if.end12
   %call19 = call i32 @ERR_set_mark() #5
   %11 = load ptr, ptr %authsafes, align 8
-  %ctx = getelementptr inbounds %struct.pkcs7_st, ptr %11, i64 0, i32 6
+  %ctx = getelementptr inbounds i8, ptr %11, i64 40
   %12 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds %struct.pkcs7_st, ptr %11, i64 0, i32 6, i32 1
+  %propq = getelementptr inbounds i8, ptr %11, i64 48
   %13 = load ptr, ptr %propq, align 8
   %call24 = call ptr @EVP_MD_fetch(ptr noundef %12, ptr noundef nonnull %md_name, ptr noundef %13) #5
   %cmp25 = icmp eq ptr %call24, null
@@ -225,9 +218,9 @@ if.then57:                                        ; preds = %if.then54
 
 if.else68:                                        ; preds = %land.lhs.true, %if.end43
   %15 = load ptr, ptr %authsafes, align 8
-  %ctx71 = getelementptr inbounds %struct.pkcs7_st, ptr %15, i64 0, i32 6
+  %ctx71 = getelementptr inbounds i8, ptr %15, i64 40
   %16 = load ptr, ptr %ctx71, align 8
-  %propq75 = getelementptr inbounds %struct.pkcs7_st, ptr %15, i64 0, i32 6, i32 1
+  %propq75 = getelementptr inbounds i8, ptr %15, i64 48
   %17 = load ptr, ptr %propq75, align 8
   %call76 = call i32 @PKCS12_key_gen_utf8_ex(ptr noundef %pass, i32 noundef %passlen, ptr noundef %4, i32 noundef %5, i32 noundef 3, i32 noundef %iter.0, i32 noundef %call38, ptr noundef nonnull %key, ptr noundef nonnull %md.03, ptr noundef %16, ptr noundef %17) #5
   %tobool77.not = icmp eq i32 %call76, 0
@@ -252,9 +245,9 @@ lor.lhs.false85:                                  ; preds = %if.end81
 
 lor.lhs.false89:                                  ; preds = %lor.lhs.false85
   %18 = load ptr, ptr %authsafes, align 8
-  %d = getelementptr inbounds %struct.pkcs7_st, ptr %18, i64 0, i32 5
+  %d = getelementptr inbounds i8, ptr %18, i64 32
   %19 = load ptr, ptr %d, align 8
-  %data91 = getelementptr inbounds %struct.asn1_string_st, ptr %19, i64 0, i32 2
+  %data91 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %data91, align 8
   %21 = load i32, ptr %19, align 8
   %conv95 = sext i32 %21 to i64
@@ -287,7 +280,7 @@ entry:
   %mac = alloca [64 x i8], align 16
   %maclen = alloca i32, align 4
   %macoct = alloca ptr, align 8
-  %mac1 = getelementptr inbounds %struct.PKCS12_st, ptr %p12, i64 0, i32 1
+  %mac1 = getelementptr inbounds i8, ptr %p12, i64 8
   %0 = load ptr, ptr %mac1, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -385,7 +378,7 @@ if.then9:                                         ; preds = %if.end6
   br label %return
 
 if.end10:                                         ; preds = %if.end6
-  %mac11 = getelementptr inbounds %struct.PKCS12_st, ptr %p12, i64 0, i32 1
+  %mac11 = getelementptr inbounds i8, ptr %p12, i64 8
   %0 = load ptr, ptr %mac11, align 8
   %1 = load ptr, ptr %0, align 8
   call void @X509_SIG_getm(ptr noundef %1, ptr noundef null, ptr noundef nonnull %macoct) #5
@@ -412,7 +405,7 @@ declare ptr @EVP_sha256() local_unnamed_addr #2
 define i32 @PKCS12_setup_mac(ptr nocapture noundef %p12, i32 noundef %iter, ptr noundef readonly %salt, i32 noundef %saltlen, ptr noundef %md_type) local_unnamed_addr #1 {
 entry:
   %macalg = alloca ptr, align 8
-  %mac = getelementptr inbounds %struct.PKCS12_st, ptr %p12, i64 0, i32 1
+  %mac = getelementptr inbounds i8, ptr %p12, i64 8
   %0 = load ptr, ptr %mac, align 8
   tail call void @PKCS12_MAC_DATA_free(ptr noundef %0) #5
   store ptr null, ptr %mac, align 8
@@ -428,7 +421,7 @@ if.end:                                           ; preds = %entry
 if.then4:                                         ; preds = %if.end
   %call5 = tail call ptr @ASN1_INTEGER_new() #5
   %1 = load ptr, ptr %mac, align 8
-  %iter7 = getelementptr inbounds %struct.PKCS12_MAC_DATA_st, ptr %1, i64 0, i32 2
+  %iter7 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %call5, ptr %iter7, align 8
   %cmp8 = icmp eq ptr %call5, null
   br i1 %cmp8, label %if.then9, label %if.end10
@@ -441,7 +434,7 @@ if.then9:                                         ; preds = %if.then4
 
 if.end10:                                         ; preds = %if.then4
   %2 = load ptr, ptr %mac, align 8
-  %iter12 = getelementptr inbounds %struct.PKCS12_MAC_DATA_st, ptr %2, i64 0, i32 2
+  %iter12 = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %iter12, align 8
   %conv = zext nneg i32 %iter to i64
   %call13 = tail call i32 @ASN1_INTEGER_set(ptr noundef %3, i64 noundef %conv) #5
@@ -467,30 +460,30 @@ if.end24:                                         ; preds = %if.end16, %if.else
   %conv25 = zext nneg i32 %saltlen.addr.0 to i64
   %call26 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %conv25, ptr noundef nonnull @.str, i32 noundef 261) #5
   %4 = load ptr, ptr %mac, align 8
-  %salt28 = getelementptr inbounds %struct.PKCS12_MAC_DATA_st, ptr %4, i64 0, i32 1
+  %salt28 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %salt28, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %5, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %call26, ptr %data, align 8
   %cmp29 = icmp eq ptr %call26, null
   br i1 %cmp29, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.end24
   %6 = load ptr, ptr %mac, align 8
-  %salt34 = getelementptr inbounds %struct.PKCS12_MAC_DATA_st, ptr %6, i64 0, i32 1
+  %salt34 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %salt34, align 8
   store i32 %saltlen.addr.0, ptr %7, align 8
   %cmp35 = icmp eq ptr %salt, null
   br i1 %cmp35, label %if.then37, label %if.else47
 
 if.then37:                                        ; preds = %if.end32
-  %authsafes = getelementptr inbounds %struct.PKCS12_st, ptr %p12, i64 0, i32 2
+  %authsafes = getelementptr inbounds i8, ptr %p12, i64 16
   %8 = load ptr, ptr %authsafes, align 8
-  %ctx = getelementptr inbounds %struct.pkcs7_st, ptr %8, i64 0, i32 6
+  %ctx = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load ptr, ptr %ctx, align 8
   %10 = load ptr, ptr %mac, align 8
-  %salt39 = getelementptr inbounds %struct.PKCS12_MAC_DATA_st, ptr %10, i64 0, i32 1
+  %salt39 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %salt39, align 8
-  %data40 = getelementptr inbounds %struct.asn1_string_st, ptr %11, i64 0, i32 2
+  %data40 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %data40, align 8
   %call42 = tail call i32 @RAND_bytes_ex(ptr noundef %9, ptr noundef %12, i64 noundef %conv25, i32 noundef 0) #5
   %cmp43 = icmp slt i32 %call42, 1
@@ -498,9 +491,9 @@ if.then37:                                        ; preds = %if.end32
 
 if.else47:                                        ; preds = %if.end32
   %13 = load ptr, ptr %mac, align 8
-  %salt49 = getelementptr inbounds %struct.PKCS12_MAC_DATA_st, ptr %13, i64 0, i32 1
+  %salt49 = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %salt49, align 8
-  %data50 = getelementptr inbounds %struct.asn1_string_st, ptr %14, i64 0, i32 2
+  %data50 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %data50, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr nonnull align 1 %salt, i64 %conv25, i1 false)
   br label %if.end52

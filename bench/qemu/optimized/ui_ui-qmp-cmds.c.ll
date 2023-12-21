@@ -5,18 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QemuSpiceOps = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.QemuDBusDisplayOps = type { ptr }
-%struct.SetPasswordOptions = type { i32, ptr, i8, i32, %union.anon }
-%union.anon = type { %struct.SetPasswordOptionsVnc }
-%struct.SetPasswordOptionsVnc = type { ptr }
-%struct.ExpirePasswordOptions = type { i32, ptr, %union.anon.0 }
-%union.anon.0 = type { %struct.ExpirePasswordOptionsVnc }
-%struct.ExpirePasswordOptionsVnc = type { ptr }
-%struct.DisplayReloadOptions = type { i32, %union.anon.1 }
-%union.anon.1 = type { %struct.DisplayReloadOptionsVNC }
-%struct.DisplayReloadOptionsVNC = type { i8, i8 }
-%struct.DisplayUpdateOptions = type { i32, %union.anon.2 }
-%union.anon.2 = type { %struct.DisplayUpdateOptionsVNC }
-%struct.DisplayUpdateOptionsVNC = type { i8, ptr }
 %struct.timeval = type { i64, i64 }
 
 @qemu_spice = external local_unnamed_addr global %struct.QemuSpiceOps, align 8
@@ -100,9 +88,9 @@ qemu_using_spice.exit:                            ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %2 = load ptr, ptr getelementptr inbounds (%struct.QemuSpiceOps, ptr @qemu_spice, i64 0, i32 3), align 8
-  %password = getelementptr inbounds %struct.SetPasswordOptions, ptr %opts, i64 0, i32 1
+  %password = getelementptr inbounds i8, ptr %opts, i64 8
   %3 = load ptr, ptr %password, align 8
-  %connected = getelementptr inbounds %struct.SetPasswordOptions, ptr %opts, i64 0, i32 3
+  %connected = getelementptr inbounds i8, ptr %opts, i64 20
   %4 = load i32, ptr %connected, align 4
   %cmp2 = icmp eq i32 %4, 1
   %cmp4 = icmp eq i32 %4, 2
@@ -114,7 +102,7 @@ if.else9:                                         ; preds = %entry
   unreachable
 
 if.end10:                                         ; preds = %entry
-  %connected11 = getelementptr inbounds %struct.SetPasswordOptions, ptr %opts, i64 0, i32 3
+  %connected11 = getelementptr inbounds i8, ptr %opts, i64 20
   %5 = load i32, ptr %connected11, align 4
   %cmp12.not = icmp eq i32 %5, 0
   br i1 %cmp12.not, label %if.end14, label %if.then13
@@ -124,9 +112,9 @@ if.then13:                                        ; preds = %if.end10
   br label %if.end20
 
 if.end14:                                         ; preds = %if.end10
-  %u = getelementptr inbounds %struct.SetPasswordOptions, ptr %opts, i64 0, i32 4
+  %u = getelementptr inbounds i8, ptr %opts, i64 24
   %6 = load ptr, ptr %u, align 8
-  %password15 = getelementptr inbounds %struct.SetPasswordOptions, ptr %opts, i64 0, i32 1
+  %password15 = getelementptr inbounds i8, ptr %opts, i64 8
   %7 = load ptr, ptr %password15, align 8
   %call16 = tail call i32 @vnc_display_password(ptr noundef %6, ptr noundef %7) #8
   br label %if.end17
@@ -155,7 +143,7 @@ declare i32 @vnc_display_password(ptr noundef, ptr noundef) local_unnamed_addr #
 define dso_local void @qmp_expire_password(ptr nocapture noundef readonly %opts, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %num = alloca i64, align 8
-  %time = getelementptr inbounds %struct.ExpirePasswordOptions, ptr %opts, i64 0, i32 1
+  %time = getelementptr inbounds i8, ptr %opts, i64 8
   %0 = load ptr, ptr %time, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.4) #10
   %cmp = icmp eq i32 %call, 0
@@ -220,7 +208,7 @@ if.else31:                                        ; preds = %if.end18
   unreachable
 
 if.end32:                                         ; preds = %if.end18
-  %u = getelementptr inbounds %struct.ExpirePasswordOptions, ptr %opts, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %opts, i64 16
   %6 = load ptr, ptr %u, align 8
   %call33 = call i32 @vnc_display_pw_expire(ptr noundef %6, i64 noundef %when.1) #8
   br label %if.end34
@@ -332,14 +320,14 @@ entry:
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %entry
-  %u = getelementptr inbounds %struct.DisplayReloadOptions, ptr %arg, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %arg, i64 4
   %1 = load i8, ptr %u, align 4
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %sw.epilog, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb
-  %tls_certs = getelementptr inbounds %struct.DisplayReloadOptions, ptr %arg, i64 0, i32 1, i32 0, i32 1
+  %tls_certs = getelementptr inbounds i8, ptr %arg, i64 5
   %3 = load i8, ptr %tls_certs, align 1
   %4 = and i8 %3, 1
   %tobool2.not = icmp eq i8 %4, 0
@@ -370,7 +358,7 @@ entry:
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %entry
-  %u = getelementptr inbounds %struct.DisplayUpdateOptions, ptr %arg, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %arg, i64 8
   %call = tail call zeroext i1 @vnc_display_update(ptr noundef nonnull %u, ptr noundef %errp) #8
   ret void
 
@@ -603,7 +591,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i30
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #8
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #8
   %10 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %call19, ptr noundef %call18) #8
   br label %trace_ppm_save.exit.i

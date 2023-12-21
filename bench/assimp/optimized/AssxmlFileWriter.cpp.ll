@@ -9,26 +9,15 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.5 = type { i64, [8 x i8] }
 %"class.std::allocator.2" = type { i8 }
 %struct.aiString = type { i32, [1024 x i8] }
-%struct.aiScene = type { i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, %struct.aiString, i32, ptr, ptr }
-%struct.aiTexture = type <{ i32, i32, [9 x i8], [7 x i8], ptr, %struct.aiString, [4 x i8] }>
 %struct.aiTexel = type { i8, i8, i8, i8 }
-%struct.aiMaterial = type { ptr, i32, i32 }
-%struct.aiMaterialProperty = type { %struct.aiString, i32, i32, i32, i32, ptr }
-%struct.aiAnimation = type { %struct.aiString, double, double, i32, ptr, i32, ptr, i32, ptr }
-%struct.aiNodeAnim = type { %struct.aiString, i32, ptr, i32, ptr, i32, ptr, i32, i32 }
 %struct.aiVectorKey = type <{ double, %class.aiVector3t, [4 x i8] }>
 %class.aiVector3t = type { float, float, float }
 %struct.aiQuatKey = type { double, %class.aiQuaterniont }
 %class.aiQuaterniont = type { float, float, float, float }
-%struct.aiMesh = type { i32, i32, i32, ptr, ptr, ptr, ptr, [8 x ptr], [8 x ptr], [8 x i32], ptr, i32, ptr, i32, %struct.aiString, i32, ptr, i32, %struct.aiAABB, ptr }
-%struct.aiAABB = type { %class.aiVector3t, %class.aiVector3t }
-%struct.aiBone = type { %struct.aiString, i32, ptr, ptr, ptr, %class.aiMatrix4x4t }
-%class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
 %struct.aiVertexWeight = type { i32, float }
 %struct.aiFace = type { i32, ptr }
 %class.aiColor4t = type { float, float, float, float }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.aiNode = type { %struct.aiString, %class.aiMatrix4x4t, ptr, i32, ptr, i32, ptr, ptr }
 %struct._Guard = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
@@ -158,7 +147,7 @@ entry:
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator.2", align 1
   %vtable = load ptr, ptr %pIOSystem, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(32) %pIOSystem, ptr noundef %pFile, ptr noundef nonnull @.str)
   %cmp.i.not = icmp eq ptr %call, null
@@ -276,13 +265,13 @@ if.end.i.i:                                       ; preds = %.noexc.i
 
 invoke.cont.i:                                    ; preds = %if.end.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #13
-  %call2532.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %c.i, ptr noundef nonnull @.str.2, i64 noundef 0) #13
-  %cmp.not533.i = icmp eq i64 %call2532.i, -1
-  br i1 %cmp.not533.i, label %while.end.i, label %while.body.i
+  %call2537.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %c.i, ptr noundef nonnull @.str.2, i64 noundef 0) #13
+  %cmp.not538.i = icmp eq i64 %call2537.i, -1
+  br i1 %cmp.not538.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %invoke.cont.i, %invoke.cont4.i
-  %call2534.i = phi i64 [ %call2.i, %invoke.cont4.i ], [ %call2532.i, %invoke.cont.i ]
-  %call5.i = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %c.i, i64 noundef %call2534.i)
+  %call2539.i = phi i64 [ %call2.i, %invoke.cont4.i ], [ %call2537.i, %invoke.cont.i ]
+  %call5.i = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %c.i, i64 noundef %call2539.i)
           to label %invoke.cont4.i unwind label %lpad3.i
 
 invoke.cont4.i:                                   ; preds = %while.body.i
@@ -347,16 +336,16 @@ invoke.cont14.i:                                  ; preds = %invoke.cont12.i
           to label %invoke.cont19.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont19.i:                                  ; preds = %invoke.cont14.i
-  %mRootNode.i = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 1
+  %mRootNode.i = getelementptr inbounds i8, ptr %pScene, i64 8
   %10 = load ptr, ptr %mRootNode.i, align 8
   invoke fastcc void @_ZN6Assimp16AssxmlFileWriterL9WriteNodeEPK6aiNodePNS_8IOStreamEj(ptr noundef %10, ptr noundef %call, i32 noundef 0)
           to label %invoke.cont21.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont21.i:                                  ; preds = %invoke.cont19.i
   store i32 0, ptr %name.i, align 4
-  %data.i.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %name.i, i64 4
   store i8 0, ptr %data.i.i, align 4
-  %mNumTextures.i = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 8
+  %mNumTextures.i = getelementptr inbounds i8, ptr %pScene, i64 64
   %11 = load i32, ptr %mNumTextures.i, align 8
   %tobool.not.i = icmp eq i32 %11, 0
   br i1 %tobool.not.i, label %if.end114.i, label %if.then.i
@@ -367,19 +356,19 @@ if.then.i:                                        ; preds = %invoke.cont21.i
 
 for.cond.preheader.i:                             ; preds = %if.then.i
   %12 = load i32, ptr %mNumTextures.i, align 8
-  %cmp26541.not.i = icmp eq i32 %12, 0
-  br i1 %cmp26541.not.i, label %for.end111.i, label %for.body.lr.ph.i
+  %cmp26546.not.i = icmp eq i32 %12, 0
+  br i1 %cmp26546.not.i, label %for.end111.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %mTextures.i = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 9
+  %mTextures.i = getelementptr inbounds i8, ptr %pScene, i64 72
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc109.i, %for.body.lr.ph.i
-  %indvars.iv599.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next600.i, %for.inc109.i ]
+  %indvars.iv604.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next605.i, %for.inc109.i ]
   %13 = load ptr, ptr %mTextures.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv599.i
+  %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv604.i
   %14 = load ptr, ptr %arrayidx.i, align 8
-  %mHeight.i = getelementptr inbounds %struct.aiTexture, ptr %14, i64 0, i32 1
+  %mHeight.i = getelementptr inbounds i8, ptr %14, i64 4
   %15 = load i32, ptr %mHeight.i, align 4
   %cmp27.i = icmp eq i32 %15, 0
   br i1 %cmp27.i, label %cond.end34.i, label %cond.false32.i
@@ -389,10 +378,10 @@ cond.false32.i:                                   ; preds = %for.body.i
   br label %cond.end34.i
 
 cond.end34.i:                                     ; preds = %cond.false32.i, %for.body.i
-  %cond460.i = phi i32 [ %16, %cond.false32.i ], [ -1, %for.body.i ]
+  %cond465.i = phi i32 [ %16, %cond.false32.i ], [ -1, %for.body.i ]
   %cond37.i = phi ptr [ @.str.7, %cond.false32.i ], [ @.str.6, %for.body.i ]
   %cond35.i = phi i32 [ %15, %cond.false32.i ], [ -1, %for.body.i ]
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.5, i32 noundef %cond460.i, i32 noundef %cond35.i, ptr noundef nonnull %cond37.i)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.5, i32 noundef %cond465.i, i32 noundef %cond35.i, ptr noundef nonnull %cond37.i)
           to label %invoke.cont38.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont38.i:                                  ; preds = %cond.end34.i
@@ -408,25 +397,25 @@ invoke.cont43.i:                                  ; preds = %if.then41.i
 
 for.cond47.preheader.i:                           ; preds = %invoke.cont43.i
   %18 = load i32, ptr %14, align 8
-  %cmp49539.not.i = icmp eq i32 %18, 0
-  br i1 %cmp49539.not.i, label %if.end106.i, label %for.body50.lr.ph.i
+  %cmp49544.not.i = icmp eq i32 %18, 0
+  br i1 %cmp49544.not.i, label %if.end106.i, label %for.body50.lr.ph.i
 
 for.body50.lr.ph.i:                               ; preds = %for.cond47.preheader.i
-  %pcData.i = getelementptr inbounds %struct.aiTexture, ptr %14, i64 0, i32 4
+  %pcData.i = getelementptr inbounds i8, ptr %14, i64 24
   br label %for.body50.i
 
 for.body50.i:                                     ; preds = %for.inc.i, %for.body50.lr.ph.i
-  %indvars.iv596.i = phi i64 [ 0, %for.body50.lr.ph.i ], [ %indvars.iv.next597.i, %for.inc.i ]
+  %indvars.iv601.i = phi i64 [ 0, %for.body50.lr.ph.i ], [ %indvars.iv.next602.i, %for.inc.i ]
   %19 = load ptr, ptr %pcData.i, align 8
-  %arrayidx52.i = getelementptr inbounds i8, ptr %19, i64 %indvars.iv596.i
+  %arrayidx52.i = getelementptr inbounds i8, ptr %19, i64 %indvars.iv601.i
   %20 = load i8, ptr %arrayidx52.i, align 1
   %conv.i = zext i8 %20 to i32
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.9, i32 noundef %conv.i)
           to label %invoke.cont53.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont53.i:                                  ; preds = %for.body50.i
-  %tobool55.not.i = icmp ne i64 %indvars.iv596.i, 0
-  %21 = trunc i64 %indvars.iv596.i to i32
+  %tobool55.not.i = icmp ne i64 %indvars.iv601.i, 0
+  %21 = trunc i64 %indvars.iv601.i to i32
   %rem.i = urem i32 %21, 50
   %tobool56.not.i = icmp eq i32 %rem.i, 0
   %or.cond.i = and i1 %tobool55.not.i, %tobool56.not.i
@@ -452,132 +441,132 @@ lpad9.loopexit.i:                                 ; preds = %for.body814.i
   br label %ehcleanup864.i
 
 lpad9.loopexit.split-lp.loopexit.i:               ; preds = %for.body737.i
-  %lpad.loopexit462.i = landingpad { ptr, i32 }
+  %lpad.loopexit467.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
 lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body769.i
-  %lpad.loopexit466.i = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup864.i
-
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body547.i
-  %lpad.loopexit468.i = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup864.i
-
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body508.i
   %lpad.loopexit471.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %if.end804.i, %if.end848.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body547.i
   %lpad.loopexit473.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %cond.end720.i, %if.end790.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body508.i
   %lpad.loopexit476.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body678.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %if.end804.i, %if.end848.i
   %lpad.loopexit478.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body646.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %cond.end720.i, %if.end790.i
   %lpad.loopexit481.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body610.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body678.i
   %lpad.loopexit483.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body574.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body646.i
   %lpad.loopexit486.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body539.i, %for.end554.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body610.i
   %lpad.loopexit488.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %invoke.cont461.i, %if.then500.i, %for.end516.i, %if.end519.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body574.i
   %lpad.loopexit491.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body429.i, %if.then449.i, %for.end524.i, %if.then531.i, %for.end559.i, %if.then565.i, %if.end594.i, %if.then600.i, %if.end630.i, %if.then636.i, %if.end666.i, %invoke.cont667.i, %if.end698.i, %for.end853.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body539.i, %for.end554.i
   %lpad.loopexit493.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body379.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %invoke.cont461.i, %if.then500.i, %for.end516.i, %if.end519.i
   %lpad.loopexit496.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body348.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body429.i, %if.then449.i, %for.end524.i, %if.then531.i, %for.end559.i, %if.then565.i, %if.end594.i, %if.then600.i, %if.end630.i, %if.then636.i, %if.end666.i, %invoke.cont667.i, %if.end698.i, %for.end853.i
   %lpad.loopexit498.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body321.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body379.i
   %lpad.loopexit501.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %invoke.cont305.i, %if.then313.i, %for.end335.i, %if.then340.i, %for.end366.i, %if.then371.i, %for.end399.i, %if.end403.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body348.i
   %lpad.loopexit503.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body285.i, %if.then294.i, %for.end408.i, %if.end411.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body321.i
   %lpad.loopexit506.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body173.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %invoke.cont305.i, %if.then313.i, %for.end335.i, %if.then340.i, %for.end366.i, %if.then371.i, %for.end399.i, %if.end403.i
   %lpad.loopexit508.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body285.i, %if.then294.i, %for.end408.i, %if.end411.i
+  %lpad.loopexit511.i = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup864.i
+
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body173.i
+  %lpad.loopexit513.i = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup864.i
+
 lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body200.i
-  %lpad.loopexit512.i = landingpad { ptr, i32 }
+  %lpad.loopexit517.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
 lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body221.i, %if.then232.i
-  %lpad.loopexit515.i = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup864.i
-
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %invoke.cont156.i, %if.then162.i, %if.then186.i, %if.then213.i, %if.end260.i, %if.end155.i
-  %lpad.loopexit518.i = landingpad { ptr, i32 }
-          cleanup
-  br label %ehcleanup864.i
-
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body124.i, %invoke.cont127.i, %for.end265.i, %invoke.cont266.i
   %lpad.loopexit520.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body75.i, %if.then95.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %invoke.cont156.i, %if.then162.i, %if.then186.i, %if.then213.i, %if.end260.i, %if.end155.i
   %lpad.loopexit523.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
-lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body50.i, %if.then57.i
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body124.i, %invoke.cont127.i, %for.end265.i, %invoke.cont266.i
   %lpad.loopexit525.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body75.i, %if.then95.i
+  %lpad.loopexit528.i = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup864.i
+
+lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %for.body50.i, %if.then57.i
+  %lpad.loopexit530.i = landingpad { ptr, i32 }
+          cleanup
+  br label %ehcleanup864.i
+
 lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i: ; preds = %cond.end34.i, %if.then41.i, %if.then62.i, %if.end106.i
-  %lpad.loopexit529.i = landingpad { ptr, i32 }
+  %lpad.loopexit534.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup864.i
 
@@ -587,10 +576,10 @@ lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.lo
   br label %ehcleanup864.i
 
 for.inc.i:                                        ; preds = %if.then57.i, %invoke.cont53.i
-  %indvars.iv.next597.i = add nuw nsw i64 %indvars.iv596.i, 1
+  %indvars.iv.next602.i = add nuw nsw i64 %indvars.iv601.i, 1
   %23 = load i32, ptr %14, align 8
   %24 = zext i32 %23 to i64
-  %cmp49.i = icmp ult i64 %indvars.iv.next597.i, %24
+  %cmp49.i = icmp ult i64 %indvars.iv.next602.i, %24
   br i1 %cmp49.i, label %for.body50.i, label %if.end106.i, !llvm.loop !6
 
 if.else.i:                                        ; preds = %invoke.cont38.i
@@ -606,11 +595,11 @@ if.then62.i:                                      ; preds = %if.else.i
 
 for.cond68.preheader.i:                           ; preds = %if.then62.i
   %27 = load i32, ptr %mHeight.i, align 4
-  %cmp70537.not.i = icmp eq i32 %27, 0
-  br i1 %cmp70537.not.i, label %if.end106.i, label %for.cond72.preheader.lr.ph.i
+  %cmp70542.not.i = icmp eq i32 %27, 0
+  br i1 %cmp70542.not.i, label %if.end106.i, label %for.cond72.preheader.lr.ph.i
 
 for.cond72.preheader.lr.ph.i:                     ; preds = %for.cond68.preheader.i
-  %pcData76.i = getelementptr inbounds %struct.aiTexture, ptr %14, i64 0, i32 4
+  %pcData76.i = getelementptr inbounds i8, ptr %14, i64 24
   %28 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %if.end106.i, label %for.cond72.preheader.i
@@ -618,27 +607,27 @@ for.cond72.preheader.lr.ph.i:                     ; preds = %for.cond68.preheade
 for.cond72.preheader.i:                           ; preds = %for.cond72.preheader.lr.ph.i, %for.inc102.i
   %29 = phi i32 [ %41, %for.inc102.i ], [ %27, %for.cond72.preheader.lr.ph.i ]
   %30 = phi i32 [ %42, %for.inc102.i ], [ %28, %for.cond72.preheader.lr.ph.i ]
-  %y.0538.i = phi i32 [ %inc103.i, %for.inc102.i ], [ 0, %for.cond72.preheader.lr.ph.i ]
-  %cmp74535.not.i = icmp eq i32 %30, 0
-  br i1 %cmp74535.not.i, label %for.inc102.i, label %for.body75.i
+  %y.0543.i = phi i32 [ %inc103.i, %for.inc102.i ], [ 0, %for.cond72.preheader.lr.ph.i ]
+  %cmp74540.not.i = icmp eq i32 %30, 0
+  br i1 %cmp74540.not.i, label %for.inc102.i, label %for.body75.i
 
 for.body75.i:                                     ; preds = %for.cond72.preheader.i, %for.inc99.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc99.i ], [ 0, %for.cond72.preheader.i ]
   %31 = phi i32 [ %39, %for.inc99.i ], [ %30, %for.cond72.preheader.i ]
   %32 = load ptr, ptr %pcData76.i, align 8
-  %mul78.i = mul i32 %31, %y.0538.i
+  %mul78.i = mul i32 %31, %y.0543.i
   %idx.ext.i = zext i32 %mul78.i to i64
   %add.ptr.i = getelementptr inbounds %struct.aiTexel, ptr %32, i64 %idx.ext.i
   %add.ptr80.i = getelementptr inbounds %struct.aiTexel, ptr %add.ptr.i, i64 %indvars.iv.i
-  %r81.i = getelementptr inbounds %struct.aiTexel, ptr %add.ptr.i, i64 %indvars.iv.i, i32 2
+  %r81.i = getelementptr inbounds i8, ptr %add.ptr80.i, i64 2
   %33 = load i8, ptr %r81.i, align 1
   %conv82.i = zext i8 %33 to i32
-  %g83.i = getelementptr inbounds %struct.aiTexel, ptr %add.ptr.i, i64 %indvars.iv.i, i32 1
+  %g83.i = getelementptr inbounds i8, ptr %add.ptr80.i, i64 1
   %34 = load i8, ptr %g83.i, align 1
   %conv84.i = zext i8 %34 to i32
   %35 = load i8, ptr %add.ptr80.i, align 1
   %conv86.i = zext i8 %35 to i32
-  %a87.i = getelementptr inbounds %struct.aiTexel, ptr %add.ptr.i, i64 %indvars.iv.i, i32 3
+  %a87.i = getelementptr inbounds i8, ptr %add.ptr80.i, i64 3
   %36 = load i8, ptr %a87.i, align 1
   %conv88.i = zext i8 %36 to i32
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.11, i32 noundef %conv82.i, i32 noundef %conv84.i, i32 noundef %conv86.i, i32 noundef %conv88.i)
@@ -646,7 +635,7 @@ for.body75.i:                                     ; preds = %for.cond72.preheade
 
 invoke.cont89.i:                                  ; preds = %for.body75.i
   %37 = load i32, ptr %14, align 8
-  %mul92.i = mul i32 %37, %y.0538.i
+  %mul92.i = mul i32 %37, %y.0543.i
   %38 = trunc i64 %indvars.iv.i to i32
   %add.i = add i32 %mul92.i, %38
   %rem93.i = and i32 %add.i, 3
@@ -669,13 +658,13 @@ for.inc99.i:                                      ; preds = %if.then95.for.inc99
   br i1 %cmp74.i, label %for.body75.i, label %for.inc102.loopexit.i, !llvm.loop !7
 
 for.inc102.loopexit.i:                            ; preds = %for.inc99.i
-  %.pre675.i = load i32, ptr %mHeight.i, align 4
+  %.pre680.i = load i32, ptr %mHeight.i, align 4
   br label %for.inc102.i
 
 for.inc102.i:                                     ; preds = %for.inc102.loopexit.i, %for.cond72.preheader.i
-  %41 = phi i32 [ %.pre675.i, %for.inc102.loopexit.i ], [ %29, %for.cond72.preheader.i ]
+  %41 = phi i32 [ %.pre680.i, %for.inc102.loopexit.i ], [ %29, %for.cond72.preheader.i ]
   %42 = phi i32 [ %39, %for.inc102.loopexit.i ], [ 0, %for.cond72.preheader.i ]
-  %inc103.i = add nuw i32 %y.0538.i, 1
+  %inc103.i = add nuw i32 %y.0543.i, 1
   %cmp70.i = icmp ult i32 %inc103.i, %41
   br i1 %cmp70.i, label %for.cond72.preheader.i, label %if.end106.i, !llvm.loop !8
 
@@ -684,10 +673,10 @@ if.end106.i:                                      ; preds = %for.inc102.i, %for.
           to label %for.inc109.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc109.i:                                     ; preds = %if.end106.i
-  %indvars.iv.next600.i = add nuw nsw i64 %indvars.iv599.i, 1
+  %indvars.iv.next605.i = add nuw nsw i64 %indvars.iv604.i, 1
   %43 = load i32, ptr %mNumTextures.i, align 8
   %44 = zext i32 %43 to i64
-  %cmp26.i = icmp ult i64 %indvars.iv.next600.i, %44
+  %cmp26.i = icmp ult i64 %indvars.iv.next605.i, %44
   br i1 %cmp26.i, label %for.body.i, label %for.end111.i, !llvm.loop !10
 
 for.end111.i:                                     ; preds = %for.inc109.i, %for.cond.preheader.i
@@ -695,7 +684,7 @@ for.end111.i:                                     ; preds = %for.inc109.i, %for.
           to label %if.end114.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end114.i:                                      ; preds = %for.end111.i, %invoke.cont21.i
-  %mNumMaterials.i = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 4
+  %mNumMaterials.i = getelementptr inbounds i8, ptr %pScene, i64 32
   %45 = load i32, ptr %mNumMaterials.i, align 8
   %tobool115.not.i = icmp eq i32 %45, 0
   br i1 %tobool115.not.i, label %if.end275.i, label %if.then116.i
@@ -706,38 +695,38 @@ if.then116.i:                                     ; preds = %if.end114.i
 
 for.cond121.preheader.i:                          ; preds = %if.then116.i
   %46 = load i32, ptr %mNumMaterials.i, align 8
-  %cmp123551.not.i = icmp eq i32 %46, 0
-  br i1 %cmp123551.not.i, label %for.end272.i, label %for.body124.lr.ph.i
+  %cmp123556.not.i = icmp eq i32 %46, 0
+  br i1 %cmp123556.not.i, label %for.end272.i, label %for.body124.lr.ph.i
 
 for.body124.lr.ph.i:                              ; preds = %for.cond121.preheader.i
-  %mMaterials.i = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 5
+  %mMaterials.i = getelementptr inbounds i8, ptr %pScene, i64 40
   br label %for.body124.i
 
 for.body124.i:                                    ; preds = %for.inc270.i, %for.body124.lr.ph.i
-  %indvars.iv614.i = phi i64 [ 0, %for.body124.lr.ph.i ], [ %indvars.iv.next615.i, %for.inc270.i ]
+  %indvars.iv619.i = phi i64 [ 0, %for.body124.lr.ph.i ], [ %indvars.iv.next620.i, %for.inc270.i ]
   %47 = load ptr, ptr %mMaterials.i, align 8
-  %arrayidx126.i = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv614.i
+  %arrayidx126.i = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv619.i
   %48 = load ptr, ptr %arrayidx126.i, align 8
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.15)
           to label %invoke.cont127.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont127.i:                                 ; preds = %for.body124.i
-  %mNumProperties.i = getelementptr inbounds %struct.aiMaterial, ptr %48, i64 0, i32 1
+  %mNumProperties.i = getelementptr inbounds i8, ptr %48, i64 8
   %49 = load i32, ptr %mNumProperties.i, align 8
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.16, i32 noundef %49)
           to label %for.cond132.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond132.preheader.i:                          ; preds = %invoke.cont127.i
   %50 = load i32, ptr %mNumProperties.i, align 8
-  %cmp134549.not.i = icmp eq i32 %50, 0
-  br i1 %cmp134549.not.i, label %for.end265.i, label %for.body135.i
+  %cmp134554.not.i = icmp eq i32 %50, 0
+  br i1 %cmp134554.not.i, label %for.end265.i, label %for.body135.i
 
 for.body135.i:                                    ; preds = %for.cond132.preheader.i, %for.inc263.i
-  %indvars.iv611.i = phi i64 [ %indvars.iv.next612.i, %for.inc263.i ], [ 0, %for.cond132.preheader.i ]
+  %indvars.iv616.i = phi i64 [ %indvars.iv.next617.i, %for.inc263.i ], [ 0, %for.cond132.preheader.i ]
   %51 = load ptr, ptr %48, align 8
-  %arrayidx137.i = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv611.i
+  %arrayidx137.i = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv616.i
   %52 = load ptr, ptr %arrayidx137.i, align 8
-  %mType.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %52, i64 0, i32 4
+  %mType.i = getelementptr inbounds i8, ptr %52, i64 1040
   %53 = load i32, ptr %mType.i, align 8
   %switch.tableidx = add i32 %53, -1
   %54 = icmp ult i32 %switch.tableidx, 5
@@ -751,14 +740,14 @@ switch.lookup:                                    ; preds = %for.body135.i
 
 if.end155.i:                                      ; preds = %for.body135.i, %switch.lookup
   %sz.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.17, %for.body135.i ]
-  %mSemantic.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %52, i64 0, i32 1
+  %mSemantic.i = getelementptr inbounds i8, ptr %52, i64 1028
   %56 = load i32, ptr %mSemantic.i, align 4
   %call157.i = invoke ptr @aiTextureTypeToString(i32 noundef %56)
           to label %invoke.cont156.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont156.i:                                 ; preds = %if.end155.i
-  %data.i = getelementptr inbounds %struct.aiString, ptr %52, i64 0, i32 1
-  %mIndex.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %52, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %52, i64 4
+  %mIndex.i = getelementptr inbounds i8, ptr %52, i64 1032
   %57 = load i32, ptr %mIndex.i, align 8
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.22, ptr noundef nonnull %data.i, ptr noundef nonnull %sz.0.i, ptr noundef %call157.i, i32 noundef %57)
           to label %invoke.cont158.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -773,7 +762,7 @@ invoke.cont158.i:                                 ; preds = %invoke.cont156.i
   ]
 
 if.then162.i:                                     ; preds = %invoke.cont158.i
-  %mDataLength.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %52, i64 0, i32 3
+  %mDataLength.i = getelementptr inbounds i8, ptr %52, i64 1036
   %59 = load i32, ptr %mDataLength.i, align 4
   %60 = lshr i32 %59, 2
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.23, i32 noundef %60)
@@ -781,17 +770,17 @@ if.then162.i:                                     ; preds = %invoke.cont158.i
 
 for.cond167.preheader.i:                          ; preds = %if.then162.i
   %61 = load i32, ptr %mDataLength.i, align 4
-  %cmp172547.not.i = icmp ult i32 %61, 4
-  br i1 %cmp172547.not.i, label %if.end260.i, label %for.body173.lr.ph.i
+  %cmp172552.not.i = icmp ult i32 %61, 4
+  br i1 %cmp172552.not.i, label %if.end260.i, label %for.body173.lr.ph.i
 
 for.body173.lr.ph.i:                              ; preds = %for.cond167.preheader.i
-  %mData.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %52, i64 0, i32 5
+  %mData.i = getelementptr inbounds i8, ptr %52, i64 1048
   br label %for.body173.i
 
 for.body173.i:                                    ; preds = %for.inc180.i, %for.body173.lr.ph.i
-  %indvars.iv608.i = phi i64 [ 0, %for.body173.lr.ph.i ], [ %indvars.iv.next609.i, %for.inc180.i ]
+  %indvars.iv613.i = phi i64 [ 0, %for.body173.lr.ph.i ], [ %indvars.iv.next614.i, %for.inc180.i ]
   %62 = load ptr, ptr %mData.i, align 8
-  %mul175.i = shl nuw nsw i64 %indvars.iv608.i, 2
+  %mul175.i = shl nuw nsw i64 %indvars.iv613.i, 2
   %add.ptr176.i = getelementptr inbounds i8, ptr %62, i64 %mul175.i
   %63 = load float, ptr %add.ptr176.i, align 4
   %conv177.i = fpext float %63 to double
@@ -799,15 +788,15 @@ for.body173.i:                                    ; preds = %for.inc180.i, %for.
           to label %for.inc180.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc180.i:                                     ; preds = %for.body173.i
-  %indvars.iv.next609.i = add nuw nsw i64 %indvars.iv608.i, 1
+  %indvars.iv.next614.i = add nuw nsw i64 %indvars.iv613.i, 1
   %64 = load i32, ptr %mDataLength.i, align 4
   %65 = lshr i32 %64, 2
   %66 = zext nneg i32 %65 to i64
-  %cmp172.i = icmp ult i64 %indvars.iv.next609.i, %66
+  %cmp172.i = icmp ult i64 %indvars.iv.next614.i, %66
   br i1 %cmp172.i, label %for.body173.i, label %if.end260.i, !llvm.loop !11
 
 if.then186.i:                                     ; preds = %invoke.cont158.i
-  %mDataLength187.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %52, i64 0, i32 3
+  %mDataLength187.i = getelementptr inbounds i8, ptr %52, i64 1036
   %67 = load i32, ptr %mDataLength187.i, align 4
   %68 = lshr i32 %67, 2
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.23, i32 noundef %68)
@@ -815,57 +804,57 @@ if.then186.i:                                     ; preds = %invoke.cont158.i
 
 for.cond194.preheader.i:                          ; preds = %if.then186.i
   %69 = load i32, ptr %mDataLength187.i, align 4
-  %cmp199545.not.i = icmp ult i32 %69, 4
-  br i1 %cmp199545.not.i, label %if.end260.i, label %for.body200.lr.ph.i
+  %cmp199550.not.i = icmp ult i32 %69, 4
+  br i1 %cmp199550.not.i, label %if.end260.i, label %for.body200.lr.ph.i
 
 for.body200.lr.ph.i:                              ; preds = %for.cond194.preheader.i
-  %mData201.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %52, i64 0, i32 5
+  %mData201.i = getelementptr inbounds i8, ptr %52, i64 1048
   br label %for.body200.i
 
 for.body200.i:                                    ; preds = %for.inc207.i, %for.body200.lr.ph.i
-  %indvars.iv605.i = phi i64 [ 0, %for.body200.lr.ph.i ], [ %indvars.iv.next606.i, %for.inc207.i ]
+  %indvars.iv610.i = phi i64 [ 0, %for.body200.lr.ph.i ], [ %indvars.iv.next611.i, %for.inc207.i ]
   %70 = load ptr, ptr %mData201.i, align 8
-  %mul203.i = shl nuw nsw i64 %indvars.iv605.i, 2
+  %mul203.i = shl nuw nsw i64 %indvars.iv610.i, 2
   %add.ptr204.i = getelementptr inbounds i8, ptr %70, i64 %mul203.i
   %71 = load i32, ptr %add.ptr204.i, align 4
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.25, i32 noundef %71)
           to label %for.inc207.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc207.i:                                     ; preds = %for.body200.i
-  %indvars.iv.next606.i = add nuw nsw i64 %indvars.iv605.i, 1
+  %indvars.iv.next611.i = add nuw nsw i64 %indvars.iv610.i, 1
   %72 = load i32, ptr %mDataLength187.i, align 4
   %73 = lshr i32 %72, 2
   %74 = zext nneg i32 %73 to i64
-  %cmp199.i = icmp ult i64 %indvars.iv.next606.i, %74
+  %cmp199.i = icmp ult i64 %indvars.iv.next611.i, %74
   br i1 %cmp199.i, label %for.body200.i, label %if.end260.i, !llvm.loop !12
 
 if.then213.i:                                     ; preds = %invoke.cont158.i
-  %mDataLength214.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %52, i64 0, i32 3
+  %mDataLength214.i = getelementptr inbounds i8, ptr %52, i64 1036
   %75 = load i32, ptr %mDataLength214.i, align 4
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.23, i32 noundef %75)
           to label %for.cond218.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond218.preheader.i:                          ; preds = %if.then213.i
   %76 = load i32, ptr %mDataLength214.i, align 4
-  %cmp220543.not.i = icmp eq i32 %76, 0
-  br i1 %cmp220543.not.i, label %if.end260.i, label %for.body221.lr.ph.i
+  %cmp220548.not.i = icmp eq i32 %76, 0
+  br i1 %cmp220548.not.i, label %if.end260.i, label %for.body221.lr.ph.i
 
 for.body221.lr.ph.i:                              ; preds = %for.cond218.preheader.i
-  %mData222.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %52, i64 0, i32 5
+  %mData222.i = getelementptr inbounds i8, ptr %52, i64 1048
   br label %for.body221.i
 
 for.body221.i:                                    ; preds = %for.inc236.i, %for.body221.lr.ph.i
-  %indvars.iv602.i = phi i64 [ 0, %for.body221.lr.ph.i ], [ %indvars.iv.next603.i, %for.inc236.i ]
+  %indvars.iv607.i = phi i64 [ 0, %for.body221.lr.ph.i ], [ %indvars.iv.next608.i, %for.inc236.i ]
   %77 = load ptr, ptr %mData222.i, align 8
-  %arrayidx224.i = getelementptr inbounds i8, ptr %77, i64 %indvars.iv602.i
+  %arrayidx224.i = getelementptr inbounds i8, ptr %77, i64 %indvars.iv607.i
   %78 = load i8, ptr %arrayidx224.i, align 1
   %conv225.i = sext i8 %78 to i32
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.26, i32 noundef %conv225.i)
           to label %invoke.cont226.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont226.i:                                 ; preds = %for.body221.i
-  %tobool228.not.i = icmp ne i64 %indvars.iv602.i, 0
-  %79 = trunc i64 %indvars.iv602.i to i32
+  %tobool228.not.i = icmp ne i64 %indvars.iv607.i, 0
+  %79 = trunc i64 %indvars.iv607.i to i32
   %rem230.i = urem i32 %79, 30
   %cmp231.i = icmp eq i32 %rem230.i, 0
   %or.cond365.i = and i1 %tobool228.not.i, %cmp231.i
@@ -876,14 +865,14 @@ if.then232.i:                                     ; preds = %invoke.cont226.i
           to label %for.inc236.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc236.i:                                     ; preds = %if.then232.i, %invoke.cont226.i
-  %indvars.iv.next603.i = add nuw nsw i64 %indvars.iv602.i, 1
+  %indvars.iv.next608.i = add nuw nsw i64 %indvars.iv607.i, 1
   %80 = load i32, ptr %mDataLength214.i, align 4
   %81 = zext i32 %80 to i64
-  %cmp220.i = icmp ult i64 %indvars.iv.next603.i, %81
+  %cmp220.i = icmp ult i64 %indvars.iv.next608.i, %81
   br i1 %cmp220.i, label %for.body221.i, label %if.end260.i, !llvm.loop !13
 
 if.then242.i:                                     ; preds = %invoke.cont158.i
-  %mData245.i = getelementptr inbounds %struct.aiMaterialProperty, ptr %52, i64 0, i32 5
+  %mData245.i = getelementptr inbounds i8, ptr %52, i64 1048
   %82 = load ptr, ptr %mData245.i, align 8
   %add.ptr246.i = getelementptr inbounds i8, ptr %82, i64 4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp247.i) #13
@@ -1005,10 +994,10 @@ if.end260.i:                                      ; preds = %for.inc236.i, %for.
           to label %for.inc263.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc263.i:                                     ; preds = %if.end260.i
-  %indvars.iv.next612.i = add nuw nsw i64 %indvars.iv611.i, 1
+  %indvars.iv.next617.i = add nuw nsw i64 %indvars.iv616.i, 1
   %89 = load i32, ptr %mNumProperties.i, align 8
   %90 = zext i32 %89 to i64
-  %cmp134.i = icmp ult i64 %indvars.iv.next612.i, %90
+  %cmp134.i = icmp ult i64 %indvars.iv.next617.i, %90
   br i1 %cmp134.i, label %for.body135.i, label %for.end265.i, !llvm.loop !15
 
 for.end265.i:                                     ; preds = %for.inc263.i, %for.cond132.preheader.i
@@ -1020,10 +1009,10 @@ invoke.cont266.i:                                 ; preds = %for.end265.i
           to label %for.inc270.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc270.i:                                     ; preds = %invoke.cont266.i
-  %indvars.iv.next615.i = add nuw nsw i64 %indvars.iv614.i, 1
+  %indvars.iv.next620.i = add nuw nsw i64 %indvars.iv619.i, 1
   %91 = load i32, ptr %mNumMaterials.i, align 8
   %92 = zext i32 %91 to i64
-  %cmp123.i = icmp ult i64 %indvars.iv.next615.i, %92
+  %cmp123.i = icmp ult i64 %indvars.iv.next620.i, %92
   br i1 %cmp123.i, label %for.body124.i, label %for.end272.i, !llvm.loop !16
 
 for.end272.i:                                     ; preds = %for.inc270.i, %for.cond121.preheader.i
@@ -1031,7 +1020,7 @@ for.end272.i:                                     ; preds = %for.inc270.i, %for.
           to label %if.end275.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end275.i:                                      ; preds = %for.end272.i, %if.end114.i
-  %mNumAnimations.i = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 6
+  %mNumAnimations.i = getelementptr inbounds i8, ptr %pScene, i64 48
   %93 = load i32, ptr %mNumAnimations.i, align 8
   %tobool276.not.i = icmp eq i32 %93, 0
   br i1 %tobool276.not.i, label %if.end419.i, label %if.then277.i
@@ -1042,28 +1031,28 @@ if.then277.i:                                     ; preds = %if.end275.i
 
 for.cond282.preheader.i:                          ; preds = %if.then277.i
   %94 = load i32, ptr %mNumAnimations.i, align 8
-  %cmp284561.not.i = icmp eq i32 %94, 0
-  br i1 %cmp284561.not.i, label %for.end416.i, label %for.body285.lr.ph.i
+  %cmp284566.not.i = icmp eq i32 %94, 0
+  br i1 %cmp284566.not.i, label %for.end416.i, label %for.body285.lr.ph.i
 
 for.body285.lr.ph.i:                              ; preds = %for.cond282.preheader.i
-  %mAnimations.i = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 7
+  %mAnimations.i = getelementptr inbounds i8, ptr %pScene, i64 56
   br label %for.body285.i
 
 for.body285.i:                                    ; preds = %for.inc414.i, %for.body285.lr.ph.i
-  %indvars.iv629.i = phi i64 [ 0, %for.body285.lr.ph.i ], [ %indvars.iv.next630.i, %for.inc414.i ]
+  %indvars.iv634.i = phi i64 [ 0, %for.body285.lr.ph.i ], [ %indvars.iv.next635.i, %for.inc414.i ]
   %95 = load ptr, ptr %mAnimations.i, align 8
-  %arrayidx287.i = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv629.i
+  %arrayidx287.i = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv634.i
   %96 = load ptr, ptr %arrayidx287.i, align 8
   call fastcc void @_ZN6Assimp16AssxmlFileWriterL11ConvertNameER8aiStringRKS1_(ptr noundef nonnull align 4 dereferenceable(1028) %name.i, ptr noundef nonnull align 4 dereferenceable(1028) %96)
-  %mDuration.i = getelementptr inbounds %struct.aiAnimation, ptr %96, i64 0, i32 1
+  %mDuration.i = getelementptr inbounds i8, ptr %96, i64 1032
   %97 = load double, ptr %mDuration.i, align 8
-  %mTicksPerSecond.i = getelementptr inbounds %struct.aiAnimation, ptr %96, i64 0, i32 2
+  %mTicksPerSecond.i = getelementptr inbounds i8, ptr %96, i64 1040
   %98 = load double, ptr %mTicksPerSecond.i, align 8
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.34, ptr noundef nonnull %data.i.i, double noundef %97, double noundef %98)
           to label %invoke.cont291.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont291.i:                                 ; preds = %for.body285.i
-  %mNumChannels.i = getelementptr inbounds %struct.aiAnimation, ptr %96, i64 0, i32 3
+  %mNumChannels.i = getelementptr inbounds i8, ptr %96, i64 1048
   %99 = load i32, ptr %mNumChannels.i, align 8
   %tobool293.not.i = icmp eq i32 %99, 0
   br i1 %tobool293.not.i, label %if.end411.i, label %if.then294.i
@@ -1074,133 +1063,137 @@ if.then294.i:                                     ; preds = %invoke.cont291.i
 
 for.cond299.preheader.i:                          ; preds = %if.then294.i
   %100 = load i32, ptr %mNumChannels.i, align 8
-  %cmp301559.not.i = icmp eq i32 %100, 0
-  br i1 %cmp301559.not.i, label %for.end408.i, label %for.body302.lr.ph.i
+  %cmp301564.not.i = icmp eq i32 %100, 0
+  br i1 %cmp301564.not.i, label %for.end408.i, label %for.body302.lr.ph.i
 
 for.body302.lr.ph.i:                              ; preds = %for.cond299.preheader.i
-  %mChannels.i = getelementptr inbounds %struct.aiAnimation, ptr %96, i64 0, i32 4
+  %mChannels.i = getelementptr inbounds i8, ptr %96, i64 1056
   br label %for.body302.i
 
 for.body302.i:                                    ; preds = %for.inc406.i, %for.body302.lr.ph.i
-  %indvars.iv626.i = phi i64 [ 0, %for.body302.lr.ph.i ], [ %indvars.iv.next627.i, %for.inc406.i ]
+  %indvars.iv631.i = phi i64 [ 0, %for.body302.lr.ph.i ], [ %indvars.iv.next632.i, %for.inc406.i ]
   %101 = load ptr, ptr %mChannels.i, align 8
-  %arrayidx304.i = getelementptr inbounds ptr, ptr %101, i64 %indvars.iv626.i
+  %arrayidx304.i = getelementptr inbounds ptr, ptr %101, i64 %indvars.iv631.i
   %102 = load ptr, ptr %arrayidx304.i, align 8
   store i32 0, ptr %name.i, align 4
   %103 = load i32, ptr %102, align 4
-  %cmp67.not.i.i = icmp eq i32 %103, 0
-  br i1 %cmp67.not.i.i, label %invoke.cont305.i, label %for.body.i387.i
+  %cmp71.not.i.i = icmp eq i32 %103, 0
+  br i1 %cmp71.not.i.i, label %invoke.cont305.i, label %for.body.lr.ph.i.i
 
-for.body.i387.i:                                  ; preds = %for.body302.i, %for.inc.i389.i
-  %104 = phi i32 [ %115, %for.inc.i389.i ], [ 0, %for.body302.i ]
-  %105 = phi i32 [ %116, %for.inc.i389.i ], [ 0, %for.body302.i ]
-  %106 = phi i32 [ %117, %for.inc.i389.i ], [ 0, %for.body302.i ]
-  %107 = phi i32 [ %118, %for.inc.i389.i ], [ 0, %for.body302.i ]
-  %108 = phi i32 [ %119, %for.inc.i389.i ], [ 0, %for.body302.i ]
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i389.i ], [ 0, %for.body302.i ]
-  %arrayidx.i.i = getelementptr inbounds %struct.aiString, ptr %102, i64 0, i32 1, i64 %indvars.iv.i.i
+for.body.lr.ph.i.i:                               ; preds = %for.body302.i
+  %data.i387.i = getelementptr inbounds i8, ptr %102, i64 4
+  br label %for.body.i388.i
+
+for.body.i388.i:                                  ; preds = %for.inc.i390.i, %for.body.lr.ph.i.i
+  %104 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %115, %for.inc.i390.i ]
+  %105 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %116, %for.inc.i390.i ]
+  %106 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %117, %for.inc.i390.i ]
+  %107 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %118, %for.inc.i390.i ]
+  %108 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %119, %for.inc.i390.i ]
+  %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i390.i ]
+  %arrayidx.i.i = getelementptr inbounds [1024 x i8], ptr %data.i387.i, i64 0, i64 %indvars.iv.i.i
   %109 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i388.i = sext i8 %109 to i32
-  switch i32 %conv.i388.i, label %sw.default.i391.i [
+  %conv.i389.i = sext i8 %109 to i32
+  switch i32 %conv.i389.i, label %sw.default.i392.i [
     i32 60, label %if.end.i.i.i
     i32 62, label %if.end.i18.i.i
-    i32 38, label %if.end.i31.i.i
-    i32 34, label %if.end.i44.i.i
-    i32 39, label %if.end.i57.i.i
+    i32 38, label %if.end.i32.i.i
+    i32 34, label %if.end.i46.i.i
+    i32 39, label %if.end.i60.i.i
   ]
 
-if.end.i.i.i:                                     ; preds = %for.body.i387.i
+if.end.i.i.i:                                     ; preds = %for.body.i388.i
   %110 = add i32 %104, -1020
   %cmp.i.i.i = icmp ult i32 %110, -1024
-  br i1 %cmp.i.i.i, label %for.inc.i389.i, label %if.end4.i.i.i
+  br i1 %cmp.i.i.i, label %for.inc.i390.i, label %if.end4.i.i.i
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   %idxprom.i.i.i = zext i32 %104 to i64
-  %arrayidx.i.i.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx.i.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.95, i64 5, i1 false)
   %add9.i.i.i = add nsw i32 %104, 4
   store i32 %add9.i.i.i, ptr %name.i, align 4
-  br label %for.inc.i389.i
+  br label %for.inc.i390.i
 
-if.end.i18.i.i:                                   ; preds = %for.body.i387.i
+if.end.i18.i.i:                                   ; preds = %for.body.i388.i
   %111 = add i32 %105, -1020
   %cmp.i20.i.i = icmp ult i32 %111, -1024
-  br i1 %cmp.i20.i.i, label %for.inc.i389.i, label %if.end4.i21.i.i
+  br i1 %cmp.i20.i.i, label %for.inc.i390.i, label %if.end4.i21.i.i
 
 if.end4.i21.i.i:                                  ; preds = %if.end.i18.i.i
-  %idxprom.i22.i.i = zext i32 %105 to i64
-  %arrayidx.i23.i.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1, i64 %idxprom.i22.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx.i23.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.96, i64 5, i1 false)
-  %add9.i26.i.i = add nsw i32 %105, 4
-  store i32 %add9.i26.i.i, ptr %name.i, align 4
-  br label %for.inc.i389.i
+  %idxprom.i23.i.i = zext i32 %105 to i64
+  %arrayidx.i24.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i23.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx.i24.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.96, i64 5, i1 false)
+  %add9.i27.i.i = add nsw i32 %105, 4
+  store i32 %add9.i27.i.i, ptr %name.i, align 4
+  br label %for.inc.i390.i
 
-if.end.i31.i.i:                                   ; preds = %for.body.i387.i
+if.end.i32.i.i:                                   ; preds = %for.body.i388.i
   %112 = add i32 %106, -1019
-  %cmp.i33.i.i = icmp ult i32 %112, -1024
-  br i1 %cmp.i33.i.i, label %for.inc.i389.i, label %if.end4.i34.i.i
+  %cmp.i34.i.i = icmp ult i32 %112, -1024
+  br i1 %cmp.i34.i.i, label %for.inc.i390.i, label %if.end4.i35.i.i
 
-if.end4.i34.i.i:                                  ; preds = %if.end.i31.i.i
-  %idxprom.i35.i.i = zext i32 %106 to i64
-  %arrayidx.i36.i.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1, i64 %idxprom.i35.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %arrayidx.i36.i.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.92, i64 6, i1 false)
-  %add9.i39.i.i = add nsw i32 %106, 5
-  store i32 %add9.i39.i.i, ptr %name.i, align 4
-  br label %for.inc.i389.i
+if.end4.i35.i.i:                                  ; preds = %if.end.i32.i.i
+  %idxprom.i37.i.i = zext i32 %106 to i64
+  %arrayidx.i38.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i37.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %arrayidx.i38.i.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.92, i64 6, i1 false)
+  %add9.i41.i.i = add nsw i32 %106, 5
+  store i32 %add9.i41.i.i, ptr %name.i, align 4
+  br label %for.inc.i390.i
 
-if.end.i44.i.i:                                   ; preds = %for.body.i387.i
+if.end.i46.i.i:                                   ; preds = %for.body.i388.i
   %113 = add i32 %107, -1018
-  %cmp.i46.i.i = icmp ult i32 %113, -1024
-  br i1 %cmp.i46.i.i, label %for.inc.i389.i, label %if.end4.i47.i.i
+  %cmp.i48.i.i = icmp ult i32 %113, -1024
+  br i1 %cmp.i48.i.i, label %for.inc.i390.i, label %if.end4.i49.i.i
 
-if.end4.i47.i.i:                                  ; preds = %if.end.i44.i.i
-  %idxprom.i48.i.i = zext i32 %107 to i64
-  %arrayidx.i49.i.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1, i64 %idxprom.i48.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i49.i.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.93, i64 7, i1 false)
-  %add9.i52.i.i = add nsw i32 %107, 6
-  store i32 %add9.i52.i.i, ptr %name.i, align 4
-  br label %for.inc.i389.i
+if.end4.i49.i.i:                                  ; preds = %if.end.i46.i.i
+  %idxprom.i51.i.i = zext i32 %107 to i64
+  %arrayidx.i52.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i51.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i52.i.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.93, i64 7, i1 false)
+  %add9.i55.i.i = add nsw i32 %107, 6
+  store i32 %add9.i55.i.i, ptr %name.i, align 4
+  br label %for.inc.i390.i
 
-if.end.i57.i.i:                                   ; preds = %for.body.i387.i
+if.end.i60.i.i:                                   ; preds = %for.body.i388.i
   %114 = add i32 %108, -1018
-  %cmp.i59.i.i = icmp ult i32 %114, -1024
-  br i1 %cmp.i59.i.i, label %for.inc.i389.i, label %if.end4.i60.i.i
+  %cmp.i62.i.i = icmp ult i32 %114, -1024
+  br i1 %cmp.i62.i.i, label %for.inc.i390.i, label %if.end4.i63.i.i
 
-if.end4.i60.i.i:                                  ; preds = %if.end.i57.i.i
-  %idxprom.i61.i.i = zext i32 %108 to i64
-  %arrayidx.i62.i.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1, i64 %idxprom.i61.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i62.i.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.94, i64 7, i1 false)
-  %add9.i65.i.i = add nsw i32 %108, 6
-  store i32 %add9.i65.i.i, ptr %name.i, align 4
-  br label %for.inc.i389.i
+if.end4.i63.i.i:                                  ; preds = %if.end.i60.i.i
+  %idxprom.i65.i.i = zext i32 %108 to i64
+  %arrayidx.i66.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i65.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i66.i.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.94, i64 7, i1 false)
+  %add9.i69.i.i = add nsw i32 %108, 6
+  store i32 %add9.i69.i.i, ptr %name.i, align 4
+  br label %for.inc.i390.i
 
-sw.default.i391.i:                                ; preds = %for.body.i387.i
-  %inc.i392.i = add i32 %104, 1
-  store i32 %inc.i392.i, ptr %name.i, align 4
+sw.default.i392.i:                                ; preds = %for.body.i388.i
+  %inc.i393.i = add i32 %104, 1
+  store i32 %inc.i393.i, ptr %name.i, align 4
   %idxprom11.i.i = zext i32 %104 to i64
-  %arrayidx12.i.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1, i64 %idxprom11.i.i
+  %arrayidx12.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom11.i.i
   store i8 %109, ptr %arrayidx12.i.i, align 1
-  br label %for.inc.i389.i
+  br label %for.inc.i390.i
 
-for.inc.i389.i:                                   ; preds = %sw.default.i391.i, %if.end4.i60.i.i, %if.end.i57.i.i, %if.end4.i47.i.i, %if.end.i44.i.i, %if.end4.i34.i.i, %if.end.i31.i.i, %if.end4.i21.i.i, %if.end.i18.i.i, %if.end4.i.i.i, %if.end.i.i.i
-  %115 = phi i32 [ %add9.i65.i.i, %if.end4.i60.i.i ], [ %104, %if.end.i57.i.i ], [ %add9.i52.i.i, %if.end4.i47.i.i ], [ %104, %if.end.i44.i.i ], [ %add9.i39.i.i, %if.end4.i34.i.i ], [ %104, %if.end.i31.i.i ], [ %add9.i26.i.i, %if.end4.i21.i.i ], [ %104, %if.end.i18.i.i ], [ %add9.i.i.i, %if.end4.i.i.i ], [ %104, %if.end.i.i.i ], [ %inc.i392.i, %sw.default.i391.i ]
-  %116 = phi i32 [ %add9.i65.i.i, %if.end4.i60.i.i ], [ %105, %if.end.i57.i.i ], [ %add9.i52.i.i, %if.end4.i47.i.i ], [ %105, %if.end.i44.i.i ], [ %add9.i39.i.i, %if.end4.i34.i.i ], [ %105, %if.end.i31.i.i ], [ %add9.i26.i.i, %if.end4.i21.i.i ], [ %105, %if.end.i18.i.i ], [ %add9.i.i.i, %if.end4.i.i.i ], [ %104, %if.end.i.i.i ], [ %inc.i392.i, %sw.default.i391.i ]
-  %117 = phi i32 [ %add9.i65.i.i, %if.end4.i60.i.i ], [ %106, %if.end.i57.i.i ], [ %add9.i52.i.i, %if.end4.i47.i.i ], [ %106, %if.end.i44.i.i ], [ %add9.i39.i.i, %if.end4.i34.i.i ], [ %106, %if.end.i31.i.i ], [ %add9.i26.i.i, %if.end4.i21.i.i ], [ %105, %if.end.i18.i.i ], [ %add9.i.i.i, %if.end4.i.i.i ], [ %104, %if.end.i.i.i ], [ %inc.i392.i, %sw.default.i391.i ]
-  %118 = phi i32 [ %add9.i65.i.i, %if.end4.i60.i.i ], [ %107, %if.end.i57.i.i ], [ %add9.i52.i.i, %if.end4.i47.i.i ], [ %107, %if.end.i44.i.i ], [ %add9.i39.i.i, %if.end4.i34.i.i ], [ %106, %if.end.i31.i.i ], [ %add9.i26.i.i, %if.end4.i21.i.i ], [ %105, %if.end.i18.i.i ], [ %add9.i.i.i, %if.end4.i.i.i ], [ %104, %if.end.i.i.i ], [ %inc.i392.i, %sw.default.i391.i ]
-  %119 = phi i32 [ %add9.i65.i.i, %if.end4.i60.i.i ], [ %108, %if.end.i57.i.i ], [ %add9.i52.i.i, %if.end4.i47.i.i ], [ %107, %if.end.i44.i.i ], [ %add9.i39.i.i, %if.end4.i34.i.i ], [ %106, %if.end.i31.i.i ], [ %add9.i26.i.i, %if.end4.i21.i.i ], [ %105, %if.end.i18.i.i ], [ %add9.i.i.i, %if.end4.i.i.i ], [ %104, %if.end.i.i.i ], [ %inc.i392.i, %sw.default.i391.i ]
+for.inc.i390.i:                                   ; preds = %sw.default.i392.i, %if.end4.i63.i.i, %if.end.i60.i.i, %if.end4.i49.i.i, %if.end.i46.i.i, %if.end4.i35.i.i, %if.end.i32.i.i, %if.end4.i21.i.i, %if.end.i18.i.i, %if.end4.i.i.i, %if.end.i.i.i
+  %115 = phi i32 [ %add9.i69.i.i, %if.end4.i63.i.i ], [ %104, %if.end.i60.i.i ], [ %add9.i55.i.i, %if.end4.i49.i.i ], [ %104, %if.end.i46.i.i ], [ %add9.i41.i.i, %if.end4.i35.i.i ], [ %104, %if.end.i32.i.i ], [ %add9.i27.i.i, %if.end4.i21.i.i ], [ %104, %if.end.i18.i.i ], [ %add9.i.i.i, %if.end4.i.i.i ], [ %104, %if.end.i.i.i ], [ %inc.i393.i, %sw.default.i392.i ]
+  %116 = phi i32 [ %add9.i69.i.i, %if.end4.i63.i.i ], [ %105, %if.end.i60.i.i ], [ %add9.i55.i.i, %if.end4.i49.i.i ], [ %105, %if.end.i46.i.i ], [ %add9.i41.i.i, %if.end4.i35.i.i ], [ %105, %if.end.i32.i.i ], [ %add9.i27.i.i, %if.end4.i21.i.i ], [ %105, %if.end.i18.i.i ], [ %add9.i.i.i, %if.end4.i.i.i ], [ %104, %if.end.i.i.i ], [ %inc.i393.i, %sw.default.i392.i ]
+  %117 = phi i32 [ %add9.i69.i.i, %if.end4.i63.i.i ], [ %106, %if.end.i60.i.i ], [ %add9.i55.i.i, %if.end4.i49.i.i ], [ %106, %if.end.i46.i.i ], [ %add9.i41.i.i, %if.end4.i35.i.i ], [ %106, %if.end.i32.i.i ], [ %add9.i27.i.i, %if.end4.i21.i.i ], [ %105, %if.end.i18.i.i ], [ %add9.i.i.i, %if.end4.i.i.i ], [ %104, %if.end.i.i.i ], [ %inc.i393.i, %sw.default.i392.i ]
+  %118 = phi i32 [ %add9.i69.i.i, %if.end4.i63.i.i ], [ %107, %if.end.i60.i.i ], [ %add9.i55.i.i, %if.end4.i49.i.i ], [ %107, %if.end.i46.i.i ], [ %add9.i41.i.i, %if.end4.i35.i.i ], [ %106, %if.end.i32.i.i ], [ %add9.i27.i.i, %if.end4.i21.i.i ], [ %105, %if.end.i18.i.i ], [ %add9.i.i.i, %if.end4.i.i.i ], [ %104, %if.end.i.i.i ], [ %inc.i393.i, %sw.default.i392.i ]
+  %119 = phi i32 [ %add9.i69.i.i, %if.end4.i63.i.i ], [ %108, %if.end.i60.i.i ], [ %add9.i55.i.i, %if.end4.i49.i.i ], [ %107, %if.end.i46.i.i ], [ %add9.i41.i.i, %if.end4.i35.i.i ], [ %106, %if.end.i32.i.i ], [ %add9.i27.i.i, %if.end4.i21.i.i ], [ %105, %if.end.i18.i.i ], [ %add9.i.i.i, %if.end4.i.i.i ], [ %104, %if.end.i.i.i ], [ %inc.i393.i, %sw.default.i392.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %120 = load i32, ptr %102, align 4
   %121 = zext i32 %120 to i64
-  %cmp.i390.i = icmp ult i64 %indvars.iv.next.i.i, %121
-  br i1 %cmp.i390.i, label %for.body.i387.i, label %for.end.loopexit.i.i, !llvm.loop !17
+  %cmp.i391.i = icmp ult i64 %indvars.iv.next.i.i, %121
+  br i1 %cmp.i391.i, label %for.body.i388.i, label %for.end.loopexit.i.i, !llvm.loop !17
 
-for.end.loopexit.i.i:                             ; preds = %for.inc.i389.i
+for.end.loopexit.i.i:                             ; preds = %for.inc.i390.i
   %122 = zext i32 %115 to i64
   br label %invoke.cont305.i
 
 invoke.cont305.i:                                 ; preds = %for.end.loopexit.i.i, %for.body302.i
   %idxprom16.i.i = phi i64 [ %122, %for.end.loopexit.i.i ], [ 0, %for.body302.i ]
-  %arrayidx17.i.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1, i64 %idxprom16.i.i
+  %arrayidx17.i.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom16.i.i
   store i8 0, ptr %arrayidx17.i.i, align 1
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.36, ptr noundef nonnull %data.i.i)
           to label %invoke.cont308.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -1209,7 +1202,7 @@ invoke.cont308.i:                                 ; preds = %invoke.cont305.i
   br i1 %shortened, label %if.end403.i, label %if.then311.i
 
 if.then311.i:                                     ; preds = %invoke.cont308.i
-  %mNumPositionKeys.i = getelementptr inbounds %struct.aiNodeAnim, ptr %102, i64 0, i32 1
+  %mNumPositionKeys.i = getelementptr inbounds i8, ptr %102, i64 1028
   %123 = load i32, ptr %mNumPositionKeys.i, align 4
   %tobool312.not.i = icmp eq i32 %123, 0
   br i1 %tobool312.not.i, label %if.end338.i, label %if.then313.i
@@ -1220,35 +1213,35 @@ if.then313.i:                                     ; preds = %if.then311.i
 
 for.cond318.preheader.i:                          ; preds = %if.then313.i
   %124 = load i32, ptr %mNumPositionKeys.i, align 4
-  %cmp320553.not.i = icmp eq i32 %124, 0
-  br i1 %cmp320553.not.i, label %for.end335.i, label %for.body321.lr.ph.i
+  %cmp320558.not.i = icmp eq i32 %124, 0
+  br i1 %cmp320558.not.i, label %for.end335.i, label %for.body321.lr.ph.i
 
 for.body321.lr.ph.i:                              ; preds = %for.cond318.preheader.i
-  %mPositionKeys.i = getelementptr inbounds %struct.aiNodeAnim, ptr %102, i64 0, i32 2
+  %mPositionKeys.i = getelementptr inbounds i8, ptr %102, i64 1032
   br label %for.body321.i
 
 for.body321.i:                                    ; preds = %for.inc333.i, %for.body321.lr.ph.i
-  %indvars.iv617.i = phi i64 [ 0, %for.body321.lr.ph.i ], [ %indvars.iv.next618.i, %for.inc333.i ]
+  %indvars.iv622.i = phi i64 [ 0, %for.body321.lr.ph.i ], [ %indvars.iv.next623.i, %for.inc333.i ]
   %125 = load ptr, ptr %mPositionKeys.i, align 8
-  %add.ptr323.i = getelementptr inbounds %struct.aiVectorKey, ptr %125, i64 %indvars.iv617.i
+  %add.ptr323.i = getelementptr inbounds %struct.aiVectorKey, ptr %125, i64 %indvars.iv622.i
   %126 = load double, ptr %add.ptr323.i, align 8
-  %mValue.i = getelementptr inbounds %struct.aiVectorKey, ptr %125, i64 %indvars.iv617.i, i32 1
+  %mValue.i = getelementptr inbounds i8, ptr %add.ptr323.i, i64 8
   %127 = load float, ptr %mValue.i, align 8
   %conv325.i = fpext float %127 to double
-  %y327.i = getelementptr inbounds %struct.aiVectorKey, ptr %125, i64 %indvars.iv617.i, i32 1, i32 1
+  %y327.i = getelementptr inbounds i8, ptr %add.ptr323.i, i64 12
   %128 = load float, ptr %y327.i, align 4
   %conv328.i = fpext float %128 to double
-  %z.i = getelementptr inbounds %struct.aiVectorKey, ptr %125, i64 %indvars.iv617.i, i32 1, i32 2
+  %z.i = getelementptr inbounds i8, ptr %add.ptr323.i, i64 16
   %129 = load float, ptr %z.i, align 8
   %conv330.i = fpext float %129 to double
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.38, double noundef %126, double noundef %conv325.i, double noundef %conv328.i, double noundef %conv330.i)
           to label %for.inc333.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc333.i:                                     ; preds = %for.body321.i
-  %indvars.iv.next618.i = add nuw nsw i64 %indvars.iv617.i, 1
+  %indvars.iv.next623.i = add nuw nsw i64 %indvars.iv622.i, 1
   %130 = load i32, ptr %mNumPositionKeys.i, align 4
   %131 = zext i32 %130 to i64
-  %cmp320.i = icmp ult i64 %indvars.iv.next618.i, %131
+  %cmp320.i = icmp ult i64 %indvars.iv.next623.i, %131
   br i1 %cmp320.i, label %for.body321.i, label %for.end335.i, !llvm.loop !18
 
 for.end335.i:                                     ; preds = %for.inc333.i, %for.cond318.preheader.i
@@ -1256,7 +1249,7 @@ for.end335.i:                                     ; preds = %for.inc333.i, %for.
           to label %if.end338.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end338.i:                                      ; preds = %for.end335.i, %if.then311.i
-  %mNumScalingKeys.i = getelementptr inbounds %struct.aiNodeAnim, ptr %102, i64 0, i32 5
+  %mNumScalingKeys.i = getelementptr inbounds i8, ptr %102, i64 1056
   %132 = load i32, ptr %mNumScalingKeys.i, align 8
   %tobool339.not.i = icmp eq i32 %132, 0
   br i1 %tobool339.not.i, label %if.end369.i, label %if.then340.i
@@ -1267,35 +1260,35 @@ if.then340.i:                                     ; preds = %if.end338.i
 
 for.cond345.preheader.i:                          ; preds = %if.then340.i
   %133 = load i32, ptr %mNumScalingKeys.i, align 8
-  %cmp347555.not.i = icmp eq i32 %133, 0
-  br i1 %cmp347555.not.i, label %for.end366.i, label %for.body348.lr.ph.i
+  %cmp347560.not.i = icmp eq i32 %133, 0
+  br i1 %cmp347560.not.i, label %for.end366.i, label %for.body348.lr.ph.i
 
 for.body348.lr.ph.i:                              ; preds = %for.cond345.preheader.i
-  %mScalingKeys.i = getelementptr inbounds %struct.aiNodeAnim, ptr %102, i64 0, i32 6
+  %mScalingKeys.i = getelementptr inbounds i8, ptr %102, i64 1064
   br label %for.body348.i
 
 for.body348.i:                                    ; preds = %for.inc364.i, %for.body348.lr.ph.i
-  %indvars.iv620.i = phi i64 [ 0, %for.body348.lr.ph.i ], [ %indvars.iv.next621.i, %for.inc364.i ]
+  %indvars.iv625.i = phi i64 [ 0, %for.body348.lr.ph.i ], [ %indvars.iv.next626.i, %for.inc364.i ]
   %134 = load ptr, ptr %mScalingKeys.i, align 8
-  %add.ptr351.i = getelementptr inbounds %struct.aiVectorKey, ptr %134, i64 %indvars.iv620.i
+  %add.ptr351.i = getelementptr inbounds %struct.aiVectorKey, ptr %134, i64 %indvars.iv625.i
   %135 = load double, ptr %add.ptr351.i, align 8
-  %mValue353.i = getelementptr inbounds %struct.aiVectorKey, ptr %134, i64 %indvars.iv620.i, i32 1
+  %mValue353.i = getelementptr inbounds i8, ptr %add.ptr351.i, i64 8
   %136 = load float, ptr %mValue353.i, align 8
   %conv355.i = fpext float %136 to double
-  %y357.i = getelementptr inbounds %struct.aiVectorKey, ptr %134, i64 %indvars.iv620.i, i32 1, i32 1
+  %y357.i = getelementptr inbounds i8, ptr %add.ptr351.i, i64 12
   %137 = load float, ptr %y357.i, align 4
   %conv358.i = fpext float %137 to double
-  %z360.i = getelementptr inbounds %struct.aiVectorKey, ptr %134, i64 %indvars.iv620.i, i32 1, i32 2
+  %z360.i = getelementptr inbounds i8, ptr %add.ptr351.i, i64 16
   %138 = load float, ptr %z360.i, align 8
   %conv361.i = fpext float %138 to double
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.41, double noundef %135, double noundef %conv355.i, double noundef %conv358.i, double noundef %conv361.i)
           to label %for.inc364.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc364.i:                                     ; preds = %for.body348.i
-  %indvars.iv.next621.i = add nuw nsw i64 %indvars.iv620.i, 1
+  %indvars.iv.next626.i = add nuw nsw i64 %indvars.iv625.i, 1
   %139 = load i32, ptr %mNumScalingKeys.i, align 8
   %140 = zext i32 %139 to i64
-  %cmp347.i = icmp ult i64 %indvars.iv.next621.i, %140
+  %cmp347.i = icmp ult i64 %indvars.iv.next626.i, %140
   br i1 %cmp347.i, label %for.body348.i, label %for.end366.i, !llvm.loop !19
 
 for.end366.i:                                     ; preds = %for.inc364.i, %for.cond345.preheader.i
@@ -1303,7 +1296,7 @@ for.end366.i:                                     ; preds = %for.inc364.i, %for.
           to label %if.end369.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end369.i:                                      ; preds = %for.end366.i, %if.end338.i
-  %mNumRotationKeys.i = getelementptr inbounds %struct.aiNodeAnim, ptr %102, i64 0, i32 3
+  %mNumRotationKeys.i = getelementptr inbounds i8, ptr %102, i64 1040
   %141 = load i32, ptr %mNumRotationKeys.i, align 8
   %tobool370.not.i = icmp eq i32 %141, 0
   br i1 %tobool370.not.i, label %if.end403.i, label %if.then371.i
@@ -1314,26 +1307,26 @@ if.then371.i:                                     ; preds = %if.end369.i
 
 for.cond376.preheader.i:                          ; preds = %if.then371.i
   %142 = load i32, ptr %mNumRotationKeys.i, align 8
-  %cmp378557.not.i = icmp eq i32 %142, 0
-  br i1 %cmp378557.not.i, label %for.end399.i, label %for.body379.lr.ph.i
+  %cmp378562.not.i = icmp eq i32 %142, 0
+  br i1 %cmp378562.not.i, label %for.end399.i, label %for.body379.lr.ph.i
 
 for.body379.lr.ph.i:                              ; preds = %for.cond376.preheader.i
-  %mRotationKeys.i = getelementptr inbounds %struct.aiNodeAnim, ptr %102, i64 0, i32 4
+  %mRotationKeys.i = getelementptr inbounds i8, ptr %102, i64 1048
   br label %for.body379.i
 
 for.body379.i:                                    ; preds = %for.inc397.i, %for.body379.lr.ph.i
-  %indvars.iv623.i = phi i64 [ 0, %for.body379.lr.ph.i ], [ %indvars.iv.next624.i, %for.inc397.i ]
+  %indvars.iv628.i = phi i64 [ 0, %for.body379.lr.ph.i ], [ %indvars.iv.next629.i, %for.inc397.i ]
   %143 = load ptr, ptr %mRotationKeys.i, align 8
-  %add.ptr382.i = getelementptr inbounds %struct.aiQuatKey, ptr %143, i64 %indvars.iv623.i
+  %add.ptr382.i = getelementptr inbounds %struct.aiQuatKey, ptr %143, i64 %indvars.iv628.i
   %144 = load double, ptr %add.ptr382.i, align 8
-  %mValue384.i = getelementptr inbounds %struct.aiQuatKey, ptr %143, i64 %indvars.iv623.i, i32 1
-  %x385.i = getelementptr inbounds %struct.aiQuatKey, ptr %143, i64 %indvars.iv623.i, i32 1, i32 1
+  %mValue384.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 8
+  %x385.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 12
   %145 = load float, ptr %x385.i, align 4
   %conv386.i = fpext float %145 to double
-  %y388.i = getelementptr inbounds %struct.aiQuatKey, ptr %143, i64 %indvars.iv623.i, i32 1, i32 2
+  %y388.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 16
   %146 = load float, ptr %y388.i, align 8
   %conv389.i = fpext float %146 to double
-  %z391.i = getelementptr inbounds %struct.aiQuatKey, ptr %143, i64 %indvars.iv623.i, i32 1, i32 3
+  %z391.i = getelementptr inbounds i8, ptr %add.ptr382.i, i64 20
   %147 = load float, ptr %z391.i, align 4
   %conv392.i = fpext float %147 to double
   %148 = load float, ptr %mValue384.i, align 8
@@ -1342,10 +1335,10 @@ for.body379.i:                                    ; preds = %for.inc397.i, %for.
           to label %for.inc397.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc397.i:                                     ; preds = %for.body379.i
-  %indvars.iv.next624.i = add nuw nsw i64 %indvars.iv623.i, 1
+  %indvars.iv.next629.i = add nuw nsw i64 %indvars.iv628.i, 1
   %149 = load i32, ptr %mNumRotationKeys.i, align 8
   %150 = zext i32 %149 to i64
-  %cmp378.i = icmp ult i64 %indvars.iv.next624.i, %150
+  %cmp378.i = icmp ult i64 %indvars.iv.next629.i, %150
   br i1 %cmp378.i, label %for.body379.i, label %for.end399.i, !llvm.loop !20
 
 for.end399.i:                                     ; preds = %for.inc397.i, %for.cond376.preheader.i
@@ -1357,10 +1350,10 @@ if.end403.i:                                      ; preds = %for.end399.i, %if.e
           to label %for.inc406.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc406.i:                                     ; preds = %if.end403.i
-  %indvars.iv.next627.i = add nuw nsw i64 %indvars.iv626.i, 1
+  %indvars.iv.next632.i = add nuw nsw i64 %indvars.iv631.i, 1
   %151 = load i32, ptr %mNumChannels.i, align 8
   %152 = zext i32 %151 to i64
-  %cmp301.i = icmp ult i64 %indvars.iv.next627.i, %152
+  %cmp301.i = icmp ult i64 %indvars.iv.next632.i, %152
   br i1 %cmp301.i, label %for.body302.i, label %for.end408.i, !llvm.loop !21
 
 for.end408.i:                                     ; preds = %for.inc406.i, %for.cond299.preheader.i
@@ -1372,10 +1365,10 @@ if.end411.i:                                      ; preds = %for.end408.i, %invo
           to label %for.inc414.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc414.i:                                     ; preds = %if.end411.i
-  %indvars.iv.next630.i = add nuw nsw i64 %indvars.iv629.i, 1
+  %indvars.iv.next635.i = add nuw nsw i64 %indvars.iv634.i, 1
   %153 = load i32, ptr %mNumAnimations.i, align 8
   %154 = zext i32 %153 to i64
-  %cmp284.i = icmp ult i64 %indvars.iv.next630.i, %154
+  %cmp284.i = icmp ult i64 %indvars.iv.next635.i, %154
   br i1 %cmp284.i, label %for.body285.i, label %for.end416.i, !llvm.loop !22
 
 for.end416.i:                                     ; preds = %for.inc414.i, %for.cond282.preheader.i
@@ -1383,7 +1376,7 @@ for.end416.i:                                     ; preds = %for.inc414.i, %for.
           to label %if.end419.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 if.end419.i:                                      ; preds = %for.end416.i, %if.end275.i
-  %mNumMeshes.i = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 2
+  %mNumMeshes.i = getelementptr inbounds i8, ptr %pScene, i64 16
   %155 = load i32, ptr %mNumMeshes.i, align 8
   %tobool420.not.i = icmp eq i32 %155, 0
   br i1 %tobool420.not.i, label %if.end861.i, label %if.then421.i
@@ -1394,17 +1387,17 @@ if.then421.i:                                     ; preds = %if.end419.i
 
 for.cond426.preheader.i:                          ; preds = %if.then421.i
   %156 = load i32, ptr %mNumMeshes.i, align 8
-  %cmp428587.not.i = icmp eq i32 %156, 0
-  br i1 %cmp428587.not.i, label %for.end858.i, label %for.body429.lr.ph.i
+  %cmp428592.not.i = icmp eq i32 %156, 0
+  br i1 %cmp428592.not.i, label %for.end858.i, label %for.body429.lr.ph.i
 
 for.body429.lr.ph.i:                              ; preds = %for.cond426.preheader.i
-  %mMeshes.i = getelementptr inbounds %struct.aiScene, ptr %pScene, i64 0, i32 3
+  %mMeshes.i = getelementptr inbounds i8, ptr %pScene, i64 24
   br label %for.body429.i
 
 for.body429.i:                                    ; preds = %for.inc856.i, %for.body429.lr.ph.i
-  %indvars.iv672.i = phi i64 [ 0, %for.body429.lr.ph.i ], [ %indvars.iv.next673.i, %for.inc856.i ]
+  %indvars.iv677.i = phi i64 [ 0, %for.body429.lr.ph.i ], [ %indvars.iv.next678.i, %for.inc856.i ]
   %157 = load ptr, ptr %mMeshes.i, align 8
-  %arrayidx431.i = getelementptr inbounds ptr, ptr %157, i64 %indvars.iv672.i
+  %arrayidx431.i = getelementptr inbounds ptr, ptr %157, i64 %indvars.iv677.i
   %158 = load ptr, ptr %arrayidx431.i, align 8
   %159 = load i32, ptr %158, align 8
   %160 = insertelement <4 x i32> poison, i32 %159, i64 0
@@ -1419,13 +1412,13 @@ for.body429.i:                                    ; preds = %for.inc856.i, %for.
   %cond441.i = select i1 %166, ptr @.str.17, ptr @.str.54
   %167 = extractelement <4 x i1> %163, i64 0
   %cond445.i = select i1 %167, ptr @.str.17, ptr @.str.55
-  %mMaterialIndex.i = getelementptr inbounds %struct.aiMesh, ptr %158, i64 0, i32 13
+  %mMaterialIndex.i = getelementptr inbounds i8, ptr %158, i64 232
   %168 = load i32, ptr %mMaterialIndex.i, align 8
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.51, ptr noundef nonnull %cond433.i, ptr noundef nonnull %cond437.i, ptr noundef nonnull %cond441.i, ptr noundef nonnull %cond445.i, i32 noundef %168)
           to label %invoke.cont446.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont446.i:                                 ; preds = %for.body429.i
-  %mNumBones.i = getelementptr inbounds %struct.aiMesh, ptr %158, i64 0, i32 11
+  %mNumBones.i = getelementptr inbounds i8, ptr %158, i64 216
   %169 = load i32, ptr %mNumBones.i, align 8
   %tobool448.not.i = icmp eq i32 %169, 0
   br i1 %tobool448.not.i, label %if.end527.i, label %if.then449.i
@@ -1436,180 +1429,184 @@ if.then449.i:                                     ; preds = %invoke.cont446.i
 
 for.cond454.preheader.i:                          ; preds = %if.then449.i
   %170 = load i32, ptr %mNumBones.i, align 8
-  %cmp456565.not.i = icmp eq i32 %170, 0
-  br i1 %cmp456565.not.i, label %for.end524.i, label %for.body457.lr.ph.i
+  %cmp456570.not.i = icmp eq i32 %170, 0
+  br i1 %cmp456570.not.i, label %for.end524.i, label %for.body457.lr.ph.i
 
 for.body457.lr.ph.i:                              ; preds = %for.cond454.preheader.i
-  %mBones.i = getelementptr inbounds %struct.aiMesh, ptr %158, i64 0, i32 12
+  %mBones.i = getelementptr inbounds i8, ptr %158, i64 224
   br label %for.body457.i
 
 for.body457.i:                                    ; preds = %for.inc522.i, %for.body457.lr.ph.i
-  %indvars.iv635.i = phi i64 [ 0, %for.body457.lr.ph.i ], [ %indvars.iv.next636.i, %for.inc522.i ]
+  %indvars.iv640.i = phi i64 [ 0, %for.body457.lr.ph.i ], [ %indvars.iv.next641.i, %for.inc522.i ]
   %171 = load ptr, ptr %mBones.i, align 8
-  %arrayidx459.i = getelementptr inbounds ptr, ptr %171, i64 %indvars.iv635.i
+  %arrayidx459.i = getelementptr inbounds ptr, ptr %171, i64 %indvars.iv640.i
   %172 = load ptr, ptr %arrayidx459.i, align 8
   store i32 0, ptr %name.i, align 4
   %173 = load i32, ptr %172, align 4
-  %cmp67.not.i393.i = icmp eq i32 %173, 0
-  br i1 %cmp67.not.i393.i, label %invoke.cont461.i, label %for.body.i394.i
+  %cmp71.not.i394.i = icmp eq i32 %173, 0
+  br i1 %cmp71.not.i394.i, label %invoke.cont461.i, label %for.body.lr.ph.i395.i
 
-for.body.i394.i:                                  ; preds = %for.body457.i, %for.inc.i404.i
-  %174 = phi i32 [ %185, %for.inc.i404.i ], [ 0, %for.body457.i ]
-  %175 = phi i32 [ %186, %for.inc.i404.i ], [ 0, %for.body457.i ]
-  %176 = phi i32 [ %187, %for.inc.i404.i ], [ 0, %for.body457.i ]
-  %177 = phi i32 [ %188, %for.inc.i404.i ], [ 0, %for.body457.i ]
-  %178 = phi i32 [ %189, %for.inc.i404.i ], [ 0, %for.body457.i ]
-  %indvars.iv.i395.i = phi i64 [ %indvars.iv.next.i405.i, %for.inc.i404.i ], [ 0, %for.body457.i ]
-  %arrayidx.i396.i = getelementptr inbounds %struct.aiString, ptr %172, i64 0, i32 1, i64 %indvars.iv.i395.i
-  %179 = load i8, ptr %arrayidx.i396.i, align 1
-  %conv.i397.i = sext i8 %179 to i32
-  switch i32 %conv.i397.i, label %sw.default.i434.i [
-    i32 60, label %if.end.i.i428.i
-    i32 62, label %if.end.i18.i422.i
-    i32 38, label %if.end.i31.i416.i
-    i32 34, label %if.end.i44.i410.i
-    i32 39, label %if.end.i57.i398.i
+for.body.lr.ph.i395.i:                            ; preds = %for.body457.i
+  %data.i396.i = getelementptr inbounds i8, ptr %172, i64 4
+  br label %for.body.i398.i
+
+for.body.i398.i:                                  ; preds = %for.inc.i408.i, %for.body.lr.ph.i395.i
+  %174 = phi i32 [ 0, %for.body.lr.ph.i395.i ], [ %185, %for.inc.i408.i ]
+  %175 = phi i32 [ 0, %for.body.lr.ph.i395.i ], [ %186, %for.inc.i408.i ]
+  %176 = phi i32 [ 0, %for.body.lr.ph.i395.i ], [ %187, %for.inc.i408.i ]
+  %177 = phi i32 [ 0, %for.body.lr.ph.i395.i ], [ %188, %for.inc.i408.i ]
+  %178 = phi i32 [ 0, %for.body.lr.ph.i395.i ], [ %189, %for.inc.i408.i ]
+  %indvars.iv.i399.i = phi i64 [ 0, %for.body.lr.ph.i395.i ], [ %indvars.iv.next.i409.i, %for.inc.i408.i ]
+  %arrayidx.i400.i = getelementptr inbounds [1024 x i8], ptr %data.i396.i, i64 0, i64 %indvars.iv.i399.i
+  %179 = load i8, ptr %arrayidx.i400.i, align 1
+  %conv.i401.i = sext i8 %179 to i32
+  switch i32 %conv.i401.i, label %sw.default.i439.i [
+    i32 60, label %if.end.i.i433.i
+    i32 62, label %if.end.i18.i427.i
+    i32 38, label %if.end.i32.i421.i
+    i32 34, label %if.end.i46.i415.i
+    i32 39, label %if.end.i60.i402.i
   ]
 
-if.end.i.i428.i:                                  ; preds = %for.body.i394.i
+if.end.i.i433.i:                                  ; preds = %for.body.i398.i
   %180 = add i32 %174, -1020
-  %cmp.i.i429.i = icmp ult i32 %180, -1024
-  br i1 %cmp.i.i429.i, label %for.inc.i404.i, label %if.end4.i.i430.i
+  %cmp.i.i434.i = icmp ult i32 %180, -1024
+  br i1 %cmp.i.i434.i, label %for.inc.i408.i, label %if.end4.i.i435.i
 
-if.end4.i.i430.i:                                 ; preds = %if.end.i.i428.i
-  %idxprom.i.i431.i = zext i32 %174 to i64
-  %arrayidx.i.i432.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1, i64 %idxprom.i.i431.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx.i.i432.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.95, i64 5, i1 false)
-  %add9.i.i433.i = add nsw i32 %174, 4
-  store i32 %add9.i.i433.i, ptr %name.i, align 4
-  br label %for.inc.i404.i
+if.end4.i.i435.i:                                 ; preds = %if.end.i.i433.i
+  %idxprom.i.i436.i = zext i32 %174 to i64
+  %arrayidx.i.i437.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i.i436.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx.i.i437.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.95, i64 5, i1 false)
+  %add9.i.i438.i = add nsw i32 %174, 4
+  store i32 %add9.i.i438.i, ptr %name.i, align 4
+  br label %for.inc.i408.i
 
-if.end.i18.i422.i:                                ; preds = %for.body.i394.i
+if.end.i18.i427.i:                                ; preds = %for.body.i398.i
   %181 = add i32 %175, -1020
-  %cmp.i20.i423.i = icmp ult i32 %181, -1024
-  br i1 %cmp.i20.i423.i, label %for.inc.i404.i, label %if.end4.i21.i424.i
+  %cmp.i20.i428.i = icmp ult i32 %181, -1024
+  br i1 %cmp.i20.i428.i, label %for.inc.i408.i, label %if.end4.i21.i429.i
 
-if.end4.i21.i424.i:                               ; preds = %if.end.i18.i422.i
-  %idxprom.i22.i425.i = zext i32 %175 to i64
-  %arrayidx.i23.i426.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1, i64 %idxprom.i22.i425.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx.i23.i426.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.96, i64 5, i1 false)
-  %add9.i26.i427.i = add nsw i32 %175, 4
-  store i32 %add9.i26.i427.i, ptr %name.i, align 4
-  br label %for.inc.i404.i
+if.end4.i21.i429.i:                               ; preds = %if.end.i18.i427.i
+  %idxprom.i23.i430.i = zext i32 %175 to i64
+  %arrayidx.i24.i431.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i23.i430.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx.i24.i431.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.96, i64 5, i1 false)
+  %add9.i27.i432.i = add nsw i32 %175, 4
+  store i32 %add9.i27.i432.i, ptr %name.i, align 4
+  br label %for.inc.i408.i
 
-if.end.i31.i416.i:                                ; preds = %for.body.i394.i
+if.end.i32.i421.i:                                ; preds = %for.body.i398.i
   %182 = add i32 %176, -1019
-  %cmp.i33.i417.i = icmp ult i32 %182, -1024
-  br i1 %cmp.i33.i417.i, label %for.inc.i404.i, label %if.end4.i34.i418.i
+  %cmp.i34.i422.i = icmp ult i32 %182, -1024
+  br i1 %cmp.i34.i422.i, label %for.inc.i408.i, label %if.end4.i35.i423.i
 
-if.end4.i34.i418.i:                               ; preds = %if.end.i31.i416.i
-  %idxprom.i35.i419.i = zext i32 %176 to i64
-  %arrayidx.i36.i420.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1, i64 %idxprom.i35.i419.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %arrayidx.i36.i420.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.92, i64 6, i1 false)
-  %add9.i39.i421.i = add nsw i32 %176, 5
-  store i32 %add9.i39.i421.i, ptr %name.i, align 4
-  br label %for.inc.i404.i
+if.end4.i35.i423.i:                               ; preds = %if.end.i32.i421.i
+  %idxprom.i37.i424.i = zext i32 %176 to i64
+  %arrayidx.i38.i425.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i37.i424.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %arrayidx.i38.i425.i, ptr noundef nonnull align 1 dereferenceable(6) @.str.92, i64 6, i1 false)
+  %add9.i41.i426.i = add nsw i32 %176, 5
+  store i32 %add9.i41.i426.i, ptr %name.i, align 4
+  br label %for.inc.i408.i
 
-if.end.i44.i410.i:                                ; preds = %for.body.i394.i
+if.end.i46.i415.i:                                ; preds = %for.body.i398.i
   %183 = add i32 %177, -1018
-  %cmp.i46.i411.i = icmp ult i32 %183, -1024
-  br i1 %cmp.i46.i411.i, label %for.inc.i404.i, label %if.end4.i47.i412.i
+  %cmp.i48.i416.i = icmp ult i32 %183, -1024
+  br i1 %cmp.i48.i416.i, label %for.inc.i408.i, label %if.end4.i49.i417.i
 
-if.end4.i47.i412.i:                               ; preds = %if.end.i44.i410.i
-  %idxprom.i48.i413.i = zext i32 %177 to i64
-  %arrayidx.i49.i414.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1, i64 %idxprom.i48.i413.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i49.i414.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.93, i64 7, i1 false)
-  %add9.i52.i415.i = add nsw i32 %177, 6
-  store i32 %add9.i52.i415.i, ptr %name.i, align 4
-  br label %for.inc.i404.i
+if.end4.i49.i417.i:                               ; preds = %if.end.i46.i415.i
+  %idxprom.i51.i418.i = zext i32 %177 to i64
+  %arrayidx.i52.i419.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i51.i418.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i52.i419.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.93, i64 7, i1 false)
+  %add9.i55.i420.i = add nsw i32 %177, 6
+  store i32 %add9.i55.i420.i, ptr %name.i, align 4
+  br label %for.inc.i408.i
 
-if.end.i57.i398.i:                                ; preds = %for.body.i394.i
+if.end.i60.i402.i:                                ; preds = %for.body.i398.i
   %184 = add i32 %178, -1018
-  %cmp.i59.i399.i = icmp ult i32 %184, -1024
-  br i1 %cmp.i59.i399.i, label %for.inc.i404.i, label %if.end4.i60.i400.i
+  %cmp.i62.i403.i = icmp ult i32 %184, -1024
+  br i1 %cmp.i62.i403.i, label %for.inc.i408.i, label %if.end4.i63.i404.i
 
-if.end4.i60.i400.i:                               ; preds = %if.end.i57.i398.i
-  %idxprom.i61.i401.i = zext i32 %178 to i64
-  %arrayidx.i62.i402.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1, i64 %idxprom.i61.i401.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i62.i402.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.94, i64 7, i1 false)
-  %add9.i65.i403.i = add nsw i32 %178, 6
-  store i32 %add9.i65.i403.i, ptr %name.i, align 4
-  br label %for.inc.i404.i
+if.end4.i63.i404.i:                               ; preds = %if.end.i60.i402.i
+  %idxprom.i65.i405.i = zext i32 %178 to i64
+  %arrayidx.i66.i406.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom.i65.i405.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i66.i406.i, ptr noundef nonnull align 1 dereferenceable(7) @.str.94, i64 7, i1 false)
+  %add9.i69.i407.i = add nsw i32 %178, 6
+  store i32 %add9.i69.i407.i, ptr %name.i, align 4
+  br label %for.inc.i408.i
 
-sw.default.i434.i:                                ; preds = %for.body.i394.i
-  %inc.i435.i = add i32 %174, 1
-  store i32 %inc.i435.i, ptr %name.i, align 4
-  %idxprom11.i436.i = zext i32 %174 to i64
-  %arrayidx12.i437.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1, i64 %idxprom11.i436.i
-  store i8 %179, ptr %arrayidx12.i437.i, align 1
-  br label %for.inc.i404.i
+sw.default.i439.i:                                ; preds = %for.body.i398.i
+  %inc.i440.i = add i32 %174, 1
+  store i32 %inc.i440.i, ptr %name.i, align 4
+  %idxprom11.i441.i = zext i32 %174 to i64
+  %arrayidx12.i442.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom11.i441.i
+  store i8 %179, ptr %arrayidx12.i442.i, align 1
+  br label %for.inc.i408.i
 
-for.inc.i404.i:                                   ; preds = %sw.default.i434.i, %if.end4.i60.i400.i, %if.end.i57.i398.i, %if.end4.i47.i412.i, %if.end.i44.i410.i, %if.end4.i34.i418.i, %if.end.i31.i416.i, %if.end4.i21.i424.i, %if.end.i18.i422.i, %if.end4.i.i430.i, %if.end.i.i428.i
-  %185 = phi i32 [ %add9.i65.i403.i, %if.end4.i60.i400.i ], [ %174, %if.end.i57.i398.i ], [ %add9.i52.i415.i, %if.end4.i47.i412.i ], [ %174, %if.end.i44.i410.i ], [ %add9.i39.i421.i, %if.end4.i34.i418.i ], [ %174, %if.end.i31.i416.i ], [ %add9.i26.i427.i, %if.end4.i21.i424.i ], [ %174, %if.end.i18.i422.i ], [ %add9.i.i433.i, %if.end4.i.i430.i ], [ %174, %if.end.i.i428.i ], [ %inc.i435.i, %sw.default.i434.i ]
-  %186 = phi i32 [ %add9.i65.i403.i, %if.end4.i60.i400.i ], [ %175, %if.end.i57.i398.i ], [ %add9.i52.i415.i, %if.end4.i47.i412.i ], [ %175, %if.end.i44.i410.i ], [ %add9.i39.i421.i, %if.end4.i34.i418.i ], [ %175, %if.end.i31.i416.i ], [ %add9.i26.i427.i, %if.end4.i21.i424.i ], [ %175, %if.end.i18.i422.i ], [ %add9.i.i433.i, %if.end4.i.i430.i ], [ %174, %if.end.i.i428.i ], [ %inc.i435.i, %sw.default.i434.i ]
-  %187 = phi i32 [ %add9.i65.i403.i, %if.end4.i60.i400.i ], [ %176, %if.end.i57.i398.i ], [ %add9.i52.i415.i, %if.end4.i47.i412.i ], [ %176, %if.end.i44.i410.i ], [ %add9.i39.i421.i, %if.end4.i34.i418.i ], [ %176, %if.end.i31.i416.i ], [ %add9.i26.i427.i, %if.end4.i21.i424.i ], [ %175, %if.end.i18.i422.i ], [ %add9.i.i433.i, %if.end4.i.i430.i ], [ %174, %if.end.i.i428.i ], [ %inc.i435.i, %sw.default.i434.i ]
-  %188 = phi i32 [ %add9.i65.i403.i, %if.end4.i60.i400.i ], [ %177, %if.end.i57.i398.i ], [ %add9.i52.i415.i, %if.end4.i47.i412.i ], [ %177, %if.end.i44.i410.i ], [ %add9.i39.i421.i, %if.end4.i34.i418.i ], [ %176, %if.end.i31.i416.i ], [ %add9.i26.i427.i, %if.end4.i21.i424.i ], [ %175, %if.end.i18.i422.i ], [ %add9.i.i433.i, %if.end4.i.i430.i ], [ %174, %if.end.i.i428.i ], [ %inc.i435.i, %sw.default.i434.i ]
-  %189 = phi i32 [ %add9.i65.i403.i, %if.end4.i60.i400.i ], [ %178, %if.end.i57.i398.i ], [ %add9.i52.i415.i, %if.end4.i47.i412.i ], [ %177, %if.end.i44.i410.i ], [ %add9.i39.i421.i, %if.end4.i34.i418.i ], [ %176, %if.end.i31.i416.i ], [ %add9.i26.i427.i, %if.end4.i21.i424.i ], [ %175, %if.end.i18.i422.i ], [ %add9.i.i433.i, %if.end4.i.i430.i ], [ %174, %if.end.i.i428.i ], [ %inc.i435.i, %sw.default.i434.i ]
-  %indvars.iv.next.i405.i = add nuw nsw i64 %indvars.iv.i395.i, 1
+for.inc.i408.i:                                   ; preds = %sw.default.i439.i, %if.end4.i63.i404.i, %if.end.i60.i402.i, %if.end4.i49.i417.i, %if.end.i46.i415.i, %if.end4.i35.i423.i, %if.end.i32.i421.i, %if.end4.i21.i429.i, %if.end.i18.i427.i, %if.end4.i.i435.i, %if.end.i.i433.i
+  %185 = phi i32 [ %add9.i69.i407.i, %if.end4.i63.i404.i ], [ %174, %if.end.i60.i402.i ], [ %add9.i55.i420.i, %if.end4.i49.i417.i ], [ %174, %if.end.i46.i415.i ], [ %add9.i41.i426.i, %if.end4.i35.i423.i ], [ %174, %if.end.i32.i421.i ], [ %add9.i27.i432.i, %if.end4.i21.i429.i ], [ %174, %if.end.i18.i427.i ], [ %add9.i.i438.i, %if.end4.i.i435.i ], [ %174, %if.end.i.i433.i ], [ %inc.i440.i, %sw.default.i439.i ]
+  %186 = phi i32 [ %add9.i69.i407.i, %if.end4.i63.i404.i ], [ %175, %if.end.i60.i402.i ], [ %add9.i55.i420.i, %if.end4.i49.i417.i ], [ %175, %if.end.i46.i415.i ], [ %add9.i41.i426.i, %if.end4.i35.i423.i ], [ %175, %if.end.i32.i421.i ], [ %add9.i27.i432.i, %if.end4.i21.i429.i ], [ %175, %if.end.i18.i427.i ], [ %add9.i.i438.i, %if.end4.i.i435.i ], [ %174, %if.end.i.i433.i ], [ %inc.i440.i, %sw.default.i439.i ]
+  %187 = phi i32 [ %add9.i69.i407.i, %if.end4.i63.i404.i ], [ %176, %if.end.i60.i402.i ], [ %add9.i55.i420.i, %if.end4.i49.i417.i ], [ %176, %if.end.i46.i415.i ], [ %add9.i41.i426.i, %if.end4.i35.i423.i ], [ %176, %if.end.i32.i421.i ], [ %add9.i27.i432.i, %if.end4.i21.i429.i ], [ %175, %if.end.i18.i427.i ], [ %add9.i.i438.i, %if.end4.i.i435.i ], [ %174, %if.end.i.i433.i ], [ %inc.i440.i, %sw.default.i439.i ]
+  %188 = phi i32 [ %add9.i69.i407.i, %if.end4.i63.i404.i ], [ %177, %if.end.i60.i402.i ], [ %add9.i55.i420.i, %if.end4.i49.i417.i ], [ %177, %if.end.i46.i415.i ], [ %add9.i41.i426.i, %if.end4.i35.i423.i ], [ %176, %if.end.i32.i421.i ], [ %add9.i27.i432.i, %if.end4.i21.i429.i ], [ %175, %if.end.i18.i427.i ], [ %add9.i.i438.i, %if.end4.i.i435.i ], [ %174, %if.end.i.i433.i ], [ %inc.i440.i, %sw.default.i439.i ]
+  %189 = phi i32 [ %add9.i69.i407.i, %if.end4.i63.i404.i ], [ %178, %if.end.i60.i402.i ], [ %add9.i55.i420.i, %if.end4.i49.i417.i ], [ %177, %if.end.i46.i415.i ], [ %add9.i41.i426.i, %if.end4.i35.i423.i ], [ %176, %if.end.i32.i421.i ], [ %add9.i27.i432.i, %if.end4.i21.i429.i ], [ %175, %if.end.i18.i427.i ], [ %add9.i.i438.i, %if.end4.i.i435.i ], [ %174, %if.end.i.i433.i ], [ %inc.i440.i, %sw.default.i439.i ]
+  %indvars.iv.next.i409.i = add nuw nsw i64 %indvars.iv.i399.i, 1
   %190 = load i32, ptr %172, align 4
   %191 = zext i32 %190 to i64
-  %cmp.i406.i = icmp ult i64 %indvars.iv.next.i405.i, %191
-  br i1 %cmp.i406.i, label %for.body.i394.i, label %for.end.loopexit.i407.i, !llvm.loop !17
+  %cmp.i410.i = icmp ult i64 %indvars.iv.next.i409.i, %191
+  br i1 %cmp.i410.i, label %for.body.i398.i, label %for.end.loopexit.i411.i, !llvm.loop !17
 
-for.end.loopexit.i407.i:                          ; preds = %for.inc.i404.i
+for.end.loopexit.i411.i:                          ; preds = %for.inc.i408.i
   %192 = zext i32 %185 to i64
   br label %invoke.cont461.i
 
-invoke.cont461.i:                                 ; preds = %for.end.loopexit.i407.i, %for.body457.i
-  %idxprom16.i408.i = phi i64 [ %192, %for.end.loopexit.i407.i ], [ 0, %for.body457.i ]
-  %arrayidx17.i409.i = getelementptr inbounds %struct.aiString, ptr %name.i, i64 0, i32 1, i64 %idxprom16.i408.i
-  store i8 0, ptr %arrayidx17.i409.i, align 1
-  %mOffsetMatrix.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5
+invoke.cont461.i:                                 ; preds = %for.end.loopexit.i411.i, %for.body457.i
+  %idxprom16.i412.i = phi i64 [ %192, %for.end.loopexit.i411.i ], [ 0, %for.body457.i ]
+  %arrayidx17.i414.i = getelementptr inbounds [1024 x i8], ptr %data.i.i, i64 0, i64 %idxprom16.i412.i
+  store i8 0, ptr %arrayidx17.i414.i, align 1
+  %mOffsetMatrix.i = getelementptr inbounds i8, ptr %172, i64 1056
   %193 = load float, ptr %mOffsetMatrix.i, align 8
   %conv464.i = fpext float %193 to double
-  %a2.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 1
+  %a2.i = getelementptr inbounds i8, ptr %172, i64 1060
   %194 = load float, ptr %a2.i, align 4
   %conv466.i = fpext float %194 to double
-  %a3.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 2
+  %a3.i = getelementptr inbounds i8, ptr %172, i64 1064
   %195 = load float, ptr %a3.i, align 8
   %conv468.i = fpext float %195 to double
-  %a4.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 3
+  %a4.i = getelementptr inbounds i8, ptr %172, i64 1068
   %196 = load float, ptr %a4.i, align 4
   %conv470.i = fpext float %196 to double
-  %b1.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 4
+  %b1.i = getelementptr inbounds i8, ptr %172, i64 1072
   %197 = load float, ptr %b1.i, align 8
   %conv472.i = fpext float %197 to double
-  %b2.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 5
+  %b2.i = getelementptr inbounds i8, ptr %172, i64 1076
   %198 = load float, ptr %b2.i, align 4
   %conv474.i = fpext float %198 to double
-  %b3.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 6
+  %b3.i = getelementptr inbounds i8, ptr %172, i64 1080
   %199 = load float, ptr %b3.i, align 8
   %conv476.i = fpext float %199 to double
-  %b4.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 7
+  %b4.i = getelementptr inbounds i8, ptr %172, i64 1084
   %200 = load float, ptr %b4.i, align 4
   %conv478.i = fpext float %200 to double
-  %c1.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 8
+  %c1.i = getelementptr inbounds i8, ptr %172, i64 1088
   %201 = load float, ptr %c1.i, align 8
   %conv480.i = fpext float %201 to double
-  %c2.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 9
+  %c2.i = getelementptr inbounds i8, ptr %172, i64 1092
   %202 = load float, ptr %c2.i, align 4
   %conv482.i = fpext float %202 to double
-  %c3.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 10
+  %c3.i = getelementptr inbounds i8, ptr %172, i64 1096
   %203 = load float, ptr %c3.i, align 8
   %conv484.i = fpext float %203 to double
-  %c4.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 11
+  %c4.i = getelementptr inbounds i8, ptr %172, i64 1100
   %204 = load float, ptr %c4.i, align 4
   %conv486.i = fpext float %204 to double
-  %d1.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 12
+  %d1.i = getelementptr inbounds i8, ptr %172, i64 1104
   %205 = load float, ptr %d1.i, align 8
   %conv488.i = fpext float %205 to double
-  %d2.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 13
+  %d2.i = getelementptr inbounds i8, ptr %172, i64 1108
   %206 = load float, ptr %d2.i, align 4
   %conv490.i = fpext float %206 to double
-  %d3.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 14
+  %d3.i = getelementptr inbounds i8, ptr %172, i64 1112
   %207 = load float, ptr %d3.i, align 8
   %conv492.i = fpext float %207 to double
-  %d4.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 5, i32 15
+  %d4.i = getelementptr inbounds i8, ptr %172, i64 1116
   %208 = load float, ptr %d4.i, align 4
   %conv494.i = fpext float %208 to double
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.57, ptr noundef nonnull %data.i.i, double noundef %conv464.i, double noundef %conv466.i, double noundef %conv468.i, double noundef %conv470.i, double noundef %conv472.i, double noundef %conv474.i, double noundef %conv476.i, double noundef %conv478.i, double noundef %conv480.i, double noundef %conv482.i, double noundef %conv484.i, double noundef %conv486.i, double noundef %conv488.i, double noundef %conv490.i, double noundef %conv492.i, double noundef %conv494.i)
@@ -1619,7 +1616,7 @@ invoke.cont495.i:                                 ; preds = %invoke.cont461.i
   br i1 %shortened, label %if.end519.i, label %land.lhs.true498.i
 
 land.lhs.true498.i:                               ; preds = %invoke.cont495.i
-  %mNumWeights.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 1
+  %mNumWeights.i = getelementptr inbounds i8, ptr %172, i64 1028
   %209 = load i32, ptr %mNumWeights.i, align 4
   %tobool499.not.i = icmp eq i32 %209, 0
   br i1 %tobool499.not.i, label %if.end519.i, label %if.then500.i
@@ -1630,29 +1627,29 @@ if.then500.i:                                     ; preds = %land.lhs.true498.i
 
 for.cond505.preheader.i:                          ; preds = %if.then500.i
   %210 = load i32, ptr %mNumWeights.i, align 4
-  %cmp507563.not.i = icmp eq i32 %210, 0
-  br i1 %cmp507563.not.i, label %for.end516.i, label %for.body508.lr.ph.i
+  %cmp507568.not.i = icmp eq i32 %210, 0
+  br i1 %cmp507568.not.i, label %for.end516.i, label %for.body508.lr.ph.i
 
 for.body508.lr.ph.i:                              ; preds = %for.cond505.preheader.i
-  %mWeights.i = getelementptr inbounds %struct.aiBone, ptr %172, i64 0, i32 4
+  %mWeights.i = getelementptr inbounds i8, ptr %172, i64 1048
   br label %for.body508.i
 
 for.body508.i:                                    ; preds = %for.inc514.i, %for.body508.lr.ph.i
-  %indvars.iv632.i = phi i64 [ 0, %for.body508.lr.ph.i ], [ %indvars.iv.next633.i, %for.inc514.i ]
+  %indvars.iv637.i = phi i64 [ 0, %for.body508.lr.ph.i ], [ %indvars.iv.next638.i, %for.inc514.i ]
   %211 = load ptr, ptr %mWeights.i, align 8
-  %add.ptr510.i = getelementptr inbounds %struct.aiVertexWeight, ptr %211, i64 %indvars.iv632.i
+  %add.ptr510.i = getelementptr inbounds %struct.aiVertexWeight, ptr %211, i64 %indvars.iv637.i
   %212 = load i32, ptr %add.ptr510.i, align 4
-  %mWeight.i = getelementptr inbounds %struct.aiVertexWeight, ptr %211, i64 %indvars.iv632.i, i32 1
+  %mWeight.i = getelementptr inbounds i8, ptr %add.ptr510.i, i64 4
   %213 = load float, ptr %mWeight.i, align 4
   %conv511.i = fpext float %213 to double
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.59, i32 noundef %212, double noundef %conv511.i)
           to label %for.inc514.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc514.i:                                     ; preds = %for.body508.i
-  %indvars.iv.next633.i = add nuw nsw i64 %indvars.iv632.i, 1
+  %indvars.iv.next638.i = add nuw nsw i64 %indvars.iv637.i, 1
   %214 = load i32, ptr %mNumWeights.i, align 4
   %215 = zext i32 %214 to i64
-  %cmp507.i = icmp ult i64 %indvars.iv.next633.i, %215
+  %cmp507.i = icmp ult i64 %indvars.iv.next638.i, %215
   br i1 %cmp507.i, label %for.body508.i, label %for.end516.i, !llvm.loop !23
 
 for.end516.i:                                     ; preds = %for.inc514.i, %for.cond505.preheader.i
@@ -1664,10 +1661,10 @@ if.end519.i:                                      ; preds = %for.end516.i, %land
           to label %for.inc522.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc522.i:                                     ; preds = %if.end519.i
-  %indvars.iv.next636.i = add nuw nsw i64 %indvars.iv635.i, 1
+  %indvars.iv.next641.i = add nuw nsw i64 %indvars.iv640.i, 1
   %216 = load i32, ptr %mNumBones.i, align 8
   %217 = zext i32 %216 to i64
-  %cmp456.i = icmp ult i64 %indvars.iv.next636.i, %217
+  %cmp456.i = icmp ult i64 %indvars.iv.next641.i, %217
   br i1 %cmp456.i, label %for.body457.i, label %for.end524.i, !llvm.loop !24
 
 for.end524.i:                                     ; preds = %for.inc522.i, %for.cond454.preheader.i
@@ -1678,7 +1675,7 @@ if.end527.i:                                      ; preds = %for.end524.i, %invo
   br i1 %shortened, label %if.end562.i, label %land.lhs.true529.i
 
 land.lhs.true529.i:                               ; preds = %if.end527.i
-  %mNumFaces.i = getelementptr inbounds %struct.aiMesh, ptr %158, i64 0, i32 2
+  %mNumFaces.i = getelementptr inbounds i8, ptr %158, i64 8
   %218 = load i32, ptr %mNumFaces.i, align 8
   %tobool530.not.i = icmp eq i32 %218, 0
   br i1 %tobool530.not.i, label %if.end562.i, label %if.then531.i
@@ -1689,43 +1686,43 @@ if.then531.i:                                     ; preds = %land.lhs.true529.i
 
 for.cond536.preheader.i:                          ; preds = %if.then531.i
   %219 = load i32, ptr %mNumFaces.i, align 8
-  %cmp538569.not.i = icmp eq i32 %219, 0
-  br i1 %cmp538569.not.i, label %for.end559.i, label %for.body539.lr.ph.i
+  %cmp538574.not.i = icmp eq i32 %219, 0
+  br i1 %cmp538574.not.i, label %for.end559.i, label %for.body539.lr.ph.i
 
 for.body539.lr.ph.i:                              ; preds = %for.cond536.preheader.i
-  %mFaces.i = getelementptr inbounds %struct.aiMesh, ptr %158, i64 0, i32 10
+  %mFaces.i = getelementptr inbounds i8, ptr %158, i64 208
   br label %for.body539.i
 
 for.body539.i:                                    ; preds = %for.inc557.i, %for.body539.lr.ph.i
-  %indvars.iv641.i = phi i64 [ 0, %for.body539.lr.ph.i ], [ %indvars.iv.next642.i, %for.inc557.i ]
+  %indvars.iv646.i = phi i64 [ 0, %for.body539.lr.ph.i ], [ %indvars.iv.next647.i, %for.inc557.i ]
   %220 = load ptr, ptr %mFaces.i, align 8
-  %arrayidx541.i = getelementptr inbounds %struct.aiFace, ptr %220, i64 %indvars.iv641.i
+  %arrayidx541.i = getelementptr inbounds %struct.aiFace, ptr %220, i64 %indvars.iv646.i
   %221 = load i32, ptr %arrayidx541.i, align 8
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.64, i32 noundef %221)
           to label %for.cond544.preheader.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.cond544.preheader.i:                          ; preds = %for.body539.i
   %222 = load i32, ptr %arrayidx541.i, align 8
-  %cmp546567.not.i = icmp eq i32 %222, 0
-  br i1 %cmp546567.not.i, label %for.end554.i, label %for.body547.lr.ph.i
+  %cmp546572.not.i = icmp eq i32 %222, 0
+  br i1 %cmp546572.not.i, label %for.end554.i, label %for.body547.lr.ph.i
 
 for.body547.lr.ph.i:                              ; preds = %for.cond544.preheader.i
-  %mIndices.i = getelementptr inbounds %struct.aiFace, ptr %220, i64 %indvars.iv641.i, i32 1
+  %mIndices.i = getelementptr inbounds i8, ptr %arrayidx541.i, i64 8
   br label %for.body547.i
 
 for.body547.i:                                    ; preds = %for.inc552.i, %for.body547.lr.ph.i
-  %indvars.iv638.i = phi i64 [ 0, %for.body547.lr.ph.i ], [ %indvars.iv.next639.i, %for.inc552.i ]
+  %indvars.iv643.i = phi i64 [ 0, %for.body547.lr.ph.i ], [ %indvars.iv.next644.i, %for.inc552.i ]
   %223 = load ptr, ptr %mIndices.i, align 8
-  %arrayidx549.i = getelementptr inbounds i32, ptr %223, i64 %indvars.iv638.i
+  %arrayidx549.i = getelementptr inbounds i32, ptr %223, i64 %indvars.iv643.i
   %224 = load i32, ptr %arrayidx549.i, align 4
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.65, i32 noundef %224)
           to label %for.inc552.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc552.i:                                     ; preds = %for.body547.i
-  %indvars.iv.next639.i = add nuw nsw i64 %indvars.iv638.i, 1
+  %indvars.iv.next644.i = add nuw nsw i64 %indvars.iv643.i, 1
   %225 = load i32, ptr %arrayidx541.i, align 8
   %226 = zext i32 %225 to i64
-  %cmp546.i = icmp ult i64 %indvars.iv.next639.i, %226
+  %cmp546.i = icmp ult i64 %indvars.iv.next644.i, %226
   br i1 %cmp546.i, label %for.body547.i, label %for.end554.i, !llvm.loop !25
 
 for.end554.i:                                     ; preds = %for.inc552.i, %for.cond544.preheader.i
@@ -1733,10 +1730,10 @@ for.end554.i:                                     ; preds = %for.inc552.i, %for.
           to label %for.inc557.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc557.i:                                     ; preds = %for.end554.i
-  %indvars.iv.next642.i = add nuw nsw i64 %indvars.iv641.i, 1
+  %indvars.iv.next647.i = add nuw nsw i64 %indvars.iv646.i, 1
   %227 = load i32, ptr %mNumFaces.i, align 8
   %228 = zext i32 %227 to i64
-  %cmp538.i = icmp ult i64 %indvars.iv.next642.i, %228
+  %cmp538.i = icmp ult i64 %indvars.iv.next647.i, %228
   br i1 %cmp538.i, label %for.body539.i, label %for.end559.i, !llvm.loop !26
 
 for.end559.i:                                     ; preds = %for.inc557.i, %for.cond536.preheader.i
@@ -1744,13 +1741,13 @@ for.end559.i:                                     ; preds = %for.inc557.i, %for.
           to label %if.end562.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end562.i:                                      ; preds = %for.end559.i, %land.lhs.true529.i, %if.end527.i
-  %mVertices.i.i = getelementptr inbounds %struct.aiMesh, ptr %158, i64 0, i32 3
+  %mVertices.i.i = getelementptr inbounds i8, ptr %158, i64 16
   %229 = load ptr, ptr %mVertices.i.i, align 8
-  %cmp.not.i439.i = icmp ne ptr %229, null
-  %mNumVertices.i.i = getelementptr inbounds %struct.aiMesh, ptr %158, i64 0, i32 1
+  %cmp.not.i444.i = icmp ne ptr %229, null
+  %mNumVertices.i.i = getelementptr inbounds i8, ptr %158, i64 4
   %230 = load i32, ptr %mNumVertices.i.i, align 4
   %cmp2.i.i = icmp ne i32 %230, 0
-  %231 = select i1 %cmp.not.i439.i, i1 %cmp2.i.i, i1 false
+  %231 = select i1 %cmp.not.i444.i, i1 %cmp2.i.i, i1 false
   br i1 %231, label %if.then565.i, label %if.end597.i
 
 if.then565.i:                                     ; preds = %if.end562.i
@@ -1762,29 +1759,29 @@ invoke.cont566.i:                                 ; preds = %if.then565.i
 
 for.cond571.preheader.i:                          ; preds = %invoke.cont566.i
   %232 = load i32, ptr %mNumVertices.i.i, align 4
-  %cmp573571.not.i = icmp eq i32 %232, 0
-  br i1 %cmp573571.not.i, label %if.end594.i, label %for.body574.i
+  %cmp573576.not.i = icmp eq i32 %232, 0
+  br i1 %cmp573576.not.i, label %if.end594.i, label %for.body574.i
 
 for.body574.i:                                    ; preds = %for.cond571.preheader.i, %for.inc591.i
-  %indvars.iv644.i = phi i64 [ %indvars.iv.next645.i, %for.inc591.i ], [ 0, %for.cond571.preheader.i ]
+  %indvars.iv649.i = phi i64 [ %indvars.iv.next650.i, %for.inc591.i ], [ 0, %for.cond571.preheader.i ]
   %233 = load ptr, ptr %mVertices.i.i, align 8
-  %arrayidx576.i = getelementptr inbounds %class.aiVector3t, ptr %233, i64 %indvars.iv644.i
+  %arrayidx576.i = getelementptr inbounds %class.aiVector3t, ptr %233, i64 %indvars.iv649.i
   %234 = load float, ptr %arrayidx576.i, align 4
   %conv578.i = fpext float %234 to double
-  %y582.i = getelementptr inbounds %class.aiVector3t, ptr %233, i64 %indvars.iv644.i, i32 1
+  %y582.i = getelementptr inbounds i8, ptr %arrayidx576.i, i64 4
   %235 = load float, ptr %y582.i, align 4
   %conv583.i = fpext float %235 to double
-  %z587.i = getelementptr inbounds %class.aiVector3t, ptr %233, i64 %indvars.iv644.i, i32 2
+  %z587.i = getelementptr inbounds i8, ptr %arrayidx576.i, i64 8
   %236 = load float, ptr %z587.i, align 4
   %conv588.i = fpext float %236 to double
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv578.i, double noundef %conv583.i, double noundef %conv588.i)
           to label %for.inc591.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc591.i:                                     ; preds = %for.body574.i
-  %indvars.iv.next645.i = add nuw nsw i64 %indvars.iv644.i, 1
+  %indvars.iv.next650.i = add nuw nsw i64 %indvars.iv649.i, 1
   %237 = load i32, ptr %mNumVertices.i.i, align 4
   %238 = zext i32 %237 to i64
-  %cmp573.i = icmp ult i64 %indvars.iv.next645.i, %238
+  %cmp573.i = icmp ult i64 %indvars.iv.next650.i, %238
   br i1 %cmp573.i, label %for.body574.i, label %if.end594.i, !llvm.loop !27
 
 if.end594.i:                                      ; preds = %for.inc591.i, %for.cond571.preheader.i, %invoke.cont566.i
@@ -1792,16 +1789,16 @@ if.end594.i:                                      ; preds = %for.inc591.i, %for.
           to label %if.end594.if.end597_crit_edge.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end594.if.end597_crit_edge.i:                  ; preds = %if.end594.i
-  %.pre676.i = load i32, ptr %mNumVertices.i.i, align 4
+  %.pre681.i = load i32, ptr %mNumVertices.i.i, align 4
   br label %if.end597.i
 
 if.end597.i:                                      ; preds = %if.end594.if.end597_crit_edge.i, %if.end562.i
-  %239 = phi i32 [ %.pre676.i, %if.end594.if.end597_crit_edge.i ], [ %230, %if.end562.i ]
-  %mNormals.i.i = getelementptr inbounds %struct.aiMesh, ptr %158, i64 0, i32 4
+  %239 = phi i32 [ %.pre681.i, %if.end594.if.end597_crit_edge.i ], [ %230, %if.end562.i ]
+  %mNormals.i.i = getelementptr inbounds i8, ptr %158, i64 24
   %240 = load ptr, ptr %mNormals.i.i, align 8
-  %cmp.not.i440.i = icmp ne ptr %240, null
-  %cmp2.i442.i = icmp ne i32 %239, 0
-  %241 = select i1 %cmp.not.i440.i, i1 %cmp2.i442.i, i1 false
+  %cmp.not.i445.i = icmp ne ptr %240, null
+  %cmp2.i447.i = icmp ne i32 %239, 0
+  %241 = select i1 %cmp.not.i445.i, i1 %cmp2.i447.i, i1 false
   br i1 %241, label %if.then600.i, label %if.end633.i
 
 if.then600.i:                                     ; preds = %if.end597.i
@@ -1813,29 +1810,29 @@ invoke.cont602.i:                                 ; preds = %if.then600.i
 
 for.cond607.preheader.i:                          ; preds = %invoke.cont602.i
   %242 = load i32, ptr %mNumVertices.i.i, align 4
-  %cmp609573.not.i = icmp eq i32 %242, 0
-  br i1 %cmp609573.not.i, label %if.end630.i, label %for.body610.i
+  %cmp609578.not.i = icmp eq i32 %242, 0
+  br i1 %cmp609578.not.i, label %if.end630.i, label %for.body610.i
 
 for.body610.i:                                    ; preds = %for.cond607.preheader.i, %for.inc627.i
-  %indvars.iv647.i = phi i64 [ %indvars.iv.next648.i, %for.inc627.i ], [ 0, %for.cond607.preheader.i ]
+  %indvars.iv652.i = phi i64 [ %indvars.iv.next653.i, %for.inc627.i ], [ 0, %for.cond607.preheader.i ]
   %243 = load ptr, ptr %mNormals.i.i, align 8
-  %arrayidx612.i = getelementptr inbounds %class.aiVector3t, ptr %243, i64 %indvars.iv647.i
+  %arrayidx612.i = getelementptr inbounds %class.aiVector3t, ptr %243, i64 %indvars.iv652.i
   %244 = load float, ptr %arrayidx612.i, align 4
   %conv614.i = fpext float %244 to double
-  %y618.i = getelementptr inbounds %class.aiVector3t, ptr %243, i64 %indvars.iv647.i, i32 1
+  %y618.i = getelementptr inbounds i8, ptr %arrayidx612.i, i64 4
   %245 = load float, ptr %y618.i, align 4
   %conv619.i = fpext float %245 to double
-  %z623.i = getelementptr inbounds %class.aiVector3t, ptr %243, i64 %indvars.iv647.i, i32 2
+  %z623.i = getelementptr inbounds i8, ptr %arrayidx612.i, i64 8
   %246 = load float, ptr %z623.i, align 4
   %conv624.i = fpext float %246 to double
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv614.i, double noundef %conv619.i, double noundef %conv624.i)
           to label %for.inc627.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc627.i:                                     ; preds = %for.body610.i
-  %indvars.iv.next648.i = add nuw nsw i64 %indvars.iv647.i, 1
+  %indvars.iv.next653.i = add nuw nsw i64 %indvars.iv652.i, 1
   %247 = load i32, ptr %mNumVertices.i.i, align 4
   %248 = zext i32 %247 to i64
-  %cmp609.i = icmp ult i64 %indvars.iv.next648.i, %248
+  %cmp609.i = icmp ult i64 %indvars.iv.next653.i, %248
   br i1 %cmp609.i, label %for.body610.i, label %if.end630.i, !llvm.loop !28
 
 if.end630.i:                                      ; preds = %for.inc627.i, %for.cond607.preheader.i, %invoke.cont602.i
@@ -1843,13 +1840,13 @@ if.end630.i:                                      ; preds = %for.inc627.i, %for.
           to label %if.end633.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end633.i:                                      ; preds = %if.end630.i, %if.end597.i
-  %mTangents.i.i = getelementptr inbounds %struct.aiMesh, ptr %158, i64 0, i32 5
+  %mTangents.i.i = getelementptr inbounds i8, ptr %158, i64 32
   %249 = load ptr, ptr %mTangents.i.i, align 8
-  %cmp.not.i443.i = icmp eq ptr %249, null
-  %mBitangents.i.i = getelementptr inbounds %struct.aiMesh, ptr %158, i64 0, i32 6
+  %cmp.not.i448.i = icmp eq ptr %249, null
+  %mBitangents.i.i = getelementptr inbounds i8, ptr %158, i64 40
   %250 = load ptr, ptr %mBitangents.i.i, align 8
   %cmp2.not.i.i = icmp eq ptr %250, null
-  %or.cond.i.i = select i1 %cmp.not.i443.i, i1 true, i1 %cmp2.not.i.i
+  %or.cond.i.i = select i1 %cmp.not.i448.i, i1 true, i1 %cmp2.not.i.i
   br i1 %or.cond.i.i, label %if.end701.i, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i
 
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i:   ; preds = %if.end633.i
@@ -1866,29 +1863,29 @@ invoke.cont638.i:                                 ; preds = %if.then636.i
 
 for.cond643.preheader.i:                          ; preds = %invoke.cont638.i
   %252 = load i32, ptr %mNumVertices.i.i, align 4
-  %cmp645575.not.i = icmp eq i32 %252, 0
-  br i1 %cmp645575.not.i, label %if.end666.i, label %for.body646.i
+  %cmp645580.not.i = icmp eq i32 %252, 0
+  br i1 %cmp645580.not.i, label %if.end666.i, label %for.body646.i
 
 for.body646.i:                                    ; preds = %for.cond643.preheader.i, %for.inc663.i
-  %indvars.iv650.i = phi i64 [ %indvars.iv.next651.i, %for.inc663.i ], [ 0, %for.cond643.preheader.i ]
+  %indvars.iv655.i = phi i64 [ %indvars.iv.next656.i, %for.inc663.i ], [ 0, %for.cond643.preheader.i ]
   %253 = load ptr, ptr %mTangents.i.i, align 8
-  %arrayidx648.i = getelementptr inbounds %class.aiVector3t, ptr %253, i64 %indvars.iv650.i
+  %arrayidx648.i = getelementptr inbounds %class.aiVector3t, ptr %253, i64 %indvars.iv655.i
   %254 = load float, ptr %arrayidx648.i, align 4
   %conv650.i = fpext float %254 to double
-  %y654.i = getelementptr inbounds %class.aiVector3t, ptr %253, i64 %indvars.iv650.i, i32 1
+  %y654.i = getelementptr inbounds i8, ptr %arrayidx648.i, i64 4
   %255 = load float, ptr %y654.i, align 4
   %conv655.i = fpext float %255 to double
-  %z659.i = getelementptr inbounds %class.aiVector3t, ptr %253, i64 %indvars.iv650.i, i32 2
+  %z659.i = getelementptr inbounds i8, ptr %arrayidx648.i, i64 8
   %256 = load float, ptr %z659.i, align 4
   %conv660.i = fpext float %256 to double
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv650.i, double noundef %conv655.i, double noundef %conv660.i)
           to label %for.inc663.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc663.i:                                     ; preds = %for.body646.i
-  %indvars.iv.next651.i = add nuw nsw i64 %indvars.iv650.i, 1
+  %indvars.iv.next656.i = add nuw nsw i64 %indvars.iv655.i, 1
   %257 = load i32, ptr %mNumVertices.i.i, align 4
   %258 = zext i32 %257 to i64
-  %cmp645.i = icmp ult i64 %indvars.iv.next651.i, %258
+  %cmp645.i = icmp ult i64 %indvars.iv.next656.i, %258
   br i1 %cmp645.i, label %for.body646.i, label %if.end666.i, !llvm.loop !29
 
 if.end666.i:                                      ; preds = %for.inc663.i, %for.cond643.preheader.i, %invoke.cont638.i
@@ -1905,29 +1902,29 @@ invoke.cont670.i:                                 ; preds = %invoke.cont667.i
 
 for.cond675.preheader.i:                          ; preds = %invoke.cont670.i
   %260 = load i32, ptr %mNumVertices.i.i, align 4
-  %cmp677577.not.i = icmp eq i32 %260, 0
-  br i1 %cmp677577.not.i, label %if.end698.i, label %for.body678.i
+  %cmp677582.not.i = icmp eq i32 %260, 0
+  br i1 %cmp677582.not.i, label %if.end698.i, label %for.body678.i
 
 for.body678.i:                                    ; preds = %for.cond675.preheader.i, %for.inc695.i
-  %indvars.iv653.i = phi i64 [ %indvars.iv.next654.i, %for.inc695.i ], [ 0, %for.cond675.preheader.i ]
+  %indvars.iv658.i = phi i64 [ %indvars.iv.next659.i, %for.inc695.i ], [ 0, %for.cond675.preheader.i ]
   %261 = load ptr, ptr %mBitangents.i.i, align 8
-  %arrayidx680.i = getelementptr inbounds %class.aiVector3t, ptr %261, i64 %indvars.iv653.i
+  %arrayidx680.i = getelementptr inbounds %class.aiVector3t, ptr %261, i64 %indvars.iv658.i
   %262 = load float, ptr %arrayidx680.i, align 4
   %conv682.i = fpext float %262 to double
-  %y686.i = getelementptr inbounds %class.aiVector3t, ptr %261, i64 %indvars.iv653.i, i32 1
+  %y686.i = getelementptr inbounds i8, ptr %arrayidx680.i, i64 4
   %263 = load float, ptr %y686.i, align 4
   %conv687.i = fpext float %263 to double
-  %z691.i = getelementptr inbounds %class.aiVector3t, ptr %261, i64 %indvars.iv653.i, i32 2
+  %z691.i = getelementptr inbounds i8, ptr %arrayidx680.i, i64 8
   %264 = load float, ptr %z691.i, align 4
   %conv692.i = fpext float %264 to double
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv682.i, double noundef %conv687.i, double noundef %conv692.i)
           to label %for.inc695.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc695.i:                                     ; preds = %for.body678.i
-  %indvars.iv.next654.i = add nuw nsw i64 %indvars.iv653.i, 1
+  %indvars.iv.next659.i = add nuw nsw i64 %indvars.iv658.i, 1
   %265 = load i32, ptr %mNumVertices.i.i, align 4
   %266 = zext i32 %265 to i64
-  %cmp677.i = icmp ult i64 %indvars.iv.next654.i, %266
+  %cmp677.i = icmp ult i64 %indvars.iv.next659.i, %266
   br i1 %cmp677.i, label %for.body678.i, label %if.end698.i, !llvm.loop !30
 
 if.end698.i:                                      ; preds = %for.inc695.i, %for.cond675.preheader.i, %invoke.cont670.i
@@ -1935,35 +1932,37 @@ if.end698.i:                                      ; preds = %for.inc695.i, %for.
           to label %if.end701.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end701.i:                                      ; preds = %if.end698.i, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i, %if.end633.i
-  %mTextureCoordsNames.i.i = getelementptr inbounds %struct.aiMesh, ptr %158, i64 0, i32 19
+  %mTextureCoords.i = getelementptr inbounds i8, ptr %158, i64 112
+  %mTextureCoordsNames.i.i = getelementptr inbounds i8, ptr %158, i64 1312
+  %mNumUVComponents.i = getelementptr inbounds i8, ptr %158, i64 176
   br label %for.body705.i
 
 for.body705.i:                                    ; preds = %for.inc793.i, %if.end701.i
-  %indvars.iv662.i = phi i64 [ 0, %if.end701.i ], [ %indvars.iv.next663.i, %for.inc793.i ]
-  %arrayidx707.i = getelementptr inbounds %struct.aiMesh, ptr %158, i64 0, i32 8, i64 %indvars.iv662.i
+  %indvars.iv667.i = phi i64 [ 0, %if.end701.i ], [ %indvars.iv.next668.i, %for.inc793.i ]
+  %arrayidx707.i = getelementptr inbounds [8 x ptr], ptr %mTextureCoords.i, i64 0, i64 %indvars.iv667.i
   %267 = load ptr, ptr %arrayidx707.i, align 8
   %tobool708.not.i = icmp eq ptr %267, null
-  br i1 %tobool708.not.i, label %for.body799.i.preheader, label %if.end710.i
+  br i1 %tobool708.not.i, label %for.end795.i, label %if.end710.i
 
 if.end710.i:                                      ; preds = %for.body705.i
   %268 = load i32, ptr %mNumVertices.i.i, align 4
   %269 = load ptr, ptr %mTextureCoordsNames.i.i, align 8
-  %cmp.i445.i = icmp eq ptr %269, null
-  br i1 %cmp.i445.i, label %cond.end720.i, label %_ZNK6aiMesh20HasTextureCoordsNameEj.exit.i
+  %cmp.i450.i = icmp eq ptr %269, null
+  br i1 %cmp.i450.i, label %cond.end720.i, label %_ZNK6aiMesh20HasTextureCoordsNameEj.exit.i
 
 _ZNK6aiMesh20HasTextureCoordsNameEj.exit.i:       ; preds = %if.end710.i
-  %arrayidx.i449.i = getelementptr inbounds ptr, ptr %269, i64 %indvars.iv662.i
-  %270 = load ptr, ptr %arrayidx.i449.i, align 8
+  %arrayidx.i454.i = getelementptr inbounds ptr, ptr %269, i64 %indvars.iv667.i
+  %270 = load ptr, ptr %arrayidx.i454.i, align 8
   %cmp4.i.not.i = icmp eq ptr %270, null
-  %data.i458.i = getelementptr inbounds %struct.aiString, ptr %270, i64 0, i32 1
-  %spec.select.i = select i1 %cmp4.i.not.i, ptr @.str.17, ptr %data.i458.i
+  %data.i463.i = getelementptr inbounds i8, ptr %270, i64 4
+  %spec.select.i = select i1 %cmp4.i.not.i, ptr @.str.17, ptr %data.i463.i
   br label %cond.end720.i
 
 cond.end720.i:                                    ; preds = %_ZNK6aiMesh20HasTextureCoordsNameEj.exit.i, %if.end710.i
   %cond721.i = phi ptr [ @.str.17, %if.end710.i ], [ %spec.select.i, %_ZNK6aiMesh20HasTextureCoordsNameEj.exit.i ]
-  %arrayidx723.i = getelementptr inbounds %struct.aiMesh, ptr %158, i64 0, i32 9, i64 %indvars.iv662.i
+  %arrayidx723.i = getelementptr inbounds [8 x i32], ptr %mNumUVComponents.i, i64 0, i64 %indvars.iv667.i
   %271 = load i32, ptr %arrayidx723.i, align 4
-  %272 = trunc i64 %indvars.iv662.i to i32
+  %272 = trunc i64 %indvars.iv667.i to i32
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.77, i32 noundef %268, i32 noundef %272, ptr noundef nonnull %cond721.i, i32 noundef %271)
           to label %invoke.cont724.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
@@ -1974,54 +1973,54 @@ if.then727.i:                                     ; preds = %invoke.cont724.i
   %273 = load i32, ptr %arrayidx723.i, align 4
   %cmp731.i = icmp eq i32 %273, 3
   %274 = load i32, ptr %mNumVertices.i.i, align 4
-  %cmp736581.not.i = icmp eq i32 %274, 0
+  %cmp736586.not.i = icmp eq i32 %274, 0
   br i1 %cmp731.i, label %for.cond734.preheader.i, label %for.cond766.preheader.i
 
 for.cond766.preheader.i:                          ; preds = %if.then727.i
-  br i1 %cmp736581.not.i, label %if.end790.i, label %for.body769.i
+  br i1 %cmp736586.not.i, label %if.end790.i, label %for.body769.i
 
 for.cond734.preheader.i:                          ; preds = %if.then727.i
-  br i1 %cmp736581.not.i, label %if.end790.i, label %for.body737.i
+  br i1 %cmp736586.not.i, label %if.end790.i, label %for.body737.i
 
 for.body737.i:                                    ; preds = %for.cond734.preheader.i, %for.inc761.i
-  %indvars.iv659.i = phi i64 [ %indvars.iv.next660.i, %for.inc761.i ], [ 0, %for.cond734.preheader.i ]
+  %indvars.iv664.i = phi i64 [ %indvars.iv.next665.i, %for.inc761.i ], [ 0, %for.cond734.preheader.i ]
   %275 = load ptr, ptr %arrayidx707.i, align 8
-  %arrayidx742.i = getelementptr inbounds %class.aiVector3t, ptr %275, i64 %indvars.iv659.i
+  %arrayidx742.i = getelementptr inbounds %class.aiVector3t, ptr %275, i64 %indvars.iv664.i
   %276 = load float, ptr %arrayidx742.i, align 4
   %conv744.i = fpext float %276 to double
-  %y750.i = getelementptr inbounds %class.aiVector3t, ptr %275, i64 %indvars.iv659.i, i32 1
+  %y750.i = getelementptr inbounds i8, ptr %arrayidx742.i, i64 4
   %277 = load float, ptr %y750.i, align 4
   %conv751.i = fpext float %277 to double
-  %z757.i = getelementptr inbounds %class.aiVector3t, ptr %275, i64 %indvars.iv659.i, i32 2
+  %z757.i = getelementptr inbounds i8, ptr %arrayidx742.i, i64 8
   %278 = load float, ptr %z757.i, align 4
   %conv758.i = fpext float %278 to double
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.69, double noundef %conv744.i, double noundef %conv751.i, double noundef %conv758.i)
           to label %for.inc761.i unwind label %lpad9.loopexit.split-lp.loopexit.i
 
 for.inc761.i:                                     ; preds = %for.body737.i
-  %indvars.iv.next660.i = add nuw nsw i64 %indvars.iv659.i, 1
+  %indvars.iv.next665.i = add nuw nsw i64 %indvars.iv664.i, 1
   %279 = load i32, ptr %mNumVertices.i.i, align 4
   %280 = zext i32 %279 to i64
-  %cmp736.i = icmp ult i64 %indvars.iv.next660.i, %280
+  %cmp736.i = icmp ult i64 %indvars.iv.next665.i, %280
   br i1 %cmp736.i, label %for.body737.i, label %if.end790.i, !llvm.loop !31
 
 for.body769.i:                                    ; preds = %for.cond766.preheader.i, %for.inc786.i
-  %indvars.iv656.i = phi i64 [ %indvars.iv.next657.i, %for.inc786.i ], [ 0, %for.cond766.preheader.i ]
+  %indvars.iv661.i = phi i64 [ %indvars.iv.next662.i, %for.inc786.i ], [ 0, %for.cond766.preheader.i ]
   %281 = load ptr, ptr %arrayidx707.i, align 8
-  %arrayidx774.i = getelementptr inbounds %class.aiVector3t, ptr %281, i64 %indvars.iv656.i
+  %arrayidx774.i = getelementptr inbounds %class.aiVector3t, ptr %281, i64 %indvars.iv661.i
   %282 = load float, ptr %arrayidx774.i, align 4
   %conv776.i = fpext float %282 to double
-  %y782.i = getelementptr inbounds %class.aiVector3t, ptr %281, i64 %indvars.iv656.i, i32 1
+  %y782.i = getelementptr inbounds i8, ptr %arrayidx774.i, i64 4
   %283 = load float, ptr %y782.i, align 4
   %conv783.i = fpext float %283 to double
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.78, double noundef %conv776.i, double noundef %conv783.i)
           to label %for.inc786.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc786.i:                                     ; preds = %for.body769.i
-  %indvars.iv.next657.i = add nuw nsw i64 %indvars.iv656.i, 1
+  %indvars.iv.next662.i = add nuw nsw i64 %indvars.iv661.i, 1
   %284 = load i32, ptr %mNumVertices.i.i, align 4
   %285 = zext i32 %284 to i64
-  %cmp768.i = icmp ult i64 %indvars.iv.next657.i, %285
+  %cmp768.i = icmp ult i64 %indvars.iv.next662.i, %285
   br i1 %cmp768.i, label %for.body769.i, label %if.end790.i, !llvm.loop !32
 
 if.end790.i:                                      ; preds = %for.inc786.i, %for.inc761.i, %for.cond734.preheader.i, %for.cond766.preheader.i, %invoke.cont724.i
@@ -2029,23 +2028,24 @@ if.end790.i:                                      ; preds = %for.inc786.i, %for.
           to label %for.inc793.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc793.i:                                     ; preds = %if.end790.i
-  %indvars.iv.next663.i = add nuw nsw i64 %indvars.iv662.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next663.i, 8
-  br i1 %exitcond.not.i, label %for.body799.i.preheader, label %for.body705.i, !llvm.loop !33
+  %indvars.iv.next668.i = add nuw nsw i64 %indvars.iv667.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next668.i, 8
+  br i1 %exitcond.not.i, label %for.end795.i, label %for.body705.i, !llvm.loop !33
 
-for.body799.i.preheader:                          ; preds = %for.inc793.i, %for.body705.i
+for.end795.i:                                     ; preds = %for.inc793.i, %for.body705.i
+  %mColors.i = getelementptr inbounds i8, ptr %158, i64 48
   br label %for.body799.i
 
-for.body799.i:                                    ; preds = %for.body799.i.preheader, %for.inc851.i
-  %indvars.iv668.i = phi i64 [ %indvars.iv.next669.i, %for.inc851.i ], [ 0, %for.body799.i.preheader ]
-  %arrayidx801.i = getelementptr inbounds %struct.aiMesh, ptr %158, i64 0, i32 7, i64 %indvars.iv668.i
+for.body799.i:                                    ; preds = %for.inc851.i, %for.end795.i
+  %indvars.iv673.i = phi i64 [ 0, %for.end795.i ], [ %indvars.iv.next674.i, %for.inc851.i ]
+  %arrayidx801.i = getelementptr inbounds [8 x ptr], ptr %mColors.i, i64 0, i64 %indvars.iv673.i
   %286 = load ptr, ptr %arrayidx801.i, align 8
   %tobool802.not.i = icmp eq ptr %286, null
   br i1 %tobool802.not.i, label %for.end853.i, label %if.end804.i
 
 if.end804.i:                                      ; preds = %for.body799.i
   %287 = load i32, ptr %mNumVertices.i.i, align 4
-  %288 = trunc i64 %indvars.iv668.i to i32
+  %288 = trunc i64 %indvars.iv673.i to i32
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.80, i32 noundef %287, i32 noundef %288)
           to label %invoke.cont806.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
@@ -2054,32 +2054,32 @@ invoke.cont806.i:                                 ; preds = %if.end804.i
 
 for.cond811.preheader.i:                          ; preds = %invoke.cont806.i
   %289 = load i32, ptr %mNumVertices.i.i, align 4
-  %cmp813584.not.i = icmp eq i32 %289, 0
-  br i1 %cmp813584.not.i, label %if.end848.i, label %for.body814.i
+  %cmp813589.not.i = icmp eq i32 %289, 0
+  br i1 %cmp813589.not.i, label %if.end848.i, label %for.body814.i
 
 for.body814.i:                                    ; preds = %for.cond811.preheader.i, %for.inc845.i
-  %indvars.iv665.i = phi i64 [ %indvars.iv.next666.i, %for.inc845.i ], [ 0, %for.cond811.preheader.i ]
+  %indvars.iv670.i = phi i64 [ %indvars.iv.next671.i, %for.inc845.i ], [ 0, %for.cond811.preheader.i ]
   %290 = load ptr, ptr %arrayidx801.i, align 8
-  %arrayidx819.i = getelementptr inbounds %class.aiColor4t, ptr %290, i64 %indvars.iv665.i
+  %arrayidx819.i = getelementptr inbounds %class.aiColor4t, ptr %290, i64 %indvars.iv670.i
   %291 = load float, ptr %arrayidx819.i, align 4
   %conv821.i = fpext float %291 to double
-  %g827.i = getelementptr inbounds %class.aiColor4t, ptr %290, i64 %indvars.iv665.i, i32 1
+  %g827.i = getelementptr inbounds i8, ptr %arrayidx819.i, i64 4
   %292 = load float, ptr %g827.i, align 4
   %conv828.i = fpext float %292 to double
-  %b834.i = getelementptr inbounds %class.aiColor4t, ptr %290, i64 %indvars.iv665.i, i32 2
+  %b834.i = getelementptr inbounds i8, ptr %arrayidx819.i, i64 8
   %293 = load float, ptr %b834.i, align 4
   %conv835.i = fpext float %293 to double
-  %a841.i = getelementptr inbounds %class.aiColor4t, ptr %290, i64 %indvars.iv665.i, i32 3
+  %a841.i = getelementptr inbounds i8, ptr %arrayidx819.i, i64 12
   %294 = load float, ptr %a841.i, align 4
   %conv842.i = fpext float %294 to double
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.81, double noundef %conv821.i, double noundef %conv828.i, double noundef %conv835.i, double noundef %conv842.i)
           to label %for.inc845.i unwind label %lpad9.loopexit.i
 
 for.inc845.i:                                     ; preds = %for.body814.i
-  %indvars.iv.next666.i = add nuw nsw i64 %indvars.iv665.i, 1
+  %indvars.iv.next671.i = add nuw nsw i64 %indvars.iv670.i, 1
   %295 = load i32, ptr %mNumVertices.i.i, align 4
   %296 = zext i32 %295 to i64
-  %cmp813.i = icmp ult i64 %indvars.iv.next666.i, %296
+  %cmp813.i = icmp ult i64 %indvars.iv.next671.i, %296
   br i1 %cmp813.i, label %for.body814.i, label %if.end848.i, !llvm.loop !34
 
 if.end848.i:                                      ; preds = %for.inc845.i, %for.cond811.preheader.i, %invoke.cont806.i
@@ -2087,19 +2087,19 @@ if.end848.i:                                      ; preds = %for.inc845.i, %for.
           to label %for.inc851.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc851.i:                                     ; preds = %if.end848.i
-  %indvars.iv.next669.i = add nuw nsw i64 %indvars.iv668.i, 1
-  %exitcond671.not.i = icmp eq i64 %indvars.iv.next669.i, 8
-  br i1 %exitcond671.not.i, label %for.end853.i, label %for.body799.i, !llvm.loop !35
+  %indvars.iv.next674.i = add nuw nsw i64 %indvars.iv673.i, 1
+  %exitcond676.not.i = icmp eq i64 %indvars.iv.next674.i, 8
+  br i1 %exitcond676.not.i, label %for.end853.i, label %for.body799.i, !llvm.loop !35
 
 for.end853.i:                                     ; preds = %for.inc851.i, %for.body799.i
   invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %call, ptr noundef nonnull @.str.83)
           to label %for.inc856.i unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc856.i:                                     ; preds = %for.end853.i
-  %indvars.iv.next673.i = add nuw nsw i64 %indvars.iv672.i, 1
+  %indvars.iv.next678.i = add nuw nsw i64 %indvars.iv677.i, 1
   %297 = load i32, ptr %mNumMeshes.i, align 8
   %298 = zext i32 %297 to i64
-  %cmp428.i = icmp ult i64 %indvars.iv.next673.i, %298
+  %cmp428.i = icmp ult i64 %indvars.iv.next678.i, %298
   br i1 %cmp428.i, label %for.body429.i, label %for.end858.i, !llvm.loop !36
 
 for.end858.i:                                     ; preds = %for.inc856.i, %for.cond426.preheader.i
@@ -2111,7 +2111,7 @@ if.end861.i:                                      ; preds = %for.end858.i, %if.e
           to label %invoke.cont16 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 ehcleanup864.i:                                   ; preds = %ehcleanup256.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.i, %lpad9.loopexit.split-lp.loopexit.i, %lpad9.loopexit.i
-  %.pn360.i = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup256.i ], [ %lpad.loopexit.i, %lpad9.loopexit.i ], [ %lpad.loopexit462.i, %lpad9.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit466.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit468.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit471.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit473.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit476.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit478.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit481.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit483.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit486.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit488.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit491.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit493.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit496.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit498.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit501.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit503.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit506.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit508.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit512.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit515.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit518.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit520.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit523.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit525.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit529.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
+  %.pn360.i = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup256.i ], [ %lpad.loopexit.i, %lpad9.loopexit.i ], [ %lpad.loopexit467.i, %lpad9.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit471.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit473.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit476.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit478.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit481.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit483.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit486.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit488.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit491.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit493.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit496.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit498.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit501.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit503.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit506.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit508.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit511.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit513.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit517.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit520.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit523.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit525.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit528.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit530.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit534.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header.i) #13
   br label %ehcleanup865.i
 
@@ -2134,7 +2134,7 @@ invoke.cont16:                                    ; preds = %if.end861.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp244.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp247.i)
   %vtable.i.i = load ptr, ptr %call, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %299 = load ptr, ptr %vfn.i.i, align 8
   call void %299(ptr noundef nonnull align 8 dereferenceable(8) %call) #13
   ret void
@@ -2142,7 +2142,7 @@ invoke.cont16:                                    ; preds = %if.end861.i
 _ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i12: ; preds = %ehcleanup865.i, %ehcleanup17.thread25
   %.pn628 = phi { ptr, i32 } [ %eh.lpad-body.i, %ehcleanup17.thread25 ], [ %.pn362.i, %ehcleanup865.i ]
   %vtable.i.i13 = load ptr, ptr %call, align 8
-  %vfn.i.i14 = getelementptr inbounds ptr, ptr %vtable.i.i13, i64 1
+  %vfn.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i13, i64 8
   %300 = load ptr, ptr %vfn.i.i14, align 8
   call void %300(ptr noundef nonnull align 8 dereferenceable(8) %call) #13
   br label %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit15
@@ -2243,7 +2243,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.va_end(ptr nonnull %va)
   %conv = zext i32 %call to i64
   %vtable = load ptr, ptr %io, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call6 = call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %io, ptr noundef nonnull %sz, i64 noundef 1, i64 noundef %conv)
   br label %return
@@ -2272,60 +2272,60 @@ for.end:                                          ; preds = %entry, %for.body.pr
   %idxprom1.pre-phi = phi i64 [ %0, %for.body.preheader ], [ 0, %entry ]
   %arrayidx2 = getelementptr inbounds [512 x i8], ptr %prefix, i64 0, i64 %idxprom1.pre-phi
   store i8 0, ptr %arrayidx2, align 1
-  %mTransformation = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1
+  %mTransformation = getelementptr inbounds i8, ptr %node, i64 1028
   store i32 0, ptr %name, align 4
-  %data.i = getelementptr inbounds %struct.aiString, ptr %name, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %name, i64 4
   store i8 0, ptr %data.i, align 4
   call fastcc void @_ZN6Assimp16AssxmlFileWriterL11ConvertNameER8aiStringRKS1_(ptr noundef nonnull align 4 dereferenceable(1028) %name, ptr noundef nonnull align 4 dereferenceable(1028) %node)
   %1 = load float, ptr %mTransformation, align 4
   %conv = fpext float %1 to double
-  %a2 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 1
+  %a2 = getelementptr inbounds i8, ptr %node, i64 1032
   %2 = load float, ptr %a2, align 4
   %conv6 = fpext float %2 to double
-  %a3 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 2
+  %a3 = getelementptr inbounds i8, ptr %node, i64 1036
   %3 = load float, ptr %a3, align 4
   %conv7 = fpext float %3 to double
-  %a4 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 3
+  %a4 = getelementptr inbounds i8, ptr %node, i64 1040
   %4 = load float, ptr %a4, align 4
   %conv8 = fpext float %4 to double
-  %b1 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 4
+  %b1 = getelementptr inbounds i8, ptr %node, i64 1044
   %5 = load float, ptr %b1, align 4
   %conv10 = fpext float %5 to double
-  %b2 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 5
+  %b2 = getelementptr inbounds i8, ptr %node, i64 1048
   %6 = load float, ptr %b2, align 4
   %conv11 = fpext float %6 to double
-  %b3 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 6
+  %b3 = getelementptr inbounds i8, ptr %node, i64 1052
   %7 = load float, ptr %b3, align 4
   %conv12 = fpext float %7 to double
-  %b4 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 7
+  %b4 = getelementptr inbounds i8, ptr %node, i64 1056
   %8 = load float, ptr %b4, align 4
   %conv13 = fpext float %8 to double
-  %c1 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 8
+  %c1 = getelementptr inbounds i8, ptr %node, i64 1060
   %9 = load float, ptr %c1, align 4
   %conv15 = fpext float %9 to double
-  %c2 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 9
+  %c2 = getelementptr inbounds i8, ptr %node, i64 1064
   %10 = load float, ptr %c2, align 4
   %conv16 = fpext float %10 to double
-  %c3 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 10
+  %c3 = getelementptr inbounds i8, ptr %node, i64 1068
   %11 = load float, ptr %c3, align 4
   %conv17 = fpext float %11 to double
-  %c4 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 11
+  %c4 = getelementptr inbounds i8, ptr %node, i64 1072
   %12 = load float, ptr %c4, align 4
   %conv18 = fpext float %12 to double
-  %d1 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 12
+  %d1 = getelementptr inbounds i8, ptr %node, i64 1076
   %13 = load float, ptr %d1, align 4
   %conv20 = fpext float %13 to double
-  %d2 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 13
+  %d2 = getelementptr inbounds i8, ptr %node, i64 1080
   %14 = load float, ptr %d2, align 4
   %conv21 = fpext float %14 to double
-  %d3 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 14
+  %d3 = getelementptr inbounds i8, ptr %node, i64 1084
   %15 = load float, ptr %d3, align 4
   %conv22 = fpext float %15 to double
-  %d4 = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 1, i32 15
+  %d4 = getelementptr inbounds i8, ptr %node, i64 1088
   %16 = load float, ptr %d4, align 4
   %conv23 = fpext float %16 to double
   call void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %io, ptr noundef nonnull @.str.86, ptr noundef nonnull %prefix, ptr noundef nonnull %data.i, ptr noundef nonnull %prefix, ptr noundef nonnull %prefix, double noundef %conv, double noundef %conv6, double noundef %conv7, double noundef %conv8, ptr noundef nonnull %prefix, double noundef %conv10, double noundef %conv11, double noundef %conv12, double noundef %conv13, ptr noundef nonnull %prefix, double noundef %conv15, double noundef %conv16, double noundef %conv17, double noundef %conv18, ptr noundef nonnull %prefix, double noundef %conv20, double noundef %conv21, double noundef %conv22, double noundef %conv23, ptr noundef nonnull %prefix)
-  %mNumMeshes = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 5
+  %mNumMeshes = getelementptr inbounds i8, ptr %node, i64 1120
   %17 = load i32, ptr %mNumMeshes, align 8
   %tobool.not = icmp eq i32 %17, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2337,7 +2337,7 @@ if.then:                                          ; preds = %for.end
   br i1 %cmp3243.not, label %for.end39, label %for.body33.lr.ph
 
 for.body33.lr.ph:                                 ; preds = %if.then
-  %mMeshes = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 6
+  %mMeshes = getelementptr inbounds i8, ptr %node, i64 1128
   br label %for.body33
 
 for.body33:                                       ; preds = %for.body33.lr.ph, %for.body33
@@ -2357,7 +2357,7 @@ for.end39:                                        ; preds = %for.body33, %if.the
   br label %if.end
 
 if.end:                                           ; preds = %for.end39, %for.end
-  %mNumChildren = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 3
+  %mNumChildren = getelementptr inbounds i8, ptr %node, i64 1104
   %23 = load i32, ptr %mNumChildren, align 8
   %tobool42.not = icmp eq i32 %23, 0
   br i1 %tobool42.not, label %if.end59, label %if.then43
@@ -2369,7 +2369,7 @@ if.then43:                                        ; preds = %if.end
   br i1 %cmp5045.not, label %for.end56, label %for.body51.lr.ph
 
 for.body51.lr.ph:                                 ; preds = %if.then43
-  %mChildren = getelementptr inbounds %struct.aiNode, ptr %node, i64 0, i32 4
+  %mChildren = getelementptr inbounds i8, ptr %node, i64 1112
   %add = add i32 %depth, 2
   br label %for.body51
 
@@ -2401,25 +2401,30 @@ define internal fastcc void @_ZN6Assimp16AssxmlFileWriterL11ConvertNameER8aiStri
 entry:
   store i32 0, ptr %out, align 4
   %0 = load i32, ptr %in, align 4
-  %cmp67.not = icmp eq i32 %0, 0
-  br i1 %cmp67.not, label %for.end, label %for.body
+  %cmp71.not = icmp eq i32 %0, 0
+  br i1 %cmp71.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %entry, %for.inc
-  %1 = phi i32 [ %12, %for.inc ], [ 0, %entry ]
-  %2 = phi i32 [ %13, %for.inc ], [ 0, %entry ]
-  %3 = phi i32 [ %14, %for.inc ], [ 0, %entry ]
-  %4 = phi i32 [ %15, %for.inc ], [ 0, %entry ]
-  %5 = phi i32 [ %16, %for.inc ], [ 0, %entry ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %struct.aiString, ptr %in, i64 0, i32 1, i64 %indvars.iv
+for.body.lr.ph:                                   ; preds = %entry
+  %data = getelementptr inbounds i8, ptr %in, i64 4
+  %data.i64 = getelementptr inbounds i8, ptr %out, i64 4
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %1 = phi i32 [ 0, %for.body.lr.ph ], [ %12, %for.inc ]
+  %2 = phi i32 [ 0, %for.body.lr.ph ], [ %13, %for.inc ]
+  %3 = phi i32 [ 0, %for.body.lr.ph ], [ %14, %for.inc ]
+  %4 = phi i32 [ 0, %for.body.lr.ph ], [ %15, %for.inc ]
+  %5 = phi i32 [ 0, %for.body.lr.ph ], [ %16, %for.inc ]
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %arrayidx = getelementptr inbounds [1024 x i8], ptr %data, i64 0, i64 %indvars.iv
   %6 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %6 to i32
   switch i32 %conv, label %sw.default [
     i32 60, label %if.end.i
     i32 62, label %if.end.i18
-    i32 38, label %if.end.i31
-    i32 34, label %if.end.i44
-    i32 39, label %if.end.i57
+    i32 38, label %if.end.i32
+    i32 34, label %if.end.i46
+    i32 39, label %if.end.i60
   ]
 
 if.end.i:                                         ; preds = %for.body
@@ -2429,7 +2434,7 @@ if.end.i:                                         ; preds = %for.body
 
 if.end4.i:                                        ; preds = %if.end.i
   %idxprom.i = zext i32 %1 to i64
-  %arrayidx.i = getelementptr inbounds %struct.aiString, ptr %out, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [1024 x i8], ptr %data.i64, i64 0, i64 %idxprom.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.95, i64 5, i1 false)
   %add9.i = add nsw i32 %1, 4
   store i32 %add9.i, ptr %out, align 4
@@ -2441,66 +2446,66 @@ if.end.i18:                                       ; preds = %for.body
   br i1 %cmp.i20, label %for.inc, label %if.end4.i21
 
 if.end4.i21:                                      ; preds = %if.end.i18
-  %idxprom.i22 = zext i32 %2 to i64
-  %arrayidx.i23 = getelementptr inbounds %struct.aiString, ptr %out, i64 0, i32 1, i64 %idxprom.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx.i23, ptr noundef nonnull align 1 dereferenceable(5) @.str.96, i64 5, i1 false)
-  %add9.i26 = add nsw i32 %2, 4
-  store i32 %add9.i26, ptr %out, align 4
+  %idxprom.i23 = zext i32 %2 to i64
+  %arrayidx.i24 = getelementptr inbounds [1024 x i8], ptr %data.i64, i64 0, i64 %idxprom.i23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %arrayidx.i24, ptr noundef nonnull align 1 dereferenceable(5) @.str.96, i64 5, i1 false)
+  %add9.i27 = add nsw i32 %2, 4
+  store i32 %add9.i27, ptr %out, align 4
   br label %for.inc
 
-if.end.i31:                                       ; preds = %for.body
+if.end.i32:                                       ; preds = %for.body
   %9 = add i32 %3, -1019
-  %cmp.i33 = icmp ult i32 %9, -1024
-  br i1 %cmp.i33, label %for.inc, label %if.end4.i34
+  %cmp.i34 = icmp ult i32 %9, -1024
+  br i1 %cmp.i34, label %for.inc, label %if.end4.i35
 
-if.end4.i34:                                      ; preds = %if.end.i31
-  %idxprom.i35 = zext i32 %3 to i64
-  %arrayidx.i36 = getelementptr inbounds %struct.aiString, ptr %out, i64 0, i32 1, i64 %idxprom.i35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %arrayidx.i36, ptr noundef nonnull align 1 dereferenceable(6) @.str.92, i64 6, i1 false)
-  %add9.i39 = add nsw i32 %3, 5
-  store i32 %add9.i39, ptr %out, align 4
+if.end4.i35:                                      ; preds = %if.end.i32
+  %idxprom.i37 = zext i32 %3 to i64
+  %arrayidx.i38 = getelementptr inbounds [1024 x i8], ptr %data.i64, i64 0, i64 %idxprom.i37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %arrayidx.i38, ptr noundef nonnull align 1 dereferenceable(6) @.str.92, i64 6, i1 false)
+  %add9.i41 = add nsw i32 %3, 5
+  store i32 %add9.i41, ptr %out, align 4
   br label %for.inc
 
-if.end.i44:                                       ; preds = %for.body
+if.end.i46:                                       ; preds = %for.body
   %10 = add i32 %4, -1018
-  %cmp.i46 = icmp ult i32 %10, -1024
-  br i1 %cmp.i46, label %for.inc, label %if.end4.i47
+  %cmp.i48 = icmp ult i32 %10, -1024
+  br i1 %cmp.i48, label %for.inc, label %if.end4.i49
 
-if.end4.i47:                                      ; preds = %if.end.i44
-  %idxprom.i48 = zext i32 %4 to i64
-  %arrayidx.i49 = getelementptr inbounds %struct.aiString, ptr %out, i64 0, i32 1, i64 %idxprom.i48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i49, ptr noundef nonnull align 1 dereferenceable(7) @.str.93, i64 7, i1 false)
-  %add9.i52 = add nsw i32 %4, 6
-  store i32 %add9.i52, ptr %out, align 4
+if.end4.i49:                                      ; preds = %if.end.i46
+  %idxprom.i51 = zext i32 %4 to i64
+  %arrayidx.i52 = getelementptr inbounds [1024 x i8], ptr %data.i64, i64 0, i64 %idxprom.i51
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i52, ptr noundef nonnull align 1 dereferenceable(7) @.str.93, i64 7, i1 false)
+  %add9.i55 = add nsw i32 %4, 6
+  store i32 %add9.i55, ptr %out, align 4
   br label %for.inc
 
-if.end.i57:                                       ; preds = %for.body
+if.end.i60:                                       ; preds = %for.body
   %11 = add i32 %5, -1018
-  %cmp.i59 = icmp ult i32 %11, -1024
-  br i1 %cmp.i59, label %for.inc, label %if.end4.i60
+  %cmp.i62 = icmp ult i32 %11, -1024
+  br i1 %cmp.i62, label %for.inc, label %if.end4.i63
 
-if.end4.i60:                                      ; preds = %if.end.i57
-  %idxprom.i61 = zext i32 %5 to i64
-  %arrayidx.i62 = getelementptr inbounds %struct.aiString, ptr %out, i64 0, i32 1, i64 %idxprom.i61
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i62, ptr noundef nonnull align 1 dereferenceable(7) @.str.94, i64 7, i1 false)
-  %add9.i65 = add nsw i32 %5, 6
-  store i32 %add9.i65, ptr %out, align 4
+if.end4.i63:                                      ; preds = %if.end.i60
+  %idxprom.i65 = zext i32 %5 to i64
+  %arrayidx.i66 = getelementptr inbounds [1024 x i8], ptr %data.i64, i64 0, i64 %idxprom.i65
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %arrayidx.i66, ptr noundef nonnull align 1 dereferenceable(7) @.str.94, i64 7, i1 false)
+  %add9.i69 = add nsw i32 %5, 6
+  store i32 %add9.i69, ptr %out, align 4
   br label %for.inc
 
 sw.default:                                       ; preds = %for.body
   %inc = add i32 %1, 1
   store i32 %inc, ptr %out, align 4
   %idxprom11 = zext i32 %1 to i64
-  %arrayidx12 = getelementptr inbounds %struct.aiString, ptr %out, i64 0, i32 1, i64 %idxprom11
+  %arrayidx12 = getelementptr inbounds [1024 x i8], ptr %data.i64, i64 0, i64 %idxprom11
   store i8 %6, ptr %arrayidx12, align 1
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end4.i60, %if.end.i57, %if.end4.i47, %if.end.i44, %if.end4.i34, %if.end.i31, %if.end4.i21, %if.end.i18, %if.end4.i, %if.end.i, %sw.default
-  %12 = phi i32 [ %add9.i65, %if.end4.i60 ], [ %1, %if.end.i57 ], [ %add9.i52, %if.end4.i47 ], [ %1, %if.end.i44 ], [ %add9.i39, %if.end4.i34 ], [ %1, %if.end.i31 ], [ %add9.i26, %if.end4.i21 ], [ %1, %if.end.i18 ], [ %add9.i, %if.end4.i ], [ %1, %if.end.i ], [ %inc, %sw.default ]
-  %13 = phi i32 [ %add9.i65, %if.end4.i60 ], [ %2, %if.end.i57 ], [ %add9.i52, %if.end4.i47 ], [ %2, %if.end.i44 ], [ %add9.i39, %if.end4.i34 ], [ %2, %if.end.i31 ], [ %add9.i26, %if.end4.i21 ], [ %2, %if.end.i18 ], [ %add9.i, %if.end4.i ], [ %1, %if.end.i ], [ %inc, %sw.default ]
-  %14 = phi i32 [ %add9.i65, %if.end4.i60 ], [ %3, %if.end.i57 ], [ %add9.i52, %if.end4.i47 ], [ %3, %if.end.i44 ], [ %add9.i39, %if.end4.i34 ], [ %3, %if.end.i31 ], [ %add9.i26, %if.end4.i21 ], [ %2, %if.end.i18 ], [ %add9.i, %if.end4.i ], [ %1, %if.end.i ], [ %inc, %sw.default ]
-  %15 = phi i32 [ %add9.i65, %if.end4.i60 ], [ %4, %if.end.i57 ], [ %add9.i52, %if.end4.i47 ], [ %4, %if.end.i44 ], [ %add9.i39, %if.end4.i34 ], [ %3, %if.end.i31 ], [ %add9.i26, %if.end4.i21 ], [ %2, %if.end.i18 ], [ %add9.i, %if.end4.i ], [ %1, %if.end.i ], [ %inc, %sw.default ]
-  %16 = phi i32 [ %add9.i65, %if.end4.i60 ], [ %5, %if.end.i57 ], [ %add9.i52, %if.end4.i47 ], [ %4, %if.end.i44 ], [ %add9.i39, %if.end4.i34 ], [ %3, %if.end.i31 ], [ %add9.i26, %if.end4.i21 ], [ %2, %if.end.i18 ], [ %add9.i, %if.end4.i ], [ %1, %if.end.i ], [ %inc, %sw.default ]
+for.inc:                                          ; preds = %if.end4.i63, %if.end.i60, %if.end4.i49, %if.end.i46, %if.end4.i35, %if.end.i32, %if.end4.i21, %if.end.i18, %if.end4.i, %if.end.i, %sw.default
+  %12 = phi i32 [ %add9.i69, %if.end4.i63 ], [ %1, %if.end.i60 ], [ %add9.i55, %if.end4.i49 ], [ %1, %if.end.i46 ], [ %add9.i41, %if.end4.i35 ], [ %1, %if.end.i32 ], [ %add9.i27, %if.end4.i21 ], [ %1, %if.end.i18 ], [ %add9.i, %if.end4.i ], [ %1, %if.end.i ], [ %inc, %sw.default ]
+  %13 = phi i32 [ %add9.i69, %if.end4.i63 ], [ %2, %if.end.i60 ], [ %add9.i55, %if.end4.i49 ], [ %2, %if.end.i46 ], [ %add9.i41, %if.end4.i35 ], [ %2, %if.end.i32 ], [ %add9.i27, %if.end4.i21 ], [ %2, %if.end.i18 ], [ %add9.i, %if.end4.i ], [ %1, %if.end.i ], [ %inc, %sw.default ]
+  %14 = phi i32 [ %add9.i69, %if.end4.i63 ], [ %3, %if.end.i60 ], [ %add9.i55, %if.end4.i49 ], [ %3, %if.end.i46 ], [ %add9.i41, %if.end4.i35 ], [ %3, %if.end.i32 ], [ %add9.i27, %if.end4.i21 ], [ %2, %if.end.i18 ], [ %add9.i, %if.end4.i ], [ %1, %if.end.i ], [ %inc, %sw.default ]
+  %15 = phi i32 [ %add9.i69, %if.end4.i63 ], [ %4, %if.end.i60 ], [ %add9.i55, %if.end4.i49 ], [ %4, %if.end.i46 ], [ %add9.i41, %if.end4.i35 ], [ %3, %if.end.i32 ], [ %add9.i27, %if.end4.i21 ], [ %2, %if.end.i18 ], [ %add9.i, %if.end4.i ], [ %1, %if.end.i ], [ %inc, %sw.default ]
+  %16 = phi i32 [ %add9.i69, %if.end4.i63 ], [ %5, %if.end.i60 ], [ %add9.i55, %if.end4.i49 ], [ %4, %if.end.i46 ], [ %add9.i41, %if.end4.i35 ], [ %3, %if.end.i32 ], [ %add9.i27, %if.end4.i21 ], [ %2, %if.end.i18 ], [ %add9.i, %if.end4.i ], [ %1, %if.end.i ], [ %inc, %sw.default ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %in, align 4
   %18 = zext i32 %17 to i64
@@ -2513,7 +2518,8 @@ for.end.loopexit:                                 ; preds = %for.inc
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %idxprom16 = phi i64 [ %19, %for.end.loopexit ], [ 0, %entry ]
-  %arrayidx17 = getelementptr inbounds %struct.aiString, ptr %out, i64 0, i32 1, i64 %idxprom16
+  %data14 = getelementptr inbounds i8, ptr %out, i64 4
+  %arrayidx17 = getelementptr inbounds [1024 x i8], ptr %data14, i64 0, i64 %idxprom16
   store i8 0, ptr %arrayidx17, align 1
   ret void
 }

@@ -60,13 +60,13 @@ if.then4:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.end
   %idxprom = zext nneg i32 %timeScale to i64
   %arrayidx = getelementptr inbounds [10 x [11 x i64]], ptr @_ZL14timeScaleTable, i64 0, i64 %idxprom
-  %arrayidx6 = getelementptr inbounds i64, ptr %arrayidx, i64 2
+  %arrayidx6 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load i64, ptr %arrayidx6, align 8
   %cmp7 = icmp sgt i64 %1, %otherTime
   br i1 %cmp7, label %if.then11, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %if.end5
-  %arrayidx9 = getelementptr inbounds i64, ptr %arrayidx, i64 3
+  %arrayidx9 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %2 = load i64, ptr %arrayidx9, align 8
   %cmp10 = icmp slt i64 %2, %otherTime
   br i1 %cmp10, label %if.then11, label %if.end12
@@ -76,7 +76,7 @@ if.then11:                                        ; preds = %lor.lhs.false8, %if
   br label %return
 
 if.end12:                                         ; preds = %lor.lhs.false8
-  %arrayidx13 = getelementptr inbounds i64, ptr %arrayidx, i64 1
+  %arrayidx13 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %3 = load i64, ptr %arrayidx13, align 8
   %add = add nsw i64 %3, %otherTime
   %4 = load i64, ptr %arrayidx, align 8
@@ -110,13 +110,13 @@ if.then4:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.end
   %idxprom = zext nneg i32 %timeScale to i64
   %arrayidx = getelementptr inbounds [10 x [11 x i64]], ptr @_ZL14timeScaleTable, i64 0, i64 %idxprom
-  %arrayidx6 = getelementptr inbounds i64, ptr %arrayidx, i64 4
+  %arrayidx6 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %1 = load i64, ptr %arrayidx6, align 8
   %cmp7 = icmp sgt i64 %1, %universalTime
   br i1 %cmp7, label %if.then11, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %if.end5
-  %arrayidx9 = getelementptr inbounds i64, ptr %arrayidx, i64 5
+  %arrayidx9 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %2 = load i64, ptr %arrayidx9, align 8
   %cmp10 = icmp slt i64 %2, %universalTime
   br i1 %cmp10, label %if.then11, label %if.end12
@@ -127,13 +127,13 @@ if.then11:                                        ; preds = %lor.lhs.false8, %if
 
 if.end12:                                         ; preds = %lor.lhs.false8
   %cmp13 = icmp slt i64 %universalTime, 0
-  %arrayidx18 = getelementptr inbounds i64, ptr %arrayidx, i64 8
+  %arrayidx18 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %3 = load i64, ptr %arrayidx18, align 8
   %4 = load i64, ptr %arrayidx, align 8
   br i1 %cmp13, label %if.then14, label %if.end28
 
 if.then14:                                        ; preds = %if.end12
-  %arrayidx15 = getelementptr inbounds i64, ptr %arrayidx, i64 9
+  %arrayidx15 = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %5 = load i64, ptr %arrayidx15, align 8
   %cmp16 = icmp sgt i64 %5, %universalTime
   br i1 %cmp16, label %if.then17, label %if.end21
@@ -141,7 +141,7 @@ if.then14:                                        ; preds = %if.end12
 if.then17:                                        ; preds = %if.then14
   %add = add nsw i64 %3, %universalTime
   %div = sdiv i64 %add, %4
-  %arrayidx20 = getelementptr inbounds i64, ptr %arrayidx, i64 6
+  %arrayidx20 = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %6 = load i64, ptr %arrayidx20, align 8
   %sub = sub nsw i64 %div, %6
   br label %return
@@ -149,13 +149,13 @@ if.then17:                                        ; preds = %if.then14
 if.end21:                                         ; preds = %if.then14
   %sub23 = sub nsw i64 %universalTime, %3
   %div25 = sdiv i64 %sub23, %4
-  %arrayidx26 = getelementptr inbounds i64, ptr %arrayidx, i64 1
+  %arrayidx26 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %7 = load i64, ptr %arrayidx26, align 8
   %sub27 = sub nsw i64 %div25, %7
   br label %return
 
 if.end28:                                         ; preds = %if.end12
-  %arrayidx29 = getelementptr inbounds i64, ptr %arrayidx, i64 10
+  %arrayidx29 = getelementptr inbounds i8, ptr %arrayidx, i64 80
   %8 = load i64, ptr %arrayidx29, align 8
   %cmp30 = icmp slt i64 %8, %universalTime
   br i1 %cmp30, label %if.then31, label %if.end38
@@ -163,7 +163,7 @@ if.end28:                                         ; preds = %if.end12
 if.then31:                                        ; preds = %if.end28
   %sub33 = sub nsw i64 %universalTime, %3
   %div35 = sdiv i64 %sub33, %4
-  %arrayidx36 = getelementptr inbounds i64, ptr %arrayidx, i64 7
+  %arrayidx36 = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %9 = load i64, ptr %arrayidx36, align 8
   %sub37 = sub nsw i64 %div35, %9
   br label %return
@@ -171,7 +171,7 @@ if.then31:                                        ; preds = %if.end28
 if.end38:                                         ; preds = %if.end28
   %add40 = add nsw i64 %3, %universalTime
   %div42 = sdiv i64 %add40, %4
-  %arrayidx43 = getelementptr inbounds i64, ptr %arrayidx, i64 1
+  %arrayidx43 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %10 = load i64, ptr %arrayidx43, align 8
   %sub44 = sub nsw i64 %div42, %10
   br label %return

@@ -492,8 +492,8 @@ for.inc.i:                                        ; preds = %_ZNK6icu_759ScriptS
   br i1 %exitcond.not.i, label %for.end, label %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i, !llvm.loop !12
 
 for.body.lr.ph:                                   ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i
-  %fUnion.i.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1
-  %fLength.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %fLength.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i18, %for.body.lr.ph
@@ -585,10 +585,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %oneScriptName, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %oneScriptName, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %oneScriptName, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %scriptString, i64 0, i32 1
-  %fLength.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %scriptString, i64 0, i32 1, i32 0, i32 1
+  %fUnion.i.i = getelementptr inbounds i8, ptr %scriptString, i64 8
+  %fLength.i = getelementptr inbounds i8, ptr %scriptString, i64 12
   %1 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i31 = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
@@ -599,8 +599,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp34, label %for.body.lr.ph, label %cleanup
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %fLength.i20 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %oneScriptName, i64 0, i32 1, i32 0, i32 1
-  %arrayidx = getelementptr inbounds [40 x i8], ptr %buf, i64 0, i64 39
+  %fLength.i20 = getelementptr inbounds i8, ptr %oneScriptName, i64 12
+  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 39
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont.backedge
@@ -738,11 +738,11 @@ entry:
   br i1 %cmp.i, label %if.end, label %cleanup.cont
 
 if.end:                                           ; preds = %entry
-  %stackArray.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %scripts, i64 0, i32 3
+  %stackArray.i = getelementptr inbounds i8, ptr %scripts, i64 16
   store ptr %stackArray.i, ptr %scripts, align 8
-  %capacity.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %scripts, i64 0, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %scripts, i64 8
   store i32 20, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %scripts, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %scripts, i64 12
   br label %while.cond
 
 while.cond:                                       ; preds = %invoke.cont8, %if.end
@@ -866,7 +866,7 @@ declare i32 @uscript_getScriptExtensions_75(i32 noundef, ptr noundef, i32 nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7515MaybeStackArrayI11UScriptCodeLi20EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds %"class.icu_75::MaybeStackArray", ptr %this, i64 0, i32 2
+  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i

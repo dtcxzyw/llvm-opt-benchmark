@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-bn_blind.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bn_blinding_st = type { ptr, ptr, ptr, ptr, i64, i32, i64, ptr, ptr, ptr }
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/bn/bn_blind.c\00", align 1
 @__func__.BN_BLINDING_new = private unnamed_addr constant [16 x i8] c"BN_BLINDING_new\00", align 1
 @__func__.BN_BLINDING_update = private unnamed_addr constant [19 x i8] c"BN_BLINDING_update\00", align 1
@@ -22,7 +19,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @CRYPTO_THREAD_lock_new() #5
-  %lock = getelementptr inbounds %struct.bn_blinding_st, ptr %call, i64 0, i32 9
+  %lock = getelementptr inbounds i8, ptr %call, i64 72
   store ptr %call1, ptr %lock, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -36,7 +33,7 @@ if.then4:                                         ; preds = %if.end
 
 if.end5:                                          ; preds = %if.end
   %call.i = tail call i64 @CRYPTO_THREAD_get_current_id() #5
-  %tid.i = getelementptr inbounds %struct.bn_blinding_st, ptr %call, i64 0, i32 4
+  %tid.i = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %call.i, ptr %tid.i, align 8
   %cmp6.not = icmp eq ptr %A, null
   br i1 %cmp6.not, label %if.end13, label %if.then7
@@ -53,14 +50,14 @@ if.end13:                                         ; preds = %if.then7, %if.end5
 
 if.then15:                                        ; preds = %if.end13
   %call16 = tail call ptr @BN_dup(ptr noundef nonnull %Ai) #5
-  %Ai17 = getelementptr inbounds %struct.bn_blinding_st, ptr %call, i64 0, i32 1
+  %Ai17 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call16, ptr %Ai17, align 8
   %cmp18 = icmp eq ptr %call16, null
   br i1 %cmp18, label %BN_BLINDING_free.exit, label %if.end21
 
 if.end21:                                         ; preds = %if.then15, %if.end13
   %call22 = tail call ptr @BN_dup(ptr noundef %mod) #5
-  %mod23 = getelementptr inbounds %struct.bn_blinding_st, ptr %call, i64 0, i32 3
+  %mod23 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call22, ptr %mod23, align 8
   %cmp24 = icmp eq ptr %call22, null
   br i1 %cmp24, label %BN_BLINDING_free.exit, label %if.end26
@@ -76,20 +73,20 @@ if.then29:                                        ; preds = %if.end26
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then29, %if.end26
-  %counter = getelementptr inbounds %struct.bn_blinding_st, ptr %call, i64 0, i32 5
+  %counter = getelementptr inbounds i8, ptr %call, i64 40
   store i32 -1, ptr %counter, align 8
   br label %return
 
 BN_BLINDING_free.exit:                            ; preds = %if.end21, %if.then15, %if.then7
   %1 = load ptr, ptr %call, align 8
   tail call void @BN_free(ptr noundef %1) #5
-  %Ai.i = getelementptr inbounds %struct.bn_blinding_st, ptr %call, i64 0, i32 1
+  %Ai.i = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %Ai.i, align 8
   tail call void @BN_free(ptr noundef %2) #5
-  %e.i = getelementptr inbounds %struct.bn_blinding_st, ptr %call, i64 0, i32 2
+  %e.i = getelementptr inbounds i8, ptr %call, i64 16
   %3 = load ptr, ptr %e.i, align 8
   tail call void @BN_free(ptr noundef %3) #5
-  %mod.i = getelementptr inbounds %struct.bn_blinding_st, ptr %call, i64 0, i32 3
+  %mod.i = getelementptr inbounds i8, ptr %call, i64 24
   %4 = load ptr, ptr %mod.i, align 8
   tail call void @BN_free(ptr noundef %4) #5
   %5 = load ptr, ptr %lock, align 8
@@ -118,7 +115,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 define void @BN_BLINDING_set_current_thread(ptr nocapture noundef writeonly %b) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @CRYPTO_THREAD_get_current_id() #5
-  %tid = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 4
+  %tid = getelementptr inbounds i8, ptr %b, i64 32
   store i64 %call, ptr %tid, align 8
   ret void
 }
@@ -138,16 +135,16 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %r, align 8
   tail call void @BN_free(ptr noundef %0) #5
-  %Ai = getelementptr inbounds %struct.bn_blinding_st, ptr %r, i64 0, i32 1
+  %Ai = getelementptr inbounds i8, ptr %r, i64 8
   %1 = load ptr, ptr %Ai, align 8
   tail call void @BN_free(ptr noundef %1) #5
-  %e = getelementptr inbounds %struct.bn_blinding_st, ptr %r, i64 0, i32 2
+  %e = getelementptr inbounds i8, ptr %r, i64 16
   %2 = load ptr, ptr %e, align 8
   tail call void @BN_free(ptr noundef %2) #5
-  %mod = getelementptr inbounds %struct.bn_blinding_st, ptr %r, i64 0, i32 3
+  %mod = getelementptr inbounds i8, ptr %r, i64 24
   %3 = load ptr, ptr %mod, align 8
   tail call void @BN_free(ptr noundef %3) #5
-  %lock = getelementptr inbounds %struct.bn_blinding_st, ptr %r, i64 0, i32 9
+  %lock = getelementptr inbounds i8, ptr %r, i64 72
   %4 = load ptr, ptr %lock, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %4) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %r, ptr noundef nonnull @.str, i32 noundef 88) #5
@@ -169,7 +166,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %Ai = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 1
+  %Ai = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load ptr, ptr %Ai, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then, label %if.end
@@ -181,7 +178,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %err
 
 if.end:                                           ; preds = %lor.lhs.false
-  %counter = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 5
+  %counter = getelementptr inbounds i8, ptr %b, i64 40
   %2 = load i32, ptr %counter, align 8
   %cmp2 = icmp eq i32 %2, -1
   br i1 %cmp2, label %if.end5.thread, label %if.end5
@@ -197,13 +194,13 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp7, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %if.end5
-  %e = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 2
+  %e = getelementptr inbounds i8, ptr %b, i64 16
   %3 = load ptr, ptr %e, align 8
   %cmp8.not = icmp eq ptr %3, null
   br i1 %cmp8.not, label %if.else, label %land.lhs.true9
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  %flags = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %b, i64 48
   %4 = load i64, ptr %flags, align 8
   %and = and i64 %4, 2
   %tobool.not = icmp eq i64 %and, 0
@@ -215,14 +212,14 @@ if.then10:                                        ; preds = %land.lhs.true9
   br i1 %tobool11.not, label %err, label %if.end52
 
 if.else:                                          ; preds = %if.end5.thread, %land.lhs.true9, %land.lhs.true, %if.end5
-  %flags14 = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 6
+  %flags14 = getelementptr inbounds i8, ptr %b, i64 48
   %5 = load i64, ptr %flags14, align 8
   %and15 = and i64 %5, 1
   %tobool16.not = icmp eq i64 %and15, 0
   br i1 %tobool16.not, label %if.then17, label %if.end52
 
 if.then17:                                        ; preds = %if.else
-  %m_ctx = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 7
+  %m_ctx = getelementptr inbounds i8, ptr %b, i64 56
   %6 = load ptr, ptr %m_ctx, align 8
   %cmp18.not = icmp eq ptr %6, null
   br i1 %cmp18.not, label %if.else35, label %if.then19
@@ -240,7 +237,7 @@ lor.lhs.false26:                                  ; preds = %if.then19
   br i1 %tobool32.not, label %err, label %if.end52
 
 if.else35:                                        ; preds = %if.then17
-  %mod = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 3
+  %mod = getelementptr inbounds i8, ptr %b, i64 24
   %9 = load ptr, ptr %mod, align 8
   %call39 = tail call i32 @BN_mod_mul(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef %9, ptr noundef %ctx) #5
   %tobool40.not = icmp eq i32 %call39, 0
@@ -258,7 +255,7 @@ if.end52:                                         ; preds = %if.else, %lor.lhs.f
 
 err:                                              ; preds = %if.else35, %lor.lhs.false41, %if.then19, %lor.lhs.false26, %if.then10, %if.end52, %if.then
   %ret.0 = phi i32 [ 0, %if.then ], [ 1, %if.end52 ], [ 0, %lor.lhs.false26 ], [ 0, %if.then19 ], [ 0, %lor.lhs.false41 ], [ 0, %if.else35 ], [ 0, %if.then10 ]
-  %counter53 = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 5
+  %counter53 = getelementptr inbounds i8, ptr %b, i64 40
   %12 = load i32, ptr %counter53, align 8
   %cmp54 = icmp eq i32 %12, 32
   br i1 %cmp54, label %if.then55, label %if.end57
@@ -296,7 +293,7 @@ land.lhs.true:                                    ; preds = %if.end3
   br i1 %cmp7, label %err, label %if.end9
 
 if.end9:                                          ; preds = %land.lhs.true, %if.end3
-  %Ai = getelementptr inbounds %struct.bn_blinding_st, ptr %ret.051, i64 0, i32 1
+  %Ai = getelementptr inbounds i8, ptr %ret.051, i64 8
   %1 = load ptr, ptr %Ai, align 8
   %cmp10 = icmp eq ptr %1, null
   br i1 %cmp10, label %land.lhs.true11, label %if.end16
@@ -309,7 +306,7 @@ land.lhs.true11:                                  ; preds = %if.end9
 
 if.end16:                                         ; preds = %land.lhs.true11, %if.end9
   %cmp17.not = icmp eq ptr %e, null
-  %e23.phi.trans.insert = getelementptr inbounds %struct.bn_blinding_st, ptr %ret.051, i64 0, i32 2
+  %e23.phi.trans.insert = getelementptr inbounds i8, ptr %ret.051, i64 16
   %.pre = load ptr, ptr %e23.phi.trans.insert, align 8
   br i1 %cmp17.not, label %if.end22, label %if.then18
 
@@ -321,7 +318,7 @@ if.then18:                                        ; preds = %if.end16
 
 if.end22:                                         ; preds = %if.end16, %if.then18
   %2 = phi ptr [ %call20, %if.then18 ], [ %.pre, %if.end16 ]
-  %e23 = getelementptr inbounds %struct.bn_blinding_st, ptr %ret.051, i64 0, i32 2
+  %e23 = getelementptr inbounds i8, ptr %ret.051, i64 16
   %cmp24 = icmp eq ptr %2, null
   br i1 %cmp24, label %err, label %if.end26
 
@@ -330,7 +327,7 @@ if.end26:                                         ; preds = %if.end22
   br i1 %cmp27.not, label %if.end30, label %if.then28
 
 if.then28:                                        ; preds = %if.end26
-  %bn_mod_exp29 = getelementptr inbounds %struct.bn_blinding_st, ptr %ret.051, i64 0, i32 8
+  %bn_mod_exp29 = getelementptr inbounds i8, ptr %ret.051, i64 64
   store ptr %bn_mod_exp, ptr %bn_mod_exp29, align 8
   br label %if.end30
 
@@ -339,12 +336,12 @@ if.end30:                                         ; preds = %if.then28, %if.end2
   br i1 %cmp31.not, label %if.end34, label %if.then32
 
 if.then32:                                        ; preds = %if.end30
-  %m_ctx33 = getelementptr inbounds %struct.bn_blinding_st, ptr %ret.051, i64 0, i32 7
+  %m_ctx33 = getelementptr inbounds i8, ptr %ret.051, i64 56
   store ptr %m_ctx, ptr %m_ctx33, align 8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then32, %if.end30
-  %mod = getelementptr inbounds %struct.bn_blinding_st, ptr %ret.051, i64 0, i32 3
+  %mod = getelementptr inbounds i8, ptr %ret.051, i64 24
   br label %do.body
 
 do.body:                                          ; preds = %if.end48, %if.end34
@@ -380,13 +377,13 @@ if.then50:                                        ; preds = %if.end48
   br label %err
 
 do.end:                                           ; preds = %if.end38
-  %bn_mod_exp52 = getelementptr inbounds %struct.bn_blinding_st, ptr %ret.051, i64 0, i32 8
+  %bn_mod_exp52 = getelementptr inbounds i8, ptr %ret.051, i64 64
   %9 = load ptr, ptr %bn_mod_exp52, align 8
   %cmp53.not = icmp eq ptr %9, null
   br i1 %cmp53.not, label %if.else68, label %land.lhs.true54
 
 land.lhs.true54:                                  ; preds = %do.end
-  %m_ctx55 = getelementptr inbounds %struct.bn_blinding_st, ptr %ret.051, i64 0, i32 7
+  %m_ctx55 = getelementptr inbounds i8, ptr %ret.051, i64 56
   %10 = load ptr, ptr %m_ctx55, align 8
   %cmp56.not = icmp eq ptr %10, null
   br i1 %cmp56.not, label %if.else68, label %if.then57
@@ -408,7 +405,7 @@ if.else68:                                        ; preds = %land.lhs.true54, %d
   br i1 %tobool74.not, label %err, label %if.end77
 
 if.end77:                                         ; preds = %if.else68, %if.then57
-  %m_ctx78 = getelementptr inbounds %struct.bn_blinding_st, ptr %ret.051, i64 0, i32 7
+  %m_ctx78 = getelementptr inbounds i8, ptr %ret.051, i64 56
   %17 = load ptr, ptr %m_ctx78, align 8
   %cmp79.not = icmp eq ptr %17, null
   br i1 %cmp79.not, label %return, label %if.then80
@@ -433,16 +430,16 @@ err:                                              ; preds = %if.end45, %do.body,
 if.end.i:                                         ; preds = %err, %lor.lhs.false
   %21 = load ptr, ptr %ret.051, align 8
   call void @BN_free(ptr noundef %21) #5
-  %Ai.i = getelementptr inbounds %struct.bn_blinding_st, ptr %ret.051, i64 0, i32 1
+  %Ai.i = getelementptr inbounds i8, ptr %ret.051, i64 8
   %22 = load ptr, ptr %Ai.i, align 8
   call void @BN_free(ptr noundef %22) #5
-  %e.i = getelementptr inbounds %struct.bn_blinding_st, ptr %ret.051, i64 0, i32 2
+  %e.i = getelementptr inbounds i8, ptr %ret.051, i64 16
   %23 = load ptr, ptr %e.i, align 8
   call void @BN_free(ptr noundef %23) #5
-  %mod.i = getelementptr inbounds %struct.bn_blinding_st, ptr %ret.051, i64 0, i32 3
+  %mod.i = getelementptr inbounds i8, ptr %ret.051, i64 24
   %24 = load ptr, ptr %mod.i, align 8
   call void @BN_free(ptr noundef %24) #5
-  %lock.i = getelementptr inbounds %struct.bn_blinding_st, ptr %ret.051, i64 0, i32 9
+  %lock.i = getelementptr inbounds i8, ptr %ret.051, i64 72
   %25 = load ptr, ptr %lock.i, align 8
   call void @CRYPTO_THREAD_lock_free(ptr noundef %25) #5
   call void @CRYPTO_free(ptr noundef nonnull %ret.051, ptr noundef nonnull @.str, i32 noundef 88) #5
@@ -472,7 +469,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %Ai = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 1
+  %Ai = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load ptr, ptr %Ai, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then, label %if.end
@@ -484,7 +481,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %counter = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 5
+  %counter = getelementptr inbounds i8, ptr %b, i64 40
   %2 = load i32, ptr %counter, align 8
   %cmp2 = icmp eq i32 %2, -1
   br i1 %cmp2, label %if.then3, label %if.else
@@ -509,7 +506,7 @@ land.lhs.true:                                    ; preds = %if.end7
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %land.lhs.true, %if.end7
-  %m_ctx = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 7
+  %m_ctx = getelementptr inbounds i8, ptr %b, i64 56
   %4 = load ptr, ptr %m_ctx, align 8
   %cmp14.not = icmp eq ptr %4, null
   %5 = load ptr, ptr %b, align 8
@@ -520,7 +517,7 @@ if.then15:                                        ; preds = %if.end13
   br label %return
 
 if.else19:                                        ; preds = %if.end13
-  %mod = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 3
+  %mod = getelementptr inbounds i8, ptr %b, i64 24
   %6 = load ptr, ptr %mod, align 8
   %call21 = tail call i32 @BN_mod_mul(ptr noundef %n, ptr noundef %n, ptr noundef %5, ptr noundef %6, ptr noundef %ctx) #5
   br label %return
@@ -548,7 +545,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %Ai = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 1
+  %Ai = getelementptr inbounds i8, ptr %b, i64 8
   %0 = load ptr, ptr %Ai, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %if.then, label %if.end
@@ -561,22 +558,22 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %r.addr.0 = phi ptr [ %0, %land.lhs.true ], [ %r, %entry ]
-  %m_ctx = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 7
+  %m_ctx = getelementptr inbounds i8, ptr %b, i64 56
   %1 = load ptr, ptr %m_ctx, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %dmax = getelementptr inbounds %struct.bignum_st, ptr %n, i64 0, i32 2
+  %dmax = getelementptr inbounds i8, ptr %n, i64 12
   %2 = load i32, ptr %dmax, align 4
-  %top = getelementptr inbounds %struct.bignum_st, ptr %r.addr.0, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %r.addr.0, i64 8
   %3 = load i32, ptr %top, align 8
   %cmp4.not = icmp slt i32 %2, %3
   br i1 %cmp4.not, label %if.end26, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
   %conv = sext i32 %3 to i64
-  %top7 = getelementptr inbounds %struct.bignum_st, ptr %n, i64 0, i32 1
+  %top7 = getelementptr inbounds i8, ptr %n, i64 8
   %4 = load i32, ptr %top7, align 8
   %conv8 = sext i32 %4 to i64
   %cmp929.not = icmp eq i32 %3, 0
@@ -608,7 +605,7 @@ if.end26:                                         ; preds = %for.end, %if.then3
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %mod = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 3
+  %mod = getelementptr inbounds i8, ptr %b, i64 24
   %8 = load ptr, ptr %mod, align 8
   %call28 = tail call i32 @BN_mod_mul(ptr noundef %n, ptr noundef %n, ptr noundef nonnull %r.addr.0, ptr noundef %8, ptr noundef %ctx) #5
   br label %return
@@ -624,7 +621,7 @@ declare void @bn_correct_top_consttime(ptr noundef) local_unnamed_addr #1
 define i32 @BN_BLINDING_is_current_thread(ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @CRYPTO_THREAD_get_current_id() #5
-  %tid = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 4
+  %tid = getelementptr inbounds i8, ptr %b, i64 32
   %0 = load i64, ptr %tid, align 8
   %call1 = tail call i32 @CRYPTO_THREAD_compare_id(i64 noundef %call, i64 noundef %0) #5
   ret i32 %call1
@@ -637,7 +634,7 @@ declare i64 @CRYPTO_THREAD_get_current_id() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @BN_BLINDING_lock(ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 9
+  %lock = getelementptr inbounds i8, ptr %b, i64 72
   %0 = load ptr, ptr %lock, align 8
   %call = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #5
   ret i32 %call
@@ -648,7 +645,7 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @BN_BLINDING_unlock(ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
-  %lock = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 9
+  %lock = getelementptr inbounds i8, ptr %b, i64 72
   %0 = load ptr, ptr %lock, align 8
   %call = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %0) #5
   ret i32 %call
@@ -659,7 +656,7 @@ declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @BN_BLINDING_get_flags(ptr nocapture noundef readonly %b) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %b, i64 48
   %0 = load i64, ptr %flags, align 8
   ret i64 %0
 }
@@ -667,7 +664,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @BN_BLINDING_set_flags(ptr nocapture noundef writeonly %b, i64 noundef %flags) local_unnamed_addr #3 {
 entry:
-  %flags1 = getelementptr inbounds %struct.bn_blinding_st, ptr %b, i64 0, i32 6
+  %flags1 = getelementptr inbounds i8, ptr %b, i64 48
   store i64 %flags, ptr %flags1, align 8
   ret void
 }

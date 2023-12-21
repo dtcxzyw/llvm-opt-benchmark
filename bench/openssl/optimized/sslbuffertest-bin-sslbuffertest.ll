@@ -4,31 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.quic_conn_st = type { %struct.ssl_st, ptr, ptr, ptr, ptr, ptr, ptr, %union.bio_addr_st, %struct.quic_thread_assist_st, ptr, ptr, i64, i16, i32, i32, i64, i32, i64, i32 }
-%struct.ssl_st = type { i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%union.bio_addr_st = type { %struct.sockaddr_in6, [84 x i8] }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon }
-%union.anon = type { [4 x i32] }
-%struct.quic_thread_assist_st = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
-%struct.ssl_connection_st = type { %struct.ssl_st, i32, ptr, ptr, ptr, i32, ptr, i32, i32, i32, i32, %struct.OSSL_TIME, %struct.OSSL_TIME, %struct.ossl_statem_st, i32, ptr, ptr, i64, i64, i64, %struct.anon, ptr, ptr, ptr, i32, ptr, %struct.ssl_dane_st, ptr, ptr, ptr, ptr, i32, [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], [64 x i8], ptr, [64 x i8], i64, i32, i64, [32 x i8], ptr, ptr, ptr, i64, ptr, [32 x i8], i64, i32, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i64, i32, i32, i32, i64, i32, i32, i64, i64, i64, %struct.anon.1, ptr, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, i32, ptr, %struct.srp_ctx_st, ptr, %struct.record_layer_st, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i64 }
-%struct.OSSL_TIME = type { i64 }
-%struct.ossl_statem_st = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i8 }
-%struct.anon = type { i64, [32 x i8], [32 x i8], ptr, ptr, i32, i32, i32, i32, [2 x i8], i32, i32, i32, i32, %struct.anon.0, [64 x i8], i64, [64 x i8], i64, i32, i32, ptr, i64, ptr, i64, i32, i8, i8, i16, ptr }
-%struct.anon.0 = type { [128 x i8], i64, [128 x i8], i64, i64, i32, ptr, ptr, i32, ptr, i64, ptr, i64, ptr, ptr, ptr, i32, i64, ptr, i32, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, i64, i64, ptr, ptr, i32, i32, i32, i32 }
-%struct.ssl_dane_st = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i64 }
-%struct.anon.1 = type { [29 x i8], ptr, ptr, ptr, i32, ptr, i16, i32, %struct.anon.2, i32, i32, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, i32, i32, i32, ptr, i64, i32, i8, i32, [4 x i32], i32, i8, i8, i8, i8 }
-%struct.anon.2 = type { ptr, ptr, ptr, i64 }
-%struct.srp_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64 }
-%struct.record_layer_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i64, [4 x i8], i64, i64, i8, i64, ptr, i32, ptr, ptr, ptr, i64, i64, i64, [32 x %struct.tls_record_st] }
-%struct.tls_record_st = type { ptr, i32, i8, ptr, ptr, i64, i64, i16, [8 x i8] }
-%struct.ossl_record_layer_st = type { ptr, ptr, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, ptr, i64, i32, [33 x %struct.tls_buffer_st], i64, i64, %struct.tls_buffer_st, [32 x %struct.tls_rl_record_st], i64, i64, i64, i32, ptr, i64, [8 x i8], i32, i32, i64, i32, ptr, i64, ptr, ptr, i32, i32, i32, i64, i64, [64 x i8], i32, i32, i32, [16 x i8], i32, i32, i64, %struct.record_pqueue_st, %struct.record_pqueue_st, %struct.dtls_bitmap_st, %struct.dtls_bitmap_st, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr }
-%struct.tls_buffer_st = type { ptr, i64, i64, i64, i64, i32, i32 }
-%struct.tls_rl_record_st = type { i32, i32, i64, i64, i64, ptr, ptr, ptr, i16, [8 x i8] }
-%struct.record_pqueue_st = type { i16, ptr }
-%struct.dtls_bitmap_st = type { i64, [8 x i8] }
 
 @test_get_options.options = internal constant [9 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -214,23 +189,23 @@ lor.lhs.false.us:                                 ; preds = %for.body17.us
   br i1 %switch.i.us, label %cond.end10.i.us, label %cond.true6.i.us
 
 cond.true6.i.us:                                  ; preds = %lor.lhs.false.us
-  %tls.i.us = getelementptr inbounds %struct.quic_conn_st, ptr %5, i64 0, i32 1
+  %tls.i.us = getelementptr inbounds i8, ptr %5, i64 64
   %7 = load ptr, ptr %tls.i.us, align 8
   br label %cond.end10.i.us
 
 cond.end10.i.us:                                  ; preds = %cond.true6.i.us, %lor.lhs.false.us
   %cond11.i.us = phi ptr [ %7, %cond.true6.i.us ], [ %5, %lor.lhs.false.us ]
-  %rrl12.i.us = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i.us, i64 0, i32 100, i32 5
+  %rrl12.i.us = getelementptr inbounds i8, ptr %cond11.i.us, i64 3040
   %8 = load ptr, ptr %rrl12.i.us, align 8
-  %rbuf18.i.us = getelementptr inbounds %struct.ossl_record_layer_st, ptr %8, i64 0, i32 17
+  %rbuf18.i.us = getelementptr inbounds i8, ptr %8, i64 1696
   %9 = load ptr, ptr %rbuf18.i.us, align 8
   %cmp20.i.us = icmp eq ptr %9, null
   br i1 %cmp20.i.us, label %land.rhs21.i.us, label %checkbuffers.exit.us
 
 land.rhs21.i.us:                                  ; preds = %cond.end10.i.us
-  %wrl14.i.us = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i.us, i64 0, i32 100, i32 6
+  %wrl14.i.us = getelementptr inbounds i8, ptr %cond11.i.us, i64 3048
   %10 = load ptr, ptr %wrl14.i.us, align 8
-  %wbuf22.i.us = getelementptr inbounds %struct.ossl_record_layer_st, ptr %10, i64 0, i32 14
+  %wbuf22.i.us = getelementptr inbounds i8, ptr %10, i64 96
   %11 = load ptr, ptr %wbuf22.i.us, align 8
   %cmp25.i.us = icmp eq ptr %11, null
   br label %checkbuffers.exit.us
@@ -261,23 +236,23 @@ lor.lhs.false40.us:                               ; preds = %land.lhs.true34.us
   br i1 %switch.i35.us, label %cond.end10.i38.us, label %cond.true6.i36.us
 
 cond.true6.i36.us:                                ; preds = %lor.lhs.false40.us
-  %tls.i37.us = getelementptr inbounds %struct.quic_conn_st, ptr %13, i64 0, i32 1
+  %tls.i37.us = getelementptr inbounds i8, ptr %13, i64 64
   %15 = load ptr, ptr %tls.i37.us, align 8
   br label %cond.end10.i38.us
 
 cond.end10.i38.us:                                ; preds = %cond.true6.i36.us, %lor.lhs.false40.us
   %cond11.i39.us = phi ptr [ %15, %cond.true6.i36.us ], [ %13, %lor.lhs.false40.us ]
-  %rrl12.i40.us = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i39.us, i64 0, i32 100, i32 5
+  %rrl12.i40.us = getelementptr inbounds i8, ptr %cond11.i39.us, i64 3040
   %16 = load ptr, ptr %rrl12.i40.us, align 8
-  %rbuf18.i42.us = getelementptr inbounds %struct.ossl_record_layer_st, ptr %16, i64 0, i32 17
+  %rbuf18.i42.us = getelementptr inbounds i8, ptr %16, i64 1696
   %17 = load ptr, ptr %rbuf18.i42.us, align 8
   %cmp20.i43.us = icmp eq ptr %17, null
   br i1 %cmp20.i43.us, label %checkbuffers.exit46.us, label %land.rhs.i.us
 
 land.rhs.i.us:                                    ; preds = %cond.end10.i38.us
-  %wrl14.i41.us = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i39.us, i64 0, i32 100, i32 6
+  %wrl14.i41.us = getelementptr inbounds i8, ptr %cond11.i39.us, i64 3048
   %18 = load ptr, ptr %wrl14.i41.us, align 8
-  %wbuf.i.us = getelementptr inbounds %struct.ossl_record_layer_st, ptr %18, i64 0, i32 14
+  %wbuf.i.us = getelementptr inbounds i8, ptr %18, i64 96
   %19 = load ptr, ptr %wbuf.i.us, align 8
   %cmp17.i.us = icmp ne ptr %19, null
   br label %checkbuffers.exit46.us
@@ -308,23 +283,23 @@ lor.lhs.false56.us:                               ; preds = %land.lhs.true50.us
   br i1 %switch.i48.us, label %cond.end10.i51.us, label %cond.true6.i49.us
 
 cond.true6.i49.us:                                ; preds = %lor.lhs.false56.us
-  %tls.i50.us = getelementptr inbounds %struct.quic_conn_st, ptr %21, i64 0, i32 1
+  %tls.i50.us = getelementptr inbounds i8, ptr %21, i64 64
   %23 = load ptr, ptr %tls.i50.us, align 8
   br label %cond.end10.i51.us
 
 cond.end10.i51.us:                                ; preds = %cond.true6.i49.us, %lor.lhs.false56.us
   %cond11.i52.us = phi ptr [ %23, %cond.true6.i49.us ], [ %21, %lor.lhs.false56.us ]
-  %rrl12.i53.us = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i52.us, i64 0, i32 100, i32 5
+  %rrl12.i53.us = getelementptr inbounds i8, ptr %cond11.i52.us, i64 3040
   %24 = load ptr, ptr %rrl12.i53.us, align 8
-  %rbuf18.i55.us = getelementptr inbounds %struct.ossl_record_layer_st, ptr %24, i64 0, i32 17
+  %rbuf18.i55.us = getelementptr inbounds i8, ptr %24, i64 1696
   %25 = load ptr, ptr %rbuf18.i55.us, align 8
   %cmp20.i56.us = icmp eq ptr %25, null
   br i1 %cmp20.i56.us, label %checkbuffers.exit62.us, label %land.rhs.i57.us
 
 land.rhs.i57.us:                                  ; preds = %cond.end10.i51.us
-  %wrl14.i54.us = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i52.us, i64 0, i32 100, i32 6
+  %wrl14.i54.us = getelementptr inbounds i8, ptr %cond11.i52.us, i64 3048
   %26 = load ptr, ptr %wrl14.i54.us, align 8
-  %wbuf.i58.us = getelementptr inbounds %struct.ossl_record_layer_st, ptr %26, i64 0, i32 14
+  %wbuf.i58.us = getelementptr inbounds i8, ptr %26, i64 96
   %27 = load ptr, ptr %wbuf.i58.us, align 8
   %cmp17.i59.us = icmp ne ptr %27, null
   br label %checkbuffers.exit62.us
@@ -355,23 +330,23 @@ lor.lhs.false72.us:                               ; preds = %land.lhs.true66.us
   br i1 %switch.i64.us, label %cond.end10.i67.us, label %cond.true6.i65.us
 
 cond.true6.i65.us:                                ; preds = %lor.lhs.false72.us
-  %tls.i66.us = getelementptr inbounds %struct.quic_conn_st, ptr %29, i64 0, i32 1
+  %tls.i66.us = getelementptr inbounds i8, ptr %29, i64 64
   %31 = load ptr, ptr %tls.i66.us, align 8
   br label %cond.end10.i67.us
 
 cond.end10.i67.us:                                ; preds = %cond.true6.i65.us, %lor.lhs.false72.us
   %cond11.i68.us = phi ptr [ %31, %cond.true6.i65.us ], [ %29, %lor.lhs.false72.us ]
-  %rrl12.i69.us = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i68.us, i64 0, i32 100, i32 5
+  %rrl12.i69.us = getelementptr inbounds i8, ptr %cond11.i68.us, i64 3040
   %32 = load ptr, ptr %rrl12.i69.us, align 8
-  %rbuf18.i71.us = getelementptr inbounds %struct.ossl_record_layer_st, ptr %32, i64 0, i32 17
+  %rbuf18.i71.us = getelementptr inbounds i8, ptr %32, i64 1696
   %33 = load ptr, ptr %rbuf18.i71.us, align 8
   %cmp20.i72.us = icmp eq ptr %33, null
   br i1 %cmp20.i72.us, label %land.rhs21.i75.us, label %checkbuffers.exit78.us
 
 land.rhs21.i75.us:                                ; preds = %cond.end10.i67.us
-  %wrl14.i70.us = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i68.us, i64 0, i32 100, i32 6
+  %wrl14.i70.us = getelementptr inbounds i8, ptr %cond11.i68.us, i64 3048
   %34 = load ptr, ptr %wrl14.i70.us, align 8
-  %wbuf22.i76.us = getelementptr inbounds %struct.ossl_record_layer_st, ptr %34, i64 0, i32 14
+  %wbuf22.i76.us = getelementptr inbounds i8, ptr %34, i64 96
   %35 = load ptr, ptr %wbuf22.i76.us, align 8
   %cmp25.i77.us = icmp eq ptr %35, null
   br label %checkbuffers.exit78.us
@@ -470,23 +445,23 @@ lor.lhs.false117:                                 ; preds = %land.lhs.true111
   br i1 %switch.i80, label %cond.end10.i83, label %cond.true6.i81
 
 cond.true6.i81:                                   ; preds = %lor.lhs.false117
-  %tls.i82 = getelementptr inbounds %struct.quic_conn_st, ptr %45, i64 0, i32 1
+  %tls.i82 = getelementptr inbounds i8, ptr %45, i64 64
   %47 = load ptr, ptr %tls.i82, align 8
   br label %cond.end10.i83
 
 cond.end10.i83:                                   ; preds = %cond.true6.i81, %lor.lhs.false117
   %cond11.i84 = phi ptr [ %47, %cond.true6.i81 ], [ %45, %lor.lhs.false117 ]
-  %rrl12.i85 = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i84, i64 0, i32 100, i32 5
+  %rrl12.i85 = getelementptr inbounds i8, ptr %cond11.i84, i64 3040
   %48 = load ptr, ptr %rrl12.i85, align 8
-  %rbuf18.i87 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %48, i64 0, i32 17
+  %rbuf18.i87 = getelementptr inbounds i8, ptr %48, i64 1696
   %49 = load ptr, ptr %rbuf18.i87, align 8
   %cmp20.i88 = icmp eq ptr %49, null
   br i1 %cmp20.i88, label %land.rhs21.i91, label %checkbuffers.exit94
 
 land.rhs21.i91:                                   ; preds = %cond.end10.i83
-  %wrl14.i86 = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i84, i64 0, i32 100, i32 6
+  %wrl14.i86 = getelementptr inbounds i8, ptr %cond11.i84, i64 3048
   %50 = load ptr, ptr %wrl14.i86, align 8
-  %wbuf22.i92 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %50, i64 0, i32 14
+  %wbuf22.i92 = getelementptr inbounds i8, ptr %50, i64 96
   %51 = load ptr, ptr %wbuf22.i92, align 8
   %cmp25.i93 = icmp eq ptr %51, null
   br label %checkbuffers.exit94
@@ -517,23 +492,23 @@ lor.lhs.false133:                                 ; preds = %land.lhs.true127
   br i1 %switch.i96, label %cond.end10.i99, label %cond.true6.i97
 
 cond.true6.i97:                                   ; preds = %lor.lhs.false133
-  %tls.i98 = getelementptr inbounds %struct.quic_conn_st, ptr %53, i64 0, i32 1
+  %tls.i98 = getelementptr inbounds i8, ptr %53, i64 64
   %55 = load ptr, ptr %tls.i98, align 8
   br label %cond.end10.i99
 
 cond.end10.i99:                                   ; preds = %cond.true6.i97, %lor.lhs.false133
   %cond11.i100 = phi ptr [ %55, %cond.true6.i97 ], [ %53, %lor.lhs.false133 ]
-  %rrl12.i101 = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i100, i64 0, i32 100, i32 5
+  %rrl12.i101 = getelementptr inbounds i8, ptr %cond11.i100, i64 3040
   %56 = load ptr, ptr %rrl12.i101, align 8
-  %rbuf18.i103 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %56, i64 0, i32 17
+  %rbuf18.i103 = getelementptr inbounds i8, ptr %56, i64 1696
   %57 = load ptr, ptr %rbuf18.i103, align 8
   %cmp20.i104 = icmp eq ptr %57, null
   br i1 %cmp20.i104, label %land.rhs21.i107, label %checkbuffers.exit110
 
 land.rhs21.i107:                                  ; preds = %cond.end10.i99
-  %wrl14.i102 = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i100, i64 0, i32 100, i32 6
+  %wrl14.i102 = getelementptr inbounds i8, ptr %cond11.i100, i64 3048
   %58 = load ptr, ptr %wrl14.i102, align 8
-  %wbuf22.i108 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %58, i64 0, i32 14
+  %wbuf22.i108 = getelementptr inbounds i8, ptr %58, i64 96
   %59 = load ptr, ptr %wbuf22.i108, align 8
   %cmp25.i109 = icmp eq ptr %59, null
   br label %checkbuffers.exit110
@@ -564,23 +539,23 @@ lor.lhs.false149:                                 ; preds = %land.lhs.true143
   br i1 %switch.i112, label %cond.end10.i115, label %cond.true6.i113
 
 cond.true6.i113:                                  ; preds = %lor.lhs.false149
-  %tls.i114 = getelementptr inbounds %struct.quic_conn_st, ptr %61, i64 0, i32 1
+  %tls.i114 = getelementptr inbounds i8, ptr %61, i64 64
   %63 = load ptr, ptr %tls.i114, align 8
   br label %cond.end10.i115
 
 cond.end10.i115:                                  ; preds = %cond.true6.i113, %lor.lhs.false149
   %cond11.i116 = phi ptr [ %63, %cond.true6.i113 ], [ %61, %lor.lhs.false149 ]
-  %rrl12.i117 = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i116, i64 0, i32 100, i32 5
+  %rrl12.i117 = getelementptr inbounds i8, ptr %cond11.i116, i64 3040
   %64 = load ptr, ptr %rrl12.i117, align 8
-  %rbuf18.i119 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %64, i64 0, i32 17
+  %rbuf18.i119 = getelementptr inbounds i8, ptr %64, i64 1696
   %65 = load ptr, ptr %rbuf18.i119, align 8
   %cmp20.i120 = icmp eq ptr %65, null
   br i1 %cmp20.i120, label %checkbuffers.exit126, label %land.rhs.i121
 
 land.rhs.i121:                                    ; preds = %cond.end10.i115
-  %wrl14.i118 = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i116, i64 0, i32 100, i32 6
+  %wrl14.i118 = getelementptr inbounds i8, ptr %cond11.i116, i64 3048
   %66 = load ptr, ptr %wrl14.i118, align 8
-  %wbuf.i122 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %66, i64 0, i32 14
+  %wbuf.i122 = getelementptr inbounds i8, ptr %66, i64 96
   %67 = load ptr, ptr %wbuf.i122, align 8
   %cmp17.i123 = icmp ne ptr %67, null
   br label %checkbuffers.exit126
@@ -611,23 +586,23 @@ lor.lhs.false165:                                 ; preds = %land.lhs.true159
   br i1 %switch.i128, label %cond.end10.i131, label %cond.true6.i129
 
 cond.true6.i129:                                  ; preds = %lor.lhs.false165
-  %tls.i130 = getelementptr inbounds %struct.quic_conn_st, ptr %69, i64 0, i32 1
+  %tls.i130 = getelementptr inbounds i8, ptr %69, i64 64
   %71 = load ptr, ptr %tls.i130, align 8
   br label %cond.end10.i131
 
 cond.end10.i131:                                  ; preds = %cond.true6.i129, %lor.lhs.false165
   %cond11.i132 = phi ptr [ %71, %cond.true6.i129 ], [ %69, %lor.lhs.false165 ]
-  %rrl12.i133 = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i132, i64 0, i32 100, i32 5
+  %rrl12.i133 = getelementptr inbounds i8, ptr %cond11.i132, i64 3040
   %72 = load ptr, ptr %rrl12.i133, align 8
-  %rbuf18.i135 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %72, i64 0, i32 17
+  %rbuf18.i135 = getelementptr inbounds i8, ptr %72, i64 1696
   %73 = load ptr, ptr %rbuf18.i135, align 8
   %cmp20.i136 = icmp eq ptr %73, null
   br i1 %cmp20.i136, label %land.rhs21.i139, label %checkbuffers.exit142
 
 land.rhs21.i139:                                  ; preds = %cond.end10.i131
-  %wrl14.i134 = getelementptr inbounds %struct.ssl_connection_st, ptr %cond11.i132, i64 0, i32 100, i32 6
+  %wrl14.i134 = getelementptr inbounds i8, ptr %cond11.i132, i64 3048
   %74 = load ptr, ptr %wrl14.i134, align 8
-  %wbuf22.i140 = getelementptr inbounds %struct.ossl_record_layer_st, ptr %74, i64 0, i32 14
+  %wbuf22.i140 = getelementptr inbounds i8, ptr %74, i64 96
   %75 = load ptr, ptr %wbuf22.i140, align 8
   %cmp25.i141 = icmp eq ptr %75, null
   br label %checkbuffers.exit142

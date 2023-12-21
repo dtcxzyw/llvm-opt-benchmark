@@ -9,32 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.0 = type { i64 }
 %struct.CompatPolicy = type { i8, i32, i8, i32, i8, i32, i8, i32 }
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.MonitorQMP = type { %struct.Monitor, %struct.JSONMessageParser, i8, ptr, [1 x i8], [1 x i8], %struct.QemuMutex, ptr }
-%struct.Monitor = type { %struct.CharBackend, i32, i8, i8, i8, ptr, %union.anon, %struct.QemuMutex, %struct.anon, ptr, i32, i32, i32 }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.anon = type { ptr }
-%struct.JSONMessageParser = type { ptr, ptr, ptr, %struct.JSONLexer, i32, i32, %struct._GQueue, i64 }
-%struct.JSONLexer = type { i32, i32, ptr, i32, i32 }
-%struct._GQueue = type { ptr, ptr, i32 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QMPCapabilityList = type { ptr, i32 }
-%struct.VersionTriple = type { i64, i64, i64 }
-%struct.VersionInfo = type { ptr, ptr }
-%struct.QmpCommand = type { ptr, ptr, i32, i32, %union.anon.1, i8, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.CommandInfoList = type { ptr, ptr }
-%struct.QObjectBase_ = type { i32, i64 }
-%struct.SchemaInfoList = type { ptr, ptr }
-%struct.SchemaInfo = type { ptr, i32, i8, ptr, %union.anon.2 }
-%union.anon.2 = type { %struct.SchemaInfoObject }
-%struct.SchemaInfoObject = type { ptr, ptr, i8, ptr }
-%struct.strList = type { ptr, ptr }
-%struct.SchemaInfoObjectMemberList = type { ptr, ptr }
-%struct.SchemaInfoObjectMember = type { ptr, ptr, ptr, i8, ptr }
 
 @.str = private unnamed_addr constant [24 x i8] c"monitor_is_qmp(cur_mon)\00", align 1
 @.str.1 = private unnamed_addr constant [35 x i8] c"../qemu/monitor/qmp-cmds-control.c\00", align 1
@@ -73,7 +47,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %commands = getelementptr inbounds %struct.MonitorQMP, ptr %call, i64 0, i32 3
+  %commands = getelementptr inbounds i8, ptr %call, i64 264
   %2 = load ptr, ptr %commands, align 8
   %cmp = icmp eq ptr %2, @qmp_commands
   br i1 %cmp, label %if.then2, label %if.end3
@@ -84,15 +58,19 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %tobool.not11.i = icmp eq ptr %enable, null
-  br i1 %tobool.not11.i, label %if.end6, label %for.body.i
+  br i1 %tobool.not11.i, label %if.end6, label %for.body.lr.ph.i
 
-for.body.i:                                       ; preds = %if.end3, %if.end8.i
-  %unavailable.013.i = phi ptr [ %unavailable.1.i, %if.end8.i ], [ null, %if.end3 ]
-  %list.addr.012.i = phi ptr [ %6, %if.end8.i ], [ %enable, %if.end3 ]
-  %value.i = getelementptr inbounds %struct.QMPCapabilityList, ptr %list.addr.012.i, i64 0, i32 1
+for.body.lr.ph.i:                                 ; preds = %if.end3
+  %capab_offered.i = getelementptr inbounds i8, ptr %call, i64 272
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %if.end8.i, %for.body.lr.ph.i
+  %unavailable.013.i = phi ptr [ null, %for.body.lr.ph.i ], [ %unavailable.1.i, %if.end8.i ]
+  %list.addr.012.i = phi ptr [ %enable, %for.body.lr.ph.i ], [ %6, %if.end8.i ]
+  %value.i = getelementptr inbounds i8, ptr %list.addr.012.i, i64 8
   %3 = load i32, ptr %value.i, align 8
   %idxprom.i = zext i32 %3 to i64
-  %arrayidx.i = getelementptr %struct.MonitorQMP, ptr %call, i64 0, i32 4, i64 %idxprom.i
+  %arrayidx.i = getelementptr [1 x i8], ptr %capab_offered.i, i64 0, i64 %idxprom.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %5 = and i8 %4, 1
   %tobool1.not.i = icmp eq i8 %5, 0
@@ -129,7 +107,7 @@ qmp_caps_accept.exit:                             ; preds = %for.end.i
 
 if.end6:                                          ; preds = %if.end3, %for.end.i
   %capab.sroa.0.0.lcssa18.i = phi i8 [ 1, %for.end.i ], [ 0, %if.end3 ]
-  %capab16.i = getelementptr inbounds %struct.MonitorQMP, ptr %call, i64 0, i32 5
+  %capab16.i = getelementptr inbounds i8, ptr %call, i64 273
   store i8 %capab.sroa.0.0.lcssa18.i, ptr %capab16.i, align 1
   store ptr @qmp_commands, ptr %commands, align 8
   br label %return
@@ -152,12 +130,12 @@ entry:
   %call1 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #10
   store ptr %call1, ptr %call, align 8
   store i64 8, ptr %call1, align 8
-  %minor = getelementptr inbounds %struct.VersionTriple, ptr %call1, i64 0, i32 1
+  %minor = getelementptr inbounds i8, ptr %call1, i64 8
   store i64 1, ptr %minor, align 8
-  %micro = getelementptr inbounds %struct.VersionTriple, ptr %call1, i64 0, i32 2
+  %micro = getelementptr inbounds i8, ptr %call1, i64 16
   store i64 94, ptr %micro, align 8
   %call5 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #8
-  %package = getelementptr inbounds %struct.VersionInfo, ptr %call, i64 0, i32 1
+  %package = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call5, ptr %package, align 8
   ret ptr %call
 }
@@ -184,7 +162,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %commands = getelementptr inbounds %struct.MonitorQMP, ptr %call, i64 0, i32 3
+  %commands = getelementptr inbounds i8, ptr %call, i64 264
   %2 = load ptr, ptr %commands, align 8
   call void @qmp_for_each_command(ptr noundef %2, ptr noundef nonnull @query_commands_cb, ptr noundef nonnull %list) #8
   %3 = load ptr, ptr %list, align 8
@@ -196,7 +174,7 @@ declare void @qmp_for_each_command(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @query_commands_cb(ptr nocapture noundef readonly %cmd, ptr nocapture noundef %opaque) #0 {
 entry:
-  %enabled = getelementptr inbounds %struct.QmpCommand, ptr %cmd, i64 0, i32 5
+  %enabled = getelementptr inbounds i8, ptr %cmd, i64 40
   %0 = load i8, ptr %enabled, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -208,7 +186,7 @@ if.end:                                           ; preds = %entry
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %2) #8
   store ptr %call1, ptr %call, align 8
   %call3 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #11
-  %value = getelementptr inbounds %struct.CommandInfoList, ptr %call3, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %call, ptr %value, align 8
   %3 = load ptr, ptr %opaque, align 8
   store ptr %3, ptr %call3, align 8
@@ -244,7 +222,7 @@ do.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %do.end
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %1, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -282,16 +260,16 @@ for.body.i.i:                                     ; preds = %if.then5, %is_entit
   %tail.012.i.i = phi ptr [ %11, %is_entity_deprecated.exit.i ], [ %3, %if.then5 ]
   %split_tailp.011.i.i = phi ptr [ %10, %is_entity_deprecated.exit.i ], [ %split.i.i, %if.then5 ]
   %keep_tailp.010.i.i = phi ptr [ %8, %is_entity_deprecated.exit.i ], [ %keep.i.i, %if.then5 ]
-  %value.i.i = getelementptr inbounds %struct.SchemaInfoList, ptr %tail.012.i.i, i64 0, i32 1
+  %value.i.i = getelementptr inbounds i8, ptr %tail.012.i.i, i64 8
   %4 = load ptr, ptr %value.i.i, align 8
-  %features.i.i = getelementptr inbounds %struct.SchemaInfo, ptr %4, i64 0, i32 3
+  %features.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %features.i.i, align 8
   %tobool.not1.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not1.not.i.i.i, label %is_entity_deprecated.exit.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i, %for.inc.i.i.i
   %tail.02.i.i.i = phi ptr [ %7, %for.inc.i.i.i ], [ %5, %for.body.i.i ]
-  %value.i.i.i = getelementptr inbounds %struct.strList, ptr %tail.02.i.i.i, i64 0, i32 1
+  %value.i.i.i = getelementptr inbounds i8, ptr %tail.02.i.i.i, i64 8
   %6 = load ptr, ptr %value.i.i.i, align 8
   %call.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(11) @.str.9) #12
   %tobool1.not.i.i.i = icmp eq i32 %call.i.i.i, 0
@@ -326,15 +304,15 @@ split_off_generic_list.exit.i:                    ; preds = %is_entity_deprecate
 
 for.body.i:                                       ; preds = %split_off_generic_list.exit.i, %for.inc.i
   %tail.063.i = phi ptr [ %23, %for.inc.i ], [ %keep.i.i.0.keep.i.i.0.keep.i.i.0.keep.i.0.keep.i.0.keep.0.keep.0.keep.0..i.i, %split_off_generic_list.exit.i ]
-  %value.i = getelementptr inbounds %struct.SchemaInfoList, ptr %tail.063.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %tail.063.i, i64 8
   %12 = load ptr, ptr %value.i, align 8
-  %meta_type.i = getelementptr inbounds %struct.SchemaInfo, ptr %12, i64 0, i32 1
+  %meta_type.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i32, ptr %meta_type.i, align 8
   %cmp.i4 = icmp eq i32 %13, 3
   br i1 %cmp.i4, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %u.i = getelementptr inbounds %struct.SchemaInfo, ptr %12, i64 0, i32 4
+  %u.i = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %u.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %keep.i7.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %split.i8.i)
@@ -347,16 +325,16 @@ for.body.i10.i:                                   ; preds = %if.then.i, %is_memb
   %tail.012.i11.i = phi ptr [ %22, %is_member_deprecated.exit.i ], [ %14, %if.then.i ]
   %split_tailp.011.i12.i = phi ptr [ %21, %is_member_deprecated.exit.i ], [ %split.i8.i, %if.then.i ]
   %keep_tailp.010.i13.i = phi ptr [ %19, %is_member_deprecated.exit.i ], [ %keep.i7.i, %if.then.i ]
-  %value.i24.i = getelementptr inbounds %struct.SchemaInfoObjectMemberList, ptr %tail.012.i11.i, i64 0, i32 1
+  %value.i24.i = getelementptr inbounds i8, ptr %tail.012.i11.i, i64 8
   %15 = load ptr, ptr %value.i24.i, align 8
-  %features.i25.i = getelementptr inbounds %struct.SchemaInfoObjectMember, ptr %15, i64 0, i32 4
+  %features.i25.i = getelementptr inbounds i8, ptr %15, i64 32
   %16 = load ptr, ptr %features.i25.i, align 8
   %tobool.not1.not.i.i26.i = icmp eq ptr %16, null
   br i1 %tobool.not1.not.i.i26.i, label %is_member_deprecated.exit.i, label %for.body.i.i27.i
 
 for.body.i.i27.i:                                 ; preds = %for.body.i10.i, %for.inc.i.i32.i
   %tail.02.i.i28.i = phi ptr [ %18, %for.inc.i.i32.i ], [ %16, %for.body.i10.i ]
-  %value.i.i29.i = getelementptr inbounds %struct.strList, ptr %tail.02.i.i28.i, i64 0, i32 1
+  %value.i.i29.i = getelementptr inbounds i8, ptr %tail.02.i.i28.i, i64 8
   %17 = load ptr, ptr %value.i.i29.i, align 8
   %call.i.i30.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(11) @.str.9) #12
   %tobool1.not.i.i31.i = icmp eq i32 %call.i.i30.i, 0

@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libdefault-lib-provider_seeding.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_dispatch_st = type { i32, ptr }
-
 @c_get_entropy = internal unnamed_addr global ptr null, align 8
 @c_get_user_entropy = internal unnamed_addr global ptr null, align 8
 @c_cleanup_entropy = internal unnamed_addr global ptr null, align 8
@@ -171,7 +169,7 @@ for.inc:                                          ; preds = %for.cond, %if.then,
   %fns.addr.0.val3646 = phi ptr [ %fns.addr.0.val3647, %for.cond ], [ %fns.addr.0.val3647, %if.then ], [ %fns.addr.0.val3647, %if.else ], [ %fns.addr.0.val3647, %if.then10 ], [ %fns.addr.0.val3647, %if.else12 ], [ %fns.addr.0.val3647, %if.then22 ], [ %fns.addr.0.val3647, %if.else24 ], [ %fns.addr.0.val3647, %if.then34 ], [ %fns.addr.0.val3647, %if.else36 ], [ %fns.addr.0.val3647, %if.then46 ], [ %fns.addr.0.val3647, %if.else48 ], [ %fns.addr.0.val36, %if.then58 ], [ %fns.addr.0.val3647, %if.else60 ], [ %fns.addr.0.val3647, %if.then70 ], [ %fns.addr.0.val3647, %if.else72 ], [ %fns.addr.0.val3647, %if.then82 ], [ %fns.addr.0.val3647, %if.else84 ]
   %fns.addr.0.val3844 = phi ptr [ %fns.addr.0.val3845, %for.cond ], [ %fns.addr.0.val3845, %if.then ], [ %fns.addr.0.val3845, %if.else ], [ %fns.addr.0.val3845, %if.then10 ], [ %fns.addr.0.val3845, %if.else12 ], [ %fns.addr.0.val3845, %if.then22 ], [ %fns.addr.0.val3845, %if.else24 ], [ %fns.addr.0.val3845, %if.then34 ], [ %fns.addr.0.val3845, %if.else36 ], [ %fns.addr.0.val3845, %if.then46 ], [ %fns.addr.0.val3845, %if.else48 ], [ %fns.addr.0.val3845, %if.then58 ], [ %fns.addr.0.val3845, %if.else60 ], [ %fns.addr.0.val38, %if.then70 ], [ %fns.addr.0.val3845, %if.else72 ], [ %fns.addr.0.val3845, %if.then82 ], [ %fns.addr.0.val3845, %if.else84 ]
   %fns.addr.0.val4042 = phi ptr [ %fns.addr.0.val4043, %for.cond ], [ %fns.addr.0.val4043, %if.then ], [ %fns.addr.0.val4043, %if.else ], [ %fns.addr.0.val4043, %if.then10 ], [ %fns.addr.0.val4043, %if.else12 ], [ %fns.addr.0.val4043, %if.then22 ], [ %fns.addr.0.val4043, %if.else24 ], [ %fns.addr.0.val4043, %if.then34 ], [ %fns.addr.0.val4043, %if.else36 ], [ %fns.addr.0.val4043, %if.then46 ], [ %fns.addr.0.val4043, %if.else48 ], [ %fns.addr.0.val4043, %if.then58 ], [ %fns.addr.0.val4043, %if.else60 ], [ %fns.addr.0.val4043, %if.then70 ], [ %fns.addr.0.val4043, %if.else72 ], [ %fns.addr.0.val40, %if.then82 ], [ %fns.addr.0.val4043, %if.else84 ]
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %fns.addr.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 return:                                           ; preds = %for.cond, %if.else84, %if.else72, %if.else60, %if.else48, %if.else36, %if.else24, %if.else12, %if.else

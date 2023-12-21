@@ -455,25 +455,25 @@ if.end39:                                         ; preds = %for.body
   %call40 = tail call ptr @SSL_CIPHER_standard_name(ptr noundef %call32) #2
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %if.end39
-  %i.05.i = phi i64 [ 0, %if.end39 ], [ %inc.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [334 x %struct.cipher_id_name], ptr @cipher_names, i64 0, i64 %i.05.i
-  %2 = load i32, ptr %arrayidx.i, align 16
-  %cmp2.i = icmp eq i32 %2, %and
-  br i1 %cmp2.i, label %if.then.i, label %for.inc.i
-
-if.then.i:                                        ; preds = %for.body.i
-  %name.i = getelementptr inbounds [334 x %struct.cipher_id_name], ptr @cipher_names, i64 0, i64 %i.05.i, i32 1
-  %3 = load ptr, ptr %name.i, align 8
-  br label %get_std_name_by_id.exit
-
-for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.05.i, 1
+for.cond.i:                                       ; preds = %for.body.i
+  %inc.i = add nuw nsw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 334
   br i1 %exitcond.not.i, label %get_std_name_by_id.exit, label %for.body.i, !llvm.loop !5
 
-get_std_name_by_id.exit:                          ; preds = %for.inc.i, %if.then.i
-  %retval.0.i = phi ptr [ %3, %if.then.i ], [ null, %for.inc.i ]
+for.body.i:                                       ; preds = %for.cond.i, %if.end39
+  %i.04.i = phi i64 [ 0, %if.end39 ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds [334 x %struct.cipher_id_name], ptr @cipher_names, i64 0, i64 %i.04.i
+  %2 = load i32, ptr %arrayidx.i, align 16
+  %cmp2.i = icmp eq i32 %2, %and
+  br i1 %cmp2.i, label %if.then.i, label %for.cond.i
+
+if.then.i:                                        ; preds = %for.body.i
+  %name.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %3 = load ptr, ptr %name.i, align 8
+  br label %get_std_name_by_id.exit
+
+get_std_name_by_id.exit:                          ; preds = %for.cond.i, %if.then.i
+  %retval.0.i = phi ptr [ %3, %if.then.i ], [ null, %for.cond.i ]
   %call42 = tail call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 439, ptr noundef nonnull @.str.3, ptr noundef %call40) #2
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.then44, label %if.end45

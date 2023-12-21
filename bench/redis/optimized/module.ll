@@ -20,107 +20,46 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.dictType = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
 %struct.RedisModuleDefragCtx = type { i64, ptr, ptr, i32 }
-%struct.RedisModuleCtx = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, i32, ptr, ptr, ptr, ptr, i64, ptr }
-%struct.RedisModulePoolAllocBlock = type { i32, i32, ptr, [0 x i8] }
-%struct.client = type { i64, i64, ptr, i32, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, ptr, i32, i32, ptr, i64, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, i64, ptr, i64, i64, i64, i32, ptr, i64, i64, i32, i32, i32, i32, i64, i64, ptr, i64, i64, i64, i64, i64, i64, i64, i64, [41 x i8], i32, ptr, i32, i32, %struct.multiState, %struct.blockingState, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, ptr, ptr, ptr, i64, %struct.listNode, i64, i64, i32, i64, ptr }
-%struct.multiState = type { ptr, i32, i32, i32, i64, i32 }
-%struct.blockingState = type { i32, i64, i32, ptr, i32, i32, i64, ptr, ptr }
-%struct.listNode = type { ptr, ptr, ptr }
-%struct.RedisModuleAsyncRMCallPromise = type { i64, ptr, ptr, ptr, ptr, ptr }
-%struct.RedisModuleKey = type { ptr, ptr, ptr, ptr, ptr, i32, %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { %struct.listTypeEntry, i64 }
-%struct.listTypeEntry = type { ptr, ptr, %struct.quicklistEntry }
-%struct.quicklistEntry = type { ptr, ptr, ptr, ptr, i64, i64, i32 }
-%struct.RedisModule = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32, i64 }
 %struct.AutoMemEntry = type { ptr, i32 }
-%struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr, i32, [2 x %struct.dbDictState] }
-%struct.dbDictState = type { i32, i32, i64, i64, ptr }
-%struct.list = type { ptr, ptr, ptr, ptr, ptr, i64 }
-%struct.clientReplyBlock = type { i64, i64, [0 x i8] }
-%struct.redisCommand = type { ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, i32, i64, i64, ptr, i32, ptr, i32, ptr, ptr, i64, i64, i64, i64, i32, ptr, ptr, %struct.keySpec, ptr, ptr, ptr }
+%struct.RedisModuleCtx = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, i32, ptr, ptr, ptr, ptr, i64, ptr }
+%struct.keyReference = type { i32, i32 }
+%struct.commandHistory = type { ptr, ptr }
 %struct.keySpec = type { ptr, i64, i32, %union.anon.3, i32, %union.anon.6 }
 %union.anon.3 = type { %struct.anon.5 }
 %struct.anon.5 = type { ptr, i32 }
 %union.anon.6 = type { %struct.anon.7 }
 %struct.anon.7 = type { i32, i32, i32 }
-%struct.RedisModuleCommand = type { ptr, ptr, ptr }
-%struct.redisObject = type { i32, i32, ptr }
-%struct.getKeysResult = type { [256 x %struct.keyReference], ptr, i32, i32 }
-%struct.keyReference = type { i32, i32 }
 %struct.redisCommandArg = type { ptr, i32, i32, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr }
-%struct.RedisModuleCommandInfo = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr }
-%struct.RedisModuleCommandHistoryEntry = type { ptr, ptr }
-%struct.RedisModuleCommandKeySpec = type { ptr, i64, i32, %union.anon.9, i32, %union.anon.12 }
-%union.anon.9 = type { %struct.anon.11 }
-%struct.anon.11 = type { ptr, i32 }
-%union.anon.12 = type { %struct.anon.13 }
-%struct.anon.13 = type { i32, i32, i32 }
-%struct.commandHistory = type { ptr, ptr }
-%struct.RedisModuleCommandArg = type { ptr, i32, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr }
-%struct.RedisModuleBlockedClient = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.streamID = type { i64, i64 }
-%struct.RedisModuleClientInfo = type { i64, i64, i64, [46 x i8], i16, i16 }
-%struct.ConnectionType = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.RedisModuleReplicationInfo = type { i64, i32, ptr, i32, ptr, ptr, i64, i64 }
-%struct.RedisModuleKeyOptCtx = type { ptr, ptr, i32, i32 }
-%struct.listTypeIterator = type { ptr, i8, i8, ptr, ptr }
-%struct.zset = type { ptr, ptr }
-%struct.zskiplistNode = type { ptr, double, ptr, [0 x %struct.zskiplistLevel] }
-%struct.zskiplistLevel = type { ptr, i64 }
-%struct.RedisModuleStreamID = type { i64, i64 }
-%struct.stream = type { ptr, i64, %struct.streamID, %struct.streamID, %struct.streamID, i64, ptr }
 %struct.listIter = type { ptr, i32 }
 %struct.RedisModuleCommandFilterCtx = type { ptr, i32, i32, ptr }
-%struct.RedisModuleCommandFilter = type { ptr, ptr, i32 }
-%struct.RedisModuleType = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, [10 x i8] }
-%struct.moduleValue = type { ptr, ptr }
-%struct.typemethods = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon.16, %struct.anon.17, %struct.anon.18, %struct.anon.19 }
-%struct.anon.16 = type { ptr, ptr, i32 }
-%struct.anon.17 = type { ptr, ptr, ptr, ptr }
-%struct.anon.18 = type { ptr, ptr, ptr, ptr }
-%struct.anon.19 = type { ptr }
-%struct.RedisModuleIO = type { i64, ptr, ptr, i32, ptr, ptr, i32, ptr }
-%struct.RedisModuleDigest = type { [20 x i8], [20 x i8], ptr, i32 }
+%struct.RedisModuleKeyOptCtx = type { ptr, ptr, i32, i32 }
 %struct._rio = type { ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, %union.anon.22 }
 %union.anon.22 = type { %struct.anon.25 }
 %struct.anon.25 = type { ptr, i64, ptr, i64, i64 }
-%struct.RedisModuleAuthCtx = type { ptr, ptr }
-%struct.RedisModuleKeyspaceSubscriber = type { ptr, ptr, i32, i32 }
-%struct.RedisModulePostExecUnitJob = type { ptr, ptr, ptr, ptr, i32 }
-%struct.moduleClusterReceiver = type { i64, ptr, ptr, ptr }
+%struct.RedisModuleIO = type { i64, ptr, ptr, i32, ptr, ptr, i32, ptr }
 %struct.raxIterator = type { i32, ptr, ptr, ptr, i64, i64, [128 x i8], ptr, %struct.raxStack, ptr }
 %struct.raxStack = type { ptr, i64, i64, [32 x ptr], i32 }
-%struct.RedisModuleTimer = type { ptr, ptr, ptr, i32 }
-%struct.EventLoopData = type { ptr, ptr, ptr }
-%struct.EventLoopOneShot = type { ptr, ptr }
-%struct.RedisModuleUser = type { ptr, i32 }
-%struct.user = type { ptr, i32, ptr, ptr, ptr }
-%struct.RedisModuleDictIter = type { ptr, %struct.raxIterator }
 %struct.RedisModuleInfoCtx = type { ptr, ptr, ptr, i32, i32, i32 }
-%struct.RedisModuleSharedAPI = type { ptr, ptr }
-%struct.rax = type { ptr, i64, i64 }
-%struct.RedisModuleScanCursor = type { i64, i32 }
 %struct.ScanCBData = type { ptr, ptr, ptr }
+%struct.RedisModuleKey = type { ptr, ptr, ptr, ptr, ptr, i32, %union.anon }
+%union.anon = type { %struct.anon }
+%struct.anon = type { %struct.listTypeEntry, i64 }
+%struct.listTypeEntry = type { ptr, ptr, %struct.quicklistEntry }
+%struct.quicklistEntry = type { ptr, ptr, ptr, ptr, i64, i64, i32 }
 %struct.ScanKeyCBData = type { ptr, ptr, ptr }
-%struct.RedisModuleEventListener = type { ptr, %struct.RedisModuleEvent, ptr }
-%struct.RedisModuleEvent = type { i64, i64 }
+%struct.RedisModuleClientInfo = type { i64, i64, i64, [46 x i8], i16, i16 }
+%struct.RedisModuleReplicationInfo = type { i64, i32, ptr, i32, ptr, ptr, i64, i64 }
 %struct.RedisModuleModuleChange = type { i64, ptr, i32 }
 %struct.RedisModuleKeyInfo = type { i64, ptr }
-%struct.KeyInfo = type { i32, ptr, ptr, i32 }
-%struct.RedisModuleFlushInfo = type { i64, i32, i32 }
 %struct.RedisModuleLoadingProgressInfo = type { i64, i32, i32 }
-%struct.moduleLoadQueueEntry = type { ptr, i32, ptr }
-%struct.dict = type { ptr, [2 x ptr], [2 x i64], i64, i16, [2 x i8], [0 x ptr] }
+%struct.KeyInfo = type { i32, ptr, ptr, i32 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.ModuleConfig = type { ptr, ptr, %union.get_fn, %union.set_fn, ptr, ptr }
-%union.get_fn = type { ptr }
-%union.set_fn = type { ptr }
 %struct.configEnum = type { ptr, i32 }
-%struct.RedisModuleRdbStream = type { i32, %union.anon.27 }
-%union.anon.27 = type { ptr }
+%struct.getKeysResult = type { [256 x %struct.keyReference], ptr, i32, i32 }
+%struct.RedisModuleCommandArg = type { ptr, i32, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr }
 
 @moduleTempClientCount = internal unnamed_addr global i64 0, align 8
 @moduleTempClients = internal unnamed_addr global ptr null, align 8
@@ -761,14 +700,14 @@ declare noalias ptr @zstrdup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @poolAllocRelease(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %pa_head = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 13
+  %pa_head = getelementptr inbounds i8, ptr %ctx, i64 96
   %0 = load ptr, ptr %pa_head, align 8
   %cmp.not4 = icmp eq ptr %0, null
   br i1 %cmp.not4, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %while.body
   %head.05 = phi ptr [ %1, %while.body ], [ %0, %entry ]
-  %next1 = getelementptr inbounds %struct.RedisModulePoolAllocBlock, ptr %head.05, i64 0, i32 2
+  %next1 = getelementptr inbounds i8, ptr %head.05, i64 8
   %1 = load ptr, ptr %next1, align 8
   tail call void @zfree(ptr noundef nonnull %head.05) #34
   %cmp.not = icmp eq ptr %1, null
@@ -786,14 +725,14 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pa_head = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 13
+  %pa_head = getelementptr inbounds i8, ptr %ctx, i64 96
   %0 = load ptr, ptr %pa_head, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end
   %1 = load i32, ptr %0, align 8
-  %used = getelementptr inbounds %struct.RedisModulePoolAllocBlock, ptr %0, i64 0, i32 1
+  %used = getelementptr inbounds i8, ptr %0, i64 4
   %2 = load i32, ptr %used, align 4
   %sub = sub i32 %1, %2
   %3 = zext i32 %sub to i64
@@ -813,7 +752,7 @@ while.cond:                                       ; preds = %cond.end, %while.co
   br i1 %4, label %while.cond, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
-  %used9 = getelementptr inbounds %struct.RedisModulePoolAllocBlock, ptr %0, i64 0, i32 1
+  %used9 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %used9, align 4
   %conv10 = zext i32 %5 to i64
   %6 = add nuw nsw i64 %alignment.0, 4294967295
@@ -841,7 +780,7 @@ if.end33:                                         ; preds = %if.end20, %cond.end
   br i1 %cmp34, label %if.then36, label %if.end33.if.end47_crit_edge
 
 if.end33.if.end47_crit_edge:                      ; preds = %if.end33
-  %used49.phi.trans.insert = getelementptr inbounds %struct.RedisModulePoolAllocBlock, ptr %0, i64 0, i32 1
+  %used49.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 4
   %.pre = load i32, ptr %used49.phi.trans.insert, align 4
   br label %if.end47
 
@@ -851,10 +790,10 @@ if.then36:                                        ; preds = %if.end33
   %call = tail call noalias ptr @zmalloc(i64 noundef %add41) #35
   %conv42 = trunc i64 %spec.select to i32
   store i32 %conv42, ptr %call, align 8
-  %used44 = getelementptr inbounds %struct.RedisModulePoolAllocBlock, ptr %call, i64 0, i32 1
+  %used44 = getelementptr inbounds i8, ptr %call, i64 4
   store i32 0, ptr %used44, align 4
   %10 = load ptr, ptr %pa_head, align 8
-  %next = getelementptr inbounds %struct.RedisModulePoolAllocBlock, ptr %call, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %10, ptr %next, align 8
   store ptr %call, ptr %pa_head, align 8
   br label %if.end47
@@ -862,8 +801,8 @@ if.then36:                                        ; preds = %if.end33
 if.end47:                                         ; preds = %if.end33.if.end47_crit_edge, %if.then36
   %11 = phi i32 [ 0, %if.then36 ], [ %.pre, %if.end33.if.end47_crit_edge ]
   %b.0 = phi ptr [ %call, %if.then36 ], [ %0, %if.end33.if.end47_crit_edge ]
-  %memory = getelementptr inbounds %struct.RedisModulePoolAllocBlock, ptr %b.0, i64 0, i32 3
-  %used49 = getelementptr inbounds %struct.RedisModulePoolAllocBlock, ptr %b.0, i64 0, i32 1
+  %memory = getelementptr inbounds i8, ptr %b.0, i64 16
+  %used49 = getelementptr inbounds i8, ptr %b.0, i64 4
   %idx.ext = zext i32 %11 to i64
   %add.ptr = getelementptr inbounds i8, ptr %memory, i64 %idx.ext
   %12 = trunc i64 %bytes to i32
@@ -902,11 +841,11 @@ if.then2:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %entry
   %call = tail call ptr @createClient(ptr noundef null) #34
-  %flags = getelementptr inbounds %struct.client, ptr %call, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %flags, align 8
   %or = or i64 %4, 134217728
   store i64 %or, ptr %flags, align 8
-  %user = getelementptr inbounds %struct.client, ptr %call, i64 0, i32 20
+  %user = getelementptr inbounds i8, ptr %call, i64 152
   store ptr null, ptr %user, align 8
   br label %if.end3
 
@@ -938,27 +877,27 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call void @clearClientConnectionState(ptr noundef %c) #34
-  %reply = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 24
+  %reply = getelementptr inbounds i8, ptr %c, i64 176
   %3 = load ptr, ptr %reply, align 8
   tail call void @listEmpty(ptr noundef %3) #34
-  %reply_bytes = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 25
+  %reply_bytes = getelementptr inbounds i8, ptr %c, i64 184
   store i64 0, ptr %reply_bytes, align 8
-  %duration = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 29
+  %duration = getelementptr inbounds i8, ptr %c, i64 216
   store i64 0, ptr %duration, align 8
   tail call void @resetClient(ptr noundef %c) #34
-  %bufpos = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 82
+  %bufpos = getelementptr inbounds i8, ptr %c, i64 752
   store i32 0, ptr %bufpos, align 8
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   store i64 134217728, ptr %flags, align 8
-  %cmd = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 17
-  %async_rm_call_handle = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 55, i32 8
+  %cmd = getelementptr inbounds i8, ptr %c, i64 128
+  %async_rm_call_handle = getelementptr inbounds i8, ptr %c, i64 520
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cmd, i8 0, i64 32, i1 false)
   %4 = load ptr, ptr %async_rm_call_handle, align 8
   %tobool2.not = icmp eq ptr %4, null
   br i1 %tobool2.not, label %if.end9, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %c6 = getelementptr inbounds %struct.RedisModuleAsyncRMCallPromise, ptr %4, i64 0, i32 4
+  %c6 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr null, ptr %c6, align 8
   %5 = load i64, ptr %4, align 8
   %dec.i = add i64 %5, -1
@@ -996,14 +935,14 @@ declare void @resetClient(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @moduleCreateEmptyKey(ptr nocapture noundef %key, i32 noundef %type) local_unnamed_addr #0 {
 entry:
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %1 = load ptr, ptr %value, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end, label %return
@@ -1034,9 +973,9 @@ sw.bb6:                                           ; preds = %if.end
 
 sw.epilog:                                        ; preds = %sw.bb6, %sw.bb4, %sw.bb2, %sw.bb
   %obj.0 = phi ptr [ %call7, %sw.bb6 ], [ %call5, %sw.bb4 ], [ %call3, %sw.bb2 ], [ %call, %sw.bb ]
-  %db = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %key, i64 8
   %2 = load ptr, ptr %db, align 8
-  %key8 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key8 = getelementptr inbounds i8, ptr %key, i64 16
   %3 = load ptr, ptr %key8, align 8
   tail call void @dbAdd(ptr noundef %2, ptr noundef %3, ptr noundef %obj.0) #34
   store ptr %obj.0, ptr %value, align 8
@@ -1044,25 +983,25 @@ sw.epilog:                                        ; preds = %sw.bb6, %sw.bb4, %s
   %bf.clear.i = and i32 %bf.load.i, 15
   switch i32 %bf.clear.i, label %return [
     i32 3, label %sw.bb.i
-    i32 6, label %sw.bb1.i
+    i32 6, label %sw.epilog.sink.split.i
   ]
 
 sw.bb.i:                                          ; preds = %sw.epilog
-  %u.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u.i.i = getelementptr inbounds i8, ptr %key, i64 48
   store i32 0, ptr %u.i.i, align 8
-  %current.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
+  %current.i.i = getelementptr inbounds i8, ptr %key, i64 112
   store ptr null, ptr %current.i.i, align 8
-  %er.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
-  store i32 1, ptr %er.i.i, align 8
+  br label %sw.epilog.sink.split.i
+
+sw.epilog.sink.split.i:                           ; preds = %sw.bb.i, %sw.epilog
+  %.sink3.i = phi i64 [ 120, %sw.bb.i ], [ 72, %sw.epilog ]
+  %.sink.i = phi i32 [ 1, %sw.bb.i ], [ 0, %sw.epilog ]
+  %signalready.i = getelementptr inbounds i8, ptr %key, i64 %.sink3.i
+  store i32 %.sink.i, ptr %signalready.i, align 8
   br label %return
 
-sw.bb1.i:                                         ; preds = %sw.epilog
-  %signalready.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 1
-  store i32 0, ptr %signalready.i, align 8
-  br label %return
-
-return:                                           ; preds = %sw.bb1.i, %sw.bb.i, %sw.epilog, %if.end, %entry, %lor.lhs.false
-  %retval.0 = phi i32 [ 1, %lor.lhs.false ], [ 1, %entry ], [ 1, %if.end ], [ 0, %sw.epilog ], [ 0, %sw.bb.i ], [ 0, %sw.bb1.i ]
+return:                                           ; preds = %sw.epilog.sink.split.i, %sw.epilog, %if.end, %entry, %lor.lhs.false
+  %retval.0 = phi i32 [ 1, %lor.lhs.false ], [ 1, %entry ], [ 1, %if.end ], [ 0, %sw.epilog ], [ 0, %sw.epilog.sink.split.i ]
   ret i32 %retval.0
 }
 
@@ -1079,14 +1018,14 @@ declare void @dbAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @moduleDelKeyIfEmpty(ptr nocapture noundef %key) local_unnamed_addr #0 {
 entry:
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %1 = load ptr, ptr %value, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
@@ -1128,7 +1067,7 @@ sw.epilog:                                        ; preds = %if.end
   br i1 %cmp2, label %if.then20, label %return
 
 if.then20:                                        ; preds = %sw.bb3, %sw.bb7, %sw.bb11, %sw.bb15, %sw.epilog
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %2 = load ptr, ptr %iter, align 8
   %tobool21.not = icmp eq ptr %2, null
   br i1 %tobool21.not, label %if.end23, label %if.then22
@@ -1138,9 +1077,9 @@ if.then22:                                        ; preds = %if.then20
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then22, %if.then20
-  %db = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %key, i64 8
   %3 = load ptr, ptr %db, align 8
-  %key24 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key24 = getelementptr inbounds i8, ptr %key, i64 16
   %4 = load ptr, ptr %key24, align 8
   %call25 = tail call i32 @dbDelete(ptr noundef %3, ptr noundef %4) #34
   store ptr null, ptr %value, align 8
@@ -1164,7 +1103,7 @@ declare i64 @streamLength(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @moduleFreeKeyIterator(ptr nocapture noundef %key) unnamed_addr #0 {
 entry:
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %0 = load ptr, ptr %iter, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %cond.false, label %cond.end
@@ -1175,7 +1114,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %1 = load ptr, ptr %value, align 8
   %bf.load = load i32, ptr %1, align 8
   %bf.clear = and i32 %bf.load, 15
@@ -1266,7 +1205,7 @@ declare void @unblockPostponedClients() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @moduleFreeContext(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 528
   %tobool.not = icmp eq i32 %and, 0
@@ -1279,14 +1218,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call void @autoMemoryCollect(ptr noundef nonnull %ctx)
-  %pa_head.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 13
+  %pa_head.i = getelementptr inbounds i8, ptr %ctx, i64 96
   %1 = load ptr, ptr %pa_head.i, align 8
   %cmp.not4.i = icmp eq ptr %1, null
   br i1 %cmp.not4.i, label %poolAllocRelease.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end, %while.body.i
   %head.05.i = phi ptr [ %2, %while.body.i ], [ %1, %if.end ]
-  %next1.i = getelementptr inbounds %struct.RedisModulePoolAllocBlock, ptr %head.05.i, i64 0, i32 2
+  %next1.i = getelementptr inbounds i8, ptr %head.05.i, i64 8
   %2 = load ptr, ptr %next1.i, align 8
   tail call void @zfree(ptr noundef nonnull %head.05.i) #34
   %cmp.not.i = icmp eq ptr %2, null
@@ -1294,23 +1233,23 @@ while.body.i:                                     ; preds = %if.end, %while.body
 
 poolAllocRelease.exit:                            ; preds = %while.body.i, %if.end
   store ptr null, ptr %pa_head.i, align 8
-  %postponed_arrays = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 8
+  %postponed_arrays = getelementptr inbounds i8, ptr %ctx, i64 56
   %3 = load ptr, ptr %postponed_arrays, align 8
   %tobool1.not = icmp eq ptr %3, null
   br i1 %tobool1.not, label %if.end6, label %if.then2
 
 if.then2:                                         ; preds = %poolAllocRelease.exit
   tail call void @zfree(ptr noundef nonnull %3) #34
-  %postponed_arrays_count = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 9
+  %postponed_arrays_count = getelementptr inbounds i8, ptr %ctx, i64 64
   store i32 0, ptr %postponed_arrays_count, align 8
   %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 156), align 8
   %cmp = icmp sgt i32 %4, 3
   br i1 %cmp, label %if.end6, label %if.end5
 
 if.end5:                                          ; preds = %if.then2
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %5 = load ptr, ptr %module, align 8
-  %name = getelementptr inbounds %struct.RedisModule, ptr %5, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %name, align 8
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str, ptr noundef %6) #34
   br label %if.end6
@@ -1322,7 +1261,7 @@ if.end6:                                          ; preds = %if.end5, %if.then2,
   br i1 %tobool9.not, label %if.else, label %if.then10
 
 if.then10:                                        ; preds = %if.end6
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %8 = load ptr, ptr %client, align 8
   tail call void @moduleReleaseTempClient(ptr noundef %8)
   br label %if.end17
@@ -1333,7 +1272,7 @@ if.else:                                          ; preds = %if.end6
   br i1 %tobool13.not, label %if.end17, label %if.then14
 
 if.then14:                                        ; preds = %if.else
-  %client15 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client15 = getelementptr inbounds i8, ptr %ctx, i64 16
   %9 = load ptr, ptr %client15, align 8
   tail call void @freeClient(ptr noundef %9) #34
   br label %if.end17
@@ -1349,7 +1288,7 @@ declare void @postExecutionUnitOperations() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @autoMemoryCollect(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -1358,13 +1297,13 @@ entry:
 if.end:                                           ; preds = %entry
   %and2 = and i32 %0, -2
   store i32 %and2, ptr %flags, align 8
-  %amqueue_used = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used, align 4
   %cmp22 = icmp sgt i32 %1, 0
   br i1 %cmp22, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %amqueue = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue = getelementptr inbounds i8, ptr %ctx, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1372,7 +1311,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = load ptr, ptr %amqueue, align 8
   %arrayidx = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
-  %type = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %indvars.iv, i32 1
+  %type = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i32, ptr %type, align 8
   switch i32 %4, label %for.inc [
     i32 1, label %sw.bb
@@ -1397,14 +1336,14 @@ sw.bb8:                                           ; preds = %for.body
 if.end.i:                                         ; preds = %sw.bb8
   tail call fastcc void @moduleCloseKey(ptr noundef nonnull %3)
   %5 = load ptr, ptr %3, align 8
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %5, i64 48
   %6 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %6, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %autoMemoryFreed.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %amqueue_used.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 6
+  %amqueue_used.i.i = getelementptr inbounds i8, ptr %5, i64 44
   %7 = load i32, ptr %amqueue_used.i.i, align 4
   %cmp21.i.i = icmp sgt i32 %7, 0
   br i1 %cmp21.i.i, label %for.cond1.preheader.lr.ph.i.i, label %autoMemoryFreed.exit.i
@@ -1412,7 +1351,7 @@ if.end.i.i:                                       ; preds = %if.end.i
 for.cond1.preheader.lr.ph.i.i:                    ; preds = %if.end.i.i
   %add.i.i = add nuw nsw i32 %7, 1
   %div2731.i.i = lshr i32 %add.i.i, 1
-  %amqueue.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 4
+  %amqueue.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %8 = load ptr, ptr %amqueue.i.i, align 8
   br label %for.cond1.preheader.i.i
 
@@ -1426,19 +1365,20 @@ for.body3.i.i:                                    ; preds = %for.inc.i.i, %for.c
   %cmp4.i.i = phi i1 [ true, %for.cond1.preheader.i.i ], [ false, %for.inc.i.i ]
   %cond.i.i = select i1 %cmp4.i.i, i32 %sub6.i.i, i32 %j.022.i.i
   %idxprom.i.i = sext i32 %cond.i.i to i64
-  %type7.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom.i.i, i32 1
+  %arrayidx.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom.i.i
+  %type7.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %10 = load i32, ptr %type7.i.i, align 8
   %cmp8.i.i = icmp eq i32 %10, 0
   br i1 %cmp8.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %for.body3.i.i
-  %arrayidx.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom.i.i
   %11 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp13.i.i = icmp eq ptr %11, %3
   br i1 %cmp13.i.i, label %if.then14.i.i, label %for.inc.i.i
 
 if.then14.i.i:                                    ; preds = %land.lhs.true.i.i
-  store i32 3, ptr %type7.i.i, align 8
+  %type7.i.i.le = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  store i32 3, ptr %type7.i.i.le, align 8
   %12 = load i32, ptr %amqueue_used.i.i, align 4
   %sub20.i.i = add nsw i32 %12, -1
   %cmp21.not.i.i = icmp eq i32 %cond.i.i, %sub20.i.i
@@ -1498,7 +1438,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %18 = phi i32 [ %.pre, %for.end.loopexit ], [ %and2, %if.end ]
   %or = or i32 %18, 1
   store i32 %or, ptr %flags, align 8
-  %amqueue12 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12 = getelementptr inbounds i8, ptr %ctx, i64 32
   %19 = load ptr, ptr %amqueue12, align 8
   tail call void @zfree(ptr noundef %19) #34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %amqueue12, i8 0, i64 16, i1 false)
@@ -1516,7 +1456,7 @@ declare void @freeClient(ptr noundef) local_unnamed_addr #1
 define dso_local void @moduleCallCommandUnblockedHandler(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.RedisModuleCtx, align 8
-  %async_rm_call_handle = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 55, i32 8
+  %async_rm_call_handle = getelementptr inbounds i8, ptr %c, i64 520
   %0 = load ptr, ptr %async_rm_call_handle, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -1527,7 +1467,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %on_unblocked = getelementptr inbounds %struct.RedisModuleAsyncRMCallPromise, ptr %0, i64 0, i32 3
+  %on_unblocked = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %on_unblocked, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.then, label %if.end
@@ -1537,15 +1477,15 @@ if.then:                                          ; preds = %cond.end
   br label %return
 
 if.end:                                           ; preds = %cond.end
-  %module3 = getelementptr inbounds %struct.RedisModuleAsyncRMCallPromise, ptr %0, i64 0, i32 2
+  %module3 = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %module3, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 64, ptr %flags.i, align 8
   %5 = load i64, ptr @moduleTempClientCount, align 8
   %cmp.not.i.i = icmp eq i64 %5, 0
@@ -1567,11 +1507,11 @@ if.then2.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.end
   %call.i.i = tail call ptr @createClient(ptr noundef null) #34
-  %flags.i.i = getelementptr inbounds %struct.client, ptr %call.i.i, i64 0, i32 1
+  %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %9 = load i64, ptr %flags.i.i, align 8
   %or.i.i = or i64 %9, 134217728
   store i64 %or.i.i, ptr %flags.i.i, align 8
-  %user.i.i = getelementptr inbounds %struct.client, ptr %call.i.i, i64 0, i32 20
+  %user.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
   store ptr null, ptr %user.i.i, align 8
   br label %if.end7.sink.split.i
 
@@ -1599,24 +1539,24 @@ if.else11.i:                                      ; preds = %if.end7.sink.split.
 
 moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.else11.i
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
-  %15 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %15 = getelementptr inbounds i8, ptr %ctx, i64 104
   store i64 %add.sink.i, ptr %15, align 8
   tail call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %16 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %16, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %16, i64 48
   %17 = load i32, ptr %id, align 8
   %call = tail call i32 @selectDb(ptr noundef %10, i32 noundef %17) #34
-  %buf.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 84
+  %buf.i = getelementptr inbounds i8, ptr %c, i64 768
   %18 = load ptr, ptr %buf.i, align 8
-  %bufpos.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 82
+  %bufpos.i = getelementptr inbounds i8, ptr %c, i64 752
   %19 = load i32, ptr %bufpos.i, align 8
   %conv.i11 = sext i32 %19 to i64
   %call.i = tail call ptr @sdsnewlen(ptr noundef %18, i64 noundef %conv.i11) #34
   store i32 0, ptr %bufpos.i, align 8
-  %reply.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 24
+  %reply.i = getelementptr inbounds i8, ptr %c, i64 176
   %20 = load ptr, ptr %reply.i, align 8
-  %len11.i = getelementptr inbounds %struct.list, ptr %20, i64 0, i32 5
+  %len11.i = getelementptr inbounds i8, ptr %20, i64 40
   %21 = load i64, ptr %len11.i, align 8
   %tobool.not12.i = icmp eq i64 %21, 0
   br i1 %tobool.not12.i, label %moduleParseReply.exit, label %while.body.i
@@ -1625,33 +1565,33 @@ while.body.i:                                     ; preds = %moduleCreateContext
   %22 = phi ptr [ %28, %while.body.i ], [ %20, %moduleCreateContext.exit ]
   %proto.013.i = phi ptr [ %call4.i, %while.body.i ], [ %call.i, %moduleCreateContext.exit ]
   %23 = load ptr, ptr %22, align 8
-  %value.i = getelementptr inbounds %struct.listNode, ptr %23, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %23, i64 16
   %24 = load ptr, ptr %value.i, align 8
-  %buf3.i = getelementptr inbounds %struct.clientReplyBlock, ptr %24, i64 0, i32 2
-  %used.i = getelementptr inbounds %struct.clientReplyBlock, ptr %24, i64 0, i32 1
+  %buf3.i = getelementptr inbounds i8, ptr %24, i64 16
+  %used.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i64, ptr %used.i, align 8
   %call4.i = tail call ptr @sdscatlen(ptr noundef %proto.013.i, ptr noundef nonnull %buf3.i, i64 noundef %25) #34
   %26 = load ptr, ptr %reply.i, align 8
   %27 = load ptr, ptr %26, align 8
   tail call void @listDelNode(ptr noundef nonnull %26, ptr noundef %27) #34
   %28 = load ptr, ptr %reply.i, align 8
-  %len.i = getelementptr inbounds %struct.list, ptr %28, i64 0, i32 5
+  %len.i = getelementptr inbounds i8, ptr %28, i64 40
   %29 = load i64, ptr %len.i, align 8
   %tobool.not.i = icmp eq i64 %29, 0
   br i1 %tobool.not.i, label %moduleParseReply.exit, label %while.body.i, !llvm.loop !11
 
 moduleParseReply.exit:                            ; preds = %while.body.i, %moduleCreateContext.exit
   %proto.0.lcssa.i = phi ptr [ %call.i, %moduleCreateContext.exit ], [ %call4.i, %while.body.i ]
-  %deferred_reply_errors.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 26
+  %deferred_reply_errors.i = getelementptr inbounds i8, ptr %c, i64 192
   %30 = load ptr, ptr %deferred_reply_errors.i, align 8
   %call9.i = tail call ptr @callReplyCreate(ptr noundef %proto.0.lcssa.i, ptr noundef %30, ptr noundef null) #34
   store ptr null, ptr %deferred_reply_errors.i, align 8
-  %in_call = getelementptr inbounds %struct.RedisModule, ptr %2, i64 0, i32 10
+  %in_call = getelementptr inbounds i8, ptr %2, i64 68
   %31 = load i32, ptr %in_call, align 4
   %inc = add nsw i32 %31, 1
   store i32 %inc, ptr %in_call, align 4
   %32 = load ptr, ptr %on_unblocked, align 8
-  %private_data = getelementptr inbounds %struct.RedisModuleAsyncRMCallPromise, ptr %0, i64 0, i32 1
+  %private_data = getelementptr inbounds i8, ptr %0, i64 8
   %33 = load ptr, ptr %private_data, align 8
   call void %32(ptr noundef nonnull %ctx, ptr noundef %call9.i, ptr noundef %33) #34
   %34 = load i32, ptr %in_call, align 4
@@ -1676,9 +1616,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %out_ctx, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %out_ctx, align 8
-  %module1 = getelementptr inbounds %struct.RedisModuleCtx, ptr %out_ctx, i64 0, i32 1
+  %module1 = getelementptr inbounds i8, ptr %out_ctx, i64 8
   store ptr %module, ptr %module1, align 8
-  %flags = getelementptr inbounds %struct.RedisModuleCtx, ptr %out_ctx, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %out_ctx, i64 48
   store i32 %ctx_flags, ptr %flags, align 8
   %and = and i32 %ctx_flags, 64
   %tobool.not = icmp eq i32 %and, 0
@@ -1705,11 +1645,11 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.then
   %call.i = tail call ptr @createClient(ptr noundef null) #34
-  %flags.i = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %5 = load i64, ptr %flags.i, align 8
   %or.i = or i64 %5, 134217728
   store i64 %or.i, ptr %flags.i, align 8
-  %user.i = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 20
+  %user.i = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr null, ptr %user.i, align 8
   br label %if.end7.sink.split
 
@@ -1724,7 +1664,7 @@ if.then4:                                         ; preds = %if.else
 
 if.end7.sink.split:                               ; preds = %if.else.i, %if.then2.i, %if.then.i, %if.then4
   %call5.sink = phi ptr [ %call5, %if.then4 ], [ %3, %if.then2.i ], [ %3, %if.then.i ], [ %call.i, %if.else.i ]
-  %client6 = getelementptr inbounds %struct.RedisModuleCtx, ptr %out_ctx, i64 0, i32 2
+  %client6 = getelementptr inbounds i8, ptr %out_ctx, i64 16
   store ptr %call5.sink, ptr %client6, align 8
   br label %if.end7
 
@@ -1750,7 +1690,7 @@ if.else11:                                        ; preds = %if.end7
 
 if.end15:                                         ; preds = %if.else11, %if.then9
   %add.sink = phi i64 [ %add13, %if.else11 ], [ %add, %if.then9 ]
-  %10 = getelementptr inbounds %struct.RedisModuleCtx, ptr %out_ctx, i64 0, i32 14
+  %10 = getelementptr inbounds i8, ptr %out_ctx, i64 104
   store i64 %add.sink, ptr %10, align 8
   %and16 = and i32 %ctx_flags, 528
   %tobool17.not = icmp eq i32 %and16, 0
@@ -1769,16 +1709,16 @@ declare i32 @selectDb(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @moduleParseReply(ptr nocapture noundef %c, ptr noundef %ctx) unnamed_addr #0 {
 entry:
-  %buf = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 84
+  %buf = getelementptr inbounds i8, ptr %c, i64 768
   %0 = load ptr, ptr %buf, align 8
-  %bufpos = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 82
+  %bufpos = getelementptr inbounds i8, ptr %c, i64 752
   %1 = load i32, ptr %bufpos, align 8
   %conv = sext i32 %1 to i64
   %call = tail call ptr @sdsnewlen(ptr noundef %0, i64 noundef %conv) #34
   store i32 0, ptr %bufpos, align 8
-  %reply = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 24
+  %reply = getelementptr inbounds i8, ptr %c, i64 176
   %2 = load ptr, ptr %reply, align 8
-  %len11 = getelementptr inbounds %struct.list, ptr %2, i64 0, i32 5
+  %len11 = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load i64, ptr %len11, align 8
   %tobool.not12 = icmp eq i64 %3, 0
   br i1 %tobool.not12, label %while.end, label %while.body
@@ -1787,24 +1727,24 @@ while.body:                                       ; preds = %entry, %while.body
   %4 = phi ptr [ %10, %while.body ], [ %2, %entry ]
   %proto.013 = phi ptr [ %call4, %while.body ], [ %call, %entry ]
   %5 = load ptr, ptr %4, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %5, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %value, align 8
-  %buf3 = getelementptr inbounds %struct.clientReplyBlock, ptr %6, i64 0, i32 2
-  %used = getelementptr inbounds %struct.clientReplyBlock, ptr %6, i64 0, i32 1
+  %buf3 = getelementptr inbounds i8, ptr %6, i64 16
+  %used = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i64, ptr %used, align 8
   %call4 = tail call ptr @sdscatlen(ptr noundef %proto.013, ptr noundef nonnull %buf3, i64 noundef %7) #34
   %8 = load ptr, ptr %reply, align 8
   %9 = load ptr, ptr %8, align 8
   tail call void @listDelNode(ptr noundef nonnull %8, ptr noundef %9) #34
   %10 = load ptr, ptr %reply, align 8
-  %len = getelementptr inbounds %struct.list, ptr %10, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %10, i64 40
   %11 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %11, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !11
 
 while.end:                                        ; preds = %while.body, %entry
   %proto.0.lcssa = phi ptr [ %call, %entry ], [ %call4, %while.body ]
-  %deferred_reply_errors = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 26
+  %deferred_reply_errors = getelementptr inbounds i8, ptr %c, i64 192
   %12 = load ptr, ptr %deferred_reply_errors, align 8
   %call9 = tail call ptr @callReplyCreate(ptr noundef %proto.0.lcssa, ptr noundef %12, ptr noundef %ctx) #34
   store ptr null, ptr %deferred_reply_errors, align 8
@@ -1820,18 +1760,18 @@ declare void @enterExecutionUnit(i32 noundef, i64 noundef) local_unnamed_addr #1
 define dso_local void @RedisModuleCommandDispatcher(ptr noundef %c) #0 {
 entry:
   %ctx = alloca %struct.RedisModuleCtx, align 8
-  %cmd = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 17
+  %cmd = getelementptr inbounds i8, ptr %c, i64 128
   %0 = load ptr, ptr %cmd, align 8
-  %module_cmd = getelementptr inbounds %struct.redisCommand, ptr %0, i64 0, i32 32
+  %module_cmd = getelementptr inbounds i8, ptr %0, i64 304
   %1 = load ptr, ptr %module_cmd, align 8
   %2 = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 512, ptr %flags.i, align 8
   %5 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
   %tobool8.not.i = icmp eq i32 %5, 0
@@ -1854,14 +1794,14 @@ if.else11.i:                                      ; preds = %entry
 
 moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.else11.i
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
-  %9 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %9 = getelementptr inbounds i8, ptr %ctx, i64 104
   store i64 %add.sink.i, ptr %9, align 8
   store ptr %c, ptr %3, align 8
-  %func = getelementptr inbounds %struct.RedisModuleCommand, ptr %1, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %func, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %11 = load ptr, ptr %argv, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %12 = load i32, ptr %argc, align 8
   %call = call i32 %10(ptr noundef nonnull %ctx, ptr noundef %11, i32 noundef %12) #34
   call void @moduleFreeContext(ptr noundef nonnull %ctx)
@@ -1875,7 +1815,7 @@ for.body:                                         ; preds = %moduleCreateContext
   %15 = load ptr, ptr %argv, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
   %16 = load ptr, ptr %arrayidx, align 8
-  %refcount = getelementptr inbounds %struct.redisObject, ptr %16, i64 0, i32 1
+  %refcount = getelementptr inbounds i8, ptr %16, i64 4
   %17 = load i32, ptr %refcount, align 4
   %cmp3 = icmp sgt i32 %17, 1
   br i1 %cmp3, label %if.then, label %for.inc
@@ -1902,15 +1842,15 @@ declare void @trimStringObjectIfNeeded(ptr noundef, i32 noundef) local_unnamed_a
 define dso_local i32 @moduleGetCommandKeysViaAPI(ptr nocapture noundef readonly %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.RedisModuleCtx, align 8
-  %module_cmd = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 32
+  %module_cmd = getelementptr inbounds i8, ptr %cmd, i64 304
   %0 = load ptr, ptr %module_cmd, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %ctx, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %1, ptr %module1.i, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 2, ptr %flags.i, align 8
   %3 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
   %tobool8.not.i = icmp eq i32 %3, 0
@@ -1933,17 +1873,17 @@ if.else11.i:                                      ; preds = %entry
 
 moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.else11.i
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
-  %7 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %7 = getelementptr inbounds i8, ptr %ctx, i64 104
   store i64 %add.sink.i, ptr %7, align 8
   tail call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
   %call = tail call ptr @getKeysPrepareResult(ptr noundef %result, i32 noundef 256) #34
-  %keys_result = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 12
+  %keys_result = getelementptr inbounds i8, ptr %ctx, i64 88
   store ptr %result, ptr %keys_result, align 8
-  %func = getelementptr inbounds %struct.RedisModuleCommand, ptr %0, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %func, align 8
   %call1 = call i32 %8(ptr noundef nonnull %ctx, ptr noundef %argv, i32 noundef %argc) #34
   call void @moduleFreeContext(ptr noundef nonnull %ctx)
-  %numkeys = getelementptr inbounds %struct.getKeysResult, ptr %result, i64 0, i32 2
+  %numkeys = getelementptr inbounds i8, ptr %result, i64 2056
   %9 = load i32, ptr %numkeys, align 8
   ret i32 %9
 }
@@ -1954,15 +1894,15 @@ declare ptr @getKeysPrepareResult(ptr noundef, i32 noundef) local_unnamed_addr #
 define dso_local i32 @moduleGetCommandChannelsViaAPI(ptr nocapture noundef readonly %cmd, ptr noundef %argv, i32 noundef %argc, ptr noundef %result) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.RedisModuleCtx, align 8
-  %module_cmd = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 32
+  %module_cmd = getelementptr inbounds i8, ptr %cmd, i64 304
   %0 = load ptr, ptr %module_cmd, align 8
   %1 = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %ctx, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %1, ptr %module1.i, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 256, ptr %flags.i, align 8
   %3 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
   %tobool8.not.i = icmp eq i32 %3, 0
@@ -1985,17 +1925,17 @@ if.else11.i:                                      ; preds = %entry
 
 moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.else11.i
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
-  %7 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %7 = getelementptr inbounds i8, ptr %ctx, i64 104
   store i64 %add.sink.i, ptr %7, align 8
   tail call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
   %call = tail call ptr @getKeysPrepareResult(ptr noundef %result, i32 noundef 256) #34
-  %keys_result = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 12
+  %keys_result = getelementptr inbounds i8, ptr %ctx, i64 88
   store ptr %result, ptr %keys_result, align 8
-  %func = getelementptr inbounds %struct.RedisModuleCommand, ptr %0, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %func, align 8
   %call1 = call i32 %8(ptr noundef nonnull %ctx, ptr noundef %argv, i32 noundef %argc) #34
   call void @moduleFreeContext(ptr noundef nonnull %ctx)
-  %numkeys = getelementptr inbounds %struct.getKeysResult, ptr %result, i64 0, i32 2
+  %numkeys = getelementptr inbounds i8, ptr %result, i64 2056
   %9 = load i32, ptr %numkeys, align 8
   ret i32 %9
 }
@@ -2003,7 +1943,7 @@ moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.els
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @RM_IsKeysPositionRequest(ptr nocapture noundef readonly %ctx) #6 {
 entry:
-  %flags = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
   %and = lshr i32 %0, 1
   %and.lobit = and i32 %and, 1
@@ -2013,14 +1953,14 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_KeyAtPosWithFlags(ptr nocapture noundef readonly %ctx, i32 noundef %pos, i32 noundef %flags) #0 {
 entry:
-  %flags1 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags1 = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags1, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %keys_result = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 12
+  %keys_result = getelementptr inbounds i8, ptr %ctx, i64 88
   %1 = load ptr, ptr %keys_result, align 8
   %tobool2 = icmp eq ptr %1, null
   %cmp = icmp slt i32 %pos, 1
@@ -2028,9 +1968,9 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end4
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %numkeys = getelementptr inbounds %struct.getKeysResult, ptr %1, i64 0, i32 2
+  %numkeys = getelementptr inbounds i8, ptr %1, i64 2056
   %2 = load i32, ptr %numkeys, align 8
-  %size = getelementptr inbounds %struct.getKeysResult, ptr %1, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %1, i64 2060
   %3 = load i32, ptr %size, align 4
   %cmp6 = icmp eq i32 %2, %3
   br i1 %cmp6, label %if.then7, label %if.end12
@@ -2044,7 +1984,7 @@ if.then7:                                         ; preds = %if.end4
 
 if.end12:                                         ; preds = %if.then7, %if.end4
   %4 = phi i32 [ %.pre, %if.then7 ], [ %2, %if.end4 ]
-  %keys = getelementptr inbounds %struct.getKeysResult, ptr %1, i64 0, i32 1
+  %keys = getelementptr inbounds i8, ptr %1, i64 2048
   %5 = load ptr, ptr %keys, align 8
   %idxprom = sext i32 %4 to i64
   %arrayidx = getelementptr inbounds %struct.keyReference, ptr %5, i64 %idxprom
@@ -2115,14 +2055,14 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   br i1 %exitcond.i, label %moduleConvertKeySpecsFlags.exit, label %for.body.i, !llvm.loop !13
 
 moduleConvertKeySpecsFlags.exit:                  ; preds = %for.inc.i
-  %flags1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags1.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %3 = load i32, ptr %flags1.i, align 8
   %and.i1 = and i32 %3, 2
   %tobool.not.i = icmp eq i32 %and.i1, 0
   br i1 %tobool.not.i, label %RM_KeyAtPosWithFlags.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %moduleConvertKeySpecsFlags.exit
-  %keys_result.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 12
+  %keys_result.i = getelementptr inbounds i8, ptr %ctx, i64 88
   %4 = load ptr, ptr %keys_result.i, align 8
   %tobool2.i = icmp eq ptr %4, null
   %cmp.i = icmp slt i32 %pos, 1
@@ -2130,9 +2070,9 @@ lor.lhs.false.i:                                  ; preds = %moduleConvertKeySpe
   br i1 %or.cond.i, label %RM_KeyAtPosWithFlags.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %lor.lhs.false.i
-  %numkeys.i = getelementptr inbounds %struct.getKeysResult, ptr %4, i64 0, i32 2
+  %numkeys.i = getelementptr inbounds i8, ptr %4, i64 2056
   %5 = load i32, ptr %numkeys.i, align 8
-  %size.i = getelementptr inbounds %struct.getKeysResult, ptr %4, i64 0, i32 3
+  %size.i = getelementptr inbounds i8, ptr %4, i64 2060
   %6 = load i32, ptr %size.i, align 4
   %cmp6.i = icmp eq i32 %5, %6
   br i1 %cmp6.i, label %if.then7.i, label %if.end12.i
@@ -2146,7 +2086,7 @@ if.then7.i:                                       ; preds = %if.end4.i
 
 if.end12.i:                                       ; preds = %if.then7.i, %if.end4.i
   %7 = phi i32 [ %.pre.i, %if.then7.i ], [ %5, %if.end4.i ]
-  %keys.i = getelementptr inbounds %struct.getKeysResult, ptr %4, i64 0, i32 1
+  %keys.i = getelementptr inbounds i8, ptr %4, i64 2048
   %8 = load ptr, ptr %keys.i, align 8
   %idxprom.i = sext i32 %7 to i64
   %arrayidx.i = getelementptr inbounds %struct.keyReference, ptr %8, i64 %idxprom.i
@@ -2195,7 +2135,7 @@ RM_KeyAtPosWithFlags.exit:                        ; preds = %moduleConvertKeySpe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @RM_IsChannelsPositionRequest(ptr nocapture noundef readonly %ctx) #6 {
 entry:
-  %flags = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
   %and = lshr i32 %0, 8
   %and.lobit = and i32 %and, 1
@@ -2205,14 +2145,14 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_ChannelAtPosWithFlags(ptr nocapture noundef readonly %ctx, i32 noundef %pos, i32 noundef %flags) #0 {
 entry:
-  %flags1 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags1 = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags1, align 8
   %and = and i32 %0, 256
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %keys_result = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 12
+  %keys_result = getelementptr inbounds i8, ptr %ctx, i64 88
   %1 = load ptr, ptr %keys_result, align 8
   %tobool2 = icmp eq ptr %1, null
   %cmp = icmp slt i32 %pos, 1
@@ -2220,9 +2160,9 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %if.end4
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %numkeys = getelementptr inbounds %struct.getKeysResult, ptr %1, i64 0, i32 2
+  %numkeys = getelementptr inbounds i8, ptr %1, i64 2056
   %2 = load i32, ptr %numkeys, align 8
-  %size = getelementptr inbounds %struct.getKeysResult, ptr %1, i64 0, i32 3
+  %size = getelementptr inbounds i8, ptr %1, i64 2060
   %3 = load i32, ptr %size, align 4
   %cmp6 = icmp eq i32 %2, %3
   br i1 %cmp6, label %if.then7, label %if.end12
@@ -2244,7 +2184,7 @@ if.end12:                                         ; preds = %if.then7, %if.end4
   %6 = shl i32 %flags, 11
   %7 = and i32 %6, 2048
   %new_flags.3 = or disjoint i32 %new_flags.2, %7
-  %keys = getelementptr inbounds %struct.getKeysResult, ptr %1, i64 0, i32 1
+  %keys = getelementptr inbounds i8, ptr %1, i64 2048
   %8 = load ptr, ptr %keys, align 8
   %idxprom = sext i32 %4 to i64
   %arrayidx = getelementptr inbounds %struct.keyReference, ptr %8, i64 %idxprom
@@ -2502,9 +2442,9 @@ declare void @sdsfreesplitres(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_CreateCommand(ptr nocapture noundef readonly %ctx, ptr noundef %name, ptr noundef %cmdfunc, ptr noundef %strflags, i32 noundef %firstkey, i32 noundef %lastkey, i32 noundef %keystep) #0 {
 entry:
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
-  %onload = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 18
+  %onload = getelementptr inbounds i8, ptr %0, i64 116
   %1 = load i32, ptr %onload, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -2544,9 +2484,9 @@ if.end15:                                         ; preds = %if.end11
   %call19 = tail call ptr @moduleCreateCommandProxy(ptr noundef %3, ptr noundef %call16, ptr noundef %call18, ptr noundef %cmdfunc, i64 noundef %cond1723, i32 noundef %firstkey, i32 noundef %lastkey, i32 noundef %keystep)
   %tobool20.not = icmp eq ptr %cmdfunc, null
   %cond21 = select i1 %tobool20.not, i32 -2, i32 -1
-  %rediscmd = getelementptr inbounds %struct.RedisModuleCommand, ptr %call19, i64 0, i32 2
+  %rediscmd = getelementptr inbounds i8, ptr %call19, i64 16
   %4 = load ptr, ptr %rediscmd, align 8
-  %arity = getelementptr inbounds %struct.redisCommand, ptr %4, i64 0, i32 13
+  %arity = getelementptr inbounds i8, ptr %4, i64 104
   store i32 %cond21, ptr %arity, align 8
   %5 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 12), align 8
   %call22 = tail call ptr @sdsdup(ptr noundef %call16) #34
@@ -2577,7 +2517,7 @@ cond.end44:                                       ; preds = %cond.end30
   %call45 = tail call i64 @ACLGetCommandID(ptr noundef %call16) #34
   %conv46 = trunc i64 %call45 to i32
   %9 = load ptr, ptr %rediscmd, align 8
-  %id = getelementptr inbounds %struct.redisCommand, ptr %9, i64 0, i32 26
+  %id = getelementptr inbounds i8, ptr %9, i64 208
   store i32 %conv46, ptr %id, align 8
   br label %return
 
@@ -2595,37 +2535,37 @@ define dso_local ptr @moduleCreateCommandProxy(ptr noundef %module, ptr noundef 
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #35
   store ptr %module, ptr %call, align 8
-  %func = getelementptr inbounds %struct.RedisModuleCommand, ptr %call, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %cmdfunc, ptr %func, align 8
   %call2 = tail call noalias dereferenceable_or_null(312) ptr @zcalloc(i64 noundef 312) #35
-  %rediscmd3 = getelementptr inbounds %struct.RedisModuleCommand, ptr %call, i64 0, i32 2
+  %rediscmd3 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call2, ptr %rediscmd3, align 8
   store ptr %declared_name, ptr %call2, align 8
-  %fullname7 = getelementptr inbounds %struct.redisCommand, ptr %call2, i64 0, i32 27
+  %fullname7 = getelementptr inbounds i8, ptr %call2, i64 216
   store ptr %fullname, ptr %fullname7, align 8
-  %group = getelementptr inbounds %struct.redisCommand, ptr %call2, i64 0, i32 7
+  %group = getelementptr inbounds i8, ptr %call2, i64 56
   store i32 17, ptr %group, align 8
-  %proc = getelementptr inbounds %struct.redisCommand, ptr %call2, i64 0, i32 12
+  %proc = getelementptr inbounds i8, ptr %call2, i64 96
   store ptr @RedisModuleCommandDispatcher, ptr %proc, align 8
   %or = or i64 %flags, 8
-  %flags11 = getelementptr inbounds %struct.redisCommand, ptr %call2, i64 0, i32 14
+  %flags11 = getelementptr inbounds i8, ptr %call2, i64 112
   store i64 %or, ptr %flags11, align 8
-  %module_cmd = getelementptr inbounds %struct.redisCommand, ptr %call2, i64 0, i32 32
+  %module_cmd = getelementptr inbounds i8, ptr %call2, i64 304
   store ptr %call, ptr %module_cmd, align 8
   %cmp.not = icmp eq i32 %firstkey, 0
-  %key_specs_num49 = getelementptr inbounds %struct.redisCommand, ptr %call2, i64 0, i32 17
+  %key_specs_num49 = getelementptr inbounds i8, ptr %call2, i64 136
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   store i32 1, ptr %key_specs_num49, align 8
   %call14 = tail call noalias dereferenceable_or_null(56) ptr @zcalloc(i64 noundef 56) #35
   %0 = load ptr, ptr %rediscmd3, align 8
-  %key_specs = getelementptr inbounds %struct.redisCommand, ptr %0, i64 0, i32 16
+  %key_specs = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %call14, ptr %key_specs, align 8
   %1 = load ptr, ptr %rediscmd3, align 8
-  %key_specs17 = getelementptr inbounds %struct.redisCommand, ptr %1, i64 0, i32 16
+  %key_specs17 = getelementptr inbounds i8, ptr %1, i64 128
   %2 = load ptr, ptr %key_specs17, align 8
-  %flags18 = getelementptr inbounds %struct.keySpec, ptr %2, i64 0, i32 1
+  %flags18 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 50, ptr %flags18, align 8
   %and = and i64 %flags, 2097152
   %tobool.not = icmp eq i64 %and, 0
@@ -2633,9 +2573,9 @@ if.then:                                          ; preds = %entry
 
 if.then19:                                        ; preds = %if.then
   %3 = load ptr, ptr %rediscmd3, align 8
-  %key_specs21 = getelementptr inbounds %struct.redisCommand, ptr %3, i64 0, i32 16
+  %key_specs21 = getelementptr inbounds i8, ptr %3, i64 128
   %4 = load ptr, ptr %key_specs21, align 8
-  %flags23 = getelementptr inbounds %struct.keySpec, ptr %4, i64 0, i32 1
+  %flags23 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %flags23, align 8
   %or24 = or i64 %5, 1024
   store i64 %or24, ptr %flags23, align 8
@@ -2643,44 +2583,44 @@ if.then19:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then19, %if.then
   %6 = load ptr, ptr %rediscmd3, align 8
-  %key_specs26 = getelementptr inbounds %struct.redisCommand, ptr %6, i64 0, i32 16
+  %key_specs26 = getelementptr inbounds i8, ptr %6, i64 128
   %7 = load ptr, ptr %key_specs26, align 8
-  %begin_search_type = getelementptr inbounds %struct.keySpec, ptr %7, i64 0, i32 2
+  %begin_search_type = getelementptr inbounds i8, ptr %7, i64 16
   store i32 2, ptr %begin_search_type, align 8
   %8 = load ptr, ptr %rediscmd3, align 8
-  %key_specs29 = getelementptr inbounds %struct.redisCommand, ptr %8, i64 0, i32 16
+  %key_specs29 = getelementptr inbounds i8, ptr %8, i64 128
   %9 = load ptr, ptr %key_specs29, align 8
-  %bs = getelementptr inbounds %struct.keySpec, ptr %9, i64 0, i32 3
+  %bs = getelementptr inbounds i8, ptr %9, i64 24
   store i32 %firstkey, ptr %bs, align 8
   %10 = load ptr, ptr %rediscmd3, align 8
-  %key_specs32 = getelementptr inbounds %struct.redisCommand, ptr %10, i64 0, i32 16
+  %key_specs32 = getelementptr inbounds i8, ptr %10, i64 128
   %11 = load ptr, ptr %key_specs32, align 8
-  %find_keys_type = getelementptr inbounds %struct.keySpec, ptr %11, i64 0, i32 4
+  %find_keys_type = getelementptr inbounds i8, ptr %11, i64 40
   store i32 2, ptr %find_keys_type, align 8
   %cmp34 = icmp slt i32 %lastkey, 0
   %sub = select i1 %cmp34, i32 0, i32 %firstkey
   %cond = sub nsw i32 %lastkey, %sub
   %12 = load ptr, ptr %rediscmd3, align 8
-  %key_specs36 = getelementptr inbounds %struct.redisCommand, ptr %12, i64 0, i32 16
+  %key_specs36 = getelementptr inbounds i8, ptr %12, i64 128
   %13 = load ptr, ptr %key_specs36, align 8
-  %fk = getelementptr inbounds %struct.keySpec, ptr %13, i64 0, i32 5
+  %fk = getelementptr inbounds i8, ptr %13, i64 44
   store i32 %cond, ptr %fk, align 4
   %14 = load ptr, ptr %rediscmd3, align 8
-  %key_specs40 = getelementptr inbounds %struct.redisCommand, ptr %14, i64 0, i32 16
+  %key_specs40 = getelementptr inbounds i8, ptr %14, i64 128
   %15 = load ptr, ptr %key_specs40, align 8
-  %keystep43 = getelementptr inbounds %struct.keySpec, ptr %15, i64 0, i32 5, i32 0, i32 1
+  %keystep43 = getelementptr inbounds i8, ptr %15, i64 48
   store i32 %keystep, ptr %keystep43, align 4
   %16 = load ptr, ptr %rediscmd3, align 8
-  %key_specs45 = getelementptr inbounds %struct.redisCommand, ptr %16, i64 0, i32 16
+  %key_specs45 = getelementptr inbounds i8, ptr %16, i64 128
   %17 = load ptr, ptr %key_specs45, align 8
-  %limit = getelementptr inbounds %struct.keySpec, ptr %17, i64 0, i32 5, i32 0, i32 2
+  %limit = getelementptr inbounds i8, ptr %17, i64 52
   store i32 0, ptr %limit, align 4
   %.pre = load ptr, ptr %rediscmd3, align 8
   br label %if.end52
 
 if.else:                                          ; preds = %entry
   store i32 0, ptr %key_specs_num49, align 8
-  %key_specs51 = getelementptr inbounds %struct.redisCommand, ptr %call2, i64 0, i32 16
+  %key_specs51 = getelementptr inbounds i8, ptr %call2, i64 128
   store ptr null, ptr %key_specs51, align 8
   br label %if.end52
 
@@ -2688,16 +2628,16 @@ if.end52:                                         ; preds = %if.else, %if.end
   %18 = phi ptr [ %call2, %if.else ], [ %.pre, %if.end ]
   tail call void @populateCommandLegacyRangeSpec(ptr noundef %18) #34
   %19 = load ptr, ptr %rediscmd3, align 8
-  %microseconds = getelementptr inbounds %struct.redisCommand, ptr %19, i64 0, i32 22
+  %microseconds = getelementptr inbounds i8, ptr %19, i64 176
   store i64 0, ptr %microseconds, align 8
   %20 = load ptr, ptr %rediscmd3, align 8
-  %calls = getelementptr inbounds %struct.redisCommand, ptr %20, i64 0, i32 23
+  %calls = getelementptr inbounds i8, ptr %20, i64 184
   store i64 0, ptr %calls, align 8
   %21 = load ptr, ptr %rediscmd3, align 8
-  %rejected_calls = getelementptr inbounds %struct.redisCommand, ptr %21, i64 0, i32 24
+  %rejected_calls = getelementptr inbounds i8, ptr %21, i64 192
   store i64 0, ptr %rejected_calls, align 8
   %22 = load ptr, ptr %rediscmd3, align 8
-  %failed_calls = getelementptr inbounds %struct.redisCommand, ptr %22, i64 0, i32 25
+  %failed_calls = getelementptr inbounds i8, ptr %22, i64 200
   store i64 0, ptr %failed_calls, align 8
   ret ptr %call
 }
@@ -2721,17 +2661,17 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %flags = getelementptr inbounds %struct.redisCommand, ptr %call, i64 0, i32 14
+  %flags = getelementptr inbounds i8, ptr %call, i64 112
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 8
   %tobool1.not = icmp eq i64 %and, 0
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %module_cmd = getelementptr inbounds %struct.redisCommand, ptr %call, i64 0, i32 32
+  %module_cmd = getelementptr inbounds i8, ptr %call, i64 304
   %1 = load ptr, ptr %module_cmd, align 8
   %2 = load ptr, ptr %1, align 8
-  %module2 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module2 = getelementptr inbounds i8, ptr %ctx, i64 8
   %3 = load ptr, ptr %module2, align 8
   %cmp.not = icmp eq ptr %2, %3
   %. = select i1 %cmp.not, ptr %1, ptr null
@@ -2746,7 +2686,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 define dso_local i32 @RM_CreateSubcommand(ptr nocapture noundef readonly %parent, ptr noundef %name, ptr noundef %cmdfunc, ptr noundef %strflags, i32 noundef %firstkey, i32 noundef %lastkey, i32 noundef %keystep) #0 {
 entry:
   %0 = load ptr, ptr %parent, align 8
-  %onload = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 18
+  %onload = getelementptr inbounds i8, ptr %0, i64 116
   %1 = load i32, ptr %onload, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -2770,17 +2710,17 @@ if.end3:                                          ; preds = %cond.end
 
 if.end7:                                          ; preds = %if.end, %if.end3
   %cond1925 = phi i64 [ %call, %if.end3 ], [ 0, %if.end ]
-  %rediscmd = getelementptr inbounds %struct.RedisModuleCommand, ptr %parent, i64 0, i32 2
+  %rediscmd = getelementptr inbounds i8, ptr %parent, i64 16
   %3 = load ptr, ptr %rediscmd, align 8
-  %parent8 = getelementptr inbounds %struct.redisCommand, ptr %3, i64 0, i32 31
+  %parent8 = getelementptr inbounds i8, ptr %3, i64 296
   %4 = load ptr, ptr %parent8, align 8
   %tobool9.not = icmp eq ptr %4, null
   br i1 %tobool9.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end7
-  %module_cmd = getelementptr inbounds %struct.redisCommand, ptr %3, i64 0, i32 32
+  %module_cmd = getelementptr inbounds i8, ptr %3, i64 304
   %5 = load ptr, ptr %module_cmd, align 8
-  %func = getelementptr inbounds %struct.RedisModuleCommand, ptr %5, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %func, align 8
   %tobool12.not = icmp eq ptr %6, null
   br i1 %tobool12.not, label %if.end14, label %return
@@ -2792,7 +2732,7 @@ if.end14:                                         ; preds = %if.end11
 
 if.end18:                                         ; preds = %if.end14
   %call19 = tail call ptr @sdsnew(ptr noundef %name) #34
-  %subcommands_dict = getelementptr inbounds %struct.redisCommand, ptr %3, i64 0, i32 30
+  %subcommands_dict = getelementptr inbounds i8, ptr %3, i64 288
   %7 = load ptr, ptr %subcommands_dict, align 8
   %tobool20.not = icmp eq ptr %7, null
   br i1 %tobool20.not, label %if.end25, label %land.lhs.true21
@@ -2807,14 +2747,14 @@ if.then24:                                        ; preds = %land.lhs.true21
   br label %return
 
 if.end25:                                         ; preds = %land.lhs.true21, %if.end18
-  %fullname26 = getelementptr inbounds %struct.redisCommand, ptr %3, i64 0, i32 27
+  %fullname26 = getelementptr inbounds i8, ptr %3, i64 216
   %8 = load ptr, ptr %fullname26, align 8
   %call27 = tail call ptr @catSubCommandFullname(ptr noundef %8, ptr noundef %name) #34
   %9 = load ptr, ptr %parent, align 8
   %call29 = tail call ptr @moduleCreateCommandProxy(ptr noundef %9, ptr noundef %call19, ptr noundef %call27, ptr noundef %cmdfunc, i64 noundef %cond1925, i32 noundef %firstkey, i32 noundef %lastkey, i32 noundef %keystep)
-  %rediscmd30 = getelementptr inbounds %struct.RedisModuleCommand, ptr %call29, i64 0, i32 2
+  %rediscmd30 = getelementptr inbounds i8, ptr %call29, i64 16
   %10 = load ptr, ptr %rediscmd30, align 8
-  %arity = getelementptr inbounds %struct.redisCommand, ptr %10, i64 0, i32 13
+  %arity = getelementptr inbounds i8, ptr %10, i64 104
   store i32 -2, ptr %arity, align 8
   %11 = load ptr, ptr %rediscmd30, align 8
   tail call void @commandAddSubcommand(ptr noundef nonnull %3, ptr noundef %11, ptr noundef %name) #34
@@ -2856,13 +2796,13 @@ cond.false:                                       ; preds = %while.body
   unreachable
 
 cond.end:                                         ; preds = %while.body
-  %subargs = getelementptr inbounds %struct.redisCommandArg, ptr %args.addr.09, i64 0, i32 9
+  %subargs = getelementptr inbounds i8, ptr %args.addr.09, i64 64
   %1 = load ptr, ptr %subargs, align 8
   %call = tail call i32 @populateArgsStructure(ptr noundef %1)
-  %num_args = getelementptr inbounds %struct.redisCommandArg, ptr %args.addr.09, i64 0, i32 8
+  %num_args = getelementptr inbounds i8, ptr %args.addr.09, i64 56
   store i32 %call, ptr %num_args, align 8
   %inc = add nuw nsw i32 %count.010, 1
-  %incdec.ptr = getelementptr inbounds %struct.redisCommandArg, ptr %args.addr.09, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %args.addr.09, i64 80
   %2 = load ptr, ptr %incdec.ptr, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %return, label %while.body, !llvm.loop !15
@@ -2875,9 +2815,9 @@ return:                                           ; preds = %cond.end, %while.co
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_AddACLCategory(ptr nocapture noundef readonly %ctx, ptr noundef %name) #0 {
 entry:
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
-  %onload = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 18
+  %onload = getelementptr inbounds i8, ptr %0, i64 116
   %1 = load i32, ptr %onload, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -2950,7 +2890,7 @@ if.end9:                                          ; preds = %if.end4
 
 if.then12:                                        ; preds = %if.end9
   %8 = load ptr, ptr %module, align 8
-  %num_acl_categories_added = getelementptr inbounds %struct.RedisModule, ptr %8, i64 0, i32 19
+  %num_acl_categories_added = getelementptr inbounds i8, ptr %8, i64 120
   %9 = load i64, ptr %num_acl_categories_added, align 8
   %inc = add i64 %9, 1
   store i64 %inc, ptr %num_acl_categories_added, align 8
@@ -3103,7 +3043,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %onload = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 18
+  %onload = getelementptr inbounds i8, ptr %0, i64 116
   %1 = load i32, ptr %onload, align 4
   %tobool4.not = icmp eq i32 %1, 0
   br i1 %tobool4.not, label %return, label %if.end
@@ -3119,12 +3059,12 @@ cond.end:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end, %cond.end
   %cond9 = phi i64 [ %call, %cond.end ], [ 0, %if.end ]
-  %rediscmd = getelementptr inbounds %struct.RedisModuleCommand, ptr %command, i64 0, i32 2
+  %rediscmd = getelementptr inbounds i8, ptr %command, i64 16
   %2 = load ptr, ptr %rediscmd, align 8
-  %acl_categories = getelementptr inbounds %struct.redisCommand, ptr %2, i64 0, i32 15
+  %acl_categories = getelementptr inbounds i8, ptr %2, i64 120
   store i64 %cond9, ptr %acl_categories, align 8
   %3 = load ptr, ptr %command, align 8
-  %num_commands_with_acl_categories = getelementptr inbounds %struct.RedisModule, ptr %3, i64 0, i32 17
+  %num_commands_with_acl_categories = getelementptr inbounds i8, ptr %3, i64 112
   %4 = load i32, ptr %num_commands_with_acl_categories, align 8
   %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %num_commands_with_acl_categories, align 8
@@ -3153,7 +3093,7 @@ if.end.i:                                         ; preds = %do.body.i
   br label %if.then
 
 if.end3.i:                                        ; preds = %entry
-  %history.i = getelementptr inbounds %struct.RedisModuleCommandInfo, ptr %info, i64 0, i32 4
+  %history.i = getelementptr inbounds i8, ptr %info, i64 32
   %2 = load ptr, ptr %history.i, align 8
   %tobool4.not.i = icmp eq ptr %2, null
   br i1 %tobool4.not.i, label %if.end20.i, label %for.cond.preheader.i
@@ -3168,7 +3108,7 @@ for.cond.preheader.i:                             ; preds = %if.end3.i
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
   %add.ptr.i68.i = phi ptr [ %add.ptr.i.i, %for.inc.i ], [ %2, %for.cond.preheader.i ]
   %j.067.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
-  %changes.i = getelementptr inbounds %struct.RedisModuleCommandHistoryEntry, ptr %add.ptr.i68.i, i64 0, i32 1
+  %changes.i = getelementptr inbounds i8, ptr %add.ptr.i68.i, i64 8
   %5 = load ptr, ptr %changes.i, align 8
   %tobool11.not.i = icmp eq ptr %5, null
   br i1 %tobool11.not.i, label %do.body13.i, label %for.inc.i
@@ -3193,7 +3133,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %tobool7.not.i, label %if.end20.i, label %for.body.i, !llvm.loop !18
 
 if.end20.i:                                       ; preds = %for.inc.i, %for.cond.preheader.i, %if.end3.i
-  %key_specs.i = getelementptr inbounds %struct.RedisModuleCommandInfo, ptr %info, i64 0, i32 7
+  %key_specs.i = getelementptr inbounds i8, ptr %info, i64 56
   %8 = load ptr, ptr %key_specs.i, align 8
   %tobool21.not.i = icmp eq ptr %8, null
   br i1 %tobool21.not.i, label %moduleValidateCommandInfo.exit, label %for.cond24.preheader.i
@@ -3201,7 +3141,7 @@ if.end20.i:                                       ; preds = %for.inc.i, %for.con
 for.cond24.preheader.i:                           ; preds = %if.end20.i
   %9 = getelementptr i8, ptr %0, i64 16
   %.val33.i = load i64, ptr %9, align 8
-  %begin_search_type69.i = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %8, i64 0, i32 2
+  %begin_search_type69.i = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load i32, ptr %begin_search_type69.i, align 8
   %tobool28.not70.i = icmp eq i32 %10, 0
   br i1 %tobool28.not70.i, label %moduleValidateCommandInfo.exit, label %for.body29.i
@@ -3223,7 +3163,7 @@ if.end40.i:                                       ; preds = %do.body36.i
   br label %if.then
 
 if.end42.i:                                       ; preds = %for.body29.i
-  %flags.i = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i4072.i, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %add.ptr.i4072.i, i64 8
   %13 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %13, 15
   %14 = tail call i64 @llvm.ctpop.i64(i64 %and.i), !range !19
@@ -3262,7 +3202,7 @@ if.end68.i:                                       ; preds = %if.end52.i
   ]
 
 sw.bb71.i:                                        ; preds = %if.end68.i
-  %bs.i = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i4072.i, i64 0, i32 3
+  %bs.i = getelementptr inbounds i8, ptr %add.ptr.i4072.i, i64 24
   %18 = load ptr, ptr %bs.i, align 8
   %cmp72.i = icmp eq ptr %18, null
   br i1 %cmp72.i, label %do.body75.i, label %sw.epilog.i
@@ -3286,7 +3226,7 @@ if.end86.i:                                       ; preds = %do.body82.i
   br label %if.then
 
 sw.epilog.i:                                      ; preds = %sw.bb71.i, %if.end68.i, %if.end68.i
-  %find_keys_type.i = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i4072.i, i64 0, i32 4
+  %find_keys_type.i = getelementptr inbounds i8, ptr %add.ptr.i4072.i, i64 40
   %21 = load i32, ptr %find_keys_type.i, align 8
   %switch.i = icmp ult i32 %21, 4
   br i1 %switch.i, label %for.inc102.i, label %do.body94.i
@@ -3304,13 +3244,13 @@ for.inc102.i:                                     ; preds = %sw.epilog.i
   %inc103.i = add nuw nsw i64 %j23.071.i, 1
   %mul.i39.i = mul i64 %inc103.i, %.val33.i
   %add.ptr.i40.i = getelementptr inbounds i8, ptr %8, i64 %mul.i39.i
-  %begin_search_type.i = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i40.i, i64 0, i32 2
+  %begin_search_type.i = getelementptr inbounds i8, ptr %add.ptr.i40.i, i64 16
   %23 = load i32, ptr %begin_search_type.i, align 8
   %tobool28.not.i = icmp eq i32 %23, 0
   br i1 %tobool28.not.i, label %moduleValidateCommandInfo.exit, label %for.body29.i, !llvm.loop !21
 
 moduleValidateCommandInfo.exit:                   ; preds = %for.inc102.i, %if.end20.i, %for.cond24.preheader.i
-  %args.i = getelementptr inbounds %struct.RedisModuleCommandInfo, ptr %info, i64 0, i32 8
+  %args.i = getelementptr inbounds i8, ptr %info, i64 64
   %24 = load ptr, ptr %args.i, align 8
   %call106.i = tail call fastcc i32 @moduleValidateCommandArgs(ptr noundef %24, ptr noundef nonnull %0), !range !22
   %tobool.not = icmp eq i32 %call106.i, 0
@@ -3322,45 +3262,45 @@ if.then:                                          ; preds = %if.end98.i, %do.bod
   br label %return
 
 if.end:                                           ; preds = %moduleValidateCommandInfo.exit
-  %rediscmd = getelementptr inbounds %struct.RedisModuleCommand, ptr %command, i64 0, i32 2
+  %rediscmd = getelementptr inbounds i8, ptr %command, i64 16
   %25 = load ptr, ptr %rediscmd, align 8
-  %summary = getelementptr inbounds %struct.redisCommand, ptr %25, i64 0, i32 1
+  %summary = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load ptr, ptr %summary, align 8
   %tobool2.not = icmp eq ptr %26, null
   br i1 %tobool2.not, label %lor.lhs.false, label %if.then21
 
 lor.lhs.false:                                    ; preds = %if.end
-  %complexity = getelementptr inbounds %struct.redisCommand, ptr %25, i64 0, i32 2
+  %complexity = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %complexity, align 8
   %tobool3.not = icmp eq ptr %27, null
   br i1 %tobool3.not, label %lor.lhs.false4, label %if.then21
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %since = getelementptr inbounds %struct.redisCommand, ptr %25, i64 0, i32 3
+  %since = getelementptr inbounds i8, ptr %25, i64 24
   %28 = load ptr, ptr %since, align 8
   %tobool5.not = icmp eq ptr %28, null
   br i1 %tobool5.not, label %lor.lhs.false6, label %if.then21
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false4
-  %history = getelementptr inbounds %struct.redisCommand, ptr %25, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %25, i64 64
   %29 = load ptr, ptr %history, align 8
   %tobool7.not = icmp eq ptr %29, null
   br i1 %tobool7.not, label %lor.lhs.false8, label %if.then21
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false6
-  %tips = getelementptr inbounds %struct.redisCommand, ptr %25, i64 0, i32 10
+  %tips = getelementptr inbounds i8, ptr %25, i64 80
   %30 = load ptr, ptr %tips, align 8
   %tobool9.not = icmp eq ptr %30, null
   br i1 %tobool9.not, label %lor.lhs.false10, label %if.then21
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false8
-  %args = getelementptr inbounds %struct.redisCommand, ptr %25, i64 0, i32 21
+  %args = getelementptr inbounds i8, ptr %25, i64 168
   %31 = load ptr, ptr %args, align 8
   %tobool11.not = icmp eq ptr %31, null
   br i1 %tobool11.not, label %lor.lhs.false12, label %if.then21
 
 lor.lhs.false12:                                  ; preds = %lor.lhs.false10
-  %key_specs_num = getelementptr inbounds %struct.redisCommand, ptr %25, i64 0, i32 17
+  %key_specs_num = getelementptr inbounds i8, ptr %25, i64 136
   %32 = load i32, ptr %key_specs_num, align 8
   switch i32 %32, label %if.then21 [
     i32 0, label %if.end23
@@ -3368,15 +3308,15 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false10
   ]
 
 land.lhs.true:                                    ; preds = %lor.lhs.false12
-  %key_specs = getelementptr inbounds %struct.redisCommand, ptr %25, i64 0, i32 16
+  %key_specs = getelementptr inbounds i8, ptr %25, i64 128
   %33 = load ptr, ptr %key_specs, align 8
-  %begin_search_type = getelementptr inbounds %struct.keySpec, ptr %33, i64 0, i32 2
+  %begin_search_type = getelementptr inbounds i8, ptr %33, i64 16
   %34 = load i32, ptr %begin_search_type, align 8
   %cmp16 = icmp eq i32 %34, 2
   br i1 %cmp16, label %land.lhs.true17, label %if.then21
 
 land.lhs.true17:                                  ; preds = %land.lhs.true
-  %find_keys_type = getelementptr inbounds %struct.keySpec, ptr %33, i64 0, i32 4
+  %find_keys_type = getelementptr inbounds i8, ptr %33, i64 40
   %35 = load i32, ptr %find_keys_type, align 8
   %cmp20 = icmp eq i32 %35, 2
   br i1 %cmp20, label %if.end23, label %if.then21
@@ -3387,7 +3327,7 @@ if.then21:                                        ; preds = %lor.lhs.false12, %l
   br label %return
 
 if.end23:                                         ; preds = %lor.lhs.false12, %land.lhs.true17
-  %summary24 = getelementptr inbounds %struct.RedisModuleCommandInfo, ptr %info, i64 0, i32 1
+  %summary24 = getelementptr inbounds i8, ptr %info, i64 8
   %36 = load ptr, ptr %summary24, align 8
   %tobool25.not = icmp eq ptr %36, null
   br i1 %tobool25.not, label %if.end30, label %if.then26
@@ -3398,7 +3338,7 @@ if.then26:                                        ; preds = %if.end23
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then26, %if.end23
-  %complexity31 = getelementptr inbounds %struct.RedisModuleCommandInfo, ptr %info, i64 0, i32 2
+  %complexity31 = getelementptr inbounds i8, ptr %info, i64 16
   %37 = load ptr, ptr %complexity31, align 8
   %tobool32.not = icmp eq ptr %37, null
   br i1 %tobool32.not, label %if.end37, label %if.then33
@@ -3409,7 +3349,7 @@ if.then33:                                        ; preds = %if.end30
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then33, %if.end30
-  %since38 = getelementptr inbounds %struct.RedisModuleCommandInfo, ptr %info, i64 0, i32 3
+  %since38 = getelementptr inbounds i8, ptr %info, i64 24
   %38 = load ptr, ptr %since38, align 8
   %tobool39.not = icmp eq ptr %38, null
   br i1 %tobool39.not, label %if.end44, label %if.then40
@@ -3472,7 +3412,7 @@ for.body:                                         ; preds = %cond.end, %for.body
   %45 = load ptr, ptr %history, align 8
   %arrayidx69 = getelementptr inbounds %struct.commandHistory, ptr %45, i64 %j.0183
   store ptr %call67, ptr %arrayidx69, align 8
-  %changes = getelementptr inbounds %struct.RedisModuleCommandHistoryEntry, ptr %add.ptr.i147, i64 0, i32 1
+  %changes = getelementptr inbounds i8, ptr %add.ptr.i147, i64 8
   %46 = load ptr, ptr %changes, align 8
   %call71 = tail call noalias ptr @zstrdup(ptr noundef %46) #34
   %47 = load ptr, ptr %history, align 8
@@ -3493,12 +3433,12 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %49 = load ptr, ptr %history, align 8
   %changes81 = getelementptr inbounds %struct.commandHistory, ptr %49, i64 %count.0, i32 1
   store ptr null, ptr %changes81, align 8
-  %num_history = getelementptr inbounds %struct.redisCommand, ptr %25, i64 0, i32 9
+  %num_history = getelementptr inbounds i8, ptr %25, i64 72
   store i32 %conv.le, ptr %num_history, align 8
   br label %if.end83
 
 if.end83:                                         ; preds = %for.end, %if.end44
-  %tips84 = getelementptr inbounds %struct.RedisModuleCommandInfo, ptr %info, i64 0, i32 5
+  %tips84 = getelementptr inbounds i8, ptr %info, i64 40
   %50 = load ptr, ptr %tips84, align 8
   %tobool85.not = icmp eq ptr %50, null
   br i1 %tobool85.not, label %if.end116, label %if.then86
@@ -3548,19 +3488,19 @@ for.end111:                                       ; preds = %if.then93.for.end11
   %.lcssa163 = phi i32 [ %52, %if.then93.for.end111_crit_edge ], [ %55, %for.end111.loopexit ]
   %arrayidx114 = getelementptr inbounds ptr, ptr %57, i64 %idxprom113.pre-phi
   store ptr null, ptr %arrayidx114, align 8
-  %num_tips = getelementptr inbounds %struct.redisCommand, ptr %25, i64 0, i32 11
+  %num_tips = getelementptr inbounds i8, ptr %25, i64 88
   store i32 %.lcssa163, ptr %num_tips, align 8
   call void @sdsfreesplitres(ptr noundef nonnull %call91, i32 noundef %.lcssa163) #34
   br label %if.end116
 
 if.end116:                                        ; preds = %if.then86, %for.end111, %if.end83
-  %arity = getelementptr inbounds %struct.RedisModuleCommandInfo, ptr %info, i64 0, i32 6
+  %arity = getelementptr inbounds i8, ptr %info, i64 48
   %58 = load i32, ptr %arity, align 8
   %tobool117.not = icmp eq i32 %58, 0
   br i1 %tobool117.not, label %if.end121, label %if.then118
 
 if.then118:                                       ; preds = %if.end116
-  %arity120 = getelementptr inbounds %struct.redisCommand, ptr %25, i64 0, i32 13
+  %arity120 = getelementptr inbounds i8, ptr %25, i64 104
   store i32 %58, ptr %arity120, align 8
   br label %if.end121
 
@@ -3572,7 +3512,7 @@ if.end121:                                        ; preds = %if.then118, %if.end
 while.cond126.preheader:                          ; preds = %if.end121
   %60 = getelementptr i8, ptr %39, i64 16
   %.val143 = load i64, ptr %60, align 8
-  %invariant.gep = getelementptr %struct.RedisModuleCommandKeySpec, ptr %59, i64 0, i32 2
+  %invariant.gep = getelementptr i8, ptr %59, i64 16
   br label %while.cond126
 
 while.cond126:                                    ; preds = %while.cond126, %while.cond126.preheader
@@ -3597,7 +3537,7 @@ cond.false144:                                    ; preds = %while.end134
 
 cond.end145:                                      ; preds = %while.end134
   %conv128.le = trunc i64 %count125.0 to i32
-  %key_specs146 = getelementptr inbounds %struct.redisCommand, ptr %25, i64 0, i32 16
+  %key_specs146 = getelementptr inbounds i8, ptr %25, i64 128
   %62 = load ptr, ptr %key_specs146, align 8
   call void @zfree(ptr noundef %62) #34
   %mul147 = mul nuw nsw i64 %count125.0, 56
@@ -3628,7 +3568,7 @@ cond.end165:                                      ; preds = %for.body156, %cond.
   %65 = load ptr, ptr %key_specs146, align 8
   %arrayidx167 = getelementptr inbounds %struct.keySpec, ptr %65, i64 %j152.0188
   store ptr %cond, ptr %arrayidx167, align 8
-  %flags = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %add.ptr.i153, i64 8
   %66 = load i64, ptr %flags, align 8
   br label %for.body.i154
 
@@ -3657,7 +3597,7 @@ moduleConvertKeySpecsFlags.exit:                  ; preds = %for.inc.i156
   %69 = load ptr, ptr %key_specs146, align 8
   %flags172 = getelementptr inbounds %struct.keySpec, ptr %69, i64 %j152.0188, i32 1
   store i64 %out.1.i, ptr %flags172, align 8
-  %begin_search_type173 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 2
+  %begin_search_type173 = getelementptr inbounds i8, ptr %add.ptr.i153, i64 16
   %70 = load i32, ptr %begin_search_type173, align 8
   switch i32 %70, label %sw.default [
     i32 1, label %sw.bb
@@ -3675,7 +3615,7 @@ sw.bb177:                                         ; preds = %moduleConvertKeySpe
   %72 = load ptr, ptr %key_specs146, align 8
   %begin_search_type180 = getelementptr inbounds %struct.keySpec, ptr %72, i64 %j152.0188, i32 2
   store i32 2, ptr %begin_search_type180, align 8
-  %bs = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 3
+  %bs = getelementptr inbounds i8, ptr %add.ptr.i153, i64 24
   %73 = load i32, ptr %bs, align 8
   %74 = load ptr, ptr %key_specs146, align 8
   %bs183 = getelementptr inbounds %struct.keySpec, ptr %74, i64 %j152.0188, i32 3
@@ -3686,13 +3626,13 @@ sw.bb185:                                         ; preds = %moduleConvertKeySpe
   %75 = load ptr, ptr %key_specs146, align 8
   %begin_search_type188 = getelementptr inbounds %struct.keySpec, ptr %75, i64 %j152.0188, i32 2
   store i32 3, ptr %begin_search_type188, align 8
-  %bs189 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 3
+  %bs189 = getelementptr inbounds i8, ptr %add.ptr.i153, i64 24
   %76 = load ptr, ptr %bs189, align 8
   %call190 = call noalias ptr @zstrdup(ptr noundef %76) #34
   %77 = load ptr, ptr %key_specs146, align 8
   %bs193 = getelementptr inbounds %struct.keySpec, ptr %77, i64 %j152.0188, i32 3
   store ptr %call190, ptr %bs193, align 8
-  %startfrom = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 3, i32 0, i32 1
+  %startfrom = getelementptr inbounds i8, ptr %add.ptr.i153, i64 32
   %78 = load i32, ptr %startfrom, align 8
   %79 = load ptr, ptr %key_specs146, align 8
   %startfrom199 = getelementptr inbounds %struct.keySpec, ptr %79, i64 %j152.0188, i32 3, i32 0, i32 1
@@ -3705,7 +3645,7 @@ sw.default:                                       ; preds = %moduleConvertKeySpe
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb185, %sw.bb177, %sw.bb
-  %find_keys_type200 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 4
+  %find_keys_type200 = getelementptr inbounds i8, ptr %add.ptr.i153, i64 40
   %80 = load i32, ptr %find_keys_type200, align 8
   switch i32 %80, label %sw.default259 [
     i32 0, label %sw.bb201
@@ -3739,17 +3679,17 @@ sw.bb217:                                         ; preds = %sw.epilog
   %86 = load ptr, ptr %key_specs146, align 8
   %find_keys_type220 = getelementptr inbounds %struct.keySpec, ptr %86, i64 %j152.0188, i32 4
   store i32 2, ptr %find_keys_type220, align 8
-  %fk221 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 5
+  %fk221 = getelementptr inbounds i8, ptr %add.ptr.i153, i64 44
   %87 = load i32, ptr %fk221, align 4
   %88 = load ptr, ptr %key_specs146, align 8
   %fk225 = getelementptr inbounds %struct.keySpec, ptr %88, i64 %j152.0188, i32 5
   store i32 %87, ptr %fk225, align 4
-  %keystep228 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 5, i32 0, i32 1
+  %keystep228 = getelementptr inbounds i8, ptr %add.ptr.i153, i64 48
   %89 = load i32, ptr %keystep228, align 4
   %90 = load ptr, ptr %key_specs146, align 8
   %keystep232 = getelementptr inbounds %struct.keySpec, ptr %90, i64 %j152.0188, i32 5, i32 0, i32 1
   store i32 %89, ptr %keystep232, align 4
-  %limit234 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 5, i32 0, i32 2
+  %limit234 = getelementptr inbounds i8, ptr %add.ptr.i153, i64 52
   %91 = load i32, ptr %limit234, align 4
   %92 = load ptr, ptr %key_specs146, align 8
   %limit238 = getelementptr inbounds %struct.keySpec, ptr %92, i64 %j152.0188, i32 5, i32 0, i32 2
@@ -3760,17 +3700,17 @@ sw.bb239:                                         ; preds = %sw.epilog
   %93 = load ptr, ptr %key_specs146, align 8
   %find_keys_type242 = getelementptr inbounds %struct.keySpec, ptr %93, i64 %j152.0188, i32 4
   store i32 3, ptr %find_keys_type242, align 8
-  %fk243 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 5
+  %fk243 = getelementptr inbounds i8, ptr %add.ptr.i153, i64 44
   %94 = load i32, ptr %fk243, align 4
   %95 = load ptr, ptr %key_specs146, align 8
   %fk246 = getelementptr inbounds %struct.keySpec, ptr %95, i64 %j152.0188, i32 5
   store i32 %94, ptr %fk246, align 4
-  %firstkey = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 5, i32 0, i32 1
+  %firstkey = getelementptr inbounds i8, ptr %add.ptr.i153, i64 48
   %96 = load i32, ptr %firstkey, align 4
   %97 = load ptr, ptr %key_specs146, align 8
   %firstkey252 = getelementptr inbounds %struct.keySpec, ptr %97, i64 %j152.0188, i32 5, i32 0, i32 1
   store i32 %96, ptr %firstkey252, align 4
-  %keystep254 = getelementptr inbounds %struct.RedisModuleCommandKeySpec, ptr %add.ptr.i153, i64 0, i32 5, i32 0, i32 2
+  %keystep254 = getelementptr inbounds i8, ptr %add.ptr.i153, i64 52
   %98 = load i32, ptr %keystep254, align 4
   %99 = load ptr, ptr %key_specs146, align 8
   %keystep258 = getelementptr inbounds %struct.keySpec, ptr %99, i64 %j152.0188, i32 5, i32 0, i32 2
@@ -3800,7 +3740,7 @@ if.then267:                                       ; preds = %if.end264
   %call269 = call fastcc ptr @moduleCopyCommandArgs(ptr noundef nonnull %100, ptr noundef %39)
   store ptr %call269, ptr %args, align 8
   %call272 = call i32 @populateArgsStructure(ptr noundef %call269)
-  %num_args = getelementptr inbounds %struct.redisCommand, ptr %25, i64 0, i32 19
+  %num_args = getelementptr inbounds i8, ptr %25, i64 152
   store i32 %call272, ptr %num_args, align 8
   br label %return
 
@@ -3856,7 +3796,7 @@ for.body:                                         ; preds = %cond.end, %for.inc
   %call11 = tail call noalias ptr @zstrdup(ptr noundef %3) #34
   %arrayidx = getelementptr inbounds %struct.redisCommandArg, ptr %call5, i64 %j.062
   store ptr %call11, ptr %arrayidx, align 8
-  %type = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i56, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %add.ptr.i56, i64 8
   %4 = load i32, ptr %type, align 8
   switch i32 %4, label %sw.default.i [
     i32 0, label %if.else
@@ -3874,95 +3814,95 @@ sw.default.i:                                     ; preds = %for.body
   br label %if.else
 
 if.then:                                          ; preds = %for.body
-  %type15 = getelementptr inbounds %struct.redisCommandArg, ptr %call5, i64 %j.062, i32 1
+  %type15 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 3, ptr %type15, align 8
-  %key_spec_index = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i56, i64 0, i32 2
+  %key_spec_index = getelementptr inbounds i8, ptr %add.ptr.i56, i64 12
   %5 = load i32, ptr %key_spec_index, align 4
   br label %if.end
 
 if.else:                                          ; preds = %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %for.body, %sw.default.i
   %retval.0.i.ph = phi i32 [ -1, %sw.default.i ], [ %4, %for.body ], [ %4, %for.body ], [ %4, %for.body ], [ %4, %for.body ], [ %4, %for.body ], [ %4, %for.body ], [ %4, %for.body ], [ %4, %for.body ]
-  %type1558 = getelementptr inbounds %struct.redisCommandArg, ptr %call5, i64 %j.062, i32 1
+  %type1558 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 %retval.0.i.ph, ptr %type1558, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %.sink = phi i32 [ -1, %if.else ], [ %5, %if.then ]
-  %key_spec_index22 = getelementptr inbounds %struct.redisCommandArg, ptr %call5, i64 %j.062, i32 2
+  %key_spec_index22 = getelementptr inbounds i8, ptr %arrayidx, i64 12
   store i32 %.sink, ptr %key_spec_index22, align 4
-  %token = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i56, i64 0, i32 3
+  %token = getelementptr inbounds i8, ptr %add.ptr.i56, i64 16
   %6 = load ptr, ptr %token, align 8
   %tobool23.not = icmp eq ptr %6, null
   br i1 %tobool23.not, label %if.end29, label %if.then24
 
 if.then24:                                        ; preds = %if.end
   %call26 = tail call noalias ptr @zstrdup(ptr noundef nonnull %6) #34
-  %token28 = getelementptr inbounds %struct.redisCommandArg, ptr %call5, i64 %j.062, i32 3
+  %token28 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store ptr %call26, ptr %token28, align 8
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then24, %if.end
-  %summary = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i56, i64 0, i32 4
+  %summary = getelementptr inbounds i8, ptr %add.ptr.i56, i64 24
   %7 = load ptr, ptr %summary, align 8
   %tobool30.not = icmp eq ptr %7, null
   br i1 %tobool30.not, label %if.end36, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
   %call33 = tail call noalias ptr @zstrdup(ptr noundef nonnull %7) #34
-  %summary35 = getelementptr inbounds %struct.redisCommandArg, ptr %call5, i64 %j.062, i32 4
+  %summary35 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store ptr %call33, ptr %summary35, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then31, %if.end29
-  %since = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i56, i64 0, i32 5
+  %since = getelementptr inbounds i8, ptr %add.ptr.i56, i64 32
   %8 = load ptr, ptr %since, align 8
   %tobool37.not = icmp eq ptr %8, null
   br i1 %tobool37.not, label %if.end43, label %if.then38
 
 if.then38:                                        ; preds = %if.end36
   %call40 = tail call noalias ptr @zstrdup(ptr noundef nonnull %8) #34
-  %since42 = getelementptr inbounds %struct.redisCommandArg, ptr %call5, i64 %j.062, i32 5
+  %since42 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   store ptr %call40, ptr %since42, align 8
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then38, %if.end36
-  %deprecated_since = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i56, i64 0, i32 7
+  %deprecated_since = getelementptr inbounds i8, ptr %add.ptr.i56, i64 48
   %9 = load ptr, ptr %deprecated_since, align 8
   %tobool44.not = icmp eq ptr %9, null
   br i1 %tobool44.not, label %if.end50, label %if.then45
 
 if.then45:                                        ; preds = %if.end43
   %call47 = tail call noalias ptr @zstrdup(ptr noundef nonnull %9) #34
-  %deprecated_since49 = getelementptr inbounds %struct.redisCommandArg, ptr %call5, i64 %j.062, i32 7
+  %deprecated_since49 = getelementptr inbounds i8, ptr %arrayidx, i64 48
   store ptr %call47, ptr %deprecated_since49, align 8
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then45, %if.end43
-  %display_text = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i56, i64 0, i32 9
+  %display_text = getelementptr inbounds i8, ptr %add.ptr.i56, i64 64
   %10 = load ptr, ptr %display_text, align 8
   %tobool51.not = icmp eq ptr %10, null
   br i1 %tobool51.not, label %if.end57, label %if.then52
 
 if.then52:                                        ; preds = %if.end50
   %call54 = tail call noalias ptr @zstrdup(ptr noundef nonnull %10) #34
-  %display_text56 = getelementptr inbounds %struct.redisCommandArg, ptr %call5, i64 %j.062, i32 10
+  %display_text56 = getelementptr inbounds i8, ptr %arrayidx, i64 72
   store ptr %call54, ptr %display_text56, align 8
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then52, %if.end50
-  %flags = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i56, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %add.ptr.i56, i64 40
   %11 = load i32, ptr %flags, align 8
   %realflags.2.i = and i32 %11, 7
-  %flags60 = getelementptr inbounds %struct.redisCommandArg, ptr %call5, i64 %j.062, i32 6
+  %flags60 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store i32 %realflags.2.i, ptr %flags60, align 8
-  %subargs = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i56, i64 0, i32 8
+  %subargs = getelementptr inbounds i8, ptr %add.ptr.i56, i64 56
   %12 = load ptr, ptr %subargs, align 8
   %tobool61.not = icmp eq ptr %12, null
   br i1 %tobool61.not, label %for.inc, label %if.then62
 
 if.then62:                                        ; preds = %if.end57
   %call64 = tail call fastcc ptr @moduleCopyCommandArgs(ptr noundef nonnull %12, ptr noundef nonnull %version)
-  %subargs66 = getelementptr inbounds %struct.redisCommandArg, ptr %call5, i64 %j.062, i32 9
+  %subargs66 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   store ptr %call64, ptr %subargs66, align 8
   br label %for.inc
 
@@ -3988,7 +3928,7 @@ declare ptr @dictFetchValue(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @moduleIsModuleCommand(ptr noundef readnone %module_handle, ptr nocapture noundef readonly %cmd) local_unnamed_addr #11 {
 entry:
-  %proc = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 12
+  %proc = getelementptr inbounds i8, ptr %cmd, i64 96
   %0 = load ptr, ptr %proc, align 8
   %cmp.not = icmp ne ptr %0, @RedisModuleCommandDispatcher
   %cmp1 = icmp eq ptr %module_handle, null
@@ -3996,7 +3936,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end3
 
 if.end3:                                          ; preds = %entry
-  %module_cmd = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 32
+  %module_cmd = getelementptr inbounds i8, ptr %cmd, i64 304
   %1 = load ptr, ptr %module_cmd, align 8
   %2 = load ptr, ptr %1, align 8
   %cmp4 = icmp eq ptr %2, %module_handle
@@ -4030,7 +3970,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_SetModuleAttribs(ptr nocapture noundef %ctx, ptr noundef %name, i32 noundef %ver, i32 noundef %apiver) #0 {
 entry:
-  %module1 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
@@ -4038,38 +3978,38 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(128) ptr @zmalloc(i64 noundef 128) #35
   %call2 = tail call ptr @sdsnew(ptr noundef %name) #34
-  %name3 = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 1
+  %name3 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call2, ptr %name3, align 8
-  %ver4 = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 2
+  %ver4 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %ver, ptr %ver4, align 8
-  %apiver5 = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 3
+  %apiver5 = getelementptr inbounds i8, ptr %call, i64 20
   store i32 %apiver, ptr %apiver5, align 4
   %call6 = tail call ptr @listCreate() #34
-  %types = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 4
+  %types = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call6, ptr %types, align 8
   %call7 = tail call ptr @listCreate() #34
-  %usedby = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 5
+  %usedby = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call7, ptr %usedby, align 8
   %call8 = tail call ptr @listCreate() #34
-  %using = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 6
+  %using = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call8, ptr %using, align 8
   %call9 = tail call ptr @listCreate() #34
-  %filters = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 7
+  %filters = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call9, ptr %filters, align 8
   %call10 = tail call ptr @listCreate() #34
-  %module_configs = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 8
+  %module_configs = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %call10, ptr %module_configs, align 8
-  %match = getelementptr inbounds %struct.list, ptr %call10, i64 0, i32 4
+  %match = getelementptr inbounds i8, ptr %call10, i64 32
   store ptr @moduleListConfigMatch, ptr %match, align 8
-  %free = getelementptr inbounds %struct.list, ptr %call10, i64 0, i32 3
+  %free = getelementptr inbounds i8, ptr %call10, i64 24
   store ptr @moduleListFree, ptr %free, align 8
-  %configs_initialized = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 9
-  %info_cb = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 14
-  %onload = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 18
+  %configs_initialized = getelementptr inbounds i8, ptr %call, i64 64
+  %info_cb = getelementptr inbounds i8, ptr %call, i64 88
+  %onload = getelementptr inbounds i8, ptr %call, i64 116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %configs_initialized, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %info_cb, i8 0, i64 28, i1 false)
   store i32 1, ptr %onload, align 4
-  %num_acl_categories_added = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 19
+  %num_acl_categories_added = getelementptr inbounds i8, ptr %call, i64 120
   store i64 0, ptr %num_acl_categories_added, align 8
   store ptr %call, ptr %module1, align 8
   br label %return
@@ -4128,7 +4068,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_BlockedClientMeasureTimeStart(ptr nocapture noundef writeonly %bc) #0 {
 entry:
-  %background_timer = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 13
+  %background_timer = getelementptr inbounds i8, ptr %bc, i64 96
   %0 = load ptr, ptr @getMonotonicUs, align 8
   %call.i = tail call i64 %0() #34
   store i64 %call.i, ptr %background_timer, align 8
@@ -4138,7 +4078,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_BlockedClientMeasureTimeEnd(ptr nocapture noundef %bc) #0 {
 entry:
-  %background_timer = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 13
+  %background_timer = getelementptr inbounds i8, ptr %bc, i64 96
   %0 = load i64, ptr %background_timer, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -4147,7 +4087,7 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr @getMonotonicUs, align 8
   %call.i = tail call i64 %1() #34
   %sub.i = sub i64 %call.i, %0
-  %background_duration = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 14
+  %background_duration = getelementptr inbounds i8, ptr %bc, i64 104
   %2 = load i64, ptr %background_duration, align 8
   %add = add i64 %sub.i, %2
   store i64 %add, ptr %background_duration, align 8
@@ -4169,7 +4109,7 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr @RM_Yield.yield_nesting, align 4
   %1 = load ptr, ptr @getMonotonicUs, align 8
   %call = tail call i64 %1() #34
-  %next_yield_time = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %next_yield_time = getelementptr inbounds i8, ptr %ctx, i64 104
   %2 = load i64, ptr %next_yield_time, align 8
   %cmp.not = icmp slt i64 %call, %2
   br i1 %cmp.not, label %if.end16, label %if.then1
@@ -4247,9 +4187,9 @@ declare void @protectClient(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @RM_SetModuleOptions(ptr nocapture noundef readonly %ctx, i32 noundef %options) #14 {
 entry:
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
-  %options1 = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 12
+  %options1 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 %options, ptr %options1, align 4
   ret void
 }
@@ -4257,9 +4197,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_SignalModifiedKey(ptr nocapture noundef readonly %ctx, ptr noundef %keyname) #0 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %db, align 8
   tail call void @signalModifiedKey(ptr noundef %0, ptr noundef %1, ptr noundef %keyname) #34
   ret i32 0
@@ -4270,7 +4210,7 @@ declare void @signalModifiedKey(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @RM_AutoMemory(ptr nocapture noundef %ctx) #15 {
 entry:
-  %flags = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
   %or = or i32 %0, 1
   store i32 %or, ptr %flags, align 8
@@ -4280,22 +4220,22 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @autoMemoryAdd(ptr nocapture noundef %ctx, i32 noundef %type, ptr noundef %ptr) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %amqueue_used = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used, align 4
-  %amqueue_len = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load i32, ptr %amqueue_len, align 8
   %cmp = icmp eq i32 %1, %2
   br i1 %cmp, label %if.then1, label %if.end.if.end11_crit_edge
 
 if.end.if.end11_crit_edge:                        ; preds = %if.end
-  %amqueue12.phi.trans.insert = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre = load ptr, ptr %amqueue12.phi.trans.insert, align 8
   br label %if.end11
 
@@ -4304,7 +4244,7 @@ if.then1:                                         ; preds = %if.end
   %cmp4 = icmp slt i32 %1, 8
   %spec.select = select i1 %cmp4, i32 16, i32 %mul
   store i32 %spec.select, ptr %amqueue_len, align 8
-  %amqueue = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load ptr, ptr %amqueue, align 8
   %conv = sext i32 %spec.select to i64
   %mul9 = shl nsw i64 %conv, 4
@@ -4316,7 +4256,7 @@ if.then1:                                         ; preds = %if.end
 if.end11:                                         ; preds = %if.end.if.end11_crit_edge, %if.then1
   %4 = phi i32 [ %1, %if.end.if.end11_crit_edge ], [ %.pre14, %if.then1 ]
   %5 = phi ptr [ %.pre, %if.end.if.end11_crit_edge ], [ %call, %if.then1 ]
-  %amqueue12 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12 = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom = sext i32 %4 to i64
   %type14 = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom, i32 1
   store i32 %type, ptr %type14, align 8
@@ -4337,14 +4277,14 @@ return:                                           ; preds = %entry, %if.end11
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @autoMemoryFreed(ptr nocapture noundef %ctx, i32 noundef %type, ptr noundef readnone %ptr) local_unnamed_addr #16 {
 entry:
-  %flags = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %amqueue_used = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used, align 4
   %cmp21 = icmp sgt i32 %1, 0
   br i1 %cmp21, label %for.cond1.preheader.lr.ph, label %return
@@ -4352,7 +4292,7 @@ if.end:                                           ; preds = %entry
 for.cond1.preheader.lr.ph:                        ; preds = %if.end
   %add = add nuw nsw i32 %1, 1
   %div2731 = lshr i32 %add, 1
-  %amqueue = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue = getelementptr inbounds i8, ptr %ctx, i64 32
   %2 = load ptr, ptr %amqueue, align 8
   br label %for.cond1.preheader
 
@@ -4366,19 +4306,20 @@ for.body3:                                        ; preds = %for.cond1.preheader
   %cmp4 = phi i1 [ true, %for.cond1.preheader ], [ false, %for.inc ]
   %cond = select i1 %cmp4, i32 %sub6, i32 %j.022
   %idxprom = sext i32 %cond to i64
-  %type7 = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom, i32 1
+  %arrayidx = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom
+  %type7 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i32, ptr %type7, align 8
   %cmp8 = icmp eq i32 %4, %type
   br i1 %cmp8, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body3
-  %arrayidx = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
   %cmp13 = icmp eq ptr %5, %ptr
   br i1 %cmp13, label %if.then14, label %for.inc
 
 if.then14:                                        ; preds = %land.lhs.true
-  store i32 3, ptr %type7, align 8
+  %type7.le = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  store i32 3, ptr %type7.le, align 8
   %6 = load i32, ptr %amqueue_used, align 4
   %sub20 = add nsw i32 %6, -1
   %cmp21.not = icmp eq i32 %cond, %sub20
@@ -4426,7 +4367,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %ctx2 = getelementptr inbounds %struct.RedisModuleAsyncRMCallPromise, ptr %call1, i64 0, i32 5
+  %ctx2 = getelementptr inbounds i8, ptr %call1, i64 40
   %0 = load ptr, ptr %ctx2, align 8
   %1 = load i64, ptr %call1, align 8
   %dec.i = add i64 %1, -1
@@ -4435,7 +4376,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %if.then
-  %c.i = getelementptr inbounds %struct.RedisModuleAsyncRMCallPromise, ptr %call1, i64 0, i32 4
+  %c.i = getelementptr inbounds i8, ptr %call1, i64 32
   %2 = load ptr, ptr %c.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %cond.end.i, label %cond.false.i
@@ -4456,14 +4397,14 @@ if.end:                                           ; preds = %entry, %cond.end.i,
   br i1 %tobool.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx.0, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx.0, i64 48
   %3 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %3, 1
   %tobool.not.i7 = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i7, label %if.end6, label %if.end.i8
 
 if.end.i8:                                        ; preds = %if.then4
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx.0, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx.0, i64 44
   %4 = load i32, ptr %amqueue_used.i, align 4
   %cmp21.i = icmp sgt i32 %4, 0
   br i1 %cmp21.i, label %for.cond1.preheader.lr.ph.i, label %if.end6
@@ -4471,7 +4412,7 @@ if.end.i8:                                        ; preds = %if.then4
 for.cond1.preheader.lr.ph.i:                      ; preds = %if.end.i8
   %add.i = add nuw nsw i32 %4, 1
   %div2731.i = lshr i32 %add.i, 1
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx.0, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx.0, i64 32
   %5 = load ptr, ptr %amqueue.i, align 8
   br label %for.cond1.preheader.i
 
@@ -4485,19 +4426,20 @@ for.body3.i:                                      ; preds = %for.inc.i, %for.con
   %cmp4.i = phi i1 [ true, %for.cond1.preheader.i ], [ false, %for.inc.i ]
   %cond.i = select i1 %cmp4.i, i32 %sub6.i, i32 %j.022.i
   %idxprom.i = sext i32 %cond.i to i64
-  %type7.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i, i32 1
+  %arrayidx.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i
+  %type7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %7 = load i32, ptr %type7.i, align 8
   %cmp8.i = icmp eq i32 %7, 2
   br i1 %cmp8.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body3.i
-  %arrayidx.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   %cmp13.i = icmp eq ptr %8, %reply
   br i1 %cmp13.i, label %if.then14.i, label %for.inc.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
-  store i32 3, ptr %type7.i, align 8
+  %type7.i.le = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  store i32 3, ptr %type7.i.le, align 8
   %9 = load i32, ptr %amqueue_used.i, align 4
   %sub20.i = add nsw i32 %9, -1
   %cmp21.not.i = icmp eq i32 %cond.i, %sub20.i
@@ -4539,14 +4481,14 @@ entry:
 if.end:                                           ; preds = %entry
   tail call fastcc void @moduleCloseKey(ptr noundef nonnull %key)
   %0 = load ptr, ptr %key, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %0, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %1, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %autoMemoryFreed.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %0, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %0, i64 44
   %2 = load i32, ptr %amqueue_used.i, align 4
   %cmp21.i = icmp sgt i32 %2, 0
   br i1 %cmp21.i, label %for.cond1.preheader.lr.ph.i, label %autoMemoryFreed.exit
@@ -4554,7 +4496,7 @@ if.end.i:                                         ; preds = %if.end
 for.cond1.preheader.lr.ph.i:                      ; preds = %if.end.i
   %add.i = add nuw nsw i32 %2, 1
   %div2731.i = lshr i32 %add.i, 1
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %0, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %amqueue.i, align 8
   br label %for.cond1.preheader.i
 
@@ -4568,19 +4510,20 @@ for.body3.i:                                      ; preds = %for.inc.i, %for.con
   %cmp4.i = phi i1 [ true, %for.cond1.preheader.i ], [ false, %for.inc.i ]
   %cond.i = select i1 %cmp4.i, i32 %sub6.i, i32 %j.022.i
   %idxprom.i = sext i32 %cond.i to i64
-  %type7.i = getelementptr inbounds %struct.AutoMemEntry, ptr %3, i64 %idxprom.i, i32 1
+  %arrayidx.i = getelementptr inbounds %struct.AutoMemEntry, ptr %3, i64 %idxprom.i
+  %type7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %5 = load i32, ptr %type7.i, align 8
   %cmp8.i = icmp eq i32 %5, 0
   br i1 %cmp8.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body3.i
-  %arrayidx.i = getelementptr inbounds %struct.AutoMemEntry, ptr %3, i64 %idxprom.i
   %6 = load ptr, ptr %arrayidx.i, align 8
   %cmp13.i = icmp eq ptr %6, %key
   br i1 %cmp13.i, label %if.then14.i, label %for.inc.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
-  store i32 3, ptr %type7.i, align 8
+  %type7.i.le = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  store i32 3, ptr %type7.i.le, align 8
   %7 = load i32, ptr %amqueue_used.i, align 4
   %sub20.i = add nsw i32 %7, -1
   %cmp21.not.i = icmp eq i32 %cond.i, %sub20.i
@@ -4624,14 +4567,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used.i, align 4
   %cmp21.i = icmp sgt i32 %1, 0
   br i1 %cmp21.i, label %for.cond1.preheader.lr.ph.i, label %if.end
@@ -4639,7 +4582,7 @@ if.end.i:                                         ; preds = %if.then
 for.cond1.preheader.lr.ph.i:                      ; preds = %if.end.i
   %add.i = add nuw nsw i32 %1, 1
   %div2731.i = lshr i32 %add.i, 1
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %2 = load ptr, ptr %amqueue.i, align 8
   br label %for.cond1.preheader.i
 
@@ -4653,19 +4596,20 @@ for.body3.i:                                      ; preds = %for.inc.i, %for.con
   %cmp4.i = phi i1 [ true, %for.cond1.preheader.i ], [ false, %for.inc.i ]
   %cond.i = select i1 %cmp4.i, i32 %sub6.i, i32 %j.022.i
   %idxprom.i = sext i32 %cond.i to i64
-  %type7.i = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom.i, i32 1
+  %arrayidx.i = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom.i
+  %type7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load i32, ptr %type7.i, align 8
   %cmp8.i = icmp eq i32 %4, 4
   br i1 %cmp8.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body3.i
-  %arrayidx.i = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %cmp13.i = icmp eq ptr %5, %d
   br i1 %cmp13.i, label %if.then14.i, label %for.inc.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
-  store i32 3, ptr %type7.i, align 8
+  %type7.i.le = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  store i32 3, ptr %type7.i.le, align 8
   %6 = load i32, ptr %amqueue_used.i, align 4
   %sub20.i = add nsw i32 %6, -1
   %cmp21.not.i = icmp eq i32 %cond.i, %sub20.i
@@ -4708,14 +4652,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used.i, align 4
   %cmp21.i = icmp sgt i32 %1, 0
   br i1 %cmp21.i, label %for.cond1.preheader.lr.ph.i, label %if.end
@@ -4723,7 +4667,7 @@ if.end.i:                                         ; preds = %if.then
 for.cond1.preheader.lr.ph.i:                      ; preds = %if.end.i
   %add.i = add nuw nsw i32 %1, 1
   %div2731.i = lshr i32 %add.i, 1
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %2 = load ptr, ptr %amqueue.i, align 8
   br label %for.cond1.preheader.i
 
@@ -4737,19 +4681,20 @@ for.body3.i:                                      ; preds = %for.inc.i, %for.con
   %cmp4.i = phi i1 [ true, %for.cond1.preheader.i ], [ false, %for.inc.i ]
   %cond.i = select i1 %cmp4.i, i32 %sub6.i, i32 %j.022.i
   %idxprom.i = sext i32 %cond.i to i64
-  %type7.i = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom.i, i32 1
+  %arrayidx.i = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom.i
+  %type7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load i32, ptr %type7.i, align 8
   %cmp8.i = icmp eq i32 %4, 5
   br i1 %cmp8.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body3.i
-  %arrayidx.i = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %cmp13.i = icmp eq ptr %5, %data
   br i1 %cmp13.i, label %if.then14.i, label %for.inc.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
-  store i32 3, ptr %type7.i, align 8
+  %type7.i.le = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  store i32 3, ptr %type7.i.le, align 8
   %6 = load i32, ptr %amqueue_used.i, align 4
   %sub20.i = add nsw i32 %6, -1
   %cmp21.not.i = icmp eq i32 %cond.i, %sub20.i
@@ -4793,22 +4738,22 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %1, %2
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -4817,7 +4762,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %1, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -4829,7 +4774,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %5 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %4 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -4862,22 +4807,22 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %1, %2
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -4886,7 +4831,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %1, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -4898,7 +4843,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %5 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %4 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -4939,22 +4884,22 @@ entry:
   br i1 %cmp.not.i, label %RM_CreateString.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %0, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %RM_CreateString.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %amqueue_used.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used.i.i, align 4
-  %amqueue_len.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load i32, ptr %amqueue_len.i.i, align 8
   %cmp.i.i = icmp eq i32 %1, %2
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end.if.end11_crit_edge.i.i
 
 if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
-  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i.i = load ptr, ptr %amqueue12.phi.trans.insert.i.i, align 8
   br label %if.end11.i.i
 
@@ -4963,7 +4908,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %cmp4.i.i = icmp slt i32 %1, 8
   %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
-  %amqueue.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
@@ -4975,7 +4920,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
   %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
   %5 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
-  %amqueue12.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i.i = sext i32 %4 to i64
   %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
@@ -5006,22 +4951,22 @@ entry:
   br i1 %cmp.not.i, label %RM_CreateString.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %0, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %RM_CreateString.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %amqueue_used.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used.i.i, align 4
-  %amqueue_len.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load i32, ptr %amqueue_len.i.i, align 8
   %cmp.i.i = icmp eq i32 %1, %2
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end.if.end11_crit_edge.i.i
 
 if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
-  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i.i = load ptr, ptr %amqueue12.phi.trans.insert.i.i, align 8
   br label %if.end11.i.i
 
@@ -5030,7 +4975,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %cmp4.i.i = icmp slt i32 %1, 8
   %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
-  %amqueue.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
@@ -5042,7 +4987,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
   %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
   %5 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
-  %amqueue12.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i.i = sext i32 %4 to i64
   %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
@@ -5073,22 +5018,22 @@ entry:
   br i1 %cmp.not.i, label %RM_CreateString.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %0, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %RM_CreateString.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %amqueue_used.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used.i.i, align 4
-  %amqueue_len.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load i32, ptr %amqueue_len.i.i, align 8
   %cmp.i.i = icmp eq i32 %1, %2
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end.if.end11_crit_edge.i.i
 
 if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
-  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i.i = load ptr, ptr %amqueue12.phi.trans.insert.i.i, align 8
   br label %if.end11.i.i
 
@@ -5097,7 +5042,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %cmp4.i.i = icmp slt i32 %1, 8
   %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
-  %amqueue.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
@@ -5109,7 +5054,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
   %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
   %5 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
-  %amqueue12.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i.i = sext i32 %4 to i64
   %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
@@ -5142,22 +5087,22 @@ entry:
   br i1 %cmp.not.i, label %RM_CreateString.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %0, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %RM_CreateString.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %amqueue_used.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used.i.i, align 4
-  %amqueue_len.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load i32, ptr %amqueue_len.i.i, align 8
   %cmp.i.i = icmp eq i32 %1, %2
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end.if.end11_crit_edge.i.i
 
 if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
-  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i.i = load ptr, ptr %amqueue12.phi.trans.insert.i.i, align 8
   br label %if.end11.i.i
 
@@ -5166,7 +5111,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %cmp4.i.i = icmp slt i32 %1, 8
   %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
-  %amqueue.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
@@ -5178,7 +5123,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
   %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
   %5 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
-  %amqueue12.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i.i = sext i32 %4 to i64
   %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
@@ -5206,22 +5151,22 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %1, %2
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -5230,7 +5175,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %1, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -5242,7 +5187,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %5 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %4 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -5273,22 +5218,22 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %1 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %1, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %2 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %3 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %2, %3
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -5297,7 +5242,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %2, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %4 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -5309,7 +5254,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %5 = phi i32 [ %2, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %6 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %5 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -5337,14 +5282,14 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used.i, align 4
   %cmp21.i = icmp sgt i32 %1, 0
   br i1 %cmp21.i, label %for.cond1.preheader.lr.ph.i, label %if.end
@@ -5352,7 +5297,7 @@ if.end.i:                                         ; preds = %if.then
 for.cond1.preheader.lr.ph.i:                      ; preds = %if.end.i
   %add.i = add nuw nsw i32 %1, 1
   %div2731.i = lshr i32 %add.i, 1
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %2 = load ptr, ptr %amqueue.i, align 8
   br label %for.cond1.preheader.i
 
@@ -5366,19 +5311,20 @@ for.body3.i:                                      ; preds = %for.inc.i, %for.con
   %cmp4.i = phi i1 [ true, %for.cond1.preheader.i ], [ false, %for.inc.i ]
   %cond.i = select i1 %cmp4.i, i32 %sub6.i, i32 %j.022.i
   %idxprom.i = sext i32 %cond.i to i64
-  %type7.i = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom.i, i32 1
+  %arrayidx.i = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom.i
+  %type7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load i32, ptr %type7.i, align 8
   %cmp8.i = icmp eq i32 %4, 1
   br i1 %cmp8.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body3.i
-  %arrayidx.i = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %cmp13.i = icmp eq ptr %5, %str
   br i1 %cmp13.i, label %if.then14.i, label %for.inc.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
-  store i32 3, ptr %type7.i, align 8
+  %type7.i.le = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  store i32 3, ptr %type7.i.le, align 8
   %6 = load i32, ptr %amqueue_used.i, align 4
   %sub20.i = add nsw i32 %6, -1
   %cmp21.not.i = icmp eq i32 %cond.i, %sub20.i
@@ -5418,14 +5364,14 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used.i, align 4
   %cmp21.i = icmp sgt i32 %1, 0
   br i1 %cmp21.i, label %for.cond1.preheader.lr.ph.i, label %if.then
@@ -5433,7 +5379,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
 for.cond1.preheader.lr.ph.i:                      ; preds = %if.end.i
   %add.i = add nuw nsw i32 %1, 1
   %div2731.i = lshr i32 %add.i, 1
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %2 = load ptr, ptr %amqueue.i, align 8
   br label %for.cond1.preheader.i
 
@@ -5447,19 +5393,20 @@ for.body3.i:                                      ; preds = %for.inc.i, %for.con
   %cmp4.i = phi i1 [ true, %for.cond1.preheader.i ], [ false, %for.inc.i ]
   %cond.i = select i1 %cmp4.i, i32 %sub6.i, i32 %j.022.i
   %idxprom.i = sext i32 %cond.i to i64
-  %type7.i = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom.i, i32 1
+  %arrayidx.i = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom.i
+  %type7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %4 = load i32, ptr %type7.i, align 8
   %cmp8.i = icmp eq i32 %4, 1
   br i1 %cmp8.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body3.i
-  %arrayidx.i = getelementptr inbounds %struct.AutoMemEntry, ptr %2, i64 %idxprom.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %cmp13.i = icmp eq ptr %5, %str
   br i1 %cmp13.i, label %if.then14.i, label %for.inc.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
-  store i32 3, ptr %type7.i, align 8
+  %type7.i.le = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  store i32 3, ptr %type7.i.le, align 8
   %6 = load i32, ptr %amqueue_used.i, align 4
   %sub20.i = add nsw i32 %6, -1
   %cmp21.not.i = icmp eq i32 %cond.i, %sub20.i
@@ -5501,7 +5448,7 @@ declare void @incrRefCount(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_HoldString(ptr noundef %ctx, ptr noundef %str) #0 {
 entry:
-  %refcount = getelementptr inbounds %struct.redisObject, ptr %str, i64 0, i32 1
+  %refcount = getelementptr inbounds i8, ptr %str, i64 4
   %0 = load i32, ptr %refcount, align 4
   %cmp = icmp eq i32 %0, 2147483646
   %cmp.not.i = icmp eq ptr %ctx, null
@@ -5512,22 +5459,22 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %1 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %1, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %amqueue_used.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %2 = load i32, ptr %amqueue_used.i.i, align 4
-  %amqueue_len.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %3 = load i32, ptr %amqueue_len.i.i, align 8
   %cmp.i.i = icmp eq i32 %2, %3
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end.if.end11_crit_edge.i.i
 
 if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
-  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i.i = load ptr, ptr %amqueue12.phi.trans.insert.i.i, align 8
   br label %return.sink.split
 
@@ -5536,7 +5483,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %cmp4.i.i = icmp slt i32 %2, 8
   %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
-  %amqueue.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %4 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
@@ -5550,22 +5497,22 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %5 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %5, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %6 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %7 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %6, %7
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %return.sink.split
 
@@ -5574,7 +5521,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %6, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %8 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -5588,7 +5535,7 @@ return.sink.split:                                ; preds = %if.end.if.end11_cri
   %.sink = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ], [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i7, %if.then1.i ]
   %amqueue_used.i.sink10 = phi ptr [ %amqueue_used.i.i, %if.end.if.end11_crit_edge.i.i ], [ %amqueue_used.i.i, %if.then1.i.i ], [ %amqueue_used.i, %if.end.if.end11_crit_edge.i ], [ %amqueue_used.i, %if.then1.i ]
   %str.sink = phi ptr [ %call.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i, %if.then1.i.i ], [ %str, %if.end.if.end11_crit_edge.i ], [ %str, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %.sink11 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %.sink, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -5625,7 +5572,7 @@ if.end2:                                          ; preds = %entry
   br i1 %tobool.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %str, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %str, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -5673,7 +5620,7 @@ sdslen.exit:                                      ; preds = %if.then4, %sw.bb.i,
   br label %if.end6
 
 if.end6:                                          ; preds = %sdslen.exit, %if.end2
-  %ptr7 = getelementptr inbounds %struct.redisObject, ptr %str, i64 0, i32 2
+  %ptr7 = getelementptr inbounds i8, ptr %str, i64 8
   %6 = load ptr, ptr %ptr7, align 8
   br label %return
 
@@ -5733,7 +5680,7 @@ return:                                           ; preds = %entry, %sw.bb13, %s
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_StringToLongLong(ptr nocapture noundef readonly %str, ptr noundef %ll) #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %str, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %str, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -5788,7 +5735,7 @@ declare i32 @string2ll(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_StringToULongLong(ptr nocapture noundef readonly %str, ptr noundef %ull) #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %str, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %str, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @string2ull(ptr noundef %0, ptr noundef %ull) #34
   %tobool.not = icmp eq i32 %call, 0
@@ -5812,7 +5759,7 @@ declare i32 @getDoubleFromObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_StringToLongDouble(ptr nocapture noundef readonly %str, ptr noundef %ld) #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %str, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %str, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -5896,7 +5843,7 @@ declare i32 @compareStringObjects(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @moduleAssertUnsharedString(ptr noundef %str) local_unnamed_addr #0 {
 entry:
-  %refcount = getelementptr inbounds %struct.redisObject, ptr %str, i64 0, i32 1
+  %refcount = getelementptr inbounds i8, ptr %str, i64 4
   %0 = load i32, ptr %refcount, align 4
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end3, label %do.body
@@ -5920,7 +5867,7 @@ if.end3:                                          ; preds = %entry
   ]
 
 if.then5:                                         ; preds = %if.end3
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %str, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %str, i64 8
   %2 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 -1
   %3 = load i8, ptr %arrayidx.i, align 1
@@ -5972,7 +5919,7 @@ sdslen.exit:                                      ; preds = %if.then5, %sw.bb.i,
   br label %return
 
 if.then15:                                        ; preds = %if.end3
-  %ptr16 = getelementptr inbounds %struct.redisObject, ptr %str, i64 0, i32 2
+  %ptr16 = getelementptr inbounds i8, ptr %str, i64 8
   %8 = load ptr, ptr %ptr16, align 8
   %9 = ptrtoint ptr %8 to i64
   %call17 = tail call ptr @sdsfromlonglong(i64 noundef %9) #34
@@ -5999,7 +5946,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %call1 = tail call ptr @sdscatlen(ptr noundef %0, ptr noundef %buf, i64 noundef %len) #34
   store ptr %call1, ptr %ptr, align 8
@@ -6029,7 +5976,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_WrongArity(ptr nocapture noundef readonly %ctx) #0 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
   tail call void @addReplyErrorArity(ptr noundef %0) #34
   ret i32 0
@@ -6040,24 +5987,24 @@ declare void @addReplyErrorArity(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local ptr @moduleGetReplyClient(ptr nocapture noundef readonly %ctx) local_unnamed_addr #11 {
 entry:
-  %flags = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, 16
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.else4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %blocked_client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %reply_client = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client = getelementptr inbounds i8, ptr %1, i64 72
   br label %return.sink.split
 
 if.else4:                                         ; preds = %entry
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then2, %if.else4
@@ -6073,24 +6020,24 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithLongLong(ptr nocapture noundef readonly %ctx, i64 noundef %ll) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -6112,24 +6059,24 @@ declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithError(ptr nocapture noundef readonly %ctx, ptr noundef %err) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -6152,24 +6099,24 @@ declare void @addReplyErrorFormat(ptr noundef, ptr noundef, ...) local_unnamed_a
 define dso_local i32 @RM_ReplyWithErrorFormat(ptr nocapture noundef readonly %ctx, ptr noundef %fmt, ...) #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -6203,24 +6150,24 @@ declare void @addReplyErrorFormatInternal(ptr noundef, i32 noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithSimpleString(ptr nocapture noundef readonly %ctx, ptr noundef %msg) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -6245,24 +6192,24 @@ declare void @addReplyProto(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @moduleReplyWithCollection(ptr nocapture noundef %ctx, i64 noundef %len, i32 noundef %type) local_unnamed_addr #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -6278,9 +6225,9 @@ if.end:                                           ; preds = %moduleGetReplyClien
   ]
 
 if.then2:                                         ; preds = %if.end
-  %postponed_arrays = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 8
+  %postponed_arrays = getelementptr inbounds i8, ptr %ctx, i64 56
   %3 = load ptr, ptr %postponed_arrays, align 8
-  %postponed_arrays_count = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 9
+  %postponed_arrays_count = getelementptr inbounds i8, ptr %ctx, i64 64
   %4 = load i32, ptr %postponed_arrays_count, align 8
   %add = add nsw i32 %4, 1
   %conv = sext i32 %add to i64
@@ -6312,7 +6259,7 @@ sw.bb:                                            ; preds = %if.then11
   br label %return
 
 sw.bb12:                                          ; preds = %if.then11
-  %resp = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %2, i64 24
   %9 = load i32, ptr %resp, align 8
   %idxprom13 = sext i32 %9 to i64
   %arrayidx14 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 10, i64 %idxprom13
@@ -6321,7 +6268,7 @@ sw.bb12:                                          ; preds = %if.then11
   br label %return
 
 sw.bb15:                                          ; preds = %if.then11
-  %resp16 = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 3
+  %resp16 = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load i32, ptr %resp16, align 8
   %idxprom17 = sext i32 %11 to i64
   %arrayidx18 = getelementptr inbounds %struct.sharedObjectsStruct, ptr @shared, i64 0, i32 11, i64 %idxprom17
@@ -6407,28 +6354,28 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithAttribute(ptr nocapture noundef %ctx, i64 noundef %len) #0 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
-  %resp = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %resp, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %2, 16
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %blocked_client.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %3 = load ptr, ptr %blocked_client.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %3, null
   br i1 %tobool1.not.i.i, label %return, label %moduleGetReplyClient.exit.i
 
 moduleGetReplyClient.exit.i:                      ; preds = %if.then.i.i
-  %reply_client.i.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %3, i64 0, i32 9
+  %reply_client.i.i = getelementptr inbounds i8, ptr %3, i64 72
   %.pre = load ptr, ptr %reply_client.i.i, align 8
   %cmp.i = icmp eq ptr %.pre, null
   br i1 %cmp.i, label %return, label %if.end.i
@@ -6441,9 +6388,9 @@ if.end.i:                                         ; preds = %if.end, %moduleGetR
   ]
 
 if.then2.i:                                       ; preds = %if.end.i
-  %postponed_arrays.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 8
+  %postponed_arrays.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %5 = load ptr, ptr %postponed_arrays.i, align 8
-  %postponed_arrays_count.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 9
+  %postponed_arrays_count.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %6 = load i32, ptr %postponed_arrays_count.i, align 8
   %add.i = add nsw i32 %6, 1
   %conv.i = sext i32 %add.i to i64
@@ -6477,24 +6424,24 @@ return:                                           ; preds = %if.else20.i, %if.th
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithNullArray(ptr nocapture noundef readonly %ctx) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -6516,24 +6463,24 @@ declare void @addReplyNullArray(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithEmptyArray(ptr nocapture noundef readonly %ctx) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -6554,24 +6501,24 @@ return:                                           ; preds = %if.then.i, %moduleG
 ; Function Attrs: nounwind uwtable
 define dso_local void @moduleReplySetCollectionLength(ptr nocapture noundef %ctx, i64 noundef %len, i32 noundef %type) local_unnamed_addr #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %if.end29, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -6581,7 +6528,7 @@ moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.els
   br i1 %cmp, label %if.end29, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  %postponed_arrays_count = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 9
+  %postponed_arrays_count = getelementptr inbounds i8, ptr %ctx, i64 64
   %3 = load i32, ptr %postponed_arrays_count, align 8
   %cmp1 = icmp eq i32 %3, 0
   br i1 %cmp1, label %do.body, label %if.end6
@@ -6592,9 +6539,9 @@ do.body:                                          ; preds = %if.end
   br i1 %cmp3, label %if.end29, label %if.end5
 
 if.end5:                                          ; preds = %do.body
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %5 = load ptr, ptr %module, align 8
-  %name = getelementptr inbounds %struct.RedisModule, ptr %5, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %name, align 8
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %6) #34
   br label %if.end29
@@ -6610,7 +6557,7 @@ if.end6:                                          ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end6
-  %postponed_arrays = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 8
+  %postponed_arrays = getelementptr inbounds i8, ptr %ctx, i64 56
   %7 = load ptr, ptr %postponed_arrays, align 8
   %idxprom = sext i32 %dec to i64
   %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %idxprom
@@ -6619,7 +6566,7 @@ sw.bb:                                            ; preds = %if.end6
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %if.end6
-  %postponed_arrays10 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 8
+  %postponed_arrays10 = getelementptr inbounds i8, ptr %ctx, i64 56
   %9 = load ptr, ptr %postponed_arrays10, align 8
   %idxprom12 = sext i32 %dec to i64
   %arrayidx13 = getelementptr inbounds ptr, ptr %9, i64 %idxprom12
@@ -6628,7 +6575,7 @@ sw.bb9:                                           ; preds = %if.end6
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %if.end6
-  %postponed_arrays15 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 8
+  %postponed_arrays15 = getelementptr inbounds i8, ptr %ctx, i64 56
   %11 = load ptr, ptr %postponed_arrays15, align 8
   %idxprom17 = sext i32 %dec to i64
   %arrayidx18 = getelementptr inbounds ptr, ptr %11, i64 %idxprom17
@@ -6637,7 +6584,7 @@ sw.bb14:                                          ; preds = %if.end6
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %if.end6
-  %postponed_arrays20 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 8
+  %postponed_arrays20 = getelementptr inbounds i8, ptr %ctx, i64 56
   %13 = load ptr, ptr %postponed_arrays20, align 8
   %idxprom22 = sext i32 %dec to i64
   %arrayidx23 = getelementptr inbounds ptr, ptr %13, i64 %idxprom22
@@ -6656,7 +6603,7 @@ sw.epilog:                                        ; preds = %sw.bb19, %sw.bb14, 
   br i1 %cmp25, label %if.then26, label %if.end29
 
 if.then26:                                        ; preds = %sw.epilog
-  %postponed_arrays27 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 8
+  %postponed_arrays27 = getelementptr inbounds i8, ptr %ctx, i64 56
   %16 = load ptr, ptr %postponed_arrays27, align 8
   tail call void @zfree(ptr noundef %16) #34
   store ptr null, ptr %postponed_arrays27, align 8
@@ -6677,24 +6624,24 @@ declare void @setDeferredAttributeLen(ptr noundef, ptr noundef, i64 noundef) loc
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_ReplySetArrayLength(ptr nocapture noundef %ctx, i64 noundef %len) #0 {
 entry:
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %0, 16
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.else4.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %blocked_client.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i.i, label %moduleReplySetCollectionLength.exit, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
-  %reply_client.i.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit.i
 
 if.else4.i.i:                                     ; preds = %entry
-  %client.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit.i
 
 moduleGetReplyClient.exit.i:                      ; preds = %if.else4.i.i, %if.then2.i.i
@@ -6704,7 +6651,7 @@ moduleGetReplyClient.exit.i:                      ; preds = %if.else4.i.i, %if.t
   br i1 %cmp.i, label %moduleReplySetCollectionLength.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %moduleGetReplyClient.exit.i
-  %postponed_arrays_count.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 9
+  %postponed_arrays_count.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %3 = load i32, ptr %postponed_arrays_count.i, align 8
   %cmp1.i = icmp eq i32 %3, 0
   br i1 %cmp1.i, label %do.body.i, label %if.end6.i
@@ -6715,9 +6662,9 @@ do.body.i:                                        ; preds = %if.end.i
   br i1 %cmp3.i, label %moduleReplySetCollectionLength.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %do.body.i
-  %module.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %5 = load ptr, ptr %module.i, align 8
-  %name.i = getelementptr inbounds %struct.RedisModule, ptr %5, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %name.i, align 8
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %6) #34
   br label %moduleReplySetCollectionLength.exit
@@ -6725,7 +6672,7 @@ if.end5.i:                                        ; preds = %do.body.i
 if.end6.i:                                        ; preds = %if.end.i
   %dec.i = add nsw i32 %3, -1
   store i32 %dec.i, ptr %postponed_arrays_count.i, align 8
-  %postponed_arrays.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 8
+  %postponed_arrays.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %7 = load ptr, ptr %postponed_arrays.i, align 8
   %idxprom.i = sext i32 %dec.i to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom.i
@@ -6748,24 +6695,24 @@ moduleReplySetCollectionLength.exit:              ; preds = %if.then.i.i, %modul
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_ReplySetMapLength(ptr nocapture noundef %ctx, i64 noundef %len) #0 {
 entry:
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %0, 16
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.else4.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %blocked_client.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i.i, label %moduleReplySetCollectionLength.exit, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
-  %reply_client.i.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit.i
 
 if.else4.i.i:                                     ; preds = %entry
-  %client.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit.i
 
 moduleGetReplyClient.exit.i:                      ; preds = %if.else4.i.i, %if.then2.i.i
@@ -6775,7 +6722,7 @@ moduleGetReplyClient.exit.i:                      ; preds = %if.else4.i.i, %if.t
   br i1 %cmp.i, label %moduleReplySetCollectionLength.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %moduleGetReplyClient.exit.i
-  %postponed_arrays_count.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 9
+  %postponed_arrays_count.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %3 = load i32, ptr %postponed_arrays_count.i, align 8
   %cmp1.i = icmp eq i32 %3, 0
   br i1 %cmp1.i, label %do.body.i, label %if.end6.i
@@ -6786,9 +6733,9 @@ do.body.i:                                        ; preds = %if.end.i
   br i1 %cmp3.i, label %moduleReplySetCollectionLength.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %do.body.i
-  %module.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %5 = load ptr, ptr %module.i, align 8
-  %name.i = getelementptr inbounds %struct.RedisModule, ptr %5, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %name.i, align 8
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %6) #34
   br label %moduleReplySetCollectionLength.exit
@@ -6796,7 +6743,7 @@ if.end5.i:                                        ; preds = %do.body.i
 if.end6.i:                                        ; preds = %if.end.i
   %dec.i = add nsw i32 %3, -1
   store i32 %dec.i, ptr %postponed_arrays_count.i, align 8
-  %postponed_arrays10.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 8
+  %postponed_arrays10.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %7 = load ptr, ptr %postponed_arrays10.i, align 8
   %idxprom12.i = sext i32 %dec.i to i64
   %arrayidx13.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom12.i
@@ -6819,24 +6766,24 @@ moduleReplySetCollectionLength.exit:              ; preds = %if.then.i.i, %modul
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_ReplySetSetLength(ptr nocapture noundef %ctx, i64 noundef %len) #0 {
 entry:
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %0, 16
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.else4.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %blocked_client.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i.i, label %moduleReplySetCollectionLength.exit, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
-  %reply_client.i.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit.i
 
 if.else4.i.i:                                     ; preds = %entry
-  %client.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit.i
 
 moduleGetReplyClient.exit.i:                      ; preds = %if.else4.i.i, %if.then2.i.i
@@ -6846,7 +6793,7 @@ moduleGetReplyClient.exit.i:                      ; preds = %if.else4.i.i, %if.t
   br i1 %cmp.i, label %moduleReplySetCollectionLength.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %moduleGetReplyClient.exit.i
-  %postponed_arrays_count.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 9
+  %postponed_arrays_count.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %3 = load i32, ptr %postponed_arrays_count.i, align 8
   %cmp1.i = icmp eq i32 %3, 0
   br i1 %cmp1.i, label %do.body.i, label %if.end6.i
@@ -6857,9 +6804,9 @@ do.body.i:                                        ; preds = %if.end.i
   br i1 %cmp3.i, label %moduleReplySetCollectionLength.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %do.body.i
-  %module.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %5 = load ptr, ptr %module.i, align 8
-  %name.i = getelementptr inbounds %struct.RedisModule, ptr %5, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %name.i, align 8
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %6) #34
   br label %moduleReplySetCollectionLength.exit
@@ -6867,7 +6814,7 @@ if.end5.i:                                        ; preds = %do.body.i
 if.end6.i:                                        ; preds = %if.end.i
   %dec.i = add nsw i32 %3, -1
   store i32 %dec.i, ptr %postponed_arrays_count.i, align 8
-  %postponed_arrays15.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 8
+  %postponed_arrays15.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %7 = load ptr, ptr %postponed_arrays15.i, align 8
   %idxprom17.i = sext i32 %dec.i to i64
   %arrayidx18.i = getelementptr inbounds ptr, ptr %7, i64 %idxprom17.i
@@ -6890,35 +6837,35 @@ moduleReplySetCollectionLength.exit:              ; preds = %if.then.i.i, %modul
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_ReplySetAttributeLength(ptr nocapture noundef %ctx, i64 noundef %len) #0 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
-  %resp = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %resp, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %2, 16
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %blocked_client.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %3 = load ptr, ptr %blocked_client.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %3, null
   br i1 %tobool1.not.i.i, label %return, label %moduleGetReplyClient.exit.i
 
 moduleGetReplyClient.exit.i:                      ; preds = %if.then.i.i
-  %reply_client.i.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %3, i64 0, i32 9
+  %reply_client.i.i = getelementptr inbounds i8, ptr %3, i64 72
   %.pre = load ptr, ptr %reply_client.i.i, align 8
   %cmp.i = icmp eq ptr %.pre, null
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end, %moduleGetReplyClient.exit.i
   %4 = phi ptr [ %.pre, %moduleGetReplyClient.exit.i ], [ %0, %if.end ]
-  %postponed_arrays_count.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 9
+  %postponed_arrays_count.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %5 = load i32, ptr %postponed_arrays_count.i, align 8
   %cmp1.i = icmp eq i32 %5, 0
   br i1 %cmp1.i, label %do.body.i, label %if.end6.i
@@ -6929,9 +6876,9 @@ do.body.i:                                        ; preds = %if.end.i
   br i1 %cmp3.i, label %return, label %if.end5.i
 
 if.end5.i:                                        ; preds = %do.body.i
-  %module.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %7 = load ptr, ptr %module.i, align 8
-  %name.i = getelementptr inbounds %struct.RedisModule, ptr %7, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %name.i, align 8
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.39, ptr noundef %8) #34
   br label %return
@@ -6939,7 +6886,7 @@ if.end5.i:                                        ; preds = %do.body.i
 if.end6.i:                                        ; preds = %if.end.i
   %dec.i = add nsw i32 %5, -1
   store i32 %dec.i, ptr %postponed_arrays_count.i, align 8
-  %postponed_arrays20.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 8
+  %postponed_arrays20.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %9 = load ptr, ptr %postponed_arrays20.i, align 8
   %idxprom22.i = sext i32 %dec.i to i64
   %arrayidx23.i = getelementptr inbounds ptr, ptr %9, i64 %idxprom22.i
@@ -6962,24 +6909,24 @@ return:                                           ; preds = %if.then26.i, %if.en
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithStringBuffer(ptr nocapture noundef readonly %ctx, ptr noundef %buf, i64 noundef %len) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -7001,24 +6948,24 @@ declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithCString(ptr nocapture noundef readonly %ctx, ptr noundef %buf) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -7040,24 +6987,24 @@ declare void @addReplyBulkCString(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithString(ptr nocapture noundef readonly %ctx, ptr noundef %str) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -7079,24 +7026,24 @@ declare void @addReplyBulk(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithEmptyString(ptr nocapture noundef readonly %ctx) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -7117,24 +7064,24 @@ return:                                           ; preds = %if.then.i, %moduleG
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithVerbatimStringType(ptr nocapture noundef readonly %ctx, ptr noundef %buf, i64 noundef %len, ptr noundef %ext) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -7156,24 +7103,24 @@ declare void @addReplyVerbatim(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithVerbatimString(ptr nocapture noundef readonly %ctx, ptr noundef %buf, i64 noundef %len) #0 {
 entry:
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %0, 16
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.else4.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %blocked_client.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i.i, label %RM_ReplyWithVerbatimStringType.exit, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
-  %reply_client.i.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit.i
 
 if.else4.i.i:                                     ; preds = %entry
-  %client.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit.i
 
 moduleGetReplyClient.exit.i:                      ; preds = %if.else4.i.i, %if.then2.i.i
@@ -7193,24 +7140,24 @@ RM_ReplyWithVerbatimStringType.exit:              ; preds = %if.then.i.i, %modul
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithNull(ptr nocapture noundef readonly %ctx) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -7232,24 +7179,24 @@ declare void @addReplyNull(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithBool(ptr nocapture noundef readonly %ctx, i32 noundef %b) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -7272,24 +7219,24 @@ declare void @addReplyBool(ptr noundef, i32 noundef) local_unnamed_addr #1
 define dso_local i32 @RM_ReplyWithCallReply(ptr nocapture noundef readonly %ctx, ptr noundef %reply) #0 {
 entry:
   %proto_len = alloca i64, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -7299,7 +7246,7 @@ moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.els
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %moduleGetReplyClient.exit
-  %resp = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i32, ptr %resp, align 8
   %cmp1 = icmp eq i32 %3, 2
   br i1 %cmp1, label %land.lhs.true, label %if.end4
@@ -7337,24 +7284,24 @@ declare void @deferredAfterErrorReply(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithDouble(ptr nocapture noundef readonly %ctx, double noundef %d) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -7376,24 +7323,24 @@ declare void @addReplyDouble(ptr noundef, double noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithBigNumber(ptr nocapture noundef readonly %ctx, ptr noundef %bignum, i64 noundef %len) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -7415,24 +7362,24 @@ declare void @addReplyBigNum(ptr noundef, ptr noundef, i64 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplyWithLongDouble(ptr nocapture noundef readonly %ctx, x86_fp80 noundef %ld) #0 {
 entry:
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.else4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %blocked_client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %blocked_client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
-  %reply_client.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 9
+  %reply_client.i = getelementptr inbounds i8, ptr %1, i64 72
   br label %moduleGetReplyClient.exit
 
 if.else4.i:                                       ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   br label %moduleGetReplyClient.exit
 
 moduleGetReplyClient.exit:                        ; preds = %if.then2.i, %if.else4.i
@@ -7475,11 +7422,11 @@ if.end5:                                          ; preds = %if.end
   %and = lshr i32 %0, 1
   %1 = and i32 %and, 3
   %target.1 = xor i32 %1, 3
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %3, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %3, i64 48
   %4 = load i32, ptr %id, align 8
   %5 = load i32, ptr %argc, align 4
   call void @alsoPropagate(i32 noundef %4, ptr noundef nonnull %call2, i32 noundef %5, i32 noundef %target.1) #34
@@ -7523,8 +7470,8 @@ entry:
   %call4 = tail call ptr @createStringObject(ptr noundef %cmdname, i64 noundef %call3) #34
   store ptr %call4, ptr %call2, align 8
   %tobool231.not = icmp eq ptr %flags, null
-  %overflow_arg_area_p98 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
-  %1 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %overflow_arg_area_p98 = getelementptr inbounds i8, ptr %ap, i64 8
+  %1 = getelementptr inbounds i8, ptr %ap, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end252, %entry
@@ -7614,13 +7561,13 @@ vaarg.in_mem20:                                   ; preds = %if.then14
 vaarg.end24:                                      ; preds = %vaarg.in_mem20, %vaarg.in_reg18
   %vaarg.addr25 = phi ptr [ %8, %vaarg.in_reg18 ], [ %overflow_arg_area22, %vaarg.in_mem20 ]
   %10 = load ptr, ptr %vaarg.addr25, align 8
-  %refcount = getelementptr inbounds %struct.redisObject, ptr %10, i64 0, i32 1
+  %refcount = getelementptr inbounds i8, ptr %10, i64 4
   %11 = load i32, ptr %refcount, align 4
   %cmp26 = icmp eq i32 %11, 2147483646
   br i1 %cmp26, label %if.then28, label %if.else32
 
 if.then28:                                        ; preds = %vaarg.end24
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %10, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %12, i64 -1
   %13 = load i8, ptr %arrayidx.i, align 1
@@ -7974,15 +7921,15 @@ declare void @alsoPropagate(i32 noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ReplicateVerbatim(ptr nocapture noundef readonly %ctx) #0 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %1, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load i32, ptr %id, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %argv, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i32, ptr %argc, align 8
   tail call void @alsoPropagate(i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 3) #34
   %5 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
@@ -7994,7 +7941,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @RM_GetClientId(ptr nocapture noundef readonly %ctx) #11 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -8021,7 +7968,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %user = getelementptr inbounds %struct.client, ptr %call, i64 0, i32 20
+  %user = getelementptr inbounds i8, ptr %call, i64 152
   %0 = load ptr, ptr %user, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %if.then3, label %if.end5
@@ -8035,22 +7982,22 @@ if.end5:                                          ; preds = %if.end
   %1 = load ptr, ptr %0, align 8
   %call8 = tail call ptr @sdsnew(ptr noundef %1) #34
   %call9 = tail call ptr @createObject(i32 noundef 0, ptr noundef %call8) #34
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %2, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end5
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %3 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %4 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %3, %4
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -8059,7 +8006,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %3, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %5 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -8071,7 +8018,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %6 = phi i32 [ %3, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %7 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %6 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -8103,14 +8050,14 @@ if.end:                                           ; preds = %entry
   %0 = getelementptr inbounds i8, ptr %ci, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 72, i1 false)
   store i64 1, ptr %ci, align 8
-  %flags = getelementptr inbounds %struct.client, ptr %client, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %client, i64 8
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 8
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %if.end3, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %flags2 = getelementptr inbounds %struct.RedisModuleClientInfo, ptr %ci, i64 0, i32 1
+  %flags2 = getelementptr inbounds i8, ptr %ci, i64 8
   store i64 32, ptr %flags2, align 8
   %.pre = load i64, ptr %flags, align 8
   br label %if.end3
@@ -8123,7 +8070,7 @@ if.end3:                                          ; preds = %if.then1, %if.end
   br i1 %tobool6.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.end3
-  %flags8 = getelementptr inbounds %struct.RedisModuleClientInfo, ptr %ci, i64 0, i32 1
+  %flags8 = getelementptr inbounds i8, ptr %ci, i64 8
   %or9 = or disjoint i64 %2, 2
   store i64 %or9, ptr %flags8, align 8
   %.pre21 = load i64, ptr %flags, align 8
@@ -8137,7 +8084,7 @@ if.end10:                                         ; preds = %if.then7, %if.end3
   br i1 %tobool13.not, label %if.end17, label %if.then14
 
 if.then14:                                        ; preds = %if.end10
-  %flags15 = getelementptr inbounds %struct.RedisModuleClientInfo, ptr %ci, i64 0, i32 1
+  %flags15 = getelementptr inbounds i8, ptr %ci, i64 8
   %or16 = or i64 %4, 16
   store i64 %or16, ptr %flags15, align 8
   %.pre22 = load i64, ptr %flags, align 8
@@ -8151,7 +8098,7 @@ if.end17:                                         ; preds = %if.then14, %if.end1
   br i1 %tobool20.not, label %if.end24, label %if.then21
 
 if.then21:                                        ; preds = %if.end17
-  %flags22 = getelementptr inbounds %struct.RedisModuleClientInfo, ptr %ci, i64 0, i32 1
+  %flags22 = getelementptr inbounds i8, ptr %ci, i64 8
   %or23 = or i64 %6, 8
   store i64 %or23, ptr %flags22, align 8
   %.pre23 = load i64, ptr %flags, align 8
@@ -8165,13 +8112,13 @@ if.end24:                                         ; preds = %if.then21, %if.end1
   br i1 %tobool27.not, label %if.end31, label %if.then28
 
 if.then28:                                        ; preds = %if.end24
-  %flags29 = getelementptr inbounds %struct.RedisModuleClientInfo, ptr %ci, i64 0, i32 1
+  %flags29 = getelementptr inbounds i8, ptr %ci, i64 8
   %or30 = or i64 %8, 4
   store i64 %or30, ptr %flags29, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then28, %if.end24
-  %conn = getelementptr inbounds %struct.client, ptr %client, i64 0, i32 2
+  %conn = getelementptr inbounds i8, ptr %client, i64 16
   %10 = load ptr, ptr %conn, align 8
   %11 = load ptr, ptr %10, align 8
   %call = tail call ptr @connectionTypeTls() #34
@@ -8179,7 +8126,7 @@ if.end31:                                         ; preds = %if.then28, %if.end2
   br i1 %cmp32, label %if.then34, label %if.end37
 
 if.then34:                                        ; preds = %if.end31
-  %flags35 = getelementptr inbounds %struct.RedisModuleClientInfo, ptr %ci, i64 0, i32 1
+  %flags35 = getelementptr inbounds i8, ptr %ci, i64 8
   %12 = load i64, ptr %flags35, align 8
   %or36 = or i64 %12, 1
   store i64 %or36, ptr %flags35, align 8
@@ -8187,13 +8134,13 @@ if.then34:                                        ; preds = %if.end31
 
 if.end37:                                         ; preds = %if.then34, %if.end31
   %13 = load ptr, ptr %conn, align 8
-  %addr = getelementptr inbounds %struct.RedisModuleClientInfo, ptr %ci, i64 0, i32 3
+  %addr = getelementptr inbounds i8, ptr %ci, i64 24
   %tobool.not.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i, label %connAddrPeerName.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end37
   %14 = load ptr, ptr %13, align 8
-  %addr.i.i = getelementptr inbounds %struct.ConnectionType, ptr %14, i64 0, i32 6
+  %addr.i.i = getelementptr inbounds i8, ptr %14, i64 48
   %15 = load ptr, ptr %addr.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %15, null
   br i1 %tobool1.not.i.i, label %connAddrPeerName.exit, label %if.then.i.i
@@ -8206,17 +8153,17 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 
 connAddrPeerName.exit:                            ; preds = %if.end37, %land.lhs.true.i.i, %if.then.i.i
   %conv40 = phi i16 [ undef, %if.end37 ], [ undef, %land.lhs.true.i.i ], [ %16, %if.then.i.i ]
-  %port41 = getelementptr inbounds %struct.RedisModuleClientInfo, ptr %ci, i64 0, i32 4
+  %port41 = getelementptr inbounds i8, ptr %ci, i64 70
   store i16 %conv40, ptr %port41, align 2
-  %db = getelementptr inbounds %struct.client, ptr %client, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %client, i64 32
   %17 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %17, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %17, i64 48
   %18 = load i32, ptr %id, align 8
   %conv42 = trunc i32 %18 to i16
-  %db43 = getelementptr inbounds %struct.RedisModuleClientInfo, ptr %ci, i64 0, i32 5
+  %db43 = getelementptr inbounds i8, ptr %ci, i64 72
   store i16 %conv42, ptr %db43, align 8
   %19 = load i64, ptr %client, align 8
-  %id45 = getelementptr inbounds %struct.RedisModuleClientInfo, ptr %ci, i64 0, i32 2
+  %id45 = getelementptr inbounds i8, ptr %ci, i64 16
   store i64 %19, ptr %id45, align 8
   br label %return
 
@@ -8240,25 +8187,25 @@ if.end:                                           ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
   %cmp1 = icmp eq ptr %1, null
   %conv2 = zext i1 %cmp1 to i32
-  %master = getelementptr inbounds %struct.RedisModuleReplicationInfo, ptr %ri, i64 0, i32 1
+  %master = getelementptr inbounds i8, ptr %ri, i64 8
   store i32 %conv2, ptr %master, align 8
   %2 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 283), align 8
   %tobool.not = icmp eq ptr %2, null
   %cond = select i1 %tobool.not, ptr @.str.41, ptr %2
-  %masterhost = getelementptr inbounds %struct.RedisModuleReplicationInfo, ptr %ri, i64 0, i32 2
+  %masterhost = getelementptr inbounds i8, ptr %ri, i64 16
   store ptr %cond, ptr %masterhost, align 8
   %3 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 284), align 8
-  %masterport = getelementptr inbounds %struct.RedisModuleReplicationInfo, ptr %ri, i64 0, i32 3
+  %masterport = getelementptr inbounds i8, ptr %ri, i64 24
   store i32 %3, ptr %masterport, align 8
-  %replid1 = getelementptr inbounds %struct.RedisModuleReplicationInfo, ptr %ri, i64 0, i32 4
+  %replid1 = getelementptr inbounds i8, ptr %ri, i64 32
   store ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 260), ptr %replid1, align 8
-  %replid2 = getelementptr inbounds %struct.RedisModuleReplicationInfo, ptr %ri, i64 0, i32 5
+  %replid2 = getelementptr inbounds i8, ptr %ri, i64 40
   store ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 261), ptr %replid2, align 8
   %4 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 262), align 8
-  %repl1_offset = getelementptr inbounds %struct.RedisModuleReplicationInfo, ptr %ri, i64 0, i32 6
+  %repl1_offset = getelementptr inbounds i8, ptr %ri, i64 48
   store i64 %4, ptr %repl1_offset, align 8
   %5 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 263), align 8
-  %repl2_offset = getelementptr inbounds %struct.RedisModuleReplicationInfo, ptr %ri, i64 0, i32 7
+  %repl2_offset = getelementptr inbounds i8, ptr %ri, i64 56
   store i64 %5, ptr %repl2_offset, align 8
   br label %return
 
@@ -8297,29 +8244,29 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %name = getelementptr inbounds %struct.client, ptr %call, i64 0, i32 5
+  %name = getelementptr inbounds i8, ptr %call, i64 40
   %0 = load ptr, ptr %name, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
   tail call void @incrRefCount(ptr noundef nonnull %0) #34
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %1 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %1, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %2 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %3 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %2, %3
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -8328,7 +8275,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %2, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %4 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -8340,7 +8287,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %5 = phi i32 [ %2, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %6 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %5 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -8403,11 +8350,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @RM_GetSelectedDb(ptr nocapture noundef readonly %ctx) #11 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %1, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load i32, ptr %id, align 8
   ret i32 %2
 }
@@ -8420,13 +8367,13 @@ entry:
   br i1 %tobool.not, label %if.end30, label %if.then
 
 if.then:                                          ; preds = %entry
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.end18, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %flags4 = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 1
+  %flags4 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %flags4, align 8
   %and = lshr i64 %1, 20
   %2 = trunc i64 %and to i32
@@ -8435,7 +8382,7 @@ if.then2:                                         ; preds = %if.then
   %4 = shl i32 %3, 11
   %5 = and i32 %4, 4096
   %flags.1 = or disjoint i32 %spec.select, %5
-  %resp = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i32, ptr %resp, align 8
   %cmp = icmp eq i32 %6, 3
   %or16 = or disjoint i32 %flags.1, 4194304
@@ -8444,7 +8391,7 @@ if.then2:                                         ; preds = %if.then
 
 if.end18:                                         ; preds = %if.then2, %if.then
   %flags.2 = phi i32 [ 0, %if.then ], [ %spec.select45, %if.then2 ]
-  %blocked_client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client = getelementptr inbounds i8, ptr %ctx, i64 24
   %7 = load ptr, ptr %blocked_client, align 8
   %tobool19.not = icmp eq ptr %7, null
   %client. = select i1 %tobool19.not, ptr %client, ptr %7
@@ -8453,7 +8400,7 @@ if.end18:                                         ; preds = %if.then2, %if.then
   br i1 %tobool23.not, label %if.end30, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end18
-  %flags24 = getelementptr inbounds %struct.client, ptr %cond, i64 0, i32 1
+  %flags24 = getelementptr inbounds i8, ptr %cond, i64 8
   %8 = load i64, ptr %flags24, align 8
   %and25 = and i64 %8, 4128
   %tobool26.not = icmp eq i64 %and25, 0
@@ -8582,7 +8529,7 @@ if.end99:                                         ; preds = %if.end94, %if.then7
   %or118 = or i32 %flags.16, 1048576
   %flags.17 = select i1 %tobool116.not, i32 %flags.16, i32 %or118
   %23 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 40), align 8
-  %len = getelementptr inbounds %struct.list, ptr %23, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %23, i64 40
   %24 = load i64, ptr %len, align 8
   %cmp120.not = icmp eq i64 %24, 0
   %or123 = or i32 %flags.17, 16777216
@@ -8610,7 +8557,7 @@ declare i32 @isPausedActionsWithUpdate(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_SelectDb(ptr nocapture noundef readonly %ctx, i32 noundef %newid) #0 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
   %call = tail call i32 @selectDb(ptr noundef %0, i32 noundef %newid) #34
   %cmp = icmp ne i32 %call, 0
@@ -8621,9 +8568,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_KeyExists(ptr nocapture noundef readonly %ctx, ptr noundef %keyname) #0 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %db, align 8
   %call = tail call ptr @lookupKeyReadWithFlags(ptr noundef %1, ptr noundef %keyname, i32 noundef 1) #34
   %cmp = icmp ne ptr %call, null
@@ -8647,9 +8594,9 @@ entry:
   %or16 = or i32 %or12, %cond15
   %and17 = and i32 %mode, 2
   %tobool18.not = icmp eq i32 %and17, 0
-  %client19 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client19 = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client19, align 8
-  %db20 = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 4
+  %db20 = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %db20, align 8
   br i1 %tobool18.not, label %if.else, label %if.then
 
@@ -8666,20 +8613,20 @@ if.end23:                                         ; preds = %if.else, %if.then
   %value.0 = phi ptr [ %call, %if.then ], [ %call21, %if.else ]
   %call24 = tail call noalias dereferenceable_or_null(128) ptr @zmalloc(i64 noundef 128) #35
   store ptr %ctx, ptr %call24, align 8
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %client.i, align 8
-  %db.i = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 4
+  %db.i = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %db.i, align 8
-  %db2.i = getelementptr inbounds %struct.RedisModuleKey, ptr %call24, i64 0, i32 1
+  %db2.i = getelementptr inbounds i8, ptr %call24, i64 8
   store ptr %3, ptr %db2.i, align 8
-  %key.i = getelementptr inbounds %struct.RedisModuleKey, ptr %call24, i64 0, i32 2
+  %key.i = getelementptr inbounds i8, ptr %call24, i64 16
   store ptr %keyname, ptr %key.i, align 8
   tail call void @incrRefCount(ptr noundef %keyname) #34
-  %value3.i = getelementptr inbounds %struct.RedisModuleKey, ptr %call24, i64 0, i32 3
+  %value3.i = getelementptr inbounds i8, ptr %call24, i64 24
   store ptr %value.0, ptr %value3.i, align 8
-  %iter.i = getelementptr inbounds %struct.RedisModuleKey, ptr %call24, i64 0, i32 4
+  %iter.i = getelementptr inbounds i8, ptr %call24, i64 32
   store ptr null, ptr %iter.i, align 8
-  %mode4.i = getelementptr inbounds %struct.RedisModuleKey, ptr %call24, i64 0, i32 5
+  %mode4.i = getelementptr inbounds i8, ptr %call24, i64 40
   store i32 %mode, ptr %mode4.i, align 8
   %tobool.not.i = icmp eq ptr %value.0, null
   br i1 %tobool.not.i, label %moduleInitKey.exit, label %if.then.i
@@ -8689,40 +8636,40 @@ if.then.i:                                        ; preds = %if.end23
   %bf.clear.i.i = and i32 %bf.load.i.i, 15
   switch i32 %bf.clear.i.i, label %moduleInitKey.exit [
     i32 3, label %sw.bb.i.i
-    i32 6, label %sw.bb1.i.i
+    i32 6, label %sw.epilog.sink.split.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.then.i
-  %u.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %call24, i64 0, i32 6
+  %u.i.i.i = getelementptr inbounds i8, ptr %call24, i64 48
   store i32 0, ptr %u.i.i.i, align 8
-  %current.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %call24, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
+  %current.i.i.i = getelementptr inbounds i8, ptr %call24, i64 112
   store ptr null, ptr %current.i.i.i, align 8
-  %er.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %call24, i64 0, i32 6, i32 0, i32 1
-  store i32 1, ptr %er.i.i.i, align 8
+  br label %sw.epilog.sink.split.i.i
+
+sw.epilog.sink.split.i.i:                         ; preds = %sw.bb.i.i, %if.then.i
+  %.sink3.i.i = phi i64 [ 120, %sw.bb.i.i ], [ 72, %if.then.i ]
+  %.sink.i.i = phi i32 [ 1, %sw.bb.i.i ], [ 0, %if.then.i ]
+  %signalready.i.i = getelementptr inbounds i8, ptr %call24, i64 %.sink3.i.i
+  store i32 %.sink.i.i, ptr %signalready.i.i, align 8
   br label %moduleInitKey.exit
 
-sw.bb1.i.i:                                       ; preds = %if.then.i
-  %signalready.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %call24, i64 0, i32 6, i32 0, i32 0, i32 2, i32 1
-  store i32 0, ptr %signalready.i.i, align 8
-  br label %moduleInitKey.exit
-
-moduleInitKey.exit:                               ; preds = %if.end23, %if.then.i, %sw.bb.i.i, %sw.bb1.i.i
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+moduleInitKey.exit:                               ; preds = %if.end23, %if.then.i, %sw.epilog.sink.split.i.i
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %4 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %4, 1
   %tobool.not.i21 = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i21, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %moduleInitKey.exit
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %5 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %6 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %5, %6
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -8731,7 +8678,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %5, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %7 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -8743,7 +8690,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %8 = phi i32 [ %5, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %9 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %8 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %9, i64 %idxprom.i, i32 1
   store i32 0, ptr %type14.i, align 8
@@ -8774,13 +8721,13 @@ entry:
 define internal fastcc void @moduleCloseKey(ptr noundef %key) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %key, align 8
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %0, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %module, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %options = getelementptr inbounds %struct.RedisModule, ptr %1, i64 0, i32 12
+  %options = getelementptr inbounds i8, ptr %1, i64 76
   %2 = load i32, ptr %options, align 4
   %3 = and i32 %2, 2
   %4 = icmp eq i32 %3, 0
@@ -8788,7 +8735,7 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i1 [ %4, %cond.true ], [ true, %entry ]
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %5 = load i32, ptr %mode, align 8
   %and4 = and i32 %5, 2
   %tobool5 = icmp ne i32 %and4, 0
@@ -8796,23 +8743,23 @@ cond.end:                                         ; preds = %entry, %cond.true
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cond.end
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %0, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %key, i64 8
   %7 = load ptr, ptr %db, align 8
-  %key8 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key8 = getelementptr inbounds i8, ptr %key, i64 16
   %8 = load ptr, ptr %key8, align 8
   tail call void @signalModifiedKey(ptr noundef %6, ptr noundef %7, ptr noundef %8) #34
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %cond.end
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %9 = load ptr, ptr %value, align 8
   %tobool9.not = icmp eq ptr %9, null
   br i1 %tobool9.not, label %if.end21, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %10 = load ptr, ptr %iter, align 8
   %tobool11.not = icmp eq ptr %10, null
   br i1 %tobool11.not, label %if.end13, label %if.then12
@@ -8832,40 +8779,40 @@ if.end13:                                         ; preds = %if.then12, %if.then
   ]
 
 if.end.i:                                         ; preds = %if.end13
-  %u.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u.i = getelementptr inbounds i8, ptr %key, i64 48
   %12 = load i32, ptr %u.i, align 8
   %cmp2.i = icmp eq i32 %12, 1
   br i1 %cmp2.i, label %if.then3.i, label %RM_ZsetRangeStop.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %lrs.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 2
+  %lrs.i = getelementptr inbounds i8, ptr %key, i64 80
   tail call void @zslFreeLexRange(ptr noundef nonnull %lrs.i) #34
   br label %RM_ZsetRangeStop.exit
 
 RM_ZsetRangeStop.exit:                            ; preds = %if.end.i, %if.then3.i
   store i32 0, ptr %u.i, align 8
-  %current.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
+  %current.i.i = getelementptr inbounds i8, ptr %key, i64 112
   store ptr null, ptr %current.i.i, align 8
-  %er.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er.i.i = getelementptr inbounds i8, ptr %key, i64 120
   store i32 1, ptr %er.i.i, align 8
   br label %if.end21
 
 sw.bb15:                                          ; preds = %if.end13
-  %signalready = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 1
+  %signalready = getelementptr inbounds i8, ptr %key, i64 72
   %13 = load i32, ptr %signalready, align 8
   %tobool16.not = icmp eq i32 %13, 0
   br i1 %tobool16.not, label %if.end21, label %if.then17
 
 if.then17:                                        ; preds = %sw.bb15
-  %db18 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db18 = getelementptr inbounds i8, ptr %key, i64 8
   %14 = load ptr, ptr %db18, align 8
-  %key19 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key19 = getelementptr inbounds i8, ptr %key, i64 16
   %15 = load ptr, ptr %key19, align 8
   tail call void @signalKeyAsReady(ptr noundef %14, ptr noundef %15, i32 noundef 6) #34
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end13, %RM_ZsetRangeStop.exit, %if.then17, %sw.bb15, %if.end
-  %iter22 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter22 = getelementptr inbounds i8, ptr %key, i64 32
   %16 = load ptr, ptr %iter22, align 8
   %cmp = icmp eq ptr %16, null
   br i1 %cmp, label %cond.end30, label %cond.false29
@@ -8876,7 +8823,7 @@ cond.false29:                                     ; preds = %if.end21
   unreachable
 
 cond.end30:                                       ; preds = %if.end21
-  %key31 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key31 = getelementptr inbounds i8, ptr %key, i64 16
   %17 = load ptr, ptr %key31, align 8
   tail call void @decrRefCount(ptr noundef %17) #34
   ret void
@@ -8889,7 +8836,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end
@@ -8918,7 +8865,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end
@@ -8969,22 +8916,22 @@ declare i64 @stringObjectLen(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_DeleteKey(ptr nocapture noundef %key) #0 {
 entry:
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %1 = load ptr, ptr %value, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %db = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %key, i64 8
   %2 = load ptr, ptr %db, align 8
-  %key3 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key3 = getelementptr inbounds i8, ptr %key, i64 16
   %3 = load ptr, ptr %key3, align 8
   %call = tail call i32 @dbDelete(ptr noundef %2, ptr noundef %3) #34
   store ptr null, ptr %value, align 8
@@ -8998,22 +8945,22 @@ return:                                           ; preds = %if.end, %if.then2, 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_UnlinkKey(ptr nocapture noundef %key) #0 {
 entry:
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %1 = load ptr, ptr %value, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %db = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %key, i64 8
   %2 = load ptr, ptr %db, align 8
-  %key3 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key3 = getelementptr inbounds i8, ptr %key, i64 16
   %3 = load ptr, ptr %key3, align 8
   %call = tail call i32 @dbAsyncDelete(ptr noundef %2, ptr noundef %3) #34
   store ptr null, ptr %value, align 8
@@ -9029,16 +8976,16 @@ declare i32 @dbAsyncDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @RM_GetExpire(ptr nocapture noundef readonly %key) #0 {
 entry:
-  %db = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %db, align 8
-  %key1 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key1 = getelementptr inbounds i8, ptr %key, i64 16
   %1 = load ptr, ptr %key1, align 8
   %call = tail call i64 @getExpire(ptr noundef %0, ptr noundef %1) #34
   %cmp = icmp eq i64 %call, -1
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %2 = load ptr, ptr %value, align 8
   %cmp2 = icmp eq ptr %2, null
   br i1 %cmp2, label %return, label %if.end
@@ -9061,14 +9008,14 @@ declare i64 @commandTimeSnapshot() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_SetExpire(ptr nocapture noundef readonly %key, i64 noundef %expire) #0 {
 entry:
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %1 = load ptr, ptr %value, align 8
   %cmp = icmp eq ptr %1, null
   %or.cond = icmp slt i64 %expire, -1
@@ -9083,19 +9030,19 @@ if.then5:                                         ; preds = %if.end
   %call = tail call i64 @commandTimeSnapshot() #34
   %add = add nsw i64 %call, %expire
   %2 = load ptr, ptr %key, align 8
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %2, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %key, i64 8
   %4 = load ptr, ptr %db, align 8
-  %key6 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key6 = getelementptr inbounds i8, ptr %key, i64 16
   %5 = load ptr, ptr %key6, align 8
   tail call void @setExpire(ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %add) #34
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %db7 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db7 = getelementptr inbounds i8, ptr %key, i64 8
   %6 = load ptr, ptr %db7, align 8
-  %key8 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key8 = getelementptr inbounds i8, ptr %key, i64 16
   %7 = load ptr, ptr %key8, align 8
   %call9 = tail call i32 @removeExpire(ptr noundef %6, ptr noundef %7) #34
   br label %return
@@ -9112,16 +9059,16 @@ declare i32 @removeExpire(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @RM_GetAbsExpire(ptr nocapture noundef readonly %key) #0 {
 entry:
-  %db = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %db, align 8
-  %key1 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key1 = getelementptr inbounds i8, ptr %key, i64 16
   %1 = load ptr, ptr %key1, align 8
   %call = tail call i64 @getExpire(ptr noundef %0, ptr noundef %1) #34
   %cmp = icmp eq i64 %call, -1
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %2 = load ptr, ptr %value, align 8
   %cmp2 = icmp eq ptr %2, null
   %spec.select = select i1 %cmp2, i64 -1, i64 %call
@@ -9135,14 +9082,14 @@ return:                                           ; preds = %lor.lhs.false, %ent
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_SetAbsExpire(ptr nocapture noundef readonly %key, i64 noundef %expire) #0 {
 entry:
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %1 = load ptr, ptr %value, align 8
   %cmp = icmp eq ptr %1, null
   %or.cond = icmp slt i64 %expire, -1
@@ -9155,19 +9102,19 @@ if.end:                                           ; preds = %lor.lhs.false
 
 if.then5:                                         ; preds = %if.end
   %2 = load ptr, ptr %key, align 8
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %2, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %key, i64 8
   %4 = load ptr, ptr %db, align 8
-  %key6 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key6 = getelementptr inbounds i8, ptr %key, i64 16
   %5 = load ptr, ptr %key6, align 8
   tail call void @setExpire(ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %expire) #34
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %db7 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db7 = getelementptr inbounds i8, ptr %key, i64 8
   %6 = load ptr, ptr %db7, align 8
-  %key8 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key8 = getelementptr inbounds i8, ptr %key, i64 16
   %7 = load ptr, ptr %key8, align 8
   %call = tail call i32 @removeExpire(ptr noundef %6, ptr noundef %7) #34
   br label %return
@@ -9217,9 +9164,9 @@ declare void @restartAOFAfterSYNC() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @RM_DbSize(ptr nocapture noundef readonly %ctx) #0 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %db, align 8
   %call = tail call i64 @dbSize(ptr noundef %1, i32 noundef 0) #34
   ret i64 %call
@@ -9230,27 +9177,27 @@ declare i64 @dbSize(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_RandomKey(ptr nocapture noundef %ctx) #0 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %db, align 8
   %call = tail call ptr @dbRandomKey(ptr noundef %1) #34
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %2, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %autoMemoryAdd.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %3 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %4 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %3, %4
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -9259,7 +9206,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %3, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %5 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -9271,7 +9218,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %6 = phi i32 [ %3, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %7 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %6 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %7, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -9301,7 +9248,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @RM_GetToKeyNameFromOptCtx(ptr nocapture noundef readonly %ctx) #6 {
 entry:
-  %to_key = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 1
+  %to_key = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %to_key, align 8
   ret ptr %0
 }
@@ -9309,7 +9256,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @RM_GetDbIdFromOptCtx(ptr nocapture noundef readonly %ctx) #6 {
 entry:
-  %from_dbid = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 2
+  %from_dbid = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load i32, ptr %from_dbid, align 8
   ret i32 %0
 }
@@ -9317,7 +9264,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @RM_GetToDbIdFromOptCtx(ptr nocapture noundef readonly %ctx) #6 {
 entry:
-  %to_dbid = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 3
+  %to_dbid = getelementptr inbounds i8, ptr %ctx, i64 20
   %0 = load i32, ptr %to_dbid, align 4
   ret i32 %0
 }
@@ -9325,28 +9272,28 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_StringSet(ptr nocapture noundef %key, ptr noundef %str) #0 {
 entry:
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %1 = load ptr, ptr %iter, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false
-  %value.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value.i = getelementptr inbounds i8, ptr %key, i64 24
   %2 = load ptr, ptr %value.i, align 8
   %tobool1.not.i = icmp eq ptr %2, null
   br i1 %tobool1.not.i, label %RM_DeleteKey.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %db.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db.i = getelementptr inbounds i8, ptr %key, i64 8
   %3 = load ptr, ptr %db.i, align 8
-  %key3.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key3.i = getelementptr inbounds i8, ptr %key, i64 16
   %4 = load ptr, ptr %key3.i, align 8
   %call.i = tail call i32 @dbDelete(ptr noundef %3, ptr noundef %4) #34
   store ptr null, ptr %value.i, align 8
@@ -9354,11 +9301,11 @@ if.then2.i:                                       ; preds = %if.end.i
 
 RM_DeleteKey.exit:                                ; preds = %if.end.i, %if.then2.i
   %5 = load ptr, ptr %key, align 8
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %key, i64 8
   %7 = load ptr, ptr %db, align 8
-  %key2 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key2 = getelementptr inbounds i8, ptr %key, i64 16
   %8 = load ptr, ptr %key2, align 8
   tail call void @setKey(ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %str, i32 noundef 2) #34
   store ptr %str, ptr %value.i, align 8
@@ -9374,7 +9321,7 @@ declare void @setKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_StringDMA(ptr nocapture noundef %key, ptr nocapture noundef writeonly %len, i32 noundef %mode) #0 {
 entry:
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -9397,9 +9344,9 @@ if.end4:                                          ; preds = %if.end
   br i1 %or.cond, label %if.end13, label %if.then9
 
 if.then9:                                         ; preds = %if.end4
-  %db = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %key, i64 8
   %3 = load ptr, ptr %db, align 8
-  %key10 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key10 = getelementptr inbounds i8, ptr %key, i64 16
   %4 = load ptr, ptr %key10, align 8
   %call = tail call ptr @dbUnshareStringValue(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %0) #34
   store ptr %call, ptr %value, align 8
@@ -9407,7 +9354,7 @@ if.then9:                                         ; preds = %if.end4
 
 if.end13:                                         ; preds = %if.end4, %if.then9
   %5 = phi ptr [ %0, %if.end4 ], [ %call, %if.then9 ]
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %5, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 -1
   %7 = load i8, ptr %arrayidx.i, align 1
@@ -9453,7 +9400,7 @@ sdslen.exit:                                      ; preds = %if.end13, %sw.bb.i,
   %retval.0.i = phi i64 [ %11, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %if.end13 ]
   store i64 %retval.0.i, ptr %len, align 8
   %12 = load ptr, ptr %value, align 8
-  %ptr17 = getelementptr inbounds %struct.redisObject, ptr %12, i64 0, i32 2
+  %ptr17 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %ptr17, align 8
   br label %return
 
@@ -9467,14 +9414,14 @@ declare ptr @dbUnshareStringValue(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_StringTruncate(ptr nocapture noundef %key, i64 noundef %newlen) #0 {
 entry:
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %1 = load ptr, ptr %value, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end4, label %land.lhs.true
@@ -9499,11 +9446,11 @@ if.then16:                                        ; preds = %if.end7
   %call = tail call ptr @sdsnewlen(ptr noundef null, i64 noundef %newlen) #34
   %call17 = tail call ptr @createObject(i32 noundef 0, ptr noundef %call) #34
   %2 = load ptr, ptr %key, align 8
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %2, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %key, i64 8
   %4 = load ptr, ptr %db, align 8
-  %key18 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key18 = getelementptr inbounds i8, ptr %key, i64 16
   %5 = load ptr, ptr %key18, align 8
   tail call void @setKey(ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %call17, i32 noundef 2) #34
   store ptr %call17, ptr %value, align 8
@@ -9511,13 +9458,13 @@ if.then16:                                        ; preds = %if.end7
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true
-  %db20 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db20 = getelementptr inbounds i8, ptr %key, i64 8
   %6 = load ptr, ptr %db20, align 8
-  %key21 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key21 = getelementptr inbounds i8, ptr %key, i64 16
   %7 = load ptr, ptr %key21, align 8
   %call23 = tail call ptr @dbUnshareStringValue(ptr noundef %6, ptr noundef %7, ptr noundef nonnull %1) #34
   store ptr %call23, ptr %value, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %call23, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %call23, i64 8
   %8 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 -1
   %9 = load i8, ptr %arrayidx.i, align 1
@@ -9567,7 +9514,7 @@ sdslen.exit:                                      ; preds = %if.else, %sw.bb.i, 
 if.then28:                                        ; preds = %sdslen.exit
   %call31 = tail call ptr @sdsgrowzero(ptr noundef nonnull %8, i64 noundef %newlen) #34
   %14 = load ptr, ptr %value, align 8
-  %ptr33 = getelementptr inbounds %struct.redisObject, ptr %14, i64 0, i32 2
+  %ptr33 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %call31, ptr %ptr33, align 8
   br label %return
 
@@ -9578,7 +9525,7 @@ if.else34:                                        ; preds = %sdslen.exit
 if.then36:                                        ; preds = %if.else34
   tail call void @sdssubstr(ptr noundef nonnull %8, i64 noundef 0, i64 noundef %newlen) #34
   %15 = load ptr, ptr %value, align 8
-  %ptr40 = getelementptr inbounds %struct.redisObject, ptr %15, i64 0, i32 2
+  %ptr40 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %ptr40, align 8
   %call41 = tail call fastcc i64 @sdslen(ptr noundef %16)
   %call44 = tail call fastcc i64 @sdsavail(ptr noundef %16)
@@ -9588,7 +9535,7 @@ if.then36:                                        ; preds = %if.else34
 if.then46:                                        ; preds = %if.then36
   %call49 = tail call ptr @sdsRemoveFreeSpace(ptr noundef %16, i32 noundef 0) #34
   %17 = load ptr, ptr %value, align 8
-  %ptr51 = getelementptr inbounds %struct.redisObject, ptr %17, i64 0, i32 2
+  %ptr51 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %call49, ptr %ptr51, align 8
   br label %return
 
@@ -9671,7 +9618,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.then3, label %lor.lhs.false
@@ -9688,7 +9635,7 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end5:                                          ; preds = %lor.lhs.false
-  %mode6 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode6 = getelementptr inbounds i8, ptr %key, i64 40
   %1 = load i32, ptr %mode6, align 8
   %and = and i32 %1, %mode
   %tobool7.not = icmp eq i32 %and, 0
@@ -9713,7 +9660,7 @@ if.then16:                                        ; preds = %if.end10
   br label %return
 
 if.end18:                                         ; preds = %if.end10
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %2 = load ptr, ptr %iter, align 8
   %cmp19 = icmp eq ptr %2, null
   br i1 %cmp19, label %if.then20, label %if.end43
@@ -9731,7 +9678,7 @@ cond.false:                                       ; preds = %if.then20
   unreachable
 
 cond.end:                                         ; preds = %if.then20
-  %u = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %key, i64 48
   %call30 = tail call i32 @listTypeNext(ptr noundef nonnull %call22, ptr noundef nonnull %u) #34
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %cond.false39, label %cond.end40
@@ -9742,13 +9689,13 @@ cond.false39:                                     ; preds = %cond.end
   unreachable
 
 cond.end40:                                       ; preds = %cond.end
-  %index42 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %index42 = getelementptr inbounds i8, ptr %key, i64 120
   store i64 %index, ptr %index42, align 8
   br label %return
 
 if.end43:                                         ; preds = %if.end18
   %cmp44 = icmp slt i64 %index, 0
-  %index47 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %index47 = getelementptr inbounds i8, ptr %key, i64 120
   %4 = load i64, ptr %index47, align 8
   %cmp4839 = icmp slt i64 %4, 0
   %sub60 = select i1 %cmp4839, i64 %call12, i64 0
@@ -9756,8 +9703,8 @@ if.end43:                                         ; preds = %if.end18
   %5 = sub i64 0, %sub60
   %index.addr.0.p = select i1 %cmp44, i64 %add, i64 %5
   %index.addr.0 = add i64 %index.addr.0.p, %index
-  %u63 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
-  %index64 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %u63 = getelementptr inbounds i8, ptr %key, i64 48
+  %index64 = getelementptr inbounds i8, ptr %key, i64 120
   %cmp65 = icmp eq i64 %index.addr.0, %4
   br i1 %cmp65, label %return, label %if.end68
 
@@ -9818,7 +9765,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end6, label %land.lhs.true
@@ -9835,14 +9782,14 @@ if.then4:                                         ; preds = %land.lhs.true
   br label %return
 
 if.end6:                                          ; preds = %if.else
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %1 = load i32, ptr %mode, align 8
   %and = and i32 %1, 2
   %tobool7.not = icmp eq i32 %and, 0
   br i1 %tobool7.not, label %if.then8, label %if.end24
 
 if.end6.thread:                                   ; preds = %land.lhs.true
-  %mode15 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode15 = getelementptr inbounds i8, ptr %key, i64 40
   %2 = load i32, ptr %mode15, align 8
   %and16 = and i32 %2, 2
   %tobool7.not17 = icmp eq i32 %and16, 0
@@ -9855,7 +9802,7 @@ if.then8:                                         ; preds = %if.end6.thread, %if
 
 if.end24:                                         ; preds = %if.end6.thread, %if.end6
   %mode1821 = phi ptr [ %mode, %if.end6 ], [ %mode15, %if.end6.thread ]
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %3 = load ptr, ptr %iter, align 8
   %tobool25.not = icmp eq ptr %3, null
   br i1 %tobool25.not, label %if.end27, label %if.then26
@@ -9878,9 +9825,9 @@ if.then30:                                        ; preds = %if.end27
 
 if.end.i:                                         ; preds = %if.then30
   %call.i = tail call ptr @createListListpackObject() #34
-  %db.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db.i = getelementptr inbounds i8, ptr %key, i64 8
   %6 = load ptr, ptr %db.i, align 8
-  %key8.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key8.i = getelementptr inbounds i8, ptr %key, i64 16
   %7 = load ptr, ptr %key8.i, align 8
   tail call void @dbAdd(ptr noundef %6, ptr noundef %7, ptr noundef %call.i) #34
   store ptr %call.i, ptr %value, align 8
@@ -9888,25 +9835,25 @@ if.end.i:                                         ; preds = %if.then30
   %bf.clear.i.i = and i32 %bf.load.i.i, 15
   switch i32 %bf.clear.i.i, label %if.end32 [
     i32 3, label %sw.bb.i.i
-    i32 6, label %sw.bb1.i.i
+    i32 6, label %sw.epilog.sink.split.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end.i
-  %u.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u.i.i.i = getelementptr inbounds i8, ptr %key, i64 48
   store i32 0, ptr %u.i.i.i, align 8
-  %current.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
+  %current.i.i.i = getelementptr inbounds i8, ptr %key, i64 112
   store ptr null, ptr %current.i.i.i, align 8
-  %er.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
-  store i32 1, ptr %er.i.i.i, align 8
+  br label %sw.epilog.sink.split.i.i
+
+sw.epilog.sink.split.i.i:                         ; preds = %sw.bb.i.i, %if.end.i
+  %.sink3.i.i = phi i64 [ 120, %sw.bb.i.i ], [ 72, %if.end.i ]
+  %.sink.i.i = phi i32 [ 1, %sw.bb.i.i ], [ 0, %if.end.i ]
+  %signalready.i.i = getelementptr inbounds i8, ptr %key, i64 %.sink3.i.i
+  store i32 %.sink.i.i, ptr %signalready.i.i, align 8
   br label %if.end32
 
-sw.bb1.i.i:                                       ; preds = %if.end.i
-  %signalready.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 1
-  store i32 0, ptr %signalready.i.i, align 8
-  br label %if.end32
-
-if.end32:                                         ; preds = %sw.bb1.i.i, %sw.bb.i.i, %if.end.i, %if.then30, %if.end27
-  %8 = phi ptr [ %call.i, %sw.bb1.i.i ], [ %call.i, %sw.bb.i.i ], [ %call.i, %if.end.i ], [ null, %if.then30 ], [ %4, %if.end27 ]
+if.end32:                                         ; preds = %sw.epilog.sink.split.i.i, %if.end.i, %if.then30, %if.end27
+  %8 = phi ptr [ %call.i, %sw.epilog.sink.split.i.i ], [ %call.i, %if.end.i ], [ null, %if.then30 ], [ %4, %if.end27 ]
   call void @listTypeTryConversionAppend(ptr noundef %8, ptr noundef nonnull %ele.addr, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @moduleFreeListIterator, ptr noundef nonnull %key) #34
   %9 = load ptr, ptr %value, align 8
   %10 = load ptr, ptr %ele.addr, align 8
@@ -9925,7 +9872,7 @@ declare void @listTypeTryConversionAppend(ptr noundef, ptr noundef, i32 noundef,
 ; Function Attrs: nounwind uwtable
 define internal void @moduleFreeListIterator(ptr nocapture noundef %data) #0 {
 entry:
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %data, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %data, i64 24
   %0 = load ptr, ptr %value, align 8
   %bf.load = load i32, ptr %0, align 8
   %bf.clear = and i32 %bf.load, 15
@@ -9938,7 +9885,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %data, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %data, i64 32
   %1 = load ptr, ptr %iter, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %if.then
@@ -9965,7 +9912,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then3, label %lor.lhs.false
@@ -9982,7 +9929,7 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.else5:                                         ; preds = %lor.lhs.false
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %1 = load i32, ptr %mode, align 8
   %and = and i32 %1, 2
   %tobool6.not = icmp eq i32 %and, 0
@@ -9994,7 +9941,7 @@ if.then7:                                         ; preds = %if.else5
   br label %return
 
 if.end10:                                         ; preds = %if.else5
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %2 = load ptr, ptr %iter, align 8
   %tobool11.not = icmp eq ptr %2, null
   br i1 %tobool11.not, label %if.end13, label %if.then12
@@ -10022,22 +9969,22 @@ if.then20:                                        ; preds = %if.end13
 
 if.end22:                                         ; preds = %if.then20, %if.end13
   %5 = load ptr, ptr %key, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %5, i64 48
   %6 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %6, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end22
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %5, i64 44
   %7 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %5, i64 40
   %8 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %7, %8
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -10046,7 +9993,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %7, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %5, i64 32
   %9 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -10058,7 +10005,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %10 = phi i32 [ %7, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %11 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %5, i64 32
   %idxprom.i = sext i32 %10 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %11, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -10091,27 +10038,27 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %u = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %key, i64 48
   %call2 = tail call ptr @listTypeGet(ptr noundef nonnull %u) #34
   %call3 = tail call ptr @getDecodedObject(ptr noundef %call2) #34
   tail call void @decrRefCount(ptr noundef %call2) #34
   %0 = load ptr, ptr %key, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %0, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %1, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %0, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %0, i64 44
   %2 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %0, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %2, %3
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %0, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -10120,7 +10067,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %2, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %0, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -10132,7 +10079,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %5 = phi i32 [ %2, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %6 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %0, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %0, i64 32
   %idxprom.i = sext i32 %5 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %6, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -10167,7 +10114,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %value1 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value1 = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value1, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %if.then4, label %lor.lhs.false
@@ -10190,7 +10137,7 @@ if.end6:                                          ; preds = %lor.lhs.false
   br i1 %tobool9.not, label %return, label %if.then10
 
 if.then10:                                        ; preds = %if.end6
-  %u = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %key, i64 48
   %1 = load ptr, ptr %value.addr, align 8
   call void @listTypeReplace(ptr noundef nonnull %u, ptr noundef %1) #34
   call fastcc void @moduleFreeKeyIterator(ptr noundef nonnull %key)
@@ -10221,7 +10168,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.not, label %if.end45, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %value1 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value1 = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value1, align 8
   %cmp2 = icmp eq ptr %0, null
   %1 = add i64 %index, 1
@@ -10280,7 +10227,7 @@ if.then41:                                        ; preds = %lor.lhs.false36, %l
   br label %return
 
 if.end45:                                         ; preds = %land.lhs.true10, %if.else, %land.lhs.true26, %land.lhs.true29, %lor.lhs.false36
-  %value46 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value46 = getelementptr inbounds i8, ptr %key, i64 24
   %4 = load ptr, ptr %value46, align 8
   call void @listTypeTryConversionAppend(ptr noundef %4, ptr noundef nonnull %value.addr, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @moduleFreeListIterator, ptr noundef %key) #34
   %call47 = call i32 @moduleListIteratorSeek(ptr noundef %key, i64 noundef %index, i32 noundef 2), !range !22
@@ -10290,7 +10237,7 @@ if.end45:                                         ; preds = %land.lhs.true10, %i
 if.then49:                                        ; preds = %if.end45
   %index.lobit = lshr i64 %index, 63
   %cond = trunc i64 %index.lobit to i32
-  %u = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %key, i64 48
   %5 = load ptr, ptr %value.addr, align 8
   call void @listTypeInsert(ptr noundef nonnull %u, ptr noundef %5, i32 noundef %cond) #34
   call fastcc void @moduleFreeKeyIterator(ptr noundef nonnull %key)
@@ -10311,16 +10258,16 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %0 = load ptr, ptr %iter, align 8
-  %u = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %key, i64 48
   tail call void @listTypeDelete(ptr noundef %0, ptr noundef nonnull %u) #34
   %call2 = tail call i32 @moduleDelKeyIfEmpty(ptr noundef %key), !range !22
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %1 = load ptr, ptr %value, align 8
   tail call void @listTypeTryConversion(ptr noundef %1, i32 noundef 2, ptr noundef nonnull @moduleFreeListIterator, ptr noundef nonnull %key) #34
   %2 = load ptr, ptr %iter, align 8
@@ -10334,10 +10281,10 @@ if.end8:                                          ; preds = %if.end
 
 if.then14:                                        ; preds = %if.end8
   %3 = load ptr, ptr %iter, align 8
-  %direction = getelementptr inbounds %struct.listTypeIterator, ptr %3, i64 0, i32 2
+  %direction = getelementptr inbounds i8, ptr %3, i64 9
   %4 = load i8, ptr %direction, align 1
   %cmp = icmp eq i8 %4, 0
-  %index18 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %index18 = getelementptr inbounds i8, ptr %key, i64 120
   %5 = load i64, ptr %index18, align 8
   %cmp19 = icmp slt i64 %5, 0
   br i1 %cmp19, label %if.then21, label %if.else
@@ -10394,14 +10341,14 @@ define dso_local i32 @RM_ZsetAdd(ptr nocapture noundef %key, double noundef %sco
 entry:
   %out_flags = alloca i32, align 4
   store i32 0, ptr %out_flags, align 4
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %1 = load ptr, ptr %value, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end.i, label %land.lhs.true
@@ -10414,9 +10361,9 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   %call3.i = tail call ptr @createZsetListpackObject() #34
-  %db.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db.i = getelementptr inbounds i8, ptr %key, i64 8
   %2 = load ptr, ptr %db.i, align 8
-  %key8.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key8.i = getelementptr inbounds i8, ptr %key, i64 16
   %3 = load ptr, ptr %key8.i, align 8
   tail call void @dbAdd(ptr noundef %2, ptr noundef %3, ptr noundef %call3.i) #34
   store ptr %call3.i, ptr %value, align 8
@@ -10424,30 +10371,30 @@ if.end.i:                                         ; preds = %if.end
   %bf.clear.i.i = and i32 %bf.load.i.i, 15
   switch i32 %bf.clear.i.i, label %if.end8 [
     i32 3, label %sw.bb.i.i
-    i32 6, label %sw.bb1.i.i
+    i32 6, label %sw.epilog.sink.split.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end.i
-  %u.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u.i.i.i = getelementptr inbounds i8, ptr %key, i64 48
   store i32 0, ptr %u.i.i.i, align 8
-  %current.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
+  %current.i.i.i = getelementptr inbounds i8, ptr %key, i64 112
   store ptr null, ptr %current.i.i.i, align 8
-  %er.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
-  store i32 1, ptr %er.i.i.i, align 8
+  br label %sw.epilog.sink.split.i.i
+
+sw.epilog.sink.split.i.i:                         ; preds = %sw.bb.i.i, %if.end.i
+  %.sink3.i.i = phi i64 [ 120, %sw.bb.i.i ], [ 72, %if.end.i ]
+  %.sink.i.i = phi i32 [ 1, %sw.bb.i.i ], [ 0, %if.end.i ]
+  %signalready.i.i = getelementptr inbounds i8, ptr %key, i64 %.sink3.i.i
+  store i32 %.sink.i.i, ptr %signalready.i.i, align 8
   br label %if.end8
 
-sw.bb1.i.i:                                       ; preds = %if.end.i
-  %signalready.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 1
-  store i32 0, ptr %signalready.i.i, align 8
-  br label %if.end8
-
-if.end8:                                          ; preds = %sw.bb1.i.i, %sw.bb.i.i, %if.end.i, %land.lhs.true
-  %4 = phi ptr [ %call3.i, %sw.bb1.i.i ], [ %call3.i, %sw.bb.i.i ], [ %call3.i, %if.end.i ], [ %1, %land.lhs.true ]
+if.end8:                                          ; preds = %sw.epilog.sink.split.i.i, %if.end.i, %land.lhs.true
+  %4 = phi ptr [ %call3.i, %sw.epilog.sink.split.i.i ], [ %call3.i, %if.end.i ], [ %1, %land.lhs.true ]
   %tobool9.not = icmp eq ptr %flagsptr, null
   br i1 %tobool9.not, label %if.end12, label %if.end12.thread
 
 if.end12:                                         ; preds = %if.end8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %ele, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %ele, i64 8
   %5 = load ptr, ptr %ptr, align 8
   %call14 = call i32 @zsetAdd(ptr noundef nonnull %4, double noundef %score, ptr noundef %5, i32 noundef 0, ptr noundef nonnull %out_flags, ptr noundef null) #34
   %cmp15 = icmp eq i32 %call14, 0
@@ -10462,7 +10409,7 @@ if.end12.thread:                                  ; preds = %if.end8
   %and6.i = lshr i32 %6, 2
   %retflags.2.i = and i32 %and6.i, 24
   %retflags.3.i = or disjoint i32 %retflags.2.i, %retflags.1.i
-  %ptr16 = getelementptr inbounds %struct.redisObject, ptr %ele, i64 0, i32 2
+  %ptr16 = getelementptr inbounds i8, ptr %ele, i64 8
   %7 = load ptr, ptr %ptr16, align 8
   %call1417 = call i32 @zsetAdd(ptr noundef nonnull %4, double noundef %score, ptr noundef %7, i32 noundef %retflags.3.i, ptr noundef nonnull %out_flags, ptr noundef null) #34
   %cmp1518 = icmp eq i32 %call1417, 0
@@ -10497,14 +10444,14 @@ define dso_local i32 @RM_ZsetIncrby(ptr nocapture noundef %key, double noundef %
 entry:
   %out_flags = alloca i32, align 4
   store i32 0, ptr %out_flags, align 4
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %1 = load ptr, ptr %value, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end.i, label %land.lhs.true
@@ -10517,9 +10464,9 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   %call3.i = tail call ptr @createZsetListpackObject() #34
-  %db.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db.i = getelementptr inbounds i8, ptr %key, i64 8
   %2 = load ptr, ptr %db.i, align 8
-  %key8.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key8.i = getelementptr inbounds i8, ptr %key, i64 16
   %3 = load ptr, ptr %key8.i, align 8
   tail call void @dbAdd(ptr noundef %2, ptr noundef %3, ptr noundef %call3.i) #34
   store ptr %call3.i, ptr %value, align 8
@@ -10527,30 +10474,30 @@ if.end.i:                                         ; preds = %if.end
   %bf.clear.i.i = and i32 %bf.load.i.i, 15
   switch i32 %bf.clear.i.i, label %if.end8 [
     i32 3, label %sw.bb.i.i
-    i32 6, label %sw.bb1.i.i
+    i32 6, label %sw.epilog.sink.split.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end.i
-  %u.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u.i.i.i = getelementptr inbounds i8, ptr %key, i64 48
   store i32 0, ptr %u.i.i.i, align 8
-  %current.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
+  %current.i.i.i = getelementptr inbounds i8, ptr %key, i64 112
   store ptr null, ptr %current.i.i.i, align 8
-  %er.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
-  store i32 1, ptr %er.i.i.i, align 8
+  br label %sw.epilog.sink.split.i.i
+
+sw.epilog.sink.split.i.i:                         ; preds = %sw.bb.i.i, %if.end.i
+  %.sink3.i.i = phi i64 [ 120, %sw.bb.i.i ], [ 72, %if.end.i ]
+  %.sink.i.i = phi i32 [ 1, %sw.bb.i.i ], [ 0, %if.end.i ]
+  %signalready.i.i = getelementptr inbounds i8, ptr %key, i64 %.sink3.i.i
+  store i32 %.sink.i.i, ptr %signalready.i.i, align 8
   br label %if.end8
 
-sw.bb1.i.i:                                       ; preds = %if.end.i
-  %signalready.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 1
-  store i32 0, ptr %signalready.i.i, align 8
-  br label %if.end8
-
-if.end8:                                          ; preds = %sw.bb1.i.i, %sw.bb.i.i, %if.end.i, %land.lhs.true
-  %4 = phi ptr [ %call3.i, %sw.bb1.i.i ], [ %call3.i, %sw.bb.i.i ], [ %call3.i, %if.end.i ], [ %1, %land.lhs.true ]
+if.end8:                                          ; preds = %sw.epilog.sink.split.i.i, %if.end.i, %land.lhs.true
+  %4 = phi ptr [ %call3.i, %sw.epilog.sink.split.i.i ], [ %call3.i, %if.end.i ], [ %1, %land.lhs.true ]
   %tobool9.not = icmp eq ptr %flagsptr, null
   br i1 %tobool9.not, label %if.end12, label %if.end12.thread
 
 if.end12:                                         ; preds = %if.end8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %ele, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %ele, i64 8
   %5 = load ptr, ptr %ptr, align 8
   %call14 = call i32 @zsetAdd(ptr noundef nonnull %4, double noundef %score, ptr noundef %5, i32 noundef 1, ptr noundef nonnull %out_flags, ptr noundef %newscore) #34
   %cmp15 = icmp eq i32 %call14, 0
@@ -10565,7 +10512,7 @@ if.end12.thread:                                  ; preds = %if.end8
   %retflags.2.i = and i32 %and6.i, 24
   %retflags.3.i = or disjoint i32 %retflags.2.i, %retflags.1.i
   %7 = or i32 %retflags.3.i, 1
-  %ptr17 = getelementptr inbounds %struct.redisObject, ptr %ele, i64 0, i32 2
+  %ptr17 = getelementptr inbounds i8, ptr %ele, i64 8
   %8 = load ptr, ptr %ptr17, align 8
   %call1418 = call i32 @zsetAdd(ptr noundef nonnull %4, double noundef %score, ptr noundef %8, i32 noundef %7, ptr noundef nonnull %out_flags, ptr noundef %newscore) #34
   %cmp1519 = icmp eq i32 %call1418, 0
@@ -10596,14 +10543,14 @@ return:                                           ; preds = %if.end12, %if.then2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ZsetRem(ptr nocapture noundef %key, ptr nocapture noundef readonly %ele, ptr noundef writeonly %deleted) #0 {
 entry:
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %1 = load ptr, ptr %value, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.else, label %land.lhs.true
@@ -10615,7 +10562,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp.not, label %land.lhs.true7, label %return
 
 land.lhs.true7:                                   ; preds = %land.lhs.true
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %ele, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %ele, i64 8
   %2 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @zsetDel(ptr noundef nonnull %1, ptr noundef %2) #34
   %tobool9.not = icmp eq i32 %call, 0
@@ -10651,7 +10598,7 @@ declare i32 @zsetDel(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ZsetScore(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %ele, ptr noundef %score) #0 {
 entry:
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -10663,7 +10610,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %ele, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %ele, i64 8
   %1 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @zsetScore(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %score) #34
   %cmp6 = icmp eq i32 %call, -1
@@ -10680,7 +10627,7 @@ declare i32 @zsetScore(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_ZsetRangeStop(ptr noundef %key) #0 {
 entry:
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -10692,21 +10639,21 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %u = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %key, i64 48
   %1 = load i32, ptr %u, align 8
   %cmp2 = icmp eq i32 %1, 1
   br i1 %cmp2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %lrs = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 2
+  %lrs = getelementptr inbounds i8, ptr %key, i64 80
   tail call void @zslFreeLexRange(ptr noundef nonnull %lrs) #34
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.end
   store i32 0, ptr %u, align 8
-  %current.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
+  %current.i = getelementptr inbounds i8, ptr %key, i64 112
   store ptr null, ptr %current.i, align 8
-  %er.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er.i = getelementptr inbounds i8, ptr %key, i64 120
   store i32 1, ptr %er.i, align 8
   br label %return
 
@@ -10719,7 +10666,7 @@ declare void @zslFreeLexRange(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @RM_ZsetRangeEndReached(ptr nocapture noundef readonly %key) #11 {
 entry:
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -10731,7 +10678,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %er = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er = getelementptr inbounds i8, ptr %key, i64 120
   %1 = load i32, ptr %er, align 8
   br label %return
 
@@ -10743,7 +10690,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @zsetInitScoreRange(ptr noundef %key, double noundef %min, double noundef %max, i32 noundef %minex, i32 noundef %maxex, i32 noundef %first) local_unnamed_addr #0 {
 entry:
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -10755,29 +10702,29 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false
-  %u.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u.i = getelementptr inbounds i8, ptr %key, i64 48
   %1 = load i32, ptr %u.i, align 8
   %cmp2.i = icmp eq i32 %1, 1
   br i1 %cmp2.i, label %if.then3.i, label %RM_ZsetRangeStop.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %lrs.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 2
+  %lrs.i = getelementptr inbounds i8, ptr %key, i64 80
   tail call void @zslFreeLexRange(ptr noundef nonnull %lrs.i) #34
   %.pre = load ptr, ptr %value, align 8
   br label %RM_ZsetRangeStop.exit
 
 RM_ZsetRangeStop.exit:                            ; preds = %if.end.i, %if.then3.i
   %2 = phi ptr [ %0, %if.end.i ], [ %.pre, %if.then3.i ]
-  %current.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
+  %current.i.i = getelementptr inbounds i8, ptr %key, i64 112
   store ptr null, ptr %current.i.i, align 8
-  %er.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er.i.i = getelementptr inbounds i8, ptr %key, i64 120
   store i32 2, ptr %u.i, align 8
   store i32 0, ptr %er.i.i, align 8
-  %rs = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 1
+  %rs = getelementptr inbounds i8, ptr %key, i64 56
   store double %min, ptr %rs, align 8
-  %max5 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2
+  %max5 = getelementptr inbounds i8, ptr %key, i64 64
   store double %max, ptr %max5, align 8
-  %minex6 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 1
+  %minex6 = getelementptr inbounds i8, ptr %key, i64 72
   store i32 %minex, ptr %minex6, align 8
   %maxex7 = getelementptr inbounds i8, ptr %key, i64 76
   store i32 %maxex, ptr %maxex7, align 4
@@ -10791,7 +10738,7 @@ RM_ZsetRangeStop.exit:                            ; preds = %if.end.i, %if.then3
 
 if.then12:                                        ; preds = %RM_ZsetRangeStop.exit
   %tobool13.not = icmp eq i32 %first, 0
-  %ptr16 = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr16 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr16, align 8
   br i1 %tobool13.not, label %cond.false, label %cond.true
 
@@ -10804,9 +10751,9 @@ cond.false:                                       ; preds = %if.then12
   br label %if.end39
 
 if.then24:                                        ; preds = %RM_ZsetRangeStop.exit
-  %ptr26 = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr26 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %ptr26, align 8
-  %zsl27 = getelementptr inbounds %struct.zset, ptr %4, i64 0, i32 1
+  %zsl27 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %zsl27, align 8
   %tobool28.not = icmp eq i32 %first, 0
   br i1 %tobool28.not, label %cond.false31, label %cond.true29
@@ -10862,7 +10809,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @zsetInitLexRange(ptr noundef %key, ptr noundef %min, ptr noundef %max, i32 noundef %first) local_unnamed_addr #0 {
 entry:
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -10874,23 +10821,23 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false
-  %u.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u.i = getelementptr inbounds i8, ptr %key, i64 48
   %1 = load i32, ptr %u.i, align 8
   %cmp2.i = icmp eq i32 %1, 1
   br i1 %cmp2.i, label %if.then3.i, label %RM_ZsetRangeStop.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %lrs.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 2
+  %lrs.i = getelementptr inbounds i8, ptr %key, i64 80
   tail call void @zslFreeLexRange(ptr noundef nonnull %lrs.i) #34
   br label %RM_ZsetRangeStop.exit
 
 RM_ZsetRangeStop.exit:                            ; preds = %if.end.i, %if.then3.i
   store i32 0, ptr %u.i, align 8
-  %current.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
+  %current.i.i = getelementptr inbounds i8, ptr %key, i64 112
   store ptr null, ptr %current.i.i, align 8
-  %er = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er = getelementptr inbounds i8, ptr %key, i64 120
   store i32 0, ptr %er, align 8
-  %lrs = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 2
+  %lrs = getelementptr inbounds i8, ptr %key, i64 80
   %call = tail call i32 @zslParseLexRange(ptr noundef %min, ptr noundef %max, ptr noundef nonnull %lrs) #34
   %cmp3 = icmp eq i32 %call, -1
   br i1 %cmp3, label %return, label %if.end5
@@ -10908,7 +10855,7 @@ if.end5:                                          ; preds = %RM_ZsetRangeStop.ex
 
 if.then11:                                        ; preds = %if.end5
   %tobool12.not = icmp eq i32 %first, 0
-  %ptr16 = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr16 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr16, align 8
   br i1 %tobool12.not, label %cond.false, label %cond.true
 
@@ -10921,9 +10868,9 @@ cond.false:                                       ; preds = %if.then11
   br label %if.end39
 
 if.then24:                                        ; preds = %if.end5
-  %ptr26 = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr26 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %ptr26, align 8
-  %zsl27 = getelementptr inbounds %struct.zset, ptr %4, i64 0, i32 1
+  %zsl27 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %zsl27, align 8
   %tobool28.not = icmp eq i32 %first, 0
   br i1 %tobool28.not, label %cond.false31, label %cond.true29
@@ -10981,7 +10928,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_ZsetRangeCurrentElement(ptr nocapture noundef readonly %key, ptr noundef writeonly %score) #0 {
 entry:
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -10993,7 +10940,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %current = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
+  %current = getelementptr inbounds i8, ptr %key, i64 112
   %1 = load ptr, ptr %current, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %return, label %if.end4
@@ -11013,7 +10960,7 @@ if.then9:                                         ; preds = %if.end4
 
 if.then13:                                        ; preds = %if.then9
   %2 = load ptr, ptr %value, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %call15 = tail call ptr @lpNext(ptr noundef %3, ptr noundef nonnull %1) #34
   %call16 = tail call double @zzlGetScore(ptr noundef %call15) #34
@@ -11029,7 +10976,7 @@ if.then24:                                        ; preds = %if.end4
   br i1 %tobool27.not, label %if.end30, label %if.then28
 
 if.then28:                                        ; preds = %if.then24
-  %score29 = getelementptr inbounds %struct.zskiplistNode, ptr %1, i64 0, i32 1
+  %score29 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load double, ptr %score29, align 8
   store double %4, ptr %score, align 8
   br label %if.end30
@@ -11089,22 +11036,22 @@ if.else35:                                        ; preds = %if.end4
 if.end37:                                         ; preds = %sdslen.exit, %if.end17
   %str.0 = phi ptr [ %call18, %if.end17 ], [ %call34, %sdslen.exit ]
   %11 = load ptr, ptr %key, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %11, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %11, i64 48
   %12 = load i32, ptr %flags.i, align 8
   %and.i17 = and i32 %12, 1
   %tobool.not.i = icmp eq i32 %and.i17, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end37
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %11, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %11, i64 44
   %13 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %11, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %11, i64 40
   %14 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %13, %14
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %11, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %11, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -11113,7 +11060,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %13, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %11, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %11, i64 32
   %15 = load ptr, ptr %amqueue.i, align 8
   %conv.i18 = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i18, 4
@@ -11125,7 +11072,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %16 = phi i32 [ %13, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %17 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %11, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %11, i64 32
   %idxprom.i = sext i32 %16 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %17, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -11153,7 +11100,7 @@ declare double @zzlGetScore(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ZsetRangeNext(ptr noundef %key) #0 {
 entry:
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -11165,13 +11112,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %u = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %key, i64 48
   %1 = load i32, ptr %u, align 8
   %tobool2.not = icmp eq i32 %1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %if.end
-  %current = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
+  %current = getelementptr inbounds i8, ptr %key, i64 112
   %2 = load ptr, ptr %current, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %return, label %if.end7
@@ -11185,7 +11132,7 @@ if.end7:                                          ; preds = %lor.lhs.false3
   ]
 
 if.then12:                                        ; preds = %if.end7
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %0, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %call = tail call ptr @lpNext(ptr noundef %3, ptr noundef nonnull %2) #34
   %tobool16.not = icmp eq ptr %call, null
@@ -11197,7 +11144,7 @@ if.end19:                                         ; preds = %if.then12
   br i1 %cmp20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.then12, %if.end19
-  %er = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er = getelementptr inbounds i8, ptr %key, i64 120
   store i32 1, ptr %er, align 8
   br label %return
 
@@ -11211,24 +11158,24 @@ if.else:                                          ; preds = %if.end19
 if.then26:                                        ; preds = %if.else
   %call27 = tail call ptr @lpNext(ptr noundef %3, ptr noundef nonnull %call18) #34
   %call28 = tail call double @zzlGetScore(ptr noundef %call27) #34
-  %rs = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 1
+  %rs = getelementptr inbounds i8, ptr %key, i64 56
   %call30 = tail call i32 @zslValueLteMax(double noundef %call28, ptr noundef nonnull %rs) #34
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.then32, label %if.end49
 
 if.then32:                                        ; preds = %if.then26
-  %er34 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er34 = getelementptr inbounds i8, ptr %key, i64 120
   store i32 1, ptr %er34, align 8
   br label %return
 
 if.then40:                                        ; preds = %if.else
-  %lrs = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 2
+  %lrs = getelementptr inbounds i8, ptr %key, i64 80
   %call42 = tail call i32 @zzlLexValueLteMax(ptr noundef nonnull %call18, ptr noundef nonnull %lrs) #34
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.then44, label %if.end49
 
 if.then44:                                        ; preds = %if.then40
-  %er46 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er46 = getelementptr inbounds i8, ptr %key, i64 120
   store i32 1, ptr %er46, align 8
   br label %return
 
@@ -11237,13 +11184,13 @@ if.end49:                                         ; preds = %if.else, %if.then26
   br label %return
 
 if.then58:                                        ; preds = %if.end7
-  %level = getelementptr inbounds %struct.zskiplistNode, ptr %2, i64 0, i32 3
+  %level = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load ptr, ptr %level, align 8
   %cmp62 = icmp eq ptr %5, null
   br i1 %cmp62, label %if.then63, label %if.else66
 
 if.then63:                                        ; preds = %if.then58
-  %er65 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er65 = getelementptr inbounds i8, ptr %key, i64 120
   store i32 1, ptr %er65, align 8
   br label %return
 
@@ -11252,9 +11199,9 @@ if.else66:                                        ; preds = %if.then58
   br i1 %cmp69, label %land.lhs.true, label %if.else78
 
 land.lhs.true:                                    ; preds = %if.else66
-  %score70 = getelementptr inbounds %struct.zskiplistNode, ptr %5, i64 0, i32 1
+  %score70 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load double, ptr %score70, align 8
-  %rs72 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 1
+  %rs72 = getelementptr inbounds i8, ptr %key, i64 56
   %call73 = tail call i32 @zslValueLteMax(double noundef %6, ptr noundef nonnull %rs72) #34
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %if.then75, label %land.lhs.true.if.else78_crit_edge
@@ -11264,7 +11211,7 @@ land.lhs.true.if.else78_crit_edge:                ; preds = %land.lhs.true
   br label %if.else78
 
 if.then75:                                        ; preds = %land.lhs.true
-  %er77 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er77 = getelementptr inbounds i8, ptr %key, i64 120
   store i32 1, ptr %er77, align 8
   br label %return
 
@@ -11275,13 +11222,13 @@ if.else78:                                        ; preds = %land.lhs.true.if.el
 
 if.then82:                                        ; preds = %if.else78
   %8 = load ptr, ptr %5, align 8
-  %lrs84 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 2
+  %lrs84 = getelementptr inbounds i8, ptr %key, i64 80
   %call85 = tail call i32 @zslLexValueLteMax(ptr noundef %8, ptr noundef nonnull %lrs84) #34
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %if.then87, label %if.end92
 
 if.then87:                                        ; preds = %if.then82
-  %er89 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er89 = getelementptr inbounds i8, ptr %key, i64 120
   store i32 1, ptr %er89, align 8
   br label %return
 
@@ -11308,7 +11255,7 @@ declare i32 @zslLexValueLteMax(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ZsetRangePrev(ptr noundef %key) #0 {
 entry:
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -11320,13 +11267,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %u = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %key, i64 48
   %1 = load i32, ptr %u, align 8
   %tobool2.not = icmp eq i32 %1, 0
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %if.end
-  %current = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
+  %current = getelementptr inbounds i8, ptr %key, i64 112
   %2 = load ptr, ptr %current, align 8
   %tobool5.not = icmp eq ptr %2, null
   br i1 %tobool5.not, label %return, label %if.end7
@@ -11340,7 +11287,7 @@ if.end7:                                          ; preds = %lor.lhs.false3
   ]
 
 if.then12:                                        ; preds = %if.end7
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %0, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %call = tail call ptr @lpPrev(ptr noundef %3, ptr noundef nonnull %2) #34
   %tobool16.not = icmp eq ptr %call, null
@@ -11352,7 +11299,7 @@ if.end19:                                         ; preds = %if.then12
   br i1 %cmp20, label %if.then21, label %if.else
 
 if.then21:                                        ; preds = %if.then12, %if.end19
-  %er = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er = getelementptr inbounds i8, ptr %key, i64 120
   store i32 1, ptr %er, align 8
   br label %return
 
@@ -11366,24 +11313,24 @@ if.else:                                          ; preds = %if.end19
 if.then26:                                        ; preds = %if.else
   %call27 = tail call ptr @lpNext(ptr noundef %3, ptr noundef nonnull %call18) #34
   %call28 = tail call double @zzlGetScore(ptr noundef %call27) #34
-  %rs = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 1
+  %rs = getelementptr inbounds i8, ptr %key, i64 56
   %call30 = tail call i32 @zslValueGteMin(double noundef %call28, ptr noundef nonnull %rs) #34
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.then32, label %if.end49
 
 if.then32:                                        ; preds = %if.then26
-  %er34 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er34 = getelementptr inbounds i8, ptr %key, i64 120
   store i32 1, ptr %er34, align 8
   br label %return
 
 if.then40:                                        ; preds = %if.else
-  %lrs = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 2
+  %lrs = getelementptr inbounds i8, ptr %key, i64 80
   %call42 = tail call i32 @zzlLexValueGteMin(ptr noundef nonnull %call18, ptr noundef nonnull %lrs) #34
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.then44, label %if.end49
 
 if.then44:                                        ; preds = %if.then40
-  %er46 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er46 = getelementptr inbounds i8, ptr %key, i64 120
   store i32 1, ptr %er46, align 8
   br label %return
 
@@ -11392,13 +11339,13 @@ if.end49:                                         ; preds = %if.else, %if.then26
   br label %return
 
 if.then58:                                        ; preds = %if.end7
-  %backward = getelementptr inbounds %struct.zskiplistNode, ptr %2, i64 0, i32 2
+  %backward = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %backward, align 8
   %cmp62 = icmp eq ptr %5, null
   br i1 %cmp62, label %if.then63, label %if.else66
 
 if.then63:                                        ; preds = %if.then58
-  %er65 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er65 = getelementptr inbounds i8, ptr %key, i64 120
   store i32 1, ptr %er65, align 8
   br label %return
 
@@ -11407,9 +11354,9 @@ if.else66:                                        ; preds = %if.then58
   br i1 %cmp69, label %land.lhs.true, label %if.else78
 
 land.lhs.true:                                    ; preds = %if.else66
-  %score70 = getelementptr inbounds %struct.zskiplistNode, ptr %5, i64 0, i32 1
+  %score70 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load double, ptr %score70, align 8
-  %rs72 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 1
+  %rs72 = getelementptr inbounds i8, ptr %key, i64 56
   %call73 = tail call i32 @zslValueGteMin(double noundef %6, ptr noundef nonnull %rs72) #34
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %if.then75, label %land.lhs.true.if.else78_crit_edge
@@ -11419,7 +11366,7 @@ land.lhs.true.if.else78_crit_edge:                ; preds = %land.lhs.true
   br label %if.else78
 
 if.then75:                                        ; preds = %land.lhs.true
-  %er77 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er77 = getelementptr inbounds i8, ptr %key, i64 120
   store i32 1, ptr %er77, align 8
   br label %return
 
@@ -11430,13 +11377,13 @@ if.else78:                                        ; preds = %land.lhs.true.if.el
 
 if.then82:                                        ; preds = %if.else78
   %8 = load ptr, ptr %5, align 8
-  %lrs84 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 2
+  %lrs84 = getelementptr inbounds i8, ptr %key, i64 80
   %call85 = tail call i32 @zslLexValueGteMin(ptr noundef %8, ptr noundef nonnull %lrs84) #34
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %if.then87, label %if.end92
 
 if.then87:                                        ; preds = %if.then82
-  %er89 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
+  %er89 = getelementptr inbounds i8, ptr %key, i64 120
   store i32 1, ptr %er89, align 8
   br label %return
 
@@ -11474,7 +11421,7 @@ entry:
   br i1 %or.cond41, label %if.else, label %return.sink.split
 
 if.else:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %if.else6, label %land.lhs.true
@@ -11486,14 +11433,14 @@ land.lhs.true:                                    ; preds = %if.else
   br i1 %cmp.not, label %if.else6.thread, label %return.sink.split
 
 if.else6:                                         ; preds = %if.else
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %1 = load i32, ptr %mode, align 8
   %and7 = and i32 %1, 2
   %tobool8.not = icmp eq i32 %and7, 0
   br i1 %tobool8.not, label %return.sink.split, label %if.end.i
 
 if.else6.thread:                                  ; preds = %land.lhs.true
-  %mode42 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode42 = getelementptr inbounds i8, ptr %key, i64 40
   %2 = load i32, ptr %mode42, align 8
   %and743 = and i32 %2, 2
   %tobool8.not44 = icmp eq i32 %and743, 0
@@ -11501,9 +11448,9 @@ if.else6.thread:                                  ; preds = %land.lhs.true
 
 if.end.i:                                         ; preds = %if.else6
   %call5.i = tail call ptr @createHashObject() #34
-  %db.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db.i = getelementptr inbounds i8, ptr %key, i64 8
   %3 = load ptr, ptr %db.i, align 8
-  %key8.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key8.i = getelementptr inbounds i8, ptr %key, i64 16
   %4 = load ptr, ptr %key8.i, align 8
   tail call void @dbAdd(ptr noundef %3, ptr noundef %4, ptr noundef %call5.i) #34
   store ptr %call5.i, ptr %value, align 8
@@ -11511,29 +11458,29 @@ if.end.i:                                         ; preds = %if.else6
   %bf.clear.i.i = and i32 %bf.load.i.i, 15
   switch i32 %bf.clear.i.i, label %if.end17 [
     i32 3, label %sw.bb.i.i
-    i32 6, label %sw.bb1.i.i
+    i32 6, label %sw.epilog.sink.split.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.end.i
-  %u.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u.i.i.i = getelementptr inbounds i8, ptr %key, i64 48
   store i32 0, ptr %u.i.i.i, align 8
-  %current.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
+  %current.i.i.i = getelementptr inbounds i8, ptr %key, i64 112
   store ptr null, ptr %current.i.i.i, align 8
-  %er.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
-  store i32 1, ptr %er.i.i.i, align 8
+  br label %sw.epilog.sink.split.i.i
+
+sw.epilog.sink.split.i.i:                         ; preds = %sw.bb.i.i, %if.end.i
+  %.sink3.i.i = phi i64 [ 120, %sw.bb.i.i ], [ 72, %if.end.i ]
+  %.sink.i.i = phi i32 [ 1, %sw.bb.i.i ], [ 0, %if.end.i ]
+  %signalready.i.i = getelementptr inbounds i8, ptr %key, i64 %.sink3.i.i
+  store i32 %.sink.i.i, ptr %signalready.i.i, align 8
   br label %if.end17
 
-sw.bb1.i.i:                                       ; preds = %if.end.i
-  %signalready.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 1
-  store i32 0, ptr %signalready.i.i, align 8
-  br label %if.end17
-
-if.end17:                                         ; preds = %if.else6.thread, %sw.bb1.i.i, %sw.bb.i.i, %if.end.i
+if.end17:                                         ; preds = %if.else6.thread, %sw.epilog.sink.split.i.i, %if.end.i
   call void @llvm.va_start(ptr nonnull %ap)
   %and19 = and i32 %flags, 4
   %tobool20.not.not = icmp eq i32 %and19, 0
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
-  %5 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
+  %5 = getelementptr inbounds i8, ptr %ap, i64 16
   %and57 = and i32 %flags, 3
   %tobool58.not = icmp eq i32 %and57, 0
   %and62 = and i32 %flags, 2
@@ -11541,7 +11488,7 @@ if.end17:                                         ; preds = %if.else6.thread, %s
   %and67 = and i32 %flags, 1
   %tobool68 = icmp ne i32 %and67, 0
   %and19.lobit = lshr exact i32 %and19, 2
-  %arrayinit.element = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %argv, i64 8
   %tobool99.not = icmp ult i32 %flags, 16
   br i1 %tobool20.not.not, label %if.end17.split.us, label %if.end17.split
 
@@ -11560,9 +11507,9 @@ if.end87.us.us:                                   ; preds = %vaarg.end55.us.us.u
   %6 = load ptr, ptr %value, align 8
   call void @hashTypeTryConversion(ptr noundef %6, ptr noundef nonnull %argv, i32 noundef 0, i32 noundef 1) #34
   %7 = load ptr, ptr %value, align 8
-  %ptr95.us.us = getelementptr inbounds %struct.redisObject, ptr %15, i64 0, i32 2
+  %ptr95.us.us = getelementptr inbounds i8, ptr %15, i64 8
   %8 = load ptr, ptr %ptr95.us.us, align 8
-  %ptr96.us.us = getelementptr inbounds %struct.redisObject, ptr %19, i64 0, i32 2
+  %ptr96.us.us = getelementptr inbounds i8, ptr %19, i64 8
   %9 = load ptr, ptr %ptr96.us.us, align 8
   %call97.us.us = call i32 @hashTypeSet(ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %and19.lobit) #34
   %cond.us.us = select i1 %tobool99.not, i32 %call97.us.us, i32 1
@@ -11570,7 +11517,7 @@ if.end87.us.us:                                   ; preds = %vaarg.end55.us.us.u
 
 if.then79.us.us:                                  ; preds = %vaarg.end55.us.us.us.us
   %10 = load ptr, ptr %value, align 8
-  %ptr81.us.us = getelementptr inbounds %struct.redisObject, ptr %15, i64 0, i32 2
+  %ptr81.us.us = getelementptr inbounds i8, ptr %15, i64 8
   %11 = load ptr, ptr %ptr81.us.us, align 8
   %call82.us.us = call i32 @hashTypeDelete(ptr noundef %10, ptr noundef %11) #34
   br label %while.body.outer.backedge.us.us
@@ -11635,9 +11582,9 @@ if.end87.us:                                      ; preds = %if.end77.split.us.s
   %20 = load ptr, ptr %value, align 8
   call void @hashTypeTryConversion(ptr noundef %20, ptr noundef nonnull %argv, i32 noundef 0, i32 noundef 1) #34
   %21 = load ptr, ptr %value, align 8
-  %ptr95.us = getelementptr inbounds %struct.redisObject, ptr %.us-phi123, i64 0, i32 2
+  %ptr95.us = getelementptr inbounds i8, ptr %.us-phi123, i64 8
   %22 = load ptr, ptr %ptr95.us, align 8
-  %ptr96.us = getelementptr inbounds %struct.redisObject, ptr %.us-phi122, i64 0, i32 2
+  %ptr96.us = getelementptr inbounds i8, ptr %.us-phi122, i64 8
   %23 = load ptr, ptr %ptr96.us, align 8
   %call97.us = call i32 @hashTypeSet(ptr noundef %21, ptr noundef %22, ptr noundef %23, i32 noundef %and19.lobit) #34
   %cond.us = select i1 %tobool99.not, i32 %call97.us, i32 1
@@ -11645,7 +11592,7 @@ if.end87.us:                                      ; preds = %if.end77.split.us.s
 
 if.then79.us:                                     ; preds = %if.end77.split.us.split.us
   %24 = load ptr, ptr %value, align 8
-  %ptr81.us = getelementptr inbounds %struct.redisObject, ptr %.us-phi123, i64 0, i32 2
+  %ptr81.us = getelementptr inbounds i8, ptr %.us-phi123, i64 8
   %25 = load ptr, ptr %ptr81.us, align 8
   %call82.us = call i32 @hashTypeDelete(ptr noundef %24, ptr noundef %25) #34
   br label %while.body.outer.backedge.us
@@ -11703,7 +11650,7 @@ vaarg.end55.us.us95:                              ; preds = %vaarg.in_reg49.us.u
   %vaarg.addr56.us.us96 = phi ptr [ %31, %vaarg.in_reg49.us.us93 ], [ %overflow_arg_area53.us.us91, %vaarg.in_mem51.us.us90 ]
   %33 = load ptr, ptr %vaarg.addr56.us.us96, align 8
   %34 = load ptr, ptr %value, align 8
-  %ptr.us.us = getelementptr inbounds %struct.redisObject, ptr %29, i64 0, i32 2
+  %ptr.us.us = getelementptr inbounds i8, ptr %29, i64 8
   %35 = load ptr, ptr %ptr.us.us, align 8
   %call61.us.us = call i32 @hashTypeExists(ptr noundef %34, ptr noundef %35) #34
   %tobool65.us.us.not130 = icmp eq i32 %call61.us.us, 0
@@ -11767,7 +11714,7 @@ vaarg.end55.us.us95.us.us:                        ; preds = %vaarg.in_reg49.us.u
   %vaarg.addr56.us.us96.us.us = phi ptr [ %41, %vaarg.in_reg49.us.us93.us.us ], [ %overflow_arg_area53.us.us91.us.us, %vaarg.in_mem51.us.us90.us.us ]
   %43 = load ptr, ptr %vaarg.addr56.us.us96.us.us, align 8
   %44 = load ptr, ptr %value, align 8
-  %ptr.us.us.us.us = getelementptr inbounds %struct.redisObject, ptr %39, i64 0, i32 2
+  %ptr.us.us.us.us = getelementptr inbounds i8, ptr %39, i64 8
   %45 = load ptr, ptr %ptr.us.us.us.us, align 8
   %call61.us.us.us.us = call i32 @hashTypeExists(ptr noundef %44, ptr noundef %45) #34
   br label %if.end77.split.us.split.us
@@ -11820,7 +11767,7 @@ vaarg.end55.us.us95.us:                           ; preds = %vaarg.in_reg49.us.u
   %vaarg.addr56.us.us96.us = phi ptr [ %51, %vaarg.in_reg49.us.us93.us ], [ %overflow_arg_area53.us.us91.us, %vaarg.in_mem51.us.us90.us ]
   %53 = load ptr, ptr %vaarg.addr56.us.us96.us, align 8
   %54 = load ptr, ptr %value, align 8
-  %ptr.us.us.us = getelementptr inbounds %struct.redisObject, ptr %49, i64 0, i32 2
+  %ptr.us.us.us = getelementptr inbounds i8, ptr %49, i64 8
   %55 = load ptr, ptr %ptr.us.us.us, align 8
   %call61.us.us.us = call i32 @hashTypeExists(ptr noundef %54, ptr noundef %55) #34
   %tobool65.us.us.us.not = icmp eq i32 %call61.us.us.us, 0
@@ -11841,9 +11788,9 @@ if.end87.us103:                                   ; preds = %vaarg.end55.us60.us
   %56 = load ptr, ptr %value, align 8
   call void @hashTypeTryConversion(ptr noundef %56, ptr noundef nonnull %argv, i32 noundef 0, i32 noundef 1) #34
   %57 = load ptr, ptr %value, align 8
-  %ptr95.us104 = getelementptr inbounds %struct.redisObject, ptr %call27.us.us, i64 0, i32 2
+  %ptr95.us104 = getelementptr inbounds i8, ptr %call27.us.us, i64 8
   %58 = load ptr, ptr %ptr95.us104, align 8
-  %ptr96.us105 = getelementptr inbounds %struct.redisObject, ptr %69, i64 0, i32 2
+  %ptr96.us105 = getelementptr inbounds i8, ptr %69, i64 8
   %59 = load ptr, ptr %ptr96.us105, align 8
   %call97.us106 = call i32 @hashTypeSet(ptr noundef %57, ptr noundef %58, ptr noundef %59, i32 noundef %and19.lobit) #34
   %cond.us107 = select i1 %tobool99.not, i32 %call97.us106, i32 1
@@ -11852,7 +11799,7 @@ if.end87.us103:                                   ; preds = %vaarg.end55.us60.us
 
 if.then79.us111:                                  ; preds = %vaarg.end55.us60.us
   %60 = load ptr, ptr %value, align 8
-  %ptr81.us112 = getelementptr inbounds %struct.redisObject, ptr %call27.us.us, i64 0, i32 2
+  %ptr81.us112 = getelementptr inbounds i8, ptr %call27.us.us, i64 8
   %61 = load ptr, ptr %ptr81.us112, align 8
   %call82.us113 = call i32 @hashTypeDelete(ptr noundef %60, ptr noundef %61) #34
   br label %while.body.outer.backedge.us117
@@ -11964,7 +11911,7 @@ vaarg.end55:                                      ; preds = %vaarg.in_mem51, %va
   %vaarg.addr56 = phi ptr [ %75, %vaarg.in_reg49 ], [ %overflow_arg_area53, %vaarg.in_mem51 ]
   %77 = load ptr, ptr %vaarg.addr56, align 8
   %78 = load ptr, ptr %value, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %call27, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %call27, i64 8
   %79 = load ptr, ptr %ptr, align 8
   %call61 = call i32 @hashTypeExists(ptr noundef %78, ptr noundef %79) #34
   %tobool65 = icmp ne i32 %call61, 0
@@ -11979,7 +11926,7 @@ if.then71:                                        ; preds = %vaarg.end55
   br label %while.body
 
 if.end77.split.split:                             ; preds = %vaarg.end55
-  %ptr.le = getelementptr inbounds %struct.redisObject, ptr %call27, i64 0, i32 2
+  %ptr.le = getelementptr inbounds i8, ptr %call27, i64 8
   %cmp78 = icmp eq ptr %77, inttoptr (i64 1 to ptr)
   br i1 %cmp78, label %if.then79, label %if.end87
 
@@ -12002,7 +11949,7 @@ if.end87:                                         ; preds = %if.end77.split.spli
   call void @hashTypeTryConversion(ptr noundef %82, ptr noundef nonnull %argv, i32 noundef 0, i32 noundef 1) #34
   %83 = load ptr, ptr %value, align 8
   %84 = load ptr, ptr %ptr.le, align 8
-  %ptr96 = getelementptr inbounds %struct.redisObject, ptr %77, i64 0, i32 2
+  %ptr96 = getelementptr inbounds i8, ptr %77, i64 8
   %85 = load ptr, ptr %ptr96, align 8
   %call97 = call i32 @hashTypeSet(ptr noundef %83, ptr noundef %84, ptr noundef %85, i32 noundef %and19.lobit) #34
   %cond = select i1 %tobool99.not, i32 %call97, i32 1
@@ -12041,7 +11988,7 @@ declare i32 @hashTypeSet(ptr noundef, ptr noundef, ptr noundef, i32 noundef) loc
 define dso_local i32 @RM_HashGet(ptr nocapture noundef readonly %key, i32 noundef %flags, ...) #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -12056,8 +12003,8 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   call void @llvm.va_start(ptr nonnull %ap)
   %and = and i32 %flags, 4
   %tobool2.not = icmp eq i32 %and, 0
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
-  %1 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
+  %1 = getelementptr inbounds i8, ptr %ap, i64 16
   %and25 = and i32 %flags, 8
   %tobool26.not = icmp eq i32 %and25, 0
   br i1 %tobool26.not, label %while.body.us, label %if.end.split
@@ -12148,7 +12095,7 @@ vaarg.end58.us:                                   ; preds = %vaarg.in_reg52.us, 
   br i1 %tobool61.not.us, label %if.else73.us, label %if.then62.us
 
 if.then62.us:                                     ; preds = %vaarg.end58.us
-  %ptr64.us = getelementptr inbounds %struct.redisObject, ptr %field.0.us, i64 0, i32 2
+  %ptr64.us = getelementptr inbounds i8, ptr %field.0.us, i64 8
   %15 = load ptr, ptr %ptr64.us, align 8
   %call65.us = call ptr @hashTypeGetValueObject(ptr noundef nonnull %14, ptr noundef %15) #34
   store ptr %call65.us, ptr %13, align 8
@@ -12165,22 +12112,22 @@ if.end69.us:                                      ; preds = %if.then62.us
 
 if.then71.us:                                     ; preds = %if.end69.us
   %17 = load ptr, ptr %key, align 8
-  %flags.i.us = getelementptr inbounds %struct.RedisModuleCtx, ptr %17, i64 0, i32 7
+  %flags.i.us = getelementptr inbounds i8, ptr %17, i64 48
   %18 = load i32, ptr %flags.i.us, align 8
   %and.i.us = and i32 %18, 1
   %tobool.not.i.us = icmp eq i32 %and.i.us, 0
   br i1 %tobool.not.i.us, label %if.end75.us, label %if.end.i.us
 
 if.end.i.us:                                      ; preds = %if.then71.us
-  %amqueue_used.i.us = getelementptr inbounds %struct.RedisModuleCtx, ptr %17, i64 0, i32 6
+  %amqueue_used.i.us = getelementptr inbounds i8, ptr %17, i64 44
   %19 = load i32, ptr %amqueue_used.i.us, align 4
-  %amqueue_len.i.us = getelementptr inbounds %struct.RedisModuleCtx, ptr %17, i64 0, i32 5
+  %amqueue_len.i.us = getelementptr inbounds i8, ptr %17, i64 40
   %20 = load i32, ptr %amqueue_len.i.us, align 8
   %cmp.i.us = icmp eq i32 %19, %20
   br i1 %cmp.i.us, label %if.then1.i.us, label %if.end.if.end11_crit_edge.i.us
 
 if.end.if.end11_crit_edge.i.us:                   ; preds = %if.end.i.us
-  %amqueue12.phi.trans.insert.i.us = getelementptr inbounds %struct.RedisModuleCtx, ptr %17, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i.us = getelementptr inbounds i8, ptr %17, i64 32
   %.pre.i.us = load ptr, ptr %amqueue12.phi.trans.insert.i.us, align 8
   br label %if.end11.i.us
 
@@ -12189,7 +12136,7 @@ if.then1.i.us:                                    ; preds = %if.end.i.us
   %cmp4.i.us = icmp slt i32 %19, 8
   %spec.select.i.us = select i1 %cmp4.i.us, i32 16, i32 %mul.i.us
   store i32 %spec.select.i.us, ptr %amqueue_len.i.us, align 8
-  %amqueue.i.us = getelementptr inbounds %struct.RedisModuleCtx, ptr %17, i64 0, i32 4
+  %amqueue.i.us = getelementptr inbounds i8, ptr %17, i64 32
   %21 = load ptr, ptr %amqueue.i.us, align 8
   %conv.i.us = sext i32 %spec.select.i.us to i64
   %mul9.i.us = shl nsw i64 %conv.i.us, 4
@@ -12201,7 +12148,7 @@ if.then1.i.us:                                    ; preds = %if.end.i.us
 if.end11.i.us:                                    ; preds = %if.then1.i.us, %if.end.if.end11_crit_edge.i.us
   %22 = phi i32 [ %19, %if.end.if.end11_crit_edge.i.us ], [ %.pre14.i.us, %if.then1.i.us ]
   %23 = phi ptr [ %.pre.i.us, %if.end.if.end11_crit_edge.i.us ], [ %call.i.us, %if.then1.i.us ]
-  %amqueue12.i.us = getelementptr inbounds %struct.RedisModuleCtx, ptr %17, i64 0, i32 4
+  %amqueue12.i.us = getelementptr inbounds i8, ptr %17, i64 32
   %idxprom.i.us = sext i32 %22 to i64
   %type14.i.us = getelementptr inbounds %struct.AutoMemEntry, ptr %23, i64 %idxprom.i.us, i32 1
   store i32 1, ptr %type14.i.us, align 8
@@ -12284,7 +12231,7 @@ vaarg.end38.us:                                   ; preds = %vaarg.in_reg32.us, 
   br i1 %tobool41.not.us, label %if.end75.us42, label %if.then42.us
 
 if.then42.us:                                     ; preds = %vaarg.end38.us
-  %ptr.us = getelementptr inbounds %struct.redisObject, ptr %30, i64 0, i32 2
+  %ptr.us = getelementptr inbounds i8, ptr %30, i64 8
   %36 = load ptr, ptr %ptr.us, align 8
   %call44.us = call i32 @hashTypeExists(ptr noundef nonnull %35, ptr noundef %36) #34
   br label %if.end75.us42
@@ -12348,7 +12295,7 @@ vaarg.end38:                                      ; preds = %vaarg.in_mem34, %va
   br i1 %tobool41.not, label %if.end75, label %if.then42
 
 if.then42:                                        ; preds = %vaarg.end38
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %call8, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %call8, i64 8
   %46 = load ptr, ptr %ptr, align 8
   %call44 = call i32 @hashTypeExists(ptr noundef nonnull %45, ptr noundef %46) #34
   br label %if.end75
@@ -12398,7 +12345,7 @@ if.then:                                          ; preds = %lor.lhs.false4, %lo
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false4
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool9.not = icmp eq ptr %0, null
   br i1 %tobool9.not, label %if.else15, label %land.lhs.true10
@@ -12415,7 +12362,7 @@ if.then13:                                        ; preds = %land.lhs.true10
   br label %return
 
 if.else15:                                        ; preds = %land.lhs.true10, %if.else
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %1 = load i32, ptr %mode, align 8
   %and16 = and i32 %1, 2
   %tobool17.not = icmp eq i32 %and16, 0
@@ -12435,7 +12382,7 @@ land.lhs.true23:                                  ; preds = %if.else20
   br i1 %cmp24, label %land.lhs.true25, label %if.end31
 
 land.lhs.true25:                                  ; preds = %land.lhs.true23
-  %seq = getelementptr inbounds %struct.RedisModuleStreamID, ptr %id, i64 0, i32 1
+  %seq = getelementptr inbounds i8, ptr %id, i64 8
   %3 = load i64, ptr %seq, align 8
   %cmp26 = icmp eq i64 %3, 0
   br i1 %cmp26, label %if.then27, label %if.end31
@@ -12455,15 +12402,15 @@ if.then34:                                        ; preds = %if.end31
 
 if.end36:                                         ; preds = %if.then34, %if.end31
   %4 = phi ptr [ %.pre, %if.then34 ], [ %0, %if.end31 ]
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %4, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %ptr, align 8
-  %last_id = getelementptr inbounds %struct.stream, ptr %5, i64 0, i32 2
+  %last_id = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i64, ptr %last_id, align 8
   %cmp39 = icmp eq i64 %6, -1
   br i1 %cmp39, label %land.lhs.true40, label %if.end46
 
 land.lhs.true40:                                  ; preds = %if.end36
-  %seq42 = getelementptr inbounds %struct.stream, ptr %5, i64 0, i32 2, i32 1
+  %seq42 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load i64, ptr %seq42, align 8
   %cmp43 = icmp eq i64 %7, -1
   br i1 %cmp43, label %if.then44, label %if.end46
@@ -12498,7 +12445,7 @@ if.end62:                                         ; preds = %if.end54
   br i1 %tobool9.not, label %if.end65, label %if.then64
 
 if.then64:                                        ; preds = %if.end62
-  %signalready = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 1
+  %signalready = getelementptr inbounds i8, ptr %key, i64 72
   store i32 1, ptr %signalready, align 8
   br label %if.end65
 
@@ -12527,7 +12474,7 @@ entry:
   br i1 %or.cond, label %if.else, label %return.sink.split
 
 if.else:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %return.sink.split, label %lor.lhs.false3
@@ -12539,20 +12486,20 @@ lor.lhs.false3:                                   ; preds = %if.else
   br i1 %cmp.not, label %if.else7, label %return.sink.split
 
 if.else7:                                         ; preds = %lor.lhs.false3
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %1 = load i32, ptr %mode, align 8
   %and = and i32 %1, 2
   %tobool8.not = icmp eq i32 %and, 0
   br i1 %tobool8.not, label %return.sink.split, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %if.else7
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %2 = load ptr, ptr %iter, align 8
   %cmp10.not = icmp eq ptr %2, null
   br i1 %cmp10.not, label %if.end14, label %return.sink.split
 
 if.end14:                                         ; preds = %lor.lhs.false9
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %0, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %4 = load <2 x i64>, ptr %id, align 8
   store <2 x i64> %4, ptr %streamid, align 16
@@ -12589,7 +12536,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %if.then5, label %lor.lhs.false3
@@ -12606,7 +12553,7 @@ if.then5:                                         ; preds = %lor.lhs.false3, %if
   br label %return
 
 if.else7:                                         ; preds = %lor.lhs.false3
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %1 = load ptr, ptr %iter, align 8
   %tobool8.not = icmp eq ptr %1, null
   br i1 %tobool8.not, label %if.end12, label %if.then9
@@ -12662,7 +12609,7 @@ if.then37:                                        ; preds = %land.lhs.true34, %l
 
 if.end40:                                         ; preds = %lor.lhs.false32, %land.lhs.true34, %if.end25
   %4 = load ptr, ptr %value, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %4, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %ptr, align 8
   %and42 = and i32 %flags, 2
   %call43 = call noalias dereferenceable_or_null(648) ptr @zmalloc(i64 noundef 648) #35
@@ -12670,7 +12617,7 @@ if.end40:                                         ; preds = %lor.lhs.false32, %l
   %cond49 = select i1 %tobool18.not, ptr null, ptr %upper
   call void @streamIteratorStart(ptr noundef %call43, ptr noundef %5, ptr noundef %lower., ptr noundef %cond49, i32 noundef %and42) #34
   store ptr %call43, ptr %iter, align 8
-  %u = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %key, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %u, i8 0, i64 24, i1 false)
   br label %return
 
@@ -12697,7 +12644,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.then3, label %lor.lhs.false
@@ -12714,7 +12661,7 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.else5:                                         ; preds = %lor.lhs.false
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %1 = load ptr, ptr %iter, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %if.then7, label %if.end10
@@ -12750,7 +12697,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.then3, label %lor.lhs.false
@@ -12767,7 +12714,7 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.else5:                                         ; preds = %lor.lhs.false
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %1 = load ptr, ptr %iter, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %if.then7, label %if.end10
@@ -12778,8 +12725,8 @@ if.then7:                                         ; preds = %if.else5
   br label %return
 
 if.end10:                                         ; preds = %if.else5
-  %u = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
-  %numfieldsleft = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2
+  %u = getelementptr inbounds i8, ptr %key, i64 48
+  %numfieldsleft = getelementptr inbounds i8, ptr %key, i64 64
   %call13 = tail call i32 @streamIteratorGetID(ptr noundef nonnull %1, ptr noundef nonnull %u, ptr noundef nonnull %numfieldsleft) #34
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.else24, label %if.then15
@@ -12791,9 +12738,9 @@ if.then15:                                        ; preds = %if.end10
 if.then17:                                        ; preds = %if.then15
   %2 = load i64, ptr %u, align 8
   store i64 %2, ptr %id, align 8
-  %seq = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 1
+  %seq = getelementptr inbounds i8, ptr %key, i64 56
   %3 = load i64, ptr %seq, align 8
-  %seq19 = getelementptr inbounds %struct.RedisModuleStreamID, ptr %id, i64 0, i32 1
+  %seq19 = getelementptr inbounds i8, ptr %id, i64 8
   store i64 %3, ptr %seq19, align 8
   br label %if.end20
 
@@ -12835,7 +12782,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.then3, label %lor.lhs.false
@@ -12852,7 +12799,7 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.else5:                                         ; preds = %lor.lhs.false
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %1 = load ptr, ptr %iter, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %if.then7, label %if.else9
@@ -12863,7 +12810,7 @@ if.then7:                                         ; preds = %if.else5
   br label %return
 
 if.else9:                                         ; preds = %if.else5
-  %numfieldsleft = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2
+  %numfieldsleft = getelementptr inbounds i8, ptr %key, i64 64
   %2 = load i64, ptr %numfieldsleft, align 8
   %cmp10 = icmp slt i64 %2, 1
   br i1 %cmp10, label %if.then11, label %if.end15
@@ -12884,22 +12831,22 @@ if.then19:                                        ; preds = %if.end15
   %call20 = call ptr @createRawStringObject(ptr noundef %3, i64 noundef %4) #34
   store ptr %call20, ptr %field_ptr, align 8
   %5 = load ptr, ptr %key, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %5, i64 48
   %6 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %6, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end21, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then19
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %5, i64 44
   %7 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %5, i64 40
   %8 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %7, %8
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %5, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -12908,7 +12855,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %7, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %5, i64 32
   %9 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -12920,7 +12867,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %10 = phi i32 [ %7, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %11 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %5, i64 32
   %idxprom.i = sext i32 %10 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %11, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -12944,22 +12891,22 @@ if.then23:                                        ; preds = %if.end21
   %call24 = call ptr @createRawStringObject(ptr noundef %15, i64 noundef %16) #34
   store ptr %call24, ptr %value_ptr, align 8
   %17 = load ptr, ptr %key, align 8
-  %flags.i14 = getelementptr inbounds %struct.RedisModuleCtx, ptr %17, i64 0, i32 7
+  %flags.i14 = getelementptr inbounds i8, ptr %17, i64 48
   %18 = load i32, ptr %flags.i14, align 8
   %and.i15 = and i32 %18, 1
   %tobool.not.i16 = icmp eq i32 %and.i15, 0
   br i1 %tobool.not.i16, label %if.end26, label %if.end.i17
 
 if.end.i17:                                       ; preds = %if.then23
-  %amqueue_used.i18 = getelementptr inbounds %struct.RedisModuleCtx, ptr %17, i64 0, i32 6
+  %amqueue_used.i18 = getelementptr inbounds i8, ptr %17, i64 44
   %19 = load i32, ptr %amqueue_used.i18, align 4
-  %amqueue_len.i19 = getelementptr inbounds %struct.RedisModuleCtx, ptr %17, i64 0, i32 5
+  %amqueue_len.i19 = getelementptr inbounds i8, ptr %17, i64 40
   %20 = load i32, ptr %amqueue_len.i19, align 8
   %cmp.i20 = icmp eq i32 %19, %20
   br i1 %cmp.i20, label %if.then1.i31, label %if.end.if.end11_crit_edge.i21
 
 if.end.if.end11_crit_edge.i21:                    ; preds = %if.end.i17
-  %amqueue12.phi.trans.insert.i22 = getelementptr inbounds %struct.RedisModuleCtx, ptr %17, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i22 = getelementptr inbounds i8, ptr %17, i64 32
   %.pre.i23 = load ptr, ptr %amqueue12.phi.trans.insert.i22, align 8
   br label %if.end11.i24
 
@@ -12968,7 +12915,7 @@ if.then1.i31:                                     ; preds = %if.end.i17
   %cmp4.i33 = icmp slt i32 %19, 8
   %spec.select.i34 = select i1 %cmp4.i33, i32 16, i32 %mul.i32
   store i32 %spec.select.i34, ptr %amqueue_len.i19, align 8
-  %amqueue.i35 = getelementptr inbounds %struct.RedisModuleCtx, ptr %17, i64 0, i32 4
+  %amqueue.i35 = getelementptr inbounds i8, ptr %17, i64 32
   %21 = load ptr, ptr %amqueue.i35, align 8
   %conv.i36 = sext i32 %spec.select.i34 to i64
   %mul9.i37 = shl nsw i64 %conv.i36, 4
@@ -12980,7 +12927,7 @@ if.then1.i31:                                     ; preds = %if.end.i17
 if.end11.i24:                                     ; preds = %if.then1.i31, %if.end.if.end11_crit_edge.i21
   %22 = phi i32 [ %19, %if.end.if.end11_crit_edge.i21 ], [ %.pre14.i39, %if.then1.i31 ]
   %23 = phi ptr [ %.pre.i23, %if.end.if.end11_crit_edge.i21 ], [ %call.i38, %if.then1.i31 ]
-  %amqueue12.i25 = getelementptr inbounds %struct.RedisModuleCtx, ptr %17, i64 0, i32 4
+  %amqueue12.i25 = getelementptr inbounds i8, ptr %17, i64 32
   %idxprom.i26 = sext i32 %22 to i64
   %type14.i27 = getelementptr inbounds %struct.AutoMemEntry, ptr %23, i64 %idxprom.i26, i32 1
   store i32 1, ptr %type14.i27, align 8
@@ -13019,7 +12966,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %if.then3, label %lor.lhs.false
@@ -13036,14 +12983,14 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.else5:                                         ; preds = %lor.lhs.false
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %1 = load i32, ptr %mode, align 8
   %and = and i32 %1, 2
   %tobool6.not = icmp eq i32 %and, 0
   br i1 %tobool6.not, label %if.then9, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %if.else5
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %2 = load ptr, ptr %iter, align 8
   %tobool8.not = icmp eq ptr %2, null
   br i1 %tobool8.not, label %if.then9, label %if.else11
@@ -13054,13 +13001,13 @@ if.then9:                                         ; preds = %lor.lhs.false7, %if
   br label %return
 
 if.else11:                                        ; preds = %lor.lhs.false7
-  %u = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
+  %u = getelementptr inbounds i8, ptr %key, i64 48
   %3 = load i64, ptr %u, align 8
   %cmp12 = icmp eq i64 %3, 0
   br i1 %cmp12, label %land.lhs.true, label %if.end20
 
 land.lhs.true:                                    ; preds = %if.else11
-  %seq = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 1
+  %seq = getelementptr inbounds i8, ptr %key, i64 56
   %4 = load i64, ptr %seq, align 8
   %cmp15 = icmp eq i64 %4, 0
   br i1 %cmp15, label %if.then16, label %if.end20
@@ -13100,7 +13047,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %if.then7, label %lor.lhs.false4
@@ -13117,7 +13064,7 @@ if.then7:                                         ; preds = %lor.lhs.false4, %if
   br label %return
 
 if.else9:                                         ; preds = %lor.lhs.false4
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %1 = load i32, ptr %mode, align 8
   %and10 = and i32 %1, 2
   %tobool11.not = icmp eq i32 %and10, 0
@@ -13129,7 +13076,7 @@ if.then12:                                        ; preds = %if.else9
   br label %return
 
 if.end15:                                         ; preds = %if.else9
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %0, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %ptr, align 8
   %call19 = tail call i64 @streamTrimByLength(ptr noundef %2, i64 noundef %length, i32 noundef %flags) #34
   br label %return
@@ -13159,7 +13106,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool4.not = icmp eq ptr %0, null
   br i1 %tobool4.not, label %if.then7, label %lor.lhs.false5
@@ -13176,7 +13123,7 @@ if.then7:                                         ; preds = %lor.lhs.false5, %if
   br label %return
 
 if.else9:                                         ; preds = %lor.lhs.false5
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %1 = load i32, ptr %mode, align 8
   %and10 = and i32 %1, 2
   %tobool11.not = icmp eq i32 %and10, 0
@@ -13189,9 +13136,9 @@ if.then12:                                        ; preds = %if.else9
 
 if.end15:                                         ; preds = %if.else9
   %2 = load i64, ptr %id, align 8
-  %seq19 = getelementptr inbounds %struct.RedisModuleStreamID, ptr %id, i64 0, i32 1
+  %seq19 = getelementptr inbounds i8, ptr %id, i64 8
   %3 = load i64, ptr %seq19, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %0, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %ptr, align 8
   %call21 = tail call i64 @streamTrimByID(ptr noundef %4, i64 %2, i64 %3, i32 noundef %flags) #34
   br label %return
@@ -13323,9 +13270,9 @@ declare i32 @callReplyGetAttributeElement(ptr noundef, i64 noundef, ptr noundef,
 define dso_local void @RM_CallReplyPromiseSetUnblockHandler(ptr noundef %reply, ptr noundef %on_unblock, ptr noundef %private_data) #0 {
 entry:
   %call = tail call ptr @callReplyGetPrivateData(ptr noundef %reply) #34
-  %on_unblocked = getelementptr inbounds %struct.RedisModuleAsyncRMCallPromise, ptr %call, i64 0, i32 3
+  %on_unblocked = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %on_unblock, ptr %on_unblocked, align 8
-  %private_data1 = getelementptr inbounds %struct.RedisModuleAsyncRMCallPromise, ptr %call, i64 0, i32 1
+  %private_data1 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %private_data, ptr %private_data1, align 8
   ret void
 }
@@ -13334,13 +13281,13 @@ entry:
 define dso_local i32 @RM_CallReplyPromiseAbort(ptr noundef %reply, ptr noundef writeonly %private_data) #0 {
 entry:
   %call = tail call ptr @callReplyGetPrivateData(ptr noundef %reply) #34
-  %c = getelementptr inbounds %struct.RedisModuleAsyncRMCallPromise, ptr %call, i64 0, i32 4
+  %c = getelementptr inbounds i8, ptr %call, i64 32
   %0 = load ptr, ptr %c, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 16
   %tobool2.not = icmp eq i64 %and, 0
@@ -13351,7 +13298,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %private_data7 = getelementptr inbounds %struct.RedisModuleAsyncRMCallPromise, ptr %call, i64 0, i32 1
+  %private_data7 = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %private_data7, align 8
   store ptr %2, ptr %private_data, align 8
   %.pre = load ptr, ptr %c, align 8
@@ -13359,9 +13306,9 @@ if.then6:                                         ; preds = %if.end4
 
 if.end8:                                          ; preds = %if.then6, %if.end4
   %3 = phi ptr [ %.pre, %if.then6 ], [ %0, %if.end4 ]
-  %private_data9 = getelementptr inbounds %struct.RedisModuleAsyncRMCallPromise, ptr %call, i64 0, i32 1
+  %private_data9 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %private_data9, align 8
-  %on_unblocked = getelementptr inbounds %struct.RedisModuleAsyncRMCallPromise, ptr %call, i64 0, i32 3
+  %on_unblocked = getelementptr inbounds i8, ptr %call, i64 24
   store ptr null, ptr %on_unblocked, align 8
   tail call void @unblockClient(ptr noundef %3, i32 noundef 0) #34
   %4 = load ptr, ptr %c, align 8
@@ -13408,22 +13355,22 @@ sw.bb:                                            ; preds = %entry, %entry
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %call, i64 48
   %1 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %1, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %amqueue_used.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 6
+  %amqueue_used.i.i = getelementptr inbounds i8, ptr %call, i64 44
   %2 = load i32, ptr %amqueue_used.i.i, align 4
-  %amqueue_len.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 5
+  %amqueue_len.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %3 = load i32, ptr %amqueue_len.i.i, align 8
   %cmp.i.i = icmp eq i32 %2, %3
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end.if.end11_crit_edge.i.i
 
 if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
-  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %.pre.i.i = load ptr, ptr %amqueue12.phi.trans.insert.i.i, align 8
   br label %return.sink.split
 
@@ -13432,7 +13379,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %cmp4.i.i = icmp slt i32 %2, 8
   %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
-  %amqueue.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 4
+  %amqueue.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %4 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
@@ -13450,22 +13397,22 @@ sw.bb4:                                           ; preds = %entry
   br i1 %cmp.not.i6, label %return, label %if.then.i7
 
 if.then.i7:                                       ; preds = %sw.bb4
-  %flags.i.i8 = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 7
+  %flags.i.i8 = getelementptr inbounds i8, ptr %call, i64 48
   %5 = load i32, ptr %flags.i.i8, align 8
   %and.i.i9 = and i32 %5, 1
   %tobool.not.i.i10 = icmp eq i32 %and.i.i9, 0
   br i1 %tobool.not.i.i10, label %return, label %if.end.i.i11
 
 if.end.i.i11:                                     ; preds = %if.then.i7
-  %amqueue_used.i.i12 = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 6
+  %amqueue_used.i.i12 = getelementptr inbounds i8, ptr %call, i64 44
   %6 = load i32, ptr %amqueue_used.i.i12, align 4
-  %amqueue_len.i.i13 = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 5
+  %amqueue_len.i.i13 = getelementptr inbounds i8, ptr %call, i64 40
   %7 = load i32, ptr %amqueue_len.i.i13, align 8
   %cmp.i.i14 = icmp eq i32 %6, %7
   br i1 %cmp.i.i14, label %if.then1.i.i25, label %if.end.if.end11_crit_edge.i.i15
 
 if.end.if.end11_crit_edge.i.i15:                  ; preds = %if.end.i.i11
-  %amqueue12.phi.trans.insert.i.i16 = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i.i16 = getelementptr inbounds i8, ptr %call, i64 32
   %.pre.i.i17 = load ptr, ptr %amqueue12.phi.trans.insert.i.i16, align 8
   br label %return.sink.split
 
@@ -13474,7 +13421,7 @@ if.then1.i.i25:                                   ; preds = %if.end.i.i11
   %cmp4.i.i27 = icmp slt i32 %6, 8
   %spec.select.i.i28 = select i1 %cmp4.i.i27, i32 16, i32 %mul.i.i26
   store i32 %spec.select.i.i28, ptr %amqueue_len.i.i13, align 8
-  %amqueue.i.i29 = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 4
+  %amqueue.i.i29 = getelementptr inbounds i8, ptr %call, i64 32
   %8 = load ptr, ptr %amqueue.i.i29, align 8
   %conv.i.i30 = sext i32 %spec.select.i.i28 to i64
   %mul9.i.i31 = shl nsw i64 %conv.i.i30, 4
@@ -13488,7 +13435,7 @@ return.sink.split:                                ; preds = %if.end.if.end11_cri
   %.sink = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ], [ %.pre.i.i17, %if.end.if.end11_crit_edge.i.i15 ], [ %call.i.i32, %if.then1.i.i25 ]
   %amqueue_used.i.i12.sink37 = phi ptr [ %amqueue_used.i.i, %if.end.if.end11_crit_edge.i.i ], [ %amqueue_used.i.i, %if.then1.i.i ], [ %amqueue_used.i.i12, %if.end.if.end11_crit_edge.i.i15 ], [ %amqueue_used.i.i12, %if.then1.i.i25 ]
   %call.i5.sink = phi ptr [ %call.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i, %if.then1.i.i ], [ %call.i5, %if.end.if.end11_crit_edge.i.i15 ], [ %call.i5, %if.then1.i.i25 ]
-  %amqueue12.i.i19 = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 4
+  %amqueue12.i.i19 = getelementptr inbounds i8, ptr %call, i64 32
   %idxprom.i.i20 = sext i32 %.sink38 to i64
   %type14.i.i21 = getelementptr inbounds %struct.AutoMemEntry, ptr %.sink, i64 %idxprom.i.i20, i32 1
   store i32 1, ptr %type14.i.i21, align 8
@@ -13510,7 +13457,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @RM_SetContextUser(ptr nocapture noundef writeonly %ctx, ptr noundef %user) #24 {
 entry:
-  %user1 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 15
+  %user1 = getelementptr inbounds i8, ptr %ctx, i64 112
   store ptr %user, ptr %user1, align 8
   ret void
 }
@@ -13554,11 +13501,11 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %entry
   %call.i = call ptr @createClient(ptr noundef null) #34
-  %flags.i = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %5 = load i64, ptr %flags.i, align 8
   %or.i = or i64 %5, 134217728
   store i64 %or.i, ptr %flags.i, align 8
-  %user.i = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 20
+  %user.i = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr null, ptr %user.i, align 8
   br label %moduleAllocTempClient.exit
 
@@ -13570,27 +13517,27 @@ moduleAllocTempClient.exit:                       ; preds = %if.then.i, %if.then
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %moduleAllocTempClient.exit
-  %flags6 = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 1
+  %flags6 = getelementptr inbounds i8, ptr %c.0.i, i64 8
   %7 = load i64, ptr %flags6, align 8
   %or = or i64 %7, 2199023255552
   store i64 %or, ptr %flags6, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %moduleAllocTempClient.exit
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %8 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.client, ptr %8, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load ptr, ptr %db, align 8
-  %db7 = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 4
+  %db7 = getelementptr inbounds i8, ptr %c.0.i, i64 32
   store ptr %9, ptr %db7, align 8
-  %argv8 = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 12
+  %argv8 = getelementptr inbounds i8, ptr %c.0.i, i64 96
   store ptr %call, ptr %argv8, align 8
   %10 = load i32, ptr %argc, align 4
-  %argv_len = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 13
+  %argv_len = getelementptr inbounds i8, ptr %c.0.i, i64 104
   store i32 %10, ptr %argv_len, align 8
-  %argc9 = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 11
+  %argc9 = getelementptr inbounds i8, ptr %c.0.i, i64 88
   store i32 %10, ptr %argc9, align 8
-  %resp = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %c.0.i, i64 24
   store i32 2, ptr %resp, align 8
   %and10 = and i32 %6, 8
   %tobool11.not = icmp eq i32 %and10, 0
@@ -13603,7 +13550,7 @@ if.else:                                          ; preds = %if.end
 
 if.then16:                                        ; preds = %if.else
   %11 = load ptr, ptr %client, align 8
-  %resp18 = getelementptr inbounds %struct.client, ptr %11, i64 0, i32 3
+  %resp18 = getelementptr inbounds i8, ptr %11, i64 24
   %12 = load i32, ptr %resp18, align 8
   br label %if.end21.sink.split
 
@@ -13613,13 +13560,13 @@ if.end21.sink.split:                              ; preds = %if.end, %if.then16
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end21.sink.split, %if.else
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %13 = load ptr, ptr %module, align 8
   %tobool22.not = icmp eq ptr %13, null
   br i1 %tobool22.not, label %if.end25, label %if.then23
 
 if.then23:                                        ; preds = %if.end21
-  %in_call = getelementptr inbounds %struct.RedisModule, ptr %13, i64 0, i32 10
+  %in_call = getelementptr inbounds i8, ptr %13, i64 68
   %14 = load i32, ptr %in_call, align 4
   %inc = add nsw i32 %14, 1
   store i32 %inc, ptr %in_call, align 4
@@ -13631,14 +13578,14 @@ if.end25:                                         ; preds = %if.then23, %if.end2
   br i1 %tobool27.not, label %if.end45, label %if.then28
 
 if.then28:                                        ; preds = %if.end25
-  %user29 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 15
+  %user29 = getelementptr inbounds i8, ptr %ctx, i64 112
   %15 = load ptr, ptr %user29, align 8
   %tobool30.not = icmp eq ptr %15, null
   br i1 %tobool30.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.then28
   %16 = load ptr, ptr %client, align 8
-  %user34 = getelementptr inbounds %struct.client, ptr %16, i64 0, i32 20
+  %user34 = getelementptr inbounds i8, ptr %16, i64 152
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then28, %cond.false
@@ -13659,7 +13606,7 @@ if.then39:                                        ; preds = %if.then36
   br label %cleanup
 
 if.end43:                                         ; preds = %cond.end
-  %user44 = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 20
+  %user44 = getelementptr inbounds i8, ptr %c.0.i, i64 152
   store ptr %cond, ptr %user44, align 8
   br label %if.end45
 
@@ -13678,11 +13625,11 @@ if.end48:                                         ; preds = %if.end45
   %17 = load ptr, ptr %argv8, align 8
   %18 = load i32, ptr %argc9, align 8
   %call51 = call ptr @lookupCommand(ptr noundef %17, i32 noundef %18) #34
-  %realcmd = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 19
+  %realcmd = getelementptr inbounds i8, ptr %c.0.i, i64 144
   store ptr %call51, ptr %realcmd, align 8
-  %lastcmd = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 18
+  %lastcmd = getelementptr inbounds i8, ptr %c.0.i, i64 136
   store ptr %call51, ptr %lastcmd, align 8
-  %cmd = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 17
+  %cmd = getelementptr inbounds i8, ptr %c.0.i, i64 128
   store ptr %call51, ptr %cmd, align 8
   %tobool52.not = icmp eq i32 %and2, 0
   %err. = select i1 %tobool52.not, ptr null, ptr %err
@@ -13733,7 +13680,7 @@ if.then86:                                        ; preds = %if.end79
 if.then89:                                        ; preds = %if.then86
   %call91 = call ptr @sdsempty() #34
   %22 = load ptr, ptr %cmd, align 8
-  %fullname = getelementptr inbounds %struct.redisCommand, ptr %22, i64 0, i32 27
+  %fullname = getelementptr inbounds i8, ptr %22, i64 216
   %23 = load ptr, ptr %fullname, align 8
   %call93 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call91, ptr noundef nonnull @.str.47, ptr noundef %23) #34
   %call94 = call ptr @callReplyCreateError(ptr noundef %call93, ptr noundef nonnull %ctx) #34
@@ -13753,7 +13700,7 @@ if.then101:                                       ; preds = %if.end97
   br i1 %tobool103.not, label %if.end127, label %if.then104
 
 if.then104:                                       ; preds = %if.then101
-  %flags105 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags105 = getelementptr inbounds i8, ptr %ctx, i64 48
   %25 = load i32, ptr %flags105, align 8
   %and106 = and i32 %25, 16
   %tobool107.not = icmp eq i32 %and106, 0
@@ -13785,14 +13732,14 @@ if.then114:                                       ; preds = %if.end112
 
 if.then117:                                       ; preds = %if.then114
   %27 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 30), align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %27, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load ptr, ptr %ptr, align 8
   %call119 = call ptr @sdsdup(ptr noundef %28) #34
   %call120 = call ptr @callReplyCreateError(ptr noundef %call119, ptr noundef nonnull %ctx) #34
   br label %cleanup
 
 if.else124:                                       ; preds = %if.end97
-  %flags125 = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 1
+  %flags125 = getelementptr inbounds i8, ptr %c.0.i, i64 8
   %29 = load i64, ptr %flags125, align 8
   %or126 = or i64 %29, 17592186044416
   store i64 %or126, ptr %flags125, align 8
@@ -13815,7 +13762,7 @@ if.then133:                                       ; preds = %if.end127
 if.then136:                                       ; preds = %if.then133
   %call138 = call ptr @sdsempty() #34
   %31 = load ptr, ptr %cmd, align 8
-  %fullname140 = getelementptr inbounds %struct.redisCommand, ptr %31, i64 0, i32 27
+  %fullname140 = getelementptr inbounds i8, ptr %31, i64 216
   %32 = load ptr, ptr %fullname140, align 8
   %call141 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call138, ptr noundef nonnull @.str.48, ptr noundef %32) #34
   %call142 = call ptr @callReplyCreateError(ptr noundef %call141, ptr noundef nonnull %ctx) #34
@@ -13845,7 +13792,7 @@ if.then154:                                       ; preds = %if.then151
 
 if.then157:                                       ; preds = %if.then154
   %33 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 28), align 8
-  %ptr159 = getelementptr inbounds %struct.redisObject, ptr %33, i64 0, i32 2
+  %ptr159 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load ptr, ptr %ptr159, align 8
   %call160 = call ptr @sdsdup(ptr noundef %34) #34
   %call161 = call ptr @callReplyCreateError(ptr noundef %call160, ptr noundef nonnull %ctx) #34
@@ -13894,7 +13841,7 @@ if.then186:                                       ; preds = %if.end180
 
 if.then189:                                       ; preds = %if.then186
   %39 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 25), align 8
-  %ptr191 = getelementptr inbounds %struct.redisObject, ptr %39, i64 0, i32 2
+  %ptr191 = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load ptr, ptr %ptr191, align 8
   %call192 = call ptr @sdsdup(ptr noundef %40) #34
   %call193 = call ptr @callReplyCreateError(ptr noundef %call192, ptr noundef nonnull %ctx) #34
@@ -13925,7 +13872,7 @@ if.then207:                                       ; preds = %if.end196
 
 if.then210:                                       ; preds = %if.then207
   %44 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 24), align 8
-  %ptr212 = getelementptr inbounds %struct.redisObject, ptr %44, i64 0, i32 2
+  %ptr212 = getelementptr inbounds i8, ptr %44, i64 8
   %45 = load ptr, ptr %ptr212, align 8
   %call213 = call ptr @sdsdup(ptr noundef %45) #34
   %call214 = call ptr @callReplyCreateError(ptr noundef %call213, ptr noundef nonnull %ctx) #34
@@ -13944,45 +13891,41 @@ if.then220:                                       ; preds = %if.end217
   %call224 = call i32 @ACLCheckAllUserCommandPerm(ptr noundef %user.0, ptr noundef %47, ptr noundef %48, i32 noundef %49, ptr noundef nonnull %acl_errpos) #34
   switch i32 %call224, label %cond.false234 [
     i32 0, label %if.end258
-    i32 1, label %cond.true230
+    i32 1, label %cond.end238
   ]
 
-cond.true230:                                     ; preds = %if.then220
-  %50 = load ptr, ptr %cmd, align 8
-  %fullname232 = getelementptr inbounds %struct.redisCommand, ptr %50, i64 0, i32 27
-  br label %cond.end238
-
 cond.false234:                                    ; preds = %if.then220
-  %51 = load ptr, ptr %argv8, align 8
-  %52 = load i32, ptr %acl_errpos, align 4
-  %idxprom = sext i32 %52 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %51, i64 %idxprom
-  %53 = load ptr, ptr %arrayidx, align 8
-  %ptr236 = getelementptr inbounds %struct.redisObject, ptr %53, i64 0, i32 2
+  %50 = load ptr, ptr %argv8, align 8
+  %51 = load i32, ptr %acl_errpos, align 4
+  %idxprom = sext i32 %51 to i64
+  %arrayidx = getelementptr inbounds ptr, ptr %50, i64 %idxprom
   br label %cond.end238
 
-cond.end238:                                      ; preds = %cond.false234, %cond.true230
-  %ptr236.sink = phi ptr [ %ptr236, %cond.false234 ], [ %fullname232, %cond.true230 ]
-  %54 = load ptr, ptr %ptr236.sink, align 8
-  %call237 = call ptr @sdsdup(ptr noundef %54) #34
-  %55 = load ptr, ptr %client, align 8
-  %user241 = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 20
-  %56 = load ptr, ptr %user241, align 8
-  %57 = load ptr, ptr %56, align 8
-  call void @addACLLogEntry(ptr noundef %55, i32 noundef %call224, i32 noundef 3, i32 noundef -1, ptr noundef %57, ptr noundef %call237) #34
+cond.end238:                                      ; preds = %if.then220, %cond.false234
+  %arrayidx.sink = phi ptr [ %arrayidx, %cond.false234 ], [ %cmd, %if.then220 ]
+  %.sink142 = phi i64 [ 8, %cond.false234 ], [ 216, %if.then220 ]
+  %52 = load ptr, ptr %arrayidx.sink, align 8
+  %ptr236 = getelementptr inbounds i8, ptr %52, i64 %.sink142
+  %53 = load ptr, ptr %ptr236, align 8
+  %call237 = call ptr @sdsdup(ptr noundef %53) #34
+  %54 = load ptr, ptr %client, align 8
+  %user241 = getelementptr inbounds i8, ptr %c.0.i, i64 152
+  %55 = load ptr, ptr %user241, align 8
+  %56 = load ptr, ptr %55, align 8
+  call void @addACLLogEntry(ptr noundef %54, i32 noundef %call224, i32 noundef 3, i32 noundef -1, ptr noundef %56, ptr noundef %call237) #34
   br i1 %tobool52.not, label %if.end255, label %if.then243
 
 if.then243:                                       ; preds = %cond.end238
-  %58 = load ptr, ptr %user241, align 8
-  %59 = load ptr, ptr %cmd, align 8
-  %60 = load ptr, ptr %argv8, align 8
-  %61 = load i32, ptr %acl_errpos, align 4
-  %idxprom247 = sext i32 %61 to i64
-  %arrayidx248 = getelementptr inbounds ptr, ptr %60, i64 %idxprom247
-  %62 = load ptr, ptr %arrayidx248, align 8
-  %ptr249 = getelementptr inbounds %struct.redisObject, ptr %62, i64 0, i32 2
-  %63 = load ptr, ptr %ptr249, align 8
-  %call250 = call ptr @getAclErrorMessage(i32 noundef %call224, ptr noundef %58, ptr noundef %59, ptr noundef %63, i32 noundef 0) #34
+  %57 = load ptr, ptr %user241, align 8
+  %58 = load ptr, ptr %cmd, align 8
+  %59 = load ptr, ptr %argv8, align 8
+  %60 = load i32, ptr %acl_errpos, align 4
+  %idxprom247 = sext i32 %60 to i64
+  %arrayidx248 = getelementptr inbounds ptr, ptr %59, i64 %idxprom247
+  %61 = load ptr, ptr %arrayidx248, align 8
+  %ptr249 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = load ptr, ptr %ptr249, align 8
+  %call250 = call ptr @getAclErrorMessage(i32 noundef %call224, ptr noundef %57, ptr noundef %58, ptr noundef %62, i32 noundef 0) #34
   %call252 = call ptr @sdsempty() #34
   %call253 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call252, ptr noundef nonnull @.str.49, ptr noundef %call250) #34
   call void @sdsfree(ptr noundef %call250) #34
@@ -13996,38 +13939,38 @@ if.end255:                                        ; preds = %if.then243, %cond.e
   br label %cleanup
 
 if.end258:                                        ; preds = %if.then220, %if.end217
-  %64 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
-  %tobool259.not = icmp eq i32 %64, 0
+  %63 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 362), align 4
+  %tobool259.not = icmp eq i32 %63, 0
   br i1 %tobool259.not, label %if.end317, label %land.lhs.true260
 
 land.lhs.true260:                                 ; preds = %if.end258
-  %65 = load ptr, ptr %client, align 8
-  %call262 = call i32 @mustObeyClient(ptr noundef %65) #34
+  %64 = load ptr, ptr %client, align 8
+  %call262 = call i32 @mustObeyClient(ptr noundef %64) #34
   %tobool263.not = icmp eq i32 %call262, 0
   br i1 %tobool263.not, label %if.then264, label %if.end317
 
 if.then264:                                       ; preds = %land.lhs.true260
-  %flags265 = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 1
-  %66 = load i64, ptr %flags265, align 8
-  %and266 = and i64 %66, -131585
+  %flags265 = getelementptr inbounds i8, ptr %c.0.i, i64 8
+  %65 = load i64, ptr %flags265, align 8
+  %and266 = and i64 %65, -131585
   store i64 %and266, ptr %flags265, align 8
-  %67 = load ptr, ptr %client, align 8
-  %flags268 = getelementptr inbounds %struct.client, ptr %67, i64 0, i32 1
-  %68 = load i64, ptr %flags268, align 8
-  %and269 = and i64 %68, 131584
+  %66 = load ptr, ptr %client, align 8
+  %flags268 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = load i64, ptr %flags268, align 8
+  %and269 = and i64 %67, 131584
   %or271 = or disjoint i64 %and269, %and266
   store i64 %or271, ptr %flags265, align 8
-  %69 = load ptr, ptr %cmd, align 8
-  %70 = load ptr, ptr %argv8, align 8
-  %71 = load i32, ptr %argc9, align 8
-  %call275 = call ptr @getNodeByQuery(ptr noundef nonnull %c.0.i, ptr noundef %69, ptr noundef %70, i32 noundef %71, ptr noundef null, ptr noundef nonnull %error_code) #34
+  %68 = load ptr, ptr %cmd, align 8
+  %69 = load ptr, ptr %argv8, align 8
+  %70 = load i32, ptr %argc9, align 8
+  %call275 = call ptr @getNodeByQuery(ptr noundef nonnull %c.0.i, ptr noundef %68, ptr noundef %69, i32 noundef %70, ptr noundef null, ptr noundef nonnull %error_code) #34
   %call276 = call ptr @getMyClusterNode() #34
   %cmp277.not = icmp eq ptr %call275, %call276
   br i1 %cmp277.not, label %if.end317, label %if.then279
 
 if.then279:                                       ; preds = %if.then264
-  %72 = load i32, ptr %error_code, align 4
-  switch i32 %72, label %if.else304 [
+  %71 = load i32, ptr %error_code, align 4
+  switch i32 %71, label %if.else304 [
     i32 7, label %if.then283
     i32 5, label %if.then295
   ]
@@ -14037,10 +13980,10 @@ if.then283:                                       ; preds = %if.then279
 
 if.then285:                                       ; preds = %if.then283
   %call286 = call ptr @sdsempty() #34
-  %73 = load ptr, ptr %cmd, align 8
-  %fullname288 = getelementptr inbounds %struct.redisCommand, ptr %73, i64 0, i32 27
-  %74 = load ptr, ptr %fullname288, align 8
-  %call289 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call286, ptr noundef nonnull @.str.50, ptr noundef %74) #34
+  %72 = load ptr, ptr %cmd, align 8
+  %fullname288 = getelementptr inbounds i8, ptr %72, i64 216
+  %73 = load ptr, ptr %fullname288, align 8
+  %call289 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call286, ptr noundef nonnull @.str.50, ptr noundef %73) #34
   br label %if.end311
 
 if.then295:                                       ; preds = %if.then279
@@ -14048,10 +13991,10 @@ if.then295:                                       ; preds = %if.then279
 
 if.then297:                                       ; preds = %if.then295
   %call298 = call ptr @sdsempty() #34
-  %75 = load ptr, ptr %cmd, align 8
-  %fullname300 = getelementptr inbounds %struct.redisCommand, ptr %75, i64 0, i32 27
-  %76 = load ptr, ptr %fullname300, align 8
-  %call301 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call298, ptr noundef nonnull @.str.51, ptr noundef %76) #34
+  %74 = load ptr, ptr %cmd, align 8
+  %fullname300 = getelementptr inbounds i8, ptr %74, i64 216
+  %75 = load ptr, ptr %fullname300, align 8
+  %call301 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call298, ptr noundef nonnull @.str.51, ptr noundef %75) #34
   br label %if.end311
 
 if.else304:                                       ; preds = %if.then279
@@ -14062,10 +14005,10 @@ if.then306:                                       ; preds = %if.else304
   br label %if.end311
 
 if.end311:                                        ; preds = %if.else304, %if.then306, %if.then295, %if.then297, %if.then283, %if.then285
-  %.sink141 = phi i32 [ 30, %if.then285 ], [ 30, %if.then283 ], [ 100, %if.then297 ], [ 100, %if.then295 ], [ 1, %if.then306 ], [ 1, %if.else304 ]
+  %.sink143 = phi i32 [ 30, %if.then285 ], [ 30, %if.then283 ], [ 100, %if.then297 ], [ 100, %if.then295 ], [ 1, %if.then306 ], [ 1, %if.else304 ]
   %msg280.3 = phi ptr [ %call289, %if.then285 ], [ null, %if.then283 ], [ %call301, %if.then297 ], [ null, %if.then295 ], [ %call307, %if.then306 ], [ null, %if.else304 ]
   %call303 = tail call ptr @__errno_location() #39
-  store i32 %.sink141, ptr %call303, align 4
+  store i32 %.sink143, ptr %call303, align 4
   %tobool312.not = icmp eq ptr %msg280.3, null
   br i1 %tobool312.not, label %if.end400, label %if.then313
 
@@ -14074,43 +14017,43 @@ if.then313:                                       ; preds = %if.end311
   br label %cleanup
 
 if.end317:                                        ; preds = %if.then264, %land.lhs.true260, %if.end258
-  %77 = load i32, ptr %flags, align 4
-  %and318 = and i32 %77, 1024
+  %76 = load i32, ptr %flags, align 4
+  %and318 = and i32 %76, 1024
   %tobool319.not = icmp eq i32 %and318, 0
   br i1 %tobool319.not, label %if.end321, label %if.end400
 
 if.end321:                                        ; preds = %if.end317
-  %78 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 249), align 8
+  %77 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 249), align 8
   %tobool322 = icmp ne i32 %and, 0
-  %tobool324 = icmp ne i32 %78, 0
-  %79 = select i1 %tobool322, i1 %tobool324, i1 false
-  %land.ext326 = zext i1 %79 to i32
+  %tobool324 = icmp ne i32 %77, 0
+  %78 = select i1 %tobool322, i1 %tobool324, i1 false
+  %land.ext326 = zext i1 %78 to i32
   store i32 %land.ext326, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 249), align 8
   br i1 %tobool322, label %if.then328, label %if.end339
 
 if.then328:                                       ; preds = %if.end321
-  %and329 = and i32 %77, 2
+  %and329 = and i32 %76, 2
   %tobool330.not = icmp eq i32 %and329, 0
   %spec.select = select i1 %tobool330.not, i32 9, i32 8
-  %and334 = lshr i32 %77, 1
-  %80 = and i32 %and334, 2
-  %81 = or disjoint i32 %spec.select, %80
-  %spec.select130 = xor i32 %81, 2
+  %and334 = lshr i32 %76, 1
+  %79 = and i32 %and334, 2
+  %80 = or disjoint i32 %spec.select, %79
+  %spec.select130 = xor i32 %80, 2
   br label %if.end339
 
 if.end339:                                        ; preds = %if.then328, %if.end321
   %call_flags.1 = phi i32 [ 8, %if.end321 ], [ %spec.select130, %if.then328 ]
   call void @call(ptr noundef nonnull %c.0.i, i32 noundef %call_flags.1) #34
-  store i32 %78, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 249), align 8
-  %flags340 = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 1
-  %82 = load i64, ptr %flags340, align 8
-  %and341 = and i64 %82, 16
+  store i32 %77, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 249), align 8
+  %flags340 = getelementptr inbounds i8, ptr %c.0.i, i64 8
+  %81 = load i64, ptr %flags340, align 8
+  %and341 = and i64 %81, 16
   %tobool342.not = icmp eq i64 %and341, 0
   br i1 %tobool342.not, label %if.else388, label %if.then343
 
 if.then343:                                       ; preds = %if.end339
-  %83 = load i32, ptr %flags, align 4
-  %and344 = and i32 %83, 2048
+  %82 = load i32, ptr %flags, align 4
+  %and344 = and i32 %82, 2048
   %tobool345.not = icmp eq i32 %and344, 0
   br i1 %tobool345.not, label %cond.false350, label %cond.end351
 
@@ -14120,8 +14063,8 @@ cond.false350:                                    ; preds = %if.then343
   unreachable
 
 cond.end351:                                      ; preds = %if.then343
-  %84 = load ptr, ptr %module, align 8
-  %tobool353.not = icmp eq ptr %84, null
+  %83 = load ptr, ptr %module, align 8
+  %tobool353.not = icmp eq ptr %83, null
   br i1 %tobool353.not, label %cond.false361, label %cond.end362
 
 cond.false361:                                    ; preds = %cond.end351
@@ -14131,17 +14074,17 @@ cond.false361:                                    ; preds = %cond.end351
 
 cond.end362:                                      ; preds = %cond.end351
   %call363 = call noalias dereferenceable_or_null(48) ptr @zmalloc(i64 noundef 48) #35
-  %85 = load ptr, ptr %module, align 8
-  %flags368 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
-  %86 = load i32, ptr %flags368, align 8
-  %and369 = and i32 %86, 1
+  %84 = load ptr, ptr %module, align 8
+  %flags368 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %85 = load i32, ptr %flags368, align 8
+  %and369 = and i32 %85, 1
   %tobool370.not = icmp eq i32 %and369, 0
   %cond374 = select i1 %tobool370.not, ptr null, ptr %ctx
   store i64 2, ptr %call363, align 8
   %.compoundliteral.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %call363, i64 8
   store ptr null, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
   %.compoundliteral.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call363, i64 16
-  store ptr %85, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 8
+  store ptr %84, ptr %.compoundliteral.sroa.3.0..sroa_idx, align 8
   %.compoundliteral.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %call363, i64 24
   store ptr null, ptr %.compoundliteral.sroa.4.0..sroa_idx, align 8
   %.compoundliteral.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %call363, i64 32
@@ -14149,15 +14092,15 @@ cond.end362:                                      ; preds = %cond.end351
   %.compoundliteral.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %call363, i64 40
   store ptr %cond374, ptr %.compoundliteral.sroa.6.0..sroa_idx, align 8
   %call375 = call ptr @callReplyCreatePromise(ptr noundef nonnull %call363) #34
-  %async_rm_call_handle = getelementptr inbounds %struct.client, ptr %c.0.i, i64 0, i32 55, i32 8
+  %async_rm_call_handle = getelementptr inbounds i8, ptr %c.0.i, i64 520
   store ptr %call363, ptr %async_rm_call_handle, align 8
   %and376 = and i32 %call_flags.1, 1
   %tobool377.not = icmp eq i32 %and376, 0
   br i1 %tobool377.not, label %if.then378, label %if.end381
 
 if.then378:                                       ; preds = %cond.end362
-  %87 = load i64, ptr %flags340, align 8
-  %or380 = or i64 %87, 281474976710656
+  %86 = load i64, ptr %flags340, align 8
+  %or380 = or i64 %86, 281474976710656
   store i64 %or380, ptr %flags340, align 8
   br label %if.end381
 
@@ -14167,15 +14110,15 @@ if.end381:                                        ; preds = %if.then378, %cond.e
   br i1 %tobool383.not, label %if.then384, label %cleanup
 
 if.then384:                                       ; preds = %if.end381
-  %88 = load i64, ptr %flags340, align 8
-  %or386 = or i64 %88, 562949953421312
+  %87 = load i64, ptr %flags340, align 8
+  %or386 = or i64 %87, 562949953421312
   store i64 %or386, ptr %flags340, align 8
   br label %cleanup
 
 if.else388:                                       ; preds = %if.end339
-  %flags389 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
-  %89 = load i32, ptr %flags389, align 8
-  %and390 = and i32 %89, 1
+  %flags389 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %88 = load i32, ptr %flags389, align 8
+  %and390 = and i32 %88, 1
   %tobool391.not = icmp eq i32 %and390, 0
   %cond395 = select i1 %tobool391.not, ptr null, ptr %ctx
   %call396 = call fastcc ptr @moduleParseReply(ptr noundef nonnull %c.0.i, ptr noundef %cond395)
@@ -14188,67 +14131,67 @@ cleanup:                                          ; preds = %if.end381, %if.then
   br i1 %tobool398.not, label %if.end400, label %if.then399
 
 if.then399:                                       ; preds = %cleanup
-  %flags.i131 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
-  %90 = load i32, ptr %flags.i131, align 8
-  %and.i = and i32 %90, 1
+  %flags.i131 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %89 = load i32, ptr %flags.i131, align 8
+  %and.i = and i32 %89, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end400, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then399
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
-  %91 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
-  %92 = load i32, ptr %amqueue_len.i, align 8
-  %cmp.i = icmp eq i32 %91, %92
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
+  %90 = load i32, ptr %amqueue_used.i, align 4
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %91 = load i32, ptr %amqueue_len.i, align 8
+  %cmp.i = icmp eq i32 %90, %91
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %mul.i = shl nsw i32 %91, 1
-  %cmp4.i = icmp slt i32 %91, 8
+  %mul.i = shl nsw i32 %90, 1
+  %cmp4.i = icmp slt i32 %90, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
-  %93 = load ptr, ptr %amqueue.i, align 8
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %92 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
-  %call.i132 = call ptr @zrealloc(ptr noundef %93, i64 noundef %mul9.i) #36
+  %call.i132 = call ptr @zrealloc(ptr noundef %92, i64 noundef %mul9.i) #36
   store ptr %call.i132, ptr %amqueue.i, align 8
   %.pre14.i = load i32, ptr %amqueue_used.i, align 4
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
-  %94 = phi i32 [ %91, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
-  %95 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i132, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
-  %idxprom.i = sext i32 %94 to i64
-  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %95, i64 %idxprom.i, i32 1
+  %93 = phi i32 [ %90, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
+  %94 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i132, %if.then1.i ]
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %idxprom.i = sext i32 %93 to i64
+  %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %94, i64 %idxprom.i, i32 1
   store i32 2, ptr %type14.i, align 8
-  %96 = load ptr, ptr %amqueue12.i, align 8
-  %97 = load i32, ptr %amqueue_used.i, align 4
-  %idxprom17.i = sext i32 %97 to i64
-  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %96, i64 %idxprom17.i
+  %95 = load ptr, ptr %amqueue12.i, align 8
+  %96 = load i32, ptr %amqueue_used.i, align 4
+  %idxprom17.i = sext i32 %96 to i64
+  %arrayidx18.i = getelementptr inbounds %struct.AutoMemEntry, ptr %95, i64 %idxprom17.i
   store ptr %reply.1, ptr %arrayidx18.i, align 8
-  %98 = load i32, ptr %amqueue_used.i, align 4
-  %inc.i = add nsw i32 %98, 1
+  %97 = load i32, ptr %amqueue_used.i, align 4
+  %inc.i = add nsw i32 %97, 1
   store i32 %inc.i, ptr %amqueue_used.i, align 4
   br label %if.end400
 
 if.end400:                                        ; preds = %if.then36, %if.then59, %if.then73, %if.then154, %if.then172, %if.then186, %if.then207, %if.end311, %if.end317, %if.then133, %if.then114, %if.then86, %if.then46, %if.end11.i, %if.then399, %cleanup
   %c.0137 = phi ptr [ %c.0, %cleanup ], [ %c.0, %if.then399 ], [ %c.0, %if.end11.i ], [ %c.0.i, %if.then46 ], [ %c.0.i, %if.then86 ], [ %c.0.i, %if.then114 ], [ %c.0.i, %if.then133 ], [ %c.0.i, %if.end317 ], [ %c.0.i, %if.end311 ], [ %c.0.i, %if.then207 ], [ %c.0.i, %if.then186 ], [ %c.0.i, %if.then172 ], [ %c.0.i, %if.then154 ], [ %c.0.i, %if.then73 ], [ %c.0.i, %if.then59 ], [ %c.0.i, %if.then36 ]
   %reply.1136 = phi ptr [ null, %cleanup ], [ %reply.1, %if.then399 ], [ %reply.1, %if.end11.i ], [ null, %if.then46 ], [ null, %if.then86 ], [ null, %if.then114 ], [ null, %if.then133 ], [ null, %if.end317 ], [ null, %if.end311 ], [ null, %if.then207 ], [ null, %if.then186 ], [ null, %if.then172 ], [ null, %if.then154 ], [ null, %if.then73 ], [ null, %if.then59 ], [ null, %if.then36 ]
-  %99 = load ptr, ptr %module, align 8
-  %tobool402.not = icmp eq ptr %99, null
+  %98 = load ptr, ptr %module, align 8
+  %tobool402.not = icmp eq ptr %98, null
   br i1 %tobool402.not, label %if.end406, label %if.then403
 
 if.then403:                                       ; preds = %if.end400
-  %in_call405 = getelementptr inbounds %struct.RedisModule, ptr %99, i64 0, i32 10
-  %100 = load i32, ptr %in_call405, align 4
-  %dec = add nsw i32 %100, -1
+  %in_call405 = getelementptr inbounds i8, ptr %98, i64 68
+  %99 = load i32, ptr %in_call405, align 4
+  %dec = add nsw i32 %99, -1
   store i32 %dec, ptr %in_call405, align 4
   br label %if.end406
 
@@ -14272,25 +14215,25 @@ entry:
   %li = alloca %struct.listIter, align 8
   %filter = alloca %struct.RedisModuleCommandFilterCtx, align 8
   %0 = load ptr, ptr @moduleCommandFilters, align 8
-  %len = getelementptr inbounds %struct.list, ptr %0, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %len, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   call void @listRewind(ptr noundef nonnull %0, ptr noundef nonnull %li) #34
-  %argv1 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv1 = getelementptr inbounds i8, ptr %c, i64 96
   %2 = load ptr, ptr %argv1, align 8
   store ptr %2, ptr %filter, align 8
-  %argv_len = getelementptr inbounds %struct.RedisModuleCommandFilterCtx, ptr %filter, i64 0, i32 1
-  %argv_len2 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 13
+  %argv_len = getelementptr inbounds i8, ptr %filter, i64 8
+  %argv_len2 = getelementptr inbounds i8, ptr %c, i64 104
   %3 = load i32, ptr %argv_len2, align 8
   store i32 %3, ptr %argv_len, align 8
-  %argc = getelementptr inbounds %struct.RedisModuleCommandFilterCtx, ptr %filter, i64 0, i32 2
-  %argc3 = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %filter, i64 12
+  %argc3 = getelementptr inbounds i8, ptr %c, i64 88
   %4 = load i32, ptr %argc3, align 8
   store i32 %4, ptr %argc, align 4
-  %c4 = getelementptr inbounds %struct.RedisModuleCommandFilterCtx, ptr %filter, i64 0, i32 3
+  %c4 = getelementptr inbounds i8, ptr %filter, i64 16
   store ptr %c, ptr %c4, align 8
   %call9 = call ptr @listNext(ptr noundef nonnull %li) #34
   %tobool.not10 = icmp eq ptr %call9, null
@@ -14298,9 +14241,9 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %if.end, %while.cond.backedge
   %call11 = phi ptr [ %call, %while.cond.backedge ], [ %call9, %if.end ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call11, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call11, i64 16
   %5 = load ptr, ptr %value, align 8
-  %flags = getelementptr inbounds %struct.RedisModuleCommandFilter, ptr %5, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i32, ptr %flags, align 8
   %and = and i32 %6, 1
   %tobool5.not = icmp eq i32 %and, 0
@@ -14308,13 +14251,13 @@ while.body:                                       ; preds = %if.end, %while.cond
 
 land.lhs.true:                                    ; preds = %while.body
   %7 = load ptr, ptr %5, align 8
-  %in_call = getelementptr inbounds %struct.RedisModule, ptr %7, i64 0, i32 10
+  %in_call = getelementptr inbounds i8, ptr %7, i64 68
   %8 = load i32, ptr %in_call, align 4
   %tobool6.not = icmp eq i32 %8, 0
   br i1 %tobool6.not, label %if.end8, label %while.cond.backedge
 
 if.end8:                                          ; preds = %land.lhs.true, %while.body
-  %callback = getelementptr inbounds %struct.RedisModuleCommandFilter, ptr %5, i64 0, i32 1
+  %callback = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load ptr, ptr %callback, align 8
   call void %9(ptr noundef nonnull %filter) #34
   br label %while.cond.backedge
@@ -14446,7 +14389,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.cond.loopexit.us
   %call113.us = phi ptr [ %call1.us, %while.cond.loopexit.us ], [ %call111, %while.body.lr.ph ]
   %call2.us = call ptr @dictGetVal(ptr noundef nonnull %call113.us) #34
-  %types.us = getelementptr inbounds %struct.RedisModule, ptr %call2.us, i64 0, i32 4
+  %types.us = getelementptr inbounds i8, ptr %call2.us, i64 24
   %1 = load ptr, ptr %types.us, align 8
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %li) #34
   %call47.us = call ptr @listNext(ptr noundef nonnull %li) #34
@@ -14460,9 +14403,9 @@ while.cond.loopexit.us:                           ; preds = %if.end.us.us, %whil
 
 while.body5.us.us:                                ; preds = %while.body.us, %if.end.us.us
   %call49.us.us = phi ptr [ %call4.us.us, %if.end.us.us ], [ %call47.us, %while.body.us ]
-  %value.us.us = getelementptr inbounds %struct.listNode, ptr %call49.us.us, i64 0, i32 2
+  %value.us.us = getelementptr inbounds i8, ptr %call49.us.us, i64 16
   %2 = load ptr, ptr %value.us.us, align 8
-  %name7.us.us = getelementptr inbounds %struct.RedisModuleType, ptr %2, i64 0, i32 20
+  %name7.us.us = getelementptr inbounds i8, ptr %2, i64 156
   %bcmp.us.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %name, ptr noundef nonnull dereferenceable(10) %name7.us.us, i64 10)
   %cmp9.us.us = icmp eq i32 %bcmp.us.us, 0
   br i1 %cmp9.us.us, label %return, label %if.end.us.us
@@ -14480,7 +14423,7 @@ while.cond.loopexit:                              ; preds = %if.end, %while.body
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.loopexit
   %call113 = phi ptr [ %call1, %while.cond.loopexit ], [ %call111, %while.body.lr.ph ]
   %call2 = call ptr @dictGetVal(ptr noundef nonnull %call113) #34
-  %types = getelementptr inbounds %struct.RedisModule, ptr %call2, i64 0, i32 4
+  %types = getelementptr inbounds i8, ptr %call2, i64 24
   %3 = load ptr, ptr %types, align 8
   call void @listRewind(ptr noundef %3, ptr noundef nonnull %li) #34
   %call47 = call ptr @listNext(ptr noundef nonnull %li) #34
@@ -14489,9 +14432,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 while.body5:                                      ; preds = %while.body, %if.end
   %call49 = phi ptr [ %call4, %if.end ], [ %call47, %while.body ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call49, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call49, i64 16
   %4 = load ptr, ptr %value, align 8
-  %name12 = getelementptr inbounds %struct.RedisModuleType, ptr %4, i64 0, i32 20
+  %name12 = getelementptr inbounds i8, ptr %4, i64 156
   %call14 = call i32 @strcasecmp(ptr noundef %name, ptr noundef nonnull %name12) #38
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %if.end
@@ -14540,16 +14483,17 @@ entry:
   br i1 %cmp1.not28, label %for.end, label %for.body
 
 land.rhs:                                         ; preds = %for.inc
-  %mt = getelementptr inbounds [3 x %struct.anon.15], ptr @moduleTypeLookupModuleByID.cache, i64 0, i64 %indvars.iv.next, i32 1
+  %arrayidx = getelementptr inbounds [3 x %struct.anon.15], ptr @moduleTypeLookupModuleByID.cache, i64 0, i64 %indvars.iv.next
+  %mt = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %mt, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %land.rhs.for.end_crit_edge, label %for.body, !llvm.loop !39
 
 for.body:                                         ; preds = %entry, %land.rhs
   %2 = phi ptr [ %1, %land.rhs ], [ %0, %entry ]
+  %arrayidx30 = phi ptr [ %arrayidx, %land.rhs ], [ @moduleTypeLookupModuleByID.cache, %entry ]
   %indvars.iv29 = phi i64 [ %indvars.iv.next, %land.rhs ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [3 x %struct.anon.15], ptr @moduleTypeLookupModuleByID.cache, i64 0, i64 %indvars.iv29
-  %3 = load i64, ptr %arrayidx, align 16
+  %3 = load i64, ptr %arrayidx30, align 16
   %cmp5 = icmp eq i64 %3, %id
   br i1 %cmp5, label %return, label %for.inc
 
@@ -14564,12 +14508,12 @@ land.rhs.for.end_crit_edge:                       ; preds = %land.rhs
   br label %for.end
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %cmp.le43 = icmp ult i64 %indvars.iv29, 2
+  %cmp.le44 = icmp ult i64 %indvars.iv29, 2
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %land.rhs.for.end_crit_edge, %entry
   %j.0.lcssa = phi i64 [ %4, %land.rhs.for.end_crit_edge ], [ 0, %entry ], [ 3, %for.end.loopexit ]
-  %cmp.lcssa = phi i1 [ %cmp.le, %land.rhs.for.end_crit_edge ], [ true, %entry ], [ %cmp.le43, %for.end.loopexit ]
+  %cmp.lcssa = phi i1 [ %cmp.le, %land.rhs.for.end_crit_edge ], [ true, %entry ], [ %cmp.le44, %for.end.loopexit ]
   %5 = load ptr, ptr @modules, align 8
   %call = tail call ptr @dictGetIterator(ptr noundef %5) #34
   %call1019 = tail call ptr @dictNext(ptr noundef %call) #34
@@ -14583,7 +14527,7 @@ while.end24.thread:                               ; preds = %for.end
 while.body:                                       ; preds = %for.end, %while.end
   %call1021 = phi ptr [ %call10, %while.end ], [ %call1019, %for.end ]
   %call15 = call ptr @dictGetVal(ptr noundef nonnull %call1021) #34
-  %types = getelementptr inbounds %struct.RedisModule, ptr %call15, i64 0, i32 4
+  %types = getelementptr inbounds i8, ptr %call15, i64 24
   %6 = load ptr, ptr %types, align 8
   call void @listRewind(ptr noundef %6, ptr noundef nonnull %li) #34
   br label %while.cond16
@@ -14594,7 +14538,7 @@ while.cond16:                                     ; preds = %while.body18, %whil
   br i1 %tobool.not, label %while.end, label %while.body18
 
 while.body18:                                     ; preds = %while.cond16
-  %value = getelementptr inbounds %struct.listNode, ptr %call17, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call17, i64 16
   %7 = load ptr, ptr %value, align 8
   %8 = load i64, ptr %7, align 8
   %cmp21.unshifted = xor i64 %8, %id
@@ -14618,7 +14562,7 @@ while.end24:                                      ; preds = %while.end
 if.then27:                                        ; preds = %while.end24
   %arrayidx29 = getelementptr inbounds [3 x %struct.anon.15], ptr @moduleTypeLookupModuleByID.cache, i64 0, i64 %j.0.lcssa
   store i64 %id, ptr %arrayidx29, align 16
-  %mt33 = getelementptr inbounds [3 x %struct.anon.15], ptr @moduleTypeLookupModuleByID.cache, i64 0, i64 %j.0.lcssa, i32 1
+  %mt33 = getelementptr inbounds i8, ptr %arrayidx29, i64 8
   store ptr %mt9.1, ptr %mt33, align 8
   br label %return
 
@@ -14662,13 +14606,13 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %module = getelementptr inbounds %struct.RedisModuleType, ptr %mt, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %mt, i64 8
   %0 = load ptr, ptr %module, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %name = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %name, align 8
   br label %return
 
@@ -14680,7 +14624,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @moduleNameFromCommand(ptr nocapture noundef readonly %cmd) local_unnamed_addr #0 {
 entry:
-  %proc = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 12
+  %proc = getelementptr inbounds i8, ptr %cmd, i64 96
   %0 = load ptr, ptr %proc, align 8
   %cmp = icmp eq ptr %0, @RedisModuleCommandDispatcher
   br i1 %cmp, label %cond.end, label %cond.false
@@ -14691,10 +14635,10 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %module_cmd = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 32
+  %module_cmd = getelementptr inbounds i8, ptr %cmd, i64 304
   %1 = load ptr, ptr %module_cmd, align 8
   %2 = load ptr, ptr %1, align 8
-  %name = getelementptr inbounds %struct.RedisModule, ptr %2, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %name, align 8
   ret ptr %3
 }
@@ -14703,13 +14647,13 @@ cond.end:                                         ; preds = %entry
 define dso_local ptr @moduleTypeDupOrReply(ptr noundef %c, ptr noundef %fromkey, ptr noundef %tokey, i32 noundef %todb, ptr nocapture noundef readonly %value) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.RedisModuleKeyOptCtx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %value, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %value, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %1 = load ptr, ptr %0, align 8
-  %copy = getelementptr inbounds %struct.RedisModuleType, ptr %1, i64 0, i32 10
+  %copy = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load ptr, ptr %copy, align 8
   %tobool.not = icmp eq ptr %2, null
-  %copy2 = getelementptr inbounds %struct.RedisModuleType, ptr %1, i64 0, i32 17
+  %copy2 = getelementptr inbounds i8, ptr %1, i64 136
   %3 = load ptr, ptr %copy2, align 8
   %tobool1.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %land.lhs.true, label %if.end
@@ -14726,23 +14670,23 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %land.lhs.true, %if.end
   store ptr %fromkey, ptr %ctx, align 8
-  %to_key = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 1
+  %to_key = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %tokey, ptr %to_key, align 8
-  %from_dbid = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 2
-  %db = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 4
+  %from_dbid = getelementptr inbounds i8, ptr %ctx, i64 16
+  %db = getelementptr inbounds i8, ptr %c, i64 32
   %4 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %4, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load i32, ptr %id, align 8
   store i32 %5, ptr %from_dbid, align 8
-  %to_dbid = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 3
+  %to_dbid = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 %todb, ptr %to_dbid, align 4
-  %value5 = getelementptr inbounds %struct.moduleValue, ptr %0, i64 0, i32 1
+  %value5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %value5, align 8
   %call = call ptr %3(ptr noundef nonnull %ctx, ptr noundef %6) #34
   br label %if.end9
 
 if.else:                                          ; preds = %if.end
-  %value7 = getelementptr inbounds %struct.moduleValue, ptr %0, i64 0, i32 1
+  %value7 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %value7, align 8
   %call8 = tail call ptr %2(ptr noundef %fromkey, ptr noundef %tokey, ptr noundef %7) #34
   br label %if.end9
@@ -14772,9 +14716,9 @@ declare ptr @createModuleObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_CreateDataType(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %name, i32 noundef %encver, ptr nocapture noundef readonly %typemethods_ptr) #0 {
 entry:
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
-  %onload = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 18
+  %onload = getelementptr inbounds i8, ptr %0, i64 116
   %1 = load i32, ptr %onload, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -14831,18 +14775,18 @@ if.end9:                                          ; preds = %if.end6
   %call10 = tail call noalias dereferenceable_or_null(168) ptr @zcalloc(i64 noundef 168) #35
   store i64 %or11.i, ptr %call10, align 8
   %5 = load ptr, ptr %module, align 8
-  %module13 = getelementptr inbounds %struct.RedisModuleType, ptr %call10, i64 0, i32 1
+  %module13 = getelementptr inbounds i8, ptr %call10, i64 8
   store ptr %5, ptr %module13, align 8
-  %rdb_load = getelementptr inbounds %struct.typemethods, ptr %typemethods_ptr, i64 0, i32 1
-  %rdb_load14 = getelementptr inbounds %struct.RedisModuleType, ptr %call10, i64 0, i32 2
+  %rdb_load = getelementptr inbounds i8, ptr %typemethods_ptr, i64 8
+  %rdb_load14 = getelementptr inbounds i8, ptr %call10, i64 16
   %6 = load <2 x ptr>, ptr %rdb_load, align 8
   store <2 x ptr> %6, ptr %rdb_load14, align 8
-  %aof_rewrite = getelementptr inbounds %struct.typemethods, ptr %typemethods_ptr, i64 0, i32 3
-  %aof_rewrite16 = getelementptr inbounds %struct.RedisModuleType, ptr %call10, i64 0, i32 4
+  %aof_rewrite = getelementptr inbounds i8, ptr %typemethods_ptr, i64 24
+  %aof_rewrite16 = getelementptr inbounds i8, ptr %call10, i64 32
   %7 = load <2 x ptr>, ptr %aof_rewrite, align 8
   store <2 x ptr> %7, ptr %aof_rewrite16, align 8
-  %digest = getelementptr inbounds %struct.typemethods, ptr %typemethods_ptr, i64 0, i32 5
-  %digest18 = getelementptr inbounds %struct.RedisModuleType, ptr %call10, i64 0, i32 6
+  %digest = getelementptr inbounds i8, ptr %typemethods_ptr, i64 40
+  %digest18 = getelementptr inbounds i8, ptr %call10, i64 48
   %8 = load <2 x ptr>, ptr %digest, align 8
   store <2 x ptr> %8, ptr %digest18, align 8
   %9 = load i64, ptr %typemethods_ptr, align 8
@@ -14850,34 +14794,34 @@ if.end9:                                          ; preds = %if.end6
   br i1 %cmp20, label %if.end27, label %if.end54
 
 if.end27:                                         ; preds = %if.end9
-  %v2 = getelementptr inbounds %struct.typemethods, ptr %typemethods_ptr, i64 0, i32 7
-  %aux_load22 = getelementptr inbounds %struct.RedisModuleType, ptr %call10, i64 0, i32 12
+  %v2 = getelementptr inbounds i8, ptr %typemethods_ptr, i64 56
+  %aux_load22 = getelementptr inbounds i8, ptr %call10, i64 96
   %10 = load <2 x ptr>, ptr %v2, align 8
   store <2 x ptr> %10, ptr %aux_load22, align 8
-  %aux_save_triggers = getelementptr inbounds %struct.typemethods, ptr %typemethods_ptr, i64 0, i32 7, i32 2
+  %aux_save_triggers = getelementptr inbounds i8, ptr %typemethods_ptr, i64 72
   %11 = load i32, ptr %aux_save_triggers, align 8
-  %aux_save_triggers26 = getelementptr inbounds %struct.RedisModuleType, ptr %call10, i64 0, i32 19
+  %aux_save_triggers26 = getelementptr inbounds i8, ptr %call10, i64 152
   store i32 %11, ptr %aux_save_triggers26, align 8
   %cmp29.not = icmp eq i64 %9, 2
   br i1 %cmp29.not, label %if.end54, label %if.end38
 
 if.end38:                                         ; preds = %if.end27
-  %v3 = getelementptr inbounds %struct.typemethods, ptr %typemethods_ptr, i64 0, i32 8
-  %free_effort31 = getelementptr inbounds %struct.RedisModuleType, ptr %call10, i64 0, i32 8
+  %v3 = getelementptr inbounds i8, ptr %typemethods_ptr, i64 80
+  %free_effort31 = getelementptr inbounds i8, ptr %call10, i64 64
   %12 = load <2 x ptr>, ptr %v3, align 8
   store <2 x ptr> %12, ptr %free_effort31, align 8
-  %copy = getelementptr inbounds %struct.typemethods, ptr %typemethods_ptr, i64 0, i32 8, i32 2
-  %copy35 = getelementptr inbounds %struct.RedisModuleType, ptr %call10, i64 0, i32 10
+  %copy = getelementptr inbounds i8, ptr %typemethods_ptr, i64 96
+  %copy35 = getelementptr inbounds i8, ptr %call10, i64 80
   %13 = load <2 x ptr>, ptr %copy, align 8
   store <2 x ptr> %13, ptr %copy35, align 8
   %cmp40 = icmp ugt i64 %9, 3
   br i1 %cmp40, label %if.end49, label %if.end54
 
 if.end49:                                         ; preds = %if.end38
-  %v4 = getelementptr inbounds %struct.typemethods, ptr %typemethods_ptr, i64 0, i32 9
-  %mem_usage242 = getelementptr inbounds %struct.RedisModuleType, ptr %call10, i64 0, i32 14
-  %unlink2 = getelementptr inbounds %struct.typemethods, ptr %typemethods_ptr, i64 0, i32 9, i32 2
-  %unlink244 = getelementptr inbounds %struct.RedisModuleType, ptr %call10, i64 0, i32 16
+  %v4 = getelementptr inbounds i8, ptr %typemethods_ptr, i64 112
+  %mem_usage242 = getelementptr inbounds i8, ptr %call10, i64 112
+  %unlink2 = getelementptr inbounds i8, ptr %typemethods_ptr, i64 128
+  %unlink244 = getelementptr inbounds i8, ptr %call10, i64 128
   %14 = load <2 x ptr>, ptr %v4, align 8
   store <2 x ptr> %14, ptr %mem_usage242, align 8
   %15 = load <2 x ptr>, ptr %unlink2, align 8
@@ -14886,16 +14830,16 @@ if.end49:                                         ; preds = %if.end38
   br i1 %cmp51.not, label %if.end54, label %if.then52
 
 if.then52:                                        ; preds = %if.end49
-  %v5 = getelementptr inbounds %struct.typemethods, ptr %typemethods_ptr, i64 0, i32 10
+  %v5 = getelementptr inbounds i8, ptr %typemethods_ptr, i64 144
   %16 = load ptr, ptr %v5, align 8
-  %aux_save253 = getelementptr inbounds %struct.RedisModuleType, ptr %call10, i64 0, i32 18
+  %aux_save253 = getelementptr inbounds i8, ptr %call10, i64 144
   store ptr %16, ptr %aux_save253, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end9, %if.end27, %if.end38, %if.then52, %if.end49
-  %name55 = getelementptr inbounds %struct.RedisModuleType, ptr %call10, i64 0, i32 20
+  %name55 = getelementptr inbounds i8, ptr %call10, i64 156
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %name55, ptr noundef nonnull align 1 dereferenceable(10) %name, i64 10, i1 false)
-  %types = getelementptr inbounds %struct.RedisModule, ptr %5, i64 0, i32 4
+  %types = getelementptr inbounds i8, ptr %5, i64 24
   %17 = load ptr, ptr %types, align 8
   %call57 = tail call ptr @listAddNodeTail(ptr noundef %17, ptr noundef nonnull %call10) #34
   br label %return
@@ -14910,28 +14854,28 @@ declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_ModuleTypeSetValue(ptr nocapture noundef %key, ptr noundef %mt, ptr noundef %value) #0 {
 entry:
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %1 = load ptr, ptr %iter, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false
-  %value.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value.i = getelementptr inbounds i8, ptr %key, i64 24
   %2 = load ptr, ptr %value.i, align 8
   %tobool1.not.i = icmp eq ptr %2, null
   br i1 %tobool1.not.i, label %RM_DeleteKey.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %db.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db.i = getelementptr inbounds i8, ptr %key, i64 8
   %3 = load ptr, ptr %db.i, align 8
-  %key3.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key3.i = getelementptr inbounds i8, ptr %key, i64 16
   %4 = load ptr, ptr %key3.i, align 8
   %call.i = tail call i32 @dbDelete(ptr noundef %3, ptr noundef %4) #34
   store ptr null, ptr %value.i, align 8
@@ -14940,11 +14884,11 @@ if.then2.i:                                       ; preds = %if.end.i
 RM_DeleteKey.exit:                                ; preds = %if.end.i, %if.then2.i
   %call2 = tail call ptr @createModuleObject(ptr noundef %mt, ptr noundef %value) #34
   %5 = load ptr, ptr %key, align 8
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %5, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %key, i64 8
   %7 = load ptr, ptr %db, align 8
-  %key3 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key3 = getelementptr inbounds i8, ptr %key, i64 16
   %8 = load ptr, ptr %key3, align 8
   tail call void @setKey(ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %call2, i32 noundef 2) #34
   tail call void @decrRefCount(ptr noundef %call2) #34
@@ -14963,7 +14907,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end.i
@@ -14975,7 +14919,7 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cond, label %if.end, label %return
 
 if.end:                                           ; preds = %if.end.i
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %0, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %ptr, align 8
   %2 = load ptr, ptr %1, align 8
   br label %return
@@ -14992,7 +14936,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end.i
@@ -15004,9 +14948,9 @@ if.end.i:                                         ; preds = %lor.lhs.false
   br i1 %cond, label %if.end, label %return
 
 if.end:                                           ; preds = %if.end.i
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %0, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %ptr, align 8
-  %value5 = getelementptr inbounds %struct.moduleValue, ptr %1, i64 0, i32 1
+  %value5 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %value5, align 8
   br label %return
 
@@ -15018,38 +14962,38 @@ return:                                           ; preds = %if.end.i, %entry, %
 ; Function Attrs: nounwind uwtable
 define dso_local void @moduleRDBLoadError(ptr nocapture noundef %io) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %io, i64 16
   %0 = load ptr, ptr %type, align 8
-  %module = getelementptr inbounds %struct.RedisModuleType, ptr %0, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %module, align 8
-  %options = getelementptr inbounds %struct.RedisModule, ptr %1, i64 0, i32 12
+  %options = getelementptr inbounds i8, ptr %1, i64 76
   %2 = load i32, ptr %options, align 4
   %and = and i32 %2, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   store i32 1, ptr %error, align 8
   ret void
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.RedisModule, ptr %1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %name, align 8
   %4 = load i64, ptr %io, align 8
-  %key = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 5
+  %key = getelementptr inbounds i8, ptr %io, i64 40
   %5 = load ptr, ptr %key, align 8
   %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %5, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %ptr, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.true
   %cond = phi ptr [ %6, %cond.true ], [ @.str.60, %if.end ]
-  %name4 = getelementptr inbounds %struct.RedisModuleType, ptr %0, i64 0, i32 20
+  %name4 = getelementptr inbounds i8, ptr %0, i64 156
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 7011, ptr noundef nonnull @.str.59, ptr noundef %3, ptr noundef nonnull %name4, i64 noundef %4, ptr noundef %cond) #34
   tail call void @abort() #37
   unreachable
@@ -15067,15 +15011,15 @@ entry:
 while.body:                                       ; preds = %entry, %if.end
   %call16 = phi ptr [ %call1, %if.end ], [ %call14, %entry ]
   %call2 = tail call ptr @dictGetVal(ptr noundef nonnull %call16) #34
-  %types = getelementptr inbounds %struct.RedisModule, ptr %call2, i64 0, i32 4
+  %types = getelementptr inbounds i8, ptr %call2, i64 24
   %1 = load ptr, ptr %types, align 8
-  %len = getelementptr inbounds %struct.list, ptr %1, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body
-  %options = getelementptr inbounds %struct.RedisModule, ptr %call2, i64 0, i32 12
+  %options = getelementptr inbounds i8, ptr %call2, i64 76
   %3 = load i32, ptr %options, align 4
   %and = and i32 %3, 1
   %tobool3.not = icmp eq i32 %and, 0
@@ -15106,7 +15050,7 @@ while.cond:                                       ; preds = %while.body, %entry
 
 while.body:                                       ; preds = %while.cond
   %call2 = tail call ptr @dictGetVal(ptr noundef nonnull %call1) #34
-  %options = getelementptr inbounds %struct.RedisModule, ptr %call2, i64 0, i32 12
+  %options = getelementptr inbounds i8, ptr %call2, i64 76
   %1 = load i32, ptr %options, align 4
   %and = and i32 %1, 4
   %tobool.not = icmp eq i32 %and, 0
@@ -15121,7 +15065,7 @@ return:                                           ; preds = %while.cond, %while.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @RM_IsIOError(ptr nocapture noundef readonly %io) #6 {
 entry:
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error, align 8
   ret i32 %0
 }
@@ -15129,20 +15073,20 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_SaveUnsigned(ptr nocapture noundef %io, i64 noundef %value) #0 {
 entry:
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pre_flush_buffer.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 7
+  %pre_flush_buffer.i = getelementptr inbounds i8, ptr %io, i64 56
   %1 = load ptr, ptr %pre_flush_buffer.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end2, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   store ptr null, ptr %pre_flush_buffer.i, align 8
-  %rio.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio.i = getelementptr inbounds i8, ptr %io, i64 8
   %2 = load ptr, ptr %rio.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -1
   %3 = load i8, ptr %arrayidx.i.i, align 1
@@ -15203,7 +15147,7 @@ flushRedisModuleIOBuffer.exit:                    ; preds = %sdslen.exit.i, %if.
   br i1 %cmp, label %saveerr, label %if.end2
 
 if.end2:                                          ; preds = %if.end, %flushRedisModuleIOBuffer.exit
-  %rio = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio = getelementptr inbounds i8, ptr %io, i64 8
   %10 = load ptr, ptr %rio, align 8
   %call3 = tail call i32 @rdbSaveLen(ptr noundef %10, i64 noundef 2) #34
   %cmp4 = icmp eq i32 %call3, -1
@@ -15240,13 +15184,13 @@ declare i32 @rdbSaveLen(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local i64 @RM_LoadUnsigned(ptr nocapture noundef %io) #0 {
 entry:
   %value = alloca i64, align 8
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %rio = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio = getelementptr inbounds i8, ptr %io, i64 8
   %1 = load ptr, ptr %rio, align 8
   %call = tail call i64 @rdbLoadLen(ptr noundef %1, ptr noundef null) #34
   %cmp.not = icmp eq i64 %call, 2
@@ -15263,33 +15207,33 @@ if.end8:                                          ; preds = %if.end2
   br label %return
 
 loaderr:                                          ; preds = %if.end2, %if.end
-  %type.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %io, i64 16
   %4 = load ptr, ptr %type.i, align 8
-  %module.i = getelementptr inbounds %struct.RedisModuleType, ptr %4, i64 0, i32 1
+  %module.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %module.i, align 8
-  %options.i = getelementptr inbounds %struct.RedisModule, ptr %5, i64 0, i32 12
+  %options.i = getelementptr inbounds i8, ptr %5, i64 76
   %6 = load i32, ptr %options.i, align 4
   %and.i = and i32 %6, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %moduleRDBLoadError.exit
 
 if.end.i:                                         ; preds = %loaderr
-  %name.i = getelementptr inbounds %struct.RedisModule, ptr %5, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %name.i, align 8
   %8 = load i64, ptr %io, align 8
-  %key.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 5
+  %key.i = getelementptr inbounds i8, ptr %io, i64 40
   %9 = load ptr, ptr %key.i, align 8
   %tobool5.not.i = icmp eq ptr %9, null
   br i1 %tobool5.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %9, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %ptr.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end.i
   %cond.i = phi ptr [ %10, %cond.true.i ], [ @.str.60, %if.end.i ]
-  %name4.i = getelementptr inbounds %struct.RedisModuleType, ptr %4, i64 0, i32 20
+  %name4.i = getelementptr inbounds i8, ptr %4, i64 156
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 7011, ptr noundef nonnull @.str.59, ptr noundef %7, ptr noundef nonnull %name4.i, i64 noundef %8, ptr noundef %cond.i) #34
   call void @abort() #37
   unreachable
@@ -15324,20 +15268,20 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_SaveString(ptr nocapture noundef %io, ptr noundef %s) #0 {
 entry:
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pre_flush_buffer.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 7
+  %pre_flush_buffer.i = getelementptr inbounds i8, ptr %io, i64 56
   %1 = load ptr, ptr %pre_flush_buffer.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end2, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   store ptr null, ptr %pre_flush_buffer.i, align 8
-  %rio.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio.i = getelementptr inbounds i8, ptr %io, i64 8
   %2 = load ptr, ptr %rio.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -1
   %3 = load i8, ptr %arrayidx.i.i, align 1
@@ -15398,7 +15342,7 @@ flushRedisModuleIOBuffer.exit:                    ; preds = %sdslen.exit.i, %if.
   br i1 %cmp, label %saveerr, label %if.end2
 
 if.end2:                                          ; preds = %if.end, %flushRedisModuleIOBuffer.exit
-  %rio = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio = getelementptr inbounds i8, ptr %io, i64 8
   %10 = load ptr, ptr %rio, align 8
   %call3 = tail call i32 @rdbSaveLen(ptr noundef %10, i64 noundef 5) #34
   %cmp4 = icmp eq i32 %call3, -1
@@ -15433,20 +15377,20 @@ declare i64 @rdbSaveStringObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_SaveStringBuffer(ptr nocapture noundef %io, ptr noundef %str, i64 noundef %len) #0 {
 entry:
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pre_flush_buffer.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 7
+  %pre_flush_buffer.i = getelementptr inbounds i8, ptr %io, i64 56
   %1 = load ptr, ptr %pre_flush_buffer.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end2, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   store ptr null, ptr %pre_flush_buffer.i, align 8
-  %rio.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio.i = getelementptr inbounds i8, ptr %io, i64 8
   %2 = load ptr, ptr %rio.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -1
   %3 = load i8, ptr %arrayidx.i.i, align 1
@@ -15507,7 +15451,7 @@ flushRedisModuleIOBuffer.exit:                    ; preds = %sdslen.exit.i, %if.
   br i1 %cmp, label %saveerr, label %if.end2
 
 if.end2:                                          ; preds = %if.end, %flushRedisModuleIOBuffer.exit
-  %rio = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio = getelementptr inbounds i8, ptr %io, i64 8
   %10 = load ptr, ptr %rio, align 8
   %call3 = tail call i32 @rdbSaveLen(ptr noundef %10, i64 noundef 5) #34
   %cmp4 = icmp eq i32 %call3, -1
@@ -15542,13 +15486,13 @@ declare i64 @rdbSaveRawString(ptr noundef, ptr noundef, i64 noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @moduleLoadString(ptr nocapture noundef %io, i32 noundef %plain, ptr noundef %lenptr) local_unnamed_addr #0 {
 entry:
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %rio = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio = getelementptr inbounds i8, ptr %io, i64 8
   %1 = load ptr, ptr %rio, align 8
   %call = tail call i64 @rdbLoadLen(ptr noundef %1, ptr noundef null) #34
   %cmp.not = icmp eq i64 %call, 5
@@ -15563,33 +15507,33 @@ if.end2:                                          ; preds = %if.end
   br i1 %cmp6, label %loaderr, label %return
 
 loaderr:                                          ; preds = %if.end2, %if.end
-  %type.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %io, i64 16
   %3 = load ptr, ptr %type.i, align 8
-  %module.i = getelementptr inbounds %struct.RedisModuleType, ptr %3, i64 0, i32 1
+  %module.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %module.i, align 8
-  %options.i = getelementptr inbounds %struct.RedisModule, ptr %4, i64 0, i32 12
+  %options.i = getelementptr inbounds i8, ptr %4, i64 76
   %5 = load i32, ptr %options.i, align 4
   %and.i = and i32 %5, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %moduleRDBLoadError.exit
 
 if.end.i:                                         ; preds = %loaderr
-  %name.i = getelementptr inbounds %struct.RedisModule, ptr %4, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %name.i, align 8
   %7 = load i64, ptr %io, align 8
-  %key.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 5
+  %key.i = getelementptr inbounds i8, ptr %io, i64 40
   %8 = load ptr, ptr %key.i, align 8
   %tobool5.not.i = icmp eq ptr %8, null
   br i1 %tobool5.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %8, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %ptr.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end.i
   %cond.i = phi ptr [ %9, %cond.true.i ], [ @.str.60, %if.end.i ]
-  %name4.i = getelementptr inbounds %struct.RedisModuleType, ptr %3, i64 0, i32 20
+  %name4.i = getelementptr inbounds i8, ptr %3, i64 156
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 7011, ptr noundef nonnull @.str.59, ptr noundef %6, ptr noundef nonnull %name4.i, i64 noundef %7, ptr noundef %cond.i) #34
   tail call void @abort() #37
   unreachable
@@ -15608,13 +15552,13 @@ declare ptr @rdbGenericLoadStringObject(ptr noundef, i32 noundef, ptr noundef) l
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_LoadString(ptr nocapture noundef %io) #0 {
 entry:
-  %error.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error.i = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %moduleLoadString.exit
 
 if.end.i:                                         ; preds = %entry
-  %rio.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio.i = getelementptr inbounds i8, ptr %io, i64 8
   %1 = load ptr, ptr %rio.i, align 8
   %call.i = tail call i64 @rdbLoadLen(ptr noundef %1, ptr noundef null) #34
   %cmp.not.i = icmp eq i64 %call.i, 5
@@ -15627,33 +15571,33 @@ if.end2.i:                                        ; preds = %if.end.i
   br i1 %cmp6.i, label %loaderr.i, label %moduleLoadString.exit
 
 loaderr.i:                                        ; preds = %if.end2.i, %if.end.i
-  %type.i.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 2
+  %type.i.i = getelementptr inbounds i8, ptr %io, i64 16
   %3 = load ptr, ptr %type.i.i, align 8
-  %module.i.i = getelementptr inbounds %struct.RedisModuleType, ptr %3, i64 0, i32 1
+  %module.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %module.i.i, align 8
-  %options.i.i = getelementptr inbounds %struct.RedisModule, ptr %4, i64 0, i32 12
+  %options.i.i = getelementptr inbounds i8, ptr %4, i64 76
   %5 = load i32, ptr %options.i.i, align 4
   %and.i.i = and i32 %5, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %moduleRDBLoadError.exit.i
 
 if.end.i.i:                                       ; preds = %loaderr.i
-  %name.i.i = getelementptr inbounds %struct.RedisModule, ptr %4, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %name.i.i, align 8
   %7 = load i64, ptr %io, align 8
-  %key.i.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 5
+  %key.i.i = getelementptr inbounds i8, ptr %io, i64 40
   %8 = load ptr, ptr %key.i.i, align 8
   %tobool5.not.i.i = icmp eq ptr %8, null
   br i1 %tobool5.not.i.i, label %cond.end.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end.i.i
-  %ptr.i.i = getelementptr inbounds %struct.redisObject, ptr %8, i64 0, i32 2
+  %ptr.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %ptr.i.i, align 8
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %if.end.i.i
   %cond.i.i = phi ptr [ %9, %cond.true.i.i ], [ @.str.60, %if.end.i.i ]
-  %name4.i.i = getelementptr inbounds %struct.RedisModuleType, ptr %3, i64 0, i32 20
+  %name4.i.i = getelementptr inbounds i8, ptr %3, i64 156
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 7011, ptr noundef nonnull @.str.59, ptr noundef %6, ptr noundef nonnull %name4.i.i, i64 noundef %7, ptr noundef %cond.i.i) #34
   tail call void @abort() #37
   unreachable
@@ -15670,13 +15614,13 @@ moduleLoadString.exit:                            ; preds = %entry, %if.end2.i, 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_LoadStringBuffer(ptr nocapture noundef %io, ptr noundef %lenptr) #0 {
 entry:
-  %error.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error.i = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %moduleLoadString.exit
 
 if.end.i:                                         ; preds = %entry
-  %rio.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio.i = getelementptr inbounds i8, ptr %io, i64 8
   %1 = load ptr, ptr %rio.i, align 8
   %call.i = tail call i64 @rdbLoadLen(ptr noundef %1, ptr noundef null) #34
   %cmp.not.i = icmp eq i64 %call.i, 5
@@ -15689,33 +15633,33 @@ if.end2.i:                                        ; preds = %if.end.i
   br i1 %cmp6.i, label %loaderr.i, label %moduleLoadString.exit
 
 loaderr.i:                                        ; preds = %if.end2.i, %if.end.i
-  %type.i.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 2
+  %type.i.i = getelementptr inbounds i8, ptr %io, i64 16
   %3 = load ptr, ptr %type.i.i, align 8
-  %module.i.i = getelementptr inbounds %struct.RedisModuleType, ptr %3, i64 0, i32 1
+  %module.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %module.i.i, align 8
-  %options.i.i = getelementptr inbounds %struct.RedisModule, ptr %4, i64 0, i32 12
+  %options.i.i = getelementptr inbounds i8, ptr %4, i64 76
   %5 = load i32, ptr %options.i.i, align 4
   %and.i.i = and i32 %5, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %moduleRDBLoadError.exit.i
 
 if.end.i.i:                                       ; preds = %loaderr.i
-  %name.i.i = getelementptr inbounds %struct.RedisModule, ptr %4, i64 0, i32 1
+  %name.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %name.i.i, align 8
   %7 = load i64, ptr %io, align 8
-  %key.i.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 5
+  %key.i.i = getelementptr inbounds i8, ptr %io, i64 40
   %8 = load ptr, ptr %key.i.i, align 8
   %tobool5.not.i.i = icmp eq ptr %8, null
   br i1 %tobool5.not.i.i, label %cond.end.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end.i.i
-  %ptr.i.i = getelementptr inbounds %struct.redisObject, ptr %8, i64 0, i32 2
+  %ptr.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %ptr.i.i, align 8
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %if.end.i.i
   %cond.i.i = phi ptr [ %9, %cond.true.i.i ], [ @.str.60, %if.end.i.i ]
-  %name4.i.i = getelementptr inbounds %struct.RedisModuleType, ptr %3, i64 0, i32 20
+  %name4.i.i = getelementptr inbounds i8, ptr %3, i64 156
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 7011, ptr noundef nonnull @.str.59, ptr noundef %6, ptr noundef nonnull %name4.i.i, i64 noundef %7, ptr noundef %cond.i.i) #34
   tail call void @abort() #37
   unreachable
@@ -15732,20 +15676,20 @@ moduleLoadString.exit:                            ; preds = %entry, %if.end2.i, 
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_SaveDouble(ptr nocapture noundef %io, double noundef %value) #0 {
 entry:
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pre_flush_buffer.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 7
+  %pre_flush_buffer.i = getelementptr inbounds i8, ptr %io, i64 56
   %1 = load ptr, ptr %pre_flush_buffer.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end2, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   store ptr null, ptr %pre_flush_buffer.i, align 8
-  %rio.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio.i = getelementptr inbounds i8, ptr %io, i64 8
   %2 = load ptr, ptr %rio.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -1
   %3 = load i8, ptr %arrayidx.i.i, align 1
@@ -15806,7 +15750,7 @@ flushRedisModuleIOBuffer.exit:                    ; preds = %sdslen.exit.i, %if.
   br i1 %cmp, label %saveerr, label %if.end2
 
 if.end2:                                          ; preds = %if.end, %flushRedisModuleIOBuffer.exit
-  %rio = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio = getelementptr inbounds i8, ptr %io, i64 8
   %10 = load ptr, ptr %rio, align 8
   %call3 = tail call i32 @rdbSaveLen(ptr noundef %10, i64 noundef 4) #34
   %cmp4 = icmp eq i32 %call3, -1
@@ -15843,13 +15787,13 @@ declare i32 @rdbSaveBinaryDoubleValue(ptr noundef, double noundef) local_unnamed
 define dso_local double @RM_LoadDouble(ptr nocapture noundef %io) #0 {
 entry:
   %value = alloca double, align 8
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %rio = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio = getelementptr inbounds i8, ptr %io, i64 8
   %1 = load ptr, ptr %rio, align 8
   %call = tail call i64 @rdbLoadLen(ptr noundef %1, ptr noundef null) #34
   %cmp.not = icmp eq i64 %call, 4
@@ -15866,33 +15810,33 @@ if.end8:                                          ; preds = %if.end2
   br label %return
 
 loaderr:                                          ; preds = %if.end2, %if.end
-  %type.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %io, i64 16
   %4 = load ptr, ptr %type.i, align 8
-  %module.i = getelementptr inbounds %struct.RedisModuleType, ptr %4, i64 0, i32 1
+  %module.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %module.i, align 8
-  %options.i = getelementptr inbounds %struct.RedisModule, ptr %5, i64 0, i32 12
+  %options.i = getelementptr inbounds i8, ptr %5, i64 76
   %6 = load i32, ptr %options.i, align 4
   %and.i = and i32 %6, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %moduleRDBLoadError.exit
 
 if.end.i:                                         ; preds = %loaderr
-  %name.i = getelementptr inbounds %struct.RedisModule, ptr %5, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %name.i, align 8
   %8 = load i64, ptr %io, align 8
-  %key.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 5
+  %key.i = getelementptr inbounds i8, ptr %io, i64 40
   %9 = load ptr, ptr %key.i, align 8
   %tobool5.not.i = icmp eq ptr %9, null
   br i1 %tobool5.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %9, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %ptr.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end.i
   %cond.i = phi ptr [ %10, %cond.true.i ], [ @.str.60, %if.end.i ]
-  %name4.i = getelementptr inbounds %struct.RedisModuleType, ptr %4, i64 0, i32 20
+  %name4.i = getelementptr inbounds i8, ptr %4, i64 156
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 7011, ptr noundef nonnull @.str.59, ptr noundef %7, ptr noundef nonnull %name4.i, i64 noundef %8, ptr noundef %cond.i) #34
   call void @abort() #37
   unreachable
@@ -15911,20 +15855,20 @@ declare i32 @rdbLoadBinaryDoubleValue(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_SaveFloat(ptr nocapture noundef %io, float noundef %value) #0 {
 entry:
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %pre_flush_buffer.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 7
+  %pre_flush_buffer.i = getelementptr inbounds i8, ptr %io, i64 56
   %1 = load ptr, ptr %pre_flush_buffer.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end2, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
   store ptr null, ptr %pre_flush_buffer.i, align 8
-  %rio.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio.i = getelementptr inbounds i8, ptr %io, i64 8
   %2 = load ptr, ptr %rio.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 -1
   %3 = load i8, ptr %arrayidx.i.i, align 1
@@ -15985,7 +15929,7 @@ flushRedisModuleIOBuffer.exit:                    ; preds = %sdslen.exit.i, %if.
   br i1 %cmp, label %saveerr, label %if.end2
 
 if.end2:                                          ; preds = %if.end, %flushRedisModuleIOBuffer.exit
-  %rio = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio = getelementptr inbounds i8, ptr %io, i64 8
   %10 = load ptr, ptr %rio, align 8
   %call3 = tail call i32 @rdbSaveLen(ptr noundef %10, i64 noundef 3) #34
   %cmp4 = icmp eq i32 %call3, -1
@@ -16022,13 +15966,13 @@ declare i32 @rdbSaveBinaryFloatValue(ptr noundef, float noundef) local_unnamed_a
 define dso_local float @RM_LoadFloat(ptr nocapture noundef %io) #0 {
 entry:
   %value = alloca float, align 4
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %rio = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio = getelementptr inbounds i8, ptr %io, i64 8
   %1 = load ptr, ptr %rio, align 8
   %call = tail call i64 @rdbLoadLen(ptr noundef %1, ptr noundef null) #34
   %cmp.not = icmp eq i64 %call, 3
@@ -16045,33 +15989,33 @@ if.end8:                                          ; preds = %if.end2
   br label %return
 
 loaderr:                                          ; preds = %if.end2, %if.end
-  %type.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %io, i64 16
   %4 = load ptr, ptr %type.i, align 8
-  %module.i = getelementptr inbounds %struct.RedisModuleType, ptr %4, i64 0, i32 1
+  %module.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %module.i, align 8
-  %options.i = getelementptr inbounds %struct.RedisModule, ptr %5, i64 0, i32 12
+  %options.i = getelementptr inbounds i8, ptr %5, i64 76
   %6 = load i32, ptr %options.i, align 4
   %and.i = and i32 %6, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %moduleRDBLoadError.exit
 
 if.end.i:                                         ; preds = %loaderr
-  %name.i = getelementptr inbounds %struct.RedisModule, ptr %5, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %name.i, align 8
   %8 = load i64, ptr %io, align 8
-  %key.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 5
+  %key.i = getelementptr inbounds i8, ptr %io, i64 40
   %9 = load ptr, ptr %key.i, align 8
   %tobool5.not.i = icmp eq ptr %9, null
   br i1 %tobool5.not.i, label %cond.end.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end.i
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %9, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %ptr.i, align 8
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %if.end.i
   %cond.i = phi ptr [ %10, %cond.true.i ], [ @.str.60, %if.end.i ]
-  %name4.i = getelementptr inbounds %struct.RedisModuleType, ptr %4, i64 0, i32 20
+  %name4.i = getelementptr inbounds i8, ptr %4, i64 156
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 7011, ptr noundef nonnull @.str.59, ptr noundef %7, ptr noundef nonnull %name4.i, i64 noundef %8, ptr noundef %cond.i) #34
   call void @abort() #37
   unreachable
@@ -16091,7 +16035,7 @@ declare i32 @rdbLoadBinaryFloatValue(ptr noundef, ptr noundef) local_unnamed_add
 define dso_local void @RM_SaveLongDouble(ptr nocapture noundef %io, x86_fp80 noundef %value) #0 {
 entry:
   %buf = alloca [5120 x i8], align 16
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -16111,7 +16055,7 @@ define dso_local x86_fp80 @RM_LoadLongDouble(ptr nocapture noundef %io) #0 {
 entry:
   %value = alloca x86_fp80, align 16
   %len = alloca i64, align 8
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -16153,7 +16097,7 @@ while.body:                                       ; preds = %entry, %while.cond.
   %call123 = phi ptr [ %call1, %while.cond.loopexit ], [ %call120, %entry ]
   %total_written.022 = phi i64 [ %total_written.1.ph.lcssa9, %while.cond.loopexit ], [ 0, %entry ]
   %call2 = call ptr @dictGetVal(ptr noundef nonnull %call123) #34
-  %types = getelementptr inbounds %struct.RedisModule, ptr %call2, i64 0, i32 4
+  %types = getelementptr inbounds i8, ptr %call2, i64 24
   %1 = load ptr, ptr %types, align 8
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %li) #34
   %call41115 = call ptr @listNext(ptr noundef nonnull %li) #34
@@ -16173,21 +16117,21 @@ while.body5.lr.ph:                                ; preds = %while.body, %while.
 
 while.body5:                                      ; preds = %while.body5.lr.ph, %if.then
   %call413 = phi ptr [ %call41118, %while.body5.lr.ph ], [ %call4, %if.then ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call413, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call413, i64 16
   %2 = load ptr, ptr %value, align 8
-  %aux_save = getelementptr inbounds %struct.RedisModuleType, ptr %2, i64 0, i32 13
+  %aux_save = getelementptr inbounds i8, ptr %2, i64 104
   %3 = load ptr, ptr %aux_save, align 8
   %tobool6.not = icmp eq ptr %3, null
   br i1 %tobool6.not, label %land.lhs.true, label %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %while.body5
-  %aux_save2 = getelementptr inbounds %struct.RedisModuleType, ptr %2, i64 0, i32 18
+  %aux_save2 = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load ptr, ptr %aux_save2, align 8
   %tobool7.not = icmp eq ptr %4, null
   br i1 %tobool7.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %while.body5
-  %aux_save_triggers = getelementptr inbounds %struct.RedisModuleType, ptr %2, i64 0, i32 19
+  %aux_save_triggers = getelementptr inbounds i8, ptr %2, i64 152
   %5 = load i32, ptr %aux_save_triggers, align 8
   %and = and i32 %5, %when
   %tobool8.not = icmp eq i32 %and, 0
@@ -16233,7 +16177,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_DigestEndSequence(ptr noundef %md) #0 {
 entry:
-  %x = getelementptr inbounds %struct.RedisModuleDigest, ptr %md, i64 0, i32 1
+  %x = getelementptr inbounds i8, ptr %md, i64 20
   tail call void @xorDigest(ptr noundef nonnull %x, ptr noundef %md, i64 noundef 20) #34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %md, i8 0, i64 20, i1 false)
   ret void
@@ -16246,25 +16190,25 @@ define dso_local ptr @RM_LoadDataTypeFromStringEncver(ptr nocapture noundef read
 entry:
   %payload = alloca %struct._rio, align 8
   %io = alloca %struct.RedisModuleIO, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %str, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %str, i64 8
   %0 = load ptr, ptr %ptr, align 8
   call void @rioInitWithBuffer(ptr noundef nonnull %payload, ptr noundef %0) #34
-  %rio = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio = getelementptr inbounds i8, ptr %io, i64 8
   store ptr %payload, ptr %rio, align 8
-  %type = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %io, i64 16
   store ptr %mt, ptr %type, align 8
   store i64 0, ptr %io, align 8
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   store i32 0, ptr %error, align 8
-  %key = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 5
+  %key = getelementptr inbounds i8, ptr %io, i64 40
   store ptr null, ptr %key, align 8
-  %dbid = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 6
+  %dbid = getelementptr inbounds i8, ptr %io, i64 48
   store i32 -1, ptr %dbid, align 8
-  %ctx = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %io, i64 32
   store ptr null, ptr %ctx, align 8
-  %pre_flush_buffer = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 7
+  %pre_flush_buffer = getelementptr inbounds i8, ptr %io, i64 56
   store ptr null, ptr %pre_flush_buffer, align 8
-  %rdb_load = getelementptr inbounds %struct.RedisModuleType, ptr %mt, i64 0, i32 2
+  %rdb_load = getelementptr inbounds i8, ptr %mt, i64 16
   %1 = load ptr, ptr %rdb_load, align 8
   %call = call ptr %1(ptr noundef nonnull %io, i32 noundef %encver) #34
   %2 = load ptr, ptr %ctx, align 8
@@ -16290,25 +16234,25 @@ entry:
   %io.i = alloca %struct.RedisModuleIO, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %payload.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %io.i)
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %str, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %str, i64 8
   %0 = load ptr, ptr %ptr.i, align 8
   call void @rioInitWithBuffer(ptr noundef nonnull %payload.i, ptr noundef %0) #34
-  %rio.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io.i, i64 0, i32 1
+  %rio.i = getelementptr inbounds i8, ptr %io.i, i64 8
   store ptr %payload.i, ptr %rio.i, align 8
-  %type.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io.i, i64 0, i32 2
+  %type.i = getelementptr inbounds i8, ptr %io.i, i64 16
   store ptr %mt, ptr %type.i, align 8
   store i64 0, ptr %io.i, align 8
-  %error.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io.i, i64 0, i32 3
+  %error.i = getelementptr inbounds i8, ptr %io.i, i64 24
   store i32 0, ptr %error.i, align 8
-  %key.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io.i, i64 0, i32 5
+  %key.i = getelementptr inbounds i8, ptr %io.i, i64 40
   store ptr null, ptr %key.i, align 8
-  %dbid.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io.i, i64 0, i32 6
+  %dbid.i = getelementptr inbounds i8, ptr %io.i, i64 48
   store i32 -1, ptr %dbid.i, align 8
-  %ctx.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io.i, i64 0, i32 4
+  %ctx.i = getelementptr inbounds i8, ptr %io.i, i64 32
   store ptr null, ptr %ctx.i, align 8
-  %pre_flush_buffer.i = getelementptr inbounds %struct.RedisModuleIO, ptr %io.i, i64 0, i32 7
+  %pre_flush_buffer.i = getelementptr inbounds i8, ptr %io.i, i64 56
   store ptr null, ptr %pre_flush_buffer.i, align 8
-  %rdb_load.i = getelementptr inbounds %struct.RedisModuleType, ptr %mt, i64 0, i32 2
+  %rdb_load.i = getelementptr inbounds i8, ptr %mt, i64 16
   %1 = load ptr, ptr %rdb_load.i, align 8
   %call.i = call ptr %1(ptr noundef nonnull %io.i, i32 noundef 0) #34
   %2 = load ptr, ptr %ctx.i, align 8
@@ -16334,22 +16278,22 @@ entry:
   %io = alloca %struct.RedisModuleIO, align 8
   %call = tail call ptr @sdsempty() #34
   call void @rioInitWithBuffer(ptr noundef nonnull %payload, ptr noundef %call) #34
-  %rio = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio = getelementptr inbounds i8, ptr %io, i64 8
   store ptr %payload, ptr %rio, align 8
-  %type = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %io, i64 16
   store ptr %mt, ptr %type, align 8
   store i64 0, ptr %io, align 8
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   store i32 0, ptr %error, align 8
-  %key = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 5
+  %key = getelementptr inbounds i8, ptr %io, i64 40
   store ptr null, ptr %key, align 8
-  %dbid = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 6
+  %dbid = getelementptr inbounds i8, ptr %io, i64 48
   store i32 -1, ptr %dbid, align 8
-  %ctx1 = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 4
+  %ctx1 = getelementptr inbounds i8, ptr %io, i64 32
   store ptr null, ptr %ctx1, align 8
-  %pre_flush_buffer = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 7
+  %pre_flush_buffer = getelementptr inbounds i8, ptr %io, i64 56
   store ptr null, ptr %pre_flush_buffer, align 8
-  %rdb_save = getelementptr inbounds %struct.RedisModuleType, ptr %mt, i64 0, i32 3
+  %rdb_save = getelementptr inbounds i8, ptr %mt, i64 24
   %0 = load ptr, ptr %rdb_save, align 8
   call void %0(ptr noundef nonnull %io, ptr noundef %data) #34
   %1 = load ptr, ptr %ctx1, align 8
@@ -16368,29 +16312,29 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool6.not, label %if.else, label %return
 
 if.else:                                          ; preds = %if.end
-  %io8 = getelementptr inbounds %struct._rio, ptr %payload, i64 0, i32 9
+  %io8 = getelementptr inbounds i8, ptr %payload, i64 72
   %4 = load ptr, ptr %io8, align 8
   %call9 = call ptr @createObject(i32 noundef 0, ptr noundef %4) #34
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %return, label %if.then10
 
 if.then10:                                        ; preds = %if.else
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %5 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %5, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then10
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %6 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %7 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %6, %7
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -16399,7 +16343,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %6, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %8 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -16411,7 +16355,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %9 = phi i32 [ %6, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %10 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %9 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %10, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -16433,7 +16377,7 @@ return:                                           ; preds = %if.end11.i, %if.the
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @RM_GetKeyNameFromDigest(ptr nocapture noundef readonly %dig) #6 {
 entry:
-  %key = getelementptr inbounds %struct.RedisModuleDigest, ptr %dig, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %dig, i64 40
   %0 = load ptr, ptr %key, align 8
   ret ptr %0
 }
@@ -16441,7 +16385,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @RM_GetDbIdFromDigest(ptr nocapture noundef readonly %dig) #6 {
 entry:
-  %dbid = getelementptr inbounds %struct.RedisModuleDigest, ptr %dig, i64 0, i32 3
+  %dbid = getelementptr inbounds i8, ptr %dig, i64 48
   %0 = load i32, ptr %dbid, align 8
   ret i32 %0
 }
@@ -16452,7 +16396,7 @@ entry:
   %argc = alloca i32, align 4
   %flags = alloca i32, align 4
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  %error = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 3
+  %error = getelementptr inbounds i8, ptr %io, i64 24
   %0 = load i32, ptr %error, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -16470,9 +16414,9 @@ do.body:                                          ; preds = %if.end
   br i1 %cmp, label %do.end, label %if.end4
 
 if.end4:                                          ; preds = %do.body
-  %type = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %io, i64 16
   %2 = load ptr, ptr %type, align 8
-  %name = getelementptr inbounds %struct.RedisModuleType, ptr %2, i64 0, i32 20
+  %name = getelementptr inbounds i8, ptr %2, i64 156
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.61, ptr noundef nonnull %name, ptr noundef %cmdname) #34
   br label %do.end
 
@@ -16495,9 +16439,9 @@ do.body14:                                        ; preds = %if.end7
   br i1 %cmp15, label %do.end21, label %if.end17
 
 if.end17:                                         ; preds = %do.body14
-  %type18 = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 2
+  %type18 = getelementptr inbounds i8, ptr %io, i64 16
   %4 = load ptr, ptr %type18, align 8
-  %name19 = getelementptr inbounds %struct.RedisModuleType, ptr %4, i64 0, i32 20
+  %name19 = getelementptr inbounds i8, ptr %4, i64 156
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.62, ptr noundef nonnull %name19, ptr noundef %fmt) #34
   br label %do.end21
 
@@ -16513,7 +16457,7 @@ if.end24:                                         ; preds = %if.end7
   br i1 %tobool26.not, label %land.lhs.true, label %if.end32
 
 land.lhs.true:                                    ; preds = %if.end24
-  %rio = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio = getelementptr inbounds i8, ptr %io, i64 8
   %6 = load ptr, ptr %rio, align 8
   %7 = load i32, ptr %argc, align 4
   %conv = sext i32 %7 to i64
@@ -16531,7 +16475,7 @@ if.end32:                                         ; preds = %if.then30, %land.lh
   br i1 %cmp3320, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end32
-  %rio38 = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 1
+  %rio38 = getelementptr inbounds i8, ptr %io, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end44
@@ -16577,7 +16521,7 @@ declare i32 @rioWriteBulkObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_GetContextFromIO(ptr nocapture noundef %io) #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %io, i64 32
   %0 = load ptr, ptr %ctx, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %return
@@ -16585,14 +16529,14 @@ entry:
 if.end:                                           ; preds = %entry
   %call = tail call noalias dereferenceable_or_null(120) ptr @zmalloc(i64 noundef 120) #35
   store ptr %call, ptr %ctx, align 8
-  %type = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %io, i64 16
   %1 = load ptr, ptr %type, align 8
-  %module = getelementptr inbounds %struct.RedisModuleType, ptr %1, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %call, align 8
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 1
+  %module1.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %2, ptr %module1.i, align 8
   %4 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
   %tobool8.not.i = icmp eq i32 %4, 0
@@ -16615,7 +16559,7 @@ if.else11.i:                                      ; preds = %if.end
 
 moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.else11.i
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
-  %8 = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 14
+  %8 = getelementptr inbounds i8, ptr %call, i64 104
   store i64 %add.sink.i, ptr %8, align 8
   tail call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
   %9 = load ptr, ptr %ctx, align 8
@@ -16629,7 +16573,7 @@ return:                                           ; preds = %entry, %moduleCreat
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @RM_GetKeyNameFromIO(ptr nocapture noundef readonly %io) #6 {
 entry:
-  %key = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 5
+  %key = getelementptr inbounds i8, ptr %io, i64 40
   %0 = load ptr, ptr %key, align 8
   ret ptr %0
 }
@@ -16641,7 +16585,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %key1 = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
+  %key1 = getelementptr inbounds i8, ptr %key, i64 16
   %0 = load ptr, ptr %key1, align 8
   br label %cond.end
 
@@ -16657,9 +16601,9 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %db = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
+  %db = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %0, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i32, ptr %id, align 8
   br label %cond.end
 
@@ -16671,7 +16615,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @RM_GetDbIdFromIO(ptr nocapture noundef readonly %io) #6 {
 entry:
-  %dbid = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 6
+  %dbid = getelementptr inbounds i8, ptr %io, i64 48
   %0 = load i32, ptr %dbid, align 8
   ret i32 %0
 }
@@ -16711,7 +16655,7 @@ if.end17:                                         ; preds = %if.end15
   br i1 %tobool18.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end17
-  %name = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %module, i64 8
   %1 = load ptr, ptr %name, align 8
   br label %cond.end
 
@@ -16743,7 +16687,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
   br label %cond.end
 
@@ -16759,9 +16703,9 @@ define dso_local void @RM_LogIOError(ptr nocapture noundef readonly %io, ptr noc
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start(ptr nonnull %ap)
-  %type = getelementptr inbounds %struct.RedisModuleIO, ptr %io, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %io, i64 16
   %0 = load ptr, ptr %type, align 8
-  %module = getelementptr inbounds %struct.RedisModuleType, ptr %0, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %module, align 8
   call void @moduleLogRaw(ptr noundef %1, ptr noundef %levelstr, ptr noundef %fmt, ptr noundef nonnull %ap)
   call void @llvm.va_end(ptr nonnull %ap)
@@ -16796,21 +16740,21 @@ declare void @latencyAddSample(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local void @unblockClientFromModule(ptr nocapture noundef readonly %c) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.RedisModuleCtx, align 8
-  %module_blocked_handle = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 55, i32 7
+  %module_blocked_handle = getelementptr inbounds i8, ptr %c, i64 512
   %0 = load ptr, ptr %module_blocked_handle, align 8
-  %disconnect_callback = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 5
+  %disconnect_callback = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %disconnect_callback, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %module = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
   %5 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
   %tobool8.not.i = icmp eq i32 %5, 0
@@ -16833,12 +16777,12 @@ if.else11.i:                                      ; preds = %if.then
 
 moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.else11.i
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
-  %9 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %9 = getelementptr inbounds i8, ptr %ctx, i64 104
   store i64 %add.sink.i, ptr %9, align 8
   tail call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
-  %privdata = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 7
+  %privdata = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load ptr, ptr %privdata, align 8
-  %blocked_privdata = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 10
+  %blocked_privdata = getelementptr inbounds i8, ptr %ctx, i64 72
   store ptr %10, ptr %blocked_privdata, align 8
   %11 = load ptr, ptr %0, align 8
   store ptr %11, ptr %3, align 8
@@ -16848,13 +16792,13 @@ moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.els
   br label %if.end
 
 if.end:                                           ; preds = %moduleCreateContext.exit, %entry
-  %blocked_on_keys = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 11
+  %blocked_on_keys = getelementptr inbounds i8, ptr %0, i64 84
   %13 = load i32, ptr %blocked_on_keys, align 4
   %tobool3.not = icmp eq i32 %13, 0
   br i1 %tobool3.not, label %if.end6, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %unblocked = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 12
+  %unblocked = getelementptr inbounds i8, ptr %0, i64 88
   %14 = load i32, ptr %unblocked, align 8
   %tobool4.not = icmp eq i32 %14, 0
   br i1 %tobool4.not, label %if.then5, label %if.end6
@@ -16862,21 +16806,21 @@ land.lhs.true:                                    ; preds = %if.end
 if.then5:                                         ; preds = %land.lhs.true
   %15 = load ptr, ptr %module_blocked_handle, align 8
   %call.i.i = call i32 @pthread_mutex_lock(ptr noundef nonnull @moduleUnblockedClientsMutex) #34
-  %blocked_on_keys.i.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %15, i64 0, i32 11
+  %blocked_on_keys.i.i = getelementptr inbounds i8, ptr %15, i64 84
   %16 = load i32, ptr %blocked_on_keys.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %16, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then5
-  %privdata1.i.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %15, i64 0, i32 7
+  %privdata1.i.i = getelementptr inbounds i8, ptr %15, i64 56
   store ptr null, ptr %privdata1.i.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then5
-  %unblocked.i.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %15, i64 0, i32 12
+  %unblocked.i.i = getelementptr inbounds i8, ptr %15, i64 88
   store i32 1, ptr %unblocked.i.i, align 8
   %17 = load ptr, ptr @moduleUnblockedClients, align 8
-  %len.i.i = getelementptr inbounds %struct.list, ptr %17, i64 0, i32 5
+  %len.i.i = getelementptr inbounds i8, ptr %17, i64 40
   %18 = load i64, ptr %len.i.i, align 8
   %cmp.i.i = icmp eq i64 %18, 0
   br i1 %cmp.i.i, label %if.then2.i.i, label %moduleUnblockClient.exit
@@ -16901,24 +16845,24 @@ if.end6:                                          ; preds = %moduleUnblockClient
 ; Function Attrs: nounwind uwtable
 define dso_local void @moduleUnblockClient(ptr nocapture noundef readonly %c) local_unnamed_addr #0 {
 entry:
-  %module_blocked_handle = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 55, i32 7
+  %module_blocked_handle = getelementptr inbounds i8, ptr %c, i64 512
   %0 = load ptr, ptr %module_blocked_handle, align 8
   %call.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @moduleUnblockedClientsMutex) #34
-  %blocked_on_keys.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 11
+  %blocked_on_keys.i = getelementptr inbounds i8, ptr %0, i64 84
   %1 = load i32, ptr %blocked_on_keys.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %privdata1.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 7
+  %privdata1.i = getelementptr inbounds i8, ptr %0, i64 56
   store ptr null, ptr %privdata1.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %unblocked.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 12
+  %unblocked.i = getelementptr inbounds i8, ptr %0, i64 88
   store i32 1, ptr %unblocked.i, align 8
   %2 = load ptr, ptr @moduleUnblockedClients, align 8
-  %len.i = getelementptr inbounds %struct.list, ptr %2, i64 0, i32 5
+  %len.i = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load i64, ptr %len.i, align 8
   %cmp.i = icmp eq i64 %3, 0
   br i1 %cmp.i, label %if.then2.i, label %moduleUnblockClientByHandle.exit
@@ -16939,16 +16883,16 @@ moduleUnblockClientByHandle.exit:                 ; preds = %if.end.i, %if.then2
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @moduleBlockClient(ptr nocapture noundef readonly %ctx, ptr noundef %reply_callback, ptr noundef %auth_reply_callback, ptr noundef %timeout_callback, ptr noundef %free_privdata, i64 noundef %timeout_ms, ptr noundef %keys, i32 noundef %numkeys, ptr noundef %privdata, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
   %call = tail call i32 @scriptIsRunning() #34
   %1 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 30), align 4
   %call1 = tail call noalias dereferenceable_or_null(112) ptr @zmalloc(i64 noundef 112) #35
-  %module_blocked_handle = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 55, i32 7
+  %module_blocked_handle = getelementptr inbounds i8, ptr %0, i64 512
   store ptr %call1, ptr %module_blocked_handle, align 8
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %module, align 8
-  %blocked_clients = getelementptr inbounds %struct.RedisModule, ptr %2, i64 0, i32 13
+  %blocked_clients = getelementptr inbounds i8, ptr %2, i64 80
   %3 = load i32, ptr %blocked_clients, align 8
   %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %blocked_clients, align 8
@@ -16958,19 +16902,19 @@ entry:
   %cond = select i1 %or.cond, ptr null, ptr %0
   store ptr %cond, ptr %call1, align 8
   %4 = load ptr, ptr %module, align 8
-  %module7 = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %call1, i64 0, i32 1
+  %module7 = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %4, ptr %module7, align 8
-  %reply_callback8 = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %call1, i64 0, i32 2
+  %reply_callback8 = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr %reply_callback, ptr %reply_callback8, align 8
-  %auth_reply_cb = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %call1, i64 0, i32 3
+  %auth_reply_cb = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr %auth_reply_callback, ptr %auth_reply_cb, align 8
-  %timeout_callback9 = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %call1, i64 0, i32 4
+  %timeout_callback9 = getelementptr inbounds i8, ptr %call1, i64 32
   store ptr %timeout_callback, ptr %timeout_callback9, align 8
-  %disconnect_callback = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %call1, i64 0, i32 5
+  %disconnect_callback = getelementptr inbounds i8, ptr %call1, i64 40
   store ptr null, ptr %disconnect_callback, align 8
-  %free_privdata10 = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %call1, i64 0, i32 6
+  %free_privdata10 = getelementptr inbounds i8, ptr %call1, i64 48
   store ptr %free_privdata, ptr %free_privdata10, align 8
-  %privdata11 = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %call1, i64 0, i32 7
+  %privdata11 = getelementptr inbounds i8, ptr %call1, i64 56
   store ptr %privdata, ptr %privdata11, align 8
   %5 = load i64, ptr @moduleTempClientCount, align 8
   %cmp.not.i = icmp eq i64 %5, 0
@@ -16992,11 +16936,11 @@ if.then2.i:                                       ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %entry
   %call.i = tail call ptr @createClient(ptr noundef null) #34
-  %flags.i = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %9 = load i64, ptr %flags.i, align 8
   %or.i = or i64 %9, 134217728
   store i64 %or.i, ptr %flags.i, align 8
-  %user.i = getelementptr inbounds %struct.client, ptr %call.i, i64 0, i32 20
+  %user.i = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr null, ptr %user.i, align 8
   %.pr.pre = load i64, ptr @moduleTempClientCount, align 8
   br label %moduleAllocTempClient.exit
@@ -17004,7 +16948,7 @@ if.else.i:                                        ; preds = %entry
 moduleAllocTempClient.exit:                       ; preds = %if.then2.i, %if.else.i, %if.then.i
   %10 = phi i64 [ %dec.i, %if.then.i ], [ %.pr.pre, %if.else.i ], [ %dec.i, %if.then2.i ]
   %c.0.i = phi ptr [ %7, %if.then.i ], [ %call.i, %if.else.i ], [ %7, %if.then2.i ]
-  %reply_client = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %call1, i64 0, i32 9
+  %reply_client = getelementptr inbounds i8, ptr %call1, i64 72
   store ptr %c.0.i, ptr %reply_client, align 8
   %cmp.not.i50 = icmp eq i64 %10, 0
   br i1 %cmp.not.i50, label %if.else.i57, label %if.then.i51
@@ -17025,45 +16969,45 @@ if.then2.i56:                                     ; preds = %if.then.i51
 
 if.else.i57:                                      ; preds = %moduleAllocTempClient.exit
   %call.i58 = tail call ptr @createClient(ptr noundef null) #34
-  %flags.i59 = getelementptr inbounds %struct.client, ptr %call.i58, i64 0, i32 1
+  %flags.i59 = getelementptr inbounds i8, ptr %call.i58, i64 8
   %14 = load i64, ptr %flags.i59, align 8
   %or.i60 = or i64 %14, 134217728
   store i64 %or.i60, ptr %flags.i59, align 8
-  %user.i61 = getelementptr inbounds %struct.client, ptr %call.i58, i64 0, i32 20
+  %user.i61 = getelementptr inbounds i8, ptr %call.i58, i64 152
   store ptr null, ptr %user.i61, align 8
   br label %moduleAllocTempClient.exit62
 
 moduleAllocTempClient.exit62:                     ; preds = %if.then.i51, %if.then2.i56, %if.else.i57
   %c.0.i55 = phi ptr [ %12, %if.then2.i56 ], [ %12, %if.then.i51 ], [ %call.i58, %if.else.i57 ]
-  %thread_safe_ctx_client = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %call1, i64 0, i32 8
+  %thread_safe_ctx_client = getelementptr inbounds i8, ptr %call1, i64 64
   store ptr %c.0.i55, ptr %thread_safe_ctx_client, align 8
   %15 = load ptr, ptr %call1, align 8
   %tobool15.not = icmp eq ptr %15, null
   br i1 %tobool15.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %moduleAllocTempClient.exit62
-  %resp = getelementptr inbounds %struct.client, ptr %15, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load i32, ptr %resp, align 8
   %17 = load ptr, ptr %reply_client, align 8
-  %resp18 = getelementptr inbounds %struct.client, ptr %17, i64 0, i32 3
+  %resp18 = getelementptr inbounds i8, ptr %17, i64 24
   store i32 %16, ptr %resp18, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %moduleAllocTempClient.exit62
-  %db = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %0, i64 32
   %18 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %18, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %18, i64 48
   %19 = load i32, ptr %id, align 8
-  %dbid = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %call1, i64 0, i32 10
+  %dbid = getelementptr inbounds i8, ptr %call1, i64 80
   store i32 %19, ptr %dbid, align 8
   %cmp = icmp ne ptr %keys, null
   %conv = zext i1 %cmp to i32
-  %blocked_on_keys = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %call1, i64 0, i32 11
+  %blocked_on_keys = getelementptr inbounds i8, ptr %call1, i64 84
   store i32 %conv, ptr %blocked_on_keys, align 4
-  %unblocked = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %call1, i64 0, i32 12
+  %unblocked = getelementptr inbounds i8, ptr %call1, i64 88
   store i32 0, ptr %unblocked, align 8
-  %background_timer = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %call1, i64 0, i32 13
-  %timeout = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 55, i32 1
+  %background_timer = getelementptr inbounds i8, ptr %call1, i64 96
+  %timeout = getelementptr inbounds i8, ptr %0, i64 472
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %background_timer, i8 0, i64 16, i1 false)
   store i64 0, ptr %timeout, align 8
   %tobool20.not = icmp eq i64 %timeout_ms, 0
@@ -17096,7 +17040,7 @@ if.then35:                                        ; preds = %if.end31
   br label %return
 
 if.else:                                          ; preds = %if.end31
-  %flags40 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags40 = getelementptr inbounds i8, ptr %ctx, i64 48
   %21 = load i32, ptr %flags40, align 8
   %and = and i32 %21, 4
   %tobool41.not = icmp eq i32 %and, 0
@@ -17112,7 +17056,7 @@ if.else45:                                        ; preds = %if.else
   br i1 %tobool46.not, label %land.lhs.true, label %if.else52
 
 land.lhs.true:                                    ; preds = %if.else45
-  %module_auth_ctx = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 67
+  %module_auth_ctx = getelementptr inbounds i8, ptr %0, i64 616
   %22 = load ptr, ptr %module_auth_ctx, align 8
   %cmp47.not = icmp eq ptr %22, null
   br i1 %cmp47.not, label %if.else52, label %if.then49
@@ -17146,10 +17090,10 @@ declare void @blockClient(ptr noundef, i32 noundef) local_unnamed_addr #1
 define dso_local void @RM_RegisterAuthCallback(ptr nocapture noundef readonly %ctx, ptr noundef %cb) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #35
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
   store ptr %0, ptr %call, align 8
-  %auth_cb = getelementptr inbounds %struct.RedisModuleAuthCtx, ptr %call, i64 0, i32 1
+  %auth_cb = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %cb, ptr %auth_cb, align 8
   %1 = load ptr, ptr @moduleAuthCallbacks, align 8
   %call2 = tail call ptr @listAddNodeHead(ptr noundef %1, ptr noundef nonnull %call) #34
@@ -17162,13 +17106,13 @@ declare ptr @listAddNodeHead(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local void @moduleInvokeFreePrivDataCallback(ptr noundef readnone %c, ptr nocapture noundef readonly %bc) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.RedisModuleCtx, align 8
-  %privdata = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 7
+  %privdata = getelementptr inbounds i8, ptr %bc, i64 56
   %0 = load ptr, ptr %privdata, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %free_privdata = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 6
+  %free_privdata = getelementptr inbounds i8, ptr %bc, i64 48
   %1 = load ptr, ptr %free_privdata, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end, label %if.then
@@ -17176,14 +17120,14 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %cmp = icmp eq ptr %c, null
   %cond = select i1 %cmp, i32 32, i32 0
-  %module = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %bc, i64 8
   %2 = load ptr, ptr %module, align 8
   call void @moduleCreateContext(ptr noundef nonnull %ctx, ptr noundef %2, i32 noundef %cond)
   %3 = load ptr, ptr %privdata, align 8
-  %blocked_privdata = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 10
+  %blocked_privdata = getelementptr inbounds i8, ptr %ctx, i64 72
   store ptr %3, ptr %blocked_privdata, align 8
   %4 = load ptr, ptr %bc, align 8
-  %client3 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client3 = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %4, ptr %client3, align 8
   %5 = load ptr, ptr %free_privdata, align 8
   call void %5(ptr noundef nonnull %ctx, ptr noundef %3) #34
@@ -17206,7 +17150,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %if.end
   %call5 = phi ptr [ %call, %if.end ], [ %call3, %entry ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call5, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call5, i64 16
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %1, align 8
   %cmp = icmp eq ptr %2, %module
@@ -17234,15 +17178,15 @@ define dso_local i32 @attemptNextAuthCb(ptr noundef %c, ptr noundef %username, p
 entry:
   %li = alloca %struct.listIter, align 8
   %ctx = alloca %struct.RedisModuleCtx, align 8
-  %module_auth_ctx = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 67
+  %module_auth_ctx = getelementptr inbounds i8, ptr %c, i64 616
   %0 = load ptr, ptr %module_auth_ctx, align 8
   %cmp = icmp eq ptr %0, null
   %1 = load ptr, ptr @moduleAuthCallbacks, align 8
   call void @listRewind(ptr noundef %1, ptr noundef nonnull %li) #34
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %2 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
-  %3 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %3 = getelementptr inbounds i8, ptr %ctx, i64 104
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %moduleCreateContext.exit, %entry
@@ -17255,7 +17199,7 @@ while.cond.outer:                                 ; preds = %moduleCreateContext
 while.body:                                       ; preds = %while.cond.outer, %if.then
   %call15 = phi ptr [ %call, %if.then ], [ %call12, %while.cond.outer ]
   %handle_next_callback.0.shrunk14 = phi i1 [ %cmp3, %if.then ], [ %handle_next_callback.0.shrunk.ph, %while.cond.outer ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call15, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call15, i64 16
   %4 = load ptr, ptr %value, align 8
   br i1 %handle_next_callback.0.shrunk14, label %if.end, label %if.then
 
@@ -17300,7 +17244,7 @@ moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.els
   store ptr %c, ptr %2, align 8
   store ptr null, ptr %err, align 8
   store ptr %4, ptr %module_auth_ctx, align 8
-  %auth_cb = getelementptr inbounds %struct.RedisModuleAuthCtx, ptr %4, i64 0, i32 1
+  %auth_cb = getelementptr inbounds i8, ptr %4, i64 8
   %12 = load ptr, ptr %auth_cb, align 8
   %call6 = call i32 %12(ptr noundef nonnull %ctx, ptr noundef %username, ptr noundef %password, ptr noundef nonnull %err) #34
   call void @moduleFreeContext(ptr noundef nonnull %ctx)
@@ -17317,28 +17261,28 @@ define dso_local i32 @attemptBlockedAuthReplyCallback(ptr noundef %c, ptr nounde
 entry:
   %ctx.i = alloca %struct.RedisModuleCtx, align 8
   %ctx = alloca %struct.RedisModuleCtx, align 8
-  %module_blocked_client = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 66
+  %module_blocked_client = getelementptr inbounds i8, ptr %c, i64 608
   %0 = load ptr, ptr %module_blocked_client, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   store ptr %c, ptr %0, align 8
-  %auth_reply_cb = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 3
+  %auth_reply_cb = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %auth_reply_cb, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %module = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 4, ptr %flags.i, align 8
   %5 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
   %tobool8.not.i = icmp eq i32 %5, 0
@@ -17361,18 +17305,18 @@ if.else11.i:                                      ; preds = %if.then3
 
 moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.else11.i
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
-  %9 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %9 = getelementptr inbounds i8, ptr %ctx, i64 104
   store i64 %add.sink.i, ptr %9, align 8
   tail call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
-  %privdata = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 7
+  %privdata = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load ptr, ptr %privdata, align 8
-  %blocked_privdata = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 10
+  %blocked_privdata = getelementptr inbounds i8, ptr %ctx, i64 72
   store ptr %10, ptr %blocked_privdata, align 8
-  %blocked_ready_key = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 11
+  %blocked_ready_key = getelementptr inbounds i8, ptr %ctx, i64 80
   store ptr null, ptr %blocked_ready_key, align 8
   %11 = load ptr, ptr %0, align 8
   store ptr %11, ptr %3, align 8
-  %blocked_client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %0, ptr %blocked_client, align 8
   %12 = load ptr, ptr %auth_reply_cb, align 8
   %call = call i32 %12(ptr noundef nonnull %ctx, ptr noundef %username, ptr noundef %password, ptr noundef %err) #34
@@ -17382,26 +17326,26 @@ moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.els
 if.end7:                                          ; preds = %moduleCreateContext.exit, %if.end
   %result.0 = phi i32 [ %call, %moduleCreateContext.exit ], [ 1, %if.end ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ctx.i)
-  %privdata.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 7
+  %privdata.i = getelementptr inbounds i8, ptr %0, i64 56
   %13 = load ptr, ptr %privdata.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %moduleInvokeFreePrivDataCallback.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end7
-  %free_privdata.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 6
+  %free_privdata.i = getelementptr inbounds i8, ptr %0, i64 48
   %14 = load ptr, ptr %free_privdata.i, align 8
   %tobool1.not.i = icmp eq ptr %14, null
   br i1 %tobool1.not.i, label %moduleInvokeFreePrivDataCallback.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %module.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 1
+  %module.i = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load ptr, ptr %module.i, align 8
   call void @moduleCreateContext(ptr noundef nonnull %ctx.i, ptr noundef %15, i32 noundef 0)
   %16 = load ptr, ptr %privdata.i, align 8
-  %blocked_privdata.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx.i, i64 0, i32 10
+  %blocked_privdata.i = getelementptr inbounds i8, ptr %ctx.i, i64 72
   store ptr %16, ptr %blocked_privdata.i, align 8
   %17 = load ptr, ptr %0, align 8
-  %client3.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx.i, i64 0, i32 2
+  %client3.i = getelementptr inbounds i8, ptr %ctx.i, i64 16
   store ptr %17, ptr %client3.i, align 8
   %18 = load ptr, ptr %free_privdata.i, align 8
   call void %18(ptr noundef nonnull %ctx.i, ptr noundef %16) #34
@@ -17411,17 +17355,17 @@ if.then.i:                                        ; preds = %land.lhs.true.i
 moduleInvokeFreePrivDataCallback.exit:            ; preds = %if.end7, %land.lhs.true.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ctx.i)
   store ptr null, ptr %module_blocked_client, align 8
-  %background_duration = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 14
+  %background_duration = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load i64, ptr %background_duration, align 8
-  %lastcmd = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 18
+  %lastcmd = getelementptr inbounds i8, ptr %c, i64 136
   %20 = load ptr, ptr %lastcmd, align 8
-  %microseconds = getelementptr inbounds %struct.redisCommand, ptr %20, i64 0, i32 22
+  %microseconds = getelementptr inbounds i8, ptr %20, i64 176
   %21 = load i64, ptr %microseconds, align 8
   %add = add i64 %21, %19
   store i64 %add, ptr %microseconds, align 8
-  %module9 = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 1
+  %module9 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = load ptr, ptr %module9, align 8
-  %blocked_clients = getelementptr inbounds %struct.RedisModule, ptr %22, i64 0, i32 13
+  %blocked_clients = getelementptr inbounds i8, ptr %22, i64 80
   %23 = load i32, ptr %blocked_clients, align 8
   %dec = add nsw i32 %23, -1
   store i32 %dec, ptr %blocked_clients, align 8
@@ -17437,7 +17381,7 @@ return:                                           ; preds = %entry, %moduleInvok
 define dso_local i32 @checkModuleAuthentication(ptr noundef %c, ptr noundef %username, ptr noundef %password, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @moduleAuthCallbacks, align 8
-  %len = getelementptr inbounds %struct.list, ptr %0, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -17453,7 +17397,7 @@ if.then1:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.then1, %if.end
   %result.0 = phi i32 [ %call2, %if.then1 ], [ %call, %if.end ]
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %2 = load i64, ptr %flags, align 8
   %and = and i64 %2, 16
   %tobool4.not = icmp eq i64 %and, 0
@@ -17469,7 +17413,7 @@ cond.false:                                       ; preds = %if.then5
   unreachable
 
 if.end9:                                          ; preds = %if.end3
-  %module_auth_ctx = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 67
+  %module_auth_ctx = getelementptr inbounds i8, ptr %c, i64 616
   store ptr null, ptr %module_auth_ctx, align 8
   %cmp10 = icmp eq i32 %result.0, 1
   br i1 %cmp10, label %if.then12, label %if.end15
@@ -17487,7 +17431,7 @@ if.end15:                                         ; preds = %if.end9
 if.then19:                                        ; preds = %if.end15
   %and21 = and i64 %2, -140737488355345
   store i64 %and21, ptr %flags, align 8
-  %authenticated = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 34
+  %authenticated = getelementptr inbounds i8, ptr %c, i64 256
   %3 = load i32, ptr %authenticated, align 8
   %tobool22.not = icmp eq i32 %3, 0
   br i1 %tobool22.not, label %if.end25, label %return
@@ -17504,23 +17448,23 @@ return:                                           ; preds = %if.then19, %if.then
 define dso_local i32 @moduleTryServeClientBlockedOnKey(ptr nocapture noundef readonly %c, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.RedisModuleCtx, align 8
-  %module_blocked_handle = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 55, i32 7
+  %module_blocked_handle = getelementptr inbounds i8, ptr %c, i64 512
   %0 = load ptr, ptr %module_blocked_handle, align 8
-  %unblocked = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 12
+  %unblocked = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load i32, ptr %unblocked, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %module = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 4, ptr %flags.i, align 8
   %5 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
   %tobool8.not.i = icmp eq i32 %5, 0
@@ -17543,24 +17487,24 @@ if.else11.i:                                      ; preds = %if.end
 
 moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.else11.i
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
-  %9 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %9 = getelementptr inbounds i8, ptr %ctx, i64 104
   store i64 %add.sink.i, ptr %9, align 8
   tail call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
-  %blocked_ready_key = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 11
+  %blocked_ready_key = getelementptr inbounds i8, ptr %ctx, i64 80
   store ptr %key, ptr %blocked_ready_key, align 8
-  %privdata = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 7
+  %privdata = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load ptr, ptr %privdata, align 8
-  %blocked_privdata = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 10
+  %blocked_privdata = getelementptr inbounds i8, ptr %ctx, i64 72
   store ptr %10, ptr %blocked_privdata, align 8
   %11 = load ptr, ptr %0, align 8
   store ptr %11, ptr %3, align 8
-  %blocked_client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %0, ptr %blocked_client, align 8
-  %reply_callback = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 2
+  %reply_callback = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %reply_callback, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %13 = load ptr, ptr %argv, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %14 = load i32, ptr %argc, align 8
   %call = call i32 %12(ptr noundef nonnull %ctx, ptr noundef %13, i32 noundef %14) #34
   %cmp = icmp eq i32 %call, 0
@@ -17583,9 +17527,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_BlockClientOnAuth(ptr nocapture noundef readonly %ctx, ptr noundef %reply_callback, ptr noundef %free_privdata) #0 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
-  %module_auth_ctx = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 67
+  %module_auth_ctx = getelementptr inbounds i8, ptr %0, i64 616
   %1 = load ptr, ptr %module_auth_ctx, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.then, label %if.end
@@ -17597,7 +17541,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call = tail call ptr @moduleBlockClient(ptr noundef nonnull %ctx, ptr noundef null, ptr noundef %reply_callback, ptr noundef null, ptr noundef %free_privdata, i64 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %2 = load ptr, ptr %client, align 8
-  %flags = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %flags, align 8
   %and = and i64 %3, 16
   %tobool.not = icmp eq i64 %and, 0
@@ -17616,7 +17560,7 @@ return:                                           ; preds = %if.end, %if.then3, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @RM_BlockClientGetPrivateData(ptr nocapture noundef readonly %blocked_client) #6 {
 entry:
-  %privdata = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %blocked_client, i64 0, i32 7
+  %privdata = getelementptr inbounds i8, ptr %blocked_client, i64 56
   %0 = load ptr, ptr %privdata, align 8
   ret ptr %0
 }
@@ -17624,7 +17568,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @RM_BlockClientSetPrivateData(ptr nocapture noundef writeonly %blocked_client, ptr noundef %private_data) #24 {
 entry:
-  %privdata = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %blocked_client, i64 0, i32 7
+  %privdata = getelementptr inbounds i8, ptr %blocked_client, i64 56
   store ptr %private_data, ptr %privdata, align 8
   ret void
 }
@@ -17646,9 +17590,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_SignalKeyAsReady(ptr nocapture noundef readonly %ctx, ptr noundef %key) #0 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %db, align 8
   tail call void @signalKeyAsReady(ptr noundef %1, ptr noundef %key, i32 noundef 5) #34
   ret void
@@ -17660,21 +17604,21 @@ declare void @signalKeyAsReady(ptr noundef, ptr noundef, i32 noundef) local_unna
 define dso_local i32 @moduleUnblockClientByHandle(ptr noundef %bc, ptr noundef %privdata) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @moduleUnblockedClientsMutex) #34
-  %blocked_on_keys = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 11
+  %blocked_on_keys = getelementptr inbounds i8, ptr %bc, i64 84
   %0 = load i32, ptr %blocked_on_keys, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %privdata1 = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 7
+  %privdata1 = getelementptr inbounds i8, ptr %bc, i64 56
   store ptr %privdata, ptr %privdata1, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %unblocked = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 12
+  %unblocked = getelementptr inbounds i8, ptr %bc, i64 88
   store i32 1, ptr %unblocked, align 8
   %1 = load ptr, ptr @moduleUnblockedClients, align 8
-  %len = getelementptr inbounds %struct.list, ptr %1, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load i64, ptr %len, align 8
   %cmp = icmp eq i64 %2, 0
   br i1 %cmp, label %if.then2, label %if.end7
@@ -17704,9 +17648,9 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #27
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @moduleClientIsBlockedOnKeys(ptr nocapture noundef readonly %c) local_unnamed_addr #11 {
 entry:
-  %module_blocked_handle = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 55, i32 7
+  %module_blocked_handle = getelementptr inbounds i8, ptr %c, i64 512
   %0 = load ptr, ptr %module_blocked_handle, align 8
-  %blocked_on_keys = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 11
+  %blocked_on_keys = getelementptr inbounds i8, ptr %0, i64 84
   %1 = load i32, ptr %blocked_on_keys, align 4
   ret i32 %1
 }
@@ -17714,19 +17658,19 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_UnblockClient(ptr noundef %bc, ptr noundef %privdata) #0 {
 entry:
-  %blocked_on_keys = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 11
+  %blocked_on_keys = getelementptr inbounds i8, ptr %bc, i64 84
   %0 = load i32, ptr %blocked_on_keys, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %entry
-  %timeout_callback = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 4
+  %timeout_callback = getelementptr inbounds i8, ptr %bc, i64 32
   %1 = load ptr, ptr %timeout_callback, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %unblocked = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 12
+  %unblocked = getelementptr inbounds i8, ptr %bc, i64 88
   %2 = load i32, ptr %unblocked, align 8
   %tobool2.not = icmp eq i32 %2, 0
   br i1 %tobool2.not, label %if.end4, label %return
@@ -17747,15 +17691,15 @@ if.end9:                                          ; preds = %if.end4, %if.then6,
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end9
-  %privdata1.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 7
+  %privdata1.i = getelementptr inbounds i8, ptr %bc, i64 56
   store ptr %privdata, ptr %privdata1.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end9
-  %unblocked.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 12
+  %unblocked.i = getelementptr inbounds i8, ptr %bc, i64 88
   store i32 1, ptr %unblocked.i, align 8
   %5 = load ptr, ptr @moduleUnblockedClients, align 8
-  %len.i = getelementptr inbounds %struct.list, ptr %5, i64 0, i32 5
+  %len.i = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load i64, ptr %len.i, align 8
   %cmp.i = icmp eq i64 %6, 0
   br i1 %cmp.i, label %if.then2.i, label %moduleUnblockClientByHandle.exit
@@ -17781,23 +17725,23 @@ return:                                           ; preds = %if.end, %if.then, %
 define dso_local void @moduleBlockedClientTimedOut(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.RedisModuleCtx, align 8
-  %module_blocked_handle = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 55, i32 7
+  %module_blocked_handle = getelementptr inbounds i8, ptr %c, i64 512
   %0 = load ptr, ptr %module_blocked_handle, align 8
-  %unblocked = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 12
+  %unblocked = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load i32, ptr %unblocked, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %module = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %module, align 8
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %2, ptr %module1.i, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 8, ptr %flags.i, align 8
   %5 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
   %tobool8.not.i = icmp eq i32 %5, 0
@@ -17820,33 +17764,33 @@ if.else11.i:                                      ; preds = %if.end
 
 moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.else11.i
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
-  %9 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %9 = getelementptr inbounds i8, ptr %ctx, i64 104
   store i64 %add.sink.i, ptr %9, align 8
   tail call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
   %10 = load ptr, ptr %0, align 8
   store ptr %10, ptr %3, align 8
-  %blocked_client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %0, ptr %blocked_client, align 8
-  %privdata = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 7
+  %privdata = getelementptr inbounds i8, ptr %0, i64 56
   %11 = load ptr, ptr %privdata, align 8
-  %blocked_privdata = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 10
+  %blocked_privdata = getelementptr inbounds i8, ptr %ctx, i64 72
   store ptr %11, ptr %blocked_privdata, align 8
   %12 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 140), align 8
-  %timeout_callback = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 4
+  %timeout_callback = getelementptr inbounds i8, ptr %0, i64 32
   %13 = load ptr, ptr %timeout_callback, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %14 = load ptr, ptr %argv, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %15 = load i32, ptr %argc, align 8
   %call = call i32 %13(ptr noundef nonnull %ctx, ptr noundef %14, i32 noundef %15) #34
   call void @moduleFreeContext(ptr noundef nonnull %ctx)
-  %background_duration = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 14
+  %background_duration = getelementptr inbounds i8, ptr %0, i64 104
   %16 = load i64, ptr %background_duration, align 8
   %17 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 140), align 8
   %cmp = icmp ne i64 %17, %12
   %conv = zext i1 %cmp to i32
   call void @updateStatsOnUnblock(ptr noundef nonnull %c, i64 noundef %16, i64 noundef 0, i32 noundef %conv) #34
-  %disconnect_callback = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %0, i64 0, i32 5
+  %disconnect_callback = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %disconnect_callback, align 8
   br label %return
 
@@ -17857,8 +17801,8 @@ return:                                           ; preds = %entry, %moduleCreat
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_AbortBlock(ptr noundef %bc) #0 {
 entry:
-  %reply_callback = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 2
-  %disconnect_callback = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 5
+  %reply_callback = getelementptr inbounds i8, ptr %bc, i64 16
+  %disconnect_callback = getelementptr inbounds i8, ptr %bc, i64 40
   store ptr null, ptr %disconnect_callback, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %reply_callback, i8 0, i64 16, i1 false)
   %call = tail call i32 @RM_UnblockClient(ptr noundef %bc, ptr noundef null), !range !22
@@ -17868,7 +17812,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @RM_SetDisconnectCallback(ptr nocapture noundef writeonly %bc, ptr noundef %callback) #24 {
 entry:
-  %disconnect_callback = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 5
+  %disconnect_callback = getelementptr inbounds i8, ptr %bc, i64 40
   store ptr %callback, ptr %disconnect_callback, align 8
   ret void
 }
@@ -17881,32 +17825,32 @@ entry:
   %ctx = alloca %struct.RedisModuleCtx, align 8
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @moduleUnblockedClientsMutex) #34
   %0 = load ptr, ptr @moduleUnblockedClients, align 8
-  %len72 = getelementptr inbounds %struct.list, ptr %0, i64 0, i32 5
+  %len72 = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %len72, align 8
   %tobool.not73 = icmp eq i64 %1, 0
   br i1 %tobool.not73, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
-  %3 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
-  %blocked_privdata = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 10
-  %blocked_ready_key = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 11
-  %blocked_client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
-  %blocked_privdata.i50 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx.i42, i64 0, i32 10
-  %client3.i51 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx.i42, i64 0, i32 2
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %3 = getelementptr inbounds i8, ptr %ctx, i64 104
+  %blocked_privdata = getelementptr inbounds i8, ptr %ctx, i64 72
+  %blocked_ready_key = getelementptr inbounds i8, ptr %ctx, i64 80
+  %blocked_client = getelementptr inbounds i8, ptr %ctx, i64 24
+  %blocked_privdata.i50 = getelementptr inbounds i8, ptr %ctx.i42, i64 72
+  %client3.i51 = getelementptr inbounds i8, ptr %ctx.i42, i64 16
   %4 = getelementptr inbounds i8, ptr %ctx.i, i64 16
-  %module1.i53 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx.i, i64 0, i32 1
-  %flags.i54 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx.i, i64 0, i32 7
-  %5 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx.i, i64 0, i32 14
-  %blocked_privdata.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx.i, i64 0, i32 10
+  %module1.i53 = getelementptr inbounds i8, ptr %ctx.i, i64 8
+  %flags.i54 = getelementptr inbounds i8, ptr %ctx.i, i64 48
+  %5 = getelementptr inbounds i8, ptr %ctx.i, i64 104
+  %blocked_privdata.i = getelementptr inbounds i8, ptr %ctx.i, i64 72
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end51
   %6 = phi ptr [ %0, %while.body.lr.ph ], [ %57, %if.end51 ]
   %7 = load ptr, ptr %6, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %7, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %value, align 8
   %9 = load ptr, ptr %8, align 8
   call void @listDelNode(ptr noundef nonnull %6, ptr noundef %7) #34
@@ -17916,19 +17860,19 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool2.not, label %if.end.split, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body
-  %blocked_on_keys = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 11
+  %blocked_on_keys = getelementptr inbounds i8, ptr %8, i64 84
   %11 = load i32, ptr %blocked_on_keys, align 4
   %tobool3.not = icmp eq i32 %11, 0
   br i1 %tobool3.not, label %land.lhs.true4, label %land.lhs.true12
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %reply_callback = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 2
+  %reply_callback = getelementptr inbounds i8, ptr %8, i64 16
   %12 = load ptr, ptr %reply_callback, align 8
   %tobool5.not = icmp eq ptr %12, null
   br i1 %tobool5.not, label %land.lhs.true12, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true4
-  %module = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %8, i64 8
   %13 = load ptr, ptr %module, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
@@ -17957,7 +17901,7 @@ moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.els
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
   store i64 %add.sink.i, ptr %3, align 8
   call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
-  %privdata = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 7
+  %privdata = getelementptr inbounds i8, ptr %8, i64 56
   %18 = load ptr, ptr %privdata, align 8
   store ptr %18, ptr %blocked_privdata, align 8
   store ptr null, ptr %blocked_ready_key, align 8
@@ -17967,9 +17911,9 @@ moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.els
   %20 = load ptr, ptr @getMonotonicUs, align 8
   %call.i = call i64 %20() #34
   %21 = load ptr, ptr %reply_callback, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %9, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %9, i64 96
   %22 = load ptr, ptr %argv, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %9, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %9, i64 88
   %23 = load i32, ptr %argc, align 8
   %call9 = call i32 %21(ptr noundef nonnull %ctx, ptr noundef %22, i32 noundef %23) #34
   %24 = load ptr, ptr @getMonotonicUs, align 8
@@ -17980,19 +17924,19 @@ moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.els
 
 if.end.split:                                     ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ctx.i)
-  %privdata.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 7
+  %privdata.i = getelementptr inbounds i8, ptr %8, i64 56
   %25 = load ptr, ptr %privdata.i, align 8
   %tobool.not.i = icmp eq ptr %25, null
   br i1 %tobool.not.i, label %if.end28, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.split
-  %free_privdata.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 6
+  %free_privdata.i = getelementptr inbounds i8, ptr %8, i64 48
   %26 = load ptr, ptr %free_privdata.i, align 8
   %tobool1.not.i = icmp eq ptr %26, null
   br i1 %tobool1.not.i, label %if.end28, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %module.i = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 1
+  %module.i = getelementptr inbounds i8, ptr %8, i64 8
   %27 = load ptr, ptr %module.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx.i, align 8
@@ -18032,26 +17976,26 @@ moduleCreateContext.exit65:                       ; preds = %if.then9.i57, %if.e
 
 land.lhs.true12:                                  ; preds = %moduleCreateContext.exit, %land.lhs.true4, %land.lhs.true
   %reply_us.0.ph = phi i64 [ 0, %land.lhs.true4 ], [ %sub.i, %moduleCreateContext.exit ], [ 0, %land.lhs.true ]
-  %module_auth_ctx = getelementptr inbounds %struct.client, ptr %9, i64 0, i32 67
+  %module_auth_ctx = getelementptr inbounds i8, ptr %9, i64 616
   %35 = load ptr, ptr %module_auth_ctx, align 8
   %cmp.not = icmp eq ptr %35, null
   br i1 %cmp.not, label %land.lhs.true12.split, label %if.then13
 
 land.lhs.true12.split:                            ; preds = %land.lhs.true12
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %ctx.i42)
-  %privdata.i43 = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 7
+  %privdata.i43 = getelementptr inbounds i8, ptr %8, i64 56
   %36 = load ptr, ptr %privdata.i43, align 8
   %tobool.not.i44 = icmp eq ptr %36, null
   br i1 %tobool.not.i44, label %moduleInvokeFreePrivDataCallback.exit52, label %land.lhs.true.i45
 
 land.lhs.true.i45:                                ; preds = %land.lhs.true12.split
-  %free_privdata.i46 = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 6
+  %free_privdata.i46 = getelementptr inbounds i8, ptr %8, i64 48
   %37 = load ptr, ptr %free_privdata.i46, align 8
   %tobool1.not.i47 = icmp eq ptr %37, null
   br i1 %tobool1.not.i47, label %moduleInvokeFreePrivDataCallback.exit52, label %if.then.i48
 
 if.then.i48:                                      ; preds = %land.lhs.true.i45
-  %module.i49 = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 1
+  %module.i49 = getelementptr inbounds i8, ptr %8, i64 8
   %38 = load ptr, ptr %module.i49, align 8
   call void @moduleCreateContext(ptr noundef nonnull %ctx.i42, ptr noundef %38, i32 noundef 0)
   %39 = load ptr, ptr %privdata.i43, align 8
@@ -18068,17 +18012,17 @@ moduleInvokeFreePrivDataCallback.exit52:          ; preds = %land.lhs.true12.spl
   br label %if.then16
 
 if.then13:                                        ; preds = %land.lhs.true12
-  %module_blocked_client = getelementptr inbounds %struct.client, ptr %9, i64 0, i32 66
+  %module_blocked_client = getelementptr inbounds i8, ptr %9, i64 608
   store ptr %8, ptr %module_blocked_client, align 8
   br label %if.then16
 
 if.then16:                                        ; preds = %moduleInvokeFreePrivDataCallback.exit52, %if.then13
-  %reply_client = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 9
+  %reply_client = getelementptr inbounds i8, ptr %8, i64 72
   %42 = load ptr, ptr %reply_client, align 8
   call void @AddReplyFromClient(ptr noundef nonnull %9, ptr noundef %42) #34
   %43 = load ptr, ptr %reply_client, align 8
   call void @moduleReleaseTempClient(ptr noundef %43)
-  %thread_safe_ctx_client = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 8
+  %thread_safe_ctx_client = getelementptr inbounds i8, ptr %8, i64 64
   %44 = load ptr, ptr %thread_safe_ctx_client, align 8
   call void @moduleReleaseTempClient(ptr noundef %44)
   %45 = load ptr, ptr %module_auth_ctx, align 8
@@ -18091,7 +18035,7 @@ land.lhs.true23:                                  ; preds = %if.then16
   br i1 %tobool25.not, label %if.then26, label %if.then31
 
 if.then26:                                        ; preds = %land.lhs.true23
-  %background_duration = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 14
+  %background_duration = getelementptr inbounds i8, ptr %8, i64 104
   %47 = load i64, ptr %background_duration, align 8
   %48 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 140), align 8
   %cmp27 = icmp ne i64 %48, %10
@@ -18101,20 +18045,20 @@ if.then26:                                        ; preds = %land.lhs.true23
 
 if.end28:                                         ; preds = %moduleCreateContext.exit65, %land.lhs.true.i, %if.end.split
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %ctx.i)
-  %reply_client18.c = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 9
+  %reply_client18.c = getelementptr inbounds i8, ptr %8, i64 72
   %49 = load ptr, ptr %reply_client18.c, align 8
   call void @moduleReleaseTempClient(ptr noundef %49)
-  %thread_safe_ctx_client.c = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 8
+  %thread_safe_ctx_client.c = getelementptr inbounds i8, ptr %8, i64 64
   %50 = load ptr, ptr %thread_safe_ctx_client.c, align 8
   call void @moduleReleaseTempClient(ptr noundef %50)
   br label %if.then49
 
 if.then31:                                        ; preds = %if.then26, %land.lhs.true23, %if.then16
-  %disconnect_callback = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 5
+  %disconnect_callback = getelementptr inbounds i8, ptr %8, i64 40
   store ptr null, ptr %disconnect_callback, align 8
   call void @unblockClient(ptr noundef nonnull %9, i32 noundef 1) #34
   %51 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 262), align 8
-  %woff = getelementptr inbounds %struct.client, ptr %9, i64 0, i32 56
+  %woff = getelementptr inbounds i8, ptr %9, i64 528
   store i64 %51, ptr %woff, align 8
   %52 = load ptr, ptr %module_auth_ctx, align 8
   %cmp33.not = icmp eq ptr %52, null
@@ -18126,7 +18070,7 @@ land.lhs.true35:                                  ; preds = %if.then31
   br i1 %tobool37.not, label %land.lhs.true45, label %land.lhs.true38
 
 land.lhs.true38:                                  ; preds = %land.lhs.true35
-  %flags = getelementptr inbounds %struct.client, ptr %9, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %9, i64 8
   %53 = load i64, ptr %flags, align 8
   %and = and i64 %53, 2097152
   %tobool39.not = icmp eq i64 %and, 0
@@ -18136,7 +18080,7 @@ if.then40:                                        ; preds = %land.lhs.true38
   %or = or disjoint i64 %53, 2097152
   store i64 %or, ptr %flags, align 8
   %54 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 57), align 8
-  %clients_pending_write_node = getelementptr inbounds %struct.client, ptr %9, i64 0, i32 79
+  %clients_pending_write_node = getelementptr inbounds i8, ptr %9, i64 712
   call void @listLinkNodeHead(ptr noundef %54, ptr noundef nonnull %clients_pending_write_node) #34
   br label %land.lhs.true45
 
@@ -18146,9 +18090,9 @@ land.lhs.true45:                                  ; preds = %if.then40, %land.lh
   br i1 %cmp47.not, label %if.then49, label %if.end51
 
 if.then49:                                        ; preds = %if.end28, %land.lhs.true45
-  %module50 = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %8, i64 0, i32 1
+  %module50 = getelementptr inbounds i8, ptr %8, i64 8
   %55 = load ptr, ptr %module50, align 8
-  %blocked_clients = getelementptr inbounds %struct.RedisModule, ptr %55, i64 0, i32 13
+  %blocked_clients = getelementptr inbounds i8, ptr %55, i64 80
   %56 = load i32, ptr %blocked_clients, align 8
   %dec = add nsw i32 %56, -1
   store i32 %dec, ptr %blocked_clients, align 8
@@ -18158,7 +18102,7 @@ if.then49:                                        ; preds = %if.end28, %land.lhs
 if.end51:                                         ; preds = %if.then31, %if.then49, %land.lhs.true45
   %call52 = call i32 @pthread_mutex_lock(ptr noundef nonnull @moduleUnblockedClientsMutex) #34
   %57 = load ptr, ptr @moduleUnblockedClients, align 8
-  %len = getelementptr inbounds %struct.list, ptr %57, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %57, i64 40
   %58 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %58, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !50
@@ -18179,19 +18123,19 @@ declare void @listLinkNodeHead(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @moduleBlockedClientMayTimeout(ptr nocapture noundef readonly %c) local_unnamed_addr #11 {
 entry:
-  %bstate = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 55
+  %bstate = getelementptr inbounds i8, ptr %c, i64 464
   %0 = load i32, ptr %bstate, align 8
   %cmp.not = icmp eq i32 %0, 4
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %module_blocked_handle = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 55, i32 7
+  %module_blocked_handle = getelementptr inbounds i8, ptr %c, i64 512
   %1 = load ptr, ptr %module_blocked_handle, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end
-  %timeout_callback = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %1, i64 0, i32 4
+  %timeout_callback = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %timeout_callback, align 8
   %cmp2 = icmp ne ptr %2, null
   %3 = zext i1 %cmp2 to i32
@@ -18205,7 +18149,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @RM_IsBlockedReplyRequest(ptr nocapture noundef readonly %ctx) #6 {
 entry:
-  %flags = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
   %and = lshr i32 %0, 2
   %and.lobit = and i32 %and, 1
@@ -18215,7 +18159,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @RM_IsBlockedTimeoutRequest(ptr nocapture noundef readonly %ctx) #6 {
 entry:
-  %flags = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
   %and = lshr i32 %0, 3
   %and.lobit = and i32 %and, 1
@@ -18225,7 +18169,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @RM_GetBlockedClientPrivateData(ptr nocapture noundef readonly %ctx) #6 {
 entry:
-  %blocked_privdata = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 10
+  %blocked_privdata = getelementptr inbounds i8, ptr %ctx, i64 72
   %0 = load ptr, ptr %blocked_privdata, align 8
   ret ptr %0
 }
@@ -18233,7 +18177,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @RM_GetBlockedClientReadyKey(ptr nocapture noundef readonly %ctx) #6 {
 entry:
-  %blocked_ready_key = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 11
+  %blocked_ready_key = getelementptr inbounds i8, ptr %ctx, i64 80
   %0 = load ptr, ptr %blocked_ready_key, align 8
   ret ptr %0
 }
@@ -18241,7 +18185,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @RM_GetBlockedClientHandle(ptr nocapture noundef readonly %ctx) #6 {
 entry:
-  %blocked_client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 3
+  %blocked_client = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %blocked_client, align 8
   ret ptr %0
 }
@@ -18249,7 +18193,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @RM_BlockedClientDisconnected(ptr nocapture noundef readonly %ctx) #6 {
 entry:
-  %flags = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags, align 8
   %and = lshr i32 %0, 5
   %and.lobit = and i32 %and, 1
@@ -18264,15 +18208,15 @@ entry:
   br i1 %tobool.not, label %if.then.split, label %cond.end.split
 
 cond.end.split:                                   ; preds = %entry
-  %module1 = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 1
+  %module1 = getelementptr inbounds i8, ptr %bc, i64 8
   %0 = load ptr, ptr %module1, align 8
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %2 = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 88, i1 false)
   store ptr @RM_GetApi, ptr %call, align 8
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 1
+  %module1.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %0, ptr %module1.i, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %call, i64 48
   store i32 16, ptr %flags.i, align 8
   %3 = load volatile i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 81), align 4
   %tobool8.not.i = icmp eq i32 %3, 0
@@ -18298,9 +18242,9 @@ if.then.split:                                    ; preds = %entry
   %8 = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %call, align 8
-  %module1.i17 = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 1
+  %module1.i17 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %module1.i17, align 8
-  %flags.i18 = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 7
+  %flags.i18 = getelementptr inbounds i8, ptr %call, i64 48
   store i32 144, ptr %flags.i18, align 8
   %call5.i = tail call ptr @createClient(ptr noundef null) #34
   store ptr %call5.i, ptr %7, align 8
@@ -18325,20 +18269,20 @@ if.else11.i26:                                    ; preds = %if.then.split
 
 if.end.thread:                                    ; preds = %if.else11.i26, %if.then9.i21
   %add.sink.i25 = phi i64 [ %add13.i28, %if.else11.i26 ], [ %add.i24, %if.then9.i21 ]
-  %13 = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 14
+  %13 = getelementptr inbounds i8, ptr %call, i64 104
   store i64 %add.sink.i25, ptr %13, align 8
   br label %if.end17
 
 if.then4:                                         ; preds = %if.then9.i, %if.else11.i
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
-  %14 = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 14
+  %14 = getelementptr inbounds i8, ptr %call, i64 104
   store i64 %add.sink.i, ptr %14, align 8
-  %blocked_client = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 3
+  %blocked_client = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %bc, ptr %blocked_client, align 8
-  %thread_safe_ctx_client = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 8
+  %thread_safe_ctx_client = getelementptr inbounds i8, ptr %bc, i64 64
   %15 = load ptr, ptr %thread_safe_ctx_client, align 8
   store ptr %15, ptr %1, align 8
-  %dbid = getelementptr inbounds %struct.RedisModuleBlockedClient, ptr %bc, i64 0, i32 10
+  %dbid = getelementptr inbounds i8, ptr %bc, i64 80
   %16 = load i32, ptr %dbid, align 8
   %call6 = tail call i32 @selectDb(ptr noundef %15, i32 noundef %16) #34
   %17 = load ptr, ptr %bc, align 8
@@ -18349,9 +18293,9 @@ if.then9:                                         ; preds = %if.then4
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %15, align 8
   %19 = load ptr, ptr %bc, align 8
-  %resp = getelementptr inbounds %struct.client, ptr %19, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %19, i64 24
   %20 = load i32, ptr %resp, align 8
-  %resp15 = getelementptr inbounds %struct.client, ptr %15, i64 0, i32 3
+  %resp15 = getelementptr inbounds i8, ptr %15, i64 24
   store i32 %20, ptr %resp15, align 8
   br label %if.end17
 
@@ -18363,15 +18307,15 @@ if.end17:                                         ; preds = %if.end.thread, %if.
 define dso_local ptr @RM_GetDetachedThreadSafeContext(ptr nocapture noundef readonly %ctx) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(120) ptr @zmalloc(i64 noundef 120) #35
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
   %1 = getelementptr inbounds i8, ptr %call, i64 16
   %2 = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %call, align 8
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 1
+  %module1.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %0, ptr %module1.i, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %call, i64 48
   store i32 144, ptr %flags.i, align 8
   %call5.i = tail call ptr @createClient(ptr noundef null) #34
   store ptr %call5.i, ptr %1, align 8
@@ -18396,7 +18340,7 @@ if.else11.i:                                      ; preds = %entry
 
 moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.else11.i
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
-  %7 = getelementptr inbounds %struct.RedisModuleCtx, ptr %call, i64 0, i32 14
+  %7 = getelementptr inbounds i8, ptr %call, i64 104
   store i64 %add.sink.i, ptr %7, align 8
   ret ptr %call
 }
@@ -18540,14 +18484,14 @@ declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #27
 define dso_local i32 @RM_SubscribeToKeyspaceEvents(ptr nocapture noundef readonly %ctx, i32 noundef %types, ptr noundef %callback) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #35
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
   store ptr %0, ptr %call, align 8
-  %event_mask = getelementptr inbounds %struct.RedisModuleKeyspaceSubscriber, ptr %call, i64 0, i32 2
+  %event_mask = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %types, ptr %event_mask, align 8
-  %notify_callback = getelementptr inbounds %struct.RedisModuleKeyspaceSubscriber, ptr %call, i64 0, i32 1
+  %notify_callback = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %callback, ptr %notify_callback, align 8
-  %active = getelementptr inbounds %struct.RedisModuleKeyspaceSubscriber, ptr %call, i64 0, i32 3
+  %active = getelementptr inbounds i8, ptr %call, i64 20
   store i32 0, ptr %active, align 4
   %1 = load ptr, ptr @moduleKeyspaceSubscribers, align 8
   %call2 = tail call ptr @listAddNodeTail(ptr noundef %1, ptr noundef nonnull %call) #34
@@ -18560,22 +18504,22 @@ entry:
   %ctx = alloca %struct.RedisModuleCtx, align 8
   tail call void @enterExecutionUnit(i32 noundef 0, i64 noundef 0) #34
   %0 = load ptr, ptr @modulePostExecUnitJobs, align 8
-  %len9 = getelementptr inbounds %struct.list, ptr %0, i64 0, i32 5
+  %len9 = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %len9, align 8
   %cmp.not10 = icmp eq i64 %1, 0
   br i1 %cmp.not10, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
-  %3 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %3 = getelementptr inbounds i8, ptr %ctx, i64 104
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %4 = phi ptr [ %0, %while.body.lr.ph ], [ %23, %if.end ]
   %5 = load ptr, ptr %4, align 8
-  %value = getelementptr inbounds %struct.listNode, ptr %5, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %value, align 8
   call void @listDelNode(ptr noundef nonnull %4, ptr noundef %5) #34
   %7 = load ptr, ptr %6, align 8
@@ -18603,11 +18547,11 @@ if.then2.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %while.body
   %call.i.i = call ptr @createClient(ptr noundef null) #34
-  %flags.i.i = getelementptr inbounds %struct.client, ptr %call.i.i, i64 0, i32 1
+  %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %12 = load i64, ptr %flags.i.i, align 8
   %or.i.i = or i64 %12, 134217728
   store i64 %or.i.i, ptr %flags.i.i, align 8
-  %user.i.i = getelementptr inbounds %struct.client, ptr %call.i.i, i64 0, i32 20
+  %user.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
   store ptr null, ptr %user.i.i, align 8
   br label %if.end7.sink.split.i
 
@@ -18638,15 +18582,15 @@ moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.els
   store i64 %add.sink.i, ptr %3, align 8
   call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
   %17 = load ptr, ptr %2, align 8
-  %dbid = getelementptr inbounds %struct.RedisModulePostExecUnitJob, ptr %6, i64 0, i32 4
+  %dbid = getelementptr inbounds i8, ptr %6, i64 32
   %18 = load i32, ptr %dbid, align 8
   %call = call i32 @selectDb(ptr noundef %17, i32 noundef %18) #34
-  %callback = getelementptr inbounds %struct.RedisModulePostExecUnitJob, ptr %6, i64 0, i32 1
+  %callback = getelementptr inbounds i8, ptr %6, i64 8
   %19 = load ptr, ptr %callback, align 8
-  %pd = getelementptr inbounds %struct.RedisModulePostExecUnitJob, ptr %6, i64 0, i32 2
+  %pd = getelementptr inbounds i8, ptr %6, i64 16
   %20 = load ptr, ptr %pd, align 8
   call void %19(ptr noundef nonnull %ctx, ptr noundef %20) #34
-  %free_pd = getelementptr inbounds %struct.RedisModulePostExecUnitJob, ptr %6, i64 0, i32 3
+  %free_pd = getelementptr inbounds i8, ptr %6, i64 24
   %21 = load ptr, ptr %free_pd, align 8
   %tobool.not = icmp eq ptr %21, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -18660,7 +18604,7 @@ if.end:                                           ; preds = %if.then, %moduleCre
   call void @moduleFreeContext(ptr noundef nonnull %ctx)
   call void @zfree(ptr noundef nonnull %6) #34
   %23 = load ptr, ptr @modulePostExecUnitJobs, align 8
-  %len = getelementptr inbounds %struct.list, ptr %23, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %23, i64 40
   %24 = load i64, ptr %len, align 8
   %cmp.not = icmp eq i64 %24, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !51
@@ -18687,22 +18631,22 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   %call = tail call noalias dereferenceable_or_null(40) ptr @zmalloc(i64 noundef 40) #35
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %3 = load ptr, ptr %module, align 8
   store ptr %3, ptr %call, align 8
-  %callback4 = getelementptr inbounds %struct.RedisModulePostExecUnitJob, ptr %call, i64 0, i32 1
+  %callback4 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %callback, ptr %callback4, align 8
-  %pd = getelementptr inbounds %struct.RedisModulePostExecUnitJob, ptr %call, i64 0, i32 2
+  %pd = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %privdata, ptr %pd, align 8
-  %free_pd = getelementptr inbounds %struct.RedisModulePostExecUnitJob, ptr %call, i64 0, i32 3
+  %free_pd = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %free_privdata, ptr %free_pd, align 8
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.client, ptr %4, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %5, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %5, i64 48
   %6 = load i32, ptr %id, align 8
-  %dbid = getelementptr inbounds %struct.RedisModulePostExecUnitJob, ptr %call, i64 0, i32 4
+  %dbid = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %6, ptr %dbid, align 8
   %7 = load ptr, ptr @modulePostExecUnitJobs, align 8
   %call5 = tail call ptr @listAddNodeTail(ptr noundef %7, ptr noundef nonnull %call) #34
@@ -18727,15 +18671,15 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %db = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %1, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load i32, ptr %id, align 8
   tail call void @notifyKeyspaceEvent(i32 noundef %type, ptr noundef %event, ptr noundef %key, i32 noundef %2) #34
   br label %return
@@ -18753,7 +18697,7 @@ entry:
   %li = alloca %struct.listIter, align 8
   %ctx = alloca %struct.RedisModuleCtx, align 8
   %0 = load ptr, ptr @moduleKeyspaceSubscribers, align 8
-  %len = getelementptr inbounds %struct.list, ptr %0, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %len, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %return, label %if.end
@@ -18769,30 +18713,30 @@ if.end:                                           ; preds = %entry
 
 while.body.lr.ph:                                 ; preds = %if.end
   %3 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
-  %4 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %4 = getelementptr inbounds i8, ptr %ctx, i64 104
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end13
   %call12 = phi ptr [ %call10, %while.body.lr.ph ], [ %call, %if.end13 ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call12, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call12, i64 16
   %5 = load ptr, ptr %value, align 8
-  %event_mask = getelementptr inbounds %struct.RedisModuleKeyspaceSubscriber, ptr %5, i64 0, i32 2
+  %event_mask = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load i32, ptr %event_mask, align 8
   %and1 = and i32 %6, %and
   %tobool2.not = icmp eq i32 %and1, 0
   br i1 %tobool2.not, label %if.end13, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.body
-  %active = getelementptr inbounds %struct.RedisModuleKeyspaceSubscriber, ptr %5, i64 0, i32 3
+  %active = getelementptr inbounds i8, ptr %5, i64 20
   %7 = load i32, ptr %active, align 4
   %cmp3 = icmp eq i32 %7, 0
   %.pre = load ptr, ptr %5, align 8
   br i1 %cmp3, label %if.then6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %options = getelementptr inbounds %struct.RedisModule, ptr %.pre, i64 0, i32 12
+  %options = getelementptr inbounds i8, ptr %.pre, i64 76
   %8 = load i32, ptr %options, align 4
   %and4 = and i32 %8, 8
   %tobool5.not = icmp eq i32 %and4, 0
@@ -18823,11 +18767,11 @@ if.then2.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then6
   %call.i.i = call ptr @createClient(ptr noundef null) #34
-  %flags.i.i = getelementptr inbounds %struct.client, ptr %call.i.i, i64 0, i32 1
+  %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %13 = load i64, ptr %flags.i.i, align 8
   %or.i.i = or i64 %13, 134217728
   store i64 %or.i.i, ptr %flags.i.i, align 8
-  %user.i.i = getelementptr inbounds %struct.client, ptr %call.i.i, i64 0, i32 20
+  %user.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
   store ptr null, ptr %user.i.i, align 8
   br label %if.end7.sink.split.i
 
@@ -18864,7 +18808,7 @@ moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.els
   %20 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 161), align 4
   %inc = add nsw i32 %20, 1
   store i32 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 161), align 4
-  %notify_callback = getelementptr inbounds %struct.RedisModuleKeyspaceSubscriber, ptr %5, i64 0, i32 1
+  %notify_callback = getelementptr inbounds i8, ptr %5, i64 8
   %21 = load ptr, ptr %notify_callback, align 8
   %call11 = call i32 %21(ptr noundef nonnull %ctx, i32 noundef %and, ptr noundef %event, ptr noundef %key) #34
   %22 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 161), align 4
@@ -18899,7 +18843,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %if.end
   %call5 = phi ptr [ %call, %if.end ], [ %call3, %entry ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call5, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call5, i64 16
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %1, align 8
   %cmp = icmp eq ptr %2, %module
@@ -18937,15 +18881,15 @@ while.body:                                       ; preds = %entry, %if.end
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %module = getelementptr inbounds %struct.moduleClusterReceiver, ptr %r.09, i64 0, i32 2
+  %module = getelementptr inbounds i8, ptr %r.09, i64 16
   %1 = load ptr, ptr %module, align 8
   %2 = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = getelementptr inbounds i8, ptr %ctx, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %1, ptr %module1.i, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 64, ptr %flags.i, align 8
   %4 = load i64, ptr @moduleTempClientCount, align 8
   %cmp.not.i.i = icmp eq i64 %4, 0
@@ -18967,11 +18911,11 @@ if.then2.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then
   %call.i.i = tail call ptr @createClient(ptr noundef null) #34
-  %flags.i.i = getelementptr inbounds %struct.client, ptr %call.i.i, i64 0, i32 1
+  %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %8 = load i64, ptr %flags.i.i, align 8
   %or.i.i = or i64 %8, 134217728
   store i64 %or.i.i, ptr %flags.i.i, align 8
-  %user.i.i = getelementptr inbounds %struct.client, ptr %call.i.i, i64 0, i32 20
+  %user.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
   store ptr null, ptr %user.i.i, align 8
   br label %if.end7.sink.split.i
 
@@ -18999,17 +18943,17 @@ if.else11.i:                                      ; preds = %if.end7.sink.split.
 
 moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.else11.i
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
-  %13 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %13 = getelementptr inbounds i8, ptr %ctx, i64 104
   store i64 %add.sink.i, ptr %13, align 8
   tail call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
-  %callback = getelementptr inbounds %struct.moduleClusterReceiver, ptr %r.09, i64 0, i32 1
+  %callback = getelementptr inbounds i8, ptr %r.09, i64 8
   %14 = load ptr, ptr %callback, align 8
   call void %14(ptr noundef nonnull %ctx, ptr noundef %sender_id, i8 noundef zeroext %type, ptr noundef %payload, i32 noundef %len) #34
   call void @moduleFreeContext(ptr noundef nonnull %ctx)
   br label %while.end
 
 if.end:                                           ; preds = %while.body
-  %next = getelementptr inbounds %struct.moduleClusterReceiver, ptr %r.09, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %r.09, i64 24
   %r.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %r.0, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !54
@@ -19026,9 +18970,9 @@ entry:
   br i1 %tobool.not, label %if.end31, label %if.end
 
 if.end:                                           ; preds = %entry
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %module, align 8
-  %name = getelementptr inbounds %struct.RedisModule, ptr %1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %name, align 8
   %3 = load ptr, ptr @ModuleTypeNameCharSet, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #38
@@ -19087,23 +19031,23 @@ if.then3:                                         ; preds = %while.body, %while.
   br i1 %tobool4.not, label %if.else, label %if.then5
 
 if.then5:                                         ; preds = %if.then3
-  %callback6 = getelementptr inbounds %struct.moduleClusterReceiver, ptr %r.027.lcssa, i64 0, i32 1
+  %callback6 = getelementptr inbounds i8, ptr %r.027.lcssa, i64 8
   store ptr %callback, ptr %callback6, align 8
   br label %if.end31
 
 if.else:                                          ; preds = %if.then3
   %tobool7.not = icmp eq ptr %prev.026.lcssa, null
-  %next11 = getelementptr inbounds %struct.moduleClusterReceiver, ptr %r.027.lcssa, i64 0, i32 3
+  %next11 = getelementptr inbounds i8, ptr %r.027.lcssa, i64 24
   %7 = load ptr, ptr %next11, align 8
   %r.024.prev.026.lcssa = select i1 %tobool7.not, ptr %r.024, ptr %prev.026.lcssa
-  %next14 = getelementptr inbounds %struct.moduleClusterReceiver, ptr %r.024.prev.026.lcssa, i64 0, i32 3
+  %next14 = getelementptr inbounds i8, ptr %r.024.prev.026.lcssa, i64 24
   store ptr %7, ptr %next14, align 8
   tail call void @zfree(ptr noundef nonnull %r.027.lcssa) #34
   br label %if.end31
 
 if.end17:                                         ; preds = %while.body.preheader, %while.body
   %r.02735 = phi ptr [ %r.0, %while.body ], [ %r.024, %while.body.preheader ]
-  %next18 = getelementptr inbounds %struct.moduleClusterReceiver, ptr %r.02735, i64 0, i32 3
+  %next18 = getelementptr inbounds i8, ptr %r.02735, i64 24
   %r.0 = load ptr, ptr %next18, align 8
   %tobool1.not = icmp eq ptr %r.0, null
   br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !55
@@ -19116,12 +19060,12 @@ if.then20:                                        ; preds = %while.end
   %call21 = tail call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #35
   store i64 %retval.0.i, ptr %call21, align 8
   %8 = load ptr, ptr %module, align 8
-  %module24 = getelementptr inbounds %struct.moduleClusterReceiver, ptr %call21, i64 0, i32 2
+  %module24 = getelementptr inbounds i8, ptr %call21, i64 16
   store ptr %8, ptr %module24, align 8
-  %callback25 = getelementptr inbounds %struct.moduleClusterReceiver, ptr %call21, i64 0, i32 1
+  %callback25 = getelementptr inbounds i8, ptr %call21, i64 8
   store ptr %callback, ptr %callback25, align 8
   %9 = load ptr, ptr %arrayidx, align 8
-  %next28 = getelementptr inbounds %struct.moduleClusterReceiver, ptr %call21, i64 0, i32 3
+  %next28 = getelementptr inbounds i8, ptr %call21, i64 24
   store ptr %9, ptr %next28, align 8
   store ptr %call21, ptr %arrayidx, align 8
   br label %if.end31
@@ -19138,9 +19082,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %module, align 8
-  %name = getelementptr inbounds %struct.RedisModule, ptr %1, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %name, align 8
   %3 = load ptr, ptr @ModuleTypeNameCharSet, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #38
@@ -19472,13 +19416,13 @@ entry:
   br i1 %tobool.not10, label %while.end, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %key = getelementptr inbounds %struct.raxIterator, ptr %ri, i64 0, i32 2
-  %data = getelementptr inbounds %struct.raxIterator, ptr %ri, i64 0, i32 3
+  %key = getelementptr inbounds i8, ptr %ri, i64 16
+  %data = getelementptr inbounds i8, ptr %ri, i64 24
   %1 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
-  %2 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
-  %key_len = getelementptr inbounds %struct.raxIterator, ptr %ri, i64 0, i32 4
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
+  %2 = getelementptr inbounds i8, ptr %ctx, i64 104
+  %key_len = getelementptr inbounds i8, ptr %ri, i64 32
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %moduleCreateContext.exit
@@ -19515,11 +19459,11 @@ if.then2.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then4
   %call.i.i = call ptr @createClient(ptr noundef null) #34
-  %flags.i.i = getelementptr inbounds %struct.client, ptr %call.i.i, i64 0, i32 1
+  %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %10 = load i64, ptr %flags.i.i, align 8
   %or.i.i = or i64 %10, 134217728
   store i64 %or.i.i, ptr %flags.i.i, align 8
-  %user.i.i = getelementptr inbounds %struct.client, ptr %call.i.i, i64 0, i32 20
+  %user.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
   store ptr null, ptr %user.i.i, align 8
   br label %if.end7.sink.split.i
 
@@ -19550,12 +19494,12 @@ moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.els
   store i64 %add.sink.i, ptr %2, align 8
   call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
   %15 = load ptr, ptr %1, align 8
-  %dbid = getelementptr inbounds %struct.RedisModuleTimer, ptr %4, i64 0, i32 3
+  %dbid = getelementptr inbounds i8, ptr %4, i64 24
   %16 = load i32, ptr %dbid, align 8
   %call5 = call i32 @selectDb(ptr noundef %15, i32 noundef %16) #34
-  %callback = getelementptr inbounds %struct.RedisModuleTimer, ptr %4, i64 0, i32 1
+  %callback = getelementptr inbounds i8, ptr %4, i64 8
   %17 = load ptr, ptr %callback, align 8
-  %data6 = getelementptr inbounds %struct.RedisModuleTimer, ptr %4, i64 0, i32 2
+  %data6 = getelementptr inbounds i8, ptr %4, i64 16
   %18 = load ptr, ptr %data6, align 8
   call void %17(ptr noundef nonnull %ctx, ptr noundef %18) #34
   call void @moduleFreeContext(ptr noundef nonnull %ctx)
@@ -19617,28 +19561,28 @@ entry:
   %key = alloca i64, align 8
   %ri = alloca %struct.raxIterator, align 8
   %call = tail call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #35
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
   store ptr %0, ptr %call, align 8
-  %callback2 = getelementptr inbounds %struct.RedisModuleTimer, ptr %call, i64 0, i32 1
+  %callback2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %callback, ptr %callback2, align 8
-  %data3 = getelementptr inbounds %struct.RedisModuleTimer, ptr %call, i64 0, i32 2
+  %data3 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %data, ptr %data3, align 8
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %client, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %db = getelementptr inbounds %struct.client, ptr %1, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %2, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load i32, ptr %id, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi i32 [ %3, %cond.true ], [ 0, %entry ]
-  %dbid = getelementptr inbounds %struct.RedisModuleTimer, ptr %call, i64 0, i32 3
+  %dbid = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %cond, ptr %dbid, align 8
   %call5 = tail call i64 @ustime() #34
   %mul = mul nsw i64 %period, 1000
@@ -19667,7 +19611,7 @@ if.then10:                                        ; preds = %if.then
   call void @raxStart(ptr noundef nonnull %ri, ptr noundef %7) #34
   %call11 = call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef nonnull @.str.79, ptr noundef null, i64 noundef 0) #34
   %call12 = call i32 @raxNext(ptr noundef nonnull %ri) #34
-  %key13 = getelementptr inbounds %struct.raxIterator, ptr %ri, i64 0, i32 2
+  %key13 = getelementptr inbounds i8, ptr %ri, i64 16
   %8 = load ptr, ptr %key13, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %8, ptr noundef nonnull dereferenceable(8) %key, i64 8)
   %cmp15 = icmp eq i32 %bcmp, 0
@@ -19719,7 +19663,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %result, align 8
   %2 = load ptr, ptr %1, align 8
-  %module1 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %3 = load ptr, ptr %module1, align 8
   %cmp.not = icmp eq ptr %2, %3
   br i1 %cmp.not, label %if.end3, label %return
@@ -19729,7 +19673,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %data6 = getelementptr inbounds %struct.RedisModuleTimer, ptr %1, i64 0, i32 2
+  %data6 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %data6, align 8
   store ptr %4, ptr %data, align 8
   br label %if.end7
@@ -19759,7 +19703,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %result, align 8
   %2 = load ptr, ptr %1, align 8
-  %module1 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %3 = load ptr, ptr %module1, align 8
   %cmp.not = icmp eq ptr %2, %3
   br i1 %cmp.not, label %if.end3, label %return
@@ -19783,7 +19727,7 @@ if.end11:                                         ; preds = %if.then5, %if.end3
   br i1 %tobool12.not, label %return, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %data14 = getelementptr inbounds %struct.RedisModuleTimer, ptr %1, i64 0, i32 2
+  %data14 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %data14, align 8
   store ptr %5, ptr %data, align 8
   br label %return
@@ -19800,7 +19744,7 @@ entry:
   %0 = load ptr, ptr @Timers, align 8
   call void @raxStart(ptr noundef nonnull %iter, ptr noundef %0) #34
   %call = call i32 @raxSeek(ptr noundef nonnull %iter, ptr noundef nonnull @.str.79, ptr noundef null, i64 noundef 0) #34
-  %data = getelementptr inbounds %struct.raxIterator, ptr %iter, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %iter, i64 24
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %entry
@@ -19879,7 +19823,7 @@ if.then23:                                        ; preds = %if.then20
   br label %return
 
 if.end25:                                         ; preds = %if.end12
-  %user_data26 = getelementptr inbounds %struct.EventLoopData, ptr %data.0, i64 0, i32 2
+  %user_data26 = getelementptr inbounds i8, ptr %data.0, i64 16
   store ptr %user_data, ptr %user_data26, align 8
   br i1 %tobool14.not, label %if.end30, label %if.then29
 
@@ -19892,7 +19836,7 @@ if.end30:                                         ; preds = %if.then29, %if.end2
   br i1 %tobool32.not, label %if.end34, label %if.then33
 
 if.then33:                                        ; preds = %if.end30
-  %wFunc = getelementptr inbounds %struct.EventLoopData, ptr %data.0, i64 0, i32 1
+  %wFunc = getelementptr inbounds i8, ptr %data.0, i64 8
   store ptr %func, ptr %wFunc, align 8
   br label %if.end34
 
@@ -19914,7 +19858,7 @@ declare ptr @aeGetFileClientData(ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal void @eventLoopCbReadable(ptr nocapture readnone %ae, i32 noundef %fd, ptr nocapture noundef readonly %user_data, i32 noundef %ae_mask) #0 {
 entry:
   %0 = load ptr, ptr %user_data, align 8
-  %user_data1 = getelementptr inbounds %struct.EventLoopData, ptr %user_data, i64 0, i32 2
+  %user_data1 = getelementptr inbounds i8, ptr %user_data, i64 16
   %1 = load ptr, ptr %user_data1, align 8
   %mask.1.i = and i32 %ae_mask, 3
   tail call void %0(i32 noundef %fd, ptr noundef %1, i32 noundef %mask.1.i) #34
@@ -19924,9 +19868,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @eventLoopCbWritable(ptr nocapture readnone %ae, i32 noundef %fd, ptr nocapture noundef readonly %user_data, i32 noundef %ae_mask) #0 {
 entry:
-  %wFunc = getelementptr inbounds %struct.EventLoopData, ptr %user_data, i64 0, i32 1
+  %wFunc = getelementptr inbounds i8, ptr %user_data, i64 8
   %0 = load ptr, ptr %wFunc, align 8
-  %user_data1 = getelementptr inbounds %struct.EventLoopData, ptr %user_data, i64 0, i32 2
+  %user_data1 = getelementptr inbounds i8, ptr %user_data, i64 16
   %1 = load ptr, ptr %user_data1, align 8
   %mask.1.i = and i32 %ae_mask, 3
   tail call void %0(i32 noundef %fd, ptr noundef %1, i32 noundef %mask.1.i) #34
@@ -19986,7 +19930,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call1 = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #35
   store ptr %func, ptr %call1, align 8
-  %user_data3 = getelementptr inbounds %struct.EventLoopOneShot, ptr %call1, i64 0, i32 1
+  %user_data3 = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %user_data, ptr %user_data3, align 8
   %call4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @moduleEventLoopMutex) #34
   %0 = load ptr, ptr @moduleEventLoopOneShots, align 8
@@ -20017,14 +19961,14 @@ return:                                           ; preds = %entry, %if.end8
 ; Function Attrs: nounwind uwtable
 define dso_local void @moduleNotifyUserChanged(ptr nocapture noundef %c) local_unnamed_addr #0 {
 entry:
-  %auth_callback = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 68
+  %auth_callback = getelementptr inbounds i8, ptr %c, i64 624
   %0 = load ptr, ptr %auth_callback, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %1 = load i64, ptr %c, align 8
-  %auth_callback_privdata = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 69
+  %auth_callback_privdata = getelementptr inbounds i8, ptr %c, i64 632
   %2 = load ptr, ptr %auth_callback_privdata, align 8
   tail call void %0(i64 noundef %1, ptr noundef %2) #34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %auth_callback, i8 0, i64 24, i1 false)
@@ -20037,14 +19981,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local void @revokeClientAuthentication(ptr noundef %c) local_unnamed_addr #0 {
 entry:
-  %auth_callback.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 68
+  %auth_callback.i = getelementptr inbounds i8, ptr %c, i64 624
   %0 = load ptr, ptr %auth_callback.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %moduleNotifyUserChanged.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %1 = load i64, ptr %c, align 8
-  %auth_callback_privdata.i = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 69
+  %auth_callback_privdata.i = getelementptr inbounds i8, ptr %c, i64 632
   %2 = load ptr, ptr %auth_callback_privdata.i, align 8
   tail call void %0(i64 noundef %1, ptr noundef %2) #34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %auth_callback.i, i8 0, i64 24, i1 false)
@@ -20052,16 +19996,16 @@ if.then.i:                                        ; preds = %entry
 
 moduleNotifyUserChanged.exit:                     ; preds = %entry, %if.then.i
   %3 = load ptr, ptr @DefaultUser, align 8
-  %user = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 20
+  %user = getelementptr inbounds i8, ptr %c, i64 152
   store ptr %3, ptr %user, align 8
-  %authenticated = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 34
+  %authenticated = getelementptr inbounds i8, ptr %c, i64 256
   store i32 0, ptr %authenticated, align 8
   %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
   %cmp = icmp eq ptr %4, %c
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %moduleNotifyUserChanged.exit
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %5 = load i64, ptr %flags, align 8
   %or = or i64 %5, 1099511627776
   store i64 %or, ptr %flags, align 8
@@ -20083,7 +20027,7 @@ entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #35
   %call1 = tail call ptr @ACLCreateUnlinkedUser() #34
   store ptr %call1, ptr %call, align 8
-  %free_user = getelementptr inbounds %struct.RedisModuleUser, ptr %call, i64 0, i32 1
+  %free_user = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %free_user, align 8
   %0 = load ptr, ptr %call1, align 8
   tail call void @sdsfree(ptr noundef %0) #34
@@ -20097,7 +20041,7 @@ declare ptr @ACLCreateUnlinkedUser() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_FreeModuleUser(ptr noundef %user) #0 {
 entry:
-  %free_user = getelementptr inbounds %struct.RedisModuleUser, ptr %user, i64 0, i32 1
+  %free_user = getelementptr inbounds i8, ptr %user, i64 8
   %0 = load i32, ptr %free_user, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -20157,22 +20101,22 @@ if.then6:                                         ; preds = %if.then
   br i1 %cmp8.not, label %return, label %if.then10
 
 if.then10:                                        ; preds = %if.then6
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %3 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %3, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then10
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %4 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %5 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %4, %5
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -20181,7 +20125,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %4, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %6 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -20193,7 +20137,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %7 = phi i32 [ %4, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %8 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %7 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -20242,9 +20186,9 @@ declare ptr @ACLDescribeUser(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_GetCurrentUserName(ptr nocapture noundef %ctx) #0 {
 entry:
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
-  %user = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 20
+  %user = getelementptr inbounds i8, ptr %0, i64 152
   %1 = load ptr, ptr %user, align 8
   %2 = load ptr, ptr %1, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 -1
@@ -20290,22 +20234,22 @@ sw.bb13.i:                                        ; preds = %entry
 if.then.i:                                        ; preds = %sw.bb13.i, %sw.bb9.i, %sw.bb5.i, %sw.bb3.i, %sw.bb.i, %entry
   %retval.0.i = phi i64 [ %7, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
   %call.i = tail call ptr @createStringObject(ptr noundef nonnull %2, i64 noundef %retval.0.i) #34
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %8 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %8, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %RM_CreateString.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %amqueue_used.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %9 = load i32, ptr %amqueue_used.i.i, align 4
-  %amqueue_len.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %10 = load i32, ptr %amqueue_len.i.i, align 8
   %cmp.i.i = icmp eq i32 %9, %10
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end.if.end11_crit_edge.i.i
 
 if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
-  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i.i = load ptr, ptr %amqueue12.phi.trans.insert.i.i, align 8
   br label %if.end11.i.i
 
@@ -20314,7 +20258,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %cmp4.i.i = icmp slt i32 %9, 8
   %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
-  %amqueue.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %11 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
@@ -20326,7 +20270,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
   %12 = phi i32 [ %9, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
   %13 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
-  %amqueue12.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i.i = sext i32 %12 to i64
   %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %13, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
@@ -20347,7 +20291,7 @@ RM_CreateString.exit:                             ; preds = %if.then.i, %if.end1
 ; Function Attrs: nounwind uwtable
 define dso_local noalias ptr @RM_GetModuleUserFromUserName(ptr nocapture noundef readonly %name) #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %name, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %name, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -20398,7 +20342,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
 if.end:                                           ; preds = %sdslen.exit
   %call3 = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #35
   store ptr %call2, ptr %call3, align 8
-  %free_user = getelementptr inbounds %struct.RedisModuleUser, ptr %call3, i64 0, i32 1
+  %free_user = getelementptr inbounds i8, ptr %call3, i64 8
   store i32 0, ptr %free_user, align 8
   br label %return
 
@@ -20469,7 +20413,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
 moduleConvertKeySpecsFlags.exit:                  ; preds = %for.inc.i
   %conv2 = trunc i64 %out.1.i to i32
   %3 = load ptr, ptr %user, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %key, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %key, i64 8
   %4 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 -1
   %5 = load i8, ptr %arrayidx.i, align 1
@@ -20549,7 +20493,7 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %0 = and i32 %flags, 1
   %1 = load ptr, ptr %user, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %ch, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %ch, i64 8
   %2 = load ptr, ptr %ptr, align 8
   %call8 = tail call i32 @ACLUserCheckChannelPerm(ptr noundef %1, ptr noundef %2, i32 noundef %0) #34
   %cmp9.not = icmp ne i32 %call8, 0
@@ -20590,11 +20534,11 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %reason to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.RM_ACLAddLogEntryByUserName, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %client, align 8
   %3 = load ptr, ptr %user, align 8
   %4 = load ptr, ptr %3, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %object, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %object, i64 8
   %5 = load ptr, ptr %ptr, align 8
   %call2 = tail call ptr @sdsdup(ptr noundef %5) #34
   tail call void @addACLLogEntry(ptr noundef %2, i32 noundef %switch.load, i32 noundef 3, i32 noundef -1, ptr noundef %4, ptr noundef %call2) #34
@@ -20615,11 +20559,11 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %reason to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.RM_ACLAddLogEntryByUserName, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %client, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %username, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %username, i64 8
   %3 = load ptr, ptr %ptr, align 8
-  %ptr1 = getelementptr inbounds %struct.redisObject, ptr %object, i64 0, i32 2
+  %ptr1 = getelementptr inbounds i8, ptr %object, i64 8
   %4 = load ptr, ptr %ptr1, align 8
   %call2 = tail call ptr @sdsdup(ptr noundef %4) #34
   tail call void @addACLLogEntry(ptr noundef %2, i32 noundef %switch.load, i32 noundef 3, i32 noundef -1, ptr noundef %3, ptr noundef %call2) #34
@@ -20634,34 +20578,34 @@ return:                                           ; preds = %entry, %switch.look
 define dso_local i32 @RM_AuthenticateClientWithUser(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %module_user, ptr noundef %callback, ptr noundef %privdata, ptr noundef writeonly %client_id) #0 {
 entry:
   %0 = load ptr, ptr %module_user, align 8
-  %flags.i = getelementptr inbounds %struct.user, ptr %0, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %1, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %authenticateClientWithUser.exit
 
 if.end.i:                                         ; preds = %entry
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %client.i, align 8
   %tobool1.not.i = icmp eq ptr %2, null
   br i1 %tobool1.not.i, label %authenticateClientWithUser.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %flags3.i = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 1
+  %flags3.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %flags3.i, align 8
   %and4.i = and i64 %3, 134217728
   %tobool5.not.i = icmp eq i64 %and4.i, 0
   br i1 %tobool5.not.i, label %if.end7.i, label %authenticateClientWithUser.exit
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
-  %auth_callback.i.i = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 68
+  %auth_callback.i.i = getelementptr inbounds i8, ptr %2, i64 624
   %4 = load ptr, ptr %auth_callback.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %moduleNotifyUserChanged.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end7.i
   %5 = load i64, ptr %2, align 8
-  %auth_callback_privdata.i.i = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 69
+  %auth_callback_privdata.i.i = getelementptr inbounds i8, ptr %2, i64 632
   %6 = load ptr, ptr %auth_callback_privdata.i.i, align 8
   tail call void %4(i64 noundef %5, ptr noundef %6) #34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %auth_callback.i.i, i8 0, i64 24, i1 false)
@@ -20670,19 +20614,19 @@ if.then.i.i:                                      ; preds = %if.end7.i
 
 moduleNotifyUserChanged.exit.i:                   ; preds = %if.then.i.i, %if.end7.i
   %7 = phi ptr [ %2, %if.end7.i ], [ %.pre.i, %if.then.i.i ]
-  %user10.i = getelementptr inbounds %struct.client, ptr %7, i64 0, i32 20
+  %user10.i = getelementptr inbounds i8, ptr %7, i64 152
   store ptr %0, ptr %user10.i, align 8
   %8 = load ptr, ptr %client.i, align 8
-  %authenticated.i = getelementptr inbounds %struct.client, ptr %8, i64 0, i32 34
+  %authenticated.i = getelementptr inbounds i8, ptr %8, i64 256
   store i32 1, ptr %authenticated.i, align 8
   %9 = load ptr, ptr %client.i, align 8
-  %module_auth_ctx.i = getelementptr inbounds %struct.client, ptr %9, i64 0, i32 67
+  %module_auth_ctx.i = getelementptr inbounds i8, ptr %9, i64 616
   %10 = load ptr, ptr %module_auth_ctx.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %if.end16.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %moduleNotifyUserChanged.exit.i
-  %flags15.i = getelementptr inbounds %struct.client, ptr %9, i64 0, i32 1
+  %flags15.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load i64, ptr %flags15.i, align 8
   %or.i = or i64 %11, 140737488355328
   store i64 %or.i, ptr %flags15.i, align 8
@@ -20694,15 +20638,15 @@ if.end16.i:                                       ; preds = %if.then13.i, %modul
 
 if.then18.i:                                      ; preds = %if.end16.i
   %12 = load ptr, ptr %client.i, align 8
-  %auth_callback.i = getelementptr inbounds %struct.client, ptr %12, i64 0, i32 68
+  %auth_callback.i = getelementptr inbounds i8, ptr %12, i64 624
   store ptr %callback, ptr %auth_callback.i, align 8
   %13 = load ptr, ptr %client.i, align 8
-  %auth_callback_privdata.i = getelementptr inbounds %struct.client, ptr %13, i64 0, i32 69
+  %auth_callback_privdata.i = getelementptr inbounds i8, ptr %13, i64 632
   store ptr %privdata, ptr %auth_callback_privdata.i, align 8
-  %module.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %14 = load ptr, ptr %module.i, align 8
   %15 = load ptr, ptr %client.i, align 8
-  %auth_module.i = getelementptr inbounds %struct.client, ptr %15, i64 0, i32 70
+  %auth_module.i = getelementptr inbounds i8, ptr %15, i64 640
   store ptr %14, ptr %auth_module.i, align 8
   br label %if.end22.i
 
@@ -20729,34 +20673,34 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags.i = getelementptr inbounds %struct.user, ptr %call, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %client.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %flags3.i = getelementptr inbounds %struct.client, ptr %1, i64 0, i32 1
+  %flags3.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %flags3.i, align 8
   %and4.i = and i64 %2, 134217728
   %tobool5.not.i = icmp eq i64 %and4.i, 0
   br i1 %tobool5.not.i, label %if.end7.i, label %return
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
-  %auth_callback.i.i = getelementptr inbounds %struct.client, ptr %1, i64 0, i32 68
+  %auth_callback.i.i = getelementptr inbounds i8, ptr %1, i64 624
   %3 = load ptr, ptr %auth_callback.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %moduleNotifyUserChanged.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end7.i
   %4 = load i64, ptr %1, align 8
-  %auth_callback_privdata.i.i = getelementptr inbounds %struct.client, ptr %1, i64 0, i32 69
+  %auth_callback_privdata.i.i = getelementptr inbounds i8, ptr %1, i64 632
   %5 = load ptr, ptr %auth_callback_privdata.i.i, align 8
   tail call void %3(i64 noundef %4, ptr noundef %5) #34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %auth_callback.i.i, i8 0, i64 24, i1 false)
@@ -20765,19 +20709,19 @@ if.then.i.i:                                      ; preds = %if.end7.i
 
 moduleNotifyUserChanged.exit.i:                   ; preds = %if.then.i.i, %if.end7.i
   %6 = phi ptr [ %1, %if.end7.i ], [ %.pre.i, %if.then.i.i ]
-  %user10.i = getelementptr inbounds %struct.client, ptr %6, i64 0, i32 20
+  %user10.i = getelementptr inbounds i8, ptr %6, i64 152
   store ptr %call, ptr %user10.i, align 8
   %7 = load ptr, ptr %client.i, align 8
-  %authenticated.i = getelementptr inbounds %struct.client, ptr %7, i64 0, i32 34
+  %authenticated.i = getelementptr inbounds i8, ptr %7, i64 256
   store i32 1, ptr %authenticated.i, align 8
   %8 = load ptr, ptr %client.i, align 8
-  %module_auth_ctx.i = getelementptr inbounds %struct.client, ptr %8, i64 0, i32 67
+  %module_auth_ctx.i = getelementptr inbounds i8, ptr %8, i64 616
   %9 = load ptr, ptr %module_auth_ctx.i, align 8
   %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %if.end16.i, label %if.then13.i
 
 if.then13.i:                                      ; preds = %moduleNotifyUserChanged.exit.i
-  %flags15.i = getelementptr inbounds %struct.client, ptr %8, i64 0, i32 1
+  %flags15.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i64, ptr %flags15.i, align 8
   %or.i = or i64 %10, 140737488355328
   store i64 %or.i, ptr %flags15.i, align 8
@@ -20789,15 +20733,15 @@ if.end16.i:                                       ; preds = %if.then13.i, %modul
 
 if.then18.i:                                      ; preds = %if.end16.i
   %11 = load ptr, ptr %client.i, align 8
-  %auth_callback.i = getelementptr inbounds %struct.client, ptr %11, i64 0, i32 68
+  %auth_callback.i = getelementptr inbounds i8, ptr %11, i64 624
   store ptr %callback, ptr %auth_callback.i, align 8
   %12 = load ptr, ptr %client.i, align 8
-  %auth_callback_privdata.i = getelementptr inbounds %struct.client, ptr %12, i64 0, i32 69
+  %auth_callback_privdata.i = getelementptr inbounds i8, ptr %12, i64 632
   store ptr %privdata, ptr %auth_callback_privdata.i, align 8
-  %module.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %13 = load ptr, ptr %module.i, align 8
   %14 = load ptr, ptr %client.i, align 8
-  %auth_module.i = getelementptr inbounds %struct.client, ptr %14, i64 0, i32 70
+  %auth_module.i = getelementptr inbounds i8, ptr %14, i64 640
   store ptr %13, ptr %auth_module.i, align 8
   br label %if.end22.i
 
@@ -20824,14 +20768,14 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %auth_callback.i.i = getelementptr inbounds %struct.client, ptr %call, i64 0, i32 68
+  %auth_callback.i.i = getelementptr inbounds i8, ptr %call, i64 624
   %0 = load ptr, ptr %auth_callback.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %moduleNotifyUserChanged.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
   %1 = load i64, ptr %call, align 8
-  %auth_callback_privdata.i.i = getelementptr inbounds %struct.client, ptr %call, i64 0, i32 69
+  %auth_callback_privdata.i.i = getelementptr inbounds i8, ptr %call, i64 632
   %2 = load ptr, ptr %auth_callback_privdata.i.i, align 8
   tail call void %0(i64 noundef %1, ptr noundef %2) #34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %auth_callback.i.i, i8 0, i64 24, i1 false)
@@ -20839,16 +20783,16 @@ if.then.i.i:                                      ; preds = %if.end
 
 moduleNotifyUserChanged.exit.i:                   ; preds = %if.then.i.i, %if.end
   %3 = load ptr, ptr @DefaultUser, align 8
-  %user.i = getelementptr inbounds %struct.client, ptr %call, i64 0, i32 20
+  %user.i = getelementptr inbounds i8, ptr %call, i64 152
   store ptr %3, ptr %user.i, align 8
-  %authenticated.i = getelementptr inbounds %struct.client, ptr %call, i64 0, i32 34
+  %authenticated.i = getelementptr inbounds i8, ptr %call, i64 256
   store i32 0, ptr %authenticated.i, align 8
   %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
   %cmp.i = icmp eq ptr %4, %call
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %moduleNotifyUserChanged.exit.i
-  %flags.i = getelementptr inbounds %struct.client, ptr %call, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %call, i64 8
   %5 = load i64, ptr %flags.i, align 8
   %or.i = or i64 %5, 1099511627776
   store i64 %or.i, ptr %flags.i, align 8
@@ -20870,7 +20814,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
   %tobool1 = icmp eq ptr %0, null
   %cmp = icmp slt i32 %pos, 1
@@ -20878,7 +20822,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %argc = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load i32, ptr %argc, align 8
   %cmp5.not = icmp sgt i32 %1, %pos
   br i1 %cmp5.not, label %if.end, label %return
@@ -20902,10 +20846,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conn = getelementptr inbounds %struct.client, ptr %call, i64 0, i32 2
+  %conn = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %conn, align 8
   %1 = load ptr, ptr %0, align 8
-  %get_peer_cert.i = getelementptr inbounds %struct.ConnectionType, ptr %1, i64 0, i32 27
+  %get_peer_cert.i = getelementptr inbounds i8, ptr %1, i64 216
   %2 = load ptr, ptr %get_peer_cert.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %return, label %connGetPeerCert.exit
@@ -20921,22 +20865,22 @@ if.end3:                                          ; preds = %connGetPeerCert.exi
   br i1 %cmp5.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end3
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %3 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %3, 1
   %tobool.not.i5 = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i5, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then6
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %4 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %5 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %4, %5
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -20945,7 +20889,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %4, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %6 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -20957,7 +20901,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %7 = phi i32 [ %4, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %8 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i6, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %7 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -20986,22 +20930,22 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %1, %2
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -21010,7 +20954,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %1, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -21022,7 +20966,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %5 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %4 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i, i32 1
   store i32 4, ptr %type14.i, align 8
@@ -21077,7 +21021,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_DictSet(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %key, ptr noundef %ptr) #0 {
 entry:
-  %ptr1 = getelementptr inbounds %struct.redisObject, ptr %key, i64 0, i32 2
+  %ptr1 = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %ptr1, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -21131,7 +21075,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_DictReplace(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %key, ptr noundef %ptr) #0 {
 entry:
-  %ptr1 = getelementptr inbounds %struct.redisObject, ptr %key, i64 0, i32 2
+  %ptr1 = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %ptr1, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -21207,7 +21151,7 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local ptr @RM_DictGet(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %key, ptr noundef writeonly %nokey) #0 {
 entry:
   %res.i = alloca ptr, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %key, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -21283,7 +21227,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_DictDel(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %key, ptr noundef %oldval) #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %key, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -21339,7 +21283,7 @@ define dso_local ptr @RM_DictIteratorStartC(ptr noundef %d, ptr noundef %op, ptr
 entry:
   %call = tail call noalias dereferenceable_or_null(488) ptr @zmalloc(i64 noundef 488) #35
   store ptr %d, ptr %call, align 8
-  %ri = getelementptr inbounds %struct.RedisModuleDictIter, ptr %call, i64 0, i32 1
+  %ri = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %d, align 8
   tail call void @raxStart(ptr noundef nonnull %ri, ptr noundef %0) #34
   %call2 = tail call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef %op, ptr noundef %key, i64 noundef %keylen) #34
@@ -21349,7 +21293,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_DictIteratorStart(ptr noundef %d, ptr noundef %op, ptr nocapture noundef readonly %key) #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %key, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -21395,7 +21339,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
   %retval.0.i = phi i64 [ %5, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
   %call.i = tail call noalias dereferenceable_or_null(488) ptr @zmalloc(i64 noundef 488) #35
   store ptr %d, ptr %call.i, align 8
-  %ri.i = getelementptr inbounds %struct.RedisModuleDictIter, ptr %call.i, i64 0, i32 1
+  %ri.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %6 = load ptr, ptr %d, align 8
   tail call void @raxStart(ptr noundef nonnull %ri.i, ptr noundef %6) #34
   %call2.i = tail call i32 @raxSeek(ptr noundef nonnull %ri.i, ptr noundef %op, ptr noundef nonnull %0, i64 noundef %retval.0.i) #34
@@ -21405,7 +21349,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
 ; Function Attrs: nounwind uwtable
 define dso_local void @RM_DictIteratorStop(ptr noundef %di) #0 {
 entry:
-  %ri = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1
+  %ri = getelementptr inbounds i8, ptr %di, i64 8
   tail call void @raxStop(ptr noundef nonnull %ri) #34
   tail call void @zfree(ptr noundef %di) #34
   ret void
@@ -21414,7 +21358,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_DictIteratorReseekC(ptr noundef %di, ptr noundef %op, ptr noundef %key, i64 noundef %keylen) #0 {
 entry:
-  %ri = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1
+  %ri = getelementptr inbounds i8, ptr %di, i64 8
   %call = tail call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef %op, ptr noundef %key, i64 noundef %keylen) #34
   ret i32 %call
 }
@@ -21422,7 +21366,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_DictIteratorReseek(ptr noundef %di, ptr noundef %op, ptr nocapture noundef readonly %key) #0 {
 entry:
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %key, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -21466,7 +21410,7 @@ sw.bb13.i:                                        ; preds = %entry
 
 sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %5, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
-  %ri.i = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1
+  %ri.i = getelementptr inbounds i8, ptr %di, i64 8
   %call.i = tail call i32 @raxSeek(ptr noundef nonnull %ri.i, ptr noundef %op, ptr noundef nonnull %0, i64 noundef %retval.0.i) #34
   ret i32 %call.i
 }
@@ -21474,7 +21418,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_DictNextC(ptr noundef %di, ptr noundef writeonly %keylen, ptr noundef writeonly %dataptr) #0 {
 entry:
-  %ri = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1
+  %ri = getelementptr inbounds i8, ptr %di, i64 8
   %call = tail call i32 @raxNext(ptr noundef nonnull %ri) #34
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -21484,7 +21428,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %key_len = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1, i32 4
+  %key_len = getelementptr inbounds i8, ptr %di, i64 40
   %0 = load i64, ptr %key_len, align 8
   store i64 %0, ptr %keylen, align 8
   br label %if.end4
@@ -21494,13 +21438,13 @@ if.end4:                                          ; preds = %if.then2, %if.end
   br i1 %tobool5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %data = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1, i32 3
+  %data = getelementptr inbounds i8, ptr %di, i64 32
   %1 = load ptr, ptr %data, align 8
   store ptr %1, ptr %dataptr, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end4
-  %key = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1, i32 2
+  %key = getelementptr inbounds i8, ptr %di, i64 24
   %2 = load ptr, ptr %key, align 8
   br label %return
 
@@ -21512,7 +21456,7 @@ return:                                           ; preds = %entry, %if.end8
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_DictPrevC(ptr noundef %di, ptr noundef writeonly %keylen, ptr noundef writeonly %dataptr) #0 {
 entry:
-  %ri = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1
+  %ri = getelementptr inbounds i8, ptr %di, i64 8
   %call = tail call i32 @raxPrev(ptr noundef nonnull %ri) #34
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -21522,7 +21466,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %key_len = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1, i32 4
+  %key_len = getelementptr inbounds i8, ptr %di, i64 40
   %0 = load i64, ptr %key_len, align 8
   store i64 %0, ptr %keylen, align 8
   br label %if.end4
@@ -21532,13 +21476,13 @@ if.end4:                                          ; preds = %if.then2, %if.end
   br i1 %tobool5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %data = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1, i32 3
+  %data = getelementptr inbounds i8, ptr %di, i64 32
   %1 = load ptr, ptr %data, align 8
   store ptr %1, ptr %dataptr, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end4
-  %key = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1, i32 2
+  %key = getelementptr inbounds i8, ptr %di, i64 24
   %2 = load ptr, ptr %key, align 8
   br label %return
 
@@ -21552,25 +21496,25 @@ declare i32 @raxPrev(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_DictNext(ptr noundef %ctx, ptr noundef %di, ptr noundef writeonly %dataptr) #0 {
 entry:
-  %ri.i = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1
+  %ri.i = getelementptr inbounds i8, ptr %di, i64 8
   %call.i = tail call i32 @raxNext(ptr noundef nonnull %ri.i) #34
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %key_len.i = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1, i32 4
+  %key_len.i = getelementptr inbounds i8, ptr %di, i64 40
   %0 = load i64, ptr %key_len.i, align 8
   %tobool5.not.i = icmp eq ptr %dataptr, null
   br i1 %tobool5.not.i, label %RM_DictNextC.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1, i32 3
+  %data.i = getelementptr inbounds i8, ptr %di, i64 32
   %1 = load ptr, ptr %data.i, align 8
   store ptr %1, ptr %dataptr, align 8
   br label %RM_DictNextC.exit
 
 RM_DictNextC.exit:                                ; preds = %if.end.i, %if.then6.i
-  %key.i = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1, i32 2
+  %key.i = getelementptr inbounds i8, ptr %di, i64 24
   %2 = load ptr, ptr %key.i, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %if.end
@@ -21581,22 +21525,22 @@ if.end:                                           ; preds = %RM_DictNextC.exit
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %3 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %3, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %amqueue_used.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %4 = load i32, ptr %amqueue_used.i.i, align 4
-  %amqueue_len.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %5 = load i32, ptr %amqueue_len.i.i, align 8
   %cmp.i.i = icmp eq i32 %4, %5
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end.if.end11_crit_edge.i.i
 
 if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
-  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i.i = load ptr, ptr %amqueue12.phi.trans.insert.i.i, align 8
   br label %if.end11.i.i
 
@@ -21605,7 +21549,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %cmp4.i.i = icmp slt i32 %4, 8
   %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
-  %amqueue.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %6 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
@@ -21617,7 +21561,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
   %7 = phi i32 [ %4, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
   %8 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
-  %amqueue12.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i.i = sext i32 %7 to i64
   %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
@@ -21639,25 +21583,25 @@ return:                                           ; preds = %entry, %if.end11.i.
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @RM_DictPrev(ptr noundef %ctx, ptr noundef %di, ptr noundef writeonly %dataptr) #0 {
 entry:
-  %ri.i = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1
+  %ri.i = getelementptr inbounds i8, ptr %di, i64 8
   %call.i = tail call i32 @raxPrev(ptr noundef nonnull %ri.i) #34
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %key_len.i = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1, i32 4
+  %key_len.i = getelementptr inbounds i8, ptr %di, i64 40
   %0 = load i64, ptr %key_len.i, align 8
   %tobool5.not.i = icmp eq ptr %dataptr, null
   br i1 %tobool5.not.i, label %RM_DictPrevC.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1, i32 3
+  %data.i = getelementptr inbounds i8, ptr %di, i64 32
   %1 = load ptr, ptr %data.i, align 8
   store ptr %1, ptr %dataptr, align 8
   br label %RM_DictPrevC.exit
 
 RM_DictPrevC.exit:                                ; preds = %if.end.i, %if.then6.i
-  %key.i = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1, i32 2
+  %key.i = getelementptr inbounds i8, ptr %di, i64 24
   %2 = load ptr, ptr %key.i, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %if.end
@@ -21668,22 +21612,22 @@ if.end:                                           ; preds = %RM_DictPrevC.exit
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %flags.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %3 = load i32, ptr %flags.i.i, align 8
   %and.i.i = and i32 %3, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i
-  %amqueue_used.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %4 = load i32, ptr %amqueue_used.i.i, align 4
-  %amqueue_len.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %5 = load i32, ptr %amqueue_len.i.i, align 8
   %cmp.i.i = icmp eq i32 %4, %5
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end.if.end11_crit_edge.i.i
 
 if.end.if.end11_crit_edge.i.i:                    ; preds = %if.end.i.i
-  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i.i = load ptr, ptr %amqueue12.phi.trans.insert.i.i, align 8
   br label %if.end11.i.i
 
@@ -21692,7 +21636,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   %cmp4.i.i = icmp slt i32 %4, 8
   %spec.select.i.i = select i1 %cmp4.i.i, i32 16, i32 %mul.i.i
   store i32 %spec.select.i.i, ptr %amqueue_len.i.i, align 8
-  %amqueue.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %6 = load ptr, ptr %amqueue.i.i, align 8
   %conv.i.i = sext i32 %spec.select.i.i to i64
   %mul9.i.i = shl nsw i64 %conv.i.i, 4
@@ -21704,7 +21648,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end11.i.i:                                     ; preds = %if.then1.i.i, %if.end.if.end11_crit_edge.i.i
   %7 = phi i32 [ %4, %if.end.if.end11_crit_edge.i.i ], [ %.pre14.i.i, %if.then1.i.i ]
   %8 = phi ptr [ %.pre.i.i, %if.end.if.end11_crit_edge.i.i ], [ %call.i.i, %if.then1.i.i ]
-  %amqueue12.i.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i.i = sext i32 %7 to i64
   %type14.i.i = getelementptr inbounds %struct.AutoMemEntry, ptr %8, i64 %idxprom.i.i, i32 1
   store i32 1, ptr %type14.i.i, align 8
@@ -21726,7 +21670,7 @@ return:                                           ; preds = %entry, %if.end11.i.
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_DictCompareC(ptr noundef %di, ptr noundef %op, ptr noundef %key, i64 noundef %keylen) #0 {
 entry:
-  %ri = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1
+  %ri = getelementptr inbounds i8, ptr %di, i64 8
   %call = tail call i32 @raxEOF(ptr noundef nonnull %ri) #34
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
@@ -21749,13 +21693,13 @@ declare i32 @raxCompare(ptr noundef, ptr noundef, ptr noundef, i64 noundef) loca
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_DictCompare(ptr noundef %di, ptr noundef %op, ptr nocapture noundef readonly %key) #0 {
 entry:
-  %ri = getelementptr inbounds %struct.RedisModuleDictIter, ptr %di, i64 0, i32 1
+  %ri = getelementptr inbounds i8, ptr %di, i64 8
   %call = tail call i32 @raxEOF(ptr noundef nonnull %ri) #34
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %key, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -1
   %1 = load i8, ptr %arrayidx.i, align 1
@@ -21813,7 +21757,7 @@ return:                                           ; preds = %entry, %sdslen.exit
 define dso_local i32 @RM_InfoAddSection(ptr nocapture noundef %ctx, ptr noundef %name) #0 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %name1 = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 1
+  %name1 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %name1, align 8
   %call = tail call ptr @sdsdup(ptr noundef %1) #34
   %cmp.not = icmp eq ptr %name, null
@@ -21830,13 +21774,13 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %full_name.0 = phi ptr [ %call4, %if.then ], [ %call, %land.lhs.true ], [ %call, %entry ]
-  %in_dict_field = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 5
+  %in_dict_field = getelementptr inbounds i8, ptr %ctx, i64 32
   %2 = load i32, ptr %in_dict_field, align 8
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.end7, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %info.i = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 2
+  %info.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %info.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 -1
   %4 = load i8, ptr %arrayidx.i.i, align 1
@@ -21899,7 +21843,7 @@ RM_InfoEndDictField.exit:                         ; preds = %sdslen.exit.i, %if.
   br label %if.end7
 
 if.end7:                                          ; preds = %RM_InfoEndDictField.exit, %if.end
-  %requested_sections = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 1
+  %requested_sections = getelementptr inbounds i8, ptr %ctx, i64 8
   %12 = load ptr, ptr %requested_sections, align 8
   %tobool8.not = icmp eq ptr %12, null
   br i1 %tobool8.not, label %if.end22, label %if.then9
@@ -21920,7 +21864,7 @@ lor.lhs.false.land.lhs.true14_crit_edge:          ; preds = %lor.lhs.false
 land.lhs.true14:                                  ; preds = %lor.lhs.false.land.lhs.true14_crit_edge, %if.then9
   %13 = phi ptr [ %.pre, %lor.lhs.false.land.lhs.true14_crit_edge ], [ %12, %if.then9 ]
   %14 = load ptr, ptr %ctx, align 8
-  %name17 = getelementptr inbounds %struct.RedisModule, ptr %14, i64 0, i32 1
+  %name17 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %name17, align 8
   %call18 = tail call ptr @dictFind(ptr noundef %13, ptr noundef %15) #34
   %tobool19.not = icmp eq ptr %call18, null
@@ -21928,17 +21872,17 @@ land.lhs.true14:                                  ; preds = %lor.lhs.false.land.
 
 if.then20:                                        ; preds = %land.lhs.true14
   tail call void @sdsfree(ptr noundef %full_name.0) #34
-  %in_section = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 4
+  %in_section = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 0, ptr %in_section, align 4
   br label %return
 
 if.end22:                                         ; preds = %lor.lhs.false, %land.lhs.true14, %if.end7
-  %sections = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 3
+  %sections = getelementptr inbounds i8, ptr %ctx, i64 24
   %16 = load i32, ptr %sections, align 8
   %inc = add nsw i32 %16, 1
   store i32 %inc, ptr %sections, align 8
   %tobool23.not = icmp eq i32 %16, 0
-  %info28.phi.trans.insert = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 2
+  %info28.phi.trans.insert = getelementptr inbounds i8, ptr %ctx, i64 16
   %.pre21 = load ptr, ptr %info28.phi.trans.insert, align 8
   br i1 %tobool23.not, label %if.end27, label %if.then24
 
@@ -21949,10 +21893,10 @@ if.then24:                                        ; preds = %if.end22
 
 if.end27:                                         ; preds = %if.end22, %if.then24
   %17 = phi ptr [ %call25, %if.then24 ], [ %.pre21, %if.end22 ]
-  %info28 = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 2
+  %info28 = getelementptr inbounds i8, ptr %ctx, i64 16
   %call29 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %17, ptr noundef nonnull @.str.82, ptr noundef %full_name.0) #34
   store ptr %call29, ptr %info28, align 8
-  %in_section31 = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 4
+  %in_section31 = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 1, ptr %in_section31, align 4
   tail call void @sdsfree(ptr noundef %full_name.0) #34
   br label %return
@@ -21965,13 +21909,13 @@ return:                                           ; preds = %if.end27, %if.then2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_InfoEndDictField(ptr nocapture noundef %ctx) #0 {
 entry:
-  %in_dict_field = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 5
+  %in_dict_field = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load i32, ptr %in_dict_field, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %info = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 2
+  %info = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %info, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -1
   %2 = load i8, ptr %arrayidx.i, align 1
@@ -22045,16 +21989,16 @@ define dso_local i32 @RM_InfoBeginDictField(ptr nocapture noundef %ctx, ptr noun
 entry:
   %tmpmodname = alloca ptr, align 8
   %tmpname = alloca ptr, align 8
-  %in_section = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 4
+  %in_section = getelementptr inbounds i8, ptr %ctx, i64 28
   %0 = load i32, ptr %in_section, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %in_dict_field = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 5
+  %in_dict_field = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load i32, ptr %in_dict_field, align 8
   %tobool1.not = icmp eq i32 %1, 0
-  %info.phi.trans.insert = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 2
+  %info.phi.trans.insert = getelementptr inbounds i8, ptr %ctx, i64 16
   %.pre = load ptr, ptr %info.phi.trans.insert, align 8
   br i1 %tobool1.not, label %if.end3, label %if.end.i
 
@@ -22121,9 +22065,9 @@ RM_InfoEndDictField.exit:                         ; preds = %sdslen.exit.i, %if.
 
 if.end3:                                          ; preds = %if.end, %RM_InfoEndDictField.exit
   %10 = phi ptr [ %call7.i, %RM_InfoEndDictField.exit ], [ %.pre, %if.end ]
-  %info = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 2
+  %info = getelementptr inbounds i8, ptr %ctx, i64 16
   %11 = load ptr, ptr %ctx, align 8
-  %name4 = getelementptr inbounds %struct.RedisModule, ptr %11, i64 0, i32 1
+  %name4 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %name4, align 8
   %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #38
   %call8 = call ptr @getSafeInfoString(ptr noundef %12, i64 noundef %call7, ptr noundef nonnull %tmpmodname) #34
@@ -22164,30 +22108,30 @@ declare void @sdsIncrLen(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_InfoAddFieldString(ptr nocapture noundef %ctx, ptr noundef %field, ptr nocapture noundef readonly %value) #0 {
 entry:
-  %in_section = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 4
+  %in_section = getelementptr inbounds i8, ptr %ctx, i64 28
   %0 = load i32, ptr %in_section, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %in_dict_field = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 5
+  %in_dict_field = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load i32, ptr %in_dict_field, align 8
   %tobool1.not = icmp eq i32 %1, 0
-  %info5 = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 2
+  %info5 = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %info5, align 8
   br i1 %tobool1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %value, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %value, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %call = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %2, ptr noundef nonnull @.str.84, ptr noundef %field, ptr noundef %3) #34
   br label %return.sink.split
 
 if.end4:                                          ; preds = %if.end
   %4 = load ptr, ptr %ctx, align 8
-  %name = getelementptr inbounds %struct.RedisModule, ptr %4, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %name, align 8
-  %ptr6 = getelementptr inbounds %struct.redisObject, ptr %value, i64 0, i32 2
+  %ptr6 = getelementptr inbounds i8, ptr %value, i64 8
   %6 = load ptr, ptr %ptr6, align 8
   %call7 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %2, ptr noundef nonnull @.str.85, ptr noundef %5, ptr noundef %field, ptr noundef %6) #34
   br label %return.sink.split
@@ -22205,16 +22149,16 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_InfoAddFieldCString(ptr nocapture noundef %ctx, ptr noundef %field, ptr noundef %value) #0 {
 entry:
-  %in_section = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 4
+  %in_section = getelementptr inbounds i8, ptr %ctx, i64 28
   %0 = load i32, ptr %in_section, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %in_dict_field = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 5
+  %in_dict_field = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load i32, ptr %in_dict_field, align 8
   %tobool1.not = icmp eq i32 %1, 0
-  %info5 = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 2
+  %info5 = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %info5, align 8
   br i1 %tobool1.not, label %if.end4, label %if.then2
 
@@ -22224,7 +22168,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %3 = load ptr, ptr %ctx, align 8
-  %name = getelementptr inbounds %struct.RedisModule, ptr %3, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %name, align 8
   %call6 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %2, ptr noundef nonnull @.str.87, ptr noundef %4, ptr noundef %field, ptr noundef %value) #34
   br label %return.sink.split
@@ -22242,16 +22186,16 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_InfoAddFieldDouble(ptr nocapture noundef %ctx, ptr noundef %field, double noundef %value) #0 {
 entry:
-  %in_section = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 4
+  %in_section = getelementptr inbounds i8, ptr %ctx, i64 28
   %0 = load i32, ptr %in_section, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %in_dict_field = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 5
+  %in_dict_field = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load i32, ptr %in_dict_field, align 8
   %tobool1.not = icmp eq i32 %1, 0
-  %info5 = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 2
+  %info5 = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %info5, align 8
   br i1 %tobool1.not, label %if.end4, label %if.then2
 
@@ -22261,7 +22205,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %3 = load ptr, ptr %ctx, align 8
-  %name = getelementptr inbounds %struct.RedisModule, ptr %3, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %name, align 8
   %call6 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %2, ptr noundef nonnull @.str.89, ptr noundef %4, ptr noundef %field, double noundef %value) #34
   br label %return.sink.split
@@ -22281,16 +22225,16 @@ declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_InfoAddFieldLongLong(ptr nocapture noundef %ctx, ptr noundef %field, i64 noundef %value) #0 {
 entry:
-  %in_section = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 4
+  %in_section = getelementptr inbounds i8, ptr %ctx, i64 28
   %0 = load i32, ptr %in_section, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %in_dict_field = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 5
+  %in_dict_field = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load i32, ptr %in_dict_field, align 8
   %tobool1.not = icmp eq i32 %1, 0
-  %info5 = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 2
+  %info5 = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %info5, align 8
   br i1 %tobool1.not, label %if.end4, label %if.then2
 
@@ -22300,7 +22244,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %3 = load ptr, ptr %ctx, align 8
-  %name = getelementptr inbounds %struct.RedisModule, ptr %3, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %name, align 8
   %call6 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %2, ptr noundef nonnull @.str.91, ptr noundef %4, ptr noundef %field, i64 noundef %value) #34
   br label %return.sink.split
@@ -22318,16 +22262,16 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_InfoAddFieldULongLong(ptr nocapture noundef %ctx, ptr noundef %field, i64 noundef %value) #0 {
 entry:
-  %in_section = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 4
+  %in_section = getelementptr inbounds i8, ptr %ctx, i64 28
   %0 = load i32, ptr %in_section, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %in_dict_field = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 5
+  %in_dict_field = getelementptr inbounds i8, ptr %ctx, i64 32
   %1 = load i32, ptr %in_dict_field, align 8
   %tobool1.not = icmp eq i32 %1, 0
-  %info5 = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %ctx, i64 0, i32 2
+  %info5 = getelementptr inbounds i8, ptr %ctx, i64 16
   %2 = load ptr, ptr %info5, align 8
   br i1 %tobool1.not, label %if.end4, label %if.then2
 
@@ -22337,7 +22281,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %3 = load ptr, ptr %ctx, align 8
-  %name = getelementptr inbounds %struct.RedisModule, ptr %3, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %name, align 8
   %call6 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %2, ptr noundef nonnull @.str.93, ptr noundef %4, ptr noundef %field, i64 noundef %value) #34
   br label %return.sink.split
@@ -22355,9 +22299,9 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @RM_RegisterInfoFunc(ptr nocapture noundef readonly %ctx, ptr noundef %cb) #14 {
 entry:
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
-  %info_cb = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 14
+  %info_cb = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %cb, ptr %info_cb, align 8
   ret i32 0
 }
@@ -22368,11 +22312,11 @@ entry:
   %info_ctx = alloca %struct.RedisModuleInfoCtx, align 8
   %0 = load ptr, ptr @modules, align 8
   %call = tail call ptr @dictGetIterator(ptr noundef %0) #34
-  %requested_sections = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %info_ctx, i64 0, i32 1
-  %info4 = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %info_ctx, i64 0, i32 2
-  %sections5 = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %info_ctx, i64 0, i32 3
-  %in_section = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %info_ctx, i64 0, i32 4
-  %in_dict_field = getelementptr inbounds %struct.RedisModuleInfoCtx, ptr %info_ctx, i64 0, i32 5
+  %requested_sections = getelementptr inbounds i8, ptr %info_ctx, i64 8
+  %info4 = getelementptr inbounds i8, ptr %info_ctx, i64 16
+  %sections5 = getelementptr inbounds i8, ptr %info_ctx, i64 24
+  %in_section = getelementptr inbounds i8, ptr %info_ctx, i64 28
+  %in_dict_field = getelementptr inbounds i8, ptr %info_ctx, i64 32
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %if.end11, %entry
@@ -22387,7 +22331,7 @@ while.cond:                                       ; preds = %while.cond.outer, %
 
 while.body:                                       ; preds = %while.cond
   %call2 = call ptr @dictGetVal(ptr noundef nonnull %call1) #34
-  %info_cb = getelementptr inbounds %struct.RedisModule, ptr %call2, i64 0, i32 14
+  %info_cb = getelementptr inbounds i8, ptr %call2, i64 88
   %1 = load ptr, ptr %info_cb, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.cond, label %if.end, !llvm.loop !58
@@ -22490,22 +22434,22 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %0, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %1 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %2 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %1, %2
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -22514,7 +22458,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %1, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %3 = load ptr, ptr %amqueue.i, align 8
   %conv.i = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i, 4
@@ -22526,7 +22470,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %4 = phi i32 [ %1, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %5 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %4 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %5, i64 %idxprom.i, i32 1
   store i32 5, ptr %type14.i, align 8
@@ -22769,22 +22713,22 @@ sdslen.exit:                                      ; preds = %if.end, %sw.bb.i, %
   br i1 %cmp.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %sdslen.exit
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %7 = load i32, ptr %flags.i, align 8
   %and.i5 = and i32 %7, 1
   %tobool.not.i = icmp eq i32 %and.i5, 0
   br i1 %tobool.not.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then4
-  %amqueue_used.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 6
+  %amqueue_used.i = getelementptr inbounds i8, ptr %ctx, i64 44
   %8 = load i32, ptr %amqueue_used.i, align 4
-  %amqueue_len.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 5
+  %amqueue_len.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %9 = load i32, ptr %amqueue_len.i, align 8
   %cmp.i = icmp eq i32 %8, %9
   br i1 %cmp.i, label %if.then1.i, label %if.end.if.end11_crit_edge.i
 
 if.end.if.end11_crit_edge.i:                      ; preds = %if.end.i
-  %amqueue12.phi.trans.insert.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.phi.trans.insert.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %.pre.i = load ptr, ptr %amqueue12.phi.trans.insert.i, align 8
   br label %if.end11.i
 
@@ -22793,7 +22737,7 @@ if.then1.i:                                       ; preds = %if.end.i
   %cmp4.i = icmp slt i32 %8, 8
   %spec.select.i = select i1 %cmp4.i, i32 16, i32 %mul.i
   store i32 %spec.select.i, ptr %amqueue_len.i, align 8
-  %amqueue.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %10 = load ptr, ptr %amqueue.i, align 8
   %conv.i6 = sext i32 %spec.select.i to i64
   %mul9.i = shl nsw i64 %conv.i6, 4
@@ -22805,7 +22749,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end11.i:                                       ; preds = %if.then1.i, %if.end.if.end11_crit_edge.i
   %11 = phi i32 [ %8, %if.end.if.end11_crit_edge.i ], [ %.pre14.i, %if.then1.i ]
   %12 = phi ptr [ %.pre.i, %if.end.if.end11_crit_edge.i ], [ %call.i, %if.then1.i ]
-  %amqueue12.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 4
+  %amqueue12.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %idxprom.i = sext i32 %11 to i64
   %type14.i = getelementptr inbounds %struct.AutoMemEntry, ptr %12, i64 %idxprom.i, i32 1
   store i32 1, ptr %type14.i, align 8
@@ -23091,9 +23035,9 @@ declare void @getRandomHexChars(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local i32 @RM_ExportSharedAPI(ptr nocapture noundef readonly %ctx, ptr noundef %apiname, ptr noundef %func) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #35
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
-  %module1 = getelementptr inbounds %struct.RedisModuleSharedAPI, ptr %call, i64 0, i32 1
+  %module1 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %0, ptr %module1, align 8
   store ptr %func, ptr %call, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 38), align 8
@@ -23120,11 +23064,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @dictGetVal(ptr noundef nonnull %call) #34
-  %module = getelementptr inbounds %struct.RedisModuleSharedAPI, ptr %call1, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %call1, i64 8
   %1 = load ptr, ptr %module, align 8
-  %usedby = getelementptr inbounds %struct.RedisModule, ptr %1, i64 0, i32 5
+  %usedby = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %usedby, align 8
-  %module2 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module2 = getelementptr inbounds i8, ptr %ctx, i64 8
   %3 = load ptr, ptr %module2, align 8
   %call3 = tail call ptr @listSearchKey(ptr noundef %2, ptr noundef %3) #34
   %cmp4 = icmp eq ptr %call3, null
@@ -23132,12 +23076,12 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   %4 = load ptr, ptr %module, align 8
-  %usedby7 = getelementptr inbounds %struct.RedisModule, ptr %4, i64 0, i32 5
+  %usedby7 = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load ptr, ptr %usedby7, align 8
   %6 = load ptr, ptr %module2, align 8
   %call9 = tail call ptr @listAddNodeTail(ptr noundef %5, ptr noundef %6) #34
   %7 = load ptr, ptr %module2, align 8
-  %using = getelementptr inbounds %struct.RedisModule, ptr %7, i64 0, i32 6
+  %using = getelementptr inbounds i8, ptr %7, i64 40
   %8 = load ptr, ptr %using, align 8
   %9 = load ptr, ptr %module, align 8
   %call12 = tail call ptr @listAddNodeTail(ptr noundef %8, ptr noundef %9) #34
@@ -23168,7 +23112,7 @@ while.body:                                       ; preds = %entry, %if.end
   %count.07 = phi i32 [ %count.1, %if.end ], [ 0, %entry ]
   %call2 = tail call ptr @dictGetKey(ptr noundef nonnull %call18) #34
   %call3 = tail call ptr @dictGetVal(ptr noundef nonnull %call18) #34
-  %module4 = getelementptr inbounds %struct.RedisModuleSharedAPI, ptr %call3, i64 0, i32 1
+  %module4 = getelementptr inbounds i8, ptr %call3, i64 8
   %1 = load ptr, ptr %module4, align 8
   %cmp5 = icmp eq ptr %1, %module
   br i1 %cmp5, label %if.then, label %if.end
@@ -23202,7 +23146,7 @@ declare i32 @dictDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local i32 @moduleUnregisterUsedAPI(ptr noundef %module) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %using = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 6
+  %using = getelementptr inbounds i8, ptr %module, i64 40
   %0 = load ptr, ptr %using, align 8
   call void @listRewind(ptr noundef %0, ptr noundef nonnull %li) #34
   %call5 = call ptr @listNext(ptr noundef nonnull %li) #34
@@ -23212,9 +23156,9 @@ entry:
 while.body:                                       ; preds = %entry, %if.end
   %call8 = phi ptr [ %call, %if.end ], [ %call5, %entry ]
   %count.07 = phi i32 [ %count.1, %if.end ], [ 0, %entry ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call8, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call8, i64 16
   %1 = load ptr, ptr %value, align 8
-  %usedby = getelementptr inbounds %struct.RedisModule, ptr %1, i64 0, i32 5
+  %usedby = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %usedby, align 8
   %call2 = call ptr @listSearchKey(ptr noundef %2, ptr noundef %module) #34
   %tobool3.not = icmp eq ptr %call2, null
@@ -23241,7 +23185,7 @@ while.end:                                        ; preds = %if.end, %entry
 define dso_local i32 @moduleUnregisterFilters(ptr nocapture noundef readonly %module) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %filters = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 7
+  %filters = getelementptr inbounds i8, ptr %module, i64 48
   %0 = load ptr, ptr %filters, align 8
   call void @listRewind(ptr noundef %0, ptr noundef nonnull %li) #34
   %call4 = call ptr @listNext(ptr noundef nonnull %li) #34
@@ -23251,7 +23195,7 @@ entry:
 while.body:                                       ; preds = %entry, %if.end
   %call7 = phi ptr [ %call, %if.end ], [ %call4, %entry ]
   %count.06 = phi i32 [ %count.1, %if.end ], [ 0, %entry ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call7, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call7, i64 16
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr @moduleCommandFilters, align 8
   %call2 = call ptr @listSearchKey(ptr noundef %2, ptr noundef %1) #34
@@ -23280,17 +23224,17 @@ while.end:                                        ; preds = %if.end, %entry
 define dso_local ptr @RM_RegisterCommandFilter(ptr nocapture noundef readonly %ctx, ptr noundef %callback, i32 noundef %flags) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #35
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
   store ptr %0, ptr %call, align 8
-  %callback2 = getelementptr inbounds %struct.RedisModuleCommandFilter, ptr %call, i64 0, i32 1
+  %callback2 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %callback, ptr %callback2, align 8
-  %flags3 = getelementptr inbounds %struct.RedisModuleCommandFilter, ptr %call, i64 0, i32 2
+  %flags3 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %flags, ptr %flags3, align 8
   %1 = load ptr, ptr @moduleCommandFilters, align 8
   %call4 = tail call ptr @listAddNodeTail(ptr noundef %1, ptr noundef nonnull %call) #34
   %2 = load ptr, ptr %module, align 8
-  %filters = getelementptr inbounds %struct.RedisModule, ptr %2, i64 0, i32 7
+  %filters = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %filters, align 8
   %call6 = tail call ptr @listAddNodeTail(ptr noundef %3, ptr noundef nonnull %call) #34
   ret ptr %call
@@ -23300,7 +23244,7 @@ entry:
 define dso_local i32 @RM_UnregisterCommandFilter(ptr nocapture noundef readonly %ctx, ptr noundef %filter) #0 {
 entry:
   %0 = load ptr, ptr %filter, align 8
-  %module1 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %module1, align 8
   %cmp.not = icmp eq ptr %0, %1
   br i1 %cmp.not, label %if.end, label %return
@@ -23315,7 +23259,7 @@ if.end3:                                          ; preds = %if.end
   %3 = load ptr, ptr @moduleCommandFilters, align 8
   tail call void @listDelNode(ptr noundef %3, ptr noundef nonnull %call) #34
   %4 = load ptr, ptr %module1, align 8
-  %filters = getelementptr inbounds %struct.RedisModule, ptr %4, i64 0, i32 7
+  %filters = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load ptr, ptr %filters, align 8
   %call5 = tail call ptr @listSearchKey(ptr noundef %5, ptr noundef nonnull %filter) #34
   %tobool6.not = icmp eq ptr %call5, null
@@ -23323,7 +23267,7 @@ if.end3:                                          ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end3
   %6 = load ptr, ptr %module1, align 8
-  %filters10 = getelementptr inbounds %struct.RedisModule, ptr %6, i64 0, i32 7
+  %filters10 = getelementptr inbounds i8, ptr %6, i64 48
   %7 = load ptr, ptr %filters10, align 8
   tail call void @listDelNode(ptr noundef %7, ptr noundef nonnull %call5) #34
   tail call void @zfree(ptr noundef nonnull %filter) #34
@@ -23337,7 +23281,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @RM_CommandFilterArgsCount(ptr nocapture noundef readonly %fctx) #6 {
 entry:
-  %argc = getelementptr inbounds %struct.RedisModuleCommandFilterCtx, ptr %fctx, i64 0, i32 2
+  %argc = getelementptr inbounds i8, ptr %fctx, i64 12
   %0 = load i32, ptr %argc, align 4
   ret i32 %0
 }
@@ -23349,7 +23293,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %argc = getelementptr inbounds %struct.RedisModuleCommandFilterCtx, ptr %fctx, i64 0, i32 2
+  %argc = getelementptr inbounds i8, ptr %fctx, i64 12
   %0 = load i32, ptr %argc, align 4
   %cmp1.not = icmp sgt i32 %0, %pos
   br i1 %cmp1.not, label %if.end, label %return
@@ -23373,13 +23317,13 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %argc = getelementptr inbounds %struct.RedisModuleCommandFilterCtx, ptr %fctx, i64 0, i32 2
+  %argc = getelementptr inbounds i8, ptr %fctx, i64 12
   %0 = load i32, ptr %argc, align 4
   %cmp1 = icmp slt i32 %0, %pos
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %argv_len = getelementptr inbounds %struct.RedisModuleCommandFilterCtx, ptr %fctx, i64 0, i32 1
+  %argv_len = getelementptr inbounds i8, ptr %fctx, i64 8
   %1 = load i32, ptr %argv_len, align 8
   %cmp3.not = icmp sgt i32 %1, %0
   br i1 %cmp3.not, label %if.end10, label %if.then4
@@ -23435,7 +23379,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %argc = getelementptr inbounds %struct.RedisModuleCommandFilterCtx, ptr %fctx, i64 0, i32 2
+  %argc = getelementptr inbounds i8, ptr %fctx, i64 12
   %0 = load i32, ptr %argc, align 4
   %cmp1.not = icmp sgt i32 %0, %pos
   br i1 %cmp1.not, label %if.end, label %return
@@ -23463,7 +23407,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %argc = getelementptr inbounds %struct.RedisModuleCommandFilterCtx, ptr %fctx, i64 0, i32 2
+  %argc = getelementptr inbounds i8, ptr %fctx, i64 12
   %0 = load i32, ptr %argc, align 4
   %cmp1.not = icmp sgt i32 %0, %pos
   br i1 %cmp1.not, label %if.end, label %return
@@ -23506,7 +23450,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @RM_CommandFilterGetClientId(ptr nocapture noundef readonly %fctx) #11 {
 entry:
-  %c = getelementptr inbounds %struct.RedisModuleCommandFilterCtx, ptr %fctx, i64 0, i32 3
+  %c = getelementptr inbounds i8, ptr %fctx, i64 16
   %0 = load ptr, ptr %c, align 8
   %1 = load i64, ptr %0, align 8
   ret i64 %1
@@ -23554,7 +23498,7 @@ declare i64 @getStringObjectSdsUsedMemory(ptr noundef) local_unnamed_addr #1
 define dso_local i64 @RM_MallocSizeDict(ptr nocapture noundef readonly %dict) #11 {
 entry:
   %0 = load ptr, ptr %dict, align 8
-  %numnodes = getelementptr inbounds %struct.rax, ptr %0, i64 0, i32 2
+  %numnodes = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %numnodes, align 8
   %reass.mul = mul i64 %1, 244
   %add5 = add i64 %reass.mul, 32
@@ -23575,7 +23519,7 @@ define dso_local noalias ptr @RM_ScanCursorCreate() #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #35
   store i64 0, ptr %call, align 8
-  %done = getelementptr inbounds %struct.RedisModuleScanCursor, ptr %call, i64 0, i32 1
+  %done = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %done, align 8
   ret ptr %call
 }
@@ -23584,7 +23528,7 @@ entry:
 define dso_local void @RM_ScanCursorRestart(ptr nocapture noundef writeonly %cursor) #24 {
 entry:
   store i64 0, ptr %cursor, align 8
-  %done = getelementptr inbounds %struct.RedisModuleScanCursor, ptr %cursor, i64 0, i32 1
+  %done = getelementptr inbounds i8, ptr %cursor, i64 8
   store i32 0, ptr %done, align 8
   ret void
 }
@@ -23600,20 +23544,20 @@ entry:
 define dso_local i32 @RM_Scan(ptr noundef %ctx, ptr nocapture noundef %cursor, ptr noundef %fn, ptr noundef %privdata) #0 {
 entry:
   %data = alloca %struct.ScanCBData, align 8
-  %done = getelementptr inbounds %struct.RedisModuleScanCursor, ptr %cursor, i64 0, i32 1
+  %done = getelementptr inbounds i8, ptr %cursor, i64 8
   %0 = load i32, ptr %done, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   store ptr %ctx, ptr %data, align 8
-  %user_data = getelementptr inbounds %struct.ScanCBData, ptr %data, i64 0, i32 1
+  %user_data = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %privdata, ptr %user_data, align 8
-  %fn2 = getelementptr inbounds %struct.ScanCBData, ptr %data, i64 0, i32 2
+  %fn2 = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %fn, ptr %fn2, align 8
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %client, align 8
-  %db = getelementptr inbounds %struct.client, ptr %1, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %db, align 8
   %3 = load i64, ptr %cursor, align 8
   %call4 = call i64 @dbScan(ptr noundef %2, i32 noundef 0, i64 noundef %3, i32 noundef -1, ptr noundef nonnull @moduleScanCallback, ptr noundef null, ptr noundef nonnull %data) #34
@@ -23647,20 +23591,20 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 88, i1 false)
   %1 = load ptr, ptr %privdata, align 8
   store ptr %1, ptr %kp, align 8
-  %client.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %1, i64 0, i32 2
+  %client.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %client.i, align 8
-  %db.i = getelementptr inbounds %struct.client, ptr %2, i64 0, i32 4
+  %db.i = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %db.i, align 8
-  %db2.i = getelementptr inbounds %struct.RedisModuleKey, ptr %kp, i64 0, i32 1
+  %db2.i = getelementptr inbounds i8, ptr %kp, i64 8
   store ptr %3, ptr %db2.i, align 8
-  %key.i = getelementptr inbounds %struct.RedisModuleKey, ptr %kp, i64 0, i32 2
+  %key.i = getelementptr inbounds i8, ptr %kp, i64 16
   store ptr %call3, ptr %key.i, align 8
   tail call void @incrRefCount(ptr noundef %call3) #34
-  %value3.i = getelementptr inbounds %struct.RedisModuleKey, ptr %kp, i64 0, i32 3
+  %value3.i = getelementptr inbounds i8, ptr %kp, i64 24
   store ptr %call1, ptr %value3.i, align 8
-  %iter.i = getelementptr inbounds %struct.RedisModuleKey, ptr %kp, i64 0, i32 4
+  %iter.i = getelementptr inbounds i8, ptr %kp, i64 32
   store ptr null, ptr %iter.i, align 8
-  %mode4.i = getelementptr inbounds %struct.RedisModuleKey, ptr %kp, i64 0, i32 5
+  %mode4.i = getelementptr inbounds i8, ptr %kp, i64 40
   store i32 1, ptr %mode4.i, align 8
   %tobool.not.i = icmp eq ptr %call1, null
   br i1 %tobool.not.i, label %moduleInitKey.exit, label %if.then.i
@@ -23670,28 +23614,28 @@ if.then.i:                                        ; preds = %entry
   %bf.clear.i.i = and i32 %bf.load.i.i, 15
   switch i32 %bf.clear.i.i, label %moduleInitKey.exit [
     i32 3, label %sw.bb.i.i
-    i32 6, label %sw.bb1.i.i
+    i32 6, label %sw.epilog.sink.split.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.then.i
-  %u.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %kp, i64 0, i32 6
+  %u.i.i.i = getelementptr inbounds i8, ptr %kp, i64 48
   store i32 0, ptr %u.i.i.i, align 8
-  %current.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %kp, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
+  %current.i.i.i = getelementptr inbounds i8, ptr %kp, i64 112
   store ptr null, ptr %current.i.i.i, align 8
-  %er.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %kp, i64 0, i32 6, i32 0, i32 1
-  store i32 1, ptr %er.i.i.i, align 8
+  br label %sw.epilog.sink.split.i.i
+
+sw.epilog.sink.split.i.i:                         ; preds = %sw.bb.i.i, %if.then.i
+  %.sink3.i.i = phi i64 [ 120, %sw.bb.i.i ], [ 72, %if.then.i ]
+  %.sink.i.i = phi i32 [ 1, %sw.bb.i.i ], [ 0, %if.then.i ]
+  %signalready.i.i = getelementptr inbounds i8, ptr %kp, i64 %.sink3.i.i
+  store i32 %.sink.i.i, ptr %signalready.i.i, align 8
   br label %moduleInitKey.exit
 
-sw.bb1.i.i:                                       ; preds = %if.then.i
-  %signalready.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %kp, i64 0, i32 6, i32 0, i32 0, i32 2, i32 1
-  store i32 0, ptr %signalready.i.i, align 8
-  br label %moduleInitKey.exit
-
-moduleInitKey.exit:                               ; preds = %entry, %if.then.i, %sw.bb.i.i, %sw.bb1.i.i
-  %fn = getelementptr inbounds %struct.ScanCBData, ptr %privdata, i64 0, i32 2
+moduleInitKey.exit:                               ; preds = %entry, %if.then.i, %sw.epilog.sink.split.i.i
+  %fn = getelementptr inbounds i8, ptr %privdata, i64 16
   %4 = load ptr, ptr %fn, align 8
   %5 = load ptr, ptr %privdata, align 8
-  %user_data = getelementptr inbounds %struct.ScanCBData, ptr %privdata, i64 0, i32 1
+  %user_data = getelementptr inbounds i8, ptr %privdata, i64 8
   %6 = load ptr, ptr %user_data, align 8
   call void %4(ptr noundef %5, ptr noundef %call3, ptr noundef nonnull %kp, ptr noundef %6) #34
   call fastcc void @moduleCloseKey(ptr noundef nonnull %kp)
@@ -23709,7 +23653,7 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %if.end
@@ -23729,7 +23673,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp7, label %if.then8, label %if.end37
 
 if.then8:                                         ; preds = %if.then4
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %0, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %0, i64 8
   br label %if.end37.sink.split
 
 if.then13:                                        ; preds = %if.end
@@ -23738,7 +23682,7 @@ if.then13:                                        ; preds = %if.end
   br i1 %cmp17, label %if.then18, label %if.end37
 
 if.then18:                                        ; preds = %if.then13
-  %ptr19 = getelementptr inbounds %struct.redisObject, ptr %0, i64 0, i32 2
+  %ptr19 = getelementptr inbounds i8, ptr %0, i64 8
   br label %if.end37.sink.split
 
 if.then25:                                        ; preds = %if.end
@@ -23747,7 +23691,7 @@ if.then25:                                        ; preds = %if.end
   br i1 %cmp29, label %if.then30, label %if.end37
 
 if.then30:                                        ; preds = %if.then25
-  %ptr31 = getelementptr inbounds %struct.redisObject, ptr %0, i64 0, i32 2
+  %ptr31 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %ptr31, align 8
   br label %if.end37.sink.split
 
@@ -23758,7 +23702,7 @@ if.end37.sink.split:                              ; preds = %if.then8, %if.then3
 
 if.end37:                                         ; preds = %if.end37.sink.split, %if.then13, %if.then25, %if.then4
   %ht.0 = phi ptr [ null, %if.then4 ], [ null, %if.then13 ], [ null, %if.then25 ], [ %5, %if.end37.sink.split ]
-  %done = getelementptr inbounds %struct.RedisModuleScanCursor, ptr %cursor, i64 0, i32 1
+  %done = getelementptr inbounds i8, ptr %cursor, i64 8
   %6 = load i32, ptr %done, align 8
   %tobool.not = icmp eq i32 %6, 0
   br i1 %tobool.not, label %if.end40, label %return
@@ -23769,9 +23713,9 @@ if.end40:                                         ; preds = %if.end37
 
 if.then42:                                        ; preds = %if.end40
   store ptr %key, ptr %data, align 8
-  %user_data = getelementptr inbounds %struct.ScanKeyCBData, ptr %data, i64 0, i32 1
+  %user_data = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %privdata, ptr %user_data, align 8
-  %fn44 = getelementptr inbounds %struct.ScanKeyCBData, ptr %data, i64 0, i32 2
+  %fn44 = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %fn, ptr %fn44, align 8
   %7 = load i64, ptr %cursor, align 8
   %call46 = call i64 @dictScan(ptr noundef nonnull %ht.0, i64 noundef %7, ptr noundef nonnull @moduleScanKeyCallback, ptr noundef nonnull %data) #34
@@ -23806,7 +23750,7 @@ while.end:                                        ; preds = %while.body, %if.the
   br label %if.end103.sink.split.sink.split
 
 if.then72:                                        ; preds = %if.else53, %if.else53
-  %ptr73 = getelementptr inbounds %struct.redisObject, ptr %0, i64 0, i32 2
+  %ptr73 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %ptr73, align 8
   %call74 = tail call ptr @lpSeek(ptr noundef %8, i64 noundef 0) #34
   %tobool76.not45 = icmp eq ptr %call74, null
@@ -23881,7 +23825,7 @@ define internal void @moduleScanKeyCallback(ptr nocapture noundef readonly %priv
 entry:
   %call = tail call ptr @dictGetKey(ptr noundef %de) #34
   %0 = load ptr, ptr %privdata, align 8
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %0, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %value, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %call, i64 -1
   %2 = load i8, ptr %arrayidx.i, align 1
@@ -23989,10 +23933,10 @@ if.then16:                                        ; preds = %sdslen.exit
 
 if.end21:                                         ; preds = %sdslen.exit, %sdslen.exit31, %if.then16
   %value4.0 = phi ptr [ %call11, %sdslen.exit31 ], [ %call19, %if.then16 ], [ null, %sdslen.exit ]
-  %fn = getelementptr inbounds %struct.ScanKeyCBData, ptr %privdata, i64 0, i32 2
+  %fn = getelementptr inbounds i8, ptr %privdata, i64 16
   %13 = load ptr, ptr %fn, align 8
   %14 = load ptr, ptr %privdata, align 8
-  %user_data = getelementptr inbounds %struct.ScanKeyCBData, ptr %privdata, i64 0, i32 1
+  %user_data = getelementptr inbounds i8, ptr %privdata, i64 8
   %15 = load ptr, ptr %user_data, align 8
   tail call void %13(ptr noundef %14, ptr noundef %call3, ptr noundef %value4.0, ptr noundef %15) #34
   tail call void @decrRefCount(ptr noundef %call3) #34
@@ -24234,7 +24178,7 @@ if.end2:                                          ; preds = %if.then1, %do.end
 define dso_local i32 @RM_SubscribeToServerEvent(ptr nocapture noundef readonly %ctx, i64 %event.coerce0, i64 %event.coerce1, ptr noundef %callback) #0 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
   %cmp = icmp eq ptr %0, null
   %cmp1 = icmp ugt i64 %event.coerce0, 17
@@ -24256,7 +24200,7 @@ if.end7:                                          ; preds = %if.end3
 
 while.body:                                       ; preds = %if.end7, %if.end16
   %call20 = phi ptr [ %call, %if.end16 ], [ %call18, %if.end7 ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call20, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call20, i64 16
   %3 = load ptr, ptr %value, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %module, align 8
@@ -24264,7 +24208,7 @@ while.body:                                       ; preds = %if.end7, %if.end16
   br i1 %cmp10, label %land.lhs.true, label %if.end16
 
 land.lhs.true:                                    ; preds = %while.body
-  %event11 = getelementptr inbounds %struct.RedisModuleEventListener, ptr %3, i64 0, i32 1
+  %event11 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load i64, ptr %event11, align 8
   %cmp14 = icmp eq i64 %6, %event.coerce0
   br i1 %cmp14, label %if.then18, label %if.end16
@@ -24285,7 +24229,7 @@ if.then20:                                        ; preds = %if.then18
   br label %return
 
 if.else:                                          ; preds = %if.then18
-  %callback21 = getelementptr inbounds %struct.RedisModuleEventListener, ptr %3, i64 0, i32 2
+  %callback21 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %callback, ptr %callback21, align 8
   br label %return
 
@@ -24293,11 +24237,11 @@ if.end23:                                         ; preds = %if.end16, %if.end7
   %call24 = call noalias dereferenceable_or_null(32) ptr @zmalloc(i64 noundef 32) #35
   %8 = load ptr, ptr %module, align 8
   store ptr %8, ptr %call24, align 8
-  %event27 = getelementptr inbounds %struct.RedisModuleEventListener, ptr %call24, i64 0, i32 1
+  %event27 = getelementptr inbounds i8, ptr %call24, i64 8
   store i64 %event.coerce0, ptr %event27, align 8
-  %event.sroa.5.0.event27.sroa_idx = getelementptr inbounds %struct.RedisModuleEventListener, ptr %call24, i64 0, i32 1, i32 1
+  %event.sroa.5.0.event27.sroa_idx = getelementptr inbounds i8, ptr %call24, i64 16
   store i64 %event.coerce1, ptr %event.sroa.5.0.event27.sroa_idx, align 8
-  %callback28 = getelementptr inbounds %struct.RedisModuleEventListener, ptr %call24, i64 0, i32 2
+  %callback28 = getelementptr inbounds i8, ptr %call24, i64 24
   store ptr %callback, ptr %callback28, align 8
   %9 = load ptr, ptr @RedisModule_EventListeners, align 8
   %call29 = call ptr @listAddNodeTail(ptr noundef %9, ptr noundef nonnull %call24) #34
@@ -24432,7 +24376,7 @@ entry:
   %key = alloca %struct.RedisModuleKey, align 8
   %ki = alloca %struct.RedisModuleKeyInfo, align 8
   %0 = load ptr, ptr @RedisModule_EventListeners, align 8
-  %len = getelementptr inbounds %struct.list, ptr %0, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %len, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %while.end, label %if.end
@@ -24446,40 +24390,38 @@ if.end:                                           ; preds = %entry
 while.body.lr.ph:                                 ; preds = %if.end
   %cmp3 = icmp eq i64 %eid, 4
   %2 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %module1.i36 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
-  %flags.i37 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
-  %3 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
-  %key7 = getelementptr inbounds %struct.RedisModuleKeyInfo, ptr %ki, i64 0, i32 1
-  %key80 = getelementptr inbounds %struct.KeyInfo, ptr %data, i64 0, i32 1
-  %value81 = getelementptr inbounds %struct.KeyInfo, ptr %data, i64 0, i32 2
-  %mode = getelementptr inbounds %struct.KeyInfo, ptr %data, i64 0, i32 3
-  %db2.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 1
-  %key.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 2
-  %value3.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
-  %iter.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
-  %mode4.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
-  %signalready.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 1
-  %u.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6
-  %current.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 0, i32 2, i32 6
-  %er.i.i.i = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 6, i32 0, i32 1
-  %module_name = getelementptr inbounds %struct.RedisModuleModuleChange, ptr %mcv1, i64 0, i32 1
-  %module_version = getelementptr inbounds %struct.RedisModuleModuleChange, ptr %mcv1, i64 0, i32 2
-  %dbnum = getelementptr inbounds %struct.RedisModuleFlushInfo, ptr %data, i64 0, i32 2
+  %module1.i36 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %flags.i37 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %3 = getelementptr inbounds i8, ptr %ctx, i64 104
+  %key7 = getelementptr inbounds i8, ptr %ki, i64 8
+  %key80 = getelementptr inbounds i8, ptr %data, i64 8
+  %value81 = getelementptr inbounds i8, ptr %data, i64 16
+  %mode = getelementptr inbounds i8, ptr %data, i64 24
+  %db2.i = getelementptr inbounds i8, ptr %key, i64 8
+  %key.i = getelementptr inbounds i8, ptr %key, i64 16
+  %value3.i = getelementptr inbounds i8, ptr %key, i64 24
+  %iter.i = getelementptr inbounds i8, ptr %key, i64 32
+  %mode4.i = getelementptr inbounds i8, ptr %key, i64 40
+  %u.i.i.i = getelementptr inbounds i8, ptr %key, i64 48
+  %current.i.i.i = getelementptr inbounds i8, ptr %key, i64 112
+  %module_name = getelementptr inbounds i8, ptr %mcv1, i64 8
+  %module_version = getelementptr inbounds i8, ptr %mcv1, i64 16
+  %dbnum = getelementptr inbounds i8, ptr %data, i64 12
   %4 = getelementptr inbounds i8, ptr %riv1, i64 8
-  %masterhost.i = getelementptr inbounds %struct.RedisModuleReplicationInfo, ptr %riv1, i64 0, i32 2
-  %masterport.i = getelementptr inbounds %struct.RedisModuleReplicationInfo, ptr %riv1, i64 0, i32 3
-  %replid1.i = getelementptr inbounds %struct.RedisModuleReplicationInfo, ptr %riv1, i64 0, i32 4
-  %replid2.i = getelementptr inbounds %struct.RedisModuleReplicationInfo, ptr %riv1, i64 0, i32 5
-  %repl1_offset.i = getelementptr inbounds %struct.RedisModuleReplicationInfo, ptr %riv1, i64 0, i32 6
+  %masterhost.i = getelementptr inbounds i8, ptr %riv1, i64 16
+  %masterport.i = getelementptr inbounds i8, ptr %riv1, i64 24
+  %replid1.i = getelementptr inbounds i8, ptr %riv1, i64 32
+  %replid2.i = getelementptr inbounds i8, ptr %riv1, i64 40
+  %repl1_offset.i = getelementptr inbounds i8, ptr %riv1, i64 48
   %conv93 = sext i32 %subid to i64
   %cmp96 = icmp eq i64 %eid, 17
   br i1 %cmp3, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end100.us
   %call56.us = phi ptr [ %call.us, %if.end100.us ], [ %call54, %while.body.lr.ph ]
-  %value.us = getelementptr inbounds %struct.listNode, ptr %call56.us, i64 0, i32 2
+  %value.us = getelementptr inbounds i8, ptr %call56.us, i64 16
   %5 = load ptr, ptr %value.us, align 8
-  %event.us = getelementptr inbounds %struct.RedisModuleEventListener, ptr %5, i64 0, i32 1
+  %event.us = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %event.us, align 8
   %cmp1.us = icmp eq i64 %6, 4
   br i1 %cmp1.us, label %if.then2.us, label %if.end100.us
@@ -24513,7 +24455,7 @@ if.then9.us:                                      ; preds = %if.else11.i.us, %if
   store i64 %add.sink.i.us, ptr %3, align 8
   call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
   store ptr %data, ptr %2, align 8
-  %dataver.us = getelementptr inbounds %struct.RedisModuleEventListener, ptr %5, i64 0, i32 1, i32 1
+  %dataver.us = getelementptr inbounds i8, ptr %5, i64 16
   %12 = load i64, ptr %dataver.us, align 8
   %conv.us = trunc i64 %12 to i32
   %call11.us = call i32 @modulePopulateClientInfoStructure(ptr noundef nonnull %civ1, ptr noundef %data, i32 noundef %conv.us), !range !22
@@ -24522,17 +24464,17 @@ if.then9.us:                                      ; preds = %if.else11.i.us, %if
 
 if.end90.us:                                      ; preds = %if.then9.us
   %13 = load ptr, ptr %5, align 8
-  %in_hook.us = getelementptr inbounds %struct.RedisModule, ptr %13, i64 0, i32 11
+  %in_hook.us = getelementptr inbounds i8, ptr %13, i64 72
   %14 = load i32, ptr %in_hook.us, align 8
   %inc.us = add nsw i32 %14, 1
   store i32 %inc.us, ptr %in_hook.us, align 8
-  %callback.us = getelementptr inbounds %struct.RedisModuleEventListener, ptr %5, i64 0, i32 2
+  %callback.us = getelementptr inbounds i8, ptr %5, i64 24
   %15 = load ptr, ptr %callback.us, align 8
   %16 = load i64, ptr %event.us, align 8
   %17 = load i64, ptr %dataver.us, align 8
   call void %15(ptr noundef nonnull %ctx, i64 %16, i64 %17, i64 noundef %conv93, ptr noundef nonnull %civ1) #34
   %18 = load ptr, ptr %5, align 8
-  %in_hook95.us = getelementptr inbounds %struct.RedisModule, ptr %18, i64 0, i32 11
+  %in_hook95.us = getelementptr inbounds i8, ptr %18, i64 72
   %19 = load i32, ptr %in_hook95.us, align 8
   %dec.us = add nsw i32 %19, -1
   store i32 %dec.us, ptr %in_hook95.us, align 8
@@ -24553,9 +24495,9 @@ if.end100.us:                                     ; preds = %if.end99.us, %while
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %call56 = phi ptr [ %call, %while.cond.backedge ], [ %call54, %while.body.lr.ph ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call56, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call56, i64 16
   %20 = load ptr, ptr %value, align 8
-  %event = getelementptr inbounds %struct.RedisModuleEventListener, ptr %20, i64 0, i32 1
+  %event = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i64, ptr %event, align 8
   %cmp1 = icmp eq i64 %21, %eid
   br i1 %cmp1, label %if.then2, label %while.cond.backedge
@@ -24586,11 +24528,11 @@ if.then2.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.then2
   %call.i.i = call ptr @createClient(ptr noundef null) #34
-  %flags.i.i = getelementptr inbounds %struct.client, ptr %call.i.i, i64 0, i32 1
+  %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %27 = load i64, ptr %flags.i.i, align 8
   %or.i.i = or i64 %27, 134217728
   store i64 %or.i.i, ptr %flags.i.i, align 8
-  %user.i.i = getelementptr inbounds %struct.client, ptr %call.i.i, i64 0, i32 20
+  %user.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
   store ptr null, ptr %user.i.i, align 8
   br label %if.end7.sink.split.i
 
@@ -24639,7 +24581,7 @@ if.else17:                                        ; preds = %if.then9.i40, %if.e
   ]
 
 if.then20:                                        ; preds = %if.else17
-  %dataver22 = getelementptr inbounds %struct.RedisModuleEventListener, ptr %20, i64 0, i32 1, i32 1
+  %dataver22 = getelementptr inbounds i8, ptr %20, i64 16
   %32 = load i64, ptr %dataver22, align 8
   %33 = and i64 %32, 4294967295
   %cmp.not.i = icmp eq i64 %33, 1
@@ -24708,7 +24650,7 @@ if.then76:                                        ; preds = %if.else17
   %46 = load i32, ptr %mode, align 8
   store ptr %ctx, ptr %key, align 8
   %47 = load ptr, ptr %2, align 8
-  %db.i = getelementptr inbounds %struct.client, ptr %47, i64 0, i32 4
+  %db.i = getelementptr inbounds i8, ptr %47, i64 32
   %48 = load ptr, ptr %db.i, align 8
   store ptr %48, ptr %db2.i, align 8
   store ptr %44, ptr %key.i, align 8
@@ -24724,37 +24666,39 @@ if.then.i:                                        ; preds = %if.then76
   %bf.clear.i.i = and i32 %bf.load.i.i, 15
   switch i32 %bf.clear.i.i, label %if.end90 [
     i32 3, label %sw.bb.i.i
-    i32 6, label %sw.bb1.i.i
+    i32 6, label %sw.epilog.sink.split.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %if.then.i
   store i32 0, ptr %u.i.i.i, align 8
   store ptr null, ptr %current.i.i.i, align 8
-  store i32 1, ptr %er.i.i.i, align 8
-  br label %if.end90
+  br label %sw.epilog.sink.split.i.i
 
-sw.bb1.i.i:                                       ; preds = %if.then.i
-  store i32 0, ptr %signalready.i.i, align 8
+sw.epilog.sink.split.i.i:                         ; preds = %sw.bb.i.i, %if.then.i
+  %.sink3.i.i = phi i64 [ 120, %sw.bb.i.i ], [ 72, %if.then.i ]
+  %.sink.i.i = phi i32 [ 1, %sw.bb.i.i ], [ 0, %if.then.i ]
+  %signalready.i.i = getelementptr inbounds i8, ptr %key, i64 %.sink3.i.i
+  store i32 %.sink.i.i, ptr %signalready.i.i, align 8
   br label %if.end90
 
 if.end90.fold.split:                              ; preds = %if.else17
   br label %if.end90
 
-if.end90:                                         ; preds = %sw.bb1.i.i, %sw.bb.i.i, %if.then.i, %if.then76, %modulePopulateReplicationInfoStructure.exit.thread, %if.else17, %if.else17, %if.else17, %if.else17, %if.end90.fold.split, %if.end55, %if.then39, %if.then42
-  %moduledata.0 = phi ptr [ %data, %if.then42 ], [ %data, %if.then39 ], [ %mcv1, %if.end55 ], [ %data, %if.else17 ], [ %data, %if.else17 ], [ %data, %if.else17 ], [ %data, %if.else17 ], [ null, %if.end90.fold.split ], [ %riv1, %modulePopulateReplicationInfoStructure.exit.thread ], [ %ki, %if.then76 ], [ %ki, %if.then.i ], [ %ki, %sw.bb.i.i ], [ %ki, %sw.bb1.i.i ]
+if.end90:                                         ; preds = %sw.epilog.sink.split.i.i, %if.then.i, %if.then76, %modulePopulateReplicationInfoStructure.exit.thread, %if.else17, %if.else17, %if.else17, %if.else17, %if.end90.fold.split, %if.end55, %if.then39, %if.then42
+  %moduledata.0 = phi ptr [ %data, %if.then42 ], [ %data, %if.then39 ], [ %mcv1, %if.end55 ], [ %data, %if.else17 ], [ %data, %if.else17 ], [ %data, %if.else17 ], [ %data, %if.else17 ], [ null, %if.end90.fold.split ], [ %riv1, %modulePopulateReplicationInfoStructure.exit.thread ], [ %ki, %if.then76 ], [ %ki, %if.then.i ], [ %ki, %sw.epilog.sink.split.i.i ]
   %49 = load ptr, ptr %20, align 8
-  %in_hook = getelementptr inbounds %struct.RedisModule, ptr %49, i64 0, i32 11
+  %in_hook = getelementptr inbounds i8, ptr %49, i64 72
   %50 = load i32, ptr %in_hook, align 8
   %inc = add nsw i32 %50, 1
   store i32 %inc, ptr %in_hook, align 8
-  %callback = getelementptr inbounds %struct.RedisModuleEventListener, ptr %20, i64 0, i32 2
+  %callback = getelementptr inbounds i8, ptr %20, i64 24
   %51 = load ptr, ptr %callback, align 8
   %52 = load i64, ptr %event, align 8
-  %53 = getelementptr inbounds %struct.RedisModuleEventListener, ptr %20, i64 0, i32 1, i32 1
+  %53 = getelementptr inbounds i8, ptr %20, i64 16
   %54 = load i64, ptr %53, align 8
   call void %51(ptr noundef nonnull %ctx, i64 %52, i64 %54, i64 noundef %conv93, ptr noundef %moduledata.0) #34
   %55 = load ptr, ptr %20, align 8
-  %in_hook95 = getelementptr inbounds %struct.RedisModule, ptr %55, i64 0, i32 11
+  %in_hook95 = getelementptr inbounds i8, ptr %55, i64 72
   %56 = load i32, ptr %in_hook95, align 8
   %dec = add nsw i32 %56, -1
   store i32 %dec, ptr %in_hook95, align 8
@@ -24780,7 +24724,7 @@ entry:
 
 while.body:                                       ; preds = %entry, %if.end
   %call5 = phi ptr [ %call, %if.end ], [ %call3, %entry ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call5, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call5, i64 16
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %1, align 8
   %cmp = icmp eq ptr %2, %module
@@ -24825,10 +24769,10 @@ if.then1:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then1, %if.then
   %progress.0 = phi i32 [ %conv, %if.then1 ], [ -1, %if.then ]
   store i64 1, ptr %fi, align 8
-  %hz = getelementptr inbounds %struct.RedisModuleLoadingProgressInfo, ptr %fi, i64 0, i32 1
+  %hz = getelementptr inbounds i8, ptr %fi, i64 8
   %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 8), align 4
   store i32 %4, ptr %hz, align 8
-  %progress2 = getelementptr inbounds %struct.RedisModuleLoadingProgressInfo, ptr %fi, i64 0, i32 2
+  %progress2 = getelementptr inbounds i8, ptr %fi, i64 12
   store i32 %progress.0, ptr %progress2, align 4
   %tobool3.not = icmp ne i32 %is_aof, 0
   %cond = zext i1 %tobool3.not to i32
@@ -24871,11 +24815,11 @@ if.else5:                                         ; preds = %if.else
 if.end11:                                         ; preds = %if.else5, %if.else, %entry
   %subevent.0 = phi i32 [ 1, %entry ], [ 2, %if.else ], [ %spec.select, %if.else5 ]
   store i32 %dbid, ptr %info, align 8
-  %key12 = getelementptr inbounds %struct.KeyInfo, ptr %info, i64 0, i32 1
+  %key12 = getelementptr inbounds i8, ptr %info, i64 8
   store ptr %key, ptr %key12, align 8
-  %value = getelementptr inbounds %struct.KeyInfo, ptr %info, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %info, i64 16
   store ptr %val, ptr %value, align 8
-  %mode = getelementptr inbounds %struct.KeyInfo, ptr %info, i64 0, i32 3
+  %mode = getelementptr inbounds i8, ptr %info, i64 24
   store i32 1, ptr %mode, align 8
   call void @moduleFireServerEvent(i64 noundef 17, i32 noundef %subevent.0, ptr noundef nonnull %info)
   %bf.load = load i32, ptr %val, align 8
@@ -24884,35 +24828,35 @@ if.end11:                                         ; preds = %if.else5, %if.else,
   br i1 %cmp, label %if.then14, label %if.end28
 
 if.then14:                                        ; preds = %if.end11
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %val, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %val, i64 8
   %1 = load ptr, ptr %ptr, align 8
   %2 = load ptr, ptr %1, align 8
-  %unlink2 = getelementptr inbounds %struct.RedisModuleType, ptr %2, i64 0, i32 16
+  %unlink2 = getelementptr inbounds i8, ptr %2, i64 128
   %3 = load ptr, ptr %unlink2, align 8
   %cmp15.not = icmp eq ptr %3, null
   br i1 %cmp15.not, label %if.else20, label %if.then17
 
 if.then17:                                        ; preds = %if.then14
   store ptr %key, ptr %ctx, align 8
-  %to_key = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 1
+  %to_key = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr null, ptr %to_key, align 8
-  %from_dbid = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 2
+  %from_dbid = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 %dbid, ptr %from_dbid, align 8
-  %to_dbid = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 3
+  %to_dbid = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 -1, ptr %to_dbid, align 4
-  %value19 = getelementptr inbounds %struct.moduleValue, ptr %1, i64 0, i32 1
+  %value19 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %value19, align 8
   call void %3(ptr noundef nonnull %ctx, ptr noundef %4) #34
   br label %if.end28
 
 if.else20:                                        ; preds = %if.then14
-  %unlink = getelementptr inbounds %struct.RedisModuleType, ptr %2, i64 0, i32 9
+  %unlink = getelementptr inbounds i8, ptr %2, i64 72
   %5 = load ptr, ptr %unlink, align 8
   %cmp21.not = icmp eq ptr %5, null
   br i1 %cmp21.not, label %if.end28, label %if.then23
 
 if.then23:                                        ; preds = %if.else20
-  %value25 = getelementptr inbounds %struct.moduleValue, ptr %1, i64 0, i32 1
+  %value25 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %value25, align 8
   call void %5(ptr noundef %key, ptr noundef %6) #34
   br label %if.end28
@@ -24928,35 +24872,35 @@ if.end28:                                         ; preds = %if.then17, %if.then
 define dso_local i64 @moduleGetFreeEffort(ptr noundef %key, ptr nocapture noundef readonly %val, i32 noundef %dbid) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.RedisModuleKeyOptCtx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %val, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %val, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %1 = load ptr, ptr %0, align 8
-  %free_effort2 = getelementptr inbounds %struct.RedisModuleType, ptr %1, i64 0, i32 15
+  %free_effort2 = getelementptr inbounds i8, ptr %1, i64 120
   %2 = load ptr, ptr %free_effort2, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   store ptr %key, ptr %ctx, align 8
-  %to_key = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 1
+  %to_key = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr null, ptr %to_key, align 8
-  %from_dbid = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 2
+  %from_dbid = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 %dbid, ptr %from_dbid, align 8
-  %to_dbid = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 3
+  %to_dbid = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 -1, ptr %to_dbid, align 4
-  %value = getelementptr inbounds %struct.moduleValue, ptr %0, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %value, align 8
   %call = call i64 %2(ptr noundef nonnull %ctx, ptr noundef %3) #34
   br label %if.end7
 
 if.else:                                          ; preds = %entry
-  %free_effort = getelementptr inbounds %struct.RedisModuleType, ptr %1, i64 0, i32 8
+  %free_effort = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load ptr, ptr %free_effort, align 8
   %cmp2.not = icmp eq ptr %4, null
   br i1 %cmp2.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.else
-  %value5 = getelementptr inbounds %struct.moduleValue, ptr %0, i64 0, i32 1
+  %value5 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %value5, align 8
   %call6 = tail call i64 %4(ptr noundef %key, ptr noundef %5) #34
   br label %if.end7
@@ -24970,35 +24914,35 @@ if.end7:                                          ; preds = %if.else, %if.then3,
 define dso_local i64 @moduleGetMemUsage(ptr noundef %key, ptr nocapture noundef readonly %val, i64 noundef %sample_size, i32 noundef %dbid) local_unnamed_addr #0 {
 entry:
   %ctx = alloca %struct.RedisModuleKeyOptCtx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %val, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %val, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %1 = load ptr, ptr %0, align 8
-  %mem_usage2 = getelementptr inbounds %struct.RedisModuleType, ptr %1, i64 0, i32 14
+  %mem_usage2 = getelementptr inbounds i8, ptr %1, i64 112
   %2 = load ptr, ptr %mem_usage2, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   store ptr %key, ptr %ctx, align 8
-  %to_key = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 1
+  %to_key = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr null, ptr %to_key, align 8
-  %from_dbid = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 2
+  %from_dbid = getelementptr inbounds i8, ptr %ctx, i64 16
   store i32 %dbid, ptr %from_dbid, align 8
-  %to_dbid = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx, i64 0, i32 3
+  %to_dbid = getelementptr inbounds i8, ptr %ctx, i64 20
   store i32 -1, ptr %to_dbid, align 4
-  %value = getelementptr inbounds %struct.moduleValue, ptr %0, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %value, align 8
   %call = call i64 %2(ptr noundef nonnull %ctx, ptr noundef %3, i64 noundef %sample_size) #34
   br label %if.end7
 
 if.else:                                          ; preds = %entry
-  %mem_usage = getelementptr inbounds %struct.RedisModuleType, ptr %1, i64 0, i32 5
+  %mem_usage = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %mem_usage, align 8
   %cmp2.not = icmp eq ptr %4, null
   br i1 %cmp2.not, label %if.end7, label %if.then3
 
 if.then3:                                         ; preds = %if.else
-  %value5 = getelementptr inbounds %struct.moduleValue, ptr %0, i64 0, i32 1
+  %value5 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %value5, align 8
   %call6 = tail call i64 %4(ptr noundef %5) #34
   br label %if.end7
@@ -25885,13 +25829,13 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %loadmod, align 8
   tail call void @sdsfree(ptr noundef %0) #34
-  %argc = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %loadmod, i64 0, i32 1
+  %argc = getelementptr inbounds i8, ptr %loadmod, i64 8
   %1 = load i32, ptr %argc, align 8
   %cmp8 = icmp sgt i32 %1, 0
   br i1 %cmp8, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %argv = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %loadmod, i64 0, i32 2
+  %argv = getelementptr inbounds i8, ptr %loadmod, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -25907,7 +25851,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !72
 
 for.end:                                          ; preds = %for.body, %if.end
-  %argv1 = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %loadmod, i64 0, i32 2
+  %argv1 = getelementptr inbounds i8, ptr %loadmod, i64 16
   %6 = load ptr, ptr %argv1, align 8
   tail call void @zfree(ptr noundef %6) #34
   tail call void @zfree(ptr noundef nonnull %loadmod) #34
@@ -25921,7 +25865,7 @@ return:                                           ; preds = %entry, %for.end
 define dso_local void @moduleRemoveConfigs(ptr nocapture noundef readonly %module) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %module_configs = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 8
+  %module_configs = getelementptr inbounds i8, ptr %module, i64 56
   %0 = load ptr, ptr %module_configs, align 8
   call void @listRewind(ptr noundef %0, ptr noundef nonnull %li) #34
   %call3 = call ptr @listNext(ptr noundef nonnull %li) #34
@@ -25929,12 +25873,12 @@ entry:
   br i1 %tobool.not4, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %name = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %module, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %call5 = phi ptr [ %call3, %while.body.lr.ph ], [ %call, %while.body ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call5, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call5, i64 16
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %name, align 8
   %call1 = call ptr @sdsnew(ptr noundef %2) #34
@@ -25956,7 +25900,7 @@ declare void @removeConfig(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @moduleRemoveCateogires(ptr nocapture noundef readonly %module) local_unnamed_addr #0 {
 entry:
-  %num_acl_categories_added = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 19
+  %num_acl_categories_added = getelementptr inbounds i8, ptr %module, i64 120
   %0 = load i64, ptr %num_acl_categories_added, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -25983,12 +25927,12 @@ entry:
 
 while.body:                                       ; preds = %entry, %moduleLoadQueueEntryFree.exit
   %call8 = phi ptr [ %call, %moduleLoadQueueEntryFree.exit ], [ %call6, %entry ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call8, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call8, i64 16
   %1 = load ptr, ptr %value, align 8
   %2 = load ptr, ptr %1, align 8
-  %argv = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %1, i64 0, i32 2
+  %argv = getelementptr inbounds i8, ptr %1, i64 16
   %3 = load ptr, ptr %argv, align 8
-  %argc = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %1, i64 0, i32 1
+  %argc = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %argc, align 8
   %call1 = call i32 @moduleLoad(ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0), !range !74
   %cmp = icmp eq i32 %call1, -1
@@ -26039,9 +25983,9 @@ moduleLoadQueueEntryFree.exit:                    ; preds = %for.body.i, %if.end
 
 while.end:                                        ; preds = %moduleLoadQueueEntryFree.exit, %entry
   %15 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 39), align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %15, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %15, i64 24
   %16 = load i64, ptr %ht_used, align 8
-  %arrayidx7 = getelementptr inbounds %struct.dict, ptr %15, i64 0, i32 2, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %15, i64 32
   %17 = load i64, ptr %arrayidx7, align 8
   %add = sub i64 0, %17
   %tobool8.not = icmp eq i64 %16, %add
@@ -26074,7 +26018,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %st_mode = getelementptr inbounds %struct.stat, ptr %st, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 73
   %tobool.not = icmp eq i32 %and, 0
@@ -26124,9 +26068,9 @@ if.end25:                                         ; preds = %if.end15
   %5 = getelementptr inbounds i8, ptr %ctx, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 96, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr null, ptr %module1.i, align 8
-  %flags.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 64, ptr %flags.i, align 8
   %6 = load i64, ptr @moduleTempClientCount, align 8
   %cmp.not.i.i = icmp eq i64 %6, 0
@@ -26148,11 +26092,11 @@ if.then2.i.i:                                     ; preds = %if.then.i.i
 
 if.else.i.i:                                      ; preds = %if.end25
   %call.i.i = tail call ptr @createClient(ptr noundef null) #34
-  %flags.i.i = getelementptr inbounds %struct.client, ptr %call.i.i, i64 0, i32 1
+  %flags.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %10 = load i64, ptr %flags.i.i, align 8
   %or.i.i = or i64 %10, 134217728
   store i64 %or.i.i, ptr %flags.i.i, align 8
-  %user.i.i = getelementptr inbounds %struct.client, ptr %call.i.i, i64 0, i32 20
+  %user.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 152
   store ptr null, ptr %user.i.i, align 8
   br label %if.end7.sink.split.i
 
@@ -26180,7 +26124,7 @@ if.else11.i:                                      ; preds = %if.end7.sink.split.
 
 moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.else11.i
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
-  %15 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %15 = getelementptr inbounds i8, ptr %ctx, i64 104
   store i64 %add.sink.i, ptr %15, align 8
   tail call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
   %call26 = call i32 %call16(ptr noundef nonnull %ctx, ptr noundef %module_argv, i32 noundef %module_argc) #34
@@ -26204,7 +26148,7 @@ do.end33:                                         ; preds = %do.body29, %if.end3
 if.then35:                                        ; preds = %do.end33
   call void @moduleUnregisterCleanup(ptr noundef nonnull %17)
   %18 = load ptr, ptr %module1.i, align 8
-  %num_acl_categories_added.i = getelementptr inbounds %struct.RedisModule, ptr %18, i64 0, i32 19
+  %num_acl_categories_added.i = getelementptr inbounds i8, ptr %18, i64 120
   %19 = load i64, ptr %num_acl_categories_added.i, align 8
   %tobool.not.i = icmp eq i64 %19, 0
   br i1 %tobool.not.i, label %moduleRemoveCateogires.exit, label %if.then.i
@@ -26227,20 +26171,20 @@ if.end39:                                         ; preds = %moduleRemoveCateogi
 if.end41:                                         ; preds = %moduleCreateContext.exit
   %21 = load ptr, ptr @modules, align 8
   %22 = load ptr, ptr %module1.i, align 8
-  %name = getelementptr inbounds %struct.RedisModule, ptr %22, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %name, align 8
   %call44 = call i32 @dictAdd(ptr noundef %21, ptr noundef %23, ptr noundef %22) #34
   %24 = load ptr, ptr %module1.i, align 8
-  %blocked_clients = getelementptr inbounds %struct.RedisModule, ptr %24, i64 0, i32 13
+  %blocked_clients = getelementptr inbounds i8, ptr %24, i64 80
   store i32 0, ptr %blocked_clients, align 8
   store ptr %call6, ptr %24, align 8
   %call48 = call noalias dereferenceable_or_null(24) ptr @zmalloc(i64 noundef 24) #35
   %25 = load ptr, ptr %module1.i, align 8
-  %loadmod = getelementptr inbounds %struct.RedisModule, ptr %25, i64 0, i32 16
+  %loadmod = getelementptr inbounds i8, ptr %25, i64 104
   store ptr %call48, ptr %loadmod, align 8
   %call50 = call ptr @sdsnew(ptr noundef %path) #34
   %26 = load ptr, ptr %module1.i, align 8
-  %loadmod52 = getelementptr inbounds %struct.RedisModule, ptr %26, i64 0, i32 16
+  %loadmod52 = getelementptr inbounds i8, ptr %26, i64 104
   %27 = load ptr, ptr %loadmod52, align 8
   store ptr %call50, ptr %27, align 8
   %tobool54.not = icmp eq i32 %module_argc, 0
@@ -26248,12 +26192,12 @@ if.end41:                                         ; preds = %moduleCreateContext
 
 cond.end.thread:                                  ; preds = %if.end41
   %28 = load ptr, ptr %module1.i, align 8
-  %loadmod5733 = getelementptr inbounds %struct.RedisModule, ptr %28, i64 0, i32 16
+  %loadmod5733 = getelementptr inbounds i8, ptr %28, i64 104
   %29 = load ptr, ptr %loadmod5733, align 8
-  %argv34 = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %29, i64 0, i32 2
+  %argv34 = getelementptr inbounds i8, ptr %29, i64 16
   store ptr null, ptr %argv34, align 8
   %30 = load ptr, ptr %loadmod5733, align 8
-  %argc35 = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %30, i64 0, i32 1
+  %argc35 = getelementptr inbounds i8, ptr %30, i64 8
   store i32 %module_argc, ptr %argc35, align 8
   br label %for.end
 
@@ -26262,12 +26206,12 @@ cond.end:                                         ; preds = %if.end41
   %mul = shl nsw i64 %conv, 3
   %call55 = call noalias ptr @zmalloc(i64 noundef %mul) #35
   %31 = load ptr, ptr %module1.i, align 8
-  %loadmod57 = getelementptr inbounds %struct.RedisModule, ptr %31, i64 0, i32 16
+  %loadmod57 = getelementptr inbounds i8, ptr %31, i64 104
   %32 = load ptr, ptr %loadmod57, align 8
-  %argv = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %32, i64 0, i32 2
+  %argv = getelementptr inbounds i8, ptr %32, i64 16
   store ptr %call55, ptr %argv, align 8
   %33 = load ptr, ptr %loadmod57, align 8
-  %argc = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %33, i64 0, i32 1
+  %argc = getelementptr inbounds i8, ptr %33, i64 8
   store i32 %module_argc, ptr %argc, align 8
   %cmp6024 = icmp sgt i32 %module_argc, 0
   br i1 %cmp6024, label %for.body.preheader, label %for.end
@@ -26281,16 +26225,16 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds ptr, ptr %module_argv, i64 %indvars.iv
   %34 = load ptr, ptr %arrayidx, align 8
   %35 = load ptr, ptr %module1.i, align 8
-  %loadmod63 = getelementptr inbounds %struct.RedisModule, ptr %35, i64 0, i32 16
+  %loadmod63 = getelementptr inbounds i8, ptr %35, i64 104
   %36 = load ptr, ptr %loadmod63, align 8
-  %argv64 = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %36, i64 0, i32 2
+  %argv64 = getelementptr inbounds i8, ptr %36, i64 16
   %37 = load ptr, ptr %argv64, align 8
   %arrayidx66 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
   store ptr %34, ptr %arrayidx66, align 8
   %38 = load ptr, ptr %module1.i, align 8
-  %loadmod68 = getelementptr inbounds %struct.RedisModule, ptr %38, i64 0, i32 16
+  %loadmod68 = getelementptr inbounds i8, ptr %38, i64 104
   %39 = load ptr, ptr %loadmod68, align 8
-  %argv69 = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %39, i64 0, i32 2
+  %argv69 = getelementptr inbounds i8, ptr %39, i64 16
   %40 = load ptr, ptr %argv69, align 8
   %arrayidx71 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv
   %41 = load ptr, ptr %arrayidx71, align 8
@@ -26301,7 +26245,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body, %cond.end.thread, %cond.end
   %42 = load ptr, ptr %module1.i, align 8
-  %num_commands_with_acl_categories = getelementptr inbounds %struct.RedisModule, ptr %42, i64 0, i32 17
+  %num_commands_with_acl_categories = getelementptr inbounds i8, ptr %42, i64 112
   %43 = load i32, ptr %num_commands_with_acl_categories, align 8
   %tobool73.not = icmp eq i32 %43, 0
   br i1 %tobool73.not, label %do.body76, label %if.then74
@@ -26318,7 +26262,7 @@ do.body76:                                        ; preds = %for.end, %if.then74
   br i1 %cmp77, label %do.end83, label %if.end80
 
 if.end80:                                         ; preds = %do.body76
-  %name82 = getelementptr inbounds %struct.RedisModule, ptr %.pre27, i64 0, i32 1
+  %name82 = getelementptr inbounds i8, ptr %.pre27, i64 8
   %45 = load ptr, ptr %name82, align 8
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.119, ptr noundef %45, ptr noundef %path) #34
   %.pre = load ptr, ptr %module1.i, align 8
@@ -26326,17 +26270,17 @@ if.end80:                                         ; preds = %do.body76
 
 do.end83:                                         ; preds = %do.body76, %if.end80
   %46 = phi ptr [ %.pre27, %do.body76 ], [ %.pre, %if.end80 ]
-  %onload85 = getelementptr inbounds %struct.RedisModule, ptr %46, i64 0, i32 18
+  %onload85 = getelementptr inbounds i8, ptr %46, i64 116
   store i32 0, ptr %onload85, align 4
-  %module_configs = getelementptr inbounds %struct.RedisModule, ptr %46, i64 0, i32 8
+  %module_configs = getelementptr inbounds i8, ptr %46, i64 56
   %47 = load ptr, ptr %module_configs, align 8
-  %len = getelementptr inbounds %struct.list, ptr %47, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %47, i64 40
   %48 = load i64, ptr %len, align 8
   %tobool87.not = icmp eq i64 %48, 0
   br i1 %tobool87.not, label %if.end91, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do.end83
-  %configs_initialized = getelementptr inbounds %struct.RedisModule, ptr %46, i64 0, i32 9
+  %configs_initialized = getelementptr inbounds i8, ptr %46, i64 64
   %49 = load i32, ptr %configs_initialized, align 8
   %tobool89.not = icmp eq i32 %49, 0
   br i1 %tobool89.not, label %if.then90, label %if.end91
@@ -26352,9 +26296,9 @@ if.end91:                                         ; preds = %if.then90, %land.lh
 
 land.lhs.true93:                                  ; preds = %if.end91
   %50 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 39), align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %50, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %50, i64 24
   %51 = load i64, ptr %ht_used, align 8
-  %arrayidx96 = getelementptr inbounds %struct.dict, ptr %50, i64 0, i32 2, i64 1
+  %arrayidx96 = getelementptr inbounds i8, ptr %50, i64 32
   %52 = load i64, ptr %arrayidx96, align 8
   %add = sub i64 0, %52
   %tobool97.not = icmp eq i64 %51, %add
@@ -26371,7 +26315,7 @@ if.end99:                                         ; preds = %land.lhs.true93, %i
 
 if.then101:                                       ; preds = %if.end99.thread, %if.end99
   %53 = phi ptr [ %.pre28, %if.end99.thread ], [ %.pre29, %if.end99 ]
-  %name103 = getelementptr inbounds %struct.RedisModule, ptr %53, i64 0, i32 1
+  %name103 = getelementptr inbounds i8, ptr %53, i64 8
   %54 = load ptr, ptr %name103, align 8
   %call104 = call i32 @moduleUnload(ptr noundef %54, ptr noundef null), !range !74
   call void @moduleFreeContext(ptr noundef nonnull %ctx)
@@ -26390,25 +26334,25 @@ return:                                           ; preds = %if.end23, %if.then1
 ; Function Attrs: nounwind uwtable
 define dso_local void @moduleFreeModuleStructure(ptr noundef %module) local_unnamed_addr #0 {
 entry:
-  %types = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 4
+  %types = getelementptr inbounds i8, ptr %module, i64 24
   %0 = load ptr, ptr %types, align 8
   tail call void @listRelease(ptr noundef %0) #34
-  %filters = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 7
+  %filters = getelementptr inbounds i8, ptr %module, i64 48
   %1 = load ptr, ptr %filters, align 8
   tail call void @listRelease(ptr noundef %1) #34
-  %usedby = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 5
+  %usedby = getelementptr inbounds i8, ptr %module, i64 32
   %2 = load ptr, ptr %usedby, align 8
   tail call void @listRelease(ptr noundef %2) #34
-  %using = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 6
+  %using = getelementptr inbounds i8, ptr %module, i64 40
   %3 = load ptr, ptr %using, align 8
   tail call void @listRelease(ptr noundef %3) #34
-  %module_configs = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 8
+  %module_configs = getelementptr inbounds i8, ptr %module, i64 56
   %4 = load ptr, ptr %module_configs, align 8
   tail call void @listRelease(ptr noundef %4) #34
-  %name = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %module, i64 8
   %5 = load ptr, ptr %name, align 8
   tail call void @sdsfree(ptr noundef %5) #34
-  %loadmod = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 16
+  %loadmod = getelementptr inbounds i8, ptr %module, i64 104
   %6 = load ptr, ptr %loadmod, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %moduleLoadQueueEntryFree.exit, label %if.end.i
@@ -26416,13 +26360,13 @@ entry:
 if.end.i:                                         ; preds = %entry
   %7 = load ptr, ptr %6, align 8
   tail call void @sdsfree(ptr noundef %7) #34
-  %argc.i = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %6, i64 0, i32 1
+  %argc.i = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load i32, ptr %argc.i, align 8
   %cmp8.i = icmp sgt i32 %8, 0
   br i1 %cmp8.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %argv.i = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %6, i64 0, i32 2
+  %argv.i = getelementptr inbounds i8, ptr %6, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -26438,7 +26382,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !72
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
-  %argv1.i = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %6, i64 0, i32 2
+  %argv1.i = getelementptr inbounds i8, ptr %6, i64 16
   %13 = load ptr, ptr %argv1.i, align 8
   tail call void @zfree(ptr noundef %13) #34
   tail call void @zfree(ptr noundef nonnull %6) #34
@@ -26466,28 +26410,28 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx = getelementptr inbounds %struct.redisCommandArg, ptr %args, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   tail call void @zfree(ptr noundef %0) #34
-  %token = getelementptr inbounds %struct.redisCommandArg, ptr %args, i64 %indvars.iv, i32 3
+  %token = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load ptr, ptr %token, align 8
   tail call void @zfree(ptr noundef %1) #34
-  %summary = getelementptr inbounds %struct.redisCommandArg, ptr %args, i64 %indvars.iv, i32 4
+  %summary = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %2 = load ptr, ptr %summary, align 8
   tail call void @zfree(ptr noundef %2) #34
-  %since = getelementptr inbounds %struct.redisCommandArg, ptr %args, i64 %indvars.iv, i32 5
+  %since = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %3 = load ptr, ptr %since, align 8
   tail call void @zfree(ptr noundef %3) #34
-  %deprecated_since = getelementptr inbounds %struct.redisCommandArg, ptr %args, i64 %indvars.iv, i32 7
+  %deprecated_since = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %4 = load ptr, ptr %deprecated_since, align 8
   tail call void @zfree(ptr noundef %4) #34
-  %display_text = getelementptr inbounds %struct.redisCommandArg, ptr %args, i64 %indvars.iv, i32 10
+  %display_text = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %5 = load ptr, ptr %display_text, align 8
   tail call void @zfree(ptr noundef %5) #34
-  %subargs = getelementptr inbounds %struct.redisCommandArg, ptr %args, i64 %indvars.iv, i32 9
+  %subargs = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %6 = load ptr, ptr %subargs, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %num_args18 = getelementptr inbounds %struct.redisCommandArg, ptr %args, i64 %indvars.iv, i32 8
+  %num_args18 = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %7 = load i32, ptr %num_args18, align 8
   tail call void @moduleFreeArgs(ptr noundef nonnull %6, i32 noundef %7)
   br label %for.inc
@@ -26505,26 +26449,26 @@ for.end:                                          ; preds = %for.inc, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @moduleFreeCommand(ptr noundef %module, ptr nocapture noundef %cmd) local_unnamed_addr #0 {
 entry:
-  %proc = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 12
+  %proc = getelementptr inbounds i8, ptr %cmd, i64 96
   %0 = load ptr, ptr %proc, align 8
   %cmp.not = icmp eq ptr %0, @RedisModuleCommandDispatcher
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %module_cmd = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 32
+  %module_cmd = getelementptr inbounds i8, ptr %cmd, i64 304
   %1 = load ptr, ptr %module_cmd, align 8
   %2 = load ptr, ptr %1, align 8
   %cmp2.not = icmp eq ptr %2, %module
   br i1 %cmp2.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end
-  %key_specs_num = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 17
+  %key_specs_num = getelementptr inbounds i8, ptr %cmd, i64 136
   %3 = load i32, ptr %key_specs_num, align 8
   %cmp554 = icmp sgt i32 %3, 0
   br i1 %cmp554, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %key_specs = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 16
+  %key_specs = getelementptr inbounds i8, ptr %cmd, i64 128
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -26542,13 +26486,14 @@ if.then6:                                         ; preds = %for.body
 
 if.end11:                                         ; preds = %if.then6, %for.body
   %6 = phi ptr [ %.pre, %if.then6 ], [ %4, %for.body ]
-  %begin_search_type = getelementptr inbounds %struct.keySpec, ptr %6, i64 %indvars.iv, i32 2
+  %arrayidx14 = getelementptr inbounds %struct.keySpec, ptr %6, i64 %indvars.iv
+  %begin_search_type = getelementptr inbounds i8, ptr %arrayidx14, i64 16
   %7 = load i32, ptr %begin_search_type, align 8
   %cmp15 = icmp eq i32 %7, 3
   br i1 %cmp15, label %if.then16, label %for.inc
 
 if.then16:                                        ; preds = %if.end11
-  %bs = getelementptr inbounds %struct.keySpec, ptr %6, i64 %indvars.iv, i32 3
+  %bs = getelementptr inbounds i8, ptr %arrayidx14, i64 24
   %8 = load ptr, ptr %bs, align 8
   tail call void @zfree(ptr noundef %8) #34
   br label %for.inc
@@ -26561,10 +26506,10 @@ for.inc:                                          ; preds = %if.end11, %if.then1
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !78
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %key_specs21 = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 16
+  %key_specs21 = getelementptr inbounds i8, ptr %cmd, i64 128
   %11 = load ptr, ptr %key_specs21, align 8
   tail call void @zfree(ptr noundef %11) #34
-  %tips = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 10
+  %tips = getelementptr inbounds i8, ptr %cmd, i64 80
   %12 = load ptr, ptr %tips, align 8
   %tobool24.not56 = icmp eq ptr %12, null
   br i1 %tobool24.not56, label %for.end35, label %land.rhs
@@ -26587,7 +26532,7 @@ for.body29:                                       ; preds = %land.rhs
 for.end35:                                        ; preds = %land.rhs, %for.body29, %for.end
   %.lcssa53 = phi ptr [ null, %for.end ], [ null, %for.body29 ], [ %13, %land.rhs ]
   tail call void @zfree(ptr noundef %.lcssa53) #34
-  %history = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 8
+  %history = getelementptr inbounds i8, ptr %cmd, i64 64
   %16 = load ptr, ptr %history, align 8
   %tobool39.not59 = icmp eq ptr %16, null
   br i1 %tobool39.not59, label %for.end56, label %land.rhs40
@@ -26614,19 +26559,19 @@ for.body46:                                       ; preds = %land.rhs40
 for.end56:                                        ; preds = %land.rhs40, %for.body46, %for.end35
   %.lcssa = phi ptr [ null, %for.end35 ], [ null, %for.body46 ], [ %17, %land.rhs40 ]
   tail call void @zfree(ptr noundef %.lcssa) #34
-  %summary = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 1
+  %summary = getelementptr inbounds i8, ptr %cmd, i64 8
   %22 = load ptr, ptr %summary, align 8
   tail call void @zfree(ptr noundef %22) #34
-  %since58 = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 3
+  %since58 = getelementptr inbounds i8, ptr %cmd, i64 24
   %23 = load ptr, ptr %since58, align 8
   tail call void @zfree(ptr noundef %23) #34
-  %deprecated_since = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 6
+  %deprecated_since = getelementptr inbounds i8, ptr %cmd, i64 48
   %24 = load ptr, ptr %deprecated_since, align 8
   tail call void @zfree(ptr noundef %24) #34
-  %complexity = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 2
+  %complexity = getelementptr inbounds i8, ptr %cmd, i64 16
   %25 = load ptr, ptr %complexity, align 8
   tail call void @zfree(ptr noundef %25) #34
-  %latency_histogram = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 28
+  %latency_histogram = getelementptr inbounds i8, ptr %cmd, i64 224
   %26 = load ptr, ptr %latency_histogram, align 8
   %tobool59.not = icmp eq ptr %26, null
   br i1 %tobool59.not, label %if.end63, label %if.then60
@@ -26637,13 +26582,13 @@ if.then60:                                        ; preds = %for.end56
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then60, %for.end56
-  %args = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 21
+  %args = getelementptr inbounds i8, ptr %cmd, i64 168
   %27 = load ptr, ptr %args, align 8
-  %num_args = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 19
+  %num_args = getelementptr inbounds i8, ptr %cmd, i64 152
   %28 = load i32, ptr %num_args, align 8
   tail call void @moduleFreeArgs(ptr noundef %27, i32 noundef %28)
   tail call void @zfree(ptr noundef nonnull %1) #34
-  %subcommands_dict = getelementptr inbounds %struct.redisCommand, ptr %cmd, i64 0, i32 30
+  %subcommands_dict = getelementptr inbounds i8, ptr %cmd, i64 288
   %29 = load ptr, ptr %subcommands_dict, align 8
   %tobool64.not = icmp eq ptr %29, null
   br i1 %tobool64.not, label %return, label %if.then65
@@ -26676,7 +26621,7 @@ cond.false:                                       ; preds = %if.end73
 cond.end:                                         ; preds = %if.end73
   %32 = load ptr, ptr %call69, align 8
   tail call void @sdsfree(ptr noundef %32) #34
-  %fullname = getelementptr inbounds %struct.redisCommand, ptr %call69, i64 0, i32 27
+  %fullname = getelementptr inbounds i8, ptr %call69, i64 216
   %33 = load ptr, ptr %fullname, align 8
   tail call void @sdsfree(ptr noundef %33) #34
   tail call void @zfree(ptr noundef nonnull %call69) #34
@@ -26720,7 +26665,7 @@ while.body:                                       ; preds = %entry, %while.cond.
 
 if.end:                                           ; preds = %while.body
   %1 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 12), align 8
-  %fullname = getelementptr inbounds %struct.redisCommand, ptr %call2, i64 0, i32 27
+  %fullname = getelementptr inbounds i8, ptr %call2, i64 216
   %2 = load ptr, ptr %fullname, align 8
   %call5 = tail call i32 @dictDelete(ptr noundef %1, ptr noundef %2) #34
   %cmp6 = icmp eq i32 %call5, 0
@@ -26773,7 +26718,7 @@ for.body:                                         ; preds = %entry, %if.end19
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end19 ], [ 0, %entry ]
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.110) #38
   %tobool.not = icmp eq i32 %call, 0
@@ -26795,14 +26740,14 @@ if.end:                                           ; preds = %do.body
   br label %return
 
 if.end5:                                          ; preds = %if.then
-  %arrayidx8 = getelementptr ptr, ptr %arrayidx, i64 1
+  %arrayidx8 = getelementptr i8, ptr %arrayidx, i64 8
   %7 = load ptr, ptr %arrayidx8, align 8
-  %ptr9 = getelementptr inbounds %struct.redisObject, ptr %7, i64 0, i32 2
+  %ptr9 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %ptr9, align 8
   %call10 = tail call ptr @sdsdup(ptr noundef %8) #34
   %arrayidx13 = getelementptr inbounds ptr, ptr %0, i64 %4
   %9 = load ptr, ptr %arrayidx13, align 8
-  %ptr14 = getelementptr inbounds %struct.redisObject, ptr %9, i64 0, i32 2
+  %ptr14 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %ptr14, align 8
   %call15 = tail call ptr @sdsdup(ptr noundef %10) #34
   %11 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 39), align 8
@@ -26882,9 +26827,9 @@ entry:
 
 while.body.i:                                     ; preds = %entry, %while.cond.backedge.i
   %call5.i = phi ptr [ %call.i, %while.cond.backedge.i ], [ %call3.i, %entry ]
-  %value.i = getelementptr inbounds %struct.listNode, ptr %call5.i, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %call5.i, i64 16
   %1 = load ptr, ptr %value.i, align 8
-  %auth_module.i = getelementptr inbounds %struct.client, ptr %1, i64 0, i32 70
+  %auth_module.i = getelementptr inbounds i8, ptr %1, i64 640
   %2 = load ptr, ptr %auth_module.i, align 8
   %tobool.not.i = icmp ne ptr %2, null
   %cmp3.i = icmp eq ptr %2, %module
@@ -26892,14 +26837,14 @@ while.body.i:                                     ; preds = %entry, %while.cond.
   br i1 %or.cond.i, label %if.then4.i, label %while.cond.backedge.i
 
 if.then4.i:                                       ; preds = %while.body.i
-  %auth_callback.i.i.i = getelementptr inbounds %struct.client, ptr %1, i64 0, i32 68
+  %auth_callback.i.i.i = getelementptr inbounds i8, ptr %1, i64 624
   %3 = load ptr, ptr %auth_callback.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %moduleNotifyUserChanged.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then4.i
   %4 = load i64, ptr %1, align 8
-  %auth_callback_privdata.i.i.i = getelementptr inbounds %struct.client, ptr %1, i64 0, i32 69
+  %auth_callback_privdata.i.i.i = getelementptr inbounds i8, ptr %1, i64 632
   %5 = load ptr, ptr %auth_callback_privdata.i.i.i, align 8
   call void %3(i64 noundef %4, ptr noundef %5) #34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %auth_callback.i.i.i, i8 0, i64 24, i1 false)
@@ -26907,16 +26852,16 @@ if.then.i.i.i:                                    ; preds = %if.then4.i
 
 moduleNotifyUserChanged.exit.i.i:                 ; preds = %if.then.i.i.i, %if.then4.i
   %6 = load ptr, ptr @DefaultUser, align 8
-  %user.i.i = getelementptr inbounds %struct.client, ptr %1, i64 0, i32 20
+  %user.i.i = getelementptr inbounds i8, ptr %1, i64 152
   store ptr %6, ptr %user.i.i, align 8
-  %authenticated.i.i = getelementptr inbounds %struct.client, ptr %1, i64 0, i32 34
+  %authenticated.i.i = getelementptr inbounds i8, ptr %1, i64 256
   store i32 0, ptr %authenticated.i.i, align 8
   %7 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
   %cmp.i.i = icmp eq ptr %7, %1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %moduleNotifyUserChanged.exit.i.i
-  %flags.i.i = getelementptr inbounds %struct.client, ptr %1, i64 0, i32 1
+  %flags.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load i64, ptr %flags.i.i, align 8
   %or.i.i = or i64 %8, 1099511627776
   store i64 %or.i.i, ptr %flags.i.i, align 8
@@ -26943,7 +26888,7 @@ moduleFreeAuthenticatedClients.exit:              ; preds = %while.cond.backedge
 
 while.body.i11:                                   ; preds = %moduleFreeAuthenticatedClients.exit, %if.end.i
   %call5.i12 = phi ptr [ %call.i14, %if.end.i ], [ %call3.i10, %moduleFreeAuthenticatedClients.exit ]
-  %value.i13 = getelementptr inbounds %struct.listNode, ptr %call5.i12, i64 0, i32 2
+  %value.i13 = getelementptr inbounds i8, ptr %call5.i12, i64 16
   %10 = load ptr, ptr %value.i13, align 8
   %11 = load ptr, ptr %10, align 8
   %cmp.i = icmp eq ptr %11, %module
@@ -26964,7 +26909,7 @@ moduleUnsubscribeNotifications.exit:              ; preds = %if.end.i, %moduleFr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i9)
   %call = call i32 @moduleUnregisterSharedAPI(ptr noundef %module)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i16)
-  %using.i = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 6
+  %using.i = getelementptr inbounds i8, ptr %module, i64 40
   %13 = load ptr, ptr %using.i, align 8
   call void @listRewind(ptr noundef %13, ptr noundef nonnull %li.i16) #34
   %call5.i17 = call ptr @listNext(ptr noundef nonnull %li.i16) #34
@@ -26973,9 +26918,9 @@ moduleUnsubscribeNotifications.exit:              ; preds = %if.end.i, %moduleFr
 
 while.body.i18:                                   ; preds = %moduleUnsubscribeNotifications.exit, %if.end.i21
   %call8.i = phi ptr [ %call.i22, %if.end.i21 ], [ %call5.i17, %moduleUnsubscribeNotifications.exit ]
-  %value.i19 = getelementptr inbounds %struct.listNode, ptr %call8.i, i64 0, i32 2
+  %value.i19 = getelementptr inbounds i8, ptr %call8.i, i64 16
   %14 = load ptr, ptr %value.i19, align 8
-  %usedby.i = getelementptr inbounds %struct.RedisModule, ptr %14, i64 0, i32 5
+  %usedby.i = getelementptr inbounds i8, ptr %14, i64 32
   %15 = load ptr, ptr %usedby.i, align 8
   %call2.i = call ptr @listSearchKey(ptr noundef %15, ptr noundef %module) #34
   %tobool3.not.i = icmp eq ptr %call2.i, null
@@ -27003,7 +26948,7 @@ moduleUnregisterUsedAPI.exit:                     ; preds = %if.end.i21, %module
 
 while.body.i27:                                   ; preds = %moduleUnregisterUsedAPI.exit, %if.end.i31
   %call5.i28 = phi ptr [ %call.i32, %if.end.i31 ], [ %call3.i25, %moduleUnregisterUsedAPI.exit ]
-  %value.i29 = getelementptr inbounds %struct.listNode, ptr %call5.i28, i64 0, i32 2
+  %value.i29 = getelementptr inbounds i8, ptr %call5.i28, i64 16
   %18 = load ptr, ptr %value.i29, align 8
   %19 = load ptr, ptr %18, align 8
   %cmp.i30 = icmp eq ptr %19, %module
@@ -27032,7 +26977,7 @@ moduleUnsubscribeAllServerEvents.exit:            ; preds = %if.end.i31, %module
 
 while.body.i38:                                   ; preds = %moduleUnsubscribeAllServerEvents.exit, %if.end.i42
   %call5.i39 = phi ptr [ %call.i43, %if.end.i42 ], [ %call3.i36, %moduleUnsubscribeAllServerEvents.exit ]
-  %value.i40 = getelementptr inbounds %struct.listNode, ptr %call5.i39, i64 0, i32 2
+  %value.i40 = getelementptr inbounds i8, ptr %call5.i39, i64 16
   %22 = load ptr, ptr %value.i40, align 8
   %23 = load ptr, ptr %22, align 8
   %cmp.i41 = icmp eq ptr %23, %module
@@ -27086,9 +27031,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %types = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 4
+  %types = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load ptr, ptr %types, align 8
-  %len = getelementptr inbounds %struct.list, ptr %1, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %2, 0
   br i1 %tobool.not, label %if.else2, label %if.then1
@@ -27098,9 +27043,9 @@ if.then1:                                         ; preds = %if.else
   br label %return
 
 if.else2:                                         ; preds = %if.else
-  %usedby = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 5
+  %usedby = getelementptr inbounds i8, ptr %call, i64 32
   %3 = load ptr, ptr %usedby, align 8
-  %len3 = getelementptr inbounds %struct.list, ptr %3, i64 0, i32 5
+  %len3 = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load i64, ptr %len3, align 8
   %tobool4.not = icmp eq i64 %4, 0
   br i1 %tobool4.not, label %if.else6, label %if.then5
@@ -27110,7 +27055,7 @@ if.then5:                                         ; preds = %if.else2
   br label %return
 
 if.else6:                                         ; preds = %if.else2
-  %blocked_clients = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 13
+  %blocked_clients = getelementptr inbounds i8, ptr %call, i64 80
   %5 = load i32, ptr %blocked_clients, align 8
   %tobool7.not = icmp eq i32 %5, 0
   br i1 %tobool7.not, label %if.else9, label %if.then8
@@ -27124,7 +27069,7 @@ if.else9:                                         ; preds = %if.else6
   %6 = load ptr, ptr @Timers, align 8
   call void @raxStart(ptr noundef nonnull %iter.i, ptr noundef %6) #34
   %call.i = call i32 @raxSeek(ptr noundef nonnull %iter.i, ptr noundef nonnull @.str.79, ptr noundef null, i64 noundef 0) #34
-  %data.i = getelementptr inbounds %struct.raxIterator, ptr %iter.i, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %iter.i, i64 24
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.else9
@@ -27189,7 +27134,7 @@ if.then32:                                        ; preds = %if.end28
 if.end40:                                         ; preds = %if.then32
   %cmp34 = icmp eq ptr %call33, null
   %spec.store.select = select i1 %cmp34, ptr @.str.129, ptr %call33
-  %name41 = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 1
+  %name41 = getelementptr inbounds i8, ptr %call, i64 8
   %13 = load ptr, ptr %name41, align 8
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.130, ptr noundef %13, ptr noundef nonnull %spec.store.select) #34
   br label %if.end43
@@ -27201,14 +27146,14 @@ if.end43:                                         ; preds = %if.end40, %if.then3
   br i1 %cmp45, label %do.end49, label %if.end47
 
 if.end47:                                         ; preds = %if.end43
-  %name48 = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 1
+  %name48 = getelementptr inbounds i8, ptr %call, i64 8
   %15 = load ptr, ptr %name48, align 8
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.131, ptr noundef %15) #34
   br label %do.end49
 
 do.end49:                                         ; preds = %if.end43, %if.end47
   %16 = load ptr, ptr @modules, align 8
-  %name50 = getelementptr inbounds %struct.RedisModule, ptr %call, i64 0, i32 1
+  %name50 = getelementptr inbounds i8, ptr %call, i64 8
   %17 = load ptr, ptr %name50, align 8
   %call51 = call i32 @dictDelete(ptr noundef %16, ptr noundef %17) #34
   store ptr null, ptr %name50, align 8
@@ -27239,7 +27184,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %tobool.not.i, label %eventLoopHandleOneShotEvents.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %while.end
-  %len4.i = getelementptr inbounds %struct.list, ptr %0, i64 0, i32 5
+  %len4.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i64, ptr %len4.i, align 8
   %tobool1.not5.i = icmp eq i64 %1, 0
   br i1 %tobool1.not5.i, label %eventLoopHandleOneShotEvents.exit, label %while.body.i
@@ -27247,18 +27192,18 @@ while.cond.preheader.i:                           ; preds = %while.end
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
   %2 = phi ptr [ %7, %while.body.i ], [ %0, %while.cond.preheader.i ]
   %3 = load ptr, ptr %2, align 8
-  %value.i = getelementptr inbounds %struct.listNode, ptr %3, i64 0, i32 2
+  %value.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %value.i, align 8
   tail call void @listDelNode(ptr noundef nonnull %2, ptr noundef %3) #34
   %call2.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @moduleEventLoopMutex) #34
   %5 = load ptr, ptr %4, align 8
-  %user_data.i = getelementptr inbounds %struct.EventLoopOneShot, ptr %4, i64 0, i32 1
+  %user_data.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %user_data.i, align 8
   tail call void %5(ptr noundef %6) #34
   tail call void @zfree(ptr noundef nonnull %4) #34
   %call3.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @moduleEventLoopMutex) #34
   %7 = load ptr, ptr @moduleEventLoopOneShots, align 8
-  %len.i = getelementptr inbounds %struct.list, ptr %7, i64 0, i32 5
+  %len.i = getelementptr inbounds i8, ptr %7, i64 40
   %8 = load i64, ptr %len.i, align 8
   %tobool1.not.i = icmp eq i64 %8, 0
   br i1 %tobool1.not.i, label %eventLoopHandleOneShotEvents.exit, label %while.body.i, !llvm.loop !86
@@ -27277,9 +27222,9 @@ entry:
   %0 = load ptr, ptr @modules, align 8
   %call = tail call ptr @dictGetIterator(ptr noundef %0) #34
   %1 = load ptr, ptr @modules, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %1, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %1, i64 24
   %2 = load i64, ptr %ht_used, align 8
-  %arrayidx2 = getelementptr inbounds %struct.dict, ptr %1, i64 0, i32 2, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %1, i64 32
   %3 = load i64, ptr %arrayidx2, align 8
   %add = add i64 %3, %2
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef %add) #34
@@ -27296,7 +27241,7 @@ while.body:                                       ; preds = %entry, %while.cond.
   %call345 = phi ptr [ %call3, %while.cond.loopexit ], [ %call343, %entry ]
   %call4 = tail call ptr @dictGetKey(ptr noundef nonnull %call345) #34
   %call5 = tail call ptr @dictGetVal(ptr noundef nonnull %call345) #34
-  %loadmod = getelementptr inbounds %struct.RedisModule, ptr %call5, i64 0, i32 16
+  %loadmod = getelementptr inbounds i8, ptr %call5, i64 104
   %4 = load ptr, ptr %loadmod, align 8
   %5 = load ptr, ptr %4, align 8
   tail call void @addReplyMapLen(ptr noundef %c, i64 noundef 4) #34
@@ -27345,7 +27290,7 @@ sdslen.exit:                                      ; preds = %while.body, %sw.bb.
   %retval.0.i = phi i64 [ %10, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %while.body ]
   tail call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %call4, i64 noundef %retval.0.i) #34
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.133) #34
-  %ver = getelementptr inbounds %struct.RedisModule, ptr %call5, i64 0, i32 2
+  %ver = getelementptr inbounds i8, ptr %call5, i64 16
   %11 = load i32, ptr %ver, align 8
   %conv = sext i32 %11 to i64
   tail call void @addReplyLongLong(ptr noundef %c, i64 noundef %conv) #34
@@ -27395,12 +27340,12 @@ sdslen.exit39:                                    ; preds = %sdslen.exit, %sw.bb
   tail call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %5, i64 noundef %retval.0.i26) #34
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.135) #34
   %17 = load ptr, ptr %loadmod, align 8
-  %argc = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %17, i64 0, i32 1
+  %argc = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load i32, ptr %argc, align 8
   %conv10 = sext i32 %18 to i64
   tail call void @addReplyArrayLen(ptr noundef %c, i64 noundef %conv10) #34
   %19 = load ptr, ptr %loadmod, align 8
-  %argc1240 = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %19, i64 0, i32 1
+  %argc1240 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i32, ptr %argc1240, align 8
   %cmp1341 = icmp sgt i32 %20, 0
   br i1 %cmp1341, label %for.body, label %while.cond.loopexit
@@ -27408,14 +27353,14 @@ sdslen.exit39:                                    ; preds = %sdslen.exit, %sw.bb
 for.body:                                         ; preds = %sdslen.exit39, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %sdslen.exit39 ]
   %21 = phi ptr [ %24, %for.body ], [ %19, %sdslen.exit39 ]
-  %argv = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %21, i64 0, i32 2
+  %argv = getelementptr inbounds i8, ptr %21, i64 16
   %22 = load ptr, ptr %argv, align 8
   %arrayidx16 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
   %23 = load ptr, ptr %arrayidx16, align 8
   tail call void @addReplyBulk(ptr noundef %c, ptr noundef %23) #34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load ptr, ptr %loadmod, align 8
-  %argc12 = getelementptr inbounds %struct.moduleLoadQueueEntry, ptr %24, i64 0, i32 1
+  %argc12 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load i32, ptr %argc12, align 8
   %26 = sext i32 %25 to i64
   %cmp13 = icmp slt i64 %indvars.iv.next, %26
@@ -27437,15 +27382,15 @@ entry:
   br i1 %tobool.not7, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %tail = getelementptr inbounds %struct.list, ptr %l, i64 0, i32 1
+  %tail = getelementptr inbounds i8, ptr %l, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %call19 = phi ptr [ %call16, %while.body.lr.ph ], [ %call1, %if.end ]
   %output.08 = phi ptr [ %call, %while.body.lr.ph ], [ %output.1, %if.end ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call19, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call19, i64 16
   %0 = load ptr, ptr %value, align 8
-  %name = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %name, align 8
   %call2 = call ptr @sdscat(ptr noundef %output.08, ptr noundef %1) #34
   %2 = load ptr, ptr %tail, align 8
@@ -27472,7 +27417,7 @@ while.end:                                        ; preds = %if.end, %entry
 define dso_local ptr @genModulesInfoStringRenderModuleOptions(ptr nocapture noundef readonly %module) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sdsnew(ptr noundef nonnull @.str.136) #34
-  %options = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 12
+  %options = getelementptr inbounds i8, ptr %module, i64 76
   %0 = load i32, ptr %options, align 4
   %and = and i32 %0, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -27529,20 +27474,20 @@ while.body:                                       ; preds = %entry, %while.body
   %info.addr.014 = phi ptr [ %call9, %while.body ], [ %info, %entry ]
   %call2 = tail call ptr @dictGetKey(ptr noundef nonnull %call115) #34
   %call3 = tail call ptr @dictGetVal(ptr noundef nonnull %call115) #34
-  %usedby4 = getelementptr inbounds %struct.RedisModule, ptr %call3, i64 0, i32 5
+  %usedby4 = getelementptr inbounds i8, ptr %call3, i64 32
   %1 = load ptr, ptr %usedby4, align 8
   %call5 = tail call ptr @genModulesInfoStringRenderModulesList(ptr noundef %1)
-  %using6 = getelementptr inbounds %struct.RedisModule, ptr %call3, i64 0, i32 6
+  %using6 = getelementptr inbounds i8, ptr %call3, i64 40
   %2 = load ptr, ptr %using6, align 8
   %call7 = tail call ptr @genModulesInfoStringRenderModulesList(ptr noundef %2)
   %call8 = tail call ptr @genModulesInfoStringRenderModuleOptions(ptr noundef %call3)
-  %ver = getelementptr inbounds %struct.RedisModule, ptr %call3, i64 0, i32 2
+  %ver = getelementptr inbounds i8, ptr %call3, i64 16
   %3 = load i32, ptr %ver, align 8
-  %apiver = getelementptr inbounds %struct.RedisModule, ptr %call3, i64 0, i32 3
+  %apiver = getelementptr inbounds i8, ptr %call3, i64 20
   %4 = load i32, ptr %apiver, align 4
-  %filters = getelementptr inbounds %struct.RedisModule, ptr %call3, i64 0, i32 7
+  %filters = getelementptr inbounds i8, ptr %call3, i64 48
   %5 = load ptr, ptr %filters, align 8
-  %len = getelementptr inbounds %struct.list, ptr %5, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load i64, ptr %len, align 8
   %conv = trunc i64 %6 to i32
   %call9 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %info.addr.014, ptr noundef nonnull @.str.142, ptr noundef %call2, i32 noundef %3, i32 noundef %4, i32 noundef %conv, ptr noundef %call5, ptr noundef %call7, ptr noundef %call8) #34
@@ -27562,7 +27507,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @isModuleConfigNameRegistered(ptr nocapture noundef readonly %module, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %module_configs = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 8
+  %module_configs = getelementptr inbounds i8, ptr %module, i64 56
   %0 = load ptr, ptr %module_configs, align 8
   %call = tail call ptr @listSearchKey(ptr noundef %0, ptr noundef %name) #34
   %cmp = icmp ne ptr %call, null
@@ -27606,10 +27551,10 @@ define dso_local i32 @setModuleBoolConfig(ptr nocapture noundef readonly %config
 entry:
   %error = alloca ptr, align 8
   store ptr null, ptr %error, align 8
-  %set_fn = getelementptr inbounds %struct.ModuleConfig, ptr %config, i64 0, i32 3
+  %set_fn = getelementptr inbounds i8, ptr %config, i64 24
   %0 = load ptr, ptr %set_fn, align 8
   %1 = load ptr, ptr %config, align 8
-  %privdata = getelementptr inbounds %struct.ModuleConfig, ptr %config, i64 0, i32 1
+  %privdata = getelementptr inbounds i8, ptr %config, i64 8
   %2 = load ptr, ptr %privdata, align 8
   %call = call i32 %0(ptr noundef %1, i32 noundef %val, ptr noundef %2, ptr noundef nonnull %error) #34
   %3 = load ptr, ptr %error, align 8
@@ -27617,7 +27562,7 @@ entry:
   br i1 %tobool.not.i, label %propagateErrorString.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %3, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %ptr.i, align 8
   %call.i = call i64 @redis_strlcpy(ptr noundef nonnull @configerr, ptr noundef %4, i64 noundef 256) #34
   call void @decrRefCount(ptr noundef nonnull %3) #34
@@ -27678,10 +27623,10 @@ sw.bb13.i:                                        ; preds = %entry
 sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %4, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
   %call1 = tail call ptr @createStringObject(ptr noundef nonnull %strval, i64 noundef %retval.0.i) #34
-  %set_fn = getelementptr inbounds %struct.ModuleConfig, ptr %config, i64 0, i32 3
+  %set_fn = getelementptr inbounds i8, ptr %config, i64 24
   %5 = load ptr, ptr %set_fn, align 8
   %6 = load ptr, ptr %config, align 8
-  %privdata = getelementptr inbounds %struct.ModuleConfig, ptr %config, i64 0, i32 1
+  %privdata = getelementptr inbounds i8, ptr %config, i64 8
   %7 = load ptr, ptr %privdata, align 8
   %call2 = call i32 %5(ptr noundef %6, ptr noundef %call1, ptr noundef %7, ptr noundef nonnull %error) #34
   %8 = load ptr, ptr %error, align 8
@@ -27689,7 +27634,7 @@ sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %s
   br i1 %tobool.not.i, label %propagateErrorString.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %sdslen.exit
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %8, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %ptr.i, align 8
   %call.i = call i64 @redis_strlcpy(ptr noundef nonnull @configerr, ptr noundef %9, i64 noundef 256) #34
   call void @decrRefCount(ptr noundef nonnull %8) #34
@@ -27708,10 +27653,10 @@ define dso_local i32 @setModuleEnumConfig(ptr nocapture noundef readonly %config
 entry:
   %error = alloca ptr, align 8
   store ptr null, ptr %error, align 8
-  %set_fn = getelementptr inbounds %struct.ModuleConfig, ptr %config, i64 0, i32 3
+  %set_fn = getelementptr inbounds i8, ptr %config, i64 24
   %0 = load ptr, ptr %set_fn, align 8
   %1 = load ptr, ptr %config, align 8
-  %privdata = getelementptr inbounds %struct.ModuleConfig, ptr %config, i64 0, i32 1
+  %privdata = getelementptr inbounds i8, ptr %config, i64 8
   %2 = load ptr, ptr %privdata, align 8
   %call = call i32 %0(ptr noundef %1, i32 noundef %val, ptr noundef %2, ptr noundef nonnull %error) #34
   %3 = load ptr, ptr %error, align 8
@@ -27719,7 +27664,7 @@ entry:
   br i1 %tobool.not.i, label %propagateErrorString.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %3, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %ptr.i, align 8
   %call.i = call i64 @redis_strlcpy(ptr noundef nonnull @configerr, ptr noundef %4, i64 noundef 256) #34
   call void @decrRefCount(ptr noundef nonnull %3) #34
@@ -27737,10 +27682,10 @@ define dso_local i32 @setModuleNumericConfig(ptr nocapture noundef readonly %con
 entry:
   %error = alloca ptr, align 8
   store ptr null, ptr %error, align 8
-  %set_fn = getelementptr inbounds %struct.ModuleConfig, ptr %config, i64 0, i32 3
+  %set_fn = getelementptr inbounds i8, ptr %config, i64 24
   %0 = load ptr, ptr %set_fn, align 8
   %1 = load ptr, ptr %config, align 8
-  %privdata = getelementptr inbounds %struct.ModuleConfig, ptr %config, i64 0, i32 1
+  %privdata = getelementptr inbounds i8, ptr %config, i64 8
   %2 = load ptr, ptr %privdata, align 8
   %call = call i32 %0(ptr noundef %1, i64 noundef %val, ptr noundef %2, ptr noundef nonnull %error) #34
   %3 = load ptr, ptr %error, align 8
@@ -27748,7 +27693,7 @@ entry:
   br i1 %tobool.not.i, label %propagateErrorString.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %3, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %ptr.i, align 8
   %call.i = call i64 @redis_strlcpy(ptr noundef nonnull @configerr, ptr noundef %4, i64 noundef 256) #34
   call void @decrRefCount(ptr noundef nonnull %3) #34
@@ -27764,10 +27709,10 @@ propagateErrorString.exit:                        ; preds = %entry, %if.then.i
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @getModuleBoolConfig(ptr nocapture noundef readonly %module_config) local_unnamed_addr #0 {
 entry:
-  %get_fn = getelementptr inbounds %struct.ModuleConfig, ptr %module_config, i64 0, i32 2
+  %get_fn = getelementptr inbounds i8, ptr %module_config, i64 16
   %0 = load ptr, ptr %get_fn, align 8
   %1 = load ptr, ptr %module_config, align 8
-  %privdata = getelementptr inbounds %struct.ModuleConfig, ptr %module_config, i64 0, i32 1
+  %privdata = getelementptr inbounds i8, ptr %module_config, i64 8
   %2 = load ptr, ptr %privdata, align 8
   %call = tail call i32 %0(ptr noundef %1, ptr noundef %2) #34
   ret i32 %call
@@ -27776,17 +27721,17 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @getModuleStringConfig(ptr nocapture noundef readonly %module_config) local_unnamed_addr #0 {
 entry:
-  %get_fn = getelementptr inbounds %struct.ModuleConfig, ptr %module_config, i64 0, i32 2
+  %get_fn = getelementptr inbounds i8, ptr %module_config, i64 16
   %0 = load ptr, ptr %get_fn, align 8
   %1 = load ptr, ptr %module_config, align 8
-  %privdata = getelementptr inbounds %struct.ModuleConfig, ptr %module_config, i64 0, i32 1
+  %privdata = getelementptr inbounds i8, ptr %module_config, i64 8
   %2 = load ptr, ptr %privdata, align 8
   %call = tail call ptr %0(ptr noundef %1, ptr noundef %2) #34
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %call, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %call, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %call1 = tail call ptr @sdsdup(ptr noundef %3) #34
   br label %cond.end
@@ -27799,10 +27744,10 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @getModuleEnumConfig(ptr nocapture noundef readonly %module_config) local_unnamed_addr #0 {
 entry:
-  %get_fn = getelementptr inbounds %struct.ModuleConfig, ptr %module_config, i64 0, i32 2
+  %get_fn = getelementptr inbounds i8, ptr %module_config, i64 16
   %0 = load ptr, ptr %get_fn, align 8
   %1 = load ptr, ptr %module_config, align 8
-  %privdata = getelementptr inbounds %struct.ModuleConfig, ptr %module_config, i64 0, i32 1
+  %privdata = getelementptr inbounds i8, ptr %module_config, i64 8
   %2 = load ptr, ptr %privdata, align 8
   %call = tail call i32 %0(ptr noundef %1, ptr noundef %2) #34
   ret i32 %call
@@ -27811,10 +27756,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @getModuleNumericConfig(ptr nocapture noundef readonly %module_config) local_unnamed_addr #0 {
 entry:
-  %get_fn = getelementptr inbounds %struct.ModuleConfig, ptr %module_config, i64 0, i32 2
+  %get_fn = getelementptr inbounds i8, ptr %module_config, i64 16
   %0 = load ptr, ptr %get_fn, align 8
   %1 = load ptr, ptr %module_config, align 8
-  %privdata = getelementptr inbounds %struct.ModuleConfig, ptr %module_config, i64 0, i32 1
+  %privdata = getelementptr inbounds i8, ptr %module_config, i64 8
   %2 = load ptr, ptr %privdata, align 8
   %call = tail call i64 %0(ptr noundef %1, ptr noundef %2) #34
   ret i64 %call
@@ -27826,7 +27771,7 @@ entry:
   %li = alloca %struct.listIter, align 8
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
-  %module_configs = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 8
+  %module_configs = getelementptr inbounds i8, ptr %module, i64 56
   %0 = load ptr, ptr %module_configs, align 8
   call void @listRewind(ptr noundef %0, ptr noundef nonnull %li) #34
   %call15 = call ptr @listNext(ptr noundef nonnull %li) #34
@@ -27834,12 +27779,12 @@ entry:
   br i1 %tobool.not16, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %name = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %module, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end24
   %call17 = phi ptr [ %call15, %while.body.lr.ph ], [ %call, %if.end24 ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call17, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call17, i64 16
   %1 = load ptr, ptr %value, align 8
   %call1 = call ptr @sdsempty() #34
   %2 = load ptr, ptr %name, align 8
@@ -27905,7 +27850,7 @@ if.end24:                                         ; preds = %if.else, %if.then
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !91
 
 while.end:                                        ; preds = %if.end24, %entry
-  %configs_initialized = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 9
+  %configs_initialized = getelementptr inbounds i8, ptr %module, i64 64
   store i32 1, ptr %configs_initialized, align 8
   br label %return
 
@@ -27924,7 +27869,7 @@ declare i32 @performModuleConfigSetDefaultFromName(ptr noundef, ptr noundef) loc
 define dso_local void @addModuleConfigApply(ptr noundef %module_configs, ptr noundef %module_config) local_unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
-  %apply_fn = getelementptr inbounds %struct.ModuleConfig, ptr %module_config, i64 0, i32 4
+  %apply_fn = getelementptr inbounds i8, ptr %module_config, i64 32
   %0 = load ptr, ptr %apply_fn, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -27936,21 +27881,21 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not7, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %privdata4 = getelementptr inbounds %struct.ModuleConfig, ptr %module_config, i64 0, i32 1
+  %privdata4 = getelementptr inbounds i8, ptr %module_config, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end7
   %call9 = phi ptr [ %call6, %while.body.lr.ph ], [ %call, %if.end7 ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call9, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call9, i64 16
   %1 = load ptr, ptr %value, align 8
-  %apply_fn2 = getelementptr inbounds %struct.ModuleConfig, ptr %1, i64 0, i32 4
+  %apply_fn2 = getelementptr inbounds i8, ptr %1, i64 32
   %2 = load ptr, ptr %apply_fn2, align 8
   %3 = load ptr, ptr %apply_fn, align 8
   %cmp = icmp eq ptr %2, %3
   br i1 %cmp, label %land.lhs.true, label %if.end7
 
 land.lhs.true:                                    ; preds = %while.body
-  %privdata = getelementptr inbounds %struct.ModuleConfig, ptr %1, i64 0, i32 1
+  %privdata = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %privdata, align 8
   %5 = load ptr, ptr %privdata4, align 8
   %cmp5 = icmp eq ptr %4, %5
@@ -27975,7 +27920,7 @@ entry:
   %li = alloca %struct.listIter, align 8
   %error = alloca ptr, align 8
   %ctx = alloca %struct.RedisModuleCtx, align 8
-  %len = getelementptr inbounds %struct.list, ptr %module_configs, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %module_configs, i64 40
   %0 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -27989,15 +27934,15 @@ if.end:                                           ; preds = %entry
 
 while.body.lr.ph:                                 ; preds = %if.end
   %1 = getelementptr inbounds i8, ptr %ctx, i64 16
-  %module1.i = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
-  %2 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 14
+  %module1.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %2 = getelementptr inbounds i8, ptr %ctx, i64 104
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end8
   %call8 = phi ptr [ %call6, %while.body.lr.ph ], [ %call, %if.end8 ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call8, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call8, i64 16
   %3 = load ptr, ptr %value, align 8
-  %module = getelementptr inbounds %struct.ModuleConfig, ptr %3, i64 0, i32 5
+  %module = getelementptr inbounds i8, ptr %3, i64 40
   %4 = load ptr, ptr %module, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %1, i8 0, i64 104, i1 false)
   store ptr @RM_GetApi, ptr %ctx, align 8
@@ -28025,9 +27970,9 @@ moduleCreateContext.exit:                         ; preds = %if.then9.i, %if.els
   %add.sink.i = phi i64 [ %add13.i, %if.else11.i ], [ %add.i, %if.then9.i ]
   store i64 %add.sink.i, ptr %2, align 8
   call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #34
-  %apply_fn = getelementptr inbounds %struct.ModuleConfig, ptr %3, i64 0, i32 4
+  %apply_fn = getelementptr inbounds i8, ptr %3, i64 32
   %9 = load ptr, ptr %apply_fn, align 8
-  %privdata = getelementptr inbounds %struct.ModuleConfig, ptr %3, i64 0, i32 1
+  %privdata = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load ptr, ptr %privdata, align 8
   %call2 = call i32 %9(ptr noundef nonnull %ctx, ptr noundef %10, ptr noundef nonnull %error) #34
   %tobool3.not = icmp eq i32 %call2, 0
@@ -28048,7 +27993,7 @@ if.end7:                                          ; preds = %if.then6, %if.then4
   br i1 %tobool.not.i, label %propagateErrorString.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %12, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %ptr.i, align 8
   %call.i = call i64 @redis_strlcpy(ptr noundef nonnull @configerr, ptr noundef %13, i64 noundef 256) #34
   call void @decrRefCount(ptr noundef nonnull %12) #34
@@ -28076,11 +28021,11 @@ entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @zmalloc(i64 noundef 48) #35
   %call1 = tail call ptr @sdsnew(ptr noundef %name) #34
   store ptr %call1, ptr %call, align 8
-  %apply_fn3 = getelementptr inbounds %struct.ModuleConfig, ptr %call, i64 0, i32 4
+  %apply_fn3 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %apply_fn, ptr %apply_fn3, align 8
-  %privdata4 = getelementptr inbounds %struct.ModuleConfig, ptr %call, i64 0, i32 1
+  %privdata4 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %privdata, ptr %privdata4, align 8
-  %module5 = getelementptr inbounds %struct.ModuleConfig, ptr %call, i64 0, i32 5
+  %module5 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %module, ptr %module5, align 8
   ret ptr %call
 }
@@ -28088,7 +28033,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @moduleConfigValidityCheck(ptr nocapture noundef readonly %module, ptr noundef %name, i32 noundef %flags, i32 noundef %type) local_unnamed_addr #0 {
 entry:
-  %onload = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 18
+  %onload = getelementptr inbounds i8, ptr %module, i64 116
   %0 = load i32, ptr %onload, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return.sink.split, label %if.end
@@ -28159,7 +28104,7 @@ for.inc.i:                                        ; preds = %switch.early.test.i
   br i1 %cmp4.not.i, label %if.end7, label %for.body.i, !llvm.loop !16
 
 if.end7:                                          ; preds = %for.inc.i
-  %module_configs.i = getelementptr inbounds %struct.RedisModule, ptr %module, i64 0, i32 8
+  %module_configs.i = getelementptr inbounds i8, ptr %module, i64 56
   %7 = load ptr, ptr %module_configs.i, align 8
   %call.i = tail call ptr @listSearchKey(ptr noundef %7, ptr noundef nonnull %name) #34
   %cmp.i6.not = icmp eq ptr %call.i, null
@@ -28211,7 +28156,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_RegisterStringConfig(ptr nocapture noundef readonly %ctx, ptr noundef %name, ptr noundef %default_val, i32 noundef %flags, ptr noundef %getfn, ptr noundef %setfn, ptr noundef %applyfn, ptr noundef %privdata) #0 {
 entry:
-  %module1 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module1, align 8
   %call = tail call i32 @moduleConfigValidityCheck(ptr noundef %0, ptr noundef %name, i32 noundef %flags, i32 noundef 1), !range !22
   %tobool.not = icmp eq i32 %call, 0
@@ -28221,21 +28166,21 @@ if.end:                                           ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(48) ptr @zmalloc(i64 noundef 48) #35
   %call1.i = tail call ptr @sdsnew(ptr noundef %name) #34
   store ptr %call1.i, ptr %call.i, align 8
-  %apply_fn3.i = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 4
+  %apply_fn3.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %applyfn, ptr %apply_fn3.i, align 8
-  %privdata4.i = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 1
+  %privdata4.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %privdata, ptr %privdata4.i, align 8
-  %module5.i = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 5
+  %module5.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %0, ptr %module5.i, align 8
-  %get_fn = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 2
+  %get_fn = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %getfn, ptr %get_fn, align 8
-  %set_fn = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 3
+  %set_fn = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %setfn, ptr %set_fn, align 8
-  %module_configs = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 8
+  %module_configs = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %module_configs, align 8
   %call3 = tail call ptr @listAddNodeTail(ptr noundef %1, ptr noundef nonnull %call.i) #34
   %new_flags.4.i = and i32 %flags, 113
-  %name5 = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 1
+  %name5 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %name5, align 8
   %tobool6.not = icmp eq ptr %default_val, null
   br i1 %tobool6.not, label %cond.end, label %cond.true
@@ -28259,7 +28204,7 @@ declare void @addModuleStringConfig(ptr noundef, ptr noundef, i32 noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_RegisterBoolConfig(ptr nocapture noundef readonly %ctx, ptr noundef %name, i32 noundef %default_val, i32 noundef %flags, ptr noundef %getfn, ptr noundef %setfn, ptr noundef %applyfn, ptr noundef %privdata) #0 {
 entry:
-  %module1 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module1, align 8
   %call = tail call i32 @moduleConfigValidityCheck(ptr noundef %0, ptr noundef %name, i32 noundef %flags, i32 noundef 0), !range !22
   %tobool.not = icmp eq i32 %call, 0
@@ -28269,21 +28214,21 @@ if.end:                                           ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(48) ptr @zmalloc(i64 noundef 48) #35
   %call1.i = tail call ptr @sdsnew(ptr noundef %name) #34
   store ptr %call1.i, ptr %call.i, align 8
-  %apply_fn3.i = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 4
+  %apply_fn3.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %applyfn, ptr %apply_fn3.i, align 8
-  %privdata4.i = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 1
+  %privdata4.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %privdata, ptr %privdata4.i, align 8
-  %module5.i = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 5
+  %module5.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %0, ptr %module5.i, align 8
-  %get_fn = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 2
+  %get_fn = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %getfn, ptr %get_fn, align 8
-  %set_fn = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 3
+  %set_fn = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %setfn, ptr %set_fn, align 8
-  %module_configs = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 8
+  %module_configs = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %module_configs, align 8
   %call3 = tail call ptr @listAddNodeTail(ptr noundef %1, ptr noundef nonnull %call.i) #34
   %new_flags.4.i = and i32 %flags, 113
-  %name5 = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 1
+  %name5 = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %name5, align 8
   tail call void @addModuleBoolConfig(ptr noundef %2, ptr noundef %name, i32 noundef %new_flags.4.i, ptr noundef nonnull %call.i, i32 noundef %default_val) #34
   br label %return
@@ -28298,7 +28243,7 @@ declare void @addModuleBoolConfig(ptr noundef, ptr noundef, i32 noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_RegisterEnumConfig(ptr nocapture noundef readonly %ctx, ptr noundef %name, i32 noundef %default_val, i32 noundef %flags, ptr nocapture noundef readonly %enum_values, ptr nocapture noundef readonly %int_values, i32 noundef %num_enum_vals, ptr noundef %getfn, ptr noundef %setfn, ptr noundef %applyfn, ptr noundef %privdata) #0 {
 entry:
-  %module1 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module1, align 8
   %call = tail call i32 @moduleConfigValidityCheck(ptr noundef %0, ptr noundef %name, i32 noundef %flags, i32 noundef 4), !range !22
   %tobool.not = icmp eq i32 %call, 0
@@ -28308,15 +28253,15 @@ if.end:                                           ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(48) ptr @zmalloc(i64 noundef 48) #35
   %call1.i = tail call ptr @sdsnew(ptr noundef %name) #34
   store ptr %call1.i, ptr %call.i, align 8
-  %apply_fn3.i = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 4
+  %apply_fn3.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %applyfn, ptr %apply_fn3.i, align 8
-  %privdata4.i = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 1
+  %privdata4.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %privdata, ptr %privdata4.i, align 8
-  %module5.i = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 5
+  %module5.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %0, ptr %module5.i, align 8
-  %get_fn = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 2
+  %get_fn = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %getfn, ptr %get_fn, align 8
-  %set_fn = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 3
+  %set_fn = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %setfn, ptr %set_fn, align 8
   %add = add nsw i32 %num_enum_vals, 1
   %conv = sext i32 %add to i64
@@ -28338,7 +28283,7 @@ for.body:                                         ; preds = %for.body.preheader,
   store ptr %call5, ptr %arrayidx7, align 8
   %arrayidx10 = getelementptr inbounds i32, ptr %int_values, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx10, align 4
-  %val = getelementptr inbounds %struct.configEnum, ptr %call3, i64 %indvars.iv, i32 1
+  %val = getelementptr inbounds i8, ptr %arrayidx7, i64 8
   store i32 %2, ptr %val, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -28348,16 +28293,16 @@ for.end:                                          ; preds = %for.body, %if.end
   %idxprom13 = sext i32 %num_enum_vals to i64
   %arrayidx14 = getelementptr inbounds %struct.configEnum, ptr %call3, i64 %idxprom13
   store ptr null, ptr %arrayidx14, align 8
-  %val18 = getelementptr inbounds %struct.configEnum, ptr %call3, i64 %idxprom13, i32 1
+  %val18 = getelementptr inbounds i8, ptr %arrayidx14, i64 8
   store i32 0, ptr %val18, align 8
-  %module_configs = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 8
+  %module_configs = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %module_configs, align 8
   %call19 = tail call ptr @listAddNodeTail(ptr noundef %3, ptr noundef nonnull %call.i) #34
   %new_flags.4.i = and i32 %flags, 113
   %4 = lshr i32 %flags, 5
   %spec.select.i = and i32 %4, 8
   %or = or disjoint i32 %spec.select.i, %new_flags.4.i
-  %name22 = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 1
+  %name22 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %name22, align 8
   tail call void @addModuleEnumConfig(ptr noundef %5, ptr noundef %name, i32 noundef %or, ptr noundef nonnull %call.i, i32 noundef %default_val, ptr noundef %call3) #34
   br label %return
@@ -28372,7 +28317,7 @@ declare void @addModuleEnumConfig(ptr noundef, ptr noundef, i32 noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_RegisterNumericConfig(ptr nocapture noundef readonly %ctx, ptr noundef %name, i64 noundef %default_val, i32 noundef %flags, i64 noundef %min, i64 noundef %max, ptr noundef %getfn, ptr noundef %setfn, ptr noundef %applyfn, ptr noundef %privdata) #0 {
 entry:
-  %module1 = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module1, align 8
   %call = tail call i32 @moduleConfigValidityCheck(ptr noundef %0, ptr noundef %name, i32 noundef %flags, i32 noundef 1), !range !22
   %tobool.not = icmp eq i32 %call, 0
@@ -28382,23 +28327,23 @@ if.end:                                           ; preds = %entry
   %call.i = tail call noalias dereferenceable_or_null(48) ptr @zmalloc(i64 noundef 48) #35
   %call1.i = tail call ptr @sdsnew(ptr noundef %name) #34
   store ptr %call1.i, ptr %call.i, align 8
-  %apply_fn3.i = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 4
+  %apply_fn3.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %applyfn, ptr %apply_fn3.i, align 8
-  %privdata4.i = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 1
+  %privdata4.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %privdata, ptr %privdata4.i, align 8
-  %module5.i = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 5
+  %module5.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %0, ptr %module5.i, align 8
-  %get_fn = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 2
+  %get_fn = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %getfn, ptr %get_fn, align 8
-  %set_fn = getelementptr inbounds %struct.ModuleConfig, ptr %call.i, i64 0, i32 3
+  %set_fn = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %setfn, ptr %set_fn, align 8
-  %module_configs = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 8
+  %module_configs = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %module_configs, align 8
   %call3 = tail call ptr @listAddNodeTail(ptr noundef %1, ptr noundef nonnull %call.i) #34
   %2 = lshr i32 %flags, 7
   %.lobit.i = and i32 %2, 1
   %new_flags.4.i = and i32 %flags, 113
-  %name6 = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 1
+  %name6 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %name6, align 8
   tail call void @addModuleNumericConfig(ptr noundef %3, ptr noundef %name, i32 noundef %new_flags.4.i, ptr noundef nonnull %call.i, i64 noundef %default_val, i32 noundef %.lobit.i, i64 noundef %min, i64 noundef %max) #34
   br label %return
@@ -28417,13 +28362,13 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %onload = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 18
+  %onload = getelementptr inbounds i8, ptr %0, i64 116
   %1 = load i32, ptr %onload, align 4
   %tobool4.not = icmp eq i32 %1, 0
   br i1 %tobool4.not, label %return, label %if.end
@@ -28443,7 +28388,7 @@ entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #35
   store i32 1, ptr %call, align 8
   %call1 = tail call noalias ptr @zstrdup(ptr noundef %filename) #34
-  %data = getelementptr inbounds %struct.RedisModuleRdbStream, ptr %call, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %data, align 8
   ret ptr %call
 }
@@ -28456,7 +28401,7 @@ entry:
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %entry
-  %data = getelementptr inbounds %struct.RedisModuleRdbStream, ptr %stream, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %stream, i64 8
   %1 = load ptr, ptr %data, align 8
   tail call void @zfree(ptr noundef %1) #34
   tail call void @zfree(ptr noundef nonnull %stream) #34
@@ -28522,7 +28467,7 @@ cond.false:                                       ; preds = %if.end14
   unreachable
 
 cond.end:                                         ; preds = %if.end14
-  %data = getelementptr inbounds %struct.RedisModuleRdbStream, ptr %stream, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %stream, i64 8
   %5 = load ptr, ptr %data, align 8
   %call18 = tail call i32 @rdbLoad(ptr noundef %5, ptr noundef null, i32 noundef 0) #34
   %6 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 61), align 8
@@ -28590,7 +28535,7 @@ cond.false:                                       ; preds = %if.end
   unreachable
 
 cond.end:                                         ; preds = %if.end
-  %data = getelementptr inbounds %struct.RedisModuleRdbStream, ptr %stream, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %stream, i64 8
   %1 = load ptr, ptr %data, align 8
   %call4 = tail call i32 @rdbSaveToFile(ptr noundef %1) #34
   %cmp5.not = icmp eq i32 %call4, 0
@@ -28617,13 +28562,13 @@ entry:
   %argv30 = alloca ptr, align 8
   %argc31 = alloca i32, align 4
   %errmsg = alloca ptr, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %1, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %ptr, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %3 = load i32, ptr %argc, align 8
   %cmp = icmp ne i32 %3, 2
   br i1 %cmp, label %if.else, label %land.lhs.true
@@ -28648,11 +28593,11 @@ if.else:                                          ; preds = %entry
 if.then6:                                         ; preds = %if.else
   %cmp10.not = icmp eq i32 %3, 3
   %sub = add nsw i32 %3, -3
-  %arrayidx14 = getelementptr inbounds ptr, ptr %0, i64 3
+  %arrayidx14 = getelementptr inbounds i8, ptr %0, i64 24
   %argv7.0 = select i1 %cmp10.not, ptr null, ptr %arrayidx14
-  %arrayidx16 = getelementptr inbounds ptr, ptr %0, i64 2
+  %arrayidx16 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %arrayidx16, align 8
-  %ptr17 = getelementptr inbounds %struct.redisObject, ptr %4, i64 0, i32 2
+  %ptr17 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %ptr17, align 8
   %call18 = tail call i32 @moduleLoad(ptr noundef %5, ptr noundef %argv7.0, i32 noundef %sub, i32 noundef 0), !range !74
   %cmp19 = icmp eq i32 %call18, 0
@@ -28683,7 +28628,7 @@ if.then29:                                        ; preds = %if.else23
 if.then34:                                        ; preds = %if.then29
   %sub36 = add nsw i32 %3, -3
   store i32 %sub36, ptr %argc31, align 4
-  %arrayidx38 = getelementptr inbounds ptr, ptr %0, i64 3
+  %arrayidx38 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %arrayidx38, ptr %argv30, align 8
   br label %if.end39
 
@@ -28694,9 +28639,9 @@ if.end39:                                         ; preds = %if.then34, %if.then
 
 land.lhs.true42:                                  ; preds = %if.end39
   %7 = load ptr, ptr %argv, align 8
-  %arrayidx44 = getelementptr inbounds ptr, ptr %7, i64 2
+  %arrayidx44 = getelementptr inbounds i8, ptr %7, i64 16
   %8 = load ptr, ptr %arrayidx44, align 8
-  %ptr45 = getelementptr inbounds %struct.redisObject, ptr %8, i64 0, i32 2
+  %ptr45 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %ptr45, align 8
   %10 = load ptr, ptr %argv30, align 8
   %11 = load i32, ptr %argc31, align 4
@@ -28724,9 +28669,9 @@ if.else51:                                        ; preds = %if.else23
 
 if.then57:                                        ; preds = %if.else51
   store ptr null, ptr %errmsg, align 8
-  %arrayidx59 = getelementptr inbounds ptr, ptr %0, i64 2
+  %arrayidx59 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %arrayidx59, align 8
-  %ptr60 = getelementptr inbounds %struct.redisObject, ptr %14, i64 0, i32 2
+  %ptr60 = getelementptr inbounds i8, ptr %14, i64 8
   %15 = load ptr, ptr %ptr60, align 8
   %call61 = call i32 @moduleUnload(ptr noundef %15, ptr noundef nonnull %errmsg), !range !74
   %cmp62 = icmp eq i32 %call61, 0
@@ -28748,9 +28693,9 @@ if.else64:                                        ; preds = %if.then57
 
 if.end70:                                         ; preds = %if.else64
   %19 = load ptr, ptr %argv, align 8
-  %arrayidx72 = getelementptr inbounds ptr, ptr %19, i64 2
+  %arrayidx72 = getelementptr inbounds i8, ptr %19, i64 16
   %20 = load ptr, ptr %arrayidx72, align 8
-  %ptr73 = getelementptr inbounds %struct.redisObject, ptr %20, i64 0, i32 2
+  %ptr73 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %ptr73, align 8
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.168, ptr noundef %21, ptr noundef nonnull %spec.store.select) #34
   br label %if.end87
@@ -28781,9 +28726,9 @@ declare void @addReplySubcommandSyntaxError(ptr noundef) local_unnamed_addr #1
 define dso_local i64 @moduleCount() local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr @modules, align 8
-  %ht_used = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2
+  %ht_used = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
-  %arrayidx2 = getelementptr inbounds %struct.dict, ptr %0, i64 0, i32 2, i64 1
+  %arrayidx2 = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i64, ptr %arrayidx2, align 8
   %add = add i64 %2, %1
   ret i64 %add
@@ -28792,7 +28737,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_SetLRU(ptr nocapture noundef readonly %key, i64 noundef %lru_idle) #0 {
 entry:
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28826,7 +28771,7 @@ declare i32 @LRU_CLOCK() local_unnamed_addr #1
 define dso_local i32 @RM_GetLRU(ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %lru_idle) #0 {
 entry:
   store i64 -1, ptr %lru_idle, align 8
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28852,7 +28797,7 @@ declare i64 @estimateObjectIdleTime(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RM_SetLFU(ptr nocapture noundef readonly %key, i64 noundef %lfu_freq) #0 {
 entry:
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28872,7 +28817,7 @@ return:                                           ; preds = %if.end, %entry
 define dso_local i32 @RM_GetLFU(ptr nocapture noundef readonly %key, ptr nocapture noundef writeonly %lfu_freq) #0 {
 entry:
   store i64 -1, ptr %lfu_freq, align 8
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28928,20 +28873,20 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @RM_ModuleTypeReplaceValue(ptr nocapture noundef readonly %key, ptr noundef readnone %mt, ptr noundef %new_value, ptr noundef writeonly %old_value) #30 {
 entry:
-  %mode = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %key, i64 40
   %0 = load i32, ptr %mode, align 8
   %and = and i32 %0, 2
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %iter = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 4
+  %iter = getelementptr inbounds i8, ptr %key, i64 32
   %1 = load ptr, ptr %iter, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %value = getelementptr inbounds %struct.RedisModuleKey, ptr %key, i64 0, i32 3
+  %value = getelementptr inbounds i8, ptr %key, i64 24
   %2 = load ptr, ptr %value, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %return, label %lor.lhs.false3
@@ -28953,7 +28898,7 @@ lor.lhs.false3:                                   ; preds = %if.end
   br i1 %cmp.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %lor.lhs.false3
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %2, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %ptr, align 8
   %4 = load ptr, ptr %3, align 8
   %cmp8.not = icmp eq ptr %4, %mt
@@ -28964,13 +28909,13 @@ if.end10:                                         ; preds = %if.end6
   br i1 %tobool11.not, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %value13 = getelementptr inbounds %struct.moduleValue, ptr %3, i64 0, i32 1
+  %value13 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %value13, align 8
   store ptr %5, ptr %old_value, align 8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %if.end10
-  %value15 = getelementptr inbounds %struct.moduleValue, ptr %3, i64 0, i32 1
+  %value15 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %new_value, ptr %value15, align 8
   br label %return
 
@@ -29003,7 +28948,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %arity = getelementptr inbounds %struct.redisCommand, ptr %call, i64 0, i32 13
+  %arity = getelementptr inbounds i8, ptr %call, i64 104
   %0 = load i32, ptr %arity, align 8
   %cmp6 = icmp sgt i32 %0, 0
   %cmp8.not = icmp ne i32 %0, %argc
@@ -29020,10 +28965,10 @@ if.then11:                                        ; preds = %if.end5
 
 if.end13:                                         ; preds = %if.end5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %result, i8 0, i64 2064, i1 false)
-  %1 = getelementptr inbounds %struct.getKeysResult, ptr %result, i64 0, i32 3
+  %1 = getelementptr inbounds i8, ptr %result, i64 2060
   store i32 256, ptr %1, align 4
   %call14 = call i32 @getKeysFromCommand(ptr noundef nonnull %call, ptr noundef %argv, i32 noundef %argc, ptr noundef nonnull %result) #34
-  %numkeys = getelementptr inbounds %struct.getKeysResult, ptr %result, i64 0, i32 2
+  %numkeys = getelementptr inbounds i8, ptr %result, i64 2056
   %2 = load i32, ptr %numkeys, align 8
   store i32 %2, ptr %num_keys, align 4
   %tobool16.not = icmp eq i32 %2, 0
@@ -29055,11 +29000,11 @@ if.end25.thread:                                  ; preds = %if.end19
   br i1 %cmp272229, label %for.body.preheader, label %return
 
 for.body.preheader:                               ; preds = %if.end25.thread
-  %keys30 = getelementptr inbounds %struct.getKeysResult, ptr %result, i64 0, i32 1
+  %keys30 = getelementptr inbounds i8, ptr %result, i64 2048
   br label %for.body
 
 for.body.lr.ph.split.us:                          ; preds = %if.end25
-  %keys = getelementptr inbounds %struct.getKeysResult, ptr %result, i64 0, i32 1
+  %keys = getelementptr inbounds i8, ptr %result, i64 2048
   %5 = load ptr, ptr %keys, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %for.body.us
@@ -29143,19 +29088,19 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %client = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 2
+  %client = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %client, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %cmd = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 17
+  %cmd = getelementptr inbounds i8, ptr %0, i64 128
   %1 = load ptr, ptr %cmd, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false2
-  %fullname = getelementptr inbounds %struct.redisCommand, ptr %1, i64 0, i32 27
+  %fullname = getelementptr inbounds i8, ptr %1, i64 216
   %2 = load ptr, ptr %fullname, align 8
   br label %return
 
@@ -29167,9 +29112,9 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @RM_RegisterDefragFunc(ptr nocapture noundef readonly %ctx, ptr noundef %cb) #14 {
 entry:
-  %module = getelementptr inbounds %struct.RedisModuleCtx, ptr %ctx, i64 0, i32 1
+  %module = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %module, align 8
-  %defrag_cb = getelementptr inbounds %struct.RedisModule, ptr %0, i64 0, i32 15
+  %defrag_cb = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %cb, ptr %defrag_cb, align 8
   ret i32 0
 }
@@ -29195,7 +29140,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @RM_DefragCursorSet(ptr nocapture noundef readonly %ctx, i64 noundef %cursor) #14 {
 entry:
-  %cursor1 = getelementptr inbounds %struct.RedisModuleDefragCtx, ptr %ctx, i64 0, i32 1
+  %cursor1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %cursor1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -29212,7 +29157,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @RM_DefragCursorGet(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %cursor) #19 {
 entry:
-  %cursor1 = getelementptr inbounds %struct.RedisModuleDefragCtx, ptr %ctx, i64 0, i32 1
+  %cursor1 = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %cursor1, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -29249,23 +29194,23 @@ declare ptr @activeDefragStringOb(ptr noundef) local_unnamed_addr #1
 define dso_local i32 @moduleLateDefrag(ptr noundef %key, ptr nocapture noundef readonly %value, ptr noundef %cursor, i64 noundef %endtime, i32 noundef %dbid) local_unnamed_addr #0 {
 entry:
   %defrag_ctx = alloca %struct.RedisModuleDefragCtx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %value, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %value, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %1 = load ptr, ptr %0, align 8
   store i64 %endtime, ptr %defrag_ctx, align 8
-  %cursor2 = getelementptr inbounds %struct.RedisModuleDefragCtx, ptr %defrag_ctx, i64 0, i32 1
+  %cursor2 = getelementptr inbounds i8, ptr %defrag_ctx, i64 8
   store ptr %cursor, ptr %cursor2, align 8
-  %key3 = getelementptr inbounds %struct.RedisModuleDefragCtx, ptr %defrag_ctx, i64 0, i32 2
+  %key3 = getelementptr inbounds i8, ptr %defrag_ctx, i64 16
   store ptr %key, ptr %key3, align 8
-  %dbid4 = getelementptr inbounds %struct.RedisModuleDefragCtx, ptr %defrag_ctx, i64 0, i32 3
+  %dbid4 = getelementptr inbounds i8, ptr %defrag_ctx, i64 24
   store i32 %dbid, ptr %dbid4, align 8
-  %defrag = getelementptr inbounds %struct.RedisModuleType, ptr %1, i64 0, i32 11
+  %defrag = getelementptr inbounds i8, ptr %1, i64 88
   %2 = load ptr, ptr %defrag, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.then8, label %if.then
 
 if.then:                                          ; preds = %entry
-  %value6 = getelementptr inbounds %struct.moduleValue, ptr %0, i64 0, i32 1
+  %value6 = getelementptr inbounds i8, ptr %0, i64 8
   %call = call i32 %2(ptr noundef nonnull %defrag_ctx, ptr noundef %key, ptr noundef nonnull %value6) #34
   %3 = icmp eq i32 %call, 0
   br i1 %3, label %if.then8, label %return
@@ -29284,7 +29229,7 @@ define dso_local i32 @moduleDefragValue(ptr noundef %key, ptr nocapture noundef 
 entry:
   %ctx.i = alloca %struct.RedisModuleKeyOptCtx, align 8
   %defrag_ctx = alloca %struct.RedisModuleDefragCtx, align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %value, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %value, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call ptr @activeDefragAlloc(ptr noundef nonnull %0) #34
@@ -29297,7 +29242,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %mv.0 = phi ptr [ %call, %if.then ], [ %0, %entry ]
-  %defrag = getelementptr inbounds %struct.RedisModuleType, ptr %1, i64 0, i32 11
+  %defrag = getelementptr inbounds i8, ptr %1, i64 88
   %2 = load ptr, ptr %defrag, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %return, label %if.end4
@@ -29306,26 +29251,26 @@ if.end4:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ctx.i)
   %3 = load ptr, ptr %ptr, align 8
   %4 = load ptr, ptr %3, align 8
-  %free_effort2.i = getelementptr inbounds %struct.RedisModuleType, ptr %4, i64 0, i32 15
+  %free_effort2.i = getelementptr inbounds i8, ptr %4, i64 120
   %5 = load ptr, ptr %free_effort2.i, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end4
   store ptr %key, ptr %ctx.i, align 8
-  %to_key.i = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx.i, i64 0, i32 1
+  %to_key.i = getelementptr inbounds i8, ptr %ctx.i, i64 8
   store ptr null, ptr %to_key.i, align 8
-  %from_dbid.i = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx.i, i64 0, i32 2
+  %from_dbid.i = getelementptr inbounds i8, ptr %ctx.i, i64 16
   store i32 %dbid, ptr %from_dbid.i, align 8
-  %to_dbid.i = getelementptr inbounds %struct.RedisModuleKeyOptCtx, ptr %ctx.i, i64 0, i32 3
+  %to_dbid.i = getelementptr inbounds i8, ptr %ctx.i, i64 20
   store i32 -1, ptr %to_dbid.i, align 4
-  %value.i = getelementptr inbounds %struct.moduleValue, ptr %3, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %value.i, align 8
   %call.i = call i64 %5(ptr noundef nonnull %ctx.i, ptr noundef %6) #34
   br label %moduleGetFreeEffort.exit
 
 if.else.i:                                        ; preds = %if.end4
-  %free_effort.i = getelementptr inbounds %struct.RedisModuleType, ptr %4, i64 0, i32 8
+  %free_effort.i = getelementptr inbounds i8, ptr %4, i64 64
   %7 = load ptr, ptr %free_effort.i, align 8
   %cmp2.not.i = icmp eq ptr %7, null
   br i1 %cmp2.not.i, label %moduleGetFreeEffort.exit.thread, label %if.then3.i
@@ -29335,7 +29280,7 @@ moduleGetFreeEffort.exit.thread:                  ; preds = %if.else.i
   br label %9
 
 if.then3.i:                                       ; preds = %if.else.i
-  %value5.i = getelementptr inbounds %struct.moduleValue, ptr %3, i64 0, i32 1
+  %value5.i = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load ptr, ptr %value5.i, align 8
   %call6.i = tail call i64 %7(ptr noundef %key, ptr noundef %8) #34
   br label %moduleGetFreeEffort.exit
@@ -29355,13 +29300,13 @@ moduleGetFreeEffort.exit:                         ; preds = %if.then.i, %if.then
   br i1 %cmp, label %return, label %if.end10
 
 if.end10:                                         ; preds = %9
-  %key11 = getelementptr inbounds %struct.RedisModuleDefragCtx, ptr %defrag_ctx, i64 0, i32 2
+  %key11 = getelementptr inbounds i8, ptr %defrag_ctx, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %defrag_ctx, i8 0, i64 16, i1 false)
   store ptr %key, ptr %key11, align 8
-  %dbid12 = getelementptr inbounds %struct.RedisModuleDefragCtx, ptr %defrag_ctx, i64 0, i32 3
+  %dbid12 = getelementptr inbounds i8, ptr %defrag_ctx, i64 24
   store i32 %dbid, ptr %dbid12, align 8
   %12 = load ptr, ptr %defrag, align 8
-  %value14 = getelementptr inbounds %struct.moduleValue, ptr %mv.0, i64 0, i32 1
+  %value14 = getelementptr inbounds i8, ptr %mv.0, i64 8
   %call15 = call i32 %12(ptr noundef nonnull %defrag_ctx, ptr noundef %key, ptr noundef nonnull %value14) #34
   br label %return
 
@@ -29383,7 +29328,7 @@ entry:
 while.body:                                       ; preds = %entry, %while.cond.backedge
   %call15 = phi ptr [ %call1, %while.cond.backedge ], [ %call13, %entry ]
   %call2 = call ptr @dictGetVal(ptr noundef nonnull %call15) #34
-  %defrag_cb = getelementptr inbounds %struct.RedisModule, ptr %call2, i64 0, i32 15
+  %defrag_cb = getelementptr inbounds i8, ptr %call2, i64 96
   %1 = load ptr, ptr %defrag_cb, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.cond.backedge, label %if.end
@@ -29406,7 +29351,7 @@ while.end:                                        ; preds = %while.cond.backedge
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @RM_GetKeyNameFromDefragCtx(ptr nocapture noundef readonly %ctx) #6 {
 entry:
-  %key = getelementptr inbounds %struct.RedisModuleDefragCtx, ptr %ctx, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %key, align 8
   ret ptr %0
 }
@@ -29414,7 +29359,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @RM_GetDbIdFromDefragCtx(ptr nocapture noundef readonly %ctx) #6 {
 entry:
-  %dbid = getelementptr inbounds %struct.RedisModuleDefragCtx, ptr %ctx, i64 0, i32 3
+  %dbid = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load i32, ptr %dbid, align 8
   ret i32 %0
 }
@@ -29439,7 +29384,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %2 = phi ptr [ %17, %for.inc ], [ %1, %for.cond.preheader ]
   %add.ptr.i63 = phi ptr [ %add.ptr.i, %for.inc ], [ %args, %for.cond.preheader ]
   %j.061 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %type = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i63, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %add.ptr.i63, i64 8
   %3 = load i32, ptr %type, align 8
   %switch37 = icmp ult i32 %3, 9
   br i1 %switch37, label %if.end13, label %do.body
@@ -29460,7 +29405,7 @@ if.end13:                                         ; preds = %for.body
   ]
 
 land.lhs.true:                                    ; preds = %if.end13
-  %token = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i63, i64 0, i32 3
+  %token = getelementptr inbounds i8, ptr %add.ptr.i63, i64 16
   %5 = load ptr, ptr %token, align 8
   %tobool17.not = icmp eq ptr %5, null
   br i1 %tobool17.not, label %do.body19, label %if.else
@@ -29477,7 +29422,7 @@ if.end23:                                         ; preds = %do.body19
   br label %return
 
 if.then30:                                        ; preds = %if.end13
-  %key_spec_index = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i63, i64 0, i32 2
+  %key_spec_index = getelementptr inbounds i8, ptr %add.ptr.i63, i64 12
   %8 = load i32, ptr %key_spec_index, align 4
   %cmp31 = icmp slt i32 %8, 0
   br i1 %cmp31, label %do.body34, label %if.end58
@@ -29492,7 +29437,7 @@ if.end38:                                         ; preds = %do.body34
   br label %return
 
 if.else:                                          ; preds = %if.end13, %land.lhs.true
-  %key_spec_index42 = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i63, i64 0, i32 2
+  %key_spec_index42 = getelementptr inbounds i8, ptr %add.ptr.i63, i64 12
   %10 = load i32, ptr %key_spec_index42, align 4
   switch i32 %10, label %do.body50 [
     i32 -1, label %if.end58
@@ -29509,7 +29454,7 @@ if.end54:                                         ; preds = %do.body50
   br label %return
 
 if.end58:                                         ; preds = %if.else, %if.else, %if.then30
-  %flags = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i63, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %add.ptr.i63, i64 40
   %12 = load i32, ptr %flags, align 8
   %tobool59.not = icmp ult i32 %12, 8
   br i1 %tobool59.not, label %if.end68, label %do.body61
@@ -29526,7 +29471,7 @@ if.end65:                                         ; preds = %do.body61
 if.end68:                                         ; preds = %if.end58
   %.off = add nsw i32 %3, -7
   %switch = icmp ult i32 %.off, 2
-  %subargs = getelementptr inbounds %struct.RedisModuleCommandArg, ptr %add.ptr.i63, i64 0, i32 8
+  %subargs = getelementptr inbounds i8, ptr %add.ptr.i63, i64 56
   %14 = load ptr, ptr %subargs, align 8
   %cmp76 = icmp eq ptr %14, null
   br i1 %switch, label %if.then75, label %if.else92

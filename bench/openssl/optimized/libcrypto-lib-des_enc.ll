@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @DES_encrypt1(ptr nocapture noundef %data, ptr noundef readonly %ks, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %data, align 4
-  %arrayidx1 = getelementptr inbounds i32, ptr %data, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %data, i64 4
   %1 = load i32, ptr %arrayidx1, align 4
   %shr = lshr i32 %1, 4
   %xor = xor i32 %shr, %0
@@ -49,7 +49,7 @@ entry:
 if.then:                                          ; preds = %entry
   %9 = load i32, ptr %ks, align 4
   %xor48 = xor i32 %9, %7
-  %arrayidx49 = getelementptr inbounds i32, ptr %ks, i64 1
+  %arrayidx49 = getelementptr inbounds i8, ptr %ks, i64 4
   %10 = load i32, ptr %arrayidx49, align 4
   %xor50 = xor i32 %10, %7
   %11 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor50) #2, !srcloc !6
@@ -99,10 +99,10 @@ if.then:                                          ; preds = %entry
   %25 = xor i32 %24, %18
   %26 = xor i32 %25, %19
   %xor91 = xor i32 %26, %8
-  %arrayidx92 = getelementptr inbounds i32, ptr %ks, i64 2
+  %arrayidx92 = getelementptr inbounds i8, ptr %ks, i64 8
   %27 = load i32, ptr %arrayidx92, align 4
   %xor93 = xor i32 %xor91, %27
-  %arrayidx94 = getelementptr inbounds i32, ptr %ks, i64 3
+  %arrayidx94 = getelementptr inbounds i8, ptr %ks, i64 12
   %28 = load i32, ptr %arrayidx94, align 4
   %xor95 = xor i32 %xor91, %28
   %29 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor95) #2, !srcloc !7
@@ -152,10 +152,10 @@ if.then:                                          ; preds = %entry
   %43 = xor i32 %42, %36
   %44 = xor i32 %43, %37
   %xor137 = xor i32 %44, %7
-  %arrayidx138 = getelementptr inbounds i32, ptr %ks, i64 4
+  %arrayidx138 = getelementptr inbounds i8, ptr %ks, i64 16
   %45 = load i32, ptr %arrayidx138, align 4
   %xor139 = xor i32 %xor137, %45
-  %arrayidx140 = getelementptr inbounds i32, ptr %ks, i64 5
+  %arrayidx140 = getelementptr inbounds i8, ptr %ks, i64 20
   %46 = load i32, ptr %arrayidx140, align 4
   %xor141 = xor i32 %xor137, %46
   %47 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor141) #2, !srcloc !8
@@ -205,10 +205,10 @@ if.then:                                          ; preds = %entry
   %61 = xor i32 %60, %54
   %62 = xor i32 %61, %55
   %xor183 = xor i32 %62, %xor91
-  %arrayidx184 = getelementptr inbounds i32, ptr %ks, i64 6
+  %arrayidx184 = getelementptr inbounds i8, ptr %ks, i64 24
   %63 = load i32, ptr %arrayidx184, align 4
   %xor185 = xor i32 %xor183, %63
-  %arrayidx186 = getelementptr inbounds i32, ptr %ks, i64 7
+  %arrayidx186 = getelementptr inbounds i8, ptr %ks, i64 28
   %64 = load i32, ptr %arrayidx186, align 4
   %xor187 = xor i32 %xor183, %64
   %65 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor187) #2, !srcloc !9
@@ -258,10 +258,10 @@ if.then:                                          ; preds = %entry
   %79 = xor i32 %78, %72
   %80 = xor i32 %79, %73
   %xor229 = xor i32 %80, %xor137
-  %arrayidx230 = getelementptr inbounds i32, ptr %ks, i64 8
+  %arrayidx230 = getelementptr inbounds i8, ptr %ks, i64 32
   %81 = load i32, ptr %arrayidx230, align 4
   %xor231 = xor i32 %xor229, %81
-  %arrayidx232 = getelementptr inbounds i32, ptr %ks, i64 9
+  %arrayidx232 = getelementptr inbounds i8, ptr %ks, i64 36
   %82 = load i32, ptr %arrayidx232, align 4
   %xor233 = xor i32 %xor229, %82
   %83 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor233) #2, !srcloc !10
@@ -311,10 +311,10 @@ if.then:                                          ; preds = %entry
   %97 = xor i32 %96, %90
   %98 = xor i32 %97, %91
   %xor275 = xor i32 %98, %xor183
-  %arrayidx276 = getelementptr inbounds i32, ptr %ks, i64 10
+  %arrayidx276 = getelementptr inbounds i8, ptr %ks, i64 40
   %99 = load i32, ptr %arrayidx276, align 4
   %xor277 = xor i32 %xor275, %99
-  %arrayidx278 = getelementptr inbounds i32, ptr %ks, i64 11
+  %arrayidx278 = getelementptr inbounds i8, ptr %ks, i64 44
   %100 = load i32, ptr %arrayidx278, align 4
   %xor279 = xor i32 %xor275, %100
   %101 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor279) #2, !srcloc !11
@@ -364,10 +364,10 @@ if.then:                                          ; preds = %entry
   %115 = xor i32 %114, %108
   %116 = xor i32 %115, %109
   %xor321 = xor i32 %116, %xor229
-  %arrayidx322 = getelementptr inbounds i32, ptr %ks, i64 12
+  %arrayidx322 = getelementptr inbounds i8, ptr %ks, i64 48
   %117 = load i32, ptr %arrayidx322, align 4
   %xor323 = xor i32 %xor321, %117
-  %arrayidx324 = getelementptr inbounds i32, ptr %ks, i64 13
+  %arrayidx324 = getelementptr inbounds i8, ptr %ks, i64 52
   %118 = load i32, ptr %arrayidx324, align 4
   %xor325 = xor i32 %xor321, %118
   %119 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor325) #2, !srcloc !12
@@ -417,10 +417,10 @@ if.then:                                          ; preds = %entry
   %133 = xor i32 %132, %126
   %134 = xor i32 %133, %127
   %xor367 = xor i32 %134, %xor275
-  %arrayidx368 = getelementptr inbounds i32, ptr %ks, i64 14
+  %arrayidx368 = getelementptr inbounds i8, ptr %ks, i64 56
   %135 = load i32, ptr %arrayidx368, align 4
   %xor369 = xor i32 %xor367, %135
-  %arrayidx370 = getelementptr inbounds i32, ptr %ks, i64 15
+  %arrayidx370 = getelementptr inbounds i8, ptr %ks, i64 60
   %136 = load i32, ptr %arrayidx370, align 4
   %xor371 = xor i32 %xor367, %136
   %137 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor371) #2, !srcloc !13
@@ -470,10 +470,10 @@ if.then:                                          ; preds = %entry
   %151 = xor i32 %150, %144
   %152 = xor i32 %151, %145
   %xor413 = xor i32 %152, %xor321
-  %arrayidx414 = getelementptr inbounds i32, ptr %ks, i64 16
+  %arrayidx414 = getelementptr inbounds i8, ptr %ks, i64 64
   %153 = load i32, ptr %arrayidx414, align 4
   %xor415 = xor i32 %xor413, %153
-  %arrayidx416 = getelementptr inbounds i32, ptr %ks, i64 17
+  %arrayidx416 = getelementptr inbounds i8, ptr %ks, i64 68
   %154 = load i32, ptr %arrayidx416, align 4
   %xor417 = xor i32 %xor413, %154
   %155 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor417) #2, !srcloc !14
@@ -523,10 +523,10 @@ if.then:                                          ; preds = %entry
   %169 = xor i32 %168, %162
   %170 = xor i32 %169, %163
   %xor459 = xor i32 %170, %xor367
-  %arrayidx460 = getelementptr inbounds i32, ptr %ks, i64 18
+  %arrayidx460 = getelementptr inbounds i8, ptr %ks, i64 72
   %171 = load i32, ptr %arrayidx460, align 4
   %xor461 = xor i32 %xor459, %171
-  %arrayidx462 = getelementptr inbounds i32, ptr %ks, i64 19
+  %arrayidx462 = getelementptr inbounds i8, ptr %ks, i64 76
   %172 = load i32, ptr %arrayidx462, align 4
   %xor463 = xor i32 %xor459, %172
   %173 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor463) #2, !srcloc !15
@@ -576,10 +576,10 @@ if.then:                                          ; preds = %entry
   %187 = xor i32 %186, %180
   %188 = xor i32 %187, %181
   %xor505 = xor i32 %188, %xor413
-  %arrayidx506 = getelementptr inbounds i32, ptr %ks, i64 20
+  %arrayidx506 = getelementptr inbounds i8, ptr %ks, i64 80
   %189 = load i32, ptr %arrayidx506, align 4
   %xor507 = xor i32 %xor505, %189
-  %arrayidx508 = getelementptr inbounds i32, ptr %ks, i64 21
+  %arrayidx508 = getelementptr inbounds i8, ptr %ks, i64 84
   %190 = load i32, ptr %arrayidx508, align 4
   %xor509 = xor i32 %xor505, %190
   %191 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor509) #2, !srcloc !16
@@ -629,10 +629,10 @@ if.then:                                          ; preds = %entry
   %205 = xor i32 %204, %198
   %206 = xor i32 %205, %199
   %xor551 = xor i32 %206, %xor459
-  %arrayidx552 = getelementptr inbounds i32, ptr %ks, i64 22
+  %arrayidx552 = getelementptr inbounds i8, ptr %ks, i64 88
   %207 = load i32, ptr %arrayidx552, align 4
   %xor553 = xor i32 %xor551, %207
-  %arrayidx554 = getelementptr inbounds i32, ptr %ks, i64 23
+  %arrayidx554 = getelementptr inbounds i8, ptr %ks, i64 92
   %208 = load i32, ptr %arrayidx554, align 4
   %xor555 = xor i32 %xor551, %208
   %209 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor555) #2, !srcloc !17
@@ -682,10 +682,10 @@ if.then:                                          ; preds = %entry
   %223 = xor i32 %222, %216
   %224 = xor i32 %223, %217
   %xor597 = xor i32 %224, %xor505
-  %arrayidx598 = getelementptr inbounds i32, ptr %ks, i64 24
+  %arrayidx598 = getelementptr inbounds i8, ptr %ks, i64 96
   %225 = load i32, ptr %arrayidx598, align 4
   %xor599 = xor i32 %xor597, %225
-  %arrayidx600 = getelementptr inbounds i32, ptr %ks, i64 25
+  %arrayidx600 = getelementptr inbounds i8, ptr %ks, i64 100
   %226 = load i32, ptr %arrayidx600, align 4
   %xor601 = xor i32 %xor597, %226
   %227 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor601) #2, !srcloc !18
@@ -735,10 +735,10 @@ if.then:                                          ; preds = %entry
   %241 = xor i32 %240, %234
   %242 = xor i32 %241, %235
   %xor643 = xor i32 %242, %xor551
-  %arrayidx644 = getelementptr inbounds i32, ptr %ks, i64 26
+  %arrayidx644 = getelementptr inbounds i8, ptr %ks, i64 104
   %243 = load i32, ptr %arrayidx644, align 4
   %xor645 = xor i32 %xor643, %243
-  %arrayidx646 = getelementptr inbounds i32, ptr %ks, i64 27
+  %arrayidx646 = getelementptr inbounds i8, ptr %ks, i64 108
   %244 = load i32, ptr %arrayidx646, align 4
   %xor647 = xor i32 %xor643, %244
   %245 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor647) #2, !srcloc !19
@@ -788,10 +788,10 @@ if.then:                                          ; preds = %entry
   %259 = xor i32 %258, %252
   %260 = xor i32 %259, %253
   %xor689 = xor i32 %260, %xor597
-  %arrayidx690 = getelementptr inbounds i32, ptr %ks, i64 28
+  %arrayidx690 = getelementptr inbounds i8, ptr %ks, i64 112
   %261 = load i32, ptr %arrayidx690, align 4
   %xor691 = xor i32 %xor689, %261
-  %arrayidx692 = getelementptr inbounds i32, ptr %ks, i64 29
+  %arrayidx692 = getelementptr inbounds i8, ptr %ks, i64 116
   %262 = load i32, ptr %arrayidx692, align 4
   %xor693 = xor i32 %xor689, %262
   %263 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor693) #2, !srcloc !20
@@ -841,20 +841,20 @@ if.then:                                          ; preds = %entry
   %277 = xor i32 %276, %270
   %278 = xor i32 %277, %271
   %xor735 = xor i32 %278, %xor643
-  %arrayidx736 = getelementptr inbounds i32, ptr %ks, i64 30
+  %arrayidx736 = getelementptr inbounds i8, ptr %ks, i64 120
   %279 = load i32, ptr %arrayidx736, align 4
   %xor737 = xor i32 %xor735, %279
-  %arrayidx738 = getelementptr inbounds i32, ptr %ks, i64 31
+  %arrayidx738 = getelementptr inbounds i8, ptr %ks, i64 124
   %280 = load i32, ptr %arrayidx738, align 4
   %xor739 = xor i32 %xor735, %280
   %281 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor739) #2, !srcloc !21
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %arrayidx782 = getelementptr inbounds i32, ptr %ks, i64 30
+  %arrayidx782 = getelementptr inbounds i8, ptr %ks, i64 120
   %282 = load i32, ptr %arrayidx782, align 4
   %xor783 = xor i32 %282, %7
-  %arrayidx784 = getelementptr inbounds i32, ptr %ks, i64 31
+  %arrayidx784 = getelementptr inbounds i8, ptr %ks, i64 124
   %283 = load i32, ptr %arrayidx784, align 4
   %xor785 = xor i32 %283, %7
   %284 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor785) #2, !srcloc !22
@@ -904,10 +904,10 @@ if.else:                                          ; preds = %entry
   %298 = xor i32 %297, %291
   %299 = xor i32 %298, %292
   %xor827 = xor i32 %299, %8
-  %arrayidx828 = getelementptr inbounds i32, ptr %ks, i64 28
+  %arrayidx828 = getelementptr inbounds i8, ptr %ks, i64 112
   %300 = load i32, ptr %arrayidx828, align 4
   %xor829 = xor i32 %xor827, %300
-  %arrayidx830 = getelementptr inbounds i32, ptr %ks, i64 29
+  %arrayidx830 = getelementptr inbounds i8, ptr %ks, i64 116
   %301 = load i32, ptr %arrayidx830, align 4
   %xor831 = xor i32 %xor827, %301
   %302 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor831) #2, !srcloc !23
@@ -957,10 +957,10 @@ if.else:                                          ; preds = %entry
   %316 = xor i32 %315, %309
   %317 = xor i32 %316, %310
   %xor873 = xor i32 %317, %7
-  %arrayidx874 = getelementptr inbounds i32, ptr %ks, i64 26
+  %arrayidx874 = getelementptr inbounds i8, ptr %ks, i64 104
   %318 = load i32, ptr %arrayidx874, align 4
   %xor875 = xor i32 %xor873, %318
-  %arrayidx876 = getelementptr inbounds i32, ptr %ks, i64 27
+  %arrayidx876 = getelementptr inbounds i8, ptr %ks, i64 108
   %319 = load i32, ptr %arrayidx876, align 4
   %xor877 = xor i32 %xor873, %319
   %320 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor877) #2, !srcloc !24
@@ -1010,10 +1010,10 @@ if.else:                                          ; preds = %entry
   %334 = xor i32 %333, %327
   %335 = xor i32 %334, %328
   %xor919 = xor i32 %335, %xor827
-  %arrayidx920 = getelementptr inbounds i32, ptr %ks, i64 24
+  %arrayidx920 = getelementptr inbounds i8, ptr %ks, i64 96
   %336 = load i32, ptr %arrayidx920, align 4
   %xor921 = xor i32 %xor919, %336
-  %arrayidx922 = getelementptr inbounds i32, ptr %ks, i64 25
+  %arrayidx922 = getelementptr inbounds i8, ptr %ks, i64 100
   %337 = load i32, ptr %arrayidx922, align 4
   %xor923 = xor i32 %xor919, %337
   %338 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor923) #2, !srcloc !25
@@ -1063,10 +1063,10 @@ if.else:                                          ; preds = %entry
   %352 = xor i32 %351, %345
   %353 = xor i32 %352, %346
   %xor965 = xor i32 %353, %xor873
-  %arrayidx966 = getelementptr inbounds i32, ptr %ks, i64 22
+  %arrayidx966 = getelementptr inbounds i8, ptr %ks, i64 88
   %354 = load i32, ptr %arrayidx966, align 4
   %xor967 = xor i32 %xor965, %354
-  %arrayidx968 = getelementptr inbounds i32, ptr %ks, i64 23
+  %arrayidx968 = getelementptr inbounds i8, ptr %ks, i64 92
   %355 = load i32, ptr %arrayidx968, align 4
   %xor969 = xor i32 %xor965, %355
   %356 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor969) #2, !srcloc !26
@@ -1116,10 +1116,10 @@ if.else:                                          ; preds = %entry
   %370 = xor i32 %369, %363
   %371 = xor i32 %370, %364
   %xor1011 = xor i32 %371, %xor919
-  %arrayidx1012 = getelementptr inbounds i32, ptr %ks, i64 20
+  %arrayidx1012 = getelementptr inbounds i8, ptr %ks, i64 80
   %372 = load i32, ptr %arrayidx1012, align 4
   %xor1013 = xor i32 %xor1011, %372
-  %arrayidx1014 = getelementptr inbounds i32, ptr %ks, i64 21
+  %arrayidx1014 = getelementptr inbounds i8, ptr %ks, i64 84
   %373 = load i32, ptr %arrayidx1014, align 4
   %xor1015 = xor i32 %xor1011, %373
   %374 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1015) #2, !srcloc !27
@@ -1169,10 +1169,10 @@ if.else:                                          ; preds = %entry
   %388 = xor i32 %387, %381
   %389 = xor i32 %388, %382
   %xor1057 = xor i32 %389, %xor965
-  %arrayidx1058 = getelementptr inbounds i32, ptr %ks, i64 18
+  %arrayidx1058 = getelementptr inbounds i8, ptr %ks, i64 72
   %390 = load i32, ptr %arrayidx1058, align 4
   %xor1059 = xor i32 %xor1057, %390
-  %arrayidx1060 = getelementptr inbounds i32, ptr %ks, i64 19
+  %arrayidx1060 = getelementptr inbounds i8, ptr %ks, i64 76
   %391 = load i32, ptr %arrayidx1060, align 4
   %xor1061 = xor i32 %xor1057, %391
   %392 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1061) #2, !srcloc !28
@@ -1222,10 +1222,10 @@ if.else:                                          ; preds = %entry
   %406 = xor i32 %405, %399
   %407 = xor i32 %406, %400
   %xor1103 = xor i32 %407, %xor1011
-  %arrayidx1104 = getelementptr inbounds i32, ptr %ks, i64 16
+  %arrayidx1104 = getelementptr inbounds i8, ptr %ks, i64 64
   %408 = load i32, ptr %arrayidx1104, align 4
   %xor1105 = xor i32 %xor1103, %408
-  %arrayidx1106 = getelementptr inbounds i32, ptr %ks, i64 17
+  %arrayidx1106 = getelementptr inbounds i8, ptr %ks, i64 68
   %409 = load i32, ptr %arrayidx1106, align 4
   %xor1107 = xor i32 %xor1103, %409
   %410 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1107) #2, !srcloc !29
@@ -1275,10 +1275,10 @@ if.else:                                          ; preds = %entry
   %424 = xor i32 %423, %417
   %425 = xor i32 %424, %418
   %xor1149 = xor i32 %425, %xor1057
-  %arrayidx1150 = getelementptr inbounds i32, ptr %ks, i64 14
+  %arrayidx1150 = getelementptr inbounds i8, ptr %ks, i64 56
   %426 = load i32, ptr %arrayidx1150, align 4
   %xor1151 = xor i32 %xor1149, %426
-  %arrayidx1152 = getelementptr inbounds i32, ptr %ks, i64 15
+  %arrayidx1152 = getelementptr inbounds i8, ptr %ks, i64 60
   %427 = load i32, ptr %arrayidx1152, align 4
   %xor1153 = xor i32 %xor1149, %427
   %428 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1153) #2, !srcloc !30
@@ -1328,10 +1328,10 @@ if.else:                                          ; preds = %entry
   %442 = xor i32 %441, %435
   %443 = xor i32 %442, %436
   %xor1195 = xor i32 %443, %xor1103
-  %arrayidx1196 = getelementptr inbounds i32, ptr %ks, i64 12
+  %arrayidx1196 = getelementptr inbounds i8, ptr %ks, i64 48
   %444 = load i32, ptr %arrayidx1196, align 4
   %xor1197 = xor i32 %xor1195, %444
-  %arrayidx1198 = getelementptr inbounds i32, ptr %ks, i64 13
+  %arrayidx1198 = getelementptr inbounds i8, ptr %ks, i64 52
   %445 = load i32, ptr %arrayidx1198, align 4
   %xor1199 = xor i32 %xor1195, %445
   %446 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1199) #2, !srcloc !31
@@ -1381,10 +1381,10 @@ if.else:                                          ; preds = %entry
   %460 = xor i32 %459, %453
   %461 = xor i32 %460, %454
   %xor1241 = xor i32 %461, %xor1149
-  %arrayidx1242 = getelementptr inbounds i32, ptr %ks, i64 10
+  %arrayidx1242 = getelementptr inbounds i8, ptr %ks, i64 40
   %462 = load i32, ptr %arrayidx1242, align 4
   %xor1243 = xor i32 %xor1241, %462
-  %arrayidx1244 = getelementptr inbounds i32, ptr %ks, i64 11
+  %arrayidx1244 = getelementptr inbounds i8, ptr %ks, i64 44
   %463 = load i32, ptr %arrayidx1244, align 4
   %xor1245 = xor i32 %xor1241, %463
   %464 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1245) #2, !srcloc !32
@@ -1434,10 +1434,10 @@ if.else:                                          ; preds = %entry
   %478 = xor i32 %477, %471
   %479 = xor i32 %478, %472
   %xor1287 = xor i32 %479, %xor1195
-  %arrayidx1288 = getelementptr inbounds i32, ptr %ks, i64 8
+  %arrayidx1288 = getelementptr inbounds i8, ptr %ks, i64 32
   %480 = load i32, ptr %arrayidx1288, align 4
   %xor1289 = xor i32 %xor1287, %480
-  %arrayidx1290 = getelementptr inbounds i32, ptr %ks, i64 9
+  %arrayidx1290 = getelementptr inbounds i8, ptr %ks, i64 36
   %481 = load i32, ptr %arrayidx1290, align 4
   %xor1291 = xor i32 %xor1287, %481
   %482 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1291) #2, !srcloc !33
@@ -1487,10 +1487,10 @@ if.else:                                          ; preds = %entry
   %496 = xor i32 %495, %489
   %497 = xor i32 %496, %490
   %xor1333 = xor i32 %497, %xor1241
-  %arrayidx1334 = getelementptr inbounds i32, ptr %ks, i64 6
+  %arrayidx1334 = getelementptr inbounds i8, ptr %ks, i64 24
   %498 = load i32, ptr %arrayidx1334, align 4
   %xor1335 = xor i32 %xor1333, %498
-  %arrayidx1336 = getelementptr inbounds i32, ptr %ks, i64 7
+  %arrayidx1336 = getelementptr inbounds i8, ptr %ks, i64 28
   %499 = load i32, ptr %arrayidx1336, align 4
   %xor1337 = xor i32 %xor1333, %499
   %500 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1337) #2, !srcloc !34
@@ -1540,10 +1540,10 @@ if.else:                                          ; preds = %entry
   %514 = xor i32 %513, %507
   %515 = xor i32 %514, %508
   %xor1379 = xor i32 %515, %xor1287
-  %arrayidx1380 = getelementptr inbounds i32, ptr %ks, i64 4
+  %arrayidx1380 = getelementptr inbounds i8, ptr %ks, i64 16
   %516 = load i32, ptr %arrayidx1380, align 4
   %xor1381 = xor i32 %xor1379, %516
-  %arrayidx1382 = getelementptr inbounds i32, ptr %ks, i64 5
+  %arrayidx1382 = getelementptr inbounds i8, ptr %ks, i64 20
   %517 = load i32, ptr %arrayidx1382, align 4
   %xor1383 = xor i32 %xor1379, %517
   %518 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1383) #2, !srcloc !35
@@ -1593,10 +1593,10 @@ if.else:                                          ; preds = %entry
   %532 = xor i32 %531, %525
   %533 = xor i32 %532, %526
   %xor1425 = xor i32 %533, %xor1333
-  %arrayidx1426 = getelementptr inbounds i32, ptr %ks, i64 2
+  %arrayidx1426 = getelementptr inbounds i8, ptr %ks, i64 8
   %534 = load i32, ptr %arrayidx1426, align 4
   %xor1427 = xor i32 %xor1425, %534
-  %arrayidx1428 = getelementptr inbounds i32, ptr %ks, i64 3
+  %arrayidx1428 = getelementptr inbounds i8, ptr %ks, i64 12
   %535 = load i32, ptr %arrayidx1428, align 4
   %xor1429 = xor i32 %xor1425, %535
   %536 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1429) #2, !srcloc !36
@@ -1648,7 +1648,7 @@ if.else:                                          ; preds = %entry
   %xor1471 = xor i32 %551, %xor1379
   %552 = load i32, ptr %ks, align 4
   %xor1473 = xor i32 %xor1471, %552
-  %arrayidx1474 = getelementptr inbounds i32, ptr %ks, i64 1
+  %arrayidx1474 = getelementptr inbounds i8, ptr %ks, i64 4
   %553 = load i32, ptr %arrayidx1474, align 4
   %xor1475 = xor i32 %xor1471, %553
   %554 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1475) #2, !srcloc !37
@@ -1746,7 +1746,7 @@ if.end:                                           ; preds = %if.else, %if.then
 define void @DES_encrypt2(ptr nocapture noundef %data, ptr noundef readonly %ks, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %data, align 4
-  %arrayidx1 = getelementptr inbounds i32, ptr %data, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %data, i64 4
   %1 = load i32, ptr %arrayidx1, align 4
   %2 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 29, i32 %0) #2, !srcloc !40
   %3 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 29, i32 %1) #2, !srcloc !41
@@ -1756,7 +1756,7 @@ entry:
 if.then:                                          ; preds = %entry
   %4 = load i32, ptr %ks, align 4
   %xor = xor i32 %4, %2
-  %arrayidx11 = getelementptr inbounds i32, ptr %ks, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %ks, i64 4
   %5 = load i32, ptr %arrayidx11, align 4
   %xor12 = xor i32 %5, %2
   %6 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor12) #2, !srcloc !42
@@ -1806,10 +1806,10 @@ if.then:                                          ; preds = %entry
   %20 = xor i32 %19, %13
   %21 = xor i32 %20, %14
   %xor52 = xor i32 %21, %3
-  %arrayidx53 = getelementptr inbounds i32, ptr %ks, i64 2
+  %arrayidx53 = getelementptr inbounds i8, ptr %ks, i64 8
   %22 = load i32, ptr %arrayidx53, align 4
   %xor54 = xor i32 %xor52, %22
-  %arrayidx55 = getelementptr inbounds i32, ptr %ks, i64 3
+  %arrayidx55 = getelementptr inbounds i8, ptr %ks, i64 12
   %23 = load i32, ptr %arrayidx55, align 4
   %xor56 = xor i32 %xor52, %23
   %24 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor56) #2, !srcloc !43
@@ -1859,10 +1859,10 @@ if.then:                                          ; preds = %entry
   %38 = xor i32 %37, %31
   %39 = xor i32 %38, %32
   %xor98 = xor i32 %39, %2
-  %arrayidx99 = getelementptr inbounds i32, ptr %ks, i64 4
+  %arrayidx99 = getelementptr inbounds i8, ptr %ks, i64 16
   %40 = load i32, ptr %arrayidx99, align 4
   %xor100 = xor i32 %xor98, %40
-  %arrayidx101 = getelementptr inbounds i32, ptr %ks, i64 5
+  %arrayidx101 = getelementptr inbounds i8, ptr %ks, i64 20
   %41 = load i32, ptr %arrayidx101, align 4
   %xor102 = xor i32 %xor98, %41
   %42 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor102) #2, !srcloc !44
@@ -1912,10 +1912,10 @@ if.then:                                          ; preds = %entry
   %56 = xor i32 %55, %49
   %57 = xor i32 %56, %50
   %xor144 = xor i32 %57, %xor52
-  %arrayidx145 = getelementptr inbounds i32, ptr %ks, i64 6
+  %arrayidx145 = getelementptr inbounds i8, ptr %ks, i64 24
   %58 = load i32, ptr %arrayidx145, align 4
   %xor146 = xor i32 %xor144, %58
-  %arrayidx147 = getelementptr inbounds i32, ptr %ks, i64 7
+  %arrayidx147 = getelementptr inbounds i8, ptr %ks, i64 28
   %59 = load i32, ptr %arrayidx147, align 4
   %xor148 = xor i32 %xor144, %59
   %60 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor148) #2, !srcloc !45
@@ -1965,10 +1965,10 @@ if.then:                                          ; preds = %entry
   %74 = xor i32 %73, %67
   %75 = xor i32 %74, %68
   %xor190 = xor i32 %75, %xor98
-  %arrayidx191 = getelementptr inbounds i32, ptr %ks, i64 8
+  %arrayidx191 = getelementptr inbounds i8, ptr %ks, i64 32
   %76 = load i32, ptr %arrayidx191, align 4
   %xor192 = xor i32 %xor190, %76
-  %arrayidx193 = getelementptr inbounds i32, ptr %ks, i64 9
+  %arrayidx193 = getelementptr inbounds i8, ptr %ks, i64 36
   %77 = load i32, ptr %arrayidx193, align 4
   %xor194 = xor i32 %xor190, %77
   %78 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor194) #2, !srcloc !46
@@ -2018,10 +2018,10 @@ if.then:                                          ; preds = %entry
   %92 = xor i32 %91, %85
   %93 = xor i32 %92, %86
   %xor236 = xor i32 %93, %xor144
-  %arrayidx237 = getelementptr inbounds i32, ptr %ks, i64 10
+  %arrayidx237 = getelementptr inbounds i8, ptr %ks, i64 40
   %94 = load i32, ptr %arrayidx237, align 4
   %xor238 = xor i32 %xor236, %94
-  %arrayidx239 = getelementptr inbounds i32, ptr %ks, i64 11
+  %arrayidx239 = getelementptr inbounds i8, ptr %ks, i64 44
   %95 = load i32, ptr %arrayidx239, align 4
   %xor240 = xor i32 %xor236, %95
   %96 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor240) #2, !srcloc !47
@@ -2071,10 +2071,10 @@ if.then:                                          ; preds = %entry
   %110 = xor i32 %109, %103
   %111 = xor i32 %110, %104
   %xor282 = xor i32 %111, %xor190
-  %arrayidx283 = getelementptr inbounds i32, ptr %ks, i64 12
+  %arrayidx283 = getelementptr inbounds i8, ptr %ks, i64 48
   %112 = load i32, ptr %arrayidx283, align 4
   %xor284 = xor i32 %xor282, %112
-  %arrayidx285 = getelementptr inbounds i32, ptr %ks, i64 13
+  %arrayidx285 = getelementptr inbounds i8, ptr %ks, i64 52
   %113 = load i32, ptr %arrayidx285, align 4
   %xor286 = xor i32 %xor282, %113
   %114 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor286) #2, !srcloc !48
@@ -2124,10 +2124,10 @@ if.then:                                          ; preds = %entry
   %128 = xor i32 %127, %121
   %129 = xor i32 %128, %122
   %xor328 = xor i32 %129, %xor236
-  %arrayidx329 = getelementptr inbounds i32, ptr %ks, i64 14
+  %arrayidx329 = getelementptr inbounds i8, ptr %ks, i64 56
   %130 = load i32, ptr %arrayidx329, align 4
   %xor330 = xor i32 %xor328, %130
-  %arrayidx331 = getelementptr inbounds i32, ptr %ks, i64 15
+  %arrayidx331 = getelementptr inbounds i8, ptr %ks, i64 60
   %131 = load i32, ptr %arrayidx331, align 4
   %xor332 = xor i32 %xor328, %131
   %132 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor332) #2, !srcloc !49
@@ -2177,10 +2177,10 @@ if.then:                                          ; preds = %entry
   %146 = xor i32 %145, %139
   %147 = xor i32 %146, %140
   %xor374 = xor i32 %147, %xor282
-  %arrayidx375 = getelementptr inbounds i32, ptr %ks, i64 16
+  %arrayidx375 = getelementptr inbounds i8, ptr %ks, i64 64
   %148 = load i32, ptr %arrayidx375, align 4
   %xor376 = xor i32 %xor374, %148
-  %arrayidx377 = getelementptr inbounds i32, ptr %ks, i64 17
+  %arrayidx377 = getelementptr inbounds i8, ptr %ks, i64 68
   %149 = load i32, ptr %arrayidx377, align 4
   %xor378 = xor i32 %xor374, %149
   %150 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor378) #2, !srcloc !50
@@ -2230,10 +2230,10 @@ if.then:                                          ; preds = %entry
   %164 = xor i32 %163, %157
   %165 = xor i32 %164, %158
   %xor420 = xor i32 %165, %xor328
-  %arrayidx421 = getelementptr inbounds i32, ptr %ks, i64 18
+  %arrayidx421 = getelementptr inbounds i8, ptr %ks, i64 72
   %166 = load i32, ptr %arrayidx421, align 4
   %xor422 = xor i32 %xor420, %166
-  %arrayidx423 = getelementptr inbounds i32, ptr %ks, i64 19
+  %arrayidx423 = getelementptr inbounds i8, ptr %ks, i64 76
   %167 = load i32, ptr %arrayidx423, align 4
   %xor424 = xor i32 %xor420, %167
   %168 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor424) #2, !srcloc !51
@@ -2283,10 +2283,10 @@ if.then:                                          ; preds = %entry
   %182 = xor i32 %181, %175
   %183 = xor i32 %182, %176
   %xor466 = xor i32 %183, %xor374
-  %arrayidx467 = getelementptr inbounds i32, ptr %ks, i64 20
+  %arrayidx467 = getelementptr inbounds i8, ptr %ks, i64 80
   %184 = load i32, ptr %arrayidx467, align 4
   %xor468 = xor i32 %xor466, %184
-  %arrayidx469 = getelementptr inbounds i32, ptr %ks, i64 21
+  %arrayidx469 = getelementptr inbounds i8, ptr %ks, i64 84
   %185 = load i32, ptr %arrayidx469, align 4
   %xor470 = xor i32 %xor466, %185
   %186 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor470) #2, !srcloc !52
@@ -2336,10 +2336,10 @@ if.then:                                          ; preds = %entry
   %200 = xor i32 %199, %193
   %201 = xor i32 %200, %194
   %xor512 = xor i32 %201, %xor420
-  %arrayidx513 = getelementptr inbounds i32, ptr %ks, i64 22
+  %arrayidx513 = getelementptr inbounds i8, ptr %ks, i64 88
   %202 = load i32, ptr %arrayidx513, align 4
   %xor514 = xor i32 %xor512, %202
-  %arrayidx515 = getelementptr inbounds i32, ptr %ks, i64 23
+  %arrayidx515 = getelementptr inbounds i8, ptr %ks, i64 92
   %203 = load i32, ptr %arrayidx515, align 4
   %xor516 = xor i32 %xor512, %203
   %204 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor516) #2, !srcloc !53
@@ -2389,10 +2389,10 @@ if.then:                                          ; preds = %entry
   %218 = xor i32 %217, %211
   %219 = xor i32 %218, %212
   %xor558 = xor i32 %219, %xor466
-  %arrayidx559 = getelementptr inbounds i32, ptr %ks, i64 24
+  %arrayidx559 = getelementptr inbounds i8, ptr %ks, i64 96
   %220 = load i32, ptr %arrayidx559, align 4
   %xor560 = xor i32 %xor558, %220
-  %arrayidx561 = getelementptr inbounds i32, ptr %ks, i64 25
+  %arrayidx561 = getelementptr inbounds i8, ptr %ks, i64 100
   %221 = load i32, ptr %arrayidx561, align 4
   %xor562 = xor i32 %xor558, %221
   %222 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor562) #2, !srcloc !54
@@ -2442,10 +2442,10 @@ if.then:                                          ; preds = %entry
   %236 = xor i32 %235, %229
   %237 = xor i32 %236, %230
   %xor604 = xor i32 %237, %xor512
-  %arrayidx605 = getelementptr inbounds i32, ptr %ks, i64 26
+  %arrayidx605 = getelementptr inbounds i8, ptr %ks, i64 104
   %238 = load i32, ptr %arrayidx605, align 4
   %xor606 = xor i32 %xor604, %238
-  %arrayidx607 = getelementptr inbounds i32, ptr %ks, i64 27
+  %arrayidx607 = getelementptr inbounds i8, ptr %ks, i64 108
   %239 = load i32, ptr %arrayidx607, align 4
   %xor608 = xor i32 %xor604, %239
   %240 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor608) #2, !srcloc !55
@@ -2495,10 +2495,10 @@ if.then:                                          ; preds = %entry
   %254 = xor i32 %253, %247
   %255 = xor i32 %254, %248
   %xor650 = xor i32 %255, %xor558
-  %arrayidx651 = getelementptr inbounds i32, ptr %ks, i64 28
+  %arrayidx651 = getelementptr inbounds i8, ptr %ks, i64 112
   %256 = load i32, ptr %arrayidx651, align 4
   %xor652 = xor i32 %xor650, %256
-  %arrayidx653 = getelementptr inbounds i32, ptr %ks, i64 29
+  %arrayidx653 = getelementptr inbounds i8, ptr %ks, i64 116
   %257 = load i32, ptr %arrayidx653, align 4
   %xor654 = xor i32 %xor650, %257
   %258 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor654) #2, !srcloc !56
@@ -2548,20 +2548,20 @@ if.then:                                          ; preds = %entry
   %272 = xor i32 %271, %265
   %273 = xor i32 %272, %266
   %xor696 = xor i32 %273, %xor604
-  %arrayidx697 = getelementptr inbounds i32, ptr %ks, i64 30
+  %arrayidx697 = getelementptr inbounds i8, ptr %ks, i64 120
   %274 = load i32, ptr %arrayidx697, align 4
   %xor698 = xor i32 %xor696, %274
-  %arrayidx699 = getelementptr inbounds i32, ptr %ks, i64 31
+  %arrayidx699 = getelementptr inbounds i8, ptr %ks, i64 124
   %275 = load i32, ptr %arrayidx699, align 4
   %xor700 = xor i32 %xor696, %275
   %276 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor700) #2, !srcloc !57
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %arrayidx743 = getelementptr inbounds i32, ptr %ks, i64 30
+  %arrayidx743 = getelementptr inbounds i8, ptr %ks, i64 120
   %277 = load i32, ptr %arrayidx743, align 4
   %xor744 = xor i32 %277, %2
-  %arrayidx745 = getelementptr inbounds i32, ptr %ks, i64 31
+  %arrayidx745 = getelementptr inbounds i8, ptr %ks, i64 124
   %278 = load i32, ptr %arrayidx745, align 4
   %xor746 = xor i32 %278, %2
   %279 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor746) #2, !srcloc !58
@@ -2611,10 +2611,10 @@ if.else:                                          ; preds = %entry
   %293 = xor i32 %292, %286
   %294 = xor i32 %293, %287
   %xor788 = xor i32 %294, %3
-  %arrayidx789 = getelementptr inbounds i32, ptr %ks, i64 28
+  %arrayidx789 = getelementptr inbounds i8, ptr %ks, i64 112
   %295 = load i32, ptr %arrayidx789, align 4
   %xor790 = xor i32 %xor788, %295
-  %arrayidx791 = getelementptr inbounds i32, ptr %ks, i64 29
+  %arrayidx791 = getelementptr inbounds i8, ptr %ks, i64 116
   %296 = load i32, ptr %arrayidx791, align 4
   %xor792 = xor i32 %xor788, %296
   %297 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor792) #2, !srcloc !59
@@ -2664,10 +2664,10 @@ if.else:                                          ; preds = %entry
   %311 = xor i32 %310, %304
   %312 = xor i32 %311, %305
   %xor834 = xor i32 %312, %2
-  %arrayidx835 = getelementptr inbounds i32, ptr %ks, i64 26
+  %arrayidx835 = getelementptr inbounds i8, ptr %ks, i64 104
   %313 = load i32, ptr %arrayidx835, align 4
   %xor836 = xor i32 %xor834, %313
-  %arrayidx837 = getelementptr inbounds i32, ptr %ks, i64 27
+  %arrayidx837 = getelementptr inbounds i8, ptr %ks, i64 108
   %314 = load i32, ptr %arrayidx837, align 4
   %xor838 = xor i32 %xor834, %314
   %315 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor838) #2, !srcloc !60
@@ -2717,10 +2717,10 @@ if.else:                                          ; preds = %entry
   %329 = xor i32 %328, %322
   %330 = xor i32 %329, %323
   %xor880 = xor i32 %330, %xor788
-  %arrayidx881 = getelementptr inbounds i32, ptr %ks, i64 24
+  %arrayidx881 = getelementptr inbounds i8, ptr %ks, i64 96
   %331 = load i32, ptr %arrayidx881, align 4
   %xor882 = xor i32 %xor880, %331
-  %arrayidx883 = getelementptr inbounds i32, ptr %ks, i64 25
+  %arrayidx883 = getelementptr inbounds i8, ptr %ks, i64 100
   %332 = load i32, ptr %arrayidx883, align 4
   %xor884 = xor i32 %xor880, %332
   %333 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor884) #2, !srcloc !61
@@ -2770,10 +2770,10 @@ if.else:                                          ; preds = %entry
   %347 = xor i32 %346, %340
   %348 = xor i32 %347, %341
   %xor926 = xor i32 %348, %xor834
-  %arrayidx927 = getelementptr inbounds i32, ptr %ks, i64 22
+  %arrayidx927 = getelementptr inbounds i8, ptr %ks, i64 88
   %349 = load i32, ptr %arrayidx927, align 4
   %xor928 = xor i32 %xor926, %349
-  %arrayidx929 = getelementptr inbounds i32, ptr %ks, i64 23
+  %arrayidx929 = getelementptr inbounds i8, ptr %ks, i64 92
   %350 = load i32, ptr %arrayidx929, align 4
   %xor930 = xor i32 %xor926, %350
   %351 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor930) #2, !srcloc !62
@@ -2823,10 +2823,10 @@ if.else:                                          ; preds = %entry
   %365 = xor i32 %364, %358
   %366 = xor i32 %365, %359
   %xor972 = xor i32 %366, %xor880
-  %arrayidx973 = getelementptr inbounds i32, ptr %ks, i64 20
+  %arrayidx973 = getelementptr inbounds i8, ptr %ks, i64 80
   %367 = load i32, ptr %arrayidx973, align 4
   %xor974 = xor i32 %xor972, %367
-  %arrayidx975 = getelementptr inbounds i32, ptr %ks, i64 21
+  %arrayidx975 = getelementptr inbounds i8, ptr %ks, i64 84
   %368 = load i32, ptr %arrayidx975, align 4
   %xor976 = xor i32 %xor972, %368
   %369 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor976) #2, !srcloc !63
@@ -2876,10 +2876,10 @@ if.else:                                          ; preds = %entry
   %383 = xor i32 %382, %376
   %384 = xor i32 %383, %377
   %xor1018 = xor i32 %384, %xor926
-  %arrayidx1019 = getelementptr inbounds i32, ptr %ks, i64 18
+  %arrayidx1019 = getelementptr inbounds i8, ptr %ks, i64 72
   %385 = load i32, ptr %arrayidx1019, align 4
   %xor1020 = xor i32 %xor1018, %385
-  %arrayidx1021 = getelementptr inbounds i32, ptr %ks, i64 19
+  %arrayidx1021 = getelementptr inbounds i8, ptr %ks, i64 76
   %386 = load i32, ptr %arrayidx1021, align 4
   %xor1022 = xor i32 %xor1018, %386
   %387 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1022) #2, !srcloc !64
@@ -2929,10 +2929,10 @@ if.else:                                          ; preds = %entry
   %401 = xor i32 %400, %394
   %402 = xor i32 %401, %395
   %xor1064 = xor i32 %402, %xor972
-  %arrayidx1065 = getelementptr inbounds i32, ptr %ks, i64 16
+  %arrayidx1065 = getelementptr inbounds i8, ptr %ks, i64 64
   %403 = load i32, ptr %arrayidx1065, align 4
   %xor1066 = xor i32 %xor1064, %403
-  %arrayidx1067 = getelementptr inbounds i32, ptr %ks, i64 17
+  %arrayidx1067 = getelementptr inbounds i8, ptr %ks, i64 68
   %404 = load i32, ptr %arrayidx1067, align 4
   %xor1068 = xor i32 %xor1064, %404
   %405 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1068) #2, !srcloc !65
@@ -2982,10 +2982,10 @@ if.else:                                          ; preds = %entry
   %419 = xor i32 %418, %412
   %420 = xor i32 %419, %413
   %xor1110 = xor i32 %420, %xor1018
-  %arrayidx1111 = getelementptr inbounds i32, ptr %ks, i64 14
+  %arrayidx1111 = getelementptr inbounds i8, ptr %ks, i64 56
   %421 = load i32, ptr %arrayidx1111, align 4
   %xor1112 = xor i32 %xor1110, %421
-  %arrayidx1113 = getelementptr inbounds i32, ptr %ks, i64 15
+  %arrayidx1113 = getelementptr inbounds i8, ptr %ks, i64 60
   %422 = load i32, ptr %arrayidx1113, align 4
   %xor1114 = xor i32 %xor1110, %422
   %423 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1114) #2, !srcloc !66
@@ -3035,10 +3035,10 @@ if.else:                                          ; preds = %entry
   %437 = xor i32 %436, %430
   %438 = xor i32 %437, %431
   %xor1156 = xor i32 %438, %xor1064
-  %arrayidx1157 = getelementptr inbounds i32, ptr %ks, i64 12
+  %arrayidx1157 = getelementptr inbounds i8, ptr %ks, i64 48
   %439 = load i32, ptr %arrayidx1157, align 4
   %xor1158 = xor i32 %xor1156, %439
-  %arrayidx1159 = getelementptr inbounds i32, ptr %ks, i64 13
+  %arrayidx1159 = getelementptr inbounds i8, ptr %ks, i64 52
   %440 = load i32, ptr %arrayidx1159, align 4
   %xor1160 = xor i32 %xor1156, %440
   %441 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1160) #2, !srcloc !67
@@ -3088,10 +3088,10 @@ if.else:                                          ; preds = %entry
   %455 = xor i32 %454, %448
   %456 = xor i32 %455, %449
   %xor1202 = xor i32 %456, %xor1110
-  %arrayidx1203 = getelementptr inbounds i32, ptr %ks, i64 10
+  %arrayidx1203 = getelementptr inbounds i8, ptr %ks, i64 40
   %457 = load i32, ptr %arrayidx1203, align 4
   %xor1204 = xor i32 %xor1202, %457
-  %arrayidx1205 = getelementptr inbounds i32, ptr %ks, i64 11
+  %arrayidx1205 = getelementptr inbounds i8, ptr %ks, i64 44
   %458 = load i32, ptr %arrayidx1205, align 4
   %xor1206 = xor i32 %xor1202, %458
   %459 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1206) #2, !srcloc !68
@@ -3141,10 +3141,10 @@ if.else:                                          ; preds = %entry
   %473 = xor i32 %472, %466
   %474 = xor i32 %473, %467
   %xor1248 = xor i32 %474, %xor1156
-  %arrayidx1249 = getelementptr inbounds i32, ptr %ks, i64 8
+  %arrayidx1249 = getelementptr inbounds i8, ptr %ks, i64 32
   %475 = load i32, ptr %arrayidx1249, align 4
   %xor1250 = xor i32 %xor1248, %475
-  %arrayidx1251 = getelementptr inbounds i32, ptr %ks, i64 9
+  %arrayidx1251 = getelementptr inbounds i8, ptr %ks, i64 36
   %476 = load i32, ptr %arrayidx1251, align 4
   %xor1252 = xor i32 %xor1248, %476
   %477 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1252) #2, !srcloc !69
@@ -3194,10 +3194,10 @@ if.else:                                          ; preds = %entry
   %491 = xor i32 %490, %484
   %492 = xor i32 %491, %485
   %xor1294 = xor i32 %492, %xor1202
-  %arrayidx1295 = getelementptr inbounds i32, ptr %ks, i64 6
+  %arrayidx1295 = getelementptr inbounds i8, ptr %ks, i64 24
   %493 = load i32, ptr %arrayidx1295, align 4
   %xor1296 = xor i32 %xor1294, %493
-  %arrayidx1297 = getelementptr inbounds i32, ptr %ks, i64 7
+  %arrayidx1297 = getelementptr inbounds i8, ptr %ks, i64 28
   %494 = load i32, ptr %arrayidx1297, align 4
   %xor1298 = xor i32 %xor1294, %494
   %495 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1298) #2, !srcloc !70
@@ -3247,10 +3247,10 @@ if.else:                                          ; preds = %entry
   %509 = xor i32 %508, %502
   %510 = xor i32 %509, %503
   %xor1340 = xor i32 %510, %xor1248
-  %arrayidx1341 = getelementptr inbounds i32, ptr %ks, i64 4
+  %arrayidx1341 = getelementptr inbounds i8, ptr %ks, i64 16
   %511 = load i32, ptr %arrayidx1341, align 4
   %xor1342 = xor i32 %xor1340, %511
-  %arrayidx1343 = getelementptr inbounds i32, ptr %ks, i64 5
+  %arrayidx1343 = getelementptr inbounds i8, ptr %ks, i64 20
   %512 = load i32, ptr %arrayidx1343, align 4
   %xor1344 = xor i32 %xor1340, %512
   %513 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1344) #2, !srcloc !71
@@ -3300,10 +3300,10 @@ if.else:                                          ; preds = %entry
   %527 = xor i32 %526, %520
   %528 = xor i32 %527, %521
   %xor1386 = xor i32 %528, %xor1294
-  %arrayidx1387 = getelementptr inbounds i32, ptr %ks, i64 2
+  %arrayidx1387 = getelementptr inbounds i8, ptr %ks, i64 8
   %529 = load i32, ptr %arrayidx1387, align 4
   %xor1388 = xor i32 %xor1386, %529
-  %arrayidx1389 = getelementptr inbounds i32, ptr %ks, i64 3
+  %arrayidx1389 = getelementptr inbounds i8, ptr %ks, i64 12
   %530 = load i32, ptr %arrayidx1389, align 4
   %xor1390 = xor i32 %xor1386, %530
   %531 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1390) #2, !srcloc !72
@@ -3355,7 +3355,7 @@ if.else:                                          ; preds = %entry
   %xor1432 = xor i32 %546, %xor1340
   %547 = load i32, ptr %ks, align 4
   %xor1434 = xor i32 %xor1432, %547
-  %arrayidx1435 = getelementptr inbounds i32, ptr %ks, i64 1
+  %arrayidx1435 = getelementptr inbounds i8, ptr %ks, i64 4
   %548 = load i32, ptr %arrayidx1435, align 4
   %xor1436 = xor i32 %xor1432, %548
   %549 = tail call i32 asm "rorl $1,$0", "=r,I,0,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 4, i32 %xor1436) #2, !srcloc !73
@@ -3423,7 +3423,7 @@ if.end:                                           ; preds = %if.else, %if.then
 define void @DES_encrypt3(ptr nocapture noundef %data, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %data, align 4
-  %arrayidx1 = getelementptr inbounds i32, ptr %data, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %data, i64 4
   %1 = load i32, ptr %arrayidx1, align 4
   %shr = lshr i32 %1, 4
   %xor = xor i32 %shr, %0
@@ -3501,7 +3501,7 @@ entry:
 define void @DES_decrypt3(ptr nocapture noundef %data, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %data, align 4
-  %arrayidx1 = getelementptr inbounds i32, ptr %data, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %data, i64 4
   %1 = load i32, ptr %arrayidx1, align 4
   %shr = lshr i32 %1, 4
   %xor = xor i32 %shr, %0
@@ -3595,7 +3595,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp225224, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %arrayidx56 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx56 = getelementptr inbounds i8, ptr %tin, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -3760,7 +3760,7 @@ sw.epilog:                                        ; preds = %sw.bb123, %if.then9
   %xor127 = xor i32 %tin0.3, %tout0.0.lcssa
   store i32 %xor127, ptr %tin, align 4
   %xor129 = xor i32 %tin1.7, %tout1.0.lcssa
-  %arrayidx130 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx130 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %xor129, ptr %arrayidx130, align 4
   call void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %_schedule, i32 noundef 1)
   %13 = load i32, ptr %tin, align 4
@@ -3818,7 +3818,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp225224, label %for.body227.lr.ph, label %for.end295
 
 for.body227.lr.ph:                                ; preds = %if.else
-  %arrayidx257 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx257 = getelementptr inbounds i8, ptr %tin, i64 4
   br label %for.body227
 
 for.body227:                                      ; preds = %for.body227.lr.ph, %for.body227
@@ -3930,7 +3930,7 @@ if.then298:                                       ; preds = %for.end295
   %conv325 = zext i8 %32 to i32
   %shl326 = shl nuw i32 %conv325, 24
   %or327 = or disjoint i32 %or323, %shl326
-  %arrayidx328 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx328 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %or327, ptr %arrayidx328, align 4
   call void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %_schedule, i32 noundef 0)
   %33 = load i32, ptr %tin, align 4
@@ -4054,7 +4054,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp225236, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %arrayidx56 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx56 = getelementptr inbounds i8, ptr %tin, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -4219,7 +4219,7 @@ sw.epilog:                                        ; preds = %sw.bb123, %if.then9
   %xor127 = xor i32 %tin0.3, %tout0.0.lcssa
   %xor128 = xor i32 %tin1.7, %tout1.0.lcssa
   store i32 %xor127, ptr %tin, align 4
-  %arrayidx130 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx130 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %xor128, ptr %arrayidx130, align 4
   call void @DES_encrypt3(ptr noundef nonnull %tin, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3)
   %13 = load i32, ptr %tin, align 4
@@ -4277,7 +4277,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp225236, label %for.body227.lr.ph, label %for.end295
 
 for.body227.lr.ph:                                ; preds = %if.else
-  %arrayidx257 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx257 = getelementptr inbounds i8, ptr %tin, i64 4
   br label %for.body227
 
 for.body227:                                      ; preds = %for.body227.lr.ph, %for.body227
@@ -4389,7 +4389,7 @@ if.then298:                                       ; preds = %for.end295
   %shl325 = shl nuw i32 %conv324, 24
   %or326 = or disjoint i32 %or322, %shl325
   store i32 %or312, ptr %tin, align 4
-  %arrayidx328 = getelementptr inbounds [2 x i32], ptr %tin, i64 0, i64 1
+  %arrayidx328 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %or326, ptr %arrayidx328, align 4
   call void @DES_decrypt3(ptr noundef nonnull %tin, ptr noundef %ks1, ptr noundef %ks2, ptr noundef %ks3)
   %33 = load i32, ptr %tin, align 4

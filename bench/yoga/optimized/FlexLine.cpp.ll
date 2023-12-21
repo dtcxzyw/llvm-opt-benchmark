@@ -10,19 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.facebook::yoga::FlexLineRunningLayout" = type { float, float, float, float, float }
-%"class.facebook::yoga::Node" = type { i8, ptr, ptr, ptr, ptr, ptr, %"class.facebook::yoga::Style", %"struct.facebook::yoga::LayoutResults", i64, ptr, %"class.std::vector", ptr, %"struct.std::array.5" }
-%"class.facebook::yoga::Style" = type { i8, [3 x i8], %"struct.facebook::yoga::FloatOptional", %"struct.facebook::yoga::FloatOptional", %"struct.facebook::yoga::FloatOptional", %"class.facebook::yoga::CompactValue", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array", %"struct.std::array.0", %"struct.std::array.1", %"struct.std::array.1", %"struct.std::array.1", %"struct.facebook::yoga::FloatOptional" }
-%"class.facebook::yoga::CompactValue" = type { i32 }
-%"struct.std::array" = type { [9 x %"class.facebook::yoga::CompactValue"] }
-%"struct.std::array.0" = type { [3 x %"class.facebook::yoga::CompactValue"] }
-%"struct.std::array.1" = type { [2 x %"class.facebook::yoga::CompactValue"] }
-%"struct.facebook::yoga::FloatOptional" = type { float }
-%"struct.facebook::yoga::LayoutResults" = type { i32, %"struct.facebook::yoga::FloatOptional", i32, i8, i32, %"struct.std::array.2", %"struct.facebook::yoga::CachedMeasurement", i8, %"struct.std::array.3", %"struct.std::array.3", %"struct.std::array.4", %"struct.std::array.4", %"struct.std::array.4", %"struct.std::array.4" }
-%"struct.std::array.2" = type { [8 x %"struct.facebook::yoga::CachedMeasurement"] }
-%"struct.facebook::yoga::CachedMeasurement" = type { float, float, i32, i32, float, float }
-%"struct.std::array.3" = type { [2 x float] }
-%"struct.std::array.4" = type { [4 x float] }
-%"struct.std::array.5" = type { [2 x %struct.YGValue] }
 
 $_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf = comdat any
 
@@ -35,8 +22,8 @@ $_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8facebook4yoga17calculateFlexLineEPNS0_4NodeENS0_9DirectionEfffmm(ptr noalias nocapture writeonly sret(%"struct.facebook::yoga::FlexLine") align 8 %agg.result, ptr noundef %node, i8 noundef zeroext %ownerDirection, float noundef %mainAxisownerSize, float noundef %availableInnerWidth, float noundef %availableInnerMainDim, i64 noundef %startOfLineIndex, i64 noundef %lineCount) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %children_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 10
-  %_M_finish.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %children_.i = getelementptr inbounds i8, ptr %node, i64 592
+  %_M_finish.i = getelementptr inbounds i8, ptr %node, i64 600
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %children_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -62,7 +49,7 @@ _ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i: ; pred
 invoke.cont2:                                     ; preds = %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i, %if.end.i
   %itemsInFlow.sroa.18.0 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i ], [ null, %if.end.i ]
   %itemsInFlow.sroa.10.0 = phi ptr [ %call5.i.i.i.i33, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i ], [ null, %if.end.i ]
-  %style_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6
+  %style_.i = getelementptr inbounds i8, ptr %node, i64 48
   %bf.load.i = load i8, ptr %style_.i, align 4
   %bf.lshr.i = lshr i8 %bf.load.i, 2
   %bf.clear.i = and i8 %bf.lshr.i, 3
@@ -87,7 +74,7 @@ if.end6.i:                                        ; preds = %if.then.i35, %invok
 
 _ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit: ; preds = %if.then.i35, %if.then4.i, %if.end6.i
   %retval.0.i = phi i8 [ 2, %if.then4.i ], [ %bf.clear.i, %if.end6.i ], [ 3, %if.then.i35 ]
-  %flexWrap_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 1
+  %flexWrap_.i = getelementptr inbounds i8, ptr %node, i64 49
   %bf.load.i37 = load i24, ptr %flexWrap_.i, align 1
   %2 = and i24 %bf.load.i37, 49152
   %cmp.not = icmp eq i24 %2, 0
@@ -132,7 +119,7 @@ if.then.i.i.i:                                    ; preds = %for.body
 invoke.cont21:                                    ; preds = %for.body
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %endOfLineIndex.0147
   %8 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %display_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %8, i64 0, i32 6, i32 1
+  %display_.i = getelementptr inbounds i8, ptr %8, i64 49
   %bf.load.i48 = load i24, ptr %display_.i, align 1
   %9 = and i24 %bf.load.i48, 262144
   %cmp27.not = icmp ne i24 %9, 0
@@ -172,7 +159,7 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %lpad, %if.then.
   resume { ptr, i32 } %lpad.phi
 
 if.end35:                                         ; preds = %invoke.cont21
-  %lineIndex_.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %8, i64 0, i32 8
+  %lineIndex_.i = getelementptr inbounds i8, ptr %8, i64 576
   store i64 %lineCount, ptr %lineIndex_.i, align 8
   %call40 = invoke noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %8, i8 noundef zeroext %retval.0.i, float noundef %availableInnerWidth)
           to label %invoke.cont39 unwind label %lpad.loopexit
@@ -180,7 +167,7 @@ if.end35:                                         ; preds = %invoke.cont21
 invoke.cont39:                                    ; preds = %if.end35
   %cmp36 = icmp eq i64 %endOfLineIndex.0147, %firstElementInLineIndex.0146
   %cond = select i1 %cmp36, float 0.000000e+00, float %call16
-  %computedFlexBasis = getelementptr inbounds %"class.facebook::yoga::Node", ptr %8, i64 0, i32 7, i32 1
+  %computedFlexBasis = getelementptr inbounds i8, ptr %8, i64 256
   %agg.tmp.sroa.0.0.copyload = load float, ptr %computedFlexBasis, align 4
   %call44 = invoke float @_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_13FlexDirectionENS0_13FloatOptionalEf(ptr noundef nonnull %8, i8 noundef zeroext %retval.0.i, float %agg.tmp.sroa.0.0.copyload, float noundef %mainAxisownerSize)
           to label %invoke.cont43 unwind label %lpad.loopexit
@@ -232,7 +219,7 @@ if.end76:                                         ; preds = %invoke.cont69, %inv
 
 if.then.i63:                                      ; preds = %if.end76
   store ptr %8, ptr %itemsInFlow.sroa.10.1143, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %itemsInFlow.sroa.10.1143, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %itemsInFlow.sroa.10.1143, i64 8
   br label %for.inc
 
 if.else.i:                                        ; preds = %if.end76
@@ -277,7 +264,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN8facebook4yoga4NodeESaIS3_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i70 = icmp eq ptr %itemsInFlow.sroa.0.1144, null
   br i1 %tobool.not.i.i.i70, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -317,21 +304,21 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit77: ; preds = %for.inc, %inv
   %22 = fcmp ogt <2 x float> %21, zeroinitializer
   %23 = fcmp olt <2 x float> %21, <float 1.000000e+00, float 1.000000e+00>
   store ptr %itemsInFlow.sroa.0.1.lcssa, ptr %agg.result, align 8
-  %_M_finish.i.i.i.i74 = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i.i.i74 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %itemsInFlow.sroa.10.1.lcssa, ptr %_M_finish.i.i.i.i74, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::yoga::Node *, std::allocator<facebook::yoga::Node *>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %itemsInFlow.sroa.18.1.lcssa, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %sizeConsumed90 = getelementptr inbounds %"struct.facebook::yoga::FlexLine", ptr %agg.result, i64 0, i32 1
+  %sizeConsumed90 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store float %sizeConsumed.0.lcssa, ptr %sizeConsumed90, align 8
-  %endOfLineIndex91 = getelementptr inbounds %"struct.facebook::yoga::FlexLine", ptr %agg.result, i64 0, i32 3
+  %endOfLineIndex91 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 %endOfLineIndex.0.lcssa, ptr %endOfLineIndex91, align 8
-  %layout = getelementptr inbounds %"struct.facebook::yoga::FlexLine", ptr %agg.result, i64 0, i32 4
+  %layout = getelementptr inbounds i8, ptr %agg.result, i64 40
   %24 = and <2 x i1> %22, %23
   %25 = select <2 x i1> %24, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %21
   store <2 x float> %25, ptr %layout, align 8
-  %remainingFreeSpace = getelementptr inbounds %"struct.facebook::yoga::FlexLine", ptr %agg.result, i64 0, i32 4, i32 2
+  %remainingFreeSpace = getelementptr inbounds i8, ptr %agg.result, i64 48
   store <2 x float> zeroinitializer, ptr %remainingFreeSpace, align 8
-  %crossDim = getelementptr inbounds %"struct.facebook::yoga::FlexLine", ptr %agg.result, i64 0, i32 4, i32 4
+  %crossDim = getelementptr inbounds i8, ptr %agg.result, i64 56
   store float 0.000000e+00, ptr %crossDim, align 8
   ret void
 }
@@ -351,7 +338,7 @@ entry:
   br i1 %0, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx.i.i.i = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12, i32 0, i64 1
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %node, i64 236
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i.i.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i, label %sw.epilog.i.i [
     i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i
@@ -402,7 +389,7 @@ sw.default.i.i:                                   ; preds = %_ZNK8facebook4yoga1
 
 _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %sw.bb2.i.i, %sw.default.i.i
   %retval.sroa.0.0.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i ], [ %mul4.i.i, %sw.bb2.i.i ], [ %5, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ], [ %3, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i ]
-  %arrayidx.i.i.i10 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13, i32 0, i64 1
+  %arrayidx.i.i.i10 = getelementptr inbounds i8, ptr %node, i64 244
   %retval.sroa.0.0.copyload.i11 = load i32, ptr %arrayidx.i.i.i10, align 4
   switch i32 %retval.sroa.0.0.copyload.i11, label %sw.epilog.i.i25 [
     i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i20
@@ -454,7 +441,7 @@ if.else:                                          ; preds = %entry
   br i1 %14, label %if.then16, label %return
 
 if.then16:                                        ; preds = %if.else
-  %minDimensions_.i33 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 12
+  %minDimensions_.i33 = getelementptr inbounds i8, ptr %node, i64 232
   %retval.sroa.0.0.copyload.i34 = load i32, ptr %minDimensions_.i33, align 4
   switch i32 %retval.sroa.0.0.copyload.i34, label %sw.epilog.i.i48 [
     i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43
@@ -505,7 +492,7 @@ sw.default.i.i47:                                 ; preds = %_ZNK8facebook4yoga1
 
 _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit54: ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i41, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43, %sw.bb2.i.i37, %sw.default.i.i47
   %retval.sroa.0.0.i.i40 = phi float [ 0x7FF8000000000000, %sw.default.i.i47 ], [ %mul4.i.i39, %sw.bb2.i.i37 ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i43 ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i41 ]
-  %maxDimensions_.i56 = getelementptr inbounds %"class.facebook::yoga::Node", ptr %node, i64 0, i32 6, i32 13
+  %maxDimensions_.i56 = getelementptr inbounds i8, ptr %node, i64 240
   %retval.sroa.0.0.copyload.i57 = load i32, ptr %maxDimensions_.i56, align 4
   switch i32 %retval.sroa.0.0.copyload.i57, label %sw.epilog.i.i71 [
     i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i66

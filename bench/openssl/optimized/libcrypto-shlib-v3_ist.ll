@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ISSUER_SIGN_TOOL_st = type { ptr, ptr, ptr, ptr }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @ISSUER_SIGN_TOOL_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @ISSUER_SIGN_TOOL_seq_tt, i64 4, ptr null, i64 32, ptr @.str }, align 8
 @ISSUER_SIGN_TOOL_seq_tt = internal constant [4 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.1, ptr @ASN1_UTF8STRING_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.2, ptr @ASN1_UTF8STRING_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 16, ptr @.str.3, ptr @ASN1_UTF8STRING_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 24, ptr @.str.4, ptr @ASN1_UTF8STRING_it }], align 16
@@ -83,9 +80,9 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp331, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %cAToolCert = getelementptr inbounds %struct.ISSUER_SIGN_TOOL_st, ptr %call1.i, i64 0, i32 3
-  %signToolCert = getelementptr inbounds %struct.ISSUER_SIGN_TOOL_st, ptr %call1.i, i64 0, i32 2
-  %cATool = getelementptr inbounds %struct.ISSUER_SIGN_TOOL_st, ptr %call1.i, i64 0, i32 1
+  %cAToolCert = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %signToolCert = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %cATool = getelementptr inbounds i8, ptr %call1.i, i64 8
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -101,7 +98,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp6, label %for.inc, label %if.end8
 
 if.end8:                                          ; preds = %for.body
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call5, i64 8
   %0 = load ptr, ptr %name, align 8
   %call9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.1) #5
   %cmp10 = icmp eq i32 %call9, 0
@@ -114,7 +111,7 @@ if.then11:                                        ; preds = %if.end8
   br i1 %cmp14, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then11
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call5, i64 16
   %1 = load ptr, ptr %value, align 8
   %call17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #5
   %conv = trunc i64 %call17 to i32
@@ -134,7 +131,7 @@ if.then25:                                        ; preds = %if.else
   br i1 %cmp28, label %err, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %if.then25
-  %value32 = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 2
+  %value32 = getelementptr inbounds i8, ptr %call5, i64 16
   %2 = load ptr, ptr %value32, align 8
   %call34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #5
   %conv35 = trunc i64 %call34 to i32
@@ -154,7 +151,7 @@ if.then45:                                        ; preds = %if.else40
   br i1 %cmp48, label %err, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %if.then45
-  %value52 = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 2
+  %value52 = getelementptr inbounds i8, ptr %call5, i64 16
   %3 = load ptr, ptr %value52, align 8
   %call54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #5
   %conv55 = trunc i64 %call54 to i32
@@ -174,7 +171,7 @@ if.then65:                                        ; preds = %if.else60
   br i1 %cmp68, label %err, label %lor.lhs.false70
 
 lor.lhs.false70:                                  ; preds = %if.then65
-  %value72 = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 2
+  %value72 = getelementptr inbounds i8, ptr %call5, i64 16
   %4 = load ptr, ptr %value72, align 8
   %call74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #5
   %conv75 = trunc i64 %call74 to i32
@@ -220,7 +217,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not.not, label %if.end10, label %if.end10.thread
 
 if.end10:                                         ; preds = %if.end
-  %cATool = getelementptr inbounds %struct.ISSUER_SIGN_TOOL_st, ptr %ist, i64 0, i32 1
+  %cATool = getelementptr inbounds i8, ptr %ist, i64 8
   %1 = load ptr, ptr %cATool, align 8
   %cmp11.not = icmp eq ptr %1, null
   br i1 %cmp11.not, label %if.end23.thread, label %if.end16
@@ -228,11 +225,11 @@ if.end10:                                         ; preds = %if.end
 if.end10.thread:                                  ; preds = %if.end
   %call6 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.7, i32 noundef %indent, ptr noundef nonnull @.str.8) #4
   %2 = load ptr, ptr %ist, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %2, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %data, align 8
   %4 = load i32, ptr %2, align 8
   %call9 = tail call i32 @BIO_write(ptr noundef %out, ptr noundef %3, i32 noundef %4) #4
-  %cATool31 = getelementptr inbounds %struct.ISSUER_SIGN_TOOL_st, ptr %ist, i64 0, i32 1
+  %cATool31 = getelementptr inbounds i8, ptr %ist, i64 8
   %5 = load ptr, ptr %cATool31, align 8
   %cmp11.not32 = icmp eq ptr %5, null
   br i1 %cmp11.not32, label %if.end23, label %if.then14
@@ -245,20 +242,20 @@ if.end16:                                         ; preds = %if.end10, %if.then1
   %cATool3336 = phi ptr [ %cATool31, %if.then14 ], [ %cATool, %if.end10 ]
   %call17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.9, i32 noundef %indent, ptr noundef nonnull @.str.8) #4
   %6 = load ptr, ptr %cATool3336, align 8
-  %data19 = getelementptr inbounds %struct.asn1_string_st, ptr %6, i64 0, i32 2
+  %data19 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %data19, align 8
   %8 = load i32, ptr %6, align 8
   %call22 = tail call i32 @BIO_write(ptr noundef %out, ptr noundef %7, i32 noundef %8) #4
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end10.thread, %if.end16
-  %signToolCert = getelementptr inbounds %struct.ISSUER_SIGN_TOOL_st, ptr %ist, i64 0, i32 2
+  %signToolCert = getelementptr inbounds i8, ptr %ist, i64 16
   %9 = load ptr, ptr %signToolCert, align 8
   %cmp24.not = icmp eq ptr %9, null
   br i1 %cmp24.not, label %if.end36, label %if.then27
 
 if.end23.thread:                                  ; preds = %if.end10
-  %signToolCert38 = getelementptr inbounds %struct.ISSUER_SIGN_TOOL_st, ptr %ist, i64 0, i32 2
+  %signToolCert38 = getelementptr inbounds i8, ptr %ist, i64 16
   %10 = load ptr, ptr %signToolCert38, align 8
   %cmp24.not39 = icmp eq ptr %10, null
   br i1 %cmp24.not39, label %if.end36.thread, label %if.end29
@@ -271,20 +268,20 @@ if.end29:                                         ; preds = %if.end23.thread, %i
   %signToolCert4145 = phi ptr [ %signToolCert, %if.then27 ], [ %signToolCert38, %if.end23.thread ]
   %call30 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.10, i32 noundef %indent, ptr noundef nonnull @.str.8) #4
   %11 = load ptr, ptr %signToolCert4145, align 8
-  %data32 = getelementptr inbounds %struct.asn1_string_st, ptr %11, i64 0, i32 2
+  %data32 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %data32, align 8
   %13 = load i32, ptr %11, align 8
   %call35 = tail call i32 @BIO_write(ptr noundef %out, ptr noundef %12, i32 noundef %13) #4
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end29, %if.end23
-  %cAToolCert = getelementptr inbounds %struct.ISSUER_SIGN_TOOL_st, ptr %ist, i64 0, i32 3
+  %cAToolCert = getelementptr inbounds i8, ptr %ist, i64 24
   %14 = load ptr, ptr %cAToolCert, align 8
   %cmp37.not = icmp eq ptr %14, null
   br i1 %cmp37.not, label %return, label %if.then40
 
 if.end36.thread:                                  ; preds = %if.end23.thread
-  %cAToolCert47 = getelementptr inbounds %struct.ISSUER_SIGN_TOOL_st, ptr %ist, i64 0, i32 3
+  %cAToolCert47 = getelementptr inbounds i8, ptr %ist, i64 24
   %15 = load ptr, ptr %cAToolCert47, align 8
   %cmp37.not48 = icmp eq ptr %15, null
   br i1 %cmp37.not48, label %return, label %if.end42
@@ -297,7 +294,7 @@ if.end42:                                         ; preds = %if.end36.thread, %i
   %cAToolCert5054 = phi ptr [ %cAToolCert, %if.then40 ], [ %cAToolCert47, %if.end36.thread ]
   %call43 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.11, i32 noundef %indent, ptr noundef nonnull @.str.8) #4
   %16 = load ptr, ptr %cAToolCert5054, align 8
-  %data45 = getelementptr inbounds %struct.asn1_string_st, ptr %16, i64 0, i32 2
+  %data45 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load ptr, ptr %data45, align 8
   %18 = load i32, ptr %16, align 8
   %call48 = tail call i32 @BIO_write(ptr noundef %out, ptr noundef %17, i32 noundef %18) #4

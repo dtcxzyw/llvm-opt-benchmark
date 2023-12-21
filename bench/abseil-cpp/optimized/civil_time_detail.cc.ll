@@ -99,7 +99,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %m, align 8
   store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 257, ptr %0, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl13time_internal4cctz6detaillsERSoRKNS2_10civil_timeINS2_8year_tagEEE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -117,7 +117,7 @@ invoke.cont7:                                     ; preds = %invoke.cont1
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont7
-  %m.i = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %m, i64 0, i32 1
+  %m.i = getelementptr inbounds i8, ptr %m, i64 8
   %1 = load i8, ptr %m.i, align 8
   %conv.i = sext i8 %1 to i32
   %call18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call15, i32 noundef %conv.i)
@@ -175,7 +175,7 @@ entry:
   %retval.sroa.2.8.insert.ext.i.i.i = and i64 %agg.tmp.sroa.2.0.copyload.i, 255
   %retval.sroa.2.8.insert.insert.i.i.i = or disjoint i64 %retval.sroa.2.8.insert.ext.i.i.i, 256
   store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %retval.sroa.2.8.insert.insert.i.i.i, ptr %0, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl13time_internal4cctz6detaillsERSoRKNS2_10civil_timeINS2_9month_tagEEE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -193,7 +193,7 @@ invoke.cont7:                                     ; preds = %invoke.cont1
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont7
-  %d.i = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %d, i64 0, i32 2
+  %d.i = getelementptr inbounds i8, ptr %d, i64 9
   %1 = load i8, ptr %d.i, align 1
   %conv.i = sext i8 %1 to i32
   %call18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call15, i32 noundef %conv.i)
@@ -242,7 +242,7 @@ entry:
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.f_.sroa_idx.i, align 8
   %retval.sroa.2.8.insert.insert.i.i.i = and i64 %agg.tmp.sroa.2.0.copyload.i, 65535
   store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %retval.sroa.2.8.insert.insert.i.i.i, ptr %0, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl13time_internal4cctz6detaillsERSoRKNS2_10civil_timeINS2_7day_tagEEE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -260,7 +260,7 @@ invoke.cont7:                                     ; preds = %invoke.cont1
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont7
-  %hh.i = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %h, i64 0, i32 3
+  %hh.i = getelementptr inbounds i8, ptr %h, i64 10
   %1 = load i8, ptr %hh.i, align 2
   %conv.i = sext i8 %1 to i32
   %call18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call15, i32 noundef %conv.i)
@@ -309,7 +309,7 @@ entry:
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.f_.sroa_idx.i, align 8
   %retval.sroa.2.8.insert.insert.i.i.i = and i64 %agg.tmp.sroa.2.0.copyload.i, 16777215
   store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %retval.sroa.2.8.insert.insert.i.i.i, ptr %0, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl13time_internal4cctz6detaillsERSoRKNS2_10civil_timeINS2_8hour_tagEEE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -327,7 +327,7 @@ invoke.cont7:                                     ; preds = %invoke.cont1
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont7
-  %mm.i = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %m, i64 0, i32 4
+  %mm.i = getelementptr inbounds i8, ptr %m, i64 11
   %1 = load i8, ptr %mm.i, align 1
   %conv.i = sext i8 %1 to i32
   %call18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call15, i32 noundef %conv.i)
@@ -376,7 +376,7 @@ entry:
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0.f_.sroa_idx.i, align 8
   %retval.sroa.2.8.insert.insert.i.i.i = and i64 %agg.tmp.sroa.2.0.copyload.i, 4294967295
   store i64 %agg.tmp.sroa.0.0.copyload.i, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds { i64, i64 }, ptr %ref.tmp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %retval.sroa.2.8.insert.insert.i.i.i, ptr %0, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl13time_internal4cctz6detaillsERSoRKNS2_10civil_timeINS2_10minute_tagEEE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -394,7 +394,7 @@ invoke.cont7:                                     ; preds = %invoke.cont1
           to label %invoke.cont14 unwind label %lpad
 
 invoke.cont14:                                    ; preds = %invoke.cont7
-  %ss.i = getelementptr inbounds %"struct.absl::time_internal::cctz::detail::fields", ptr %s, i64 0, i32 5
+  %ss.i = getelementptr inbounds i8, ptr %s, i64 12
   %1 = load i8, ptr %ss.i, align 4
   %conv.i = sext i8 %1 to i32
   %call18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call15, i32 noundef %conv.i)

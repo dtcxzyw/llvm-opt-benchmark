@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
-%struct.prov_aria_ctx_st = type { %struct.prov_cipher_ctx_st, %union.anon.0 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { double, [272 x i8] }
 
 @aria_cbc = internal constant %struct.prov_cipher_hw_st { ptr @cipher_hw_aria_initkey, ptr @ossl_cipher_hw_chunked_cbc, ptr @cipher_hw_aria_copyctx }, align 8
 @aria_ecb = internal constant %struct.prov_cipher_hw_st { ptr @cipher_hw_aria_initkey, ptr @ossl_cipher_hw_generic_ecb, ptr @cipher_hw_aria_copyctx }, align 8
@@ -64,15 +60,15 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_aria_initkey(ptr noundef %dat, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %ks2 = getelementptr inbounds %struct.prov_aria_ctx_st, ptr %dat, i64 0, i32 1
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %dat, i64 0, i32 11
+  %ks2 = getelementptr inbounds i8, ptr %dat, i64 192
+  %enc = getelementptr inbounds i8, ptr %dat, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %0 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
 
 lor.lhs.false:                                    ; preds = %entry
-  %mode1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %dat, i64 0, i32 5
+  %mode1 = getelementptr inbounds i8, ptr %dat, i64 64
   %1 = load i32, ptr %mode1, align 8
   %2 = add i32 %1, -3
   %or.cond = icmp ult i32 %2, -2
@@ -102,9 +98,9 @@ if.then9:                                         ; preds = %if.end
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %ks11 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %dat, i64 0, i32 20
+  %ks11 = getelementptr inbounds i8, ptr %dat, i64 176
   store ptr %ks2, ptr %ks11, align 8
-  %block = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %dat, i64 0, i32 3
+  %block = getelementptr inbounds i8, ptr %dat, i64 48
   store ptr @ossl_aria_encrypt, ptr %block, align 8
   br label %return
 
@@ -119,8 +115,8 @@ declare i32 @ossl_cipher_hw_chunked_cbc(ptr noundef, ptr noundef, ptr noundef, i
 define internal void @cipher_hw_aria_copyctx(ptr noundef %dst, ptr nocapture noundef readonly %src) #3 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %dst, ptr noundef nonnull align 8 dereferenceable(472) %src, i64 472, i1 false)
-  %ks = getelementptr inbounds %struct.prov_aria_ctx_st, ptr %dst, i64 0, i32 1
-  %ks1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %dst, i64 0, i32 20
+  %ks = getelementptr inbounds i8, ptr %dst, i64 192
+  %ks1 = getelementptr inbounds i8, ptr %dst, i64 176
   store ptr %ks, ptr %ks1, align 8
   ret void
 }

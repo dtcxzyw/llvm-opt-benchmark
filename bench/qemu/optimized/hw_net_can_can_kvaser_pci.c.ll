@@ -11,37 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.5 = type { i32, i32, i8 }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.KvaserPCIState = type { %struct.PCIDevice, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, %struct.CanSJA1000State, ptr, i32, i32, ptr }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.CanSJA1000State = type { i8, i8, i8, i8, i8, i8, i8, [8 x i8], [13 x i8], [64 x i8], i32, i32, i8, i8, i8, i8, i8, [4 x %struct.qemu_can_filter], ptr, %struct.CanBusClientState }
-%struct.qemu_can_filter = type { i32, i32 }
-%struct.CanBusClientState = type { ptr, ptr, i32, %union.anon.4, ptr, ptr, ptr, ptr, i8 }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @kvaser_pci_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 3680, i64 0, ptr @kvaser_pci_instance_init, ptr null, ptr null, i8 0, i64 0, ptr @kvaser_pci_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
 @.str = private unnamed_addr constant [11 x i8] c"kvaser_pci\00", align 1
@@ -98,7 +67,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @kvaser_pci_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 52, ptr noundef nonnull @__func__.KVASER_PCI_DEV) #4
-  %canbus = getelementptr inbounds %struct.KvaserPCIState, ptr %call.i, i64 0, i32 8
+  %canbus = getelementptr inbounds i8, ptr %call.i, i64 3672
   %call1 = tail call ptr @object_property_add_link(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %canbus, ptr noundef nonnull @qdev_prop_allow_set_link_before_realize, i32 noundef 0) #4
   ret void
 }
@@ -108,25 +77,25 @@ define internal void @kvaser_pci_class_init(ptr noundef %klass, ptr nocapture re
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #4
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i10, i64 176
   store ptr @kvaser_pci_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i10, i64 184
   store ptr @kvaser_pci_exit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i10, i64 208
   store i16 4328, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i10, i64 210
   store i16 -31738, ptr %device_id, align 2
-  %revision = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 7
+  %revision = getelementptr inbounds i8, ptr %call.i10, i64 212
   store i8 0, ptr %revision, align 4
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i10, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i10, i64 214
   store i16 -256, ptr %class_id, align 2
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.6, ptr %desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_kvaser_pci, ptr %vmsd, align 8
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @kvaser_pci_reset, ptr %reset, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 128
   store i64 %or.i, ptr %categories, align 8
@@ -143,16 +112,16 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 define internal void @kvaser_pci_realize(ptr noundef %pci_dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 52, ptr noundef nonnull @__func__.KVASER_PCI_DEV) #4
-  %sja_state = getelementptr inbounds %struct.KvaserPCIState, ptr %call.i, i64 0, i32 4
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %pci_dev, i64 0, i32 3
+  %sja_state = getelementptr inbounds i8, ptr %call.i, i64 3424
+  %config = getelementptr inbounds i8, ptr %pci_dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 61
   store i8 1, ptr %arrayidx, align 1
   %call1 = tail call ptr @qemu_allocate_irq(ptr noundef nonnull @kvaser_pci_irq_handler, ptr noundef %call.i, i32 noundef 0) #4
-  %irq = getelementptr inbounds %struct.KvaserPCIState, ptr %call.i, i64 0, i32 5
+  %irq = getelementptr inbounds i8, ptr %call.i, i64 3656
   store ptr %call1, ptr %irq, align 8
   %call3 = tail call i32 @can_sja_init(ptr noundef nonnull %sja_state, ptr noundef %call1) #4
-  %canbus = getelementptr inbounds %struct.KvaserPCIState, ptr %call.i, i64 0, i32 8
+  %canbus = getelementptr inbounds i8, ptr %call.i, i64 3672
   %1 = load ptr, ptr %canbus, align 8
   %call4 = tail call i32 @can_sja_connect_to_bus(ptr noundef nonnull %sja_state, ptr noundef %1) #4
   %cmp = icmp slt i32 %call4, 0
@@ -163,11 +132,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %s5920_io = getelementptr inbounds %struct.KvaserPCIState, ptr %call.i, i64 0, i32 1
+  %s5920_io = getelementptr inbounds i8, ptr %call.i, i64 2608
   tail call void @memory_region_init_io(ptr noundef nonnull %s5920_io, ptr noundef nonnull %call.i, ptr noundef nonnull @kvaser_pci_s5920_io_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.11, i64 noundef 128) #4
-  %sja_io = getelementptr inbounds %struct.KvaserPCIState, ptr %call.i, i64 0, i32 2
+  %sja_io = getelementptr inbounds i8, ptr %call.i, i64 2880
   tail call void @memory_region_init_io(ptr noundef nonnull %sja_io, ptr noundef nonnull %call.i, ptr noundef nonnull @kvaser_pci_sja_io_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.12, i64 noundef 128) #4
-  %xilinx_io = getelementptr inbounds %struct.KvaserPCIState, ptr %call.i, i64 0, i32 3
+  %xilinx_io = getelementptr inbounds i8, ptr %call.i, i64 3152
   tail call void @memory_region_init_io(ptr noundef nonnull %xilinx_io, ptr noundef nonnull %call.i, ptr noundef nonnull @kvaser_pci_xilinx_io_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str.13, i64 noundef 8) #4
   tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %s5920_io) #4
   tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 1, i8 noundef zeroext 1, ptr noundef nonnull %sja_io) #4
@@ -182,9 +151,9 @@ return:                                           ; preds = %if.end, %if.then
 define internal void @kvaser_pci_exit(ptr noundef %pci_dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 52, ptr noundef nonnull @__func__.KVASER_PCI_DEV) #4
-  %sja_state = getelementptr inbounds %struct.KvaserPCIState, ptr %call.i, i64 0, i32 4
+  %sja_state = getelementptr inbounds i8, ptr %call.i, i64 3424
   tail call void @can_sja_disconnect(ptr noundef nonnull %sja_state) #4
-  %irq = getelementptr inbounds %struct.KvaserPCIState, ptr %call.i, i64 0, i32 5
+  %irq = getelementptr inbounds i8, ptr %call.i, i64 3656
   %0 = load ptr, ptr %irq, align 8
   tail call void @qemu_free_irq(ptr noundef %0) #4
   ret void
@@ -194,7 +163,7 @@ entry:
 define internal void @kvaser_pci_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 52, ptr noundef nonnull @__func__.KVASER_PCI_DEV) #4
-  %sja_state = getelementptr inbounds %struct.KvaserPCIState, ptr %call.i, i64 0, i32 4
+  %sja_state = getelementptr inbounds i8, ptr %call.i, i64 3424
   tail call void @can_sja_hardware_reset(ptr noundef nonnull %sja_state) #4
   ret void
 }
@@ -206,9 +175,9 @@ declare ptr @qemu_allocate_irq(ptr noundef, ptr noundef, i32 noundef) local_unna
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @kvaser_pci_irq_handler(ptr noundef %opaque, i32 %irq_num, i32 noundef %level) #0 {
 entry:
-  %s5920_irqstate = getelementptr inbounds %struct.KvaserPCIState, ptr %opaque, i64 0, i32 7
+  %s5920_irqstate = getelementptr inbounds i8, ptr %opaque, i64 3668
   store i32 %level, ptr %s5920_irqstate, align 4
-  %s5920_intcsr = getelementptr inbounds %struct.KvaserPCIState, ptr %opaque, i64 0, i32 6
+  %s5920_intcsr = getelementptr inbounds i8, ptr %opaque, i64 3664
   %0 = load i32, ptr %s5920_intcsr, align 16
   %and = and i32 %0, 8192
   %tobool.not = icmp eq i32 %and, 0
@@ -241,11 +210,11 @@ entry:
   br i1 %cond, label %sw.bb, label %return
 
 sw.bb:                                            ; preds = %entry
-  %s5920_intcsr = getelementptr inbounds %struct.KvaserPCIState, ptr %opaque, i64 0, i32 6
+  %s5920_intcsr = getelementptr inbounds i8, ptr %opaque, i64 3664
   %0 = load i32, ptr %s5920_intcsr, align 16
   %1 = and i32 %0, -8388609
   %and = zext i32 %1 to i64
-  %s5920_irqstate = getelementptr inbounds %struct.KvaserPCIState, ptr %opaque, i64 0, i32 7
+  %s5920_irqstate = getelementptr inbounds i8, ptr %opaque, i64 3668
   %2 = load i32, ptr %s5920_irqstate, align 4
   %tobool.not = icmp eq i32 %2, 0
   %or = or disjoint i64 %and, 8388608
@@ -264,13 +233,13 @@ entry:
   br i1 %cond, label %sw.bb, label %sw.epilog
 
 sw.bb:                                            ; preds = %entry
-  %s5920_irqstate = getelementptr inbounds %struct.KvaserPCIState, ptr %opaque, i64 0, i32 7
+  %s5920_irqstate = getelementptr inbounds i8, ptr %opaque, i64 3668
   %0 = load i32, ptr %s5920_irqstate, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb
-  %s5920_intcsr = getelementptr inbounds %struct.KvaserPCIState, ptr %opaque, i64 0, i32 6
+  %s5920_intcsr = getelementptr inbounds i8, ptr %opaque, i64 3664
   %1 = load i32, ptr %s5920_intcsr, align 16
   %conv = zext i32 %1 to i64
   %xor = xor i64 %conv, %data
@@ -287,7 +256,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %sw.bb
   %conv5 = trunc i64 %data to i32
-  %s5920_intcsr6 = getelementptr inbounds %struct.KvaserPCIState, ptr %opaque, i64 0, i32 6
+  %s5920_intcsr6 = getelementptr inbounds i8, ptr %opaque, i64 3664
   store i32 %conv5, ptr %s5920_intcsr6, align 16
   br label %sw.epilog
 
@@ -302,7 +271,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sja_state = getelementptr inbounds %struct.KvaserPCIState, ptr %opaque, i64 0, i32 4
+  %sja_state = getelementptr inbounds i8, ptr %opaque, i64 3424
   %call = tail call i64 @can_sja_mem_read(ptr noundef nonnull %sja_state, i64 noundef %addr, i32 noundef %size) #4
   br label %return
 
@@ -318,7 +287,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %sja_state = getelementptr inbounds %struct.KvaserPCIState, ptr %opaque, i64 0, i32 4
+  %sja_state = getelementptr inbounds i8, ptr %opaque, i64 3424
   tail call void @can_sja_mem_write(ptr noundef nonnull %sja_state, i64 noundef %addr, i64 noundef %data, i32 noundef %size) #4
   br label %return
 

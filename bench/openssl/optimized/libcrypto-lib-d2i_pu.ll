@@ -3,12 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-d2i_pu.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.evp_pkey_st = type { i32, i32, ptr, ptr, ptr, %union.legacy_pkey_st, %union.legacy_pkey_st, %struct.CRYPTO_REF_COUNT, ptr, ptr, i32, i8, %struct.crypto_ex_data_st, ptr, ptr, i64, ptr, i64, %struct.anon }
-%union.legacy_pkey_st = type { ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.anon = type { i32, i32, i32 }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/asn1/d2i_pu.c\00", align 1
 @__func__.d2i_PublicKey = private unnamed_addr constant [14 x i8] c"d2i_PublicKey\00", align 1
 
@@ -37,7 +31,7 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
-  %keymgmt = getelementptr inbounds %struct.evp_pkey_st, ptr %0, i64 0, i32 13
+  %keymgmt = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %keymgmt, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.end12, label %land.lhs.true
@@ -76,13 +70,13 @@ if.end21:                                         ; preds = %if.end12, %land.lhs
 
 sw.bb:                                            ; preds = %if.end21
   %call23 = call ptr @d2i_RSAPublicKey(ptr noundef null, ptr noundef %pp, i64 noundef %length) #2
-  %pkey = getelementptr inbounds %struct.evp_pkey_st, ptr %ret.0, i64 0, i32 5
+  %pkey = getelementptr inbounds i8, ptr %ret.0, i64 32
   store ptr %call23, ptr %pkey, align 8
   %cmp24 = icmp eq ptr %call23, null
   br i1 %cmp24, label %err, label %sw.epilog
 
 sw.bb27:                                          ; preds = %if.end21
-  %pkey28 = getelementptr inbounds %struct.evp_pkey_st, ptr %ret.0, i64 0, i32 5
+  %pkey28 = getelementptr inbounds i8, ptr %ret.0, i64 32
   %call29 = call ptr @d2i_DSAPublicKey(ptr noundef nonnull %pkey28, ptr noundef %pp, i64 noundef %length) #2
   %tobool30.not = icmp eq ptr %call29, null
   br i1 %tobool30.not, label %err, label %sw.epilog
@@ -93,15 +87,15 @@ sw.bb33:                                          ; preds = %if.end21
   br i1 %cmp34.not, label %if.end39, label %if.then35
 
 if.then35:                                        ; preds = %sw.bb33
-  %pkey36 = getelementptr inbounds %struct.evp_pkey_st, ptr %3, i64 0, i32 5
+  %pkey36 = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %pkey36, align 8
-  %pkey37 = getelementptr inbounds %struct.evp_pkey_st, ptr %ret.0, i64 0, i32 5
+  %pkey37 = getelementptr inbounds i8, ptr %ret.0, i64 32
   store ptr %4, ptr %pkey37, align 8
   store ptr null, ptr %pkey36, align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then35, %sw.bb33
-  %pkey40 = getelementptr inbounds %struct.evp_pkey_st, ptr %ret.0, i64 0, i32 5
+  %pkey40 = getelementptr inbounds i8, ptr %ret.0, i64 32
   %call41 = call ptr @o2i_ECPublicKey(ptr noundef nonnull %pkey40, ptr noundef %pp, i64 noundef %length) #2
   %tobool42.not = icmp eq ptr %call41, null
   br i1 %tobool42.not, label %err, label %sw.epilog

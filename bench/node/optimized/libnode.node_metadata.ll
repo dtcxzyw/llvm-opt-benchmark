@@ -71,11 +71,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node8MetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(896) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %platform = getelementptr inbounds %"class.node::Metadata", ptr %this, i64 0, i32 3
+  %platform = getelementptr inbounds i8, ptr %this, i64 864
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %platform) #8
-  %arch = getelementptr inbounds %"class.node::Metadata", ptr %this, i64 0, i32 2
+  %arch = getelementptr inbounds i8, ptr %this, i64 832
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arch) #8
-  %release = getelementptr inbounds %"class.node::Metadata", ptr %this, i64 0, i32 1
+  %release = getelementptr inbounds i8, ptr %this, i64 800
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %release) #8
   tail call void @_ZN4node8Metadata8VersionsD2Ev(ptr noundef nonnull align 8 dereferenceable(800) %this) #8
   ret void
@@ -94,7 +94,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tz = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 21
+  %tz = getelementptr inbounds i8, ptr %this, i64 672
   %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %tz, ptr noundef %call) #8
   br label %if.end
 
@@ -106,7 +106,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then6:                                         ; preds = %if.end
   call void @u_versionToString_74(ptr noundef nonnull %versionArray, ptr noundef nonnull %buf) #8
-  %cldr = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 19
+  %cldr = getelementptr inbounds i8, ptr %this, i64 608
   %call10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %cldr, ptr noundef nonnull %buf) #8
   br label %if.end11
 
@@ -136,53 +136,53 @@ entry:
   %ref.tmp29 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp44 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #8
-  %v8 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 1
+  %v8 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %v8) #8
-  %uv = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 2
+  %uv = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uv) #8
-  %zlib = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 3
+  %zlib = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %zlib) #8
-  %brotli = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 4
+  %brotli = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %brotli) #8
-  %ares = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 5
+  %ares = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ares) #8
-  %modules = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 6
+  %modules = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %modules) #8
-  %nghttp2 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 7
+  %nghttp2 = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nghttp2) #8
-  %napi = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 8
+  %napi = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %napi) #8
-  %llhttp = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 9
+  %llhttp = getelementptr inbounds i8, ptr %this, i64 288
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %llhttp) #8
-  %uvwasi = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 10
+  %uvwasi = getelementptr inbounds i8, ptr %this, i64 320
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uvwasi) #8
-  %acorn = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 11
+  %acorn = getelementptr inbounds i8, ptr %this, i64 352
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %acorn) #8
-  %simdjson = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 12
+  %simdjson = getelementptr inbounds i8, ptr %this, i64 384
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %simdjson) #8
-  %simdutf = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 13
+  %simdutf = getelementptr inbounds i8, ptr %this, i64 416
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %simdutf) #8
-  %ada = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 14
+  %ada = getelementptr inbounds i8, ptr %this, i64 448
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ada) #8
-  %undici = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 15
+  %undici = getelementptr inbounds i8, ptr %this, i64 480
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %undici) #8
-  %cjs_module_lexer = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 16
+  %cjs_module_lexer = getelementptr inbounds i8, ptr %this, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cjs_module_lexer) #8
-  %base64 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 17
+  %base64 = getelementptr inbounds i8, ptr %this, i64 544
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base64) #8
-  %openssl = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 18
+  %openssl = getelementptr inbounds i8, ptr %this, i64 576
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %openssl) #8
-  %cldr = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 19
+  %cldr = getelementptr inbounds i8, ptr %this, i64 608
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cldr) #8
-  %icu = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 20
+  %icu = getelementptr inbounds i8, ptr %this, i64 640
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %icu) #8
-  %tz = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 21
+  %tz = getelementptr inbounds i8, ptr %this, i64 672
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tz) #8
-  %unicode = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 22
+  %unicode = getelementptr inbounds i8, ptr %this, i64 704
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %unicode) #8
-  %ngtcp2 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 23
+  %ngtcp2 = getelementptr inbounds i8, ptr %this, i64 736
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ngtcp2) #8
-  %nghttp3 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 24
+  %nghttp3 = getelementptr inbounds i8, ptr %this, i64 768
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nghttp3) #8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str) #8
   %call3 = tail call noundef ptr @_ZN2v82V810GetVersionEv() #8
@@ -290,7 +290,7 @@ _ZN4nodeL17GetOpenSSLVersionB5cxx11Ev.exit:       ; preds = %_ZStplIcSt11char_tr
   %3 = extractvalue { i64, ptr } %call.i.i.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %2, ptr %3) #8
   %4 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !17
-  %5 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i.i.i, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
   %6 = load ptr, ptr %5, align 8, !noalias !17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, i64 %4, ptr %6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i), !noalias !17
@@ -458,7 +458,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp2 = alloca %"class.std::allocator", align 1
   tail call void @_ZN4node8Metadata8VersionsC2Ev(ptr noundef nonnull align 8 dereferenceable(800) %this)
-  %release = getelementptr inbounds %"class.node::Metadata", ptr %this, i64 0, i32 1
+  %release = getelementptr inbounds i8, ptr %this, i64 800
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %release) #8
@@ -469,13 +469,13 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %release, i64 noundef 4) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %arch = getelementptr inbounds %"class.node::Metadata", ptr %this, i64 0, i32 2
+  %arch = getelementptr inbounds i8, ptr %this, i64 832
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arch) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %arch, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arch, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds ([4 x i8], ptr @.str.22, i64 0, i64 3))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
-  %platform = getelementptr inbounds %"class.node::Metadata", ptr %this, i64 0, i32 3
+  %platform = getelementptr inbounds i8, ptr %this, i64 864
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #8
   %call.i2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %platform) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %platform, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #8
@@ -487,53 +487,53 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node8Metadata8VersionsD2Ev(ptr noundef nonnull align 8 dereferenceable(800) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %nghttp3 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 24
+  %nghttp3 = getelementptr inbounds i8, ptr %this, i64 768
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nghttp3) #8
-  %ngtcp2 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 23
+  %ngtcp2 = getelementptr inbounds i8, ptr %this, i64 736
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ngtcp2) #8
-  %unicode = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 22
+  %unicode = getelementptr inbounds i8, ptr %this, i64 704
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %unicode) #8
-  %tz = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 21
+  %tz = getelementptr inbounds i8, ptr %this, i64 672
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tz) #8
-  %icu = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 20
+  %icu = getelementptr inbounds i8, ptr %this, i64 640
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %icu) #8
-  %cldr = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 19
+  %cldr = getelementptr inbounds i8, ptr %this, i64 608
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cldr) #8
-  %openssl = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 18
+  %openssl = getelementptr inbounds i8, ptr %this, i64 576
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %openssl) #8
-  %base64 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 17
+  %base64 = getelementptr inbounds i8, ptr %this, i64 544
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base64) #8
-  %cjs_module_lexer = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 16
+  %cjs_module_lexer = getelementptr inbounds i8, ptr %this, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cjs_module_lexer) #8
-  %undici = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 15
+  %undici = getelementptr inbounds i8, ptr %this, i64 480
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %undici) #8
-  %ada = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 14
+  %ada = getelementptr inbounds i8, ptr %this, i64 448
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ada) #8
-  %simdutf = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 13
+  %simdutf = getelementptr inbounds i8, ptr %this, i64 416
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %simdutf) #8
-  %simdjson = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 12
+  %simdjson = getelementptr inbounds i8, ptr %this, i64 384
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %simdjson) #8
-  %acorn = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 11
+  %acorn = getelementptr inbounds i8, ptr %this, i64 352
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %acorn) #8
-  %uvwasi = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 10
+  %uvwasi = getelementptr inbounds i8, ptr %this, i64 320
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uvwasi) #8
-  %llhttp = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 9
+  %llhttp = getelementptr inbounds i8, ptr %this, i64 288
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %llhttp) #8
-  %napi = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 8
+  %napi = getelementptr inbounds i8, ptr %this, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %napi) #8
-  %nghttp2 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 7
+  %nghttp2 = getelementptr inbounds i8, ptr %this, i64 224
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nghttp2) #8
-  %modules = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 6
+  %modules = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %modules) #8
-  %ares = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 5
+  %ares = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ares) #8
-  %brotli = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 4
+  %brotli = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %brotli) #8
-  %zlib = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 3
+  %zlib = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %zlib) #8
-  %uv = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 2
+  %uv = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uv) #8
-  %v8 = getelementptr inbounds %"struct.node::Metadata::Versions", ptr %this, i64 0, i32 1
+  %v8 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %v8) #8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #8
   ret void

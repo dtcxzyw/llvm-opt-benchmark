@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.termios = type { i32, i32, i32, i32, i8, [32 x i8], i32, i32 }
-%struct.uv_tty_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon, ptr, i32, i64, ptr, ptr, ptr, ptr, %struct.uv__io_s, %struct.uv__queue, %struct.uv__queue, ptr, i32, i32, ptr, %struct.termios, i32 }
-%union.anon = type { [4 x ptr] }
-%struct.uv__io_s = type { ptr, %struct.uv__queue, %struct.uv__queue, i32, i32, i32 }
-%struct.uv__queue = type { ptr, ptr }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
@@ -133,7 +129,7 @@ if.end38:                                         ; preds = %if.then36, %skip
   %or45 = or disjoint i32 %spec.select28, 32768
   %flags.2 = select i1 %cmp43.not, i32 %or41, i32 %or45
   %call47 = call i32 @uv__stream_open(ptr noundef %tty, i32 noundef %fd.addr.036, i32 noundef %flags.2) #8
-  %mode48 = getelementptr inbounds %struct.uv_tty_s, ptr %tty, i64 0, i32 21
+  %mode48 = getelementptr inbounds i8, ptr %tty, i64 308
   store i32 0, ptr %mode48, align 4
   br label %return
 
@@ -163,7 +159,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end2
-  %st_mode = getelementptr inbounds %struct.stat, ptr %s, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %s, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %1 = trunc i32 %0 to i16
   %trunc = and i16 %1, -4096
@@ -244,13 +240,13 @@ declare i32 @uv__stream_open(ptr noundef, i32 noundef, i32 noundef) local_unname
 define i32 @uv_tty_set_mode(ptr noundef %tty, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.termios, align 16
-  %mode1 = getelementptr inbounds %struct.uv_tty_s, ptr %tty, i64 0, i32 21
+  %mode1 = getelementptr inbounds i8, ptr %tty, i64 308
   %0 = load i32, ptr %mode1, align 4
   %cmp = icmp eq i32 %0, %mode
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fd2 = getelementptr inbounds %struct.uv_tty_s, ptr %tty, i64 0, i32 13, i32 5
+  %fd2 = getelementptr inbounds i8, ptr %tty, i64 184
   %1 = load i32, ptr %fd2, align 8
   %cmp4 = icmp eq i32 %0, 0
   %cmp5 = icmp ne i32 %mode, 0
@@ -258,7 +254,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %do.body.preheader, label %if.end22
 
 do.body.preheader:                                ; preds = %if.end
-  %orig_termios = getelementptr inbounds %struct.uv_tty_s, ptr %tty, i64 0, i32 20
+  %orig_termios = getelementptr inbounds i8, ptr %tty, i64 248
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
@@ -296,7 +292,7 @@ if.end20:                                         ; preds = %if.then18, %do.end1
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end20, %if.end
-  %orig_termios23 = getelementptr inbounds %struct.uv_tty_s, ptr %tty, i64 0, i32 20
+  %orig_termios23 = getelementptr inbounds i8, ptr %tty, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(60) %tmp, ptr noundef nonnull align 8 dereferenceable(60) %orig_termios23, i64 60, i1 false)
   switch i32 %mode, label %do.body.i.preheader [
     i32 2, label %sw.bb29
@@ -309,9 +305,9 @@ sw.bb24:                                          ; preds = %if.end22
   %8 = or <4 x i32> %6, <i32 poison, i32 4, i32 48, i32 poison>
   %9 = shufflevector <4 x i32> %7, <4 x i32> %8, <4 x i32> <i32 0, i32 5, i32 6, i32 3>
   store <4 x i32> %9, ptr %tmp, align 16
-  %arrayidx = getelementptr inbounds %struct.termios, ptr %tmp, i64 0, i32 5, i64 6
+  %arrayidx = getelementptr inbounds i8, ptr %tmp, i64 23
   store i8 1, ptr %arrayidx, align 1
-  %arrayidx28 = getelementptr inbounds %struct.termios, ptr %tmp, i64 0, i32 5, i64 5
+  %arrayidx28 = getelementptr inbounds i8, ptr %tmp, i64 22
   store i8 0, ptr %arrayidx28, align 2
   br label %do.body.i.preheader
 
@@ -357,7 +353,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define i32 @uv_tty_get_winsize(ptr nocapture noundef readonly %tty, ptr nocapture noundef writeonly %width, ptr nocapture noundef writeonly %height) local_unnamed_addr #0 {
 entry:
   %ws = alloca %struct.winsize, align 2
-  %fd = getelementptr inbounds %struct.uv_tty_s, ptr %tty, i64 0, i32 13, i32 5
+  %fd = getelementptr inbounds i8, ptr %tty, i64 184
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %entry
@@ -377,7 +373,7 @@ if.then:                                          ; preds = %land.rhs
   br label %return
 
 if.end:                                           ; preds = %do.body
-  %ws_col = getelementptr inbounds %struct.winsize, ptr %ws, i64 0, i32 1
+  %ws_col = getelementptr inbounds i8, ptr %ws, i64 2
   %2 = load i16, ptr %ws_col, align 2
   %conv = zext i16 %2 to i32
   store i32 %conv, ptr %width, align 4

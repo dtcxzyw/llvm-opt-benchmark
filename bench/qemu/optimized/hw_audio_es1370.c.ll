@@ -15,35 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon.0, %union.anon.1 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.2, %union.anon.3, %union.anon.4, ptr, i32, ptr, ptr, i8 }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.ES1370State = type { %struct.PCIDevice, %struct.QEMUSoundCard, %struct.MemoryRegion, [3 x %struct.chan], [2 x ptr], ptr, i32, i32, i32, i32, i32 }
-%struct.QEMUSoundCard = type { ptr, ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
 %struct.chan = type { i32, i32, i32, i32, i32 }
 %struct.timeval = type { i64, i64 }
 %struct.audsettings = type { i32, i32, i32, i32 }
@@ -153,29 +124,29 @@ define internal void @es1370_class_init(ptr noundef %klass, ptr nocapture readno
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #6
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i12, i64 176
   store ptr @es1370_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i12, i64 184
   store ptr @es1370_exit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i12, i64 208
   store i16 4724, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i12, i64 210
   store i16 20480, ptr %device_id, align 2
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i12, i64 214
   store i16 1025, ptr %class_id, align 2
-  %subsystem_vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 9
+  %subsystem_vendor_id = getelementptr inbounds i8, ptr %call.i12, i64 216
   store i16 18754, ptr %subsystem_vendor_id, align 8
-  %subsystem_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i12, i64 0, i32 10
+  %subsystem_id = getelementptr inbounds i8, ptr %call.i12, i64 218
   store i16 19532, ptr %subsystem_id, align 2
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 64
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.1, ptr %desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_es1370, ptr %vmsd, align 8
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @es1370_on_reset, ptr %reset, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @es1370_properties) #6
   ret void
@@ -185,9 +156,9 @@ entry:
 define internal void @es1370_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 249, ptr noundef nonnull @.str.2) #6
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %call.i, i64 168
   %0 = load ptr, ptr %config, align 8
-  %card = getelementptr inbounds %struct.ES1370State, ptr %call.i, i64 0, i32 1
+  %card = getelementptr inbounds i8, ptr %call.i, i64 2608
   %call2 = tail call zeroext i1 @AUD_register_card(ptr noundef nonnull @.str, ptr noundef nonnull %card, ptr noundef %errp) #6
   br i1 %call2, label %if.end, label %return
 
@@ -200,35 +171,38 @@ if.end:                                           ; preds = %entry
   store i8 12, ptr %arrayidx4, align 1
   %arrayidx5 = getelementptr i8, ptr %0, i64 63
   store i8 -128, ptr %arrayidx5, align 1
-  %io = getelementptr inbounds %struct.ES1370State, ptr %call.i, i64 0, i32 2
+  %io = getelementptr inbounds i8, ptr %call.i, i64 2640
   tail call void @memory_region_init_io(ptr noundef nonnull %io, ptr noundef nonnull %call.i, ptr noundef nonnull @es1370_io_ops, ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i64 noundef 256) #6
   tail call void @pci_register_bar(ptr noundef nonnull %call.i, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %io) #6
-  %ctl.i = getelementptr inbounds %struct.ES1370State, ptr %call.i, i64 0, i32 6
+  %ctl.i = getelementptr inbounds i8, ptr %call.i, i64 3000
   store <4 x i32> <i32 1, i32 96, i32 0, i32 0>, ptr %ctl.i, align 8
-  %sctl.i = getelementptr inbounds %struct.ES1370State, ptr %call.i, i64 0, i32 10
+  %sctl.i = getelementptr inbounds i8, ptr %call.i, i64 3016
   store i32 0, ptr %sctl.i, align 8
-  %scount.i11 = getelementptr %struct.ES1370State, ptr %call.i, i64 0, i32 3, i64 0, i32 2
+  %chan.i = getelementptr inbounds i8, ptr %call.i, i64 2912
+  %dac_voice.i = getelementptr inbounds i8, ptr %call.i, i64 2976
+  %scount.i11 = getelementptr inbounds i8, ptr %call.i, i64 2920
   store i32 0, ptr %scount.i11, align 4
-  %leftover.i12 = getelementptr %struct.ES1370State, ptr %call.i, i64 0, i32 3, i64 0, i32 1
+  %leftover.i12 = getelementptr inbounds i8, ptr %call.i, i64 2916
   store i32 0, ptr %leftover.i12, align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end, %for.inc.i
   %i.019.i13 = phi i64 [ 0, %if.end ], [ %inc.i, %for.inc.i ]
-  %arrayidx4.i = getelementptr %struct.ES1370State, ptr %call.i, i64 0, i32 4, i64 %i.019.i13
+  %arrayidx4.i = getelementptr [2 x ptr], ptr %dac_voice.i, i64 0, i64 %i.019.i13
   %1 = load ptr, ptr %arrayidx4.i, align 8
   tail call void @AUD_close_out(ptr noundef nonnull %card, ptr noundef %1) #6
   store ptr null, ptr %arrayidx4.i, align 8
   %inc.i = add nuw nsw i64 %i.019.i13, 1
-  %scount.i = getelementptr %struct.ES1370State, ptr %call.i, i64 0, i32 3, i64 %inc.i, i32 2
+  %arrayidx.i = getelementptr [3 x %struct.chan], ptr %chan.i, i64 0, i64 %inc.i
+  %scount.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i32 0, ptr %scount.i, align 4
-  %leftover.i = getelementptr %struct.ES1370State, ptr %call.i, i64 0, i32 3, i64 %inc.i, i32 1
+  %leftover.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i32 0, ptr %leftover.i, align 4
   %cmp1.i = icmp eq i64 %inc.i, 2
   br i1 %cmp1.i, label %es1370_reset.exit, label %for.inc.i
 
 es1370_reset.exit:                                ; preds = %for.inc.i
-  %adc_voice.i = getelementptr inbounds %struct.ES1370State, ptr %call.i, i64 0, i32 5
+  %adc_voice.i = getelementptr inbounds i8, ptr %call.i, i64 2992
   %2 = load ptr, ptr %adc_voice.i, align 16
   tail call void @AUD_close_in(ptr noundef nonnull %card, ptr noundef %2) #6
   store ptr null, ptr %adc_voice.i, align 16
@@ -243,14 +217,14 @@ return:                                           ; preds = %entry, %es1370_rese
 define internal void @es1370_exit(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 249, ptr noundef nonnull @.str.2) #6
-  %card = getelementptr inbounds %struct.ES1370State, ptr %call.i, i64 0, i32 1
-  %arrayidx = getelementptr %struct.ES1370State, ptr %call.i, i64 0, i32 4, i64 0
-  %0 = load ptr, ptr %arrayidx, align 8
+  %card = getelementptr inbounds i8, ptr %call.i, i64 2608
+  %dac_voice = getelementptr inbounds i8, ptr %call.i, i64 2976
+  %0 = load ptr, ptr %dac_voice, align 8
   tail call void @AUD_close_out(ptr noundef nonnull %card, ptr noundef %0) #6
-  %arrayidx.c = getelementptr %struct.ES1370State, ptr %call.i, i64 0, i32 4, i64 1
+  %arrayidx.c = getelementptr i8, ptr %call.i, i64 2984
   %1 = load ptr, ptr %arrayidx.c, align 8
   tail call void @AUD_close_out(ptr noundef nonnull %card, ptr noundef %1) #6
-  %adc_voice = getelementptr inbounds %struct.ES1370State, ptr %call.i, i64 0, i32 5
+  %adc_voice = getelementptr inbounds i8, ptr %call.i, i64 2992
   %2 = load ptr, ptr %adc_voice, align 16
   tail call void @AUD_close_in(ptr noundef nonnull %card, ptr noundef %2) #6
   tail call void @AUD_remove_card(ptr noundef nonnull %card) #6
@@ -261,33 +235,36 @@ entry:
 define internal void @es1370_on_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, i32 noundef 249, ptr noundef nonnull @.str.2) #6
-  %ctl.i = getelementptr inbounds %struct.ES1370State, ptr %call.i, i64 0, i32 6
+  %ctl.i = getelementptr inbounds i8, ptr %call.i, i64 3000
   store <4 x i32> <i32 1, i32 96, i32 0, i32 0>, ptr %ctl.i, align 8
-  %sctl.i = getelementptr inbounds %struct.ES1370State, ptr %call.i, i64 0, i32 10
+  %sctl.i = getelementptr inbounds i8, ptr %call.i, i64 3016
   store i32 0, ptr %sctl.i, align 8
-  %card3.i = getelementptr inbounds %struct.ES1370State, ptr %call.i, i64 0, i32 1
-  %scount.i1 = getelementptr %struct.ES1370State, ptr %call.i, i64 0, i32 3, i64 0, i32 2
+  %chan.i = getelementptr inbounds i8, ptr %call.i, i64 2912
+  %card3.i = getelementptr inbounds i8, ptr %call.i, i64 2608
+  %dac_voice.i = getelementptr inbounds i8, ptr %call.i, i64 2976
+  %scount.i1 = getelementptr inbounds i8, ptr %call.i, i64 2920
   store i32 0, ptr %scount.i1, align 4
-  %leftover.i2 = getelementptr %struct.ES1370State, ptr %call.i, i64 0, i32 3, i64 0, i32 1
+  %leftover.i2 = getelementptr inbounds i8, ptr %call.i, i64 2916
   store i32 0, ptr %leftover.i2, align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %entry, %for.inc.i
   %i.019.i3 = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
-  %arrayidx4.i = getelementptr %struct.ES1370State, ptr %call.i, i64 0, i32 4, i64 %i.019.i3
+  %arrayidx4.i = getelementptr [2 x ptr], ptr %dac_voice.i, i64 0, i64 %i.019.i3
   %0 = load ptr, ptr %arrayidx4.i, align 8
   tail call void @AUD_close_out(ptr noundef nonnull %card3.i, ptr noundef %0) #6
   store ptr null, ptr %arrayidx4.i, align 8
   %inc.i = add nuw nsw i64 %i.019.i3, 1
-  %scount.i = getelementptr %struct.ES1370State, ptr %call.i, i64 0, i32 3, i64 %inc.i, i32 2
+  %arrayidx.i = getelementptr [3 x %struct.chan], ptr %chan.i, i64 0, i64 %inc.i
+  %scount.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store i32 0, ptr %scount.i, align 4
-  %leftover.i = getelementptr %struct.ES1370State, ptr %call.i, i64 0, i32 3, i64 %inc.i, i32 1
+  %leftover.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   store i32 0, ptr %leftover.i, align 4
   %cmp1.i = icmp eq i64 %inc.i, 2
   br i1 %cmp1.i, label %es1370_reset.exit, label %for.inc.i
 
 es1370_reset.exit:                                ; preds = %for.inc.i
-  %adc_voice.i = getelementptr inbounds %struct.ES1370State, ptr %call.i, i64 0, i32 5
+  %adc_voice.i = getelementptr inbounds i8, ptr %call.i, i64 2992
   %1 = load ptr, ptr %adc_voice.i, align 16
   tail call void @AUD_close_in(ptr noundef nonnull %card3.i, ptr noundef %1) #6
   store ptr null, ptr %adc_voice.i, align 16
@@ -313,7 +290,7 @@ entry:
   %_now.i.i43 = alloca %struct.timeval, align 8
   %_now.i.i29 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %chan = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 3
+  %chan = getelementptr inbounds i8, ptr %opaque, i64 2912
   %conv = trunc i64 %addr to i32
   %and.i = and i32 %conv, 255
   %0 = and i32 %conv, 240
@@ -321,7 +298,7 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %es1370_fixup.exit
 
 if.then.i:                                        ; preds = %entry
-  %mempage.i = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 8
+  %mempage.i = getelementptr inbounds i8, ptr %opaque, i64 3008
   %1 = load i32, ptr %mempage.i, align 16
   %shl.i = shl i32 %1, 8
   %or.i = or disjoint i32 %shl.i, %and.i
@@ -348,27 +325,27 @@ es1370_fixup.exit:                                ; preds = %entry, %if.then.i
   ]
 
 sw.bb:                                            ; preds = %es1370_fixup.exit
-  %ctl = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 6
+  %ctl = getelementptr inbounds i8, ptr %opaque, i64 3000
   %2 = load i32, ptr %ctl, align 8
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %es1370_fixup.exit
-  %status = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 7
+  %status = getelementptr inbounds i8, ptr %opaque, i64 3004
   %3 = load i32, ptr %status, align 4
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %es1370_fixup.exit
-  %mempage = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 8
+  %mempage = getelementptr inbounds i8, ptr %opaque, i64 3008
   %4 = load i32, ptr %mempage, align 16
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %es1370_fixup.exit
-  %codec = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 9
+  %codec = getelementptr inbounds i8, ptr %opaque, i64 3012
   %5 = load i32, ptr %codec, align 4
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %es1370_fixup.exit
-  %sctl = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 10
+  %sctl = getelementptr inbounds i8, ptr %opaque, i64 3016
   %6 = load i32, ptr %sctl, align 8
   br label %sw.epilog
 
@@ -405,7 +382,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %14 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %conv9, i32 noundef %shr10, i32 noundef %and) #6
   br label %trace_es1370_sample_count_rd.exit
@@ -420,7 +397,7 @@ trace_es1370_sample_count_rd.exit:                ; preds = %sw.bb6, %land.lhs.t
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %es1370_fixup.exit
-  %add.ptr14 = getelementptr %struct.ES1370State, ptr %opaque, i64 0, i32 3, i64 2
+  %add.ptr14 = getelementptr i8, ptr %opaque, i64 2952
   br label %framecnt
 
 sw.bb15:                                          ; preds = %es1370_fixup.exit, %es1370_fixup.exit
@@ -436,7 +413,7 @@ framecnt:                                         ; preds = %sw.bb15, %sw.bb13
   %sub.ptr.sub23 = sub i64 %sub.ptr.lhs.cast21, %sub.ptr.rhs.cast22
   %sub.ptr.div24 = sdiv exact i64 %sub.ptr.sub23, 20
   %conv25 = trunc i64 %sub.ptr.div24 to i32
-  %frame_cnt = getelementptr inbounds %struct.chan, ptr %d.0, i64 0, i32 4
+  %frame_cnt = getelementptr inbounds i8, ptr %d.0, i64 16
   %17 = load i32, ptr %frame_cnt, align 4
   %shr26 = lshr i32 %17, 16
   %and28 = and i32 %17, 65535
@@ -464,7 +441,7 @@ if.then8.i.i38:                                   ; preds = %if.then.i.i36
   %call9.i.i39 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i29, ptr noundef null) #6
   %call10.i.i40 = tail call i32 @qemu_get_thread_id() #6
   %23 = load i64, ptr %_now.i.i29, align 8
-  %tv_usec.i.i41 = getelementptr inbounds %struct.timeval, ptr %_now.i.i29, i64 0, i32 1
+  %tv_usec.i.i41 = getelementptr inbounds i8, ptr %_now.i.i29, i64 8
   %24 = load i64, ptr %tv_usec.i.i41, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i40, i64 noundef %23, i64 noundef %24, i32 noundef %conv25, i32 noundef %shr26, i32 noundef %and28) #6
   br label %trace_es1370_frame_count_rd.exit
@@ -479,7 +456,7 @@ trace_es1370_frame_count_rd.exit:                 ; preds = %framecnt, %land.lhs
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %es1370_fixup.exit
-  %add.ptr31 = getelementptr %struct.ES1370State, ptr %opaque, i64 0, i32 3, i64 2
+  %add.ptr31 = getelementptr i8, ptr %opaque, i64 2952
   br label %frameadr
 
 sw.bb32:                                          ; preds = %es1370_fixup.exit, %es1370_fixup.exit
@@ -495,7 +472,7 @@ frameadr:                                         ; preds = %sw.bb32, %sw.bb30
   %sub.ptr.sub40 = sub i64 %sub.ptr.lhs.cast38, %sub.ptr.rhs.cast39
   %sub.ptr.div41 = sdiv exact i64 %sub.ptr.sub40, 20
   %conv42 = trunc i64 %sub.ptr.div41 to i32
-  %frame_addr = getelementptr inbounds %struct.chan, ptr %d.1, i64 0, i32 3
+  %frame_addr = getelementptr inbounds i8, ptr %d.1, i64 12
   %26 = load i32, ptr %frame_addr, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i43)
   %27 = load i32, ptr @trace_events_enabled_count, align 4
@@ -521,7 +498,7 @@ if.then8.i.i52:                                   ; preds = %if.then.i.i50
   %call9.i.i53 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i43, ptr noundef null) #6
   %call10.i.i54 = tail call i32 @qemu_get_thread_id() #6
   %32 = load i64, ptr %_now.i.i43, align 8
-  %tv_usec.i.i55 = getelementptr inbounds %struct.timeval, ptr %_now.i.i43, i64 0, i32 1
+  %tv_usec.i.i55 = getelementptr inbounds i8, ptr %_now.i.i43, i64 8
   %33 = load i64, ptr %tv_usec.i.i55, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i54, i64 noundef %32, i64 noundef %33, i32 noundef %conv42, i32 noundef %26) #6
   br label %trace_es1370_frame_address_rd.exit
@@ -547,7 +524,7 @@ entry:
   %_now.i.i56 = alloca %struct.timeval, align 8
   %_now.i.i42 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %chan = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 3
+  %chan = getelementptr inbounds i8, ptr %opaque, i64 2912
   %conv = trunc i64 %addr to i32
   %and.i = and i32 %conv, 255
   %0 = and i32 %conv, 240
@@ -555,7 +532,7 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %es1370_fixup.exit
 
 if.then.i:                                        ; preds = %entry
-  %mempage.i = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 8
+  %mempage.i = getelementptr inbounds i8, ptr %opaque, i64 3008
   %1 = load i32, ptr %mempage.i, align 16
   %shl.i = shl i32 %1, 8
   %or.i = or disjoint i32 %shl.i, %and.i
@@ -581,7 +558,7 @@ es1370_fixup.exit:                                ; preds = %entry, %if.then.i
 
 sw.bb:                                            ; preds = %es1370_fixup.exit
   %conv2 = trunc i64 %val to i32
-  %sctl = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 10
+  %sctl = getelementptr inbounds i8, ptr %opaque, i64 3016
   %2 = load i32, ptr %sctl, align 8
   tail call fastcc void @es1370_update_voices(ptr noundef %opaque, i32 noundef %conv2, i32 noundef %2)
   br label %sw.epilog
@@ -589,20 +566,20 @@ sw.bb:                                            ; preds = %es1370_fixup.exit
 sw.bb4:                                           ; preds = %es1370_fixup.exit
   %3 = trunc i64 %val to i32
   %conv5 = and i32 %3, 15
-  %mempage = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 8
+  %mempage = getelementptr inbounds i8, ptr %opaque, i64 3008
   store i32 %conv5, ptr %mempage, align 16
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %es1370_fixup.exit
   %conv7 = trunc i64 %val to i32
-  %status.i = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 7
+  %status.i = getelementptr inbounds i8, ptr %opaque, i64 3004
   %4 = load i32, ptr %status.i, align 4
   %and.i40 = and i32 %conv7, 256
   %tobool.not.i = icmp eq i32 %and.i40, 0
   br i1 %tobool.not.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %sw.bb6
-  %sctl1.i = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 10
+  %sctl1.i = getelementptr inbounds i8, ptr %opaque, i64 3016
   %5 = load i32, ptr %sctl1.i, align 8
   %and2.i = and i32 %5, 256
   %tobool3.not.i = icmp eq i32 %and2.i, 0
@@ -617,7 +594,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %s
   br i1 %tobool6.not.i, label %land.lhs.true7.i, label %if.end13.i
 
 land.lhs.true7.i:                                 ; preds = %if.end.i
-  %sctl8.i = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 10
+  %sctl8.i = getelementptr inbounds i8, ptr %opaque, i64 3016
   %6 = load i32, ptr %sctl8.i, align 8
   %and9.i = and i32 %6, 512
   %tobool10.not.i = icmp eq i32 %and9.i, 0
@@ -632,7 +609,7 @@ if.end13.i:                                       ; preds = %land.lhs.true7.i, %
   br i1 %tobool15.not.i, label %land.lhs.true16.i, label %if.end22.i
 
 land.lhs.true16.i:                                ; preds = %if.end13.i
-  %sctl17.i = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 10
+  %sctl17.i = getelementptr inbounds i8, ptr %opaque, i64 3016
   %7 = load i32, ptr %sctl17.i, align 8
   %and18.i = and i32 %7, 1024
   %tobool19.not.i = icmp eq i32 %and18.i, 0
@@ -657,7 +634,7 @@ if.then24.i:                                      ; preds = %if.end22.i
   br label %es1370_maybe_lower_irq.exit
 
 es1370_maybe_lower_irq.exit:                      ; preds = %if.end22.i, %if.then24.i
-  %ctl = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 6
+  %ctl = getelementptr inbounds i8, ptr %opaque, i64 3000
   %8 = load i32, ptr %ctl, align 8
   tail call fastcc void @es1370_update_voices(ptr noundef nonnull %opaque, i32 noundef %8, i32 noundef %conv7)
   br label %sw.epilog
@@ -697,7 +674,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %17 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i32 noundef %call10.i.i, i64 noundef %17, i64 noundef %18, i32 noundef %conv16, i32 noundef %10, i32 noundef %and20) #6
   br label %trace_es1370_sample_count_wr.exit
@@ -711,7 +688,7 @@ trace_es1370_sample_count_wr.exit:                ; preds = %sw.bb10, %land.lhs.
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %es1370_fixup.exit
-  %add.ptr22 = getelementptr %struct.ES1370State, ptr %opaque, i64 0, i32 3, i64 2
+  %add.ptr22 = getelementptr i8, ptr %opaque, i64 2952
   br label %frameadr
 
 sw.bb23:                                          ; preds = %es1370_fixup.exit, %es1370_fixup.exit
@@ -723,7 +700,7 @@ sw.bb23:                                          ; preds = %es1370_fixup.exit, 
 frameadr:                                         ; preds = %sw.bb23, %sw.bb21
   %d.0 = phi ptr [ %add.ptr26, %sw.bb23 ], [ %add.ptr22, %sw.bb21 ]
   %conv27 = trunc i64 %val to i32
-  %frame_addr = getelementptr inbounds %struct.chan, ptr %d.0, i64 0, i32 3
+  %frame_addr = getelementptr inbounds i8, ptr %d.0, i64 12
   store i32 %conv27, ptr %frame_addr, align 4
   %sub.ptr.lhs.cast30 = ptrtoint ptr %d.0 to i64
   %sub.ptr.rhs.cast31 = ptrtoint ptr %chan to i64
@@ -754,7 +731,7 @@ if.then8.i.i51:                                   ; preds = %if.then.i.i49
   %call9.i.i52 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i42, ptr noundef null) #6
   %call10.i.i53 = tail call i32 @qemu_get_thread_id() #6
   %24 = load i64, ptr %_now.i.i42, align 8
-  %tv_usec.i.i54 = getelementptr inbounds %struct.timeval, ptr %_now.i.i42, i64 0, i32 1
+  %tv_usec.i.i54 = getelementptr inbounds i8, ptr %_now.i.i42, i64 8
   %25 = load i64, ptr %tv_usec.i.i54, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.32, i32 noundef %call10.i.i53, i64 noundef %24, i64 noundef %25, i32 noundef %conv34, i32 noundef %conv27) #6
   br label %trace_es1370_frame_address_wr.exit
@@ -768,7 +745,7 @@ trace_es1370_frame_address_wr.exit:               ; preds = %frameadr, %land.lhs
   br label %sw.epilog
 
 sw.bb40:                                          ; preds = %es1370_fixup.exit
-  %add.ptr41 = getelementptr %struct.ES1370State, ptr %opaque, i64 0, i32 3, i64 2
+  %add.ptr41 = getelementptr i8, ptr %opaque, i64 2952
   br label %framecnt
 
 sw.bb42:                                          ; preds = %es1370_fixup.exit, %es1370_fixup.exit
@@ -780,9 +757,9 @@ sw.bb42:                                          ; preds = %es1370_fixup.exit, 
 framecnt:                                         ; preds = %sw.bb42, %sw.bb40
   %d.1 = phi ptr [ %add.ptr41, %sw.bb40 ], [ %add.ptr45, %sw.bb42 ]
   %conv46 = trunc i64 %val to i32
-  %frame_cnt = getelementptr inbounds %struct.chan, ptr %d.1, i64 0, i32 4
+  %frame_cnt = getelementptr inbounds i8, ptr %d.1, i64 16
   store i32 %conv46, ptr %frame_cnt, align 4
-  %leftover = getelementptr inbounds %struct.chan, ptr %d.1, i64 0, i32 1
+  %leftover = getelementptr inbounds i8, ptr %d.1, i64 4
   store i32 0, ptr %leftover, align 4
   %sub.ptr.lhs.cast49 = ptrtoint ptr %d.1 to i64
   %sub.ptr.rhs.cast50 = ptrtoint ptr %chan to i64
@@ -815,7 +792,7 @@ if.then8.i.i65:                                   ; preds = %if.then.i.i63
   %call9.i.i66 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i56, ptr noundef null) #6
   %call10.i.i67 = tail call i32 @qemu_get_thread_id() #6
   %31 = load i64, ptr %_now.i.i56, align 8
-  %tv_usec.i.i68 = getelementptr inbounds %struct.timeval, ptr %_now.i.i56, i64 0, i32 1
+  %tv_usec.i.i68 = getelementptr inbounds i8, ptr %_now.i.i56, i64 8
   %32 = load i64, ptr %tv_usec.i.i68, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i67, i64 noundef %31, i64 noundef %32, i32 noundef %conv53, i32 noundef %shr55, i32 noundef %and57) #6
   br label %trace_es1370_frame_count_wr.exit
@@ -846,29 +823,31 @@ entry:
   %old_freq = alloca i32, align 4
   %new_freq = alloca i32, align 4
   %as = alloca %struct.audsettings, align 4
-  %sctl2 = getelementptr inbounds %struct.ES1370State, ptr %s, i64 0, i32 10
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %nchannels = getelementptr inbounds %struct.audsettings, ptr %as, i64 0, i32 1
-  %fmt = getelementptr inbounds %struct.audsettings, ptr %as, i64 0, i32 2
-  %endianness = getelementptr inbounds %struct.audsettings, ptr %as, i64 0, i32 3
-  %card26 = getelementptr inbounds %struct.ES1370State, ptr %s, i64 0, i32 1
-  %adc_voice = getelementptr inbounds %struct.ES1370State, ptr %s, i64 0, i32 5
-  %ctl37 = getelementptr inbounds %struct.ES1370State, ptr %s, i64 0, i32 6
+  %chan = getelementptr inbounds i8, ptr %s, i64 2912
+  %sctl2 = getelementptr inbounds i8, ptr %s, i64 3016
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %nchannels = getelementptr inbounds i8, ptr %as, i64 4
+  %fmt = getelementptr inbounds i8, ptr %as, i64 8
+  %endianness = getelementptr inbounds i8, ptr %as, i64 12
+  %card26 = getelementptr inbounds i8, ptr %s, i64 2608
+  %dac_voice = getelementptr inbounds i8, ptr %s, i64 2976
+  %adc_voice = getelementptr inbounds i8, ptr %s, i64 2992
+  %ctl37 = getelementptr inbounds i8, ptr %s, i64 3000
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %i.050 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
   %arrayidx1 = getelementptr [3 x %struct.chan_bits], ptr @es1370_chan_bits, i64 0, i64 %i.050
-  %sctl_fmt = getelementptr [3 x %struct.chan_bits], ptr @es1370_chan_bits, i64 0, i64 %i.050, i32 4
+  %sctl_fmt = getelementptr inbounds i8, ptr %arrayidx1, i64 16
   %0 = load i32, ptr %sctl_fmt, align 8
   %and = and i32 %0, %sctl
-  %sctl_sh_fmt = getelementptr [3 x %struct.chan_bits], ptr @es1370_chan_bits, i64 0, i64 %i.050, i32 5
+  %sctl_sh_fmt = getelementptr inbounds i8, ptr %arrayidx1, i64 20
   %1 = load i32, ptr %sctl_sh_fmt, align 4
   %shr = lshr i32 %and, %1
   %2 = load i32, ptr %sctl2, align 8
   %and4 = and i32 %2, %0
   %shr6 = lshr i32 %and4, %1
-  %calc_freq = getelementptr [3 x %struct.chan_bits], ptr @es1370_chan_bits, i64 0, i64 %i.050, i32 7
+  %calc_freq = getelementptr inbounds i8, ptr %arrayidx1, i64 32
   %3 = load ptr, ptr %calc_freq, align 8
   call void %3(ptr noundef %s, i32 noundef %ctl, ptr noundef nonnull %old_freq, ptr noundef nonnull %new_freq) #6
   %cmp7.not = icmp eq i32 %shr6, %shr
@@ -879,7 +858,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %or.cond, label %if.end36, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr %struct.ES1370State, ptr %s, i64 0, i32 3, i64 %i.050
+  %arrayidx = getelementptr [3 x %struct.chan], ptr %chan, i64 0, i64 %i.050
   %and9 = and i32 %shr, 1
   %shr10 = lshr i32 %shr, 1
   %add = add nuw i32 %and9, %shr10
@@ -945,7 +924,7 @@ if.then24:                                        ; preds = %if.then17
   br label %if.end36
 
 if.else:                                          ; preds = %if.then17
-  %arrayidx27 = getelementptr %struct.ES1370State, ptr %s, i64 0, i32 4, i64 %i.050
+  %arrayidx27 = getelementptr [2 x ptr], ptr %dac_voice, i64 0, i64 %i.050
   %14 = load ptr, ptr %arrayidx27, align 8
   %tobool28.not = icmp eq i64 %i.050, 0
   %cond29 = select i1 %tobool28.not, ptr @.str.21, ptr @.str.20
@@ -965,7 +944,7 @@ if.end36:                                         ; preds = %for.body, %trace_es
 lor.lhs.false40:                                  ; preds = %if.end36
   %17 = load i32, ptr %sctl2, align 8
   %xor42 = xor i32 %17, %sctl
-  %sctl_pause = getelementptr [3 x %struct.chan_bits], ptr @es1370_chan_bits, i64 0, i64 %i.050, i32 2
+  %sctl_pause = getelementptr inbounds i8, ptr %arrayidx1, i64 8
   %18 = load i32, ptr %sctl_pause, align 8
   %and43 = and i32 %xor42, %18
   %tobool44.not = icmp eq i32 %and43, 0
@@ -977,7 +956,7 @@ if.then45:                                        ; preds = %lor.lhs.false40, %i
   br i1 %tobool48.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then45
-  %sctl_pause49 = getelementptr [3 x %struct.chan_bits], ptr @es1370_chan_bits, i64 0, i64 %i.050, i32 2
+  %sctl_pause49 = getelementptr inbounds i8, ptr %arrayidx1, i64 8
   %19 = load i32, ptr %sctl_pause49, align 8
   %and50 = and i32 %19, %sctl
   %tobool51.not = icmp eq i32 %and50, 0
@@ -995,7 +974,7 @@ for.inc.thread:                                   ; preds = %land.end
   br label %for.end
 
 if.else56:                                        ; preds = %land.end
-  %arrayidx58 = getelementptr %struct.ES1370State, ptr %s, i64 0, i32 4, i64 %i.050
+  %arrayidx58 = getelementptr [2 x ptr], ptr %dac_voice, i64 0, i64 %i.050
   %22 = load ptr, ptr %arrayidx58, align 8
   call void @AUD_set_active_out(ptr noundef %22, i32 noundef %land.ext) #6
   br label %for.inc
@@ -1043,7 +1022,7 @@ declare void @AUD_set_active_out(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @es1370_dac1_calc_freq(ptr nocapture noundef readonly %s, i32 noundef %ctl, ptr nocapture noundef writeonly %old_freq, ptr nocapture noundef writeonly %new_freq) #3 {
 entry:
-  %ctl1 = getelementptr inbounds %struct.ES1370State, ptr %s, i64 0, i32 6
+  %ctl1 = getelementptr inbounds i8, ptr %s, i64 3000
   %0 = load i32, ptr %ctl1, align 8
   %and = lshr i32 %0, 12
   %shr = and i32 %and, 3
@@ -1065,7 +1044,7 @@ define internal void @es1370_dac2_and_adc_calc_freq(ptr nocapture noundef readon
 entry:
   %and = lshr i32 %ctl, 16
   %shr = and i32 %and, 8191
-  %ctl1 = getelementptr inbounds %struct.ES1370State, ptr %s, i64 0, i32 6
+  %ctl1 = getelementptr inbounds i8, ptr %s, i64 3000
   %0 = load i32, ptr %ctl1, align 8
   %and2 = lshr i32 %0, 16
   %shr3 = and i32 %and2, 8191
@@ -1084,11 +1063,12 @@ entry:
   %_now.i.i79.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %tmpbuf.i = alloca [4096 x i8], align 16
-  %status = getelementptr inbounds %struct.ES1370State, ptr %s, i64 0, i32 7
+  %status = getelementptr inbounds i8, ptr %s, i64 3004
   %0 = load i32, ptr %status, align 4
-  %arrayidx = getelementptr %struct.ES1370State, ptr %s, i64 0, i32 3, i64 %chan
+  %chan1 = getelementptr inbounds i8, ptr %s, i64 2912
+  %arrayidx = getelementptr [3 x %struct.chan], ptr %chan1, i64 0, i64 %chan
   %arrayidx2 = getelementptr [3 x %struct.chan_bits], ptr @es1370_chan_bits, i64 0, i64 %chan
-  %ctl = getelementptr inbounds %struct.ES1370State, ptr %s, i64 0, i32 6
+  %ctl = getelementptr inbounds i8, ptr %s, i64 3000
   %1 = load i32, ptr %ctl, align 8
   %2 = load i32, ptr %arrayidx2, align 8
   %and = and i32 %2, %1
@@ -1096,9 +1076,9 @@ entry:
   br i1 %tobool.not, label %if.end27, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %sctl = getelementptr inbounds %struct.ES1370State, ptr %s, i64 0, i32 10
+  %sctl = getelementptr inbounds i8, ptr %s, i64 3016
   %3 = load i32, ptr %sctl, align 8
-  %sctl_pause = getelementptr [3 x %struct.chan_bits], ptr @es1370_chan_bits, i64 0, i64 %chan, i32 2
+  %sctl_pause = getelementptr inbounds i8, ptr %arrayidx2, i64 8
   %4 = load i32, ptr %sctl_pause, align 8
   %and3 = and i32 %4, %3
   %tobool4.not = icmp eq i32 %and3, 0
@@ -1112,14 +1092,14 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool6.not, label %if.end27, label %if.end8
 
 if.end8:                                          ; preds = %if.end
-  %sctl_inten = getelementptr [3 x %struct.chan_bits], ptr @es1370_chan_bits, i64 0, i64 %chan, i32 3
+  %sctl_inten = getelementptr inbounds i8, ptr %arrayidx2, i64 12
   %6 = load i32, ptr %sctl_inten, align 4
   %and10 = and i32 %6, %3
   %tobool11.not = icmp eq i32 %and10, 0
   br i1 %tobool11.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end8
-  %stat_int = getelementptr [3 x %struct.chan_bits], ptr @es1370_chan_bits, i64 0, i64 %chan, i32 1
+  %stat_int = getelementptr inbounds i8, ptr %arrayidx2, i64 4
   %7 = load i32, ptr %stat_int, align 4
   %and13 = and i32 %7, %0
   %tobool14 = icmp ne i32 %and13, 0
@@ -1128,16 +1108,16 @@ land.rhs:                                         ; preds = %if.end8
 
 land.end:                                         ; preds = %land.rhs, %if.end8
   %frombool = phi i8 [ 0, %if.end8 ], [ %8, %land.rhs ]
-  %sctl_loopsel = getelementptr [3 x %struct.chan_bits], ptr @es1370_chan_bits, i64 0, i64 %chan, i32 6
+  %sctl_loopsel = getelementptr inbounds i8, ptr %arrayidx2, i64 24
   %9 = load i32, ptr %sctl_loopsel, align 8
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %tmpbuf.i)
-  %scount.i = getelementptr %struct.ES1370State, ptr %s, i64 0, i32 3, i64 %chan, i32 2
+  %scount.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %10 = load i32, ptr %scount.i, align 4
   %and.i = and i32 %10, 65535
   %shr.i = lshr i32 %10, 16
   %add.i = add nuw nsw i32 %shr.i, 1
   %shl.i = shl i32 %add.i, %5
-  %frame_cnt.i = getelementptr %struct.ES1370State, ptr %s, i64 0, i32 3, i64 %chan, i32 4
+  %frame_cnt.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %11 = load i32, ptr %frame_cnt.i, align 4
   %shr2.i = lshr i32 %11, 16
   %and4.i = and i32 %11, 65535
@@ -1145,12 +1125,12 @@ land.end:                                         ; preds = %land.rhs, %if.end8
   br i1 %cmp.i, label %es1370_transfer_audio.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %land.end
-  %frame_addr.i = getelementptr %struct.ES1370State, ptr %s, i64 0, i32 3, i64 %chan, i32 3
+  %frame_addr.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %12 = load i32, ptr %frame_addr.i, align 4
   %sub.i = sub nsw i32 %and4.i, %shr2.i
   %add5.i = shl nsw i32 %sub.i, 2
   %shl6.i = add nsw i32 %add5.i, 4
-  %leftover.i = getelementptr %struct.ES1370State, ptr %s, i64 0, i32 3, i64 %chan, i32 1
+  %leftover.i = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %13 = load i32, ptr %leftover.i, align 4
   %add7.i = add i32 %shl6.i, %13
   %arrayidx.idx = mul i64 %chan, 20
@@ -1170,8 +1150,8 @@ while.cond.preheader.i:                           ; preds = %if.end.i
   br i1 %cmp25.not99.i, label %if.end78.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %adc_voice.i = getelementptr inbounds %struct.ES1370State, ptr %s, i64 0, i32 5
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 12
+  %adc_voice.i = getelementptr inbounds i8, ptr %s, i64 2992
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %s, i64 576
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end38.i, %while.body.lr.ph.i
@@ -1199,15 +1179,16 @@ if.end38.i:                                       ; preds = %while.body.i
   br i1 %cmp25.not.i, label %if.end78.i, label %while.body.i, !llvm.loop !8
 
 if.else.i:                                        ; preds = %if.end.i
+  %dac_voice.i = getelementptr inbounds i8, ptr %s, i64 2976
   %sext.i = shl i64 %sub.ptr.div.i, 32
   %idxprom.i = ashr exact i64 %sext.i, 32
-  %arrayidx47.i = getelementptr %struct.ES1370State, ptr %s, i64 0, i32 4, i64 %idxprom.i
+  %arrayidx47.i = getelementptr [2 x ptr], ptr %dac_voice.i, i64 0, i64 %idxprom.i
   %15 = load ptr, ptr %arrayidx47.i, align 8
   %cmp49.not94.i = icmp eq i32 %cond16.i, 0
   br i1 %cmp49.not94.i, label %if.end78.i, label %while.body51.lr.ph.i
 
 while.body51.lr.ph.i:                             ; preds = %if.else.i
-  %bus_master_as.i.i.i77.i = getelementptr inbounds %struct.PCIDevice, ptr %s, i64 0, i32 12
+  %bus_master_as.i.i.i77.i = getelementptr inbounds i8, ptr %s, i64 576
   br label %while.body51.i
 
 while.body51.i:                                   ; preds = %if.end72.i, %while.body51.lr.ph.i
@@ -1267,7 +1248,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #6
   %call10.i.i.i = call i32 @qemu_get_thread_id() #6
   %21 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %22 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i.i.i, i64 noundef %21, i64 noundef %22, i32 noundef %conv.i) #6
   br label %trace_es1370_lost_interrupt.exit.i
@@ -1355,7 +1336,7 @@ if.then8.i.i88.i:                                 ; preds = %if.then.i.i86.i
   %call9.i.i89.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i79.i, ptr noundef null) #6
   %call10.i.i90.i = call i32 @qemu_get_thread_id() #6
   %34 = load i64, ptr %_now.i.i79.i, align 8
-  %tv_usec.i.i91.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i79.i, i64 0, i32 1
+  %tv_usec.i.i91.i = getelementptr inbounds i8, ptr %_now.i.i79.i, i64 8
   %35 = load i64, ptr %tv_usec.i.i91.i, align 8
   %conv12.i.i.i = zext nneg i8 %irq.0 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i.i90.i, i64 noundef %34, i64 noundef %35, i32 noundef %conv.i, i32 noundef %shr119.i, i32 noundef %and121.i, i32 noundef %shr123.i, i32 noundef %and125.i, i32 noundef %and116.i, i32 noundef %conv12.i.i.i) #6
@@ -1383,7 +1364,7 @@ if.then16:                                        ; preds = %es1370_transfer_aud
   br i1 %tobool20.not, label %if.end24, label %if.then21
 
 if.then21:                                        ; preds = %if.then16
-  %stat_int22 = getelementptr [3 x %struct.chan_bits], ptr @es1370_chan_bits, i64 0, i64 %chan, i32 1
+  %stat_int22 = getelementptr inbounds i8, ptr %arrayidx2, i64 4
   %37 = load i32, ptr %stat_int22, align 4
   %or = or i32 %37, %0
   br label %if.end24
@@ -1428,8 +1409,9 @@ declare void @AUD_remove_card(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @es1370_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
-  %card7 = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 1
-  %adc_voice = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 5
+  %dac_voice = getelementptr inbounds i8, ptr %opaque, i64 2976
+  %card7 = getelementptr inbounds i8, ptr %opaque, i64 2608
+  %adc_voice = getelementptr inbounds i8, ptr %opaque, i64 2992
   br label %if.else
 
 if.then:                                          ; preds = %for.inc
@@ -1444,7 +1426,7 @@ if.then2:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %entry, %for.inc
   %i.01922 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr %struct.ES1370State, ptr %opaque, i64 0, i32 4, i64 %i.01922
+  %arrayidx = getelementptr [2 x ptr], ptr %dac_voice, i64 0, i64 %i.01922
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool5.not = icmp eq ptr %1, null
   br i1 %tobool5.not, label %for.inc, label %if.then6
@@ -1460,9 +1442,9 @@ for.inc:                                          ; preds = %if.then6, %if.else
   br i1 %cmp1, label %if.then, label %if.else
 
 for.end:                                          ; preds = %if.then2, %if.then
-  %ctl14 = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 6
+  %ctl14 = getelementptr inbounds i8, ptr %opaque, i64 3000
   %2 = load i32, ptr %ctl14, align 8
-  %sctl15 = getelementptr inbounds %struct.ES1370State, ptr %opaque, i64 0, i32 10
+  %sctl15 = getelementptr inbounds i8, ptr %opaque, i64 3016
   %3 = load i32, ptr %sctl15, align 8
   store i32 0, ptr %ctl14, align 8
   store i32 0, ptr %sctl15, align 8

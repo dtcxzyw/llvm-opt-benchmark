@@ -5,19 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.bitbang_i2c_interface = type { ptr, i32, i32, i32, i32, i8, i32 }
-%struct.GPIOI2CState = type { %struct.SysBusDevice, %struct.bitbang_i2c_interface, i32, ptr }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @sname = internal unnamed_addr constant [20 x ptr] [ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21], align 16
 @trace_events_enabled_count = external local_unnamed_addr global i32, align 4
@@ -86,7 +73,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cmp2 = icmp eq i32 %line, 0
-  %last_data = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 2
+  %last_data = getelementptr inbounds i8, ptr %i2c, i64 12
   %0 = load i32, ptr %last_data, align 4
   br i1 %cmp2, label %if.then3, label %if.end16
 
@@ -95,19 +82,19 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.then3
-  %device_out.i = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 4
+  %device_out.i = getelementptr inbounds i8, ptr %i2c, i64 20
   %1 = load i32, ptr %device_out.i, align 4
   br label %return
 
 if.end6:                                          ; preds = %if.then3
   store i32 %level, ptr %last_data, align 4
-  %last_clock = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 3
+  %last_clock = getelementptr inbounds i8, ptr %i2c, i64 16
   %2 = load i32, ptr %last_clock, align 8
   %cmp8 = icmp eq i32 %2, 0
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end6
-  %device_out.i59 = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 4
+  %device_out.i59 = getelementptr inbounds i8, ptr %i2c, i64 20
   %3 = load i32, ptr %device_out.i59, align 4
   br label %return
 
@@ -116,7 +103,7 @@ if.end11:                                         ; preds = %if.end6
   br i1 %cmp12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.end11
-  %state1.i = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 1
+  %state1.i = getelementptr inbounds i8, ptr %i2c, i64 8
   %4 = load i32, ptr %state1.i, align 8
   %idxprom.i = zext i32 %4 to i64
   %arrayidx.i = getelementptr [20 x ptr], ptr @sname, i64 0, i64 %idxprom.i
@@ -145,7 +132,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #7
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #7
   %11 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str, i32 noundef %call10.i.i.i, i64 noundef %11, i64 noundef %12, ptr noundef %5, ptr noundef nonnull @.str.3) #7
   br label %bitbang_i2c_set_state.exit
@@ -157,7 +144,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 bitbang_i2c_set_state.exit:                       ; preds = %if.then13, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   store i32 1, ptr %state1.i, align 8
-  %current_addr = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 6
+  %current_addr = getelementptr inbounds i8, ptr %i2c, i64 28
   store i32 -1, ptr %current_addr, align 4
   br label %return
 
@@ -166,13 +153,13 @@ if.else:                                          ; preds = %if.end11
   br label %return
 
 if.end16:                                         ; preds = %if.end
-  %last_clock18 = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 3
+  %last_clock18 = getelementptr inbounds i8, ptr %i2c, i64 16
   %13 = load i32, ptr %last_clock18, align 8
   %cmp19 = icmp eq i32 %13, %level
   br i1 %cmp19, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %if.end16
-  %device_out.i61 = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 4
+  %device_out.i61 = getelementptr inbounds i8, ptr %i2c, i64 20
   %14 = load i32, ptr %device_out.i61, align 4
   br label %return
 
@@ -182,7 +169,7 @@ if.end22:                                         ; preds = %if.end16
   br i1 %cmp24, label %return, label %if.end27
 
 if.end27:                                         ; preds = %if.end22
-  %state = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %i2c, i64 8
   %15 = load i32, ptr %state, align 8
   switch i32 %15, label %sw.epilog [
     i32 0, label %return
@@ -208,7 +195,7 @@ if.end27:                                         ; preds = %if.end22
   ]
 
 sw.bb29:                                          ; preds = %if.end27, %if.end27, %if.end27, %if.end27, %if.end27, %if.end27, %if.end27, %if.end27
-  %buffer = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 5
+  %buffer = getelementptr inbounds i8, ptr %i2c, i64 24
   %16 = load i8, ptr %buffer, align 8
   %conv = zext i8 %16 to i32
   %shl = shl nuw nsw i32 %conv, 1
@@ -246,7 +233,7 @@ if.then8.i.i.i75:                                 ; preds = %if.then.i.i.i73
   %call9.i.i.i76 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i63, ptr noundef null) #7
   %call10.i.i.i77 = tail call i32 @qemu_get_thread_id() #7
   %24 = load i64, ptr %_now.i.i.i63, align 8
-  %tv_usec.i.i.i78 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i63, i64 0, i32 1
+  %tv_usec.i.i.i78 = getelementptr inbounds i8, ptr %_now.i.i.i63, i64 8
   %25 = load i64, ptr %tv_usec.i.i.i78, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str, i32 noundef %call10.i.i.i77, i64 noundef %24, i64 noundef %25, ptr noundef %17, ptr noundef %18) #7
   br label %bitbang_i2c_set_state.exit80
@@ -261,10 +248,10 @@ bitbang_i2c_set_state.exit80:                     ; preds = %sw.bb29, %land.lhs.
   br label %return
 
 sw.bb34:                                          ; preds = %if.end27
-  %current_addr35 = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 6
+  %current_addr35 = getelementptr inbounds i8, ptr %i2c, i64 28
   %26 = load i32, ptr %current_addr35, align 4
   %cmp36 = icmp slt i32 %26, 0
-  %buffer39 = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 5
+  %buffer39 = getelementptr inbounds i8, ptr %i2c, i64 24
   %27 = load i8, ptr %buffer39, align 8
   br i1 %cmp36, label %if.then38, label %if.else48
 
@@ -309,7 +296,7 @@ if.end57:                                         ; preds = %if.end53
 sw.bb65:                                          ; preds = %if.end27
   %33 = load ptr, ptr %i2c, align 8
   %call67 = tail call zeroext i8 @i2c_recv(ptr noundef %33) #7
-  %buffer68 = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 5
+  %buffer68 = getelementptr inbounds i8, ptr %i2c, i64 24
   store i8 %call67, ptr %buffer68, align 8
   tail call fastcc void @trace_bitbang_i2c_recv(i8 noundef zeroext %call67)
   %.pre = load i32, ptr %state, align 8
@@ -317,7 +304,7 @@ sw.bb65:                                          ; preds = %if.end27
 
 sw.bb70:                                          ; preds = %sw.bb65, %if.end27, %if.end27, %if.end27, %if.end27, %if.end27, %if.end27, %if.end27
   %34 = phi i32 [ %.pre, %sw.bb65 ], [ %15, %if.end27 ], [ %15, %if.end27 ], [ %15, %if.end27 ], [ %15, %if.end27 ], [ %15, %if.end27 ], [ %15, %if.end27 ], [ %15, %if.end27 ]
-  %buffer71 = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 5
+  %buffer71 = getelementptr inbounds i8, ptr %i2c, i64 24
   %35 = load i8, ptr %buffer71, align 8
   %36 = lshr i8 %35, 7
   %shr73 = zext nneg i8 %36 to i32
@@ -352,7 +339,7 @@ if.then8.i.i.i95:                                 ; preds = %if.then.i.i.i93
   %call9.i.i.i96 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i81, ptr noundef null) #7
   %call10.i.i.i97 = tail call i32 @qemu_get_thread_id() #7
   %44 = load i64, ptr %_now.i.i.i81, align 8
-  %tv_usec.i.i.i98 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i81, i64 0, i32 1
+  %tv_usec.i.i.i98 = getelementptr inbounds i8, ptr %_now.i.i.i81, i64 8
   %45 = load i64, ptr %tv_usec.i.i.i98, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str, i32 noundef %call10.i.i.i97, i64 noundef %44, i64 noundef %45, ptr noundef %37, ptr noundef %38) #7
   br label %bitbang_i2c_set_state.exit100
@@ -400,7 +387,7 @@ declare void @abort() local_unnamed_addr #1
 define internal fastcc void @bitbang_i2c_set_state(ptr nocapture noundef %i2c, i32 noundef %state) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %state1 = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 1
+  %state1 = getelementptr inbounds i8, ptr %i2c, i64 8
   %0 = load i32, ptr %state1, align 8
   %idxprom = zext i32 %0 to i64
   %arrayidx = getelementptr [20 x ptr], ptr @sname, i64 0, i64 %idxprom
@@ -432,7 +419,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %1, ptr noundef %2) #7
   br label %trace_bitbang_i2c_state.exit
@@ -451,7 +438,7 @@ trace_bitbang_i2c_state.exit:                     ; preds = %entry, %land.lhs.tr
 define internal fastcc void @bitbang_i2c_enter_stop(ptr nocapture noundef %i2c) unnamed_addr #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %current_addr = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 6
+  %current_addr = getelementptr inbounds i8, ptr %i2c, i64 28
   %0 = load i32, ptr %current_addr, align 4
   %cmp = icmp sgt i32 %0, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -463,7 +450,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   store i32 -1, ptr %current_addr, align 4
-  %state1.i = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 1
+  %state1.i = getelementptr inbounds i8, ptr %i2c, i64 8
   %2 = load i32, ptr %state1.i, align 8
   %idxprom.i = zext i32 %2 to i64
   %arrayidx.i = getelementptr [20 x ptr], ptr @sname, i64 0, i64 %idxprom.i
@@ -492,7 +479,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #7
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #7
   %9 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str, i32 noundef %call10.i.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %3, ptr noundef nonnull @.str.2) #7
   br label %bitbang_i2c_set_state.exit
@@ -511,11 +498,11 @@ bitbang_i2c_set_state.exit:                       ; preds = %if.end, %land.lhs.t
 define internal fastcc i32 @bitbang_i2c_ret(ptr nocapture noundef %i2c, i32 noundef %level) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %last_clock = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 3
+  %last_clock = getelementptr inbounds i8, ptr %i2c, i64 16
   %0 = load i32, ptr %last_clock, align 8
-  %last_data = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 2
+  %last_data = getelementptr inbounds i8, ptr %i2c, i64 12
   %1 = load i32, ptr %last_data, align 4
-  %device_out = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %i2c, i64 0, i32 4
+  %device_out = getelementptr inbounds i8, ptr %i2c, i64 20
   %2 = load i32, ptr %device_out, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -541,7 +528,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %level) #7
   br label %trace_bitbang_i2c_data.exit
@@ -586,7 +573,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #7
   %call10.i = tail call i32 @qemu_get_thread_id() #7
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i8 %addr to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i) #7
@@ -632,7 +619,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #7
   %call10.i = tail call i32 @qemu_get_thread_id() #7
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i8 %byte to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i) #7
@@ -680,7 +667,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #7
   %call10.i = tail call i32 @qemu_get_thread_id() #7
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   %conv11.i = zext i8 %byte to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv11.i) #7
@@ -702,11 +689,11 @@ declare void @i2c_nack(ptr noundef) local_unnamed_addr #2
 define dso_local void @bitbang_i2c_init(ptr nocapture noundef writeonly %s, ptr noundef %bus) local_unnamed_addr #3 {
 entry:
   store ptr %bus, ptr %s, align 8
-  %last_data = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %s, i64 0, i32 2
+  %last_data = getelementptr inbounds i8, ptr %s, i64 12
   store i32 1, ptr %last_data, align 4
-  %last_clock = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %s, i64 0, i32 3
+  %last_clock = getelementptr inbounds i8, ptr %s, i64 16
   store i32 1, ptr %last_clock, align 8
-  %device_out = getelementptr inbounds %struct.bitbang_i2c_interface, ptr %s, i64 0, i32 4
+  %device_out = getelementptr inbounds i8, ptr %s, i64 20
   store i32 1, ptr %device_out, align 4
   ret void
 }
@@ -744,16 +731,16 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #7
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.35, i32 noundef 189, ptr noundef nonnull @__func__.GPIO_I2C) #7
   %call2 = tail call ptr @i2c_init_bus(ptr noundef %call.i, ptr noundef nonnull @.str.32) #7
-  %bitbang = getelementptr inbounds %struct.GPIOI2CState, ptr %call.i5, i64 0, i32 1
+  %bitbang = getelementptr inbounds i8, ptr %call.i5, i64 816
   store ptr %call2, ptr %bitbang, align 8
-  %last_data.i = getelementptr inbounds %struct.GPIOI2CState, ptr %call.i5, i64 0, i32 1, i32 2
+  %last_data.i = getelementptr inbounds i8, ptr %call.i5, i64 828
   store i32 1, ptr %last_data.i, align 4
-  %last_clock.i = getelementptr inbounds %struct.GPIOI2CState, ptr %call.i5, i64 0, i32 1, i32 3
+  %last_clock.i = getelementptr inbounds i8, ptr %call.i5, i64 832
   store i32 1, ptr %last_clock.i, align 8
-  %device_out.i = getelementptr inbounds %struct.GPIOI2CState, ptr %call.i5, i64 0, i32 1, i32 4
+  %device_out.i = getelementptr inbounds i8, ptr %call.i5, i64 836
   store i32 1, ptr %device_out.i, align 4
   tail call void @qdev_init_gpio_in(ptr noundef %call.i, ptr noundef nonnull @bitbang_i2c_gpio_set, i32 noundef 2) #7
-  %out = getelementptr inbounds %struct.GPIOI2CState, ptr %call.i5, i64 0, i32 3
+  %out = getelementptr inbounds i8, ptr %call.i5, i64 856
   tail call void @qdev_init_gpio_out(ptr noundef %call.i, ptr noundef nonnull %out, i32 noundef 1) #7
   ret void
 }
@@ -762,11 +749,11 @@ entry:
 define internal void @gpio_i2c_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 1
   store i64 %or.i, ptr %categories, align 8
-  %desc = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.36, ptr %desc, align 8
   ret void
 }
@@ -778,16 +765,16 @@ declare void @qdev_init_gpio_in(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bitbang_i2c_gpio_set(ptr nocapture noundef %opaque, i32 noundef %irq, i32 noundef %level) #0 {
 entry:
-  %bitbang = getelementptr inbounds %struct.GPIOI2CState, ptr %opaque, i64 0, i32 1
+  %bitbang = getelementptr inbounds i8, ptr %opaque, i64 816
   %call = tail call i32 @bitbang_i2c_set(ptr noundef nonnull %bitbang, i32 noundef %irq, i32 noundef %level)
-  %last_level = getelementptr inbounds %struct.GPIOI2CState, ptr %opaque, i64 0, i32 2
+  %last_level = getelementptr inbounds i8, ptr %opaque, i64 848
   %0 = load i32, ptr %last_level, align 8
   %cmp.not = icmp eq i32 %call, %0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   store i32 %call, ptr %last_level, align 8
-  %out = getelementptr inbounds %struct.GPIOI2CState, ptr %opaque, i64 0, i32 3
+  %out = getelementptr inbounds i8, ptr %opaque, i64 856
   %1 = load ptr, ptr %out, align 8
   tail call void @qemu_set_irq(ptr noundef %1, i32 noundef %call) #7
   br label %if.end

@@ -10,19 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.I2CDDCState = type { %struct.I2CSlave, i8, i8, %struct.qemu_edid_info, [128 x i8] }
-%struct.I2CSlave = type { %struct.DeviceState, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.qemu_edid_info = type { ptr, ptr, ptr, i16, i16, i32, i32, i32, i32, i32 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.I2CSlaveClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr }
 
 @i2c_ddc_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 352, i64 0, ptr @i2c_ddc_init, ptr null, ptr null, i8 0, i64 0, ptr @i2c_ddc_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"i2c-ddc\00", align 1
@@ -71,8 +58,8 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @i2c_ddc_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 39, ptr noundef nonnull @__func__.I2CDDC) #2
-  %edid_blob = getelementptr inbounds %struct.I2CDDCState, ptr %call.i, i64 0, i32 4
-  %edid_info = getelementptr inbounds %struct.I2CDDCState, ptr %call.i, i64 0, i32 3
+  %edid_blob = getelementptr inbounds i8, ptr %call.i, i64 224
+  %edid_info = getelementptr inbounds i8, ptr %call.i, i64 176
   tail call void @qemu_edid_generate(ptr noundef nonnull %edid_blob, i64 noundef 128, ptr noundef nonnull %edid_info) #2
   ret void
 }
@@ -82,16 +69,16 @@ define internal void @i2c_ddc_class_init(ptr noundef %oc, ptr nocapture readnone
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #2
   %call.i6 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE_CLASS) #2
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @i2c_ddc_reset, ptr %reset, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_i2c_ddc, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @i2c_ddc_properties) #2
-  %event = getelementptr inbounds %struct.I2CSlaveClass, ptr %call.i6, i64 0, i32 4
+  %event = getelementptr inbounds i8, ptr %call.i6, i64 200
   store ptr @i2c_ddc_event, ptr %event, align 8
-  %recv = getelementptr inbounds %struct.I2CSlaveClass, ptr %call.i6, i64 0, i32 3
+  %recv = getelementptr inbounds i8, ptr %call.i6, i64 192
   store ptr @i2c_ddc_rx, ptr %recv, align 8
-  %send = getelementptr inbounds %struct.I2CSlaveClass, ptr %call.i6, i64 0, i32 1
+  %send = getelementptr inbounds i8, ptr %call.i6, i64 176
   store ptr @i2c_ddc_tx, ptr %send, align 8
   ret void
 }
@@ -104,9 +91,9 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 define internal void @i2c_ddc_reset(ptr noundef %ds) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ds, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 39, ptr noundef nonnull @__func__.I2CDDC) #2
-  %firstbyte = getelementptr inbounds %struct.I2CDDCState, ptr %call.i, i64 0, i32 1
+  %firstbyte = getelementptr inbounds i8, ptr %call.i, i64 168
   store i8 0, ptr %firstbyte, align 8
-  %reg = getelementptr inbounds %struct.I2CDDCState, ptr %call.i, i64 0, i32 2
+  %reg = getelementptr inbounds i8, ptr %call.i, i64 169
   store i8 0, ptr %reg, align 1
   ret void
 }
@@ -121,7 +108,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %firstbyte = getelementptr inbounds %struct.I2CDDCState, ptr %call.i, i64 0, i32 1
+  %firstbyte = getelementptr inbounds i8, ptr %call.i, i64 168
   store i8 1, ptr %firstbyte, align 8
   br label %if.end
 
@@ -133,11 +120,12 @@ if.end:                                           ; preds = %if.then, %entry
 define internal zeroext i8 @i2c_ddc_rx(ptr noundef %i2c) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %i2c, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 39, ptr noundef nonnull @__func__.I2CDDC) #2
-  %reg = getelementptr inbounds %struct.I2CDDCState, ptr %call.i, i64 0, i32 2
+  %edid_blob = getelementptr inbounds i8, ptr %call.i, i64 224
+  %reg = getelementptr inbounds i8, ptr %call.i, i64 169
   %0 = load i8, ptr %reg, align 1
   %1 = and i8 %0, 127
   %rem = zext nneg i8 %1 to i64
-  %arrayidx = getelementptr %struct.I2CDDCState, ptr %call.i, i64 0, i32 4, i64 %rem
+  %arrayidx = getelementptr [128 x i8], ptr %edid_blob, i64 0, i64 %rem
   %2 = load i8, ptr %arrayidx, align 1
   %inc = add i8 %0, 1
   store i8 %inc, ptr %reg, align 1
@@ -148,11 +136,11 @@ entry:
 define internal i32 @i2c_ddc_tx(ptr noundef %i2c, i8 noundef zeroext %data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %i2c, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 39, ptr noundef nonnull @__func__.I2CDDC) #2
-  %firstbyte = getelementptr inbounds %struct.I2CDDCState, ptr %call.i, i64 0, i32 1
+  %firstbyte = getelementptr inbounds i8, ptr %call.i, i64 168
   %0 = load i8, ptr %firstbyte, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
-  %reg2 = getelementptr inbounds %struct.I2CDDCState, ptr %call.i, i64 0, i32 2
+  %reg2 = getelementptr inbounds i8, ptr %call.i, i64 169
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry

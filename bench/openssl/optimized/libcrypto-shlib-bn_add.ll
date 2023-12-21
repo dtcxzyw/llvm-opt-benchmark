@@ -3,32 +3,30 @@ source_filename = "bench/openssl/original/libcrypto-shlib-bn_add.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [30 x i8] c"../openssl/crypto/bn/bn_add.c\00", align 1
 @__func__.BN_usub = private unnamed_addr constant [8 x i8] c"BN_usub\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define i32 @BN_add(ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i32, ptr %neg, align 8
-  %neg1 = getelementptr inbounds %struct.bignum_st, ptr %b, i64 0, i32 3
+  %neg1 = getelementptr inbounds i8, ptr %b, i64 16
   %1 = load i32, ptr %neg1, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %top.i = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top.i = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load i32, ptr %top.i, align 8
-  %top1.i = getelementptr inbounds %struct.bignum_st, ptr %b, i64 0, i32 1
+  %top1.i = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i32, ptr %top1.i, align 8
   %cmp.i = icmp slt i32 %2, %3
   %spec.select.i = select i1 %cmp.i, ptr %a, ptr %b
   %spec.select26.i = select i1 %cmp.i, ptr %b, ptr %a
-  %top2.i = getelementptr inbounds %struct.bignum_st, ptr %spec.select26.i, i64 0, i32 1
+  %top2.i = getelementptr inbounds i8, ptr %spec.select26.i, i64 8
   %4 = load i32, ptr %top2.i, align 8
-  %top3.i = getelementptr inbounds %struct.bignum_st, ptr %spec.select.i, i64 0, i32 1
+  %top3.i = getelementptr inbounds i8, ptr %spec.select.i, i64 8
   %5 = load i32, ptr %top3.i, align 8
   %add.i = add nsw i32 %4, 1
   %call.i = tail call ptr @bn_wexpand(ptr noundef %r, i32 noundef %add.i) #2
@@ -37,7 +35,7 @@ if.then:                                          ; preds = %entry
 
 if.end6.i:                                        ; preds = %if.then
   %sub.i = sub nsw i32 %4, %5
-  %top7.i = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 1
+  %top7.i = getelementptr inbounds i8, ptr %r, i64 8
   store i32 %4, ptr %top7.i, align 8
   %6 = load ptr, ptr %spec.select26.i, align 8
   %7 = load ptr, ptr %spec.select.i, align 8
@@ -58,10 +56,10 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %dif.029.i = phi i32 [ %dec.i, %while.body.i ], [ %sub.i, %while.body.preheader.i ]
   %ap.028.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr12.i, %while.body.preheader.i ]
   %dec.i = add nsw i32 %dif.029.i, -1
-  %incdec.ptr.i = getelementptr inbounds i64, ptr %ap.028.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ap.028.i, i64 8
   %9 = load i64, ptr %ap.028.i, align 8
   %add13.i = add i64 %9, %carry.031.i
-  %incdec.ptr14.i = getelementptr inbounds i64, ptr %rp.030.i, i64 1
+  %incdec.ptr14.i = getelementptr inbounds i8, ptr %rp.030.i, i64 8
   store i64 %add13.i, ptr %rp.030.i, align 8
   %cmp15.i = icmp eq i64 %add13.i, 0
   %10 = and i64 %carry.031.i, 1
@@ -105,7 +103,7 @@ if.else13:                                        ; preds = %if.else8
 if.end15:                                         ; preds = %while.end.i, %if.then, %if.then5, %if.else13, %if.then10
   %r_neg.0 = phi i32 [ %13, %if.then5 ], [ %14, %if.then10 ], [ 0, %if.else13 ], [ %0, %if.then ], [ %0, %while.end.i ]
   %ret.0 = phi i32 [ %call7, %if.then5 ], [ %call12, %if.then10 ], [ 1, %if.else13 ], [ 0, %if.then ], [ 1, %while.end.i ]
-  %neg16 = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg16 = getelementptr inbounds i8, ptr %r, i64 16
   store i32 %r_neg.0, ptr %neg16, align 8
   ret i32 %ret.0
 }
@@ -113,16 +111,16 @@ if.end15:                                         ; preds = %while.end.i, %if.th
 ; Function Attrs: nounwind uwtable
 define i32 @BN_uadd(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
-  %top1 = getelementptr inbounds %struct.bignum_st, ptr %b, i64 0, i32 1
+  %top1 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i32, ptr %top1, align 8
   %cmp = icmp slt i32 %0, %1
   %spec.select = select i1 %cmp, ptr %a, ptr %b
   %spec.select26 = select i1 %cmp, ptr %b, ptr %a
-  %top2 = getelementptr inbounds %struct.bignum_st, ptr %spec.select26, i64 0, i32 1
+  %top2 = getelementptr inbounds i8, ptr %spec.select26, i64 8
   %2 = load i32, ptr %top2, align 8
-  %top3 = getelementptr inbounds %struct.bignum_st, ptr %spec.select, i64 0, i32 1
+  %top3 = getelementptr inbounds i8, ptr %spec.select, i64 8
   %3 = load i32, ptr %top3, align 8
   %add = add nsw i32 %2, 1
   %call = tail call ptr @bn_wexpand(ptr noundef %r, i32 noundef %add) #2
@@ -131,7 +129,7 @@ entry:
 
 if.end6:                                          ; preds = %entry
   %sub = sub nsw i32 %2, %3
-  %top7 = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 1
+  %top7 = getelementptr inbounds i8, ptr %r, i64 8
   store i32 %2, ptr %top7, align 8
   %4 = load ptr, ptr %spec.select26, align 8
   %5 = load ptr, ptr %spec.select, align 8
@@ -152,10 +150,10 @@ while.body:                                       ; preds = %while.body.preheade
   %dif.029 = phi i32 [ %dec, %while.body ], [ %sub, %while.body.preheader ]
   %ap.028 = phi ptr [ %incdec.ptr, %while.body ], [ %add.ptr12, %while.body.preheader ]
   %dec = add nsw i32 %dif.029, -1
-  %incdec.ptr = getelementptr inbounds i64, ptr %ap.028, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %ap.028, i64 8
   %7 = load i64, ptr %ap.028, align 8
   %add13 = add i64 %7, %carry.031
-  %incdec.ptr14 = getelementptr inbounds i64, ptr %rp.030, i64 1
+  %incdec.ptr14 = getelementptr inbounds i8, ptr %rp.030, i64 8
   store i64 %add13, ptr %rp.030, align 8
   %cmp15 = icmp eq i64 %add13, 0
   %8 = and i64 %carry.031, 1
@@ -171,7 +169,7 @@ while.end:                                        ; preds = %while.body, %if.end
   %10 = trunc i64 %carry.0.lcssa to i32
   %conv21 = add i32 %9, %10
   store i32 %conv21, ptr %top7, align 8
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %r, i64 16
   store i32 0, ptr %neg, align 8
   br label %return
 
@@ -185,9 +183,9 @@ declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @BN_usub(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
 entry:
-  %top = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
-  %top1 = getelementptr inbounds %struct.bignum_st, ptr %b, i64 0, i32 1
+  %top1 = getelementptr inbounds i8, ptr %b, i64 8
   %1 = load i32, ptr %top1, align 8
   %sub = sub nsw i32 %0, %1
   %cmp = icmp slt i32 %sub, 0
@@ -229,10 +227,10 @@ while.body:                                       ; preds = %while.body.preheade
   %borrow.024 = phi i64 [ %and14, %while.body ], [ %call7, %while.body.preheader ]
   %dif.023 = phi i32 [ %dec, %while.body ], [ %sub, %while.body.preheader ]
   %dec = add nsw i32 %dif.023, -1
-  %incdec.ptr = getelementptr inbounds i64, ptr %ap.026, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %ap.026, i64 8
   %5 = load i64, ptr %ap.026, align 8
   %sub10 = sub i64 %5, %borrow.024
-  %incdec.ptr11 = getelementptr inbounds i64, ptr %rp.025, i64 1
+  %incdec.ptr11 = getelementptr inbounds i8, ptr %rp.025, i64 8
   store i64 %sub10, ptr %rp.025, align 8
   %cmp12 = icmp eq i64 %5, 0
   %6 = and i64 %borrow.024, 1
@@ -243,7 +241,7 @@ while.body:                                       ; preds = %while.body.preheade
 land.rhs:                                         ; preds = %while.cond15.preheader, %while.body20
   %rp.129 = phi ptr [ %incdec.ptr17, %while.body20 ], [ %rp.0.lcssa, %while.cond15.preheader ]
   %max.028 = phi i32 [ %dec21, %while.body20 ], [ %0, %while.cond15.preheader ]
-  %incdec.ptr17 = getelementptr inbounds i64, ptr %rp.129, i64 -1
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %rp.129, i64 -8
   %7 = load i64, ptr %incdec.ptr17, align 8
   %cmp18 = icmp eq i64 %7, 0
   br i1 %cmp18, label %while.body20, label %while.end22
@@ -255,9 +253,9 @@ while.body20:                                     ; preds = %land.rhs
 
 while.end22:                                      ; preds = %land.rhs, %while.body20, %while.cond15.preheader
   %max.0.lcssa = phi i32 [ 0, %while.cond15.preheader ], [ 0, %while.body20 ], [ %max.028, %land.rhs ]
-  %top23 = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 1
+  %top23 = getelementptr inbounds i8, ptr %r, i64 8
   store i32 %max.0.lcssa, ptr %top23, align 8
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %r, i64 16
   store i32 0, ptr %neg, align 8
   br label %return
 
@@ -271,24 +269,24 @@ declare void @BN_zero_ex(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @BN_sub(ptr noundef %r, ptr noundef %a, ptr noundef %b) local_unnamed_addr #0 {
 entry:
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i32, ptr %neg, align 8
-  %neg1 = getelementptr inbounds %struct.bignum_st, ptr %b, i64 0, i32 3
+  %neg1 = getelementptr inbounds i8, ptr %b, i64 16
   %1 = load i32, ptr %neg1, align 8
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %top.i = getelementptr inbounds %struct.bignum_st, ptr %a, i64 0, i32 1
+  %top.i = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load i32, ptr %top.i, align 8
-  %top1.i = getelementptr inbounds %struct.bignum_st, ptr %b, i64 0, i32 1
+  %top1.i = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i32, ptr %top1.i, align 8
   %cmp.i = icmp slt i32 %2, %3
   %spec.select.i = select i1 %cmp.i, ptr %a, ptr %b
   %spec.select26.i = select i1 %cmp.i, ptr %b, ptr %a
-  %top2.i = getelementptr inbounds %struct.bignum_st, ptr %spec.select26.i, i64 0, i32 1
+  %top2.i = getelementptr inbounds i8, ptr %spec.select26.i, i64 8
   %4 = load i32, ptr %top2.i, align 8
-  %top3.i = getelementptr inbounds %struct.bignum_st, ptr %spec.select.i, i64 0, i32 1
+  %top3.i = getelementptr inbounds i8, ptr %spec.select.i, i64 8
   %5 = load i32, ptr %top3.i, align 8
   %add.i = add nsw i32 %4, 1
   %call.i = tail call ptr @bn_wexpand(ptr noundef %r, i32 noundef %add.i) #2
@@ -297,7 +295,7 @@ if.then:                                          ; preds = %entry
 
 if.end6.i:                                        ; preds = %if.then
   %sub.i = sub nsw i32 %4, %5
-  %top7.i = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 1
+  %top7.i = getelementptr inbounds i8, ptr %r, i64 8
   store i32 %4, ptr %top7.i, align 8
   %6 = load ptr, ptr %spec.select26.i, align 8
   %7 = load ptr, ptr %spec.select.i, align 8
@@ -318,10 +316,10 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %dif.029.i = phi i32 [ %dec.i, %while.body.i ], [ %sub.i, %while.body.preheader.i ]
   %ap.028.i = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %add.ptr12.i, %while.body.preheader.i ]
   %dec.i = add nsw i32 %dif.029.i, -1
-  %incdec.ptr.i = getelementptr inbounds i64, ptr %ap.028.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ap.028.i, i64 8
   %9 = load i64, ptr %ap.028.i, align 8
   %add13.i = add i64 %9, %carry.031.i
-  %incdec.ptr14.i = getelementptr inbounds i64, ptr %rp.030.i, i64 1
+  %incdec.ptr14.i = getelementptr inbounds i8, ptr %rp.030.i, i64 8
   store i64 %add13.i, ptr %rp.030.i, align 8
   %cmp15.i = icmp eq i64 %add13.i, 0
   %10 = and i64 %carry.031.i, 1
@@ -367,7 +365,7 @@ if.else13:                                        ; preds = %if.else8
 if.end15:                                         ; preds = %while.end.i, %if.then, %if.then5, %if.else13, %if.then10
   %r_neg.0 = phi i32 [ %13, %if.then5 ], [ %lnot.ext, %if.then10 ], [ 0, %if.else13 ], [ %0, %if.then ], [ %0, %while.end.i ]
   %ret.0 = phi i32 [ %call7, %if.then5 ], [ %call12, %if.then10 ], [ 1, %if.else13 ], [ 0, %if.then ], [ 1, %while.end.i ]
-  %neg16 = getelementptr inbounds %struct.bignum_st, ptr %r, i64 0, i32 3
+  %neg16 = getelementptr inbounds i8, ptr %r, i64 16
   store i32 %r_neg.0, ptr %neg16, align 8
   ret i32 %ret.0
 }

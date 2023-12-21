@@ -868,7 +868,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._PyArgv = type { i64, i32, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 
 @_PyRuntime = external global %struct.pyruntimestate, align 8
 @.str = private unnamed_addr constant [9 x i32] [i32 95, i32 95, i32 109, i32 97, i32 105, i32 110, i32 95, i32 95, i32 0], align 4
@@ -935,7 +934,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %path0.i)
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i, align 8
   %call1.i = tail call ptr @_PyInterpreterState_GetConfig(ptr noundef %2) #14
   call void @_PyPathConfig_UpdateGlobal(ptr nonnull sret(%struct.PyStatus) align 8 %tmp.i, ptr noundef %call1.i) #14
@@ -944,7 +943,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %error.i
 
 if.end.i:                                         ; preds = %entry
-  %run_filename.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 61
+  %run_filename.i = getelementptr inbounds i8, ptr %call1.i, i64 416
   %4 = load ptr, ptr %run_filename.i, align 8
   %cmp2.not.i = icmp eq ptr %4, null
   br i1 %cmp2.not.i, label %if.end8.i, label %if.then3.i
@@ -1048,19 +1047,19 @@ pymain_get_importer.exit.i:                       ; preds = %error.i.i
 
 if.end8.i:                                        ; preds = %pymain_get_importer.exit.thread138.i, %if.then1.i.i.i, %if.end.i.i.i, %if.end8.i.i, %if.then1.i16.i.i, %if.end.i13.i.i, %Py_DECREF.exit27.i.i, %if.end.i
   %main_importer_path.1.i = phi ptr [ null, %if.end.i ], [ null, %pymain_get_importer.exit.thread138.i ], [ %call1.i.i, %if.end8.i.i ], [ %call1.i.i, %if.end.i.i.i ], [ %call1.i.i, %if.then1.i.i.i ], [ null, %Py_DECREF.exit27.i.i ], [ null, %if.end.i13.i.i ], [ null, %if.then1.i16.i.i ]
-  %isolated.i.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 1
+  %isolated.i.i = getelementptr inbounds i8, ptr %call1.i, i64 4
   %14 = load i32, ptr %isolated.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %14, 0
   br i1 %tobool.not.i.i, label %if.end.i47.i, label %pymain_import_readline.exit.i
 
 if.end.i47.i:                                     ; preds = %if.end8.i
-  %inspect.i.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 27
+  %inspect.i.i = getelementptr inbounds i8, ptr %call1.i, i64 188
   %15 = load i32, ptr %inspect.i.i, align 4
   %tobool1.not.i.i = icmp eq i32 %15, 0
   br i1 %tobool1.not.i.i, label %land.lhs.true.i.i, label %if.end4.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i47.i
-  %run_command.i.i.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 59
+  %run_command.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 400
   %16 = load ptr, ptr %run_command.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i, label %lor.lhs.false.i.i.i, label %pymain_import_readline.exit.i
@@ -1071,7 +1070,7 @@ lor.lhs.false.i.i.i:                              ; preds = %land.lhs.true.i.i
   br i1 %cmp1.not.i.i.i, label %config_run_code.exit.i.i, label %pymain_import_readline.exit.i
 
 config_run_code.exit.i.i:                         ; preds = %lor.lhs.false.i.i.i
-  %run_module.i.i.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 60
+  %run_module.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 408
   %18 = load ptr, ptr %run_module.i.i.i, align 8
   %cmp2.i.not.i.i = icmp eq ptr %18, null
   br i1 %cmp2.i.not.i.i, label %if.end4.i.i, label %pymain_import_readline.exit.i
@@ -1153,13 +1152,13 @@ if.end26.thread142.i:                             ; preds = %if.end.i.i54.i, %if
   br label %if.then28.i
 
 if.else.i:                                        ; preds = %pymain_import_readline.exit.i
-  %safe_path.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 41
+  %safe_path.i = getelementptr inbounds i8, ptr %call1.i, i64 260
   %25 = load i32, ptr %safe_path.i, align 4
   %tobool12.not.i = icmp eq i32 %25, 0
   br i1 %tobool12.not.i, label %if.then13.i, label %if.end26.i
 
 if.then13.i:                                      ; preds = %if.else.i
-  %argv.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 21
+  %argv.i = getelementptr inbounds i8, ptr %call1.i, i64 128
   %call14.i = call i32 @_PyPathConfig_ComputeSysPath0(ptr noundef nonnull %argv.i, ptr noundef nonnull %path0.i) #14
   %cmp15.i = icmp slt i32 %call14.i, 0
   br i1 %cmp15.i, label %error.i, label %if.else17.i
@@ -1216,7 +1215,7 @@ if.end.i82.i:                                     ; preds = %if.then31.i
 
 if.end32.i:                                       ; preds = %if.then28.i
   %call33.i = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull %call29.i) #14
-  %sys_path_0.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 62
+  %sys_path_0.i = getelementptr inbounds i8, ptr %call1.i, i64 424
   store ptr %call33.i, ptr %sys_path_0.i, align 8
   call void @PyMem_Free(ptr noundef nonnull %call29.i) #14
   %33 = load ptr, ptr %sys_path_0.i, align 8
@@ -1284,19 +1283,19 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   br i1 %retval.0.i57.i, label %error.i, label %if.end43.i
 
 if.end43.i:                                       ; preds = %Py_DECREF.exit.i, %if.end26.i, %if.then21.i, %do.body.i
-  %quiet.i.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 33
+  %quiet.i.i = getelementptr inbounds i8, ptr %call1.i, i64 212
   %42 = load i32, ptr %quiet.i.i, align 4
   %tobool.not.i61.i = icmp eq i32 %42, 0
   br i1 %tobool.not.i61.i, label %if.end.i62.i, label %pymain_header.exit.i
 
 if.end.i62.i:                                     ; preds = %if.end43.i
-  %verbose.i.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 32
+  %verbose.i.i = getelementptr inbounds i8, ptr %call1.i, i64 208
   %43 = load i32, ptr %verbose.i.i, align 8
   %tobool1.not.i63.i = icmp eq i32 %43, 0
   br i1 %tobool1.not.i63.i, label %land.lhs.true.i67.i, label %if.end6.i.i
 
 land.lhs.true.i67.i:                              ; preds = %if.end.i62.i
-  %run_command.i.i68.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 59
+  %run_command.i.i68.i = getelementptr inbounds i8, ptr %call1.i, i64 400
   %44 = load ptr, ptr %run_command.i.i68.i, align 8
   %cmp.not.i.i69.i = icmp eq ptr %44, null
   br i1 %cmp.not.i.i69.i, label %lor.lhs.false.i.i70.i, label %pymain_header.exit.i
@@ -1307,7 +1306,7 @@ lor.lhs.false.i.i70.i:                            ; preds = %land.lhs.true.i67.i
   br i1 %cmp1.not.i.i72.i, label %config_run_code.exit.i73.i, label %pymain_header.exit.i
 
 config_run_code.exit.i73.i:                       ; preds = %lor.lhs.false.i.i70.i
-  %run_module.i.i74.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 60
+  %run_module.i.i74.i = getelementptr inbounds i8, ptr %call1.i, i64 408
   %46 = load ptr, ptr %run_module.i.i74.i, align 8
   %cmp2.i.not.i75.i = icmp eq ptr %46, null
   br i1 %cmp2.i.not.i75.i, label %lor.lhs.false.i.i, label %pymain_header.exit.i
@@ -1320,7 +1319,7 @@ lor.lhs.false.i.i:                                ; preds = %config_run_code.exi
   br i1 %tobool.not.i.i77.i, label %stdin_is_interactive.exit.i.i, label %if.end6.i.i
 
 stdin_is_interactive.exit.i.i:                    ; preds = %lor.lhs.false.i.i
-  %interactive.i.i.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 28
+  %interactive.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 192
   %48 = load i32, ptr %interactive.i.i.i, align 8
   %tobool2.i.not.i.i = icmp eq i32 %48, 0
   br i1 %tobool2.i.not.i.i, label %pymain_header.exit.i, label %if.end6.i.i
@@ -1330,7 +1329,7 @@ if.end6.i.i:                                      ; preds = %stdin_is_interactiv
   %call7.i.i = call ptr @Py_GetVersion() #14
   %call8.i.i = call ptr @Py_GetPlatform() #14
   %call9.i64.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %49, ptr noundef nonnull @.str.5, ptr noundef %call7.i.i, ptr noundef %call8.i.i) #16
-  %site_import.i.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 24
+  %site_import.i.i = getelementptr inbounds i8, ptr %call1.i, i64 176
   %50 = load i32, ptr %site_import.i.i, align 8
   %tobool10.not.i65.i = icmp eq i32 %50, 0
   br i1 %tobool10.not.i65.i, label %pymain_header.exit.i, label %if.then11.i66.i
@@ -1342,7 +1341,7 @@ if.then11.i66.i:                                  ; preds = %if.end6.i.i
 
 pymain_header.exit.i:                             ; preds = %if.then11.i66.i, %if.end6.i.i, %stdin_is_interactive.exit.i.i, %config_run_code.exit.i73.i, %lor.lhs.false.i.i70.i, %land.lhs.true.i67.i, %if.end43.i
   %call44.i = call i32 @_PyInterpreterState_SetRunningMain(ptr noundef %2) #14
-  %run_command.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 59
+  %run_command.i = getelementptr inbounds i8, ptr %call1.i, i64 400
   %52 = load ptr, ptr %run_command.i, align 8
   %tobool45.not.i = icmp eq ptr %52, null
   br i1 %tobool45.not.i, label %if.else49.i, label %if.then46.i
@@ -1448,7 +1447,7 @@ pymain_run_command.exit.i:                        ; preds = %pymain_exit_err_pri
   br label %if.end68.i
 
 if.else49.i:                                      ; preds = %pymain_header.exit.i
-  %run_module.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 60
+  %run_module.i = getelementptr inbounds i8, ptr %call1.i, i64 408
   %59 = load ptr, ptr %run_module.i, align 8
   %tobool50.not.i = icmp eq ptr %59, null
   br i1 %tobool50.not.i, label %if.else54.i, label %if.then51.i
@@ -1481,13 +1480,13 @@ if.end68.i:                                       ; preds = %if.else63.i, %if.th
   %call53.sink.i = phi i32 [ %call53.i, %if.then51.i ], [ %call62.i, %if.then61.i ], [ %call64.i, %if.else63.i ], [ %call57.i, %if.then56.i ], [ %retval.0.i88.i, %pymain_run_command.exit.i ]
   store i32 %call53.sink.i, ptr %exitcode, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cf.i95.i)
-  %inspect.i96.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 27
+  %inspect.i96.i = getelementptr inbounds i8, ptr %call1.i, i64 188
   %61 = load i32, ptr %inspect.i96.i, align 4
   %tobool.not.i97.i = icmp eq i32 %61, 0
   br i1 %tobool.not.i97.i, label %land.lhs.true.i115.i, label %land.lhs.true4.i.i
 
 land.lhs.true.i115.i:                             ; preds = %if.end68.i
-  %use_environment.i.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 2
+  %use_environment.i.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %62 = load i32, ptr %use_environment.i.i, align 8
   %call.i116.i = call ptr @_Py_GetEnv(i32 noundef %62, ptr noundef nonnull @.str.34) #14
   %tobool1.not.i117.i = icmp eq ptr %call.i116.i, null
@@ -1511,7 +1510,7 @@ land.lhs.true4.i.i:                               ; preds = %if.end.i119.i, %if.
   br i1 %tobool.not.i.i100.i, label %stdin_is_interactive.exit.i112.i, label %land.lhs.true7.i.i
 
 stdin_is_interactive.exit.i112.i:                 ; preds = %land.lhs.true4.i.i
-  %interactive.i.i113.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 28
+  %interactive.i.i113.i = getelementptr inbounds i8, ptr %call1.i, i64 192
   %64 = load i32, ptr %interactive.i.i113.i, align 8
   %tobool2.i.not.i114.i = icmp eq i32 %64, 0
   br i1 %tobool2.i.not.i114.i, label %pymain_repl.exit.i, label %land.lhs.true7.i.i
@@ -1527,7 +1526,7 @@ lor.lhs.false.i.i106.i:                           ; preds = %land.lhs.true7.i.i
   br i1 %cmp1.not.i.i108.i, label %config_run_code.exit.i109.i, label %if.end11.i.i
 
 config_run_code.exit.i109.i:                      ; preds = %lor.lhs.false.i.i106.i
-  %run_module.i.i110.i = getelementptr inbounds %struct.PyConfig, ptr %call1.i, i64 0, i32 60
+  %run_module.i.i110.i = getelementptr inbounds i8, ptr %call1.i, i64 408
   %67 = load ptr, ptr %run_module.i.i110.i, align 8
   %cmp2.i.not.i111.i = icmp eq ptr %67, null
   br i1 %cmp2.i.not.i111.i, label %pymain_repl.exit.i, label %if.end11.i.i
@@ -1651,11 +1650,11 @@ entry:
   %args = alloca %struct._PyArgv, align 8
   %conv = sext i32 %argc to i64
   store i64 %conv, ptr %args, align 8
-  %use_bytes_argv = getelementptr inbounds %struct._PyArgv, ptr %args, i64 0, i32 1
+  %use_bytes_argv = getelementptr inbounds i8, ptr %args, i64 8
   store i32 0, ptr %use_bytes_argv, align 8
-  %bytes_argv = getelementptr inbounds %struct._PyArgv, ptr %args, i64 0, i32 2
+  %bytes_argv = getelementptr inbounds i8, ptr %args, i64 16
   store ptr null, ptr %bytes_argv, align 8
-  %wchar_argv = getelementptr inbounds %struct._PyArgv, ptr %args, i64 0, i32 3
+  %wchar_argv = getelementptr inbounds i8, ptr %args, i64 24
   store ptr %argv, ptr %wchar_argv, align 8
   %call = call fastcc i32 @pymain_main(ptr noundef nonnull %args)
   ret i32 %call
@@ -1696,20 +1695,20 @@ if.end.i:                                         ; preds = %entry
 
 if.end5.i:                                        ; preds = %if.end.i
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #14, !noalias !6
-  %use_bytes_argv.i = getelementptr inbounds %struct._PyArgv, ptr %args, i64 0, i32 1
+  %use_bytes_argv.i = getelementptr inbounds i8, ptr %args, i64 8
   %2 = load i32, ptr %use_bytes_argv.i, align 8, !noalias !6
   %tobool.not.i = icmp eq i32 %2, 0
   %3 = load i64, ptr %args, align 8, !noalias !6
   br i1 %tobool.not.i, label %if.else.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end5.i
-  %bytes_argv.i = getelementptr inbounds %struct._PyArgv, ptr %args, i64 0, i32 2
+  %bytes_argv.i = getelementptr inbounds i8, ptr %args, i64 16
   %4 = load ptr, ptr %bytes_argv.i, align 8, !noalias !6
   call void @PyConfig_SetBytesArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp7.i, ptr noundef nonnull %config.i, i64 noundef %3, ptr noundef %4) #14, !noalias !6
   br label %if.end10.i
 
 if.else.i:                                        ; preds = %if.end5.i
-  %wchar_argv.i = getelementptr inbounds %struct._PyArgv, ptr %args, i64 0, i32 3
+  %wchar_argv.i = getelementptr inbounds i8, ptr %args, i64 24
   %5 = load ptr, ptr %wchar_argv.i, align 8, !noalias !6
   call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %tmp8.i, ptr noundef nonnull %config.i, i64 noundef %3, ptr noundef %5) #14, !noalias !6
   br label %if.end10.i
@@ -1756,7 +1755,7 @@ if.then:                                          ; preds = %pymain_init.exit
   call void @_PyPathConfig_ClearGlobal() #14
   call void @_Py_ClearArgcArgv() #14
   call void @_PyRuntime_Finalize() #14
-  %exitcode = getelementptr inbounds %struct.PyStatus, ptr %status, i64 0, i32 3
+  %exitcode = getelementptr inbounds i8, ptr %status, i64 24
   %10 = load i32, ptr %exitcode, align 8
   br label %return
 
@@ -1779,11 +1778,11 @@ entry:
   %args = alloca %struct._PyArgv, align 8
   %conv = sext i32 %argc to i64
   store i64 %conv, ptr %args, align 8
-  %use_bytes_argv = getelementptr inbounds %struct._PyArgv, ptr %args, i64 0, i32 1
+  %use_bytes_argv = getelementptr inbounds i8, ptr %args, i64 8
   store i32 1, ptr %use_bytes_argv, align 8
-  %bytes_argv = getelementptr inbounds %struct._PyArgv, ptr %args, i64 0, i32 2
+  %bytes_argv = getelementptr inbounds i8, ptr %args, i64 16
   store ptr %argv, ptr %bytes_argv, align 8
-  %wchar_argv = getelementptr inbounds %struct._PyArgv, ptr %args, i64 0, i32 3
+  %wchar_argv = getelementptr inbounds i8, ptr %args, i64 24
   store ptr null, ptr %wchar_argv, align 8
   %call = call fastcc i32 @pymain_main(ptr noundef nonnull %args)
   ret i32 %call
@@ -2168,7 +2167,7 @@ entry:
   %exitcode.i.i.i = alloca i32, align 4
   %sb.i = alloca %struct.stat, align 8
   %cf.i = alloca %struct.PyCompilerFlags, align 8
-  %run_filename = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 61
+  %run_filename = getelementptr inbounds i8, ptr %config, i64 416
   %0 = load ptr, ptr %run_filename, align 8
   %call = tail call ptr @PyUnicode_FromWideChar(ptr noundef %0, i64 noundef -1) #14
   %cmp = icmp eq ptr %call, null
@@ -2179,7 +2178,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %program_name1 = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1 = getelementptr inbounds i8, ptr %config, i64 280
   %1 = load ptr, ptr %program_name1, align 8
   %call2 = tail call ptr @PyUnicode_FromWideChar(ptr noundef %1, i64 noundef -1) #14
   %cmp3 = icmp eq ptr %call2, null
@@ -2206,7 +2205,7 @@ Py_DECREF.exit24:                                 ; preds = %if.then4, %if.then1
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %skip_source_first_line = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 58
+  %skip_source_first_line = getelementptr inbounds i8, ptr %config, i64 392
   %4 = load i32, ptr %skip_source_first_line, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %sb.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cf.i)
@@ -2268,7 +2267,7 @@ if.end16.i:                                       ; preds = %while.cond.i, %if.t
   br i1 %cmp19.i, label %land.lhs.true.i, label %if.end23.i
 
 land.lhs.true.i:                                  ; preds = %if.end16.i
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %sb.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %sb.i, i64 24
   %7 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %7, 61440
   %cmp20.i = icmp eq i32 %and.i, 16384
@@ -2367,13 +2366,13 @@ entry:
   br i1 %tobool.not.i, label %stdin_is_interactive.exit, label %if.then
 
 stdin_is_interactive.exit:                        ; preds = %entry
-  %interactive.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 28
+  %interactive.i = getelementptr inbounds i8, ptr %config, i64 192
   %1 = load i32, ptr %interactive.i, align 8
   %tobool2.i.not = icmp eq i32 %1, 0
   br i1 %tobool2.i.not, label %if.end8, label %if.then
 
 if.then:                                          ; preds = %entry, %stdin_is_interactive.exit
-  %inspect1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 27
+  %inspect1.i = getelementptr inbounds i8, ptr %config, i64 188
   store i32 0, ptr %inspect1.i, align 4
   store i32 0, ptr @Py_InspectFlag, align 4
   %2 = getelementptr i8, ptr %config, i64 8
@@ -2685,7 +2684,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.end8
-  %tp_vectorcall_offset.i.i.i = getelementptr inbounds %struct._typeobject, ptr %callable.val.i.i.i, i64 0, i32 5
+  %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
   %7 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %call1, i64 %7
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1

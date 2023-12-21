@@ -4,18 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.I2CSlaveClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr }
-%struct.I2CEchoState = type { %struct.I2CSlave, ptr, i32, ptr, i32, [3 x i8] }
-%struct.I2CSlave = type { %struct.DeviceState, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
 
 @i2c_echo = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 200, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @i2c_echo_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [9 x i8] c"i2c-echo\00", align 1
@@ -55,13 +43,13 @@ define internal void @i2c_echo_class_init(ptr noundef %oc, ptr nocapture readnon
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull @__func__.I2C_SLAVE_CLASS) #2
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #2
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i4, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i4, i64 144
   store ptr @i2c_echo_realize, ptr %realize, align 8
-  %event = getelementptr inbounds %struct.I2CSlaveClass, ptr %call.i, i64 0, i32 4
+  %event = getelementptr inbounds i8, ptr %call.i, i64 200
   store ptr @i2c_echo_event, ptr %event, align 8
-  %recv = getelementptr inbounds %struct.I2CSlaveClass, ptr %call.i, i64 0, i32 3
+  %recv = getelementptr inbounds i8, ptr %call.i, i64 192
   store ptr @i2c_echo_recv, ptr %recv, align 8
-  %send = getelementptr inbounds %struct.I2CSlaveClass, ptr %call.i, i64 0, i32 1
+  %send = getelementptr inbounds i8, ptr %call.i, i64 176
   store ptr @i2c_echo_send, ptr %send, align 8
   ret void
 }
@@ -72,10 +60,10 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 18, ptr noundef nonnull @__func__.I2C_ECHO) #2
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %dev) #2
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 67, ptr noundef nonnull @__func__.I2C_BUS) #2
-  %bus3 = getelementptr inbounds %struct.I2CEchoState, ptr %call.i, i64 0, i32 1
+  %bus3 = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr %call.i4, ptr %bus3, align 8
   %call4 = tail call ptr @qemu_bh_new_full(ptr noundef nonnull @i2c_echo_bh, ptr noundef %call.i, ptr noundef nonnull @.str.5, ptr noundef null) #2
-  %bh = getelementptr inbounds %struct.I2CEchoState, ptr %call.i, i64 0, i32 3
+  %bh = getelementptr inbounds i8, ptr %call.i, i64 184
   store ptr %call4, ptr %bh, align 8
   ret void
 }
@@ -92,23 +80,23 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %pos = getelementptr inbounds %struct.I2CEchoState, ptr %call.i, i64 0, i32 4
+  %pos = getelementptr inbounds i8, ptr %call.i, i64 192
   store i32 0, ptr %pos, align 8
   br label %sw.epilog
 
 sw.bb1:                                           ; preds = %entry
-  %pos2 = getelementptr inbounds %struct.I2CEchoState, ptr %call.i, i64 0, i32 4
+  %pos2 = getelementptr inbounds i8, ptr %call.i, i64 192
   store i32 0, ptr %pos2, align 8
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
-  %pos4 = getelementptr inbounds %struct.I2CEchoState, ptr %call.i, i64 0, i32 4
+  %pos4 = getelementptr inbounds i8, ptr %call.i, i64 192
   store i32 0, ptr %pos4, align 8
-  %state5 = getelementptr inbounds %struct.I2CEchoState, ptr %call.i, i64 0, i32 2
+  %state5 = getelementptr inbounds i8, ptr %call.i, i64 176
   store i32 1, ptr %state5, align 8
-  %bus = getelementptr inbounds %struct.I2CEchoState, ptr %call.i, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %call.i, i64 168
   %0 = load ptr, ptr %bus, align 8
-  %bh = getelementptr inbounds %struct.I2CEchoState, ptr %call.i, i64 0, i32 3
+  %bh = getelementptr inbounds i8, ptr %call.i, i64 184
   %1 = load ptr, ptr %bh, align 8
   tail call void @i2c_bus_master(ptr noundef %0, ptr noundef %1) #2
   br label %sw.epilog
@@ -125,16 +113,17 @@ return:                                           ; preds = %entry, %sw.epilog
 define internal zeroext i8 @i2c_echo_recv(ptr noundef %s) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 18, ptr noundef nonnull @__func__.I2C_ECHO) #2
-  %pos = getelementptr inbounds %struct.I2CEchoState, ptr %call.i, i64 0, i32 4
+  %pos = getelementptr inbounds i8, ptr %call.i, i64 192
   %0 = load i32, ptr %pos, align 8
   %cmp = icmp ugt i32 %0, 2
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %data = getelementptr inbounds i8, ptr %call.i, i64 196
   %inc = add nuw nsw i32 %0, 1
   store i32 %inc, ptr %pos, align 8
   %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr %struct.I2CEchoState, ptr %call.i, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [3 x i8], ptr %data, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   br label %return
 
@@ -147,16 +136,17 @@ return:                                           ; preds = %entry, %if.end
 define internal i32 @i2c_echo_send(ptr noundef %s, i8 noundef zeroext %data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 18, ptr noundef nonnull @__func__.I2C_ECHO) #2
-  %pos = getelementptr inbounds %struct.I2CEchoState, ptr %call.i, i64 0, i32 4
+  %pos = getelementptr inbounds i8, ptr %call.i, i64 192
   %0 = load i32, ptr %pos, align 8
   %cmp = icmp ugt i32 %0, 2
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
+  %data1 = getelementptr inbounds i8, ptr %call.i, i64 196
   %inc = add nuw nsw i32 %0, 1
   store i32 %inc, ptr %pos, align 8
   %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr %struct.I2CEchoState, ptr %call.i, i64 0, i32 5, i64 %idxprom
+  %arrayidx = getelementptr [3 x i8], ptr %data1, i64 0, i64 %idxprom
   store i8 %data, ptr %arrayidx, align 1
   br label %return
 
@@ -174,7 +164,7 @@ declare ptr @qemu_bh_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @i2c_echo_bh(ptr nocapture noundef %opaque) #0 {
 entry:
-  %state1 = getelementptr inbounds %struct.I2CEchoState, ptr %opaque, i64 0, i32 2
+  %state1 = getelementptr inbounds i8, ptr %opaque, i64 176
   %0 = load i32, ptr %state1, align 8
   switch i32 %0, label %sw.epilog [
     i32 0, label %return
@@ -183,47 +173,48 @@ entry:
   ]
 
 sw.bb2:                                           ; preds = %entry
-  %bus = getelementptr inbounds %struct.I2CEchoState, ptr %opaque, i64 0, i32 1
+  %bus = getelementptr inbounds i8, ptr %opaque, i64 168
   %1 = load ptr, ptr %bus, align 8
-  %data = getelementptr inbounds %struct.I2CEchoState, ptr %opaque, i64 0, i32 5
+  %data = getelementptr inbounds i8, ptr %opaque, i64 196
   %2 = load i8, ptr %data, align 4
   %call = tail call i32 @i2c_start_send_async(ptr noundef %1, i8 noundef zeroext %2) #2
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %release_bus
 
 if.end:                                           ; preds = %sw.bb2
-  %pos = getelementptr inbounds %struct.I2CEchoState, ptr %opaque, i64 0, i32 4
+  %pos = getelementptr inbounds i8, ptr %opaque, i64 192
   %3 = load i32, ptr %pos, align 8
   %inc = add i32 %3, 1
   store i32 %inc, ptr %pos, align 8
   br label %return.sink.split
 
 sw.bb4:                                           ; preds = %entry
-  %pos5 = getelementptr inbounds %struct.I2CEchoState, ptr %opaque, i64 0, i32 4
+  %pos5 = getelementptr inbounds i8, ptr %opaque, i64 192
   %4 = load i32, ptr %pos5, align 8
   %cmp = icmp ugt i32 %4, 2
   br i1 %cmp, label %sw.epilog, label %if.end7
 
 if.end7:                                          ; preds = %sw.bb4
-  %bus8 = getelementptr inbounds %struct.I2CEchoState, ptr %opaque, i64 0, i32 1
+  %bus8 = getelementptr inbounds i8, ptr %opaque, i64 168
   %5 = load ptr, ptr %bus8, align 8
+  %data9 = getelementptr inbounds i8, ptr %opaque, i64 196
   %inc11 = add nuw nsw i32 %4, 1
   store i32 %inc11, ptr %pos5, align 8
   %idxprom = zext nneg i32 %4 to i64
-  %arrayidx12 = getelementptr %struct.I2CEchoState, ptr %opaque, i64 0, i32 5, i64 %idxprom
+  %arrayidx12 = getelementptr [3 x i8], ptr %data9, i64 0, i64 %idxprom
   %6 = load i8, ptr %arrayidx12, align 1
   %call13 = tail call i32 @i2c_send_async(ptr noundef %5, i8 noundef zeroext %6) #2
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %return, label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end7, %sw.bb4, %entry
-  %bus17 = getelementptr inbounds %struct.I2CEchoState, ptr %opaque, i64 0, i32 1
+  %bus17 = getelementptr inbounds i8, ptr %opaque, i64 168
   %7 = load ptr, ptr %bus17, align 8
   tail call void @i2c_end_transfer(ptr noundef %7) #2
   br label %release_bus
 
 release_bus:                                      ; preds = %sw.bb2, %sw.epilog
-  %bus18 = getelementptr inbounds %struct.I2CEchoState, ptr %opaque, i64 0, i32 1
+  %bus18 = getelementptr inbounds i8, ptr %opaque, i64 168
   %8 = load ptr, ptr %bus18, align 8
   tail call void @i2c_bus_release(ptr noundef %8) #2
   br label %return.sink.split

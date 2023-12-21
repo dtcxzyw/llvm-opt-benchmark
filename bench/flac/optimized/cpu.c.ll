@@ -3,13 +3,10 @@ source_filename = "bench/flac/original/cpu.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.FLAC__CPUInfo = type { i32, i32, %struct.FLAC__CPUInfo_x86 }
-%struct.FLAC__CPUInfo_x86 = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @FLAC__cpu_info(ptr nocapture noundef writeonly %info) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.FLAC__CPUInfo, ptr %info, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %info, i64 4
   store i32 1, ptr %type, align 4
   store i32 1, ptr %info, align 4
   %0 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #1, !srcloc !4
@@ -23,7 +20,7 @@ entry:
   %cmp2.i = icmp eq i32 %asmresult6.i.i, 1818588270
   %narrow.i = select i1 %or.cond.i, i1 %cmp2.i, i1 false
   %cond.i = zext i1 %narrow.i to i32
-  %x86.i = getelementptr inbounds %struct.FLAC__CPUInfo, ptr %info, i64 0, i32 2
+  %x86.i = getelementptr inbounds i8, ptr %info, i64 8
   store i32 %cond.i, ptr %x86.i, align 4
   %asmresult.i20.i = extractvalue { i32, i32, i32, i32 } %0, 0
   %cmp.not.i.i = icmp eq i32 %asmresult.i20.i, 0
@@ -40,44 +37,44 @@ cpuinfo_x86.exit.i:                               ; preds = %if.then.i.i, %entry
   %flags_edx.0.i = phi i32 [ %asmresult7.i27.i, %if.then.i.i ], [ 0, %entry ]
   %and.i = lshr i32 %flags_edx.0.i, 15
   %and.lobit.i = and i32 %and.i, 1
-  %cmov.i = getelementptr inbounds %struct.FLAC__CPUInfo, ptr %info, i64 0, i32 2, i32 1
+  %cmov.i = getelementptr inbounds i8, ptr %info, i64 12
   store i32 %and.lobit.i, ptr %cmov.i, align 4
   %and6.i = lshr i32 %flags_edx.0.i, 23
   %and6.lobit.i = and i32 %and6.i, 1
-  %mmx.i = getelementptr inbounds %struct.FLAC__CPUInfo, ptr %info, i64 0, i32 2, i32 2
+  %mmx.i = getelementptr inbounds i8, ptr %info, i64 16
   store i32 %and6.lobit.i, ptr %mmx.i, align 4
   %and10.i = lshr i32 %flags_edx.0.i, 25
   %and10.lobit.i = and i32 %and10.i, 1
-  %sse.i = getelementptr inbounds %struct.FLAC__CPUInfo, ptr %info, i64 0, i32 2, i32 3
+  %sse.i = getelementptr inbounds i8, ptr %info, i64 20
   store i32 %and10.lobit.i, ptr %sse.i, align 4
   %and14.i = lshr i32 %flags_edx.0.i, 26
   %and14.lobit.i = and i32 %and14.i, 1
-  %sse2.i = getelementptr inbounds %struct.FLAC__CPUInfo, ptr %info, i64 0, i32 2, i32 4
+  %sse2.i = getelementptr inbounds i8, ptr %info, i64 24
   store i32 %and14.lobit.i, ptr %sse2.i, align 4
   %and18.i = and i32 %flags_ecx.0.i, 1
-  %sse3.i = getelementptr inbounds %struct.FLAC__CPUInfo, ptr %info, i64 0, i32 2, i32 5
+  %sse3.i = getelementptr inbounds i8, ptr %info, i64 28
   store i32 %and18.i, ptr %sse3.i, align 4
   %and22.i = lshr i32 %flags_ecx.0.i, 9
   %and22.lobit.i = and i32 %and22.i, 1
-  %ssse3.i = getelementptr inbounds %struct.FLAC__CPUInfo, ptr %info, i64 0, i32 2, i32 6
+  %ssse3.i = getelementptr inbounds i8, ptr %info, i64 32
   store i32 %and22.lobit.i, ptr %ssse3.i, align 4
   %and26.i = lshr i32 %flags_ecx.0.i, 19
   %and26.lobit.i = and i32 %and26.i, 1
-  %sse41.i = getelementptr inbounds %struct.FLAC__CPUInfo, ptr %info, i64 0, i32 2, i32 7
+  %sse41.i = getelementptr inbounds i8, ptr %info, i64 36
   store i32 %and26.lobit.i, ptr %sse41.i, align 4
   %and30.i = lshr i32 %flags_ecx.0.i, 20
   %and30.lobit.i = and i32 %and30.i, 1
-  %sse42.i = getelementptr inbounds %struct.FLAC__CPUInfo, ptr %info, i64 0, i32 2, i32 8
+  %sse42.i = getelementptr inbounds i8, ptr %info, i64 40
   store i32 %and30.lobit.i, ptr %sse42.i, align 4
   %and34.i = and i32 %flags_ecx.0.i, 134217728
   %tobool35.i = icmp ne i32 %and34.i, 0
   %and37.i = lshr i32 %flags_ecx.0.i, 28
   %and37.lobit.i = and i32 %and37.i, 1
-  %avx.i = getelementptr inbounds %struct.FLAC__CPUInfo, ptr %info, i64 0, i32 2, i32 9
+  %avx.i = getelementptr inbounds i8, ptr %info, i64 44
   store i32 %and37.lobit.i, ptr %avx.i, align 4
   %and41.i = lshr i32 %flags_ecx.0.i, 12
   %and41.lobit.i = and i32 %and41.i, 1
-  %fma.i = getelementptr inbounds %struct.FLAC__CPUInfo, ptr %info, i64 0, i32 2, i32 11
+  %fma.i = getelementptr inbounds i8, ptr %info, i64 52
   store i32 %and41.lobit.i, ptr %fma.i, align 4
   %cmp.not.i32.i = icmp ult i32 %asmresult.i20.i, 7
   br i1 %cmp.not.i32.i, label %cpuinfo_x86.exit39.i, label %if.then.i33.i
@@ -91,11 +88,11 @@ cpuinfo_x86.exit39.i:                             ; preds = %if.then.i33.i, %cpu
   %flags_ebx.0.i = phi i32 [ %asmresult5.i35.i, %if.then.i33.i ], [ 0, %cpuinfo_x86.exit.i ]
   %and45.i = lshr i32 %flags_ebx.0.i, 5
   %and45.lobit.i = and i32 %and45.i, 1
-  %avx2.i = getelementptr inbounds %struct.FLAC__CPUInfo, ptr %info, i64 0, i32 2, i32 10
+  %avx2.i = getelementptr inbounds i8, ptr %info, i64 48
   store i32 %and45.lobit.i, ptr %avx2.i, align 4
   %and49.i = lshr i32 %flags_ebx.0.i, 8
   %and49.lobit.i = and i32 %and49.i, 1
-  %bmi2.i = getelementptr inbounds %struct.FLAC__CPUInfo, ptr %info, i64 0, i32 2, i32 12
+  %bmi2.i = getelementptr inbounds i8, ptr %info, i64 56
   store i32 %and49.lobit.i, ptr %bmi2.i, align 4
   %tobool55.i = icmp ne i32 %and37.lobit.i, 0
   %or.cond1.i = select i1 %tobool55.i, i1 %tobool35.i, i1 false

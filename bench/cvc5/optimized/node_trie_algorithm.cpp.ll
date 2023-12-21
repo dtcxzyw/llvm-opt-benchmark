@@ -16,9 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base" = type { i64 }
 %"struct.std::_Head_base.2" = type { ptr }
 %"struct.std::_Head_base.3" = type { ptr }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [56 x i8] }
 
 $_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE17_M_realloc_insertIJRS6_DniEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_ = comdat any
 
@@ -57,8 +54,8 @@ if.else.i:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %visit, i8 0, i64 24, i1 false)
   store ptr null, ptr %ref.tmp, align 8
   store i32 0, ptr %ref.tmp1, align 4
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<const cvc5::internal::NodeTemplateTrie<false> *, const cvc5::internal::NodeTemplateTrie<false> *, unsigned long>, std::allocator<std::tuple<const cvc5::internal::NodeTemplateTrie<false> *, const cvc5::internal::NodeTemplateTrie<false> *, unsigned long>>>::_Vector_impl_data", ptr %visit, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<const cvc5::internal::NodeTemplateTrie<false> *, const cvc5::internal::NodeTemplateTrie<false> *, unsigned long>, std::allocator<std::tuple<const cvc5::internal::NodeTemplateTrie<false> *, const cvc5::internal::NodeTemplateTrie<false> *, unsigned long>>>::_Vector_impl_data", ptr %visit, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %visit, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %visit, i64 16
   invoke void @_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE17_M_realloc_insertIJRS6_DniEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %visit, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %t.addr, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp1)
           to label %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE12emplace_backIJRS6_DniEEERS7_DpOT_.exit unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -69,10 +66,10 @@ _ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE1
 
 do.body:                                          ; preds = %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE12emplace_backIJRS6_DniEEERS7_DpOT_.exit, %do.cond
   %0 = phi ptr [ %.pre.pre, %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE12emplace_backIJRS6_DniEEERS7_DpOT_.exit ], [ %53, %do.cond ]
-  %add.ptr.i.i = getelementptr inbounds %"class.std::tuple", ptr %0, i64 -1
-  %add.ptr.i.i.i24 = getelementptr %"class.std::tuple", ptr %0, i64 -1, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 -24
+  %add.ptr.i.i.i24 = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load ptr, ptr %add.ptr.i.i.i24, align 8
-  %add.ptr.i.i.i.i = getelementptr %"class.std::tuple", ptr %0, i64 -1, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -16
   %2 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %3 = load i64, ptr %add.ptr.i.i, align 8
   store ptr %add.ptr.i.i, ptr %_M_finish.i, align 8
@@ -87,17 +84,17 @@ invoke.cont12:                                    ; preds = %if.then
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %_M_left.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %_M_left.i.i.i, align 8, !noalias !4
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %4, i64 0, i32 1
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load ptr, ptr %_M_storage.i.i.i, align 8, !noalias !4
   store ptr %5, ptr %agg.tmp, align 8, !alias.scope !4
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %_M_left.i.i.i29 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load ptr, ptr %_M_left.i.i.i29, align 8, !noalias !7
-  %_M_storage.i.i.i30 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %6, i64 0, i32 1
+  %_M_storage.i.i.i30 = getelementptr inbounds i8, ptr %6, i64 32
   %7 = load ptr, ptr %_M_storage.i.i.i30, align 8, !noalias !7
   store ptr %7, ptr %agg.tmp10, align 8, !alias.scope !7
   %vtable = load ptr, ptr %ntpc, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %8 = load ptr, ptr %vfn, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %ntpc, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp10)
           to label %do.cond unwind label %lpad13
@@ -147,7 +144,7 @@ for.body.lr.ph:                                   ; preds = %if.then18
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %__begin6.sroa.0.0178 = phi ptr [ %10, %for.body.lr.ph ], [ %call.i, %for.inc ]
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin6.sroa.0.0178, i64 0, i32 1, i32 0, i64 8
+  %second = getelementptr inbounds i8, ptr %__begin6.sroa.0.0178, i64 40
   store ptr %second, ptr %ref.tmp24, align 8
   store ptr null, ptr %ref.tmp25, align 8
   store i64 %add, ptr %ref.tmp26, align 8
@@ -164,7 +161,7 @@ if.then.i35:                                      ; preds = %for.body
   %15 = load ptr, ptr %ref.tmp24, align 8
   store ptr %15, ptr %14, align 8
   %16 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i36 = getelementptr inbounds %"class.std::tuple", ptr %16, i64 1
+  %incdec.ptr.i36 = getelementptr inbounds i8, ptr %16, i64 24
   store ptr %incdec.ptr.i36, ptr %_M_finish.i, align 8
   br label %for.inc
 
@@ -195,19 +192,19 @@ for.body40:                                       ; preds = %for.body40.lr.ph, %
   br i1 %cmp.i46.not179, label %for.inc79, label %for.body48.lr.ph
 
 for.body48.lr.ph:                                 ; preds = %for.body40
-  %_M_storage.i.i47 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.0182, i64 0, i32 1
-  %second67 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it.sroa.0.0182, i64 0, i32 1, i32 0, i64 8
+  %_M_storage.i.i47 = getelementptr inbounds i8, ptr %it.sroa.0.0182, i64 32
+  %second67 = getelementptr inbounds i8, ptr %it.sroa.0.0182, i64 40
   br label %for.body48
 
 for.body48:                                       ; preds = %for.body48.lr.ph, %for.inc76
   %it2.sroa.0.0180 = phi ptr [ %call.i44, %for.body48.lr.ph ], [ %call.i60, %for.inc76 ]
   %18 = load ptr, ptr %_M_storage.i.i47, align 8
   store ptr %18, ptr %agg.tmp49, align 8
-  %_M_storage.i.i48 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it2.sroa.0.0180, i64 0, i32 1
+  %_M_storage.i.i48 = getelementptr inbounds i8, ptr %it2.sroa.0.0180, i64 32
   %19 = load ptr, ptr %_M_storage.i.i48, align 8
   store ptr %19, ptr %agg.tmp52, align 8
   %vtable57 = load ptr, ptr %ntpc, align 8
-  %vfn58 = getelementptr inbounds ptr, ptr %vtable57, i64 2
+  %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 16
   %20 = load ptr, ptr %vfn58, align 8
   %call61 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %ntpc, ptr noundef nonnull %agg.tmp49, ptr noundef nonnull %agg.tmp52)
           to label %invoke.cont60 unwind label %lpad59
@@ -216,7 +213,7 @@ invoke.cont60:                                    ; preds = %for.body48
   br i1 %call61, label %if.then64, label %for.inc76
 
 if.then64:                                        ; preds = %invoke.cont60
-  %second70 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %it2.sroa.0.0180, i64 0, i32 1, i32 0, i64 8
+  %second70 = getelementptr inbounds i8, ptr %it2.sroa.0.0180, i64 40
   %21 = load ptr, ptr %_M_finish.i, align 8
   %22 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i53 = icmp eq ptr %21, %22
@@ -229,7 +226,7 @@ if.then.i54:                                      ; preds = %if.then64
   %24 = getelementptr inbounds i8, ptr %21, i64 16
   store ptr %second67, ptr %24, align 8
   %25 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i55 = getelementptr inbounds %"class.std::tuple", ptr %25, i64 1
+  %incdec.ptr.i55 = getelementptr inbounds i8, ptr %25, i64 24
   store ptr %incdec.ptr.i55, ptr %_M_finish.i, align 8
   br label %for.inc76
 
@@ -286,14 +283,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 16
   %31 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !13, !noalias !10
   store i64 %31, ptr %30, align 8, !alias.scope !10, !noalias !13
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::tuple", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::tuple", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 24
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %21
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21.i, label %for.body.i.i.i.i, !llvm.loop !15
 
 _ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i87 = getelementptr inbounds %"class.std::tuple", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i87 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i, i64 24
   %tobool.not.i.i = icmp eq ptr %26, null
   br i1 %tobool.not.i.i, label %.noexc59, label %if.then.i22.i
 
@@ -340,24 +337,24 @@ for.body90.lr.ph:                                 ; preds = %if.else82
 
 for.body90:                                       ; preds = %for.body90.lr.ph, %for.inc131
   %__begin5.sroa.0.0176 = phi ptr [ %call.i81, %for.inc131 ], [ %33, %for.body90.lr.ph ]
-  %_M_storage.i.i65 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin5.sroa.0.0176, i64 0, i32 1
+  %_M_storage.i.i65 = getelementptr inbounds i8, ptr %__begin5.sroa.0.0176, i64 32
   %36 = load ptr, ptr %_M_left.i.i66, align 8
   %cmp.i68.not173 = icmp eq ptr %36, %add.ptr.i.i67
   br i1 %cmp.i68.not173, label %for.inc131, label %for.body102.lr.ph
 
 for.body102.lr.ph:                                ; preds = %for.body90
-  %second120 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin5.sroa.0.0176, i64 0, i32 1, i32 0, i64 8
+  %second120 = getelementptr inbounds i8, ptr %__begin5.sroa.0.0176, i64 40
   br label %for.body102
 
 for.body102:                                      ; preds = %for.body102.lr.ph, %for.inc128
   %__begin694.sroa.0.0174 = phi ptr [ %36, %for.body102.lr.ph ], [ %call.i80, %for.inc128 ]
-  %_M_storage.i.i69 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin694.sroa.0.0174, i64 0, i32 1
+  %_M_storage.i.i69 = getelementptr inbounds i8, ptr %__begin694.sroa.0.0174, i64 32
   %37 = load ptr, ptr %_M_storage.i.i65, align 8
   store ptr %37, ptr %agg.tmp104, align 8
   %38 = load ptr, ptr %_M_storage.i.i69, align 8
   store ptr %38, ptr %agg.tmp107, align 8
   %vtable111 = load ptr, ptr %ntpc, align 8
-  %vfn112 = getelementptr inbounds ptr, ptr %vtable111, i64 2
+  %vfn112 = getelementptr inbounds i8, ptr %vtable111, i64 16
   %39 = load ptr, ptr %vfn112, align 8
   %call115 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(8) %ntpc, ptr noundef nonnull %agg.tmp104, ptr noundef nonnull %agg.tmp107)
           to label %invoke.cont114 unwind label %lpad113
@@ -366,7 +363,7 @@ invoke.cont114:                                   ; preds = %for.body102
   br i1 %call115, label %if.then118, label %for.inc128
 
 if.then118:                                       ; preds = %invoke.cont114
-  %second122 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin694.sroa.0.0174, i64 0, i32 1, i32 0, i64 8
+  %second122 = getelementptr inbounds i8, ptr %__begin694.sroa.0.0174, i64 40
   %40 = load ptr, ptr %_M_finish.i, align 8
   %41 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i72 = icmp eq ptr %40, %41
@@ -379,7 +376,7 @@ if.then.i73:                                      ; preds = %if.then118
   %43 = getelementptr inbounds i8, ptr %40, i64 16
   store ptr %second120, ptr %43, align 8
   %44 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i74 = getelementptr inbounds %"class.std::tuple", ptr %44, i64 1
+  %incdec.ptr.i74 = getelementptr inbounds i8, ptr %44, i64 24
   store ptr %incdec.ptr.i74, ptr %_M_finish.i, align 8
   br label %for.inc128
 
@@ -429,14 +426,14 @@ for.body.i.i.i.i114:                              ; preds = %_ZNSt12_Vector_base
   %add.ptr.i.i.i.i.i.i.i.i.i118 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i116, i64 16
   %50 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i118, align 8, !alias.scope !22, !noalias !19
   store i64 %50, ptr %49, align 8, !alias.scope !19, !noalias !22
-  %incdec.ptr.i.i.i.i119 = getelementptr inbounds %"class.std::tuple", ptr %__first.addr.06.i.i.i.i116, i64 1
-  %incdec.ptr1.i.i.i.i120 = getelementptr inbounds %"class.std::tuple", ptr %__cur.07.i.i.i.i115, i64 1
+  %incdec.ptr.i.i.i.i119 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i116, i64 24
+  %incdec.ptr1.i.i.i.i120 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i115, i64 24
   %cmp.not.i.i.i.i121 = icmp eq ptr %incdec.ptr.i.i.i.i119, %40
   br i1 %cmp.not.i.i.i.i121, label %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21.i134, label %for.body.i.i.i.i114, !llvm.loop !15
 
 _ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21.i134: ; preds = %for.body.i.i.i.i114, %_ZNSt12_Vector_baseISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_M_allocateEm.exit.i110
   %__cur.0.lcssa.i.i.i.i123 = phi ptr [ %cond.i10.i111, %_ZNSt12_Vector_baseISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_M_allocateEm.exit.i110 ], [ %incdec.ptr1.i.i.i.i120, %for.body.i.i.i.i114 ]
-  %incdec.ptr.i124 = getelementptr inbounds %"class.std::tuple", ptr %__cur.0.lcssa.i.i.i.i123, i64 1
+  %incdec.ptr.i124 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i123, i64 24
   %tobool.not.i.i136 = icmp eq ptr %45, null
   br i1 %tobool.not.i.i136, label %.noexc78, label %if.then.i22.i137
 
@@ -505,7 +502,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE17_M_realloc_insertIJRS6_DniEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<const cvc5::internal::NodeTemplateTrie<false> *, const cvc5::internal::NodeTemplateTrie<false> *, unsigned long>, std::allocator<std::tuple<const cvc5::internal::NodeTemplateTrie<false> *, const cvc5::internal::NodeTemplateTrie<false> *, unsigned long>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -562,14 +559,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %8 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !alias.scope !30, !noalias !27
   store i64 %8, ptr %7, align 8, !alias.scope !27, !noalias !30
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::tuple", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::tuple", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %for.body.i.i.i, !llvm.loop !15
 
 _ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::tuple", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, label %for.body.i.i.i12
 
@@ -584,8 +581,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt5tup
   %add.ptr.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %11 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i16, align 8, !alias.scope !35, !noalias !32
   store i64 %11, ptr %10, align 8, !alias.scope !32, !noalias !35
-  %incdec.ptr.i.i.i17 = getelementptr inbounds %"class.std::tuple", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i18 = getelementptr inbounds %"class.std::tuple", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
+  %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i17, %0
   br i1 %cmp.not.i.i.i19, label %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, label %for.body.i.i.i12, !llvm.loop !15
 
@@ -599,7 +596,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorISt5tup
   br label %_ZNSt12_Vector_baseISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE13_M_deallocateEPS7_m.exit
 
 _ZNSt12_Vector_baseISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, %if.then.i22
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<const cvc5::internal::NodeTemplateTrie<false> *, const cvc5::internal::NodeTemplateTrie<false> *, unsigned long>, std::allocator<std::tuple<const cvc5::internal::NodeTemplateTrie<false> *, const cvc5::internal::NodeTemplateTrie<false> *, unsigned long>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
   %add.ptr23 = getelementptr inbounds %"class.std::tuple", ptr %cond.i10, i64 %cond.i
@@ -619,7 +616,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE17_M_realloc_insertIJS6_DnmEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %__args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<const cvc5::internal::NodeTemplateTrie<false> *, const cvc5::internal::NodeTemplateTrie<false> *, unsigned long>, std::allocator<std::tuple<const cvc5::internal::NodeTemplateTrie<false> *, const cvc5::internal::NodeTemplateTrie<false> *, unsigned long>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -675,14 +672,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %8 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8, !alias.scope !40, !noalias !37
   store i64 %8, ptr %7, align 8, !alias.scope !37, !noalias !40
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::tuple", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::tuple", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %for.body.i.i.i, !llvm.loop !15
 
 _ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::tuple", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 24
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, label %for.body.i.i.i12
 
@@ -697,8 +694,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt5tup
   %add.ptr.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %11 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i16, align 8, !alias.scope !45, !noalias !42
   store i64 %11, ptr %10, align 8, !alias.scope !42, !noalias !45
-  %incdec.ptr.i.i.i17 = getelementptr inbounds %"class.std::tuple", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i18 = getelementptr inbounds %"class.std::tuple", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
+  %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i17, %0
   br i1 %cmp.not.i.i.i19, label %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, label %for.body.i.i.i12, !llvm.loop !15
 
@@ -712,7 +709,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorISt5tup
   br label %_ZNSt12_Vector_baseISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE13_M_deallocateEPS7_m.exit
 
 _ZNSt12_Vector_baseISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit21, %if.then.i22
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<const cvc5::internal::NodeTemplateTrie<false> *, const cvc5::internal::NodeTemplateTrie<false> *, unsigned long>, std::allocator<std::tuple<const cvc5::internal::NodeTemplateTrie<false> *, const cvc5::internal::NodeTemplateTrie<false> *, unsigned long>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
   %add.ptr23 = getelementptr inbounds %"class.std::tuple", ptr %cond.i10, i64 %cond.i

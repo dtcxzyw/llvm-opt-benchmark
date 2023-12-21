@@ -33,35 +33,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.49" = type { %"struct.std::_Tuple_impl.50" }
 %"struct.std::_Tuple_impl.50" = type { %"struct.std::_Head_base.53" }
 %"struct.std::_Head_base.53" = type { ptr }
-%"class.grpc_core::RefCounted" = type { %"class.grpc_core::PolymorphicRefCount", %"class.grpc_core::RefCount" }
-%"class.grpc_core::PolymorphicRefCount" = type { ptr }
-%"class.grpc_core::RefCount" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.grpc_core::GrpcAuthorizationEngine" = type { %"class.grpc_core::AuthorizationEngine", %"class.std::__cxx11::basic_string", i32, %"class.std::vector.6", i32, %"class.std::vector.11" }
-%"class.grpc_core::AuthorizationEngine" = type { %"class.grpc_core::RefCounted" }
-%"class.std::vector.6" = type { %"struct.std::_Vector_base.7" }
-%"struct.std::_Vector_base.7" = type { %"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
-%"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLogger>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLogger>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLogger>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLogger>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLogger>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLogger>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLogger>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLogger>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.grpc_core::Rbac" = type { %"class.std::__cxx11::basic_string", i32, %"class.std::map", i32, %"class.std::vector" }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::Rbac::Policy>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::Rbac::Policy>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::Rbac::Policy>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::Rbac::Policy>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [560 x i8] }
 %"struct.grpc_core::Rbac::Policy" = type { %"struct.grpc_core::Rbac::Permission", %"struct.grpc_core::Rbac::Principal" }
 %"struct.grpc_core::Rbac::Permission" = type <{ i32, [4 x i8], %"class.grpc_core::HeaderMatcher", %"class.grpc_core::StringMatcher", %"struct.grpc_core::Rbac::CidrRange", i32, [4 x i8], %"class.std::vector.18", i8, [7 x i8] }>
 %"class.grpc_core::HeaderMatcher" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8], %"class.grpc_core::StringMatcher", i64, i64, i8, i8, [6 x i8] }>
@@ -91,20 +62,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.grpc_core::AuthorizationEngine::Decision" = type { i32, %"class.std::__cxx11::basic_string" }
 %"class.grpc_core::experimental::AuditContext" = type <{ %"class.std::basic_string_view", %"class.std::basic_string_view", %"class.std::basic_string_view", %"class.std::basic_string_view", i8, [7 x i8] }>
 %"class.std::basic_string_view" = type { i64, ptr }
-%"class.grpc_core::PolicyAuthorizationMatcher" = type { %"class.grpc_core::AuthorizationMatcher", %"class.std::unique_ptr.30", %"class.std::unique_ptr.30" }
-%"class.grpc_core::AuthorizationMatcher" = type { ptr }
-%"class.std::unique_ptr.64" = type { %"struct.std::__uniq_ptr_data.65" }
-%"struct.std::__uniq_ptr_data.65" = type { %"class.std::__uniq_ptr_impl.66" }
-%"class.std::__uniq_ptr_impl.66" = type { %"class.std::tuple.67" }
-%"class.std::tuple.67" = type { %"struct.std::_Tuple_impl.68" }
-%"struct.std::_Tuple_impl.68" = type { %"struct.std::_Head_base.71" }
-%"struct.std::_Head_base.71" = type { ptr }
-%"class.std::unique_ptr.76" = type { %"struct.std::__uniq_ptr_data.77" }
-%"struct.std::__uniq_ptr_data.77" = type { %"class.std::__uniq_ptr_impl.78" }
-%"class.std::__uniq_ptr_impl.78" = type { %"class.std::tuple.79" }
-%"class.std::tuple.79" = type { %"struct.std::_Tuple_impl.80" }
-%"struct.std::_Tuple_impl.80" = type { %"struct.std::_Head_base.83" }
-%"struct.std::_Head_base.83" = type { ptr }
 
 $_ZSt11make_uniqueIN9grpc_core26PolicyAuthorizationMatcherEJNS0_4Rbac6PolicyEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_ = comdat any
 
@@ -179,45 +136,45 @@ entry:
   %ref.tmp = alloca %"class.std::unique_ptr.38", align 8
   %logger = alloca %"class.std::unique_ptr.54", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.46", align 8
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core23GrpcAuthorizationEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %name_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %policy) #14
-  %action_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 2
-  %action = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %policy, i64 0, i32 1
+  %action_ = getelementptr inbounds i8, ptr %this, i64 48
+  %action = getelementptr inbounds i8, ptr %policy, i64 32
   %0 = load i32, ptr %action, align 8
   store i32 %0, ptr %action_, align 8
-  %policies_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 3
+  %policies_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %policies_, i8 0, i64 24, i1 false)
-  %audit_condition_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 4
-  %audit_condition = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %policy, i64 0, i32 3
+  %audit_condition_ = getelementptr inbounds i8, ptr %this, i64 80
+  %audit_condition = getelementptr inbounds i8, ptr %policy, i64 88
   %1 = load i32, ptr %audit_condition, align 8
   store i32 %1, ptr %audit_condition_, align 8
-  %audit_loggers_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 5
+  %audit_loggers_ = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %audit_loggers_, i8 0, i64 24, i1 false)
-  %_M_left.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %policy, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %policy, i64 64
   %2 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %policy, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %policy, i64 48
   %cmp.i.not52 = icmp eq ptr %2, %add.ptr.i.i
   br i1 %cmp.i.not52, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %matcher.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %policy6, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %matcher.i = getelementptr inbounds i8, ptr %policy6, i64 32
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 72
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit
   %__begin1.sroa.0.053 = phi ptr [ %2, %for.body.lr.ph ], [ %call.i, %_ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit ]
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.053, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.053, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %policy6) #14
   store ptr null, ptr %matcher.i, align 8
   %call8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %policy6, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %for.body
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.053, i64 0, i32 1, i32 0, i64 32
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.053, i64 64
   invoke void @_ZSt11make_uniqueIN9grpc_core26PolicyAuthorizationMatcherEJNS0_4Rbac6PolicyEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr.38") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(528) %second)
           to label %invoke.cont9 unwind label %lpad
 
@@ -231,7 +188,7 @@ invoke.cont9:                                     ; preds = %invoke.cont
 
 _ZNSt10unique_ptrIN9grpc_core20AuthorizationMatcherESt14default_deleteIS1_EEaSINS0_26PolicyAuthorizationMatcherES2_IS6_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISB_EEEESt13is_assignableIRS3_OSC_EEE5valueERS4_E4typeEOSD_.exit: ; preds = %invoke.cont9
   %vtable.i.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #14
   %.pr = load ptr, ptr %ref.tmp, align 8
@@ -240,7 +197,7 @@ _ZNSt10unique_ptrIN9grpc_core20AuthorizationMatcherESt14default_deleteIS1_EEaSIN
 
 _ZNKSt14default_deleteIN9grpc_core26PolicyAuthorizationMatcherEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN9grpc_core20AuthorizationMatcherESt14default_deleteIS1_EEaSINS0_26PolicyAuthorizationMatcherES2_IS6_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISB_EEEESt13is_assignableIRS3_OSC_EEE5valueERS4_E4typeEOSD_.exit
   %vtable.i.i = load ptr, ptr %.pr, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(24) %.pr) #14
   br label %_ZNSt10unique_ptrIN9grpc_core26PolicyAuthorizationMatcherESt14default_deleteIS1_EED2Ev.exit
@@ -254,11 +211,11 @@ _ZNSt10unique_ptrIN9grpc_core26PolicyAuthorizationMatcherESt14default_deleteIS1_
 
 invoke.cont12.thread:                             ; preds = %_ZNSt10unique_ptrIN9grpc_core26PolicyAuthorizationMatcherESt14default_deleteIS1_EED2Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %policy6) #14
-  %matcher.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %7, i64 0, i32 1
+  %matcher.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load i64, ptr %matcher.i, align 8
   store i64 %9, ptr %matcher.i.i.i.i.i, align 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %10, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 40
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit
 
@@ -273,7 +230,7 @@ invoke.cont12:                                    ; preds = %if.else.i.i
 
 _ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i: ; preds = %invoke.cont12
   %vtable.i.i.i = load ptr, ptr %.pr48, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %11 = load ptr, ptr %vfn.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %.pr48) #14
   br label %_ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit
@@ -294,7 +251,7 @@ lpad:                                             ; preds = %if.else.i.i, %invok
 
 _ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i9: ; preds = %lpad
   %vtable.i.i.i10 = load ptr, ptr %13, align 8
-  %vfn.i.i.i11 = getelementptr inbounds ptr, ptr %vtable.i.i.i10, i64 1
+  %vfn.i.i.i11 = getelementptr inbounds i8, ptr %vtable.i.i.i10, i64 8
   %14 = load ptr, ptr %vfn.i.i.i11, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #14
   br label %_ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit12
@@ -305,16 +262,16 @@ _ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit12: ; preds = %lpad, %_ZNK
   br label %ehcleanup
 
 for.end:                                          ; preds = %_ZN9grpc_core23GrpcAuthorizationEngine6PolicyD2Ev.exit, %entry
-  %logger_configs = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %policy, i64 0, i32 4
+  %logger_configs = getelementptr inbounds i8, ptr %policy, i64 96
   %15 = load ptr, ptr %logger_configs, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %policy, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %policy, i64 104
   %16 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i13.not54 = icmp eq ptr %15, %16
   br i1 %cmp.i13.not54, label %for.end34, label %for.body23.lr.ph
 
 for.body23.lr.ph:                                 ; preds = %for.end
-  %_M_finish.i.i25 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i26 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i25 = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_end_of_storage.i.i26 = getelementptr inbounds i8, ptr %this, i64 104
   br label %for.body23
 
 for.body23:                                       ; preds = %for.body23.lr.ph, %_ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_EED2Ev.exit36
@@ -332,7 +289,7 @@ invoke.cont26:                                    ; preds = %for.body23
 
 _ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i: ; preds = %invoke.cont26
   %vtable.i.i15 = load ptr, ptr %18, align 8
-  %vfn.i.i16 = getelementptr inbounds ptr, ptr %vtable.i.i15, i64 1
+  %vfn.i.i16 = getelementptr inbounds i8, ptr %vtable.i.i15, i64 8
   %19 = load ptr, ptr %vfn.i.i16, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
   br label %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit
@@ -360,7 +317,7 @@ lpad25:                                           ; preds = %for.body23
 
 _ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i18: ; preds = %lpad25
   %vtable.i.i19 = load ptr, ptr %23, align 8
-  %vfn.i.i20 = getelementptr inbounds ptr, ptr %vtable.i.i19, i64 1
+  %vfn.i.i20 = getelementptr inbounds i8, ptr %vtable.i.i19, i64 8
   %24 = load ptr, ptr %vfn.i.i20, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(8) %23) #14
   br label %_ZNSt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS3_EED2Ev.exit21
@@ -385,7 +342,7 @@ _ZNKSt14default_deleteIN9grpc_core12experimental11AuditLoggerEEclEPS2_.exit.i: ;
   %lpad.phi58 = phi { ptr, i32 } [ %lpad.loopexit, %lpad28.thread ], [ %lpad.loopexit.split-lp, %lpad28 ]
   %25 = phi ptr [ %20, %lpad28.thread ], [ %.pre, %lpad28 ]
   %vtable.i.i23 = load ptr, ptr %25, align 8
-  %vfn.i.i24 = getelementptr inbounds ptr, ptr %vtable.i.i23, i64 1
+  %vfn.i.i24 = getelementptr inbounds i8, ptr %vtable.i.i23, i64 8
   %26 = load ptr, ptr %vfn.i.i24, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(8) %25) #14
   br label %_ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_EED2Ev.exit
@@ -404,7 +361,7 @@ do.end:                                           ; preds = %_ZNSt10unique_ptrIN
 invoke.cont31.thread:                             ; preds = %do.end
   store i64 %21, ptr %27, align 8
   %29 = load ptr, ptr %_M_finish.i.i25, align 8
-  %incdec.ptr.i.i29 = getelementptr inbounds %"class.std::unique_ptr.54", ptr %29, i64 1
+  %incdec.ptr.i.i29 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %incdec.ptr.i.i29, ptr %_M_finish.i.i25, align 8
   br label %_ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_EED2Ev.exit36
 
@@ -455,14 +412,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %31 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !7, !noalias !4
   store i64 %31, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !4, !noalias !7
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !7, !noalias !4
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.54", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.54", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %27
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !9
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i39 = getelementptr %"class.std::unique_ptr.54", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i39 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %30, null
   br i1 %tobool.not.i.i, label %invoke.cont31, label %if.then.i20.i
 
@@ -481,14 +438,14 @@ invoke.cont31:                                    ; preds = %_ZNSt6vectorISt10un
 
 _ZNKSt14default_deleteIN9grpc_core12experimental11AuditLoggerEEclEPS2_.exit.i33: ; preds = %invoke.cont31
   %vtable.i.i34 = load ptr, ptr %.pr50, align 8
-  %vfn.i.i35 = getelementptr inbounds ptr, ptr %vtable.i.i34, i64 1
+  %vfn.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i34, i64 8
   %32 = load ptr, ptr %vfn.i.i35, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(8) %.pr50) #14
   br label %_ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_EED2Ev.exit36
 
 _ZNSt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS2_EED2Ev.exit36: ; preds = %invoke.cont31.thread, %invoke.cont31, %_ZNKSt14default_deleteIN9grpc_core12experimental11AuditLoggerEEclEPS2_.exit.i33
   store ptr null, ptr %logger, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.46", ptr %__begin115.sroa.0.055, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin115.sroa.0.055, i64 8
   %cmp.i13.not = icmp eq ptr %incdec.ptr.i, %16
   br i1 %cmp.i13.not, label %for.end34, label %for.body23
 
@@ -521,7 +478,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %agg.result, align 8
-  %principals.i = getelementptr inbounds %"struct.grpc_core::Rbac::Policy", ptr %agg.tmp, i64 0, i32 1
+  %principals.i = getelementptr inbounds i8, ptr %agg.tmp, i64 264
   call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %principals.i) #14
   call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp) #14
   ret void
@@ -529,7 +486,7 @@ invoke.cont:                                      ; preds = %entry
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  %principals.i1 = getelementptr inbounds %"struct.grpc_core::Rbac::Policy", ptr %agg.tmp, i64 0, i32 1
+  %principals.i1 = getelementptr inbounds i8, ptr %agg.tmp, i64 264
   call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %principals.i1) #14
   call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp) #14
   call void @_ZdlPv(ptr noundef nonnull %call) #18
@@ -545,7 +502,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLogger>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLogger>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -558,14 +515,14 @@ for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_Destr
 
 _ZNKSt14default_deleteIN9grpc_core12experimental11AuditLoggerEEclEPS2_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #14
   br label %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core12experimental11AuditLoggerEEclEPS2_.exit.i.i.i.i.i, %for.body.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.54", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !11
 
@@ -590,21 +547,21 @@ _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14de
 define linkonce_odr void @_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i ], [ %0, %entry ]
-  %matcher.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %matcher.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   %2 = load ptr, ptr %matcher.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #14
   br label %_ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i
@@ -612,7 +569,7 @@ _ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i
 _ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i.i, %for.body.i.i.i
   store ptr null, ptr %matcher.i.i.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #14
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !12
 
@@ -639,43 +596,43 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core23GrpcAuthorizationEngineC2EOS0_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %other) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::RefCounted", ptr %this, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core23GrpcAuthorizationEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %name_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 1
-  %name_2 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 16
+  %name_2 = getelementptr inbounds i8, ptr %other, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %name_2) #14
-  %action_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 2
-  %action_3 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 2
+  %action_ = getelementptr inbounds i8, ptr %this, i64 48
+  %action_3 = getelementptr inbounds i8, ptr %other, i64 48
   %0 = load i32, ptr %action_3, align 8
   store i32 %0, ptr %action_, align 8
-  %policies_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 3
-  %policies_4 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 3
+  %policies_ = getelementptr inbounds i8, ptr %this, i64 56
+  %policies_4 = getelementptr inbounds i8, ptr %other, i64 56
   %1 = load ptr, ptr %policies_4, align 8
   store ptr %1, ptr %policies_, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_finish3.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 64
   %2 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
   store ptr %2, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 72
   %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %policies_4, i8 0, i64 24, i1 false)
-  %audit_condition_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 4
-  %audit_condition_5 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 4
+  %audit_condition_ = getelementptr inbounds i8, ptr %this, i64 80
+  %audit_condition_5 = getelementptr inbounds i8, ptr %other, i64 80
   %4 = load i32, ptr %audit_condition_5, align 8
   store i32 %4, ptr %audit_condition_, align 8
-  %audit_loggers_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 5
-  %audit_loggers_6 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 5
+  %audit_loggers_ = getelementptr inbounds i8, ptr %this, i64 88
+  %audit_loggers_6 = getelementptr inbounds i8, ptr %other, i64 88
   %5 = load ptr, ptr %audit_loggers_6, align 8
   store ptr %5, ptr %audit_loggers_, align 8
-  %_M_finish.i.i.i.i5 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i6 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_finish3.i.i.i.i6 = getelementptr inbounds i8, ptr %other, i64 96
   %6 = load ptr, ptr %_M_finish3.i.i.i.i6, align 8
   store ptr %6, ptr %_M_finish.i.i.i.i5, align 8
-  %_M_end_of_storage.i.i.i.i7 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i8 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i7 = getelementptr inbounds i8, ptr %this, i64 104
+  %_M_end_of_storage4.i.i.i.i8 = getelementptr inbounds i8, ptr %other, i64 104
   %7 = load ptr, ptr %_M_end_of_storage4.i.i.i.i8, align 8
   store ptr %7, ptr %_M_end_of_storage.i.i.i.i7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %audit_loggers_6, i8 0, i64 24, i1 false)
@@ -685,25 +642,25 @@ invoke.cont:
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(112) ptr @_ZN9grpc_core23GrpcAuthorizationEngineaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %other) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %name_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 1
-  %name_2 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %other, i64 16
+  %name_2 = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_2, ptr noundef nonnull align 8 dereferenceable(32) %name_) #14
-  %action_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 2
+  %action_ = getelementptr inbounds i8, ptr %other, i64 48
   %0 = load i32, ptr %action_, align 8
-  %action_3 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 2
+  %action_3 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %0, ptr %action_3, align 8
-  %policies_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 3
-  %policies_4 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 3
+  %policies_ = getelementptr inbounds i8, ptr %other, i64 56
+  %policies_4 = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %policies_4, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %policies_, align 8
   store ptr %3, ptr %policies_4, align 8
-  %_M_finish.i2.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %other, i64 64
   %4 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %4, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %other, i64 72
   %5 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %1, %2
@@ -712,14 +669,14 @@ entry:
 
 for.body.i.i.i.i.i.i:                             ; preds = %entry, %_ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i.i.i.i ], [ %1, %entry ]
-  %matcher.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__first.addr.04.i.i.i.i.i.i, i64 0, i32 1
+  %matcher.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 32
   %6 = load ptr, ptr %matcher.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
   br label %_ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i.i.i.i
@@ -727,7 +684,7 @@ _ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i
 _ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   store ptr null, ptr %matcher.i.i.i.i.i.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i) #14
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 40
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !12
 
@@ -740,22 +697,22 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
   br label %_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EEaSEOS4_.exit
 
 _ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EEaSEOS4_.exit: ; preds = %invoke.cont.i.i.i, %if.then.i.i.i.i.i
-  %audit_condition_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 4
+  %audit_condition_ = getelementptr inbounds i8, ptr %other, i64 80
   %8 = load i32, ptr %audit_condition_, align 8
-  %audit_condition_6 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 4
+  %audit_condition_6 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %8, ptr %audit_condition_6, align 8
-  %audit_loggers_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 5
-  %audit_loggers_7 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 5
+  %audit_loggers_ = getelementptr inbounds i8, ptr %other, i64 88
+  %audit_loggers_7 = getelementptr inbounds i8, ptr %this, i64 88
   %9 = load ptr, ptr %audit_loggers_7, align 8
-  %_M_finish.i.i.i.i5 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i5 = getelementptr inbounds i8, ptr %this, i64 96
   %10 = load ptr, ptr %_M_finish.i.i.i.i5, align 8
-  %_M_end_of_storage.i.i.i.i6 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i6 = getelementptr inbounds i8, ptr %this, i64 104
   %11 = load ptr, ptr %audit_loggers_, align 8
   store ptr %11, ptr %audit_loggers_7, align 8
-  %_M_finish.i2.i.i.i7 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i2.i.i.i7 = getelementptr inbounds i8, ptr %other, i64 96
   %12 = load ptr, ptr %_M_finish.i2.i.i.i7, align 8
   store ptr %12, ptr %_M_finish.i.i.i.i5, align 8
-  %_M_end_of_storage.i4.i.i.i8 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %other, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i4.i.i.i8 = getelementptr inbounds i8, ptr %other, i64 104
   %13 = load ptr, ptr %_M_end_of_storage.i4.i.i.i8, align 8
   store ptr %13, ptr %_M_end_of_storage.i.i.i.i6, align 8
   %cmp.not3.i.i.i.i.i.i9 = icmp eq ptr %9, %10
@@ -770,14 +727,14 @@ for.body.i.i.i.i.i.i10:                           ; preds = %_ZNSt6vectorIN9grpc
 
 _ZNKSt14default_deleteIN9grpc_core12experimental11AuditLoggerEEclEPS2_.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i10
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %14, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 8
   %15 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14) #14
   br label %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core12experimental11AuditLoggerEEclEPS2_.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i10
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i11, align 8
-  %incdec.ptr.i.i.i.i.i.i12 = getelementptr inbounds %"class.std::unique_ptr.54", ptr %__first.addr.04.i.i.i.i.i.i11, i64 1
+  %incdec.ptr.i.i.i.i.i.i12 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i11, i64 8
   %cmp.not.i.i.i.i.i.i13 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i12, %10
   br i1 %cmp.not.i.i.i.i.i.i13, label %invoke.cont.i.i.i14, label %for.body.i.i.i.i.i.i10, !llvm.loop !11
 
@@ -800,21 +757,21 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define void @_ZNK9grpc_core23GrpcAuthorizationEngine8EvaluateERKNS_12EvaluateArgsE(ptr noalias sret(%"struct.grpc_core::AuthorizationEngine::Decision") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(16) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::experimental::AuditContext", align 8
-  %matching_policy_name.i = getelementptr inbounds %"struct.grpc_core::AuthorizationEngine::Decision", ptr %agg.result, i64 0, i32 1
+  %matching_policy_name.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %matching_policy_name.i) #14
-  %policies_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 3
+  %policies_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %policies_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i28.not = icmp eq ptr %0, %1
   br i1 %cmp.i28.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %__begin1.sroa.0.029 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
-  %matcher = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__begin1.sroa.0.029, i64 0, i32 1
+  %matcher = getelementptr inbounds i8, ptr %__begin1.sroa.0.029, i64 32
   %2 = load ptr, ptr %matcher, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call7 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %args)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit
@@ -847,19 +804,19 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 for.inc:                                          ; preds = %invoke.cont
-  %incdec.ptr.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__begin1.sroa.0.029, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.029, i64 40
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %entry, %if.then
   %cmp.i25 = phi i1 [ true, %if.then ], [ false, %entry ], [ false, %for.inc ]
-  %action_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 2
+  %action_ = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i32, ptr %action_, align 8
   %5 = icmp eq i32 %4, 0
   %not.cmp12 = xor i1 %cmp.i25, %5
   %cond = zext i1 %not.cmp12 to i32
   store i32 %cond, ptr %agg.result, align 8
-  %audit_condition_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 4
+  %audit_condition_ = getelementptr inbounds i8, ptr %this, i64 80
   %audit_condition_.val = load i32, ptr %audit_condition_, align 8
   %cmp.i7 = icmp eq i32 %audit_condition_.val, 3
   %or.cond.v = select i1 %not.cmp12, i32 1, i32 2
@@ -868,23 +825,23 @@ for.end:                                          ; preds = %for.inc, %entry, %i
   br i1 %or.cond17, label %if.then15, label %nrvo.skipdtor
 
 if.then15:                                        ; preds = %for.end
-  %audit_loggers_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 5
+  %audit_loggers_ = getelementptr inbounds i8, ptr %this, i64 88
   %6 = load ptr, ptr %audit_loggers_, align 8
-  %_M_finish.i8 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i8 = getelementptr inbounds i8, ptr %this, i64 96
   %7 = load ptr, ptr %_M_finish.i8, align 8
   %cmp.i9.not31 = icmp eq ptr %6, %7
   br i1 %cmp.i9.not31, label %nrvo.skipdtor, label %for.body22.lr.ph
 
 for.body22.lr.ph:                                 ; preds = %if.then15
-  %name_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 16
   %rpc_method.sroa.2.0.rpc_method_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %principal_.i = getelementptr inbounds %"class.grpc_core::experimental::AuditContext", ptr %ref.tmp, i64 0, i32 1
-  %principal.sroa.2.0.principal_.sroa_idx.i = getelementptr inbounds %"class.grpc_core::experimental::AuditContext", ptr %ref.tmp, i64 0, i32 1, i32 1
-  %policy_name_.i = getelementptr inbounds %"class.grpc_core::experimental::AuditContext", ptr %ref.tmp, i64 0, i32 2
-  %agg.tmp3010.sroa.4.0.policy_name_.i.sroa_idx = getelementptr inbounds %"class.grpc_core::experimental::AuditContext", ptr %ref.tmp, i64 0, i32 2, i32 1
-  %matched_rule_.i = getelementptr inbounds %"class.grpc_core::experimental::AuditContext", ptr %ref.tmp, i64 0, i32 3
-  %agg.tmp3211.sroa.4.0.matched_rule_.i.sroa_idx = getelementptr inbounds %"class.grpc_core::experimental::AuditContext", ptr %ref.tmp, i64 0, i32 3, i32 1
-  %authorized_.i = getelementptr inbounds %"class.grpc_core::experimental::AuditContext", ptr %ref.tmp, i64 0, i32 4
+  %principal_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %principal.sroa.2.0.principal_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
+  %policy_name_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %agg.tmp3010.sroa.4.0.policy_name_.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 40
+  %matched_rule_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
+  %agg.tmp3211.sroa.4.0.matched_rule_.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 56
+  %authorized_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.inc41
@@ -921,13 +878,13 @@ invoke.cont28:                                    ; preds = %invoke.cont25
   store ptr %16, ptr %agg.tmp3211.sroa.4.0.matched_rule_.i.sroa_idx, align 8
   store i8 %frombool.i, ptr %authorized_.i, align 8
   %vtable38 = load ptr, ptr %8, align 8
-  %vfn39 = getelementptr inbounds ptr, ptr %vtable38, i64 3
+  %vfn39 = getelementptr inbounds i8, ptr %vtable38, i64 24
   %18 = load ptr, ptr %vfn39, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(65) %ref.tmp)
           to label %for.inc41 unwind label %lpad.loopexit
 
 for.inc41:                                        ; preds = %invoke.cont28
-  %incdec.ptr.i12 = getelementptr inbounds %"class.std::unique_ptr.54", ptr %__begin2.sroa.0.032, i64 1
+  %incdec.ptr.i12 = getelementptr inbounds i8, ptr %__begin2.sroa.0.032, i64 8
   %cmp.i9.not = icmp eq ptr %incdec.ptr.i12, %7
   br i1 %cmp.i9.not, label %nrvo.skipdtor, label %for.body22
 
@@ -946,9 +903,9 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 define linkonce_odr void @_ZN9grpc_core23GrpcAuthorizationEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core23GrpcAuthorizationEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %audit_loggers_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 5
+  %audit_loggers_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %audit_loggers_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 96
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -961,14 +918,14 @@ for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_Destr
 
 _ZNKSt14default_deleteIN9grpc_core12experimental11AuditLoggerEEclEPS2_.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #14
   br label %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core12experimental11AuditLoggerEEclEPS2_.exit.i.i.i.i.i.i, %for.body.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.54", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !11
 
@@ -986,23 +943,23 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EED2Ev.exit
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %policies_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 3
+  %policies_ = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load ptr, ptr %policies_, align 8
-  %_M_finish.i1 = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i1 = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %_M_finish.i1, align 8
   %cmp.not3.i.i.i.i2 = icmp eq ptr %5, %6
   br i1 %cmp.not3.i.i.i.i2, label %invoke.cont.i9, label %for.body.i.i.i.i3
 
 for.body.i.i.i.i3:                                ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %_ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i4 = phi ptr [ %incdec.ptr.i.i.i.i5, %_ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i.i ], [ %5, %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EED2Ev.exit ]
-  %matcher.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__first.addr.04.i.i.i.i4, i64 0, i32 1
+  %matcher.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i4, i64 32
   %7 = load ptr, ptr %matcher.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i3
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
   br label %_ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i.i
@@ -1010,7 +967,7 @@ _ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i
 _ZSt8_DestroyIN9grpc_core23GrpcAuthorizationEngine6PolicyEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i.i.i.i.i.i.i, %for.body.i.i.i.i3
   store ptr null, ptr %matcher.i.i.i.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i4) #14
-  %incdec.ptr.i.i.i.i5 = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__first.addr.04.i.i.i.i4, i64 1
+  %incdec.ptr.i.i.i.i5 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i4, i64 40
   %cmp.not.i.i.i.i6 = icmp eq ptr %incdec.ptr.i.i.i.i5, %6
   br i1 %cmp.not.i.i.i.i6, label %invoke.contthread-pre-split.i7, label %for.body.i.i.i.i3, !llvm.loop !12
 
@@ -1028,7 +985,7 @@ if.then.i.i.i11:                                  ; preds = %invoke.cont.i9
   br label %_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i9, %if.then.i.i.i11
-  %name_ = getelementptr inbounds %"class.grpc_core::GrpcAuthorizationEngine", ptr %this, i64 0, i32 1
+  %name_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name_) #14
   ret void
 }
@@ -1081,15 +1038,15 @@ entry:
   %agg.tmp = alloca %"struct.grpc_core::Rbac::Permission", align 8
   %agg.tmp2 = alloca %"struct.grpc_core::Rbac::Principal", align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core26PolicyAuthorizationMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %permissions_ = getelementptr inbounds %"class.grpc_core::PolicyAuthorizationMatcher", ptr %this, i64 0, i32 1
+  %permissions_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN9grpc_core4Rbac10PermissionC1EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(257) %policy) #14
   invoke void @_ZN9grpc_core20AuthorizationMatcher6CreateENS_4Rbac10PermissionE(ptr nonnull sret(%"class.std::unique_ptr.30") align 8 %permissions_, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp) #14
-  %principals_ = getelementptr inbounds %"class.grpc_core::PolicyAuthorizationMatcher", ptr %this, i64 0, i32 2
-  %principals = getelementptr inbounds %"struct.grpc_core::Rbac::Policy", ptr %policy, i64 0, i32 1
+  %principals_ = getelementptr inbounds i8, ptr %this, i64 16
+  %principals = getelementptr inbounds i8, ptr %policy, i64 264
   call void @_ZN9grpc_core4Rbac9PrincipalC1EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(257) %principals) #14
   invoke void @_ZN9grpc_core20AuthorizationMatcher6CreateENS_4Rbac9PrincipalE(ptr nonnull sret(%"class.std::unique_ptr.30") align 8 %principals_, ptr noundef nonnull %agg.tmp2)
           to label %invoke.cont4 unwind label %lpad3
@@ -1114,7 +1071,7 @@ lpad3:                                            ; preds = %invoke.cont
 
 _ZNKSt14default_deleteIN9grpc_core20AuthorizationMatcherEEclEPS1_.exit.i: ; preds = %lpad3
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #14
   br label %_ZNSt10unique_ptrIN9grpc_core20AuthorizationMatcherESt14default_deleteIS1_EED2Ev.exit
@@ -1136,9 +1093,9 @@ declare void @_ZN9grpc_core4Rbac10PermissionC1EOS1_(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %permissions = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7
+  %permissions = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load ptr, ptr %permissions, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not.i3 = icmp eq ptr %0, %1
   br i1 %cmp.not.i3, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %for.body.i
@@ -1156,7 +1113,7 @@ _ZNKSt14default_deleteIN9grpc_core4Rbac10PermissionEEclEPS2_.exit.i.i: ; preds =
 
 _ZNSt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core4Rbac10PermissionEEclEPS2_.exit.i.i, %for.body.i
   store ptr null, ptr %__first.addr.0.i4, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.64", ptr %__first.addr.0.i4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.0.i4, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.not.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit.loopexit, label %for.body.i, !llvm.loop !13
 
@@ -1174,9 +1131,9 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorISt10un
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit
 
 _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %if.then.i.i
-  %ip = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 4
+  %ip = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip) #14
-  %regex_matcher_.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 3, i32 3
+  %regex_matcher_.i = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %regex_matcher_.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core13StringMatcherD2Ev.exit, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i
@@ -1188,9 +1145,9 @@ _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i: ; preds = %_ZNSt12_Vector_ba
 
 _ZN9grpc_core13StringMatcherD2Ev.exit:            ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i
   store ptr null, ptr %regex_matcher_.i, align 8
-  %string_matcher_.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 3, i32 2
+  %string_matcher_.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i) #14
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load ptr, ptr %regex_matcher_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13HeaderMatcherD2Ev.exit, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i
@@ -1201,9 +1158,9 @@ _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i: ; preds = %_ZN9grpc_core13
   br label %_ZN9grpc_core13HeaderMatcherD2Ev.exit
 
 _ZN9grpc_core13HeaderMatcherD2Ev.exit:            ; preds = %_ZN9grpc_core13StringMatcherD2Ev.exit, %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i
-  %header_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2
+  %header_matcher = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher) #14
   ret void
@@ -1217,9 +1174,9 @@ declare void @_ZN9grpc_core4Rbac9PrincipalC1EOS1_(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %principals = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5
+  %principals = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load ptr, ptr %principals, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not.i2 = icmp eq ptr %0, %1
   br i1 %cmp.not.i2, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %for.body.i
@@ -1237,7 +1194,7 @@ _ZNKSt14default_deleteIN9grpc_core4Rbac9PrincipalEEclEPS2_.exit.i.i: ; preds = %
 
 _ZNSt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core4Rbac9PrincipalEEclEPS2_.exit.i.i, %for.body.i
   store ptr null, ptr %__first.addr.0.i3, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.76", ptr %__first.addr.0.i3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.0.i3, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.not.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit.loopexit, label %for.body.i, !llvm.loop !14
 
@@ -1255,9 +1212,9 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorISt10un
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit
 
 _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %if.then.i.i
-  %ip = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 4
+  %ip = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip) #14
-  %_M_engaged.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %4 = load i8, ptr %_M_engaged.i.i.i.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i.i.i.i = icmp eq i8 %5, 0
@@ -1265,7 +1222,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_delete
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit
   store i8 0, ptr %_M_engaged.i.i.i.i, align 8
-  %regex_matcher_.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 3
+  %regex_matcher_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %6 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i
@@ -1277,12 +1234,12 @@ _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %if.then
 
 _ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %regex_matcher_.i.i.i.i.i.i, align 8
-  %string_matcher_.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %string_matcher_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i.i.i.i) #14
   br label %_ZNSt8optionalIN9grpc_core13StringMatcherEED2Ev.exit
 
 _ZNSt8optionalIN9grpc_core13StringMatcherEED2Ev.exit: ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %_ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %7 = load ptr, ptr %regex_matcher_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13HeaderMatcherD2Ev.exit, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i
@@ -1293,9 +1250,9 @@ _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i: ; preds = %_ZNSt8optionalI
   br label %_ZN9grpc_core13HeaderMatcherD2Ev.exit
 
 _ZN9grpc_core13HeaderMatcherD2Ev.exit:            ; preds = %_ZNSt8optionalIN9grpc_core13StringMatcherEED2Ev.exit, %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i
-  %header_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2
+  %header_matcher = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #14
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher) #14
   ret void
@@ -1307,7 +1264,7 @@ declare void @_ZN3re23RE2D1Ev(ptr noundef nonnull align 8 dereferenceable(212)) 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(40) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1343,8 +1300,8 @@ _ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE11_M_all
   %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core23GrpcAuthorizationEngine6PolicyEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %cond.i10, i64 %sub.ptr.div.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %__args) #14
-  %matcher.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
-  %matcher3.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__args, i64 0, i32 1
+  %matcher.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
+  %matcher3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 32
   %2 = load i64, ptr %matcher3.i.i.i, align 8
   store i64 %2, ptr %matcher.i.i.i, align 8
   store ptr null, ptr %matcher3.i.i.i, align 8
@@ -1357,20 +1314,20 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #14
-  %matcher.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %matcher3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %matcher.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
+  %matcher3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   %3 = load i64, ptr %matcher3.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !15
   store i64 %3, ptr %matcher.i.i.i.i.i.i.i, align 8, !alias.scope !15, !noalias !18
   store ptr null, ptr %matcher3.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !15
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #14
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21, label %for.body.i.i.i12
 
@@ -1380,14 +1337,14 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN9grpc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #14
-  %matcher.i.i.i.i.i.i.i15 = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__cur.07.i.i.i13, i64 0, i32 1
-  %matcher3.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %matcher.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
+  %matcher3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   %4 = load i64, ptr %matcher3.i.i.i.i.i.i.i16, align 8, !alias.scope !24, !noalias !21
   store i64 %4, ptr %matcher.i.i.i.i.i.i.i15, align 8, !alias.scope !21, !noalias !24
   store ptr null, ptr %matcher3.i.i.i.i.i.i.i16, align 8, !alias.scope !24, !noalias !21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #14
-  %incdec.ptr.i.i.i17 = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i18 = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 40
+  %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 40
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i17, %0
   br i1 %cmp.not.i.i.i19, label %_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21, label %for.body.i.i.i12, !llvm.loop !20
 
@@ -1401,7 +1358,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorIN9grpc
   br label %_ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21, %if.then.i22
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::GrpcAuthorizationEngine::Policy, std::allocator<grpc_core::GrpcAuthorizationEngine::Policy>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %cond.i10, i64 %cond.i

@@ -4,62 +4,12 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QemuEvent = type { i32, i8 }
-%struct.HostMemoryBackend = type { %struct.Object, i64, i8, i8, i8, i8, i8, i8, i8, i32, ptr, [3 x i64], i32, %struct.MemoryRegion }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.3, %union.anon.4, %union.anon.5, ptr, i32, ptr, ptr, i8 }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.4 = type { %struct.QTailQLink }
-%union.anon.5 = type { %struct.QTailQLink }
-%struct.RAMBlock = type { %struct.rcu_head, ptr, ptr, ptr, i64, i64, i64, ptr, i32, [256 x i8], %struct.anon.13, %struct.anon.14, i32, i64, i64, ptr, ptr, ptr, i8, i64 }
-%struct.rcu_head = type { ptr, ptr }
-%struct.anon.13 = type { ptr, ptr }
-%struct.anon.14 = type { ptr }
-%struct.virtio_gpu_simple_resource = type { i32, i32, i32, i32, ptr, ptr, i32, i32, ptr, i64, i64, ptr, i32, ptr, %union.anon }
-%union.anon = type { %struct.QTailQLink }
 %struct.iovec = type { ptr, i64 }
-%struct.rcu_reader_data = type { i64, i8, i32, %struct.anon.15, %struct.NotifierList }
-%struct.anon.15 = type { ptr, ptr }
-%struct.NotifierList = type { %struct.anon.16 }
-%struct.anon.16 = type { ptr }
-%struct.udmabuf_create_list = type { i32, i32, [0 x %struct.udmabuf_create_item] }
 %struct.udmabuf_create_item = type { i32, i32, i64, i64 }
-%struct.VirtIOGPUBase = type { %struct.VirtIODevice, ptr, %struct.virtio_gpu_base_conf, %struct.virtio_gpu_config, ptr, i32, i32, %struct.MemoryRegion, [16 x %struct.virtio_gpu_scanout], i32, [16 x %struct.virtio_gpu_requested_state] }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.2, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.0, %union.anon.1 }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.virtio_gpu_base_conf = type { i32, i32, i32, i32, i64 }
-%struct.virtio_gpu_config = type { i32, i32, i32, i32 }
 %struct.virtio_gpu_scanout = type { ptr, ptr, i32, i32, i32, i32, i32, i32, %struct.virtio_gpu_update_cursor, ptr }
 %struct.virtio_gpu_update_cursor = type { %struct.virtio_gpu_ctrl_hdr, %struct.virtio_gpu_cursor_pos, i32, i32, i32, i32 }
 %struct.virtio_gpu_ctrl_hdr = type { i32, i32, i64, i32, i8, [3 x i8] }
 %struct.virtio_gpu_cursor_pos = type { i32, i32, i32, i32 }
-%struct.virtio_gpu_requested_state = type { i16, i16, i32, i32, i32, i32, i32 }
-%struct.virtio_gpu_rect = type { i32, i32, i32, i32 }
-%struct.QemuDmaBuf = type { i32, i32, i32, i32, i32, i64, i32, i32, i32, i32, i32, i8, ptr, i32, i8, i8 }
-%struct.virtio_gpu_framebuffer = type { i32, i32, i32, i32, i32, i32 }
-%struct.VGPUDMABuf = type { %struct.QemuDmaBuf, i32, %union.anon.12 }
-%union.anon.12 = type { %struct.QTailQLink }
-%struct.VirtIOGPU = type { %struct.VirtIOGPUBase, i64, ptr, ptr, ptr, ptr, ptr, %struct.QemuCond, i8, %union.anon.6, %union.anon.7, %union.anon.8, i64, i8, ptr, ptr, i32, %struct.anon.9, %struct.anon.10 }
-%struct.QemuCond = type { %union.pthread_cond_t, i8 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%union.anon.6 = type { %struct.QTailQLink }
-%union.anon.7 = type { %struct.QTailQLink }
-%union.anon.8 = type { %struct.QTailQLink }
-%struct.anon.9 = type { i32, i32, i32, i32 }
-%struct.anon.10 = type { %union.anon.11, [16 x ptr] }
-%union.anon.11 = type { %struct.QTailQLink }
 
 @.str = private unnamed_addr constant [9 x i8] c"/objects\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"memory-backend\00", align 1
@@ -112,13 +62,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND) #9
-  %ram_block = getelementptr inbounds %struct.HostMemoryBackend, ptr %call.i, i64 0, i32 13, i32 11
+  %ram_block = getelementptr inbounds i8, ptr %call.i, i64 168
   %0 = load ptr, ptr %ram_block, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %fd = getelementptr inbounds %struct.RAMBlock, ptr %0, i64 0, i32 12
+  %fd = getelementptr inbounds i8, ptr %0, i64 360
   %1 = load i32, ptr %fd, align 8
   %cmp = icmp sgt i32 %1, 0
   br i1 %cmp, label %if.then3, label %if.end9
@@ -140,17 +90,17 @@ if.end9:                                          ; preds = %if.then, %land.lhs.
 define dso_local void @virtio_gpu_init_udmabuf(ptr nocapture noundef %res) local_unnamed_addr #0 {
 entry:
   %offset.i = alloca i64, align 8
-  %dmabuf_fd = getelementptr inbounds %struct.virtio_gpu_simple_resource, ptr %res, i64 0, i32 12
+  %dmabuf_fd = getelementptr inbounds i8, ptr %res, i64 72
   store i32 -1, ptr %dmabuf_fd, align 8
-  %iov_cnt = getelementptr inbounds %struct.virtio_gpu_simple_resource, ptr %res, i64 0, i32 6
+  %iov_cnt = getelementptr inbounds i8, ptr %res, i64 32
   %0 = load i32, ptr %iov_cnt, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %iov = getelementptr inbounds %struct.virtio_gpu_simple_resource, ptr %res, i64 0, i32 5
+  %iov = getelementptr inbounds i8, ptr %res, i64 24
   %1 = load ptr, ptr %iov, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %1, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %cmp1 = icmp ult i64 %2, 4096
   br i1 %cmp1, label %if.then, label %if.else
@@ -176,13 +126,14 @@ if.end.i:                                         ; preds = %if.else
   br i1 %cmp330.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %iov.i = getelementptr inbounds %struct.virtio_gpu_simple_resource, ptr %res, i64 0, i32 5
+  %iov.i = getelementptr inbounds i8, ptr %res, i64 24
+  %list11.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end9.i, %for.body.lr.ph.i
   %i.031.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %if.end9.i ]
   %call.i.i = call ptr @get_ptr_rcu_reader() #9
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %6 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %6, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -204,7 +155,7 @@ rcu_read_lock.exit.i:                             ; preds = %while.end.i.i, %for
   %9 = load ptr, ptr %arrayidx.i, align 8
   %call5.i = call ptr @qemu_ram_block_from_host(ptr noundef %9, i1 noundef zeroext false, ptr noundef nonnull %offset.i) #9
   %call.i24.i = call ptr @get_ptr_rcu_reader() #9
-  %depth.i25.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i24.i, i64 0, i32 2
+  %depth.i25.i = getelementptr inbounds i8, ptr %call.i24.i, i64 12
   %10 = load i32, ptr %depth.i25.i, align 4
   %cmp.not.i26.i = icmp eq i32 %10, 0
   br i1 %cmp.not.i26.i, label %if.else.i.i, label %if.end.i.i
@@ -223,7 +174,7 @@ while.end.i27.i:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i24.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i24.i, i64 0, i32 1
+  %waiting.i.i = getelementptr inbounds i8, ptr %call.i24.i, i64 8
   %11 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %12 = and i8 %11, 1
   %tobool.not.i.i = icmp eq i8 %12, 0
@@ -239,7 +190,7 @@ rcu_read_unlock.exit.i:                           ; preds = %while.end21.i.i, %w
   br i1 %tobool.not.i, label %if.then8.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %rcu_read_unlock.exit.i
-  %fd.i = getelementptr inbounds %struct.RAMBlock, ptr %call5.i, i64 0, i32 12
+  %fd.i = getelementptr inbounds i8, ptr %call5.i, i64 360
   %13 = load i32, ptr %fd.i, align 8
   %cmp6.i = icmp slt i32 %13, 0
   br i1 %cmp6.i, label %if.then8.i, label %if.end9.i
@@ -249,15 +200,15 @@ if.then8.i:                                       ; preds = %lor.lhs.false.i, %r
   br label %virtio_gpu_create_udmabuf.exit
 
 if.end9.i:                                        ; preds = %lor.lhs.false.i
-  %arrayidx13.i = getelementptr %struct.udmabuf_create_list, ptr %call1.i, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx13.i = getelementptr [0 x %struct.udmabuf_create_item], ptr %list11.i, i64 0, i64 %idxprom.i
   store i32 %13, ptr %arrayidx13.i, align 8
   %14 = load i64, ptr %offset.i, align 8
-  %offset17.i = getelementptr %struct.udmabuf_create_list, ptr %call1.i, i64 0, i32 2, i64 %idxprom.i, i32 2
+  %offset17.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 8
   store i64 %14, ptr %offset17.i, align 8
   %15 = load ptr, ptr %iov.i, align 8
   %iov_len.i = getelementptr %struct.iovec, ptr %15, i64 %idxprom.i, i32 1
   %16 = load i64, ptr %iov_len.i, align 8
-  %size.i = getelementptr %struct.udmabuf_create_list, ptr %call1.i, i64 0, i32 2, i64 %idxprom.i, i32 3
+  %size.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 16
   store i64 %16, ptr %size.i, align 8
   %inc.i = add nuw i32 %i.031.i, 1
   %17 = load i32, ptr %iov_cnt, align 8
@@ -266,7 +217,7 @@ if.end9.i:                                        ; preds = %lor.lhs.false.i
 
 for.end.i:                                        ; preds = %if.end9.i, %if.end.i
   %.lcssa.i = phi i32 [ 0, %if.end.i ], [ %17, %if.end9.i ]
-  %count.i = getelementptr inbounds %struct.udmabuf_create_list, ptr %call1.i, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %call1.i, i64 4
   store i32 %.lcssa.i, ptr %count.i, align 4
   store i32 1, ptr %call1.i, align 8
   %call25.i = call i32 (i32, i64, ...) @ioctl(i32 noundef %call.i, i64 noundef 1074296131, ptr noundef nonnull %call1.i) #9
@@ -292,10 +243,10 @@ virtio_gpu_create_udmabuf.exit:                   ; preds = %if.else, %if.then8.
   br i1 %cmp5, label %return, label %if.end
 
 if.end:                                           ; preds = %virtio_gpu_create_udmabuf.exit
-  %blob_size.i = getelementptr inbounds %struct.virtio_gpu_simple_resource, ptr %res, i64 0, i32 10
+  %blob_size.i = getelementptr inbounds i8, ptr %res, i64 56
   %20 = load i64, ptr %blob_size.i, align 8
   %call.i11 = call ptr @mmap64(ptr noundef null, i64 noundef %20, i32 noundef 1, i32 noundef 1, i32 noundef %19, i64 noundef 0) #9
-  %remapped.i = getelementptr inbounds %struct.virtio_gpu_simple_resource, ptr %res, i64 0, i32 13
+  %remapped.i = getelementptr inbounds i8, ptr %res, i64 80
   store ptr %call.i11, ptr %remapped.i, align 8
   %magicptr = ptrtoint ptr %call.i11 to i64
   switch i64 %magicptr, label %if.end10 [
@@ -313,7 +264,7 @@ virtio_gpu_remap_udmabuf.exit.thread:             ; preds = %if.end
 
 if.end10:                                         ; preds = %if.end, %if.then
   %pdata.0 = phi ptr [ %3, %if.then ], [ %call.i11, %if.end ]
-  %blob = getelementptr inbounds %struct.virtio_gpu_simple_resource, ptr %res, i64 0, i32 11
+  %blob = getelementptr inbounds i8, ptr %res, i64 64
   store ptr %pdata.0, ptr %blob, align 8
   br label %return
 
@@ -324,17 +275,17 @@ return:                                           ; preds = %if.end, %virtio_gpu
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_gpu_fini_udmabuf(ptr nocapture noundef %res) local_unnamed_addr #0 {
 entry:
-  %remapped = getelementptr inbounds %struct.virtio_gpu_simple_resource, ptr %res, i64 0, i32 13
+  %remapped = getelementptr inbounds i8, ptr %res, i64 80
   %0 = load ptr, ptr %remapped, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %blob_size.i = getelementptr inbounds %struct.virtio_gpu_simple_resource, ptr %res, i64 0, i32 10
+  %blob_size.i = getelementptr inbounds i8, ptr %res, i64 56
   %1 = load i64, ptr %blob_size.i, align 8
   %call.i = tail call i32 @munmap(ptr noundef nonnull %0, i64 noundef %1) #9
   store ptr null, ptr %remapped, align 8
-  %dmabuf_fd.i = getelementptr inbounds %struct.virtio_gpu_simple_resource, ptr %res, i64 0, i32 12
+  %dmabuf_fd.i = getelementptr inbounds i8, ptr %res, i64 72
   %2 = load i32, ptr %dmabuf_fd.i, align 8
   %cmp.i = icmp sgt i32 %2, -1
   br i1 %cmp.i, label %if.then3.i, label %if.end
@@ -351,58 +302,60 @@ if.end:                                           ; preds = %if.then3.i, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @virtio_gpu_update_dmabuf(ptr noundef %g, i32 noundef %scanout_id, ptr nocapture noundef readonly %res, ptr nocapture noundef readonly %fb, ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
 entry:
-  %dmabuf_fd.i = getelementptr inbounds %struct.virtio_gpu_simple_resource, ptr %res, i64 0, i32 12
+  %scanout1 = getelementptr inbounds i8, ptr %g, i64 864
+  %dmabuf_fd.i = getelementptr inbounds i8, ptr %res, i64 72
   %0 = load i32, ptr %dmabuf_fd.i, align 8
   %cmp.i = icmp slt i32 %0, 0
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %idxprom = zext i32 %scanout_id to i64
-  %arrayidx = getelementptr %struct.VirtIOGPUBase, ptr %g, i64 0, i32 8, i64 %idxprom
+  %arrayidx = getelementptr [16 x %struct.virtio_gpu_scanout], ptr %scanout1, i64 0, i64 %idxprom
   %call.i = tail call noalias dereferenceable_or_null(96) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 96) #13
-  %width.i = getelementptr inbounds %struct.virtio_gpu_rect, ptr %r, i64 0, i32 2
+  %width.i = getelementptr inbounds i8, ptr %r, i64 8
   %1 = load i32, ptr %width.i, align 4
-  %width1.i = getelementptr inbounds %struct.QemuDmaBuf, ptr %call.i, i64 0, i32 1
+  %width1.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 %1, ptr %width1.i, align 4
-  %height.i = getelementptr inbounds %struct.virtio_gpu_rect, ptr %r, i64 0, i32 3
+  %height.i = getelementptr inbounds i8, ptr %r, i64 12
   %2 = load i32, ptr %height.i, align 4
-  %height3.i = getelementptr inbounds %struct.QemuDmaBuf, ptr %call.i, i64 0, i32 2
+  %height3.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 %2, ptr %height3.i, align 8
-  %stride.i = getelementptr inbounds %struct.virtio_gpu_framebuffer, ptr %fb, i64 0, i32 4
+  %stride.i = getelementptr inbounds i8, ptr %fb, i64 16
   %3 = load i32, ptr %stride.i, align 4
-  %stride5.i = getelementptr inbounds %struct.QemuDmaBuf, ptr %call.i, i64 0, i32 3
+  %stride5.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 %3, ptr %stride5.i, align 4
-  %x7.i = getelementptr inbounds %struct.QemuDmaBuf, ptr %call.i, i64 0, i32 7
+  %x7.i = getelementptr inbounds i8, ptr %call.i, i64 36
   %4 = load <2 x i32>, ptr %r, align 4
-  %width10.i = getelementptr inbounds %struct.virtio_gpu_framebuffer, ptr %fb, i64 0, i32 2
+  %width10.i = getelementptr inbounds i8, ptr %fb, i64 8
   %5 = load <2 x i32>, ptr %width10.i, align 4
   %6 = shufflevector <2 x i32> %4, <2 x i32> %5, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   store <4 x i32> %6, ptr %x7.i, align 4
   %7 = load i32, ptr %fb, align 4
   %call14.i = tail call i32 @qemu_pixman_to_drm_format(i32 noundef %7) #9
-  %fourcc.i = getelementptr inbounds %struct.QemuDmaBuf, ptr %call.i, i64 0, i32 4
+  %fourcc.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i32 %call14.i, ptr %fourcc.i, align 8
   %8 = load i32, ptr %dmabuf_fd.i, align 8
   store i32 %8, ptr %call.i, align 8
-  %allow_fences.i = getelementptr inbounds %struct.QemuDmaBuf, ptr %call.i, i64 0, i32 14
+  %allow_fences.i = getelementptr inbounds i8, ptr %call.i, i64 68
   store i8 1, ptr %allow_fences.i, align 4
-  %draw_submitted.i = getelementptr inbounds %struct.QemuDmaBuf, ptr %call.i, i64 0, i32 15
+  %draw_submitted.i = getelementptr inbounds i8, ptr %call.i, i64 69
   store i8 0, ptr %draw_submitted.i, align 1
-  %scanout_id20.i = getelementptr inbounds %struct.VGPUDMABuf, ptr %call.i, i64 0, i32 1
+  %scanout_id20.i = getelementptr inbounds i8, ptr %call.i, i64 72
   store i32 %scanout_id, ptr %scanout_id20.i, align 8
-  %dmabuf21.i = getelementptr inbounds %struct.VirtIOGPU, ptr %g, i64 0, i32 18
+  %dmabuf21.i = getelementptr inbounds i8, ptr %g, i64 3144
   %9 = load ptr, ptr %dmabuf21.i, align 8
-  %next.i = getelementptr inbounds %struct.VGPUDMABuf, ptr %call.i, i64 0, i32 2
+  %next.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr %9, ptr %next.i, align 8
   %cmp22.not.i = icmp eq ptr %9, null
-  %tql_prev31.i = getelementptr inbounds %struct.VirtIOGPU, ptr %g, i64 0, i32 18, i32 0, i32 0, i32 1
-  %tql_prev.i = getelementptr inbounds %struct.VGPUDMABuf, ptr %9, i64 0, i32 2, i32 0, i32 1
+  %tql_prev31.i = getelementptr inbounds i8, ptr %g, i64 3152
+  %tql_prev.i = getelementptr inbounds i8, ptr %9, i64 88
   %tql_prev31.sink.i = select i1 %cmp22.not.i, ptr %tql_prev31.i, ptr %tql_prev.i
   store ptr %next.i, ptr %tql_prev31.sink.i, align 8
   store ptr %call.i, ptr %dmabuf21.i, align 8
-  %tql_prev38.i = getelementptr inbounds %struct.VGPUDMABuf, ptr %call.i, i64 0, i32 2, i32 0, i32 1
+  %tql_prev38.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %dmabuf21.i, ptr %tql_prev38.i, align 8
-  %arrayidx3 = getelementptr %struct.VirtIOGPU, ptr %g, i64 0, i32 18, i32 1, i64 %idxprom
+  %primary = getelementptr inbounds i8, ptr %g, i64 3160
+  %arrayidx3 = getelementptr [16 x ptr], ptr %primary, i64 0, i64 %idxprom
   %10 = load ptr, ptr %arrayidx3, align 8
   %tobool4.not = icmp eq ptr %10, null
   store ptr %call.i, ptr %arrayidx3, align 8
@@ -413,18 +366,18 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %if.end
-  %scanout_id.i = getelementptr inbounds %struct.VGPUDMABuf, ptr %10, i64 0, i32 1
+  %scanout_id.i = getelementptr inbounds i8, ptr %10, i64 72
   %13 = load i32, ptr %scanout_id.i, align 8
   %idxprom.i = zext i32 %13 to i64
-  %arrayidx.i = getelementptr %struct.VirtIOGPUBase, ptr %g, i64 0, i32 8, i64 %idxprom.i
+  %arrayidx.i = getelementptr [16 x %struct.virtio_gpu_scanout], ptr %scanout1, i64 0, i64 %idxprom.i
   %14 = load ptr, ptr %arrayidx.i, align 8
   tail call void @dpy_gl_release_dmabuf(ptr noundef %14, ptr noundef nonnull %10) #9
-  %next.i16 = getelementptr inbounds %struct.VGPUDMABuf, ptr %10, i64 0, i32 2
+  %next.i16 = getelementptr inbounds i8, ptr %10, i64 80
   %15 = load ptr, ptr %next.i16, align 8
   %cmp.not.i = icmp eq ptr %15, null
-  %tql_prev7.i = getelementptr inbounds %struct.VGPUDMABuf, ptr %10, i64 0, i32 2, i32 0, i32 1
+  %tql_prev7.i = getelementptr inbounds i8, ptr %10, i64 88
   %16 = load ptr, ptr %tql_prev7.i, align 8
-  %tql_prev5.i = getelementptr inbounds %struct.VGPUDMABuf, ptr %15, i64 0, i32 2, i32 0, i32 1
+  %tql_prev5.i = getelementptr inbounds i8, ptr %15, i64 88
   %tql_prev9.sink.i = select i1 %cmp.not.i, ptr %tql_prev31.i, ptr %tql_prev5.i
   store ptr %16, ptr %tql_prev9.sink.i, align 8
   %17 = load ptr, ptr %next.i16, align 8

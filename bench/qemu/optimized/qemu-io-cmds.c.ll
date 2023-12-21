@@ -13,33 +13,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { %struct.anon }
 %struct.anon = type { i32, %struct.iovec }
 %struct.iovec = type { ptr, i64 }
-%struct.aio_ctx = type { ptr, %struct.QEMUIOVector, i64, ptr, i8, i8, i8, i8, i8, %struct.BlockAcctCookie, i32, i32, %struct.timespec }
 %struct.BlockAcctCookie = type { i64, i64, i32 }
 %struct.BlockZoneDescriptor = type { i64, i64, i64, i64, i32, i32 }
 %struct.BlockDriverInfo = type { i32, i32, i64, i8, i8 }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon.1, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon.2, %union.anon.3, %union.anon.4, i32, [16 x %struct.anon.5], ptr, %struct.anon.6, ptr, ptr, %struct.anon.7, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.8, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.9, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon.1 = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%union.anon.4 = type { %struct.QTailQLink }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.anon.7 = type { ptr }
-%struct.anon.8 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon.9 = type { ptr }
-%struct.CoQueue = type { %struct.anon.10 }
-%struct.anon.10 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.11, %struct.anon.11, i32, i32, ptr }
-%struct.anon.11 = type { ptr }
-%struct.BlockDriver = type { ptr, i32, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon.12, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.anon.12 = type { ptr, ptr }
-%struct.QObjectBase_ = type { i32, i64 }
 
 @.str = private unnamed_addr constant [70 x i8] c"ci->perm == 0 || (ci->flags & (CMD_FLAG_GLOBAL | CMD_NOFILE_OK)) == 0\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"../qemu/qemu-io-cmds.c\00", align 1
@@ -304,13 +280,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemuio_add_command(ptr nocapture noundef readonly %ci) local_unnamed_addr #0 {
 entry:
-  %perm = getelementptr inbounds %struct.cmdinfo, ptr %ci, i64 0, i32 10
+  %perm = getelementptr inbounds i8, ptr %ci, i64 64
   %0 = load i64, ptr %perm, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %flags = getelementptr inbounds %struct.cmdinfo, ptr %ci, i64 0, i32 6
+  %flags = getelementptr inbounds i8, ptr %ci, i64 36
   %1 = load i32, ptr %flags, align 4
   %and = and i32 %1, -2147483647
   %cmp1 = icmp eq i32 %and, 0
@@ -362,9 +338,9 @@ entry:
 define dso_local void @qemuio_command_usage(ptr nocapture noundef readonly %ci) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %ci, align 8
-  %args = getelementptr inbounds %struct.cmdinfo, ptr %ci, i64 0, i32 7
+  %args = getelementptr inbounds i8, ptr %ci, i64 40
   %1 = load ptr, ptr %args, align 8
-  %oneline = getelementptr inbounds %struct.cmdinfo, ptr %ci, i64 0, i32 8
+  %oneline = getelementptr inbounds i8, ptr %ci, i64 48
   %2 = load ptr, ptr %oneline, align 8
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret void
@@ -402,7 +378,7 @@ if.then:                                          ; preds = %for.body
 for.inc:                                          ; preds = %for.body, %if.then
   %5 = phi i32 [ %2, %for.body ], [ %.pre9, %if.then ]
   %6 = phi ptr [ %3, %for.body ], [ %.pre, %if.then ]
-  %incdec.ptr = getelementptr %struct.cmdinfo, ptr %ct.08, i64 1
+  %incdec.ptr = getelementptr i8, ptr %ct.08, i64 72
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr %struct.cmdinfo, ptr %6, i64 %idxprom
   %cmp = icmp ult ptr %incdec.ptr, %arrayidx
@@ -486,7 +462,7 @@ for.body.i:                                       ; preds = %if.then, %for.inc.i
   br i1 %cmp1.i, label %if.then4, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %altname.i = getelementptr inbounds %struct.cmdinfo, ptr %ct.08.i, i64 0, i32 1
+  %altname.i = getelementptr inbounds i8, ptr %ct.08.i, i64 8
   %5 = load ptr, ptr %altname.i, align 8
   %tobool.not.i9 = icmp eq ptr %5, null
   br i1 %tobool.not.i9, label %for.inc.i, label %land.lhs.true.i
@@ -497,7 +473,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp4.i, label %if.then4, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %lor.lhs.false.i
-  %incdec.ptr.i = getelementptr %struct.cmdinfo, ptr %ct.08.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %ct.08.i, i64 72
   %cmp.i = icmp ult ptr %incdec.ptr.i, %arrayidx.i7
   br i1 %cmp.i, label %for.body.i, label %if.else, !llvm.loop !8
 
@@ -524,10 +500,10 @@ init_check_command.exit.i:                        ; preds = %if.end.i.i
 
 if.end.i11:                                       ; preds = %if.end.i.i, %if.then4
   %sub.i = add i32 %c.0.ph.i30, -1
-  %argmin.i = getelementptr inbounds %struct.cmdinfo, ptr %ct.08.i, i64 0, i32 3
+  %argmin.i = getelementptr inbounds i8, ptr %ct.08.i, i64 24
   %9 = load i32, ptr %argmin.i, align 8
   %cmp.i12 = icmp slt i32 %sub.i, %9
-  %argmax6.phi.trans.insert.i = getelementptr inbounds %struct.cmdinfo, ptr %ct.08.i, i64 0, i32 4
+  %argmax6.phi.trans.insert.i = getelementptr inbounds i8, ptr %ct.08.i, i64 28
   %.pre34.i = load i32, ptr %argmax6.phi.trans.insert.i, align 4
   br i1 %cmp.i12, label %if.then5.i, label %lor.lhs.false.i13
 
@@ -561,7 +537,7 @@ if.else19.i:                                      ; preds = %if.else.i
 
 if.end26.i:                                       ; preds = %lor.lhs.false.i13
   %tobool27.not.i = icmp eq ptr %blk, null
-  %perm.i = getelementptr inbounds %struct.cmdinfo, ptr %ct.08.i, i64 0, i32 10
+  %perm.i = getelementptr inbounds i8, ptr %ct.08.i, i64 64
   %12 = load i64, ptr %perm.i, align 8
   %tobool29.not.i = icmp eq i64 %12, 0
   br i1 %tobool27.not.i, label %lor.lhs.false28.i, label %if.end32.i
@@ -604,7 +580,7 @@ if.then44.i:                                      ; preds = %if.then40.i
 
 if.end47.i:                                       ; preds = %if.then40.i, %if.then37.i, %land.lhs.true35.i, %if.end32.i, %lor.lhs.false28.i
   store i32 0, ptr @optind, align 4
-  %cfunc.i = getelementptr inbounds %struct.cmdinfo, ptr %ct.08.i, i64 0, i32 2
+  %cfunc.i = getelementptr inbounds i8, ptr %ct.08.i, i64 16
   %17 = load ptr, ptr %cfunc.i, align 8
   %call48.i = call i32 %17(ptr noundef %blk, i32 noundef %c.0.ph.i30, ptr noundef nonnull %rval.0.ph.i31) #24
   br label %command.exit
@@ -1082,7 +1058,7 @@ for.body.i:                                       ; preds = %if.then, %help_onel
   %ct.07.i = phi ptr [ %incdec.ptr.i, %help_oneline.exit.i ], [ %0, %if.then ]
   %2 = load ptr, ptr %ct.07.i, align 8
   %call.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %2)
-  %args.i.i = getelementptr inbounds %struct.cmdinfo, ptr %ct.07.i, i64 0, i32 7
+  %args.i.i = getelementptr inbounds i8, ptr %ct.07.i, i64 40
   %3 = load ptr, ptr %args.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %help_oneline.exit.i, label %if.then.i.i
@@ -1092,10 +1068,10 @@ if.then.i.i:                                      ; preds = %for.body.i
   br label %help_oneline.exit.i
 
 help_oneline.exit.i:                              ; preds = %if.then.i.i, %for.body.i
-  %oneline.i.i = getelementptr inbounds %struct.cmdinfo, ptr %ct.07.i, i64 0, i32 8
+  %oneline.i.i = getelementptr inbounds i8, ptr %ct.07.i, i64 48
   %4 = load ptr, ptr %oneline.i.i, align 8
   %call3.i.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %4)
-  %incdec.ptr.i = getelementptr %struct.cmdinfo, ptr %ct.07.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %ct.07.i, i64 72
   %5 = load ptr, ptr @cmdtab, align 8
   %6 = load i32, ptr @ncmds, align 4
   %idxprom.i = sext i32 %6 to i64
@@ -1108,7 +1084,7 @@ help_all.exit:                                    ; preds = %help_oneline.exit.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr i8, ptr %argv, i64 8
   %7 = load ptr, ptr %arrayidx, align 8
   %8 = load ptr, ptr @cmdtab, align 8
   %9 = load i32, ptr @ncmds, align 4
@@ -1125,7 +1101,7 @@ for.body.i6:                                      ; preds = %if.end, %for.inc.i
   br i1 %cmp1.i, label %if.end5, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i6
-  %altname.i = getelementptr inbounds %struct.cmdinfo, ptr %ct.08.i, i64 0, i32 1
+  %altname.i = getelementptr inbounds i8, ptr %ct.08.i, i64 8
   %11 = load ptr, ptr %altname.i, align 8
   %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
@@ -1136,7 +1112,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp4.i, label %if.end5, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %lor.lhs.false.i
-  %incdec.ptr.i7 = getelementptr %struct.cmdinfo, ptr %ct.08.i, i64 1
+  %incdec.ptr.i7 = getelementptr i8, ptr %ct.08.i, i64 72
   %cmp.i8 = icmp ult ptr %incdec.ptr.i7, %arrayidx.i5
   br i1 %cmp.i8, label %for.body.i6, label %if.then2, !llvm.loop !8
 
@@ -1146,7 +1122,7 @@ if.then2:                                         ; preds = %for.inc.i, %if.end
 
 if.end5:                                          ; preds = %land.lhs.true.i, %for.body.i6
   %call.i.i9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, ptr noundef %7)
-  %args.i.i10 = getelementptr inbounds %struct.cmdinfo, ptr %ct.08.i, i64 0, i32 7
+  %args.i.i10 = getelementptr inbounds i8, ptr %ct.08.i, i64 40
   %12 = load ptr, ptr %args.i.i10, align 8
   %tobool.not.i.i11 = icmp eq ptr %12, null
   br i1 %tobool.not.i.i11, label %help_oneline.exit.i14, label %if.then.i.i12
@@ -1156,10 +1132,10 @@ if.then.i.i12:                                    ; preds = %if.end5
   br label %help_oneline.exit.i14
 
 help_oneline.exit.i14:                            ; preds = %if.then.i.i12, %if.end5
-  %oneline.i.i15 = getelementptr inbounds %struct.cmdinfo, ptr %ct.08.i, i64 0, i32 8
+  %oneline.i.i15 = getelementptr inbounds i8, ptr %ct.08.i, i64 48
   %13 = load ptr, ptr %oneline.i.i15, align 8
   %call3.i.i16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, ptr noundef %13)
-  %help.i = getelementptr inbounds %struct.cmdinfo, ptr %ct.08.i, i64 0, i32 9
+  %help.i = getelementptr inbounds i8, ptr %ct.08.i, i64 56
   %14 = load ptr, ptr %help.i, align 8
   %tobool.not.i17 = icmp eq ptr %14, null
   br i1 %tobool.not.i17, label %return, label %if.then.i
@@ -1534,10 +1510,10 @@ if.then119:                                       ; preds = %if.end117
 
 if.end120:                                        ; preds = %if.then119, %if.end117
   %23 = load i64, ptr %t2, align 8
-  %24 = getelementptr inbounds { i64, i64 }, ptr %t2, i64 0, i32 1
+  %24 = getelementptr inbounds i8, ptr %t2, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = load i64, ptr %t1, align 8
-  %27 = getelementptr inbounds { i64, i64 }, ptr %t1, i64 0, i32 1
+  %27 = getelementptr inbounds i8, ptr %t1, i64 8
   %28 = load i64, ptr %27, align 8
   %sub.i = sub i64 %25, %28
   %cmp.i112 = icmp slt i64 %sub.i, 0
@@ -1693,7 +1669,7 @@ entry:
   %s1 = alloca [64 x i8], align 16
   %s2 = alloca [64 x i8], align 16
   %ts = alloca [64 x i8], align 16
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %t, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %t, i64 8
   %0 = load i64, ptr %tv_nsec.i, align 8
   %conv.i = sitofp i64 %0 to double
   %div.i = fdiv double %conv.i, 1.000000e+09
@@ -2050,7 +2026,7 @@ while.body.i:                                     ; preds = %if.end23, %while.bo
 
 do_aio_readv.exit:                                ; preds = %while.body.i, %if.end23
   %.lcssa.i = phi i32 [ %8, %if.end23 ], [ %9, %while.body.i ]
-  %size.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %size.i = getelementptr inbounds i8, ptr %qiov, i64 32
   %10 = load i64, ptr %size.i, align 8
   %cmp1.i32 = icmp slt i32 %.lcssa.i, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %async_ret.i)
@@ -2100,10 +2076,10 @@ if.then50:                                        ; preds = %if.end48
 
 if.end52:                                         ; preds = %if.then50, %if.end48
   %14 = load i64, ptr %t2, align 8
-  %15 = getelementptr inbounds { i64, i64 }, ptr %t2, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %t2, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = load i64, ptr %t1, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %t1, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %t1, i64 8
   %19 = load i64, ptr %18, align 8
   %sub.i = sub i64 %16, %19
   %cmp.i34 = icmp slt i64 %sub.i, 0
@@ -2625,10 +2601,10 @@ if.end148:                                        ; preds = %if.end.i98, %if.end
 
 if.end151:                                        ; preds = %if.end148
   %13 = load i64, ptr %t2, align 8
-  %14 = getelementptr inbounds { i64, i64 }, ptr %t2, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %t2, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = load i64, ptr %t1, align 8
-  %17 = getelementptr inbounds { i64, i64 }, ptr %t1, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %t1, i64 8
   %18 = load i64, ptr %17, align 8
   %sub.i = sub i64 %15, %18
   %cmp.i103 = icmp slt i64 %sub.i, 0
@@ -2928,7 +2904,7 @@ while.body.i:                                     ; preds = %if.end24, %while.bo
 
 do_aio_writev.exit:                               ; preds = %while.body.i, %if.end24
   %.lcssa.i = phi i32 [ %8, %if.end24 ], [ %9, %while.body.i ]
-  %size.i = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %size.i = getelementptr inbounds i8, ptr %qiov, i64 32
   %10 = load i64, ptr %size.i, align 8
   %cmp1.i27 = icmp slt i32 %.lcssa.i, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %async_ret.i)
@@ -2947,10 +2923,10 @@ if.end34:                                         ; preds = %do_aio_writev.exit
 
 if.end37:                                         ; preds = %if.end34
   %11 = load i64, ptr %t2, align 8
-  %12 = getelementptr inbounds { i64, i64 }, ptr %t2, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %t2, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = load i64, ptr %t1, align 8
-  %15 = getelementptr inbounds { i64, i64 }, ptr %t1, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %t1, i64 8
   %16 = load i64, ptr %15, align 8
   %sub.i = sub i64 %13, %16
   %cmp.i29 = icmp slt i64 %sub.i, 0
@@ -3010,12 +2986,12 @@ entry:
   %endptr.i = alloca ptr, align 8
   %call = tail call noalias dereferenceable_or_null(120) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 120) #26
   store ptr %blk, ptr %call, align 8
-  %vflag = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 5
-  %flags = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 11
-  %qflag = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 4
-  %Pflag = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 7
-  %pattern = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 10
-  %Cflag = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 6
+  %vflag = getelementptr inbounds i8, ptr %call, i64 65
+  %flags = getelementptr inbounds i8, ptr %call, i64 100
+  %qflag = getelementptr inbounds i8, ptr %call, i64 64
+  %Pflag = getelementptr inbounds i8, ptr %call, i64 67
+  %pattern = getelementptr inbounds i8, ptr %call, i64 96
+  %Cflag = getelementptr inbounds i8, ptr %call, i64 66
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -3115,7 +3091,7 @@ if.end15:                                         ; preds = %while.end
   %..i = select i1 %cmp1.i, i64 -34, i64 %6
   %retval.0.i42 = select i1 %cmp.i, i64 %conv.i, i64 %..i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
-  %offset = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %call, i64 48
   store i64 %retval.0.i42, ptr %offset, align 8
   %cmp18 = icmp slt i64 %retval.0.i42, 0
   br i1 %cmp18, label %if.then19, label %if.end24
@@ -3140,14 +3116,14 @@ if.end24:                                         ; preds = %if.end15
   %inc = add i32 %9, 1
   store i32 %inc, ptr @optind, align 4
   %sub25 = sub i32 %argc, %inc
-  %qiov = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 1
+  %qiov = getelementptr inbounds i8, ptr %call, i64 8
   %idxprom26 = sext i32 %inc to i64
   %arrayidx27 = getelementptr ptr, ptr %argv, i64 %idxprom26
   %10 = load i32, ptr %flags, align 4
   %and = and i32 %10, 8
   %tobool = icmp ne i32 %and, 0
   %call29 = call fastcc ptr @create_iovec(ptr noundef %blk, ptr noundef nonnull %qiov, ptr noundef %arrayidx27, i32 noundef %sub25, i32 noundef 171, i1 noundef zeroext %tobool)
-  %buf = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %call29, ptr %buf, align 8
   %cmp31 = icmp eq ptr %call29, null
   br i1 %cmp31, label %if.then33, label %if.end35
@@ -3159,11 +3135,11 @@ if.then33:                                        ; preds = %if.end24
   br label %return
 
 if.end35:                                         ; preds = %if.end24
-  %t1 = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 12
+  %t1 = getelementptr inbounds i8, ptr %call, i64 104
   %call36 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t1) #24
   %call37 = call ptr @blk_get_stats(ptr noundef %blk) #24
-  %acct = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 9
-  %size = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 1, i32 2, i32 0, i32 1, i32 1
+  %acct = getelementptr inbounds i8, ptr %call, i64 72
+  %size = getelementptr inbounds i8, ptr %call, i64 40
   %11 = load i64, ptr %size, align 8
   call void @block_acct_start(ptr noundef %call37, ptr noundef nonnull %acct, i64 noundef %11, i32 noundef 1) #24
   %12 = load i64, ptr %offset, align 8
@@ -3203,34 +3179,34 @@ if.then:                                          ; preds = %entry
   %call2 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, ptr noundef %call1)
   %0 = load ptr, ptr %opaque, align 8
   %call3 = call ptr @blk_get_stats(ptr noundef %0) #24
-  %acct = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 9
+  %acct = getelementptr inbounds i8, ptr %opaque, i64 72
   call void @block_acct_failed(ptr noundef %call3, ptr noundef nonnull %acct) #24
   br label %out
 
 if.end:                                           ; preds = %entry
-  %Pflag = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 7
+  %Pflag = getelementptr inbounds i8, ptr %opaque, i64 67
   %1 = load i8, ptr %Pflag, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end17, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %size = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 1, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %opaque, i64 40
   %3 = load i64, ptr %size, align 8
   %call5 = call noalias ptr @g_malloc(i64 noundef %3) #28
-  %pattern = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 10
+  %pattern = getelementptr inbounds i8, ptr %opaque, i64 96
   %4 = load i32, ptr %pattern, align 8
   %5 = trunc i32 %4 to i8
   %6 = load i64, ptr %size, align 8
   call void @llvm.memset.p0.i64(ptr align 1 %call5, i8 %5, i64 %6, i1 false)
-  %buf = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %opaque, i64 56
   %7 = load ptr, ptr %buf, align 8
   %bcmp = call i32 @bcmp(ptr %7, ptr %call5, i64 %6)
   %tobool11.not = icmp eq i32 %bcmp, 0
   br i1 %tobool11.not, label %if.end16, label %if.then12
 
 if.then12:                                        ; preds = %if.then4
-  %offset = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %opaque, i64 48
   %8 = load i64, ptr %offset, align 8
   %call15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, i64 noundef %8, i64 noundef %6)
   br label %if.end16
@@ -3242,38 +3218,38 @@ if.end16:                                         ; preds = %if.then12, %if.then
 if.end17:                                         ; preds = %if.end16, %if.end
   %9 = load ptr, ptr %opaque, align 8
   %call19 = call ptr @blk_get_stats(ptr noundef %9) #24
-  %acct20 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 9
+  %acct20 = getelementptr inbounds i8, ptr %opaque, i64 72
   call void @block_acct_done(ptr noundef %call19, ptr noundef nonnull %acct20) #24
-  %qflag = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 4
+  %qflag = getelementptr inbounds i8, ptr %opaque, i64 64
   %10 = load i8, ptr %qflag, align 8
   %11 = and i8 %10, 1
   %tobool21.not = icmp eq i8 %11, 0
   br i1 %tobool21.not, label %if.end23, label %out
 
 if.end23:                                         ; preds = %if.end17
-  %vflag = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 5
+  %vflag = getelementptr inbounds i8, ptr %opaque, i64 65
   %12 = load i8, ptr %vflag, align 1
   %13 = and i8 %12, 1
   %tobool24.not = icmp eq i8 %13, 0
   br i1 %tobool24.not, label %if.end30, label %if.then25
 
 if.then25:                                        ; preds = %if.end23
-  %buf26 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 3
+  %buf26 = getelementptr inbounds i8, ptr %opaque, i64 56
   %14 = load ptr, ptr %buf26, align 8
-  %offset27 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 2
+  %offset27 = getelementptr inbounds i8, ptr %opaque, i64 48
   %15 = load i64, ptr %offset27, align 8
-  %size29 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 1, i32 2, i32 0, i32 1, i32 1
+  %size29 = getelementptr inbounds i8, ptr %opaque, i64 40
   %16 = load i64, ptr %size29, align 8
   call fastcc void @dump_buffer(ptr noundef %14, i64 noundef %15, i64 noundef %16)
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then25, %if.end23
-  %t1 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 12
+  %t1 = getelementptr inbounds i8, ptr %opaque, i64 104
   %17 = load i64, ptr %t2, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %t2, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %t2, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = load i64, ptr %t1, align 8
-  %21 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 12, i32 1
+  %21 = getelementptr inbounds i8, ptr %opaque, i64 112
   %22 = load i64, ptr %21, align 8
   %sub.i = sub i64 %19, %22
   %cmp.i = icmp slt i64 %sub.i, 0
@@ -3284,11 +3260,11 @@ if.end30:                                         ; preds = %if.then25, %if.end2
   %sub6.i = add i64 %t1.sroa.0.0.i, %sub.lobit.i
   store i64 %sub6.i, ptr %t2, align 8
   store i64 %t1.sroa.6.0.i, ptr %18, align 8
-  %offset32 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 2
+  %offset32 = getelementptr inbounds i8, ptr %opaque, i64 48
   %23 = load i64, ptr %offset32, align 8
-  %size34 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 1, i32 2, i32 0, i32 1, i32 1
+  %size34 = getelementptr inbounds i8, ptr %opaque, i64 40
   %24 = load i64, ptr %size34, align 8
-  %Cflag = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 6
+  %Cflag = getelementptr inbounds i8, ptr %opaque, i64 66
   %25 = load i8, ptr %Cflag, align 2
   %26 = and i8 %25, 1
   %tobool37 = icmp ne i8 %26, 0
@@ -3296,9 +3272,9 @@ if.end30:                                         ; preds = %if.then25, %if.end2
   br label %out
 
 out:                                              ; preds = %if.end17, %if.end30, %if.then
-  %buf39 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 3
+  %buf39 = getelementptr inbounds i8, ptr %opaque, i64 56
   %27 = load ptr, ptr %buf39, align 8
-  %flags = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 11
+  %flags = getelementptr inbounds i8, ptr %opaque, i64 100
   %28 = load i32, ptr %flags, align 4
   %and = and i32 %28, 8
   %tobool42.not = icmp eq i32 %and, 0
@@ -3310,7 +3286,7 @@ out:                                              ; preds = %if.end17, %if.end30
   br i1 %tobool42.not, label %qemu_io_free.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %out
-  %size41 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 1, i32 2, i32 0, i32 1, i32 1
+  %size41 = getelementptr inbounds i8, ptr %opaque, i64 40
   %31 = load i64, ptr %size41, align 8
   %32 = load ptr, ptr %opaque, align 8
   %add.i31 = add i64 %31, 16
@@ -3319,7 +3295,7 @@ if.then2.i:                                       ; preds = %out
   br label %qemu_io_free.exit
 
 qemu_io_free.exit:                                ; preds = %out, %if.then2.i
-  %qiov40 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 1
+  %qiov40 = getelementptr inbounds i8, ptr %opaque, i64 8
   call void @qemu_vfree(ptr noundef %p.addr.0.i) #24
   call void @qemu_iovec_destroy(ptr noundef nonnull %qiov40) #24
   call void @g_free(ptr noundef nonnull %opaque) #24
@@ -3337,10 +3313,10 @@ entry:
   %endptr.i = alloca ptr, align 8
   %call = tail call noalias dereferenceable_or_null(120) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 120) #26
   store ptr %blk, ptr %call, align 8
-  %zflag = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 8
-  %flags9 = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 11
-  %qflag = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 4
-  %Cflag = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 6
+  %zflag = getelementptr inbounds i8, ptr %call, i64 68
+  %flags9 = getelementptr inbounds i8, ptr %call, i64 100
+  %qflag = getelementptr inbounds i8, ptr %call, i64 64
+  %Cflag = getelementptr inbounds i8, ptr %call, i64 66
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %parse_pattern.exit, %entry
@@ -3473,7 +3449,7 @@ if.end34:                                         ; preds = %if.end26
   br i1 %tobool.not, label %if.end50, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %land.lhs.true29, %if.end34
-  %Pflag = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 7
+  %Pflag = getelementptr inbounds i8, ptr %call, i64 67
   %10 = load i8, ptr %Pflag, align 1
   %11 = and i8 %10, 1
   %tobool38.not = icmp eq i8 %11, 0
@@ -3507,7 +3483,7 @@ if.end50:                                         ; preds = %if.end34, %land.lhs
   %..i = select i1 %cmp1.i, i64 -34, i64 %13
   %retval.0.i71 = select i1 %cmp.i, i64 %conv.i, i64 %..i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
-  %offset = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %call, i64 48
   store i64 %retval.0.i71, ptr %offset, align 8
   %cmp53 = icmp slt i64 %retval.0.i71, 0
   br i1 %cmp53, label %if.then54, label %if.end59
@@ -3559,7 +3535,7 @@ if.then68:                                        ; preds = %if.then62
   br label %return
 
 if.end72:                                         ; preds = %if.then62
-  %size = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 1, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %call, i64 40
   store i64 %call65, ptr %size, align 8
   %22 = load i64, ptr %offset, align 8
   %23 = load i32, ptr %flags9, align 4
@@ -3568,14 +3544,14 @@ if.end72:                                         ; preds = %if.then62
 
 if.else:                                          ; preds = %if.end59
   %sub76 = sub i32 %argc, %inc
-  %qiov77 = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 1
+  %qiov77 = getelementptr inbounds i8, ptr %call, i64 8
   %idxprom78 = sext i32 %inc to i64
   %arrayidx79 = getelementptr ptr, ptr %argv, i64 %idxprom78
   %24 = load i32, ptr %flags9, align 4
   %and81 = and i32 %24, 8
   %tobool82 = icmp ne i32 %and81, 0
   %call83 = call fastcc ptr @create_iovec(ptr noundef %blk, ptr noundef nonnull %qiov77, ptr noundef %arrayidx79, i32 noundef %sub76, i32 noundef %pattern.0.ph, i1 noundef zeroext %tobool82)
-  %buf = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %call83, ptr %buf, align 8
   %cmp85 = icmp eq ptr %call83, null
   br i1 %cmp85, label %if.then87, label %if.end89
@@ -3587,11 +3563,11 @@ if.then87:                                        ; preds = %if.else
   br label %return
 
 if.end89:                                         ; preds = %if.else
-  %t1 = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 12
+  %t1 = getelementptr inbounds i8, ptr %call, i64 104
   %call90 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t1) #24
   %call91 = call ptr @blk_get_stats(ptr noundef %blk) #24
-  %acct = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 9
-  %size93 = getelementptr inbounds %struct.aio_ctx, ptr %call, i64 0, i32 1, i32 2, i32 0, i32 1, i32 1
+  %acct = getelementptr inbounds i8, ptr %call, i64 72
+  %size93 = getelementptr inbounds i8, ptr %call, i64 40
   %25 = load i64, ptr %size93, align 8
   call void @block_acct_start(ptr noundef %call91, ptr noundef nonnull %acct, i64 noundef %25, i32 noundef 2) #24
   %26 = load i64, ptr %offset, align 8
@@ -3627,28 +3603,28 @@ if.then:                                          ; preds = %entry
   %call2 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.98, ptr noundef %call1)
   %0 = load ptr, ptr %opaque, align 8
   %call3 = call ptr @blk_get_stats(ptr noundef %0) #24
-  %acct = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 9
+  %acct = getelementptr inbounds i8, ptr %opaque, i64 72
   call void @block_acct_failed(ptr noundef %call3, ptr noundef nonnull %acct) #24
   br label %out
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %opaque, align 8
   %call5 = call ptr @blk_get_stats(ptr noundef %1) #24
-  %acct6 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 9
+  %acct6 = getelementptr inbounds i8, ptr %opaque, i64 72
   call void @block_acct_done(ptr noundef %call5, ptr noundef nonnull %acct6) #24
-  %qflag = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 4
+  %qflag = getelementptr inbounds i8, ptr %opaque, i64 64
   %2 = load i8, ptr %qflag, align 8
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end8, label %out
 
 if.end8:                                          ; preds = %if.end
-  %t1 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 12
+  %t1 = getelementptr inbounds i8, ptr %opaque, i64 104
   %4 = load i64, ptr %t2, align 8
-  %5 = getelementptr inbounds { i64, i64 }, ptr %t2, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %t2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %t1, align 8
-  %8 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 12, i32 1
+  %8 = getelementptr inbounds i8, ptr %opaque, i64 112
   %9 = load i64, ptr %8, align 8
   %sub.i = sub i64 %6, %9
   %cmp.i = icmp slt i64 %sub.i, 0
@@ -3659,11 +3635,11 @@ if.end8:                                          ; preds = %if.end
   %sub6.i = add i64 %t1.sroa.0.0.i, %sub.lobit.i
   store i64 %sub6.i, ptr %t2, align 8
   store i64 %t1.sroa.6.0.i, ptr %5, align 8
-  %offset = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %opaque, i64 48
   %10 = load i64, ptr %offset, align 8
-  %size = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 1, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %opaque, i64 40
   %11 = load i64, ptr %size, align 8
-  %Cflag = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 6
+  %Cflag = getelementptr inbounds i8, ptr %opaque, i64 66
   %12 = load i8, ptr %Cflag, align 2
   %13 = and i8 %12, 1
   %tobool12 = icmp ne i8 %13, 0
@@ -3671,17 +3647,17 @@ if.end8:                                          ; preds = %if.end
   br label %out
 
 out:                                              ; preds = %if.end, %if.end8, %if.then
-  %zflag = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 8
+  %zflag = getelementptr inbounds i8, ptr %opaque, i64 68
   %14 = load i8, ptr %zflag, align 4
   %15 = and i8 %14, 1
   %tobool13.not = icmp eq i8 %15, 0
   br i1 %tobool13.not, label %if.then14, label %if.end20
 
 if.then14:                                        ; preds = %out
-  %buf = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %opaque, i64 56
   %16 = load ptr, ptr %buf, align 8
-  %qiov16 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 1
-  %flags = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 11
+  %qiov16 = getelementptr inbounds i8, ptr %opaque, i64 8
+  %flags = getelementptr inbounds i8, ptr %opaque, i64 100
   %17 = load i32, ptr %flags, align 4
   %and = and i32 %17, 8
   %tobool18.not = icmp eq i32 %and, 0
@@ -3693,7 +3669,7 @@ if.then14:                                        ; preds = %out
   br i1 %tobool18.not, label %qemu_io_free.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then14
-  %size17 = getelementptr inbounds %struct.aio_ctx, ptr %opaque, i64 0, i32 1, i32 2, i32 0, i32 1, i32 1
+  %size17 = getelementptr inbounds i8, ptr %opaque, i64 40
   %20 = load i64, ptr %size17, align 8
   %21 = load ptr, ptr %opaque, align 8
   %add.i18 = add i64 %20, 16
@@ -3804,9 +3780,9 @@ for.body:                                         ; preds = %for.cond.preheader,
   %wp = getelementptr %struct.BlockZoneDescriptor, ptr %call6, i64 %idxprom13, i32 3
   %10 = load i64, ptr %wp, align 8
   %shr.i20 = ashr i64 %10, 9
-  %state = getelementptr %struct.BlockZoneDescriptor, ptr %call6, i64 %idxprom13, i32 5
+  %state = getelementptr inbounds i8, ptr %arrayidx14, i64 36
   %11 = load i32, ptr %state, align 4
-  %type = getelementptr %struct.BlockZoneDescriptor, ptr %call6, i64 %idxprom13, i32 4
+  %type = getelementptr inbounds i8, ptr %arrayidx14, i64 32
   %12 = load i32, ptr %type, align 8
   %call29 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.110, i64 noundef %shr.i, i64 noundef %shr.i18, i64 noundef %shr.i19, i64 noundef %shr.i20, i32 noundef %11, i32 noundef %12)
   %inc30 = add nuw i32 %i.026, 1
@@ -4179,7 +4155,7 @@ while.end:                                        ; preds = %while.cond
   br i1 %cmp4, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %while.end
-  %arrayidx6 = getelementptr ptr, ptr %argv, i64 1
+  %arrayidx6 = getelementptr i8, ptr %argv, i64 8
   %5 = load ptr, ptr %arrayidx6, align 8
   %switch.selectcmp.i = icmp eq i64 %retval.0.i, -34
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.31, ptr @.str.32
@@ -4256,7 +4232,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #24
-  %drv = getelementptr inbounds %struct.BlockDriverState, ptr %call, i64 0, i32 6
+  %drv = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %drv, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end19, label %land.lhs.true
@@ -4274,7 +4250,7 @@ if.end9:                                          ; preds = %land.lhs.true
 
 land.lhs.true12:                                  ; preds = %land.lhs.true, %if.end9
   %2 = phi ptr [ %.pr, %if.end9 ], [ %0, %land.lhs.true ]
-  %protocol_name = getelementptr inbounds %struct.BlockDriver, ptr %2, i64 0, i32 8
+  %protocol_name = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %protocol_name, align 8
   %tobool14.not = icmp eq ptr %3, null
   br i1 %tobool14.not, label %if.end19, label %if.then15
@@ -4292,7 +4268,7 @@ if.end23:                                         ; preds = %if.end19
   %4 = load i32, ptr %bdi, align 8
   %conv = sitofp i32 %4 to double
   call fastcc void @cvtstr(double noundef %conv, ptr noundef nonnull %s1)
-  %vm_state_offset = getelementptr inbounds %struct.BlockDriverInfo, ptr %bdi, i64 0, i32 2
+  %vm_state_offset = getelementptr inbounds i8, ptr %bdi, i64 8
   %5 = load i64, ptr %vm_state_offset, align 8
   %conv24 = sitofp i64 %5 to double
   call fastcc void @cvtstr(double noundef %conv24, ptr noundef nonnull %s2)
@@ -4468,10 +4444,10 @@ if.end35:                                         ; preds = %if.end25
 
 if.then36:                                        ; preds = %if.end35
   %11 = load i64, ptr %t2, align 8
-  %12 = getelementptr inbounds { i64, i64 }, ptr %t2, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %t2, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = load i64, ptr %t1, align 8
-  %15 = getelementptr inbounds { i64, i64 }, ptr %t1, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %t1, i64 8
   %16 = load i64, ptr %15, align 8
   %sub.i = sub i64 %13, %16
   %cmp.i33 = icmp slt i64 %sub.i, 0
@@ -4508,7 +4484,7 @@ entry:
   %s1 = alloca [64 x i8], align 16
   %num = alloca i64, align 8
   %call = tail call ptr @blk_bs(ptr noundef %blk) #24
-  %arrayidx = getelementptr ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   %call.i = call i32 @qemu_strtosz(ptr noundef %0, ptr noundef null, ptr noundef nonnull %value.i) #24
@@ -4537,7 +4513,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then5, label %while.body.preheader
 
 if.then5:                                         ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %argv, i64 2
+  %arrayidx6 = getelementptr i8, ptr %argv, i64 16
   %3 = load ptr, ptr %arrayidx6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i20)
   %call.i21 = call i32 @qemu_strtosz(ptr noundef %3, ptr noundef null, ptr noundef nonnull %value.i20) #24
@@ -4968,7 +4944,7 @@ entry:
   br i1 %tobool.not, label %if.end6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %refcnt = getelementptr inbounds %struct.QObjectBase_, ptr %obj, i64 0, i32 1
+  %refcnt = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load i64, ptr %refcnt, align 8
   %tobool1.not = icmp eq i64 %0, 0
   br i1 %tobool1.not, label %if.else, label %land.lhs.true
@@ -5003,9 +4979,9 @@ declare void @qobject_destroy(ptr noundef) local_unnamed_addr #2
 define internal i32 @break_f(ptr noundef %blk, i32 %argc, ptr nocapture noundef readonly %argv) #0 {
 entry:
   %call = tail call ptr @blk_bs(ptr noundef %blk) #24
-  %arrayidx = getelementptr ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
-  %arrayidx1 = getelementptr ptr, ptr %argv, i64 2
+  %arrayidx1 = getelementptr i8, ptr %argv, i64 16
   %1 = load ptr, ptr %arrayidx1, align 8
   %call2 = tail call i32 @bdrv_debug_breakpoint(ptr noundef %call, ptr noundef %0, ptr noundef %1) #24
   %cmp = icmp slt i32 %call2, 0
@@ -5028,7 +5004,7 @@ declare i32 @bdrv_debug_breakpoint(ptr noundef, ptr noundef, ptr noundef) local_
 define internal i32 @remove_break_f(ptr noundef %blk, i32 %argc, ptr nocapture noundef readonly %argv) #0 {
 entry:
   %call = tail call ptr @blk_bs(ptr noundef %blk) #24
-  %arrayidx = getelementptr ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call i32 @bdrv_debug_remove_breakpoint(ptr noundef %call, ptr noundef %0) #24
   %cmp = icmp slt i32 %call1, 0
@@ -5052,7 +5028,7 @@ declare i32 @bdrv_debug_remove_breakpoint(ptr noundef, ptr noundef) local_unname
 define internal i32 @resume_f(ptr noundef %blk, i32 %argc, ptr nocapture noundef readonly %argv) #0 {
 entry:
   %call = tail call ptr @blk_bs(ptr noundef %blk) #24
-  %arrayidx = getelementptr ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call i32 @bdrv_debug_resume(ptr noundef %call, ptr noundef %0) #24
   %cmp = icmp slt i32 %call1, 0
@@ -5075,7 +5051,7 @@ declare i32 @bdrv_debug_resume(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal i32 @wait_break_f(ptr noundef %blk, i32 %argc, ptr nocapture noundef readonly %argv) #0 {
 entry:
   %call4 = tail call ptr @blk_bs(ptr noundef %blk) #24
-  %arrayidx = getelementptr ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call15 = tail call zeroext i1 @bdrv_debug_is_suspended(ptr noundef %call4, ptr noundef %0) #24
   br i1 %call15, label %while.end, label %while.body
@@ -5114,7 +5090,7 @@ entry:
   %endptr = alloca ptr, align 8
   %expired = alloca i8, align 1
   store i8 0, ptr %expired, align 1
-  %arrayidx = getelementptr ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %call = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %endptr, i32 noundef 0) #24
   %cmp = icmp slt i64 %call, 0
@@ -5183,7 +5159,7 @@ declare void @timer_del(ptr noundef) local_unnamed_addr #2
 define internal i32 @sigraise_f(ptr nocapture readnone %blk, i32 %argc, ptr nocapture noundef readonly %argv) #0 {
 entry:
   %value.i = alloca i64, align 8
-  %arrayidx = getelementptr ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   %call.i = call i32 @qemu_strtosz(ptr noundef %0, ptr noundef null, ptr noundef nonnull %value.i) #24

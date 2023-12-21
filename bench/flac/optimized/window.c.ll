@@ -581,7 +581,7 @@ entry:
 for.cond.preheader:                               ; preds = %entry
   %add = add nsw i32 %L, 1
   %div = ashr exact i32 %add, 1
-  %invariant.gep = getelementptr float, ptr %window, i64 -1
+  %invariant.gep = getelementptr i8, ptr %window, i64 -4
   %cmp.not30 = icmp slt i32 %div, 1
   br i1 %cmp.not30, label %for.cond4.preheader, label %for.body.lr.ph
 
@@ -595,7 +595,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.cond21.preheader:                             ; preds = %entry
   %div22 = ashr exact i32 %L, 1
-  %invariant.gep36 = getelementptr float, ptr %window, i64 -1
+  %invariant.gep36 = getelementptr i8, ptr %window, i64 -4
   %cmp23.not38 = icmp slt i32 %div22, 1
   br i1 %cmp23.not38, label %for.cond37.preheader, label %for.body25.lr.ph
 

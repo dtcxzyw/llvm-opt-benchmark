@@ -3,9 +3,7 @@ source_filename = "bench/icu/original/ucasemap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UCaseMap = type { ptr, [32 x i8], i32, i32 }
 %struct.UCaseContext = type { ptr, i32, i32, i32, i32, i32, i8, i8, i8, i8 }
-%struct.UTrie2 = type { ptr, ptr, ptr, i32, i32, i16, i16, i32, i32, i32, i32, ptr, i32, i8, i8, i16, ptr }
 %"class.icu_75::CheckedArrayByteSink" = type <{ %"class.icu_75::ByteSink", ptr, i32, i32, i32, i8, [3 x i8] }>
 %"class.icu_75::ByteSink" = type { ptr }
 
@@ -26,9 +24,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN8UCaseMapC2EPKcjP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %localeID, i32 noundef %opts, ptr noundef %pErrorCode) unnamed_addr #0 align 2 {
 entry:
   store ptr null, ptr %this, align 8
-  %caseLocale = getelementptr inbounds %struct.UCaseMap, ptr %this, i64 0, i32 2
+  %caseLocale = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %caseLocale, align 8
-  %options = getelementptr inbounds %struct.UCaseMap, ptr %this, i64 0, i32 3
+  %options = getelementptr inbounds i8, ptr %this, i64 44
   store i32 %opts, ptr %options, align 4
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -44,12 +42,12 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %cmp1.i, label %if.then2.i, label %if.end4.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
-  %locale3.i = getelementptr inbounds %struct.UCaseMap, ptr %this, i64 0, i32 1
+  %locale3.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %locale3.i, align 8
   br label %if.end29.sink.split.i
 
 if.end4.i:                                        ; preds = %land.lhs.true.i, %if.end.i
-  %locale5.i = getelementptr inbounds %struct.UCaseMap, ptr %this, i64 0, i32 1
+  %locale5.i = getelementptr inbounds i8, ptr %this, i64 8
   %call6.i = tail call i32 @uloc_getName_75(ptr noundef %localeID, ptr noundef nonnull %locale5.i, i32 noundef 32, ptr noundef nonnull %pErrorCode)
   %2 = load i32, ptr %pErrorCode, align 4
   %cmp7.i = icmp eq i32 %2, 15
@@ -110,12 +108,12 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp1, label %if.then2, label %if.end4
 
 if.then2:                                         ; preds = %land.lhs.true
-  %locale3 = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 1
+  %locale3 = getelementptr inbounds i8, ptr %csm, i64 8
   store i8 0, ptr %locale3, align 8
   br label %if.end29.sink.split
 
 if.end4:                                          ; preds = %land.lhs.true, %if.end
-  %locale5 = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 1
+  %locale5 = getelementptr inbounds i8, ptr %csm, i64 8
   %call6 = tail call i32 @uloc_getName_75(ptr noundef %locale, ptr noundef nonnull %locale5, i32 noundef 32, ptr noundef nonnull %pErrorCode)
   %2 = load i32, ptr %pErrorCode, align 4
   %cmp7 = icmp eq i32 %2, 15
@@ -152,7 +150,7 @@ if.else:                                          ; preds = %if.end18.thread, %i
 
 if.end29.sink.split:                              ; preds = %if.then2, %if.then21, %if.else
   %.sink = phi i32 [ 1, %if.else ], [ %call24, %if.then21 ], [ 1, %if.then2 ]
-  %caseLocale28 = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 2
+  %caseLocale28 = getelementptr inbounds i8, ptr %csm, i64 40
   store i32 %.sink, ptr %caseLocale28, align 8
   br label %if.end29
 
@@ -169,7 +167,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(479) %0) #10
   br label %delete.end
@@ -245,14 +243,14 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @ucasemap_getLocale_75(ptr noundef readnone %csm) local_unnamed_addr #3 {
 entry:
-  %locale = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 1
+  %locale = getelementptr inbounds i8, ptr %csm, i64 8
   ret ptr %locale
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @ucasemap_getOptions_75(ptr nocapture noundef readonly %csm) local_unnamed_addr #4 {
 entry:
-  %options = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 3
+  %options = getelementptr inbounds i8, ptr %csm, i64 44
   %0 = load i32, ptr %options, align 4
   ret i32 %0
 }
@@ -271,7 +269,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %options1 = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 3
+  %options1 = getelementptr inbounds i8, ptr %csm, i64 44
   store i32 %options, ptr %options1, align 4
   br label %return
 
@@ -301,7 +299,7 @@ if.end:                                           ; preds = %if.end.i
   %1 = getelementptr inbounds i8, ptr %csc, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
   store ptr %src, ptr %csc, align 8
-  %limit = getelementptr inbounds %struct.UCaseContext, ptr %csc, i64 0, i32 3
+  %limit = getelementptr inbounds i8, ptr %csc, i64 16
   store i32 %srcLength, ptr %limit, align 8
   %cmp192 = icmp sgt i32 %srcLength, 0
   br i1 %cmp192, label %while.body.lr.ph, label %while.end254
@@ -311,8 +309,8 @@ while.body.lr.ph:                                 ; preds = %if.end
   %cmp87 = icmp eq i32 %and86, 0
   %and89 = and i32 %options, 1024
   %cmp90.not = icmp eq i32 %and89, 0
-  %cpStart = getelementptr inbounds %struct.UCaseContext, ptr %csc, i64 0, i32 4
-  %cpLimit = getelementptr inbounds %struct.UCaseContext, ptr %csc, i64 0, i32 5
+  %cpStart = getelementptr inbounds i8, ptr %csc, i64 20
+  %cpLimit = getelementptr inbounds i8, ptr %csc, i64 24
   %cmp1.not.i = icmp eq ptr %edits, null
   %and.i153 = and i32 %options, 16384
   %cmp3.i154 = icmp eq i32 %and.i153, 0
@@ -323,9 +321,9 @@ while.body.lr.ph:                                 ; preds = %if.end
 
 while.body:                                       ; preds = %while.body.backedge, %while.body.lr.ph
   %prev.0194 = phi i32 [ 0, %while.body.lr.ph ], [ %index.1, %while.body.backedge ]
-  %tobool1.not193 = phi i64 [ 10, %while.body.lr.ph ], [ 13, %while.body.backedge ]
+  %tobool1.not193 = phi i64 [ 80, %while.body.lr.ph ], [ 104, %while.body.backedge ]
   %vtable4 = load ptr, ptr %iter, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 %tobool1.not193
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 %tobool1.not193
   %2 = load ptr, ptr %vfn5, align 8
   %call6 = call noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(479) %iter)
   %cmp8 = icmp eq i32 %call6, -1
@@ -999,11 +997,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %cpStart = getelementptr inbounds %struct.UCaseContext, ptr %context, i64 0, i32 4
+  %cpStart = getelementptr inbounds i8, ptr %context, i64 20
   %0 = load i32, ptr %cpStart, align 4
-  %index = getelementptr inbounds %struct.UCaseContext, ptr %context, i64 0, i32 2
+  %index = getelementptr inbounds i8, ptr %context, i64 12
   store i32 %0, ptr %index, align 4
-  %dir1 = getelementptr inbounds %struct.UCaseContext, ptr %context, i64 0, i32 6
+  %dir1 = getelementptr inbounds i8, ptr %context, i64 28
   store i8 %dir, ptr %dir1, align 4
   br label %if.then12
 
@@ -1012,27 +1010,27 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3.not, label %if.else7, label %if.then4
 
 if.then4:                                         ; preds = %if.else
-  %cpLimit = getelementptr inbounds %struct.UCaseContext, ptr %context, i64 0, i32 5
+  %cpLimit = getelementptr inbounds i8, ptr %context, i64 24
   %1 = load i32, ptr %cpLimit, align 8
-  %index5 = getelementptr inbounds %struct.UCaseContext, ptr %context, i64 0, i32 2
+  %index5 = getelementptr inbounds i8, ptr %context, i64 12
   store i32 %1, ptr %index5, align 4
-  %dir6 = getelementptr inbounds %struct.UCaseContext, ptr %context, i64 0, i32 6
+  %dir6 = getelementptr inbounds i8, ptr %context, i64 28
   store i8 %dir, ptr %dir6, align 4
   br label %if.else25
 
 if.else7:                                         ; preds = %if.else
-  %dir8 = getelementptr inbounds %struct.UCaseContext, ptr %context, i64 0, i32 6
+  %dir8 = getelementptr inbounds i8, ptr %context, i64 28
   %2 = load i8, ptr %dir8, align 4
   %3 = icmp slt i8 %2, 0
-  %index13.phi.trans.insert = getelementptr inbounds %struct.UCaseContext, ptr %context, i64 0, i32 2
+  %index13.phi.trans.insert = getelementptr inbounds i8, ptr %context, i64 12
   %.pre55 = load i32, ptr %index13.phi.trans.insert, align 4
   br i1 %3, label %if.then12, label %if.else25
 
 if.then12:                                        ; preds = %if.else7, %if.then
   %4 = phi i32 [ %0, %if.then ], [ %.pre55, %if.else7 ]
-  %start = getelementptr inbounds %struct.UCaseContext, ptr %context, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %context, i64 8
   %5 = load i32, ptr %start, align 8
-  %index13 = getelementptr inbounds %struct.UCaseContext, ptr %context, i64 0, i32 2
+  %index13 = getelementptr inbounds i8, ptr %context, i64 12
   %cmp14 = icmp slt i32 %5, %4
   br i1 %cmp14, label %do.body, label %return
 
@@ -1053,8 +1051,8 @@ if.then19:                                        ; preds = %do.body
 
 if.else25:                                        ; preds = %if.else7, %if.then4
   %8 = phi i32 [ %1, %if.then4 ], [ %.pre55, %if.else7 ]
-  %index26 = getelementptr inbounds %struct.UCaseContext, ptr %context, i64 0, i32 2
-  %limit = getelementptr inbounds %struct.UCaseContext, ptr %context, i64 0, i32 3
+  %index26 = getelementptr inbounds i8, ptr %context, i64 12
+  %limit = getelementptr inbounds i8, ptr %context, i64 16
   %9 = load i32, ptr %limit, align 8
   %cmp27 = icmp slt i32 %8, %9
   br i1 %cmp27, label %do.body29, label %return
@@ -1217,13 +1215,13 @@ if.end:                                           ; preds = %entry, %cond.false,
   br i1 %or.cond162228239, label %if.end11.lr.ph.lr.ph, label %for.end290
 
 if.end11.lr.ph.lr.ph:                             ; preds = %if.end
-  %highStart = getelementptr inbounds %struct.UTrie2, ptr %call, i64 0, i32 9
-  %highValueIndex = getelementptr inbounds %struct.UTrie2, ptr %call, i64 0, i32 10
-  %indexLength = getelementptr inbounds %struct.UTrie2, ptr %call, i64 0, i32 3
+  %highStart = getelementptr inbounds i8, ptr %call, i64 44
+  %highValueIndex = getelementptr inbounds i8, ptr %call, i64 48
+  %indexLength = getelementptr inbounds i8, ptr %call, i64 24
   %cmp76.not = icmp eq ptr %edits, null
   %cmp274 = icmp sgt i32 %caseLocale, -1
-  %cpStart276 = getelementptr inbounds %struct.UCaseContext, ptr %csc, i64 0, i32 4
-  %cpLimit = getelementptr inbounds %struct.UCaseContext, ptr %csc, i64 0, i32 5
+  %cpStart276 = getelementptr inbounds i8, ptr %csc, i64 20
+  %cpLimit = getelementptr inbounds i8, ptr %csc, i64 24
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end11.backedge, %if.end11.lr.ph.lr.ph
@@ -1262,7 +1260,7 @@ _ZN6icu_7512ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %add = add i8 %4, %3
   store i8 %add, ptr %ascii, align 1
   %vtable = load ptr, ptr %sink, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %ascii, i32 noundef 1)
   br i1 %cmp76.not, label %for.cond6.backedge, label %if.then32
@@ -2280,7 +2278,7 @@ if.then339:                                       ; preds = %if.end241.if.then33
 
 if.then342:                                       ; preds = %if.then339
   %vtable.i = load ptr, ptr %sink, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %29 = load ptr, ptr %vfn.i, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull @.str.2, i32 noundef 2)
   br label %if.end343
@@ -2290,7 +2288,7 @@ if.end343:                                        ; preds = %if.then342, %if.the
 
 if.then345:                                       ; preds = %if.end343
   %vtable.i171 = load ptr, ptr %sink, align 8
-  %vfn.i172 = getelementptr inbounds ptr, ptr %vtable.i171, i64 2
+  %vfn.i172 = getelementptr inbounds i8, ptr %vtable.i171, i64 16
   %30 = load ptr, ptr %vfn.i172, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull @.str.3, i32 noundef 2)
   br label %if.end346
@@ -2302,7 +2300,7 @@ if.end346:                                        ; preds = %if.then345, %if.end
 while.body349:                                    ; preds = %if.end346, %while.body349
   %numYpogegrammeni.2194 = phi i32 [ %dec, %while.body349 ], [ %numYpogegrammeni.0.lcssa, %if.end346 ]
   %vtable.i173 = load ptr, ptr %sink, align 8
-  %vfn.i174 = getelementptr inbounds ptr, ptr %vtable.i173, i64 2
+  %vfn.i174 = getelementptr inbounds i8, ptr %vtable.i173, i64 16
   %31 = load ptr, ptr %vfn.i174, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull @.str.4, i32 noundef 2)
   %dec = add nsw i32 %numYpogegrammeni.2194, -1
@@ -2427,7 +2425,7 @@ if.then12:                                        ; preds = %if.end8
 if.end13:                                         ; preds = %if.then12, %if.end8
   tail call void %stringCaseMapper(i32 noundef %caseLocale, i32 noundef %options, ptr noundef %iter, ptr noundef %src, i32 noundef %srcLength.addr.0, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %vtable = load ptr, ptr %sink, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %sink)
   %2 = load i32, ptr %errorCode, align 4
@@ -2540,7 +2538,7 @@ invoke.cont33:                                    ; preds = %invoke.cont
   br i1 %cmp.i39, label %if.end48, label %if.then37
 
 if.then37:                                        ; preds = %invoke.cont33
-  %overflowed_.i = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %sink, i64 0, i32 5
+  %overflowed_.i = getelementptr inbounds i8, ptr %sink, i64 28
   %2 = load i8, ptr %overflowed_.i, align 4
   %tobool40.not = icmp eq i8 %2, 0
   br i1 %tobool40.not, label %if.else, label %if.then41
@@ -2563,7 +2561,7 @@ if.then43:                                        ; preds = %if.else
           to label %if.end48 unwind label %lpad
 
 if.end48:                                         ; preds = %if.then41, %if.then43, %if.else, %invoke.cont33
-  %appended_.i = getelementptr inbounds %"class.icu_75::CheckedArrayByteSink", ptr %sink, i64 0, i32 4
+  %appended_.i = getelementptr inbounds i8, ptr %sink, i64 24
   %4 = load i32, ptr %appended_.i, align 8
   %call52 = invoke i32 @u_terminateChars_75(ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %4, ptr noundef nonnull %errorCode)
           to label %invoke.cont51 unwind label %lpad
@@ -2589,9 +2587,9 @@ declare void @_ZN6icu_7520CheckedArrayByteSinkD1Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define i32 @ucasemap_utf8ToLower_75(ptr nocapture noundef readonly %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
 entry:
-  %caseLocale = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 2
+  %caseLocale = getelementptr inbounds i8, ptr %csm, i64 40
   %0 = load i32, ptr %caseLocale, align 8
-  %options = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 3
+  %options = getelementptr inbounds i8, ptr %csm, i64 44
   %1 = load i32, ptr %options, align 4
   %call = tail call noundef i32 @_Z19ucasemap_mapUTF8_75ijPN6icu_7513BreakIteratorEPciPKciPFvijS1_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESA_SC_(i32 noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull @_ZL28ucasemap_internalUTF8ToLowerijPN6icu_7513BreakIteratorEPKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCode, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
   ret i32 %call
@@ -2604,7 +2602,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %csc, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
   store ptr %src, ptr %csc, align 8
-  %limit = getelementptr inbounds %struct.UCaseContext, ptr %csc, i64 0, i32 3
+  %limit = getelementptr inbounds i8, ptr %csc, i64 16
   store i32 %srcLength, ptr %limit, align 8
   call fastcc void @_ZN12_GLOBAL__N_17toLowerEijPKhP12UCaseContextiiRN6icu_758ByteSinkEPNS4_5EditsER10UErrorCode(i32 noundef %caseLocale, i32 noundef %options, ptr noundef %src, ptr noundef nonnull %csc, i32 noundef 0, i32 noundef %srcLength, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret void
@@ -2613,9 +2611,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define i32 @ucasemap_utf8ToUpper_75(ptr nocapture noundef readonly %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
 entry:
-  %caseLocale = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 2
+  %caseLocale = getelementptr inbounds i8, ptr %csm, i64 40
   %0 = load i32, ptr %caseLocale, align 8
-  %options = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 3
+  %options = getelementptr inbounds i8, ptr %csm, i64 44
   %1 = load i32, ptr %options, align 4
   %call = tail call noundef i32 @_Z19ucasemap_mapUTF8_75ijPN6icu_7513BreakIteratorEPciPKciPFvijS1_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESA_SC_(i32 noundef %0, i32 noundef %1, ptr noundef null, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull @_ZL28ucasemap_internalUTF8ToUpperijPN6icu_7513BreakIteratorEPKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCode, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
   ret i32 %call
@@ -2638,7 +2636,7 @@ if.else:                                          ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %csc, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
   store ptr %src, ptr %csc, align 8
-  %limit = getelementptr inbounds %struct.UCaseContext, ptr %csc, i64 0, i32 3
+  %limit = getelementptr inbounds i8, ptr %csc, i64 16
   store i32 %srcLength, ptr %limit, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ascii.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %s.i)
@@ -2652,12 +2650,12 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond153219230.i, label %if.end5.lr.ph.lr.ph.i, label %for.end276.i
 
 if.end5.lr.ph.lr.ph.i:                            ; preds = %if.else
-  %highStart.i = getelementptr inbounds %struct.UTrie2, ptr %call.i, i64 0, i32 9
-  %highValueIndex.i = getelementptr inbounds %struct.UTrie2, ptr %call.i, i64 0, i32 10
-  %indexLength.i = getelementptr inbounds %struct.UTrie2, ptr %call.i, i64 0, i32 3
+  %highStart.i = getelementptr inbounds i8, ptr %call.i, i64 44
+  %highValueIndex.i = getelementptr inbounds i8, ptr %call.i, i64 48
+  %indexLength.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %cmp70.not.i = icmp eq ptr %edits, null
-  %cpStart265.i = getelementptr inbounds %struct.UCaseContext, ptr %csc, i64 0, i32 4
-  %cpLimit.i = getelementptr inbounds %struct.UCaseContext, ptr %csc, i64 0, i32 5
+  %cpStart265.i = getelementptr inbounds i8, ptr %csc, i64 20
+  %cpLimit.i = getelementptr inbounds i8, ptr %csc, i64 24
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end5.i.backedge, %if.end5.lr.ph.lr.ph.i
@@ -2696,7 +2694,7 @@ _ZN6icu_7512ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %add.i = add i8 %5, %4
   store i8 %add.i, ptr %ascii.i, align 1
   %vtable.i = load ptr, ptr %sink, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %6 = load ptr, ptr %vfn.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull %ascii.i, i32 noundef 1)
   br i1 %cmp70.not.i, label %for.cond1.backedge.i, label %if.then26.i
@@ -3084,7 +3082,7 @@ if.end:                                           ; preds = %_ZN12_GLOBAL__N_17t
 ; Function Attrs: mustprogress uwtable
 define i32 @ucasemap_utf8FoldCase_75(ptr nocapture noundef readonly %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
 entry:
-  %options = getelementptr inbounds %struct.UCaseMap, ptr %csm, i64 0, i32 3
+  %options = getelementptr inbounds i8, ptr %csm, i64 44
   %0 = load i32, ptr %options, align 4
   %call = tail call noundef i32 @_Z19ucasemap_mapUTF8_75ijPN6icu_7513BreakIteratorEPciPKciPFvijS1_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESA_SC_(i32 noundef 1, i32 noundef %0, ptr noundef null, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull @_ZL25ucasemap_internalUTF8FoldijPN6icu_7513BreakIteratorEPKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCode, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %pErrorCode)
   ret i32 %call
@@ -3144,12 +3142,12 @@ if.end13.i:                                       ; preds = %if.then12.i, %if.en
   %1 = getelementptr inbounds i8, ptr %csc.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
   store ptr %src.coerce0, ptr %csc.i, align 8
-  %limit.i = getelementptr inbounds %struct.UCaseContext, ptr %csc.i, i64 0, i32 3
+  %limit.i = getelementptr inbounds i8, ptr %csc.i, i64 16
   store i32 %srcLength.addr.0.i, ptr %limit.i, align 8
   call fastcc void @_ZN12_GLOBAL__N_17toLowerEijPKhP12UCaseContextiiRN6icu_758ByteSinkEPNS4_5EditsER10UErrorCode(i32 noundef %call, i32 noundef %options, ptr noundef %src.coerce0, ptr noundef nonnull %csc.i, i32 noundef 0, i32 noundef %srcLength.addr.0.i, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %csc.i)
   %vtable.i = load ptr, ptr %sink, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %2 = load ptr, ptr %vfn.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %sink)
   %3 = load i32, ptr %errorCode, align 4
@@ -3211,7 +3209,7 @@ if.then12.i:                                      ; preds = %if.end8.i
 if.end13.i:                                       ; preds = %if.then12.i, %if.end8.i
   tail call void @_ZL28ucasemap_internalUTF8ToUpperijPN6icu_7513BreakIteratorEPKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 noundef %call, i32 noundef %options, ptr poison, ptr noundef %src.coerce0, i32 noundef %srcLength.addr.0.i, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %vtable.i = load ptr, ptr %sink, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %sink)
   %2 = load i32, ptr %errorCode, align 4
@@ -3270,7 +3268,7 @@ if.then12.i:                                      ; preds = %if.end8.i
 if.end13.i:                                       ; preds = %if.then12.i, %if.end8.i
   tail call fastcc void @_ZN12_GLOBAL__N_17toLowerEijPKhP12UCaseContextiiRN6icu_758ByteSinkEPNS4_5EditsER10UErrorCode(i32 noundef -1, i32 noundef %options, ptr noundef %src.coerce0, ptr noundef null, i32 noundef 0, i32 noundef %srcLength.addr.0.i, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %vtable.i = load ptr, ptr %sink, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %sink)
   %2 = load i32, ptr %errorCode, align 4

@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/qobject_qbool.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QObjectBase_ = type { i32, i64 }
-%struct.QBool = type { %struct.QObjectBase_, i8 }
-
 @.str = private unnamed_addr constant [12 x i8] c"obj != NULL\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"../qemu/qobject/qbool.c\00", align 1
 @__PRETTY_FUNCTION__.qbool_destroy_obj = private unnamed_addr constant [34 x i8] c"void qbool_destroy_obj(QObject *)\00", align 1
@@ -20,10 +17,10 @@ define dso_local noalias ptr @qbool_from_bool(i1 noundef zeroext %value) local_u
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #6
   %frombool = zext i1 %value to i8
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1, ptr %refcnt.i, align 8
   store i32 6, ptr %call, align 8
-  %value3 = getelementptr inbounds %struct.QBool, ptr %call, i64 0, i32 1
+  %value3 = getelementptr inbounds i8, ptr %call, i64 16
   store i8 %frombool, ptr %value3, align 8
   ret ptr %call
 }
@@ -34,7 +31,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @qbool_get_bool(ptr nocapture noundef readonly %qb) local_unnamed_addr #2 {
 entry:
-  %value = getelementptr inbounds %struct.QBool, ptr %qb, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %qb, i64 16
   %0 = load i8, ptr %value, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -58,7 +55,7 @@ if.else.i.i:                                      ; preds = %entry
 qobject_type.exit.i:                              ; preds = %entry
   %cmp.i = icmp eq i32 %obj.val.i, 6
   tail call void @llvm.assume(i1 %cmp.i)
-  %value = getelementptr inbounds %struct.QBool, ptr %x, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %x, i64 16
   %1 = load i8, ptr %value, align 8
   %tobool.not.i1 = icmp ne ptr %y, null
   tail call void @llvm.assume(i1 %tobool.not.i1)
@@ -74,7 +71,7 @@ if.else.i.i5:                                     ; preds = %qobject_type.exit.i
 qobject_type.exit.i6:                             ; preds = %qobject_type.exit.i
   %cmp.i7 = icmp eq i32 %obj.val.i3, 6
   tail call void @llvm.assume(i1 %cmp.i7)
-  %value2 = getelementptr inbounds %struct.QBool, ptr %y, i64 0, i32 1
+  %value2 = getelementptr inbounds i8, ptr %y, i64 16
   %3 = load i8, ptr %value2, align 8
   %4 = xor i8 %3, %1
   %5 = and i8 %4, 1
@@ -121,7 +118,7 @@ entry:
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %q, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %q, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i

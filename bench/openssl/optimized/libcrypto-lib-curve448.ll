@@ -32,7 +32,7 @@ entry:
   %c = alloca [1 x %struct.gf_s], align 16
   %d = alloca [1 x %struct.gf_s], align 16
   call void @ossl_gf_sqr(ptr noundef nonnull %c, ptr noundef %q) #7
-  %y = getelementptr inbounds %struct.curve448_point_s, ptr %q, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %q, i64 64
   call void @ossl_gf_sqr(ptr noundef nonnull %a, ptr noundef nonnull %y) #7
   br label %for.body.i78
 
@@ -50,10 +50,10 @@ for.body.i78:                                     ; preds = %entry, %for.body.i7
   br i1 %exitcond.not, label %gf_add_RAW.exit87, label %for.body.i78, !llvm.loop !4
 
 gf_add_RAW.exit87:                                ; preds = %for.body.i78
-  %arrayidx.i90 = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 7
+  %arrayidx.i90 = getelementptr inbounds i8, ptr %d, i64 56
   %2 = load i64, ptr %arrayidx.i90, align 8
   %shr.i = lshr i64 %2, 56
-  %arrayidx2.i = getelementptr inbounds [8 x i64], ptr %d, i64 0, i64 4
+  %arrayidx2.i = getelementptr inbounds i8, ptr %d, i64 32
   %3 = load i64, ptr %arrayidx2.i, align 16
   %add.i91 = add i64 %3, %shr.i
   store i64 %add.i91, ptr %arrayidx2.i, align 16
@@ -78,7 +78,7 @@ gf_weak_reduce.exit:                              ; preds = %for.body.i94
   %and15.i = and i64 %6, 72057594037927935
   %add16.i = add nuw nsw i64 %and15.i, %shr.i
   store i64 %add16.i, ptr %d, align 16
-  %t = getelementptr inbounds %struct.curve448_point_s, ptr %p, i64 0, i32 3
+  %t = getelementptr inbounds i8, ptr %p, i64 192
   br label %for.body.i61
 
 for.body.i61:                                     ; preds = %gf_weak_reduce.exit, %for.body.i61
@@ -95,10 +95,10 @@ for.body.i61:                                     ; preds = %gf_weak_reduce.exit
   br i1 %exitcond138.not, label %gf_add_RAW.exit70, label %for.body.i61, !llvm.loop !4
 
 gf_add_RAW.exit70:                                ; preds = %for.body.i61
-  %arrayidx.i103 = getelementptr inbounds %struct.curve448_point_s, ptr %p, i64 0, i32 3, i64 0, i32 0, i64 7
+  %arrayidx.i103 = getelementptr inbounds i8, ptr %p, i64 248
   %9 = load i64, ptr %arrayidx.i103, align 8
   %shr.i104 = lshr i64 %9, 56
-  %arrayidx2.i105 = getelementptr inbounds %struct.curve448_point_s, ptr %p, i64 0, i32 3, i64 0, i32 0, i64 4
+  %arrayidx2.i105 = getelementptr inbounds i8, ptr %p, i64 224
   %10 = load i64, ptr %arrayidx2.i105, align 16
   %add.i106 = add i64 %10, %shr.i104
   store i64 %add.i106, ptr %arrayidx2.i105, align 16
@@ -142,10 +142,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %gf_w
   br i1 %exitcond.not.i, label %gf_sub_RAW.exit.i, label %for.body.i.i, !llvm.loop !7
 
 gf_sub_RAW.exit.i:                                ; preds = %for.body.i.i
-  %arrayidx.i4.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 7
+  %arrayidx.i4.i = getelementptr inbounds i8, ptr %b, i64 56
   %16 = load i64, ptr %arrayidx.i4.i, align 8
   %shr.i.i = lshr i64 %16, 56
-  %arrayidx2.i.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 4
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %b, i64 32
   %17 = load i64, ptr %arrayidx2.i.i, align 16
   %add.i5.i = add i64 %17, %shr.i.i
   store i64 %add.i5.i, ptr %arrayidx2.i.i, align 16
@@ -215,9 +215,9 @@ gf_sub_nr.exit:                                   ; preds = %for.body.i8.i86
   %and15.i.i93 = and i64 %27, 72057594037927935
   %add16.i.i94 = add nuw nsw i64 %and15.i.i93, %shr.i.i83
   store i64 %add16.i.i94, ptr %t, align 16
-  %z = getelementptr inbounds %struct.curve448_point_s, ptr %q, i64 0, i32 2
+  %z = getelementptr inbounds i8, ptr %q, i64 128
   call void @ossl_gf_sqr(ptr noundef nonnull %p, ptr noundef nonnull %z) #7
-  %z25 = getelementptr inbounds %struct.curve448_point_s, ptr %p, i64 0, i32 2
+  %z25 = getelementptr inbounds i8, ptr %p, i64 128
   br label %for.body.i
 
 for.body.i:                                       ; preds = %gf_sub_nr.exit, %for.body.i
@@ -232,10 +232,10 @@ for.body.i:                                       ; preds = %gf_sub_nr.exit, %fo
   br i1 %exitcond145.not, label %gf_add_RAW.exit, label %for.body.i, !llvm.loop !4
 
 gf_add_RAW.exit:                                  ; preds = %for.body.i
-  %arrayidx.i128 = getelementptr inbounds %struct.curve448_point_s, ptr %p, i64 0, i32 2, i64 0, i32 0, i64 7
+  %arrayidx.i128 = getelementptr inbounds i8, ptr %p, i64 184
   %29 = load i64, ptr %arrayidx.i128, align 8
   %shr.i129 = lshr i64 %29, 56
-  %arrayidx2.i130 = getelementptr inbounds %struct.curve448_point_s, ptr %p, i64 0, i32 2, i64 0, i32 0, i64 4
+  %arrayidx2.i130 = getelementptr inbounds i8, ptr %p, i64 160
   %30 = load i64, ptr %arrayidx2.i130, align 16
   %add.i131 = add i64 %30, %shr.i129
   store i64 %add.i131, ptr %arrayidx2.i130, align 16
@@ -279,10 +279,10 @@ for.body.i.i95:                                   ; preds = %for.body.i.i95, %gf
   br i1 %exitcond.not.i105, label %gf_sub_RAW.exit.i106, label %for.body.i.i95, !llvm.loop !7
 
 gf_sub_RAW.exit.i106:                             ; preds = %for.body.i.i95
-  %arrayidx.i4.i107 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 7
+  %arrayidx.i4.i107 = getelementptr inbounds i8, ptr %a, i64 56
   %36 = load i64, ptr %arrayidx.i4.i107, align 8
   %shr.i.i108 = lshr i64 %36, 56
-  %arrayidx2.i.i109 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 4
+  %arrayidx2.i.i109 = getelementptr inbounds i8, ptr %a, i64 32
   %37 = load i64, ptr %arrayidx2.i.i109, align 16
   %add.i5.i110 = add i64 %37, %shr.i.i108
   store i64 %add.i5.i110, ptr %arrayidx2.i.i109, align 16
@@ -309,7 +309,7 @@ gf_subx_nr.exit122:                               ; preds = %for.body.i8.i111
   store i64 %add16.i.i121, ptr %a, align 16
   call void @ossl_gf_mul(ptr noundef %p, ptr noundef nonnull %a, ptr noundef nonnull %b) #7
   call void @ossl_gf_mul(ptr noundef nonnull %z25, ptr noundef nonnull %t, ptr noundef nonnull %a) #7
-  %y45 = getelementptr inbounds %struct.curve448_point_s, ptr %p, i64 0, i32 1
+  %y45 = getelementptr inbounds i8, ptr %p, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %y45, ptr noundef nonnull %t, ptr noundef nonnull %d) #7
   %tobool.not = icmp eq i32 %before_double, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -327,9 +327,9 @@ define i64 @ossl_curve448_point_eq(ptr noundef %p, ptr noundef %q) local_unnamed
 entry:
   %a = alloca [1 x %struct.gf_s], align 16
   %b = alloca [1 x %struct.gf_s], align 16
-  %y = getelementptr inbounds %struct.curve448_point_s, ptr %p, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %p, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %a, ptr noundef nonnull %y, ptr noundef %q) #7
-  %y4 = getelementptr inbounds %struct.curve448_point_s, ptr %q, i64 0, i32 1
+  %y4 = getelementptr inbounds i8, ptr %q, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %b, ptr noundef nonnull %y4, ptr noundef %p) #7
   %call = call i64 @gf_eq(ptr noundef nonnull %a, ptr noundef nonnull %b) #7
   ret i64 %call
@@ -345,10 +345,10 @@ entry:
   %a = alloca [1 x %struct.gf_s], align 16
   %b = alloca [1 x %struct.gf_s], align 16
   %c = alloca [1 x %struct.gf_s], align 16
-  %y = getelementptr inbounds %struct.curve448_point_s, ptr %p, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %p, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %a, ptr noundef %p, ptr noundef nonnull %y) #7
-  %z = getelementptr inbounds %struct.curve448_point_s, ptr %p, i64 0, i32 2
-  %t = getelementptr inbounds %struct.curve448_point_s, ptr %p, i64 0, i32 3
+  %z = getelementptr inbounds i8, ptr %p, i64 128
+  %t = getelementptr inbounds i8, ptr %p, i64 192
   call void @ossl_gf_mul(ptr noundef nonnull %b, ptr noundef nonnull %z, ptr noundef nonnull %t) #7
   %call = call i64 @gf_eq(ptr noundef nonnull %a, ptr noundef nonnull %b) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %a, ptr noundef %p) #7
@@ -381,11 +381,11 @@ entry:
   %scalar1x = alloca [1 x %struct.curve448_scalar_s], align 16
   call void @ossl_curve448_scalar_add(ptr noundef nonnull %scalar1x, ptr noundef %scalar, ptr noundef nonnull @precomputed_scalarmul_adjustment) #7
   call void @ossl_curve448_scalar_halve(ptr noundef nonnull %scalar1x, ptr noundef nonnull %scalar1x) #7
-  %b.i = getelementptr inbounds %struct.niels_s, ptr %ni, i64 0, i32 1
-  %c.i = getelementptr inbounds %struct.niels_s, ptr %ni, i64 0, i32 2
-  %y.i = getelementptr inbounds %struct.curve448_point_s, ptr %out, i64 0, i32 1
-  %t.i = getelementptr inbounds %struct.curve448_point_s, ptr %out, i64 0, i32 3
-  %z.i = getelementptr inbounds %struct.curve448_point_s, ptr %out, i64 0, i32 2
+  %b.i = getelementptr inbounds i8, ptr %ni, i64 64
+  %c.i = getelementptr inbounds i8, ptr %ni, i64 128
+  %y.i = getelementptr inbounds i8, ptr %out, i64 64
+  %t.i = getelementptr inbounds i8, ptr %out, i64 192
+  %z.i = getelementptr inbounds i8, ptr %out, i64 128
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc45
@@ -569,7 +569,7 @@ entry:
   %a = alloca [1 x %struct.gf_s], align 16
   %b = alloca [1 x %struct.gf_s], align 16
   %c = alloca [1 x %struct.gf_s], align 16
-  %y = getelementptr inbounds %struct.curve448_point_s, ptr %d, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %d, i64 64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
@@ -589,10 +589,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i, label %gf_sub_RAW.exit.i, label %for.body.i.i, !llvm.loop !7
 
 gf_sub_RAW.exit.i:                                ; preds = %for.body.i.i
-  %arrayidx.i4.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 7
+  %arrayidx.i4.i = getelementptr inbounds i8, ptr %b, i64 56
   %2 = load i64, ptr %arrayidx.i4.i, align 8
   %shr.i.i = lshr i64 %2, 56
-  %arrayidx2.i.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 4
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %b, i64 32
   %3 = load i64, ptr %arrayidx2.i.i, align 16
   %add.i5.i = add i64 %3, %shr.i.i
   store i64 %add.i5.i, ptr %arrayidx2.i.i, align 16
@@ -660,10 +660,10 @@ gf_weak_reduce.exit:                              ; preds = %for.body.i98
   %and15.i = and i64 %13, 72057594037927935
   %add16.i = add nuw nsw i64 %and15.i, %shr.i
   store i64 %add16.i, ptr %b, align 16
-  %b14 = getelementptr inbounds %struct.niels_s, ptr %e, i64 0, i32 1
+  %b14 = getelementptr inbounds i8, ptr %e, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %y, ptr noundef nonnull %b14, ptr noundef nonnull %b) #7
-  %c19 = getelementptr inbounds %struct.niels_s, ptr %e, i64 0, i32 2
-  %t = getelementptr inbounds %struct.curve448_point_s, ptr %d, i64 0, i32 3
+  %c19 = getelementptr inbounds i8, ptr %e, i64 128
+  %t = getelementptr inbounds i8, ptr %d, i64 192
   call void @ossl_gf_mul(ptr noundef %d, ptr noundef nonnull %c19, ptr noundef nonnull %t) #7
   br label %for.body.i65
 
@@ -681,10 +681,10 @@ for.body.i65:                                     ; preds = %gf_weak_reduce.exit
   br i1 %exitcond144.not, label %gf_add_RAW.exit74, label %for.body.i65, !llvm.loop !4
 
 gf_add_RAW.exit74:                                ; preds = %for.body.i65
-  %arrayidx.i107 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 7
+  %arrayidx.i107 = getelementptr inbounds i8, ptr %c, i64 56
   %16 = load i64, ptr %arrayidx.i107, align 8
   %shr.i108 = lshr i64 %16, 56
-  %arrayidx2.i109 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 4
+  %arrayidx2.i109 = getelementptr inbounds i8, ptr %c, i64 32
   %17 = load i64, ptr %arrayidx2.i109, align 16
   %add.i110 = add i64 %17, %shr.i108
   store i64 %add.i110, ptr %arrayidx2.i109, align 16
@@ -754,7 +754,7 @@ gf_sub_nr.exit100:                                ; preds = %for.body.i8.i89
   %and15.i.i98 = and i64 %27, 72057594037927935
   %add16.i.i99 = add nuw nsw i64 %and15.i.i98, %shr.i.i86
   store i64 %add16.i.i99, ptr %b, align 16
-  %z = getelementptr inbounds %struct.curve448_point_s, ptr %d, i64 0, i32 2
+  %z = getelementptr inbounds i8, ptr %d, i64 128
   br label %for.body.i.i101
 
 for.body.i.i101:                                  ; preds = %for.body.i.i101, %gf_sub_nr.exit100
@@ -774,10 +774,10 @@ for.body.i.i101:                                  ; preds = %for.body.i.i101, %g
   br i1 %exitcond.not.i111, label %gf_sub_RAW.exit.i112, label %for.body.i.i101, !llvm.loop !7
 
 gf_sub_RAW.exit.i112:                             ; preds = %for.body.i.i101
-  %arrayidx.i4.i113 = getelementptr inbounds %struct.curve448_point_s, ptr %d, i64 0, i32 1, i64 0, i32 0, i64 7
+  %arrayidx.i4.i113 = getelementptr inbounds i8, ptr %d, i64 120
   %30 = load i64, ptr %arrayidx.i4.i113, align 8
   %shr.i.i114 = lshr i64 %30, 56
-  %arrayidx2.i.i115 = getelementptr inbounds %struct.curve448_point_s, ptr %d, i64 0, i32 1, i64 0, i32 0, i64 4
+  %arrayidx2.i.i115 = getelementptr inbounds i8, ptr %d, i64 96
   %31 = load i64, ptr %arrayidx2.i.i115, align 16
   %add.i5.i116 = add i64 %31, %shr.i.i114
   store i64 %add.i5.i116, ptr %arrayidx2.i.i115, align 16
@@ -818,10 +818,10 @@ for.body.i:                                       ; preds = %gf_sub_nr.exit128, 
   br i1 %exitcond151.not, label %gf_add_RAW.exit, label %for.body.i, !llvm.loop !4
 
 gf_add_RAW.exit:                                  ; preds = %for.body.i
-  %arrayidx.i132 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 7
+  %arrayidx.i132 = getelementptr inbounds i8, ptr %a, i64 56
   %37 = load i64, ptr %arrayidx.i132, align 8
   %shr.i133 = lshr i64 %37, 56
-  %arrayidx2.i134 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 4
+  %arrayidx2.i134 = getelementptr inbounds i8, ptr %a, i64 32
   %38 = load i64, ptr %arrayidx2.i134, align 16
   %add.i135 = add i64 %38, %shr.i133
   store i64 %add.i135, ptr %arrayidx2.i134, align 16
@@ -875,14 +875,14 @@ entry:
   %u = alloca [1 x %struct.gf_s], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q, ptr noundef nonnull align 16 dereferenceable(256) %p, i64 256, i1 false)
   call void @ossl_gf_sqr(ptr noundef nonnull %x, ptr noundef nonnull %q) #7
-  %y7 = getelementptr inbounds %struct.curve448_point_s, ptr %q, i64 0, i32 1
+  %y7 = getelementptr inbounds i8, ptr %q, i64 64
   call void @ossl_gf_sqr(ptr noundef nonnull %t, ptr noundef nonnull %y7) #7
   call void @gf_add(ptr noundef nonnull %u, ptr noundef nonnull %x, ptr noundef nonnull %t) #7
   call void @gf_add(ptr noundef nonnull %z, ptr noundef nonnull %y7, ptr noundef nonnull %q) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %y, ptr noundef nonnull %z) #7
   call void @gf_sub(ptr noundef nonnull %y, ptr noundef nonnull %y, ptr noundef nonnull %u) #7
   call void @gf_sub(ptr noundef nonnull %z, ptr noundef nonnull %t, ptr noundef nonnull %x) #7
-  %z29 = getelementptr inbounds %struct.curve448_point_s, ptr %q, i64 0, i32 2
+  %z29 = getelementptr inbounds i8, ptr %q, i64 128
   call void @ossl_gf_sqr(ptr noundef nonnull %x, ptr noundef nonnull %z29) #7
   call void @gf_add(ptr noundef nonnull %t, ptr noundef nonnull %x, ptr noundef nonnull %x) #7
   call void @gf_sub(ptr noundef nonnull %t, ptr noundef nonnull %t, ptr noundef nonnull %z) #7
@@ -939,7 +939,7 @@ entry:
   %c = alloca [1 x %struct.gf_s], align 16
   %d = alloca [1 x %struct.gf_s], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(57) %enc2, ptr noundef nonnull align 1 dereferenceable(57) %enc, i64 57, i1 false)
-  %arrayidx = getelementptr inbounds [57 x i8], ptr %enc2, i64 0, i64 56
+  %arrayidx = getelementptr inbounds i8, ptr %enc2, i64 56
   %0 = load i8, ptr %arrayidx, align 8
   %1 = and i8 %0, -128
   %conv1 = zext i8 %1 to i64
@@ -947,13 +947,13 @@ entry:
   %shr.neg.i.i = ashr i64 %sub.i, 63
   %2 = and i8 %0, 127
   store i8 %2, ptr %arrayidx, align 8
-  %y = getelementptr inbounds %struct.curve448_point_s, ptr %p, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %p, i64 64
   %call8 = call i64 @gf_deserialize(ptr noundef nonnull %y, ptr noundef nonnull %enc2, i32 noundef 1, i8 noundef zeroext 0) #7
   %3 = load i8, ptr %arrayidx, align 8
   call void @ossl_gf_sqr(ptr noundef %p, ptr noundef nonnull %y) #7
-  %z = getelementptr inbounds %struct.curve448_point_s, ptr %p, i64 0, i32 2
+  %z = getelementptr inbounds i8, ptr %p, i64 128
   call void @gf_sub(ptr noundef nonnull %z, ptr noundef nonnull @ONE, ptr noundef %p) #7
-  %t = getelementptr inbounds %struct.curve448_point_s, ptr %p, i64 0, i32 3
+  %t = getelementptr inbounds i8, ptr %p, i64 192
   call void @ossl_gf_mulw_unsigned(ptr noundef nonnull %t, ptr noundef %p, i32 noundef 39081) #7
   call void @gf_sub(ptr noundef nonnull %t, ptr noundef nonnull @ZERO, ptr noundef nonnull %t) #7
   call void @gf_sub(ptr noundef nonnull %t, ptr noundef nonnull @ONE, ptr noundef nonnull %t) #7
@@ -1036,14 +1036,14 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z2, i8 0, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %x3, ptr noundef nonnull align 16 dereferenceable(64) %x1, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z3, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false)
-  %arrayidx.i151 = getelementptr inbounds [8 x i64], ptr %t1, i64 0, i64 7
-  %arrayidx2.i = getelementptr inbounds [8 x i64], ptr %t1, i64 0, i64 4
-  %arrayidx.i4.i = getelementptr inbounds [8 x i64], ptr %t2, i64 0, i64 7
-  %arrayidx2.i.i = getelementptr inbounds [8 x i64], ptr %t2, i64 0, i64 4
-  %arrayidx.i4.i109 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 7
-  %arrayidx2.i.i111 = getelementptr inbounds [8 x i64], ptr %z2, i64 0, i64 4
-  %arrayidx.i4.i137 = getelementptr inbounds [8 x i64], ptr %z3, i64 0, i64 7
-  %arrayidx2.i.i139 = getelementptr inbounds [8 x i64], ptr %z3, i64 0, i64 4
+  %arrayidx.i151 = getelementptr inbounds i8, ptr %t1, i64 56
+  %arrayidx2.i = getelementptr inbounds i8, ptr %t1, i64 32
+  %arrayidx.i4.i = getelementptr inbounds i8, ptr %t2, i64 56
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %t2, i64 32
+  %arrayidx.i4.i109 = getelementptr inbounds i8, ptr %z2, i64 56
+  %arrayidx2.i.i111 = getelementptr inbounds i8, ptr %z2, i64 32
+  %arrayidx.i4.i137 = getelementptr inbounds i8, ptr %z3, i64 56
+  %arrayidx2.i.i139 = getelementptr inbounds i8, ptr %z3, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %entry, %gf_weak_reduce.exit234
@@ -1535,7 +1535,7 @@ entry:
   %t2.i = alloca [1 x %struct.gf_s], align 16
   %q = alloca [1 x %struct.curve448_point_s], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q, ptr noundef nonnull align 16 dereferenceable(256) %p, i64 256, i1 false)
-  %t = getelementptr inbounds %struct.curve448_point_s, ptr %q, i64 0, i32 3
+  %t = getelementptr inbounds i8, ptr %q, i64 192
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t1.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t2.i)
   call void @ossl_gf_sqr(ptr noundef nonnull %t1.i, ptr noundef nonnull %q) #7
@@ -1545,8 +1545,8 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t, ptr noundef nonnull align 16 dereferenceable(64) %t2.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t1.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t2.i)
-  %z = getelementptr inbounds %struct.curve448_point_s, ptr %q, i64 0, i32 2
-  %y = getelementptr inbounds %struct.curve448_point_s, ptr %q, i64 0, i32 1
+  %z = getelementptr inbounds i8, ptr %q, i64 128
+  %y = getelementptr inbounds i8, ptr %q, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %z, ptr noundef nonnull %t, ptr noundef nonnull %y) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %y, ptr noundef nonnull %z) #7
   call void @gf_serialize(ptr noundef %out, ptr noundef nonnull %y, i32 noundef 1) #7
@@ -1567,7 +1567,7 @@ entry:
   %0 = load i8, ptr %scalar2, align 16
   %1 = and i8 %0, -4
   store i8 %1, ptr %scalar2, align 16
-  %arrayidx2 = getelementptr inbounds [56 x i8], ptr %scalar2, i64 0, i64 55
+  %arrayidx2 = getelementptr inbounds i8, ptr %scalar2, i64 55
   %2 = load i8, ptr %arrayidx2, align 1
   %3 = or i8 %2, -128
   store i8 %3, ptr %arrayidx2, align 1
@@ -1577,7 +1577,7 @@ entry:
   call void @ossl_curve448_precomputed_scalarmul(ptr noundef nonnull %p, ptr noundef %4, ptr noundef nonnull %the_scalar)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %q.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %q.i, ptr noundef nonnull align 16 dereferenceable(256) %p, i64 256, i1 false)
-  %t.i = getelementptr inbounds %struct.curve448_point_s, ptr %q.i, i64 0, i32 3
+  %t.i = getelementptr inbounds i8, ptr %q.i, i64 192
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t1.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %t2.i.i)
   call void @ossl_gf_sqr(ptr noundef nonnull %t1.i.i, ptr noundef nonnull %q.i) #7
@@ -1587,8 +1587,8 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %t.i, ptr noundef nonnull align 16 dereferenceable(64) %t2.i.i, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t1.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %t2.i.i)
-  %z.i = getelementptr inbounds %struct.curve448_point_s, ptr %q.i, i64 0, i32 2
-  %y.i = getelementptr inbounds %struct.curve448_point_s, ptr %q.i, i64 0, i32 1
+  %z.i = getelementptr inbounds i8, ptr %q.i, i64 128
+  %y.i = getelementptr inbounds i8, ptr %q.i, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %z.i, ptr noundef nonnull %t.i, ptr noundef nonnull %y.i) #7
   call void @ossl_gf_sqr(ptr noundef nonnull %y.i, ptr noundef nonnull %z.i) #7
   call void @gf_serialize(ptr noundef %out, ptr noundef nonnull %y.i, i32 noundef 1) #7
@@ -1616,9 +1616,9 @@ entry:
   %precmp_var = alloca [8 x [1 x %struct.anon]], align 16
   %0 = load i64, ptr %scalar1, align 8
   %and.i = and i64 %0, 65535
-  %arrayidx4.i = getelementptr inbounds %struct.smvt_control, ptr %control_pre, i64 76
+  %arrayidx4.i = getelementptr inbounds i8, ptr %control_pre, i64 608
   store i32 -1, ptr %arrayidx4.i, align 16
-  %addend.i = getelementptr inbounds %struct.smvt_control, ptr %control_pre, i64 76, i32 1
+  %addend.i = getelementptr inbounds i8, ptr %control_pre, i64 612
   store i32 0, ptr %addend.i, align 4
   br label %for.body.i
 
@@ -1670,7 +1670,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %add35.i = add nsw i32 %mul34.i, %3
   %arrayidx37.i = getelementptr inbounds %struct.smvt_control, ptr %control_pre, i64 %indvars.iv.i
   store i32 %add35.i, ptr %arrayidx37.i, align 8
-  %addend41.i = getelementptr inbounds %struct.smvt_control, ptr %control_pre, i64 %indvars.iv.i, i32 1
+  %addend41.i = getelementptr inbounds i8, ptr %arrayidx37.i, i64 4
   store i32 %spec.select.i, ptr %addend41.i, align 4
   %indvars.iv.next.i = add i64 %indvars.iv.i, -1
   %and15.i = and i64 %sub32.i, 65535
@@ -1715,9 +1715,9 @@ for.body49.i:                                     ; preds = %for.body49.i, %for.
 recode_wnaf.exit:                                 ; preds = %for.body49.i, %for.end.i
   %7 = load i64, ptr %scalar2, align 8
   %and.i45 = and i64 %7, 65535
-  %arrayidx4.i46 = getelementptr inbounds %struct.smvt_control, ptr %control_var, i64 113
+  %arrayidx4.i46 = getelementptr inbounds i8, ptr %control_var, i64 904
   store i32 -1, ptr %arrayidx4.i46, align 8
-  %addend.i47 = getelementptr inbounds %struct.smvt_control, ptr %control_var, i64 113, i32 1
+  %addend.i47 = getelementptr inbounds i8, ptr %control_var, i64 908
   store i32 0, ptr %addend.i47, align 4
   br label %for.body.i48
 
@@ -1769,7 +1769,7 @@ while.body.i60:                                   ; preds = %while.body.i60, %wh
   %add35.i73 = add nsw i32 %mul34.i59, %10
   %arrayidx37.i74 = getelementptr inbounds %struct.smvt_control, ptr %control_var, i64 %indvars.iv.i61
   store i32 %add35.i73, ptr %arrayidx37.i74, align 8
-  %addend41.i75 = getelementptr inbounds %struct.smvt_control, ptr %control_var, i64 %indvars.iv.i61, i32 1
+  %addend41.i75 = getelementptr inbounds i8, ptr %arrayidx37.i74, i64 4
   store i32 %spec.select.i69, ptr %addend41.i75, align 4
   %indvars.iv.next.i76 = add i64 %indvars.iv.i61, -1
   %and15.i77 = and i64 %sub32.i72, 65535
@@ -1814,42 +1814,42 @@ for.body49.i93:                                   ; preds = %for.body49.i93, %fo
 recode_wnaf.exit113:                              ; preds = %for.body49.i93, %for.end.i86
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %twop.i)
-  %y.i.i = getelementptr inbounds %struct.curve448_point_s, ptr %base2, i64 0, i32 1
+  %y.i.i = getelementptr inbounds i8, ptr %base2, i64 64
   call void @gf_sub(ptr noundef nonnull %precmp_var, ptr noundef nonnull %y.i.i, ptr noundef %base2) #7
-  %b7.i.i = getelementptr inbounds %struct.niels_s, ptr %precmp_var, i64 0, i32 1
+  %b7.i.i = getelementptr inbounds i8, ptr %precmp_var, i64 64
   call void @gf_add(ptr noundef nonnull %b7.i.i, ptr noundef %base2, ptr noundef nonnull %y.i.i) #7
-  %c.i.i = getelementptr inbounds %struct.niels_s, ptr %precmp_var, i64 0, i32 2
-  %t.i.i = getelementptr inbounds %struct.curve448_point_s, ptr %base2, i64 0, i32 3
+  %c.i.i = getelementptr inbounds i8, ptr %precmp_var, i64 128
+  %t.i.i = getelementptr inbounds i8, ptr %base2, i64 192
   call void @ossl_gf_mulw_unsigned(ptr noundef nonnull %c.i.i, ptr noundef nonnull %t.i.i, i32 noundef 78164) #7
   call void @gf_sub(ptr noundef nonnull %c.i.i, ptr noundef nonnull @ZERO, ptr noundef nonnull %c.i.i) #7
-  %z.i.i = getelementptr inbounds %struct.anon, ptr %precmp_var, i64 0, i32 1
-  %z18.i.i = getelementptr inbounds %struct.curve448_point_s, ptr %base2, i64 0, i32 2
+  %z.i.i = getelementptr inbounds i8, ptr %precmp_var, i64 192
+  %z18.i.i = getelementptr inbounds i8, ptr %base2, i64 128
   call void @gf_add(ptr noundef nonnull %z.i.i, ptr noundef nonnull %z18.i.i, ptr noundef nonnull %z18.i.i) #7
   call fastcc void @point_double_internal(ptr noundef nonnull %tmp.i, ptr noundef %base2, i32 noundef 0)
-  %y.i8.i = getelementptr inbounds %struct.curve448_point_s, ptr %tmp.i, i64 0, i32 1
+  %y.i8.i = getelementptr inbounds i8, ptr %tmp.i, i64 64
   call void @gf_sub(ptr noundef nonnull %twop.i, ptr noundef nonnull %y.i8.i, ptr noundef nonnull %tmp.i) #7
-  %b7.i9.i = getelementptr inbounds %struct.niels_s, ptr %twop.i, i64 0, i32 1
+  %b7.i9.i = getelementptr inbounds i8, ptr %twop.i, i64 64
   call void @gf_add(ptr noundef nonnull %b7.i9.i, ptr noundef nonnull %tmp.i, ptr noundef nonnull %y.i8.i) #7
-  %c.i10.i = getelementptr inbounds %struct.niels_s, ptr %twop.i, i64 0, i32 2
-  %t.i11.i = getelementptr inbounds %struct.curve448_point_s, ptr %tmp.i, i64 0, i32 3
+  %c.i10.i = getelementptr inbounds i8, ptr %twop.i, i64 128
+  %t.i11.i = getelementptr inbounds i8, ptr %tmp.i, i64 192
   call void @ossl_gf_mulw_unsigned(ptr noundef nonnull %c.i10.i, ptr noundef nonnull %t.i11.i, i32 noundef 78164) #7
   call void @gf_sub(ptr noundef nonnull %c.i10.i, ptr noundef nonnull @ZERO, ptr noundef nonnull %c.i10.i) #7
-  %z.i12.i = getelementptr inbounds %struct.anon, ptr %twop.i, i64 0, i32 1
-  %z18.i13.i = getelementptr inbounds %struct.curve448_point_s, ptr %tmp.i, i64 0, i32 2
+  %z.i12.i = getelementptr inbounds i8, ptr %twop.i, i64 192
+  %z18.i13.i = getelementptr inbounds i8, ptr %tmp.i, i64 128
   call void @gf_add(ptr noundef nonnull %z.i12.i, ptr noundef nonnull %z18.i13.i, ptr noundef nonnull %z18.i13.i) #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %L0.i.i)
   call void @ossl_gf_mul(ptr noundef nonnull %L0.i.i, ptr noundef nonnull %z18.i13.i, ptr noundef nonnull %z.i.i) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z18.i13.i, ptr noundef nonnull align 16 dereferenceable(64) %L0.i.i, i64 64, i1 false)
   call fastcc void @add_niels_to_pt(ptr noundef nonnull %tmp.i, ptr noundef nonnull %precmp_var, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %L0.i.i)
-  %arrayidx7.i = getelementptr inbounds [1 x %struct.anon], ptr %precmp_var, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %precmp_var, i64 256
   call void @gf_sub(ptr noundef nonnull %arrayidx7.i, ptr noundef nonnull %y.i8.i, ptr noundef nonnull %tmp.i) #7
-  %b7.i16.i = getelementptr inbounds [1 x %struct.anon], ptr %precmp_var, i64 1, i64 0, i32 0, i64 0, i32 1
+  %b7.i16.i = getelementptr inbounds i8, ptr %precmp_var, i64 320
   call void @gf_add(ptr noundef nonnull %b7.i16.i, ptr noundef nonnull %tmp.i, ptr noundef nonnull %y.i8.i) #7
-  %c.i17.i = getelementptr inbounds [1 x %struct.anon], ptr %precmp_var, i64 1, i64 0, i32 0, i64 0, i32 2
+  %c.i17.i = getelementptr inbounds i8, ptr %precmp_var, i64 384
   call void @ossl_gf_mulw_unsigned(ptr noundef nonnull %c.i17.i, ptr noundef nonnull %t.i11.i, i32 noundef 78164) #7
   call void @gf_sub(ptr noundef nonnull %c.i17.i, ptr noundef nonnull @ZERO, ptr noundef nonnull %c.i17.i) #7
-  %z.i19.i = getelementptr inbounds [1 x %struct.anon], ptr %precmp_var, i64 1, i64 0, i32 1
+  %z.i19.i = getelementptr inbounds i8, ptr %precmp_var, i64 448
   call void @gf_add(ptr noundef nonnull %z.i19.i, ptr noundef nonnull %z18.i13.i, ptr noundef nonnull %z18.i13.i) #7
   br label %for.body.i114
 
@@ -1862,12 +1862,12 @@ for.body.i114:                                    ; preds = %for.body.i114, %rec
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %L0.i21.i)
   %arrayidx13.i = getelementptr inbounds [1 x %struct.anon], ptr %precmp_var, i64 %indvars.iv.i115
   call void @gf_sub(ptr noundef nonnull %arrayidx13.i, ptr noundef nonnull %y.i8.i, ptr noundef nonnull %tmp.i) #7
-  %b7.i25.i = getelementptr inbounds %struct.niels_s, ptr %arrayidx13.i, i64 0, i32 1
+  %b7.i25.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 64
   call void @gf_add(ptr noundef nonnull %b7.i25.i, ptr noundef nonnull %tmp.i, ptr noundef nonnull %y.i8.i) #7
-  %c.i26.i = getelementptr inbounds %struct.niels_s, ptr %arrayidx13.i, i64 0, i32 2
+  %c.i26.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 128
   call void @ossl_gf_mulw_unsigned(ptr noundef nonnull %c.i26.i, ptr noundef nonnull %t.i11.i, i32 noundef 78164) #7
   call void @gf_sub(ptr noundef nonnull %c.i26.i, ptr noundef nonnull @ZERO, ptr noundef nonnull %c.i26.i) #7
-  %z.i28.i = getelementptr inbounds %struct.anon, ptr %arrayidx13.i, i64 0, i32 1
+  %z.i28.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 192
   call void @gf_add(ptr noundef nonnull %z.i28.i, ptr noundef nonnull %z18.i13.i, ptr noundef nonnull %z18.i13.i) #7
   %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i115, 1
   %exitcond.not.i117 = icmp eq i64 %indvars.iv.next.i116, 8
@@ -1892,51 +1892,51 @@ if.end:                                           ; preds = %prepare_wnaf_table.
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end
-  %addend = getelementptr inbounds %struct.smvt_control, ptr %control_var, i64 0, i32 1
+  %addend = getelementptr inbounds i8, ptr %control_var, i64 4
   %16 = load i32, ptr %addend, align 4
   %shr = ashr i32 %16, 1
   %idxprom = sext i32 %shr to i64
   %arrayidx9 = getelementptr inbounds [8 x [1 x %struct.anon]], ptr %precmp_var, i64 0, i64 %idxprom
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %eu.i)
-  %b.i = getelementptr inbounds %struct.niels_s, ptr %arrayidx9, i64 0, i32 1
+  %b.i = getelementptr inbounds i8, ptr %arrayidx9, i64 64
   call void @gf_add(ptr noundef nonnull %eu.i, ptr noundef nonnull %b.i, ptr noundef nonnull %arrayidx9) #7
-  %y.i = getelementptr inbounds %struct.curve448_point_s, ptr %combo, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %combo, i64 64
   call void @gf_sub(ptr noundef nonnull %y.i, ptr noundef nonnull %b.i, ptr noundef nonnull %arrayidx9) #7
-  %t.i = getelementptr inbounds %struct.curve448_point_s, ptr %combo, i64 0, i32 3
+  %t.i = getelementptr inbounds i8, ptr %combo, i64 192
   call void @ossl_gf_mul(ptr noundef nonnull %t.i, ptr noundef nonnull %y.i, ptr noundef nonnull %eu.i) #7
-  %z.i = getelementptr inbounds %struct.anon, ptr %arrayidx9, i64 0, i32 1
+  %z.i = getelementptr inbounds i8, ptr %arrayidx9, i64 192
   call void @ossl_gf_mul(ptr noundef %combo, ptr noundef nonnull %z.i, ptr noundef nonnull %y.i) #7
   call void @ossl_gf_mul(ptr noundef nonnull %y.i, ptr noundef nonnull %z.i, ptr noundef nonnull %eu.i) #7
-  %z28.i = getelementptr inbounds %struct.curve448_point_s, ptr %combo, i64 0, i32 2
+  %z28.i = getelementptr inbounds i8, ptr %combo, i64 128
   call void @ossl_gf_sqr(ptr noundef nonnull %z28.i, ptr noundef nonnull %z.i) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %eu.i)
   br label %if.end41
 
 if.else:                                          ; preds = %if.end
   %cmp13 = icmp eq i32 %14, %15
-  %t.i122 = getelementptr inbounds %struct.curve448_point_s, ptr %combo, i64 0, i32 3
+  %t.i122 = getelementptr inbounds i8, ptr %combo, i64 192
   br i1 %cmp13, label %if.then15, label %if.else30
 
 if.then15:                                        ; preds = %if.else
-  %addend17 = getelementptr inbounds %struct.smvt_control, ptr %control_var, i64 0, i32 1
+  %addend17 = getelementptr inbounds i8, ptr %control_var, i64 4
   %17 = load i32, ptr %addend17, align 4
   %shr18 = ashr i32 %17, 1
   %idxprom19 = sext i32 %shr18 to i64
   %arrayidx20 = getelementptr inbounds [8 x [1 x %struct.anon]], ptr %precmp_var, i64 0, i64 %idxprom19
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %eu.i119)
-  %b.i120 = getelementptr inbounds %struct.niels_s, ptr %arrayidx20, i64 0, i32 1
+  %b.i120 = getelementptr inbounds i8, ptr %arrayidx20, i64 64
   call void @gf_add(ptr noundef nonnull %eu.i119, ptr noundef nonnull %b.i120, ptr noundef nonnull %arrayidx20) #7
-  %y.i121 = getelementptr inbounds %struct.curve448_point_s, ptr %combo, i64 0, i32 1
+  %y.i121 = getelementptr inbounds i8, ptr %combo, i64 64
   call void @gf_sub(ptr noundef nonnull %y.i121, ptr noundef nonnull %b.i120, ptr noundef nonnull %arrayidx20) #7
   call void @ossl_gf_mul(ptr noundef nonnull %t.i122, ptr noundef nonnull %y.i121, ptr noundef nonnull %eu.i119) #7
-  %z.i123 = getelementptr inbounds %struct.anon, ptr %arrayidx20, i64 0, i32 1
+  %z.i123 = getelementptr inbounds i8, ptr %arrayidx20, i64 192
   call void @ossl_gf_mul(ptr noundef %combo, ptr noundef nonnull %z.i123, ptr noundef nonnull %y.i121) #7
   call void @ossl_gf_mul(ptr noundef nonnull %y.i121, ptr noundef nonnull %z.i123, ptr noundef nonnull %eu.i119) #7
-  %z28.i124 = getelementptr inbounds %struct.curve448_point_s, ptr %combo, i64 0, i32 2
+  %z28.i124 = getelementptr inbounds i8, ptr %combo, i64 128
   call void @ossl_gf_sqr(ptr noundef nonnull %z28.i124, ptr noundef nonnull %z.i123) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %eu.i119)
   %18 = load ptr, ptr @ossl_curve448_wnaf_base, align 8
-  %addend23 = getelementptr inbounds %struct.smvt_control, ptr %control_pre, i64 0, i32 1
+  %addend23 = getelementptr inbounds i8, ptr %control_pre, i64 4
   %19 = load i32, ptr %addend23, align 4
   %shr24 = ashr i32 %19, 1
   %idxprom25 = sext i32 %shr24 to i64
@@ -1946,17 +1946,17 @@ if.then15:                                        ; preds = %if.else
 
 if.else30:                                        ; preds = %if.else
   %20 = load ptr, ptr @ossl_curve448_wnaf_base, align 8
-  %addend34 = getelementptr inbounds %struct.smvt_control, ptr %control_pre, i64 0, i32 1
+  %addend34 = getelementptr inbounds i8, ptr %control_pre, i64 4
   %21 = load i32, ptr %addend34, align 4
   %shr35 = ashr i32 %21, 1
   %idxprom36 = sext i32 %shr35 to i64
   %arrayidx37 = getelementptr inbounds [1 x %struct.niels_s], ptr %20, i64 %idxprom36
-  %y.i125 = getelementptr inbounds %struct.curve448_point_s, ptr %combo, i64 0, i32 1
-  %b.i126 = getelementptr inbounds %struct.niels_s, ptr %arrayidx37, i64 0, i32 1
+  %y.i125 = getelementptr inbounds i8, ptr %combo, i64 64
+  %b.i126 = getelementptr inbounds i8, ptr %arrayidx37, i64 64
   call void @gf_add(ptr noundef nonnull %y.i125, ptr noundef nonnull %b.i126, ptr noundef %arrayidx37) #7
   call void @gf_sub(ptr noundef %combo, ptr noundef nonnull %b.i126, ptr noundef %arrayidx37) #7
   call void @ossl_gf_mul(ptr noundef nonnull %t.i122, ptr noundef nonnull %y.i125, ptr noundef %combo) #7
-  %z.i128 = getelementptr inbounds %struct.curve448_point_s, ptr %combo, i64 0, i32 2
+  %z.i128 = getelementptr inbounds i8, ptr %combo, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z.i128, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false)
   br label %if.end41
 
@@ -1968,7 +1968,7 @@ if.end41:                                         ; preds = %if.then15, %if.else
   br i1 %cmp42134, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end41
-  %z.i131 = getelementptr inbounds %struct.curve448_point_s, ptr %combo, i64 0, i32 2
+  %z.i131 = getelementptr inbounds i8, ptr %combo, i64 128
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1992,7 +1992,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp46, label %if.end91, label %if.then55
 
 if.then55:                                        ; preds = %for.body
-  %addend58 = getelementptr inbounds [114 x %struct.smvt_control], ptr %control_var, i64 0, i64 %idxprom43, i32 1
+  %addend58 = getelementptr inbounds i8, ptr %arrayidx44, i64 4
   %25 = load i32, ptr %addend58, align 4
   %cmp59 = icmp sgt i32 %25, 0
   br i1 %cmp59, label %if.then61, label %if.else75
@@ -2004,7 +2004,7 @@ if.then61:                                        ; preds = %if.then55
   %26 = select i1 %tobool, i1 %cmp50, i1 false
   %land.ext74 = zext i1 %26 to i32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %L0.i)
-  %z2.i = getelementptr inbounds %struct.anon, ptr %arrayidx67, i64 0, i32 1
+  %z2.i = getelementptr inbounds i8, ptr %arrayidx67, i64 192
   call void @ossl_gf_mul(ptr noundef nonnull %L0.i, ptr noundef nonnull %z.i131, ptr noundef nonnull %z2.i) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z.i131, ptr noundef nonnull align 16 dereferenceable(64) %L0.i, i64 64, i1 false)
   call fastcc void @add_niels_to_pt(ptr noundef %combo, ptr noundef nonnull %arrayidx67, i32 noundef %land.ext74)
@@ -2019,7 +2019,7 @@ if.else75:                                        ; preds = %if.then55
   %27 = select i1 %tobool, i1 %cmp50, i1 false
   %land.ext88 = zext i1 %27 to i32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %L0.i130)
-  %z2.i132 = getelementptr inbounds %struct.anon, ptr %arrayidx81, i64 0, i32 1
+  %z2.i132 = getelementptr inbounds i8, ptr %arrayidx81, i64 192
   call void @ossl_gf_mul(ptr noundef nonnull %L0.i130, ptr noundef nonnull %z.i131, ptr noundef nonnull %z2.i132) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %z.i131, ptr noundef nonnull align 16 dereferenceable(64) %L0.i130, i64 64, i1 false)
   call fastcc void @sub_niels_from_pt(ptr noundef %combo, ptr noundef nonnull %arrayidx81, i32 noundef %land.ext88)
@@ -2035,7 +2035,7 @@ if.end91:                                         ; preds = %if.end89, %for.body
   br i1 %cmp50, label %for.inc, label %if.then93
 
 if.then93:                                        ; preds = %if.end91
-  %addend96 = getelementptr inbounds [77 x %struct.smvt_control], ptr %control_pre, i64 0, i64 %idxprom47, i32 1
+  %addend96 = getelementptr inbounds i8, ptr %arrayidx48, i64 4
   %28 = load i32, ptr %addend96, align 4
   %cmp97 = icmp sgt i32 %28, 0
   %29 = load ptr, ptr @ossl_curve448_wnaf_base, align 8
@@ -2081,7 +2081,7 @@ entry:
   %a = alloca [1 x %struct.gf_s], align 16
   %b = alloca [1 x %struct.gf_s], align 16
   %c = alloca [1 x %struct.gf_s], align 16
-  %y = getelementptr inbounds %struct.curve448_point_s, ptr %d, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %d, i64 64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
@@ -2101,10 +2101,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i, label %gf_sub_RAW.exit.i, label %for.body.i.i, !llvm.loop !7
 
 gf_sub_RAW.exit.i:                                ; preds = %for.body.i.i
-  %arrayidx.i4.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 7
+  %arrayidx.i4.i = getelementptr inbounds i8, ptr %b, i64 56
   %2 = load i64, ptr %arrayidx.i4.i, align 8
   %shr.i.i = lshr i64 %2, 56
-  %arrayidx2.i.i = getelementptr inbounds [8 x i64], ptr %b, i64 0, i64 4
+  %arrayidx2.i.i = getelementptr inbounds i8, ptr %b, i64 32
   %3 = load i64, ptr %arrayidx2.i.i, align 16
   %add.i5.i = add i64 %3, %shr.i.i
   store i64 %add.i5.i, ptr %arrayidx2.i.i, align 16
@@ -2129,7 +2129,7 @@ gf_sub_nr.exit:                                   ; preds = %for.body.i8.i
   %and15.i.i = and i64 %6, 72057594037927935
   %add16.i.i = add nuw nsw i64 %and15.i.i, %shr.i.i
   store i64 %add16.i.i, ptr %b, align 16
-  %b4 = getelementptr inbounds %struct.niels_s, ptr %e, i64 0, i32 1
+  %b4 = getelementptr inbounds i8, ptr %e, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %a, ptr noundef nonnull %b4, ptr noundef nonnull %b) #7
   br label %for.body.i82
 
@@ -2174,8 +2174,8 @@ gf_weak_reduce.exit:                              ; preds = %for.body.i98
   %add16.i = add nuw nsw i64 %and15.i, %shr.i
   store i64 %add16.i, ptr %b, align 16
   call void @ossl_gf_mul(ptr noundef nonnull %y, ptr noundef %e, ptr noundef nonnull %b) #7
-  %c19 = getelementptr inbounds %struct.niels_s, ptr %e, i64 0, i32 2
-  %t = getelementptr inbounds %struct.curve448_point_s, ptr %d, i64 0, i32 3
+  %c19 = getelementptr inbounds i8, ptr %e, i64 128
+  %t = getelementptr inbounds i8, ptr %d, i64 192
   call void @ossl_gf_mul(ptr noundef %d, ptr noundef nonnull %c19, ptr noundef nonnull %t) #7
   br label %for.body.i65
 
@@ -2193,10 +2193,10 @@ for.body.i65:                                     ; preds = %gf_weak_reduce.exit
   br i1 %exitcond144.not, label %gf_add_RAW.exit74, label %for.body.i65, !llvm.loop !4
 
 gf_add_RAW.exit74:                                ; preds = %for.body.i65
-  %arrayidx.i107 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 7
+  %arrayidx.i107 = getelementptr inbounds i8, ptr %c, i64 56
   %16 = load i64, ptr %arrayidx.i107, align 8
   %shr.i108 = lshr i64 %16, 56
-  %arrayidx2.i109 = getelementptr inbounds [8 x i64], ptr %c, i64 0, i64 4
+  %arrayidx2.i109 = getelementptr inbounds i8, ptr %c, i64 32
   %17 = load i64, ptr %arrayidx2.i109, align 16
   %add.i110 = add i64 %17, %shr.i108
   store i64 %add.i110, ptr %arrayidx2.i109, align 16
@@ -2266,7 +2266,7 @@ gf_sub_nr.exit100:                                ; preds = %for.body.i8.i89
   %and15.i.i98 = and i64 %27, 72057594037927935
   %add16.i.i99 = add nuw nsw i64 %and15.i.i98, %shr.i.i86
   store i64 %add16.i.i99, ptr %b, align 16
-  %z = getelementptr inbounds %struct.curve448_point_s, ptr %d, i64 0, i32 2
+  %z = getelementptr inbounds i8, ptr %d, i64 128
   br label %for.body.i
 
 for.body.i:                                       ; preds = %gf_sub_nr.exit100, %for.body.i
@@ -2283,10 +2283,10 @@ for.body.i:                                       ; preds = %gf_sub_nr.exit100, 
   br i1 %exitcond151.not, label %gf_add_RAW.exit, label %for.body.i, !llvm.loop !4
 
 gf_add_RAW.exit:                                  ; preds = %for.body.i
-  %arrayidx.i132 = getelementptr inbounds %struct.curve448_point_s, ptr %d, i64 0, i32 1, i64 0, i32 0, i64 7
+  %arrayidx.i132 = getelementptr inbounds i8, ptr %d, i64 120
   %30 = load i64, ptr %arrayidx.i132, align 8
   %shr.i133 = lshr i64 %30, 56
-  %arrayidx2.i134 = getelementptr inbounds %struct.curve448_point_s, ptr %d, i64 0, i32 1, i64 0, i32 0, i64 4
+  %arrayidx2.i134 = getelementptr inbounds i8, ptr %d, i64 96
   %31 = load i64, ptr %arrayidx2.i134, align 16
   %add.i135 = add i64 %31, %shr.i133
   store i64 %add.i135, ptr %arrayidx2.i134, align 16
@@ -2330,10 +2330,10 @@ for.body.i.i101:                                  ; preds = %for.body.i.i101, %g
   br i1 %exitcond.not.i111, label %gf_sub_RAW.exit.i112, label %for.body.i.i101, !llvm.loop !7
 
 gf_sub_RAW.exit.i112:                             ; preds = %for.body.i.i101
-  %arrayidx.i4.i113 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 7
+  %arrayidx.i4.i113 = getelementptr inbounds i8, ptr %a, i64 56
   %37 = load i64, ptr %arrayidx.i4.i113, align 8
   %shr.i.i114 = lshr i64 %37, 56
-  %arrayidx2.i.i115 = getelementptr inbounds [8 x i64], ptr %a, i64 0, i64 4
+  %arrayidx2.i.i115 = getelementptr inbounds i8, ptr %a, i64 32
   %38 = load i64, ptr %arrayidx2.i.i115, align 16
   %add.i5.i116 = add i64 %38, %shr.i.i114
   store i64 %add.i5.i116, ptr %arrayidx2.i.i115, align 16

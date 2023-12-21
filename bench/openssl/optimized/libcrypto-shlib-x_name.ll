@@ -6,14 +6,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.ASN1_EXTERN_FUNCS_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.X509_name_st = type { ptr, i32, ptr, ptr, i32 }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
-%struct.X509_name_entry_st = type { ptr, ptr, i32, i32 }
 %union.anon.1 = type { ptr }
-%struct.asn1_pctx_st = type { i64, i64, i64, i64, i64 }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @X509_NAME_ENTRY_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @X509_NAME_ENTRY_seq_tt, i64 2, ptr null, i64 24, ptr @.str }, align 8
 @X509_NAME_ENTRY_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.4, ptr @ASN1_OBJECT_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.5, ptr @ASN1_PRINTABLE_it }], align 16
@@ -291,9 +286,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %bytes = getelementptr inbounds %struct.X509_name_st, ptr %nm, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %nm, i64 16
   %0 = load ptr, ptr %bytes, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %0, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data, align 8
   store ptr %1, ptr %pder, align 8
   br label %if.end3
@@ -303,7 +298,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %bytes6 = getelementptr inbounds %struct.X509_name_st, ptr %nm, i64 0, i32 2
+  %bytes6 = getelementptr inbounds i8, ptr %nm, i64 16
   %2 = load ptr, ptr %bytes6, align 8
   %3 = load i64, ptr %2, align 8
   store i64 %3, ptr %pderlen, align 8
@@ -333,13 +328,13 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %call5 = tail call ptr @BUF_MEM_new() #6
-  %bytes = getelementptr inbounds %struct.X509_name_st, ptr %call, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call5, ptr %bytes, align 8
   %cmp6 = icmp eq ptr %call5, null
   br i1 %cmp6, label %if.then9, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %modified = getelementptr inbounds %struct.X509_name_st, ptr %call, i64 0, i32 1
+  %modified = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %modified, align 8
   store ptr %call, ptr %val, align 8
   br label %return
@@ -372,12 +367,12 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %bytes = getelementptr inbounds %struct.X509_name_st, ptr %0, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %bytes, align 8
   tail call void @BUF_MEM_free(ptr noundef %1) #6
   %2 = load ptr, ptr %0, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %2, ptr noundef nonnull @X509_NAME_ENTRY_free) #6
-  %canon_enc = getelementptr inbounds %struct.X509_name_st, ptr %0, i64 0, i32 3
+  %canon_enc = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %canon_enc, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str.2, i32 noundef 126) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, i32 noundef 127) #6
@@ -409,12 +404,12 @@ if.end5:                                          ; preds = %entry
   br i1 %tobool.not, label %if.end7, label %x509_name_ex_free.exit
 
 x509_name_ex_free.exit:                           ; preds = %if.end5
-  %bytes.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 2
+  %bytes.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %bytes.i, align 8
   call void @BUF_MEM_free(ptr noundef %2) #6
   %3 = load ptr, ptr %1, align 8
   call void @OPENSSL_sk_pop_free(ptr noundef %3, ptr noundef nonnull @X509_NAME_ENTRY_free) #6
-  %canon_enc.i = getelementptr inbounds %struct.X509_name_st, ptr %1, i64 0, i32 3
+  %canon_enc.i = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %canon_enc.i, align 8
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.2, i32 noundef 126) #6
   call void @CRYPTO_free(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i32 noundef 127) #6
@@ -428,7 +423,7 @@ if.end7:                                          ; preds = %x509_name_ex_free.e
   br i1 %tobool9.not, label %err, label %if.end11
 
 if.end11:                                         ; preds = %if.end7
-  %bytes = getelementptr inbounds %struct.X509_name_st, ptr %.pre, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %.pre, i64 16
   %5 = load ptr, ptr %bytes, align 8
   %6 = load ptr, ptr %p, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %6 to i64
@@ -440,7 +435,7 @@ if.end11:                                         ; preds = %if.end7
 
 if.end15:                                         ; preds = %if.end11
   %7 = load ptr, ptr %bytes, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %7, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %data, align 8
   %9 = load ptr, ptr %p, align 8
   %sub.ptr.lhs.cast17 = ptrtoint ptr %9 to i64
@@ -462,7 +457,7 @@ for.body:                                         ; preds = %if.end15, %for.inc4
 for.body27:                                       ; preds = %for.body, %if.end36
   %j.022 = phi i32 [ %inc, %if.end36 ], [ 0, %for.body ]
   %call29 = call ptr @OPENSSL_sk_value(ptr noundef %call.i19, i32 noundef %j.022) #6
-  %set = getelementptr inbounds %struct.X509_name_entry_st, ptr %call29, i64 0, i32 2
+  %set = getelementptr inbounds i8, ptr %call29, i64 16
   store i32 %i.025, ptr %set, align 8
   %12 = load ptr, ptr %.pre, align 8
   %call33 = call i32 @OPENSSL_sk_push(ptr noundef %12, ptr noundef %call29) #6
@@ -491,7 +486,7 @@ for.end42:                                        ; preds = %for.inc40, %if.end1
 if.end46:                                         ; preds = %for.end42
   %14 = load ptr, ptr %intname, align 8
   call void @OPENSSL_sk_pop_free(ptr noundef %14, ptr noundef nonnull @local_sk_X509_NAME_ENTRY_free) #6
-  %modified = getelementptr inbounds %struct.X509_name_st, ptr %.pre, i64 0, i32 1
+  %modified = getelementptr inbounds i8, ptr %.pre, i64 8
   store i32 0, ptr %modified, align 8
   store ptr %.pre, ptr %val, align 8
   %15 = load ptr, ptr %p, align 8
@@ -525,7 +520,7 @@ entry:
   %intname.i = alloca %union.anon.1, align 8
   %p.i = alloca ptr, align 8
   %0 = load ptr, ptr %val, align 8
-  %modified = getelementptr inbounds %struct.X509_name_st, ptr %0, i64 0, i32 1
+  %modified = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %modified, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end6, label %if.then
@@ -557,7 +552,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %entries.016.i = phi ptr [ %entries.1.i, %for.cond.i ], [ null, %for.cond.preheader.i ]
   %4 = load ptr, ptr %0, align 8
   %call7.i = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %i.017.i) #6
-  %set8.i = getelementptr inbounds %struct.X509_name_entry_st, ptr %call7.i, i64 0, i32 2
+  %set8.i = getelementptr inbounds i8, ptr %call7.i, i64 16
   %5 = load i32, ptr %set8.i, align 8
   %cmp9.not.i = icmp eq i32 %5, %set.018.i
   br i1 %cmp9.not.i, label %if.end21.i, label %if.then10.i
@@ -589,7 +584,7 @@ if.end21.i:                                       ; preds = %if.end19.i, %for.bo
 
 for.end.i:                                        ; preds = %for.cond.i, %for.cond.preheader.i
   %call29.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %intname.i, ptr noundef null, ptr noundef nonnull @X509_NAME_INTERNAL_it.local_it, i32 noundef -1, i32 noundef -1) #6
-  %bytes.i = getelementptr inbounds %struct.X509_name_st, ptr %0, i64 0, i32 2
+  %bytes.i = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %bytes.i, align 8
   %conv.i = sext i32 %call29.i to i64
   %call30.i = call i64 @BUF_MEM_grow(ptr noundef %7, i64 noundef %conv.i) #6
@@ -618,7 +613,7 @@ x509_name_encode.exit.thread:                     ; preds = %if.then32.i, %cerr.
 
 x509_name_encode.exit:                            ; preds = %for.end.i
   %9 = load ptr, ptr %bytes.i, align 8
-  %data.i = getelementptr inbounds %struct.buf_mem_st, ptr %9, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %data.i, align 8
   store ptr %10, ptr %p.i, align 8
   %call36.i = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %intname.i, ptr noundef nonnull %p.i, ptr noundef nonnull @X509_NAME_INTERNAL_it.local_it, i32 noundef -1, i32 noundef -1) #6
@@ -636,7 +631,7 @@ if.end:                                           ; preds = %x509_name_encode.ex
   br i1 %tobool3.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end, %entry
-  %bytes = getelementptr inbounds %struct.X509_name_st, ptr %0, i64 0, i32 2
+  %bytes = getelementptr inbounds i8, ptr %0, i64 16
   %12 = load ptr, ptr %bytes, align 8
   %13 = load i64, ptr %12, align 8
   %conv = trunc i64 %13 to i32
@@ -645,7 +640,7 @@ if.end6:                                          ; preds = %if.end, %entry
 
 if.then9:                                         ; preds = %if.end6
   %14 = load ptr, ptr %out, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %12, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %12, i64 8
   %15 = load ptr, ptr %data, align 8
   %sext = shl i64 %13, 32
   %conv11 = ashr exact i64 %sext, 32
@@ -664,7 +659,7 @@ return:                                           ; preds = %x509_name_encode.ex
 define internal i32 @x509_name_ex_print(ptr noundef %out, ptr nocapture noundef readonly %pval, i32 noundef %indent, ptr nocapture readnone %fname, ptr nocapture noundef readonly %pctx) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
-  %nm_flags = getelementptr inbounds %struct.asn1_pctx_st, ptr %pctx, i64 0, i32 1
+  %nm_flags = getelementptr inbounds i8, ptr %pctx, i64 8
   %1 = load i64, ptr %nm_flags, align 8
   %call = tail call i32 @X509_NAME_print_ex(ptr noundef %out, ptr noundef %0, i32 noundef %indent, i64 noundef %1) #6
   %cmp.inv = icmp sgt i32 %call, 0
@@ -705,7 +700,7 @@ entry:
   %v.i34 = alloca ptr, align 8
   %v.i = alloca ptr, align 8
   %p = alloca ptr, align 8
-  %canon_enc = getelementptr inbounds %struct.X509_name_st, ptr %a, i64 0, i32 3
+  %canon_enc = getelementptr inbounds i8, ptr %a, i64 24
   %0 = load ptr, ptr %canon_enc, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef 318) #6
   store ptr null, ptr %canon_enc, align 8
@@ -715,7 +710,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %canon_enclen = getelementptr inbounds %struct.X509_name_st, ptr %a, i64 0, i32 4
+  %canon_enclen = getelementptr inbounds i8, ptr %a, i64 32
   store i32 0, ptr %canon_enclen, align 8
   br label %return
 
@@ -749,7 +744,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %entries.069 = phi ptr [ %entries.1, %for.cond ], [ null, %for.cond.preheader ]
   %4 = load ptr, ptr %a, align 8
   %call15 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %i.070) #6
-  %set16 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call15, i64 0, i32 2
+  %set16 = getelementptr inbounds i8, ptr %call15, i64 16
   %5 = load i32, ptr %set16, align 8
   %cmp17.not = icmp eq i32 %5, %set.071
   br i1 %cmp17.not, label %if.end28, label %if.then18
@@ -802,11 +797,11 @@ if.then37:                                        ; preds = %if.end32
   br label %err
 
 if.end38:                                         ; preds = %if.end32
-  %value = getelementptr inbounds %struct.X509_name_entry_st, ptr %call1.i, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call1.i, i64 8
   %8 = load ptr, ptr %value, align 8
-  %value39 = getelementptr inbounds %struct.X509_name_entry_st, ptr %call15, i64 0, i32 1
+  %value39 = getelementptr inbounds i8, ptr %call15, i64 8
   %9 = load ptr, ptr %value39, align 8
-  %type.i = getelementptr inbounds %struct.asn1_string_st, ptr %9, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %9, i64 4
   %10 = load i32, ptr %type.i, align 4
   %call.i28 = tail call i64 @ASN1_tag2bit(i32 noundef %10) #6
   %and.i = and i64 %call.i28, 10582
@@ -814,9 +809,9 @@ if.end38:                                         ; preds = %if.end32
   br i1 %tobool.not.i, label %asn1_string_canon.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end38
-  %type5.i = getelementptr inbounds %struct.asn1_string_st, ptr %8, i64 0, i32 1
+  %type5.i = getelementptr inbounds i8, ptr %8, i64 4
   store i32 12, ptr %type5.i, align 4
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %8, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %8, i64 8
   %call6.i = tail call i32 @ASN1_STRING_to_UTF8(ptr noundef nonnull %data.i, ptr noundef nonnull %9) #6
   store i32 %call6.i, ptr %8, align 8
   %cmp.i = icmp eq i32 %call6.i, -1
@@ -991,7 +986,7 @@ i2d_name_canon.exit:                              ; preds = %if.end.i
 
 if.end53:                                         ; preds = %i2d_name_canon.exit, %i2d_name_canon.exit.thread57
   %retval.0.i3060 = phi i32 [ 0, %i2d_name_canon.exit.thread57 ], [ %add.i, %i2d_name_canon.exit ]
-  %canon_enclen54 = getelementptr inbounds %struct.X509_name_st, ptr %a, i64 0, i32 4
+  %canon_enclen54 = getelementptr inbounds i8, ptr %a, i64 32
   store i32 %retval.0.i3060, ptr %canon_enclen54, align 8
   %conv = zext nneg i32 %retval.0.i3060 to i64
   %call56 = call noalias ptr @CRYPTO_malloc(i64 noundef %conv, ptr noundef nonnull @.str.2, i32 noundef 368) #6

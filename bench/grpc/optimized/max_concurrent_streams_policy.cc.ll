@@ -3,19 +3,17 @@ source_filename = "bench/grpc/original/max_concurrent_streams_policy.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.grpc_core::Chttp2MaxConcurrentStreamsPolicy" = type { i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [160 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/ext/transport/chttp2/transport/max_concurrent_streams_policy.cc\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"unacked_demerits_ >= sent_demerits_\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN9grpc_core32Chttp2MaxConcurrentStreamsPolicy10AddDemeritEv(ptr nocapture noundef nonnull align 4 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %new_demerits_ = getelementptr inbounds %"class.grpc_core::Chttp2MaxConcurrentStreamsPolicy", ptr %this, i64 0, i32 1
+  %new_demerits_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %new_demerits_, align 4
   %inc = add i32 %0, 1
   store i32 %inc, ptr %new_demerits_, align 4
-  %unacked_demerits_ = getelementptr inbounds %"class.grpc_core::Chttp2MaxConcurrentStreamsPolicy", ptr %this, i64 0, i32 3
+  %unacked_demerits_ = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %unacked_demerits_, align 4
   %inc2 = add i32 %1, 1
   store i32 %inc2, ptr %unacked_demerits_, align 4
@@ -25,10 +23,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN9grpc_core32Chttp2MaxConcurrentStreamsPolicy15FlushedSettingsEv(ptr nocapture noundef nonnull align 4 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %new_demerits_ = getelementptr inbounds %"class.grpc_core::Chttp2MaxConcurrentStreamsPolicy", ptr %this, i64 0, i32 1
+  %new_demerits_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %new_demerits_, align 4
   store i32 0, ptr %new_demerits_, align 4
-  %sent_demerits_ = getelementptr inbounds %"class.grpc_core::Chttp2MaxConcurrentStreamsPolicy", ptr %this, i64 0, i32 2
+  %sent_demerits_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %sent_demerits_, align 4
   %add = add i32 %1, %0
   store i32 %add, ptr %sent_demerits_, align 4
@@ -38,9 +36,9 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core32Chttp2MaxConcurrentStreamsPolicy11AckLastSendEv(ptr nocapture noundef nonnull align 4 dereferenceable(16) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %unacked_demerits_ = getelementptr inbounds %"class.grpc_core::Chttp2MaxConcurrentStreamsPolicy", ptr %this, i64 0, i32 3
+  %unacked_demerits_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %unacked_demerits_, align 4
-  %sent_demerits_ = getelementptr inbounds %"class.grpc_core::Chttp2MaxConcurrentStreamsPolicy", ptr %this, i64 0, i32 2
+  %sent_demerits_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %sent_demerits_, align 4
   %cmp.not = icmp ult i32 %0, %1
   br i1 %cmp.not, label %if.then, label %do.end
@@ -63,7 +61,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 define noundef i32 @_ZNK9grpc_core32Chttp2MaxConcurrentStreamsPolicy14AdvertiseValueEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
-  %unacked_demerits_ = getelementptr inbounds %"class.grpc_core::Chttp2MaxConcurrentStreamsPolicy", ptr %this, i64 0, i32 3
+  %unacked_demerits_ = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %unacked_demerits_, align 4
   %retval.0 = tail call i32 @llvm.usub.sat.i32(i32 %0, i32 %1)
   ret i32 %retval.0

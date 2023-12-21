@@ -5,14 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.grpc_core::NoDestruct" = type { [8 x i8] }
-%"class.grpc_core::Arena" = type { %"struct.std::atomic", %"struct.std::atomic", i64, %"struct.std::atomic.0", %"struct.std::atomic.2", ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { ptr }
-%"struct.std::atomic.2" = type { %"struct.std::__atomic_base.3" }
-%"struct.std::__atomic_base.3" = type { ptr }
-%"struct.grpc_core::Arena::ManagedNewObject" = type { ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -39,7 +31,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core5ArenaD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %last_zone_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this, i64 0, i32 3
+  %last_zone_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %last_zone_ seq_cst, align 8
   %1 = inttoptr i64 %0 to ptr
   br label %while.cond
@@ -87,11 +79,11 @@ entry:
   %and.i = and i64 %sub.i, 4294967280
   %add1.i = add nuw nsw i64 %and.i, 48
   %call.i = tail call noundef ptr @gpr_malloc_aligned(i64 noundef %add1.i, i64 noundef 64)
-  %initial_zone_size_.i = getelementptr inbounds %"class.grpc_core::Arena", ptr %call.i, i64 0, i32 2
+  %initial_zone_size_.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
   store i64 %initial_size, ptr %initial_zone_size_.i, align 8
-  %last_zone_.i = getelementptr inbounds %"class.grpc_core::Arena", ptr %call.i, i64 0, i32 3
-  %memory_allocator_.i = getelementptr inbounds %"class.grpc_core::Arena", ptr %call.i, i64 0, i32 5
+  %last_zone_.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %memory_allocator_.i = getelementptr inbounds i8, ptr %call.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_zone_.i, i8 0, i64 16, i1 false)
   store ptr %memory_allocator, ptr %memory_allocator_.i, align 8
   ret ptr %call.i
@@ -107,12 +99,12 @@ entry:
   %sub.i2 = add i64 %alloc_size, 15
   %and.i3 = and i64 %sub.i2, 4294967280
   store i64 %and.i3, ptr %call.i, align 8
-  %total_allocated_.i = getelementptr inbounds %"class.grpc_core::Arena", ptr %call.i, i64 0, i32 1
+  %total_allocated_.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 0, ptr %total_allocated_.i, align 8
-  %initial_zone_size_.i = getelementptr inbounds %"class.grpc_core::Arena", ptr %call.i, i64 0, i32 2
+  %initial_zone_size_.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %initial_size, ptr %initial_zone_size_.i, align 8
-  %last_zone_.i = getelementptr inbounds %"class.grpc_core::Arena", ptr %call.i, i64 0, i32 3
-  %memory_allocator_.i = getelementptr inbounds %"class.grpc_core::Arena", ptr %call.i, i64 0, i32 5
+  %last_zone_.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %memory_allocator_.i = getelementptr inbounds i8, ptr %call.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_zone_.i, i8 0, i64 16, i1 false)
   store ptr %memory_allocator, ptr %memory_allocator_.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call.i, i64 48
@@ -124,7 +116,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core5Arena24DestroyManagedNewObjectsEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %managed_new_head_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this, i64 0, i32 4
+  %managed_new_head_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = atomicrmw xchg ptr %managed_new_head_, i64 0 monotonic, align 8
   %cmp.not4 = icmp eq i64 %0, 0
   br i1 %cmp.not4, label %while.end6, label %while.cond2.preheader
@@ -141,7 +133,7 @@ while.cond2.preheader:                            ; preds = %entry, %while.cond.
 
 while.body4:                                      ; preds = %while.cond2.preheader, %while.body4
   %p.02 = phi ptr [ %atomic-temp.i.0.i5, %while.cond2.preheader ], [ %2, %while.body4 ]
-  %next = getelementptr inbounds %"struct.grpc_core::Arena::ManagedNewObject", ptr %p.02, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %p.02, i64 8
   %2 = load ptr, ptr %next, align 8
   %vtable.i = load ptr, ptr %p.02, align 8
   %3 = load ptr, ptr %vtable.i, align 8
@@ -156,7 +148,7 @@ while.end6:                                       ; preds = %while.cond.loopexit
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core5Arena7DestroyEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %managed_new_head_.i = getelementptr inbounds %"class.grpc_core::Arena", ptr %this, i64 0, i32 4
+  %managed_new_head_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = atomicrmw xchg ptr %managed_new_head_.i, i64 0 monotonic, align 8
   %cmp.not4.i = icmp eq i64 %0, 0
   br i1 %cmp.not4.i, label %_ZN9grpc_core5Arena24DestroyManagedNewObjectsEv.exit, label %while.cond2.preheader.i
@@ -173,7 +165,7 @@ while.cond2.preheader.i:                          ; preds = %entry, %while.cond.
 
 while.body4.i:                                    ; preds = %while.body4.i, %while.cond2.preheader.i
   %p.02.i = phi ptr [ %atomic-temp.i.0.i5.i, %while.cond2.preheader.i ], [ %2, %while.body4.i ]
-  %next.i = getelementptr inbounds %"struct.grpc_core::Arena::ManagedNewObject", ptr %p.02.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %p.02.i, i64 8
   %2 = load ptr, ptr %next.i, align 8
   %vtable.i.i = load ptr, ptr %p.02.i, align 8
   %3 = load ptr, ptr %vtable.i.i, align 8
@@ -182,13 +174,13 @@ while.body4.i:                                    ; preds = %while.body4.i, %whi
   br i1 %cmp3.not.i, label %while.cond.loopexit.i, label %while.body4.i, !llvm.loop !7
 
 _ZN9grpc_core5Arena24DestroyManagedNewObjectsEv.exit: ; preds = %while.cond.loopexit.i, %entry
-  %memory_allocator_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this, i64 0, i32 5
+  %memory_allocator_ = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load ptr, ptr %memory_allocator_, align 8
-  %total_allocated_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this, i64 0, i32 1
+  %total_allocated_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load atomic i64, ptr %total_allocated_ monotonic, align 8
   %6 = load ptr, ptr %4, align 8
   %vtable.i = load ptr, ptr %6, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %7 = load ptr, ptr %vfn.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %5)
   tail call void @_ZN9grpc_core5ArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #11
@@ -200,18 +192,18 @@ _ZN9grpc_core5Arena24DestroyManagedNewObjectsEv.exit: ; preds = %while.cond.loop
 define noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i64 noundef %size) local_unnamed_addr #5 align 2 {
 entry:
   %add = add i64 %size, 16
-  %memory_allocator_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this, i64 0, i32 5
+  %memory_allocator_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %memory_allocator_, align 8
   %1 = load ptr, ptr %0, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %add, i64 %add)
-  %total_allocated_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this, i64 0, i32 1
+  %total_allocated_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = atomicrmw add ptr %total_allocated_, i64 %add monotonic, align 8
   %call3 = tail call ptr @gpr_malloc_aligned(i64 noundef %add, i64 noundef 16)
   store i64 0, ptr %call3, align 8
-  %last_zone_ = getelementptr inbounds %"class.grpc_core::Arena", ptr %this, i64 0, i32 3
+  %last_zone_ = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load atomic i64, ptr %last_zone_ monotonic, align 8
   %5 = ptrtoint ptr %call3 to i64
   %prev.011 = inttoptr i64 %4 to ptr
@@ -243,7 +235,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 define void @_ZN9grpc_core5Arena16ManagedNewObject4LinkEPSt6atomicIPS1_E(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef %head) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load atomic i64, ptr %head monotonic, align 8
-  %next = getelementptr inbounds %"struct.grpc_core::Arena::ManagedNewObject", ptr %this, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %this, i64 8
   %1 = ptrtoint ptr %this to i64
   %storemerge3 = inttoptr i64 %0 to ptr
   store ptr %storemerge3, ptr %next, align 8

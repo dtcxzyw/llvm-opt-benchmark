@@ -5,21 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.BusChild = type { %struct.rcu_head, ptr, i32, %union.anon }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.SDCardClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SDRequest = type { i8, i32, i8 }
-%struct.SDBusClass = type { %struct.BusClass, ptr, ptr }
-%struct.BusClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.BusState = type { %struct.Object, ptr, ptr, ptr, i32, i8, i8, i32, %union.BusChildHead, %struct.BusStateEntry, %struct.ResettableState }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.BusChildHead = type { %struct.QTailQLink }
-%struct.BusStateEntry = type { ptr, ptr }
-%struct.ResettableState = type { i32, i8, i8 }
 
 @.str = private unnamed_addr constant [16 x i8] c"sc->set_voltage\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"../qemu/hw/sd/core.c\00", align 1
@@ -70,7 +55,7 @@ entry:
   br i1 %tobool.not.i, label %if.end6, label %get_card.exit
 
 get_card.exit:                                    ; preds = %entry
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %sdbus.val, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %sdbus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #5
   %tobool.not = icmp eq ptr %call.i.i, null
@@ -79,7 +64,7 @@ get_card.exit:                                    ; preds = %entry
 if.then:                                          ; preds = %get_card.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call.i.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #5
-  %get_dat_lines = getelementptr inbounds %struct.SDCardClass, ptr %call1.i, i64 0, i32 7
+  %get_dat_lines = getelementptr inbounds i8, ptr %call1.i, i64 224
   %2 = load ptr, ptr %get_dat_lines, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %if.end6, label %if.then3
@@ -116,7 +101,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %dat_lines.0 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %sdbus.val6, i32 noundef %conv11.i.i) #5
@@ -142,7 +127,7 @@ entry:
   br i1 %tobool.not.i, label %if.end6, label %get_card.exit
 
 get_card.exit:                                    ; preds = %entry
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %sdbus.val, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %sdbus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #5
   %tobool.not = icmp eq ptr %call.i.i, null
@@ -151,7 +136,7 @@ get_card.exit:                                    ; preds = %entry
 if.then:                                          ; preds = %get_card.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call.i.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #5
-  %get_cmd_line = getelementptr inbounds %struct.SDCardClass, ptr %call1.i, i64 0, i32 8
+  %get_cmd_line = getelementptr inbounds i8, ptr %call1.i, i64 232
   %2 = load ptr, ptr %get_cmd_line, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %if.end6, label %if.then3
@@ -188,7 +173,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %cmd_line.0 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %sdbus.val6, i32 noundef %conv12.i.i) #5
@@ -214,7 +199,7 @@ entry:
   br i1 %tobool.not.i, label %get_card.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %sdbus.val, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %sdbus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #5
   br label %get_card.exit
@@ -247,7 +232,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i16 %millivolts to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %sdbus.val6, i32 noundef %conv11.i.i) #5
@@ -266,7 +251,7 @@ trace_sdbus_set_voltage.exit:                     ; preds = %get_card.exit, %lan
 if.then:                                          ; preds = %trace_sdbus_set_voltage.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %retval.0.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #5
-  %set_voltage = getelementptr inbounds %struct.SDCardClass, ptr %call1.i, i64 0, i32 6
+  %set_voltage = getelementptr inbounds i8, ptr %call1.i, i64 216
   %10 = load ptr, ptr %set_voltage, align 8
   %tobool3.not = icmp eq ptr %10, null
   br i1 %tobool3.not, label %if.else, label %if.end
@@ -296,7 +281,7 @@ entry:
   br i1 %tobool.not.i, label %get_card.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %sdbus.val, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %sdbus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #5
   br label %get_card.exit
@@ -306,7 +291,7 @@ get_card.exit:                                    ; preds = %entry, %if.end.i
   %2 = getelementptr i8, ptr %sdbus, i64 48
   %sdbus.val6 = load ptr, ptr %2, align 8
   %3 = load i8, ptr %req, align 4
-  %arg = getelementptr inbounds %struct.SDRequest, ptr %req, i64 0, i32 1
+  %arg = getelementptr inbounds i8, ptr %req, i64 4
   %4 = load i32, ptr %arg, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
@@ -332,7 +317,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %3 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef %sdbus.val6, i32 noundef %conv11.i.i, i32 noundef %4) #5
@@ -351,7 +336,7 @@ trace_sdbus_command.exit:                         ; preds = %get_card.exit, %lan
 if.then:                                          ; preds = %trace_sdbus_command.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %retval.0.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #5
-  %do_command = getelementptr inbounds %struct.SDCardClass, ptr %call1.i, i64 0, i32 1
+  %do_command = getelementptr inbounds i8, ptr %call1.i, i64 176
   %12 = load ptr, ptr %do_command, align 8
   %call3 = tail call i32 %12(ptr noundef nonnull %retval.0.i, ptr noundef nonnull %req, ptr noundef %response) #5
   br label %return
@@ -371,7 +356,7 @@ entry:
   br i1 %tobool.not.i, label %get_card.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %sdbus.val, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %sdbus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #5
   br label %get_card.exit
@@ -404,7 +389,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %value to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %sdbus.val5, i32 noundef %conv11.i.i) #5
@@ -423,7 +408,7 @@ trace_sdbus_write.exit:                           ; preds = %get_card.exit, %lan
 if.then:                                          ; preds = %trace_sdbus_write.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %retval.0.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #5
-  %write_byte = getelementptr inbounds %struct.SDCardClass, ptr %call1.i, i64 0, i32 2
+  %write_byte = getelementptr inbounds i8, ptr %call1.i, i64 184
   %10 = load ptr, ptr %write_byte, align 8
   tail call void %10(ptr noundef nonnull %retval.0.i, i8 noundef zeroext %value) #5
   br label %if.end
@@ -442,7 +427,7 @@ entry:
   br i1 %tobool.not.i, label %if.end, label %get_card.exit
 
 get_card.exit:                                    ; preds = %entry
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %sdbus.val, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %sdbus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #5
   %tobool.not = icmp eq ptr %call.i.i, null
@@ -456,8 +441,8 @@ if.then:                                          ; preds = %get_card.exit
 
 for.body.lr.ph:                                   ; preds = %if.then
   %2 = getelementptr i8, ptr %sdbus, i64 48
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %write_byte = getelementptr inbounds %struct.SDCardClass, ptr %call1.i, i64 0, i32 2
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %write_byte = getelementptr inbounds i8, ptr %call1.i, i64 184
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %trace_sdbus_write.exit
@@ -522,7 +507,7 @@ entry:
   br i1 %tobool.not.i, label %if.end, label %get_card.exit
 
 get_card.exit:                                    ; preds = %entry
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %sdbus.val, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %sdbus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #5
   %tobool.not = icmp eq ptr %call.i.i, null
@@ -531,7 +516,7 @@ get_card.exit:                                    ; preds = %entry
 if.then:                                          ; preds = %get_card.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call.i.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #5
-  %read_byte = getelementptr inbounds %struct.SDCardClass, ptr %call1.i, i64 0, i32 3
+  %read_byte = getelementptr inbounds i8, ptr %call1.i, i64 192
   %2 = load ptr, ptr %read_byte, align 8
   %call2 = tail call zeroext i8 %2(ptr noundef nonnull %call.i.i) #5
   br label %if.end
@@ -564,7 +549,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #5
   %call10.i.i = tail call i32 @qemu_get_thread_id() #5
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %value.0 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef %sdbus.val5, i32 noundef %conv11.i.i) #5
@@ -590,7 +575,7 @@ entry:
   br i1 %tobool.not.i, label %if.end, label %get_card.exit
 
 get_card.exit:                                    ; preds = %entry
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %sdbus.val, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %sdbus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #5
   %tobool.not = icmp eq ptr %call.i.i, null
@@ -603,9 +588,9 @@ if.then:                                          ; preds = %get_card.exit
   br i1 %cmp11.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %read_byte = getelementptr inbounds %struct.SDCardClass, ptr %call1.i, i64 0, i32 3
+  %read_byte = getelementptr inbounds i8, ptr %call1.i, i64 192
   %2 = getelementptr i8, ptr %sdbus, i64 48
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %trace_sdbus_read.exit
@@ -668,7 +653,7 @@ entry:
   br i1 %tobool.not.i, label %return, label %get_card.exit
 
 get_card.exit:                                    ; preds = %entry
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %sdbus.val, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %sdbus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #5
   %tobool.not = icmp eq ptr %call.i.i, null
@@ -677,7 +662,7 @@ get_card.exit:                                    ; preds = %entry
 if.then:                                          ; preds = %get_card.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call.i.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #5
-  %receive_ready = getelementptr inbounds %struct.SDCardClass, ptr %call1.i, i64 0, i32 4
+  %receive_ready = getelementptr inbounds i8, ptr %call1.i, i64 200
   %2 = load ptr, ptr %receive_ready, align 8
   %call2 = tail call zeroext i1 %2(ptr noundef nonnull %call.i.i) #5
   br label %return
@@ -696,7 +681,7 @@ entry:
   br i1 %tobool.not.i, label %return, label %get_card.exit
 
 get_card.exit:                                    ; preds = %entry
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %sdbus.val, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %sdbus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #5
   %tobool.not = icmp eq ptr %call.i.i, null
@@ -705,7 +690,7 @@ get_card.exit:                                    ; preds = %entry
 if.then:                                          ; preds = %get_card.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call.i.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #5
-  %data_ready = getelementptr inbounds %struct.SDCardClass, ptr %call1.i, i64 0, i32 5
+  %data_ready = getelementptr inbounds i8, ptr %call1.i, i64 208
   %2 = load ptr, ptr %data_ready, align 8
   %call2 = tail call zeroext i1 %2(ptr noundef nonnull %call.i.i) #5
   br label %return
@@ -724,7 +709,7 @@ entry:
   br i1 %tobool.not.i, label %return, label %get_card.exit
 
 get_card.exit:                                    ; preds = %entry
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %sdbus.val, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %sdbus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #5
   %tobool.not = icmp eq ptr %call.i.i, null
@@ -733,7 +718,7 @@ get_card.exit:                                    ; preds = %entry
 if.then:                                          ; preds = %get_card.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call.i.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #5
-  %get_inserted = getelementptr inbounds %struct.SDCardClass, ptr %call1.i, i64 0, i32 10
+  %get_inserted = getelementptr inbounds i8, ptr %call1.i, i64 248
   %2 = load ptr, ptr %get_inserted, align 8
   %call2 = tail call zeroext i1 %2(ptr noundef nonnull %call.i.i) #5
   br label %return
@@ -752,7 +737,7 @@ entry:
   br i1 %tobool.not.i, label %return, label %get_card.exit
 
 get_card.exit:                                    ; preds = %entry
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %sdbus.val, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %sdbus.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #5
   %tobool.not = icmp eq ptr %call.i.i, null
@@ -761,7 +746,7 @@ get_card.exit:                                    ; preds = %entry
 if.then:                                          ; preds = %get_card.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call.i.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #5
-  %get_readonly = getelementptr inbounds %struct.SDCardClass, ptr %call1.i, i64 0, i32 11
+  %get_readonly = getelementptr inbounds i8, ptr %call1.i, i64 256
   %2 = load ptr, ptr %get_readonly, align 8
   %call2 = tail call zeroext i1 %2(ptr noundef nonnull %call.i.i) #5
   br label %return
@@ -777,13 +762,13 @@ entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %sdbus) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.3, i32 noundef 136, ptr noundef nonnull @__func__.SD_BUS_GET_CLASS) #5
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %sdbus, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
-  %set_inserted = getelementptr inbounds %struct.SDBusClass, ptr %call1.i, i64 0, i32 1
+  %set_inserted = getelementptr inbounds i8, ptr %call1.i, i64 160
   %0 = load ptr, ptr %set_inserted, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %parent = getelementptr inbounds %struct.BusState, ptr %call.i3, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call.i3, i64 40
   %1 = load ptr, ptr %parent, align 8
   tail call void %0(ptr noundef %1, i1 noundef zeroext %inserted) #5
   br label %if.end
@@ -798,13 +783,13 @@ entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %sdbus) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.3, i32 noundef 136, ptr noundef nonnull @__func__.SD_BUS_GET_CLASS) #5
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %sdbus, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
-  %set_readonly = getelementptr inbounds %struct.SDBusClass, ptr %call1.i, i64 0, i32 2
+  %set_readonly = getelementptr inbounds i8, ptr %call1.i, i64 168
   %0 = load ptr, ptr %set_readonly, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %parent = getelementptr inbounds %struct.BusState, ptr %call.i3, i64 0, i32 1
+  %parent = getelementptr inbounds i8, ptr %call.i3, i64 40
   %1 = load ptr, ptr %parent, align 8
   tail call void %0(ptr noundef %1, i1 noundef zeroext %readonly) #5
   br label %if.end
@@ -822,7 +807,7 @@ entry:
   br i1 %tobool.not.i, label %return, label %get_card.exit
 
 get_card.exit:                                    ; preds = %entry
-  %child.i = getelementptr inbounds %struct.BusChild, ptr %from.val, i64 0, i32 1
+  %child.i = getelementptr inbounds i8, ptr %from.val, i64 16
   %1 = load ptr, ptr %child.i, align 8
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD) #5
   %tobool.not = icmp eq ptr %call.i.i, null
@@ -831,19 +816,19 @@ get_card.exit:                                    ; preds = %entry
 if.end:                                           ; preds = %get_card.exit
   %call.i = tail call ptr @object_get_class(ptr noundef nonnull %call.i.i) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 94, ptr noundef nonnull @__func__.SD_CARD_GET_CLASS) #5
-  %get_readonly = getelementptr inbounds %struct.SDCardClass, ptr %call1.i, i64 0, i32 11
+  %get_readonly = getelementptr inbounds i8, ptr %call1.i, i64 256
   %2 = load ptr, ptr %get_readonly, align 8
   %call2 = tail call zeroext i1 %2(ptr noundef nonnull %call.i.i) #5
   %call.i.i7 = tail call ptr @object_get_class(ptr noundef nonnull %from) #5
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i7, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.3, i32 noundef 136, ptr noundef nonnull @__func__.SD_BUS_GET_CLASS) #5
   %call.i3.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %from, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
-  %set_inserted.i = getelementptr inbounds %struct.SDBusClass, ptr %call1.i.i, i64 0, i32 1
+  %set_inserted.i = getelementptr inbounds i8, ptr %call1.i.i, i64 160
   %3 = load ptr, ptr %set_inserted.i, align 8
   %tobool.not.i8 = icmp eq ptr %3, null
   br i1 %tobool.not.i8, label %sdbus_set_inserted.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %parent.i = getelementptr inbounds %struct.BusState, ptr %call.i3.i, i64 0, i32 1
+  %parent.i = getelementptr inbounds i8, ptr %call.i3.i, i64 40
   %4 = load ptr, ptr %parent.i, align 8
   tail call void %3(ptr noundef %4, i1 noundef zeroext false) #5
   br label %sdbus_set_inserted.exit
@@ -854,13 +839,13 @@ sdbus_set_inserted.exit:                          ; preds = %if.end, %if.then.i
   %call.i.i11 = tail call ptr @object_get_class(ptr noundef %to) #5
   %call1.i.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i11, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.3, i32 noundef 136, ptr noundef nonnull @__func__.SD_BUS_GET_CLASS) #5
   %call.i3.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef %to, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
-  %set_inserted.i14 = getelementptr inbounds %struct.SDBusClass, ptr %call1.i.i12, i64 0, i32 1
+  %set_inserted.i14 = getelementptr inbounds i8, ptr %call1.i.i12, i64 160
   %5 = load ptr, ptr %set_inserted.i14, align 8
   %tobool.not.i15 = icmp eq ptr %5, null
   br i1 %tobool.not.i15, label %sdbus_set_inserted.exit19, label %if.then.i16
 
 if.then.i16:                                      ; preds = %sdbus_set_inserted.exit
-  %parent.i17 = getelementptr inbounds %struct.BusState, ptr %call.i3.i13, i64 0, i32 1
+  %parent.i17 = getelementptr inbounds i8, ptr %call.i3.i13, i64 40
   %6 = load ptr, ptr %parent.i17, align 8
   tail call void %5(ptr noundef %6, i1 noundef zeroext true) #5
   br label %sdbus_set_inserted.exit19
@@ -869,13 +854,13 @@ sdbus_set_inserted.exit19:                        ; preds = %sdbus_set_inserted.
   %call.i.i20 = tail call ptr @object_get_class(ptr noundef %to) #5
   %call1.i.i21 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i20, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.3, i32 noundef 136, ptr noundef nonnull @__func__.SD_BUS_GET_CLASS) #5
   %call.i3.i22 = tail call ptr @object_dynamic_cast_assert(ptr noundef %to, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 316, ptr noundef nonnull @__func__.BUS) #5
-  %set_readonly.i = getelementptr inbounds %struct.SDBusClass, ptr %call1.i.i21, i64 0, i32 2
+  %set_readonly.i = getelementptr inbounds i8, ptr %call1.i.i21, i64 168
   %7 = load ptr, ptr %set_readonly.i, align 8
   %tobool.not.i23 = icmp eq ptr %7, null
   br i1 %tobool.not.i23, label %return, label %if.then.i24
 
 if.then.i24:                                      ; preds = %sdbus_set_inserted.exit19
-  %parent.i25 = getelementptr inbounds %struct.BusState, ptr %call.i3.i22, i64 0, i32 1
+  %parent.i25 = getelementptr inbounds i8, ptr %call.i3.i22, i64 40
   %8 = load ptr, ptr %parent.i25, align 8
   tail call void %7(ptr noundef %8, i1 noundef zeroext %call2) #5
   br label %return

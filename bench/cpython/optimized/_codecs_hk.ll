@@ -11,11 +11,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyModuleDef_Slot = type { i32, ptr }
 %struct.dbcs_index = type { ptr, i8, i8 }
 %struct.unim_index = type { ptr, i8, i8 }
-%struct._cjk_mod_state = type { i32, i32, ptr, ptr, ptr, ptr }
 %struct._multibyte_codec = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.codec_capsule = type { ptr, ptr }
 %struct.dbcs_map = type { ptr, ptr, ptr }
-%struct._PyUnicodeWriter = type { ptr, ptr, i32, i32, i64, i64, i64, i32, i8, i8 }
 
 @_cjk_module = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr null, i64 40, ptr @_cjk_methods, ptr @_cjk_slots, ptr null, ptr null, ptr @_cjk_free }, align 8
 @.str = private unnamed_addr constant [11 x i8] c"_codecs_hk\00", align 1
@@ -62,10 +59,10 @@ declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 define internal void @_cjk_free(ptr noundef %mod) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #7
-  %mapping_list = getelementptr inbounds %struct._cjk_mod_state, ptr %call.i, i64 0, i32 2
+  %mapping_list = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %mapping_list, align 8
   tail call void @PyMem_Free(ptr noundef %0) #7
-  %codec_list = getelementptr inbounds %struct._cjk_mod_state, ptr %call.i, i64 0, i32 3
+  %codec_list = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %codec_list, align 8
   tail call void @PyMem_Free(ptr noundef %1) #7
   ret void
@@ -94,13 +91,13 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %self) #7
-  %num_codecs = getelementptr inbounds %struct._cjk_mod_state, ptr %call.i, i64 0, i32 1
+  %num_codecs = getelementptr inbounds i8, ptr %call.i, i64 4
   %4 = load i32, ptr %num_codecs, align 4
   %cmp68 = icmp sgt i32 %4, 0
   br i1 %cmp68, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end4
-  %codec_list = getelementptr inbounds %struct._cjk_mod_state, ptr %call.i, i64 0, i32 3
+  %codec_list = getelementptr inbounds i8, ptr %call.i, i64 16
   %5 = load ptr, ptr %codec_list, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %for.body
@@ -153,7 +150,7 @@ if.end.i31.i:                                     ; preds = %if.then3.i
   br i1 %cmp.i33.i, label %return.sink.split.i, label %return
 
 if.end4.i:                                        ; preds = %if.end.i.i.i.i, %if.end.i19.i
-  %cjk_module.i.i = getelementptr inbounds %struct.codec_capsule, ptr %call.i17.i, i64 0, i32 1
+  %cjk_module.i.i = getelementptr inbounds i8, ptr %call.i17.i, i64 8
   store ptr %self, ptr %cjk_module.i.i, align 8
   %call5.i = tail call ptr @PyCapsule_New(ptr noundef nonnull %call.i17.i, ptr noundef nonnull @.str.5, ptr noundef nonnull @destroy_codec_capsule) #7
   %cmp6.i = icmp eq ptr %call5.i, null
@@ -231,7 +228,7 @@ declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 define internal void @destroy_codec_capsule(ptr noundef %capsule) #0 {
 entry:
   %call = tail call ptr @PyCapsule_GetPointer(ptr noundef %capsule, ptr noundef nonnull @.str.5) #7
-  %cjk_module = getelementptr inbounds %struct.codec_capsule, ptr %call, i64 0, i32 1
+  %cjk_module = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %cjk_module, align 8
   %1 = load i64, ptr %0, align 8
   %2 = and i64 %1, 2147483648
@@ -275,7 +272,7 @@ entry:
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #7
   store i32 3, ptr %call.i.i, align 8
   %call.i8.i = tail call ptr @PyMem_Calloc(i64 noundef 3, i64 noundef 24) #7
-  %mapping_list.i.i = getelementptr inbounds %struct._cjk_mod_state, ptr %call.i.i, i64 0, i32 2
+  %mapping_list.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %call.i8.i, ptr %mapping_list.i.i, align 8
   %cmp.i.i = icmp eq ptr %call.i8.i, null
   br i1 %cmp.i.i, label %register_maps.exit, label %if.end.i
@@ -287,23 +284,23 @@ if.end.i:                                         ; preds = %entry
   %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i8.i, i64 16
   store ptr @big5hkscs_decmap, ptr %.compoundliteral.sroa.3.0.arrayidx.sroa_idx.i.i, align 8
   %0 = load ptr, ptr %mapping_list.i.i, align 8
-  %arrayidx6.i.i = getelementptr %struct.dbcs_map, ptr %0, i64 1
+  %arrayidx6.i.i = getelementptr i8, ptr %0, i64 24
   store ptr @.str.10, ptr %arrayidx6.i.i, align 8
-  %.compoundliteral7.sroa.2.0.arrayidx6.sroa_idx.i.i = getelementptr %struct.dbcs_map, ptr %0, i64 1, i32 1
+  %.compoundliteral7.sroa.2.0.arrayidx6.sroa_idx.i.i = getelementptr i8, ptr %0, i64 32
   store ptr @big5hkscs_bmp_encmap, ptr %.compoundliteral7.sroa.2.0.arrayidx6.sroa_idx.i.i, align 8
-  %.compoundliteral7.sroa.3.0.arrayidx6.sroa_idx.i.i = getelementptr %struct.dbcs_map, ptr %0, i64 1, i32 2
+  %.compoundliteral7.sroa.3.0.arrayidx6.sroa_idx.i.i = getelementptr i8, ptr %0, i64 40
   store ptr null, ptr %.compoundliteral7.sroa.3.0.arrayidx6.sroa_idx.i.i, align 8
   %1 = load ptr, ptr %mapping_list.i.i, align 8
-  %arrayidx14.i.i = getelementptr %struct.dbcs_map, ptr %1, i64 2
+  %arrayidx14.i.i = getelementptr i8, ptr %1, i64 48
   store ptr @.str.11, ptr %arrayidx14.i.i, align 8
-  %.compoundliteral15.sroa.2.0.arrayidx14.sroa_idx.i.i = getelementptr %struct.dbcs_map, ptr %1, i64 2, i32 1
+  %.compoundliteral15.sroa.2.0.arrayidx14.sroa_idx.i.i = getelementptr i8, ptr %1, i64 56
   store ptr @big5hkscs_nonbmp_encmap, ptr %.compoundliteral15.sroa.2.0.arrayidx14.sroa_idx.i.i, align 8
-  %.compoundliteral15.sroa.3.0.arrayidx14.sroa_idx.i.i = getelementptr %struct.dbcs_map, ptr %1, i64 2, i32 2
+  %.compoundliteral15.sroa.3.0.arrayidx14.sroa_idx.i.i = getelementptr i8, ptr %1, i64 64
   store ptr null, ptr %.compoundliteral15.sroa.3.0.arrayidx14.sroa_idx.i.i, align 8
-  %num_codecs.i.i = getelementptr inbounds %struct._cjk_mod_state, ptr %call.i.i, i64 0, i32 1
+  %num_codecs.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   store i32 1, ptr %num_codecs.i.i, align 4
   %call.i9.i = tail call ptr @PyMem_Calloc(i64 noundef 1, i64 noundef 80) #7
-  %codec_list.i.i = getelementptr inbounds %struct._cjk_mod_state, ptr %call.i.i, i64 0, i32 3
+  %codec_list.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %call.i9.i, ptr %codec_list.i.i, align 8
   %cmp.i10.i = icmp eq ptr %call.i9.i, null
   br i1 %cmp.i10.i, label %register_maps.exit, label %if.end.i11.i
@@ -343,8 +340,8 @@ add_codecs.exit.i:                                ; preds = %for.body.i.i, %if.e
   br i1 %cmp619.i, label %for.body.lr.ph.i, label %register_maps.exit
 
 for.body.lr.ph.i:                                 ; preds = %add_codecs.exit.i
-  %7 = getelementptr inbounds [256 x i8], ptr %mhname.i, i64 0, i64 4
-  %8 = getelementptr inbounds [256 x i8], ptr %mhname.i, i64 0, i64 5
+  %7 = getelementptr inbounds i8, ptr %mhname.i, i64 4
+  %8 = getelementptr inbounds i8, ptr %mhname.i, i64 5
   %add.ptr7.i = getelementptr inbounds i8, ptr %mhname.i, i64 6
   br label %for.body.i
 
@@ -389,10 +386,10 @@ declare ptr @PyMem_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @big5hkscs_codec_init(ptr nocapture noundef readonly %codec) #0 {
 entry:
-  %modstate = getelementptr inbounds %struct._multibyte_codec, ptr %codec, i64 0, i32 9
+  %modstate = getelementptr inbounds i8, ptr %codec, i64 72
   %0 = load ptr, ptr %modstate, align 8
-  %big5_encmap = getelementptr inbounds %struct._cjk_mod_state, ptr %0, i64 0, i32 4
-  %big5_decmap = getelementptr inbounds %struct._cjk_mod_state, ptr %0, i64 0, i32 5
+  %big5_encmap = getelementptr inbounds i8, ptr %0, i64 24
+  %big5_decmap = getelementptr inbounds i8, ptr %0, i64 32
   %call.i = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.12) #7
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %importmap.exit.thread, label %if.end.i
@@ -414,10 +411,10 @@ if.then5.i:                                       ; preds = %if.else.i
 
 if.else6.i:                                       ; preds = %if.else.i
   %call7.i = tail call ptr @PyCapsule_GetPointer(ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.8) #7
-  %encmap10.i = getelementptr inbounds %struct.dbcs_map, ptr %call7.i, i64 0, i32 1
+  %encmap10.i = getelementptr inbounds i8, ptr %call7.i, i64 8
   %2 = load ptr, ptr %encmap10.i, align 8
   store ptr %2, ptr %big5_encmap, align 8
-  %decmap14.i = getelementptr inbounds %struct.dbcs_map, ptr %call7.i, i64 0, i32 2
+  %decmap14.i = getelementptr inbounds i8, ptr %call7.i, i64 16
   %3 = load ptr, ptr %decmap14.i, align 8
   store ptr %3, ptr %big5_decmap, align 8
   %4 = load i64, ptr %call1.i, align 8
@@ -479,7 +476,7 @@ entry:
 while.body.lr.ph:                                 ; preds = %entry
   %and87 = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and87, 0
-  %modstate = getelementptr inbounds %struct._multibyte_codec, ptr %codec, i64 0, i32 9
+  %modstate = getelementptr inbounds i8, ptr %codec, i64 72
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -555,14 +552,14 @@ if.then19:                                        ; preds = %do.end16
 
 land.lhs.true:                                    ; preds = %if.then19
   %and = and i32 %retval.0.i, 255
-  %bottom = getelementptr [256 x %struct.unim_index], ptr @big5hkscs_bmp_encmap, i64 0, i64 %idxprom, i32 1
+  %bottom = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %10 = load i8, ptr %bottom, align 8
   %conv25 = zext i8 %10 to i32
   %cmp26.not = icmp ult i32 %and, %conv25
   br i1 %cmp26.not, label %if.else98, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %land.lhs.true
-  %top = getelementptr [256 x %struct.unim_index], ptr @big5hkscs_bmp_encmap, i64 0, i64 %idxprom, i32 2
+  %top = getelementptr inbounds i8, ptr %arrayidx, i64 9
   %11 = load i8, ptr %top, align 1
   %conv33 = zext i8 %11 to i32
   %cmp34.not = icmp ugt i32 %and, %conv33
@@ -636,7 +633,7 @@ if.else89:                                        ; preds = %if.end64, %if.else8
 
 if.else98:                                        ; preds = %land.lhs.true36, %land.lhs.true28, %land.lhs.true, %if.then19
   %17 = load ptr, ptr %modstate, align 8
-  %big5_encmap = getelementptr inbounds %struct._cjk_mod_state, ptr %17, i64 0, i32 4
+  %big5_encmap = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %big5_encmap, align 8
   %arrayidx101 = getelementptr %struct.unim_index, ptr %18, i64 %idxprom
   %19 = load ptr, ptr %arrayidx101, align 8
@@ -645,14 +642,14 @@ if.else98:                                        ; preds = %land.lhs.true36, %l
 
 land.lhs.true105:                                 ; preds = %if.else98
   %and106 = and i32 %retval.0.i, 255
-  %bottom112 = getelementptr %struct.unim_index, ptr %18, i64 %idxprom, i32 1
+  %bottom112 = getelementptr inbounds i8, ptr %arrayidx101, i64 8
   %20 = load i8, ptr %bottom112, align 8
   %conv113 = zext i8 %20 to i32
   %cmp114.not = icmp ult i32 %and106, %conv113
   br i1 %cmp114.not, label %return, label %land.lhs.true116
 
 land.lhs.true116:                                 ; preds = %land.lhs.true105
-  %top123 = getelementptr %struct.unim_index, ptr %18, i64 %idxprom, i32 2
+  %top123 = getelementptr inbounds i8, ptr %arrayidx101, i64 9
   %21 = load i8, ptr %top123, align 1
   %conv124 = zext i8 %21 to i32
   %cmp125.not = icmp ugt i32 %and106, %conv124
@@ -682,14 +679,14 @@ if.then159:                                       ; preds = %if.else152
 
 land.lhs.true167:                                 ; preds = %if.then159
   %and169 = and i32 %retval.0.i, 255
-  %bottom174 = getelementptr [256 x %struct.unim_index], ptr @big5hkscs_nonbmp_encmap, i64 0, i64 %idxprom162, i32 1
+  %bottom174 = getelementptr inbounds i8, ptr %arrayidx163, i64 8
   %25 = load i8, ptr %bottom174, align 8
   %conv175 = zext i8 %25 to i32
   %cmp176.not = icmp ult i32 %and169, %conv175
   br i1 %cmp176.not, label %return, label %land.lhs.true178
 
 land.lhs.true178:                                 ; preds = %land.lhs.true167
-  %top185 = getelementptr [256 x %struct.unim_index], ptr @big5hkscs_nonbmp_encmap, i64 0, i64 %idxprom162, i32 2
+  %top185 = getelementptr inbounds i8, ptr %arrayidx163, i64 9
   %26 = load i8, ptr %top185, align 1
   %conv186 = zext i8 %26 to i32
   %cmp187.not = icmp ugt i32 %and169, %conv186
@@ -728,12 +725,12 @@ entry:
   br i1 %cmp177, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %entry
-  %modstate = getelementptr inbounds %struct._multibyte_codec, ptr %codec, i64 0, i32 9
-  %maxchar324 = getelementptr inbounds %struct._PyUnicodeWriter, ptr %writer, i64 0, i32 3
-  %size328 = getelementptr inbounds %struct._PyUnicodeWriter, ptr %writer, i64 0, i32 4
-  %pos329 = getelementptr inbounds %struct._PyUnicodeWriter, ptr %writer, i64 0, i32 5
-  %kind348 = getelementptr inbounds %struct._PyUnicodeWriter, ptr %writer, i64 0, i32 2
-  %data349 = getelementptr inbounds %struct._PyUnicodeWriter, ptr %writer, i64 0, i32 1
+  %modstate = getelementptr inbounds i8, ptr %codec, i64 72
+  %maxchar324 = getelementptr inbounds i8, ptr %writer, i64 20
+  %size328 = getelementptr inbounds i8, ptr %writer, i64 24
+  %pos329 = getelementptr inbounds i8, ptr %writer, i64 32
+  %kind348 = getelementptr inbounds i8, ptr %writer, i64 16
+  %data349 = getelementptr inbounds i8, ptr %writer, i64 8
   %.pre = load ptr, ptr %inbuf, align 8
   br label %while.body
 
@@ -781,7 +778,7 @@ land.lhs.true:                                    ; preds = %lor.lhs.false22
 
 if.then30:                                        ; preds = %land.lhs.true, %do.end15
   %5 = load ptr, ptr %modstate, align 8
-  %big5_decmap = getelementptr inbounds %struct._cjk_mod_state, ptr %5, i64 0, i32 5
+  %big5_decmap = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load ptr, ptr %big5_decmap, align 8
   %idxprom = zext i8 %1 to i64
   %arrayidx31 = getelementptr %struct.dbcs_index, ptr %6, i64 %idxprom
@@ -793,14 +790,14 @@ land.lhs.true34:                                  ; preds = %if.then30
   %arrayidx35 = getelementptr i8, ptr %0, i64 1
   %8 = load i8, ptr %arrayidx35, align 1
   %conv36 = zext i8 %8 to i64
-  %bottom = getelementptr %struct.dbcs_index, ptr %6, i64 %idxprom, i32 1
+  %bottom = getelementptr inbounds i8, ptr %arrayidx31, i64 8
   %9 = load i8, ptr %bottom, align 8
   %conv41 = zext i8 %9 to i64
   %cmp42.not = icmp ult i8 %8, %9
   br i1 %cmp42.not, label %if.end87, label %land.lhs.true44
 
 land.lhs.true44:                                  ; preds = %land.lhs.true34
-  %top = getelementptr %struct.dbcs_index, ptr %6, i64 %idxprom, i32 2
+  %top = getelementptr inbounds i8, ptr %arrayidx31, i64 9
   %10 = load i8, ptr %top, align 1
   %cmp52.not = icmp ugt i8 %8, %10
   br i1 %cmp52.not, label %if.end87, label %land.lhs.true54
@@ -829,14 +826,14 @@ if.end87:                                         ; preds = %if.then30, %land.lh
   br i1 %cmp91.not, label %if.end188, label %land.lhs.true93
 
 land.lhs.true93:                                  ; preds = %if.end87
-  %bottom98 = getelementptr [256 x %struct.dbcs_index], ptr @big5hkscs_decmap, i64 0, i64 %idxprom88, i32 1
+  %bottom98 = getelementptr inbounds i8, ptr %arrayidx89, i64 8
   %13 = load i8, ptr %bottom98, align 8
   %conv99 = zext i8 %13 to i32
   %cmp100.not = icmp ult i8 %.pre190, %13
   br i1 %cmp100.not, label %if.end188, label %land.lhs.true102
 
 land.lhs.true102:                                 ; preds = %land.lhs.true93
-  %top107 = getelementptr [256 x %struct.dbcs_index], ptr @big5hkscs_decmap, i64 0, i64 %idxprom88, i32 2
+  %top107 = getelementptr inbounds i8, ptr %arrayidx89, i64 9
   %14 = load i8, ptr %top107, align 1
   %cmp109.not = icmp ugt i8 %.pre190, %14
   br i1 %cmp109.not, label %if.end188, label %land.lhs.true111

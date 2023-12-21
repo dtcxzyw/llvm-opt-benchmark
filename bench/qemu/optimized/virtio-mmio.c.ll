@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QVirtioBus = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.QVirtQueue = type { ptr, i64, i64, i64, i16, i32, i32, i32, i32, i16, i8, i8 }
-%struct.QVirtioMMIODevice = type { %struct.QOSGraphObject, %struct.QVirtioDevice, ptr, i64, i32, i32, i32 }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QVirtioDevice = type { ptr, i16, i64, i8, i8 }
 
 @qvirtio_mmio = dso_local constant %struct.QVirtioBus { ptr @qvirtio_mmio_config_readb, ptr @qvirtio_mmio_config_readw, ptr @qvirtio_mmio_config_readl, ptr @qvirtio_mmio_config_readq, ptr @qvirtio_mmio_get_features, ptr @qvirtio_mmio_set_features, ptr @qvirtio_mmio_get_guest_features, ptr @qvirtio_mmio_get_status, ptr @qvirtio_mmio_set_status, ptr @qvirtio_mmio_get_queue_isr_status, ptr @qvirtio_mmio_wait_config_isr_status, ptr @qvirtio_mmio_queue_select, ptr @qvirtio_mmio_get_queue_size, ptr @qvirtio_mmio_set_queue_address, ptr @qvirtio_mmio_virtqueue_setup, ptr @qvirtio_mmio_virtqueue_cleanup, ptr @qvirtio_mmio_virtqueue_kick }, align 8
 @.str = private unnamed_addr constant [41 x i8] c"../qemu/tests/qtest/libqos/virtio-mmio.c\00", align 1
@@ -296,7 +292,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qvirtio_mmio_set_queue_address(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %vq) #0 {
 entry:
-  %desc = getelementptr inbounds %struct.QVirtQueue, ptr %vq, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %vq, i64 8
   %0 = load i64, ptr %desc, align 8
   %page_size = getelementptr i8, ptr %d, i64 48
   %1 = load i32, ptr %page_size, align 8
@@ -343,30 +339,30 @@ qvirtio_mmio_queue_select.exit:                   ; preds = %entry, %if.else.i
   %page_size = getelementptr i8, ptr %d, i64 48
   %6 = load i32, ptr %page_size, align 8
   tail call void @qtest_writel(ptr noundef %4, i64 noundef %add, i32 noundef %6) #6
-  %index2 = getelementptr inbounds %struct.QVirtQueue, ptr %call, i64 0, i32 4
+  %index2 = getelementptr inbounds i8, ptr %call, i64 32
   store i16 %index, ptr %index2, align 8
   %7 = load ptr, ptr %qts.i, align 8
   %8 = load i64, ptr %addr.i, align 8
   %add.i38 = add i64 %8, 52
   %call.i39 = tail call i32 @qtest_readl(ptr noundef %7, i64 noundef %add.i38) #6
   %conv = and i32 %call.i39, 65535
-  %size = getelementptr inbounds %struct.QVirtQueue, ptr %call, i64 0, i32 5
+  %size = getelementptr inbounds i8, ptr %call, i64 36
   store i32 %conv, ptr %size, align 4
-  %free_head = getelementptr inbounds %struct.QVirtQueue, ptr %call, i64 0, i32 6
+  %free_head = getelementptr inbounds i8, ptr %call, i64 40
   store i32 0, ptr %free_head, align 8
-  %num_free = getelementptr inbounds %struct.QVirtQueue, ptr %call, i64 0, i32 7
+  %num_free = getelementptr inbounds i8, ptr %call, i64 44
   store i32 %conv, ptr %num_free, align 4
   %9 = load i32, ptr %page_size, align 8
-  %align = getelementptr inbounds %struct.QVirtQueue, ptr %call, i64 0, i32 8
+  %align = getelementptr inbounds i8, ptr %call, i64 48
   store i32 %9, ptr %align, align 8
   %features = getelementptr i8, ptr %d, i64 52
   %10 = load i32, ptr %features, align 4
-  %indirect = getelementptr inbounds %struct.QVirtQueue, ptr %call, i64 0, i32 10
+  %indirect = getelementptr inbounds i8, ptr %call, i64 54
   %11 = lshr i32 %10, 28
   %12 = trunc i32 %11 to i8
   %frombool = and i8 %12, 1
   store i8 %frombool, ptr %indirect, align 2
-  %event = getelementptr inbounds %struct.QVirtQueue, ptr %call, i64 0, i32 11
+  %event = getelementptr inbounds i8, ptr %call, i64 55
   %13 = lshr i32 %10, 29
   %14 = trunc i32 %13 to i8
   %frombool11 = and i8 %14, 1
@@ -407,7 +403,7 @@ do.end35:                                         ; preds = %if.else31, %do.body
   %call40 = tail call i64 @guest_alloc(ptr noundef %alloc, i64 noundef %conv39) #6
   %18 = load ptr, ptr %qts.i, align 8
   tail call void @qvring_init(ptr noundef %18, ptr noundef %alloc, ptr noundef nonnull %call, i64 noundef %call40) #6
-  %desc.i = getelementptr inbounds %struct.QVirtQueue, ptr %call, i64 0, i32 1
+  %desc.i = getelementptr inbounds i8, ptr %call, i64 8
   %19 = load i64, ptr %desc.i, align 8
   %20 = load i32, ptr %page_size, align 8
   %conv.i41 = zext i32 %20 to i64
@@ -423,7 +419,7 @@ do.end35:                                         ; preds = %if.else31, %do.body
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qvirtio_mmio_virtqueue_cleanup(ptr noundef %vq, ptr noundef %alloc) #0 {
 entry:
-  %desc = getelementptr inbounds %struct.QVirtQueue, ptr %vq, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %vq, i64 8
   %0 = load i64, ptr %desc, align 8
   tail call void @guest_free(ptr noundef %alloc, i64 noundef %0) #6
   tail call void @g_free(ptr noundef %vq) #6
@@ -438,7 +434,7 @@ entry:
   %addr = getelementptr i8, ptr %d, i64 40
   %1 = load i64, ptr %addr, align 8
   %add = add i64 %1, 80
-  %index = getelementptr inbounds %struct.QVirtQueue, ptr %vq, i64 0, i32 4
+  %index = getelementptr inbounds i8, ptr %vq, i64 32
   %2 = load i16, ptr %index, align 8
   %conv = zext i16 %2 to i32
   tail call void @qtest_writel(ptr noundef %0, i64 noundef %add, i32 noundef %conv) #6
@@ -459,7 +455,7 @@ if.else:                                          ; preds = %entry
 do.end:                                           ; preds = %entry
   %add1 = add i64 %addr, 4
   %call2 = tail call i32 @qtest_readl(ptr noundef %qts, i64 noundef %add1) #6
-  %version = getelementptr inbounds %struct.QVirtioMMIODevice, ptr %dev, i64 0, i32 6
+  %version = getelementptr inbounds i8, ptr %dev, i64 96
   store i32 %call2, ptr %version, align 8
   %call2.off = add i32 %call2, -1
   %switch = icmp ult i32 %call2.off, 2
@@ -470,23 +466,23 @@ if.else9:                                         ; preds = %do.end
   unreachable
 
 do.end11:                                         ; preds = %do.end
-  %qts12 = getelementptr inbounds %struct.QVirtioMMIODevice, ptr %dev, i64 0, i32 2
+  %qts12 = getelementptr inbounds i8, ptr %dev, i64 72
   store ptr %qts, ptr %qts12, align 8
-  %addr13 = getelementptr inbounds %struct.QVirtioMMIODevice, ptr %dev, i64 0, i32 3
+  %addr13 = getelementptr inbounds i8, ptr %dev, i64 80
   store i64 %addr, ptr %addr13, align 8
-  %page_size14 = getelementptr inbounds %struct.QVirtioMMIODevice, ptr %dev, i64 0, i32 4
+  %page_size14 = getelementptr inbounds i8, ptr %dev, i64 88
   store i32 %page_size, ptr %page_size14, align 8
   %add15 = add i64 %addr, 8
   %call16 = tail call i32 @qtest_readl(ptr noundef %qts, i64 noundef %add15) #6
   %conv = trunc i32 %call16 to i16
-  %vdev = getelementptr inbounds %struct.QVirtioMMIODevice, ptr %dev, i64 0, i32 1
-  %device_type = getelementptr inbounds %struct.QVirtioMMIODevice, ptr %dev, i64 0, i32 1, i32 1
+  %vdev = getelementptr inbounds i8, ptr %dev, i64 40
+  %device_type = getelementptr inbounds i8, ptr %dev, i64 48
   store i16 %conv, ptr %device_type, align 8
   store ptr @qvirtio_mmio, ptr %vdev, align 8
   %add18 = add i64 %addr, 40
   tail call void @qtest_writel(ptr noundef %qts, i64 noundef %add18, i32 noundef %page_size) #6
   store ptr @qvirtio_mmio_get_driver, ptr %dev, align 8
-  %start_hw = getelementptr inbounds %struct.QOSGraphObject, ptr %dev, i64 0, i32 2
+  %start_hw = getelementptr inbounds i8, ptr %dev, i64 16
   store ptr @qvirtio_mmio_start_hw, ptr %start_hw, align 8
   ret void
 }
@@ -506,7 +502,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %vdev = getelementptr inbounds %struct.QVirtioMMIODevice, ptr %obj, i64 0, i32 1
+  %vdev = getelementptr inbounds i8, ptr %obj, i64 40
   ret ptr %vdev
 
 if.end:                                           ; preds = %entry
@@ -519,7 +515,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qvirtio_mmio_start_hw(ptr noundef %obj) #0 {
 entry:
-  %vdev = getelementptr inbounds %struct.QVirtioMMIODevice, ptr %obj, i64 0, i32 1
+  %vdev = getelementptr inbounds i8, ptr %obj, i64 40
   tail call void @qvirtio_start_device(ptr noundef nonnull %vdev) #6
   ret void
 }

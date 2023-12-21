@@ -5,10 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.std::allocator" = type { i8 }
-%class.context_params = type { i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -16,11 +12,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%class.default_exception = type { %class.z3_exception, %"class.std::__cxx11::basic_string" }
-%class.z3_exception = type { ptr }
 %class.param_descrs = type { ptr }
 %class.params_ref = type { ptr }
 %struct._Guard = type { ptr }
@@ -103,20 +100,20 @@ define hidden void @_ZN14context_paramsC2Ev(ptr noundef nonnull align 8 derefere
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store i32 0, ptr %this, align 8
-  %m_timeout = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 1
+  %m_timeout = getelementptr inbounds i8, ptr %this, i64 4
   store i32 -1, ptr %m_timeout, align 4
-  %m_dot_proof_file = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 2
+  %m_dot_proof_file = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_dot_proof_file) #11
-  %m_trace_file_name = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 3
+  %m_trace_file_name = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_trace_file_name) #11
-  %m_auto_config = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 4
+  %m_auto_config = getelementptr inbounds i8, ptr %this, i64 72
   store i8 1, ptr %m_auto_config, align 8
-  %m_proof = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 5
-  %m_model = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 9
+  %m_proof = getelementptr inbounds i8, ptr %this, i64 73
+  %m_model = getelementptr inbounds i8, ptr %this, i64 77
   store i32 0, ptr %m_proof, align 1
   store i8 1, ptr %m_model, align 1
-  %m_model_validate = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 10
-  %m_encoding = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 15
+  %m_model_validate = getelementptr inbounds i8, ptr %this, i64 78
+  %m_encoding = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(5) %m_model_validate, i8 0, i64 5, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   %call.i2 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %m_encoding)
@@ -236,7 +233,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
 
 invoke.cont16:                                    ; preds = %invoke.cont13
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #13
           to label %unreachable unwind label %ehcleanup
@@ -287,7 +284,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_msg = getelementptr inbounds %class.default_exception, ptr %this, i64 0, i32 1
+  %m_msg = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #11
   ret void
 }
@@ -347,7 +344,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
 
 invoke.cont13:                                    ; preds = %invoke.cont10
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #13
           to label %unreachable unwind label %ehcleanup
@@ -517,7 +514,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
   br i1 %cmp.i52, label %if.then33, label %if.else35
 
 if.then33:                                        ; preds = %for.end
-  %m_timeout = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 1
+  %m_timeout = getelementptr inbounds i8, ptr %this, i64 4
   br label %if.then33.invoke
 
 if.then33.invoke:                                 ; preds = %if.else35, %if.then33
@@ -541,7 +538,7 @@ lor.lhs.false:                                    ; preds = %if.else40
   br i1 %cmp.i58, label %if.then45, label %if.else47
 
 if.then45:                                        ; preds = %lor.lhs.false, %if.else40
-  %m_well_sorted_check = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 8
+  %m_well_sorted_check = getelementptr inbounds i8, ptr %this, i64 76
   br label %if.then45.invoke
 
 if.then45.invoke:                                 ; preds = %if.then97, %if.then110, %if.then105, %if.then80, %if.then75, %if.then70, %if.then65, %if.then60, %if.then55, %if.then50, %if.then45
@@ -555,7 +552,7 @@ if.else47:                                        ; preds = %lor.lhs.false
   br i1 %cmp.i60, label %if.then50, label %if.else52
 
 if.then50:                                        ; preds = %if.else47
-  %m_auto_config = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 4
+  %m_auto_config = getelementptr inbounds i8, ptr %this, i64 72
   br label %if.then45.invoke
 
 if.else52:                                        ; preds = %if.else47
@@ -564,7 +561,7 @@ if.else52:                                        ; preds = %if.else47
   br i1 %cmp.i62, label %if.then55, label %if.else57
 
 if.then55:                                        ; preds = %if.else52
-  %m_proof = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 5
+  %m_proof = getelementptr inbounds i8, ptr %this, i64 73
   br label %if.then45.invoke
 
 if.else57:                                        ; preds = %if.else52
@@ -573,7 +570,7 @@ if.else57:                                        ; preds = %if.else52
   br i1 %cmp.i64, label %if.then60, label %if.else62
 
 if.then60:                                        ; preds = %if.else57
-  %m_model = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 9
+  %m_model = getelementptr inbounds i8, ptr %this, i64 77
   br label %if.then45.invoke
 
 if.else62:                                        ; preds = %if.else57
@@ -582,7 +579,7 @@ if.else62:                                        ; preds = %if.else57
   br i1 %cmp.i66, label %if.then65, label %if.else67
 
 if.then65:                                        ; preds = %if.else62
-  %m_model_validate = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 10
+  %m_model_validate = getelementptr inbounds i8, ptr %this, i64 78
   br label %if.then45.invoke
 
 if.else67:                                        ; preds = %if.else62
@@ -591,7 +588,7 @@ if.else67:                                        ; preds = %if.else62
   br i1 %cmp.i68, label %if.then70, label %if.else72
 
 if.then70:                                        ; preds = %if.else67
-  %m_dump_models = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 11
+  %m_dump_models = getelementptr inbounds i8, ptr %this, i64 79
   br label %if.then45.invoke
 
 if.else72:                                        ; preds = %if.else67
@@ -600,7 +597,7 @@ if.else72:                                        ; preds = %if.else67
   br i1 %cmp.i70, label %if.then75, label %if.else77
 
 if.then75:                                        ; preds = %if.else72
-  %m_statistics = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 14
+  %m_statistics = getelementptr inbounds i8, ptr %this, i64 82
   br label %if.then45.invoke
 
 if.else77:                                        ; preds = %if.else72
@@ -609,31 +606,24 @@ if.else77:                                        ; preds = %if.else72
   br i1 %cmp.i72, label %if.then80, label %if.else82
 
 if.then80:                                        ; preds = %if.else77
-  %m_trace = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 7
+  %m_trace = getelementptr inbounds i8, ptr %this, i64 75
   br label %if.then45.invoke
 
 if.else82:                                        ; preds = %if.else77
   %call.i73 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %p, ptr noundef nonnull @.str.18) #11
   %cmp.i74 = icmp eq i32 %call.i73, 0
-  br i1 %cmp.i74, label %if.then85, label %if.else88
+  br i1 %cmp.i74, label %if.then85.invoke, label %if.else88
 
-if.then85:                                        ; preds = %if.else82
-  %m_trace_file_name = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 3
-  br label %if.then85.invoke
-
-if.then85.invoke:                                 ; preds = %if.then91, %if.then85
-  %9 = phi ptr [ %m_trace_file_name, %if.then85 ], [ %m_dot_proof_file, %if.then91 ]
-  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %value)
+if.then85.invoke:                                 ; preds = %if.else82, %if.else88
+  %.sink = phi i64 [ 8, %if.else88 ], [ 40, %if.else82 ]
+  %m_dot_proof_file = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %m_dot_proof_file, ptr noundef %value)
           to label %if.end196 unwind label %lpad3.loopexit.split-lp
 
 if.else88:                                        ; preds = %if.else82
   %call.i75 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %p, ptr noundef nonnull @.str.19) #11
   %cmp.i76 = icmp eq i32 %call.i75, 0
-  br i1 %cmp.i76, label %if.then91, label %if.else94
-
-if.then91:                                        ; preds = %if.else88
-  %m_dot_proof_file = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 2
-  br label %if.then85.invoke
+  br i1 %cmp.i76, label %if.then85.invoke, label %if.else94
 
 if.else94:                                        ; preds = %if.else88
   %call.i77 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %p, ptr noundef nonnull @.str.20) #11
@@ -641,10 +631,10 @@ if.else94:                                        ; preds = %if.else88
   br i1 %cmp.i78, label %if.then97, label %if.else102
 
 if.then97:                                        ; preds = %if.else94
-  %m_unsat_core = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 12
-  %11 = load i8, ptr %m_unsat_core, align 8
-  %12 = and i8 %11, 1
-  %tobool.not = icmp eq i8 %12, 0
+  %m_unsat_core = getelementptr inbounds i8, ptr %this, i64 80
+  %10 = load i8, ptr %m_unsat_core, align 8
+  %11 = and i8 %10, 1
+  %tobool.not = icmp eq i8 %11, 0
   br i1 %tobool.not, label %if.then45.invoke, label %if.end196
 
 if.else102:                                       ; preds = %if.else94
@@ -653,7 +643,7 @@ if.else102:                                       ; preds = %if.else94
   br i1 %cmp.i80, label %if.then105, label %if.else107
 
 if.then105:                                       ; preds = %if.else102
-  %m_debug_ref_count = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 6
+  %m_debug_ref_count = getelementptr inbounds i8, ptr %this, i64 74
   br label %if.then45.invoke
 
 if.else107:                                       ; preds = %if.else102
@@ -662,7 +652,7 @@ if.else107:                                       ; preds = %if.else102
   br i1 %cmp.i82, label %if.then110, label %if.else112
 
 if.then110:                                       ; preds = %if.else107
-  %m_smtlib2_compliant = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 13
+  %m_smtlib2_compliant = getelementptr inbounds i8, ptr %this, i64 81
   br label %if.then45.invoke
 
 if.else112:                                       ; preds = %if.else107
@@ -686,7 +676,7 @@ lor.lhs.false121:                                 ; preds = %lor.lhs.false118
   br i1 %cmp123, label %if.then124, label %if.else128
 
 if.then124:                                       ; preds = %lor.lhs.false121, %lor.lhs.false118, %if.then115
-  %m_encoding = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 15
+  %m_encoding = getelementptr inbounds i8, ptr %this, i64 88
   %call126 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %m_encoding, ptr noundef %value)
           to label %invoke.cont125 unwind label %lpad3.loopexit.split-lp
 
@@ -726,30 +716,30 @@ invoke.cont139:                                   ; preds = %invoke.cont137
 
 invoke.cont143:                                   ; preds = %invoke.cont139
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %m_msg.i = getelementptr inbounds %class.default_exception, ptr %exception, i64 0, i32 1
+  %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141) #11
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #13
           to label %unreachable unwind label %ehcleanup
 
 lpad130:                                          ; preds = %invoke.cont137, %invoke.cont135, %invoke.cont133, %invoke.cont131, %invoke.cont129
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup146
 
 ehcleanup:                                        ; preds = %invoke.cont143
-  %14 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp141) #11
   br label %ehcleanup146
 
 cleanup.action:                                   ; preds = %invoke.cont139
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception) #11
   br label %ehcleanup146
 
 ehcleanup146:                                     ; preds = %ehcleanup, %cleanup.action, %lpad130
-  %.pn45.pn = phi { ptr, i32 } [ %15, %cleanup.action ], [ %14, %ehcleanup ], [ %13, %lpad130 ]
+  %.pn45.pn = phi { ptr, i32 } [ %14, %cleanup.action ], [ %13, %ehcleanup ], [ %12, %lpad130 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %strm) #11
   br label %ehcleanup197
 
@@ -793,40 +783,40 @@ invoke.cont166:                                   ; preds = %invoke.cont163
 
 invoke.cont170:                                   ; preds = %invoke.cont166
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception167, align 8
-  %m_msg.i85 = getelementptr inbounds %class.default_exception, ptr %exception167, i64 0, i32 1
+  %m_msg.i85 = getelementptr inbounds i8, ptr %exception167, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i85, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp168) #11
   invoke void @__cxa_throw(ptr nonnull %exception167, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #13
           to label %unreachable unwind label %ehcleanup175
 
 lpad150:                                          ; preds = %invoke.cont151, %invoke.cont149
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup180
 
 lpad155:                                          ; preds = %invoke.cont163, %invoke.cont160, %invoke.cont158, %invoke.cont156, %invoke.cont153
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup179
 
 ehcleanup175:                                     ; preds = %invoke.cont170
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp168) #11
   br label %ehcleanup179
 
 cleanup.action177:                                ; preds = %invoke.cont166
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception167) #11
   br label %ehcleanup179
 
 ehcleanup179:                                     ; preds = %ehcleanup175, %cleanup.action177, %lpad155
-  %.pn.pn = phi { ptr, i32 } [ %19, %cleanup.action177 ], [ %18, %ehcleanup175 ], [ %17, %lpad155 ]
+  %.pn.pn = phi { ptr, i32 } [ %18, %cleanup.action177 ], [ %17, %ehcleanup175 ], [ %16, %lpad155 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %strm152) #11
   br label %ehcleanup180
 
 ehcleanup180:                                     ; preds = %ehcleanup179, %lpad150
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup179 ], [ %16, %lpad150 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup179 ], [ %15, %lpad150 ]
   call void @_ZN12param_descrsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %d) #11
   br label %ehcleanup197
 
@@ -891,14 +881,14 @@ declare void @_ZN12param_descrsD1Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14context_params11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(8) %p) local_unnamed_addr #3 align 2 {
 entry:
-  %m_timeout = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 1
+  %m_timeout = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %m_timeout, align 4
   %call = tail call noundef i32 @_ZNK10params_ref8get_uintEPKcj(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.7, i32 noundef %0)
   store i32 %call, ptr %m_timeout, align 4
   %1 = load i32, ptr %this, align 8
   %call3 = tail call noundef i32 @_ZNK10params_ref8get_uintEPKcj(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.8, i32 noundef %1)
   store i32 %call3, ptr %this, align 8
-  %m_well_sorted_check = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 8
+  %m_well_sorted_check = getelementptr inbounds i8, ptr %this, i64 76
   %2 = load i8, ptr %m_well_sorted_check, align 4
   %3 = and i8 %2, 1
   %tobool = icmp ne i8 %3, 0
@@ -906,42 +896,42 @@ entry:
   %call6 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.9, i1 noundef zeroext %call5)
   %frombool = zext i1 %call6 to i8
   store i8 %frombool, ptr %m_well_sorted_check, align 4
-  %m_auto_config = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 4
+  %m_auto_config = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i8, ptr %m_auto_config, align 8
   %5 = and i8 %4, 1
   %tobool8 = icmp ne i8 %5, 0
   %call9 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.11, i1 noundef zeroext %tobool8)
   %frombool11 = zext i1 %call9 to i8
   store i8 %frombool11, ptr %m_auto_config, align 8
-  %m_proof = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 5
+  %m_proof = getelementptr inbounds i8, ptr %this, i64 73
   %6 = load i8, ptr %m_proof, align 1
   %7 = and i8 %6, 1
   %tobool12 = icmp ne i8 %7, 0
   %call13 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.12, i1 noundef zeroext %tobool12)
   %frombool15 = zext i1 %call13 to i8
   store i8 %frombool15, ptr %m_proof, align 1
-  %m_model = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 9
+  %m_model = getelementptr inbounds i8, ptr %this, i64 77
   %8 = load i8, ptr %m_model, align 1
   %9 = and i8 %8, 1
   %tobool16 = icmp ne i8 %9, 0
   %call17 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.13, i1 noundef zeroext %tobool16)
   %frombool19 = zext i1 %call17 to i8
   store i8 %frombool19, ptr %m_model, align 1
-  %m_model_validate = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 10
+  %m_model_validate = getelementptr inbounds i8, ptr %this, i64 78
   %10 = load i8, ptr %m_model_validate, align 2
   %11 = and i8 %10, 1
   %tobool20 = icmp ne i8 %11, 0
   %call21 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.14, i1 noundef zeroext %tobool20)
   %frombool23 = zext i1 %call21 to i8
   store i8 %frombool23, ptr %m_model_validate, align 2
-  %m_dump_models = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 11
+  %m_dump_models = getelementptr inbounds i8, ptr %this, i64 79
   %12 = load i8, ptr %m_dump_models, align 1
   %13 = and i8 %12, 1
   %tobool24 = icmp ne i8 %13, 0
   %call25 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.15, i1 noundef zeroext %tobool24)
   %frombool27 = zext i1 %call25 to i8
   store i8 %frombool27, ptr %m_dump_models, align 1
-  %m_trace = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 7
+  %m_trace = getelementptr inbounds i8, ptr %this, i64 75
   %14 = load i8, ptr %m_trace, align 1
   %15 = and i8 %14, 1
   %tobool28 = icmp ne i8 %15, 0
@@ -949,12 +939,12 @@ entry:
   %frombool31 = zext i1 %call29 to i8
   store i8 %frombool31, ptr %m_trace, align 1
   %call32 = tail call noundef ptr @_ZNK10params_ref7get_strEPKcS1_(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.31)
-  %m_trace_file_name = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 3
+  %m_trace_file_name = getelementptr inbounds i8, ptr %this, i64 40
   %call33 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %m_trace_file_name, ptr noundef %call32)
   %call34 = tail call noundef ptr @_ZNK10params_ref7get_strEPKcS1_(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.32)
-  %m_dot_proof_file = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 2
+  %m_dot_proof_file = getelementptr inbounds i8, ptr %this, i64 8
   %call35 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %m_dot_proof_file, ptr noundef %call34)
-  %m_unsat_core = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 12
+  %m_unsat_core = getelementptr inbounds i8, ptr %this, i64 80
   %16 = load i8, ptr %m_unsat_core, align 8
   %17 = and i8 %16, 1
   %tobool36 = icmp ne i8 %17, 0
@@ -964,28 +954,28 @@ entry:
   %20 = zext i1 %call37 to i8
   %21 = or i8 %19, %20
   store i8 %21, ptr %m_unsat_core, align 8
-  %m_debug_ref_count = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 6
+  %m_debug_ref_count = getelementptr inbounds i8, ptr %this, i64 74
   %22 = load i8, ptr %m_debug_ref_count, align 2
   %23 = and i8 %22, 1
   %tobool43 = icmp ne i8 %23, 0
   %call44 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.21, i1 noundef zeroext %tobool43)
   %frombool46 = zext i1 %call44 to i8
   store i8 %frombool46, ptr %m_debug_ref_count, align 2
-  %m_smtlib2_compliant = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 13
+  %m_smtlib2_compliant = getelementptr inbounds i8, ptr %this, i64 81
   %24 = load i8, ptr %m_smtlib2_compliant, align 1
   %25 = and i8 %24, 1
   %tobool47 = icmp ne i8 %25, 0
   %call48 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.22, i1 noundef zeroext %tobool47)
   %frombool50 = zext i1 %call48 to i8
   store i8 %frombool50, ptr %m_smtlib2_compliant, align 1
-  %m_statistics = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 14
+  %m_statistics = getelementptr inbounds i8, ptr %this, i64 82
   %26 = load i8, ptr %m_statistics, align 2
   %27 = and i8 %26, 1
   %tobool51 = icmp ne i8 %27, 0
   %call52 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.16, i1 noundef zeroext %tobool51)
   %frombool54 = zext i1 %call52 to i8
   store i8 %frombool54, ptr %m_statistics, align 2
-  %m_encoding = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 15
+  %m_encoding = getelementptr inbounds i8, ptr %this, i64 88
   %call55 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_encoding) #11
   %call56 = tail call noundef ptr @_ZNK10params_ref7get_strEPKcS1_(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.23, ptr noundef %call55)
   %call58 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %m_encoding, ptr noundef %call56)
@@ -1021,7 +1011,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14context_params20merge_default_paramsERK10params_ref(ptr noalias sret(%class.params_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(8) %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_auto_config = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 4
+  %m_auto_config = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %m_auto_config, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1062,7 +1052,7 @@ declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14context_params17get_solver_paramsER10params_refRbS2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr nocapture noundef nonnull align 1 dereferenceable(1) %proofs_enabled, ptr nocapture noundef nonnull align 1 dereferenceable(1) %models_enabled, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %unsat_core_enabled) local_unnamed_addr #3 align 2 {
 entry:
-  %m_proof = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 5
+  %m_proof = getelementptr inbounds i8, ptr %this, i64 73
   %0 = load i8, ptr %m_proof, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -1073,7 +1063,7 @@ entry:
   %tobool4 = select i1 %call, i1 %tobool45, i1 false
   %frombool = zext i1 %tobool4 to i8
   store i8 %frombool, ptr %proofs_enabled, align 1
-  %m_model = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 9
+  %m_model = getelementptr inbounds i8, ptr %this, i64 77
   %4 = load i8, ptr %m_model, align 1
   %5 = and i8 %4, 1
   %tobool5 = icmp ne i8 %5, 0
@@ -1084,7 +1074,7 @@ entry:
   %tobool11 = select i1 %call6, i1 %tobool116, i1 false
   %frombool12 = zext i1 %tobool11 to i8
   store i8 %frombool12, ptr %models_enabled, align 1
-  %m_unsat_core = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 12
+  %m_unsat_core = getelementptr inbounds i8, ptr %this, i64 80
   %8 = load i8, ptr %m_unsat_core, align 8
   %9 = and i8 %8, 1
   %tobool13.not = icmp eq i8 %9, 0
@@ -1098,7 +1088,7 @@ lor.rhs:                                          ; preds = %entry
 lor.end:                                          ; preds = %lor.rhs, %entry
   %frombool15 = phi i8 [ 1, %entry ], [ %10, %lor.rhs ]
   store i8 %frombool15, ptr %unsat_core_enabled, align 1
-  %m_auto_config = getelementptr inbounds %class.context_params, ptr %this, i64 0, i32 4
+  %m_auto_config = getelementptr inbounds i8, ptr %this, i64 72
   %11 = load i8, ptr %m_auto_config, align 8
   %12 = and i8 %11, 1
   %tobool16.not = icmp eq i8 %12, 0

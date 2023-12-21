@@ -4,22 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.NetClientInfo = type { i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.TAPState = type { %struct.NetClientState, i32, [1024 x i8], [128 x i8], [69632 x i8], i8, i8, i8, i8, i8, i8, ptr, i32, %struct.Notifier }
-%struct.NetClientState = type { ptr, i32, %union.anon, ptr, ptr, ptr, ptr, [256 x i8], i8, ptr, i32, i8, i32, i32, i8, i8, i8, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.Notifier = type { ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.Netdev = type { ptr, i32, %union.anon.1 }
-%union.anon.1 = type { %struct.NetdevUserOptions }
-%struct.NetdevUserOptions = type { ptr, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr, i8, ptr, i8, ptr, ptr }
 %struct.msghdr = type { ptr, i32, ptr, i64, ptr, i64, i32 }
 %struct.iovec = type { ptr, i64 }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.cmsghdr = type { i64, i32, i32, [0 x i8] }
 %struct.VhostNetOptions = type { i32, ptr, i32, i32, ptr }
-%struct.NetdevTapOptions = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i64, i8, i8, i8, i8, ptr, ptr, i8, i8, i8, i32, i8, i32 }
 %struct.virtio_net_hdr_mrg_rxbuf = type { %struct.virtio_net_hdr, i16 }
 %struct.virtio_net_hdr = type { i8, i8, i16, i16, i16, i16 }
 
@@ -114,7 +102,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %nc, i64 376
   %2 = load i32, ptr %fd, align 8
   ret i32 %2
 }
@@ -125,7 +113,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @net_init_bridge(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #2 {
 entry:
-  %type = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %0, 9
   br i1 %cmp, label %if.end, label %if.else
@@ -135,8 +123,8 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %u = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2
-  %helper1 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 1
+  %u = getelementptr inbounds i8, ptr %netdev, i64 16
+  %helper1 = getelementptr inbounds i8, ptr %netdev, i64 24
   %1 = load ptr, ptr %helper1, align 8
   %2 = load ptr, ptr %u, align 8
   %tobool.not = icmp eq ptr %2, null
@@ -232,7 +220,7 @@ if.then14:                                        ; preds = %if.end12
   br i1 %cmp1633, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.then14
-  %arrayidx = getelementptr inbounds [2 x i32], ptr %sv, i64 0, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %sv, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -251,7 +239,7 @@ for.inc:                                          ; preds = %for.body, %if.then2
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %if.then14
-  %arrayidx23 = getelementptr inbounds [2 x i32], ptr %sv, i64 0, i64 1
+  %arrayidx23 = getelementptr inbounds i8, ptr %sv, i64 4
   %3 = load i32, ptr %arrayidx23, align 4
   %call24 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %3) #15
   %call25 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %helper.addr.0, i32 noundef 32) #18
@@ -277,11 +265,11 @@ if.end35:                                         ; preds = %if.then33, %if.then
   %tobool36.not = icmp eq ptr %br_buf.0, null
   %cond = select i1 %tobool36.not, ptr @.str.30, ptr %br_buf.0
   %call37 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.28, ptr noundef %helper.addr.0, ptr noundef nonnull @.str.29, ptr noundef %call24, ptr noundef nonnull %cond) #15
-  %incdec.ptr = getelementptr inbounds ptr, ptr %args, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %args, i64 8
   store ptr @.str.31, ptr %args, align 16
-  %incdec.ptr39 = getelementptr inbounds ptr, ptr %args, i64 2
+  %incdec.ptr39 = getelementptr inbounds i8, ptr %args, i64 16
   store ptr @.str.32, ptr %incdec.ptr, align 8
-  %incdec.ptr40 = getelementptr inbounds ptr, ptr %args, i64 3
+  %incdec.ptr40 = getelementptr inbounds i8, ptr %args, i64 24
   store ptr %call37, ptr %incdec.ptr39, align 16
   store ptr null, ptr %incdec.ptr40, align 8
   %call43 = call i32 @execv(ptr noundef nonnull @.str.33, ptr noundef nonnull %args) #15
@@ -290,13 +278,13 @@ if.end35:                                         ; preds = %if.then33, %if.then
 
 if.else:                                          ; preds = %lor.lhs.false
   %call44 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.26, ptr noundef %bridge) #15
-  %incdec.ptr46 = getelementptr inbounds ptr, ptr %args, i64 1
+  %incdec.ptr46 = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %helper.addr.0, ptr %args, align 16
-  %incdec.ptr47 = getelementptr inbounds ptr, ptr %args, i64 2
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %args, i64 16
   store ptr @.str.29, ptr %incdec.ptr46, align 8
-  %incdec.ptr48 = getelementptr inbounds ptr, ptr %args, i64 3
+  %incdec.ptr48 = getelementptr inbounds i8, ptr %args, i64 24
   store ptr %call24, ptr %incdec.ptr47, align 16
-  %incdec.ptr49 = getelementptr inbounds ptr, ptr %args, i64 4
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %args, i64 32
   store ptr %call44, ptr %incdec.ptr48, align 8
   store ptr null, ptr %incdec.ptr49, align 16
   %call52 = call i32 @execv(ptr noundef %helper.addr.0, ptr noundef nonnull %args) #15
@@ -310,19 +298,19 @@ if.end53:                                         ; preds = %if.else, %if.end35
   unreachable
 
 if.else54:                                        ; preds = %if.end12
-  %arrayidx55 = getelementptr inbounds [2 x i32], ptr %sv, i64 0, i64 1
+  %arrayidx55 = getelementptr inbounds i8, ptr %sv, i64 4
   %4 = load i32, ptr %arrayidx55, align 4
   %call56 = call i32 @close(i32 noundef %4) #15
-  %msg_namelen.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 1
-  %msg_iov.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 2
-  %msg_iovlen.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 3
-  %msg_control.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 4
-  %msg_controllen.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 5
-  %msg_flags.i = getelementptr inbounds %struct.msghdr, ptr %msg.i, i64 0, i32 6
-  %cmsg_level.i = getelementptr inbounds %struct.cmsghdr, ptr %msgbuf.i, i64 0, i32 1
-  %cmsg_type.i = getelementptr inbounds %struct.cmsghdr, ptr %msgbuf.i, i64 0, i32 2
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov.i, i64 0, i32 1
-  %__cmsg_data.i = getelementptr inbounds %struct.cmsghdr, ptr %msgbuf.i, i64 0, i32 3
+  %msg_namelen.i = getelementptr inbounds i8, ptr %msg.i, i64 8
+  %msg_iov.i = getelementptr inbounds i8, ptr %msg.i, i64 16
+  %msg_iovlen.i = getelementptr inbounds i8, ptr %msg.i, i64 24
+  %msg_control.i = getelementptr inbounds i8, ptr %msg.i, i64 32
+  %msg_controllen.i = getelementptr inbounds i8, ptr %msg.i, i64 40
+  %msg_flags.i = getelementptr inbounds i8, ptr %msg.i, i64 48
+  %cmsg_level.i = getelementptr inbounds i8, ptr %msgbuf.i, i64 8
+  %cmsg_type.i = getelementptr inbounds i8, ptr %msgbuf.i, i64 12
+  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
+  %__cmsg_data.i = getelementptr inbounds i8, ptr %msgbuf.i, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %land.rhs, %if.else54
@@ -412,26 +400,26 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 define internal fastcc ptr @net_tap_fd_init(ptr noundef %peer, ptr noundef %model, ptr noundef %name, i32 noundef %fd, i32 noundef %vnet_hdr) unnamed_addr #2 {
 entry:
   %call = tail call ptr @qemu_new_net_client(ptr noundef nonnull @net_tap_info, ptr noundef %peer, ptr noundef %model, ptr noundef %name) #15
-  %fd2 = getelementptr inbounds %struct.TAPState, ptr %call, i64 0, i32 1
+  %fd2 = getelementptr inbounds i8, ptr %call, i64 376
   store i32 %fd, ptr %fd2, align 8
   %tobool.not = icmp eq i32 %vnet_hdr, 0
   %conv = select i1 %tobool.not, i32 0, i32 10
-  %host_vnet_hdr_len = getelementptr inbounds %struct.TAPState, ptr %call, i64 0, i32 12
+  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %call, i64 71184
   store i32 %conv, ptr %host_vnet_hdr_len, align 8
-  %using_vnet_hdr = getelementptr inbounds %struct.TAPState, ptr %call, i64 0, i32 7
+  %using_vnet_hdr = getelementptr inbounds i8, ptr %call, i64 71166
   store i8 0, ptr %using_vnet_hdr, align 2
   %call4 = tail call i32 @tap_probe_has_ufo(i32 noundef %fd) #15
   %tobool5 = icmp ne i32 %call4, 0
-  %has_ufo = getelementptr inbounds %struct.TAPState, ptr %call, i64 0, i32 8
+  %has_ufo = getelementptr inbounds i8, ptr %call, i64 71167
   %frombool = zext i1 %tobool5 to i8
   store i8 %frombool, ptr %has_ufo, align 1
   %0 = load i32, ptr %fd2, align 8
   %call7 = tail call i32 @tap_probe_has_uso(i32 noundef %0) #15
   %tobool8 = icmp ne i32 %call7, 0
-  %has_uso = getelementptr inbounds %struct.TAPState, ptr %call, i64 0, i32 9
+  %has_uso = getelementptr inbounds i8, ptr %call, i64 71168
   %frombool9 = zext i1 %tobool8 to i8
   store i8 %frombool9, ptr %has_uso, align 8
-  %enabled = getelementptr inbounds %struct.TAPState, ptr %call, i64 0, i32 10
+  %enabled = getelementptr inbounds i8, ptr %call, i64 71169
   store i8 1, ptr %enabled, align 1
   %1 = load i32, ptr %fd2, align 8
   %cmp.i = icmp slt i32 %1, 0
@@ -456,22 +444,22 @@ if.then:                                          ; preds = %tap_set_offload.exi
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %tap_set_offload.exit
-  %read_poll.i = getelementptr inbounds %struct.TAPState, ptr %call, i64 0, i32 5
+  %read_poll.i = getelementptr inbounds i8, ptr %call, i64 71164
   store i8 1, ptr %read_poll.i, align 4
   %6 = load i32, ptr %fd2, align 8
   %7 = load i8, ptr %enabled, align 1
   %8 = and i8 %7, 1
   %tobool1.not.i.i = icmp eq i8 %8, 0
   %9 = select i1 %tobool1.not.i.i, ptr null, ptr @tap_send
-  %write_poll.i.i = getelementptr inbounds %struct.TAPState, ptr %call, i64 0, i32 6
+  %write_poll.i.i = getelementptr inbounds i8, ptr %call, i64 71165
   %10 = load i8, ptr %write_poll.i.i, align 1
   %11 = and i8 %8, %10
   %.not.not = icmp eq i8 %11, 0
   %spec.select = select i1 %.not.not, ptr null, ptr @tap_writable
   tail call void @qemu_set_fd_handler(i32 noundef %6, ptr noundef %9, ptr noundef %spec.select, ptr noundef nonnull %call) #15
-  %vhost_net = getelementptr inbounds %struct.TAPState, ptr %call, i64 0, i32 11
+  %vhost_net = getelementptr inbounds i8, ptr %call, i64 71176
   store ptr null, ptr %vhost_net, align 8
-  %exit = getelementptr inbounds %struct.TAPState, ptr %call, i64 0, i32 13
+  %exit = getelementptr inbounds i8, ptr %call, i64 71192
   store ptr @tap_exit_notify, ptr %exit, align 8
   tail call void @qemu_add_exit_notifier(ptr noundef nonnull %exit) #15
   ret ptr %call
@@ -488,7 +476,7 @@ entry:
   %ifname = alloca [128 x i8], align 16
   store i32 0, ptr %vnet_hdr, align 4
   store ptr null, ptr %err, align 8
-  %type = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %0, 3
   br i1 %cmp, label %if.end, label %if.else
@@ -498,7 +486,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %u = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %netdev, i64 16
   %has_queues = getelementptr inbounds i8, ptr %netdev, i64 114
   %1 = load i8, ptr %has_queues, align 2
   %2 = and i8 %1, 1
@@ -506,11 +494,11 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %cond.end.thread, label %cond.end
 
 cond.end:                                         ; preds = %if.end
-  %vhostfd = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 15
+  %vhostfd = getelementptr inbounds i8, ptr %netdev, i64 96
   %3 = load ptr, ptr %vhostfd, align 8
-  %script2 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 8
+  %script2 = getelementptr inbounds i8, ptr %netdev, i64 40
   %4 = load ptr, ptr %script2, align 8
-  %downscript3 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 9
+  %downscript3 = getelementptr inbounds i8, ptr %netdev, i64 48
   %5 = load ptr, ptr %downscript3, align 8
   %tobool4.not = icmp eq ptr %peer, null
   br i1 %tobool4.not, label %if.end11, label %lor.lhs.false
@@ -518,23 +506,23 @@ cond.end:                                         ; preds = %if.end
 cond.end.thread:                                  ; preds = %if.end
   %queues1 = getelementptr inbounds i8, ptr %netdev, i64 116
   %6 = load i32, ptr %queues1, align 4
-  %vhostfd151 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 15
+  %vhostfd151 = getelementptr inbounds i8, ptr %netdev, i64 96
   %7 = load ptr, ptr %vhostfd151, align 8
-  %script2152 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 8
+  %script2152 = getelementptr inbounds i8, ptr %netdev, i64 40
   %8 = load ptr, ptr %script2152, align 8
-  %downscript3153 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 9
+  %downscript3153 = getelementptr inbounds i8, ptr %netdev, i64 48
   %9 = load ptr, ptr %downscript3153, align 8
   %tobool4.not154 = icmp eq ptr %peer, null
   br i1 %tobool4.not154, label %if.end11, label %if.then10
 
 lor.lhs.false:                                    ; preds = %cond.end
-  %fds = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 7
+  %fds = getelementptr inbounds i8, ptr %netdev, i64 32
   %10 = load ptr, ptr %fds, align 8
   %tobool7.not = icmp eq ptr %10, null
   br i1 %tobool7.not, label %lor.lhs.false8, label %if.then10
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %vhostfds = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 16
+  %vhostfds = getelementptr inbounds i8, ptr %netdev, i64 104
   %11 = load ptr, ptr %vhostfds, align 8
   %tobool9.not = icmp eq ptr %11, null
   br i1 %tobool9.not, label %if.end11, label %if.then10
@@ -548,7 +536,7 @@ if.end11:                                         ; preds = %cond.end.thread, %l
   %13 = phi ptr [ %8, %cond.end.thread ], [ %4, %lor.lhs.false8 ], [ %4, %cond.end ]
   %14 = phi ptr [ %7, %cond.end.thread ], [ %3, %lor.lhs.false8 ], [ %3, %cond.end ]
   %cond156 = phi i32 [ %6, %cond.end.thread ], [ 1, %lor.lhs.false8 ], [ 1, %cond.end ]
-  %fd12 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 1
+  %fd12 = getelementptr inbounds i8, ptr %netdev, i64 24
   %15 = load ptr, ptr %fd12, align 8
   %tobool13.not = icmp eq ptr %15, null
   br i1 %tobool13.not, label %if.else58, label %if.then14
@@ -563,27 +551,27 @@ if.then14:                                        ; preds = %if.end11
   br i1 %or.cond162, label %lor.lhs.false23, label %if.then36
 
 lor.lhs.false23:                                  ; preds = %if.then14
-  %has_vnet_hdr = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 14
+  %has_vnet_hdr = getelementptr inbounds i8, ptr %netdev, i64 88
   %17 = load i8, ptr %has_vnet_hdr, align 8
   %18 = and i8 %17, 1
   %tobool24.not = icmp eq i8 %18, 0
   br i1 %tobool24.not, label %lor.lhs.false25, label %if.then36
 
 lor.lhs.false25:                                  ; preds = %lor.lhs.false23
-  %helper = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 11
+  %helper = getelementptr inbounds i8, ptr %netdev, i64 64
   %19 = load ptr, ptr %helper, align 8
   %tobool26.not = icmp ne ptr %19, null
   %brmerge = or i1 %tobool.not, %tobool26.not
   br i1 %brmerge, label %if.then36, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false25
-  %fds31 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 7
+  %fds31 = getelementptr inbounds i8, ptr %netdev, i64 32
   %20 = load ptr, ptr %fds31, align 8
   %tobool32.not = icmp eq ptr %20, null
   br i1 %tobool32.not, label %lor.lhs.false33, label %if.then36
 
 lor.lhs.false33:                                  ; preds = %lor.lhs.false30
-  %vhostfds34 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 16
+  %vhostfds34 = getelementptr inbounds i8, ptr %netdev, i64 104
   %21 = load ptr, ptr %vhostfds34, align 8
   %tobool35.not = icmp eq ptr %21, null
   br i1 %tobool35.not, label %if.end37, label %if.then36
@@ -632,7 +620,7 @@ if.then55:                                        ; preds = %if.end53
   br label %return
 
 if.else58:                                        ; preds = %if.end11
-  %fds59 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 7
+  %fds59 = getelementptr inbounds i8, ptr %netdev, i64 32
   %25 = load ptr, ptr %fds59, align 8
   %tobool60.not = icmp eq ptr %25, null
   br i1 %tobool60.not, label %if.else148, label %if.then61
@@ -647,14 +635,14 @@ if.then61:                                        ; preds = %if.else58
   br i1 %or.cond164, label %lor.lhs.false71, label %if.then83
 
 lor.lhs.false71:                                  ; preds = %if.then61
-  %has_vnet_hdr72 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 14
+  %has_vnet_hdr72 = getelementptr inbounds i8, ptr %netdev, i64 88
   %27 = load i8, ptr %has_vnet_hdr72, align 8
   %28 = and i8 %27, 1
   %tobool73.not = icmp eq i8 %28, 0
   br i1 %tobool73.not, label %lor.lhs.false74, label %if.then83
 
 lor.lhs.false74:                                  ; preds = %lor.lhs.false71
-  %helper75 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 11
+  %helper75 = getelementptr inbounds i8, ptr %netdev, i64 64
   %29 = load ptr, ptr %helper75, align 8
   %tobool76.not = icmp ne ptr %29, null
   %brmerge166 = or i1 %tobool.not, %tobool76.not
@@ -671,7 +659,7 @@ if.end84:                                         ; preds = %lor.lhs.false74
   %call86 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0_n(i64 noundef 1024, i64 noundef 8) #19
   %30 = load ptr, ptr %fds59, align 8
   %call88 = tail call fastcc i32 @get_fds(ptr noundef %30, ptr noundef %call85)
-  %vhostfds89 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 16
+  %vhostfds89 = getelementptr inbounds i8, ptr %netdev, i64 104
   %31 = load ptr, ptr %vhostfds89, align 8
   %tobool90.not = icmp eq ptr %31, null
   br i1 %tobool90.not, label %if.end97, label %if.then91
@@ -802,7 +790,7 @@ for.end147:                                       ; preds = %for.body142, %for.c
   br label %return
 
 if.else148:                                       ; preds = %if.else58
-  %helper149 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 11
+  %helper149 = getelementptr inbounds i8, ptr %netdev, i64 64
   %41 = load ptr, ptr %helper149, align 8
   %tobool150.not = icmp eq ptr %41, null
   br i1 %tobool150.not, label %if.else196, label %if.then151
@@ -817,7 +805,7 @@ if.then151:                                       ; preds = %if.else148
   br i1 %or.cond169, label %lor.lhs.false160, label %if.then169
 
 lor.lhs.false160:                                 ; preds = %if.then151
-  %has_vnet_hdr161 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 14
+  %has_vnet_hdr161 = getelementptr inbounds i8, ptr %netdev, i64 88
   %43 = load i8, ptr %has_vnet_hdr161, align 8
   %44 = or i8 %43, %1
   %45 = and i8 %44, 1
@@ -825,7 +813,7 @@ lor.lhs.false160:                                 ; preds = %if.then151
   br i1 %brmerge171.not, label %lor.lhs.false166, label %if.then169
 
 lor.lhs.false166:                                 ; preds = %lor.lhs.false160
-  %vhostfds167 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 16
+  %vhostfds167 = getelementptr inbounds i8, ptr %netdev, i64 104
   %46 = load ptr, ptr %vhostfds167, align 8
   %tobool168.not = icmp eq ptr %46, null
   br i1 %tobool168.not, label %if.end170, label %if.then169
@@ -835,7 +823,7 @@ if.then169:                                       ; preds = %lor.lhs.false160, %
   br label %return
 
 if.end170:                                        ; preds = %lor.lhs.false166
-  %br = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 10
+  %br = getelementptr inbounds i8, ptr %netdev, i64 56
   %47 = load ptr, ptr %br, align 8
   %tobool172.not = icmp eq ptr %47, null
   %..str.3 = select i1 %tobool172.not, ptr @.str.3, ptr %47
@@ -875,7 +863,7 @@ if.then193:                                       ; preds = %if.end190
   br label %return
 
 if.else196:                                       ; preds = %if.else148
-  %vhostfds197 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 16
+  %vhostfds197 = getelementptr inbounds i8, ptr %netdev, i64 104
   %50 = load ptr, ptr %vhostfds197, align 8
   %tobool198.not = icmp eq ptr %50, null
   br i1 %tobool198.not, label %if.end200, label %if.then199
@@ -924,7 +912,7 @@ if.end216:                                        ; preds = %if.else214, %if.the
 for.body219.lr.ph:                                ; preds = %if.end216
   %cmp226 = icmp ne i32 %cond156, 1
   %conv = zext i1 %cmp226 to i32
-  %has_vnet_hdr.i = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 14
+  %has_vnet_hdr.i = getelementptr inbounds i8, ptr %netdev, i64 88
   %vnet_hdr1.i = getelementptr inbounds i8, ptr %netdev, i64 89
   br label %for.body219
 
@@ -1064,7 +1052,7 @@ entry:
   %options = alloca %struct.VhostNetOptions, align 8
   store ptr null, ptr %err, align 8
   %call = tail call fastcc ptr @net_tap_fd_init(ptr noundef %peer, ptr noundef %model, ptr noundef %name, i32 noundef %fd, i32 noundef %vnet_hdr)
-  %fd1 = getelementptr inbounds %struct.TAPState, ptr %call, i64 0, i32 1
+  %fd1 = getelementptr inbounds i8, ptr %call, i64 376
   %0 = load i32, ptr %fd1, align 8
   call void @tap_set_sndbuf(i32 noundef %0, ptr noundef %tap, ptr noundef nonnull %err) #15
   %1 = load ptr, ptr %err, align 8
@@ -1076,13 +1064,13 @@ if.then:                                          ; preds = %entry
   br label %failed
 
 if.end:                                           ; preds = %entry
-  %fd2 = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 1
+  %fd2 = getelementptr inbounds i8, ptr %tap, i64 8
   %2 = load ptr, ptr %fd2, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %lor.lhs.false, label %if.then5
 
 lor.lhs.false:                                    ; preds = %if.end
-  %fds = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 2
+  %fds = getelementptr inbounds i8, ptr %tap, i64 16
   %3 = load ptr, ptr %fds, align 8
   %tobool4.not = icmp eq ptr %3, null
   br i1 %tobool4.not, label %if.else, label %if.then5
@@ -1092,7 +1080,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
   br label %if.end19
 
 if.else:                                          ; preds = %lor.lhs.false
-  %helper = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 6
+  %helper = getelementptr inbounds i8, ptr %tap, i64 48
   %4 = load ptr, ptr %helper, align 8
   %tobool6.not = icmp eq ptr %4, null
   br i1 %tobool6.not, label %if.else10, label %if.then7
@@ -1108,21 +1096,21 @@ if.else10:                                        ; preds = %if.else
   br i1 %cmp.not, label %if.end19, label %if.then13
 
 if.then13:                                        ; preds = %if.else10
-  %down_script = getelementptr inbounds %struct.TAPState, ptr %call, i64 0, i32 2
+  %down_script = getelementptr inbounds i8, ptr %call, i64 380
   %call14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %down_script, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef %downscript) #15
-  %down_script_arg = getelementptr inbounds %struct.TAPState, ptr %call, i64 0, i32 3
+  %down_script_arg = getelementptr inbounds i8, ptr %call, i64 1404
   %call16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %down_script_arg, i64 noundef 128, ptr noundef nonnull @.str.43, ptr noundef %ifname) #15
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then7, %if.then13, %if.else10, %if.then5
-  %has_vhost = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 11
+  %has_vhost = getelementptr inbounds i8, ptr %tap, i64 74
   %5 = load i8, ptr %has_vhost, align 2
   %6 = and i8 %5, 1
   %tobool20.not = icmp eq i8 %6, 0
   br i1 %tobool20.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end19
-  %vhost = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 12
+  %vhost = getelementptr inbounds i8, ptr %tap, i64 75
   %7 = load i8, ptr %vhost, align 1
   %8 = and i8 %7, 1
   %tobool21.not = icmp eq i8 %8, 0
@@ -1133,14 +1121,14 @@ cond.false:                                       ; preds = %if.end19
   br i1 %tobool22.not, label %lor.lhs.false23, label %if.then26
 
 lor.lhs.false23:                                  ; preds = %cond.false
-  %has_vhostforce = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 15
+  %has_vhostforce = getelementptr inbounds i8, ptr %tap, i64 96
   %9 = load i8, ptr %has_vhostforce, align 8
   %10 = and i8 %9, 1
   %tobool24.not = icmp eq i8 %10, 0
   br i1 %tobool24.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false23
-  %vhostforce = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 16
+  %vhostforce = getelementptr inbounds i8, ptr %tap, i64 97
   %11 = load i8, ptr %vhostforce, align 1
   %12 = and i8 %11, 1
   %tobool25.not = icmp eq i8 %12, 0
@@ -1148,22 +1136,22 @@ land.lhs.true:                                    ; preds = %lor.lhs.false23
 
 if.then26:                                        ; preds = %land.lhs.true, %cond.false, %cond.true
   store i32 1, ptr %options, align 8
-  %net_backend = getelementptr inbounds %struct.VhostNetOptions, ptr %options, i64 0, i32 1
+  %net_backend = getelementptr inbounds i8, ptr %options, i64 8
   store ptr %call, ptr %net_backend, align 8
-  %has_poll_us = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 19
+  %has_poll_us = getelementptr inbounds i8, ptr %tap, i64 104
   %13 = load i8, ptr %has_poll_us, align 8
   %14 = and i8 %13, 1
   %tobool28.not = icmp eq i8 %14, 0
   br i1 %tobool28.not, label %if.end32, label %if.then29
 
 if.then29:                                        ; preds = %if.then26
-  %poll_us = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 20
+  %poll_us = getelementptr inbounds i8, ptr %tap, i64 108
   %15 = load i32, ptr %poll_us, align 4
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then26, %if.then29
   %.sink = phi i32 [ %15, %if.then29 ], [ 0, %if.then26 ]
-  %16 = getelementptr inbounds %struct.VhostNetOptions, ptr %options, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %options, i64 16
   store i32 %.sink, ptr %16, align 8
   %tobool33.not = icmp eq ptr %vhostfdname, null
   br i1 %tobool33.not, label %if.else53, label %if.then34
@@ -1175,14 +1163,14 @@ if.then34:                                        ; preds = %if.end32
   br i1 %cmp37, label %if.then38, label %if.end47
 
 if.then38:                                        ; preds = %if.then34
-  %has_vhostforce39 = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 15
+  %has_vhostforce39 = getelementptr inbounds i8, ptr %tap, i64 96
   %17 = load i8, ptr %has_vhostforce39, align 8
   %18 = and i8 %17, 1
   %tobool40.not = icmp eq i8 %18, 0
   br i1 %tobool40.not, label %if.else45, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %if.then38
-  %vhostforce42 = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 16
+  %vhostforce42 = getelementptr inbounds i8, ptr %tap, i64 97
   %19 = load i8, ptr %vhostforce42, align 1
   %20 = and i8 %19, 1
   %tobool43.not = icmp eq i8 %20, 0
@@ -1215,14 +1203,14 @@ if.else53:                                        ; preds = %if.end32
   br i1 %cmp55, label %if.then56, label %if.end68
 
 if.then56:                                        ; preds = %if.else53
-  %has_vhostforce57 = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 15
+  %has_vhostforce57 = getelementptr inbounds i8, ptr %tap, i64 96
   %24 = load i8, ptr %has_vhostforce57, align 8
   %25 = and i8 %24, 1
   %tobool58.not = icmp eq i8 %25, 0
   br i1 %tobool58.not, label %if.else64, label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %if.then56
-  %vhostforce60 = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 16
+  %vhostforce60 = getelementptr inbounds i8, ptr %tap, i64 97
   %26 = load i8, ptr %vhostforce60, align 1
   %27 = and i8 %26, 1
   %tobool61.not = icmp eq i8 %27, 0
@@ -1256,25 +1244,25 @@ if.end74:                                         ; preds = %if.end68, %if.end47
   %vhostfd.0 = phi i32 [ %call36, %if.end47 ], [ %call54, %if.end68 ]
   %conv = sext i32 %vhostfd.0 to i64
   %31 = inttoptr i64 %conv to ptr
-  %opaque = getelementptr inbounds %struct.VhostNetOptions, ptr %options, i64 0, i32 4
+  %opaque = getelementptr inbounds i8, ptr %options, i64 24
   store ptr %31, ptr %opaque, align 8
-  %nvqs = getelementptr inbounds %struct.VhostNetOptions, ptr %options, i64 0, i32 3
+  %nvqs = getelementptr inbounds i8, ptr %options, i64 20
   store i32 2, ptr %nvqs, align 4
   %call75 = call ptr @vhost_net_init(ptr noundef nonnull %options) #15
-  %vhost_net = getelementptr inbounds %struct.TAPState, ptr %call, i64 0, i32 11
+  %vhost_net = getelementptr inbounds i8, ptr %call, i64 71176
   store ptr %call75, ptr %vhost_net, align 8
   %tobool77.not = icmp eq ptr %call75, null
   br i1 %tobool77.not, label %if.then78, label %return
 
 if.then78:                                        ; preds = %if.end74
-  %has_vhostforce79 = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 15
+  %has_vhostforce79 = getelementptr inbounds i8, ptr %tap, i64 96
   %32 = load i8, ptr %has_vhostforce79, align 8
   %33 = and i8 %32, 1
   %tobool80.not = icmp eq i8 %33, 0
   br i1 %tobool80.not, label %if.else87, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %if.then78
-  %vhostforce83 = getelementptr inbounds %struct.NetdevTapOptions, ptr %tap, i64 0, i32 16
+  %vhostforce83 = getelementptr inbounds i8, ptr %tap, i64 97
   %34 = load i8, ptr %vhostforce83, align 1
   %35 = and i8 %34, 1
   %tobool84.not = icmp eq i8 %35, 0
@@ -1376,7 +1364,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %vhost_net = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 11
+  %vhost_net = getelementptr inbounds i8, ptr %nc, i64 71176
   %2 = load ptr, ptr %vhost_net, align 8
   ret ptr %2
 }
@@ -1384,14 +1372,14 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @tap_enable(ptr noundef %nc) local_unnamed_addr #2 {
 entry:
-  %enabled = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
+  %enabled = getelementptr inbounds i8, ptr %nc, i64 71169
   %0 = load i8, ptr %enabled, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %return
 
 if.else:                                          ; preds = %entry
-  %fd = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %nc, i64 376
   %2 = load i32, ptr %fd, align 8
   %call = tail call i32 @tap_fd_enable(i32 noundef %2) #15
   %cmp = icmp eq i32 %call, 0
@@ -1400,7 +1388,7 @@ if.else:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.else
   store i8 1, ptr %enabled, align 1
   %3 = load i32, ptr %fd, align 8
-  %read_poll.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 5
+  %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 71164
   %4 = load <2 x i8>, ptr %read_poll.i, align 4
   %5 = and <2 x i8> %4, <i8 1, i8 1>
   %6 = icmp eq <2 x i8> %5, zeroinitializer
@@ -1421,14 +1409,14 @@ declare i32 @tap_fd_enable(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @tap_disable(ptr noundef %nc) local_unnamed_addr #2 {
 entry:
-  %enabled = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
+  %enabled = getelementptr inbounds i8, ptr %nc, i64 71169
   %0 = load i8, ptr %enabled, align 1
   %1 = and i8 %0, 1
   %cmp = icmp eq i8 %1, 0
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %fd = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %nc, i64 376
   %2 = load i32, ptr %fd, align 8
   %call = tail call i32 @tap_fd_disable(i32 noundef %2) #15
   %cmp3 = icmp eq i32 %call, 0
@@ -1498,7 +1486,7 @@ declare i32 @tap_probe_has_uso(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tap_set_offload(ptr nocapture noundef readonly %nc, i32 noundef %csum, i32 noundef %tso4, i32 noundef %tso6, i32 noundef %ecn, i32 noundef %ufo, i32 noundef %uso4, i32 noundef %uso6) #2 {
 entry:
-  %fd = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %nc, i64 376
   %0 = load i32, ptr %fd, align 8
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -1550,13 +1538,13 @@ entry:
   %iov.i = alloca [2 x %struct.iovec], align 16
   %hdr.i = alloca %struct.virtio_net_hdr_mrg_rxbuf, align 2
   %iov = alloca [1 x %struct.iovec], align 16
-  %host_vnet_hdr_len = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 12
+  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
   %0 = load i32, ptr %host_vnet_hdr_len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %using_vnet_hdr = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 7
+  %using_vnet_hdr = getelementptr inbounds i8, ptr %nc, i64 71166
   %1 = load i8, ptr %using_vnet_hdr, align 2
   %2 = and i8 %1, 1
   %tobool2.not = icmp eq i8 %2, 0
@@ -1568,13 +1556,13 @@ if.end.i:                                         ; preds = %land.lhs.true
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %hdr.i, i8 0, i64 12, i1 false)
   store ptr %hdr.i, ptr %iov.i, align 16
   %conv.i = zext i32 %0 to i64
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov.i, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
   store i64 %conv.i, ptr %iov_len.i, align 8
-  %arrayidx6.i = getelementptr inbounds [2 x %struct.iovec], ptr %iov.i, i64 0, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %iov.i, i64 16
   store ptr %buf, ptr %arrayidx6.i, align 16
-  %iov_len10.i = getelementptr inbounds [2 x %struct.iovec], ptr %iov.i, i64 0, i64 1, i32 1
+  %iov_len10.i = getelementptr inbounds i8, ptr %iov.i, i64 24
   store i64 %size, ptr %iov_len10.i, align 8
-  %fd.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd.i.i = getelementptr inbounds i8, ptr %nc, i64 376
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.end.i
@@ -1592,12 +1580,12 @@ land.rhs.i.i:                                     ; preds = %do.body.i.i
   ]
 
 if.then.i.i:                                      ; preds = %land.rhs.i.i
-  %write_poll.i.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 6
+  %write_poll.i.i.i = getelementptr inbounds i8, ptr %nc, i64 71165
   store i8 1, ptr %write_poll.i.i.i, align 1
   %5 = load i32, ptr %fd.i.i, align 8
-  %read_poll.i.i.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 5
+  %read_poll.i.i.i.i = getelementptr inbounds i8, ptr %nc, i64 71164
   %6 = load i8, ptr %read_poll.i.i.i.i, align 4
-  %enabled4.i.i.phi.trans.insert.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
+  %enabled4.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
   %.pre.i.i = load i8, ptr %enabled4.i.i.phi.trans.insert.i.i, align 1
   %.pre5.i.i = and i8 %.pre.i.i, 1
   %7 = and i8 %.pre5.i.i, %6
@@ -1616,9 +1604,9 @@ tap_receive_raw.exit:                             ; preds = %do.body.i.i, %land.
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   store ptr %buf, ptr %iov, align 16
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %size, ptr %iov_len, align 8
-  %fd.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %nc, i64 376
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.end
@@ -1636,12 +1624,12 @@ land.rhs.i:                                       ; preds = %do.body.i
   ]
 
 if.then.i6:                                       ; preds = %land.rhs.i
-  %write_poll.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 6
+  %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 71165
   store i8 1, ptr %write_poll.i.i, align 1
   %11 = load i32, ptr %fd.i, align 8
-  %read_poll.i.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 5
+  %read_poll.i.i.i = getelementptr inbounds i8, ptr %nc, i64 71164
   %12 = load i8, ptr %read_poll.i.i.i, align 4
-  %enabled4.i.i.phi.trans.insert.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
+  %enabled4.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %nc, i64 71169
   %.pre.i = load i8, ptr %enabled4.i.i.phi.trans.insert.i, align 1
   %.pre5.i = and i8 %.pre.i, 1
   %13 = and i8 %.pre5.i, %12
@@ -1663,7 +1651,7 @@ entry:
   %iov = alloca [2 x %struct.iovec], align 16
   %hdr = alloca %struct.virtio_net_hdr_mrg_rxbuf, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %hdr, i8 0, i64 12, i1 false)
-  %host_vnet_hdr_len = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 12
+  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
   %0 = load i32, ptr %host_vnet_hdr_len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1671,7 +1659,7 @@ entry:
 if.then:                                          ; preds = %entry
   store ptr %hdr, ptr %iov, align 16
   %conv = zext i32 %0 to i64
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 %conv, ptr %iov_len, align 8
   br label %if.end
 
@@ -1680,10 +1668,10 @@ if.end:                                           ; preds = %if.then, %entry
   %idxprom5 = zext nneg i32 %iovcnt.0 to i64
   %arrayidx6 = getelementptr [2 x %struct.iovec], ptr %iov, i64 0, i64 %idxprom5
   store ptr %buf, ptr %arrayidx6, align 16
-  %iov_len10 = getelementptr [2 x %struct.iovec], ptr %iov, i64 0, i64 %idxprom5, i32 1
+  %iov_len10 = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   store i64 %size, ptr %iov_len10, align 8
   %inc11 = add nuw nsw i32 %iovcnt.0, 1
-  %fd.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %nc, i64 376
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.end
@@ -1701,12 +1689,12 @@ land.rhs.i:                                       ; preds = %do.body.i
   ]
 
 if.then.i:                                        ; preds = %land.rhs.i
-  %write_poll.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 6
+  %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 71165
   store i8 1, ptr %write_poll.i.i, align 1
   %3 = load i32, ptr %fd.i, align 8
-  %read_poll.i.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 5
+  %read_poll.i.i.i = getelementptr inbounds i8, ptr %nc, i64 71164
   %4 = load i8, ptr %read_poll.i.i.i, align 4
-  %enabled4.i.i.phi.trans.insert.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
+  %enabled4.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %nc, i64 71169
   %.pre.i = load i8, ptr %enabled4.i.i.phi.trans.insert.i, align 1
   %.pre5.i = and i8 %.pre.i, 1
   %5 = and i8 %.pre5.i, %4
@@ -1727,13 +1715,13 @@ define internal i64 @tap_receive_iov(ptr noundef %nc, ptr noundef %iov, i32 noun
 entry:
   %hdr = alloca %struct.virtio_net_hdr_mrg_rxbuf, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(12) %hdr, i8 0, i64 12, i1 false)
-  %host_vnet_hdr_len = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 12
+  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
   %0 = load i32, ptr %host_vnet_hdr_len, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %using_vnet_hdr = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 7
+  %using_vnet_hdr = getelementptr inbounds i8, ptr %nc, i64 71166
   %1 = load i8, ptr %using_vnet_hdr, align 2
   %2 = and i8 %1, 1
   %tobool2.not = icmp eq i8 %2, 0
@@ -1746,9 +1734,9 @@ if.then:                                          ; preds = %land.lhs.true
   store ptr %hdr, ptr %call, align 8
   %3 = load i32, ptr %host_vnet_hdr_len, align 8
   %conv4 = zext i32 %3 to i64
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %call, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %conv4, ptr %iov_len, align 8
-  %arrayidx6 = getelementptr %struct.iovec, ptr %call, i64 1
+  %arrayidx6 = getelementptr i8, ptr %call, i64 16
   %conv7 = sext i32 %iovcnt to i64
   %mul = shl nsw i64 %conv7, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %arrayidx6, ptr align 8 %iov, i64 %mul, i1 false)
@@ -1758,7 +1746,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %iov_copy.0 = phi ptr [ null, %entry ], [ %call, %if.then ], [ null, %land.lhs.true ]
   %iovcnt.addr.0 = phi i32 [ %iovcnt, %entry ], [ %add, %if.then ], [ %iovcnt, %land.lhs.true ]
   %iovp.0 = phi ptr [ %iov, %entry ], [ %call, %if.then ], [ %iov, %land.lhs.true ]
-  %fd.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %nc, i64 376
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %if.end
@@ -1776,12 +1764,12 @@ land.rhs.i:                                       ; preds = %do.body.i
   ]
 
 if.then.i:                                        ; preds = %land.rhs.i
-  %write_poll.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 6
+  %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 71165
   store i8 1, ptr %write_poll.i.i, align 1
   %6 = load i32, ptr %fd.i, align 8
-  %read_poll.i.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 5
+  %read_poll.i.i.i = getelementptr inbounds i8, ptr %nc, i64 71164
   %7 = load i8, ptr %read_poll.i.i.i, align 4
-  %enabled4.i.i.phi.trans.insert.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
+  %enabled4.i.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %nc, i64 71169
   %.pre.i = load i8, ptr %enabled4.i.i.phi.trans.insert.i, align 1
   %.pre5.i = and i8 %.pre.i, 1
   %8 = and i8 %.pre5.i, %7
@@ -1802,7 +1790,7 @@ tap_write_packet.exit:                            ; preds = %do.body.i, %land.rh
 define internal void @tap_cleanup(ptr noundef %nc) #2 {
 entry:
   %err.i = alloca ptr, align 8
-  %vhost_net = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 11
+  %vhost_net = getelementptr inbounds i8, ptr %nc, i64 71176
   %0 = load ptr, ptr %vhost_net, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1816,17 +1804,17 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call void @qemu_purge_queued_packets(ptr noundef nonnull %nc) #15
-  %exit = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 13
+  %exit = getelementptr inbounds i8, ptr %nc, i64 71192
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %err.i)
   store ptr null, ptr %err.i, align 8
-  %down_script.i = getelementptr %struct.TAPState, ptr %nc, i64 0, i32 2
+  %down_script.i = getelementptr i8, ptr %nc, i64 380
   %2 = load i8, ptr %down_script.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %tap_exit_notify.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %down_script_arg.i = getelementptr %struct.TAPState, ptr %nc, i64 0, i32 3
-  %fd.i = getelementptr %struct.TAPState, ptr %nc, i64 0, i32 1
+  %down_script_arg.i = getelementptr i8, ptr %nc, i64 1404
+  %fd.i = getelementptr i8, ptr %nc, i64 376
   %3 = load i32, ptr %fd.i, align 8
   call fastcc void @launch_script(ptr noundef nonnull %down_script.i, ptr noundef %down_script_arg.i, i32 noundef %3, ptr noundef nonnull %err.i)
   %4 = load ptr, ptr %err.i, align 8
@@ -1840,18 +1828,18 @@ if.then4.i:                                       ; preds = %if.then.i
 tap_exit_notify.exit:                             ; preds = %if.end, %if.then.i, %if.then4.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i)
   call void @qemu_remove_exit_notifier(ptr noundef nonnull %exit) #15
-  %read_poll.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 5
+  %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 71164
   store i8 0, ptr %read_poll.i, align 4
-  %fd.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd.i.i = getelementptr inbounds i8, ptr %nc, i64 376
   %5 = load i32, ptr %fd.i.i, align 8
-  %write_poll.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 6
+  %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 71165
   %6 = load i8, ptr %write_poll.i.i, align 1
   %7 = and i8 %6, 1
   %tobool2.not.i.i = icmp eq i8 %7, 0
   br i1 %tobool2.not.i.i, label %tap_read_poll.exit, label %land.rhs3.i.i
 
 land.rhs3.i.i:                                    ; preds = %tap_exit_notify.exit
-  %enabled4.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
+  %enabled4.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
   %8 = load i8, ptr %enabled4.i.i, align 1
   %9 = and i8 %8, 1
   %tobool5.not.i.i = icmp eq i8 %9, 0
@@ -1869,7 +1857,7 @@ tap_read_poll.exit:                               ; preds = %tap_exit_notify.exi
   br i1 %tobool.not.i.i, label %tap_write_poll.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %tap_read_poll.exit
-  %enabled.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
+  %enabled.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
   %14 = load i8, ptr %enabled.i.i, align 1
   %15 = and i8 %14, 1
   %tobool1.not.i.i = icmp eq i8 %15, 0
@@ -1889,14 +1877,14 @@ tap_write_poll.exit:                              ; preds = %tap_read_poll.exit,
 define internal void @tap_poll(ptr noundef %nc, i1 noundef zeroext %enable) #2 {
 entry:
   %frombool.i = zext i1 %enable to i8
-  %read_poll.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 5
+  %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 71164
   store i8 %frombool.i, ptr %read_poll.i, align 4
-  %fd.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd.i.i = getelementptr inbounds i8, ptr %nc, i64 376
   %0 = load i32, ptr %fd.i.i, align 8
   br i1 %enable, label %land.rhs.i.i, label %land.end.i.i
 
 land.rhs.i.i:                                     ; preds = %entry
-  %enabled.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
+  %enabled.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
   %1 = load i8, ptr %enabled.i.i, align 1
   %2 = and i8 %1, 1
   %tobool1.not.i.i = icmp eq i8 %2, 0
@@ -1905,14 +1893,14 @@ land.rhs.i.i:                                     ; preds = %entry
 
 land.end.i.i:                                     ; preds = %land.rhs.i.i, %entry
   %cond.i.i = phi ptr [ null, %entry ], [ %3, %land.rhs.i.i ]
-  %write_poll.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 6
+  %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 71165
   %4 = load i8, ptr %write_poll.i.i, align 1
   %5 = and i8 %4, 1
   %tobool2.not.i.i = icmp eq i8 %5, 0
   br i1 %tobool2.not.i.i, label %tap_read_poll.exit, label %land.rhs3.i.i
 
 land.rhs3.i.i:                                    ; preds = %land.end.i.i
-  %enabled4.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
+  %enabled4.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
   %6 = load i8, ptr %enabled4.i.i, align 1
   %7 = and i8 %6, 1
   %tobool5.not.i.i = icmp eq i8 %7, 0
@@ -1930,7 +1918,7 @@ tap_read_poll.exit:                               ; preds = %land.end.i.i, %land
   br i1 %tobool.not.i.i, label %land.end.i.i8, label %land.rhs.i.i5
 
 land.rhs.i.i5:                                    ; preds = %tap_read_poll.exit
-  %enabled.i.i6 = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
+  %enabled.i.i6 = getelementptr inbounds i8, ptr %nc, i64 71169
   %12 = load i8, ptr %enabled.i.i6, align 1
   %13 = and i8 %12, 1
   %tobool1.not.i.i7 = icmp eq i8 %13, 0
@@ -1942,7 +1930,7 @@ land.end.i.i8:                                    ; preds = %land.rhs.i.i5, %tap
   br i1 %enable, label %land.rhs3.i.i11, label %tap_write_poll.exit
 
 land.rhs3.i.i11:                                  ; preds = %land.end.i.i8
-  %enabled4.i.i12 = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
+  %enabled4.i.i12 = getelementptr inbounds i8, ptr %nc, i64 71169
   %15 = load i8, ptr %enabled4.i.i12, align 1
   %16 = and i8 %15, 1
   %tobool5.not.i.i13 = icmp eq i8 %16, 0
@@ -1968,7 +1956,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %has_ufo = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 8
+  %has_ufo = getelementptr inbounds i8, ptr %nc, i64 71167
   %2 = load i8, ptr %has_ufo, align 1
   %3 = and i8 %2, 1
   %tobool = icmp ne i8 %3, 0
@@ -1988,7 +1976,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %has_uso = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 9
+  %has_uso = getelementptr inbounds i8, ptr %nc, i64 71168
   %2 = load i8, ptr %has_uso, align 8
   %3 = and i8 %2, 1
   %tobool = icmp ne i8 %3, 0
@@ -2008,7 +1996,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %host_vnet_hdr_len = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 12
+  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
   %2 = load i32, ptr %host_vnet_hdr_len, align 8
   %tobool = icmp ne i32 %2, 0
   ret i1 %tobool
@@ -2027,7 +2015,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %nc, i64 376
   %2 = load i32, ptr %fd, align 8
   %call = tail call i32 @tap_probe_vnet_hdr_len(i32 noundef %2, i32 noundef %len) #15
   %tobool = icmp ne i32 %call, 0
@@ -2037,7 +2025,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @tap_get_using_vnet_hdr(ptr nocapture noundef readonly %nc) #12 {
 entry:
-  %using_vnet_hdr = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 7
+  %using_vnet_hdr = getelementptr inbounds i8, ptr %nc, i64 71166
   %0 = load i8, ptr %using_vnet_hdr, align 2
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -2057,7 +2045,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %host_vnet_hdr_len = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 12
+  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
   %2 = load i32, ptr %host_vnet_hdr_len, align 8
   %3 = icmp eq i32 %2, 0
   %cmp4 = xor i1 %3, %using_vnet_hdr
@@ -2069,7 +2057,7 @@ if.else7:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end
   %frombool = zext i1 %using_vnet_hdr to i8
-  %using_vnet_hdr10 = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 7
+  %using_vnet_hdr10 = getelementptr inbounds i8, ptr %nc, i64 71166
   store i8 %frombool, ptr %using_vnet_hdr10, align 2
   ret void
 }
@@ -2077,7 +2065,7 @@ if.end8:                                          ; preds = %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @tap_get_vnet_hdr_len(ptr nocapture noundef readonly %nc) #12 {
 entry:
-  %host_vnet_hdr_len = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 12
+  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
   %0 = load i32, ptr %host_vnet_hdr_len, align 8
   ret i32 %0
 }
@@ -2106,10 +2094,10 @@ if.else12:                                        ; preds = %if.end
   unreachable
 
 if.end13:                                         ; preds = %if.end, %if.end, %if.end
-  %fd = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %nc, i64 376
   %2 = load i32, ptr %fd, align 8
   tail call void @tap_fd_set_vnet_hdr_len(i32 noundef %2, i32 noundef %len) #15
-  %host_vnet_hdr_len = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 12
+  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %nc, i64 71184
   store i32 %len, ptr %host_vnet_hdr_len, align 8
   ret void
 }
@@ -2117,7 +2105,7 @@ if.end13:                                         ; preds = %if.end, %if.end, %i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @tap_set_vnet_le(ptr nocapture noundef readonly %nc, i1 noundef zeroext %is_le) #2 {
 entry:
-  %fd = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %nc, i64 376
   %0 = load i32, ptr %fd, align 8
   %conv = zext i1 %is_le to i32
   %call = tail call i32 @tap_fd_set_vnet_le(i32 noundef %0, i32 noundef %conv) #15
@@ -2127,7 +2115,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @tap_set_vnet_be(ptr nocapture noundef readonly %nc, i1 noundef zeroext %is_be) #2 {
 entry:
-  %fd = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %nc, i64 376
   %0 = load i32, ptr %fd, align 8
   %conv = zext i1 %is_be to i32
   %call = tail call i32 @tap_fd_set_vnet_be(i32 noundef %0, i32 noundef %conv) #15
@@ -2147,7 +2135,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %nc, i64 376
   %2 = load i32, ptr %fd, align 8
   %call = tail call i32 @tap_fd_set_steering_ebpf(i32 noundef %2, i32 noundef %prog_fd) #15
   %cmp2 = icmp eq i32 %call, 0
@@ -2214,9 +2202,9 @@ for.inc:                                          ; preds = %for.body, %if.then9
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %if.then3
-  %incdec.ptr = getelementptr inbounds ptr, ptr %args, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %args, i64 8
   store ptr %setup_script, ptr %args, align 16
-  %incdec.ptr12 = getelementptr inbounds ptr, ptr %args, i64 2
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %args, i64 16
   store ptr %ifname, ptr %incdec.ptr, align 8
   store ptr null, ptr %incdec.ptr12, align 16
   %call14 = call i32 @execv(ptr noundef %setup_script, ptr noundef nonnull %args) #15
@@ -2285,10 +2273,10 @@ define internal void @tap_send(ptr noundef %opaque) #2 {
 entry:
   %min_pkt = alloca [60 x i8], align 16
   %min_pktsz = alloca i64, align 8
-  %buf1 = getelementptr inbounds %struct.TAPState, ptr %opaque, i64 0, i32 4
-  %fd = getelementptr inbounds %struct.TAPState, ptr %opaque, i64 0, i32 1
-  %host_vnet_hdr_len = getelementptr inbounds %struct.TAPState, ptr %opaque, i64 0, i32 12
-  %using_vnet_hdr = getelementptr inbounds %struct.TAPState, ptr %opaque, i64 0, i32 7
+  %buf1 = getelementptr inbounds i8, ptr %opaque, i64 1532
+  %fd = getelementptr inbounds i8, ptr %opaque, i64 376
+  %host_vnet_hdr_len = getelementptr inbounds i8, ptr %opaque, i64 71184
+  %using_vnet_hdr = getelementptr inbounds i8, ptr %opaque, i64 71166
   %0 = getelementptr i8, ptr %opaque, i64 32
   br label %while.body
 
@@ -2326,7 +2314,7 @@ if.end9:                                          ; preds = %if.then6, %land.lhs
   br i1 %tobool.not.i, label %if.end19, label %net_peer_needs_padding.exit
 
 net_peer_needs_padding.exit:                      ; preds = %if.end9
-  %do_not_pad.i = getelementptr inbounds %struct.NetClientState, ptr %opaque.val, i64 0, i32 15
+  %do_not_pad.i = getelementptr inbounds i8, ptr %opaque.val, i64 353
   %5 = load i8, ptr %do_not_pad.i, align 1
   %6 = and i8 %5, 1
   %tobool2.not.i = icmp eq i8 %6, 0
@@ -2351,17 +2339,17 @@ if.end19:                                         ; preds = %if.end9, %if.then11
   br i1 %cmp23, label %if.then25, label %if.else
 
 if.then25:                                        ; preds = %if.end19
-  %read_poll.i = getelementptr inbounds %struct.TAPState, ptr %opaque, i64 0, i32 5
+  %read_poll.i = getelementptr inbounds i8, ptr %opaque, i64 71164
   store i8 0, ptr %read_poll.i, align 4
   %8 = load i32, ptr %fd, align 8
-  %write_poll.i.i = getelementptr inbounds %struct.TAPState, ptr %opaque, i64 0, i32 6
+  %write_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 71165
   %9 = load i8, ptr %write_poll.i.i, align 1
   %10 = and i8 %9, 1
   %tobool2.not.i.i = icmp eq i8 %10, 0
   br i1 %tobool2.not.i.i, label %tap_read_poll.exit, label %land.rhs3.i.i
 
 land.rhs3.i.i:                                    ; preds = %if.then25
-  %enabled4.i.i = getelementptr inbounds %struct.TAPState, ptr %opaque, i64 0, i32 10
+  %enabled4.i.i = getelementptr inbounds i8, ptr %opaque, i64 71169
   %11 = load i8, ptr %enabled4.i.i, align 1
   %12 = and i8 %11, 1
   %tobool5.not.i.i = icmp eq i8 %12, 0
@@ -2387,18 +2375,18 @@ while.end:                                        ; preds = %if.else, %while.bod
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tap_writable(ptr noundef %opaque) #2 {
 entry:
-  %write_poll.i = getelementptr inbounds %struct.TAPState, ptr %opaque, i64 0, i32 6
+  %write_poll.i = getelementptr inbounds i8, ptr %opaque, i64 71165
   store i8 0, ptr %write_poll.i, align 1
-  %fd.i.i = getelementptr inbounds %struct.TAPState, ptr %opaque, i64 0, i32 1
+  %fd.i.i = getelementptr inbounds i8, ptr %opaque, i64 376
   %0 = load i32, ptr %fd.i.i, align 8
-  %read_poll.i.i = getelementptr inbounds %struct.TAPState, ptr %opaque, i64 0, i32 5
+  %read_poll.i.i = getelementptr inbounds i8, ptr %opaque, i64 71164
   %1 = load i8, ptr %read_poll.i.i, align 4
   %2 = and i8 %1, 1
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %tap_write_poll.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %entry
-  %enabled.i.i = getelementptr inbounds %struct.TAPState, ptr %opaque, i64 0, i32 10
+  %enabled.i.i = getelementptr inbounds i8, ptr %opaque, i64 71169
   %3 = load i8, ptr %enabled.i.i, align 1
   %4 = and i8 %3, 1
   %tobool1.not.i.i = icmp eq i8 %4, 0
@@ -2419,16 +2407,16 @@ declare i64 @qemu_send_packet_async(ptr noundef, ptr noundef, i32 noundef, ptr n
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @tap_send_completed(ptr noundef %nc, i64 %len) #2 {
 entry:
-  %read_poll.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 5
+  %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 71164
   store i8 1, ptr %read_poll.i, align 4
-  %fd.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 1
+  %fd.i.i = getelementptr inbounds i8, ptr %nc, i64 376
   %0 = load i32, ptr %fd.i.i, align 8
-  %enabled.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 10
+  %enabled.i.i = getelementptr inbounds i8, ptr %nc, i64 71169
   %1 = load i8, ptr %enabled.i.i, align 1
   %2 = and i8 %1, 1
   %tobool1.not.i.i = icmp eq i8 %2, 0
   %3 = select i1 %tobool1.not.i.i, ptr null, ptr @tap_send
-  %write_poll.i.i = getelementptr inbounds %struct.TAPState, ptr %nc, i64 0, i32 6
+  %write_poll.i.i = getelementptr inbounds i8, ptr %nc, i64 71165
   %4 = load i8, ptr %write_poll.i.i, align 1
   %5 = and i8 %2, %4
   %.not.not = icmp eq i8 %5, 0

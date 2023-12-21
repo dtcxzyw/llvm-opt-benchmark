@@ -6,41 +6,16 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_deleter" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_deleter<OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl *, void (*)(OpenColorIO_v2_4dev::ExponentWithLinearTransform *), std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_deleter<OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl *, void (*)(OpenColorIO_v2_4dev::ExponentWithLinearTransform *), std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.std::_Sp_ebo_helper", ptr }
-%"struct.std::_Sp_ebo_helper" = type { ptr }
 %"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl" = type { %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransform", %"class.OpenColorIO_v2_4dev::GammaOpData" }
-%"class.OpenColorIO_v2_4dev::ExponentWithLinearTransform" = type { %"class.OpenColorIO_v2_4dev::Transform" }
-%"class.OpenColorIO_v2_4dev::Transform" = type { ptr }
-%"class.OpenColorIO_v2_4dev::GammaOpData" = type { %"class.OpenColorIO_v2_4dev::OpData", i32, %"class.std::vector.8", %"class.std::vector.8", %"class.std::vector.8", %"class.std::vector.8" }
-%"class.OpenColorIO_v2_4dev::OpData" = type { ptr, %"class.std::mutex", %"class.OpenColorIO_v2_4dev::FormatMetadataImpl" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.OpenColorIO_v2_4dev::FormatMetadataImpl" = type { %"class.OpenColorIO_v2_4dev::FormatMetadata", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::vector.3" }
-%"class.OpenColorIO_v2_4dev::FormatMetadata" = type { ptr }
+%"class.std::shared_ptr.13" = type { %"class.std::__shared_ptr.14" }
+%"class.std::__shared_ptr.14" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.13" = type { %"class.std::__shared_ptr.14" }
-%"class.std::__shared_ptr.14" = type { ptr, %"class.std::__shared_count" }
 %"class.std::allocator" = type { i8 }
-%"class.std::type_info" = type { ptr, ptr }
 
 $_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9TransformEED2Ev = comdat any
 
@@ -123,7 +98,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %_M_refcount.i.i, align 8
   %call5.i.i.i4.i.i.i.i = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27ExponentWithLinearTransformEEC2INS0_31ExponentWithLinearTransformImplEPFvPS1_EvEEPT_T0_.exit unwind label %invoke.cont7.i.i.i.i
@@ -134,7 +109,7 @@ invoke.cont7.i.i.i.i:                             ; preds = %invoke.cont
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = tail call ptr @__cxa_begin_catch(ptr %1) #19
   %vtable.i = load ptr, ptr %call, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %3 = load ptr, ptr %vfn.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(280) %call) #19
   invoke void @__cxa_rethrow() #20
@@ -161,14 +136,14 @@ unreachable.i.i.i.i:                              ; preds = %invoke.cont7.i.i.i.
   unreachable
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27ExponentWithLinearTransformEEC2INS0_31ExponentWithLinearTransformImplEPFvPS1_EvEEPT_T0_.exit: ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i4.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i4.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImplEPFvPNS0_27ExponentWithLinearTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i4.i.i.i.i, align 8
-  %_M_impl.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %call5.i.i.i4.i.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i.i, i64 16
   store ptr @_ZN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImpl7deleterEPNS_27ExponentWithLinearTransformE, ptr %_M_impl.i.i.i.i.i, align 8
-  %_M_ptr.i.i5.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %call5.i.i.i4.i.i.i.i, i64 0, i32 1, i32 1
+  %_M_ptr.i.i5.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i.i, i64 24
   store ptr %call, ptr %_M_ptr.i.i5.i.i.i.i, align 8
   store ptr %call5.i.i.i4.i.i.i.i, ptr %_M_refcount.i.i, align 8
   ret void
@@ -196,7 +171,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %t, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(280) %t) #19
   br label %delete.end
@@ -214,7 +189,7 @@ entry:
   %ref.tmp41 = alloca %"class.std::vector.8", align 8
   %ref.tmp57 = alloca i32, align 4
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN19OpenColorIO_v2_4dev11GammaOpDataC1Ev(ptr noundef nonnull align 8 dereferenceable(272) %m_data)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
@@ -227,11 +202,11 @@ lpad.i:                                           ; preds = %entry
 
 invoke.cont5:                                     ; preds = %entry
   store ptr %call5.i.i.i.i2.i, ptr %ref.tmp, align 8
-  %add.ptr.i1.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i, i64 2
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpData12setRedParamsERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(272) %m_data, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
           to label %invoke.cont7 unwind label %lpad6
@@ -257,11 +232,11 @@ lpad.i14:                                         ; preds = %_ZNSt6vectorIdSaIdE
 
 invoke.cont19:                                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
   store ptr %call5.i.i.i.i2.i13, ptr %ref.tmp9, align 8
-  %add.ptr.i1.i18 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i13, i64 2
-  %_M_end_of_storage.i.i19 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp9, i64 0, i32 2
+  %add.ptr.i1.i18 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i13, i64 16
+  %_M_end_of_storage.i.i19 = getelementptr inbounds i8, ptr %ref.tmp9, i64 16
   store ptr %add.ptr.i1.i18, ptr %_M_end_of_storage.i.i19, align 8
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i13, align 8
-  %_M_finish.i.i20 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp9, i64 0, i32 1
+  %_M_finish.i.i20 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   store ptr %add.ptr.i1.i18, ptr %_M_finish.i.i20, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpData14setGreenParamsERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(272) %m_data, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp9)
           to label %invoke.cont21 unwind label %lpad20
@@ -287,11 +262,11 @@ lpad.i29:                                         ; preds = %_ZNSt6vectorIdSaIdE
 
 invoke.cont35:                                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit26
   store ptr %call5.i.i.i.i2.i28, ptr %ref.tmp25, align 8
-  %add.ptr.i1.i33 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i28, i64 2
-  %_M_end_of_storage.i.i34 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp25, i64 0, i32 2
+  %add.ptr.i1.i33 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i28, i64 16
+  %_M_end_of_storage.i.i34 = getelementptr inbounds i8, ptr %ref.tmp25, i64 16
   store ptr %add.ptr.i1.i33, ptr %_M_end_of_storage.i.i34, align 8
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i28, align 8
-  %_M_finish.i.i35 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp25, i64 0, i32 1
+  %_M_finish.i.i35 = getelementptr inbounds i8, ptr %ref.tmp25, i64 8
   store ptr %add.ptr.i1.i33, ptr %_M_finish.i.i35, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpData13setBlueParamsERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(272) %m_data, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp25)
           to label %invoke.cont37 unwind label %lpad36
@@ -317,11 +292,11 @@ lpad.i44:                                         ; preds = %_ZNSt6vectorIdSaIdE
 
 invoke.cont51:                                    ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit41
   store ptr %call5.i.i.i.i2.i43, ptr %ref.tmp41, align 8
-  %add.ptr.i1.i48 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i43, i64 2
-  %_M_end_of_storage.i.i49 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp41, i64 0, i32 2
+  %add.ptr.i1.i48 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i43, i64 16
+  %_M_end_of_storage.i.i49 = getelementptr inbounds i8, ptr %ref.tmp41, i64 16
   store ptr %add.ptr.i1.i48, ptr %_M_end_of_storage.i.i49, align 8
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %call5.i.i.i.i2.i43, align 8
-  %_M_finish.i.i50 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %ref.tmp41, i64 0, i32 1
+  %_M_finish.i.i50 = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
   store ptr %add.ptr.i1.i48, ptr %_M_finish.i.i50, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpData14setAlphaParamsERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(272) %m_data, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp41)
           to label %invoke.cont53 unwind label %lpad52
@@ -413,41 +388,41 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27ExponentWithLinearTransformEED2Ev.exit
   call void @_ZN19OpenColorIO_v2_4dev27ExponentWithLinearTransform6CreateEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp)
   %0 = load ptr, ptr %ref.tmp, align 8
   store ptr %0, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %agg.result, i64 0, i32 1
-  %_M_refcount4.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount4.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load ptr, ptr %_M_refcount4.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImplE, i64 0) #19
-  %m_data.i2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %2, i64 0, i32 1
+  %m_data.i2 = getelementptr inbounds i8, ptr %2, i64 8
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %m_data.i2, ptr noundef nonnull align 8 dereferenceable(168) %m_data.i)
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27ExponentWithLinearTransformEED2Ev.exit
-  %m_style.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 1
+  %m_style.i = getelementptr inbounds i8, ptr %this, i64 176
   %3 = load i32, ptr %m_style.i, align 8
-  %m_style2.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %2, i64 0, i32 1, i32 1
+  %m_style2.i = getelementptr inbounds i8, ptr %2, i64 176
   store i32 %3, ptr %m_style2.i, align 8
-  %m_redParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %2, i64 0, i32 1, i32 2
-  %m_redParams3.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 2
+  %m_redParams.i = getelementptr inbounds i8, ptr %2, i64 184
+  %m_redParams3.i = getelementptr inbounds i8, ptr %this, i64 184
   %call4.i4 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i, ptr noundef nonnull align 8 dereferenceable(24) %m_redParams3.i)
           to label %call4.i.noexc unwind label %lpad
 
 call4.i.noexc:                                    ; preds = %call.i.noexc
-  %m_greenParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %2, i64 0, i32 1, i32 3
-  %m_greenParams5.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 3
+  %m_greenParams.i = getelementptr inbounds i8, ptr %2, i64 208
+  %m_greenParams5.i = getelementptr inbounds i8, ptr %this, i64 208
   %call6.i5 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i, ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams5.i)
           to label %call6.i.noexc unwind label %lpad
 
 call6.i.noexc:                                    ; preds = %call4.i.noexc
-  %m_blueParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %2, i64 0, i32 1, i32 4
-  %m_blueParams7.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 4
+  %m_blueParams.i = getelementptr inbounds i8, ptr %2, i64 232
+  %m_blueParams7.i = getelementptr inbounds i8, ptr %this, i64 232
   %call8.i6 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams.i, ptr noundef nonnull align 8 dereferenceable(24) %m_blueParams7.i)
           to label %call8.i.noexc unwind label %lpad
 
 call8.i.noexc:                                    ; preds = %call6.i.noexc
-  %m_alphaParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %2, i64 0, i32 1, i32 5
-  %m_alphaParams9.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 5
+  %m_alphaParams.i = getelementptr inbounds i8, ptr %2, i64 256
+  %m_alphaParams9.i = getelementptr inbounds i8, ptr %this, i64 256
   %call10.i7 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams.i, ptr noundef nonnull align 8 dereferenceable(24) %m_alphaParams9.i)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -467,13 +442,13 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #6
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9TransformEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.14", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -481,10 +456,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %if.end8.sink.split.i.i.i
@@ -510,10 +485,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -535,7 +510,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -547,7 +522,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev9TransformELN9__gnu_cxx12_Lock_policyE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev31ExponentWithLinearTransformImpl12getDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this) unnamed_addr #7 align 2 {
 entry:
-  %m_style.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 1
+  %m_style.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i32, ptr %m_style.i, align 8
   %1 = add i32 %0, -6
   %switch.and = and i32 %1, -3
@@ -559,7 +534,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImpl12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %dir) unnamed_addr #3 align 2 {
 entry:
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN19OpenColorIO_v2_4dev11GammaOpData12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(272) %m_data.i, i32 noundef %dir) #19
   ret void
 }
@@ -576,9 +551,9 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
   %vtable = load ptr, ptr %m_data.i, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(272) %m_data.i)
           to label %try.cont unwind label %lpad
@@ -601,7 +576,7 @@ catch:                                            ; preds = %lpad
 invoke.cont4:                                     ; preds = %catch
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   %vtable5 = load ptr, ptr %5, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 2
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 16
   %6 = load ptr, ptr %vfn6, align 8
   %call7 = call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   %call10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %errMsg, ptr noundef %call7)
@@ -710,14 +685,14 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(280) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_metadata.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 56
   ret ptr %m_metadata.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev31ExponentWithLinearTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(280) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_metadata.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 56
   ret ptr %m_metadata.i
 }
 
@@ -728,9 +703,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %other, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev27ExponentWithLinearTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImplE, i64 0) #19
-  %m_data.i2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %0, i64 0, i32 1
+  %m_data.i2 = getelementptr inbounds i8, ptr %0, i64 8
   %call3 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GammaOpDataES2_(ptr noundef nonnull align 8 dereferenceable(272) %m_data.i, ptr noundef nonnull align 8 dereferenceable(272) %m_data.i2)
           to label %return unwind label %terminate.lpad
 
@@ -752,22 +727,22 @@ declare noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GammaOpDataES2_(pt
 define hidden void @_ZN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImpl8setGammaERA4_Kd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %values) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load double, ptr %values, align 8
-  %m_redParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 2
+  %m_redParams.i = getelementptr inbounds i8, ptr %this, i64 184
   %1 = load ptr, ptr %m_redParams.i, align 8
   store double %0, ptr %1, align 8
-  %arrayidx4 = getelementptr inbounds [4 x double], ptr %values, i64 0, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %values, i64 8
   %2 = load double, ptr %arrayidx4, align 8
-  %m_greenParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 3
+  %m_greenParams.i = getelementptr inbounds i8, ptr %this, i64 208
   %3 = load ptr, ptr %m_greenParams.i, align 8
   store double %2, ptr %3, align 8
-  %arrayidx9 = getelementptr inbounds [4 x double], ptr %values, i64 0, i64 2
+  %arrayidx9 = getelementptr inbounds i8, ptr %values, i64 16
   %4 = load double, ptr %arrayidx9, align 8
-  %m_blueParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 4
+  %m_blueParams.i = getelementptr inbounds i8, ptr %this, i64 232
   %5 = load ptr, ptr %m_blueParams.i, align 8
   store double %4, ptr %5, align 8
-  %arrayidx14 = getelementptr inbounds [4 x double], ptr %values, i64 0, i64 3
+  %arrayidx14 = getelementptr inbounds i8, ptr %values, i64 24
   %6 = load double, ptr %arrayidx14, align 8
-  %m_alphaParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 5
+  %m_alphaParams.i = getelementptr inbounds i8, ptr %this, i64 256
   %7 = load ptr, ptr %m_alphaParams.i, align 8
   store double %6, ptr %7, align 8
   ret void
@@ -776,24 +751,24 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev31ExponentWithLinearTransformImpl8getGammaERA4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %values) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_redParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 2
+  %m_redParams.i = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %m_redParams.i, align 8
   %1 = load double, ptr %0, align 8
   store double %1, ptr %values, align 8
-  %m_greenParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 3
+  %m_greenParams.i = getelementptr inbounds i8, ptr %this, i64 208
   %2 = load ptr, ptr %m_greenParams.i, align 8
   %3 = load double, ptr %2, align 8
-  %arrayidx8 = getelementptr inbounds [4 x double], ptr %values, i64 0, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %values, i64 8
   store double %3, ptr %arrayidx8, align 8
-  %m_blueParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 4
+  %m_blueParams.i = getelementptr inbounds i8, ptr %this, i64 232
   %4 = load ptr, ptr %m_blueParams.i, align 8
   %5 = load double, ptr %4, align 8
-  %arrayidx13 = getelementptr inbounds [4 x double], ptr %values, i64 0, i64 2
+  %arrayidx13 = getelementptr inbounds i8, ptr %values, i64 16
   store double %5, ptr %arrayidx13, align 8
-  %m_alphaParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 5
+  %m_alphaParams.i = getelementptr inbounds i8, ptr %this, i64 256
   %6 = load ptr, ptr %m_alphaParams.i, align 8
   %7 = load double, ptr %6, align 8
-  %arrayidx18 = getelementptr inbounds [4 x double], ptr %values, i64 0, i64 3
+  %arrayidx18 = getelementptr inbounds i8, ptr %values, i64 24
   store double %7, ptr %arrayidx18, align 8
   ret void
 }
@@ -805,8 +780,8 @@ entry:
   %grn = alloca %"class.std::vector.8", align 8
   %blu = alloca %"class.std::vector.8", align 8
   %alp = alloca %"class.std::vector.8", align 8
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1
-  %m_redParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 2
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_redParams.i = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %m_redParams.i, align 8
   %1 = load double, ptr %0, align 8
   %2 = load double, ptr %values, align 8
@@ -821,18 +796,18 @@ lpad.i:                                           ; preds = %entry
 
 invoke.cont5:                                     ; preds = %entry
   store ptr %call5.i.i.i.i2.i, ptr %red, align 8
-  %add.ptr.i1.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i, i64 2
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %red, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 16
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %red, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store double %1, ptr %call5.i.i.i.i2.i, align 8
   %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
   store double %2, ptr %ref.tmp.sroa.2.0.call5.i.i.i.i2.i.sroa_idx, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %red, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %red, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
-  %m_greenParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 3
+  %m_greenParams.i = getelementptr inbounds i8, ptr %this, i64 208
   %4 = load ptr, ptr %m_greenParams.i, align 8
   %5 = load double, ptr %4, align 8
-  %arrayidx14 = getelementptr inbounds [4 x double], ptr %values, i64 0, i64 1
+  %arrayidx14 = getelementptr inbounds i8, ptr %values, i64 8
   %6 = load double, ptr %arrayidx14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %grn, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i5 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
@@ -845,18 +820,18 @@ lpad.i6:                                          ; preds = %invoke.cont5
 
 invoke.cont19:                                    ; preds = %invoke.cont5
   store ptr %call5.i.i.i.i2.i5, ptr %grn, align 8
-  %add.ptr.i1.i10 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i5, i64 2
-  %_M_end_of_storage.i.i11 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %grn, i64 0, i32 2
+  %add.ptr.i1.i10 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i5, i64 16
+  %_M_end_of_storage.i.i11 = getelementptr inbounds i8, ptr %grn, i64 16
   store ptr %add.ptr.i1.i10, ptr %_M_end_of_storage.i.i11, align 8
   store double %5, ptr %call5.i.i.i.i2.i5, align 8
   %ref.tmp7.sroa.2.0.call5.i.i.i.i2.i5.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i5, i64 8
   store double %6, ptr %ref.tmp7.sroa.2.0.call5.i.i.i.i2.i5.sroa_idx, align 8
-  %_M_finish.i.i12 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %grn, i64 0, i32 1
+  %_M_finish.i.i12 = getelementptr inbounds i8, ptr %grn, i64 8
   store ptr %add.ptr.i1.i10, ptr %_M_finish.i.i12, align 8
-  %m_blueParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 4
+  %m_blueParams.i = getelementptr inbounds i8, ptr %this, i64 232
   %8 = load ptr, ptr %m_blueParams.i, align 8
   %9 = load double, ptr %8, align 8
-  %arrayidx28 = getelementptr inbounds [4 x double], ptr %values, i64 0, i64 2
+  %arrayidx28 = getelementptr inbounds i8, ptr %values, i64 16
   %10 = load double, ptr %arrayidx28, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %blu, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i17 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
@@ -869,18 +844,18 @@ lpad.i18:                                         ; preds = %invoke.cont19
 
 invoke.cont33:                                    ; preds = %invoke.cont19
   store ptr %call5.i.i.i.i2.i17, ptr %blu, align 8
-  %add.ptr.i1.i22 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i17, i64 2
-  %_M_end_of_storage.i.i23 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %blu, i64 0, i32 2
+  %add.ptr.i1.i22 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i17, i64 16
+  %_M_end_of_storage.i.i23 = getelementptr inbounds i8, ptr %blu, i64 16
   store ptr %add.ptr.i1.i22, ptr %_M_end_of_storage.i.i23, align 8
   store double %9, ptr %call5.i.i.i.i2.i17, align 8
   %ref.tmp21.sroa.2.0.call5.i.i.i.i2.i17.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i17, i64 8
   store double %10, ptr %ref.tmp21.sroa.2.0.call5.i.i.i.i2.i17.sroa_idx, align 8
-  %_M_finish.i.i24 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %blu, i64 0, i32 1
+  %_M_finish.i.i24 = getelementptr inbounds i8, ptr %blu, i64 8
   store ptr %add.ptr.i1.i22, ptr %_M_finish.i.i24, align 8
-  %m_alphaParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 5
+  %m_alphaParams.i = getelementptr inbounds i8, ptr %this, i64 256
   %12 = load ptr, ptr %m_alphaParams.i, align 8
   %13 = load double, ptr %12, align 8
-  %arrayidx42 = getelementptr inbounds [4 x double], ptr %values, i64 0, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %values, i64 24
   %14 = load double, ptr %arrayidx42, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %alp, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i29 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
@@ -893,13 +868,13 @@ lpad.i30:                                         ; preds = %invoke.cont33
 
 invoke.cont47:                                    ; preds = %invoke.cont33
   store ptr %call5.i.i.i.i2.i29, ptr %alp, align 8
-  %add.ptr.i1.i34 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i29, i64 2
-  %_M_end_of_storage.i.i35 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %alp, i64 0, i32 2
+  %add.ptr.i1.i34 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i29, i64 16
+  %_M_end_of_storage.i.i35 = getelementptr inbounds i8, ptr %alp, i64 16
   store ptr %add.ptr.i1.i34, ptr %_M_end_of_storage.i.i35, align 8
   store double %13, ptr %call5.i.i.i.i2.i29, align 8
   %ref.tmp35.sroa.2.0.call5.i.i.i.i2.i29.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i29, i64 8
   store double %14, ptr %ref.tmp35.sroa.2.0.call5.i.i.i.i2.i29.sroa_idx, align 8
-  %_M_finish.i.i36 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %alp, i64 0, i32 1
+  %_M_finish.i.i36 = getelementptr inbounds i8, ptr %alp, i64 8
   store ptr %add.ptr.i1.i34, ptr %_M_finish.i.i36, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev11GammaOpData12setRedParamsERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(272) %m_data.i, ptr noundef nonnull align 8 dereferenceable(24) %red)
           to label %invoke.cont49 unwind label %terminate.lpad
@@ -970,8 +945,8 @@ terminate.lpad.body:                              ; preds = %lpad.i30, %lpad.i18
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_4dev31ExponentWithLinearTransformImpl9getOffsetERA4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %values) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_redParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 2, i32 0, i32 0, i32 0, i32 1
+  %m_redParams.i = getelementptr inbounds i8, ptr %this, i64 184
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %m_redParams.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -981,15 +956,15 @@ entry:
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %add.ptr.i = getelementptr inbounds double, ptr %1, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load double, ptr %add.ptr.i, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi double [ %2, %cond.true ], [ 0.000000e+00, %entry ]
   store double %cond, ptr %values, align 8
-  %m_greenParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 3
-  %_M_finish.i7 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 3, i32 0, i32 0, i32 0, i32 1
+  %m_greenParams.i = getelementptr inbounds i8, ptr %this, i64 208
+  %_M_finish.i7 = getelementptr inbounds i8, ptr %this, i64 216
   %3 = load ptr, ptr %_M_finish.i7, align 8
   %4 = load ptr, ptr %m_greenParams.i, align 8
   %sub.ptr.lhs.cast.i8 = ptrtoint ptr %3 to i64
@@ -999,16 +974,16 @@ cond.end:                                         ; preds = %entry, %cond.true
   br i1 %cmp12, label %cond.true13, label %cond.end19
 
 cond.true13:                                      ; preds = %cond.end
-  %add.ptr.i14 = getelementptr inbounds double, ptr %4, i64 1
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load double, ptr %add.ptr.i14, align 8
   br label %cond.end19
 
 cond.end19:                                       ; preds = %cond.end, %cond.true13
   %cond20 = phi double [ %5, %cond.true13 ], [ 0.000000e+00, %cond.end ]
-  %arrayidx21 = getelementptr inbounds [4 x double], ptr %values, i64 0, i64 1
+  %arrayidx21 = getelementptr inbounds i8, ptr %values, i64 8
   store double %cond20, ptr %arrayidx21, align 8
-  %m_blueParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 4
-  %_M_finish.i16 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 4, i32 0, i32 0, i32 0, i32 1
+  %m_blueParams.i = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i16 = getelementptr inbounds i8, ptr %this, i64 240
   %6 = load ptr, ptr %_M_finish.i16, align 8
   %7 = load ptr, ptr %m_blueParams.i, align 8
   %sub.ptr.lhs.cast.i17 = ptrtoint ptr %6 to i64
@@ -1018,16 +993,16 @@ cond.end19:                                       ; preds = %cond.end, %cond.tru
   br i1 %cmp26, label %cond.true27, label %cond.end33
 
 cond.true27:                                      ; preds = %cond.end19
-  %add.ptr.i23 = getelementptr inbounds double, ptr %7, i64 1
+  %add.ptr.i23 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load double, ptr %add.ptr.i23, align 8
   br label %cond.end33
 
 cond.end33:                                       ; preds = %cond.end19, %cond.true27
   %cond34 = phi double [ %8, %cond.true27 ], [ 0.000000e+00, %cond.end19 ]
-  %arrayidx35 = getelementptr inbounds [4 x double], ptr %values, i64 0, i64 2
+  %arrayidx35 = getelementptr inbounds i8, ptr %values, i64 16
   store double %cond34, ptr %arrayidx35, align 8
-  %m_alphaParams.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 5
-  %_M_finish.i25 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 5, i32 0, i32 0, i32 0, i32 1
+  %m_alphaParams.i = getelementptr inbounds i8, ptr %this, i64 256
+  %_M_finish.i25 = getelementptr inbounds i8, ptr %this, i64 264
   %9 = load ptr, ptr %_M_finish.i25, align 8
   %10 = load ptr, ptr %m_alphaParams.i, align 8
   %sub.ptr.lhs.cast.i26 = ptrtoint ptr %9 to i64
@@ -1037,13 +1012,13 @@ cond.end33:                                       ; preds = %cond.end19, %cond.t
   br i1 %cmp40, label %cond.true41, label %cond.end47
 
 cond.true41:                                      ; preds = %cond.end33
-  %add.ptr.i32 = getelementptr inbounds double, ptr %10, i64 1
+  %add.ptr.i32 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load double, ptr %add.ptr.i32, align 8
   br label %cond.end47
 
 cond.end47:                                       ; preds = %cond.end33, %cond.true41
   %cond48 = phi double [ %11, %cond.true41 ], [ 0.000000e+00, %cond.end33 ]
-  %arrayidx49 = getelementptr inbounds [4 x double], ptr %values, i64 0, i64 3
+  %arrayidx49 = getelementptr inbounds i8, ptr %values, i64 24
   store double %cond48, ptr %arrayidx49, align 8
   ret void
 }
@@ -1051,7 +1026,7 @@ cond.end47:                                       ; preds = %cond.end33, %cond.t
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev31ExponentWithLinearTransformImpl16getNegativeStyleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this) unnamed_addr #0 align 2 {
 entry:
-  %m_style.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1, i32 1
+  %m_style.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i32, ptr %m_style.i, align 8
   %call3 = tail call noundef i32 @_ZN19OpenColorIO_v2_4dev11GammaOpData12ConvertStyleENS0_5StyleE(i32 noundef %0)
   ret i32 %call3
@@ -1064,12 +1039,12 @@ define hidden void @_ZN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImpl16s
 entry:
   %styleOp = alloca i32, align 4
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(280) %this) #19
   %call2 = tail call noundef i32 @_ZN19OpenColorIO_v2_4dev11GammaOpData20ConvertStyleMonCurveENS_13NegativeStyleENS_18TransformDirectionE(i32 noundef %style, i32 noundef %call)
   store i32 %call2, ptr %styleOp, align 4
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZN19OpenColorIO_v2_4dev11GammaOpData8setStyleERKNS0_5StyleE(ptr noundef nonnull align 8 dereferenceable(272) %m_data.i, ptr noundef nonnull align 4 dereferenceable(4) %styleOp) #19
   ret void
 }
@@ -1084,14 +1059,14 @@ entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.1)
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.2)
   %vtable = load ptr, ptr %t, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %t) #19
   %call3 = tail call noundef ptr @_ZN19OpenColorIO_v2_4dev26TransformDirectionToStringENS_18TransformDirectionE(i32 noundef %call2)
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call1, ptr noundef %call3)
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call4, ptr noundef nonnull @.str.3)
   %vtable6 = load ptr, ptr %t, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 10
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 80
   %1 = load ptr, ptr %vfn7, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(8) %t, ptr noundef nonnull align 8 dereferenceable(32) %gamma) #19
   %call8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.4)
@@ -1111,7 +1086,7 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body
   %vtable13 = load ptr, ptr %t, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 12
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 96
   %4 = load ptr, ptr %vfn14, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %t, ptr noundef nonnull align 8 dereferenceable(32) %offset) #19
   %call15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.6)
@@ -1132,7 +1107,7 @@ for.body21:                                       ; preds = %for.end, %for.body2
 for.end28:                                        ; preds = %for.body21
   %call29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.7)
   %vtable30 = load ptr, ptr %t, align 8
-  %vfn31 = getelementptr inbounds ptr, ptr %vtable30, i64 14
+  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 112
   %7 = load ptr, ptr %vfn31, align 8
   %call32 = call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %t)
   %call33 = call noundef ptr @_ZN19OpenColorIO_v2_4dev21NegativeStyleToStringENS_13NegativeStyleE(i32 noundef %call32)
@@ -1159,7 +1134,7 @@ entry:
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImplD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1
+  %m_data = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN19OpenColorIO_v2_4dev11GammaOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(272) %m_data) #19
   ret void
 }
@@ -1168,7 +1143,7 @@ entry:
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImplD0Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #3 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %m_data.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::ExponentWithLinearTransformImpl", ptr %this, i64 0, i32 1
+  %m_data.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN19OpenColorIO_v2_4dev11GammaOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(272) %m_data.i) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
@@ -1183,14 +1158,14 @@ entry:
   br i1 %cmp.not, label %if.end75, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
@@ -1232,7 +1207,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSa
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
-  %_M_finish.i19 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
@@ -1284,7 +1259,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt4copyIPdS0_ET0_
 if.end69:                                         ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit
   %8 = load ptr, ptr %this, align 8
   %add.ptr72 = getelementptr inbounds double, ptr %8, i64 %sub.ptr.div.i
-  %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
 
@@ -1316,9 +1291,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImplEPFvPNS0_27ExponentWithLinearTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this, i64 0, i32 1
+  %_M_impl = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_impl, align 8
-  %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this, i64 0, i32 1, i32 1
+  %_M_ptr = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_ptr, align 8
   invoke void %0(ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1344,7 +1319,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev31Expon
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev31ExponentWithLinearTransformImplEPFvPNS0_27ExponentWithLinearTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSPFvPN19OpenColorIO_v2_4dev27ExponentWithLinearTransformEE
   br i1 %cmp.i, label %cond.true, label %if.end.i
@@ -1360,7 +1335,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %if.end.i
   br i1 %cmp7.i, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry, %_ZNKSt9type_infoeqERKS_.exit
-  %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this, i64 0, i32 1
+  %_M_impl = getelementptr inbounds i8, ptr %this, i64 16
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end.i, %_ZNKSt9type_infoeqERKS_.exit, %cond.true

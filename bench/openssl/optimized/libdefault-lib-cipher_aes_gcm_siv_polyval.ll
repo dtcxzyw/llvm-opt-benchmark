@@ -13,7 +13,7 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %for.body.i
 
 if.then.i:                                        ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i64, ptr %H, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %H, i64 8
   %2 = load i64, ptr %arrayidx.i, align 8
   %or.i.i = tail call i64 @llvm.bswap.i64(i64 %2)
   %3 = load i64, ptr %H, align 8
@@ -33,7 +33,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 
 byte_reverse16.exit.loopexit:                     ; preds = %for.body.i
   %.pre = load i64, ptr %tmp, align 16
-  %arrayidx2.i.phi.trans.insert = getelementptr inbounds i64, ptr %tmp, i64 1
+  %arrayidx2.i.phi.trans.insert = getelementptr inbounds i8, ptr %tmp, i64 8
   %.pre3 = load i64, ptr %arrayidx2.i.phi.trans.insert, align 8
   br label %byte_reverse16.exit
 
@@ -41,7 +41,7 @@ byte_reverse16.exit:                              ; preds = %byte_reverse16.exit
   %5 = phi i64 [ %.pre3, %byte_reverse16.exit.loopexit ], [ %or.i10.i, %if.then.i ]
   %6 = phi i64 [ %.pre, %byte_reverse16.exit.loopexit ], [ %or.i.i, %if.then.i ]
   %or.i.i1 = tail call i64 @llvm.bswap.i64(i64 %6)
-  %arrayidx2.i = getelementptr inbounds i64, ptr %tmp, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %tmp, i64 8
   %or.i7.i = tail call i64 @llvm.bswap.i64(i64 %5)
   %and.i = and i64 %or.i7.i, 1
   %7 = icmp eq i64 %and.i, 0
@@ -69,13 +69,13 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %for.body.i
 
 if.then.i:                                        ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i64, ptr %tag, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %tag, i64 8
   %2 = load i64, ptr %arrayidx.i, align 8
   %or.i.i = tail call i64 @llvm.bswap.i64(i64 %2)
   store i64 %or.i.i, ptr %out, align 16
   %3 = load i64, ptr %tag, align 8
   %or.i10.i = tail call i64 @llvm.bswap.i64(i64 %3)
-  %arrayidx6.i = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx6.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %or.i10.i, ptr %arrayidx6.i, align 8
   br label %byte_reverse16.exit
 
@@ -95,7 +95,7 @@ byte_reverse16.exit:                              ; preds = %for.body.i, %if.the
   br i1 %cmp34.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %byte_reverse16.exit
-  %arrayidx6.i17 = getelementptr inbounds i64, ptr %tmp, i64 1
+  %arrayidx6.i17 = getelementptr inbounds i8, ptr %tmp, i64 8
   %5 = and i64 %inp36, 7
   %or.cond.i4 = icmp eq i64 %5, 0
   br label %for.body
@@ -106,7 +106,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %by
   br i1 %or.cond.i4, label %if.then.i13, label %for.body.i5
 
 if.then.i13:                                      ; preds = %for.body
-  %arrayidx.i14 = getelementptr inbounds i64, ptr %arrayidx, i64 1
+  %arrayidx.i14 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %6 = load i64, ptr %arrayidx.i14, align 8
   %or.i.i15 = call i64 @llvm.bswap.i64(i64 %6)
   store i64 %or.i.i15, ptr %tmp, align 16
@@ -136,13 +136,13 @@ for.end:                                          ; preds = %byte_reverse16.exit
   br i1 %or.cond.i, label %if.then.i28, label %for.body.i20
 
 if.then.i28:                                      ; preds = %for.end
-  %arrayidx.i29 = getelementptr inbounds i64, ptr %out, i64 1
+  %arrayidx.i29 = getelementptr inbounds i8, ptr %out, i64 8
   %9 = load i64, ptr %arrayidx.i29, align 8
   %or.i.i30 = call i64 @llvm.bswap.i64(i64 %9)
   store i64 %or.i.i30, ptr %tag, align 8
   %10 = load i64, ptr %out, align 16
   %or.i10.i31 = call i64 @llvm.bswap.i64(i64 %10)
-  %arrayidx6.i32 = getelementptr inbounds i64, ptr %tag, i64 1
+  %arrayidx6.i32 = getelementptr inbounds i8, ptr %tag, i64 8
   store i64 %or.i10.i31, ptr %arrayidx6.i32, align 8
   br label %byte_reverse16.exit33
 

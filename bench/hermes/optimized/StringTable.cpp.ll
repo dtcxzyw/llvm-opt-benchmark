@@ -3,17 +3,15 @@ source_filename = "bench/hermes/original/StringTable.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN6hermeslsERN4llvh11raw_ostreamENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr nocapture readonly %id.coerce) local_unnamed_addr #0 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %id.coerce, align 8
   %agg.tmp.sroa.2.0.call.sroa_idx = getelementptr inbounds i8, ptr %id.coerce, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx, align 8
-  %OutBufEnd.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i = getelementptr inbounds i8, ptr %os, i64 16
   %0 = load ptr, ptr %OutBufEnd.i, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %os, i64 24
   %1 = load ptr, ptr %OutBufCur.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64

@@ -5,14 +5,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.key2any_ctx_st = type { ptr, i32, i32, ptr, %struct.ossl_passphrase_data_st }
-%struct.ossl_passphrase_data_st = type { i32, %union.anon, i8, ptr, i64 }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, i64 }
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
 %struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.ecx_key_st = type { ptr, ptr, i8, [57 x i8], ptr, i64, i32, %struct.CRYPTO_REF_COUNT }
-%struct.CRYPTO_REF_COUNT = type { i32 }
 
 @ossl_rsa_to_type_specific_keypair_der_encoder_functions = local_unnamed_addr constant [9 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @key2any_newctx }, %struct.ossl_dispatch_st { i32 2, ptr @key2any_freectx }, %struct.ossl_dispatch_st { i32 6, ptr @key2any_settable_ctx_params }, %struct.ossl_dispatch_st { i32 5, ptr @key2any_set_ctx_params }, %struct.ossl_dispatch_st { i32 10, ptr @rsa_to_type_specific_keypair_der_does_selection }, %struct.ossl_dispatch_st { i32 20, ptr @rsa_to_type_specific_keypair_der_import_object }, %struct.ossl_dispatch_st { i32 21, ptr @rsa_to_type_specific_keypair_der_free_object }, %struct.ossl_dispatch_st { i32 11, ptr @rsa_to_type_specific_keypair_der_encode }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @ossl_dh_to_type_specific_params_der_encoder_functions = local_unnamed_addr constant [9 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @key2any_newctx }, %struct.ossl_dispatch_st { i32 2, ptr @key2any_freectx }, %struct.ossl_dispatch_st { i32 6, ptr @key2any_settable_ctx_params }, %struct.ossl_dispatch_st { i32 5, ptr @key2any_set_ctx_params }, %struct.ossl_dispatch_st { i32 10, ptr @dh_to_type_specific_params_der_does_selection }, %struct.ossl_dispatch_st { i32 20, ptr @dh_to_type_specific_params_der_import_object }, %struct.ossl_dispatch_st { i32 21, ptr @dh_to_type_specific_params_der_free_object }, %struct.ossl_dispatch_st { i32 11, ptr @dh_to_type_specific_params_der_encode }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -274,7 +268,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr %provctx, ptr %call, align 8
-  %save_parameters = getelementptr inbounds %struct.key2any_ctx_st, ptr %call, i64 0, i32 1
+  %save_parameters = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %save_parameters, align 8
   br label %if.end
 
@@ -285,9 +279,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal void @key2any_freectx(ptr noundef %vctx) #0 {
 entry:
-  %pwdata = getelementptr inbounds %struct.key2any_ctx_st, ptr %vctx, i64 0, i32 4
+  %pwdata = getelementptr inbounds i8, ptr %vctx, i64 24
   tail call void @ossl_pw_clear_passphrase_data(ptr noundef nonnull %pwdata) #5
-  %cipher = getelementptr inbounds %struct.key2any_ctx_st, ptr %vctx, i64 0, i32 3
+  %cipher = getelementptr inbounds i8, ptr %vctx, i64 16
   %0 = load ptr, ptr %cipher, align 8
   tail call void @EVP_CIPHER_free(ptr noundef %0) #5
   tail call void @CRYPTO_free(ptr noundef %vctx, ptr noundef nonnull @.str, i32 noundef 953) #5
@@ -330,14 +324,14 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool8.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %land.lhs.true, %if.end
-  %cipher = getelementptr inbounds %struct.key2any_ctx_st, ptr %vctx, i64 0, i32 3
+  %cipher = getelementptr inbounds i8, ptr %vctx, i64 16
   %1 = load ptr, ptr %cipher, align 8
   call void @EVP_CIPHER_free(ptr noundef %1) #5
   store ptr null, ptr %cipher, align 8
   %2 = load ptr, ptr %ciphername, align 8
   %cmp12 = icmp ne ptr %2, null
   %conv = zext i1 %cmp12 to i32
-  %cipher_intent = getelementptr inbounds %struct.key2any_ctx_st, ptr %vctx, i64 0, i32 2
+  %cipher_intent = getelementptr inbounds i8, ptr %vctx, i64 12
   store i32 %conv, ptr %cipher_intent, align 4
   %cmp13.not = icmp eq ptr %2, null
   br i1 %cmp13.not, label %if.end22, label %land.lhs.true15
@@ -354,7 +348,7 @@ if.end22:                                         ; preds = %if.end10, %land.lhs
   br i1 %cmp23.not, label %if.end30, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
-  %save_parameters = getelementptr inbounds %struct.key2any_ctx_st, ptr %vctx, i64 0, i32 1
+  %save_parameters = getelementptr inbounds i8, ptr %vctx, i64 8
   %call26 = call i32 @OSSL_PARAM_get_int(ptr noundef nonnull %call3, ptr noundef nonnull %save_parameters) #5
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %return, label %if.end30
@@ -822,7 +816,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -885,7 +879,7 @@ land.lhs.true6.i15:                               ; preds = %if.else.i12
   br i1 %cmp7.i16, label %if.then11.i21, label %lor.lhs.false8.i17
 
 lor.lhs.false8.i17:                               ; preds = %land.lhs.true6.i15
-  %pwdata.i18 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i18 = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i19 = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i18, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i20 = icmp eq i32 %call9.i19, 0
   br i1 %tobool10.not.i20, label %if.end.i23, label %if.then11.i21
@@ -1071,7 +1065,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -1257,7 +1251,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -1445,13 +1439,13 @@ land.lhs.true6.i:                                 ; preds = %if.then3.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %pwdata.i29 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i29 = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = getelementptr i8, ptr %ctx, i64 16
   %ctx.val.i = load ptr, ptr %1, align 8
   %call.i.i = tail call i32 @PEM_ASN1_write_bio(ptr noundef nonnull @i2d_RSAPrivateKey, ptr noundef nonnull @.str.4, ptr noundef nonnull %call4.i, ptr noundef nonnull %key, ptr noundef %ctx.val.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pw_pem_password, ptr noundef nonnull %pwdata.i29) #5
@@ -1501,7 +1495,7 @@ land.lhs.true6.i14:                               ; preds = %if.then3.i11
   br i1 %cmp7.i15, label %if.then11.i20, label %lor.lhs.false8.i16
 
 lor.lhs.false8.i16:                               ; preds = %land.lhs.true6.i14
-  %pwdata.i17 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i17 = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i18 = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i17, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i19 = icmp eq i32 %call9.i18, 0
   br i1 %tobool10.not.i19, label %if.end.i22, label %if.then11.i20
@@ -1837,13 +1831,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %pwdata.i42 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i42 = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = getelementptr i8, ptr %ctx, i64 16
   %ctx.val.i = load ptr, ptr %1, align 8
   %call.i.i = tail call i32 @PEM_ASN1_write_bio(ptr noundef nonnull @i2d_DSAPrivateKey, ptr noundef nonnull @.str.8, ptr noundef nonnull %call4.i, ptr noundef nonnull %key, ptr noundef %ctx.val.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pw_pem_password, ptr noundef nonnull %pwdata.i42) #5
@@ -1882,7 +1876,7 @@ land.lhs.true6.i15:                               ; preds = %if.else.i12
   br i1 %cmp7.i16, label %if.then11.i21, label %lor.lhs.false8.i17
 
 lor.lhs.false8.i17:                               ; preds = %land.lhs.true6.i15
-  %pwdata.i18 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i18 = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i19 = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i18, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i20 = icmp eq i32 %call9.i19, 0
   br i1 %tobool10.not.i20, label %if.end.i23, label %if.then11.i21
@@ -2028,13 +2022,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %pwdata.i18 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i18 = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = getelementptr i8, ptr %ctx, i64 16
   %ctx.val.i = load ptr, ptr %1, align 8
   %call.i.i = tail call i32 @PEM_ASN1_write_bio(ptr noundef nonnull @i2d_ECPrivateKey, ptr noundef nonnull @.str.11, ptr noundef nonnull %call4.i, ptr noundef nonnull %key, ptr noundef %ctx.val.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pw_pem_password, ptr noundef nonnull %pwdata.i18) #5
@@ -2175,13 +2169,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %pwdata.i18 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i18 = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = getelementptr i8, ptr %ctx, i64 16
   %ctx.val.i = load ptr, ptr %1, align 8
   %call.i.i = tail call i32 @PEM_ASN1_write_bio(ptr noundef nonnull @i2d_ECPrivateKey, ptr noundef nonnull @.str.13, ptr noundef nonnull %call4.i, ptr noundef nonnull %key, ptr noundef %ctx.val.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pw_pem_password, ptr noundef nonnull %pwdata.i18) #5
@@ -4147,7 +4141,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -4157,13 +4151,13 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
   store ptr null, ptr %str.i, align 8
   store i32 -1, ptr %strtype.i, align 4
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %key_to_epki_der_priv_bio.exit, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %save_parameters.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load i32, ptr %save_parameters.i, align 8
   %call.i = call i32 @prepare_dsa_params(ptr noundef nonnull %key, i32 poison, i32 noundef %2, ptr noundef nonnull %str.i, ptr noundef nonnull %strtype.i) #5
   %tobool1.not.i = icmp eq i32 %call.i, 0
@@ -4291,7 +4285,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -4301,13 +4295,13 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
   store ptr null, ptr %str.i, align 8
   store i32 -1, ptr %strtype.i, align 4
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %key_to_epki_pem_priv_bio.exit, label %if.end.i1
 
 if.end.i1:                                        ; preds = %if.then11.i
-  %save_parameters.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load i32, ptr %save_parameters.i, align 8
   %call.i = call i32 @prepare_dsa_params(ptr noundef nonnull %key, i32 poison, i32 noundef %2, ptr noundef nonnull %str.i, ptr noundef nonnull %strtype.i) #5
   %tobool1.not.i = icmp eq i32 %call.i, 0
@@ -4433,7 +4427,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -4540,7 +4534,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -4649,7 +4643,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -4659,7 +4653,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
   store ptr null, ptr %str.i, align 8
   store i32 -1, ptr %strtype.i, align 4
-  %save_parameters.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load i32, ptr %save_parameters.i, align 8
   %call.i = call i32 @prepare_dsa_params(ptr noundef nonnull %key, i32 poison, i32 noundef %1, ptr noundef nonnull %str.i, ptr noundef nonnull %strtype.i) #5
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -4785,7 +4779,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -4894,7 +4888,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -4904,7 +4898,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
   store ptr null, ptr %str.i, align 8
   store i32 -1, ptr %strtype.i, align 4
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %key_to_epki_der_priv_bio.exit, label %if.end.i1
@@ -5036,7 +5030,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -5046,7 +5040,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
   store ptr null, ptr %str.i, align 8
   store i32 -1, ptr %strtype.i, align 4
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %key_to_epki_pem_priv_bio.exit, label %if.end.i1
@@ -5176,7 +5170,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -5283,7 +5277,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -5392,7 +5386,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -5526,7 +5520,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -5635,7 +5629,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -5645,7 +5639,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
   store ptr null, ptr %str.i, align 8
   store i32 -1, ptr %strtype.i, align 4
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %key_to_epki_der_priv_bio.exit, label %if.end.i1
@@ -5777,7 +5771,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -5787,7 +5781,7 @@ if.then11.i:                                      ; preds = %lor.lhs.false8.i, %
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %strtype.i)
   store ptr null, ptr %str.i, align 8
   store i32 -1, ptr %strtype.i, align 4
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %key_to_epki_pem_priv_bio.exit, label %if.end.i1
@@ -5917,7 +5911,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -6024,7 +6018,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -6133,7 +6127,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -6267,7 +6261,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -6374,13 +6368,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
@@ -6497,13 +6491,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
@@ -6620,7 +6614,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -6727,7 +6721,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -6834,7 +6828,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -6951,7 +6945,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -7068,13 +7062,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
@@ -7191,13 +7185,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
@@ -7314,7 +7308,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -7421,7 +7415,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -7528,7 +7522,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -7645,7 +7639,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -7762,13 +7756,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
@@ -7885,13 +7879,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
@@ -8008,7 +8002,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -8115,7 +8109,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -8222,7 +8216,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -8339,7 +8333,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -8456,13 +8450,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
@@ -8579,13 +8573,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %cipher_intent.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent.i = getelementptr inbounds i8, ptr %ctx, i64 12
   %1 = load i32, ptr %cipher_intent.i, align 4
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end.i1
@@ -8702,7 +8696,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -8809,7 +8803,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -8916,7 +8910,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -9033,7 +9027,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -9240,13 +9234,13 @@ land.lhs.true6.i:                                 ; preds = %if.then3.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %pwdata.i29 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i29 = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = getelementptr i8, ptr %ctx, i64 16
   %ctx.val.i = load ptr, ptr %1, align 8
   %call.i.i = tail call i32 @PEM_ASN1_write_bio(ptr noundef nonnull @i2d_RSAPrivateKey, ptr noundef nonnull @.str.4, ptr noundef nonnull %call4.i, ptr noundef nonnull %key, ptr noundef %ctx.val.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pw_pem_password, ptr noundef nonnull %pwdata.i29) #5
@@ -9296,7 +9290,7 @@ land.lhs.true6.i14:                               ; preds = %if.then3.i11
   br i1 %cmp7.i15, label %if.then11.i20, label %lor.lhs.false8.i16
 
 lor.lhs.false8.i16:                               ; preds = %land.lhs.true6.i14
-  %pwdata.i17 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i17 = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i18 = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i17, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i19 = icmp eq i32 %call9.i18, 0
   br i1 %tobool10.not.i19, label %if.end.i22, label %if.then11.i20
@@ -9925,7 +9919,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -9988,7 +9982,7 @@ land.lhs.true6.i15:                               ; preds = %if.else.i12
   br i1 %cmp7.i16, label %if.then11.i21, label %lor.lhs.false8.i17
 
 lor.lhs.false8.i17:                               ; preds = %land.lhs.true6.i15
-  %pwdata.i18 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i18 = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i19 = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i18, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i20 = icmp eq i32 %call9.i19, 0
   br i1 %tobool10.not.i20, label %if.end.i23, label %if.then11.i21
@@ -10166,13 +10160,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %pwdata.i42 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i42 = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = getelementptr i8, ptr %ctx, i64 16
   %ctx.val.i = load ptr, ptr %1, align 8
   %call.i.i = tail call i32 @PEM_ASN1_write_bio(ptr noundef nonnull @i2d_DSAPrivateKey, ptr noundef nonnull @.str.8, ptr noundef nonnull %call4.i, ptr noundef nonnull %key, ptr noundef %ctx.val.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pw_pem_password, ptr noundef nonnull %pwdata.i42) #5
@@ -10211,7 +10205,7 @@ land.lhs.true6.i15:                               ; preds = %if.else.i12
   br i1 %cmp7.i16, label %if.then11.i21, label %lor.lhs.false8.i17
 
 lor.lhs.false8.i17:                               ; preds = %land.lhs.true6.i15
-  %pwdata.i18 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i18 = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i19 = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i18, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i20 = icmp eq i32 %call9.i19, 0
   br i1 %tobool10.not.i20, label %if.end.i23, label %if.then11.i21
@@ -10359,7 +10353,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -10543,13 +10537,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %pwdata.i18 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i18 = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = getelementptr i8, ptr %ctx, i64 16
   %ctx.val.i = load ptr, ptr %1, align 8
   %call.i.i = tail call i32 @PEM_ASN1_write_bio(ptr noundef nonnull @i2d_ECPrivateKey, ptr noundef nonnull @.str.11, ptr noundef nonnull %call4.i, ptr noundef nonnull %key, ptr noundef %ctx.val.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pw_pem_password, ptr noundef nonnull %pwdata.i18) #5
@@ -10692,7 +10686,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -10876,13 +10870,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %pwdata.i18 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i18 = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = getelementptr i8, ptr %ctx, i64 16
   %ctx.val.i = load ptr, ptr %1, align 8
   %call.i.i = tail call i32 @PEM_ASN1_write_bio(ptr noundef nonnull @i2d_ECPrivateKey, ptr noundef nonnull @.str.13, ptr noundef nonnull %call4.i, ptr noundef nonnull %key, ptr noundef %ctx.val.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pw_pem_password, ptr noundef nonnull %pwdata.i18) #5
@@ -11112,13 +11106,13 @@ land.lhs.true6.i:                                 ; preds = %if.then3.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %pwdata.i29 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i29 = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = getelementptr i8, ptr %ctx, i64 16
   %ctx.val.i = load ptr, ptr %1, align 8
   %call.i.i = tail call i32 @PEM_ASN1_write_bio(ptr noundef nonnull @i2d_RSAPrivateKey, ptr noundef nonnull @.str.4, ptr noundef nonnull %call4.i, ptr noundef nonnull %key, ptr noundef %ctx.val.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pw_pem_password, ptr noundef nonnull %pwdata.i29) #5
@@ -11168,7 +11162,7 @@ land.lhs.true6.i14:                               ; preds = %if.then3.i11
   br i1 %cmp7.i15, label %if.then11.i20, label %lor.lhs.false8.i16
 
 lor.lhs.false8.i16:                               ; preds = %land.lhs.true6.i14
-  %pwdata.i17 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i17 = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i18 = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i17, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i19 = icmp eq i32 %call9.i18, 0
   br i1 %tobool10.not.i19, label %if.end.i22, label %if.then11.i20
@@ -11375,13 +11369,13 @@ land.lhs.true6.i:                                 ; preds = %if.then3.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %pwdata.i29 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i29 = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = getelementptr i8, ptr %ctx, i64 16
   %ctx.val.i = load ptr, ptr %1, align 8
   %call.i.i = tail call i32 @PEM_ASN1_write_bio(ptr noundef nonnull @i2d_RSAPrivateKey, ptr noundef nonnull @.str.15, ptr noundef nonnull %call4.i, ptr noundef nonnull %key, ptr noundef %ctx.val.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pw_pem_password, ptr noundef nonnull %pwdata.i29) #5
@@ -11431,7 +11425,7 @@ land.lhs.true6.i14:                               ; preds = %if.then3.i11
   br i1 %cmp7.i15, label %if.then11.i20, label %lor.lhs.false8.i16
 
 lor.lhs.false8.i16:                               ; preds = %land.lhs.true6.i14
-  %pwdata.i17 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i17 = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i18 = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i17, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i19 = icmp eq i32 %call9.i18, 0
   br i1 %tobool10.not.i19, label %if.end.i22, label %if.then11.i20
@@ -12065,7 +12059,7 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
@@ -12249,13 +12243,13 @@ land.lhs.true6.i:                                 ; preds = %if.else.i
   br i1 %cmp7.i, label %if.then11.i, label %lor.lhs.false8.i
 
 lor.lhs.false8.i:                                 ; preds = %land.lhs.true6.i
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9.i = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata.i, ptr noundef nonnull %cb, ptr noundef %cbarg) #5
   %tobool10.not.i = icmp eq i32 %call9.i, 0
   br i1 %tobool10.not.i, label %if.end.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %lor.lhs.false8.i, %land.lhs.true6.i
-  %pwdata.i18 = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i18 = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = getelementptr i8, ptr %ctx, i64 16
   %ctx.val.i = load ptr, ptr %1, align 8
   %call.i.i = tail call i32 @PEM_ASN1_write_bio(ptr noundef nonnull @i2d_ECPrivateKey, ptr noundef nonnull @.str.11, ptr noundef nonnull %call4.i, ptr noundef nonnull %key, ptr noundef %ctx.val.i, ptr noundef null, i32 noundef 0, ptr noundef nonnull @ossl_pw_pem_password, ptr noundef nonnull %pwdata.i18) #5
@@ -12377,7 +12371,7 @@ land.lhs.true6:                                   ; preds = %if.then3
   br i1 %cmp7, label %if.then11, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %land.lhs.true6
-  %pwdata = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata = getelementptr inbounds i8, ptr %ctx, i64 24
   %call9 = tail call i32 @ossl_pw_set_ossl_passphrase_cb(ptr noundef nonnull %pwdata, ptr noundef nonnull %pwcb, ptr noundef %pwcbarg) #5
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.end, label %if.then11
@@ -12657,7 +12651,7 @@ if.then.i:                                        ; preds = %if.then
   br label %return
 
 if.end.i:                                         ; preds = %if.then
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %call1.i = tail call i32 @i2d_DSAparams(ptr noundef %dsa, ptr noundef nonnull %data.i) #5
   store i32 %call1.i, ptr %call.i, align 8
   %cmp3.i = icmp slt i32 %call1.i, 1
@@ -12751,7 +12745,7 @@ if.then.i:                                        ; preds = %if.else
   br label %return
 
 if.end.i:                                         ; preds = %if.else
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %call1.i = tail call i32 @i2d_ECParameters(ptr noundef %eckey, ptr noundef nonnull %data.i) #5
   store i32 %call1.i, ptr %call.i, align 8
   %cmp3.i = icmp slt i32 %call1.i, 1
@@ -12801,7 +12795,7 @@ entry:
   %strtype = alloca i32, align 4
   store ptr null, ptr %str, align 8
   store i32 -1, ptr %strtype, align 4
-  %cipher_intent = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent = getelementptr inbounds i8, ptr %ctx, i64 12
   %0 = load i32, ptr %cipher_intent, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -12811,7 +12805,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end3, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %save_parameters = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load i32, ptr %save_parameters, align 8
   %call = call i32 %p2s(ptr noundef %key, i32 noundef %key_nid, i32 noundef %1, ptr noundef nonnull %str, ptr noundef nonnull %strtype) #5
   %tobool1.not = icmp eq i32 %call, 0
@@ -12872,13 +12866,13 @@ if.else:                                          ; preds = %entry
   store i64 0, ptr %klen.i, align 8
   %0 = load ptr, ptr %ctx, align 8
   %call.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #5
-  %cipher.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 3
+  %cipher.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %cipher.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %p8info_to_encp8.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  %pwdata.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 4
+  %pwdata.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %call1.i = call i32 @ossl_pw_get_passphrase(ptr noundef nonnull %kstr.i, i64 noundef 1024, ptr noundef nonnull %klen.i, ptr noundef null, i32 noundef 1, ptr noundef nonnull %pwdata.i) #5
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.then2.i, label %if.end3.i
@@ -12968,7 +12962,7 @@ entry:
   %strtype = alloca i32, align 4
   store ptr null, ptr %str, align 8
   store i32 -1, ptr %strtype, align 4
-  %cipher_intent = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent = getelementptr inbounds i8, ptr %ctx, i64 12
   %0 = load i32, ptr %cipher_intent, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -12978,7 +12972,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end3, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %save_parameters = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load i32, ptr %save_parameters, align 8
   %call = call i32 %p2s(ptr noundef %key, i32 noundef %key_nid, i32 noundef %1, ptr noundef nonnull %str, ptr noundef nonnull %strtype) #5
   %tobool1.not = icmp eq i32 %call, 0
@@ -13021,7 +13015,7 @@ entry:
   %strtype = alloca i32, align 4
   store ptr null, ptr %str, align 8
   store i32 -1, ptr %strtype, align 4
-  %cipher_intent = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent = getelementptr inbounds i8, ptr %ctx, i64 12
   %0 = load i32, ptr %cipher_intent, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.end.i
@@ -13035,7 +13029,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.not.i, label %if.end3.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %save_parameters.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load i32, ptr %save_parameters.i, align 8
   %call.i = call i32 %p2s(ptr noundef %key, i32 noundef %key_nid, i32 noundef %1, ptr noundef nonnull %str.i, ptr noundef nonnull %strtype.i) #5
   %tobool1.not.i = icmp eq i32 %call.i, 0
@@ -13073,7 +13067,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %save_parameters = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load i32, ptr %save_parameters, align 8
   %call1 = call i32 %p2s(ptr noundef %key, i32 noundef %key_nid, i32 noundef %4, ptr noundef nonnull %str, ptr noundef nonnull %strtype) #5
   %tobool2.not = icmp eq i32 %call1, 0
@@ -13132,7 +13126,7 @@ entry:
   %strtype = alloca i32, align 4
   store ptr null, ptr %str, align 8
   store i32 -1, ptr %strtype, align 4
-  %cipher_intent = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 2
+  %cipher_intent = getelementptr inbounds i8, ptr %ctx, i64 12
   %0 = load i32, ptr %cipher_intent, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.end.i
@@ -13146,7 +13140,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.not.i, label %if.end3.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %save_parameters.i = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load i32, ptr %save_parameters.i, align 8
   %call.i = call i32 %p2s(ptr noundef %key, i32 noundef %key_nid, i32 noundef %1, ptr noundef nonnull %str.i, ptr noundef nonnull %strtype.i) #5
   %tobool1.not.i = icmp eq i32 %call.i, 0
@@ -13184,7 +13178,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %save_parameters = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load i32, ptr %save_parameters, align 8
   %call1 = call i32 %p2s(ptr noundef %key, i32 noundef %key_nid, i32 noundef %4, ptr noundef nonnull %str, ptr noundef nonnull %strtype) #5
   %tobool2.not = icmp eq i32 %call1, 0
@@ -13245,7 +13239,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %save_parameters = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load i32, ptr %save_parameters, align 8
   %call = call i32 %p2s(ptr noundef %key, i32 noundef %key_nid, i32 noundef %0, ptr noundef nonnull %str, ptr noundef nonnull %strtype) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -13331,7 +13325,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %save_parameters = getelementptr inbounds %struct.key2any_ctx_st, ptr %ctx, i64 0, i32 1
+  %save_parameters = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load i32, ptr %save_parameters, align 8
   %call = call i32 %p2s(ptr noundef %key, i32 noundef %key_nid, i32 noundef %0, ptr noundef nonnull %str, ptr noundef nonnull %strtype) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -13396,7 +13390,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %cmp1 = icmp eq i32 %nid, 920
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   br i1 %cmp1, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
@@ -13421,7 +13415,7 @@ if.then10:                                        ; preds = %if.end7
   br label %return
 
 if.end11:                                         ; preds = %if.end7
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call, i64 4
   store i32 16, ptr %type, align 4
   store ptr %call, ptr %pstr, align 8
   store i32 16, ptr %pstrtype, align 4
@@ -13631,7 +13625,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %privkey = getelementptr inbounds %struct.ecx_key_st, ptr %vecxkey, i64 0, i32 4
+  %privkey = getelementptr inbounds i8, ptr %vecxkey, i64 80
   %0 = load ptr, ptr %privkey, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %if.then, label %if.end
@@ -13643,13 +13637,13 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %oct, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %oct, i64 8
   store ptr %0, ptr %data, align 8
-  %keylen = getelementptr inbounds %struct.ecx_key_st, ptr %vecxkey, i64 0, i32 5
+  %keylen = getelementptr inbounds i8, ptr %vecxkey, i64 88
   %1 = load i64, ptr %keylen, align 8
   %conv = trunc i64 %1 to i32
   store i32 %conv, ptr %oct, align 8
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %oct, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %oct, i64 16
   store i64 0, ptr %flags, align 8
   %call = call i32 @i2d_ASN1_OCTET_STRING(ptr noundef nonnull %oct, ptr noundef %pder) #5
   %cmp3 = icmp slt i32 %call, 0
@@ -13681,8 +13675,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %pubkey = getelementptr inbounds %struct.ecx_key_st, ptr %vecxkey, i64 0, i32 3
-  %keylen = getelementptr inbounds %struct.ecx_key_st, ptr %vecxkey, i64 0, i32 5
+  %pubkey = getelementptr inbounds i8, ptr %vecxkey, i64 17
+  %keylen = getelementptr inbounds i8, ptr %vecxkey, i64 88
   %0 = load i64, ptr %keylen, align 8
   %call = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %pubkey, i64 noundef %0, ptr noundef nonnull @.str, i32 noundef 764) #5
   %cmp1 = icmp eq ptr %call, null

@@ -3,10 +3,6 @@ source_filename = "bench/qemu/original/util_selfmap.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.IntervalTreeNode = type { %struct.RBNode, i64, i64, i64 }
-%struct.RBNode = type { i64, ptr, ptr }
-%struct.MapInfo = type { %struct.IntervalTreeNode, i8, i8, i8, i8, i64, i64, i64, ptr }
-
 @.str = private unnamed_addr constant [16 x i8] c"/proc/self/maps\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c" \00", align 1
@@ -54,11 +50,11 @@ if.then7:                                         ; preds = %for.body
   %add.ptr = getelementptr i8, ptr %3, i64 1
   %call10 = call i32 @qemu_strtou64(ptr noundef %add.ptr, ptr noundef null, i32 noundef 16, ptr noundef nonnull %end) #7
   %or11 = or i32 %call10, %call9
-  %arrayidx12 = getelementptr ptr, ptr %call4, i64 2
+  %arrayidx12 = getelementptr i8, ptr %call4, i64 16
   %4 = load ptr, ptr %arrayidx12, align 8
   %call13 = call i32 @qemu_strtou64(ptr noundef %4, ptr noundef null, i32 noundef 16, ptr noundef nonnull %offset) #7
   %or14 = or i32 %or11, %call13
-  %arrayidx15 = getelementptr ptr, ptr %call4, i64 3
+  %arrayidx15 = getelementptr i8, ptr %call4, i64 24
   %5 = load ptr, ptr %arrayidx15, align 8
   %call16 = call i32 @qemu_strtoui(ptr noundef %5, ptr noundef nonnull %p, i32 noundef 16, ptr noundef nonnull %dev_maj) #7
   %or17 = or i32 %or14, %call16
@@ -66,7 +62,7 @@ if.then7:                                         ; preds = %for.body
   %add.ptr18 = getelementptr i8, ptr %6, i64 1
   %call19 = call i32 @qemu_strtoui(ptr noundef %add.ptr18, ptr noundef null, i32 noundef 16, ptr noundef nonnull %dev_min) #7
   %or20 = or i32 %or17, %call19
-  %arrayidx21 = getelementptr ptr, ptr %call4, i64 4
+  %arrayidx21 = getelementptr i8, ptr %call4, i64 32
   %7 = load ptr, ptr %arrayidx21, align 8
   %call22 = call i32 @qemu_strtou64(ptr noundef %7, ptr noundef null, i32 noundef 10, ptr noundef nonnull %inode) #7
   %or23 = or i32 %or20, %call22
@@ -78,7 +74,7 @@ if.then25:                                        ; preds = %if.then7
   br i1 %cmp26, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %if.then25
-  %arrayidx28 = getelementptr ptr, ptr %call4, i64 5
+  %arrayidx28 = getelementptr i8, ptr %call4, i64 40
   %8 = load ptr, ptr %arrayidx28, align 8
   store ptr %8, ptr %p, align 8
   %call29 = call i64 @strspn(ptr noundef %8, ptr noundef nonnull @.str.2) #9
@@ -97,59 +93,59 @@ if.end32:                                         ; preds = %if.else, %if.then27
   %add33 = add i64 %path_len.0, 88
   %call34 = call noalias ptr @g_malloc0(i64 noundef %add33) #10
   %9 = load i64, ptr %start, align 8
-  %start35 = getelementptr inbounds %struct.IntervalTreeNode, ptr %call34, i64 0, i32 1
+  %start35 = getelementptr inbounds i8, ptr %call34, i64 24
   store i64 %9, ptr %start35, align 8
   %10 = load i64, ptr %end, align 8
   %sub = add i64 %10, -1
-  %last = getelementptr inbounds %struct.IntervalTreeNode, ptr %call34, i64 0, i32 2
+  %last = getelementptr inbounds i8, ptr %call34, i64 32
   store i64 %sub, ptr %last, align 8
   %11 = load i64, ptr %offset, align 8
-  %offset37 = getelementptr inbounds %struct.MapInfo, ptr %call34, i64 0, i32 7
+  %offset37 = getelementptr inbounds i8, ptr %call34, i64 72
   store i64 %11, ptr %offset37, align 8
   %12 = load i32, ptr %dev_maj, align 4
   %13 = load i32, ptr %dev_min, align 4
   %call38 = call i64 @gnu_dev_makedev(i32 noundef %12, i32 noundef %13) #11
-  %dev = getelementptr inbounds %struct.MapInfo, ptr %call34, i64 0, i32 5
+  %dev = getelementptr inbounds i8, ptr %call34, i64 56
   store i64 %call38, ptr %dev, align 8
   %14 = load i64, ptr %inode, align 8
-  %inode39 = getelementptr inbounds %struct.MapInfo, ptr %call34, i64 0, i32 6
+  %inode39 = getelementptr inbounds i8, ptr %call34, i64 64
   store i64 %14, ptr %inode39, align 8
-  %arrayidx40 = getelementptr ptr, ptr %call4, i64 1
+  %arrayidx40 = getelementptr i8, ptr %call4, i64 8
   %15 = load ptr, ptr %arrayidx40, align 8
   %16 = load i8, ptr %15, align 1
   %cmp42 = icmp eq i8 %16, 114
-  %is_read = getelementptr inbounds %struct.MapInfo, ptr %call34, i64 0, i32 1
+  %is_read = getelementptr inbounds i8, ptr %call34, i64 48
   %frombool = zext i1 %cmp42 to i8
   store i8 %frombool, ptr %is_read, align 8
   %17 = load ptr, ptr %arrayidx40, align 8
   %arrayidx45 = getelementptr i8, ptr %17, i64 1
   %18 = load i8, ptr %arrayidx45, align 1
   %cmp47 = icmp eq i8 %18, 119
-  %is_write = getelementptr inbounds %struct.MapInfo, ptr %call34, i64 0, i32 2
+  %is_write = getelementptr inbounds i8, ptr %call34, i64 49
   %frombool49 = zext i1 %cmp47 to i8
   store i8 %frombool49, ptr %is_write, align 1
   %19 = load ptr, ptr %arrayidx40, align 8
   %arrayidx51 = getelementptr i8, ptr %19, i64 2
   %20 = load i8, ptr %arrayidx51, align 1
   %cmp53 = icmp eq i8 %20, 120
-  %is_exec = getelementptr inbounds %struct.MapInfo, ptr %call34, i64 0, i32 3
+  %is_exec = getelementptr inbounds i8, ptr %call34, i64 50
   %frombool55 = zext i1 %cmp53 to i8
   store i8 %frombool55, ptr %is_exec, align 2
   %21 = load ptr, ptr %arrayidx40, align 8
   %arrayidx57 = getelementptr i8, ptr %21, i64 3
   %22 = load i8, ptr %arrayidx57, align 1
   %cmp59 = icmp eq i8 %22, 112
-  %is_priv = getelementptr inbounds %struct.MapInfo, ptr %call34, i64 0, i32 4
+  %is_priv = getelementptr inbounds i8, ptr %call34, i64 51
   %frombool61 = zext i1 %cmp59 to i8
   store i8 %frombool61, ptr %is_priv, align 1
   %tobool62.not = icmp eq i64 %path_len.0, 0
   br i1 %tobool62.not, label %if.end65, label %if.then63
 
 if.then63:                                        ; preds = %if.end32
-  %add.ptr64 = getelementptr %struct.MapInfo, ptr %call34, i64 1
+  %add.ptr64 = getelementptr i8, ptr %call34, i64 88
   %23 = load ptr, ptr %p, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr64, ptr align 1 %23, i64 %path_len.0, i1 false)
-  %path = getelementptr inbounds %struct.MapInfo, ptr %call34, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %call34, i64 80
   store ptr %add.ptr64, ptr %path, align 8
   br label %if.end65
 
@@ -234,10 +230,10 @@ common.ret4:                                      ; preds = %entry, %if.then
   ret void
 
 if.then:                                          ; preds = %entry
-  %rb_left = getelementptr inbounds %struct.RBNode, ptr %n, i64 0, i32 2
+  %rb_left = getelementptr inbounds i8, ptr %n, i64 16
   %0 = load ptr, ptr %rb_left, align 8
   tail call fastcc void @free_rbnode(ptr noundef %0)
-  %rb_right = getelementptr inbounds %struct.RBNode, ptr %n, i64 0, i32 1
+  %rb_right = getelementptr inbounds i8, ptr %n, i64 8
   %1 = load ptr, ptr %rb_right, align 8
   tail call fastcc void @free_rbnode(ptr noundef %1)
   tail call void @g_free(ptr noundef nonnull %n) #7

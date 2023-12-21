@@ -869,9 +869,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
 %struct.PyStructSequence_Field = type { ptr, ptr }
-%struct.PyFloatObject = type { %struct._object, double }
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.PyByteArrayObject = type { %struct.PyVarObject, i64, ptr, ptr, i64 }
 %struct.PyStatus = type { i32, ptr, ptr, i32 }
 %struct._PyUnicodeWriter = type { ptr, ptr, i32, i32, i64, i64, i64, i32, i8, i8 }
 
@@ -1025,15 +1023,15 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %2, i64 267776
   %3 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %2, i64 267768
   %4 = getelementptr i8, ptr %3, i64 8
   %.val.i = load ptr, ptr %4, align 8
   store ptr %.val.i, ptr %free_list.i, align 8
@@ -1053,7 +1051,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.end6.i:                                        ; preds = %if.else.i, %if.then.i
   %op.0.i = phi ptr [ %3, %if.then.i ], [ %call3.i, %if.else.i ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %6 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %7 = and i64 %6, 512
@@ -1072,7 +1070,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i, %if.then.i.i, %if.end6.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double 0x7FEFFFFFFFFFFFFF, ptr %ob_fval.i, align 8
   br label %PyFloat_FromDouble.exit
 
@@ -1084,15 +1082,15 @@ PyFloat_FromDouble.exit:                          ; preds = %if.then4.i, %_PyObj
   %call7 = tail call ptr @PyLong_FromLong(i64 noundef 308) #17
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 2, ptr noundef %call7) #17
   %9 = load ptr, ptr %0, align 8
-  %interp.i.i.i29 = getelementptr inbounds %struct._ts, ptr %9, i64 0, i32 2
+  %interp.i.i.i29 = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %interp.i.i.i29, align 8
-  %free_list.i30 = getelementptr inbounds %struct._is, ptr %10, i64 0, i32 45, i32 1
+  %free_list.i30 = getelementptr inbounds i8, ptr %10, i64 267776
   %11 = load ptr, ptr %free_list.i30, align 8
   %cmp.not.i31 = icmp eq ptr %11, null
   br i1 %cmp.not.i31, label %if.else.i47, label %if.then.i32
 
 if.then.i32:                                      ; preds = %PyFloat_FromDouble.exit
-  %float_state.i.i33 = getelementptr inbounds %struct._is, ptr %10, i64 0, i32 45
+  %float_state.i.i33 = getelementptr inbounds i8, ptr %10, i64 267768
   %12 = getelementptr i8, ptr %11, i64 8
   %.val.i34 = load ptr, ptr %12, align 8
   store ptr %.val.i34, ptr %free_list.i30, align 8
@@ -1112,7 +1110,7 @@ if.then4.i50:                                     ; preds = %if.else.i47
 
 if.end6.i36:                                      ; preds = %if.else.i47, %if.then.i32
   %op.0.i37 = phi ptr [ %11, %if.then.i32 ], [ %call3.i48, %if.else.i47 ]
-  %ob_type.i.i.i38 = getelementptr inbounds %struct._object, ptr %op.0.i37, i64 0, i32 1
+  %ob_type.i.i.i38 = getelementptr inbounds i8, ptr %op.0.i37, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i38, align 8
   %14 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %15 = and i64 %14, 512
@@ -1131,7 +1129,7 @@ if.end.i.i.i43:                                   ; preds = %if.then.i.i40
 
 _PyObject_Init.exit.i44:                          ; preds = %if.end.i.i.i43, %if.then.i.i40, %if.end6.i36
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i37) #17
-  %ob_fval.i45 = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i37, i64 0, i32 1
+  %ob_fval.i45 = getelementptr inbounds i8, ptr %op.0.i37, i64 16
   store double 0x10000000000000, ptr %ob_fval.i45, align 8
   br label %PyFloat_FromDouble.exit52
 
@@ -1147,15 +1145,15 @@ PyFloat_FromDouble.exit52:                        ; preds = %if.then4.i50, %_PyO
   %call22 = tail call ptr @PyLong_FromLong(i64 noundef 53) #17
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 7, ptr noundef %call22) #17
   %17 = load ptr, ptr %0, align 8
-  %interp.i.i.i53 = getelementptr inbounds %struct._ts, ptr %17, i64 0, i32 2
+  %interp.i.i.i53 = getelementptr inbounds i8, ptr %17, i64 16
   %18 = load ptr, ptr %interp.i.i.i53, align 8
-  %free_list.i54 = getelementptr inbounds %struct._is, ptr %18, i64 0, i32 45, i32 1
+  %free_list.i54 = getelementptr inbounds i8, ptr %18, i64 267776
   %19 = load ptr, ptr %free_list.i54, align 8
   %cmp.not.i55 = icmp eq ptr %19, null
   br i1 %cmp.not.i55, label %if.else.i71, label %if.then.i56
 
 if.then.i56:                                      ; preds = %PyFloat_FromDouble.exit52
-  %float_state.i.i57 = getelementptr inbounds %struct._is, ptr %18, i64 0, i32 45
+  %float_state.i.i57 = getelementptr inbounds i8, ptr %18, i64 267768
   %20 = getelementptr i8, ptr %19, i64 8
   %.val.i58 = load ptr, ptr %20, align 8
   store ptr %.val.i58, ptr %free_list.i54, align 8
@@ -1175,7 +1173,7 @@ if.then4.i74:                                     ; preds = %if.else.i71
 
 if.end6.i60:                                      ; preds = %if.else.i71, %if.then.i56
   %op.0.i61 = phi ptr [ %19, %if.then.i56 ], [ %call3.i72, %if.else.i71 ]
-  %ob_type.i.i.i62 = getelementptr inbounds %struct._object, ptr %op.0.i61, i64 0, i32 1
+  %ob_type.i.i.i62 = getelementptr inbounds i8, ptr %op.0.i61, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i62, align 8
   %22 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %23 = and i64 %22, 512
@@ -1194,7 +1192,7 @@ if.end.i.i.i67:                                   ; preds = %if.then.i.i64
 
 _PyObject_Init.exit.i68:                          ; preds = %if.end.i.i.i67, %if.then.i.i64, %if.end6.i60
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i61) #17
-  %ob_fval.i69 = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i61, i64 0, i32 1
+  %ob_fval.i69 = getelementptr inbounds i8, ptr %op.0.i61, i64 16
   store double 0x3CB0000000000000, ptr %ob_fval.i69, align 8
   br label %PyFloat_FromDouble.exit76
 
@@ -1241,15 +1239,15 @@ define dso_local ptr @PyFloat_FromDouble(double noundef %fval) local_unnamed_add
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i, align 8
-  %free_list = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 45, i32 1
+  %free_list = getelementptr inbounds i8, ptr %2, i64 267776
   %3 = load ptr, ptr %free_list, align 8
   %cmp.not = icmp eq ptr %3, null
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %float_state.i = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 45
+  %float_state.i = getelementptr inbounds i8, ptr %2, i64 267768
   %4 = getelementptr i8, ptr %3, i64 8
   %.val = load ptr, ptr %4, align 8
   store ptr %.val, ptr %free_list, align 8
@@ -1269,7 +1267,7 @@ if.then4:                                         ; preds = %if.else
 
 if.end6:                                          ; preds = %if.else, %if.then
   %op.0 = phi ptr [ %3, %if.then ], [ %call3, %if.else ]
-  %ob_type.i.i = getelementptr inbounds %struct._object, ptr %op.0, i64 0, i32 1
+  %ob_type.i.i = getelementptr inbounds i8, ptr %op.0, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i, align 8
   %6 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %7 = and i64 %6, 512
@@ -1288,7 +1286,7 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 _PyObject_Init.exit:                              ; preds = %if.end6, %if.then.i, %if.end.i.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0) #17
-  %ob_fval = getelementptr inbounds %struct.PyFloatObject, ptr %op.0, i64 0, i32 1
+  %ob_fval = getelementptr inbounds i8, ptr %op.0, i64 16
   store double %fval, ptr %ob_fval, align 8
   br label %return
 
@@ -1338,7 +1336,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool7.not, label %if.else11, label %if.then8
 
 if.then8:                                         ; preds = %if.else
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %v, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %v, i64 32
   %4 = getelementptr i8, ptr %v, i64 16
   %v.val20 = load i64, ptr %4, align 8
   store i64 %v.val20, ptr %len, align 8
@@ -1360,7 +1358,7 @@ if.then14:                                        ; preds = %if.else11, %PyObjec
   br i1 %tobool.not.i, label %PyByteArray_AS_STRING.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then14
-  %ob_start.i = getelementptr inbounds %struct.PyByteArrayObject, ptr %v, i64 0, i32 3
+  %ob_start.i = getelementptr inbounds i8, ptr %v, i64 40
   %6 = load ptr, ptr %ob_start.i, align 8
   br label %PyByteArray_AS_STRING.exit
 
@@ -1376,7 +1374,7 @@ if.else17:                                        ; preds = %PyObject_TypeCheck.
 
 if.then20:                                        ; preds = %if.else17
   %7 = load ptr, ptr %view, align 8
-  %len21 = getelementptr inbounds %struct.Py_buffer, ptr %view, i64 0, i32 2
+  %len21 = getelementptr inbounds i8, ptr %view, i64 16
   %8 = load i64, ptr %len21, align 8
   store i64 %8, ptr %len, align 8
   %call22 = call ptr @PyBytes_FromStringAndSize(ptr noundef %7, i64 noundef %8) #17
@@ -1388,13 +1386,13 @@ if.then24:                                        ; preds = %if.then20
   br label %return
 
 if.end25:                                         ; preds = %if.then20
-  %ob_sval.i25 = getelementptr inbounds %struct.PyBytesObject, ptr %call22, i64 0, i32 2
+  %ob_sval.i25 = getelementptr inbounds i8, ptr %call22, i64 32
   br label %if.end33
 
 if.else27:                                        ; preds = %if.else17
   %9 = load ptr, ptr @PyExc_TypeError, align 8
   %v.val = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %v.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %v.val, i64 24
   %10 = load ptr, ptr %tp_name, align 8
   %call29 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %9, ptr noundef nonnull @.str, ptr noundef %10) #17
   br label %return
@@ -1517,15 +1515,15 @@ land.lhs.true:                                    ; preds = %if.else
 if.else32:                                        ; preds = %land.lhs.true, %if.else
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %8 = load ptr, ptr %7, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %8, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %9, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %9, i64 267776
   %10 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else32
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %9, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %9, i64 267768
   %11 = getelementptr i8, ptr %10, i64 8
   %.val.i = load ptr, ptr %11, align 8
   store ptr %.val.i, ptr %free_list.i, align 8
@@ -1545,7 +1543,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.end6.i:                                        ; preds = %if.else.i, %if.then.i
   %op.0.i = phi ptr [ %10, %if.then.i ], [ %call3.i, %if.else.i ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %13 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %14 = and i64 %13, 512
@@ -1564,7 +1562,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i, %if.then.i.i, %if.end6.i
   call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double %call22, ptr %ob_fval.i, align 8
   br label %return
 
@@ -1604,9 +1602,9 @@ define hidden void @_PyFloat_ExactDealloc(ptr noundef %obj) local_unnamed_addr #
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i, align 8
-  %float_state.i = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 45
+  %float_state.i = getelementptr inbounds i8, ptr %2, i64 267768
   %3 = load i32, ptr %float_state.i, align 8
   %cmp = icmp sgt i32 %3, 99
   br i1 %cmp, label %if.then, label %if.end
@@ -1618,9 +1616,9 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %inc = add nsw i32 %3, 1
   store i32 %inc, ptr %float_state.i, align 8
-  %free_list = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 45, i32 1
+  %free_list = getelementptr inbounds i8, ptr %2, i64 267776
   %4 = load ptr, ptr %free_list, align 8
-  %ob_type.i = getelementptr inbounds %struct._object, ptr %obj, i64 0, i32 1
+  %ob_type.i = getelementptr inbounds i8, ptr %obj, i64 8
   store ptr %4, ptr %ob_type.i, align 8
   store ptr %obj, ptr %free_list, align 8
   br label %return
@@ -1659,19 +1657,19 @@ if.then2:                                         ; preds = %if.end, %PyObject_T
 
 if.end4:                                          ; preds = %PyObject_TypeCheck.exit
   %op.val35 = load ptr, ptr %0, align 8
-  %tp_as_number = getelementptr inbounds %struct._typeobject, ptr %op.val35, i64 0, i32 10
+  %tp_as_number = getelementptr inbounds i8, ptr %op.val35, i64 96
   %2 = load ptr, ptr %tp_as_number, align 8
   %cond = icmp eq ptr %2, null
   br i1 %cond, label %if.end19, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end4
-  %nb_float = getelementptr inbounds %struct.PyNumberMethods, ptr %2, i64 0, i32 18
+  %nb_float = getelementptr inbounds i8, ptr %2, i64 144
   %3 = load ptr, ptr %nb_float, align 8
   %cmp7 = icmp eq ptr %3, null
   br i1 %cmp7, label %land.lhs.true, label %if.end22
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %nb_index = getelementptr inbounds %struct.PyNumberMethods, ptr %2, i64 0, i32 33
+  %nb_index = getelementptr inbounds i8, ptr %2, i64 264
   %4 = load ptr, ptr %nb_index, align 8
   %tobool10.not = icmp eq ptr %4, null
   br i1 %tobool10.not, label %if.end19, label %if.then11
@@ -1700,7 +1698,7 @@ if.then1.i74:                                     ; preds = %if.end.i71
 
 if.end19:                                         ; preds = %if.end4, %land.lhs.true
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %op.val35, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %op.val35, i64 24
   %8 = load ptr, ptr %tp_name, align 8
   %call21 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.2, ptr noundef %8) #17
   br label %return
@@ -1720,10 +1718,10 @@ PyObject_TypeCheck.exit47:                        ; preds = %if.end27
   %call2.i44 = tail call i32 @PyType_IsSubtype(ptr noundef %call24.val36, ptr noundef nonnull @PyFloat_Type) #17
   %tobool3.i45.not = icmp eq i32 %call2.i44, 0
   %op.val33 = load ptr, ptr %0, align 8
-  %tp_name35 = getelementptr inbounds %struct._typeobject, ptr %op.val33, i64 0, i32 1
+  %tp_name35 = getelementptr inbounds i8, ptr %op.val33, i64 24
   %10 = load ptr, ptr %tp_name35, align 8
   %call24.val32 = load ptr, ptr %9, align 8
-  %tp_name37 = getelementptr inbounds %struct._typeobject, ptr %call24.val32, i64 0, i32 1
+  %tp_name37 = getelementptr inbounds i8, ptr %call24.val32, i64 24
   %11 = load ptr, ptr %tp_name37, align 8
   br i1 %tobool3.i45.not, label %if.then33, label %if.end39
 
@@ -1809,9 +1807,9 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i.i.i, align 8
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %3, i64 267768
   %4 = load i32, ptr %float_state.i.i, align 8
   %cmp.i5 = icmp sgt i32 %4, 99
   br i1 %cmp.i5, label %if.then.i, label %if.end.i
@@ -1823,14 +1821,14 @@ if.then.i:                                        ; preds = %if.then
 if.end.i:                                         ; preds = %if.then
   %inc.i = add nsw i32 %4, 1
   store i32 %inc.i, ptr %float_state.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %3, i64 267776
   %5 = load ptr, ptr %free_list.i, align 8
   store ptr %5, ptr %0, align 8
   store ptr %op, ptr %free_list.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %op.val4, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %op.val4, i64 320
   %6 = load ptr, ptr %tp_free, align 8
   tail call void %6(ptr noundef nonnull %op) #17
   br label %if.end
@@ -1866,7 +1864,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define internal i64 @float_hash(ptr noundef %v) #1 {
 entry:
-  %ob_fval = getelementptr inbounds %struct.PyFloatObject, ptr %v, i64 0, i32 1
+  %ob_fval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load double, ptr %ob_fval, align 8
   %call = tail call i64 @_Py_HashDouble(ptr noundef %v, double noundef %0) #17
   ret i64 %call
@@ -2146,7 +2144,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %tp_init = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 35
+  %tp_init = getelementptr inbounds i8, ptr %type, i64 296
   %0 = load ptr, ptr %tp_init, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 35), align 8
   %cmp2 = icmp ne ptr %0, %1
@@ -2184,7 +2182,7 @@ if.end15:                                         ; preds = %if.end, %if.end15th
   br i1 %cmp17, label %skip_optional, label %if.end19
 
 if.end19:                                         ; preds = %if.end15
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   %3 = load ptr, ptr %ob_item, align 8
   br label %skip_optional
 
@@ -2261,11 +2259,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %func = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr @__func__._PyFloat_InitTypes, ptr %func, align 8
-  %err_msg = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i64 0, i32 2
+  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr @.str.5, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i64 0, i32 3
+  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 
@@ -2282,7 +2280,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyFloat_ClearFreeList(ptr nocapture noundef %interp) local_unnamed_addr #1 {
 entry:
-  %free_list = getelementptr inbounds %struct._is, ptr %interp, i64 0, i32 45, i32 1
+  %free_list = getelementptr inbounds i8, ptr %interp, i64 267776
   %0 = load ptr, ptr %free_list, align 8
   %cmp.not5 = icmp eq ptr %0, null
   br i1 %cmp.not5, label %while.end, label %while.body
@@ -2296,7 +2294,7 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %while.body, %entry
-  %float_state = getelementptr inbounds %struct._is, ptr %interp, i64 0, i32 45
+  %float_state = getelementptr inbounds i8, ptr %interp, i64 267768
   store ptr null, ptr %free_list, align 8
   store i32 0, ptr %float_state, align 8
   ret void
@@ -2305,7 +2303,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyFloat_Fini(ptr nocapture noundef %interp) local_unnamed_addr #1 {
 entry:
-  %free_list.i = getelementptr inbounds %struct._is, ptr %interp, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %interp, i64 267776
   %0 = load ptr, ptr %free_list.i, align 8
   %cmp.not5.i = icmp eq ptr %0, null
   br i1 %cmp.not5.i, label %_PyFloat_ClearFreeList.exit, label %while.body.i
@@ -2319,7 +2317,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   br i1 %cmp.not.i, label %_PyFloat_ClearFreeList.exit, label %while.body.i, !llvm.loop !8
 
 _PyFloat_ClearFreeList.exit:                      ; preds = %while.body.i, %entry
-  %float_state.i = getelementptr inbounds %struct._is, ptr %interp, i64 0, i32 45
+  %float_state.i = getelementptr inbounds i8, ptr %interp, i64 267768
   store ptr null, ptr %free_list.i, align 8
   store i32 0, ptr %float_state.i, align 8
   ret void
@@ -2339,9 +2337,9 @@ define hidden void @_PyFloat_DebugMallocStats(ptr noundef %out) local_unnamed_ad
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i, align 8
-  %float_state.i = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 45
+  %float_state.i = getelementptr inbounds i8, ptr %2, i64 267768
   %3 = load i32, ptr %float_state.i, align 8
   tail call void @_PyDebugAllocatorStats(ptr noundef %out, ptr noundef nonnull @.str.6, i32 noundef %3, i64 noundef 24) #17
   ret void
@@ -2897,7 +2895,7 @@ if.else33:                                        ; preds = %entry
   br i1 %or.cond29, label %if.then42, label %if.end47
 
 if.then42:                                        ; preds = %if.else33
-  %arrayidx = getelementptr inbounds [4 x i8], ptr %buf, i64 0, i64 3
+  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 3
   br label %for.body
 
 for.body:                                         ; preds = %if.then42, %for.body
@@ -3005,7 +3003,7 @@ if.else54:                                        ; preds = %entry
   br i1 %or.cond45, label %if.then63, label %if.end68
 
 if.then63:                                        ; preds = %if.else54
-  %arrayidx = getelementptr inbounds [8 x i8], ptr %buf, i64 0, i64 7
+  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 7
   br label %for.body
 
 for.body:                                         ; preds = %if.then63, %for.body
@@ -3146,15 +3144,15 @@ if.end14:                                         ; preds = %land.lhs.true.i17, 
   %add = fadd double %a.2, %b.2
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %11 = load ptr, ptr %10, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %11, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %12, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %12, i64 267776
   %13 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %if.else.i33, label %if.then.i27
 
 if.then.i27:                                      ; preds = %if.end14
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %12, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %12, i64 267768
   %14 = getelementptr i8, ptr %13, i64 8
   %.val.i28 = load ptr, ptr %14, align 8
   store ptr %.val.i28, ptr %free_list.i, align 8
@@ -3174,7 +3172,7 @@ if.then4.i:                                       ; preds = %if.else.i33
 
 if.end6.i:                                        ; preds = %if.else.i33, %if.then.i27
   %op.0.i = phi ptr [ %13, %if.then.i27 ], [ %call3.i34, %if.else.i33 ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %16 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %17 = and i64 %16, 512
@@ -3193,7 +3191,7 @@ if.end.i.i.i31:                                   ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i31, %if.then.i.i, %if.end6.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double %add, ptr %ob_fval.i, align 8
   br label %return
 
@@ -3298,15 +3296,15 @@ if.end14:                                         ; preds = %land.lhs.true.i17, 
   %sub = fsub double %a.2, %b.2
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %11 = load ptr, ptr %10, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %11, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %12, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %12, i64 267776
   %13 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %if.else.i33, label %if.then.i27
 
 if.then.i27:                                      ; preds = %if.end14
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %12, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %12, i64 267768
   %14 = getelementptr i8, ptr %13, i64 8
   %.val.i28 = load ptr, ptr %14, align 8
   store ptr %.val.i28, ptr %free_list.i, align 8
@@ -3326,7 +3324,7 @@ if.then4.i:                                       ; preds = %if.else.i33
 
 if.end6.i:                                        ; preds = %if.else.i33, %if.then.i27
   %op.0.i = phi ptr [ %13, %if.then.i27 ], [ %call3.i34, %if.else.i33 ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %16 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %17 = and i64 %16, 512
@@ -3345,7 +3343,7 @@ if.end.i.i.i31:                                   ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i31, %if.then.i.i, %if.end6.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double %sub, ptr %ob_fval.i, align 8
   br label %return
 
@@ -3450,15 +3448,15 @@ if.end14:                                         ; preds = %land.lhs.true.i17, 
   %mul = fmul double %a.2, %b.2
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %11 = load ptr, ptr %10, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %11, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %12, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %12, i64 267776
   %13 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %13, null
   br i1 %cmp.not.i, label %if.else.i33, label %if.then.i27
 
 if.then.i27:                                      ; preds = %if.end14
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %12, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %12, i64 267768
   %14 = getelementptr i8, ptr %13, i64 8
   %.val.i28 = load ptr, ptr %14, align 8
   store ptr %.val.i28, ptr %free_list.i, align 8
@@ -3478,7 +3476,7 @@ if.then4.i:                                       ; preds = %if.else.i33
 
 if.end6.i:                                        ; preds = %if.else.i33, %if.then.i27
   %op.0.i = phi ptr [ %13, %if.then.i27 ], [ %call3.i34, %if.else.i33 ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %16 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %17 = and i64 %16, 512
@@ -3497,7 +3495,7 @@ if.end.i.i.i31:                                   ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i31, %if.then.i.i, %if.end6.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double %mul, ptr %ob_fval.i, align 8
   br label %return
 
@@ -3631,15 +3629,15 @@ if.end29:                                         ; preds = %if.then20, %if.then
   %mod.0 = phi double [ %add, %if.then26 ], [ %call18, %if.then20 ], [ %12, %if.else28 ]
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %14 = load ptr, ptr %13, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %14, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %15, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %15, i64 267776
   %16 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %16, null
   br i1 %cmp.not.i, label %if.else.i36, label %if.then.i30
 
 if.then.i30:                                      ; preds = %if.end29
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %15, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %15, i64 267768
   %17 = getelementptr i8, ptr %16, i64 8
   %.val.i31 = load ptr, ptr %17, align 8
   store ptr %.val.i31, ptr %free_list.i, align 8
@@ -3659,7 +3657,7 @@ if.then4.i:                                       ; preds = %if.else.i36
 
 if.end6.i:                                        ; preds = %if.else.i36, %if.then.i30
   %op.0.i = phi ptr [ %16, %if.then.i30 ], [ %call3.i37, %if.else.i36 ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %19 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %20 = and i64 %19, 512
@@ -3678,7 +3676,7 @@ if.end.i.i.i34:                                   ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i34, %if.then.i.i, %if.end6.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double %mod.0, ptr %ob_fval.i, align 8
   br label %return
 
@@ -3950,15 +3948,15 @@ if.end17:                                         ; preds = %if.then.i22, %if.th
 if.then19:                                        ; preds = %if.end17
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %12 = load ptr, ptr %11, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %12, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %13, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %13, i64 267776
   %14 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %14, null
   br i1 %cmp.not.i, label %if.else.i42, label %if.then.i36
 
 if.then.i36:                                      ; preds = %if.then19
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %13, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %13, i64 267768
   %15 = getelementptr i8, ptr %14, i64 8
   %.val.i37 = load ptr, ptr %15, align 8
   store ptr %.val.i37, ptr %free_list.i, align 8
@@ -3978,7 +3976,7 @@ if.then4.i:                                       ; preds = %if.else.i42
 
 if.end6.i:                                        ; preds = %if.else.i42, %if.then.i36
   %op.0.i = phi ptr [ %14, %if.then.i36 ], [ %call3.i43, %if.else.i42 ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %17 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %18 = and i64 %17, 512
@@ -3997,7 +3995,7 @@ if.end.i.i.i40:                                   ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i40, %if.then.i.i, %if.end6.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double 1.000000e+00, ptr %ob_fval.i, align 8
   br label %return
 
@@ -4037,15 +4035,15 @@ if.then30:                                        ; preds = %if.end28
 if.then32:                                        ; preds = %if.then30
   %25 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %26 = load ptr, ptr %25, align 8
-  %interp.i.i.i45 = getelementptr inbounds %struct._ts, ptr %26, i64 0, i32 2
+  %interp.i.i.i45 = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load ptr, ptr %interp.i.i.i45, align 8
-  %free_list.i46 = getelementptr inbounds %struct._is, ptr %27, i64 0, i32 45, i32 1
+  %free_list.i46 = getelementptr inbounds i8, ptr %27, i64 267776
   %28 = load ptr, ptr %free_list.i46, align 8
   %cmp.not.i47 = icmp eq ptr %28, null
   br i1 %cmp.not.i47, label %if.else.i63, label %if.then.i48
 
 if.then.i48:                                      ; preds = %if.then32
-  %float_state.i.i49 = getelementptr inbounds %struct._is, ptr %27, i64 0, i32 45
+  %float_state.i.i49 = getelementptr inbounds i8, ptr %27, i64 267768
   %29 = getelementptr i8, ptr %28, i64 8
   %.val.i50 = load ptr, ptr %29, align 8
   store ptr %.val.i50, ptr %free_list.i46, align 8
@@ -4065,7 +4063,7 @@ if.then4.i66:                                     ; preds = %if.else.i63
 
 if.end6.i52:                                      ; preds = %if.else.i63, %if.then.i48
   %op.0.i53 = phi ptr [ %28, %if.then.i48 ], [ %call3.i64, %if.else.i63 ]
-  %ob_type.i.i.i54 = getelementptr inbounds %struct._object, ptr %op.0.i53, i64 0, i32 1
+  %ob_type.i.i.i54 = getelementptr inbounds i8, ptr %op.0.i53, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i54, align 8
   %31 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %32 = and i64 %31, 512
@@ -4084,7 +4082,7 @@ if.end.i.i.i59:                                   ; preds = %if.then.i.i56
 
 _PyObject_Init.exit.i60:                          ; preds = %if.end.i.i.i59, %if.then.i.i56, %if.end6.i52
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i53) #17
-  %ob_fval.i61 = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i53, i64 0, i32 1
+  %ob_fval.i61 = getelementptr inbounds i8, ptr %op.0.i53, i64 16
   store double 1.000000e+00, ptr %ob_fval.i61, align 8
   br label %return
 
@@ -4155,7 +4153,7 @@ if.then88:                                        ; preds = %if.end85
 
 if.then91:                                        ; preds = %if.then88
   %39 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyComplex_Type, i64 0, i32 10), align 8
-  %nb_power = getelementptr inbounds %struct.PyNumberMethods, ptr %39, i64 0, i32 5
+  %nb_power = getelementptr inbounds i8, ptr %39, i64 40
   %40 = load ptr, ptr %nb_power, align 8
   %call92 = tail call ptr %40(ptr noundef nonnull %v, ptr noundef nonnull %w, ptr noundef nonnull @_Py_NoneStruct) #17
   br label %return
@@ -4208,20 +4206,20 @@ return:                                           ; preds = %land.lhs.true.i26, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @float_neg(ptr nocapture noundef readonly %v) #1 {
 entry:
-  %ob_fval = getelementptr inbounds %struct.PyFloatObject, ptr %v, i64 0, i32 1
+  %ob_fval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load double, ptr %ob_fval, align 8
   %fneg = fneg double %0
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %3, i64 267776
   %4 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %3, i64 267768
   %5 = getelementptr i8, ptr %4, i64 8
   %.val.i = load ptr, ptr %5, align 8
   store ptr %.val.i, ptr %free_list.i, align 8
@@ -4241,7 +4239,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.end6.i:                                        ; preds = %if.else.i, %if.then.i
   %op.0.i = phi ptr [ %4, %if.then.i ], [ %call3.i, %if.else.i ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %7 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %8 = and i64 %7, 512
@@ -4260,7 +4258,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i, %if.then.i.i, %if.end6.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double %fneg, ptr %ob_fval.i, align 8
   br label %PyFloat_FromDouble.exit
 
@@ -4288,19 +4286,19 @@ if.end.i.i:                                       ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %entry
-  %ob_fval = getelementptr inbounds %struct.PyFloatObject, ptr %v, i64 0, i32 1
+  %ob_fval = getelementptr inbounds i8, ptr %v, i64 16
   %2 = load double, ptr %ob_fval, align 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %4 = load ptr, ptr %3, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %4, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %5, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %5, i64 267776
   %6 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %6, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %5, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %5, i64 267768
   %7 = getelementptr i8, ptr %6, i64 8
   %.val.i = load ptr, ptr %7, align 8
   store ptr %.val.i, ptr %free_list.i, align 8
@@ -4320,7 +4318,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.end6.i:                                        ; preds = %if.else.i, %if.then.i
   %op.0.i = phi ptr [ %6, %if.then.i ], [ %call3.i, %if.else.i ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %9 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %10 = and i64 %9, 512
@@ -4339,7 +4337,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i, %if.then.i.i, %if.end6.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double %2, ptr %ob_fval.i, align 8
   br label %return
 
@@ -4351,20 +4349,20 @@ return:                                           ; preds = %_PyObject_Init.exit
 ; Function Attrs: nounwind uwtable
 define internal ptr @float_abs(ptr nocapture noundef readonly %v) #1 {
 entry:
-  %ob_fval = getelementptr inbounds %struct.PyFloatObject, ptr %v, i64 0, i32 1
+  %ob_fval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load double, ptr %ob_fval, align 8
   %1 = tail call double @llvm.fabs.f64(double %0)
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %3, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %4, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %4, i64 267776
   %5 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %4, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %4, i64 267768
   %6 = getelementptr i8, ptr %5, i64 8
   %.val.i = load ptr, ptr %6, align 8
   store ptr %.val.i, ptr %free_list.i, align 8
@@ -4384,7 +4382,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.end6.i:                                        ; preds = %if.else.i, %if.then.i
   %op.0.i = phi ptr [ %5, %if.then.i ], [ %call3.i, %if.else.i ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %8 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %9 = and i64 %8, 512
@@ -4403,7 +4401,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i, %if.then.i.i, %if.end6.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double %1, ptr %ob_fval.i, align 8
   br label %PyFloat_FromDouble.exit
 
@@ -4415,7 +4413,7 @@ PyFloat_FromDouble.exit:                          ; preds = %if.then4.i, %_PyObj
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @float_bool(ptr nocapture noundef readonly %v) #11 {
 entry:
-  %ob_fval = getelementptr inbounds %struct.PyFloatObject, ptr %v, i64 0, i32 1
+  %ob_fval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load double, ptr %ob_fval, align 8
   %cmp = fcmp une double %0, 0.000000e+00
   %conv = zext i1 %cmp to i32
@@ -4574,15 +4572,15 @@ _float_div_mod.exit:                              ; preds = %if.then14.i, %if.el
   %floordiv.0 = phi double [ %12, %if.then10.i ], [ %add15.i, %if.then14.i ], [ %13, %if.else17.i ]
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %15 = load ptr, ptr %14, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %15, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %16 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %16, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %16, i64 267776
   %17 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %17, null
   br i1 %cmp.not.i, label %if.else.i36, label %if.then.i30
 
 if.then.i30:                                      ; preds = %_float_div_mod.exit
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %16, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %16, i64 267768
   %18 = getelementptr i8, ptr %17, i64 8
   %.val.i31 = load ptr, ptr %18, align 8
   store ptr %.val.i31, ptr %free_list.i, align 8
@@ -4602,7 +4600,7 @@ if.then4.i:                                       ; preds = %if.else.i36
 
 if.end6.i:                                        ; preds = %if.else.i36, %if.then.i30
   %op.0.i = phi ptr [ %17, %if.then.i30 ], [ %call3.i37, %if.else.i36 ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %20 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %21 = and i64 %20, 512
@@ -4621,7 +4619,7 @@ if.end.i.i.i34:                                   ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i34, %if.then.i.i, %if.end6.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double %floordiv.0, ptr %ob_fval.i, align 8
   br label %return
 
@@ -4736,15 +4734,15 @@ if.end17:                                         ; preds = %land.lhs.true.i17, 
   %div = fdiv double %a.2, %b.257
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %12 = load ptr, ptr %11, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %12, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %13 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %13, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %13, i64 267776
   %14 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %14, null
   br i1 %cmp.not.i, label %if.else.i33, label %if.then.i27
 
 if.then.i27:                                      ; preds = %if.end17
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %13, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %13, i64 267768
   %15 = getelementptr i8, ptr %14, i64 8
   %.val.i28 = load ptr, ptr %15, align 8
   store ptr %.val.i28, ptr %free_list.i, align 8
@@ -4764,7 +4762,7 @@ if.then4.i:                                       ; preds = %if.else.i33
 
 if.end6.i:                                        ; preds = %if.else.i33, %if.then.i27
   %op.0.i = phi ptr [ %14, %if.then.i27 ], [ %call3.i34, %if.else.i33 ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %17 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %18 = and i64 %17, 512
@@ -4783,7 +4781,7 @@ if.end.i.i.i31:                                   ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i31, %if.then.i.i, %if.end6.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double %div, ptr %ob_fval.i, align 8
   br label %return
 
@@ -4878,19 +4876,19 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
   br label %float_conjugate_impl.exit
 
 if.else.i.i:                                      ; preds = %entry
-  %ob_fval.i.i = getelementptr inbounds %struct.PyFloatObject, ptr %self, i64 0, i32 1
+  %ob_fval.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %2 = load double, ptr %ob_fval.i.i, align 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %4 = load ptr, ptr %3, align 8
-  %interp.i.i.i.i.i = getelementptr inbounds %struct._ts, ptr %4, i64 0, i32 2
+  %interp.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %interp.i.i.i.i.i, align 8
-  %free_list.i.i.i = getelementptr inbounds %struct._is, ptr %5, i64 0, i32 45, i32 1
+  %free_list.i.i.i = getelementptr inbounds i8, ptr %5, i64 267776
   %6 = load ptr, ptr %free_list.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i.i
-  %float_state.i.i.i.i = getelementptr inbounds %struct._is, ptr %5, i64 0, i32 45
+  %float_state.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 267768
   %7 = getelementptr i8, ptr %6, i64 8
   %.val.i.i.i = load ptr, ptr %7, align 8
   store ptr %.val.i.i.i, ptr %free_list.i.i.i, align 8
@@ -4910,7 +4908,7 @@ if.then4.i.i.i:                                   ; preds = %if.else.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i.i
   %op.0.i.i.i = phi ptr [ %6, %if.then.i.i.i ], [ %call3.i.i.i, %if.else.i.i.i ]
-  %ob_type.i.i.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i.i.i, i64 0, i32 1
+  %ob_type.i.i.i.i.i = getelementptr inbounds i8, ptr %op.0.i.i.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i.i.i, align 8
   %9 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %10 = and i64 %9, 512
@@ -4929,7 +4927,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 
 _PyObject_Init.exit.i.i.i:                        ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end6.i.i.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i.i.i) #17
-  %ob_fval.i.i.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i.i.i, i64 0, i32 1
+  %ob_fval.i.i.i = getelementptr inbounds i8, ptr %op.0.i.i.i, i64 16
   store double %2, ptr %ob_fval.i.i.i, align 8
   br label %float_conjugate_impl.exit
 
@@ -5038,15 +5036,15 @@ if.end9.thread.i:                                 ; preds = %land.lhs.true.i
 if.then10.i:                                      ; preds = %if.end9.thread.i, %if.end9.i
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %9 = load ptr, ptr %8, align 8
-  %interp.i.i.i.i = getelementptr inbounds %struct._ts, ptr %9, i64 0, i32 2
+  %interp.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %interp.i.i.i.i, align 8
-  %free_list.i.i = getelementptr inbounds %struct._is, ptr %10, i64 0, i32 45, i32 1
+  %free_list.i.i = getelementptr inbounds i8, ptr %10, i64 267776
   %11 = load ptr, ptr %free_list.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then10.i
-  %float_state.i.i.i = getelementptr inbounds %struct._is, ptr %10, i64 0, i32 45
+  %float_state.i.i.i = getelementptr inbounds i8, ptr %10, i64 267768
   %12 = getelementptr i8, ptr %11, i64 8
   %.val.i.i = load ptr, ptr %12, align 8
   store ptr %.val.i.i, ptr %free_list.i.i, align 8
@@ -5066,7 +5064,7 @@ if.then4.i.i:                                     ; preds = %if.else.i.i
 
 if.end6.i.i:                                      ; preds = %if.else.i.i, %if.then.i.i
   %op.0.i.i = phi ptr [ %11, %if.then.i.i ], [ %call3.i.i, %if.else.i.i ]
-  %ob_type.i.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i.i, i64 0, i32 1
+  %ob_type.i.i.i.i = getelementptr inbounds i8, ptr %op.0.i.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i.i, align 8
   %14 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %15 = and i64 %14, 512
@@ -5085,7 +5083,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
 
 _PyObject_Init.exit.i.i:                          ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end6.i.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i.i) #17
-  %ob_fval.i.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i.i, i64 0, i32 1
+  %ob_fval.i.i = getelementptr inbounds i8, ptr %op.0.i.i, i64 16
   store double %call.i, ptr %ob_fval.i.i, align 8
   br label %exit
 
@@ -5096,15 +5094,15 @@ if.end12.i:                                       ; preds = %if.end9.i
 if.then14.i:                                      ; preds = %if.end12.i
   %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %18 = load ptr, ptr %17, align 8
-  %interp.i.i.i13.i = getelementptr inbounds %struct._ts, ptr %18, i64 0, i32 2
+  %interp.i.i.i13.i = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %interp.i.i.i13.i, align 8
-  %free_list.i14.i = getelementptr inbounds %struct._is, ptr %19, i64 0, i32 45, i32 1
+  %free_list.i14.i = getelementptr inbounds i8, ptr %19, i64 267776
   %20 = load ptr, ptr %free_list.i14.i, align 8
   %cmp.not.i15.i = icmp eq ptr %20, null
   br i1 %cmp.not.i15.i, label %if.else.i31.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then14.i
-  %float_state.i.i17.i = getelementptr inbounds %struct._is, ptr %19, i64 0, i32 45
+  %float_state.i.i17.i = getelementptr inbounds i8, ptr %19, i64 267768
   %21 = getelementptr i8, ptr %20, i64 8
   %.val.i18.i = load ptr, ptr %21, align 8
   store ptr %.val.i18.i, ptr %free_list.i14.i, align 8
@@ -5124,7 +5122,7 @@ if.then4.i34.i:                                   ; preds = %if.else.i31.i
 
 if.end6.i20.i:                                    ; preds = %if.else.i31.i, %if.then.i16.i
   %op.0.i21.i = phi ptr [ %20, %if.then.i16.i ], [ %call3.i32.i, %if.else.i31.i ]
-  %ob_type.i.i.i22.i = getelementptr inbounds %struct._object, ptr %op.0.i21.i, i64 0, i32 1
+  %ob_type.i.i.i22.i = getelementptr inbounds i8, ptr %op.0.i21.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i22.i, align 8
   %23 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %24 = and i64 %23, 512
@@ -5143,7 +5141,7 @@ if.end.i.i.i27.i:                                 ; preds = %if.then.i.i24.i
 
 _PyObject_Init.exit.i28.i:                        ; preds = %if.end.i.i.i27.i, %if.then.i.i24.i, %if.end6.i20.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i21.i) #17
-  %ob_fval.i29.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i21.i, i64 0, i32 1
+  %ob_fval.i29.i = getelementptr inbounds i8, ptr %op.0.i21.i, i64 16
   store double %call.i, ptr %ob_fval.i29.i, align 8
   br label %exit
 
@@ -5155,15 +5153,15 @@ if.then17.i:                                      ; preds = %if.else.i
   %mul18.i = fmul double %call.i, 0.000000e+00
   %26 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %27 = load ptr, ptr %26, align 8
-  %interp.i.i.i37.i = getelementptr inbounds %struct._ts, ptr %27, i64 0, i32 2
+  %interp.i.i.i37.i = getelementptr inbounds i8, ptr %27, i64 16
   %28 = load ptr, ptr %interp.i.i.i37.i, align 8
-  %free_list.i38.i = getelementptr inbounds %struct._is, ptr %28, i64 0, i32 45, i32 1
+  %free_list.i38.i = getelementptr inbounds i8, ptr %28, i64 267776
   %29 = load ptr, ptr %free_list.i38.i, align 8
   %cmp.not.i39.i = icmp eq ptr %29, null
   br i1 %cmp.not.i39.i, label %if.else.i55.i, label %if.then.i40.i
 
 if.then.i40.i:                                    ; preds = %if.then17.i
-  %float_state.i.i41.i = getelementptr inbounds %struct._is, ptr %28, i64 0, i32 45
+  %float_state.i.i41.i = getelementptr inbounds i8, ptr %28, i64 267768
   %30 = getelementptr i8, ptr %29, i64 8
   %.val.i42.i = load ptr, ptr %30, align 8
   store ptr %.val.i42.i, ptr %free_list.i38.i, align 8
@@ -5183,7 +5181,7 @@ if.then4.i58.i:                                   ; preds = %if.else.i55.i
 
 if.end6.i44.i:                                    ; preds = %if.else.i55.i, %if.then.i40.i
   %op.0.i45.i = phi ptr [ %29, %if.then.i40.i ], [ %call3.i56.i, %if.else.i55.i ]
-  %ob_type.i.i.i46.i = getelementptr inbounds %struct._object, ptr %op.0.i45.i, i64 0, i32 1
+  %ob_type.i.i.i46.i = getelementptr inbounds i8, ptr %op.0.i45.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i46.i, align 8
   %32 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %33 = and i64 %32, 512
@@ -5202,7 +5200,7 @@ if.end.i.i.i51.i:                                 ; preds = %if.then.i.i48.i
 
 _PyObject_Init.exit.i52.i:                        ; preds = %if.end.i.i.i51.i, %if.then.i.i48.i, %if.end6.i44.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i45.i) #17
-  %ob_fval.i53.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i45.i, i64 0, i32 1
+  %ob_fval.i53.i = getelementptr inbounds i8, ptr %op.0.i45.i, i64 16
   store double %mul18.i, ptr %ob_fval.i53.i, align 8
   br label %exit
 
@@ -5300,15 +5298,15 @@ if.then60.i.i:                                    ; preds = %do.end54.i.i
 if.else.i65.i:                                    ; preds = %do.end54.i.i
   %41 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %42 = load ptr, ptr %41, align 8
-  %interp.i.i.i.i.i = getelementptr inbounds %struct._ts, ptr %42, i64 0, i32 2
+  %interp.i.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 16
   %43 = load ptr, ptr %interp.i.i.i.i.i, align 8
-  %free_list.i.i.i = getelementptr inbounds %struct._is, ptr %43, i64 0, i32 45, i32 1
+  %free_list.i.i.i = getelementptr inbounds i8, ptr %43, i64 267776
   %44 = load ptr, ptr %free_list.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %44, null
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i66.i
 
 if.then.i.i66.i:                                  ; preds = %if.else.i65.i
-  %float_state.i.i.i.i = getelementptr inbounds %struct._is, ptr %43, i64 0, i32 45
+  %float_state.i.i.i.i = getelementptr inbounds i8, ptr %43, i64 267768
   %45 = getelementptr i8, ptr %44, i64 8
   %.val.i.i.i = load ptr, ptr %45, align 8
   store ptr %.val.i.i.i, ptr %free_list.i.i.i, align 8
@@ -5328,7 +5326,7 @@ if.then4.i.i.i:                                   ; preds = %if.else.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.else.i.i.i, %if.then.i.i66.i
   %op.0.i.i.i = phi ptr [ %44, %if.then.i.i66.i ], [ %call3.i.i.i, %if.else.i.i.i ]
-  %ob_type.i.i.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i.i.i, i64 0, i32 1
+  %ob_type.i.i.i.i.i = getelementptr inbounds i8, ptr %op.0.i.i.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i.i.i, align 8
   %47 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %48 = and i64 %47, 512
@@ -5347,7 +5345,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 
 _PyObject_Init.exit.i.i.i:                        ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end6.i.i.i
   call void @_Py_NewReference(ptr noundef nonnull %op.0.i.i.i) #17
-  %ob_fval.i.i.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i.i.i, i64 0, i32 1
+  %ob_fval.i.i.i = getelementptr inbounds i8, ptr %op.0.i.i.i, i64 16
   store double %call4628.i.i, ptr %ob_fval.i.i.i, align 8
   br label %if.end62.i.i
 
@@ -5489,7 +5487,7 @@ if.end20.i:                                       ; preds = %if.end16.i
 
 if.end26.i:                                       ; preds = %if.end20.i
   %cmp27.i = icmp sgt i32 %12, 0
-  %nb_lshift.i = getelementptr inbounds %struct.PyNumberMethods, ptr %0, i64 0, i32 11
+  %nb_lshift.i = getelementptr inbounds i8, ptr %0, i64 88
   %13 = load ptr, ptr %nb_lshift.i, align 8
   br i1 %cmp27.i, label %do.body.i, label %do.body36.i
 
@@ -5994,15 +5992,15 @@ if.end344:                                        ; preds = %while.end340
   %cond349 = select i1 %tobool345.not, double %x.3, double %fneg
   %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %31 = load ptr, ptr %30, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %31, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %31, i64 16
   %32 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %32, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %32, i64 267776
   %33 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %33, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end344
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %32, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %32, i64 267768
   %34 = getelementptr i8, ptr %33, i64 8
   %.val.i = load ptr, ptr %34, align 8
   store ptr %.val.i, ptr %free_list.i, align 8
@@ -6022,7 +6020,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.end6.i:                                        ; preds = %if.else.i, %if.then.i
   %op.0.i = phi ptr [ %33, %if.then.i ], [ %call3.i, %if.else.i ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %36 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %37 = and i64 %36, 512
@@ -6041,7 +6039,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i, %if.then.i.i, %if.end6.i
   call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double %cond349, ptr %ob_fval.i, align 8
   br label %PyFloat_FromDouble.exit
 
@@ -6196,7 +6194,7 @@ if.end16.i:                                       ; preds = %if.end8.i, %land.lh
   store i8 %11, ptr %s.i, align 16
   %conv25.i = sitofp i32 %conv.i to double
   %sub26.i = fsub double %call21.i, %conv25.i
-  %arrayidx28.i = getelementptr inbounds [16 x i8], ptr %s.i, i64 0, i64 1
+  %arrayidx28.i = getelementptr inbounds i8, ptr %s.i, i64 1
   store i8 46, ptr %arrayidx28.i, align 1
   br label %for.body.i
 
@@ -6218,7 +6216,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 
 for.end.i:                                        ; preds = %for.body.i
   %sub22.i = sub i32 %9, %sub20.i
-  %arrayidx42.i = getelementptr inbounds [16 x i8], ptr %s.i, i64 0, i64 15
+  %arrayidx42.i = getelementptr inbounds i8, ptr %s.i, i64 15
   store i8 0, ptr %arrayidx42.i, align 1
   %cmp43.i = icmp slt i32 %sub22.i, 0
   %spec.select.i = tail call i32 @llvm.abs.i32(i32 %sub22.i, i1 false)
@@ -6499,19 +6497,19 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   br label %float_float.exit
 
 if.else.i:                                        ; preds = %entry
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %v, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %v, i64 16
   %2 = load double, ptr %ob_fval.i, align 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %4 = load ptr, ptr %3, align 8
-  %interp.i.i.i.i = getelementptr inbounds %struct._ts, ptr %4, i64 0, i32 2
+  %interp.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %interp.i.i.i.i, align 8
-  %free_list.i.i = getelementptr inbounds %struct._is, ptr %5, i64 0, i32 45, i32 1
+  %free_list.i.i = getelementptr inbounds i8, ptr %5, i64 267776
   %6 = load ptr, ptr %free_list.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %float_state.i.i.i = getelementptr inbounds %struct._is, ptr %5, i64 0, i32 45
+  %float_state.i.i.i = getelementptr inbounds i8, ptr %5, i64 267768
   %7 = getelementptr i8, ptr %6, i64 8
   %.val.i.i = load ptr, ptr %7, align 8
   store ptr %.val.i.i, ptr %free_list.i.i, align 8
@@ -6531,7 +6529,7 @@ if.then4.i.i:                                     ; preds = %if.else.i.i
 
 if.end6.i.i:                                      ; preds = %if.else.i.i, %if.then.i.i
   %op.0.i.i = phi ptr [ %6, %if.then.i.i ], [ %call3.i.i, %if.else.i.i ]
-  %ob_type.i.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i.i, i64 0, i32 1
+  %ob_type.i.i.i.i = getelementptr inbounds i8, ptr %op.0.i.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i.i, align 8
   %9 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %10 = and i64 %9, 512
@@ -6550,7 +6548,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
 
 _PyObject_Init.exit.i.i:                          ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end6.i.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i.i) #17
-  %ob_fval.i.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i.i, i64 0, i32 1
+  %ob_fval.i.i = getelementptr inbounds i8, ptr %op.0.i.i, i64 16
   store double %2, ptr %ob_fval.i.i, align 8
   br label %float_float.exit
 
@@ -6564,15 +6562,15 @@ define internal ptr @float_getimag(ptr nocapture readnone %v, ptr nocapture read
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %2, i64 267776
   %3 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %2, i64 267768
   %4 = getelementptr i8, ptr %3, i64 8
   %.val.i = load ptr, ptr %4, align 8
   store ptr %.val.i, ptr %free_list.i, align 8
@@ -6592,7 +6590,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.end6.i:                                        ; preds = %if.else.i, %if.then.i
   %op.0.i = phi ptr [ %3, %if.then.i ], [ %call3.i, %if.else.i ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %6 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %7 = and i64 %6, 512
@@ -6611,7 +6609,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i, %if.then.i.i, %if.end6.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double 0.000000e+00, ptr %ob_fval.i, align 8
   br label %PyFloat_FromDouble.exit
 
@@ -6650,7 +6648,7 @@ float_new_impl.exit:                              ; preds = %if.then10.i, %if.en
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %float_new_impl.exit
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %1 = load ptr, ptr %tp_alloc.i, align 8
   %call1.i = tail call ptr %1(ptr noundef %type, i64 noundef 0) #17
   %cmp2.i = icmp eq ptr %call1.i, null
@@ -6673,9 +6671,9 @@ if.then1.i12.i:                                   ; preds = %if.end.i9.i
   br label %return
 
 if.end4.i:                                        ; preds = %if.end.i
-  %ob_fval.i = getelementptr inbounds %struct.PyFloatObject, ptr %retval.0.i, i64 0, i32 1
+  %ob_fval.i = getelementptr inbounds i8, ptr %retval.0.i, i64 16
   %4 = load double, ptr %ob_fval.i, align 8
-  %ob_fval5.i = getelementptr inbounds %struct.PyFloatObject, ptr %call1.i, i64 0, i32 1
+  %ob_fval5.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   store double %4, ptr %ob_fval5.i, align 8
   %5 = load i64, ptr %retval.0.i, align 8
   %6 = and i64 %5, 2147483648
@@ -6698,15 +6696,15 @@ if.end4:                                          ; preds = %entry
 if.then6:                                         ; preds = %if.end4
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %8 = load ptr, ptr %7, align 8
-  %interp.i.i.i = getelementptr inbounds %struct._ts, ptr %8, i64 0, i32 2
+  %interp.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load ptr, ptr %interp.i.i.i, align 8
-  %free_list.i = getelementptr inbounds %struct._is, ptr %9, i64 0, i32 45, i32 1
+  %free_list.i = getelementptr inbounds i8, ptr %9, i64 267776
   %10 = load ptr, ptr %free_list.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then6
-  %float_state.i.i = getelementptr inbounds %struct._is, ptr %9, i64 0, i32 45
+  %float_state.i.i = getelementptr inbounds i8, ptr %9, i64 267768
   %11 = getelementptr i8, ptr %10, i64 8
   %.val.i = load ptr, ptr %11, align 8
   store ptr %.val.i, ptr %free_list.i, align 8
@@ -6726,7 +6724,7 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.end6.i:                                        ; preds = %if.else.i, %if.then.i
   %op.0.i = phi ptr [ %10, %if.then.i ], [ %call3.i, %if.else.i ]
-  %ob_type.i.i.i = getelementptr inbounds %struct._object, ptr %op.0.i, i64 0, i32 1
+  %ob_type.i.i.i = getelementptr inbounds i8, ptr %op.0.i, i64 8
   store ptr @PyFloat_Type, ptr %ob_type.i.i.i, align 8
   %13 = load i64, ptr getelementptr inbounds (%struct._typeobject, ptr @PyFloat_Type, i64 0, i32 19), align 8
   %14 = and i64 %13, 512
@@ -6745,7 +6743,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i
 
 _PyObject_Init.exit.i:                            ; preds = %if.end.i.i.i, %if.then.i.i, %if.end6.i
   tail call void @_Py_NewReference(ptr noundef nonnull %op.0.i) #17
-  %ob_fval.i7 = getelementptr inbounds %struct.PyFloatObject, ptr %op.0.i, i64 0, i32 1
+  %ob_fval.i7 = getelementptr inbounds i8, ptr %op.0.i, i64 16
   store double 0.000000e+00, ptr %ob_fval.i7, align 8
   br label %return
 

@@ -11,55 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.V9fsTransport = type { ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.VirtioDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.V9fsVirtioState = type { %struct.VirtIODevice, ptr, i64, [128 x ptr], %struct.V9fsState }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.2, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.0, %union.anon.1 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.V9fsState = type { %struct.anon, %struct.anon.3, ptr, ptr, %struct.FsContext, ptr, i32, i32, [128 x %struct.V9fsPDU], ptr, %struct.CoRwlock, i32, ptr, %struct.V9fsConf, %struct.stat, i64, %struct.qht, %struct.qht, %struct.qht, i64, i16, i64 }
-%struct.anon = type { ptr }
-%struct.anon.3 = type { ptr }
-%struct.FsContext = type { i32, ptr, i32, ptr, %struct.ExtendedOps, ptr, ptr, i32, i32 }
-%struct.ExtendedOps = type { ptr }
-%struct.V9fsPDU = type { i32, i16, i8, i8, %struct.CoQueue, ptr, %struct.anon.5, i32 }
-%struct.CoQueue = type { %struct.anon.4 }
-%struct.anon.4 = type { ptr, ptr }
-%struct.anon.5 = type { ptr, ptr }
-%struct.CoRwlock = type { %struct.CoMutex, i32, %struct.anon.7 }
-%struct.CoMutex = type { i32, ptr, %struct.anon.6, %struct.anon.6, i32, i32, ptr }
-%struct.anon.6 = type { ptr }
-%struct.anon.7 = type { ptr, ptr }
-%struct.V9fsConf = type { ptr, ptr }
-%struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
-%struct.timespec = type { i64, i64 }
-%struct.qht = type { ptr, ptr, %struct.QemuMutex, i32 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.FsDriverEntry = type { ptr, ptr, i32, ptr, %struct.FsThrottle, i32, i32 }
-%struct.FsThrottle = type { %struct.ThrottleState, %struct.ThrottleTimers, %struct.ThrottleConfig, [2 x %struct.CoQueue] }
-%struct.ThrottleState = type { %struct.ThrottleConfig, i64 }
-%struct.ThrottleTimers = type { [2 x ptr], i32, [2 x ptr], ptr }
-%struct.ThrottleConfig = type { [6 x %struct.LeakyBucket], i64 }
-%struct.LeakyBucket = type { i64, i64, double, double, i64 }
-%struct.virtio_9p_config = type { i16, [0 x i8] }
 %struct.P9MsgHeader = type <{ i32, i8, i16 }>
-%struct.VirtQueueElement = type { i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr }
-%struct.iovec = type { ptr, i64 }
 
 @virtio_device_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 9344, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @virtio_9p_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [17 x i8] c"virtio-9p-device\00", align 1
@@ -115,21 +67,21 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
   %call.i8 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #6
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_9p_properties) #6
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_virtio_9p, ptr %vmsd, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 4
   store i64 %or.i, ptr %categories, align 8
-  %realize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i8, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i8, i64 176
   store ptr @virtio_9p_device_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i8, i64 0, i32 2
+  %unrealize = getelementptr inbounds i8, ptr %call.i8, i64 184
   store ptr @virtio_9p_device_unrealize, ptr %unrealize, align 8
-  %get_features = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i8, i64 0, i32 3
+  %get_features = getelementptr inbounds i8, ptr %call.i8, i64 192
   store ptr @virtio_9p_get_features, ptr %get_features, align 8
-  %get_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i8, i64 0, i32 7
+  %get_config = getelementptr inbounds i8, ptr %call.i8, i64 224
   store ptr @virtio_9p_get_config, ptr %get_config, align 8
-  %reset = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i8, i64 0, i32 9
+  %reset = getelementptr inbounds i8, ptr %call.i8, i64 240
   store ptr @virtio_9p_reset, ptr %reset, align 8
   ret void
 }
@@ -141,9 +93,9 @@ define internal void @virtio_9p_device_realize(ptr noundef %dev, ptr noundef %er
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #6
   %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 18, ptr noundef nonnull @__func__.VIRTIO_9P) #6
-  %state = getelementptr inbounds %struct.V9fsVirtioState, ptr %call.i9, i64 0, i32 4
-  %fsconf = getelementptr inbounds %struct.V9fsVirtioState, ptr %call.i9, i64 0, i32 4, i32 13
-  %fsdev_id = getelementptr inbounds %struct.V9fsVirtioState, ptr %call.i9, i64 0, i32 4, i32 13, i32 1
+  %state = getelementptr inbounds i8, ptr %call.i9, i64 1560
+  %fsconf = getelementptr inbounds i8, ptr %call.i9, i64 8936
+  %fsdev_id = getelementptr inbounds i8, ptr %call.i9, i64 8944
   %0 = load ptr, ptr %fsdev_id, align 8
   %call2 = tail call ptr @get_fsdev_fsentry(ptr noundef %0) #6
   %1 = load i8, ptr @qtest_allowed, align 1
@@ -154,7 +106,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %export_flags = getelementptr inbounds %struct.FsDriverEntry, ptr %call2, i64 0, i32 2
+  %export_flags = getelementptr inbounds i8, ptr %call2, i64 16
   %3 = load i32, ptr %export_flags, align 8
   %or = or i32 %3, 2048
   store i32 %or, ptr %export_flags, align 8
@@ -169,11 +121,11 @@ if.end7:                                          ; preds = %if.end
   %4 = load ptr, ptr %fsconf, align 8
   %call9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %add = add i64 %call9, 2
-  %config_size = getelementptr inbounds %struct.V9fsVirtioState, ptr %call.i9, i64 0, i32 2
+  %config_size = getelementptr inbounds i8, ptr %call.i9, i64 528
   store i64 %add, ptr %config_size, align 8
   tail call void @virtio_init(ptr noundef %call.i, i16 noundef zeroext 9, i64 noundef %add) #6
   %call11 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 128, ptr noundef nonnull @handle_9p_output) #6
-  %vq = getelementptr inbounds %struct.V9fsVirtioState, ptr %call.i9, i64 0, i32 1
+  %vq = getelementptr inbounds i8, ptr %call.i9, i64 520
   store ptr %call11, ptr %vq, align 8
   br label %return
 
@@ -186,8 +138,8 @@ define internal void @virtio_9p_device_unrealize(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #6
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 18, ptr noundef nonnull @__func__.VIRTIO_9P) #6
-  %state = getelementptr inbounds %struct.V9fsVirtioState, ptr %call.i3, i64 0, i32 4
-  %vq = getelementptr inbounds %struct.V9fsVirtioState, ptr %call.i3, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %call.i3, i64 1560
+  %vq = getelementptr inbounds i8, ptr %call.i3, i64 520
   %0 = load ptr, ptr %vq, align 8
   tail call void @virtio_delete_queue(ptr noundef %0) #6
   tail call void @virtio_cleanup(ptr noundef %call.i) #6
@@ -206,7 +158,7 @@ entry:
 define internal void @virtio_9p_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, i32 noundef 18, ptr noundef nonnull @__func__.VIRTIO_9P) #6
-  %tag = getelementptr inbounds %struct.V9fsVirtioState, ptr %call.i, i64 0, i32 4, i32 5
+  %tag = getelementptr inbounds i8, ptr %call.i, i64 1656
   %0 = load ptr, ptr %tag, align 8
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %sext = shl i64 %call1, 32
@@ -215,10 +167,10 @@ entry:
   %call3 = tail call noalias ptr @g_malloc0(i64 noundef %add) #8
   %conv4 = trunc i64 %call1 to i16
   store i16 %conv4, ptr %call3, align 1
-  %tag5 = getelementptr inbounds %struct.virtio_9p_config, ptr %call3, i64 0, i32 1
+  %tag5 = getelementptr inbounds i8, ptr %call3, i64 2
   %1 = load ptr, ptr %tag, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %tag5, ptr align 1 %1, i64 %conv2, i1 false)
-  %config_size = getelementptr inbounds %struct.V9fsVirtioState, ptr %call.i, i64 0, i32 2
+  %config_size = getelementptr inbounds i8, ptr %call.i, i64 528
   %2 = load i64, ptr %config_size, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %config, ptr nonnull align 1 %call3, i64 %2, i1 false)
   tail call void @g_free(ptr noundef nonnull %call3) #6
@@ -228,7 +180,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_9p_reset(ptr noundef %vdev) #0 {
 entry:
-  %state = getelementptr inbounds %struct.V9fsVirtioState, ptr %vdev, i64 0, i32 4
+  %state = getelementptr inbounds i8, ptr %vdev, i64 1560
   tail call void @v9fs_reset(ptr noundef nonnull %state) #6
   ret void
 }
@@ -250,21 +202,25 @@ declare ptr @virtio_add_queue(ptr noundef, i32 noundef, ptr noundef) local_unnam
 define internal void @handle_9p_output(ptr noundef %vdev, ptr noundef %vq) #0 {
 entry:
   %out = alloca %struct.P9MsgHeader, align 1
-  %state = getelementptr inbounds %struct.V9fsVirtioState, ptr %vdev, i64 0, i32 4
+  %state = getelementptr inbounds i8, ptr %vdev, i64 1560
   %call25 = tail call ptr @pdu_alloc(ptr noundef nonnull %state) #6
   %tobool.not26 = icmp eq ptr %call25, null
-  br i1 %tobool.not26, label %return, label %while.body
+  br i1 %tobool.not26, label %return, label %while.body.lr.ph
 
-while.body:                                       ; preds = %entry, %if.end9
-  %call27 = phi ptr [ %call, %if.end9 ], [ %call25, %entry ]
+while.body.lr.ph:                                 ; preds = %entry
+  %elems = getelementptr inbounds i8, ptr %vdev, i64 536
+  br label %while.body
+
+while.body:                                       ; preds = %while.body.lr.ph, %if.end9
+  %call27 = phi ptr [ %call25, %while.body.lr.ph ], [ %call, %if.end9 ]
   %call1 = call ptr @virtqueue_pop(ptr noundef %vq, i64 noundef 56) #6
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %out_free_pdu, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %in_sg = getelementptr inbounds %struct.VirtQueueElement, ptr %call1, i64 0, i32 7
+  %in_sg = getelementptr inbounds i8, ptr %call1, i64 40
   %0 = load ptr, ptr %in_sg, align 8
-  %in_num = getelementptr inbounds %struct.VirtQueueElement, ptr %call1, i64 0, i32 4
+  %in_num = getelementptr inbounds i8, ptr %call1, i64 16
   %1 = load i32, ptr %in_num, align 8
   %call3 = call i64 @iov_size(ptr noundef %0, i32 noundef %1) #6
   %cmp = icmp ult i64 %call3, 7
@@ -275,15 +231,15 @@ if.then4:                                         ; preds = %if.end
   br label %out_free_req
 
 if.end5:                                          ; preds = %if.end
-  %out_sg = getelementptr inbounds %struct.VirtQueueElement, ptr %call1, i64 0, i32 8
+  %out_sg = getelementptr inbounds i8, ptr %call1, i64 48
   %2 = load ptr, ptr %out_sg, align 8
-  %out_num = getelementptr inbounds %struct.VirtQueueElement, ptr %call1, i64 0, i32 3
+  %out_num = getelementptr inbounds i8, ptr %call1, i64 12
   %3 = load i32, ptr %out_num, align 4
   %tobool.not.i = icmp eq i32 %3, 0
   br i1 %tobool.not.i, label %iov_to_buf.exit, label %land.lhs.true2.i
 
 land.lhs.true2.i:                                 ; preds = %if.end5
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %2, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %iov_len.i, align 8
   %cmp5.i = icmp ugt i64 %4, 6
   br i1 %cmp5.i, label %iov_to_buf.exit.thread, label %iov_to_buf.exit
@@ -303,10 +259,10 @@ if.then8:                                         ; preds = %iov_to_buf.exit
   br label %out_free_req
 
 if.end9:                                          ; preds = %iov_to_buf.exit.thread, %iov_to_buf.exit
-  %idx = getelementptr inbounds %struct.V9fsPDU, ptr %call27, i64 0, i32 7
+  %idx = getelementptr inbounds i8, ptr %call27, i64 48
   %6 = load i32, ptr %idx, align 8
   %idxprom = zext i32 %6 to i64
-  %arrayidx = getelementptr %struct.V9fsVirtioState, ptr %vdev, i64 0, i32 3, i64 %idxprom
+  %arrayidx = getelementptr [128 x ptr], ptr %elems, i64 0, i64 %idxprom
   store ptr %call1, ptr %arrayidx, align 8
   call void @pdu_submit(ptr noundef nonnull %call27, ptr noundef nonnull %out) #6
   %call = call ptr @pdu_alloc(ptr noundef nonnull %state) #6
@@ -331,17 +287,17 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @virtio_pdu_vmarshal(ptr nocapture noundef readonly %pdu, i64 noundef %offset, ptr noundef %fmt, ptr noundef %ap) #0 {
 entry:
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %elems = getelementptr i8, ptr %0, i64 -1024
-  %idx = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 7
+  %idx = getelementptr inbounds i8, ptr %pdu, i64 48
   %1 = load i32, ptr %idx, align 8
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr [128 x ptr], ptr %elems, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
-  %in_sg = getelementptr inbounds %struct.VirtQueueElement, ptr %2, i64 0, i32 7
+  %in_sg = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %in_sg, align 8
-  %in_num = getelementptr inbounds %struct.VirtQueueElement, ptr %2, i64 0, i32 4
+  %in_num = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i32, ptr %in_num, align 8
   %call = tail call i64 @v9fs_iov_vmarshal(ptr noundef %3, i32 noundef %4, i64 noundef %offset, i32 noundef 1, ptr noundef %fmt, ptr noundef %ap) #6
   %cmp = icmp slt i64 %call, 0
@@ -350,7 +306,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr i8, ptr %0, i64 -1560
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #6
-  %id = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 2
+  %id = getelementptr inbounds i8, ptr %pdu, i64 6
   %5 = load i8, ptr %id, align 2
   %conv = zext i8 %5 to i32
   %add = add nuw nsw i32 %conv, 1
@@ -364,17 +320,17 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @virtio_pdu_vunmarshal(ptr nocapture noundef readonly %pdu, i64 noundef %offset, ptr noundef %fmt, ptr noundef %ap) #0 {
 entry:
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %elems = getelementptr i8, ptr %0, i64 -1024
-  %idx = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 7
+  %idx = getelementptr inbounds i8, ptr %pdu, i64 48
   %1 = load i32, ptr %idx, align 8
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr [128 x ptr], ptr %elems, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
-  %out_sg = getelementptr inbounds %struct.VirtQueueElement, ptr %2, i64 0, i32 8
+  %out_sg = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %out_sg, align 8
-  %out_num = getelementptr inbounds %struct.VirtQueueElement, ptr %2, i64 0, i32 3
+  %out_num = getelementptr inbounds i8, ptr %2, i64 12
   %4 = load i32, ptr %out_num, align 4
   %call = tail call i64 @v9fs_iov_vunmarshal(ptr noundef %3, i32 noundef %4, i64 noundef %offset, i32 noundef 1, ptr noundef %fmt, ptr noundef %ap) #6
   %cmp = icmp slt i64 %call, 0
@@ -383,7 +339,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr i8, ptr %0, i64 -1560
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #6
-  %id = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 2
+  %id = getelementptr inbounds i8, ptr %pdu, i64 6
   %5 = load i8, ptr %id, align 2
   %conv = zext i8 %5 to i32
   tail call void (ptr, ptr, ...) @virtio_error(ptr noundef %call.i, ptr noundef nonnull @.str.11, i32 noundef %conv) #6
@@ -396,17 +352,17 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_init_in_iov_from_pdu(ptr nocapture noundef readonly %pdu, ptr nocapture noundef writeonly %piov, ptr nocapture noundef writeonly %pniov, i64 noundef %size) #0 {
 entry:
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %elems = getelementptr i8, ptr %0, i64 -1024
-  %idx = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 7
+  %idx = getelementptr inbounds i8, ptr %pdu, i64 48
   %1 = load i32, ptr %idx, align 8
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr [128 x ptr], ptr %elems, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
-  %in_sg = getelementptr inbounds %struct.VirtQueueElement, ptr %2, i64 0, i32 7
+  %in_sg = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %in_sg, align 8
-  %in_num = getelementptr inbounds %struct.VirtQueueElement, ptr %2, i64 0, i32 4
+  %in_num = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i32, ptr %in_num, align 8
   %call = tail call i64 @iov_size(ptr noundef %3, i32 noundef %4) #6
   %cmp = icmp ult i64 %call, %size
@@ -415,7 +371,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr i8, ptr %0, i64 -1560
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #6
-  %id = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 2
+  %id = getelementptr inbounds i8, ptr %pdu, i64 6
   %5 = load i8, ptr %id, align 2
   %conv = zext i8 %5 to i32
   %add = add nuw nsw i32 %conv, 1
@@ -433,17 +389,17 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_init_out_iov_from_pdu(ptr nocapture noundef readonly %pdu, ptr nocapture noundef writeonly %piov, ptr nocapture noundef writeonly %pniov, i64 noundef %size) #0 {
 entry:
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %elems = getelementptr i8, ptr %0, i64 -1024
-  %idx = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 7
+  %idx = getelementptr inbounds i8, ptr %pdu, i64 48
   %1 = load i32, ptr %idx, align 8
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr [128 x ptr], ptr %elems, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
-  %out_sg = getelementptr inbounds %struct.VirtQueueElement, ptr %2, i64 0, i32 8
+  %out_sg = getelementptr inbounds i8, ptr %2, i64 48
   %3 = load ptr, ptr %out_sg, align 8
-  %out_num = getelementptr inbounds %struct.VirtQueueElement, ptr %2, i64 0, i32 3
+  %out_num = getelementptr inbounds i8, ptr %2, i64 12
   %4 = load i32, ptr %out_num, align 4
   %call = tail call i64 @iov_size(ptr noundef %3, i32 noundef %4) #6
   %cmp = icmp ult i64 %call, %size
@@ -452,7 +408,7 @@ entry:
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr i8, ptr %0, i64 -1560
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #6
-  %id = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 2
+  %id = getelementptr inbounds i8, ptr %pdu, i64 6
   %5 = load i8, ptr %id, align 2
   %conv = zext i8 %5 to i32
   tail call void (ptr, ptr, ...) @virtio_error(ptr noundef %call.i, ptr noundef nonnull @.str.13, i32 noundef %conv, i64 noundef %size, i64 noundef %call) #6
@@ -469,11 +425,11 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @virtio_9p_push_and_notify(ptr nocapture noundef readonly %pdu) #0 {
 entry:
-  %s1 = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 5
+  %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 -1560
   %elems = getelementptr i8, ptr %0, i64 -1024
-  %idx = getelementptr inbounds %struct.V9fsPDU, ptr %pdu, i64 0, i32 7
+  %idx = getelementptr inbounds i8, ptr %pdu, i64 48
   %1 = load i32, ptr %idx, align 8
   %idxprom = zext i32 %1 to i64
   %arrayidx = getelementptr [128 x ptr], ptr %elems, i64 0, i64 %idxprom

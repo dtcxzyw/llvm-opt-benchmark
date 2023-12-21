@@ -4,10 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.termios = type { i32, i32, i32, i32, i8, [32 x i8], i32, i32 }
-%struct.linenoiseCompletions = type { i64, ptr }
-%struct.linenoiseState = type { i32, i32, ptr, i64, ptr, i64, i64, i64, i64, i64, i64, i32 }
 %struct.abuf = type { ptr, i32 }
+%struct.linenoiseCompletions = type { i64, ptr }
 %struct.winsize = type { i16, i16, i16, i16 }
+%struct.linenoiseState = type { i32, i32, ptr, i64, ptr, i64, i64, i64, i64, i64, i64, i32 }
 
 @maskmode = internal unnamed_addr global i1 false, align 4
 @mlmode = internal unnamed_addr global i32 0, align 4
@@ -112,7 +112,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1, ptr align 1 %str, i64 %add, i1 false)
-  %cvec3 = getelementptr inbounds %struct.linenoiseCompletions, ptr %lc, i64 0, i32 1
+  %cvec3 = getelementptr inbounds i8, ptr %lc, i64 8
   %0 = load ptr, ptr %cvec3, align 8
   %1 = load i64, ptr %lc, align 8
   %add5 = shl i64 %1, 3
@@ -165,10 +165,10 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %conv = sext i32 %plen to i64
-  %len = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 8
+  %len = getelementptr inbounds i8, ptr %l, i64 56
   %1 = load i64, ptr %len, align 8
   %add = add i64 %1, %conv
-  %cols = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 9
+  %cols = getelementptr inbounds i8, ptr %l, i64 64
   %2 = load i64, ptr %cols, align 8
   %cmp = icmp ult i64 %add, %2
   br i1 %cmp, label %if.then, label %if.end43
@@ -176,7 +176,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   store i32 -1, ptr %color, align 4
   store i32 0, ptr %bold, align 4
-  %buf = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %l, i64 8
   %3 = load ptr, ptr %buf, align 8
   %call = call ptr %0(ptr noundef %3, ptr noundef nonnull %color, ptr noundef nonnull %bold) #23
   %tobool2.not = icmp eq ptr %call, null
@@ -221,7 +221,7 @@ if.end27:                                         ; preds = %if.else, %if.then25
   %call30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %seq) #24
   %conv31 = trunc i64 %call30 to i32
   %10 = load ptr, ptr %ab, align 8
-  %len1.i = getelementptr inbounds %struct.abuf, ptr %ab, i64 0, i32 1
+  %len1.i = getelementptr inbounds i8, ptr %ab, i64 8
   %11 = load i32, ptr %len1.i, align 8
   %add.i = add nsw i32 %11, %conv31
   %conv.i = sext i32 %add.i to i64
@@ -313,18 +313,18 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 define dso_local i32 @linenoiseEditInsert(ptr nocapture noundef %l, i8 noundef signext %c) local_unnamed_addr #9 {
 entry:
   %d = alloca i8, align 1
-  %len = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 8
+  %len = getelementptr inbounds i8, ptr %l, i64 56
   %0 = load i64, ptr %len, align 8
-  %buflen = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 3
+  %buflen = getelementptr inbounds i8, ptr %l, i64 16
   %1 = load i64, ptr %buflen, align 8
   %cmp = icmp ult i64 %0, %1
   br i1 %cmp, label %if.then, label %if.end42
 
 if.then:                                          ; preds = %entry
-  %pos = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 6
+  %pos = getelementptr inbounds i8, ptr %l, i64 40
   %2 = load i64, ptr %pos, align 8
   %cmp2 = icmp eq i64 %0, %2
-  %buf = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %l, i64 8
   %3 = load ptr, ptr %buf, align 8
   br i1 %cmp2, label %if.then3, label %if.else22
 
@@ -345,11 +345,11 @@ if.then3:                                         ; preds = %if.then
   br i1 %tobool.not, label %land.lhs.true, label %if.end42.sink.split
 
 land.lhs.true:                                    ; preds = %if.then3
-  %plen = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 5
+  %plen = getelementptr inbounds i8, ptr %l, i64 32
   %8 = load i64, ptr %plen, align 8
   %9 = load i64, ptr %len, align 8
   %add = add i64 %9, %8
-  %cols = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 9
+  %cols = getelementptr inbounds i8, ptr %l, i64 64
   %10 = load i64, ptr %cols, align 8
   %cmp12 = icmp uge i64 %add, %10
   %11 = load ptr, ptr @hintsCallback, align 8
@@ -361,7 +361,7 @@ if.then15:                                        ; preds = %land.lhs.true
   %.b = load i1, ptr @maskmode, align 4
   %conv17 = select i1 %.b, i8 42, i8 %c
   store i8 %conv17, ptr %d, align 1
-  %ofd = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 1
+  %ofd = getelementptr inbounds i8, ptr %l, i64 4
   %12 = load i32, ptr %ofd, align 4
   %call = call i64 @write(i32 noundef %12, ptr noundef nonnull %d, i64 noundef 1) #23
   %cmp18 = icmp eq i64 %call, -1
@@ -408,7 +408,7 @@ entry:
   %ab.i = alloca %struct.abuf, align 8
   %0 = load i32, ptr @mlmode, align 4
   %tobool.not = icmp eq i32 %0, 0
-  %prompt.i4 = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 4
+  %prompt.i4 = getelementptr inbounds i8, ptr %l, i64 24
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -419,24 +419,24 @@ if.then:                                          ; preds = %entry
   %conv.i = trunc i64 %call.i to i32
   %sext.i = shl i64 %call.i, 32
   %conv1.i = ashr exact i64 %sext.i, 32
-  %len.i = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 8
+  %len.i = getelementptr inbounds i8, ptr %l, i64 56
   %2 = load i64, ptr %len.i, align 8
-  %cols.i = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 9
+  %cols.i = getelementptr inbounds i8, ptr %l, i64 64
   %3 = load i64, ptr %cols.i, align 8
   %add.i = add i64 %3, %conv1.i
   %add2.i = add i64 %2, -1
   %sub.i = add i64 %add2.i, %add.i
   %div.i = udiv i64 %sub.i, %3
   %conv4.i = trunc i64 %div.i to i32
-  %oldpos.i = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 7
+  %oldpos.i = getelementptr inbounds i8, ptr %l, i64 48
   %4 = load i64, ptr %oldpos.i, align 8
   %add8.i = add i64 %4, %add.i
   %div10.i = udiv i64 %add8.i, %3
   %conv11.i = trunc i64 %div10.i to i32
-  %maxrows.i = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 10
+  %maxrows.i = getelementptr inbounds i8, ptr %l, i64 72
   %5 = load i64, ptr %maxrows.i, align 8
   %conv12.i = trunc i64 %5 to i32
-  %ofd.i = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 1
+  %ofd.i = getelementptr inbounds i8, ptr %l, i64 4
   %6 = load i32, ptr %ofd.i, align 4
   %cmp.i = icmp sgt i32 %conv4.i, %conv12.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -448,7 +448,7 @@ if.then.i:                                        ; preds = %if.then
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then
-  %len.i.i = getelementptr inbounds %struct.abuf, ptr %ab.i, i64 0, i32 1
+  %len.i.i = getelementptr inbounds i8, ptr %ab.i, i64 8
   %sub18.i = sub nsw i32 %conv12.i, %conv11.i
   %cmp19.i = icmp sgt i32 %sub18.i, 0
   br i1 %cmp19.i, label %if.then21.i, label %if.end28.i
@@ -588,7 +588,7 @@ abAppend.exit92.i:                                ; preds = %if.end.i88.i, %for.
   br i1 %cmp54.i, label %for.body56.i, label %if.end62.i.sink.split, !llvm.loop !7
 
 if.else.i:                                        ; preds = %abAppend.exit82.i
-  %buf.i = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 2
+  %buf.i = getelementptr inbounds i8, ptr %l, i64 8
   %17 = load ptr, ptr %buf.i, align 8
   %18 = load i64, ptr %len.i, align 8
   %conv61.i = trunc i64 %18 to i32
@@ -615,7 +615,7 @@ if.end62.i.sink.split:                            ; preds = %for.cond51.preheade
 
 if.end62.i:                                       ; preds = %if.end62.i.sink.split, %if.else.i
   call void @refreshShowHints(ptr noundef nonnull %ab.i, ptr noundef nonnull %l, i32 noundef %conv.i)
-  %pos.i = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 6
+  %pos.i = getelementptr inbounds i8, ptr %l, i64 40
   %19 = load i64, ptr %pos.i, align 8
   %tobool.not.i = icmp eq i64 %19, 0
   br i1 %tobool.not.i, label %if.end90.i, label %land.lhs.true.i
@@ -770,15 +770,15 @@ if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ab.i3)
   %37 = load ptr, ptr %prompt.i4, align 8
   %call.i5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #24
-  %ofd.i6 = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 1
+  %ofd.i6 = getelementptr inbounds i8, ptr %l, i64 4
   %38 = load i32, ptr %ofd.i6, align 4
-  %buf1.i = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 2
+  %buf1.i = getelementptr inbounds i8, ptr %l, i64 8
   %39 = load ptr, ptr %buf1.i, align 8
-  %len2.i = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 8
+  %len2.i = getelementptr inbounds i8, ptr %l, i64 56
   %40 = load i64, ptr %len2.i, align 8
-  %pos3.i = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 6
+  %pos3.i = getelementptr inbounds i8, ptr %l, i64 40
   %41 = load i64, ptr %pos3.i, align 8
-  %cols.i7 = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 9
+  %cols.i7 = getelementptr inbounds i8, ptr %l, i64 64
   %42 = load i64, ptr %cols.i7, align 8
   %add78.i = add i64 %41, %call.i5
   %cmp.not79.i = icmp ult i64 %add78.i, %42
@@ -802,7 +802,7 @@ while.cond5.preheader.i:                          ; preds = %while.body.preheade
   %umin95.i = tail call i64 @llvm.umin.i64(i64 %42, i64 %48)
   %49 = sub i64 %umin95.i, %call.i5
   store ptr null, ptr %ab.i3, align 8
-  %len.i.i8 = getelementptr inbounds %struct.abuf, ptr %ab.i3, i64 0, i32 1
+  %len.i.i8 = getelementptr inbounds i8, ptr %ab.i3, i64 8
   store i32 0, ptr %len.i.i8, align 8
   store i16 13, ptr %seq.i2, align 16
   %call15.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %seq.i2) #24
@@ -957,7 +957,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: nounwind uwtable
 define dso_local void @linenoiseEditMoveLeft(ptr nocapture noundef %l) local_unnamed_addr #9 {
 entry:
-  %pos = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 6
+  %pos = getelementptr inbounds i8, ptr %l, i64 40
   %0 = load i64, ptr %pos, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -975,9 +975,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local void @linenoiseEditMoveRight(ptr nocapture noundef %l) local_unnamed_addr #9 {
 entry:
-  %pos = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 6
+  %pos = getelementptr inbounds i8, ptr %l, i64 40
   %0 = load i64, ptr %pos, align 8
-  %len = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 8
+  %len = getelementptr inbounds i8, ptr %l, i64 56
   %1 = load i64, ptr %len, align 8
   %cmp.not = icmp eq i64 %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -995,7 +995,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local void @linenoiseEditMoveHome(ptr nocapture noundef %l) local_unnamed_addr #9 {
 entry:
-  %pos = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 6
+  %pos = getelementptr inbounds i8, ptr %l, i64 40
   %0 = load i64, ptr %pos, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1012,9 +1012,9 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define dso_local void @linenoiseEditMoveEnd(ptr nocapture noundef %l) local_unnamed_addr #9 {
 entry:
-  %pos = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 6
+  %pos = getelementptr inbounds i8, ptr %l, i64 40
   %0 = load i64, ptr %pos, align 8
-  %len = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 8
+  %len = getelementptr inbounds i8, ptr %l, i64 56
   %1 = load i64, ptr %len, align 8
   %cmp.not = icmp eq i64 %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1037,7 +1037,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @history, align 8
-  %history_index = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 11
+  %history_index = getelementptr inbounds i8, ptr %l, i64 80
   %2 = load i32, ptr %history_index, align 8
   %3 = xor i32 %2, -1
   %sub1 = add i32 %0, %3
@@ -1045,7 +1045,7 @@ if.then:                                          ; preds = %entry
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 8
   tail call void @free(ptr noundef %4) #23
-  %buf = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %l, i64 8
   %5 = load ptr, ptr %buf, align 8
   %call = tail call noalias ptr @strdup(ptr noundef %5) #23
   %6 = load i32, ptr %history_index, align 8
@@ -1082,7 +1082,7 @@ if.end18:                                         ; preds = %if.else
   %idxprom23 = sext i32 %sub22 to i64
   %arrayidx24 = getelementptr inbounds ptr, ptr %1, i64 %idxprom23
   %11 = load ptr, ptr %arrayidx24, align 8
-  %buflen = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 3
+  %buflen = getelementptr inbounds i8, ptr %l, i64 16
   %12 = load i64, ptr %buflen, align 8
   %call25 = tail call ptr @strncpy(ptr noundef %9, ptr noundef %11, i64 noundef %12) #23
   %13 = load ptr, ptr %buf, align 8
@@ -1092,9 +1092,9 @@ if.end18:                                         ; preds = %if.else
   store i8 0, ptr %arrayidx29, align 1
   %16 = load ptr, ptr %buf, align 8
   %call31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #24
-  %pos = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 6
+  %pos = getelementptr inbounds i8, ptr %l, i64 40
   store i64 %call31, ptr %pos, align 8
-  %len = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 8
+  %len = getelementptr inbounds i8, ptr %l, i64 56
   store i64 %call31, ptr %len, align 8
   tail call fastcc void @refreshLine(ptr noundef nonnull %l)
   br label %if.end32
@@ -1112,19 +1112,19 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 ; Function Attrs: nounwind uwtable
 define dso_local void @linenoiseEditDelete(ptr nocapture noundef %l) local_unnamed_addr #9 {
 entry:
-  %len = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 8
+  %len = getelementptr inbounds i8, ptr %l, i64 56
   %0 = load i64, ptr %len, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %pos = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 6
+  %pos = getelementptr inbounds i8, ptr %l, i64 40
   %1 = load i64, ptr %pos, align 8
   %cmp2 = icmp ult i64 %1, %0
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %buf = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %l, i64 8
   %2 = load ptr, ptr %buf, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %1
   %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr, i64 1
@@ -1147,19 +1147,19 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 ; Function Attrs: nounwind uwtable
 define dso_local void @linenoiseEditBackspace(ptr nocapture noundef %l) local_unnamed_addr #9 {
 entry:
-  %pos = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 6
+  %pos = getelementptr inbounds i8, ptr %l, i64 40
   %0 = load i64, ptr %pos, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %len = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 8
+  %len = getelementptr inbounds i8, ptr %l, i64 56
   %1 = load i64, ptr %len, align 8
   %cmp1.not = icmp eq i64 %1, 0
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %buf = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %l, i64 8
   %2 = load ptr, ptr %buf, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %0
   %add.ptr3 = getelementptr inbounds i8, ptr %add.ptr, i64 -1
@@ -1184,13 +1184,13 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 ; Function Attrs: nounwind uwtable
 define dso_local void @linenoiseEditDeletePrevWord(ptr nocapture noundef %l) local_unnamed_addr #9 {
 entry:
-  %pos = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 6
+  %pos = getelementptr inbounds i8, ptr %l, i64 40
   %0 = load i64, ptr %pos, align 8
   %cmp.not19 = icmp eq i64 %0, 0
   br i1 %cmp.not19, label %while.end.while.end22_crit_edge, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %buf = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %l, i64 8
   %1 = load ptr, ptr %buf, align 8
   %invariant.gep = getelementptr i8, ptr %1, i64 -1
   br label %land.rhs
@@ -1209,12 +1209,12 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp.not, label %while.end.while.end22_crit_edge, label %land.rhs, !llvm.loop !9
 
 while.end.while.end22_crit_edge:                  ; preds = %while.body, %entry
-  %buf25.phi.trans.insert = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 2
+  %buf25.phi.trans.insert = getelementptr inbounds i8, ptr %l, i64 8
   %.pre = load ptr, ptr %buf25.phi.trans.insert, align 8
   br label %while.end22
 
 land.rhs10.lr.ph:                                 ; preds = %land.rhs
-  %buf11 = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 2
+  %buf11 = getelementptr inbounds i8, ptr %l, i64 8
   %4 = load ptr, ptr %buf11, align 8
   %invariant.gep22 = getelementptr i8, ptr %4, i64 -1
   br label %land.rhs10
@@ -1238,7 +1238,7 @@ while.end22:                                      ; preds = %land.rhs10, %while.
   %sub24.neg = sub i64 %.lcssa, %0
   %add.ptr = getelementptr inbounds i8, ptr %7, i64 %.lcssa
   %add.ptr28 = getelementptr inbounds i8, ptr %7, i64 %0
-  %len = getelementptr inbounds %struct.linenoiseState, ptr %l, i64 0, i32 8
+  %len = getelementptr inbounds i8, ptr %l, i64 56
   %8 = load i64, ptr %len, align 8
   %reass.sub = sub i64 %8, %0
   %add = add i64 %reass.sub, 1
@@ -1348,9 +1348,9 @@ if.end7:                                          ; preds = %if.end4
   %2 = or <4 x i32> %0, <i32 poison, i32 poison, i32 48, i32 poison>
   %3 = shufflevector <4 x i32> %1, <4 x i32> %2, <4 x i32> <i32 0, i32 1, i32 6, i32 3>
   store <4 x i32> %3, ptr %raw, align 16
-  %arrayidx = getelementptr inbounds %struct.termios, ptr %raw, i64 0, i32 5, i64 6
+  %arrayidx = getelementptr inbounds i8, ptr %raw, i64 23
   store i8 1, ptr %arrayidx, align 1
-  %arrayidx11 = getelementptr inbounds %struct.termios, ptr %raw, i64 0, i32 5, i64 5
+  %arrayidx11 = getelementptr inbounds i8, ptr %raw, i64 22
   store i8 0, ptr %arrayidx11, align 2
   %call12 = call i32 @tcsetattr(i32 noundef 0, i32 noundef 0, ptr noundef nonnull %raw) #23
   %cmp13 = icmp slt i32 %call12, 0
@@ -1519,25 +1519,25 @@ if.end4.i:                                        ; preds = %if.else22
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %c.i.i)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %seq.i.i)
   store i32 0, ptr %l.i.i, align 8
-  %ofd.i.i = getelementptr inbounds %struct.linenoiseState, ptr %l.i.i, i64 0, i32 1
+  %ofd.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 4
   store i32 1, ptr %ofd.i.i, align 4
-  %buf1.i.i = getelementptr inbounds %struct.linenoiseState, ptr %l.i.i, i64 0, i32 2
+  %buf1.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 8
   store ptr %buf, ptr %buf1.i.i, align 8
-  %buflen2.i.i = getelementptr inbounds %struct.linenoiseState, ptr %l.i.i, i64 0, i32 3
+  %buflen2.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 16
   store i64 4096, ptr %buflen2.i.i, align 8
-  %prompt3.i.i = getelementptr inbounds %struct.linenoiseState, ptr %l.i.i, i64 0, i32 4
+  %prompt3.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 24
   store ptr %prompt, ptr %prompt3.i.i, align 8
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prompt) #24
-  %plen.i.i = getelementptr inbounds %struct.linenoiseState, ptr %l.i.i, i64 0, i32 5
+  %plen.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 32
   store i64 %call.i.i, ptr %plen.i.i, align 8
-  %pos.i.i = getelementptr inbounds %struct.linenoiseState, ptr %l.i.i, i64 0, i32 6
-  %len.i.i = getelementptr inbounds %struct.linenoiseState, ptr %l.i.i, i64 0, i32 8
+  %pos.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 40
+  %len.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pos.i.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ws.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %seq.i.i.i)
   %call.i.i.i = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %ws.i.i.i) #23
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
-  %ws_col.i.i.i = getelementptr inbounds %struct.winsize, ptr %ws.i.i.i, i64 0, i32 1
+  %ws_col.i.i.i = getelementptr inbounds i8, ptr %ws.i.i.i, i64 2
   %6 = load i16, ptr %ws_col.i.i.i, align 2
   %cmp1.i.i.i = icmp eq i16 %6, 0
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp1.i.i.i
@@ -1574,7 +1574,7 @@ while.end.i.i.i.i:                                ; preds = %if.end7.i.i.i.i, %w
   store i8 0, ptr %arrayidx14.i.i.i.i, align 1
   %8 = load i8, ptr %buf.i.i.i.i, align 16
   %cmp17.i.i.i.i = icmp ne i8 %8, 27
-  %arrayidx19.i.i.i.i = getelementptr inbounds [32 x i8], ptr %buf.i.i.i.i, i64 0, i64 1
+  %arrayidx19.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i.i, i64 1
   %9 = load i8, ptr %arrayidx19.i.i.i.i, align 1
   %cmp21.i.i.i.i = icmp ne i8 %9, 91
   %or.cond.i.i.i.i = select i1 %cmp17.i.i.i.i, i1 true, i1 %cmp21.i.i.i.i
@@ -1636,7 +1636,7 @@ while.end.i21.i.i.i:                              ; preds = %if.end7.i33.i.i.i, 
   store i8 0, ptr %arrayidx14.i23.i.i.i, align 1
   %12 = load i8, ptr %buf.i10.i.i.i, align 16
   %cmp17.i24.i.i.i = icmp ne i8 %12, 27
-  %arrayidx19.i25.i.i.i = getelementptr inbounds [32 x i8], ptr %buf.i10.i.i.i, i64 0, i64 1
+  %arrayidx19.i25.i.i.i = getelementptr inbounds i8, ptr %buf.i10.i.i.i, i64 1
   %13 = load i8, ptr %arrayidx19.i25.i.i.i, align 1
   %cmp21.i26.i.i.i = icmp ne i8 %13, 91
   %or.cond.i27.i.i.i = select i1 %cmp17.i24.i.i.i, i1 true, i1 %cmp21.i26.i.i.i
@@ -1682,11 +1682,11 @@ getColumns.exit.i.i:                              ; preds = %if.else.i.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ws.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %seq.i.i.i)
   %conv.i.i = sext i32 %retval.0.i.i.i to i64
-  %cols.i.i = getelementptr inbounds %struct.linenoiseState, ptr %l.i.i, i64 0, i32 9
+  %cols.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 64
   store i64 %conv.i.i, ptr %cols.i.i, align 8
-  %maxrows.i.i = getelementptr inbounds %struct.linenoiseState, ptr %l.i.i, i64 0, i32 10
+  %maxrows.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 72
   store i64 0, ptr %maxrows.i.i, align 8
-  %history_index.i.i = getelementptr inbounds %struct.linenoiseState, ptr %l.i.i, i64 0, i32 11
+  %history_index.i.i = getelementptr inbounds i8, ptr %l.i.i, i64 80
   store i32 0, ptr %history_index.i.i, align 8
   %15 = load ptr, ptr %buf1.i.i, align 8
   store i8 0, ptr %15, align 1
@@ -1708,7 +1708,7 @@ while.body.preheader.i.i:                         ; preds = %getColumns.exit.i.i
   br i1 %cmp15119.i.i, label %if.then17.i.i, label %if.end20.lr.ph.i.i
 
 if.end20.lr.ph.i.i:                               ; preds = %while.body.preheader.i.i
-  %cvec.i.i.i = getelementptr inbounds %struct.linenoiseCompletions, ptr %lc.i.i.i, i64 0, i32 1
+  %cvec.i.i.i = getelementptr inbounds i8, ptr %lc.i.i.i, i64 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %seq.i.i, i64 1
   %add.ptr130.i.i = getelementptr inbounds i8, ptr %seq.i.i, i64 2
   br label %if.end20.i.i
@@ -2426,7 +2426,7 @@ if.end18:                                         ; preds = %if.end13, %entry
 land.lhs.true:                                    ; preds = %if.end18
   %4 = sext i32 %3 to i64
   %5 = getelementptr ptr, ptr %2, i64 %4
-  %arrayidx = getelementptr ptr, ptr %5, i64 -1
+  %arrayidx = getelementptr i8, ptr %5, i64 -8
   %6 = load ptr, ptr %arrayidx, align 8
   %call19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %line) #24
   %tobool20.not = icmp eq i32 %call19, 0
@@ -2445,12 +2445,12 @@ if.end26:                                         ; preds = %if.end22
 if.then29:                                        ; preds = %if.end26
   %7 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %7) #23
-  %add.ptr = getelementptr inbounds ptr, ptr %2, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %2, i64 8
   %sub31 = add nsw i32 %0, -1
   %conv32 = zext nneg i32 %sub31 to i64
   %mul33 = shl nuw nsw i64 %conv32, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %add.ptr, i64 %mul33, i1 false)
-  %add.ptr34 = getelementptr inbounds i32, ptr %.pre, i64 1
+  %add.ptr34 = getelementptr inbounds i8, ptr %.pre, i64 4
   %mul37 = shl nuw nsw i64 %conv32, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %.pre, ptr nonnull align 4 %add.ptr34, i64 %mul37, i1 false)
   br label %if.end38

@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-init.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_init_stop_st = type { ptr, ptr }
-
 @base_inited = internal unnamed_addr global i1 false, align 4
 @stopped = internal unnamed_addr global i1 false, align 4
 @stop_handlers = internal unnamed_addr global ptr null, align 8
@@ -59,7 +57,7 @@ while.body:                                       ; preds = %if.end3, %while.bod
   %currhandler.07 = phi ptr [ %2, %while.body ], [ %0, %if.end3 ]
   %1 = load ptr, ptr %currhandler.07, align 8
   tail call void %1() #5
-  %next = getelementptr inbounds %struct.ossl_init_stop_st, ptr %currhandler.07, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %currhandler.07, i64 8
   %2 = load ptr, ptr %next, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %currhandler.07, ptr noundef nonnull @.str, i32 noundef 380) #5
   %cmp.not = icmp eq ptr %2, null
@@ -672,7 +670,7 @@ entry:
 if.end:                                           ; preds = %entry
   store ptr %handler, ptr %call, align 8
   %0 = load ptr, ptr @stop_handlers, align 8
-  %next = getelementptr inbounds %struct.ossl_init_stop_st, ptr %call, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %0, ptr %next, align 8
   store ptr %call, ptr @stop_handlers, align 8
   br label %return

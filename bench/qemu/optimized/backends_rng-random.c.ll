@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.RngRandom = type { %struct.RngBackend, i32, ptr }
-%struct.RngBackend = type { %struct.Object, i8, %struct.anon }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.anon = type { ptr, ptr }
-%struct.RngBackendClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.RngRequest = type { ptr, ptr, ptr, i64, i64, %struct.anon.0 }
-%struct.anon.0 = type { ptr }
 
 @rng_random_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 80, i64 0, ptr @rng_random_init, ptr null, ptr @rng_random_finalize, i8 0, i64 0, ptr @rng_random_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [11 x i8] c"rng-random\00", align 1
@@ -56,9 +48,9 @@ define internal void @rng_random_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 18, ptr noundef nonnull @__func__.RNG_RANDOM) #5
   %call1 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #5
-  %filename = getelementptr inbounds %struct.RngRandom, ptr %call.i, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr %call1, ptr %filename, align 8
-  %fd = getelementptr inbounds %struct.RngRandom, ptr %call.i, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 -1, ptr %fd, align 8
   ret void
 }
@@ -67,7 +59,7 @@ entry:
 define internal void @rng_random_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 18, ptr noundef nonnull @__func__.RNG_RANDOM) #5
-  %fd = getelementptr inbounds %struct.RngRandom, ptr %call.i, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 64
   %0 = load i32, ptr %fd, align 8
   %cmp.not = icmp eq i32 %0, -1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -79,7 +71,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %filename = getelementptr inbounds %struct.RngRandom, ptr %call.i, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %call.i, i64 72
   %2 = load ptr, ptr %filename, align 8
   tail call void @g_free(ptr noundef %2) #5
   ret void
@@ -89,9 +81,9 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @rng_random_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.RNG_BACKEND_CLASS) #5
-  %request_entropy = getelementptr inbounds %struct.RngBackendClass, ptr %call.i, i64 0, i32 1
+  %request_entropy = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @rng_random_request_entropy, ptr %request_entropy, align 8
-  %opened = getelementptr inbounds %struct.RngBackendClass, ptr %call.i, i64 0, i32 2
+  %opened = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @rng_random_opened, ptr %opened, align 8
   %call1 = tail call ptr @object_class_property_add_str(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @rng_random_get_filename, ptr noundef nonnull @rng_random_set_filename) #5
   ret void
@@ -111,13 +103,13 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 define internal void @rng_random_request_entropy(ptr noundef %b, ptr nocapture readnone %req) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %b, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 18, ptr noundef nonnull @__func__.RNG_RANDOM) #5
-  %requests = getelementptr inbounds %struct.RngBackend, ptr %call.i, i64 0, i32 2
+  %requests = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %requests, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %fd = getelementptr inbounds %struct.RngRandom, ptr %call.i, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 64
   %1 = load i32, ptr %fd, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %1, ptr noundef nonnull @entropy_available, ptr noundef null, ptr noundef nonnull %call.i) #5
   br label %if.end
@@ -130,7 +122,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal void @rng_random_opened(ptr noundef %b, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %b, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 18, ptr noundef nonnull @__func__.RNG_RANDOM) #5
-  %filename = getelementptr inbounds %struct.RngRandom, ptr %call.i, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %call.i, i64 72
   %0 = load ptr, ptr %filename, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.else
@@ -141,7 +133,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %call2 = tail call i32 (ptr, i32, ...) @qemu_open_old(ptr noundef nonnull %0, i32 noundef 2048) #5
-  %fd = getelementptr inbounds %struct.RngRandom, ptr %call.i, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 64
   store i32 %call2, ptr %fd, align 8
   %cmp4 = icmp eq i32 %call2, -1
   br i1 %cmp4, label %if.then5, label %if.end8
@@ -163,7 +155,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @rng_random_get_filename(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 18, ptr noundef nonnull @__func__.RNG_RANDOM) #5
-  %filename = getelementptr inbounds %struct.RngRandom, ptr %call.i, i64 0, i32 2
+  %filename = getelementptr inbounds i8, ptr %call.i, i64 72
   %0 = load ptr, ptr %filename, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #5
   ret ptr %call1
@@ -174,7 +166,7 @@ define internal void @rng_random_set_filename(ptr noundef %obj, ptr noundef %fil
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 21, ptr noundef nonnull @__func__.RNG_BACKEND) #5
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 18, ptr noundef nonnull @__func__.RNG_RANDOM) #5
-  %opened = getelementptr inbounds %struct.RngBackend, ptr %call.i, i64 0, i32 1
+  %opened = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i8, ptr %opened, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -185,7 +177,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %filename2 = getelementptr inbounds %struct.RngRandom, ptr %call.i3, i64 0, i32 2
+  %filename2 = getelementptr inbounds i8, ptr %call.i3, i64 72
   %2 = load ptr, ptr %filename2, align 8
   tail call void @g_free(ptr noundef %2) #5
   %call3 = tail call noalias ptr @g_strdup(ptr noundef %filename) #5
@@ -202,21 +194,21 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 define internal void @entropy_available(ptr noundef %opaque) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 18, ptr noundef nonnull @__func__.RNG_RANDOM) #5
-  %requests = getelementptr inbounds %struct.RngBackend, ptr %call.i, i64 0, i32 2
+  %requests = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %requests, align 8
   %cmp.not13 = icmp eq ptr %0, null
   br i1 %cmp.not13, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %fd = getelementptr inbounds %struct.RngRandom, ptr %call.i, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %do.end
   %1 = phi ptr [ %0, %while.body.lr.ph ], [ %9, %do.end ]
   %2 = load i32, ptr %fd, align 8
-  %data = getelementptr inbounds %struct.RngRequest, ptr %1, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %data, align 8
-  %size = getelementptr inbounds %struct.RngRequest, ptr %1, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i64, ptr %size, align 8
   %call4 = tail call i64 @read(i32 noundef %2, ptr noundef %3, i64 noundef %4) #5
   %cmp5 = icmp slt i64 %call4, 0
@@ -238,7 +230,7 @@ if.else:                                          ; preds = %do.body
 
 do.end:                                           ; preds = %while.body, %do.body
   %6 = load ptr, ptr %1, align 8
-  %opaque11 = getelementptr inbounds %struct.RngRequest, ptr %1, i64 0, i32 2
+  %opaque11 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %opaque11, align 8
   %8 = load ptr, ptr %data, align 8
   tail call void %6(ptr noundef %7, ptr noundef %8, i64 noundef %call4) #5
@@ -248,7 +240,7 @@ do.end:                                           ; preds = %while.body, %do.bod
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %do.end, %entry
-  %fd14 = getelementptr inbounds %struct.RngRandom, ptr %call.i, i64 0, i32 1
+  %fd14 = getelementptr inbounds i8, ptr %call.i, i64 64
   %10 = load i32, ptr %fd14, align 8
   tail call void @qemu_set_fd_handler(i32 noundef %10, ptr noundef null, ptr noundef null, ptr noundef null) #5
   br label %return

@@ -7,13 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.google::protobuf::internal::ExplicitlyConstructed" = type { %"union.google::protobuf::internal::ExplicitlyConstructed<std::__cxx11::basic_string<char>, 8>::AlignedUnion" }
 %"union.google::protobuf::internal::ExplicitlyConstructed<std::__cxx11::basic_string<char>, 8>::AlignedUnion" = type { i64, [24 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.google::protobuf::internal::LazyString" = type { %union.anon, %"struct.std::atomic.0" }
-%union.anon = type { %"struct.google::protobuf::internal::LazyString::InitValue", [16 x i8] }
-%"struct.google::protobuf::internal::LazyString::InitValue" = type { ptr, i64 }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { ptr }
 %class.anon.13 = type { ptr }
-%"class.google::protobuf::internal::EpsCopyInputStream" = type { ptr, ptr, ptr, i32, i32, ptr, [32 x i8], i64, i32, i32 }
 
 $_ZZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPKcmEEEPT_PS1_DpOT0_ENKUlDpOT_E0_clIJSA_mEEEDaSJ_ = comdat any
 
@@ -54,7 +48,7 @@ init:                                             ; preds = %init.check
 
 init.end:                                         ; preds = %init, %init.check, %entry
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) @_ZZNK6google8protobuf8internal10LazyString4InitB5cxx11EvE2mu)
-  %inited_ = getelementptr inbounds %"class.google::protobuf::internal::LazyString", ptr %this, i64 0, i32 1
+  %inited_ = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load atomic i64, ptr %inited_ acquire, align 8
   %atomic-temp.i.0.i = inttoptr i64 %3 to ptr
   %cmp = icmp eq i64 %3, 0
@@ -422,7 +416,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  %inited_.i.i = getelementptr inbounds %"class.google::protobuf::internal::LazyString", ptr %default_value, i64 0, i32 1
+  %inited_.i.i = getelementptr inbounds i8, ptr %default_value, i64 32
   %3 = load atomic i64, ptr %inited_.i.i acquire, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %3 to ptr
   %cmp.i.i = icmp eq i64 %3, 0
@@ -669,7 +663,7 @@ entry:
 if.else:                                          ; preds = %entry
   %and.i.i1 = and i64 %1, -4
   %2 = inttoptr i64 %and.i.i1 to ptr
-  %inited_.i = getelementptr inbounds %"class.google::protobuf::internal::LazyString", ptr %default_value, i64 0, i32 1
+  %inited_.i = getelementptr inbounds i8, ptr %default_value, i64 32
   %3 = load atomic i64, ptr %inited_.i acquire, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %3 to ptr
   %cmp.i = icmp eq i64 %3, 0
@@ -730,7 +724,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr9NewStringIJEEEPNSt7__cxx1112basic_s
   %storemerge.i3 = inttoptr i64 %or.i.i3.i to ptr
   store ptr %storemerge.i3, ptr %s, align 8
   %conv.i6 = sext i32 %retval.0.i18 to i64
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %this, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %buffer_end_.i, align 8
   %add.ptr.i7 = getelementptr inbounds i8, ptr %4, i64 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i7 to i64

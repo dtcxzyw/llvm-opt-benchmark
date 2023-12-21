@@ -183,9 +183,9 @@ for.cond17.preheader:                             ; preds = %if.end8
   br i1 %cmp32.not, label %for.end79, label %for.body20.lr.ph
 
 for.body20.lr.ph:                                 ; preds = %for.cond17.preheader
-  %arrayidx43 = getelementptr inbounds [4 x i8], ptr %block, i64 0, i64 1
-  %arrayidx49 = getelementptr inbounds [4 x i8], ptr %block, i64 0, i64 2
-  %arrayidx58 = getelementptr inbounds [4 x i8], ptr %block, i64 0, i64 3
+  %arrayidx43 = getelementptr inbounds i8, ptr %block, i64 1
+  %arrayidx49 = getelementptr inbounds i8, ptr %block, i64 2
+  %arrayidx58 = getelementptr inbounds i8, ptr %block, i64 3
   br label %for.body20
 
 for.body20:                                       ; preds = %for.body20.lr.ph, %for.inc77

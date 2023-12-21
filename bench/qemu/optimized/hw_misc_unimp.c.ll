@@ -10,23 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.3 = type { i32, i32, i8, ptr }
 %struct.anon.4 = type { i32, i32, i8 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.UnimplementedDeviceState = type { %struct.SysBusDevice, %struct.MemoryRegion, i32, ptr, i64 }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.anon = type { i64, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.0, %union.anon.1, %union.anon.2, ptr, i32, ptr, ptr, i8 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
 
 @unimp_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 1120, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @unimp_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [21 x i8] c"unimplemented-device\00", align 1
@@ -75,7 +58,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @unimp_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #3
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @unimp_realize, ptr %realize, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @unimp_properties) #3
   ret void
@@ -85,7 +68,7 @@ entry:
 define internal void @unimp_realize(ptr noundef %dev, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 18, ptr noundef nonnull @__func__.UNIMPLEMENTED_DEVICE) #3
-  %size = getelementptr inbounds %struct.UnimplementedDeviceState, ptr %call.i, i64 0, i32 4
+  %size = getelementptr inbounds i8, ptr %call.i, i64 1104
   %0 = load i64, ptr %size, align 16
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -95,7 +78,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.UnimplementedDeviceState, ptr %call.i, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %call.i, i64 1096
   %1 = load ptr, ptr %name, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -110,9 +93,9 @@ if.end3:                                          ; preds = %if.end
   %cast.i = trunc i64 %2 to i32
   %sub7 = sub nuw nsw i32 67, %cast.i
   %div12 = lshr i32 %sub7, 2
-  %offset_fmt_width = getelementptr inbounds %struct.UnimplementedDeviceState, ptr %call.i, i64 0, i32 2
+  %offset_fmt_width = getelementptr inbounds i8, ptr %call.i, i64 1088
   store i32 %div12, ptr %offset_fmt_width, align 16
-  %iomem = getelementptr inbounds %struct.UnimplementedDeviceState, ptr %call.i, i64 0, i32 1
+  %iomem = getelementptr inbounds i8, ptr %call.i, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %iomem, ptr noundef nonnull %call.i, ptr noundef nonnull @unimp_ops, ptr noundef nonnull %call.i, ptr noundef nonnull %1, i64 noundef %0) #3
   %call.i13 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #3
   tail call void @sysbus_init_mmio(ptr noundef %call.i13, ptr noundef nonnull %iomem) #3
@@ -147,9 +130,9 @@ entry:
   br i1 %cmp.i.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct.UnimplementedDeviceState, ptr %call.i, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %call.i, i64 1096
   %1 = load ptr, ptr %name, align 8
-  %offset_fmt_width = getelementptr inbounds %struct.UnimplementedDeviceState, ptr %call.i, i64 0, i32 2
+  %offset_fmt_width = getelementptr inbounds i8, ptr %call.i, i64 1088
   %2 = load i32, ptr %offset_fmt_width, align 16
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, ptr noundef %1, i32 noundef %size, i32 noundef %2, i64 noundef %offset) #3
   br label %do.end
@@ -168,9 +151,9 @@ entry:
   br i1 %cmp.i.not, label %do.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct.UnimplementedDeviceState, ptr %call.i, i64 0, i32 3
+  %name = getelementptr inbounds i8, ptr %call.i, i64 1096
   %1 = load ptr, ptr %name, align 8
-  %offset_fmt_width = getelementptr inbounds %struct.UnimplementedDeviceState, ptr %call.i, i64 0, i32 2
+  %offset_fmt_width = getelementptr inbounds i8, ptr %call.i, i64 1088
   %2 = load i32, ptr %offset_fmt_width, align 16
   %shl = shl i32 %size, 1
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %1, i32 noundef %size, i32 noundef %2, i64 noundef %offset, i32 noundef %shl, i64 noundef %value) #3

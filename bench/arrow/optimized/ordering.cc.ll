@@ -4,19 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %class.anon = type { ptr, ptr }
-%"class.arrow::compute::SortKey" = type { %"class.arrow::FieldRef", i32, [4 x i8] }
-%"class.arrow::FieldRef" = type { %"class.std::variant" }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type { %"union.std::__detail::__variant::_Variadic_union", i8 }
-%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.2" }
-%"union.std::__detail::__variant::_Variadic_union.2" = type { %"struct.std::__detail::__variant::_Uninitialized.3" }
-%"struct.std::__detail::__variant::_Uninitialized.3" = type { %"struct.__gnu_cxx::__aligned_membuf.4" }
-%"struct.__gnu_cxx::__aligned_membuf.4" = type { [32 x i8] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -30,14 +17,19 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.std::_Vector_base<arrow::compute::SortKey, std::allocator<arrow::compute::SortKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.arrow::compute::Ordering" = type <{ %"class.std::vector", i32, i8, [3 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<arrow::compute::SortKey, std::allocator<arrow::compute::SortKey>>::_Vector_impl" }
-%"struct.std::_Vector_base<arrow::compute::SortKey, std::allocator<arrow::compute::SortKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<arrow::compute::SortKey, std::allocator<arrow::compute::SortKey>>::_Vector_impl_data" }
-%"struct.std::__detail::__variant::_Variant_storage" = type { %"union.std::__detail::__variant::_Variadic_union", i8, [7 x i8] }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Vector_base<arrow::FieldRef, std::allocator<arrow::FieldRef>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.arrow::compute::SortKey" = type { %"class.arrow::FieldRef", i32, [4 x i8] }
+%"class.arrow::FieldRef" = type { %"class.std::variant" }
+%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
+%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
+%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
+%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
+%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
+%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
+%"struct.std::__detail::__variant::_Variant_storage.base" = type { %"union.std::__detail::__variant::_Variadic_union", i8 }
+%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.2" }
+%"union.std::__detail::__variant::_Variadic_union.2" = type { %"struct.std::__detail::__variant::_Uninitialized.3" }
+%"struct.std::__detail::__variant::_Uninitialized.3" = type { %"struct.__gnu_cxx::__aligned_membuf.4" }
+%"struct.__gnu_cxx::__aligned_membuf.4" = type { [32 x i8] }
 
 $_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_8FieldRefESaISD_EEEEbRKSt7variantIJDpT_EESL_EUlOT_T0_E_JRKSG_IJS5_SB_SF_EEEEDcOSO_DpOT1_ = comdat any
 
@@ -59,7 +51,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   store i8 1, ptr %__ret.i.i, align 1
   store ptr %__ret.i.i, ptr %ref.tmp.i.i, align 8
-  %0 = getelementptr inbounds %class.anon, ptr %ref.tmp.i.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store ptr %this, ptr %0, align 8
   call void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_8FieldRefESaISD_EEEEbRKSt7variantIJDpT_EESL_EUlOT_T0_E_JRKSG_IJS5_SB_SF_EEEEDcOSO_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(33) %other)
   %1 = load i8, ptr %__ret.i.i, align 1
@@ -67,9 +59,9 @@ entry:
   %tobool.i.i = icmp ne i8 %2, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__ret.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
-  %order = getelementptr inbounds %"class.arrow::compute::SortKey", ptr %this, i64 0, i32 1
+  %order = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load i32, ptr %order, align 8
-  %order3 = getelementptr inbounds %"class.arrow::compute::SortKey", ptr %other, i64 0, i32 1
+  %order3 = getelementptr inbounds i8, ptr %other, i64 40
   %4 = load i32, ptr %order3, align 8
   %cmp = icmp eq i32 %3, %4
   %5 = select i1 %tobool.i.i, i1 %cmp, i1 false
@@ -96,7 +88,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
-  %order = getelementptr inbounds %"class.arrow::compute::SortKey", ptr %this, i64 0, i32 1
+  %order = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %order, align 8
   switch i32 %0, label %sw.epilog [
     i32 0, label %sw.bb9.invoke
@@ -162,22 +154,22 @@ entry:
   %__ret.i.i.i.i.i = alloca i8, align 1
   %ref.tmp.i.i.i.i.i = alloca %class.anon, align 8
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::SortKey, std::allocator<arrow::compute::SortKey>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %is_implicit_ = getelementptr inbounds %"class.arrow::compute::Ordering", ptr %this, i64 0, i32 2
+  %is_implicit_ = getelementptr inbounds i8, ptr %this, i64 28
   %2 = load i8, ptr %is_implicit_, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
   br label %return
 
 if.end:                                           ; preds = %entry
-  %null_placement_ = getelementptr inbounds %"class.arrow::compute::Ordering", ptr %this, i64 0, i32 1
+  %null_placement_ = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i32, ptr %null_placement_, align 8
-  %null_placement_2 = getelementptr inbounds %"class.arrow::compute::Ordering", ptr %other, i64 0, i32 1
+  %null_placement_2 = getelementptr inbounds i8, ptr %other, i64 24
   %5 = load i32, ptr %null_placement_2, align 8
   %cmp.not = icmp eq i32 %4, %5
   br i1 %cmp.not, label %if.end4, label %return
@@ -187,7 +179,7 @@ if.end4:                                          ; preds = %if.end
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 48
-  %_M_finish.i6 = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::SortKey, std::allocator<arrow::compute::SortKey>>::_Vector_impl_data", ptr %other, i64 0, i32 1
+  %_M_finish.i6 = getelementptr inbounds i8, ptr %other, i64 8
   %6 = load ptr, ptr %_M_finish.i6, align 8
   %7 = load ptr, ptr %other, align 8
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %6 to i64
@@ -198,7 +190,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp9, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end4
-  %8 = getelementptr inbounds %class.anon, ptr %ref.tmp.i.i.i.i.i, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i, i64 8
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -229,9 +221,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %tobool.i.i.i.i.i = icmp ne i8 %14, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__ret.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i)
-  %order.i.i.i = getelementptr inbounds %"class.arrow::compute::SortKey", ptr %11, i64 %key_idx.022, i32 1
+  %order.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 40
   %15 = load i32, ptr %order.i.i.i, align 8
-  %order3.i.i.i = getelementptr inbounds %"class.arrow::compute::SortKey", ptr %12, i64 %key_idx.022, i32 1
+  %order3.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i16, i64 40
   %16 = load i32, ptr %order3.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %15, %16
   %.not.i.not = select i1 %tobool.i.i.i.i.i, i1 %cmp.i.i.i, i1 false
@@ -247,21 +239,21 @@ define noundef zeroext i1 @_ZNK5arrow7compute8Ordering6EqualsERKS1_(ptr nocaptur
 entry:
   %__ret.i.i.i.i.i.i.i.i.i = alloca i8, align 1
   %ref.tmp.i.i.i.i.i.i.i.i.i = alloca %class.anon, align 8
-  %null_placement_ = getelementptr inbounds %"class.arrow::compute::Ordering", ptr %this, i64 0, i32 1
+  %null_placement_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %null_placement_, align 8
-  %null_placement_2 = getelementptr inbounds %"class.arrow::compute::Ordering", ptr %other, i64 0, i32 1
+  %null_placement_2 = getelementptr inbounds i8, ptr %other, i64 24
   %1 = load i32, ptr %null_placement_2, align 8
   %cmp = icmp eq i32 %0, %1
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::SortKey, std::allocator<arrow::compute::SortKey>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %_M_finish.i4.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::SortKey, std::allocator<arrow::compute::SortKey>>::_Vector_impl_data", ptr %other, i64 0, i32 1
+  %_M_finish.i4.i = getelementptr inbounds i8, ptr %other, i64 8
   %4 = load ptr, ptr %_M_finish.i4.i, align 8
   %5 = load ptr, ptr %other, align 8
   %sub.ptr.lhs.cast.i5.i = ptrtoint ptr %4 to i64
@@ -275,7 +267,7 @@ land.rhs.i:                                       ; preds = %land.rhs
   br i1 %cmp.not4.i.i.i.i.i, label %land.end, label %for.body.lr.ph.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %land.rhs.i
-  %6 = getelementptr inbounds %class.anon, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 8
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i
@@ -292,14 +284,14 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %tobool.i.i.i.i.i.i.i.i.i = icmp ne i8 %8, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__ret.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i)
-  %order.i.i.i.i.i.i.i = getelementptr inbounds %"class.arrow::compute::SortKey", ptr %__first1.addr.05.i.i.i.i.i, i64 0, i32 1
+  %order.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.05.i.i.i.i.i, i64 40
   %9 = load i32, ptr %order.i.i.i.i.i.i.i, align 8
-  %order3.i.i.i.i.i.i.i = getelementptr inbounds %"class.arrow::compute::SortKey", ptr %__first2.addr.06.i.i.i.i.i, i64 0, i32 1
+  %order3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.06.i.i.i.i.i, i64 40
   %10 = load i32, ptr %order3.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %9, %10
   %11 = select i1 %tobool.i.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i, i1 false
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.arrow::compute::SortKey", ptr %__first1.addr.05.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.arrow::compute::SortKey", ptr %__first2.addr.06.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.05.i.i.i.i.i, i64 48
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.06.i.i.i.i.i, i64 48
   %cmp.not.i.i.i.i.i = icmp ne ptr %incdec.ptr.i.i.i.i.i, %2
   %or.cond.not = select i1 %11, i1 %cmp.not.i.i.i.i.i, i1 false
   br i1 %or.cond.not, label %for.body.i.i.i.i.i, label %land.end, !llvm.loop !6
@@ -321,7 +313,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::compute::SortKey, std::allocator<arrow::compute::SortKey>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not7 = icmp eq ptr %0, %1
   br i1 %cmp.i.not7, label %for.end, label %for.body
@@ -358,7 +350,7 @@ invoke.cont11:                                    ; preds = %if.end
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #6
-  %incdec.ptr.i = getelementptr inbounds %"class.arrow::compute::SortKey", ptr %__begin2.sroa.0.08, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.08, i64 48
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -373,7 +365,7 @@ for.end:                                          ; preds = %invoke.cont13, %inv
           to label %invoke.cont17 unwind label %lpad.loopexit.split-lp
 
 invoke.cont17:                                    ; preds = %for.end
-  %null_placement_ = getelementptr inbounds %"class.arrow::compute::Ordering", ptr %this, i64 0, i32 1
+  %null_placement_ = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i32, ptr %null_placement_, align 8
   switch i32 %4, label %sw.default [
     i32 1, label %sw.bb.invoke
@@ -417,12 +409,12 @@ define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx
 entry:
   %__ret.i.i.i.i = alloca i8, align 1
   %ref.tmp.i.i.i.i = alloca %class.anon, align 8
-  %_M_index.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %__variants, i64 0, i32 1
+  %_M_index.i = getelementptr inbounds i8, ptr %__variants, i64 32
   %0 = load i8, ptr %_M_index.i, align 8
   %conv.i = sext i8 %0 to i64
-  %1 = getelementptr inbounds %class.anon, ptr %__visitor, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %__visitor, i64 8
   %2 = load ptr, ptr %1, align 8
-  %_M_index.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %2, i64 0, i32 1
+  %_M_index.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load i8, ptr %_M_index.i.i.i.i.i, align 8
   switch i64 %conv.i, label %sw.default [
     i64 0, label %sw.bb
@@ -436,13 +428,13 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp.i.i.i.i, label %_ZSt3getILm0EJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSG_.exit.i.i.i.i, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_20__variant_idx_cookieEOZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS5_8FieldRefESaISE_EEEEbRKSt7variantIJDpT_EESM_EUlOT_T0_E_RKSH_IJS6_SC_SG_EEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESR_SU_.exit
 
 _ZSt3getILm0EJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSG_.exit.i.i.i.i: ; preds = %sw.bb
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %2, i64 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   %5 = load ptr, ptr %2, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
-  %_M_finish.i4.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %__variants, i64 0, i32 1
+  %_M_finish.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__variants, i64 8
   %6 = load ptr, ptr %_M_finish.i4.i.i.i.i.i.i, align 8
   %7 = load ptr, ptr %__variants, align 8
   %sub.ptr.lhs.cast.i5.i.i.i.i.i.i = ptrtoint ptr %6 to i64
@@ -501,13 +493,13 @@ sw.bb3:                                           ; preds = %entry
   br i1 %cmp.i, label %_ZSt3getILm2EJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSG_.exit.i, label %_ZZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEEbRKSt7variantIJDpT_EESH_ENUlOT_T0_E_clIRKSB_St17integral_constantImLm2EEEEDaSJ_SK_.exit
 
 _ZSt3getILm2EJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSG_.exit.i: ; preds = %sw.bb3
-  %_M_finish.i4.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::FieldRef, std::allocator<arrow::FieldRef>>::_Vector_impl_data", ptr %2, i64 0, i32 1
+  %_M_finish.i4.i = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load ptr, ptr %_M_finish.i4.i, align 8
   %14 = load ptr, ptr %2, align 8
   %sub.ptr.lhs.cast.i5.i = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i6.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i7.i = sub i64 %sub.ptr.lhs.cast.i5.i, %sub.ptr.rhs.cast.i6.i
-  %_M_finish.i3.i = getelementptr inbounds %"struct.std::_Vector_base<arrow::FieldRef, std::allocator<arrow::FieldRef>>::_Vector_impl_data", ptr %__variants, i64 0, i32 1
+  %_M_finish.i3.i = getelementptr inbounds i8, ptr %__variants, i64 8
   %15 = load ptr, ptr %_M_finish.i3.i, align 8
   %16 = load ptr, ptr %__variants, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %15 to i64
@@ -521,7 +513,7 @@ for.cond.i.i.preheader.i:                         ; preds = %_ZSt3getILm2EJN5arr
   br i1 %cmp.not.i.i9.i, label %_ZZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEEbRKSt7variantIJDpT_EESH_ENUlOT_T0_E_clIRKSB_St17integral_constantImLm2EEEEDaSJ_SK_.exit, label %for.body.i.i.lr.ph.i
 
 for.body.i.i.lr.ph.i:                             ; preds = %for.cond.i.i.preheader.i
-  %17 = getelementptr inbounds %class.anon, ptr %ref.tmp.i.i.i.i, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.i.i.lr.ph.i
@@ -541,8 +533,8 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
   br i1 %tobool.i.i.i.not.i, label %_ZZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEEbRKSt7variantIJDpT_EESH_ENUlOT_T0_E_clIRKSB_St17integral_constantImLm2EEEEDaSJ_SK_.exit, label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.arrow::FieldRef", ptr %__first1.addr.0.i.i10.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.arrow::FieldRef", ptr %__first2.addr.0.i.i11.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.0.i.i10.i, i64 40
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.0.i.i11.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %13
   br i1 %cmp.not.i.i.i, label %_ZZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS0_8FieldRefESaIS9_EEEEbRKSt7variantIJDpT_EESH_ENUlOT_T0_E_clIRKSB_St17integral_constantImLm2EEEEDaSJ_SK_.exit, label %for.body.i.i.i, !llvm.loop !7
 

@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.x509_attributes_st = type { ptr, ptr }
 
 @X509_ATTRIBUTE_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @X509_ATTRIBUTE_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
 @X509_ATTRIBUTE_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.1, ptr @ASN1_OBJECT_it }, %struct.ASN1_TEMPLATE_st { i64 2, i64 0, i64 8, ptr @.str.2, ptr @ASN1_ANY_it }], align 16
@@ -83,7 +82,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %err, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %set = getelementptr inbounds %struct.x509_attributes_st, ptr %call1.i, i64 0, i32 1
+  %set = getelementptr inbounds i8, ptr %call1.i, i64 8
   %0 = load ptr, ptr %set, align 8
   %call11 = tail call i32 @OPENSSL_sk_push(ptr noundef %0, ptr noundef nonnull %call5) #3
   %tobool.not = icmp eq i32 %call11, 0

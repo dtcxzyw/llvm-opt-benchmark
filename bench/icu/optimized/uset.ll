@@ -3,18 +3,13 @@ source_filename = "bench/icu/original/uset.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::UnicodeSet" = type <{ %"class.icu_75::UnicodeFilter", ptr, i32, i32, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, [25 x i32], [4 x i8] }>
-%"class.icu_75::UnicodeFilter" = type { %"class.icu_75::UnicodeFunctor", %"class.icu_75::UnicodeMatcher" }
-%"class.icu_75::UnicodeFunctor" = type { %"class.icu_75::UObject" }
-%"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::UnicodeMatcher" = type { ptr }
 %"class.icu_75::UnicodeString" = type { %"class.icu_75::Replaceable", %"union.icu_75::UnicodeString::StackBufferOrFields" }
 %"class.icu_75::Replaceable" = type { %"class.icu_75::UObject" }
+%"class.icu_75::UObject" = type { ptr }
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
 %"class.icu_75::Char16Ptr" = type { ptr }
-%struct.USerializedSet = type { ptr, i32, i32, [8 x i16] }
 
 ; Function Attrs: mustprogress uwtable
 define ptr @uset_openEmpty_75() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -100,10 +95,10 @@ declare noundef ptr @_ZNK6icu_7510UnicodeSet5cloneEv(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define signext i8 @uset_isFrozen_75(ptr nocapture noundef readonly %set) local_unnamed_addr #4 {
 entry:
-  %bmpSet.i = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %set, i64 0, i32 6
+  %bmpSet.i = getelementptr inbounds i8, ptr %set, i64 40
   %0 = load ptr, ptr %bmpSet.i, align 8
   %cmp.not.i = icmp ne ptr %0, null
-  %stringSpan.i = getelementptr inbounds %"class.icu_75::UnicodeSet", ptr %set, i64 0, i32 14
+  %stringSpan.i = getelementptr inbounds i8, ptr %set, i64 88
   %1 = load ptr, ptr %stringSpan.i, align 8
   %cmp2.i = icmp ne ptr %1, null
   %narrow.i = select i1 %cmp.not.i, i1 true, i1 %cmp2.i
@@ -917,12 +912,12 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %bmpLength = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 1
+  %bmpLength = getelementptr inbounds i8, ptr %fillSet, i64 8
   store i32 0, ptr %bmpLength, align 8
   br label %return.sink.split
 
 if.end5:                                          ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds i16, ptr %src, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %src, i64 2
   %0 = load i16, ptr %src, align 2
   %conv = zext i16 %0 to i32
   %tobool.not = icmp sgt i16 %0, -1
@@ -935,21 +930,21 @@ if.then6:                                         ; preds = %if.end5
   br i1 %cmp8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %if.then6
-  %bmpLength10 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 1
+  %bmpLength10 = getelementptr inbounds i8, ptr %fillSet, i64 8
   store i32 0, ptr %bmpLength10, align 8
   br label %return.sink.split
 
 if.end12:                                         ; preds = %if.then6
-  %incdec.ptr13 = getelementptr inbounds i16, ptr %src, i64 2
+  %incdec.ptr13 = getelementptr inbounds i8, ptr %src, i64 4
   %1 = load i16, ptr %incdec.ptr, align 2
   %conv14 = zext i16 %1 to i32
-  %bmpLength15 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 1
+  %bmpLength15 = getelementptr inbounds i8, ptr %fillSet, i64 8
   store i32 %conv14, ptr %bmpLength15, align 8
   br label %if.end23
 
 if.else:                                          ; preds = %if.end5
   %cmp17.not = icmp ult i32 %conv, %srcLength
-  %bmpLength22 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 1
+  %bmpLength22 = getelementptr inbounds i8, ptr %fillSet, i64 8
   br i1 %cmp17.not, label %if.end21, label %if.then18
 
 if.then18:                                        ; preds = %if.else
@@ -969,7 +964,7 @@ if.end23:                                         ; preds = %if.end21, %if.end12
 return.sink.split:                                ; preds = %if.then3, %if.then9, %if.then18, %if.end23
   %length.0.sink = phi i32 [ %length.0, %if.end23 ], [ 0, %if.then18 ], [ 0, %if.then9 ], [ 0, %if.then3 ]
   %retval.0.ph = phi i8 [ 1, %if.end23 ], [ 0, %if.then18 ], [ 0, %if.then9 ], [ 0, %if.then3 ]
-  %length24 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 2
+  %length24 = getelementptr inbounds i8, ptr %fillSet, i64 12
   store i32 %length.0.sink, ptr %length24, align 4
   br label %return
 
@@ -987,20 +982,20 @@ entry:
   br i1 %or.cond, label %if.end47, label %if.end
 
 if.end:                                           ; preds = %entry
-  %staticArray = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 3
+  %staticArray = getelementptr inbounds i8, ptr %fillSet, i64 16
   store ptr %staticArray, ptr %fillSet, align 8
   %cmp2 = icmp ult i32 %c, 65535
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %length = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %fillSet, i64 12
   store i32 2, ptr %length, align 4
-  %bmpLength = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 1
+  %bmpLength = getelementptr inbounds i8, ptr %fillSet, i64 8
   store i32 2, ptr %bmpLength, align 8
   %conv = trunc i32 %c to i16
   store i16 %conv, ptr %staticArray, align 8
   %conv7 = add nuw i16 %conv, 1
-  %arrayidx9 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 3, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %fillSet, i64 18
   store i16 %conv7, ptr %arrayidx9, align 2
   br label %if.end47
 
@@ -1009,22 +1004,22 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp10, label %if.then11, label %if.else20
 
 if.then11:                                        ; preds = %if.else
-  %bmpLength12 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 1
+  %bmpLength12 = getelementptr inbounds i8, ptr %fillSet, i64 8
   store i32 1, ptr %bmpLength12, align 8
-  %length13 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 2
+  %length13 = getelementptr inbounds i8, ptr %fillSet, i64 12
   store i32 3, ptr %length13, align 4
   store i16 -1, ptr %staticArray, align 8
-  %arrayidx17 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 3, i64 1
+  %arrayidx17 = getelementptr inbounds i8, ptr %fillSet, i64 18
   store i16 1, ptr %arrayidx17, align 2
-  %arrayidx19 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 3, i64 2
+  %arrayidx19 = getelementptr inbounds i8, ptr %fillSet, i64 20
   store i16 0, ptr %arrayidx19, align 4
   br label %if.end47
 
 if.else20:                                        ; preds = %if.else
   %cmp21 = icmp ult i32 %c, 1114111
-  %bmpLength23 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 1
+  %bmpLength23 = getelementptr inbounds i8, ptr %fillSet, i64 8
   store i32 0, ptr %bmpLength23, align 8
-  %length24 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 2
+  %length24 = getelementptr inbounds i8, ptr %fillSet, i64 12
   br i1 %cmp21, label %if.then22, label %if.else38
 
 if.then22:                                        ; preds = %if.else20
@@ -1033,22 +1028,22 @@ if.then22:                                        ; preds = %if.else20
   %conv25 = trunc i32 %shr to i16
   store i16 %conv25, ptr %staticArray, align 8
   %conv28 = trunc i32 %c to i16
-  %arrayidx30 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 3, i64 1
+  %arrayidx30 = getelementptr inbounds i8, ptr %fillSet, i64 18
   store i16 %conv28, ptr %arrayidx30, align 2
   %inc = add nuw nsw i32 %c, 1
   %shr31 = lshr i32 %inc, 16
   %conv32 = trunc i32 %shr31 to i16
-  %arrayidx34 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 3, i64 2
+  %arrayidx34 = getelementptr inbounds i8, ptr %fillSet, i64 20
   store i16 %conv32, ptr %arrayidx34, align 4
   %conv35 = trunc i32 %inc to i16
-  %arrayidx37 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 3, i64 3
+  %arrayidx37 = getelementptr inbounds i8, ptr %fillSet, i64 22
   store i16 %conv35, ptr %arrayidx37, align 2
   br label %if.end47
 
 if.else38:                                        ; preds = %if.else20
   store i32 2, ptr %length24, align 4
   store i16 16, ptr %staticArray, align 8
-  %arrayidx44 = getelementptr inbounds %struct.USerializedSet, ptr %fillSet, i64 0, i32 3, i64 1
+  %arrayidx44 = getelementptr inbounds i8, ptr %fillSet, i64 18
   store i16 -1, ptr %arrayidx44, align 2
   br label %if.end47
 
@@ -1076,7 +1071,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp5, label %if.end25, label %if.else
 
 if.else:                                          ; preds = %if.then4
-  %bmpLength = getelementptr inbounds %struct.USerializedSet, ptr %set, i64 0, i32 1
+  %bmpLength = getelementptr inbounds i8, ptr %set, i64 8
   %2 = load i32, ptr %bmpLength, align 8
   %sub = add nsw i32 %2, -1
   %idxprom = sext i32 %sub to i64
@@ -1118,9 +1113,9 @@ if.end25:                                         ; preds = %if.else13, %for.con
 
 if.else27:                                        ; preds = %if.end
   %shr28 = lshr i32 %c, 16
-  %bmpLength31 = getelementptr inbounds %struct.USerializedSet, ptr %set, i64 0, i32 1
+  %bmpLength31 = getelementptr inbounds i8, ptr %set, i64 8
   %6 = load i32, ptr %bmpLength31, align 8
-  %length = getelementptr inbounds %struct.USerializedSet, ptr %set, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %set, i64 12
   %7 = load i32, ptr %length, align 4
   %sub34 = add nsw i32 %7, -2
   %sub35 = sub nsw i32 %sub34, %6
@@ -1137,7 +1132,7 @@ lor.lhs.false41:                                  ; preds = %if.else27
 
 land.lhs.true:                                    ; preds = %lor.lhs.false41
   %conv47 = and i32 %c, 65535
-  %arrayidx50 = getelementptr i16, ptr %arrayidx38, i64 1
+  %arrayidx50 = getelementptr i8, ptr %arrayidx38, i64 2
   %9 = load i16, ptr %arrayidx50, align 2
   %conv51 = zext i16 %9 to i32
   %cmp52 = icmp ult i32 %conv47, %conv51
@@ -1159,7 +1154,7 @@ land.lhs.true68:                                  ; preds = %lor.lhs.false61
   %conv69 = and i32 %c, 65535
   %11 = sext i32 %7 to i64
   %12 = getelementptr i16, ptr %0, i64 %11
-  %arrayidx73 = getelementptr i16, ptr %12, i64 -1
+  %arrayidx73 = getelementptr i8, ptr %12, i64 -2
   %13 = load i16, ptr %arrayidx73, align 2
   %conv74 = zext i16 %13 to i32
   %cmp75 = icmp ult i32 %conv69, %conv74
@@ -1192,7 +1187,7 @@ lor.lhs.false91:                                  ; preds = %if.else85
   br i1 %cmp96, label %land.lhs.true97, label %if.else105
 
 land.lhs.true97:                                  ; preds = %lor.lhs.false91
-  %arrayidx101 = getelementptr i16, ptr %arrayidx88, i64 1
+  %arrayidx101 = getelementptr i8, ptr %arrayidx88, i64 2
   %15 = load i16, ptr %arrayidx101, align 2
   %conv102 = zext i16 %15 to i32
   %cmp103 = icmp ult i32 %conv98, %conv102
@@ -1234,9 +1229,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %bmpLength = getelementptr inbounds %struct.USerializedSet, ptr %set, i64 0, i32 1
+  %bmpLength = getelementptr inbounds i8, ptr %set, i64 8
   %0 = load i32, ptr %bmpLength, align 8
-  %length = getelementptr inbounds %struct.USerializedSet, ptr %set, i64 0, i32 2
+  %length = getelementptr inbounds i8, ptr %set, i64 12
   %1 = load i32, ptr %length, align 4
   %sub = sub nsw i32 %1, %0
   %div = sdiv i32 %sub, 2
@@ -1264,9 +1259,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %set, align 8
-  %length7 = getelementptr inbounds %struct.USerializedSet, ptr %set, i64 0, i32 2
+  %length7 = getelementptr inbounds i8, ptr %set, i64 12
   %1 = load i32, ptr %length7, align 4
-  %bmpLength8 = getelementptr inbounds %struct.USerializedSet, ptr %set, i64 0, i32 1
+  %bmpLength8 = getelementptr inbounds i8, ptr %set, i64 8
   %2 = load i32, ptr %bmpLength8, align 8
   %mul = shl nuw nsw i32 %rangeIndex, 1
   %cmp9 = icmp slt i32 %mul, %2
@@ -1341,7 +1336,7 @@ if.then45:                                        ; preds = %if.then33
   %9 = load i16, ptr %arrayidx47, align 2
   %conv48 = zext i16 %9 to i32
   %shl49 = shl nuw i32 %conv48, 16
-  %arrayidx52 = getelementptr i16, ptr %arrayidx35, i64 3
+  %arrayidx52 = getelementptr i8, ptr %arrayidx35, i64 6
   %10 = load i16, ptr %arrayidx52, align 2
   %conv53 = zext i16 %10 to i32
   %or54 = or disjoint i32 %shl49, %conv53

@@ -14,11 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
 %struct.PyType_Slot = type { i32, ptr }
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
-%struct.sha2_state = type { ptr, ptr, ptr, ptr }
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.SHA256object = type { %struct._object, i32, i8, %struct._PyMutex, ptr }
-%struct._PyMutex = type { i8 }
-%struct.SHA512object = type { %struct._object, i32, i8, %struct._PyMutex, ptr }
 
 @_sha2module = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr null, i64 32, ptr @SHA2_functions, ptr @_sha2_slots, ptr @_sha2_traverse, ptr @_sha2_clear, ptr @_sha2_free }, align 8
 @.str = private unnamed_addr constant [6 x i8] c"_sha2\00", align 1
@@ -103,7 +99,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %sha256_type = getelementptr inbounds %struct.sha2_state, ptr %module.val, i64 0, i32 1
+  %sha256_type = getelementptr inbounds i8, ptr %module.val, i64 8
   %2 = load ptr, ptr %sha256_type, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -114,7 +110,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %sha384_type = getelementptr inbounds %struct.sha2_state, ptr %module.val, i64 0, i32 2
+  %sha384_type = getelementptr inbounds i8, ptr %module.val, i64 16
   %3 = load ptr, ptr %sha384_type, align 8
   %tobool18.not = icmp eq ptr %3, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -125,7 +121,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %sha512_type = getelementptr inbounds %struct.sha2_state, ptr %module.val, i64 0, i32 3
+  %sha512_type = getelementptr inbounds i8, ptr %module.val, i64 24
   %4 = load ptr, ptr %sha512_type, align 8
   %tobool29.not = icmp eq ptr %4, null
   br i1 %tobool29.not, label %do.end38, label %if.then30
@@ -170,7 +166,7 @@ if.then1.i46:                                     ; preds = %if.end.i43
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i43, %if.then1.i46, %if.then, %entry
-  %sha256_type = getelementptr inbounds %struct.sha2_state, ptr %module.val, i64 0, i32 1
+  %sha256_type = getelementptr inbounds i8, ptr %module.val, i64 8
   %4 = load ptr, ptr %sha256_type, align 8
   %cmp4.not = icmp eq ptr %4, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -193,7 +189,7 @@ if.then1.i37:                                     ; preds = %if.end.i34
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i34, %if.then1.i37, %if.then5, %do.body1
-  %sha384_type = getelementptr inbounds %struct.sha2_state, ptr %module.val, i64 0, i32 2
+  %sha384_type = getelementptr inbounds i8, ptr %module.val, i64 16
   %7 = load ptr, ptr %sha384_type, align 8
   %cmp11.not = icmp eq ptr %7, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -216,7 +212,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i25, %if.then1.i28, %if.then12, %do.body8
-  %sha512_type = getelementptr inbounds %struct.sha2_state, ptr %module.val, i64 0, i32 3
+  %sha512_type = getelementptr inbounds i8, ptr %module.val, i64 24
   %10 = load ptr, ptr %sha512_type, align 8
   %cmp18.not = icmp eq ptr %10, null
   br i1 %cmp18.not, label %do.end21, label %if.then19
@@ -297,7 +293,7 @@ skip_optional_kwonly.thread37:                    ; preds = %skip_optional_pos
   br label %do.body.i
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #3
   %cmp27 = icmp slt i32 %call26, 0
@@ -338,7 +334,7 @@ if.end7.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %_sha2_sha256_impl.exit, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end7.i
-  %ndim.i = getelementptr inbounds %struct.Py_buffer, ptr %buf.i, i64 0, i32 5
+  %ndim.i = getelementptr inbounds i8, ptr %buf.i, i64 36
   %11 = load i32, ptr %ndim.i, align 4
   %cmp11.i = icmp sgt i32 %11, 1
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
@@ -367,15 +363,15 @@ if.then20.i:                                      ; preds = %if.then18.i
   br label %_sha2_sha256_impl.exit
 
 if.end22.i:                                       ; preds = %if.end14.i
-  %mutex.i.i = getelementptr inbounds %struct.SHA256object, ptr %call.i.i, i64 0, i32 3
+  %mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 21
   store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds %struct.SHA256object, ptr %call.i.i, i64 0, i32 2
+  %use_mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
   store i8 0, ptr %use_mutex.i.i, align 4
   call void @PyObject_GC_Track(ptr noundef nonnull %call.i.i) #3
   %call23.i = call ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_256() #3
-  %state24.i = getelementptr inbounds %struct.SHA256object, ptr %call.i.i, i64 0, i32 4
+  %state24.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %call23.i, ptr %state24.i, align 8
-  %digestsize.i = getelementptr inbounds %struct.SHA256object, ptr %call.i.i, i64 0, i32 1
+  %digestsize.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i32 32, ptr %digestsize.i, align 8
   %call25.i = call ptr @PyErr_Occurred() #3
   %tobool26.not.i = icmp eq ptr %call25.i, null
@@ -408,7 +404,7 @@ if.end31.i:                                       ; preds = %if.end22.i
   br i1 %tobool.not.i36, label %_sha2_sha256_impl.exit, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.end31.i
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %buf.i, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %17 = load i64, ptr %len.i, align 8
   %cmp34.i = icmp sgt i64 %17, 2047
   br i1 %cmp34.i, label %if.then35.i, label %update_256.exit29.i
@@ -507,7 +503,7 @@ skip_optional_kwonly.thread37:                    ; preds = %skip_optional_pos
   br label %do.body.i
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %5) #3
   %cmp27 = icmp slt i32 %call26, 0
@@ -548,7 +544,7 @@ if.end7.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %_sha2_sha224_impl.exit, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end7.i
-  %ndim.i = getelementptr inbounds %struct.Py_buffer, ptr %buf.i, i64 0, i32 5
+  %ndim.i = getelementptr inbounds i8, ptr %buf.i, i64 36
   %11 = load i32, ptr %ndim.i, align 4
   %cmp11.i = icmp sgt i32 %11, 1
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
@@ -576,15 +572,15 @@ if.then20.i:                                      ; preds = %if.then18.i
   br label %_sha2_sha224_impl.exit
 
 if.end22.i:                                       ; preds = %if.end14.i
-  %mutex.i.i = getelementptr inbounds %struct.SHA256object, ptr %call.i.i, i64 0, i32 3
+  %mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 21
   store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds %struct.SHA256object, ptr %call.i.i, i64 0, i32 2
+  %use_mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
   store i8 0, ptr %use_mutex.i.i, align 4
   call void @PyObject_GC_Track(ptr noundef nonnull %call.i.i) #3
   %call23.i = call ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_224() #3
-  %state24.i = getelementptr inbounds %struct.SHA256object, ptr %call.i.i, i64 0, i32 4
+  %state24.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %call23.i, ptr %state24.i, align 8
-  %digestsize.i = getelementptr inbounds %struct.SHA256object, ptr %call.i.i, i64 0, i32 1
+  %digestsize.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store i32 28, ptr %digestsize.i, align 8
   %call25.i = call ptr @PyErr_Occurred() #3
   %tobool26.not.i = icmp eq ptr %call25.i, null
@@ -617,7 +613,7 @@ if.end31.i:                                       ; preds = %if.end22.i
   br i1 %tobool.not.i36, label %_sha2_sha224_impl.exit, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.end31.i
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %buf.i, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %16 = load i64, ptr %len.i, align 8
   %cmp34.i = icmp sgt i64 %16, 2047
   br i1 %cmp34.i, label %if.then35.i, label %update_256.exit29.i
@@ -720,7 +716,7 @@ skip_optional_kwonly.thread40:                    ; preds = %skip_optional_pos
   br label %do.body.i
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %7 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %7) #3
   %cmp27 = icmp slt i32 %call26, 0
@@ -764,7 +760,7 @@ if.end8.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %_sha2_sha512_impl.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end8.i
-  %ndim.i = getelementptr inbounds %struct.Py_buffer, ptr %buf.i, i64 0, i32 5
+  %ndim.i = getelementptr inbounds i8, ptr %buf.i, i64 36
   %14 = load i32, ptr %ndim.i, align 4
   %cmp12.i = icmp sgt i32 %14, 1
   br i1 %cmp12.i, label %if.then13.i, label %if.end15.thread.i
@@ -797,15 +793,15 @@ if.then20.i:                                      ; preds = %if.end15.thread.i
 if.end22.i:                                       ; preds = %if.end15.thread.i, %if.end15.i
   %tobool.not.i38 = phi i1 [ false, %if.end15.thread.i ], [ true, %if.end15.i ]
   %call.i4.i = phi ptr [ %call.i2.i, %if.end15.thread.i ], [ %call.i.i, %if.end15.i ]
-  %mutex.i.i = getelementptr inbounds %struct.SHA512object, ptr %call.i4.i, i64 0, i32 3
+  %mutex.i.i = getelementptr inbounds i8, ptr %call.i4.i, i64 21
   store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds %struct.SHA512object, ptr %call.i4.i, i64 0, i32 2
+  %use_mutex.i.i = getelementptr inbounds i8, ptr %call.i4.i, i64 20
   store i8 0, ptr %use_mutex.i.i, align 4
   call void @PyObject_GC_Track(ptr noundef nonnull %call.i4.i) #3
   %call23.i = call ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_512() #3
-  %state24.i = getelementptr inbounds %struct.SHA512object, ptr %call.i4.i, i64 0, i32 4
+  %state24.i = getelementptr inbounds i8, ptr %call.i4.i, i64 24
   store ptr %call23.i, ptr %state24.i, align 8
-  %digestsize.i = getelementptr inbounds %struct.SHA512object, ptr %call.i4.i, i64 0, i32 1
+  %digestsize.i = getelementptr inbounds i8, ptr %call.i4.i, i64 16
   store i32 64, ptr %digestsize.i, align 8
   %call25.i = call ptr @PyErr_Occurred() #3
   %tobool26.not.i = icmp eq ptr %call25.i, null
@@ -838,7 +834,7 @@ if.end31.i:                                       ; preds = %if.end22.i
   br i1 %tobool.not.i38, label %_sha2_sha512_impl.exit, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.end31.i
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %buf.i, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %20 = load i64, ptr %len.i, align 8
   %cmp34.i = icmp sgt i64 %20, 2047
   br i1 %cmp34.i, label %if.then35.i, label %update_512.exit29.i
@@ -941,7 +937,7 @@ skip_optional_kwonly.thread40:                    ; preds = %skip_optional_pos
   br label %do.body.i
 
 if.end24:                                         ; preds = %skip_optional_pos
-  %arrayidx25 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx25 = getelementptr i8, ptr %cond1030, i64 8
   %7 = load ptr, ptr %arrayidx25, align 8
   %call26 = call i32 @PyObject_IsTrue(ptr noundef %7) #3
   %cmp27 = icmp slt i32 %call26, 0
@@ -985,7 +981,7 @@ if.end8.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %_sha2_sha384_impl.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end8.i
-  %ndim.i = getelementptr inbounds %struct.Py_buffer, ptr %buf.i, i64 0, i32 5
+  %ndim.i = getelementptr inbounds i8, ptr %buf.i, i64 36
   %14 = load i32, ptr %ndim.i, align 4
   %cmp12.i = icmp sgt i32 %14, 1
   br i1 %cmp12.i, label %if.then13.i, label %if.end15.thread.i
@@ -1018,15 +1014,15 @@ if.then20.i:                                      ; preds = %if.end15.thread.i
 if.end22.i:                                       ; preds = %if.end15.thread.i, %if.end15.i
   %tobool.not.i38 = phi i1 [ false, %if.end15.thread.i ], [ true, %if.end15.i ]
   %call.i4.i = phi ptr [ %call.i2.i, %if.end15.thread.i ], [ %call.i.i, %if.end15.i ]
-  %mutex.i.i = getelementptr inbounds %struct.SHA512object, ptr %call.i4.i, i64 0, i32 3
+  %mutex.i.i = getelementptr inbounds i8, ptr %call.i4.i, i64 21
   store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds %struct.SHA512object, ptr %call.i4.i, i64 0, i32 2
+  %use_mutex.i.i = getelementptr inbounds i8, ptr %call.i4.i, i64 20
   store i8 0, ptr %use_mutex.i.i, align 4
   call void @PyObject_GC_Track(ptr noundef nonnull %call.i4.i) #3
   %call23.i = call ptr @python_hashlib_Hacl_Streaming_SHA2_create_in_384() #3
-  %state24.i = getelementptr inbounds %struct.SHA512object, ptr %call.i4.i, i64 0, i32 4
+  %state24.i = getelementptr inbounds i8, ptr %call.i4.i, i64 24
   store ptr %call23.i, ptr %state24.i, align 8
-  %digestsize.i = getelementptr inbounds %struct.SHA512object, ptr %call.i4.i, i64 0, i32 1
+  %digestsize.i = getelementptr inbounds i8, ptr %call.i4.i, i64 16
   store i32 48, ptr %digestsize.i, align 8
   %call25.i = call ptr @PyErr_Occurred() #3
   %tobool26.not.i = icmp eq ptr %call25.i, null
@@ -1059,7 +1055,7 @@ if.end31.i:                                       ; preds = %if.end22.i
   br i1 %tobool.not.i38, label %_sha2_sha384_impl.exit, label %if.then33.i
 
 if.then33.i:                                      ; preds = %if.end31.i
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %buf.i, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %buf.i, i64 16
   %20 = load i64, ptr %len.i, align 8
   %cmp34.i = icmp sgt i64 %20, 2047
   br i1 %cmp34.i, label %if.then35.i, label %update_512.exit29.i
@@ -1158,21 +1154,21 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call3 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %module, ptr noundef nonnull @sha256_type_spec, ptr noundef null) #3
-  %sha256_type = getelementptr inbounds %struct.sha2_state, ptr %module.val, i64 0, i32 1
+  %sha256_type = getelementptr inbounds i8, ptr %module.val, i64 8
   store ptr %call3, ptr %sha256_type, align 8
   %cmp5 = icmp eq ptr %call3, null
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
   %call8 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %module, ptr noundef nonnull @sha384_type_spec, ptr noundef null) #3
-  %sha384_type = getelementptr inbounds %struct.sha2_state, ptr %module.val, i64 0, i32 2
+  %sha384_type = getelementptr inbounds i8, ptr %module.val, i64 16
   store ptr %call8, ptr %sha384_type, align 8
   %cmp10 = icmp eq ptr %call8, null
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end7
   %call13 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %module, ptr noundef nonnull @sha512_type_spec, ptr noundef null) #3
-  %sha512_type = getelementptr inbounds %struct.sha2_state, ptr %module.val, i64 0, i32 3
+  %sha512_type = getelementptr inbounds i8, ptr %module.val, i64 24
   store ptr %call13, ptr %sha512_type, align 8
   %cmp15 = icmp eq ptr %call13, null
   br i1 %cmp15, label %return, label %if.end17
@@ -1213,7 +1209,7 @@ declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @SHA256_dealloc(ptr noundef %ptr) #0 {
 entry:
-  %state = getelementptr inbounds %struct.SHA256object, ptr %ptr, i64 0, i32 4
+  %state = getelementptr inbounds i8, ptr %ptr, i64 24
   %0 = load ptr, ptr %state, align 8
   tail call void @python_hashlib_Hacl_Streaming_SHA2_free_256(ptr noundef %0) #3
   %1 = getelementptr i8, ptr %ptr, i64 8
@@ -1282,7 +1278,7 @@ if.end:                                           ; preds = %entry
   %cls.val = load ptr, ptr %1, align 8
   %2 = getelementptr i8, ptr %cls.val, i64 32
   %cls.val.val = load ptr, ptr %2, align 8
-  %sha256_type.i = getelementptr inbounds %struct.sha2_state, ptr %cls.val.val, i64 0, i32 1
+  %sha256_type.i = getelementptr inbounds i8, ptr %cls.val.val, i64 8
   %3 = load ptr, ptr %sha256_type.i, align 8
   %4 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %4, align 8
@@ -1302,19 +1298,19 @@ if.else.i:                                        ; preds = %if.end
 
 if.end8.i:                                        ; preds = %if.else.i, %if.then.i
   %call.i10.sink2.i = phi ptr [ %call.i.i, %if.then.i ], [ %call.i10.i, %if.else.i ]
-  %mutex.i13.i = getelementptr inbounds %struct.SHA256object, ptr %call.i10.sink2.i, i64 0, i32 3
+  %mutex.i13.i = getelementptr inbounds i8, ptr %call.i10.sink2.i, i64 21
   store i8 0, ptr %mutex.i13.i, align 1
-  %use_mutex.i14.i = getelementptr inbounds %struct.SHA256object, ptr %call.i10.sink2.i, i64 0, i32 2
+  %use_mutex.i14.i = getelementptr inbounds i8, ptr %call.i10.sink2.i, i64 20
   store i8 0, ptr %use_mutex.i14.i, align 4
   tail call void @PyObject_GC_Track(ptr noundef nonnull %call.i10.sink2.i) #3
-  %use_mutex.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 2
+  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 20
   %5 = load i8, ptr %use_mutex.i, align 4
   %6 = and i8 %5, 1
   %tobool9.not.i = icmp eq i8 %6, 0
   br i1 %tobool9.not.i, label %if.end11.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %mutex.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 3
+  %mutex.i = getelementptr inbounds i8, ptr %self, i64 21
   %7 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %if.end11.i, label %if.then.i.i
@@ -1324,14 +1320,14 @@ if.then.i.i:                                      ; preds = %if.then10.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then.i.i, %if.then10.i, %if.end8.i
-  %digestsize.i.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 1
+  %digestsize.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %9 = load i32, ptr %digestsize.i.i, align 8
-  %digestsize1.i.i = getelementptr inbounds %struct.SHA256object, ptr %call.i10.sink2.i, i64 0, i32 1
+  %digestsize1.i.i = getelementptr inbounds i8, ptr %call.i10.sink2.i, i64 16
   store i32 %9, ptr %digestsize1.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 4
+  %state.i.i = getelementptr inbounds i8, ptr %self, i64 24
   %10 = load ptr, ptr %state.i.i, align 8
   %call.i15.i = tail call ptr @python_hashlib_Hacl_Streaming_SHA2_copy_256(ptr noundef %10) #3
-  %state2.i.i = getelementptr inbounds %struct.SHA256object, ptr %call.i10.sink2.i, i64 0, i32 4
+  %state2.i.i = getelementptr inbounds i8, ptr %call.i10.sink2.i, i64 24
   store ptr %call.i15.i, ptr %state2.i.i, align 8
   %11 = load i8, ptr %use_mutex.i, align 4
   %12 = and i8 %11, 1
@@ -1339,7 +1335,7 @@ if.end11.i:                                       ; preds = %if.then.i.i, %if.th
   br i1 %tobool13.not.i, label %return, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end11.i
-  %mutex15.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 3
+  %mutex15.i = getelementptr inbounds i8, ptr %self, i64 21
   %13 = cmpxchg ptr %mutex15.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %14 = extractvalue { i8, i1 } %13, 1
   br i1 %14, label %return, label %if.then.i16.i
@@ -1358,14 +1354,14 @@ define internal ptr @SHA256Type_digest(ptr noundef %self, ptr nocapture readnone
 entry:
   %digest.i = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %digest.i)
-  %use_mutex.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 2
+  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 20
   %0 = load i8, ptr %use_mutex.i, align 4
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mutex.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 3
+  %mutex.i = getelementptr inbounds i8, ptr %self, i64 21
   %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %if.end.i, label %if.then.i.i
@@ -1375,7 +1371,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
-  %state.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 4
+  %state.i = getelementptr inbounds i8, ptr %self, i64 24
   %4 = load ptr, ptr %state.i, align 8
   call void @python_hashlib_Hacl_Streaming_SHA2_finish_256(ptr noundef %4, ptr noundef nonnull %digest.i) #3
   %5 = load i8, ptr %use_mutex.i, align 4
@@ -1384,7 +1380,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.not.i, label %SHA256Type_digest_impl.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 3
+  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 21
   %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %SHA256Type_digest_impl.exit, label %if.then.i6.i
@@ -1394,7 +1390,7 @@ if.then.i6.i:                                     ; preds = %if.then3.i
   br label %SHA256Type_digest_impl.exit
 
 SHA256Type_digest_impl.exit:                      ; preds = %if.end.i, %if.then3.i, %if.then.i6.i
-  %digestsize.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 1
+  %digestsize.i = getelementptr inbounds i8, ptr %self, i64 16
   %9 = load i32, ptr %digestsize.i, align 8
   %conv.i = sext i32 %9 to i64
   %call.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %digest.i, i64 noundef %conv.i) #3
@@ -1407,14 +1403,14 @@ define internal ptr @SHA256Type_hexdigest(ptr noundef %self, ptr nocapture readn
 entry:
   %digest.i = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %digest.i)
-  %use_mutex.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 2
+  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 20
   %0 = load i8, ptr %use_mutex.i, align 4
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mutex.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 3
+  %mutex.i = getelementptr inbounds i8, ptr %self, i64 21
   %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %if.end.i, label %if.then.i.i
@@ -1424,7 +1420,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
-  %state.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 4
+  %state.i = getelementptr inbounds i8, ptr %self, i64 24
   %4 = load ptr, ptr %state.i, align 8
   call void @python_hashlib_Hacl_Streaming_SHA2_finish_256(ptr noundef %4, ptr noundef nonnull %digest.i) #3
   %5 = load i8, ptr %use_mutex.i, align 4
@@ -1433,7 +1429,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.not.i, label %SHA256Type_hexdigest_impl.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 3
+  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 21
   %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %SHA256Type_hexdigest_impl.exit, label %if.then.i6.i
@@ -1443,7 +1439,7 @@ if.then.i6.i:                                     ; preds = %if.then3.i
   br label %SHA256Type_hexdigest_impl.exit
 
 SHA256Type_hexdigest_impl.exit:                   ; preds = %if.end.i, %if.then3.i, %if.then.i6.i
-  %digestsize.i = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 1
+  %digestsize.i = getelementptr inbounds i8, ptr %self, i64 16
   %9 = load i32, ptr %digestsize.i, align 8
   %conv.i = sext i32 %9 to i64
   %call.i = call ptr @_Py_strhex(ptr noundef nonnull %digest.i, i64 noundef %conv.i) #3
@@ -1484,7 +1480,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %ndim = getelementptr inbounds %struct.Py_buffer, ptr %buf, i64 0, i32 5
+  %ndim = getelementptr inbounds i8, ptr %buf, i64 36
   %5 = load i32, ptr %ndim, align 4
   %cmp9 = icmp sgt i32 %5, 1
   br i1 %cmp9, label %if.then10, label %do.end
@@ -1496,11 +1492,11 @@ if.then10:                                        ; preds = %if.end8
   br label %return
 
 do.end:                                           ; preds = %if.end8
-  %use_mutex = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 2
+  %use_mutex = getelementptr inbounds i8, ptr %self, i64 20
   %7 = load i8, ptr %use_mutex, align 4
   %8 = and i8 %7, 1
   %tobool12.not9 = icmp eq i8 %8, 0
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %buf, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %buf, i64 16
   %9 = load i64, ptr %len, align 8
   %cmp13 = icmp sgt i64 %9, 2047
   %or.cond = select i1 %tobool12.not9, i1 %cmp13, i1 false
@@ -1517,7 +1513,7 @@ if.end16:                                         ; preds = %do.end
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
   %call20 = call ptr @PyEval_SaveThread() #3
-  %mutex = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 3
+  %mutex = getelementptr inbounds i8, ptr %self, i64 21
   %11 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
   %12 = extractvalue { i8, i1 } %11, 1
   br i1 %12, label %PyMutex_Lock.exit, label %if.then.i
@@ -1527,7 +1523,7 @@ if.then.i:                                        ; preds = %if.then19
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
-  %state = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 4
+  %state = getelementptr inbounds i8, ptr %self, i64 24
   %13 = load ptr, ptr %state, align 8
   %14 = load ptr, ptr %buf, align 8
   %15 = load i64, ptr %len, align 8
@@ -1561,7 +1557,7 @@ PyMutex_Unlock.exit:                              ; preds = %update_256.exit, %i
   br label %if.end27
 
 if.else:                                          ; preds = %if.end16
-  %state24 = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 4
+  %state24 = getelementptr inbounds i8, ptr %self, i64 24
   %18 = load ptr, ptr %state24, align 8
   %19 = load ptr, ptr %buf, align 8
   %cmp6.i12 = icmp sgt i64 %9, 4294967295
@@ -1614,7 +1610,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHA256_get_name(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %digestsize = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 1
+  %digestsize = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %digestsize, align 8
   %cmp = icmp eq i32 %0, 28
   %.str.2..str.1 = select i1 %cmp, ptr @.str.2, ptr @.str.1
@@ -1625,7 +1621,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHA256_get_digest_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %digestsize = getelementptr inbounds %struct.SHA256object, ptr %self, i64 0, i32 1
+  %digestsize = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %digestsize, align 8
   %conv = sext i32 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #3
@@ -1639,7 +1635,7 @@ declare ptr @PyUnicode_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define internal void @SHA512_dealloc(ptr noundef %ptr) #0 {
 entry:
-  %state = getelementptr inbounds %struct.SHA512object, ptr %ptr, i64 0, i32 4
+  %state = getelementptr inbounds i8, ptr %ptr, i64 24
   %0 = load ptr, ptr %state, align 8
   tail call void @python_hashlib_Hacl_Streaming_SHA2_free_512(ptr noundef %0) #3
   %1 = getelementptr i8, ptr %ptr, i64 8
@@ -1683,7 +1679,7 @@ if.end:                                           ; preds = %entry
   %cls.val = load ptr, ptr %1, align 8
   %2 = getelementptr i8, ptr %cls.val, i64 32
   %cls.val.val = load ptr, ptr %2, align 8
-  %sha512_type.i = getelementptr inbounds %struct.sha2_state, ptr %cls.val.val, i64 0, i32 3
+  %sha512_type.i = getelementptr inbounds i8, ptr %cls.val.val, i64 24
   %3 = load ptr, ptr %sha512_type.i, align 8
   %4 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %4, align 8
@@ -1704,19 +1700,19 @@ if.else.i:                                        ; preds = %if.end
 
 if.end8.i:                                        ; preds = %if.else.i, %if.then.i
   %call.i10.sink2.i = phi ptr [ %call.i.i, %if.then.i ], [ %call.i10.i, %if.else.i ]
-  %mutex.i13.i = getelementptr inbounds %struct.SHA512object, ptr %call.i10.sink2.i, i64 0, i32 3
+  %mutex.i13.i = getelementptr inbounds i8, ptr %call.i10.sink2.i, i64 21
   store i8 0, ptr %mutex.i13.i, align 1
-  %use_mutex.i14.i = getelementptr inbounds %struct.SHA512object, ptr %call.i10.sink2.i, i64 0, i32 2
+  %use_mutex.i14.i = getelementptr inbounds i8, ptr %call.i10.sink2.i, i64 20
   store i8 0, ptr %use_mutex.i14.i, align 4
   tail call void @PyObject_GC_Track(ptr noundef nonnull %call.i10.sink2.i) #3
-  %use_mutex.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 2
+  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 20
   %6 = load i8, ptr %use_mutex.i, align 4
   %7 = and i8 %6, 1
   %tobool9.not.i = icmp eq i8 %7, 0
   br i1 %tobool9.not.i, label %if.end11.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  %mutex.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 3
+  %mutex.i = getelementptr inbounds i8, ptr %self, i64 21
   %8 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %9 = extractvalue { i8, i1 } %8, 1
   br i1 %9, label %if.end11.i, label %if.then.i.i
@@ -1726,14 +1722,14 @@ if.then.i.i:                                      ; preds = %if.then10.i
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then.i.i, %if.then10.i, %if.end8.i
-  %digestsize.i.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 1
+  %digestsize.i.i = getelementptr inbounds i8, ptr %self, i64 16
   %10 = load i32, ptr %digestsize.i.i, align 8
-  %digestsize1.i.i = getelementptr inbounds %struct.SHA512object, ptr %call.i10.sink2.i, i64 0, i32 1
+  %digestsize1.i.i = getelementptr inbounds i8, ptr %call.i10.sink2.i, i64 16
   store i32 %10, ptr %digestsize1.i.i, align 8
-  %state.i.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 4
+  %state.i.i = getelementptr inbounds i8, ptr %self, i64 24
   %11 = load ptr, ptr %state.i.i, align 8
   %call.i15.i = tail call ptr @python_hashlib_Hacl_Streaming_SHA2_copy_512(ptr noundef %11) #3
-  %state2.i.i = getelementptr inbounds %struct.SHA512object, ptr %call.i10.sink2.i, i64 0, i32 4
+  %state2.i.i = getelementptr inbounds i8, ptr %call.i10.sink2.i, i64 24
   store ptr %call.i15.i, ptr %state2.i.i, align 8
   %12 = load i8, ptr %use_mutex.i, align 4
   %13 = and i8 %12, 1
@@ -1741,7 +1737,7 @@ if.end11.i:                                       ; preds = %if.then.i.i, %if.th
   br i1 %tobool13.not.i, label %return, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end11.i
-  %mutex15.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 3
+  %mutex15.i = getelementptr inbounds i8, ptr %self, i64 21
   %14 = cmpxchg ptr %mutex15.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %15 = extractvalue { i8, i1 } %14, 1
   br i1 %15, label %return, label %if.then.i16.i
@@ -1760,14 +1756,14 @@ define internal ptr @SHA512Type_digest(ptr noundef %self, ptr nocapture readnone
 entry:
   %digest.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
-  %use_mutex.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 2
+  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 20
   %0 = load i8, ptr %use_mutex.i, align 4
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mutex.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 3
+  %mutex.i = getelementptr inbounds i8, ptr %self, i64 21
   %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %if.end.i, label %if.then.i.i
@@ -1777,7 +1773,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
-  %state.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 4
+  %state.i = getelementptr inbounds i8, ptr %self, i64 24
   %4 = load ptr, ptr %state.i, align 8
   call void @python_hashlib_Hacl_Streaming_SHA2_finish_512(ptr noundef %4, ptr noundef nonnull %digest.i) #3
   %5 = load i8, ptr %use_mutex.i, align 4
@@ -1786,7 +1782,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.not.i, label %SHA512Type_digest_impl.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 3
+  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 21
   %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %SHA512Type_digest_impl.exit, label %if.then.i6.i
@@ -1796,7 +1792,7 @@ if.then.i6.i:                                     ; preds = %if.then3.i
   br label %SHA512Type_digest_impl.exit
 
 SHA512Type_digest_impl.exit:                      ; preds = %if.end.i, %if.then3.i, %if.then.i6.i
-  %digestsize.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 1
+  %digestsize.i = getelementptr inbounds i8, ptr %self, i64 16
   %9 = load i32, ptr %digestsize.i, align 8
   %conv.i = sext i32 %9 to i64
   %call.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %digest.i, i64 noundef %conv.i) #3
@@ -1809,14 +1805,14 @@ define internal ptr @SHA512Type_hexdigest(ptr noundef %self, ptr nocapture readn
 entry:
   %digest.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
-  %use_mutex.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 2
+  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 20
   %0 = load i8, ptr %use_mutex.i, align 4
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %mutex.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 3
+  %mutex.i = getelementptr inbounds i8, ptr %self, i64 21
   %2 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %3 = extractvalue { i8, i1 } %2, 1
   br i1 %3, label %if.end.i, label %if.then.i.i
@@ -1826,7 +1822,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
-  %state.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 4
+  %state.i = getelementptr inbounds i8, ptr %self, i64 24
   %4 = load ptr, ptr %state.i, align 8
   call void @python_hashlib_Hacl_Streaming_SHA2_finish_512(ptr noundef %4, ptr noundef nonnull %digest.i) #3
   %5 = load i8, ptr %use_mutex.i, align 4
@@ -1835,7 +1831,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.not.i, label %SHA512Type_hexdigest_impl.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 3
+  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 21
   %7 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %8 = extractvalue { i8, i1 } %7, 1
   br i1 %8, label %SHA512Type_hexdigest_impl.exit, label %if.then.i6.i
@@ -1845,7 +1841,7 @@ if.then.i6.i:                                     ; preds = %if.then3.i
   br label %SHA512Type_hexdigest_impl.exit
 
 SHA512Type_hexdigest_impl.exit:                   ; preds = %if.end.i, %if.then3.i, %if.then.i6.i
-  %digestsize.i = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 1
+  %digestsize.i = getelementptr inbounds i8, ptr %self, i64 16
   %9 = load i32, ptr %digestsize.i, align 8
   %conv.i = sext i32 %9 to i64
   %call.i = call ptr @_Py_strhex(ptr noundef nonnull %digest.i, i64 noundef %conv.i) #3
@@ -1886,7 +1882,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %ndim = getelementptr inbounds %struct.Py_buffer, ptr %buf, i64 0, i32 5
+  %ndim = getelementptr inbounds i8, ptr %buf, i64 36
   %5 = load i32, ptr %ndim, align 4
   %cmp9 = icmp sgt i32 %5, 1
   br i1 %cmp9, label %if.then10, label %do.end
@@ -1898,11 +1894,11 @@ if.then10:                                        ; preds = %if.end8
   br label %return
 
 do.end:                                           ; preds = %if.end8
-  %use_mutex = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 2
+  %use_mutex = getelementptr inbounds i8, ptr %self, i64 20
   %7 = load i8, ptr %use_mutex, align 4
   %8 = and i8 %7, 1
   %tobool12.not9 = icmp eq i8 %8, 0
-  %len = getelementptr inbounds %struct.Py_buffer, ptr %buf, i64 0, i32 2
+  %len = getelementptr inbounds i8, ptr %buf, i64 16
   %9 = load i64, ptr %len, align 8
   %cmp13 = icmp sgt i64 %9, 2047
   %or.cond = select i1 %tobool12.not9, i1 %cmp13, i1 false
@@ -1919,7 +1915,7 @@ if.end16:                                         ; preds = %do.end
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
   %call20 = call ptr @PyEval_SaveThread() #3
-  %mutex = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 3
+  %mutex = getelementptr inbounds i8, ptr %self, i64 21
   %11 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
   %12 = extractvalue { i8, i1 } %11, 1
   br i1 %12, label %PyMutex_Lock.exit, label %if.then.i
@@ -1929,7 +1925,7 @@ if.then.i:                                        ; preds = %if.then19
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
-  %state = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 4
+  %state = getelementptr inbounds i8, ptr %self, i64 24
   %13 = load ptr, ptr %state, align 8
   %14 = load ptr, ptr %buf, align 8
   %15 = load i64, ptr %len, align 8
@@ -1963,7 +1959,7 @@ PyMutex_Unlock.exit:                              ; preds = %update_512.exit, %i
   br label %if.end27
 
 if.else:                                          ; preds = %if.end16
-  %state24 = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 4
+  %state24 = getelementptr inbounds i8, ptr %self, i64 24
   %18 = load ptr, ptr %state24, align 8
   %19 = load ptr, ptr %buf, align 8
   %cmp6.i12 = icmp sgt i64 %9, 4294967295
@@ -2008,7 +2004,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHA512_get_name(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %digestsize = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 1
+  %digestsize = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %digestsize, align 8
   %cmp = icmp eq i32 %0, 64
   %.str.3..str.4 = select i1 %cmp, ptr @.str.3, ptr @.str.4
@@ -2019,7 +2015,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHA512_get_digest_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
 entry:
-  %digestsize = getelementptr inbounds %struct.SHA512object, ptr %self, i64 0, i32 1
+  %digestsize = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i32, ptr %digestsize, align 8
   %conv = sext i32 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #3

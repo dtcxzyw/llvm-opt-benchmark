@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-x_info.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_info_st = type { ptr, ptr, ptr, %struct.evp_cipher_info_st, i32, ptr }
-%struct.evp_cipher_info_st = type { ptr, [16 x i8] }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/asn1/x_info.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -26,13 +23,13 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %x, align 8
   tail call void @X509_free(ptr noundef %0) #2
-  %crl = getelementptr inbounds %struct.X509_info_st, ptr %x, i64 0, i32 1
+  %crl = getelementptr inbounds i8, ptr %x, i64 8
   %1 = load ptr, ptr %crl, align 8
   tail call void @X509_CRL_free(ptr noundef %1) #2
-  %x_pkey = getelementptr inbounds %struct.X509_info_st, ptr %x, i64 0, i32 2
+  %x_pkey = getelementptr inbounds i8, ptr %x, i64 16
   %2 = load ptr, ptr %x_pkey, align 8
   tail call void @X509_PKEY_free(ptr noundef %2) #2
-  %enc_data = getelementptr inbounds %struct.X509_info_st, ptr %x, i64 0, i32 5
+  %enc_data = getelementptr inbounds i8, ptr %x, i64 56
   %3 = load ptr, ptr %enc_data, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 35) #2
   tail call void @CRYPTO_free(ptr noundef nonnull %x, ptr noundef nonnull @.str, i32 noundef 36) #2

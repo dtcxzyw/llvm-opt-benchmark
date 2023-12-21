@@ -3,9 +3,7 @@ source_filename = "bench/cpython/original/state.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.tok_state = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, [100 x i32], i32, i32, ptr, ptr, i32, i32, i32, i32, i32, [200 x i8], [200 x i32], [200 x i32], ptr, [100 x i32], i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, [150 x %struct._tokenizer_mode], i32, i32, i32, i32 }
 %struct._tokenizer_mode = type { i32, i32, i32, i8, i32, i32, ptr, ptr, i32, i64, i64, i64, i64, ptr, i32 }
-%struct.token = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyTokenizer_tok_new() local_unnamed_addr #0 {
@@ -15,45 +13,45 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %interactive_src_start = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 4
-  %done = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 8
+  %interactive_src_start = getelementptr inbounds i8, ptr %call, i64 32
+  %done = getelementptr inbounds i8, ptr %call, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %call, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %interactive_src_start, i8 0, i64 32, i1 false)
   store i32 10, ptr %done, align 8
-  %fp = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 9
+  %fp = getelementptr inbounds i8, ptr %call, i64 72
   store ptr null, ptr %fp, align 8
-  %input = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 38
+  %input = getelementptr inbounds i8, ptr %call, i64 2824
   store ptr null, ptr %input, align 8
-  %tabsize = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 10
+  %tabsize = getelementptr inbounds i8, ptr %call, i64 80
   store i32 8, ptr %tabsize, align 8
-  %indent = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 11
+  %indent = getelementptr inbounds i8, ptr %call, i64 84
   store i32 0, ptr %indent, align 4
-  %indstack = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 12
+  %indstack = getelementptr inbounds i8, ptr %call, i64 88
   store i32 0, ptr %indstack, align 8
-  %atbol = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 13
+  %atbol = getelementptr inbounds i8, ptr %call, i64 488
   store i32 1, ptr %atbol, align 8
-  %pendin = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 14
-  %starting_col_offset = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 19
+  %pendin = getelementptr inbounds i8, ptr %call, i64 492
+  %starting_col_offset = getelementptr inbounds i8, ptr %call, i64 520
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %pendin, i8 0, i64 24, i1 false)
   store i32 -1, ptr %starting_col_offset, align 8
-  %col_offset = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 20
+  %col_offset = getelementptr inbounds i8, ptr %call, i64 524
   store i32 -1, ptr %col_offset, align 4
-  %level = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 21
+  %level = getelementptr inbounds i8, ptr %call, i64 528
   store i32 0, ptr %level, align 8
-  %altindstack = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 26
+  %altindstack = getelementptr inbounds i8, ptr %call, i64 2344
   store i32 0, ptr %altindstack, align 8
-  %decoding_state = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 27
-  %filename = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 25
+  %decoding_state = getelementptr inbounds i8, ptr %call, i64 2744
+  %filename = getelementptr inbounds i8, ptr %call, i64 2336
   store ptr null, ptr %filename, align 8
-  %decoding_readline = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 33
-  %type_comments = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 39
-  %report_warnings = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 42
+  %decoding_readline = getelementptr inbounds i8, ptr %call, i64 2784
+  %type_comments = getelementptr inbounds i8, ptr %call, i64 2832
+  %report_warnings = getelementptr inbounds i8, ptr %call, i64 2848
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %decoding_state, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %decoding_readline, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %type_comments, i8 0, i64 16, i1 false)
   store i32 1, ptr %report_warnings, align 8
-  %tok_mode_stack = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 43
-  %tok_mode_stack_index = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 44
+  %tok_mode_stack = getelementptr inbounds i8, ptr %call, i64 2856
+  %tok_mode_stack_index = getelementptr inbounds i8, ptr %call, i64 17256
   store <4 x i32> zeroinitializer, ptr %tok_mode_stack_index, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %tok_mode_stack, i8 0, i64 96, i1 false)
   br label %return
@@ -70,7 +68,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyTokenizer_Free(ptr noundef %tok) local_unnamed_addr #0 {
 entry:
-  %encoding = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 29
+  %encoding = getelementptr inbounds i8, ptr %tok, i64 2752
   %0 = load ptr, ptr %encoding, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -80,7 +78,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %decoding_readline = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 33
+  %decoding_readline = getelementptr inbounds i8, ptr %tok, i64 2784
   %1 = load ptr, ptr %decoding_readline, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -102,7 +100,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.end, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %decoding_buffer = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 34
+  %decoding_buffer = getelementptr inbounds i8, ptr %tok, i64 2792
   %4 = load ptr, ptr %decoding_buffer, align 8
   %cmp.not.i19 = icmp eq ptr %4, null
   br i1 %cmp.not.i19, label %Py_XDECREF.exit26, label %if.then.i20
@@ -124,7 +122,7 @@ if.then1.i.i25:                                   ; preds = %if.end.i.i22
   br label %Py_XDECREF.exit26
 
 Py_XDECREF.exit26:                                ; preds = %Py_XDECREF.exit, %if.then.i20, %if.end.i.i22, %if.then1.i.i25
-  %readline = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 35
+  %readline = getelementptr inbounds i8, ptr %tok, i64 2800
   %7 = load ptr, ptr %readline, align 8
   %cmp.not.i27 = icmp eq ptr %7, null
   br i1 %cmp.not.i27, label %Py_XDECREF.exit34, label %if.then.i28
@@ -146,7 +144,7 @@ if.then1.i.i33:                                   ; preds = %if.end.i.i30
   br label %Py_XDECREF.exit34
 
 Py_XDECREF.exit34:                                ; preds = %Py_XDECREF.exit26, %if.then.i28, %if.end.i.i30, %if.then1.i.i33
-  %filename = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 25
+  %filename = getelementptr inbounds i8, ptr %tok, i64 2336
   %10 = load ptr, ptr %filename, align 8
   %cmp.not.i35 = icmp eq ptr %10, null
   br i1 %cmp.not.i35, label %Py_XDECREF.exit42, label %if.then.i36
@@ -173,7 +171,7 @@ Py_XDECREF.exit42:                                ; preds = %Py_XDECREF.exit34, 
   br i1 %cmp3.not, label %lor.lhs.false, label %land.lhs.true
 
 lor.lhs.false:                                    ; preds = %Py_XDECREF.exit42
-  %fp = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 9
+  %fp = getelementptr inbounds i8, ptr %tok, i64 72
   %14 = load ptr, ptr %fp, align 8
   %cmp4.not = icmp eq ptr %14, null
   br i1 %cmp4.not, label %if.end8, label %land.lhs.true
@@ -188,7 +186,7 @@ if.then6:                                         ; preds = %land.lhs.true
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %land.lhs.true, %lor.lhs.false
-  %input = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 38
+  %input = getelementptr inbounds i8, ptr %tok, i64 2824
   %16 = load ptr, ptr %input, align 8
   %tobool.not = icmp eq ptr %16, null
   br i1 %tobool.not, label %if.end11, label %if.then9
@@ -198,7 +196,7 @@ if.then9:                                         ; preds = %if.end8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end8
-  %interactive_src_start = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 4
+  %interactive_src_start = getelementptr inbounds i8, ptr %tok, i64 32
   %17 = load ptr, ptr %interactive_src_start, align 8
   %cmp12.not = icmp eq ptr %17, null
   br i1 %cmp12.not, label %if.end15, label %if.then13
@@ -208,18 +206,20 @@ if.then13:                                        ; preds = %if.end11
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then13, %if.end11
-  %tok_mode_stack_index.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack_index.i = getelementptr inbounds i8, ptr %tok, i64 17256
   %18 = load i32, ptr %tok_mode_stack_index.i, align 8
   %cmp8.i = icmp sgt i32 %18, -1
-  br i1 %cmp8.i, label %for.body.preheader.i, label %free_fstring_expressions.exit
+  br i1 %cmp8.i, label %for.body.lr.ph.i, label %free_fstring_expressions.exit
 
-for.body.preheader.i:                             ; preds = %if.end15
+for.body.lr.ph.i:                                 ; preds = %if.end15
+  %tok_mode_stack.i = getelementptr inbounds i8, ptr %tok, i64 2856
   %19 = zext nneg i32 %18 to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ %19, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %last_expr_buffer.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv.i, i32 13
+for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ %19, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
+  %arrayidx.i = getelementptr [150 x %struct._tokenizer_mode], ptr %tok_mode_stack.i, i64 0, i64 %indvars.iv.i
+  %last_expr_buffer.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 80
   %20 = load ptr, ptr %last_expr_buffer.i, align 8
   %cmp1.not.i = icmp eq ptr %20, null
   br i1 %cmp1.not.i, label %for.inc.i, label %if.then.i43
@@ -227,9 +227,9 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 if.then.i43:                                      ; preds = %for.body.i
   tail call void @PyMem_Free(ptr noundef nonnull %20) #5
   store ptr null, ptr %last_expr_buffer.i, align 8
-  %last_expr_size.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv.i, i32 11
+  %last_expr_size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
   store i64 0, ptr %last_expr_size.i, align 8
-  %last_expr_end.i = getelementptr %struct.tok_state, ptr %tok, i64 0, i32 43, i64 %indvars.iv.i, i32 12
+  %last_expr_end.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 72
   store i64 -1, ptr %last_expr_end.i, align 8
   br label %for.inc.i
 
@@ -248,7 +248,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyToken_Free(ptr nocapture noundef readonly %token) local_unnamed_addr #0 {
 entry:
-  %metadata = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 7
+  %metadata = getelementptr inbounds i8, ptr %token, i64 40
   %0 = load ptr, ptr %metadata, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -276,7 +276,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_PyToken_Init(ptr nocapture noundef writeonly %token) local_unnamed_addr #3 {
 entry:
-  %metadata = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 7
+  %metadata = getelementptr inbounds i8, ptr %token, i64 40
   store ptr null, ptr %metadata, align 8
   ret void
 }
@@ -284,22 +284,22 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden i32 @_PyLexer_type_comment_token_setup(ptr nocapture noundef readonly %tok, ptr nocapture noundef writeonly %token, i32 noundef returned %type, i32 noundef %col_offset, i32 noundef %end_col_offset, ptr noundef %start, ptr noundef %end) local_unnamed_addr #4 {
 entry:
-  %level = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 21
+  %level = getelementptr inbounds i8, ptr %tok, i64 528
   %0 = load i32, ptr %level, align 8
   store i32 %0, ptr %token, align 8
-  %lineno = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 17
+  %lineno = getelementptr inbounds i8, ptr %tok, i64 512
   %1 = load i32, ptr %lineno, align 8
-  %end_lineno = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 3
+  %end_lineno = getelementptr inbounds i8, ptr %token, i64 12
   store i32 %1, ptr %end_lineno, align 4
-  %lineno2 = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 1
+  %lineno2 = getelementptr inbounds i8, ptr %token, i64 4
   store i32 %1, ptr %lineno2, align 4
-  %col_offset3 = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 2
+  %col_offset3 = getelementptr inbounds i8, ptr %token, i64 8
   store i32 %col_offset, ptr %col_offset3, align 8
-  %end_col_offset4 = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 4
+  %end_col_offset4 = getelementptr inbounds i8, ptr %token, i64 16
   store i32 %end_col_offset, ptr %end_col_offset4, align 8
-  %start5 = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 5
+  %start5 = getelementptr inbounds i8, ptr %token, i64 24
   store ptr %start, ptr %start5, align 8
-  %end6 = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 6
+  %end6 = getelementptr inbounds i8, ptr %token, i64 32
   store ptr %end, ptr %end6, align 8
   ret i32 %type
 }
@@ -307,7 +307,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden i32 @_PyLexer_token_setup(ptr nocapture noundef readonly %tok, ptr nocapture noundef writeonly %token, i32 noundef returned %type, ptr noundef %start, ptr noundef %end) local_unnamed_addr #4 {
 entry:
-  %level = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 21
+  %level = getelementptr inbounds i8, ptr %tok, i64 528
   %0 = load i32, ptr %level, align 8
   store i32 %0, ptr %token, align 8
   switch i32 %type, label %if.else [
@@ -316,32 +316,32 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry, %entry
-  %first_lineno = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 18
+  %first_lineno = getelementptr inbounds i8, ptr %tok, i64 516
   %1 = load i32, ptr %first_lineno, align 4
-  %lineno = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 1
+  %lineno = getelementptr inbounds i8, ptr %token, i64 4
   store i32 %1, ptr %lineno, align 4
-  %lineno5.phi.trans.insert = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 17
+  %lineno5.phi.trans.insert = getelementptr inbounds i8, ptr %tok, i64 512
   %.pre = load i32, ptr %lineno5.phi.trans.insert, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %lineno3 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 17
+  %lineno3 = getelementptr inbounds i8, ptr %tok, i64 512
   %2 = load i32, ptr %lineno3, align 8
-  %lineno4 = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 1
+  %lineno4 = getelementptr inbounds i8, ptr %token, i64 4
   store i32 %2, ptr %lineno4, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %3 = phi i32 [ %2, %if.else ], [ %.pre, %if.then ]
-  %end_lineno = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 3
+  %end_lineno = getelementptr inbounds i8, ptr %token, i64 12
   store i32 %3, ptr %end_lineno, align 4
-  %end_col_offset = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 4
+  %end_col_offset = getelementptr inbounds i8, ptr %token, i64 16
   store i32 -1, ptr %end_col_offset, align 8
-  %col_offset = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 2
+  %col_offset = getelementptr inbounds i8, ptr %token, i64 8
   store i32 -1, ptr %col_offset, align 8
-  %start6 = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 5
+  %start6 = getelementptr inbounds i8, ptr %token, i64 24
   store ptr %start, ptr %start6, align 8
-  %end7 = getelementptr inbounds %struct.token, ptr %token, i64 0, i32 6
+  %end7 = getelementptr inbounds i8, ptr %token, i64 32
   store ptr %end, ptr %end7, align 8
   %cmp8 = icmp ne ptr %start, null
   %cmp9 = icmp ne ptr %end, null
@@ -349,10 +349,10 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %or.cond1, label %if.then10, label %if.end14
 
 if.then10:                                        ; preds = %if.end
-  %starting_col_offset = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 19
+  %starting_col_offset = getelementptr inbounds i8, ptr %tok, i64 520
   %4 = load i32, ptr %starting_col_offset, align 8
   store i32 %4, ptr %col_offset, align 8
-  %col_offset12 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset12 = getelementptr inbounds i8, ptr %tok, i64 524
   %5 = load i32, ptr %col_offset12, align 4
   store i32 %5, ptr %end_col_offset, align 8
   br label %if.end14

@@ -3,28 +3,15 @@ source_filename = "bench/box2d/original/b2_contact_solver.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.b2ContactSolverDef = type { %struct.b2TimeStep, ptr, i32, ptr, ptr, ptr }
-%struct.b2TimeStep = type { float, float, float, i32, i32, i8 }
-%class.b2ContactSolver = type <{ %struct.b2TimeStep, ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%class.b2Contact = type { ptr, i32, ptr, ptr, %struct.b2ContactEdge, %struct.b2ContactEdge, ptr, ptr, i32, i32, %struct.b2Manifold, i32, float, float, float, float, float }
-%struct.b2ContactEdge = type { ptr, ptr, ptr, ptr }
-%struct.b2Manifold = type { [2 x %struct.b2ManifoldPoint], %struct.b2Vec2, %struct.b2Vec2, i32, i32 }
-%struct.b2ManifoldPoint = type { %struct.b2Vec2, float, float, %union.b2ContactID }
-%union.b2ContactID = type { i32 }
-%struct.b2Vec2 = type { float, float }
-%class.b2Fixture = type { float, ptr, ptr, ptr, float, float, float, ptr, i32, %struct.b2Filter, i8, %struct.b2FixtureUserData }
-%struct.b2Filter = type { i16, i16, i16 }
-%struct.b2FixtureUserData = type { i64 }
-%class.b2Shape = type { ptr, i32, float }
 %struct.b2ContactVelocityConstraint = type { [2 x %struct.b2VelocityConstraintPoint], %struct.b2Vec2, %struct.b2Mat22, %struct.b2Mat22, i32, i32, float, float, float, float, float, float, float, float, i32, i32 }
 %struct.b2VelocityConstraintPoint = type { %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float }
+%struct.b2Vec2 = type { float, float }
 %struct.b2Mat22 = type { %struct.b2Vec2, %struct.b2Vec2 }
-%class.b2Body = type { i32, i16, i32, %struct.b2Transform, %struct.b2Sweep, %struct.b2Vec2, float, %struct.b2Vec2, float, ptr, ptr, ptr, ptr, i32, ptr, ptr, float, float, float, float, float, float, float, float, %struct.b2BodyUserData }
+%struct.b2ContactPositionConstraint = type { [2 x %struct.b2Vec2], %struct.b2Vec2, %struct.b2Vec2, i32, i32, float, float, %struct.b2Vec2, %struct.b2Vec2, float, float, i32, float, float, i32 }
+%struct.b2ManifoldPoint = type { %struct.b2Vec2, float, float, %union.b2ContactID }
+%union.b2ContactID = type { i32 }
 %struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
 %struct.b2Rot = type { float, float }
-%struct.b2Sweep = type { %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float }
-%struct.b2BodyUserData = type { i64 }
-%struct.b2ContactPositionConstraint = type { [2 x %struct.b2Vec2], %struct.b2Vec2, %struct.b2Vec2, i32, i32, float, float, %struct.b2Vec2, %struct.b2Vec2, float, float, i32, float, float, i32 }
 %struct.b2WorldManifold = type { %struct.b2Vec2, [2 x %struct.b2Vec2], [2 x float] }
 %struct.b2Position = type { %struct.b2Vec2, float }
 %struct.b2Velocity = type { %struct.b2Vec2, float }
@@ -43,43 +30,43 @@ $_ZN24b2PositionSolverManifold10InitializeEP27b2ContactPositionConstraintRK11b2T
 define hidden void @_ZN15b2ContactSolverC2EP18b2ContactSolverDef(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef readonly %def) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %def, i64 24, i1 false)
-  %allocator = getelementptr inbounds %struct.b2ContactSolverDef, ptr %def, i64 0, i32 5
+  %allocator = getelementptr inbounds i8, ptr %def, i64 56
   %0 = load ptr, ptr %allocator, align 8
-  %m_allocator = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 3
+  %m_allocator = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %0, ptr %m_allocator, align 8
-  %count = getelementptr inbounds %struct.b2ContactSolverDef, ptr %def, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %def, i64 32
   %1 = load i32, ptr %count, align 8
-  %m_count = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 7
+  %m_count = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %1, ptr %m_count, align 8
   %mul = mul i32 %1, 88
   %call = tail call noundef ptr @_ZN16b2StackAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(102932) %0, i32 noundef %mul)
-  %m_positionConstraints = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 4
+  %m_positionConstraints = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call, ptr %m_positionConstraints, align 8
   %2 = load ptr, ptr %m_allocator, align 8
   %3 = load i32, ptr %m_count, align 8
   %mul9 = mul i32 %3, 160
   %call11 = tail call noundef ptr @_ZN16b2StackAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(102932) %2, i32 noundef %mul9)
-  %m_velocityConstraints = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 5
+  %m_velocityConstraints = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call11, ptr %m_velocityConstraints, align 8
-  %positions = getelementptr inbounds %struct.b2ContactSolverDef, ptr %def, i64 0, i32 3
+  %positions = getelementptr inbounds i8, ptr %def, i64 40
   %4 = load ptr, ptr %positions, align 8
-  %m_positions = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 1
+  %m_positions = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %4, ptr %m_positions, align 8
-  %velocities = getelementptr inbounds %struct.b2ContactSolverDef, ptr %def, i64 0, i32 4
+  %velocities = getelementptr inbounds i8, ptr %def, i64 48
   %5 = load ptr, ptr %velocities, align 8
-  %m_velocities = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 2
+  %m_velocities = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %5, ptr %m_velocities, align 8
-  %contacts = getelementptr inbounds %struct.b2ContactSolverDef, ptr %def, i64 0, i32 1
+  %contacts = getelementptr inbounds i8, ptr %def, i64 24
   %6 = load ptr, ptr %contacts, align 8
-  %m_contacts = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 6
+  %m_contacts = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %6, ptr %m_contacts, align 8
   %7 = load i32, ptr %m_count, align 8
   %cmp84 = icmp sgt i32 %7, 0
   br i1 %cmp84, label %for.body.lr.ph, label %for.end74
 
 for.body.lr.ph:                                   ; preds = %entry
-  %warmStarting = getelementptr inbounds %struct.b2TimeStep, ptr %this, i64 0, i32 5
-  %dtRatio = getelementptr inbounds %struct.b2TimeStep, ptr %this, i64 0, i32 2
+  %warmStarting = getelementptr inbounds i8, ptr %this, i64 20
+  %dtRatio = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc72
@@ -87,119 +74,119 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = load ptr, ptr %m_contacts, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv87
   %9 = load ptr, ptr %arrayidx, align 8
-  %m_fixtureA = getelementptr inbounds %class.b2Contact, ptr %9, i64 0, i32 6
+  %m_fixtureA = getelementptr inbounds i8, ptr %9, i64 96
   %10 = load ptr, ptr %m_fixtureA, align 8
-  %m_fixtureB = getelementptr inbounds %class.b2Contact, ptr %9, i64 0, i32 7
+  %m_fixtureB = getelementptr inbounds i8, ptr %9, i64 104
   %11 = load ptr, ptr %m_fixtureB, align 8
-  %m_shape.i = getelementptr inbounds %class.b2Fixture, ptr %10, i64 0, i32 3
+  %m_shape.i = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load ptr, ptr %m_shape.i, align 8
-  %m_shape.i79 = getelementptr inbounds %class.b2Fixture, ptr %11, i64 0, i32 3
+  %m_shape.i79 = getelementptr inbounds i8, ptr %11, i64 24
   %13 = load ptr, ptr %m_shape.i79, align 8
-  %m_radius = getelementptr inbounds %class.b2Shape, ptr %12, i64 0, i32 2
+  %m_radius = getelementptr inbounds i8, ptr %12, i64 12
   %14 = load float, ptr %m_radius, align 4
-  %m_radius16 = getelementptr inbounds %class.b2Shape, ptr %13, i64 0, i32 2
+  %m_radius16 = getelementptr inbounds i8, ptr %13, i64 12
   %15 = load float, ptr %m_radius16, align 4
-  %m_body.i = getelementptr inbounds %class.b2Fixture, ptr %10, i64 0, i32 2
+  %m_body.i = getelementptr inbounds i8, ptr %10, i64 16
   %16 = load ptr, ptr %m_body.i, align 8
-  %m_body.i80 = getelementptr inbounds %class.b2Fixture, ptr %11, i64 0, i32 2
+  %m_body.i80 = getelementptr inbounds i8, ptr %11, i64 16
   %17 = load ptr, ptr %m_body.i80, align 8
-  %m_manifold.i = getelementptr inbounds %class.b2Contact, ptr %9, i64 0, i32 10
-  %pointCount20 = getelementptr inbounds %class.b2Contact, ptr %9, i64 0, i32 10, i32 4
+  %m_manifold.i = getelementptr inbounds i8, ptr %9, i64 120
+  %pointCount20 = getelementptr inbounds i8, ptr %9, i64 180
   %18 = load i32, ptr %pointCount20, align 4
   %19 = load ptr, ptr %m_velocityConstraints, align 8
   %add.ptr = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %19, i64 %indvars.iv87
-  %m_friction = getelementptr inbounds %class.b2Contact, ptr %9, i64 0, i32 13
+  %m_friction = getelementptr inbounds i8, ptr %9, i64 192
   %20 = load float, ptr %m_friction, align 8
-  %friction = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %19, i64 %indvars.iv87, i32 10
+  %friction = getelementptr inbounds i8, ptr %add.ptr, i64 136
   store float %20, ptr %friction, align 4
-  %m_restitution = getelementptr inbounds %class.b2Contact, ptr %9, i64 0, i32 14
+  %m_restitution = getelementptr inbounds i8, ptr %9, i64 196
   %21 = load float, ptr %m_restitution, align 4
-  %restitution = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %19, i64 %indvars.iv87, i32 11
+  %restitution = getelementptr inbounds i8, ptr %add.ptr, i64 140
   store float %21, ptr %restitution, align 4
-  %m_restitutionThreshold = getelementptr inbounds %class.b2Contact, ptr %9, i64 0, i32 15
+  %m_restitutionThreshold = getelementptr inbounds i8, ptr %9, i64 200
   %22 = load float, ptr %m_restitutionThreshold, align 8
-  %threshold = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %19, i64 %indvars.iv87, i32 12
+  %threshold = getelementptr inbounds i8, ptr %add.ptr, i64 144
   store float %22, ptr %threshold, align 4
-  %m_tangentSpeed = getelementptr inbounds %class.b2Contact, ptr %9, i64 0, i32 16
+  %m_tangentSpeed = getelementptr inbounds i8, ptr %9, i64 204
   %23 = load float, ptr %m_tangentSpeed, align 4
-  %tangentSpeed = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %19, i64 %indvars.iv87, i32 13
+  %tangentSpeed = getelementptr inbounds i8, ptr %add.ptr, i64 148
   store float %23, ptr %tangentSpeed, align 4
-  %m_islandIndex = getelementptr inbounds %class.b2Body, ptr %16, i64 0, i32 2
+  %m_islandIndex = getelementptr inbounds i8, ptr %16, i64 8
   %24 = load i32, ptr %m_islandIndex, align 8
-  %indexA = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %19, i64 %indvars.iv87, i32 4
+  %indexA = getelementptr inbounds i8, ptr %add.ptr, i64 112
   store i32 %24, ptr %indexA, align 4
-  %m_islandIndex22 = getelementptr inbounds %class.b2Body, ptr %17, i64 0, i32 2
+  %m_islandIndex22 = getelementptr inbounds i8, ptr %17, i64 8
   %25 = load i32, ptr %m_islandIndex22, align 8
-  %indexB = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %19, i64 %indvars.iv87, i32 5
+  %indexB = getelementptr inbounds i8, ptr %add.ptr, i64 116
   store i32 %25, ptr %indexB, align 4
-  %m_invMass = getelementptr inbounds %class.b2Body, ptr %16, i64 0, i32 17
+  %m_invMass = getelementptr inbounds i8, ptr %16, i64 148
   %26 = load float, ptr %m_invMass, align 4
-  %invMassA = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %19, i64 %indvars.iv87, i32 6
+  %invMassA = getelementptr inbounds i8, ptr %add.ptr, i64 120
   store float %26, ptr %invMassA, align 4
-  %m_invMass23 = getelementptr inbounds %class.b2Body, ptr %17, i64 0, i32 17
+  %m_invMass23 = getelementptr inbounds i8, ptr %17, i64 148
   %27 = load float, ptr %m_invMass23, align 4
-  %invMassB = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %19, i64 %indvars.iv87, i32 7
+  %invMassB = getelementptr inbounds i8, ptr %add.ptr, i64 124
   store float %27, ptr %invMassB, align 4
-  %m_invI = getelementptr inbounds %class.b2Body, ptr %16, i64 0, i32 19
+  %m_invI = getelementptr inbounds i8, ptr %16, i64 156
   %28 = load float, ptr %m_invI, align 4
-  %invIA = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %19, i64 %indvars.iv87, i32 8
+  %invIA = getelementptr inbounds i8, ptr %add.ptr, i64 128
   store float %28, ptr %invIA, align 4
-  %m_invI24 = getelementptr inbounds %class.b2Body, ptr %17, i64 0, i32 19
+  %m_invI24 = getelementptr inbounds i8, ptr %17, i64 156
   %29 = load float, ptr %m_invI24, align 4
-  %invIB = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %19, i64 %indvars.iv87, i32 9
+  %invIB = getelementptr inbounds i8, ptr %add.ptr, i64 132
   store float %29, ptr %invIB, align 4
-  %contactIndex = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %19, i64 %indvars.iv87, i32 15
+  %contactIndex = getelementptr inbounds i8, ptr %add.ptr, i64 156
   %30 = trunc i64 %indvars.iv87 to i32
   store i32 %30, ptr %contactIndex, align 4
-  %pointCount25 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %19, i64 %indvars.iv87, i32 14
+  %pointCount25 = getelementptr inbounds i8, ptr %add.ptr, i64 152
   store i32 %18, ptr %pointCount25, align 4
-  %normalMass = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %19, i64 %indvars.iv87, i32 2
+  %normalMass = getelementptr inbounds i8, ptr %add.ptr, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %normalMass, i8 0, i64 32, i1 false)
   %31 = load ptr, ptr %m_positionConstraints, align 8
   %add.ptr28 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87
   %32 = load i32, ptr %m_islandIndex, align 8
-  %indexA30 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87, i32 3
+  %indexA30 = getelementptr inbounds i8, ptr %add.ptr28, i64 32
   store i32 %32, ptr %indexA30, align 4
   %33 = load i32, ptr %m_islandIndex22, align 8
-  %indexB32 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87, i32 4
+  %indexB32 = getelementptr inbounds i8, ptr %add.ptr28, i64 36
   store i32 %33, ptr %indexB32, align 4
   %34 = load float, ptr %m_invMass, align 4
-  %invMassA34 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87, i32 5
+  %invMassA34 = getelementptr inbounds i8, ptr %add.ptr28, i64 40
   store float %34, ptr %invMassA34, align 4
   %35 = load float, ptr %m_invMass23, align 4
-  %invMassB36 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87, i32 6
+  %invMassB36 = getelementptr inbounds i8, ptr %add.ptr28, i64 44
   store float %35, ptr %invMassB36, align 4
-  %m_sweep = getelementptr inbounds %class.b2Body, ptr %16, i64 0, i32 4
-  %localCenterA = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87, i32 7
+  %m_sweep = getelementptr inbounds i8, ptr %16, i64 28
+  %localCenterA = getelementptr inbounds i8, ptr %add.ptr28, i64 48
   %36 = load i64, ptr %m_sweep, align 4
   store i64 %36, ptr %localCenterA, align 4
-  %m_sweep37 = getelementptr inbounds %class.b2Body, ptr %17, i64 0, i32 4
-  %localCenterB = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87, i32 8
+  %m_sweep37 = getelementptr inbounds i8, ptr %17, i64 28
+  %localCenterB = getelementptr inbounds i8, ptr %add.ptr28, i64 56
   %37 = load i64, ptr %m_sweep37, align 4
   store i64 %37, ptr %localCenterB, align 4
   %38 = load float, ptr %m_invI, align 4
-  %invIA40 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87, i32 9
+  %invIA40 = getelementptr inbounds i8, ptr %add.ptr28, i64 64
   store float %38, ptr %invIA40, align 4
   %39 = load float, ptr %m_invI24, align 4
-  %invIB42 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87, i32 10
+  %invIB42 = getelementptr inbounds i8, ptr %add.ptr28, i64 68
   store float %39, ptr %invIB42, align 4
-  %localNormal = getelementptr inbounds %class.b2Contact, ptr %9, i64 0, i32 10, i32 1
-  %localNormal43 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87, i32 1
+  %localNormal = getelementptr inbounds i8, ptr %9, i64 160
+  %localNormal43 = getelementptr inbounds i8, ptr %add.ptr28, i64 16
   %40 = load i64, ptr %localNormal, align 4
   store i64 %40, ptr %localNormal43, align 4
-  %localPoint = getelementptr inbounds %class.b2Contact, ptr %9, i64 0, i32 10, i32 2
-  %localPoint44 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87, i32 2
+  %localPoint = getelementptr inbounds i8, ptr %9, i64 168
+  %localPoint44 = getelementptr inbounds i8, ptr %add.ptr28, i64 24
   %41 = load i64, ptr %localPoint, align 4
   store i64 %41, ptr %localPoint44, align 4
-  %pointCount45 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87, i32 14
+  %pointCount45 = getelementptr inbounds i8, ptr %add.ptr28, i64 84
   store i32 %18, ptr %pointCount45, align 4
-  %radiusA46 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87, i32 12
+  %radiusA46 = getelementptr inbounds i8, ptr %add.ptr28, i64 76
   store float %14, ptr %radiusA46, align 4
-  %radiusB47 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87, i32 13
+  %radiusB47 = getelementptr inbounds i8, ptr %add.ptr28, i64 80
   store float %15, ptr %radiusB47, align 4
-  %type = getelementptr inbounds %class.b2Contact, ptr %9, i64 0, i32 10, i32 3
+  %type = getelementptr inbounds i8, ptr %9, i64 176
   %42 = load i32, ptr %type, align 4
-  %type48 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %31, i64 %indvars.iv87, i32 11
+  %type48 = getelementptr inbounds i8, ptr %add.ptr28, i64 72
   store i32 %42, ptr %type48, align 4
   %cmp5082 = icmp sgt i32 %18, 0
   br i1 %cmp5082, label %for.body51.preheader, label %for.inc72
@@ -219,29 +206,29 @@ for.body51:                                       ; preds = %for.body51.preheade
 
 if.then:                                          ; preds = %for.body51
   %45 = load float, ptr %dtRatio, align 8
-  %normalImpulse = getelementptr inbounds %struct.b2ManifoldPoint, ptr %m_manifold.i, i64 %indvars.iv, i32 1
+  %normalImpulse = getelementptr inbounds i8, ptr %add.ptr53, i64 8
   %46 = load float, ptr %normalImpulse, align 4
   %mul60 = fmul float %45, %46
-  %normalImpulse61 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 2
+  %normalImpulse61 = getelementptr inbounds i8, ptr %add.ptr57, i64 16
   store float %mul60, ptr %normalImpulse61, align 4
   %47 = load float, ptr %dtRatio, align 8
-  %tangentImpulse = getelementptr inbounds %struct.b2ManifoldPoint, ptr %m_manifold.i, i64 %indvars.iv, i32 2
+  %tangentImpulse = getelementptr inbounds i8, ptr %add.ptr53, i64 12
   %48 = load float, ptr %tangentImpulse, align 4
   %mul64 = fmul float %47, %48
   br label %if.end
 
 if.else:                                          ; preds = %for.body51
-  %normalImpulse66 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 2
+  %normalImpulse66 = getelementptr inbounds i8, ptr %add.ptr57, i64 16
   store float 0.000000e+00, ptr %normalImpulse66, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
   %mul64.sink = phi float [ 0.000000e+00, %if.else ], [ %mul64, %if.then ]
-  %49 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 3
+  %49 = getelementptr inbounds i8, ptr %add.ptr57, i64 20
   store float %mul64.sink, ptr %49, align 4
-  %normalMass68 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 4
+  %normalMass68 = getelementptr inbounds i8, ptr %add.ptr57, i64 24
   store <2 x float> zeroinitializer, ptr %normalMass68, align 4
-  %velocityBias = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 6
+  %velocityBias = getelementptr inbounds i8, ptr %add.ptr57, i64 32
   store float 0.000000e+00, ptr %velocityBias, align 4
   %arrayidx71 = getelementptr inbounds [2 x %struct.b2Vec2], ptr %add.ptr28, i64 0, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr57, i8 0, i64 16, i1 false)
@@ -270,16 +257,16 @@ declare noundef ptr @_ZN16b2StackAllocator8AllocateEi(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15b2ContactSolverD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_allocator = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 3
+  %m_allocator = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_allocator, align 8
-  %m_velocityConstraints = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 5
+  %m_velocityConstraints = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %m_velocityConstraints, align 8
   invoke void @_ZN16b2StackAllocator4FreeEPv(ptr noundef nonnull align 8 dereferenceable(102932) %0, ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   %2 = load ptr, ptr %m_allocator, align 8
-  %m_positionConstraints = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 4
+  %m_positionConstraints = getelementptr inbounds i8, ptr %this, i64 48
   %3 = load ptr, ptr %m_positionConstraints, align 8
   invoke void @_ZN16b2StackAllocator4FreeEPv(ptr noundef nonnull align 8 dereferenceable(102932) %2, ptr noundef %3)
           to label %invoke.cont3 unwind label %terminate.lpad
@@ -316,21 +303,22 @@ entry:
   %xfA = alloca %struct.b2Transform, align 8
   %xfB = alloca %struct.b2Transform, align 8
   %worldManifold = alloca %struct.b2WorldManifold, align 8
-  %m_count = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 7
+  %m_count = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %m_count, align 8
   %cmp198 = icmp sgt i32 %0, 0
   br i1 %cmp198, label %for.body.lr.ph, label %for.end161
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_velocityConstraints = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 5
-  %m_positionConstraints = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 4
-  %m_contacts = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 6
-  %m_positions = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 1
-  %m_velocities = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 2
-  %q = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1
-  %c.i = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1, i32 1
-  %q36 = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1
-  %c.i97 = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1, i32 1
+  %m_velocityConstraints = getelementptr inbounds i8, ptr %this, i64 56
+  %m_positionConstraints = getelementptr inbounds i8, ptr %this, i64 48
+  %m_contacts = getelementptr inbounds i8, ptr %this, i64 64
+  %m_positions = getelementptr inbounds i8, ptr %this, i64 24
+  %m_velocities = getelementptr inbounds i8, ptr %this, i64 32
+  %q = getelementptr inbounds i8, ptr %xfA, i64 8
+  %c.i = getelementptr inbounds i8, ptr %xfA, i64 12
+  %q36 = getelementptr inbounds i8, ptr %xfB, i64 8
+  %c.i97 = getelementptr inbounds i8, ptr %xfB, i64 12
+  %points55 = getelementptr inbounds i8, ptr %worldManifold, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc159
@@ -338,36 +326,37 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load ptr, ptr %m_velocityConstraints, align 8
   %add.ptr = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201
   %2 = load ptr, ptr %m_positionConstraints, align 8
-  %radiusA4 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %2, i64 %indvars.iv201, i32 12
+  %add.ptr3 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %2, i64 %indvars.iv201
+  %radiusA4 = getelementptr inbounds i8, ptr %add.ptr3, i64 76
   %3 = load float, ptr %radiusA4, align 4
-  %radiusB5 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %2, i64 %indvars.iv201, i32 13
+  %radiusB5 = getelementptr inbounds i8, ptr %add.ptr3, i64 80
   %4 = load float, ptr %radiusB5, align 4
   %5 = load ptr, ptr %m_contacts, align 8
-  %contactIndex = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 15
+  %contactIndex = getelementptr inbounds i8, ptr %add.ptr, i64 156
   %6 = load i32, ptr %contactIndex, align 4
   %idxprom = sext i32 %6 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %m_manifold.i = getelementptr inbounds %class.b2Contact, ptr %7, i64 0, i32 10
-  %indexA6 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 4
+  %m_manifold.i = getelementptr inbounds i8, ptr %7, i64 120
+  %indexA6 = getelementptr inbounds i8, ptr %add.ptr, i64 112
   %8 = load i32, ptr %indexA6, align 4
-  %indexB7 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 5
+  %indexB7 = getelementptr inbounds i8, ptr %add.ptr, i64 116
   %9 = load i32, ptr %indexB7, align 4
-  %invMassA = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 6
+  %invMassA = getelementptr inbounds i8, ptr %add.ptr, i64 120
   %10 = load float, ptr %invMassA, align 4
-  %invMassB = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 7
+  %invMassB = getelementptr inbounds i8, ptr %add.ptr, i64 124
   %11 = load float, ptr %invMassB, align 4
-  %invIA = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 8
+  %invIA = getelementptr inbounds i8, ptr %add.ptr, i64 128
   %12 = load float, ptr %invIA, align 4
-  %invIB = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 9
+  %invIB = getelementptr inbounds i8, ptr %add.ptr, i64 132
   %13 = load float, ptr %invIB, align 4
-  %localCenterA8 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %2, i64 %indvars.iv201, i32 7
+  %localCenterA8 = getelementptr inbounds i8, ptr %add.ptr3, i64 48
   %14 = load float, ptr %localCenterA8, align 4
-  %localCenterA8.sroa_idx = getelementptr inbounds i8, ptr %localCenterA8, i64 4
+  %localCenterA8.sroa_idx = getelementptr inbounds i8, ptr %add.ptr3, i64 52
   %15 = load float, ptr %localCenterA8.sroa_idx, align 4
-  %localCenterB9 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %2, i64 %indvars.iv201, i32 8
+  %localCenterB9 = getelementptr inbounds i8, ptr %add.ptr3, i64 56
   %16 = load float, ptr %localCenterB9, align 4
-  %localCenterB9.sroa_idx = getelementptr inbounds i8, ptr %localCenterB9, i64 4
+  %localCenterB9.sroa_idx = getelementptr inbounds i8, ptr %add.ptr3, i64 60
   %17 = load float, ptr %localCenterB9.sroa_idx, align 4
   %18 = load ptr, ptr %m_positions, align 8
   %idxprom10 = sext i32 %8 to i64
@@ -429,18 +418,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %54 = fsub <2 x float> %25, %53
   store <2 x float> %54, ptr %xfB, align 8
   call void @_ZN15b2WorldManifold10InitializeEPK10b2ManifoldRK11b2TransformfS5_f(ptr noundef nonnull align 4 dereferenceable(32) %worldManifold, ptr noundef nonnull %m_manifold.i, ptr noundef nonnull align 4 dereferenceable(16) %xfA, float noundef %3, ptr noundef nonnull align 4 dereferenceable(16) %xfB, float noundef %4)
-  %normal47 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 1
+  %normal47 = getelementptr inbounds i8, ptr %add.ptr, i64 72
   %55 = load i64, ptr %worldManifold, align 8
   store i64 %55, ptr %normal47, align 4
-  %pointCount48 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 14
+  %pointCount48 = getelementptr inbounds i8, ptr %add.ptr, i64 152
   %56 = load i32, ptr %pointCount48, align 4
   %cmp50196 = icmp sgt i32 %56, 0
   br i1 %cmp50196, label %for.body51.lr.ph, label %for.inc159
 
 for.body51.lr.ph:                                 ; preds = %for.body
   %add = fadd float %10, %11
-  %threshold = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 12
-  %restitution = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 11
+  %threshold = getelementptr inbounds i8, ptr %add.ptr, i64 144
+  %restitution = getelementptr inbounds i8, ptr %add.ptr, i64 140
   %wide.trip.count = zext nneg i32 %56 to i64
   %57 = insertelement <2 x float> poison, float %13, i64 0
   %58 = shufflevector <2 x float> %57, <2 x float> poison, <2 x i32> zeroinitializer
@@ -453,20 +442,19 @@ for.body51.lr.ph:                                 ; preds = %for.body
 for.body51:                                       ; preds = %for.body51.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body51.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %add.ptr53 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv
-  %arrayidx57 = getelementptr inbounds %struct.b2WorldManifold, ptr %worldManifold, i64 0, i32 1, i64 %indvars.iv
+  %arrayidx57 = getelementptr inbounds [2 x %struct.b2Vec2], ptr %points55, i64 0, i64 %indvars.iv
   %63 = load <2 x float>, ptr %arrayidx57, align 8
   %64 = fsub <2 x float> %63, %19
   store <2 x float> %64, ptr %add.ptr53, align 4
   %65 = load <2 x float>, ptr %arrayidx57, align 8
   %66 = fsub <2 x float> %65, %25
-  %rB = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 1
+  %rB = getelementptr inbounds i8, ptr %add.ptr53, i64 8
   store <2 x float> %66, ptr %rB, align 4
   %67 = extractelement <2 x float> %64, i64 1
   %68 = fneg float %67
-  %y1.i129 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 1, i32 1
-  %69 = load float, ptr %y1.i129, align 4
+  %69 = extractelement <2 x float> %66, i64 1
   %70 = fneg float %69
-  %normalMass = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 4
+  %normalMass = getelementptr inbounds i8, ptr %add.ptr53, i64 24
   %71 = load <2 x float>, ptr %normal47, align 4
   %72 = extractelement <2 x float> %71, i64 0
   %mul1.i = fneg float %72
@@ -490,7 +478,7 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   %90 = fdiv <2 x float> <float 1.000000e+00, float 1.000000e+00>, %88
   %91 = select <2 x i1> %89, <2 x float> %90, <2 x float> zeroinitializer
   store <2 x float> %91, ptr %normalMass, align 4
-  %velocityBias = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 6
+  %velocityBias = getelementptr inbounds i8, ptr %add.ptr53, i64 32
   store float 0.000000e+00, ptr %velocityBias, align 4
   %92 = extractelement <2 x float> %66, i64 0
   %mul1.i141 = fmul float %29, %92
@@ -536,91 +524,88 @@ land.lhs.true:                                    ; preds = %for.end
   br i1 %tobool.not, label %for.inc159, label %if.then111
 
 if.then111:                                       ; preds = %land.lhs.true
-  %add.ptr117 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 1
+  %add.ptr117 = getelementptr inbounds i8, ptr %add.ptr, i64 36
   %102 = load float, ptr %add.ptr, align 4
-  %y.i168 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 1, i32 1
-  %103 = load float, ptr %y.i168, align 4
-  %y1.i169 = getelementptr inbounds %struct.b2Vec2, ptr %add.ptr, i64 0, i32 1
-  %104 = load float, ptr %y1.i169, align 4
-  %rB121 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 0, i32 1
-  %105 = load float, ptr %rB121, align 4
-  %y1.i172 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 0, i32 1, i32 1
-  %106 = load float, ptr %y1.i172, align 4
-  %107 = load float, ptr %add.ptr117, align 4
-  %y1.i175 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 1, i32 0, i32 1
-  %108 = load float, ptr %y1.i175, align 4
-  %rB127 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 1, i32 1
-  %109 = load float, ptr %rB127, align 4
-  %y1.i178 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 1, i32 1, i32 1
-  %110 = load float, ptr %y1.i178, align 4
+  %y1.i169 = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %103 = load float, ptr %y1.i169, align 4
+  %rB121 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %104 = load float, ptr %rB121, align 4
+  %y1.i172 = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %105 = load float, ptr %y1.i172, align 4
+  %106 = load float, ptr %add.ptr117, align 4
+  %y1.i175 = getelementptr inbounds i8, ptr %add.ptr, i64 40
+  %107 = load float, ptr %y1.i175, align 4
+  %rB127 = getelementptr inbounds i8, ptr %add.ptr, i64 44
+  %108 = load float, ptr %rB127, align 4
+  %y1.i178 = getelementptr inbounds i8, ptr %add.ptr, i64 48
+  %109 = load float, ptr %y1.i178, align 4
   %add130 = fadd float %10, %11
-  %111 = insertelement <2 x float> poison, float %104, i64 0
-  %112 = insertelement <2 x float> %111, float %108, i64 1
-  %113 = fneg <2 x float> %112
-  %114 = shufflevector <2 x float> %71, <2 x float> poison, <2 x i32> zeroinitializer
-  %115 = fmul <2 x float> %114, %113
-  %116 = insertelement <2 x float> poison, float %102, i64 0
-  %117 = insertelement <2 x float> %116, float %107, i64 1
-  %118 = insertelement <2 x float> poison, float %103, i64 0
-  %119 = shufflevector <2 x float> %118, <2 x float> poison, <2 x i32> zeroinitializer
-  %120 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %117, <2 x float> %119, <2 x float> %115)
-  %121 = insertelement <2 x float> poison, float %106, i64 0
-  %122 = insertelement <2 x float> %121, float %110, i64 1
-  %123 = fneg <2 x float> %122
-  %124 = fmul <2 x float> %114, %123
-  %125 = insertelement <2 x float> poison, float %105, i64 0
-  %126 = insertelement <2 x float> %125, float %109, i64 1
-  %127 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %126, <2 x float> %119, <2 x float> %124)
-  %128 = extractelement <2 x float> %120, i64 0
-  %mul131 = fmul float %12, %128
-  %129 = extractelement <2 x float> %127, i64 0
-  %mul133 = fmul float %13, %129
-  %130 = extractelement <2 x float> %120, i64 1
-  %mul136 = fmul float %12, %130
-  %131 = call float @llvm.fmuladd.f32(float %mul136, float %130, float %add130)
-  %132 = extractelement <2 x float> %127, i64 1
-  %mul138 = fmul float %13, %132
-  %133 = call float @llvm.fmuladd.f32(float %mul138, float %132, float %131)
-  %134 = insertelement <2 x float> poison, float %mul131, i64 0
+  %110 = insertelement <2 x float> poison, float %103, i64 0
+  %111 = insertelement <2 x float> %110, float %107, i64 1
+  %112 = fneg <2 x float> %111
+  %113 = shufflevector <2 x float> %71, <2 x float> poison, <2 x i32> zeroinitializer
+  %114 = fmul <2 x float> %113, %112
+  %115 = insertelement <2 x float> poison, float %102, i64 0
+  %116 = insertelement <2 x float> %115, float %106, i64 1
+  %117 = shufflevector <2 x float> %71, <2 x float> poison, <2 x i32> <i32 1, i32 1>
+  %118 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %116, <2 x float> %117, <2 x float> %114)
+  %119 = insertelement <2 x float> poison, float %105, i64 0
+  %120 = insertelement <2 x float> %119, float %109, i64 1
+  %121 = fneg <2 x float> %120
+  %122 = fmul <2 x float> %113, %121
+  %123 = insertelement <2 x float> poison, float %104, i64 0
+  %124 = insertelement <2 x float> %123, float %108, i64 1
+  %125 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %124, <2 x float> %117, <2 x float> %122)
+  %126 = extractelement <2 x float> %118, i64 0
+  %mul131 = fmul float %12, %126
+  %127 = extractelement <2 x float> %125, i64 0
+  %mul133 = fmul float %13, %127
+  %128 = extractelement <2 x float> %118, i64 1
+  %mul136 = fmul float %12, %128
+  %129 = call float @llvm.fmuladd.f32(float %mul136, float %128, float %add130)
+  %130 = extractelement <2 x float> %125, i64 1
+  %mul138 = fmul float %13, %130
+  %131 = call float @llvm.fmuladd.f32(float %mul138, float %130, float %129)
+  %132 = insertelement <2 x float> poison, float %mul131, i64 0
+  %133 = shufflevector <2 x float> %132, <2 x float> poison, <2 x i32> zeroinitializer
+  %134 = insertelement <2 x float> poison, float %add130, i64 0
   %135 = shufflevector <2 x float> %134, <2 x float> poison, <2 x i32> zeroinitializer
-  %136 = insertelement <2 x float> poison, float %add130, i64 0
-  %137 = shufflevector <2 x float> %136, <2 x float> poison, <2 x i32> zeroinitializer
-  %138 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %135, <2 x float> %120, <2 x float> %137)
-  %139 = insertelement <2 x float> poison, float %mul133, i64 0
-  %140 = shufflevector <2 x float> %139, <2 x float> poison, <2 x i32> zeroinitializer
-  %141 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %140, <2 x float> %127, <2 x float> %138)
-  %142 = extractelement <2 x float> %141, i64 0
-  %143 = fmul <2 x float> %141, %141
-  %mul145 = extractelement <2 x float> %143, i64 0
-  %144 = extractelement <2 x float> %141, i64 1
-  %145 = fneg float %144
-  %neg = fmul float %144, %145
-  %146 = call float @llvm.fmuladd.f32(float %142, float %133, float %neg)
-  %mul148 = fmul float %146, 1.000000e+03
+  %136 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %133, <2 x float> %118, <2 x float> %135)
+  %137 = insertelement <2 x float> poison, float %mul133, i64 0
+  %138 = shufflevector <2 x float> %137, <2 x float> poison, <2 x i32> zeroinitializer
+  %139 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %138, <2 x float> %125, <2 x float> %136)
+  %140 = extractelement <2 x float> %139, i64 0
+  %141 = fmul <2 x float> %139, %139
+  %mul145 = extractelement <2 x float> %141, i64 0
+  %142 = extractelement <2 x float> %139, i64 1
+  %143 = fneg float %142
+  %neg = fmul float %142, %143
+  %144 = call float @llvm.fmuladd.f32(float %140, float %131, float %neg)
+  %mul148 = fmul float %144, 1.000000e+03
   %cmp149 = fcmp olt float %mul145, %mul148
   br i1 %cmp149, label %if.then150, label %if.else
 
 if.then150:                                       ; preds = %if.then111
-  %K = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 3
-  store <2 x float> %141, ptr %K, align 4
-  %ey = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 3, i32 1
-  store float %144, ptr %ey, align 4
-  %y.i181 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 3, i32 1, i32 1
-  store float %133, ptr %y.i181, align 4
-  %cmp.i = fcmp une float %146, 0.000000e+00
-  %div.i = fdiv float 1.000000e+00, %146
-  %det.0.i = select i1 %cmp.i, float %div.i, float %146
-  %mul.i184 = fmul float %133, %det.0.i
+  %K = getelementptr inbounds i8, ptr %add.ptr, i64 96
+  store <2 x float> %139, ptr %K, align 4
+  %ey = getelementptr inbounds i8, ptr %add.ptr, i64 104
+  store float %142, ptr %ey, align 4
+  %y.i181 = getelementptr inbounds i8, ptr %add.ptr, i64 108
+  store float %131, ptr %y.i181, align 4
+  %cmp.i = fcmp une float %144, 0.000000e+00
+  %div.i = fdiv float 1.000000e+00, %144
+  %det.0.i = select i1 %cmp.i, float %div.i, float %144
+  %mul.i184 = fmul float %131, %det.0.i
   %retval.sroa.0.0.vec.insert.i185 = insertelement <2 x float> poison, float %mul.i184, i64 0
   %fneg.i186 = fneg float %det.0.i
-  %mul9.i = fmul float %144, %fneg.i186
+  %mul9.i = fmul float %142, %fneg.i186
   %retval.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %mul9.i, i64 0
   %retval.sroa.0.4.vec.insert.i187 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i185, float %mul9.i, i64 1
-  %mul16.i = fmul float %142, %det.0.i
+  %mul16.i = fmul float %140, %det.0.i
   %retval.sroa.3.12.vec.insert.i = insertelement <2 x float> %retval.sroa.3.8.vec.insert.i, float %mul16.i, i64 1
-  %normalMass155 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv201, i32 2
+  %normalMass155 = getelementptr inbounds i8, ptr %add.ptr, i64 80
   store <2 x float> %retval.sroa.0.4.vec.insert.i187, ptr %normalMass155, align 4
-  %ref.tmp152.sroa.2.0.normalMass155.sroa_idx = getelementptr inbounds i8, ptr %normalMass155, i64 8
+  %ref.tmp152.sroa.2.0.normalMass155.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 88
   store <2 x float> %retval.sroa.3.12.vec.insert.i, ptr %ref.tmp152.sroa.2.0.normalMass155.sroa_idx, align 4
   br label %for.inc159
 
@@ -630,9 +615,9 @@ if.else:                                          ; preds = %if.then111
 
 for.inc159:                                       ; preds = %for.body, %for.end, %land.lhs.true, %if.else, %if.then150
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
-  %147 = load i32, ptr %m_count, align 8
-  %148 = sext i32 %147 to i64
-  %cmp = icmp slt i64 %indvars.iv.next202, %148
+  %145 = load i32, ptr %m_count, align 8
+  %146 = sext i32 %145 to i64
+  %cmp = icmp slt i64 %indvars.iv.next202, %146
   br i1 %cmp, label %for.body, label %for.end161, !llvm.loop !8
 
 for.end161:                                       ; preds = %for.inc159, %entry
@@ -647,25 +632,25 @@ declare float @llvm.fmuladd.f32(float, float, float) #6
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN15b2ContactSolver9WarmStartEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %m_count = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 7
+  %m_count = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %m_count, align 8
   %cmp83 = icmp sgt i32 %0, 0
   br i1 %cmp83, label %for.body.lr.ph, label %for.end50
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_velocityConstraints = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 5
-  %m_velocities = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 2
+  %m_velocityConstraints = getelementptr inbounds i8, ptr %this, i64 56
+  %m_velocities = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
   %indvars.iv87 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next88, %for.end ]
   %1 = load ptr, ptr %m_velocityConstraints, align 8
   %add.ptr = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv87
-  %indexA2 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv87, i32 4
+  %indexA2 = getelementptr inbounds i8, ptr %add.ptr, i64 112
   %2 = load i32, ptr %indexA2, align 4
-  %indexB3 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv87, i32 5
+  %indexB3 = getelementptr inbounds i8, ptr %add.ptr, i64 116
   %3 = load i32, ptr %indexB3, align 4
-  %pointCount4 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv87, i32 14
+  %pointCount4 = getelementptr inbounds i8, ptr %add.ptr, i64 152
   %4 = load i32, ptr %pointCount4, align 4
   %5 = load ptr, ptr %m_velocities, align 8
   %idxprom = sext i32 %2 to i64
@@ -677,7 +662,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = load <2 x float>, ptr %arrayidx10, align 4
   %w15 = getelementptr inbounds %struct.b2Velocity, ptr %5, i64 %idxprom9, i32 1
   %8 = load float, ptr %w15, align 4
-  %normal16 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv87, i32 1
+  %normal16 = getelementptr inbounds i8, ptr %add.ptr, i64 72
   %9 = load <2 x float>, ptr %arrayidx, align 4
   %10 = load <2 x float>, ptr %normal16, align 4
   %cmp1870 = icmp sgt i32 %4, 0
@@ -686,13 +671,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp1870, label %for.body19.lr.ph, label %for.end
 
 for.body19.lr.ph:                                 ; preds = %for.body
-  %invIB = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv87, i32 9
+  %invIB = getelementptr inbounds i8, ptr %add.ptr, i64 132
   %13 = load float, ptr %invIB, align 4
-  %invMassB = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv87, i32 7
+  %invMassB = getelementptr inbounds i8, ptr %add.ptr, i64 124
   %14 = load float, ptr %invMassB, align 4
-  %invMassA = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv87, i32 6
+  %invMassA = getelementptr inbounds i8, ptr %add.ptr, i64 120
   %15 = load float, ptr %invMassA, align 4
-  %invIA = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %1, i64 %indvars.iv87, i32 8
+  %invIA = getelementptr inbounds i8, ptr %add.ptr, i64 128
   %16 = load float, ptr %invIA, align 4
   %neg = fneg float %16
   %wide.trip.count = zext nneg i32 %4 to i64
@@ -710,12 +695,12 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   %24 = phi <2 x float> [ %7, %for.body19.lr.ph ], [ %55, %for.body19 ]
   %25 = phi <2 x float> [ %12, %for.body19.lr.ph ], [ %53, %for.body19 ]
   %add.ptr21 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv
-  %normalImpulse = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 2
+  %normalImpulse = getelementptr inbounds i8, ptr %add.ptr21, i64 16
   %26 = load float, ptr %normalImpulse, align 4
-  %tangentImpulse = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 3
+  %tangentImpulse = getelementptr inbounds i8, ptr %add.ptr21, i64 20
   %27 = load float, ptr %tangentImpulse, align 4
   %28 = load float, ptr %add.ptr21, align 4
-  %y1.i = getelementptr inbounds %struct.b2Vec2, ptr %add.ptr21, i64 0, i32 1
+  %y1.i = getelementptr inbounds i8, ptr %add.ptr21, i64 4
   %29 = load float, ptr %y1.i, align 4
   %30 = insertelement <2 x float> poison, float %26, i64 0
   %31 = shufflevector <2 x float> %30, <2 x float> poison, <2 x i32> zeroinitializer
@@ -729,9 +714,9 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   %39 = shufflevector <2 x float> %37, <2 x float> %38, <2 x i32> <i32 0, i32 3>
   %40 = fmul <2 x float> %18, %39
   %41 = fsub <2 x float> %23, %40
-  %rB = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 1
+  %rB = getelementptr inbounds i8, ptr %add.ptr21, i64 8
   %42 = load float, ptr %rB, align 4
-  %y1.i44 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 1, i32 1
+  %y1.i44 = getelementptr inbounds i8, ptr %add.ptr21, i64 12
   %43 = load float, ptr %y1.i44, align 4
   %44 = insertelement <2 x float> poison, float %29, i64 0
   %45 = insertelement <2 x float> %44, float %43, i64 1
@@ -778,14 +763,14 @@ for.end50:                                        ; preds = %for.end, %entry
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN15b2ContactSolver24SolveVelocityConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %m_count = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 7
+  %m_count = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %m_count, align 8
   %cmp833 = icmp sgt i32 %0, 0
   br i1 %cmp833, label %for.body.lr.ph, label %for.end341
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_velocityConstraints = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 5
-  %m_velocities = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 2
+  %m_velocityConstraints = getelementptr inbounds i8, ptr %this, i64 56
+  %m_velocities = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i8, ptr @g_blockSolve, align 1
   %2 = and i8 %1, 1
   %cmp50 = icmp eq i8 %2, 0
@@ -795,19 +780,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %indvars.iv844 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next845, %if.end322 ]
   %3 = load ptr, ptr %m_velocityConstraints, align 8
   %add.ptr = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844
-  %indexA2 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 4
+  %indexA2 = getelementptr inbounds i8, ptr %add.ptr, i64 112
   %4 = load i32, ptr %indexA2, align 4
-  %indexB3 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 5
+  %indexB3 = getelementptr inbounds i8, ptr %add.ptr, i64 116
   %5 = load i32, ptr %indexB3, align 4
-  %invMassA = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 6
+  %invMassA = getelementptr inbounds i8, ptr %add.ptr, i64 120
   %6 = load float, ptr %invMassA, align 4
-  %invIA = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 8
+  %invIA = getelementptr inbounds i8, ptr %add.ptr, i64 128
   %7 = load float, ptr %invIA, align 4
-  %invMassB = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 7
+  %invMassB = getelementptr inbounds i8, ptr %add.ptr, i64 124
   %8 = load float, ptr %invMassB, align 4
-  %invIB = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 9
+  %invIB = getelementptr inbounds i8, ptr %add.ptr, i64 132
   %9 = load float, ptr %invIB, align 4
-  %pointCount4 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 14
+  %pointCount4 = getelementptr inbounds i8, ptr %add.ptr, i64 152
   %10 = load i32, ptr %pointCount4, align 4
   %11 = load ptr, ptr %m_velocities, align 8
   %idxprom = sext i32 %4 to i64
@@ -819,18 +804,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %13 = load <2 x float>, ptr %arrayidx10, align 4
   %w15 = getelementptr inbounds %struct.b2Velocity, ptr %11, i64 %idxprom9, i32 1
   %14 = load float, ptr %w15, align 4
-  %normal16 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 1
+  %normal16 = getelementptr inbounds i8, ptr %add.ptr, i64 72
   %15 = load <2 x float>, ptr %arrayidx, align 4
   %16 = load <2 x float>, ptr %normal16, align 4
   %17 = extractelement <2 x float> %16, i64 0
   %mul1.i = fneg float %17
-  %friction17 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 10
+  %friction17 = getelementptr inbounds i8, ptr %add.ptr, i64 136
   %18 = load float, ptr %friction17, align 4
   %cmp19806 = icmp sgt i32 %10, 0
   br i1 %cmp19806, label %for.body20.lr.ph, label %for.end.thread
 
 for.body20.lr.ph:                                 ; preds = %for.body
-  %tangentSpeed = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 13
+  %tangentSpeed = getelementptr inbounds i8, ptr %add.ptr, i64 148
   %neg = fneg float %7
   %wide.trip.count = zext nneg i32 %10 to i64
   %.pre = load float, ptr %tangentSpeed, align 4
@@ -852,8 +837,8 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %30 = phi <2 x float> [ %13, %for.body20.lr.ph ], [ %57, %for.body20 ]
   %31 = phi <2 x float> [ %20, %for.body20.lr.ph ], [ %67, %for.body20 ]
   %add.ptr22 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv
-  %rB = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 1
-  %y.i132 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 1, i32 1
+  %rB = getelementptr inbounds i8, ptr %add.ptr22, i64 8
+  %y.i132 = getelementptr inbounds i8, ptr %add.ptr22, i64 12
   %32 = load float, ptr %y.i132, align 4
   %33 = load float, ptr %rB, align 4
   %34 = extractelement <2 x float> %31, i64 0
@@ -867,7 +852,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %sub.i = fsub float %add.i, %38
   %39 = extractelement <2 x float> %29, i64 1
   %sub3.i = fsub float %add3.i, %39
-  %y.i144 = getelementptr inbounds %struct.b2Vec2, ptr %add.ptr22, i64 0, i32 1
+  %y.i144 = getelementptr inbounds i8, ptr %add.ptr22, i64 4
   %40 = load float, ptr %y.i144, align 4
   %41 = load float, ptr %add.ptr22, align 4
   %42 = extractelement <2 x float> %31, i64 1
@@ -878,12 +863,12 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %mul3.i = fmul float %sub3.i152, %mul1.i
   %44 = tail call noundef float @llvm.fmuladd.f32(float %sub.i149, float %24, float %mul3.i)
   %sub = fsub float %44, %.pre
-  %tangentMass = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 5
+  %tangentMass = getelementptr inbounds i8, ptr %add.ptr22, i64 28
   %45 = load float, ptr %tangentMass, align 4
-  %normalImpulse = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 2
+  %normalImpulse = getelementptr inbounds i8, ptr %add.ptr22, i64 16
   %46 = load float, ptr %normalImpulse, align 4
   %mul32 = fmul float %18, %46
-  %tangentImpulse = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv, i32 3
+  %tangentImpulse = getelementptr inbounds i8, ptr %add.ptr22, i64 20
   %47 = load float, ptr %tangentImpulse, align 4
   %48 = fmul float %45, %sub
   %add = fsub float %47, %48
@@ -942,8 +927,8 @@ for.body54:                                       ; preds = %for.body54.lr.ph, %
   %72 = phi <2 x float> [ %57, %for.body54.lr.ph ], [ %97, %for.body54 ]
   %73 = phi <2 x float> [ %67, %for.body54.lr.ph ], [ %107, %for.body54 ]
   %add.ptr59 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv839
-  %rB64 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv839, i32 1
-  %y.i182 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv839, i32 1, i32 1
+  %rB64 = getelementptr inbounds i8, ptr %add.ptr59, i64 8
+  %y.i182 = getelementptr inbounds i8, ptr %add.ptr59, i64 12
   %74 = load float, ptr %y.i182, align 4
   %75 = load float, ptr %rB64, align 4
   %76 = extractelement <2 x float> %73, i64 0
@@ -957,7 +942,7 @@ for.body54:                                       ; preds = %for.body54.lr.ph, %
   %sub.i193 = fsub float %add.i187, %80
   %81 = extractelement <2 x float> %71, i64 1
   %sub3.i196 = fsub float %add3.i190, %81
-  %y.i200 = getelementptr inbounds %struct.b2Vec2, ptr %add.ptr59, i64 0, i32 1
+  %y.i200 = getelementptr inbounds i8, ptr %add.ptr59, i64 4
   %82 = load float, ptr %y.i200, align 4
   %83 = load float, ptr %add.ptr59, align 4
   %84 = extractelement <2 x float> %73, i64 1
@@ -967,12 +952,12 @@ for.body54:                                       ; preds = %for.body54.lr.ph, %
   %sub3.i208 = fsub float %sub3.i196, %mul1.i202
   %mul3.i213 = fmul float %24, %sub3.i208
   %86 = tail call noundef float @llvm.fmuladd.f32(float %sub.i205, float %17, float %mul3.i213)
-  %normalMass = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv839, i32 4
+  %normalMass = getelementptr inbounds i8, ptr %add.ptr59, i64 24
   %87 = load float, ptr %normalMass, align 4
-  %velocityBias = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv839, i32 6
+  %velocityBias = getelementptr inbounds i8, ptr %add.ptr59, i64 32
   %88 = load float, ptr %velocityBias, align 4
   %sub75 = fsub float %86, %88
-  %normalImpulse78 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 %indvars.iv839, i32 2
+  %normalImpulse78 = getelementptr inbounds i8, ptr %add.ptr59, i64 16
   %89 = load float, ptr %normalImpulse78, align 4
   %90 = fmul float %87, %sub75
   %add79 = fsub float %89, %90
@@ -1005,35 +990,35 @@ if.else:                                          ; preds = %for.end.thread, %fo
   %108 = phi <2 x float> [ %15, %for.end.thread ], [ %54, %for.end ]
   %109 = phi <2 x float> [ %13, %for.end.thread ], [ %57, %for.end ]
   %110 = phi <2 x float> [ %69, %for.end.thread ], [ %67, %for.end ]
-  %add.ptr105 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 1
-  %normalImpulse106 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 0, i32 2
+  %add.ptr105 = getelementptr inbounds i8, ptr %add.ptr, i64 36
+  %normalImpulse106 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %111 = load float, ptr %normalImpulse106, align 4
-  %normalImpulse107 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 1, i32 2
+  %normalImpulse107 = getelementptr inbounds i8, ptr %add.ptr, i64 52
   %112 = load float, ptr %normalImpulse107, align 4
-  %rB111 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 0, i32 1
-  %y.i245 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 0, i32 1, i32 1
+  %rB111 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %y.i245 = getelementptr inbounds i8, ptr %add.ptr, i64 12
   %113 = load float, ptr %y.i245, align 4
   %114 = load float, ptr %rB111, align 4
   %115 = extractelement <2 x float> %110, i64 0
-  %y.i263 = getelementptr inbounds %struct.b2Vec2, ptr %add.ptr, i64 0, i32 1
+  %y.i263 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %116 = load float, ptr %y.i263, align 4
   %117 = load float, ptr %add.ptr, align 4
   %118 = extractelement <2 x float> %110, i64 1
-  %rB122 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 1, i32 1
-  %y.i275 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 1, i32 1, i32 1
+  %rB122 = getelementptr inbounds i8, ptr %add.ptr, i64 44
+  %y.i275 = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %119 = load float, ptr %y.i275, align 4
   %120 = load float, ptr %rB122, align 4
-  %y.i293 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 1, i32 0, i32 1
+  %y.i293 = getelementptr inbounds i8, ptr %add.ptr, i64 40
   %121 = load float, ptr %y.i293, align 4
   %122 = load float, ptr %add.ptr105, align 4
-  %velocityBias132 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 0, i32 6
+  %velocityBias132 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %123 = load float, ptr %velocityBias132, align 4
-  %velocityBias134 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 1, i32 6
+  %velocityBias134 = getelementptr inbounds i8, ptr %add.ptr, i64 68
   %124 = load float, ptr %velocityBias134, align 4
-  %K = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 3
-  %ey.i = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 3, i32 1
+  %K = getelementptr inbounds i8, ptr %add.ptr, i64 96
+  %ey.i = getelementptr inbounds i8, ptr %add.ptr, i64 104
   %125 = load float, ptr %ey.i, align 4
-  %y8.i = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 3, i32 1, i32 1
+  %y8.i = getelementptr inbounds i8, ptr %add.ptr, i64 108
   %126 = load float, ptr %y8.i, align 4
   %127 = shufflevector <2 x float> %110, <2 x float> poison, <2 x i32> zeroinitializer
   %128 = insertelement <2 x float> poison, float %114, i64 0
@@ -1076,8 +1061,8 @@ if.else:                                          ; preds = %for.end.thread, %fo
   %165 = shufflevector <2 x float> %164, <2 x float> poison, <2 x i32> zeroinitializer
   %166 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %158, <2 x float> %165, <2 x float> %163)
   %167 = fsub <2 x float> %157, %166
-  %normalMass141 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 2
-  %ey.i318 = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %3, i64 %indvars.iv844, i32 2, i32 1
+  %normalMass141 = getelementptr inbounds i8, ptr %add.ptr, i64 80
+  %ey.i318 = getelementptr inbounds i8, ptr %add.ptr, i64 88
   %168 = load <2 x float>, ptr %normalMass141, align 4
   %169 = load <2 x float>, ptr %ey.i318, align 4
   %170 = shufflevector <2 x float> %167, <2 x float> poison, <2 x i32> <i32 1, i32 1>
@@ -1122,7 +1107,7 @@ if.then148:                                       ; preds = %if.else
   br label %if.end322.sink.split
 
 if.end:                                           ; preds = %if.else
-  %normalMass179 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 0, i32 4
+  %normalMass179 = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %199 = load float, ptr %normalMass179, align 4
   %fneg180 = fneg float %199
   %200 = extractelement <2 x float> %167, i64 0
@@ -1168,7 +1153,7 @@ if.then194:                                       ; preds = %if.end
   br label %if.end322.sink.split
 
 if.end228:                                        ; preds = %if.end
-  %normalMass230 = getelementptr inbounds %struct.b2VelocityConstraintPoint, ptr %add.ptr, i64 1, i32 4
+  %normalMass230 = getelementptr inbounds i8, ptr %add.ptr, i64 60
   %229 = load float, ptr %normalMass230, align 4
   %fneg231 = fneg float %229
   %mul233 = fmul float %201, %fneg231
@@ -1295,14 +1280,14 @@ for.end341:                                       ; preds = %if.end322, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN15b2ContactSolver13StoreImpulsesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %m_count = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 7
+  %m_count = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %m_count, align 8
   %cmp14 = icmp sgt i32 %0, 0
   br i1 %cmp14, label %for.body.lr.ph, label %for.end20
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_velocityConstraints = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 5
-  %m_contacts = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 6
+  %m_velocityConstraints = getelementptr inbounds i8, ptr %this, i64 56
+  %m_contacts = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc18
@@ -1311,26 +1296,28 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %2 = load ptr, ptr %m_velocityConstraints, align 8
   %add.ptr = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %2, i64 %indvars.iv17
   %3 = load ptr, ptr %m_contacts, align 8
-  %contactIndex = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %2, i64 %indvars.iv17, i32 15
+  %contactIndex = getelementptr inbounds i8, ptr %add.ptr, i64 156
   %4 = load i32, ptr %contactIndex, align 4
   %idxprom = sext i32 %4 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %idxprom
   %5 = load ptr, ptr %arrayidx, align 8
-  %m_manifold.i = getelementptr inbounds %class.b2Contact, ptr %5, i64 0, i32 10
-  %pointCount = getelementptr inbounds %struct.b2ContactVelocityConstraint, ptr %2, i64 %indvars.iv17, i32 14
+  %m_manifold.i = getelementptr inbounds i8, ptr %5, i64 120
+  %pointCount = getelementptr inbounds i8, ptr %add.ptr, i64 152
   %6 = load i32, ptr %pointCount, align 4
   %cmp312 = icmp sgt i32 %6, 0
   br i1 %cmp312, label %for.body4, label %for.inc18
 
 for.body4:                                        ; preds = %for.body, %for.body4
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body4 ], [ 0, %for.body ]
-  %normalImpulse = getelementptr inbounds [2 x %struct.b2VelocityConstraintPoint], ptr %add.ptr, i64 0, i64 %indvars.iv, i32 2
+  %arrayidx6 = getelementptr inbounds [2 x %struct.b2VelocityConstraintPoint], ptr %add.ptr, i64 0, i64 %indvars.iv
+  %normalImpulse = getelementptr inbounds i8, ptr %arrayidx6, i64 16
   %7 = load float, ptr %normalImpulse, align 4
-  %normalImpulse10 = getelementptr inbounds [2 x %struct.b2ManifoldPoint], ptr %m_manifold.i, i64 0, i64 %indvars.iv, i32 1
+  %arrayidx9 = getelementptr inbounds [2 x %struct.b2ManifoldPoint], ptr %m_manifold.i, i64 0, i64 %indvars.iv
+  %normalImpulse10 = getelementptr inbounds i8, ptr %arrayidx9, i64 8
   store float %7, ptr %normalImpulse10, align 4
-  %tangentImpulse = getelementptr inbounds [2 x %struct.b2VelocityConstraintPoint], ptr %add.ptr, i64 0, i64 %indvars.iv, i32 3
+  %tangentImpulse = getelementptr inbounds i8, ptr %arrayidx6, i64 20
   %8 = load float, ptr %tangentImpulse, align 4
-  %tangentImpulse17 = getelementptr inbounds [2 x %struct.b2ManifoldPoint], ptr %m_manifold.i, i64 0, i64 %indvars.iv, i32 2
+  %tangentImpulse17 = getelementptr inbounds i8, ptr %arrayidx9, i64 12
   store float %8, ptr %tangentImpulse17, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %pointCount, align 4
@@ -1359,19 +1346,19 @@ entry:
   %xfA = alloca %struct.b2Transform, align 8
   %xfB = alloca %struct.b2Transform, align 8
   %psm = alloca %struct.b2PositionSolverManifold, align 16
-  %m_count = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 7
+  %m_count = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %m_count, align 8
   %cmp143 = icmp sgt i32 %0, 0
   br i1 %cmp143, label %for.body.lr.ph, label %for.end73
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_positionConstraints = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 4
-  %m_positions = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 1
-  %q = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1
-  %c.i = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1, i32 1
-  %q21 = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1
-  %c.i35 = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1, i32 1
-  %separation33 = getelementptr inbounds %struct.b2PositionSolverManifold, ptr %psm, i64 0, i32 2
+  %m_positionConstraints = getelementptr inbounds i8, ptr %this, i64 48
+  %m_positions = getelementptr inbounds i8, ptr %this, i64 24
+  %q = getelementptr inbounds i8, ptr %xfA, i64 8
+  %c.i = getelementptr inbounds i8, ptr %xfA, i64 12
+  %q21 = getelementptr inbounds i8, ptr %xfB, i64 8
+  %c.i35 = getelementptr inbounds i8, ptr %xfB, i64 12
+  %separation33 = getelementptr inbounds i8, ptr %psm, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
@@ -1379,15 +1366,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %minSeparation.0145 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %minSeparation.1.lcssa, %for.end ]
   %1 = load ptr, ptr %m_positionConstraints, align 8
   %add.ptr = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv
-  %indexA2 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 3
+  %indexA2 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %2 = load i32, ptr %indexA2, align 4
-  %indexB3 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 4
+  %indexB3 = getelementptr inbounds i8, ptr %add.ptr, i64 36
   %3 = load i32, ptr %indexB3, align 4
-  %invIA = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 9
+  %invIA = getelementptr inbounds i8, ptr %add.ptr, i64 64
   %4 = load float, ptr %invIA, align 4
-  %invIB = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 10
+  %invIB = getelementptr inbounds i8, ptr %add.ptr, i64 68
   %5 = load float, ptr %invIB, align 4
-  %pointCount6 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 14
+  %pointCount6 = getelementptr inbounds i8, ptr %add.ptr, i64 84
   %6 = load i32, ptr %pointCount6, align 4
   %7 = load ptr, ptr %m_positions, align 8
   %idxprom = sext i32 %2 to i64
@@ -1406,17 +1393,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp19128, label %for.body20.lr.ph, label %for.end
 
 for.body20.lr.ph:                                 ; preds = %for.body
-  %invMassB = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 6
+  %invMassB = getelementptr inbounds i8, ptr %add.ptr, i64 44
   %14 = load float, ptr %invMassB, align 4
-  %localCenterB5 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 8
-  %localCenterB5.sroa_idx = getelementptr inbounds i8, ptr %localCenterB5, i64 4
+  %localCenterB5.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 60
   %15 = load float, ptr %localCenterB5.sroa_idx, align 4
+  %localCenterB5 = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %16 = load float, ptr %localCenterB5, align 4
-  %invMassA = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 5
+  %invMassA = getelementptr inbounds i8, ptr %add.ptr, i64 40
   %17 = load float, ptr %invMassA, align 4
-  %localCenterA4 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 7
-  %localCenterA4.sroa_idx = getelementptr inbounds i8, ptr %localCenterA4, i64 4
+  %localCenterA4.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 52
   %18 = load float, ptr %localCenterA4.sroa_idx, align 4
+  %localCenterA4 = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %19 = load float, ptr %localCenterA4, align 4
   %add40 = fadd float %17, %14
   %neg = fneg float %4
@@ -1565,7 +1552,7 @@ for.end73:                                        ; preds = %for.end73.loopexit,
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN24b2PositionSolverManifold10InitializeEP27b2ContactPositionConstraintRK11b2TransformS4_i(ptr noundef nonnull align 4 dereferenceable(20) %this, ptr noundef %pc, ptr noundef nonnull align 4 dereferenceable(16) %xfA, ptr noundef nonnull align 4 dereferenceable(16) %xfB, i32 noundef %index) local_unnamed_addr #5 comdat align 2 {
 entry:
-  %type = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 11
+  %type = getelementptr inbounds i8, ptr %pc, i64 72
   %0 = load i32, ptr %type, align 4
   switch i32 %0, label %sw.epilog [
     i32 0, label %sw.bb
@@ -1574,14 +1561,14 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %localPoint = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 2
-  %q.i = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1
+  %localPoint = getelementptr inbounds i8, ptr %pc, i64 24
+  %q.i = getelementptr inbounds i8, ptr %xfA, i64 8
   %1 = load float, ptr %localPoint, align 4
-  %y.i = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 2, i32 1
+  %y.i = getelementptr inbounds i8, ptr %pc, i64 28
   %2 = load float, ptr %y.i, align 4
-  %q.i22 = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1
+  %q.i22 = getelementptr inbounds i8, ptr %xfB, i64 8
   %3 = load float, ptr %pc, align 4
-  %y.i24 = getelementptr inbounds %struct.b2Vec2, ptr %pc, i64 0, i32 1
+  %y.i24 = getelementptr inbounds i8, ptr %pc, i64 4
   %4 = load float, ptr %y.i24, align 4
   %5 = load <2 x float>, ptr %q.i, align 4
   %6 = shufflevector <2 x float> %5, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -1624,30 +1611,30 @@ sw.bb:                                            ; preds = %entry
   store <2 x float> %storemerge, ptr %this, align 4
   %38 = fadd <2 x float> %17, %30
   %39 = fmul <2 x float> %38, <float 5.000000e-01, float 5.000000e-01>
-  %point = getelementptr inbounds %struct.b2PositionSolverManifold, ptr %this, i64 0, i32 1
+  %point = getelementptr inbounds i8, ptr %this, i64 8
   store <2 x float> %39, ptr %point, align 4
   %40 = fmul <2 x float> %31, %storemerge
   %mul3.i = extractelement <2 x float> %40, i64 1
   %41 = extractelement <2 x float> %storemerge, i64 0
   %42 = tail call noundef float @llvm.fmuladd.f32(float %33, float %41, float %mul3.i)
-  %radiusA = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 12
+  %radiusA = getelementptr inbounds i8, ptr %pc, i64 76
   %43 = load float, ptr %radiusA, align 4
   %sub = fsub float %42, %43
-  %radiusB = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 13
+  %radiusB = getelementptr inbounds i8, ptr %pc, i64 80
   %44 = load float, ptr %radiusB, align 4
   %sub14 = fsub float %sub, %44
-  %separation = getelementptr inbounds %struct.b2PositionSolverManifold, ptr %this, i64 0, i32 2
+  %separation = getelementptr inbounds i8, ptr %this, i64 16
   store float %sub14, ptr %separation, align 4
   br label %sw.epilog
 
 sw.bb15:                                          ; preds = %entry
-  %q = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1
-  %localNormal = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 1
-  %c.i52 = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1, i32 1
+  %q = getelementptr inbounds i8, ptr %xfA, i64 8
+  %localNormal = getelementptr inbounds i8, ptr %pc, i64 16
+  %c.i52 = getelementptr inbounds i8, ptr %xfA, i64 12
   %45 = load float, ptr %c.i52, align 4
   %46 = load float, ptr %localNormal, align 4
   %47 = load float, ptr %q, align 4
-  %y.i53 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 1, i32 1
+  %y.i53 = getelementptr inbounds i8, ptr %pc, i64 20
   %48 = load float, ptr %y.i53, align 4
   %49 = fneg float %47
   %neg.i54 = fmul float %48, %49
@@ -1657,14 +1644,14 @@ sw.bb15:                                          ; preds = %entry
   %retval.sroa.0.0.vec.insert.i55 = insertelement <2 x float> poison, float %50, i64 0
   %retval.sroa.0.4.vec.insert.i56 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i55, float %51, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i56, ptr %this, align 4
-  %localPoint19 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 2
+  %localPoint19 = getelementptr inbounds i8, ptr %pc, i64 24
   %52 = load float, ptr %c.i52, align 4
   %53 = load float, ptr %localPoint19, align 4
   %54 = load float, ptr %q, align 4
-  %y.i59 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 2, i32 1
+  %y.i59 = getelementptr inbounds i8, ptr %pc, i64 28
   %55 = load float, ptr %y.i59, align 4
   %56 = load float, ptr %xfA, align 4
-  %y14.i63 = getelementptr inbounds %struct.b2Vec2, ptr %xfA, i64 0, i32 1
+  %y14.i63 = getelementptr inbounds i8, ptr %xfA, i64 4
   %57 = load float, ptr %y14.i63, align 4
   %idxprom = sext i32 %index to i64
   %arrayidx22 = getelementptr inbounds [2 x %struct.b2Vec2], ptr %pc, i64 0, i64 %idxprom
@@ -1672,7 +1659,7 @@ sw.bb15:                                          ; preds = %entry
   %59 = shufflevector <4 x float> %58, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
   %60 = load float, ptr %arrayidx22, align 4
   %61 = shufflevector <4 x float> %58, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
-  %y.i69 = getelementptr inbounds [2 x %struct.b2Vec2], ptr %pc, i64 0, i64 %idxprom, i32 1
+  %y.i69 = getelementptr inbounds i8, ptr %arrayidx22, i64 4
   %62 = load float, ptr %y.i69, align 4
   %63 = shufflevector <4 x float> %58, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %64 = insertelement <2 x float> %61, float %54, i64 1
@@ -1686,7 +1673,7 @@ sw.bb15:                                          ; preds = %entry
   %72 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %69, <2 x float> %71, <2 x float> %68)
   %73 = insertelement <2 x float> %63, float %56, i64 1
   %74 = fadd <2 x float> %73, %72
-  %y14.i73 = getelementptr inbounds %struct.b2Vec2, ptr %xfB, i64 0, i32 1
+  %y14.i73 = getelementptr inbounds i8, ptr %xfB, i64 4
   %75 = load float, ptr %y14.i73, align 4
   %76 = fmul <2 x float> %69, %67
   %77 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %64, <2 x float> %71, <2 x float> %76)
@@ -1702,36 +1689,36 @@ sw.bb15:                                          ; preds = %entry
   %sub3.i80 = extractelement <2 x float> %83, i64 0
   %mul3.i85 = fmul float %sub3.i80, %51
   %84 = tail call noundef float @llvm.fmuladd.f32(float %sub.i77, float %50, float %mul3.i85)
-  %radiusA28 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 12
+  %radiusA28 = getelementptr inbounds i8, ptr %pc, i64 76
   %85 = load float, ptr %radiusA28, align 4
   %sub29 = fsub float %84, %85
-  %radiusB30 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 13
+  %radiusB30 = getelementptr inbounds i8, ptr %pc, i64 80
   %86 = load float, ptr %radiusB30, align 4
   %sub31 = fsub float %sub29, %86
-  %separation32 = getelementptr inbounds %struct.b2PositionSolverManifold, ptr %this, i64 0, i32 2
+  %separation32 = getelementptr inbounds i8, ptr %this, i64 16
   store float %sub31, ptr %separation32, align 4
-  %point33 = getelementptr inbounds %struct.b2PositionSolverManifold, ptr %this, i64 0, i32 1
+  %point33 = getelementptr inbounds i8, ptr %this, i64 8
   store <2 x float> %81, ptr %point33, align 4
   br label %sw.epilog
 
 sw.bb34:                                          ; preds = %entry
-  %q36 = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1
-  %localNormal37 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 1
-  %c.i86 = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1, i32 1
+  %q36 = getelementptr inbounds i8, ptr %xfB, i64 8
+  %localNormal37 = getelementptr inbounds i8, ptr %pc, i64 16
+  %c.i86 = getelementptr inbounds i8, ptr %xfB, i64 12
   %87 = load float, ptr %localNormal37, align 4
-  %y.i87 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 1, i32 1
+  %y.i87 = getelementptr inbounds i8, ptr %pc, i64 20
   %88 = load float, ptr %y.i87, align 4
-  %localPoint41 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 2
-  %y.i94 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 2, i32 1
-  %y14.i98 = getelementptr inbounds %struct.b2Vec2, ptr %xfB, i64 0, i32 1
+  %localPoint41 = getelementptr inbounds i8, ptr %pc, i64 24
+  %y.i94 = getelementptr inbounds i8, ptr %pc, i64 28
+  %y14.i98 = getelementptr inbounds i8, ptr %xfB, i64 4
   %idxprom45 = sext i32 %index to i64
   %arrayidx46 = getelementptr inbounds [2 x %struct.b2Vec2], ptr %pc, i64 0, i64 %idxprom45
-  %y.i104 = getelementptr inbounds [2 x %struct.b2Vec2], ptr %pc, i64 0, i64 %idxprom45, i32 1
-  %y14.i108 = getelementptr inbounds %struct.b2Vec2, ptr %xfA, i64 0, i32 1
-  %radiusA52 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 12
-  %radiusB54 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %pc, i64 0, i32 13
-  %separation56 = getelementptr inbounds %struct.b2PositionSolverManifold, ptr %this, i64 0, i32 2
-  %point57 = getelementptr inbounds %struct.b2PositionSolverManifold, ptr %this, i64 0, i32 1
+  %y.i104 = getelementptr inbounds i8, ptr %arrayidx46, i64 4
+  %y14.i108 = getelementptr inbounds i8, ptr %xfA, i64 4
+  %radiusA52 = getelementptr inbounds i8, ptr %pc, i64 76
+  %radiusB54 = getelementptr inbounds i8, ptr %pc, i64 80
+  %separation56 = getelementptr inbounds i8, ptr %this, i64 16
+  %point57 = getelementptr inbounds i8, ptr %this, i64 8
   %89 = load <2 x float>, ptr %q36, align 4
   %90 = shufflevector <2 x float> %89, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %91 = extractelement <2 x float> %89, i64 0
@@ -1804,19 +1791,19 @@ entry:
   %xfA = alloca %struct.b2Transform, align 8
   %xfB = alloca %struct.b2Transform, align 8
   %psm = alloca %struct.b2PositionSolverManifold, align 16
-  %m_count = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 7
+  %m_count = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i32, ptr %m_count, align 8
   %cmp151 = icmp sgt i32 %0, 0
   br i1 %cmp151, label %for.body.lr.ph, label %for.end80
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_positionConstraints = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 4
-  %m_positions = getelementptr inbounds %class.b2ContactSolver, ptr %this, i64 0, i32 1
-  %q = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1
-  %c.i = getelementptr inbounds %struct.b2Transform, ptr %xfA, i64 0, i32 1, i32 1
-  %q28 = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1
-  %c.i43 = getelementptr inbounds %struct.b2Transform, ptr %xfB, i64 0, i32 1, i32 1
-  %separation40 = getelementptr inbounds %struct.b2PositionSolverManifold, ptr %psm, i64 0, i32 2
+  %m_positionConstraints = getelementptr inbounds i8, ptr %this, i64 48
+  %m_positions = getelementptr inbounds i8, ptr %this, i64 24
+  %q = getelementptr inbounds i8, ptr %xfA, i64 8
+  %c.i = getelementptr inbounds i8, ptr %xfA, i64 12
+  %q28 = getelementptr inbounds i8, ptr %xfB, i64 8
+  %c.i43 = getelementptr inbounds i8, ptr %xfB, i64 12
+  %separation40 = getelementptr inbounds i8, ptr %psm, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
@@ -1824,19 +1811,19 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %minSeparation.0153 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %minSeparation.1.lcssa, %for.end ]
   %1 = load ptr, ptr %m_positionConstraints, align 8
   %add.ptr = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv
-  %indexA2 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 3
+  %indexA2 = getelementptr inbounds i8, ptr %add.ptr, i64 32
   %2 = load i32, ptr %indexA2, align 4
-  %indexB3 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 4
+  %indexB3 = getelementptr inbounds i8, ptr %add.ptr, i64 36
   %3 = load i32, ptr %indexB3, align 4
-  %localCenterA4 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 7
+  %localCenterA4 = getelementptr inbounds i8, ptr %add.ptr, i64 48
   %4 = load float, ptr %localCenterA4, align 4
-  %localCenterA4.sroa_idx = getelementptr inbounds i8, ptr %localCenterA4, i64 4
+  %localCenterA4.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 52
   %5 = load float, ptr %localCenterA4.sroa_idx, align 4
-  %localCenterB5 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 8
+  %localCenterB5 = getelementptr inbounds i8, ptr %add.ptr, i64 56
   %6 = load float, ptr %localCenterB5, align 4
-  %localCenterB5.sroa_idx = getelementptr inbounds i8, ptr %localCenterB5, i64 4
+  %localCenterB5.sroa_idx = getelementptr inbounds i8, ptr %add.ptr, i64 60
   %7 = load float, ptr %localCenterB5.sroa_idx, align 4
-  %pointCount6 = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 14
+  %pointCount6 = getelementptr inbounds i8, ptr %add.ptr, i64 84
   %8 = load i32, ptr %pointCount6, align 4
   %cmp7 = icmp eq i32 %2, %toiIndexA
   %cmp8 = icmp eq i32 %2, %toiIndexB
@@ -1844,9 +1831,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %invMassA = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 5
+  %invMassA = getelementptr inbounds i8, ptr %add.ptr, i64 40
   %9 = load float, ptr %invMassA, align 4
-  %invIA = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 9
+  %invIA = getelementptr inbounds i8, ptr %add.ptr, i64 64
   %10 = load float, ptr %invIA, align 4
   br label %if.end
 
@@ -1859,9 +1846,9 @@ if.end:                                           ; preds = %for.body, %if.then
   br i1 %or.cond40, label %if.then12, label %if.end13
 
 if.then12:                                        ; preds = %if.end
-  %invMassB = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 6
+  %invMassB = getelementptr inbounds i8, ptr %add.ptr, i64 44
   %11 = load float, ptr %invMassB, align 4
-  %invIB = getelementptr inbounds %struct.b2ContactPositionConstraint, ptr %1, i64 %indvars.iv, i32 10
+  %invIB = getelementptr inbounds i8, ptr %add.ptr, i64 68
   %12 = load float, ptr %invIB, align 4
   br label %if.end13
 

@@ -3,13 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-p12_kiss.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.pkcs7_st = type { ptr, i64, i32, i32, ptr, %union.anon, %struct.PKCS7_CTX_st }
-%union.anon = type { ptr }
-%struct.PKCS7_CTX_st = type { ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [36 x i8] c"../openssl/crypto/pkcs12/p12_kiss.c\00", align 1
 @__func__.PKCS12_parse = private unnamed_addr constant [13 x i8] c"PKCS12_parse\00", align 1
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -107,7 +100,7 @@ for.cond.preheader.i:                             ; preds = %if.end46
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
   %i.020.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
   %call5.i = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i, i32 noundef %i.020.i) #3
-  %type.i = getelementptr inbounds %struct.pkcs7_st, ptr %call5.i, i64 0, i32 4
+  %type.i = getelementptr inbounds i8, ptr %call5.i, i64 24
   %2 = load ptr, ptr %type.i, align 8
   %call6.i = tail call i32 @OBJ_obj2nid(ptr noundef %2) #3
   switch i32 %call6.i, label %for.inc.i [
@@ -129,9 +122,9 @@ if.end15.i:                                       ; preds = %if.then11.i, %if.th
   br i1 %tobool.not.i, label %parse_pk12.exit.thread44, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end15.i
-  %ctx.i = getelementptr inbounds %struct.pkcs7_st, ptr %call5.i, i64 0, i32 6
+  %ctx.i = getelementptr inbounds i8, ptr %call5.i, i64 40
   %3 = load ptr, ptr %ctx.i, align 8
-  %propq.i = getelementptr inbounds %struct.pkcs7_st, ptr %call5.i, i64 0, i32 6, i32 1
+  %propq.i = getelementptr inbounds i8, ptr %call5.i, i64 48
   %4 = load ptr, ptr %propq.i, align 8
   %call21.i = tail call fastcc i32 @parse_bags(ptr noundef nonnull %bags.0.i, ptr noundef %pass.addr.0, ptr noundef %pkey, ptr noundef %ocerts.0, ptr noundef %3, ptr noundef %4)
   %tobool22.not.i = icmp eq i32 %call21.i, 0
@@ -403,7 +396,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %value.i = getelementptr inbounds %struct.asn1_type_st, ptr %call.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %value.i, align 8
   br label %if.end.i
 
@@ -414,7 +407,7 @@ if.end.i:                                         ; preds = %if.then.i, %for.bod
   br i1 %tobool2.not.i, label %if.end5.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %value4.i = getelementptr inbounds %struct.asn1_type_st, ptr %call1.i, i64 0, i32 1
+  %value4.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %1 = load ptr, ptr %value4.i, align 8
   br label %if.end5.i
 
@@ -482,7 +475,7 @@ if.end39.i:                                       ; preds = %if.end35.i
   br i1 %tobool40.not.i, label %if.end44.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end39.i
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %lkid.0.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %lkid.0.i, i64 8
   %5 = load ptr, ptr %data.i, align 8
   %6 = load i32, ptr %lkid.0.i, align 8
   %call41.i = call i32 @X509_keyid_set1(ptr noundef nonnull %call36.i, ptr noundef %5, i32 noundef %6) #3

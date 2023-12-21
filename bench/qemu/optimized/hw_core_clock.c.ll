@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.Clock = type { %struct.Object, i64, ptr, ptr, ptr, i32, i32, i32, ptr, %struct.anon, %struct.anon.0 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.anon = type { ptr }
-%struct.anon.0 = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
 
 @.str = private unnamed_addr constant [6 x i8] c"clock\00", align 1
@@ -48,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @clock_setup_canonical_path(ptr noundef %clk) local_unnamed_addr #0 {
 entry:
-  %canonical_path = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 2
+  %canonical_path = getelementptr inbounds i8, ptr %clk, i64 48
   %0 = load ptr, ptr %canonical_path, align 8
   tail call void @g_free(ptr noundef %0) #8
   %call = tail call ptr @object_get_canonical_path(ptr noundef %clk) #8
@@ -67,7 +63,7 @@ entry:
   %call1 = tail call ptr @object_property_add_child(ptr noundef %parent, ptr noundef %name, ptr noundef %call) #8
   tail call void @object_unref(ptr noundef %call) #8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 23, ptr noundef nonnull @__func__.CLOCK) #8
-  %canonical_path.i = getelementptr inbounds %struct.Clock, ptr %call.i, i64 0, i32 2
+  %canonical_path.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %canonical_path.i, align 8
   tail call void @g_free(ptr noundef %0) #8
   %call.i4 = tail call ptr @object_get_canonical_path(ptr noundef %call.i) #8
@@ -84,11 +80,11 @@ declare void @object_unref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @clock_set_callback(ptr nocapture noundef writeonly %clk, ptr noundef %cb, ptr noundef %opaque, i32 noundef %events) local_unnamed_addr #2 {
 entry:
-  %callback = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 3
+  %callback = getelementptr inbounds i8, ptr %clk, i64 56
   store ptr %cb, ptr %callback, align 8
-  %callback_opaque = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 4
+  %callback_opaque = getelementptr inbounds i8, ptr %clk, i64 64
   store ptr %opaque, ptr %callback_opaque, align 8
-  %callback_events = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 5
+  %callback_events = getelementptr inbounds i8, ptr %clk, i64 72
   store i32 %events, ptr %callback_events, align 8
   ret void
 }
@@ -96,7 +92,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @clock_clear_callback(ptr nocapture noundef writeonly %clk) local_unnamed_addr #3 {
 entry:
-  %callback.i = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 3
+  %callback.i = getelementptr inbounds i8, ptr %clk, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %callback.i, i8 0, i64 20, i1 false)
   ret void
 }
@@ -105,13 +101,13 @@ entry:
 define dso_local zeroext i1 @clock_set(ptr nocapture noundef %clk, i64 noundef %period) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %period1 = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 1
+  %period1 = getelementptr inbounds i8, ptr %clk, i64 40
   %0 = load i64, ptr %period1, align 8
   %cmp = icmp ne i64 %0, %period
   br i1 %cmp, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %canonical_path = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 2
+  %canonical_path = getelementptr inbounds i8, ptr %clk, i64 48
   %1 = load ptr, ptr %canonical_path, align 8
   %cmp3.not = icmp eq i64 %0, 0
   br i1 %cmp3.not, label %cond.end, label %cond.true
@@ -155,7 +151,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %1, i64 noundef %cond, i64 noundef %cond10) #8
   br label %trace_clock_set.exit
@@ -177,7 +173,7 @@ return:                                           ; preds = %entry, %trace_clock
 define dso_local void @clock_propagate(ptr nocapture noundef readonly %clk) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %source = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 8
+  %source = getelementptr inbounds i8, ptr %clk, i64 88
   %0 = load ptr, ptr %source, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end, label %if.else
@@ -187,7 +183,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %canonical_path = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 2
+  %canonical_path = getelementptr inbounds i8, ptr %clk, i64 48
   %1 = load ptr, ptr %canonical_path, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -213,7 +209,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %1) #8
   br label %trace_clock_propagate.exit
@@ -235,11 +231,11 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 define internal fastcc void @clock_propagate_period(ptr nocapture noundef readonly %clk, i1 noundef zeroext %call_callbacks) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %period.i = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 1
+  %period.i = getelementptr inbounds i8, ptr %clk, i64 40
   %0 = load i64, ptr %period.i, align 8
-  %multiplier.i = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 6
+  %multiplier.i = getelementptr inbounds i8, ptr %clk, i64 76
   %1 = load i32, ptr %multiplier.i, align 4
-  %divider.i = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 7
+  %divider.i = getelementptr inbounds i8, ptr %clk, i64 80
   %2 = load i32, ptr %divider.i, align 8
   %conv.i.i = zext i64 %0 to i128
   %conv1.i.i = zext i32 %1 to i128
@@ -247,21 +243,21 @@ entry:
   %conv2.i.i = zext i32 %2 to i128
   %div.i.i = udiv i128 %mul.i.i, %conv2.i.i
   %conv3.i.i = trunc i128 %div.i.i to i64
-  %children = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 9
+  %children = getelementptr inbounds i8, ptr %clk, i64 96
   %child.025 = load ptr, ptr %children, align 8
   %tobool.not26 = icmp eq ptr %child.025, null
   br i1 %tobool.not26, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %canonical_path4 = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 2
+  %canonical_path4 = getelementptr inbounds i8, ptr %clk, i64 48
   %cmp6.not = icmp eq i64 %conv3.i.i, 0
   %conv = zext i1 %call_callbacks to i32
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %child.027 = phi ptr [ %child.025, %for.body.lr.ph ], [ %child.0, %for.inc ]
-  %period = getelementptr inbounds %struct.Clock, ptr %child.027, i64 0, i32 1
+  %period = getelementptr inbounds i8, ptr %child.027, i64 40
   %3 = load i64, ptr %period, align 8
   %cmp.not = icmp eq i64 %3, %conv3.i.i
   br i1 %cmp.not, label %for.inc, label %if.then
@@ -270,27 +266,27 @@ if.then:                                          ; preds = %for.body
   br i1 %call_callbacks, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
-  %callback.i = getelementptr inbounds %struct.Clock, ptr %child.027, i64 0, i32 3
+  %callback.i = getelementptr inbounds i8, ptr %child.027, i64 56
   %4 = load ptr, ptr %callback.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then2
-  %callback_events.i = getelementptr inbounds %struct.Clock, ptr %child.027, i64 0, i32 5
+  %callback_events.i = getelementptr inbounds i8, ptr %child.027, i64 72
   %5 = load i32, ptr %callback_events.i, align 8
   %and.i = and i32 %5, 2
   %tobool1.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool1.not.i, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %callback_opaque.i = getelementptr inbounds %struct.Clock, ptr %child.027, i64 0, i32 4
+  %callback_opaque.i = getelementptr inbounds i8, ptr %child.027, i64 64
   %6 = load ptr, ptr %callback_opaque.i, align 8
   tail call void %4(ptr noundef %6, i32 noundef 2) #8
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i, %land.lhs.true.i, %if.then2, %if.then
   store i64 %conv3.i.i, ptr %period, align 8
-  %canonical_path = getelementptr inbounds %struct.Clock, ptr %child.027, i64 0, i32 2
+  %canonical_path = getelementptr inbounds i8, ptr %child.027, i64 48
   %7 = load ptr, ptr %canonical_path, align 8
   %8 = load ptr, ptr %canonical_path4, align 8
   br i1 %cmp6.not, label %cond.end, label %cond.true
@@ -338,20 +334,20 @@ trace_clock_update.exit:                          ; preds = %cond.end, %land.lhs
   br i1 %call_callbacks, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %trace_clock_update.exit
-  %callback.i16 = getelementptr inbounds %struct.Clock, ptr %child.027, i64 0, i32 3
+  %callback.i16 = getelementptr inbounds i8, ptr %child.027, i64 56
   %16 = load ptr, ptr %callback.i16, align 8
   %tobool.not.i17 = icmp eq ptr %16, null
   br i1 %tobool.not.i17, label %if.end11, label %land.lhs.true.i18
 
 land.lhs.true.i18:                                ; preds = %if.then10
-  %callback_events.i19 = getelementptr inbounds %struct.Clock, ptr %child.027, i64 0, i32 5
+  %callback_events.i19 = getelementptr inbounds i8, ptr %child.027, i64 72
   %17 = load i32, ptr %callback_events.i19, align 8
   %and.i20 = and i32 %17, 1
   %tobool1.not.i21 = icmp eq i32 %and.i20, 0
   br i1 %tobool1.not.i21, label %if.end11, label %if.then.i22
 
 if.then.i22:                                      ; preds = %land.lhs.true.i18
-  %callback_opaque.i23 = getelementptr inbounds %struct.Clock, ptr %child.027, i64 0, i32 4
+  %callback_opaque.i23 = getelementptr inbounds i8, ptr %child.027, i64 64
   %18 = load ptr, ptr %callback_opaque.i23, align 8
   tail call void %16(ptr noundef %18, i32 noundef 1) #8
   br label %if.end11
@@ -361,7 +357,7 @@ if.end11:                                         ; preds = %if.then.i22, %land.
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end11
-  %sibling = getelementptr inbounds %struct.Clock, ptr %child.027, i64 0, i32 10
+  %sibling = getelementptr inbounds i8, ptr %child.027, i64 104
   %child.0 = load ptr, ptr %sibling, align 8
   %tobool.not = icmp eq ptr %child.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
@@ -374,7 +370,7 @@ for.end:                                          ; preds = %for.inc, %entry
 define dso_local void @clock_set_source(ptr noundef %clk, ptr noundef %src) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %source = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 8
+  %source = getelementptr inbounds i8, ptr %clk, i64 88
   %0 = load ptr, ptr %source, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.else
@@ -384,9 +380,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %canonical_path = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 2
+  %canonical_path = getelementptr inbounds i8, ptr %clk, i64 48
   %1 = load ptr, ptr %canonical_path, align 8
-  %canonical_path1 = getelementptr inbounds %struct.Clock, ptr %src, i64 0, i32 2
+  %canonical_path1 = getelementptr inbounds i8, ptr %src, i64 48
   %2 = load ptr, ptr %canonical_path1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -412,7 +408,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %1, ptr noundef %2) #8
   br label %trace_clock_set_source.exit
@@ -423,11 +419,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_clock_set_source.exit:                      ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %period.i = getelementptr inbounds %struct.Clock, ptr %src, i64 0, i32 1
+  %period.i = getelementptr inbounds i8, ptr %src, i64 40
   %10 = load i64, ptr %period.i, align 8
-  %multiplier.i = getelementptr inbounds %struct.Clock, ptr %src, i64 0, i32 6
+  %multiplier.i = getelementptr inbounds i8, ptr %src, i64 76
   %11 = load i32, ptr %multiplier.i, align 4
-  %divider.i = getelementptr inbounds %struct.Clock, ptr %src, i64 0, i32 7
+  %divider.i = getelementptr inbounds i8, ptr %src, i64 80
   %12 = load i32, ptr %divider.i, align 8
   %conv.i.i = zext i64 %10 to i128
   %conv1.i.i = zext i32 %11 to i128
@@ -435,23 +431,23 @@ trace_clock_set_source.exit:                      ; preds = %if.end, %land.lhs.t
   %conv2.i.i = zext i32 %12 to i128
   %div.i.i = udiv i128 %mul.i.i, %conv2.i.i
   %conv3.i.i = trunc i128 %div.i.i to i64
-  %period = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 1
+  %period = getelementptr inbounds i8, ptr %clk, i64 40
   store i64 %conv3.i.i, ptr %period, align 8
-  %children = getelementptr inbounds %struct.Clock, ptr %src, i64 0, i32 9
+  %children = getelementptr inbounds i8, ptr %src, i64 96
   %13 = load ptr, ptr %children, align 8
-  %sibling = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 10
+  %sibling = getelementptr inbounds i8, ptr %clk, i64 104
   store ptr %13, ptr %sibling, align 8
   %cmp.not = icmp eq ptr %13, null
   br i1 %cmp.not, label %if.end8, label %if.then2
 
 if.then2:                                         ; preds = %trace_clock_set_source.exit
-  %le_prev = getelementptr inbounds %struct.Clock, ptr %13, i64 0, i32 10, i32 1
+  %le_prev = getelementptr inbounds i8, ptr %13, i64 112
   store ptr %sibling, ptr %le_prev, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then2, %trace_clock_set_source.exit
   store ptr %clk, ptr %children, align 8
-  %le_prev14 = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 10, i32 1
+  %le_prev14 = getelementptr inbounds i8, ptr %clk, i64 112
   store ptr %children, ptr %le_prev14, align 8
   store ptr %src, ptr %source, align 8
   tail call fastcc void @clock_propagate_period(ptr noundef nonnull %clk, i1 noundef zeroext false)
@@ -491,11 +487,11 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %canonical_path = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 2
+  %canonical_path = getelementptr inbounds i8, ptr %clk, i64 48
   %0 = load ptr, ptr %canonical_path, align 8
-  %multiplier1 = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 6
+  %multiplier1 = getelementptr inbounds i8, ptr %clk, i64 76
   %1 = load i32, ptr %multiplier1, align 4
-  %divider2 = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 7
+  %divider2 = getelementptr inbounds i8, ptr %clk, i64 80
   %2 = load i32, ptr %divider2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -521,7 +517,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef %0, i32 noundef %1, i32 noundef %multiplier, i32 noundef %2, i32 noundef %divider) #8
   br label %trace_clock_set_mul_div.exit
@@ -568,11 +564,11 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @clock_initfn(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 23, ptr noundef nonnull @__func__.CLOCK) #8
-  %multiplier = getelementptr inbounds %struct.Clock, ptr %call.i, i64 0, i32 6
+  %multiplier = getelementptr inbounds i8, ptr %call.i, i64 76
   store i32 1, ptr %multiplier, align 4
-  %divider = getelementptr inbounds %struct.Clock, ptr %call.i, i64 0, i32 7
+  %divider = getelementptr inbounds i8, ptr %call.i, i64 80
   store i32 1, ptr %divider, align 8
-  %children = getelementptr inbounds %struct.Clock, ptr %call.i, i64 0, i32 9
+  %children = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr null, ptr %children, align 8
   ret void
 }
@@ -581,14 +577,14 @@ entry:
 define internal void @clock_finalizefn(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 23, ptr noundef nonnull @__func__.CLOCK) #8
-  %children = getelementptr inbounds %struct.Clock, ptr %call.i, i64 0, i32 9
+  %children = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %children, align 8
   %tobool.not5 = icmp eq ptr %0, null
   br i1 %tobool.not5, label %for.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry, %land.rhs
   %child.06 = phi ptr [ %1, %land.rhs ], [ %0, %entry ]
-  %sibling = getelementptr inbounds %struct.Clock, ptr %child.06, i64 0, i32 10
+  %sibling = getelementptr inbounds i8, ptr %child.06, i64 104
   %1 = load ptr, ptr %sibling, align 8
   tail call fastcc void @clock_disconnect(ptr noundef nonnull %child.06)
   %tobool.not = icmp eq ptr %1, null
@@ -596,7 +592,7 @@ land.rhs:                                         ; preds = %entry, %land.rhs
 
 for.end:                                          ; preds = %land.rhs, %entry
   tail call fastcc void @clock_disconnect(ptr noundef %call.i)
-  %canonical_path = getelementptr inbounds %struct.Clock, ptr %call.i, i64 0, i32 2
+  %canonical_path = getelementptr inbounds i8, ptr %call.i, i64 48
   %2 = load ptr, ptr %canonical_path, align 8
   tail call void @g_free(ptr noundef %2) #8
   ret void
@@ -606,13 +602,13 @@ for.end:                                          ; preds = %land.rhs, %entry
 define internal fastcc void @clock_disconnect(ptr nocapture noundef %clk) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %source = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 8
+  %source = getelementptr inbounds i8, ptr %clk, i64 88
   %0 = load ptr, ptr %source, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %do.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %canonical_path = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 2
+  %canonical_path = getelementptr inbounds i8, ptr %clk, i64 48
   %1 = load ptr, ptr %canonical_path, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -638,7 +634,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %1) #8
   br label %trace_clock_disconnect.exit
@@ -650,15 +646,15 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_clock_disconnect.exit:                      ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   store ptr null, ptr %source, align 8
-  %sibling = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 10
+  %sibling = getelementptr inbounds i8, ptr %clk, i64 104
   %9 = load ptr, ptr %sibling, align 8
   %cmp2.not = icmp eq ptr %9, null
-  %le_prev13.phi.trans.insert = getelementptr inbounds %struct.Clock, ptr %clk, i64 0, i32 10, i32 1
+  %le_prev13.phi.trans.insert = getelementptr inbounds i8, ptr %clk, i64 112
   %.pre10 = load ptr, ptr %le_prev13.phi.trans.insert, align 8
   br i1 %cmp2.not, label %if.end9, label %if.then3
 
 if.then3:                                         ; preds = %trace_clock_disconnect.exit
-  %le_prev8 = getelementptr inbounds %struct.Clock, ptr %9, i64 0, i32 10, i32 1
+  %le_prev8 = getelementptr inbounds i8, ptr %9, i64 112
   store ptr %.pre10, ptr %le_prev8, align 8
   %.pre = load ptr, ptr %sibling, align 8
   br label %if.end9

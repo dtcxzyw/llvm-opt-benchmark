@@ -38,11 +38,11 @@ entry:
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [35 x %struct.TESTDATA], ptr @tests, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3096) %test, ptr noundef nonnull align 8 dereferenceable(3096) %arrayidx, i64 3096, i1 false)
-  %data = getelementptr inbounds %struct.SIZED_DATA, ptr %test, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %test, i64 8
   %0 = load i64, ptr %test, align 8
-  %data3 = getelementptr inbounds %struct.TESTDATA, ptr %test, i64 0, i32 1, i32 1
-  %expected5 = getelementptr inbounds %struct.TESTDATA, ptr %test, i64 0, i32 2
-  %data6 = getelementptr inbounds %struct.TESTDATA, ptr %test, i64 0, i32 2, i32 1
+  %data3 = getelementptr inbounds i8, ptr %test, i64 1040
+  %expected5 = getelementptr inbounds i8, ptr %test, i64 2064
+  %data6 = getelementptr inbounds i8, ptr %test, i64 2072
   %1 = load i64, ptr %expected5, align 8
   %call = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.1, i32 noundef 1517, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %1, i64 noundef 16) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -67,7 +67,7 @@ if.end15:                                         ; preds = %if.end
 if.then16:                                        ; preds = %if.end15
   call void @Poly1305_Init(ptr noundef nonnull %poly1305, ptr noundef nonnull %data3) #3
   call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %data, i64 noundef 1) #3
-  %add.ptr = getelementptr inbounds %struct.SIZED_DATA, ptr %test, i64 0, i32 1, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %test, i64 9
   %sub = add i64 %0, -1
   call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %add.ptr, i64 noundef %sub) #3
   call void @Poly1305_Final(ptr noundef nonnull %poly1305, ptr noundef nonnull %out) #3

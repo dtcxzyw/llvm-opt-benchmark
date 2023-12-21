@@ -3,18 +3,13 @@ source_filename = "bench/openssl/original/libcrypto-lib-dsa_check.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dsa_st = type { i32, i32, %struct.ffc_params_st, ptr, ptr, i32, ptr, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i64 }
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_dsa_check_params(ptr noundef %dsa, i32 noundef %checktype, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %checktype, 1
-  %libctx = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 12
+  %libctx = getelementptr inbounds i8, ptr %dsa, i64 184
   %0 = load ptr, ptr %libctx, align 8
-  %params = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %dsa, i64 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -37,7 +32,7 @@ declare i32 @ossl_ffc_params_full_validate(ptr noundef, ptr noundef, i32 noundef
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_dsa_check_pub_key(ptr noundef %dsa, ptr noundef %pub_key, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
-  %params = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %dsa, i64 8
   %call = tail call i32 @ossl_ffc_validate_public_key(ptr noundef nonnull %params, ptr noundef %pub_key, ptr noundef %ret) #2
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
@@ -58,7 +53,7 @@ declare i32 @ossl_ffc_validate_public_key(ptr noundef, ptr noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_dsa_check_pub_key_partial(ptr noundef %dsa, ptr noundef %pub_key, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
-  %params = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %dsa, i64 8
   %call = tail call i32 @ossl_ffc_validate_public_key_partial(ptr noundef nonnull %params, ptr noundef %pub_key, ptr noundef %ret) #2
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
@@ -80,7 +75,7 @@ declare i32 @ossl_ffc_validate_public_key_partial(ptr noundef, ptr noundef, ptr 
 define i32 @ossl_dsa_check_priv_key(ptr nocapture noundef readonly %dsa, ptr noundef %priv_key, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ret, align 4
-  %q = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2, i32 1
+  %q = getelementptr inbounds i8, ptr %dsa, i64 16
   %0 = load ptr, ptr %q, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %land.end, label %land.rhs
@@ -101,31 +96,31 @@ declare i32 @ossl_ffc_validate_private_key(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_dsa_check_pairwise(ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
-  %params = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %dsa, i64 8
   %0 = load ptr, ptr %params, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %g = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2, i32 2
+  %g = getelementptr inbounds i8, ptr %dsa, i64 24
   %1 = load ptr, ptr %g, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %priv_key = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 4
+  %priv_key = getelementptr inbounds i8, ptr %dsa, i64 112
   %2 = load ptr, ptr %priv_key, align 8
   %cmp4 = icmp eq ptr %2, null
   br i1 %cmp4, label %return, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false3
-  %pub_key6 = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 3
+  %pub_key6 = getelementptr inbounds i8, ptr %dsa, i64 104
   %3 = load ptr, ptr %pub_key6, align 8
   %cmp7 = icmp eq ptr %3, null
   br i1 %cmp7, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false5
-  %libctx = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 12
+  %libctx = getelementptr inbounds i8, ptr %dsa, i64 184
   %4 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %4) #2
   %cmp8 = icmp eq ptr %call, null

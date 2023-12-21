@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.rsa_pss_params_30_st = type { i32, %struct.anon, i32, i32 }
 %struct.anon = type { i32, i32 }
-%struct.rsa_st = type { i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.rsa_pss_params_30_st, ptr, ptr, %struct.crypto_ex_data_st, %struct.CRYPTO_REF_COUNT, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
 
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/rsa/rsa_pss.c\00", align 1
 @__func__.RSA_verify_PKCS1_PSS_mgf1 = private unnamed_addr constant [26 x i8] c"RSA_verify_PKCS1_PSS_mgf1\00", align 1
@@ -55,7 +52,7 @@ if.then11:                                        ; preds = %if.else
 
 if.end13:                                         ; preds = %if.end7, %if.else
   %sLen.addr.0 = phi i32 [ %sLen, %if.else ], [ %call4, %if.end7 ]
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %n = getelementptr inbounds i8, ptr %rsa, i64 40
   %0 = load ptr, ptr %n, align 8
   %call14 = tail call i32 @BN_num_bits(ptr noundef %0) #8
   %sub = add i32 %call14, 7
@@ -333,7 +330,7 @@ if.then14:                                        ; preds = %if.else12
 if.end18:                                         ; preds = %if.end3, %if.then8, %if.else12, %if.then11
   %sLen.addr.0 = phi i32 [ -3, %if.then8 ], [ -3, %if.then11 ], [ %sLen, %if.else12 ], [ %call, %if.end3 ]
   %sLenMax.0 = phi i32 [ -1, %if.then8 ], [ %call, %if.then11 ], [ -1, %if.else12 ], [ %sLen, %if.end3 ]
-  %n = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 5
+  %n = getelementptr inbounds i8, ptr %rsa, i64 40
   %0 = load ptr, ptr %n, align 8
   %call19 = tail call i32 @BN_num_bits(ptr noundef %0) #8
   %sub = add i32 %call19, 7
@@ -396,7 +393,7 @@ if.then43:                                        ; preds = %if.end41
   br i1 %cmp45, label %err, label %if.end48
 
 if.end48:                                         ; preds = %if.then43
-  %libctx = getelementptr inbounds %struct.rsa_st, ptr %rsa, i64 0, i32 1
+  %libctx = getelementptr inbounds i8, ptr %rsa, i64 8
   %1 = load ptr, ptr %libctx, align 8
   %call50 = tail call i32 @RAND_bytes_ex(ptr noundef %1, ptr noundef nonnull %call44, i64 noundef %conv, i32 noundef 0) #8
   %cmp51 = icmp slt i32 %call50, 1
@@ -574,7 +571,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hash_algorithm_nid = getelementptr inbounds %struct.rsa_pss_params_30_st, ptr %rsa_pss_params, i64 0, i32 1, i32 1
+  %hash_algorithm_nid = getelementptr inbounds i8, ptr %rsa_pss_params, i64 8
   store i32 %maskgenhashalg_nid, ptr %hash_algorithm_nid, align 4
   br label %return
 
@@ -590,7 +587,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %salt_len = getelementptr inbounds %struct.rsa_pss_params_30_st, ptr %rsa_pss_params, i64 0, i32 2
+  %salt_len = getelementptr inbounds i8, ptr %rsa_pss_params, i64 12
   store i32 %saltlen, ptr %salt_len, align 4
   br label %return
 
@@ -606,7 +603,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %trailer_field = getelementptr inbounds %struct.rsa_pss_params_30_st, ptr %rsa_pss_params, i64 0, i32 3
+  %trailer_field = getelementptr inbounds i8, ptr %rsa_pss_params, i64 16
   store i32 %trailerfield, ptr %trailer_field, align 4
   br label %return
 
@@ -637,7 +634,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mask_gen = getelementptr inbounds %struct.rsa_pss_params_30_st, ptr %rsa_pss_params, i64 0, i32 1
+  %mask_gen = getelementptr inbounds i8, ptr %rsa_pss_params, i64 4
   %0 = load i32, ptr %mask_gen, align 4
   br label %return
 
@@ -653,7 +650,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %hash_algorithm_nid = getelementptr inbounds %struct.rsa_pss_params_30_st, ptr %rsa_pss_params, i64 0, i32 1, i32 1
+  %hash_algorithm_nid = getelementptr inbounds i8, ptr %rsa_pss_params, i64 8
   %0 = load i32, ptr %hash_algorithm_nid, align 4
   br label %return
 
@@ -669,7 +666,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %salt_len = getelementptr inbounds %struct.rsa_pss_params_30_st, ptr %rsa_pss_params, i64 0, i32 2
+  %salt_len = getelementptr inbounds i8, ptr %rsa_pss_params, i64 12
   %0 = load i32, ptr %salt_len, align 4
   br label %return
 
@@ -685,7 +682,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %trailer_field = getelementptr inbounds %struct.rsa_pss_params_30_st, ptr %rsa_pss_params, i64 0, i32 3
+  %trailer_field = getelementptr inbounds i8, ptr %rsa_pss_params, i64 16
   %0 = load i32, ptr %trailer_field, align 4
   br label %return
 

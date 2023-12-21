@@ -37,18 +37,18 @@ entry:
   %vecinit.i.i = insertelement <8 x float> poison, float %sub.i, i64 0
   %vecinit7.i.i = shufflevector <8 x float> %vecinit.i.i, <8 x float> poison, <8 x i32> zeroinitializer
   store ptr %lut3d, ptr %ctx.i, align 32
-  %lutmax3.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::Lut3DContextAVX", ptr %ctx.i, i64 0, i32 1
+  %lutmax3.i = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store <8 x float> %vecinit7.i.i, ptr %lutmax3.i, align 32
   %mul.i = fmul float %conv.i, 4.000000e+00
   %vecinit.i170.i = insertelement <8 x float> poison, float %mul.i, i64 0
   %vecinit7.i177.i = shufflevector <8 x float> %vecinit.i170.i, <8 x float> poison, <8 x i32> zeroinitializer
-  %lutsize.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::Lut3DContextAVX", ptr %ctx.i, i64 0, i32 2
+  %lutsize.i = getelementptr inbounds i8, ptr %ctx.i, i64 64
   store <8 x float> %vecinit7.i177.i, ptr %lutsize.i, align 32
   %mul8.i = fmul float %conv.i, %conv.i
   %mul9.i = fmul float %mul8.i, 4.000000e+00
   %vecinit.i187.i = insertelement <8 x float> poison, float %mul9.i, i64 0
   %vecinit7.i194.i = shufflevector <8 x float> %vecinit.i187.i, <8 x float> poison, <8 x i32> zeroinitializer
-  %lutsize2.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::Lut3DContextAVX", ptr %ctx.i, i64 0, i32 3
+  %lutsize2.i = getelementptr inbounds i8, ptr %ctx.i, i64 96
   store <8 x float> %vecinit7.i194.i, ptr %lutsize2.i, align 32
   %div.i = sdiv i32 %total_pixel_count, 8
   %mul11.i = shl nsw i32 %div.i, 3
@@ -67,11 +67,11 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %src.addr.0156.i = phi ptr [ %src, %for.body.lr.ph.i ], [ %add.ptr.i, %for.body.i ]
   %dst.addr.0155.i = phi ptr [ %dst, %for.body.lr.ph.i ], [ %add.ptr29.i, %for.body.i ]
   %0 = load <8 x float>, ptr %src.addr.0156.i, align 1
-  %add.ptr1.i.i = getelementptr inbounds float, ptr %src.addr.0156.i, i64 8
+  %add.ptr1.i.i = getelementptr inbounds i8, ptr %src.addr.0156.i, i64 32
   %1 = load <8 x float>, ptr %add.ptr1.i.i, align 1
-  %add.ptr3.i.i = getelementptr inbounds float, ptr %src.addr.0156.i, i64 16
+  %add.ptr3.i.i = getelementptr inbounds i8, ptr %src.addr.0156.i, i64 64
   %2 = load <8 x float>, ptr %add.ptr3.i.i, align 1
-  %add.ptr5.i.i = getelementptr inbounds float, ptr %src.addr.0156.i, i64 24
+  %add.ptr5.i.i = getelementptr inbounds i8, ptr %src.addr.0156.i, i64 96
   %3 = load <8 x float>, ptr %add.ptr5.i.i, align 1
   %shuffle.i10.i.i.i = shufflevector <8 x float> %0, <8 x float> %1, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %shuffle.i.i.i.i = shufflevector <8 x float> %2, <8 x float> %3, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
@@ -116,14 +116,14 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %shuffle.i.i10.i.i84.i = shufflevector <4 x double> %20, <4 x double> %21, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
   %shuffle.i.i11.i.i85.i = shufflevector <4 x double> %20, <4 x double> %21, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
   store <4 x double> %shuffle.i.i.i.i82.i, ptr %dst.addr.0155.i, align 1
-  %add.ptr1.i86.i = getelementptr inbounds float, ptr %dst.addr.0155.i, i64 8
+  %add.ptr1.i86.i = getelementptr inbounds i8, ptr %dst.addr.0155.i, i64 32
   store <4 x double> %shuffle.i.i9.i.i83.i, ptr %add.ptr1.i86.i, align 1
-  %add.ptr2.i.i = getelementptr inbounds float, ptr %dst.addr.0155.i, i64 16
+  %add.ptr2.i.i = getelementptr inbounds i8, ptr %dst.addr.0155.i, i64 64
   store <4 x double> %shuffle.i.i10.i.i84.i, ptr %add.ptr2.i.i, align 1
-  %add.ptr3.i87.i = getelementptr inbounds float, ptr %dst.addr.0155.i, i64 24
+  %add.ptr3.i87.i = getelementptr inbounds i8, ptr %dst.addr.0155.i, i64 96
   store <4 x double> %shuffle.i.i11.i.i85.i, ptr %add.ptr3.i87.i, align 1
-  %add.ptr.i = getelementptr inbounds float, ptr %src.addr.0156.i, i64 32
-  %add.ptr29.i = getelementptr inbounds float, ptr %dst.addr.0155.i, i64 32
+  %add.ptr.i = getelementptr inbounds i8, ptr %src.addr.0156.i, i64 128
+  %add.ptr29.i = getelementptr inbounds i8, ptr %dst.addr.0155.i, i64 128
   %add.i = add nuw nsw i32 %i.0157.i, 8
   %cmp.i = icmp slt i32 %add.i, %mul11.i
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !4
@@ -150,33 +150,33 @@ for.body34.i:                                     ; preds = %for.body34.i, %for.
   %23 = load float, ptr %src.addr.1160.i, align 4
   %arrayidx36.i = getelementptr inbounds [32 x float], ptr %in_buf.i, i64 0, i64 %indvars.iv.i
   store float %23, ptr %arrayidx36.i, align 16
-  %arrayidx37.i = getelementptr inbounds float, ptr %src.addr.1160.i, i64 1
+  %arrayidx37.i = getelementptr inbounds i8, ptr %src.addr.1160.i, i64 4
   %24 = load float, ptr %arrayidx37.i, align 4
   %25 = or disjoint i64 %indvars.iv.i, 1
   %arrayidx40.i = getelementptr inbounds [32 x float], ptr %in_buf.i, i64 0, i64 %25
   store float %24, ptr %arrayidx40.i, align 4
-  %arrayidx41.i = getelementptr inbounds float, ptr %src.addr.1160.i, i64 2
+  %arrayidx41.i = getelementptr inbounds i8, ptr %src.addr.1160.i, i64 8
   %26 = load float, ptr %arrayidx41.i, align 4
   %27 = or disjoint i64 %indvars.iv.i, 2
   %arrayidx44.i = getelementptr inbounds [32 x float], ptr %in_buf.i, i64 0, i64 %27
   store float %26, ptr %arrayidx44.i, align 8
-  %arrayidx45.i = getelementptr inbounds float, ptr %src.addr.1160.i, i64 3
+  %arrayidx45.i = getelementptr inbounds i8, ptr %src.addr.1160.i, i64 12
   %28 = load float, ptr %arrayidx45.i, align 4
   %29 = or disjoint i64 %indvars.iv.i, 3
   %arrayidx48.i = getelementptr inbounds [32 x float], ptr %in_buf.i, i64 0, i64 %29
   store float %28, ptr %arrayidx48.i, align 4
-  %add.ptr49.i = getelementptr inbounds float, ptr %src.addr.1160.i, i64 4
+  %add.ptr49.i = getelementptr inbounds i8, ptr %src.addr.1160.i, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %cmp33.i = icmp ult i64 %indvars.iv.next.i, %22
   br i1 %cmp33.i, label %for.body34.i, label %for.end52.loopexit.i, !llvm.loop !6
 
 for.end52.loopexit.i:                             ; preds = %for.body34.i
   %.pre.i = load <8 x float>, ptr %in_buf.i, align 16
-  %add.ptr1.i88.phi.trans.insert.i = getelementptr inbounds float, ptr %in_buf.i, i64 8
+  %add.ptr1.i88.phi.trans.insert.i = getelementptr inbounds i8, ptr %in_buf.i, i64 32
   %.pre176.i = load <8 x float>, ptr %add.ptr1.i88.phi.trans.insert.i, align 16
-  %add.ptr3.i89.phi.trans.insert.i = getelementptr inbounds float, ptr %in_buf.i, i64 16
+  %add.ptr3.i89.phi.trans.insert.i = getelementptr inbounds i8, ptr %in_buf.i, i64 64
   %.pre177.i = load <8 x float>, ptr %add.ptr3.i89.phi.trans.insert.i, align 16
-  %add.ptr5.i90.phi.trans.insert.i = getelementptr inbounds float, ptr %in_buf.i, i64 24
+  %add.ptr5.i90.phi.trans.insert.i = getelementptr inbounds i8, ptr %in_buf.i, i64 96
   %.pre178.i = load <8 x float>, ptr %add.ptr5.i90.phi.trans.insert.i, align 16
   br label %for.end52.i
 
@@ -231,11 +231,11 @@ for.end52.i:                                      ; preds = %for.end52.loopexit.
   %shuffle.i.i10.i.i105.i = shufflevector <4 x double> %50, <4 x double> %51, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
   %shuffle.i.i11.i.i106.i = shufflevector <4 x double> %50, <4 x double> %51, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
   store <4 x double> %shuffle.i.i.i.i103.i, ptr %out_buf.i, align 16
-  %add.ptr1.i107.i = getelementptr inbounds float, ptr %out_buf.i, i64 8
+  %add.ptr1.i107.i = getelementptr inbounds i8, ptr %out_buf.i, i64 32
   store <4 x double> %shuffle.i.i9.i.i104.i, ptr %add.ptr1.i107.i, align 16
-  %add.ptr2.i108.i = getelementptr inbounds float, ptr %out_buf.i, i64 16
+  %add.ptr2.i108.i = getelementptr inbounds i8, ptr %out_buf.i, i64 64
   store <4 x double> %shuffle.i.i10.i.i105.i, ptr %add.ptr2.i108.i, align 16
-  %add.ptr3.i109.i = getelementptr inbounds float, ptr %out_buf.i, i64 24
+  %add.ptr3.i109.i = getelementptr inbounds i8, ptr %out_buf.i, i64 96
   store <4 x double> %shuffle.i.i11.i.i106.i, ptr %add.ptr3.i109.i, align 16
   br i1 %cmp33159.i, label %for.body75.preheader.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123applyTetrahedralAVXFuncILNS_8BitDepthE8ELS2_8EEEvPKfiS4_Pfi.exit
 
@@ -252,14 +252,14 @@ for.body75.i:                                     ; preds = %for.body75.i, %for.
   %54 = or disjoint i64 %indvars.iv170.i, 2
   %arrayidx86.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %54
   %55 = load float, ptr %arrayidx86.i, align 8
-  %arrayidx87.i = getelementptr inbounds float, ptr %dst.addr.1164.i, i64 2
+  %arrayidx87.i = getelementptr inbounds i8, ptr %dst.addr.1164.i, i64 8
   store float %55, ptr %arrayidx87.i, align 4
   %56 = or disjoint i64 %indvars.iv170.i, 3
   %arrayidx90.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %56
   %57 = load float, ptr %arrayidx90.i, align 4
-  %arrayidx91.i = getelementptr inbounds float, ptr %dst.addr.1164.i, i64 3
+  %arrayidx91.i = getelementptr inbounds i8, ptr %dst.addr.1164.i, i64 12
   store float %57, ptr %arrayidx91.i, align 4
-  %add.ptr92.i = getelementptr inbounds float, ptr %dst.addr.1164.i, i64 4
+  %add.ptr92.i = getelementptr inbounds i8, ptr %dst.addr.1164.i, i64 16
   %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 4
   %cmp74.i = icmp ult i64 %indvars.iv.next171.i, %52
   br i1 %cmp74.i, label %for.body75.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123applyTetrahedralAVXFuncILNS_8BitDepthE8ELS2_8EEEvPKfiS4_Pfi.exit, !llvm.loop !7
@@ -276,11 +276,11 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123applyTetrahedralAVXFuncILNS_8BitDepthE8E
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_(ptr noalias nocapture writeonly align 32 %agg.result, ptr nocapture noundef nonnull readonly align 32 dereferenceable(128) %ctx, <8 x float> noundef %r, <8 x float> noundef %g, <8 x float> noundef %b, <8 x float> noundef %a) unnamed_addr #4 {
 entry:
-  %lutmax = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::Lut3DContextAVX", ptr %ctx, i64 0, i32 1
+  %lutmax = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load <8 x float>, ptr %lutmax, align 32
-  %lutsize1 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::Lut3DContextAVX", ptr %ctx, i64 0, i32 2
+  %lutsize1 = getelementptr inbounds i8, ptr %ctx, i64 64
   %1 = load <8 x float>, ptr %lutsize1, align 32
-  %lutsize22 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::Lut3DContextAVX", ptr %ctx, i64 0, i32 3
+  %lutsize22 = getelementptr inbounds i8, ptr %ctx, i64 96
   %2 = load <8 x float>, ptr %lutsize22, align 32
   %3 = tail call <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %r, i32 1)
   %4 = tail call <8 x float> @llvm.x86.avx.round.ps.256(<8 x float> %g, i32 1)
@@ -393,9 +393,9 @@ entry:
   %sub.i374 = fsub <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %34
   %mul.i264 = fmul <8 x float> %sub.i374, %43
   %mul.i261 = fmul <8 x float> %sub.i374, %44
-  %g92 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::rgbavec_avx", ptr %agg.result, i64 0, i32 1
+  %g92 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %mul.i = fmul <8 x float> %sub.i374, %47
-  %b94 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::rgbavec_avx", ptr %agg.result, i64 0, i32 2
+  %b94 = getelementptr inbounds i8, ptr %agg.result, i64 64
   %indices.sroa.0.16.vec.extract213 = extractelement <8 x i32> %37, i64 4
   %idx.ext98 = zext i32 %indices.sroa.0.16.vec.extract213 to i64
   %add.ptr99 = getelementptr inbounds float, ptr %40, i64 %idx.ext98
@@ -569,7 +569,7 @@ entry:
   %mul.i.i276 = fmul <8 x float> %32, %68
   %add.i.i277 = fadd <8 x float> %add.i.i264, %mul.i.i276
   store <8 x float> %add.i.i277, ptr %b94, align 32
-  %a256 = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::rgbavec_avx", ptr %agg.result, i64 0, i32 3
+  %a256 = getelementptr inbounds i8, ptr %agg.result, i64 96
   store <8 x float> %a, ptr %a256, align 32
   ret void
 }

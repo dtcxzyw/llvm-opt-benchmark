@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.capture_ops = type { ptr, ptr }
 %struct.audsettings = type { i32, i32, i32, i32 }
 %struct.audio_capture_ops = type { ptr, ptr, ptr }
-%struct.WAVState = type { ptr, i32, ptr, i32, i32, i32, ptr }
-%struct.CaptureState = type { ptr, %struct.capture_ops, %struct.anon }
-%struct.anon = type { ptr, ptr }
 
 @__const.wav_start_capture.hdr = private unnamed_addr constant [44 x i8] c"RIFF\00\00\00\00WAVEfmt \10\00\00\00\01\00\02\00D\AC\00\00\10\B1\02\00\04\00\10\00data\00\00\00\00", align 16
 @.str = private unnamed_addr constant [40 x i8] c"incorrect bit count %d, must be 8 or 16\00", align 1
@@ -59,21 +56,21 @@ if.end6:                                          ; preds = %if.end
   %cmp8 = icmp eq i32 %bits, 16
   store i32 %freq, ptr %as, align 4
   %shl = shl nuw nsw i32 1, %conv
-  %nchannels11 = getelementptr inbounds %struct.audsettings, ptr %as, i64 0, i32 1
+  %nchannels11 = getelementptr inbounds i8, ptr %as, i64 4
   store i32 %shl, ptr %nchannels11, align 4
   %cond = select i1 %cmp8, i32 3, i32 0
-  %fmt = getelementptr inbounds %struct.audsettings, ptr %as, i64 0, i32 2
+  %fmt = getelementptr inbounds i8, ptr %as, i64 8
   store i32 %cond, ptr %fmt, align 4
-  %endianness = getelementptr inbounds %struct.audsettings, ptr %as, i64 0, i32 3
+  %endianness = getelementptr inbounds i8, ptr %as, i64 12
   store i32 0, ptr %endianness, align 4
   store ptr @wav_notify, ptr %ops, align 8
-  %capture = getelementptr inbounds %struct.audio_capture_ops, ptr %ops, i64 0, i32 1
+  %capture = getelementptr inbounds i8, ptr %ops, i64 8
   store ptr @wav_capture, ptr %capture, align 8
-  %destroy = getelementptr inbounds %struct.audio_capture_ops, ptr %ops, i64 0, i32 2
+  %destroy = getelementptr inbounds i8, ptr %ops, i64 16
   store ptr @wav_destroy, ptr %destroy, align 8
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #9
   %conv14 = select i1 %cmp8, i8 16, i8 8
-  %arrayidx = getelementptr inbounds [44 x i8], ptr %hdr, i64 0, i64 34
+  %arrayidx = getelementptr inbounds i8, ptr %hdr, i64 34
   store i8 %conv14, ptr %arrayidx, align 2
   %add.ptr = getelementptr inbounds i8, ptr %hdr, i64 22
   %1 = trunc i32 %shl to i8
@@ -152,13 +149,13 @@ if.then27:                                        ; preds = %le_store.exit60
 
 if.end30:                                         ; preds = %le_store.exit60
   %call31 = tail call noalias ptr @g_strdup(ptr noundef %path) #8
-  %path32 = getelementptr inbounds %struct.WAVState, ptr %call, i64 0, i32 2
+  %path32 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call31, ptr %path32, align 8
-  %bits33 = getelementptr inbounds %struct.WAVState, ptr %call, i64 0, i32 4
+  %bits33 = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %bits, ptr %bits33, align 4
-  %nchannels34 = getelementptr inbounds %struct.WAVState, ptr %call, i64 0, i32 5
+  %nchannels34 = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %nchannels, ptr %nchannels34, align 8
-  %freq35 = getelementptr inbounds %struct.WAVState, ptr %call, i64 0, i32 3
+  %freq35 = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %freq, ptr %freq35, align 8
   %4 = load ptr, ptr %call, align 8
   %call38 = call i64 @fwrite(ptr noundef nonnull %hdr, i64 noundef 44, i64 noundef 1, ptr noundef %4)
@@ -182,10 +179,10 @@ if.then47:                                        ; preds = %if.end44
   br label %error_free
 
 if.end48:                                         ; preds = %if.end44
-  %cap49 = getelementptr inbounds %struct.WAVState, ptr %call, i64 0, i32 6
+  %cap49 = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %call45, ptr %cap49, align 8
   store ptr %call, ptr %s, align 8
-  %ops50 = getelementptr inbounds %struct.CaptureState, ptr %s, i64 0, i32 1
+  %ops50 = getelementptr inbounds i8, ptr %s, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ops50, ptr noundef nonnull align 8 dereferenceable(16) @wav_capture_ops, i64 16, i1 false)
   br label %return
 
@@ -241,7 +238,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %bytes = getelementptr inbounds %struct.WAVState, ptr %opaque, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %opaque, i64 8
   %2 = load i32, ptr %bytes, align 8
   %add = add i32 %2, %size
   store i32 %add, ptr %bytes, align 8
@@ -258,7 +255,7 @@ entry:
   br i1 %tobool.not, label %if.end36, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bytes = getelementptr inbounds %struct.WAVState, ptr %opaque, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load i32, ptr %bytes, align 8
   %add = add i32 %1, 36
   br label %for.body.i
@@ -330,7 +327,7 @@ if.then32:                                        ; preds = %doclose
   br label %if.end36
 
 if.end36:                                         ; preds = %doclose, %if.then32, %entry
-  %path = getelementptr inbounds %struct.WAVState, ptr %opaque, i64 0, i32 2
+  %path = getelementptr inbounds i8, ptr %opaque, i64 16
   %8 = load ptr, ptr %path, align 8
   tail call void @g_free(ptr noundef %8) #8
   ret void
@@ -366,17 +363,17 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @wav_capture_info(ptr nocapture noundef readonly %opaque) #0 {
 entry:
-  %path1 = getelementptr inbounds %struct.WAVState, ptr %opaque, i64 0, i32 2
+  %path1 = getelementptr inbounds i8, ptr %opaque, i64 16
   %0 = load ptr, ptr %path1, align 8
-  %freq = getelementptr inbounds %struct.WAVState, ptr %opaque, i64 0, i32 3
+  %freq = getelementptr inbounds i8, ptr %opaque, i64 24
   %1 = load i32, ptr %freq, align 8
-  %bits = getelementptr inbounds %struct.WAVState, ptr %opaque, i64 0, i32 4
+  %bits = getelementptr inbounds i8, ptr %opaque, i64 28
   %2 = load i32, ptr %bits, align 4
-  %nchannels = getelementptr inbounds %struct.WAVState, ptr %opaque, i64 0, i32 5
+  %nchannels = getelementptr inbounds i8, ptr %opaque, i64 32
   %3 = load i32, ptr %nchannels, align 8
   %tobool.not = icmp eq ptr %0, null
   %cond = select i1 %tobool.not, ptr @.str.14, ptr %0
-  %bytes = getelementptr inbounds %struct.WAVState, ptr %opaque, i64 0, i32 1
+  %bytes = getelementptr inbounds i8, ptr %opaque, i64 8
   %4 = load i32, ptr %bytes, align 8
   %call = tail call i32 (ptr, ...) @qemu_printf(ptr noundef nonnull @.str.13, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %cond, i32 noundef %4) #8
   ret void
@@ -385,7 +382,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @wav_capture_destroy(ptr noundef %opaque) #0 {
 entry:
-  %cap = getelementptr inbounds %struct.WAVState, ptr %opaque, i64 0, i32 6
+  %cap = getelementptr inbounds i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %cap, align 8
   tail call void @AUD_del_capture(ptr noundef %0, ptr noundef %opaque) #8
   tail call void @g_free(ptr noundef %opaque) #8

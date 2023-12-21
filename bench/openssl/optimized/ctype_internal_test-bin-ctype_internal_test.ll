@@ -248,7 +248,7 @@ define internal i32 @test_ctype_toupper(i32 noundef %n) #0 {
 entry:
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr inbounds [8 x %struct.anon], ptr @case_change, i64 0, i64 %idxprom
-  %l = getelementptr inbounds [8 x %struct.anon], ptr @case_change, i64 0, i64 %idxprom, i32 1
+  %l = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %0 = load i32, ptr %l, align 4
   %call = tail call i32 @ossl_toupper(i32 noundef %0) #3
   %1 = load i32, ptr %arrayidx, align 8
@@ -275,7 +275,7 @@ entry:
   %arrayidx = getelementptr inbounds [8 x %struct.anon], ptr @case_change, i64 0, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 8
   %call = tail call i32 @ossl_tolower(i32 noundef %0) #3
-  %l = getelementptr inbounds [8 x %struct.anon], ptr @case_change, i64 0, i64 %idxprom, i32 1
+  %l = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %l, align 4
   %call3 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 74, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i32 noundef %call, i32 noundef %1) #3
   %tobool.not = icmp eq i32 %call3, 0

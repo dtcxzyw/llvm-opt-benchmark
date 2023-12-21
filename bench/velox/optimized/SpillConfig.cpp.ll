@@ -3,15 +3,6 @@ source_filename = "bench/velox/original/SpillConfig.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.facebook::velox::common::SpillConfig" = type { %"class.std::function", %"class.std::__cxx11::basic_string", i64, i64, i64, ptr, i32, i32, i8, i8, i32, i64, i32, i64, %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-
 $__clang_call_terminate = comdat any
 
 @_ZN8facebook5velox6common11SpillConfigC1ESt8functionIFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEES9_mmmPN5folly8ExecutorEiihhimiSB_SB_ = unnamed_addr alias void (ptr, ptr, ptr, i64, i64, i64, ptr, i32, i32, i8, i8, i32, i64, i32, ptr, ptr), ptr @_ZN8facebook5velox6common11SpillConfigC2ESt8functionIFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEES9_mmmPN5folly8ExecutorEiihhimiSB_SB_
@@ -19,18 +10,18 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox6common11SpillConfigC2ESt8functionIFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEES9_mmmPN5folly8ExecutorEiihhimiSB_SB_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef %_getSpillDirPathCb, ptr noundef %_fileNamePrefix, i64 noundef %_maxFileSize, i64 noundef %_writeBufferSize, i64 noundef %_minSpillRunSize, ptr noundef %_executor, i32 noundef %_minSpillableReservationPct, i32 noundef %_spillableReservationGrowthPct, i8 noundef zeroext %_startPartitionBit, i8 noundef zeroext %_joinPartitionBits, i32 noundef %_maxSpillLevel, i64 noundef %_writerFlushThresholdSize, i32 noundef %_testSpillPct, ptr noundef nonnull align 8 dereferenceable(32) %_compressionKind, ptr noundef nonnull align 8 dereferenceable(32) %_fileCreateConfig) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %this, i64 0, i32 1
-  %_M_invoker2.i = getelementptr inbounds %"class.std::function", ptr %_getSpillDirPathCb, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_invoker2.i = getelementptr inbounds i8, ptr %_getSpillDirPathCb, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %0, ptr %_M_invoker.i, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %_getSpillDirPathCb, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %_getSpillDirPathCb, i64 16
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2EOS9_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_getSpillDirPathCb, i64 16, i1 false)
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8
   store ptr %2, ptr %_M_manager.i.i, align 8
@@ -38,39 +29,39 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNSt8functionIFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2EOS9_.exit
 
 _ZNSt8functionIFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2EOS9_.exit: ; preds = %entry, %if.then.i
-  %fileNamePrefix = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 1
+  %fileNamePrefix = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %fileNamePrefix, ptr noundef nonnull align 8 dereferenceable(32) %_fileNamePrefix) #8
-  %maxFileSize = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 2
+  %maxFileSize = getelementptr inbounds i8, ptr %this, i64 64
   %cmp = icmp eq i64 %_maxFileSize, 0
   %spec.select = select i1 %cmp, i64 9223372036854775807, i64 %_maxFileSize
   store i64 %spec.select, ptr %maxFileSize, align 8
-  %writeBufferSize = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 3
+  %writeBufferSize = getelementptr inbounds i8, ptr %this, i64 72
   store i64 %_writeBufferSize, ptr %writeBufferSize, align 8
-  %minSpillRunSize = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 4
+  %minSpillRunSize = getelementptr inbounds i8, ptr %this, i64 80
   store i64 %_minSpillRunSize, ptr %minSpillRunSize, align 8
-  %executor = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 5
+  %executor = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %_executor, ptr %executor, align 8
-  %minSpillableReservationPct = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 6
+  %minSpillableReservationPct = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %_minSpillableReservationPct, ptr %minSpillableReservationPct, align 8
-  %spillableReservationGrowthPct = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 7
+  %spillableReservationGrowthPct = getelementptr inbounds i8, ptr %this, i64 100
   store i32 %_spillableReservationGrowthPct, ptr %spillableReservationGrowthPct, align 4
-  %startPartitionBit = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 8
+  %startPartitionBit = getelementptr inbounds i8, ptr %this, i64 104
   store i8 %_startPartitionBit, ptr %startPartitionBit, align 8
-  %joinPartitionBits = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 9
+  %joinPartitionBits = getelementptr inbounds i8, ptr %this, i64 105
   store i8 %_joinPartitionBits, ptr %joinPartitionBits, align 1
-  %maxSpillLevel = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 10
+  %maxSpillLevel = getelementptr inbounds i8, ptr %this, i64 108
   store i32 %_maxSpillLevel, ptr %maxSpillLevel, align 4
-  %writerFlushThresholdSize = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 11
+  %writerFlushThresholdSize = getelementptr inbounds i8, ptr %this, i64 112
   store i64 %_writerFlushThresholdSize, ptr %writerFlushThresholdSize, align 8
-  %testSpillPct = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 12
+  %testSpillPct = getelementptr inbounds i8, ptr %this, i64 120
   store i32 %_testSpillPct, ptr %testSpillPct, align 8
   %call2 = invoke noundef i64 @_ZN8facebook5velox6common23stringToCompressionKindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %_compressionKind)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt8functionIFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2EOS9_.exit
-  %compressionKind = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 13
+  %compressionKind = getelementptr inbounds i8, ptr %this, i64 128
   store i64 %call2, ptr %compressionKind, align 8
-  %fileCreateConfig = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 14
+  %fileCreateConfig = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %fileCreateConfig, ptr noundef nonnull align 8 dereferenceable(32) %_fileCreateConfig)
           to label %invoke.cont3 unwind label %lpad
 
@@ -88,7 +79,7 @@ lpad:                                             ; preds = %invoke.cont, %_ZNSt
   %5 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fileNamePrefix) #8
-  %_M_manager.i.i2 = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
+  %_M_manager.i.i2 = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %_M_manager.i.i2, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit, label %if.then.i.i
@@ -129,7 +120,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind memory(argmem: read, inaccessiblemem: write) uwtable
 define noundef i32 @_ZNK8facebook5velox6common11SpillConfig14joinSpillLevelEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, i8 noundef zeroext %startBitOffset) local_unnamed_addr #4 align 2 {
 entry:
-  %joinPartitionBits = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 9
+  %joinPartitionBits = getelementptr inbounds i8, ptr %this, i64 105
   %0 = load i8, ptr %joinPartitionBits, align 1
   %conv = zext i8 %startBitOffset to i32
   %conv2 = zext i8 %0 to i32
@@ -142,7 +133,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %startPartitionBit = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 8
+  %startPartitionBit = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load i8, ptr %startPartitionBit, align 8
   %conv5 = zext i8 %1 to i32
   %sub = sub nsw i32 %conv, %conv5
@@ -173,7 +164,7 @@ if.end16:                                         ; preds = %if.end10
 define noundef zeroext i1 @_ZNK8facebook5velox6common11SpillConfig25exceedJoinSpillLevelLimitEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, i8 noundef zeroext %startBitOffset) local_unnamed_addr #4 align 2 {
 entry:
   %conv = zext i8 %startBitOffset to i32
-  %joinPartitionBits = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 9
+  %joinPartitionBits = getelementptr inbounds i8, ptr %this, i64 105
   %0 = load i8, ptr %joinPartitionBits, align 1
   %conv2 = zext i8 %0 to i32
   %add = add nuw nsw i32 %conv2, %conv
@@ -181,13 +172,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %maxSpillLevel = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 10
+  %maxSpillLevel = getelementptr inbounds i8, ptr %this, i64 108
   %1 = load i32, ptr %maxSpillLevel, align 4
   %cmp3 = icmp eq i32 %1, -1
   br i1 %cmp3, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %startPartitionBit.i = getelementptr inbounds %"struct.facebook::velox::common::SpillConfig", ptr %this, i64 0, i32 8
+  %startPartitionBit.i = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load i8, ptr %startPartitionBit.i, align 8
   %conv5.i = zext i8 %2 to i32
   %sub.i = sub nsw i32 %conv, %conv5.i

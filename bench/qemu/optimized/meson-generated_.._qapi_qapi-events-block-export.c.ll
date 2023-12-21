@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.q_obj_BLOCK_EXPORT_DELETED_arg = type { ptr }
-%struct.QObjectBase_ = type { i32, i64 }
 
 @.str = private unnamed_addr constant [21 x i8] c"BLOCK_EXPORT_DELETED\00", align 1
 @error_abort = external global ptr, align 8
@@ -66,7 +65,7 @@ if.else:                                          ; preds = %qobject_check_type.
   br i1 %tobool8.not, label %if.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %2, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i13, label %land.lhs.true.i11
@@ -92,7 +91,7 @@ if.end:                                           ; preds = %if.then5.i, %land.l
   br i1 %tobool11.not, label %qobject_unref_impl.exit22, label %lor.lhs.false.i14
 
 lor.lhs.false.i14:                                ; preds = %if.end
-  %refcnt.i15 = getelementptr inbounds %struct.QObjectBase_, ptr %call, i64 0, i32 1
+  %refcnt.i15 = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i64, ptr %refcnt.i15, align 8
   %tobool1.not.i16 = icmp eq i64 %4, 0
   br i1 %tobool1.not.i16, label %if.else.i21, label %land.lhs.true.i17

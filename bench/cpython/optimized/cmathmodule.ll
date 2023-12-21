@@ -841,7 +841,7 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool14.not, label %if.end16, label %exit
 
 if.end16:                                         ; preds = %if.end
-  %arrayidx18 = getelementptr ptr, ptr %cond1042, i64 1
+  %arrayidx18 = getelementptr i8, ptr %cond1042, i64 8
   %6 = load ptr, ptr %arrayidx18, align 8
   %call19 = call { double, double } @PyComplex_AsCComplex(ptr noundef %6) #10
   %7 = extractvalue { double, double } %call19, 0
@@ -855,7 +855,7 @@ if.end23:                                         ; preds = %if.end16
   br i1 %tobool24.not, label %skip_optional_kwonly, label %if.end26
 
 if.end26:                                         ; preds = %if.end23
-  %arrayidx27 = getelementptr ptr, ptr %cond1042, i64 2
+  %arrayidx27 = getelementptr i8, ptr %cond1042, i64 16
   %9 = load ptr, ptr %arrayidx27, align 8
   %tobool28.not = icmp eq ptr %9, null
   br i1 %tobool28.not, label %if.end48, label %if.then29
@@ -888,7 +888,7 @@ if.end44:                                         ; preds = %if.else, %land.lhs.
 
 if.end48:                                         ; preds = %if.end44, %if.end26
   %rel_tol.1 = phi double [ %rel_tol.0, %if.end44 ], [ 1.000000e-09, %if.end26 ]
-  %arrayidx49 = getelementptr ptr, ptr %cond1042, i64 3
+  %arrayidx49 = getelementptr i8, ptr %cond1042, i64 24
   %12 = load ptr, ptr %arrayidx49, align 8
   %13 = getelementptr i8, ptr %12, i64 8
   %.val25 = load ptr, ptr %13, align 8
@@ -1073,7 +1073,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp7, label %skip_optional, label %if.end9
 
 if.end9:                                          ; preds = %if.end6
-  %arrayidx10 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx10 = getelementptr i8, ptr %args, i64 8
   %4 = load ptr, ptr %arrayidx10, align 8
   br label %skip_optional
 
@@ -1414,7 +1414,7 @@ land.lhs.true10:                                  ; preds = %if.else
 
 if.end15:                                         ; preds = %if.else, %land.lhs.true10, %if.then4
   %r.0 = phi double [ %.val11, %if.then4 ], [ -1.000000e+00, %land.lhs.true10 ], [ %call8, %if.else ]
-  %arrayidx16 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx16 = getelementptr i8, ptr %args, i64 8
   %3 = load ptr, ptr %arrayidx16, align 8
   %4 = getelementptr i8, ptr %3, i64 8
   %.val10 = load ptr, ptr %4, align 8

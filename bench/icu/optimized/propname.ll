@@ -720,11 +720,11 @@ entry:
   %idx.ext = sext i32 %bytesTrieOffset to i64
   %add.ptr = getelementptr inbounds i8, ptr @_ZN6icu_7512PropNameData10bytesTriesE, i64 %idx.ext
   store ptr null, ptr %trie, align 8
-  %bytes_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %trie, i64 0, i32 1
+  %bytes_.i = getelementptr inbounds i8, ptr %trie, i64 8
   store ptr %add.ptr, ptr %bytes_.i, align 8
-  %pos_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %trie, i64 0, i32 2
+  %pos_.i = getelementptr inbounds i8, ptr %trie, i64 16
   store ptr %add.ptr, ptr %pos_.i, align 8
-  %remainingMatchLength_.i = getelementptr inbounds %"class.icu_75::BytesTrie", ptr %trie, i64 0, i32 3
+  %remainingMatchLength_.i = getelementptr inbounds i8, ptr %trie, i64 24
   store i32 -1, ptr %remainingMatchLength_.i, align 8
   %cmp.i = icmp eq ptr %alias, null
   br i1 %cmp.i, label %cleanup, label %while.cond.preheader.i

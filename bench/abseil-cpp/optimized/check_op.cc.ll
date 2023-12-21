@@ -1197,27 +1197,27 @@ invoke.cont13:                                    ; preds = %cond.true.i.i19, %i
   %retval.sroa.0.0.i.i21 = phi i64 [ %call.i.i.i.i20, %cond.true.i.i19 ], [ 0, %invoke.cont11 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i)
   store i64 %retval.sroa.0.0.i.i, ptr %ref.tmp.i, align 8, !noalias !5
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %exprtext, ptr %0, align 8, !noalias !5
-  %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 2, ptr %arrayinit.element.i, align 8, !noalias !5
-  %1 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @.str, ptr %1, align 8, !noalias !5
-  %arrayinit.element2.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
+  %arrayinit.element2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 %retval.sroa.0.0.i.i13, ptr %arrayinit.element2.i, align 8, !noalias !5
-  %2 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %s1, ptr %2, align 8, !noalias !5
-  %arrayinit.element4.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 5, ptr %arrayinit.element4.i, align 8, !noalias !5
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr @.str.1, ptr %3, align 8, !noalias !5
-  %arrayinit.element6.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 %retval.sroa.0.0.i.i21, ptr %arrayinit.element6.i, align 8, !noalias !5
-  %4 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store ptr %s2, ptr %4, align 8, !noalias !5
-  %arrayinit.element8.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5
+  %arrayinit.element8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
   store i64 1, ptr %arrayinit.element8.i, align 8, !noalias !5
-  %5 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
   store ptr @.str.2, ptr %5, align 8, !noalias !5
   invoke void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %call5, ptr nonnull %ref.tmp.i, i64 6)
           to label %_ZN4absl6StrCatIJA2_cEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumESA_SA_SA_SA_DpRKT_.exit unwind label %lpad
@@ -1289,27 +1289,27 @@ invoke.cont13:                                    ; preds = %cond.true.i.i19, %i
   %retval.sroa.0.0.i.i21 = phi i64 [ %call.i.i.i.i20, %cond.true.i.i19 ], [ 0, %invoke.cont11 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i)
   store i64 %retval.sroa.0.0.i.i, ptr %ref.tmp.i, align 8, !noalias !8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %exprtext, ptr %0, align 8, !noalias !8
-  %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 2, ptr %arrayinit.element.i, align 8, !noalias !8
-  %1 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @.str, ptr %1, align 8, !noalias !8
-  %arrayinit.element2.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
+  %arrayinit.element2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 %retval.sroa.0.0.i.i13, ptr %arrayinit.element2.i, align 8, !noalias !8
-  %2 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %s1, ptr %2, align 8, !noalias !8
-  %arrayinit.element4.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 5, ptr %arrayinit.element4.i, align 8, !noalias !8
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr @.str.1, ptr %3, align 8, !noalias !8
-  %arrayinit.element6.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 %retval.sroa.0.0.i.i21, ptr %arrayinit.element6.i, align 8, !noalias !8
-  %4 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store ptr %s2, ptr %4, align 8, !noalias !8
-  %arrayinit.element8.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5
+  %arrayinit.element8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
   store i64 1, ptr %arrayinit.element8.i, align 8, !noalias !8
-  %5 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
   store ptr @.str.2, ptr %5, align 8, !noalias !8
   invoke void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %call5, ptr nonnull %ref.tmp.i, i64 6)
           to label %_ZN4absl6StrCatIJA2_cEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumESA_SA_SA_SA_DpRKT_.exit unwind label %lpad
@@ -1378,27 +1378,27 @@ invoke.cont13:                                    ; preds = %cond.true.i.i19, %i
   %retval.sroa.0.0.i.i21 = phi i64 [ %call.i.i.i.i20, %cond.true.i.i19 ], [ 0, %invoke.cont11 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i)
   store i64 %retval.sroa.0.0.i.i, ptr %ref.tmp.i, align 8, !noalias !11
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %exprtext, ptr %0, align 8, !noalias !11
-  %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 2, ptr %arrayinit.element.i, align 8, !noalias !11
-  %1 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @.str, ptr %1, align 8, !noalias !11
-  %arrayinit.element2.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
+  %arrayinit.element2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 %retval.sroa.0.0.i.i13, ptr %arrayinit.element2.i, align 8, !noalias !11
-  %2 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %s1, ptr %2, align 8, !noalias !11
-  %arrayinit.element4.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 5, ptr %arrayinit.element4.i, align 8, !noalias !11
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr @.str.1, ptr %3, align 8, !noalias !11
-  %arrayinit.element6.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 %retval.sroa.0.0.i.i21, ptr %arrayinit.element6.i, align 8, !noalias !11
-  %4 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store ptr %s2, ptr %4, align 8, !noalias !11
-  %arrayinit.element8.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5
+  %arrayinit.element8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
   store i64 1, ptr %arrayinit.element8.i, align 8, !noalias !11
-  %5 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
   store ptr @.str.2, ptr %5, align 8, !noalias !11
   invoke void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %call5, ptr nonnull %ref.tmp.i, i64 6)
           to label %_ZN4absl6StrCatIJA2_cEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumESA_SA_SA_SA_DpRKT_.exit unwind label %lpad
@@ -1470,27 +1470,27 @@ invoke.cont13:                                    ; preds = %cond.true.i.i19, %i
   %retval.sroa.0.0.i.i21 = phi i64 [ %call.i.i.i.i20, %cond.true.i.i19 ], [ 0, %invoke.cont11 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i)
   store i64 %retval.sroa.0.0.i.i, ptr %ref.tmp.i, align 8, !noalias !14
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %exprtext, ptr %0, align 8, !noalias !14
-  %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 2, ptr %arrayinit.element.i, align 8, !noalias !14
-  %1 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @.str, ptr %1, align 8, !noalias !14
-  %arrayinit.element2.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
+  %arrayinit.element2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 %retval.sroa.0.0.i.i13, ptr %arrayinit.element2.i, align 8, !noalias !14
-  %2 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %s1, ptr %2, align 8, !noalias !14
-  %arrayinit.element4.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 5, ptr %arrayinit.element4.i, align 8, !noalias !14
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr @.str.1, ptr %3, align 8, !noalias !14
-  %arrayinit.element6.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 %retval.sroa.0.0.i.i21, ptr %arrayinit.element6.i, align 8, !noalias !14
-  %4 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store ptr %s2, ptr %4, align 8, !noalias !14
-  %arrayinit.element8.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5
+  %arrayinit.element8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
   store i64 1, ptr %arrayinit.element8.i, align 8, !noalias !14
-  %5 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
   store ptr @.str.2, ptr %5, align 8, !noalias !14
   invoke void @_ZN4absl16strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %call5, ptr nonnull %ref.tmp.i, i64 6)
           to label %_ZN4absl6StrCatIJA2_cEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8AlphaNumESA_SA_SA_SA_DpRKT_.exit unwind label %lpad

@@ -5,17 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.std::array" = type { [7 x i8] }
-%"class.google::protobuf::io::FileInputStream" = type { %"class.google::protobuf::io::ZeroCopyInputStream", %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", %"class.google::protobuf::io::CopyingInputStreamAdaptor" }
-%"class.google::protobuf::io::ZeroCopyInputStream" = type { ptr }
-%"class.google::protobuf::io::FileInputStream::CopyingFileInputStream" = type <{ %"class.google::protobuf::io::CopyingInputStream", i32, i8, i8, [2 x i8], i32, i8, [3 x i8] }>
-%"class.google::protobuf::io::CopyingInputStream" = type { ptr }
-%"class.google::protobuf::io::CopyingInputStreamAdaptor" = type <{ %"class.google::protobuf::io::ZeroCopyInputStream", ptr, i8, i8, [6 x i8], i64, %"class.std::unique_ptr", i32, i32, i32, [4 x i8] }>
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
 %"class.absl::lts_20230802::log_internal::LogMessageFatal" = type { %"class.absl::lts_20230802::log_internal::LogMessage" }
 %"class.absl::lts_20230802::log_internal::LogMessage" = type { %"class.absl::lts_20230802::base_internal::ErrnoSaver", %"class.std::unique_ptr.2" }
 %"class.absl::lts_20230802::base_internal::ErrnoSaver" = type { i32 }
@@ -29,16 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
 %"class.absl::lts_20230802::Span" = type { ptr, i64 }
-%"class.google::protobuf::io::FileOutputStream" = type { %"class.google::protobuf::io::CopyingOutputStreamAdaptor", %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream" }
-%"class.google::protobuf::io::CopyingOutputStreamAdaptor" = type { %"class.google::protobuf::io::ZeroCopyOutputStream", ptr, i8, i8, i64, %"class.std::unique_ptr", i32, i32 }
-%"class.google::protobuf::io::ZeroCopyOutputStream" = type { ptr }
-%"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream" = type <{ %"class.google::protobuf::io::CopyingOutputStream", i32, i8, i8, [2 x i8], i32, [4 x i8] }>
-%"class.google::protobuf::io::CopyingOutputStream" = type { ptr }
-%"class.google::protobuf::io::IstreamInputStream" = type { %"class.google::protobuf::io::ZeroCopyInputStream", %"class.google::protobuf::io::IstreamInputStream::CopyingIstreamInputStream", %"class.google::protobuf::io::CopyingInputStreamAdaptor" }
-%"class.google::protobuf::io::IstreamInputStream::CopyingIstreamInputStream" = type { %"class.google::protobuf::io::CopyingInputStream", ptr }
-%"class.google::protobuf::io::OstreamOutputStream" = type { %"class.google::protobuf::io::ZeroCopyOutputStream", %"class.google::protobuf::io::OstreamOutputStream::CopyingOstreamOutputStream", %"class.google::protobuf::io::CopyingOutputStreamAdaptor" }
-%"class.google::protobuf::io::OstreamOutputStream::CopyingOstreamOutputStream" = type { %"class.google::protobuf::io::CopyingOutputStream", ptr }
-%"class.google::protobuf::io::ConcatenatingInputStream" = type { %"class.google::protobuf::io::ZeroCopyInputStream", ptr, i32, i64 }
 
 $__clang_call_terminate = comdat any
 
@@ -133,9 +112,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN6google8protobuf2io15FileInputStreamC2Eii(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %file_descriptor, i32 noundef %block_size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io15FileInputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %copying_input_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this, i64 0, i32 1
+  %copying_input_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamC1Ei(ptr noundef nonnull align 8 dereferenceable(24) %copying_input_, i32 noundef %file_descriptor)
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorC1EPNS1_18CopyingInputStreamEi(ptr noundef nonnull align 8 dereferenceable(52) %impl_, ptr noundef nonnull %copying_input_, i32 noundef %block_size)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -158,7 +137,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io15FileInputStream5CloseEv(ptr n
 entry:
   %ref.tmp3.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  %is_closed_.i = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this, i64 0, i32 1, i32 3
+  %is_closed_.i = getelementptr inbounds i8, ptr %this, i64 21
   %0 = load i8, ptr %is_closed_.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.not.i = icmp eq i8 %1, 0
@@ -171,7 +150,7 @@ cond.false.i:                                     ; preds = %entry
 
 cleanup.done.i:                                   ; preds = %entry
   store i8 1, ptr %is_closed_.i, align 1
-  %file_.i = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this, i64 0, i32 1, i32 1
+  %file_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i32, ptr %file_.i, align 8
   br label %do.body.i.i
 
@@ -197,7 +176,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i:
 
 if.then.i:                                        ; preds = %land.rhs.i.i, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i
   %4 = phi i32 [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i ], [ %3, %land.rhs.i.i ]
-  %errno_.i = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this, i64 0, i32 1, i32 5
+  %errno_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %4, ptr %errno_.i, align 8
   br label %_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStream5CloseEv.exit
 
@@ -211,7 +190,7 @@ _ZN6google8protobuf2io15FileInputStream22CopyingFileInputStream5CloseEv.exit: ; 
 define noundef zeroext i1 @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStream5CloseEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %is_closed_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 3
+  %is_closed_ = getelementptr inbounds i8, ptr %this, i64 13
   %0 = load i8, ptr %is_closed_, align 1
   %1 = and i8 %0, 1
   %tobool.not.not = icmp eq i8 %1, 0
@@ -224,7 +203,7 @@ cond.false:                                       ; preds = %entry
 
 cleanup.done:                                     ; preds = %entry
   store i8 1, ptr %is_closed_, align 1
-  %file_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %file_, align 8
   br label %do.body.i
 
@@ -250,7 +229,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge: ;
 if.then:                                          ; preds = %land.rhs.i, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge
   %call10.pre-phi = phi ptr [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge ], [ %call1.i, %land.rhs.i ]
   %4 = load i32, ptr %call10.pre-phi, align 4
-  %errno_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 5
+  %errno_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %4, ptr %errno_, align 8
   br label %return
 
@@ -262,7 +241,7 @@ return:                                           ; preds = %_ZN6google8protobuf
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io15FileInputStream4NextEPPKvPi(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %data, ptr noundef %size) unnamed_addr #3 align 2 {
 entry:
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 32
   %call = tail call noundef zeroext i1 @_ZN6google8protobuf2io25CopyingInputStreamAdaptor4NextEPPKvPi(ptr noundef nonnull align 8 dereferenceable(52) %impl_, ptr noundef %data, ptr noundef %size)
   ret i1 %call
 }
@@ -272,7 +251,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf2io25CopyingInputStreamAdaptor4Ne
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf2io15FileInputStream6BackUpEi(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %count) unnamed_addr #3 align 2 {
 entry:
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor6BackUpEi(ptr noundef nonnull align 8 dereferenceable(52) %impl_, i32 noundef %count)
   ret void
 }
@@ -282,7 +261,7 @@ declare void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor6BackUpEi(ptr nou
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io15FileInputStream4SkipEi(ptr noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %count) unnamed_addr #3 align 2 {
 entry:
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 32
   %call = tail call noundef zeroext i1 @_ZN6google8protobuf2io25CopyingInputStreamAdaptor4SkipEi(ptr noundef nonnull align 8 dereferenceable(52) %impl_, i32 noundef %count)
   ret i1 %call
 }
@@ -292,7 +271,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf2io25CopyingInputStreamAdaptor4Sk
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK6google8protobuf2io15FileInputStream9ByteCountEv(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 {
 entry:
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 32
   %call = tail call noundef i64 @_ZNK6google8protobuf2io25CopyingInputStreamAdaptor9ByteCountEv(ptr noundef nonnull align 8 dereferenceable(52) %impl_)
   ret i64 %call
 }
@@ -303,15 +282,15 @@ declare noundef i64 @_ZNK6google8protobuf2io25CopyingInputStreamAdaptor9ByteCoun
 define void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %file_descriptor) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf2io15FileInputStream22CopyingFileInputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %file_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %file_descriptor, ptr %file_, align 8
-  %close_on_delete_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 2
+  %close_on_delete_ = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %close_on_delete_, align 4
-  %is_closed_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 3
+  %is_closed_ = getelementptr inbounds i8, ptr %this, i64 13
   store i8 0, ptr %is_closed_, align 1
-  %errno_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 5
+  %errno_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %errno_, align 8
-  %previous_seek_failed_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 6
+  %previous_seek_failed_ = getelementptr inbounds i8, ptr %this, i64 20
   store i8 0, ptr %previous_seek_failed_, align 4
   %call = tail call i32 (i32, i32, ...) @fcntl(i32 noundef %file_descriptor, i32 noundef 3)
   %and = and i32 %call, -2049
@@ -328,7 +307,7 @@ entry:
   %view.i = alloca %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView", align 8
   %ref.tmp3.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessage", align 8
-  %close_on_delete_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 2
+  %close_on_delete_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %close_on_delete_, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -336,7 +315,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  %is_closed_.i = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 3
+  %is_closed_.i = getelementptr inbounds i8, ptr %this, i64 13
   %2 = load i8, ptr %is_closed_.i, align 1
   %3 = and i8 %2, 1
   %tobool.not.not.i = icmp eq i8 %3, 0
@@ -352,7 +331,7 @@ cond.false.i:                                     ; preds = %if.then
 
 cleanup.done.i:                                   ; preds = %if.then
   store i8 1, ptr %is_closed_.i, align 1
-  %file_.i = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 1
+  %file_.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %file_.i, align 8
   br label %do.body.i.i
 
@@ -385,7 +364,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i:
 
 if.then2:                                         ; preds = %land.rhs.i.i, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i
   %6 = phi i32 [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i ], [ %5, %land.rhs.i.i ]
-  %errno_.i = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 5
+  %errno_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %6, ptr %errno_.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 94) #17
@@ -399,7 +378,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
   %7 = load i32, ptr %errno_.i, align 8
   %call10 = call ptr @strerror(i32 noundef %7) #16
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %view.i)
-  %data_.i = getelementptr inbounds %"class.absl::lts_20230802::log_internal::LogMessage", ptr %ref.tmp3, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %8 = load ptr, ptr %data_.i, align 8
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view.i, ptr noundef nonnull align 1 %8)
           to label %.noexc3 unwind label %terminate.lpad.loopexit.split-lp
@@ -490,14 +469,14 @@ declare ptr @__errno_location() local_unnamed_addr #10
 define noundef i32 @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStream4ReadEPvi(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %buffer, i32 noundef %size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %is_closed_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 3
+  %is_closed_ = getelementptr inbounds i8, ptr %this, i64 13
   %0 = load i8, ptr %is_closed_, align 1
   %1 = and i8 %0, 1
   %tobool.not.not = icmp eq i8 %1, 0
   br i1 %tobool.not.not, label %do.body.preheader, label %cond.false
 
 do.body.preheader:                                ; preds = %entry
-  %file_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   %conv = sext i32 %size to i64
   br label %do.body
 
@@ -520,7 +499,7 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp11, label %do.body, label %if.then, !llvm.loop !6
 
 if.then:                                          ; preds = %land.rhs
-  %errno_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 5
+  %errno_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %3, ptr %errno_, align 8
   br label %if.end
 
@@ -535,7 +514,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 define noundef i32 @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStream4SkipEi(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %count) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %is_closed_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 3
+  %is_closed_ = getelementptr inbounds i8, ptr %this, i64 13
   %0 = load i8, ptr %is_closed_, align 1
   %1 = and i8 %0, 1
   %tobool.not.not = icmp eq i8 %1, 0
@@ -547,14 +526,14 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cleanup.done:                                     ; preds = %entry
-  %previous_seek_failed_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 6
+  %previous_seek_failed_ = getelementptr inbounds i8, ptr %this, i64 20
   %2 = load i8, ptr %previous_seek_failed_, align 4
   %3 = and i8 %2, 1
   %tobool8.not = icmp eq i8 %3, 0
   br i1 %tobool8.not, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %cleanup.done
-  %file_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", ptr %this, i64 0, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %file_, align 8
   %conv = sext i32 %count to i64
   %call9 = tail call i64 @lseek(i32 noundef %4, i64 noundef %conv, i32 noundef 1) #16
@@ -580,7 +559,7 @@ declare noundef i32 @_ZN6google8protobuf2io18CopyingInputStream4SkipEi(ptr nound
 define void @_ZN6google8protobuf2io16FileOutputStreamC2Eii(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %file_descriptor, i32 noundef %block_size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16FileOutputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %copying_output_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream", ptr %this, i64 0, i32 1
+  %copying_output_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorC2EPNS1_19CopyingOutputStreamEi(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %copying_output_, i32 noundef %block_size)
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16FileOutputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   invoke void @_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamC1Ei(ptr noundef nonnull align 8 dereferenceable(24) %copying_output_, i32 noundef %file_descriptor)
@@ -607,7 +586,7 @@ entry:
   %ref.tmp3.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %call = tail call noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv(ptr noundef nonnull align 8 dereferenceable(48) %this)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  %is_closed_.i = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream", ptr %this, i64 0, i32 1, i32 3
+  %is_closed_.i = getelementptr inbounds i8, ptr %this, i64 61
   %0 = load i8, ptr %is_closed_.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.not.i = icmp eq i8 %1, 0
@@ -620,7 +599,7 @@ cond.false.i:                                     ; preds = %entry
 
 cleanup.done.i:                                   ; preds = %entry
   store i8 1, ptr %is_closed_.i, align 1
-  %file_.i = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream", ptr %this, i64 0, i32 1, i32 1
+  %file_.i = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load i32, ptr %file_.i, align 8
   br label %do.body.i.i
 
@@ -646,7 +625,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i:
 
 if.then.i:                                        ; preds = %land.rhs.i.i, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i
   %4 = phi i32 [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i ], [ %3, %land.rhs.i.i ]
-  %errno_.i = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream", ptr %this, i64 0, i32 1, i32 5
+  %errno_.i = getelementptr inbounds i8, ptr %this, i64 64
   store i32 %4, ptr %errno_.i, align 8
   br label %_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStream5CloseEv.exit
 
@@ -663,7 +642,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5F
 define noundef zeroext i1 @_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStream5CloseEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %is_closed_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this, i64 0, i32 3
+  %is_closed_ = getelementptr inbounds i8, ptr %this, i64 13
   %0 = load i8, ptr %is_closed_, align 1
   %1 = and i8 %0, 1
   %tobool.not.not = icmp eq i8 %1, 0
@@ -676,7 +655,7 @@ cond.false:                                       ; preds = %entry
 
 cleanup.done:                                     ; preds = %entry
   store i8 1, ptr %is_closed_, align 1
-  %file_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this, i64 0, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %file_, align 8
   br label %do.body.i
 
@@ -702,7 +681,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge: ;
 if.then:                                          ; preds = %land.rhs.i, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge
   %call10.pre-phi = phi ptr [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge ], [ %call1.i, %land.rhs.i ]
   %4 = load i32, ptr %call10.pre-phi, align 4
-  %errno_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this, i64 0, i32 5
+  %errno_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %4, ptr %errno_, align 8
   br label %return
 
@@ -715,13 +694,13 @@ return:                                           ; preds = %_ZN6google8protobuf
 define void @_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %file_descriptor) unnamed_addr #12 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %file_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this, i64 0, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %file_descriptor, ptr %file_, align 8
-  %close_on_delete_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this, i64 0, i32 2
+  %close_on_delete_ = getelementptr inbounds i8, ptr %this, i64 12
   store i8 0, ptr %close_on_delete_, align 4
-  %is_closed_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this, i64 0, i32 3
+  %is_closed_ = getelementptr inbounds i8, ptr %this, i64 13
   store i8 0, ptr %is_closed_, align 1
-  %errno_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this, i64 0, i32 5
+  %errno_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %errno_, align 8
   ret void
 }
@@ -733,7 +712,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %copying_output_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream", ptr %this, i64 0, i32 1
+  %copying_output_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %copying_output_) #16
   tail call void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #16
   ret void
@@ -760,7 +739,7 @@ entry:
   %view.i = alloca %"class.absl::lts_20230802::log_internal::LogMessage::OstreamView", align 8
   %ref.tmp3.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessage", align 8
-  %close_on_delete_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this, i64 0, i32 2
+  %close_on_delete_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i8, ptr %close_on_delete_, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -768,7 +747,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp3.i)
-  %is_closed_.i = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this, i64 0, i32 3
+  %is_closed_.i = getelementptr inbounds i8, ptr %this, i64 13
   %2 = load i8, ptr %is_closed_.i, align 1
   %3 = and i8 %2, 1
   %tobool.not.not.i = icmp eq i8 %3, 0
@@ -784,7 +763,7 @@ cond.false.i:                                     ; preds = %if.then
 
 cleanup.done.i:                                   ; preds = %if.then
   store i8 1, ptr %is_closed_.i, align 1
-  %file_.i = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this, i64 0, i32 1
+  %file_.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %file_.i, align 8
   br label %do.body.i.i
 
@@ -817,7 +796,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i:
 
 if.then2:                                         ; preds = %land.rhs.i.i, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i
   %6 = phi i32 [ %.pre, %_ZN6google8protobuf2io12_GLOBAL__N_114close_no_eintrEi.exit.if.then_crit_edge.i ], [ %5, %land.rhs.i.i ]
-  %errno_.i = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this, i64 0, i32 5
+  %errno_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %6, ptr %errno_.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp3.i)
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 171) #17
@@ -831,7 +810,7 @@ invoke.cont7:                                     ; preds = %invoke.cont4
   %7 = load i32, ptr %errno_.i, align 8
   %call10 = call ptr @strerror(i32 noundef %7) #16
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %view.i)
-  %data_.i = getelementptr inbounds %"class.absl::lts_20230802::log_internal::LogMessage", ptr %ref.tmp3, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %8 = load ptr, ptr %data_.i, align 8
   invoke void @_ZN4absl12lts_2023080212log_internal10LogMessage11OstreamViewC1ERNS2_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %view.i, ptr noundef nonnull align 1 %8)
           to label %.noexc3 unwind label %terminate.lpad.loopexit.split-lp
@@ -890,7 +869,7 @@ entry:
 define noundef zeroext i1 @_ZN6google8protobuf2io16FileOutputStream23CopyingFileOutputStream5WriteEPKvi(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %buffer, i32 noundef %size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  %is_closed_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this, i64 0, i32 3
+  %is_closed_ = getelementptr inbounds i8, ptr %this, i64 13
   %0 = load i8, ptr %is_closed_, align 1
   %1 = and i8 %0, 1
   %tobool.not.not = icmp eq i8 %1, 0
@@ -901,7 +880,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp14, label %return, label %do.body.preheader.lr.ph
 
 do.body.preheader.lr.ph:                          ; preds = %while.cond.preheader
-  %file_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this, i64 0, i32 1
+  %file_ = getelementptr inbounds i8, ptr %this, i64 8
   br label %do.body.preheader
 
 cond.false:                                       ; preds = %entry
@@ -938,7 +917,7 @@ do.end:                                           ; preds = %do.body
   br i1 %or.cond, label %do.body.preheader, label %return, !llvm.loop !8
 
 if.then15:                                        ; preds = %land.rhs
-  %errno_ = getelementptr inbounds %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream", ptr %this, i64 0, i32 5
+  %errno_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %3, ptr %errno_, align 8
   br label %return
 
@@ -954,9 +933,9 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 define void @_ZN6google8protobuf2io18IstreamInputStreamC2EPSii(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %input, i32 noundef %block_size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io18IstreamInputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %copying_input_ = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %this, i64 0, i32 1
+  %copying_input_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamC1EPSi(ptr noundef nonnull align 8 dereferenceable(16) %copying_input_, ptr noundef %input)
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorC1EPNS1_18CopyingInputStreamEi(ptr noundef nonnull align 8 dereferenceable(52) %impl_, ptr noundef nonnull %copying_input_, i32 noundef %block_size)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -973,7 +952,7 @@ lpad3:                                            ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io18IstreamInputStream4NextEPPKvPi(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %data, ptr noundef %size) unnamed_addr #3 align 2 {
 entry:
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call noundef zeroext i1 @_ZN6google8protobuf2io25CopyingInputStreamAdaptor4NextEPPKvPi(ptr noundef nonnull align 8 dereferenceable(52) %impl_, ptr noundef %data, ptr noundef %size)
   ret i1 %call
 }
@@ -981,7 +960,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf2io18IstreamInputStream6BackUpEi(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %count) unnamed_addr #3 align 2 {
 entry:
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor6BackUpEi(ptr noundef nonnull align 8 dereferenceable(52) %impl_, i32 noundef %count)
   ret void
 }
@@ -989,7 +968,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io18IstreamInputStream4SkipEi(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %count) unnamed_addr #3 align 2 {
 entry:
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call noundef zeroext i1 @_ZN6google8protobuf2io25CopyingInputStreamAdaptor4SkipEi(ptr noundef nonnull align 8 dereferenceable(52) %impl_, i32 noundef %count)
   ret i1 %call
 }
@@ -997,7 +976,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK6google8protobuf2io18IstreamInputStream9ByteCountEv(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 {
 entry:
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call noundef i64 @_ZNK6google8protobuf2io25CopyingInputStreamAdaptor9ByteCountEv(ptr noundef nonnull align 8 dereferenceable(52) %impl_)
   ret i64 %call
 }
@@ -1006,7 +985,7 @@ entry:
 define void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamC2EPSi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %input) unnamed_addr #12 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %input_ = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream::CopyingIstreamInputStream", ptr %this, i64 0, i32 1
+  %input_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %input, ptr %input_, align 8
   ret void
 }
@@ -1028,7 +1007,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStream4ReadEPvi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %buffer, i32 noundef %size) unnamed_addr #3 align 2 {
 entry:
-  %input_ = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream::CopyingIstreamInputStream", ptr %this, i64 0, i32 1
+  %input_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %input_, align 8
   %conv = sext i32 %size to i64
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %buffer, i64 noundef %conv)
@@ -1076,9 +1055,9 @@ declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noun
 define void @_ZN6google8protobuf2io19OstreamOutputStreamC2EPSoi(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %output, i32 noundef %block_size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io19OstreamOutputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %copying_output_ = getelementptr inbounds %"class.google::protobuf::io::OstreamOutputStream", ptr %this, i64 0, i32 1
+  %copying_output_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamC1EPSo(ptr noundef nonnull align 8 dereferenceable(16) %copying_output_, ptr noundef %output)
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::OstreamOutputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorC1EPNS1_19CopyingOutputStreamEi(ptr noundef nonnull align 8 dereferenceable(48) %impl_, ptr noundef nonnull %copying_output_, i32 noundef %block_size)
           to label %invoke.cont4 unwind label %lpad3
 
@@ -1097,13 +1076,13 @@ declare void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorC1EPNS1_19Copyin
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf2io19OstreamOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::OstreamOutputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   %call = invoke noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv(ptr noundef nonnull align 8 dereferenceable(48) %impl_)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
   tail call void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %impl_) #16
-  %copying_output_ = getelementptr inbounds %"class.google::protobuf::io::OstreamOutputStream", ptr %this, i64 0, i32 1
+  %copying_output_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %copying_output_) #16
   ret void
 
@@ -1129,7 +1108,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io19OstreamOutputStream4NextEPPvPi(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %data, ptr noundef %size) unnamed_addr #3 align 2 {
 entry:
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::OstreamOutputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor4NextEPPvPi(ptr noundef nonnull align 8 dereferenceable(48) %impl_, ptr noundef %data, ptr noundef %size)
   ret i1 %call
 }
@@ -1139,7 +1118,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor4N
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf2io19OstreamOutputStream6BackUpEi(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %count) unnamed_addr #3 align 2 {
 entry:
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::OstreamOutputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor6BackUpEi(ptr noundef nonnull align 8 dereferenceable(48) %impl_, i32 noundef %count)
   ret void
 }
@@ -1149,7 +1128,7 @@ declare void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor6BackUpEi(ptr no
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK6google8protobuf2io19OstreamOutputStream9ByteCountEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::OstreamOutputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call noundef i64 @_ZNK6google8protobuf2io26CopyingOutputStreamAdaptor9ByteCountEv(ptr noundef nonnull align 8 dereferenceable(48) %impl_)
   ret i64 %call
 }
@@ -1160,7 +1139,7 @@ declare noundef i64 @_ZNK6google8protobuf2io26CopyingOutputStreamAdaptor9ByteCou
 define void @_ZN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamC2EPSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %output) unnamed_addr #12 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %output_ = getelementptr inbounds %"class.google::protobuf::io::OstreamOutputStream::CopyingOstreamOutputStream", ptr %this, i64 0, i32 1
+  %output_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %output, ptr %output_, align 8
   ret void
 }
@@ -1182,7 +1161,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io19OstreamOutputStream26CopyingOstreamOutputStream5WriteEPKvi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %buffer, i32 noundef %size) unnamed_addr #3 align 2 {
 entry:
-  %output_ = getelementptr inbounds %"class.google::protobuf::io::OstreamOutputStream::CopyingOstreamOutputStream", ptr %this, i64 0, i32 1
+  %output_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %output_, align 8
   %conv = sext i32 %size to i64
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %buffer, i64 noundef %conv)
@@ -1203,11 +1182,11 @@ declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr nou
 define void @_ZN6google8protobuf2io24ConcatenatingInputStreamC2EPKPNS1_19ZeroCopyInputStreamEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %streams, i32 noundef %count) unnamed_addr #12 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io24ConcatenatingInputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %streams_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this, i64 0, i32 1
+  %streams_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %streams, ptr %streams_, align 8
-  %stream_count_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this, i64 0, i32 2
+  %stream_count_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %count, ptr %stream_count_, align 8
-  %bytes_retired_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this, i64 0, i32 3
+  %bytes_retired_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %bytes_retired_, align 8
   ret void
 }
@@ -1215,14 +1194,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io24ConcatenatingInputStream4NextEPPKvPi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %data, ptr noundef %size) unnamed_addr #3 align 2 {
 entry:
-  %stream_count_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this, i64 0, i32 2
+  %stream_count_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %stream_count_, align 8
   %cmp1 = icmp sgt i32 %0, 0
   br i1 %cmp1, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %entry
-  %streams_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this, i64 0, i32 1
-  %bytes_retired_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this, i64 0, i32 3
+  %streams_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytes_retired_ = getelementptr inbounds i8, ptr %this, i64 24
   %.pre = load ptr, ptr %streams_, align 8
   br label %while.body
 
@@ -1230,7 +1209,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %1 = phi ptr [ %.pre, %while.body.lr.ph ], [ %incdec.ptr, %if.end ]
   %2 = load ptr, ptr %1, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %data, ptr noundef %size)
   br i1 %call, label %return, label %if.end
@@ -1239,14 +1218,14 @@ if.end:                                           ; preds = %while.body
   %4 = load ptr, ptr %streams_, align 8
   %5 = load ptr, ptr %4, align 8
   %vtable4 = load ptr, ptr %5, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 5
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 40
   %6 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %7 = load i64, ptr %bytes_retired_, align 8
   %add = add nsw i64 %7, %call6
   store i64 %add, ptr %bytes_retired_, align 8
   %8 = load ptr, ptr %streams_, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %8, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %incdec.ptr, ptr %streams_, align 8
   %9 = load i32, ptr %stream_count_, align 8
   %dec = add nsw i32 %9, -1
@@ -1262,17 +1241,17 @@ return:                                           ; preds = %while.body, %if.end
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf2io24ConcatenatingInputStream6BackUpEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %count) unnamed_addr #3 align 2 {
 entry:
-  %stream_count_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this, i64 0, i32 2
+  %stream_count_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %stream_count_, align 8
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %streams_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this, i64 0, i32 1
+  %streams_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %streams_, align 8
   %2 = load ptr, ptr %1, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %count)
   br label %if.end
@@ -1284,14 +1263,14 @@ if.end:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf2io24ConcatenatingInputStream4SkipEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %count) unnamed_addr #3 align 2 {
 entry:
-  %stream_count_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this, i64 0, i32 2
+  %stream_count_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %stream_count_, align 8
   %cmp3 = icmp sgt i32 %0, 0
   br i1 %cmp3, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %entry
-  %streams_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this, i64 0, i32 1
-  %bytes_retired_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this, i64 0, i32 3
+  %streams_ = getelementptr inbounds i8, ptr %this, i64 8
+  %bytes_retired_ = getelementptr inbounds i8, ptr %this, i64 24
   %.pre = load ptr, ptr %streams_, align 8
   br label %while.body
 
@@ -1300,13 +1279,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %count.addr.04 = phi i32 [ %count, %while.body.lr.ph ], [ %conv15, %if.end ]
   %2 = load ptr, ptr %1, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %3 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %4 = load ptr, ptr %streams_, align 8
   %5 = load ptr, ptr %4, align 8
   %vtable4 = load ptr, ptr %5, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 4
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 32
   %6 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %count.addr.04)
   br i1 %call6, label %return, label %if.end
@@ -1317,7 +1296,7 @@ if.end:                                           ; preds = %while.body
   %7 = load ptr, ptr %streams_, align 8
   %8 = load ptr, ptr %7, align 8
   %vtable9 = load ptr, ptr %8, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 5
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 40
   %9 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
   %sub = sub i64 %add, %call11
@@ -1326,7 +1305,7 @@ if.end:                                           ; preds = %while.body
   %add16 = add nsw i64 %10, %call11
   store i64 %add16, ptr %bytes_retired_, align 8
   %11 = load ptr, ptr %streams_, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %11, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %incdec.ptr, ptr %streams_, align 8
   %12 = load i32, ptr %stream_count_, align 8
   %dec = add nsw i32 %12, -1
@@ -1342,19 +1321,19 @@ return:                                           ; preds = %while.body, %if.end
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK6google8protobuf2io24ConcatenatingInputStream9ByteCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
-  %stream_count_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this, i64 0, i32 2
+  %stream_count_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %stream_count_, align 8
   %cmp = icmp eq i32 %0, 0
-  %bytes_retired_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this, i64 0, i32 3
+  %bytes_retired_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %bytes_retired_, align 8
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %streams_ = getelementptr inbounds %"class.google::protobuf::io::ConcatenatingInputStream", ptr %this, i64 0, i32 1
+  %streams_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %streams_, align 8
   %3 = load ptr, ptr %2, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %4 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %add = add nsw i64 %call, %1
@@ -1368,9 +1347,9 @@ return:                                           ; preds = %entry, %if.else
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf2io15FileInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_) #16
-  %copying_input_ = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this, i64 0, i32 1
+  %copying_input_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %copying_input_) #16
   ret void
 }
@@ -1378,9 +1357,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf2io15FileInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %impl_.i = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this, i64 0, i32 2
+  %impl_.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_.i) #16
-  %copying_input_.i = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %this, i64 0, i32 1
+  %copying_input_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %copying_input_.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
@@ -1401,9 +1380,9 @@ declare noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor9W
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf2io18IstreamInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %impl_ = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %this, i64 0, i32 2
+  %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_) #16
-  %copying_input_ = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %this, i64 0, i32 1
+  %copying_input_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %copying_input_) #16
   ret void
 }
@@ -1411,9 +1390,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf2io18IstreamInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %impl_.i = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %this, i64 0, i32 2
+  %impl_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_.i) #16
-  %copying_input_.i = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %this, i64 0, i32 1
+  %copying_input_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %copying_input_.i) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void

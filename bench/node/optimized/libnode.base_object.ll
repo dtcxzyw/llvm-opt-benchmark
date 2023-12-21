@@ -5,234 +5,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.node::AssertionInfo" = type { ptr, ptr, ptr }
-%"class.node::BaseObject" = type { %"class.node::MemoryRetainer", %"class.v8::Global", ptr, ptr }
-%"class.node::MemoryRetainer" = type { ptr }
-%"class.v8::Global" = type { %"class.v8::PersistentBase" }
-%"class.v8::PersistentBase" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::IndirectHandleBase" = type { ptr }
-%"class.node::Realm" = type { %"class.node::MemoryRetainer", %"class.std::set", %"class.std::set.0", %"class.std::set.0", %"class.std::vector", ptr, ptr, %"class.v8::Global.11", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global", %"class.v8::Global", %"class.v8::Global", %"class.v8::Global", %"class.v8::Global", %"class.v8::Global", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", %"class.v8::Global.13", i32, i8, i64, i64, %"struct.std::array", %"class.node::CleanupQueue" }
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<node::node_module *, node::node_module *, std::_Identity<node::node_module *>, std::less<node::node_module *>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<node::node_module *, node::node_module *, std::_Identity<node::node_module *>, std::less<node::node_module *>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::set.0" = type { %"class.std::_Rb_tree.1" }
-%"class.std::_Rb_tree.1" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.5", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.5" = type { %"struct.std::less.6" }
-%"struct.std::less.6" = type { i8 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.v8::Global.11" = type { %"class.v8::PersistentBase.12" }
-%"class.v8::PersistentBase.12" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Global.13" = type { %"class.v8::PersistentBase.14" }
-%"class.v8::PersistentBase.14" = type { %"class.v8::IndirectHandleBase" }
-%"struct.std::array" = type { [12 x %"class.node::BaseObjectPtrImpl"] }
-%"class.node::BaseObjectPtrImpl" = type { %union.anon }
-%union.anon = type { ptr }
-%"class.node::CleanupQueue" = type { %"class.node::MemoryRetainer", %"class.std::unordered_set", i64 }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.node::Environment" = type { %"class.node::MemoryRetainer", %"class.std::unordered_multimap", %"class.std::__cxx11::list", ptr, ptr, %struct.uv_timer_s, %struct.uv_check_s, %struct.uv_idle_s, %struct.uv_prepare_s, %struct.uv_check_s, %struct.uv_async_s, i64, %"struct.std::atomic", %"struct.std::atomic", %"class.node::AsyncHooks", %"class.node::ImmediateInfo", %"class.node::AliasedBufferBase.57", %"class.node::TickInfo", %"class.node::permission::Permission", i64, %"class.std::shared_ptr", i8, i8, i8, i8, i8, i8, i64, %"class.std::vector.82", %"class.std::unordered_set.87", %"class.std::unique_ptr", %"class.std::unique_ptr.109", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::unique_ptr.121", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::shared_ptr.129", %"class.std::shared_ptr.132", %"class.std::vector", %"class.std::vector", %"class.std::__cxx11::basic_string", i8, i32, i32, i8, i32, i32, i32, i32, %"class.node::AliasedBufferBase.57", %"class.node::AliasedBufferBase.46", i32, %"class.std::unique_ptr.135", %"class.node::AliasedBufferBase.57", i64, double, i64, %"class.std::unique_ptr.143", i8, i64, i64, %"class.std::unordered_set.151", %"class.std::unique_ptr.171", i8, %"class.std::__cxx11::list.179", %"class.node::ListHead", %"class.node::ListHead.184", %"class.std::__cxx11::list.186", i32, i32, %"class.node::EnabledDebugList", %"class.std::vector.191", %"class.std::__cxx11::list.196", %"class.node::MutexBase", %"class.std::__cxx11::list.201", %"class.node::CallbackQueue", %"class.node::MutexBase", %"class.node::CallbackQueue", %"class.node::CallbackQueue", i8, %"struct.std::atomic.216", %"class.node::CleanupQueue", i8, %"class.std::unordered_set.218", %"class.std::function", %"class.std::unique_ptr.233", %"class.node::builtins::BuiltinLoader", %"class.std::function.247", %"class.std::unordered_map.249" }
-%"class.std::unordered_multimap" = type { %"class.std::_Hashtable.20" }
-%"class.std::_Hashtable.20" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<node::binding::DLib, std::allocator<node::binding::DLib>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::binding::DLib, std::allocator<node::binding::DLib>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%struct.uv_timer_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.39, ptr, i32, ptr, [3 x ptr], i64, i64, i64 }
-%struct.uv__queue = type { ptr, ptr }
-%union.anon.39 = type { [4 x ptr] }
-%struct.uv_idle_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.41, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.41 = type { [4 x ptr] }
-%struct.uv_prepare_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.42, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.42 = type { [4 x ptr] }
-%struct.uv_check_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.40, ptr, i32, ptr, %struct.uv__queue }
-%union.anon.40 = type { [4 x ptr] }
-%struct.uv_async_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.43, ptr, i32, ptr, %struct.uv__queue, i32 }
-%union.anon.43 = type { [4 x ptr] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"class.node::AsyncHooks" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase", %"class.node::AliasedBufferBase.46", %"class.node::AliasedBufferBase", %"class.v8::Global.49", %"class.std::vector.51", ptr, %"struct.std::array.56" }
-%"class.node::AliasedBufferBase" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.44", ptr }
-%"class.v8::Global.44" = type { %"class.v8::PersistentBase.45" }
-%"class.v8::PersistentBase.45" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Global.49" = type { %"class.v8::PersistentBase.50" }
-%"class.v8::PersistentBase.50" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::vector.51" = type { %"struct.std::_Vector_base.52" }
-%"struct.std::_Vector_base.52" = type { %"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl" }
-%"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl" = type { %"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<v8::Local<v8::Object>, std::allocator<v8::Local<v8::Object>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array.56" = type { [4 x %"class.v8::Global.13"] }
-%"class.node::ImmediateInfo" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase.46" }
-%"class.node::TickInfo" = type { %"class.node::MemoryRetainer", %"class.node::AliasedBufferBase.60" }
-%"class.node::AliasedBufferBase.60" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.61", ptr }
-%"class.v8::Global.61" = type { %"class.v8::PersistentBase.62" }
-%"class.v8::PersistentBase.62" = type { %"class.v8::IndirectHandleBase" }
-%"class.node::permission::Permission" = type <{ %"class.std::unordered_map", i8, [7 x i8] }>
-%"class.std::unordered_map" = type { %"class.std::_Hashtable.63" }
-%"class.std::_Hashtable.63" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::vector.82" = type { %"struct.std::_Vector_base.83" }
-%"struct.std::_Vector_base.83" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unordered_set.87" = type { %"class.std::_Hashtable.88" }
-%"class.std::_Hashtable.88" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.108" }
-%"struct.std::_Head_base.108" = type { ptr }
-%"class.std::unique_ptr.109" = type { %"struct.std::__uniq_ptr_data.110" }
-%"struct.std::__uniq_ptr_data.110" = type { %"class.std::__uniq_ptr_impl.111" }
-%"class.std::__uniq_ptr_impl.111" = type { %"class.std::tuple.112" }
-%"class.std::tuple.112" = type { %"struct.std::_Tuple_impl.113" }
-%"struct.std::_Tuple_impl.113" = type { %"struct.std::_Head_base.116" }
-%"struct.std::_Head_base.116" = type { ptr }
-%"class.std::unique_ptr.121" = type { %"struct.std::__uniq_ptr_data.122" }
-%"struct.std::__uniq_ptr_data.122" = type { %"class.std::__uniq_ptr_impl.123" }
-%"class.std::__uniq_ptr_impl.123" = type { %"class.std::tuple.124" }
-%"class.std::tuple.124" = type { %"struct.std::_Tuple_impl.125" }
-%"struct.std::_Tuple_impl.125" = type { %"struct.std::_Head_base.128" }
-%"struct.std::_Head_base.128" = type { ptr }
-%"class.std::shared_ptr.129" = type { %"class.std::__shared_ptr.130" }
-%"class.std::__shared_ptr.130" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.132" = type { %"class.std::__shared_ptr.133" }
-%"class.std::__shared_ptr.133" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.120 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.120 = type { i64, [8 x i8] }
-%"class.node::AliasedBufferBase.46" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.47", ptr }
-%"class.v8::Global.47" = type { %"class.v8::PersistentBase.48" }
-%"class.v8::PersistentBase.48" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::unique_ptr.135" = type { %"struct.std::__uniq_ptr_data.136" }
-%"struct.std::__uniq_ptr_data.136" = type { %"class.std::__uniq_ptr_impl.137" }
-%"class.std::__uniq_ptr_impl.137" = type { %"class.std::tuple.138" }
-%"class.std::tuple.138" = type { %"struct.std::_Tuple_impl.139" }
-%"struct.std::_Tuple_impl.139" = type { %"struct.std::_Head_base.142" }
-%"struct.std::_Head_base.142" = type { ptr }
-%"class.node::AliasedBufferBase.57" = type { %"class.node::MemoryRetainer", ptr, i64, i64, ptr, %"class.v8::Global.58", ptr }
-%"class.v8::Global.58" = type { %"class.v8::PersistentBase.59" }
-%"class.v8::PersistentBase.59" = type { %"class.v8::IndirectHandleBase" }
-%"class.std::unique_ptr.143" = type { %"struct.std::__uniq_ptr_data.144" }
-%"struct.std::__uniq_ptr_data.144" = type { %"class.std::__uniq_ptr_impl.145" }
-%"class.std::__uniq_ptr_impl.145" = type { %"class.std::tuple.146" }
-%"class.std::tuple.146" = type { %"struct.std::_Tuple_impl.147" }
-%"struct.std::_Tuple_impl.147" = type { %"struct.std::_Head_base.150" }
-%"struct.std::_Head_base.150" = type { ptr }
-%"class.std::unordered_set.151" = type { %"class.std::_Hashtable.152" }
-%"class.std::_Hashtable.152" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unique_ptr.171" = type { %"struct.std::__uniq_ptr_data.172" }
-%"struct.std::__uniq_ptr_data.172" = type { %"class.std::__uniq_ptr_impl.173" }
-%"class.std::__uniq_ptr_impl.173" = type { %"class.std::tuple.174" }
-%"class.std::tuple.174" = type { %"struct.std::_Tuple_impl.175" }
-%"struct.std::_Tuple_impl.175" = type { %"struct.std::_Head_base.178" }
-%"struct.std::_Head_base.178" = type { ptr }
-%"class.std::__cxx11::list.179" = type { %"class.std::__cxx11::_List_base.180" }
-%"class.std::__cxx11::_List_base.180" = type { %"struct.std::__cxx11::_List_base<node::DeserializeRequest, std::allocator<node::DeserializeRequest>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::DeserializeRequest, std::allocator<node::DeserializeRequest>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::ListHead" = type { %"class.node::ListNode" }
-%"class.node::ListNode" = type { ptr, ptr }
-%"class.node::ListHead.184" = type { %"class.node::ListNode.185" }
-%"class.node::ListNode.185" = type { ptr, ptr }
-%"class.std::__cxx11::list.186" = type { %"class.std::__cxx11::_List_base.187" }
-%"class.std::__cxx11::_List_base.187" = type { %"struct.std::__cxx11::_List_base<node::Environment::HandleCleanup, std::allocator<node::Environment::HandleCleanup>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::Environment::HandleCleanup, std::allocator<node::Environment::HandleCleanup>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::EnabledDebugList" = type { [75 x i8] }
-%"class.std::vector.191" = type { %"struct.std::_Vector_base.192" }
-%"struct.std::_Vector_base.192" = type { %"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl" }
-%"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl" = type { %"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<v8::Global<v8::Context>, std::allocator<v8::Global<v8::Context>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::list.196" = type { %"class.std::__cxx11::_List_base.197" }
-%"class.std::__cxx11::_List_base.197" = type { %"struct.std::__cxx11::_List_base<node::node_module, std::allocator<node::node_module>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::node_module, std::allocator<node::node_module>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::__cxx11::list.201" = type { %"class.std::__cxx11::_List_base.202" }
-%"class.std::__cxx11::_List_base.202" = type { %"struct.std::__cxx11::_List_base<node::Environment::ExitCallback, std::allocator<node::Environment::ExitCallback>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<node::Environment::ExitCallback, std::allocator<node::Environment::ExitCallback>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.node::MutexBase" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.node::CallbackQueue" = type { %"struct.std::atomic.206", %"class.std::unique_ptr.208", ptr }
-%"struct.std::atomic.206" = type { %"struct.std::__atomic_base.207" }
-%"struct.std::__atomic_base.207" = type { i64 }
-%"class.std::unique_ptr.208" = type { %"struct.std::__uniq_ptr_data.209" }
-%"struct.std::__uniq_ptr_data.209" = type { %"class.std::__uniq_ptr_impl.210" }
-%"class.std::__uniq_ptr_impl.210" = type { %"class.std::tuple.211" }
-%"class.std::tuple.211" = type { %"struct.std::_Tuple_impl.212" }
-%"struct.std::_Tuple_impl.212" = type { %"struct.std::_Head_base.215" }
-%"struct.std::_Head_base.215" = type { ptr }
-%"struct.std::atomic.216" = type { %"struct.std::__atomic_base.217" }
-%"struct.std::__atomic_base.217" = type { ptr }
-%"class.std::unordered_set.218" = type { %"class.std::_Hashtable.219" }
-%"class.std::_Hashtable.219" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::unique_ptr.233" = type { %"struct.std::__uniq_ptr_data.234" }
-%"struct.std::__uniq_ptr_data.234" = type { %"class.std::__uniq_ptr_impl.235" }
-%"class.std::__uniq_ptr_impl.235" = type { %"class.std::tuple.236" }
-%"class.std::tuple.236" = type { %"struct.std::_Tuple_impl.237" }
-%"struct.std::_Tuple_impl.237" = type { %"struct.std::_Head_base.240" }
-%"struct.std::_Head_base.240" = type { ptr }
-%"class.node::builtins::BuiltinLoader" = type { %"class.node::ThreadsafeCopyOnWrite", %"class.node::UnionBytes", %"class.std::shared_ptr.244" }
-%"class.node::ThreadsafeCopyOnWrite" = type { %"class.node::CopyOnWrite" }
-%"class.node::CopyOnWrite" = type { %"class.std::shared_ptr.241" }
-%"class.std::shared_ptr.241" = type { %"class.std::__shared_ptr.242" }
-%"class.std::__shared_ptr.242" = type { ptr, %"class.std::__shared_count" }
-%"class.node::UnionBytes" = type { ptr, ptr }
-%"class.std::shared_ptr.244" = type { %"class.std::__shared_ptr.245" }
-%"class.std::__shared_ptr.245" = type { ptr, %"class.std::__shared_count" }
-%"class.std::function.247" = type { %"class.std::_Function_base", ptr }
-%"class.std::unordered_map.249" = type { %"class.std::_Hashtable.250" }
-%"class.std::_Hashtable.250" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.node::IsolateData" = type { %"class.node::MemoryRetainer", i64, %"class.std::unordered_map.273", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal.293", %"class.v8::Eternal.293", %"class.v8::Eternal.293", %"class.v8::Eternal.293", %"class.v8::Eternal.293", %"class.v8::Eternal.293", %"class.v8::Eternal.293", %"class.v8::Eternal.293", %"class.v8::Eternal.293", %"class.v8::Eternal.293", %"class.v8::Eternal.293", %"class.v8::Eternal.293", %"class.v8::Eternal.293", %"class.v8::Eternal.293", %"class.v8::Eternal.293", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.294", %"class.v8::Eternal.295", %"class.v8::Eternal.295", %"class.v8::Eternal.296", %"class.v8::Eternal.295", %"class.v8::Eternal.295", %"class.v8::Eternal.295", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.295", %"class.v8::Eternal.296", %"class.v8::Eternal.295", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.295", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.295", %"class.v8::Eternal.295", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.295", %"class.v8::Eternal.295", %"class.v8::Eternal.295", %"class.v8::Eternal.295", %"class.v8::Eternal.295", %"class.v8::Eternal.295", %"class.v8::Eternal.296", %"class.v8::Eternal.295", %"class.v8::Eternal.295", %"class.v8::Eternal.295", %"class.v8::Eternal.296", %"class.v8::Eternal.295", %"class.v8::Eternal.295", %"class.v8::Eternal.296", %"class.v8::Eternal.295", %"class.v8::Eternal.295", %"class.v8::Eternal.296", %"class.v8::Eternal.295", %"class.v8::Eternal.295", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.295", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"class.v8::Eternal.296", %"struct.std::array.297", ptr, ptr, ptr, ptr, ptr, %"class.std::optional", %"class.std::unique_ptr.310", %"class.std::shared_ptr.318", ptr, ptr }
-%"class.std::unordered_map.273" = type { %"class.std::_Hashtable.274" }
-%"class.std::_Hashtable.274" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.v8::Eternal.293" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal.294" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal.295" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal" = type { %"class.v8::IndirectHandleBase" }
-%"class.v8::Eternal.296" = type { %"class.v8::IndirectHandleBase" }
-%"struct.std::array.297" = type { [64 x %"class.v8::Eternal.294"] }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base.307", [7 x i8] }
-%"struct.std::_Optional_payload.base.307" = type { %"struct.std::_Optional_payload_base.base.306" }
-%"struct.std::_Optional_payload_base.base.306" = type <{ %"union.std::_Optional_payload_base<node::SnapshotConfig>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<node::SnapshotConfig>::_Storage" = type { %"struct.node::SnapshotConfig" }
-%"struct.node::SnapshotConfig" = type { i32, [4 x i8], %"class.std::optional.299" }
-%"class.std::optional.299" = type { %"struct.std::_Optional_base.300" }
-%"struct.std::_Optional_base.300" = type { %"struct.std::_Optional_payload.302" }
-%"struct.std::_Optional_payload.302" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
-%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
-%"class.std::unique_ptr.310" = type { %"struct.std::__uniq_ptr_data.311" }
-%"struct.std::__uniq_ptr_data.311" = type { %"class.std::__uniq_ptr_impl.312" }
-%"class.std::__uniq_ptr_impl.312" = type { %"class.std::tuple.313" }
-%"class.std::tuple.313" = type { %"struct.std::_Tuple_impl.314" }
-%"struct.std::_Tuple_impl.314" = type { %"struct.std::_Head_base.317" }
-%"struct.std::_Head_base.317" = type { ptr }
-%"class.std::shared_ptr.318" = type { %"class.std::__shared_ptr.319" }
-%"class.std::__shared_ptr.319" = type { ptr, %"class.std::__shared_count" }
-%"struct.node::PerIsolateWrapperData" = type { i16, i16 }
-%"struct.node::BaseObject::PointerData" = type { i32, i32, i8, i8, ptr }
 %"class.node::CleanupQueue::CleanupHookCallback" = type { ptr, ptr, i64 }
 %"class.v8::HandleScope" = type { ptr, ptr, ptr }
-%"class.v8::FunctionCallbackInfo" = type <{ ptr, ptr, i32, [4 x i8] }>
 %"class.std::unique_ptr.323" = type { %"struct.std::__uniq_ptr_data.324" }
 %"struct.std::__uniq_ptr_data.324" = type { %"class.std::__uniq_ptr_impl.325" }
 %"class.std::__uniq_ptr_impl.325" = type { %"class.std::tuple.326" }
@@ -312,29 +86,29 @@ entry:
   %arg.addr.i.i = alloca ptr, align 8
   %ref.tmp.i.i = alloca i64, align 8
   store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10BaseObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %persistent_handle_ = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 1
+  %persistent_handle_ = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i.i = icmp eq ptr %object.coerce, null
   br i1 %cmp.i.i, label %do.body11, label %do.body13
 
 do.body11:                                        ; preds = %entry
   store ptr null, ptr %persistent_handle_, align 8
-  %realm_8 = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 2
+  %realm_8 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %realm, ptr %realm_8, align 8
-  %pointer_data_9 = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 3
+  %pointer_data_9 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %pointer_data_9, align 8
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node10BaseObjectC1EPNS_5RealmEN2v85LocalINS3_6ObjectEEEE4args) #18
   tail call void @abort() #19
   unreachable
 
 do.body13:                                        ; preds = %entry
-  %isolate_.i = getelementptr inbounds %"class.node::Realm", ptr %realm, i64 0, i32 6
+  %isolate_.i = getelementptr inbounds i8, ptr %realm, i64 184
   %0 = load ptr, ptr %isolate_.i, align 8
   %1 = load i64, ptr %object.coerce, align 8
   %call2.i = tail call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %0, i64 noundef %1) #18
   store ptr %call2.i, ptr %persistent_handle_, align 8
-  %realm_ = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 2
+  %realm_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %realm, ptr %realm_, align 8
-  %pointer_data_ = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 3
+  %pointer_data_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %pointer_data_, align 8
   %call15 = tail call noundef i32 @_ZNK2v86Object18InternalFieldCountEv(ptr noundef nonnull align 1 dereferenceable(1) %object.coerce) #18
   %cmp16 = icmp slt i32 %call15, 2
@@ -346,13 +120,13 @@ do.body22:                                        ; preds = %do.body13
   unreachable
 
 do.end25:                                         ; preds = %do.body13
-  %env_.i = getelementptr inbounds %"class.node::Realm", ptr %realm, i64 0, i32 5
+  %env_.i = getelementptr inbounds i8, ptr %realm, i64 176
   %2 = load ptr, ptr %env_.i, align 8
-  %isolate_data_.i.i = getelementptr inbounds %"class.node::Environment", ptr %2, i64 0, i32 4
+  %isolate_data_.i.i = getelementptr inbounds i8, ptr %2, i64 96
   %3 = load ptr, ptr %isolate_data_.i.i, align 8
-  %wrapper_data_.i.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %3, i64 0, i32 447
+  %wrapper_data_.i.i.i = getelementptr inbounds i8, ptr %3, i64 4184
   %4 = load ptr, ptr %wrapper_data_.i.i.i, align 8
-  %non_cppgc_id.i.i.i = getelementptr inbounds %"struct.node::PerIsolateWrapperData", ptr %4, i64 0, i32 1
+  %non_cppgc_id.i.i.i = getelementptr inbounds i8, ptr %4, i64 2
   tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %object.coerce, i32 noundef 0, ptr noundef nonnull %non_cppgc_id.i.i.i) #18
   tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %object.coerce, i32 noundef 1, ptr noundef nonnull %this) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cb.addr.i.i)
@@ -360,8 +134,8 @@ do.end25:                                         ; preds = %do.body13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   store ptr @_ZN4node10BaseObject8DeleteMeEPv, ptr %cb.addr.i.i, align 8
   store ptr %this, ptr %arg.addr.i.i, align 8
-  %cleanup_hooks_.i.i = getelementptr inbounds %"class.node::Realm", ptr %realm, i64 0, i32 73, i32 1
-  %cleanup_hook_counter_.i.i = getelementptr inbounds %"class.node::Realm", ptr %realm, i64 0, i32 73, i32 2
+  %cleanup_hooks_.i.i = getelementptr inbounds i8, ptr %realm, i64 808
+  %cleanup_hook_counter_.i.i = getelementptr inbounds i8, ptr %realm, i64 864
   %5 = load i64, ptr %cleanup_hook_counter_.i.i, align 8
   %inc.i.i = add i64 %5, 1
   store i64 %inc.i.i, ptr %cleanup_hook_counter_.i.i, align 8
@@ -381,7 +155,7 @@ _ZN4node5Realm14AddCleanupHookEPFvPvES1_.exit:    ; preds = %do.end25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cb.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %arg.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  %base_object_count_.i = getelementptr inbounds %"class.node::Realm", ptr %realm, i64 0, i32 70
+  %base_object_count_.i = getelementptr inbounds i8, ptr %realm, i64 688
   %8 = load i64, ptr %base_object_count_.i, align 8
   %add.i = add nsw i64 %8, 1
   store i64 %add.i, ptr %base_object_count_.i, align 8
@@ -398,7 +172,7 @@ declare noundef i32 @_ZNK2v86Object18InternalFieldCountEv(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node10BaseObject8DeleteMeEPv(ptr noundef %data) #3 align 2 {
 entry:
-  %pointer_data_.i = getelementptr inbounds %"class.node::BaseObject", ptr %data, i64 0, i32 3
+  %pointer_data_.i = getelementptr inbounds i8, ptr %data, i64 24
   %0 = load ptr, ptr %pointer_data_.i, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %delete.notnull, label %_ZN4node10BaseObject12pointer_dataEv.exit
@@ -409,13 +183,13 @@ _ZN4node10BaseObject12pointer_dataEv.exit:        ; preds = %entry
   br i1 %cmp.not, label %delete.notnull, label %_ZN4node10BaseObject6DetachEv.exit
 
 _ZN4node10BaseObject6DetachEv.exit:               ; preds = %_ZN4node10BaseObject12pointer_dataEv.exit
-  %is_detached.i = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %0, i64 0, i32 3
+  %is_detached.i = getelementptr inbounds i8, ptr %0, i64 9
   store i8 1, ptr %is_detached.i, align 1
   br label %delete.end
 
 delete.notnull:                                   ; preds = %entry, %_ZN4node10BaseObject12pointer_dataEv.exit
   %vtable = load ptr, ptr %data, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %data) #18
   br label %delete.end
@@ -430,23 +204,23 @@ entry:
   %search.i.i = alloca %"class.node::CleanupQueue::CleanupHookCallback", align 8
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10BaseObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %realm_.i = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 2
+  %realm_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %realm_.i, align 8
-  %base_object_count_.i = getelementptr inbounds %"class.node::Realm", ptr %0, i64 0, i32 70
+  %base_object_count_.i = getelementptr inbounds i8, ptr %0, i64 688
   %1 = load i64, ptr %base_object_count_.i, align 8
   %add.i = add nsw i64 %1, -1
   store i64 %add.i, ptr %base_object_count_.i, align 8
   %2 = load ptr, ptr %realm_.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %search.i.i)
   store ptr @_ZN4node10BaseObject8DeleteMeEPv, ptr %search.i.i, align 8
-  %arg_.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %search.i.i, i64 0, i32 1
+  %arg_.i.i.i = getelementptr inbounds i8, ptr %search.i.i, i64 8
   store ptr %this, ptr %arg_.i.i.i, align 8
-  %insertion_order_counter_.i.i.i = getelementptr inbounds %"class.node::CleanupQueue::CleanupHookCallback", ptr %search.i.i, i64 0, i32 2
+  %insertion_order_counter_.i.i.i = getelementptr inbounds i8, ptr %search.i.i, i64 16
   store i64 0, ptr %insertion_order_counter_.i.i.i, align 8
-  %cleanup_hooks_.i.i = getelementptr inbounds %"class.node::Realm", ptr %2, i64 0, i32 73, i32 1
+  %cleanup_hooks_.i.i = getelementptr inbounds i8, ptr %2, i64 808
   %call.i.i.i.i = call noundef i64 @_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %cleanup_hooks_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %search.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %search.i.i)
-  %pointer_data_.i = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 3
+  %pointer_data_.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %pointer_data_.i, align 8
   %cmp.i5.not = icmp eq ptr %3, null
   br i1 %cmp.i5.not, label %if.end16, label %_ZN4node10BaseObject12pointer_dataEv.exit
@@ -462,9 +236,9 @@ do.body10:                                        ; preds = %_ZN4node10BaseObjec
   unreachable
 
 do.end12:                                         ; preds = %_ZN4node10BaseObject12pointer_dataEv.exit
-  %self = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %3, i64 0, i32 4
+  %self = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %self, align 8
-  %weak_ptr_count = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %3, i64 0, i32 1
+  %weak_ptr_count = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i32, ptr %weak_ptr_count, align 4
   %cmp13 = icmp eq i32 %5, 0
   br i1 %cmp13, label %delete.notnull, label %if.end16
@@ -474,14 +248,14 @@ delete.notnull:                                   ; preds = %do.end12
   br label %if.end16
 
 if.end16:                                         ; preds = %do.end12, %delete.notnull, %entry
-  %persistent_handle_ = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 1
+  %persistent_handle_ = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %persistent_handle_, align 8
   %cmp.i = icmp eq ptr %6, null
   br i1 %cmp.i, label %_ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
   %7 = load ptr, ptr %realm_.i, align 8
-  %isolate_.i = getelementptr inbounds %"class.node::Realm", ptr %7, i64 0, i32 6
+  %isolate_.i = getelementptr inbounds i8, ptr %7, i64 184
   %8 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %8) #18
   %9 = load ptr, ptr %persistent_handle_, align 8, !nonnull !5, !noundef !5
@@ -493,9 +267,9 @@ if.end19:                                         ; preds = %if.end16
 
 _ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i: ; preds = %if.end19
   %12 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i.i = getelementptr inbounds %"class.node::Realm", ptr %12, i64 0, i32 5
+  %env_.i.i.i = getelementptr inbounds i8, ptr %12, i64 176
   %13 = load ptr, ptr %env_.i.i.i, align 8
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %13, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %13, i64 88
   %14 = load ptr, ptr %isolate_.i.i, align 8
   %15 = load i64, ptr %9, align 8
   %call.i.i.i.i10 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %14, i64 noundef %15) #18
@@ -521,15 +295,15 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit: ; preds = %if.end16, %cleanup,
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %pointer_data_.i = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 3
+  %pointer_data_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %pointer_data_.i, align 8
   %cmp.i3.not = icmp eq ptr %0, null
   br i1 %cmp.i3.not, label %if.then, label %do.end10
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
-  %self.i = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %call2, i64 0, i32 4
-  %persistent_handle_ = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 1
+  %self.i = getelementptr inbounds i8, ptr %call2, i64 16
+  %persistent_handle_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2, i8 0, i64 16, i1 false)
   %1 = load ptr, ptr %persistent_handle_, align 8
   %cmp.i.i = icmp eq ptr %1, null
@@ -545,7 +319,7 @@ if.end.i:                                         ; preds = %if.then
 
 _ZNK2v814PersistentBaseINS_6ObjectEE6IsWeakEv.exit: ; preds = %if.then, %if.end.i
   %retval.i.0 = phi i8 [ %4, %if.end.i ], [ 0, %if.then ]
-  %wants_weak_jsobj = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %call2, i64 0, i32 2
+  %wants_weak_jsobj = getelementptr inbounds i8, ptr %call2, i64 8
   store i8 %retval.i.0, ptr %wants_weak_jsobj, align 8
   store ptr %this, ptr %self.i, align 8
   store ptr %call2, ptr %pointer_data_.i, align 8
@@ -579,13 +353,13 @@ declare void @llvm.trap() #7
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %pointer_data_.i = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 3
+  %pointer_data_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %pointer_data_.i, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.end5, label %_ZN4node10BaseObject12pointer_dataEv.exit
 
 _ZN4node10BaseObject12pointer_dataEv.exit:        ; preds = %entry
-  %wants_weak_jsobj = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %0, i64 0, i32 2
+  %wants_weak_jsobj = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %wants_weak_jsobj, align 8
   %1 = load ptr, ptr %pointer_data_.i, align 8
   %cmp.i3.not.i2 = icmp eq ptr %1, null
@@ -593,8 +367,8 @@ _ZN4node10BaseObject12pointer_dataEv.exit:        ; preds = %entry
 
 if.then.i3:                                       ; preds = %_ZN4node10BaseObject12pointer_dataEv.exit
   %call2.i4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
-  %self.i.i5 = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %call2.i4, i64 0, i32 4
-  %persistent_handle_.i6 = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 1
+  %self.i.i5 = getelementptr inbounds i8, ptr %call2.i4, i64 16
+  %persistent_handle_.i6 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2.i4, i8 0, i64 16, i1 false)
   %2 = load ptr, ptr %persistent_handle_.i6, align 8
   %cmp.i.i.i7 = icmp eq ptr %2, null
@@ -610,7 +384,7 @@ if.end.i.i8:                                      ; preds = %if.then.i3
 
 _ZN4node10BaseObject12pointer_dataEv.exit14.thread: ; preds = %if.then.i3, %if.end.i.i8
   %retval.i.0.i12 = phi i8 [ %5, %if.end.i.i8 ], [ 0, %if.then.i3 ]
-  %wants_weak_jsobj.i13 = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %call2.i4, i64 0, i32 2
+  %wants_weak_jsobj.i13 = getelementptr inbounds i8, ptr %call2.i4, i64 8
   store i8 %retval.i.0.i12, ptr %wants_weak_jsobj.i13, align 8
   store ptr %this, ptr %self.i.i5, align 8
   store ptr %call2.i4, ptr %pointer_data_.i, align 8
@@ -622,7 +396,7 @@ _ZN4node10BaseObject12pointer_dataEv.exit14:      ; preds = %_ZN4node10BaseObjec
   br i1 %6, label %if.end5, label %return
 
 if.end5:                                          ; preds = %_ZN4node10BaseObject12pointer_dataEv.exit14.thread, %_ZN4node10BaseObject12pointer_dataEv.exit14, %entry
-  %persistent_handle_ = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 1
+  %persistent_handle_ = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %persistent_handle_, align 8
   tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %7, ptr noundef nonnull %this, ptr noundef nonnull @"_ZZN4node10BaseObject8MakeWeakEvEN3$_08__invokeERKN2v816WeakCallbackInfoIS0_EE", i32 noundef 0) #18
   br label %return
@@ -634,9 +408,9 @@ return:                                           ; preds = %_ZN4node10BaseObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node10BaseObject38LazilyInitializedJSTemplateConstructorERKN2v820FunctionCallbackInfoINS1_5ValueEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args) #3 align 2 {
 entry:
-  %values_.i24 = getelementptr inbounds %"class.v8::FunctionCallbackInfo", ptr %args, i64 0, i32 1
+  %values_.i24 = getelementptr inbounds i8, ptr %args, i64 8
   %0 = load ptr, ptr %values_.i24, align 8
-  %add.ptr.i25 = getelementptr inbounds i64, ptr %0, i64 -1
+  %add.ptr.i25 = getelementptr inbounds i8, ptr %0, i64 -8
   %call4 = tail call noundef i32 @_ZNK2v86Object18InternalFieldCountEv(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i25) #18
   %cmp = icmp slt i32 %call4, 2
   br i1 %cmp, label %do.body7, label %do.end8
@@ -648,7 +422,7 @@ do.body7:                                         ; preds = %entry
 
 do.end8:                                          ; preds = %entry
   %1 = load ptr, ptr %args, align 8
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %1, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx.i.i, align 8
   %call1.i = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %2) #18
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
@@ -671,13 +445,13 @@ do.end8:                                          ; preds = %entry
   %10 = inttoptr i64 %sub.i.i.i to ptr
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
-  %isolate_data_.i = getelementptr inbounds %"class.node::Environment", ptr %12, i64 0, i32 4
+  %isolate_data_.i = getelementptr inbounds i8, ptr %12, i64 96
   %13 = load ptr, ptr %isolate_data_.i, align 8
   %14 = load ptr, ptr %values_.i24, align 8
-  %add.ptr.i = getelementptr inbounds i64, ptr %14, i64 -1
-  %wrapper_data_.i.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %13, i64 0, i32 447
+  %add.ptr.i = getelementptr inbounds i8, ptr %14, i64 -8
+  %wrapper_data_.i.i.i = getelementptr inbounds i8, ptr %13, i64 4184
   %15 = load ptr, ptr %wrapper_data_.i.i.i, align 8
-  %non_cppgc_id.i.i.i = getelementptr inbounds %"struct.node::PerIsolateWrapperData", ptr %15, i64 0, i32 1
+  %non_cppgc_id.i.i.i = getelementptr inbounds i8, ptr %15, i64 2
   tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, i32 noundef 0, ptr noundef nonnull %non_cppgc_id.i.i.i) #18
   tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, i32 noundef 1, ptr noundef null) #18
   ret void
@@ -686,9 +460,9 @@ do.end8:                                          ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZN4node10BaseObject31MakeLazilyInitializedJSTemplateEPNS_11EnvironmentE(ptr nocapture noundef readonly %env) local_unnamed_addr #3 align 2 {
 entry:
-  %isolate_data_.i = getelementptr inbounds %"class.node::Environment", ptr %env, i64 0, i32 4
+  %isolate_data_.i = getelementptr inbounds i8, ptr %env, i64 96
   %0 = load ptr, ptr %isolate_data_.i, align 8
-  %isolate_.i.i = getelementptr inbounds %"class.node::IsolateData", ptr %0, i64 0, i32 438
+  %isolate_.i.i = getelementptr inbounds i8, ptr %0, i64 4056
   %1 = load ptr, ptr %isolate_.i.i, align 8
   %call3.i = tail call ptr @_ZN4node19NewFunctionTemplateEPN2v87IsolateEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEENS0_5LocalINS0_9SignatureEEENS0_19ConstructorBehaviorENS0_14SideEffectTypeEPKNS0_9CFunctionE(ptr noundef %1, ptr noundef nonnull @_ZN4node10BaseObject38LazilyInitializedJSTemplateConstructorERKN2v820FunctionCallbackInfoINS1_5ValueEEE, ptr null, i32 noundef 1, i32 noundef 0, ptr noundef null) #18
   %call8.i = tail call ptr @_ZN2v816FunctionTemplate16InstanceTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %call3.i) #18
@@ -699,7 +473,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZN4node10BaseObject31MakeLazilyInitializedJSTemplateEPNS_11IsolateDataE(ptr nocapture noundef readonly %isolate_data) local_unnamed_addr #3 align 2 {
 entry:
-  %isolate_.i = getelementptr inbounds %"class.node::IsolateData", ptr %isolate_data, i64 0, i32 438
+  %isolate_.i = getelementptr inbounds i8, ptr %isolate_data, i64 4056
   %0 = load ptr, ptr %isolate_.i, align 8
   %call3 = tail call ptr @_ZN4node19NewFunctionTemplateEPN2v87IsolateEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEENS0_5LocalINS0_9SignatureEEENS0_19ConstructorBehaviorENS0_14SideEffectTypeEPKNS0_9CFunctionE(ptr noundef %0, ptr noundef nonnull @_ZN4node10BaseObject38LazilyInitializedJSTemplateConstructorERKN2v820FunctionCallbackInfoINS1_5ValueEEE, ptr null, i32 noundef 1, i32 noundef 0, ptr noundef null) #18
   %call8 = tail call ptr @_ZN2v816FunctionTemplate16InstanceTemplateEv(ptr noundef nonnull align 1 dereferenceable(1) %call3) #18
@@ -740,7 +514,7 @@ entry:
 define dso_local void @_ZNK4node10BaseObject19NestedTransferablesEv(ptr noalias nocapture writeonly sret(%"class.v8::Maybe") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
 _ZNSt6vectorIN4node17BaseObjectPtrImplINS0_10BaseObjectELb0EEESaIS3_EED2Ev.exit:
   store i8 1, ptr %agg.result, align 8, !alias.scope !6
-  %value_.i.i = getelementptr inbounds %"class.v8::Maybe", ptr %agg.result, i64 0, i32 1
+  %value_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i, i8 0, i64 24, i1 false)
   ret void
 }
@@ -757,7 +531,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %pointer_data_.i = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 3
+  %pointer_data_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %pointer_data_.i, align 8
   %cmp.i4.not = icmp eq ptr %0, null
   br i1 %cmp.i4.not, label %do.body4, label %_ZN4node10BaseObject12pointer_dataEv.exit
@@ -784,7 +558,7 @@ do.end15:                                         ; preds = %_ZN4node10BaseObjec
   br i1 %cmp17, label %if.then18, label %if.end25
 
 if.then18:                                        ; preds = %do.end15
-  %is_detached = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %0, i64 0, i32 3
+  %is_detached = getelementptr inbounds i8, ptr %0, i64 9
   %2 = load i8, ptr %is_detached, align 1
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -792,17 +566,17 @@ if.then18:                                        ; preds = %do.end15
 
 if.then19:                                        ; preds = %if.then18
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 15
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
   br label %if.end25
 
 if.else:                                          ; preds = %if.then18
-  %wants_weak_jsobj = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %0, i64 0, i32 2
+  %wants_weak_jsobj = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i8, ptr %wants_weak_jsobj, align 8
   %6 = and i8 %5, 1
   %tobool20.not = icmp eq i8 %6, 0
-  %persistent_handle_ = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 1
+  %persistent_handle_ = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %persistent_handle_, align 8
   %cmp.i = icmp eq ptr %7, null
   %or.cond = select i1 %tobool20.not, i1 true, i1 %cmp.i
@@ -814,7 +588,7 @@ if.then22:                                        ; preds = %if.else
   br i1 %cmp.i.not.i, label %if.end5.i, label %_ZN4node10BaseObject12pointer_dataEv.exit.i
 
 _ZN4node10BaseObject12pointer_dataEv.exit.i:      ; preds = %if.then22
-  %wants_weak_jsobj.i6 = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %8, i64 0, i32 2
+  %wants_weak_jsobj.i6 = getelementptr inbounds i8, ptr %8, i64 8
   store i8 1, ptr %wants_weak_jsobj.i6, align 8
   %9 = load ptr, ptr %pointer_data_.i, align 8
   %cmp.i3.not.i2.i = icmp eq ptr %9, null
@@ -822,7 +596,7 @@ _ZN4node10BaseObject12pointer_dataEv.exit.i:      ; preds = %if.then22
 
 if.then.i3.i:                                     ; preds = %_ZN4node10BaseObject12pointer_dataEv.exit.i
   %call2.i4.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
-  %self.i.i5.i = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %call2.i4.i, i64 0, i32 4
+  %self.i.i5.i = getelementptr inbounds i8, ptr %call2.i4.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2.i4.i, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %persistent_handle_, align 8
   %cmp.i.i.i7.i = icmp eq ptr %10, null
@@ -838,7 +612,7 @@ if.end.i.i8.i:                                    ; preds = %if.then.i3.i
 
 _ZN4node10BaseObject12pointer_dataEv.exit14.thread.i: ; preds = %if.end.i.i8.i, %if.then.i3.i
   %retval.i.0.i12.i = phi i8 [ %13, %if.end.i.i8.i ], [ 0, %if.then.i3.i ]
-  %wants_weak_jsobj.i13.i = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %call2.i4.i, i64 0, i32 2
+  %wants_weak_jsobj.i13.i = getelementptr inbounds i8, ptr %call2.i4.i, i64 8
   store i8 %retval.i.0.i12.i, ptr %wants_weak_jsobj.i13.i, align 8
   store ptr %this, ptr %self.i.i5.i, align 8
   store ptr %call2.i4.i, ptr %pointer_data_.i, align 8
@@ -865,15 +639,15 @@ if.end25:                                         ; preds = %if.end5.i, %_ZN4nod
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %pointer_data_.i.i = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 3
+  %pointer_data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %pointer_data_.i.i, align 8
   %cmp.i3.not.i = icmp eq ptr %0, null
   br i1 %cmp.i3.not.i, label %if.then.i, label %_ZN4node10BaseObject12pointer_dataEv.exit
 
 if.then.i:                                        ; preds = %entry
   %call2.i1 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
-  %self.i.i = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %call2.i1, i64 0, i32 4
-  %persistent_handle_.i = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 1
+  %self.i.i = getelementptr inbounds i8, ptr %call2.i1, i64 16
+  %persistent_handle_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2.i1, i8 0, i64 16, i1 false)
   %1 = load ptr, ptr %persistent_handle_.i, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
@@ -889,7 +663,7 @@ if.end.i.i:                                       ; preds = %if.then.i
 
 _ZN4node10BaseObject12pointer_dataEv.exit.thread: ; preds = %if.then.i, %if.end.i.i
   %retval.i.0.i = phi i8 [ %4, %if.end.i.i ], [ 0, %if.then.i ]
-  %wants_weak_jsobj.i = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %call2.i1, i64 0, i32 2
+  %wants_weak_jsobj.i = getelementptr inbounds i8, ptr %call2.i1, i64 8
   store i8 %retval.i.0.i, ptr %wants_weak_jsobj.i, align 8
   store ptr %this, ptr %self.i.i, align 8
   store ptr %call2.i1, ptr %pointer_data_.i.i, align 8
@@ -904,7 +678,7 @@ _ZN4node10BaseObject12pointer_dataEv.exit:        ; preds = %entry
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %_ZN4node10BaseObject12pointer_dataEv.exit.thread, %_ZN4node10BaseObject12pointer_dataEv.exit
-  %persistent_handle_ = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 1
+  %persistent_handle_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %persistent_handle_, align 8
   %cmp.i = icmp eq ptr %5, null
   br i1 %cmp.i, label %if.end, label %if.then
@@ -926,13 +700,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZNK4node10BaseObject13WrappedObjectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
-  %realm_.i.i = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 2
+  %realm_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %realm_.i.i, align 8
-  %env_.i.i.i = getelementptr inbounds %"class.node::Realm", ptr %0, i64 0, i32 5
+  %env_.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %1 = load ptr, ptr %env_.i.i.i, align 8
-  %isolate_.i.i = getelementptr inbounds %"class.node::Environment", ptr %1, i64 0, i32 3
+  %isolate_.i.i = getelementptr inbounds i8, ptr %1, i64 88
   %2 = load ptr, ptr %isolate_.i.i, align 8
-  %persistent_handle_.i = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 1
+  %persistent_handle_.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %persistent_handle_.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i.i, label %_ZNK4node10BaseObject6objectEv.exit, label %if.end.i.i.i
@@ -957,7 +731,7 @@ _ZNK4node10BaseObject6objectEv.exit:              ; preds = %entry, %if.end.i.i.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4node10BaseObject10IsRootNodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #13 align 2 {
 entry:
-  %persistent_handle_ = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 1
+  %persistent_handle_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %persistent_handle_, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZNK2v814PersistentBaseINS_6ObjectEE6IsWeakEv.exit, label %if.end.i
@@ -977,7 +751,7 @@ _ZNK2v814PersistentBaseINS_6ObjectEE6IsWeakEv.exit: ; preds = %entry, %if.end.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK4node10BaseObject33IsNotIndicativeOfMemoryLeakAtExitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #13 align 2 {
 entry:
-  %persistent_handle_.i = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 1
+  %persistent_handle_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %persistent_handle_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.end.i, label %if.end.i.i
@@ -990,20 +764,20 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp.i.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.i, %entry
-  %pointer_data_.i.i = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 3
+  %pointer_data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %pointer_data_.i.i, align 8
   %cmp.i2.not.i = icmp eq ptr %3, null
   br i1 %cmp.i2.not.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, label %_ZN4node10BaseObject12pointer_dataEv.exit.i
 
 _ZN4node10BaseObject12pointer_dataEv.exit.i:      ; preds = %if.end.i
-  %wants_weak_jsobj.i = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %3, i64 0, i32 2
+  %wants_weak_jsobj.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr %wants_weak_jsobj.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %lor.rhs.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit
 
 lor.rhs.i:                                        ; preds = %_ZN4node10BaseObject12pointer_dataEv.exit.i
-  %is_detached.i = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %3, i64 0, i32 3
+  %is_detached.i = getelementptr inbounds i8, ptr %3, i64 9
   %6 = load i8, ptr %is_detached.i, align 1
   %7 = and i8 %6, 1
   %tobool6.i = icmp ne i8 %7, 0
@@ -1019,7 +793,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZNK4node10BaseObject15GetDetachednessEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %persistent_handle_.i = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 1
+  %persistent_handle_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %persistent_handle_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %if.end.i, label %if.end.i.i
@@ -1032,20 +806,20 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp.i.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.i, %entry
-  %pointer_data_.i.i = getelementptr inbounds %"class.node::BaseObject", ptr %this, i64 0, i32 3
+  %pointer_data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %pointer_data_.i.i, align 8
   %cmp.i2.not.i = icmp eq ptr %3, null
   br i1 %cmp.i2.not.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3, label %_ZN4node10BaseObject12pointer_dataEv.exit.i
 
 _ZN4node10BaseObject12pointer_dataEv.exit.i:      ; preds = %if.end.i
-  %wants_weak_jsobj.i = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %3, i64 0, i32 2
+  %wants_weak_jsobj.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr %wants_weak_jsobj.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit, label %_ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread
 
 _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit:   ; preds = %_ZN4node10BaseObject12pointer_dataEv.exit.i
-  %is_detached.i = getelementptr inbounds %"struct.node::BaseObject::PointerData", ptr %3, i64 0, i32 3
+  %is_detached.i = getelementptr inbounds i8, ptr %3, i64 9
   %6 = load i8, ptr %is_detached.i, align 1
   %.fr6 = freeze i8 %6
   %7 = and i8 %.fr6, 1
@@ -1064,7 +838,7 @@ _ZNK4node10BaseObject16IsWeakOrDetachedEv.exit.thread3: ; preds = %if.end.i, %_Z
 define linkonce_odr dso_local void @_ZN4node10BaseObject11OnGCCollectEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(32) %this) #18
   ret void
@@ -1090,13 +864,13 @@ entry:
   store ptr %1, ptr %arg_.i.i.i.i.i, align 8
   %insertion_order_counter_.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 24
   store i64 %2, ptr %insertion_order_counter_.i.i.i.i.i, align 8
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %3, 0
   br i1 %cmp.not.not, label %if.then, label %if.end21
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %if.then
@@ -1112,7 +886,7 @@ for.body:                                         ; preds = %for.cond
 
 if.end21:                                         ; preds = %for.cond, %entry
   %call2.i = tail call noundef i64 @_ZNK4node12CleanupQueue19CleanupHookCallback4HashclERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i) #18
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %call2.i, %4
   %5 = load i64, ptr %_M_element_count.i, align 8
@@ -1163,7 +937,7 @@ _ZNKSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__det
   br i1 %tobool.not, label %if.end33, label %if.then.i22
 
 if.end33:                                         ; preds = %if.end3.i.i, %lor.lhs.false.i.i, %if.then27, %_ZNKSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit, %if.end21
-  %_M_rehash_policy.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4
+  %_M_rehash_policy.i = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load i64, ptr %_M_bucket_count.i, align 8
   %15 = load i64, ptr %_M_element_count.i, align 8
   %call3.i = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i, i64 noundef %14, i64 noundef %15, i64 noundef 1) #18
@@ -1197,7 +971,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %cleanup
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %_M_before_begin.i.i15 = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i15 = getelementptr inbounds i8, ptr %this, i64 16
   %24 = load ptr, ptr %_M_before_begin.i.i15, align 8
   store ptr %24, ptr %call5.i.i.i.i, align 8
   store ptr %call5.i.i.i.i, ptr %_M_before_begin.i.i15, align 8
@@ -1258,7 +1032,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -1286,7 +1060,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN4node12CleanupQueue19Cleanu
 
 _ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN4node12CleanupQueue19CleanupHookCallbackELb1EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIN4node12CleanupQueue19CleanupHookCallbackELb1EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -1336,7 +1110,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %8 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %8
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -1345,7 +1119,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -1354,13 +1128,13 @@ _ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__deta
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_before_begin.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %return, label %for.body.i.preheader
@@ -1384,7 +1158,7 @@ if.end4.i:                                        ; preds = %for.body.i.preheade
 if.end:                                           ; preds = %for.body.i, %for.body.i.preheader
   %__prev_p.06.i.lcssa = phi ptr [ %_M_before_begin.i, %for.body.i.preheader ], [ %__p.07.i32, %for.body.i ]
   %3 = load ptr, ptr %__prev_p.06.i.lcssa, align 8
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %_M_bucket_count.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load i64, ptr %add.ptr.i.i, align 8
@@ -1393,7 +1167,7 @@ if.end:                                           ; preds = %for.body.i, %for.bo
 
 if.else:                                          ; preds = %entry
   %call2.i = tail call noundef i64 @_ZNK4node12CleanupQueue19CleanupHookCallback4HashclERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(24) %__k) #18
-  %_M_bucket_count.i10 = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i10 = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_bucket_count.i10, align 8
   %rem.i.i.i11 = urem i64 %call2.i, %6
   %7 = load ptr, ptr %this, align 8
@@ -1453,7 +1227,7 @@ if.then.i:                                        ; preds = %if.end13
   br i1 %tobool.not.i17, label %if.end.i.i, label %cond.end.i
 
 cond.end.i:                                       ; preds = %if.then.i
-  %_M_bucket_count.i.i19 = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load i64, ptr %_M_bucket_count.i.i19, align 8
   %add.ptr.i.i.i20 = getelementptr inbounds i8, ptr %17, i64 32
   %19 = load i64, ptr %add.ptr.i.i.i20, align 8
@@ -1472,7 +1246,7 @@ if.then3.i.i:                                     ; preds = %cond.end.i
 if.end.i.i:                                       ; preds = %if.then3.i.i, %if.then.i
   %20 = phi ptr [ %__prev_n.0, %if.then.i ], [ %.pre24.i, %if.then3.i.i ]
   %21 = phi ptr [ %15, %if.then.i ], [ %.pre.i22, %if.then3.i.i ]
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx7.i.i = getelementptr inbounds ptr, ptr %21, i64 %__bkt.0
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %20
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
@@ -1489,7 +1263,7 @@ if.else.i:                                        ; preds = %if.end13
   br i1 %tobool.not.i17, label %_ZNSt10_HashtableIN4node12CleanupQueue19CleanupHookCallbackES2_SaIS2_ENSt8__detail9_IdentityENS2_5EqualENS2_4HashENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE8_M_eraseEmPNS4_15_Hash_node_baseEPNS4_10_Hash_nodeIS2_Lb1EEE.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
-  %_M_bucket_count.i13.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i13.i = getelementptr inbounds i8, ptr %this, i64 8
   %22 = load i64, ptr %_M_bucket_count.i13.i, align 8
   %add.ptr.i.i14.i = getelementptr inbounds i8, ptr %17, i64 32
   %23 = load i64, ptr %add.ptr.i.i14.i, align 8
@@ -1523,7 +1297,7 @@ define internal void @"_ZZN4node10BaseObject8MakeWeakEvEN3$_08__invokeERKN2v816W
 entry:
   %0 = getelementptr inbounds i8, ptr %data, i64 8
   %data.val = load ptr, ptr %0, align 8
-  %persistent_handle_.i = getelementptr inbounds %"class.node::BaseObject", ptr %data.val, i64 0, i32 1
+  %persistent_handle_.i = getelementptr inbounds i8, ptr %data.val, i64 8
   %1 = load ptr, ptr %persistent_handle_.i, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.i.i.i, label %do.body.i, label %if.end.i.i
@@ -1534,7 +1308,7 @@ if.end.i.i:                                       ; preds = %entry
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i.i, %entry
-  %pointer_data_.i.i = getelementptr inbounds %"class.node::BaseObject", ptr %data.val, i64 0, i32 3
+  %pointer_data_.i.i = getelementptr inbounds i8, ptr %data.val, i64 24
   %2 = load ptr, ptr %pointer_data_.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %2, null
   br i1 %cmp.i.not.i, label %"_ZZN4node10BaseObject8MakeWeakEvENK3$_0clERKN2v816WeakCallbackInfoIS0_EE.exit", label %_ZN4node10BaseObject12pointer_dataEv.exit.i
@@ -1551,7 +1325,7 @@ do.body6.i:                                       ; preds = %_ZN4node10BaseObjec
 
 "_ZZN4node10BaseObject8MakeWeakEvENK3$_0clERKN2v816WeakCallbackInfoIS0_EE.exit": ; preds = %do.body.i, %_ZN4node10BaseObject12pointer_dataEv.exit.i
   %vtable.i = load ptr, ptr %data.val, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 15
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 120
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(32) %data.val) #18
   ret void

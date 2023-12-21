@@ -7,15 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.pbrt::PBRTOptions" = type { %"struct.pbrt::BasicPBRTOptions", i32, i32, %"class.std::__cxx11::basic_string", i8, i8, i8, i8, %"class.pstd::optional", %"class.pstd::optional", i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.pstd::optional.2", %"class.pstd::optional.5", %"class.pstd::optional.7", float }
-%"struct.pbrt::BasicPBRTOptions" = type { i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32 }
-%"class.pstd::optional" = type { %"union.std::aligned_storage<4, 4>::type", i8, [3 x i8] }
-%"union.std::aligned_storage<4, 4>::type" = type { [4 x i8] }
-%"class.pstd::optional.2" = type { %"union.std::aligned_storage<16, 4>::type", i8, [3 x i8] }
-%"union.std::aligned_storage<16, 4>::type" = type { [16 x i8] }
-%"class.pstd::optional.5" = type { %"union.std::aligned_storage<16, 4>::type", i8, [3 x i8] }
-%"class.pstd::optional.7" = type { %"union.std::aligned_storage<8, 4>::type", i8, [3 x i8] }
-%"union.std::aligned_storage<8, 4>::type" = type { [8 x i8] }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
@@ -71,7 +62,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store ptr %call, ptr @_ZN4pbrt7OptionsE, align 8
-  %nThreads = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %opt, i64 0, i32 1
+  %nThreads = getelementptr inbounds i8, ptr %opt, i64 20
   %0 = load i32, ptr %nThreads, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %cond.false, label %cond.end
@@ -84,7 +75,7 @@ cond.end:                                         ; preds = %invoke.cont, %cond.
   %cond = phi i32 [ %call2, %cond.false ], [ %0, %invoke.cont ]
   tail call void @_ZN7Imf_2_520setGlobalThreadCountEi(i32 noundef %cond)
   %1 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %quiet = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %1, i64 0, i32 1
+  %quiet = getelementptr inbounds i8, ptr %1, i64 4
   %2 = load i8, ptr %quiet, align 4
   %3 = and i8 %2, 1
   %tobool3.not = icmp eq i8 %3, 0
@@ -101,16 +92,16 @@ lpad:                                             ; preds = %entry
   br label %eh.resume
 
 if.end:                                           ; preds = %if.then, %cond.end
-  %logLevel = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %opt, i64 0, i32 2
+  %logLevel = getelementptr inbounds i8, ptr %opt, i64 24
   %5 = load i32, ptr %logLevel, align 8
-  %logFile = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %opt, i64 0, i32 3
+  %logFile = getelementptr inbounds i8, ptr %opt, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %logFile)
-  %logUtilization = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %opt, i64 0, i32 4
+  %logUtilization = getelementptr inbounds i8, ptr %opt, i64 64
   %6 = load i8, ptr %logUtilization, align 8
   %7 = and i8 %6, 1
   %tobool4 = icmp ne i8 %7, 0
   %8 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %useGPU = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %8, i64 0, i32 7
+  %useGPU = getelementptr inbounds i8, ptr %8, i64 10
   %9 = load i8, ptr %useGPU, align 2
   %10 = and i8 %9, 1
   %tobool5 = icmp ne i8 %10, 0
@@ -120,7 +111,7 @@ if.end:                                           ; preds = %if.then, %cond.end
 invoke.cont7:                                     ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #13
   %11 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %nThreads9 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %11, i64 0, i32 1
+  %nThreads9 = getelementptr inbounds i8, ptr %11, i64 20
   %12 = load i32, ptr %nThreads9, align 4
   %cmp.not = icmp eq i32 %12, 0
   br i1 %cmp.not, label %cond.false12, label %cond.end14
@@ -133,7 +124,7 @@ cond.end14:                                       ; preds = %invoke.cont7, %cond
   %cond15 = phi i32 [ %call13, %cond.false12 ], [ %12, %invoke.cont7 ]
   call void @_ZN4pbrt12ParallelInitEi(i32 noundef %cond15)
   %13 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %useGPU16 = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %13, i64 0, i32 7
+  %useGPU16 = getelementptr inbounds i8, ptr %13, i64 10
   %14 = load i8, ptr %useGPU16, align 2
   %15 = and i8 %14, 1
   %tobool17.not = icmp eq i8 %15, 0
@@ -164,7 +155,7 @@ if.else:                                          ; preds = %cond.end14
   call void @_ZN4pbrt13BilinearPatch4InitEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr %call.i12)
   call void @_ZN4pbrt16InitBufferCachesEv()
   %17 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %interactive = getelementptr inbounds %"struct.pbrt::BasicPBRTOptions", ptr %17, i64 0, i32 9
+  %interactive = getelementptr inbounds i8, ptr %17, i64 12
   %18 = load i8, ptr %interactive, align 4
   %19 = and i8 %18, 1
   %tobool31.not = icmp eq i8 %19, 0
@@ -177,13 +168,13 @@ if.then32:                                        ; preds = %if.else
 
 if.end33:                                         ; preds = %if.then32, %if.else
   %20 = phi ptr [ %.pre, %if.then32 ], [ %17, %if.else ]
-  %displayServer = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %20, i64 0, i32 16
+  %displayServer = getelementptr inbounds i8, ptr %20, i64 216
   %call34 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %displayServer) #13
   br i1 %call34, label %if.end37, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
   %21 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %displayServer36 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %21, i64 0, i32 16
+  %displayServer36 = getelementptr inbounds i8, ptr %21, i64 216
   call void @_ZN4pbrt22ConnectToDisplayServerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %displayServer36)
   br label %if.end37
 
@@ -202,19 +193,19 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 define linkonce_odr dso_local void @_ZN4pbrt11PBRTOptionsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(20) %0, i64 20, i1 false)
-  %nThreads = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 1
-  %nThreads2 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 1
+  %nThreads = getelementptr inbounds i8, ptr %this, i64 20
+  %nThreads2 = getelementptr inbounds i8, ptr %0, i64 20
   %1 = load i64, ptr %nThreads2, align 4
   store i64 %1, ptr %nThreads, align 4
-  %logFile = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 3
-  %logFile3 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 3
+  %logFile = getelementptr inbounds i8, ptr %this, i64 32
+  %logFile3 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %logFile, ptr noundef nonnull align 8 dereferenceable(32) %logFile3)
-  %logUtilization = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 4
-  %logUtilization4 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 4
+  %logUtilization = getelementptr inbounds i8, ptr %this, i64 64
+  %logUtilization4 = getelementptr inbounds i8, ptr %0, i64 64
   %2 = load i32, ptr %logUtilization4, align 8
   store i32 %2, ptr %logUtilization, align 8
-  %set.i = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 8, i32 1
-  %set.i.i = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 8, i32 1
+  %set.i = getelementptr inbounds i8, ptr %this, i64 72
+  %set.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i8, ptr %set.i.i, align 8
   %4 = and i8 %3, 1
   store i8 %4, ptr %set.i, align 8
@@ -224,15 +215,15 @@ entry:
   br i1 %tobool.i4.not.i, label %invoke.cont, label %_ZNK4pstd8optionalIiE5valueEv.exit.i
 
 _ZNK4pstd8optionalIiE5valueEv.exit.i:             ; preds = %entry
-  %pixelSamples5 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 8
-  %pixelSamples = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 8
+  %pixelSamples5 = getelementptr inbounds i8, ptr %0, i64 68
+  %pixelSamples = getelementptr inbounds i8, ptr %this, i64 68
   %7 = load i32, ptr %pixelSamples5, align 4
   store i32 %7, ptr %pixelSamples, align 4
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZNK4pstd8optionalIiE5valueEv.exit.i, %entry
-  %set.i25 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 9, i32 1
-  %set.i.i26 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 9, i32 1
+  %set.i25 = getelementptr inbounds i8, ptr %this, i64 80
+  %set.i.i26 = getelementptr inbounds i8, ptr %0, i64 80
   %8 = load i8, ptr %set.i.i26, align 8
   %9 = and i8 %8, 1
   store i8 %9, ptr %set.i25, align 8
@@ -242,49 +233,49 @@ invoke.cont:                                      ; preds = %_ZNK4pstd8optionalI
   br i1 %tobool.i4.not.i27, label %invoke.cont8, label %_ZNK4pstd8optionalIiE5valueEv.exit.i28
 
 _ZNK4pstd8optionalIiE5valueEv.exit.i28:           ; preds = %invoke.cont
-  %gpuDevice6 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 9
-  %gpuDevice = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 9
+  %gpuDevice6 = getelementptr inbounds i8, ptr %0, i64 76
+  %gpuDevice = getelementptr inbounds i8, ptr %this, i64 76
   %12 = load i32, ptr %gpuDevice6, align 4
   store i32 %12, ptr %gpuDevice, align 4
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %_ZNK4pstd8optionalIiE5valueEv.exit.i28, %invoke.cont
-  %quickRender = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 10
-  %quickRender9 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 10
+  %quickRender = getelementptr inbounds i8, ptr %this, i64 84
+  %quickRender9 = getelementptr inbounds i8, ptr %0, i64 84
   %13 = load i16, ptr %quickRender9, align 4
   store i16 %13, ptr %quickRender, align 4
-  %imageFile = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 12
-  %imageFile10 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 12
+  %imageFile = getelementptr inbounds i8, ptr %this, i64 88
+  %imageFile10 = getelementptr inbounds i8, ptr %0, i64 88
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %imageFile, ptr noundef nonnull align 8 dereferenceable(32) %imageFile10)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont8
-  %mseReferenceImage = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 13
-  %mseReferenceImage13 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 13
+  %mseReferenceImage = getelementptr inbounds i8, ptr %this, i64 120
+  %mseReferenceImage13 = getelementptr inbounds i8, ptr %0, i64 120
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mseReferenceImage, ptr noundef nonnull align 8 dereferenceable(32) %mseReferenceImage13)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont12
-  %mseReferenceOutput = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 14
-  %mseReferenceOutput16 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 14
+  %mseReferenceOutput = getelementptr inbounds i8, ptr %this, i64 152
+  %mseReferenceOutput16 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mseReferenceOutput, ptr noundef nonnull align 8 dereferenceable(32) %mseReferenceOutput16)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont15
-  %debugStart = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 15
-  %debugStart19 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 15
+  %debugStart = getelementptr inbounds i8, ptr %this, i64 184
+  %debugStart19 = getelementptr inbounds i8, ptr %0, i64 184
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %debugStart, ptr noundef nonnull align 8 dereferenceable(32) %debugStart19)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont18
-  %displayServer = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 16
-  %displayServer22 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 16
+  %displayServer = getelementptr inbounds i8, ptr %this, i64 216
+  %displayServer22 = getelementptr inbounds i8, ptr %0, i64 216
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %displayServer, ptr noundef nonnull align 8 dereferenceable(32) %displayServer22)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont21
-  %set.i30 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 17, i32 1
-  %set.i.i31 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 17, i32 1
+  %set.i30 = getelementptr inbounds i8, ptr %this, i64 264
+  %set.i.i31 = getelementptr inbounds i8, ptr %0, i64 264
   %14 = load i8, ptr %set.i.i31, align 8
   %15 = and i8 %14, 1
   store i8 %15, ptr %set.i30, align 8
@@ -294,14 +285,14 @@ invoke.cont24:                                    ; preds = %invoke.cont21
   br i1 %tobool.i4.not.i32, label %invoke.cont27, label %_ZNK4pstd8optionalIN4pbrt7Bounds2IfEEE5valueEv.exit.i
 
 _ZNK4pstd8optionalIN4pbrt7Bounds2IfEEE5valueEv.exit.i: ; preds = %invoke.cont24
-  %cropWindow25 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 17
-  %cropWindow = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 17
+  %cropWindow25 = getelementptr inbounds i8, ptr %0, i64 248
+  %cropWindow = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cropWindow, ptr noundef nonnull align 8 dereferenceable(16) %cropWindow25, i64 16, i1 false)
   br label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %_ZNK4pstd8optionalIN4pbrt7Bounds2IfEEE5valueEv.exit.i, %invoke.cont24
-  %set.i33 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 18, i32 1
-  %set.i.i34 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 18, i32 1
+  %set.i33 = getelementptr inbounds i8, ptr %this, i64 284
+  %set.i.i34 = getelementptr inbounds i8, ptr %0, i64 284
   %18 = load i8, ptr %set.i.i34, align 4
   %19 = and i8 %18, 1
   store i8 %19, ptr %set.i33, align 4
@@ -311,14 +302,14 @@ invoke.cont27:                                    ; preds = %_ZNK4pstd8optionalI
   br i1 %tobool.i4.not.i35, label %invoke.cont30, label %_ZNK4pstd8optionalIN4pbrt7Bounds2IiEEE5valueEv.exit.i
 
 _ZNK4pstd8optionalIN4pbrt7Bounds2IiEEE5valueEv.exit.i: ; preds = %invoke.cont27
-  %pixelBounds28 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 18
-  %pixelBounds = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 18
+  %pixelBounds28 = getelementptr inbounds i8, ptr %0, i64 268
+  %pixelBounds = getelementptr inbounds i8, ptr %this, i64 268
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %pixelBounds, ptr noundef nonnull align 4 dereferenceable(16) %pixelBounds28, i64 16, i1 false)
   br label %invoke.cont30
 
 invoke.cont30:                                    ; preds = %_ZNK4pstd8optionalIN4pbrt7Bounds2IiEEE5valueEv.exit.i, %invoke.cont27
-  %set.i36 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 19, i32 1
-  %set.i.i37 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 19, i32 1
+  %set.i36 = getelementptr inbounds i8, ptr %this, i64 296
+  %set.i.i37 = getelementptr inbounds i8, ptr %0, i64 296
   %22 = load i8, ptr %set.i.i37, align 8
   %23 = and i8 %22, 1
   store i8 %23, ptr %set.i36, align 8
@@ -328,15 +319,15 @@ invoke.cont30:                                    ; preds = %_ZNK4pstd8optionalI
   br i1 %tobool.i4.not.i38, label %invoke.cont33, label %_ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit.i
 
 _ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit.i: ; preds = %invoke.cont30
-  %pixelMaterial31 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 19
-  %pixelMaterial = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 19
+  %pixelMaterial31 = getelementptr inbounds i8, ptr %0, i64 288
+  %pixelMaterial = getelementptr inbounds i8, ptr %this, i64 288
   %26 = load i64, ptr %pixelMaterial31, align 8
   store i64 %26, ptr %pixelMaterial, align 8
   br label %invoke.cont33
 
 invoke.cont33:                                    ; preds = %_ZNK4pstd8optionalIN4pbrt6Point2IiEEE5valueEv.exit.i, %invoke.cont30
-  %displacementEdgeScale = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %this, i64 0, i32 20
-  %displacementEdgeScale34 = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %0, i64 0, i32 20
+  %displacementEdgeScale = getelementptr inbounds i8, ptr %this, i64 300
+  %displacementEdgeScale34 = getelementptr inbounds i8, ptr %0, i64 300
   %27 = load float, ptr %displacementEdgeScale34, align 4
   store float %27, ptr %displacementEdgeScale, align 4
   ret void
@@ -456,8 +447,8 @@ declare void @_ZN4pbrt22ConnectToDisplayServerERKNSt7__cxx1112basic_stringIcSt11
 define dso_local void @_ZN4pbrt11CleanupPBRTEv() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %0 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %0, align 8
   store ptr @_ZN4pbrt17ReportThreadStatsEv, ptr %agg.tmp, align 8
@@ -484,7 +475,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %invoke.cont, %if.then.i.i
   %4 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %recordPixelStatistics = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %4, i64 0, i32 6
+  %recordPixelStatistics = getelementptr inbounds i8, ptr %4, i64 66
   %5 = load i8, ptr %recordPixelStatistics, align 2
   %6 = and i8 %5, 1
   %tobool.not = icmp eq i8 %6, 0
@@ -518,7 +509,7 @@ _ZNSt8functionIFvvEED2Ev.exit7:                   ; preds = %lpad, %if.then.i.i4
 
 if.end:                                           ; preds = %if.then, %_ZNSt8functionIFvvEED2Ev.exit
   %11 = phi ptr [ %.pre, %if.then ], [ %4, %_ZNSt8functionIFvvEED2Ev.exit ]
-  %printStatistics = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %11, i64 0, i32 7
+  %printStatistics = getelementptr inbounds i8, ptr %11, i64 67
   %12 = load i8, ptr %printStatistics, align 1
   %13 = and i8 %12, 1
   %tobool1.not = icmp eq i8 %13, 0
@@ -541,7 +532,7 @@ if.then4:                                         ; preds = %if.end3
 
 if.end5:                                          ; preds = %if.end3
   %16 = load ptr, ptr @_ZN4pbrt7OptionsE, align 8
-  %displayServer = getelementptr inbounds %"struct.pbrt::PBRTOptions", ptr %16, i64 0, i32 16
+  %displayServer = getelementptr inbounds i8, ptr %16, i64 216
   %call6 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %displayServer) #13
   br i1 %call6, label %if.end8, label %if.then7
 

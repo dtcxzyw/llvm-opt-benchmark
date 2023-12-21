@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.test_fixture = type { ptr, i32, ptr, ptr }
-%struct.ossl_cmp_msg_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_cmp_pkibody_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.ossl_cmp_errormsgcontent_st = type { ptr, ptr, ptr }
 
 @request = internal unnamed_addr global ptr null, align 8
 @default_null_provider = internal global ptr null, align 8
@@ -167,7 +162,7 @@ if.end.i:                                         ; preds = %entry
   store ptr @.str.20, ptr %call.i, align 8
   %0 = load ptr, ptr @libctx, align 8
   %call3.i = tail call ptr @OSSL_CMP_SRV_CTX_new(ptr noundef %0, ptr noundef null) #4
-  %srv_ctx.i = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 2
+  %srv_ctx.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call3.i, ptr %srv_ctx.i, align 8
   %call4.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 38, ptr noundef nonnull @.str.22, ptr noundef %call3.i) #4
   %tobool5.not.i = icmp eq i32 %call4.i, 0
@@ -175,9 +170,9 @@ if.end.i:                                         ; preds = %entry
 
 if.end:                                           ; preds = %if.end.i
   %1 = load ptr, ptr @request, align 8
-  %req = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 3
+  %req = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %1, ptr %req, align 8
-  %expected = getelementptr inbounds %struct.test_fixture, ptr %call.i, i64 0, i32 1
+  %expected = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 1, ptr %expected, align 8
   %2 = load ptr, ptr %srv_ctx.i, align 8
   %3 = load ptr, ptr @libctx, align 8
@@ -276,16 +271,16 @@ lor.lhs.false59.i:                                ; preds = %if.end55.i
   br i1 %tobool62.not.i, label %execute_test_handle_request.exit, label %lor.lhs.false63.i
 
 lor.lhs.false63.i:                                ; preds = %lor.lhs.false59.i
-  %body.i = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %call56.i, i64 0, i32 1
+  %body.i = getelementptr inbounds i8, ptr %call56.i, i64 8
   %5 = load ptr, ptr %body.i, align 8
-  %value.i = getelementptr inbounds %struct.ossl_cmp_pkibody_st, ptr %5, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %value.i, align 8
   %call64.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 99, ptr noundef nonnull @.str.40, ptr noundef %6) #4
   %tobool65.not.i = icmp eq i32 %call64.i, 0
   br i1 %tobool65.not.i, label %execute_test_handle_request.exit, label %lor.lhs.false66.i
 
 lor.lhs.false66.i:                                ; preds = %lor.lhs.false63.i
-  %errorCode.i = getelementptr inbounds %struct.ossl_cmp_errormsgcontent_st, ptr %6, i64 0, i32 1
+  %errorCode.i = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %errorCode.i, align 8
   %call67.i = tail call i64 @ASN1_INTEGER_get(ptr noundef %7) #4
   %conv68.i = trunc i64 %call67.i to i32

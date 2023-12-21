@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/ucmstate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UCMStates = type { [128 x [256 x i32]], [128 x i32], [128 x i32], i32, i32, i32, i32, i8, i8 }
-%struct.UCMFile = type { ptr, ptr, %struct.UCMStates, [60 x i8] }
 %struct._MBCSToUFallback = type { i32, i32 }
 
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -74,7 +72,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @ucm_addState(ptr nocapture noundef %states, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %t.i = alloca ptr, align 8
-  %countStates = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 3
+  %countStates = getelementptr inbounds i8, ptr %states, i64 132096
   %0 = load i32, ptr %countStates, align 4
   %cmp = icmp eq i32 %0, 128
   br i1 %cmp, label %if.then, label %if.end
@@ -88,6 +86,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [128 x [256 x i32]], ptr %states, i64 0, i64 %idxprom
+  %stateFlags = getelementptr inbounds i8, ptr %states, i64 131072
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t.i)
   br label %for.body.i
 
@@ -100,7 +99,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !4
 
 for.end.i:                                        ; preds = %for.body.i
-  %arrayidx4 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 1, i64 %idxprom
+  %arrayidx4 = getelementptr inbounds [128 x i32], ptr %stateFlags, i64 0, i64 %idxprom
   %call.i = tail call ptr @u_skipWhitespace(ptr noundef %s)
   %call2.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.52, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 7) #18
   %cmp3.i = icmp eq i32 %call2.i, 0
@@ -352,7 +351,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define signext i8 @ucm_parseHeaderLine(ptr noundef %ucm, ptr noundef %line, ptr nocapture noundef %pKey, ptr nocapture noundef %pValue) local_unnamed_addr #0 {
 entry:
-  %states1 = getelementptr inbounds %struct.UCMFile, ptr %ucm, i64 0, i32 2
+  %states1 = getelementptr inbounds i8, ptr %ucm, i64 16
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -473,7 +472,7 @@ if.then57:                                        ; preds = %if.end54
   br i1 %cmp59, label %if.then60, label %if.else61
 
 if.then60:                                        ; preds = %if.then57
-  %conversionType = getelementptr inbounds %struct.UCMFile, ptr %ucm, i64 0, i32 2, i32 7
+  %conversionType = getelementptr inbounds i8, ptr %ucm, i64 132128
   store i8 1, ptr %conversionType, align 4
   br label %return
 
@@ -483,7 +482,7 @@ if.else61:                                        ; preds = %if.then57
   br i1 %cmp63, label %if.then64, label %if.else66
 
 if.then64:                                        ; preds = %if.else61
-  %conversionType65 = getelementptr inbounds %struct.UCMFile, ptr %ucm, i64 0, i32 2, i32 7
+  %conversionType65 = getelementptr inbounds i8, ptr %ucm, i64 132128
   store i8 0, ptr %conversionType65, align 4
   br label %return
 
@@ -493,7 +492,7 @@ if.else66:                                        ; preds = %if.else61
   br i1 %cmp68, label %if.then69, label %if.else71
 
 if.then69:                                        ; preds = %if.else66
-  %conversionType70 = getelementptr inbounds %struct.UCMFile, ptr %ucm, i64 0, i32 2, i32 7
+  %conversionType70 = getelementptr inbounds i8, ptr %ucm, i64 132128
   store i8 2, ptr %conversionType70, align 4
   br label %return
 
@@ -503,7 +502,7 @@ if.else71:                                        ; preds = %if.else66
   br i1 %cmp73, label %if.then74, label %if.else76
 
 if.then74:                                        ; preds = %if.else71
-  %conversionType75 = getelementptr inbounds %struct.UCMFile, ptr %ucm, i64 0, i32 2, i32 7
+  %conversionType75 = getelementptr inbounds i8, ptr %ucm, i64 132128
   store i8 9, ptr %conversionType75, align 4
   br label %return
 
@@ -534,9 +533,9 @@ land.lhs.true91:                                  ; preds = %if.then85
 if.then94:                                        ; preds = %land.lhs.true91
   %narrow69 = add nsw i8 %12, -48
   %conv97 = zext nneg i8 %narrow69 to i32
-  %maxCharLength = getelementptr inbounds %struct.UCMFile, ptr %ucm, i64 0, i32 2, i32 5
+  %maxCharLength = getelementptr inbounds i8, ptr %ucm, i64 132120
   store i32 %conv97, ptr %maxCharLength, align 4
-  %outputType = getelementptr inbounds %struct.UCMFile, ptr %ucm, i64 0, i32 2, i32 8
+  %outputType = getelementptr inbounds i8, ptr %ucm, i64 132129
   store i8 %13, ptr %outputType, align 1
   br label %return
 
@@ -567,7 +566,7 @@ land.lhs.true113:                                 ; preds = %if.then107
 if.then117:                                       ; preds = %land.lhs.true113
   %narrow = add nsw i8 %17, -48
   %conv121 = zext nneg i8 %narrow to i32
-  %minCharLength = getelementptr inbounds %struct.UCMFile, ptr %ucm, i64 0, i32 2, i32 4
+  %minCharLength = getelementptr inbounds i8, ptr %ucm, i64 132116
   store i32 %conv121, ptr %minCharLength, align 4
   br label %return
 
@@ -583,7 +582,7 @@ if.else125:                                       ; preds = %if.else104
   br i1 %cmp127, label %if.then128, label %if.else139
 
 if.then128:                                       ; preds = %if.else125
-  %conversionType129 = getelementptr inbounds %struct.UCMFile, ptr %ucm, i64 0, i32 2, i32 7
+  %conversionType129 = getelementptr inbounds i8, ptr %ucm, i64 132128
   %21 = load i8, ptr %conversionType129, align 4
   %conv130 = sext i8 %21 to i32
   switch i32 %conv130, label %sw.default [
@@ -604,7 +603,7 @@ sw.default:                                       ; preds = %if.then128
   unreachable
 
 sw.epilog:                                        ; preds = %if.then128, %sw.bb
-  %maxCharLength134 = getelementptr inbounds %struct.UCMFile, ptr %ucm, i64 0, i32 2, i32 5
+  %maxCharLength134 = getelementptr inbounds i8, ptr %ucm, i64 132120
   %24 = load i32, ptr %maxCharLength134, align 4
   %cmp135 = icmp eq i32 %24, 0
   br i1 %cmp135, label %if.then136, label %if.end138
@@ -638,7 +637,7 @@ if.then145:                                       ; preds = %if.then142
   unreachable
 
 if.end147:                                        ; preds = %if.then142
-  %baseName = getelementptr inbounds %struct.UCMFile, ptr %ucm, i64 0, i32 3
+  %baseName = getelementptr inbounds i8, ptr %ucm, i64 132132
   %call148 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %baseName, ptr noundef nonnull dereferenceable(1) %28) #19
   br label %return
 
@@ -658,7 +657,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 ; Function Attrs: mustprogress uwtable
 define void @ucm_processStates(ptr nocapture noundef %states, i8 noundef signext %ignoreSISOCheck) local_unnamed_addr #0 {
 entry:
-  %conversionType = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 7
+  %conversionType = getelementptr inbounds i8, ptr %states, i64 132112
   %0 = load i8, ptr %conversionType, align 4
   %conv = sext i8 %0 to i32
   %cmp = icmp eq i8 %0, -1
@@ -671,7 +670,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %countStates = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 3
+  %countStates = getelementptr inbounds i8, ptr %states, i64 132096
   %3 = load i32, ptr %countStates, align 4
   %cmp2 = icmp eq i32 %3, 0
   br i1 %cmp2, label %if.then3, label %if.end32
@@ -685,7 +684,7 @@ if.then3:                                         ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.then3
-  %maxCharLength = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 5
+  %maxCharLength = getelementptr inbounds i8, ptr %states, i64 132104
   %4 = load i32, ptr %maxCharLength, align 4
   %cmp6.not = icmp eq i32 %4, 1
   br i1 %cmp6.not, label %if.end9, label %if.then7
@@ -707,13 +706,13 @@ sw.bb11:                                          ; preds = %if.then3
   unreachable
 
 sw.bb13:                                          ; preds = %if.then3
-  %minCharLength = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 4
+  %minCharLength = getelementptr inbounds i8, ptr %states, i64 132100
   %9 = load i32, ptr %minCharLength, align 4
   %cmp14.not = icmp eq i32 %9, 1
   br i1 %cmp14.not, label %lor.lhs.false, label %if.then17
 
 lor.lhs.false:                                    ; preds = %sw.bb13
-  %maxCharLength15 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 5
+  %maxCharLength15 = getelementptr inbounds i8, ptr %states, i64 132104
   %10 = load i32, ptr %maxCharLength15, align 4
   %cmp16.not = icmp eq i32 %10, 2
   br i1 %cmp16.not, label %if.end19, label %if.then17
@@ -733,13 +732,13 @@ if.end19:                                         ; preds = %lor.lhs.false
   br label %if.end32.sink.split
 
 sw.bb21:                                          ; preds = %if.then3
-  %minCharLength22 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 4
+  %minCharLength22 = getelementptr inbounds i8, ptr %states, i64 132100
   %13 = load i32, ptr %minCharLength22, align 4
   %cmp23.not = icmp eq i32 %13, 2
   br i1 %cmp23.not, label %lor.lhs.false24, label %if.then27
 
 lor.lhs.false24:                                  ; preds = %sw.bb21
-  %maxCharLength25 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 5
+  %maxCharLength25 = getelementptr inbounds i8, ptr %states, i64 132104
   %14 = load i32, ptr %maxCharLength25, align 4
   %cmp26.not = icmp eq i32 %14, 2
   br i1 %cmp26.not, label %if.end29, label %if.then27
@@ -769,9 +768,9 @@ if.end32.sink.split:                              ; preds = %if.end29, %if.end19
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end32.sink.split, %if.end
-  %maxCharLength33 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 5
+  %maxCharLength33 = getelementptr inbounds i8, ptr %states, i64 132104
   %19 = load i32, ptr %maxCharLength33, align 4
-  %minCharLength34 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 4
+  %minCharLength34 = getelementptr inbounds i8, ptr %states, i64 132100
   %20 = load i32, ptr %minCharLength34, align 4
   %cmp35 = icmp slt i32 %19, %20
   br i1 %cmp35, label %if.then36, label %for.cond.preheader
@@ -779,9 +778,10 @@ if.end32:                                         ; preds = %if.end32.sink.split
 for.cond.preheader:                               ; preds = %if.end32
   %21 = load i32, ptr %countStates, align 4
   %cmp4092 = icmp sgt i32 %21, 0
-  br i1 %cmp4092, label %for.body.preheader, label %for.end
+  br i1 %cmp4092, label %for.body.lr.ph, label %for.end
 
-for.body.preheader:                               ; preds = %for.cond.preheader
+for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %stateFlags = getelementptr inbounds i8, ptr %states, i64 131072
   %wide.trip.count = zext nneg i32 %21 to i64
   br label %for.body
 
@@ -791,10 +791,10 @@ if.then36:                                        ; preds = %if.end32
   tail call void @exit(i32 noundef 13) #17
   unreachable
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %count.094 = phi i32 [ 0, %for.body.preheader ], [ %spec.select, %for.body ]
-  %arrayidx = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 1, i64 %indvars.iv
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %count.094 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.body ]
+  %arrayidx = getelementptr inbounds [128 x i32], ptr %stateFlags, i64 0, i64 %indvars.iv
   %24 = load i32, ptr %arrayidx, align 4
   %and = and i32 %24, 15
   %cmp41.not = icmp ne i32 %and, 1
@@ -849,9 +849,10 @@ if.then70:                                        ; preds = %for.inc66
 if.end73:                                         ; preds = %land.lhs.true, %land.lhs.true, %if.then70, %if.end49
   %30 = phi i32 [ %.pre, %if.then70 ], [ %21, %if.end49 ], [ %21, %land.lhs.true ], [ %21, %land.lhs.true ]
   %cmp7698 = icmp sgt i32 %30, 0
-  br i1 %cmp7698, label %for.cond78.preheader.preheader, label %if.end175
+  br i1 %cmp7698, label %for.cond78.preheader.lr.ph, label %if.end175
 
-for.cond78.preheader.preheader:                   ; preds = %if.end73
+for.cond78.preheader.lr.ph:                       ; preds = %if.end73
+  %stateFlags112 = getelementptr inbounds i8, ptr %states, i64 131072
   %31 = zext nneg i32 %30 to i64
   br label %for.cond78.preheader
 
@@ -859,8 +860,8 @@ for.cond75.loopexit:                              ; preds = %for.inc125
   %cmp76 = icmp sgt i64 %indvars.iv121, 1
   br i1 %cmp76, label %for.cond78.preheader, label %for.end129, !llvm.loop !13
 
-for.cond78.preheader:                             ; preds = %for.cond78.preheader.preheader, %for.cond75.loopexit
-  %indvars.iv121 = phi i64 [ %31, %for.cond78.preheader.preheader ], [ %indvars.iv.next122, %for.cond75.loopexit ]
+for.cond78.preheader:                             ; preds = %for.cond78.preheader.lr.ph, %for.cond75.loopexit
+  %indvars.iv121 = phi i64 [ %31, %for.cond78.preheader.lr.ph ], [ %indvars.iv.next122, %for.cond75.loopexit ]
   %indvars.iv.next122 = add nsw i64 %indvars.iv121, -1
   br label %for.body80
 
@@ -884,7 +885,7 @@ if.then92:                                        ; preds = %for.body80
 if.end96:                                         ; preds = %for.body80
   %cmp97 = icmp slt i32 %32, 0
   %idxprom102 = zext nneg i32 %and87 to i64
-  %arrayidx103 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 1, i64 %idxprom102
+  %arrayidx103 = getelementptr inbounds [128 x i32], ptr %stateFlags112, i64 0, i64 %idxprom102
   %36 = load i32, ptr %arrayidx103, align 4
   %and104 = and i32 %36, 15
   %cmp105.not = icmp eq i32 %and104, 1
@@ -922,7 +923,7 @@ for.end129:                                       ; preds = %for.cond75.loopexit
   br i1 %cmp131.not, label %if.end175, label %land.lhs.true132
 
 land.lhs.true132:                                 ; preds = %for.end129
-  %arrayidx134 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 1, i64 1
+  %arrayidx134 = getelementptr inbounds i8, ptr %states, i64 131076
   %43 = load i32, ptr %arrayidx134, align 4
   %and135 = and i32 %43, 15
   %cmp136 = icmp eq i32 %and135, 1
@@ -954,31 +955,31 @@ if.end149:                                        ; preds = %if.end143
   br i1 %tobool.not, label %lor.lhs.false150, label %if.then170
 
 lor.lhs.false150:                                 ; preds = %if.end149
-  %arrayidx153 = getelementptr inbounds [256 x i32], ptr %states, i64 0, i64 14
+  %arrayidx153 = getelementptr inbounds i8, ptr %states, i64 56
   %47 = load i32, ptr %arrayidx153, align 4
   %cmp154 = icmp eq i32 %47, -2122317824
   br i1 %cmp154, label %land.lhs.true155, label %if.else171
 
 land.lhs.true155:                                 ; preds = %lor.lhs.false150
-  %arrayidx158 = getelementptr inbounds [256 x i32], ptr %states, i64 0, i64 15
+  %arrayidx158 = getelementptr inbounds i8, ptr %states, i64 60
   %48 = load i32, ptr %arrayidx158, align 4
   %cmp159 = icmp eq i32 %48, -2139095040
   br i1 %cmp159, label %land.lhs.true160, label %if.else171
 
 land.lhs.true160:                                 ; preds = %land.lhs.true155
-  %arrayidx163 = getelementptr inbounds [128 x [256 x i32]], ptr %states, i64 0, i64 1, i64 14
+  %arrayidx163 = getelementptr inbounds i8, ptr %states, i64 1080
   %49 = load i32, ptr %arrayidx163, align 4
   %cmp164 = icmp eq i32 %49, -2122317824
   br i1 %cmp164, label %land.lhs.true165, label %if.else171
 
 land.lhs.true165:                                 ; preds = %land.lhs.true160
-  %arrayidx168 = getelementptr inbounds [128 x [256 x i32]], ptr %states, i64 0, i64 1, i64 15
+  %arrayidx168 = getelementptr inbounds i8, ptr %states, i64 1084
   %50 = load i32, ptr %arrayidx168, align 4
   %cmp169 = icmp eq i32 %50, -2139095040
   br i1 %cmp169, label %if.then170, label %if.else171
 
 if.then170:                                       ; preds = %land.lhs.true165, %if.end149
-  %outputType = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 8
+  %outputType = getelementptr inbounds i8, ptr %states, i64 132113
   store i8 12, ptr %outputType, align 1
   br label %if.end175
 
@@ -991,16 +992,17 @@ if.else171:                                       ; preds = %land.lhs.true165, %
 if.end175:                                        ; preds = %if.end73, %for.end129, %land.lhs.true132, %if.then170
   %state.2 = phi i32 [ 2, %if.then170 ], [ 1, %land.lhs.true132 ], [ 1, %for.end129 ], [ 1, %if.end73 ]
   %cmp177100 = icmp slt i32 %state.2, %30
-  br i1 %cmp177100, label %while.body.preheader, label %while.end
+  br i1 %cmp177100, label %while.body.lr.ph, label %while.end
 
-while.body.preheader:                             ; preds = %if.end175
+while.body.lr.ph:                                 ; preds = %if.end175
+  %stateFlags178 = getelementptr inbounds i8, ptr %states, i64 131072
   %53 = zext nneg i32 %state.2 to i64
   %wide.trip.count127 = zext i32 %30 to i64
   br label %while.body
 
-while.body:                                       ; preds = %while.body.preheader, %if.end185
-  %indvars.iv124 = phi i64 [ %53, %while.body.preheader ], [ %indvars.iv.next125, %if.end185 ]
-  %arrayidx180 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 1, i64 %indvars.iv124
+while.body:                                       ; preds = %while.body.lr.ph, %if.end185
+  %indvars.iv124 = phi i64 [ %53, %while.body.lr.ph ], [ %indvars.iv.next125, %if.end185 ]
+  %arrayidx180 = getelementptr inbounds [128 x i32], ptr %stateFlags178, i64 0, i64 %indvars.iv124
   %54 = load i32, ptr %arrayidx180, align 4
   %and181 = and i32 %54, 15
   %cmp182 = icmp eq i32 %and181, 1
@@ -1026,39 +1028,34 @@ while.end:                                        ; preds = %if.end185, %if.end1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZL11sumUpStatesP9UCMStates(ptr nocapture noundef %states) unnamed_addr #6 {
 entry:
-  %countStates = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 3
+  %countStates = getelementptr inbounds i8, ptr %states, i64 132096
   %0 = load i32, ptr %countStates, align 4
   %cmp80 = icmp sgt i32 %0, -1
   br i1 %cmp80, label %for.body.lr.ph, label %if.then82
 
 for.body.lr.ph:                                   ; preds = %entry
+  %stateFlags = getelementptr inbounds i8, ptr %states, i64 131072
+  %stateOffsetSum = getelementptr inbounds i8, ptr %states, i64 131584
   %.not = icmp eq i32 %0, 0
-  br i1 %.not, label %if.end83.thread, label %for.body5.preheader
+  br i1 %.not, label %for.end123.sink.split, label %for.body
 
-if.end83.thread:                                  ; preds = %for.body.lr.ph
-  %stateOffsetSum84109 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 2
-  %1 = load i32, ptr %stateOffsetSum84109, align 4
-  br label %for.end123
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc78
+  %count.081 = phi i32 [ %dec79, %for.inc78 ], [ %0, %for.body.lr.ph ]
+  %1 = load i32, ptr %countStates, align 4
+  %cmp477 = icmp sgt i32 %1, 0
+  br i1 %cmp477, label %for.body5.preheader, label %for.end123.sink.split
 
-for.bodythread-pre-split:                         ; preds = %for.inc78
-  %dec79 = add nsw i32 %count.081112, -1
-  %.pr = load i32, ptr %countStates, align 4
-  %cmp477 = icmp sgt i32 %.pr, 0
-  br i1 %cmp477, label %for.body5.preheader, label %if.end83
-
-for.body5.preheader:                              ; preds = %for.body.lr.ph, %for.bodythread-pre-split
-  %count.081112 = phi i32 [ %dec79, %for.bodythread-pre-split ], [ %0, %for.body.lr.ph ]
-  %2 = phi i32 [ %.pr, %for.bodythread-pre-split ], [ %0, %for.body.lr.ph ]
-  %3 = zext nneg i32 %2 to i64
+for.body5.preheader:                              ; preds = %for.body
+  %2 = zext nneg i32 %1 to i64
   br label %for.body5
 
 for.body5:                                        ; preds = %for.body5.preheader, %for.inc76
-  %indvars.iv93 = phi i64 [ %3, %for.body5.preheader ], [ %indvars.iv.next94, %for.inc76 ]
+  %indvars.iv93 = phi i64 [ %2, %for.body5.preheader ], [ %indvars.iv.next94, %for.inc76 ]
   %allStatesReady.178 = phi i8 [ 1, %for.body5.preheader ], [ %allStatesReady.2, %for.inc76 ]
   %indvars.iv.next94 = add nsw i64 %indvars.iv93, -1
-  %arrayidx = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 1, i64 %indvars.iv.next94
-  %4 = load i32, ptr %arrayidx, align 4
-  %and = and i32 %4, 16
+  %arrayidx = getelementptr inbounds [128 x i32], ptr %stateFlags, i64 0, i64 %indvars.iv.next94
+  %3 = load i32, ptr %arrayidx, align 4
+  %and = and i32 %3, 16
   %tobool6.not = icmp eq i32 %and, 0
   br i1 %tobool6.not, label %for.body9, label %for.inc76
 
@@ -1066,12 +1063,12 @@ for.body9:                                        ; preds = %for.body5, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.body5 ]
   %sum.072 = phi i32 [ %sum.1, %for.inc ], [ 0, %for.body5 ]
   %arrayidx13 = getelementptr inbounds [128 x [256 x i32]], ptr %states, i64 0, i64 %indvars.iv.next94, i64 %indvars.iv
-  %5 = load i32, ptr %arrayidx13, align 4
-  %cmp14 = icmp slt i32 %5, 0
+  %4 = load i32, ptr %arrayidx13, align 4
+  %cmp14 = icmp slt i32 %4, 0
   br i1 %cmp14, label %if.then15, label %for.inc
 
 if.then15:                                        ; preds = %for.body9
-  %shr = lshr i32 %5, 20
+  %shr = lshr i32 %4, 20
   %and16 = and i32 %shr, 15
   switch i32 %and16, label %for.inc [
     i32 4, label %for.inc.sink.split
@@ -1083,7 +1080,7 @@ sw.bb23:                                          ; preds = %if.then15
 
 for.inc.sink.split:                               ; preds = %if.then15, %sw.bb23
   %.sink = phi i32 [ 2, %sw.bb23 ], [ 1, %if.then15 ]
-  %and24 = and i32 %5, -1048576
+  %and24 = and i32 %4, -1048576
   %or25 = or i32 %and24, %sum.072
   store i32 %or25, ptr %arrayidx13, align 4
   %add31 = add nsw i32 %sum.072, %.sink
@@ -1099,26 +1096,26 @@ for.body34:                                       ; preds = %for.inc, %for.inc62
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %for.inc62 ], [ 0, %for.inc ]
   %sum.274 = phi i32 [ %sum.3, %for.inc62 ], [ %sum.1, %for.inc ]
   %arrayidx39 = getelementptr inbounds [128 x [256 x i32]], ptr %states, i64 0, i64 %indvars.iv.next94, i64 %indvars.iv89
-  %6 = load i32, ptr %arrayidx39, align 4
-  %cmp40 = icmp sgt i32 %6, -1
+  %5 = load i32, ptr %arrayidx39, align 4
+  %cmp40 = icmp sgt i32 %5, -1
   br i1 %cmp40, label %if.then41, label %for.inc62
 
 if.then41:                                        ; preds = %for.body34
-  %shr43 = lshr i32 %6, 24
+  %shr43 = lshr i32 %5, 24
   %idxprom44 = zext nneg i32 %shr43 to i64
-  %arrayidx45 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 1, i64 %idxprom44
-  %7 = load i32, ptr %arrayidx45, align 4
-  %and46 = and i32 %7, 16
+  %arrayidx45 = getelementptr inbounds [128 x i32], ptr %stateFlags, i64 0, i64 %idxprom44
+  %6 = load i32, ptr %arrayidx45, align 4
+  %and46 = and i32 %6, 16
   %tobool47.not = icmp eq i32 %and46, 0
   br i1 %tobool47.not, label %for.inc76, label %if.then48
 
 if.then48:                                        ; preds = %if.then41
-  %and49 = and i32 %6, 2130706432
+  %and49 = and i32 %5, 2130706432
   %or50 = or i32 %and49, %sum.274
   store i32 %or50, ptr %arrayidx39, align 4
-  %arrayidx58 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 2, i64 %idxprom44
-  %8 = load i32, ptr %arrayidx58, align 4
-  %add59 = add i32 %8, %sum.274
+  %arrayidx58 = getelementptr inbounds [128 x i32], ptr %stateOffsetSum, i64 0, i64 %idxprom44
+  %7 = load i32, ptr %arrayidx58, align 4
+  %add59 = add i32 %7, %sum.274
   br label %for.inc62
 
 for.inc62:                                        ; preds = %for.body34, %if.then48
@@ -1132,10 +1129,10 @@ for.end64:                                        ; preds = %for.inc62
   br i1 %cmp65.not, label %for.inc76, label %if.then66
 
 if.then66:                                        ; preds = %for.end64
-  %arrayidx69 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 2, i64 %indvars.iv.next94
+  %arrayidx69 = getelementptr inbounds [128 x i32], ptr %stateOffsetSum, i64 0, i64 %indvars.iv.next94
   store i32 %sum.3, ptr %arrayidx69, align 4
-  %9 = load i32, ptr %arrayidx, align 4
-  %or73 = or i32 %9, 16
+  %8 = load i32, ptr %arrayidx, align 4
+  %or73 = or i32 %8, 16
   store i32 %or73, ptr %arrayidx, align 4
   br label %for.inc76
 
@@ -1145,51 +1142,51 @@ for.inc76:                                        ; preds = %if.then41, %for.bod
   br i1 %cmp4, label %for.body5, label %for.inc78, !llvm.loop !19
 
 for.inc78:                                        ; preds = %for.inc76
+  %dec79 = add nsw i32 %count.081, -1
   %tobool.not = icmp eq i8 %allStatesReady.2, 0
-  %cmp = icmp sgt i32 %count.081112, 0
-  %10 = select i1 %tobool.not, i1 %cmp, i1 false
-  br i1 %10, label %for.bodythread-pre-split, label %for.end80, !llvm.loop !20
+  %cmp = icmp sgt i32 %count.081, 0
+  %9 = select i1 %tobool.not, i1 %cmp, i1 false
+  br i1 %9, label %for.body, label %for.end80, !llvm.loop !20
 
 for.end80:                                        ; preds = %for.inc78
   br i1 %tobool.not, label %if.then82, label %if.end83
 
 if.then82:                                        ; preds = %entry, %for.end80
-  %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 42, i64 1, ptr %11) #16
+  %10 = load ptr, ptr @stderr, align 8
+  %11 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 42, i64 1, ptr %10) #16
   tail call void @exit(i32 noundef 13) #17
   unreachable
 
-if.end83:                                         ; preds = %for.bodythread-pre-split, %for.end80
-  %.pre = load i32, ptr %countStates, align 4
-  %stateOffsetSum84 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 2
-  %13 = load i32, ptr %stateOffsetSum84, align 4
-  %cmp8884 = icmp sgt i32 %.pre, 1
+if.end83:                                         ; preds = %for.end80
+  %.pre.pr = load i32, ptr %countStates, align 4
+  %12 = load i32, ptr %stateOffsetSum, align 4
+  %cmp8884 = icmp sgt i32 %.pre.pr, 1
   br i1 %cmp8884, label %for.body89, label %for.end123
 
 for.body89:                                       ; preds = %if.end83, %for.inc121
-  %14 = phi i32 [ %18, %for.inc121 ], [ %.pre, %if.end83 ]
+  %13 = phi i32 [ %17, %for.inc121 ], [ %.pre.pr, %if.end83 ]
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %for.inc121 ], [ 1, %if.end83 ]
-  %sum.585 = phi i32 [ %sum.6, %for.inc121 ], [ %13, %if.end83 ]
-  %arrayidx92 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 1, i64 %indvars.iv99
-  %15 = load i32, ptr %arrayidx92, align 4
-  %and93 = and i32 %15, 15
+  %sum.585 = phi i32 [ %sum.6, %for.inc121 ], [ %12, %if.end83 ]
+  %arrayidx92 = getelementptr inbounds [128 x i32], ptr %stateFlags, i64 0, i64 %indvars.iv99
+  %14 = load i32, ptr %arrayidx92, align 4
+  %and93 = and i32 %14, 15
   %cmp94 = icmp eq i32 %and93, 1
   br i1 %cmp94, label %if.then95, label %for.inc121
 
 if.then95:                                        ; preds = %for.body89
-  %arrayidx98 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 2, i64 %indvars.iv99
-  %16 = load i32, ptr %arrayidx98, align 4
+  %arrayidx98 = getelementptr inbounds [128 x i32], ptr %stateOffsetSum, i64 0, i64 %indvars.iv99
+  %15 = load i32, ptr %arrayidx98, align 4
   br label %for.body102
 
 for.body102:                                      ; preds = %if.then95, %for.inc117
   %indvars.iv95 = phi i64 [ 0, %if.then95 ], [ %indvars.iv.next96, %for.inc117 ]
   %arrayidx107 = getelementptr inbounds [128 x [256 x i32]], ptr %states, i64 0, i64 %indvars.iv99, i64 %indvars.iv95
-  %17 = load i32, ptr %arrayidx107, align 4
-  %cmp108 = icmp sgt i32 %17, -1
+  %16 = load i32, ptr %arrayidx107, align 4
+  %cmp108 = icmp sgt i32 %16, -1
   br i1 %cmp108, label %if.then109, label %for.inc117
 
 if.then109:                                       ; preds = %for.body102
-  %add110 = add nsw i32 %17, %sum.585
+  %add110 = add nsw i32 %16, %sum.585
   store i32 %add110, ptr %arrayidx107, align 4
   br label %for.inc117
 
@@ -1199,23 +1196,27 @@ for.inc117:                                       ; preds = %for.body102, %if.th
   br i1 %exitcond98.not, label %for.inc121.loopexit, label %for.body102, !llvm.loop !22
 
 for.inc121.loopexit:                              ; preds = %for.inc117
-  %add99 = add i32 %16, %sum.585
+  %add99 = add i32 %15, %sum.585
   %.pre102 = load i32, ptr %countStates, align 4
   br label %for.inc121
 
 for.inc121:                                       ; preds = %for.inc121.loopexit, %for.body89
-  %18 = phi i32 [ %14, %for.body89 ], [ %.pre102, %for.inc121.loopexit ]
+  %17 = phi i32 [ %13, %for.body89 ], [ %.pre102, %for.inc121.loopexit ]
   %sum.6 = phi i32 [ %sum.585, %for.body89 ], [ %add99, %for.inc121.loopexit ]
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %19 = sext i32 %18 to i64
-  %cmp88 = icmp slt i64 %indvars.iv.next100, %19
+  %18 = sext i32 %17 to i64
+  %cmp88 = icmp slt i64 %indvars.iv.next100, %18
   br i1 %cmp88, label %for.body89, label %for.end123, !llvm.loop !23
 
-for.end123:                                       ; preds = %for.inc121, %if.end83.thread, %if.end83
-  %sum.5.lcssa = phi i32 [ %13, %if.end83 ], [ %1, %if.end83.thread ], [ %sum.6, %for.inc121 ]
+for.end123.sink.split:                            ; preds = %for.body, %for.body.lr.ph
+  %19 = load i32, ptr %stateOffsetSum, align 4
+  br label %for.end123
+
+for.end123:                                       ; preds = %for.inc121, %for.end123.sink.split, %if.end83
+  %sum.5.lcssa = phi i32 [ %12, %if.end83 ], [ %19, %for.end123.sink.split ], [ %sum.6, %for.inc121 ]
   %add124 = add nsw i32 %sum.5.lcssa, 1
   %and125 = and i32 %add124, -2
-  %countToUCodeUnits = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 6
+  %countToUCodeUnits = getelementptr inbounds i8, ptr %states, i64 132108
   store i32 %and125, ptr %countToUCodeUnits, align 4
   ret i32 %and125
 }
@@ -1256,18 +1257,18 @@ define void @ucm_optimizeStates(ptr nocapture noundef %states, ptr nocapture nou
 entry:
   %count.i = alloca [256 x i16], align 16
   %errorCode = alloca i32, align 4
-  %countStates = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 3
+  %countStates = getelementptr inbounds i8, ptr %states, i64 132096
   %0 = load i32, ptr %countStates, align 4
-  %cmp34 = icmp sgt i32 %0, 0
-  br i1 %cmp34, label %for.cond2.preheader, label %for.end17
+  %cmp35 = icmp sgt i32 %0, 0
+  br i1 %cmp35, label %for.cond2.preheader, label %for.end17
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc15
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %for.inc15 ], [ 0, %entry ]
+  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %for.inc15 ], [ 0, %entry ]
   br label %for.body4
 
 for.body4:                                        ; preds = %for.cond2.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx6 = getelementptr inbounds [128 x [256 x i32]], ptr %states, i64 0, i64 %indvars.iv43, i64 %indvars.iv
+  %arrayidx6 = getelementptr inbounds [128 x [256 x i32]], ptr %states, i64 0, i64 %indvars.iv44, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx6, align 4
   %and = and i32 %1, -2130706433
   %cmp7 = icmp eq i32 %and, -2147418114
@@ -1284,22 +1285,22 @@ for.inc:                                          ; preds = %for.body4, %if.then
   br i1 %exitcond.not, label %for.inc15, label %for.body4, !llvm.loop !25
 
 for.inc15:                                        ; preds = %for.inc
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %2 = load i32, ptr %countStates, align 4
   %3 = sext i32 %2 to i64
-  %cmp = icmp slt i64 %indvars.iv.next44, %3
+  %cmp = icmp slt i64 %indvars.iv.next45, %3
   br i1 %cmp, label %for.cond2.preheader, label %for.end17, !llvm.loop !26
 
 for.end17:                                        ; preds = %for.inc15, %entry
   %.lcssa = phi i32 [ %0, %entry ], [ %2, %for.inc15 ]
-  %maxCharLength = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 5
+  %maxCharLength = getelementptr inbounds i8, ptr %states, i64 132104
   %4 = load i32, ptr %maxCharLength, align 4
   %cmp18 = icmp eq i32 %4, 2
   br i1 %cmp18, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %for.end17
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %count.i)
-  %outputType.i = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 8
+  %outputType.i = getelementptr inbounds i8, ptr %states, i64 132113
   %5 = load i8, ptr %outputType.i, align 1
   %cmp.i = icmp eq i8 %5, 12
   %..i = zext i1 %cmp.i to i64
@@ -1375,8 +1376,8 @@ if.then38.i:                                      ; preds = %for.body29.i
   br i1 %cmp15.i.i, label %for.body41.us.i, label %for.body41.i
 
 for.body41.us.i:                                  ; preds = %if.then38.i, %for.inc79.us.i
-  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %for.inc79.us.i ], [ 0, %if.then38.i ]
-  %arrayidx46.us.i = getelementptr inbounds [128 x [256 x i32]], ptr %states, i64 0, i64 %idxprom43.i, i64 %indvars.iv50
+  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %for.inc79.us.i ], [ 0, %if.then38.i ]
+  %arrayidx46.us.i = getelementptr inbounds [128 x [256 x i32]], ptr %states, i64 0, i64 %idxprom43.i, i64 %indvars.iv51
   %12 = load i32, ptr %arrayidx46.us.i, align 4
   %shr47.us.i = lshr i32 %12, 20
   %and48.us.i = and i32 %shr47.us.i, 15
@@ -1430,13 +1431,13 @@ for.inc79.us.sink.split.i:                        ; preds = %for.inc.i.us.i, %uc
   br label %for.inc79.us.i
 
 for.inc79.us.i:                                   ; preds = %for.inc79.us.sink.split.i, %for.body41.us.i
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond53.not = icmp eq i64 %indvars.iv.next51, 256
-  br i1 %exitcond53.not, label %if.then83.i, label %for.body41.us.i, !llvm.loop !29
+  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next52, 256
+  br i1 %exitcond54.not, label %if.then83.i, label %for.body41.us.i, !llvm.loop !29
 
 for.body41.i:                                     ; preds = %if.then38.i, %for.inc79.i
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %for.inc79.i ], [ 0, %if.then38.i ]
-  %arrayidx46.i = getelementptr inbounds [128 x [256 x i32]], ptr %states, i64 0, i64 %idxprom43.i, i64 %indvars.iv46
+  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %for.inc79.i ], [ 0, %if.then38.i ]
+  %arrayidx46.i = getelementptr inbounds [128 x [256 x i32]], ptr %states, i64 0, i64 %idxprom43.i, i64 %indvars.iv47
   %20 = load i32, ptr %arrayidx46.i, align 4
   %shr47.i = lshr i32 %20, 20
   %and48.i = and i32 %shr47.i, 15
@@ -1473,9 +1474,9 @@ for.inc79.sink.split.i:                           ; preds = %sw.bb63.i, %sw.bb.i
   br label %for.inc79.i
 
 for.inc79.i:                                      ; preds = %for.inc79.sink.split.i, %for.body41.i
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond49.not = icmp eq i64 %indvars.iv.next47, 256
-  br i1 %exitcond49.not, label %if.then83.i, label %for.body41.i, !llvm.loop !29
+  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
+  %exitcond50.not = icmp eq i64 %indvars.iv.next48, 256
+  br i1 %exitcond50.not, label %if.then83.i, label %for.body41.i, !llvm.loop !29
 
 if.then83.i:                                      ; preds = %for.inc79.i, %for.inc79.us.i
   %26 = load i16, ptr %arrayidx73.i, align 2
@@ -1538,8 +1539,9 @@ do.body.i:                                        ; preds = %if.end107.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call111.i, ptr nonnull align 4 %states, i64 %conv120.i, i1 false)
   %inc122.i = add nsw i32 %32, 1
   store i32 %inc122.i, ptr %countStates, align 4
+  %stateFlags.i = getelementptr inbounds i8, ptr %states, i64 131072
   %idxprom123.i = sext i32 %32 to i64
-  %arrayidx124.i = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 1, i64 %idxprom123.i
+  %arrayidx124.i = getelementptr inbounds [128 x i32], ptr %stateFlags.i, i64 0, i64 %idxprom123.i
   store i32 0, ptr %arrayidx124.i, align 4
   %idxprom129.i = sext i32 %trailState.0.lcssa.i to i64
   br label %for.body127.i
@@ -1590,7 +1592,7 @@ for.inc174.i:                                     ; preds = %if.then160.i, %for.
 
 for.body180.i:                                    ; preds = %for.cond177.preheader.i, %for.body180.i
   %indvars.iv254.i = phi i64 [ %indvars.iv.next255.i, %for.body180.i ], [ 0, %for.cond177.preheader.i ]
-  %arrayidx183.i = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 1, i64 %indvars.iv254.i
+  %arrayidx183.i = getelementptr inbounds [128 x i32], ptr %stateFlags.i, i64 0, i64 %indvars.iv254.i
   %39 = load i32, ptr %arrayidx183.i, align 4
   %and184.i = and i32 %39, -17
   store i32 %and184.i, ptr %arrayidx183.i, align 4
@@ -1659,7 +1661,7 @@ for.body222.lr.ph.i:                              ; preds = %for.cond219.prehead
 for.body222.us.i:                                 ; preds = %for.body222.lr.ph.i, %for.inc318.us.i
   %46 = phi i32 [ %48, %for.inc318.us.i ], [ %45, %for.body222.lr.ph.i ]
   %indvars.iv281.i = phi i64 [ %indvars.iv.next282.i, %for.inc318.us.i ], [ 0, %for.body222.lr.ph.i ]
-  %arrayidx225.us.i = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 1, i64 %indvars.iv281.i
+  %arrayidx225.us.i = getelementptr inbounds [128 x i32], ptr %stateFlags.i, i64 0, i64 %indvars.iv281.i
   %47 = load i32, ptr %arrayidx225.us.i, align 4
   %and226.us.i = and i32 %47, 15
   %cmp227.us.i = icmp eq i32 %and226.us.i, 1
@@ -1798,7 +1800,7 @@ for.cond321.preheader.i:                          ; preds = %for.inc318.i, %for.
 for.body222.i:                                    ; preds = %for.body222.lr.ph.i, %for.inc318.i
   %64 = phi i32 [ %75, %for.inc318.i ], [ %45, %for.body222.lr.ph.i ]
   %indvars.iv270.i = phi i64 [ %indvars.iv.next271.i, %for.inc318.i ], [ 0, %for.body222.lr.ph.i ]
-  %arrayidx225.i = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 1, i64 %indvars.iv270.i
+  %arrayidx225.i = getelementptr inbounds [128 x i32], ptr %stateFlags.i, i64 0, i64 %indvars.iv270.i
   %65 = load i32, ptr %arrayidx225.i, align 4
   %and226.i = and i32 %65, 15
   %cmp227.i = icmp eq i32 %and226.i, 1
@@ -1923,35 +1925,39 @@ if.else:                                          ; preds = %for.end17
 if.then23:                                        ; preds = %if.else
   %78 = load ptr, ptr %pUnicodeCodeUnits, align 8
   %cmp8.i = icmp sgt i32 %.lcssa, 0
-  br i1 %cmp8.i, label %for.body.i22, label %if.end26
+  br i1 %cmp8.i, label %for.body.lr.ph.i, label %if.end26
 
-for.body.i22:                                     ; preds = %if.then23, %for.inc.i25
-  %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i26, %for.inc.i25 ], [ 0, %if.then23 ]
-  %arrayidx.i = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 1, i64 %indvars.iv.i23
+for.body.lr.ph.i:                                 ; preds = %if.then23
+  %stateFlags.i22 = getelementptr inbounds i8, ptr %states, i64 131072
+  br label %for.body.i23
+
+for.body.i23:                                     ; preds = %for.inc.i26, %for.body.lr.ph.i
+  %indvars.iv.i24 = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i27, %for.inc.i26 ]
+  %arrayidx.i = getelementptr inbounds [128 x i32], ptr %stateFlags.i22, i64 0, i64 %indvars.iv.i24
   %79 = load i32, ptr %arrayidx.i, align 4
-  %and.i24 = and i32 %79, 15
-  %cmp1.i = icmp eq i32 %and.i24, 1
-  br i1 %cmp1.i, label %if.then.i, label %for.inc.i25
+  %and.i25 = and i32 %79, 15
+  %cmp1.i = icmp eq i32 %and.i25, 1
+  br i1 %cmp1.i, label %if.then.i, label %for.inc.i26
 
-if.then.i:                                        ; preds = %for.body.i22
-  %80 = trunc i64 %indvars.iv.i23 to i32
+if.then.i:                                        ; preds = %for.body.i23
+  %80 = trunc i64 %indvars.iv.i24 to i32
   %call.i = tail call fastcc noundef i32 @_ZL14findUnassignedP9UCMStatesPtP16_MBCSToUFallbackiiij(ptr noundef nonnull %states, ptr noundef %78, ptr noundef %toUFallbacks, i32 noundef %countToUFallbacks, i32 noundef %80, i32 noundef 0, i32 noundef 0)
   %cmp2.i = icmp sgt i32 %call.i, 0
-  br i1 %cmp2.i, label %if.then3.i, label %for.inc.i25
+  br i1 %cmp2.i, label %if.then3.i, label %for.inc.i26
 
 if.then3.i:                                       ; preds = %if.then.i
   %conv4.i = zext nneg i32 %call.i to i64
-  %call5.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, i64 noundef %indvars.iv.i23, i64 noundef %conv4.i)
-  br label %for.inc.i25
+  %call5.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.59, i64 noundef %indvars.iv.i24, i64 noundef %conv4.i)
+  br label %for.inc.i26
 
-for.inc.i25:                                      ; preds = %if.then3.i, %if.then.i, %for.body.i22
-  %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i23, 1
+for.inc.i26:                                      ; preds = %if.then3.i, %if.then.i, %for.body.i23
+  %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i24, 1
   %81 = load i32, ptr %countStates, align 4
   %82 = sext i32 %81 to i64
-  %cmp.i27 = icmp slt i64 %indvars.iv.next.i26, %82
-  br i1 %cmp.i27, label %for.body.i22, label %if.end26, !llvm.loop !39
+  %cmp.i28 = icmp slt i64 %indvars.iv.next.i27, %82
+  br i1 %cmp.i28, label %for.body.i23, label %if.end26, !llvm.loop !39
 
-if.end26:                                         ; preds = %for.inc.i25, %if.then23, %if.else, %_ZL17compactToUnicode2P9UCMStatesPPtP16_MBCSToUFallbackia.exit
+if.end26:                                         ; preds = %for.inc.i26, %if.then23, %if.else, %_ZL17compactToUnicode2P9UCMStatesPPtP16_MBCSToUFallbackia.exit
   %cmp27 = icmp sgt i32 %countToUFallbacks, 0
   br i1 %cmp27, label %if.then28, label %if.end29
 
@@ -1978,7 +1984,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define i32 @ucm_countChars(ptr nocapture noundef readonly %states, ptr nocapture noundef readonly %bytes, i32 noundef %length) local_unnamed_addr #8 {
 entry:
-  %countStates = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 3
+  %countStates = getelementptr inbounds i8, ptr %states, i64 132096
   %0 = load i32, ptr %countStates, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1993,7 +1999,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.end5.thread, label %if.end5
 
 if.end5.thread:                                   ; preds = %if.end
-  %outputType = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 8
+  %outputType = getelementptr inbounds i8, ptr %states, i64 132113
   %3 = load i8, ptr %outputType, align 1
   %cmp3 = icmp eq i8 %3, 12
   %spec.select = zext i1 %cmp3 to i64
@@ -2091,7 +2097,7 @@ if.end31:                                         ; preds = %for.inc.thread, %fo
   br i1 %cmp32, label %land.lhs.true33, label %return
 
 land.lhs.true33:                                  ; preds = %if.end31
-  %outputType34 = getelementptr inbounds %struct.UCMStates, ptr %states, i64 0, i32 8
+  %outputType34 = getelementptr inbounds i8, ptr %states, i64 132113
   %14 = load i8, ptr %outputType34, align 1
   %cmp36 = icmp ne i8 %14, 12
   %mul = shl nuw nsw i32 %count.0.lcssa46, 1

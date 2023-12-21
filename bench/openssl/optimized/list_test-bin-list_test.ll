@@ -83,8 +83,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %a.sroa.12.095 = phi ptr [ %a.sroa.12.1, %for.inc ], [ null, %entry ]
   %a.sroa.0.094 = phi ptr [ %a.sroa.0.2, %for.inc ], [ null, %entry ]
   %add.ptr = getelementptr inbounds %struct.testl_st, ptr %elem, i64 %indvars.iv
-  %ossl_list_fizz.i = getelementptr inbounds %struct.testl_st, ptr %elem, i64 %indvars.iv, i32 1
-  %ossl_list_buzz.i = getelementptr inbounds %struct.testl_st, ptr %elem, i64 %indvars.iv, i32 2
+  %ossl_list_fizz.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %ossl_list_buzz.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   %0 = trunc i64 %indvars.iv to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ossl_list_fizz.i, i8 0, i64 32, i1 false)
   store i32 %0, ptr %add.ptr, align 8
@@ -98,12 +98,12 @@ if.then9:                                         ; preds = %for.body
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then9
-  %ossl_list_fizz.i38 = getelementptr inbounds %struct.testl_st, ptr %a.sroa.12.095, i64 0, i32 1
+  %ossl_list_fizz.i38 = getelementptr inbounds i8, ptr %a.sroa.12.095, i64 8
   store ptr %add.ptr, ptr %ossl_list_fizz.i38, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then9
-  %prev.i = getelementptr inbounds %struct.testl_st, ptr %elem, i64 %indvars.iv, i32 1, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   store ptr %a.sroa.12.095, ptr %prev.i, align 8
   store ptr null, ptr %ossl_list_fizz.i, align 8
   %cmp7.i = icmp eq ptr %a.sroa.0.094, null
@@ -126,13 +126,13 @@ if.then17:                                        ; preds = %if.end13
   br i1 %cmp.not.i39, label %if.end.i43, label %if.then.i40
 
 if.then.i40:                                      ; preds = %if.then17
-  %prev.i41 = getelementptr inbounds %struct.testl_st, ptr %b.sroa.0.097, i64 0, i32 2, i32 1
+  %prev.i41 = getelementptr inbounds i8, ptr %b.sroa.0.097, i64 32
   store ptr %add.ptr, ptr %prev.i41, align 8
   br label %if.end.i43
 
 if.end.i43:                                       ; preds = %if.then.i40, %if.then17
   store ptr %b.sroa.0.097, ptr %ossl_list_buzz.i, align 8
-  %prev5.i = getelementptr inbounds %struct.testl_st, ptr %elem, i64 %indvars.iv, i32 2, i32 1
+  %prev5.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   store ptr null, ptr %prev5.i, align 8
   %cmp7.i45 = icmp eq ptr %b.sroa.8.098, null
   %spec.select92 = select i1 %cmp7.i45, ptr %add.ptr, ptr %b.sroa.8.098
@@ -215,16 +215,16 @@ lor.lhs.false70:                                  ; preds = %lor.lhs.false64
   br i1 %tobool74.not, label %return, label %if.end.i52
 
 if.end.i52:                                       ; preds = %lor.lhs.false70
-  %ossl_list_fizz.i57 = getelementptr inbounds %struct.testl_st, ptr %a.sroa.0.2, i64 0, i32 1
+  %ossl_list_fizz.i57 = getelementptr inbounds i8, ptr %a.sroa.0.2, i64 8
   %5 = load ptr, ptr %ossl_list_fizz.i57, align 8
   %cmp2.i = icmp eq ptr %a.sroa.12.1, %a.sroa.0.2
-  %prev.i54 = getelementptr inbounds %struct.testl_st, ptr %a.sroa.0.2, i64 0, i32 1, i32 1
+  %prev.i54 = getelementptr inbounds i8, ptr %a.sroa.0.2, i64 16
   %6 = load ptr, ptr %prev.i54, align 8
   %cmp9.not.i = icmp eq ptr %6, null
   br i1 %cmp9.not.i, label %if.end17.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end.i52
-  %ossl_list_fizz15.i = getelementptr inbounds %struct.testl_st, ptr %6, i64 0, i32 1
+  %ossl_list_fizz15.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %ossl_list_fizz15.i, align 8
   br label %if.end17.i
 
@@ -234,22 +234,22 @@ if.end17.i:                                       ; preds = %if.then10.i, %if.en
 
 if.then21.i:                                      ; preds = %if.end17.i
   %7 = load ptr, ptr %prev.i54, align 8
-  %prev27.i = getelementptr inbounds %struct.testl_st, ptr %5, i64 0, i32 1, i32 1
+  %prev27.i = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %7, ptr %prev27.i, align 8
   br label %ossl_list_fizz_remove.exit
 
 ossl_list_fizz_remove.exit:                       ; preds = %if.end17.i, %if.then21.i
   %dec.i = add i64 %a.sroa.21.1, -1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ossl_list_fizz.i57, i8 0, i64 16, i1 false)
-  %prev.i62 = getelementptr inbounds %struct.testl_st, ptr %b.sroa.8.2, i64 0, i32 2, i32 1
+  %prev.i62 = getelementptr inbounds i8, ptr %b.sroa.8.2, i64 32
   %8 = load ptr, ptr %prev.i62, align 8
-  %ossl_list_buzz7.i = getelementptr inbounds %struct.testl_st, ptr %b.sroa.8.2, i64 0, i32 2
+  %ossl_list_buzz7.i = getelementptr inbounds i8, ptr %b.sroa.8.2, i64 24
   %cmp9.not.i65 = icmp eq ptr %8, null
   %.pre16.i66 = load ptr, ptr %ossl_list_buzz7.i, align 8
   br i1 %cmp9.not.i65, label %if.end17.i68, label %if.then10.i67
 
 if.then10.i67:                                    ; preds = %ossl_list_fizz_remove.exit
-  %ossl_list_buzz15.i = getelementptr inbounds %struct.testl_st, ptr %8, i64 0, i32 2
+  %ossl_list_buzz15.i = getelementptr inbounds i8, ptr %8, i64 24
   store ptr %.pre16.i66, ptr %ossl_list_buzz15.i, align 8
   br label %if.end17.i68
 
@@ -259,7 +259,7 @@ if.end17.i68:                                     ; preds = %if.then10.i67, %oss
 
 if.then21.i70:                                    ; preds = %if.end17.i68
   %9 = load ptr, ptr %prev.i62, align 8
-  %prev27.i71 = getelementptr inbounds %struct.testl_st, ptr %.pre16.i66, i64 0, i32 2, i32 1
+  %prev27.i71 = getelementptr inbounds i8, ptr %.pre16.i66, i64 32
   store ptr %9, ptr %prev27.i71, align 8
   br label %ossl_list_buzz_remove.exit
 
@@ -354,41 +354,41 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %ossl_list_int_insert_after.exit104, label %for.body, !llvm.loop !7
 
 ossl_list_int_insert_after.exit104:               ; preds = %for.body
-  %add.ptr3 = getelementptr inbounds %struct.int_st, ptr %elem, i64 3
-  %ossl_list_int3.i = getelementptr inbounds %struct.int_st, ptr %elem, i64 3, i32 1
-  %prev5.i = getelementptr inbounds %struct.int_st, ptr %elem, i64 3, i32 1, i32 1
-  %add.ptr5 = getelementptr inbounds %struct.int_st, ptr %elem, i64 6
-  %ossl_list_int3.i44 = getelementptr inbounds %struct.int_st, ptr %elem, i64 6, i32 1
-  %prev.i45 = getelementptr inbounds %struct.int_st, ptr %elem, i64 6, i32 1, i32 1
-  %add.ptr9 = getelementptr inbounds %struct.int_st, ptr %elem, i64 5
-  %ossl_list_int.i50 = getelementptr inbounds %struct.int_st, ptr %elem, i64 5, i32 1
+  %add.ptr3 = getelementptr inbounds i8, ptr %elem, i64 72
+  %ossl_list_int3.i = getelementptr inbounds i8, ptr %elem, i64 80
+  %prev5.i = getelementptr inbounds i8, ptr %elem, i64 88
+  %add.ptr5 = getelementptr inbounds i8, ptr %elem, i64 144
+  %ossl_list_int3.i44 = getelementptr inbounds i8, ptr %elem, i64 152
+  %prev.i45 = getelementptr inbounds i8, ptr %elem, i64 160
+  %add.ptr9 = getelementptr inbounds i8, ptr %elem, i64 120
+  %ossl_list_int.i50 = getelementptr inbounds i8, ptr %elem, i64 128
   store ptr %add.ptr5, ptr %ossl_list_int.i50, align 16
-  %prev3.i = getelementptr inbounds %struct.int_st, ptr %elem, i64 5, i32 1, i32 1
+  %prev3.i = getelementptr inbounds i8, ptr %elem, i64 136
   store ptr %add.ptr9, ptr %prev.i45, align 16
-  %add.ptr13 = getelementptr inbounds %struct.int_st, ptr %elem, i64 1
-  %ossl_list_int.i57 = getelementptr inbounds %struct.int_st, ptr %elem, i64 1, i32 1
-  %prev3.i59 = getelementptr inbounds %struct.int_st, ptr %elem, i64 1, i32 1, i32 1
+  %add.ptr13 = getelementptr inbounds i8, ptr %elem, i64 24
+  %ossl_list_int.i57 = getelementptr inbounds i8, ptr %elem, i64 32
+  %prev3.i59 = getelementptr inbounds i8, ptr %elem, i64 40
   store ptr null, ptr %prev3.i59, align 8
-  %add.ptr17 = getelementptr inbounds %struct.int_st, ptr %elem, i64 2
-  %ossl_list_int.i69 = getelementptr inbounds %struct.int_st, ptr %elem, i64 2, i32 1
-  %prev.i70 = getelementptr inbounds %struct.int_st, ptr %elem, i64 2, i32 1, i32 1
+  %add.ptr17 = getelementptr inbounds i8, ptr %elem, i64 48
+  %ossl_list_int.i69 = getelementptr inbounds i8, ptr %elem, i64 56
+  %prev.i70 = getelementptr inbounds i8, ptr %elem, i64 64
   store ptr %add.ptr13, ptr %prev.i70, align 16
   store ptr %add.ptr3, ptr %ossl_list_int.i69, align 8
-  %prev9.i = getelementptr inbounds %struct.int_st, ptr %elem, i64 3, i32 1, i32 1
+  %prev9.i = getelementptr inbounds i8, ptr %elem, i64 88
   store ptr %add.ptr17, ptr %prev9.i, align 8
   store ptr %add.ptr17, ptr %ossl_list_int.i57, align 16
-  %add.ptr21 = getelementptr inbounds %struct.int_st, ptr %elem, i64 7
-  %ossl_list_int.i79 = getelementptr inbounds %struct.int_st, ptr %elem, i64 7, i32 1
-  %prev.i80 = getelementptr inbounds %struct.int_st, ptr %elem, i64 7, i32 1, i32 1
+  %add.ptr21 = getelementptr inbounds i8, ptr %elem, i64 168
+  %ossl_list_int.i79 = getelementptr inbounds i8, ptr %elem, i64 176
+  %prev.i80 = getelementptr inbounds i8, ptr %elem, i64 184
   store ptr %add.ptr5, ptr %prev.i80, align 8
   store ptr null, ptr %ossl_list_int.i79, align 16
   store ptr %add.ptr21, ptr %ossl_list_int3.i44, align 8
-  %add.ptr25 = getelementptr inbounds %struct.int_st, ptr %elem, i64 4
-  %ossl_list_int.i92 = getelementptr inbounds %struct.int_st, ptr %elem, i64 4, i32 1
-  %prev.i93 = getelementptr inbounds %struct.int_st, ptr %elem, i64 4, i32 1, i32 1
+  %add.ptr25 = getelementptr inbounds i8, ptr %elem, i64 96
+  %ossl_list_int.i92 = getelementptr inbounds i8, ptr %elem, i64 104
+  %prev.i93 = getelementptr inbounds i8, ptr %elem, i64 112
   store ptr %add.ptr3, ptr %prev.i93, align 16
   store ptr %add.ptr9, ptr %ossl_list_int.i92, align 8
-  %prev9.i97 = getelementptr inbounds %struct.int_st, ptr %elem, i64 5, i32 1, i32 1
+  %prev9.i97 = getelementptr inbounds i8, ptr %elem, i64 136
   store ptr %add.ptr25, ptr %prev9.i97, align 8
   store ptr %add.ptr25, ptr %ossl_list_int3.i, align 16
   %call26 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.2, i32 noundef 117, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef 7, i64 noundef 7) #3
@@ -439,7 +439,7 @@ if.end50:                                         ; preds = %lor.lhs.false46
   br i1 %cmp9.not.i, label %if.end17.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end50
-  %ossl_list_int15.i = getelementptr inbounds %struct.int_st, ptr %5, i64 0, i32 1
+  %ossl_list_int15.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.pre16.i.pr, ptr %ossl_list_int15.i, align 8
   br label %if.end17.i
 
@@ -449,7 +449,7 @@ if.end17.i:                                       ; preds = %if.then10.i, %if.en
 
 if.then21.i:                                      ; preds = %if.end17.i
   %6 = load ptr, ptr %prev3.i59, align 8
-  %prev27.i = getelementptr inbounds %struct.int_st, ptr %.pre16.i.pr, i64 0, i32 1, i32 1
+  %prev27.i = getelementptr inbounds i8, ptr %.pre16.i.pr, i64 16
   store ptr %6, ptr %prev27.i, align 8
   br label %ossl_list_int_remove.exit
 
@@ -463,7 +463,7 @@ ossl_list_int_remove.exit:                        ; preds = %if.end17.i, %if.the
   br i1 %cmp9.not.i119, label %if.end17.i123, label %if.then10.i121
 
 if.then10.i121:                                   ; preds = %ossl_list_int_remove.exit
-  %ossl_list_int15.i122 = getelementptr inbounds %struct.int_st, ptr %8, i64 0, i32 1
+  %ossl_list_int15.i122 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %7, ptr %ossl_list_int15.i122, align 8
   br label %if.end17.i123
 
@@ -473,7 +473,7 @@ if.end17.i123:                                    ; preds = %if.then10.i121, %os
 
 if.then21.i125:                                   ; preds = %if.end17.i123
   %9 = load ptr, ptr %prev.i45, align 16
-  %prev27.i126 = getelementptr inbounds %struct.int_st, ptr %7, i64 0, i32 1, i32 1
+  %prev27.i126 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %9, ptr %prev27.i126, align 8
   br label %ossl_list_int_remove.exit132
 
@@ -487,7 +487,7 @@ ossl_list_int_remove.exit132:                     ; preds = %if.end17.i123, %if.
   br i1 %cmp9.not.i141, label %if.end17.i145, label %if.then10.i143
 
 if.then10.i143:                                   ; preds = %ossl_list_int_remove.exit132
-  %ossl_list_int15.i144 = getelementptr inbounds %struct.int_st, ptr %11, i64 0, i32 1
+  %ossl_list_int15.i144 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %10, ptr %ossl_list_int15.i144, align 8
   br label %if.end17.i145
 
@@ -497,7 +497,7 @@ if.end17.i145:                                    ; preds = %if.then10.i143, %os
 
 if.then21.i147:                                   ; preds = %if.end17.i145
   %12 = load ptr, ptr %prev.i80, align 8
-  %prev27.i148 = getelementptr inbounds %struct.int_st, ptr %10, i64 0, i32 1, i32 1
+  %prev27.i148 = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %12, ptr %prev27.i148, align 8
   br label %ossl_list_int_remove.exit154
 
@@ -558,7 +558,7 @@ if.end87:                                         ; preds = %lor.lhs.false83
   br i1 %cmp9.not.i163, label %if.end17.i167, label %if.then10.i165
 
 if.then10.i165:                                   ; preds = %if.end87
-  %ossl_list_int15.i166 = getelementptr inbounds %struct.int_st, ptr %20, i64 0, i32 1
+  %ossl_list_int15.i166 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %19, ptr %ossl_list_int15.i166, align 8
   br label %if.end17.i167
 
@@ -568,7 +568,7 @@ if.end17.i167:                                    ; preds = %if.then10.i165, %if
 
 if.then21.i169:                                   ; preds = %if.end17.i167
   %21 = load ptr, ptr %prev.i70, align 16
-  %prev27.i170 = getelementptr inbounds %struct.int_st, ptr %19, i64 0, i32 1, i32 1
+  %prev27.i170 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %21, ptr %prev27.i170, align 8
   br label %ossl_list_int_remove.exit176
 
@@ -584,7 +584,7 @@ ossl_list_int_remove.exit176:                     ; preds = %if.end17.i167, %if.
   br i1 %cmp9.not.i185, label %if.end17.i189, label %if.then10.i187
 
 if.then10.i187:                                   ; preds = %ossl_list_int_remove.exit176
-  %ossl_list_int15.i188 = getelementptr inbounds %struct.int_st, ptr %23, i64 0, i32 1
+  %ossl_list_int15.i188 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %22, ptr %ossl_list_int15.i188, align 8
   br label %if.end17.i189
 
@@ -594,7 +594,7 @@ if.end17.i189:                                    ; preds = %if.then10.i187, %os
 
 if.then21.i191:                                   ; preds = %if.end17.i189
   %24 = load ptr, ptr %prev.i93, align 16
-  %prev27.i192 = getelementptr inbounds %struct.int_st, ptr %22, i64 0, i32 1, i32 1
+  %prev27.i192 = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %24, ptr %prev27.i192, align 8
   br label %ossl_list_int_remove.exit198
 
@@ -610,7 +610,7 @@ ossl_list_int_remove.exit198:                     ; preds = %if.end17.i189, %if.
   br i1 %cmp9.not.i207, label %if.end17.i211, label %if.then10.i209
 
 if.then10.i209:                                   ; preds = %ossl_list_int_remove.exit198
-  %ossl_list_int15.i210 = getelementptr inbounds %struct.int_st, ptr %26, i64 0, i32 1
+  %ossl_list_int15.i210 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %25, ptr %ossl_list_int15.i210, align 8
   br label %if.end17.i211
 
@@ -620,7 +620,7 @@ if.end17.i211:                                    ; preds = %if.then10.i209, %os
 
 if.then21.i213:                                   ; preds = %if.end17.i211
   %27 = load ptr, ptr %prev5.i, align 8
-  %prev27.i214 = getelementptr inbounds %struct.int_st, ptr %25, i64 0, i32 1, i32 1
+  %prev27.i214 = getelementptr inbounds i8, ptr %25, i64 16
   store ptr %27, ptr %prev27.i214, align 8
   br label %ossl_list_int_remove.exit220
 
@@ -648,11 +648,11 @@ lor.lhs.false106:                                 ; preds = %lor.lhs.false101
   br i1 %tobool110.not, label %return, label %if.end.i235
 
 if.end.i235:                                      ; preds = %lor.lhs.false106
-  %prev.i223 = getelementptr inbounds %struct.int_st, ptr %spec.select326, i64 0, i32 1, i32 1
+  %prev.i223 = getelementptr inbounds i8, ptr %spec.select326, i64 16
   store ptr %elem, ptr %prev.i223, align 8
-  %ossl_list_int3.i226 = getelementptr inbounds %struct.int_st, ptr %elem, i64 0, i32 1
+  %ossl_list_int3.i226 = getelementptr inbounds i8, ptr %elem, i64 8
   store ptr %spec.select326, ptr %ossl_list_int3.i226, align 8
-  %prev5.i227 = getelementptr inbounds %struct.int_st, ptr %elem, i64 0, i32 1, i32 1
+  %prev5.i227 = getelementptr inbounds i8, ptr %elem, i64 16
   store ptr null, ptr %prev5.i227, align 16
   %cmp2.i237 = icmp eq ptr %l.sroa.36.9, %add.ptr9
   %30 = load ptr, ptr %prev3.i, align 8
@@ -662,7 +662,7 @@ if.end.i235:                                      ; preds = %lor.lhs.false106
   br i1 %cmp9.not.i242, label %if.end17.i246, label %if.then10.i244
 
 if.then10.i244:                                   ; preds = %if.end.i235
-  %ossl_list_int15.i245 = getelementptr inbounds %struct.int_st, ptr %30, i64 0, i32 1
+  %ossl_list_int15.i245 = getelementptr inbounds i8, ptr %30, i64 8
   store ptr %.pre16.i243, ptr %ossl_list_int15.i245, align 8
   br label %if.end17.i246
 
@@ -672,7 +672,7 @@ if.end17.i246:                                    ; preds = %if.then10.i244, %if
 
 if.then21.i248:                                   ; preds = %if.end17.i246
   %31 = load ptr, ptr %prev3.i, align 8
-  %prev27.i249 = getelementptr inbounds %struct.int_st, ptr %.pre16.i243, i64 0, i32 1, i32 1
+  %prev27.i249 = getelementptr inbounds i8, ptr %.pre16.i243, i64 16
   store ptr %31, ptr %prev27.i249, align 8
   br label %ossl_list_int_remove.exit255
 
@@ -708,7 +708,7 @@ if.end134:                                        ; preds = %lor.lhs.false128
   br i1 %cmp9.not.i264, label %if.end17.i268, label %if.then10.i266
 
 if.then10.i266:                                   ; preds = %if.end134
-  %ossl_list_int15.i267 = getelementptr inbounds %struct.int_st, ptr %35, i64 0, i32 1
+  %ossl_list_int15.i267 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %34, ptr %ossl_list_int15.i267, align 8
   br label %if.end17.i268
 
@@ -718,7 +718,7 @@ if.end17.i268:                                    ; preds = %if.then10.i266, %if
 
 if.then21.i270:                                   ; preds = %if.end17.i268
   %36 = load ptr, ptr %prev5.i227, align 16
-  %prev27.i271 = getelementptr inbounds %struct.int_st, ptr %34, i64 0, i32 1, i32 1
+  %prev27.i271 = getelementptr inbounds i8, ptr %34, i64 16
   store ptr %36, ptr %prev27.i271, align 8
   br label %ossl_list_int_remove.exit277
 

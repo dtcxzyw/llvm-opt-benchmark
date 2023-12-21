@@ -9,9 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %"class.grpc_core::MutableSlice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
-%struct.grpc_slice_refcount = type { %"struct.std::atomic", ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 
 $_ZN9grpc_core12MutableSliceD2Ev = comdat any
 
@@ -47,11 +44,11 @@ _ZN9grpc_core12_GLOBAL__N_133LookupTableForPercentEncodingTypeENS_19PercentEncod
   %retval.0.i = phi ptr [ @_ZN9grpc_core12_GLOBAL__N_118g_compatible_tableE, %sw.bb1.i ], [ @_ZN9grpc_core12_GLOBAL__N_111g_url_tableE, %entry ]
   %0 = load ptr, ptr %slice, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %bytes.i = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1, i32 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %slice, i64 16
   %1 = load ptr, ptr %bytes.i, align 8
   %bytes5.i = getelementptr inbounds i8, ptr %slice, i64 9
   %cond.i = select i1 %tobool.not.i, ptr %bytes5.i, ptr %1
-  %data11.i = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1
+  %data11.i = getelementptr inbounds i8, ptr %slice, i64 8
   %2 = load i64, ptr %data11.i, align 8
   %conv.i = and i64 %2, 255
   %cond17.i = select i1 %tobool.not.i, i64 %conv.i, i64 %2
@@ -94,7 +91,7 @@ invoke.cont15:                                    ; preds = %for.end
   call void @grpc_slice_malloc(ptr nonnull sret(%struct.grpc_slice) align 8 %out, i64 noundef %add)
   %5 = load ptr, ptr %out, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
-  %bytes.i.i = getelementptr inbounds %struct.grpc_slice, ptr %out, i64 0, i32 1, i32 0, i32 1
+  %bytes.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %6 = load ptr, ptr %bytes.i.i, align 8
   %bytes5.i.i = getelementptr inbounds i8, ptr %out, i64 9
   %cond.i.i = select i1 %tobool.not.i.i, ptr %bytes5.i.i, ptr %6
@@ -169,7 +166,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.loope
   %q.0.lcssa = phi ptr [ %cond.i.i, %invoke.cont15 ], [ %q.1, %invoke.cont40.loopexit ]
   %tobool.not.i.i43 = icmp eq ptr %16, null
   %cond.i.i46 = select i1 %tobool.not.i.i43, ptr %bytes5.i.i, ptr %15
-  %data.i.i = getelementptr inbounds %struct.grpc_slice, ptr %out, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %out, i64 8
   %17 = load i64, ptr %data.i.i, align 8
   %conv.i.i = and i64 %17, 255
   %cond.i2.i = select i1 %tobool.not.i.i43, i64 %conv.i.i, i64 %17
@@ -213,7 +210,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont2
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %0, i64 0, i32 1
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i, align 8
   invoke void %2(ptr noundef nonnull %0)
           to label %invoke.cont2 unwind label %terminate.lpad
@@ -241,11 +238,11 @@ entry:
   %ref.tmp.sroa.0 = alloca %struct.grpc_slice, align 8
   %0 = load ptr, ptr %slice_in, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %bytes.i = getelementptr inbounds %struct.grpc_slice, ptr %slice_in, i64 0, i32 1, i32 0, i32 1
+  %bytes.i = getelementptr inbounds i8, ptr %slice_in, i64 16
   %1 = load ptr, ptr %bytes.i, align 8
   %bytes5.i = getelementptr inbounds i8, ptr %slice_in, i64 9
   %cond.i = select i1 %tobool.not.i, ptr %bytes5.i, ptr %1
-  %data11.i = getelementptr inbounds %struct.grpc_slice, ptr %slice_in, i64 0, i32 1
+  %data11.i = getelementptr inbounds i8, ptr %slice_in, i64 8
   %2 = load i64, ptr %data11.i, align 8
   %conv.i = and i64 %2, 255
   %cond17.i = select i1 %tobool.not.i, i64 %conv.i, i64 %2
@@ -303,11 +300,11 @@ invoke.cont6:                                     ; preds = %if.then.i, %if.then
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp12.i)
   %5 = load ptr, ptr %out, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
-  %bytes.i.i = getelementptr inbounds %struct.grpc_slice, ptr %out, i64 0, i32 1, i32 0, i32 1
+  %bytes.i.i = getelementptr inbounds i8, ptr %out, i64 16
   %6 = load ptr, ptr %bytes.i.i, align 8
   %bytes5.i.i = getelementptr inbounds i8, ptr %out, i64 9
   %cond.i.i = select i1 %tobool.not.i.i, ptr %bytes5.i.i, ptr %6
-  %data.i.i = getelementptr inbounds %struct.grpc_slice, ptr %out, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %out, i64 8
   %7 = load i64, ptr %data.i.i, align 8
   %conv.i.i = and i64 %7, 255
   %cond.i2.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %7
@@ -500,7 +497,7 @@ if.then.i.i67:                                    ; preds = %invoke.cont43
   br i1 %cmp.i.i.i68, label %if.then.i.i.i69, label %return
 
 if.then.i.i.i69:                                  ; preds = %if.then.i.i67
-  %destroyer_fn_.i.i.i70 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %23, i64 0, i32 1
+  %destroyer_fn_.i.i.i70 = getelementptr inbounds i8, ptr %23, i64 8
   %25 = load ptr, ptr %destroyer_fn_.i.i.i70, align 8
   invoke void %25(ptr noundef nonnull %23)
           to label %return unwind label %terminate.lpad.i71

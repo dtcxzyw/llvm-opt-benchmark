@@ -867,7 +867,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyStructSequence_Desc = type { ptr, ptr, ptr, i32 }
 %struct.PyStructSequence_Field = type { ptr, ptr }
 %union.pthread_attr_t = type { i64, [48 x i8] }
-%struct.pythread_callback = type { ptr, ptr }
 %struct.timespec = type { i64, i64 }
 
 @PY_TIMEOUT_MAX = dso_local local_unnamed_addr constant i64 9223372036854775, align 8
@@ -1034,9 +1033,9 @@ if.end2:                                          ; preds = %if.end
   br i1 %tobool4.not, label %if.end18, label %cond.end
 
 cond.end:                                         ; preds = %if.end2
-  %interp = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp, align 8
-  %stacksize5 = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 9, i32 4
+  %stacksize5 = getelementptr inbounds i8, ptr %3, i64 968
   %4 = load i64, ptr %stacksize5, align 8
   %cmp6.not = icmp eq i64 %4, 0
   br i1 %cmp6.not, label %if.end18, label %if.then12
@@ -1058,7 +1057,7 @@ if.end18:                                         ; preds = %if.end2, %if.then12
 
 if.end23:                                         ; preds = %if.end18
   store ptr %func, ptr %call20, align 8
-  %arg25 = getelementptr inbounds %struct.pythread_callback, ptr %call20, i64 0, i32 1
+  %arg25 = getelementptr inbounds i8, ptr %call20, i64 8
   store ptr %arg, ptr %arg25, align 8
   %call26 = call i32 @pthread_create(ptr noundef nonnull %th, ptr noundef nonnull %attrs, ptr noundef nonnull @pythread_wrapper, ptr noundef nonnull %call20) #14
   %call27 = call i32 @pthread_attr_destroy(ptr noundef nonnull %attrs) #14
@@ -1624,7 +1623,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %_key = getelementptr inbounds %struct._Py_tss_t, ptr %key, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %key, i64 4
   %call = tail call i32 @pthread_key_create(ptr noundef nonnull %_key, ptr noundef null) #14
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end3, label %return
@@ -1646,7 +1645,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_key = getelementptr inbounds %struct._Py_tss_t, ptr %key, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %key, i64 4
   %1 = load i32, ptr %_key, align 4
   %call = tail call i32 @pthread_key_delete(i32 noundef %1) #14
   store i32 0, ptr %key, align 4
@@ -1659,7 +1658,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @PyThread_tss_set(ptr nocapture noundef readonly %key, ptr noundef %value) local_unnamed_addr #0 {
 entry:
-  %_key = getelementptr inbounds %struct._Py_tss_t, ptr %key, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %key, i64 4
   %0 = load i32, ptr %_key, align 4
   %call = tail call i32 @pthread_setspecific(i32 noundef %0, ptr noundef %value) #14
   %tobool.not = icmp ne i32 %call, 0
@@ -1670,7 +1669,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyThread_tss_get(ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %_key = getelementptr inbounds %struct._Py_tss_t, ptr %key, i64 0, i32 1
+  %_key = getelementptr inbounds i8, ptr %key, i64 4
   %0 = load i32, ptr %_key, align 4
   %call = tail call ptr @pthread_getspecific(i32 noundef %0) #14
   ret ptr %call
@@ -1681,9 +1680,9 @@ define dso_local i64 @PyThread_get_stacksize() local_unnamed_addr #10 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
-  %stacksize = getelementptr inbounds %struct._is, ptr %2, i64 0, i32 9, i32 4
+  %stacksize = getelementptr inbounds i8, ptr %2, i64 968
   %3 = load i64, ptr %stacksize, align 8
   ret i64 %3
 }
@@ -1732,9 +1731,9 @@ if.then12.i:                                      ; preds = %if.then8.i
 return.sink.split.i:                              ; preds = %if.then12.i, %if.then.i
   %.sink5.i = phi ptr [ %1, %if.then12.i ], [ %0, %if.then.i ]
   %2 = load ptr, ptr %.sink5.i, align 8
-  %interp.i4.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp.i4.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i4.i, align 8
-  %stacksize15.i = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 9, i32 4
+  %stacksize15.i = getelementptr inbounds i8, ptr %3, i64 968
   store i64 %size, ptr %stacksize15.i, align 8
   br label %_pythread_pthread_set_stacksize.exit
 
@@ -1903,7 +1902,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %PyThread_tss_delete.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %_key.i = getelementptr inbounds %struct._Py_tss_t, ptr %key, i64 0, i32 1
+  %_key.i = getelementptr inbounds i8, ptr %key, i64 4
   %1 = load i32, ptr %_key.i, align 4
   %call.i = tail call i32 @pthread_key_delete(i32 noundef %1) #14
   store i32 0, ptr %key, align 4
@@ -1930,7 +1929,7 @@ entry:
   %buffer = alloca [255 x i8], align 16
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %call.i = tail call i32 @_PyStructSequence_InitBuiltinWithFlags(ptr noundef %2, ptr noundef nonnull @ThreadInfoType, ptr noundef nonnull @threadinfo_desc, i64 noundef 0) #14
   %cmp = icmp slt i32 %call.i, 0
@@ -2070,7 +2069,7 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 define internal ptr @pythread_wrapper(ptr noundef %arg) #0 {
 entry:
   %0 = load ptr, ptr %arg, align 8
-  %arg2 = getelementptr inbounds %struct.pythread_callback, ptr %arg, i64 0, i32 1
+  %arg2 = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load ptr, ptr %arg2, align 8
   tail call void @PyMem_RawFree(ptr noundef nonnull %arg) #14
   tail call void %0(ptr noundef %1) #14

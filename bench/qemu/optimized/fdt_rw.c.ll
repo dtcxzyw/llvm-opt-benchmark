@@ -3,10 +3,7 @@ source_filename = "bench/qemu/original/fdt_rw.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.fdt_header = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.fdt_reserve_entry = type { i64, i64 }
-%struct.fdt_property = type { i32, i32, i32, [0 x i8] }
-%struct.fdt_node_header = type { i32, [0 x i8] }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @fdt_add_mem_rsv(ptr noundef %fdt, i64 noundef %address, i64 noundef %size) local_unnamed_addr #0 {
@@ -16,7 +13,7 @@ entry:
   br i1 %cmp.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %entry
-  %version.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
+  %version.i = getelementptr inbounds i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i, align 1
   %conv.i.i = zext i8 %0 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -38,7 +35,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %cmp6.i, label %return, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end3.i
-  %size_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 9
+  %size_dt_struct.i = getelementptr inbounds i8, ptr %fdt, i64 36
   %4 = load i8, ptr %size_dt_struct.i, align 1
   %conv.i6.i = zext i8 %4 to i32
   %shl.i7.i = shl nuw i32 %conv.i6.i, 24
@@ -70,7 +67,7 @@ if.then18.i:                                      ; preds = %if.end12.i
 
 if.end:                                           ; preds = %if.then18.i, %if.end12.i
   %call1 = tail call i32 @fdt_num_mem_rsv(ptr noundef nonnull %fdt) #9
-  %off_mem_rsvmap.i.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 4
+  %off_mem_rsvmap.i.i = getelementptr inbounds i8, ptr %fdt, i64 16
   %8 = load i8, ptr %off_mem_rsvmap.i.i, align 1
   %conv.i.i.i = zext i8 %8 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 24
@@ -99,7 +96,7 @@ if.end5:                                          ; preds = %if.end
   %or26.i = tail call i64 @llvm.bswap.i64(i64 %address)
   store i64 %or26.i, ptr %add.ptr2.i.i, align 8
   %or26.i7 = tail call i64 @llvm.bswap.i64(i64 %size)
-  %size9 = getelementptr %struct.fdt_reserve_entry, ptr %add.ptr.i.i, i64 %idx.ext1.i.i, i32 1
+  %size9 = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
   store i64 %or26.i7, ptr %size9, align 8
   br label %return
 
@@ -115,7 +112,7 @@ define internal fastcc i32 @fdt_splice_mem_rsv_(ptr noundef %fdt, ptr noundef %p
 entry:
   %mul3 = shl i32 %oldn, 4
   %mul6 = shl i32 %newn, 4
-  %off_dt_strings.i.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 3
+  %off_dt_strings.i.i = getelementptr inbounds i8, ptr %fdt, i64 12
   %0 = load i8, ptr %off_dt_strings.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i, 24
@@ -133,7 +130,7 @@ entry:
   %3 = load i8, ptr %arrayidx8.i.i.i, align 1
   %conv9.i.i.i = zext i8 %3 to i32
   %or10.i.i.i = or disjoint i32 %or7.i.i.i, %conv9.i.i.i
-  %size_dt_strings.i.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 8
+  %size_dt_strings.i.i = getelementptr inbounds i8, ptr %fdt, i64 32
   %4 = load i8, ptr %size_dt_strings.i.i, align 1
   %conv.i2.i.i = zext i8 %4 to i32
   %shl.i3.i.i = shl nuw i32 %conv.i2.i.i, 24
@@ -179,7 +176,7 @@ if.end.i:                                         ; preds = %lor.lhs.false3.i
 if.end16.i:                                       ; preds = %if.end.i
   %sub.i = sub i32 %mul6, %mul3
   %add17.i = add i32 %sub.i, %add.i.i
-  %totalsize.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 1
+  %totalsize.i = getelementptr inbounds i8, ptr %fdt, i64 4
   %8 = load i8, ptr %totalsize.i, align 1
   %conv.i.i = zext i8 %8 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -211,7 +208,7 @@ if.end:                                           ; preds = %if.end16.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr24.i, i64 %sub.ptr.sub31.i, i1 false)
   %sub = sub nsw i32 %newn, %oldn
   %mul = shl i32 %sub, 4
-  %off_dt_struct = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 2
+  %off_dt_struct = getelementptr inbounds i8, ptr %fdt, i64 8
   %12 = load i8, ptr %off_dt_struct, align 1
   %conv.i9 = zext i8 %12 to i32
   %shl.i = shl nuw i32 %conv.i9, 24
@@ -259,7 +256,7 @@ return:                                           ; preds = %if.end16.i, %if.end
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @fdt_del_mem_rsv(ptr noundef %fdt, i32 noundef %n) local_unnamed_addr #0 {
 entry:
-  %off_mem_rsvmap.i.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 4
+  %off_mem_rsvmap.i.i = getelementptr inbounds i8, ptr %fdt, i64 16
   %0 = load i8, ptr %off_mem_rsvmap.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 24
@@ -285,7 +282,7 @@ entry:
   br i1 %cmp.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %entry
-  %version.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
+  %version.i = getelementptr inbounds i8, ptr %fdt, i64 20
   %4 = load i8, ptr %version.i, align 1
   %conv.i.i = zext i8 %4 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -307,7 +304,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %cmp6.i, label %return, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end3.i
-  %size_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 9
+  %size_dt_struct.i = getelementptr inbounds i8, ptr %fdt, i64 36
   %8 = load i8, ptr %size_dt_struct.i, align 1
   %conv.i6.i = zext i8 %8 to i32
   %shl.i7.i = shl nuw i32 %conv.i6.i, 24
@@ -360,7 +357,7 @@ entry:
   br i1 %cmp.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %entry
-  %version.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
+  %version.i = getelementptr inbounds i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i, align 1
   %conv.i.i = zext i8 %0 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -382,7 +379,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %cmp6.i, label %return, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end3.i
-  %size_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 9
+  %size_dt_struct.i = getelementptr inbounds i8, ptr %fdt, i64 36
   %4 = load i8, ptr %size_dt_struct.i, align 1
   %conv.i6.i = zext i8 %4 to i32
   %shl.i7.i = shl nuw i32 %conv.i6.i, 24
@@ -453,7 +450,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc i32 @fdt_splice_struct_(ptr noundef %fdt, ptr noundef %p, i32 noundef %oldlen, i32 noundef %newlen) unnamed_addr #2 {
 entry:
-  %off_dt_strings.i.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 3
+  %off_dt_strings.i.i = getelementptr inbounds i8, ptr %fdt, i64 12
   %0 = load i8, ptr %off_dt_strings.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i, 24
@@ -471,7 +468,7 @@ entry:
   %3 = load i8, ptr %arrayidx8.i.i.i, align 1
   %conv9.i.i.i = zext i8 %3 to i32
   %or10.i.i.i = or disjoint i32 %or7.i.i.i, %conv9.i.i.i
-  %size_dt_strings.i.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 8
+  %size_dt_strings.i.i = getelementptr inbounds i8, ptr %fdt, i64 32
   %4 = load i8, ptr %size_dt_strings.i.i, align 1
   %conv.i2.i.i = zext i8 %4 to i32
   %shl.i3.i.i = shl nuw i32 %conv.i2.i.i, 24
@@ -517,7 +514,7 @@ if.end.i:                                         ; preds = %lor.lhs.false3.i
 if.end16.i:                                       ; preds = %if.end.i
   %sub.i = sub i32 %newlen, %oldlen
   %add17.i = add i32 %sub.i, %add.i.i
-  %totalsize.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 1
+  %totalsize.i = getelementptr inbounds i8, ptr %fdt, i64 4
   %8 = load i8, ptr %totalsize.i, align 1
   %conv.i.i = zext i8 %8 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -547,7 +544,7 @@ if.end:                                           ; preds = %if.end16.i
   %sub.ptr.rhs.cast30.i = ptrtoint ptr %add.ptr24.i to i64
   %sub.ptr.sub31.i = sub i64 %sub.ptr.lhs.cast29.i, %sub.ptr.rhs.cast30.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr24.i, i64 %sub.ptr.sub31.i, i1 false)
-  %size_dt_struct = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 9
+  %size_dt_struct = getelementptr inbounds i8, ptr %fdt, i64 36
   %12 = load i8, ptr %size_dt_struct, align 1
   %conv.i8 = zext i8 %12 to i32
   %shl.i = shl nuw i32 %conv.i8, 24
@@ -605,7 +602,7 @@ entry:
   br i1 %cmp.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %entry
-  %version.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
+  %version.i = getelementptr inbounds i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i, align 1
   %conv.i.i = zext i8 %0 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -627,7 +624,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %cmp6.i, label %return, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end3.i
-  %size_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 9
+  %size_dt_struct.i = getelementptr inbounds i8, ptr %fdt, i64 36
   %4 = load i8, ptr %size_dt_struct.i, align 1
   %conv.i6.i = zext i8 %4 to i32
   %shl.i7.i = shl nuw i32 %conv.i6.i, 24
@@ -669,7 +666,7 @@ if.then.i:                                        ; preds = %if.end
   br label %fdt_resize_property_.exit
 
 if.end.i:                                         ; preds = %if.end
-  %data.i = getelementptr inbounds %struct.fdt_property, ptr %call.i.i, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %9 = load i32, ptr %oldlen.i, align 4
   %sub.i = add i32 %9, 3
   %and.i = and i32 %sub.i, -4
@@ -681,7 +678,7 @@ if.end.i:                                         ; preds = %if.end
 
 if.end5.thread:                                   ; preds = %if.end.i
   %rev.i.i = call i32 @llvm.bswap.i32(i32 %len)
-  %len12.i = getelementptr inbounds %struct.fdt_property, ptr %call.i.i, i64 0, i32 1
+  %len12.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   store i32 %rev.i.i, ptr %len12.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %oldlen.i)
   br label %if.end7
@@ -707,7 +704,7 @@ if.end5.if.end7_crit_edge:                        ; preds = %if.end5
 
 if.end7:                                          ; preds = %if.end5.if.end7_crit_edge, %if.end5.thread
   %10 = phi ptr [ %.pre, %if.end5.if.end7_crit_edge ], [ %call.i.i, %if.end5.thread ]
-  %data = getelementptr inbounds %struct.fdt_property, ptr %10, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %10, i64 12
   store ptr %data, ptr %prop_data, align 8
   br label %return
 
@@ -724,7 +721,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %off_dt_strings.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 3
+  %off_dt_strings.i = getelementptr inbounds i8, ptr %fdt, i64 12
   %0 = load i8, ptr %off_dt_strings.i, align 1
   %conv.i.i = zext i8 %0 to i64
   %shl.i.i = shl nuw nsw i64 %conv.i.i, 24
@@ -746,7 +743,7 @@ if.end:                                           ; preds = %entry
   %call1.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #10
   %4 = trunc i64 %call1.i to i32
   %conv.i = add i32 %4, 1
-  %size_dt_strings.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 8
+  %size_dt_strings.i = getelementptr inbounds i8, ptr %fdt, i64 32
   %5 = load i8, ptr %size_dt_strings.i, align 1
   %conv.i15.i = zext i8 %5 to i32
   %shl.i16.i = shl nuw i32 %conv.i15.i, 24
@@ -821,7 +818,7 @@ if.end7.i:                                        ; preds = %if.end
 
 if.end16.i.i.i:                                   ; preds = %if.end7.i
   %add17.i.i.i = add i32 %add.i.i.i.i, %conv.i
-  %totalsize.i.i.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 1
+  %totalsize.i.i.i = getelementptr inbounds i8, ptr %fdt, i64 4
   %21 = load i8, ptr %totalsize.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %21 to i32
   %shl.i.i.i.i = shl nuw i32 %conv.i.i.i.i, 24
@@ -875,7 +872,7 @@ fdt_find_add_string_.exit:                        ; preds = %if.then5.i, %if.end
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %fdt_find_add_string_.exit
-  %off_dt_struct.i.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 2
+  %off_dt_struct.i.i = getelementptr inbounds i8, ptr %fdt, i64 8
   %29 = load i8, ptr %off_dt_struct.i.i, align 1
   %conv.i.i.i15 = zext i8 %29 to i64
   %shl.i.i.i16 = shl nuw nsw i64 %conv.i.i.i15, 24
@@ -935,11 +932,11 @@ if.end14:                                         ; preds = %if.end4
   store i32 50331648, ptr %38, align 4
   %rev.i = tail call i32 @llvm.bswap.i32(i32 %retval.0.i)
   %39 = load ptr, ptr %prop, align 8
-  %nameoff = getelementptr inbounds %struct.fdt_property, ptr %39, i64 0, i32 2
+  %nameoff = getelementptr inbounds i8, ptr %39, i64 8
   store i32 %rev.i, ptr %nameoff, align 4
   %rev.i38 = tail call i32 @llvm.bswap.i32(i32 %len)
   %40 = load ptr, ptr %prop, align 8
-  %len18 = getelementptr inbounds %struct.fdt_property, ptr %40, i64 0, i32 1
+  %len18 = getelementptr inbounds i8, ptr %40, i64 4
   store i32 %rev.i38, ptr %len18, align 4
   br label %return
 
@@ -978,7 +975,7 @@ entry:
   br i1 %cmp.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %entry
-  %version.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
+  %version.i = getelementptr inbounds i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i, align 1
   %conv.i.i = zext i8 %0 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -1000,7 +997,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %cmp6.i, label %return, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end3.i
-  %size_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 9
+  %size_dt_struct.i = getelementptr inbounds i8, ptr %fdt, i64 36
   %4 = load i8, ptr %size_dt_struct.i, align 1
   %conv.i6.i = zext i8 %4 to i32
   %shl.i7.i = shl nuw i32 %conv.i6.i, 24
@@ -1039,7 +1036,7 @@ if.end:                                           ; preds = %if.then18.i, %if.en
 if.then2:                                         ; preds = %if.end
   %8 = load i32, ptr %oldlen, align 4
   %add = add i32 %8, %len
-  %data = getelementptr inbounds %struct.fdt_property, ptr %call.i, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %call.i, i64 12
   %sub = add i32 %8, 3
   %and = and i32 %sub, -4
   %sub7 = add i32 %add, 3
@@ -1050,7 +1047,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end13:                                         ; preds = %if.then2
   %rev.i = call i32 @llvm.bswap.i32(i32 %add)
-  %len15 = getelementptr inbounds %struct.fdt_property, ptr %call.i, i64 0, i32 1
+  %len15 = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 %rev.i, ptr %len15, align 4
   %9 = load i32, ptr %oldlen, align 4
   %idx.ext = sext i32 %9 to i64
@@ -1066,7 +1063,7 @@ if.else:                                          ; preds = %if.end
 
 if.end22:                                         ; preds = %if.else
   %10 = load ptr, ptr %prop, align 8
-  %data23 = getelementptr inbounds %struct.fdt_property, ptr %10, i64 0, i32 3
+  %data23 = getelementptr inbounds i8, ptr %10, i64 12
   %conv25 = sext i32 %len to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data23, ptr align 1 %val, i64 %conv25, i1 false)
   br label %return
@@ -1085,7 +1082,7 @@ entry:
   br i1 %cmp.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %entry
-  %version.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
+  %version.i = getelementptr inbounds i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i, align 1
   %conv.i.i = zext i8 %0 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -1107,7 +1104,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %cmp6.i, label %return, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end3.i
-  %size_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 9
+  %size_dt_struct.i = getelementptr inbounds i8, ptr %fdt, i64 36
   %4 = load i8, ptr %size_dt_struct.i, align 1
   %conv.i6.i = zext i8 %4 to i32
   %shl.i7.i = shl nuw i32 %conv.i6.i, 24
@@ -1164,7 +1161,7 @@ entry:
   br i1 %cmp.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %entry
-  %version.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
+  %version.i = getelementptr inbounds i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i, align 1
   %conv.i.i = zext i8 %0 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -1186,7 +1183,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %cmp6.i, label %return, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end3.i
-  %size_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 9
+  %size_dt_struct.i = getelementptr inbounds i8, ptr %fdt, i64 36
   %4 = load i8, ptr %size_dt_struct.i, align 1
   %conv.i6.i = zext i8 %4 to i32
   %shl.i7.i = shl nuw i32 %conv.i6.i, 24
@@ -1238,7 +1235,7 @@ do.body:                                          ; preds = %if.end7, %do.body
   br i1 %10, label %do.body, label %do.end, !llvm.loop !8
 
 do.end:                                           ; preds = %do.body
-  %off_dt_struct.i.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 2
+  %off_dt_struct.i.i = getelementptr inbounds i8, ptr %fdt, i64 8
   %11 = load i8, ptr %off_dt_struct.i.i, align 1
   %conv.i.i.i = zext i8 %11 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 24
@@ -1271,7 +1268,7 @@ do.end:                                           ; preds = %do.body
 
 if.end23:                                         ; preds = %do.end
   store i32 16777216, ptr %add.ptr2.i.i, align 4
-  %name26 = getelementptr inbounds %struct.fdt_node_header, ptr %add.ptr2.i.i, i64 0, i32 1
+  %name26 = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %name26, i8 0, i64 %and, i1 false)
   %conv34 = sext i32 %namelen to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %name26, ptr align 1 %name, i64 %conv34, i1 false)
@@ -1310,7 +1307,7 @@ entry:
   br i1 %cmp.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %entry
-  %version.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
+  %version.i = getelementptr inbounds i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i, align 1
   %conv.i.i = zext i8 %0 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -1332,7 +1329,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %cmp6.i, label %return, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end3.i
-  %size_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 9
+  %size_dt_struct.i = getelementptr inbounds i8, ptr %fdt, i64 36
   %4 = load i8, ptr %size_dt_struct.i, align 1
   %conv.i6.i = zext i8 %4 to i32
   %shl.i7.i = shl nuw i32 %conv.i6.i, 24
@@ -1368,7 +1365,7 @@ if.end:                                           ; preds = %if.then18.i, %if.en
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %off_dt_struct.i.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 2
+  %off_dt_struct.i.i = getelementptr inbounds i8, ptr %fdt, i64 8
   %8 = load i8, ptr %off_dt_struct.i.i, align 1
   %conv.i.i.i = zext i8 %8 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 24
@@ -1404,7 +1401,7 @@ declare i32 @fdt_node_end_offset_(ptr noundef, i32 noundef) local_unnamed_addr #
 define dso_local i32 @fdt_open_into(ptr noundef %fdt, ptr noundef %buf, i32 noundef %bufsize) local_unnamed_addr #0 {
 entry:
   %struct_size = alloca i32, align 4
-  %totalsize = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 1
+  %totalsize = getelementptr inbounds i8, ptr %fdt, i64 4
   %0 = load i8, ptr %totalsize, align 1
   %conv.i = zext i8 %0 to i64
   %shl.i = shl nuw nsw i64 %conv.i, 24
@@ -1431,7 +1428,7 @@ if.end:                                           ; preds = %entry
   %call2 = tail call i32 @fdt_num_mem_rsv(ptr noundef nonnull %fdt) #9
   %add = shl i32 %call2, 4
   %mul = add i32 %add, 16
-  %version = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
+  %version = getelementptr inbounds i8, ptr %fdt, i64 20
   %4 = load i8, ptr %version, align 1
   %conv.i41 = zext i8 %4 to i32
   %shl.i42 = shl nuw i32 %conv.i41, 24
@@ -1453,7 +1450,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end
-  %size_dt_struct = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 9
+  %size_dt_struct = getelementptr inbounds i8, ptr %fdt, i64 36
   %8 = load i8, ptr %size_dt_struct, align 1
   %conv.i54 = zext i8 %8 to i32
   %shl.i55 = shl nuw i32 %conv.i54, 24
@@ -1505,21 +1502,18 @@ if.then30:                                        ; preds = %if.end25
   br i1 %tobool32.not, label %if.end34, label %return
 
 if.end34:                                         ; preds = %if.then30
-  %version.i = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 5
+  %version.i = getelementptr inbounds i8, ptr %buf, i64 20
   store i32 285212672, ptr %version.i, align 4
   %15 = load i32, ptr %struct_size, align 4
   %rev.i.i = call i32 @llvm.bswap.i32(i32 %15)
-  %size_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 9
+  %size_dt_struct.i = getelementptr inbounds i8, ptr %buf, i64 36
   store i32 %rev.i.i, ptr %size_dt_struct.i, align 4
-  %rev.i.i80 = call i32 @llvm.bswap.i32(i32 %bufsize)
-  %totalsize.i = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 1
-  store i32 %rev.i.i80, ptr %totalsize.i, align 4
-  br label %return
+  br label %return.sink.split
 
 if.end35:                                         ; preds = %if.end25
   %add37 = add i32 %add, 56
   %add39 = add i32 %add37, %14
-  %size_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 8
+  %size_dt_strings = getelementptr inbounds i8, ptr %fdt, i64 32
   %16 = load i8, ptr %size_dt_strings, align 1
   %conv.i81 = zext i8 %16 to i32
   %shl.i82 = shl nuw i32 %conv.i81, 24
@@ -1559,7 +1553,7 @@ if.then54:                                        ; preds = %if.end47
 if.end63:                                         ; preds = %if.then54, %if.end47
   %tmp.0 = phi ptr [ %add.ptr, %if.then54 ], [ %buf, %if.end47 ]
   %add.ptr.i = getelementptr i8, ptr %tmp.0, i64 40
-  %off_mem_rsvmap.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 4
+  %off_mem_rsvmap.i = getelementptr inbounds i8, ptr %fdt, i64 16
   %20 = load i8, ptr %off_mem_rsvmap.i, align 1
   %conv.i.i = zext i8 %20 to i64
   %shl.i.i = shl nuw nsw i64 %conv.i.i, 24
@@ -1580,11 +1574,11 @@ if.end63:                                         ; preds = %if.then54, %if.end4
   %add.ptr3.i = getelementptr i8, ptr %fdt, i64 %or10.i.i
   %conv.i107 = sext i32 %mul to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %add.ptr3.i, i64 %conv.i107, i1 false)
-  %off_mem_rsvmap.i.i = getelementptr inbounds %struct.fdt_header, ptr %tmp.0, i64 0, i32 4
+  %off_mem_rsvmap.i.i = getelementptr inbounds i8, ptr %tmp.0, i64 16
   store i32 671088640, ptr %off_mem_rsvmap.i.i, align 4
   %idx.ext4.i = sext i32 %add37 to i64
   %add.ptr5.i = getelementptr i8, ptr %tmp.0, i64 %idx.ext4.i
-  %off_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 2
+  %off_dt_struct.i = getelementptr inbounds i8, ptr %fdt, i64 8
   %24 = load i8, ptr %off_dt_struct.i, align 1
   %conv.i22.i = zext i8 %24 to i64
   %shl.i23.i = shl nuw nsw i64 %conv.i22.i, 24
@@ -1606,14 +1600,14 @@ if.end63:                                         ; preds = %if.then54, %if.end4
   %conv9.i108 = sext i32 %14 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr5.i, ptr align 1 %add.ptr8.i, i64 %conv9.i108, i1 false)
   %rev.i.i.i = call i32 @llvm.bswap.i32(i32 %add37)
-  %off_dt_struct.i.i = getelementptr inbounds %struct.fdt_header, ptr %tmp.0, i64 0, i32 2
+  %off_dt_struct.i.i = getelementptr inbounds i8, ptr %tmp.0, i64 8
   store i32 %rev.i.i.i, ptr %off_dt_struct.i.i, align 4
   %rev.i.i35.i = call i32 @llvm.bswap.i32(i32 %14)
-  %size_dt_struct.i.i = getelementptr inbounds %struct.fdt_header, ptr %tmp.0, i64 0, i32 9
+  %size_dt_struct.i.i = getelementptr inbounds i8, ptr %tmp.0, i64 36
   store i32 %rev.i.i35.i, ptr %size_dt_struct.i.i, align 4
   %idx.ext10.i = sext i32 %add39 to i64
   %add.ptr11.i = getelementptr i8, ptr %tmp.0, i64 %idx.ext10.i
-  %off_dt_strings.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 3
+  %off_dt_strings.i = getelementptr inbounds i8, ptr %fdt, i64 12
   %28 = load i8, ptr %off_dt_strings.i, align 1
   %conv.i36.i = zext i8 %28 to i64
   %shl.i37.i = shl nuw nsw i64 %conv.i36.i, 24
@@ -1635,7 +1629,7 @@ if.end63:                                         ; preds = %if.then54, %if.end4
   %conv15.i = sext i32 %or10.i93 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr11.i, ptr align 1 %add.ptr14.i, i64 %conv15.i, i1 false)
   %rev.i.i49.i = call i32 @llvm.bswap.i32(i32 %add39)
-  %off_dt_strings.i.i = getelementptr inbounds %struct.fdt_header, ptr %tmp.0, i64 0, i32 3
+  %off_dt_strings.i.i = getelementptr inbounds i8, ptr %tmp.0, i64 12
   store i32 %rev.i.i49.i, ptr %off_dt_strings.i.i, align 4
   %32 = load i8, ptr %size_dt_strings, align 1
   %conv.i50.i = zext i8 %32 to i32
@@ -1652,18 +1646,18 @@ if.end63:                                         ; preds = %if.then54, %if.end4
   %conv9.i61.i = zext i8 %35 to i32
   %or10.i62.i = or disjoint i32 %or7.i59.i, %conv9.i61.i
   %rev.i.i63.i = call i32 @llvm.bswap.i32(i32 %or10.i62.i)
-  %size_dt_strings.i.i = getelementptr inbounds %struct.fdt_header, ptr %tmp.0, i64 0, i32 8
+  %size_dt_strings.i.i = getelementptr inbounds i8, ptr %tmp.0, i64 32
   store i32 %rev.i.i63.i, ptr %size_dt_strings.i.i, align 4
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %buf, ptr align 1 %tmp.0, i64 %idx.ext48, i1 false)
   store i32 -302117424, ptr %buf, align 4
   %rev.i.i109 = call i32 @llvm.bswap.i32(i32 %bufsize)
-  %totalsize.i110 = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 1
+  %totalsize.i110 = getelementptr inbounds i8, ptr %buf, i64 4
   store i32 %rev.i.i109, ptr %totalsize.i110, align 4
-  %version.i111 = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 5
+  %version.i111 = getelementptr inbounds i8, ptr %buf, i64 20
   store i32 285212672, ptr %version.i111, align 4
-  %last_comp_version.i = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 6
+  %last_comp_version.i = getelementptr inbounds i8, ptr %buf, i64 24
   store i32 268435456, ptr %last_comp_version.i, align 4
-  %boot_cpuid_phys = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 7
+  %boot_cpuid_phys = getelementptr inbounds i8, ptr %fdt, i64 28
   %36 = load i8, ptr %boot_cpuid_phys, align 1
   %conv.i112 = zext i8 %36 to i32
   %shl.i113 = shl nuw i32 %conv.i112, 24
@@ -1681,13 +1675,18 @@ if.end63:                                         ; preds = %if.then54, %if.end4
   %39 = load i8, ptr %arrayidx8.i122, align 1
   %conv9.i123 = zext i8 %39 to i32
   %or10.i124 = or disjoint i32 %or7.i121, %conv9.i123
-  %rev.i.i125 = call i32 @llvm.bswap.i32(i32 %or10.i124)
-  %boot_cpuid_phys.i = getelementptr inbounds %struct.fdt_header, ptr %buf, i64 0, i32 7
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.end34, %if.end63
+  %or10.i124.sink = phi i32 [ %or10.i124, %if.end63 ], [ %bufsize, %if.end34 ]
+  %.sink = phi i64 [ 28, %if.end63 ], [ 4, %if.end34 ]
+  %rev.i.i125 = call i32 @llvm.bswap.i32(i32 %or10.i124.sink)
+  %boot_cpuid_phys.i = getelementptr inbounds i8, ptr %buf, i64 %.sink
   store i32 %rev.i.i125, ptr %boot_cpuid_phys.i, align 4
   br label %return
 
-return:                                           ; preds = %if.then54, %if.end35, %if.then30, %if.else, %while.end, %entry, %if.end63, %if.end34
-  %retval.0 = phi i32 [ 0, %if.end34 ], [ 0, %if.end63 ], [ %call1, %entry ], [ %13, %while.end ], [ -10, %if.else ], [ %call31, %if.then30 ], [ -3, %if.end35 ], [ -3, %if.then54 ]
+return:                                           ; preds = %return.sink.split, %if.then54, %if.end35, %if.then30, %if.else, %while.end, %entry
+  %retval.0 = phi i32 [ %call1, %entry ], [ %13, %while.end ], [ -10, %if.else ], [ %call31, %if.then30 ], [ -3, %if.end35 ], [ -3, %if.then54 ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -1696,7 +1695,7 @@ declare i32 @fdt_ro_probe_(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc i32 @fdt_blocks_misordered_(ptr nocapture noundef readonly %fdt, i32 noundef %mem_rsv_size, i32 noundef %struct_size) unnamed_addr #6 {
 entry:
-  %off_mem_rsvmap = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 4
+  %off_mem_rsvmap = getelementptr inbounds i8, ptr %fdt, i64 16
   %0 = load i8, ptr %off_mem_rsvmap, align 1
   %conv.i = zext i8 %0 to i32
   %shl.i = shl nuw i32 %conv.i, 24
@@ -1718,7 +1717,7 @@ entry:
   br i1 %cmp, label %lor.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %off_dt_struct = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 2
+  %off_dt_struct = getelementptr inbounds i8, ptr %fdt, i64 8
   %4 = load i8, ptr %off_dt_struct, align 1
   %conv.i8 = zext i8 %4 to i32
   %shl.i9 = shl nuw i32 %conv.i8, 24
@@ -1741,7 +1740,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp5, label %lor.end, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %off_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 3
+  %off_dt_strings = getelementptr inbounds i8, ptr %fdt, i64 12
   %8 = load i8, ptr %off_dt_strings, align 1
   %conv.i34 = zext i8 %8 to i32
   %shl.i35 = shl nuw i32 %conv.i34, 24
@@ -1764,7 +1763,7 @@ lor.lhs.false7:                                   ; preds = %lor.lhs.false
   br i1 %cmp12, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false7
-  %totalsize = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 1
+  %totalsize = getelementptr inbounds i8, ptr %fdt, i64 4
   %12 = load i8, ptr %totalsize, align 1
   %conv.i60 = zext i8 %12 to i32
   %shl.i61 = shl nuw i32 %conv.i60, 24
@@ -1782,7 +1781,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false7
   %15 = load i8, ptr %arrayidx8.i70, align 1
   %conv9.i71 = zext i8 %15 to i32
   %or10.i72 = or disjoint i32 %or7.i69, %conv9.i71
-  %size_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 8
+  %size_dt_strings = getelementptr inbounds i8, ptr %fdt, i64 32
   %16 = load i8, ptr %size_dt_strings, align 1
   %conv.i86 = zext i8 %16 to i32
   %shl.i87 = shl nuw i32 %conv.i86, 24
@@ -1823,7 +1822,7 @@ entry:
   br i1 %cmp.i, label %return, label %if.end3.i
 
 if.end3.i:                                        ; preds = %entry
-  %version.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 5
+  %version.i = getelementptr inbounds i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i, align 1
   %conv.i.i = zext i8 %0 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -1845,7 +1844,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %cmp6.i, label %return, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end3.i
-  %size_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 9
+  %size_dt_struct.i = getelementptr inbounds i8, ptr %fdt, i64 36
   %4 = load i8, ptr %size_dt_struct.i, align 1
   %conv.i6.i = zext i8 %4 to i32
   %shl.i7.i = shl nuw i32 %conv.i6.i, 24
@@ -1893,7 +1892,7 @@ if.end:                                           ; preds = %if.then18.i, %if.en
   %11 = load i8, ptr %arrayidx8.i16.i, align 1
   %conv9.i = zext i8 %11 to i32
   %or10.i = or disjoint i32 %or7.i, %conv9.i
-  %size_dt_strings = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 8
+  %size_dt_strings = getelementptr inbounds i8, ptr %fdt, i64 32
   %12 = load i8, ptr %size_dt_strings, align 1
   %conv.i8 = zext i8 %12 to i32
   %shl.i9 = shl nuw i32 %conv.i8, 24
@@ -1914,7 +1913,7 @@ if.end:                                           ; preds = %if.then18.i, %if.en
   %add.i = add i32 %add, 56
   %add1.i = add i32 %or10.i, %add.i
   %add.ptr.i = getelementptr i8, ptr %fdt, i64 40
-  %off_mem_rsvmap.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 4
+  %off_mem_rsvmap.i = getelementptr inbounds i8, ptr %fdt, i64 16
   %16 = load i8, ptr %off_mem_rsvmap.i, align 1
   %conv.i.i21 = zext i8 %16 to i64
   %shl.i.i22 = shl nuw nsw i64 %conv.i.i21, 24
@@ -1938,7 +1937,7 @@ if.end:                                           ; preds = %if.then18.i, %if.en
   store i32 671088640, ptr %off_mem_rsvmap.i, align 4
   %idx.ext4.i = sext i32 %add.i to i64
   %add.ptr5.i = getelementptr i8, ptr %fdt, i64 %idx.ext4.i
-  %off_dt_struct.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 2
+  %off_dt_struct.i = getelementptr inbounds i8, ptr %fdt, i64 8
   %20 = load i8, ptr %off_dt_struct.i, align 1
   %conv.i22.i = zext i8 %20 to i64
   %shl.i23.i = shl nuw nsw i64 %conv.i22.i, 24
@@ -1965,7 +1964,7 @@ if.end:                                           ; preds = %if.then18.i, %if.en
   store i32 %rev.i.i35.i, ptr %size_dt_struct.i, align 4
   %idx.ext10.i = sext i32 %add1.i to i64
   %add.ptr11.i = getelementptr i8, ptr %fdt, i64 %idx.ext10.i
-  %off_dt_strings.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 3
+  %off_dt_strings.i = getelementptr inbounds i8, ptr %fdt, i64 12
   %24 = load i8, ptr %off_dt_strings.i, align 1
   %conv.i36.i = zext i8 %24 to i64
   %shl.i37.i = shl nuw nsw i64 %conv.i36.i, 24
@@ -2024,7 +2023,7 @@ if.end:                                           ; preds = %if.then18.i, %if.en
   %or10.i14.i = or disjoint i32 %or7.i11.i, %37
   %add.i51 = add i32 %or10.i14.i, %or10.i.i49
   %rev.i.i = tail call i32 @llvm.bswap.i32(i32 %add.i51)
-  %totalsize.i = getelementptr inbounds %struct.fdt_header, ptr %fdt, i64 0, i32 1
+  %totalsize.i = getelementptr inbounds i8, ptr %fdt, i64 4
   store i32 %rev.i.i, ptr %totalsize.i, align 4
   br label %return
 

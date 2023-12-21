@@ -5,43 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeSize = type { ptr, ptr, i32, i8 }
 %struct.riscv_csr_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.ArchCPU = type { %struct.CPUState, %struct.CPUArchState, ptr, ptr, %struct.RISCVCPUConfig, ptr, i32, ptr }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i32, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.RISCVCPUConfig = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr, i16, i16, i16, i16, i8, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [31 x i8] c"../qemu/target/riscv/gdbstub.c\00", align 1
 @__func__.riscv_cpu_gdb_read_register = private unnamed_addr constant [28 x i8] c"riscv_cpu_gdb_read_register\00", align 1
@@ -97,7 +60,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %env1 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1
+  %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr [32 x i64], ptr %env1, i64 0, i64 %idxprom
   br label %if.end5
@@ -107,13 +70,13 @@ if.else:                                          ; preds = %entry
   br i1 %cmp2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.else
-  %pc = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 9
+  %pc = getelementptr inbounds i8, ptr %call.i, i64 14832
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then3, %if.then
   %tmp.0.in = phi ptr [ %arrayidx, %if.then ], [ %pc, %if.then3 ]
   %tmp.0 = load i64, ptr %tmp.0.in, align 8
-  %misa_mxl_max = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 22
+  %misa_mxl_max = getelementptr inbounds i8, ptr %call.i, i64 15188
   %0 = load i32, ptr %misa_mxl_max, align 4
   switch i32 %0, label %do.body [
     i32 1, label %sw.bb
@@ -152,8 +115,8 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 define dso_local i32 @riscv_cpu_gdb_write_register(ptr noundef %cs, ptr nocapture noundef readonly %mem_buf, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
-  %env1 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1
-  %misa_mxl_max = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 22
+  %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
+  %misa_mxl_max = getelementptr inbounds i8, ptr %call.i, i64 15188
   %0 = load i32, ptr %misa_mxl_max, align 4
   switch i32 %0, label %do.body [
     i32 1, label %sw.bb
@@ -167,7 +130,7 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry, %entry
-  %xl = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 25
+  %xl = getelementptr inbounds i8, ptr %call.i, i64 15200
   %1 = load i32, ptr %xl, align 16
   %cmp = icmp ult i32 %1, 2
   %mem_buf.val10 = load i64, ptr %mem_buf, align 1
@@ -200,7 +163,7 @@ if.else14:                                        ; preds = %sw.epilog
   br i1 %cmp15, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %if.else14
-  %pc = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 9
+  %pc = getelementptr inbounds i8, ptr %call.i, i64 14832
   store i64 %tmp.1, ptr %pc, align 16
   br label %if.end19
 
@@ -212,7 +175,7 @@ if.end19:                                         ; preds = %if.else14, %if.then
 define dso_local void @riscv_cpu_register_gdb_regs_for_features(ptr noundef %cs) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
-  %misa_ext = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 23
+  %misa_ext = getelementptr inbounds i8, ptr %call.i, i64 15192
   %0 = load i32, ptr %misa_ext, align 8
   %conv = zext i32 %0 to i64
   %and = and i64 %conv, 8
@@ -236,12 +199,12 @@ if.end7:                                          ; preds = %if.end7.sink.split,
   br i1 %tobool11.not, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.end7
-  %gdb_num_regs = getelementptr inbounds %struct.CPUState, ptr %cs, i64 0, i32 33
+  %gdb_num_regs = getelementptr inbounds i8, ptr %cs, i64 560
   %3 = load i32, ptr %gdb_num_regs, align 16
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
   %call1.i = tail call ptr @g_string_new(ptr noundef null) #8
   %call2.i = tail call ptr @g_string_new(ptr noundef nonnull @.str.9) #8
-  %vlen.i = getelementptr inbounds %struct.ArchCPU, ptr %call.i.i, i64 0, i32 4, i32 98
+  %vlen.i = getelementptr inbounds i8, ptr %call.i.i, i64 15464
   %4 = load i16, ptr %vlen.i, align 8
   %conv.i = zext i16 %4 to i32
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call1.i, ptr noundef nonnull @.str.10) #8
@@ -252,10 +215,10 @@ if.then12:                                        ; preds = %if.end7
 for.body.i:                                       ; preds = %for.body.i, %if.then12
   %indvars.iv.i = phi i64 [ 0, %if.then12 ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr [5 x %struct.TypeSize], ptr @vec_lanes, i64 0, i64 %indvars.iv.i
-  %size.i = getelementptr [5 x %struct.TypeSize], ptr @vec_lanes, i64 0, i64 %indvars.iv.i, i32 2
+  %size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %5 = load i32, ptr %size.i, align 8
   %div.i = sdiv i32 %conv.i, %5
-  %id.i = getelementptr [5 x %struct.TypeSize], ptr @vec_lanes, i64 0, i64 %indvars.iv.i, i32 1
+  %id.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %6 = load ptr, ptr %id.i, align 8
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call2.i, ptr noundef nonnull @.str.13, ptr noundef %6) #8
   %7 = load ptr, ptr %call2.i, align 8
@@ -271,10 +234,11 @@ for.end.i:                                        ; preds = %for.body.i
 
 for.body13.i:                                     ; preds = %for.body13.i, %for.end.i
   %indvars.iv31.i = phi i64 [ 0, %for.end.i ], [ %indvars.iv.next32.i, %for.body13.i ]
-  %suffix.i = getelementptr [5 x %struct.TypeSize], ptr @vec_lanes, i64 0, i64 %indvars.iv31.i, i32 3
+  %arrayidx15.i = getelementptr [5 x %struct.TypeSize], ptr @vec_lanes, i64 0, i64 %indvars.iv31.i
+  %suffix.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 20
   %9 = load i8, ptr %suffix.i, align 4
   %conv16.i = sext i8 %9 to i32
-  %id19.i = getelementptr [5 x %struct.TypeSize], ptr @vec_lanes, i64 0, i64 %indvars.iv31.i, i32 1
+  %id19.i = getelementptr inbounds i8, ptr %arrayidx15.i, i64 8
   %10 = load ptr, ptr %id19.i, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call1.i, ptr noundef nonnull @.str.16, i32 noundef %conv16.i, ptr noundef %10) #8
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
@@ -297,14 +261,14 @@ for.body27.i:                                     ; preds = %for.body27.i, %for.
 ricsv_gen_dynamic_vector_xml.exit:                ; preds = %for.body27.i
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call1.i, ptr noundef nonnull @.str.19) #8
   %call33.i = tail call ptr @g_string_free(ptr noundef %call1.i, i32 noundef 0) #8
-  %dyn_vreg_xml.i = getelementptr inbounds %struct.ArchCPU, ptr %call.i.i, i64 0, i32 3
+  %dyn_vreg_xml.i = getelementptr inbounds i8, ptr %call.i.i, i64 15304
   store ptr %call33.i, ptr %dyn_vreg_xml.i, align 8
   %call.i.i.i.i = tail call ptr @g_string_free(ptr noundef nonnull %call2.i, i32 noundef 1) #8
   tail call void @gdb_register_coprocessor(ptr noundef %cs, ptr noundef nonnull @riscv_gdb_get_vector, ptr noundef nonnull @riscv_gdb_set_vector, i32 noundef 32, ptr noundef nonnull @.str.3, i32 noundef 0) #8
   br label %if.end14
 
 if.end14:                                         ; preds = %ricsv_gen_dynamic_vector_xml.exit, %if.end7
-  %misa_mxl_max = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 22
+  %misa_mxl_max = getelementptr inbounds i8, ptr %call.i, i64 15188
   %11 = load i32, ptr %misa_mxl_max, align 4
   %switch.tableidx = add i32 %11, -1
   %12 = icmp ult i32 %switch.tableidx, 3
@@ -319,40 +283,40 @@ switch.lookup:                                    ; preds = %if.end14
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.riscv_cpu_register_gdb_regs_for_features, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @gdb_register_coprocessor(ptr noundef %cs, ptr noundef nonnull @riscv_gdb_get_virtual, ptr noundef nonnull @riscv_gdb_set_virtual, i32 noundef 1, ptr noundef nonnull %switch.load, i32 noundef 0) #8
-  %ext_zicsr = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 4, i32 26
+  %ext_zicsr = getelementptr inbounds i8, ptr %call.i, i64 15338
   %14 = load i8, ptr %ext_zicsr, align 2
   %15 = and i8 %14, 1
   %tobool16.not = icmp eq i8 %15, 0
   br i1 %tobool16.not, label %if.end21, label %if.then17
 
 if.then17:                                        ; preds = %switch.lookup
-  %gdb_num_regs19 = getelementptr inbounds %struct.CPUState, ptr %cs, i64 0, i32 33
+  %gdb_num_regs19 = getelementptr inbounds i8, ptr %cs, i64 560
   %16 = load i32, ptr %gdb_num_regs19, align 16
   %call.i.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
-  %env1.i = getelementptr inbounds %struct.ArchCPU, ptr %call.i.i15, i64 0, i32 1
+  %env1.i = getelementptr inbounds i8, ptr %call.i.i15, i64 10176
   %call2.i16 = tail call ptr @g_string_new(ptr noundef null) #8
-  %misa_mxl_max.i = getelementptr inbounds %struct.ArchCPU, ptr %call.i.i15, i64 0, i32 1, i32 22
+  %misa_mxl_max.i = getelementptr inbounds i8, ptr %call.i.i15, i64 15188
   %17 = load i32, ptr %misa_mxl_max.i, align 4
   %shl.i = shl i32 16, %17
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %shl.i, i32 64)
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.10) #8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.30) #8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.31) #8
-  %priv_ver.i = getelementptr inbounds %struct.ArchCPU, ptr %call.i.i15, i64 0, i32 1, i32 18
+  %priv_ver.i = getelementptr inbounds i8, ptr %call.i.i15, i64 15160
   br label %for.body.i17
 
 for.body.i17:                                     ; preds = %for.inc.i, %if.then17
   %indvars.iv.i18 = phi i64 [ 0, %if.then17 ], [ %indvars.iv.next.i21, %for.inc.i ]
   %18 = load i64, ptr %priv_ver.i, align 8
   %arrayidx.i19 = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %indvars.iv.i18
-  %min_priv_ver.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %indvars.iv.i18, i32 7
+  %min_priv_ver.i = getelementptr inbounds i8, ptr %arrayidx.i19, i64 56
   %19 = load i32, ptr %min_priv_ver.i, align 8
   %conv.i20 = zext i32 %19 to i64
   %cmp4.i = icmp ult i64 %18, %conv.i20
   br i1 %cmp4.i, label %for.inc.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %for.body.i17
-  %predicate10.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %indvars.iv.i18, i32 1
+  %predicate10.i = getelementptr inbounds i8, ptr %arrayidx.i19, i64 8
   %20 = load ptr, ptr %predicate10.i, align 8
   %tobool.not.i = icmp eq ptr %20, null
   br i1 %tobool.not.i, label %for.inc.i, label %land.lhs.true.i
@@ -390,7 +354,7 @@ for.inc.i:                                        ; preds = %if.end22.i, %land.l
 riscv_gen_dynamic_csr_xml.exit:                   ; preds = %for.inc.i
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call2.i16, ptr noundef nonnull @.str.19) #8
   %call24.i = tail call ptr @g_string_free(ptr noundef %call2.i16, i32 noundef 0) #8
-  %dyn_csr_xml.i = getelementptr inbounds %struct.ArchCPU, ptr %call.i.i15, i64 0, i32 2
+  %dyn_csr_xml.i = getelementptr inbounds i8, ptr %call.i.i15, i64 15296
   store ptr %call24.i, ptr %dyn_csr_xml.i, align 16
   tail call void @gdb_register_coprocessor(ptr noundef %cs, ptr noundef nonnull @riscv_gdb_get_csr, ptr noundef nonnull @riscv_gdb_set_csr, i32 noundef 4096, ptr noundef nonnull @.str.6, i32 noundef 0) #8
   br label %if.end21
@@ -410,7 +374,7 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %misa_ext = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 23
+  %misa_ext = getelementptr inbounds i8, ptr %env, i64 5016
   %0 = load i32, ptr %misa_ext, align 8
   %conv = zext i32 %0 to i64
   %and = and i64 %conv, 8
@@ -418,8 +382,9 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %if.end, label %if.then1
 
 if.then1:                                         ; preds = %if.then
+  %fpr = getelementptr inbounds i8, ptr %env, i64 4680
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 12, i64 %idxprom
+  %arrayidx = getelementptr [32 x i64], ptr %fpr, i64 0, i64 %idxprom
   %1 = load i64, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %to_quad.i)
   store i64 %1, ptr %to_quad.i, align 8
@@ -433,8 +398,9 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool5.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end
+  %fpr7 = getelementptr inbounds i8, ptr %env, i64 4680
   %idxprom8 = sext i32 %n to i64
-  %arrayidx9 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 12, i64 %idxprom8
+  %arrayidx9 = getelementptr [32 x i64], ptr %fpr7, i64 0, i64 %idxprom8
   %2 = load i64, ptr %arrayidx9, align 8
   %conv10 = trunc i64 %2 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %to_long.i)
@@ -456,8 +422,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %mem_buf.val = load i64, ptr %mem_buf, align 1
+  %fpr = getelementptr inbounds i8, ptr %env, i64 4680
   %idxprom = sext i32 %n to i64
-  %arrayidx = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 12, i64 %idxprom
+  %arrayidx = getelementptr [32 x i64], ptr %fpr, i64 0, i64 %idxprom
   store i64 %mem_buf.val, ptr %arrayidx, align 8
   br label %return
 
@@ -482,6 +449,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp47.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %vreg = getelementptr inbounds i8, ptr %env, i64 512
   %mul = mul i32 %conv3, %n
   br label %for.body
 
@@ -490,7 +458,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i32 %cnt.09, %mul
   %div = sdiv i32 %add, 8
   %idxprom = sext i32 %div to i64
-  %arrayidx = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [512 x i64], ptr %vreg, i64 0, i64 %idxprom
   %2 = load i64, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %to_quad.i)
   store i64 %2, ptr %to_quad.i, align 8
@@ -520,6 +488,7 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp48.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
+  %vreg = getelementptr inbounds i8, ptr %env, i64 512
   %mul = mul i32 %conv3, %n
   %2 = zext nneg i16 %1 to i64
   br label %for.body
@@ -532,7 +501,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i32 %mul, %3
   %div = sdiv i32 %add, 8
   %idxprom = sext i32 %div to i64
-  %arrayidx = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [512 x i64], ptr %vreg, i64 0, i64 %idxprom
   store i64 %add.ptr.val, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %cmp4 = icmp ult i64 %indvars.iv.next, %2

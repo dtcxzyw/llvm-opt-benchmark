@@ -10,51 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon.6, i32, ptr, i32, ptr }
 %union.anon.6 = type { i64 }
 %struct.RISCVCPUMisaExtConfig = type { i64, i8 }
-%struct.ArchCPU = type { %struct.CPUState, %struct.CPUArchState, ptr, ptr, %struct.RISCVCPUConfig, ptr, i32, ptr }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i32, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.RISCVCPUConfig = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr, i16, i16, i16, i16, i8, i8, i8, i8, i8 }
-%struct.AccelCPUClass = type { %struct.ObjectClass, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.CPUClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.TranslationBlock = type { i64, i64, i32, i32, i16, i16, %struct.tb_tc, %struct.IntervalTreeNode, %struct.QemuSpin, [2 x i16], [2 x i16], [2 x i64], i64, [2 x i64], [2 x i64] }
-%struct.tb_tc = type { ptr, i64 }
-%struct.IntervalTreeNode = type { %struct.RBNode, i64, i64, i64 }
-%struct.RBNode = type { i64, ptr, ptr }
 
 @.str = private unnamed_addr constant [35 x i8] c"../qemu/target/riscv/tcg/tcg-cpu.c\00", align 1
 @__func__.riscv_cpu_validate_set_extensions = private unnamed_addr constant [34 x i8] c"riscv_cpu_validate_set_extensions\00", align 1
@@ -160,7 +115,7 @@ define dso_local void @riscv_cpu_validate_set_extensions(ptr noundef %cpu, ptr n
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
-  %0 = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 23
+  %0 = getelementptr i8, ptr %cpu, i64 15192
   %env1.val = load i32, ptr %0, align 8
   %1 = and i32 %env1.val, 64
   %tobool.not = icmp eq i32 %1, 0
@@ -172,14 +127,14 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond417.not, label %land.lhs.true16, label %if.then
 
 land.lhs.true16:                                  ; preds = %land.lhs.true
-  %ext_zicsr = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 26
+  %ext_zicsr = getelementptr inbounds i8, ptr %cpu, i64 15338
   %3 = load i8, ptr %ext_zicsr, align 2
   %4 = and i8 %3, 1
   %tobool17.not = icmp eq i8 %4, 0
   br i1 %tobool17.not, label %if.then, label %land.lhs.true18
 
 land.lhs.true18:                                  ; preds = %land.lhs.true16
-  %ext_zifencei = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 24
+  %ext_zifencei = getelementptr inbounds i8, ptr %cpu, i64 15336
   %5 = load i8, ptr %ext_zifencei, align 8
   %6 = and i8 %5, 1
   %tobool20.not = icmp eq i8 %6, 0
@@ -192,7 +147,7 @@ if.then:                                          ; preds = %land.lhs.true18, %l
   br i1 %tobool.i.not, label %if.end, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %if.then
-  %ext_zicsr24 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 26
+  %ext_zicsr24 = getelementptr inbounds i8, ptr %cpu, i64 15338
   %8 = load i8, ptr %ext_zicsr24, align 2
   %9 = and i8 %8, 1
   %tobool25.not = icmp eq i8 %9, 0
@@ -209,7 +164,7 @@ if.end:                                           ; preds = %land.lhs.true22, %i
   br i1 %tobool.i252.not, label %if.end33, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %if.end
-  %ext_zifencei30 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 24
+  %ext_zifencei30 = getelementptr inbounds i8, ptr %cpu, i64 15336
   %11 = load i8, ptr %ext_zifencei30, align 8
   %12 = and i8 %11, 1
   %tobool31.not = icmp eq i8 %12, 0
@@ -230,7 +185,7 @@ if.end.i:                                         ; preds = %if.end33
   br i1 %tobool.i.not.i, label %land.lhs.true.i, label %cpu_cfg_ext_auto_update.exit
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %priv_ver.i = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 18
+  %priv_ver.i = getelementptr inbounds i8, ptr %cpu, i64 15160
   %14 = load i64, ptr %priv_ver.i, align 8
   %cmp11.not.i = icmp eq i64 %14, 2
   br i1 %cmp11.not.i, label %if.end21.i, label %land.rhs.i.i
@@ -242,13 +197,13 @@ land.rhs.i.i:                                     ; preds = %land.lhs.true.i, %f
   br i1 %tobool1.not.i.i, label %do.body.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %land.rhs.i.i
-  %ext_enable_offset.i.i = getelementptr inbounds %struct.isa_ext_data, ptr %edata.06.i.i, i64 0, i32 2
+  %ext_enable_offset.i.i = getelementptr inbounds i8, ptr %edata.06.i.i, i64 12
   %16 = load i32, ptr %ext_enable_offset.i.i, align 4
   %cmp.not.i.i = icmp eq i32 %16, 26
   br i1 %cmp.not.i.i, label %cpu_cfg_ext_get_min_version.exit.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
-  %incdec.ptr.i.i = getelementptr %struct.isa_ext_data, ptr %edata.06.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %edata.06.i.i, i64 16
   %tobool.not.i.i = icmp eq ptr %incdec.ptr.i.i, null
   br i1 %tobool.not.i.i, label %do.body.i.i, label %land.rhs.i.i, !llvm.loop !5
 
@@ -257,7 +212,7 @@ do.body.i.i:                                      ; preds = %for.inc.i.i, %land.
   unreachable
 
 cpu_cfg_ext_get_min_version.exit.i:               ; preds = %for.body.i.i
-  %min_version.i.i = getelementptr inbounds %struct.isa_ext_data, ptr %edata.06.i.i, i64 0, i32 1
+  %min_version.i.i = getelementptr inbounds i8, ptr %edata.06.i.i, i64 8
   %17 = load i32, ptr %min_version.i.i, align 8
   %conv16.i = sext i32 %17 to i64
   %cmp17.i = icmp ult i64 %14, %conv16.i
@@ -278,7 +233,7 @@ if.end.i255:                                      ; preds = %cpu_cfg_ext_auto_up
   br i1 %tobool.i.not.i257, label %land.lhs.true.i258, label %cpu_cfg_ext_auto_update.exit276
 
 land.lhs.true.i258:                               ; preds = %if.end.i255
-  %priv_ver.i259 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 18
+  %priv_ver.i259 = getelementptr inbounds i8, ptr %cpu, i64 15160
   %19 = load i64, ptr %priv_ver.i259, align 8
   %cmp11.not.i260 = icmp eq i64 %19, 2
   br i1 %cmp11.not.i260, label %if.end21.i275, label %land.rhs.i.i261
@@ -290,13 +245,13 @@ land.rhs.i.i261:                                  ; preds = %land.lhs.true.i258,
   br i1 %tobool1.not.i.i263, label %do.body.i.i270, label %for.body.i.i264
 
 for.body.i.i264:                                  ; preds = %land.rhs.i.i261
-  %ext_enable_offset.i.i265 = getelementptr inbounds %struct.isa_ext_data, ptr %edata.06.i.i262, i64 0, i32 2
+  %ext_enable_offset.i.i265 = getelementptr inbounds i8, ptr %edata.06.i.i262, i64 12
   %21 = load i32, ptr %ext_enable_offset.i.i265, align 4
   %cmp.not.i.i266 = icmp eq i32 %21, 24
   br i1 %cmp.not.i.i266, label %cpu_cfg_ext_get_min_version.exit.i271, label %for.inc.i.i267
 
 for.inc.i.i267:                                   ; preds = %for.body.i.i264
-  %incdec.ptr.i.i268 = getelementptr %struct.isa_ext_data, ptr %edata.06.i.i262, i64 1
+  %incdec.ptr.i.i268 = getelementptr i8, ptr %edata.06.i.i262, i64 16
   %tobool.not.i.i269 = icmp eq ptr %incdec.ptr.i.i268, null
   br i1 %tobool.not.i.i269, label %do.body.i.i270, label %land.rhs.i.i261, !llvm.loop !5
 
@@ -305,7 +260,7 @@ do.body.i.i270:                                   ; preds = %for.inc.i.i267, %la
   unreachable
 
 cpu_cfg_ext_get_min_version.exit.i271:            ; preds = %for.body.i.i264
-  %min_version.i.i272 = getelementptr inbounds %struct.isa_ext_data, ptr %edata.06.i.i262, i64 0, i32 1
+  %min_version.i.i272 = getelementptr inbounds i8, ptr %edata.06.i.i262, i64 8
   %22 = load i32, ptr %min_version.i.i272, align 8
   %conv16.i273 = sext i32 %22 to i64
   %cmp17.i274 = icmp ult i64 %19, %conv16.i273
@@ -380,7 +335,7 @@ if.end73:                                         ; preds = %if.end59, %land.lhs
   br i1 %tobool75.not, label %land.lhs.true76, label %if.end81
 
 land.lhs.true76:                                  ; preds = %if.end73
-  %ext_zicsr78 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 26
+  %ext_zicsr78 = getelementptr inbounds i8, ptr %cpu, i64 15338
   %32 = load i8, ptr %ext_zicsr78, align 2
   %33 = and i8 %32, 1
   %tobool79.not = icmp eq i8 %33, 0
@@ -391,7 +346,7 @@ if.then80:                                        ; preds = %land.lhs.true76
   br label %return
 
 if.end81:                                         ; preds = %land.lhs.true76, %if.end73
-  %ext_zawrs = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 40
+  %ext_zawrs = getelementptr inbounds i8, ptr %cpu, i64 15352
   %34 = load i8, ptr %ext_zawrs, align 8
   %35 = and i8 %34, 1
   %tobool83.not = icmp ne i8 %35, 0
@@ -405,7 +360,7 @@ if.then88:                                        ; preds = %if.end81
   br label %return
 
 if.end89:                                         ; preds = %if.end81
-  %ext_zfa = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 41
+  %ext_zfa = getelementptr inbounds i8, ptr %cpu, i64 15353
   %37 = load i8, ptr %ext_zfa, align 1
   %38 = and i8 %37, 1
   %tobool91.not = icmp eq i8 %38, 0
@@ -417,7 +372,7 @@ if.then96:                                        ; preds = %if.end89
   br label %return
 
 if.end97:                                         ; preds = %if.end89
-  %ext_zfh = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 43
+  %ext_zfh = getelementptr inbounds i8, ptr %cpu, i64 15355
   %39 = load i8, ptr %ext_zfh, align 1
   %40 = and i8 %39, 1
   %tobool99.not = icmp eq i8 %40, 0
@@ -434,7 +389,7 @@ if.end.i330:                                      ; preds = %if.then100
   br i1 %tobool.i.not.i332, label %land.lhs.true.i333, label %if.end101
 
 land.lhs.true.i333:                               ; preds = %if.end.i330
-  %priv_ver.i334 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 18
+  %priv_ver.i334 = getelementptr inbounds i8, ptr %cpu, i64 15160
   %42 = load i64, ptr %priv_ver.i334, align 8
   %cmp11.not.i335 = icmp eq i64 %42, 2
   br i1 %cmp11.not.i335, label %if.end21.i350, label %land.rhs.i.i336
@@ -446,13 +401,13 @@ land.rhs.i.i336:                                  ; preds = %land.lhs.true.i333,
   br i1 %tobool1.not.i.i338, label %do.body.i.i345, label %for.body.i.i339
 
 for.body.i.i339:                                  ; preds = %land.rhs.i.i336
-  %ext_enable_offset.i.i340 = getelementptr inbounds %struct.isa_ext_data, ptr %edata.06.i.i337, i64 0, i32 2
+  %ext_enable_offset.i.i340 = getelementptr inbounds i8, ptr %edata.06.i.i337, i64 12
   %44 = load i32, ptr %ext_enable_offset.i.i340, align 4
   %cmp.not.i.i341 = icmp eq i32 %44, 44
   br i1 %cmp.not.i.i341, label %cpu_cfg_ext_get_min_version.exit.i346, label %for.inc.i.i342
 
 for.inc.i.i342:                                   ; preds = %for.body.i.i339
-  %incdec.ptr.i.i343 = getelementptr %struct.isa_ext_data, ptr %edata.06.i.i337, i64 1
+  %incdec.ptr.i.i343 = getelementptr i8, ptr %edata.06.i.i337, i64 16
   %tobool.not.i.i344 = icmp eq ptr %incdec.ptr.i.i343, null
   br i1 %tobool.not.i.i344, label %do.body.i.i345, label %land.rhs.i.i336, !llvm.loop !5
 
@@ -461,7 +416,7 @@ do.body.i.i345:                                   ; preds = %for.inc.i.i342, %la
   unreachable
 
 cpu_cfg_ext_get_min_version.exit.i346:            ; preds = %for.body.i.i339
-  %min_version.i.i347 = getelementptr inbounds %struct.isa_ext_data, ptr %edata.06.i.i337, i64 0, i32 1
+  %min_version.i.i347 = getelementptr inbounds i8, ptr %edata.06.i.i337, i64 8
   %45 = load i32, ptr %min_version.i.i347, align 8
   %conv16.i348 = sext i32 %45 to i64
   %cmp17.i349 = icmp ult i64 %42, %conv16.i348
@@ -472,7 +427,7 @@ if.end21.i350:                                    ; preds = %cpu_cfg_ext_get_min
   br label %if.end101
 
 if.end101:                                        ; preds = %if.end21.i350, %cpu_cfg_ext_get_min_version.exit.i346, %if.end.i330, %if.then100, %if.end97
-  %ext_zfhmin = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 44
+  %ext_zfhmin = getelementptr inbounds i8, ptr %cpu, i64 15356
   %46 = load i8, ptr %ext_zfhmin, align 4
   %47 = and i8 %46, 1
   %tobool103.not = icmp ne i8 %47, 0
@@ -487,7 +442,7 @@ if.then108:                                       ; preds = %if.end101
   br label %return
 
 if.end109:                                        ; preds = %if.end101
-  %ext_zfbfmin = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 42
+  %ext_zfbfmin = getelementptr inbounds i8, ptr %cpu, i64 15354
   %49 = load i8, ptr %ext_zfbfmin, align 2
   %50 = and i8 %49, 1
   %tobool111.not = icmp ne i8 %50, 0
@@ -515,7 +470,7 @@ if.end124:                                        ; preds = %if.end117
   br i1 %tobool126.not, label %if.end132, label %if.then127
 
 if.then127:                                       ; preds = %if.end124
-  %vlen.i = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 98
+  %vlen.i = getelementptr inbounds i8, ptr %cpu, i64 15464
   %54 = load i16, ptr %vlen.i, align 8
   %55 = tail call i16 @llvm.ctpop.i16(i16 %54), !range !7
   %or.cond23.i = icmp eq i16 %55, 1
@@ -535,7 +490,7 @@ if.then8.i:                                       ; preds = %if.end.i372
   br label %riscv_cpu_validate_v.exit
 
 if.end9.i:                                        ; preds = %if.end.i372
-  %elen.i = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 99
+  %elen.i = getelementptr inbounds i8, ptr %cpu, i64 15466
   %57 = load i16, ptr %elen.i, align 2
   %58 = tail call i16 @llvm.ctpop.i16(i16 %57), !range !7
   %or.cond24.i = icmp eq i16 %58, 1
@@ -555,7 +510,7 @@ if.then23.i:                                      ; preds = %if.end13.i
   br label %riscv_cpu_validate_v.exit
 
 if.end24.i:                                       ; preds = %if.end13.i
-  %vext_spec.i = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 97
+  %vext_spec.i = getelementptr inbounds i8, ptr %cpu, i64 15456
   %60 = load ptr, ptr %vext_spec.i, align 8
   %tobool.not.i = icmp eq ptr %60, null
   br i1 %tobool.not.i, label %if.else32.i, label %if.then25.i
@@ -566,7 +521,7 @@ if.then25.i:                                      ; preds = %if.end24.i
   br i1 %tobool28.not.i, label %if.then29.i, label %if.else.i
 
 if.then29.i:                                      ; preds = %if.then25.i
-  %vext_ver.i = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 20
+  %vext_ver.i = getelementptr inbounds i8, ptr %cpu, i64 15176
   store i64 65536, ptr %vext_ver.i, align 8
   br label %riscv_cpu_validate_v.exit
 
@@ -576,7 +531,7 @@ if.else.i:                                        ; preds = %if.then25.i
   br label %riscv_cpu_validate_v.exit
 
 if.else32.i:                                      ; preds = %if.end24.i
-  %vext_ver33.i = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 20
+  %vext_ver33.i = getelementptr inbounds i8, ptr %cpu, i64 15176
   %62 = load i64, ptr %vext_ver33.i, align 8
   %cmp34.i = icmp eq i64 %62, 0
   br i1 %cmp34.i, label %if.then36.i, label %riscv_cpu_validate_v.exit
@@ -600,7 +555,7 @@ if.end131:                                        ; preds = %riscv_cpu_validate_
   br label %if.end132
 
 if.end132:                                        ; preds = %if.end131, %if.end124
-  %ext_zve64d = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 50
+  %ext_zve64d = getelementptr inbounds i8, ptr %cpu, i64 15362
   %64 = load i8, ptr %ext_zve64d, align 2
   %65 = and i8 %64, 1
   %tobool134.not = icmp eq i8 %65, 0
@@ -611,7 +566,7 @@ if.then135:                                       ; preds = %if.end132
   br label %if.end136
 
 if.end136:                                        ; preds = %if.then135, %if.end132
-  %ext_zve64f = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 49
+  %ext_zve64f = getelementptr inbounds i8, ptr %cpu, i64 15361
   %66 = load i8, ptr %ext_zve64f, align 1
   %67 = and i8 %66, 1
   %tobool138.not = icmp eq i8 %67, 0
@@ -638,7 +593,7 @@ if.then148:                                       ; preds = %land.lhs.true145
   br label %return
 
 if.end149:                                        ; preds = %land.lhs.true145, %if.end140
-  %ext_zve32f = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 48
+  %ext_zve32f = getelementptr inbounds i8, ptr %cpu, i64 15360
   %71 = load i8, ptr %ext_zve32f, align 16
   %72 = and i8 %71, 1
   %tobool151.not = icmp eq i8 %72, 0
@@ -655,7 +610,7 @@ if.then156:                                       ; preds = %land.lhs.true153
   br label %return
 
 if.end157:                                        ; preds = %land.lhs.true153, %if.end149
-  %ext_zvfh = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 70
+  %ext_zvfh = getelementptr inbounds i8, ptr %cpu, i64 15382
   %74 = load i8, ptr %ext_zvfh, align 2
   %75 = and i8 %74, 1
   %tobool159.not = icmp eq i8 %75, 0
@@ -666,7 +621,7 @@ if.then160:                                       ; preds = %if.end157
   br label %if.end161
 
 if.end161:                                        ; preds = %if.then160, %if.end157
-  %ext_zvfhmin = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 71
+  %ext_zvfhmin = getelementptr inbounds i8, ptr %cpu, i64 15383
   %76 = load i8, ptr %ext_zvfhmin, align 1
   %77 = and i8 %76, 1
   %tobool163.not = icmp eq i8 %77, 0
@@ -699,7 +654,7 @@ if.then179:                                       ; preds = %land.lhs.true175
   br label %return
 
 if.end180:                                        ; preds = %land.lhs.true175, %if.end170
-  %ext_zvfbfmin = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 68
+  %ext_zvfbfmin = getelementptr inbounds i8, ptr %cpu, i64 15380
   %84 = load i8, ptr %ext_zvfbfmin, align 4
   %85 = and i8 %84, 1
   %tobool182.not = icmp eq i8 %85, 0
@@ -726,7 +681,7 @@ if.then198:                                       ; preds = %land.lhs.true194
   br label %return
 
 if.end199:                                        ; preds = %if.end180
-  %ext_zvfbfwma = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 69
+  %ext_zvfbfwma = getelementptr inbounds i8, ptr %cpu, i64 15381
   %90 = load i8, ptr %ext_zvfbfwma, align 1
   %91 = and i8 %90, 1
   %tobool201.not = icmp eq i8 %91, 0
@@ -737,7 +692,7 @@ if.then207:                                       ; preds = %if.end199
   br label %return
 
 if.end208:                                        ; preds = %land.lhs.true194, %if.end199
-  %ext_zhinx = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 46
+  %ext_zhinx = getelementptr inbounds i8, ptr %cpu, i64 15358
   %92 = load i8, ptr %ext_zhinx, align 2
   %93 = and i8 %92, 1
   %tobool210.not = icmp eq i8 %93, 0
@@ -748,21 +703,21 @@ if.then211:                                       ; preds = %if.end208
   br label %if.end212
 
 if.end212:                                        ; preds = %if.then211, %if.end208
-  %ext_zdinx = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 39
+  %ext_zdinx = getelementptr inbounds i8, ptr %cpu, i64 15351
   %94 = load i8, ptr %ext_zdinx, align 1
   %95 = and i8 %94, 1
   %tobool214.not = icmp eq i8 %95, 0
   br i1 %tobool214.not, label %lor.lhs.false, label %land.lhs.true219
 
 lor.lhs.false:                                    ; preds = %if.end212
-  %ext_zhinxmin = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 47
+  %ext_zhinxmin = getelementptr inbounds i8, ptr %cpu, i64 15359
   %96 = load i8, ptr %ext_zhinxmin, align 1
   %97 = and i8 %96, 1
   %tobool217.not = icmp eq i8 %97, 0
   br i1 %tobool217.not, label %if.end223, label %land.lhs.true219
 
 land.lhs.true219:                                 ; preds = %lor.lhs.false, %if.end212
-  %ext_zfinx = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 45
+  %ext_zfinx = getelementptr inbounds i8, ptr %cpu, i64 15357
   %98 = load i8, ptr %ext_zfinx, align 1
   %99 = and i8 %98, 1
   %tobool221.not = icmp eq i8 %99, 0
@@ -773,14 +728,14 @@ if.then222:                                       ; preds = %land.lhs.true219
   br label %return
 
 if.end223:                                        ; preds = %lor.lhs.false
-  %ext_zfinx225.phi.trans.insert = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 45
+  %ext_zfinx225.phi.trans.insert = getelementptr inbounds i8, ptr %cpu, i64 15357
   %.pre = load i8, ptr %ext_zfinx225.phi.trans.insert, align 1
   %.pre431 = and i8 %.pre, 1
   %tobool226.not = icmp eq i8 %.pre431, 0
   br i1 %tobool226.not, label %if.end237, label %if.then227
 
 if.then227:                                       ; preds = %land.lhs.true219, %if.end223
-  %ext_zicsr229 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 26
+  %ext_zicsr229 = getelementptr inbounds i8, ptr %cpu, i64 15338
   %100 = load i8, ptr %ext_zicsr229, align 2
   %101 = and i8 %100, 1
   %tobool230.not = icmp eq i8 %101, 0
@@ -801,7 +756,7 @@ if.then235:                                       ; preds = %if.end232
   br label %return
 
 if.end237:                                        ; preds = %if.end232, %if.end223
-  %ext_zce = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 10
+  %ext_zce = getelementptr inbounds i8, ptr %cpu, i64 15322
   %103 = load i8, ptr %ext_zce, align 2
   %104 = and i8 %103, 1
   %tobool239.not = icmp eq i8 %104, 0
@@ -818,7 +773,7 @@ if.then240:                                       ; preds = %if.end237
   br i1 %tobool242.not, label %if.end248, label %land.lhs.true243
 
 land.lhs.true243:                                 ; preds = %if.then240
-  %misa_mxl_max = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 22
+  %misa_mxl_max = getelementptr inbounds i8, ptr %cpu, i64 15188
   %106 = load i32, ptr %misa_mxl_max, align 4
   %cmp244 = icmp eq i32 %106, 1
   br i1 %cmp244, label %if.then246, label %if.end248
@@ -834,7 +789,7 @@ if.end248:                                        ; preds = %if.then240, %land.l
   br i1 %tobool250.not, label %if.end267, label %land.lhs.true251
 
 land.lhs.true251:                                 ; preds = %if.end248
-  %priv_ver = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 18
+  %priv_ver = getelementptr inbounds i8, ptr %cpu, i64 15160
   %108 = load i64, ptr %priv_ver, align 8
   %cmp252 = icmp ugt i64 %108, 1
   br i1 %cmp252, label %if.then254, label %if.end267
@@ -847,7 +802,7 @@ if.then254:                                       ; preds = %land.lhs.true251
   br i1 %tobool256.not, label %if.end262, label %land.lhs.true257
 
 land.lhs.true257:                                 ; preds = %if.then254
-  %misa_mxl_max258 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 22
+  %misa_mxl_max258 = getelementptr inbounds i8, ptr %cpu, i64 15188
   %110 = load i32, ptr %misa_mxl_max258, align 4
   %cmp259 = icmp eq i32 %110, 1
   br i1 %cmp259, label %if.then261, label %if.end262
@@ -868,13 +823,13 @@ if.then265:                                       ; preds = %if.end262
   br label %if.end267
 
 if.end267:                                        ; preds = %if.end262, %if.then265, %land.lhs.true251, %if.end248
-  %misa_mxl_max268 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 22
+  %misa_mxl_max268 = getelementptr inbounds i8, ptr %cpu, i64 15188
   %112 = load i32, ptr %misa_mxl_max268, align 4
   %cmp269.not = icmp eq i32 %112, 1
   br i1 %cmp269.not, label %if.end276, label %land.lhs.true271
 
 land.lhs.true271:                                 ; preds = %if.end267
-  %ext_zcf = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 11
+  %ext_zcf = getelementptr inbounds i8, ptr %cpu, i64 15323
   %113 = load i8, ptr %ext_zcf, align 1
   %114 = and i8 %113, 1
   %tobool273.not = icmp eq i8 %114, 0
@@ -891,7 +846,7 @@ if.end276:                                        ; preds = %land.lhs.true271, %
   br i1 %tobool278.not, label %land.lhs.true279, label %if.end285
 
 land.lhs.true279:                                 ; preds = %if.end276
-  %ext_zcf281 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 11
+  %ext_zcf281 = getelementptr inbounds i8, ptr %cpu, i64 15323
   %116 = load i8, ptr %ext_zcf281, align 1
   %117 = and i8 %116, 1
   %tobool282.not = icmp eq i8 %117, 0
@@ -907,7 +862,7 @@ if.end285:                                        ; preds = %land.lhs.true279, %
   br i1 %tobool287.not, label %land.lhs.true288, label %if.end293
 
 land.lhs.true288:                                 ; preds = %if.end285
-  %ext_zcd = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 9
+  %ext_zcd = getelementptr inbounds i8, ptr %cpu, i64 15321
   %119 = load i8, ptr %ext_zcd, align 1
   %120 = and i8 %119, 1
   %tobool290.not = icmp eq i8 %120, 0
@@ -918,49 +873,49 @@ if.then292:                                       ; preds = %land.lhs.true288
   br label %return
 
 if.end293:                                        ; preds = %land.lhs.true288, %if.end285
-  %ext_zcf295 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 11
+  %ext_zcf295 = getelementptr inbounds i8, ptr %cpu, i64 15323
   %121 = load i8, ptr %ext_zcf295, align 1
   %122 = and i8 %121, 1
   %tobool296.not = icmp eq i8 %122, 0
   br i1 %tobool296.not, label %lor.lhs.false298, label %land.lhs.true315
 
 lor.lhs.false298:                                 ; preds = %if.end293
-  %ext_zcd300 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 9
+  %ext_zcd300 = getelementptr inbounds i8, ptr %cpu, i64 15321
   %123 = load i8, ptr %ext_zcd300, align 1
   %124 = and i8 %123, 1
   %tobool301.not = icmp eq i8 %124, 0
   br i1 %tobool301.not, label %lor.lhs.false303, label %land.lhs.true315
 
 lor.lhs.false303:                                 ; preds = %lor.lhs.false298
-  %ext_zcb = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 8
+  %ext_zcb = getelementptr inbounds i8, ptr %cpu, i64 15320
   %125 = load i8, ptr %ext_zcb, align 8
   %126 = and i8 %125, 1
   %tobool305.not = icmp eq i8 %126, 0
   br i1 %tobool305.not, label %lor.lhs.false307, label %land.lhs.true315
 
 lor.lhs.false307:                                 ; preds = %lor.lhs.false303
-  %ext_zcmp = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 12
+  %ext_zcmp = getelementptr inbounds i8, ptr %cpu, i64 15324
   %127 = load i8, ptr %ext_zcmp, align 4
   %128 = and i8 %127, 1
   %tobool309.not = icmp eq i8 %128, 0
   br i1 %tobool309.not, label %lor.lhs.false311, label %land.lhs.true315
 
 lor.lhs.false311:                                 ; preds = %lor.lhs.false307
-  %ext_zcmt = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 13
+  %ext_zcmt = getelementptr inbounds i8, ptr %cpu, i64 15325
   %129 = load i8, ptr %ext_zcmt, align 1
   %130 = and i8 %129, 1
   %tobool313.not = icmp eq i8 %130, 0
   br i1 %tobool313.not, label %if.end319, label %land.lhs.true315
 
 land.lhs.true315:                                 ; preds = %lor.lhs.false311, %lor.lhs.false307, %lor.lhs.false303, %lor.lhs.false298, %if.end293
-  %ext_zca = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 7
+  %ext_zca = getelementptr inbounds i8, ptr %cpu, i64 15319
   %131 = load i8, ptr %ext_zca, align 1
   %132 = and i8 %131, 1
   %tobool317.not = icmp eq i8 %132, 0
   br i1 %tobool317.not, label %if.then318, label %land.lhs.true315.if.end319_crit_edge
 
 land.lhs.true315.if.end319_crit_edge:             ; preds = %land.lhs.true315
-  %ext_zcd321.phi.trans.insert = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 9
+  %ext_zcd321.phi.trans.insert = getelementptr inbounds i8, ptr %cpu, i64 15321
   %.pre429 = load i8, ptr %ext_zcd321.phi.trans.insert, align 1
   br label %if.end319
 
@@ -975,14 +930,14 @@ if.end319:                                        ; preds = %land.lhs.true315.if
   br i1 %tobool322.not, label %if.end335, label %land.lhs.true324
 
 land.lhs.true324:                                 ; preds = %if.end319
-  %ext_zcmp326 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 12
+  %ext_zcmp326 = getelementptr inbounds i8, ptr %cpu, i64 15324
   %135 = load i8, ptr %ext_zcmp326, align 4
   %136 = and i8 %135, 1
   %tobool327.not = icmp eq i8 %136, 0
   br i1 %tobool327.not, label %lor.lhs.false329, label %if.then334
 
 lor.lhs.false329:                                 ; preds = %land.lhs.true324
-  %ext_zcmt331 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 13
+  %ext_zcmt331 = getelementptr inbounds i8, ptr %cpu, i64 15325
   %137 = load i8, ptr %ext_zcmt331, align 1
   %138 = and i8 %137, 1
   %tobool332.not = icmp eq i8 %138, 0
@@ -993,14 +948,14 @@ if.then334:                                       ; preds = %lor.lhs.false329, %
   br label %return
 
 if.end335:                                        ; preds = %if.end319
-  %ext_zcmt337.phi.trans.insert = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 13
+  %ext_zcmt337.phi.trans.insert = getelementptr inbounds i8, ptr %cpu, i64 15325
   %.pre430 = load i8, ptr %ext_zcmt337.phi.trans.insert, align 1
   %.pre432 = and i8 %.pre430, 1
   %tobool338.not = icmp eq i8 %.pre432, 0
   br i1 %tobool338.not, label %if.end345, label %land.lhs.true340
 
 land.lhs.true340:                                 ; preds = %if.end335
-  %ext_zicsr342 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 26
+  %ext_zicsr342 = getelementptr inbounds i8, ptr %cpu, i64 15338
   %139 = load i8, ptr %ext_zicsr342, align 2
   %140 = and i8 %139, 1
   %tobool343.not = icmp eq i8 %140, 0
@@ -1011,7 +966,7 @@ if.then344:                                       ; preds = %land.lhs.true340
   br label %return
 
 if.end345:                                        ; preds = %lor.lhs.false329, %land.lhs.true340, %if.end335
-  %ext_zvknc = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 62
+  %ext_zvknc = getelementptr inbounds i8, ptr %cpu, i64 15374
   %141 = load i8, ptr %ext_zvknc, align 2
   %142 = and i8 %141, 1
   %tobool347.not = icmp eq i8 %142, 0
@@ -1023,7 +978,7 @@ if.then348:                                       ; preds = %if.end345
   br label %if.end349
 
 if.end349:                                        ; preds = %if.then348, %if.end345
-  %ext_zvkng = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 63
+  %ext_zvkng = getelementptr inbounds i8, ptr %cpu, i64 15375
   %143 = load i8, ptr %ext_zvkng, align 1
   %144 = and i8 %143, 1
   %tobool351.not = icmp eq i8 %144, 0
@@ -1035,7 +990,7 @@ if.then352:                                       ; preds = %if.end349
   br label %if.end353
 
 if.end353:                                        ; preds = %if.then352, %if.end349
-  %ext_zvkn = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 61
+  %ext_zvkn = getelementptr inbounds i8, ptr %cpu, i64 15373
   %145 = load i8, ptr %ext_zvkn, align 1
   %146 = and i8 %145, 1
   %tobool355.not = icmp eq i8 %146, 0
@@ -1049,7 +1004,7 @@ if.then356:                                       ; preds = %if.end353
   br label %if.end357
 
 if.end357:                                        ; preds = %if.then356, %if.end353
-  %ext_zvksc = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 65
+  %ext_zvksc = getelementptr inbounds i8, ptr %cpu, i64 15377
   %147 = load i8, ptr %ext_zvksc, align 1
   %148 = and i8 %147, 1
   %tobool359.not = icmp eq i8 %148, 0
@@ -1061,7 +1016,7 @@ if.then360:                                       ; preds = %if.end357
   br label %if.end361
 
 if.end361:                                        ; preds = %if.then360, %if.end357
-  %ext_zvksg = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 66
+  %ext_zvksg = getelementptr inbounds i8, ptr %cpu, i64 15378
   %149 = load i8, ptr %ext_zvksg, align 2
   %150 = and i8 %149, 1
   %tobool363.not = icmp eq i8 %150, 0
@@ -1073,7 +1028,7 @@ if.then364:                                       ; preds = %if.end361
   br label %if.end365
 
 if.end365:                                        ; preds = %if.then364, %if.end361
-  %ext_zvks = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 64
+  %ext_zvks = getelementptr inbounds i8, ptr %cpu, i64 15376
   %151 = load i8, ptr %ext_zvks, align 16
   %152 = and i8 %151, 1
   %tobool367.not = icmp eq i8 %152, 0
@@ -1087,7 +1042,7 @@ if.then368:                                       ; preds = %if.end365
   br label %if.end369
 
 if.end369:                                        ; preds = %if.then368, %if.end365
-  %ext_zvkt = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 60
+  %ext_zvkt = getelementptr inbounds i8, ptr %cpu, i64 15372
   %153 = load i8, ptr %ext_zvkt, align 4
   %154 = and i8 %153, 1
   %tobool371.not = icmp eq i8 %154, 0
@@ -1099,49 +1054,49 @@ if.then372:                                       ; preds = %if.end369
   br label %if.end373
 
 if.end373:                                        ; preds = %if.then372, %if.end369
-  %ext_zvbb = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 51
+  %ext_zvbb = getelementptr inbounds i8, ptr %cpu, i64 15363
   %155 = load i8, ptr %ext_zvbb, align 1
   %156 = and i8 %155, 1
   %tobool375.not = icmp eq i8 %156, 0
   br i1 %tobool375.not, label %lor.lhs.false377, label %land.lhs.true401
 
 lor.lhs.false377:                                 ; preds = %if.end373
-  %ext_zvkb = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 53
+  %ext_zvkb = getelementptr inbounds i8, ptr %cpu, i64 15365
   %157 = load i8, ptr %ext_zvkb, align 1
   %158 = and i8 %157, 1
   %tobool379.not = icmp eq i8 %158, 0
   br i1 %tobool379.not, label %lor.lhs.false381, label %land.lhs.true401
 
 lor.lhs.false381:                                 ; preds = %lor.lhs.false377
-  %ext_zvkg = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 54
+  %ext_zvkg = getelementptr inbounds i8, ptr %cpu, i64 15366
   %159 = load i8, ptr %ext_zvkg, align 2
   %160 = and i8 %159, 1
   %tobool383.not = icmp eq i8 %160, 0
   br i1 %tobool383.not, label %lor.lhs.false385, label %land.lhs.true401
 
 lor.lhs.false385:                                 ; preds = %lor.lhs.false381
-  %ext_zvkned = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 55
+  %ext_zvkned = getelementptr inbounds i8, ptr %cpu, i64 15367
   %161 = load i8, ptr %ext_zvkned, align 1
   %162 = and i8 %161, 1
   %tobool387.not = icmp eq i8 %162, 0
   br i1 %tobool387.not, label %lor.lhs.false389, label %land.lhs.true401
 
 lor.lhs.false389:                                 ; preds = %lor.lhs.false385
-  %ext_zvknha = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 56
+  %ext_zvknha = getelementptr inbounds i8, ptr %cpu, i64 15368
   %163 = load i8, ptr %ext_zvknha, align 8
   %164 = and i8 %163, 1
   %tobool391.not = icmp eq i8 %164, 0
   br i1 %tobool391.not, label %lor.lhs.false393, label %land.lhs.true401
 
 lor.lhs.false393:                                 ; preds = %lor.lhs.false389
-  %ext_zvksed = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 58
+  %ext_zvksed = getelementptr inbounds i8, ptr %cpu, i64 15370
   %165 = load i8, ptr %ext_zvksed, align 2
   %166 = and i8 %165, 1
   %tobool395.not = icmp eq i8 %166, 0
   br i1 %tobool395.not, label %lor.lhs.false397, label %land.lhs.true401
 
 lor.lhs.false397:                                 ; preds = %lor.lhs.false393
-  %ext_zvksh = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 59
+  %ext_zvksh = getelementptr inbounds i8, ptr %cpu, i64 15371
   %167 = load i8, ptr %ext_zvksh, align 1
   %168 = and i8 %167, 1
   %tobool399.not = icmp eq i8 %168, 0
@@ -1158,14 +1113,14 @@ if.then405:                                       ; preds = %land.lhs.true401
   br label %return
 
 if.end406:                                        ; preds = %land.lhs.true401, %lor.lhs.false397
-  %ext_zvbc = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 52
+  %ext_zvbc = getelementptr inbounds i8, ptr %cpu, i64 15364
   %171 = load i8, ptr %ext_zvbc, align 4
   %172 = and i8 %171, 1
   %tobool408.not = icmp eq i8 %172, 0
   br i1 %tobool408.not, label %lor.lhs.false410, label %land.lhs.true414
 
 lor.lhs.false410:                                 ; preds = %if.end406
-  %ext_zvknhb = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 57
+  %ext_zvknhb = getelementptr inbounds i8, ptr %cpu, i64 15369
   %173 = load i8, ptr %ext_zvknhb, align 1
   %174 = and i8 %173, 1
   %tobool412.not = icmp eq i8 %174, 0
@@ -1182,7 +1137,7 @@ if.then418:                                       ; preds = %land.lhs.true414
   br label %return
 
 if.end419:                                        ; preds = %land.lhs.true414, %lor.lhs.false410
-  %ext_zk = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 14
+  %ext_zk = getelementptr inbounds i8, ptr %cpu, i64 15326
   %177 = load i8, ptr %ext_zk, align 2
   %178 = and i8 %177, 1
   %tobool421.not = icmp eq i8 %178, 0
@@ -1195,7 +1150,7 @@ if.then422:                                       ; preds = %if.end419
   br label %if.end423
 
 if.end423:                                        ; preds = %if.then422, %if.end419
-  %ext_zkn = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 15
+  %ext_zkn = getelementptr inbounds i8, ptr %cpu, i64 15327
   %179 = load i8, ptr %ext_zkn, align 1
   %180 = and i8 %179, 1
   %tobool425.not = icmp eq i8 %180, 0
@@ -1211,7 +1166,7 @@ if.then426:                                       ; preds = %if.end423
   br label %if.end427
 
 if.end427:                                        ; preds = %if.then426, %if.end423
-  %ext_zks = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 20
+  %ext_zks = getelementptr inbounds i8, ptr %cpu, i64 15332
   %181 = load i8, ptr %ext_zks, align 4
   %182 = and i8 %181, 1
   %tobool429.not = icmp eq i8 %182, 0
@@ -1226,14 +1181,14 @@ if.then430:                                       ; preds = %if.end427
   br label %if.end431
 
 if.end431:                                        ; preds = %if.then430, %if.end427
-  %ext_zicntr = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 25
+  %ext_zicntr = getelementptr inbounds i8, ptr %cpu, i64 15337
   %183 = load i8, ptr %ext_zicntr, align 1
   %184 = and i8 %183, 1
   %tobool433.not = icmp eq i8 %184, 0
   br i1 %tobool433.not, label %if.end445, label %land.lhs.true435
 
 land.lhs.true435:                                 ; preds = %if.end431
-  %ext_zicsr437 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 26
+  %ext_zicsr437 = getelementptr inbounds i8, ptr %cpu, i64 15338
   %185 = load i8, ptr %ext_zicsr437, align 2
   %186 = and i8 %185, 1
   %tobool438.not = icmp eq i8 %186, 0
@@ -1254,14 +1209,14 @@ if.end442:                                        ; preds = %if.then439
   br label %if.end445
 
 if.end445:                                        ; preds = %if.end442, %land.lhs.true435, %if.end431
-  %ext_zihpm = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 32
+  %ext_zihpm = getelementptr inbounds i8, ptr %cpu, i64 15344
   %188 = load i8, ptr %ext_zihpm, align 16
   %189 = and i8 %188, 1
   %tobool447.not = icmp eq i8 %189, 0
   br i1 %tobool447.not, label %if.end459, label %land.lhs.true449
 
 land.lhs.true449:                                 ; preds = %if.end445
-  %ext_zicsr451 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 26
+  %ext_zicsr451 = getelementptr inbounds i8, ptr %cpu, i64 15338
   %190 = load i8, ptr %ext_zicsr451, align 2
   %191 = and i8 %190, 1
   %tobool452.not = icmp eq i8 %191, 0
@@ -1287,9 +1242,9 @@ if.end459:                                        ; preds = %land.lhs.true449, %
   br i1 %tobool462.not, label %if.then463, label %if.end465
 
 if.then463:                                       ; preds = %if.end459.thread, %if.end459
-  %pmu_mask = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 93
+  %pmu_mask = getelementptr inbounds i8, ptr %cpu, i64 15428
   store i32 0, ptr %pmu_mask, align 4
-  %pmu_avail_ctrs = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 6
+  %pmu_avail_ctrs = getelementptr inbounds i8, ptr %cpu, i64 15488
   store i32 0, ptr %pmu_avail_ctrs, align 16
   br label %if.end465
 
@@ -1318,7 +1273,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.i.not, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end
-  %priv_ver = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 18
+  %priv_ver = getelementptr inbounds i8, ptr %cpu, i64 15160
   %2 = load i64, ptr %priv_ver, align 8
   %cmp11.not = icmp eq i64 %2, 2
   br i1 %cmp11.not, label %if.end21, label %land.rhs.i
@@ -1330,13 +1285,13 @@ land.rhs.i:                                       ; preds = %land.lhs.true, %for
   br i1 %tobool1.not.i, label %do.body.i, label %for.body.i
 
 for.body.i:                                       ; preds = %land.rhs.i
-  %ext_enable_offset.i = getelementptr inbounds %struct.isa_ext_data, ptr %edata.06.i, i64 0, i32 2
+  %ext_enable_offset.i = getelementptr inbounds i8, ptr %edata.06.i, i64 12
   %4 = load i32, ptr %ext_enable_offset.i, align 4
   %cmp.not.i = icmp eq i32 %4, %ext_offset
   br i1 %cmp.not.i, label %cpu_cfg_ext_get_min_version.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr %struct.isa_ext_data, ptr %edata.06.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %edata.06.i, i64 16
   %tobool.not.i = icmp eq ptr %incdec.ptr.i, null
   br i1 %tobool.not.i, label %do.body.i, label %land.rhs.i, !llvm.loop !5
 
@@ -1345,7 +1300,7 @@ do.body.i:                                        ; preds = %for.inc.i, %land.rh
   unreachable
 
 cpu_cfg_ext_get_min_version.exit:                 ; preds = %for.body.i
-  %min_version.i = getelementptr inbounds %struct.isa_ext_data, ptr %edata.06.i, i64 0, i32 1
+  %min_version.i = getelementptr inbounds i8, ptr %edata.06.i, i64 8
   %5 = load i32, ptr %min_version.i, align 8
   %conv16 = sext i32 %5 to i64
   %cmp17 = icmp ult i64 %2, %conv16
@@ -1364,7 +1319,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @riscv_cpu_disable_priv_spec_isa_exts(ptr noundef %cpu) unnamed_addr #0 {
 entry:
-  %priv_ver = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 18
+  %priv_ver = getelementptr inbounds i8, ptr %cpu, i64 15160
   br label %land.rhs
 
 land.rhs:                                         ; preds = %entry, %for.inc
@@ -1374,14 +1329,14 @@ land.rhs:                                         ; preds = %entry, %for.inc
   br i1 %tobool2.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %ext_enable_offset = getelementptr inbounds %struct.isa_ext_data, ptr %edata.011, i64 0, i32 2
+  %ext_enable_offset = getelementptr inbounds i8, ptr %edata.011, i64 12
   %1 = load i32, ptr %ext_enable_offset, align 4
   %call = tail call zeroext i1 @isa_ext_is_enabled(ptr noundef %cpu, i32 noundef %1) #11
   br i1 %call, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
   %2 = load i64, ptr %priv_ver, align 8
-  %min_version = getelementptr inbounds %struct.isa_ext_data, ptr %edata.011, i64 0, i32 1
+  %min_version = getelementptr inbounds i8, ptr %edata.011, i64 8
   %3 = load i32, ptr %min_version, align 8
   %conv = sext i32 %3 to i64
   %cmp = icmp ult i64 %2, %conv
@@ -1403,7 +1358,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.end, %if.then, %lor.lhs.false
-  %incdec.ptr = getelementptr %struct.isa_ext_data, ptr %edata.011, i64 1
+  %incdec.ptr = getelementptr i8, ptr %edata.011, i64 16
   %tobool.not = icmp eq ptr %incdec.ptr, null
   br i1 %tobool.not, label %for.end, label %land.rhs, !llvm.loop !8
 
@@ -1416,7 +1371,7 @@ define dso_local void @riscv_tcg_cpu_finalize_features(ptr noundef %cpu, ptr nou
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
-  %priv_spec.i = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 94
+  %priv_spec.i = getelementptr inbounds i8, ptr %cpu, i64 15432
   %0 = load ptr, ptr %priv_spec.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end, label %if.then.i
@@ -1440,7 +1395,7 @@ if.else11.i:                                      ; preds = %if.else.i
 
 riscv_cpu_validate_priv_spec.exit.thread:         ; preds = %if.then.i, %if.else.i, %if.else11.i
   %priv_version.0.i = phi i64 [ 2, %if.then.i ], [ 1, %if.else.i ], [ 0, %if.else11.i ]
-  %priv_ver.i = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 18
+  %priv_ver.i = getelementptr inbounds i8, ptr %cpu, i64 15160
   store i64 %priv_version.0.i, ptr %priv_ver.i, align 8
   br label %if.end
 
@@ -1456,14 +1411,14 @@ if.then:                                          ; preds = %riscv_cpu_validate_
   br label %if.end11
 
 if.end:                                           ; preds = %riscv_cpu_validate_priv_spec.exit.thread, %entry, %riscv_cpu_validate_priv_spec.exit
-  %4 = getelementptr %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 23
+  %4 = getelementptr i8, ptr %cpu, i64 15192
   %env.val.i = load i32, ptr %4, align 8
   %5 = and i32 %env.val.i, 128
   %tobool.not.i10 = icmp eq i32 %5, 0
   br i1 %tobool.not.i10, label %if.end4, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %priv_ver.i11 = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 1, i32 18
+  %priv_ver.i11 = getelementptr inbounds i8, ptr %cpu, i64 15160
   %6 = load i64, ptr %priv_ver.i11, align 8
   %cmp.i = icmp ult i64 %6, 2
   br i1 %cmp.i, label %riscv_cpu_validate_misa_priv.exit, label %if.end4
@@ -1479,14 +1434,14 @@ if.then3:                                         ; preds = %riscv_cpu_validate_
   br label %if.end11
 
 if.end4:                                          ; preds = %land.lhs.true.i, %if.end, %riscv_cpu_validate_misa_priv.exit
-  %ext_smepmp = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 75
+  %ext_smepmp = getelementptr inbounds i8, ptr %cpu, i64 15387
   %7 = load i8, ptr %ext_smepmp, align 1
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end4
-  %pmp = getelementptr inbounds %struct.ArchCPU, ptr %cpu, i64 0, i32 4, i32 103
+  %pmp = getelementptr inbounds i8, ptr %cpu, i64 15473
   %9 = load i8, ptr %pmp, align 1
   %10 = and i8 %9, 1
   %tobool6.not = icmp eq i8 %10, 0
@@ -1560,11 +1515,11 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @tcg_cpu_accel_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.53, i32 noundef 26, ptr noundef nonnull @__func__.ACCEL_CPU_CLASS) #11
-  %cpu_class_init = getelementptr inbounds %struct.AccelCPUClass, ptr %call.i, i64 0, i32 1
+  %cpu_class_init = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @tcg_cpu_class_init, ptr %cpu_class_init, align 8
-  %cpu_instance_init = getelementptr inbounds %struct.AccelCPUClass, ptr %call.i, i64 0, i32 2
+  %cpu_instance_init = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @tcg_cpu_instance_init, ptr %cpu_instance_init, align 8
-  %cpu_target_realize = getelementptr inbounds %struct.AccelCPUClass, ptr %call.i, i64 0, i32 3
+  %cpu_target_realize = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @tcg_cpu_realize, ptr %cpu_target_realize, align 8
   ret void
 }
@@ -1572,7 +1527,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @tcg_cpu_class_init(ptr nocapture noundef writeonly %cc) #4 {
 entry:
-  %init_accel_cpu = getelementptr inbounds %struct.CPUClass, ptr %cc, i64 0, i32 21
+  %init_accel_cpu = getelementptr inbounds i8, ptr %cc, i64 336
   store ptr @tcg_cpu_init_ops, ptr %init_accel_cpu, align 8
   ret void
 }
@@ -1623,9 +1578,10 @@ for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
 if.end.i.i:                                       ; preds = %for.body.i.i
   %call6.i.i = tail call ptr @object_property_add(ptr noundef %call.i, ptr noundef %call3.i.i, ptr noundef nonnull @.str.59, ptr noundef nonnull @cpu_get_misa_ext_cfg, ptr noundef nonnull @cpu_set_misa_ext_cfg, ptr noundef null, ptr noundef nonnull %arrayidx.i.i) #11
   tail call void @object_property_set_description(ptr noundef %call.i, ptr noundef %call3.i.i, ptr noundef %call4.i.i) #11
-  %2 = lshr i64 991, %indvars.iv.i.i
-  %3 = and i64 %2, 1
-  %tobool9.i.i = icmp ne i64 %3, 0
+  %enabled.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %2 = load i8, ptr %enabled.i.i, align 8
+  %3 = and i8 %2, 1
+  %tobool9.i.i = icmp ne i8 %3, 0
   %call10.i.i = tail call zeroext i1 @object_property_set_bool(ptr noundef %call.i, ptr noundef %call3.i.i, i1 noundef zeroext %tobool9.i.i, ptr noundef null) #11
   br label %for.inc.i.i
 
@@ -1650,7 +1606,7 @@ land.rhs.i:                                       ; preds = %for.body.i, %riscv_
 for.body.i:                                       ; preds = %land.rhs.i
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #11
   tail call void @qdev_property_add_static(ptr noundef %call.i.i, ptr noundef nonnull %prop.010.i) #11
-  %incdec.ptr.i = getelementptr %struct.Property, ptr %prop.010.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %prop.010.i, i64 88
   %tobool.not.i = icmp eq ptr %incdec.ptr.i, null
   br i1 %tobool.not.i, label %riscv_cpu_add_user_properties.exit, label %land.rhs.i, !llvm.loop !10
 
@@ -1661,10 +1617,10 @@ riscv_cpu_add_user_properties.exit:               ; preds = %land.rhs.i, %for.bo
 
 if.then:                                          ; preds = %riscv_cpu_add_user_properties.exit
   %call.i.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
-  %env1.i = getelementptr inbounds %struct.ArchCPU, ptr %call.i.i4, i64 0, i32 1
-  %misa_mxl.i = getelementptr inbounds %struct.ArchCPU, ptr %call.i.i4, i64 0, i32 1, i32 21
+  %env1.i = getelementptr inbounds i8, ptr %call.i.i4, i64 10176
+  %misa_mxl.i = getelementptr inbounds i8, ptr %call.i.i4, i64 15184
   %5 = load i32, ptr %misa_mxl.i, align 16
-  %misa_ext.i = getelementptr inbounds %struct.ArchCPU, ptr %call.i.i4, i64 0, i32 1, i32 23
+  %misa_ext.i = getelementptr inbounds i8, ptr %call.i.i4, i64 15192
   %6 = load i32, ptr %misa_ext.i, align 8
   %7 = or i32 %6, 2097728
   tail call void @riscv_cpu_set_misa(ptr noundef nonnull %env1.i, i32 noundef %5, i32 noundef %7) #11
@@ -1677,15 +1633,15 @@ land.rhs.i5:                                      ; preds = %for.body.i6, %if.th
   br i1 %tobool5.not.i, label %for.end.i, label %for.body.i6
 
 for.body.i6:                                      ; preds = %land.rhs.i5
-  %offset.i = getelementptr inbounds %struct.RISCVCPUMultiExtConfig, ptr %prop.017.i, i64 0, i32 1
+  %offset.i = getelementptr inbounds i8, ptr %prop.017.i, i64 8
   %9 = load i32, ptr %offset.i, align 8
   tail call void @isa_ext_update_enabled(ptr noundef %call.i.i4, i32 noundef %9, i1 noundef zeroext true) #11
-  %incdec.ptr.i7 = getelementptr %struct.RISCVCPUMultiExtConfig, ptr %prop.017.i, i64 1
+  %incdec.ptr.i7 = getelementptr i8, ptr %prop.017.i, i64 16
   %tobool.not.i8 = icmp eq ptr %incdec.ptr.i7, null
   br i1 %tobool.not.i8, label %for.end.i, label %land.rhs.i5, !llvm.loop !11
 
 for.end.i:                                        ; preds = %for.body.i6, %land.rhs.i5
-  %vext_ver.i = getelementptr inbounds %struct.ArchCPU, ptr %call.i.i4, i64 0, i32 1, i32 20
+  %vext_ver.i = getelementptr inbounds i8, ptr %call.i.i4, i64 15176
   store i64 65536, ptr %vext_ver.i, align 8
   tail call void @isa_ext_update_enabled(ptr noundef %call.i.i4, i32 noundef 45, i1 noundef zeroext false) #11
   tail call void @isa_ext_update_enabled(ptr noundef %call.i.i4, i32 noundef 39, i1 noundef zeroext false) #11
@@ -1726,7 +1682,7 @@ if.end:                                           ; preds = %entry
   %call.i.i = tail call ptr @object_get_class(ptr noundef %call.i) #11
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU_GET_CLASS) #11
   %call.i5.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef 64, ptr noundef nonnull @__func__.CPU_CLASS) #11
-  %misa_mxl_max.i = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 22
+  %misa_mxl_max.i = getelementptr inbounds i8, ptr %call.i, i64 15188
   %0 = load i32, ptr %misa_mxl_max.i, align 4
   %switch.tableidx = add i32 %0, -1
   %1 = icmp ult i32 %switch.tableidx, 3
@@ -1740,10 +1696,10 @@ switch.lookup:                                    ; preds = %if.end
   %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.tcg_cpu_realize, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %gdb_core_xml_file4.i = getelementptr inbounds %struct.CPUClass, ptr %call.i5.i, i64 0, i32 13
+  %gdb_core_xml_file4.i = getelementptr inbounds i8, ptr %call.i5.i, i64 272
   store ptr %switch.load, ptr %gdb_core_xml_file4.i, align 8
   %3 = load i32, ptr %misa_mxl_max.i, align 4
-  %misa_mxl.i = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 21
+  %misa_mxl.i = getelementptr inbounds i8, ptr %call.i, i64 15184
   %4 = load i32, ptr %misa_mxl.i, align 16
   %cmp.not.i = icmp eq i32 %3, %4
   br i1 %cmp.not.i, label %return, label %riscv_cpu_validate_misa_mxl.exit
@@ -1768,7 +1724,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @tcg_cpu_init_ops(ptr nocapture readnone %accel_cpu, ptr nocapture noundef writeonly %cc) #4 {
 entry:
-  %tcg_ops = getelementptr inbounds %struct.CPUClass, ptr %cc, i64 0, i32 20
+  %tcg_ops = getelementptr inbounds i8, ptr %cc, i64 328
   store ptr @riscv_tcg_ops, ptr %tcg_ops, align 8
   ret void
 }
@@ -1778,7 +1734,7 @@ declare void @riscv_translate_init() #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @riscv_cpu_synchronize_from_tb(ptr noundef %cs, ptr nocapture noundef readonly %tb) #0 {
 entry:
-  %cflags.i = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 3
+  %cflags.i = getelementptr inbounds i8, ptr %tb, i64 20
   %0 = load atomic i32, ptr %cflags.i monotonic, align 4
   %and = and i32 %0, 131072
   %tobool.not = icmp eq i32 %and, 0
@@ -1786,9 +1742,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
-  %flags = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %tb, i64 16
   %1 = load i32, ptr %flags, align 8
-  %tcg_cflags = getelementptr inbounds %struct.CPUState, ptr %cs, i64 0, i32 53
+  %tcg_cflags = getelementptr inbounds i8, ptr %cs, i64 720
   %2 = load i32, ptr %tcg_cflags, align 16
   %and4 = and i32 %2, 131072
   %tobool5.not = icmp eq i32 %and4, 0
@@ -1799,7 +1755,7 @@ if.then:                                          ; preds = %entry
   %sext = shl i64 %4, 32
   %conv8 = ashr exact i64 %sext, 32
   %conv8.sink = select i1 %cmp, i64 %conv8, i64 %4
-  %pc9 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 9
+  %pc9 = getelementptr inbounds i8, ptr %call.i, i64 14832
   store i64 %conv8.sink, ptr %pc9, align 16
   br label %if.end13
 
@@ -1811,16 +1767,16 @@ if.end13:                                         ; preds = %if.then, %entry
 define internal void @riscv_restore_state_to_opc(ptr noundef %cs, ptr nocapture noundef readonly %tb, ptr nocapture noundef readonly %data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
-  %flags = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %tb, i64 16
   %0 = load i32, ptr %flags, align 8
-  %cflags.i = getelementptr inbounds %struct.TranslationBlock, ptr %tb, i64 0, i32 3
+  %cflags.i = getelementptr inbounds i8, ptr %tb, i64 20
   %1 = load atomic i32, ptr %cflags.i monotonic, align 4
   %and = and i32 %1, 131072
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pc4 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 9
+  %pc4 = getelementptr inbounds i8, ptr %call.i, i64 14832
   %2 = load i64, ptr %pc4, align 16
   %and5 = and i64 %2, -4096
   %3 = load i64, ptr %data, align 8
@@ -1838,11 +1794,11 @@ if.end:                                           ; preds = %if.else, %if.then
   %sext = shl i64 %pc.0, 32
   %conv8 = ashr exact i64 %sext, 32
   %pc.0.sink = select i1 %cmp, i64 %conv8, i64 %pc.0
-  %6 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 9
+  %6 = getelementptr inbounds i8, ptr %call.i, i64 14832
   store i64 %pc.0.sink, ptr %6, align 16
-  %arrayidx13 = getelementptr i64, ptr %data, i64 1
+  %arrayidx13 = getelementptr i8, ptr %data, i64 8
   %7 = load i64, ptr %arrayidx13, align 8
-  %bins = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 16
+  %bins = getelementptr inbounds i8, ptr %call.i, i64 15144
   store i64 %7, ptr %bins, align 8
   ret void
 }
@@ -1888,9 +1844,9 @@ for.body:                                         ; preds = %land.rhs
 
 if.end.i:                                         ; preds = %for.body
   %call.i8.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
-  %offset.i = getelementptr inbounds %struct.RISCVCPUMultiExtConfig, ptr %prop.05, i64 0, i32 1
+  %offset.i = getelementptr inbounds i8, ptr %prop.05, i64 8
   %5 = load i32, ptr %offset.i, align 8
-  %enabled.i = getelementptr inbounds %struct.RISCVCPUMultiExtConfig, ptr %prop.05, i64 0, i32 2
+  %enabled.i = getelementptr inbounds i8, ptr %prop.05, i64 12
   %6 = load i8, ptr %enabled.i, align 4
   %7 = and i8 %6, 1
   %tobool7.i = icmp ne i8 %7, 0
@@ -1898,7 +1854,7 @@ if.end.i:                                         ; preds = %for.body
   br label %cpu_add_multi_ext_prop.exit
 
 cpu_add_multi_ext_prop.exit:                      ; preds = %for.body, %if.end.i
-  %incdec.ptr = getelementptr %struct.RISCVCPUMultiExtConfig, ptr %prop.05, i64 1
+  %incdec.ptr = getelementptr i8, ptr %prop.05, i64 16
   %tobool1.not = icmp eq ptr %incdec.ptr, null
   br i1 %tobool1.not, label %for.end, label %land.rhs, !llvm.loop !12
 
@@ -1922,7 +1878,7 @@ entry:
   %value = alloca i8, align 1
   %0 = load i64, ptr %opaque, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
-  %misa_ext = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 23
+  %misa_ext = getelementptr inbounds i8, ptr %call.i, i64 15192
   %1 = load i32, ptr %misa_ext, align 8
   %conv = zext i32 %1 to i64
   %and = and i64 %0, %conv
@@ -1945,7 +1901,7 @@ entry:
   br i1 %call4, label %if.end, label %if.end34
 
 if.end:                                           ; preds = %entry
-  %misa_ext = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 23
+  %misa_ext = getelementptr inbounds i8, ptr %call.i, i64 15192
   %1 = load i32, ptr %misa_ext, align 8
   %conv = zext i32 %1 to i64
   %and = and i64 %0, %conv
@@ -1972,7 +1928,7 @@ if.end18:                                         ; preds = %if.then14
   %5 = trunc i64 %0 to i32
   %conv21 = or i32 %1, %5
   store i32 %conv21, ptr %misa_ext, align 8
-  %misa_ext_mask = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 24
+  %misa_ext_mask = getelementptr inbounds i8, ptr %call.i, i64 15196
   %6 = load i32, ptr %misa_ext_mask, align 4
   %conv24 = or i32 %6, %5
   store i32 %conv24, ptr %misa_ext_mask, align 4
@@ -1983,7 +1939,7 @@ if.else:                                          ; preds = %if.end12
   %8 = xor i32 %7, -1
   %conv28 = and i32 %1, %8
   store i32 %conv28, ptr %misa_ext, align 8
-  %misa_ext_mask30 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 24
+  %misa_ext_mask30 = getelementptr inbounds i8, ptr %call.i, i64 15196
   %9 = load i32, ptr %misa_ext_mask30, align 4
   %conv33 = and i32 %9, %8
   store i32 %conv33, ptr %misa_ext_mask30, align 4
@@ -2008,7 +1964,7 @@ define internal void @cpu_get_multi_ext_cfg(ptr noundef %obj, ptr noundef %v, pt
 entry:
   %value = alloca i8, align 1
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #11
-  %offset = getelementptr inbounds %struct.RISCVCPUMultiExtConfig, ptr %opaque, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load i32, ptr %offset, align 8
   %call1 = tail call zeroext i1 @isa_ext_is_enabled(ptr noundef %call.i, i32 noundef %0) #11
   %frombool = zext i1 %call1 to i8
@@ -2056,7 +2012,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.then5, %if.end
   %6 = load ptr, ptr @multi_ext_user_opts, align 8
-  %offset = getelementptr inbounds %struct.RISCVCPUMultiExtConfig, ptr %opaque, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %opaque, i64 8
   %7 = load i32, ptr %offset, align 8
   %conv = zext i32 %7 to i64
   %8 = inttoptr i64 %conv to ptr

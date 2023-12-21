@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-o_time.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-
 ; Function Attrs: nounwind uwtable
 define ptr @OPENSSL_gmtime(ptr noundef %timer, ptr noundef %result) local_unnamed_addr #0 {
 entry:
@@ -26,10 +24,10 @@ entry:
   %conv.i = trunc i64 %sub.i to i32
   %conv1.i = sext i32 %off_day to i64
   %add.i = add nsw i64 %div.i, %conv1.i
-  %tm_hour.i = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 2
+  %tm_hour.i = getelementptr inbounds i8, ptr %tm, i64 8
   %0 = load i32, ptr %tm_hour.i, align 8
   %mul2.i = mul nsw i32 %0, 3600
-  %tm_min.i = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 1
+  %tm_min.i = getelementptr inbounds i8, ptr %tm, i64 4
   %1 = load i32, ptr %tm_min.i, align 4
   %mul3.i = mul nsw i32 %1, 60
   %2 = load i32, ptr %tm, align 8
@@ -56,12 +54,12 @@ if.then11.i:                                      ; preds = %if.else.i
 if.end13.i:                                       ; preds = %if.then11.i, %if.else.i, %if.then.i
   %offset_day.0.i = phi i64 [ %inc.i, %if.then.i ], [ %dec.i, %if.then11.i ], [ %add.i, %if.else.i ]
   %offset_hms.0.i = phi i32 [ %sub8.i, %if.then.i ], [ %add12.i, %if.then11.i ], [ %add6.i, %if.else.i ]
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 5
+  %tm_year.i = getelementptr inbounds i8, ptr %tm, i64 20
   %3 = load i32, ptr %tm_year.i, align 4
   %add14.i = add nsw i32 %3, 1900
-  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 4
+  %tm_mon.i = getelementptr inbounds i8, ptr %tm, i64 16
   %4 = load i32, ptr %tm_mon.i, align 8
-  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 3
+  %tm_mday.i = getelementptr inbounds i8, ptr %tm, i64 12
   %5 = load i32, ptr %tm_mday.i, align 4
   %sub.i.i = add nsw i32 %4, -13
   %div.i.i = sdiv i32 %sub.i.i, 12
@@ -145,10 +143,10 @@ return:                                           ; preds = %if.end13.i, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @OPENSSL_gmtime_diff(ptr noundef writeonly %pday, ptr noundef writeonly %psec, ptr nocapture noundef readonly %from, ptr nocapture noundef readonly %to) local_unnamed_addr #2 {
 entry:
-  %tm_hour.i = getelementptr inbounds %struct.tm, ptr %from, i64 0, i32 2
+  %tm_hour.i = getelementptr inbounds i8, ptr %from, i64 8
   %0 = load i32, ptr %tm_hour.i, align 8
   %mul2.i = mul nsw i32 %0, 3600
-  %tm_min.i = getelementptr inbounds %struct.tm, ptr %from, i64 0, i32 1
+  %tm_min.i = getelementptr inbounds i8, ptr %from, i64 4
   %1 = load i32, ptr %tm_min.i, align 4
   %mul3.i = mul nsw i32 %1, 60
   %2 = load i32, ptr %from, align 8
@@ -172,12 +170,12 @@ if.else.i:                                        ; preds = %entry
 if.end13.i:                                       ; preds = %if.else.i, %if.then.i
   %offset_day.0.i = phi i64 [ 1, %if.then.i ], [ %spec.select, %if.else.i ]
   %offset_hms.0.i = phi i32 [ %sub8.i, %if.then.i ], [ %spec.select60, %if.else.i ]
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %from, i64 0, i32 5
+  %tm_year.i = getelementptr inbounds i8, ptr %from, i64 20
   %3 = load i32, ptr %tm_year.i, align 4
   %add14.i = add nsw i32 %3, 1900
-  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %from, i64 0, i32 4
+  %tm_mon.i = getelementptr inbounds i8, ptr %from, i64 16
   %4 = load i32, ptr %tm_mon.i, align 8
-  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %from, i64 0, i32 3
+  %tm_mday.i = getelementptr inbounds i8, ptr %from, i64 12
   %5 = load i32, ptr %tm_mday.i, align 4
   %sub.i.i = add nsw i32 %4, -13
   %div.i.i = sdiv i32 %sub.i.i, 12
@@ -204,10 +202,10 @@ if.end13.i:                                       ; preds = %if.else.i, %if.then
   br i1 %cmp17.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end13.i
-  %tm_hour.i12 = getelementptr inbounds %struct.tm, ptr %to, i64 0, i32 2
+  %tm_hour.i12 = getelementptr inbounds i8, ptr %to, i64 8
   %7 = load i32, ptr %tm_hour.i12, align 8
   %mul2.i13 = mul nsw i32 %7, 3600
-  %tm_min.i14 = getelementptr inbounds %struct.tm, ptr %to, i64 0, i32 1
+  %tm_min.i14 = getelementptr inbounds i8, ptr %to, i64 4
   %8 = load i32, ptr %tm_min.i14, align 4
   %mul3.i15 = mul nsw i32 %8, 60
   %9 = load i32, ptr %to, align 8
@@ -231,12 +229,12 @@ if.else.i19:                                      ; preds = %if.end
 if.end13.i21:                                     ; preds = %if.else.i19, %if.then.i53
   %offset_day.0.i22 = phi i64 [ 1, %if.then.i53 ], [ %spec.select61, %if.else.i19 ]
   %offset_hms.0.i23 = phi i32 [ %sub8.i54, %if.then.i53 ], [ %spec.select62, %if.else.i19 ]
-  %tm_year.i24 = getelementptr inbounds %struct.tm, ptr %to, i64 0, i32 5
+  %tm_year.i24 = getelementptr inbounds i8, ptr %to, i64 20
   %10 = load i32, ptr %tm_year.i24, align 4
   %add14.i25 = add nsw i32 %10, 1900
-  %tm_mon.i26 = getelementptr inbounds %struct.tm, ptr %to, i64 0, i32 4
+  %tm_mon.i26 = getelementptr inbounds i8, ptr %to, i64 16
   %11 = load i32, ptr %tm_mon.i26, align 8
-  %tm_mday.i27 = getelementptr inbounds %struct.tm, ptr %to, i64 0, i32 3
+  %tm_mday.i27 = getelementptr inbounds i8, ptr %to, i64 12
   %12 = load i32, ptr %tm_mday.i27, align 4
   %sub.i.i28 = add nsw i32 %11, -13
   %div.i.i29 = sdiv i32 %sub.i.i28, 12

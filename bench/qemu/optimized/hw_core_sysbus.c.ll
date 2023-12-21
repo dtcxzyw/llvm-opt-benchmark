@@ -5,20 +5,8 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.SysBusFind = type { ptr, ptr }
-%struct.SysBusDeviceClass = type { %struct.DeviceClass, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.SysBusDevice = type { %struct.DeviceState, i32, [32 x %struct.anon], i32, [32 x i32] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
 %struct.anon = type { i64, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.BusClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [12 x i8] c"/peripheral\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"/peripheral-anon\00", align 1
@@ -62,7 +50,7 @@ define dso_local void @foreach_dynamic_sysbus_device(ptr noundef %func, ptr noun
 entry:
   %find = alloca %struct.SysBusFind, align 8
   store ptr %opaque, ptr %find, align 8
-  %func2 = getelementptr inbounds %struct.SysBusFind, ptr %find, i64 0, i32 1
+  %func2 = getelementptr inbounds i8, ptr %find, i64 8
   store ptr %func, ptr %func2, align 8
   %call = tail call ptr @qdev_get_machine() #7
   %call3 = tail call ptr @container_get(ptr noundef %call, ptr noundef nonnull @.str) #7
@@ -115,7 +103,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %func = getelementptr inbounds %struct.SysBusFind, ptr %opaque, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %func, align 8
   %1 = load ptr, ptr %opaque, align 8
   tail call void %0(ptr noundef nonnull %call, ptr noundef %1) #7
@@ -168,7 +156,7 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.12, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE_GET_CLASS) #7
   %call.i5 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #7
   tail call void @qdev_connect_gpio_out_named(ptr noundef %call.i5, ptr noundef nonnull @.str.3, i32 noundef %n, ptr noundef %irq) #7
-  %connect_irq_notifier = getelementptr inbounds %struct.SysBusDeviceClass, ptr %call1.i, i64 0, i32 2
+  %connect_irq_notifier = getelementptr inbounds i8, ptr %call1.i, i64 184
   %0 = load ptr, ptr %connect_irq_notifier, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -186,7 +174,7 @@ declare void @qdev_connect_gpio_out_named(ptr noundef, ptr noundef, i32 noundef,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @sysbus_has_mmio(ptr nocapture noundef readonly %dev, i32 noundef %n) local_unnamed_addr #2 {
 entry:
-  %num_mmio = getelementptr inbounds %struct.SysBusDevice, ptr %dev, i64 0, i32 1
+  %num_mmio = getelementptr inbounds i8, ptr %dev, i64 160
   %0 = load i32, ptr %num_mmio, align 8
   %cmp = icmp ugt i32 %0, %n
   ret i1 %cmp
@@ -199,7 +187,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %num_mmio = getelementptr inbounds %struct.SysBusDevice, ptr %dev, i64 0, i32 1
+  %num_mmio = getelementptr inbounds i8, ptr %dev, i64 160
   %0 = load i32, ptr %num_mmio, align 8
   %cmp1 = icmp sgt i32 %0, %n
   br i1 %cmp1, label %if.end, label %if.else
@@ -209,15 +197,16 @@ if.else:                                          ; preds = %land.lhs.true, %ent
   unreachable
 
 if.end:                                           ; preds = %land.lhs.true
+  %mmio = getelementptr inbounds i8, ptr %dev, i64 168
   %idxprom = zext nneg i32 %n to i64
-  %arrayidx = getelementptr %struct.SysBusDevice, ptr %dev, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [32 x %struct.anon], ptr %mmio, i64 0, i64 %idxprom
   %1 = load i64, ptr %arrayidx, align 8
   %cmp2.not = icmp eq i64 %1, -1
   br i1 %cmp2.not, label %if.end11, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %call = tail call ptr @get_system_memory() #7
-  %memory = getelementptr %struct.SysBusDevice, ptr %dev, i64 0, i32 2, i64 %idxprom, i32 1
+  %memory = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %memory, align 8
   tail call void @memory_region_del_subregion(ptr noundef %call, ptr noundef %2) #7
   store i64 -1, ptr %arrayidx, align 8
@@ -241,7 +230,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %num_mmio.i = getelementptr inbounds %struct.SysBusDevice, ptr %dev, i64 0, i32 1
+  %num_mmio.i = getelementptr inbounds i8, ptr %dev, i64 160
   %0 = load i32, ptr %num_mmio.i, align 8
   %cmp1.i = icmp sgt i32 %0, %n
   br i1 %cmp1.i, label %if.end.i, label %if.else.i
@@ -251,8 +240,9 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %e
   unreachable
 
 if.end.i:                                         ; preds = %land.lhs.true.i
+  %mmio.i = getelementptr inbounds i8, ptr %dev, i64 168
   %idxprom.i = zext nneg i32 %n to i64
-  %arrayidx.i = getelementptr %struct.SysBusDevice, ptr %dev, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [32 x %struct.anon], ptr %mmio.i, i64 0, i64 %idxprom.i
   %1 = load i64, ptr %arrayidx.i, align 8
   %cmp3.i = icmp eq i64 %1, %addr
   br i1 %cmp3.i, label %sysbus_mmio_map_common.exit, label %if.end5.i
@@ -263,7 +253,7 @@ if.end5.i:                                        ; preds = %if.end.i
 
 if.then11.i:                                      ; preds = %if.end5.i
   %call.i = tail call ptr @get_system_memory() #7
-  %memory.i = getelementptr %struct.SysBusDevice, ptr %dev, i64 0, i32 2, i64 %idxprom.i, i32 1
+  %memory.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %2 = load ptr, ptr %memory.i, align 8
   tail call void @memory_region_del_subregion(ptr noundef %call.i, ptr noundef %2) #7
   br label %if.end15.i
@@ -271,7 +261,7 @@ if.then11.i:                                      ; preds = %if.end5.i
 if.end15.i:                                       ; preds = %if.then11.i, %if.end5.i
   store i64 %addr, ptr %arrayidx.i, align 8
   %call21.i = tail call ptr @get_system_memory() #7
-  %memory25.i = getelementptr %struct.SysBusDevice, ptr %dev, i64 0, i32 2, i64 %idxprom.i, i32 1
+  %memory25.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %3 = load ptr, ptr %memory25.i, align 8
   tail call void @memory_region_add_subregion(ptr noundef %call21.i, i64 noundef %addr, ptr noundef %3) #7
   br label %sysbus_mmio_map_common.exit
@@ -287,7 +277,7 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %num_mmio.i = getelementptr inbounds %struct.SysBusDevice, ptr %dev, i64 0, i32 1
+  %num_mmio.i = getelementptr inbounds i8, ptr %dev, i64 160
   %0 = load i32, ptr %num_mmio.i, align 8
   %cmp1.i = icmp sgt i32 %0, %n
   br i1 %cmp1.i, label %if.end.i, label %if.else.i
@@ -297,8 +287,9 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %e
   unreachable
 
 if.end.i:                                         ; preds = %land.lhs.true.i
+  %mmio.i = getelementptr inbounds i8, ptr %dev, i64 168
   %idxprom.i = zext nneg i32 %n to i64
-  %arrayidx.i = getelementptr %struct.SysBusDevice, ptr %dev, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx.i = getelementptr [32 x %struct.anon], ptr %mmio.i, i64 0, i64 %idxprom.i
   %1 = load i64, ptr %arrayidx.i, align 8
   %cmp3.i = icmp eq i64 %1, %addr
   br i1 %cmp3.i, label %sysbus_mmio_map_common.exit, label %if.end5.i
@@ -309,7 +300,7 @@ if.end5.i:                                        ; preds = %if.end.i
 
 if.then11.i:                                      ; preds = %if.end5.i
   %call.i = tail call ptr @get_system_memory() #7
-  %memory.i = getelementptr %struct.SysBusDevice, ptr %dev, i64 0, i32 2, i64 %idxprom.i, i32 1
+  %memory.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %2 = load ptr, ptr %memory.i, align 8
   tail call void @memory_region_del_subregion(ptr noundef %call.i, ptr noundef %2) #7
   br label %if.end15.i
@@ -317,7 +308,7 @@ if.then11.i:                                      ; preds = %if.end5.i
 if.end15.i:                                       ; preds = %if.then11.i, %if.end5.i
   store i64 %addr, ptr %arrayidx.i, align 8
   %call21.i = tail call ptr @get_system_memory() #7
-  %memory25.i = getelementptr %struct.SysBusDevice, ptr %dev, i64 0, i32 2, i64 %idxprom.i, i32 1
+  %memory25.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %3 = load ptr, ptr %memory25.i, align 8
   tail call void @memory_region_add_subregion_overlap(ptr noundef %call21.i, i64 noundef %addr, ptr noundef %3, i32 noundef %priority) #7
   br label %sysbus_mmio_map_common.exit
@@ -350,7 +341,7 @@ declare void @qdev_pass_gpios(ptr noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @sysbus_init_mmio(ptr nocapture noundef %dev, ptr noundef %memory) local_unnamed_addr #0 {
 entry:
-  %num_mmio = getelementptr inbounds %struct.SysBusDevice, ptr %dev, i64 0, i32 1
+  %num_mmio = getelementptr inbounds i8, ptr %dev, i64 160
   %0 = load i32, ptr %num_mmio, align 8
   %cmp = icmp slt i32 %0, 32
   br i1 %cmp, label %if.end, label %if.else
@@ -362,10 +353,11 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %num_mmio, align 8
+  %mmio = getelementptr inbounds i8, ptr %dev, i64 168
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr %struct.SysBusDevice, ptr %dev, i64 0, i32 2, i64 %idxprom
+  %arrayidx = getelementptr [32 x %struct.anon], ptr %mmio, i64 0, i64 %idxprom
   store i64 -1, ptr %arrayidx, align 8
-  %memory5 = getelementptr %struct.SysBusDevice, ptr %dev, i64 0, i32 2, i64 %idxprom, i32 1
+  %memory5 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %memory, ptr %memory5, align 8
   ret void
 }
@@ -381,8 +373,9 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
+  %mmio = getelementptr inbounds i8, ptr %dev, i64 168
   %idxprom = zext nneg i32 %n to i64
-  %memory = getelementptr %struct.SysBusDevice, ptr %dev, i64 0, i32 2, i64 %idxprom, i32 1
+  %memory = getelementptr [32 x %struct.anon], ptr %mmio, i64 0, i64 %idxprom, i32 1
   %0 = load ptr, ptr %memory, align 8
   ret ptr %0
 }
@@ -394,7 +387,8 @@ entry:
   br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %num_pio = getelementptr inbounds %struct.SysBusDevice, ptr %dev, i64 0, i32 3
+  %num_pio = getelementptr inbounds i8, ptr %dev, i64 680
+  %pio = getelementptr inbounds i8, ptr %dev, i64 684
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -413,7 +407,7 @@ if.end:                                           ; preds = %for.body
   %inc3 = add nsw i32 %0, 1
   store i32 %inc3, ptr %num_pio, align 8
   %idxprom = sext i32 %0 to i64
-  %arrayidx = getelementptr %struct.SysBusDevice, ptr %dev, i64 0, i32 4, i64 %idxprom
+  %arrayidx = getelementptr [32 x i32], ptr %pio, i64 0, i64 %idxprom
   store i32 %ioport.addr.05, ptr %arrayidx, align 4
   %inc4 = add nuw i32 %i.06, 1
   %exitcond.not = icmp eq i32 %inc4, %size
@@ -439,7 +433,7 @@ if.then.i.i:                                      ; preds = %entry
   store ptr %call.i.i.i, ptr @main_system_bus, align 8
   tail call void @qbus_init(ptr noundef %call.i.i.i, i64 noundef 120, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef nonnull @.str.14) #7
   %1 = load ptr, ptr @main_system_bus, align 8
-  %free.i.i.i = getelementptr inbounds %struct.Object, ptr %1, i64 0, i32 1
+  %free.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr @g_free, ptr %free.i.i.i, align 8
   br label %sysbus_realize_and_unref.exit
 
@@ -450,7 +444,7 @@ sysbus_realize_and_unref.exit:                    ; preds = %entry, %if.then.i.i
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %sysbus_realize_and_unref.exit
-  %num_mmio.i.i = getelementptr inbounds %struct.SysBusDevice, ptr %call.i, i64 0, i32 1
+  %num_mmio.i.i = getelementptr inbounds i8, ptr %call.i, i64 160
   %3 = load i32, ptr %num_mmio.i.i, align 8
   %cmp1.i.i = icmp sgt i32 %3, 0
   br i1 %cmp1.i.i, label %if.end.i.i, label %if.else.i.i
@@ -460,8 +454,8 @@ if.else.i.i:                                      ; preds = %if.then
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then
-  %arrayidx.i.i = getelementptr %struct.SysBusDevice, ptr %call.i, i64 0, i32 2, i64 0
-  %4 = load i64, ptr %arrayidx.i.i, align 8
+  %mmio.i.i = getelementptr inbounds i8, ptr %call.i, i64 168
+  %4 = load i64, ptr %mmio.i.i, align 8
   %cmp3.i.i = icmp eq i64 %4, %addr
   br i1 %cmp3.i.i, label %if.end, label %if.end5.i.i
 
@@ -471,23 +465,23 @@ if.end5.i.i:                                      ; preds = %if.end.i.i
 
 if.then11.i.i:                                    ; preds = %if.end5.i.i
   %call.i.i7 = tail call ptr @get_system_memory() #7
-  %memory.i.i = getelementptr %struct.SysBusDevice, ptr %call.i, i64 0, i32 2, i64 0, i32 1
+  %memory.i.i = getelementptr inbounds i8, ptr %call.i, i64 176
   %5 = load ptr, ptr %memory.i.i, align 8
   tail call void @memory_region_del_subregion(ptr noundef %call.i.i7, ptr noundef %5) #7
   br label %if.end15.i.i
 
 if.end15.i.i:                                     ; preds = %if.then11.i.i, %if.end5.i.i
-  store i64 %addr, ptr %arrayidx.i.i, align 8
+  store i64 %addr, ptr %mmio.i.i, align 8
   %call21.i.i = tail call ptr @get_system_memory() #7
-  %memory25.i.i = getelementptr %struct.SysBusDevice, ptr %call.i, i64 0, i32 2, i64 0, i32 1
+  %memory25.i.i = getelementptr inbounds i8, ptr %call.i, i64 176
   %6 = load ptr, ptr %memory25.i.i, align 8
   tail call void @memory_region_add_subregion(ptr noundef %call21.i.i, i64 noundef %addr, ptr noundef %6) #7
   br label %if.end
 
 if.end:                                           ; preds = %if.end15.i.i, %if.end.i.i, %sysbus_realize_and_unref.exit
   call void @llvm.va_start(ptr nonnull %va)
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 2
-  %7 = getelementptr inbounds %struct.__va_list_tag, ptr %va, i64 0, i32 3
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %va, i64 8
+  %7 = getelementptr inbounds i8, ptr %va, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %sysbus_connect_irq.exit, %if.end
@@ -521,7 +515,7 @@ if.end5:                                          ; preds = %vaarg.end
   %call1.i.i = call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.12, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE_GET_CLASS) #7
   %call.i5.i = call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #7
   call void @qdev_connect_gpio_out_named(ptr noundef %call.i5.i, ptr noundef nonnull @.str.3, i32 noundef %n.0, ptr noundef nonnull %11) #7
-  %connect_irq_notifier.i = getelementptr inbounds %struct.SysBusDeviceClass, ptr %call1.i.i, i64 0, i32 2
+  %connect_irq_notifier.i = getelementptr inbounds i8, ptr %call1.i.i, i64 184
   %12 = load ptr, ptr %connect_irq_notifier.i, align 8
   %tobool.not.i = icmp eq ptr %12, null
   br i1 %tobool.not.i, label %sysbus_connect_irq.exit, label %if.then.i
@@ -554,7 +548,7 @@ if.then.i:                                        ; preds = %entry
   store ptr %call.i.i, ptr @main_system_bus, align 8
   tail call void @qbus_init(ptr noundef %call.i.i, i64 noundef 120, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef nonnull @.str.14) #7
   %1 = load ptr, ptr @main_system_bus, align 8
-  %free.i.i = getelementptr inbounds %struct.Object, ptr %1, i64 0, i32 1
+  %free.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr @g_free, ptr %free.i.i, align 8
   br label %sysbus_get_default.exit
 
@@ -583,7 +577,7 @@ if.then.i:                                        ; preds = %entry
   store ptr %call.i.i, ptr @main_system_bus, align 8
   tail call void @qbus_init(ptr noundef %call.i.i, i64 noundef 120, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef nonnull @.str.14) #7
   %1 = load ptr, ptr @main_system_bus, align 8
-  %free.i.i = getelementptr inbounds %struct.Object, ptr %1, i64 0, i32 1
+  %free.i.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr @g_free, ptr %free.i.i, align 8
   br label %sysbus_get_default.exit
 
@@ -607,7 +601,7 @@ if.then:                                          ; preds = %entry
   store ptr %call.i, ptr @main_system_bus, align 8
   tail call void @qbus_init(ptr noundef %call.i, i64 noundef 120, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef nonnull @.str.14) #7
   %1 = load ptr, ptr @main_system_bus, align 8
-  %free.i = getelementptr inbounds %struct.Object, ptr %1, i64 0, i32 1
+  %free.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr @g_free, ptr %free.i, align 8
   br label %if.end
 
@@ -675,9 +669,9 @@ declare void @qbus_init(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr 
 define internal void @system_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.11, i32 noundef 316, ptr noundef nonnull @__func__.BUS_CLASS) #7
-  %print_dev = getelementptr inbounds %struct.BusClass, ptr %call.i, i64 0, i32 1
+  %print_dev = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @sysbus_dev_print, ptr %print_dev, align 8
-  %get_fw_dev_path = getelementptr inbounds %struct.BusClass, ptr %call.i, i64 0, i32 3
+  %get_fw_dev_path = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @sysbus_get_fw_dev_path, ptr %get_fw_dev_path, align 8
   ret void
 }
@@ -686,15 +680,19 @@ entry:
 define internal void @sysbus_dev_print(ptr noundef %mon, ptr noundef %dev, i32 noundef %indent) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.12, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #7
-  %num_mmio = getelementptr inbounds %struct.SysBusDevice, ptr %call.i, i64 0, i32 1
+  %num_mmio = getelementptr inbounds i8, ptr %call.i, i64 160
   %0 = load i32, ptr %num_mmio, align 8
   %cmp6 = icmp sgt i32 %0, 0
-  br i1 %cmp6, label %for.body, label %for.end
+  br i1 %cmp6, label %for.body.lr.ph, label %for.end
 
-for.body:                                         ; preds = %entry, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr %struct.SysBusDevice, ptr %call.i, i64 0, i32 2, i64 %indvars.iv
-  %memory = getelementptr %struct.SysBusDevice, ptr %call.i, i64 0, i32 2, i64 %indvars.iv, i32 1
+for.body.lr.ph:                                   ; preds = %entry
+  %mmio = getelementptr inbounds i8, ptr %call.i, i64 168
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr [32 x %struct.anon], ptr %mmio, i64 0, i64 %indvars.iv
+  %memory = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %memory, align 8
   %call1 = tail call i64 @memory_region_size(ptr noundef %1) #7
   %2 = load i64, ptr %arrayidx, align 8
@@ -715,7 +713,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.12, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #7
   %call.i13 = tail call ptr @object_get_class(ptr noundef %call.i) #7
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i13, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.12, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE_GET_CLASS) #7
-  %explicit_ofw_unit_address = getelementptr inbounds %struct.SysBusDeviceClass, ptr %call1.i, i64 0, i32 1
+  %explicit_ofw_unit_address = getelementptr inbounds i8, ptr %call1.i, i64 176
   %0 = load ptr, ptr %explicit_ofw_unit_address, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end8, label %if.then
@@ -732,27 +730,27 @@ if.then5:                                         ; preds = %if.then
   br label %return
 
 if.end8:                                          ; preds = %if.then, %entry
-  %num_mmio = getelementptr inbounds %struct.SysBusDevice, ptr %call.i, i64 0, i32 1
+  %num_mmio = getelementptr inbounds i8, ptr %call.i, i64 160
   %1 = load i32, ptr %num_mmio, align 8
   %tobool9.not = icmp eq i32 %1, 0
   br i1 %tobool9.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
   %call11 = tail call ptr @qdev_fw_name(ptr noundef %dev) #7
-  %mmio = getelementptr inbounds %struct.SysBusDevice, ptr %call.i, i64 0, i32 2
+  %mmio = getelementptr inbounds i8, ptr %call.i, i64 168
   %2 = load i64, ptr %mmio, align 8
   %call13 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.19, ptr noundef %call11, i64 noundef %2) #7
   br label %return
 
 if.end14:                                         ; preds = %if.end8
-  %num_pio = getelementptr inbounds %struct.SysBusDevice, ptr %call.i, i64 0, i32 3
+  %num_pio = getelementptr inbounds i8, ptr %call.i, i64 680
   %3 = load i32, ptr %num_pio, align 8
   %tobool15.not = icmp eq i32 %3, 0
   %call21 = tail call ptr @qdev_fw_name(ptr noundef %dev) #7
   br i1 %tobool15.not, label %if.end20, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %pio = getelementptr inbounds %struct.SysBusDevice, ptr %call.i, i64 0, i32 4
+  %pio = getelementptr inbounds i8, ptr %call.i, i64 684
   %4 = load i32, ptr %pio, align 4
   %call19 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.20, ptr noundef %call21, i32 noundef %4) #7
   br label %return
@@ -780,11 +778,11 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @sysbus_device_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @sysbus_device_realize, ptr %realize, align 8
-  %bus_type = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 11
+  %bus_type = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr @.str.13, ptr %bus_type, align 8
-  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 5
+  %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 0, ptr %user_creatable, align 8
   ret void
 }

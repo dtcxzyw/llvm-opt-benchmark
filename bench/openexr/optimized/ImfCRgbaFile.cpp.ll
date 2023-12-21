@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %union.imath_half_uif = type { i32 }
 %"class.Imath_3_2::Vec2" = type { float, float }
-%"class.Imath_3_2::Vec2.0" = type { i32, i32 }
-%"class.Imath_3_2::Box" = type { %"class.Imath_3_2::Vec2.0", %"class.Imath_3_2::Vec2.0" }
 %"class.Imf_3_2::TypedAttribute" = type <{ %"class.Imf_3_2::Attribute", i32, [4 x i8] }>
 %"class.Imf_3_2::Attribute" = type { ptr }
 %"class.Imf_3_2::TypedAttribute.1" = type <{ %"class.Imf_3_2::Attribute", float, [4 x i8] }>
@@ -17,6 +15,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.5" = type { i8 }
+%"class.Imath_3_2::Box" = type { %"class.Imath_3_2::Vec2.0", %"class.Imath_3_2::Vec2.0" }
+%"class.Imath_3_2::Vec2.0" = type { i32, i32 }
 %"class.Imf_3_2::TypedAttribute.8" = type { %"class.Imf_3_2::Attribute", %"class.Imath_3_2::Box" }
 %"class.Imath_3_2::Box.9" = type { %"class.Imath_3_2::Vec2", %"class.Imath_3_2::Vec2" }
 %"class.Imf_3_2::TypedAttribute.10" = type { %"class.Imf_3_2::Attribute", %"class.Imath_3_2::Box.9" }
@@ -31,8 +31,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.Imath_3_2::Matrix44" = type { [4 x [4 x float]] }
 %"class.Imf_3_2::TypedAttribute.20" = type { %"class.Imf_3_2::Attribute", %"class.Imath_3_2::Matrix44" }
 %"class.Imath_3_2::half" = type { i16 }
-%"class.Imf_3_2::RgbaLut" = type <{ %class.halfFunction, i32, [4 x i8] }>
-%class.halfFunction = type { ptr }
 %struct._Guard = type { ptr }
 
 $__clang_call_terminate = comdat any
@@ -334,7 +332,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -427,7 +425,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -450,11 +448,11 @@ define void @ImfHeaderSetDisplayWindow(ptr noundef nonnull %hdr, i32 noundef %xM
 entry:
   %call3 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_26Header13displayWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
   store i32 %xMin, ptr %call3, align 4
-  %y3.i.i3 = getelementptr inbounds %"class.Imath_3_2::Vec2.0", ptr %call3, i64 0, i32 1
+  %y3.i.i3 = getelementptr inbounds i8, ptr %call3, i64 4
   store i32 %yMin, ptr %y3.i.i3, align 4
-  %max.i4 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call3, i64 0, i32 1
+  %max.i4 = getelementptr inbounds i8, ptr %call3, i64 8
   store i32 %xMax, ptr %max.i4, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call3, i64 0, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %call3, i64 12
   store i32 %yMax, ptr %y3.i3.i, align 4
   ret void
 }
@@ -466,11 +464,11 @@ define void @ImfHeaderDisplayWindow(ptr noundef nonnull %hdr, ptr nocapture noun
 entry:
   %call1 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header13displayWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
   %0 = load i32, ptr %call1, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2.0", ptr %call1, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %call1, i64 4
   %1 = load i32, ptr %y3.i.i, align 4
-  %max3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call1, i64 0, i32 1
+  %max3.i = getelementptr inbounds i8, ptr %call1, i64 8
   %2 = load i32, ptr %max3.i, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call1, i64 0, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %call1, i64 12
   %3 = load i32, ptr %y3.i3.i, align 4
   store i32 %0, ptr %xMin, align 4
   store i32 %1, ptr %yMin, align 4
@@ -486,11 +484,11 @@ define void @ImfHeaderSetDataWindow(ptr noundef nonnull %hdr, i32 noundef %xMin,
 entry:
   %call3 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
   store i32 %xMin, ptr %call3, align 4
-  %y3.i.i3 = getelementptr inbounds %"class.Imath_3_2::Vec2.0", ptr %call3, i64 0, i32 1
+  %y3.i.i3 = getelementptr inbounds i8, ptr %call3, i64 4
   store i32 %yMin, ptr %y3.i.i3, align 4
-  %max.i4 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call3, i64 0, i32 1
+  %max.i4 = getelementptr inbounds i8, ptr %call3, i64 8
   store i32 %xMax, ptr %max.i4, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call3, i64 0, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %call3, i64 12
   store i32 %yMax, ptr %y3.i3.i, align 4
   ret void
 }
@@ -502,11 +500,11 @@ define void @ImfHeaderDataWindow(ptr noundef nonnull %hdr, ptr nocapture noundef
 entry:
   %call1 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
   %0 = load i32, ptr %call1, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2.0", ptr %call1, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %call1, i64 4
   %1 = load i32, ptr %y3.i.i, align 4
-  %max3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call1, i64 0, i32 1
+  %max3.i = getelementptr inbounds i8, ptr %call1, i64 8
   %2 = load i32, ptr %max3.i, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call1, i64 0, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %call1, i64 12
   %3 = load i32, ptr %y3.i3.i, align 4
   store i32 %0, ptr %xMin, align 4
   store i32 %1, ptr %yMin, align 4
@@ -542,7 +540,7 @@ define void @ImfHeaderSetScreenWindowCenter(ptr noundef nonnull %hdr, float noun
 entry:
   %call1 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_26Header18screenWindowCenterEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
   store float %x, ptr %call1, align 4
-  %y3.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call1, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %call1, i64 4
   store float %y, ptr %y3.i, align 4
   ret void
 }
@@ -555,7 +553,7 @@ entry:
   %call1 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7Imf_3_26Header18screenWindowCenterEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
   %0 = load float, ptr %call1, align 4
   %conv.i = fptosi float %0 to i32
-  %y3.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call1, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %call1, i64 4
   %1 = load float, ptr %y3.i, align 4
   %conv4.i = fptosi float %1 to i32
   %conv = sitofp i32 %conv.i to float
@@ -679,7 +677,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -799,7 +797,7 @@ catch:                                            ; preds = %lpad.body
   %6 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #22
   %vtable.i = load ptr, ptr %7, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %8 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -869,7 +867,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -980,7 +978,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -1094,7 +1092,7 @@ catch:                                            ; preds = %lpad.body
   %6 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #22
   %vtable.i = load ptr, ptr %7, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %8 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -1167,7 +1165,7 @@ catch:                                            ; preds = %lpad.body
   %6 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %7 = tail call ptr @__cxa_begin_catch(ptr %6) #22
   %vtable.i = load ptr, ptr %7, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %8 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -1294,7 +1292,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   %6 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #22
   %vtable.i = load ptr, ptr %6, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -1419,7 +1417,7 @@ catch:                                            ; preds = %lpad.body
   %5 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #22
   %vtable.i = load ptr, ptr %6, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -1445,12 +1443,12 @@ define i32 @ImfHeaderSetBox2iAttribute(ptr noundef nonnull %hdr, ptr noundef %na
 entry:
   %box = alloca %"class.Imath_3_2::Box", align 4
   %ref.tmp21 = alloca %"class.Imf_3_2::TypedAttribute.8", align 8
-  %max.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %box, i64 0, i32 1
+  %max.i = getelementptr inbounds i8, ptr %box, i64 8
   store i32 %xMin, ptr %box, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2.0", ptr %box, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %box, i64 4
   store i32 %yMin, ptr %y3.i.i, align 4
   store i32 %xMax, ptr %max.i, align 4
-  %y3.i2.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %box, i64 0, i32 1, i32 1
+  %y3.i2.i = getelementptr inbounds i8, ptr %box, i64 12
   store i32 %yMax, ptr %y3.i2.i, align 4
   %call5 = invoke ptr @_ZN7Imf_3_26Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %invoke.cont4 unwind label %lpad
@@ -1498,7 +1496,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -1540,11 +1538,11 @@ invoke.cont27:                                    ; preds = %call.i9.noexc
 
 invoke.cont29:                                    ; preds = %invoke.cont27
   store i32 %xMin, ptr %call30, align 4
-  %y3.i.i12 = getelementptr inbounds %"class.Imath_3_2::Vec2.0", ptr %call30, i64 0, i32 1
+  %y3.i.i12 = getelementptr inbounds i8, ptr %call30, i64 4
   store i32 %yMin, ptr %y3.i.i12, align 4
-  %max.i13 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call30, i64 0, i32 1
+  %max.i13 = getelementptr inbounds i8, ptr %call30, i64 8
   store i32 %xMax, ptr %max.i13, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call30, i64 0, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %call30, i64 12
   store i32 %yMax, ptr %y3.i3.i, align 4
   br label %return
 
@@ -1600,13 +1598,13 @@ invoke.cont1:                                     ; preds = %call.i.noexc
 invoke.cont3:                                     ; preds = %invoke.cont1
   %2 = load i32, ptr %call4, align 4
   store i32 %2, ptr %xMin, align 4
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec2.0", ptr %call4, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %call4, i64 4
   %3 = load i32, ptr %y, align 4
   store i32 %3, ptr %yMin, align 4
-  %max = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call4, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %call4, i64 8
   %4 = load i32, ptr %max, align 4
   store i32 %4, ptr %xMax, align 4
-  %y8 = getelementptr inbounds %"class.Imath_3_2::Box", ptr %call4, i64 0, i32 1, i32 1
+  %y8 = getelementptr inbounds i8, ptr %call4, i64 12
   %5 = load i32, ptr %y8, align 4
   store i32 %5, ptr %yMax, align 4
   br label %return
@@ -1627,7 +1625,7 @@ catch:                                            ; preds = %lpad.body
   %9 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #22
   %vtable.i = load ptr, ptr %10, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %11 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -1650,12 +1648,12 @@ define i32 @ImfHeaderSetBox2fAttribute(ptr noundef nonnull %hdr, ptr noundef %na
 entry:
   %box = alloca %"class.Imath_3_2::Box.9", align 4
   %ref.tmp21 = alloca %"class.Imf_3_2::TypedAttribute.10", align 8
-  %max.i = getelementptr inbounds %"class.Imath_3_2::Box.9", ptr %box, i64 0, i32 1
+  %max.i = getelementptr inbounds i8, ptr %box, i64 8
   store float %xMin, ptr %box, align 4
-  %y3.i.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %box, i64 0, i32 1
+  %y3.i.i = getelementptr inbounds i8, ptr %box, i64 4
   store float %yMin, ptr %y3.i.i, align 4
   store float %xMax, ptr %max.i, align 4
-  %y3.i2.i = getelementptr inbounds %"class.Imath_3_2::Box.9", ptr %box, i64 0, i32 1, i32 1
+  %y3.i2.i = getelementptr inbounds i8, ptr %box, i64 12
   store float %yMax, ptr %y3.i2.i, align 4
   %call5 = invoke ptr @_ZN7Imf_3_26Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %invoke.cont4 unwind label %lpad
@@ -1703,7 +1701,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -1745,11 +1743,11 @@ invoke.cont27:                                    ; preds = %call.i9.noexc
 
 invoke.cont29:                                    ; preds = %invoke.cont27
   store float %xMin, ptr %call30, align 4
-  %y3.i.i12 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call30, i64 0, i32 1
+  %y3.i.i12 = getelementptr inbounds i8, ptr %call30, i64 4
   store float %yMin, ptr %y3.i.i12, align 4
-  %max.i13 = getelementptr inbounds %"class.Imath_3_2::Box.9", ptr %call30, i64 0, i32 1
+  %max.i13 = getelementptr inbounds i8, ptr %call30, i64 8
   store float %xMax, ptr %max.i13, align 4
-  %y3.i3.i = getelementptr inbounds %"class.Imath_3_2::Box.9", ptr %call30, i64 0, i32 1, i32 1
+  %y3.i3.i = getelementptr inbounds i8, ptr %call30, i64 12
   store float %yMax, ptr %y3.i3.i, align 4
   br label %return
 
@@ -1805,13 +1803,13 @@ invoke.cont1:                                     ; preds = %call.i.noexc
 invoke.cont3:                                     ; preds = %invoke.cont1
   %2 = load float, ptr %call4, align 4
   store float %2, ptr %xMin, align 4
-  %y = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call4, i64 0, i32 1
+  %y = getelementptr inbounds i8, ptr %call4, i64 4
   %3 = load float, ptr %y, align 4
   store float %3, ptr %yMin, align 4
-  %max = getelementptr inbounds %"class.Imath_3_2::Box.9", ptr %call4, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %call4, i64 8
   %4 = load float, ptr %max, align 4
   store float %4, ptr %xMax, align 4
-  %y8 = getelementptr inbounds %"class.Imath_3_2::Box.9", ptr %call4, i64 0, i32 1, i32 1
+  %y8 = getelementptr inbounds i8, ptr %call4, i64 12
   %5 = load float, ptr %y8, align 4
   store float %5, ptr %yMax, align 4
   br label %return
@@ -1832,7 +1830,7 @@ catch:                                            ; preds = %lpad.body
   %9 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #22
   %vtable.i = load ptr, ptr %10, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %11 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -1856,7 +1854,7 @@ entry:
   %v = alloca %"class.Imath_3_2::Vec2.0", align 4
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.11", align 8
   store i32 %x, ptr %v, align 4
-  %y.i = getelementptr inbounds %"class.Imath_3_2::Vec2.0", ptr %v, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %v, i64 4
   store i32 %y, ptr %y.i, align 4
   %call3 = invoke ptr @_ZN7Imf_3_26Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %invoke.cont2 unwind label %lpad
@@ -1904,7 +1902,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -1946,7 +1944,7 @@ invoke.cont25:                                    ; preds = %call.i8.noexc
 
 invoke.cont27:                                    ; preds = %invoke.cont25
   store i32 %x, ptr %call28, align 4
-  %y3.i = getelementptr inbounds %"class.Imath_3_2::Vec2.0", ptr %call28, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %call28, i64 4
   store i32 %y, ptr %y3.i, align 4
   br label %return
 
@@ -2002,7 +2000,7 @@ invoke.cont1:                                     ; preds = %call.i.noexc
 invoke.cont3:                                     ; preds = %invoke.cont1
   %2 = load i32, ptr %call4, align 4
   store i32 %2, ptr %x, align 4
-  %y6 = getelementptr inbounds %"class.Imath_3_2::Vec2.0", ptr %call4, i64 0, i32 1
+  %y6 = getelementptr inbounds i8, ptr %call4, i64 4
   %3 = load i32, ptr %y6, align 4
   store i32 %3, ptr %y, align 4
   br label %return
@@ -2023,7 +2021,7 @@ catch:                                            ; preds = %lpad.body
   %7 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %8 = tail call ptr @__cxa_begin_catch(ptr %7) #22
   %vtable.i = load ptr, ptr %8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %9 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -2047,7 +2045,7 @@ entry:
   %v = alloca %"class.Imath_3_2::Vec2", align 4
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.12", align 8
   store float %x, ptr %v, align 4
-  %y.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %v, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %v, i64 4
   store float %y, ptr %y.i, align 4
   %call3 = invoke ptr @_ZN7Imf_3_26Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %invoke.cont2 unwind label %lpad
@@ -2095,7 +2093,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -2137,7 +2135,7 @@ invoke.cont25:                                    ; preds = %call.i8.noexc
 
 invoke.cont27:                                    ; preds = %invoke.cont25
   store float %x, ptr %call28, align 4
-  %y3.i = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call28, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %call28, i64 4
   store float %y, ptr %y3.i, align 4
   br label %return
 
@@ -2193,7 +2191,7 @@ invoke.cont1:                                     ; preds = %call.i.noexc
 invoke.cont3:                                     ; preds = %invoke.cont1
   %2 = load float, ptr %call4, align 4
   store float %2, ptr %x, align 4
-  %y6 = getelementptr inbounds %"class.Imath_3_2::Vec2", ptr %call4, i64 0, i32 1
+  %y6 = getelementptr inbounds i8, ptr %call4, i64 4
   %3 = load float, ptr %y6, align 4
   store float %3, ptr %y, align 4
   br label %return
@@ -2214,7 +2212,7 @@ catch:                                            ; preds = %lpad.body
   %7 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %8 = tail call ptr @__cxa_begin_catch(ptr %7) #22
   %vtable.i = load ptr, ptr %8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %9 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -2238,9 +2236,9 @@ entry:
   %v = alloca %"class.Imath_3_2::Vec3", align 4
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.13", align 8
   store i32 %x, ptr %v, align 4
-  %y.i = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %v, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %v, i64 4
   store i32 %y, ptr %y.i, align 4
-  %z.i = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %v, i64 0, i32 2
+  %z.i = getelementptr inbounds i8, ptr %v, i64 8
   store i32 %z, ptr %z.i, align 4
   %call3 = invoke ptr @_ZN7Imf_3_26Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %invoke.cont2 unwind label %lpad
@@ -2288,7 +2286,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -2330,9 +2328,9 @@ invoke.cont25:                                    ; preds = %call.i8.noexc
 
 invoke.cont27:                                    ; preds = %invoke.cont25
   store i32 %x, ptr %call28, align 4
-  %y3.i = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %call28, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %call28, i64 4
   store i32 %y, ptr %y3.i, align 4
-  %z4.i = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %call28, i64 0, i32 2
+  %z4.i = getelementptr inbounds i8, ptr %call28, i64 8
   store i32 %z, ptr %z4.i, align 4
   br label %return
 
@@ -2388,10 +2386,10 @@ invoke.cont1:                                     ; preds = %call.i.noexc
 invoke.cont3:                                     ; preds = %invoke.cont1
   %2 = load i32, ptr %call4, align 4
   store i32 %2, ptr %x, align 4
-  %y6 = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %call4, i64 0, i32 1
+  %y6 = getelementptr inbounds i8, ptr %call4, i64 4
   %3 = load i32, ptr %y6, align 4
   store i32 %3, ptr %y, align 4
-  %z7 = getelementptr inbounds %"class.Imath_3_2::Vec3", ptr %call4, i64 0, i32 2
+  %z7 = getelementptr inbounds i8, ptr %call4, i64 8
   %4 = load i32, ptr %z7, align 4
   store i32 %4, ptr %z, align 4
   br label %return
@@ -2412,7 +2410,7 @@ catch:                                            ; preds = %lpad.body
   %8 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %9 = tail call ptr @__cxa_begin_catch(ptr %8) #22
   %vtable.i = load ptr, ptr %9, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %10 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -2436,9 +2434,9 @@ entry:
   %v = alloca %"class.Imath_3_2::Vec3.15", align 4
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.16", align 8
   store float %x, ptr %v, align 4
-  %y.i = getelementptr inbounds %"class.Imath_3_2::Vec3.15", ptr %v, i64 0, i32 1
+  %y.i = getelementptr inbounds i8, ptr %v, i64 4
   store float %y, ptr %y.i, align 4
-  %z.i = getelementptr inbounds %"class.Imath_3_2::Vec3.15", ptr %v, i64 0, i32 2
+  %z.i = getelementptr inbounds i8, ptr %v, i64 8
   store float %z, ptr %z.i, align 4
   %call3 = invoke ptr @_ZN7Imf_3_26Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %invoke.cont2 unwind label %lpad
@@ -2486,7 +2484,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -2528,9 +2526,9 @@ invoke.cont25:                                    ; preds = %call.i8.noexc
 
 invoke.cont27:                                    ; preds = %invoke.cont25
   store float %x, ptr %call28, align 4
-  %y3.i = getelementptr inbounds %"class.Imath_3_2::Vec3.15", ptr %call28, i64 0, i32 1
+  %y3.i = getelementptr inbounds i8, ptr %call28, i64 4
   store float %y, ptr %y3.i, align 4
-  %z4.i = getelementptr inbounds %"class.Imath_3_2::Vec3.15", ptr %call28, i64 0, i32 2
+  %z4.i = getelementptr inbounds i8, ptr %call28, i64 8
   store float %z, ptr %z4.i, align 4
   br label %return
 
@@ -2586,10 +2584,10 @@ invoke.cont1:                                     ; preds = %call.i.noexc
 invoke.cont3:                                     ; preds = %invoke.cont1
   %2 = load float, ptr %call4, align 4
   store float %2, ptr %x, align 4
-  %y6 = getelementptr inbounds %"class.Imath_3_2::Vec3.15", ptr %call4, i64 0, i32 1
+  %y6 = getelementptr inbounds i8, ptr %call4, i64 4
   %3 = load float, ptr %y6, align 4
   store float %3, ptr %y, align 4
-  %z7 = getelementptr inbounds %"class.Imath_3_2::Vec3.15", ptr %call4, i64 0, i32 2
+  %z7 = getelementptr inbounds i8, ptr %call4, i64 8
   %4 = load float, ptr %z7, align 4
   store float %4, ptr %z, align 4
   br label %return
@@ -2610,7 +2608,7 @@ catch:                                            ; preds = %lpad.body
   %8 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %9 = tail call ptr @__cxa_begin_catch(ptr %8) #22
   %vtable.i = load ptr, ptr %9, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %10 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -2635,13 +2633,13 @@ entry:
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.18", align 8
   %0 = load <4 x float>, ptr %m, align 4
   store <4 x float> %0, ptr %m3, align 16
-  %arrayidx21.i = getelementptr inbounds [3 x float], ptr %m, i64 1, i64 1
-  %arrayidx24.i = getelementptr inbounds [3 x [3 x float]], ptr %m3, i64 0, i64 1, i64 1
+  %arrayidx21.i = getelementptr inbounds i8, ptr %m, i64 16
+  %arrayidx24.i = getelementptr inbounds i8, ptr %m3, i64 16
   %1 = load <4 x float>, ptr %arrayidx21.i, align 4
   store <4 x float> %1, ptr %arrayidx24.i, align 16
-  %arrayidx41.i = getelementptr inbounds [3 x float], ptr %m, i64 2, i64 2
+  %arrayidx41.i = getelementptr inbounds i8, ptr %m, i64 32
   %2 = load float, ptr %arrayidx41.i, align 4
-  %arrayidx44.i = getelementptr inbounds [3 x [3 x float]], ptr %m3, i64 0, i64 2, i64 2
+  %arrayidx44.i = getelementptr inbounds i8, ptr %m3, i64 32
   store float %2, ptr %arrayidx44.i, align 16
   %call3 = invoke ptr @_ZN7Imf_3_26Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
           to label %invoke.cont2 unwind label %lpad
@@ -2689,7 +2687,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %6 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %6, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -2731,9 +2729,9 @@ invoke.cont25:                                    ; preds = %call.i8.noexc
 
 invoke.cont27:                                    ; preds = %invoke.cont25
   store <4 x float> %0, ptr %call28, align 4
-  %arrayidx29.i13 = getelementptr inbounds [3 x [3 x float]], ptr %call28, i64 0, i64 1, i64 1
+  %arrayidx29.i13 = getelementptr inbounds i8, ptr %call28, i64 16
   store <4 x float> %1, ptr %arrayidx29.i13, align 4
-  %arrayidx53.i = getelementptr inbounds [3 x [3 x float]], ptr %call28, i64 0, i64 2, i64 2
+  %arrayidx53.i = getelementptr inbounds i8, ptr %call28, i64 32
   store float %2, ptr %arrayidx53.i, align 4
   br label %return
 
@@ -2789,37 +2787,37 @@ invoke.cont1:                                     ; preds = %call.i.noexc
 invoke.cont3:                                     ; preds = %invoke.cont1
   %2 = load float, ptr %call4, align 4
   store float %2, ptr %m, align 4
-  %arrayidx9 = getelementptr inbounds float, ptr %call4, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %call4, i64 4
   %3 = load float, ptr %arrayidx9, align 4
-  %arrayidx11 = getelementptr inbounds [3 x float], ptr %m, i64 0, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %m, i64 4
   store float %3, ptr %arrayidx11, align 4
-  %arrayidx13 = getelementptr inbounds float, ptr %call4, i64 2
+  %arrayidx13 = getelementptr inbounds i8, ptr %call4, i64 8
   %4 = load float, ptr %arrayidx13, align 4
-  %arrayidx15 = getelementptr inbounds [3 x float], ptr %m, i64 0, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %m, i64 8
   store float %4, ptr %arrayidx15, align 4
-  %arrayidx.i = getelementptr inbounds [3 x [3 x float]], ptr %call4, i64 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %call4, i64 12
   %5 = load float, ptr %arrayidx.i, align 4
-  %arrayidx18 = getelementptr inbounds [3 x float], ptr %m, i64 1
+  %arrayidx18 = getelementptr inbounds i8, ptr %m, i64 12
   store float %5, ptr %arrayidx18, align 4
-  %arrayidx21 = getelementptr inbounds [3 x [3 x float]], ptr %call4, i64 0, i64 1, i64 1
+  %arrayidx21 = getelementptr inbounds i8, ptr %call4, i64 16
   %6 = load float, ptr %arrayidx21, align 4
-  %arrayidx23 = getelementptr inbounds [3 x float], ptr %m, i64 1, i64 1
+  %arrayidx23 = getelementptr inbounds i8, ptr %m, i64 16
   store float %6, ptr %arrayidx23, align 4
-  %arrayidx25 = getelementptr inbounds [3 x [3 x float]], ptr %call4, i64 0, i64 1, i64 2
+  %arrayidx25 = getelementptr inbounds i8, ptr %call4, i64 20
   %7 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds [3 x float], ptr %m, i64 1, i64 2
+  %arrayidx27 = getelementptr inbounds i8, ptr %m, i64 20
   store float %7, ptr %arrayidx27, align 4
-  %arrayidx.i21 = getelementptr inbounds [3 x [3 x float]], ptr %call4, i64 0, i64 2
+  %arrayidx.i21 = getelementptr inbounds i8, ptr %call4, i64 24
   %8 = load float, ptr %arrayidx.i21, align 4
-  %arrayidx30 = getelementptr inbounds [3 x float], ptr %m, i64 2
+  %arrayidx30 = getelementptr inbounds i8, ptr %m, i64 24
   store float %8, ptr %arrayidx30, align 4
-  %arrayidx33 = getelementptr inbounds [3 x [3 x float]], ptr %call4, i64 0, i64 2, i64 1
+  %arrayidx33 = getelementptr inbounds i8, ptr %call4, i64 28
   %9 = load float, ptr %arrayidx33, align 4
-  %arrayidx35 = getelementptr inbounds [3 x float], ptr %m, i64 2, i64 1
+  %arrayidx35 = getelementptr inbounds i8, ptr %m, i64 28
   store float %9, ptr %arrayidx35, align 4
-  %arrayidx37 = getelementptr inbounds [3 x [3 x float]], ptr %call4, i64 0, i64 2, i64 2
+  %arrayidx37 = getelementptr inbounds i8, ptr %call4, i64 32
   %10 = load float, ptr %arrayidx37, align 4
-  %arrayidx39 = getelementptr inbounds [3 x float], ptr %m, i64 2, i64 2
+  %arrayidx39 = getelementptr inbounds i8, ptr %m, i64 32
   store float %10, ptr %arrayidx39, align 4
   br label %return
 
@@ -2839,7 +2837,7 @@ catch:                                            ; preds = %lpad.body
   %14 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %15 = tail call ptr @__cxa_begin_catch(ptr %14) #22
   %vtable.i = load ptr, ptr %15, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %16 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %15) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -2864,16 +2862,16 @@ entry:
   %ref.tmp19 = alloca %"class.Imf_3_2::TypedAttribute.20", align 8
   %0 = load <4 x float>, ptr %m, align 4
   store <4 x float> %0, ptr %m4, align 16
-  %arrayidx20.i = getelementptr inbounds [4 x float], ptr %m, i64 1
-  %arrayidx23.i = getelementptr inbounds [4 x [4 x float]], ptr %m4, i64 0, i64 1
+  %arrayidx20.i = getelementptr inbounds i8, ptr %m, i64 16
+  %arrayidx23.i = getelementptr inbounds i8, ptr %m4, i64 16
   %1 = load <4 x float>, ptr %arrayidx20.i, align 4
   store <4 x float> %1, ptr %arrayidx23.i, align 16
-  %arrayidx40.i = getelementptr inbounds [4 x float], ptr %m, i64 2
-  %arrayidx43.i = getelementptr inbounds [4 x [4 x float]], ptr %m4, i64 0, i64 2
+  %arrayidx40.i = getelementptr inbounds i8, ptr %m, i64 32
+  %arrayidx43.i = getelementptr inbounds i8, ptr %m4, i64 32
   %2 = load <4 x float>, ptr %arrayidx40.i, align 4
   store <4 x float> %2, ptr %arrayidx43.i, align 16
-  %arrayidx60.i = getelementptr inbounds [4 x float], ptr %m, i64 3
-  %arrayidx63.i = getelementptr inbounds [4 x [4 x float]], ptr %m4, i64 0, i64 3
+  %arrayidx60.i = getelementptr inbounds i8, ptr %m, i64 48
+  %arrayidx63.i = getelementptr inbounds i8, ptr %m4, i64 48
   %3 = load <4 x float>, ptr %arrayidx60.i, align 4
   store <4 x float> %3, ptr %arrayidx63.i, align 16
   %call3 = invoke ptr @_ZN7Imf_3_26Header4findEPKc(ptr noundef nonnull align 8 dereferenceable(49) %hdr, ptr noundef %name)
@@ -2922,7 +2920,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %7 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %7, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %8 = load ptr, ptr %vfn.i, align 8
   %call.i = call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -2964,11 +2962,11 @@ invoke.cont25:                                    ; preds = %call.i8.noexc
 
 invoke.cont27:                                    ; preds = %invoke.cont25
   store <4 x float> %0, ptr %call28, align 4
-  %arrayidx28.i = getelementptr inbounds [4 x [4 x float]], ptr %call28, i64 0, i64 1
+  %arrayidx28.i = getelementptr inbounds i8, ptr %call28, i64 16
   store <4 x float> %1, ptr %arrayidx28.i, align 4
-  %arrayidx52.i = getelementptr inbounds [4 x [4 x float]], ptr %call28, i64 0, i64 2
+  %arrayidx52.i = getelementptr inbounds i8, ptr %call28, i64 32
   store <4 x float> %2, ptr %arrayidx52.i, align 4
-  %arrayidx76.i18 = getelementptr inbounds [4 x [4 x float]], ptr %call28, i64 0, i64 3
+  %arrayidx76.i18 = getelementptr inbounds i8, ptr %call28, i64 48
   store <4 x float> %3, ptr %arrayidx76.i18, align 4
   br label %return
 
@@ -3024,65 +3022,65 @@ invoke.cont1:                                     ; preds = %call.i.noexc
 invoke.cont3:                                     ; preds = %invoke.cont1
   %2 = load float, ptr %call4, align 4
   store float %2, ptr %m, align 4
-  %arrayidx9 = getelementptr inbounds float, ptr %call4, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %call4, i64 4
   %3 = load float, ptr %arrayidx9, align 4
-  %arrayidx11 = getelementptr inbounds [4 x float], ptr %m, i64 0, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %m, i64 4
   store float %3, ptr %arrayidx11, align 4
-  %arrayidx13 = getelementptr inbounds float, ptr %call4, i64 2
+  %arrayidx13 = getelementptr inbounds i8, ptr %call4, i64 8
   %4 = load float, ptr %arrayidx13, align 4
-  %arrayidx15 = getelementptr inbounds [4 x float], ptr %m, i64 0, i64 2
+  %arrayidx15 = getelementptr inbounds i8, ptr %m, i64 8
   store float %4, ptr %arrayidx15, align 4
-  %arrayidx17 = getelementptr inbounds float, ptr %call4, i64 3
+  %arrayidx17 = getelementptr inbounds i8, ptr %call4, i64 12
   %5 = load float, ptr %arrayidx17, align 4
-  %arrayidx19 = getelementptr inbounds [4 x float], ptr %m, i64 0, i64 3
+  %arrayidx19 = getelementptr inbounds i8, ptr %m, i64 12
   store float %5, ptr %arrayidx19, align 4
-  %arrayidx.i = getelementptr inbounds [4 x [4 x float]], ptr %call4, i64 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %call4, i64 16
   %6 = load float, ptr %arrayidx.i, align 4
-  %arrayidx22 = getelementptr inbounds [4 x float], ptr %m, i64 1
+  %arrayidx22 = getelementptr inbounds i8, ptr %m, i64 16
   store float %6, ptr %arrayidx22, align 4
-  %arrayidx25 = getelementptr inbounds [4 x [4 x float]], ptr %call4, i64 0, i64 1, i64 1
+  %arrayidx25 = getelementptr inbounds i8, ptr %call4, i64 20
   %7 = load float, ptr %arrayidx25, align 4
-  %arrayidx27 = getelementptr inbounds [4 x float], ptr %m, i64 1, i64 1
+  %arrayidx27 = getelementptr inbounds i8, ptr %m, i64 20
   store float %7, ptr %arrayidx27, align 4
-  %arrayidx29 = getelementptr inbounds [4 x [4 x float]], ptr %call4, i64 0, i64 1, i64 2
+  %arrayidx29 = getelementptr inbounds i8, ptr %call4, i64 24
   %8 = load float, ptr %arrayidx29, align 4
-  %arrayidx31 = getelementptr inbounds [4 x float], ptr %m, i64 1, i64 2
+  %arrayidx31 = getelementptr inbounds i8, ptr %m, i64 24
   store float %8, ptr %arrayidx31, align 4
-  %arrayidx33 = getelementptr inbounds [4 x [4 x float]], ptr %call4, i64 0, i64 1, i64 3
+  %arrayidx33 = getelementptr inbounds i8, ptr %call4, i64 28
   %9 = load float, ptr %arrayidx33, align 4
-  %arrayidx35 = getelementptr inbounds [4 x float], ptr %m, i64 1, i64 3
+  %arrayidx35 = getelementptr inbounds i8, ptr %m, i64 28
   store float %9, ptr %arrayidx35, align 4
-  %arrayidx.i36 = getelementptr inbounds [4 x [4 x float]], ptr %call4, i64 0, i64 2
+  %arrayidx.i36 = getelementptr inbounds i8, ptr %call4, i64 32
   %10 = load float, ptr %arrayidx.i36, align 4
-  %arrayidx38 = getelementptr inbounds [4 x float], ptr %m, i64 2
+  %arrayidx38 = getelementptr inbounds i8, ptr %m, i64 32
   store float %10, ptr %arrayidx38, align 4
-  %arrayidx41 = getelementptr inbounds [4 x [4 x float]], ptr %call4, i64 0, i64 2, i64 1
+  %arrayidx41 = getelementptr inbounds i8, ptr %call4, i64 36
   %11 = load float, ptr %arrayidx41, align 4
-  %arrayidx43 = getelementptr inbounds [4 x float], ptr %m, i64 2, i64 1
+  %arrayidx43 = getelementptr inbounds i8, ptr %m, i64 36
   store float %11, ptr %arrayidx43, align 4
-  %arrayidx45 = getelementptr inbounds [4 x [4 x float]], ptr %call4, i64 0, i64 2, i64 2
+  %arrayidx45 = getelementptr inbounds i8, ptr %call4, i64 40
   %12 = load float, ptr %arrayidx45, align 4
-  %arrayidx47 = getelementptr inbounds [4 x float], ptr %m, i64 2, i64 2
+  %arrayidx47 = getelementptr inbounds i8, ptr %m, i64 40
   store float %12, ptr %arrayidx47, align 4
-  %arrayidx49 = getelementptr inbounds [4 x [4 x float]], ptr %call4, i64 0, i64 2, i64 3
+  %arrayidx49 = getelementptr inbounds i8, ptr %call4, i64 44
   %13 = load float, ptr %arrayidx49, align 4
-  %arrayidx51 = getelementptr inbounds [4 x float], ptr %m, i64 2, i64 3
+  %arrayidx51 = getelementptr inbounds i8, ptr %m, i64 44
   store float %13, ptr %arrayidx51, align 4
-  %arrayidx.i40 = getelementptr inbounds [4 x [4 x float]], ptr %call4, i64 0, i64 3
+  %arrayidx.i40 = getelementptr inbounds i8, ptr %call4, i64 48
   %14 = load float, ptr %arrayidx.i40, align 4
-  %arrayidx54 = getelementptr inbounds [4 x float], ptr %m, i64 3
+  %arrayidx54 = getelementptr inbounds i8, ptr %m, i64 48
   store float %14, ptr %arrayidx54, align 4
-  %arrayidx57 = getelementptr inbounds [4 x [4 x float]], ptr %call4, i64 0, i64 3, i64 1
+  %arrayidx57 = getelementptr inbounds i8, ptr %call4, i64 52
   %15 = load float, ptr %arrayidx57, align 4
-  %arrayidx59 = getelementptr inbounds [4 x float], ptr %m, i64 3, i64 1
+  %arrayidx59 = getelementptr inbounds i8, ptr %m, i64 52
   store float %15, ptr %arrayidx59, align 4
-  %arrayidx61 = getelementptr inbounds [4 x [4 x float]], ptr %call4, i64 0, i64 3, i64 2
+  %arrayidx61 = getelementptr inbounds i8, ptr %call4, i64 56
   %16 = load float, ptr %arrayidx61, align 4
-  %arrayidx63 = getelementptr inbounds [4 x float], ptr %m, i64 3, i64 2
+  %arrayidx63 = getelementptr inbounds i8, ptr %m, i64 56
   store float %16, ptr %arrayidx63, align 4
-  %arrayidx65 = getelementptr inbounds [4 x [4 x float]], ptr %call4, i64 0, i64 3, i64 3
+  %arrayidx65 = getelementptr inbounds i8, ptr %call4, i64 60
   %17 = load float, ptr %arrayidx65, align 4
-  %arrayidx67 = getelementptr inbounds [4 x float], ptr %m, i64 3, i64 3
+  %arrayidx67 = getelementptr inbounds i8, ptr %m, i64 60
   store float %17, ptr %arrayidx67, align 4
   br label %return
 
@@ -3102,7 +3100,7 @@ catch:                                            ; preds = %lpad.body
   %21 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %22 = tail call ptr @__cxa_begin_catch(ptr %21) #22
   %vtable.i = load ptr, ptr %22, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %23 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %22) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3157,7 +3155,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3185,7 +3183,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %out, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %out) #22
   br label %delete.end
@@ -3212,7 +3210,7 @@ catch:                                            ; preds = %lpad
   %3 = extractvalue { ptr, i32 } %0, 0
   %4 = tail call ptr @__cxa_begin_catch(ptr %3) #22
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3248,7 +3246,7 @@ catch:                                            ; preds = %lpad
   %3 = extractvalue { ptr, i32 } %0, 0
   %4 = tail call ptr @__cxa_begin_catch(ptr %3) #22
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3330,7 +3328,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3356,7 +3354,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %out, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(24) %out) #22
   br label %delete.end
@@ -3383,7 +3381,7 @@ catch:                                            ; preds = %lpad
   %3 = extractvalue { ptr, i32 } %0, 0
   %4 = tail call ptr @__cxa_begin_catch(ptr %3) #22
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3419,7 +3417,7 @@ catch:                                            ; preds = %lpad
   %3 = extractvalue { ptr, i32 } %0, 0
   %4 = tail call ptr @__cxa_begin_catch(ptr %3) #22
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3455,7 +3453,7 @@ catch:                                            ; preds = %lpad
   %3 = extractvalue { ptr, i32 } %0, 0
   %4 = tail call ptr @__cxa_begin_catch(ptr %3) #22
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3564,7 +3562,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3590,7 +3588,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %in, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(64) %in) #22
   br label %delete.end
@@ -3617,7 +3615,7 @@ catch:                                            ; preds = %lpad
   %3 = extractvalue { ptr, i32 } %0, 0
   %4 = tail call ptr @__cxa_begin_catch(ptr %3) #22
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3653,7 +3651,7 @@ catch:                                            ; preds = %lpad
   %3 = extractvalue { ptr, i32 } %0, 0
   %4 = tail call ptr @__cxa_begin_catch(ptr %3) #22
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3735,7 +3733,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3761,7 +3759,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %in, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(56) %in) #22
   br label %delete.end
@@ -3788,7 +3786,7 @@ catch:                                            ; preds = %lpad
   %3 = extractvalue { ptr, i32 } %0, 0
   %4 = tail call ptr @__cxa_begin_catch(ptr %3) #22
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3824,7 +3822,7 @@ catch:                                            ; preds = %lpad
   %3 = extractvalue { ptr, i32 } %0, 0
   %4 = tail call ptr @__cxa_begin_catch(ptr %3) #22
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3860,7 +3858,7 @@ catch:                                            ; preds = %lpad
   %3 = extractvalue { ptr, i32 } %0, 0
   %4 = tail call ptr @__cxa_begin_catch(ptr %3) #22
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -3986,13 +3984,13 @@ if.else15.i.i:                                    ; preds = %if.else.i.i
   %6 = load ptr, ptr @imath_half_to_float_table, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %union.imath_half_uif, ptr %6, i64 %indvars.iv.i.i
   %7 = load float, ptr %arrayidx.i.i.i.i, align 4
-  %arrayidx.i.i9.i.i = getelementptr inbounds %union.imath_half_uif, ptr %6, i64 64511
+  %arrayidx.i.i9.i.i = getelementptr inbounds i8, ptr %6, i64 258044
   %8 = load float, ptr %arrayidx.i.i9.i.i, align 4
   %cmp18.i.i = fcmp olt float %7, %8
   br i1 %cmp18.i.i, label %if.then22.i.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.else15.i.i
-  %arrayidx.i.i13.i.i = getelementptr inbounds %union.imath_half_uif, ptr %6, i64 31743
+  %arrayidx.i.i13.i.i = getelementptr inbounds i8, ptr %6, i64 126972
   %9 = load float, ptr %arrayidx.i.i13.i.i, align 4
   %cmp21.i.i = fcmp ogt float %7, %9
   br i1 %cmp21.i.i, label %if.then22.i.i, label %if.else26.i.i
@@ -4017,7 +4015,7 @@ for.inc.i.i:                                      ; preds = %call28.i.i.noexc, %
   br i1 %exitcond.not.i.i, label %_ZN7Imf_3_27RgbaLutC2IPFN9Imath_3_24halfES3_EEET_NS_12RgbaChannelsE.exit, label %for.body.i.i, !llvm.loop !7
 
 _ZN7Imf_3_27RgbaLutC2IPFN9Imath_3_24halfES3_EEET_NS_12RgbaChannelsE.exit: ; preds = %for.inc.i.i
-  %_chn.i = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %call, i64 0, i32 1
+  %_chn.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %channels, ptr %_chn.i, align 8
   br label %return
 
@@ -4054,7 +4052,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %12 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %12, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %13 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22
@@ -4083,7 +4081,7 @@ invoke.cont:                                      ; preds = %entry
           to label %_ZN7Imf_3_27RgbaLutC2INS_9roundNBitEEET_NS_12RgbaChannelsE.exit unwind label %lpad1
 
 _ZN7Imf_3_27RgbaLutC2INS_9roundNBitEEET_NS_12RgbaChannelsE.exit: ; preds = %invoke.cont
-  %_chn.i = getelementptr inbounds %"class.Imf_3_2::RgbaLut", ptr %call, i64 0, i32 1
+  %_chn.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %channels, ptr %_chn.i, align 8
   br label %return
 
@@ -4110,7 +4108,7 @@ catch:                                            ; preds = %catch.dispatch
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %3 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
   %call1.i = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_112errorMessageE, ptr noundef nonnull dereferenceable(1) %call.i, i64 noundef 1023) #22

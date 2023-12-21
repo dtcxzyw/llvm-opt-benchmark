@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.KDF_ARGON2 = type { ptr, i32, ptr, i32, ptr, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr }
 %struct.BLOCK = type { [128 x i64] }
 %struct.ARGON2_THREAD_DATA = type { %struct.ARGON2_POS, ptr }
 %struct.ARGON2_POS = type { i32, i32, i8, i32 }
@@ -78,16 +77,16 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %call4 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #9
-  %libctx = getelementptr inbounds %struct.KDF_ARGON2, ptr %call1, i64 0, i32 22
+  %libctx = getelementptr inbounds i8, ptr %call1, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %call1, i8 0, i64 160, i1 false)
   store ptr %call4, ptr %libctx, align 8
-  %outlen.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %call1, i64 0, i32 1
+  %outlen.i = getelementptr inbounds i8, ptr %call1, i64 8
   store i32 64, ptr %outlen.i, align 8
-  %t_cost.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %call1, i64 0, i32 10
+  %t_cost.i = getelementptr inbounds i8, ptr %call1, i64 76
   store <4 x i32> <i32 3, i32 8, i32 1, i32 1>, ptr %t_cost.i, align 4
-  %version.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %call1, i64 0, i32 14
+  %version.i = getelementptr inbounds i8, ptr %call1, i64 92
   store i32 19, ptr %version.i, align 4
-  %type3.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %call1, i64 0, i32 16
+  %type3.i = getelementptr inbounds i8, ptr %call1, i64 100
   store i32 1, ptr %type3.i, align 4
   br label %return
 
@@ -103,65 +102,65 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pwd = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 2
+  %pwd = getelementptr inbounds i8, ptr %vctx, i64 16
   %0 = load ptr, ptr %pwd, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %pwdlen = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 3
+  %pwdlen = getelementptr inbounds i8, ptr %vctx, i64 24
   %1 = load i32, ptr %pwdlen, align 8
   %conv = zext i32 %1 to i64
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %0, i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 993) #9
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.end
-  %salt = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 4
+  %salt = getelementptr inbounds i8, ptr %vctx, i64 32
   %2 = load ptr, ptr %salt, align 8
   %cmp5.not = icmp eq ptr %2, null
   br i1 %cmp5.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %saltlen = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 5
+  %saltlen = getelementptr inbounds i8, ptr %vctx, i64 40
   %3 = load i32, ptr %saltlen, align 8
   %conv9 = zext i32 %3 to i64
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %2, i64 noundef %conv9, ptr noundef nonnull @.str, i32 noundef 996) #9
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %if.end4
-  %secret = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 6
+  %secret = getelementptr inbounds i8, ptr %vctx, i64 48
   %4 = load ptr, ptr %secret, align 8
   %cmp11.not = icmp eq ptr %4, null
   br i1 %cmp11.not, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  %secretlen = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 7
+  %secretlen = getelementptr inbounds i8, ptr %vctx, i64 56
   %5 = load i32, ptr %secretlen, align 8
   %conv15 = zext i32 %5 to i64
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %4, i64 noundef %conv15, ptr noundef nonnull @.str, i32 noundef 999) #9
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then13, %if.end10
-  %ad = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 8
+  %ad = getelementptr inbounds i8, ptr %vctx, i64 64
   %6 = load ptr, ptr %ad, align 8
   %cmp17.not = icmp eq ptr %6, null
   br i1 %cmp17.not, label %if.end22, label %if.then19
 
 if.then19:                                        ; preds = %if.end16
-  %adlen = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 9
+  %adlen = getelementptr inbounds i8, ptr %vctx, i64 72
   %7 = load i32, ptr %adlen, align 8
   %conv21 = zext i32 %7 to i64
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %6, i64 noundef %conv21, ptr noundef nonnull @.str, i32 noundef 1002) #9
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then19, %if.end16
-  %md = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 23
+  %md = getelementptr inbounds i8, ptr %vctx, i64 136
   %8 = load ptr, ptr %md, align 8
   tail call void @EVP_MD_free(ptr noundef %8) #9
-  %mac = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 24
+  %mac = getelementptr inbounds i8, ptr %vctx, i64 144
   %9 = load ptr, ptr %mac, align 8
   tail call void @EVP_MAC_free(ptr noundef %9) #9
-  %propq = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 25
+  %propq = getelementptr inbounds i8, ptr %vctx, i64 152
   %10 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 1007) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %vctx, i8 0, i64 160, i1 false)
@@ -175,65 +174,65 @@ return:                                           ; preds = %entry, %if.end22
 ; Function Attrs: nounwind uwtable
 define internal void @kdf_argon2_reset(ptr nocapture noundef %vctx) #0 {
 entry:
-  %type1 = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 16
+  %type1 = getelementptr inbounds i8, ptr %vctx, i64 100
   %0 = load i32, ptr %type1, align 4
-  %libctx2 = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 22
+  %libctx2 = getelementptr inbounds i8, ptr %vctx, i64 128
   %1 = load ptr, ptr %libctx2, align 8
-  %md = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 23
+  %md = getelementptr inbounds i8, ptr %vctx, i64 136
   %2 = load ptr, ptr %md, align 8
   tail call void @EVP_MD_free(ptr noundef %2) #9
-  %mac = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 24
+  %mac = getelementptr inbounds i8, ptr %vctx, i64 144
   %3 = load ptr, ptr %mac, align 8
   tail call void @EVP_MAC_free(ptr noundef %3) #9
-  %propq = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 25
+  %propq = getelementptr inbounds i8, ptr %vctx, i64 152
   %4 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 1131) #9
-  %pwd = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 2
+  %pwd = getelementptr inbounds i8, ptr %vctx, i64 16
   %5 = load ptr, ptr %pwd, align 8
   %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pwdlen = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 3
+  %pwdlen = getelementptr inbounds i8, ptr %vctx, i64 24
   %6 = load i32, ptr %pwdlen, align 8
   %conv = zext i32 %6 to i64
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %5, i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 1134) #9
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %salt = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 4
+  %salt = getelementptr inbounds i8, ptr %vctx, i64 32
   %7 = load ptr, ptr %salt, align 8
   %cmp4.not = icmp eq ptr %7, null
   br i1 %cmp4.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %saltlen = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 5
+  %saltlen = getelementptr inbounds i8, ptr %vctx, i64 40
   %8 = load i32, ptr %saltlen, align 8
   %conv8 = zext i32 %8 to i64
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %7, i64 noundef %conv8, ptr noundef nonnull @.str, i32 noundef 1137) #9
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then6, %if.end
-  %secret = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 6
+  %secret = getelementptr inbounds i8, ptr %vctx, i64 48
   %9 = load ptr, ptr %secret, align 8
   %cmp10.not = icmp eq ptr %9, null
   br i1 %cmp10.not, label %if.end15, label %if.then12
 
 if.then12:                                        ; preds = %if.end9
-  %secretlen = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 7
+  %secretlen = getelementptr inbounds i8, ptr %vctx, i64 56
   %10 = load i32, ptr %secretlen, align 8
   %conv14 = zext i32 %10 to i64
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %9, i64 noundef %conv14, ptr noundef nonnull @.str, i32 noundef 1140) #9
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then12, %if.end9
-  %ad = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 8
+  %ad = getelementptr inbounds i8, ptr %vctx, i64 64
   %11 = load ptr, ptr %ad, align 8
   %cmp16.not = icmp eq ptr %11, null
   br i1 %cmp16.not, label %if.end21, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
-  %adlen = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 9
+  %adlen = getelementptr inbounds i8, ptr %vctx, i64 72
   %12 = load i32, ptr %adlen, align 8
   %conv20 = zext i32 %12 to i64
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %11, i64 noundef %conv20, ptr noundef nonnull @.str, i32 noundef 1143) #9
@@ -242,11 +241,11 @@ if.then18:                                        ; preds = %if.end15
 if.end21:                                         ; preds = %if.then18, %if.end15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %vctx, i8 0, i64 160, i1 false)
   store ptr %1, ptr %libctx2, align 8
-  %outlen.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 1
+  %outlen.i = getelementptr inbounds i8, ptr %vctx, i64 8
   store i32 64, ptr %outlen.i, align 8
-  %t_cost.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 10
+  %t_cost.i = getelementptr inbounds i8, ptr %vctx, i64 76
   store <4 x i32> <i32 3, i32 8, i32 1, i32 1>, ptr %t_cost.i, align 4
-  %version.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 14
+  %version.i = getelementptr inbounds i8, ptr %vctx, i64 92
   store i32 19, ptr %version.i, align 4
   store i32 %0, ptr %type1, align 4
   ret void
@@ -265,15 +264,15 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %mac = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 24
+  %mac = getelementptr inbounds i8, ptr %vctx, i64 144
   %0 = load ptr, ptr %mac, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end6, label %if.end10
 
 if.end6:                                          ; preds = %if.end
-  %libctx = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 22
+  %libctx = getelementptr inbounds i8, ptr %vctx, i64 128
   %1 = load ptr, ptr %libctx, align 8
-  %propq = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 25
+  %propq = getelementptr inbounds i8, ptr %vctx, i64 152
   %2 = load ptr, ptr %propq, align 8
   %call4 = tail call ptr @EVP_MAC_fetch(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef %2) #9
   store ptr %call4, ptr %mac, align 8
@@ -287,15 +286,15 @@ if.then9:                                         ; preds = %if.end6
   br label %return
 
 if.end10:                                         ; preds = %if.end, %if.end6
-  %md = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 23
+  %md = getelementptr inbounds i8, ptr %vctx, i64 136
   %3 = load ptr, ptr %md, align 8
   %cmp11 = icmp eq ptr %3, null
   br i1 %cmp11, label %if.end17, label %if.end21
 
 if.end17:                                         ; preds = %if.end10
-  %libctx13 = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 22
+  %libctx13 = getelementptr inbounds i8, ptr %vctx, i64 128
   %4 = load ptr, ptr %libctx13, align 8
-  %propq14 = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 25
+  %propq14 = getelementptr inbounds i8, ptr %vctx, i64 152
   %5 = load ptr, ptr %propq14, align 8
   %call15 = tail call ptr @EVP_MD_fetch(ptr noundef %4, ptr noundef nonnull @.str.3, ptr noundef %5) #9
   store ptr %call15, ptr %md, align 8
@@ -309,13 +308,13 @@ if.then20:                                        ; preds = %if.end17
   br label %return
 
 if.end21:                                         ; preds = %if.end10, %if.end17
-  %salt = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 4
+  %salt = getelementptr inbounds i8, ptr %vctx, i64 32
   %6 = load ptr, ptr %salt, align 8
   %cmp22 = icmp eq ptr %6, null
   br i1 %cmp22, label %if.then25, label %lor.lhs.false23
 
 lor.lhs.false23:                                  ; preds = %if.end21
-  %saltlen = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 5
+  %saltlen = getelementptr inbounds i8, ptr %vctx, i64 40
   %7 = load i32, ptr %saltlen, align 8
   %cmp24 = icmp eq i32 %7, 0
   br i1 %cmp24, label %if.then25, label %if.end26
@@ -327,7 +326,7 @@ if.then25:                                        ; preds = %lor.lhs.false23, %i
   br label %return
 
 if.end26:                                         ; preds = %lor.lhs.false23
-  %outlen27 = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 1
+  %outlen27 = getelementptr inbounds i8, ptr %vctx, i64 8
   %8 = load i32, ptr %outlen27, align 8
   %conv = zext i32 %8 to i64
   %cmp28.not = icmp eq i64 %conv, %outlen
@@ -351,7 +350,7 @@ if.end35:                                         ; preds = %if.then30
   br i1 %tobool38.not, label %return, label %if.end41
 
 if.end41:                                         ; preds = %if.end35, %if.end26
-  %type = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 16
+  %type = getelementptr inbounds i8, ptr %vctx, i64 100
   %9 = load i32, ptr %type, align 4
   %switch = icmp ult i32 %9, 3
   br i1 %switch, label %sw.epilog, label %sw.default
@@ -363,19 +362,19 @@ sw.default:                                       ; preds = %if.end41
   br label %return
 
 sw.epilog:                                        ; preds = %if.end41
-  %threads = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 13
+  %threads = getelementptr inbounds i8, ptr %vctx, i64 88
   %10 = load i32, ptr %threads, align 8
   %cmp42 = icmp ugt i32 %10, 1
   br i1 %cmp42, label %if.then44, label %sw.epilog.if.end62_crit_edge
 
 sw.epilog.if.end62_crit_edge:                     ; preds = %sw.epilog
-  %lanes63.phi.trans.insert = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 12
+  %lanes63.phi.trans.insert = getelementptr inbounds i8, ptr %vctx, i64 84
   %.pre = load i32, ptr %lanes63.phi.trans.insert, align 4
   br label %if.end62
 
 if.then44:                                        ; preds = %sw.epilog
   %conv46 = zext i32 %10 to i64
-  %libctx47 = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 22
+  %libctx47 = getelementptr inbounds i8, ptr %vctx, i64 128
   %11 = load ptr, ptr %libctx47, align 8
   %call48 = tail call i64 @ossl_get_avail_threads(ptr noundef %11) #9
   %cmp49 = icmp ult i64 %call48, %conv46
@@ -391,7 +390,7 @@ if.then51:                                        ; preds = %if.then44
 
 if.end54:                                         ; preds = %if.then44
   %13 = load i32, ptr %threads, align 8
-  %lanes = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 12
+  %lanes = getelementptr inbounds i8, ptr %vctx, i64 84
   %14 = load i32, ptr %lanes, align 4
   %cmp56 = icmp ugt i32 %13, %14
   br i1 %cmp56, label %if.then58, label %if.end62
@@ -406,7 +405,7 @@ if.then58:                                        ; preds = %if.end54
 
 if.end62:                                         ; preds = %sw.epilog.if.end62_crit_edge, %if.end54
   %17 = phi i32 [ %.pre, %sw.epilog.if.end62_crit_edge ], [ %14, %if.end54 ]
-  %m_cost = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 11
+  %m_cost = getelementptr inbounds i8, ptr %vctx, i64 80
   %18 = load i32, ptr %m_cost, align 8
   %mul = shl i32 %17, 3
   %cmp64 = icmp ult i32 %18, %mul
@@ -422,18 +421,18 @@ if.end76:                                         ; preds = %if.end62
   %mul78 = shl i32 %17, 2
   %div = udiv i32 %18, %mul78
   %mul81 = mul i32 %div, %mul78
-  %memory = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 17
+  %memory = getelementptr inbounds i8, ptr %vctx, i64 104
   store ptr null, ptr %memory, align 8
-  %memory_blocks82 = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 19
+  %memory_blocks82 = getelementptr inbounds i8, ptr %vctx, i64 116
   store i32 %mul81, ptr %memory_blocks82, align 4
-  %segment_length83 = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 20
+  %segment_length83 = getelementptr inbounds i8, ptr %vctx, i64 120
   store i32 %div, ptr %segment_length83, align 8
-  %t_cost = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 10
+  %t_cost = getelementptr inbounds i8, ptr %vctx, i64 76
   %19 = load i32, ptr %t_cost, align 4
-  %passes = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 18
+  %passes = getelementptr inbounds i8, ptr %vctx, i64 112
   store i32 %19, ptr %passes, align 8
   %mul84 = shl i32 %div, 2
-  %lane_length = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 21
+  %lane_length = getelementptr inbounds i8, ptr %vctx, i64 124
   store i32 %mul84, ptr %lane_length, align 4
   %call85 = tail call fastcc i32 @initialize(ptr noundef nonnull %vctx), !range !4
   %cmp86.not.not = icmp eq i32 %call85, 0
@@ -477,19 +476,19 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buflen.i)
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call, i64 16
   %0 = load ptr, ptr %data.i, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %kdf_argon2_ctx_set_pwd.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2
-  %pwd.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 2
+  %pwd.i = getelementptr inbounds i8, ptr %vctx, i64 16
   %1 = load ptr, ptr %pwd.i, align 8
   %cmp1.not.i = icmp eq ptr %1, null
   br i1 %cmp1.not.i, label %if.end6.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %pwdlen.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 3
+  %pwdlen.i = getelementptr inbounds i8, ptr %vctx, i64 24
   %2 = load i32, ptr %pwdlen.i, align 8
   %conv.i = zext i32 %2 to i64
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %1, i64 noundef %conv.i, ptr noundef nonnull @.str, i32 noundef 1267) #9
@@ -514,7 +513,7 @@ kdf_argon2_ctx_set_pwd.exit.thread103:            ; preds = %if.end9.i
   %4 = load ptr, ptr %pwd.i, align 8
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 1285) #9
   store ptr null, ptr %pwd.i, align 8
-  %pwdlen18.i106 = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 3
+  %pwdlen18.i106 = getelementptr inbounds i8, ptr %vctx, i64 24
   store i32 0, ptr %pwdlen18.i106, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buflen.i)
   br label %return
@@ -525,7 +524,7 @@ kdf_argon2_ctx_set_pwd.exit.thread:               ; preds = %if.then2, %if.end6.
 
 kdf_argon2_ctx_set_pwd.exit:                      ; preds = %if.end9.i
   %conv14.i = trunc i64 %3 to i32
-  %pwdlen18.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 3
+  %pwdlen18.i = getelementptr inbounds i8, ptr %vctx, i64 24
   store i32 %conv14.i, ptr %pwdlen18.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buflen.i)
   br label %if.end6
@@ -537,19 +536,19 @@ if.end6:                                          ; preds = %kdf_argon2_ctx_set_
 
 if.then9:                                         ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buflen.i36)
-  %data.i37 = getelementptr inbounds %struct.ossl_param_st, ptr %call7, i64 0, i32 2
+  %data.i37 = getelementptr inbounds i8, ptr %call7, i64 16
   %5 = load ptr, ptr %data.i37, align 8
   %cmp.i38 = icmp eq ptr %5, null
   br i1 %cmp.i38, label %kdf_argon2_ctx_set_salt.exit.thread, label %if.end.i39
 
 if.end.i39:                                       ; preds = %if.then9
-  %salt.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 4
+  %salt.i = getelementptr inbounds i8, ptr %vctx, i64 32
   %6 = load ptr, ptr %salt.i, align 8
   %cmp1.not.i40 = icmp eq ptr %6, null
   br i1 %cmp1.not.i40, label %if.end6.i43, label %if.then2.i41
 
 if.then2.i41:                                     ; preds = %if.end.i39
-  %saltlen.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 5
+  %saltlen.i = getelementptr inbounds i8, ptr %vctx, i64 40
   %7 = load i32, ptr %saltlen.i, align 8
   %conv.i42 = zext i32 %7 to i64
   call void @CRYPTO_clear_free(ptr noundef nonnull %6, i64 noundef %conv.i42, ptr noundef nonnull @.str, i32 noundef 1299) #9
@@ -587,7 +586,7 @@ kdf_argon2_ctx_set_salt.exit.thread110:           ; preds = %if.then12.i53, %if.
   %9 = load ptr, ptr %salt.i, align 8
   call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 1323) #9
   store ptr null, ptr %salt.i, align 8
-  %saltlen22.i113 = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 5
+  %saltlen22.i113 = getelementptr inbounds i8, ptr %vctx, i64 40
   store i32 0, ptr %saltlen22.i113, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buflen.i36)
   br label %return
@@ -598,7 +597,7 @@ kdf_argon2_ctx_set_salt.exit.thread:              ; preds = %if.then9, %if.end6.
 
 kdf_argon2_ctx_set_salt.exit:                     ; preds = %if.end13.i48
   %conv18.i = trunc i64 %8 to i32
-  %saltlen22.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 5
+  %saltlen22.i = getelementptr inbounds i8, ptr %vctx, i64 40
   store i32 %conv18.i, ptr %saltlen22.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buflen.i36)
   br label %if.end14
@@ -610,19 +609,19 @@ if.end14:                                         ; preds = %kdf_argon2_ctx_set_
 
 if.then17:                                        ; preds = %if.end14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buflen.i54)
-  %data.i55 = getelementptr inbounds %struct.ossl_param_st, ptr %call15, i64 0, i32 2
+  %data.i55 = getelementptr inbounds i8, ptr %call15, i64 16
   %10 = load ptr, ptr %data.i55, align 8
   %cmp.i56 = icmp eq ptr %10, null
   br i1 %cmp.i56, label %kdf_argon2_ctx_set_secret.exit.thread, label %if.end.i57
 
 if.end.i57:                                       ; preds = %if.then17
-  %secret.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 6
+  %secret.i = getelementptr inbounds i8, ptr %vctx, i64 48
   %11 = load ptr, ptr %secret.i, align 8
   %cmp1.not.i58 = icmp eq ptr %11, null
   br i1 %cmp1.not.i58, label %if.end6.i61, label %if.then2.i59
 
 if.then2.i59:                                     ; preds = %if.end.i57
-  %secretlen.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 7
+  %secretlen.i = getelementptr inbounds i8, ptr %vctx, i64 56
   %12 = load i32, ptr %secretlen.i, align 8
   %conv.i60 = zext i32 %12 to i64
   call void @CRYPTO_clear_free(ptr noundef nonnull %11, i64 noundef %conv.i60, ptr noundef nonnull @.str, i32 noundef 1240) #9
@@ -644,7 +643,7 @@ kdf_argon2_ctx_set_secret.exit.thread117:         ; preds = %if.end9.i64
   %14 = load ptr, ptr %secret.i, align 8
   call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 1249) #9
   store ptr null, ptr %secret.i, align 8
-  %secretlen18.i120 = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 7
+  %secretlen18.i120 = getelementptr inbounds i8, ptr %vctx, i64 56
   store i32 0, ptr %secretlen18.i120, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buflen.i54)
   br label %return
@@ -655,7 +654,7 @@ kdf_argon2_ctx_set_secret.exit.thread:            ; preds = %if.then17, %if.end6
 
 kdf_argon2_ctx_set_secret.exit:                   ; preds = %if.end9.i64
   %conv17.i = trunc i64 %13 to i32
-  %secretlen18.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 7
+  %secretlen18.i = getelementptr inbounds i8, ptr %vctx, i64 56
   store i32 %conv17.i, ptr %secretlen18.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buflen.i54)
   br label %if.end22
@@ -667,19 +666,19 @@ if.end22:                                         ; preds = %kdf_argon2_ctx_set_
 
 if.then25:                                        ; preds = %if.end22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buflen.i70)
-  %data.i71 = getelementptr inbounds %struct.ossl_param_st, ptr %call23, i64 0, i32 2
+  %data.i71 = getelementptr inbounds i8, ptr %call23, i64 16
   %15 = load ptr, ptr %data.i71, align 8
   %cmp.i72 = icmp eq ptr %15, null
   br i1 %cmp.i72, label %kdf_argon2_ctx_set_ad.exit.thread, label %if.end.i73
 
 if.end.i73:                                       ; preds = %if.then25
-  %ad.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 8
+  %ad.i = getelementptr inbounds i8, ptr %vctx, i64 64
   %16 = load ptr, ptr %ad.i, align 8
   %cmp1.not.i74 = icmp eq ptr %16, null
   br i1 %cmp1.not.i74, label %if.end6.i77, label %if.then2.i75
 
 if.then2.i75:                                     ; preds = %if.end.i73
-  %adlen.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 9
+  %adlen.i = getelementptr inbounds i8, ptr %vctx, i64 72
   %17 = load i32, ptr %adlen.i, align 8
   %conv.i76 = zext i32 %17 to i64
   call void @CRYPTO_clear_free(ptr noundef nonnull %16, i64 noundef %conv.i76, ptr noundef nonnull @.str, i32 noundef 1337) #9
@@ -701,7 +700,7 @@ kdf_argon2_ctx_set_ad.exit.thread124:             ; preds = %if.end9.i80
   %19 = load ptr, ptr %ad.i, align 8
   call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 1346) #9
   store ptr null, ptr %ad.i, align 8
-  %adlen18.i127 = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 9
+  %adlen18.i127 = getelementptr inbounds i8, ptr %vctx, i64 72
   store i32 0, ptr %adlen18.i127, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buflen.i70)
   br label %return
@@ -712,7 +711,7 @@ kdf_argon2_ctx_set_ad.exit.thread:                ; preds = %if.then25, %if.end6
 
 kdf_argon2_ctx_set_ad.exit:                       ; preds = %if.end9.i80
   %conv17.i83 = trunc i64 %18 to i32
-  %adlen18.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 9
+  %adlen18.i = getelementptr inbounds i8, ptr %vctx, i64 72
   store i32 %conv17.i83, ptr %adlen18.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buflen.i70)
   br label %if.end30
@@ -739,7 +738,7 @@ kdf_argon2_ctx_set_out_length.exit.thread:        ; preds = %if.end37
   br label %return
 
 kdf_argon2_ctx_set_out_length.exit:               ; preds = %if.end37
-  %outlen1.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 1
+  %outlen1.i = getelementptr inbounds i8, ptr %vctx, i64 8
   store i32 %20, ptr %outlen1.i, align 8
   br label %if.end42
 
@@ -765,7 +764,7 @@ kdf_argon2_ctx_set_t_cost.exit.thread:            ; preds = %if.end49
   br label %return
 
 kdf_argon2_ctx_set_t_cost.exit:                   ; preds = %if.end49
-  %t_cost1.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 10
+  %t_cost1.i = getelementptr inbounds i8, ptr %vctx, i64 76
   store i32 %21, ptr %t_cost1.i, align 4
   br label %if.end54
 
@@ -801,7 +800,7 @@ if.then2.i99:                                     ; preds = %if.end.i97
   br label %return
 
 kdf_argon2_ctx_set_threads.exit:                  ; preds = %if.end.i97
-  %threads4.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 13
+  %threads4.i = getelementptr inbounds i8, ptr %vctx, i64 88
   store i32 %22, ptr %threads4.i, align 8
   br label %if.end66
 
@@ -851,7 +850,7 @@ if.end97:                                         ; preds = %if.then93
   %25 = load i32, ptr %u32_value, align 4
   %tobool.i = icmp ne i32 %25, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
-  %early_clean.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %vctx, i64 0, i32 15
+  %early_clean.i = getelementptr inbounds i8, ptr %vctx, i64 96
   store i32 %lnot.ext.i, ptr %early_clean.i, align 8
   br label %if.end98
 
@@ -877,13 +876,13 @@ if.end110:                                        ; preds = %if.end105, %if.end9
   br i1 %cmp112.not, label %if.end119, label %if.then113
 
 if.then113:                                       ; preds = %if.end110
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call111, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call111, i64 8
   %27 = load i32, ptr %data_type, align 8
   %cmp114.not = icmp eq i32 %27, 4
   br i1 %cmp114.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %if.then113
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call111, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call111, i64 16
   %28 = load ptr, ptr %data, align 8
   %call115 = call fastcc i32 @set_property_query(ptr noundef %vctx, ptr noundef %28), !range !4
   %tobool116.not = icmp eq i32 %call115, 0
@@ -939,14 +938,14 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %call4 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #9
-  %libctx = getelementptr inbounds %struct.KDF_ARGON2, ptr %call1, i64 0, i32 22
+  %libctx = getelementptr inbounds i8, ptr %call1, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %call1, i8 0, i64 160, i1 false)
   store ptr %call4, ptr %libctx, align 8
-  %outlen.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %call1, i64 0, i32 1
+  %outlen.i = getelementptr inbounds i8, ptr %call1, i64 8
   store i32 64, ptr %outlen.i, align 8
-  %t_cost.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %call1, i64 0, i32 10
+  %t_cost.i = getelementptr inbounds i8, ptr %call1, i64 76
   store <4 x i32> <i32 3, i32 8, i32 1, i32 1>, ptr %t_cost.i, align 4
-  %version.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %call1, i64 0, i32 14
+  %version.i = getelementptr inbounds i8, ptr %call1, i64 92
   store i32 19, ptr %version.i, align 4
   br label %return
 
@@ -975,16 +974,16 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %call4 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #9
-  %libctx = getelementptr inbounds %struct.KDF_ARGON2, ptr %call1, i64 0, i32 22
+  %libctx = getelementptr inbounds i8, ptr %call1, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %call1, i8 0, i64 160, i1 false)
   store ptr %call4, ptr %libctx, align 8
-  %outlen.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %call1, i64 0, i32 1
+  %outlen.i = getelementptr inbounds i8, ptr %call1, i64 8
   store i32 64, ptr %outlen.i, align 8
-  %t_cost.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %call1, i64 0, i32 10
+  %t_cost.i = getelementptr inbounds i8, ptr %call1, i64 76
   store <4 x i32> <i32 3, i32 8, i32 1, i32 1>, ptr %t_cost.i, align 4
-  %version.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %call1, i64 0, i32 14
+  %version.i = getelementptr inbounds i8, ptr %call1, i64 92
   store i32 19, ptr %version.i, align 4
-  %type3.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %call1, i64 0, i32 16
+  %type3.i = getelementptr inbounds i8, ptr %call1, i64 100
   store i32 2, ptr %type3.i, align 4
   br label %return
 
@@ -1035,7 +1034,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %outlen1 = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 1
+  %outlen1 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i32 %outlen, ptr %outlen1, align 8
   br label %return
 
@@ -1058,11 +1057,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %memory_blocks = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 19
+  %memory_blocks = getelementptr inbounds i8, ptr %ctx, i64 116
   %0 = load i32, ptr %memory_blocks, align 4
   %conv = zext i32 %0 to i64
   %mul = shl nuw nsw i64 %conv, 10
-  %type = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 16
+  %type = getelementptr inbounds i8, ptr %ctx, i64 100
   %1 = load i32, ptr %type, align 4
   %cmp7.not = icmp eq i32 %1, 0
   br i1 %cmp7.not, label %if.else, label %if.then9
@@ -1077,7 +1076,7 @@ if.else:                                          ; preds = %if.end
 
 if.end18:                                         ; preds = %if.else, %if.then9
   %call.sink = phi ptr [ %call16, %if.else ], [ %call, %if.then9 ]
-  %2 = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 17
+  %2 = getelementptr inbounds i8, ptr %ctx, i64 104
   store ptr %call.sink, ptr %2, align 8
   %cmp20 = icmp eq ptr %call.sink, null
   br i1 %cmp20, label %if.then22, label %if.end23
@@ -1092,35 +1091,35 @@ if.end23:                                         ; preds = %if.end18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %args.i)
-  %lanes.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 12
+  %lanes.i = getelementptr inbounds i8, ptr %ctx, i64 84
   %3 = load i32, ptr %lanes.i, align 4
   store i32 %3, ptr %args.i, align 16
-  %outlen.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 1
+  %outlen.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load i32, ptr %outlen.i, align 8
-  %arrayidx2.i = getelementptr inbounds [7 x i32], ptr %args.i, i64 0, i64 1
+  %arrayidx2.i = getelementptr inbounds i8, ptr %args.i, i64 4
   store i32 %4, ptr %arrayidx2.i, align 4
-  %arrayidx3.i = getelementptr inbounds [7 x i32], ptr %args.i, i64 0, i64 2
-  %t_cost.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 10
+  %arrayidx3.i = getelementptr inbounds i8, ptr %args.i, i64 8
+  %t_cost.i = getelementptr inbounds i8, ptr %ctx, i64 76
   %5 = load <2 x i32>, ptr %t_cost.i, align 4
   %6 = shufflevector <2 x i32> %5, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %6, ptr %arrayidx3.i, align 8
-  %version.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 14
+  %version.i = getelementptr inbounds i8, ptr %ctx, i64 92
   %7 = load i32, ptr %version.i, align 4
-  %arrayidx5.i = getelementptr inbounds [7 x i32], ptr %args.i, i64 0, i64 4
+  %arrayidx5.i = getelementptr inbounds i8, ptr %args.i, i64 16
   store i32 %7, ptr %arrayidx5.i, align 16
   %8 = load i32, ptr %type, align 4
-  %arrayidx6.i = getelementptr inbounds [7 x i32], ptr %args.i, i64 0, i64 5
+  %arrayidx6.i = getelementptr inbounds i8, ptr %args.i, i64 20
   store i32 %8, ptr %arrayidx6.i, align 4
-  %pwdlen.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 3
+  %pwdlen.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %9 = load i32, ptr %pwdlen.i, align 8
-  %arrayidx7.i = getelementptr inbounds [7 x i32], ptr %args.i, i64 0, i64 6
+  %arrayidx7.i = getelementptr inbounds i8, ptr %args.i, i64 24
   store i32 %9, ptr %arrayidx7.i, align 8
   %call.i = tail call ptr @EVP_MD_CTX_new() #9
   %cmp8.i = icmp eq ptr %call.i, null
   br i1 %cmp8.i, label %initial_hash.exit, label %lor.lhs.false9.i
 
 lor.lhs.false9.i:                                 ; preds = %if.end23
-  %md.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 23
+  %md.i = getelementptr inbounds i8, ptr %ctx, i64 136
   %10 = load ptr, ptr %md.i, align 8
   %call10.i = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call.i, ptr noundef %10, ptr noundef null) #9
   %cmp11.not.i = icmp eq i32 %call10.i, 1
@@ -1160,7 +1159,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.inc.i
-  %pwd.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 2
+  %pwd.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %13 = load ptr, ptr %pwd.i, align 8
   %cmp22.not.i = icmp eq ptr %13, null
   br i1 %cmp22.not.i, label %if.end39.i, label %if.then24.i
@@ -1173,7 +1172,7 @@ if.then24.i:                                      ; preds = %for.end.i
   br i1 %cmp29.not.i, label %if.end32.i, label %initial_hash.exit
 
 if.end32.i:                                       ; preds = %if.then24.i
-  %early_clean.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 15
+  %early_clean.i = getelementptr inbounds i8, ptr %ctx, i64 96
   %15 = load i32, ptr %early_clean.i, align 8
   %tobool.not.i = icmp eq i32 %15, 0
   br i1 %tobool.not.i, label %if.end39.i, label %if.then33.i
@@ -1187,7 +1186,7 @@ if.then33.i:                                      ; preds = %if.end32.i
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then33.i, %if.end32.i, %for.end.i
-  %saltlen.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 5
+  %saltlen.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %18 = load i32, ptr %saltlen.i, align 8
   %conv.i47.i = trunc i32 %18 to i8
   store i8 %conv.i47.i, ptr %value.i, align 1
@@ -1205,7 +1204,7 @@ if.end39.i:                                       ; preds = %if.then33.i, %if.en
   br i1 %cmp41.not.i, label %if.end44.i, label %initial_hash.exit
 
 if.end44.i:                                       ; preds = %if.end39.i
-  %salt.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 4
+  %salt.i = getelementptr inbounds i8, ptr %ctx, i64 32
   %19 = load ptr, ptr %salt.i, align 8
   %cmp45.not.i = icmp eq ptr %19, null
   br i1 %cmp45.not.i, label %if.end56.i, label %if.then47.i
@@ -1218,7 +1217,7 @@ if.then47.i:                                      ; preds = %if.end44.i
   br i1 %cmp52.not.i, label %if.end56.i, label %initial_hash.exit
 
 if.end56.i:                                       ; preds = %if.then47.i, %if.end44.i
-  %secretlen.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 7
+  %secretlen.i = getelementptr inbounds i8, ptr %ctx, i64 56
   %21 = load i32, ptr %secretlen.i, align 8
   %conv.i57.i = trunc i32 %21 to i8
   store i8 %conv.i57.i, ptr %value.i, align 1
@@ -1236,7 +1235,7 @@ if.end56.i:                                       ; preds = %if.then47.i, %if.en
   br i1 %cmp58.not.i, label %if.end61.i, label %initial_hash.exit
 
 if.end61.i:                                       ; preds = %if.end56.i
-  %secret.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 6
+  %secret.i = getelementptr inbounds i8, ptr %ctx, i64 48
   %22 = load ptr, ptr %secret.i, align 8
   %cmp62.not.i = icmp eq ptr %22, null
   br i1 %cmp62.not.i, label %if.end81.i, label %if.then64.i
@@ -1249,7 +1248,7 @@ if.then64.i:                                      ; preds = %if.end61.i
   br i1 %cmp69.not.i, label %if.end72.i, label %initial_hash.exit
 
 if.end72.i:                                       ; preds = %if.then64.i
-  %early_clean73.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 15
+  %early_clean73.i = getelementptr inbounds i8, ptr %ctx, i64 96
   %24 = load i32, ptr %early_clean73.i, align 8
   %tobool74.not.i = icmp eq i32 %24, 0
   br i1 %tobool74.not.i, label %if.end81.i, label %if.then75.i
@@ -1263,7 +1262,7 @@ if.then75.i:                                      ; preds = %if.end72.i
   br label %if.end81.i
 
 if.end81.i:                                       ; preds = %if.then75.i, %if.end72.i, %if.end61.i
-  %adlen.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 9
+  %adlen.i = getelementptr inbounds i8, ptr %ctx, i64 72
   %27 = load i32, ptr %adlen.i, align 8
   %conv.i67.i = trunc i32 %27 to i8
   store i8 %conv.i67.i, ptr %value.i, align 1
@@ -1281,7 +1280,7 @@ if.end81.i:                                       ; preds = %if.then75.i, %if.en
   br i1 %cmp83.not.i, label %if.end86.i, label %initial_hash.exit
 
 if.end86.i:                                       ; preds = %if.end81.i
-  %ad.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 8
+  %ad.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %28 = load ptr, ptr %ad.i, align 8
   %cmp87.not.i = icmp eq ptr %28, null
   br i1 %cmp87.not.i, label %if.end98.i, label %if.then89.i
@@ -1315,8 +1314,8 @@ for.body.lr.ph.i:                                 ; preds = %initial_hash.exit
   %arrayidx3.i17.i = getelementptr inbounds i8, ptr %blockhash, i64 69
   %arrayidx6.i18.i = getelementptr inbounds i8, ptr %blockhash, i64 70
   %arrayidx9.i19.i = getelementptr inbounds i8, ptr %blockhash, i64 71
-  %md.i15 = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 23
-  %lane_length.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 21
+  %md.i15 = getelementptr inbounds i8, ptr %ctx, i64 136
+  %lane_length.i = getelementptr inbounds i8, ptr %ctx, i64 124
   br label %for.body.i16
 
 for.body.i16:                                     ; preds = %load_block.exit30.i, %for.body.lr.ph.i
@@ -1396,19 +1395,19 @@ return:                                           ; preds = %entry, %fill_first_
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @fill_memory_blocks(ptr noundef %ctx) unnamed_addr #0 {
 entry:
-  %threads = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 13
+  %threads = getelementptr inbounds i8, ptr %ctx, i64 88
   %0 = load i32, ptr %threads, align 8
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %passes.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 18
+  %passes.i = getelementptr inbounds i8, ptr %ctx, i64 112
   %1 = load i32, ptr %passes.i, align 8
   %cmp12.not.i = icmp eq i32 %1, 0
   br i1 %cmp12.not.i, label %cond.end, label %for.cond1.preheader.lr.ph.i
 
 for.cond1.preheader.lr.ph.i:                      ; preds = %cond.true
-  %lanes.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 12
+  %lanes.i = getelementptr inbounds i8, ptr %ctx, i64 84
   %2 = load i32, ptr %lanes.i, align 4
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %cond.end, label %for.cond1.preheader.i
@@ -1458,7 +1457,7 @@ for.inc10.i:                                      ; preds = %for.inc10.loopexit1
   br i1 %cmp.i, label %for.cond1.preheader.i, label %cond.end, !llvm.loop !12
 
 cond.false:                                       ; preds = %entry
-  %lanes.i3 = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 12
+  %lanes.i3 = getelementptr inbounds i8, ptr %ctx, i64 84
   %12 = load i32, ptr %lanes.i3, align 4
   %conv.i4 = zext i32 %12 to i64
   %mul.i = shl nuw nsw i64 %conv.i4, 3
@@ -1473,13 +1472,13 @@ cond.false:                                       ; preds = %entry
   br i1 %or.cond.i, label %fail.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %cond.false
-  %passes.i6 = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 18
+  %passes.i6 = getelementptr inbounds i8, ptr %ctx, i64 112
   %14 = load i32, ptr %passes.i6, align 8
   %cmp870.not.i = icmp eq i32 %14, 0
   br i1 %cmp870.not.i, label %for.end112.i, label %for.cond10.preheader.lr.ph.i
 
 for.cond10.preheader.lr.ph.i:                     ; preds = %for.cond.preheader.i
-  %libctx.i = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 22
+  %libctx.i = getelementptr inbounds i8, ptr %ctx, i64 128
   %.pre.pre.i = load i32, ptr %lanes.i3, align 4
   br label %for.cond10.preheader.i
 
@@ -1533,7 +1532,7 @@ if.end36.i:                                       ; preds = %if.end27.i
 
 if.end39.i:                                       ; preds = %if.end36.i, %for.body18.i
   %arrayidx42.i = getelementptr inbounds %struct.ARGON2_THREAD_DATA, ptr %call4.i, i64 %indvars.iv.i
-  %ctx43.i = getelementptr inbounds %struct.ARGON2_THREAD_DATA, ptr %call4.i, i64 %indvars.iv.i, i32 1
+  %ctx43.i = getelementptr inbounds i8, ptr %arrayidx42.i, i64 16
   store ptr %ctx, ptr %ctx43.i, align 8
   store i32 %r.071.i, ptr %arrayidx42.i, align 8
   %p.sroa.2.0.pos.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx42.i, i64 4
@@ -1662,15 +1661,15 @@ entry:
   br i1 %cmp, label %if.end21, label %if.end
 
 if.end:                                           ; preds = %entry
-  %memory = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 17
+  %memory = getelementptr inbounds i8, ptr %ctx, i64 104
   %0 = load ptr, ptr %memory, align 8
-  %lane_length = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 21
+  %lane_length = getelementptr inbounds i8, ptr %ctx, i64 124
   %1 = load i32, ptr %lane_length, align 4
   %idx.ext = zext i32 %1 to i64
   %add.ptr = getelementptr inbounds %struct.BLOCK, ptr %0, i64 %idx.ext
-  %add.ptr1 = getelementptr inbounds %struct.BLOCK, ptr %add.ptr, i64 -1
+  %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 -1024
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %blockhash, ptr noundef nonnull align 8 dereferenceable(1024) %add.ptr1, i64 1024, i1 false)
-  %lanes = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 12
+  %lanes = getelementptr inbounds i8, ptr %ctx, i64 84
   %2 = load i32, ptr %lanes, align 4
   %cmp222 = icmp ugt i32 %2, 1
   br i1 %cmp222, label %for.body.lr.ph, label %for.body.i17.preheader
@@ -1750,19 +1749,19 @@ for.body.i17:                                     ; preds = %for.body.i17.prehea
   br i1 %exitcond.not.i21, label %store_block.exit, label %for.body.i17, !llvm.loop !20
 
 store_block.exit:                                 ; preds = %for.body.i17
-  %md = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 23
+  %md = getelementptr inbounds i8, ptr %ctx, i64 136
   %7 = load ptr, ptr %md, align 8
-  %outlen = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 1
+  %outlen = getelementptr inbounds i8, ptr %ctx, i64 8
   %8 = load i32, ptr %outlen, align 8
   %conv = zext i32 %8 to i64
   call fastcc void @blake2b_long(ptr noundef %7, ptr noundef %out, i64 noundef %conv, ptr noundef nonnull %blockhash_bytes, i64 noundef 1024)
   call void @OPENSSL_cleanse(ptr noundef nonnull %blockhash, i64 noundef 1024) #9
   call void @OPENSSL_cleanse(ptr noundef nonnull %blockhash_bytes, i64 noundef 1024) #9
-  %type = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 16
+  %type = getelementptr inbounds i8, ptr %ctx, i64 100
   %9 = load i32, ptr %type, align 4
   %cmp11.not = icmp eq i32 %9, 0
   %10 = load ptr, ptr %memory, align 8
-  %memory_blocks18 = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 19
+  %memory_blocks18 = getelementptr inbounds i8, ptr %ctx, i64 116
   %11 = load i32, ptr %memory_blocks18, align 4
   %conv19 = zext i32 %11 to i64
   %mul20 = shl nuw nsw i64 %conv19, 10
@@ -1834,7 +1833,7 @@ if.end5:                                          ; preds = %if.end
   store i64 %cond, ptr %outlen_md, align 8
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.5, ptr noundef nonnull %outlen_md) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %par, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx8 = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %par, i64 0, i64 1
+  %arrayidx8 = getelementptr inbounds i8, ptr %par, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp9) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx8, ptr noundef nonnull align 8 dereferenceable(40) %tmp9, i64 40, i1 false)
   %call11 = call i32 @EVP_DigestInit_ex2(ptr noundef nonnull %call, ptr noundef %md, ptr noundef nonnull %par) #9
@@ -1936,7 +1935,7 @@ if.then5:                                         ; preds = %entry
 if.end.i:                                         ; preds = %if.then5
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.5, ptr noundef nonnull %outlen.addr.i) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %par.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %arrayidx1.i = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %par.i, i64 0, i64 1
+  %arrayidx1.i = getelementptr inbounds i8, ptr %par.i, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2.i) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp2.i, i64 40, i1 false)
   %call3.i = call i32 @EVP_DigestInit_ex2(ptr noundef nonnull %call.i, ptr noundef %md, ptr noundef nonnull %par.i) #9
@@ -2003,23 +2002,23 @@ if.then1:                                         ; preds = %if.end, %data_indep
   %conv = zext i32 %pass to i64
   store i64 %conv, ptr %input_block, align 8
   %conv2 = zext i32 %lane to i64
-  %arrayidx4 = getelementptr inbounds [128 x i64], ptr %input_block, i64 0, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %input_block, i64 8
   store i64 %conv2, ptr %arrayidx4, align 8
   %conv5 = zext i8 %slice to i64
-  %arrayidx7 = getelementptr inbounds [128 x i64], ptr %input_block, i64 0, i64 2
+  %arrayidx7 = getelementptr inbounds i8, ptr %input_block, i64 16
   store i64 %conv5, ptr %arrayidx7, align 8
-  %memory_blocks = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 19
+  %memory_blocks = getelementptr inbounds i8, ptr %ctx, i64 116
   %2 = load i32, ptr %memory_blocks, align 4
   %conv8 = zext i32 %2 to i64
-  %arrayidx10 = getelementptr inbounds [128 x i64], ptr %input_block, i64 0, i64 3
+  %arrayidx10 = getelementptr inbounds i8, ptr %input_block, i64 24
   store i64 %conv8, ptr %arrayidx10, align 8
-  %passes = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 18
+  %passes = getelementptr inbounds i8, ptr %ctx, i64 112
   %3 = load i32, ptr %passes, align 8
   %conv11 = zext i32 %3 to i64
-  %arrayidx13 = getelementptr inbounds [128 x i64], ptr %input_block, i64 0, i64 4
+  %arrayidx13 = getelementptr inbounds i8, ptr %input_block, i64 32
   store i64 %conv11, ptr %arrayidx13, align 8
   %conv14 = zext nneg i32 %ctx.val to i64
-  %arrayidx16 = getelementptr inbounds [128 x i64], ptr %input_block, i64 0, i64 5
+  %arrayidx16 = getelementptr inbounds i8, ptr %input_block, i64 40
   store i64 %conv14, ptr %arrayidx16, align 8
   br label %if.end17
 
@@ -2036,7 +2035,7 @@ if.then23:                                        ; preds = %if.end17
   br i1 %switch, label %if.then26, label %if.end28
 
 if.then26:                                        ; preds = %if.then23
-  %arrayidx.i = getelementptr inbounds [128 x i64], ptr %input_block, i64 0, i64 6
+  %arrayidx.i = getelementptr inbounds i8, ptr %input_block, i64 48
   store i64 1, ptr %arrayidx.i, align 8
   call fastcc void @fill_block(ptr noundef nonnull %zero_block, ptr noundef nonnull %input_block, ptr noundef nonnull %address_block, i32 noundef 0)
   call fastcc void @fill_block(ptr noundef nonnull %zero_block, ptr noundef nonnull %address_block, ptr noundef nonnull %address_block, i32 noundef 0)
@@ -2045,8 +2044,8 @@ if.then26:                                        ; preds = %if.then23
 if.end28:                                         ; preds = %if.then23, %if.then26, %if.end17
   %arrayidx.i74.promoted = phi i64 [ 1, %if.then26 ], [ 0, %if.end17 ], [ 0, %if.then23 ]
   %start_idx.0 = phi i32 [ 2, %if.then26 ], [ 0, %if.end17 ], [ 2, %if.then23 ]
-  %lane_length = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 21
-  %segment_length = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 20
+  %lane_length = getelementptr inbounds i8, ptr %ctx, i64 124
+  %segment_length = getelementptr inbounds i8, ptr %ctx, i64 120
   %4 = load i32, ptr %segment_length, align 8
   %cmp4194 = icmp ult i32 %start_idx.0, %4
   br i1 %cmp4194, label %for.body.lr.ph, label %for.end
@@ -2064,13 +2063,13 @@ for.body.lr.ph:                                   ; preds = %if.end28
   %prev_offset.0 = add i32 %prev_offset.0.in, %add31
   %cmp2.i69 = icmp ult i8 %slice, 2
   %7 = and i1 %cmp18, %cmp2.i69
-  %arrayidx.i74 = getelementptr inbounds [128 x i64], ptr %input_block, i64 0, i64 6
-  %memory = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 17
-  %lanes = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 12
+  %arrayidx.i74 = getelementptr inbounds i8, ptr %input_block, i64 48
+  %memory = getelementptr inbounds i8, ptr %ctx, i64 104
+  %lanes = getelementptr inbounds i8, ptr %ctx, i64 84
   %conv76 = zext i32 %lane to i64
   %cmp29.not.i = icmp eq i8 %slice, 3
   %add33.i = add nuw nsw i32 %conv20, 1
-  %version = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 14
+  %version = getelementptr inbounds i8, ptr %ctx, i64 92
   %not.cmp18 = xor i1 %cmp18, true
   br label %for.body
 
@@ -2261,7 +2260,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   %4 = shl nuw nsw i64 %indvars.iv, 4
   %arrayidx = getelementptr inbounds [128 x i64], ptr %blockR, i64 0, i64 %4
   %5 = load i64, ptr %arrayidx, align 8
-  %add.ptr = getelementptr inbounds i64, ptr %arrayidx, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %6 = load i64, ptr %add.ptr, align 8
   %add = add i64 %6, %5
   %and1.i = and i64 %6, 4294967295
@@ -2269,11 +2268,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %mul.i = and i64 %and.i, 8589934590
   %mul4 = mul i64 %mul.i, %and1.i
   %add5 = add i64 %add, %mul4
-  %add.ptr6 = getelementptr inbounds i64, ptr %arrayidx, i64 12
+  %add.ptr6 = getelementptr inbounds i8, ptr %arrayidx, i64 96
   %7 = load i64, ptr %add.ptr6, align 8
   %xor = xor i64 %add5, %7
   %or.i = tail call i64 @llvm.fshl.i64(i64 %xor, i64 %xor, i64 32)
-  %add.ptr9 = getelementptr inbounds i64, ptr %arrayidx, i64 8
+  %add.ptr9 = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %8 = load i64, ptr %add.ptr9, align 8
   %add11 = add i64 %or.i, %8
   %and1.i527 = and i64 %or.i, 4294967295
@@ -2299,9 +2298,9 @@ do.body:                                          ; preds = %do.body.preheader, 
   %add40 = add i64 %add35, %mul39
   %xor44 = xor i64 %add40, %or.i531
   %or.i543 = tail call i64 @llvm.fshl.i64(i64 %xor44, i64 %xor44, i64 1)
-  %add.ptr48 = getelementptr inbounds i64, ptr %arrayidx, i64 1
+  %add.ptr48 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %9 = load i64, ptr %add.ptr48, align 8
-  %add.ptr49 = getelementptr inbounds i64, ptr %arrayidx, i64 5
+  %add.ptr49 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %10 = load i64, ptr %add.ptr49, align 8
   %add50 = add i64 %10, %9
   %and1.i545 = and i64 %10, 4294967295
@@ -2309,11 +2308,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %mul.i546 = and i64 %and.i544, 8589934590
   %mul54 = mul i64 %mul.i546, %and1.i545
   %add55 = add i64 %add50, %mul54
-  %add.ptr57 = getelementptr inbounds i64, ptr %arrayidx, i64 13
+  %add.ptr57 = getelementptr inbounds i8, ptr %arrayidx, i64 104
   %11 = load i64, ptr %add.ptr57, align 8
   %xor59 = xor i64 %add55, %11
   %or.i549 = tail call i64 @llvm.fshl.i64(i64 %xor59, i64 %xor59, i64 32)
-  %add.ptr62 = getelementptr inbounds i64, ptr %arrayidx, i64 9
+  %add.ptr62 = getelementptr inbounds i8, ptr %arrayidx, i64 72
   %12 = load i64, ptr %add.ptr62, align 8
   %add64 = add i64 %or.i549, %12
   %and1.i551 = and i64 %or.i549, 4294967295
@@ -2339,9 +2338,9 @@ do.body:                                          ; preds = %do.body.preheader, 
   %add97 = add i64 %add92, %mul96
   %xor101 = xor i64 %add97, %or.i555
   %or.i567 = tail call i64 @llvm.fshl.i64(i64 %xor101, i64 %xor101, i64 1)
-  %add.ptr106 = getelementptr inbounds i64, ptr %arrayidx, i64 2
+  %add.ptr106 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %13 = load i64, ptr %add.ptr106, align 8
-  %add.ptr107 = getelementptr inbounds i64, ptr %arrayidx, i64 6
+  %add.ptr107 = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %14 = load i64, ptr %add.ptr107, align 8
   %add108 = add i64 %14, %13
   %and1.i569 = and i64 %14, 4294967295
@@ -2349,11 +2348,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %mul.i570 = and i64 %and.i568, 8589934590
   %mul112 = mul i64 %mul.i570, %and1.i569
   %add113 = add i64 %add108, %mul112
-  %add.ptr115 = getelementptr inbounds i64, ptr %arrayidx, i64 14
+  %add.ptr115 = getelementptr inbounds i8, ptr %arrayidx, i64 112
   %15 = load i64, ptr %add.ptr115, align 8
   %xor117 = xor i64 %add113, %15
   %or.i573 = tail call i64 @llvm.fshl.i64(i64 %xor117, i64 %xor117, i64 32)
-  %add.ptr120 = getelementptr inbounds i64, ptr %arrayidx, i64 10
+  %add.ptr120 = getelementptr inbounds i8, ptr %arrayidx, i64 80
   %16 = load i64, ptr %add.ptr120, align 8
   %add122 = add i64 %or.i573, %16
   %and1.i575 = and i64 %or.i573, 4294967295
@@ -2379,9 +2378,9 @@ do.body:                                          ; preds = %do.body.preheader, 
   %add155 = add i64 %add150, %mul154
   %xor159 = xor i64 %add155, %or.i579
   %or.i591 = tail call i64 @llvm.fshl.i64(i64 %xor159, i64 %xor159, i64 1)
-  %add.ptr164 = getelementptr inbounds i64, ptr %arrayidx, i64 3
+  %add.ptr164 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %17 = load i64, ptr %add.ptr164, align 8
-  %add.ptr165 = getelementptr inbounds i64, ptr %arrayidx, i64 7
+  %add.ptr165 = getelementptr inbounds i8, ptr %arrayidx, i64 56
   %18 = load i64, ptr %add.ptr165, align 8
   %add166 = add i64 %18, %17
   %and1.i593 = and i64 %18, 4294967295
@@ -2389,11 +2388,11 @@ do.body:                                          ; preds = %do.body.preheader, 
   %mul.i594 = and i64 %and.i592, 8589934590
   %mul170 = mul i64 %mul.i594, %and1.i593
   %add171 = add i64 %add166, %mul170
-  %add.ptr173 = getelementptr inbounds i64, ptr %arrayidx, i64 15
+  %add.ptr173 = getelementptr inbounds i8, ptr %arrayidx, i64 120
   %19 = load i64, ptr %add.ptr173, align 8
   %xor175 = xor i64 %add171, %19
   %or.i597 = tail call i64 @llvm.fshl.i64(i64 %xor175, i64 %xor175, i64 32)
-  %add.ptr178 = getelementptr inbounds i64, ptr %arrayidx, i64 11
+  %add.ptr178 = getelementptr inbounds i8, ptr %arrayidx, i64 88
   %20 = load i64, ptr %add.ptr178, align 8
   %add180 = add i64 %or.i597, %20
   %and1.i599 = and i64 %or.i597, 4294967295
@@ -2572,7 +2571,7 @@ do.body450:                                       ; preds = %do.body, %do.body45
   %21 = shl nuw nsw i64 %indvars.iv916, 1
   %arrayidx455 = getelementptr inbounds [128 x i64], ptr %blockR, i64 0, i64 %21
   %22 = load i64, ptr %arrayidx455, align 8
-  %add.ptr458 = getelementptr inbounds i64, ptr %arrayidx455, i64 32
+  %add.ptr458 = getelementptr inbounds i8, ptr %arrayidx455, i64 256
   %23 = load i64, ptr %add.ptr458, align 8
   %add459 = add i64 %23, %22
   %and1.i713 = and i64 %23, 4294967295
@@ -2580,11 +2579,11 @@ do.body450:                                       ; preds = %do.body, %do.body45
   %mul.i714 = and i64 %and.i712, 8589934590
   %mul462 = mul i64 %mul.i714, %and1.i713
   %add463 = add i64 %add459, %mul462
-  %add.ptr464 = getelementptr inbounds i64, ptr %arrayidx455, i64 96
+  %add.ptr464 = getelementptr inbounds i8, ptr %arrayidx455, i64 768
   %24 = load i64, ptr %add.ptr464, align 8
   %xor465 = xor i64 %add463, %24
   %or.i717 = tail call i64 @llvm.fshl.i64(i64 %xor465, i64 %xor465, i64 32)
-  %add.ptr468 = getelementptr inbounds i64, ptr %arrayidx455, i64 64
+  %add.ptr468 = getelementptr inbounds i8, ptr %arrayidx455, i64 512
   %25 = load i64, ptr %add.ptr468, align 8
   %add470 = add i64 %or.i717, %25
   %and1.i719 = and i64 %or.i717, 4294967295
@@ -2610,9 +2609,9 @@ do.body450:                                       ; preds = %do.body, %do.body45
   %add499 = add i64 %add494, %mul498
   %xor503 = xor i64 %add499, %or.i723
   %or.i735 = tail call i64 @llvm.fshl.i64(i64 %xor503, i64 %xor503, i64 1)
-  %add.ptr508 = getelementptr inbounds i64, ptr %arrayidx455, i64 1
+  %add.ptr508 = getelementptr inbounds i8, ptr %arrayidx455, i64 8
   %26 = load i64, ptr %add.ptr508, align 8
-  %add.ptr509 = getelementptr inbounds i64, ptr %arrayidx455, i64 33
+  %add.ptr509 = getelementptr inbounds i8, ptr %arrayidx455, i64 264
   %27 = load i64, ptr %add.ptr509, align 8
   %add510 = add i64 %27, %26
   %and1.i737 = and i64 %27, 4294967295
@@ -2620,11 +2619,11 @@ do.body450:                                       ; preds = %do.body, %do.body45
   %mul.i738 = and i64 %and.i736, 8589934590
   %mul514 = mul i64 %mul.i738, %and1.i737
   %add515 = add i64 %add510, %mul514
-  %add.ptr517 = getelementptr inbounds i64, ptr %arrayidx455, i64 97
+  %add.ptr517 = getelementptr inbounds i8, ptr %arrayidx455, i64 776
   %28 = load i64, ptr %add.ptr517, align 8
   %xor519 = xor i64 %add515, %28
   %or.i741 = tail call i64 @llvm.fshl.i64(i64 %xor519, i64 %xor519, i64 32)
-  %add.ptr522 = getelementptr inbounds i64, ptr %arrayidx455, i64 65
+  %add.ptr522 = getelementptr inbounds i8, ptr %arrayidx455, i64 520
   %29 = load i64, ptr %add.ptr522, align 8
   %add524 = add i64 %or.i741, %29
   %and1.i743 = and i64 %or.i741, 4294967295
@@ -2650,9 +2649,9 @@ do.body450:                                       ; preds = %do.body, %do.body45
   %add557 = add i64 %add552, %mul556
   %xor561 = xor i64 %add557, %or.i747
   %or.i759 = tail call i64 @llvm.fshl.i64(i64 %xor561, i64 %xor561, i64 1)
-  %add.ptr566 = getelementptr inbounds i64, ptr %arrayidx455, i64 16
+  %add.ptr566 = getelementptr inbounds i8, ptr %arrayidx455, i64 128
   %30 = load i64, ptr %add.ptr566, align 8
-  %add.ptr567 = getelementptr inbounds i64, ptr %arrayidx455, i64 48
+  %add.ptr567 = getelementptr inbounds i8, ptr %arrayidx455, i64 384
   %31 = load i64, ptr %add.ptr567, align 8
   %add568 = add i64 %31, %30
   %and1.i761 = and i64 %31, 4294967295
@@ -2660,11 +2659,11 @@ do.body450:                                       ; preds = %do.body, %do.body45
   %mul.i762 = and i64 %and.i760, 8589934590
   %mul572 = mul i64 %mul.i762, %and1.i761
   %add573 = add i64 %add568, %mul572
-  %add.ptr575 = getelementptr inbounds i64, ptr %arrayidx455, i64 112
+  %add.ptr575 = getelementptr inbounds i8, ptr %arrayidx455, i64 896
   %32 = load i64, ptr %add.ptr575, align 8
   %xor577 = xor i64 %add573, %32
   %or.i765 = tail call i64 @llvm.fshl.i64(i64 %xor577, i64 %xor577, i64 32)
-  %add.ptr580 = getelementptr inbounds i64, ptr %arrayidx455, i64 80
+  %add.ptr580 = getelementptr inbounds i8, ptr %arrayidx455, i64 640
   %33 = load i64, ptr %add.ptr580, align 8
   %add582 = add i64 %or.i765, %33
   %and1.i767 = and i64 %or.i765, 4294967295
@@ -2690,9 +2689,9 @@ do.body450:                                       ; preds = %do.body, %do.body45
   %add615 = add i64 %add610, %mul614
   %xor619 = xor i64 %add615, %or.i771
   %or.i783 = tail call i64 @llvm.fshl.i64(i64 %xor619, i64 %xor619, i64 1)
-  %add.ptr624 = getelementptr inbounds i64, ptr %arrayidx455, i64 17
+  %add.ptr624 = getelementptr inbounds i8, ptr %arrayidx455, i64 136
   %34 = load i64, ptr %add.ptr624, align 8
-  %add.ptr625 = getelementptr inbounds i64, ptr %arrayidx455, i64 49
+  %add.ptr625 = getelementptr inbounds i8, ptr %arrayidx455, i64 392
   %35 = load i64, ptr %add.ptr625, align 8
   %add626 = add i64 %35, %34
   %and1.i785 = and i64 %35, 4294967295
@@ -2700,11 +2699,11 @@ do.body450:                                       ; preds = %do.body, %do.body45
   %mul.i786 = and i64 %and.i784, 8589934590
   %mul630 = mul i64 %mul.i786, %and1.i785
   %add631 = add i64 %add626, %mul630
-  %add.ptr633 = getelementptr inbounds i64, ptr %arrayidx455, i64 113
+  %add.ptr633 = getelementptr inbounds i8, ptr %arrayidx455, i64 904
   %36 = load i64, ptr %add.ptr633, align 8
   %xor635 = xor i64 %add631, %36
   %or.i789 = tail call i64 @llvm.fshl.i64(i64 %xor635, i64 %xor635, i64 32)
-  %add.ptr638 = getelementptr inbounds i64, ptr %arrayidx455, i64 81
+  %add.ptr638 = getelementptr inbounds i8, ptr %arrayidx455, i64 648
   %37 = load i64, ptr %add.ptr638, align 8
   %add640 = add i64 %or.i789, %37
   %and1.i791 = and i64 %or.i789, 4294967295
@@ -2907,12 +2906,12 @@ declare ptr @ossl_crypto_thread_start(ptr noundef, ptr noundef, ptr noundef) loc
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal i32 @fill_segment_thr(ptr nocapture noundef readonly %thread_data) #5 {
 entry:
-  %ctx = getelementptr inbounds %struct.ARGON2_THREAD_DATA, ptr %thread_data, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %thread_data, i64 16
   %0 = load ptr, ptr %ctx, align 8
   %1 = load i32, ptr %thread_data, align 8
-  %lane = getelementptr inbounds %struct.ARGON2_POS, ptr %thread_data, i64 0, i32 1
+  %lane = getelementptr inbounds i8, ptr %thread_data, i64 4
   %2 = load i32, ptr %lane, align 4
-  %slice = getelementptr inbounds %struct.ARGON2_POS, ptr %thread_data, i64 0, i32 2
+  %slice = getelementptr inbounds i8, ptr %thread_data, i64 8
   %3 = load i8, ptr %slice, align 8
   tail call fastcc void @fill_segment(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3)
   ret i32 0
@@ -2947,7 +2946,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %lanes4 = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 12
+  %lanes4 = getelementptr inbounds i8, ptr %ctx, i64 84
   store i32 %lanes, ptr %lanes4, align 4
   br label %return
 
@@ -2969,7 +2968,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %m_cost1 = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 11
+  %m_cost1 = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 %m_cost, ptr %m_cost1, align 8
   br label %return
 
@@ -2987,7 +2986,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry
-  %version1 = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 14
+  %version1 = getelementptr inbounds i8, ptr %ctx, i64 92
   store i32 %version, ptr %version1, align 4
   br label %return
 
@@ -3005,7 +3004,7 @@ return:                                           ; preds = %sw.default, %sw.bb
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @set_property_query(ptr nocapture noundef %ctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
-  %propq1 = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 25
+  %propq1 = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %propq1, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 1377) #9
   store ptr null, ptr %propq1, align 8
@@ -3019,11 +3018,11 @@ if.then:                                          ; preds = %entry
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.then, %entry
-  %md = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 23
+  %md = getelementptr inbounds i8, ptr %ctx, i64 136
   %1 = load ptr, ptr %md, align 8
   tail call void @EVP_MD_free(ptr noundef %1) #9
   store ptr null, ptr %md, align 8
-  %mac = getelementptr inbounds %struct.KDF_ARGON2, ptr %ctx, i64 0, i32 24
+  %mac = getelementptr inbounds i8, ptr %ctx, i64 144
   %2 = load ptr, ptr %mac, align 8
   tail call void @EVP_MAC_free(ptr noundef %2) #9
   store ptr null, ptr %mac, align 8

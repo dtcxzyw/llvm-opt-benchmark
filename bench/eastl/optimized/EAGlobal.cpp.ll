@@ -6,17 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.EA::Thread::ThreadTime" = type { %struct.timespec }
 %struct.timespec = type { i64, i64 }
 %"struct.(anonymous namespace)::AutoinitOSGlobalManager" = type { i8 }
-%"struct.(anonymous namespace)::OSGlobalManager" = type { %"class.EA::StdC::intrusive_list", i32, [4 x i8], %"class.EA::StdC::Mutex" }
-%"class.EA::StdC::intrusive_list" = type { %"class.EA::StdC::intrusive_list_base" }
-%"class.EA::StdC::intrusive_list_base" = type { %"struct.EA::StdC::intrusive_list_node" }
-%"struct.EA::StdC::intrusive_list_node" = type { ptr, ptr }
-%"class.EA::StdC::Mutex" = type { %"class.EA::Thread::Mutex" }
-%"class.EA::Thread::Mutex" = type { %struct.EAMutexData }
-%struct.EAMutexData = type <{ %union.pthread_mutex_t, i32, [4 x i8] }>
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"struct.EA::StdC::OSGlobalNode" = type { %"struct.EA::StdC::intrusive_list_node", i32, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -37,7 +26,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
-  %mcsLock.i = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %0, i64 0, i32 3
+  %mcsLock.i = getelementptr inbounds i8, ptr %0, i64 24
   %call.i.i = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %1 = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
   br label %for.cond.i
@@ -49,7 +38,7 @@ for.cond.i:                                       ; preds = %for.body.i, %if.end
   br i1 %cmp.i.not.i, label %_ZN12_GLOBAL__N_115OSGlobalManager4FindEj.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %mOSGlobalID.i = getelementptr inbounds %"struct.EA::StdC::OSGlobalNode", ptr %it.sroa.0.0.i, i64 0, i32 1
+  %mOSGlobalID.i = getelementptr inbounds i8, ptr %it.sroa.0.0.i, i64 16
   %2 = load i32, ptr %mOSGlobalID.i, align 8
   %cmp.i = icmp eq i32 %2, %id
   br i1 %cmp.i, label %if.then8, label %for.cond.i, !llvm.loop !5
@@ -60,24 +49,24 @@ _ZN12_GLOBAL__N_115OSGlobalManager4FindEj.exit:   ; preds = %for.cond.i
 
 if.then3:                                         ; preds = %_ZN12_GLOBAL__N_115OSGlobalManager4FindEj.exit
   %call4 = tail call noundef ptr %pFactory()
-  %mOSGlobalID = getelementptr inbounds %"struct.EA::StdC::OSGlobalNode", ptr %call4, i64 0, i32 1
+  %mOSGlobalID = getelementptr inbounds i8, ptr %call4, i64 16
   store i32 %id, ptr %mOSGlobalID, align 8
-  %mOSGlobalRefCount = getelementptr inbounds %"struct.EA::StdC::OSGlobalNode", ptr %call4, i64 0, i32 2
+  %mOSGlobalRefCount = getelementptr inbounds i8, ptr %call4, i64 20
   %3 = atomicrmw xchg ptr %mOSGlobalRefCount, i32 0 seq_cst, align 4
   %4 = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %call4, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.EA::StdC::intrusive_list_node", ptr %call4, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %call4, i64 8
   store ptr %4, ptr %mpPrev.i.i, align 8
   store ptr %call4, ptr %4, align 8
   %6 = load ptr, ptr %call4, align 8
-  %mpPrev7.i.i = getelementptr inbounds %"struct.EA::StdC::intrusive_list_node", ptr %6, i64 0, i32 1
+  %mpPrev7.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %call4, ptr %mpPrev7.i.i, align 8
   br label %if.then8
 
 if.then8:                                         ; preds = %for.body.i, %if.then3
   %p.0.ph = phi ptr [ %call4, %if.then3 ], [ %it.sroa.0.0.i, %for.body.i ]
-  %mOSGlobalRefCount9 = getelementptr inbounds %"struct.EA::StdC::OSGlobalNode", ptr %p.0.ph, i64 0, i32 2
+  %mOSGlobalRefCount9 = getelementptr inbounds i8, ptr %p.0.ph, i64 20
   %7 = atomicrmw add ptr %mOSGlobalRefCount9, i32 1 seq_cst, align 4
   %8 = atomicrmw add ptr @_ZN12_GLOBAL__N_113gOSGlobalRefsE, i32 1 seq_cst, align 4
   %.pre = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
@@ -86,7 +75,7 @@ if.then8:                                         ; preds = %for.body.i, %if.the
 if.end12:                                         ; preds = %_ZN12_GLOBAL__N_115OSGlobalManager4FindEj.exit, %if.then8
   %9 = phi ptr [ %.pre, %if.then8 ], [ %1, %_ZN12_GLOBAL__N_115OSGlobalManager4FindEj.exit ]
   %p.019 = phi ptr [ %p.0.ph, %if.then8 ], [ null, %_ZN12_GLOBAL__N_115OSGlobalManager4FindEj.exit ]
-  %mcsLock.i10 = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %9, i64 0, i32 3
+  %mcsLock.i10 = getelementptr inbounds i8, ptr %9, i64 24
   %call.i.i11 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i10)
   br label %return
 
@@ -144,12 +133,12 @@ if.end23.thread:                                  ; preds = %if.else
   br label %if.end27
 
 if.then16:                                        ; preds = %if.else
-  %mpPrev.i.i.i.i = getelementptr inbounds %"struct.EA::StdC::intrusive_list_node", ptr %call.i, i64 0, i32 1
+  %mpPrev.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call.i, ptr %mpPrev.i.i.i.i, align 8
   store ptr %call.i, ptr %call.i, align 8
-  %mcsLock.i.i = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %call.i, i64 0, i32 3
+  %mcsLock.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   call void @_ZN2EA6Thread5MutexC1EPKNS0_15MutexParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i.i, ptr noundef null, i1 noundef zeroext true)
-  %mRefCount.i.i = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %call.i, i64 0, i32 1
+  %mRefCount.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %3 = atomicrmw xchg ptr %mRefCount.i.i, i32 0 seq_cst, align 4
   store ptr %call.i, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
   %4 = ptrtoint ptr %call.i to i64
@@ -164,7 +153,7 @@ if.end23:                                         ; preds = %if.then16, %if.then
   br i1 %tobool24.not, label %if.end27, label %if.then25
 
 if.then25:                                        ; preds = %if.end23
-  %mRefCount = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %5, i64 0, i32 1
+  %mRefCount = getelementptr inbounds i8, ptr %5, i64 16
   %6 = atomicrmw add ptr %mRefCount, i32 1 seq_cst, align 4
   br label %if.end27
 
@@ -191,7 +180,7 @@ if.then.i6:                                       ; preds = %if.then34
   br i1 %tobool.not.i7, label %if.end5.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i6
-  %mRefCount.i = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %9, i64 0, i32 1
+  %mRefCount.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = atomicrmw add ptr %mRefCount.i, i32 -1 seq_cst, align 4
   %cmp3.i = icmp eq i32 %10, 1
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
@@ -202,7 +191,7 @@ if.then4.i:                                       ; preds = %if.then1.i
   br i1 %tobool.not.i.i, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then4.i
-  %mcsLock.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %11, i64 0, i32 3
+  %mcsLock.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
   call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i.i.i) #11
   %call.i.i = call i32 @munmap(ptr noundef nonnull %11, i64 noundef 72) #11
   br label %if.end.i
@@ -240,7 +229,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
-  %mcsLock.i = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %0, i64 0, i32 3
+  %mcsLock.i = getelementptr inbounds i8, ptr %0, i64 24
   %call.i.i = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %1 = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
   br label %for.cond.i
@@ -252,24 +241,24 @@ for.cond.i:                                       ; preds = %for.body.i, %if.end
   br i1 %cmp.i.not.i, label %if.then2, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
-  %mOSGlobalID.i = getelementptr inbounds %"struct.EA::StdC::OSGlobalNode", ptr %it.sroa.0.0.i, i64 0, i32 1
+  %mOSGlobalID.i = getelementptr inbounds i8, ptr %it.sroa.0.0.i, i64 16
   %2 = load i32, ptr %mOSGlobalID.i, align 8
   %cmp.i = icmp eq i32 %2, %id
   br i1 %cmp.i, label %if.end7, label %for.cond.i, !llvm.loop !5
 
 if.then2:                                         ; preds = %for.cond.i
-  %mOSGlobalID = getelementptr inbounds %"struct.EA::StdC::OSGlobalNode", ptr %p, i64 0, i32 1
+  %mOSGlobalID = getelementptr inbounds i8, ptr %p, i64 16
   store i32 %id, ptr %mOSGlobalID, align 8
-  %mOSGlobalRefCount = getelementptr inbounds %"struct.EA::StdC::OSGlobalNode", ptr %p, i64 0, i32 2
+  %mOSGlobalRefCount = getelementptr inbounds i8, ptr %p, i64 20
   %3 = atomicrmw xchg ptr %mOSGlobalRefCount, i32 0 seq_cst, align 4
   %4 = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %p, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.EA::StdC::intrusive_list_node", ptr %p, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %p, i64 8
   store ptr %4, ptr %mpPrev.i.i, align 8
   store ptr %p, ptr %4, align 8
   %6 = load ptr, ptr %p, align 8
-  %mpPrev7.i.i = getelementptr inbounds %"struct.EA::StdC::intrusive_list_node", ptr %6, i64 0, i32 1
+  %mpPrev7.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %p, ptr %mpPrev7.i.i, align 8
   %7 = atomicrmw add ptr %mOSGlobalRefCount, i32 1 seq_cst, align 4
   %8 = atomicrmw add ptr @_ZN12_GLOBAL__N_113gOSGlobalRefsE, i32 1 seq_cst, align 4
@@ -278,7 +267,7 @@ if.then2:                                         ; preds = %for.cond.i
 
 if.end7:                                          ; preds = %for.body.i, %if.then2
   %9 = phi ptr [ %.pre, %if.then2 ], [ %1, %for.body.i ]
-  %mcsLock.i7 = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %9, i64 0, i32 3
+  %mcsLock.i7 = getelementptr inbounds i8, ptr %9, i64 24
   %call.i.i8 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i7)
   br label %return
 
@@ -292,11 +281,11 @@ define dso_local noundef zeroext i1 @_ZN2EA4StdC15ReleaseOSGlobalEPNS0_12OSGloba
 entry:
   %uniqueName.i = alloca [96 x i8], align 16
   %0 = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
-  %mcsLock.i = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %0, i64 0, i32 3
+  %mcsLock.i = getelementptr inbounds i8, ptr %0, i64 24
   %call.i.i = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %1 = atomicrmw add ptr @_ZN12_GLOBAL__N_113gOSGlobalRefsE, i32 -1 seq_cst, align 4
   %cmp = icmp eq i32 %1, 1
-  %mOSGlobalRefCount = getelementptr inbounds %"struct.EA::StdC::OSGlobalNode", ptr %p, i64 0, i32 2
+  %mOSGlobalRefCount = getelementptr inbounds i8, ptr %p, i64 20
   %2 = atomicrmw add ptr %mOSGlobalRefCount, i32 -1 seq_cst, align 4
   %cmp2 = icmp eq i32 %2, 1
   %.pre = load ptr, ptr @_ZN12_GLOBAL__N_117gpOSGlobalManagerE, align 8
@@ -314,16 +303,16 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 
 _ZN12_GLOBAL__N_115OSGlobalManager6RemoveEPN2EA4StdC12OSGlobalNodeE.exit: ; preds = %for.cond.i.i, %for.body.i.i
   %storemerge.i.i = phi ptr [ %p, %for.body.i.i ], [ %.pre, %for.cond.i.i ]
-  %mpPrev.i.i = getelementptr inbounds %"struct.EA::StdC::intrusive_list_node", ptr %storemerge.i.i, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 8
   %3 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !11
   %4 = load ptr, ptr %storemerge.i.i, align 8, !noalias !11
   store ptr %4, ptr %3, align 8, !noalias !11
-  %mpPrev4.i.i = getelementptr inbounds %"struct.EA::StdC::intrusive_list_node", ptr %4, i64 0, i32 1
+  %mpPrev4.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %3, ptr %mpPrev4.i.i, align 8, !noalias !11
   br label %if.end
 
 if.end:                                           ; preds = %_ZN12_GLOBAL__N_115OSGlobalManager6RemoveEPN2EA4StdC12OSGlobalNodeE.exit, %entry
-  %mcsLock.i4 = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %.pre, i64 0, i32 3
+  %mcsLock.i4 = getelementptr inbounds i8, ptr %.pre, i64 24
   %call.i.i5 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i4)
   br i1 %cmp, label %if.then5, label %if.end6
 
@@ -339,7 +328,7 @@ if.then.i:                                        ; preds = %if.then5
   br i1 %tobool.not.i, label %if.end5.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  %mRefCount.i = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %6, i64 0, i32 1
+  %mRefCount.i = getelementptr inbounds i8, ptr %6, i64 16
   %7 = atomicrmw add ptr %mRefCount.i, i32 -1 seq_cst, align 4
   %cmp3.i = icmp eq i32 %7, 1
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
@@ -350,7 +339,7 @@ if.then4.i:                                       ; preds = %if.then1.i
   br i1 %tobool.not.i.i, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then4.i
-  %mcsLock.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %8, i64 0, i32 3
+  %mcsLock.i.i.i = getelementptr inbounds i8, ptr %8, i64 24
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i.i.i) #11
   %call.i.i6 = tail call i32 @munmap(ptr noundef nonnull %8, i64 noundef 72) #11
   br label %if.end.i
@@ -390,7 +379,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not.i, label %if.end5.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  %mRefCount.i = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %1, i64 0, i32 1
+  %mRefCount.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = atomicrmw add ptr %mRefCount.i, i32 -1 seq_cst, align 4
   %cmp3.i = icmp eq i32 %2, 1
   br i1 %cmp3.i, label %if.then4.i, label %if.end.i
@@ -401,7 +390,7 @@ if.then4.i:                                       ; preds = %if.then1.i
   br i1 %tobool.not.i.i, label %if.end.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then4.i
-  %mcsLock.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::OSGlobalManager", ptr %3, i64 0, i32 3
+  %mcsLock.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mcsLock.i.i.i) #11
   %call.i.i = tail call i32 @munmap(ptr noundef nonnull %3, i64 noundef 72) #11
   br label %if.end.i

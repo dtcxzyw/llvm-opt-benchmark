@@ -3,11 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-dh_group_params.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dh_st = type { i32, i32, %struct.ffc_params_st, i32, ptr, ptr, i32, ptr, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i64 }
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [39 x i8] c"../openssl/crypto/dh/dh_group_params.c\00", align 1
 @__func__.ossl_dh_new_by_nid_ex = private unnamed_addr constant [22 x i8] c"ossl_dh_new_by_nid_ex\00", align 1
 
@@ -24,12 +19,12 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %params.i = getelementptr inbounds %struct.dh_st, ptr %call.i, i64 0, i32 2
+  %params.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %call1.i = tail call i32 @ossl_ffc_named_group_set(ptr noundef nonnull %params.i, ptr noundef nonnull %call) #3
   %call2.i = tail call i32 @ossl_ffc_named_group_get_uid(ptr noundef nonnull %call) #3
-  %nid.i = getelementptr inbounds %struct.dh_st, ptr %call.i, i64 0, i32 2, i32 7
+  %nid.i = getelementptr inbounds i8, ptr %call.i, i64 60
   store i32 %call2.i, ptr %nid.i, align 4
-  %dirty_cnt.i = getelementptr inbounds %struct.dh_st, ptr %call.i, i64 0, i32 14
+  %dirty_cnt.i = getelementptr inbounds i8, ptr %call.i, i64 200
   %0 = load i64, ptr %dirty_cnt.i, align 8
   %inc.i = add i64 %0, 1
   store i64 %inc.i, ptr %dirty_cnt.i, align 8
@@ -68,21 +63,21 @@ entry:
   br i1 %cmp, label %if.end27, label %if.end
 
 if.end:                                           ; preds = %entry
-  %params = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2
-  %nid = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2, i32 7
+  %params = getelementptr inbounds i8, ptr %dh, i64 8
+  %nid = getelementptr inbounds i8, ptr %dh, i64 60
   store i32 0, ptr %nid, align 4
   %0 = load ptr, ptr %params, align 8
   %cmp2 = icmp eq ptr %0, null
   br i1 %cmp2, label %if.end27, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %g = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2, i32 2
+  %g = getelementptr inbounds i8, ptr %dh, i64 24
   %1 = load ptr, ptr %g, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %if.end27, label %if.end6
 
 if.end6:                                          ; preds = %lor.lhs.false
-  %q = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2, i32 1
+  %q = getelementptr inbounds i8, ptr %dh, i64 16
   %2 = load ptr, ptr %q, align 8
   %call = tail call ptr @ossl_ffc_numbers_to_dh_named_group(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %1) #3
   %cmp12.not = icmp eq ptr %call, null
@@ -102,9 +97,9 @@ if.end21:                                         ; preds = %if.then17, %if.then
   %call22 = tail call i32 @ossl_ffc_named_group_get_uid(ptr noundef nonnull %call) #3
   store i32 %call22, ptr %nid, align 4
   %call25 = tail call i32 @ossl_ffc_named_group_get_keylength(ptr noundef nonnull %call) #3
-  %keylength = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2, i32 13
+  %keylength = getelementptr inbounds i8, ptr %dh, i64 96
   store i32 %call25, ptr %keylength, align 8
-  %dirty_cnt = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 14
+  %dirty_cnt = getelementptr inbounds i8, ptr %dh, i64 200
   %4 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %4, 1
   store i64 %inc, ptr %dirty_cnt, align 8
@@ -129,7 +124,7 @@ entry:
   br i1 %cmp.i, label %DH_get_nid.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %nid.i = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2, i32 7
+  %nid.i = getelementptr inbounds i8, ptr %dh, i64 60
   %0 = load i32, ptr %nid.i, align 4
   %1 = icmp sgt i32 %0, 3
   %2 = zext i1 %1 to i32
@@ -147,7 +142,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %nid = getelementptr inbounds %struct.dh_st, ptr %dh, i64 0, i32 2, i32 7
+  %nid = getelementptr inbounds i8, ptr %dh, i64 60
   %0 = load i32, ptr %nid, align 4
   br label %return
 

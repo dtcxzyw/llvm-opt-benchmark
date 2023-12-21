@@ -7,39 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.JobDriver = type { i64, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.BlockDriver = type { ptr, i32, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon.3, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.anon.3 = type { ptr, ptr }
-%struct.CommitBlockJob = type { %struct.BlockJob, ptr, ptr, ptr, ptr, ptr, i32, i8, i8, ptr }
-%struct.BlockJob = type { %struct.Job, i32, i64, %struct.RateLimit, ptr, %struct.Notifier, %struct.Notifier, %struct.Notifier, %struct.Notifier, %struct.Notifier, ptr }
-%struct.Job = type { ptr, ptr, ptr, i8, i8, ptr, ptr, %struct.ProgressMeter, ptr, i32, i32, %struct.QEMUTimer, i32, i8, i8, i8, i8, i8, i8, i32, ptr, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.NotifierList, %struct.anon.0, ptr, %struct.anon.1 }
-%struct.ProgressMeter = type { i64, i64, %struct.QemuMutex }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QEMUTimer = type { i64, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.NotifierList = type { %struct.anon }
-%struct.anon = type { ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.1 = type { ptr, ptr }
-%struct.RateLimit = type { %struct.QemuMutex, i64, i64, i64, i64, i64 }
-%struct.Notifier = type { ptr, %struct.anon.2 }
-%struct.anon.2 = type { ptr, ptr }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon.4, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.5, %union.anon.6, i32, [16 x %struct.anon.7], ptr, %struct.anon.8, ptr, ptr, %struct.anon.9, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.10, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.11, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon.4 = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.5 = type { %struct.QTailQLink }
-%union.anon.6 = type { %struct.QTailQLink }
-%struct.anon.7 = type { ptr }
-%struct.anon.8 = type { ptr }
-%struct.anon.9 = type { ptr }
-%struct.anon.10 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.anon.11 = type { ptr }
-%struct.CoQueue = type { %struct.anon.12 }
-%struct.anon.12 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.13, %struct.anon.13, i32, i32, ptr }
-%struct.anon.13 = type { ptr }
 %struct.timeval = type { i64, i64 }
 
 @.str = private unnamed_addr constant [22 x i8] c"qemu_in_main_thread()\00", align 1
@@ -144,7 +111,7 @@ if.end19:                                         ; preds = %if.end12
 
 if.end26:                                         ; preds = %if.end19
   %call27 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef %base) #6
-  %base_read_only = getelementptr inbounds %struct.CommitBlockJob, ptr %call24, i64 0, i32 7
+  %base_read_only = getelementptr inbounds i8, ptr %call24, i64 564
   %frombool = zext i1 %call27 to i8
   store i8 %frombool, ptr %base_read_only, align 4
   br i1 %call27, label %if.then30, label %if.end36
@@ -164,16 +131,16 @@ if.end41:                                         ; preds = %if.end36
   br i1 %tobool42.not, label %if.then43, label %if.end44
 
 if.then43:                                        ; preds = %if.end41
-  %implicit = getelementptr inbounds %struct.BlockDriverState, ptr %call37, i64 0, i32 5
+  %implicit = getelementptr inbounds i8, ptr %call37, i64 8
   store i8 1, ptr %implicit, align 8
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then43, %if.end41
-  %never_freeze = getelementptr inbounds %struct.BlockDriverState, ptr %call37, i64 0, i32 53
+  %never_freeze = getelementptr inbounds i8, ptr %call37, i64 17072
   store i8 1, ptr %never_freeze, align 8
-  %total_sectors = getelementptr inbounds %struct.BlockDriverState, ptr %top, i64 0, i32 37
+  %total_sectors = getelementptr inbounds i8, ptr %top, i64 16888
   %2 = load i64, ptr %total_sectors, align 8
-  %total_sectors45 = getelementptr inbounds %struct.BlockDriverState, ptr %call37, i64 0, i32 37
+  %total_sectors45 = getelementptr inbounds i8, ptr %call37, i64 16888
   store i64 %2, ptr %total_sectors45, align 8
   %call46 = tail call i32 @bdrv_append(ptr noundef nonnull %call37, ptr noundef %top, ptr noundef %errp) #6
   tail call void @bdrv_unref(ptr noundef nonnull %call37) #6
@@ -181,11 +148,11 @@ if.end44:                                         ; preds = %if.then43, %if.end4
   br i1 %cmp47, label %fail, label %if.end50
 
 if.end50:                                         ; preds = %if.end44
-  %commit_top_bs51 = getelementptr inbounds %struct.CommitBlockJob, ptr %call24, i64 0, i32 1
+  %commit_top_bs51 = getelementptr inbounds i8, ptr %call24, i64 520
   store ptr %call37, ptr %commit_top_bs51, align 8
   tail call void @bdrv_graph_wrlock(ptr noundef nonnull %top) #6
   %call52 = tail call ptr @bdrv_find_overlay(ptr noundef nonnull %top, ptr noundef %base) #6
-  %base_overlay = getelementptr inbounds %struct.CommitBlockJob, ptr %call24, i64 0, i32 5
+  %base_overlay = getelementptr inbounds i8, ptr %call24, i64 552
   store ptr %call52, ptr %base_overlay, align 8
   %tobool54.not = icmp eq ptr %call52, null
   br i1 %tobool54.not, label %if.else56, label %if.end57
@@ -247,7 +214,7 @@ for.end:                                          ; preds = %bdrv_filter_or_cow_
   br i1 %cmp81, label %fail.sink.split, label %if.end84
 
 if.end84:                                         ; preds = %for.end
-  %chain_frozen = getelementptr inbounds %struct.CommitBlockJob, ptr %call24, i64 0, i32 8
+  %chain_frozen = getelementptr inbounds i8, ptr %call24, i64 565
   store i8 1, ptr %chain_frozen, align 1
   %call86 = tail call i32 @block_job_add_bdrv(ptr noundef nonnull %call24, ptr noundef nonnull @.str.9, ptr noundef %base, i64 noundef 0, i64 noundef 15, ptr noundef %errp) #6
   tail call void @bdrv_graph_wrunlock(ptr noundef %top) #6
@@ -255,10 +222,10 @@ if.end84:                                         ; preds = %for.end
   br i1 %cmp87, label %fail, label %if.end90
 
 if.end90:                                         ; preds = %if.end84
-  %aio_context = getelementptr inbounds %struct.Job, ptr %call24, i64 0, i32 8
+  %aio_context = getelementptr inbounds i8, ptr %call24, i64 112
   %5 = load ptr, ptr %aio_context, align 8
   %call92 = tail call ptr @blk_new(ptr noundef %5, i64 noundef %spec.select, i64 noundef 5) #6
-  %base93 = getelementptr inbounds %struct.CommitBlockJob, ptr %call24, i64 0, i32 3
+  %base93 = getelementptr inbounds i8, ptr %call24, i64 536
   store ptr %call92, ptr %base93, align 8
   %call95 = tail call i32 @blk_insert_bs(ptr noundef %call92, ptr noundef %base, ptr noundef %errp) #6
   %cmp96 = icmp slt i32 %call95, 0
@@ -267,11 +234,11 @@ if.end90:                                         ; preds = %if.end84
 if.end99:                                         ; preds = %if.end90
   %6 = load ptr, ptr %base93, align 8
   tail call void @blk_set_disable_request_queuing(ptr noundef %6, i1 noundef zeroext true) #6
-  %base_bs = getelementptr inbounds %struct.CommitBlockJob, ptr %call24, i64 0, i32 4
+  %base_bs = getelementptr inbounds i8, ptr %call24, i64 544
   store ptr %base, ptr %base_bs, align 8
   %7 = load ptr, ptr %aio_context, align 8
   %call104 = tail call ptr @blk_new(ptr noundef %7, i64 noundef 0, i64 noundef 15) #6
-  %top105 = getelementptr inbounds %struct.CommitBlockJob, ptr %call24, i64 0, i32 2
+  %top105 = getelementptr inbounds i8, ptr %call24, i64 528
   store ptr %call104, ptr %top105, align 8
   %call107 = tail call i32 @blk_insert_bs(ptr noundef %call104, ptr noundef %top, ptr noundef %errp) #6
   %cmp108 = icmp slt i32 %call107, 0
@@ -281,9 +248,9 @@ if.end111:                                        ; preds = %if.end99
   %8 = load ptr, ptr %top105, align 8
   tail call void @blk_set_disable_request_queuing(ptr noundef %8, i1 noundef zeroext true) #6
   %call113 = tail call noalias ptr @g_strdup(ptr noundef %backing_file_str) #6
-  %backing_file_str114 = getelementptr inbounds %struct.CommitBlockJob, ptr %call24, i64 0, i32 9
+  %backing_file_str114 = getelementptr inbounds i8, ptr %call24, i64 568
   store ptr %call113, ptr %backing_file_str114, align 8
-  %on_error115 = getelementptr inbounds %struct.CommitBlockJob, ptr %call24, i64 0, i32 6
+  %on_error115 = getelementptr inbounds i8, ptr %call24, i64 560
   store i32 %on_error, ptr %on_error115, align 8
   tail call fastcc void @trace_commit_start(ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef nonnull %call24)
   tail call void @job_start(ptr noundef nonnull %call24) #6
@@ -295,7 +262,7 @@ fail.sink.split:                                  ; preds = %for.body, %for.end
 
 fail:                                             ; preds = %fail.sink.split, %if.end44, %if.end99, %if.end90, %if.end84, %if.end36, %if.then30
   %commit_top_bs.0 = phi ptr [ null, %if.then30 ], [ null, %if.end36 ], [ %call37, %if.end84 ], [ %call37, %if.end90 ], [ %call37, %if.end99 ], [ null, %if.end44 ], [ %call37, %fail.sink.split ]
-  %chain_frozen118 = getelementptr inbounds %struct.CommitBlockJob, ptr %call24, i64 0, i32 8
+  %chain_frozen118 = getelementptr inbounds i8, ptr %call24, i64 565
   %9 = load i8, ptr %chain_frozen118, align 1
   %10 = and i8 %9, 1
   %tobool119.not = icmp eq i8 %10, 0
@@ -308,7 +275,7 @@ if.then120:                                       ; preds = %fail
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then120, %fail
-  %base122 = getelementptr inbounds %struct.CommitBlockJob, ptr %call24, i64 0, i32 3
+  %base122 = getelementptr inbounds i8, ptr %call24, i64 536
   %11 = load ptr, ptr %base122, align 8
   %tobool123.not = icmp eq ptr %11, null
   br i1 %tobool123.not, label %if.end126, label %if.then124
@@ -318,7 +285,7 @@ if.then124:                                       ; preds = %if.end121
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then124, %if.end121
-  %top127 = getelementptr inbounds %struct.CommitBlockJob, ptr %call24, i64 0, i32 2
+  %top127 = getelementptr inbounds i8, ptr %call24, i64 528
   %12 = load ptr, ptr %top127, align 8
   %tobool128.not = icmp eq ptr %12, null
   br i1 %tobool128.not, label %if.end131, label %if.then129
@@ -429,7 +396,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #6
   %call10.i = tail call i32 @qemu_get_thread_id() #6
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %bs, ptr noundef %base, ptr noundef %top, ptr noundef %s) #6
   br label %_nocheck__trace_commit_start.exit
@@ -462,7 +429,7 @@ define dso_local i32 @bdrv_commit(ptr noundef %bs) local_unnamed_addr #0 {
 entry:
   %n = alloca i64, align 8
   %local_err = alloca ptr, align 8
-  %drv1 = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 6
+  %drv1 = getelementptr inbounds i8, ptr %bs, i64 16
   %0 = load ptr, ptr %drv1, align 8
   store ptr null, ptr %local_err, align 8
   %call = tail call zeroext i1 @qemu_in_main_thread() #6
@@ -689,7 +656,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %n = alloca i64, align 8
   store i64 0, ptr %n, align 8
-  %top = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 2
+  %top = getelementptr inbounds i8, ptr %job, i64 528
   %0 = load ptr, ptr %top, align 8
   %call = tail call i64 @blk_co_getlength(ptr noundef %0) #6
   %cmp = icmp slt i64 %call, 0
@@ -701,7 +668,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   tail call void @job_progress_set_remaining(ptr noundef nonnull %job, i64 noundef %call) #6
-  %base = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %job, i64 536
   %1 = load ptr, ptr %base, align 8
   %call2 = tail call i64 @blk_co_getlength(ptr noundef %1) #6
   %cmp3 = icmp slt i64 %call2, 0
@@ -734,9 +701,9 @@ if.end15:                                         ; preds = %if.end7
 
 for.body.lr.ph:                                   ; preds = %if.end15.thread, %if.end15
   %call1754 = phi ptr [ %call1752, %if.end15.thread ], [ %call17, %if.end15 ]
-  %base_overlay = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 5
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %on_error = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 6
+  %base_overlay = getelementptr inbounds i8, ptr %job, i64 552
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %on_error = getelementptr inbounds i8, ptr %job, i64 560
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -857,21 +824,21 @@ declare void @block_job_user_resume(ptr noundef) #1
 define internal i32 @commit_prepare(ptr nocapture noundef %job) #0 {
 entry:
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %commit_top_bs = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 1
+  %commit_top_bs = getelementptr inbounds i8, ptr %job, i64 520
   %0 = load ptr, ptr %commit_top_bs, align 8
-  %base_bs = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 4
+  %base_bs = getelementptr inbounds i8, ptr %job, i64 544
   %1 = load ptr, ptr %base_bs, align 8
   tail call void @bdrv_unfreeze_backing_chain(ptr noundef %0, ptr noundef %1) #6
-  %chain_frozen = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 8
+  %chain_frozen = getelementptr inbounds i8, ptr %job, i64 565
   store i8 0, ptr %chain_frozen, align 1
   tail call void @bdrv_graph_rdunlock_main_loop() #6
-  %base = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %job, i64 536
   %2 = load ptr, ptr %base, align 8
   tail call void @blk_unref(ptr noundef %2) #6
   store ptr null, ptr %base, align 8
   %3 = load ptr, ptr %commit_top_bs, align 8
   %4 = load ptr, ptr %base_bs, align 8
-  %backing_file_str = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 9
+  %backing_file_str = getelementptr inbounds i8, ptr %job, i64 568
   %5 = load ptr, ptr %backing_file_str, align 8
   %call = tail call i32 @bdrv_drop_intermediate(ptr noundef %3, ptr noundef %4, ptr noundef %5) #6
   ret i32 %call
@@ -880,10 +847,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @commit_abort(ptr noundef %job) #0 {
 entry:
-  %top = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 2
+  %top = getelementptr inbounds i8, ptr %job, i64 528
   %0 = load ptr, ptr %top, align 8
   %call = tail call ptr @blk_bs(ptr noundef %0) #6
-  %chain_frozen = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 8
+  %chain_frozen = getelementptr inbounds i8, ptr %job, i64 565
   %1 = load i8, ptr %chain_frozen, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -891,9 +858,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   tail call void @bdrv_graph_rdlock_main_loop() #6
-  %commit_top_bs = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 1
+  %commit_top_bs = getelementptr inbounds i8, ptr %job, i64 520
   %3 = load ptr, ptr %commit_top_bs, align 8
-  %base_bs = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 4
+  %base_bs = getelementptr inbounds i8, ptr %job, i64 544
   %4 = load ptr, ptr %base_bs, align 8
   tail call void @bdrv_unfreeze_backing_chain(ptr noundef %3, ptr noundef %4) #6
   tail call void @bdrv_graph_rdunlock_main_loop() #6
@@ -901,10 +868,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call void @bdrv_ref(ptr noundef %call) #6
-  %commit_top_bs1 = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 1
+  %commit_top_bs1 = getelementptr inbounds i8, ptr %job, i64 520
   %5 = load ptr, ptr %commit_top_bs1, align 8
   tail call void @bdrv_ref(ptr noundef %5) #6
-  %base = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 3
+  %base = getelementptr inbounds i8, ptr %job, i64 536
   %6 = load ptr, ptr %base, align 8
   %tobool2.not = icmp eq ptr %6, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -917,7 +884,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
   tail call void @block_job_remove_all_bdrv(ptr noundef nonnull %job) #6
   tail call void @bdrv_graph_rdlock_main_loop() #6
   %7 = load ptr, ptr %commit_top_bs1, align 8
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %7, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %7, i64 16832
   %8 = load ptr, ptr %backing, align 8
   %9 = load ptr, ptr %8, align 8
   tail call void @bdrv_graph_rdunlock_main_loop() #6
@@ -936,23 +903,23 @@ if.end5:                                          ; preds = %if.then3, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @commit_clean(ptr nocapture noundef readonly %job) #0 {
 entry:
-  %base_read_only = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 7
+  %base_read_only = getelementptr inbounds i8, ptr %job, i64 564
   %0 = load i8, ptr %base_read_only, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %base_bs = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 4
+  %base_bs = getelementptr inbounds i8, ptr %job, i64 544
   %2 = load ptr, ptr %base_bs, align 8
   %call = tail call i32 @bdrv_reopen_set_read_only(ptr noundef %2, i1 noundef zeroext true, ptr noundef null) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %backing_file_str = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 9
+  %backing_file_str = getelementptr inbounds i8, ptr %job, i64 568
   %3 = load ptr, ptr %backing_file_str, align 8
   tail call void @g_free(ptr noundef %3) #6
-  %top = getelementptr inbounds %struct.CommitBlockJob, ptr %job, i64 0, i32 2
+  %top = getelementptr inbounds i8, ptr %job, i64 528
   %4 = load ptr, ptr %top, align 8
   tail call void @blk_unref(ptr noundef %4) #6
   ret void
@@ -1004,11 +971,11 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @bdrv_commit_top_refresh_filename(ptr noundef %bs) #0 {
 entry:
-  %exact_filename = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 16
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 30
+  %exact_filename = getelementptr inbounds i8, ptr %bs, i64 12368
+  %backing = getelementptr inbounds i8, ptr %bs, i64 16832
   %0 = load ptr, ptr %backing, align 8
   %1 = load ptr, ptr %0, align 8
-  %filename = getelementptr inbounds %struct.BlockDriverState, ptr %1, i64 0, i32 11
+  %filename = getelementptr inbounds i8, ptr %1, i64 49
   tail call void @pstrcpy(ptr noundef nonnull %exact_filename, i32 noundef 4096, ptr noundef nonnull %filename) #6
   ret void
 }
@@ -1024,7 +991,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @bdrv_commit_top_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
-  %backing = getelementptr inbounds %struct.BlockDriverState, ptr %bs, i64 0, i32 30
+  %backing = getelementptr inbounds i8, ptr %bs, i64 16832
   %0 = load ptr, ptr %backing, align 8
   %call = tail call i32 @bdrv_co_preadv(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #6
   ret i32 %call

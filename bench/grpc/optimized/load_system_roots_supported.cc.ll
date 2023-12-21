@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.FileData = type { [4096 x i8], i64 }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
 %"class.absl::lts_20230802::Status" = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -93,9 +92,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.end
-  %st_mode = getelementptr inbounds %struct.stat, ptr %dir_entry_stat, i64 0, i32 3
-  %st_size = getelementptr inbounds %struct.stat, ptr %dir_entry_stat, i64 0, i32 8
-  %size = getelementptr inbounds %struct.FileData, ptr %file_data, i64 0, i32 1
+  %st_mode = getelementptr inbounds i8, ptr %dir_entry_stat, i64 24
+  %st_size = getelementptr inbounds i8, ptr %dir_entry_stat, i64 48
+  %size = getelementptr inbounds i8, ptr %file_data, i64 4096
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.preheader, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE9push_backERKS3_.exit
@@ -114,7 +113,7 @@ invoke.cont:                                      ; preds = %while.cond
   br i1 %cmp5.not, label %while.end, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %d_name = getelementptr inbounds %struct.dirent, ptr %call4, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %call4, i64 19
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %file_data, i64 noundef 4096, ptr noundef nonnull @.str, ptr noundef nonnull %certs_directory, ptr noundef nonnull %d_name) #14
   %cmp2.i = icmp eq i32 %call.i, 0
   br i1 %cmp2.i, label %if.then3.i, label %invoke.cont7
@@ -249,7 +248,7 @@ _ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE9push_back
   %roots_filenames.sroa.0.1 = phi ptr [ %cond.i12.i.i, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %roots_filenames.sroa.0.0.ph, %if.then.i24 ]
   %add.ptr.i.i.pn = phi ptr [ %add.ptr.i.i, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %roots_filenames.sroa.9.0.ph, %if.then.i24 ]
   %roots_filenames.sroa.14.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIZN9grpc_core21CreateRootCertsBundleEPKcE8FileDataSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %roots_filenames.sroa.14.0.ph, %if.then.i24 ]
-  %roots_filenames.sroa.9.1 = getelementptr inbounds %struct.FileData, ptr %add.ptr.i.i.pn, i64 1
+  %roots_filenames.sroa.9.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.pn, i64 4104
   br label %while.cond.outer
 
 while.end:                                        ; preds = %invoke.cont
@@ -282,7 +281,7 @@ invoke.cont33:                                    ; preds = %for.body
   br i1 %cmp35.not, label %for.inc, label %if.then36
 
 if.then36:                                        ; preds = %invoke.cont33
-  %size38 = getelementptr inbounds %struct.FileData, ptr %roots_filenames.sroa.0.0.ph, i64 %i.066, i32 1
+  %size38 = getelementptr inbounds i8, ptr %add.ptr.i, i64 4096
   %2 = load i64, ptr %size38, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call27, i64 %bytes_read.067
   %call40 = invoke i64 @read(i32 noundef %call34, ptr noundef %add.ptr, i64 noundef %2)
@@ -421,7 +420,7 @@ lpad4:                                            ; preds = %invoke.cont
 if.end:                                           ; preds = %invoke.cont5, %_ZN9grpc_core10ConfigVars3GetEv.exit
   %2 = load ptr, ptr %agg.result, align 8
   %tobool.not = icmp eq ptr %2, null
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %agg.result, i64 8
   %3 = load i64, ptr %data, align 8
   %conv = and i64 %3, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %3

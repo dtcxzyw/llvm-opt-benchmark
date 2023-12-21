@@ -4,22 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.NetClientInfo = type { i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.Netdev = type { ptr, i32, %union.anon }
-%union.anon = type { %struct.NetdevUserOptions }
-%struct.NetdevUserOptions = type { ptr, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr, i8, ptr, i8, ptr, ptr }
-%struct.NetStreamState = type { %struct.NetClientState, ptr, ptr, ptr, i32, i32, %struct.SocketReadState, i32, i32, i32, ptr }
-%struct.NetClientState = type { ptr, i32, %union.anon.0, ptr, ptr, ptr, ptr, [256 x i8], i8, ptr, i32, i8, i32, i32, i8, i8, i8, %union.anon.1 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.SocketReadState = type { i32, i8, i32, i32, i32, [69632 x i8], ptr }
-%struct.QIOChannelSocket = type { %struct.QIOChannel, i32, %struct.sockaddr_storage, i32, %struct.sockaddr_storage, i32, i64, i64 }
-%struct.QIOChannel = type { %struct.Object, i32, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct.SocketAddress = type { i32, %union.anon.2 }
-%union.anon.2 = type { %struct.InetSocketAddress }
-%struct.InetSocketAddress = type { ptr, ptr, i8, i8, i8, i16, i8, i8, i8, i8, i8, i8, i8, i8 }
 %struct.iovec = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [41 x i8] c"netdev->type == NET_CLIENT_DRIVER_STREAM\00", align 1
@@ -49,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @net_init_stream(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %0, 6
   br i1 %cmp, label %if.end, label %if.else
@@ -59,15 +43,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %u = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2
-  %has_server = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 1
+  %u = getelementptr inbounds i8, ptr %netdev, i64 16
+  %has_server = getelementptr inbounds i8, ptr %netdev, i64 24
   %1 = load i8, ptr %has_server, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %server = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 2
+  %server = getelementptr inbounds i8, ptr %netdev, i64 25
   %3 = load i8, ptr %server, align 1
   %4 = and i8 %3, 1
   %tobool1.not = icmp eq i8 %4, 0
@@ -75,14 +59,14 @@ lor.lhs.false:                                    ; preds = %if.end
 
 if.then2:                                         ; preds = %lor.lhs.false, %if.end
   %5 = load ptr, ptr %u, align 8
-  %has_reconnect = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 3
+  %has_reconnect = getelementptr inbounds i8, ptr %netdev, i64 26
   %6 = load i8, ptr %has_reconnect, align 2
   %7 = and i8 %6, 1
   %tobool3.not = icmp eq i8 %7, 0
   br i1 %tobool3.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.then2
-  %reconnect = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 5
+  %reconnect = getelementptr inbounds i8, ptr %netdev, i64 28
   %8 = load i32, ptr %reconnect, align 4
   br label %cond.end
 
@@ -91,18 +75,18 @@ cond.end:                                         ; preds = %if.then2, %cond.tru
   %call.i = tail call ptr @qio_channel_socket_new() #6
   %call1.i = tail call ptr @qemu_new_net_client(ptr noundef nonnull @net_stream_info, ptr noundef %peer, ptr noundef nonnull @.str.2, ptr noundef %name) #6
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #6
-  %ioc.i = getelementptr inbounds %struct.NetStreamState, ptr %call1.i, i64 0, i32 3
+  %ioc.i = getelementptr inbounds i8, ptr %call1.i, i64 392
   store ptr %call.i.i, ptr %ioc.i, align 8
-  %link_down.i = getelementptr inbounds %struct.NetClientState, ptr %call1.i, i64 0, i32 1
+  %link_down.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store i32 1, ptr %link_down.i, align 8
-  %reconnect5.i = getelementptr inbounds %struct.NetStreamState, ptr %call1.i, i64 0, i32 8
+  %reconnect5.i = getelementptr inbounds i8, ptr %call1.i, i64 70076
   store i32 %cond, ptr %reconnect5.i, align 4
   %tobool.not.i = icmp eq i32 %cond, 0
   br i1 %tobool.not.i, label %net_stream_client_init.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cond.end
   %call6.i = tail call ptr @qapi_clone(ptr noundef %5, ptr noundef nonnull @visit_type_SocketAddress) #6
-  %addr7.i = getelementptr inbounds %struct.NetStreamState, ptr %call1.i, i64 0, i32 10
+  %addr7.i = getelementptr inbounds i8, ptr %call1.i, i64 70088
   store ptr %call6.i, ptr %addr7.i, align 8
   br label %net_stream_client_init.exit
 
@@ -111,7 +95,7 @@ net_stream_client_init.exit:                      ; preds = %cond.end, %if.then.
   br label %return
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %has_reconnect5 = getelementptr inbounds %struct.Netdev, ptr %netdev, i64 0, i32 2, i32 0, i32 3
+  %has_reconnect5 = getelementptr inbounds i8, ptr %netdev, i64 26
   %9 = load i8, ptr %has_reconnect5, align 2
   %10 = and i8 %9, 1
   %tobool6.not = icmp eq i8 %10, 0
@@ -126,7 +110,7 @@ if.end8:                                          ; preds = %if.end4
   %call.i12 = tail call ptr @qio_channel_socket_new() #6
   %call1.i13 = tail call ptr @qemu_new_net_client(ptr noundef nonnull @net_stream_info, ptr noundef %peer, ptr noundef nonnull @.str.2, ptr noundef %name) #6
   %call.i.i14 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i12, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #6
-  %listen_ioc.i = getelementptr inbounds %struct.NetStreamState, ptr %call1.i13, i64 0, i32 1
+  %listen_ioc.i = getelementptr inbounds i8, ptr %call1.i13, i64 376
   store ptr %call.i.i14, ptr %listen_ioc.i, align 8
   tail call void @qio_channel_socket_listen_async(ptr noundef %call.i12, ptr noundef %11, i32 noundef 0, ptr noundef nonnull @net_stream_server_listening, ptr noundef %call1.i13, ptr noundef null, ptr noundef null) #6
   br label %return
@@ -154,10 +138,10 @@ declare void @qio_channel_socket_connect_async(ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @net_stream_client_connected(ptr nocapture readnone %task, ptr noundef %opaque) #0 {
 entry:
-  %ioc = getelementptr inbounds %struct.NetStreamState, ptr %opaque, i64 0, i32 3
+  %ioc = getelementptr inbounds i8, ptr %opaque, i64 392
   %0 = load ptr, ptr %ioc, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #6
-  %fd = getelementptr inbounds %struct.QIOChannelSocket, ptr %call.i, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
   %1 = load i32, ptr %fd, align 8
   %cmp = icmp slt i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -188,7 +172,7 @@ do.end:                                           ; preds = %if.end
   br i1 %or.cond, label %if.then11, label %do.body14
 
 if.then11:                                        ; preds = %do.end
-  %u = getelementptr inbounds %struct.SocketAddress, ptr %call1, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %call1, i64 8
   %4 = load ptr, ptr %u, align 8
   %sub = sub i32 0, %call8
   tail call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.11, ptr noundef %4, i32 noundef %sub) #6
@@ -204,17 +188,17 @@ if.else17:                                        ; preds = %do.body14
   unreachable
 
 do.end19:                                         ; preds = %do.body14
-  %rs = getelementptr inbounds %struct.NetStreamState, ptr %opaque, i64 0, i32 6
+  %rs = getelementptr inbounds i8, ptr %opaque, i64 408
   tail call void @net_socket_rs_init(ptr noundef nonnull %rs, ptr noundef nonnull @net_stream_rs_finalize, i1 noundef zeroext false) #6
   %5 = load ptr, ptr %ioc, align 8
   tail call void @qio_channel_set_delay(ptr noundef %5, i1 noundef zeroext false) #6
   %6 = load ptr, ptr %ioc, align 8
   %call22 = tail call i32 @qio_channel_add_watch(ptr noundef %6, i32 noundef 1, ptr noundef nonnull @net_stream_send, ptr noundef nonnull %opaque, ptr noundef null) #6
-  %ioc_read_tag = getelementptr inbounds %struct.NetStreamState, ptr %opaque, i64 0, i32 4
+  %ioc_read_tag = getelementptr inbounds i8, ptr %opaque, i64 400
   store i32 %call22, ptr %ioc_read_tag, align 8
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %opaque, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %opaque, i64 8
   store i32 0, ptr %link_down, align 8
-  %name = getelementptr inbounds %struct.NetClientState, ptr %opaque, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %opaque, i64 56
   %7 = load ptr, ptr %name, align 8
   tail call void @qapi_event_send_netdev_stream_connected(ptr noundef %7, ptr noundef nonnull %call1) #6
   tail call void @qapi_free_SocketAddress(ptr noundef nonnull %call1) #6
@@ -224,13 +208,13 @@ error:                                            ; preds = %if.then11, %if.then
   %8 = load ptr, ptr %ioc, align 8
   tail call void @object_unref(ptr noundef %8) #6
   store ptr null, ptr %ioc, align 8
-  %reconnect.i = getelementptr inbounds %struct.NetStreamState, ptr %opaque, i64 0, i32 8
+  %reconnect.i = getelementptr inbounds i8, ptr %opaque, i64 70076
   %9 = load i32, ptr %reconnect.i, align 4
   %tobool.not.i = icmp eq i32 %9, 0
   br i1 %tobool.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %error
-  %timer_tag.i = getelementptr inbounds %struct.NetStreamState, ptr %opaque, i64 0, i32 9
+  %timer_tag.i = getelementptr inbounds i8, ptr %opaque, i64 70080
   %10 = load i32, ptr %timer_tag.i, align 8
   %cmp.i = icmp eq i32 %10, 0
   br i1 %cmp.i, label %if.then.i, label %return
@@ -254,19 +238,19 @@ entry:
   %call = tail call i32 @htonl(i32 noundef %conv) #7
   store i32 %call, ptr %len, align 4
   store ptr %len, ptr %iov, align 16
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %iov, i64 8
   store i64 4, ptr %iov_len, align 8
-  %arrayinit.element = getelementptr inbounds %struct.iovec, ptr %iov, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %iov, i64 16
   store ptr %buf, ptr %arrayinit.element, align 16
-  %iov_len3 = getelementptr inbounds %struct.iovec, ptr %iov, i64 1, i32 1
+  %iov_len3 = getelementptr inbounds i8, ptr %iov, i64 24
   store i64 %size, ptr %iov_len3, align 8
   %call4 = call i64 @iov_size(ptr noundef nonnull %iov, i32 noundef 2) #6
-  %send_index = getelementptr inbounds %struct.NetStreamState, ptr %nc, i64 0, i32 7
+  %send_index = getelementptr inbounds i8, ptr %nc, i64 70072
   %0 = load i32, ptr %send_index, align 8
   %conv5 = zext i32 %0 to i64
   %sub = sub i64 %call4, %conv5
   %call10 = call i32 @iov_copy(ptr noundef nonnull %local_iov, i32 noundef 2, ptr noundef nonnull %iov, i32 noundef 2, i64 noundef %conv5, i64 noundef %sub) #6
-  %ioc = getelementptr inbounds %struct.NetStreamState, ptr %nc, i64 0, i32 3
+  %ioc = getelementptr inbounds i8, ptr %nc, i64 392
   %1 = load ptr, ptr %ioc, align 8
   %conv12 = zext i32 %call10 to i64
   %call13 = call i64 @qio_channel_writev(ptr noundef %1, ptr noundef nonnull %local_iov, i64 noundef %conv12, ptr noundef null) #6
@@ -294,7 +278,7 @@ if.then25:                                        ; preds = %if.end22
   store i32 %conv28, ptr %send_index, align 8
   %5 = load ptr, ptr %ioc, align 8
   %call30 = call i32 @qio_channel_add_watch(ptr noundef %5, i32 noundef 4, ptr noundef nonnull @net_stream_writable, ptr noundef nonnull %nc, ptr noundef null) #6
-  %ioc_write_tag = getelementptr inbounds %struct.NetStreamState, ptr %nc, i64 0, i32 5
+  %ioc_write_tag = getelementptr inbounds i8, ptr %nc, i64 404
   store i32 %call30, ptr %ioc_write_tag, align 4
   br label %return
 
@@ -310,7 +294,7 @@ return:                                           ; preds = %if.end31, %if.then2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @net_stream_cleanup(ptr nocapture noundef %nc) #0 {
 entry:
-  %timer_tag = getelementptr inbounds %struct.NetStreamState, ptr %nc, i64 0, i32 9
+  %timer_tag = getelementptr inbounds i8, ptr %nc, i64 70080
   %0 = load i32, ptr %timer_tag, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -321,7 +305,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %addr = getelementptr inbounds %struct.NetStreamState, ptr %nc, i64 0, i32 10
+  %addr = getelementptr inbounds i8, ptr %nc, i64 70088
   %1 = load ptr, ptr %addr, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end8, label %if.then5
@@ -332,20 +316,20 @@ if.then5:                                         ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %if.end
-  %ioc = getelementptr inbounds %struct.NetStreamState, ptr %nc, i64 0, i32 3
+  %ioc = getelementptr inbounds i8, ptr %nc, i64 392
   %2 = load ptr, ptr %ioc, align 8
   %tobool9.not = icmp eq ptr %2, null
   br i1 %tobool9.not, label %if.end29, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #6
-  %fd = getelementptr inbounds %struct.QIOChannelSocket, ptr %call.i, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
   %3 = load i32, ptr %fd, align 8
   %cmp.not = icmp eq i32 %3, -1
   br i1 %cmp.not, label %if.end26, label %if.then13
 
 if.then13:                                        ; preds = %if.then10
-  %ioc_read_tag = getelementptr inbounds %struct.NetStreamState, ptr %nc, i64 0, i32 4
+  %ioc_read_tag = getelementptr inbounds i8, ptr %nc, i64 400
   %4 = load i32, ptr %ioc_read_tag, align 8
   %tobool14.not = icmp eq i32 %4, 0
   br i1 %tobool14.not, label %if.end19, label %if.then15
@@ -356,7 +340,7 @@ if.then15:                                        ; preds = %if.then13
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then15, %if.then13
-  %ioc_write_tag = getelementptr inbounds %struct.NetStreamState, ptr %nc, i64 0, i32 5
+  %ioc_write_tag = getelementptr inbounds i8, ptr %nc, i64 404
   %5 = load i32, ptr %ioc_write_tag, align 4
   %tobool20.not = icmp eq i32 %5, 0
   br i1 %tobool20.not, label %if.end26, label %if.then21
@@ -373,13 +357,13 @@ if.end26:                                         ; preds = %if.end19, %if.then2
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end26, %if.end8
-  %listen_ioc = getelementptr inbounds %struct.NetStreamState, ptr %nc, i64 0, i32 1
+  %listen_ioc = getelementptr inbounds i8, ptr %nc, i64 376
   %7 = load ptr, ptr %listen_ioc, align 8
   %tobool30.not = icmp eq ptr %7, null
   br i1 %tobool30.not, label %if.end40, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
-  %listener = getelementptr inbounds %struct.NetStreamState, ptr %nc, i64 0, i32 2
+  %listener = getelementptr inbounds i8, ptr %nc, i64 384
   %8 = load ptr, ptr %listener, align 8
   %tobool32.not = icmp eq ptr %8, null
   br i1 %tobool32.not, label %if.end37, label %if.then33
@@ -419,7 +403,7 @@ declare i32 @qio_channel_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr no
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @net_stream_writable(ptr nocapture readnone %ioc, i32 %condition, ptr noundef %data) #0 {
 entry:
-  %ioc_write_tag = getelementptr inbounds %struct.NetStreamState, ptr %data, i64 0, i32 5
+  %ioc_write_tag = getelementptr inbounds i8, ptr %data, i64 404
   store i32 0, ptr %ioc_write_tag, align 4
   tail call void @qemu_flush_queued_packets(ptr noundef %data) #6
   ret i32 0
@@ -456,8 +440,8 @@ declare void @net_socket_rs_init(ptr noundef, ptr noundef, i1 noundef zeroext) l
 define internal void @net_stream_rs_finalize(ptr noundef %rs) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %rs, i64 -408
-  %buf = getelementptr inbounds %struct.SocketReadState, ptr %rs, i64 0, i32 5
-  %packet_len = getelementptr inbounds %struct.SocketReadState, ptr %rs, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %rs, i64 20
+  %packet_len = getelementptr inbounds i8, ptr %rs, i64 12
   %0 = load i32, ptr %packet_len, align 4
   %call = tail call i64 @qemu_send_packet_async(ptr noundef %add.ptr, ptr noundef nonnull %buf, i32 noundef %0, ptr noundef nonnull @net_stream_send_completed) #6
   %cmp = icmp eq i64 %call, 0
@@ -484,7 +468,7 @@ declare void @qio_channel_set_delay(ptr noundef, i1 noundef zeroext) local_unnam
 define internal i32 @net_stream_send(ptr nocapture readnone %ioc, i32 %condition, ptr noundef %data) #0 {
 entry:
   %buf1 = alloca [69632 x i8], align 16
-  %ioc1 = getelementptr inbounds %struct.NetStreamState, ptr %data, i64 0, i32 3
+  %ioc1 = getelementptr inbounds i8, ptr %data, i64 392
   %0 = load ptr, ptr %ioc1, align 8
   %call = call i64 @qio_channel_read(ptr noundef %0, ptr noundef nonnull %buf1, i64 noundef 69632, ptr noundef null) #6
   %conv = trunc i64 %call to i32
@@ -502,9 +486,9 @@ if.else:                                          ; preds = %entry
   br i1 %cmp7, label %eoc, label %if.end24
 
 eoc:                                              ; preds = %if.end24, %if.else, %if.then
-  %ioc_read_tag = getelementptr inbounds %struct.NetStreamState, ptr %data, i64 0, i32 4
+  %ioc_read_tag = getelementptr inbounds i8, ptr %data, i64 400
   store i32 0, ptr %ioc_read_tag, align 8
-  %ioc_write_tag = getelementptr inbounds %struct.NetStreamState, ptr %data, i64 0, i32 5
+  %ioc_write_tag = getelementptr inbounds i8, ptr %data, i64 404
   %2 = load i32, ptr %ioc_write_tag, align 4
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.end14, label %if.then10
@@ -515,7 +499,7 @@ if.then10:                                        ; preds = %eoc
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then10, %eoc
-  %listener = getelementptr inbounds %struct.NetStreamState, ptr %data, i64 0, i32 2
+  %listener = getelementptr inbounds i8, ptr %data, i64 384
   %3 = load ptr, ptr %listener, align 8
   %tobool15.not = icmp eq ptr %3, null
   br i1 %tobool15.not, label %if.end18, label %if.then16
@@ -528,21 +512,21 @@ if.end18:                                         ; preds = %if.then16, %if.end1
   %4 = load ptr, ptr %ioc1, align 8
   call void @object_unref(ptr noundef %4) #6
   store ptr null, ptr %ioc1, align 8
-  %rs = getelementptr inbounds %struct.NetStreamState, ptr %data, i64 0, i32 6
+  %rs = getelementptr inbounds i8, ptr %data, i64 408
   call void @net_socket_rs_init(ptr noundef nonnull %rs, ptr noundef nonnull @net_stream_rs_finalize, i1 noundef zeroext false) #6
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %data, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %data, i64 8
   store i32 1, ptr %link_down, align 8
   call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %data, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.13) #6
-  %name = getelementptr inbounds %struct.NetClientState, ptr %data, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %data, i64 56
   %5 = load ptr, ptr %name, align 8
   call void @qapi_event_send_netdev_stream_disconnected(ptr noundef %5) #6
-  %reconnect.i = getelementptr inbounds %struct.NetStreamState, ptr %data, i64 0, i32 8
+  %reconnect.i = getelementptr inbounds i8, ptr %data, i64 70076
   %6 = load i32, ptr %reconnect.i, align 4
   %tobool.not.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end18
-  %timer_tag.i = getelementptr inbounds %struct.NetStreamState, ptr %data, i64 0, i32 9
+  %timer_tag.i = getelementptr inbounds i8, ptr %data, i64 70080
   %7 = load i32, ptr %timer_tag.i, align 8
   %cmp.i = icmp eq i32 %7, 0
   br i1 %cmp.i, label %if.then.i, label %return
@@ -553,7 +537,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %return
 
 if.end24:                                         ; preds = %if.else, %if.then
-  %rs26 = getelementptr inbounds %struct.NetStreamState, ptr %data, i64 0, i32 6
+  %rs26 = getelementptr inbounds i8, ptr %data, i64 408
   %call27 = call i32 @net_fill_rstate(ptr noundef nonnull %rs26, ptr noundef nonnull %buf1, i32 noundef %conv) #6
   %cmp28 = icmp eq i32 %call27, -1
   br i1 %cmp28, label %eoc, label %return
@@ -570,13 +554,13 @@ declare i64 @qemu_send_packet_async(ptr noundef, ptr noundef, i32 noundef, ptr n
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @net_stream_send_completed(ptr noundef %nc, i64 %len) #0 {
 entry:
-  %ioc_read_tag = getelementptr inbounds %struct.NetStreamState, ptr %nc, i64 0, i32 4
+  %ioc_read_tag = getelementptr inbounds i8, ptr %nc, i64 400
   %0 = load i32, ptr %ioc_read_tag, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %ioc = getelementptr inbounds %struct.NetStreamState, ptr %nc, i64 0, i32 3
+  %ioc = getelementptr inbounds i8, ptr %nc, i64 392
   %1 = load ptr, ptr %ioc, align 8
   %call = tail call i32 @qio_channel_add_watch(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @net_stream_send, ptr noundef nonnull %nc, ptr noundef null) #6
   store i32 %call, ptr %ioc_read_tag, align 8
@@ -594,20 +578,20 @@ declare void @qio_net_listener_set_client_func(ptr noundef, ptr noundef, ptr nou
 define internal void @net_stream_listen(ptr nocapture readnone %listener, ptr noundef %cioc, ptr noundef %opaque) #0 {
 entry:
   %call = tail call ptr @object_ref(ptr noundef %cioc) #6
-  %listener1 = getelementptr inbounds %struct.NetStreamState, ptr %opaque, i64 0, i32 2
+  %listener1 = getelementptr inbounds i8, ptr %opaque, i64 384
   %0 = load ptr, ptr %listener1, align 8
   tail call void @qio_net_listener_set_client_func(ptr noundef %0, ptr noundef null, ptr noundef %opaque, ptr noundef null) #6
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cioc, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #6
-  %ioc = getelementptr inbounds %struct.NetStreamState, ptr %opaque, i64 0, i32 3
+  %ioc = getelementptr inbounds i8, ptr %opaque, i64 392
   store ptr %call.i, ptr %ioc, align 8
   tail call void @qio_channel_set_name(ptr noundef %call.i, ptr noundef nonnull @.str.14) #6
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %opaque, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %opaque, i64 8
   store i32 0, ptr %link_down, align 8
   %1 = load ptr, ptr %ioc, align 8
   %call5 = tail call i32 @qio_channel_add_watch(ptr noundef %1, i32 noundef 1, ptr noundef nonnull @net_stream_send, ptr noundef %opaque, ptr noundef null) #6
-  %ioc_read_tag = getelementptr inbounds %struct.NetStreamState, ptr %opaque, i64 0, i32 4
+  %ioc_read_tag = getelementptr inbounds i8, ptr %opaque, i64 400
   store i32 %call5, ptr %ioc_read_tag, align 8
-  %localAddr = getelementptr inbounds %struct.QIOChannelSocket, ptr %cioc, i64 0, i32 2
+  %localAddr = getelementptr inbounds i8, ptr %cioc, i64 104
   %2 = load i16, ptr %localAddr, align 8
   %cmp = icmp eq i16 %2, 1
   br i1 %cmp, label %if.then, label %if.else
@@ -633,7 +617,7 @@ do.end:                                           ; preds = %do.body
   %call14 = tail call ptr @socket_uri(ptr noundef nonnull %addr.0) #6
   tail call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.10, ptr noundef %call14) #6
   tail call void @g_free(ptr noundef %call14) #6
-  %name = getelementptr inbounds %struct.NetClientState, ptr %opaque, i64 0, i32 6
+  %name = getelementptr inbounds i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %name, align 8
   tail call void @qapi_event_send_netdev_stream_connected(ptr noundef %3, ptr noundef nonnull %addr.0) #6
   tail call void @qapi_free_SocketAddress(ptr noundef nonnull %addr.0) #6
@@ -655,13 +639,13 @@ declare i32 @g_timeout_add_seconds(i32 noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @net_stream_reconnect(ptr noundef %data) #0 {
 entry:
-  %timer_tag = getelementptr inbounds %struct.NetStreamState, ptr %data, i64 0, i32 9
+  %timer_tag = getelementptr inbounds i8, ptr %data, i64 70080
   store i32 0, ptr %timer_tag, align 8
   %call = tail call ptr @qio_channel_socket_new() #6
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #6
-  %ioc = getelementptr inbounds %struct.NetStreamState, ptr %data, i64 0, i32 3
+  %ioc = getelementptr inbounds i8, ptr %data, i64 392
   store ptr %call.i, ptr %ioc, align 8
-  %addr = getelementptr inbounds %struct.NetStreamState, ptr %data, i64 0, i32 10
+  %addr = getelementptr inbounds i8, ptr %data, i64 70088
   %0 = load ptr, ptr %addr, align 8
   tail call void @qio_channel_socket_connect_async(ptr noundef %call, ptr noundef %0, ptr noundef nonnull @net_stream_client_connected, ptr noundef %data, ptr noundef null, ptr noundef null) #6
   ret i32 0
@@ -672,10 +656,10 @@ declare void @qio_channel_socket_listen_async(ptr noundef, ptr noundef, i32 noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @net_stream_server_listening(ptr nocapture readnone %task, ptr noundef %opaque) #0 {
 entry:
-  %listen_ioc = getelementptr inbounds %struct.NetStreamState, ptr %opaque, i64 0, i32 1
+  %listen_ioc = getelementptr inbounds i8, ptr %opaque, i64 376
   %0 = load ptr, ptr %listen_ioc, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #6
-  %fd = getelementptr inbounds %struct.QIOChannelSocket, ptr %call.i, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %call.i, i64 96
   %1 = load i32, ptr %fd, align 8
   %cmp = icmp slt i32 %1, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -703,7 +687,7 @@ do.end:                                           ; preds = %if.end
   br i1 %or.cond, label %if.then9, label %do.body12
 
 if.then9:                                         ; preds = %do.end
-  %u = getelementptr inbounds %struct.SocketAddress, ptr %call1, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %call1, i64 8
   %4 = load ptr, ptr %u, align 8
   %sub = sub i32 0, %call6
   tail call void (ptr, ptr, ...) @qemu_set_info_str(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.11, ptr noundef %4, i32 noundef %sub) #6
@@ -719,12 +703,12 @@ if.else15:                                        ; preds = %do.body12
 
 do.end17:                                         ; preds = %do.body12
   tail call void @qapi_free_SocketAddress(ptr noundef nonnull %call1) #6
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %opaque, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %opaque, i64 8
   store i32 1, ptr %link_down, align 8
   %call19 = tail call ptr @qio_net_listener_new() #6
-  %listener = getelementptr inbounds %struct.NetStreamState, ptr %opaque, i64 0, i32 2
+  %listener = getelementptr inbounds i8, ptr %opaque, i64 384
   store ptr %call19, ptr %listener, align 8
-  %rs = getelementptr inbounds %struct.NetStreamState, ptr %opaque, i64 0, i32 6
+  %rs = getelementptr inbounds i8, ptr %opaque, i64 408
   tail call void @net_socket_rs_init(ptr noundef nonnull %rs, ptr noundef nonnull @net_stream_rs_finalize, i1 noundef zeroext false) #6
   %5 = load ptr, ptr %listener, align 8
   tail call void @qio_net_listener_set_client_func(ptr noundef %5, ptr noundef nonnull @net_stream_listen, ptr noundef nonnull %opaque, ptr noundef null) #6

@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.icu_75::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_75::ConstChar16Ptr" = type { ptr }
-%struct.UTransPosition = type { i32, i32, i32, i32 }
 
 @_ZZN6icu_7520RemoveTransliterator16getStaticClassIDEvE7classID = internal global i8 0, align 1
 @_ZL7CURR_ID = internal constant [11 x i16] [i16 65, i16 110, i16 121, i16 45, i16 82, i16 101, i16 109, i16 111, i16 118, i16 101, i16 0], align 16
@@ -243,7 +242,7 @@ land.lhs.true:                                    ; preds = %new.notnull
 if.then:                                          ; preds = %land.lhs.true
   %call4 = tail call noundef ptr @_ZNK6icu_7514Transliterator9getFilterEv(ptr noundef nonnull align 8 dereferenceable(84) %this)
   %vtable = load ptr, ptr %call4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call5 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %call4)
   tail call void @_ZN6icu_7514Transliterator11adoptFilterEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %call, ptr noundef %call5)
@@ -271,14 +270,14 @@ define void @_ZNK6icu_7520RemoveTransliterator19handleTransliterateERNS_11Replac
 entry:
   %empty = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %empty, align 8
-  %fUnion2.i = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %empty, i64 0, i32 1
+  %fUnion2.i = getelementptr inbounds i8, ptr %empty, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  %start = getelementptr inbounds %struct.UTransPosition, ptr %index, i64 0, i32 2
+  %start = getelementptr inbounds i8, ptr %index, i64 8
   %1 = load i32, ptr %start, align 4
-  %limit = getelementptr inbounds %struct.UTransPosition, ptr %index, i64 0, i32 3
+  %limit = getelementptr inbounds i8, ptr %index, i64 12
   %2 = load i32, ptr %limit, align 4
   %vtable = load ptr, ptr %text, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %empty)
           to label %invoke.cont unwind label %lpad
@@ -287,7 +286,7 @@ invoke.cont:                                      ; preds = %entry
   %4 = load i32, ptr %limit, align 4
   %5 = load i32, ptr %start, align 4
   %sub.neg = sub i32 %5, %4
-  %contextLimit = getelementptr inbounds %struct.UTransPosition, ptr %index, i64 0, i32 1
+  %contextLimit = getelementptr inbounds i8, ptr %index, i64 4
   %6 = load i32, ptr %contextLimit, align 4
   %sub4 = add i32 %sub.neg, %6
   store i32 %sub4, ptr %contextLimit, align 4

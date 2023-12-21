@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
-%struct.prov_cast_ctx_st = type { %struct.prov_cipher_ctx_st, %union.anon.0 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { double, [128 x i8] }
 
 @cast5_cbc = internal constant %struct.prov_cipher_hw_st { ptr @cipher_hw_cast5_initkey, ptr @cipher_hw_cast5_cbc_cipher, ptr null }, align 8
 @cast5_ecb = internal constant %struct.prov_cipher_hw_st { ptr @cipher_hw_cast5_initkey, ptr @cipher_hw_cast5_ecb_cipher, ptr null }, align 8
@@ -41,7 +37,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_cast5_initkey(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %ks = getelementptr inbounds %struct.prov_cast_ctx_st, ptr %ctx, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %ctx, i64 192
   %conv = trunc i64 %keylen to i32
   tail call void @CAST_set_key(ptr noundef nonnull %ks, i32 noundef %conv, ptr noundef %key) #4
   ret i32 1
@@ -50,13 +46,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_cast5_cbc_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
-  %ks = getelementptr inbounds %struct.prov_cast_ctx_st, ptr %ctx, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %ctx, i64 192
   %cmp13 = icmp ugt i64 %len, 1073741823
   br i1 %cmp13, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -82,8 +78,8 @@ while.end:                                        ; preds = %while.body, %entry
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %iv3 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc5 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %iv3 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc5 = getelementptr inbounds i8, ptr %ctx, i64 108
   %bf.load6 = load i8, ptr %enc5, align 4
   %bf.lshr7 = lshr i8 %bf.load6, 1
   %bf.clear8 = and i8 %bf.lshr7, 1
@@ -102,15 +98,15 @@ declare void @CAST_cbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @cipher_hw_cast5_ecb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
-  %blocksize = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 8
+  %blocksize = getelementptr inbounds i8, ptr %ctx, i64 88
   %0 = load i64, ptr %blocksize, align 8
-  %ks = getelementptr inbounds %struct.prov_cast_ctx_st, ptr %ctx, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %ctx, i64 192
   %cmp = icmp ugt i64 %0, %len
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
   %sub = sub i64 %len, %0
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body
@@ -136,15 +132,15 @@ declare void @CAST_ecb_encrypt(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 define internal i32 @cipher_hw_cast5_ofb64_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %num = alloca i32, align 4
-  %num1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 18
+  %num1 = getelementptr inbounds i8, ptr %ctx, i64 160
   %0 = load i32, ptr %num1, align 8
   store i32 %0, ptr %num, align 4
-  %ks = getelementptr inbounds %struct.prov_cast_ctx_st, ptr %ctx, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %ctx, i64 192
   %cmp13 = icmp ugt i64 %len, 1073741823
   br i1 %cmp13, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -166,7 +162,7 @@ while.end:                                        ; preds = %while.body, %entry
   br i1 %cmp3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %iv4 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %iv4 = getelementptr inbounds i8, ptr %ctx, i64 32
   call void @CAST_ofb64_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %len.addr.0.lcssa, ptr noundef nonnull %ks, ptr noundef nonnull %iv4, ptr noundef nonnull %num) #4
   br label %if.end
 
@@ -182,8 +178,8 @@ declare void @CAST_ofb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noun
 define internal i32 @cipher_hw_cast5_cfb64_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) #1 {
 entry:
   %num = alloca i32, align 4
-  %ks = getelementptr inbounds %struct.prov_cast_ctx_st, ptr %ctx, i64 0, i32 1
-  %num1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 18
+  %ks = getelementptr inbounds i8, ptr %ctx, i64 192
+  %num1 = getelementptr inbounds i8, ptr %ctx, i64 160
   %0 = load i32, ptr %num1, align 8
   store i32 %0, ptr %num, align 4
   %cmp220.not = icmp eq i64 %len, 0
@@ -191,8 +187,8 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %len, i64 1073741824)
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body

@@ -3,8 +3,6 @@ source_filename = "bench/hermes/original/SynthTrace.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.facebook::hermes::tracing::SynthTrace::TraceValue" = type { i32, %union.anon }
-%union.anon = type { double }
 %"class.hermes::vm::GCConfig" = type { i32, i32, i32, double, i32, %"class.hermes::vm::GCSanitizeConfig", i8, i32, %"class.std::__cxx11::basic_string", %"class.hermes::vm::GCTripwireConfig", i8, i8, i8, i8, %"class.std::function.14", %"class.std::function.17" }
 %"class.hermes::vm::GCSanitizeConfig" = type { double, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.13 }
@@ -17,47 +15,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::function.14" = type { %"class.std::_Function_base", ptr }
 %"class.std::function.17" = type { %"class.std::_Function_base", ptr }
-%"class.facebook::hermes::tracing::SynthTrace" = type { %"class.std::unique_ptr", %"class.std::unique_ptr.2", %"class.std::vector", i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
-%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
-%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
-%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
-%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>, std::allocator<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>, std::allocator<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>, std::allocator<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>, std::allocator<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"class.hermes::JSONEmitter" = type { %"class.llvh::SmallVector", ptr, i8, i32 }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage" = type { [8 x %"struct.llvh::AlignedCharArrayUnion"] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [5 x i8] }
-%"class.hermes::vm::RuntimeConfig" = type <{ %"class.hermes::vm::GCConfig", ptr, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::function.19", i8, i8, i8, i8, i32, i8, i8, i8, i8, i32, i8, [7 x i8], %"class.std::shared_ptr", i32, i8, [3 x i8] }>
-%"class.std::function.19" = type { %"class.std::_Function_base", ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::unique_ptr.35" = type { %"struct.std::__uniq_ptr_data.36" }
-%"struct.std::__uniq_ptr_data.36" = type { %"class.std::__uniq_ptr_impl.37" }
-%"class.std::__uniq_ptr_impl.37" = type { %"class.std::tuple.38" }
-%"class.std::tuple.38" = type { %"struct.std::_Tuple_impl.39" }
-%"struct.std::_Tuple_impl.39" = type { %"struct.std::_Head_base.42" }
-%"struct.std::_Head_base.42" = type { ptr }
 %"class.std::allocator.10" = type { i8 }
 %"class.llvh::raw_string_ostream" = type { %"class.llvh::raw_ostream.base", ptr }
 %"class.llvh::raw_ostream.base" = type <{ ptr, ptr, ptr, ptr, i32 }>
-%"class.llvh::raw_ostream" = type <{ ptr, ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -68,37 +28,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.facebook::hermes::tracing::SynthTrace::MarkerRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", %"class.std::__cxx11::basic_string" }
-%"struct.facebook::hermes::tracing::SynthTrace::Record" = type { ptr, %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord" = type <{ %"struct.facebook::hermes::tracing::SynthTrace::Record", %"class.std::__cxx11::basic_string", %"struct.std::array", i8, [3 x i8] }>
-%"struct.std::array" = type { [20 x i8] }
-%"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64 }
-%"struct.facebook::hermes::tracing::SynthTrace::DrainMicrotasksRecord" = type <{ %"struct.facebook::hermes::tracing::SynthTrace::Record", i32, [4 x i8] }>
-%"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, i32, i64 }
-%"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord" = type <{ %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, i64, i32, [4 x i8] }>
-%"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord" = type <{ %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord" = type <{ %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, %"class.std::__cxx11::basic_string", %"class.facebook::hermes::tracing::SynthTrace::TraceValue", i32, [4 x i8] }>
-%"struct.facebook::hermes::tracing::SynthTrace::CreateHostFunctionRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord", i32, i32 }
-%"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, %"class.facebook::hermes::tracing::SynthTrace::TraceValue", %"class.facebook::hermes::tracing::SynthTrace::TraceValue" }
-%"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, %"class.facebook::hermes::tracing::SynthTrace::TraceValue" }
-%"struct.facebook::hermes::tracing::SynthTrace::GetPropertyNamesRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, i64 }
-%"struct.facebook::hermes::tracing::SynthTrace::CreateArrayRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, i64 }
-%"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, i64, %"class.facebook::hermes::tracing::SynthTrace::TraceValue" }
-%"struct.facebook::hermes::tracing::SynthTrace::CallRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, %"class.facebook::hermes::tracing::SynthTrace::TraceValue", %"class.std::vector.21" }
-%"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
-%"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<facebook::hermes::tracing::SynthTrace::TraceValue, std::allocator<facebook::hermes::tracing::SynthTrace::TraceValue>>::_Vector_impl" }
-%"struct.std::_Vector_base<facebook::hermes::tracing::SynthTrace::TraceValue, std::allocator<facebook::hermes::tracing::SynthTrace::TraceValue>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::hermes::tracing::SynthTrace::TraceValue, std::allocator<facebook::hermes::tracing::SynthTrace::TraceValue>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<facebook::hermes::tracing::SynthTrace::TraceValue, std::allocator<facebook::hermes::tracing::SynthTrace::TraceValue>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, i64, %"class.std::__cxx11::basic_string" }
-%"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", %"class.facebook::hermes::tracing::SynthTrace::TraceValue" }
-%"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64 }
-%"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesReturnRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", %"class.std::vector.27" }
-%"class.std::vector.27" = type { %"struct.std::_Vector_base.28" }
-%"struct.std::_Vector_base.28" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.facebook::hermes::tracing::SynthTrace::SetExternalMemoryPressureRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, i64 }
 %struct._Guard = type { ptr }
 %"class.std::vector.43" = type { %"struct.std::_Vector_base.44" }
 %"struct.std::_Vector_base.44" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
@@ -605,9 +534,9 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %val_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %this, i64 0, i32 1
+  %val_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i8, ptr %val_, align 8
-  %val_4 = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %that, i64 0, i32 1
+  %val_4 = getelementptr inbounds i8, ptr %that, i64 8
   %3 = load i8, ptr %val_4, align 8
   %4 = xor i8 %3, %2
   %5 = and i8 %4, 1
@@ -615,17 +544,17 @@ sw.bb:                                            ; preds = %if.end
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %val_9 = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %this, i64 0, i32 1
+  %val_9 = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load double, ptr %val_9, align 8
-  %val_10 = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %that, i64 0, i32 1
+  %val_10 = getelementptr inbounds i8, ptr %that, i64 8
   %7 = load double, ptr %val_10, align 8
   %cmp11 = fcmp oeq double %6, %7
   br label %return
 
 sw.bb12:                                          ; preds = %if.end, %if.end, %if.end
-  %val_13 = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %this, i64 0, i32 1
+  %val_13 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %val_13, align 8
-  %val_14 = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %that, i64 0, i32 1
+  %val_14 = getelementptr inbounds i8, ptr %that, i64 8
   %9 = load i64, ptr %val_14, align 8
   %cmp15 = icmp eq i64 %8, %9
   br label %return
@@ -651,9 +580,9 @@ entry:
   %0 = load i64, ptr %traceStream, align 8
   store i64 %0, ptr %this, align 8
   store ptr null, ptr %traceStream, align 8
-  %json_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 1
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %globalObjID_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 3
+  %json_ = getelementptr inbounds i8, ptr %this, i64 8
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %globalObjID_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %json_, i8 0, i64 32, i1 false)
   store i64 %globalObjID, ptr %globalObjID_, align 8
   %1 = load ptr, ptr %this, align 8
@@ -667,15 +596,15 @@ if.then:                                          ; preds = %entry
 _ZNSt10unique_ptrIN6hermes11JSONEmitterESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.then
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i77, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %call.i77, align 8, !noalias !4
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %call.i77, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i77, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8, !noalias !4
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %call.i77, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i77, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !noalias !4
-  %OS2.i.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %call.i77, i64 0, i32 1
+  %OS2.i.i = getelementptr inbounds i8, ptr %call.i77, i64 56
   store ptr %1, ptr %OS2.i.i, align 8, !noalias !4
-  %pretty_.i.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %call.i77, i64 0, i32 2
+  %pretty_.i.i = getelementptr inbounds i8, ptr %call.i77, i64 64
   store i8 1, ptr %pretty_.i.i, align 8, !noalias !4
-  %indent_.i.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %call.i77, i64 0, i32 3
+  %indent_.i.i = getelementptr inbounds i8, ptr %call.i77, i64 68
   store i32 0, ptr %indent_.i.i, align 4, !noalias !4
   store ptr %call.i77, ptr %json_, align 8
   invoke void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %call.i77)
@@ -735,13 +664,13 @@ invoke.cont46:                                    ; preds = %invoke.cont39
           to label %invoke.cont50 unwind label %lpad47
 
 invoke.cont50:                                    ; preds = %.noexc83
-  %_M_manager.i.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp45, i64 0, i32 15, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp45, i64 184
   %11 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont50
-  %Callback_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp45, i64 0, i32 15
+  %Callback_.i = getelementptr inbounds i8, ptr %ref.tmp45, i64 168
   %call.i.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i, i32 noundef 3)
           to label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i unwind label %terminate.lpad.i.i.i
 
@@ -753,13 +682,13 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i: ; preds = %if.then.i.i.i, %invoke.cont50
-  %_M_manager.i.i1.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp45, i64 0, i32 14, i32 0, i32 1
+  %_M_manager.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp45, i64 152
   %14 = load ptr, ptr %_M_manager.i.i1.i, align 8
   %tobool.not.i.i2.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i2.i, label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i, label %if.then.i.i3.i
 
 if.then.i.i3.i:                                   ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i
-  %AnalyticsCallback_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp45, i64 0, i32 14
+  %AnalyticsCallback_.i = getelementptr inbounds i8, ptr %ref.tmp45, i64 136
   %call.i.i4.i = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i, ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i unwind label %terminate.lpad.i.i5.i
 
@@ -771,13 +700,13 @@ terminate.lpad.i.i5.i:                            ; preds = %if.then.i.i3.i
   unreachable
 
 _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i: ; preds = %if.then.i.i3.i, %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp45, i64 0, i32 9, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp45, i64 112
   %17 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i86 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i86, label %_ZN6hermes2vm8GCConfigD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i
-  %Callback_.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp45, i64 0, i32 9, i32 1
+  %Callback_.i.i = getelementptr inbounds i8, ptr %ref.tmp45, i64 96
   %call.i.i.i.i = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i, i32 noundef 3)
           to label %_ZN6hermes2vm8GCConfigD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -789,14 +718,14 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN6hermes2vm8GCConfigD2Ev.exit:                  ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i, %if.then.i.i.i.i
-  %Name_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp45, i64 0, i32 8
+  %Name_.i = getelementptr inbounds i8, ptr %ref.tmp45, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name_.i) #23
   %20 = load ptr, ptr %json_, align 8
   invoke void @_ZN6hermes2vm8GCConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp56, ptr noundef nonnull align 8 dereferenceable(200) %conf)
           to label %invoke.cont57 unwind label %lpad
 
 invoke.cont57:                                    ; preds = %_ZN6hermes2vm8GCConfigD2Ev.exit
-  %InitHeapSize_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp56, i64 0, i32 1
+  %InitHeapSize_.i = getelementptr inbounds i8, ptr %ref.tmp56, i64 4
   %21 = load i32, ptr %InitHeapSize_.i, align 4
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %20, ptr nonnull @.str.5, i64 12)
           to label %.noexc89 unwind label %lpad58
@@ -806,13 +735,13 @@ invoke.cont57:                                    ; preds = %_ZN6hermes2vm8GCCon
           to label %invoke.cont61 unwind label %lpad58
 
 invoke.cont61:                                    ; preds = %.noexc89
-  %_M_manager.i.i.i92 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp56, i64 0, i32 15, i32 0, i32 1
+  %_M_manager.i.i.i92 = getelementptr inbounds i8, ptr %ref.tmp56, i64 184
   %22 = load ptr, ptr %_M_manager.i.i.i92, align 8
   %tobool.not.i.i.i93 = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i93, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i98, label %if.then.i.i.i94
 
 if.then.i.i.i94:                                  ; preds = %invoke.cont61
-  %Callback_.i95 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp56, i64 0, i32 15
+  %Callback_.i95 = getelementptr inbounds i8, ptr %ref.tmp56, i64 168
   %call.i.i.i96 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i95, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i95, i32 noundef 3)
           to label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i98 unwind label %terminate.lpad.i.i.i97
 
@@ -824,13 +753,13 @@ terminate.lpad.i.i.i97:                           ; preds = %if.then.i.i.i94
   unreachable
 
 _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i98: ; preds = %if.then.i.i.i94, %invoke.cont61
-  %_M_manager.i.i1.i99 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp56, i64 0, i32 14, i32 0, i32 1
+  %_M_manager.i.i1.i99 = getelementptr inbounds i8, ptr %ref.tmp56, i64 152
   %25 = load ptr, ptr %_M_manager.i.i1.i99, align 8
   %tobool.not.i.i2.i100 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i2.i100, label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i105, label %if.then.i.i3.i101
 
 if.then.i.i3.i101:                                ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i98
-  %AnalyticsCallback_.i102 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp56, i64 0, i32 14
+  %AnalyticsCallback_.i102 = getelementptr inbounds i8, ptr %ref.tmp56, i64 136
   %call.i.i4.i103 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i102, ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i102, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i105 unwind label %terminate.lpad.i.i5.i104
 
@@ -842,13 +771,13 @@ terminate.lpad.i.i5.i104:                         ; preds = %if.then.i.i3.i101
   unreachable
 
 _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i105: ; preds = %if.then.i.i3.i101, %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i98
-  %_M_manager.i.i.i.i106 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp56, i64 0, i32 9, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i106 = getelementptr inbounds i8, ptr %ref.tmp56, i64 112
   %28 = load ptr, ptr %_M_manager.i.i.i.i106, align 8
   %tobool.not.i.i.i.i107 = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i.i107, label %_ZN6hermes2vm8GCConfigD2Ev.exit113, label %if.then.i.i.i.i108
 
 if.then.i.i.i.i108:                               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i105
-  %Callback_.i.i109 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp56, i64 0, i32 9, i32 1
+  %Callback_.i.i109 = getelementptr inbounds i8, ptr %ref.tmp56, i64 96
   %call.i.i.i.i110 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i109, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i109, i32 noundef 3)
           to label %_ZN6hermes2vm8GCConfigD2Ev.exit113 unwind label %terminate.lpad.i.i.i.i111
 
@@ -860,14 +789,14 @@ terminate.lpad.i.i.i.i111:                        ; preds = %if.then.i.i.i.i108
   unreachable
 
 _ZN6hermes2vm8GCConfigD2Ev.exit113:               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i105, %if.then.i.i.i.i108
-  %Name_.i112 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp56, i64 0, i32 8
+  %Name_.i112 = getelementptr inbounds i8, ptr %ref.tmp56, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name_.i112) #23
   %31 = load ptr, ptr %json_, align 8
   invoke void @_ZN6hermes2vm8GCConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(200) %conf)
           to label %invoke.cont68 unwind label %lpad
 
 invoke.cont68:                                    ; preds = %_ZN6hermes2vm8GCConfigD2Ev.exit113
-  %MaxHeapSize_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp67, i64 0, i32 2
+  %MaxHeapSize_.i = getelementptr inbounds i8, ptr %ref.tmp67, i64 8
   %32 = load i32, ptr %MaxHeapSize_.i, align 8
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr nonnull @.str.6, i64 11)
           to label %.noexc116 unwind label %lpad69
@@ -877,13 +806,13 @@ invoke.cont68:                                    ; preds = %_ZN6hermes2vm8GCCon
           to label %invoke.cont72 unwind label %lpad69
 
 invoke.cont72:                                    ; preds = %.noexc116
-  %_M_manager.i.i.i119 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp67, i64 0, i32 15, i32 0, i32 1
+  %_M_manager.i.i.i119 = getelementptr inbounds i8, ptr %ref.tmp67, i64 184
   %33 = load ptr, ptr %_M_manager.i.i.i119, align 8
   %tobool.not.i.i.i120 = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i120, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i125, label %if.then.i.i.i121
 
 if.then.i.i.i121:                                 ; preds = %invoke.cont72
-  %Callback_.i122 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp67, i64 0, i32 15
+  %Callback_.i122 = getelementptr inbounds i8, ptr %ref.tmp67, i64 168
   %call.i.i.i123 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i122, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i122, i32 noundef 3)
           to label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i125 unwind label %terminate.lpad.i.i.i124
 
@@ -895,13 +824,13 @@ terminate.lpad.i.i.i124:                          ; preds = %if.then.i.i.i121
   unreachable
 
 _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i125: ; preds = %if.then.i.i.i121, %invoke.cont72
-  %_M_manager.i.i1.i126 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp67, i64 0, i32 14, i32 0, i32 1
+  %_M_manager.i.i1.i126 = getelementptr inbounds i8, ptr %ref.tmp67, i64 152
   %36 = load ptr, ptr %_M_manager.i.i1.i126, align 8
   %tobool.not.i.i2.i127 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i2.i127, label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i132, label %if.then.i.i3.i128
 
 if.then.i.i3.i128:                                ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i125
-  %AnalyticsCallback_.i129 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp67, i64 0, i32 14
+  %AnalyticsCallback_.i129 = getelementptr inbounds i8, ptr %ref.tmp67, i64 136
   %call.i.i4.i130 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i129, ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i129, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i132 unwind label %terminate.lpad.i.i5.i131
 
@@ -913,13 +842,13 @@ terminate.lpad.i.i5.i131:                         ; preds = %if.then.i.i3.i128
   unreachable
 
 _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i132: ; preds = %if.then.i.i3.i128, %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i125
-  %_M_manager.i.i.i.i133 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp67, i64 0, i32 9, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i133 = getelementptr inbounds i8, ptr %ref.tmp67, i64 112
   %39 = load ptr, ptr %_M_manager.i.i.i.i133, align 8
   %tobool.not.i.i.i.i134 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i.i134, label %_ZN6hermes2vm8GCConfigD2Ev.exit140, label %if.then.i.i.i.i135
 
 if.then.i.i.i.i135:                               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i132
-  %Callback_.i.i136 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp67, i64 0, i32 9, i32 1
+  %Callback_.i.i136 = getelementptr inbounds i8, ptr %ref.tmp67, i64 96
   %call.i.i.i.i137 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i136, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i136, i32 noundef 3)
           to label %_ZN6hermes2vm8GCConfigD2Ev.exit140 unwind label %terminate.lpad.i.i.i.i138
 
@@ -931,14 +860,14 @@ terminate.lpad.i.i.i.i138:                        ; preds = %if.then.i.i.i.i135
   unreachable
 
 _ZN6hermes2vm8GCConfigD2Ev.exit140:               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i132, %if.then.i.i.i.i135
-  %Name_.i139 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp67, i64 0, i32 8
+  %Name_.i139 = getelementptr inbounds i8, ptr %ref.tmp67, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name_.i139) #23
   %42 = load ptr, ptr %json_, align 8
   invoke void @_ZN6hermes2vm8GCConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(200) %conf)
           to label %invoke.cont79 unwind label %lpad
 
 invoke.cont79:                                    ; preds = %_ZN6hermes2vm8GCConfigD2Ev.exit140
-  %OccupancyTarget_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp78, i64 0, i32 3
+  %OccupancyTarget_.i = getelementptr inbounds i8, ptr %ref.tmp78, i64 16
   %43 = load double, ptr %OccupancyTarget_.i, align 8
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %42, ptr nonnull @.str.7, i64 15)
           to label %.noexc143 unwind label %lpad80
@@ -948,13 +877,13 @@ invoke.cont79:                                    ; preds = %_ZN6hermes2vm8GCCon
           to label %invoke.cont83 unwind label %lpad80
 
 invoke.cont83:                                    ; preds = %.noexc143
-  %_M_manager.i.i.i145 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp78, i64 0, i32 15, i32 0, i32 1
+  %_M_manager.i.i.i145 = getelementptr inbounds i8, ptr %ref.tmp78, i64 184
   %44 = load ptr, ptr %_M_manager.i.i.i145, align 8
   %tobool.not.i.i.i146 = icmp eq ptr %44, null
   br i1 %tobool.not.i.i.i146, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i151, label %if.then.i.i.i147
 
 if.then.i.i.i147:                                 ; preds = %invoke.cont83
-  %Callback_.i148 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp78, i64 0, i32 15
+  %Callback_.i148 = getelementptr inbounds i8, ptr %ref.tmp78, i64 168
   %call.i.i.i149 = invoke noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i148, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i148, i32 noundef 3)
           to label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i151 unwind label %terminate.lpad.i.i.i150
 
@@ -966,13 +895,13 @@ terminate.lpad.i.i.i150:                          ; preds = %if.then.i.i.i147
   unreachable
 
 _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i151: ; preds = %if.then.i.i.i147, %invoke.cont83
-  %_M_manager.i.i1.i152 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp78, i64 0, i32 14, i32 0, i32 1
+  %_M_manager.i.i1.i152 = getelementptr inbounds i8, ptr %ref.tmp78, i64 152
   %47 = load ptr, ptr %_M_manager.i.i1.i152, align 8
   %tobool.not.i.i2.i153 = icmp eq ptr %47, null
   br i1 %tobool.not.i.i2.i153, label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i158, label %if.then.i.i3.i154
 
 if.then.i.i3.i154:                                ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i151
-  %AnalyticsCallback_.i155 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp78, i64 0, i32 14
+  %AnalyticsCallback_.i155 = getelementptr inbounds i8, ptr %ref.tmp78, i64 136
   %call.i.i4.i156 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i155, ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i155, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i158 unwind label %terminate.lpad.i.i5.i157
 
@@ -984,13 +913,13 @@ terminate.lpad.i.i5.i157:                         ; preds = %if.then.i.i3.i154
   unreachable
 
 _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i158: ; preds = %if.then.i.i3.i154, %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i151
-  %_M_manager.i.i.i.i159 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp78, i64 0, i32 9, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i159 = getelementptr inbounds i8, ptr %ref.tmp78, i64 112
   %50 = load ptr, ptr %_M_manager.i.i.i.i159, align 8
   %tobool.not.i.i.i.i160 = icmp eq ptr %50, null
   br i1 %tobool.not.i.i.i.i160, label %_ZN6hermes2vm8GCConfigD2Ev.exit166, label %if.then.i.i.i.i161
 
 if.then.i.i.i.i161:                               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i158
-  %Callback_.i.i162 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp78, i64 0, i32 9, i32 1
+  %Callback_.i.i162 = getelementptr inbounds i8, ptr %ref.tmp78, i64 96
   %call.i.i.i.i163 = invoke noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i162, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i162, i32 noundef 3)
           to label %_ZN6hermes2vm8GCConfigD2Ev.exit166 unwind label %terminate.lpad.i.i.i.i164
 
@@ -1002,14 +931,14 @@ terminate.lpad.i.i.i.i164:                        ; preds = %if.then.i.i.i.i161
   unreachable
 
 _ZN6hermes2vm8GCConfigD2Ev.exit166:               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i158, %if.then.i.i.i.i161
-  %Name_.i165 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp78, i64 0, i32 8
+  %Name_.i165 = getelementptr inbounds i8, ptr %ref.tmp78, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name_.i165) #23
   %53 = load ptr, ptr %json_, align 8
   invoke void @_ZN6hermes2vm8GCConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp89, ptr noundef nonnull align 8 dereferenceable(200) %conf)
           to label %invoke.cont90 unwind label %lpad
 
 invoke.cont90:                                    ; preds = %_ZN6hermes2vm8GCConfigD2Ev.exit166
-  %EffectiveOOMThreshold_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp89, i64 0, i32 4
+  %EffectiveOOMThreshold_.i = getelementptr inbounds i8, ptr %ref.tmp89, i64 24
   %54 = load i32, ptr %EffectiveOOMThreshold_.i, align 8
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %53, ptr nonnull @.str.8, i64 21)
           to label %.noexc169 unwind label %lpad91
@@ -1019,13 +948,13 @@ invoke.cont90:                                    ; preds = %_ZN6hermes2vm8GCCon
           to label %invoke.cont94 unwind label %lpad91
 
 invoke.cont94:                                    ; preds = %.noexc169
-  %_M_manager.i.i.i172 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp89, i64 0, i32 15, i32 0, i32 1
+  %_M_manager.i.i.i172 = getelementptr inbounds i8, ptr %ref.tmp89, i64 184
   %55 = load ptr, ptr %_M_manager.i.i.i172, align 8
   %tobool.not.i.i.i173 = icmp eq ptr %55, null
   br i1 %tobool.not.i.i.i173, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i178, label %if.then.i.i.i174
 
 if.then.i.i.i174:                                 ; preds = %invoke.cont94
-  %Callback_.i175 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp89, i64 0, i32 15
+  %Callback_.i175 = getelementptr inbounds i8, ptr %ref.tmp89, i64 168
   %call.i.i.i176 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i175, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i175, i32 noundef 3)
           to label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i178 unwind label %terminate.lpad.i.i.i177
 
@@ -1037,13 +966,13 @@ terminate.lpad.i.i.i177:                          ; preds = %if.then.i.i.i174
   unreachable
 
 _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i178: ; preds = %if.then.i.i.i174, %invoke.cont94
-  %_M_manager.i.i1.i179 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp89, i64 0, i32 14, i32 0, i32 1
+  %_M_manager.i.i1.i179 = getelementptr inbounds i8, ptr %ref.tmp89, i64 152
   %58 = load ptr, ptr %_M_manager.i.i1.i179, align 8
   %tobool.not.i.i2.i180 = icmp eq ptr %58, null
   br i1 %tobool.not.i.i2.i180, label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i185, label %if.then.i.i3.i181
 
 if.then.i.i3.i181:                                ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i178
-  %AnalyticsCallback_.i182 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp89, i64 0, i32 14
+  %AnalyticsCallback_.i182 = getelementptr inbounds i8, ptr %ref.tmp89, i64 136
   %call.i.i4.i183 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i182, ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i182, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i185 unwind label %terminate.lpad.i.i5.i184
 
@@ -1055,13 +984,13 @@ terminate.lpad.i.i5.i184:                         ; preds = %if.then.i.i3.i181
   unreachable
 
 _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i185: ; preds = %if.then.i.i3.i181, %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i178
-  %_M_manager.i.i.i.i186 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp89, i64 0, i32 9, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i186 = getelementptr inbounds i8, ptr %ref.tmp89, i64 112
   %61 = load ptr, ptr %_M_manager.i.i.i.i186, align 8
   %tobool.not.i.i.i.i187 = icmp eq ptr %61, null
   br i1 %tobool.not.i.i.i.i187, label %_ZN6hermes2vm8GCConfigD2Ev.exit193, label %if.then.i.i.i.i188
 
 if.then.i.i.i.i188:                               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i185
-  %Callback_.i.i189 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp89, i64 0, i32 9, i32 1
+  %Callback_.i.i189 = getelementptr inbounds i8, ptr %ref.tmp89, i64 96
   %call.i.i.i.i190 = invoke noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i189, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i189, i32 noundef 3)
           to label %_ZN6hermes2vm8GCConfigD2Ev.exit193 unwind label %terminate.lpad.i.i.i.i191
 
@@ -1073,14 +1002,14 @@ terminate.lpad.i.i.i.i191:                        ; preds = %if.then.i.i.i.i188
   unreachable
 
 _ZN6hermes2vm8GCConfigD2Ev.exit193:               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i185, %if.then.i.i.i.i188
-  %Name_.i192 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp89, i64 0, i32 8
+  %Name_.i192 = getelementptr inbounds i8, ptr %ref.tmp89, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name_.i192) #23
   %64 = load ptr, ptr %json_, align 8
   invoke void @_ZN6hermes2vm8GCConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp100, ptr noundef nonnull align 8 dereferenceable(200) %conf)
           to label %invoke.cont101 unwind label %lpad
 
 invoke.cont101:                                   ; preds = %_ZN6hermes2vm8GCConfigD2Ev.exit193
-  %ShouldReleaseUnused_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp100, i64 0, i32 7
+  %ShouldReleaseUnused_.i = getelementptr inbounds i8, ptr %ref.tmp100, i64 52
   %65 = load i32, ptr %ShouldReleaseUnused_.i, align 4
   %66 = sext i32 %65 to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN8facebook6hermes7tracing10SynthTrace21nameFromReleaseUnusedEN6hermes2vm13ReleaseUnusedE, i64 0, i64 %66
@@ -1094,13 +1023,13 @@ _ZN6hermes11JSONEmitter9emitValueEPKc.exit.i:     ; preds = %invoke.cont101
           to label %invoke.cont107 unwind label %lpad102
 
 invoke.cont107:                                   ; preds = %_ZN6hermes11JSONEmitter9emitValueEPKc.exit.i
-  %_M_manager.i.i.i199 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp100, i64 0, i32 15, i32 0, i32 1
+  %_M_manager.i.i.i199 = getelementptr inbounds i8, ptr %ref.tmp100, i64 184
   %67 = load ptr, ptr %_M_manager.i.i.i199, align 8
   %tobool.not.i.i.i200 = icmp eq ptr %67, null
   br i1 %tobool.not.i.i.i200, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i205, label %if.then.i.i.i201
 
 if.then.i.i.i201:                                 ; preds = %invoke.cont107
-  %Callback_.i202 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp100, i64 0, i32 15
+  %Callback_.i202 = getelementptr inbounds i8, ptr %ref.tmp100, i64 168
   %call.i.i.i203 = invoke noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i202, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i202, i32 noundef 3)
           to label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i205 unwind label %terminate.lpad.i.i.i204
 
@@ -1112,13 +1041,13 @@ terminate.lpad.i.i.i204:                          ; preds = %if.then.i.i.i201
   unreachable
 
 _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i205: ; preds = %if.then.i.i.i201, %invoke.cont107
-  %_M_manager.i.i1.i206 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp100, i64 0, i32 14, i32 0, i32 1
+  %_M_manager.i.i1.i206 = getelementptr inbounds i8, ptr %ref.tmp100, i64 152
   %70 = load ptr, ptr %_M_manager.i.i1.i206, align 8
   %tobool.not.i.i2.i207 = icmp eq ptr %70, null
   br i1 %tobool.not.i.i2.i207, label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i212, label %if.then.i.i3.i208
 
 if.then.i.i3.i208:                                ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i205
-  %AnalyticsCallback_.i209 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp100, i64 0, i32 14
+  %AnalyticsCallback_.i209 = getelementptr inbounds i8, ptr %ref.tmp100, i64 136
   %call.i.i4.i210 = invoke noundef zeroext i1 %70(ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i209, ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i209, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i212 unwind label %terminate.lpad.i.i5.i211
 
@@ -1130,13 +1059,13 @@ terminate.lpad.i.i5.i211:                         ; preds = %if.then.i.i3.i208
   unreachable
 
 _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i212: ; preds = %if.then.i.i3.i208, %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i205
-  %_M_manager.i.i.i.i213 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp100, i64 0, i32 9, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i213 = getelementptr inbounds i8, ptr %ref.tmp100, i64 112
   %73 = load ptr, ptr %_M_manager.i.i.i.i213, align 8
   %tobool.not.i.i.i.i214 = icmp eq ptr %73, null
   br i1 %tobool.not.i.i.i.i214, label %_ZN6hermes2vm8GCConfigD2Ev.exit220, label %if.then.i.i.i.i215
 
 if.then.i.i.i.i215:                               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i212
-  %Callback_.i.i216 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp100, i64 0, i32 9, i32 1
+  %Callback_.i.i216 = getelementptr inbounds i8, ptr %ref.tmp100, i64 96
   %call.i.i.i.i217 = invoke noundef zeroext i1 %73(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i216, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i216, i32 noundef 3)
           to label %_ZN6hermes2vm8GCConfigD2Ev.exit220 unwind label %terminate.lpad.i.i.i.i218
 
@@ -1148,14 +1077,14 @@ terminate.lpad.i.i.i.i218:                        ; preds = %if.then.i.i.i.i215
   unreachable
 
 _ZN6hermes2vm8GCConfigD2Ev.exit220:               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i212, %if.then.i.i.i.i215
-  %Name_.i219 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp100, i64 0, i32 8
+  %Name_.i219 = getelementptr inbounds i8, ptr %ref.tmp100, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name_.i219) #23
   %76 = load ptr, ptr %json_, align 8
   invoke void @_ZN6hermes2vm8GCConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(200) %conf)
           to label %invoke.cont114 unwind label %lpad
 
 invoke.cont114:                                   ; preds = %_ZN6hermes2vm8GCConfigD2Ev.exit220
-  %Name_.i223 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp113, i64 0, i32 8
+  %Name_.i223 = getelementptr inbounds i8, ptr %ref.tmp113, i64 56
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(32) %Name_.i223)
           to label %invoke.cont116 unwind label %lpad115
 
@@ -1171,13 +1100,13 @@ invoke.cont116:                                   ; preds = %invoke.cont114
 
 invoke.cont118:                                   ; preds = %.noexc225
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp112) #23
-  %_M_manager.i.i.i227 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp113, i64 0, i32 15, i32 0, i32 1
+  %_M_manager.i.i.i227 = getelementptr inbounds i8, ptr %ref.tmp113, i64 184
   %77 = load ptr, ptr %_M_manager.i.i.i227, align 8
   %tobool.not.i.i.i228 = icmp eq ptr %77, null
   br i1 %tobool.not.i.i.i228, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i233, label %if.then.i.i.i229
 
 if.then.i.i.i229:                                 ; preds = %invoke.cont118
-  %Callback_.i230 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp113, i64 0, i32 15
+  %Callback_.i230 = getelementptr inbounds i8, ptr %ref.tmp113, i64 168
   %call.i.i.i231 = invoke noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i230, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i230, i32 noundef 3)
           to label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i233 unwind label %terminate.lpad.i.i.i232
 
@@ -1189,13 +1118,13 @@ terminate.lpad.i.i.i232:                          ; preds = %if.then.i.i.i229
   unreachable
 
 _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i233: ; preds = %if.then.i.i.i229, %invoke.cont118
-  %_M_manager.i.i1.i234 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp113, i64 0, i32 14, i32 0, i32 1
+  %_M_manager.i.i1.i234 = getelementptr inbounds i8, ptr %ref.tmp113, i64 152
   %80 = load ptr, ptr %_M_manager.i.i1.i234, align 8
   %tobool.not.i.i2.i235 = icmp eq ptr %80, null
   br i1 %tobool.not.i.i2.i235, label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i240, label %if.then.i.i3.i236
 
 if.then.i.i3.i236:                                ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i233
-  %AnalyticsCallback_.i237 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp113, i64 0, i32 14
+  %AnalyticsCallback_.i237 = getelementptr inbounds i8, ptr %ref.tmp113, i64 136
   %call.i.i4.i238 = invoke noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i237, ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i237, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i240 unwind label %terminate.lpad.i.i5.i239
 
@@ -1207,13 +1136,13 @@ terminate.lpad.i.i5.i239:                         ; preds = %if.then.i.i3.i236
   unreachable
 
 _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i240: ; preds = %if.then.i.i3.i236, %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i233
-  %_M_manager.i.i.i.i241 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp113, i64 0, i32 9, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i241 = getelementptr inbounds i8, ptr %ref.tmp113, i64 112
   %83 = load ptr, ptr %_M_manager.i.i.i.i241, align 8
   %tobool.not.i.i.i.i242 = icmp eq ptr %83, null
   br i1 %tobool.not.i.i.i.i242, label %_ZN6hermes2vm8GCConfigD2Ev.exit248, label %if.then.i.i.i.i243
 
 if.then.i.i.i.i243:                               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i240
-  %Callback_.i.i244 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp113, i64 0, i32 9, i32 1
+  %Callback_.i.i244 = getelementptr inbounds i8, ptr %ref.tmp113, i64 96
   %call.i.i.i.i245 = invoke noundef zeroext i1 %83(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i244, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i244, i32 noundef 3)
           to label %_ZN6hermes2vm8GCConfigD2Ev.exit248 unwind label %terminate.lpad.i.i.i.i246
 
@@ -1231,7 +1160,7 @@ _ZN6hermes2vm8GCConfigD2Ev.exit248:               ; preds = %_ZNSt8functionIFvRK
           to label %invoke.cont125 unwind label %lpad
 
 invoke.cont125:                                   ; preds = %_ZN6hermes2vm8GCConfigD2Ev.exit248
-  %AllocInYoung_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp124, i64 0, i32 10
+  %AllocInYoung_.i = getelementptr inbounds i8, ptr %ref.tmp124, i64 128
   %87 = load i8, ptr %AllocInYoung_.i, align 8
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %86, ptr nonnull @.str.11, i64 12)
           to label %.noexc252 unwind label %lpad126
@@ -1243,13 +1172,13 @@ invoke.cont125:                                   ; preds = %_ZN6hermes2vm8GCCon
           to label %invoke.cont129 unwind label %lpad126
 
 invoke.cont129:                                   ; preds = %.noexc252
-  %_M_manager.i.i.i254 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp124, i64 0, i32 15, i32 0, i32 1
+  %_M_manager.i.i.i254 = getelementptr inbounds i8, ptr %ref.tmp124, i64 184
   %89 = load ptr, ptr %_M_manager.i.i.i254, align 8
   %tobool.not.i.i.i255 = icmp eq ptr %89, null
   br i1 %tobool.not.i.i.i255, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i260, label %if.then.i.i.i256
 
 if.then.i.i.i256:                                 ; preds = %invoke.cont129
-  %Callback_.i257 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp124, i64 0, i32 15
+  %Callback_.i257 = getelementptr inbounds i8, ptr %ref.tmp124, i64 168
   %call.i.i.i258 = invoke noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i257, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i257, i32 noundef 3)
           to label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i260 unwind label %terminate.lpad.i.i.i259
 
@@ -1261,13 +1190,13 @@ terminate.lpad.i.i.i259:                          ; preds = %if.then.i.i.i256
   unreachable
 
 _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i260: ; preds = %if.then.i.i.i256, %invoke.cont129
-  %_M_manager.i.i1.i261 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp124, i64 0, i32 14, i32 0, i32 1
+  %_M_manager.i.i1.i261 = getelementptr inbounds i8, ptr %ref.tmp124, i64 152
   %92 = load ptr, ptr %_M_manager.i.i1.i261, align 8
   %tobool.not.i.i2.i262 = icmp eq ptr %92, null
   br i1 %tobool.not.i.i2.i262, label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i267, label %if.then.i.i3.i263
 
 if.then.i.i3.i263:                                ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i260
-  %AnalyticsCallback_.i264 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp124, i64 0, i32 14
+  %AnalyticsCallback_.i264 = getelementptr inbounds i8, ptr %ref.tmp124, i64 136
   %call.i.i4.i265 = invoke noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i264, ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i264, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i267 unwind label %terminate.lpad.i.i5.i266
 
@@ -1279,13 +1208,13 @@ terminate.lpad.i.i5.i266:                         ; preds = %if.then.i.i3.i263
   unreachable
 
 _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i267: ; preds = %if.then.i.i3.i263, %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i260
-  %_M_manager.i.i.i.i268 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp124, i64 0, i32 9, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i268 = getelementptr inbounds i8, ptr %ref.tmp124, i64 112
   %95 = load ptr, ptr %_M_manager.i.i.i.i268, align 8
   %tobool.not.i.i.i.i269 = icmp eq ptr %95, null
   br i1 %tobool.not.i.i.i.i269, label %_ZN6hermes2vm8GCConfigD2Ev.exit275, label %if.then.i.i.i.i270
 
 if.then.i.i.i.i270:                               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i267
-  %Callback_.i.i271 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp124, i64 0, i32 9, i32 1
+  %Callback_.i.i271 = getelementptr inbounds i8, ptr %ref.tmp124, i64 96
   %call.i.i.i.i272 = invoke noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i271, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i271, i32 noundef 3)
           to label %_ZN6hermes2vm8GCConfigD2Ev.exit275 unwind label %terminate.lpad.i.i.i.i273
 
@@ -1297,14 +1226,14 @@ terminate.lpad.i.i.i.i273:                        ; preds = %if.then.i.i.i.i270
   unreachable
 
 _ZN6hermes2vm8GCConfigD2Ev.exit275:               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i267, %if.then.i.i.i.i270
-  %Name_.i274 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp124, i64 0, i32 8
+  %Name_.i274 = getelementptr inbounds i8, ptr %ref.tmp124, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name_.i274) #23
   %98 = load ptr, ptr %json_, align 8
   invoke void @_ZN6hermes2vm8GCConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp136, ptr noundef nonnull align 8 dereferenceable(200) %conf)
           to label %invoke.cont137 unwind label %lpad
 
 invoke.cont137:                                   ; preds = %_ZN6hermes2vm8GCConfigD2Ev.exit275
-  %RevertToYGAtTTI_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp136, i64 0, i32 12
+  %RevertToYGAtTTI_.i = getelementptr inbounds i8, ptr %ref.tmp136, i64 130
   %99 = load i8, ptr %RevertToYGAtTTI_.i, align 2
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %98, ptr nonnull @.str.12, i64 15)
           to label %.noexc280 unwind label %lpad138
@@ -1316,13 +1245,13 @@ invoke.cont137:                                   ; preds = %_ZN6hermes2vm8GCCon
           to label %invoke.cont142 unwind label %lpad138
 
 invoke.cont142:                                   ; preds = %.noexc280
-  %_M_manager.i.i.i283 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp136, i64 0, i32 15, i32 0, i32 1
+  %_M_manager.i.i.i283 = getelementptr inbounds i8, ptr %ref.tmp136, i64 184
   %101 = load ptr, ptr %_M_manager.i.i.i283, align 8
   %tobool.not.i.i.i284 = icmp eq ptr %101, null
   br i1 %tobool.not.i.i.i284, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i289, label %if.then.i.i.i285
 
 if.then.i.i.i285:                                 ; preds = %invoke.cont142
-  %Callback_.i286 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp136, i64 0, i32 15
+  %Callback_.i286 = getelementptr inbounds i8, ptr %ref.tmp136, i64 168
   %call.i.i.i287 = invoke noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i286, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i286, i32 noundef 3)
           to label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i289 unwind label %terminate.lpad.i.i.i288
 
@@ -1334,13 +1263,13 @@ terminate.lpad.i.i.i288:                          ; preds = %if.then.i.i.i285
   unreachable
 
 _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i289: ; preds = %if.then.i.i.i285, %invoke.cont142
-  %_M_manager.i.i1.i290 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp136, i64 0, i32 14, i32 0, i32 1
+  %_M_manager.i.i1.i290 = getelementptr inbounds i8, ptr %ref.tmp136, i64 152
   %104 = load ptr, ptr %_M_manager.i.i1.i290, align 8
   %tobool.not.i.i2.i291 = icmp eq ptr %104, null
   br i1 %tobool.not.i.i2.i291, label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i296, label %if.then.i.i3.i292
 
 if.then.i.i3.i292:                                ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i289
-  %AnalyticsCallback_.i293 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp136, i64 0, i32 14
+  %AnalyticsCallback_.i293 = getelementptr inbounds i8, ptr %ref.tmp136, i64 136
   %call.i.i4.i294 = invoke noundef zeroext i1 %104(ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i293, ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i293, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i296 unwind label %terminate.lpad.i.i5.i295
 
@@ -1352,13 +1281,13 @@ terminate.lpad.i.i5.i295:                         ; preds = %if.then.i.i3.i292
   unreachable
 
 _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i296: ; preds = %if.then.i.i3.i292, %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i289
-  %_M_manager.i.i.i.i297 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp136, i64 0, i32 9, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i297 = getelementptr inbounds i8, ptr %ref.tmp136, i64 112
   %107 = load ptr, ptr %_M_manager.i.i.i.i297, align 8
   %tobool.not.i.i.i.i298 = icmp eq ptr %107, null
   br i1 %tobool.not.i.i.i.i298, label %_ZN6hermes2vm8GCConfigD2Ev.exit304, label %if.then.i.i.i.i299
 
 if.then.i.i.i.i299:                               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i296
-  %Callback_.i.i300 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp136, i64 0, i32 9, i32 1
+  %Callback_.i.i300 = getelementptr inbounds i8, ptr %ref.tmp136, i64 96
   %call.i.i.i.i301 = invoke noundef zeroext i1 %107(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i300, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i300, i32 noundef 3)
           to label %_ZN6hermes2vm8GCConfigD2Ev.exit304 unwind label %terminate.lpad.i.i.i.i302
 
@@ -1370,7 +1299,7 @@ terminate.lpad.i.i.i.i302:                        ; preds = %if.then.i.i.i.i299
   unreachable
 
 _ZN6hermes2vm8GCConfigD2Ev.exit304:               ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i296, %if.then.i.i.i.i299
-  %Name_.i303 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %ref.tmp136, i64 0, i32 8
+  %Name_.i303 = getelementptr inbounds i8, ptr %ref.tmp136, i64 56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name_.i303) #23
   %110 = load ptr, ptr %json_, align 8
   invoke void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %110)
@@ -1378,7 +1307,7 @@ _ZN6hermes2vm8GCConfigD2Ev.exit304:               ; preds = %_ZNSt8functionIFvRK
 
 invoke.cont146:                                   ; preds = %_ZN6hermes2vm8GCConfigD2Ev.exit304
   %111 = load ptr, ptr %json_, align 8
-  %MaxNumRegisters_.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %conf, i64 0, i32 2
+  %MaxNumRegisters_.i = getelementptr inbounds i8, ptr %conf, i64 208
   %112 = load i32, ptr %MaxNumRegisters_.i, align 8
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %111, ptr nonnull @.str.13, i64 15)
           to label %.noexc305 unwind label %lpad
@@ -1389,7 +1318,7 @@ invoke.cont146:                                   ; preds = %_ZN6hermes2vm8GCCon
 
 invoke.cont154:                                   ; preds = %.noexc305
   %113 = load ptr, ptr %json_, align 8
-  %ES6Promise_.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %conf, i64 0, i32 8
+  %ES6Promise_.i = getelementptr inbounds i8, ptr %conf, i64 220
   %114 = load i8, ptr %ES6Promise_.i, align 4
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %113, ptr nonnull @.str.14, i64 10)
           to label %.noexc310 unwind label %lpad
@@ -1402,7 +1331,7 @@ invoke.cont154:                                   ; preds = %.noexc305
 
 invoke.cont163:                                   ; preds = %.noexc310
   %116 = load ptr, ptr %json_, align 8
-  %ES6Proxy_.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %conf, i64 0, i32 9
+  %ES6Proxy_.i = getelementptr inbounds i8, ptr %conf, i64 221
   %117 = load i8, ptr %ES6Proxy_.i, align 1
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %116, ptr nonnull @.str.15, i64 8)
           to label %.noexc315 unwind label %lpad
@@ -1415,7 +1344,7 @@ invoke.cont163:                                   ; preds = %.noexc310
 
 invoke.cont172:                                   ; preds = %.noexc315
   %119 = load ptr, ptr %json_, align 8
-  %Intl_.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %conf, i64 0, i32 11
+  %Intl_.i = getelementptr inbounds i8, ptr %conf, i64 223
   %120 = load i8, ptr %Intl_.i, align 1
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %119, ptr nonnull @.str.16, i64 4)
           to label %.noexc320 unwind label %lpad
@@ -1428,7 +1357,7 @@ invoke.cont172:                                   ; preds = %.noexc315
 
 invoke.cont181:                                   ; preds = %.noexc320
   %122 = load ptr, ptr %json_, align 8
-  %MicrotaskQueue_.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %conf, i64 0, i32 13
+  %MicrotaskQueue_.i = getelementptr inbounds i8, ptr %conf, i64 225
   %123 = load i8, ptr %MicrotaskQueue_.i, align 1
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %122, ptr nonnull @.str.17, i64 15)
           to label %.noexc325 unwind label %lpad
@@ -1441,7 +1370,7 @@ invoke.cont181:                                   ; preds = %.noexc320
 
 invoke.cont190:                                   ; preds = %.noexc325
   %125 = load ptr, ptr %json_, align 8
-  %EnableSampledStats_.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %conf, i64 0, i32 19
+  %EnableSampledStats_.i = getelementptr inbounds i8, ptr %conf, i64 328
   %126 = load i8, ptr %EnableSampledStats_.i, align 8
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %125, ptr nonnull @.str.18, i64 18)
           to label %.noexc330 unwind label %lpad
@@ -1454,7 +1383,7 @@ invoke.cont190:                                   ; preds = %.noexc325
 
 invoke.cont199:                                   ; preds = %.noexc330
   %128 = load ptr, ptr %json_, align 8
-  %VMExperimentFlags_.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %conf, i64 0, i32 32
+  %VMExperimentFlags_.i = getelementptr inbounds i8, ptr %conf, i64 368
   %129 = load i32, ptr %VMExperimentFlags_.i, align 8
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %128, ptr nonnull @.str.19, i64 17)
           to label %.noexc333 unwind label %lpad
@@ -1638,7 +1567,7 @@ ehcleanup272:                                     ; preds = %lpad138, %lpad126, 
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i: ; preds = %ehcleanup272
   %vtable.i.i = load ptr, ptr %154, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %155 = load ptr, ptr %vfn.i.i, align 8
   call void %155(ptr noundef nonnull align 8 dereferenceable(36) %154) #23
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
@@ -1683,13 +1612,13 @@ declare void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes2vm8GCConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_manager.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 15, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %Callback_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 15
+  %Callback_ = getelementptr inbounds i8, ptr %this, i64 168
   %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %Callback_, ptr noundef nonnull align 8 dereferenceable(16) %Callback_, i32 noundef 3)
           to label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -1701,13 +1630,13 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit: ; preds = %entry, %if.then.i.i
-  %_M_manager.i.i1 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 14, i32 0, i32 1
+  %_M_manager.i.i1 = getelementptr inbounds i8, ptr %this, i64 152
   %3 = load ptr, ptr %_M_manager.i.i1, align 8
   %tobool.not.i.i2 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i2, label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit, label %if.then.i.i3
 
 if.then.i.i3:                                     ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit
-  %AnalyticsCallback_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 14
+  %AnalyticsCallback_ = getelementptr inbounds i8, ptr %this, i64 136
   %call.i.i4 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_, ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit unwind label %terminate.lpad.i.i5
 
@@ -1719,13 +1648,13 @@ terminate.lpad.i.i5:                              ; preds = %if.then.i.i3
   unreachable
 
 _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit: ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit, %if.then.i.i3
-  %_M_manager.i.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %6 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZN6hermes2vm16GCTripwireConfigD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit
-  %Callback_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 9, i32 1
+  %Callback_.i = getelementptr inbounds i8, ptr %this, i64 96
   %call.i.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i, i32 noundef 3)
           to label %_ZN6hermes2vm16GCTripwireConfigD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -1737,7 +1666,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 _ZN6hermes2vm16GCTripwireConfigD2Ev.exit:         ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit, %if.then.i.i.i
-  %Name_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 8
+  %Name_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name_) #23
   ret void
 }
@@ -1762,7 +1691,7 @@ declare void @_ZN6hermes11JSONEmitter9openArrayEv(ptr noundef nonnull align 8 de
 define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>, std::allocator<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -1775,14 +1704,14 @@ for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_Destr
 
 _ZNKSt14default_deleteIN8facebook6hermes7tracing10SynthTrace6RecordEEclEPS4_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
   br label %_ZSt8_DestroyISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8facebook6hermes7tracing10SynthTrace6RecordEEclEPS4_.exit.i.i.i.i.i, %for.body.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.35", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !7
 
@@ -2540,19 +2469,19 @@ define internal fastcc void @_ZN8facebook6hermes7tracing12_GLOBAL__N_113doublePr
 invoke.cont3:
   %resultStream = alloca %"class.llvh::raw_string_ostream", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #23
-  %BufferMode.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %resultStream, i64 0, i32 4
+  %BufferMode.i.i = getelementptr inbounds i8, ptr %resultStream, i64 32
   store i32 1, ptr %BufferMode.i.i, align 8
-  %OutBufStart.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %resultStream, i64 0, i32 1
+  %OutBufStart.i.i = getelementptr inbounds i8, ptr %resultStream, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, inrange i32 0, i64 2), ptr %resultStream, align 8
-  %OS.i = getelementptr inbounds %"class.llvh::raw_string_ostream", ptr %resultStream, i64 0, i32 1
+  %OS.i = getelementptr inbounds i8, ptr %resultStream, i64 40
   store ptr %agg.result, ptr %OS.i, align 8
   %0 = bitcast double %x to i64
   invoke void @_ZN4llvh9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleENS_8OptionalImEE(ptr noundef nonnull align 8 dereferenceable(36) %resultStream, i64 noundef %0, i32 noundef 3, i64 16, i8 1)
           to label %invoke.cont4 unwind label %lpad1
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %resultStream, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %resultStream, i64 24
   %1 = load ptr, ptr %OutBufCur.i, align 8
   %2 = load ptr, ptr %OutBufStart.i.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
@@ -2597,7 +2526,7 @@ call.i.noexc:                                     ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %call.i.noexc
-  %_M_string_length.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %tag, i64 0, i32 1
+  %_M_string_length.i = getelementptr inbounds i8, ptr %tag, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN9__gnu_cxx17__normal_iteratorIPKcS4_EEEEvT_SB_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %tag, ptr %call1, ptr %add.ptr.i)
           to label %invoke.cont unwind label %lpad.i
@@ -2623,7 +2552,7 @@ call.i.noexc14:                                   ; preds = %invoke.cont
           to label %.noexc16 unwind label %lpad25
 
 .noexc16:                                         ; preds = %call.i.noexc14
-  %_M_string_length.i12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %rest, i64 0, i32 1
+  %_M_string_length.i12 = getelementptr inbounds i8, ptr %rest, i64 8
   store i64 0, ptr %_M_string_length.i12, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIN9__gnu_cxx17__normal_iteratorIPKcS4_EEEEvT_SB_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %rest, ptr nonnull %add.ptr.i11, ptr %call20)
           to label %invoke.cont26 unwind label %lpad.i13
@@ -2815,7 +2744,7 @@ define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace6Record6toJSONERN6he
 entry:
   tail call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %json)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
   tail call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %json)
@@ -2826,11 +2755,11 @@ entry:
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace12MarkerRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -2846,8 +2775,8 @@ dynamic_cast.bad_cast:                            ; preds = %land.rhs
   unreachable
 
 dynamic_cast.end:                                 ; preds = %land.rhs
-  %tag_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::MarkerRecord", ptr %this, i64 0, i32 1
-  %tag_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::MarkerRecord", ptr %2, i64 0, i32 1
+  %tag_ = getelementptr inbounds i8, ptr %this, i64 16
+  %tag_2 = getelementptr inbounds i8, ptr %2, i64 16
   %call.i2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %tag_) #23
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %tag_2) #23
   %cmp.i3 = icmp eq i64 %call.i2, %call1.i
@@ -2874,11 +2803,11 @@ land.end:                                         ; preds = %if.end.i.i, %land.r
 define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace6RecordeqERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2 = load ptr, ptr %that, align 8
-  %vfn3 = getelementptr inbounds ptr, ptr %vtable2, i64 2
+  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 16
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp = icmp eq i32 %call, %call4
@@ -2933,9 +2862,9 @@ if.end.i:                                         ; preds = %entry
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %val_.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %this, i64 0, i32 1
+  %val_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i8, ptr %val_.i, align 8
-  %val_4.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %that, i64 0, i32 1
+  %val_4.i = getelementptr inbounds i8, ptr %that, i64 8
   %3 = load i8, ptr %val_4.i, align 8
   %4 = xor i8 %3, %2
   %5 = and i8 %4, 1
@@ -2943,17 +2872,17 @@ sw.bb.i:                                          ; preds = %if.end.i
   br label %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
 
 sw.bb8.i:                                         ; preds = %if.end.i
-  %val_9.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %this, i64 0, i32 1
+  %val_9.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load double, ptr %val_9.i, align 8
-  %val_10.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %that, i64 0, i32 1
+  %val_10.i = getelementptr inbounds i8, ptr %that, i64 8
   %7 = load double, ptr %val_10.i, align 8
   %cmp11.i = fcmp oeq double %6, %7
   br label %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
 
 sw.bb12.i:                                        ; preds = %if.end.i, %if.end.i, %if.end.i
-  %val_13.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %this, i64 0, i32 1
+  %val_13.i = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i64, ptr %val_13.i, align 8
-  %val_14.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %that, i64 0, i32 1
+  %val_14.i = getelementptr inbounds i8, ptr %that, i64 8
   %9 = load i64, ptr %val_14.i, align 8
   %cmp15.i = icmp eq i64 %8, %9
   br label %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
@@ -2967,11 +2896,11 @@ _ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit: ; preds = %en
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace17BeginExecJSRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -2987,8 +2916,8 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %sourceURL_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %this, i64 0, i32 1
-  %sourceURL_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %2, i64 0, i32 1
+  %sourceURL_ = getelementptr inbounds i8, ptr %this, i64 16
+  %sourceURL_2 = getelementptr inbounds i8, ptr %2, i64 16
   %call.i4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %sourceURL_) #23
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %sourceURL_2) #23
   %cmp.i5 = icmp eq i64 %call.i4, %call1.i
@@ -3007,16 +2936,16 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %4, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %land.rhs.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %sourceHash_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %this, i64 0, i32 2
-  %sourceHash_4 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %2, i64 0, i32 2
+  %sourceHash_ = getelementptr inbounds i8, ptr %this, i64 48
+  %sourceHash_4 = getelementptr inbounds i8, ptr %2, i64 48
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %sourceHash_, ptr noundef nonnull dereferenceable(20) %sourceHash_4, i64 20)
   %tobool1.not.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %sourceIsBytecode_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %this, i64 0, i32 3
+  %sourceIsBytecode_ = getelementptr inbounds i8, ptr %this, i64 68
   %5 = load i8, ptr %sourceIsBytecode_, align 4
-  %sourceIsBytecode_6 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %2, i64 0, i32 3
+  %sourceIsBytecode_6 = getelementptr inbounds i8, ptr %2, i64 68
   %6 = load i8, ptr %sourceIsBytecode_6, align 4
   %7 = xor i8 %6, %5
   %8 = and i8 %7, 1
@@ -3032,11 +2961,11 @@ return:                                           ; preds = %dynamic_cast.end, %
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace15EndExecJSRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -3107,11 +3036,11 @@ return:                                           ; preds = %sw.bb12.i.i, %sw.bb
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace18CreateObjectRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -3127,9 +3056,9 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %objID_, align 8
-  %objID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord", ptr %2, i64 0, i32 1
+  %objID_2 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %objID_2, align 8
   %cmp = icmp eq i64 %4, %5
   br label %return
@@ -3143,11 +3072,11 @@ return:                                           ; preds = %entry, %dynamic_cas
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace21DrainMicrotasksRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -3163,9 +3092,9 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %maxMicrotasksHint_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::DrainMicrotasksRecord", ptr %this, i64 0, i32 1
+  %maxMicrotasksHint_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i32, ptr %maxMicrotasksHint_, align 8
-  %maxMicrotasksHint_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::DrainMicrotasksRecord", ptr %2, i64 0, i32 1
+  %maxMicrotasksHint_2 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i32, ptr %maxMicrotasksHint_2, align 8
   %cmp = icmp eq i32 %4, %5
   br label %return
@@ -3179,11 +3108,11 @@ return:                                           ; preds = %entry, %dynamic_cas
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace18CreateBigIntRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -3199,25 +3128,25 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %objID_, align 8
-  %objID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %2, i64 0, i32 1
+  %objID_2 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %objID_2, align 8
   %cmp = icmp eq i64 %4, %5
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %dynamic_cast.end
-  %method_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %this, i64 0, i32 2
+  %method_ = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i32, ptr %method_, align 8
-  %method_3 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %2, i64 0, i32 2
+  %method_3 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load i32, ptr %method_3, align 8
   %cmp4 = icmp eq i32 %6, %7
   br i1 %cmp4, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %bits_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %this, i64 0, i32 3
+  %bits_ = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load i64, ptr %bits_, align 8
-  %bits_5 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %2, i64 0, i32 3
+  %bits_5 = getelementptr inbounds i8, ptr %2, i64 32
   %9 = load i64, ptr %bits_5, align 8
   %cmp6 = icmp eq i64 %8, %9
   br label %return
@@ -3231,11 +3160,11 @@ return:                                           ; preds = %dynamic_cast.end, %
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace20BigIntToStringRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -3251,25 +3180,25 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %strID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %this, i64 0, i32 1
+  %strID_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %strID_, align 8
-  %strID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %2, i64 0, i32 1
+  %strID_2 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %strID_2, align 8
   %cmp = icmp eq i64 %4, %5
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %dynamic_cast.end
-  %bigintID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %this, i64 0, i32 2
+  %bigintID_ = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i64, ptr %bigintID_, align 8
-  %bigintID_3 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %2, i64 0, i32 2
+  %bigintID_3 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load i64, ptr %bigintID_3, align 8
   %cmp4 = icmp eq i64 %6, %7
   br i1 %cmp4, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %radix_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %this, i64 0, i32 3
+  %radix_ = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load i32, ptr %radix_, align 8
-  %radix_5 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %2, i64 0, i32 3
+  %radix_5 = getelementptr inbounds i8, ptr %2, i64 32
   %9 = load i32, ptr %radix_5, align 8
   %cmp6 = icmp eq i32 %8, %9
   br label %return
@@ -3283,11 +3212,11 @@ return:                                           ; preds = %dynamic_cast.end, %
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace18CreateStringRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -3303,17 +3232,17 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %objID_, align 8
-  %objID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %2, i64 0, i32 1
+  %objID_2 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %objID_2, align 8
   %cmp = icmp eq i64 %4, %5
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %dynamic_cast.end
-  %ascii_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this, i64 0, i32 3
+  %ascii_ = getelementptr inbounds i8, ptr %this, i64 56
   %6 = load i8, ptr %ascii_, align 8
-  %ascii_3 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %2, i64 0, i32 3
+  %ascii_3 = getelementptr inbounds i8, ptr %2, i64 56
   %7 = load i8, ptr %ascii_3, align 8
   %8 = xor i8 %7, %6
   %9 = and i8 %8, 1
@@ -3321,8 +3250,8 @@ land.lhs.true:                                    ; preds = %dynamic_cast.end
   br i1 %cmp6, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %chars_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this, i64 0, i32 2
-  %chars_7 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %2, i64 0, i32 2
+  %chars_ = getelementptr inbounds i8, ptr %this, i64 24
+  %chars_7 = getelementptr inbounds i8, ptr %2, i64 24
   %call.i4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %chars_) #23
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %chars_7) #23
   %cmp.i5 = icmp eq i64 %call.i4, %call1.i
@@ -3349,11 +3278,11 @@ return:                                           ; preds = %if.end.i.i, %land.r
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -3369,24 +3298,24 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %propNameID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 1
+  %propNameID_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %propNameID_, align 8
-  %propNameID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %2, i64 0, i32 1
+  %propNameID_2 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %propNameID_2, align 8
   %cmp = icmp eq i64 %4, %5
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %dynamic_cast.end
-  %valueType_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 4
+  %valueType_ = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load i32, ptr %valueType_, align 8
-  %valueType_3 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %2, i64 0, i32 4
+  %valueType_3 = getelementptr inbounds i8, ptr %2, i64 72
   %7 = load i32, ptr %valueType_3, align 8
   %cmp4 = icmp eq i32 %6, %7
   br i1 %cmp4, label %land.lhs.true5, label %return
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %traceValue_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 3
-  %traceValue_6 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %2, i64 0, i32 3
+  %traceValue_ = getelementptr inbounds i8, ptr %this, i64 56
+  %traceValue_6 = getelementptr inbounds i8, ptr %2, i64 56
   %8 = load i32, ptr %traceValue_, align 8
   %9 = load i32, ptr %traceValue_6, align 8
   %cmp.not.i = icmp eq i32 %8, %9
@@ -3402,25 +3331,25 @@ if.end.i:                                         ; preds = %land.lhs.true5
   ]
 
 sw.bb8.i:                                         ; preds = %if.end.i
-  %val_9.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 3, i32 1
+  %val_9.i = getelementptr inbounds i8, ptr %this, i64 64
   %10 = load double, ptr %val_9.i, align 8
-  %val_10.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %2, i64 0, i32 3, i32 1
+  %val_10.i = getelementptr inbounds i8, ptr %2, i64 64
   %11 = load double, ptr %val_10.i, align 8
   %cmp11.i = fcmp oeq double %10, %11
   br i1 %cmp11.i, label %land.rhs, label %return
 
 sw.bb12.i:                                        ; preds = %if.end.i, %if.end.i, %if.end.i
-  %val_13.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 3, i32 1
+  %val_13.i = getelementptr inbounds i8, ptr %this, i64 64
   %12 = load i64, ptr %val_13.i, align 8
-  %val_14.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %2, i64 0, i32 3, i32 1
+  %val_14.i = getelementptr inbounds i8, ptr %2, i64 64
   %13 = load i64, ptr %val_14.i, align 8
   %cmp15.i = icmp eq i64 %12, %13
   br i1 %cmp15.i, label %land.rhs, label %return
 
 _ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit: ; preds = %if.end.i
-  %val_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 3, i32 1
+  %val_.i = getelementptr inbounds i8, ptr %this, i64 64
   %14 = load i8, ptr %val_.i, align 8
-  %val_4.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %2, i64 0, i32 3, i32 1
+  %val_4.i = getelementptr inbounds i8, ptr %2, i64 64
   %15 = load i8, ptr %val_4.i, align 8
   %16 = xor i8 %15, %14
   %17 = and i8 %16, 1
@@ -3428,8 +3357,8 @@ _ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit: ; preds = %if
   br i1 %cmp7.i, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end.i, %sw.bb8.i, %sw.bb12.i, %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
-  %chars_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 2
-  %chars_8 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %2, i64 0, i32 2
+  %chars_ = getelementptr inbounds i8, ptr %this, i64 24
+  %chars_8 = getelementptr inbounds i8, ptr %2, i64 24
   %call.i5 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %chars_) #23
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %chars_8) #23
   %cmp.i6 = icmp eq i64 %call.i5, %call1.i
@@ -3456,11 +3385,11 @@ return:                                           ; preds = %land.lhs.true5, %if
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace24CreateHostFunctionRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i.i = load ptr, ptr %that, align 8
-  %vfn3.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i, i64 2
+  %vfn3.i.i = getelementptr inbounds i8, ptr %vtable2.i.i, i64 16
   %1 = load ptr, ptr %vfn3.i.i, align 8
   %call4.i.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i.i = icmp eq i32 %call.i.i, %call4.i.i
@@ -3476,9 +3405,9 @@ dynamic_cast.bad_cast.i:                          ; preds = %if.end.i
   unreachable
 
 _ZNK8facebook6hermes7tracing10SynthTrace18CreateObjectRecordeqERKNS2_6RecordE.exit: ; preds = %if.end.i
-  %objID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord", ptr %this, i64 0, i32 1
+  %objID_.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %objID_.i, align 8
-  %objID_2.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord", ptr %2, i64 0, i32 1
+  %objID_2.i = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %objID_2.i, align 8
   %cmp.i = icmp eq i64 %4, %5
   br i1 %cmp.i, label %if.end, label %return
@@ -3493,17 +3422,17 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %propNameID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateHostFunctionRecord", ptr %this, i64 0, i32 1
+  %propNameID_ = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load i32, ptr %propNameID_, align 8
-  %propNameID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateHostFunctionRecord", ptr %6, i64 0, i32 1
+  %propNameID_2 = getelementptr inbounds i8, ptr %6, i64 24
   %9 = load i32, ptr %propNameID_2, align 8
   %cmp = icmp eq i32 %8, %9
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %dynamic_cast.end
-  %paramCount_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateHostFunctionRecord", ptr %this, i64 0, i32 2
+  %paramCount_ = getelementptr inbounds i8, ptr %this, i64 28
   %10 = load i32, ptr %paramCount_, align 4
-  %paramCount_3 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateHostFunctionRecord", ptr %6, i64 0, i32 2
+  %paramCount_3 = getelementptr inbounds i8, ptr %6, i64 28
   %11 = load i32, ptr %paramCount_3, align 4
   %cmp4 = icmp eq i32 %10, %11
   br label %return
@@ -3517,11 +3446,11 @@ return:                                           ; preds = %entry, %land.lhs.tr
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -3537,16 +3466,16 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %objID_, align 8
-  %objID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %2, i64 0, i32 1
+  %objID_2 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %objID_2, align 8
   %cmp = icmp eq i64 %4, %5
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %dynamic_cast.end
-  %propID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 2
-  %propID_3 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %2, i64 0, i32 2
+  %propID_ = getelementptr inbounds i8, ptr %this, i64 24
+  %propID_3 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load i32, ptr %propID_, align 8
   %7 = load i32, ptr %propID_3, align 8
   %cmp.not.i = icmp eq i32 %6, %7
@@ -3562,25 +3491,25 @@ if.end.i:                                         ; preds = %land.lhs.true
   ]
 
 sw.bb8.i:                                         ; preds = %if.end.i
-  %val_9.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 2, i32 1
+  %val_9.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load double, ptr %val_9.i, align 8
-  %val_10.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %2, i64 0, i32 2, i32 1
+  %val_10.i = getelementptr inbounds i8, ptr %2, i64 32
   %9 = load double, ptr %val_10.i, align 8
   %cmp11.i = fcmp oeq double %8, %9
   br i1 %cmp11.i, label %land.lhs.true5, label %return
 
 sw.bb12.i:                                        ; preds = %if.end.i, %if.end.i, %if.end.i
-  %val_13.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 2, i32 1
+  %val_13.i = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load i64, ptr %val_13.i, align 8
-  %val_14.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %2, i64 0, i32 2, i32 1
+  %val_14.i = getelementptr inbounds i8, ptr %2, i64 32
   %11 = load i64, ptr %val_14.i, align 8
   %cmp15.i = icmp eq i64 %10, %11
   br i1 %cmp15.i, label %land.lhs.true5, label %return
 
 _ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit: ; preds = %if.end.i
-  %val_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 2, i32 1
+  %val_.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load i8, ptr %val_.i, align 8
-  %val_4.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %2, i64 0, i32 2, i32 1
+  %val_4.i = getelementptr inbounds i8, ptr %2, i64 32
   %13 = load i8, ptr %val_4.i, align 8
   %14 = xor i8 %13, %12
   %15 = and i8 %14, 1
@@ -3588,8 +3517,8 @@ _ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit: ; preds = %if
   br i1 %cmp7.i, label %land.lhs.true5, label %return
 
 land.lhs.true5:                                   ; preds = %if.end.i, %sw.bb8.i, %sw.bb12.i, %_ZNK8facebook6hermes7tracing10SynthTrace10TraceValueeqERKS3_.exit
-  %value_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 3
-  %value_6 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %2, i64 0, i32 3
+  %value_ = getelementptr inbounds i8, ptr %this, i64 40
+  %value_6 = getelementptr inbounds i8, ptr %2, i64 40
   %16 = load i32, ptr %value_, align 8
   %17 = load i32, ptr %value_6, align 8
   %cmp.not.i4 = icmp eq i32 %16, %17
@@ -3605,9 +3534,9 @@ if.end.i6:                                        ; preds = %land.lhs.true5
   ]
 
 sw.bb.i15:                                        ; preds = %if.end.i6
-  %val_.i16 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 3, i32 1
+  %val_.i16 = getelementptr inbounds i8, ptr %this, i64 48
   %18 = load i8, ptr %val_.i16, align 8
-  %val_4.i17 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %2, i64 0, i32 3, i32 1
+  %val_4.i17 = getelementptr inbounds i8, ptr %2, i64 48
   %19 = load i8, ptr %val_4.i17, align 8
   %20 = xor i8 %19, %18
   %21 = and i8 %20, 1
@@ -3615,17 +3544,17 @@ sw.bb.i15:                                        ; preds = %if.end.i6
   br label %return
 
 sw.bb8.i11:                                       ; preds = %if.end.i6
-  %val_9.i12 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 3, i32 1
+  %val_9.i12 = getelementptr inbounds i8, ptr %this, i64 48
   %22 = load double, ptr %val_9.i12, align 8
-  %val_10.i13 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %2, i64 0, i32 3, i32 1
+  %val_10.i13 = getelementptr inbounds i8, ptr %2, i64 48
   %23 = load double, ptr %val_10.i13, align 8
   %cmp11.i14 = fcmp oeq double %22, %23
   br label %return
 
 sw.bb12.i7:                                       ; preds = %if.end.i6, %if.end.i6, %if.end.i6
-  %val_13.i8 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 3, i32 1
+  %val_13.i8 = getelementptr inbounds i8, ptr %this, i64 48
   %24 = load i64, ptr %val_13.i8, align 8
-  %val_14.i9 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %2, i64 0, i32 3, i32 1
+  %val_14.i9 = getelementptr inbounds i8, ptr %2, i64 48
   %25 = load i64, ptr %val_14.i9, align 8
   %cmp15.i10 = icmp eq i64 %24, %25
   br label %return
@@ -3639,11 +3568,11 @@ return:                                           ; preds = %land.lhs.true, %sw.
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace17HasPropertyRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -3659,16 +3588,16 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %objID_, align 8
-  %objID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %2, i64 0, i32 1
+  %objID_2 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %objID_2, align 8
   %cmp = icmp eq i64 %4, %5
   br i1 %cmp, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %dynamic_cast.end
-  %propID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %this, i64 0, i32 2
-  %propID_3 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %2, i64 0, i32 2
+  %propID_ = getelementptr inbounds i8, ptr %this, i64 24
+  %propID_3 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load i32, ptr %propID_, align 8
   %7 = load i32, ptr %propID_3, align 8
   %cmp.not.i = icmp eq i32 %6, %7
@@ -3684,9 +3613,9 @@ if.end.i:                                         ; preds = %land.rhs
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %val_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %this, i64 0, i32 2, i32 1
+  %val_.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load i8, ptr %val_.i, align 8
-  %val_4.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %2, i64 0, i32 2, i32 1
+  %val_4.i = getelementptr inbounds i8, ptr %2, i64 32
   %9 = load i8, ptr %val_4.i, align 8
   %10 = xor i8 %9, %8
   %11 = and i8 %10, 1
@@ -3694,17 +3623,17 @@ sw.bb.i:                                          ; preds = %if.end.i
   br label %return
 
 sw.bb8.i:                                         ; preds = %if.end.i
-  %val_9.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %this, i64 0, i32 2, i32 1
+  %val_9.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load double, ptr %val_9.i, align 8
-  %val_10.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %2, i64 0, i32 2, i32 1
+  %val_10.i = getelementptr inbounds i8, ptr %2, i64 32
   %13 = load double, ptr %val_10.i, align 8
   %cmp11.i = fcmp oeq double %12, %13
   br label %return
 
 sw.bb12.i:                                        ; preds = %if.end.i, %if.end.i, %if.end.i
-  %val_13.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %this, i64 0, i32 2, i32 1
+  %val_13.i = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load i64, ptr %val_13.i, align 8
-  %val_14.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %2, i64 0, i32 2, i32 1
+  %val_14.i = getelementptr inbounds i8, ptr %2, i64 32
   %15 = load i64, ptr %val_14.i, align 8
   %cmp15.i = icmp eq i64 %14, %15
   br label %return
@@ -3718,11 +3647,11 @@ return:                                           ; preds = %sw.bb12.i, %sw.bb8.
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace22GetPropertyNamesRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -3738,17 +3667,17 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetPropertyNamesRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %objID_, align 8
-  %objID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetPropertyNamesRecord", ptr %2, i64 0, i32 1
+  %objID_2 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %objID_2, align 8
   %cmp = icmp eq i64 %4, %5
   br i1 %cmp, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %dynamic_cast.end
-  %propNamesID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetPropertyNamesRecord", ptr %this, i64 0, i32 2
+  %propNamesID_ = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i64, ptr %propNamesID_, align 8
-  %propNamesID_3 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetPropertyNamesRecord", ptr %2, i64 0, i32 2
+  %propNamesID_3 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load i64, ptr %propNamesID_3, align 8
   %cmp4 = icmp eq i64 %6, %7
   br label %return
@@ -3762,11 +3691,11 @@ return:                                           ; preds = %dynamic_cast.end, %
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace17CreateArrayRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -3782,17 +3711,17 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateArrayRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %objID_, align 8
-  %objID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateArrayRecord", ptr %2, i64 0, i32 1
+  %objID_2 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %objID_2, align 8
   %cmp = icmp eq i64 %4, %5
   br i1 %cmp, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %dynamic_cast.end
-  %length_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateArrayRecord", ptr %this, i64 0, i32 2
+  %length_ = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i64, ptr %length_, align 8
-  %length_3 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateArrayRecord", ptr %2, i64 0, i32 2
+  %length_3 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load i64, ptr %length_3, align 8
   %cmp4 = icmp eq i64 %6, %7
   br label %return
@@ -3806,11 +3735,11 @@ return:                                           ; preds = %dynamic_cast.end, %
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -3826,24 +3755,24 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %objID_, align 8
-  %objID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %2, i64 0, i32 1
+  %objID_2 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %objID_2, align 8
   %cmp = icmp eq i64 %4, %5
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %dynamic_cast.end
-  %index_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 2
+  %index_ = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i64, ptr %index_, align 8
-  %index_3 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %2, i64 0, i32 2
+  %index_3 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load i64, ptr %index_3, align 8
   %cmp4 = icmp eq i64 %6, %7
   br i1 %cmp4, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %value_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 3
-  %value_5 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %2, i64 0, i32 3
+  %value_ = getelementptr inbounds i8, ptr %this, i64 32
+  %value_5 = getelementptr inbounds i8, ptr %2, i64 32
   %8 = load i32, ptr %value_, align 8
   %9 = load i32, ptr %value_5, align 8
   %cmp.not.i = icmp eq i32 %8, %9
@@ -3859,9 +3788,9 @@ if.end.i:                                         ; preds = %land.rhs
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %val_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 3, i32 1
+  %val_.i = getelementptr inbounds i8, ptr %this, i64 40
   %10 = load i8, ptr %val_.i, align 8
-  %val_4.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %2, i64 0, i32 3, i32 1
+  %val_4.i = getelementptr inbounds i8, ptr %2, i64 40
   %11 = load i8, ptr %val_4.i, align 8
   %12 = xor i8 %11, %10
   %13 = and i8 %12, 1
@@ -3869,17 +3798,17 @@ sw.bb.i:                                          ; preds = %if.end.i
   br label %return
 
 sw.bb8.i:                                         ; preds = %if.end.i
-  %val_9.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 3, i32 1
+  %val_9.i = getelementptr inbounds i8, ptr %this, i64 40
   %14 = load double, ptr %val_9.i, align 8
-  %val_10.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %2, i64 0, i32 3, i32 1
+  %val_10.i = getelementptr inbounds i8, ptr %2, i64 40
   %15 = load double, ptr %val_10.i, align 8
   %cmp11.i = fcmp oeq double %14, %15
   br label %return
 
 sw.bb12.i:                                        ; preds = %if.end.i, %if.end.i, %if.end.i
-  %val_13.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 3, i32 1
+  %val_13.i = getelementptr inbounds i8, ptr %this, i64 40
   %16 = load i64, ptr %val_13.i, align 8
-  %val_14.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %2, i64 0, i32 3, i32 1
+  %val_14.i = getelementptr inbounds i8, ptr %2, i64 40
   %17 = load i64, ptr %val_14.i, align 8
   %cmp15.i = icmp eq i64 %16, %17
   br label %return
@@ -3893,11 +3822,11 @@ return:                                           ; preds = %sw.bb12.i, %sw.bb8.
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -3913,23 +3842,23 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %functionID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 1
+  %functionID_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %functionID_, align 8
-  %functionID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %2, i64 0, i32 1
+  %functionID_2 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %functionID_2, align 8
   %cmp = icmp eq i64 %4, %5
   br i1 %cmp, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %dynamic_cast.end
-  %args_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 3
+  %args_ = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %args_, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not10.i = icmp eq ptr %6, %7
   br i1 %cmp.i.not10.i, label %return, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %land.rhs
-  %args_9 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %2, i64 0, i32 3
+  %args_9 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = load ptr, ptr %args_9, align 8
   br label %for.body.i
 
@@ -3971,8 +3900,8 @@ sw.bb12.i.i.i:                                    ; preds = %if.end.i.i.i, %if.e
   br i1 %cmp7.i.i.i, label %for.inc.i, label %return
 
 for.inc.i:                                        ; preds = %"_ZZNK8facebook6hermes7tracing10SynthTrace10CallRecordeqERKNS2_6RecordEENK3$_0clENS2_10TraceValueES8_.exit.i", %sw.bb12.i.i.i, %sw.bb8.i.i.i, %if.end.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %__first1.sroa.0.011.i, i64 1
-  %incdec.ptr.i3.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %__first2.sroa.0.012.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.011.i, i64 16
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %__first2.sroa.0.012.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %7
   br i1 %cmp.i.not.i, label %return, label %for.body.i, !llvm.loop !20
 
@@ -3985,11 +3914,11 @@ return:                                           ; preds = %for.inc.i, %"_ZZNK8
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace22ReturnFromNativeRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -4056,11 +3985,11 @@ return:                                           ; preds = %sw.bb12.i.i, %sw.bb
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace20ReturnToNativeRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -4094,7 +4023,7 @@ if.end.i.i:                                       ; preds = %dynamic_cast.end
 sw.bb.i.i:                                        ; preds = %if.end.i.i
   %val_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i8, ptr %val_.i.i, align 8
-  %val_4.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %2, i64 0, i32 1
+  %val_4.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i8, ptr %val_4.i.i, align 8
   %8 = xor i8 %7, %6
   %9 = and i8 %8, 1
@@ -4104,7 +4033,7 @@ sw.bb.i.i:                                        ; preds = %if.end.i.i
 sw.bb8.i.i:                                       ; preds = %if.end.i.i
   %val_9.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load double, ptr %val_9.i.i, align 8
-  %val_10.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %2, i64 0, i32 1
+  %val_10.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load double, ptr %val_10.i.i, align 8
   %cmp11.i.i = fcmp oeq double %10, %11
   br label %return
@@ -4112,7 +4041,7 @@ sw.bb8.i.i:                                       ; preds = %if.end.i.i
 sw.bb12.i.i:                                      ; preds = %if.end.i.i, %if.end.i.i, %if.end.i.i
   %val_13.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %12 = load i64, ptr %val_13.i.i, align 8
-  %val_14.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %2, i64 0, i32 1
+  %val_14.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %13 = load i64, ptr %val_14.i.i, align 8
   %cmp15.i.i = icmp eq i64 %12, %13
   br label %return
@@ -4126,11 +4055,11 @@ return:                                           ; preds = %sw.bb12.i.i, %sw.bb
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -4138,24 +4067,24 @@ entry:
 
 dynamic_cast.notnull:                             ; preds = %entry
   %2 = tail call ptr @__dynamic_cast(ptr nonnull %that, ptr nonnull @_ZTIN8facebook6hermes7tracing10SynthTrace6RecordE, ptr nonnull @_ZTIN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordE, i64 0) #23
-  %hostObjectID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 1
+  %hostObjectID_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i64, ptr %hostObjectID_, align 8
-  %hostObjectID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %2, i64 0, i32 1
+  %hostObjectID_2 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %hostObjectID_2, align 8
   %cmp = icmp eq i64 %3, %4
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %dynamic_cast.notnull
-  %propNameID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 2
+  %propNameID_ = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i64, ptr %propNameID_, align 8
-  %propNameID_3 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %2, i64 0, i32 2
+  %propNameID_3 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load i64, ptr %propNameID_3, align 8
   %cmp4 = icmp eq i64 %5, %6
   br i1 %cmp4, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %propName_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 3
-  %propName_5 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %2, i64 0, i32 3
+  %propName_ = getelementptr inbounds i8, ptr %this, i64 32
+  %propName_5 = getelementptr inbounds i8, ptr %2, i64 32
   %call.i4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %propName_) #23
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %propName_5) #23
   %cmp.i5 = icmp eq i64 %call.i4, %call1.i
@@ -4189,11 +4118,11 @@ entry:
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace29GetPropertyNativeReturnRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -4277,8 +4206,8 @@ dynamic_cast.bad_cast:                            ; preds = %land.rhs
   unreachable
 
 dynamic_cast.end:                                 ; preds = %land.rhs
-  %value_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord", ptr %this, i64 0, i32 1
-  %value_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord", ptr %0, i64 0, i32 1
+  %value_ = getelementptr inbounds i8, ptr %this, i64 64
+  %value_2 = getelementptr inbounds i8, ptr %0, i64 64
   %2 = load i32, ptr %value_, align 8
   %3 = load i32, ptr %value_2, align 8
   %cmp.not.i = icmp eq i32 %2, %3
@@ -4294,9 +4223,9 @@ if.end.i:                                         ; preds = %dynamic_cast.end
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i
-  %val_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord", ptr %this, i64 0, i32 1, i32 1
+  %val_.i = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i8, ptr %val_.i, align 8
-  %val_4.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord", ptr %0, i64 0, i32 1, i32 1
+  %val_4.i = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load i8, ptr %val_4.i, align 8
   %6 = xor i8 %5, %4
   %7 = and i8 %6, 1
@@ -4304,17 +4233,17 @@ sw.bb.i:                                          ; preds = %if.end.i
   br label %land.end
 
 sw.bb8.i:                                         ; preds = %if.end.i
-  %val_9.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord", ptr %this, i64 0, i32 1, i32 1
+  %val_9.i = getelementptr inbounds i8, ptr %this, i64 72
   %8 = load double, ptr %val_9.i, align 8
-  %val_10.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord", ptr %0, i64 0, i32 1, i32 1
+  %val_10.i = getelementptr inbounds i8, ptr %0, i64 72
   %9 = load double, ptr %val_10.i, align 8
   %cmp11.i = fcmp oeq double %8, %9
   br label %land.end
 
 sw.bb12.i:                                        ; preds = %if.end.i, %if.end.i, %if.end.i
-  %val_13.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord", ptr %this, i64 0, i32 1, i32 1
+  %val_13.i = getelementptr inbounds i8, ptr %this, i64 72
   %10 = load i64, ptr %val_13.i, align 8
-  %val_14.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord", ptr %0, i64 0, i32 1, i32 1
+  %val_14.i = getelementptr inbounds i8, ptr %0, i64 72
   %11 = load i64, ptr %val_14.i, align 8
   %cmp15.i = icmp eq i64 %10, %11
   br label %land.end
@@ -4328,11 +4257,11 @@ land.end:                                         ; preds = %sw.bb12.i, %sw.bb8.
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace28GetNativePropertyNamesRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -4348,9 +4277,9 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %hostObjectID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesRecord", ptr %this, i64 0, i32 1
+  %hostObjectID_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %hostObjectID_, align 8
-  %hostObjectID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesRecord", ptr %2, i64 0, i32 1
+  %hostObjectID_2 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %hostObjectID_2, align 8
   %cmp = icmp eq i64 %4, %5
   br label %return
@@ -4364,11 +4293,11 @@ return:                                           ; preds = %entry, %dynamic_cas
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace34GetNativePropertyNamesReturnRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -4384,8 +4313,8 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %propNames_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesReturnRecord", ptr %this, i64 0, i32 1
-  %propNames_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesReturnRecord", ptr %2, i64 0, i32 1
+  %propNames_ = getelementptr inbounds i8, ptr %this, i64 16
+  %propNames_2 = getelementptr inbounds i8, ptr %2, i64 16
   %call3 = tail call noundef zeroext i1 @_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEbRKSt6vectorIT_T0_ESC_(ptr noundef nonnull align 8 dereferenceable(24) %propNames_, ptr noundef nonnull align 8 dereferenceable(24) %propNames_2)
   br label %return
 
@@ -4397,13 +4326,13 @@ return:                                           ; preds = %entry, %dynamic_cas
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEbRKSt6vectorIT_T0_ESC_(ptr noundef nonnull align 8 dereferenceable(24) %__x, ptr noundef nonnull align 8 dereferenceable(24) %__y) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_finish.i4 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %__y, i64 0, i32 1
+  %_M_finish.i4 = getelementptr inbounds i8, ptr %__y, i64 8
   %2 = load ptr, ptr %_M_finish.i4, align 8
   %3 = load ptr, ptr %__y, align 8
   %sub.ptr.lhs.cast.i5 = ptrtoint ptr %2 to i64
@@ -4437,8 +4366,8 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %4, label %for.inc.i.i.i.i, label %land.end
 
 for.inc.i.i.i.i:                                  ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i.i, %land.rhs.i.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first1.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first2.addr.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first1.addr.06.i.i.i.i, i64 32
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__first2.addr.07.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %land.end, label %for.body.i.i.i.i, !llvm.loop !21
 
@@ -4451,11 +4380,11 @@ land.end:                                         ; preds = %for.inc.i.i.i.i, %_
 define hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace31SetExternalMemoryPressureRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #1 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -4471,17 +4400,17 @@ dynamic_cast.bad_cast:                            ; preds = %if.end
   unreachable
 
 dynamic_cast.end:                                 ; preds = %if.end
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetExternalMemoryPressureRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %objID_, align 8
-  %objID_2 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetExternalMemoryPressureRecord", ptr %2, i64 0, i32 1
+  %objID_2 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i64, ptr %objID_2, align 8
   %cmp = icmp eq i64 %4, %5
   br i1 %cmp, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %dynamic_cast.end
-  %amount_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetExternalMemoryPressureRecord", ptr %this, i64 0, i32 2
+  %amount_ = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i64, ptr %amount_, align 8
-  %amount_3 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetExternalMemoryPressureRecord", ptr %2, i64 0, i32 2
+  %amount_3 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load i64, ptr %amount_3, align 8
   %cmp4 = icmp eq i64 %6, %7
   br label %return
@@ -4497,15 +4426,15 @@ invoke.cont:
   %storage = alloca %"class.std::__cxx11::basic_string", align 8
   %os = alloca %"class.llvh::raw_string_ostream", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %storage) #23
-  %BufferMode.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 4
+  %BufferMode.i.i = getelementptr inbounds i8, ptr %os, i64 32
   store i32 1, ptr %BufferMode.i.i, align 8
-  %OutBufStart.i.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 1
+  %OutBufStart.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, inrange i32 0, i64 2), ptr %os, align 8
-  %OS.i = getelementptr inbounds %"class.llvh::raw_string_ostream", ptr %os, i64 0, i32 1
+  %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %storage, ptr %OS.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = invoke noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %invoke.cont3 unwind label %lpad2
@@ -4515,9 +4444,9 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call5, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %call5, i64 16
   %1 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %call5, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %call5, i64 24
   %2 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %2 to i64
@@ -4537,7 +4466,7 @@ if.then4.i.i:                                     ; preds = %invoke.cont4
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %if.then4.i.i, %if.then.i.i
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %os, i64 24
   %4 = load ptr, ptr %OutBufCur.i, align 8
   %5 = load ptr, ptr %OutBufStart.i.i, align 8
   %cmp.not.i = icmp eq ptr %4, %5
@@ -4558,7 +4487,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %invoke.cont6, %if.t
           to label %_ZN4llvh9StringRefC2EPKc.exit26 unwind label %lpad2
 
 _ZN4llvh9StringRefC2EPKc.exit26:                  ; preds = %.noexc9
-  %time_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %this, i64 0, i32 1
+  %time_ = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %time_, align 8
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.51, i64 4)
           to label %.noexc11 unwind label %lpad2
@@ -4620,9 +4549,9 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %OutBufEnd.i5.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %os, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i, align 8
-  %OutBufCur.i6.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i = getelementptr inbounds i8, ptr %os, i64 24
   %1 = load ptr, ptr %OutBufCur.i6.i, align 8
   %sub.ptr.lhs.cast.i7.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8.i = ptrtoint ptr %1 to i64
@@ -4642,9 +4571,9 @@ if.then4.i.i:                                     ; preds = %sw.bb
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %OutBufEnd.i5.i32 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i32 = getelementptr inbounds i8, ptr %os, i64 16
   %3 = load ptr, ptr %OutBufEnd.i5.i32, align 8
-  %OutBufCur.i6.i33 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i33 = getelementptr inbounds i8, ptr %os, i64 24
   %4 = load ptr, ptr %OutBufCur.i6.i33, align 8
   %sub.ptr.lhs.cast.i7.i34 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i8.i35 = ptrtoint ptr %4 to i64
@@ -4664,9 +4593,9 @@ if.then4.i.i40:                                   ; preds = %sw.bb1
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %OutBufEnd.i5.i47 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i47 = getelementptr inbounds i8, ptr %os, i64 16
   %6 = load ptr, ptr %OutBufEnd.i5.i47, align 8
-  %OutBufCur.i6.i48 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i48 = getelementptr inbounds i8, ptr %os, i64 24
   %7 = load ptr, ptr %OutBufCur.i6.i48, align 8
   %sub.ptr.lhs.cast.i7.i49 = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i8.i50 = ptrtoint ptr %7 to i64
@@ -4686,9 +4615,9 @@ if.then4.i.i55:                                   ; preds = %sw.bb3
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %OutBufEnd.i5.i62 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i62 = getelementptr inbounds i8, ptr %os, i64 16
   %9 = load ptr, ptr %OutBufEnd.i5.i62, align 8
-  %OutBufCur.i6.i63 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i63 = getelementptr inbounds i8, ptr %os, i64 24
   %10 = load ptr, ptr %OutBufCur.i6.i63, align 8
   %sub.ptr.lhs.cast.i7.i64 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i8.i65 = ptrtoint ptr %10 to i64
@@ -4708,9 +4637,9 @@ if.then4.i.i70:                                   ; preds = %sw.bb5
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  %OutBufEnd.i5.i77 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i77 = getelementptr inbounds i8, ptr %os, i64 16
   %12 = load ptr, ptr %OutBufEnd.i5.i77, align 8
-  %OutBufCur.i6.i78 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i78 = getelementptr inbounds i8, ptr %os, i64 24
   %13 = load ptr, ptr %OutBufCur.i6.i78, align 8
   %sub.ptr.lhs.cast.i7.i79 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i8.i80 = ptrtoint ptr %13 to i64
@@ -4730,9 +4659,9 @@ if.then4.i.i85:                                   ; preds = %sw.bb7
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  %OutBufEnd.i5.i92 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i92 = getelementptr inbounds i8, ptr %os, i64 16
   %15 = load ptr, ptr %OutBufEnd.i5.i92, align 8
-  %OutBufCur.i6.i93 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i93 = getelementptr inbounds i8, ptr %os, i64 24
   %16 = load ptr, ptr %OutBufCur.i6.i93, align 8
   %sub.ptr.lhs.cast.i7.i94 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i8.i95 = ptrtoint ptr %16 to i64
@@ -4752,9 +4681,9 @@ if.then4.i.i100:                                  ; preds = %sw.bb9
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  %OutBufEnd.i5.i107 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i107 = getelementptr inbounds i8, ptr %os, i64 16
   %18 = load ptr, ptr %OutBufEnd.i5.i107, align 8
-  %OutBufCur.i6.i108 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i108 = getelementptr inbounds i8, ptr %os, i64 24
   %19 = load ptr, ptr %OutBufCur.i6.i108, align 8
   %sub.ptr.lhs.cast.i7.i109 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i8.i110 = ptrtoint ptr %19 to i64
@@ -4774,9 +4703,9 @@ if.then4.i.i115:                                  ; preds = %sw.bb11
   br label %return
 
 sw.bb13:                                          ; preds = %entry
-  %OutBufEnd.i5.i122 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i122 = getelementptr inbounds i8, ptr %os, i64 16
   %21 = load ptr, ptr %OutBufEnd.i5.i122, align 8
-  %OutBufCur.i6.i123 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i123 = getelementptr inbounds i8, ptr %os, i64 24
   %22 = load ptr, ptr %OutBufCur.i6.i123, align 8
   %sub.ptr.lhs.cast.i7.i124 = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i8.i125 = ptrtoint ptr %22 to i64
@@ -4796,9 +4725,9 @@ if.then4.i.i130:                                  ; preds = %sw.bb13
   br label %return
 
 sw.bb15:                                          ; preds = %entry
-  %OutBufEnd.i5.i137 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i137 = getelementptr inbounds i8, ptr %os, i64 16
   %24 = load ptr, ptr %OutBufEnd.i5.i137, align 8
-  %OutBufCur.i6.i138 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i138 = getelementptr inbounds i8, ptr %os, i64 24
   %25 = load ptr, ptr %OutBufCur.i6.i138, align 8
   %sub.ptr.lhs.cast.i7.i139 = ptrtoint ptr %24 to i64
   %sub.ptr.rhs.cast.i8.i140 = ptrtoint ptr %25 to i64
@@ -4818,9 +4747,9 @@ if.then4.i.i145:                                  ; preds = %sw.bb15
   br label %return
 
 sw.bb17:                                          ; preds = %entry
-  %OutBufEnd.i5.i152 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i152 = getelementptr inbounds i8, ptr %os, i64 16
   %27 = load ptr, ptr %OutBufEnd.i5.i152, align 8
-  %OutBufCur.i6.i153 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i153 = getelementptr inbounds i8, ptr %os, i64 24
   %28 = load ptr, ptr %OutBufCur.i6.i153, align 8
   %sub.ptr.lhs.cast.i7.i154 = ptrtoint ptr %27 to i64
   %sub.ptr.rhs.cast.i8.i155 = ptrtoint ptr %28 to i64
@@ -4840,9 +4769,9 @@ if.then4.i.i160:                                  ; preds = %sw.bb17
   br label %return
 
 sw.bb19:                                          ; preds = %entry
-  %OutBufEnd.i5.i167 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i167 = getelementptr inbounds i8, ptr %os, i64 16
   %30 = load ptr, ptr %OutBufEnd.i5.i167, align 8
-  %OutBufCur.i6.i168 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i168 = getelementptr inbounds i8, ptr %os, i64 24
   %31 = load ptr, ptr %OutBufCur.i6.i168, align 8
   %sub.ptr.lhs.cast.i7.i169 = ptrtoint ptr %30 to i64
   %sub.ptr.rhs.cast.i8.i170 = ptrtoint ptr %31 to i64
@@ -4862,9 +4791,9 @@ if.then4.i.i175:                                  ; preds = %sw.bb19
   br label %return
 
 sw.bb21:                                          ; preds = %entry
-  %OutBufEnd.i5.i182 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i182 = getelementptr inbounds i8, ptr %os, i64 16
   %33 = load ptr, ptr %OutBufEnd.i5.i182, align 8
-  %OutBufCur.i6.i183 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i183 = getelementptr inbounds i8, ptr %os, i64 24
   %34 = load ptr, ptr %OutBufCur.i6.i183, align 8
   %sub.ptr.lhs.cast.i7.i184 = ptrtoint ptr %33 to i64
   %sub.ptr.rhs.cast.i8.i185 = ptrtoint ptr %34 to i64
@@ -4884,9 +4813,9 @@ if.then4.i.i190:                                  ; preds = %sw.bb21
   br label %return
 
 sw.bb23:                                          ; preds = %entry
-  %OutBufEnd.i5.i197 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i197 = getelementptr inbounds i8, ptr %os, i64 16
   %36 = load ptr, ptr %OutBufEnd.i5.i197, align 8
-  %OutBufCur.i6.i198 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i198 = getelementptr inbounds i8, ptr %os, i64 24
   %37 = load ptr, ptr %OutBufCur.i6.i198, align 8
   %sub.ptr.lhs.cast.i7.i199 = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i8.i200 = ptrtoint ptr %37 to i64
@@ -4906,9 +4835,9 @@ if.then4.i.i205:                                  ; preds = %sw.bb23
   br label %return
 
 sw.bb25:                                          ; preds = %entry
-  %OutBufEnd.i5.i212 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i212 = getelementptr inbounds i8, ptr %os, i64 16
   %39 = load ptr, ptr %OutBufEnd.i5.i212, align 8
-  %OutBufCur.i6.i213 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i213 = getelementptr inbounds i8, ptr %os, i64 24
   %40 = load ptr, ptr %OutBufCur.i6.i213, align 8
   %sub.ptr.lhs.cast.i7.i214 = ptrtoint ptr %39 to i64
   %sub.ptr.rhs.cast.i8.i215 = ptrtoint ptr %40 to i64
@@ -4928,9 +4857,9 @@ if.then4.i.i220:                                  ; preds = %sw.bb25
   br label %return
 
 sw.bb27:                                          ; preds = %entry
-  %OutBufEnd.i5.i227 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i227 = getelementptr inbounds i8, ptr %os, i64 16
   %42 = load ptr, ptr %OutBufEnd.i5.i227, align 8
-  %OutBufCur.i6.i228 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i228 = getelementptr inbounds i8, ptr %os, i64 24
   %43 = load ptr, ptr %OutBufCur.i6.i228, align 8
   %sub.ptr.lhs.cast.i7.i229 = ptrtoint ptr %42 to i64
   %sub.ptr.rhs.cast.i8.i230 = ptrtoint ptr %43 to i64
@@ -4950,9 +4879,9 @@ if.then4.i.i235:                                  ; preds = %sw.bb27
   br label %return
 
 sw.bb29:                                          ; preds = %entry
-  %OutBufEnd.i5.i242 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i242 = getelementptr inbounds i8, ptr %os, i64 16
   %45 = load ptr, ptr %OutBufEnd.i5.i242, align 8
-  %OutBufCur.i6.i243 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i243 = getelementptr inbounds i8, ptr %os, i64 24
   %46 = load ptr, ptr %OutBufCur.i6.i243, align 8
   %sub.ptr.lhs.cast.i7.i244 = ptrtoint ptr %45 to i64
   %sub.ptr.rhs.cast.i8.i245 = ptrtoint ptr %46 to i64
@@ -4972,9 +4901,9 @@ if.then4.i.i250:                                  ; preds = %sw.bb29
   br label %return
 
 sw.bb31:                                          ; preds = %entry
-  %OutBufEnd.i5.i257 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i257 = getelementptr inbounds i8, ptr %os, i64 16
   %48 = load ptr, ptr %OutBufEnd.i5.i257, align 8
-  %OutBufCur.i6.i258 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i258 = getelementptr inbounds i8, ptr %os, i64 24
   %49 = load ptr, ptr %OutBufCur.i6.i258, align 8
   %sub.ptr.lhs.cast.i7.i259 = ptrtoint ptr %48 to i64
   %sub.ptr.rhs.cast.i8.i260 = ptrtoint ptr %49 to i64
@@ -4994,9 +4923,9 @@ if.then4.i.i265:                                  ; preds = %sw.bb31
   br label %return
 
 sw.bb33:                                          ; preds = %entry
-  %OutBufEnd.i5.i272 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i272 = getelementptr inbounds i8, ptr %os, i64 16
   %51 = load ptr, ptr %OutBufEnd.i5.i272, align 8
-  %OutBufCur.i6.i273 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i273 = getelementptr inbounds i8, ptr %os, i64 24
   %52 = load ptr, ptr %OutBufCur.i6.i273, align 8
   %sub.ptr.lhs.cast.i7.i274 = ptrtoint ptr %51 to i64
   %sub.ptr.rhs.cast.i8.i275 = ptrtoint ptr %52 to i64
@@ -5016,9 +4945,9 @@ if.then4.i.i280:                                  ; preds = %sw.bb33
   br label %return
 
 sw.bb35:                                          ; preds = %entry
-  %OutBufEnd.i5.i287 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i287 = getelementptr inbounds i8, ptr %os, i64 16
   %54 = load ptr, ptr %OutBufEnd.i5.i287, align 8
-  %OutBufCur.i6.i288 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i288 = getelementptr inbounds i8, ptr %os, i64 24
   %55 = load ptr, ptr %OutBufCur.i6.i288, align 8
   %sub.ptr.lhs.cast.i7.i289 = ptrtoint ptr %54 to i64
   %sub.ptr.rhs.cast.i8.i290 = ptrtoint ptr %55 to i64
@@ -5038,9 +4967,9 @@ if.then4.i.i295:                                  ; preds = %sw.bb35
   br label %return
 
 sw.bb37:                                          ; preds = %entry
-  %OutBufEnd.i5.i302 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i302 = getelementptr inbounds i8, ptr %os, i64 16
   %57 = load ptr, ptr %OutBufEnd.i5.i302, align 8
-  %OutBufCur.i6.i303 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i303 = getelementptr inbounds i8, ptr %os, i64 24
   %58 = load ptr, ptr %OutBufCur.i6.i303, align 8
   %sub.ptr.lhs.cast.i7.i304 = ptrtoint ptr %57 to i64
   %sub.ptr.rhs.cast.i8.i305 = ptrtoint ptr %58 to i64
@@ -5060,9 +4989,9 @@ if.then4.i.i310:                                  ; preds = %sw.bb37
   br label %return
 
 sw.bb39:                                          ; preds = %entry
-  %OutBufEnd.i5.i317 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i317 = getelementptr inbounds i8, ptr %os, i64 16
   %60 = load ptr, ptr %OutBufEnd.i5.i317, align 8
-  %OutBufCur.i6.i318 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i318 = getelementptr inbounds i8, ptr %os, i64 24
   %61 = load ptr, ptr %OutBufCur.i6.i318, align 8
   %sub.ptr.lhs.cast.i7.i319 = ptrtoint ptr %60 to i64
   %sub.ptr.rhs.cast.i8.i320 = ptrtoint ptr %61 to i64
@@ -5082,9 +5011,9 @@ if.then4.i.i325:                                  ; preds = %sw.bb39
   br label %return
 
 sw.bb41:                                          ; preds = %entry
-  %OutBufEnd.i5.i332 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i332 = getelementptr inbounds i8, ptr %os, i64 16
   %63 = load ptr, ptr %OutBufEnd.i5.i332, align 8
-  %OutBufCur.i6.i333 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i333 = getelementptr inbounds i8, ptr %os, i64 24
   %64 = load ptr, ptr %OutBufCur.i6.i333, align 8
   %sub.ptr.lhs.cast.i7.i334 = ptrtoint ptr %63 to i64
   %sub.ptr.rhs.cast.i8.i335 = ptrtoint ptr %64 to i64
@@ -5104,9 +5033,9 @@ if.then4.i.i340:                                  ; preds = %sw.bb41
   br label %return
 
 sw.bb43:                                          ; preds = %entry
-  %OutBufEnd.i5.i347 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i347 = getelementptr inbounds i8, ptr %os, i64 16
   %66 = load ptr, ptr %OutBufEnd.i5.i347, align 8
-  %OutBufCur.i6.i348 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i348 = getelementptr inbounds i8, ptr %os, i64 24
   %67 = load ptr, ptr %OutBufCur.i6.i348, align 8
   %sub.ptr.lhs.cast.i7.i349 = ptrtoint ptr %66 to i64
   %sub.ptr.rhs.cast.i8.i350 = ptrtoint ptr %67 to i64
@@ -5126,9 +5055,9 @@ if.then4.i.i355:                                  ; preds = %sw.bb43
   br label %return
 
 sw.bb45:                                          ; preds = %entry
-  %OutBufEnd.i5.i362 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i362 = getelementptr inbounds i8, ptr %os, i64 16
   %69 = load ptr, ptr %OutBufEnd.i5.i362, align 8
-  %OutBufCur.i6.i363 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i363 = getelementptr inbounds i8, ptr %os, i64 24
   %70 = load ptr, ptr %OutBufCur.i6.i363, align 8
   %sub.ptr.lhs.cast.i7.i364 = ptrtoint ptr %69 to i64
   %sub.ptr.rhs.cast.i8.i365 = ptrtoint ptr %70 to i64
@@ -5148,9 +5077,9 @@ if.then4.i.i370:                                  ; preds = %sw.bb45
   br label %return
 
 sw.bb47:                                          ; preds = %entry
-  %OutBufEnd.i5.i377 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i377 = getelementptr inbounds i8, ptr %os, i64 16
   %72 = load ptr, ptr %OutBufEnd.i5.i377, align 8
-  %OutBufCur.i6.i378 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i378 = getelementptr inbounds i8, ptr %os, i64 24
   %73 = load ptr, ptr %OutBufCur.i6.i378, align 8
   %sub.ptr.lhs.cast.i7.i379 = ptrtoint ptr %72 to i64
   %sub.ptr.rhs.cast.i8.i380 = ptrtoint ptr %73 to i64
@@ -5170,9 +5099,9 @@ if.then4.i.i385:                                  ; preds = %sw.bb47
   br label %return
 
 sw.bb49:                                          ; preds = %entry
-  %OutBufEnd.i5.i392 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i392 = getelementptr inbounds i8, ptr %os, i64 16
   %75 = load ptr, ptr %OutBufEnd.i5.i392, align 8
-  %OutBufCur.i6.i393 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i393 = getelementptr inbounds i8, ptr %os, i64 24
   %76 = load ptr, ptr %OutBufCur.i6.i393, align 8
   %sub.ptr.lhs.cast.i7.i394 = ptrtoint ptr %75 to i64
   %sub.ptr.rhs.cast.i8.i395 = ptrtoint ptr %76 to i64
@@ -5192,9 +5121,9 @@ if.then4.i.i400:                                  ; preds = %sw.bb49
   br label %return
 
 sw.bb51:                                          ; preds = %entry
-  %OutBufEnd.i5.i407 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i407 = getelementptr inbounds i8, ptr %os, i64 16
   %78 = load ptr, ptr %OutBufEnd.i5.i407, align 8
-  %OutBufCur.i6.i408 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i408 = getelementptr inbounds i8, ptr %os, i64 24
   %79 = load ptr, ptr %OutBufCur.i6.i408, align 8
   %sub.ptr.lhs.cast.i7.i409 = ptrtoint ptr %78 to i64
   %sub.ptr.rhs.cast.i8.i410 = ptrtoint ptr %79 to i64
@@ -5214,9 +5143,9 @@ if.then4.i.i415:                                  ; preds = %sw.bb51
   br label %return
 
 sw.bb53:                                          ; preds = %entry
-  %OutBufEnd.i5.i422 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i422 = getelementptr inbounds i8, ptr %os, i64 16
   %81 = load ptr, ptr %OutBufEnd.i5.i422, align 8
-  %OutBufCur.i6.i423 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i423 = getelementptr inbounds i8, ptr %os, i64 24
   %82 = load ptr, ptr %OutBufCur.i6.i423, align 8
   %sub.ptr.lhs.cast.i7.i424 = ptrtoint ptr %81 to i64
   %sub.ptr.rhs.cast.i8.i425 = ptrtoint ptr %82 to i64
@@ -5236,9 +5165,9 @@ if.then4.i.i430:                                  ; preds = %sw.bb53
   br label %return
 
 sw.bb55:                                          ; preds = %entry
-  %OutBufEnd.i5.i437 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i437 = getelementptr inbounds i8, ptr %os, i64 16
   %84 = load ptr, ptr %OutBufEnd.i5.i437, align 8
-  %OutBufCur.i6.i438 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i438 = getelementptr inbounds i8, ptr %os, i64 24
   %85 = load ptr, ptr %OutBufCur.i6.i438, align 8
   %sub.ptr.lhs.cast.i7.i439 = ptrtoint ptr %84 to i64
   %sub.ptr.rhs.cast.i8.i440 = ptrtoint ptr %85 to i64
@@ -5258,9 +5187,9 @@ if.then4.i.i445:                                  ; preds = %sw.bb55
   br label %return
 
 sw.bb57:                                          ; preds = %entry
-  %OutBufEnd.i5.i452 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 2
+  %OutBufEnd.i5.i452 = getelementptr inbounds i8, ptr %os, i64 16
   %87 = load ptr, ptr %OutBufEnd.i5.i452, align 8
-  %OutBufCur.i6.i453 = getelementptr inbounds %"class.llvh::raw_ostream", ptr %os, i64 0, i32 3
+  %OutBufCur.i6.i453 = getelementptr inbounds i8, ptr %os, i64 24
   %88 = load ptr, ptr %OutBufCur.i6.i453, align 8
   %sub.ptr.lhs.cast.i7.i454 = ptrtoint ptr %87 to i64
   %sub.ptr.rhs.cast.i8.i455 = ptrtoint ptr %88 to i64
@@ -5291,7 +5220,7 @@ declare void @_ZN4llvh18raw_string_ostreamD1Ev(ptr noundef nonnull align 8 deref
 define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace12MarkerRecord14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %tag_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::MarkerRecord", ptr %this, i64 0, i32 1
+  %tag_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.52, i64 3)
   %call.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %tag_) #23
   %call2.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %tag_) #23
@@ -5303,7 +5232,7 @@ entry:
 define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace18CreateObjectRecord14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.53, i64 5)
   %0 = load i64, ptr %objID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
@@ -5320,11 +5249,11 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.53, i64 5)
   %0 = load i64, ptr %objID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
-  %method_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %this, i64 0, i32 2
+  %method_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %method_, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp2.i)
@@ -5453,7 +5382,7 @@ _ZN8facebook6hermes7tracingL26createBigIntMethodToStringB5cxx11ENS1_10SynthTrace
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
-  %bits_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %this, i64 0, i32 3
+  %bits_ = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load i64, ptr %bits_, align 8
   call void @_ZNSt7__cxx119to_stringEm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp4, i64 noundef %10)
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.55, i64 4)
@@ -5486,15 +5415,15 @@ lpad5:                                            ; preds = %.noexc14, %invoke.c
 define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace20BigIntToStringRecord14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %strID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %this, i64 0, i32 1
+  %strID_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.56, i64 5)
   %0 = load i64, ptr %strID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
-  %bigintID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %this, i64 0, i32 2
+  %bigintID_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.57, i64 8)
   %1 = load i64, ptr %bigintID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %1)
-  %radix_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %this, i64 0, i32 3
+  %radix_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.58, i64 5)
   %2 = load i32, ptr %radix_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEi(ptr noundef nonnull align 8 dereferenceable(72) %json, i32 noundef %2)
@@ -5506,11 +5435,11 @@ define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace18CreateStringRecord
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.53, i64 5)
   %0 = load i64, ptr %objID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
-  %ascii_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this, i64 0, i32 3
+  %ascii_ = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i8, ptr %ascii_, align 8
   %2 = and i8 %1, 1
   %tobool = icmp ne i8 %2, 0
@@ -5526,7 +5455,7 @@ entry:
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
-  %chars_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this, i64 0, i32 2
+  %chars_ = getelementptr inbounds i8, ptr %this, i64 24
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %chars_) #23
   %call6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %chars_) #23
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.60, i64 5)
@@ -5591,19 +5520,19 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %propNameID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 1
+  %propNameID_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.53, i64 5)
   %0 = load i64, ptr %propNameID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
-  %valueType_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 4
+  %valueType_ = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load i32, ptr %valueType_, align 8
   %cmp = icmp eq i32 %1, 2
   br i1 %cmp, label %_ZN4llvh9StringRefC2EPKc.exit24, label %_ZN4llvh9StringRefC2EPKc.exit34
 
 _ZN4llvh9StringRefC2EPKc.exit24:                  ; preds = %entry
-  %traceValue_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 3
+  %traceValue_ = getelementptr inbounds i8, ptr %this, i64 56
   %agg.tmp3.sroa.0.0.copyload = load i32, ptr %traceValue_, align 8
-  %agg.tmp3.sroa.21.0.traceValue_.sroa_idx = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 3, i32 1
+  %agg.tmp3.sroa.21.0.traceValue_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp3.sroa.21.0.copyload = load i64, ptr %agg.tmp3.sroa.21.0.traceValue_.sroa_idx, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6encodeB5cxx11ENS2_10TraceValueE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 %agg.tmp3.sroa.0.0.copyload, i64 %agg.tmp3.sroa.21.0.copyload)
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.61, i64 5)
@@ -5638,7 +5567,7 @@ _ZN4llvh9StringRefC2EPKc.exit34:                  ; preds = %entry
 
 invoke.cont9:                                     ; preds = %.noexc18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #23
-  %chars_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 2
+  %chars_ = getelementptr inbounds i8, ptr %this, i64 24
   %call = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %chars_) #23
   %call13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %chars_) #23
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.60, i64 5)
@@ -5667,15 +5596,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace24CreateHostFunctionRecord14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %objID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord", ptr %this, i64 0, i32 1
+  %objID_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.53, i64 5)
   %0 = load i64, ptr %objID_.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
-  %propNameID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateHostFunctionRecord", ptr %this, i64 0, i32 1
+  %propNameID_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.47, i64 10)
   %1 = load i32, ptr %propNameID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %json, i32 noundef %1)
-  %paramCount_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateHostFunctionRecord", ptr %this, i64 0, i32 2
+  %paramCount_ = getelementptr inbounds i8, ptr %this, i64 28
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.62, i64 14)
   %2 = load i32, ptr %paramCount_, align 4
   tail call void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72) %json, i32 noundef %2)
@@ -5688,13 +5617,13 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.53, i64 5)
   %0 = load i64, ptr %objID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
-  %propID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 2
+  %propID_ = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp3.sroa.0.0.copyload = load i32, ptr %propID_, align 8
-  %agg.tmp3.sroa.22.0.propID_.sroa_idx = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 2, i32 1
+  %agg.tmp3.sroa.22.0.propID_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp3.sroa.22.0.copyload = load i64, ptr %agg.tmp3.sroa.22.0.propID_.sroa_idx, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6encodeB5cxx11ENS2_10TraceValueE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 %agg.tmp3.sroa.0.0.copyload, i64 %agg.tmp3.sroa.22.0.copyload)
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.63, i64 6)
@@ -5708,9 +5637,9 @@ entry:
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
-  %value_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 3
+  %value_ = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp6.sroa.0.0.copyload = load i32, ptr %value_, align 8
-  %agg.tmp6.sroa.21.0.value_.sroa_idx = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 3, i32 1
+  %agg.tmp6.sroa.21.0.value_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 48
   %agg.tmp6.sroa.21.0.copyload = load i64, ptr %agg.tmp6.sroa.21.0.value_.sroa_idx, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6encodeB5cxx11ENS2_10TraceValueE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, i32 %agg.tmp6.sroa.0.0.copyload, i64 %agg.tmp6.sroa.21.0.copyload)
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.61, i64 5)
@@ -5748,13 +5677,13 @@ define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace17HasPropertyRecord1
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.53, i64 5)
   %0 = load i64, ptr %objID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
-  %propID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %this, i64 0, i32 2
+  %propID_ = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp3.sroa.0.0.copyload = load i32, ptr %propID_, align 8
-  %agg.tmp3.sroa.21.0.propID_.sroa_idx = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %this, i64 0, i32 2, i32 1
+  %agg.tmp3.sroa.21.0.propID_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp3.sroa.21.0.copyload = load i64, ptr %agg.tmp3.sroa.21.0.propID_.sroa_idx, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6encodeB5cxx11ENS2_10TraceValueE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 %agg.tmp3.sroa.0.0.copyload, i64 %agg.tmp3.sroa.21.0.copyload)
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.63, i64 6)
@@ -5781,7 +5710,7 @@ lpad:                                             ; preds = %.noexc, %entry
 define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace21DrainMicrotasksRecord14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %maxMicrotasksHint_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::DrainMicrotasksRecord", ptr %this, i64 0, i32 1
+  %maxMicrotasksHint_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.64, i64 17)
   %0 = load i32, ptr %maxMicrotasksHint_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEi(ptr noundef nonnull align 8 dereferenceable(72) %json, i32 noundef %0)
@@ -5792,11 +5721,11 @@ entry:
 define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace22GetPropertyNamesRecord14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetPropertyNamesRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.53, i64 5)
   %0 = load i64, ptr %objID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
-  %propNamesID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetPropertyNamesRecord", ptr %this, i64 0, i32 2
+  %propNamesID_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.65, i64 11)
   %1 = load i64, ptr %propNamesID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %1)
@@ -5807,11 +5736,11 @@ entry:
 define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace17CreateArrayRecord14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateArrayRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.53, i64 5)
   %0 = load i64, ptr %objID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
-  %length_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateArrayRecord", ptr %this, i64 0, i32 2
+  %length_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.66, i64 6)
   %1 = load i64, ptr %length_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %1)
@@ -5823,17 +5752,17 @@ define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRe
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.53, i64 5)
   %0 = load i64, ptr %objID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
-  %index_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 2
+  %index_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.67, i64 5)
   %1 = load i64, ptr %index_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %1)
-  %value_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 3
+  %value_ = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp4.sroa.0.0.copyload = load i32, ptr %value_, align 8
-  %agg.tmp4.sroa.21.0.value_.sroa_idx = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 3, i32 1
+  %agg.tmp4.sroa.21.0.value_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
   %agg.tmp4.sroa.21.0.copyload = load i64, ptr %agg.tmp4.sroa.21.0.value_.sroa_idx, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6encodeB5cxx11ENS2_10TraceValueE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 %agg.tmp4.sroa.0.0.copyload, i64 %agg.tmp4.sroa.21.0.copyload)
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.61, i64 5)
@@ -5862,13 +5791,13 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %functionID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 1
+  %functionID_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.68, i64 10)
   %0 = load i64, ptr %functionID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
-  %thisArg_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 2
+  %thisArg_ = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp3.sroa.0.0.copyload = load i32, ptr %thisArg_, align 8
-  %agg.tmp3.sroa.23.0.thisArg_.sroa_idx = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 2, i32 1
+  %agg.tmp3.sroa.23.0.thisArg_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp3.sroa.23.0.copyload = load i64, ptr %agg.tmp3.sroa.23.0.thisArg_.sroa_idx, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6encodeB5cxx11ENS2_10TraceValueE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 %agg.tmp3.sroa.0.0.copyload, i64 %agg.tmp3.sroa.23.0.copyload)
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.69, i64 7)
@@ -5884,9 +5813,9 @@ invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.70, i64 4)
   call void @_ZN6hermes11JSONEmitter9openArrayEv(ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %args_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 3
+  %args_ = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %args_, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not21 = icmp eq ptr %1, %2
   br i1 %cmp.i.not21, label %for.end, label %for.body
@@ -5904,7 +5833,7 @@ for.body:                                         ; preds = %invoke.cont, %invok
 
 invoke.cont14:                                    ; preds = %for.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10) #23
-  %incdec.ptr.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %__begin2.sroa.0.022, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.022, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -5938,12 +5867,12 @@ define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace17BeginExecJSRecord1
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %sourceURL_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %this, i64 0, i32 1
+  %sourceURL_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.71, i64 9)
   %call.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %sourceURL_) #23
   %call2.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %sourceURL_) #23
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr %call.i.i, i64 %call2.i.i)
-  %sourceHash_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %this, i64 0, i32 2
+  %sourceHash_ = getelementptr inbounds i8, ptr %this, i64 48
   call void @_ZN6hermes12hashAsStringB5cxx11ERKSt5arrayIhLm20EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash_)
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.72, i64 10)
           to label %.noexc unwind label %lpad
@@ -5956,7 +5885,7 @@ entry:
 
 invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
-  %sourceIsBytecode_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %this, i64 0, i32 3
+  %sourceIsBytecode_ = getelementptr inbounds i8, ptr %this, i64 68
   call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.73, i64 16)
   %0 = load i8, ptr %sourceIsBytecode_, align 4
   %1 = and i8 %0, 1
@@ -6005,7 +5934,7 @@ lpad:                                             ; preds = %.noexc, %entry
 define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace15EndExecJSRecord14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %tag_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::MarkerRecord", ptr %this, i64 0, i32 1
+  %tag_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.52, i64 3)
   %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %tag_.i) #23
   %call2.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %tag_.i) #23
@@ -6037,15 +5966,15 @@ entry:
 define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecord14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %hostObjectID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 1
+  %hostObjectID_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.75, i64 12)
   %0 = load i64, ptr %hostObjectID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
-  %propNameID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 2
+  %propNameID_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.47, i64 10)
   %1 = load i64, ptr %propNameID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %1)
-  %propName_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 3
+  %propName_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.76, i64 8)
   %call.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %propName_) #23
   %call2.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %propName_) #23
@@ -6067,22 +5996,22 @@ define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace23SetPropertyNativeR
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %hostObjectID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 1
+  %hostObjectID_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.75, i64 12)
   %0 = load i64, ptr %hostObjectID_.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
-  %propNameID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 2
+  %propNameID_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.47, i64 10)
   %1 = load i64, ptr %propNameID_.i, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %1)
-  %propName_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 3
+  %propName_.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.76, i64 8)
   %call.i.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %propName_.i) #23
   %call2.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %propName_.i) #23
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr %call.i.i.i, i64 %call2.i.i.i)
-  %value_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord", ptr %this, i64 0, i32 1
+  %value_ = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp2.sroa.0.0.copyload = load i32, ptr %value_, align 8
-  %agg.tmp2.sroa.21.0.value_.sroa_idx = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp2.sroa.21.0.value_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
   %agg.tmp2.sroa.21.0.copyload = load i64, ptr %agg.tmp2.sroa.21.0.value_.sroa_idx, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace6encodeB5cxx11ENS2_10TraceValueE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, i32 %agg.tmp2.sroa.0.0.copyload, i64 %agg.tmp2.sroa.21.0.copyload)
   invoke void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.61, i64 5)
@@ -6109,7 +6038,7 @@ lpad:                                             ; preds = %.noexc, %entry
 define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace28GetNativePropertyNamesRecord14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %hostObjectID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesRecord", ptr %this, i64 0, i32 1
+  %hostObjectID_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.75, i64 12)
   %0 = load i64, ptr %hostObjectID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
@@ -6122,9 +6051,9 @@ entry:
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.77, i64 10)
   tail call void @_ZN6hermes11JSONEmitter9openArrayEv(ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %propNames_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesReturnRecord", ptr %this, i64 0, i32 1
+  %propNames_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %propNames_, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesReturnRecord", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not11 = icmp eq ptr %0, %1
   br i1 %cmp.i.not11, label %for.end, label %for.body
@@ -6134,7 +6063,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call.i11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.012) #23
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.012) #23
   tail call void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr %call.i11, i64 %call2.i)
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__begin2.sroa.0.012, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.012, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -6147,11 +6076,11 @@ for.end:                                          ; preds = %for.body, %entry
 define hidden void @_ZNK8facebook6hermes7tracing10SynthTrace31SetExternalMemoryPressureRecord14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN6hermes11JSONEmitterE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(72) %json)
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetExternalMemoryPressureRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.53, i64 5)
   %0 = load i64, ptr %objID_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %0)
-  %amount_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetExternalMemoryPressureRecord", ptr %this, i64 0, i32 2
+  %amount_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nonnull @.str.78, i64 6)
   %1 = load i64, ptr %amount_, align 8
   tail call void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72) %json, i64 noundef %1)
@@ -6277,14 +6206,14 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8facebook6hermes7tracing10SynthTrace23flushRecordsIfNecessaryEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %json_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 1
+  %json_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %json_, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %records_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -6301,11 +6230,11 @@ for.body.i:                                       ; preds = %lor.lhs.false, %for
   %4 = load ptr, ptr %json_, align 8
   tail call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 6
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 48
   %5 = load ptr, ptr %vfn.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(72) %4)
   tail call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.35", ptr %__begin2.sroa.0.05.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %1
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
@@ -6323,14 +6252,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.end.i, %_ZSt8_D
 
 _ZNKSt14default_deleteIN8facebook6hermes7tracing10SynthTrace6RecordEEclEPS4_.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
   br label %_ZSt8_DestroyISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8facebook6hermes7tracing10SynthTrace6RecordEEclEPS4_.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.35", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %.pre6.i
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !7
 
@@ -6345,15 +6274,15 @@ return:                                           ; preds = %invoke.cont.i.i.i, 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8facebook6hermes7tracing10SynthTrace12flushRecordsEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %records_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %0, %1
   br i1 %cmp.i.not4, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE5clearEv.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %json_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 1
+  %json_ = getelementptr inbounds i8, ptr %this, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -6362,11 +6291,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load ptr, ptr %json_, align 8
   tail call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %3)
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %4 = load ptr, ptr %vfn.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %3)
   tail call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %3)
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.35", ptr %__begin2.sroa.0.05, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -6384,14 +6313,14 @@ for.body.i.i.i.i.i:                               ; preds = %for.end, %_ZSt8_Des
 
 _ZNKSt14default_deleteIN8facebook6hermes7tracing10SynthTrace6RecordEEclEPS4_.exit.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 8
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   br label %_ZSt8_DestroyISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8facebook6hermes7tracing10SynthTrace6RecordEEclEPS4_.exit.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.35", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %.pre6
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !7
 
@@ -6406,15 +6335,15 @@ _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14def
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8facebook6hermes7tracing10SynthTrace15flushAndDisableERKN6hermes2vm11GCExecTraceE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %gcTrace) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %json_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 1
+  %json_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %json_, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %records_.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %records_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %1, %2
   br i1 %cmp.i.not4.i, label %_ZN8facebook6hermes7tracing10SynthTrace12flushRecordsEv.exit, label %for.body.i
@@ -6425,11 +6354,11 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %4 = load ptr, ptr %json_, align 8
   tail call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 6
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 48
   %5 = load ptr, ptr %vfn.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(72) %4)
   tail call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.35", ptr %__begin2.sroa.0.05.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %2
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
@@ -6447,14 +6376,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.end.i, %_ZSt8_D
 
 _ZNKSt14default_deleteIN8facebook6hermes7tracing10SynthTrace6RecordEEclEPS4_.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %6) #23
   br label %_ZSt8_DestroyISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8facebook6hermes7tracing10SynthTrace6RecordEEclEPS4_.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.35", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %.pre6.i
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !7
 
@@ -6468,9 +6397,9 @@ _ZN8facebook6hermes7tracing10SynthTrace12flushRecordsEv.exit: ; preds = %if.end,
   %9 = load ptr, ptr %json_, align 8
   tail call void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72) %9)
   %10 = load ptr, ptr %this, align 8
-  %OutBufCur.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 3
+  %OutBufCur.i = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %OutBufCur.i, align 8
-  %OutBufStart.i = getelementptr inbounds %"class.llvh::raw_ostream", ptr %10, i64 0, i32 1
+  %OutBufStart.i = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %OutBufStart.i, align 8
   %cmp.not.i = icmp eq ptr %11, %12
   br i1 %cmp.not.i, label %_ZN4llvh11raw_ostream5flushEv.exit, label %if.then.i
@@ -6507,7 +6436,7 @@ _ZNSt10unique_ptrIN6hermes11JSONEmitterESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN6hermes11JSONEmitterESt14default_deleteIS1_EE5resetEPS1_.exit
   %vtable.i.i.i = load ptr, ptr %15, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %16 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(36) %15) #23
   br label %return
@@ -7399,7 +7328,7 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12MarkerRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace12MarkerRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %tag_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::MarkerRecord", ptr %this, i64 0, i32 1
+  %tag_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tag_) #23
   ret void
 }
@@ -7408,7 +7337,7 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12MarkerRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace12MarkerRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %tag_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::MarkerRecord", ptr %this, i64 0, i32 1
+  %tag_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tag_.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
@@ -7423,7 +7352,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace17BeginExecJSRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %sourceURL_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %this, i64 0, i32 1
+  %sourceURL_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sourceURL_) #23
   ret void
 }
@@ -7431,7 +7360,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace17BeginExecJSRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %sourceURL_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %this, i64 0, i32 1
+  %sourceURL_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sourceURL_.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
@@ -7447,7 +7376,7 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace15EndExecJSRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace12MarkerRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %tag_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::MarkerRecord", ptr %this, i64 0, i32 1
+  %tag_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tag_.i) #23
   ret void
 }
@@ -7456,7 +7385,7 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace15EndExecJSRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace12MarkerRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %tag_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::MarkerRecord", ptr %this, i64 0, i32 1
+  %tag_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tag_.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
@@ -7481,11 +7410,11 @@ entry:
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %entry
   %val_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i64, ptr %val_.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %call5.i.i.i.i.i.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store i64 %1, ptr %call5.i.i.i.i.i.i.i1, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i1, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i1, i64 8
   store ptr %call5.i.i.i.i.i.i.i1, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
@@ -7517,16 +7446,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace18CreateObjectRecord4defsEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %objID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -7560,16 +7489,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace18CreateBigIntRecord4defsEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %objID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -7603,16 +7532,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace20BigIntToStringRecord4defsEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %strID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %this, i64 0, i32 1
+  %strID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %strID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -7620,16 +7549,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace20BigIntToStringRecord4usesEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %bigintID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %this, i64 0, i32 2
+  %bigintID_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %bigintID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -7638,7 +7567,7 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace18CreateStringRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateStringRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %chars_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this, i64 0, i32 2
+  %chars_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %chars_) #23
   ret void
 }
@@ -7647,7 +7576,7 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace18CreateStringRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateStringRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %chars_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this, i64 0, i32 2
+  %chars_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %chars_.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
@@ -7662,16 +7591,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace18CreateStringRecord4defsEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %objID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -7687,7 +7616,7 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %chars_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 2
+  %chars_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %chars_) #23
   ret void
 }
@@ -7696,7 +7625,7 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %chars_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 2
+  %chars_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %chars_.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
@@ -7711,16 +7640,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecord4defsEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %propNameID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 1
+  %propNameID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %propNameID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -7729,20 +7658,20 @@ entry:
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecord4usesEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %traceValue_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 3
+  %traceValue_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %traceValue_, align 8
   %.off.i.i = add i32 %0, -4
   %switch.i.i = icmp ult i32 %.off.i.i, 5
   br i1 %switch.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i, label %nrvo.skipdtor
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %entry
-  %val_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %this, i64 0, i32 3, i32 1
+  %val_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i64, ptr %val_.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %call5.i.i.i.i.i.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store i64 %1, ptr %call5.i.i.i.i.i.i.i1, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i1, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i1, i64 8
   store ptr %call5.i.i.i.i.i.i.i1, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
@@ -7774,17 +7703,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace24CreateHostFunctionRecord4usesEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %propNameID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateHostFunctionRecord", ptr %this, i64 0, i32 1
+  %propNameID_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %propNameID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   %conv = zext i32 %0 to i64
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %conv, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -7805,34 +7734,34 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %objID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
-  %propID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 2
+  %propID_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %propID_, align 8
   %.off.i.i = add i32 %1, -4
   %switch.i.i = icmp ult i32 %.off.i.i, 5
   br i1 %switch.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i, label %nrvo.skipdtor
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %entry
-  %val_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 2, i32 1
+  %val_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i64, ptr %val_.i.i, align 8
   %call5.i.i.i.i.i.i.i2 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
           to label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i unwind label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i2, i64 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2, i64 8
   store i64 %2, ptr %add.ptr.i.i.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i.i.i.i2, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i2, i64 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2, i64 16
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i) #25
   store ptr %call5.i.i.i.i.i.i.i2, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i, align 8
@@ -7890,34 +7819,34 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace17HasPropertyRecord4usesEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %objID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
-  %propID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %this, i64 0, i32 2
+  %propID_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %propID_, align 8
   %.off.i.i = add i32 %1, -4
   %switch.i.i = icmp ult i32 %.off.i.i, 5
   br i1 %switch.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i, label %nrvo.skipdtor
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %entry
-  %val_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %this, i64 0, i32 2, i32 1
+  %val_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i64, ptr %val_.i.i, align 8
   %call5.i.i.i.i.i.i.i2 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
           to label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i unwind label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i2, i64 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2, i64 8
   store i64 %2, ptr %add.ptr.i.i.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i.i.i.i2, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i2, i64 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2, i64 16
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i) #25
   store ptr %call5.i.i.i.i.i.i.i2, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i, align 8
@@ -7956,16 +7885,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace22GetPropertyNamesRecord4defsEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %propNamesID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetPropertyNamesRecord", ptr %this, i64 0, i32 2
+  %propNamesID_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %propNamesID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -7973,16 +7902,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace22GetPropertyNamesRecord4usesEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetPropertyNamesRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %objID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -8009,16 +7938,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace17CreateArrayRecord4defsEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateArrayRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %objID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -8039,16 +7968,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecord4usesEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %objID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -8057,7 +7986,7 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace10CallRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %args_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 3
+  %args_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %args_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit, label %if.then.i.i.i
@@ -8080,16 +8009,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord4usesEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %functionID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 1
+  %functionID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %functionID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -8126,11 +8055,11 @@ entry:
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %entry
   %val_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %val_.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %call5.i.i.i.i.i.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store i64 %1, ptr %call5.i.i.i.i.i.i.i1, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i1, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i1, i64 8
   store ptr %call5.i.i.i.i.i.i.i1, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
@@ -8172,11 +8101,11 @@ entry:
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %entry
   %val_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %val_.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %call5.i.i.i.i.i.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store i64 %1, ptr %call5.i.i.i.i.i.i.i1, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i1, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i1, i64 8
   store ptr %call5.i.i.i.i.i.i.i1, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
@@ -8190,7 +8119,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt16allocator_tr
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %propName_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 3
+  %propName_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %propName_) #23
   ret void
 }
@@ -8205,16 +8134,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecord4defsEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %propNameID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 2
+  %propNameID_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %propNameID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -8222,16 +8151,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecord4usesEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hostObjectID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 1
+  %hostObjectID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %hostObjectID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -8262,11 +8191,11 @@ entry:
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %entry
   %val_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i64, ptr %val_.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %call5.i.i.i.i.i.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store i64 %1, ptr %call5.i.i.i.i.i.i.i1, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i1, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i1, i64 8
   store ptr %call5.i.i.i.i.i.i.i1, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
@@ -8280,7 +8209,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt16allocator_tr
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace23SetPropertyNativeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %propName_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 3
+  %propName_.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %propName_.i) #23
   ret void
 }
@@ -8289,7 +8218,7 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace23SetPropertyNativeRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %propName_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 3
+  %propName_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %propName_.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
@@ -8305,34 +8234,34 @@ entry:
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace23SetPropertyNativeRecord4defsEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %propNameID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 2
+  %propNameID_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %propNameID_.i, align 8, !noalias !37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !37
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21, !noalias !37
   store ptr %call5.i.i.i.i2.i.i, ptr %agg.result, align 8, !alias.scope !37
-  %add.ptr.i1.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i, i64 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !37
   store i64 %0, ptr %call5.i.i.i.i2.i.i, align 8, !noalias !37
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !37
-  %value_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord", ptr %this, i64 0, i32 1
+  %value_ = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i32, ptr %value_, align 8
   %.off.i.i = add i32 %1, -4
   %switch.i.i = icmp ult i32 %.off.i.i, 5
   br i1 %switch.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i, label %nrvo.skipdtor
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %entry
-  %val_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord", ptr %this, i64 0, i32 1, i32 1
+  %val_.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load i64, ptr %val_.i.i, align 8
   %call5.i.i.i.i.i.i.i3 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
           to label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i unwind label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i3, i64 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i3, i64 8
   store i64 %2, ptr %add.ptr.i.i.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i.i.i.i3, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i3, i64 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i3, i64 16
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i) #25
   store ptr %call5.i.i.i.i.i.i.i3, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
@@ -8371,16 +8300,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace28GetNativePropertyNamesRecord4usesEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %hostObjectID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesRecord", ptr %this, i64 0, i32 1
+  %hostObjectID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %hostObjectID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -8388,9 +8317,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace34GetNativePropertyNamesReturnRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %propNames_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesReturnRecord", ptr %this, i64 0, i32 1
+  %propNames_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %propNames_, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesReturnRecord", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -8398,7 +8327,7 @@ entry:
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #23
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !40
 
@@ -8422,9 +8351,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace34GetNativePropertyNamesReturnRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %propNames_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesReturnRecord", ptr %this, i64 0, i32 1
+  %propNames_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %propNames_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesReturnRecord", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
@@ -8432,7 +8361,7 @@ entry:
 for.body.i.i.i.i.i:                               ; preds = %entry, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %0, %entry ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #23
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !40
 
@@ -8482,16 +8411,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace31SetExternalMemoryPressureRecord4usesEv(ptr noalias sret(%"class.std::vector.43") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetExternalMemoryPressureRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %objID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -8500,7 +8429,7 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace23GetPropertyNativeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %propName_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 3
+  %propName_.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %propName_.i) #23
   ret void
 }
@@ -8509,7 +8438,7 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace23GetPropertyNativeRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %propName_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %this, i64 0, i32 3
+  %propName_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %propName_.i.i) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
@@ -8548,29 +8477,29 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 define linkonce_odr hidden void @_ZN6hermes2vm8GCConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 56, i1 false)
-  %Name_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 8
-  %Name_3 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 8
+  %Name_ = getelementptr inbounds i8, ptr %this, i64 56
+  %Name_3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name_, ptr noundef nonnull align 8 dereferenceable(32) %Name_3)
-  %TripwireConfig_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 9
-  %TripwireConfig_4 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 9
+  %TripwireConfig_ = getelementptr inbounds i8, ptr %this, i64 88
+  %TripwireConfig_4 = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load i32, ptr %TripwireConfig_4, align 8
   store i32 %1, ptr %TripwireConfig_, align 8
-  %Callback_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 9, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 9, i32 1, i32 1
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 9, i32 1, i32 0, i32 1
+  %Callback_.i = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 120
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %Callback_.i, i8 0, i64 32, i1 false)
   %2 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %Callback_3.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 9, i32 1
+  %Callback_3.i = getelementptr inbounds i8, ptr %0, i64 96
   %call3.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %Callback_3.i, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  %_M_invoker4.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 9, i32 1, i32 1
+  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %_M_invoker4.i.i, align 8
   store ptr %3, ptr %_M_invoker.i.i, align 8
   %4 = load ptr, ptr %_M_manager.i.i.i.i, align 8
@@ -8596,26 +8525,26 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i, %entry
-  %AllocInYoung_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 10
-  %AllocInYoung_5 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 10
+  %AllocInYoung_ = getelementptr inbounds i8, ptr %this, i64 128
+  %AllocInYoung_5 = getelementptr inbounds i8, ptr %0, i64 128
   %9 = load i32, ptr %AllocInYoung_5, align 8
   store i32 %9, ptr %AllocInYoung_, align 8
-  %AnalyticsCallback_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 14
-  %_M_manager.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 14, i32 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 14, i32 1
-  %_M_manager.i.i.i8 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 14, i32 0, i32 1
+  %AnalyticsCallback_ = getelementptr inbounds i8, ptr %this, i64 136
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 152
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 160
+  %_M_manager.i.i.i8 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %AnalyticsCallback_, i8 0, i64 32, i1 false)
   %10 = load ptr, ptr %_M_manager.i.i.i8, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.not.i, label %invoke.cont8, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %AnalyticsCallback_6 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 14
+  %AnalyticsCallback_6 = getelementptr inbounds i8, ptr %0, i64 136
   %call3.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_, ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_6, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 14, i32 1
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %0, i64 160
   %11 = load ptr, ptr %_M_invoker4.i, align 8
   store ptr %11, ptr %_M_invoker.i, align 8
   %12 = load ptr, ptr %_M_manager.i.i.i8, align 8
@@ -8641,22 +8570,22 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i9
   unreachable
 
 invoke.cont8:                                     ; preds = %invoke.cont.i, %invoke.cont
-  %Callback_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 15
-  %_M_manager.i.i11 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 15, i32 0, i32 1
-  %_M_invoker.i12 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 15, i32 1
-  %_M_manager.i.i.i13 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 15, i32 0, i32 1
+  %Callback_ = getelementptr inbounds i8, ptr %this, i64 168
+  %_M_manager.i.i11 = getelementptr inbounds i8, ptr %this, i64 184
+  %_M_invoker.i12 = getelementptr inbounds i8, ptr %this, i64 192
+  %_M_manager.i.i.i13 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %Callback_, i8 0, i64 32, i1 false)
   %17 = load ptr, ptr %_M_manager.i.i.i13, align 8
   %tobool.not.i.i.not.i14 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.not.i14, label %invoke.cont11, label %if.then.i15
 
 if.then.i15:                                      ; preds = %invoke.cont8
-  %Callback_9 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 15
+  %Callback_9 = getelementptr inbounds i8, ptr %0, i64 168
   %call3.i16 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %Callback_, ptr noundef nonnull align 8 dereferenceable(16) %Callback_9, i32 noundef 2)
           to label %invoke.cont.i23 unwind label %lpad.i17
 
 invoke.cont.i23:                                  ; preds = %if.then.i15
-  %_M_invoker4.i24 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 15, i32 1
+  %_M_invoker4.i24 = getelementptr inbounds i8, ptr %0, i64 192
   %18 = load ptr, ptr %_M_invoker4.i24, align 8
   store ptr %18, ptr %_M_invoker.i12, align 8
   %19 = load ptr, ptr %_M_manager.i.i.i13, align 8
@@ -8747,7 +8676,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %__base) #1 comdat {
 entry:
-  %_M_flags.i = getelementptr inbounds %"class.std::ios_base", ptr %__base, i64 0, i32 3
+  %_M_flags.i = getelementptr inbounds i8, ptr %__base, i64 24
   %0 = load i32, ptr %_M_flags.i, align 8
   %and.i.i.i = and i32 %0, -75
   %or.i.i.i = or disjoint i32 %and.i.i.i, 8

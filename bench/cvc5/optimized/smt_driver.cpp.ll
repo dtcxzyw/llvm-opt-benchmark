@@ -4,31 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.cvc5::internal::smt::SmtDriver" = type { %"class.cvc5::internal::EnvObj", ptr, ptr, %"class.cvc5::internal::preprocessing::AssertionPipeline" }
-%"class.cvc5::internal::EnvObj" = type { ptr, ptr }
-%"class.cvc5::internal::preprocessing::AssertionPipeline" = type <{ %"class.cvc5::internal::EnvObj", %"class.cvc5::internal::NodeTemplate", %"class.cvc5::internal::NodeTemplate", %"class.std::vector", %"class.std::unordered_map", i64, i8, [7 x i8], i64, i64, i64, ptr, i8, i8, i8, i8, [4 x i8] }>
-%"class.cvc5::internal::NodeTemplate" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %"class.cvc5::internal::Result" = type { i32, i32, %"class.std::__cxx11::basic_string" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.39" = type { i8 }
-%"class.cvc5::internal::smt::SmtDriverSingleCall" = type { %"class.cvc5::internal::smt::SmtDriver", %"class.cvc5::context::CDO.370" }
-%"class.cvc5::context::CDO.370" = type { %"class.cvc5::context::ContextObj", i64 }
-%"class.cvc5::context::ContextObj" = type { ptr, ptr, ptr, ptr, ptr }
-%"class.cvc5::context::Context" = type { ptr, %"class.std::vector.270", ptr, ptr }
-%"class.std::vector.270" = type { %"struct.std::_Vector_base.271" }
-%"struct.std::_Vector_base.271" = type { %"struct.std::_Vector_base<cvc5::context::Scope *, std::allocator<cvc5::context::Scope *>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::context::Scope *, std::allocator<cvc5::context::Scope *>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::context::Scope *, std::allocator<cvc5::context::Scope *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::context::Scope *, std::allocator<cvc5::context::Scope *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cvc5::internal::LogicInfo" = type { %"class.std::__cxx11::basic_string", %"class.std::vector.42", i64, i8, i8, i8, i8, i8, i8, i8, i8 }
 %"class.std::vector.42" = type { %"struct.std::_Bvector_base" }
 %"struct.std::_Bvector_base" = type { %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl" }
@@ -36,9 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data" = type { %"struct.std::_Bit_iterator", %"struct.std::_Bit_iterator", ptr }
 %"struct.std::_Bit_iterator" = type { %"struct.std::_Bit_iterator_base.base", [4 x i8] }
 %"struct.std::_Bit_iterator_base.base" = type <{ ptr, i32 }>
-%"class.cvc5::context::CDList" = type <{ %"class.cvc5::context::ContextObj", %"class.std::vector", i64, i8, %"class.cvc5::context::DefaultCleanUp", [6 x i8] }>
-%"class.cvc5::context::DefaultCleanUp" = type { i8 }
-%"struct.std::_Bit_iterator_base" = type <{ ptr, i32, [4 x i8] }>
+%"class.cvc5::internal::NodeTemplate" = type { ptr }
 %"class.cvc5::internal::FatalStream" = type { i8 }
 %struct._Guard = type { ptr }
 
@@ -164,11 +142,11 @@ define hidden void @_ZN4cvc58internal3smt9SmtDriverC2ERNS0_3EnvERNS1_9SmtSolverE
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal3smt9SmtDriverE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_smt = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 1
+  %d_smt = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %smt, ptr %d_smt, align 8
-  %d_ctx = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 2
+  %d_ctx = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %ctx, ptr %d_ctx, align 8
-  %d_ap = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 3
+  %d_ap = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN4cvc58internal13preprocessing17AssertionPipelineC1ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(164) %d_ap, ptr noundef nonnull align 8 dereferenceable(576) %env)
   %0 = load ptr, ptr %d_smt, align 8
   %call = invoke noundef ptr @_ZN4cvc58internal3smt9SmtSolver15getPreprocessorEv(ptr noundef nonnull align 8 dereferenceable(1216) %0)
@@ -212,8 +190,8 @@ declare void @_ZN4cvc58internal13preprocessing17AssertionPipeline12enableProofsE
 define linkonce_odr hidden void @_ZN4cvc58internal13preprocessing17AssertionPipelineD2Ev(ptr noundef nonnull align 8 dereferenceable(164) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal13preprocessing17AssertionPipelineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_iteSkolemMap = getelementptr inbounds %"class.cvc5::internal::preprocessing::AssertionPipeline", ptr %this, i64 0, i32 4
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::preprocessing::AssertionPipeline", ptr %this, i64 0, i32 4, i32 0, i32 2
+  %d_iteSkolemMap = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableImSt4pairIKmN4cvc58internal12NodeTemplateILb1EEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -255,13 +233,13 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN4cvc58internal12N
 
 _ZNSt10_HashtableImSt4pairIKmN4cvc58internal12NodeTemplateILb1EEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKmN4cvc58internal12NodeTemplateILb1EEEELb0EEEEE18_M_deallocate_nodeEPS9_.exit.i.i.i.i, %entry
   %6 = load ptr, ptr %d_iteSkolemMap, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.cvc5::internal::preprocessing::AssertionPipeline", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %7 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %mul.i.i.i = shl i64 %7, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 %mul.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %8 = load ptr, ptr %d_iteSkolemMap, align 8
-  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::preprocessing::AssertionPipeline", ptr %this, i64 0, i32 4, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %8
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapImN4cvc58internal12NodeTemplateILb1EEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev.exit, label %if.end.i.i.i.i
 
@@ -270,9 +248,9 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIm
   br label %_ZNSt13unordered_mapImN4cvc58internal12NodeTemplateILb1EEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev.exit
 
 _ZNSt13unordered_mapImN4cvc58internal12NodeTemplateILb1EEESt4hashImESt8equal_toImESaISt4pairIKmS3_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableImSt4pairIKmN4cvc58internal12NodeTemplateILb1EEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
-  %d_nodes = getelementptr inbounds %"class.cvc5::internal::preprocessing::AssertionPipeline", ptr %this, i64 0, i32 3
+  %d_nodes = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load ptr, ptr %d_nodes, align 8
-  %_M_finish.i = getelementptr inbounds %"class.cvc5::internal::preprocessing::AssertionPipeline", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
   %10 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -306,7 +284,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then13.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i: ; preds = %if.then13.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %10
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !6
 
@@ -324,7 +302,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %d_false = getelementptr inbounds %"class.cvc5::internal::preprocessing::AssertionPipeline", ptr %this, i64 0, i32 2
+  %d_false = getelementptr inbounds i8, ptr %this, i64 24
   %16 = load ptr, ptr %d_false, align 8
   %bf.load.i.i = load i64, ptr %16, align 8
   %17 = and i64 %bf.load.i.i, 1152920405095219200
@@ -352,7 +330,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, %if.then.i.i, %if.then13.i.i
-  %d_true = getelementptr inbounds %"class.cvc5::internal::preprocessing::AssertionPipeline", ptr %this, i64 0, i32 1
+  %d_true = getelementptr inbounds i8, ptr %this, i64 16
   %20 = load ptr, ptr %d_true, align 8
   %bf.load.i.i2 = load i64, ptr %20, align 8
   %21 = and i64 %bf.load.i.i2, 1152920405095219200
@@ -391,10 +369,10 @@ entry:
   %ref.tmp22 = alloca %"class.std::allocator.39", align 1
   %ref.tmp29 = alloca %"class.cvc5::internal::Result", align 8
   %0 = load ptr, ptr %assumptions, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %assumptions, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %assumptions, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp ne ptr %0, %1
-  %d_ctx = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 2
+  %d_ctx = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %d_ctx, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -404,7 +382,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %d_smt = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 1
+  %d_smt = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %d_smt, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(272) ptr @_ZN4cvc58internal3smt9SmtSolver13getAssertionsEv(ptr noundef nonnull align 8 dereferenceable(1216) %3)
   tail call void @_ZN4cvc58internal6ResultC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %agg.result)
@@ -412,7 +390,7 @@ if.end:                                           ; preds = %if.then, %entry
           to label %cond.true unwind label %lpad.loopexit.split-lp
 
 cond.true:                                        ; preds = %if.end
-  %d_env = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this, i64 0, i32 1
+  %d_env = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %d_env, align 8
   %call15 = invoke noundef ptr @_ZNK4cvc58internal3Env18getResourceManagerEv(ptr noundef nonnull align 8 dereferenceable(576) %4)
           to label %invoke.cont14 unwind label %lpad.loopexit.split-lp
@@ -432,9 +410,9 @@ invoke.cont16:                                    ; preds = %lor.rhs.i
   br i1 %call2.i20, label %if.then18, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %invoke.cont16
-  %d_ap = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 3
-  %d_inputName.i32 = getelementptr inbounds %"class.cvc5::internal::Result", ptr %agg.result, i64 0, i32 2
-  %d_inputName3.i33 = getelementptr inbounds %"class.cvc5::internal::Result", ptr %ref.tmp29, i64 0, i32 2
+  %d_ap = getelementptr inbounds i8, ptr %this, i64 32
+  %d_inputName.i32 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_inputName3.i33 = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   br label %do.body
 
 if.then18:                                        ; preds = %call.i.noexc18, %invoke.cont16
@@ -470,8 +448,8 @@ invoke.cont24:                                    ; preds = %.noexc
 invoke.cont26:                                    ; preds = %invoke.cont24
   %6 = load i64, ptr %ref.tmp21, align 8
   store i64 %6, ptr %agg.result, align 8
-  %d_inputName.i = getelementptr inbounds %"class.cvc5::internal::Result", ptr %agg.result, i64 0, i32 2
-  %d_inputName3.i = getelementptr inbounds %"class.cvc5::internal::Result", ptr %ref.tmp21, i64 0, i32 2
+  %d_inputName.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_inputName3.i = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #14
@@ -568,14 +546,14 @@ call.i26.noexc:                                   ; preds = %.noexc28
 
 .noexc30:                                         ; preds = %call.i26.noexc
   %vtable.i27 = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i27, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i27, i64 24
   %16 = load ptr, ptr %vfn.i, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(164) %d_ap)
           to label %invoke.cont28 unwind label %lpad.loopexit
 
 invoke.cont28:                                    ; preds = %.noexc30
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %17 = load ptr, ptr %vfn, align 8
   invoke void %17(ptr nonnull sret(%"class.cvc5::internal::Result") align 8 %ref.tmp29, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(164) %d_ap)
           to label %invoke.cont31 unwind label %lpad.loopexit
@@ -633,7 +611,7 @@ nrvo.skipdtor:                                    ; preds = %try.cont, %if.then6
 
 ehcleanup71:                                      ; preds = %lpad57, %lpad47, %lpad68, %catch.fallthrough
   %lpad.val74.merged = phi { ptr, i32 } [ %24, %lpad68 ], [ %22, %lpad57 ], [ %21, %lpad47 ], [ %.pn.pn, %catch.fallthrough ]
-  %d_inputName.i36 = getelementptr inbounds %"class.cvc5::internal::Result", ptr %agg.result, i64 0, i32 2
+  %d_inputName.i36 = getelementptr inbounds i8, ptr %agg.result, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i36) #14
   resume { ptr, i32 } %lpad.val74.merged
 
@@ -678,12 +656,12 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define hidden void @_ZN4cvc58internal3smt9SmtDriver25getNextAssertionsInternalERNS0_13preprocessing17AssertionPipelineE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(164) %ap) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal13preprocessing17AssertionPipeline5clearEv(ptr noundef nonnull align 8 dereferenceable(164) %ap)
-  %d_smt = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 1
+  %d_smt = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_smt, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(272) ptr @_ZN4cvc58internal3smt9SmtSolver13getAssertionsEv(ptr noundef nonnull align 8 dereferenceable(1216) %0)
   tail call void @_ZN4cvc58internal3smt10Assertions7refreshEv(ptr noundef nonnull align 8 dereferenceable(272) %call)
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(164) %ap)
   ret void
@@ -724,14 +702,14 @@ declare void @_ZN4cvc58internal3smt10Assertions7refreshEv(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt9SmtDriver17refreshAssertionsEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_ap = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 3
+  %d_ap = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN4cvc58internal13preprocessing17AssertionPipeline5clearEv(ptr noundef nonnull align 8 dereferenceable(164) %d_ap)
-  %d_smt.i = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 1
+  %d_smt.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_smt.i, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(272) ptr @_ZN4cvc58internal3smt9SmtSolver13getAssertionsEv(ptr noundef nonnull align 8 dereferenceable(1216) %0)
   tail call void @_ZN4cvc58internal3smt10Assertions7refreshEv(ptr noundef nonnull align 8 dereferenceable(272) %call.i)
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(164) %d_ap)
   %2 = load ptr, ptr %d_smt.i, align 8
@@ -748,14 +726,14 @@ declare void @_ZN4cvc58internal3smt9SmtSolver16assertToInternalERNS0_13preproces
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt9SmtDriver13notifyPushPreEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_ap.i = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 3
+  %d_ap.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN4cvc58internal13preprocessing17AssertionPipeline5clearEv(ptr noundef nonnull align 8 dereferenceable(164) %d_ap.i)
-  %d_smt.i.i = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 1
+  %d_smt.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_smt.i.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(272) ptr @_ZN4cvc58internal3smt9SmtSolver13getAssertionsEv(ptr noundef nonnull align 8 dereferenceable(1216) %0)
   tail call void @_ZN4cvc58internal3smt10Assertions7refreshEv(ptr noundef nonnull align 8 dereferenceable(272) %call.i.i)
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %1 = load ptr, ptr %vfn.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(164) %d_ap.i)
   %2 = load ptr, ptr %d_smt.i.i, align 8
@@ -768,7 +746,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt9SmtDriver14notifyPushPostEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_smt = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 1
+  %d_smt = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_smt, align 8
   tail call void @_ZN4cvc58internal3smt9SmtSolver15pushPropContextEv(ptr noundef nonnull align 8 dereferenceable(1216) %0)
   ret void
@@ -779,7 +757,7 @@ declare void @_ZN4cvc58internal3smt9SmtSolver15pushPropContextEv(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt9SmtDriver12notifyPopPreEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_smt = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 1
+  %d_smt = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_smt, align 8
   tail call void @_ZN4cvc58internal3smt9SmtSolver14popPropContextEv(ptr noundef nonnull align 8 dereferenceable(1216) %0)
   ret void
@@ -790,7 +768,7 @@ declare void @_ZN4cvc58internal3smt9SmtSolver14popPropContextEv(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt9SmtDriver15notifyPostSolveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %d_smt = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 1
+  %d_smt = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_smt, align 8
   tail call void @_ZN4cvc58internal3smt9SmtSolver10resetTrailEv(ptr noundef nonnull align 8 dereferenceable(1216) %0)
   ret void
@@ -803,11 +781,11 @@ define hidden void @_ZN4cvc58internal3smt19SmtDriverSingleCallC2ERNS0_3EnvERNS1_
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal3smt9SmtDriverE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_smt.i = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 1
+  %d_smt.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %smt, ptr %d_smt.i, align 8
-  %d_ctx.i = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 2
+  %d_ctx.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %ctx, ptr %d_ctx.i, align 8
-  %d_ap.i = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 3
+  %d_ap.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN4cvc58internal13preprocessing17AssertionPipelineC1ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(164) %d_ap.i, ptr noundef nonnull align 8 dereferenceable(576) %env)
   %0 = load ptr, ptr %d_smt.i, align 8
   %call.i = invoke noundef ptr @_ZN4cvc58internal3smt9SmtSolver15getPreprocessorEv(ptr noundef nonnull align 8 dereferenceable(1216) %0)
@@ -841,20 +819,20 @@ _ZN4cvc58internal3smt9SmtDriverC2ERNS0_3EnvERNS1_9SmtSolverEPNS1_14ContextManage
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4cvc58internal3smt9SmtDriverC2ERNS0_3EnvERNS1_9SmtSolverEPNS1_14ContextManagerE.exit
-  %d_assertionListIndex = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriverSingleCall", ptr %this, i64 0, i32 1
+  %d_assertionListIndex = getelementptr inbounds i8, ptr %this, i64 200
   invoke void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %d_assertionListIndex, ptr noundef %call)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %invoke.cont
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i64 0, inrange i32 0, i64 2), ptr %d_assertionListIndex, align 8
-  %d_data.i = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriverSingleCall", ptr %this, i64 0, i32 1, i32 1
+  %d_data.i = getelementptr inbounds i8, ptr %this, i64 240
   store i64 0, ptr %d_data.i, align 8
-  %d_pScope.i.i = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriverSingleCall", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %d_pScope.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %2 = load ptr, ptr %d_pScope.i.i, align 8
   %3 = load ptr, ptr %2, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::context::Context", ptr %3, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %4, i64 -1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   %5 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %5, %2
   br i1 %cmp.i.i.i, label %invoke.cont2, label %if.then.i.i
@@ -895,14 +873,14 @@ entry:
   %ref.tmp87 = alloca %"class.cvc5::internal::Result", align 8
   %agg.tmp88 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp89 = alloca %"class.std::allocator.39", align 1
-  %d_smt = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 1
+  %d_smt = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_smt, align 8
   tail call void @_ZN4cvc58internal3smt9SmtSolver10preprocessERNS0_13preprocessing17AssertionPipelineE(ptr noundef nonnull align 8 dereferenceable(1216) %0, ptr noundef nonnull align 8 dereferenceable(164) %ap)
   %1 = load ptr, ptr %d_smt, align 8
   tail call void @_ZN4cvc58internal3smt9SmtSolver16assertToInternalERNS0_13preprocessing17AssertionPipelineE(ptr noundef nonnull align 8 dereferenceable(1216) %1, ptr noundef nonnull align 8 dereferenceable(164) %ap)
   %2 = load ptr, ptr %d_smt, align 8
   tail call void @_ZN4cvc58internal3smt9SmtSolver16checkSatInternalEv(ptr sret(%"class.cvc5::internal::Result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1216) %2)
-  %d_isRefutationUnsound.i = getelementptr inbounds %"class.cvc5::internal::preprocessing::AssertionPipeline", ptr %ap, i64 0, i32 13
+  %d_isRefutationUnsound.i = getelementptr inbounds i8, ptr %ap, i64 161
   %3 = load i8, ptr %d_isRefutationUnsound.i, align 1
   %4 = and i8 %3, 1
   %tobool.i = icmp ne i8 %4, 0
@@ -937,8 +915,8 @@ invoke.cont8:                                     ; preds = %.noexc
 invoke.cont10:                                    ; preds = %invoke.cont8
   %7 = load i64, ptr %ref.tmp, align 8
   store i64 %7, ptr %agg.result, align 8
-  %d_inputName.i = getelementptr inbounds %"class.cvc5::internal::Result", ptr %agg.result, i64 0, i32 2
-  %d_inputName3.i = getelementptr inbounds %"class.cvc5::internal::Result", ptr %ref.tmp, i64 0, i32 2
+  %d_inputName.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_inputName3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i) #14
   br label %if.end29.sink.split
 
@@ -964,7 +942,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad.i, %lp
   br label %ehcleanup119
 
 if.else:                                          ; preds = %entry
-  %d_isModelUnsound.i = getelementptr inbounds %"class.cvc5::internal::preprocessing::AssertionPipeline", ptr %ap, i64 0, i32 14
+  %d_isModelUnsound.i = getelementptr inbounds i8, ptr %ap, i64 162
   %11 = load i8, ptr %d_isModelUnsound.i, align 2
   %12 = and i8 %11, 1
   %tobool.i19 = icmp ne i8 %12, 0
@@ -998,8 +976,8 @@ invoke.cont23:                                    ; preds = %.noexc25
 invoke.cont25:                                    ; preds = %invoke.cont23
   %14 = load i64, ptr %ref.tmp19, align 8
   store i64 %14, ptr %agg.result, align 8
-  %d_inputName.i28 = getelementptr inbounds %"class.cvc5::internal::Result", ptr %agg.result, i64 0, i32 2
-  %d_inputName3.i29 = getelementptr inbounds %"class.cvc5::internal::Result", ptr %ref.tmp19, i64 0, i32 2
+  %d_inputName.i28 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_inputName3.i29 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   %call.i30 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i28, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i29) #14
   br label %if.end29.sink.split
 
@@ -1029,7 +1007,7 @@ if.end29.sink.split:                              ; preds = %invoke.cont10, %inv
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end29.sink.split, %if.else
-  %d_isNegated.i = getelementptr inbounds %"class.cvc5::internal::preprocessing::AssertionPipeline", ptr %ap, i64 0, i32 15
+  %d_isNegated.i = getelementptr inbounds i8, ptr %ap, i64 163
   %17 = load i8, ptr %d_isNegated.i, align 1
   %18 = and i8 %17, 1
   %tobool.i32.not = icmp eq i8 %18, 0
@@ -1068,8 +1046,8 @@ invoke.cont53:                                    ; preds = %.noexc84
 invoke.cont55:                                    ; preds = %invoke.cont53
   %21 = load i64, ptr %ref.tmp49, align 8
   store i64 %21, ptr %agg.result, align 8
-  %d_inputName.i87 = getelementptr inbounds %"class.cvc5::internal::Result", ptr %agg.result, i64 0, i32 2
-  %d_inputName3.i88 = getelementptr inbounds %"class.cvc5::internal::Result", ptr %ref.tmp49, i64 0, i32 2
+  %d_inputName.i87 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_inputName3.i88 = getelementptr inbounds i8, ptr %ref.tmp49, i64 8
   %call.i89 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i87, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i88) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i88) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp50) #14
@@ -1101,8 +1079,8 @@ invoke.cont64:                                    ; preds = %if.then63
           to label %.noexc92 unwind label %lpad
 
 .noexc92:                                         ; preds = %invoke.cont64
-  %d_theories.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1
-  %d_theories3.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %call65, i64 0, i32 1
+  %d_theories.i = getelementptr inbounds i8, ptr %logic, i64 32
+  %d_theories3.i = getelementptr inbounds i8, ptr %call65, i64 32
   invoke void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %d_theories.i, ptr noundef nonnull align 8 dereferenceable(40) %d_theories3.i)
           to label %invoke.cont66 unwind label %lpad.i91
 
@@ -1113,8 +1091,8 @@ lpad.i91:                                         ; preds = %.noexc92
   br label %ehcleanup119
 
 invoke.cont66:                                    ; preds = %.noexc92
-  %d_sharingTheories.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 2
-  %d_sharingTheories4.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %call65, i64 0, i32 2
+  %d_sharingTheories.i = getelementptr inbounds i8, ptr %logic, i64 72
+  %d_sharingTheories4.i = getelementptr inbounds i8, ptr %call65, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories.i, ptr noundef nonnull align 8 dereferenceable(16) %d_sharingTheories4.i, i64 16, i1 false)
   %call69 = invoke noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo6isPureENS0_6theory8TheoryIdE(ptr noundef nonnull align 8 dereferenceable(88) %logic, i32 noundef 3)
           to label %invoke.cont68 unwind label %lpad67
@@ -1162,8 +1140,8 @@ invoke.cont80:                                    ; preds = %.noexc100
 invoke.cont82:                                    ; preds = %invoke.cont80
   %26 = load i64, ptr %ref.tmp76, align 8
   store i64 %26, ptr %agg.result, align 8
-  %d_inputName.i103 = getelementptr inbounds %"class.cvc5::internal::Result", ptr %agg.result, i64 0, i32 2
-  %d_inputName3.i104 = getelementptr inbounds %"class.cvc5::internal::Result", ptr %ref.tmp76, i64 0, i32 2
+  %d_inputName.i103 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_inputName3.i104 = getelementptr inbounds i8, ptr %ref.tmp76, i64 8
   %call.i105 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i103, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i104) #14
   br label %if.end97
 
@@ -1214,8 +1192,8 @@ invoke.cont91:                                    ; preds = %.noexc113
 invoke.cont93:                                    ; preds = %invoke.cont91
   %31 = load i64, ptr %ref.tmp87, align 8
   store i64 %31, ptr %agg.result, align 8
-  %d_inputName.i116 = getelementptr inbounds %"class.cvc5::internal::Result", ptr %agg.result, i64 0, i32 2
-  %d_inputName3.i117 = getelementptr inbounds %"class.cvc5::internal::Result", ptr %ref.tmp87, i64 0, i32 2
+  %d_inputName.i116 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %d_inputName3.i117 = getelementptr inbounds i8, ptr %ref.tmp87, i64 8
   %call.i118 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i116, ptr noundef nonnull align 8 dereferenceable(32) %d_inputName3.i117) #14
   br label %if.end97
 
@@ -1247,7 +1225,7 @@ if.end97:                                         ; preds = %invoke.cont93, %inv
   br i1 %tobool.not.i.i.i.i, label %_ZN4cvc58internal9LogicInfoD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end97
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %logic, i64 64
   %35 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %35 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %34 to i64
@@ -1257,11 +1235,11 @@ if.then.i.i.i.i:                                  ; preds = %if.end97
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %35, i64 %idx.neg.i.i.i.i
   call void @_ZdlPv(ptr noundef %add.ptr.i.i.i.i) #16
   store ptr null, ptr %d_theories.i, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %logic, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %logic, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %logic, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %logic, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   br label %_ZN4cvc58internal9LogicInfoD2Ev.exit
@@ -1280,7 +1258,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN4cvc58internal9L
 
 ehcleanup119:                                     ; preds = %lpad, %lpad.i91, %ehcleanup98, %ehcleanup58, %ehcleanup28, %ehcleanup
   %.pn15 = phi { ptr, i32 } [ %.pn13, %ehcleanup58 ], [ %.pn10.pn, %ehcleanup98 ], [ %.pn6, %ehcleanup ], [ %.pn, %ehcleanup28 ], [ %8, %lpad ], [ %24, %lpad.i91 ]
-  %d_inputName.i201 = getelementptr inbounds %"class.cvc5::internal::Result", ptr %agg.result, i64 0, i32 2
+  %d_inputName.i201 = getelementptr inbounds i8, ptr %agg.result, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_inputName.i201) #14
   resume { ptr, i32 } %.pn15
 }
@@ -1298,13 +1276,13 @@ declare noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo8isLinearEv(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal9LogicInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %d_theories = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1
+  %d_theories = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_theories, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
@@ -1314,11 +1292,11 @@ if.then.i.i.i:                                    ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #16
   store ptr null, ptr %d_theories, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::LogicInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
@@ -1332,20 +1310,20 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 define hidden void @_ZN4cvc58internal3smt19SmtDriverSingleCall17getNextAssertionsERNS0_13preprocessing17AssertionPipelineE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(164) %ap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %d_smt = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 1
+  %d_smt = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_smt, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(272) ptr @_ZN4cvc58internal3smt9SmtSolver13getAssertionsEv(ptr noundef nonnull align 8 dereferenceable(1216) %0)
   %call2 = tail call noundef nonnull align 8 dereferenceable(74) ptr @_ZNK4cvc58internal3smt10Assertions16getAssertionListEv(ptr noundef nonnull align 8 dereferenceable(272) %call)
-  %d_list.i = getelementptr inbounds %"class.cvc5::context::CDList", ptr %call2, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"class.cvc5::context::CDList", ptr %call2, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %d_list.i = getelementptr inbounds i8, ptr %call2, i64 40
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %call2, i64 48
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %d_list.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %d_assertionListIndex = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriverSingleCall", ptr %this, i64 0, i32 1
-  %d_data.i = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriverSingleCall", ptr %this, i64 0, i32 1, i32 1
+  %d_assertionListIndex = getelementptr inbounds i8, ptr %this, i64 200
+  %d_data.i = getelementptr inbounds i8, ptr %this, i64 240
   %3 = load i64, ptr %d_data.i, align 8
   %cmp14 = icmp ult i64 %3, %sub.ptr.div.i.i
   br i1 %cmp14, label %for.body, label %for.end
@@ -1424,12 +1402,12 @@ lpad:                                             ; preds = %_ZN4cvc58internal12
   resume { ptr, i32 } %11
 
 for.end:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %entry
-  %d_pScope.i.i.i = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriverSingleCall", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %d_pScope.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %12 = load ptr, ptr %d_pScope.i.i.i, align 8
   %13 = load ptr, ptr %12, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::context::Context", ptr %13, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %14, i64 -1
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 -8
   %15 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %15, %12
   br i1 %cmp.i.i.i.i, label %_ZN4cvc57context3CDOImEaSERKm.exit, label %if.then.i.i.i
@@ -1484,7 +1462,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 define linkonce_odr hidden void @_ZN4cvc58internal3smt19SmtDriverSingleCallD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal3smt19SmtDriverSingleCallE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_assertionListIndex = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriverSingleCall", ptr %this, i64 0, i32 1
+  %d_assertionListIndex = getelementptr inbounds i8, ptr %this, i64 200
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i64 0, inrange i32 0, i64 2), ptr %d_assertionListIndex, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_assertionListIndex)
           to label %_ZN4cvc57context3CDOImED2Ev.exit unwind label %terminate.lpad.i
@@ -1498,7 +1476,7 @@ terminate.lpad.i:                                 ; preds = %entry
 
 _ZN4cvc57context3CDOImED2Ev.exit:                 ; preds = %entry
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal3smt9SmtDriverE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_ap.i = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 3
+  %d_ap.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN4cvc58internal13preprocessing17AssertionPipelineD2Ev(ptr noundef nonnull align 8 dereferenceable(164) %d_ap.i) #14
   ret void
 }
@@ -1507,7 +1485,7 @@ _ZN4cvc57context3CDOImED2Ev.exit:                 ; preds = %entry
 define linkonce_odr hidden void @_ZN4cvc58internal3smt19SmtDriverSingleCallD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal3smt19SmtDriverSingleCallE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_assertionListIndex.i = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriverSingleCall", ptr %this, i64 0, i32 1
+  %d_assertionListIndex.i = getelementptr inbounds i8, ptr %this, i64 200
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i64 0, inrange i32 0, i64 2), ptr %d_assertionListIndex.i, align 8
   invoke void @_ZN4cvc57context10ContextObj7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %d_assertionListIndex.i)
           to label %_ZN4cvc58internal3smt19SmtDriverSingleCallD2Ev.exit unwind label %terminate.lpad.i.i
@@ -1521,7 +1499,7 @@ terminate.lpad.i.i:                               ; preds = %entry
 
 _ZN4cvc58internal3smt19SmtDriverSingleCallD2Ev.exit: ; preds = %entry
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal3smt9SmtDriverE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_ap.i.i = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 3
+  %d_ap.i.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN4cvc58internal13preprocessing17AssertionPipelineD2Ev(ptr noundef nonnull align 8 dereferenceable(164) %d_ap.i.i) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
   ret void
@@ -1531,7 +1509,7 @@ _ZN4cvc58internal3smt19SmtDriverSingleCallD2Ev.exit: ; preds = %entry
 define linkonce_odr hidden void @_ZN4cvc58internal3smt9SmtDriverD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal3smt9SmtDriverE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_ap = getelementptr inbounds %"class.cvc5::internal::smt::SmtDriver", ptr %this, i64 0, i32 3
+  %d_ap = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN4cvc58internal13preprocessing17AssertionPipelineD2Ev(ptr noundef nonnull align 8 dereferenceable(164) %d_ap) #14
   ret void
 }
@@ -1570,17 +1548,17 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 define linkonce_odr hidden void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %__x) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
-  %_M_offset.i.i.i.i.i = getelementptr inbounds %"struct.std::_Bit_iterator_base", ptr %this, i64 0, i32 1
+  %_M_offset.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %_M_offset.i.i.i.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %_M_finish.i.i.i, align 8
-  %_M_offset.i.i1.i.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_offset.i.i1.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %_M_offset.i.i1.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %_M_end_of_storage.i.i.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %__x, i64 16
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_offset.i.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %__x, i64 0, i32 1, i32 0, i32 1
+  %_M_offset.i.i.i = getelementptr inbounds i8, ptr %__x, i64 24
   %1 = load i32, ptr %_M_offset.i.i.i, align 8
   %2 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1607,11 +1585,12 @@ call5.i.i.i.i.noexc:                              ; preds = %if.then.i
   store i32 0, ptr %_M_offset.i.i.i.i.i, align 8
   %div.i.i.i.i = sdiv i64 %add.i.i, 64
   %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i4, i64 %div.i.i.i.i
-  %rem.i.i.i.i = srem i64 %add.i.i, 64
-  %rem.lobit.i.i.i.i = ashr i64 %rem.i.i.i.i, 63
-  %storemerge.i.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i, i64 %rem.lobit.i.i.i.i
-  %4 = trunc i64 %rem.i.i.i.i to i32
-  %conv4.i.i.i.i = and i32 %4, 63
+  %4 = and i64 %add.i.i, -9223372036854775745
+  %cmp.i.i.i.i = icmp ugt i64 %4, -9223372036854775808
+  %storemerge.idx.i.i.i.i = select i1 %cmp.i.i.i.i, i64 -8, i64 0
+  %storemerge.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %storemerge.idx.i.i.i.i
+  %5 = trunc i64 %add.i.i to i32
+  %conv4.i.i.i.i = and i32 %5, 63
   store ptr %storemerge.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   store i32 %conv4.i.i.i.i, ptr %_M_offset.i.i1.i.i.i, align 8
   %.pre = load ptr, ptr %__x, align 8
@@ -1624,51 +1603,51 @@ call5.i.i.i.i.noexc:                              ; preds = %if.then.i
 
 invoke.cont5:                                     ; preds = %call5.i.i.i.i.noexc, %entry
   %sub.ptr.sub.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre15, %call5.i.i.i.i.noexc ], [ %sub.ptr.sub.i.i, %entry ]
-  %5 = phi ptr [ %call5.i.i.i.i4, %call5.i.i.i.i.noexc ], [ null, %entry ]
-  %6 = phi i32 [ %.pre12, %call5.i.i.i.i.noexc ], [ %1, %entry ]
-  %7 = phi ptr [ %.pre11, %call5.i.i.i.i.noexc ], [ %0, %entry ]
-  %8 = phi ptr [ %.pre, %call5.i.i.i.i.noexc ], [ %2, %entry ]
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %7, %8
+  %6 = phi ptr [ %call5.i.i.i.i4, %call5.i.i.i.i.noexc ], [ null, %entry ]
+  %7 = phi i32 [ %.pre12, %call5.i.i.i.i.noexc ], [ %1, %entry ]
+  %8 = phi ptr [ %.pre11, %call5.i.i.i.i.noexc ], [ %0, %entry ]
+  %9 = phi ptr [ %.pre, %call5.i.i.i.i.noexc ], [ %2, %entry ]
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %8, %9
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont5
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %8, i64 %sub.ptr.sub.i.i.i.i.i.i.pre-phi, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %6, ptr align 8 %9, i64 %sub.ptr.sub.i.i.i.i.i.i.pre-phi, i1 false)
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %if.then.i.i.i.i.i.i, %invoke.cont5
-  %cmp20.i.i.i.i.i.not.i = icmp eq i32 %6, 0
+  %cmp20.i.i.i.i.i.not.i = icmp eq i32 %7, 0
   br i1 %cmp20.i.i.i.i.i.not.i, label %invoke.cont11, label %for.body.i.i.i.i.i.preheader.i
 
 for.body.i.i.i.i.i.preheader.i:                   ; preds = %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.pre-phi, 3
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %5, i64 %sub.ptr.div.i.i.i.i.i.i
-  %conv.i.i.i.i.i.i.i = zext i32 %6 to i64
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i64, ptr %6, i64 %sub.ptr.div.i.i.i.i.i.i
+  %conv.i.i.i.i.i.i.i = zext i32 %7 to i64
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
   %__n.025.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %conv.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i ]
   %__first.sroa.5.024.i.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.preheader.i ]
-  %__first.sroa.0.023.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %7, %for.body.i.i.i.i.i.preheader.i ]
+  %__first.sroa.0.023.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %8, %for.body.i.i.i.i.i.preheader.i ]
   %__result.sroa.0.022.i.i.i.i.i.i = phi ptr [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i ]
   %__result.sroa.5.021.i.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.preheader.i ]
   %sh_prom.i.i.i.i.i.i.i = zext nneg i32 %__first.sroa.5.024.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i.i
-  %9 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i.i = and i64 %9, %shl.i.i.i.i.i.i.i
+  %10 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i.i = and i64 %10, %shl.i.i.i.i.i.i.i
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i, 0
   %sh_prom.i4.i.i.i.i.i.i = zext nneg i32 %__result.sroa.5.021.i.i.i.i.i.i to i64
   %shl.i5.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i.i
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
-  %10 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
-  %or.i.i.i.i.i.i.i = or i64 %10, %shl.i5.i.i.i.i.i.i
+  %11 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %or.i.i.i.i.i.i.i = or i64 %11, %shl.i5.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
   %not.i.i.i.i.i.i.i = xor i64 %shl.i5.i.i.i.i.i.i, -1
-  %11 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i = and i64 %11, %not.i.i.i.i.i.i.i
+  %12 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i = and i64 %12, %not.i.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -1676,14 +1655,14 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i
   store i64 %storemerge.i.i.i.i.i.i, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
   %inc.i.i.i.i.i.i.i.i = add i32 %__first.sroa.5.024.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %__first.sroa.5.024.i.i.i.i.i.i, 63
-  %spec.select.idx.i.i.i.i.i.i = zext i1 %cmp.i.i.i.i.i.i.i.i to i64
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
+  %spec.select.idx.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 8, i64 0
+  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.023.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
   %spec.select19.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i32 0, i32 %inc.i.i.i.i.i.i.i.i
   %inc.i.i7.i.i.i.i.i.i = add i32 %__result.sroa.5.021.i.i.i.i.i.i, 1
   %cmp.i.i8.i.i.i.i.i.i = icmp eq i32 %__result.sroa.5.021.i.i.i.i.i.i, 63
   %__result.sroa.5.1.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i32 0, i32 %inc.i.i7.i.i.i.i.i.i
-  %__result.sroa.0.1.idx.i.i.i.i.i.i = zext i1 %cmp.i.i8.i.i.i.i.i.i to i64
-  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
+  %__result.sroa.0.1.idx.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i64 8, i64 0
+  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
   %dec.i.i.i.i.i.i = add nsw i64 %__n.025.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp sgt i64 %__n.025.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont11, !llvm.loop !9
@@ -1692,10 +1671,10 @@ invoke.cont11:                                    ; preds = %_ZNSt14_Bit_referen
   ret void
 
 lpad4:                                            ; preds = %if.then.i
-  %12 = landingpad { ptr, i32 }
+  %13 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #14
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1706,7 +1685,7 @@ entry:
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
@@ -1760,12 +1739,12 @@ define linkonce_odr hidden noundef ptr @_ZN4cvc57context3CDOImE4saveEPNS0_20Cont
 entry:
   %call.i = tail call noundef ptr @_ZN4cvc57context20ContextMemoryManager7newDataEm(ptr noundef nonnull align 8 dereferenceable(200) %pCMM, i64 noundef 48)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
-  %d_pScope.i.i = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %call.i, i64 0, i32 1
-  %d_pScope2.i.i = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %this, i64 0, i32 1
+  %d_pScope.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %d_pScope2.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %d_pScope.i.i, ptr noundef nonnull align 8 dereferenceable(32) %d_pScope2.i.i, i64 32, i1 false)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context3CDOImEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
-  %d_data.i = getelementptr inbounds %"class.cvc5::context::CDO.370", ptr %call.i, i64 0, i32 1
-  %d_data2.i = getelementptr inbounds %"class.cvc5::context::CDO.370", ptr %this, i64 0, i32 1
+  %d_data.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %d_data2.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %d_data2.i, align 8
   store i64 %0, ptr %d_data.i, align 8
   ret ptr %call.i
@@ -1774,9 +1753,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc57context3CDOImE7restoreEPNS0_10ContextObjE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %pContextObj) unnamed_addr #4 comdat align 2 {
 entry:
-  %d_data = getelementptr inbounds %"class.cvc5::context::CDO.370", ptr %pContextObj, i64 0, i32 1
+  %d_data = getelementptr inbounds i8, ptr %pContextObj, i64 40
   %0 = load i64, ptr %d_data, align 8
-  %d_data2 = getelementptr inbounds %"class.cvc5::context::CDO.370", ptr %this, i64 0, i32 1
+  %d_data2 = getelementptr inbounds i8, ptr %this, i64 40
   store i64 %0, ptr %d_data2, align 8
   ret void
 }

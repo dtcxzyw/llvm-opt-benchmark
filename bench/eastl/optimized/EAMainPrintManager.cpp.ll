@@ -43,7 +43,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %pData)
   br label %for.inc
@@ -72,7 +72,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %vtable = load ptr, ptr %instance, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %instance)
   store ptr %instance, ptr %arrayidx, align 8
@@ -93,7 +93,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   store ptr null, ptr %arrayidx, align 8
@@ -118,7 +118,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %vtable = load ptr, ptr %instance, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %instance)
   store ptr null, ptr %arrayidx, align 8
@@ -157,14 +157,14 @@ if.end5:                                          ; preds = %if.then2, %entry
   br i1 %tobool7.not, label %if.else, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end5
-  %arrayidx.i = getelementptr inbounds [3 x ptr], ptr %this, i64 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %arrayidx.i, align 8
   %cmp2.i = icmp eq ptr %0, null
   br i1 %cmp2.i, label %if.then.i, label %if.end9
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %vtable.i = load ptr, ptr %call6, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(8) %call6)
   store ptr %call6, ptr %arrayidx.i, align 8
@@ -177,7 +177,7 @@ if.else:                                          ; preds = %if.end5
 
 if.then.i10:                                      ; preds = %if.else
   %vtable.i11 = load ptr, ptr @_ZN2EA6EAMainL14gPrintfChannelE, align 8
-  %vfn.i12 = getelementptr inbounds ptr, ptr %vtable.i11, i64 2
+  %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 16
   %3 = load ptr, ptr %vfn.i12, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) @_ZN2EA6EAMainL14gPrintfChannelE)
   store ptr @_ZN2EA6EAMainL14gPrintfChannelE, ptr %this, align 8
@@ -212,7 +212,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.then:                                          ; preds = %for.body
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   store ptr null, ptr %arrayidx, align 8

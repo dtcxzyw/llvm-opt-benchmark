@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-asn1_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/asn1/asn1_lib.c\00", align 1
 @__func__.ASN1_get_object = private unnamed_addr constant [16 x i8] c"ASN1_get_object\00", align 1
 @__func__.ASN1_STRING_set = private unnamed_addr constant [16 x i8] c"ASN1_STRING_set\00", align 1
@@ -457,7 +455,7 @@ return:                                           ; preds = %if.end17, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ossl_asn1_string_set_bits_left(ptr nocapture noundef %str, i32 noundef %num) local_unnamed_addr #6 {
 entry:
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %str, i64 16
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, -16
   %and1 = and i32 %num, 7
@@ -475,11 +473,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %str, i64 4
   %0 = load i32, ptr %type, align 4
-  %type1 = getelementptr inbounds %struct.asn1_string_st, ptr %dst, i64 0, i32 1
+  %type1 = getelementptr inbounds i8, ptr %dst, i64 4
   store i32 %0, ptr %type1, align 4
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %str, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i32, ptr %str, align 8
   %call = tail call i32 @ASN1_STRING_set(ptr noundef %dst, ptr noundef %1, i32 noundef %2), !range !13
@@ -487,11 +485,11 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %dst, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %dst, i64 16
   %3 = load i64, ptr %flags, align 8
   %and = and i64 %3, 128
   store i64 %and, ptr %flags, align 8
-  %flags4 = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 3
+  %flags4 = getelementptr inbounds i8, ptr %str, i64 16
   %4 = load i64, ptr %flags4, align 8
   %and5 = and i64 %4, -129
   %or = or disjoint i64 %and5, %and
@@ -536,7 +534,7 @@ if.end7:                                          ; preds = %if.end3
   %0 = load i32, ptr %str, align 8
   %conv8 = sext i32 %0 to i64
   %cmp9.not = icmp ult i64 %len.0, %conv8
-  %data11 = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 2
+  %data11 = getelementptr inbounds i8, ptr %str, i64 8
   %1 = load ptr, ptr %data11, align 8
   br i1 %cmp9.not, label %lor.lhs.false, label %if.then14
 
@@ -546,7 +544,7 @@ lor.lhs.false:                                    ; preds = %if.end7
 
 if.then14:                                        ; preds = %if.end7, %lor.lhs.false
   %2 = phi ptr [ null, %lor.lhs.false ], [ %1, %if.end7 ]
-  %data15 = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 2
+  %data15 = getelementptr inbounds i8, ptr %str, i64 8
   %add = add nuw nsw i64 %len.0, 1
   %call16 = tail call ptr @CRYPTO_realloc(ptr noundef %2, i64 noundef %add, ptr noundef nonnull @.str, i32 noundef 314) #13
   store ptr %call16, ptr %data15, align 8
@@ -565,7 +563,7 @@ if.end24:                                         ; preds = %if.then14, %lor.lhs
   br i1 %cmp27.not, label %return, label %if.then29
 
 if.then29:                                        ; preds = %if.end24
-  %data30 = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 2
+  %data30 = getelementptr inbounds i8, ptr %str, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %3, ptr nonnull align 1 %_data, i64 %len.0, i1 false)
   %4 = load ptr, ptr %data30, align 8
   %arrayidx = getelementptr inbounds i8, ptr %4, i64 %len.0
@@ -589,22 +587,22 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %type1.i.i = getelementptr inbounds %struct.asn1_string_st, ptr %call.i.i, i64 0, i32 1
-  %type.i = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 1
+  %type1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %type.i = getelementptr inbounds i8, ptr %str, i64 4
   %0 = load i32, ptr %type.i, align 4
   store i32 %0, ptr %type1.i.i, align 4
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %str, i64 8
   %1 = load ptr, ptr %data.i, align 8
   %2 = load i32, ptr %str, align 8
   %call.i = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %call.i.i, ptr noundef %1, i32 noundef %2), !range !13
   %tobool.not.i = icmp eq i32 %call.i, 0
-  %flags.i7 = getelementptr inbounds %struct.asn1_string_st, ptr %call.i.i, i64 0, i32 3
+  %flags.i7 = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %3 = load i64, ptr %flags.i7, align 8
   br i1 %tobool.not.i, label %if.end.i.i6, label %ASN1_STRING_copy.exit
 
 ASN1_STRING_copy.exit:                            ; preds = %if.end.i
   %and.i = and i64 %3, 128
-  %flags4.i = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 3
+  %flags4.i = getelementptr inbounds i8, ptr %str, i64 16
   %4 = load i64, ptr %flags4.i, align 8
   %and5.i = and i64 %4, -129
   %or.i = or disjoint i64 %and5.i, %and.i
@@ -617,7 +615,7 @@ if.end.i.i6:                                      ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %if.then1.i.i, label %if.end2.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i6
-  %data.i.i = getelementptr inbounds %struct.asn1_string_st, ptr %call.i.i, i64 0, i32 2
+  %data.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %5 = load ptr, ptr %data.i.i, align 8
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 367) #13
   br label %if.end2.i.i
@@ -644,7 +642,7 @@ entry:
   br i1 %cmp.i, label %ASN1_STRING_type_new.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %type1.i = getelementptr inbounds %struct.asn1_string_st, ptr %call.i, i64 0, i32 1
+  %type1.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store i32 4, ptr %type1.i, align 4
   br label %ASN1_STRING_type_new.exit
 
@@ -659,14 +657,14 @@ entry:
   br i1 %cmp, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i64, ptr %flags, align 8
   %and.i = and i64 %0, 16
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.then1.i, label %if.end2.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %data.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 367) #13
   br label %if.end2.i
@@ -695,7 +693,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define void @ASN1_STRING_set0(ptr nocapture noundef %str, ptr noundef %data, i32 noundef %len) local_unnamed_addr #1 {
 entry:
-  %data1 = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 2
+  %data1 = getelementptr inbounds i8, ptr %str, i64 8
   %0 = load ptr, ptr %data1, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 341) #13
   store ptr %data, ptr %data1, align 8
@@ -713,7 +711,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type1 = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 1
+  %type1 = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %type, ptr %type1, align 4
   br label %return
 
@@ -730,14 +728,14 @@ entry:
   br i1 %cmp, label %if.end5, label %if.end
 
 if.end:                                           ; preds = %entry
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 16
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %data, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 367) #13
   br label %if.end2
@@ -761,13 +759,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %data, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end.i.i, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %a, i64 16
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 16
   %tobool1.not = icmp eq i64 %and, 0
@@ -780,7 +778,7 @@ if.then2:                                         ; preds = %land.lhs.true
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end, %land.lhs.true, %if.then2
-  %flags.i = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 3
+  %flags.i = getelementptr inbounds i8, ptr %a, i64 16
   %3 = load i64, ptr %flags.i, align 8
   %and.i.i = and i64 %3, 16
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
@@ -820,9 +818,9 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3.not, label %if.then9, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %a, i64 8
   %2 = load ptr, ptr %data, align 8
-  %data5 = getelementptr inbounds %struct.asn1_string_st, ptr %b, i64 0, i32 2
+  %data5 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load ptr, ptr %data5, align 8
   %conv = sext i32 %0 to i64
   %call = tail call i32 @memcmp(ptr noundef %2, ptr noundef %3, i64 noundef %conv) #14
@@ -830,9 +828,9 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp7, label %if.then9, label %return
 
 if.then9:                                         ; preds = %if.then, %if.end
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %a, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %a, i64 4
   %4 = load i32, ptr %type, align 4
-  %type10 = getelementptr inbounds %struct.asn1_string_st, ptr %b, i64 0, i32 1
+  %type10 = getelementptr inbounds i8, ptr %b, i64 4
   %5 = load i32, ptr %type10, align 4
   %sub11 = sub nsw i32 %4, %5
   br label %return
@@ -862,7 +860,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @ASN1_STRING_type(ptr nocapture noundef readonly %x) local_unnamed_addr #10 {
 entry:
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %x, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %x, i64 4
   %0 = load i32, ptr %type, align 4
   ret i32 %0
 }
@@ -870,7 +868,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ASN1_STRING_get0_data(ptr nocapture noundef readonly %x) local_unnamed_addr #10 {
 entry:
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %x, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %data, align 8
   ret ptr %0
 }
@@ -878,7 +876,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ASN1_STRING_data(ptr nocapture noundef readonly %x) local_unnamed_addr #10 {
 entry:
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %x, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %data, align 8
   ret ptr %0
 }
@@ -955,7 +953,7 @@ for.body28.us:                                    ; preds = %for.body28.lr.ph, %
   %call30.us = tail call ptr @OPENSSL_sk_value(ptr noundef %text, i32 noundef %i.137.us) #13
   %2 = load i32, ptr %call30.us, align 8
   %conv32.us = sext i32 %2 to i64
-  %data.i.us = getelementptr inbounds %struct.asn1_string_st, ptr %call30.us, i64 0, i32 2
+  %data.i.us = getelementptr inbounds i8, ptr %call30.us, i64 8
   %3 = load ptr, ptr %data.i.us, align 8
   %call43.us = tail call ptr @strncpy(ptr noundef %p.038.us, ptr noundef %3, i64 noundef %conv32.us) #13
   %add.ptr44.us = getelementptr inbounds i8, ptr %p.038.us, i64 %conv32.us
@@ -980,7 +978,7 @@ if.then38:                                        ; preds = %for.body28
 
 if.end41:                                         ; preds = %if.then38, %for.body28
   %p.1 = phi ptr [ %add.ptr, %if.then38 ], [ %p.038, %for.body28 ]
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %call30, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call30, i64 8
   %5 = load ptr, ptr %data.i, align 8
   %call43 = tail call ptr @strncpy(ptr noundef %p.1, ptr noundef %5, i64 noundef %conv32) #13
   %add.ptr44 = getelementptr inbounds i8, ptr %p.1, i64 %conv32

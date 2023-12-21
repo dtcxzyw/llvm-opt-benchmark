@@ -3,11 +3,7 @@ source_filename = "bench/qemu/original/libqos.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.QOSState = type { ptr, %struct.QGuestAllocator, ptr, ptr }
-%struct.QGuestAllocator = type { i32, i64, i64, i32, ptr, ptr }
-%struct.QOSOps = type { ptr, ptr, ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.QObjectBase_ = type { i32, i64 }
 
 @.str = private unnamed_addr constant [13 x i8] c"query-status\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"return\00", align 1
@@ -55,20 +51,20 @@ entry:
   %call1 = tail call noalias ptr @g_strdup_vprintf(ptr noundef %cmdline_fmt, ptr noundef %ap) #12
   %call2 = tail call ptr @qtest_init(ptr noundef %call1) #12
   store ptr %call2, ptr %call, align 8
-  %ops3 = getelementptr inbounds %struct.QOSState, ptr %call, i64 0, i32 3
+  %ops3 = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %ops, ptr %ops3, align 8
   %tobool.not = icmp eq ptr %ops, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %ops, align 8
-  %alloc = getelementptr inbounds %struct.QOSState, ptr %call, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %call, i64 8
   tail call void %0(ptr noundef nonnull %alloc, ptr noundef %call2, i32 noundef 0) #12
-  %qpci_new = getelementptr inbounds %struct.QOSOps, ptr %ops, i64 0, i32 1
+  %qpci_new = getelementptr inbounds i8, ptr %ops, i64 8
   %1 = load ptr, ptr %qpci_new, align 8
   %2 = load ptr, ptr %call, align 8
   %call7 = tail call ptr %1(ptr noundef %2, ptr noundef nonnull %alloc) #12
-  %pcibus = getelementptr inbounds %struct.QOSState, ptr %call, i64 0, i32 2
+  %pcibus = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %call7, ptr %pcibus, align 8
   br label %if.end
 
@@ -95,20 +91,20 @@ entry:
   %call1.i = call noalias ptr @g_strdup_vprintf(ptr noundef %cmdline_fmt, ptr noundef nonnull %ap) #12
   %call2.i = call ptr @qtest_init(ptr noundef %call1.i) #12
   store ptr %call2.i, ptr %call.i, align 8
-  %ops3.i = getelementptr inbounds %struct.QOSState, ptr %call.i, i64 0, i32 3
+  %ops3.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr %ops, ptr %ops3.i, align 8
   %tobool.not.i = icmp eq ptr %ops, null
   br i1 %tobool.not.i, label %qtest_vboot.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
   %0 = load ptr, ptr %ops, align 8
-  %alloc.i = getelementptr inbounds %struct.QOSState, ptr %call.i, i64 0, i32 1
+  %alloc.i = getelementptr inbounds i8, ptr %call.i, i64 8
   call void %0(ptr noundef nonnull %alloc.i, ptr noundef %call2.i, i32 noundef 0) #12
-  %qpci_new.i = getelementptr inbounds %struct.QOSOps, ptr %ops, i64 0, i32 1
+  %qpci_new.i = getelementptr inbounds i8, ptr %ops, i64 8
   %1 = load ptr, ptr %qpci_new.i, align 8
   %2 = load ptr, ptr %call.i, align 8
   %call7.i = call ptr %1(ptr noundef %2, ptr noundef nonnull %alloc.i) #12
-  %pcibus.i = getelementptr inbounds %struct.QOSState, ptr %call.i, i64 0, i32 2
+  %pcibus.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store ptr %call7.i, ptr %pcibus.i, align 8
   br label %qtest_vboot.exit
 
@@ -127,19 +123,19 @@ declare void @llvm.va_end(ptr) #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qtest_common_shutdown(ptr noundef %qs) local_unnamed_addr #0 {
 entry:
-  %ops = getelementptr inbounds %struct.QOSState, ptr %qs, i64 0, i32 3
+  %ops = getelementptr inbounds i8, ptr %qs, i64 64
   %0 = load ptr, ptr %ops, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pcibus = getelementptr inbounds %struct.QOSState, ptr %qs, i64 0, i32 2
+  %pcibus = getelementptr inbounds i8, ptr %qs, i64 56
   %1 = load ptr, ptr %pcibus, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then
-  %qpci_free = getelementptr inbounds %struct.QOSOps, ptr %0, i64 0, i32 2
+  %qpci_free = getelementptr inbounds i8, ptr %0, i64 16
   %2 = load ptr, ptr %qpci_free, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %if.end9, label %if.then4
@@ -150,7 +146,7 @@ if.then4:                                         ; preds = %land.lhs.true
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then, %land.lhs.true, %if.then4, %entry
-  %alloc = getelementptr inbounds %struct.QOSState, ptr %qs, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %qs, i64 8
   tail call void @alloc_destroy(ptr noundef nonnull %alloc) #12
   %3 = load ptr, ptr %qs, align 8
   tail call void @qtest_quit(ptr noundef %3) #12
@@ -165,13 +161,13 @@ declare void @qtest_quit(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qtest_shutdown(ptr noundef %qs) local_unnamed_addr #0 {
 entry:
-  %ops = getelementptr inbounds %struct.QOSState, ptr %qs, i64 0, i32 3
+  %ops = getelementptr inbounds i8, ptr %qs, i64 64
   %0 = load ptr, ptr %ops, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %qtest_common_shutdown.exit, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %shutdown = getelementptr inbounds %struct.QOSOps, ptr %0, i64 0, i32 3
+  %shutdown = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %shutdown, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.then.i, label %if.then
@@ -181,13 +177,13 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end
 
 if.then.i:                                        ; preds = %land.lhs.true
-  %pcibus.i = getelementptr inbounds %struct.QOSState, ptr %qs, i64 0, i32 2
+  %pcibus.i = getelementptr inbounds i8, ptr %qs, i64 56
   %2 = load ptr, ptr %pcibus.i, align 8
   %tobool1.not.i = icmp eq ptr %2, null
   br i1 %tobool1.not.i, label %qtest_common_shutdown.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %qpci_free.i = getelementptr inbounds %struct.QOSOps, ptr %0, i64 0, i32 2
+  %qpci_free.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %qpci_free.i, align 8
   %tobool3.not.i = icmp eq ptr %3, null
   br i1 %tobool3.not.i, label %qtest_common_shutdown.exit, label %if.then4.i
@@ -198,7 +194,7 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   br label %qtest_common_shutdown.exit
 
 qtest_common_shutdown.exit:                       ; preds = %entry, %if.then.i, %land.lhs.true.i, %if.then4.i
-  %alloc.i = getelementptr inbounds %struct.QOSState, ptr %qs, i64 0, i32 1
+  %alloc.i = getelementptr inbounds i8, ptr %qs, i64 8
   tail call void @alloc_destroy(ptr noundef nonnull %alloc.i) #12
   %4 = load ptr, ptr %qs, align 8
   tail call void @qtest_quit(ptr noundef %4) #12
@@ -238,7 +234,7 @@ do.end9:                                          ; preds = %do.end
   br i1 %tobool11.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %do.end9
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call.i, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %1, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -273,7 +269,7 @@ do.end21:                                         ; preds = %qobject_unref_impl.
   br i1 %tobool23.not, label %qobject_unref_impl.exit39, label %lor.lhs.false.i31
 
 lor.lhs.false.i31:                                ; preds = %do.end21
-  %refcnt.i32 = getelementptr inbounds %struct.QObjectBase_, ptr %call14, i64 0, i32 1
+  %refcnt.i32 = getelementptr inbounds i8, ptr %call14, i64 8
   %3 = load i64, ptr %refcnt.i32, align 8
   %tobool1.not.i33 = icmp eq i64 %3, 0
   br i1 %tobool1.not.i33, label %if.else.i38, label %land.lhs.true.i34
@@ -304,8 +300,8 @@ while.body.preheader:                             ; preds = %qobject_unref_impl.
 
 if.then33:                                        ; preds = %qobject_unref_impl.exit39
   tail call void @qtest_qmp_eventwait(ptr noundef %4, ptr noundef nonnull @.str.7) #12
-  %alloc = getelementptr inbounds %struct.QOSState, ptr %from, i64 0, i32 1
-  %alloc38 = getelementptr inbounds %struct.QOSState, ptr %to, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %from, i64 8
+  %alloc38 = getelementptr inbounds i8, ptr %to, i64 8
   tail call void @migrate_allocator(ptr noundef nonnull %alloc, ptr noundef nonnull %alloc38) #12
   %5 = load ptr, ptr %to, align 8
   tail call void @qtest_qmp_eventwait(ptr noundef %5, ptr noundef nonnull @.str.8) #12
@@ -337,7 +333,7 @@ if.then60:                                        ; preds = %do.end57
   br i1 %tobool62.not, label %qobject_unref_impl.exit49, label %lor.lhs.false.i41
 
 lor.lhs.false.i41:                                ; preds = %if.then60
-  %refcnt.i42 = getelementptr inbounds %struct.QObjectBase_, ptr %call.i4068, i64 0, i32 1
+  %refcnt.i42 = getelementptr inbounds i8, ptr %call.i4068, i64 8
   %6 = load i64, ptr %refcnt.i42, align 8
   %tobool1.not.i43 = icmp eq i64 %6, 0
   br i1 %tobool1.not.i43, label %if.else.i48, label %land.lhs.true.i44
@@ -357,8 +353,8 @@ if.then5.i47:                                     ; preds = %land.lhs.true.i44
   br label %qobject_unref_impl.exit49
 
 qobject_unref_impl.exit49:                        ; preds = %if.then60, %land.lhs.true.i44, %if.then5.i47
-  %alloc94 = getelementptr inbounds %struct.QOSState, ptr %from, i64 0, i32 1
-  %alloc95 = getelementptr inbounds %struct.QOSState, ptr %to, i64 0, i32 1
+  %alloc94 = getelementptr inbounds i8, ptr %from, i64 8
+  %alloc95 = getelementptr inbounds i8, ptr %to, i64 8
   tail call void @migrate_allocator(ptr noundef nonnull %alloc94, ptr noundef nonnull %alloc95) #12
   br label %return
 
@@ -382,7 +378,7 @@ if.then79:                                        ; preds = %lor.lhs.false76, %l
   br i1 %tobool81.not, label %qobject_unref_impl.exit58, label %lor.lhs.false.i50
 
 lor.lhs.false.i50:                                ; preds = %if.then79
-  %refcnt.i51 = getelementptr inbounds %struct.QObjectBase_, ptr %call.i4068, i64 0, i32 1
+  %refcnt.i51 = getelementptr inbounds i8, ptr %call.i4068, i64 8
   %7 = load i64, ptr %refcnt.i51, align 8
   %tobool1.not.i52 = icmp eq i64 %7, 0
   br i1 %tobool1.not.i52, label %if.else.i57, label %land.lhs.true.i53

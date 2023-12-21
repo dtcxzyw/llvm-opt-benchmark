@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.grpc_event_engine::experimental::Timer" = type { i64, i64, i8, ptr, ptr, ptr, %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle" }
-%"struct.grpc_event_engine::experimental::EventEngine::TaskHandle" = type { [2 x i64] }
-%"struct.std::_Vector_base<grpc_event_engine::experimental::Timer *, std::allocator<grpc_event_engine::experimental::Timer *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -45,7 +42,7 @@ if.end:                                           ; preds = %while.body
   %4 = load ptr, ptr %this, align 8
   %add.ptr.i14 = getelementptr inbounds ptr, ptr %4, i64 %i.addr.017
   %5 = load ptr, ptr %add.ptr.i14, align 8
-  %heap_index = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %5, i64 0, i32 1
+  %heap_index = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %i.addr.017, ptr %heap_index, align 8
   %cmp.not = icmp ult i64 %sub, 2
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !4
@@ -55,7 +52,7 @@ while.end:                                        ; preds = %if.end, %while.body
   %6 = load ptr, ptr %this, align 8
   %add.ptr.i15 = getelementptr inbounds ptr, ptr %6, i64 %i.addr.0.lcssa
   store ptr %t, ptr %add.ptr.i15, align 8
-  %heap_index12 = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %t, i64 0, i32 1
+  %heap_index12 = getelementptr inbounds i8, ptr %t, i64 8
   store i64 %i.addr.0.lcssa, ptr %heap_index12, align 8
   ret void
 }
@@ -63,7 +60,7 @@ while.end:                                        ; preds = %if.end, %while.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN17grpc_event_engine12experimental9TimerHeap15AdjustDownwardsEmPNS0_5TimerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %i, ptr noundef %t) local_unnamed_addr #3 align 2 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_event_engine::experimental::Timer *, std::allocator<grpc_event_engine::experimental::Timer *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %mul26 = shl i64 %i, 1
   %add27 = or disjoint i64 %mul26, 1
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -112,7 +109,7 @@ if.end18:                                         ; preds = %cond.end
   %10 = load ptr, ptr %this, align 8
   %add.ptr.i24 = getelementptr inbounds ptr, ptr %10, i64 %i.addr.033
   %11 = load ptr, ptr %add.ptr.i24, align 8
-  %heap_index = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %11, i64 0, i32 1
+  %heap_index = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %i.addr.033, ptr %heap_index, align 8
   %mul = shl i64 %cond, 1
   %add = or disjoint i64 %mul, 1
@@ -130,7 +127,7 @@ for.end:                                          ; preds = %if.end18, %cond.end
   %.lcssa = phi ptr [ %1, %entry ], [ %2, %cond.end ], [ %13, %if.end18 ]
   %add.ptr.i25 = getelementptr inbounds ptr, ptr %.lcssa, i64 %i.addr.0.lcssa
   store ptr %t, ptr %add.ptr.i25, align 8
-  %heap_index27 = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %t, i64 0, i32 1
+  %heap_index27 = getelementptr inbounds i8, ptr %t, i64 8
   store i64 %i.addr.0.lcssa, ptr %heap_index27, align 8
   ret void
 }
@@ -138,7 +135,7 @@ for.end:                                          ; preds = %if.end18, %cond.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN17grpc_event_engine12experimental9TimerHeap19NoteChangedPriorityEPNS0_5TimerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %timer) local_unnamed_addr #3 align 2 {
 entry:
-  %heap_index = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %timer, i64 0, i32 1
+  %heap_index = getelementptr inbounds i8, ptr %timer, i64 8
   %0 = load i64, ptr %heap_index, align 8
   %conv = trunc i64 %0 to i32
   %sub = add nsw i32 %conv, -1
@@ -175,7 +172,7 @@ if.end.i:                                         ; preds = %while.body.i
   %9 = load ptr, ptr %this, align 8
   %add.ptr.i14.i = getelementptr inbounds ptr, ptr %9, i64 %i.addr.017.i
   %10 = load ptr, ptr %add.ptr.i14.i, align 8
-  %heap_index.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %10, i64 0, i32 1
+  %heap_index.i = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %i.addr.017.i, ptr %heap_index.i, align 8
   %cmp.not.i = icmp ult i64 %sub.i, 2
   br i1 %cmp.not.i, label %if.end.i._ZN17grpc_event_engine12experimental9TimerHeap13AdjustUpwardsEmPNS0_5TimerE.exit.loopexit_crit_edge, label %while.body.i, !llvm.loop !4
@@ -191,7 +188,7 @@ _ZN17grpc_event_engine12experimental9TimerHeap13AdjustUpwardsEmPNS0_5TimerE.exit
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_event_engine::experimental::Timer *, std::allocator<grpc_event_engine::experimental::Timer *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %mul26.i = shl nuw nsw i64 %conv4, 1
   %add27.i = or disjoint i64 %mul26.i, 1
   %12 = load ptr, ptr %_M_finish.i.i, align 8
@@ -239,7 +236,7 @@ if.end18.i:                                       ; preds = %cond.end.i
   %21 = load ptr, ptr %this, align 8
   %add.ptr.i24.i = getelementptr inbounds ptr, ptr %21, i64 %i.addr.033.i
   %22 = load ptr, ptr %add.ptr.i24.i, align 8
-  %heap_index.i9 = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %22, i64 0, i32 1
+  %heap_index.i9 = getelementptr inbounds i8, ptr %22, i64 8
   store i64 %i.addr.033.i, ptr %heap_index.i9, align 8
   %mul.i = shl i64 %cond.i, 1
   %add.i = or disjoint i64 %mul.i, 1
@@ -269,17 +266,17 @@ if.end:                                           ; preds = %_ZN17grpc_event_eng
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerHeap3AddEPNS0_5TimerE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %timer) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_event_engine::experimental::Timer *, std::allocator<grpc_event_engine::experimental::Timer *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %heap_index = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %timer, i64 0, i32 1
+  %heap_index = getelementptr inbounds i8, ptr %timer, i64 8
   store i64 %sub.ptr.div.i, ptr %heap_index, align 8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_event_engine::experimental::Timer *, std::allocator<grpc_event_engine::experimental::Timer *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -287,7 +284,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %timer, ptr %2, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE9push_backERKS3_.exit
 
@@ -331,7 +328,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i
 
 _ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental5TimerESaIS3_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN17grpc_event_engine12experimental5TimerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -369,7 +366,7 @@ if.end.i:                                         ; preds = %while.body.i
   %11 = load ptr, ptr %this, align 8
   %add.ptr.i14.i = getelementptr inbounds ptr, ptr %11, i64 %i.addr.017.i
   %12 = load ptr, ptr %add.ptr.i14.i, align 8
-  %heap_index.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %12, i64 0, i32 1
+  %heap_index.i = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %i.addr.017.i, ptr %heap_index.i, align 8
   %cmp.not.i3 = icmp ult i64 %sub.i, 2
   br i1 %cmp.not.i3, label %_ZN17grpc_event_engine12experimental9TimerHeap13AdjustUpwardsEmPNS0_5TimerE.exit, label %while.body.i, !llvm.loop !4
@@ -387,10 +384,10 @@ _ZN17grpc_event_engine12experimental9TimerHeap13AdjustUpwardsEmPNS0_5TimerE.exit
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN17grpc_event_engine12experimental9TimerHeap6RemoveEPNS0_5TimerE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %timer) local_unnamed_addr #3 align 2 {
 entry:
-  %heap_index = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %timer, i64 0, i32 1
+  %heap_index = getelementptr inbounds i8, ptr %timer, i64 8
   %0 = load i64, ptr %heap_index, align 8
   %conv2 = and i64 %0, 4294967295
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_event_engine::experimental::Timer *, std::allocator<grpc_event_engine::experimental::Timer *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -402,7 +399,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %1, i64 -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 -8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %return
 
@@ -414,10 +411,10 @@ if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %this, align 8
   %add.ptr.i12 = getelementptr inbounds ptr, ptr %4, i64 %conv2
   %5 = load ptr, ptr %add.ptr.i12, align 8
-  %heap_index16 = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %5, i64 0, i32 1
+  %heap_index16 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %conv2, ptr %heap_index16, align 8
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i14 = getelementptr inbounds ptr, ptr %6, i64 -1
+  %incdec.ptr.i14 = getelementptr inbounds i8, ptr %6, i64 -8
   store ptr %incdec.ptr.i14, ptr %_M_finish.i, align 8
   %7 = load ptr, ptr %this, align 8
   %add.ptr.i15 = getelementptr inbounds ptr, ptr %7, i64 %conv2
@@ -433,7 +430,7 @@ return:                                           ; preds = %if.end, %if.then
 define noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerHeap8is_emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_event_engine::experimental::Timer *, std::allocator<grpc_event_engine::experimental::Timer *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   ret i1 %cmp.i.i
@@ -452,10 +449,10 @@ define void @_ZN17grpc_event_engine12experimental9TimerHeap3PopEv(ptr nocapture 
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
-  %heap_index.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %1, i64 0, i32 1
+  %heap_index.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %heap_index.i, align 8
   %conv2.i = and i64 %2, 4294967295
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_event_engine::experimental::Timer *, std::allocator<grpc_event_engine::experimental::Timer *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -466,7 +463,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %3, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 -8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZN17grpc_event_engine12experimental9TimerHeap6RemoveEPNS0_5TimerE.exit
 
@@ -478,10 +475,10 @@ if.end.i:                                         ; preds = %entry
   %5 = load ptr, ptr %this, align 8
   %add.ptr.i12.i = getelementptr inbounds ptr, ptr %5, i64 %conv2.i
   %6 = load ptr, ptr %add.ptr.i12.i, align 8
-  %heap_index16.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %6, i64 0, i32 1
+  %heap_index16.i = getelementptr inbounds i8, ptr %6, i64 8
   store i64 %conv2.i, ptr %heap_index16.i, align 8
   %7 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i14.i = getelementptr inbounds ptr, ptr %7, i64 -1
+  %incdec.ptr.i14.i = getelementptr inbounds i8, ptr %7, i64 -8
   store ptr %incdec.ptr.i14.i, ptr %_M_finish.i.i, align 8
   %8 = load ptr, ptr %this, align 8
   %add.ptr.i15.i = getelementptr inbounds ptr, ptr %8, i64 %conv2.i

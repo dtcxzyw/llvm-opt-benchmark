@@ -41,20 +41,22 @@ if.end:                                           ; preds = %entry
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #9
   store ptr %call5.i.i.i.i.i.i, ptr %index, align 8
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i.i.i, i64 %conv
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %index, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %index, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i32 0, ptr %call5.i.i.i.i.i.i, align 4
-  %incdec.ptr.i.i.i.i.i = getelementptr i32, ptr %call5.i.i.i.i.i.i, i64 1
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %sub, 1
+  %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 4
+  %sub.i.i.i.i.i = add nsw i64 %conv, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.end
   %1 = add nsw i64 %mul.i.i.i.i.i.i, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %1, i1 false)
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
   br label %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
 
 _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %if.end, %if.end.i.i.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.end ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.end ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   store ptr %__first.addr.0.i.i.i.i.i, ptr %0, align 8
   %cmp116.not = icmp eq i32 %end, %begin
   br i1 %cmp116.not, label %for.end, label %for.body
@@ -86,7 +88,7 @@ for.body4.i:                                      ; preds = %for.cond2.preheader
   %j.033.i = phi i32 [ %sub.i, %for.inc.i ], [ %i.036.i, %for.cond2.preheader.i ]
   %sub.i = add i32 %j.033.i, -1
   %vtable.i.i = load ptr, ptr %sm, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %j.033.i, i32 noundef %sub.i) #10
   %4 = and i64 %call.i.i, 4294967295
@@ -249,7 +251,7 @@ if.end6:                                          ; preds = %if.end
   store i32 %7, ptr %add.ptr.i.i, align 4
   store i32 %6, ptr %add.ptr.i4.i, align 4
   %vtable.i76 = load ptr, ptr %sm, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i76, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i76, i64 8
   %8 = load ptr, ptr %vfn.i, align 8
   %call.i77 = tail call i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %r.addr.0.ph403, i32 noundef %add1) #10
   %9 = and i64 %call.i77, 4294967295
@@ -292,7 +294,7 @@ _ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit95: ;
 
 if.end19:                                         ; preds = %cond.true.i, %_ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit95, %if.end11
   %vtable.i96 = load ptr, ptr %sm, align 8
-  %vfn.i97 = getelementptr inbounds ptr, ptr %vtable.i96, i64 1
+  %vfn.i97 = getelementptr inbounds i8, ptr %vtable.i96, i64 8
   %17 = load ptr, ptr %vfn.i97, align 8
   %call.i98 = tail call i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %add1, i32 noundef %l.addr.0397) #10
   %18 = and i64 %call.i98, 4294967295
@@ -337,7 +339,7 @@ _ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit130: 
 
 if.end33:                                         ; preds = %cond.true.i102, %_ZN6hermes2vm12_GLOBAL__N_15_swapEPNS0_9SortModelERSt6vectorIjSaIjEEjj.exit130, %if.end25
   %vtable.i131 = load ptr, ptr %sm, align 8
-  %vfn.i132 = getelementptr inbounds ptr, ptr %vtable.i131, i64 1
+  %vfn.i132 = getelementptr inbounds i8, ptr %vtable.i131, i64 8
   %26 = load ptr, ptr %vfn.i132, align 8
   %call.i133 = tail call i64 %26(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %r.addr.0.ph403, i32 noundef %add1) #10
   %27 = and i64 %call.i133, 4294967295
@@ -391,7 +393,7 @@ for.cond.i:                                       ; preds = %if.end26.i, %if.end
 for.body.i:                                       ; preds = %for.cond.i, %for.inc.i
   %i.195.i = phi i32 [ %inc.i, %for.inc.i ], [ %i.0.i, %for.cond.i ]
   %vtable.i.i167 = load ptr, ptr %sm, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i167, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i167, i64 8
   %35 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i168 = tail call i64 %35(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %i.195.i, i32 noundef %add1) #10
   %36 = and i64 %call.i.i168, 4294967295
@@ -429,7 +431,7 @@ for.end.i:                                        ; preds = %for.inc.i, %if.end.
 for.body9.i:                                      ; preds = %for.end.i, %for.inc18.i
   %j.198.i = phi i32 [ %dec.i172, %for.inc18.i ], [ %j.0.i, %for.end.i ]
   %vtable.i28.i = load ptr, ptr %sm, align 8
-  %vfn.i29.i = getelementptr inbounds ptr, ptr %vtable.i28.i, i64 1
+  %vfn.i29.i = getelementptr inbounds i8, ptr %vtable.i28.i, i64 8
   %40 = load ptr, ptr %vfn.i29.i, align 8
   %call.i30.i = tail call i64 %40(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %add1, i32 noundef %j.198.i) #10
   %41 = and i64 %call.i30.i, 4294967295
@@ -540,7 +542,7 @@ for.body4.i:                                      ; preds = %for.cond2.preheader
   %j.033.i = phi i32 [ %sub.i179, %for.inc.i190 ], [ %i.036.i, %for.cond2.preheader.i ]
   %sub.i179 = add i32 %j.033.i, -1
   %vtable.i.i180 = load ptr, ptr %sm, align 8
-  %vfn.i.i181 = getelementptr inbounds ptr, ptr %vtable.i.i180, i64 1
+  %vfn.i.i181 = getelementptr inbounds i8, ptr %vtable.i.i180, i64 8
   %53 = load ptr, ptr %vfn.i.i181, align 8
   %call.i.i182 = tail call i64 %53(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %j.033.i, i32 noundef %sub.i179) #10
   %54 = and i64 %call.i.i182, 4294967295
@@ -620,7 +622,7 @@ for.body4.i205:                                   ; preds = %for.cond2.preheader
   %j.033.i206 = phi i32 [ %sub.i207, %for.inc.i224 ], [ %i.036.i203, %for.cond2.preheader.i202 ]
   %sub.i207 = add i32 %j.033.i206, -1
   %vtable.i.i208 = load ptr, ptr %sm, align 8
-  %vfn.i.i209 = getelementptr inbounds ptr, ptr %vtable.i.i208, i64 1
+  %vfn.i.i209 = getelementptr inbounds i8, ptr %vtable.i.i208, i64 8
   %62 = load ptr, ptr %vfn.i.i209, align 8
   %call.i.i210 = tail call i64 %62(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %j.033.i206, i32 noundef %sub.i207) #10
   %63 = and i64 %call.i.i210, 4294967295
@@ -702,7 +704,7 @@ for.body4.i244:                                   ; preds = %for.cond2.preheader
   %j.033.i245 = phi i32 [ %sub.i246, %for.inc.i263 ], [ %i.036.i242, %for.cond2.preheader.i241 ]
   %sub.i246 = add i32 %j.033.i245, -1
   %vtable.i.i247 = load ptr, ptr %sm, align 8
-  %vfn.i.i248 = getelementptr inbounds ptr, ptr %vtable.i.i247, i64 1
+  %vfn.i.i248 = getelementptr inbounds i8, ptr %vtable.i.i247, i64 8
   %71 = load ptr, ptr %vfn.i.i248, align 8
   %call.i.i249 = tail call i64 %71(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %j.033.i245, i32 noundef %sub.i246) #10
   %72 = and i64 %call.i.i249, 4294967295
@@ -778,7 +780,7 @@ for.body4.i283:                                   ; preds = %for.cond2.preheader
   %j.033.i284 = phi i32 [ %sub.i285, %for.inc.i302 ], [ %i.036.i281, %for.cond2.preheader.i280 ]
   %sub.i285 = add i32 %j.033.i284, -1
   %vtable.i.i286 = load ptr, ptr %sm, align 8
-  %vfn.i.i287 = getelementptr inbounds ptr, ptr %vtable.i.i286, i64 1
+  %vfn.i.i287 = getelementptr inbounds i8, ptr %vtable.i.i286, i64 8
   %80 = load ptr, ptr %vfn.i.i287, align 8
   %call.i.i288 = tail call i64 %80(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %j.033.i284, i32 noundef %sub.i285) #10
   %81 = and i64 %call.i.i288, 4294967295
@@ -864,7 +866,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then9:                                         ; preds = %while.body
   %vtable.i = load ptr, ptr %sm, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %add6, i32 noundef %add7) #10
   %1 = and i64 %call.i, 4294967295
@@ -898,7 +900,7 @@ if.end13:                                         ; preds = %cond.false.i, %cond
 if.end17:                                         ; preds = %if.end13, %while.body
   %j.0 = phi i32 [ %add6, %while.body ], [ %spec.select, %if.end13 ]
   %vtable.i23 = load ptr, ptr %sm, align 8
-  %vfn.i24 = getelementptr inbounds ptr, ptr %vtable.i23, i64 1
+  %vfn.i24 = getelementptr inbounds i8, ptr %vtable.i23, i64 8
   %5 = load ptr, ptr %vfn.i24, align 8
   %call.i25 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %sm, i32 noundef %i.073, i32 noundef %j.0) #10
   %6 = and i64 %call.i25, 4294967295

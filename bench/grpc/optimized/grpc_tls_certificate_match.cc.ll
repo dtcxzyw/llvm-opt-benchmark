@@ -11,7 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.absl::lts_20230802::Status" = type { i64 }
 %union.anon.0 = type { %"struct.absl::lts_20230802::internal_statusor::StatusOrData<bool>::Dummy" }
 %"struct.absl::lts_20230802::internal_statusor::StatusOrData<bool>::Dummy" = type { i8 }
-%"class.absl::lts_20230802::internal_statusor::StatusOrData" = type <{ %union.anon, %union.anon.0, [7 x i8] }>
 
 $_ZN4absl12lts_202308028StatusOrIbEC2INS0_6StatusETnNSt9enable_ifIXsr4absl11conjunctionISt14is_convertibleIOT_S4_ESt16is_constructibleIS4_JS8_EENS0_8negationISt7is_sameINSt5decayIS7_E4typeES2_EEENSC_ISD_ISG_bEEENSC_ISD_ISG_St10in_place_tEEENSC_INS0_17internal_statusor31HasConversionOperatorToStatusOrIbS8_vEEEEEE5valueEiE4typeELi0EEES8_ = comdat any
 
@@ -325,7 +324,7 @@ if.end55:                                         ; preds = %if.end46
   %frombool = zext i1 %cmp57 to i8
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call47)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %call27)
-  %25 = getelementptr inbounds %"class.absl::lts_20230802::internal_statusor::StatusOrData", ptr %agg.result, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %frombool, ptr %25, align 8
   store i64 0, ptr %agg.result, align 8
   br label %return

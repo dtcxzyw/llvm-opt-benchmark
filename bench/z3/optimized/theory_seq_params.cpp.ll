@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %struct.smt_params_helper = type { ptr, %class.params_ref }
 %class.params_ref = type { ptr }
-%struct.theory_seq_params = type { i8, i8, i32, i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -30,7 +29,7 @@ define hidden void @_ZN17theory_seq_params11updt_paramsERK10params_ref(ptr nocap
 entry:
   %p = alloca %struct.smt_params_helper, align 8
   store ptr %_p, ptr %p, align 8
-  %g.i = getelementptr inbounds %struct.smt_params_helper, ptr %p, i64 0, i32 1
+  %g.i = getelementptr inbounds i8, ptr %p, i64 8
   call void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i, ptr noundef nonnull @.str)
   %0 = load ptr, ptr %p, align 8
   %call.i2 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext true)
@@ -44,7 +43,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %m_seq_validate = getelementptr inbounds %struct.theory_seq_params, ptr %this, i64 0, i32 1
+  %m_seq_validate = getelementptr inbounds i8, ptr %this, i64 1
   %frombool4 = zext i1 %call.i4 to i8
   store i8 %frombool4, ptr %m_seq_validate, align 1
   %2 = load ptr, ptr %p, align 8
@@ -52,14 +51,14 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont2
-  %m_seq_max_unfolding = getelementptr inbounds %struct.theory_seq_params, ptr %this, i64 0, i32 2
+  %m_seq_max_unfolding = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %call.i6, ptr %m_seq_max_unfolding, align 4
   %3 = load ptr, ptr %p, align 8
   %call.i8 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef 1)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  %m_seq_min_unfolding = getelementptr inbounds %struct.theory_seq_params, ptr %this, i64 0, i32 3
+  %m_seq_min_unfolding = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %call.i8, ptr %m_seq_min_unfolding, align 4
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #5
   ret void

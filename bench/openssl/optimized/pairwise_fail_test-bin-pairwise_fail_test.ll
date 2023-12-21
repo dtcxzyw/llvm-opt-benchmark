@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.self_test_arg = type { ptr }
-%struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 
 @test_get_options.test_options = internal constant [12 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st { ptr @.str.14, i32 2, i32 60, ptr @.str.15 }, %struct.options_st { ptr @.str.16, i32 3, i32 115, ptr @.str.17 }, %struct.options_st { ptr @.str.18, i32 4, i32 115, ptr @.str.19 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -361,13 +360,13 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp1.not = icmp eq i32 %0, 4
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %data, align 8
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.48) #5
   %cmp3 = icmp eq i32 %call2, 0
@@ -379,13 +378,13 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp6, label %return, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %if.then4
-  %data_type8 = getelementptr inbounds %struct.ossl_param_st, ptr %call5, i64 0, i32 1
+  %data_type8 = getelementptr inbounds i8, ptr %call5, i64 8
   %2 = load i32, ptr %data_type8, align 8
   %cmp9.not = icmp eq i32 %2, 4
   br i1 %cmp9.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %lor.lhs.false7
-  %data12 = getelementptr inbounds %struct.ossl_param_st, ptr %call5, i64 0, i32 2
+  %data12 = getelementptr inbounds i8, ptr %call5, i64 16
   %3 = load ptr, ptr %data12, align 8
   %4 = load ptr, ptr %arg, align 8
   %call14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #5

@@ -8,88 +8,18 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i8 }
 %"class.grpc_core::NoDestruct" = type { [8 x i8] }
-%"struct.grpc_core::HPackCompressor::EncodeHeaderOptions" = type { i32, i8, i8, i64, ptr }
-%struct.grpc_slice_buffer = type { ptr, ptr, i64, i64, i64, [7 x %struct.grpc_slice] }
+%"class.grpc_core::(anonymous namespace)::StringKey" = type { %"class.grpc_core::Slice", %"class.grpc_core::VarintWriter" }
+%"class.grpc_core::Slice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
+%"class.grpc_core::slice_detail::BaseSlice" = type { %struct.grpc_slice }
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%struct.grpc_transport_one_way_stats = type { i64, i64, i64 }
-%"class.grpc_core::HPackCompressor" = type { i32, i8, %"class.grpc_core::HPackEncoderTable", %"struct.grpc_core::metadata_detail::StatefulCompressor" }
-%"class.grpc_core::HPackEncoderTable" = type { i32, i32, i32, i32, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.grpc_core::metadata_detail::StatefulCompressor" = type <{ %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor", %"struct.grpc_core::metadata_detail::StatefulCompressor.base.120", [4 x i8] }>
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor" = type { %"class.grpc_core::hpack_encoder_detail::Compressor" }
-%"class.grpc_core::hpack_encoder_detail::Compressor" = type { %"class.grpc_core::hpack_encoder_detail::SliceIndex" }
-%"class.grpc_core::hpack_encoder_detail::SliceIndex" = type { %"class.std::vector.0" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex, std::allocator<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex, std::allocator<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex, std::allocator<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex, std::allocator<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.120" = type <{ %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.6", %"struct.grpc_core::metadata_detail::StatefulCompressor.base.119" }>
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.6" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.7" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.7" = type { %"class.grpc_core::hpack_encoder_detail::SliceIndex" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.119" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.118" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.118" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.117" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.117" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.116" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.116" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.18", [4 x i8], %"struct.grpc_core::metadata_detail::StatefulCompressor.base.115" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.18" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.19" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.19" = type { i32 }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.115" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.21", [4 x i8], %"struct.grpc_core::metadata_detail::StatefulCompressor.base.114" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.21" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.22" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.22" = type { i32 }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.114" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.24", [4 x i8], %"struct.grpc_core::metadata_detail::StatefulCompressor.base.113" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.24" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.25" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.25" = type { [3 x i32] }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.113" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.112" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.112" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.30", %"struct.grpc_core::metadata_detail::StatefulCompressor.base.111" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.30" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.31" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.31" = type { %"class.grpc_core::CompressionAlgorithmSet", i32 }
-%"class.grpc_core::CompressionAlgorithmSet" = type { %"class.grpc_core::BitSet" }
-%"class.grpc_core::BitSet" = type { [1 x i8] }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.111" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.33", %"struct.grpc_core::metadata_detail::StatefulCompressor.base.110" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.33" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.34" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.34" = type { [16 x i32] }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.110" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.36", [4 x i8], %"struct.grpc_core::metadata_detail::StatefulCompressor.base.109" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.36" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.37" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.37" = type { %"class.grpc_core::hpack_encoder_detail::TimeoutCompressorImpl" }
-%"class.grpc_core::hpack_encoder_detail::TimeoutCompressorImpl" = type { [5 x %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout"], i32 }
-%"struct.grpc_core::hpack_encoder_detail::PreviousTimeout" = type { %"class.grpc_core::Timeout", i32 }
-%"class.grpc_core::Timeout" = type <{ i16, i8, i8 }>
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.109" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.108" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.108" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.107" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.107" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.base", [4 x i8], %"struct.grpc_core::metadata_detail::StatefulCompressor.base.106" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.base" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.base" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.base" = type <{ %"class.grpc_core::Slice", i32 }>
-%"class.grpc_core::Slice" = type { %"class.grpc_core::slice_detail::BaseSlice" }
-%"class.grpc_core::slice_detail::BaseSlice" = type { %struct.grpc_slice }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.106" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.105" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.105" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.104" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.104" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.103" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.103" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.102" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.102" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.60", [4 x i8], %"struct.grpc_core::metadata_detail::StatefulCompressor.base.101" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.60" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.61" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.61" = type { i32 }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.101" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.63", [4 x i8], %"struct.grpc_core::metadata_detail::StatefulCompressor.base.100" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.63" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.64" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.64" = type { i32 }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.100" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.99" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.99" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base.98" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base.98" = type { %"struct.grpc_core::metadata_detail::StatefulCompressor.base" }
-%"struct.grpc_core::metadata_detail::StatefulCompressor.base" = type { %"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.base.78" }
-%"struct.grpc_core::metadata_detail::SpecificStatefulCompressor.base.78" = type { %"class.grpc_core::hpack_encoder_detail::Compressor.base.77" }
-%"class.grpc_core::hpack_encoder_detail::Compressor.base.77" = type <{ %"class.grpc_core::Slice", i32 }>
-%"class.grpc_core::hpack_encoder_detail::Encoder" = type { i8, ptr, ptr }
-%"class.grpc_core::(anonymous namespace)::StringKey" = type { %"class.grpc_core::Slice", %"class.grpc_core::VarintWriter" }
 %"class.grpc_core::VarintWriter" = type { i64, i64 }
 %"class.grpc_core::(anonymous namespace)::NonBinaryStringValue" = type { %"class.grpc_core::Slice", %"class.grpc_core::VarintWriter" }
-%struct.grpc_slice_refcount = type { %"struct.std::atomic.124", ptr }
-%"struct.std::atomic.124" = type { %"struct.std::__atomic_base.125" }
-%"struct.std::__atomic_base.125" = type { i64 }
 %"class.grpc_core::(anonymous namespace)::BinaryStringValue" = type { %"struct.grpc_core::(anonymous namespace)::WireValue", %"class.grpc_core::VarintWriter" }
 %"struct.grpc_core::(anonymous namespace)::WireValue" = type { %"class.grpc_core::Slice", i8, i8, i64, i64 }
+%"class.grpc_core::Timeout" = type <{ i16, i8, i8 }>
+%"struct.grpc_core::hpack_encoder_detail::PreviousTimeout" = type { %"class.grpc_core::Timeout", i32 }
 %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex" = type <{ %"class.grpc_core::Slice", i32, [4 x i8] }>
 
 $_ZN9grpc_core5SliceD2Ev = comdat any
@@ -134,18 +64,18 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core15HPackCompressor5FrameERKNS0_19EncodeHeaderOptionsERNS_11SliceBufferEP17grpc_slice_buffer(ptr nocapture noundef nonnull readnone align 8 dereferenceable(344) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %options, ptr noundef nonnull align 8 dereferenceable(264) %raw, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
-  %is_end_of_stream = getelementptr inbounds %"struct.grpc_core::HPackCompressor::EncodeHeaderOptions", ptr %options, i64 0, i32 1
+  %is_end_of_stream = getelementptr inbounds i8, ptr %options, i64 4
   %0 = load i8, ptr %is_end_of_stream, align 4
   %1 = and i8 %0, 1
-  %length.i = getelementptr inbounds %struct.grpc_slice_buffer, ptr %raw, i64 0, i32 4
+  %length.i = getelementptr inbounds i8, ptr %raw, i64 32
   %2 = load i64, ptr %length.i, align 8
-  %stats = getelementptr inbounds %"struct.grpc_core::HPackCompressor::EncodeHeaderOptions", ptr %options, i64 0, i32 4
+  %stats = getelementptr inbounds i8, ptr %options, i64 16
   %3 = load ptr, ptr %stats, align 8
-  %header_bytes = getelementptr inbounds %struct.grpc_transport_one_way_stats, ptr %3, i64 0, i32 2
+  %header_bytes = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load i64, ptr %header_bytes, align 8
   %add = add i64 %4, %2
   store i64 %add, ptr %header_bytes, align 8
-  %max_frame_size = getelementptr inbounds %"struct.grpc_core::HPackCompressor::EncodeHeaderOptions", ptr %options, i64 0, i32 3
+  %max_frame_size = getelementptr inbounds i8, ptr %options, i64 8
   %.pre = load i64, ptr %length.i, align 8
   br label %while.body
 
@@ -210,17 +140,17 @@ declare void @grpc_slice_buffer_move_first(ptr noundef, i64 noundef, ptr noundef
 define void @_ZN9grpc_core15HPackCompressor16SetMaxUsableSizeEj(ptr noundef nonnull align 8 dereferenceable(344) %this, i32 noundef %max_table_size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %max_table_size, ptr %this, align 8
-  %table_ = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %this, i64 0, i32 2
-  %max_table_size_.i = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %this, i64 0, i32 2, i32 1
+  %table_ = getelementptr inbounds i8, ptr %this, i64 8
+  %max_table_size_.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %max_table_size_.i, align 4
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %0, i32 %max_table_size)
   %call2.i = tail call noundef zeroext i1 @_ZN9grpc_core17HPackEncoderTable10SetMaxSizeEj(ptr noundef nonnull align 8 dereferenceable(40) %table_, i32 noundef %.sroa.speculated)
   br i1 %call2.i, label %if.then.i, label %_ZN9grpc_core15HPackCompressor15SetMaxTableSizeEj.exit
 
 if.then.i:                                        ; preds = %entry
-  %advertise_table_size_change_.i = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %this, i64 0, i32 1
+  %advertise_table_size_change_.i = getelementptr inbounds i8, ptr %this, i64 4
   store i8 1, ptr %advertise_table_size_change_.i, align 4
-  %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2) monotonic, align 8
+  %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.i.not.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.i.not.i, label %_ZN9grpc_core15HPackCompressor15SetMaxTableSizeEj.exit, label %if.then4.i
@@ -236,16 +166,16 @@ _ZN9grpc_core15HPackCompressor15SetMaxTableSizeEj.exit: ; preds = %entry, %if.th
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core15HPackCompressor15SetMaxTableSizeEj(ptr noundef nonnull align 8 dereferenceable(344) %this, i32 noundef %max_table_size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %table_ = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %this, i64 0, i32 2
+  %table_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %this, align 8
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %0, i32 %max_table_size)
   %call2 = tail call noundef zeroext i1 @_ZN9grpc_core17HPackEncoderTable10SetMaxSizeEj(ptr noundef nonnull align 8 dereferenceable(40) %table_, i32 noundef %.sroa.speculated)
   br i1 %call2, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %advertise_table_size_change_ = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %this, i64 0, i32 1
+  %advertise_table_size_change_ = getelementptr inbounds i8, ptr %this, i64 4
   store i8 1, ptr %advertise_table_size_change_, align 4
-  %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2) monotonic, align 8
+  %1 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_http_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %2 = and i8 %1, 1
   %tobool.i.i.i.not = icmp eq i8 %2, 0
   br i1 %tobool.i.i.i.not, label %if.end5, label %if.then4
@@ -269,7 +199,7 @@ entry:
   br i1 %cmp.i, label %_ZN9grpc_core12VarintWriterILh1EEC2Em.exit.thread, label %_ZN9grpc_core12VarintWriterILh1EEC2Em.exit
 
 _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.thread: ; preds = %entry
-  %output_10 = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_10 = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %output_10, align 8
   %call.i211 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %0, i64 noundef 1)
   br label %if.then.i
@@ -278,7 +208,7 @@ _ZN9grpc_core12VarintWriterILh1EEC2Em.exit:       ; preds = %entry
   %conv = zext i32 %elem_index to i64
   %sub.i = add nsw i64 %conv, -127
   %call.i = tail call noundef i64 @_ZN9grpc_core12VarintLengthEm(i64 noundef %sub.i)
-  %output_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %output_, align 8
   %call.i2 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %1, i64 noundef %call.i)
   %cmp.i4 = icmp eq i64 %call.i, 1
@@ -313,13 +243,13 @@ entry:
   %agg.tmp28 = alloca %"class.grpc_core::Slice", align 8
   %0 = load ptr, ptr %key_slice, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
-  %data.i.i = getelementptr inbounds %struct.grpc_slice, ptr %key_slice, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %key_slice, i64 8
   %1 = load i64, ptr %data.i.i, align 8
   %conv.i.i = and i64 %1, 255
   %cond.i.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %1
   %2 = load ptr, ptr %value_slice, align 8
   %tobool.not.i.i8 = icmp eq ptr %2, null
-  %data.i.i9 = getelementptr inbounds %struct.grpc_slice, ptr %value_slice, i64 0, i32 1
+  %data.i.i9 = getelementptr inbounds i8, ptr %value_slice, i64 8
   %3 = load i64, ptr %data.i.i9, align 8
   %conv.i.i10 = and i64 %3, 255
   %cond.i.i11 = select i1 %tobool.not.i.i8, i64 %conv.i.i10, i64 %3
@@ -329,13 +259,13 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false), !noalias !9
   %4 = load ptr, ptr %key, align 8
   %tobool.not.i.i.i = icmp eq ptr %4, null
-  %data.i.i.i = getelementptr inbounds %struct.grpc_slice, ptr %key, i64 0, i32 1
+  %data.i.i.i = getelementptr inbounds i8, ptr %key, i64 8
   %5 = load i64, ptr %data.i.i.i, align 8
   %conv.i.i.i = and i64 %5, 255
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i64 %conv.i.i.i, i64 %5
-  %len_key_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::StringKey", ptr %key, i64 0, i32 1
+  %len_key_.i = getelementptr inbounds i8, ptr %key, i64 32
   store i64 %cond.i.i.i, ptr %len_key_.i, align 8
-  %length_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::StringKey", ptr %key, i64 0, i32 1, i32 1
+  %length_.i.i = getelementptr inbounds i8, ptr %key, i64 40
   %cmp.i.i = icmp ult i64 %cond.i.i.i, 127
   br i1 %cmp.i.i, label %cond.end.thread.i.i, label %cond.end.i.i
 
@@ -354,7 +284,7 @@ call.i.noexc.i:                                   ; preds = %cond.end.i.i
   br i1 %cmp2.i.i, label %if.then.i.i, label %invoke.cont4
 
 if.then.i.i:                                      ; preds = %call.i.noexc.i
-  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.9, i32 noundef 53, ptr noundef nonnull @.str.10) #21
+  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.9, i32 noundef 53, ptr noundef nonnull @.str.10) #20
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %if.then.i.i
@@ -363,15 +293,15 @@ if.then.i.i:                                      ; preds = %call.i.noexc.i
 lpad.i:                                           ; preds = %if.then.i.i, %cond.end.i.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #22
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #21
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   br label %eh.resume
 
 invoke.cont4:                                     ; preds = %call.i.noexc.i, %cond.end.thread.i.i
   %7 = phi i64 [ %call.i1.i, %call.i.noexc.i ], [ 1, %cond.end.thread.i.i ]
-  %output_.phi.trans.insert = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load ptr, ptr %output_.phi.trans.insert, align 8
-  %output_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_ = getelementptr inbounds i8, ptr %this, i64 16
   %add.i = add i64 %7, 1
   %call.i14 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %.pre, i64 noundef %add.i)
           to label %invoke.cont6 unwind label %lpad3
@@ -413,7 +343,7 @@ if.then.i.i22:                                    ; preds = %invoke.cont13
   br i1 %cmp.i.i.i23, label %if.then.i.i.i24, label %_ZN9grpc_core5SliceD2Ev.exit27
 
 if.then.i.i.i24:                                  ; preds = %if.then.i.i22
-  %destroyer_fn_.i.i.i25 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %10, i64 0, i32 1
+  %destroyer_fn_.i.i.i25 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %destroyer_fn_.i.i.i25, align 8
   invoke void %12(ptr noundef nonnull %10)
           to label %_ZN9grpc_core5SliceD2Ev.exit27 unwind label %terminate.lpad.i26
@@ -422,7 +352,7 @@ terminate.lpad.i26:                               ; preds = %if.then.i.i.i24
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #23
+  call void @__clang_call_terminate(ptr %14) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit27:                   ; preds = %invoke.cont13, %if.then.i.i22, %if.then.i.i.i24
@@ -432,13 +362,13 @@ _ZN9grpc_core5SliceD2Ev.exit27:                   ; preds = %invoke.cont13, %if.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp14, i8 0, i64 32, i1 false), !noalias !20
   %15 = load ptr, ptr %emit, align 8
   %tobool.not.i.i.i30 = icmp eq ptr %15, null
-  %data.i.i.i31 = getelementptr inbounds %struct.grpc_slice, ptr %emit, i64 0, i32 1
+  %data.i.i.i31 = getelementptr inbounds i8, ptr %emit, i64 8
   %16 = load i64, ptr %data.i.i.i31, align 8
   %conv.i.i.i32 = and i64 %16, 255
   %cond.i.i.i33 = select i1 %tobool.not.i.i.i30, i64 %conv.i.i.i32, i64 %16
-  %len_val_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::NonBinaryStringValue", ptr %emit, i64 0, i32 1
+  %len_val_.i = getelementptr inbounds i8, ptr %emit, i64 32
   store i64 %cond.i.i.i33, ptr %len_val_.i, align 8
-  %length_.i.i34 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::NonBinaryStringValue", ptr %emit, i64 0, i32 1, i32 1
+  %length_.i.i34 = getelementptr inbounds i8, ptr %emit, i64 40
   %cmp.i.i35 = icmp ult i64 %cond.i.i.i33, 127
   br i1 %cmp.i.i35, label %cond.end.thread.i.i44, label %cond.end.i.i36
 
@@ -457,7 +387,7 @@ call.i.noexc.i40:                                 ; preds = %cond.end.i.i36
   br i1 %cmp2.i.i41, label %if.then.i.i42, label %invoke.cont19
 
 if.then.i.i42:                                    ; preds = %call.i.noexc.i40
-  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.9, i32 noundef 53, ptr noundef nonnull @.str.10) #21
+  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.9, i32 noundef 53, ptr noundef nonnull @.str.10) #20
           to label %.noexc.i43 unwind label %lpad.i39
 
 .noexc.i43:                                       ; preds = %if.then.i.i42
@@ -466,8 +396,8 @@ if.then.i.i42:                                    ; preds = %call.i.noexc.i40
 lpad.i39:                                         ; preds = %if.then.i.i42, %cond.end.i.i36
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %emit) #22
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp14) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %emit) #21
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp14) #21
   br label %ehcleanup32
 
 invoke.cont19:                                    ; preds = %call.i.noexc.i40, %cond.end.thread.i.i44
@@ -494,9 +424,9 @@ if.else.i.i58:                                    ; preds = %invoke.cont21
           to label %invoke.cont23 unwind label %lpad18
 
 invoke.cont23:                                    ; preds = %if.then.i.i62, %if.else.i.i58
-  %compressor_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 1
+  %compressor_ = getelementptr inbounds i8, ptr %this, i64 8
   %20 = load ptr, ptr %compressor_, align 8
-  %table_ = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %20, i64 0, i32 2
+  %table_ = getelementptr inbounds i8, ptr %20, i64 8
   %add = add i64 %cond.i.i, 32
   %add24 = add i64 %add, %cond.i.i11
   %call26 = invoke noundef i32 @_ZN9grpc_core17HPackEncoderTable13AllocateIndexEm(ptr noundef nonnull align 8 dereferenceable(40) %table_, i64 noundef %add24)
@@ -520,7 +450,7 @@ if.then.i.i66:                                    ; preds = %invoke.cont31
   br i1 %cmp.i.i.i67, label %if.then.i.i.i68, label %_ZN9grpc_core5SliceD2Ev.exit71
 
 if.then.i.i.i68:                                  ; preds = %if.then.i.i66
-  %destroyer_fn_.i.i.i69 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %22, i64 0, i32 1
+  %destroyer_fn_.i.i.i69 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %destroyer_fn_.i.i.i69, align 8
   invoke void %24(ptr noundef nonnull %22)
           to label %_ZN9grpc_core5SliceD2Ev.exit71 unwind label %terminate.lpad.i70
@@ -529,7 +459,7 @@ terminate.lpad.i70:                               ; preds = %if.then.i.i.i68
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #23
+  call void @__clang_call_terminate(ptr %26) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit71:                   ; preds = %invoke.cont31, %if.then.i.i66, %if.then.i.i.i68
@@ -543,7 +473,7 @@ if.then.i.i.i73:                                  ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i73
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %emit.val4, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %emit.val4, i64 8
   %28 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
   invoke void %28(ptr noundef nonnull %emit.val4)
           to label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i
@@ -552,7 +482,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #23
+  call void @__clang_call_terminate(ptr %30) #22
   unreachable
 
 _ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit71, %if.then.i.i.i73, %if.then.i.i.i.i
@@ -566,7 +496,7 @@ if.then.i.i.i75:                                  ; preds = %_ZN9grpc_core12_GLO
   br i1 %cmp.i.i.i.i76, label %if.then.i.i.i.i77, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit
 
 if.then.i.i.i.i77:                                ; preds = %if.then.i.i.i75
-  %destroyer_fn_.i.i.i.i78 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %key.val6, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i78 = getelementptr inbounds i8, ptr %key.val6, i64 8
   %32 = load ptr, ptr %destroyer_fn_.i.i.i.i78, align 8
   invoke void %32(ptr noundef nonnull %key.val6)
           to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit unwind label %terminate.lpad.i.i79
@@ -575,7 +505,7 @@ terminate.lpad.i.i79:                             ; preds = %if.then.i.i.i.i77
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #23
+  call void @__clang_call_terminate(ptr %34) #22
   unreachable
 
 _ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit:   ; preds = %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit, %if.then.i.i.i75, %if.then.i.i.i.i77
@@ -589,7 +519,7 @@ lpad3:                                            ; preds = %if.else.i.i, %invok
 lpad12:                                           ; preds = %invoke.cont8
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10) #21
   br label %ehcleanup32
 
 lpad18:                                           ; preds = %if.else.i.i58, %invoke.cont19, %invoke.cont23
@@ -600,19 +530,19 @@ lpad18:                                           ; preds = %if.else.i.i58, %inv
 lpad30:                                           ; preds = %invoke.cont25
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp28) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp28) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad30, %lpad18
   %emit.val5 = phi ptr [ null, %lpad30 ], [ %15, %lpad18 ]
   %.pn = phi { ptr, i32 } [ %38, %lpad30 ], [ %37, %lpad18 ]
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev(ptr %emit.val5) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev(ptr %emit.val5) #21
   br label %ehcleanup32
 
 ehcleanup32:                                      ; preds = %ehcleanup, %lpad.i39, %lpad12, %lpad3
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %17, %lpad.i39 ], [ %36, %lpad12 ], [ %35, %lpad3 ]
   %key.val7 = load ptr, ptr %key, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev(ptr %key.val7) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev(ptr %key.val7) #21
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup32, %lpad.i
@@ -635,7 +565,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont3
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %destroyer_fn_.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %0, i64 0, i32 1
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i, align 8
   invoke void %2(ptr noundef nonnull %0)
           to label %invoke.cont3 unwind label %terminate.lpad
@@ -647,7 +577,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #23
+  tail call void @__clang_call_terminate(ptr %4) #22
   unreachable
 }
 
@@ -667,7 +597,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %destroyer_fn_.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %this.0.val, i64 0, i32 1
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 8
   %1 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %1(ptr noundef nonnull %this.0.val)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
@@ -676,7 +606,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #23
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
@@ -695,7 +625,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %destroyer_fn_.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %this.0.val, i64 0, i32 1
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 8
   %1 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %1(ptr noundef nonnull %this.0.val)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
@@ -704,7 +634,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #23
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
@@ -726,13 +656,13 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false), !noalias !31
   %0 = load ptr, ptr %key, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
-  %data.i.i.i = getelementptr inbounds %struct.grpc_slice, ptr %key, i64 0, i32 1
+  %data.i.i.i = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load i64, ptr %data.i.i.i, align 8
   %conv.i.i.i = and i64 %1, 255
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i64 %conv.i.i.i, i64 %1
-  %len_key_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::StringKey", ptr %key, i64 0, i32 1
+  %len_key_.i = getelementptr inbounds i8, ptr %key, i64 32
   store i64 %cond.i.i.i, ptr %len_key_.i, align 8
-  %length_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::StringKey", ptr %key, i64 0, i32 1, i32 1
+  %length_.i.i = getelementptr inbounds i8, ptr %key, i64 40
   %cmp.i.i = icmp ult i64 %cond.i.i.i, 127
   br i1 %cmp.i.i, label %cond.end.thread.i.i, label %cond.end.i.i
 
@@ -751,7 +681,7 @@ call.i.noexc.i:                                   ; preds = %cond.end.i.i
   br i1 %cmp2.i.i, label %if.then.i.i, label %invoke.cont3
 
 if.then.i.i:                                      ; preds = %call.i.noexc.i
-  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.9, i32 noundef 53, ptr noundef nonnull @.str.10) #21
+  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.9, i32 noundef 53, ptr noundef nonnull @.str.10) #20
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %if.then.i.i
@@ -760,15 +690,15 @@ if.then.i.i:                                      ; preds = %call.i.noexc.i
 lpad.i:                                           ; preds = %if.then.i.i, %cond.end.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #22
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #21
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   br label %eh.resume
 
 invoke.cont3:                                     ; preds = %call.i.noexc.i, %cond.end.thread.i.i
   %3 = phi i64 [ %call.i1.i, %call.i.noexc.i ], [ 1, %cond.end.thread.i.i ]
-  %output_.phi.trans.insert = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load ptr, ptr %output_.phi.trans.insert, align 8
-  %output_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_ = getelementptr inbounds i8, ptr %this, i64 16
   %add.i = add i64 %3, 1
   %call.i11 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %.pre, i64 noundef %add.i)
           to label %invoke.cont4 unwind label %lpad2
@@ -810,7 +740,7 @@ if.then.i.i19:                                    ; preds = %invoke.cont11
   br i1 %cmp.i.i.i20, label %if.then.i.i.i21, label %_ZN9grpc_core5SliceD2Ev.exit24
 
 if.then.i.i.i21:                                  ; preds = %if.then.i.i19
-  %destroyer_fn_.i.i.i22 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %6, i64 0, i32 1
+  %destroyer_fn_.i.i.i22 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i22, align 8
   invoke void %8(ptr noundef nonnull %6)
           to label %_ZN9grpc_core5SliceD2Ev.exit24 unwind label %terminate.lpad.i23
@@ -819,7 +749,7 @@ terminate.lpad.i23:                               ; preds = %if.then.i.i.i21
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #23
+  call void @__clang_call_terminate(ptr %10) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit24:                   ; preds = %invoke.cont11, %if.then.i.i19, %if.then.i.i.i21
@@ -842,7 +772,7 @@ if.then.i.i27:                                    ; preds = %invoke.cont14
   br i1 %cmp.i.i.i28, label %if.then.i.i.i29, label %invoke.cont17
 
 if.then.i.i.i29:                                  ; preds = %if.then.i.i27
-  %destroyer_fn_.i.i.i30 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %13, i64 0, i32 1
+  %destroyer_fn_.i.i.i30 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %destroyer_fn_.i.i.i30, align 8
   invoke void %15(ptr noundef nonnull %13)
           to label %invoke.cont17 unwind label %terminate.lpad.i31
@@ -851,7 +781,7 @@ terminate.lpad.i31:                               ; preds = %if.then.i.i.i29
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #23
+  call void @__clang_call_terminate(ptr %17) #22
   unreachable
 
 invoke.cont17:                                    ; preds = %if.then.i.i.i29, %if.then.i.i27, %invoke.cont14
@@ -867,8 +797,8 @@ invoke.cont17:                                    ; preds = %if.then.i.i.i29, %i
           to label %invoke.cont19 unwind label %lpad16
 
 invoke.cont19:                                    ; preds = %invoke.cont17
-  %len_val_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::BinaryStringValue", ptr %emit, i64 0, i32 1
-  %huffman_prefix.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::WireValue", ptr %emit, i64 0, i32 1
+  %len_val_.i = getelementptr inbounds i8, ptr %emit, i64 56
+  %huffman_prefix.i = getelementptr inbounds i8, ptr %emit, i64 32
   %22 = load i8, ptr %huffman_prefix.i, align 8
   %cmp.i.i37 = icmp eq i64 %emit.val6, 1
   br i1 %cmp.i.i37, label %if.then.i.i42, label %if.else.i.i38
@@ -917,7 +847,7 @@ if.then.i.i46:                                    ; preds = %invoke.cont26
   br i1 %cmp.i.i.i47, label %if.then.i.i.i48, label %_ZN9grpc_core5SliceD2Ev.exit51
 
 if.then.i.i.i48:                                  ; preds = %if.then.i.i46
-  %destroyer_fn_.i.i.i49 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %28, i64 0, i32 1
+  %destroyer_fn_.i.i.i49 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %destroyer_fn_.i.i.i49, align 8
   invoke void %30(ptr noundef nonnull %28)
           to label %_ZN9grpc_core5SliceD2Ev.exit51 unwind label %terminate.lpad.i50
@@ -926,7 +856,7 @@ terminate.lpad.i50:                               ; preds = %if.then.i.i.i48
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #23
+  call void @__clang_call_terminate(ptr %32) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit51:                   ; preds = %invoke.cont26, %if.then.i.i46, %if.then.i.i.i48
@@ -940,7 +870,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  %destroyer_fn_.i.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %emit.val7, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i = getelementptr inbounds i8, ptr %emit.val7, i64 8
   %34 = load ptr, ptr %destroyer_fn_.i.i.i.i.i, align 8
   invoke void %34(ptr noundef nonnull %emit.val7)
           to label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -949,7 +879,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #23
+  call void @__clang_call_terminate(ptr %36) #22
   unreachable
 
 _ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit51, %if.then.i.i.i.i, %if.then.i.i.i.i.i
@@ -963,7 +893,7 @@ if.then.i.i.i53:                                  ; preds = %_ZN9grpc_core12_GLO
   br i1 %cmp.i.i.i.i54, label %if.then.i.i.i.i55, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit
 
 if.then.i.i.i.i55:                                ; preds = %if.then.i.i.i53
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %key.val5, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %key.val5, i64 8
   %38 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
   invoke void %38(ptr noundef nonnull %key.val5)
           to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit unwind label %terminate.lpad.i.i
@@ -972,7 +902,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i55
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #23
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 _ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit:   ; preds = %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit, %if.then.i.i.i53, %if.then.i.i.i.i55
@@ -986,13 +916,13 @@ lpad2:                                            ; preds = %if.else.i.i, %invok
 lpad10:                                           ; preds = %invoke.cont6
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #21
   br label %ehcleanup27
 
 lpad13:                                           ; preds = %_ZN9grpc_core5SliceD2Ev.exit24
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12) #21
   br label %ehcleanup27
 
 lpad16:                                           ; preds = %if.else.i.i38, %invoke.cont17
@@ -1004,19 +934,19 @@ lpad16:                                           ; preds = %if.else.i.i38, %inv
 lpad25:                                           ; preds = %invoke.cont21
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad25, %lpad16
   %emit.val8 = phi ptr [ null, %lpad25 ], [ %emit.val8.pre, %lpad16 ]
   %.pn = phi { ptr, i32 } [ %45, %lpad25 ], [ %44, %lpad16 ]
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev(ptr %emit.val8) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev(ptr %emit.val8) #21
   br label %ehcleanup27
 
 ehcleanup27:                                      ; preds = %ehcleanup, %lpad13, %lpad10, %lpad2
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %43, %lpad13 ], [ %42, %lpad10 ], [ %41, %lpad2 ]
   %key.val4 = load ptr, ptr %key, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev(ptr %key.val4) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev(ptr %key.val4) #21
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup27, %lpad.i
@@ -1037,8 +967,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %hpack_length.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i2)
   %ref.tmp.i.i.sroa.4.0.agg.result.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 8
-  %huffman_prefix2.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::WireValue", ptr %this, i64 0, i32 1
-  %insert_null_before_wire_value3.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::WireValue", ptr %this, i64 0, i32 2
+  %huffman_prefix2.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %insert_null_before_wire_value3.i.i = getelementptr inbounds i8, ptr %this, i64 33
   br i1 %use_true_binary_metadata, label %invoke.cont.thread, label %_ZN9grpc_core5SliceD2Ev.exit17.i
 
 invoke.cont.thread:                               ; preds = %entry
@@ -1057,9 +987,9 @@ invoke.cont.thread:                               ; preds = %entry
   %conv.i.i.i.i = and i64 %0, 255
   %cond.i.i.i.i = select i1 %tobool.not.i.i.i.i, i64 %conv.i.i.i.i, i64 %0
   %add.i.i = add i64 %cond.i.i.i.i, 1
-  %length.i.i7 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::WireValue", ptr %this, i64 0, i32 3
+  %length.i.i7 = getelementptr inbounds i8, ptr %this, i64 40
   store i64 %add.i.i, ptr %length.i.i7, align 8, !alias.scope !50
-  %hpack_length7.i.i8 = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::WireValue", ptr %this, i64 0, i32 4
+  %hpack_length7.i.i8 = getelementptr inbounds i8, ptr %this, i64 48
   store i64 %add.i.i, ptr %hpack_length7.i.i8, align 8, !alias.scope !50
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %hpack_length.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
@@ -1083,9 +1013,9 @@ invoke.cont:                                      ; preds = %_ZN9grpc_core5Slice
   %conv.i.i.i8.i = and i64 %2, 255
   %cond.i.i.i9.i = select i1 %tobool.not.i.i.i6.i, i64 %conv.i.i.i8.i, i64 %2
   %.pre = load ptr, ptr %agg.tmp, align 8
-  %length.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::WireValue", ptr %this, i64 0, i32 3
+  %length.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i64 %cond.i.i.i9.i, ptr %length.i.i, align 8, !alias.scope !50
-  %hpack_length7.i.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::WireValue", ptr %this, i64 0, i32 4
+  %hpack_length7.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 %conv.i, ptr %hpack_length7.i.i, align 8, !alias.scope !50
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %hpack_length.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2)
@@ -1098,7 +1028,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %destroyer_fn_.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %.pre, i64 0, i32 1
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 8
   %4 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %4(ptr noundef nonnull %.pre)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
@@ -1107,15 +1037,15 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  call void @__clang_call_terminate(ptr %6) #23
+  call void @__clang_call_terminate(ptr %6) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %invoke.cont.thread, %invoke.cont, %if.then.i.i, %if.then.i.i.i
   %length.i.i10 = phi ptr [ %length.i.i7, %invoke.cont.thread ], [ %length.i.i, %invoke.cont ], [ %length.i.i, %if.then.i.i ], [ %length.i.i, %if.then.i.i.i ]
-  %len_val_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::BinaryStringValue", ptr %this, i64 0, i32 1
+  %len_val_ = getelementptr inbounds i8, ptr %this, i64 56
   %7 = load i64, ptr %length.i.i10, align 8
   store i64 %7, ptr %len_val_, align 8
-  %length_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::BinaryStringValue", ptr %this, i64 0, i32 1, i32 1
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 64
   %cmp.i = icmp ult i64 %7, 127
   br i1 %cmp.i, label %cond.end.thread.i, label %cond.end.i
 
@@ -1134,7 +1064,7 @@ call.i.noexc:                                     ; preds = %cond.end.i
   br i1 %cmp2.i, label %if.then.i, label %invoke.cont4
 
 if.then.i:                                        ; preds = %call.i.noexc
-  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.9, i32 noundef 53, ptr noundef nonnull @.str.10) #21
+  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.9, i32 noundef 53, ptr noundef nonnull @.str.10) #20
           to label %.noexc4 unwind label %lpad3
 
 .noexc4:                                          ; preds = %if.then.i
@@ -1146,14 +1076,14 @@ invoke.cont4:                                     ; preds = %call.i.noexc, %cond
 lpad:                                             ; preds = %_ZN9grpc_core5SliceD2Ev.exit17.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   br label %eh.resume
 
 lpad3:                                            ; preds = %if.then.i, %cond.end.i
   %9 = landingpad { ptr, i32 }
           cleanup
   %this.val = load ptr, ptr %this, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev(ptr %this.val) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev(ptr %this.val) #21
   br label %eh.resume
 
 eh.resume:                                        ; preds = %lpad3, %lpad
@@ -1173,7 +1103,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %this.0.val, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 8
   %1 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
   invoke void %1(ptr noundef nonnull %this.0.val)
           to label %_ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev.exit unwind label %terminate.lpad.i.i
@@ -1182,7 +1112,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #23
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN9grpc_core12_GLOBAL__N_19WireValueD2Ev.exit:   ; preds = %entry, %if.then.i.i.i, %if.then.i.i.i.i
@@ -1200,7 +1130,7 @@ entry:
   %agg.tmp29 = alloca %"class.grpc_core::Slice", align 8
   %0 = load ptr, ptr %key_slice, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
-  %data.i.i = getelementptr inbounds %struct.grpc_slice, ptr %key_slice, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %key_slice, i64 8
   %1 = load i64, ptr %data.i.i, align 8
   %conv.i.i = and i64 %1, 255
   %cond.i.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %1
@@ -1210,13 +1140,13 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false), !noalias !59
   %2 = load ptr, ptr %key, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
-  %data.i.i.i = getelementptr inbounds %struct.grpc_slice, ptr %key, i64 0, i32 1
+  %data.i.i.i = getelementptr inbounds i8, ptr %key, i64 8
   %3 = load i64, ptr %data.i.i.i, align 8
   %conv.i.i.i = and i64 %3, 255
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i64 %conv.i.i.i, i64 %3
-  %len_key_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::StringKey", ptr %key, i64 0, i32 1
+  %len_key_.i = getelementptr inbounds i8, ptr %key, i64 32
   store i64 %cond.i.i.i, ptr %len_key_.i, align 8
-  %length_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::StringKey", ptr %key, i64 0, i32 1, i32 1
+  %length_.i.i = getelementptr inbounds i8, ptr %key, i64 40
   %cmp.i.i = icmp ult i64 %cond.i.i.i, 127
   br i1 %cmp.i.i, label %cond.end.thread.i.i, label %cond.end.i.i
 
@@ -1235,7 +1165,7 @@ call.i.noexc.i:                                   ; preds = %cond.end.i.i
   br i1 %cmp2.i.i, label %if.then.i.i, label %invoke.cont3
 
 if.then.i.i:                                      ; preds = %call.i.noexc.i
-  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.9, i32 noundef 53, ptr noundef nonnull @.str.10) #21
+  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.9, i32 noundef 53, ptr noundef nonnull @.str.10) #20
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %if.then.i.i
@@ -1244,15 +1174,15 @@ if.then.i.i:                                      ; preds = %call.i.noexc.i
 lpad.i:                                           ; preds = %if.then.i.i, %cond.end.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #22
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #21
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   br label %eh.resume
 
 invoke.cont3:                                     ; preds = %call.i.noexc.i, %cond.end.thread.i.i
   %5 = phi i64 [ %call.i1.i, %call.i.noexc.i ], [ 1, %cond.end.thread.i.i ]
-  %output_.phi.trans.insert = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load ptr, ptr %output_.phi.trans.insert, align 8
-  %output_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_ = getelementptr inbounds i8, ptr %this, i64 16
   %add.i = add i64 %5, 1
   %call.i12 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %.pre, i64 noundef %add.i)
           to label %invoke.cont5 unwind label %lpad2
@@ -1294,7 +1224,7 @@ if.then.i.i20:                                    ; preds = %invoke.cont12
   br i1 %cmp.i.i.i21, label %if.then.i.i.i22, label %_ZN9grpc_core5SliceD2Ev.exit25
 
 if.then.i.i.i22:                                  ; preds = %if.then.i.i20
-  %destroyer_fn_.i.i.i23 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %8, i64 0, i32 1
+  %destroyer_fn_.i.i.i23 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %destroyer_fn_.i.i.i23, align 8
   invoke void %10(ptr noundef nonnull %8)
           to label %_ZN9grpc_core5SliceD2Ev.exit25 unwind label %terminate.lpad.i24
@@ -1303,7 +1233,7 @@ terminate.lpad.i24:                               ; preds = %if.then.i.i.i22
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #23
+  call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit25:                   ; preds = %invoke.cont12, %if.then.i.i20, %if.then.i.i.i22
@@ -1326,7 +1256,7 @@ if.then.i.i28:                                    ; preds = %invoke.cont15
   br i1 %cmp.i.i.i29, label %if.then.i.i.i30, label %invoke.cont18
 
 if.then.i.i.i30:                                  ; preds = %if.then.i.i28
-  %destroyer_fn_.i.i.i31 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %15, i64 0, i32 1
+  %destroyer_fn_.i.i.i31 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %destroyer_fn_.i.i.i31, align 8
   invoke void %17(ptr noundef nonnull %15)
           to label %invoke.cont18 unwind label %terminate.lpad.i32
@@ -1335,7 +1265,7 @@ terminate.lpad.i32:                               ; preds = %if.then.i.i.i30
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #23
+  call void @__clang_call_terminate(ptr %19) #22
   unreachable
 
 invoke.cont18:                                    ; preds = %if.then.i.i.i30, %if.then.i.i28, %invoke.cont15
@@ -1351,8 +1281,8 @@ invoke.cont18:                                    ; preds = %if.then.i.i.i30, %i
           to label %invoke.cont20 unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %invoke.cont18
-  %len_val_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::BinaryStringValue", ptr %emit, i64 0, i32 1
-  %huffman_prefix.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::WireValue", ptr %emit, i64 0, i32 1
+  %len_val_.i = getelementptr inbounds i8, ptr %emit, i64 56
+  %huffman_prefix.i = getelementptr inbounds i8, ptr %emit, i64 32
   %24 = load i8, ptr %huffman_prefix.i, align 8
   %cmp.i.i38 = icmp eq i64 %emit.val6, 1
   br i1 %cmp.i.i38, label %if.then.i.i43, label %if.else.i.i39
@@ -1384,9 +1314,9 @@ if.then.i:                                        ; preds = %_ZNK9grpc_core12Var
   br label %invoke.cont22
 
 invoke.cont22:                                    ; preds = %if.then.i, %_ZNK9grpc_core12VarintWriterILh1EE5WriteEhPh.exit.i
-  %compressor_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 1
+  %compressor_ = getelementptr inbounds i8, ptr %this, i64 8
   %29 = load ptr, ptr %compressor_, align 8
-  %table_ = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %29, i64 0, i32 2
+  %table_ = getelementptr inbounds i8, ptr %29, i64 8
   %30 = getelementptr inbounds i8, ptr %emit, i64 48
   %emit.val9 = load i64, ptr %30, align 8
   %conv = and i64 %emit.val9, 4294967295
@@ -1413,7 +1343,7 @@ if.then.i.i48:                                    ; preds = %invoke.cont32
   br i1 %cmp.i.i.i49, label %if.then.i.i.i50, label %_ZN9grpc_core5SliceD2Ev.exit53
 
 if.then.i.i.i50:                                  ; preds = %if.then.i.i48
-  %destroyer_fn_.i.i.i51 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %32, i64 0, i32 1
+  %destroyer_fn_.i.i.i51 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load ptr, ptr %destroyer_fn_.i.i.i51, align 8
   invoke void %34(ptr noundef nonnull %32)
           to label %_ZN9grpc_core5SliceD2Ev.exit53 unwind label %terminate.lpad.i52
@@ -1422,7 +1352,7 @@ terminate.lpad.i52:                               ; preds = %if.then.i.i.i50
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #23
+  call void @__clang_call_terminate(ptr %36) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit53:                   ; preds = %invoke.cont32, %if.then.i.i48, %if.then.i.i.i50
@@ -1436,7 +1366,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  %destroyer_fn_.i.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %emit.val8, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i = getelementptr inbounds i8, ptr %emit.val8, i64 8
   %38 = load ptr, ptr %destroyer_fn_.i.i.i.i.i, align 8
   invoke void %38(ptr noundef nonnull %emit.val8)
           to label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -1445,7 +1375,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #23
+  call void @__clang_call_terminate(ptr %40) #22
   unreachable
 
 _ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit53, %if.then.i.i.i.i, %if.then.i.i.i.i.i
@@ -1459,7 +1389,7 @@ if.then.i.i.i55:                                  ; preds = %_ZN9grpc_core12_GLO
   br i1 %cmp.i.i.i.i56, label %if.then.i.i.i.i57, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit
 
 if.then.i.i.i.i57:                                ; preds = %if.then.i.i.i55
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %key.val5, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %key.val5, i64 8
   %42 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
   invoke void %42(ptr noundef nonnull %key.val5)
           to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit unwind label %terminate.lpad.i.i
@@ -1468,7 +1398,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i57
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #23
+  call void @__clang_call_terminate(ptr %44) #22
   unreachable
 
 _ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit:   ; preds = %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit, %if.then.i.i.i55, %if.then.i.i.i.i57
@@ -1482,13 +1412,13 @@ lpad2:                                            ; preds = %if.else.i.i, %invok
 lpad11:                                           ; preds = %invoke.cont7
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9) #21
   br label %ehcleanup33
 
 lpad14:                                           ; preds = %_ZN9grpc_core5SliceD2Ev.exit25
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp13) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp13) #21
   br label %ehcleanup33
 
 lpad17:                                           ; preds = %if.else.i.i39, %invoke.cont18, %invoke.cont22
@@ -1500,19 +1430,19 @@ lpad17:                                           ; preds = %if.else.i.i39, %inv
 lpad31:                                           ; preds = %invoke.cont26
   %49 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp29) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp29) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad31, %lpad17
   %emit.val7 = phi ptr [ null, %lpad31 ], [ %emit.val7.pre, %lpad17 ]
   %.pn = phi { ptr, i32 } [ %49, %lpad31 ], [ %48, %lpad17 ]
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev(ptr %emit.val7) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev(ptr %emit.val7) #21
   br label %ehcleanup33
 
 ehcleanup33:                                      ; preds = %ehcleanup, %lpad14, %lpad11, %lpad2
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %47, %lpad14 ], [ %46, %lpad11 ], [ %45, %lpad2 ]
   %key.val4 = load ptr, ptr %key, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev(ptr %key.val4) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev(ptr %key.val4) #21
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup33, %lpad.i
@@ -1545,7 +1475,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %destroyer_fn_.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %2, i64 0, i32 1
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %4(ptr noundef nonnull %2)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
@@ -1554,7 +1484,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  tail call void @__clang_call_terminate(ptr %6) #23
+  tail call void @__clang_call_terminate(ptr %6) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %invoke.cont, %if.then.i.i, %if.then.i.i.i
@@ -1569,7 +1499,7 @@ cond.end.i:                                       ; preds = %_ZN9grpc_core5Slice
 
 invoke.cont5:                                     ; preds = %cond.end.i, %_ZN9grpc_core5SliceD2Ev.exit
   %key.sroa.3.0 = phi i64 [ 1, %_ZN9grpc_core5SliceD2Ev.exit ], [ %call.i7, %cond.end.i ]
-  %output_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_ = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %output_, align 8
   %8 = getelementptr inbounds i8, ptr %emit, i64 33
   %emit.val = load i8, ptr %8, align 1
@@ -1601,8 +1531,8 @@ if.else.i:                                        ; preds = %invoke.cont7
 
 invoke.cont9:                                     ; preds = %if.then.i, %if.else.i
   %add.ptr = getelementptr inbounds i8, ptr %call.i10, i64 %key.sroa.3.0
-  %len_val_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::BinaryStringValue", ptr %emit, i64 0, i32 1
-  %huffman_prefix.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::WireValue", ptr %emit, i64 0, i32 1
+  %len_val_.i = getelementptr inbounds i8, ptr %emit, i64 56
+  %huffman_prefix.i = getelementptr inbounds i8, ptr %emit, i64 32
   %12 = load i8, ptr %huffman_prefix.i, align 8
   %cmp.i.i15 = icmp eq i64 %emit.val4, 1
   br i1 %cmp.i.i15, label %if.then.i.i17, label %if.else.i.i
@@ -1651,7 +1581,7 @@ if.then.i.i20:                                    ; preds = %invoke.cont17
   br i1 %cmp.i.i.i21, label %if.then.i.i.i22, label %_ZN9grpc_core5SliceD2Ev.exit25
 
 if.then.i.i.i22:                                  ; preds = %if.then.i.i20
-  %destroyer_fn_.i.i.i23 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %18, i64 0, i32 1
+  %destroyer_fn_.i.i.i23 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %destroyer_fn_.i.i.i23, align 8
   invoke void %20(ptr noundef nonnull %18)
           to label %_ZN9grpc_core5SliceD2Ev.exit25 unwind label %terminate.lpad.i24
@@ -1660,7 +1590,7 @@ terminate.lpad.i24:                               ; preds = %if.then.i.i.i22
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #23
+  call void @__clang_call_terminate(ptr %22) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit25:                   ; preds = %invoke.cont17, %if.then.i.i20, %if.then.i.i.i22
@@ -1674,7 +1604,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  %destroyer_fn_.i.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %emit.val6, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i = getelementptr inbounds i8, ptr %emit.val6, i64 8
   %24 = load ptr, ptr %destroyer_fn_.i.i.i.i.i, align 8
   invoke void %24(ptr noundef nonnull %emit.val6)
           to label %_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -1683,7 +1613,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #23
+  call void @__clang_call_terminate(ptr %26) #22
   unreachable
 
 _ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit25, %if.then.i.i.i.i, %if.then.i.i.i.i.i
@@ -1692,7 +1622,7 @@ _ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev.exit: ; preds = %_ZN9grpc_cor
 lpad:                                             ; preds = %entry
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   br label %eh.resume
 
 lpad2:                                            ; preds = %if.else.i.i, %if.else.i, %invoke.cont5, %cond.end.i
@@ -1704,13 +1634,13 @@ lpad2:                                            ; preds = %if.else.i.i, %if.el
 lpad16:                                           ; preds = %invoke.cont12
   %29 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp14) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp14) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad16, %lpad2
   %emit.val5 = phi ptr [ null, %lpad16 ], [ %emit.val5.pre, %lpad2 ]
   %.pn = phi { ptr, i32 } [ %29, %lpad16 ], [ %28, %lpad2 ]
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev(ptr %emit.val5) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_117BinaryStringValueD2Ev(ptr %emit.val5) #21
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad
@@ -1733,13 +1663,13 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false), !noalias !86
   %0 = load ptr, ptr %key, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
-  %data.i.i.i = getelementptr inbounds %struct.grpc_slice, ptr %key, i64 0, i32 1
+  %data.i.i.i = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load i64, ptr %data.i.i.i, align 8
   %conv.i.i.i = and i64 %1, 255
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i64 %conv.i.i.i, i64 %1
-  %len_key_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::StringKey", ptr %key, i64 0, i32 1
+  %len_key_.i = getelementptr inbounds i8, ptr %key, i64 32
   store i64 %cond.i.i.i, ptr %len_key_.i, align 8
-  %length_.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::StringKey", ptr %key, i64 0, i32 1, i32 1
+  %length_.i.i = getelementptr inbounds i8, ptr %key, i64 40
   %cmp.i.i = icmp ult i64 %cond.i.i.i, 127
   br i1 %cmp.i.i, label %cond.end.thread.i.i, label %cond.end.i.i
 
@@ -1758,7 +1688,7 @@ call.i.noexc.i:                                   ; preds = %cond.end.i.i
   br i1 %cmp2.i.i, label %if.then.i.i, label %invoke.cont3
 
 if.then.i.i:                                      ; preds = %call.i.noexc.i
-  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.9, i32 noundef 53, ptr noundef nonnull @.str.10) #21
+  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.9, i32 noundef 53, ptr noundef nonnull @.str.10) #20
           to label %.noexc.i unwind label %lpad.i
 
 .noexc.i:                                         ; preds = %if.then.i.i
@@ -1767,15 +1697,15 @@ if.then.i.i:                                      ; preds = %call.i.noexc.i
 lpad.i:                                           ; preds = %if.then.i.i, %cond.end.i.i
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #22
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #21
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   br label %eh.resume
 
 invoke.cont3:                                     ; preds = %call.i.noexc.i, %cond.end.thread.i.i
   %3 = phi i64 [ %call.i1.i, %call.i.noexc.i ], [ 1, %cond.end.thread.i.i ]
-  %output_.phi.trans.insert = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load ptr, ptr %output_.phi.trans.insert, align 8
-  %output_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_ = getelementptr inbounds i8, ptr %this, i64 16
   %add.i = add i64 %3, 1
   %call.i10 = invoke noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %.pre, i64 noundef %add.i)
           to label %invoke.cont4 unwind label %lpad2
@@ -1817,7 +1747,7 @@ if.then.i.i18:                                    ; preds = %invoke.cont11
   br i1 %cmp.i.i.i19, label %if.then.i.i.i20, label %_ZN9grpc_core5SliceD2Ev.exit23
 
 if.then.i.i.i20:                                  ; preds = %if.then.i.i18
-  %destroyer_fn_.i.i.i21 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %6, i64 0, i32 1
+  %destroyer_fn_.i.i.i21 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = load ptr, ptr %destroyer_fn_.i.i.i21, align 8
   invoke void %8(ptr noundef nonnull %6)
           to label %_ZN9grpc_core5SliceD2Ev.exit23 unwind label %terminate.lpad.i22
@@ -1826,7 +1756,7 @@ terminate.lpad.i22:                               ; preds = %if.then.i.i.i20
   %9 = landingpad { ptr, i32 }
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #23
+  call void @__clang_call_terminate(ptr %10) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit23:                   ; preds = %invoke.cont11, %if.then.i.i18, %if.then.i.i.i20
@@ -1836,13 +1766,13 @@ _ZN9grpc_core5SliceD2Ev.exit23:                   ; preds = %invoke.cont11, %if.
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12, i8 0, i64 32, i1 false), !noalias !97
   %11 = load ptr, ptr %emit, align 8
   %tobool.not.i.i.i26 = icmp eq ptr %11, null
-  %data.i.i.i27 = getelementptr inbounds %struct.grpc_slice, ptr %emit, i64 0, i32 1
+  %data.i.i.i27 = getelementptr inbounds i8, ptr %emit, i64 8
   %12 = load i64, ptr %data.i.i.i27, align 8
   %conv.i.i.i28 = and i64 %12, 255
   %cond.i.i.i29 = select i1 %tobool.not.i.i.i26, i64 %conv.i.i.i28, i64 %12
-  %len_val_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::NonBinaryStringValue", ptr %emit, i64 0, i32 1
+  %len_val_.i = getelementptr inbounds i8, ptr %emit, i64 32
   store i64 %cond.i.i.i29, ptr %len_val_.i, align 8
-  %length_.i.i30 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::NonBinaryStringValue", ptr %emit, i64 0, i32 1, i32 1
+  %length_.i.i30 = getelementptr inbounds i8, ptr %emit, i64 40
   %cmp.i.i31 = icmp ult i64 %cond.i.i.i29, 127
   br i1 %cmp.i.i31, label %cond.end.thread.i.i40, label %cond.end.i.i32
 
@@ -1861,7 +1791,7 @@ call.i.noexc.i36:                                 ; preds = %cond.end.i.i32
   br i1 %cmp2.i.i37, label %if.then.i.i38, label %invoke.cont17
 
 if.then.i.i38:                                    ; preds = %call.i.noexc.i36
-  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.9, i32 noundef 53, ptr noundef nonnull @.str.10) #21
+  invoke void @gpr_assertion_failed(ptr noundef nonnull @.str.9, i32 noundef 53, ptr noundef nonnull @.str.10) #20
           to label %.noexc.i39 unwind label %lpad.i35
 
 .noexc.i39:                                       ; preds = %if.then.i.i38
@@ -1870,8 +1800,8 @@ if.then.i.i38:                                    ; preds = %call.i.noexc.i36
 lpad.i35:                                         ; preds = %if.then.i.i38, %cond.end.i.i32
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %emit) #22
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %emit) #21
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12) #21
   br label %ehcleanup27
 
 invoke.cont17:                                    ; preds = %call.i.noexc.i36, %cond.end.thread.i.i40
@@ -1915,7 +1845,7 @@ if.then.i.i62:                                    ; preds = %invoke.cont26
   br i1 %cmp.i.i.i63, label %if.then.i.i.i64, label %_ZN9grpc_core5SliceD2Ev.exit67
 
 if.then.i.i.i64:                                  ; preds = %if.then.i.i62
-  %destroyer_fn_.i.i.i65 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %17, i64 0, i32 1
+  %destroyer_fn_.i.i.i65 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %destroyer_fn_.i.i.i65, align 8
   invoke void %19(ptr noundef nonnull %17)
           to label %_ZN9grpc_core5SliceD2Ev.exit67 unwind label %terminate.lpad.i66
@@ -1924,7 +1854,7 @@ terminate.lpad.i66:                               ; preds = %if.then.i.i.i64
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #23
+  call void @__clang_call_terminate(ptr %21) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit67:                   ; preds = %invoke.cont26, %if.then.i.i62, %if.then.i.i.i64
@@ -1938,7 +1868,7 @@ if.then.i.i.i69:                                  ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i69
-  %destroyer_fn_.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %emit.val5, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i = getelementptr inbounds i8, ptr %emit.val5, i64 8
   %23 = load ptr, ptr %destroyer_fn_.i.i.i.i, align 8
   invoke void %23(ptr noundef nonnull %emit.val5)
           to label %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit unwind label %terminate.lpad.i.i
@@ -1947,7 +1877,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i.i
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #23
+  call void @__clang_call_terminate(ptr %25) #22
   unreachable
 
 _ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit: ; preds = %_ZN9grpc_core5SliceD2Ev.exit67, %if.then.i.i.i69, %if.then.i.i.i.i
@@ -1961,7 +1891,7 @@ if.then.i.i.i71:                                  ; preds = %_ZN9grpc_core12_GLO
   br i1 %cmp.i.i.i.i72, label %if.then.i.i.i.i73, label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit
 
 if.then.i.i.i.i73:                                ; preds = %if.then.i.i.i71
-  %destroyer_fn_.i.i.i.i74 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %key.val7, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i74 = getelementptr inbounds i8, ptr %key.val7, i64 8
   %27 = load ptr, ptr %destroyer_fn_.i.i.i.i74, align 8
   invoke void %27(ptr noundef nonnull %key.val7)
           to label %_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit unwind label %terminate.lpad.i.i75
@@ -1970,7 +1900,7 @@ terminate.lpad.i.i75:                             ; preds = %if.then.i.i.i.i73
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #23
+  call void @__clang_call_terminate(ptr %29) #22
   unreachable
 
 _ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev.exit:   ; preds = %_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev.exit, %if.then.i.i.i71, %if.then.i.i.i.i73
@@ -1984,7 +1914,7 @@ lpad2:                                            ; preds = %if.else.i.i, %invok
 lpad10:                                           ; preds = %invoke.cont6
   %31 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #21
   br label %ehcleanup27
 
 lpad16:                                           ; preds = %if.else.i.i54, %invoke.cont17
@@ -1995,19 +1925,19 @@ lpad16:                                           ; preds = %if.else.i.i54, %inv
 lpad25:                                           ; preds = %invoke.cont21
   %33 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad25, %lpad16
   %emit.val4 = phi ptr [ null, %lpad25 ], [ %11, %lpad16 ]
   %.pn = phi { ptr, i32 } [ %33, %lpad25 ], [ %32, %lpad16 ]
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev(ptr %emit.val4) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_120NonBinaryStringValueD2Ev(ptr %emit.val4) #21
   br label %ehcleanup27
 
 ehcleanup27:                                      ; preds = %ehcleanup, %lpad.i35, %lpad10, %lpad2
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %13, %lpad.i35 ], [ %31, %lpad10 ], [ %30, %lpad2 ]
   %key.val6 = load ptr, ptr %key, align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev(ptr %key.val6) #22
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_19StringKeyD2Ev(ptr %key.val6) #21
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup27, %lpad.i
@@ -2018,15 +1948,15 @@ eh.resume:                                        ; preds = %ehcleanup27, %lpad.
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core20hpack_encoder_detail7Encoder24AdvertiseTableSizeChangeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %compressor_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 1
+  %compressor_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %compressor_, align 8
-  %max_table_size_.i = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %0, i64 0, i32 2, i32 1
+  %max_table_size_.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i32, ptr %max_table_size_.i, align 4
   %cmp.i = icmp ult i32 %1, 31
   br i1 %cmp.i, label %_ZN9grpc_core12VarintWriterILh3EEC2Em.exit.thread, label %_ZN9grpc_core12VarintWriterILh3EEC2Em.exit
 
 _ZN9grpc_core12VarintWriterILh3EEC2Em.exit.thread: ; preds = %entry
-  %output_10 = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_10 = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %output_10, align 8
   %call.i211 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %2, i64 noundef 1)
   br label %if.then.i
@@ -2035,7 +1965,7 @@ _ZN9grpc_core12VarintWriterILh3EEC2Em.exit:       ; preds = %entry
   %conv = zext i32 %1 to i64
   %sub.i = add nsw i64 %conv, -31
   %call.i = tail call noundef i64 @_ZN9grpc_core12VarintLengthEm(i64 noundef %sub.i)
-  %output_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %output_, align 8
   %call.i2 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %3, i64 noundef %call.i)
   %cmp.i4 = icmp eq i64 %call.i, 1
@@ -2073,13 +2003,13 @@ entry:
   %agg.tmp60 = alloca %"class.grpc_core::Slice", align 8
   %agg.tmp62 = alloca %"class.grpc_core::Slice", align 8
   %ref.tmp71 = alloca %"class.grpc_core::Slice", align 8
-  %compressor_.i = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %encoder, i64 0, i32 1
+  %compressor_.i = getelementptr inbounds i8, ptr %encoder, i64 8
   %0 = load ptr, ptr %compressor_.i, align 8
-  %table_.i = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %0, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex, std::allocator<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %table_.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %value, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
-  %data.i.i = getelementptr inbounds %struct.grpc_slice, ptr %value, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %2 = load i64, ptr %data.i.i, align 8
   %conv.i.i = and i64 %2, 255
   %cond.i.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %2
@@ -2117,7 +2047,7 @@ if.then.i.i19:                                    ; preds = %invoke.cont10
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i19
-  %destroyer_fn_.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %5, i64 0, i32 1
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %7(ptr noundef nonnull %5)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
@@ -2126,7 +2056,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #23
+  tail call void @__clang_call_terminate(ptr %9) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %invoke.cont10, %if.then.i.i19, %if.then.i.i.i
@@ -2140,7 +2070,7 @@ if.then.i.i21:                                    ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i22, label %if.then.i.i.i23, label %return
 
 if.then.i.i.i23:                                  ; preds = %if.then.i.i21
-  %destroyer_fn_.i.i.i24 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %10, i64 0, i32 1
+  %destroyer_fn_.i.i.i24 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %destroyer_fn_.i.i.i24, align 8
   invoke void %12(ptr noundef nonnull %10)
           to label %return unwind label %terminate.lpad.i25
@@ -2149,13 +2079,13 @@ terminate.lpad.i25:                               ; preds = %if.then.i.i.i23
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #23
+  tail call void @__clang_call_terminate(ptr %14) #22
   unreachable
 
 lpad9:                                            ; preds = %invoke.cont
   %15 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #21
   br label %eh.resume
 
 if.end:                                           ; preds = %entry
@@ -2177,14 +2107,14 @@ for.body:                                         ; preds = %if.end57
 if.then21:                                        ; preds = %for.body, %for.body.preheader
   %prev.sroa.0.0104.lcssa = phi ptr [ %16, %for.body.preheader ], [ %it.sroa.0.0103117, %for.body ]
   %it.sroa.0.0103.lcssa = phi ptr [ %17, %for.body.preheader ], [ %incdec.ptr.i58, %for.body ]
-  %index = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %it.sroa.0.0103.lcssa, i64 0, i32 1
+  %index = getelementptr inbounds i8, ptr %it.sroa.0.0103.lcssa, i64 32
   %18 = load i32, ptr %index, align 8
   %19 = load i32, ptr %table_.i, align 8
   %cmp.i29 = icmp ult i32 %19, %18
   br i1 %cmp.i29, label %if.then24, label %if.else
 
 if.then24:                                        ; preds = %if.then21
-  %table_elems_.i = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %0, i64 0, i32 2, i32 2
+  %table_elems_.i = getelementptr inbounds i8, ptr %0, i64 16
   %20 = load i32, ptr %table_elems_.i, align 8
   %reass.sub = sub i32 %19, %18
   %add2.i = add i32 %reass.sub, 62
@@ -2193,7 +2123,7 @@ if.then24:                                        ; preds = %if.then21
   br i1 %cmp.i.i30, label %_ZN9grpc_core12VarintWriterILh1EEC2Em.exit.thread.i, label %_ZN9grpc_core12VarintWriterILh1EEC2Em.exit.i
 
 _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.thread.i: ; preds = %if.then24
-  %output_10.i = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %encoder, i64 0, i32 2
+  %output_10.i = getelementptr inbounds i8, ptr %encoder, i64 16
   %21 = load ptr, ptr %output_10.i, align 8
   %call.i211.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %21, i64 noundef 1)
   br label %if.then.i.i31
@@ -2202,7 +2132,7 @@ _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.i:     ; preds = %if.then24
   %conv.i = zext i32 %sub.i to i64
   %sub.i.i = add nsw i64 %conv.i, -127
   %call.i.i = tail call noundef i64 @_ZN9grpc_core12VarintLengthEm(i64 noundef %sub.i.i)
-  %output_.i = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %encoder, i64 0, i32 2
+  %output_.i = getelementptr inbounds i8, ptr %encoder, i64 16
   %22 = load ptr, ptr %output_.i, align 8
   %call.i2.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %22, i64 noundef %call.i.i)
   %cmp.i4.i = icmp eq i64 %call.i.i, 1
@@ -2253,7 +2183,7 @@ if.then.i.i38:                                    ; preds = %invoke.cont34
   br i1 %cmp.i.i.i39, label %if.then.i.i.i40, label %_ZN9grpc_core5SliceD2Ev.exit43
 
 if.then.i.i.i40:                                  ; preds = %if.then.i.i38
-  %destroyer_fn_.i.i.i41 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %26, i64 0, i32 1
+  %destroyer_fn_.i.i.i41 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %destroyer_fn_.i.i.i41, align 8
   invoke void %28(ptr noundef nonnull %26)
           to label %_ZN9grpc_core5SliceD2Ev.exit43 unwind label %terminate.lpad.i42
@@ -2262,7 +2192,7 @@ terminate.lpad.i42:                               ; preds = %if.then.i.i.i40
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #23
+  tail call void @__clang_call_terminate(ptr %30) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit43:                   ; preds = %invoke.cont34, %if.then.i.i38, %if.then.i.i.i40
@@ -2276,7 +2206,7 @@ if.then.i.i45:                                    ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i46, label %if.then.i.i.i47, label %if.end40
 
 if.then.i.i.i47:                                  ; preds = %if.then.i.i45
-  %destroyer_fn_.i.i.i48 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %31, i64 0, i32 1
+  %destroyer_fn_.i.i.i48 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %destroyer_fn_.i.i.i48, align 8
   invoke void %33(ptr noundef nonnull %31)
           to label %if.end40 unwind label %terminate.lpad.i49
@@ -2285,13 +2215,13 @@ terminate.lpad.i49:                               ; preds = %if.then.i.i.i47
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #23
+  tail call void @__clang_call_terminate(ptr %35) #22
   unreachable
 
 lpad33:                                           ; preds = %invoke.cont32
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp30) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp30) #21
   br label %eh.resume
 
 if.end40:                                         ; preds = %if.then.i.i.i47, %if.then.i.i45, %_ZN9grpc_core5SliceD2Ev.exit43, %if.else.i.i, %if.then.i.i31
@@ -2305,7 +2235,7 @@ if.then46:                                        ; preds = %if.end40
   %ref.tmp.i.i.sroa.4.0.__a.sroa_idx.i = getelementptr inbounds i8, ptr %prev.sroa.0.0104.lcssa, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.4.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4.0.__a.sroa_idx.i, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %prev.sroa.0.0104.lcssa, i8 0, i64 32, i1 false), !noalias !122
-  %index3.i.i = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %prev.sroa.0.0104.lcssa, i64 0, i32 1
+  %index3.i.i = getelementptr inbounds i8, ptr %prev.sroa.0.0104.lcssa, i64 32
   %38 = load i32, ptr %index3.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %prev.sroa.0.0104.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0103.lcssa, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0103.lcssa, i8 0, i64 32, i1 false)
@@ -2329,7 +2259,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then46
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZSt4swapIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
-  %destroyer_fn_.i.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %__tmp.i.i.i.i5.sroa.0.0.copyload.i, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i = getelementptr inbounds i8, ptr %__tmp.i.i.i.i5.sroa.0.0.copyload.i, i64 8
   %41 = load ptr, ptr %destroyer_fn_.i.i.i.i.i, align 8
   invoke void %41(ptr noundef nonnull %__tmp.i.i.i.i5.sroa.0.0.copyload.i)
           to label %_ZSt4swapIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_.exit unwind label %terminate.lpad.i.i.i
@@ -2338,7 +2268,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #23
+  tail call void @__clang_call_terminate(ptr %43) #22
   unreachable
 
 _ZSt4swapIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_.exit: ; preds = %if.then46, %if.then.i.i.i.i, %if.then.i.i.i.i.i
@@ -2354,14 +2284,14 @@ if.end49:                                         ; preds = %_ZSt4swapIN9grpc_co
 
 land.rhs:                                         ; preds = %if.end49, %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE8pop_backEv.exit
   %46 = phi ptr [ %55, %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE8pop_backEv.exit ], [ %44, %if.end49 ]
-  %index54 = getelementptr %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %46, i64 -1, i32 1
+  %index54 = getelementptr inbounds i8, ptr %46, i64 -8
   %47 = load i32, ptr %index54, align 8
   %48 = load i32, ptr %table_.i, align 8
   %cmp.i56 = icmp ult i32 %48, %47
   br i1 %cmp.i56, label %return, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %add.ptr.i.i55 = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %46, i64 -1
+  %add.ptr.i.i55 = getelementptr inbounds i8, ptr %46, i64 -40
   store ptr %add.ptr.i.i55, ptr %_M_finish.i, align 8
   %49 = load ptr, ptr %add.ptr.i.i55, align 8
   %cmp.i.i.i.i.i.i = icmp ugt ptr %49, inttoptr (i64 1 to ptr)
@@ -2373,7 +2303,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %while.body
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE8pop_backEv.exit
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %destroyer_fn_.i.i.i.i.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %49, i64 0, i32 1
+  %destroyer_fn_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load ptr, ptr %destroyer_fn_.i.i.i.i.i.i.i, align 8
   invoke void %51(ptr noundef nonnull %49)
           to label %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE8pop_backEv.exit unwind label %terminate.lpad.i.i.i.i.i
@@ -2382,7 +2312,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
   %52 = landingpad { ptr, i32 }
           catch ptr null
   %53 = extractvalue { ptr, i32 } %52, 0
-  tail call void @__clang_call_terminate(ptr %53) #23
+  tail call void @__clang_call_terminate(ptr %53) #22
   unreachable
 
 _ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE8pop_backEv.exit: ; preds = %while.body, %if.then.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
@@ -2393,7 +2323,7 @@ _ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE8
 
 if.end57:                                         ; preds = %for.body.preheader, %for.body
   %it.sroa.0.0103117 = phi ptr [ %incdec.ptr.i58, %for.body ], [ %17, %for.body.preheader ]
-  %incdec.ptr.i58 = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %it.sroa.0.0103117, i64 1
+  %incdec.ptr.i58 = getelementptr inbounds i8, ptr %it.sroa.0.0103117, i64 40
   %56 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i58, %56
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !113
@@ -2432,7 +2362,7 @@ if.then.i.i65:                                    ; preds = %invoke.cont66
   br i1 %cmp.i.i.i66, label %if.then.i.i.i67, label %_ZN9grpc_core5SliceD2Ev.exit70
 
 if.then.i.i.i67:                                  ; preds = %if.then.i.i65
-  %destroyer_fn_.i.i.i68 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %59, i64 0, i32 1
+  %destroyer_fn_.i.i.i68 = getelementptr inbounds i8, ptr %59, i64 8
   %61 = load ptr, ptr %destroyer_fn_.i.i.i68, align 8
   invoke void %61(ptr noundef nonnull %59)
           to label %_ZN9grpc_core5SliceD2Ev.exit70 unwind label %terminate.lpad.i69
@@ -2441,7 +2371,7 @@ terminate.lpad.i69:                               ; preds = %if.then.i.i.i67
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  tail call void @__clang_call_terminate(ptr %63) #23
+  tail call void @__clang_call_terminate(ptr %63) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit70:                   ; preds = %invoke.cont66, %if.then.i.i65, %if.then.i.i.i67
@@ -2455,7 +2385,7 @@ if.then.i.i72:                                    ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i73, label %if.then.i.i.i74, label %_ZN9grpc_core5SliceD2Ev.exit77
 
 if.then.i.i.i74:                                  ; preds = %if.then.i.i72
-  %destroyer_fn_.i.i.i75 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %64, i64 0, i32 1
+  %destroyer_fn_.i.i.i75 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load ptr, ptr %destroyer_fn_.i.i.i75, align 8
   invoke void %66(ptr noundef nonnull %64)
           to label %_ZN9grpc_core5SliceD2Ev.exit77 unwind label %terminate.lpad.i76
@@ -2464,7 +2394,7 @@ terminate.lpad.i76:                               ; preds = %if.then.i.i.i74
   %67 = landingpad { ptr, i32 }
           catch ptr null
   %68 = extractvalue { ptr, i32 } %67, 0
-  tail call void @__clang_call_terminate(ptr %68) #23
+  tail call void @__clang_call_terminate(ptr %68) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit77:                   ; preds = %_ZN9grpc_core5SliceD2Ev.exit70, %if.then.i.i72, %if.then.i.i.i74
@@ -2480,7 +2410,7 @@ if.then.i.i79:                                    ; preds = %_ZN9grpc_core5Slice
 _ZNK9grpc_core5Slice3RefEv.exit80:                ; preds = %_ZN9grpc_core5SliceD2Ev.exit77, %if.then.i.i79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71, ptr noundef nonnull align 8 dereferenceable(32) %value, i64 32, i1 false)
   %71 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex, std::allocator<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %72 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %71, %72
   br i1 %cmp.not.i, label %if.else.i, label %invoke.cont73.thread
@@ -2494,10 +2424,10 @@ invoke.cont73.thread:                             ; preds = %_ZNK9grpc_core5Slic
   %ref.tmp.i.i.sroa.4.0.__p.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %71, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4.0.__p.sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4.i.i.i)
-  %index3.i.i.i.i = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %71, i64 0, i32 1
+  %index3.i.i.i.i = getelementptr inbounds i8, ptr %71, i64 32
   store i32 %call67, ptr %index3.i.i.i.i, align 8
   %73 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i82 = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %73, i64 1
+  %incdec.ptr.i82 = getelementptr inbounds i8, ptr %73, i64 40
   store ptr %incdec.ptr.i82, ptr %_M_finish.i, align 8
   br label %return
 
@@ -2516,7 +2446,7 @@ if.then.i.i84:                                    ; preds = %invoke.cont73
   br i1 %cmp.i.i.i85, label %if.then.i.i.i86, label %return
 
 if.then.i.i.i86:                                  ; preds = %if.then.i.i84
-  %destroyer_fn_.i.i.i87 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %.pre109, i64 0, i32 1
+  %destroyer_fn_.i.i.i87 = getelementptr inbounds i8, ptr %.pre109, i64 8
   %75 = load ptr, ptr %destroyer_fn_.i.i.i87, align 8
   invoke void %75(ptr noundef nonnull %.pre109)
           to label %return unwind label %terminate.lpad.i88
@@ -2525,7 +2455,7 @@ terminate.lpad.i88:                               ; preds = %if.then.i.i.i86
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #23
+  call void @__clang_call_terminate(ptr %77) #22
   unreachable
 
 return:                                           ; preds = %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE8pop_backEv.exit, %land.rhs, %invoke.cont73.thread, %if.end49, %if.then.i.i.i86, %if.then.i.i84, %invoke.cont73, %if.then.i.i.i23, %if.then.i.i21, %_ZN9grpc_core5SliceD2Ev.exit
@@ -2534,7 +2464,7 @@ return:                                           ; preds = %_ZNSt6vectorIN9grpc
 lpad65:                                           ; preds = %invoke.cont64
   %78 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp62) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp62) #21
   br label %eh.resume
 
 lpad72:                                           ; preds = %if.else.i
@@ -2545,7 +2475,7 @@ lpad72:                                           ; preds = %if.else.i
 eh.resume:                                        ; preds = %lpad72, %lpad65, %lpad33, %lpad9
   %ref.tmp71.sink = phi ptr [ %ref.tmp71, %lpad72 ], [ %agg.tmp60, %lpad65 ], [ %agg.tmp28, %lpad33 ], [ %agg.tmp, %lpad9 ]
   %.pn15.pn = phi { ptr, i32 } [ %79, %lpad72 ], [ %78, %lpad65 ], [ %36, %lpad33 ], [ %15, %lpad9 ]
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71.sink) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71.sink) #21
   resume { ptr, i32 } %.pn15.pn
 }
 
@@ -2561,7 +2491,7 @@ entry:
   %agg.tmp9 = alloca %"class.grpc_core::Slice", align 8
   %0 = load ptr, ptr %key, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
-  %data.i.i = getelementptr inbounds %struct.grpc_slice, ptr %key, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %key, i64 8
   %1 = load i64, ptr %data.i.i, align 8
   %conv.i.i = and i64 %1, 255
   %cond.i2.i = select i1 %tobool.not.i.i, i64 %conv.i.i, i64 %1
@@ -2570,7 +2500,7 @@ entry:
 
 _ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit: ; preds = %entry
   %bytes5.i.i = getelementptr inbounds i8, ptr %key, i64 9
-  %bytes.i.i = getelementptr inbounds %struct.grpc_slice, ptr %key, i64 0, i32 1, i32 0, i32 1
+  %bytes.i.i = getelementptr inbounds i8, ptr %key, i64 16
   %2 = load ptr, ptr %bytes.i.i, align 8
   %cond.i.i = select i1 %tobool.not.i.i, ptr %bytes5.i.i, ptr %2
   %3 = getelementptr i8, ptr %cond.i.i, i64 %cond.i2.i
@@ -2613,7 +2543,7 @@ if.then.i.i13:                                    ; preds = %invoke.cont7
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i13
-  %destroyer_fn_.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %7, i64 0, i32 1
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %9(ptr noundef nonnull %7)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
@@ -2622,7 +2552,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #23
+  tail call void @__clang_call_terminate(ptr %11) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %invoke.cont7, %if.then.i.i13, %if.then.i.i.i
@@ -2636,7 +2566,7 @@ if.then.i.i15:                                    ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i16, label %if.then.i.i.i17, label %if.end
 
 if.then.i.i.i17:                                  ; preds = %if.then.i.i15
-  %destroyer_fn_.i.i.i18 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %12, i64 0, i32 1
+  %destroyer_fn_.i.i.i18 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %destroyer_fn_.i.i.i18, align 8
   invoke void %14(ptr noundef nonnull %12)
           to label %if.end unwind label %terminate.lpad.i19
@@ -2645,7 +2575,7 @@ terminate.lpad.i19:                               ; preds = %if.then.i.i.i17
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #23
+  tail call void @__clang_call_terminate(ptr %16) #22
   unreachable
 
 lpad6:                                            ; preds = %invoke.cont
@@ -2687,7 +2617,7 @@ if.then.i.i28:                                    ; preds = %invoke.cont13
   br i1 %cmp.i.i.i29, label %if.then.i.i.i30, label %_ZN9grpc_core5SliceD2Ev.exit33
 
 if.then.i.i.i30:                                  ; preds = %if.then.i.i28
-  %destroyer_fn_.i.i.i31 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %21, i64 0, i32 1
+  %destroyer_fn_.i.i.i31 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %destroyer_fn_.i.i.i31, align 8
   invoke void %23(ptr noundef nonnull %21)
           to label %_ZN9grpc_core5SliceD2Ev.exit33 unwind label %terminate.lpad.i32
@@ -2696,7 +2626,7 @@ terminate.lpad.i32:                               ; preds = %if.then.i.i.i30
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #23
+  tail call void @__clang_call_terminate(ptr %25) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit33:                   ; preds = %invoke.cont13, %if.then.i.i28, %if.then.i.i.i30
@@ -2710,7 +2640,7 @@ if.then.i.i35:                                    ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i36, label %if.then.i.i.i37, label %if.end
 
 if.then.i.i.i37:                                  ; preds = %if.then.i.i35
-  %destroyer_fn_.i.i.i38 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %26, i64 0, i32 1
+  %destroyer_fn_.i.i.i38 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %destroyer_fn_.i.i.i38, align 8
   invoke void %28(ptr noundef nonnull %26)
           to label %if.end unwind label %terminate.lpad.i39
@@ -2719,7 +2649,7 @@ terminate.lpad.i39:                               ; preds = %if.then.i.i.i37
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #23
+  tail call void @__clang_call_terminate(ptr %30) #22
   unreachable
 
 lpad12:                                           ; preds = %invoke.cont11
@@ -2734,8 +2664,8 @@ eh.resume:                                        ; preds = %lpad12, %lpad6
   %agg.tmp9.sink = phi ptr [ %agg.tmp9, %lpad12 ], [ %agg.tmp5, %lpad6 ]
   %agg.tmp8.sink = phi ptr [ %agg.tmp8, %lpad12 ], [ %agg.tmp4, %lpad6 ]
   %.pn5.pn = phi { ptr, i32 } [ %31, %lpad12 ], [ %17, %lpad6 ]
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9.sink) #22
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8.sink) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9.sink) #21
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8.sink) #21
   resume { ptr, i32 } %.pn5.pn
 }
 
@@ -2752,12 +2682,12 @@ sw.bb2:                                           ; preds = %entry
   br label %sw.epilog.sink.split
 
 sw.bb3:                                           ; preds = %entry
-  tail call void @_ZN9grpc_core5CrashESt17basic_string_viewIcSt11char_traitsIcEENS_14SourceLocationE(i64 28, ptr nonnull @.str.3, ptr nonnull @.str, i32 380) #21
+  tail call void @_ZN9grpc_core5CrashESt17basic_string_viewIcSt11char_traitsIcEENS_14SourceLocationE(i64 28, ptr nonnull @.str.3, ptr nonnull @.str, i32 380) #20
   unreachable
 
 sw.epilog.sink.split:                             ; preds = %entry, %sw.bb2
   %.sink = phi i8 [ -121, %sw.bb2 ], [ -122, %entry ]
-  %output_10.i2 = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %encoder, i64 0, i32 2
+  %output_10.i2 = getelementptr inbounds i8, ptr %encoder, i64 16
   %0 = load ptr, ptr %output_10.i2, align 8
   %call.i211.i3 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %0, i64 noundef 1)
   store i8 %.sink, ptr %call.i211.i3, align 1
@@ -2817,7 +2747,7 @@ if.else:                                          ; preds = %entry
           to label %call.i9.noexc unwind label %lpad
 
 call.i9.noexc:                                    ; preds = %if.else
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i) #24, !noalias !154
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i) #23, !noalias !154
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !154
   invoke void @grpc_slice_from_copied_buffer(ptr nonnull sret(%struct.grpc_slice) align 8 %ref.tmp.i.i.i, ptr noundef nonnull %buffer.i, i64 noundef %call.i.i)
           to label %invoke.cont unwind label %lpad
@@ -2840,7 +2770,7 @@ if.then.i.i:                                      ; preds = %invoke.cont14
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %destroyer_fn_.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %0, i64 0, i32 1
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %2(ptr noundef nonnull %0)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
@@ -2849,7 +2779,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #23
+  call void @__clang_call_terminate(ptr %4) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %invoke.cont14, %if.then.i.i, %if.then.i.i.i
@@ -2863,7 +2793,7 @@ if.then.i.i12:                                    ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i13, label %if.then.i.i.i14, label %if.end15
 
 if.then.i.i.i14:                                  ; preds = %if.then.i.i12
-  %destroyer_fn_.i.i.i15 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %5, i64 0, i32 1
+  %destroyer_fn_.i.i.i15 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i15, align 8
   invoke void %7(ptr noundef nonnull %5)
           to label %if.end15 unwind label %terminate.lpad.i16
@@ -2872,7 +2802,7 @@ terminate.lpad.i16:                               ; preds = %if.then.i.i.i14
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #23
+  call void @__clang_call_terminate(ptr %9) #22
   unreachable
 
 lpad:                                             ; preds = %call.i9.noexc, %if.else
@@ -2883,17 +2813,17 @@ lpad:                                             ; preds = %call.i9.noexc, %if.
 lpad13:                                           ; preds = %invoke.cont
   %11 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp11) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp11) #21
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad13, %lpad
   %.pn = phi { ptr, i32 } [ %11, %lpad13 ], [ %10, %lpad ]
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   resume { ptr, i32 } %.pn
 
 if.end15.sink.split:                              ; preds = %sw.bb2, %sw.bb3, %sw.bb4, %sw.bb5, %sw.bb6, %entry, %if.then9
   %index.0.ph.sink = phi i8 [ -120, %entry ], [ -118, %sw.bb2 ], [ -117, %sw.bb3 ], [ -116, %sw.bb4 ], [ -115, %sw.bb5 ], [ -114, %sw.bb6 ], [ -119, %if.then9 ]
-  %output_10.i7 = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %encoder, i64 0, i32 2
+  %output_10.i7 = getelementptr inbounds i8, ptr %encoder, i64 16
   %12 = load ptr, ptr %output_10.i7, align 8
   %call.i211.i8 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %12, i64 noundef 1)
   store i8 %index.0.ph.sink, ptr %call.i211.i8, align 1
@@ -2943,7 +2873,7 @@ if.then.i.i:                                      ; preds = %invoke.cont6
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %destroyer_fn_.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %0, i64 0, i32 1
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %2(ptr noundef nonnull %0)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
@@ -2952,7 +2882,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #23
+  tail call void @__clang_call_terminate(ptr %4) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %invoke.cont6, %if.then.i.i, %if.then.i.i.i
@@ -2966,7 +2896,7 @@ if.then.i.i10:                                    ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i11, label %if.then.i.i.i12, label %sw.epilog
 
 if.then.i.i.i12:                                  ; preds = %if.then.i.i10
-  %destroyer_fn_.i.i.i13 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %5, i64 0, i32 1
+  %destroyer_fn_.i.i.i13 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %destroyer_fn_.i.i.i13, align 8
   invoke void %7(ptr noundef nonnull %5)
           to label %sw.epilog unwind label %terminate.lpad.i14
@@ -2975,23 +2905,23 @@ terminate.lpad.i14:                               ; preds = %if.then.i.i.i12
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #23
+  tail call void @__clang_call_terminate(ptr %9) #22
   unreachable
 
 lpad5:                                            ; preds = %invoke.cont
   %10 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4) #22
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4) #21
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   resume { ptr, i32 } %10
 
 sw.bb7:                                           ; preds = %entry
-  tail call void @_ZN9grpc_core5CrashESt17basic_string_viewIcSt11char_traitsIcEENS_14SourceLocationE(i64 28, ptr nonnull @.str.7, ptr nonnull @.str, i32 437) #21
+  tail call void @_ZN9grpc_core5CrashESt17basic_string_viewIcSt11char_traitsIcEENS_14SourceLocationE(i64 28, ptr nonnull @.str.7, ptr nonnull @.str, i32 437) #20
   unreachable
 
 sw.epilog.sink.split:                             ; preds = %entry, %sw.bb2
   %.sink = phi i8 [ -126, %sw.bb2 ], [ -125, %entry ]
-  %output_10.i4 = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %encoder, i64 0, i32 2
+  %output_10.i4 = getelementptr inbounds i8, ptr %encoder, i64 16
   %11 = load ptr, ptr %output_10.i4, align 8
   %call.i211.i5 = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %11, i64 noundef 1)
   store i8 %.sink, ptr %call.i211.i5, align 1
@@ -3006,16 +2936,16 @@ define void @_ZN9grpc_core20hpack_encoder_detail7Encoder19EncodeAlwaysIndexedEPj
 entry:
   %agg.tmp = alloca %"class.grpc_core::Slice", align 8
   %agg.tmp6 = alloca %"class.grpc_core::Slice", align 8
-  %compressor_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 1
+  %compressor_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %compressor_, align 8
-  %table_ = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %1, i64 0, i32 2
+  %table_ = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i32, ptr %index, align 4
   %3 = load i32, ptr %table_, align 8
   %cmp.i = icmp ult i32 %3, %2
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %table_elems_.i = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %1, i64 0, i32 2, i32 2
+  %table_elems_.i = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %table_elems_.i, align 8
   %reass.sub = sub i32 %3, %2
   %add2.i = add i32 %reass.sub, 62
@@ -3024,7 +2954,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %_ZN9grpc_core12VarintWriterILh1EEC2Em.exit.thread.i, label %_ZN9grpc_core12VarintWriterILh1EEC2Em.exit.i
 
 _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.thread.i: ; preds = %if.then
-  %output_10.i = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_10.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %output_10.i, align 8
   %call.i211.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %5, i64 noundef 1)
   br label %if.then.i.i
@@ -3033,7 +2963,7 @@ _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.i:     ; preds = %if.then
   %conv.i = zext i32 %sub.i to i64
   %sub.i.i = add nsw i64 %conv.i, -127
   %call.i.i = tail call noundef i64 @_ZN9grpc_core12VarintLengthEm(i64 noundef %sub.i.i)
-  %output_.i = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %output_.i, align 8
   %call.i2.i = tail call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %6, i64 noundef %call.i.i)
   %cmp.i4.i = icmp eq i64 %call.i.i, 1
@@ -3076,7 +3006,7 @@ if.then.i.i4:                                     ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i4
-  %destroyer_fn_.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %8, i64 0, i32 1
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %10(ptr noundef nonnull %8)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
@@ -3085,7 +3015,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #23
+  tail call void @__clang_call_terminate(ptr %12) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %invoke.cont, %if.then.i.i4, %if.then.i.i.i
@@ -3099,7 +3029,7 @@ if.then.i.i6:                                     ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i7, label %if.then.i.i.i8, label %if.end
 
 if.then.i.i.i8:                                   ; preds = %if.then.i.i6
-  %destroyer_fn_.i.i.i9 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %13, i64 0, i32 1
+  %destroyer_fn_.i.i.i9 = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %destroyer_fn_.i.i.i9, align 8
   invoke void %15(ptr noundef nonnull %13)
           to label %if.end unwind label %terminate.lpad.i10
@@ -3108,14 +3038,14 @@ terminate.lpad.i10:                               ; preds = %if.then.i.i.i8
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #23
+  tail call void @__clang_call_terminate(ptr %17) #22
   unreachable
 
 lpad:                                             ; preds = %if.else
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6) #22
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6) #21
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #21
   resume { ptr, i32 } %18
 
 if.end:                                           ; preds = %if.then.i.i.i8, %if.then.i.i6, %_ZN9grpc_core5SliceD2Ev.exit, %if.else.i.i, %if.then.i.i
@@ -3128,16 +3058,16 @@ entry:
   %agg.tmp = alloca %"class.grpc_core::Slice", align 8
   %agg.tmp5 = alloca %"class.grpc_core::Slice", align 8
   %agg.tmp7 = alloca %"class.grpc_core::Slice", align 8
-  %compressor_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 1
+  %compressor_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %compressor_, align 8
-  %table_ = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %0, i64 0, i32 2
+  %table_ = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %index, align 4
   %2 = load i32, ptr %table_, align 8
   %cmp.i = icmp ult i32 %2, %1
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %table_elems_.i = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %0, i64 0, i32 2, i32 2
+  %table_elems_.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %table_elems_.i, align 8
   %reass.sub = sub i32 %2, %1
   %add2.i = add i32 %reass.sub, 62
@@ -3158,7 +3088,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %destroyer_fn_.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %4, i64 0, i32 1
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %6(ptr noundef nonnull %4)
           to label %if.end unwind label %terminate.lpad.i
@@ -3167,7 +3097,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #23
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 
 lpad:                                             ; preds = %if.then
@@ -3198,7 +3128,7 @@ if.then.i.i6:                                     ; preds = %invoke.cont9
   br i1 %cmp.i.i.i7, label %if.then.i.i.i8, label %_ZN9grpc_core5SliceD2Ev.exit11
 
 if.then.i.i.i8:                                   ; preds = %if.then.i.i6
-  %destroyer_fn_.i.i.i9 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %10, i64 0, i32 1
+  %destroyer_fn_.i.i.i9 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %destroyer_fn_.i.i.i9, align 8
   invoke void %12(ptr noundef nonnull %10)
           to label %_ZN9grpc_core5SliceD2Ev.exit11 unwind label %terminate.lpad.i10
@@ -3207,7 +3137,7 @@ terminate.lpad.i10:                               ; preds = %if.then.i.i.i8
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #23
+  tail call void @__clang_call_terminate(ptr %14) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit11:                   ; preds = %invoke.cont9, %if.then.i.i6, %if.then.i.i.i8
@@ -3221,7 +3151,7 @@ if.then.i.i13:                                    ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i14, label %if.then.i.i.i15, label %if.end
 
 if.then.i.i.i15:                                  ; preds = %if.then.i.i13
-  %destroyer_fn_.i.i.i16 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %15, i64 0, i32 1
+  %destroyer_fn_.i.i.i16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %destroyer_fn_.i.i.i16, align 8
   invoke void %17(ptr noundef nonnull %15)
           to label %if.end unwind label %terminate.lpad.i17
@@ -3230,13 +3160,13 @@ terminate.lpad.i17:                               ; preds = %if.then.i.i.i15
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #23
+  tail call void @__clang_call_terminate(ptr %19) #22
   unreachable
 
 lpad8:                                            ; preds = %if.else
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7) #21
   br label %eh.resume
 
 if.end:                                           ; preds = %if.then.i.i.i15, %if.then.i.i13, %_ZN9grpc_core5SliceD2Ev.exit11, %if.then.i.i.i, %if.then.i.i, %invoke.cont
@@ -3245,7 +3175,7 @@ if.end:                                           ; preds = %if.then.i.i.i15, %i
 eh.resume:                                        ; preds = %lpad8, %lpad
   %agg.tmp5.sink = phi ptr [ %agg.tmp5, %lpad8 ], [ %agg.tmp, %lpad ]
   %.pn = phi { ptr, i32 } [ %20, %lpad8 ], [ %9, %lpad ]
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5.sink) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5.sink) #21
   resume { ptr, i32 } %.pn
 }
 
@@ -3258,7 +3188,7 @@ entry:
   %0 = load i64, ptr %key, align 8
   %1 = load ptr, ptr %slice, align 8
   %tobool.not.i = icmp eq ptr %1, null
-  %data.i = getelementptr inbounds %struct.grpc_slice, ptr %slice, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %slice, i64 8
   %2 = load i64, ptr %data.i, align 8
   %conv.i = and i64 %2, 255
   %cond.i = select i1 %tobool.not.i, i64 %conv.i, i64 %2
@@ -3298,7 +3228,7 @@ if.then.i.i8:                                     ; preds = %invoke.cont7
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i8
-  %destroyer_fn_.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %4, i64 0, i32 1
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %6(ptr noundef nonnull %4)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
@@ -3307,7 +3237,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #23
+  tail call void @__clang_call_terminate(ptr %8) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %invoke.cont7, %if.then.i.i8, %if.then.i.i.i
@@ -3321,7 +3251,7 @@ if.then.i.i10:                                    ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i11, label %if.then.i.i.i12, label %if.end
 
 if.then.i.i.i12:                                  ; preds = %if.then.i.i10
-  %destroyer_fn_.i.i.i13 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %9, i64 0, i32 1
+  %destroyer_fn_.i.i.i13 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %destroyer_fn_.i.i.i13, align 8
   invoke void %11(ptr noundef nonnull %9)
           to label %if.end unwind label %terminate.lpad.i14
@@ -3330,13 +3260,13 @@ terminate.lpad.i14:                               ; preds = %if.then.i.i.i12
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #23
+  tail call void @__clang_call_terminate(ptr %13) #22
   unreachable
 
 lpad6:                                            ; preds = %invoke.cont
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5) #21
   br label %eh.resume
 
 if.else:                                          ; preds = %entry
@@ -3363,7 +3293,7 @@ if.then.i.i20:                                    ; preds = %invoke.cont11
   br i1 %cmp.i.i.i21, label %if.then.i.i.i22, label %if.end
 
 if.then.i.i.i22:                                  ; preds = %if.then.i.i20
-  %destroyer_fn_.i.i.i23 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %16, i64 0, i32 1
+  %destroyer_fn_.i.i.i23 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %destroyer_fn_.i.i.i23, align 8
   invoke void %18(ptr noundef nonnull %16)
           to label %if.end unwind label %terminate.lpad.i24
@@ -3372,7 +3302,7 @@ terminate.lpad.i24:                               ; preds = %if.then.i.i.i22
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  tail call void @__clang_call_terminate(ptr %20) #23
+  tail call void @__clang_call_terminate(ptr %20) #22
   unreachable
 
 lpad10:                                           ; preds = %_ZNK9grpc_core5Slice3RefEv.exit18
@@ -3386,7 +3316,7 @@ if.end:                                           ; preds = %if.then.i.i.i22, %i
 eh.resume:                                        ; preds = %lpad10, %lpad6
   %agg.tmp9.sink = phi ptr [ %agg.tmp9, %lpad10 ], [ %agg.tmp, %lpad6 ]
   %.pn.pn = phi { ptr, i32 } [ %21, %lpad10 ], [ %14, %lpad6 ]
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9.sink) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp9.sink) #21
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -3443,21 +3373,21 @@ _ZN9grpc_coremiENS_9TimestampES0_.exit:           ; preds = %_ZN9grpc_core9Times
   %retval.0.i.i = phi i64 [ 9223372036854775807, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %if.end.i.i ], [ %add.i.i.i, %if.end7.i.i.i ], [ 9223372036854775807, %if.then.i.i.i ], [ -9223372036854775808, %if.else.i.i.i ]
   %call10 = tail call i32 @_ZN9grpc_core7Timeout12FromDurationENS_8DurationE(i64 %retval.0.i.i)
   store i32 %call10, ptr %timeout, align 4
-  %compressor_.i = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %encoder, i64 0, i32 1
+  %compressor_.i = getelementptr inbounds i8, ptr %encoder, i64 8
   %4 = load ptr, ptr %compressor_.i, align 8
-  %table_.i = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %4, i64 0, i32 2
+  %table_.i = getelementptr inbounds i8, ptr %4, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %_ZN9grpc_coremiENS_9TimestampES0_.exit, %for.inc
   %i.030 = phi i64 [ 0, %_ZN9grpc_coremiENS_9TimestampES0_.exit ], [ %inc, %for.inc ]
-  %index = getelementptr inbounds [5 x %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout"], ptr %this, i64 0, i64 %i.030, i32 1
+  %arrayidx = getelementptr inbounds [5 x %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout"], ptr %this, i64 0, i64 %i.030
+  %index = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %5 = load i32, ptr %index, align 4
   %6 = load i32, ptr %table_.i, align 8
   %cmp.i = icmp ult i32 %6, %5
   br i1 %cmp.i, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
-  %arrayidx = getelementptr inbounds [5 x %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout"], ptr %this, i64 0, i64 %i.030
   %agg.tmp13.sroa.0.0.copyload = load i32, ptr %arrayidx, align 4
   %call15 = call noundef double @_ZNK9grpc_core7Timeout11RatioVersusES0_(ptr noundef nonnull align 2 dereferenceable(3) %timeout, i32 %agg.tmp13.sroa.0.0.copyload)
   %cmp16 = fcmp ogt double %call15, -3.000000e+00
@@ -3466,10 +3396,10 @@ if.end:                                           ; preds = %for.body
   br i1 %or.cond, label %if.then18, label %for.inc
 
 if.then18:                                        ; preds = %if.end
-  %index.le = getelementptr inbounds [5 x %"struct.grpc_core::hpack_encoder_detail::PreviousTimeout"], ptr %this, i64 0, i64 %i.030, i32 1
+  %index.le = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %7 = load i32, ptr %index.le, align 4
   %8 = load i32, ptr %table_.i, align 8
-  %table_elems_.i = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %4, i64 0, i32 2, i32 2
+  %table_elems_.i = getelementptr inbounds i8, ptr %4, i64 16
   %9 = load i32, ptr %table_elems_.i, align 8
   %reass.sub = sub i32 %8, %7
   %add2.i = add i32 %reass.sub, 62
@@ -3478,7 +3408,7 @@ if.then18:                                        ; preds = %if.end
   br i1 %cmp.i.i11, label %_ZN9grpc_core12VarintWriterILh1EEC2Em.exit.thread.i, label %_ZN9grpc_core12VarintWriterILh1EEC2Em.exit.i
 
 _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.thread.i: ; preds = %if.then18
-  %output_10.i = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %encoder, i64 0, i32 2
+  %output_10.i = getelementptr inbounds i8, ptr %encoder, i64 16
   %10 = load ptr, ptr %output_10.i, align 8
   %call.i211.i = call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %10, i64 noundef 1)
   br label %if.then.i.i
@@ -3487,7 +3417,7 @@ _ZN9grpc_core12VarintWriterILh1EEC2Em.exit.i:     ; preds = %if.then18
   %conv.i = zext i32 %sub.i10 to i64
   %sub.i.i = add nsw i64 %conv.i, -127
   %call.i.i = call noundef i64 @_ZN9grpc_core12VarintLengthEm(i64 noundef %sub.i.i)
-  %output_.i = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %encoder, i64 0, i32 2
+  %output_.i = getelementptr inbounds i8, ptr %encoder, i64 16
   %11 = load ptr, ptr %output_.i, align 8
   %call.i2.i = call noundef ptr @grpc_slice_buffer_tiny_add(ptr noundef nonnull %11, i64 noundef %call.i.i)
   %cmp.i4.i = icmp eq i64 %call.i.i, 1
@@ -3535,7 +3465,7 @@ if.then.i.i13:                                    ; preds = %invoke.cont27
   br i1 %cmp.i.i.i14, label %if.then.i.i.i15, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i.i15:                                  ; preds = %if.then.i.i13
-  %destroyer_fn_.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %13, i64 0, i32 1
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %15 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %15(ptr noundef nonnull %13)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
@@ -3544,7 +3474,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i15
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #23
+  call void @__clang_call_terminate(ptr %17) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %invoke.cont27, %if.then.i.i13, %if.then.i.i.i15
@@ -3558,7 +3488,7 @@ if.then.i.i17:                                    ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i18, label %if.then.i.i.i19, label %_ZN9grpc_core5SliceD2Ev.exit22
 
 if.then.i.i.i19:                                  ; preds = %if.then.i.i17
-  %destroyer_fn_.i.i.i20 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %18, i64 0, i32 1
+  %destroyer_fn_.i.i.i20 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %destroyer_fn_.i.i.i20, align 8
   invoke void %20(ptr noundef nonnull %18)
           to label %_ZN9grpc_core5SliceD2Ev.exit22 unwind label %terminate.lpad.i21
@@ -3567,11 +3497,11 @@ terminate.lpad.i21:                               ; preds = %if.then.i.i.i19
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  call void @__clang_call_terminate(ptr %22) #23
+  call void @__clang_call_terminate(ptr %22) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit22:                   ; preds = %_ZN9grpc_core5SliceD2Ev.exit, %if.then.i.i17, %if.then.i.i.i19
-  %next_previous_value_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::TimeoutCompressorImpl", ptr %this, i64 0, i32 1
+  %next_previous_value_ = getelementptr inbounds i8, ptr %this, i64 40
   %23 = load i32, ptr %next_previous_value_, align 4
   %inc31 = add i32 %23, 1
   store i32 %inc31, ptr %next_previous_value_, align 4
@@ -3593,7 +3523,7 @@ if.then.i.i24:                                    ; preds = %_ZN9grpc_core5Slice
   br i1 %cmp.i.i.i25, label %if.then.i.i.i26, label %return
 
 if.then.i.i.i26:                                  ; preds = %if.then.i.i24
-  %destroyer_fn_.i.i.i27 = getelementptr inbounds %struct.grpc_slice_refcount, ptr %25, i64 0, i32 1
+  %destroyer_fn_.i.i.i27 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %destroyer_fn_.i.i.i27, align 8
   invoke void %27(ptr noundef nonnull %25)
           to label %return unwind label %terminate.lpad.i28
@@ -3602,7 +3532,7 @@ terminate.lpad.i28:                               ; preds = %if.then.i.i.i26
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #23
+  call void @__clang_call_terminate(ptr %29) #22
   unreachable
 
 return:                                           ; preds = %if.then.i.i.i26, %if.then.i.i24, %_ZN9grpc_core5SliceD2Ev.exit22, %if.else.i.i, %if.then.i.i
@@ -3611,9 +3541,9 @@ return:                                           ; preds = %if.then.i.i.i26, %i
 lpad26:                                           ; preds = %invoke.cont
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp25) #22
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23) #22
-  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %encoded) #22
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp25) #21
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp23) #21
+  call void @_ZN9grpc_core5SliceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %encoded) #21
   resume { ptr, i32 } %30
 }
 
@@ -3628,11 +3558,11 @@ define void @_ZN9grpc_core20hpack_encoder_detail7EncoderC2EPNS_15HPackCompressor
 entry:
   %frombool = zext i1 %use_true_binary_metadata to i8
   store i8 %frombool, ptr %this, align 8
-  %compressor_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 1
+  %compressor_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %compressor, ptr %compressor_, align 8
-  %output_ = getelementptr inbounds %"class.grpc_core::hpack_encoder_detail::Encoder", ptr %this, i64 0, i32 2
+  %output_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %output, ptr %output_, align 8
-  %advertise_table_size_change_ = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %compressor, i64 0, i32 1
+  %advertise_table_size_change_ = getelementptr inbounds i8, ptr %compressor, i64 4
   %0 = load i8, ptr %advertise_table_size_change_, align 1
   %1 = and i8 %0, 1
   %tobool.i.i.not = icmp eq i8 %1, 0
@@ -3641,7 +3571,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %compressor_, align 8
-  %max_table_size_.i.i = getelementptr inbounds %"class.grpc_core::HPackCompressor", ptr %2, i64 0, i32 2, i32 1
+  %max_table_size_.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i32, ptr %max_table_size_.i.i, align 4
   %cmp.i.i = icmp ult i32 %3, 31
   br i1 %cmp.i.i, label %_ZN9grpc_core12VarintWriterILh3EEC2Em.exit.thread.i, label %_ZN9grpc_core12VarintWriterILh3EEC2Em.exit.i
@@ -3696,8 +3626,8 @@ init.end:                                         ; preds = %init.check, %entry
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
-  tail call void @_ZSt9terminatev() #23
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
@@ -3720,7 +3650,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core5SliceD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %destroyer_fn_.i.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %this.0.val, i64 0, i32 1
+  %destroyer_fn_.i.i.i = getelementptr inbounds i8, ptr %this.0.val, i64 8
   %1 = load ptr, ptr %destroyer_fn_.i.i.i, align 8
   invoke void %1(ptr noundef nonnull %this.0.val)
           to label %_ZN9grpc_core5SliceD2Ev.exit unwind label %terminate.lpad.i
@@ -3729,7 +3659,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   %2 = landingpad { ptr, i32 }
           catch ptr null
   %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #23
+  tail call void @__clang_call_terminate(ptr %3) #22
   unreachable
 
 _ZN9grpc_core5SliceD2Ev.exit:                     ; preds = %entry, %if.then.i.i, %if.then.i.i.i
@@ -3760,7 +3690,7 @@ entry:
   %ref.tmp.i.i.i.i.i.i.i.i18 = alloca %struct.grpc_slice, align 8
   %ref.tmp.i.i.i.i.i.i.i.i = alloca %struct.grpc_slice, align 8
   %ref.tmp.i.i.sroa.4.i.i = alloca %"union.grpc_slice::grpc_slice_data", align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex, std::allocator<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -3770,7 +3700,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #20
   unreachable
 
 _ZNKSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -3784,11 +3714,17 @@ _ZNKSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 40
-  %cmp.not.i = icmp ne i64 %cond.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i)
+  %cmp.not.i = icmp eq i64 %cond.i, 0
+  br i1 %cmp.not.i, label %invoke.cont, label %_ZNSt16allocator_traitsISaIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexEEE8allocateERS4_m.exit.i
+
+_ZNSt16allocator_traitsISaIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexEEE8allocateERS4_m.exit.i: ; preds = %_ZNKSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = mul nuw nsw i64 %cond.i, 40
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
-  %add.ptr = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #24
+  br label %invoke.cont
+
+invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexEEE8allocateERS4_m.exit.i, %_ZNKSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE12_M_check_lenEmPKc.exit
+  %cond.i17 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexEEE8allocateERS4_m.exit.i ], [ null, %_ZNKSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE12_M_check_lenEmPKc.exit ]
+  %add.ptr = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %cond.i17, i64 %sub.ptr.div.i
   %ref.tmp.i.sroa.0.0.copyload.i.i = load ptr, ptr %__args, align 8
   %ref.tmp.i.sroa.4.0.__args.sroa_idx.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4.i.i)
@@ -3799,14 +3735,14 @@ _ZNKSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE
   %ref.tmp.i.i.sroa.4.0.__p.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4.0.__p.sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.4.i.i)
-  %index3.i.i.i = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
+  %index3.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   store i32 %2, ptr %index3.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i
-  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE12_M_check_lenEmPKc.exit ]
-  %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE12_M_check_lenEmPKc.exit ]
+for.body.i.i.i:                                   ; preds = %invoke.cont, %for.body.i.i.i
+  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i17, %invoke.cont ]
+  %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
@@ -3814,18 +3750,18 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN9grp
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i, i8 0, i64 32, i1 false), !alias.scope !214, !noalias !216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i, i64 32, i1 false), !noalias !214
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i)
-  %index.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %index3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %index.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
+  %index3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   %3 = load i32, ptr %index3.i.i.i.i.i.i.i, align 8, !alias.scope !214, !noalias !211
   store i32 %3, ptr %index.i.i.i.i.i.i.i, align 8, !alias.scope !211, !noalias !214
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !219
 
-_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNKSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE12_M_check_lenEmPKc.exit
-  %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %_ZNKSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__cur.0.lcssa.i.i.i, i64 1
+_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %invoke.cont
+  %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not5.i.i.i19 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i19, label %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29, label %for.body.i.i.i20
 
@@ -3839,12 +3775,12 @@ for.body.i.i.i20:                                 ; preds = %_ZNSt6vectorIN9grpc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i22, i8 0, i64 32, i1 false), !alias.scope !223, !noalias !225
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i.i.i.i.i18, i64 32, i1 false), !noalias !223
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i18)
-  %index.i.i.i.i.i.i.i23 = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__cur.07.i.i.i21, i64 0, i32 1
-  %index3.i.i.i.i.i.i.i24 = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__first.addr.06.i.i.i22, i64 0, i32 1
+  %index.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__cur.07.i.i.i21, i64 32
+  %index3.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i22, i64 32
   %4 = load i32, ptr %index3.i.i.i.i.i.i.i24, align 8, !alias.scope !223, !noalias !220
   store i32 %4, ptr %index.i.i.i.i.i.i.i23, align 8, !alias.scope !220, !noalias !223
-  %incdec.ptr.i.i.i25 = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__first.addr.06.i.i.i22, i64 1
-  %incdec.ptr1.i.i.i26 = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %__cur.07.i.i.i21, i64 1
+  %incdec.ptr.i.i.i25 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i22, i64 40
+  %incdec.ptr1.i.i.i26 = getelementptr inbounds i8, ptr %__cur.07.i.i.i21, i64 40
   %cmp.not.i.i.i27 = icmp eq ptr %incdec.ptr.i.i.i25, %0
   br i1 %cmp.not.i.i.i27, label %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29, label %for.body.i.i.i20, !llvm.loop !219
 
@@ -3854,14 +3790,14 @@ _ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE1
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE13_M_deallocateEPS3_m.exit, label %if.then.i30
 
 if.then.i30:                                      ; preds = %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #26
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #25
   br label %_ZNSt12_Vector_baseIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit29, %if.then.i30
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex, std::allocator<grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  store ptr %call5.i.i.i, ptr %this, align 8
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
+  store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i28, ptr %_M_finish.i.i, align 8
-  %add.ptr28 = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr28 = getelementptr inbounds %"struct.grpc_core::hpack_encoder_detail::SliceIndex::ValueIndex", ptr %cond.i17, i64 %cond.i
   store ptr %add.ptr28, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -3879,7 +3815,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 define internal void @_GLOBAL__sub_I_hpack_encoder.cc() #14 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
   ret void
 }
 
@@ -3909,9 +3845,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #20
-
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
@@ -3932,13 +3865,12 @@ attributes #16 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #21 = { noreturn }
-attributes #22 = { nounwind }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { nounwind willreturn memory(read) }
-attributes #25 = { builtin allocsize(0) }
-attributes #26 = { builtin nounwind }
+attributes #20 = { noreturn }
+attributes #21 = { nounwind }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { nounwind willreturn memory(read) }
+attributes #24 = { builtin allocsize(0) }
+attributes #25 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

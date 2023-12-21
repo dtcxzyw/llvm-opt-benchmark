@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.AcpiTableOptions = type { ptr, i8, i8, ptr, ptr, i8, i32, ptr, i8, i32, ptr, ptr }
-%struct.ACPIOSTInfo = type { ptr, ptr, i32, i64, i64 }
-%struct.ACPIOSTInfoList = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"sig\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"rev\00", align 1
@@ -43,27 +40,27 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_sig, align 1
-  %oem_id = getelementptr inbounds %struct.AcpiTableOptions, ptr %obj, i64 0, i32 3
+  %oem_id = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %oem_id, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_oem_id, align 1
-  %oem_table_id = getelementptr inbounds %struct.AcpiTableOptions, ptr %obj, i64 0, i32 4
+  %oem_table_id = getelementptr inbounds i8, ptr %obj, i64 24
   %2 = load ptr, ptr %oem_table_id, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_oem_table_id, align 1
-  %asl_compiler_id = getelementptr inbounds %struct.AcpiTableOptions, ptr %obj, i64 0, i32 7
+  %asl_compiler_id = getelementptr inbounds i8, ptr %obj, i64 40
   %3 = load ptr, ptr %asl_compiler_id, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
   store i8 %frombool13, ptr %has_asl_compiler_id, align 1
-  %file = getelementptr inbounds %struct.AcpiTableOptions, ptr %obj, i64 0, i32 10
+  %file = getelementptr inbounds i8, ptr %obj, i64 56
   %4 = load ptr, ptr %file, align 8
   %tobool14 = icmp ne ptr %4, null
   %frombool17 = zext i1 %tobool14 to i8
   store i8 %frombool17, ptr %has_file, align 1
-  %data = getelementptr inbounds %struct.AcpiTableOptions, ptr %obj, i64 0, i32 11
+  %data = getelementptr inbounds i8, ptr %obj, i64 64
   %5 = load ptr, ptr %data, align 8
   %tobool18 = icmp ne ptr %5, null
   %frombool21 = zext i1 %tobool18 to i8
@@ -76,12 +73,12 @@ if.then:                                          ; preds = %entry
   br i1 %call23, label %if.end25, label %return
 
 if.end25:                                         ; preds = %if.then, %entry
-  %has_rev = getelementptr inbounds %struct.AcpiTableOptions, ptr %obj, i64 0, i32 1
+  %has_rev = getelementptr inbounds i8, ptr %obj, i64 8
   %call26 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %has_rev) #4
   br i1 %call26, label %if.then27, label %if.end31
 
 if.then27:                                        ; preds = %if.end25
-  %rev = getelementptr inbounds %struct.AcpiTableOptions, ptr %obj, i64 0, i32 2
+  %rev = getelementptr inbounds i8, ptr %obj, i64 9
   %call28 = call zeroext i1 @visit_type_uint8(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %rev, ptr noundef %errp) #4
   br i1 %call28, label %if.end31, label %return
 
@@ -102,12 +99,12 @@ if.then40:                                        ; preds = %if.end38
   br i1 %call42, label %if.end45, label %return
 
 if.end45:                                         ; preds = %if.then40, %if.end38
-  %has_oem_rev = getelementptr inbounds %struct.AcpiTableOptions, ptr %obj, i64 0, i32 5
+  %has_oem_rev = getelementptr inbounds i8, ptr %obj, i64 32
   %call46 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %has_oem_rev) #4
   br i1 %call46, label %if.then47, label %if.end51
 
 if.then47:                                        ; preds = %if.end45
-  %oem_rev = getelementptr inbounds %struct.AcpiTableOptions, ptr %obj, i64 0, i32 6
+  %oem_rev = getelementptr inbounds i8, ptr %obj, i64 36
   %call48 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %oem_rev, ptr noundef %errp) #4
   br i1 %call48, label %if.end51, label %return
 
@@ -120,12 +117,12 @@ if.then53:                                        ; preds = %if.end51
   br i1 %call55, label %if.end58, label %return
 
 if.end58:                                         ; preds = %if.then53, %if.end51
-  %has_asl_compiler_rev = getelementptr inbounds %struct.AcpiTableOptions, ptr %obj, i64 0, i32 8
+  %has_asl_compiler_rev = getelementptr inbounds i8, ptr %obj, i64 48
   %call59 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %has_asl_compiler_rev) #4
   br i1 %call59, label %if.then60, label %if.end64
 
 if.then60:                                        ; preds = %if.end58
-  %asl_compiler_rev = getelementptr inbounds %struct.AcpiTableOptions, ptr %obj, i64 0, i32 9
+  %asl_compiler_rev = getelementptr inbounds i8, ptr %obj, i64 52
   %call61 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %asl_compiler_rev, ptr noundef %errp) #4
   br i1 %call61, label %if.end64, label %return
 
@@ -258,12 +255,12 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %slot = getelementptr inbounds %struct.ACPIOSTInfo, ptr %obj, i64 0, i32 1
+  %slot = getelementptr inbounds i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %slot, ptr noundef %errp) #4
   br i1 %call6, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end5
-  %slot_type = getelementptr inbounds %struct.ACPIOSTInfo, ptr %obj, i64 0, i32 2
+  %slot_type = getelementptr inbounds i8, ptr %obj, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %slot_type, align 4
   store i32 %1, ptr %value.i, align 4
@@ -274,12 +271,12 @@ if.end8:                                          ; preds = %if.end5
   br i1 %call.i, label %if.end11, label %return
 
 if.end11:                                         ; preds = %if.end8
-  %source = getelementptr inbounds %struct.ACPIOSTInfo, ptr %obj, i64 0, i32 3
+  %source = getelementptr inbounds i8, ptr %obj, i64 24
   %call12 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.14, ptr noundef nonnull %source, ptr noundef %errp) #4
   br i1 %call12, label %if.end14, label %return
 
 if.end14:                                         ; preds = %if.end11
-  %status = getelementptr inbounds %struct.ACPIOSTInfo, ptr %obj, i64 0, i32 4
+  %status = getelementptr inbounds i8, ptr %obj, i64 32
   %call15 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.15, ptr noundef nonnull %status, ptr noundef %errp) #4
   br label %return
 
@@ -356,7 +353,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.ACPIOSTInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_ACPIOSTInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 

@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.icu_75::Locale" = type <{ %"class.icu_75::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 %"class.icu_75::UObject" = type { ptr }
-%"class.icu_75::LocaleBased" = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
@@ -27,7 +26,7 @@ sw.bb.i:                                          ; preds = %if.end.i
   br label %_ZNK6icu_7511LocaleBased11getLocaleIDE18ULocDataLocaleTypeR10UErrorCode.exit
 
 sw.bb2.i:                                         ; preds = %if.end.i
-  %actual.i = getelementptr inbounds %"class.icu_75::LocaleBased", ptr %this, i64 0, i32 1
+  %actual.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %actual.i, align 8
   br label %_ZNK6icu_7511LocaleBased11getLocaleIDE18ULocDataLocaleTypeR10UErrorCode.exit
 
@@ -61,7 +60,7 @@ sw.bb:                                            ; preds = %if.end
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %actual = getelementptr inbounds %"class.icu_75::LocaleBased", ptr %this, i64 0, i32 1
+  %actual = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %actual, align 8
   br label %return
 
@@ -95,7 +94,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp3.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %actual = getelementptr inbounds %"class.icu_75::LocaleBased", ptr %this, i64 0, i32 1
+  %actual = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %actual, align 8
   %call5 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %actualID, i64 noundef 157) #5
   %3 = load ptr, ptr %actual, align 8
@@ -114,12 +113,12 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocaptu
 define void @_ZN6icu_7511LocaleBased12setLocaleIDsERKNS_6LocaleES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %validID, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %actualID) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %fullName.i = getelementptr inbounds %"class.icu_75::Locale", ptr %validID, i64 0, i32 7
+  %fullName.i = getelementptr inbounds i8, ptr %validID, i64 40
   %1 = load ptr, ptr %fullName.i, align 8
   %call2 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #5
-  %actual = getelementptr inbounds %"class.icu_75::LocaleBased", ptr %this, i64 0, i32 1
+  %actual = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %actual, align 8
-  %fullName.i1 = getelementptr inbounds %"class.icu_75::Locale", ptr %actualID, i64 0, i32 7
+  %fullName.i1 = getelementptr inbounds i8, ptr %actualID, i64 40
   %3 = load ptr, ptr %fullName.i1, align 8
   %call4 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #5
   ret void

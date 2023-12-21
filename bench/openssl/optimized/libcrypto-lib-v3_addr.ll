@@ -6,23 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.IPAddressFamily_st = type { ptr, ptr }
-%struct.IPAddressChoice_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.IPAddressOrRange_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.IPAddressRange_st = type { ptr, ptr }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
-%struct.x509_store_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, ptr, %struct.crypto_ex_data_st, ptr, i32, ptr, ptr, ptr }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.x509_st = type { %struct.x509_cinf_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.x509_sig_info_st, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, i64, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr, ptr, i32, ptr, ptr, ptr }
-%struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_val_st = type { ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.x509_sig_info_st = type { i32, i32, i32, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
 
 @IPAddressRange_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @IPAddressRange_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
 @IPAddressRange_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.4, ptr @ASN1_BIT_STRING_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.5, ptr @ASN1_BIT_STRING_it }], align 16
@@ -243,7 +226,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %0, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data, align 8
   %cmp4 = icmp eq ptr %1, null
   br i1 %cmp4, label %return, label %lor.lhs.false5
@@ -276,14 +259,14 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %ipAddressChoice = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call, i64 0, i32 1
+  %ipAddressChoice = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %ipAddressChoice, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
   %1 = load i32, ptr %0, align 8
-  %u17.phi.trans.insert = getelementptr inbounds %struct.IPAddressChoice_st, ptr %0, i64 0, i32 1
+  %u17.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
   %.pre = load ptr, ptr %u17.phi.trans.insert, align 8
   %2 = icmp eq ptr %.pre, null
   switch i32 %1, label %if.end15 [
@@ -303,7 +286,7 @@ if.end15:                                         ; preds = %lor.lhs.false2
 land.lhs.true19:                                  ; preds = %land.lhs.true10, %land.lhs.true, %if.end15
   %call20 = tail call ptr @ASN1_NULL_new() #15
   %3 = load ptr, ptr %ipAddressChoice, align 8
-  %u22 = getelementptr inbounds %struct.IPAddressChoice_st, ptr %3, i64 0, i32 1
+  %u22 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %call20, ptr %u22, align 8
   %cmp23 = icmp eq ptr %call20, null
   br i1 %cmp23, label %return, label %land.lhs.true19.if.end25_crit_edge
@@ -330,7 +313,7 @@ entry:
   %conv = trunc i32 %shr to i8
   store i8 %conv, ptr %key, align 1
   %conv2 = trunc i32 %afi to i8
-  %arrayidx3 = getelementptr inbounds [3 x i8], ptr %key, i64 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %key, i64 1
   store i8 %conv2, ptr %arrayidx3, align 1
   %cmp.not = icmp eq ptr %safi, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -338,7 +321,7 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load i32, ptr %safi, align 4
   %conv6 = trunc i32 %0 to i8
-  %arrayidx7 = getelementptr inbounds [3 x i8], ptr %key, i64 0, i64 2
+  %arrayidx7 = getelementptr inbounds i8, ptr %key, i64 2
   store i8 %conv6, ptr %arrayidx7, align 1
   br label %if.end
 
@@ -361,7 +344,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp13, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %data, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %key, i64 %conv16)
   %tobool.not = icmp eq i32 %bcmp, 0
@@ -379,7 +362,7 @@ for.end:                                          ; preds = %for.inc, %if.end
   br i1 %cmp21, label %err, label %if.end24
 
 if.end24:                                         ; preds = %for.end
-  %ipAddressChoice = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call1.i, i64 0, i32 1
+  %ipAddressChoice = getelementptr inbounds i8, ptr %call1.i, i64 8
   %4 = load ptr, ptr %ipAddressChoice, align 8
   %cmp25 = icmp eq ptr %4, null
   br i1 %cmp25, label %land.lhs.true27, label %if.end33
@@ -432,7 +415,7 @@ entry:
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %ipAddressChoice.i = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call.i, i64 0, i32 1
+  %ipAddressChoice.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %ipAddressChoice.i, align 8
   %cmp1.i = icmp eq ptr %0, null
   br i1 %cmp1.i, label %return, label %lor.lhs.false2.i
@@ -445,13 +428,13 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   ]
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false2.i
-  %u.i = getelementptr inbounds %struct.IPAddressChoice_st, ptr %0, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %u.i, align 8
   %cmp6.not.i = icmp eq ptr %2, null
   br i1 %cmp6.not.i, label %if.end16.i, label %return
 
 if.end13.i:                                       ; preds = %lor.lhs.false2.i
-  %u12.i = getelementptr inbounds %struct.IPAddressChoice_st, ptr %0, i64 0, i32 1
+  %u12.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %u12.i, align 8
   %cmp14.not.i = icmp eq ptr %3, null
   br i1 %cmp14.not.i, label %if.end16.i, label %lor.lhs.false
@@ -479,7 +462,7 @@ sw.epilog.i:                                      ; preds = %sw.epilog.sink.spli
   %4 = load ptr, ptr %ipAddressChoice.i, align 8
   store i32 1, ptr %4, align 8
   %5 = load ptr, ptr %ipAddressChoice.i, align 8
-  %u31.i = getelementptr inbounds %struct.IPAddressChoice_st, ptr %5, i64 0, i32 1
+  %u31.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %call17.i, ptr %u31.i, align 8
   br label %lor.lhs.false
 
@@ -525,7 +508,7 @@ entry:
 
 if.end4:                                          ; preds = %entry
   store i32 0, ptr %call1.i, align 8
-  %u = getelementptr inbounds %struct.IPAddressOrRange_st, ptr %call1.i, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %call1.i, i64 8
   %0 = load ptr, ptr %u, align 8
   %cmp5 = icmp eq ptr %0, null
   br i1 %cmp5, label %land.lhs.true, label %if.end10
@@ -549,7 +532,7 @@ if.end14:                                         ; preds = %if.end10
 if.then16:                                        ; preds = %if.end14
   %not = ashr exact i32 -256, %rem
   %2 = load ptr, ptr %u, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %2, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %data, align 8
   %4 = zext nneg i32 %div to i64
   %5 = getelementptr i8, ptr %3, i64 %4
@@ -587,7 +570,7 @@ entry:
   br i1 %cmp.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %ipAddressChoice.i = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call.i, i64 0, i32 1
+  %ipAddressChoice.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load ptr, ptr %ipAddressChoice.i, align 8
   %cmp1.i = icmp eq ptr %0, null
   br i1 %cmp1.i, label %return, label %lor.lhs.false2.i
@@ -600,13 +583,13 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   ]
 
 land.lhs.true.i:                                  ; preds = %lor.lhs.false2.i
-  %u.i = getelementptr inbounds %struct.IPAddressChoice_st, ptr %0, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %u.i, align 8
   %cmp6.not.i = icmp eq ptr %2, null
   br i1 %cmp6.not.i, label %if.end16.i, label %return
 
 if.end13.i:                                       ; preds = %lor.lhs.false2.i
-  %u12.i = getelementptr inbounds %struct.IPAddressChoice_st, ptr %0, i64 0, i32 1
+  %u12.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %u12.i, align 8
   %cmp14.not.i = icmp eq ptr %3, null
   br i1 %cmp14.not.i, label %if.end16.i, label %if.end
@@ -634,7 +617,7 @@ sw.epilog.i:                                      ; preds = %sw.epilog.sink.spli
   %4 = load ptr, ptr %ipAddressChoice.i, align 8
   store i32 1, ptr %4, align 8
   %5 = load ptr, ptr %ipAddressChoice.i, align 8
-  %u31.i = getelementptr inbounds %struct.IPAddressChoice_st, ptr %5, i64 0, i32 1
+  %u31.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %call17.i, ptr %u31.i, align 8
   br label %if.end
 
@@ -807,7 +790,7 @@ if.end7:                                          ; preds = %sw.epilog.i, %if.en
 if.end12:                                         ; preds = %if.end7
   store i32 1, ptr %call1.i, align 8
   %call1.i44 = tail call ptr @ASN1_item_new(ptr noundef nonnull @IPAddressRange_it.local_it) #15
-  %u = getelementptr inbounds %struct.IPAddressOrRange_st, ptr %call1.i, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %call1.i, i64 8
   store ptr %call1.i44, ptr %u, align 8
   %cmp14 = icmp eq ptr %call1.i44, null
   br i1 %cmp14, label %err, label %if.end17
@@ -830,7 +813,7 @@ land.lhs.true.if.end28_crit_edge:                 ; preds = %land.lhs.true
 
 if.end28:                                         ; preds = %land.lhs.true.if.end28_crit_edge, %if.end17
   %11 = phi ptr [ %.pre, %land.lhs.true.if.end28_crit_edge ], [ %call1.i44, %if.end17 ]
-  %max30 = getelementptr inbounds %struct.IPAddressRange_st, ptr %11, i64 0, i32 1
+  %max30 = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %max30, align 8
   %cmp31 = icmp eq ptr %12, null
   br i1 %cmp31, label %land.lhs.true33, label %for.cond.preheader
@@ -838,7 +821,7 @@ if.end28:                                         ; preds = %land.lhs.true.if.en
 land.lhs.true33:                                  ; preds = %if.end28
   %call34 = tail call ptr @ASN1_BIT_STRING_new() #15
   %13 = load ptr, ptr %u, align 8
-  %max36 = getelementptr inbounds %struct.IPAddressRange_st, ptr %13, i64 0, i32 1
+  %max36 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %call34, ptr %max36, align 8
   %cmp37 = icmp eq ptr %call34, null
   br i1 %cmp37, label %err, label %for.cond.preheader
@@ -894,7 +877,7 @@ while.end:                                        ; preds = %while.cond
   %conv63 = sext i32 %sub62 to i64
   %22 = load ptr, ptr %u, align 8
   %23 = load ptr, ptr %22, align 8
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %23, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %23, i64 16
   %24 = load i64, ptr %flags, align 8
   %or = or i64 %24, %conv63
   store i64 %or, ptr %flags, align 8
@@ -919,7 +902,7 @@ land.rhs70:                                       ; preds = %for.cond67
 for.end81:                                        ; preds = %for.cond67, %land.rhs70
   %i.1.lcssa = phi i32 [ %smin.i, %for.cond67 ], [ %25, %land.rhs70 ]
   %28 = load ptr, ptr %u, align 8
-  %max83 = getelementptr inbounds %struct.IPAddressRange_st, ptr %28, i64 0, i32 1
+  %max83 = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %max83, align 8
   %call84 = tail call i32 @ASN1_BIT_STRING_set(ptr noundef %29, ptr noundef %max, i32 noundef %i.1.lcssa) #15
   %tobool85.not = icmp eq i32 %call84, 0
@@ -927,7 +910,7 @@ for.end81:                                        ; preds = %for.cond67, %land.r
 
 if.end87:                                         ; preds = %for.end81
   %30 = load ptr, ptr %u, align 8
-  %max89 = getelementptr inbounds %struct.IPAddressRange_st, ptr %30, i64 0, i32 1
+  %max89 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %max89, align 8
   tail call void @ossl_asn1_string_set_bits_left(ptr noundef %31, i32 noundef 0) #15
   br i1 %cmp68, label %if.then92, label %if.end114
@@ -952,9 +935,9 @@ while.end107:                                     ; preds = %while.cond98
   %sub108 = sub nsw i32 8, %j97.0
   %conv109 = sext i32 %sub108 to i64
   %33 = load ptr, ptr %u, align 8
-  %max111 = getelementptr inbounds %struct.IPAddressRange_st, ptr %33, i64 0, i32 1
+  %max111 = getelementptr inbounds i8, ptr %33, i64 8
   %34 = load ptr, ptr %max111, align 8
-  %flags112 = getelementptr inbounds %struct.asn1_string_st, ptr %34, i64 0, i32 3
+  %flags112 = getelementptr inbounds i8, ptr %34, i64 16
   %35 = load i64, ptr %flags112, align 8
   %or113 = or i64 %35, %conv109
   store i64 %or113, ptr %flags112, align 8
@@ -1025,7 +1008,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.IPAddressOrRange_st, ptr %aor, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %aor, i64 8
   %1 = load ptr, ptr %u, align 8
   %2 = load i32, ptr %1, align 8
   %cmp.i = icmp slt i32 %2, 0
@@ -1038,11 +1021,11 @@ if.end.i:                                         ; preds = %sw.bb
   br i1 %cmp5.not.i, label %land.rhs, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %data.i, align 8
   %conv.i = zext nneg i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %min, ptr align 1 %3, i64 %conv.i, i1 false)
-  %flags.i = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 3
+  %flags.i = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %4, 7
   %cmp8.not.i = icmp eq i64 %and.i, 0
@@ -1083,11 +1066,11 @@ if.end.i17:                                       ; preds = %land.rhs
   br i1 %cmp5.not.i18, label %return.sink.split, label %if.then6.i19
 
 if.then6.i19:                                     ; preds = %if.end.i17
-  %data.i20 = getelementptr inbounds %struct.asn1_string_st, ptr %10, i64 0, i32 2
+  %data.i20 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %data.i20, align 8
   %conv.i21 = zext nneg i32 %11 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %max, ptr align 1 %12, i64 %conv.i21, i1 false)
-  %flags.i22 = getelementptr inbounds %struct.asn1_string_st, ptr %10, i64 0, i32 3
+  %flags.i22 = getelementptr inbounds i8, ptr %10, i64 16
   %13 = load i64, ptr %flags.i22, align 8
   %and.i23 = and i64 %13, 7
   %cmp8.not.i24 = icmp eq i64 %and.i23, 0
@@ -1095,7 +1078,7 @@ if.then6.i19:                                     ; preds = %if.end.i17
   br i1 %cmp8.not.i24, label %return.sink.split, label %return.sink.split.sink.split
 
 sw.bb7:                                           ; preds = %if.end
-  %u8 = getelementptr inbounds %struct.IPAddressOrRange_st, ptr %aor, i64 0, i32 1
+  %u8 = getelementptr inbounds i8, ptr %aor, i64 8
   %14 = load ptr, ptr %u8, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
@@ -1109,11 +1092,11 @@ if.end.i38:                                       ; preds = %sw.bb7
   br i1 %cmp5.not.i39, label %land.rhs12, label %if.then6.i40
 
 if.then6.i40:                                     ; preds = %if.end.i38
-  %data.i41 = getelementptr inbounds %struct.asn1_string_st, ptr %15, i64 0, i32 2
+  %data.i41 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %data.i41, align 8
   %conv.i42 = zext nneg i32 %16 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %min, ptr align 1 %17, i64 %conv.i42, i1 false)
-  %flags.i43 = getelementptr inbounds %struct.asn1_string_st, ptr %15, i64 0, i32 3
+  %flags.i43 = getelementptr inbounds i8, ptr %15, i64 16
   %18 = load i64, ptr %flags.i43, align 8
   %and.i44 = and i64 %18, 7
   %cmp8.not.i45 = icmp eq i64 %and.i44, 0
@@ -1143,7 +1126,7 @@ land.rhs12:                                       ; preds = %if.then10.i46, %if.
   %conv38.i57 = sext i32 %sub37.i56 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i55, i8 0, i64 %conv38.i57, i1 false)
   %24 = load ptr, ptr %u8, align 8
-  %max14 = getelementptr inbounds %struct.IPAddressRange_st, ptr %24, i64 0, i32 1
+  %max14 = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load ptr, ptr %max14, align 8
   %26 = load i32, ptr %25, align 8
   %cmp.i60 = icmp slt i32 %26, 0
@@ -1156,11 +1139,11 @@ if.end.i63:                                       ; preds = %land.rhs12
   br i1 %cmp5.not.i64, label %return.sink.split, label %if.then6.i65
 
 if.then6.i65:                                     ; preds = %if.end.i63
-  %data.i66 = getelementptr inbounds %struct.asn1_string_st, ptr %25, i64 0, i32 2
+  %data.i66 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %data.i66, align 8
   %conv.i67 = zext nneg i32 %26 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %max, ptr align 1 %27, i64 %conv.i67, i1 false)
-  %flags.i68 = getelementptr inbounds %struct.asn1_string_st, ptr %25, i64 0, i32 3
+  %flags.i68 = getelementptr inbounds i8, ptr %25, i64 16
   %28 = load i64, ptr %flags.i68, align 8
   %and.i69 = and i64 %28, 7
   %cmp8.not.i70 = icmp eq i64 %and.i69, 0
@@ -1239,9 +1222,9 @@ lor.lhs.false:                                    ; preds = %for.body
 
 if.end11:                                         ; preds = %lor.lhs.false
   %..i = tail call i32 @llvm.smin.i32(i32 %.val.val, i32 %.val41.val)
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %.val, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %.val, i64 8
   %2 = load ptr, ptr %data.i, align 8
-  %data6.i = getelementptr inbounds %struct.asn1_string_st, ptr %.val41, i64 0, i32 2
+  %data6.i = getelementptr inbounds i8, ptr %.val41, i64 8
   %3 = load ptr, ptr %data6.i, align 8
   %conv.i = zext nneg i32 %..i to i64
   %call.i = tail call i32 @memcmp(ptr noundef %2, ptr noundef %3, i64 noundef %conv.i) #16
@@ -1263,7 +1246,7 @@ lor.lhs.false.i:                                  ; preds = %for.body20
   br i1 %cmp1.i, label %lor.lhs.false26, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
-  %data.i44 = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 2
+  %data.i44 = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %data.i44, align 8
   %cmp4.i = icmp eq ptr %5, null
   br i1 %cmp4.i, label %lor.lhs.false26, label %lor.lhs.false5.i
@@ -1290,7 +1273,7 @@ X509v3_addr_get_afi.exit:                         ; preds = %lor.lhs.false5.i
 
 lor.lhs.false26:                                  ; preds = %X509v3_addr_get_afi.exit, %lor.lhs.false.i, %lor.lhs.false2.i, %lor.lhs.false5.i
   %9 = phi i32 [ 0, %lor.lhs.false5.i ], [ 0, %lor.lhs.false2.i ], [ 0, %lor.lhs.false.i ], [ %spec.select69, %X509v3_addr_get_afi.exit ]
-  %ipAddressChoice = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call22, i64 0, i32 1
+  %ipAddressChoice = getelementptr inbounds i8, ptr %call22, i64 8
   %10 = load ptr, ptr %ipAddressChoice, align 8
   %cmp27 = icmp eq ptr %10, null
   br i1 %cmp27, label %return, label %if.end29
@@ -1309,7 +1292,7 @@ sw.epilog:                                        ; preds = %if.end29
   br i1 %or.cond.i47.not, label %if.end35, label %return
 
 if.end35:                                         ; preds = %sw.epilog
-  %u = getelementptr inbounds %struct.IPAddressChoice_st, ptr %10, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load ptr, ptr %u, align 8
   %call38 = call i32 @OPENSSL_sk_num(ptr noundef %13) #15
   %cmp39 = icmp eq i32 %call38, 0
@@ -1559,9 +1542,9 @@ entry:
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %3, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %4, i32 %5)
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %data, align 8
-  %data6 = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 2
+  %data6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %data6, align 8
   %conv = sext i32 %. to i64
   %call = tail call i32 @memcmp(ptr noundef %6, ptr noundef %7, i64 noundef %conv) #16
@@ -1725,16 +1708,16 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %or.cond.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %for.body
-  %ipAddressChoice = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call3, i64 0, i32 1
+  %ipAddressChoice = getelementptr inbounds i8, ptr %call3, i64 8
   %1 = load ptr, ptr %ipAddressChoice, align 8
   %2 = load i32, ptr %1, align 8
   %cmp5 = icmp eq i32 %2, 1
   br i1 %cmp5, label %lor.lhs.false2.i, label %for.inc
 
 lor.lhs.false2.i:                                 ; preds = %if.end
-  %u = getelementptr inbounds %struct.IPAddressChoice_st, ptr %1, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %u, align 8
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %call3.val, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call3.val, i64 8
   %4 = load ptr, ptr %data.i, align 8
   %cmp4.i = icmp eq ptr %4, null
   br i1 %cmp4.i, label %.thread, label %X509v3_addr_get_afi.exit
@@ -1946,7 +1929,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %i.0123 = phi i32 [ %inc172, %for.inc ], [ 0, %for.cond.preheader ]
   %call6 = call ptr @OPENSSL_sk_value(ptr noundef %values, i32 noundef %i.0123) #15
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call6, i64 8
   %0 = load ptr, ptr %name, align 8
   %call7 = call i32 @ossl_v3_name_cmp(ptr noundef %0, ptr noundef nonnull @.str.14) #15
   %tobool.not = icmp eq i32 %call7, 0
@@ -1981,7 +1964,7 @@ if.then32:                                        ; preds = %if.else18, %if.else
   %afi.0169181195206 = phi i32 [ 2, %if.else18 ], [ 1, %if.else13 ]
   %5 = phi ptr [ @v2i_IPAddrBlocks.v6addr_chars, %if.else18 ], [ @v2i_IPAddrBlocks.v4addr_chars, %if.else13 ]
   %6 = phi i32 [ 16, %if.else18 ], [ 4, %if.else13 ]
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call6, i64 16
   %7 = load ptr, ptr %value, align 8
   %call33 = call i64 @strtoul(ptr noundef %7, ptr noundef nonnull %t, i32 noundef 0) #15
   %conv = trunc i64 %call33 to i32
@@ -2001,7 +1984,7 @@ lor.lhs.false:                                    ; preds = %if.then32
   br i1 %cmp38.not, label %if.end43, label %if.then40
 
 if.then40:                                        ; preds = %lor.lhs.false, %if.then32
-  %value.le = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value.le = getelementptr inbounds i8, ptr %call6, i64 16
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 990, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 164, ptr noundef null) #15
@@ -2021,7 +2004,7 @@ if.else47:                                        ; preds = %if.else, %for.body
   %afi.0169181195206.ph = phi i32 [ 1, %for.body ], [ 2, %if.else ]
   %.ph = phi ptr [ @v2i_IPAddrBlocks.v4addr_chars, %for.body ], [ @v2i_IPAddrBlocks.v6addr_chars, %if.else ]
   %.ph209 = phi i32 [ 4, %for.body ], [ 16, %if.else ]
-  %value48 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value48 = getelementptr inbounds i8, ptr %call6, i64 16
   %12 = load ptr, ptr %value48, align 8
   %call49 = call noalias ptr @CRYPTO_strdup(ptr noundef %12, ptr noundef nonnull @.str.13, i32 noundef 997) #15
   br label %if.end50
@@ -2046,14 +2029,14 @@ if.then58:                                        ; preds = %if.end54
   br i1 %cmp.i, label %if.then61, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then58
-  %ipAddressChoice.i = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call.i, i64 0, i32 1
+  %ipAddressChoice.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %15 = load ptr, ptr %ipAddressChoice.i, align 8
   %cmp1.i = icmp eq ptr %15, null
   br i1 %cmp1.i, label %if.then61, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   %16 = load i32, ptr %15, align 8
-  %u17.phi.trans.insert.i = getelementptr inbounds %struct.IPAddressChoice_st, ptr %15, i64 0, i32 1
+  %u17.phi.trans.insert.i = getelementptr inbounds i8, ptr %15, i64 8
   %.pre.i = load ptr, ptr %u17.phi.trans.insert.i, align 8
   %17 = icmp eq ptr %.pre.i, null
   switch i32 %16, label %if.end15.i [
@@ -2073,7 +2056,7 @@ if.end15.i:                                       ; preds = %lor.lhs.false2.i
 land.lhs.true19.i:                                ; preds = %if.end15.i, %land.lhs.true10.i, %land.lhs.true.i
   %call20.i = call ptr @ASN1_NULL_new() #15
   %18 = load ptr, ptr %ipAddressChoice.i, align 8
-  %u22.i = getelementptr inbounds %struct.IPAddressChoice_st, ptr %18, i64 0, i32 1
+  %u22.i = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %call20.i, ptr %u22.i, align 8
   %cmp23.i = icmp eq ptr %call20.i, null
   br i1 %cmp23.i, label %if.then61, label %land.lhs.true19.if.end25_crit_edge.i
@@ -2092,7 +2075,7 @@ if.then61:                                        ; preds = %land.lhs.true.i, %l
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1008, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 165, ptr noundef null) #15
   %20 = load ptr, ptr %name, align 8
-  %value63 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value63 = getelementptr inbounds i8, ptr %call6, i64 16
   %21 = load ptr, ptr %value63, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %20, ptr noundef nonnull @.str.21, ptr noundef %21) #15
   br label %err
@@ -2120,7 +2103,7 @@ if.then78:                                        ; preds = %if.end65
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1023, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 166, ptr noundef null) #15
   %23 = load ptr, ptr %name, align 8
-  %value80 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value80 = getelementptr inbounds i8, ptr %call6, i64 16
   %24 = load ptr, ptr %value80, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %23, ptr noundef nonnull @.str.21, ptr noundef %24) #15
   br label %err
@@ -2155,7 +2138,7 @@ if.then101:                                       ; preds = %lor.lhs.false91, %s
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1035, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 116, ptr noundef null) #15
   %27 = load ptr, ptr %name, align 8
-  %value103 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value103 = getelementptr inbounds i8, ptr %call6, i64 16
   %28 = load ptr, ptr %value103, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %27, ptr noundef nonnull @.str.21, ptr noundef %28) #15
   br label %err
@@ -2197,7 +2180,7 @@ if.then131:                                       ; preds = %lor.lhs.false125, %
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1048, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 116, ptr noundef null) #15
   %32 = load ptr, ptr %name, align 8
-  %value133 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value133 = getelementptr inbounds i8, ptr %call6, i64 16
   %33 = load ptr, ptr %value133, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %32, ptr noundef nonnull @.str.21, ptr noundef %33) #15
   br label %err
@@ -2212,7 +2195,7 @@ if.then141:                                       ; preds = %if.end134
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1053, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 166, ptr noundef null) #15
   %34 = load ptr, ptr %name, align 8
-  %value143 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value143 = getelementptr inbounds i8, ptr %call6, i64 16
   %35 = load ptr, ptr %value143, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %34, ptr noundef nonnull @.str.21, ptr noundef %35) #15
   br label %err
@@ -2228,7 +2211,7 @@ if.then152:                                       ; preds = %if.end144
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1058, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 116, ptr noundef null) #15
   %36 = load ptr, ptr %name, align 8
-  %value154 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value154 = getelementptr inbounds i8, ptr %call6, i64 16
   %37 = load ptr, ptr %value154, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %36, ptr noundef nonnull @.str.21, ptr noundef %37) #15
   br label %err
@@ -2261,7 +2244,7 @@ sw.default:                                       ; preds = %if.end81
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1074, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 116, ptr noundef null) #15
   %38 = load ptr, ptr %name, align 8
-  %value170 = getelementptr inbounds %struct.CONF_VALUE, ptr %call6, i64 0, i32 2
+  %value170 = getelementptr inbounds i8, ptr %call6, i64 16
   %39 = load ptr, ptr %value170, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %38, ptr noundef nonnull @.str.21, ptr noundef %39) #15
   br label %err
@@ -2313,7 +2296,7 @@ lor.lhs.false.i:                                  ; preds = %for.body
   br i1 %cmp1.i, label %sw.default, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %0, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data.i, align 8
   %cmp4.i = icmp eq ptr %1, null
   br i1 %cmp4.i, label %sw.default, label %lor.lhs.false5.i
@@ -2358,7 +2341,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb6
   br i1 %cmp9, label %if.then, label %if.end
 
 if.then:                                          ; preds = %sw.epilog
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %5, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %data, align 8
   %arrayidx = getelementptr inbounds i8, ptr %7, i64 2
   %8 = load i8, ptr %arrayidx, align 1
@@ -2411,7 +2394,7 @@ sw.default27:                                     ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %sw.bb11, %sw.bb13, %sw.bb15, %sw.bb17, %sw.bb19, %sw.bb21, %sw.bb23, %sw.bb25, %sw.default27, %sw.epilog
-  %ipAddressChoice = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call3, i64 0, i32 1
+  %ipAddressChoice = getelementptr inbounds i8, ptr %call3, i64 8
   %9 = load ptr, ptr %ipAddressChoice, align 8
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %for.inc [
@@ -2426,7 +2409,7 @@ sw.bb34:                                          ; preds = %if.end
 sw.bb36:                                          ; preds = %if.end
   %call37 = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.37) #15
   %11 = load ptr, ptr %ipAddressChoice, align 8
-  %u = getelementptr inbounds %struct.IPAddressChoice_st, ptr %11, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %u, align 8
   %call117.i = tail call i32 @OPENSSL_sk_num(ptr noundef %12) #15
   %cmp18.i = icmp sgt i32 %call117.i, 0
@@ -2443,7 +2426,7 @@ for.body.i:                                       ; preds = %sw.bb36, %for.inc.i
   ]
 
 sw.bb.i:                                          ; preds = %for.body.i
-  %u.i = getelementptr inbounds %struct.IPAddressOrRange_st, ptr %call3.i, i64 0, i32 1
+  %u.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   %14 = load ptr, ptr %u.i, align 8
   %call5.i = tail call fastcc i32 @i2r_address(ptr noundef %out, i32 noundef %retval.0.i35, i8 noundef zeroext 0, ptr noundef %14), !range !6
   %tobool.not.i = icmp eq i32 %call5.i, 0
@@ -2453,7 +2436,7 @@ if.end.i31:                                       ; preds = %sw.bb.i
   %15 = load ptr, ptr %u.i, align 8
   %16 = load i32, ptr %15, align 8
   %mul.i = shl nsw i32 %16, 3
-  %flags.i = getelementptr inbounds %struct.asn1_string_st, ptr %15, i64 0, i32 3
+  %flags.i = getelementptr inbounds i8, ptr %15, i64 16
   %17 = load i64, ptr %flags.i, align 8
   %18 = trunc i64 %17 to i32
   %19 = and i32 %18, 7
@@ -2462,7 +2445,7 @@ if.end.i31:                                       ; preds = %sw.bb.i
   br label %for.inc.i
 
 sw.bb10.i:                                        ; preds = %for.body.i
-  %u11.i = getelementptr inbounds %struct.IPAddressOrRange_st, ptr %call3.i, i64 0, i32 1
+  %u11.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   %20 = load ptr, ptr %u11.i, align 8
   %21 = load ptr, ptr %20, align 8
   %call12.i = tail call fastcc i32 @i2r_address(ptr noundef %out, i32 noundef %retval.0.i35, i8 noundef zeroext 0, ptr noundef %21), !range !6
@@ -2472,7 +2455,7 @@ sw.bb10.i:                                        ; preds = %for.body.i
 if.end15.i:                                       ; preds = %sw.bb10.i
   %call16.i = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.40) #15
   %22 = load ptr, ptr %u11.i, align 8
-  %max.i = getelementptr inbounds %struct.IPAddressRange_st, ptr %22, i64 0, i32 1
+  %max.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load ptr, ptr %max.i, align 8
   %call18.i = tail call fastcc i32 @i2r_address(ptr noundef %out, i32 noundef %retval.0.i35, i8 noundef zeroext -1, ptr noundef %23), !range !6
   %tobool19.not.i = icmp eq i32 %call18.i, 0
@@ -2519,7 +2502,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %i.07 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
   %call4 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %addr, i32 noundef %i.07) #15
-  %ipAddressChoice = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call4, i64 0, i32 1
+  %ipAddressChoice = getelementptr inbounds i8, ptr %call4, i64 8
   %0 = load ptr, ptr %ipAddressChoice, align 8
   %1 = load i32, ptr %0, align 8
   %cmp5 = icmp eq i32 %1, 0
@@ -2556,7 +2539,7 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.cond.i
   %i.07.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
   %call4.i = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %a, i32 noundef %i.07.i) #15
-  %ipAddressChoice.i = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call4.i, i64 0, i32 1
+  %ipAddressChoice.i = getelementptr inbounds i8, ptr %call4.i, i64 8
   %0 = load ptr, ptr %ipAddressChoice.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp5.i = icmp eq i32 %1, 0
@@ -2576,7 +2559,7 @@ for.cond.i28:                                     ; preds = %for.body.i23
 for.body.i23:                                     ; preds = %for.cond.preheader.i19, %for.cond.i28
   %i.07.i24 = phi i32 [ %inc.i29, %for.cond.i28 ], [ 0, %for.cond.preheader.i19 ]
   %call4.i25 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %b, i32 noundef %i.07.i24) #15
-  %ipAddressChoice.i26 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call4.i25, i64 0, i32 1
+  %ipAddressChoice.i26 = getelementptr inbounds i8, ptr %call4.i25, i64 8
   %2 = load ptr, ptr %ipAddressChoice.i26, align 8
   %3 = load i32, ptr %2, align 8
   %cmp5.i27 = icmp eq i32 %3, 0
@@ -2618,15 +2601,15 @@ lor.lhs.false28:                                  ; preds = %if.end25
   br i1 %or.cond.i34.not, label %lor.lhs.false2.i, label %return
 
 lor.lhs.false2.i:                                 ; preds = %lor.lhs.false28
-  %ipAddressChoice = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call22, i64 0, i32 1
+  %ipAddressChoice = getelementptr inbounds i8, ptr %call22, i64 8
   %6 = load ptr, ptr %ipAddressChoice, align 8
-  %u = getelementptr inbounds %struct.IPAddressChoice_st, ptr %6, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %u, align 8
-  %ipAddressChoice33 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call17, i64 0, i32 1
+  %ipAddressChoice33 = getelementptr inbounds i8, ptr %call17, i64 8
   %8 = load ptr, ptr %ipAddressChoice33, align 8
-  %u34 = getelementptr inbounds %struct.IPAddressChoice_st, ptr %8, i64 0, i32 1
+  %u34 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %u34, align 8
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %call22.val, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call22.val, i64 8
   %10 = load ptr, ptr %data.i, align 8
   %cmp4.i = icmp eq ptr %10, null
   br i1 %cmp4.i, label %.thread, label %X509v3_addr_get_afi.exit
@@ -2734,7 +2717,7 @@ return:                                           ; preds = %for.body, %if.end33
 ; Function Attrs: nounwind uwtable
 define i32 @X509v3_addr_validate_path(ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
-  %chain = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 20
+  %chain = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %chain, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -2745,13 +2728,13 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp3, label %if.then, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %verify_cb = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 7
+  %verify_cb = getelementptr inbounds i8, ptr %ctx, i64 56
   %1 = load ptr, ptr %verify_cb, align 8
   %cmp5 = icmp eq ptr %1, null
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false4, %lor.lhs.false, %entry
-  %error = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 24
+  %error = getelementptr inbounds i8, ptr %ctx, i64 176
   store i32 1, ptr %error, align 8
   br label %return
 
@@ -2787,7 +2770,7 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false
   br i1 %cmp18, label %if.end36, label %lor.rhs20
 
 lor.rhs20:                                        ; preds = %lor.lhs.false17
-  %verify_cb = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 7
+  %verify_cb = getelementptr inbounds i8, ptr %ctx, i64 56
   %1 = load ptr, ptr %verify_cb, align 8
   %cmp21.not = icmp eq ptr %1, null
   br i1 %cmp21.not, label %if.then35, label %if.end36
@@ -2797,7 +2780,7 @@ if.then:                                          ; preds = %entry, %land.rhs
   br i1 %cmp33.not, label %return, label %if.then35
 
 if.then35:                                        ; preds = %lor.rhs20, %if.then
-  %error = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 24
+  %error = getelementptr inbounds i8, ptr %ctx, i64 176
   store i32 1, ptr %error, align 8
   br label %return
 
@@ -2806,7 +2789,7 @@ if.end36:                                         ; preds = %lor.lhs.false17, %l
 
 if.else:                                          ; preds = %if.end36
   %call41 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %chain, i32 noundef 0) #15
-  %rfc3779_addr = getelementptr inbounds %struct.x509_st, ptr %call41, i64 0, i32 18
+  %rfc3779_addr = getelementptr inbounds i8, ptr %call41, i64 296
   %2 = load ptr, ptr %rfc3779_addr, align 8
   %cmp42 = icmp eq ptr %2, null
   br i1 %cmp42, label %return, label %if.end46
@@ -2823,13 +2806,13 @@ do.body:                                          ; preds = %if.end46
   br i1 %cmp5, label %if.then52, label %done
 
 if.then52:                                        ; preds = %do.body
-  %error53 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 24
+  %error53 = getelementptr inbounds i8, ptr %ctx, i64 176
   store i32 41, ptr %error53, align 8
-  %error_depth = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 23
+  %error_depth = getelementptr inbounds i8, ptr %ctx, i64 172
   store i32 %i.0, ptr %error_depth, align 4
-  %current_cert = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 25
+  %current_cert = getelementptr inbounds i8, ptr %ctx, i64 184
   store ptr %x.0, ptr %current_cert, align 8
-  %verify_cb54 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 7
+  %verify_cb54 = getelementptr inbounds i8, ptr %ctx, i64 56
   %3 = load ptr, ptr %verify_cb54, align 8
   %call55 = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %ctx) #15
   %4 = icmp eq i32 %call55, 0
@@ -2848,7 +2831,7 @@ if.then70:                                        ; preds = %if.end62
   br i1 %cmp5, label %if.then73, label %done
 
 if.then73:                                        ; preds = %if.then70
-  %error74 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 24
+  %error74 = getelementptr inbounds i8, ptr %ctx, i64 176
   store i32 17, ptr %error74, align 8
   br label %done
 
@@ -2860,16 +2843,16 @@ if.end76:                                         ; preds = %if.end62
   br i1 %cmp80157, label %for.body.lr.ph, label %for.end243
 
 for.body.lr.ph:                                   ; preds = %if.end76
-  %error92 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 24
-  %error_depth93 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 23
-  %current_cert94 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 25
-  %verify_cb95 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 7
+  %error92 = getelementptr inbounds i8, ptr %ctx, i64 176
+  %error_depth93 = getelementptr inbounds i8, ptr %ctx, i64 172
+  %current_cert94 = getelementptr inbounds i8, ptr %ctx, i64 184
+  %verify_cb95 = getelementptr inbounds i8, ptr %ctx, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc241
   %i.1158 = phi i32 [ %i.1155, %for.body.lr.ph ], [ %i.1, %for.inc241 ]
   %call83 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %chain, i32 noundef %i.1158) #15
-  %rfc3779_addr84 = getelementptr inbounds %struct.x509_st, ptr %call83, i64 0, i32 18
+  %rfc3779_addr84 = getelementptr inbounds i8, ptr %call83, i64 296
   %5 = load ptr, ptr %rfc3779_addr84, align 8
   %call85 = tail call i32 @X509v3_addr_is_canonical(ptr noundef %5), !range !6
   %tobool86.not = icmp eq i32 %call85, 0
@@ -2913,7 +2896,7 @@ for.body114:                                      ; preds = %for.cond109.prehead
   br i1 %or.cond.i.not, label %if.end120, label %done
 
 if.end120:                                        ; preds = %for.body114
-  %ipAddressChoice = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call116, i64 0, i32 1
+  %ipAddressChoice = getelementptr inbounds i8, ptr %call116, i64 8
   %9 = load ptr, ptr %ipAddressChoice, align 8
   %10 = load i32, ptr %9, align 8
   %cmp121.not = icmp eq i32 %10, 0
@@ -2950,7 +2933,7 @@ for.body154:                                      ; preds = %if.end142, %for.inc
   br i1 %cmp165, label %if.then167, label %if.end190
 
 if.then167:                                       ; preds = %for.body154
-  %ipAddressChoice168 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call157, i64 0, i32 1
+  %ipAddressChoice168 = getelementptr inbounds i8, ptr %call157, i64 8
   %15 = load ptr, ptr %ipAddressChoice168, align 8
   %16 = load i32, ptr %15, align 8
   %cmp170 = icmp eq i32 %16, 1
@@ -2983,25 +2966,25 @@ lor.lhs.false193:                                 ; preds = %if.end190
   br i1 %or.cond.i112.not, label %if.end197, label %done
 
 if.end197:                                        ; preds = %lor.lhs.false193
-  %ipAddressChoice198 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call164, i64 0, i32 1
+  %ipAddressChoice198 = getelementptr inbounds i8, ptr %call164, i64 8
   %20 = load ptr, ptr %ipAddressChoice198, align 8
   %21 = load i32, ptr %20, align 8
   %cmp200 = icmp eq i32 %21, 1
   br i1 %cmp200, label %if.then202, label %for.inc238
 
 if.then202:                                       ; preds = %if.end197
-  %ipAddressChoice203 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call157, i64 0, i32 1
+  %ipAddressChoice203 = getelementptr inbounds i8, ptr %call157, i64 8
   %22 = load ptr, ptr %ipAddressChoice203, align 8
   %23 = load i32, ptr %22, align 8
   %cmp205 = icmp eq i32 %23, 0
   br i1 %cmp205, label %if.then215, label %lor.lhs.false2.i
 
 lor.lhs.false2.i:                                 ; preds = %if.then202
-  %u = getelementptr inbounds %struct.IPAddressChoice_st, ptr %20, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %20, i64 8
   %24 = load ptr, ptr %u, align 8
-  %u210 = getelementptr inbounds %struct.IPAddressChoice_st, ptr %22, i64 0, i32 1
+  %u210 = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load ptr, ptr %u210, align 8
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %call157.val, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call157.val, i64 8
   %26 = load ptr, ptr %data.i, align 8
   %cmp4.i = icmp eq ptr %26, null
   br i1 %cmp4.i, label %.thread, label %X509v3_addr_get_afi.exit
@@ -3058,21 +3041,21 @@ for.inc241:                                       ; preds = %for.inc238, %for.co
 for.end243:                                       ; preds = %for.inc241, %if.end76
   %x.1.lcssa = phi ptr [ %x.0, %if.end76 ], [ %call83, %for.inc241 ]
   %i.1.lcssa = phi i32 [ %i.1155, %if.end76 ], [ %i.1, %for.inc241 ]
-  %rfc3779_addr244 = getelementptr inbounds %struct.x509_st, ptr %x.1.lcssa, i64 0, i32 18
+  %rfc3779_addr244 = getelementptr inbounds i8, ptr %x.1.lcssa, i64 296
   %31 = load ptr, ptr %rfc3779_addr244, align 8
   %cmp245.not = icmp eq ptr %31, null
   br i1 %cmp245.not, label %done, label %for.cond248.preheader
 
 for.cond248.preheader:                            ; preds = %for.end243
-  %error277 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 24
+  %error277 = getelementptr inbounds i8, ptr %ctx, i64 176
   %call251160 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %31) #15
   %cmp252161 = icmp sgt i32 %call251160, 0
   br i1 %cmp252161, label %for.body254.lr.ph, label %done
 
 for.body254.lr.ph:                                ; preds = %for.cond248.preheader
-  %error_depth278 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 23
-  %current_cert279 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 25
-  %verify_cb280 = getelementptr inbounds %struct.x509_store_ctx_st, ptr %ctx, i64 0, i32 7
+  %error_depth278 = getelementptr inbounds i8, ptr %ctx, i64 172
+  %current_cert279 = getelementptr inbounds i8, ptr %ctx, i64 184
+  %verify_cb280 = getelementptr inbounds i8, ptr %ctx, i64 56
   br i1 %cmp5, label %for.body254.us, label %for.body254
 
 for.body254.us:                                   ; preds = %for.body254.lr.ph, %for.inc290.us
@@ -3086,7 +3069,7 @@ for.body254.us:                                   ; preds = %for.body254.lr.ph, 
   br i1 %or.cond.i115.not.us, label %if.end262.us, label %done
 
 if.end262.us:                                     ; preds = %for.body254.us
-  %ipAddressChoice263.us = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call258.us, i64 0, i32 1
+  %ipAddressChoice263.us = getelementptr inbounds i8, ptr %call258.us, i64 8
   %34 = load ptr, ptr %ipAddressChoice263.us, align 8
   %35 = load i32, ptr %34, align 8
   %cmp265.us = icmp eq i32 %35, 0
@@ -3124,7 +3107,7 @@ for.body254:                                      ; preds = %for.body254.lr.ph, 
   br i1 %or.cond.i115.not, label %if.end262, label %done
 
 if.end262:                                        ; preds = %for.body254
-  %ipAddressChoice263 = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call258, i64 0, i32 1
+  %ipAddressChoice263 = getelementptr inbounds i8, ptr %call258, i64 8
   %40 = load ptr, ptr %ipAddressChoice263, align 8
   %41 = load i32, ptr %40, align 8
   %cmp265 = icmp eq i32 %41, 0
@@ -3186,7 +3169,7 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.cond.i
   %i.07.i = phi i32 [ %inc.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
   %call4.i = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %ext, i32 noundef %i.07.i) #15
-  %ipAddressChoice.i = getelementptr inbounds %struct.IPAddressFamily_st, ptr %call4.i, i64 0, i32 1
+  %ipAddressChoice.i = getelementptr inbounds i8, ptr %call4.i, i64 8
   %0 = load ptr, ptr %ipAddressChoice.i, align 8
   %1 = load i32, ptr %0, align 8
   %cmp5.i = icmp eq i32 %1, 0
@@ -3243,7 +3226,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %u = getelementptr inbounds %struct.IPAddressOrRange_st, ptr %a, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %a, i64 8
   %1 = load ptr, ptr %u, align 8
   %2 = load i32, ptr %1, align 8
   %cmp.i = icmp slt i32 %2, 0
@@ -3256,16 +3239,16 @@ if.end.i:                                         ; preds = %sw.bb
   br i1 %cmp5.not.i, label %if.end.i.if.end_crit_edge, label %if.then6.i
 
 if.end.i.if.end_crit_edge:                        ; preds = %if.end.i
-  %flags.phi.trans.insert = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 3
+  %flags.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load i64, ptr %flags.phi.trans.insert, align 8
   br label %if.end
 
 if.then6.i:                                       ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %data.i, align 8
   %conv.i = zext nneg i32 %2 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %addr_a, ptr align 1 %3, i64 %conv.i, i1 false)
-  %flags.i = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 3
+  %flags.i = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %4, 7
   %cmp8.not.i = icmp eq i64 %and.i, 0
@@ -3298,7 +3281,7 @@ if.end:                                           ; preds = %if.end.i.if.end_cri
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
-  %u7 = getelementptr inbounds %struct.IPAddressOrRange_st, ptr %a, i64 0, i32 1
+  %u7 = getelementptr inbounds i8, ptr %a, i64 8
   %11 = load ptr, ptr %u7, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
@@ -3312,11 +3295,11 @@ if.end.i18:                                       ; preds = %sw.bb5
   br i1 %cmp5.not.i19, label %if.end11, label %if.then6.i20
 
 if.then6.i20:                                     ; preds = %if.end.i18
-  %data.i21 = getelementptr inbounds %struct.asn1_string_st, ptr %12, i64 0, i32 2
+  %data.i21 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %data.i21, align 8
   %conv.i22 = zext nneg i32 %13 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %addr_a, ptr align 1 %14, i64 %conv.i22, i1 false)
-  %flags.i23 = getelementptr inbounds %struct.asn1_string_st, ptr %12, i64 0, i32 3
+  %flags.i23 = getelementptr inbounds i8, ptr %12, i64 16
   %15 = load i64, ptr %flags.i23, align 8
   %and.i24 = and i64 %15, 7
   %cmp8.not.i25 = icmp eq i64 %and.i24, 0
@@ -3353,7 +3336,7 @@ sw.epilog:                                        ; preds = %if.end11, %if.end, 
   ]
 
 sw.bb14:                                          ; preds = %sw.epilog
-  %u16 = getelementptr inbounds %struct.IPAddressOrRange_st, ptr %b, i64 0, i32 1
+  %u16 = getelementptr inbounds i8, ptr %b, i64 8
   %20 = load ptr, ptr %u16, align 8
   %21 = load i32, ptr %20, align 8
   %cmp.i40 = icmp slt i32 %21, 0
@@ -3366,16 +3349,16 @@ if.end.i43:                                       ; preds = %sw.bb14
   br i1 %cmp5.not.i44, label %if.end.i43.if.end20_crit_edge, label %if.then6.i45
 
 if.end.i43.if.end20_crit_edge:                    ; preds = %if.end.i43
-  %flags26.phi.trans.insert = getelementptr inbounds %struct.asn1_string_st, ptr %20, i64 0, i32 3
+  %flags26.phi.trans.insert = getelementptr inbounds i8, ptr %20, i64 16
   %.pre98 = load i64, ptr %flags26.phi.trans.insert, align 8
   br label %if.end20
 
 if.then6.i45:                                     ; preds = %if.end.i43
-  %data.i46 = getelementptr inbounds %struct.asn1_string_st, ptr %20, i64 0, i32 2
+  %data.i46 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %data.i46, align 8
   %conv.i47 = zext nneg i32 %21 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %addr_b, ptr align 1 %22, i64 %conv.i47, i1 false)
-  %flags.i48 = getelementptr inbounds %struct.asn1_string_st, ptr %20, i64 0, i32 3
+  %flags.i48 = getelementptr inbounds i8, ptr %20, i64 16
   %23 = load i64, ptr %flags.i48, align 8
   %and.i49 = and i64 %23, 7
   %cmp8.not.i50 = icmp eq i64 %and.i49, 0
@@ -3408,7 +3391,7 @@ if.end20:                                         ; preds = %if.end.i43.if.end20
   br label %sw.epilog39
 
 sw.bb30:                                          ; preds = %sw.epilog
-  %u32 = getelementptr inbounds %struct.IPAddressOrRange_st, ptr %b, i64 0, i32 1
+  %u32 = getelementptr inbounds i8, ptr %b, i64 8
   %30 = load ptr, ptr %u32, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 8
@@ -3422,11 +3405,11 @@ if.end.i68:                                       ; preds = %sw.bb30
   br i1 %cmp5.not.i69, label %if.end37, label %if.then6.i70
 
 if.then6.i70:                                     ; preds = %if.end.i68
-  %data.i71 = getelementptr inbounds %struct.asn1_string_st, ptr %31, i64 0, i32 2
+  %data.i71 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load ptr, ptr %data.i71, align 8
   %conv.i72 = zext nneg i32 %32 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %addr_b, ptr align 1 %33, i64 %conv.i72, i1 false)
-  %flags.i73 = getelementptr inbounds %struct.asn1_string_st, ptr %31, i64 0, i32 3
+  %flags.i73 = getelementptr inbounds i8, ptr %31, i64 16
   %34 = load i64, ptr %flags.i73, align 8
   %and.i74 = and i64 %34, 7
   %cmp8.not.i75 = icmp eq i64 %and.i74, 0
@@ -3538,7 +3521,7 @@ for.cond55.preheader:                             ; preds = %if.end
   br i1 %cmp5763.not, label %for.end68, label %for.body59.lr.ph
 
 for.body59.lr.ph:                                 ; preds = %for.cond55.preheader
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %bs, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %bs, i64 8
   br label %for.body59
 
 sw.bb:                                            ; preds = %if.end
@@ -3550,11 +3533,11 @@ if.end.i:                                         ; preds = %sw.bb
   br i1 %cmp5.not.i, label %if.end2, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %bs, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %bs, i64 8
   %1 = load ptr, ptr %data.i, align 8
   %conv.i = zext nneg i32 %0 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %addr, ptr align 1 %1, i64 %conv.i, i1 false)
-  %flags.i = getelementptr inbounds %struct.asn1_string_st, ptr %bs, i64 0, i32 3
+  %flags.i = getelementptr inbounds i8, ptr %bs, i64 16
   %2 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %2, 7
   %cmp8.not.i = icmp eq i64 %and.i, 0
@@ -3594,13 +3577,13 @@ if.end2:                                          ; preds = %if.end.i, %if.else.
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr.i, i8 %fill, i64 %conv38.i, i1 false)
   %9 = load i8, ptr %addr, align 16
   %conv = zext i8 %9 to i32
-  %arrayidx3 = getelementptr inbounds [16 x i8], ptr %addr, i64 0, i64 1
+  %arrayidx3 = getelementptr inbounds i8, ptr %addr, i64 1
   %10 = load i8, ptr %arrayidx3, align 1
   %conv4 = zext i8 %10 to i32
-  %arrayidx5 = getelementptr inbounds [16 x i8], ptr %addr, i64 0, i64 2
+  %arrayidx5 = getelementptr inbounds i8, ptr %addr, i64 2
   %11 = load i8, ptr %arrayidx5, align 2
   %conv6 = zext i8 %11 to i32
-  %arrayidx7 = getelementptr inbounds [16 x i8], ptr %addr, i64 0, i64 3
+  %arrayidx7 = getelementptr inbounds i8, ptr %addr, i64 3
   %12 = load i8, ptr %arrayidx7, align 1
   %conv8 = zext i8 %12 to i32
   %call9 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.42, i32 noundef %conv, i32 noundef %conv4, i32 noundef %conv6, i32 noundef %conv8) #15
@@ -3615,11 +3598,11 @@ if.end.i29:                                       ; preds = %sw.bb10
   br i1 %cmp5.not.i30, label %addr_expand.exit55, label %if.then6.i31
 
 if.then6.i31:                                     ; preds = %if.end.i29
-  %data.i32 = getelementptr inbounds %struct.asn1_string_st, ptr %bs, i64 0, i32 2
+  %data.i32 = getelementptr inbounds i8, ptr %bs, i64 8
   %13 = load ptr, ptr %data.i32, align 8
   %conv.i33 = zext nneg i32 %0 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %addr, ptr align 1 %13, i64 %conv.i33, i1 false)
-  %flags.i34 = getelementptr inbounds %struct.asn1_string_st, ptr %bs, i64 0, i32 3
+  %flags.i34 = getelementptr inbounds i8, ptr %bs, i64 16
   %14 = load i64, ptr %flags.i34, align 8
   %and.i35 = and i64 %14, 7
   %cmp8.not.i36 = icmp eq i64 %and.i35, 0
@@ -3741,7 +3724,7 @@ for.body59:                                       ; preds = %for.body59.lr.ph, %
   br i1 %cmp57, label %for.body59, label %for.end68, !llvm.loop !32
 
 for.end68:                                        ; preds = %for.body59, %for.cond55.preheader
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %bs, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %bs, i64 16
   %34 = load i64, ptr %flags, align 8
   %35 = trunc i64 %34 to i32
   %conv69 = and i32 %35, 7

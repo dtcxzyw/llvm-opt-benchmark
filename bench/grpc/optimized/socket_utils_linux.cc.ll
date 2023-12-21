@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.grpc_core::NoDestruct" = type { [8 x i8] }
-%struct.grpc_resolved_address = type { [128 x i8], i32 }
 
 $_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E = comdat any
 
@@ -33,7 +32,7 @@ entry:
   %tobool1.not = icmp eq i32 %cloexec, 0
   %cond2 = select i1 %tobool1.not, i32 0, i32 524288
   %or3 = or disjoint i32 %cond2, %cond
-  %len = getelementptr inbounds %struct.grpc_resolved_address, ptr %resolved_addr, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %resolved_addr, i64 128
   %call = tail call i32 @accept4(i32 noundef %sockfd, ptr noundef %resolved_addr, ptr noundef nonnull %len, i32 noundef %or3)
   ret i32 %call
 }

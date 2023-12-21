@@ -9,40 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
 %"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
 %"struct.std::_Head_base.9" = type { ptr }
-%"class.facebook::jsi::RuntimeDecorator" = type { %"class.facebook::jsi::Runtime", %"class.facebook::jsi::Instrumentation", ptr }
-%"class.facebook::jsi::Runtime" = type { ptr }
-%"class.facebook::jsi::Instrumentation" = type { ptr }
-%"class.facebook::hermes::tracing::TracingRuntime" = type <{ %"class.facebook::jsi::RuntimeDecorator", %"class.std::unique_ptr", %"class.facebook::hermes::tracing::SynthTrace", %"class.std::deque", %"class.std::chrono::time_point", i32, [4 x i8] }>
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.facebook::hermes::tracing::SynthTrace" = type { %"class.std::unique_ptr.2", %"class.std::unique_ptr.10", %"class.std::vector", i64 }
-%"class.std::unique_ptr.10" = type { %"struct.std::__uniq_ptr_data.11" }
-%"struct.std::__uniq_ptr_data.11" = type { %"class.std::__uniq_ptr_impl.12" }
-%"class.std::__uniq_ptr_impl.12" = type { %"class.std::tuple.13" }
-%"class.std::tuple.13" = type { %"struct.std::_Tuple_impl.14" }
-%"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
-%"struct.std::_Head_base.17" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>, std::allocator<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>, std::allocator<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>, std::allocator<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>, std::allocator<std::unique_ptr<facebook::hermes::tracing::SynthTrace::Record>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl" }
-%"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl" = type { %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.std::unique_ptr.110" = type { %"struct.std::__uniq_ptr_data.111" }
-%"struct.std::__uniq_ptr_data.111" = type { %"class.std::__uniq_ptr_impl.112" }
-%"class.std::__uniq_ptr_impl.112" = type { %"class.std::tuple.113" }
-%"class.std::tuple.113" = type { %"struct.std::_Tuple_impl.114" }
-%"struct.std::_Tuple_impl.114" = type { %"struct.std::_Head_base.117" }
-%"struct.std::_Head_base.117" = type { ptr }
 %"class.facebook::jsi::Value" = type { i32, %"union.facebook::jsi::Value::Data" }
 %"union.facebook::jsi::Value::Data" = type { double }
 %"class.std::function.31" = type { %"class.std::_Function_base", ptr }
@@ -61,63 +27,38 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.facebook::hermes::tracing::SynthTrace::Record" = type { ptr, %"class.std::chrono::duration.37" }
-%"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord" = type <{ %"struct.facebook::hermes::tracing::SynthTrace::Record", %"class.std::__cxx11::basic_string", %"struct.std::array", i8, [3 x i8] }>
+%"class.std::unique_ptr.110" = type { %"struct.std::__uniq_ptr_data.111" }
+%"struct.std::__uniq_ptr_data.111" = type { %"class.std::__uniq_ptr_impl.112" }
+%"class.std::__uniq_ptr_impl.112" = type { %"class.std::tuple.113" }
+%"class.std::tuple.113" = type { %"struct.std::_Tuple_impl.114" }
+%"struct.std::_Tuple_impl.114" = type { %"struct.std::_Head_base.117" }
+%"struct.std::_Head_base.117" = type { ptr }
 %"class.facebook::jsi::BigInt" = type { %"class.facebook::jsi::Pointer" }
 %"class.facebook::jsi::Symbol" = type { %"class.facebook::jsi::Pointer" }
-%"struct.facebook::hermes::tracing::SynthTrace::DrainMicrotasksRecord" = type <{ %"struct.facebook::hermes::tracing::SynthTrace::Record", i32, [4 x i8] }>
-%"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64 }
 %"class.std::shared_ptr.39" = type { %"class.std::__shared_ptr.40" }
 %"class.std::__shared_ptr.40" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::_Sp_counted_ptr_inplace.144" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<TracingHostObject, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<TracingHostObject, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.145" }
-%"struct.__gnu_cxx::__aligned_buffer.145" = type { %"union.std::aligned_storage<40, 8>::type" }
-%"union.std::aligned_storage<40, 8>::type" = type { [40 x i8] }
-%"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, i32, i64 }
-%"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord" = type <{ %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, i64, i32, [4 x i8] }>
 %"class.std::allocator.21" = type { i8 }
-%"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord" = type <{ %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord" = type <{ %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, %"class.std::__cxx11::basic_string", %"class.facebook::hermes::tracing::SynthTrace::TraceValue", i32, [4 x i8] }>
-%"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, %"class.facebook::hermes::tracing::SynthTrace::TraceValue", %"class.facebook::hermes::tracing::SynthTrace::TraceValue" }
-%"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, %"class.facebook::hermes::tracing::SynthTrace::TraceValue" }
 %"class.facebook::jsi::Array" = type { %"class.facebook::jsi::Object" }
-%"struct.facebook::hermes::tracing::SynthTrace::GetPropertyNamesRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, i64 }
 %"class.facebook::jsi::WeakObject" = type { %"class.facebook::jsi::Pointer" }
-%"struct.facebook::hermes::tracing::SynthTrace::CreateArrayRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, i64 }
 %"class.facebook::jsi::ArrayBuffer" = type { %"class.facebook::jsi::Object" }
-%"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, i64, %"class.facebook::hermes::tracing::SynthTrace::TraceValue" }
 %class.TracingHostFunction = type { %"class.facebook::jsi::DecoratedHostFunction", i64 }
 %"class.facebook::jsi::DecoratedHostFunction" = type { ptr, %"class.std::function.31" }
-%"class.std::type_info" = type { ptr, ptr }
-%"struct.facebook::hermes::tracing::SynthTrace::CreateHostFunctionRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord", i32, i32 }
 %"class.std::vector.49" = type { %"struct.std::_Vector_base.50" }
 %"struct.std::_Vector_base.50" = type { %"struct.std::_Vector_base<facebook::hermes::tracing::SynthTrace::TraceValue, std::allocator<facebook::hermes::tracing::SynthTrace::TraceValue>>::_Vector_impl" }
 %"struct.std::_Vector_base<facebook::hermes::tracing::SynthTrace::TraceValue, std::allocator<facebook::hermes::tracing::SynthTrace::TraceValue>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::hermes::tracing::SynthTrace::TraceValue, std::allocator<facebook::hermes::tracing::SynthTrace::TraceValue>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<facebook::hermes::tracing::SynthTrace::TraceValue, std::allocator<facebook::hermes::tracing::SynthTrace::TraceValue>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.facebook::hermes::tracing::SynthTrace::CallRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, %"class.facebook::hermes::tracing::SynthTrace::TraceValue", %"class.std::vector.49" }
-%"struct.facebook::hermes::tracing::SynthTrace::SetExternalMemoryPressureRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, i64 }
-%"struct.facebook::hermes::tracing::SynthTrace::MarkerRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", %"class.std::__cxx11::basic_string" }
 %"class.std::function.62" = type { %"class.std::_Function_base", ptr }
 %"class.std::function.64" = type { %"class.std::_Function_base", ptr }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
+%"struct.std::_Head_base.1" = type { ptr }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::function.66" = type { %"class.std::_Function_base", ptr }
-%"class.facebook::hermes::tracing::TracingHermesRuntime" = type { %"class.facebook::hermes::tracing::TracingRuntime.base", [4 x i8], %"class.hermes::vm::RuntimeConfig", %"class.std::function.62", %"class.std::function.64", %"class.llvh::Optional", i8, %"class.std::__cxx11::basic_string" }
-%"class.facebook::hermes::tracing::TracingRuntime.base" = type <{ %"class.facebook::jsi::RuntimeDecorator", %"class.std::unique_ptr", %"class.facebook::hermes::tracing::SynthTrace", %"class.std::deque", %"class.std::chrono::time_point", i32 }>
-%"class.hermes::vm::RuntimeConfig" = type <{ %"class.hermes::vm::GCConfig", ptr, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::function.29", i8, i8, i8, i8, i32, i8, i8, i8, i8, i32, i8, [7 x i8], %"class.std::shared_ptr", i32, i8, [3 x i8] }>
-%"class.hermes::vm::GCConfig" = type { i32, i32, i32, double, i32, %"class.hermes::vm::GCSanitizeConfig", i8, i32, %"class.std::__cxx11::basic_string", %"class.hermes::vm::GCTripwireConfig", i8, i8, i8, i8, %"class.std::function.24", %"class.std::function.27" }
-%"class.hermes::vm::GCSanitizeConfig" = type { double, i64 }
-%"class.hermes::vm::GCTripwireConfig" = type { i32, %"class.std::function" }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.24" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.27" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.29" = type { %"class.std::_Function_base", ptr }
-%"class.llvh::Optional" = type { %"struct.llvh::optional_detail::OptionalStorage" }
-%"struct.llvh::optional_detail::OptionalStorage" = type { %"struct.llvh::AlignedCharArrayUnion", i8, [3 x i8] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [4 x i8] }
 %"class.llvh::raw_fd_ostream" = type { %"class.llvh::raw_pwrite_stream.base", i32, i8, i8, %"class.std::error_code", i64 }
 %"class.llvh::raw_pwrite_stream.base" = type { %"class.llvh::raw_ostream.base" }
 %"class.llvh::raw_ostream.base" = type <{ ptr, ptr, ptr, ptr, i32 }>
@@ -144,11 +85,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.58" = type { %"struct.std::_Head_base.61" }
 %"struct.std::_Head_base.61" = type { ptr }
 %class.anon.88 = type { %"class.std::function.29", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
+%"class.std::function.29" = type { %"class.std::_Function_base", ptr }
 %class.anon.89 = type { %"class.std::__cxx11::basic_string" }
 %"class.std::shared_ptr.93" = type { %"class.std::__shared_ptr.94" }
 %"class.std::__shared_ptr.94" = type { ptr, %"class.std::__shared_count" }
-%"class.facebook::jsi::DecoratedHostObject" = type { %"class.facebook::jsi::HostObject", ptr, %"class.std::shared_ptr.39" }
-%"class.facebook::jsi::HostObject" = type { ptr }
 %"class.std::shared_ptr.96" = type { %"class.std::__shared_ptr.97" }
 %"class.std::__shared_ptr.97" = type { ptr, %"class.std::__shared_count" }
 %"class.std::unordered_map" = type { %"class.std::_Hashtable" }
@@ -156,27 +96,20 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %"class.std::function.105" = type { %"class.std::_Function_base", ptr }
-%"class.facebook::jsi::JSIException" = type { %"class.std::exception", %"class.std::__cxx11::basic_string" }
-%"class.std::exception" = type { ptr }
-%class.anon.124 = type { ptr, ptr }
+%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %struct._Guard = type { ptr }
 %"class.std::vector.132" = type { %"struct.std::_Vector_base.133" }
 %"struct.std::_Vector_base.133" = type { %"struct.std::_Vector_base<facebook::jsi::PropNameID, std::allocator<facebook::jsi::PropNameID>>::_Vector_impl" }
 %"struct.std::_Vector_base<facebook::jsi::PropNameID, std::allocator<facebook::jsi::PropNameID>>::_Vector_impl" = type { %"struct.std::_Vector_base<facebook::jsi::PropNameID, std::allocator<facebook::jsi::PropNameID>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<facebook::jsi::PropNameID, std::allocator<facebook::jsi::PropNameID>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.TracingHostObject = type { %"class.facebook::jsi::DecoratedHostObject", i64 }
 %"class.std::vector.153" = type { %"struct.std::_Vector_base.154" }
 %"struct.std::_Vector_base.154" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64, i64, %"class.std::__cxx11::basic_string" }
-%"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", %"class.facebook::hermes::tracing::SynthTrace::TraceValue" }
 %"class.std::vector.148" = type { %"struct.std::_Vector_base.149" }
 %"struct.std::_Vector_base.149" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", i64 }
-%"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesReturnRecord" = type { %"struct.facebook::hermes::tracing::SynthTrace::Record", %"class.std::vector.153" }
 %"class.llvh::Twine" = type <{ %"union.llvh::Twine::Child", %"union.llvh::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvh::Twine::Child" = type { ptr }
 
@@ -770,15 +703,15 @@ entry:
   %agg.tmp = alloca %"class.std::unique_ptr.2", align 8
   %0 = load ptr, ptr %runtime, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %0, ptr %plain_.i, align 8
   store ptr getelementptr inbounds ({ [91 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing14TracingRuntimeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   store ptr getelementptr inbounds ({ [91 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing14TracingRuntimeE, i64 0, inrange i32 1, i64 2), ptr %1, align 8
-  %runtime_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 1
+  %runtime_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i64, ptr %runtime, align 8
   store i64 %2, ptr %runtime_, align 8
   store ptr null, ptr %runtime, align 8
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i64, ptr %traceStream, align 8
   store i64 %3, ptr %agg.tmp, align 8
   store ptr null, ptr %traceStream, align 8
@@ -792,23 +725,23 @@ invoke.cont:                                      ; preds = %entry
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i: ; preds = %invoke.cont
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(36) %4) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i
   store ptr null, ptr %agg.tmp, align 8
-  %savedFunctions = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 3
+  %savedFunctions = getelementptr inbounds i8, ptr %this, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %savedFunctions, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseIN8facebook3jsi8FunctionESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %savedFunctions, i64 noundef 0)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
-  %startTime_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_ = getelementptr inbounds i8, ptr %this, i64 160
   %call4 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
   store i64 %call4, ptr %startTime_, align 8
-  %numPreambleRecords_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 5
+  %numPreambleRecords_ = getelementptr inbounds i8, ptr %this, i64 168
   store i32 0, ptr %numPreambleRecords_, align 8
   ret void
 
@@ -821,7 +754,7 @@ lpad:                                             ; preds = %entry
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i3: ; preds = %lpad
   %vtable.i.i4 = load ptr, ptr %7, align 8
-  %vfn.i.i5 = getelementptr inbounds ptr, ptr %vtable.i.i4, i64 1
+  %vfn.i.i5 = getelementptr inbounds i8, ptr %vtable.i.i4, i64 8
   %8 = load ptr, ptr %vfn.i.i5, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(36) %7) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit6
@@ -844,7 +777,7 @@ ehcleanup:                                        ; preds = %lpad2, %_ZNSt10uniq
 
 _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i: ; preds = %ehcleanup
   %vtable.i.i8 = load ptr, ptr %10, align 8
-  %vfn.i.i9 = getelementptr inbounds ptr, ptr %vtable.i.i8, i64 1
+  %vfn.i.i9 = getelementptr inbounds i8, ptr %vtable.i.i8, i64 8
   %11 = load ptr, ptr %vfn.i.i9, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #28
   br label %_ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit
@@ -865,9 +798,9 @@ declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTraceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %records_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -880,14 +813,14 @@ for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_Destr
 
 _ZNKSt14default_deleteIN8facebook6hermes7tracing10SynthTrace6RecordEEclEPS4_.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   br label %_ZSt8_DestroyISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8facebook6hermes7tracing10SynthTrace6RecordEEclEPS4_.exit.i.i.i.i.i.i, %for.body.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !4
 
@@ -905,7 +838,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EED2Ev.exit
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
-  %json_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 1
+  %json_ = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %json_, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN6hermes11JSONEmitterESt14default_deleteIS1_EED2Ev.exit, label %delete.notnull.i.i
@@ -932,7 +865,7 @@ _ZNSt10unique_ptrIN6hermes11JSONEmitterESt14default_deleteIS1_EED2Ev.exit: ; pre
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN6hermes11JSONEmitterESt14default_deleteIS1_EED2Ev.exit
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(36) %7) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
@@ -974,23 +907,23 @@ _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i:
   %ref.tmp53 = alloca %"class.facebook::jsi::Object", align 8
   %ref.tmp67 = alloca [1 x %"class.facebook::jsi::Value"], align 8
   %vtable.i.i = load ptr, ptr %this, align 8, !noalias !6
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 15
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 120
   %0 = load ptr, ptr %vfn.i.i, align 8, !noalias !6
   call void %0(ptr nonnull sret(%"class.facebook::jsi::PropNameID") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str, i64 noundef 12)
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %1, align 8
   %2 = ptrtoint ptr %this to i64
   store i64 %2, ptr %agg.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.31", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0E9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om", ptr %_M_invoker.i.i, align 8, !noalias !11
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false), !noalias !11
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8, !noalias !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false), !noalias !11
   %vtable.i = load ptr, ptr %this, align 8, !noalias !11
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 60
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 480
   %3 = load ptr, ptr %vfn.i, align 8, !noalias !11
   invoke void %3(ptr nonnull sret(%"class.facebook::jsi::Function") align 8 %callUntraced, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef 1, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -1066,7 +999,7 @@ terminate.lpad.i.i20:                             ; preds = %if.then.i.i18
 
 _ZN8facebook3jsi10PropNameIDD2Ev.exit:            ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit, %if.then.i.i18
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %18 = load ptr, ptr %vfn, align 8
   invoke void %18(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(24) %this)
           to label %invoke.cont9 unwind label %lpad8
@@ -1079,9 +1012,9 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %vtable.i.i.i.i = load ptr, ptr %this, align 8, !noalias !17
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 28
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 224
   %19 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !17
-  %data_.i.i.i = getelementptr inbounds %"class.facebook::jsi::Value", ptr %ref.tmp.i, i64 0, i32 1
+  %data_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   invoke void %19(ptr nonnull sret(%"class.facebook::jsi::String") align 8 %data_.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.1, i64 noundef 1457)
           to label %.noexc unwind label %lpad12
 
@@ -1090,7 +1023,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i), !noalias !25
   store i32 0, ptr %ref.tmp.i.i.i, align 8, !alias.scope !28, !noalias !31
   %vtable.i.i.i = load ptr, ptr %this, align 8, !noalias !31
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 61
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 488
   %20 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !31
   invoke void %20(ptr nonnull sret(%"class.facebook::jsi::Value") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i, ptr noundef nonnull %ref.tmp.i, i64 noundef 1)
           to label %invoke.cont13 unwind label %lpad.i.i.i
@@ -1116,14 +1049,14 @@ invoke.cont15:                                    ; preds = %invoke.cont13
 
 invoke.cont21:                                    ; preds = %invoke.cont15
   store i32 7, ptr %ref.tmp19, align 8
-  %data_.i = getelementptr inbounds %"class.facebook::jsi::Value", ptr %ref.tmp19, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   %22 = load ptr, ptr %callUntraced, align 8
   store ptr %22, ptr %data_.i, align 8
   store ptr null, ptr %callUntraced, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !34
   store i32 0, ptr %ref.tmp.i.i, align 8, !alias.scope !37, !noalias !40
   %vtable.i.i24 = load ptr, ptr %this, align 8, !noalias !40
-  %vfn.i.i25 = getelementptr inbounds ptr, ptr %vtable.i.i24, i64 61
+  %vfn.i.i25 = getelementptr inbounds i8, ptr %vtable.i.i24, i64 488
   %23 = load ptr, ptr %vfn.i.i25, align 8, !noalias !40
   invoke void %23(ptr nonnull sret(%"class.facebook::jsi::Value") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i, ptr noundef nonnull %ref.tmp19, i64 noundef 1)
           to label %invoke.cont24 unwind label %lpad.i.i
@@ -1216,25 +1149,25 @@ terminate.lpad.i.i43:                             ; preds = %if.then.i.i41
 
 _ZN8facebook3jsi6ObjectD2Ev.exit44:               ; preds = %_ZN8facebook3jsi8FunctionD2Ev.exit39, %if.then.i.i41
   %vtable.i.i46 = load ptr, ptr %this, align 8, !noalias !43
-  %vfn.i.i47 = getelementptr inbounds ptr, ptr %vtable.i.i46, i64 15
+  %vfn.i.i47 = getelementptr inbounds i8, ptr %vtable.i.i46, i64 120
   %42 = load ptr, ptr %vfn.i.i47, align 8, !noalias !43
   invoke void %42(ptr nonnull sret(%"class.facebook::jsi::PropNameID") align 8 %ref.tmp40, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.3, i64 noundef 25)
           to label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i59 unwind label %lpad8
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i59: ; preds = %_ZN8facebook3jsi6ObjectD2Ev.exit44
-  %_M_manager.i.i49 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp42, i64 0, i32 1
+  %_M_manager.i.i49 = getelementptr inbounds i8, ptr %agg.tmp42, i64 16
   %43 = getelementptr inbounds i8, ptr %agg.tmp42, i64 8
   store i64 0, ptr %43, align 8
   store i64 %2, ptr %agg.tmp42, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i52)
-  %_M_invoker.i.i53 = getelementptr inbounds %"class.std::function.31", ptr %agg.tmp.i52, i64 0, i32 1
+  %_M_invoker.i.i53 = getelementptr inbounds i8, ptr %agg.tmp.i52, i64 24
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1E9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om", ptr %_M_invoker.i.i53, align 8, !noalias !48
-  %_M_manager.i.i.i58 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i52, i64 0, i32 1
+  %_M_manager.i.i.i58 = getelementptr inbounds i8, ptr %agg.tmp.i52, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i52, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp42, i64 16, i1 false), !noalias !48
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime28replaceNondeterministicFuncsEvE3$_1E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i.i58, align 8, !noalias !48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i49, i8 0, i64 16, i1 false), !noalias !48
   %vtable.i60 = load ptr, ptr %this, align 8, !noalias !48
-  %vfn.i61 = getelementptr inbounds ptr, ptr %vtable.i60, i64 60
+  %vfn.i61 = getelementptr inbounds i8, ptr %vtable.i60, i64 480
   %44 = load ptr, ptr %vfn.i61, align 8, !noalias !48
   invoke void %44(ptr nonnull sret(%"class.facebook::jsi::Function") align 8 %callUntracedSimpleObjects, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp40, i32 noundef 3, ptr noundef nonnull %agg.tmp.i52)
           to label %invoke.cont.i69 unwind label %lpad.i62
@@ -1310,7 +1243,7 @@ terminate.lpad.i.i86:                             ; preds = %if.then.i.i84
 
 _ZN8facebook3jsi10PropNameIDD2Ev.exit87:          ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit82, %if.then.i.i84
   %vtable54 = load ptr, ptr %this, align 8
-  %vfn55 = getelementptr inbounds ptr, ptr %vtable54, i64 6
+  %vfn55 = getelementptr inbounds i8, ptr %vtable54, i64 48
   %59 = load ptr, ptr %vfn55, align 8
   invoke void %59(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(24) %this)
           to label %invoke.cont57 unwind label %lpad56
@@ -1323,9 +1256,9 @@ invoke.cont59:                                    ; preds = %invoke.cont57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i89)
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %vtable.i.i.i.i91 = load ptr, ptr %this, align 8, !noalias !54
-  %vfn.i.i.i.i92 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i91, i64 28
+  %vfn.i.i.i.i92 = getelementptr inbounds i8, ptr %vtable.i.i.i.i91, i64 224
   %60 = load ptr, ptr %vfn.i.i.i.i92, align 8, !noalias !54
-  %data_.i.i.i93 = getelementptr inbounds %"class.facebook::jsi::Value", ptr %ref.tmp.i89, i64 0, i32 1
+  %data_.i.i.i93 = getelementptr inbounds i8, ptr %ref.tmp.i89, i64 8
   invoke void %60(ptr nonnull sret(%"class.facebook::jsi::String") align 8 %data_.i.i.i93, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.4, i64 noundef 528)
           to label %.noexc97 unwind label %lpad60
 
@@ -1334,7 +1267,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i88), !noalias !62
   store i32 0, ptr %ref.tmp.i.i.i88, align 8, !alias.scope !65, !noalias !68
   %vtable.i.i.i94 = load ptr, ptr %this, align 8, !noalias !68
-  %vfn.i.i.i95 = getelementptr inbounds ptr, ptr %vtable.i.i.i94, i64 61
+  %vfn.i.i.i95 = getelementptr inbounds i8, ptr %vtable.i.i.i94, i64 488
   %61 = load ptr, ptr %vfn.i.i.i95, align 8, !noalias !68
   invoke void %61(ptr nonnull sret(%"class.facebook::jsi::Value") align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i88, ptr noundef nonnull %ref.tmp.i89, i64 noundef 1)
           to label %invoke.cont61 unwind label %lpad.i.i.i96
@@ -1360,14 +1293,14 @@ invoke.cont63:                                    ; preds = %invoke.cont61
 
 invoke.cont71:                                    ; preds = %invoke.cont63
   store i32 7, ptr %ref.tmp67, align 8
-  %data_.i101 = getelementptr inbounds %"class.facebook::jsi::Value", ptr %ref.tmp67, i64 0, i32 1
+  %data_.i101 = getelementptr inbounds i8, ptr %ref.tmp67, i64 8
   %63 = load ptr, ptr %callUntracedSimpleObjects, align 8
   store ptr %63, ptr %data_.i101, align 8
   store ptr null, ptr %callUntracedSimpleObjects, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i102), !noalias !71
   store i32 0, ptr %ref.tmp.i.i102, align 8, !alias.scope !74, !noalias !77
   %vtable.i.i103 = load ptr, ptr %this, align 8, !noalias !77
-  %vfn.i.i104 = getelementptr inbounds ptr, ptr %vtable.i.i103, i64 61
+  %vfn.i.i104 = getelementptr inbounds i8, ptr %vtable.i.i103, i64 488
   %64 = load ptr, ptr %vfn.i.i104, align 8, !noalias !77
   invoke void %64(ptr nonnull sret(%"class.facebook::jsi::Value") align 8 %agg.tmp.ensured48, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp49, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i102, ptr noundef nonnull %ref.tmp67, i64 noundef 1)
           to label %invoke.cont83 unwind label %lpad.i.i105
@@ -1459,8 +1392,8 @@ terminate.lpad.i.i126:                            ; preds = %if.then.i.i124
   unreachable
 
 _ZN8facebook3jsi6ObjectD2Ev.exit127:              ; preds = %_ZN8facebook3jsi8FunctionD2Ev.exit122, %if.then.i.i124
-  %records_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 56
   %83 = load ptr, ptr %_M_finish.i, align 8
   %84 = load ptr, ptr %records_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %83 to i64
@@ -1468,7 +1401,7 @@ _ZN8facebook3jsi6ObjectD2Ev.exit127:              ; preds = %_ZN8facebook3jsi8Fu
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
   %conv = trunc i64 %sub.ptr.div.i to i32
-  %numPreambleRecords_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 5
+  %numPreambleRecords_ = getelementptr inbounds i8, ptr %this, i64 168
   store i32 %conv, ptr %numPreambleRecords_, align 8
   %85 = load ptr, ptr %callUntracedSimpleObjects, align 8
   %tobool.not.i.i.i128 = icmp eq ptr %85, null
@@ -1841,23 +1774,23 @@ entry:
   store i8 0, ptr %sourceIsBytecode, align 1
   %0 = load ptr, ptr %buffer, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %2 = load ptr, ptr %buffer, align 8
   %vtable4 = load ptr, ptr %2, align 8
-  %vfn5 = getelementptr inbounds ptr, ptr %vtable4, i64 2
+  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 16
   %3 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %call7 = tail call noundef zeroext i1 @_ZN8facebook6hermes13HermesRuntime16isHermesBytecodeEPKhm(ptr noundef %call2, i64 noundef %call6)
   %4 = load ptr, ptr %buffer, align 8
   %vtable9 = load ptr, ptr %4, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 3
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 24
   %5 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %6 = load ptr, ptr %buffer, align 8
   %vtable13 = load ptr, ptr %6, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 2
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 16
   %7 = load ptr, ptr %vfn14, align 8
   %call15 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
   br i1 %call7, label %if.then, label %if.else
@@ -1874,18 +1807,18 @@ if.else:                                          ; preds = %entry
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then, %if.else
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp28, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17BeginExecJSRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt5arrayIhLm20EERbEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, ptr noundef nonnull align 1 dereferenceable(1) %sourceIsBytecode)
-  %plain_.i.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %plain_.i.i, align 8, !noalias !80
   %vtable.i = load ptr, ptr %8, align 8, !noalias !80
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %9 = load ptr, ptr %vfn.i, align 8, !noalias !80
   call void %9(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(16) %buffer, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL)
   %call.i10 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
@@ -1899,7 +1832,7 @@ invoke.cont:                                      ; preds = %if.then, %if.else
 invoke.cont35:                                    ; preds = %invoke.cont
   %10 = extractvalue { i32, i64 } %call36, 0
   store i32 %10, ptr %ref.tmp34, align 8
-  %11 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp34, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
   %12 = extractvalue { i32, i64 } %call36, 1
   store i64 %12, ptr %11, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_15EndExecJSRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp34)
@@ -1932,7 +1865,7 @@ define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplac
 entry:
   %agg.tmp92.sroa.0 = alloca [20 x i8], align 8
   %agg.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8, ptr noundef nonnull align 8 dereferenceable(32) %args1)
@@ -1943,19 +1876,19 @@ invoke.cont11:                                    ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp92.sroa.0, ptr noundef nonnull align 1 dereferenceable(20) %args3, i64 20, i1 false)
   %0 = load i8, ptr %args5, align 1
   %1 = and i8 %0, 1
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17BeginExecJSRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %sourceURL_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %call, i64 0, i32 1
+  %sourceURL_.i = getelementptr inbounds i8, ptr %call, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %sourceURL_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp8) #28
-  %sourceHash_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %call, i64 0, i32 2
+  %sourceHash_.i = getelementptr inbounds i8, ptr %call, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %sourceHash_.i, ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp92.sroa.0, i64 20, i1 false)
-  %sourceIsBytecode_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BeginExecJSRecord", ptr %call, i64 0, i32 3
+  %sourceIsBytecode_.i = getelementptr inbounds i8, ptr %call, i64 68
   store i8 %1, ptr %sourceIsBytecode_.i, align 4
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %agg.tmp92.sroa.0)
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -1963,7 +1896,7 @@ invoke.cont11:                                    ; preds = %entry
 if.then.i:                                        ; preds = %invoke.cont11
   store ptr %call, ptr %2, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %invoke.cont12
 
@@ -2013,14 +1946,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !86, !noalias !83
   store i64 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !83, !noalias !86
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !86, !noalias !83
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i3 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i3 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %.noexc, label %if.then.i20.i
 
@@ -2061,7 +1994,7 @@ eh.resume:                                        ; preds = %ehcleanup, %cleanup
 define hidden i64 @_ZNK8facebook6hermes7tracing14TracingRuntime17getTimeSinceStartEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_ = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %startTime_, align 8
   %sub.i.i = sub nsw i64 %call, %retval.sroa.0.0.copyload.i1.i
   %div.i.i = sdiv i64 %sub.i.i, 1000000
@@ -2080,10 +2013,10 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -2091,7 +2024,7 @@ invoke.cont:                                      ; preds = %entry
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_15EndExecJSRecordEEEERS8_DpOT_.exit
 
@@ -2138,14 +2071,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %4 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !92, !noalias !89
   store i64 %4, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !89, !noalias !92
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !92, !noalias !89
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i2 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i2 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_15EndExecJSRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -2199,7 +2132,7 @@ if.then4:                                         ; preds = %entry
   br label %return
 
 if.then8:                                         ; preds = %entry
-  %data_.i = getelementptr inbounds %"class.facebook::jsi::Value", ptr %value, i64 0, i32 1
+  %data_.i = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load i8, ptr %data_.i, align 8
   %2 = and i8 %1, 1
   %tobool.i = icmp ne i8 %2, 0
@@ -2207,22 +2140,22 @@ if.then8:                                         ; preds = %entry
   br label %return
 
 if.then13:                                        ; preds = %entry
-  %data_.i19 = getelementptr inbounds %"class.facebook::jsi::Value", ptr %value, i64 0, i32 1
+  %data_.i19 = getelementptr inbounds i8, ptr %value, i64 8
   %3 = load double, ptr %data_.i19, align 8
   %call15 = tail call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace12encodeNumberEd(double noundef %3)
   br label %return
 
 if.then18:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  %data_.i21 = getelementptr inbounds %"class.facebook::jsi::Value", ptr %value, i64 0, i32 1
+  %data_.i21 = getelementptr inbounds i8, ptr %value, i64 8
   %4 = load ptr, ptr %data_.i21, align 8, !noalias !94
   %vtable.i = load ptr, ptr %this, align 8, !noalias !94
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 11
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
   %5 = load ptr, ptr %vfn.i, align 8, !noalias !94
   %call.i = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %4), !noalias !94
   store ptr %call.i, ptr %ref.tmp, align 8, !alias.scope !94
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 84
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 672
   %6 = load ptr, ptr %vfn, align 8
   %call19 = invoke noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2271,15 +2204,15 @@ terminate.lpad.i.i25:                             ; preds = %if.then.i.i23
 
 if.then24:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  %data_.i28 = getelementptr inbounds %"class.facebook::jsi::Value", ptr %value, i64 0, i32 1
+  %data_.i28 = getelementptr inbounds i8, ptr %value, i64 8
   %16 = load ptr, ptr %data_.i28, align 8, !noalias !97
   %vtable.i29 = load ptr, ptr %this, align 8, !noalias !97
-  %vfn.i30 = getelementptr inbounds ptr, ptr %vtable.i29, i64 12
+  %vfn.i30 = getelementptr inbounds i8, ptr %vtable.i29, i64 96
   %17 = load ptr, ptr %vfn.i30, align 8, !noalias !97
   %call.i31 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %16), !noalias !97
   store ptr %call.i31, ptr %ref.tmp26, align 8, !alias.scope !97
   %vtable27 = load ptr, ptr %this, align 8
-  %vfn28 = getelementptr inbounds ptr, ptr %vtable27, i64 85
+  %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 680
   %18 = load ptr, ptr %vfn28, align 8
   %call31 = invoke noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26)
           to label %invoke.cont30 unwind label %lpad29
@@ -2328,15 +2261,15 @@ terminate.lpad.i.i39:                             ; preds = %if.then.i.i37
 
 if.then36:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  %data_.i42 = getelementptr inbounds %"class.facebook::jsi::Value", ptr %value, i64 0, i32 1
+  %data_.i42 = getelementptr inbounds i8, ptr %value, i64 8
   %28 = load ptr, ptr %data_.i42, align 8, !noalias !100
   %vtable.i43 = load ptr, ptr %this, align 8, !noalias !100
-  %vfn.i44 = getelementptr inbounds ptr, ptr %vtable.i43, i64 13
+  %vfn.i44 = getelementptr inbounds i8, ptr %vtable.i43, i64 104
   %29 = load ptr, ptr %vfn.i44, align 8, !noalias !100
   %call.i45 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %28), !noalias !100
   store ptr %call.i45, ptr %ref.tmp37, align 8, !alias.scope !100
   %vtable38 = load ptr, ptr %this, align 8
-  %vfn39 = getelementptr inbounds ptr, ptr %vtable38, i64 83
+  %vfn39 = getelementptr inbounds i8, ptr %vtable38, i64 664
   %30 = load ptr, ptr %vfn39, align 8
   %call42 = invoke noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp37)
           to label %invoke.cont41 unwind label %lpad40
@@ -2385,15 +2318,15 @@ terminate.lpad.i.i53:                             ; preds = %if.then.i.i51
 
 if.then47:                                        ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %data_.i56 = getelementptr inbounds %"class.facebook::jsi::Value", ptr %value, i64 0, i32 1
+  %data_.i56 = getelementptr inbounds i8, ptr %value, i64 8
   %40 = load ptr, ptr %data_.i56, align 8, !noalias !103
   %vtable.i57 = load ptr, ptr %this, align 8, !noalias !103
-  %vfn.i58 = getelementptr inbounds ptr, ptr %vtable.i57, i64 10
+  %vfn.i58 = getelementptr inbounds i8, ptr %vtable.i57, i64 80
   %41 = load ptr, ptr %vfn.i58, align 8, !noalias !103
   %call.i59 = tail call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %40), !noalias !103
   store ptr %call.i59, ptr %ref.tmp48, align 8, !alias.scope !103
   %vtable49 = load ptr, ptr %this, align 8
-  %vfn50 = getelementptr inbounds ptr, ptr %vtable49, i64 87
+  %vfn50 = getelementptr inbounds i8, ptr %vtable49, i64 696
   %42 = load ptr, ptr %vfn50, align 8
   %call53 = invoke noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp48)
           to label %invoke.cont52 unwind label %lpad51
@@ -2470,15 +2403,15 @@ entry:
   %maxMicrotasksHint.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.std::chrono::duration.37", align 8
   store i32 %maxMicrotasksHint, ptr %maxMicrotasksHint.addr, align 4
-  %plain_.i.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %maxMicrotasksHint)
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
@@ -2490,18 +2423,18 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_21DrainMicrotasksRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERiEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i32, ptr %args1, align 4
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace21DrainMicrotasksRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %maxMicrotasksHint_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::DrainMicrotasksRecord", ptr %call, i64 0, i32 1
+  %maxMicrotasksHint_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %0, ptr %maxMicrotasksHint_.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -2509,7 +2442,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_21DrainMicrotasksRecordEEEERS8_DpOT_.exit
 
@@ -2556,14 +2489,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !109, !noalias !106
   store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !106, !noalias !109
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !109, !noalias !106
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_21DrainMicrotasksRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -2588,26 +2521,26 @@ define hidden void @_ZN8facebook6hermes7tracing14TracingRuntime12createObjectEv(
 invoke.cont:
   %ref.tmp = alloca %"class.std::chrono::duration.37", align 8
   %ref.tmp2 = alloca i64, align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !111
   %vtable.i = load ptr, ptr %0, align 8, !noalias !111
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 256
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !111
   tail call void %1(ptr sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %call4, ptr %ref.tmp2, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_18CreateObjectRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2)
           to label %nrvo.skipdtor unwind label %lpad
@@ -2642,18 +2575,18 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_18CreateObjectRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateObjectRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %objID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord", ptr %call, i64 0, i32 1
+  %objID_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -2661,7 +2594,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_18CreateObjectRecordEEEERS8_DpOT_.exit
 
@@ -2708,14 +2641,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !117, !noalias !114
   store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !114, !noalias !117
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !117, !noalias !114
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_18CreateObjectRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -2745,22 +2678,22 @@ entry:
   %0 = getelementptr i8, ptr %ho, i64 8
   %ho.val2 = load ptr, ptr %0, align 8
   %call5.i.i.i5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31, !noalias !119
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !119
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !119
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i, align 8, !noalias !119
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.144", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %ho.val2, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %_ZZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS_3jsi10HostObjectEEEN17TracingHostObjectCI2NS4_19DecoratedHostObjectEERNS4_7RuntimeES6_.exit.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %ho.val2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ho.val2, i64 8
   %1 = load i8, ptr @__libc_single_threaded, align 1, !noalias !119
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %1, 0
-  %drt_.i.i2.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.144", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %plainHO_.i.i3.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.144", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
-  %_M_refcount.i.i.i.i4.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.144", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %drt_.i.i2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 24
+  %plainHO_.i.i3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 32
+  %_M_refcount.i.i.i.i4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 40
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i1.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i1.i.i.thread.i.i.i.i.i
 
 if.then.i.i.i.i.i1.i.i.thread.i.i.i.i.i:          ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
@@ -2796,11 +2729,11 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i1.
   br label %if.then.i.i.i4.i.i.i.i.i.i.i
 
 _ZZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS_3jsi10HostObjectEEEN17TracingHostObjectCI2NS4_19DecoratedHostObjectEERNS4_7RuntimeES6_.exit.i.i.i.i.i.i.i: ; preds = %entry
-  %drt_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.144", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %drt_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 24
   store ptr %this, ptr %drt_.i.i.i.i.i.i.i.i.i, align 8, !noalias !119
-  %plainHO_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.144", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
+  %plainHO_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 32
   store ptr %ho.val, ptr %plainHO_.i.i.i.i.i.i.i.i.i, align 8, !noalias !119
-  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.144", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 40
   store ptr null, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !119
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS_3jsi10HostObjectEEE17TracingHostObject, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !119
   br label %if.then.i.i.i
@@ -2814,10 +2747,10 @@ if.then.i.i.i4.i.i.i.i.i.i.i:                     ; preds = %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i4.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !119
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %ho.val2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ho.val2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !119
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %ho.val2, align 8, !noalias !119
-  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !119
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %ho.val2) #28, !noalias !119
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i
@@ -2843,10 +2776,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; pre
 
 if.then7.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %ho.val2, align 8, !noalias !119
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !119
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %ho.val2) #28, !noalias !119
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %ho.val2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ho.val2, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1, !noalias !119
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i10.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i8.i.i.i.i.i.i.i
@@ -2868,16 +2801,16 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ;
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %ho.val2, align 8, !noalias !119
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !119
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %ho.val2) #28, !noalias !119
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS_3jsi10HostObjectEEEN17TracingHostObjectCI2NS4_19DecoratedHostObjectEERNS4_7RuntimeES6_.exit.i.i.i.i.i.i.i
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %17 = load ptr, ptr %plain_.i, align 8
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.tmp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.40", ptr %agg.tmp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %call5.i.i.i5.i.i.i.i, ptr %_M_refcount.i.i, align 8
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %18, 0
@@ -2903,7 +2836,7 @@ invoke.cont3:                                     ; preds = %_ZNSt10shared_ptrIN
   br i1 %cmp.not.i.i.i6, label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit, label %if.then.i.i.i7
 
 if.then.i.i.i7:                                   ; preds = %invoke.cont3
-  %_M_use_count.i.i.i.i8 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i64 0, i32 1
+  %_M_use_count.i.i.i.i8 = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load atomic i64, ptr %_M_use_count.i.i.i.i8 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %22, 4294967297
   %23 = trunc i64 %22 to i32
@@ -2911,10 +2844,10 @@ if.then.i.i.i7:                                   ; preds = %invoke.cont3
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i7
   store i32 0, ptr %_M_use_count.i.i.i.i8, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %21, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %24 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %21) #28
   br label %if.end8.sink.split.i.i.i.i
@@ -2940,10 +2873,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %21, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %27 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %21) #28
-  %_M_weak_count.i.i.i.i.i.i11 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %21, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %21, i64 12
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %28, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -2965,35 +2898,35 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %21, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %31 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(16) %21) #28
   br label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit
 
 _ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit: ; preds = %invoke.cont3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %32 = load ptr, ptr %vfn, align 8
   %call7 = invoke noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont9 unwind label %lpad5
 
 invoke.cont9:                                     ; preds = %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit
-  %objID_.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.144", ptr %call5.i.i.i5.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
+  %objID_.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i, i64 48
   store i64 %call7, ptr %objID_.i, align 8
   %call.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable12 = load ptr, ptr %this, align 8
-  %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 83
+  %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 664
   %33 = load ptr, ptr %vfn13, align 8
   %call15 = invoke noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont14 unwind label %lpad5
 
 invoke.cont14:                                    ; preds = %invoke.cont9
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %call15, ptr %ref.tmp11, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22CreateHostObjectRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp11)
           to label %if.then.i.i.i14 unwind label %lpad5
@@ -3034,7 +2967,7 @@ if.then.i.i.i.i39:                                ; preds = %if.then.i.i.i14
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i41 = load ptr, ptr %call5.i.i.i5.i.i.i.i, align 8
-  %vfn.i.i.i.i42 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i41, i64 2
+  %vfn.i.i.i.i42 = getelementptr inbounds i8, ptr %vtable.i.i.i.i41, i64 16
   %42 = load ptr, ptr %vfn.i.i.i.i42, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i5.i.i.i.i) #28
   br label %if.end8.sink.split.i.i.i.i34
@@ -3060,7 +2993,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i21: ; preds = %if.els
 
 if.then7.i.i.i.i24:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i21
   %vtable.i.i.i.i.i.i25 = load ptr, ptr %call5.i.i.i5.i.i.i.i, align 8
-  %vfn.i.i.i.i.i.i26 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i25, i64 2
+  %vfn.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i25, i64 16
   %45 = load ptr, ptr %vfn.i.i.i.i.i.i26, align 8
   call void %45(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i5.i.i.i.i) #28
   %46 = load i8, ptr @__libc_single_threaded, align 1
@@ -3084,7 +3017,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i31: ; preds = %if
 
 if.end8.sink.split.i.i.i.i34:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i31, %if.then.i.i.i.i39
   %vtable2.i.i.i.i.i.i35 = load ptr, ptr %call5.i.i.i5.i.i.i.i, align 8
-  %vfn3.i.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i35, i64 3
+  %vfn3.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i35, i64 24
   %49 = load ptr, ptr %vfn3.i.i.i.i.i.i36, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i5.i.i.i.i) #28
   br label %_ZNSt10shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectES_INS0_3jsi10HostObjectEEE17TracingHostObjectED2Ev.exit
@@ -3104,15 +3037,15 @@ entry:
   %agg.tmp = alloca %"class.std::shared_ptr.39", align 8
   %0 = load ptr, ptr %ho, align 8
   store ptr %0, ptr %agg.tmp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.40", ptr %agg.tmp, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr.40", ptr %ho, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %ho, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3129,7 +3062,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNSt10shared_ptrIN8facebook3jsi10HostObjectEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %vtable = load ptr, ptr %runtime, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 33
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 264
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %runtime, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -3140,7 +3073,7 @@ invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN
   br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 1
+  %_M_use_count.i.i.i.i4 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i.i.i.i4 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -3148,10 +3081,10 @@ if.then.i.i.i3:                                   ; preds = %invoke.cont
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i4, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #28
   br label %if.end8.sink.split.i.i.i.i
@@ -3177,10 +3110,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #28
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -3202,7 +3135,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #28
   br label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit
@@ -3220,13 +3153,13 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.40", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook3jsi10HostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -3234,10 +3167,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %if.end8.sink.split.i.i.i
@@ -3263,10 +3196,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -3288,7 +3221,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %_ZNSt12__shared_ptrIN8facebook3jsi10HostObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -3300,18 +3233,18 @@ _ZNSt12__shared_ptrIN8facebook3jsi10HostObjectELN9__gnu_cxx12_Lock_policyE2EED2E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22CreateHostObjectRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
-  %time_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
-  %objID_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord", ptr %call, i64 0, i32 1
+  %objID_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreateHostObjectRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -3319,7 +3252,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_22CreateHostObjectRecordEEEERS8_DpOT_.exit
 
@@ -3366,14 +3299,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !125, !noalias !122
   store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !122, !noalias !125
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !125, !noalias !122
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_22CreateHostObjectRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -3400,7 +3333,7 @@ entry:
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this.8.val, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
   %0 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %0, 4294967297
   %1 = trunc i64 %0 to i32
@@ -3408,10 +3341,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this.8.val, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %this.8.val, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #28
   br label %if.end8.sink.split.i.i.i
@@ -3437,10 +3370,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #28
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this.8.val, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -3462,7 +3395,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %this.8.val, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %this.8.val) #28
   br label %_ZNSt12__shared_ptrIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -3479,26 +3412,26 @@ invoke.cont:
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp5 = alloca i32, align 4
   store i64 %value, ptr %value.addr, align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !127
   %vtable.i = load ptr, ptr %0, align 8, !noalias !127
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 22
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 176
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !127
   tail call void %1(ptr sret(%"class.facebook::jsi::BigInt") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %value)
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 84
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 672
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %call4, ptr %ref.tmp2, align 8
   store i32 0, ptr %ref.tmp5, align 4
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_18CreateBigIntRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS4_6MethodERlEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(8) %value.addr)
@@ -3534,24 +3467,24 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_18CreateBigIntRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS4_6MethodERlEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3, ptr noundef nonnull align 8 dereferenceable(8) %args5) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
   %1 = load i32, ptr %args3, align 4
   %2 = load i64, ptr %args5, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateBigIntRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %objID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %call, i64 0, i32 1
+  %objID_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i, align 8
-  %method_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %call, i64 0, i32 2
+  %method_.i = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %1, ptr %method_.i, align 8
-  %bits_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %call, i64 0, i32 3
+  %bits_.i = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %2, ptr %bits_.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -3559,7 +3492,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %3, align 8
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_18CreateBigIntRecordEEEERS8_DpOT_.exit
 
@@ -3606,14 +3539,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %7 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !133, !noalias !130
   store i64 %7, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !130, !noalias !133
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !133, !noalias !130
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_18CreateBigIntRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -3641,26 +3574,26 @@ invoke.cont:
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp5 = alloca i32, align 4
   store i64 %value, ptr %value.addr, align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !135
   %vtable.i = load ptr, ptr %0, align 8, !noalias !135
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 23
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 184
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !135
   tail call void %1(ptr sret(%"class.facebook::jsi::BigInt") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %value)
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 84
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 672
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %call4, ptr %ref.tmp2, align 8
   store i32 1, ptr %ref.tmp5, align 4
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_18CreateBigIntRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS4_6MethodERmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(8) %value.addr)
@@ -3696,24 +3629,24 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_18CreateBigIntRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS4_6MethodERmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 4 dereferenceable(4) %args3, ptr noundef nonnull align 8 dereferenceable(8) %args5) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
   %1 = load i32, ptr %args3, align 4
   %2 = load i64, ptr %args5, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateBigIntRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %objID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %call, i64 0, i32 1
+  %objID_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i, align 8
-  %method_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %call, i64 0, i32 2
+  %method_.i = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %1, ptr %method_.i, align 8
-  %bits_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateBigIntRecord", ptr %call, i64 0, i32 3
+  %bits_.i = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %2, ptr %bits_.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -3721,7 +3654,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %3, align 8
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_18CreateBigIntRecordEEEERS8_DpOT_.exit
 
@@ -3768,14 +3701,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %7 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !141, !noalias !138
   store i64 %7, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !138, !noalias !141
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !141, !noalias !138
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_18CreateBigIntRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -3803,21 +3736,21 @@ invoke.cont:
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp5 = alloca i64, align 8
   store i32 %radix, ptr %radix.addr, align 4
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !143
   %vtable.i = load ptr, ptr %0, align 8, !noalias !143
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 27
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 216
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !143
   tail call void %1(ptr sret(%"class.facebook::jsi::String") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %bigint, i32 noundef %radix)
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 85
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 680
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont3 unwind label %lpad
@@ -3825,7 +3758,7 @@ invoke.cont:
 invoke.cont3:                                     ; preds = %invoke.cont
   store i64 %call4, ptr %ref.tmp2, align 8
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 84
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 672
   %3 = load ptr, ptr %vfn7, align 8
   %call9 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %bigint)
           to label %invoke.cont8 unwind label %lpad
@@ -3865,24 +3798,24 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_20BigIntToStringRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmmRiEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
   %1 = load i64, ptr %args3, align 8
   %2 = load i32, ptr %args5, align 4
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20BigIntToStringRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %strID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %call, i64 0, i32 1
+  %strID_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %strID_.i, align 8
-  %bigintID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %call, i64 0, i32 2
+  %bigintID_.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %1, ptr %bigintID_.i, align 8
-  %radix_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::BigIntToStringRecord", ptr %call, i64 0, i32 3
+  %radix_.i = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %2, ptr %radix_.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -3890,7 +3823,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %3, align 8
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_20BigIntToStringRecordEEEERS8_DpOT_.exit
 
@@ -3937,14 +3870,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %7 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !149, !noalias !146
   store i64 %7, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !146, !noalias !149
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !149, !noalias !146
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_20BigIntToStringRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -3973,26 +3906,26 @@ invoke.cont:
   %ref.tmp2 = alloca i64, align 8
   store ptr %str, ptr %str.addr, align 8
   store i64 %length, ptr %length.addr, align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !151
   %vtable.i = load ptr, ptr %0, align 8, !noalias !151
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 28
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 224
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !151
   tail call void %1(ptr sret(%"class.facebook::jsi::String") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %str, i64 noundef %length)
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 85
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 680
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %call4, ptr %ref.tmp2, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_18CreateStringRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmRPKcRmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %str.addr, ptr noundef nonnull align 8 dereferenceable(8) %length.addr)
           to label %nrvo.skipdtor unwind label %lpad
@@ -4034,12 +3967,12 @@ entry:
   %1 = load ptr, ptr %args3, align 8
   %2 = load i64, ptr %args5, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateStringRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %objID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %call, i64 0, i32 1
+  %objID_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i, align 8
-  %chars_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %call, i64 0, i32 2
+  %chars_.i = getelementptr inbounds i8, ptr %call, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %chars_.i, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont unwind label %lpad.i
@@ -4053,13 +3986,13 @@ lpad.i:                                           ; preds = %entry
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #28
-  %ascii_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %call, i64 0, i32 3
+  %ascii_.i = getelementptr inbounds i8, ptr %call, i64 56
   store i8 1, ptr %ascii_.i, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -4067,7 +4000,7 @@ invoke.cont:                                      ; preds = %entry
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call, ptr %4, align 8
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %6, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_18CreateStringRecordEEEERS8_DpOT_.exit
 
@@ -4114,14 +4047,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %8 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !157, !noalias !154
   store i64 %8, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !154, !noalias !157
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !157, !noalias !154
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_18CreateStringRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -4150,26 +4083,26 @@ invoke.cont:
   %ref.tmp2 = alloca i64, align 8
   store ptr %utf8, ptr %utf8.addr, align 8
   store i64 %length, ptr %length.addr, align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !159
   %vtable.i = load ptr, ptr %0, align 8, !noalias !159
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 29
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 232
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !159
   tail call void %1(ptr sret(%"class.facebook::jsi::String") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %utf8, i64 noundef %length)
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 85
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 680
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %call4, ptr %ref.tmp2, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_18CreateStringRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmRPKhRmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %utf8.addr, ptr noundef nonnull align 8 dereferenceable(8) %length.addr)
           to label %nrvo.skipdtor unwind label %lpad
@@ -4211,12 +4144,12 @@ entry:
   %1 = load ptr, ptr %args3, align 8
   %2 = load i64, ptr %args5, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CreateStringRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %objID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %call, i64 0, i32 1
+  %objID_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i, align 8
-  %chars_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %call, i64 0, i32 2
+  %chars_.i = getelementptr inbounds i8, ptr %call, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %chars_.i, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont unwind label %lpad.i
@@ -4230,13 +4163,13 @@ lpad.i:                                           ; preds = %entry
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #28
-  %ascii_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateStringRecord", ptr %call, i64 0, i32 3
+  %ascii_.i = getelementptr inbounds i8, ptr %call, i64 56
   store i8 0, ptr %ascii_.i, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -4244,7 +4177,7 @@ invoke.cont:                                      ; preds = %entry
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call, ptr %4, align 8
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %6, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_18CreateStringRecordEEEERS8_DpOT_.exit
 
@@ -4291,14 +4224,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %8 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !165, !noalias !162
   store i64 %8, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !162, !noalias !165
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !165, !noalias !162
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_18CreateStringRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -4327,26 +4260,26 @@ invoke.cont:
   %ref.tmp2 = alloca i64, align 8
   store ptr %str, ptr %str.addr, align 8
   store i64 %length, ptr %length.addr, align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !167
   %vtable.i = load ptr, ptr %0, align 8, !noalias !167
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 15
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 120
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !167
   tail call void %1(ptr sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %str, i64 noundef %length)
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 86
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 688
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %call4, ptr %ref.tmp2, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22CreatePropNameIDRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmRPKcRmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %str.addr, ptr noundef nonnull align 8 dereferenceable(8) %length.addr)
           to label %nrvo.skipdtor unwind label %lpad
@@ -4388,12 +4321,12 @@ entry:
   %1 = load ptr, ptr %args3, align 8
   %2 = load i64, ptr %args5, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %propNameID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %call, i64 0, i32 1
+  %propNameID_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %propNameID_.i, align 8
-  %chars_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %call, i64 0, i32 2
+  %chars_.i = getelementptr inbounds i8, ptr %call, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %chars_.i, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont unwind label %lpad.i
@@ -4407,15 +4340,15 @@ lpad.i:                                           ; preds = %entry
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #28
-  %traceValue_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %call, i64 0, i32 3
+  %traceValue_.i = getelementptr inbounds i8, ptr %call, i64 56
   store i32 0, ptr %traceValue_.i, align 8
-  %valueType_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %call, i64 0, i32 4
+  %valueType_.i = getelementptr inbounds i8, ptr %call, i64 72
   store i32 0, ptr %valueType_.i, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -4423,7 +4356,7 @@ invoke.cont:                                      ; preds = %entry
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call, ptr %4, align 8
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %6, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_22CreatePropNameIDRecordEEEERS8_DpOT_.exit
 
@@ -4470,14 +4403,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %8 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !173, !noalias !170
   store i64 %8, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !170, !noalias !173
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !173, !noalias !170
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_22CreatePropNameIDRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -4506,26 +4439,26 @@ invoke.cont:
   %ref.tmp2 = alloca i64, align 8
   store ptr %utf8, ptr %utf8.addr, align 8
   store i64 %length, ptr %length.addr, align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !175
   %vtable.i = load ptr, ptr %0, align 8, !noalias !175
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 128
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !175
   tail call void %1(ptr sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %utf8, i64 noundef %length)
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 86
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 688
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %call4, ptr %ref.tmp2, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22CreatePropNameIDRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmRPKhRmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %utf8.addr, ptr noundef nonnull align 8 dereferenceable(8) %length.addr)
           to label %nrvo.skipdtor unwind label %lpad
@@ -4567,12 +4500,12 @@ entry:
   %1 = load ptr, ptr %args3, align 8
   %2 = load i64, ptr %args5, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %propNameID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %call, i64 0, i32 1
+  %propNameID_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %propNameID_.i, align 8
-  %chars_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %call, i64 0, i32 2
+  %chars_.i = getelementptr inbounds i8, ptr %call, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #28
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %chars_.i, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont unwind label %lpad.i
@@ -4586,15 +4519,15 @@ lpad.i:                                           ; preds = %entry
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #28
-  %traceValue_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %call, i64 0, i32 3
+  %traceValue_.i = getelementptr inbounds i8, ptr %call, i64 56
   store i32 0, ptr %traceValue_.i, align 8
-  %valueType_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %call, i64 0, i32 4
+  %valueType_.i = getelementptr inbounds i8, ptr %call, i64 72
   store i32 1, ptr %valueType_.i, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -4602,7 +4535,7 @@ invoke.cont:                                      ; preds = %entry
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call, ptr %4, align 8
   %6 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %6, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_22CreatePropNameIDRecordEEEERS8_DpOT_.exit
 
@@ -4649,14 +4582,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %8 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !181, !noalias !178
   store i64 %8, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !178, !noalias !181
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !181, !noalias !178
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_22CreatePropNameIDRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -4682,21 +4615,21 @@ invoke.cont:
   %ref.tmp = alloca %"class.std::chrono::duration.37", align 8
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp5 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !183
   %vtable.i = load ptr, ptr %0, align 8, !noalias !183
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 17
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 136
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !183
   tail call void %1(ptr sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %str)
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 86
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 688
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont3 unwind label %lpad
@@ -4704,7 +4637,7 @@ invoke.cont:
 invoke.cont3:                                     ; preds = %invoke.cont
   store i64 %call4, ptr %ref.tmp2, align 8
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 85
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 680
   %3 = load ptr, ptr %vfn7, align 8
   %call9 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %str)
           to label %invoke.cont8 unwind label %lpad
@@ -4716,7 +4649,7 @@ invoke.cont8:                                     ; preds = %invoke.cont3
 invoke.cont10:                                    ; preds = %invoke.cont8
   %4 = extractvalue { i32, i64 } %call11, 0
   store i32 %4, ptr %ref.tmp5, align 8
-  %5 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp5, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %6 = extractvalue { i32, i64 } %call11, 1
   store i64 %6, ptr %5, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22CreatePropNameIDRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5)
@@ -4752,29 +4685,29 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22CreatePropNameIDRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(16) %args3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
   %agg.tmp6.sroa.0.0.copyload = load i32, ptr %args3, align 8
   %agg.tmp6.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %args3, i64 8
   %agg.tmp6.sroa.21.0.copyload = load i64, ptr %agg.tmp6.sroa.21.0..sroa_idx, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22CreatePropNameIDRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %propNameID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %call, i64 0, i32 1
+  %propNameID_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %propNameID_.i, align 8
-  %chars_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %call, i64 0, i32 2
+  %chars_.i = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %chars_.i) #28
-  %traceValue_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %call, i64 0, i32 3
+  %traceValue_.i = getelementptr inbounds i8, ptr %call, i64 56
   store i32 %agg.tmp6.sroa.0.0.copyload, ptr %traceValue_.i, align 8
-  %traceValue.sroa.21.0.traceValue_.sroa_idx.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %call, i64 0, i32 3, i32 1
+  %traceValue.sroa.21.0.traceValue_.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 64
   store i64 %agg.tmp6.sroa.21.0.copyload, ptr %traceValue.sroa.21.0.traceValue_.sroa_idx.i, align 8
-  %valueType_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreatePropNameIDRecord", ptr %call, i64 0, i32 4
+  %valueType_.i = getelementptr inbounds i8, ptr %call, i64 72
   store i32 2, ptr %valueType_.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -4782,7 +4715,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_22CreatePropNameIDRecordEEEERS8_DpOT_.exit
 
@@ -4829,14 +4762,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !189, !noalias !186
   store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !186, !noalias !189
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !189, !noalias !186
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i2 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i2 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_22CreatePropNameIDRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -4864,21 +4797,21 @@ invoke.cont:
   %ref.tmp = alloca %"class.std::chrono::duration.37", align 8
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp5 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !191
   %vtable.i = load ptr, ptr %0, align 8, !noalias !191
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 18
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 144
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !191
   tail call void %1(ptr sret(%"class.facebook::jsi::PropNameID") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %sym)
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 86
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 688
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont3 unwind label %lpad
@@ -4886,7 +4819,7 @@ invoke.cont:
 invoke.cont3:                                     ; preds = %invoke.cont
   store i64 %call4, ptr %ref.tmp2, align 8
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 87
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 696
   %3 = load ptr, ptr %vfn7, align 8
   %call9 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %sym)
           to label %invoke.cont8 unwind label %lpad
@@ -4898,7 +4831,7 @@ invoke.cont8:                                     ; preds = %invoke.cont3
 invoke.cont10:                                    ; preds = %invoke.cont8
   %4 = extractvalue { i32, i64 } %call11, 0
   store i32 %4, ptr %ref.tmp5, align 8
-  %5 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp5, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %6 = extractvalue { i32, i64 } %call11, 1
   store i64 %6, ptr %5, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22CreatePropNameIDRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5)
@@ -4940,21 +4873,21 @@ invoke.cont:
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp5 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
   %ref.tmp12 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !194
   %vtable.i = load ptr, ptr %0, align 8, !noalias !194
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 40
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 320
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !194
   tail call void %1(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %obj, ptr noundef nonnull align 8 dereferenceable(8) %name)
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %obj)
           to label %invoke.cont3 unwind label %lpad
@@ -4962,7 +4895,7 @@ invoke.cont:
 invoke.cont3:                                     ; preds = %invoke.cont
   store i64 %call4, ptr %ref.tmp2, align 8
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 85
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 680
   %3 = load ptr, ptr %vfn7, align 8
   %call9 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %name)
           to label %invoke.cont8 unwind label %lpad
@@ -4974,7 +4907,7 @@ invoke.cont8:                                     ; preds = %invoke.cont3
 invoke.cont10:                                    ; preds = %invoke.cont8
   %4 = extractvalue { i32, i64 } %call11, 0
   store i32 %4, ptr %ref.tmp5, align 8
-  %5 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp5, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %6 = extractvalue { i32, i64 } %call11, 1
   store i64 %6, ptr %5, align 8
   %call14 = invoke { i32, i64 } @_ZN8facebook6hermes7tracing14TracingRuntime12toTraceValueERKNS_3jsi5ValueE(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
@@ -4983,7 +4916,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
 invoke.cont13:                                    ; preds = %invoke.cont10
   %7 = extractvalue { i32, i64 } %call14, 0
   store i32 %7, ptr %ref.tmp12, align 8
-  %8 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp12, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   %9 = extractvalue { i32, i64 } %call14, 1
   store i64 %9, ptr %8, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17GetPropertyRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueESA_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12)
@@ -5008,21 +4941,21 @@ invoke.cont:
   %agg.tmp8.sroa.0.0.copyload = load i32, ptr %args3, align 8
   %agg.tmp8.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %args3, i64 8
   %agg.tmp8.sroa.21.0.copyload = load i64, ptr %agg.tmp8.sroa.21.0..sroa_idx, align 8
-  %value_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %call, i64 0, i32 3
+  %value_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %args5, i64 16, i1 false)
-  %time_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
-  %objID_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %call, i64 0, i32 1
+  %objID_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i.i, align 8
-  %propID_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %call, i64 0, i32 2
+  %propID_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %agg.tmp8.sroa.0.0.copyload, ptr %propID_.i.i, align 8
-  %propID.sroa.21.0.propID_.sroa_idx.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %call, i64 0, i32 2, i32 1
+  %propID.sroa.21.0.propID_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %agg.tmp8.sroa.21.0.copyload, ptr %propID.sroa.21.0.propID_.sroa_idx.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17GetPropertyRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -5030,7 +4963,7 @@ invoke.cont:
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call, ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_17GetPropertyRecordEEEERS8_DpOT_.exit
 
@@ -5077,14 +5010,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !200, !noalias !197
   store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !197, !noalias !200
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !200, !noalias !197
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i3 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i3 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_17GetPropertyRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -5111,21 +5044,21 @@ invoke.cont:
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp5 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
   %ref.tmp12 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !202
   %vtable.i = load ptr, ptr %0, align 8, !noalias !202
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 39
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 312
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !202
   tail call void %1(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %obj, ptr noundef nonnull align 8 dereferenceable(8) %name)
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %obj)
           to label %invoke.cont3 unwind label %lpad
@@ -5133,7 +5066,7 @@ invoke.cont:
 invoke.cont3:                                     ; preds = %invoke.cont
   store i64 %call4, ptr %ref.tmp2, align 8
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 86
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 688
   %3 = load ptr, ptr %vfn7, align 8
   %call9 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %name)
           to label %invoke.cont8 unwind label %lpad
@@ -5145,7 +5078,7 @@ invoke.cont8:                                     ; preds = %invoke.cont3
 invoke.cont10:                                    ; preds = %invoke.cont8
   %4 = extractvalue { i32, i64 } %call11, 0
   store i32 %4, ptr %ref.tmp5, align 8
-  %5 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp5, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %6 = extractvalue { i32, i64 } %call11, 1
   store i64 %6, ptr %5, align 8
   %call14 = invoke { i32, i64 } @_ZN8facebook6hermes7tracing14TracingRuntime12toTraceValueERKNS_3jsi5ValueE(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
@@ -5154,7 +5087,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
 invoke.cont13:                                    ; preds = %invoke.cont10
   %7 = extractvalue { i32, i64 } %call14, 0
   store i32 %7, ptr %ref.tmp12, align 8
-  %8 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp12, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   %9 = extractvalue { i32, i64 } %call14, 1
   store i64 %9, ptr %8, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17GetPropertyRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueESA_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12)
@@ -5178,33 +5111,33 @@ entry:
   %ref.tmp = alloca %"class.std::chrono::duration.37", align 8
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp4 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %0 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %obj)
   store i64 %call3, ptr %ref.tmp2, align 8
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 85
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 680
   %1 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %name)
   %call8 = tail call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace12encodeStringEm(i64 noundef %call7)
   %2 = extractvalue { i32, i64 } %call8, 0
   store i32 %2, ptr %ref.tmp4, align 8
-  %3 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp4, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %4 = extractvalue { i32, i64 } %call8, 1
   store i64 %4, ptr %3, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17HasPropertyRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4)
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %plain_.i, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 42
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 336
   %6 = load ptr, ptr %vfn.i, align 8
   %call.i3 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %obj, ptr noundef nonnull align 8 dereferenceable(8) %name)
   ret i1 %call.i3
@@ -5213,25 +5146,25 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17HasPropertyRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(16) %args3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
   %agg.tmp6.sroa.0.0.copyload = load i32, ptr %args3, align 8
   %agg.tmp6.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %args3, i64 8
   %agg.tmp6.sroa.21.0.copyload = load i64, ptr %agg.tmp6.sroa.21.0..sroa_idx, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17HasPropertyRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %objID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %call, i64 0, i32 1
+  %objID_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i, align 8
-  %propID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %call, i64 0, i32 2
+  %propID_.i = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %agg.tmp6.sroa.0.0.copyload, ptr %propID_.i, align 8
-  %propID.sroa.21.0.propID_.sroa_idx.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::HasPropertyRecord", ptr %call, i64 0, i32 2, i32 1
+  %propID.sroa.21.0.propID_.sroa_idx.i = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %agg.tmp6.sroa.21.0.copyload, ptr %propID.sroa.21.0.propID_.sroa_idx.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -5239,7 +5172,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_17HasPropertyRecordEEEERS8_DpOT_.exit
 
@@ -5286,14 +5219,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !208, !noalias !205
   store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !205, !noalias !208
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !208, !noalias !205
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i2 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i2 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_17HasPropertyRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -5319,33 +5252,33 @@ entry:
   %ref.tmp = alloca %"class.std::chrono::duration.37", align 8
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp4 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %0 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %obj)
   store i64 %call3, ptr %ref.tmp2, align 8
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 86
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 688
   %1 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %name)
   %call8 = tail call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace16encodePropNameIDEm(i64 noundef %call7)
   %2 = extractvalue { i32, i64 } %call8, 0
   store i32 %2, ptr %ref.tmp4, align 8
-  %3 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp4, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %4 = extractvalue { i32, i64 } %call8, 1
   store i64 %4, ptr %3, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17HasPropertyRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4)
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %plain_.i, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 41
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 328
   %6 = load ptr, ptr %vfn.i, align 8
   %call.i3 = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %obj, ptr noundef nonnull align 8 dereferenceable(8) %name)
   ret i1 %call.i3
@@ -5358,39 +5291,39 @@ entry:
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp4 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
   %ref.tmp9 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %0 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %obj)
   store i64 %call3, ptr %ref.tmp2, align 8
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 85
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 680
   %1 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %name)
   %call8 = tail call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace12encodeStringEm(i64 noundef %call7)
   %2 = extractvalue { i32, i64 } %call8, 0
   store i32 %2, ptr %ref.tmp4, align 8
-  %3 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp4, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %4 = extractvalue { i32, i64 } %call8, 1
   store i64 %4, ptr %3, align 8
   %call10 = tail call { i32, i64 } @_ZN8facebook6hermes7tracing14TracingRuntime12toTraceValueERKNS_3jsi5ValueE(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(16) %value)
   %5 = extractvalue { i32, i64 } %call10, 0
   store i32 %5, ptr %ref.tmp9, align 8
-  %6 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp9, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %7 = extractvalue { i32, i64 } %call10, 1
   store i64 %7, ptr %6, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17SetPropertyRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueESA_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9)
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %plain_.i, align 8
   %vtable.i = load ptr, ptr %8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 44
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 352
   %9 = load ptr, ptr %vfn.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %obj, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(16) %value)
   ret void
@@ -5399,27 +5332,27 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17SetPropertyRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueESA_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(16) %args3, ptr noundef nonnull align 8 dereferenceable(16) %args5) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
   %agg.tmp8.sroa.0.0.copyload = load i32, ptr %args3, align 8
   %agg.tmp8.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %args3, i64 8
   %agg.tmp8.sroa.21.0.copyload = load i64, ptr %agg.tmp8.sroa.21.0..sroa_idx, align 8
-  %value_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %call, i64 0, i32 3
+  %value_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %args5, i64 16, i1 false)
-  %time_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
-  %objID_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %call, i64 0, i32 1
+  %objID_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i.i, align 8
-  %propID_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %call, i64 0, i32 2
+  %propID_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %agg.tmp8.sroa.0.0.copyload, ptr %propID_.i.i, align 8
-  %propID.sroa.21.0.propID_.sroa_idx.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %call, i64 0, i32 2, i32 1
+  %propID.sroa.21.0.propID_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %agg.tmp8.sroa.21.0.copyload, ptr %propID.sroa.21.0.propID_.sroa_idx.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17SetPropertyRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -5427,7 +5360,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_17SetPropertyRecordEEEERS8_DpOT_.exit
 
@@ -5474,14 +5407,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !213, !noalias !210
   store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !210, !noalias !213
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !213, !noalias !210
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i3 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i3 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_17SetPropertyRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -5508,39 +5441,39 @@ entry:
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp4 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
   %ref.tmp9 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %0 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %obj)
   store i64 %call3, ptr %ref.tmp2, align 8
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds ptr, ptr %vtable5, i64 86
+  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 688
   %1 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %name)
   %call8 = tail call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace16encodePropNameIDEm(i64 noundef %call7)
   %2 = extractvalue { i32, i64 } %call8, 0
   store i32 %2, ptr %ref.tmp4, align 8
-  %3 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp4, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %4 = extractvalue { i32, i64 } %call8, 1
   store i64 %4, ptr %3, align 8
   %call10 = tail call { i32, i64 } @_ZN8facebook6hermes7tracing14TracingRuntime12toTraceValueERKNS_3jsi5ValueE(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(16) %value)
   %5 = extractvalue { i32, i64 } %call10, 0
   store i32 %5, ptr %ref.tmp9, align 8
-  %6 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp9, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %7 = extractvalue { i32, i64 } %call10, 1
   store i64 %7, ptr %6, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17SetPropertyRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmNS2_10TraceValueESA_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9)
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %plain_.i, align 8
   %vtable.i = load ptr, ptr %8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 43
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 344
   %9 = load ptr, ptr %vfn.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %obj, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(16) %value)
   ret void
@@ -5552,21 +5485,21 @@ invoke.cont:
   %ref.tmp = alloca %"class.std::chrono::duration.37", align 8
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp5 = alloca i64, align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !215
   %vtable.i = load ptr, ptr %0, align 8, !noalias !215
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 50
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 400
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !215
   tail call void %1(ptr sret(%"class.facebook::jsi::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %o)
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %o)
           to label %invoke.cont3 unwind label %lpad
@@ -5574,7 +5507,7 @@ invoke.cont:
 invoke.cont3:                                     ; preds = %invoke.cont
   store i64 %call4, ptr %ref.tmp2, align 8
   %vtable6 = load ptr, ptr %this, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 83
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 664
   %3 = load ptr, ptr %vfn7, align 8
   %call9 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont8 unwind label %lpad
@@ -5614,21 +5547,21 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22GetPropertyNamesRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
   %1 = load i64, ptr %args3, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22GetPropertyNamesRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %objID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetPropertyNamesRecord", ptr %call, i64 0, i32 1
+  %objID_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i, align 8
-  %propNamesID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetPropertyNamesRecord", ptr %call, i64 0, i32 2
+  %propNamesID_.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %1, ptr %propNamesID_.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -5636,7 +5569,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %2, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_22GetPropertyNamesRecordEEEERS8_DpOT_.exit
 
@@ -5683,14 +5616,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !221, !noalias !218
   store i64 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !218, !noalias !221
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !221, !noalias !218
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_22GetPropertyNamesRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -5713,10 +5646,10 @@ _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14def
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8facebook6hermes7tracing14TracingRuntime16createWeakObjectERKNS_3jsi6ObjectE(ptr noalias sret(%"class.facebook::jsi::WeakObject") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) unnamed_addr #0 align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !223
   %vtable.i = load ptr, ptr %0, align 8, !noalias !223
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 51
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 408
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !223
   tail call void %1(ptr sret(%"class.facebook::jsi::WeakObject") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %o)
   ret void
@@ -5725,10 +5658,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8facebook6hermes7tracing14TracingRuntime14lockWeakObjectERKNS_3jsi10WeakObjectE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %wo) unnamed_addr #0 align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !226
   %vtable.i = load ptr, ptr %0, align 8, !noalias !226
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 52
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 416
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !226
   tail call void %1(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %wo)
   ret void
@@ -5741,26 +5674,26 @@ invoke.cont:
   %ref.tmp = alloca %"class.std::chrono::duration.37", align 8
   %ref.tmp2 = alloca i64, align 8
   store i64 %length, ptr %length.addr, align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !229
   %vtable.i = load ptr, ptr %0, align 8, !noalias !229
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 53
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 424
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !229
   tail call void %1(ptr sret(%"class.facebook::jsi::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %length)
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %call4, ptr %ref.tmp2, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17CreateArrayRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmRmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %length.addr)
           to label %nrvo.skipdtor unwind label %lpad
@@ -5795,21 +5728,21 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17CreateArrayRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmRmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
   %1 = load i64, ptr %args3, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace17CreateArrayRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %objID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateArrayRecord", ptr %call, i64 0, i32 1
+  %objID_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i, align 8
-  %length_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateArrayRecord", ptr %call, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %1, ptr %length_.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -5817,7 +5750,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %2, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_17CreateArrayRecordEEEERS8_DpOT_.exit
 
@@ -5864,14 +5797,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !235, !noalias !232
   store i64 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !232, !noalias !235
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !235, !noalias !232
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_17CreateArrayRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -5923,10 +5856,10 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZN8facebook6hermes7tracing14TracingRuntime4sizeERKNS_3jsi5ArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %arr) unnamed_addr #0 align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 55
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 440
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %arr)
   ret i64 %call.i
@@ -5935,10 +5868,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZN8facebook6hermes7tracing14TracingRuntime4sizeERKNS_3jsi11ArrayBufferE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %buf) unnamed_addr #0 align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 56
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 448
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %buf)
   ret i64 %call.i
@@ -5970,21 +5903,21 @@ invoke.cont:
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp5 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
   store i64 %i, ptr %i.addr, align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8, !noalias !237
   %vtable.i = load ptr, ptr %0, align 8, !noalias !237
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 58
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 464
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !237
   tail call void %1(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %arr, i64 noundef %i)
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %2 = load ptr, ptr %vfn, align 8
   %call4 = invoke noundef i64 %2(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %arr)
           to label %invoke.cont3 unwind label %lpad
@@ -5997,7 +5930,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
 invoke.cont6:                                     ; preds = %invoke.cont3
   %3 = extractvalue { i32, i64 } %call7, 0
   store i32 %3, ptr %ref.tmp5, align 8
-  %4 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp5, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %5 = extractvalue { i32, i64 } %call7, 1
   store i64 %5, ptr %4, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_15ArrayReadRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmRmNS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %i.addr, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5)
@@ -6023,21 +5956,21 @@ invoke.cont:
   %agg.tmp8.sroa.0.0.copyload = load i32, ptr %args5, align 8
   %agg.tmp8.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %args5, i64 8
   %agg.tmp8.sroa.21.0.copyload = load i64, ptr %agg.tmp8.sroa.21.0..sroa_idx, align 8
-  %time_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
-  %objID_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %call, i64 0, i32 1
+  %objID_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i.i, align 8
-  %index_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %call, i64 0, i32 2
+  %index_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %1, ptr %index_.i.i, align 8
-  %value_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %call, i64 0, i32 3
+  %value_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %agg.tmp8.sroa.0.0.copyload, ptr %value_.i.i, align 8
-  %value.sroa.21.0.value_.sroa_idx.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %call, i64 0, i32 3, i32 1
+  %value.sroa.21.0.value_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store i64 %agg.tmp8.sroa.21.0.copyload, ptr %value.sroa.21.0.value_.sroa_idx.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace15ArrayReadRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -6045,7 +5978,7 @@ invoke.cont:
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call, ptr %2, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_15ArrayReadRecordEEEERS8_DpOT_.exit
 
@@ -6092,14 +6025,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !243, !noalias !240
   store i64 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !240, !noalias !243
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !243, !noalias !240
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i2 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i2 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_15ArrayReadRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -6127,30 +6060,30 @@ entry:
   %ref.tmp2 = alloca i64, align 8
   %ref.tmp4 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
   store i64 %i, ptr %i.addr, align 8
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %0 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %arr)
   store i64 %call3, ptr %ref.tmp2, align 8
   %call5 = tail call { i32, i64 } @_ZN8facebook6hermes7tracing14TracingRuntime12toTraceValueERKNS_3jsi5ValueE(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(16) %value)
   %1 = extractvalue { i32, i64 } %call5, 0
   store i32 %1, ptr %ref.tmp4, align 8
-  %2 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp4, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %3 = extractvalue { i32, i64 } %call5, 1
   store i64 %3, ptr %2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_16ArrayWriteRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmRmNS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %i.addr, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4)
   %4 = load i64, ptr %i.addr, align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %plain_.i, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 59
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 472
   %6 = load ptr, ptr %vfn.i, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %arr, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %value)
   ret void
@@ -6159,7 +6092,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_16ArrayWriteRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmRmNS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3, ptr noundef nonnull align 8 dereferenceable(16) %args5) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
@@ -6167,20 +6100,20 @@ entry:
   %agg.tmp8.sroa.0.0.copyload = load i32, ptr %args5, align 8
   %agg.tmp8.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %args5, i64 8
   %agg.tmp8.sroa.21.0.copyload = load i64, ptr %agg.tmp8.sroa.21.0..sroa_idx, align 8
-  %time_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
-  %objID_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %call, i64 0, i32 1
+  %objID_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i.i, align 8
-  %index_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %call, i64 0, i32 2
+  %index_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %1, ptr %index_.i.i, align 8
-  %value_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %call, i64 0, i32 3
+  %value_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store i32 %agg.tmp8.sroa.0.0.copyload, ptr %value_.i.i, align 8
-  %value.sroa.21.0.value_.sroa_idx.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %call, i64 0, i32 3, i32 1
+  %value.sroa.21.0.value_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store i64 %agg.tmp8.sroa.21.0.copyload, ptr %value.sroa.21.0.value_.sroa_idx.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace16ArrayWriteRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -6188,7 +6121,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %2, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_16ArrayWriteRecordEEEERS8_DpOT_.exit
 
@@ -6235,14 +6168,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !248, !noalias !245
   store i64 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !245, !noalias !248
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !248, !noalias !245
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i2 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i2 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_16ArrayWriteRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -6276,9 +6209,9 @@ entry:
   %ref.tmp = alloca %"class.std::chrono::duration.37", align 8
   %ref.tmp19 = alloca i64, align 8
   store i32 %paramCount, ptr %paramCount.addr, align 4
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function.31", ptr %agg.tmp, i64 0, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %func, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %func, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %0, null
@@ -6286,7 +6219,7 @@ entry:
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread: ; preds = %entry
   store ptr %this, ptr %tracer, align 8
-  %plainHF_.i.i66 = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %tracer, i64 0, i32 1
+  %plainHF_.i.i66 = getelementptr inbounds i8, ptr %tracer, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i66, i8 0, i64 32, i1 false)
   br label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit
 
@@ -6317,21 +6250,21 @@ common.resume:                                    ; preds = %ehcleanup, %if.then
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit: ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds %"class.std::function.31", ptr %func, i64 0, i32 1
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %func, i64 24
   %5 = load ptr, ptr %_M_invoker4.i, align 8
   store ptr %5, ptr %_M_invoker.i, align 8
   %6 = load ptr, ptr %_M_manager.i.i.i, align 8
   store ptr %6, ptr %_M_manager.i.i, align 8
   store ptr %this, ptr %tracer, align 8
-  %plainHF_.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %tracer, i64 0, i32 1
-  %_M_invoker.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %tracer, i64 0, i32 1, i32 1
+  %plainHF_.i.i = getelementptr inbounds i8, ptr %tracer, i64 8
+  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %tracer, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %plainHF_.i.i, i8 0, i64 24, i1 false)
   store ptr %5, ptr %_M_invoker.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.not.i.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %tracer, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %tracer, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i64 16, i1 false)
   store ptr %6, ptr %_M_manager.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
@@ -6341,46 +6274,46 @@ _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit: ; pred
   %plainHF_.i.i69 = phi ptr [ %plainHF_.i.i, %if.then.i.i.i ], [ %plainHF_.i.i66, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread ], [ %plainHF_.i.i, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit ]
   %7 = phi ptr [ %5, %if.then.i.i.i ], [ null, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread ], [ %5, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit ]
   %8 = phi ptr [ %6, %if.then.i.i.i ], [ null, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit.thread ], [ null, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2ERKS9_.exit ]
-  %plain_.i.phi.trans.insert = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load ptr, ptr %plain_.i.phi.trans.insert, align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp4, i8 0, i64 32, i1 false)
   %call.i.i2.i13 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
           to label %call.i.i2.i.noexc unwind label %lpad2
 
 call.i.i2.i.noexc:                                ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit
   store ptr %this, ptr %call.i.i2.i13, align 8
-  %plainHF_.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %call.i.i2.i13, i64 0, i32 1
-  %_M_invoker.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %call.i.i2.i13, i64 0, i32 1, i32 1
+  %plainHF_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i13, i64 8
+  %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i13, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %plainHF_.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr %7, ptr %_M_invoker.i.i.i.i.i.i, align 8
-  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %tracer, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tracer, i64 24
   %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.i2.i.noexc
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %call.i.i2.i13, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i13, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i69, i64 16, i1 false)
   store ptr %8, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %call.i.i2.i.noexc
-  %_M_manager.i.i12 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp4, i64 0, i32 1
-  %functionID_.i.i.i.i = getelementptr inbounds %class.TracingHostFunction, ptr %call.i.i2.i13, i64 0, i32 1
-  %functionID_2.i.i.i.i = getelementptr inbounds %class.TracingHostFunction, ptr %tracer, i64 0, i32 1
+  %_M_manager.i.i12 = getelementptr inbounds i8, ptr %agg.tmp4, i64 16
+  %functionID_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i13, i64 40
+  %functionID_2.i.i.i.i = getelementptr inbounds i8, ptr %tracer, i64 40
   %9 = load i64, ptr %functionID_2.i.i.i.i, align 8
   store i64 %9, ptr %functionID_.i.i.i.i, align 8
   store ptr %call.i.i2.i13, ptr %agg.tmp4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.31", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIS8_EE19TracingHostFunctionE9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om, ptr %_M_invoker.i.i, align 8, !noalias !250
-  %_M_manager.i.i.i16 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_manager.i.i.i16 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4, i64 16, i1 false), !noalias !250
   store ptr @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIS8_EE19TracingHostFunctionE10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation, ptr %_M_manager.i.i.i16, align 8, !noalias !250
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i12, i8 0, i64 16, i1 false), !noalias !250
   %vtable.i = load ptr, ptr %.pre, align 8, !noalias !250
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 60
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 480
   %10 = load ptr, ptr %vfn.i, align 8, !noalias !250
   invoke void %10(ptr sret(%"class.facebook::jsi::Function") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %.pre, ptr noundef nonnull align 8 dereferenceable(8) %name, i32 noundef %paramCount, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont.i18 unwind label %lpad.i17
@@ -6438,7 +6371,7 @@ terminate.lpad.i.i24:                             ; preds = %if.then.i.i22
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit26: ; preds = %invoke.cont7, %if.then.i.i22
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %21 = load ptr, ptr %vfn, align 8
   %call10 = invoke noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont9 unwind label %lpad8
@@ -6447,14 +6380,14 @@ invoke.cont9:                                     ; preds = %_ZNSt8functionIFN8f
   store i64 %call10, ptr %funcID, align 8
   %22 = load ptr, ptr %plain_.i, align 8
   %vtable.i28 = load ptr, ptr %22, align 8
-  %vfn.i29 = getelementptr inbounds ptr, ptr %vtable.i28, i64 35
+  %vfn.i29 = getelementptr inbounds i8, ptr %vtable.i28, i64 280
   %23 = load ptr, ptr %vfn.i29, align 8
   %call.i30 = invoke noundef nonnull align 8 dereferenceable(32) ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %agg.result)
           to label %invoke.cont13 unwind label %lpad8
 
 invoke.cont13:                                    ; preds = %invoke.cont9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ptr.i.i)
-  %_M_manager.i.i31 = getelementptr inbounds %"class.std::_Function_base", ptr %call.i30, i64 0, i32 1
+  %_M_manager.i.i31 = getelementptr inbounds i8, ptr %call.i30, i64 16
   %24 = load ptr, ptr %_M_manager.i.i31, align 8
   %cmp.i.i = icmp eq ptr %24, @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_10PropNameIDEjSt8functionIS8_EE19TracingHostFunctionE10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation
   br i1 %cmp.i.i, label %if.then.i.i36, label %lor.lhs.false.i.i
@@ -6471,7 +6404,7 @@ invoke.cont.i.i.i:                                ; preds = %lor.lhs.false.i.i
   %tobool4.not.i.i.i = icmp eq ptr %25, null
   %spec.select.i.i = select i1 %tobool4.not.i.i.i, ptr @_ZTIv, ptr %25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__typeinfo_result.i.i.i)
-  %__name2.i.i.i = getelementptr inbounds %"class.std::type_info", ptr %spec.select.i.i, i64 0, i32 1
+  %__name2.i.i.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 8
   %26 = load ptr, ptr %__name2.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %26, @_ZTSZN8facebook6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS_3jsi10PropNameIDEjSt8functionIFNS3_5ValueERNS3_7RuntimeERKS8_PSB_mEEE19TracingHostFunction
   br i1 %cmp.i.i.i, label %if.then.i.i36, label %_ZNKSt9type_infoeqERKS_.exit.i.i
@@ -6501,16 +6434,16 @@ if.then.i.i36:                                    ; preds = %_ZNKSt9type_infoeqE
 invoke.cont.i.i:                                  ; preds = %if.then.i.i36
   %31 = load ptr, ptr %__ptr.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ptr.i.i)
-  %functionID_.i = getelementptr inbounds %class.TracingHostFunction, ptr %31, i64 0, i32 1
+  %functionID_.i = getelementptr inbounds i8, ptr %31, i64 40
   store i64 %call10, ptr %functionID_.i, align 8
   %call.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable20 = load ptr, ptr %this, align 8
-  %vfn21 = getelementptr inbounds ptr, ptr %vtable20, i64 86
+  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 688
   %32 = load ptr, ptr %vfn21, align 8
   %call23 = invoke noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %name)
           to label %invoke.cont22 unwind label %lpad8
@@ -6523,7 +6456,7 @@ terminate.lpad.i.i37:                             ; preds = %if.then.i.i36
   unreachable
 
 invoke.cont22:                                    ; preds = %invoke.cont.i.i
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %call23, ptr %ref.tmp19, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_24CreateHostFunctionRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKmmRjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %funcID, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19, ptr noundef nonnull align 4 dereferenceable(4) %paramCount.addr)
           to label %nrvo.skipdtor unwind label %lpad8
@@ -6590,7 +6523,7 @@ _ZZN8facebook6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKN
 
 ehcleanup:                                        ; preds = %if.then.i.i.i53, %lpad8, %if.then.i.i47, %lpad6.body, %lpad2
   %.pn = phi { ptr, i32 } [ %35, %lpad2 ], [ %14, %lpad6.body ], [ %14, %if.then.i.i47 ], [ %39, %lpad8 ], [ %39, %if.then.i.i.i53 ]
-  %_M_manager.i.i.i.i57 = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %tracer, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i57 = getelementptr inbounds i8, ptr %tracer, i64 24
   %47 = load ptr, ptr %_M_manager.i.i.i.i57, align 8
   %tobool.not.i.i.i.i58 = icmp eq ptr %47, null
   br i1 %tobool.not.i.i.i.i58, label %common.resume, label %if.then.i.i.i.i59
@@ -6610,25 +6543,25 @@ terminate.lpad.i.i.i.i62:                         ; preds = %if.then.i.i.i.i59
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_24CreateHostFunctionRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKmmRjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3, ptr noundef nonnull align 4 dereferenceable(4) %args5) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
   %1 = load i64, ptr %args3, align 8
   %2 = load i32, ptr %args5, align 4
-  %time_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
-  %objID_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord", ptr %call, i64 0, i32 1
+  %objID_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace24CreateHostFunctionRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %propNameID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateHostFunctionRecord", ptr %call, i64 0, i32 1
+  %propNameID_.i = getelementptr inbounds i8, ptr %call, i64 24
   %conv.i = trunc i64 %1 to i32
   store i32 %conv.i, ptr %propNameID_.i, align 8
-  %paramCount_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateHostFunctionRecord", ptr %call, i64 0, i32 2
+  %paramCount_.i = getelementptr inbounds i8, ptr %call, i64 28
   store i32 %2, ptr %paramCount_.i, align 4
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -6636,7 +6569,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %3, align 8
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_24CreateHostFunctionRecordEEEERS8_DpOT_.exit
 
@@ -6683,14 +6616,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %7 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !256, !noalias !253
   store i64 %7, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !253, !noalias !256
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !256, !noalias !253
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_24CreateHostFunctionRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -6719,22 +6652,22 @@ entry:
   %ref.tmp6 = alloca %"class.std::vector.49", align 8
   %ref.tmp8 = alloca %"class.std::chrono::duration.37", align 8
   %ref.tmp13 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %0 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %func)
   store i64 %call3, ptr %ref.tmp2, align 8
   %call5 = tail call { i32, i64 } @_ZN8facebook6hermes7tracing14TracingRuntime12toTraceValueERKNS_3jsi5ValueE(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(16) %jsThis)
   %1 = extractvalue { i32, i64 } %call5, 0
   store i32 %1, ptr %ref.tmp4, align 8
-  %2 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp4, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %3 = extractvalue { i32, i64 } %call5, 1
   store i64 %3, ptr %2, align 8
   call void @_ZN8facebook6hermes7tracing14TracingRuntime14argStringifyerEPKNS_3jsi5ValueEm(ptr nonnull sret(%"class.std::vector.49") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef %args, i64 noundef %count)
@@ -6751,10 +6684,10 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %if.then.i.i.i, %invoke.cont
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %plain_.i, align 8, !noalias !258
   %vtable.i = load ptr, ptr %5, align 8, !noalias !258
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 61
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 488
   %6 = load ptr, ptr %vfn.i, align 8, !noalias !258
   call void %6(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef nonnull align 8 dereferenceable(16) %jsThis, ptr noundef %args, i64 noundef %count)
   %call.i6 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
@@ -6768,7 +6701,7 @@ invoke.cont10:                                    ; preds = %if.then.i.i.i, %inv
 invoke.cont14:                                    ; preds = %invoke.cont10
   %7 = extractvalue { i32, i64 } %call15, 0
   store i32 %7, ptr %ref.tmp13, align 8
-  %8 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp13, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %9 = extractvalue { i32, i64 } %call15, 1
   store i64 %9, ptr %8, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_20ReturnToNativeRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13)
@@ -6808,17 +6741,17 @@ entry:
   %agg.tmp8.sroa.0.0.copyload = load i32, ptr %args3, align 8
   %agg.tmp8.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %args3, i64 8
   %agg.tmp8.sroa.21.0.copyload = load i64, ptr %agg.tmp8.sroa.21.0..sroa_idx, align 8
-  %time_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %functionID_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 1
+  %functionID_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %functionID_.i.i, align 8
-  %thisArg_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 2
+  %thisArg_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %agg.tmp8.sroa.0.0.copyload, ptr %thisArg_.i.i, align 8
-  %thisArg.sroa.21.0.thisArg_.sroa_idx.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 2, i32 1
+  %thisArg.sroa.21.0.thisArg_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %agg.tmp8.sroa.21.0.copyload, ptr %thisArg.sroa.21.0.thisArg_.sroa_idx.i.i, align 8
-  %args_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::hermes::tracing::SynthTrace::TraceValue, std::allocator<facebook::hermes::tracing::SynthTrace::TraceValue>>::_Vector_impl_data", ptr %args5, i64 0, i32 1
+  %args_.i.i = getelementptr inbounds i8, ptr %call, i64 40
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %args5, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %2 = load ptr, ptr %args5, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -6830,9 +6763,9 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i.thread, label %cond.true.i.i.i.i.i.i
 
 invoke.cont.i.i.i.thread:                         ; preds = %entry
-  %_M_finish.i.i.i.i.i7 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i7 = getelementptr inbounds i8, ptr %call, i64 48
   %add.ptr.i.i.i.i.i8 = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr null, i64 %sub.ptr.div.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i9 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i9 = getelementptr inbounds i8, ptr %call, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %args_.i.i, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i.i8, ptr %_M_end_of_storage.i.i.i.i.i9, align 8
   br label %invoke.cont
@@ -6854,10 +6787,10 @@ _ZNSt16allocator_traitsISaIN8facebook6hermes7tracing10SynthTrace10TraceValueEEE8
 
 invoke.cont.i.i.i:                                ; preds = %_ZNSt16allocator_traitsISaIN8facebook6hermes7tracing10SynthTrace10TraceValueEEE8allocateERS5_m.exit.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i6.i2.i.i2, ptr %args_.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call5.i.i.i.i2.i6.i2.i.i2, ptr %_M_finish.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %call5.i.i.i.i2.i6.i2.i.i2, i64 %sub.ptr.div.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i
 
@@ -6865,8 +6798,8 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i, 
   %__cur.07.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i6.i2.i.i2, %invoke.cont.i.i.i ]
   %__first.sroa.0.06.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %2, %invoke.cont.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.06.i.i.i.i.i.i.i, i64 16, i1 false)
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %__first.sroa.0.06.i.i.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %__cur.07.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %1
   br i1 %cmp.i.not.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i, !llvm.loop !261
 
@@ -6875,10 +6808,10 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %invoke.cont.i.i.i.thread ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i10, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -6886,7 +6819,7 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call, ptr %3, align 8
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_20CallFromNativeRecordEEEERS8_DpOT_.exit
 
@@ -6933,14 +6866,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %7 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !265, !noalias !262
   store i64 %7, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !262, !noalias !265
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !265, !noalias !262
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i3 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i3 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_20CallFromNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -6982,7 +6915,7 @@ if.then.i.cont:                                   ; preds = %if.then.i.invoke
   unreachable
 
 if.end.i:                                         ; preds = %entry
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::hermes::tracing::SynthTrace::TraceValue, std::allocator<facebook::hermes::tracing::SynthTrace::TraceValue>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %cmp3.i.not = icmp eq i64 %count, 0
   br i1 %cmp3.i.not, label %nrvo.skipdtor, label %_ZNSt12_Vector_baseIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE11_M_allocateEm.exit.i
 
@@ -6992,12 +6925,12 @@ _ZNSt12_Vector_baseIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE11
           to label %for.body.lr.ph unwind label %lpad.loopexit.split-lp
 
 for.body.lr.ph:                                   ; preds = %_ZNSt12_Vector_baseIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE11_M_allocateEm.exit.i
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::hermes::tracing::SynthTrace::TraceValue, std::allocator<facebook::hermes::tracing::SynthTrace::TraceValue>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i.i4, ptr %agg.result, align 8
   store ptr %call5.i.i.i.i4, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %call5.i.i.i.i4, i64 %count
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::hermes::tracing::SynthTrace::TraceValue, std::allocator<facebook::hermes::tracing::SynthTrace::TraceValue>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -7019,7 +6952,7 @@ if.then.i5:                                       ; preds = %invoke.cont2
   store i32 %3, ptr %1, align 8
   %ref.tmp.sroa.313.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %4, ptr %ref.tmp.sroa.313.0..sroa_idx, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %1, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %for.inc
 
@@ -7059,14 +6992,14 @@ for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE11_M_allocateEm.exit.i.i ]
   %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i.i1820, %_ZNSt12_Vector_baseIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE11_M_allocateEm.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i, i64 16, i1 false), !alias.scope !267
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %__first.addr.06.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %__cur.07.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !271
 
 _ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %cond.i10.i.i1820, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i
 
@@ -7119,22 +7052,22 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %if.end.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_20ReturnToNativeRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(16) %args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %agg.tmp4.sroa.0.0.copyload = load i32, ptr %args1, align 8
   %agg.tmp4.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %args1, i64 8
   %agg.tmp4.sroa.21.0.copyload = load i64, ptr %agg.tmp4.sroa.21.0..sroa_idx, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %agg.tmp4.sroa.0.0.copyload, ptr %0, align 8
   %value.sroa.21.0.retVal_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %agg.tmp4.sroa.21.0.copyload, ptr %value.sroa.21.0.retVal_.sroa_idx.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace20ReturnToNativeRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -7142,7 +7075,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_20ReturnToNativeRecordEEEERS8_DpOT_.exit
 
@@ -7189,14 +7122,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !276, !noalias !273
   store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !273, !noalias !276
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !276, !noalias !273
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i2 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i2 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_20ReturnToNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -7225,22 +7158,22 @@ entry:
   %ref.tmp6 = alloca %"class.std::vector.49", align 8
   %ref.tmp8 = alloca %"class.std::chrono::duration.37", align 8
   %ref.tmp13 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %0 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %func)
   store i64 %call3, ptr %ref.tmp2, align 8
   %call5 = tail call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace15encodeUndefinedEv()
   %1 = extractvalue { i32, i64 } %call5, 0
   store i32 %1, ptr %ref.tmp4, align 8
-  %2 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp4, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %3 = extractvalue { i32, i64 } %call5, 1
   store i64 %3, ptr %2, align 8
   call void @_ZN8facebook6hermes7tracing14TracingRuntime14argStringifyerEPKNS_3jsi5ValueEm(ptr nonnull sret(%"class.std::vector.49") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef %args, i64 noundef %count)
@@ -7257,10 +7190,10 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %if.then.i.i.i, %invoke.cont
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %plain_.i, align 8, !noalias !278
   %vtable.i = load ptr, ptr %5, align 8, !noalias !278
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 62
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 496
   %6 = load ptr, ptr %vfn.i, align 8, !noalias !278
   call void %6(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %func, ptr noundef %args, i64 noundef %count)
   %call.i5 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
@@ -7274,7 +7207,7 @@ invoke.cont10:                                    ; preds = %if.then.i.i.i, %inv
 invoke.cont14:                                    ; preds = %invoke.cont10
   %7 = extractvalue { i32, i64 } %call15, 0
   store i32 %7, ptr %ref.tmp13, align 8
-  %8 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp13, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   %9 = extractvalue { i32, i64 } %call15, 1
   store i64 %9, ptr %8, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_20ReturnToNativeRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13)
@@ -7314,17 +7247,17 @@ entry:
   %agg.tmp8.sroa.0.0.copyload = load i32, ptr %args3, align 8
   %agg.tmp8.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %args3, i64 8
   %agg.tmp8.sroa.21.0.copyload = load i64, ptr %agg.tmp8.sroa.21.0..sroa_idx, align 8
-  %time_.i.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %functionID_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 1
+  %functionID_.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %functionID_.i.i.i, align 8
-  %thisArg_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 2
+  %thisArg_.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %agg.tmp8.sroa.0.0.copyload, ptr %thisArg_.i.i.i, align 8
-  %thisArg.sroa.21.0.thisArg_.sroa_idx.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 2, i32 1
+  %thisArg.sroa.21.0.thisArg_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %agg.tmp8.sroa.21.0.copyload, ptr %thisArg.sroa.21.0.thisArg_.sroa_idx.i.i.i, align 8
-  %args_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::hermes::tracing::SynthTrace::TraceValue, std::allocator<facebook::hermes::tracing::SynthTrace::TraceValue>>::_Vector_impl_data", ptr %args5, i64 0, i32 1
+  %args_.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %args5, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   %2 = load ptr, ptr %args5, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %1 to i64
@@ -7336,9 +7269,9 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.thread, label %cond.true.i.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.thread:                       ; preds = %entry
-  %_M_finish.i.i.i.i.i.i7 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %call, i64 48
   %add.ptr.i.i.i.i.i.i8 = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr null, i64 %sub.ptr.div.i.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i.i9 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %call, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %args_.i.i.i, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i.i.i8, ptr %_M_end_of_storage.i.i.i.i.i.i9, align 8
   br label %invoke.cont
@@ -7360,10 +7293,10 @@ _ZNSt16allocator_traitsISaIN8facebook6hermes7tracing10SynthTrace10TraceValueEEE8
 
 invoke.cont.i.i.i.i:                              ; preds = %_ZNSt16allocator_traitsISaIN8facebook6hermes7tracing10SynthTrace10TraceValueEEE8allocateERS5_m.exit.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i6.i2.i.i.i2, ptr %args_.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call5.i.i.i.i2.i6.i2.i.i.i2, ptr %_M_finish.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %call5.i.i.i.i2.i6.i2.i.i.i2, i64 %sub.ptr.div.i.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i.i
 
@@ -7371,8 +7304,8 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i
   %__cur.07.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i6.i2.i.i.i2, %invoke.cont.i.i.i.i ]
   %__first.sroa.0.06.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %2, %invoke.cont.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.06.i.i.i.i.i.i.i.i, i64 16, i1 false)
-  %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %__first.sroa.0.06.i.i.i.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %__cur.07.i.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %1
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i, !llvm.loop !261
 
@@ -7381,10 +7314,10 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
   %__cur.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ null, %invoke.cont.i.i.i.i.thread ], [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i10, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -7392,7 +7325,7 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call, ptr %3, align 8
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_25ConstructFromNativeRecordEEEERS8_DpOT_.exit
 
@@ -7439,14 +7372,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %7 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !284, !noalias !281
   store i64 %7, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !281, !noalias !284
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !284, !noalias !281
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i3 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i3 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_25ConstructFromNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -7481,24 +7414,24 @@ entry:
   %ref.tmp = alloca %"class.std::chrono::duration.37", align 8
   %ref.tmp2 = alloca i64, align 8
   store i64 %amount, ptr %amount.addr, align 8
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 83
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 664
   %0 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(8) %obj)
   store i64 %call3, ptr %ref.tmp2, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_31SetExternalMemoryPressureRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmRmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(8) %amount.addr)
   %1 = load i64, ptr %amount.addr, align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %plain_.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 70
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 560
   %3 = load ptr, ptr %vfn.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %obj, i64 noundef %1)
   ret void
@@ -7507,21 +7440,21 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_31SetExternalMemoryPressureRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEmRmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(8) %args3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
   %1 = load i64, ptr %args3, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace31SetExternalMemoryPressureRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %objID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetExternalMemoryPressureRecord", ptr %call, i64 0, i32 1
+  %objID_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %objID_.i, align 8
-  %amount_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetExternalMemoryPressureRecord", ptr %call, i64 0, i32 2
+  %amount_.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %1, ptr %amount_.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -7529,7 +7462,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %2, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_31SetExternalMemoryPressureRecordEEEERS8_DpOT_.exit
 
@@ -7576,14 +7509,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !289, !noalias !286
   store i64 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !286, !noalias !289
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !289, !noalias !286
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_31SetExternalMemoryPressureRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -7607,9 +7540,9 @@ _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14def
 define hidden void @_ZN8facebook6hermes7tracing14TracingRuntime9addMarkerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(172) %this, ptr noundef nonnull align 8 dereferenceable(32) %marker) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::chrono::duration.37", align 8
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
@@ -7623,18 +7556,18 @@ define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplac
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace12MarkerRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %tag_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::MarkerRecord", ptr %call, i64 0, i32 1
+  %tag_.i = getelementptr inbounds i8, ptr %call, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %tag_.i, ptr noundef nonnull align 8 dereferenceable(32) %args1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -7642,7 +7575,7 @@ invoke.cont:                                      ; preds = %entry
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_12MarkerRecordEEEERS8_DpOT_.exit
 
@@ -7689,14 +7622,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %4 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !294, !noalias !291
   store i64 %4, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !291, !noalias !294
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !294, !noalias !291
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_12MarkerRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -7741,7 +7674,7 @@ entry:
   %agg.tmp5 = alloca %"class.std::function.64", align 8
   %0 = load ptr, ptr %runtime, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %call3 = invoke noundef i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6ObjectE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
@@ -7751,36 +7684,36 @@ invoke.cont:                                      ; preds = %entry
   %2 = load i64, ptr %traceStream, align 8
   store i64 %2, ptr %agg.tmp, align 8
   store ptr null, ptr %traceStream, align 8
-  %_M_invoker.i = getelementptr inbounds %"class.std::function.62", ptr %agg.tmp4, i64 0, i32 1
-  %_M_invoker2.i = getelementptr inbounds %"class.std::function.62", ptr %commitAction, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 24
+  %_M_invoker2.i = getelementptr inbounds i8, ptr %commitAction, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp4, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %3, ptr %_M_invoker.i, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %commitAction, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %commitAction, i64 16
   %4 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2EOS7_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp4, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %commitAction, i64 16, i1 false)
   store ptr %4, ptr %_M_manager.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2EOS7_.exit
 
 _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2EOS7_.exit: ; preds = %invoke.cont, %if.then.i
-  %_M_invoker.i2 = getelementptr inbounds %"class.std::function.64", ptr %agg.tmp5, i64 0, i32 1
-  %_M_invoker2.i3 = getelementptr inbounds %"class.std::function.64", ptr %rollbackAction, i64 0, i32 1
+  %_M_invoker.i2 = getelementptr inbounds i8, ptr %agg.tmp5, i64 24
+  %_M_invoker2.i3 = getelementptr inbounds i8, ptr %rollbackAction, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp5, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %_M_invoker2.i3, align 8
   store ptr %5, ptr %_M_invoker.i2, align 8
-  %_M_manager.i.i.i4 = getelementptr inbounds %"class.std::_Function_base", ptr %rollbackAction, i64 0, i32 1
+  %_M_manager.i.i.i4 = getelementptr inbounds i8, ptr %rollbackAction, i64 16
   %6 = load ptr, ptr %_M_manager.i.i.i4, align 8
   %tobool.not.i.i.not.i5 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.not.i5, label %_ZNSt8functionIFvvEEC2EOS1_.exit, label %if.then.i6
 
 if.then.i6:                                       ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2EOS7_.exit
-  %_M_manager.i.i7 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp5, i64 0, i32 1
+  %_M_manager.i.i7 = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %rollbackAction, i64 16, i1 false)
   store ptr %6, ptr %_M_manager.i.i7, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i4, i8 0, i64 16, i1 false)
@@ -7791,7 +7724,7 @@ _ZNSt8functionIFvvEEC2EOS1_.exit:                 ; preds = %_ZNSt8functionIFNSt
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit
-  %_M_manager.i.i8 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp5, i64 0, i32 1
+  %_M_manager.i.i8 = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   %7 = load ptr, ptr %_M_manager.i.i8, align 8
   %tobool.not.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvvEED2Ev.exit, label %if.then.i.i
@@ -7808,7 +7741,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %invoke.cont7, %if.then.i.i
-  %_M_manager.i.i9 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp4, i64 0, i32 1
+  %_M_manager.i.i9 = getelementptr inbounds i8, ptr %agg.tmp4, i64 16
   %10 = load ptr, ptr %_M_manager.i.i9, align 8
   %tobool.not.i.i10 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i10, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit, label %if.then.i.i11
@@ -7831,7 +7764,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i: ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit
   %vtable.i.i = load ptr, ptr %13, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %14 = load ptr, ptr %vfn.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(36) %13) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
@@ -7866,7 +7799,7 @@ lpad:                                             ; preds = %entry
 lpad6:                                            ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit
   %20 = landingpad { ptr, i32 }
           cleanup
-  %_M_manager.i.i18 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp5, i64 0, i32 1
+  %_M_manager.i.i18 = getelementptr inbounds i8, ptr %agg.tmp5, i64 16
   %21 = load ptr, ptr %_M_manager.i.i18, align 8
   %tobool.not.i.i19 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i19, label %_ZNSt8functionIFvvEED2Ev.exit23, label %if.then.i.i20
@@ -7883,7 +7816,7 @@ terminate.lpad.i.i22:                             ; preds = %if.then.i.i20
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit23:                  ; preds = %lpad6, %if.then.i.i20
-  %_M_manager.i.i24 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp4, i64 0, i32 1
+  %_M_manager.i.i24 = getelementptr inbounds i8, ptr %agg.tmp4, i64 16
   %24 = load ptr, ptr %_M_manager.i.i24, align 8
   %tobool.not.i.i25 = icmp eq ptr %24, null
   br i1 %tobool.not.i.i25, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit29, label %if.then.i.i26
@@ -7906,7 +7839,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i31: ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit29
   %vtable.i.i32 = load ptr, ptr %27, align 8
-  %vfn.i.i33 = getelementptr inbounds ptr, ptr %vtable.i.i32, i64 1
+  %vfn.i.i33 = getelementptr inbounds i8, ptr %vtable.i.i32, i64 8
   %28 = load ptr, ptr %vfn.i.i33, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(36) %27) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit34
@@ -7964,7 +7897,7 @@ invoke.cont:                                      ; preds = %entry
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i: ; preds = %invoke.cont
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(36) %2) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
@@ -7977,7 +7910,7 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds
 
 _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
   %vtable.i.i5 = load ptr, ptr %4, align 8
-  %vfn.i.i6 = getelementptr inbounds ptr, ptr %vtable.i.i5, i64 1
+  %vfn.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i5, i64 8
   %5 = load ptr, ptr %vfn.i.i6, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #28
   br label %_ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit
@@ -7987,24 +7920,24 @@ _ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit: ; pr
   store ptr getelementptr inbounds ({ [91 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing20TracingHermesRuntimeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [91 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing20TracingHermesRuntimeE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %conf_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 2
+  %conf_ = getelementptr inbounds i8, ptr %this, i64 176
   invoke void @_ZN6hermes2vm13RuntimeConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(373) %conf_, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %_ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit
-  %commitAction_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 3
-  %_M_invoker.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 3, i32 1
-  %_M_invoker2.i = getelementptr inbounds %"class.std::function.62", ptr %commitAction, i64 0, i32 1
+  %commitAction_ = getelementptr inbounds i8, ptr %this, i64 552
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 576
+  %_M_invoker2.i = getelementptr inbounds i8, ptr %commitAction, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %commitAction_, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %6, ptr %_M_invoker.i, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %commitAction, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %commitAction, i64 16
   %7 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2EOS7_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont4
-  %_M_manager.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 568
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %commitAction_, ptr noundef nonnull align 8 dereferenceable(16) %commitAction, i64 16, i1 false)
   %8 = load ptr, ptr %_M_manager.i.i.i, align 8
   store ptr %8, ptr %_M_manager.i.i, align 8
@@ -8012,19 +7945,19 @@ if.then.i:                                        ; preds = %invoke.cont4
   br label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2EOS7_.exit
 
 _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2EOS7_.exit: ; preds = %invoke.cont4, %if.then.i
-  %rollbackAction_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 4
-  %_M_invoker.i7 = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 4, i32 1
-  %_M_invoker2.i8 = getelementptr inbounds %"class.std::function.64", ptr %rollbackAction, i64 0, i32 1
+  %rollbackAction_ = getelementptr inbounds i8, ptr %this, i64 584
+  %_M_invoker.i7 = getelementptr inbounds i8, ptr %this, i64 608
+  %_M_invoker2.i8 = getelementptr inbounds i8, ptr %rollbackAction, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rollbackAction_, i8 0, i64 24, i1 false)
   %9 = load ptr, ptr %_M_invoker2.i8, align 8
   store ptr %9, ptr %_M_invoker.i7, align 8
-  %_M_manager.i.i.i9 = getelementptr inbounds %"class.std::_Function_base", ptr %rollbackAction, i64 0, i32 1
+  %_M_manager.i.i.i9 = getelementptr inbounds i8, ptr %rollbackAction, i64 16
   %10 = load ptr, ptr %_M_manager.i.i.i9, align 8
   %tobool.not.i.i.not.i10 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.not.i10, label %_ZNSt8functionIFvvEEC2EOS1_.exit, label %if.then.i11
 
 if.then.i11:                                      ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2EOS7_.exit
-  %_M_manager.i.i12 = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_manager.i.i12 = getelementptr inbounds i8, ptr %this, i64 600
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rollbackAction_, ptr noundef nonnull align 8 dereferenceable(16) %rollbackAction, i64 16, i1 false)
   %11 = load ptr, ptr %_M_manager.i.i.i9, align 8
   store ptr %11, ptr %_M_manager.i.i12, align 8
@@ -8032,20 +7965,20 @@ if.then.i11:                                      ; preds = %_ZNSt8functionIFNSt
   br label %_ZNSt8functionIFvvEEC2EOS1_.exit
 
 _ZNSt8functionIFvvEEC2EOS1_.exit:                 ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEC2EOS7_.exit, %if.then.i11
-  %crashCallbackKey_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 5
+  %crashCallbackKey_ = getelementptr inbounds i8, ptr %this, i64 616
   tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
-  %CrashMgr_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 2, i32 31
+  %CrashMgr_.i = getelementptr inbounds i8, ptr %this, i64 528
   %12 = load ptr, ptr %CrashMgr_.i, align 8, !noalias !296
   store ptr %12, ptr %ref.tmp, align 8, !alias.scope !296
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp, i64 0, i32 1
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 2, i32 31, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 536
   %13 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !296
   store ptr %13, ptr %_M_refcount.i.i.i, align 8, !alias.scope !296
   %cmp.not.i.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i.i, label %_ZNK6hermes2vm13RuntimeConfig11getCrashMgrEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt8functionIFvvEEC2EOS1_.exit
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %13, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load i8, ptr @__libc_single_threaded, align 1, !noalias !296
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -8070,14 +8003,14 @@ cond.true:                                        ; preds = %_ZNK6hermes2vm13Run
   tail call void @llvm.experimental.noalias.scope.decl(metadata !299)
   %18 = load ptr, ptr %CrashMgr_.i, align 8, !noalias !299
   store ptr %18, ptr %ref.tmp9, align 8, !alias.scope !299
-  %_M_refcount.i.i.i14 = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp9, i64 0, i32 1
+  %_M_refcount.i.i.i14 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %19 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !299
   store ptr %19, ptr %_M_refcount.i.i.i14, align 8, !alias.scope !299
   %cmp.not.i.i.i.i16 = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i.i16, label %_ZNK6hermes2vm13RuntimeConfig11getCrashMgrEv.exit23, label %if.then.i.i.i.i17
 
 if.then.i.i.i.i17:                                ; preds = %cond.true
-  %_M_use_count.i.i.i.i.i18 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %19, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i18 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1, !noalias !299
   %tobool.i.not.i.i.i.i.i19 = icmp eq i8 %20, 0
   br i1 %tobool.i.not.i.i.i.i.i19, label %if.else.i.i.i.i.i.i22, label %if.then.i.i.i.i.i.i20
@@ -8095,8 +8028,8 @@ if.else.i.i.i.i.i.i22:                            ; preds = %if.then.i.i.i.i17
 
 _ZNK6hermes2vm13RuntimeConfig11getCrashMgrEv.exit23: ; preds = %cond.true, %if.then.i.i.i.i.i.i20, %if.else.i.i.i.i.i.i22
   %23 = phi ptr [ %18, %cond.true ], [ %18, %if.then.i.i.i.i.i.i20 ], [ %.pre87, %if.else.i.i.i.i.i.i22 ]
-  %_M_manager.i.i24 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp14, i64 0, i32 1
-  %_M_invoker.i25 = getelementptr inbounds %"class.std::function.66", ptr %agg.tmp14, i64 0, i32 1
+  %_M_manager.i.i24 = getelementptr inbounds i8, ptr %agg.tmp14, i64 16
+  %_M_invoker.i25 = getelementptr inbounds i8, ptr %agg.tmp14, i64 24
   %24 = getelementptr inbounds i8, ptr %agg.tmp14, i64 8
   store i64 0, ptr %24, align 8
   %25 = ptrtoint ptr %this to i64
@@ -8104,18 +8037,18 @@ _ZNK6hermes2vm13RuntimeConfig11getCrashMgrEv.exit23: ; preds = %cond.true, %if.t
   store ptr @"_ZNSt17_Function_handlerIFviEZN8facebook6hermes7tracing20TracingHermesRuntimeC1ERSt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS6_EEmRKN6hermes2vm13RuntimeConfigES5_IN4llvh11raw_ostreamES7_ISH_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESK_IFvvEEE3$_0E9_M_invokeERKSt9_Any_dataOi", ptr %_M_invoker.i25, align 8
   store ptr @"_ZNSt17_Function_handlerIFviEZN8facebook6hermes7tracing20TracingHermesRuntimeC1ERSt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS6_EEmRKN6hermes2vm13RuntimeConfigES5_IN4llvh11raw_ostreamES7_ISH_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESK_IFvvEEE3$_0E10_M_managerERSt9_Any_dataRKSX_St18_Manager_operation", ptr %_M_manager.i.i24, align 8
   %vtable = load ptr, ptr %23, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %26 = load ptr, ptr %vfn, align 8
   %call19 = invoke noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %agg.tmp14)
           to label %cleanup.action unwind label %lpad17
 
 cond.end:                                         ; preds = %_ZNK6hermes2vm13RuntimeConfig11getCrashMgrEv.exit
-  %hasVal.i.i26 = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %hasVal.i.i26 = getelementptr inbounds i8, ptr %this, i64 620
   store i8 0, ptr %hasVal.i.i26, align 4
   br label %cleanup.done27
 
 cleanup.action:                                   ; preds = %_ZNK6hermes2vm13RuntimeConfig11getCrashMgrEv.exit23
-  %hasVal.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %hasVal.i.i = getelementptr inbounds i8, ptr %this, i64 620
   store i8 1, ptr %hasVal.i.i, align 4
   store i32 %call19, ptr %crashCallbackKey_, align 8
   %27 = load ptr, ptr %_M_manager.i.i24, align 8
@@ -8139,7 +8072,7 @@ _ZNSt8functionIFviEED2Ev.exit:                    ; preds = %cleanup.action, %if
   br i1 %cmp.not.i.i.i, label %cleanup.done27, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFviEED2Ev.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %30, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %31, 4294967297
   %32 = trunc i64 %31 to i32
@@ -8147,10 +8080,10 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFviE
 
 if.then.i.i.i.i28:                                ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %30, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %30, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %33 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(16) %30) #28
   br label %if.end8.sink.split.i.i.i.i
@@ -8176,10 +8109,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %30, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %36 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(16) %30) #28
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %30, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 12
   %37 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %37, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -8201,7 +8134,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i28
   %vtable2.i.i.i.i.i.i = load ptr, ptr %30, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %40 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(16) %30) #28
   br label %cleanup.done27
@@ -8212,7 +8145,7 @@ cleanup.done27:                                   ; preds = %if.end8.sink.split.
   br i1 %cmp.not.i.i.i30, label %_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEED2Ev.exit60, label %if.then.i.i.i31
 
 if.then.i.i.i31:                                  ; preds = %cleanup.done27
-  %_M_use_count.i.i.i.i32 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %41, i64 0, i32 1
+  %_M_use_count.i.i.i.i32 = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load atomic i64, ptr %_M_use_count.i.i.i.i32 acquire, align 8
   %cmp.i.i.i.i33 = icmp eq i64 %42, 4294967297
   %43 = trunc i64 %42 to i32
@@ -8220,10 +8153,10 @@ if.then.i.i.i31:                                  ; preds = %cleanup.done27
 
 if.then.i.i.i.i56:                                ; preds = %if.then.i.i.i31
   store i32 0, ptr %_M_use_count.i.i.i.i32, align 8
-  %_M_weak_count.i.i.i.i57 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %41, i64 0, i32 2
+  %_M_weak_count.i.i.i.i57 = getelementptr inbounds i8, ptr %41, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i57, align 4
   %vtable.i.i.i.i58 = load ptr, ptr %41, align 8
-  %vfn.i.i.i.i59 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i58, i64 2
+  %vfn.i.i.i.i59 = getelementptr inbounds i8, ptr %vtable.i.i.i.i58, i64 16
   %44 = load ptr, ptr %vfn.i.i.i.i59, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(16) %41) #28
   br label %if.end8.sink.split.i.i.i.i51
@@ -8249,10 +8182,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i38: ; preds = %if.els
 
 if.then7.i.i.i.i41:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i38
   %vtable.i.i.i.i.i.i42 = load ptr, ptr %41, align 8
-  %vfn.i.i.i.i.i.i43 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i42, i64 2
+  %vfn.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i42, i64 16
   %47 = load ptr, ptr %vfn.i.i.i.i.i.i43, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(16) %41) #28
-  %_M_weak_count.i.i.i.i.i.i44 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %41, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %41, i64 12
   %48 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i45 = icmp eq i8 %48, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i45, label %if.else.i.i.i.i.i.i.i54, label %if.then.i.i.i.i.i.i.i46
@@ -8274,15 +8207,15 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i48: ; preds = %if
 
 if.end8.sink.split.i.i.i.i51:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i48, %if.then.i.i.i.i56
   %vtable2.i.i.i.i.i.i52 = load ptr, ptr %41, align 8
-  %vfn3.i.i.i.i.i.i53 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i52, i64 3
+  %vfn3.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i52, i64 24
   %51 = load ptr, ptr %vfn3.i.i.i.i.i.i53, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #28
   br label %_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEED2Ev.exit60
 
 _ZNSt10shared_ptrIN6hermes2vm12CrashManagerEED2Ev.exit60: ; preds = %cleanup.done27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i48, %if.end8.sink.split.i.i.i.i51
-  %flushedAndDisabled_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 6
+  %flushedAndDisabled_ = getelementptr inbounds i8, ptr %this, i64 624
   store i8 0, ptr %flushedAndDisabled_, align 8
-  %committedTraceFilename_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 7
+  %committedTraceFilename_ = getelementptr inbounds i8, ptr %this, i64 632
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %committedTraceFilename_) #28
   ret void
 
@@ -8295,7 +8228,7 @@ lpad:                                             ; preds = %entry
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i62: ; preds = %lpad
   %vtable.i.i63 = load ptr, ptr %53, align 8
-  %vfn.i.i64 = getelementptr inbounds ptr, ptr %vtable.i.i63, i64 1
+  %vfn.i.i64 = getelementptr inbounds i8, ptr %vtable.i.i63, i64 8
   %54 = load ptr, ptr %vfn.i.i64, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(36) %53) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit65
@@ -8307,7 +8240,7 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit65: ; pre
 
 _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i67: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit65
   %vtable.i.i68 = load ptr, ptr %55, align 8
-  %vfn.i.i69 = getelementptr inbounds ptr, ptr %vtable.i.i68, i64 1
+  %vfn.i.i69 = getelementptr inbounds i8, ptr %vtable.i.i68, i64 8
   %56 = load ptr, ptr %vfn.i.i69, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %55) #28
   br label %eh.resume
@@ -8338,7 +8271,7 @@ terminate.lpad.i.i75:                             ; preds = %if.then.i.i73
 _ZNSt8functionIFviEED2Ev.exit76:                  ; preds = %lpad17, %if.then.i.i73
   call void @_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9) #28
   call void @_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #28
-  %_M_manager.i.i77 = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_manager.i.i77 = getelementptr inbounds i8, ptr %this, i64 600
   %62 = load ptr, ptr %_M_manager.i.i77, align 8
   %tobool.not.i.i78 = icmp eq ptr %62, null
   br i1 %tobool.not.i.i78, label %_ZNSt8functionIFvvEED2Ev.exit, label %if.then.i.i79
@@ -8355,7 +8288,7 @@ terminate.lpad.i.i81:                             ; preds = %if.then.i.i79
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNSt8functionIFviEED2Ev.exit76, %if.then.i.i79
-  %_M_manager.i.i82 = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i82 = getelementptr inbounds i8, ptr %this, i64 568
   %65 = load ptr, ptr %_M_manager.i.i82, align 8
   %tobool.not.i.i83 = icmp eq ptr %65, null
   br i1 %tobool.not.i.i83, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit, label %if.then.i.i84
@@ -8389,23 +8322,23 @@ eh.resume:                                        ; preds = %_ZNKSt14default_del
 define hidden void @_ZN8facebook6hermes7tracing20TracingHermesRuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(664) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured.i = alloca %"class.std::__cxx11::basic_string", align 8
-  %crashCallbackKey_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 5
-  %hasVal.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %crashCallbackKey_ = getelementptr inbounds i8, ptr %this, i64 616
+  %hasVal.i = getelementptr inbounds i8, ptr %this, i64 620
   %0 = load i8, ptr %hasVal.i, align 4
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %CrashMgr_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 2, i32 31
+  %CrashMgr_.i = getelementptr inbounds i8, ptr %this, i64 528
   %2 = load ptr, ptr %CrashMgr_.i, align 8, !noalias !302
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 2, i32 31, i32 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 536
   %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !302
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont5, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1, !noalias !302
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -8423,7 +8356,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 invoke.cont5:                                     ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.then
   %7 = load i32, ptr %crashCallbackKey_, align 8
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %8 = load ptr, ptr %vfn, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %7)
           to label %invoke.cont7 unwind label %terminate.lpad
@@ -8432,7 +8365,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   br i1 %cmp.not.i.i.i.i, label %if.end, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont7
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %9, 4294967297
   %10 = trunc i64 %9 to i32
@@ -8440,10 +8373,10 @@ if.then.i.i.i:                                    ; preds = %invoke.cont7
 
 if.then.i.i.i.i1:                                 ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   br label %if.end8.sink.split.i.i.i.i
@@ -8469,10 +8402,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -8494,13 +8427,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i1
   %vtable2.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %18 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %3) #28
   br label %if.end
 
 if.end:                                           ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %invoke.cont7, %entry
-  %flushedAndDisabled_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 6
+  %flushedAndDisabled_ = getelementptr inbounds i8, ptr %this, i64 624
   %19 = load i8, ptr %flushedAndDisabled_, align 8
   %20 = and i8 %19, 1
   %tobool.not = icmp eq i8 %20, 0
@@ -8514,7 +8447,7 @@ if.then8:                                         ; preds = %if.end
 invoke.cont9:                                     ; preds = %if.then8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.ensured.i) #28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.ensured.i)
-  %_M_manager.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 600
   %21 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i, label %if.then.i, label %if.end.i
@@ -8527,22 +8460,22 @@ if.then.i:                                        ; preds = %invoke.cont9
   unreachable
 
 if.end.i:                                         ; preds = %invoke.cont9
-  %rollbackAction_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 4
-  %_M_invoker.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 4, i32 1
+  %rollbackAction_ = getelementptr inbounds i8, ptr %this, i64 584
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 608
   %22 = load ptr, ptr %_M_invoker.i, align 8
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(16) %rollbackAction_)
           to label %if.end11 unwind label %terminate.lpad
 
 if.end11:                                         ; preds = %if.end.i, %if.end
-  %committedTraceFilename_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 7
+  %committedTraceFilename_ = getelementptr inbounds i8, ptr %this, i64 632
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %committedTraceFilename_) #28
-  %_M_manager.i.i3 = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_manager.i.i3 = getelementptr inbounds i8, ptr %this, i64 600
   %23 = load ptr, ptr %_M_manager.i.i3, align 8
   %tobool.not.i.i4 = icmp eq ptr %23, null
   br i1 %tobool.not.i.i4, label %_ZNSt8functionIFvvEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end11
-  %rollbackAction_12 = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 4
+  %rollbackAction_12 = getelementptr inbounds i8, ptr %this, i64 584
   %call.i.i = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(16) %rollbackAction_12, ptr noundef nonnull align 8 dereferenceable(16) %rollbackAction_12, i32 noundef 3)
           to label %_ZNSt8functionIFvvEED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -8554,13 +8487,13 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %if.end11, %if.then.i.i
-  %_M_manager.i.i5 = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i5 = getelementptr inbounds i8, ptr %this, i64 568
   %26 = load ptr, ptr %_M_manager.i.i5, align 8
   %tobool.not.i.i6 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i6, label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit, label %if.then.i.i7
 
 if.then.i.i7:                                     ; preds = %_ZNSt8functionIFvvEED2Ev.exit
-  %commitAction_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 3
+  %commitAction_ = getelementptr inbounds i8, ptr %this, i64 552
   %call.i.i8 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(16) %commitAction_, ptr noundef nonnull align 8 dereferenceable(16) %commitAction_, i32 noundef 3)
           to label %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit unwind label %terminate.lpad.i.i9
 
@@ -8572,7 +8505,7 @@ terminate.lpad.i.i9:                              ; preds = %if.then.i.i7
   unreachable
 
 _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit: ; preds = %_ZNSt8functionIFvvEED2Ev.exit, %if.then.i.i7
-  %conf_13 = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 2
+  %conf_13 = getelementptr inbounds i8, ptr %this, i64 176
   call void @_ZN6hermes2vm13RuntimeConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(373) %conf_13) #28
   call void @_ZN8facebook6hermes7tracing14TracingRuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(172) %this) #28
   ret void
@@ -8599,13 +8532,13 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN6hermes2vm12CrashManagerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -8613,10 +8546,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %if.end8.sink.split.i.i.i
@@ -8642,10 +8575,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -8667,7 +8600,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %_ZNSt12__shared_ptrIN6hermes2vm12CrashManagerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -8691,13 +8624,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes2vm13RuntimeConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(373) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 31, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -8705,10 +8638,10 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %if.end8.sink.split.i.i.i.i
@@ -8734,10 +8667,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -8759,19 +8692,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEED2Ev.exit
 
 _ZNSt10shared_ptrIN6hermes2vm12CrashManagerEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %_M_manager.i.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 18, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 312
   %11 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFbvEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEED2Ev.exit
-  %TraceRegisterCallback_ = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 18
+  %TraceRegisterCallback_ = getelementptr inbounds i8, ptr %this, i64 296
   %call.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %TraceRegisterCallback_, ptr noundef nonnull align 8 dereferenceable(16) %TraceRegisterCallback_, i32 noundef 3)
           to label %_ZNSt8functionIFbvEED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -8783,17 +8716,17 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFbvEED2Ev.exit:                    ; preds = %_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEED2Ev.exit, %if.then.i.i
-  %TraceResultPath_ = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 17
+  %TraceResultPath_ = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %TraceResultPath_) #28
-  %TraceScratchPath_ = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 16
+  %TraceScratchPath_ = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %TraceScratchPath_) #28
-  %_M_manager.i.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 15, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %14 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i, label %if.then.i.i.i1
 
 if.then.i.i.i1:                                   ; preds = %_ZNSt8functionIFbvEED2Ev.exit
-  %Callback_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 15
+  %Callback_.i = getelementptr inbounds i8, ptr %this, i64 168
   %call.i.i.i = invoke noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i, i32 noundef 3)
           to label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i unwind label %terminate.lpad.i.i.i
 
@@ -8805,13 +8738,13 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i1
   unreachable
 
 _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i: ; preds = %if.then.i.i.i1, %_ZNSt8functionIFbvEED2Ev.exit
-  %_M_manager.i.i1.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 14, i32 0, i32 1
+  %_M_manager.i.i1.i = getelementptr inbounds i8, ptr %this, i64 152
   %17 = load ptr, ptr %_M_manager.i.i1.i, align 8
   %tobool.not.i.i2.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i2.i, label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i, label %if.then.i.i3.i
 
 if.then.i.i3.i:                                   ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i
-  %AnalyticsCallback_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 14
+  %AnalyticsCallback_.i = getelementptr inbounds i8, ptr %this, i64 136
   %call.i.i4.i = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i, ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_.i, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i unwind label %terminate.lpad.i.i5.i
 
@@ -8823,13 +8756,13 @@ terminate.lpad.i.i5.i:                            ; preds = %if.then.i.i3.i
   unreachable
 
 _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i: ; preds = %if.then.i.i3.i, %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit.i
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %20 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i.i, label %_ZN6hermes2vm8GCConfigD2Ev.exit, label %if.then.i.i.i.i2
 
 if.then.i.i.i.i2:                                 ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i
-  %Callback_.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 9, i32 1
+  %Callback_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %call.i.i.i.i = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i.i, i32 noundef 3)
           to label %_ZN6hermes2vm8GCConfigD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -8841,7 +8774,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i2
   unreachable
 
 _ZN6hermes2vm8GCConfigD2Ev.exit:                  ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit.i, %if.then.i.i.i.i2
-  %Name_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 8
+  %Name_.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name_.i) #28
   ret void
 }
@@ -8878,37 +8811,37 @@ entry:
 define linkonce_odr hidden void @_ZN6hermes2vm13RuntimeConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(373) %this, ptr noundef nonnull align 8 dereferenceable(373) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6hermes2vm8GCConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(200) %0)
-  %RegisterStack_ = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 1
-  %RegisterStack_3 = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %0, i64 0, i32 1
+  %RegisterStack_ = getelementptr inbounds i8, ptr %this, i64 200
+  %RegisterStack_3 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %RegisterStack_, ptr noundef nonnull align 8 dereferenceable(27) %RegisterStack_3, i64 27, i1 false)
-  %TraceScratchPath_ = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 16
-  %TraceScratchPath_4 = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %0, i64 0, i32 16
+  %TraceScratchPath_ = getelementptr inbounds i8, ptr %this, i64 232
+  %TraceScratchPath_4 = getelementptr inbounds i8, ptr %0, i64 232
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %TraceScratchPath_, ptr noundef nonnull align 8 dereferenceable(32) %TraceScratchPath_4)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %TraceResultPath_ = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 17
-  %TraceResultPath_5 = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %0, i64 0, i32 17
+  %TraceResultPath_ = getelementptr inbounds i8, ptr %this, i64 264
+  %TraceResultPath_5 = getelementptr inbounds i8, ptr %0, i64 264
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %TraceResultPath_, ptr noundef nonnull align 8 dereferenceable(32) %TraceResultPath_5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  %TraceRegisterCallback_ = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 18
-  %_M_manager.i.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 18, i32 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 18, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %0, i64 0, i32 18, i32 0, i32 1
+  %TraceRegisterCallback_ = getelementptr inbounds i8, ptr %this, i64 296
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 312
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 320
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %TraceRegisterCallback_, i8 0, i64 32, i1 false)
   %1 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not.i, label %invoke.cont10, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont7
-  %TraceRegisterCallback_8 = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %0, i64 0, i32 18
+  %TraceRegisterCallback_8 = getelementptr inbounds i8, ptr %0, i64 296
   %call3.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %TraceRegisterCallback_, ptr noundef nonnull align 8 dereferenceable(16) %TraceRegisterCallback_8, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %0, i64 0, i32 18, i32 1
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %0, i64 320
   %2 = load ptr, ptr %_M_invoker4.i, align 8
   store ptr %2, ptr %_M_invoker.i, align 8
   %3 = load ptr, ptr %_M_manager.i.i.i, align 8
@@ -8934,22 +8867,22 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 invoke.cont10:                                    ; preds = %invoke.cont.i, %invoke.cont7
-  %EnableSampledStats_ = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 19
-  %EnableSampledStats_11 = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %0, i64 0, i32 19
+  %EnableSampledStats_ = getelementptr inbounds i8, ptr %this, i64 328
+  %EnableSampledStats_11 = getelementptr inbounds i8, ptr %0, i64 328
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %EnableSampledStats_, ptr noundef nonnull align 8 dereferenceable(17) %EnableSampledStats_11, i64 17, i1 false)
-  %CrashMgr_ = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 31
-  %CrashMgr_12 = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %0, i64 0, i32 31
+  %CrashMgr_ = getelementptr inbounds i8, ptr %this, i64 352
+  %CrashMgr_12 = getelementptr inbounds i8, ptr %0, i64 352
   %8 = load ptr, ptr %CrashMgr_12, align 8
   store ptr %8, ptr %CrashMgr_, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 31, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %0, i64 0, i32 31, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 360
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %0, i64 360
   %9 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %9, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont10
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %9, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -8965,8 +8898,8 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN6hermes2vm12CrashManagerEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIN6hermes2vm12CrashManagerEEC2ERKS3_.exit: ; preds = %invoke.cont10, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %VMExperimentFlags_ = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %this, i64 0, i32 32
-  %VMExperimentFlags_13 = getelementptr inbounds %"class.hermes::vm::RuntimeConfig", ptr %0, i64 0, i32 32
+  %VMExperimentFlags_ = getelementptr inbounds i8, ptr %this, i64 368
+  %VMExperimentFlags_13 = getelementptr inbounds i8, ptr %0, i64 368
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %VMExperimentFlags_, ptr noundef nonnull align 8 dereferenceable(5) %VMExperimentFlags_13, i64 5, i1 false)
   ret void
 
@@ -9002,25 +8935,25 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 define hidden void @_ZN8facebook6hermes7tracing20TracingHermesRuntime33flushAndDisableBridgeTrafficTraceB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(664) %this) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %flushedAndDisabled_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 6
+  %flushedAndDisabled_ = getelementptr inbounds i8, ptr %this, i64 624
   %0 = load i8, ptr %flushedAndDisabled_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %committedTraceFilename_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 7
+  %committedTraceFilename_ = getelementptr inbounds i8, ptr %this, i64 632
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %committedTraceFilename_)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %trace_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
-  %plain_.i.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %trace_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %plain_.i.i, align 8
   %call3 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK8facebook6hermes13HermesRuntime14getGCExecTraceEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   tail call void @_ZN8facebook6hermes7tracing10SynthTrace15flushAndDisableERKN6hermes2vm11GCExecTraceE(ptr noundef nonnull align 8 dereferenceable(48) %trace_.i, ptr noundef nonnull align 1 dereferenceable(1) %call3)
   store i8 1, ptr %flushedAndDisabled_, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 568
   %3 = load ptr, ptr %_M_manager.i.i, align 8, !noalias !305
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEclEv.exit
@@ -9030,11 +8963,11 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEclEv.exit: ; preds = %if.end
-  %commitAction_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 3
-  %_M_invoker.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 3, i32 1
+  %commitAction_ = getelementptr inbounds i8, ptr %this, i64 552
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 576
   %4 = load ptr, ptr %_M_invoker.i, align 8, !noalias !305
   call void %4(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %commitAction_)
-  %committedTraceFilename_5 = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 7
+  %committedTraceFilename_5 = getelementptr inbounds i8, ptr %this, i64 632
   %call6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %committedTraceFilename_5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %committedTraceFilename_5)
@@ -9076,7 +9009,7 @@ entry:
   %status = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.21", align 1
   %agg.tmp.ensured = alloca %"class.std::__cxx11::basic_string", align 8
-  %flushedAndDisabled_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 6
+  %flushedAndDisabled_ = getelementptr inbounds i8, ptr %this, i64 624
   %0 = load i8, ptr %flushedAndDisabled_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -9086,15 +9019,15 @@ invoke.cont:                                      ; preds = %entry
   call void @_ZN4llvh14raw_fd_ostreamC1Eibb(ptr noundef nonnull align 8 dereferenceable(72) %jsonStream, i32 noundef %fd, i1 noundef zeroext false, i1 noundef zeroext false)
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %json, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %json, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %json, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %OS2.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %json, i64 0, i32 1
+  %OS2.i = getelementptr inbounds i8, ptr %json, i64 56
   store ptr %jsonStream, ptr %OS2.i, align 8
-  %pretty_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %json, i64 0, i32 2
+  %pretty_.i = getelementptr inbounds i8, ptr %json, i64 64
   store i8 0, ptr %pretty_.i, align 8
-  %indent_.i = getelementptr inbounds %"class.hermes::JSONEmitter", ptr %json, i64 0, i32 3
+  %indent_.i = getelementptr inbounds i8, ptr %json, i64 68
   store i32 0, ptr %indent_.i, align 4
   invoke void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %json)
           to label %_ZN4llvh9StringRefC2EPKc.exit unwind label %lpad2
@@ -9164,7 +9097,7 @@ lpad8:                                            ; preds = %invoke.cont9, %invo
 
 catch13:                                          ; preds = %lpad8
   %vtable = load ptr, ptr %9, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %10 = load ptr, ptr %vfn, align 8
   %call15 = call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #28
   invoke void (ptr, ptr, ...) @_ZN6hermes9hermesLogEPKcS1_z(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef %call15)
@@ -9185,7 +9118,7 @@ _ZN4llvh9StringRefC2EPKc.exit51:                  ; preds = %.noexc15
           to label %.noexc19 unwind label %lpad11
 
 .noexc19:                                         ; preds = %_ZN4llvh9StringRefC2EPKc.exit51
-  %committedTraceFilename_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingHermesRuntime", ptr %this, i64 0, i32 7
+  %committedTraceFilename_ = getelementptr inbounds i8, ptr %this, i64 632
   %call.i.i17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %committedTraceFilename_) #28
   %call2.i.i18 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %committedTraceFilename_) #28
   invoke void @_ZN6hermes11JSONEmitter9emitValueEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr %call.i.i17, i64 %call2.i.i18)
@@ -9323,7 +9256,7 @@ entry:
   %agg.tmp22 = alloca %"class.std::function.64", align 8
   %ref.tmp23 = alloca %class.anon.89, align 8
   store i32 0, ptr %ec, align 8
-  %_M_cat.i = getelementptr inbounds %"class.std::error_code", ptr %ec, i64 0, i32 1
+  %_M_cat.i = getelementptr inbounds i8, ptr %ec, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #33
   store ptr %call.i, ptr %_M_cat.i, align 8
   %call.i13 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #31, !noalias !308
@@ -9352,7 +9285,7 @@ if.then:                                          ; preds = %_ZNSt10unique_ptrIN
   %2 = load ptr, ptr %_M_cat.i, align 8, !noalias !311
   %3 = load i32, ptr %ec, align 8, !noalias !311
   %vtable.i = load ptr, ptr %2, align 8, !noalias !311
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %4 = load ptr, ptr %vfn.i, align 8, !noalias !311
   invoke void %4(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3)
           to label %invoke.cont unwind label %lpad
@@ -9378,7 +9311,7 @@ invoke.cont9:                                     ; preds = %invoke.cont6
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i: ; preds = %invoke.cont9
   %vtable.i.i15 = load ptr, ptr %6, align 8
-  %vfn.i.i16 = getelementptr inbounds ptr, ptr %vtable.i.i15, i64 1
+  %vfn.i.i16 = getelementptr inbounds i8, ptr %vtable.i.i15, i64 8
   %7 = load ptr, ptr %vfn.i.i16, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(36) %6) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
@@ -9390,7 +9323,7 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds
 
 _ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
   %vtable.i.i18 = load ptr, ptr %8, align 8
-  %vfn.i.i19 = getelementptr inbounds ptr, ptr %vtable.i.i18, i64 1
+  %vfn.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i18, i64 8
   %9 = load ptr, ptr %vfn.i.i19, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #28
   br label %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i109
@@ -9415,7 +9348,7 @@ lpad8:                                            ; preds = %invoke.cont6
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i21: ; preds = %lpad8
   %vtable.i.i22 = load ptr, ptr %13, align 8
-  %vfn.i.i23 = getelementptr inbounds ptr, ptr %vtable.i.i22, i64 1
+  %vfn.i.i23 = getelementptr inbounds i8, ptr %vtable.i.i22, i64 8
   %14 = load ptr, ptr %vfn.i.i23, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(36) %13) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit24
@@ -9427,7 +9360,7 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit24: ; pre
 
 _ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i26: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit24
   %vtable.i.i27 = load ptr, ptr %15, align 8
-  %vfn.i.i28 = getelementptr inbounds ptr, ptr %vtable.i.i27, i64 1
+  %vfn.i.i28 = getelementptr inbounds i8, ptr %vtable.i.i27, i64 8
   %16 = load ptr, ptr %vfn.i.i28, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15) #28
   br label %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i114
@@ -9438,9 +9371,9 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
   store ptr null, ptr %hermesRuntime, align 8
   %18 = ptrtoint ptr %call.i13 to i64
   store i64 %18, ptr %agg.tmp11, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %ref.tmp13, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function.29", ptr %ref.tmp13, i64 0, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %traceCompletionCallback, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %ref.tmp13, i64 24
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %traceCompletionCallback, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, i8 0, i64 32, i1 false)
   %19 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %19, null
@@ -9474,23 +9407,23 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 invoke.cont15:                                    ; preds = %invoke.cont.i, %if.end
-  %25 = getelementptr inbounds %class.anon.88, ptr %ref.tmp13, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %ref.tmp13, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %traceScratchPath)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  %26 = getelementptr inbounds %class.anon.88, ptr %ref.tmp13, i64 0, i32 2
+  %26 = getelementptr inbounds i8, ptr %ref.tmp13, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %traceResultPath)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont17
-  %_M_manager.i.i32 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp12, i64 0, i32 1
+  %_M_manager.i.i32 = getelementptr inbounds i8, ptr %agg.tmp12, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp12, i8 0, i64 32, i1 false)
   %call.i.i2.i40 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #31
           to label %call.i.i2.i.noexc unwind label %lpad20
 
 call.i.i2.i.noexc:                                ; preds = %invoke.cont19
-  %_M_invoker.i.i.i.i.i = getelementptr inbounds %"class.std::function.29", ptr %call.i.i2.i40, i64 0, i32 1
+  %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i40, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i2.i40, i8 0, i64 24, i1 false)
   %27 = load ptr, ptr %_M_invoker.i, align 8
   store ptr %27, ptr %_M_invoker.i.i.i.i.i, align 8
@@ -9499,19 +9432,19 @@ call.i.i2.i.noexc:                                ; preds = %invoke.cont19
   br i1 %tobool.not.i.i.not.i.i.i.i.i, label %_ZNSt8functionIFbvEEC2EOS1_.exit.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %call.i.i2.i.noexc
-  %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %call.i.i2.i40, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i40, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i2.i40, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13, i64 16, i1 false)
   store ptr %28, ptr %_M_manager.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFbvEEC2EOS1_.exit.i.i.i.i
 
 _ZNSt8functionIFbvEEC2EOS1_.exit.i.i.i.i:         ; preds = %if.then.i.i.i.i.i, %call.i.i2.i.noexc
-  %29 = getelementptr inbounds %class.anon.88, ptr %call.i.i2.i40, i64 0, i32 1
+  %29 = getelementptr inbounds i8, ptr %call.i.i2.i40, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %25)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %_ZNSt8functionIFbvEEC2EOS1_.exit.i.i.i.i
-  %30 = getelementptr inbounds %class.anon.88, ptr %call.i.i2.i40, i64 0, i32 2
+  %30 = getelementptr inbounds i8, ptr %call.i.i2.i40, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %invoke.cont21 unwind label %lpad2.i.i.i.i
 
@@ -9528,7 +9461,7 @@ lpad2.i.i.i.i:                                    ; preds = %invoke.cont.i.i.i.i
 
 ehcleanup.i.i.i.i:                                ; preds = %lpad2.i.i.i.i, %lpad.i.i.i.i
   %.pn.i.i.i.i = phi { ptr, i32 } [ %32, %lpad2.i.i.i.i ], [ %31, %lpad.i.i.i.i ]
-  %_M_manager.i.i4.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %call.i.i2.i40, i64 0, i32 1
+  %_M_manager.i.i4.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i2.i40, i64 16
   %33 = load ptr, ptr %_M_manager.i.i4.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i.i.i.i, label %lpad.body.i, label %if.then.i.i.i.i.i.i
@@ -9562,7 +9495,7 @@ terminate.lpad.i.i36:                             ; preds = %if.then.i.i34
   unreachable
 
 invoke.cont21:                                    ; preds = %invoke.cont.i.i.i.i
-  %_M_invoker.i39 = getelementptr inbounds %"class.std::function.62", ptr %agg.tmp12, i64 0, i32 1
+  %_M_invoker.i39 = getelementptr inbounds i8, ptr %agg.tmp12, i64 24
   store ptr %call.i.i2.i40, ptr %agg.tmp12, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS8_13HermesRuntimeESt14default_deleteISB_EERKN6hermes2vm13RuntimeConfigERKS5_SL_St8functionIFbvEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i39, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS8_13HermesRuntimeESt14default_deleteISB_EERKN6hermes2vm13RuntimeConfigERKS5_SL_St8functionIFbvEEE3$_0E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation", ptr %_M_manager.i.i32, align 8
@@ -9570,7 +9503,7 @@ invoke.cont21:                                    ; preds = %invoke.cont.i.i.i.i
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont21
-  %_M_manager.i.i42 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp22, i64 0, i32 1
+  %_M_manager.i.i42 = getelementptr inbounds i8, ptr %agg.tmp22, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp22, i8 0, i64 32, i1 false)
   %call.i.i2.i53 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
           to label %call.i.i2.i.noexc52 unwind label %lpad26
@@ -9599,7 +9532,7 @@ terminate.lpad.i.i48:                             ; preds = %if.then.i.i46
   unreachable
 
 invoke.cont27:                                    ; preds = %call.i.i2.i.noexc52
-  %_M_invoker.i51 = getelementptr inbounds %"class.std::function.64", ptr %agg.tmp22, i64 0, i32 1
+  %_M_invoker.i51 = getelementptr inbounds i8, ptr %agg.tmp22, i64 24
   store ptr %call.i.i2.i53, ptr %agg.tmp22, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_St8functionIFbvEEE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i51, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_St8functionIFbvEEE3$_1E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation", ptr %_M_manager.i.i42, align 8
@@ -9664,7 +9597,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i69: ; preds = %"_ZZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_St8functionIFbvEEEN3$_0D2Ev.exit"
   %vtable.i.i70 = load ptr, ptr %50, align 8
-  %vfn.i.i71 = getelementptr inbounds ptr, ptr %vtable.i.i70, i64 1
+  %vfn.i.i71 = getelementptr inbounds i8, ptr %vtable.i.i70, i64 8
   %51 = load ptr, ptr %vfn.i.i71, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(36) %50) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit72
@@ -9677,7 +9610,7 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit72: ; pre
 
 _ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i74: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit72
   %vtable.i.i75 = load ptr, ptr %52, align 8
-  %vfn.i.i76 = getelementptr inbounds ptr, ptr %vtable.i.i75, i64 1
+  %vfn.i.i76 = getelementptr inbounds i8, ptr %vtable.i.i75, i64 8
   %53 = load ptr, ptr %vfn.i.i76, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(8) %52) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit112
@@ -9776,7 +9709,7 @@ _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i99: ; preds = %if.then
   %.pn6.pn.pn.pn130 = phi { ptr, i32 } [ %.pn6.pn.pn, %ehcleanup34 ], [ %.pn, %if.then.i.i80 ], [ %.pn, %ehcleanup ], [ %21, %lpad.i30 ], [ %21, %if.then.i.i ]
   %69 = phi ptr [ %.pre, %ehcleanup34 ], [ %call.i13, %if.then.i.i80 ], [ %call.i13, %ehcleanup ], [ %call.i13, %lpad.i30 ], [ %call.i13, %if.then.i.i ]
   %vtable.i.i100 = load ptr, ptr %69, align 8
-  %vfn.i.i101 = getelementptr inbounds ptr, ptr %vtable.i.i100, i64 1
+  %vfn.i.i101 = getelementptr inbounds i8, ptr %vtable.i.i100, i64 8
   %70 = load ptr, ptr %vfn.i.i101, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(36) %69) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit102
@@ -9790,14 +9723,14 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit102: ; pr
 
 _ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i104: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit102
   %vtable.i.i105 = load ptr, ptr %71, align 8
-  %vfn.i.i106 = getelementptr inbounds ptr, ptr %vtable.i.i105, i64 1
+  %vfn.i.i106 = getelementptr inbounds i8, ptr %vtable.i.i105, i64 8
   %72 = load ptr, ptr %vfn.i.i106, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(8) %71) #28
   br label %common.resume
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i109: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i
   %vtable.i.i110 = load ptr, ptr %call.i13, align 8
-  %vfn.i.i111 = getelementptr inbounds ptr, ptr %vtable.i.i110, i64 1
+  %vfn.i.i111 = getelementptr inbounds i8, ptr %vtable.i.i110, i64 8
   %73 = load ptr, ptr %vfn.i.i111, align 8
   call void %73(ptr noundef nonnull align 8 dereferenceable(36) %call.i13) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit112
@@ -9808,7 +9741,7 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit112: ; pr
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i114: ; preds = %_ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i26, %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit24, %lpad5, %lpad
   %.pn11.ph = phi { ptr, i32 } [ %10, %lpad ], [ %11, %lpad5 ], [ %12, %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit24 ], [ %12, %_ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i26 ]
   %vtable.i.i115 = load ptr, ptr %call.i13, align 8
-  %vfn.i.i116 = getelementptr inbounds ptr, ptr %vtable.i.i115, i64 1
+  %vfn.i.i116 = getelementptr inbounds i8, ptr %vtable.i.i115, i64 8
   %74 = load ptr, ptr %vfn.i.i116, align 8
   call void %74(ptr noundef nonnull align 8 dereferenceable(36) %call.i13) #28
   br label %common.resume
@@ -9830,13 +9763,13 @@ entry:
   %1 = load i64, ptr %traceStream, align 8
   store i64 %1, ptr %agg.tmp1, align 8
   store ptr null, ptr %traceStream, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp2, i64 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.std::function.62", ptr %agg.tmp2, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS8_13HermesRuntimeESt14default_deleteISB_EERKN6hermes2vm13RuntimeConfigESA_IN4llvh11raw_ostreamESC_ISL_EEbE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS8_13HermesRuntimeESt14default_deleteISB_EERKN6hermes2vm13RuntimeConfigESA_IN4llvh11raw_ostreamESC_ISL_EEbE3$_0E10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  %_M_manager.i.i1 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp3, i64 0, i32 1
-  %_M_invoker.i2 = getelementptr inbounds %"class.std::function.64", ptr %agg.tmp3, i64 0, i32 1
+  %_M_manager.i.i1 = getelementptr inbounds i8, ptr %agg.tmp3, i64 16
+  %_M_invoker.i2 = getelementptr inbounds i8, ptr %agg.tmp3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigES4_IN4llvh11raw_ostreamES6_ISF_EEbE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i2, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigES4_IN4llvh11raw_ostreamES6_ISF_EEbE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %_M_manager.i.i1, align 8
@@ -9882,7 +9815,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i: ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit
   %vtable.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %9 = load ptr, ptr %vfn.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(36) %8) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
@@ -9895,7 +9828,7 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds
 
 _ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
   %vtable.i.i10 = load ptr, ptr %10, align 8
-  %vfn.i.i11 = getelementptr inbounds ptr, ptr %vtable.i.i10, i64 1
+  %vfn.i.i11 = getelementptr inbounds i8, ptr %vtable.i.i10, i64 8
   %11 = load ptr, ptr %vfn.i.i11, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #28
   br label %_ZNSt10unique_ptrIN8facebook6hermes13HermesRuntimeESt14default_deleteIS2_EED2Ev.exit
@@ -9944,7 +9877,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i25: ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit23
   %vtable.i.i26 = load ptr, ptr %19, align 8
-  %vfn.i.i27 = getelementptr inbounds ptr, ptr %vtable.i.i26, i64 1
+  %vfn.i.i27 = getelementptr inbounds i8, ptr %vtable.i.i26, i64 8
   %20 = load ptr, ptr %vfn.i.i27, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(36) %19) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit28
@@ -9957,7 +9890,7 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit28: ; pre
 
 _ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i30: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit28
   %vtable.i.i31 = load ptr, ptr %21, align 8
-  %vfn.i.i32 = getelementptr inbounds ptr, ptr %vtable.i.i31, i64 1
+  %vfn.i.i32 = getelementptr inbounds i8, ptr %vtable.i.i31, i64 8
   %22 = load ptr, ptr %vfn.i.i32, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(8) %21) #28
   br label %_ZNSt10unique_ptrIN8facebook6hermes13HermesRuntimeESt14default_deleteIS2_EED2Ev.exit33
@@ -9995,24 +9928,24 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp18.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp22.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp23.i)
-  %plain_.i.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %0, i64 0, i32 2
+  %plain_.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %plain_.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %0, align 8, !noalias !314
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 15
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 120
   %2 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !314
   invoke void %2(ptr nonnull sret(%"class.facebook::jsi::PropNameID") align 8 %funcProp.i, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.18, i64 noundef 25)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %if.then
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %3 = load ptr, ptr %vfn.i, align 8
   invoke void %3(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 41
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 328
   %4 = load ptr, ptr %vfn.i.i, align 8
   %call.i1516.i = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %funcProp.i)
           to label %invoke.cont2.i unwind label %lpad1.i
@@ -10130,25 +10063,25 @@ cleanup.action.i:                                 ; preds = %ehcleanup16.i, %ehc
 
 if.end.i:                                         ; preds = %_ZN8facebook3jsi6ObjectD2Ev.exit.i
   %vtable19.i = load ptr, ptr %1, align 8
-  %vfn20.i = getelementptr inbounds ptr, ptr %vtable19.i, i64 6
+  %vfn20.i = getelementptr inbounds i8, ptr %vtable19.i, i64 48
   %19 = load ptr, ptr %vfn20.i, align 8
   invoke void %19(ptr nonnull sret(%"class.facebook::jsi::Object") align 8 %ref.tmp18.i, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i.i unwind label %lpad.i
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i.i: ; preds = %if.end.i
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp23.i, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp23.i, i64 16
   store ptr @.str.18, ptr %agg.tmp23.i, align 8
   %ref.tmp24.sroa.2.0.agg.tmp23.sroa_idx.i = getelementptr inbounds i8, ptr %agg.tmp23.i, i64 8
   store ptr %0, ptr %ref.tmp24.sroa.2.0.agg.tmp23.sroa_idx.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i)
-  %_M_invoker.i.i.i = getelementptr inbounds %"class.std::function.31", ptr %agg.tmp.i.i, i64 0, i32 1
+  %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNSA_14TracingRuntimeEE3$_0E9_M_invokeERKSt9_Any_dataS4_S6_OS7_Om", ptr %_M_invoker.i.i.i, align 8, !noalias !319
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i.i, i64 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp23.i, i64 16, i1 false), !noalias !319
   store ptr @"_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEZNS0_6hermes7tracing12_GLOBAL__N_115addRecordMarkerERNSA_14TracingRuntimeEE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %_M_manager.i.i.i.i, align 8, !noalias !319
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false), !noalias !319
   %vtable.i29.i = load ptr, ptr %0, align 8, !noalias !319
-  %vfn.i30.i = getelementptr inbounds ptr, ptr %vtable.i29.i, i64 60
+  %vfn.i30.i = getelementptr inbounds i8, ptr %vtable.i29.i, i64 480
   %20 = load ptr, ptr %vfn.i30.i, align 8, !noalias !319
   invoke void %20(ptr nonnull sret(%"class.facebook::jsi::Function") align 8 %ref.tmp22.i, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %funcProp.i, i32 noundef 0, ptr noundef nonnull %agg.tmp.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
@@ -10194,7 +10127,7 @@ invoke.cont26.i:                                  ; preds = %if.then.i.i.i.i, %i
   store i32 7, ptr %ref.tmp.i.i, align 8, !alias.scope !322
   %28 = load ptr, ptr %ref.tmp22.i, align 8, !noalias !322
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !noalias !322
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 13
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 104
   %29 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !322
   %call.i.i.i31.i = invoke noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %28)
           to label %_ZN8facebook3jsi6detail7toValueINS0_8FunctionEEENS0_5ValueERNS0_7RuntimeERKT_.exit.i.i unwind label %lpad.i.i.i.i, !noalias !322
@@ -10206,10 +10139,10 @@ lpad.i.i.i.i:                                     ; preds = %invoke.cont26.i
   br label %lpad27.body.i
 
 _ZN8facebook3jsi6detail7toValueINS0_8FunctionEEENS0_5ValueERNS0_7RuntimeERKT_.exit.i.i: ; preds = %invoke.cont26.i
-  %data_.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::Value", ptr %ref.tmp.i.i, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store ptr %call.i.i.i31.i, ptr %data_.i.i.i.i, align 8, !alias.scope !322
   %vtable.i.i32.i = load ptr, ptr %0, align 8
-  %vfn.i.i33.i = getelementptr inbounds ptr, ptr %vtable.i.i32.i, i64 43
+  %vfn.i.i33.i = getelementptr inbounds i8, ptr %vtable.i.i32.i, i64 344
   %31 = load ptr, ptr %vfn.i.i33.i, align 8
   invoke void %31(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp18.i, ptr noundef nonnull align 8 dereferenceable(8) %funcProp.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
           to label %invoke.cont28.i unwind label %lpad.i34.i
@@ -10399,11 +10332,11 @@ nrvo.skipdtor:                                    ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_St8functionIFbvEEEN3$_0D2Ev"(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = getelementptr inbounds %class.anon.88, ptr %this, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #28
-  %1 = getelementptr inbounds %class.anon.88, ptr %this, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #28
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %this, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFbvEED2Ev.exit, label %if.then.i.i
@@ -10429,12 +10362,12 @@ entry:
   store ptr getelementptr inbounds ({ [91 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing14TracingRuntimeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [91 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing14TracingRuntimeE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %savedFunctions = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 3
+  %savedFunctions = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt5dequeIN8facebook3jsi8FunctionESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %savedFunctions) #28
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2
-  %records_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this, i64 32
+  %records_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %records_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
@@ -10447,14 +10380,14 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_Destr
 
 _ZNKSt14default_deleteIN8facebook6hermes7tracing10SynthTrace6RecordEEclEPS4_.exit.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 8
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   br label %_ZSt8_DestroyISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8facebook6hermes7tracing10SynthTrace6RecordEEclEPS4_.exit.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !4
 
@@ -10472,7 +10405,7 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EED2Ev.exit.i
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
-  %json_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 2, i32 1
+  %json_.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %json_.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN6hermes11JSONEmitterESt14default_deleteIS1_EED2Ev.exit.i, label %delete.notnull.i.i.i
@@ -10499,21 +10432,21 @@ _ZNSt10unique_ptrIN6hermes11JSONEmitterESt14default_deleteIS1_EED2Ev.exit.i: ; p
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN6hermes11JSONEmitterESt14default_deleteIS1_EED2Ev.exit.i
   %vtable.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(36) %7) #28
   br label %_ZN8facebook6hermes7tracing10SynthTraceD2Ev.exit
 
 _ZN8facebook6hermes7tracing10SynthTraceD2Ev.exit: ; preds = %_ZNSt10unique_ptrIN6hermes11JSONEmitterESt14default_deleteIS1_EED2Ev.exit.i, %_ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i.i
   store ptr null, ptr %trace_, align 8
-  %runtime_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this, i64 0, i32 1
+  %runtime_ = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %runtime_, align 8
   %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN8facebook3jsi7RuntimeEEclEPS2_.exit.i: ; preds = %_ZN8facebook6hermes7tracing10SynthTraceD2Ev.exit
   %vtable.i.i = load ptr, ptr %9, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %10 = load ptr, ptr %vfn.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9) #28
   br label %_ZNSt10unique_ptrIN8facebook3jsi7RuntimeESt14default_deleteIS2_EED2Ev.exit
@@ -10535,11 +10468,11 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E17prepareJavaScriptERKSt10shared_ptrIKNS0_6BufferEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::shared_ptr.93") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %buffer, ptr noundef %sourceURL) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL) #28
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   invoke void %1(ptr sret(%"class.std::shared_ptr.93") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %buffer, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -10558,10 +10491,10 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E26evaluatePreparedJavaScriptERKSt10shared_ptrIKNS0_18PreparedJavaScriptEE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %js) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %js)
   ret void
@@ -10570,10 +10503,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E6globalEv(ptr noalias sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.facebook::jsi::Object") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void
@@ -10582,10 +10515,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E11descriptionB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void
@@ -10594,10 +10527,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E13isInspectableEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret i1 %call2
@@ -10613,10 +10546,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E11cloneSymbolEPKNS2_12PointerValueE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pv) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %pv)
   ret ptr %call
@@ -10625,10 +10558,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E11cloneBigIntEPKNS2_12PointerValueE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pv) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 11
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %pv)
   ret ptr %call
@@ -10637,10 +10570,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E11cloneStringEPKNS2_12PointerValueE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pv) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 12
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %pv)
   ret ptr %call
@@ -10649,10 +10582,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E11cloneObjectEPKNS2_12PointerValueE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pv) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 13
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %pv)
   ret ptr %call
@@ -10661,10 +10594,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E15clonePropNameIDEPKNS2_12PointerValueE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pv) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 14
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %pv)
   ret ptr %call
@@ -10673,10 +10606,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E4utf8B5cxx11ERKNS0_10PropNameIDE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %id) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %id)
   ret void
@@ -10685,10 +10618,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E7compareERKNS0_10PropNameIDES6_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b)
   ret i1 %call
@@ -10697,10 +10630,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E14symbolToStringB5cxx11ERKNS0_6SymbolE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %sym) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 21
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %sym)
   ret void
@@ -10709,10 +10642,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E13bigintIsInt64ERKNS0_6BigIntE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %b) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %b)
   ret i1 %call
@@ -10721,10 +10654,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E14bigintIsUint64ERKNS0_6BigIntE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %b) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 25
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %b)
   ret i1 %call
@@ -10733,10 +10666,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E8truncateERKNS0_6BigIntE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %b) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 26
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %b)
   ret i64 %call
@@ -10745,10 +10678,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E4utf8B5cxx11ERKNS0_6StringE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %s) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 30
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %s)
   ret void
@@ -10760,25 +10693,25 @@ declare void @_ZN8facebook3jsi7Runtime23createValueFromJsonUtf8EPKhm(ptr sret(%"
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E13getHostObjectERKNS0_6ObjectE(ptr noalias sret(%"class.std::shared_ptr.39") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dho = alloca %"class.std::shared_ptr.39", align 8
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 34
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 272
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.std::shared_ptr.39") align 8 %dho, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %o)
   %2 = load ptr, ptr %dho, align 8
-  %plainHO_ = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %2, i64 0, i32 2
+  %plainHO_ = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %plainHO_, align 8
   store ptr %3, ptr %agg.result, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.40", ptr %agg.result, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %2, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %4, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %4, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -10794,13 +10727,13 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIN8facebook3jsi10HostObjectEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %_M_refcount.i.i1 = getelementptr inbounds %"class.std::__shared_ptr.40", ptr %dho, i64 0, i32 1
+  %_M_refcount.i.i1 = getelementptr inbounds i8, ptr %dho, i64 8
   %8 = load ptr, ptr %_M_refcount.i.i1, align 8
   %cmp.not.i.i.i2 = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEEC2ERKS3_.exit
-  %_M_use_count.i.i.i.i4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %8, i64 0, i32 1
+  %_M_use_count.i.i.i.i4 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load atomic i64, ptr %_M_use_count.i.i.i.i4 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %9, 4294967297
   %10 = trunc i64 %9 to i32
@@ -10808,10 +10741,10 @@ if.then.i.i.i3:                                   ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i4, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %8, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #28
   br label %if.end8.sink.split.i.i.i.i
@@ -10837,10 +10770,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(16) %8) #28
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %8, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 12
   %15 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -10862,7 +10795,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %8, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %18 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(16) %8) #28
   br label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit
@@ -10876,14 +10809,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8
 entry:
   %__typeinfo_result.i.i.i = alloca %"union.std::_Any_data", align 8
   %__ptr.i.i = alloca %"union.std::_Any_data", align 8
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 35
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 280
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %f)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__ptr.i.i)
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %call, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %_M_manager.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, @_ZNSt17_Function_handlerIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mENS1_21DecoratedHostFunctionEE10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
@@ -10902,7 +10835,7 @@ invoke.cont.i.i.i:                                ; preds = %if.then.i.i.i
   %tobool4.not.i.i.i = icmp eq ptr %3, null
   %spec.select.i.i = select i1 %tobool4.not.i.i.i, ptr @_ZTIv, ptr %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__typeinfo_result.i.i.i)
-  %__name2.i.i.i = getelementptr inbounds %"class.std::type_info", ptr %spec.select.i.i, i64 0, i32 1
+  %__name2.i.i.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 8
   %4 = load ptr, ptr %__name2.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, @_ZTSN8facebook3jsi21DecoratedHostFunctionE
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZNKSt9type_infoeqERKS_.exit.i.i
@@ -10942,17 +10875,17 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEE6targetINS1_21DecoratedHostFunctionEEEPT_v.exit: ; preds = %lor.lhs.false.i.i, %_ZNKSt9type_infoeqERKS_.exit.i.i, %invoke.cont.i.i
   %retval.0.i.i = phi ptr [ %9, %invoke.cont.i.i ], [ null, %_ZNKSt9type_infoeqERKS_.exit.i.i ], [ null, %lor.lhs.false.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__ptr.i.i)
-  %plainHF_ = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %retval.0.i.i, i64 0, i32 1
+  %plainHF_ = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   ret ptr %plainHF_
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E14hasNativeStateERKNS0_6ObjectE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 36
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 288
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %o)
   ret i1 %call
@@ -10961,10 +10894,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E14getNativeStateERKNS0_6ObjectE(ptr noalias sret(%"class.std::shared_ptr.96") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 37
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.std::shared_ptr.96") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %o)
   ret void
@@ -10974,19 +10907,19 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E14setNativeStateERKNS0_6ObjectESt10shared_ptrINS0_11NativeStateEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %o, ptr noundef %state) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.96", align 8
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %1 = load ptr, ptr %state, align 8
   store ptr %1, ptr %agg.tmp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.97", ptr %agg.tmp, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr.97", ptr %state, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %state, i64 8
   %2 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %2, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook3jsi11NativeStateEEC2ERKS3_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -11003,7 +10936,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 
 _ZNSt10shared_ptrIN8facebook3jsi11NativeStateEEC2ERKS3_.exit: ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 38
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
   %6 = load ptr, ptr %vfn, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %o, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -11014,7 +10947,7 @@ invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN
   br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN8facebook3jsi11NativeStateEED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 1
+  %_M_use_count.i.i.i.i4 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load atomic i64, ptr %_M_use_count.i.i.i.i4 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %8, 4294967297
   %9 = trunc i64 %8 to i32
@@ -11022,10 +10955,10 @@ if.then.i.i.i3:                                   ; preds = %invoke.cont
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i4, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   br label %if.end8.sink.split.i.i.i.i
@@ -11051,10 +10984,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %7, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 12
   %14 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -11076,7 +11009,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %17 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #28
   br label %_ZNSt10shared_ptrIN8facebook3jsi11NativeStateEED2Ev.exit
@@ -11094,10 +11027,10 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E7isArrayERKNS0_6ObjectE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 45
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 360
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %o)
   ret i1 %call
@@ -11106,10 +11039,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E13isArrayBufferERKNS0_6ObjectE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 46
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 368
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %o)
   ret i1 %call
@@ -11118,10 +11051,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E10isFunctionERKNS0_6ObjectE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 47
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 376
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %o)
   ret i1 %call
@@ -11130,10 +11063,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E12isHostObjectERKNS0_6ObjectE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 384
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %o)
   ret i1 %call
@@ -11142,10 +11075,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E14isHostFunctionERKNS0_8FunctionE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %f) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 49
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %f)
   ret i1 %call
@@ -11154,10 +11087,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E9pushScopeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 63
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 504
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret ptr %call
@@ -11166,10 +11099,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E8popScopeEPNS2_10ScopeStateE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %ss) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 512
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %ss)
   ret void
@@ -11178,10 +11111,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E12strictEqualsERKNS0_6SymbolES6_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 65
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 520
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b)
   ret i1 %call
@@ -11190,10 +11123,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E12strictEqualsERKNS0_6BigIntES6_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 66
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 528
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b)
   ret i1 %call
@@ -11202,10 +11135,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E12strictEqualsERKNS0_6StringES6_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 67
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 536
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b)
   ret i1 %call
@@ -11214,10 +11147,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E12strictEqualsERKNS0_6ObjectES6_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 68
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 544
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b)
   ret i1 %call
@@ -11226,10 +11159,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E10instanceOfERKNS0_6ObjectERKNS0_8FunctionE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %o, ptr noundef nonnull align 8 dereferenceable(8) %f) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_ = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 69
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 552
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %o, ptr noundef nonnull align 8 dereferenceable(8) %f)
   ret i1 %call
@@ -11238,14 +11171,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E18getRecordedGCStatsB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 2
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 16
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %call2)
   ret void
@@ -11254,14 +11187,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E11getHeapInfoB5cxx11Eb(ptr noalias sret(%"class.std::unordered_map") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext %includeExpensive) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 3
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 24
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr sret(%"class.std::unordered_map") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %call2, i1 noundef zeroext %includeExpensive)
   ret void
@@ -11271,15 +11204,15 @@ entry:
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E14collectGarbageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %cause) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %cause) #28
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 4
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 32
   %2 = load ptr, ptr %vfn4, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -11299,24 +11232,24 @@ lpad:                                             ; preds = %entry
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E34startTrackingHeapObjectStackTracesESt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaISC_EEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %callback) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function.105", align 8
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %_M_invoker.i = getelementptr inbounds %"class.std::function.105", ptr %agg.tmp, i64 0, i32 1
-  %_M_invoker2.i = getelementptr inbounds %"class.std::function.105", ptr %callback, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %_M_invoker2.i = getelementptr inbounds i8, ptr %callback, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
   %2 = load ptr, ptr %_M_invoker2.i, align 8
   store ptr %2, ptr %_M_invoker.i, align 8
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %3 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEEC2EOSB_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false)
   store ptr %3, ptr %_M_manager.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i, i8 0, i64 16, i1 false)
@@ -11324,13 +11257,13 @@ if.then.i:                                        ; preds = %entry
 
 _ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEEC2EOSB_.exit: ; preds = %entry, %if.then.i
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 5
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 40
   %4 = load ptr, ptr %vfn4, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEEC2EOSB_.exit
-  %_M_manager.i.i1 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i1 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %5 = load ptr, ptr %_M_manager.i.i1, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEED2Ev.exit, label %if.then.i.i
@@ -11352,7 +11285,7 @@ _ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tu
 lpad:                                             ; preds = %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEEC2EOSB_.exit
   %8 = landingpad { ptr, i32 }
           cleanup
-  %_M_manager.i.i2 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_manager.i.i2 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %9 = load ptr, ptr %_M_manager.i.i2, align 8
   %tobool.not.i.i3 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i3, label %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEED2Ev.exit7, label %if.then.i.i4
@@ -11375,14 +11308,14 @@ _ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tu
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E33stopTrackingHeapObjectStackTracesEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 6
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 48
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2)
   ret void
@@ -11391,14 +11324,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E17startHeapSamplingEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %samplingInterval) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 7
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 56
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2, i64 noundef %samplingInterval)
   ret void
@@ -11407,14 +11340,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E16stopHeapSamplingERSo(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 8
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 64
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull align 8 dereferenceable(8) %os)
   ret void
@@ -11423,14 +11356,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E20createSnapshotToFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %path) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 9
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 72
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull align 8 dereferenceable(32) %path)
   ret void
@@ -11439,14 +11372,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E22createSnapshotToStreamERSo(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 10
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 80
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull align 8 dereferenceable(8) %os)
   ret void
@@ -11455,14 +11388,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E33flushAndDisableBridgeTrafficTraceB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 11
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 88
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %call2)
   ret void
@@ -11471,14 +11404,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E33writeBasicBlockProfileTraceToFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %fileName) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 12
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 96
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull align 8 dereferenceable(32) %fileName)
   ret void
@@ -11487,14 +11420,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E25dumpProfilerSymbolsToFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %fileName) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3 = load ptr, ptr %call2, align 8
-  %vfn4 = getelementptr inbounds ptr, ptr %vtable3, i64 13
+  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 104
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull align 8 dereferenceable(32) %fileName)
   ret void
@@ -11523,11 +11456,11 @@ entry:
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %plain_.i.i, align 8, !noalias !325
   %vtable.i = load ptr, ptr %0, align 8, !noalias !325
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !325
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0), !noalias !325
   %vtable3.i = load ptr, ptr %call2.i, align 8, !noalias !325
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 2
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 16
   %2 = load ptr, ptr %vfn4.i, align 8, !noalias !325
   tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %call2.i)
   ret void
@@ -11539,11 +11472,11 @@ entry:
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %plain_.i.i, align 8, !noalias !328
   %vtable.i = load ptr, ptr %0, align 8, !noalias !328
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !328
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0), !noalias !328
   %vtable3.i = load ptr, ptr %call2.i, align 8, !noalias !328
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 3
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 24
   %2 = load ptr, ptr %vfn4.i, align 8, !noalias !328
   tail call void %2(ptr sret(%"class.std::unordered_map") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %call2.i, i1 noundef zeroext %includeExpensive)
   ret void
@@ -11557,12 +11490,12 @@ entry:
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %plain_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %cause) #28
   %vtable3.i = load ptr, ptr %call2.i, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 4
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 32
   %2 = load ptr, ptr %vfn4.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull %agg.tmp.i)
           to label %_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E14collectGarbageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %lpad.i
@@ -11587,21 +11520,21 @@ entry:
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %plain_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %_M_invoker.i.i = getelementptr inbounds %"class.std::function.105", ptr %agg.tmp.i, i64 0, i32 1
-  %_M_invoker2.i.i = getelementptr inbounds %"class.std::function.105", ptr %callback, i64 0, i32 1
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
+  %_M_invoker2.i.i = getelementptr inbounds i8, ptr %callback, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i, i8 0, i64 24, i1 false)
   %2 = load ptr, ptr %_M_invoker2.i.i, align 8
   store ptr %2, ptr %_M_invoker.i.i, align 8
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %callback, i64 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   %3 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.not.i.i, label %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEEC2EOSB_.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(16) %callback, i64 16, i1 false)
   store ptr %3, ptr %_M_manager.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_manager.i.i.i.i, i8 0, i64 16, i1 false)
@@ -11609,13 +11542,13 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEEC2EOSB_.exit.i: ; preds = %if.then.i.i, %entry
   %vtable3.i = load ptr, ptr %call2.i, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 5
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 40
   %4 = load ptr, ptr %vfn4.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEEC2EOSB_.exit.i
-  %_M_manager.i.i1.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_manager.i.i1.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %5 = load ptr, ptr %_M_manager.i.i1.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZN8facebook3jsi16RuntimeDecoratorINS0_7RuntimeES2_E34startTrackingHeapObjectStackTracesESt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaISC_EEEE.exit, label %if.then.i.i.i
@@ -11634,7 +11567,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
 lpad.i:                                           ; preds = %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEEC2EOSB_.exit.i
   %8 = landingpad { ptr, i32 }
           cleanup
-  %_M_manager.i.i2.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_manager.i.i2.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %9 = load ptr, ptr %_M_manager.i.i2.i, align 8
   %tobool.not.i.i3.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i3.i, label %_ZNSt8functionIFvmNSt6chrono8durationIlSt5ratioILl1ELl1000000EEEESt6vectorISt5tupleIJmmmEESaIS7_EEEED2Ev.exit7.i, label %if.then.i.i4.i
@@ -11664,11 +11597,11 @@ entry:
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %plain_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3.i = load ptr, ptr %call2.i, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 6
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 48
   %2 = load ptr, ptr %vfn4.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2.i)
   ret void
@@ -11680,11 +11613,11 @@ entry:
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %plain_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3.i = load ptr, ptr %call2.i, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 7
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 56
   %2 = load ptr, ptr %vfn4.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, i64 noundef %samplingInterval)
   ret void
@@ -11696,11 +11629,11 @@ entry:
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %plain_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3.i = load ptr, ptr %call2.i, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 8
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 64
   %2 = load ptr, ptr %vfn4.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(8) %os)
   ret void
@@ -11712,11 +11645,11 @@ entry:
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %plain_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3.i = load ptr, ptr %call2.i, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 9
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 72
   %2 = load ptr, ptr %vfn4.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %path)
   ret void
@@ -11728,11 +11661,11 @@ entry:
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %plain_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3.i = load ptr, ptr %call2.i, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 10
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 80
   %2 = load ptr, ptr %vfn4.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(8) %os)
   ret void
@@ -11744,11 +11677,11 @@ entry:
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %plain_.i.i, align 8, !noalias !331
   %vtable.i = load ptr, ptr %0, align 8, !noalias !331
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !331
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0), !noalias !331
   %vtable3.i = load ptr, ptr %call2.i, align 8, !noalias !331
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 11
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 88
   %2 = load ptr, ptr %vfn4.i, align 8, !noalias !331
   tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %call2.i)
   ret void
@@ -11760,11 +11693,11 @@ entry:
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %plain_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3.i = load ptr, ptr %call2.i, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 12
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 96
   %2 = load ptr, ptr %vfn4.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %fileName)
   ret void
@@ -11776,11 +11709,11 @@ entry:
   %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %plain_.i.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %vtable3.i = load ptr, ptr %call2.i, align 8
-  %vfn4.i = getelementptr inbounds ptr, ptr %vtable3.i, i64 13
+  %vfn4.i = getelementptr inbounds i8, ptr %vtable3.i, i64 104
   %2 = load ptr, ptr %vfn4.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull align 8 dereferenceable(32) %fileName)
   ret void
@@ -11789,7 +11722,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN8facebook6hermes7tracing20TracingHermesRuntime11getUniqueIDERKNS_3jsi6ObjectE(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i.i, align 8
   %call2 = tail call noundef i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6ObjectE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %o)
   ret i64 %call2
@@ -11798,7 +11731,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN8facebook6hermes7tracing20TracingHermesRuntime11getUniqueIDERKNS_3jsi6BigIntE(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef nonnull align 8 dereferenceable(8) %b) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i.i, align 8
   %call2 = tail call noundef i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6BigIntE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %b)
   ret i64 %call2
@@ -11807,7 +11740,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN8facebook6hermes7tracing20TracingHermesRuntime11getUniqueIDERKNS_3jsi6StringE(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef nonnull align 8 dereferenceable(8) %s) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i.i, align 8
   %call2 = tail call noundef i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6StringE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %s)
   ret i64 %call2
@@ -11816,7 +11749,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN8facebook6hermes7tracing20TracingHermesRuntime11getUniqueIDERKNS_3jsi10PropNameIDE(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef nonnull align 8 dereferenceable(8) %pni) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i.i, align 8
   %call2 = tail call noundef i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi10PropNameIDE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %pni)
   ret i64 %call2
@@ -11825,7 +11758,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN8facebook6hermes7tracing20TracingHermesRuntime11getUniqueIDERKNS_3jsi6SymbolE(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef nonnull align 8 dereferenceable(8) %sym) unnamed_addr #0 comdat align 2 {
 entry:
-  %plain_.i.i = getelementptr inbounds %"class.facebook::jsi::RuntimeDecorator", ptr %this, i64 0, i32 2
+  %plain_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %plain_.i.i, align 8
   %call2 = tail call noundef i64 @_ZNK8facebook6hermes13HermesRuntime11getUniqueIDERKNS_3jsi6SymbolE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %sym)
   ret i64 %call2
@@ -11838,7 +11771,7 @@ entry:
   %add = add nuw nsw i64 %div16, 1
   %0 = tail call i64 @llvm.umax.i64(i64 %div16, i64 5)
   %.sroa.speculated = add nuw nsw i64 %0, 3
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 1
+  %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %.sroa.speculated, ptr %_M_map_size, align 8
   %mul.i.i.i = shl nuw nsw i64 %.sroa.speculated, 3
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #31
@@ -11856,7 +11789,7 @@ for.body.i:                                       ; preds = %entry, %invoke.cont
 
 invoke.cont.i:                                    ; preds = %for.body.i
   store ptr %call5.i.i.i5.i, ptr %__cur.08.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %__cur.08.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__cur.08.i, i64 8
   %cmp.i8 = icmp ult ptr %incdec.ptr.i, %add.ptr14
   br i1 %cmp.i8, label %for.body.i, label %try.cont, !llvm.loop !334
 
@@ -11872,7 +11805,7 @@ for.body.i.i:                                     ; preds = %lpad.i, %for.body.i
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %add.ptr, %lpad.i ]
   %4 = load ptr, ptr %__n.04.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %4) #29
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %incdec.ptr.i.i, %__cur.08.i
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN8facebook3jsi8FunctionESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i, !llvm.loop !335
 
@@ -11912,24 +11845,24 @@ lpad23:                                           ; preds = %lpad.body
           to label %eh.resume unwind label %terminate.lpad
 
 try.cont:                                         ; preds = %invoke.cont.i
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_node.i = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
+  %_M_start = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_node.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %add.ptr, ptr %_M_node.i, align 8
   %12 = load ptr, ptr %add.ptr, align 8
-  %_M_first.i = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 1
+  %_M_first.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %12, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds %"class.facebook::jsi::Function", ptr %12, i64 64
-  %_M_last.i = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %12, i64 512
+  %_M_last.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %add.ptr27 = getelementptr inbounds ptr, ptr %add.ptr, i64 %div16
-  %_M_node.i10 = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 48
+  %add.ptr27 = getelementptr inbounds i8, ptr %add.ptr14, i64 -8
+  %_M_node.i10 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr27, ptr %_M_node.i10, align 8
   %13 = load ptr, ptr %add.ptr27, align 8
-  %_M_first.i11 = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 1
+  %_M_first.i11 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %13, ptr %_M_first.i11, align 8
-  %add.ptr.i12 = getelementptr inbounds %"class.facebook::jsi::Function", ptr %13, i64 64
-  %_M_last.i13 = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %13, i64 512
+  %_M_last.i13 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 63
@@ -11968,13 +11901,13 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes2vm8GCConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_manager.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 15, i32 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %Callback_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 15
+  %Callback_ = getelementptr inbounds i8, ptr %this, i64 168
   %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(16) %Callback_, ptr noundef nonnull align 8 dereferenceable(16) %Callback_, i32 noundef 3)
           to label %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -11986,13 +11919,13 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit: ; preds = %entry, %if.then.i.i
-  %_M_manager.i.i1 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 14, i32 0, i32 1
+  %_M_manager.i.i1 = getelementptr inbounds i8, ptr %this, i64 152
   %3 = load ptr, ptr %_M_manager.i.i1, align 8
   %tobool.not.i.i2 = icmp eq ptr %3, null
   br i1 %tobool.not.i.i2, label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit, label %if.then.i.i3
 
 if.then.i.i3:                                     ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit
-  %AnalyticsCallback_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 14
+  %AnalyticsCallback_ = getelementptr inbounds i8, ptr %this, i64 136
   %call.i.i4 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_, ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_, i32 noundef 3)
           to label %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit unwind label %terminate.lpad.i.i5
 
@@ -12004,13 +11937,13 @@ terminate.lpad.i.i5:                              ; preds = %if.then.i.i3
   unreachable
 
 _ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit: ; preds = %_ZNSt8functionIFvN6hermes2vm11GCEventKindEPKcEED2Ev.exit, %if.then.i.i3
-  %_M_manager.i.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %6 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i, label %_ZN6hermes2vm16GCTripwireConfigD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit
-  %Callback_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 9, i32 1
+  %Callback_.i = getelementptr inbounds i8, ptr %this, i64 96
   %call.i.i.i = invoke noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i, i32 noundef 3)
           to label %_ZN6hermes2vm16GCTripwireConfigD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -12022,7 +11955,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 _ZN6hermes2vm16GCTripwireConfigD2Ev.exit:         ; preds = %_ZNSt8functionIFvRKN6hermes2vm16GCAnalyticsEventEEED2Ev.exit, %if.then.i.i.i
-  %Name_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 8
+  %Name_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Name_) #28
   ret void
 }
@@ -12032,22 +11965,22 @@ define linkonce_odr void @_ZNSt5dequeIN8facebook3jsi8FunctionESaIS2_EED2Ev(ptr n
 entry:
   %agg.tmp.i = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp2.i = alloca %"struct.std::_Deque_iterator", align 16
-  %_M_start.i = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 2
-  %_M_last4.i.i = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 2
-  %_M_node5.i.i = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 2, i32 3
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 3
-  %_M_last4.i.i4 = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 2
-  %_M_node5.i.i6 = getelementptr inbounds %"struct.std::_Deque_base<facebook::jsi::Function, std::allocator<facebook::jsi::Function>>::_Deque_impl_data", ptr %this, i64 0, i32 3, i32 3
+  %_M_start.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_last4.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_node5.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_last4.i.i4 = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_node5.i.i6 = getelementptr inbounds i8, ptr %this, i64 72
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2.i)
   %0 = load <2 x ptr>, ptr %_M_start.i, align 8, !noalias !336
   store <2 x ptr> %0, ptr %agg.tmp.i, align 16
-  %_M_last.i.i9 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp.i, i64 0, i32 2
+  %_M_last.i.i9 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
   %1 = load <2 x ptr>, ptr %_M_last4.i.i, align 8, !noalias !336
   store <2 x ptr> %1, ptr %_M_last.i.i9, align 16
   %2 = load <2 x ptr>, ptr %_M_finish.i, align 8, !noalias !339
   store <2 x ptr> %2, ptr %agg.tmp2.i, align 16
-  %_M_last.i3.i = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %agg.tmp2.i, i64 0, i32 2
+  %_M_last.i3.i = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 16
   %3 = load <2 x ptr>, ptr %_M_last4.i.i4, align 8, !noalias !339
   store <2 x ptr> %3, ptr %_M_last.i3.i, align 16
   invoke void @_ZNSt5dequeIN8facebook3jsi8FunctionESaIS2_EE19_M_destroy_data_auxESt15_Deque_iteratorIS2_RS2_PS2_ES8_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i)
@@ -12063,7 +11996,7 @@ invoke.cont:                                      ; preds = %entry
 if.then.i:                                        ; preds = %invoke.cont
   %5 = load ptr, ptr %_M_node5.i.i, align 8
   %6 = load ptr, ptr %_M_node5.i.i6, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %6, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 8
   %cmp3.i.i = icmp ult ptr %5, %add.ptr.i
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN8facebook3jsi8FunctionESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i
 
@@ -12071,7 +12004,7 @@ for.body.i.i:                                     ; preds = %if.then.i, %for.bod
   %__n.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %5, %if.then.i ]
   %7 = load ptr, ptr %__n.04.i.i, align 8
   call void @_ZdlPv(ptr noundef %7) #29
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %__n.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__n.04.i.i, i64 8
   %cmp.i.i = icmp ult ptr %__n.04.i.i, %6
   br i1 %cmp.i.i, label %for.body.i.i, label %_ZNSt11_Deque_baseIN8facebook3jsi8FunctionESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i, !llvm.loop !335
 
@@ -12098,10 +12031,10 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt5dequeIN8facebook3jsi8FunctionESaIS2_EE19_M_destroy_data_auxESt15_Deque_iteratorIS2_RS2_PS2_ES8_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 3
+  %_M_node = getelementptr inbounds i8, ptr %__first, i64 24
   %0 = load ptr, ptr %_M_node, align 8
-  %_M_node2 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__last, i64 0, i32 3
-  %__node.038 = getelementptr inbounds ptr, ptr %0, i64 1
+  %_M_node2 = getelementptr inbounds i8, ptr %__last, i64 24
+  %__node.038 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %_M_node2, align 8
   %cmp39 = icmp ult ptr %__node.038, %1
   br i1 %cmp39, label %for.body, label %for.end
@@ -12137,7 +12070,7 @@ _ZSt8_DestroyIN8facebook3jsi8FunctionEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN8facebook3jsi8FunctionES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !342
 
 _ZSt8_DestroyIPN8facebook3jsi8FunctionES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN8facebook3jsi8FunctionEEvPT_.exit.i.i.i
-  %__node.0 = getelementptr inbounds ptr, ptr %__node.040, i64 1
+  %__node.0 = getelementptr inbounds i8, ptr %__node.040, i64 8
   %7 = load ptr, ptr %_M_node2, align 8
   %cmp = icmp ult ptr %__node.0, %7
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !343
@@ -12154,7 +12087,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp7.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__first, i64 0, i32 2
+  %_M_last = getelementptr inbounds i8, ptr %__first, i64 16
   %10 = load ptr, ptr %_M_last, align 8
   %cmp.not3.i.i.i = icmp eq ptr %9, %10
   br i1 %cmp.not3.i.i.i, label %_ZSt8_DestroyIPN8facebook3jsi8FunctionES2_EvT_S4_RSaIT0_E.exit13, label %for.body.i.i.i4
@@ -12179,12 +12112,12 @@ terminate.lpad.i.i.i.i.i.i.i9:                    ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN8facebook3jsi8FunctionEEvPT_.exit.i.i.i10: ; preds = %if.then.i.i.i.i.i.i.i7, %for.body.i.i.i4
-  %incdec.ptr.i.i.i11 = getelementptr inbounds %"class.facebook::jsi::Function", ptr %__first.addr.04.i.i.i5, i64 1
+  %incdec.ptr.i.i.i11 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i5, i64 8
   %cmp.not.i.i.i12 = icmp eq ptr %incdec.ptr.i.i.i11, %10
   br i1 %cmp.not.i.i.i12, label %_ZSt8_DestroyIPN8facebook3jsi8FunctionES2_EvT_S4_RSaIT0_E.exit13, label %for.body.i.i.i4, !llvm.loop !342
 
 _ZSt8_DestroyIPN8facebook3jsi8FunctionES2_EvT_S4_RSaIT0_E.exit13: ; preds = %_ZSt8_DestroyIN8facebook3jsi8FunctionEEvPT_.exit.i.i.i10, %if.then
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %__last, i64 0, i32 1
+  %_M_first = getelementptr inbounds i8, ptr %__last, i64 8
   %15 = load ptr, ptr %_M_first, align 8
   %16 = load ptr, ptr %__last, align 8
   %cmp.not3.i.i.i14 = icmp eq ptr %15, %16
@@ -12210,7 +12143,7 @@ terminate.lpad.i.i.i.i.i.i.i20:                   ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN8facebook3jsi8FunctionEEvPT_.exit.i.i.i21: ; preds = %if.then.i.i.i.i.i.i.i18, %for.body.i.i.i15
-  %incdec.ptr.i.i.i22 = getelementptr inbounds %"class.facebook::jsi::Function", ptr %__first.addr.04.i.i.i16, i64 1
+  %incdec.ptr.i.i.i22 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i16, i64 8
   %cmp.not.i.i.i23 = icmp eq ptr %incdec.ptr.i.i.i22, %16
   br i1 %cmp.not.i.i.i23, label %if.end, label %for.body.i.i.i15, !llvm.loop !342
 
@@ -12239,7 +12172,7 @@ terminate.lpad.i.i.i.i.i.i.i31:                   ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN8facebook3jsi8FunctionEEvPT_.exit.i.i.i32: ; preds = %if.then.i.i.i.i.i.i.i29, %for.body.i.i.i26
-  %incdec.ptr.i.i.i33 = getelementptr inbounds %"class.facebook::jsi::Function", ptr %__first.addr.04.i.i.i27, i64 1
+  %incdec.ptr.i.i.i33 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i27, i64 8
   %cmp.not.i.i.i34 = icmp eq ptr %incdec.ptr.i.i.i33, %21
   br i1 %cmp.not.i.i.i34, label %if.end, label %for.body.i.i.i26, !llvm.loop !342
 
@@ -12251,29 +12184,29 @@ if.end:                                           ; preds = %_ZSt8_DestroyIN8fac
 define linkonce_odr hidden void @_ZN6hermes2vm8GCConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 56, i1 false)
-  %Name_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 8
-  %Name_3 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 8
+  %Name_ = getelementptr inbounds i8, ptr %this, i64 56
+  %Name_3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name_, ptr noundef nonnull align 8 dereferenceable(32) %Name_3)
-  %TripwireConfig_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 9
-  %TripwireConfig_4 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 9
+  %TripwireConfig_ = getelementptr inbounds i8, ptr %this, i64 88
+  %TripwireConfig_4 = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load i32, ptr %TripwireConfig_4, align 8
   store i32 %1, ptr %TripwireConfig_, align 8
-  %Callback_.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 9, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 9, i32 1, i32 0, i32 1
-  %_M_invoker.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 9, i32 1, i32 1
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 9, i32 1, i32 0, i32 1
+  %Callback_.i = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 120
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %Callback_.i, i8 0, i64 32, i1 false)
   %2 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %Callback_3.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 9, i32 1
+  %Callback_3.i = getelementptr inbounds i8, ptr %0, i64 96
   %call3.i.i = invoke noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(16) %Callback_.i, ptr noundef nonnull align 8 dereferenceable(16) %Callback_3.i, i32 noundef 2)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  %_M_invoker4.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 9, i32 1, i32 1
+  %_M_invoker4.i.i = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %_M_invoker4.i.i, align 8
   store ptr %3, ptr %_M_invoker.i.i, align 8
   %4 = load ptr, ptr %_M_manager.i.i.i.i, align 8
@@ -12299,26 +12232,26 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 invoke.cont:                                      ; preds = %invoke.cont.i.i, %entry
-  %AllocInYoung_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 10
-  %AllocInYoung_5 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 10
+  %AllocInYoung_ = getelementptr inbounds i8, ptr %this, i64 128
+  %AllocInYoung_5 = getelementptr inbounds i8, ptr %0, i64 128
   %9 = load i32, ptr %AllocInYoung_5, align 8
   store i32 %9, ptr %AllocInYoung_, align 8
-  %AnalyticsCallback_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 14
-  %_M_manager.i.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 14, i32 0, i32 1
-  %_M_invoker.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 14, i32 1
-  %_M_manager.i.i.i8 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 14, i32 0, i32 1
+  %AnalyticsCallback_ = getelementptr inbounds i8, ptr %this, i64 136
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 152
+  %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 160
+  %_M_manager.i.i.i8 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %AnalyticsCallback_, i8 0, i64 32, i1 false)
   %10 = load ptr, ptr %_M_manager.i.i.i8, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.not.i, label %invoke.cont8, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %AnalyticsCallback_6 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 14
+  %AnalyticsCallback_6 = getelementptr inbounds i8, ptr %0, i64 136
   %call3.i = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_, ptr noundef nonnull align 8 dereferenceable(16) %AnalyticsCallback_6, i32 noundef 2)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i
-  %_M_invoker4.i = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 14, i32 1
+  %_M_invoker4.i = getelementptr inbounds i8, ptr %0, i64 160
   %11 = load ptr, ptr %_M_invoker4.i, align 8
   store ptr %11, ptr %_M_invoker.i, align 8
   %12 = load ptr, ptr %_M_manager.i.i.i8, align 8
@@ -12344,22 +12277,22 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i9
   unreachable
 
 invoke.cont8:                                     ; preds = %invoke.cont.i, %invoke.cont
-  %Callback_ = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 15
-  %_M_manager.i.i11 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 15, i32 0, i32 1
-  %_M_invoker.i12 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %this, i64 0, i32 15, i32 1
-  %_M_manager.i.i.i13 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 15, i32 0, i32 1
+  %Callback_ = getelementptr inbounds i8, ptr %this, i64 168
+  %_M_manager.i.i11 = getelementptr inbounds i8, ptr %this, i64 184
+  %_M_invoker.i12 = getelementptr inbounds i8, ptr %this, i64 192
+  %_M_manager.i.i.i13 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %Callback_, i8 0, i64 32, i1 false)
   %17 = load ptr, ptr %_M_manager.i.i.i13, align 8
   %tobool.not.i.i.not.i14 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.not.i14, label %invoke.cont11, label %if.then.i15
 
 if.then.i15:                                      ; preds = %invoke.cont8
-  %Callback_9 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 15
+  %Callback_9 = getelementptr inbounds i8, ptr %0, i64 168
   %call3.i16 = invoke noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %Callback_, ptr noundef nonnull align 8 dereferenceable(16) %Callback_9, i32 noundef 2)
           to label %invoke.cont.i23 unwind label %lpad.i17
 
 invoke.cont.i23:                                  ; preds = %if.then.i15
-  %_M_invoker4.i24 = getelementptr inbounds %"class.hermes::vm::GCConfig", ptr %0, i64 0, i32 15, i32 1
+  %_M_invoker4.i24 = getelementptr inbounds i8, ptr %0, i64 192
   %18 = load ptr, ptr %_M_invoker4.i24, align 8
   store ptr %18, ptr %_M_invoker.i12, align 8
   %19 = load ptr, ptr %_M_manager.i.i.i13, align 8
@@ -12446,8 +12379,8 @@ entry:
   %1 = load i64, ptr %__args3, align 8
   store i64 %1, ptr %agg.tmp9, align 8
   store ptr null, ptr %__args3, align 8
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp10, i64 0, i32 1
-  %_M_manager.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__args5, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp10, i64 16
+  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %__args5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp10, i8 0, i64 32, i1 false)
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.not.i = icmp eq ptr %2, null
@@ -12481,8 +12414,8 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 invoke.cont:                                      ; preds = %invoke.cont.i, %entry
-  %_M_manager.i.i3 = getelementptr inbounds %"class.std::_Function_base", ptr %agg.tmp11, i64 0, i32 1
-  %_M_manager.i.i.i5 = getelementptr inbounds %"class.std::_Function_base", ptr %__args7, i64 0, i32 1
+  %_M_manager.i.i3 = getelementptr inbounds i8, ptr %agg.tmp11, i64 16
+  %_M_manager.i.i.i5 = getelementptr inbounds i8, ptr %__args7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp11, i8 0, i64 32, i1 false)
   %8 = load ptr, ptr %_M_manager.i.i.i5, align 8
   %tobool.not.i.i.not.i6 = icmp eq ptr %8, null
@@ -12559,7 +12492,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i: ; preds = %_ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEED2Ev.exit
   %vtable.i.i = load ptr, ptr %20, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %21 = load ptr, ptr %vfn.i.i, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(36) %20) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
@@ -12571,7 +12504,7 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds
 
 _ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit
   %vtable.i.i32 = load ptr, ptr %22, align 8
-  %vfn.i.i33 = getelementptr inbounds ptr, ptr %vtable.i.i32, i64 1
+  %vfn.i.i33 = getelementptr inbounds i8, ptr %vtable.i.i32, i64 8
   %23 = load ptr, ptr %vfn.i.i33, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %22) #28
   br label %_ZNSt10unique_ptrIN8facebook6hermes13HermesRuntimeESt14default_deleteIS2_EED2Ev.exit
@@ -12622,7 +12555,7 @@ ehcleanup16:                                      ; preds = %if.then.i.i43, %ehc
 
 _ZNKSt14default_deleteIN4llvh11raw_ostreamEEclEPS1_.exit.i49: ; preds = %ehcleanup16
   %vtable.i.i50 = load ptr, ptr %31, align 8
-  %vfn.i.i51 = getelementptr inbounds ptr, ptr %vtable.i.i50, i64 1
+  %vfn.i.i51 = getelementptr inbounds i8, ptr %vtable.i.i50, i64 8
   %32 = load ptr, ptr %vfn.i.i51, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(36) %31) #28
   br label %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit52
@@ -12634,7 +12567,7 @@ _ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit52: ; pre
 
 _ZNKSt14default_deleteIN8facebook6hermes13HermesRuntimeEEclEPS2_.exit.i54: ; preds = %_ZNSt10unique_ptrIN4llvh11raw_ostreamESt14default_deleteIS1_EED2Ev.exit52
   %vtable.i.i55 = load ptr, ptr %33, align 8
-  %vfn.i.i56 = getelementptr inbounds ptr, ptr %vtable.i.i55, i64 1
+  %vfn.i.i56 = getelementptr inbounds i8, ptr %vtable.i.i55, i64 8
   %34 = load ptr, ptr %vfn.i.i56, align 8
   call void %34(ptr noundef nonnull align 8 dereferenceable(8) %33) #28
   br label %_ZNSt10unique_ptrIN8facebook6hermes13HermesRuntimeESt14default_deleteIS2_EED2Ev.exit57
@@ -12667,7 +12600,7 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %what) #28
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %what_.i = getelementptr inbounds %"class.facebook::jsi::JSIException", ptr %this, i64 0, i32 1
+  %what_.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %what_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #28
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook3jsi18JSINativeExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
@@ -12758,20 +12691,20 @@ cleanup.action.i.i.i:                             ; preds = %ehcleanup7.i.i.i, %
   br label %eh.resume.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %4 = getelementptr inbounds %class.anon.124, ptr %__functor, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %__functor, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !354
   call void @_ZNKR8facebook3jsi5Value8asStringERNS0_7RuntimeE(ptr nonnull sret(%"class.facebook::jsi::String") align 8 %ref.tmp10.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__args3.val, ptr noundef nonnull align 8 dereferenceable(8) %__args), !noalias !354
   %vtable.i.i.i.i = load ptr, ptr %__args, align 8, !noalias !355
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 30
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 240
   %6 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !355
   invoke void %6(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp9.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10.i.i.i)
           to label %invoke.cont12.i.i.i unwind label %lpad11.i.i.i, !noalias !354
 
 invoke.cont12.i.i.i:                              ; preds = %if.end.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i), !noalias !354
-  %trace_.i.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %5, i64 0, i32 2
+  %trace_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
   %call.i.i.i.i.i = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28, !noalias !354
-  %startTime_.i.i.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %5, i64 0, i32 4
+  %startTime_.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 160
   %retval.sroa.0.0.copyload.i1.i.i.i.i.i.i = load i64, ptr %startTime_.i.i.i.i.i, align 8, !noalias !354
   %sub.i.i.i.i.i.i.i = sub nsw i64 %call.i.i.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i.i.i.i
   %div.i.i.i.i.i.i.i = sdiv i64 %sub.i.i.i.i.i.i.i, 1000000
@@ -12987,13 +12920,13 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr hidden void @_ZN8facebook3jsi19DecoratedHostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook3jsi19DecoratedHostObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -13001,10 +12934,10 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %if.end8.sink.split.i.i.i.i
@@ -13030,10 +12963,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -13055,7 +12988,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %_ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit
@@ -13069,13 +13002,13 @@ _ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit: ; preds = %entry, %_ZN9
 define linkonce_odr hidden void @_ZN8facebook3jsi19DecoratedHostObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook3jsi19DecoratedHostObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8facebook3jsi19DecoratedHostObjectD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -13083,10 +13016,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %if.end8.sink.split.i.i.i.i.i
@@ -13112,10 +13045,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -13137,7 +13070,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %_ZN8facebook3jsi19DecoratedHostObjectD2Ev.exit
@@ -13151,12 +13084,12 @@ _ZN8facebook3jsi19DecoratedHostObjectD2Ev.exit:   ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi19DecoratedHostObject3getERNS0_7RuntimeERKNS0_10PropNameIDE(ptr noalias sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %name) unnamed_addr #0 comdat align 2 {
 entry:
-  %plainHO_ = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %this, i64 0, i32 2
+  %plainHO_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %plainHO_, align 8
-  %drt_.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %this, i64 0, i32 1
+  %drt_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %drt_.i, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %name)
   ret void
@@ -13165,12 +13098,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi19DecoratedHostObject3setERNS0_7RuntimeERKNS0_10PropNameIDERKNS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(16) %value) unnamed_addr #0 comdat align 2 {
 entry:
-  %plainHO_ = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %this, i64 0, i32 2
+  %plainHO_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %plainHO_, align 8
-  %drt_.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %this, i64 0, i32 1
+  %drt_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %drt_.i, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(16) %value)
   ret void
@@ -13179,12 +13112,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi19DecoratedHostObject16getPropertyNamesERNS0_7RuntimeE(ptr noalias sret(%"class.std::vector.132") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
 entry:
-  %plainHO_ = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %this, i64 0, i32 2
+  %plainHO_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %plainHO_, align 8
-  %drt_.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %this, i64 0, i32 1
+  %drt_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %drt_.i, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr sret(%"class.std::vector.132") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   ret void
@@ -13248,22 +13181,22 @@ sw.bb4:                                           ; preds = %entry
   %call.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %2 = load ptr, ptr %1, align 8
   store ptr %2, ptr %call.i.i, align 8
-  %plainHF_.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %call.i.i, i64 0, i32 1
-  %_M_manager.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %call.i.i, i64 0, i32 1, i32 0, i32 1
-  %_M_invoker.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %call.i.i, i64 0, i32 1, i32 1
-  %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %1, i64 0, i32 1, i32 0, i32 1
+  %plainHF_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i, i8 0, i64 32, i1 false)
   %3 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.not.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIN8facebook3jsi21DecoratedHostFunctionEE15_M_init_functorIRKS3_EEvRSt9_Any_dataOT_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %sw.bb4
-  %plainHF_3.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %1, i64 0, i32 1
+  %plainHF_3.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %call3.i.i.i.i = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_3.i.i.i, i32 noundef 2)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %_M_invoker4.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %1, i64 0, i32 1, i32 1
+  %_M_invoker4.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %_M_invoker4.i.i.i.i, align 8
   store ptr %4, ptr %_M_invoker.i.i.i.i, align 8
   %5 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
@@ -13302,13 +13235,13 @@ sw.bb6:                                           ; preds = %entry
   br i1 %isnull.i, label %sw.epilog, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %sw.bb6
-  %_M_manager.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %10, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 24
   %11 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8facebook3jsi21DecoratedHostFunctionD2Ev.exit.i, label %if.then.i.i.i.i5
 
 if.then.i.i.i.i5:                                 ; preds = %delete.notnull.i
-  %plainHF_.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %10, i64 0, i32 1
+  %plainHF_.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %call.i.i.i.i = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i, i32 noundef 3)
           to label %_ZN8facebook3jsi21DecoratedHostFunctionD2Ev.exit.i unwind label %terminate.lpad.i.i.i.i
 
@@ -13337,10 +13270,10 @@ entry:
   %0 = getelementptr i8, ptr %__args3.val, i64 8
   %__args3.val.val = load ptr, ptr %0, align 8, !noalias !361
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %fun.i.i.i), !noalias !364
-  %runtime_.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %call.val, i64 0, i32 1
+  %runtime_.i.i.i = getelementptr inbounds i8, ptr %call.val, i64 24
   %1 = load ptr, ptr %runtime_.i.i.i, align 8, !noalias !369
   %vtable.i.i.i.i = load ptr, ptr %1, align 8, !noalias !372
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 13
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 104
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !372
   %call.i.i.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %__args3.val.val), !noalias !372
   store ptr %call.i.i.i.i, ptr %fun.i.i.i, align 8, !alias.scope !375, !noalias !369
@@ -13348,7 +13281,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !378
   store i32 0, ptr %ref.tmp.i.i.i.i.i.i, align 8, !alias.scope !383, !noalias !386
   %vtable.i.i.i.i.i.i = load ptr, ptr %3, align 8, !noalias !386
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 61
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 488
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !386
   invoke void %4(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %fun.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i, ptr noundef null, i64 noundef 0)
           to label %invoke.cont7.i.i.i unwind label %lpad.i.i.i.i.i.i
@@ -13456,27 +13389,27 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp16.i.i.i), !noalias !389
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp17.i.i.i), !noalias !389
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %str.i.i.i), !noalias !389
-  %data_.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::Value", ptr %__args3.val, i64 0, i32 1
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %__args3.val, i64 8
   %1 = load ptr, ptr %data_.i.i.i.i, align 8, !noalias !394
   %vtable.i.i.i.i = load ptr, ptr %call.val.val, align 8, !noalias !394
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 13
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 104
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !394
   %call.i.i.i.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %call.val.val, ptr noundef %1), !noalias !394
   store ptr %call.i.i.i.i, ptr %nativeFunc.i.i.i, align 8, !alias.scope !399, !noalias !402
-  %data_.i21.i.i.i = getelementptr inbounds %"class.facebook::jsi::Value", ptr %__args3.val, i64 1, i32 1
+  %data_.i21.i.i.i = getelementptr inbounds i8, ptr %__args3.val, i64 24
   %3 = load ptr, ptr %data_.i21.i.i.i, align 8, !noalias !403
   %vtable.i22.i.i.i = load ptr, ptr %call.val.val, align 8, !noalias !403
-  %vfn.i23.i.i.i = getelementptr inbounds ptr, ptr %vtable.i22.i.i.i, i64 13
+  %vfn.i23.i.i.i = getelementptr inbounds i8, ptr %vtable.i22.i.i.i, i64 104
   %4 = load ptr, ptr %vfn.i23.i.i.i, align 8, !noalias !403
   %call.i2425.i.i.i = invoke noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %call.val.val, ptr noundef %3)
           to label %_ZN8facebook3jsi6ObjectD2Ev.exit30.i.i.i unwind label %lpad4.i.i.i, !noalias !402
 
 _ZN8facebook3jsi6ObjectD2Ev.exit30.i.i.i:         ; preds = %entry
   store ptr %call.i2425.i.i.i, ptr %jsonStringify.i.i.i, align 8, !alias.scope !406, !noalias !402
-  %data_.i31.i.i.i = getelementptr inbounds %"class.facebook::jsi::Value", ptr %__args3.val, i64 2, i32 1
+  %data_.i31.i.i.i = getelementptr inbounds i8, ptr %__args3.val, i64 40
   %5 = load ptr, ptr %data_.i31.i.i.i, align 8, !noalias !409
   %vtable.i32.i.i.i = load ptr, ptr %call.val.val, align 8, !noalias !409
-  %vfn.i33.i.i.i = getelementptr inbounds ptr, ptr %vtable.i32.i.i.i, i64 13
+  %vfn.i33.i.i.i = getelementptr inbounds i8, ptr %vtable.i32.i.i.i, i64 104
   %6 = load ptr, ptr %vfn.i33.i.i.i, align 8, !noalias !409
   %call.i3435.i.i.i = invoke noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %call.val.val, ptr noundef %5)
           to label %_ZN8facebook3jsi6ObjectD2Ev.exit41.i.i.i unwind label %lpad10.i.i.i, !noalias !402
@@ -13486,7 +13419,7 @@ _ZN8facebook3jsi6ObjectD2Ev.exit41.i.i.i:         ; preds = %_ZN8facebook3jsi6Ob
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !415
   store i32 0, ptr %ref.tmp.i.i.i.i.i.i, align 8, !alias.scope !420, !noalias !423
   %vtable.i.i.i.i.i.i = load ptr, ptr %call.val.val, align 8, !noalias !423
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 61
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 488
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8, !noalias !423
   invoke void %7(ptr nonnull sret(%"class.facebook::jsi::Value") align 8 %funcResult.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.val.val, ptr noundef nonnull align 8 dereferenceable(8) %nativeFunc.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i, ptr noundef null, i64 noundef 0)
           to label %invoke.cont15.i.i.i unwind label %lpad.i.i.i.i.i.i, !noalias !402
@@ -13508,7 +13441,7 @@ invoke.cont15.i.i.i:                              ; preds = %_ZN8facebook3jsi6Ob
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i42.i.i.i), !noalias !426
   store i32 0, ptr %ref.tmp.i.i.i42.i.i.i, align 8, !alias.scope !431, !noalias !434
   %vtable.i.i.i43.i.i.i = load ptr, ptr %call.val.val, align 8, !noalias !434
-  %vfn.i.i.i44.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i43.i.i.i, i64 61
+  %vfn.i.i.i44.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i43.i.i.i, i64 488
   %9 = load ptr, ptr %vfn.i.i.i44.i.i.i, align 8, !noalias !434
   invoke void %9(ptr nonnull sret(%"class.facebook::jsi::Value") align 8 %ref.tmp17.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.val.val, ptr noundef nonnull align 8 dereferenceable(8) %jsonStringify.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i42.i.i.i, ptr noundef nonnull %ref.tmp.i.i.i.i, i64 noundef 1)
           to label %invoke.cont19.i.i.i unwind label %lpad.i.i.i45.i.i.i, !noalias !402
@@ -13530,7 +13463,7 @@ invoke.cont19.i.i.i:                              ; preds = %.noexc.i.i.i
 
 invoke.cont21.i.i.i:                              ; preds = %invoke.cont19.i.i.i
   %vtable.i47.i.i.i = load ptr, ptr %call.val.val, align 8, !noalias !437
-  %vfn.i48.i.i.i = getelementptr inbounds ptr, ptr %vtable.i47.i.i.i, i64 30
+  %vfn.i48.i.i.i = getelementptr inbounds i8, ptr %vtable.i47.i.i.i, i64 240
   %11 = load ptr, ptr %vfn.i48.i.i.i, align 8, !noalias !437
   invoke void %11(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %utf8.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call.val.val, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp16.i.i.i)
           to label %invoke.cont23.i.i.i unwind label %lpad22.i.i.i, !noalias !402
@@ -13558,7 +13491,7 @@ _ZN8facebook3jsi6StringD2Ev.exit.i.i.i:           ; preds = %if.then.i.i51.i.i.i
   %call.i54.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %utf8.i.i.i) #28, !noalias !440
   %call1.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %utf8.i.i.i) #28, !noalias !440
   %vtable.i55.i.i.i = load ptr, ptr %__args, align 8, !noalias !440
-  %vfn.i56.i.i.i = getelementptr inbounds ptr, ptr %vtable.i55.i.i.i, i64 29
+  %vfn.i56.i.i.i = getelementptr inbounds i8, ptr %vtable.i55.i.i.i, i64 232
   %16 = load ptr, ptr %vfn.i56.i.i.i, align 8, !noalias !440
   invoke void %16(ptr nonnull sret(%"class.facebook::jsi::String") align 8 %str.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef %call.i54.i.i.i, i64 noundef %call1.i.i.i.i)
           to label %invoke.cont25.i.i.i unwind label %lpad24.i.i.i, !noalias !402
@@ -13569,7 +13502,7 @@ invoke.cont25.i.i.i:                              ; preds = %_ZN8facebook3jsi6St
   store i32 6, ptr %ref.tmp.i59.i.i.i, align 8, !alias.scope !443, !noalias !446
   %17 = load ptr, ptr %str.i.i.i, align 8, !noalias !449
   %vtable.i.i.i60.i.i.i = load ptr, ptr %__args, align 8, !noalias !449
-  %vfn.i.i.i61.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i60.i.i.i, i64 12
+  %vfn.i.i.i61.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i60.i.i.i, i64 96
   %18 = load ptr, ptr %vfn.i.i.i61.i.i.i, align 8, !noalias !449
   %call.i.i.i.i.i.i = invoke noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef %17)
           to label %_ZN8facebook3jsi6detail7toValueINS0_6StringEEENS0_5ValueERNS0_7RuntimeERKT_.exit.i.i.i.i unwind label %lpad.i.i.i62.i.i.i, !noalias !449
@@ -13581,12 +13514,12 @@ lpad.i.i.i62.i.i.i:                               ; preds = %invoke.cont25.i.i.i
   br label %lpad26.body.i.i.i
 
 _ZN8facebook3jsi6detail7toValueINS0_6StringEEENS0_5ValueERNS0_7RuntimeERKT_.exit.i.i.i.i: ; preds = %invoke.cont25.i.i.i
-  %data_.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::Value", ptr %ref.tmp.i59.i.i.i, i64 0, i32 1
+  %data_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i59.i.i.i, i64 8
   store ptr %call.i.i.i.i.i.i, ptr %data_.i.i.i.i.i.i, align 8, !alias.scope !443, !noalias !446
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i58.i.i.i), !noalias !450
   store i32 0, ptr %ref.tmp.i.i.i58.i.i.i, align 8, !alias.scope !453, !noalias !456
   %vtable.i.i3.i.i.i.i = load ptr, ptr %__args, align 8, !noalias !456
-  %vfn.i.i4.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i3.i.i.i.i, i64 61
+  %vfn.i.i4.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i3.i.i.i.i, i64 488
   %20 = load ptr, ptr %vfn.i.i4.i.i.i.i, align 8, !noalias !456
   invoke void %20(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %jsonParse.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i58.i.i.i, ptr noundef nonnull %ref.tmp.i59.i.i.i, i64 noundef 1)
           to label %invoke.cont27.i.i.i unwind label %lpad.i.i5.i.i.i.i
@@ -13893,10 +13826,10 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %this, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %time.coerce, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace12MarkerRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %tag_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::MarkerRecord", ptr %this, i64 0, i32 1
+  %tag_.i = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %tag_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -13943,7 +13876,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZNSt23_Sp_counted_ptr_inplaceIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectSaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.144", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8
   %0 = load ptr, ptr %vtable.i.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(40) %_M_impl.i) #28
@@ -13960,12 +13893,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIZN8facebook6hermes7tracing
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS0_3jsi10HostObjectEEE17TracingHostObjectSaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %__ti) unnamed_addr #21 align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.144", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -13993,13 +13926,13 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 define internal void @_ZZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS_3jsi10HostObjectEEEN17TracingHostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook3jsi19DecoratedHostObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZN8facebook3jsi19DecoratedHostObjectD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -14007,10 +13940,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %if.end8.sink.split.i.i.i.i.i
@@ -14036,10 +13969,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -14061,7 +13994,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %_ZN8facebook3jsi19DecoratedHostObjectD2Ev.exit
@@ -14075,13 +14008,13 @@ _ZN8facebook3jsi19DecoratedHostObjectD2Ev.exit:   ; preds = %entry, %_ZN9__gnu_c
 define internal void @_ZZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS_3jsi10HostObjectEEEN17TracingHostObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook3jsi19DecoratedHostObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS_3jsi10HostObjectEEEN17TracingHostObjectD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -14089,10 +14022,10 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -14118,10 +14051,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -14143,7 +14076,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %_ZZN8facebook6hermes7tracing14TracingRuntime12createObjectESt10shared_ptrINS_3jsi10HostObjectEEEN17TracingHostObjectD2Ev.exit
@@ -14164,21 +14097,21 @@ entry:
   %ref.tmp14 = alloca %"class.facebook::hermes::tracing::SynthTrace::TraceValue", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val = load ptr, ptr %0, align 8
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this.val, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this.val, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this.val, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this.val, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
-  %objID_ = getelementptr inbounds %class.TracingHostObject, ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 32
   %vtable = load ptr, ptr %this.val, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 86
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 688
   %1 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(172) %this.val, ptr noundef nonnull align 8 dereferenceable(8) %name)
   store i64 %call4, ptr %ref.tmp3, align 8
   %vtable.i = load ptr, ptr %rt, align 8, !noalias !459
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 19
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 152
   %2 = load ptr, ptr %vfn.i, align 8, !noalias !459
   call void %2(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull align 8 dereferenceable(8) %name)
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_23GetPropertyNativeRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERmmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %objID_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
@@ -14186,11 +14119,11 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #28
-  %plainHO_.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %this, i64 0, i32 2
+  %plainHO_.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %plainHO_.i, align 8, !noalias !462
   %4 = load ptr, ptr %0, align 8, !noalias !462
   %vtable.i11 = load ptr, ptr %3, align 8, !noalias !462
-  %vfn.i12 = getelementptr inbounds ptr, ptr %vtable.i11, i64 2
+  %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 16
   %5 = load ptr, ptr %vfn.i12, align 8, !noalias !462
   invoke void %5(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %name)
           to label %invoke.cont11 unwind label %lpad6
@@ -14207,7 +14140,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
 invoke.cont15:                                    ; preds = %invoke.cont11
   %6 = extractvalue { i32, i64 } %call16, 0
   store i32 %6, ptr %ref.tmp14, align 8
-  %7 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp14, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp14, i64 8
   %8 = extractvalue { i32, i64 } %call16, 1
   store i64 %8, ptr %7, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_29GetPropertyNativeReturnRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14)
@@ -14271,30 +14204,30 @@ entry:
   %ref.tmp15 = alloca %"class.std::chrono::duration.37", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val = load ptr, ptr %0, align 8
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this.val, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this.val, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this.val, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this.val, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
   %vtable = load ptr, ptr %this.val, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 86
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 688
   %1 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(172) %this.val, ptr noundef nonnull align 8 dereferenceable(8) %name)
   store i64 %call4, ptr %ref.tmp3, align 8
   %vtable.i = load ptr, ptr %rt, align 8, !noalias !465
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 19
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 152
   %2 = load ptr, ptr %vfn.i, align 8, !noalias !465
   call void %2(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull align 8 dereferenceable(8) %name)
   %call7 = invoke { i32, i64 } @_ZN8facebook6hermes7tracing14TracingRuntime12toTraceValueERKNS_3jsi5ValueE(ptr noundef nonnull align 8 dereferenceable(172) %this.val, ptr noundef nonnull align 8 dereferenceable(16) %value)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %objID_ = getelementptr inbounds %class.TracingHostObject, ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 32
   %3 = extractvalue { i32, i64 } %call7, 0
   store i32 %3, ptr %ref.tmp6, align 8
-  %4 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp6, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   %5 = extractvalue { i32, i64 } %call7, 1
   store i64 %5, ptr %4, align 8
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_23SetPropertyNativeRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERmmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %objID_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6)
@@ -14302,11 +14235,11 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont8:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #28
-  %plainHO_.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %this, i64 0, i32 2
+  %plainHO_.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %plainHO_.i, align 8
   %7 = load ptr, ptr %0, align 8
   %vtable.i11 = load ptr, ptr %6, align 8
-  %vfn.i12 = getelementptr inbounds ptr, ptr %vtable.i11, i64 3
+  %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 24
   %8 = load ptr, ptr %vfn.i12, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(16) %value)
           to label %try.cont unwind label %lpad9
@@ -14365,34 +14298,34 @@ entry:
   %ref.tmp24 = alloca %"class.std::chrono::duration.37", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %this.val = load ptr, ptr %0, align 8
-  %trace_ = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this.val, i64 0, i32 2
+  %trace_ = getelementptr inbounds i8, ptr %this.val, i64 32
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28
-  %startTime_.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %this.val, i64 0, i32 4
+  %startTime_.i = getelementptr inbounds i8, ptr %this.val, i64 160
   %retval.sroa.0.0.copyload.i1.i.i = load i64, ptr %startTime_.i, align 8
   %sub.i.i.i = sub nsw i64 %call.i, %retval.sroa.0.0.copyload.i1.i.i
   %div.i.i.i = sdiv i64 %sub.i.i.i, 1000000
   store i64 %div.i.i.i, ptr %ref.tmp, align 8
-  %objID_ = getelementptr inbounds %class.TracingHostObject, ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 32
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_28GetNativePropertyNamesRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %objID_)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %plainHO_.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostObject", ptr %this, i64 0, i32 2
+  %plainHO_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %plainHO_.i, align 8, !noalias !468
   %2 = load ptr, ptr %0, align 8, !noalias !468
   %vtable.i = load ptr, ptr %1, align 8, !noalias !468
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %3 = load ptr, ptr %vfn.i, align 8, !noalias !468
   invoke void %3(ptr nonnull sret(%"class.std::vector.132") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZNSt6vectorIN8facebook3jsi10PropNameIDESaIS2_EED2Ev.exit unwind label %lpad
 
 _ZNSt6vectorIN8facebook3jsi10PropNameIDESaIS2_EED2Ev.exit: ; preds = %entry
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::jsi::PropNameID, std::allocator<facebook::jsi::PropNameID>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::jsi::PropNameID, std::allocator<facebook::jsi::PropNameID>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %4 = load ptr, ptr %ref.tmp3, align 8
   store ptr %4, ptr %agg.result, align 8
-  %_M_finish.i2.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::jsi::PropNameID, std::allocator<facebook::jsi::PropNameID>>::_Vector_impl_data", ptr %ref.tmp3, i64 0, i32 1
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %5 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %5, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::jsi::PropNameID, std::allocator<facebook::jsi::PropNameID>>::_Vector_impl_data", ptr %ref.tmp3, i64 0, i32 2
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   %6 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp3, i8 0, i64 24, i1 false)
@@ -14412,7 +14345,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorIN8face
   unreachable
 
 if.end.i:                                         ; preds = %_ZNSt6vectorIN8facebook3jsi10PropNameIDESaIS2_EED2Ev.exit
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %names, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %names, i64 16
   %cmp3.i.not = icmp eq ptr %5, %4
   br i1 %cmp3.i.not, label %invoke.cont10, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
 
@@ -14422,7 +14355,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
           to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i unwind label %lpad9.loopexit.split-lp
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i: ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %names, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %names, i64 8
   store ptr %call5.i.i.i.i12, ptr %names, align 8
   store ptr %call5.i.i.i.i12, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i12, i64 %sub.ptr.div.i
@@ -14451,13 +14384,13 @@ invoke.cont10:                                    ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i14.not42, label %invoke.cont25, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont10
-  %_M_finish.i18 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %names, i64 0, i32 1
+  %_M_finish.i18 = getelementptr inbounds i8, ptr %names, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont20
   %__begin3.sroa.0.043 = phi ptr [ %4, %for.body.lr.ph ], [ %incdec.ptr.i23, %invoke.cont20 ]
   %vtable.i15 = load ptr, ptr %rt, align 8, !noalias !471
-  %vfn.i16 = getelementptr inbounds ptr, ptr %vtable.i15, i64 19
+  %vfn.i16 = getelementptr inbounds i8, ptr %vtable.i15, i64 152
   %11 = load ptr, ptr %vfn.i16, align 8, !noalias !471
   invoke void %11(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull align 8 dereferenceable(8) %__begin3.sroa.0.043)
           to label %invoke.cont18 unwind label %lpad9.loopexit
@@ -14471,7 +14404,7 @@ invoke.cont18:                                    ; preds = %for.body
 if.then.i19:                                      ; preds = %invoke.cont18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #28
   %14 = load ptr, ptr %_M_finish.i18, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %14, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %14, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i18, align 8
   br label %invoke.cont20
 
@@ -14481,7 +14414,7 @@ if.else.i:                                        ; preds = %invoke.cont18
 
 invoke.cont20:                                    ; preds = %if.else.i, %if.then.i19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #28
-  %incdec.ptr.i23 = getelementptr inbounds %"class.facebook::jsi::PropNameID", ptr %__begin3.sroa.0.043, i64 1
+  %incdec.ptr.i23 = getelementptr inbounds i8, ptr %__begin3.sroa.0.043, i64 8
   %cmp.i14.not = icmp eq ptr %incdec.ptr.i23, %5
   br i1 %cmp.i14.not, label %invoke.cont25, label %for.body
 
@@ -14512,7 +14445,7 @@ invoke.cont25:                                    ; preds = %invoke.cont20, %inv
 
 invoke.cont28:                                    ; preds = %invoke.cont25
   %16 = load ptr, ptr %names, align 8
-  %_M_finish.i29 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %names, i64 0, i32 1
+  %_M_finish.i29 = getelementptr inbounds i8, ptr %names, i64 8
   %17 = load ptr, ptr %_M_finish.i29, align 8
   %cmp.not3.i.i.i.i30 = icmp eq ptr %16, %17
   br i1 %cmp.not3.i.i.i.i30, label %invoke.cont.i37, label %for.body.i.i.i.i31
@@ -14520,7 +14453,7 @@ invoke.cont28:                                    ; preds = %invoke.cont25
 for.body.i.i.i.i31:                               ; preds = %invoke.cont28, %for.body.i.i.i.i31
   %__first.addr.04.i.i.i.i32 = phi ptr [ %incdec.ptr.i.i.i.i33, %for.body.i.i.i.i31 ], [ %16, %invoke.cont28 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i32) #28
-  %incdec.ptr.i.i.i.i33 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i32, i64 1
+  %incdec.ptr.i.i.i.i33 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i32, i64 32
   %cmp.not.i.i.i.i34 = icmp eq ptr %incdec.ptr.i.i.i.i33, %17
   br i1 %cmp.not.i.i.i.i34, label %invoke.contthread-pre-split.i35, label %for.body.i.i.i.i31, !llvm.loop !474
 
@@ -14565,23 +14498,23 @@ entry:
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
   %1 = load i64, ptr %args3, align 8
-  %time_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %hostObjectID_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %call, i64 0, i32 1
+  %hostObjectID_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %hostObjectID_.i.i, align 8
-  %propNameID_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %call, i64 0, i32 2
+  %propNameID_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %1, ptr %propNameID_.i.i, align 8
-  %propName_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %call, i64 0, i32 3
+  %propName_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %propName_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %args5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace23GetPropertyNativeRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -14589,7 +14522,7 @@ invoke.cont:                                      ; preds = %entry
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call, ptr %2, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_23GetPropertyNativeRecordEEEERS8_DpOT_.exit
 
@@ -14636,14 +14569,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !478, !noalias !475
   store i64 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !475, !noalias !478
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !478, !noalias !475
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_23GetPropertyNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -14672,22 +14605,22 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_29GetPropertyNativeReturnRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(16) %args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %agg.tmp4.sroa.0.0.copyload = load i32, ptr %args1, align 8
   %agg.tmp4.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %args1, i64 8
   %agg.tmp4.sroa.21.0.copyload = load i64, ptr %agg.tmp4.sroa.21.0..sroa_idx, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %agg.tmp4.sroa.0.0.copyload, ptr %0, align 8
   %value.sroa.21.0.retVal_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %agg.tmp4.sroa.21.0.copyload, ptr %value.sroa.21.0.retVal_.sroa_idx.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace29GetPropertyNativeReturnRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -14695,7 +14628,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_29GetPropertyNativeReturnRecordEEEERS8_DpOT_.exit
 
@@ -14742,14 +14675,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !483, !noalias !480
   store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !480, !noalias !483
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !483, !noalias !480
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i2 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i2 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_29GetPropertyNativeReturnRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -14782,26 +14715,26 @@ entry:
   %1 = load i64, ptr %args3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp101)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp101, ptr noundef nonnull align 8 dereferenceable(16) %args7, i64 16, i1 false)
-  %time_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetOrSetPropertyNativeRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %hostObjectID_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %call, i64 0, i32 1
+  %hostObjectID_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %hostObjectID_.i.i, align 8
-  %propNameID_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %call, i64 0, i32 2
+  %propNameID_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %1, ptr %propNameID_.i.i, align 8
-  %propName_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyNativeRecord", ptr %call, i64 0, i32 3
+  %propName_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %propName_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %args5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace23SetPropertyNativeRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %value_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::SetPropertyNativeRecord", ptr %call, i64 0, i32 1
+  %value_.i = getelementptr inbounds i8, ptr %call, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %value_.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp101, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp101)
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -14809,7 +14742,7 @@ invoke.cont:                                      ; preds = %entry
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call, ptr %2, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_23SetPropertyNativeRecordEEEERS8_DpOT_.exit
 
@@ -14856,14 +14789,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %6 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !488, !noalias !485
   store i64 %6, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !485, !noalias !488
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !488, !noalias !485
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %2
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i2 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i2 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_23SetPropertyNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -14892,15 +14825,15 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_29SetPropertyNativeReturnRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace29SetPropertyNativeReturnRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -14908,7 +14841,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_29SetPropertyNativeReturnRecordEEEERS8_DpOT_.exit
 
@@ -14955,14 +14888,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %4 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !493, !noalias !490
   store i64 %4, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !490, !noalias !493
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !493, !noalias !490
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_29SetPropertyNativeReturnRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -15019,11 +14952,11 @@ entry:
 define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook6hermes7tracing10SynthTrace29SetPropertyNativeReturnRecordeqERKNS2_6RecordE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %that) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %vtable2.i = load ptr, ptr %that, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 2
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 16
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(16) %that)
   %cmp.i = icmp eq i32 %call.i, %call4.i
@@ -15035,18 +14968,18 @@ declare void @_ZNK8facebook6hermes7tracing10SynthTrace6Record14toJSONInternalERN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_28GetNativePropertyNamesRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %0 = load i64, ptr %args1, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace28GetNativePropertyNamesRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %hostObjectID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesRecord", ptr %call, i64 0, i32 1
+  %hostObjectID_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %hostObjectID_.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -15054,7 +14987,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_28GetNativePropertyNamesRecordEEEERS8_DpOT_.exit
 
@@ -15101,14 +15034,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !498, !noalias !495
   store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !495, !noalias !498
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !498, !noalias !495
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_28GetNativePropertyNamesRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -15132,7 +15065,7 @@ _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14def
 define linkonce_odr void @_ZNSt6vectorIN8facebook3jsi10PropNameIDESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<facebook::jsi::PropNameID, std::allocator<facebook::jsi::PropNameID>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -15157,7 +15090,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN8facebook3jsi10PropNameIDEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.facebook::jsi::PropNameID", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !500
 
@@ -15183,18 +15116,18 @@ define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplac
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace34GetNativePropertyNamesReturnRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %propNames_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetNativePropertyNamesReturnRecord", ptr %call, i64 0, i32 1
+  %propNames_.i = getelementptr inbounds i8, ptr %call, i64 16
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %propNames_.i, ptr noundef nonnull align 8 dereferenceable(24) %args1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -15202,7 +15135,7 @@ invoke.cont:                                      ; preds = %entry
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call, ptr %0, align 8
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_34GetNativePropertyNamesReturnRecordEEEERS8_DpOT_.exit
 
@@ -15249,14 +15182,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %4 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !504, !noalias !501
   store i64 %4, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !501, !noalias !504
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !504, !noalias !501
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i1 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i1 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_34GetNativePropertyNamesReturnRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -15286,7 +15219,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -15294,7 +15227,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #28
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !474
 
@@ -15318,7 +15251,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -15362,14 +15295,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #28
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #28
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !506
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
@@ -15378,8 +15311,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #28
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #28
-  %incdec.ptr.i.i.i15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
+  %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
   br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !506
 
@@ -15393,7 +15326,7 @@ if.then.i20:                                      ; preds = %_ZNSt6vectorINSt7__
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, %if.then.i20
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %cond.i
@@ -15404,7 +15337,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -15430,10 +15363,10 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 invoke.cont:                                      ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i, %entry
   %cond.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i ]
   store ptr %cond.i.i.i, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %cond.i.i.i, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i.i.i, i64 %sub.ptr.div.i
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i, ptr %_M_end_of_storage.i.i, align 8
   %2 = load ptr, ptr %__x, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
@@ -15447,8 +15380,8 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont, %for.i
           to label %for.inc.i.i.i.i unwind label %lpad.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.sroa.0.09.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.010.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i, i64 32
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i, i64 32
   %cmp.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %3
   br i1 %cmp.i.not.i.i.i.i, label %invoke.cont11, label %for.body.i.i.i.i, !llvm.loop !507
 
@@ -15463,7 +15396,7 @@ lpad.i.i.i.i:                                     ; preds = %for.body.i.i.i.i
 for.body.i.i.i.i.i.i:                             ; preds = %lpad.i.i.i.i, %for.body.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i.i.i, %lpad.i.i.i.i ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i) #28
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %__cur.010.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont5.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !474
 
@@ -15527,16 +15460,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace18CreateObjectRecord4defsEv(ptr noalias sret(%"class.std::vector.148") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CreateObjectRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %objID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -15580,20 +15513,20 @@ entry:
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace17GetPropertyRecord4defsEv(ptr noalias sret(%"class.std::vector.148") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !508
-  %value_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 3
+  %value_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %value_, align 8
   %.off.i.i = add i32 %0, -4
   %switch.i.i = icmp ult i32 %.off.i.i, 5
   br i1 %switch.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i, label %nrvo.skipdtor
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %entry
-  %val_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 3, i32 1
+  %val_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i64, ptr %val_.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %call5.i.i.i.i.i.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
   store i64 %1, ptr %call5.i.i.i.i.i.i.i1, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i1, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i1, i64 8
   store ptr %call5.i.i.i.i.i.i.i1, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
@@ -15606,34 +15539,34 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt16allocator_tr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv(ptr noalias sret(%"class.std::vector.148") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %objID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
-  %propID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 2
+  %propID_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %propID_, align 8
   %.off.i.i = add i32 %1, -4
   %switch.i.i = icmp ult i32 %.off.i.i, 5
   br i1 %switch.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i, label %nrvo.skipdtor
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %entry
-  %val_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 2, i32 1
+  %val_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i64, ptr %val_.i.i, align 8
   %call5.i.i.i.i.i.i.i2 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i unwind label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i2, i64 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2, i64 8
   store i64 %2, ptr %add.ptr.i.i.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i.i.i.i2, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i2, i64 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2, i64 16
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i) #29
   store ptr %call5.i.i.i.i.i.i.i2, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i, align 8
@@ -15677,34 +15610,34 @@ entry:
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace17SetPropertyRecord4usesEv(ptr noalias sret(%"class.std::vector.148") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !511)
-  %objID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 1
+  %objID_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %objID_.i, align 8, !noalias !511
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !511
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31, !noalias !511
   store ptr %call5.i.i.i.i2.i.i, ptr %agg.result, align 8, !alias.scope !511
-  %add.ptr.i1.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i, i64 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !511
   store i64 %0, ptr %call5.i.i.i.i2.i.i, align 8, !noalias !511
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !511
-  %propID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 2
+  %propID_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load i32, ptr %propID_.i, align 8, !noalias !511
   %.off.i.i.i = add i32 %1, -4
   %switch.i.i.i = icmp ult i32 %.off.i.i.i, 5
   br i1 %switch.i.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i, label %_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv.exit
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %entry
-  %val_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 2, i32 1
+  %val_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i64, ptr %val_.i.i.i, align 8, !noalias !511
   %call5.i.i.i.i.i.i.i2.i = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i unwind label %_ZNSt6vectorImSaImEED2Ev.exit.i, !noalias !511
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i2.i, i64 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2.i, i64 8
   store i64 %2, ptr %add.ptr.i.i.i.i.i, align 8, !noalias !511
   store i64 %0, ptr %call5.i.i.i.i.i.i.i2.i, align 8, !noalias !511
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i2.i, i64 2
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2.i, i64 16
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i) #29, !noalias !511
   store ptr %call5.i.i.i.i.i.i.i2.i, ptr %agg.result, align 8, !alias.scope !511
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !511
@@ -15725,14 +15658,14 @@ _ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %_ZNSt16allocator_tr
 _ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv.exit: ; preds = %entry, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i
   %4 = phi ptr [ %call5.i.i.i.i2.i.i, %entry ], [ %call5.i.i.i.i.i.i.i2.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i ]
   %5 = phi ptr [ %add.ptr.i1.i.i, %entry ], [ %incdec.ptr.i.i.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i ]
-  %value_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 3
+  %value_ = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i32, ptr %value_, align 8
   %.off.i.i = add i32 %6, -4
   %switch.i.i = icmp ult i32 %.off.i.i, 5
   br i1 %switch.i.i, label %if.else.i.i.i, label %nrvo.skipdtor
 
 if.else.i.i.i:                                    ; preds = %_ZNK8facebook6hermes7tracing10SynthTrace22GetOrSetPropertyRecord4usesEv.exit
-  %val_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::GetOrSetPropertyRecord", ptr %this, i64 0, i32 3, i32 1
+  %val_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %7 = load i64, ptr %val_.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %4 to i64
@@ -15775,7 +15708,7 @@ if.then.i.i.i12.i.i.i.i:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i: ; preds = %if.then.i.i.i12.i.i.i.i, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
   tail call void @_ZdlPv(ptr noundef nonnull %4) #29
   store ptr %cond.i10.i.i.i.i, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
@@ -15815,20 +15748,20 @@ entry:
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace15ArrayReadRecord4defsEv(ptr noalias sret(%"class.std::vector.148") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !514
-  %value_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 3
+  %value_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %value_, align 8
   %.off.i.i = add i32 %0, -4
   %switch.i.i = icmp ult i32 %.off.i.i, 5
   br i1 %switch.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i, label %nrvo.skipdtor
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %entry
-  %val_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 3, i32 1
+  %val_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i64, ptr %val_.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %call5.i.i.i.i.i.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
   store i64 %1, ptr %call5.i.i.i.i.i.i.i1, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i1, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i1, i64 8
   store ptr %call5.i.i.i.i.i.i.i1, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
@@ -15841,16 +15774,16 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt16allocator_tr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace22ArrayReadOrWriteRecord4usesEv(ptr noalias sret(%"class.std::vector.148") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %objID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 1
+  %objID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %objID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -15882,34 +15815,34 @@ entry:
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace16ArrayWriteRecord4usesEv(ptr noalias sret(%"class.std::vector.148") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !517)
-  %objID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 1
+  %objID_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %objID_.i, align 8, !noalias !517
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !517
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31, !noalias !517
   store ptr %call5.i.i.i.i2.i.i, ptr %agg.result, align 8, !alias.scope !517
-  %add.ptr.i1.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i, i64 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !517
   store i64 %0, ptr %call5.i.i.i.i2.i.i, align 8, !noalias !517
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !517
-  %value_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 3
+  %value_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %value_, align 8
   %.off.i.i = add i32 %1, -4
   %switch.i.i = icmp ult i32 %.off.i.i, 5
   br i1 %switch.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i, label %nrvo.skipdtor
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %entry
-  %val_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::ArrayReadOrWriteRecord", ptr %this, i64 0, i32 3, i32 1
+  %val_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i64, ptr %val_.i.i, align 8
   %call5.i.i.i.i.i.i.i3 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
           to label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i unwind label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i3, i64 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i3, i64 8
   store i64 %2, ptr %add.ptr.i.i.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i.i.i.i3, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i3, i64 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i3, i64 16
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i) #29
   store ptr %call5.i.i.i.i.i.i.i3, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
@@ -15945,18 +15878,18 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i.i.i), !noalias !520
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp14.i.i.i), !noalias !520
   %0 = load ptr, ptr %__functor.val, align 8, !noalias !525
-  %trace_.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %0, i64 0, i32 2
+  %trace_.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %call.i.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #28, !noalias !525
-  %startTime_.i.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::TracingRuntime", ptr %0, i64 0, i32 4
+  %startTime_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 160
   %retval.sroa.0.0.copyload.i1.i.i.i.i.i = load i64, ptr %startTime_.i.i.i.i, align 8, !noalias !525
   %sub.i.i.i.i.i.i = sub nsw i64 %call.i.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i.i.i
   %div.i.i.i.i.i.i = sdiv i64 %sub.i.i.i.i.i.i, 1000000
   store i64 %div.i.i.i.i.i.i, ptr %ref.tmp.i.i.i, align 8, !noalias !525
-  %functionID_.i.i.i = getelementptr inbounds %class.TracingHostFunction, ptr %__functor.val, i64 0, i32 1
+  %functionID_.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 40
   %call4.i.i.i = tail call { i32, i64 } @_ZN8facebook6hermes7tracing14TracingRuntime12toTraceValueERKNS_3jsi5ValueE(ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef nonnull align 8 dereferenceable(16) %__args1), !noalias !525
   %1 = extractvalue { i32, i64 } %call4.i.i.i, 0
   store i32 %1, ptr %ref.tmp3.i.i.i, align 8, !noalias !525
-  %2 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp3.i.i.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp3.i.i.i, i64 8
   %3 = extractvalue { i32, i64 } %call4.i.i.i, 1
   store i64 %3, ptr %2, align 8, !noalias !525
   call void @_ZN8facebook6hermes7tracing14TracingRuntime14argStringifyerEPKNS_3jsi5ValueEm(ptr nonnull sret(%"class.std::vector.49") align 8 %ref.tmp5.i.i.i, ptr noundef nonnull align 8 dereferenceable(172) %0, ptr noundef %__args3.val, i64 noundef %__args5.val), !noalias !525
@@ -15978,7 +15911,7 @@ _ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr6.i.i.i.i.i), !noalias !528
   store ptr %__args3.val, ptr %__args.addr4.i.i.i.i.i, align 8, !noalias !531
   store i64 %__args5.val, ptr %__args.addr6.i.i.i.i.i, align 8, !noalias !531
-  %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %__functor.val, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %6 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !noalias !531
   %tobool.not.i.i.i12.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i12.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEclES4_S6_S7_m.exit.i.i.i.i
@@ -15991,8 +15924,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIN8face
   unreachable
 
 _ZNKSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEclES4_S6_S7_m.exit.i.i.i.i: ; preds = %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit.i.i.i
-  %plainHF_.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %__functor.val, i64 0, i32 1
-  %_M_invoker.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %__functor.val, i64 0, i32 1, i32 1
+  %plainHF_.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 8
+  %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 32
   %7 = load ptr, ptr %_M_invoker.i.i.i.i.i, align 8, !noalias !531
   invoke void %7(ptr sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(16) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr4.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr6.i.i.i.i.i)
           to label %invoke.cont11.i.i.i unwind label %lpad6.i.i.i
@@ -16011,7 +15944,7 @@ invoke.cont11.i.i.i:                              ; preds = %_ZNKSt8functionIFN8
 invoke.cont15.i.i.i:                              ; preds = %invoke.cont11.i.i.i
   %8 = extractvalue { i32, i64 } %call16.i.i.i, 0
   store i32 %8, ptr %ref.tmp14.i.i.i, align 8, !noalias !525
-  %9 = getelementptr inbounds { i32, i64 }, ptr %ref.tmp14.i.i.i, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %ref.tmp14.i.i.i, i64 8
   %10 = extractvalue { i32, i64 } %call16.i.i.i, 1
   store i64 %10, ptr %9, align 8, !noalias !525
   invoke void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22ReturnFromNativeRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %trace_.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp14.i.i.i)
@@ -16103,22 +16036,22 @@ sw.bb4.i:                                         ; preds = %sw.default
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #31
   %0 = load ptr, ptr %__source.val5, align 8
   store ptr %0, ptr %call.i.i.i, align 8
-  %plainHF_.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %call.i.i.i, i64 0, i32 1
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %call.i.i.i, i64 0, i32 1, i32 0, i32 1
-  %_M_invoker.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %call.i.i.i, i64 0, i32 1, i32 1
-  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %__source.val5, i64 0, i32 1, i32 0, i32 1
+  %plainHF_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
+  %_M_invoker.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__source.val5, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i.i.i.i.i, i8 0, i64 32, i1 false)
   %1 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.not.i.i.i.i.i.i, label %_ZNSt14_Function_base13_Base_managerIZN8facebook6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_3jsi10PropNameIDEjSt8functionIFNS5_5ValueERNS5_7RuntimeERKSA_PSD_mEEE19TracingHostFunctionE15_M_init_functorIRKSI_EEvRSt9_Any_dataOT_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %sw.bb4.i
-  %plainHF_3.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %__source.val5, i64 0, i32 1
+  %plainHF_3.i.i.i.i.i = getelementptr inbounds i8, ptr %__source.val5, i64 8
   %call3.i.i.i.i.i.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_3.i.i.i.i.i, i32 noundef 2)
           to label %invoke.cont.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
-  %_M_invoker4.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %__source.val5, i64 0, i32 1, i32 1
+  %_M_invoker4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__source.val5, i64 32
   %2 = load ptr, ptr %_M_invoker4.i.i.i.i.i.i, align 8
   store ptr %2, ptr %_M_invoker.i.i.i.i.i.i, align 8
   %3 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i.i, align 8
@@ -16148,8 +16081,8 @@ lpad.body.i.i.i:                                  ; preds = %if.then.i.i.i.i.i.i
   resume { ptr, i32 } %4
 
 _ZNSt14_Function_base13_Base_managerIZN8facebook6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS1_3jsi10PropNameIDEjSt8functionIFNS5_5ValueERNS5_7RuntimeERKSA_PSD_mEEE19TracingHostFunctionE15_M_init_functorIRKSI_EEvRSt9_Any_dataOT_.exit.i: ; preds = %invoke.cont.i.i.i.i.i.i, %sw.bb4.i
-  %functionID_.i.i.i.i = getelementptr inbounds %class.TracingHostFunction, ptr %call.i.i.i, i64 0, i32 1
-  %functionID_2.i.i.i.i = getelementptr inbounds %class.TracingHostFunction, ptr %__source.val5, i64 0, i32 1
+  %functionID_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
+  %functionID_2.i.i.i.i = getelementptr inbounds i8, ptr %__source.val5, i64 40
   %8 = load i64, ptr %functionID_2.i.i.i.i, align 8
   store i64 %8, ptr %functionID_.i.i.i.i, align 8
   store ptr %call.i.i.i, ptr %__dest, align 8
@@ -16161,13 +16094,13 @@ sw.bb6.i:                                         ; preds = %sw.default
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %__dest.val.i, i64 0, i32 1, i32 0, i32 1
+  %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__dest.val.i, i64 24
   %9 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZZN8facebook6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS_3jsi10PropNameIDEjSt8functionIFNS3_5ValueERNS3_7RuntimeERKS8_PSB_mEEEN19TracingHostFunctionD2Ev.exit.i.i, label %if.then.i.i.i.i.i6.i
 
 if.then.i.i.i.i.i6.i:                             ; preds = %delete.notnull.i.i
-  %plainHF_.i.i.i.i = getelementptr inbounds %"class.facebook::jsi::DecoratedHostFunction", ptr %__dest.val.i, i64 0, i32 1
+  %plainHF_.i.i.i.i = getelementptr inbounds i8, ptr %__dest.val.i, i64 8
   %call.i.i.i.i.i.i = invoke noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %plainHF_.i.i.i.i, i32 noundef 3)
           to label %_ZZN8facebook6hermes7tracing14TracingRuntime30createFunctionFromHostFunctionERKNS_3jsi10PropNameIDEjSt8functionIFNS3_5ValueERNS3_7RuntimeERKS8_PSB_mEEEN19TracingHostFunctionD2Ev.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
@@ -16195,17 +16128,17 @@ entry:
   %agg.tmp8.sroa.0.0.copyload = load i32, ptr %args3, align 8
   %agg.tmp8.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %args3, i64 8
   %agg.tmp8.sroa.21.0.copyload = load i64, ptr %agg.tmp8.sroa.21.0..sroa_idx, align 8
-  %time_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %functionID_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 1
+  %functionID_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %0, ptr %functionID_.i.i, align 8
-  %thisArg_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 2
+  %thisArg_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i32 %agg.tmp8.sroa.0.0.copyload, ptr %thisArg_.i.i, align 8
-  %thisArg.sroa.21.0.thisArg_.sroa_idx.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 2, i32 1
+  %thisArg.sroa.21.0.thisArg_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store i64 %agg.tmp8.sroa.21.0.copyload, ptr %thisArg.sroa.21.0.thisArg_.sroa_idx.i.i, align 8
-  %args_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::hermes::tracing::SynthTrace::TraceValue, std::allocator<facebook::hermes::tracing::SynthTrace::TraceValue>>::_Vector_impl_data", ptr %args5, i64 0, i32 1
+  %args_.i.i = getelementptr inbounds i8, ptr %call, i64 40
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %args5, i64 8
   %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %2 = load ptr, ptr %args5, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -16217,9 +16150,9 @@ entry:
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i.thread, label %cond.true.i.i.i.i.i.i
 
 invoke.cont.i.i.i.thread:                         ; preds = %entry
-  %_M_finish.i.i.i.i.i7 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i7 = getelementptr inbounds i8, ptr %call, i64 48
   %add.ptr.i.i.i.i.i8 = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr null, i64 %sub.ptr.div.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i9 = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i9 = getelementptr inbounds i8, ptr %call, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %args_.i.i, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i.i8, ptr %_M_end_of_storage.i.i.i.i.i9, align 8
   br label %invoke.cont
@@ -16241,10 +16174,10 @@ _ZNSt16allocator_traitsISaIN8facebook6hermes7tracing10SynthTrace10TraceValueEEE8
 
 invoke.cont.i.i.i:                                ; preds = %_ZNSt16allocator_traitsISaIN8facebook6hermes7tracing10SynthTrace10TraceValueEEE8allocateERS5_m.exit.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i6.i2.i.i2, ptr %args_.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call5.i.i.i.i2.i6.i2.i.i2, ptr %_M_finish.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %call5.i.i.i.i2.i6.i2.i.i2, i64 %sub.ptr.div.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %call, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i
 
@@ -16252,8 +16185,8 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %invoke.cont.i.i.i, 
   %__cur.07.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i6.i2.i.i2, %invoke.cont.i.i.i ]
   %__first.sroa.0.06.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %2, %invoke.cont.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.sroa.0.06.i.i.i.i.i.i.i, i64 16, i1 false)
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %__first.sroa.0.06.i.i.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %__cur.07.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i.i, i64 16
   %cmp.i.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %1
   br i1 %cmp.i.not.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i, !llvm.loop !261
 
@@ -16262,10 +16195,10 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
   %__cur.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %invoke.cont.i.i.i.thread ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i10, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -16273,7 +16206,7 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
 if.then.i:                                        ; preds = %invoke.cont
   store ptr %call, ptr %3, align 8
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_18CallToNativeRecordEEEERS8_DpOT_.exit
 
@@ -16320,14 +16253,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %7 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !537, !noalias !534
   store i64 %7, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !534, !noalias !537
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !537, !noalias !534
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i3 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i3 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_18CallToNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -16356,22 +16289,22 @@ lpad:                                             ; preds = %_ZNSt16allocator_tr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22ReturnFromNativeRecordEJNSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(16) %args1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %records_ = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2
+  %records_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #31
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 8
   %agg.tmp4.sroa.0.0.copyload = load i32, ptr %args1, align 8
   %agg.tmp4.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %args1, i64 8
   %agg.tmp4.sroa.21.0.copyload = load i64, ptr %agg.tmp4.sroa.21.0..sroa_idx, align 8
-  %time_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::Record", ptr %call, i64 0, i32 1
+  %time_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %time_.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %agg.tmp4.sroa.0.0.copyload, ptr %0, align 8
   %value.sroa.21.0.retVal_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i64 %agg.tmp4.sroa.21.0.copyload, ptr %value.sroa.21.0.retVal_.sroa_idx.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace22ReturnFromNativeRecordE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -16379,7 +16312,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   store ptr %call, ptr %1, align 8
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPNS4_22ReturnFromNativeRecordEEEERS8_DpOT_.exit
 
@@ -16426,14 +16359,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !542, !noalias !539
   store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !539, !noalias !542
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !542, !noalias !539
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.110", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !88
 
 _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i2 = getelementptr %"class.std::unique_ptr.110", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i2 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPNS4_22ReturnFromNativeRecordEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, label %if.then.i20.i
 
@@ -16457,7 +16390,7 @@ _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14def
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %args_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 3
+  %args_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %args_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8facebook6hermes7tracing10SynthTrace10CallRecordD2Ev.exit, label %if.then.i.i.i.i
@@ -16474,7 +16407,7 @@ _ZN8facebook6hermes7tracing10SynthTrace10CallRecordD2Ev.exit: ; preds = %entry, 
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %args_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 3
+  %args_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %args_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN8facebook6hermes7tracing10SynthTrace18CallToNativeRecordD2Ev.exit, label %if.then.i.i.i.i.i
@@ -16504,7 +16437,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %objs, align 8
-  %_M_finish.i2 = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %objs, i64 0, i32 1
+  %_M_finish.i2 = getelementptr inbounds i8, ptr %objs, i64 8
   %1 = load ptr, ptr %_M_finish.i2, align 8
   invoke void @_ZNSt6vectorImSaImEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPmS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr null, ptr %0, ptr %1)
           to label %invoke.cont12 unwind label %lpad11
@@ -16554,16 +16487,16 @@ _ZNSt6vectorImSaImEED2Ev.exit8:                   ; preds = %ehcleanup, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord4usesEv(ptr noalias sret(%"class.std::vector.148") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %functionID_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 1
+  %functionID_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %functionID_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
   store ptr %call5.i.i.i.i2.i, ptr %agg.result, align 8
-  %add.ptr.i1.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   store i64 %0, ptr %call5.i.i.i.i2.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
   ret void
 }
@@ -16576,23 +16509,23 @@ declare void @_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord14toJSONIntern
 define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord16getArgTrackedIDsEv(ptr noalias sret(%"class.std::vector.148") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %thisArg_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 2
+  %thisArg_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %thisArg_, align 8
   %.off.i.i = add i32 %0, -4
   %switch.i.i = icmp ult i32 %.off.i.i, 5
   br i1 %switch.i.i, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i, label %invoke.cont
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %entry
-  %val_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 2, i32 1
+  %val_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %val_.i.i, align 8
   %call5.i.i.i.i.i.i.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
           to label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i unwind label %lpad.loopexit.split-lp
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %1, ptr %call5.i.i.i.i.i.i.i2, align 8
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i.i.i.i2, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i2, i64 8
   store ptr %call5.i.i.i.i.i.i.i2, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
@@ -16601,16 +16534,16 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
 invoke.cont:                                      ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i, %entry
   %2 = phi ptr [ %incdec.ptr.i.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i ], [ null, %entry ]
   %agg.result.promoted = phi ptr [ %call5.i.i.i.i.i.i.i2, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i ], [ null, %entry ]
-  %args_ = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 3
+  %args_ = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %args_, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not51 = icmp eq ptr %3, %4
   br i1 %cmp.i.not51, label %nrvo.skipdtor, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
-  %_M_finish.i.i.i7 = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i.i.i8 = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i.i.i7 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -16623,7 +16556,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %switch.i.i4, label %if.then.i5, label %for.inc
 
 if.then.i5:                                       ; preds = %for.body
-  %val_.i.i6 = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %__begin3.sroa.0.053, i64 0, i32 1
+  %val_.i.i6 = getelementptr inbounds i8, ptr %__begin3.sroa.0.053, i64 8
   %7 = load i64, ptr %val_.i.i6, align 8
   %8 = load ptr, ptr %_M_end_of_storage.i.i.i8, align 8
   %cmp.not.i.i.i9 = icmp eq ptr %5, %8
@@ -16631,7 +16564,7 @@ if.then.i5:                                       ; preds = %for.body
 
 if.then.i.i.i10:                                  ; preds = %if.then.i5
   store i64 %7, ptr %5, align 8
-  %incdec.ptr.i.i.i11 = getelementptr inbounds i64, ptr %5, i64 1
+  %incdec.ptr.i.i.i11 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i.i.i11, ptr %_M_finish.i.i.i7, align 8
   br label %for.inc
 
@@ -16677,7 +16610,7 @@ if.then.i.i.i12.i.i.i.i38:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit20.i.i.i.i32
 
 _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit20.i.i.i.i32: ; preds = %if.then.i.i.i12.i.i.i.i38, %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i.i.i28
-  %incdec.ptr.i.i.i.i33 = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i30, i64 1
+  %incdec.ptr.i.i.i.i33 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i30, i64 8
   %tobool.not.i.i.i.i.i34 = icmp eq ptr %cond.i10.i.i.i.i295052, null
   br i1 %tobool.not.i.i.i.i.i34, label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i36, label %if.then.i21.i.i.i.i35
 
@@ -16695,7 +16628,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
 for.inc:                                          ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i36, %if.then.i.i.i10, %for.body
   %9 = phi ptr [ %incdec.ptr.i.i.i.i33, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i36 ], [ %incdec.ptr.i.i.i11, %if.then.i.i.i10 ], [ %5, %for.body ]
   %cond.i10.i.i.i.i2949 = phi ptr [ %cond.i10.i.i.i.i29, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i36 ], [ %cond.i10.i.i.i.i295052, %if.then.i.i.i10 ], [ %cond.i10.i.i.i.i295052, %for.body ]
-  %incdec.ptr.i = getelementptr inbounds %"class.facebook::hermes::tracing::SynthTrace::TraceValue", ptr %__begin3.sroa.0.053, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.053, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i.not, label %nrvo.skipdtor, label %for.body
 
@@ -16737,9 +16670,9 @@ if.then:                                          ; preds = %entry
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -16753,7 +16686,7 @@ if.then9:                                         ; preds = %if.then
   %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp15 = icmp ugt i64 %sub.ptr.div.i, %sub.ptr.div.i.i.i
-  br i1 %cmp15, label %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit
+  br i1 %cmp15, label %_ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit, label %if.else5.i.i
 
 _ZSt22__uninitialized_move_aIPmS0_SaImEET0_T_S3_S2_RT1_.exit: ; preds = %if.then9
   %idx.neg = sub nsw i64 0, %sub.ptr.div.i.i.i
@@ -16778,20 +16711,20 @@ if.then.i.i.i.i.i30:                              ; preds = %if.then.i.i.i.i.i, 
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %__position.coerce, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i, i1 false)
   br label %if.end109
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit: ; preds = %if.then9
-  %incdec.ptr.i.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub.ptr.div.i
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__last.coerce
+if.else5.i.i:                                     ; preds = %if.then9
+  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %__first.coerce, i64 %sub.ptr.div.i
+  %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %add.ptr.i.i.i, %__last.coerce
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_mET0_T_S8_S7_RSaIT1_E.exit, label %if.then.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit
-  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.else5.i.i
+  %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %incdec.ptr.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %1, ptr align 8 %add.ptr.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   %.pre = load ptr, ptr %_M_finish, align 8
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_mET0_T_S8_S7_RSaIT1_E.exit
 
-_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_mET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
-  %2 = phi ptr [ %1, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
+_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES2_mET0_T_S8_S7_RSaIT1_E.exit: ; preds = %if.else5.i.i, %if.then.i.i.i.i.i.i.i.i
+  %2 = phi ptr [ %1, %if.else5.i.i ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
   %sub = sub nsw i64 %sub.ptr.div.i.i.i, %sub.ptr.div.i
   %add.ptr50 = getelementptr inbounds i64, ptr %2, i64 %sub
   store ptr %add.ptr50, ptr %_M_finish, align 8
@@ -16891,7 +16824,7 @@ if.end109:                                        ; preds = %if.then.i.i.i.i.i45
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %args_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 3
+  %args_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %args_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8facebook6hermes7tracing10SynthTrace10CallRecordD2Ev.exit, label %if.then.i.i.i.i
@@ -16908,7 +16841,7 @@ _ZN8facebook6hermes7tracing10SynthTrace10CallRecordD2Ev.exit: ; preds = %entry, 
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %args_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 3
+  %args_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %args_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordD2Ev.exit, label %if.then.i.i.i.i.i
@@ -16933,23 +16866,23 @@ define linkonce_odr hidden void @_ZNK8facebook6hermes7tracing10SynthTrace20CallF
 entry:
   %objs = alloca %"class.std::vector.148", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !547)
-  %functionID_.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 1
+  %functionID_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %functionID_.i, align 8, !noalias !547
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false), !alias.scope !547
   %call5.i.i.i.i2.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31, !noalias !547
   store ptr %call5.i.i.i.i2.i.i, ptr %agg.result, align 8, !alias.scope !547
-  %add.ptr.i1.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i, i64 1
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %add.ptr.i1.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i1.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !alias.scope !547
   store i64 %0, ptr %call5.i.i.i.i2.i.i, align 8, !noalias !547
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr.i1.i.i, ptr %_M_finish.i.i.i, align 8, !alias.scope !547
   invoke void @_ZNK8facebook6hermes7tracing10SynthTrace10CallRecord16getArgTrackedIDsEv(ptr nonnull sret(%"class.std::vector.148") align 8 %objs, ptr noundef nonnull align 8 dereferenceable(64) %this)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %1 = load ptr, ptr %objs, align 8
-  %_M_finish.i2 = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %objs, i64 0, i32 1
+  %_M_finish.i2 = getelementptr inbounds i8, ptr %objs, i64 8
   %2 = load ptr, ptr %_M_finish.i2, align 8
   invoke void @_ZNSt6vectorImSaImEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPmS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr nonnull %add.ptr.i1.i.i, ptr %1, ptr %2)
           to label %invoke.cont12 unwind label %lpad11
@@ -17000,7 +16933,7 @@ _ZNSt6vectorImSaImEED2Ev.exit8:                   ; preds = %ehcleanup, %if.then
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %args_.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 3
+  %args_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %args_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordD2Ev.exit, label %if.then.i.i.i.i.i
@@ -17017,7 +16950,7 @@ _ZN8facebook6hermes7tracing10SynthTrace20CallFromNativeRecordD2Ev.exit: ; preds 
 define linkonce_odr hidden void @_ZN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook6hermes7tracing10SynthTrace10CallRecordE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %args_.i.i.i = getelementptr inbounds %"struct.facebook::hermes::tracing::SynthTrace::CallRecord", ptr %this, i64 0, i32 3
+  %args_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %args_.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN8facebook6hermes7tracing10SynthTrace25ConstructFromNativeRecordD2Ev.exit, label %if.then.i.i.i.i.i.i
@@ -17088,8 +17021,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i), !noalias !550
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp2.i.i.i), !noalias !550
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp8.i.i.i), !noalias !550
-  %0 = getelementptr inbounds %class.anon.88, ptr %__functor.val, i64 0, i32 1
-  %1 = getelementptr inbounds %class.anon.88, ptr %__functor.val, i64 0, i32 2
+  %0 = getelementptr inbounds i8, ptr %__functor.val, i64 32
+  %1 = getelementptr inbounds i8, ptr %__functor.val, i64 64
   %call.i.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #28, !noalias !555
   %call1.i.i.i.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #28, !noalias !555
   %cmp.i.i.i.i.i = icmp eq i64 %call.i.i.i.i.i, %call1.i.i.i.i.i
@@ -17108,14 +17041,14 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %.not.i.i.i, label %if.end10.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i, %entry
-  %LHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i.i, i64 0, i32 2
+  %LHSKind.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
   store i8 4, ptr %LHSKind.i.i.i.i, align 8, !noalias !555
-  %RHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i.i, i64 0, i32 3
+  %RHSKind.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 17
   store i8 1, ptr %RHSKind.i.i.i.i, align 1, !noalias !555
   store ptr %0, ptr %ref.tmp.i.i.i, align 8, !noalias !555
-  %LHSKind.i1.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i.i, i64 0, i32 2
+  %LHSKind.i1.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i.i, i64 16
   store i8 4, ptr %LHSKind.i1.i.i.i, align 8, !noalias !555
-  %RHSKind.i2.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i.i, i64 0, i32 3
+  %RHSKind.i2.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i.i, i64 17
   store i8 1, ptr %RHSKind.i2.i.i.i, align 1, !noalias !555
   store ptr %1, ptr %ref.tmp2.i.i.i, align 8, !noalias !555
   %call3.i.i.i = call { i32, ptr } @_ZN4llvh3sys2fs6renameERKNS_5TwineES4_(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2.i.i.i), !noalias !555
@@ -17128,7 +17061,7 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   %call6.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #28, !noalias !555
   %call7.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #28, !noalias !555
   %vtable.i.i.i.i = load ptr, ptr %3, align 8, !noalias !558
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !561
   call void %4(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %2)
   %call9.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i.i.i) #28, !noalias !555
@@ -17147,7 +17080,7 @@ lpad.i.i.i:                                       ; preds = %if.then5.i.i.i
   resume { ptr, i32 } %5
 
 if.end10.i.i.i:                                   ; preds = %if.then.i.i.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i, %land.rhs.i.i.i.i.i
-  %_M_manager.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__functor.val, i64 0, i32 1
+  %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %6 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !noalias !555
   %tobool.not.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt8functionIFbvEEclEv.exit.i.i.i
@@ -17157,7 +17090,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end10.i.i.i
   unreachable
 
 _ZNKSt8functionIFbvEEclEv.exit.i.i.i:             ; preds = %if.end10.i.i.i
-  %_M_invoker.i.i.i.i = getelementptr inbounds %"class.std::function.29", ptr %__functor.val, i64 0, i32 1
+  %_M_invoker.i.i.i.i = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %7 = load ptr, ptr %_M_invoker.i.i.i.i, align 8, !noalias !555
   %call2.i.i.i.i = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %__functor.val), !noalias !555
   %call15.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #28, !noalias !555
@@ -17206,9 +17139,9 @@ sw.default:                                       ; preds = %entry
 
 sw.bb4.i:                                         ; preds = %sw.default
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #31
-  %_M_manager.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %call.i.i.i, i64 0, i32 1
-  %_M_invoker.i.i.i.i.i = getelementptr inbounds %"class.std::function.29", ptr %call.i.i.i, i64 0, i32 1
-  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__source.val5, i64 0, i32 1
+  %_M_manager.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
+  %_M_invoker.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
+  %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__source.val5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -17219,7 +17152,7 @@ if.then.i.i.i.i.i:                                ; preds = %sw.bb4.i
           to label %invoke.cont.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
-  %_M_invoker4.i.i.i.i.i = getelementptr inbounds %"class.std::function.29", ptr %__source.val5, i64 0, i32 1
+  %_M_invoker4.i.i.i.i.i = getelementptr inbounds i8, ptr %__source.val5, i64 24
   %1 = load ptr, ptr %_M_invoker4.i.i.i.i.i, align 8
   store ptr %1, ptr %_M_invoker.i.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_manager.i.i.i.i.i.i.i, align 8
@@ -17245,14 +17178,14 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
   unreachable
 
 _ZNSt8functionIFbvEEC2ERKS1_.exit.i.i.i.i:        ; preds = %invoke.cont.i.i.i.i.i, %sw.bb4.i
-  %7 = getelementptr inbounds %class.anon.88, ptr %call.i.i.i, i64 0, i32 1
-  %8 = getelementptr inbounds %class.anon.88, ptr %__source.val5, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  %8 = getelementptr inbounds i8, ptr %__source.val5, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %_ZNSt8functionIFbvEEC2ERKS1_.exit.i.i.i.i
-  %9 = getelementptr inbounds %class.anon.88, ptr %call.i.i.i, i64 0, i32 2
-  %10 = getelementptr inbounds %class.anon.88, ptr %__source.val5, i64 0, i32 2
+  %9 = getelementptr inbounds i8, ptr %call.i.i.i, i64 64
+  %10 = getelementptr inbounds i8, ptr %__source.val5, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %"_ZNSt14_Function_base13_Base_managerIZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_St8functionIFbvEEE3$_0E15_M_init_functorIRKSP_EEvRSt9_Any_dataOT_.exit.i" unwind label %lpad2.i.i.i.i
 
@@ -17299,11 +17232,11 @@ sw.bb6.i:                                         ; preds = %sw.default
   br i1 %isnull.i.i, label %sw.epilog, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %sw.bb6.i
-  %16 = getelementptr inbounds %class.anon.88, ptr %__dest.val.i, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %__dest.val.i, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #28
-  %17 = getelementptr inbounds %class.anon.88, ptr %__dest.val.i, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %__dest.val.i, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #28
-  %_M_manager.i.i.i.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %__dest.val.i, i64 0, i32 1
+  %_M_manager.i.i.i.i.i = getelementptr inbounds i8, ptr %__dest.val.i, i64 16
   %18 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i.i.i, label %"_ZZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_St8functionIFbvEEEN3$_0D2Ev.exit.i.i", label %if.then.i.i.i.i6.i
@@ -17338,9 +17271,9 @@ entry:
   %ref.tmp.i.i.i = alloca %"class.llvh::Twine", align 8
   %__functor.val = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
-  %LHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i.i, i64 0, i32 2
+  %LHSKind.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
   store i8 4, ptr %LHSKind.i.i.i.i, align 8
-  %RHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i.i, i64 0, i32 3
+  %RHSKind.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 17
   store i8 1, ptr %RHSKind.i.i.i.i, align 1
   store ptr %__functor.val, ptr %ref.tmp.i.i.i, align 8
   %call.i.i.i = call { i32, ptr } @_ZN4llvh3sys2fs6removeERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp.i.i.i, i1 noundef zeroext true)
@@ -17455,13 +17388,13 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN8facebook3jsi11NativeStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.97", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook3jsi11NativeStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -17469,10 +17402,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %if.end8.sink.split.i.i.i
@@ -17498,10 +17431,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -17523,7 +17456,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #28
   br label %_ZNSt12__shared_ptrIN8facebook3jsi11NativeStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit

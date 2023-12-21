@@ -5,43 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.RBRootLeftCached = type { %struct.RBRoot, ptr }
 %struct.RBRoot = type { ptr }
-%struct.IntervalTreeNode = type { %struct.RBNode, i64, i64, i64 }
-%struct.RBNode = type { i64, ptr, ptr }
-%struct.PageFlagsNode = type { %struct.rcu_head, %struct.IntervalTreeNode, i32 }
-%struct.rcu_head = type { ptr, ptr }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
 
 @helper_retaddr = dso_local thread_local global i64 0, align 8
 @.str = private unnamed_addr constant [30 x i8] c"../qemu/accel/tcg/user-exec.c\00", align 1
@@ -274,9 +237,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %n.07 = phi ptr [ %call4, %for.inc ], [ %call, %entry ]
-  %start = getelementptr inbounds %struct.IntervalTreeNode, ptr %n.07, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %n.07, i64 24
   %0 = load i64, ptr %start, align 8
-  %last = getelementptr inbounds %struct.IntervalTreeNode, ptr %n.07, i64 0, i32 2
+  %last = getelementptr inbounds i8, ptr %n.07, i64 32
   %1 = load i64, ptr %last, align 8
   %add = add i64 %1, 1
   %flags = getelementptr i8, ptr %n.07, i64 48
@@ -316,9 +279,9 @@ entry:
 
 for.inc.i:                                        ; preds = %entry, %for.inc.i
   %n.07.i = phi ptr [ %call4.i, %for.inc.i ], [ %call.i, %entry ]
-  %start.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %n.07.i, i64 0, i32 1
+  %start.i = getelementptr inbounds i8, ptr %n.07.i, i64 24
   %0 = load i64, ptr %start.i, align 8
-  %last.i = getelementptr inbounds %struct.IntervalTreeNode, ptr %n.07.i, i64 0, i32 2
+  %last.i = getelementptr inbounds i8, ptr %n.07.i, i64 32
   %1 = load i64, ptr %last.i, align 8
   %add.i = add i64 %1, 1
   %flags.i = getelementptr i8, ptr %n.07.i, i64 48
@@ -478,12 +441,12 @@ if.then13.i:                                      ; preds = %if.then8.i
   %add.i = add nuw i64 %or, 1
   %7 = load i32, ptr %flags.i.le, align 8
   %call.i19.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc_n(i64 noundef 1, i64 noundef 72) #18
-  %itree.i.i = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i19.i, i64 0, i32 1
-  %start1.i.i = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i19.i, i64 0, i32 1, i32 1
+  %itree.i.i = getelementptr inbounds i8, ptr %call.i19.i, i64 16
+  %start1.i.i = getelementptr inbounds i8, ptr %call.i19.i, i64 40
   store i64 %add.i, ptr %start1.i.i, align 8
-  %last3.i.i = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i19.i, i64 0, i32 1, i32 2
+  %last3.i.i = getelementptr inbounds i8, ptr %call.i19.i, i64 48
   store i64 %5, ptr %last3.i.i, align 8
-  %flags4.i.i = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i19.i, i64 0, i32 2
+  %flags4.i.i = getelementptr inbounds i8, ptr %call.i19.i, i64 64
   store i32 %7, ptr %flags4.i.i, align 8
   br label %while.end.sink.split.i
 
@@ -641,39 +604,39 @@ if.then24.i:                                      ; preds = %if.end22.i
   br i1 %tobool37.not.i, label %if.else31.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %if.then24.i
-  %last28.i = getelementptr inbounds %struct.PageFlagsNode, ptr %next.0.i, i64 0, i32 1, i32 2
+  %last28.i = getelementptr inbounds i8, ptr %next.0.i, i64 48
   %2 = load i64, ptr %last28.i, align 8
-  %last30.i = getelementptr inbounds %struct.PageFlagsNode, ptr %prev.0.i, i64 0, i32 1, i32 2
+  %last30.i = getelementptr inbounds i8, ptr %prev.0.i, i64 48
   store i64 %2, ptr %last30.i, align 8
   tail call void @call_rcu1(ptr noundef nonnull %next.0.i, ptr noundef nonnull @g_free) #16
   br label %if.end34.i
 
 if.else31.i:                                      ; preds = %if.then24.i
-  %last33.i = getelementptr inbounds %struct.PageFlagsNode, ptr %prev.0.i, i64 0, i32 1, i32 2
+  %last33.i = getelementptr inbounds i8, ptr %prev.0.i, i64 48
   store i64 %last, ptr %last33.i, align 8
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.else31.i, %if.then26.i
-  %itree35.i = getelementptr inbounds %struct.PageFlagsNode, ptr %prev.0.i, i64 0, i32 1
+  %itree35.i = getelementptr inbounds i8, ptr %prev.0.i, i64 16
   br label %pageflags_create_merge.exit
 
 if.else36.i:                                      ; preds = %if.end22.i
   br i1 %tobool37.not.i, label %if.else42.i, label %if.then38.i
 
 if.then38.i:                                      ; preds = %if.else36.i
-  %itree39.i = getelementptr inbounds %struct.PageFlagsNode, ptr %next.0.i, i64 0, i32 1
-  %start40.i = getelementptr inbounds %struct.PageFlagsNode, ptr %next.0.i, i64 0, i32 1, i32 1
+  %itree39.i = getelementptr inbounds i8, ptr %next.0.i, i64 16
+  %start40.i = getelementptr inbounds i8, ptr %next.0.i, i64 40
   store i64 %start.addr.0.ph.lcssa194, ptr %start40.i, align 8
   br label %pageflags_create_merge.exit
 
 if.else42.i:                                      ; preds = %if.else36.i
   %call.i29.i = tail call noalias dereferenceable_or_null(72) ptr @g_malloc_n(i64 noundef 1, i64 noundef 72) #18
-  %itree.i.i = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i29.i, i64 0, i32 1
-  %start1.i.i = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i29.i, i64 0, i32 1, i32 1
+  %itree.i.i = getelementptr inbounds i8, ptr %call.i29.i, i64 16
+  %start1.i.i = getelementptr inbounds i8, ptr %call.i29.i, i64 40
   store i64 %start.addr.0.ph.lcssa194, ptr %start1.i.i, align 8
-  %last3.i.i = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i29.i, i64 0, i32 1, i32 2
+  %last3.i.i = getelementptr inbounds i8, ptr %call.i29.i, i64 48
   store i64 %last, ptr %last3.i.i, align 8
-  %flags4.i.i = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i29.i, i64 0, i32 2
+  %flags4.i.i = getelementptr inbounds i8, ptr %call.i29.i, i64 64
   store i32 %set_flags, ptr %flags4.i.i, align 8
   br label %pageflags_create_merge.exit
 
@@ -755,12 +718,12 @@ if.then35:                                        ; preds = %if.then29
 
 if.then37:                                        ; preds = %if.then35
   %call.i104 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc_n(i64 noundef 1, i64 noundef 72) #18
-  %itree.i = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i104, i64 0, i32 1
-  %start1.i = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i104, i64 0, i32 1, i32 1
+  %itree.i = getelementptr inbounds i8, ptr %call.i104, i64 16
+  %start1.i = getelementptr inbounds i8, ptr %call.i104, i64 40
   store i64 %start.addr.0.ph220, ptr %start1.i, align 8
-  %last3.i = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i104, i64 0, i32 1, i32 2
+  %last3.i = getelementptr inbounds i8, ptr %call.i104, i64 48
   store i64 %last, ptr %last3.i, align 8
-  %flags4.i = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i104, i64 0, i32 2
+  %flags4.i = getelementptr inbounds i8, ptr %call.i104, i64 64
   store i32 %or, ptr %flags4.i, align 8
   tail call void @interval_tree_insert(ptr noundef nonnull %itree.i, ptr noundef nonnull @pageflags_root) #16
   br label %if.end38
@@ -768,12 +731,12 @@ if.then37:                                        ; preds = %if.then35
 if.end38:                                         ; preds = %if.then37, %if.then35
   %add = add nuw i64 %last, 1
   %call.i105 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc_n(i64 noundef 1, i64 noundef 72) #18
-  %itree.i106 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i105, i64 0, i32 1
-  %start1.i107 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i105, i64 0, i32 1, i32 1
+  %itree.i106 = getelementptr inbounds i8, ptr %call.i105, i64 16
+  %start1.i107 = getelementptr inbounds i8, ptr %call.i105, i64 40
   store i64 %add, ptr %start1.i107, align 8
-  %last3.i108 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i105, i64 0, i32 1, i32 2
+  %last3.i108 = getelementptr inbounds i8, ptr %call.i105, i64 48
   store i64 %4, ptr %last3.i108, align 8
-  %flags4.i109 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i105, i64 0, i32 2
+  %flags4.i109 = getelementptr inbounds i8, ptr %call.i105, i64 64
   store i32 %5, ptr %flags4.i109, align 8
   tail call void @interval_tree_insert(ptr noundef nonnull %itree.i106, ptr noundef nonnull @pageflags_root) #16
   br label %done
@@ -783,12 +746,12 @@ if.else39:                                        ; preds = %if.then29
 
 if.then41:                                        ; preds = %if.else39
   %call.i110 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc_n(i64 noundef 1, i64 noundef 72) #18
-  %itree.i111 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i110, i64 0, i32 1
-  %start1.i112 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i110, i64 0, i32 1, i32 1
+  %itree.i111 = getelementptr inbounds i8, ptr %call.i110, i64 16
+  %start1.i112 = getelementptr inbounds i8, ptr %call.i110, i64 40
   store i64 %start.addr.0.ph220, ptr %start1.i112, align 8
-  %last3.i113 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i110, i64 0, i32 1, i32 2
+  %last3.i113 = getelementptr inbounds i8, ptr %call.i110, i64 48
   store i64 %4, ptr %last3.i113, align 8
-  %flags4.i114 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i110, i64 0, i32 2
+  %flags4.i114 = getelementptr inbounds i8, ptr %call.i110, i64 64
   store i32 %or, ptr %flags4.i114, align 8
   tail call void @interval_tree_insert(ptr noundef nonnull %itree.i111, ptr noundef nonnull @pageflags_root) #16
   br label %if.end42
@@ -814,12 +777,12 @@ if.else48:                                        ; preds = %if.then27
 if.then52:                                        ; preds = %if.else48
   %sub53 = add i64 %3, -1
   %call.i115 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc_n(i64 noundef 1, i64 noundef 72) #18
-  %itree.i116 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i115, i64 0, i32 1
-  %start1.i117 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i115, i64 0, i32 1, i32 1
+  %itree.i116 = getelementptr inbounds i8, ptr %call.i115, i64 16
+  %start1.i117 = getelementptr inbounds i8, ptr %call.i115, i64 40
   store i64 %start.addr.0.ph220, ptr %start1.i117, align 8
-  %last3.i118 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i115, i64 0, i32 1, i32 2
+  %last3.i118 = getelementptr inbounds i8, ptr %call.i115, i64 48
   store i64 %sub53, ptr %last3.i118, align 8
-  %flags4.i119 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i115, i64 0, i32 2
+  %flags4.i119 = getelementptr inbounds i8, ptr %call.i115, i64 64
   store i32 %set_flags, ptr %flags4.i119, align 8
   tail call void @interval_tree_insert(ptr noundef nonnull %itree.i116, ptr noundef nonnull @pageflags_root) #16
   br label %if.end54
@@ -839,12 +802,12 @@ if.then56:                                        ; preds = %if.end54
 
 if.then63:                                        ; preds = %if.then56
   %call.i120 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc_n(i64 noundef 1, i64 noundef 72) #18
-  %itree.i121 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i120, i64 0, i32 1
-  %start1.i122 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i120, i64 0, i32 1, i32 1
+  %itree.i121 = getelementptr inbounds i8, ptr %call.i120, i64 16
+  %start1.i122 = getelementptr inbounds i8, ptr %call.i120, i64 40
   store i64 %start.addr.0.ph220, ptr %start1.i122, align 8
-  %last3.i123 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i120, i64 0, i32 1, i32 2
+  %last3.i123 = getelementptr inbounds i8, ptr %call.i120, i64 48
   store i64 %last, ptr %last3.i123, align 8
-  %flags4.i124 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i120, i64 0, i32 2
+  %flags4.i124 = getelementptr inbounds i8, ptr %call.i120, i64 64
   store i32 %or, ptr %flags4.i124, align 8
   tail call void @interval_tree_insert(ptr noundef nonnull %itree.i121, ptr noundef nonnull @pageflags_root) #16
   br label %done
@@ -934,12 +897,12 @@ if.end122:                                        ; preds = %if.end105, %if.then
 
 if.then124:                                       ; preds = %if.end122
   %call.i125 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc_n(i64 noundef 1, i64 noundef 72) #18
-  %itree.i126 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i125, i64 0, i32 1
-  %start1.i127 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i125, i64 0, i32 1, i32 1
+  %itree.i126 = getelementptr inbounds i8, ptr %call.i125, i64 16
+  %start1.i127 = getelementptr inbounds i8, ptr %call.i125, i64 40
   store i64 %start.addr.0.ph220, ptr %start1.i127, align 8
-  %last3.i128 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i125, i64 0, i32 1, i32 2
+  %last3.i128 = getelementptr inbounds i8, ptr %call.i125, i64 48
   store i64 %last, ptr %last3.i128, align 8
-  %flags4.i129 = getelementptr inbounds %struct.PageFlagsNode, ptr %call.i125, i64 0, i32 2
+  %flags4.i129 = getelementptr inbounds i8, ptr %call.i125, i64 64
   store i32 %set_flags, ptr %flags4.i129, align 8
   tail call void @interval_tree_insert(ptr noundef nonnull %itree.i126, ptr noundef nonnull @pageflags_root) #16
   br label %done
@@ -996,13 +959,13 @@ if.then7:                                         ; preds = %if.then5
 if.end13:                                         ; preds = %if.then7, %while.body
   %locked.2 = phi i32 [ %locked.0, %while.body ], [ -1, %if.then7 ]
   %p.1 = phi ptr [ %add.ptr.i, %while.body ], [ %add.ptr.i23, %if.then7 ]
-  %start14 = getelementptr inbounds %struct.PageFlagsNode, ptr %p.1, i64 0, i32 1, i32 1
+  %start14 = getelementptr inbounds i8, ptr %p.1, i64 40
   %0 = load i64, ptr %start14, align 8
   %cmp15 = icmp ult i64 %start.addr.0, %0
   br i1 %cmp15, label %while.end, label %if.end18
 
 if.end18:                                         ; preds = %if.end13
-  %flags19 = getelementptr inbounds %struct.PageFlagsNode, ptr %p.1, i64 0, i32 2
+  %flags19 = getelementptr inbounds i8, ptr %p.1, i64 64
   %1 = load i32, ptr %flags19, align 8
   %not = xor i32 %1, -1
   %and = and i32 %not, %flags
@@ -1038,7 +1001,7 @@ while.body.backedge:                              ; preds = %if.end40, %if.end48
   br label %while.body
 
 if.end42:                                         ; preds = %if.end23
-  %last44 = getelementptr inbounds %struct.PageFlagsNode, ptr %p.1, i64 0, i32 1, i32 2
+  %last44 = getelementptr inbounds i8, ptr %p.1, i64 48
   %2 = load i64, ptr %last44, align 8
   %cmp45.not = icmp ugt i64 %sub, %2
   br i1 %cmp45.not, label %if.end48, label %while.end
@@ -1907,7 +1870,7 @@ do.body.i.i:                                      ; preds = %if.end23.i
 
 sw.epilog.i.i:                                    ; preds = %if.else.i13.i, %sw.bb20.i.i, %sw.bb11.i.i, %sw.bb3.i.i, %if.end23.i, %if.end23.i
   %atmax.0.i.i = phi i32 [ %cond19.i.i, %sw.bb11.i.i ], [ %cond10.i.i, %sw.bb3.i.i ], [ 0, %if.end23.i ], [ %and1.i.i, %sw.bb20.i.i ], [ %spec.select.i.i, %if.else.i13.i ], [ 0, %if.end23.i ]
-  %tcg_cflags.i.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 53
+  %tcg_cflags.i.i.i = getelementptr inbounds i8, ptr %cpu, i64 720
   %12 = load i32, ptr %tcg_cflags.i.i.i, align 16
   %and.i.i.i = and i32 %12, 32768
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i, 0
@@ -2202,7 +2165,7 @@ do.body.i.i:                                      ; preds = %if.end23.i
 
 sw.epilog.i.i:                                    ; preds = %sw.bb35.i.i, %if.else.i13.i, %sw.bb20.i.i, %sw.bb11.i.i, %sw.bb3.i.i, %if.end23.i
   %atmax.0.i.i = phi i32 [ %cond43.i.i, %sw.bb35.i.i ], [ %cond19.i.i, %sw.bb11.i.i ], [ %cond10.i.i, %sw.bb3.i.i ], [ 0, %if.end23.i ], [ %and1.i.i, %sw.bb20.i.i ], [ %spec.select.i.i, %if.else.i13.i ]
-  %tcg_cflags.i.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 53
+  %tcg_cflags.i.i.i = getelementptr inbounds i8, ptr %cpu, i64 720
   %13 = load i32, ptr %tcg_cflags.i.i.i, align 16
   %and.i.i.i = and i32 %13, 32768
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i, 0
@@ -2513,7 +2476,7 @@ do.body.i.i:                                      ; preds = %if.end12.i
 
 sw.epilog.i.i:                                    ; preds = %sw.bb35.i.i, %if.else.i8.i, %sw.bb20.i.i, %sw.bb11.i.i, %sw.bb3.i.i, %if.end12.i
   %atmax.0.i.i = phi i32 [ %cond43.i.i, %sw.bb35.i.i ], [ %cond19.i.i, %sw.bb11.i.i ], [ %cond10.i.i, %sw.bb3.i.i ], [ 0, %if.end12.i ], [ %and1.i.i, %sw.bb20.i.i ], [ %spec.select.i.i, %if.else.i8.i ]
-  %tcg_cflags.i.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 53
+  %tcg_cflags.i.i.i = getelementptr inbounds i8, ptr %cpu, i64 720
   %13 = load i32, ptr %tcg_cflags.i.i.i, align 16
   %and.i.i.i = and i32 %13, 32768
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i, 0
@@ -2809,7 +2772,7 @@ do.body.i.i:                                      ; preds = %if.end.i
 
 sw.epilog.i.i:                                    ; preds = %sw.bb35.i.i, %if.else.i.i, %sw.bb20.i.i, %sw.bb11.i.i, %sw.bb3.i.i, %if.end.i
   %atmax.0.i.i = phi i32 [ %cond43.i.i, %sw.bb35.i.i ], [ %cond19.i.i, %sw.bb11.i.i ], [ %cond10.i.i, %sw.bb3.i.i ], [ 0, %if.end.i ], [ 4, %sw.bb20.i.i ], [ %spec.select.i.i, %if.else.i.i ]
-  %tcg_cflags.i.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 53
+  %tcg_cflags.i.i.i = getelementptr inbounds i8, ptr %cpu, i64 720
   %8 = load i32, ptr %tcg_cflags.i.i.i, align 16
   %and.i.i.i = and i32 %8, 32768
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i, 0
@@ -3221,7 +3184,7 @@ do.body.i.i:                                      ; preds = %if.end.i
 
 sw.epilog.i.i:                                    ; preds = %if.else.i.i, %sw.bb20.i.i, %sw.bb11.i.i, %sw.bb3.i.i, %if.end.i, %if.end.i
   %atmax.0.i.i = phi i32 [ %cond19.i.i, %sw.bb11.i.i ], [ %cond10.i.i, %sw.bb3.i.i ], [ 0, %if.end.i ], [ %and1.i.i, %sw.bb20.i.i ], [ %spec.select.i.i, %if.else.i.i ], [ 0, %if.end.i ]
-  %tcg_cflags.i.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 53
+  %tcg_cflags.i.i.i = getelementptr inbounds i8, ptr %cpu, i64 720
   %8 = load i32, ptr %tcg_cflags.i.i.i, align 16
   %and.i.i.i = and i32 %8, 32768
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i, 0
@@ -3448,7 +3411,7 @@ do.body.i.i:                                      ; preds = %if.end.i
 
 sw.epilog.i.i:                                    ; preds = %sw.bb35.i.i, %if.else.i.i, %sw.bb20.i.i, %sw.bb11.i.i, %sw.bb3.i.i, %if.end.i
   %atmax.0.i.i = phi i32 [ %cond43.i.i, %sw.bb35.i.i ], [ %cond19.i.i, %sw.bb11.i.i ], [ %cond10.i.i, %sw.bb3.i.i ], [ 0, %if.end.i ], [ %and1.i.i, %sw.bb20.i.i ], [ %spec.select.i.i, %if.else.i.i ]
-  %tcg_cflags.i.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 53
+  %tcg_cflags.i.i.i = getelementptr inbounds i8, ptr %cpu, i64 720
   %9 = load i32, ptr %tcg_cflags.i.i.i, align 16
   %and.i.i.i = and i32 %9, 32768
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i, 0
@@ -3746,7 +3709,7 @@ do.body.i.i:                                      ; preds = %if.end.i
 
 sw.epilog.i.i:                                    ; preds = %sw.bb35.i.i, %if.else.i.i, %sw.bb20.i.i, %sw.bb11.i.i, %sw.bb3.i.i, %if.end.i
   %atmax.0.i.i = phi i32 [ %cond43.i.i, %sw.bb35.i.i ], [ %cond19.i.i, %sw.bb11.i.i ], [ %cond10.i.i, %sw.bb3.i.i ], [ 0, %if.end.i ], [ %and1.i.i, %sw.bb20.i.i ], [ %spec.select.i.i, %if.else.i.i ]
-  %tcg_cflags.i.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 53
+  %tcg_cflags.i.i.i = getelementptr inbounds i8, ptr %cpu, i64 720
   %9 = load i32, ptr %tcg_cflags.i.i.i, align 16
   %and.i.i.i = and i32 %9, 32768
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i, 0
@@ -4095,7 +4058,7 @@ do.body.i34.i:                                    ; preds = %if.end.i
 
 sw.epilog.i.i:                                    ; preds = %sw.bb35.i.i, %if.else.i.i, %sw.bb20.i.i, %sw.bb11.i.i, %sw.bb3.i.i, %if.end.i
   %atmax.0.i.i = phi i32 [ %cond43.i.i, %sw.bb35.i.i ], [ %cond19.i.i, %sw.bb11.i.i ], [ %cond10.i.i, %sw.bb3.i.i ], [ 0, %if.end.i ], [ %and1.i.i, %sw.bb20.i.i ], [ %spec.select.i.i, %if.else.i.i ]
-  %tcg_cflags.i.i.i = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 53
+  %tcg_cflags.i.i.i = getelementptr inbounds i8, ptr %cpu, i64 720
   %15 = load i32, ptr %tcg_cflags.i.i.i, align 16
   %and.i.i.i = and i32 %15, 32768
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i, 0
@@ -21323,12 +21286,12 @@ declare void @interval_tree_insert(ptr noundef, ptr noundef) local_unnamed_addr 
 define internal fastcc void @pageflags_create(i64 noundef %start, i64 noundef %last, i32 noundef %flags) unnamed_addr #2 {
 entry:
   %call = tail call noalias dereferenceable_or_null(72) ptr @g_malloc_n(i64 noundef 1, i64 noundef 72) #18
-  %itree = getelementptr inbounds %struct.PageFlagsNode, ptr %call, i64 0, i32 1
-  %start1 = getelementptr inbounds %struct.PageFlagsNode, ptr %call, i64 0, i32 1, i32 1
+  %itree = getelementptr inbounds i8, ptr %call, i64 16
+  %start1 = getelementptr inbounds i8, ptr %call, i64 40
   store i64 %start, ptr %start1, align 8
-  %last3 = getelementptr inbounds %struct.PageFlagsNode, ptr %call, i64 0, i32 1, i32 2
+  %last3 = getelementptr inbounds i8, ptr %call, i64 48
   store i64 %last, ptr %last3, align 8
-  %flags4 = getelementptr inbounds %struct.PageFlagsNode, ptr %call, i64 0, i32 2
+  %flags4 = getelementptr inbounds i8, ptr %call, i64 64
   store i32 %flags, ptr %flags4, align 8
   tail call void @interval_tree_insert(ptr noundef nonnull %itree, ptr noundef nonnull @pageflags_root) #16
   ret void

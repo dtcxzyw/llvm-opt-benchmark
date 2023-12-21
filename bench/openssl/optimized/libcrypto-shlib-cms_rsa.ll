@@ -3,16 +3,7 @@ source_filename = "bench/openssl/original/libcrypto-shlib-cms_rsa.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.rsa_oaep_params_st = type { ptr, ptr, ptr, ptr }
-%struct.asn1_type_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.evp_pkey_ctx_st = type { i32, ptr, ptr, ptr, ptr, %union.anon.0, %struct.anon.5, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%struct.anon.5 = type { ptr, ptr, i64, i8 }
 
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/cms/cms_rsa.c\00", align 1
 @__func__.ossl_cms_rsa_envelope = private unnamed_addr constant [22 x i8] c"ossl_cms_rsa_envelope\00", align 1
@@ -66,26 +57,26 @@ if.then9.i:                                       ; preds = %if.end3.i
 if.end10.i:                                       ; preds = %if.end3.i
   %2 = load ptr, ptr %cmsalg.i, align 8
   %call.i.i = call ptr @RSA_OAEP_PARAMS_it() #4
-  %parameter.i.i = getelementptr inbounds %struct.X509_algor_st, ptr %2, i64 0, i32 1
+  %parameter.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %parameter.i.i, align 8
   %call1.i.i = call ptr @ASN1_TYPE_unpack_sequence(ptr noundef %call.i.i, ptr noundef %3) #4
   %cmp.i.i = icmp eq ptr %call1.i.i, null
   br i1 %cmp.i.i, label %if.then13.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end10.i
-  %maskGenFunc.i.i = getelementptr inbounds %struct.rsa_oaep_params_st, ptr %call1.i.i, i64 0, i32 1
+  %maskGenFunc.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 8
   %4 = load ptr, ptr %maskGenFunc.i.i, align 8
   %cmp2.not.i.i = icmp eq ptr %4, null
   br i1 %cmp2.not.i.i, label %if.end.i.if.end14_crit_edge.i, label %if.then3.i.i
 
 if.end.i.if.end14_crit_edge.i:                    ; preds = %if.end.i.i
-  %maskHash.phi.trans.insert.i = getelementptr inbounds %struct.rsa_oaep_params_st, ptr %call1.i.i, i64 0, i32 3
+  %maskHash.phi.trans.insert.i = getelementptr inbounds i8, ptr %call1.i.i, i64 24
   %.pre.i = load ptr, ptr %maskHash.phi.trans.insert.i, align 8
   br label %if.end14.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
   %call5.i.i = call ptr @ossl_x509_algor_mgf1_decode(ptr noundef nonnull %4) #4
-  %maskHash.i.i = getelementptr inbounds %struct.rsa_oaep_params_st, ptr %call1.i.i, i64 0, i32 3
+  %maskHash.i.i = getelementptr inbounds i8, ptr %call1.i.i, i64 24
   store ptr %call5.i.i, ptr %maskHash.i.i, align 8
   %cmp7.i.i = icmp eq ptr %call5.i.i, null
   br i1 %cmp7.i.i, label %if.then8.i.i, label %if.end14.i
@@ -113,7 +104,7 @@ if.end18.i:                                       ; preds = %if.end14.i
   br i1 %cmp20.i, label %err.i, label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end18.i
-  %pSourceFunc.i = getelementptr inbounds %struct.rsa_oaep_params_st, ptr %call1.i.i, i64 0, i32 2
+  %pSourceFunc.i = getelementptr inbounds i8, ptr %call1.i.i, i64 16
   %7 = load ptr, ptr %pSourceFunc.i, align 8
   %cmp23.not.i = icmp eq ptr %7, null
   br i1 %cmp23.not.i, label %if.end40.i, label %if.then24.i
@@ -131,7 +122,7 @@ if.then29.i:                                      ; preds = %if.then24.i
   br label %err.i
 
 if.end30.i:                                       ; preds = %if.then24.i
-  %parameter.i = getelementptr inbounds %struct.X509_algor_st, ptr %7, i64 0, i32 1
+  %parameter.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %parameter.i, align 8
   %10 = load i32, ptr %9, align 8
   %cmp31.not.i = icmp eq i32 %10, 4
@@ -144,13 +135,13 @@ if.then32.i:                                      ; preds = %if.end30.i
   br label %err.i
 
 if.end33.i:                                       ; preds = %if.end30.i
-  %value.i = getelementptr inbounds %struct.asn1_type_st, ptr %9, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %value.i, align 8
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %11, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load ptr, ptr %data.i, align 8
   store ptr null, ptr %data.i, align 8
   %13 = load ptr, ptr %parameter.i, align 8
-  %value39.i = getelementptr inbounds %struct.asn1_type_st, ptr %13, i64 0, i32 1
+  %value39.i = getelementptr inbounds i8, ptr %13, i64 8
   %14 = load ptr, ptr %value39.i, align 8
   %15 = load i32, ptr %14, align 8
   br label %if.end40.i
@@ -258,7 +249,7 @@ if.end32.i:                                       ; preds = %if.end28.i
   br i1 %tobool.not.i9, label %err.i11, label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.end32.i
-  %maskGenFunc.i = getelementptr inbounds %struct.rsa_oaep_params_st, ptr %call29.i, i64 0, i32 1
+  %maskGenFunc.i = getelementptr inbounds i8, ptr %call29.i, i64 8
   %18 = load ptr, ptr %mgf1md.i, align 8
   %call36.i = call i32 @ossl_x509_algor_md_to_mgf1(ptr noundef nonnull %maskGenFunc.i, ptr noundef %18) #4
   %tobool37.not.i = icmp eq i32 %call36.i, 0
@@ -281,7 +272,7 @@ if.end45.i:                                       ; preds = %if.then41.i
 
 if.end49.i:                                       ; preds = %if.end45.i
   %call50.i = call ptr @ossl_X509_ALGOR_from_nid(i32 noundef 935, i32 noundef 4, ptr noundef nonnull %call42.i) #4
-  %pSourceFunc.i10 = getelementptr inbounds %struct.rsa_oaep_params_st, ptr %call29.i, i64 0, i32 2
+  %pSourceFunc.i10 = getelementptr inbounds i8, ptr %call29.i, i64 16
   store ptr %call50.i, ptr %pSourceFunc.i10, align 8
   %cmp52.i = icmp eq ptr %call50.i, null
   br i1 %cmp52.i, label %err.i11, label %if.end55.i
@@ -440,7 +431,7 @@ if.then6.i8:                                      ; preds = %if.end4.i, %if.then
   br label %rsa_cms_sign.exit
 
 if.end12.i:                                       ; preds = %if.end4.i
-  %keymgmt.i = getelementptr inbounds %struct.evp_pkey_ctx_st, ptr %call.i4, i64 0, i32 4
+  %keymgmt.i = getelementptr inbounds i8, ptr %call.i4, i64 32
   %5 = load ptr, ptr %keymgmt.i, align 8
   %cmp13.i = icmp eq ptr %5, null
   br i1 %cmp13.i, label %if.then14.i, label %if.end21.i
@@ -459,7 +450,7 @@ if.end18.i:                                       ; preds = %if.then14.i
 if.end21.i:                                       ; preds = %if.end12.i
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.2, ptr noundef nonnull %aid.i, i64 noundef 128) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %arrayidx23.i = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 1
+  %arrayidx23.i = getelementptr inbounds i8, ptr %params.i, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp24.i) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx23.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp24.i, i64 40, i1 false)
   %call26.i = call i32 @EVP_PKEY_CTX_get_params(ptr noundef nonnull %call.i4, ptr noundef nonnull %params.i) #4
@@ -467,7 +458,7 @@ if.end21.i:                                       ; preds = %if.end12.i
   br i1 %cmp27.i, label %rsa_cms_sign.exit, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.end21.i
-  %return_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %params.i, i64 0, i32 4
+  %return_size.i = getelementptr inbounds i8, ptr %params.i, i64 32
   %7 = load i64, ptr %return_size.i, align 16
   %cmp31.i = icmp eq i64 %7, 0
   br i1 %cmp31.i, label %rsa_cms_sign.exit, label %if.end33.i

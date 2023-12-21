@@ -3,14 +3,12 @@ source_filename = "bench/redis/original/bitmap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bitmap_info_s = type { i64, i64 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @bitmap_info_init(ptr nocapture noundef writeonly %binfo, i64 noundef %nbits) local_unnamed_addr #0 {
 entry:
   %add = add i64 %nbits, 63
   %shr = lshr i64 %add, 6
-  %ngroups = getelementptr inbounds %struct.bitmap_info_s, ptr %binfo, i64 0, i32 1
+  %ngroups = getelementptr inbounds i8, ptr %binfo, i64 8
   store i64 %shr, ptr %ngroups, align 8
   store i64 %nbits, ptr %binfo, align 8
   ret void
@@ -39,7 +37,7 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   %2 = load i64, ptr %0, align 8
   %3 = getelementptr i64, ptr %bitmap, i64 %2
-  %arrayidx = getelementptr i64, ptr %3, i64 -1
+  %arrayidx = getelementptr i8, ptr %3, i64 -8
   %4 = load i64, ptr %arrayidx, align 8
   %shr = lshr i64 %4, %and2
   store i64 %shr, ptr %arrayidx, align 8

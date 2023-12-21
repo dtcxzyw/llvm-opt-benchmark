@@ -6,63 +6,14 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.target_sigaction = type { i64, i64, i64, %struct.target_sigset_t }
 %struct.target_sigset_t = type { [1 x i64] }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.TaskState = type { i32, i32, i64, i64, i64, i64, i32, ptr, ptr, %struct.emulated_sigtable, [64 x %struct.emulated_sigtable], %struct.__sigset_t, %struct.__sigset_t, i32, i32, %struct.target_sigaltstack, i64 }
+%struct.timeval = type { i64, i64 }
+%struct.sigaction = type { %union.anon.23, %struct.__sigset_t, i32, ptr }
+%union.anon.23 = type { ptr }
 %struct.emulated_sigtable = type { i32, %struct.target_siginfo }
 %struct.target_siginfo = type { i32, i32, i32, %union.anon.6 }
 %union.anon.6 = type { %struct.anon.10, [80 x i8] }
 %struct.anon.10 = type { i32, i32, i32, i64, i64 }
-%struct.target_sigaltstack = type { i64, i32, i64 }
-%struct.siginfo_t = type { i32, i32, i32, i32, %union.anon.13 }
-%union.anon.13 = type { %struct.anon.17, [80 x i8] }
-%struct.anon.17 = type { i32, i32, i32, i64, i64 }
-%struct.timeval = type { i64, i64 }
-%struct.sigaction = type { %union.anon.23, %struct.__sigset_t, i32, ptr }
-%union.anon.23 = type { ptr }
-%struct.ucontext_t = type { i64, ptr, %struct.stack_t, %struct.mcontext_t, %struct.__sigset_t, %struct._libc_fpstate, [4 x i64] }
-%struct.stack_t = type { ptr, i32, i64 }
-%struct.mcontext_t = type { [23 x i64], ptr, [8 x i64] }
-%struct._libc_fpstate = type { i16, i16, i16, i16, i64, i64, i32, i32, [8 x %struct._libc_fpxreg], [16 x %struct._libc_xmmreg], [24 x i32] }
-%struct._libc_fpxreg = type { [4 x i16], i16, [3 x i16] }
-%struct._libc_xmmreg = type { [4 x i32] }
-%struct.CPUClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.TCGCPUOps = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.rlimit = type { i64, i64 }
-%struct.linux_binprm = type { [1024 x i8], %struct.ImageSource, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, [8 x i8] }
-%struct.ImageSource = type { ptr, i32, i32 }
 
 @target_to_host_signal_table = internal unnamed_addr global [65 x i8] zeroinitializer, align 16
 @thread_cpu = external thread_local global ptr, align 8
@@ -419,11 +370,11 @@ entry:
   %set = alloca %struct.__sigset_t, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
   %call = call i32 @sigfillset(ptr noundef nonnull %set) #17
   %call1 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %set, ptr noundef null) #17
-  %signal_pending = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 14
+  %signal_pending = getelementptr inbounds i8, ptr %2, i64 9164
   %3 = atomicrmw xchg ptr %signal_pending, i32 1 seq_cst, align 4
   ret i32 %3
 }
@@ -446,13 +397,13 @@ entry:
   %set.i = alloca %struct.__sigset_t, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
   %tobool.not = icmp eq ptr %oldset, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %signal_mask = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 11
+  %signal_mask = getelementptr inbounds i8, ptr %2, i64 8904
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %oldset, ptr noundef nonnull align 8 dereferenceable(128) %signal_mask, i64 128, i1 false)
   br label %if.end
 
@@ -463,11 +414,11 @@ if.end:                                           ; preds = %if.then, %entry
 if.then2:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %set.i)
   %3 = load ptr, ptr %0, align 8
-  %opaque.i = getelementptr inbounds %struct.CPUState, ptr %3, i64 0, i32 39
+  %opaque.i = getelementptr inbounds i8, ptr %3, i64 624
   %4 = load ptr, ptr %opaque.i, align 16
   %call.i = call i32 @sigfillset(ptr noundef nonnull %set.i) #17
   %call1.i = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %set.i, ptr noundef null) #17
-  %signal_pending.i = getelementptr inbounds %struct.TaskState, ptr %4, i64 0, i32 14
+  %signal_pending.i = getelementptr inbounds i8, ptr %4, i64 9164
   %5 = atomicrmw xchg ptr %signal_pending.i, i32 1 seq_cst, align 4
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %set.i)
   %tobool3.not = icmp eq i32 %5, 0
@@ -481,11 +432,11 @@ if.end5:                                          ; preds = %if.then2
   ]
 
 for.cond.preheader:                               ; preds = %if.end5
-  %signal_mask13 = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 11
+  %signal_mask13 = getelementptr inbounds i8, ptr %2, i64 8904
   br label %for.body
 
 sw.bb:                                            ; preds = %if.end5
-  %signal_mask6 = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 11
+  %signal_mask6 = getelementptr inbounds i8, ptr %2, i64 8904
   %call8 = call i32 @sigorset(ptr noundef nonnull %signal_mask6, ptr noundef nonnull %signal_mask6, ptr noundef nonnull %set) #17
   br label %sw.epilog
 
@@ -505,7 +456,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   br i1 %exitcond.not, label %sw.epilog, label %for.body, !llvm.loop !8
 
 sw.bb16:                                          ; preds = %if.end5
-  %signal_mask17 = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 11
+  %signal_mask17 = getelementptr inbounds i8, ptr %2, i64 8904
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %signal_mask17, ptr noundef nonnull align 8 dereferenceable(128) %set, i64 128, i1 false)
   br label %sw.epilog
 
@@ -514,7 +465,7 @@ do.body:                                          ; preds = %if.end5
   unreachable
 
 sw.epilog:                                        ; preds = %for.inc, %sw.bb16, %sw.bb
-  %signal_mask18 = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 11
+  %signal_mask18 = getelementptr inbounds i8, ptr %2, i64 8904
   %call19 = call i32 @sigdelset(ptr noundef nonnull %signal_mask18, i32 noundef 9) #17
   %call21 = call i32 @sigdelset(ptr noundef nonnull %signal_mask18, i32 noundef 19) #17
   br label %return
@@ -538,9 +489,9 @@ define dso_local void @set_sigmask(ptr nocapture noundef readonly %set) local_un
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %signal_mask = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 11
+  %signal_mask = getelementptr inbounds i8, ptr %2, i64 8904
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %signal_mask, ptr noundef nonnull align 8 dereferenceable(128) %set, i64 128, i1 false)
   ret void
 }
@@ -550,12 +501,12 @@ define dso_local i32 @on_sig_stack(i64 noundef %sp) local_unnamed_addr #7 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %sigaltstack_used = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 15
+  %sigaltstack_used = getelementptr inbounds i8, ptr %2, i64 9168
   %3 = load i64, ptr %sigaltstack_used, align 8
   %sub = sub i64 %sp, %3
-  %ss_size = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 15, i32 2
+  %ss_size = getelementptr inbounds i8, ptr %2, i64 9184
   %4 = load i64, ptr %ss_size, align 8
   %cmp = icmp ult i64 %sub, %4
   %conv = zext i1 %cmp to i32
@@ -567,15 +518,15 @@ define dso_local i32 @sas_ss_flags(i64 noundef %sp) local_unnamed_addr #7 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %ss_size = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 15, i32 2
+  %ss_size = getelementptr inbounds i8, ptr %2, i64 9184
   %3 = load i64, ptr %ss_size, align 8
   %cmp = icmp eq i64 %3, 0
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %entry
-  %sigaltstack_used.i = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 15
+  %sigaltstack_used.i = getelementptr inbounds i8, ptr %2, i64 9168
   %4 = load i64, ptr %sigaltstack_used.i, align 8
   %sub.i = sub i64 %sp, %4
   %cmp.i = icmp ult i64 %sub.i, %3
@@ -592,22 +543,22 @@ define dso_local i64 @target_sigsp(i64 noundef %sp, ptr nocapture noundef readon
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %sa_flags = getelementptr inbounds %struct.target_sigaction, ptr %ka, i64 0, i32 1
+  %sa_flags = getelementptr inbounds i8, ptr %ka, i64 8
   %3 = load i64, ptr %sa_flags, align 8
   %and = and i64 %3, 134217728
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %ss_size.i = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 15, i32 2
+  %ss_size.i = getelementptr inbounds i8, ptr %2, i64 9184
   %4 = load i64, ptr %ss_size.i, align 8
   %cmp.i = icmp eq i64 %4, 0
   br i1 %cmp.i, label %return, label %sas_ss_flags.exit
 
 sas_ss_flags.exit:                                ; preds = %land.lhs.true
-  %sigaltstack_used.i.i = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 15
+  %sigaltstack_used.i.i = getelementptr inbounds i8, ptr %2, i64 9168
   %5 = load i64, ptr %sigaltstack_used.i.i, align 8
   %sub.i.i = sub i64 %sp, %5
   %cmp.i.i.not = icmp ult i64 %sub.i.i, %4
@@ -625,15 +576,15 @@ define dso_local void @target_save_altstack(ptr nocapture noundef writeonly %uss
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %sigaltstack_used = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 15
+  %sigaltstack_used = getelementptr inbounds i8, ptr %2, i64 9168
   %3 = load i64, ptr %sigaltstack_used, align 8
   store i64 %3, ptr %uss, align 1
   %4 = load ptr, ptr %0, align 8
-  %opaque.i = getelementptr inbounds %struct.CPUState, ptr %4, i64 0, i32 39
+  %opaque.i = getelementptr inbounds i8, ptr %4, i64 624
   %5 = load ptr, ptr %opaque.i, align 16
-  %ss_size.i = getelementptr inbounds %struct.TaskState, ptr %5, i64 0, i32 15, i32 2
+  %ss_size.i = getelementptr inbounds i8, ptr %5, i64 9184
   %6 = load i64, ptr %ss_size.i, align 8
   %cmp.i = icmp eq i64 %6, 0
   br i1 %cmp.i, label %sas_ss_flags.exit, label %cond.false.i
@@ -641,7 +592,7 @@ entry:
 cond.false.i:                                     ; preds = %entry
   %7 = getelementptr i8, ptr %env, i64 16
   %env.val = load i64, ptr %7, align 16
-  %sigaltstack_used.i.i = getelementptr inbounds %struct.TaskState, ptr %5, i64 0, i32 15
+  %sigaltstack_used.i.i = getelementptr inbounds i8, ptr %5, i64 9168
   %8 = load i64, ptr %sigaltstack_used.i.i, align 8
   %sub.i.i = sub i64 %env.val, %8
   %cmp.i.i = icmp ult i64 %sub.i.i, %6
@@ -650,10 +601,10 @@ cond.false.i:                                     ; preds = %entry
 
 sas_ss_flags.exit:                                ; preds = %entry, %cond.false.i
   %cond1.i = phi i32 [ %conv.i.i, %cond.false.i ], [ 2, %entry ]
-  %ss_flags = getelementptr inbounds %struct.target_sigaltstack, ptr %uss, i64 0, i32 1
+  %ss_flags = getelementptr inbounds i8, ptr %uss, i64 8
   store i32 %cond1.i, ptr %ss_flags, align 1
-  %ss_size = getelementptr inbounds %struct.target_sigaltstack, ptr %uss, i64 0, i32 2
-  %ss_size7 = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 15, i32 2
+  %ss_size = getelementptr inbounds i8, ptr %uss, i64 16
+  %ss_size7 = getelementptr inbounds i8, ptr %2, i64 9184
   %9 = load i64, ptr %ss_size7, align 8
   store i64 %9, ptr %ss_size, align 1
   ret void
@@ -664,23 +615,23 @@ define dso_local i64 @target_restore_altstack(ptr nocapture noundef readonly %us
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
   %uss.val = load i64, ptr %uss, align 1
-  %ss_size = getelementptr inbounds %struct.target_sigaltstack, ptr %uss, i64 0, i32 2
+  %ss_size = getelementptr inbounds i8, ptr %uss, i64 16
   %ss_size.val = load i64, ptr %ss_size, align 1
   %3 = getelementptr i8, ptr %env, i64 16
   %env.val = load i64, ptr %3, align 16
-  %sigaltstack_used.i = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 15
+  %sigaltstack_used.i = getelementptr inbounds i8, ptr %2, i64 9168
   %4 = load i64, ptr %sigaltstack_used.i, align 8
   %sub.i = sub i64 %env.val, %4
-  %ss_size.i = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 15, i32 2
+  %ss_size.i = getelementptr inbounds i8, ptr %2, i64 9184
   %5 = load i64, ptr %ss_size.i, align 8
   %cmp.i.not = icmp ult i64 %sub.i, %5
   br i1 %cmp.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ss_flags = getelementptr inbounds %struct.target_sigaltstack, ptr %uss, i64 0, i32 1
+  %ss_flags = getelementptr inbounds i8, ptr %uss, i64 8
   %ss_flags.val = load i32, ptr %ss_flags, align 1
   switch i32 %ss_flags.val, label %return [
     i32 2, label %sw.epilog
@@ -707,18 +658,18 @@ return:                                           ; preds = %sw.bb15, %if.end, %
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @tswap_siginfo(ptr nocapture noundef writeonly %tinfo, ptr nocapture noundef readonly %info) local_unnamed_addr #1 {
 entry:
-  %si_code = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 2
+  %si_code = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load i32, ptr %si_code, align 8
   %shr.i = lshr i32 %0, 16
   %shl.i = shl i32 %0, 16
   %shr.i36 = ashr exact i32 %shl.i, 16
   %1 = load i32, ptr %info, align 8
   store i32 %1, ptr %tinfo, align 1
-  %si_errno = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 1
-  %si_errno6 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 1
+  %si_errno = getelementptr inbounds i8, ptr %tinfo, i64 4
+  %si_errno6 = getelementptr inbounds i8, ptr %info, i64 4
   %2 = load i32, ptr %si_errno6, align 4
   store i32 %2, ptr %si_errno, align 1
-  %si_code9 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 2
+  %si_code9 = getelementptr inbounds i8, ptr %tinfo, i64 8
   store i32 %shr.i36, ptr %si_code9, align 1
   %trunc = trunc i32 %shr.i to i16
   switch i16 %trunc, label %do.body94 [
@@ -731,79 +682,79 @@ entry:
   ]
 
 do.body11:                                        ; preds = %entry
-  %_sifields = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3
-  %_sifields12 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3
+  %_sifields = getelementptr inbounds i8, ptr %tinfo, i64 16
+  %_sifields12 = getelementptr inbounds i8, ptr %info, i64 16
   %3 = load i32, ptr %_sifields12, align 8
   store i32 %3, ptr %_sifields, align 1
-  %_uid = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 1
-  %_uid18 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3, i32 0, i32 1
+  %_uid = getelementptr inbounds i8, ptr %tinfo, i64 20
+  %_uid18 = getelementptr inbounds i8, ptr %info, i64 20
   %4 = load i32, ptr %_uid18, align 4
   store i32 %4, ptr %_uid, align 1
   br label %sw.epilog
 
 do.body21:                                        ; preds = %entry
-  %_sifields22 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3
-  %_sifields23 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3
+  %_sifields22 = getelementptr inbounds i8, ptr %tinfo, i64 16
+  %_sifields23 = getelementptr inbounds i8, ptr %info, i64 16
   %5 = load i32, ptr %_sifields23, align 8
   store i32 %5, ptr %_sifields22, align 1
-  %_timer2 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 1
-  %_timer229 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3, i32 0, i32 1
+  %_timer2 = getelementptr inbounds i8, ptr %tinfo, i64 20
+  %_timer229 = getelementptr inbounds i8, ptr %info, i64 20
   %6 = load i32, ptr %_timer229, align 4
   store i32 %6, ptr %_timer2, align 1
   br label %sw.epilog
 
 do.body32:                                        ; preds = %entry
-  %_sifields33 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3
-  %_sifields34 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3
+  %_sifields33 = getelementptr inbounds i8, ptr %tinfo, i64 16
+  %_sifields34 = getelementptr inbounds i8, ptr %info, i64 16
   %7 = load i32, ptr %_sifields34, align 8
   store i32 %7, ptr %_sifields33, align 1
-  %_fd = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 1
-  %_fd40 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3, i32 0, i32 1
+  %_fd = getelementptr inbounds i8, ptr %tinfo, i64 20
+  %_fd40 = getelementptr inbounds i8, ptr %info, i64 20
   %8 = load i32, ptr %_fd40, align 4
   store i32 %8, ptr %_fd, align 1
   br label %sw.epilog
 
 do.body43:                                        ; preds = %entry
-  %_sifields44 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3
-  %_sifields45 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3
+  %_sifields44 = getelementptr inbounds i8, ptr %tinfo, i64 16
+  %_sifields45 = getelementptr inbounds i8, ptr %info, i64 16
   %9 = load i64, ptr %_sifields45, align 8
   store i64 %9, ptr %_sifields44, align 1
   br label %sw.epilog
 
 do.body49:                                        ; preds = %entry
-  %_sifields50 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3
-  %_sifields52 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3
+  %_sifields50 = getelementptr inbounds i8, ptr %tinfo, i64 16
+  %_sifields52 = getelementptr inbounds i8, ptr %info, i64 16
   %10 = load i32, ptr %_sifields52, align 8
   store i32 %10, ptr %_sifields50, align 1
-  %_uid57 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 1
-  %_uid59 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3, i32 0, i32 1
+  %_uid57 = getelementptr inbounds i8, ptr %tinfo, i64 20
+  %_uid59 = getelementptr inbounds i8, ptr %info, i64 20
   %11 = load i32, ptr %_uid59, align 4
   store i32 %11, ptr %_uid57, align 1
-  %_status = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 2
-  %_status64 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3, i32 0, i32 2
+  %_status = getelementptr inbounds i8, ptr %tinfo, i64 24
+  %_status64 = getelementptr inbounds i8, ptr %info, i64 24
   %12 = load i32, ptr %_status64, align 8
   store i32 %12, ptr %_status, align 1
-  %_utime = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 3
-  %_utime69 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3, i32 0, i32 3
+  %_utime = getelementptr inbounds i8, ptr %tinfo, i64 32
+  %_utime69 = getelementptr inbounds i8, ptr %info, i64 32
   %13 = load i64, ptr %_utime69, align 8
   store i64 %13, ptr %_utime, align 1
-  %_stime = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 4
-  %_stime74 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3, i32 0, i32 4
+  %_stime = getelementptr inbounds i8, ptr %tinfo, i64 40
+  %_stime74 = getelementptr inbounds i8, ptr %info, i64 40
   %14 = load i64, ptr %_stime74, align 8
   store i64 %14, ptr %_stime, align 1
   br label %sw.epilog
 
 do.body77:                                        ; preds = %entry
-  %_sifields78 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3
-  %_sifields80 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3
+  %_sifields78 = getelementptr inbounds i8, ptr %tinfo, i64 16
+  %_sifields80 = getelementptr inbounds i8, ptr %info, i64 16
   %15 = load i32, ptr %_sifields80, align 8
   store i32 %15, ptr %_sifields78, align 1
-  %_uid85 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 1
-  %_uid87 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3, i32 0, i32 1
+  %_uid85 = getelementptr inbounds i8, ptr %tinfo, i64 20
+  %_uid87 = getelementptr inbounds i8, ptr %info, i64 20
   %16 = load i32, ptr %_uid87, align 4
   store i32 %16, ptr %_uid85, align 1
-  %_sigval = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 2
-  %_sigval92 = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 3, i32 0, i32 2
+  %_sigval = getelementptr inbounds i8, ptr %tinfo, i64 24
+  %_sigval92 = getelementptr inbounds i8, ptr %info, i64 24
   %17 = load i64, ptr %_sigval92, align 8
   store i64 %17, ptr %_sigval, align 1
   br label %sw.epilog
@@ -836,7 +787,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i
 
 host_to_target_signal.exit.i:                     ; preds = %if.end3.i.i, %if.end.i.i, %entry
   %retval.0.i.i = phi i32 [ %conv.i.i, %if.end3.i.i ], [ %0, %entry ], [ 65, %if.end.i.i ]
-  %si_code1.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 2
+  %si_code1.i = getelementptr inbounds i8, ptr %info, i64 8
   %2 = load i32, ptr %si_code1.i, align 8
   switch i32 %2, label %sw.default.i [
     i32 0, label %do.body11.i
@@ -845,7 +796,7 @@ host_to_target_signal.exit.i:                     ; preds = %if.end3.i.i, %if.en
   ]
 
 sw.default.i:                                     ; preds = %host_to_target_signal.exit.i
-  %_sifields38.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4
+  %_sifields38.i = getelementptr inbounds i8, ptr %info, i64 16
   switch i32 %retval.0.i.i, label %do.body77.i [
     i32 17, label %sw.bb9.i
     i32 29, label %do.body32.i
@@ -854,7 +805,7 @@ sw.default.i:                                     ; preds = %host_to_target_sign
 sw.bb9.i:                                         ; preds = %sw.default.i
   %3 = load <2 x i32>, ptr %_sifields38.i, align 8
   %cmp.i = icmp eq i32 %2, 1
-  %si_status.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 2
+  %si_status.i = getelementptr inbounds i8, ptr %info, i64 24
   %4 = load i32, ptr %si_status.i, align 8
   br i1 %cmp.i, label %do.body49.i, label %if.else.i
 
@@ -881,10 +832,10 @@ host_to_target_signal.exit45.i:                   ; preds = %if.end3.i40.i, %if.
   br label %do.body49.i
 
 do.body11.i:                                      ; preds = %host_to_target_signal.exit.i, %host_to_target_signal.exit.i, %host_to_target_signal.exit.i
-  %_sifields5.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4
-  %si_errno.i138 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 1
-  %si_code9.i39 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 2
-  %_sifields.i6 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3
+  %_sifields5.i = getelementptr inbounds i8, ptr %info, i64 16
+  %si_errno.i138 = getelementptr inbounds i8, ptr %tinfo, i64 4
+  %si_code9.i39 = getelementptr inbounds i8, ptr %tinfo, i64 8
+  %_sifields.i6 = getelementptr inbounds i8, ptr %tinfo, i64 16
   %6 = load <2 x i32>, ptr %_sifields5.i, align 8
   store i32 %retval.0.i.i, ptr %tinfo, align 1
   store i32 0, ptr %si_errno.i138, align 1
@@ -895,31 +846,31 @@ do.body11.i:                                      ; preds = %host_to_target_sign
 do.body32.i:                                      ; preds = %sw.default.i
   %7 = load i64, ptr %_sifields38.i, align 8
   %conv.i = trunc i64 %7 to i32
-  %si_fd.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 2
+  %si_fd.i = getelementptr inbounds i8, ptr %info, i64 24
   %8 = load i32, ptr %si_fd.i, align 8
   %shl.i.i50 = shl i32 %2, 16
   %shr.i36.i51 = ashr exact i32 %shl.i.i50, 16
   store i32 %retval.0.i.i, ptr %tinfo, align 1
-  %si_errno.i152 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 1
+  %si_errno.i152 = getelementptr inbounds i8, ptr %tinfo, i64 4
   store i32 0, ptr %si_errno.i152, align 1
-  %si_code9.i53 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 2
+  %si_code9.i53 = getelementptr inbounds i8, ptr %tinfo, i64 8
   store i32 %shr.i36.i51, ptr %si_code9.i53, align 1
-  %_sifields33.i = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3
+  %_sifields33.i = getelementptr inbounds i8, ptr %tinfo, i64 16
   store i32 %conv.i, ptr %_sifields33.i, align 1
-  %_fd.i5 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 1
+  %_fd.i5 = getelementptr inbounds i8, ptr %tinfo, i64 20
   store i32 %8, ptr %_fd.i5, align 1
   br label %tswap_siginfo.exit
 
 do.body49.i:                                      ; preds = %sw.bb9.i, %host_to_target_signal.exit45.i
   %or.sink.i = phi i32 [ %or.i, %host_to_target_signal.exit45.i ], [ %4, %sw.bb9.i ]
-  %si_utime.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 3
+  %si_utime.i = getelementptr inbounds i8, ptr %info, i64 32
   %shl.i.i64 = shl i32 %2, 16
   %shr.i36.i65 = ashr exact i32 %shl.i.i64, 16
-  %si_errno.i166 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 1
-  %si_code9.i67 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 2
-  %_sifields50.i = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3
-  %_status.i = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 2
-  %_utime.i3 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 3
+  %si_errno.i166 = getelementptr inbounds i8, ptr %tinfo, i64 4
+  %si_code9.i67 = getelementptr inbounds i8, ptr %tinfo, i64 8
+  %_sifields50.i = getelementptr inbounds i8, ptr %tinfo, i64 16
+  %_status.i = getelementptr inbounds i8, ptr %tinfo, i64 24
+  %_utime.i3 = getelementptr inbounds i8, ptr %tinfo, i64 32
   %9 = load <2 x i64>, ptr %si_utime.i, align 8
   store i32 %retval.0.i.i, ptr %tinfo, align 1
   store i32 0, ptr %si_errno.i166, align 1
@@ -930,20 +881,20 @@ do.body49.i:                                      ; preds = %sw.bb9.i, %host_to_
   br label %tswap_siginfo.exit
 
 do.body77.i:                                      ; preds = %sw.default.i
-  %si_sigval.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 2
+  %si_sigval.i = getelementptr inbounds i8, ptr %info, i64 24
   %10 = load ptr, ptr %si_sigval.i, align 8
   %11 = ptrtoint ptr %10 to i64
   %shl.i.i = shl i32 %2, 16
   %shr.i36.i = ashr exact i32 %shl.i.i, 16
-  %si_errno.i1 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 1
-  %si_code9.i = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 2
-  %_sifields78.i = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3
+  %si_errno.i1 = getelementptr inbounds i8, ptr %tinfo, i64 4
+  %si_code9.i = getelementptr inbounds i8, ptr %tinfo, i64 8
+  %_sifields78.i = getelementptr inbounds i8, ptr %tinfo, i64 16
   %12 = load <2 x i32>, ptr %_sifields38.i, align 8
   store i32 %retval.0.i.i, ptr %tinfo, align 1
   store i32 0, ptr %si_errno.i1, align 1
   store i32 %shr.i36.i, ptr %si_code9.i, align 1
   store <2 x i32> %12, ptr %_sifields78.i, align 1
-  %_sigval.i2 = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 2
+  %_sigval.i2 = getelementptr inbounds i8, ptr %tinfo, i64 24
   store i64 %11, ptr %_sigval.i2, align 1
   br label %tswap_siginfo.exit
 
@@ -956,26 +907,26 @@ define dso_local void @target_to_host_siginfo(ptr nocapture noundef writeonly %i
 entry:
   %tinfo.val = load i32, ptr %tinfo, align 1
   store i32 %tinfo.val, ptr %info, align 8
-  %si_errno = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 1
+  %si_errno = getelementptr inbounds i8, ptr %tinfo, i64 4
   %si_errno.val = load i32, ptr %si_errno, align 1
-  %si_errno4 = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 1
+  %si_errno4 = getelementptr inbounds i8, ptr %info, i64 4
   store i32 %si_errno.val, ptr %si_errno4, align 4
-  %si_code = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 2
+  %si_code = getelementptr inbounds i8, ptr %tinfo, i64 8
   %si_code.val = load i32, ptr %si_code, align 1
-  %si_code8 = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 2
+  %si_code8 = getelementptr inbounds i8, ptr %info, i64 8
   store i32 %si_code.val, ptr %si_code8, align 8
-  %_sifields = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3
+  %_sifields = getelementptr inbounds i8, ptr %tinfo, i64 16
   %_sifields.val = load i32, ptr %_sifields, align 1
-  %_sifields12 = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4
+  %_sifields12 = getelementptr inbounds i8, ptr %info, i64 16
   store i32 %_sifields.val, ptr %_sifields12, align 8
-  %_uid = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 1
+  %_uid = getelementptr inbounds i8, ptr %tinfo, i64 20
   %_uid.val = load i32, ptr %_uid, align 1
-  %si_uid = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 1
+  %si_uid = getelementptr inbounds i8, ptr %info, i64 20
   store i32 %_uid.val, ptr %si_uid, align 4
-  %_sigval = getelementptr inbounds %struct.target_siginfo, ptr %tinfo, i64 0, i32 3, i32 0, i32 2
+  %_sigval = getelementptr inbounds i8, ptr %tinfo, i64 24
   %_sigval.val = load i64, ptr %_sigval, align 1
   %0 = inttoptr i64 %_sigval.val to ptr
-  %si_sigval = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 2
+  %si_sigval = getelementptr inbounds i8, ptr %info, i64 24
   store ptr %0, ptr %si_sigval, align 8
   ret void
 }
@@ -988,7 +939,7 @@ entry:
   %oact = alloca %struct.sigaction, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
   %call.i = tail call i32 @__libc_current_sigrtmin() #17
   store i8 0, ptr getelementptr inbounds (<{ [32 x i8], [33 x i8] }>, ptr @host_to_target_signal_table, i64 0, i32 0, i64 6), align 2
@@ -1110,7 +1061,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
   %13 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %count.1.i) #17
   br label %signal_table_init.exit
@@ -1121,11 +1072,11 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 signal_table_init.exit:                           ; preds = %for.end59.i, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %signal_mask = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 11
+  %signal_mask = getelementptr inbounds i8, ptr %2, i64 8904
   %call = tail call i32 @sigprocmask(i32 noundef 0, ptr noundef null, ptr noundef nonnull %signal_mask) #17
-  %sa_mask = getelementptr inbounds %struct.sigaction, ptr %act, i64 0, i32 1
+  %sa_mask = getelementptr inbounds i8, ptr %act, i64 8
   %call1 = call i32 @sigfillset(ptr noundef nonnull %sa_mask) #17
-  %sa_flags = getelementptr inbounds %struct.sigaction, ptr %act, i64 0, i32 2
+  %sa_flags = getelementptr inbounds i8, ptr %act, i64 136
   store i32 4, ptr %sa_flags, align 8
   store ptr @host_signal_handler, ptr %act, align 8
   br label %target_to_host_signal.exit
@@ -1189,10 +1140,10 @@ entry:
   %pc.i = alloca i64, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %add.ptr.i = getelementptr %struct.CPUState, ptr %1, i64 1
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %add.ptr.i = getelementptr i8, ptr %1, i64 10176
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %si_code = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 2
+  %si_code = getelementptr inbounds i8, ptr %info, i64 8
   %3 = load i32, ptr %si_code, align 8
   %cmp = icmp sgt i32 %3, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1208,7 +1159,7 @@ if.then:                                          ; preds = %entry
 
 sw.bb:                                            ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pc.i)
-  %_sifields.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4
+  %_sifields.i = getelementptr inbounds i8, ptr %info, i64 16
   %4 = load ptr, ptr %_sifields.i, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = load i64, ptr @guest_base, align 8
@@ -1220,7 +1171,7 @@ sw.bb:                                            ; preds = %if.then
   %8 = getelementptr i8, ptr %puc, i64 168
   %uc.val.i = load i64, ptr %8, align 8
   store i64 %uc.val.i, ptr %pc.i, align 8
-  %arrayidx.i.i = getelementptr %struct.ucontext_t, ptr %puc, i64 0, i32 3, i32 0, i64 20
+  %arrayidx.i.i = getelementptr i8, ptr %puc, i64 200
   %9 = load i64, ptr %arrayidx.i.i, align 8
   %cmp.i.i = icmp eq i64 %9, 14
   br i1 %cmp.i.i, label %host_signal_write.exit.i, label %host_signal_write.exit.thread.i
@@ -1230,7 +1181,7 @@ host_signal_write.exit.thread.i:                  ; preds = %sw.bb
   br label %if.end.i
 
 host_signal_write.exit.i:                         ; preds = %sw.bb
-  %arrayidx3.i.i = getelementptr %struct.ucontext_t, ptr %puc, i64 0, i32 3, i32 0, i64 19
+  %arrayidx3.i.i = getelementptr i8, ptr %puc, i64 192
   %10 = load i64, ptr %arrayidx3.i.i, align 8
   %and.i.i = and i64 %10, 2
   %tobool.i.i = icmp ne i64 %and.i.i, 0
@@ -1245,7 +1196,7 @@ land.lhs.true8.i:                                 ; preds = %host_signal_write.e
   br i1 %cmp9.i, label %land.lhs.true10.i, label %if.end.i
 
 land.lhs.true10.i:                                ; preds = %land.lhs.true8.i
-  %uc_sigmask.i.i = getelementptr inbounds %struct.ucontext_t, ptr %puc, i64 0, i32 4
+  %uc_sigmask.i.i = getelementptr inbounds i8, ptr %puc, i64 296
   %12 = load i64, ptr %pc.i, align 8
   %call12.i = call zeroext i1 @handle_sigsegv_accerr_write(ptr noundef nonnull %1, ptr noundef nonnull %uc_sigmask.i.i, i64 noundef %12, i64 noundef %sub.i) #17
   br i1 %call12.i, label %host_sigsegv_handler.exit, label %if.end.i
@@ -1287,7 +1238,7 @@ if.else.i:                                        ; preds = %if.then23.i
 
 if.end29.i:                                       ; preds = %if.else.i, %if.then23.i, %land.lhs.true20.i, %if.end18.i
   %maperr.0.i = phi i1 [ true, %if.else.i ], [ true, %land.lhs.true20.i ], [ true, %if.end18.i ], [ false, %if.then23.i ]
-  %uc_sigmask.i17.i = getelementptr inbounds %struct.ucontext_t, ptr %puc, i64 0, i32 4
+  %uc_sigmask.i17.i = getelementptr inbounds i8, ptr %puc, i64 296
   %call31.i = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %uc_sigmask.i17.i, ptr noundef null) #17
   %17 = load i64, ptr %pc.i, align 8
   call void @cpu_loop_exit_sigsegv(ptr noundef nonnull %1, i64 noundef %sub.i, i32 noundef %call521.i, i1 noundef zeroext %maperr.0.i, i64 noundef %17) #19
@@ -1302,13 +1253,13 @@ sw.bb1:                                           ; preds = %if.then
   %18 = getelementptr i8, ptr %puc, i64 168
   %uc.val.i24 = load i64, ptr %18, align 8
   store i64 %uc.val.i24, ptr %pc.i23, align 8
-  %arrayidx.i.i25 = getelementptr %struct.ucontext_t, ptr %puc, i64 0, i32 3, i32 0, i64 20
+  %arrayidx.i.i25 = getelementptr i8, ptr %puc, i64 200
   %19 = load i64, ptr %arrayidx.i.i25, align 8
   %cmp.i.i26 = icmp eq i64 %19, 14
   br i1 %cmp.i.i26, label %land.rhs.i.i, label %host_signal_write.exit.i27
 
 land.rhs.i.i:                                     ; preds = %sw.bb1
-  %arrayidx3.i.i33 = getelementptr %struct.ucontext_t, ptr %puc, i64 0, i32 3, i32 0, i64 19
+  %arrayidx3.i.i33 = getelementptr i8, ptr %puc, i64 192
   %20 = load i64, ptr %arrayidx3.i.i33, align 8
   %and.i.i34 = and i64 %20, 2
   %tobool.i.i35 = icmp ne i64 %and.i.i34, 0
@@ -1334,12 +1285,12 @@ if.end.i29:                                       ; preds = %host_signal_write.e
   br i1 %cmp.i, label %if.then4.i, label %if.end.i37.thread
 
 if.then4.i:                                       ; preds = %if.end.i29
-  %_sifields.i31 = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4
+  %_sifields.i31 = getelementptr inbounds i8, ptr %info, i64 16
   %26 = load ptr, ptr %_sifields.i31, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = load i64, ptr @guest_base, align 8
   %sub5.i = sub i64 %27, %28
-  %uc_sigmask.i.i32 = getelementptr inbounds %struct.ucontext_t, ptr %puc, i64 0, i32 4
+  %uc_sigmask.i.i32 = getelementptr inbounds i8, ptr %puc, i64 296
   %call7.i = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %uc_sigmask.i.i32, ptr noundef null) #17
   %29 = load i64, ptr %pc.i23, align 8
   call void @cpu_loop_exit_sigbus(ptr noundef nonnull %1, i64 noundef %sub5.i, i32 noundef %call2.i, i64 noundef %29) #19
@@ -1401,7 +1352,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = call i32 @qemu_get_thread_id() #17
   %37 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %38 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %37, i64 noundef %38, ptr noundef %add.ptr.i, i32 noundef %host_sig, i32 noundef %retval.0.i) #17
   br label %trace_user_host_signal.exit
@@ -1437,12 +1388,12 @@ host_to_target_signal.exit.i:                     ; preds = %if.end3.i.i, %if.en
   ]
 
 sw.bb.i:                                          ; preds = %host_to_target_signal.exit.i, %host_to_target_signal.exit.i, %host_to_target_signal.exit.i
-  %_sifields5.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4
+  %_sifields5.i = getelementptr inbounds i8, ptr %info, i64 16
   %42 = load <2 x i32>, ptr %_sifields5.i, align 8
   br label %host_to_target_siginfo_noswap.exit
 
 sw.default.i:                                     ; preds = %host_to_target_signal.exit.i
-  %_sifields38.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4
+  %_sifields38.i = getelementptr inbounds i8, ptr %info, i64 16
   switch i32 %retval.0.i.i, label %sw.default37.i [
     i32 17, label %sw.bb9.i
     i32 29, label %sw.bb32.i
@@ -1451,7 +1402,7 @@ sw.default.i:                                     ; preds = %host_to_target_sign
 sw.bb9.i:                                         ; preds = %sw.default.i
   %43 = load <2 x i32>, ptr %_sifields38.i, align 8
   %cmp.i44 = icmp eq i32 %41, 1
-  %si_status.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 2
+  %si_status.i = getelementptr inbounds i8, ptr %info, i64 24
   %44 = load i32, ptr %si_status.i, align 8
   br i1 %cmp.i44, label %if.end.i47, label %if.else.i45
 
@@ -1479,14 +1430,14 @@ host_to_target_signal.exit45.i:                   ; preds = %if.end3.i40.i, %if.
 
 if.end.i47:                                       ; preds = %host_to_target_signal.exit45.i, %sw.bb9.i
   %or.sink.i = phi i32 [ %or.i, %host_to_target_signal.exit45.i ], [ %44, %sw.bb9.i ]
-  %si_utime.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 3
+  %si_utime.i = getelementptr inbounds i8, ptr %info, i64 32
   %46 = load <2 x i64>, ptr %si_utime.i, align 8
   br label %host_to_target_siginfo_noswap.exit
 
 sw.bb32.i:                                        ; preds = %sw.default.i
   %47 = load i64, ptr %_sifields38.i, align 8
   %conv.i43 = trunc i64 %47 to i32
-  %si_fd.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 2
+  %si_fd.i = getelementptr inbounds i8, ptr %info, i64 24
   %48 = load i32, ptr %si_fd.i, align 8
   %49 = insertelement <2 x i32> poison, i32 %conv.i43, i64 0
   %50 = insertelement <2 x i32> %49, i32 %48, i64 1
@@ -1494,7 +1445,7 @@ sw.bb32.i:                                        ; preds = %sw.default.i
 
 sw.default37.i:                                   ; preds = %sw.default.i
   %51 = load <2 x i32>, ptr %_sifields38.i, align 8
-  %si_sigval.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 2
+  %si_sigval.i = getelementptr inbounds i8, ptr %info, i64 24
   %52 = load ptr, ptr %si_sigval.i, align 8
   %53 = ptrtoint ptr %52 to i64
   %tinfo.sroa.14.sroa.0.0.extract.trunc = trunc i64 %53 to i32
@@ -1509,32 +1460,33 @@ host_to_target_siginfo_noswap.exit:               ; preds = %sw.bb.i, %if.end.i4
   %55 = phi <2 x i32> [ %51, %sw.default37.i ], [ %50, %sw.bb32.i ], [ %43, %if.end.i47 ], [ %42, %sw.bb.i ]
   %and.i.i42 = and i32 %41, 65535
   %or.i.i = or disjoint i32 %si_type.0.i, %and.i.i42
+  %sigtab = getelementptr inbounds i8, ptr %2, i64 200
   %sub = add nsw i32 %retval.0.i, -1
   %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr %struct.TaskState, ptr %2, i64 0, i32 10, i64 %idxprom
-  %info8 = getelementptr %struct.TaskState, ptr %2, i64 0, i32 10, i64 %idxprom, i32 1
+  %arrayidx = getelementptr [64 x %struct.emulated_sigtable], ptr %sigtab, i64 0, i64 %idxprom
+  %info8 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 %retval.0.i.i, ptr %info8, align 8
-  %tinfo.sroa.2.0.info8.sroa_idx = getelementptr inbounds i8, ptr %info8, i64 4
+  %tinfo.sroa.2.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 12
   store i32 0, ptr %tinfo.sroa.2.0.info8.sroa_idx, align 4
-  %tinfo.sroa.3.0.info8.sroa_idx = getelementptr inbounds i8, ptr %info8, i64 8
+  %tinfo.sroa.3.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i32 %or.i.i, ptr %tinfo.sroa.3.0.info8.sroa_idx, align 8
-  %tinfo.sroa.552.0.info8.sroa_idx = getelementptr inbounds i8, ptr %info8, i64 16
+  %tinfo.sroa.552.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 24
   store <2 x i32> %55, ptr %tinfo.sroa.552.0.info8.sroa_idx, align 8
-  %tinfo.sroa.14.0.info8.sroa_idx = getelementptr inbounds i8, ptr %info8, i64 24
+  %tinfo.sroa.14.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %tinfo.sroa.14.sroa.0.0.insert.ext = zext i32 %tinfo.sroa.14.sroa.0.0 to i64
   %tinfo.sroa.14.sroa.0.0.insert.insert = or disjoint i64 %tinfo.sroa.14.sroa.4.0, %tinfo.sroa.14.sroa.0.0.insert.ext
   store i64 %tinfo.sroa.14.sroa.0.0.insert.insert, ptr %tinfo.sroa.14.0.info8.sroa_idx, align 8
-  %tinfo.sroa.16.0.info8.sroa_idx = getelementptr inbounds i8, ptr %info8, i64 32
+  %tinfo.sroa.16.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store <2 x i64> %54, ptr %tinfo.sroa.16.0.info8.sroa_idx, align 8
-  %tinfo.sroa.18.0.info8.sroa_idx = getelementptr inbounds i8, ptr %info8, i64 48
+  %tinfo.sroa.18.0.info8.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %tinfo.sroa.18.0.info8.sroa_idx, i8 0, i64 80, i1 false)
   store i32 %retval.0.i, ptr %arrayidx, align 8
-  %signal_pending = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 14
+  %signal_pending = getelementptr inbounds i8, ptr %2, i64 9164
   store i32 1, ptr %signal_pending, align 4
   br i1 %sync_sig.056, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %host_to_target_siginfo_noswap.exit
-  %exception_index = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 55
+  %exception_index = getelementptr inbounds i8, ptr %1, i64 728
   store i32 65536, ptr %exception_index, align 8
   call void @cpu_loop_exit_restore(ptr noundef nonnull %1, i64 noundef 0) #18
   unreachable
@@ -1552,7 +1504,7 @@ if.then.i51:                                      ; preds = %if.end10
   br label %rewind_if_in_safe_syscall.exit
 
 rewind_if_in_safe_syscall.exit:                   ; preds = %if.end10, %if.then.i51
-  %uc_sigmask.i = getelementptr inbounds %struct.ucontext_t, ptr %puc, i64 0, i32 4
+  %uc_sigmask.i = getelementptr inbounds i8, ptr %puc, i64 296
   store i64 -1, ptr %uc_sigmask.i, align 1
   %call12 = call i32 @sigdelset(ptr noundef nonnull %uc_sigmask.i, i32 noundef 11) #17
   %call13 = call i32 @sigdelset(ptr noundef nonnull %uc_sigmask.i, i32 noundef 7) #17
@@ -1573,8 +1525,8 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %add.ptr.i = getelementptr %struct.CPUState, ptr %1, i64 1
-  %opaque.i = getelementptr %struct.CPUState, ptr %1, i64 0, i32 39
+  %add.ptr.i = getelementptr i8, ptr %1, i64 10176
+  %opaque.i = getelementptr i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1600,7 +1552,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
   %8 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %add.ptr.i, i32 noundef %sig) #17
   br label %queue_signal.exit
@@ -1611,17 +1563,17 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 queue_signal.exit:                                ; preds = %entry, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %sync_signal.i = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 9
-  %info3.i = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 9, i32 1
+  %sync_signal.i = getelementptr inbounds i8, ptr %2, i64 64
+  %info3.i = getelementptr inbounds i8, ptr %2, i64 72
   store i32 %sig, ptr %info3.i, align 8
-  %info.sroa.4.0.info3.i.sroa_idx = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 9, i32 1, i32 1
+  %info.sroa.4.0.info3.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 76
   store i32 0, ptr %info.sroa.4.0.info3.i.sroa_idx, align 4
-  %info.sroa.5.0.info3.i.sroa_idx = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 9, i32 1, i32 2
+  %info.sroa.5.0.info3.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 80
   store i32 128, ptr %info.sroa.5.0.info3.i.sroa_idx, align 8
   %info.sroa.8.0.info3.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %info.sroa.8.0.info3.i.sroa_idx, i8 0, i64 116, i1 false)
   store i32 %sig, ptr %sync_signal.i, align 8
-  %signal_pending.i = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 14
+  %signal_pending.i = getelementptr inbounds i8, ptr %2, i64 9164
   store atomic i32 1, ptr %signal_pending.i monotonic, align 4
   ret void
 }
@@ -1659,7 +1611,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %env, i32 noundef %sig) #17
   br label %trace_user_queue_signal.exit
@@ -1670,17 +1622,17 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_user_queue_signal.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %si_code = getelementptr inbounds %struct.target_siginfo, ptr %info, i64 0, i32 2
+  %si_code = getelementptr inbounds i8, ptr %info, i64 8
   %8 = load i32, ptr %si_code, align 8
   %and.i = and i32 %8, 65535
   %shl5.i = shl i32 %si_type, 16
   %or.i = or disjoint i32 %and.i, %shl5.i
   store i32 %or.i, ptr %si_code, align 8
-  %sync_signal = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 9
-  %info3 = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 9, i32 1
+  %sync_signal = getelementptr inbounds i8, ptr %0, i64 64
+  %info3 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %info3, ptr noundef nonnull align 8 dereferenceable(128) %info, i64 128, i1 false)
   store i32 %sig, ptr %sync_signal, align 8
-  %signal_pending = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 14
+  %signal_pending = getelementptr inbounds i8, ptr %0, i64 9164
   store atomic i32 1, ptr %signal_pending monotonic, align 4
   ret void
 }
@@ -1691,8 +1643,8 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %add.ptr.i = getelementptr %struct.CPUState, ptr %1, i64 1
-  %opaque.i = getelementptr %struct.CPUState, ptr %1, i64 0, i32 39
+  %add.ptr.i = getelementptr i8, ptr %1, i64 10176
+  %opaque.i = getelementptr i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque.i, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1718,7 +1670,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #17
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #17
   %8 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %add.ptr.i, i32 noundef %sig) #17
   br label %queue_signal.exit
@@ -1731,21 +1683,21 @@ queue_signal.exit:                                ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   %and.i.i = and i32 %code, 65535
   %or.i.i = or disjoint i32 %and.i.i, 196608
-  %sync_signal.i = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 9
-  %info3.i = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 9, i32 1
+  %sync_signal.i = getelementptr inbounds i8, ptr %2, i64 64
+  %info3.i = getelementptr inbounds i8, ptr %2, i64 72
   store i32 %sig, ptr %info3.i, align 8
-  %info.sroa.3.0.info3.i.sroa_idx = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 9, i32 1, i32 1
+  %info.sroa.3.0.info3.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 76
   store i32 0, ptr %info.sroa.3.0.info3.i.sroa_idx, align 4
-  %info.sroa.4.0.info3.i.sroa_idx = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 9, i32 1, i32 2
+  %info.sroa.4.0.info3.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 80
   store i32 %or.i.i, ptr %info.sroa.4.0.info3.i.sroa_idx, align 8
   %info.sroa.7.0.info3.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 84
   store i32 0, ptr %info.sroa.7.0.info3.i.sroa_idx, align 4
-  %info.sroa.72.0.info3.i.sroa_idx = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 9, i32 1, i32 3
+  %info.sroa.72.0.info3.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 88
   store i64 %addr, ptr %info.sroa.72.0.info3.i.sroa_idx, align 8
-  %info.sroa.8.0.info3.i.sroa_idx = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 9, i32 1, i32 3, i32 0, i32 2
+  %info.sroa.8.0.info3.i.sroa_idx = getelementptr inbounds i8, ptr %2, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %info.sroa.8.0.info3.i.sroa_idx, i8 0, i64 104, i1 false)
   store i32 %sig, ptr %sync_signal.i, align 8
-  %signal_pending.i = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 14
+  %signal_pending.i = getelementptr inbounds i8, ptr %2, i64 9164
   store atomic i32 1, ptr %signal_pending.i monotonic, align 4
   ret void
 }
@@ -1755,9 +1707,9 @@ define dso_local void @cpu_loop_exit_sigsegv(ptr noundef %cpu, i64 noundef %addr
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #17
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #17
-  %tcg_ops1 = getelementptr inbounds %struct.CPUClass, ptr %call1.i, i64 0, i32 20
+  %tcg_ops1 = getelementptr inbounds i8, ptr %call1.i, i64 328
   %0 = load ptr, ptr %tcg_ops1, align 8
-  %record_sigsegv = getelementptr inbounds %struct.TCGCPUOps, ptr %0, i64 0, i32 7
+  %record_sigsegv = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %record_sigsegv, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1769,7 +1721,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %cond = select i1 %maperr, i32 1, i32 2
   tail call void @force_sig_fault(i32 noundef 11, i32 noundef %cond, i64 noundef %addr)
-  %exception_index = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 55
+  %exception_index = getelementptr inbounds i8, ptr %cpu, i64 728
   store i32 65536, ptr %exception_index, align 8
   tail call void @cpu_loop_exit_restore(ptr noundef %cpu, i64 noundef %ra) #18
   unreachable
@@ -1783,9 +1735,9 @@ define dso_local void @cpu_loop_exit_sigbus(ptr noundef %cpu, i64 noundef %addr,
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #17
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #17
-  %tcg_ops1 = getelementptr inbounds %struct.CPUClass, ptr %call1.i, i64 0, i32 20
+  %tcg_ops1 = getelementptr inbounds i8, ptr %call1.i, i64 328
   %0 = load ptr, ptr %tcg_ops1, align 8
-  %record_sigbus = getelementptr inbounds %struct.TCGCPUOps, ptr %0, i64 0, i32 8
+  %record_sigbus = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %record_sigbus, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1796,7 +1748,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call void @force_sig_fault(i32 noundef 7, i32 noundef 1, i64 noundef %addr)
-  %exception_index = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 55
+  %exception_index = getelementptr inbounds i8, ptr %cpu, i64 728
   store i32 65536, ptr %exception_index, align 8
   tail call void @cpu_loop_exit_restore(ptr noundef %cpu, i64 noundef %ra) #18
   unreachable
@@ -1816,11 +1768,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque.i = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque.i = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque.i, align 16
-  %sigaltstack_used.i = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 15
+  %sigaltstack_used.i = getelementptr inbounds i8, ptr %2, i64 9168
   %3 = load i64, ptr %sigaltstack_used.i, align 8
-  %ss_size.i.i = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 15, i32 2
+  %ss_size.i.i = getelementptr inbounds i8, ptr %2, i64 9184
   %4 = load i64, ptr %ss_size.i.i, align 8
   %cmp.i.i = icmp eq i64 %4, 0
   br i1 %cmp.i.i, label %if.end3, label %cond.false.i.i
@@ -1854,23 +1806,23 @@ if.then5:                                         ; preds = %if.end3.thread, %if
 if.end9:                                          ; preds = %if.then5
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %7 = load ptr, ptr %6, align 8
-  %opaque.i11 = getelementptr inbounds %struct.CPUState, ptr %7, i64 0, i32 39
+  %opaque.i11 = getelementptr inbounds i8, ptr %7, i64 624
   %8 = load ptr, ptr %opaque.i11, align 16
   %uss.val.i = load i64, ptr %call6, align 1
-  %ss_size.i12 = getelementptr inbounds %struct.target_sigaltstack, ptr %call6, i64 0, i32 2
+  %ss_size.i12 = getelementptr inbounds i8, ptr %call6, i64 16
   %ss_size.val.i = load i64, ptr %ss_size.i12, align 1
   %9 = getelementptr i8, ptr %env, i64 16
   %env.val.i13 = load i64, ptr %9, align 16
-  %sigaltstack_used.i.i = getelementptr inbounds %struct.TaskState, ptr %8, i64 0, i32 15
+  %sigaltstack_used.i.i = getelementptr inbounds i8, ptr %8, i64 9168
   %10 = load i64, ptr %sigaltstack_used.i.i, align 8
   %sub.i.i = sub i64 %env.val.i13, %10
-  %ss_size.i.i14 = getelementptr inbounds %struct.TaskState, ptr %8, i64 0, i32 15, i32 2
+  %ss_size.i.i14 = getelementptr inbounds i8, ptr %8, i64 9184
   %11 = load i64, ptr %ss_size.i.i14, align 8
   %cmp.i.not.i = icmp ult i64 %sub.i.i, %11
   br i1 %cmp.i.not.i, label %if.end20, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end9
-  %ss_flags.i15 = getelementptr inbounds %struct.target_sigaltstack, ptr %call6, i64 0, i32 1
+  %ss_flags.i15 = getelementptr inbounds i8, ptr %call6, i64 8
   %ss_flags.val.i = load i32, ptr %ss_flags.i15, align 1
   switch i32 %ss_flags.val.i, label %if.end20 [
     i32 2, label %target_restore_altstack.exit
@@ -1939,7 +1891,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %sig, i32 noundef 64) #17
   br label %trace_signal_do_sigaction_guest.exit
@@ -1968,11 +1920,11 @@ if.end6:                                          ; preds = %land.lhs.true, %if.
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %set.i)
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %9 = load ptr, ptr %8, align 8
-  %opaque.i = getelementptr inbounds %struct.CPUState, ptr %9, i64 0, i32 39
+  %opaque.i = getelementptr inbounds i8, ptr %9, i64 624
   %10 = load ptr, ptr %opaque.i, align 16
   %call.i = call i32 @sigfillset(ptr noundef nonnull %set.i) #17
   %call1.i = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull %set.i, ptr noundef null) #17
-  %signal_pending.i = getelementptr inbounds %struct.TaskState, ptr %10, i64 0, i32 14
+  %signal_pending.i = getelementptr inbounds i8, ptr %10, i64 9164
   %11 = atomicrmw xchg ptr %signal_pending.i, i32 1 seq_cst, align 4
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %set.i)
   %tobool7.not = icmp eq i32 %11, 0
@@ -1988,16 +1940,16 @@ if.end9:                                          ; preds = %if.end6
 do.body:                                          ; preds = %if.end9
   %12 = load i64, ptr %arrayidx, align 16
   store i64 %12, ptr %oact, align 1
-  %sa_flags = getelementptr inbounds %struct.target_sigaction, ptr %oact, i64 0, i32 1
-  %sa_flags14 = getelementptr [64 x %struct.target_sigaction], ptr @sigact_table, i64 0, i64 %idxprom, i32 1
+  %sa_flags = getelementptr inbounds i8, ptr %oact, i64 8
+  %sa_flags14 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %13 = load i64, ptr %sa_flags14, align 8
   store i64 %13, ptr %sa_flags, align 1
-  %sa_restorer = getelementptr inbounds %struct.target_sigaction, ptr %oact, i64 0, i32 2
-  %sa_restorer17 = getelementptr [64 x %struct.target_sigaction], ptr @sigact_table, i64 0, i64 %idxprom, i32 2
+  %sa_restorer = getelementptr inbounds i8, ptr %oact, i64 16
+  %sa_restorer17 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %14 = load i64, ptr %sa_restorer17, align 16
   store i64 %14, ptr %sa_restorer, align 1
-  %sa_mask = getelementptr inbounds %struct.target_sigaction, ptr %oact, i64 0, i32 3
-  %sa_mask19 = getelementptr [64 x %struct.target_sigaction], ptr @sigact_table, i64 0, i64 %idxprom, i32 3
+  %sa_mask = getelementptr inbounds i8, ptr %oact, i64 24
+  %sa_mask19 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %15 = load i64, ptr %sa_mask19, align 8
   store i64 %15, ptr %sa_mask, align 8
   br label %if.end20
@@ -2008,16 +1960,16 @@ if.end20:                                         ; preds = %do.body, %if.end9
 target_to_host_signal.exit:                       ; preds = %if.end20
   %act.val = load i64, ptr %act, align 1
   store i64 %act.val, ptr %arrayidx, align 16
-  %sa_flags29 = getelementptr inbounds %struct.target_sigaction, ptr %act, i64 0, i32 1
+  %sa_flags29 = getelementptr inbounds i8, ptr %act, i64 8
   %sa_flags29.val = load i64, ptr %sa_flags29, align 1
-  %sa_flags31 = getelementptr [64 x %struct.target_sigaction], ptr @sigact_table, i64 0, i64 %idxprom, i32 1
+  %sa_flags31 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i64 %sa_flags29.val, ptr %sa_flags31, align 8
-  %sa_restorer34 = getelementptr inbounds %struct.target_sigaction, ptr %act, i64 0, i32 2
+  %sa_restorer34 = getelementptr inbounds i8, ptr %act, i64 16
   %sa_restorer34.val = load i64, ptr %sa_restorer34, align 1
-  %sa_restorer36 = getelementptr [64 x %struct.target_sigaction], ptr @sigact_table, i64 0, i64 %idxprom, i32 2
+  %sa_restorer36 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   store i64 %sa_restorer34.val, ptr %sa_restorer36, align 16
-  %sa_mask38 = getelementptr [64 x %struct.target_sigaction], ptr @sigact_table, i64 0, i64 %idxprom, i32 3
-  %sa_mask39 = getelementptr inbounds %struct.target_sigaction, ptr %act, i64 0, i32 3
+  %sa_mask38 = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  %sa_mask39 = getelementptr inbounds i8, ptr %act, i64 24
   %16 = load i64, ptr %sa_mask39, align 8
   store i64 %16, ptr %sa_mask38, align 8
   %idxprom.i = zext nneg i32 %sig to i64
@@ -2048,7 +2000,7 @@ if.then8.i.i43:                                   ; preds = %if.then.i.i41
   %call9.i.i44 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i34, ptr noundef null) #17
   %call10.i.i45 = call i32 @qemu_get_thread_id() #17
   %23 = load i64, ptr %_now.i.i34, align 8
-  %tv_usec.i.i46 = getelementptr inbounds %struct.timeval, ptr %_now.i.i34, i64 0, i32 1
+  %tv_usec.i.i46 = getelementptr inbounds i8, ptr %_now.i.i34, i64 8
   %24 = load i64, ptr %tv_usec.i.i46, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.35, i32 noundef %call10.i.i45, i64 noundef %23, i64 noundef %24, i32 noundef %conv.i, i32 noundef 64) #17
   br label %trace_signal_do_sigaction_host.exit
@@ -2080,9 +2032,9 @@ if.end51:                                         ; preds = %trace_signal_do_sig
   ]
 
 if.then57:                                        ; preds = %if.end51
-  %sa_mask58 = getelementptr inbounds %struct.sigaction, ptr %act1, i64 0, i32 1
+  %sa_mask58 = getelementptr inbounds i8, ptr %act1, i64 8
   %call59 = call i32 @sigfillset(ptr noundef nonnull %sa_mask58) #17
-  %sa_flags60 = getelementptr inbounds %struct.sigaction, ptr %act1, i64 0, i32 2
+  %sa_flags60 = getelementptr inbounds i8, ptr %act1, i64 136
   store i32 4, ptr %sa_flags60, align 8
   %26 = load i64, ptr %arrayidx, align 16
   switch i64 %26, label %if.else76 [
@@ -2144,16 +2096,16 @@ entry:
   %set = alloca %struct.__sigset_t, align 8
   %opaque = getelementptr i8, ptr %cpu_env, i64 -9552
   %0 = load ptr, ptr %opaque, align 16
-  %signal_pending = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 14
+  %signal_pending = getelementptr inbounds i8, ptr %0, i64 9164
   %1 = load atomic i32, ptr %signal_pending monotonic, align 4
   %tobool.not29 = icmp eq i32 %1, 0
   br i1 %tobool.not29, label %while.end56, label %while.body2.lr.ph
 
 while.body2.lr.ph:                                ; preds = %entry
-  %sync_signal = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 9
-  %signal_mask = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 11
-  %in_sigsuspend = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 13
-  %sigsuspend_mask = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 12
+  %sync_signal = getelementptr inbounds i8, ptr %0, i64 64
+  %signal_mask = getelementptr inbounds i8, ptr %0, i64 8904
+  %sigtab = getelementptr inbounds i8, ptr %0, i64 200
+  %in_sigsuspend = getelementptr inbounds i8, ptr %0, i64 9160
   br label %while.body2
 
 while.body2:                                      ; preds = %while.body2.lr.ph, %while.end48
@@ -2201,7 +2153,7 @@ for.body.preheader:                               ; preds = %if.end, %restart_sc
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %for.body.preheader ]
   %6 = add nsw i64 %indvars.iv, -1
-  %arrayidx29 = getelementptr %struct.TaskState, ptr %0, i64 0, i32 10, i64 %6
+  %arrayidx29 = getelementptr [64 x %struct.emulated_sigtable], ptr %sigtab, i64 0, i64 %6
   %7 = load i32, ptr %arrayidx29, align 8
   %tobool31.not = icmp eq i32 %7, 0
   br i1 %tobool31.not, label %for.inc, label %land.lhs.true
@@ -2209,7 +2161,8 @@ for.body:                                         ; preds = %for.body.preheader,
 land.lhs.true:                                    ; preds = %for.body
   %8 = load i32, ptr %in_sigsuspend, align 8
   %tobool25.not = icmp eq i32 %8, 0
-  %cond = select i1 %tobool25.not, ptr %signal_mask, ptr %sigsuspend_mask
+  %cond.v = select i1 %tobool25.not, i64 8904, i64 9032
+  %cond = getelementptr inbounds i8, ptr %0, i64 %cond.v
   %arrayidx33 = getelementptr [65 x i8], ptr @target_to_host_signal_table, i64 0, i64 %indvars.iv
   %9 = load i8, ptr %arrayidx33, align 1
   %conv34 = zext i8 %9 to i32
@@ -2239,7 +2192,7 @@ while.end48:                                      ; preds = %for.inc
   br i1 %tobool.not, label %while.end56, label %while.body2, !llvm.loop !15
 
 while.end56:                                      ; preds = %while.end48, %entry
-  %in_sigsuspend57 = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 13
+  %in_sigsuspend57 = getelementptr inbounds i8, ptr %0, i64 9160
   store i32 0, ptr %in_sigsuspend57, align 8
   ret void
 }
@@ -2277,7 +2230,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %cpu_env, i32 noundef %sig) #17
   br label %trace_user_handle_signal.exit
@@ -2309,7 +2262,7 @@ if.end:                                           ; preds = %trace_user_handle_s
   br i1 %cmp.i.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %info = getelementptr inbounds %struct.emulated_sigtable, ptr %k, i64 0, i32 1
+  %info = getelementptr inbounds i8, ptr %k, i64 8
   tail call void @print_taken_signal(i32 noundef %call1, ptr noundef nonnull %info) #17
   br label %if.end6
 
@@ -2347,7 +2300,7 @@ if.then40:                                        ; preds = %if.end6
   unreachable
 
 if.else41:                                        ; preds = %if.end6
-  %sa_mask = getelementptr inbounds %struct.target_sigaction, ptr %sa.0, i64 0, i32 3
+  %sa_mask = getelementptr inbounds i8, ptr %sa.0, i64 24
   %10 = load i64, ptr %sa_mask, align 8
   %call.i.i = call i32 @sigemptyset(ptr noundef nonnull %set) #17
   br label %target_to_host_signal.exit.i.i
@@ -2378,7 +2331,7 @@ for.inc.i.i:                                      ; preds = %if.then5.i.i, %if.e
   br i1 %exitcond.not.i.i, label %target_to_host_sigset.exit, label %target_to_host_signal.exit.i.i, !llvm.loop !7
 
 target_to_host_sigset.exit:                       ; preds = %for.inc.i.i
-  %sa_flags = getelementptr inbounds %struct.target_sigaction, ptr %sa.0, i64 0, i32 1
+  %sa_flags = getelementptr inbounds i8, ptr %sa.0, i64 8
   %14 = load i64, ptr %sa_flags, align 8
   %and = and i64 %14, 1073741824
   %tobool42.not = icmp eq i64 %and, 0
@@ -2405,7 +2358,7 @@ target_to_host_signal.exit:                       ; preds = %if.then43, %if.end.
   br label %if.end46
 
 if.end46:                                         ; preds = %target_to_host_signal.exit, %target_to_host_sigset.exit
-  %signal_mask = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 11
+  %signal_mask = getelementptr inbounds i8, ptr %0, i64 8904
   store i64 0, ptr %target_old_set, align 8
   br label %host_to_target_signal.exit.i
 
@@ -2441,14 +2394,14 @@ for.inc.i:                                        ; preds = %if.then4.i, %if.end
   br i1 %exitcond.not.i, label %host_to_target_sigset_internal.exit, label %host_to_target_signal.exit.i, !llvm.loop !5
 
 host_to_target_sigset_internal.exit:              ; preds = %for.inc.i
-  %in_sigsuspend = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 13
+  %in_sigsuspend = getelementptr inbounds i8, ptr %0, i64 9160
   %21 = load i32, ptr %in_sigsuspend, align 8
   %tobool47.not = icmp eq i32 %21, 0
-  %sigsuspend_mask = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 12
+  %sigsuspend_mask = getelementptr inbounds i8, ptr %0, i64 9032
   %cond = select i1 %tobool47.not, ptr %signal_mask, ptr %sigsuspend_mask
   %call50 = call i32 @sigorset(ptr noundef nonnull %signal_mask, ptr noundef nonnull %cond, ptr noundef nonnull %set) #17
   store i32 0, ptr %in_sigsuspend, align 8
-  %info52 = getelementptr inbounds %struct.emulated_sigtable, ptr %k, i64 0, i32 1
+  %info52 = getelementptr inbounds i8, ptr %k, i64 8
   call void @setup_rt_frame(i32 noundef %call1, ptr noundef %sa.0, ptr noundef nonnull %info52, ptr noundef nonnull %target_old_set, ptr noundef %cpu_env) #17
   %22 = load i64, ptr %sa_flags, align 8
   %and54 = and i64 %22, 2147483648
@@ -2468,9 +2421,9 @@ define dso_local i32 @process_sigsuspend_mask(ptr nocapture noundef writeonly %p
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
-  %opaque = getelementptr inbounds %struct.CPUState, ptr %1, i64 0, i32 39
+  %opaque = getelementptr inbounds i8, ptr %1, i64 624
   %2 = load ptr, ptr %opaque, align 16
-  %sigsuspend_mask = getelementptr inbounds %struct.TaskState, ptr %2, i64 0, i32 12
+  %sigsuspend_mask = getelementptr inbounds i8, ptr %2, i64 9032
   %cmp.not = icmp eq i64 %sigsize, 8
   br i1 %cmp.not, label %if.end, label %return
 
@@ -2548,7 +2501,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %si_code = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 2
+  %si_code = getelementptr inbounds i8, ptr %info, i64 8
   %1 = load i32, ptr %si_code, align 8
   switch i32 %1, label %if.then [
     i32 1, label %if.end
@@ -2559,7 +2512,7 @@ sw.bb2:                                           ; preds = %sw.bb
   br label %if.end
 
 sw.bb3:                                           ; preds = %entry
-  %si_code4 = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 2
+  %si_code4 = getelementptr inbounds i8, ptr %info, i64 8
   %2 = load i32, ptr %si_code4, align 8
   switch i32 %2, label %if.then [
     i32 1, label %if.end
@@ -2570,14 +2523,14 @@ sw.bb6:                                           ; preds = %sw.bb3
   br label %if.end
 
 sw.bb8:                                           ; preds = %entry
-  %si_code9 = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 2
+  %si_code9 = getelementptr inbounds i8, ptr %info, i64 8
   %3 = load i32, ptr %si_code9, align 8
   %switch.tableidx = add i32 %3, -1
   %4 = icmp ult i32 %switch.tableidx, 7
   br i1 %4, label %switch.hole_check, label %if.then
 
 sw.bb17:                                          ; preds = %entry
-  %si_code18 = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 2
+  %si_code18 = getelementptr inbounds i8, ptr %info, i64 8
   %5 = load i32, ptr %si_code18, align 8
   switch i32 %5, label %if.then [
     i32 1, label %if.end
@@ -2593,7 +2546,7 @@ sw.default:                                       ; preds = %entry
 
 if.then:                                          ; preds = %switch.hole_check, %sw.bb8, %sw.default, %sw.bb, %sw.bb3, %sw.bb17, %entry
   %sig.0 = phi ptr [ %sigbuf, %sw.default ], [ @.str.25, %sw.bb17 ], [ @.str.18, %sw.bb8 ], [ @.str.15, %sw.bb3 ], [ @.str.12, %sw.bb ], [ @.str.28, %entry ], [ @.str.18, %switch.hole_check ]
-  %si_code27 = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 2
+  %si_code27 = getelementptr inbounds i8, ptr %info, i64 8
   %6 = load i32, ptr %si_code27, align 8
   %call28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %codebuf, i64 noundef 4, ptr noundef nonnull @.str.29, i32 noundef %6) #17
   br label %if.end
@@ -2614,7 +2567,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 if.end:                                           ; preds = %switch.lookup, %sw.bb17, %sw.bb3, %sw.bb, %sw.bb2, %sw.bb6, %sw.bb20, %if.then
   %sig.013 = phi ptr [ %sig.0, %if.then ], [ @.str.12, %sw.bb2 ], [ @.str.15, %sw.bb6 ], [ @.str.25, %sw.bb20 ], [ @.str.12, %sw.bb ], [ @.str.15, %sw.bb3 ], [ @.str.25, %sw.bb17 ], [ @.str.18, %switch.lookup ]
   %code.1 = phi ptr [ %codebuf, %if.then ], [ @.str.14, %sw.bb2 ], [ @.str.17, %sw.bb6 ], [ @.str.27, %sw.bb20 ], [ @.str.13, %sw.bb ], [ @.str.16, %sw.bb3 ], [ @.str.26, %sw.bb17 ], [ %switch.load, %switch.lookup ]
-  %_sifields = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4
+  %_sifields = getelementptr inbounds i8, ptr %info, i64 16
   %9 = load ptr, ptr %_sifields, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.30, ptr noundef nonnull %sig.013, ptr noundef nonnull %code.1, ptr noundef %9) #17
   %10 = load i32, ptr %info, align 8
@@ -2642,7 +2595,7 @@ define internal fastcc void @die_with_signal(i32 noundef %host_sig) unnamed_addr
 entry:
   %act = alloca %struct.sigaction, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %act, i8 0, i64 152, i1 false)
-  %sa_mask = getelementptr inbounds %struct.sigaction, ptr %act, i64 0, i32 1
+  %sa_mask = getelementptr inbounds i8, ptr %act, i64 8
   %call = call i32 @sigfillset(ptr noundef nonnull %sa_mask) #17
   %call1 = call i32 @sigaction(i32 noundef %host_sig, ptr noundef nonnull %act, ptr noundef null) #17
   %call2 = call i32 @getpid() #17
@@ -2704,7 +2657,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #17
   %call10.i.i = tail call i32 @qemu_get_thread_id() #17
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef nonnull %env, i32 noundef 6, i32 noundef 6) #17
   br label %trace_user_dump_core_and_abort.exit
@@ -2759,7 +2712,7 @@ if.then8.i.i26:                                   ; preds = %if.then.i.i24
   %call9.i.i27 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i17, ptr noundef null) #17
   %call10.i.i28 = tail call i32 @qemu_get_thread_id() #17
   %14 = load i64, ptr %_now.i.i17, align 8
-  %tv_usec.i.i29 = getelementptr inbounds %struct.timeval, ptr %_now.i.i17, i64 0, i32 1
+  %tv_usec.i.i29 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
   %15 = load i64, ptr %tv_usec.i.i29, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i28, i64 noundef %14, i64 noundef %15, ptr noundef nonnull %env, i32 noundef %target_sig, i32 noundef %retval.0.i) #17
   br label %trace_user_dump_core_and_abort.exit31
@@ -2783,9 +2736,9 @@ trace_user_dump_core_and_abort.exit31:            ; preds = %target_to_host_sign
 
 land.lhs.true:                                    ; preds = %trace_user_dump_core_and_abort.exit, %trace_user_dump_core_and_abort.exit31, %trace_user_dump_core_and_abort.exit31, %trace_user_dump_core_and_abort.exit31, %trace_user_dump_core_and_abort.exit31, %trace_user_dump_core_and_abort.exit31, %trace_user_dump_core_and_abort.exit31, %trace_user_dump_core_and_abort.exit31
   %host_sig.0.ph = phi i32 [ %retval.0.i, %trace_user_dump_core_and_abort.exit31 ], [ %retval.0.i, %trace_user_dump_core_and_abort.exit31 ], [ %retval.0.i, %trace_user_dump_core_and_abort.exit31 ], [ %retval.0.i, %trace_user_dump_core_and_abort.exit31 ], [ %retval.0.i, %trace_user_dump_core_and_abort.exit31 ], [ %retval.0.i, %trace_user_dump_core_and_abort.exit31 ], [ %retval.0.i, %trace_user_dump_core_and_abort.exit31 ], [ 6, %trace_user_dump_core_and_abort.exit ]
-  %bprm = getelementptr inbounds %struct.TaskState, ptr %0, i64 0, i32 8
+  %bprm = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load ptr, ptr %bprm, align 8
-  %core_dump = getelementptr inbounds %struct.linux_binprm, ptr %16, i64 0, i32 10
+  %core_dump = getelementptr inbounds i8, ptr %16, i64 1088
   %17 = load ptr, ptr %core_dump, align 16
   %cmp3.not = icmp eq ptr %17, null
   br i1 %cmp3.not, label %if.end16, label %if.then4
@@ -2793,7 +2746,7 @@ land.lhs.true:                                    ; preds = %trace_user_dump_cor
 if.then4:                                         ; preds = %land.lhs.true
   tail call void @stop_all_tasks() #17
   %18 = load ptr, ptr %bprm, align 8
-  %core_dump6 = getelementptr inbounds %struct.linux_binprm, ptr %18, i64 0, i32 10
+  %core_dump6 = getelementptr inbounds i8, ptr %18, i64 1088
   %19 = load ptr, ptr %core_dump6, align 16
   %call7 = tail call i32 %19(i32 noundef %target_sig, ptr noundef nonnull %env) #17
   %cmp8.not = icmp eq i32 %call7, 0

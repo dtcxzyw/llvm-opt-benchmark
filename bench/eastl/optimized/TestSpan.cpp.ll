@@ -205,7 +205,7 @@ for.body:                                         ; preds = %entry, %for.body
   %__begin1.0.idx305 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.body ]
   %__begin1.0.ptr = getelementptr inbounds i8, ptr @__const._Z17TestSpanIteratorsRi.arr, i64 %__begin1.0.idx305
   %0 = load i32, ptr %__begin1.0.ptr, align 4
-  %incdec.ptr = getelementptr inbounds i32, ptr %pBegin.0306, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %pBegin.0306, i64 4
   %1 = load i32, ptr %pBegin.0306, align 4
   %cmp3 = icmp eq i32 %0, %1
   %call = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @.str.31)
@@ -466,7 +466,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %land
   %1 = load i32, ptr %first2.addr.06.i.i, align 4
   %cmp1.i.i = icmp eq i32 %0, %1
   %first1.addr.05.i.i.add = add nuw nsw i64 %first1.addr.05.i.i.idx, 4
-  %incdec.ptr2.i.i = getelementptr inbounds i32, ptr %first2.addr.06.i.i, i64 1
+  %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %first2.addr.06.i.i, i64 4
   %cmp.not.i.i = icmp ne i64 %first1.addr.05.i.i.add, 32
   %or.cond.not = select i1 %cmp1.i.i, i1 %cmp.not.i.i, i1 false
   br i1 %or.cond.not, label %for.body.i.i, label %_ZN5eastlneIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, !llvm.loop !5

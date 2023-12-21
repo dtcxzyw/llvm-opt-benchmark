@@ -3,23 +3,6 @@ source_filename = "bench/libuv/original/uv-data-getter-setters.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.uv_handle_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon, ptr, i32 }
-%struct.uv__queue = type { ptr, ptr }
-%union.anon = type { [4 x ptr] }
-%struct.uv_req_s = type { ptr, i32, [6 x ptr] }
-%struct.uv_stream_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.0, ptr, i32, i64, ptr, ptr, ptr, ptr, %struct.uv__io_s, %struct.uv__queue, %struct.uv__queue, ptr, i32, i32, ptr }
-%union.anon.0 = type { [4 x ptr] }
-%struct.uv__io_s = type { ptr, %struct.uv__queue, %struct.uv__queue, i32, i32, i32 }
-%struct.uv_udp_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.1, ptr, i32, i64, i64, ptr, ptr, %struct.uv__io_s, %struct.uv__queue, %struct.uv__queue }
-%union.anon.1 = type { [4 x ptr] }
-%struct.uv_process_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.2, ptr, i32, ptr, i32, %struct.uv__queue, i32 }
-%union.anon.2 = type { [4 x ptr] }
-%struct.uv_fs_s = type { ptr, i32, [6 x ptr], i32, ptr, ptr, i64, ptr, ptr, %struct.uv_stat_t, ptr, i32, i32, i32, i32, ptr, i64, i32, i32, double, double, %struct.uv__work, [4 x %struct.uv_buf_t] }
-%struct.uv_stat_t = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t }
-%struct.uv_timespec_t = type { i64, i64 }
-%struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
-%struct.uv_buf_t = type { ptr, i64 }
-
 @.str = private unnamed_addr constant [6 x i8] c"async\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"check\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"fs_event\00", align 1
@@ -70,7 +53,7 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @uv_handle_get_type(ptr nocapture noundef readonly %handle) local_unnamed_addr #1 {
 entry:
-  %type = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   %0 = load i32, ptr %type, align 8
   ret i32 %0
 }
@@ -85,7 +68,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @uv_handle_get_loop(ptr nocapture noundef readonly %handle) local_unnamed_addr #1 {
 entry:
-  %loop = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 1
+  %loop = getelementptr inbounds i8, ptr %handle, i64 8
   %0 = load ptr, ptr %loop, align 8
   ret ptr %0
 }
@@ -118,7 +101,7 @@ return:                                           ; preds = %entry, %switch.look
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @uv_req_get_type(ptr nocapture noundef readonly %req) local_unnamed_addr #1 {
 entry:
-  %type = getelementptr inbounds %struct.uv_req_s, ptr %req, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load i32, ptr %type, align 8
   ret i32 %0
 }
@@ -140,7 +123,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @uv_stream_get_write_queue_size(ptr nocapture noundef readonly %stream) local_unnamed_addr #1 {
 entry:
-  %write_queue_size = getelementptr inbounds %struct.uv_stream_s, ptr %stream, i64 0, i32 8
+  %write_queue_size = getelementptr inbounds i8, ptr %stream, i64 96
   %0 = load i64, ptr %write_queue_size, align 8
   ret i64 %0
 }
@@ -148,7 +131,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @uv_udp_get_send_queue_size(ptr nocapture noundef readonly %handle) local_unnamed_addr #1 {
 entry:
-  %send_queue_size = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 8
+  %send_queue_size = getelementptr inbounds i8, ptr %handle, i64 96
   %0 = load i64, ptr %send_queue_size, align 8
   ret i64 %0
 }
@@ -156,7 +139,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @uv_udp_get_send_queue_count(ptr nocapture noundef readonly %handle) local_unnamed_addr #1 {
 entry:
-  %send_queue_count = getelementptr inbounds %struct.uv_udp_s, ptr %handle, i64 0, i32 9
+  %send_queue_count = getelementptr inbounds i8, ptr %handle, i64 104
   %0 = load i64, ptr %send_queue_count, align 8
   ret i64 %0
 }
@@ -164,7 +147,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @uv_process_get_pid(ptr nocapture noundef readonly %proc) local_unnamed_addr #1 {
 entry:
-  %pid = getelementptr inbounds %struct.uv_process_s, ptr %proc, i64 0, i32 9
+  %pid = getelementptr inbounds i8, ptr %proc, i64 104
   %0 = load i32, ptr %pid, align 8
   ret i32 %0
 }
@@ -172,7 +155,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @uv_fs_get_type(ptr nocapture noundef readonly %req) local_unnamed_addr #1 {
 entry:
-  %fs_type = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 3
+  %fs_type = getelementptr inbounds i8, ptr %req, i64 64
   %0 = load i32, ptr %fs_type, align 8
   ret i32 %0
 }
@@ -180,7 +163,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @uv_fs_get_result(ptr nocapture noundef readonly %req) local_unnamed_addr #1 {
 entry:
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
+  %result = getelementptr inbounds i8, ptr %req, i64 88
   %0 = load i64, ptr %result, align 8
   ret i64 %0
 }
@@ -188,7 +171,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @uv_fs_get_ptr(ptr nocapture noundef readonly %req) local_unnamed_addr #1 {
 entry:
-  %ptr = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 7
+  %ptr = getelementptr inbounds i8, ptr %req, i64 96
   %0 = load ptr, ptr %ptr, align 8
   ret ptr %0
 }
@@ -196,7 +179,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @uv_fs_get_path(ptr nocapture noundef readonly %req) local_unnamed_addr #1 {
 entry:
-  %path = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 8
+  %path = getelementptr inbounds i8, ptr %req, i64 104
   %0 = load ptr, ptr %path, align 8
   ret ptr %0
 }
@@ -204,7 +187,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @uv_fs_get_statbuf(ptr noundef readnone %req) local_unnamed_addr #0 {
 entry:
-  %statbuf = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9
+  %statbuf = getelementptr inbounds i8, ptr %req, i64 112
   ret ptr %statbuf
 }
 

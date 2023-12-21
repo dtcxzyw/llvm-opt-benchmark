@@ -5,336 +5,14 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
-%"class.cvc5::internal::theory::quantifiers::EnumValueManager" = type { %"class.cvc5::internal::EnvObj", %"class.cvc5::internal::NodeTemplate", ptr, ptr, ptr, ptr, ptr, %"class.std::unique_ptr", %"class.std::unique_ptr.2", %"class.std::unique_ptr.10", %"class.std::unique_ptr.18", %"class.cvc5::internal::NodeTemplate", %"class.cvc5::internal::NodeTemplate", %"class.cvc5::internal::NodeTemplate" }
-%"class.cvc5::internal::EnvObj" = type { ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
-%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
-%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
-%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
-%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
-%"class.std::unique_ptr.10" = type { %"struct.std::__uniq_ptr_data.11" }
-%"struct.std::__uniq_ptr_data.11" = type { %"class.std::__uniq_ptr_impl.12" }
-%"class.std::__uniq_ptr_impl.12" = type { %"class.std::tuple.13" }
-%"class.std::tuple.13" = type { %"struct.std::_Tuple_impl.14" }
-%"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
-%"struct.std::_Head_base.17" = type { ptr }
-%"class.std::unique_ptr.18" = type { %"struct.std::__uniq_ptr_data.19" }
-%"struct.std::__uniq_ptr_data.19" = type { %"class.std::__uniq_ptr_impl.20" }
-%"class.std::__uniq_ptr_impl.20" = type { %"class.std::tuple.21" }
-%"class.std::tuple.21" = type { %"struct.std::_Tuple_impl.22" }
-%"struct.std::_Tuple_impl.22" = type { %"struct.std::_Head_base.25" }
-%"struct.std::_Head_base.25" = type { ptr }
-%"class.cvc5::internal::expr::NodeValue" = type { i64, i16, i32, [0 x ptr] }
 %"class.cvc5::internal::NodeTemplate.617" = type { ptr }
 %"class.cvc5::internal::NodeBuilder" = type <{ %"class.cvc5::internal::expr::NodeValue", [10 x ptr], ptr, ptr, i32, [4 x i8] }>
+%"class.cvc5::internal::expr::NodeValue" = type { i64, i16, i32, [0 x ptr] }
 %"class.std::vector.539" = type { %"struct.std::_Vector_base.540" }
 %"struct.std::_Vector_base.540" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" }
 %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::NodeManager" = type { %"class.std::unique_ptr.544", %"class.std::unique_ptr.552", %"class.std::unordered_set", i64, ptr, ptr, i8, %"class.std::unordered_set.565", %"class.std::vector.576", [365 x %"class.cvc5::internal::NodeTemplate"], %"class.std::map.581", %"class.std::vector.589", %"class.std::vector.594", %"class.std::map.599", %"class.cvc5::internal::NodeManager::TupleTypeCache", %"class.cvc5::internal::NodeManager::RecTypeCache" }
-%"class.std::unique_ptr.544" = type { %"struct.std::__uniq_ptr_data.545" }
-%"struct.std::__uniq_ptr_data.545" = type { %"class.std::__uniq_ptr_impl.546" }
-%"class.std::__uniq_ptr_impl.546" = type { %"class.std::tuple.547" }
-%"class.std::tuple.547" = type { %"struct.std::_Tuple_impl.548" }
-%"struct.std::_Tuple_impl.548" = type { %"struct.std::_Head_base.551" }
-%"struct.std::_Head_base.551" = type { ptr }
-%"class.std::unique_ptr.552" = type { %"struct.std::__uniq_ptr_data.553" }
-%"struct.std::__uniq_ptr_data.553" = type { %"class.std::__uniq_ptr_impl.554" }
-%"class.std::__uniq_ptr_impl.554" = type { %"class.std::tuple.555" }
-%"class.std::tuple.555" = type { %"struct.std::_Tuple_impl.556" }
-%"struct.std::_Tuple_impl.556" = type { %"struct.std::_Head_base.559" }
-%"struct.std::_Head_base.559" = type { ptr }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::unordered_set.565" = type { %"class.std::_Hashtable.566" }
-%"class.std::_Hashtable.566" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::vector.576" = type { %"struct.std::_Vector_base.577" }
-%"struct.std::_Vector_base.577" = type { %"struct.std::_Vector_base<cvc5::internal::expr::NodeValue *, std::allocator<cvc5::internal::expr::NodeValue *>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::expr::NodeValue *, std::allocator<cvc5::internal::expr::NodeValue *>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::expr::NodeValue *, std::allocator<cvc5::internal::expr::NodeValue *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::expr::NodeValue *, std::allocator<cvc5::internal::expr::NodeValue *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::map.581" = type { %"class.std::_Rb_tree.582" }
-%"class.std::_Rb_tree.582" = type { %"struct.std::_Rb_tree<cvc5::internal::kind::Kind_t, std::pair<const cvc5::internal::kind::Kind_t, std::map<cvc5::internal::TypeNode, cvc5::internal::NodeTemplate<true>>>, std::_Select1st<std::pair<const cvc5::internal::kind::Kind_t, std::map<cvc5::internal::TypeNode, cvc5::internal::NodeTemplate<true>>>>, std::less<cvc5::internal::kind::Kind_t>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::kind::Kind_t, std::pair<const cvc5::internal::kind::Kind_t, std::map<cvc5::internal::TypeNode, cvc5::internal::NodeTemplate<true>>>, std::_Select1st<std::pair<const cvc5::internal::kind::Kind_t, std::map<cvc5::internal::TypeNode, cvc5::internal::NodeTemplate<true>>>>, std::less<cvc5::internal::kind::Kind_t>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.586", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.586" = type { %"struct.std::less.587" }
-%"struct.std::less.587" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::vector.589" = type { %"struct.std::_Vector_base.590" }
-%"struct.std::_Vector_base.590" = type { %"struct.std::_Vector_base<std::unique_ptr<cvc5::internal::DType>, std::allocator<std::unique_ptr<cvc5::internal::DType>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<cvc5::internal::DType>, std::allocator<std::unique_ptr<cvc5::internal::DType>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<cvc5::internal::DType>, std::allocator<std::unique_ptr<cvc5::internal::DType>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<cvc5::internal::DType>, std::allocator<std::unique_ptr<cvc5::internal::DType>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.594" = type { %"struct.std::_Vector_base.595" }
-%"struct.std::_Vector_base.595" = type { %"struct.std::_Vector_base<std::unique_ptr<cvc5::internal::Oracle>, std::allocator<std::unique_ptr<cvc5::internal::Oracle>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<cvc5::internal::Oracle>, std::allocator<std::unique_ptr<cvc5::internal::Oracle>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<cvc5::internal::Oracle>, std::allocator<std::unique_ptr<cvc5::internal::Oracle>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<cvc5::internal::Oracle>, std::allocator<std::unique_ptr<cvc5::internal::Oracle>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::map.599" = type { %"class.std::_Rb_tree.600" }
-%"class.std::_Rb_tree.600" = type { %"struct.std::_Rb_tree<std::pair<std::__cxx11::basic_string<char>, unsigned long>, std::pair<const std::pair<std::__cxx11::basic_string<char>, unsigned long>, cvc5::internal::TypeNode>, std::_Select1st<std::pair<const std::pair<std::__cxx11::basic_string<char>, unsigned long>, cvc5::internal::TypeNode>>, std::less<std::pair<std::__cxx11::basic_string<char>, unsigned long>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::pair<std::__cxx11::basic_string<char>, unsigned long>, std::pair<const std::pair<std::__cxx11::basic_string<char>, unsigned long>, cvc5::internal::TypeNode>, std::_Select1st<std::pair<const std::pair<std::__cxx11::basic_string<char>, unsigned long>, cvc5::internal::TypeNode>>, std::less<std::pair<std::__cxx11::basic_string<char>, unsigned long>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.604", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.604" = type { %"struct.std::less.605" }
-%"struct.std::less.605" = type { i8 }
-%"class.cvc5::internal::NodeManager::TupleTypeCache" = type { %"class.std::map.607", %"class.cvc5::internal::TypeNode" }
-%"class.std::map.607" = type { %"class.std::_Rb_tree.608" }
-%"class.std::_Rb_tree.608" = type { %"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, cvc5::internal::NodeManager::TupleTypeCache>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, cvc5::internal::NodeManager::TupleTypeCache>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, cvc5::internal::NodeManager::TupleTypeCache>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, cvc5::internal::NodeManager::TupleTypeCache>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.423", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare.423" = type { %"struct.std::less.424" }
-%"struct.std::less.424" = type { i8 }
-%"class.cvc5::internal::TypeNode" = type { ptr }
-%"class.cvc5::internal::NodeManager::RecTypeCache" = type { %"class.std::map.612", %"class.cvc5::internal::TypeNode" }
-%"class.std::map.612" = type { %"class.std::_Rb_tree.613" }
-%"class.std::_Rb_tree.613" = type { %"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, std::map<std::__cxx11::basic_string<char>, cvc5::internal::NodeManager::RecTypeCache>>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, std::map<std::__cxx11::basic_string<char>, cvc5::internal::NodeManager::RecTypeCache>>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, std::map<std::__cxx11::basic_string<char>, cvc5::internal::NodeManager::RecTypeCache>>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, std::map<std::__cxx11::basic_string<char>, cvc5::internal::NodeManager::RecTypeCache>>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.423", %"struct.std::_Rb_tree_header" }
-%"class.cvc5::internal::expr::attr::AttributeManager" = type { i8, %"class.cvc5::internal::expr::attr::AttrHash", %"class.cvc5::internal::expr::attr::AttrHash.734", %"class.cvc5::internal::expr::attr::AttrHash.753", %"class.cvc5::internal::expr::attr::AttrHash.768", %"class.cvc5::internal::expr::attr::AttrHash.783", %"class.cvc5::internal::expr::attr::AttrHash.798" }
-%"class.cvc5::internal::expr::attr::AttrHash" = type { %"class.std::unordered_map.716" }
-%"class.std::unordered_map.716" = type { %"class.std::_Hashtable.717" }
-%"class.std::_Hashtable.717" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.cvc5::internal::expr::attr::AttrHash.734" = type { %"class.std::unordered_map.735" }
-%"class.std::unordered_map.735" = type { %"class.std::_Hashtable.736" }
-%"class.std::_Hashtable.736" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.cvc5::internal::expr::attr::AttrHash.753" = type { %"class.std::unordered_map.754" }
-%"class.std::unordered_map.754" = type { %"class.std::_Hashtable.755" }
-%"class.std::_Hashtable.755" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.cvc5::internal::expr::attr::AttrHash.768" = type { %"class.std::unordered_map.769" }
-%"class.std::unordered_map.769" = type { %"class.std::_Hashtable.770" }
-%"class.std::_Hashtable.770" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.cvc5::internal::expr::attr::AttrHash.783" = type { %"class.std::unordered_map.784" }
-%"class.std::unordered_map.784" = type { %"class.std::_Hashtable.785" }
-%"class.std::_Hashtable.785" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.cvc5::internal::expr::attr::AttrHash.798" = type { %"class.std::unordered_map.799" }
-%"class.std::unordered_map.799" = type { %"class.std::_Hashtable.800" }
-%"class.std::_Hashtable.800" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.cvc5::internal::Options" = type { %"class.std::unique_ptr.77", %"class.std::unique_ptr.85", %"class.std::unique_ptr.93", %"class.std::unique_ptr.101", %"class.std::unique_ptr.109", %"class.std::unique_ptr.117", %"class.std::unique_ptr.125", %"class.std::unique_ptr.133", %"class.std::unique_ptr.141", %"class.std::unique_ptr.149", %"class.std::unique_ptr.157", %"class.std::unique_ptr.165", %"class.std::unique_ptr.173", %"class.std::unique_ptr.181", %"class.std::unique_ptr.189", %"class.std::unique_ptr.197", %"class.std::unique_ptr.205", %"class.std::unique_ptr.213", %"class.std::unique_ptr.221", %"class.std::unique_ptr.229", %"class.std::unique_ptr.237", %"class.std::unique_ptr.245", %"class.std::unique_ptr.253", %"class.std::unique_ptr.261", ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::unique_ptr.269" }
-%"class.std::unique_ptr.77" = type { %"struct.std::__uniq_ptr_data.78" }
-%"struct.std::__uniq_ptr_data.78" = type { %"class.std::__uniq_ptr_impl.79" }
-%"class.std::__uniq_ptr_impl.79" = type { %"class.std::tuple.80" }
-%"class.std::tuple.80" = type { %"struct.std::_Tuple_impl.81" }
-%"struct.std::_Tuple_impl.81" = type { %"struct.std::_Head_base.84" }
-%"struct.std::_Head_base.84" = type { ptr }
-%"class.std::unique_ptr.85" = type { %"struct.std::__uniq_ptr_data.86" }
-%"struct.std::__uniq_ptr_data.86" = type { %"class.std::__uniq_ptr_impl.87" }
-%"class.std::__uniq_ptr_impl.87" = type { %"class.std::tuple.88" }
-%"class.std::tuple.88" = type { %"struct.std::_Tuple_impl.89" }
-%"struct.std::_Tuple_impl.89" = type { %"struct.std::_Head_base.92" }
-%"struct.std::_Head_base.92" = type { ptr }
-%"class.std::unique_ptr.93" = type { %"struct.std::__uniq_ptr_data.94" }
-%"struct.std::__uniq_ptr_data.94" = type { %"class.std::__uniq_ptr_impl.95" }
-%"class.std::__uniq_ptr_impl.95" = type { %"class.std::tuple.96" }
-%"class.std::tuple.96" = type { %"struct.std::_Tuple_impl.97" }
-%"struct.std::_Tuple_impl.97" = type { %"struct.std::_Head_base.100" }
-%"struct.std::_Head_base.100" = type { ptr }
-%"class.std::unique_ptr.101" = type { %"struct.std::__uniq_ptr_data.102" }
-%"struct.std::__uniq_ptr_data.102" = type { %"class.std::__uniq_ptr_impl.103" }
-%"class.std::__uniq_ptr_impl.103" = type { %"class.std::tuple.104" }
-%"class.std::tuple.104" = type { %"struct.std::_Tuple_impl.105" }
-%"struct.std::_Tuple_impl.105" = type { %"struct.std::_Head_base.108" }
-%"struct.std::_Head_base.108" = type { ptr }
-%"class.std::unique_ptr.109" = type { %"struct.std::__uniq_ptr_data.110" }
-%"struct.std::__uniq_ptr_data.110" = type { %"class.std::__uniq_ptr_impl.111" }
-%"class.std::__uniq_ptr_impl.111" = type { %"class.std::tuple.112" }
-%"class.std::tuple.112" = type { %"struct.std::_Tuple_impl.113" }
-%"struct.std::_Tuple_impl.113" = type { %"struct.std::_Head_base.116" }
-%"struct.std::_Head_base.116" = type { ptr }
-%"class.std::unique_ptr.117" = type { %"struct.std::__uniq_ptr_data.118" }
-%"struct.std::__uniq_ptr_data.118" = type { %"class.std::__uniq_ptr_impl.119" }
-%"class.std::__uniq_ptr_impl.119" = type { %"class.std::tuple.120" }
-%"class.std::tuple.120" = type { %"struct.std::_Tuple_impl.121" }
-%"struct.std::_Tuple_impl.121" = type { %"struct.std::_Head_base.124" }
-%"struct.std::_Head_base.124" = type { ptr }
-%"class.std::unique_ptr.125" = type { %"struct.std::__uniq_ptr_data.126" }
-%"struct.std::__uniq_ptr_data.126" = type { %"class.std::__uniq_ptr_impl.127" }
-%"class.std::__uniq_ptr_impl.127" = type { %"class.std::tuple.128" }
-%"class.std::tuple.128" = type { %"struct.std::_Tuple_impl.129" }
-%"struct.std::_Tuple_impl.129" = type { %"struct.std::_Head_base.132" }
-%"struct.std::_Head_base.132" = type { ptr }
-%"class.std::unique_ptr.133" = type { %"struct.std::__uniq_ptr_data.134" }
-%"struct.std::__uniq_ptr_data.134" = type { %"class.std::__uniq_ptr_impl.135" }
-%"class.std::__uniq_ptr_impl.135" = type { %"class.std::tuple.136" }
-%"class.std::tuple.136" = type { %"struct.std::_Tuple_impl.137" }
-%"struct.std::_Tuple_impl.137" = type { %"struct.std::_Head_base.140" }
-%"struct.std::_Head_base.140" = type { ptr }
-%"class.std::unique_ptr.141" = type { %"struct.std::__uniq_ptr_data.142" }
-%"struct.std::__uniq_ptr_data.142" = type { %"class.std::__uniq_ptr_impl.143" }
-%"class.std::__uniq_ptr_impl.143" = type { %"class.std::tuple.144" }
-%"class.std::tuple.144" = type { %"struct.std::_Tuple_impl.145" }
-%"struct.std::_Tuple_impl.145" = type { %"struct.std::_Head_base.148" }
-%"struct.std::_Head_base.148" = type { ptr }
-%"class.std::unique_ptr.149" = type { %"struct.std::__uniq_ptr_data.150" }
-%"struct.std::__uniq_ptr_data.150" = type { %"class.std::__uniq_ptr_impl.151" }
-%"class.std::__uniq_ptr_impl.151" = type { %"class.std::tuple.152" }
-%"class.std::tuple.152" = type { %"struct.std::_Tuple_impl.153" }
-%"struct.std::_Tuple_impl.153" = type { %"struct.std::_Head_base.156" }
-%"struct.std::_Head_base.156" = type { ptr }
-%"class.std::unique_ptr.157" = type { %"struct.std::__uniq_ptr_data.158" }
-%"struct.std::__uniq_ptr_data.158" = type { %"class.std::__uniq_ptr_impl.159" }
-%"class.std::__uniq_ptr_impl.159" = type { %"class.std::tuple.160" }
-%"class.std::tuple.160" = type { %"struct.std::_Tuple_impl.161" }
-%"struct.std::_Tuple_impl.161" = type { %"struct.std::_Head_base.164" }
-%"struct.std::_Head_base.164" = type { ptr }
-%"class.std::unique_ptr.165" = type { %"struct.std::__uniq_ptr_data.166" }
-%"struct.std::__uniq_ptr_data.166" = type { %"class.std::__uniq_ptr_impl.167" }
-%"class.std::__uniq_ptr_impl.167" = type { %"class.std::tuple.168" }
-%"class.std::tuple.168" = type { %"struct.std::_Tuple_impl.169" }
-%"struct.std::_Tuple_impl.169" = type { %"struct.std::_Head_base.172" }
-%"struct.std::_Head_base.172" = type { ptr }
-%"class.std::unique_ptr.173" = type { %"struct.std::__uniq_ptr_data.174" }
-%"struct.std::__uniq_ptr_data.174" = type { %"class.std::__uniq_ptr_impl.175" }
-%"class.std::__uniq_ptr_impl.175" = type { %"class.std::tuple.176" }
-%"class.std::tuple.176" = type { %"struct.std::_Tuple_impl.177" }
-%"struct.std::_Tuple_impl.177" = type { %"struct.std::_Head_base.180" }
-%"struct.std::_Head_base.180" = type { ptr }
-%"class.std::unique_ptr.181" = type { %"struct.std::__uniq_ptr_data.182" }
-%"struct.std::__uniq_ptr_data.182" = type { %"class.std::__uniq_ptr_impl.183" }
-%"class.std::__uniq_ptr_impl.183" = type { %"class.std::tuple.184" }
-%"class.std::tuple.184" = type { %"struct.std::_Tuple_impl.185" }
-%"struct.std::_Tuple_impl.185" = type { %"struct.std::_Head_base.188" }
-%"struct.std::_Head_base.188" = type { ptr }
-%"class.std::unique_ptr.189" = type { %"struct.std::__uniq_ptr_data.190" }
-%"struct.std::__uniq_ptr_data.190" = type { %"class.std::__uniq_ptr_impl.191" }
-%"class.std::__uniq_ptr_impl.191" = type { %"class.std::tuple.192" }
-%"class.std::tuple.192" = type { %"struct.std::_Tuple_impl.193" }
-%"struct.std::_Tuple_impl.193" = type { %"struct.std::_Head_base.196" }
-%"struct.std::_Head_base.196" = type { ptr }
-%"class.std::unique_ptr.197" = type { %"struct.std::__uniq_ptr_data.198" }
-%"struct.std::__uniq_ptr_data.198" = type { %"class.std::__uniq_ptr_impl.199" }
-%"class.std::__uniq_ptr_impl.199" = type { %"class.std::tuple.200" }
-%"class.std::tuple.200" = type { %"struct.std::_Tuple_impl.201" }
-%"struct.std::_Tuple_impl.201" = type { %"struct.std::_Head_base.204" }
-%"struct.std::_Head_base.204" = type { ptr }
-%"class.std::unique_ptr.205" = type { %"struct.std::__uniq_ptr_data.206" }
-%"struct.std::__uniq_ptr_data.206" = type { %"class.std::__uniq_ptr_impl.207" }
-%"class.std::__uniq_ptr_impl.207" = type { %"class.std::tuple.208" }
-%"class.std::tuple.208" = type { %"struct.std::_Tuple_impl.209" }
-%"struct.std::_Tuple_impl.209" = type { %"struct.std::_Head_base.212" }
-%"struct.std::_Head_base.212" = type { ptr }
-%"class.std::unique_ptr.213" = type { %"struct.std::__uniq_ptr_data.214" }
-%"struct.std::__uniq_ptr_data.214" = type { %"class.std::__uniq_ptr_impl.215" }
-%"class.std::__uniq_ptr_impl.215" = type { %"class.std::tuple.216" }
-%"class.std::tuple.216" = type { %"struct.std::_Tuple_impl.217" }
-%"struct.std::_Tuple_impl.217" = type { %"struct.std::_Head_base.220" }
-%"struct.std::_Head_base.220" = type { ptr }
-%"class.std::unique_ptr.221" = type { %"struct.std::__uniq_ptr_data.222" }
-%"struct.std::__uniq_ptr_data.222" = type { %"class.std::__uniq_ptr_impl.223" }
-%"class.std::__uniq_ptr_impl.223" = type { %"class.std::tuple.224" }
-%"class.std::tuple.224" = type { %"struct.std::_Tuple_impl.225" }
-%"struct.std::_Tuple_impl.225" = type { %"struct.std::_Head_base.228" }
-%"struct.std::_Head_base.228" = type { ptr }
-%"class.std::unique_ptr.229" = type { %"struct.std::__uniq_ptr_data.230" }
-%"struct.std::__uniq_ptr_data.230" = type { %"class.std::__uniq_ptr_impl.231" }
-%"class.std::__uniq_ptr_impl.231" = type { %"class.std::tuple.232" }
-%"class.std::tuple.232" = type { %"struct.std::_Tuple_impl.233" }
-%"struct.std::_Tuple_impl.233" = type { %"struct.std::_Head_base.236" }
-%"struct.std::_Head_base.236" = type { ptr }
-%"class.std::unique_ptr.237" = type { %"struct.std::__uniq_ptr_data.238" }
-%"struct.std::__uniq_ptr_data.238" = type { %"class.std::__uniq_ptr_impl.239" }
-%"class.std::__uniq_ptr_impl.239" = type { %"class.std::tuple.240" }
-%"class.std::tuple.240" = type { %"struct.std::_Tuple_impl.241" }
-%"struct.std::_Tuple_impl.241" = type { %"struct.std::_Head_base.244" }
-%"struct.std::_Head_base.244" = type { ptr }
-%"class.std::unique_ptr.245" = type { %"struct.std::__uniq_ptr_data.246" }
-%"struct.std::__uniq_ptr_data.246" = type { %"class.std::__uniq_ptr_impl.247" }
-%"class.std::__uniq_ptr_impl.247" = type { %"class.std::tuple.248" }
-%"class.std::tuple.248" = type { %"struct.std::_Tuple_impl.249" }
-%"struct.std::_Tuple_impl.249" = type { %"struct.std::_Head_base.252" }
-%"struct.std::_Head_base.252" = type { ptr }
-%"class.std::unique_ptr.253" = type { %"struct.std::__uniq_ptr_data.254" }
-%"struct.std::__uniq_ptr_data.254" = type { %"class.std::__uniq_ptr_impl.255" }
-%"class.std::__uniq_ptr_impl.255" = type { %"class.std::tuple.256" }
-%"class.std::tuple.256" = type { %"struct.std::_Tuple_impl.257" }
-%"struct.std::_Tuple_impl.257" = type { %"struct.std::_Head_base.260" }
-%"struct.std::_Head_base.260" = type { ptr }
-%"class.std::unique_ptr.261" = type { %"struct.std::__uniq_ptr_data.262" }
-%"struct.std::__uniq_ptr_data.262" = type { %"class.std::__uniq_ptr_impl.263" }
-%"class.std::__uniq_ptr_impl.263" = type { %"class.std::tuple.264" }
-%"class.std::tuple.264" = type { %"struct.std::_Tuple_impl.265" }
-%"struct.std::_Tuple_impl.265" = type { %"struct.std::_Head_base.268" }
-%"struct.std::_Head_base.268" = type { ptr }
-%"class.std::unique_ptr.269" = type { %"struct.std::__uniq_ptr_data.270" }
-%"struct.std::__uniq_ptr_data.270" = type { %"class.std::__uniq_ptr_impl.271" }
-%"class.std::__uniq_ptr_impl.271" = type { %"class.std::tuple.272" }
-%"class.std::tuple.272" = type { %"struct.std::_Tuple_impl.273" }
-%"struct.std::_Tuple_impl.273" = type { %"struct.std::_Head_base.276" }
-%"struct.std::_Head_base.276" = type { ptr }
-%"struct.cvc5::internal::options::HolderQUANTIFIERS" = type <{ i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, [3 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i64, i8, [7 x i8], i64, i8, i8, i8, i8, i32, i8, [7 x i8], i64, i8, i8, i8, i8, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i32, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, [7 x i8], i64, i8, [7 x i8], double, i8, [3 x i8], i32, i8, [7 x i8], i64, i8, [3 x i8], i32, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i8, [7 x i8], i64, i8, i8, i8, i8, i32, i8, [3 x i8], i32, i8, i8, i8, [5 x i8], i64, i8, i8, i8, [5 x i8], i64, i8, i8, i8, [5 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i64, i8, [3 x i8], i32, i8, i8, i8, i8, i32, i8, [7 x i8], i64, i8, [7 x i8], double, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i64, i8, [7 x i8], i64, i8, i8, i8, i8, i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, i8, i8, i8, i8, [3 x i8] }>
-%"struct.cvc5::internal::options::HolderDATATYPES" = type <{ i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i64, i8, [3 x i8], i32, i8, i8, i8, i8, i32, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8 }>
-%"class.cvc5::internal::theory::quantifiers::TermDbSygus" = type { %"class.cvc5::internal::EnvObj", ptr, ptr, %"class.std::unique_ptr.436", %"class.std::unique_ptr.444", %"class.std::unique_ptr.452", ptr, %"class.std::map.460", %"class.std::map.465", %"class.std::map.465", %"class.std::map", %"class.std::map.426", %"class.std::map.470", %"class.std::map.475", %"class.std::map", %"class.std::map", %"class.std::map", %"class.std::map", [2 x %"class.std::map.480"], %"class.std::map.470", %"class.std::map.485", %"class.std::map.490", %"class.std::map.495", %"class.cvc5::internal::NodeTemplate", %"class.cvc5::internal::NodeTemplate", %"class.std::map.500", %"class.std::map.505", %"class.std::map.510" }
-%"class.std::unique_ptr.436" = type { %"struct.std::__uniq_ptr_data.437" }
-%"struct.std::__uniq_ptr_data.437" = type { %"class.std::__uniq_ptr_impl.438" }
-%"class.std::__uniq_ptr_impl.438" = type { %"class.std::tuple.439" }
-%"class.std::tuple.439" = type { %"struct.std::_Tuple_impl.440" }
-%"struct.std::_Tuple_impl.440" = type { %"struct.std::_Head_base.443" }
-%"struct.std::_Head_base.443" = type { ptr }
-%"class.std::unique_ptr.444" = type { %"struct.std::__uniq_ptr_data.445" }
-%"struct.std::__uniq_ptr_data.445" = type { %"class.std::__uniq_ptr_impl.446" }
-%"class.std::__uniq_ptr_impl.446" = type { %"class.std::tuple.447" }
-%"class.std::tuple.447" = type { %"struct.std::_Tuple_impl.448" }
-%"struct.std::_Tuple_impl.448" = type { %"struct.std::_Head_base.451" }
-%"struct.std::_Head_base.451" = type { ptr }
-%"class.std::unique_ptr.452" = type { %"struct.std::__uniq_ptr_data.453" }
-%"struct.std::__uniq_ptr_data.453" = type { %"class.std::__uniq_ptr_impl.454" }
-%"class.std::__uniq_ptr_impl.454" = type { %"class.std::tuple.455" }
-%"class.std::tuple.455" = type { %"struct.std::_Tuple_impl.456" }
-%"struct.std::_Tuple_impl.456" = type { %"struct.std::_Head_base.459" }
-%"struct.std::_Head_base.459" = type { ptr }
-%"class.std::map.460" = type { %"class.std::_Rb_tree.461" }
-%"class.std::_Rb_tree.461" = type { %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::theory::quantifiers::SynthConjecture *>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::theory::quantifiers::SynthConjecture *>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::theory::quantifiers::SynthConjecture *>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::theory::quantifiers::SynthConjecture *>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"class.std::map.465" = type { %"class.std::_Rb_tree.466" }
-%"class.std::_Rb_tree.466" = type { %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::NodeTemplate<true>>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::NodeTemplate<true>>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::NodeTemplate<true>>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::NodeTemplate<true>>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::map.426" = type { %"class.std::_Rb_tree.427" }
-%"class.std::_Rb_tree.427" = type { %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, std::vector<cvc5::internal::NodeTemplate<true>>>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, std::vector<cvc5::internal::NodeTemplate<true>>>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, std::vector<cvc5::internal::NodeTemplate<true>>>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, std::vector<cvc5::internal::NodeTemplate<true>>>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::map.475" = type { %"class.std::_Rb_tree.476" }
-%"class.std::_Rb_tree.476" = type { %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, unsigned int>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, unsigned int>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, unsigned int>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, unsigned int>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, bool>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, bool>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, bool>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, bool>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::map.480" = type { %"class.std::_Rb_tree.481" }
-%"class.std::_Rb_tree.481" = type { %"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, std::vector<cvc5::internal::NodeTemplate<true>>>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, std::vector<cvc5::internal::NodeTemplate<true>>>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, std::vector<cvc5::internal::NodeTemplate<true>>>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, std::vector<cvc5::internal::NodeTemplate<true>>>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.423", %"struct.std::_Rb_tree_header" }
-%"class.std::map.470" = type { %"class.std::_Rb_tree.471" }
-%"class.std::_Rb_tree.471" = type { %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::TypeNode>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::TypeNode>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::TypeNode>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, cvc5::internal::TypeNode>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::map.485" = type { %"class.std::_Rb_tree.486" }
-%"class.std::_Rb_tree.486" = type { %"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, unsigned long>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, unsigned long>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, unsigned long>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, unsigned long>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.423", %"struct.std::_Rb_tree_header" }
-%"class.std::map.490" = type { %"class.std::_Rb_tree.491" }
-%"class.std::_Rb_tree.491" = type { %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, unsigned long>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, unsigned long>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, unsigned long>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, unsigned long>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"class.std::map.495" = type { %"class.std::_Rb_tree.496" }
-%"class.std::_Rb_tree.496" = type { %"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, std::map<cvc5::internal::NodeTemplate<true>, cvc5::internal::NodeTemplate<true>>>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, std::map<cvc5::internal::NodeTemplate<true>, cvc5::internal::NodeTemplate<true>>>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, std::map<cvc5::internal::NodeTemplate<true>, cvc5::internal::NodeTemplate<true>>>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, std::map<cvc5::internal::NodeTemplate<true>, cvc5::internal::NodeTemplate<true>>>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.423", %"struct.std::_Rb_tree_header" }
-%"class.std::map.500" = type { %"class.std::_Rb_tree.501" }
-%"class.std::_Rb_tree.501" = type { %"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, bool>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, bool>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, bool>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, bool>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.423", %"struct.std::_Rb_tree_header" }
-%"class.std::map.505" = type { %"class.std::_Rb_tree.506" }
-%"class.std::_Rb_tree.506" = type { %"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, cvc5::internal::theory::quantifiers::SygusTypeInfo>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, cvc5::internal::theory::quantifiers::SygusTypeInfo>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, cvc5::internal::theory::quantifiers::SygusTypeInfo>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, cvc5::internal::theory::quantifiers::SygusTypeInfo>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.423", %"struct.std::_Rb_tree_header" }
-%"class.std::map.510" = type { %"class.std::_Rb_tree.511" }
-%"class.std::_Rb_tree.511" = type { %"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, std::map<cvc5::internal::NodeTemplate<true>, unsigned int>>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, std::map<cvc5::internal::NodeTemplate<true>, unsigned int>>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<cvc5::internal::TypeNode, std::pair<const cvc5::internal::TypeNode, std::map<cvc5::internal::NodeTemplate<true>, unsigned int>>, std::_Select1st<std::pair<const cvc5::internal::TypeNode, std::map<cvc5::internal::NodeTemplate<true>, unsigned int>>>, std::less<cvc5::internal::TypeNode>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare.423", %"struct.std::_Rb_tree_header" }
 %"class.cvc5::internal::FatalStream" = type { i8 }
-%"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator" = type { %"class.cvc5::internal::theory::quantifiers::EnumValGenerator", ptr, %"class.cvc5::internal::TypeNode", %"class.cvc5::internal::NodeTemplate", %"class.std::unordered_map.855", %"class.std::unordered_map.855", %"class.std::unordered_set.825", %"class.std::unordered_map.869", %"class.std::unordered_map.883" }
-%"class.cvc5::internal::theory::quantifiers::EnumValGenerator" = type { %"class.cvc5::internal::EnvObj" }
-%"class.std::unordered_map.855" = type { %"class.std::_Hashtable.856" }
-%"class.std::_Hashtable.856" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_set.825" = type { %"class.std::_Hashtable.826" }
-%"class.std::_Hashtable.826" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_map.869" = type { %"class.std::_Hashtable.870" }
-%"class.std::_Hashtable.870" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_map.883" = type { %"class.std::_Hashtable.884" }
-%"class.std::_Hashtable.884" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 
 $_ZN4cvc58internal12NodeTemplateILb1EED2Ev = comdat any
 
@@ -420,7 +98,7 @@ entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16EnumValueManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_enum = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 1
+  %d_enum = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %e, align 8
   store ptr %0, ptr %d_enum, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -449,24 +127,24 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then13.i.i, %if.else.i.i, %if.then.i.i
-  %d_qstate = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 2
+  %d_qstate = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %qs, ptr %d_qstate, align 8
-  %d_qim = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 3
+  %d_qim = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %qim, ptr %d_qim, align 8
-  %d_treg = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 4
+  %d_treg = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %tr, ptr %d_treg, align 8
-  %d_stats = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 5
+  %d_stats = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %s, ptr %d_stats, align 8
   %call = invoke noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry20getTermDatabaseSygusEv(ptr noundef nonnull align 8 dereferenceable(208) %tr)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %d_tds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 6
+  %d_tds = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call, ptr %d_tds, align 8
-  %d_samplerRrV = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 7
-  %d_secd = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 8
-  %d_evg = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 9
-  %d_eec = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 10
+  %d_samplerRrV = getelementptr inbounds i8, ptr %this, i64 64
+  %d_secd = getelementptr inbounds i8, ptr %this, i64 72
+  %d_evg = getelementptr inbounds i8, ptr %this, i64 80
+  %d_eec = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_samplerRrV, i8 0, i64 24, i1 false)
   br i1 %hasExamples, label %cond.true, label %cleanup.done.critedge
 
@@ -539,7 +217,7 @@ cleanup.done.critedge:                            ; preds = %invoke.cont3
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %if.then13.i.i31, %if.then.i.i25, %cleanup.action, %cleanup.done.critedge
-  %d_ev_curr_active_gen = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 11
+  %d_ev_curr_active_gen = getelementptr inbounds i8, ptr %this, i64 96
   %8 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %8, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont20, !prof !4
@@ -555,9 +233,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 1
+  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 2
+  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #18
@@ -572,7 +250,7 @@ lpad.i.i:                                         ; preds = %init.i.i
 invoke.cont20:                                    ; preds = %invoke.cont.i.i, %init.check.i.i, %cleanup.done
   %11 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %11, ptr %d_ev_curr_active_gen, align 8
-  %d_evActiveGenWaiting = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 12
+  %d_evActiveGenWaiting = getelementptr inbounds i8, ptr %this, i64 104
   %12 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i32 = icmp eq i8 %12, 0
   br i1 %guard.uninitialized.i.i32, label %init.check.i.i33, label %invoke.cont22, !prof !4
@@ -588,9 +266,9 @@ init.i.i35:                                       ; preds = %init.check.i.i33
 
 invoke.cont.i.i38:                                ; preds = %init.i.i35
   store i64 1152920405095219200, ptr %call.i.i36, align 8
-  %d_kind.i.i.i39 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i36, i64 0, i32 1
+  %d_kind.i.i.i39 = getelementptr inbounds i8, ptr %call.i.i36, i64 8
   store i16 0, ptr %d_kind.i.i.i39, align 8
-  %d_nchildren.i.i.i40 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i36, i64 0, i32 2
+  %d_nchildren.i.i.i40 = getelementptr inbounds i8, ptr %call.i.i36, i64 12
   store i32 0, ptr %d_nchildren.i.i.i40, align 4
   store ptr %call.i.i36, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #18
@@ -620,9 +298,9 @@ init.i.i46:                                       ; preds = %init.check.i.i44
 
 invoke.cont.i.i49:                                ; preds = %init.i.i46
   store i64 1152920405095219200, ptr %call.i.i47, align 8
-  %d_kind.i.i.i50 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i47, i64 0, i32 1
+  %d_kind.i.i.i50 = getelementptr inbounds i8, ptr %call.i.i47, i64 8
   store i16 0, ptr %d_kind.i.i.i50, align 8
-  %d_nchildren.i.i.i51 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i47, i64 0, i32 2
+  %d_nchildren.i.i.i51 = getelementptr inbounds i8, ptr %call.i.i47, i64 12
   store i32 0, ptr %d_nchildren.i.i.i51, align 4
   store ptr %call.i.i47, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #18
@@ -636,7 +314,7 @@ lpad.i.i48:                                       ; preds = %init.i.i46
   br label %ehcleanup26
 
 invoke.cont24:                                    ; preds = %invoke.cont.i.i49, %init.check.i.i44, %invoke.cont22
-  %d_evActiveGenFirstVal = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 13
+  %d_evActiveGenFirstVal = getelementptr inbounds i8, ptr %this, i64 112
   %19 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %19, ptr %d_evActiveGenFirstVal, align 8
   ret void
@@ -685,7 +363,7 @@ ehcleanup28:                                      ; preds = %cleanup.action17, %
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16EnumValGeneratorEEclEPS4_.exit.i: ; preds = %ehcleanup28
   %vtable.i.i = load ptr, ptr %.pr, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %24 = load ptr, ptr %vfn.i.i, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %.pr) #18
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16EnumValGeneratorESt14default_deleteIS4_EED2Ev.exit
@@ -699,7 +377,7 @@ _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16EnumValGeneratorESt14defa
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackEEclEPS4_.exit.i: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16EnumValGeneratorESt14default_deleteIS4_EED2Ev.exit
   %vtable.i.i55 = load ptr, ptr %25, align 8
-  %vfn.i.i56 = getelementptr inbounds ptr, ptr %vtable.i.i55, i64 1
+  %vfn.i.i56 = getelementptr inbounds i8, ptr %vtable.i.i55, i64 8
   %26 = load ptr, ptr %vfn.i.i56, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(40) %25) #18
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackESt14default_deleteIS4_EED2Ev.exit
@@ -712,7 +390,7 @@ _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackES
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers12SygusSamplerEEclEPS4_.exit.i: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackESt14default_deleteIS4_EED2Ev.exit
   %vtable.i.i58 = load ptr, ptr %27, align 8
-  %vfn.i.i59 = getelementptr inbounds ptr, ptr %vtable.i.i58, i64 1
+  %vfn.i.i59 = getelementptr inbounds i8, ptr %vtable.i.i58, i64 8
   %28 = load ptr, ptr %vfn.i.i59, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(800) %27) #18
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers12SygusSamplerESt14default_deleteIS4_EED2Ev.exit
@@ -795,7 +473,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 define hidden void @_ZN4cvc58internal6theory11quantifiers16EnumValueManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16EnumValueManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_evActiveGenFirstVal = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 13
+  %d_evActiveGenFirstVal = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %d_evActiveGenFirstVal, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200
@@ -823,7 +501,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i, %if.then13.i.i
-  %d_evActiveGenWaiting = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 12
+  %d_evActiveGenWaiting = getelementptr inbounds i8, ptr %this, i64 104
   %4 = load ptr, ptr %d_evActiveGenWaiting, align 8
   %bf.load.i.i1 = load i64, ptr %4, align 8
   %5 = and i64 %bf.load.i.i1, 1152920405095219200
@@ -851,7 +529,7 @@ terminate.lpad.i10:                               ; preds = %if.then13.i.i9
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit11: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.then.i.i3, %if.then13.i.i9
-  %d_ev_curr_active_gen = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 11
+  %d_ev_curr_active_gen = getelementptr inbounds i8, ptr %this, i64 96
   %8 = load ptr, ptr %d_ev_curr_active_gen, align 8
   %bf.load.i.i12 = load i64, ptr %8, align 8
   %9 = and i64 %bf.load.i.i12, 1152920405095219200
@@ -879,7 +557,7 @@ terminate.lpad.i21:                               ; preds = %if.then13.i.i20
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit22: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit11, %if.then.i.i14, %if.then13.i.i20
-  %d_eec = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 10
+  %d_eec = getelementptr inbounds i8, ptr %this, i64 88
   %12 = load ptr, ptr %d_eec, align 8
   %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16ExampleEvalCacheESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16ExampleEvalCacheEEclEPS4_.exit.i
@@ -891,49 +569,49 @@ _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16ExampleEvalCacheEEcl
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16ExampleEvalCacheESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit22, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16ExampleEvalCacheEEclEPS4_.exit.i
   store ptr null, ptr %d_eec, align 8
-  %d_evg = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 9
+  %d_evg = getelementptr inbounds i8, ptr %this, i64 80
   %13 = load ptr, ptr %d_evg, align 8
   %cmp.not.i23 = icmp eq ptr %13, null
   br i1 %cmp.not.i23, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16EnumValGeneratorESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16EnumValGeneratorEEclEPS4_.exit.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16EnumValGeneratorEEclEPS4_.exit.i: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16ExampleEvalCacheESt14default_deleteIS4_EED2Ev.exit
   %vtable.i.i = load ptr, ptr %13, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %14 = load ptr, ptr %vfn.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16EnumValGeneratorESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16EnumValGeneratorESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16ExampleEvalCacheESt14default_deleteIS4_EED2Ev.exit, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers16EnumValGeneratorEEclEPS4_.exit.i
   store ptr null, ptr %d_evg, align 8
-  %d_secd = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 8
+  %d_secd = getelementptr inbounds i8, ptr %this, i64 72
   %15 = load ptr, ptr %d_secd, align 8
   %cmp.not.i24 = icmp eq ptr %15, null
   br i1 %cmp.not.i24, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackEEclEPS4_.exit.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackEEclEPS4_.exit.i: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16EnumValGeneratorESt14default_deleteIS4_EED2Ev.exit
   %vtable.i.i25 = load ptr, ptr %15, align 8
-  %vfn.i.i26 = getelementptr inbounds ptr, ptr %vtable.i.i25, i64 1
+  %vfn.i.i26 = getelementptr inbounds i8, ptr %vtable.i.i25, i64 8
   %16 = load ptr, ptr %vfn.i.i26, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(40) %15) #18
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers16EnumValGeneratorESt14default_deleteIS4_EED2Ev.exit, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackEEclEPS4_.exit.i
   store ptr null, ptr %d_secd, align 8
-  %d_samplerRrV = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 7
+  %d_samplerRrV = getelementptr inbounds i8, ptr %this, i64 64
   %17 = load ptr, ptr %d_samplerRrV, align 8
   %cmp.not.i27 = icmp eq ptr %17, null
   br i1 %cmp.not.i27, label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers12SygusSamplerESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers12SygusSamplerEEclEPS4_.exit.i
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers12SygusSamplerEEclEPS4_.exit.i: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackESt14default_deleteIS4_EED2Ev.exit
   %vtable.i.i28 = load ptr, ptr %17, align 8
-  %vfn.i.i29 = getelementptr inbounds ptr, ptr %vtable.i.i28, i64 1
+  %vfn.i.i29 = getelementptr inbounds i8, ptr %vtable.i.i28, i64 8
   %18 = load ptr, ptr %vfn.i.i29, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(800) %17) #18
   br label %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers12SygusSamplerESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers12SygusSamplerESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackESt14default_deleteIS4_EED2Ev.exit, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers12SygusSamplerEEclEPS4_.exit.i
   store ptr null, ptr %d_samplerRrV, align 8
-  %d_enum = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 1
+  %d_enum = getelementptr inbounds i8, ptr %this, i64 16
   %19 = load ptr, ptr %d_enum, align 8
   %bf.load.i.i30 = load i64, ptr %19, align 8
   %20 = and i64 %bf.load.i.i30, 1152920405095219200
@@ -1002,7 +680,7 @@ cleanup.done:
   %ref.tmp442 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %lem = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp542 = alloca %"class.cvc5::internal::NodeTemplate.617", align 8
-  %d_enum14 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 1
+  %d_enum14 = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_enum14, align 8
   store ptr %0, ptr %e, align 8
   %bf.load.i.i90 = load i64, ptr %0, align 8
@@ -1033,7 +711,7 @@ if.then13.i.i93:                                  ; preds = %if.else.i.i
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i94, %if.else.i.i, %if.then13.i.i93
   %bf.load.i.i99 = phi i64 [ %bf.set.i.i98, %if.then.i.i94 ], [ %bf.load.i.i90, %if.else.i.i ], [ %bf.load.i.i99.pre, %if.then13.i.i93 ]
-  %d_tds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 6
+  %d_tds = getelementptr inbounds i8, ptr %this, i64 56
   %2 = load ptr, ptr %d_tds, align 8
   store ptr %0, ptr %agg.tmp, align 8
   %bf.lshr.i.i100 = lshr i64 %bf.load.i.i99, 40
@@ -1099,16 +777,16 @@ land.rhs:                                         ; preds = %_ZN4cvc58internal12
           to label %call.i.noexc123 unwind label %lpad15
 
 call.i.noexc123:                                  ; preds = %land.rhs
-  %d_attrManager.i.i = getelementptr inbounds %"class.cvc5::internal::NodeManager", ptr %call.i124, i64 0, i32 4
+  %d_attrManager.i.i = getelementptr inbounds i8, ptr %call.i124, i64 80
   %8 = load ptr, ptr %d_attrManager.i.i, align 8
   %9 = load i64, ptr @_ZN4cvc58internal4expr9AttributeINS0_6theory26SygusSymBreakOkAttributeIdEbE4s_idE, align 8
-  %_M_element_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::attr::AttributeManager", ptr %8, i64 0, i32 1, i32 0, i32 0, i32 3
+  %_M_element_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 32
   %10 = load i64, ptr %_M_element_count.i.i.i.i.i.i.i, align 8
   %cmp.not.not.i.i.i.i.i.i = icmp eq i64 %10, 0
   br i1 %cmp.not.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end15.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %call.i.noexc123
-  %_M_before_begin.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::attr::AttributeManager", ptr %8, i64 0, i32 1, i32 0, i32 0, i32 2
+  %_M_before_begin.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 24
   br label %for.cond.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
@@ -1124,10 +802,10 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.cond.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont21, label %for.cond.i.i.i.i.i.i, !llvm.loop !5
 
 if.end15.i.i.i.i.i.i:                             ; preds = %call.i.noexc123
-  %d_bools.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::attr::AttributeManager", ptr %8, i64 0, i32 1
+  %d_bools.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %bf.load.i.i.i.i.i.i.i.i.i = load i64, ptr %0, align 8
   %bf.clear.i.i.i.i.i.i.i.i.i = and i64 %bf.load.i.i.i.i.i.i.i.i.i, 1099511627775
-  %_M_bucket_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::attr::AttributeManager", ptr %8, i64 0, i32 1, i32 0, i32 0, i32 1
+  %_M_bucket_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %12 = load i64, ptr %_M_bucket_count.i.i.i.i.i.i.i, align 8
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %bf.clear.i.i.i.i.i.i.i.i.i, %12
   %13 = load ptr, ptr %d_bools.i.i.i.i, align 8
@@ -1306,7 +984,7 @@ if.then13.i.i250:                                 ; preds = %if.else.i.i248
 
 invoke.cont70:                                    ; preds = %if.else.i.i248, %if.then.i.i252, %if.then13.i.i250
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %d_treg.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 4
+  %d_treg.i = getelementptr inbounds i8, ptr %this, i64 40
   %40 = load ptr, ptr %d_treg.i, align 8, !noalias !11
   %call.i260 = invoke noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry8getModelEv(ptr noundef nonnull align 8 dereferenceable(208) %40)
           to label %call.i.noexc259 unwind label %lpad71
@@ -1356,7 +1034,7 @@ lpad71:                                           ; preds = %call.i.noexc259, %i
   br label %eh.resume
 
 if.end73:                                         ; preds = %cleanup.done49
-  %d_evg = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 9
+  %d_evg = getelementptr inbounds i8, ptr %this, i64 80
   %46 = load ptr, ptr %d_evg, align 8
   %cmp.i.not.i = icmp eq ptr %46, null
   br i1 %cmp.i.not.i, label %if.then75, label %if.end174
@@ -1424,7 +1102,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit298: ; preds = %invoke.cont80, %if
   br i1 %call81, label %if.then82, label %if.else
 
 if.then82:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit298
-  %d_env = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this, i64 0, i32 1
+  %d_env = getelementptr inbounds i8, ptr %this, i64 8
   %53 = load ptr, ptr %d_env, align 8
   %call.i300 = invoke noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #16
           to label %call.i.noexc299 unwind label %lpad15
@@ -1457,15 +1135,15 @@ if.else:                                          ; preds = %_ZN4cvc58internal12
           to label %invoke.cont88 unwind label %lpad15
 
 invoke.cont88:                                    ; preds = %if.else
-  %quantifiers = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call89, i64 0, i32 41
+  %quantifiers = getelementptr inbounds i8, ptr %call89, i64 328
   %58 = load ptr, ptr %quantifiers, align 8
-  %sygusEnumMode = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %58, i64 0, i32 234
+  %sygusEnumMode = getelementptr inbounds i8, ptr %58, i64 380
   %59 = load i32, ptr %sygusEnumMode, align 4
   %cmp = icmp eq i32 %59, 2
   br i1 %cmp, label %if.then90, label %if.else97
 
 if.then90:                                        ; preds = %invoke.cont88
-  %d_env92 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this, i64 0, i32 1
+  %d_env92 = getelementptr inbounds i8, ptr %this, i64 8
   %60 = load ptr, ptr %d_env92, align 8
   %call.i305 = invoke noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #16
           to label %call.i.noexc304 unwind label %lpad15
@@ -1492,19 +1170,19 @@ if.else97:                                        ; preds = %invoke.cont88
           to label %invoke.cont98 unwind label %lpad15
 
 invoke.cont98:                                    ; preds = %if.else97
-  %datatypes = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call99, i64 0, i32 30
+  %datatypes = getelementptr inbounds i8, ptr %call99, i64 240
   %64 = load ptr, ptr %datatypes, align 8
-  %sygusRewriter = getelementptr inbounds %"struct.cvc5::internal::options::HolderDATATYPES", ptr %64, i64 0, i32 24
+  %sygusRewriter = getelementptr inbounds i8, ptr %64, i64 36
   %65 = load i32, ptr %sygusRewriter, align 4
   %cmp100.not = icmp eq i32 %65, 0
   br i1 %cmp100.not, label %if.end110, label %if.then101
 
 if.then101:                                       ; preds = %invoke.cont98
-  %d_env103 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this, i64 0, i32 1
+  %d_env103 = getelementptr inbounds i8, ptr %this, i64 8
   %66 = load ptr, ptr %d_env103, align 8
-  %d_stats = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 5
+  %d_stats = getelementptr inbounds i8, ptr %this, i64 48
   %67 = load ptr, ptr %d_stats, align 8
-  %d_eec = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 10
+  %d_eec = getelementptr inbounds i8, ptr %this, i64 88
   %68 = load ptr, ptr %d_eec, align 8
   %call.i318 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
           to label %call.i.noexc317 unwind label %lpad15
@@ -1521,7 +1199,7 @@ lpad.i316:                                        ; preds = %call.i.noexc317
   br label %eh.resume
 
 invoke.cont108:                                   ; preds = %call.i.noexc317
-  %d_secd = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 8
+  %d_secd = getelementptr inbounds i8, ptr %this, i64 72
   %71 = load ptr, ptr %d_secd, align 8
   store ptr %call.i318, ptr %d_secd, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %71, null
@@ -1529,36 +1207,36 @@ invoke.cont108:                                   ; preds = %call.i.noexc317
 
 _ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackEEclEPS4_.exit.i.i.i.i: ; preds = %invoke.cont108
   %vtable.i.i.i.i.i = load ptr, ptr %71, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
   %72 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %72(ptr noundef nonnull align 8 dereferenceable(40) %71) #18
   br label %if.end110
 
 if.end110:                                        ; preds = %invoke.cont108, %_ZNKSt14default_deleteIN4cvc58internal6theory11quantifiers23SygusEnumeratorCallbackEEclEPS4_.exit.i.i.i.i, %invoke.cont98
-  %d_env112 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this, i64 0, i32 1
+  %d_env112 = getelementptr inbounds i8, ptr %this, i64 8
   %73 = load ptr, ptr %d_env112, align 8
-  %d_secd115 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 8
+  %d_secd115 = getelementptr inbounds i8, ptr %this, i64 72
   %74 = load ptr, ptr %d_secd115, align 8
-  %d_stats118 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 5
+  %d_stats118 = getelementptr inbounds i8, ptr %this, i64 48
   %75 = load ptr, ptr %d_stats118, align 8
   %call121 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %invoke.cont120 unwind label %lpad15
 
 invoke.cont120:                                   ; preds = %if.end110
-  %quantifiers122 = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call121, i64 0, i32 41
+  %quantifiers122 = getelementptr inbounds i8, ptr %call121, i64 328
   %76 = load ptr, ptr %quantifiers122, align 8
   %call124 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %invoke.cont123 unwind label %lpad15
 
 invoke.cont123:                                   ; preds = %invoke.cont120
-  %quantifiers125 = getelementptr inbounds %"class.cvc5::internal::Options", ptr %call124, i64 0, i32 41
+  %quantifiers125 = getelementptr inbounds i8, ptr %call124, i64 328
   %77 = load ptr, ptr %quantifiers125, align 8
   %call.i327 = invoke noalias noundef nonnull dereferenceable(344) ptr @_Znwm(i64 noundef 344) #16
           to label %call.i.noexc326 unwind label %lpad15
 
 call.i.noexc326:                                  ; preds = %invoke.cont123
-  %sygusEnumFastNumConsts = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %77, i64 0, i32 237
-  %sygusRepairConst = getelementptr inbounds %"struct.cvc5::internal::options::HolderQUANTIFIERS", ptr %76, i64 0, i32 308
+  %sygusEnumFastNumConsts = getelementptr inbounds i8, ptr %77, i64 392
+  %sygusRepairConst = getelementptr inbounds i8, ptr %76, i64 577
   %78 = load ptr, ptr %d_tds, align 8, !noalias !23
   %79 = load i8, ptr %sygusRepairConst, align 1, !noalias !23
   %80 = and i8 %79, 1
@@ -1582,7 +1260,7 @@ invoke.cont126:                                   ; preds = %call.i.noexc326
 cond.true134.sink.split:                          ; preds = %invoke.cont126, %invoke.cont94, %invoke.cont85
   %.sink2064 = phi ptr [ %56, %invoke.cont85 ], [ %63, %invoke.cont94 ], [ %83, %invoke.cont126 ]
   %vtable.i.i.i.i = load ptr, ptr %.sink2064, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 1
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 8
   %84 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(16) %.sink2064) #18
   br label %cond.true134
@@ -1617,7 +1295,7 @@ if.then13.i.i423:                                 ; preds = %if.else.i.i421
 
 invoke.cont151:                                   ; preds = %if.else.i.i421, %if.then.i.i425, %if.then13.i.i423
   %vtable = load ptr, ptr %85, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %87 = load ptr, ptr %vfn, align 8
   invoke void %87(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull %agg.tmp150)
           to label %invoke.cont153 unwind label %lpad152
@@ -1679,7 +1357,7 @@ if.then13.i.i.i449:                               ; preds = %if.else.i.i.i447
           to label %invoke.cont155 unwind label %lpad15
 
 invoke.cont155:                                   ; preds = %if.else.i.i.i447, %if.then.i.i.i451, %if.then13.i.i.i449
-  %d_ev_curr_active_gen = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 11
+  %d_ev_curr_active_gen = getelementptr inbounds i8, ptr %this, i64 96
   %94 = load ptr, ptr %d_ev_curr_active_gen, align 8
   %cmp.not.i458 = icmp eq ptr %94, %92
   br i1 %cmp.not.i458, label %invoke.cont157, label %if.then.i459
@@ -1769,7 +1447,7 @@ lpad156:                                          ; preds = %if.then13.i4.i, %if
   br label %eh.resume
 
 if.end174:                                        ; preds = %invoke.cont157, %if.then.i.i479, %if.then13.i.i485, %if.end73
-  %d_evActiveGenWaiting = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 12
+  %d_evActiveGenWaiting = getelementptr inbounds i8, ptr %this, i64 104
   %102 = load ptr, ptr %d_evActiveGenWaiting, align 8
   %103 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %103, 0
@@ -1786,9 +1464,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i534, align 8
-  %d_kind.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i534, i64 0, i32 1
+  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i534, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i534, i64 0, i32 2
+  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i534, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i534, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #18
@@ -1828,7 +1506,7 @@ if.then13.i.i622.invoke:                          ; preds = %if.else.i.i620, %if
           to label %cleanup unwind label %lpad15
 
 if.end198:                                        ; preds = %invoke.cont175
-  %d_ev_curr_active_gen199 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 11
+  %d_ev_curr_active_gen199 = getelementptr inbounds i8, ptr %this, i64 96
   %109 = load ptr, ptr %d_ev_curr_active_gen199, align 8
   store ptr %109, ptr %absE, align 8
   %bf.load.i.i631 = load i64, ptr %109, align 8
@@ -1872,9 +1550,9 @@ init.i.i650:                                      ; preds = %init.check.i.i648
 
 invoke.cont.i.i653:                               ; preds = %init.i.i650
   store i64 1152920405095219200, ptr %call.i.i651, align 8
-  %d_kind.i.i.i654 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i651, i64 0, i32 1
+  %d_kind.i.i.i654 = getelementptr inbounds i8, ptr %call.i.i651, i64 8
   store i16 0, ptr %d_kind.i.i.i654, align 8
-  %d_nchildren.i.i.i655 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i651, i64 0, i32 2
+  %d_nchildren.i.i.i655 = getelementptr inbounds i8, ptr %call.i.i651, i64 12
   store i32 0, ptr %d_nchildren.i.i.i655, align 4
   store ptr %call.i.i651, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #18
@@ -1921,7 +1599,7 @@ if.then13.i.i664:                                 ; preds = %if.else.i.i662
 
 invoke.cont207:                                   ; preds = %if.else.i.i662, %if.then.i.i666, %if.then13.i.i664
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i673)
-  %d_treg.i674 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 4
+  %d_treg.i674 = getelementptr inbounds i8, ptr %this, i64 40
   %117 = load ptr, ptr %d_treg.i674, align 8, !noalias !29
   %call.i676 = invoke noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry8getModelEv(ptr noundef nonnull align 8 dereferenceable(208) %117)
           to label %call.i.noexc675 unwind label %lpad208
@@ -2141,7 +1819,7 @@ if.then13.i.i915:                                 ; preds = %if.else.i.i913
 
 invoke.cont299:                                   ; preds = %if.else.i.i913, %if.then.i.i917, %if.then13.i.i915
   %vtable300 = load ptr, ptr %137, align 8
-  %vfn301 = getelementptr inbounds ptr, ptr %vtable300, i64 3
+  %vfn301 = getelementptr inbounds i8, ptr %vtable300, i64 24
   %139 = load ptr, ptr %vfn301, align 8
   invoke void %139(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull %agg.tmp298)
           to label %invoke.cont303 unwind label %lpad302
@@ -2182,7 +1860,7 @@ lpad302:                                          ; preds = %invoke.cont299
 cond.true311:                                     ; preds = %invoke.cont202
   %145 = load ptr, ptr %d_evg, align 8
   %vtable325 = load ptr, ptr %145, align 8
-  %vfn326 = getelementptr inbounds ptr, ptr %vtable325, i64 4
+  %vfn326 = getelementptr inbounds i8, ptr %vtable325, i64 32
   %146 = load ptr, ptr %vfn326, align 8
   %call328 = invoke noundef zeroext i1 %146(ptr noundef nonnull align 8 dereferenceable(16) %145)
           to label %cond.true333 unwind label %lpad201
@@ -2208,9 +1886,9 @@ init.i.i1031:                                     ; preds = %init.check.i.i1029
 
 invoke.cont.i.i1034:                              ; preds = %init.i.i1031
   store i64 1152920405095219200, ptr %call.i.i1032, align 8
-  %d_kind.i.i.i1035 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i1032, i64 0, i32 1
+  %d_kind.i.i.i1035 = getelementptr inbounds i8, ptr %call.i.i1032, i64 8
   store i16 0, ptr %d_kind.i.i.i1035, align 8
-  %d_nchildren.i.i.i1036 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i1032, i64 0, i32 2
+  %d_nchildren.i.i.i1036 = getelementptr inbounds i8, ptr %call.i.i1032, i64 12
   store i32 0, ptr %d_nchildren.i.i.i1036, align 4
   store ptr %call.i.i1032, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #18
@@ -2231,7 +1909,7 @@ invoke.cont346:                                   ; preds = %invoke.cont.i.i1034
 if.then348:                                       ; preds = %invoke.cont346
   %151 = load ptr, ptr %d_evg, align 8
   %vtable352 = load ptr, ptr %151, align 8
-  %vfn353 = getelementptr inbounds ptr, ptr %vtable352, i64 5
+  %vfn353 = getelementptr inbounds i8, ptr %vtable352, i64 40
   %152 = load ptr, ptr %vfn353, align 8
   invoke void %152(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp349, ptr noundef nonnull align 8 dereferenceable(16) %151)
           to label %invoke.cont355 unwind label %lpad354
@@ -2503,7 +2181,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1304: ; preds = %invoke.cont398, %
 
 if.then402:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1304
   %179 = load ptr, ptr %d_tds, align 8
-  %d_syexp.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermDbSygus", ptr %179, i64 0, i32 3
+  %d_syexp.i = getelementptr inbounds i8, ptr %179, i64 32
   %180 = load ptr, ptr %d_syexp.i, align 8
   store ptr %173, ptr %agg.tmp406, align 8
   %bf.load.i.i1305 = load i64, ptr %173, align 8
@@ -2618,7 +2296,7 @@ terminate.lpad.i1355:                             ; preds = %if.then13.i.i1354
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1356: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1345, %if.then.i.i1348, %if.then13.i.i1354
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %exp, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %exp, i64 8
   %192 = load ptr, ptr %_M_finish.i, align 8
   %193 = load ptr, ptr %exp, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %192 to i64
@@ -2847,9 +2525,9 @@ init.i.i1429:                                     ; preds = %init.check.i.i1427
 
 invoke.cont.i.i1432:                              ; preds = %init.i.i1429
   store i64 1152920405095219200, ptr %call.i.i1430, align 8
-  %d_kind.i.i.i1433 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i1430, i64 0, i32 1
+  %d_kind.i.i.i1433 = getelementptr inbounds i8, ptr %call.i.i1430, i64 8
   store i16 0, ptr %d_kind.i.i.i1433, align 8
-  %d_nchildren.i.i.i1434 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i1430, i64 0, i32 2
+  %d_nchildren.i.i.i1434 = getelementptr inbounds i8, ptr %call.i.i1430, i64 12
   store i32 0, ptr %d_nchildren.i.i.i1434, align 4
   store ptr %call.i.i1430, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #18
@@ -2867,7 +2545,7 @@ invoke.cont436:                                   ; preds = %invoke.cont.i.i1432
   br i1 %cmp.i1426, label %if.end452, label %if.then438
 
 if.then438:                                       ; preds = %invoke.cont436
-  %d_evActiveGenFirstVal = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 13
+  %d_evActiveGenFirstVal = getelementptr inbounds i8, ptr %this, i64 112
   %222 = load ptr, ptr %d_evActiveGenFirstVal, align 8
   %223 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i1437 = icmp eq i8 %223, 0
@@ -2884,9 +2562,9 @@ init.i.i1441:                                     ; preds = %init.check.i.i1439
 
 invoke.cont.i.i1444:                              ; preds = %init.i.i1441
   store i64 1152920405095219200, ptr %call.i.i1442, align 8
-  %d_kind.i.i.i1445 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i1442, i64 0, i32 1
+  %d_kind.i.i.i1445 = getelementptr inbounds i8, ptr %call.i.i1442, i64 8
   store i16 0, ptr %d_kind.i.i.i1445, align 8
-  %d_nchildren.i.i.i1446 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i1442, i64 0, i32 2
+  %d_nchildren.i.i.i1446 = getelementptr inbounds i8, ptr %call.i.i1442, i64 12
   store i32 0, ptr %d_nchildren.i.i.i1446, align 4
   store ptr %call.i.i1442, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #18
@@ -2908,9 +2586,9 @@ if.then441:                                       ; preds = %invoke.cont439
           to label %invoke.cont443 unwind label %lpad435
 
 invoke.cont443:                                   ; preds = %if.then441
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %exp, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %exp, i64 8
   %227 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %exp, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %exp, i64 16
   %228 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i1450 = icmp eq ptr %227, %228
   br i1 %cmp.not.i.i1450, label %if.else.i.i1453, label %if.then.i.i1451
@@ -2945,7 +2623,7 @@ if.then13.i.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i.i
 
 _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit.i.i: ; preds = %if.then13.i.i.i.i.i.i, %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i1452
   %231 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %231, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %231, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont445
 
@@ -3050,7 +2728,7 @@ lpad444:                                          ; preds = %if.else.i.i1453, %i
   br label %ehcleanup549
 
 if.end452:                                        ; preds = %if.else.i.i1482, %if.then.i5.i1487, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1466, %if.then13.i4.i1485, %invoke.cont436, %invoke.cont439
-  %_M_finish.i1496 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %exp, i64 0, i32 1
+  %_M_finish.i1496 = getelementptr inbounds i8, ptr %exp, i64 8
   %243 = load ptr, ptr %_M_finish.i1496, align 8
   %244 = load ptr, ptr %exp, align 8
   %sub.ptr.lhs.cast.i1497 = ptrtoint ptr %243 to i64
@@ -3107,7 +2785,7 @@ for.body.i.i.i:                                   ; preds = %.noexc1517, %call3.
           to label %call3.i.i.noexc.i unwind label %lpad.loopexit.i, !noalias !36
 
 call3.i.i.noexc.i:                                ; preds = %for.body.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %i.sroa.0.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %i.sroa.0.04.i.i.i, i64 8
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %248
   br i1 %cmp.i.not.i.i.i, label %invoke.cont.i, label %for.body.i.i.i, !llvm.loop !39
 
@@ -3137,7 +2815,7 @@ _ZN4cvc58internal11NodeManager6mkNodeILb1EEENS0_12NodeTemplateILb1EEENS0_4kind6K
   br label %cond.true465
 
 cond.true465:                                     ; preds = %_ZN4cvc58internal11NodeManager6mkNodeILb1EEENS0_12NodeTemplateILb1EEENS0_4kind6Kind_tERKSt6vectorINS3_IXT_EEESaIS8_EE.exit, %if.then13.i.i1507, %if.then.i.i1509, %if.else.i.i1505
-  %d_qim = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 3
+  %d_qim = getelementptr inbounds i8, ptr %this, i64 32
   %250 = load ptr, ptr %d_qim, align 8
   %251 = load ptr, ptr %lem, align 8
   store ptr %251, ptr %agg.tmp542, align 8
@@ -3233,7 +2911,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then13.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i.i: ; preds = %if.then13.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i1717 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i1717 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i1717, %261
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !40
 
@@ -3283,9 +2961,9 @@ init.i.i1725:                                     ; preds = %init.check.i.i1723
 
 invoke.cont.i.i1728:                              ; preds = %init.i.i1725
   store i64 1152920405095219200, ptr %call.i.i1726, align 8
-  %d_kind.i.i.i1729 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i1726, i64 0, i32 1
+  %d_kind.i.i.i1729 = getelementptr inbounds i8, ptr %call.i.i1726, i64 8
   store i16 0, ptr %d_kind.i.i.i1729, align 8
-  %d_nchildren.i.i.i1730 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i1726, i64 0, i32 2
+  %d_nchildren.i.i.i1730 = getelementptr inbounds i8, ptr %call.i.i1726, i64 12
   store i32 0, ptr %d_nchildren.i.i.i1730, align 4
   store ptr %call.i.i1726, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #18
@@ -3483,7 +3161,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers11TermDbSygus1
 define hidden void @_ZN4cvc58internal6theory11quantifiers16EnumValueManager13getModelValueENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.617", align 8
-  %d_treg = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 4
+  %d_treg = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %d_treg, align 8
   %call = tail call noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry8getModelEv(ptr noundef nonnull align 8 dereferenceable(208) %0)
   %1 = load ptr, ptr %n, align 8
@@ -3508,7 +3186,7 @@ entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.617", align 8
   %0 = load ptr, ptr %this, align 8
-  %d_kind.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 1
+  %d_kind.i = getelementptr inbounds i8, ptr %0, i64 8
   %bf.load.i = load i16, ptr %d_kind.i, align 8
   %bf.clear.i = and i16 %bf.load.i, 1023
   %cmp.not = icmp eq i16 %bf.clear.i, 18
@@ -3517,8 +3195,9 @@ entry:
 cond.true:                                        ; preds = %entry
   %call2.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 18)
   %cmp.i = icmp eq i32 %call2.i.i, 2
+  %d_children.i = getelementptr inbounds i8, ptr %0, i64 16
   %idxprom.i = zext i1 %cmp.i to i64
-  %arrayidx.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %0, i64 0, i32 3, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %d_children.i, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   store ptr %1, ptr %agg.result, align 8
   %bf.load.i.i = load i64, ptr %1, align 8
@@ -3593,7 +3272,7 @@ declare noundef zeroext i1 @_ZN4cvc58internal6theory22TheoryInferenceManager5lem
 define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -3627,7 +3306,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then13.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i: ; preds = %if.then13.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !40
 
@@ -3681,7 +3360,7 @@ if.then13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i, %if.then13.i.i.i
-  %d_evActiveGenWaiting = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 12
+  %d_evActiveGenWaiting = getelementptr inbounds i8, ptr %this, i64 104
   %2 = load ptr, ptr %d_evActiveGenWaiting, align 8
   %cmp.not.i = icmp eq ptr %2, %0
   br i1 %cmp.not.i, label %invoke.cont, label %if.then.i
@@ -3762,7 +3441,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont, %if.th
   br i1 %modelSuccess, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %d_eec = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 10
+  %d_eec = getelementptr inbounds i8, ptr %this, i64 88
   %8 = load ptr, ptr %d_eec, align 8
   %cmp.i.i11.not = icmp eq ptr %8, null
   br i1 %cmp.i.i11.not, label %if.end, label %if.then
@@ -3786,7 +3465,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers16ExampleEvalCache18clearEval
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers16EnumValueManager19getExampleEvalCacheEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %d_eec = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::EnumValueManager", ptr %this, i64 0, i32 10
+  %d_eec = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %d_eec, align 8
   ret ptr %0
 }
@@ -3819,9 +3498,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i, i64 0, i32 1
+  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i, i64 0, i32 2
+  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #18
@@ -3984,7 +3663,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then13.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i: ; preds = %if.then13.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.addr.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
   br i1 %cmp.not.i.i, label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEEEvT_S5_.exit, label %for.body.i.i, !llvm.loop !40
 
@@ -4027,7 +3706,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then13.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i: ; preds = %if.then13.i.i.i.i, %if.then.i.i.i.i, %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
   br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN4cvc58internal12NodeTemplateILb1EEEEEvT_S7_.exit, label %for.body.i, !llvm.loop !40
 
@@ -4063,9 +3742,9 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers21SygusRan
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers21SygusRandomEnumeratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %d_tds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 1
+  %d_tds = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %tds, ptr %d_tds, align 8
-  %d_tn = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 2
+  %d_tn = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont, !prof !4
@@ -4081,9 +3760,9 @@ init.i.i:                                         ; preds = %init.check.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.i.i
   store i64 1152920405095219200, ptr %call.i.i, align 8
-  %d_kind.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 1
+  %d_kind.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store i16 0, ptr %d_kind.i.i.i, align 8
-  %d_nchildren.i.i.i = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i, i64 0, i32 2
+  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 0, ptr %d_nchildren.i.i.i, align 4
   store ptr %call.i.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #18
@@ -4113,9 +3792,9 @@ init.i.i5:                                        ; preds = %init.check.i.i3
 
 invoke.cont.i.i8:                                 ; preds = %init.i.i5
   store i64 1152920405095219200, ptr %call.i.i6, align 8
-  %d_kind.i.i.i9 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i6, i64 0, i32 1
+  %d_kind.i.i.i9 = getelementptr inbounds i8, ptr %call.i.i6, i64 8
   store i16 0, ptr %d_kind.i.i.i9, align 8
-  %d_nchildren.i.i.i10 = getelementptr inbounds %"class.cvc5::internal::expr::NodeValue", ptr %call.i.i6, i64 0, i32 2
+  %d_nchildren.i.i.i10 = getelementptr inbounds i8, ptr %call.i.i6, i64 12
   store i32 0, ptr %d_nchildren.i.i.i10, align 4
   store ptr %call.i.i6, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #18
@@ -4129,63 +3808,63 @@ lpad.i.i7:                                        ; preds = %init.i.i5
   br label %ehcleanup
 
 invoke.cont3:                                     ; preds = %invoke.cont.i.i8, %init.check.i.i3, %invoke.cont
-  %d_currTerm = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 3
+  %d_currTerm = getelementptr inbounds i8, ptr %this, i64 32
   %7 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %7, ptr %d_currTerm, align 8
-  %d_noArgCons = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 4
-  %_M_single_bucket.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 4, i32 0, i32 5
+  %d_noArgCons = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %_M_single_bucket.i.i, ptr %d_noArgCons, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 4, i32 0, i32 1
+  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store i64 1, ptr %_M_bucket_count.i.i, align 8
-  %_M_before_begin.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 4, i32 0, i32 2
-  %_M_rehash_policy.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 4, i32 0, i32 4
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_rehash_policy.i.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
-  %_M_next_resize.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 4, i32 0, i32 4, i32 1
+  %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
-  %d_argCons = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 5
-  %_M_single_bucket.i.i12 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 5, i32 0, i32 5
+  %d_argCons = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_single_bucket.i.i12 = getelementptr inbounds i8, ptr %this, i64 144
   store ptr %_M_single_bucket.i.i12, ptr %d_argCons, align 8
-  %_M_bucket_count.i.i13 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %_M_bucket_count.i.i13 = getelementptr inbounds i8, ptr %this, i64 104
   store i64 1, ptr %_M_bucket_count.i.i13, align 8
-  %_M_before_begin.i.i14 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 5, i32 0, i32 2
-  %_M_rehash_policy.i.i15 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 5, i32 0, i32 4
+  %_M_before_begin.i.i14 = getelementptr inbounds i8, ptr %this, i64 112
+  %_M_rehash_policy.i.i15 = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i14, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i15, align 8
-  %_M_next_resize.i.i.i16 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 5, i32 0, i32 4, i32 1
+  %_M_next_resize.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i16, i8 0, i64 16, i1 false)
-  %d_cache = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 6
-  %_M_single_bucket.i.i17 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 6, i32 0, i32 5
+  %d_cache = getelementptr inbounds i8, ptr %this, i64 152
+  %_M_single_bucket.i.i17 = getelementptr inbounds i8, ptr %this, i64 200
   store ptr %_M_single_bucket.i.i17, ptr %d_cache, align 8
-  %_M_bucket_count.i.i18 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 6, i32 0, i32 1
+  %_M_bucket_count.i.i18 = getelementptr inbounds i8, ptr %this, i64 160
   store i64 1, ptr %_M_bucket_count.i.i18, align 8
-  %_M_before_begin.i.i19 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 6, i32 0, i32 2
-  %_M_rehash_policy.i.i20 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 6, i32 0, i32 4
+  %_M_before_begin.i.i19 = getelementptr inbounds i8, ptr %this, i64 168
+  %_M_rehash_policy.i.i20 = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i19, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i20, align 8
-  %_M_next_resize.i.i.i21 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 6, i32 0, i32 4, i32 1
+  %_M_next_resize.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i21, i8 0, i64 16, i1 false)
-  %d_minSygus = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 7
-  %_M_single_bucket.i.i22 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 7, i32 0, i32 5
+  %d_minSygus = getelementptr inbounds i8, ptr %this, i64 208
+  %_M_single_bucket.i.i22 = getelementptr inbounds i8, ptr %this, i64 256
   store ptr %_M_single_bucket.i.i22, ptr %d_minSygus, align 8
-  %_M_bucket_count.i.i23 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 7, i32 0, i32 1
+  %_M_bucket_count.i.i23 = getelementptr inbounds i8, ptr %this, i64 216
   store i64 1, ptr %_M_bucket_count.i.i23, align 8
-  %_M_before_begin.i.i24 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 7, i32 0, i32 2
-  %_M_rehash_policy.i.i25 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 7, i32 0, i32 4
+  %_M_before_begin.i.i24 = getelementptr inbounds i8, ptr %this, i64 224
+  %_M_rehash_policy.i.i25 = getelementptr inbounds i8, ptr %this, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i24, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i25, align 8
-  %_M_next_resize.i.i.i26 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 7, i32 0, i32 4, i32 1
+  %_M_next_resize.i.i.i26 = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i26, i8 0, i64 16, i1 false)
-  %d_size = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 8
-  %_M_single_bucket.i.i27 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 8, i32 0, i32 5
+  %d_size = getelementptr inbounds i8, ptr %this, i64 264
+  %_M_single_bucket.i.i27 = getelementptr inbounds i8, ptr %this, i64 312
   store ptr %_M_single_bucket.i.i27, ptr %d_size, align 8
-  %_M_bucket_count.i.i28 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 8, i32 0, i32 1
+  %_M_bucket_count.i.i28 = getelementptr inbounds i8, ptr %this, i64 272
   store i64 1, ptr %_M_bucket_count.i.i28, align 8
-  %_M_before_begin.i.i29 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 8, i32 0, i32 2
-  %_M_rehash_policy.i.i30 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 8, i32 0, i32 4
+  %_M_before_begin.i.i29 = getelementptr inbounds i8, ptr %this, i64 280
+  %_M_rehash_policy.i.i30 = getelementptr inbounds i8, ptr %this, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i29, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i30, align 8
-  %_M_next_resize.i.i.i31 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusRandomEnumerator", ptr %this, i64 0, i32 8, i32 0, i32 4, i32 1
+  %_M_next_resize.i.i.i31 = getelementptr inbounds i8, ptr %this, i64 304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i31, i8 0, i64 16, i1 false)
   ret void
 
@@ -4212,7 +3891,7 @@ declare void @_ZN4cvc58internal11NodeBuilderD1Ev(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4279,7 +3958,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i, %i
           to label %invoke.cont10 unwind label %if.then
 
 invoke.cont10:                                    ; preds = %invoke.cont
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %call.i.i.i.i20, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %call.i.i.i.i20, i64 8
   %call.i.i.i.i21 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal12NodeTemplateILb1EEEPS3_ET0_T_S8_S7_(ptr noundef %__position.coerce, ptr noundef %0, ptr noundef nonnull %incdec.ptr)
           to label %invoke.cont14 unwind label %if.else
 
@@ -4316,7 +3995,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then13.i.i.i.i.i
   unreachable
 
 _ZSt8_DestroyIN4cvc58internal12NodeTemplateILb1EEEEvPT_.exit.i.i.i: ; preds = %if.then13.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !40
 
@@ -4329,7 +4008,7 @@ if.then.i23:                                      ; preds = %_ZSt8_DestroyIPN4cv
   br label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %if.then.i23
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i19, ptr %this, align 8
   store ptr %call.i.i.i.i21, ptr %_M_finish.i.i, align 8
   %add.ptr29 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %cond.i19, i64 %cond.i
@@ -4455,8 +4134,8 @@ if.then13.i.i.i:                                  ; preds = %if.else.i.i.i
           to label %for.inc unwind label %lpad
 
 for.inc:                                          ; preds = %if.else.i.i.i, %if.then.i.i.i, %if.then13.i.i.i
-  %incdec.ptr = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__first.addr.09, i64 1
-  %incdec.ptr1 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %__cur.010, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.09, i64 8
+  %incdec.ptr1 = getelementptr inbounds i8, ptr %__cur.010, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !47
 

@@ -17,33 +17,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.USBDescEndpoint = type { i8, i8, i16, i8, i8, i8, i8, ptr, i8, i8, i16 }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.USBDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.USBHIDState = type { %struct.USBDevice, ptr, %struct.HIDState, i32, ptr, i32 }
-%struct.USBDevice = type { %struct.DeviceState, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i8, [32 x i8], i32, i8, i32, [8 x i8], [4096 x i8], i32, i32, i32, i32, %struct.USBEndpoint, [15 x %struct.USBEndpoint], [15 x %struct.USBEndpoint], %struct.anon, ptr, ptr, i32, i32, [16 x i32], ptr, [16 x ptr] }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.USBEndpoint = type { i8, i8, i8, i8, i32, i32, i8, i8, ptr, %union.anon }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.anon = type { ptr }
-%struct.HIDState = type { %union.anon.0, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr }
-%union.anon.0 = type { %struct.HIDMouseState }
-%struct.HIDMouseState = type { [16 x %struct.HIDPointerEvent], i32 }
-%struct.HIDPointerEvent = type { i32, i32, i32, i32 }
-%struct.USBPacket = type { i32, i64, ptr, i32, %struct.QEMUIOVector, i64, i8, i8, i32, i32, i32, ptr, %union.anon.4, %union.anon.5 }
-%struct.QEMUIOVector = type { ptr, i32, %union.anon.1 }
-%union.anon.1 = type { %struct.anon.2 }
-%struct.anon.2 = type { i32, %struct.iovec }
-%struct.iovec = type { ptr, i64 }
-%union.anon.4 = type { %struct.QTailQLink }
-%union.anon.5 = type { %struct.QTailQLink }
 
 @usb_hid_type_info = internal constant %struct.TypeInfo { ptr @.str.6, ptr @.str.7, i64 6200, i64 0, ptr null, ptr null, ptr null, i8 1, i64 0, ptr @usb_hid_class_initfn, ptr null, ptr null, ptr null }, align 8
 @usb_tablet_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.6, i64 0, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @usb_tablet_class_initfn, ptr null, ptr null, ptr null }, align 8
@@ -174,15 +147,15 @@ declare void @usb_legacy_register(ptr noundef, ptr noundef, ptr noundef) local_u
 define internal void @usb_hid_class_initfn(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #4
-  %handle_reset = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i, i64 0, i32 6
+  %handle_reset = getelementptr inbounds i8, ptr %call.i, i64 216
   store ptr @usb_hid_handle_reset, ptr %handle_reset, align 8
-  %handle_control = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i, i64 0, i32 7
+  %handle_control = getelementptr inbounds i8, ptr %call.i, i64 224
   store ptr @usb_hid_handle_control, ptr %handle_control, align 8
-  %handle_data = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i, i64 0, i32 8
+  %handle_data = getelementptr inbounds i8, ptr %call.i, i64 232
   store ptr @usb_hid_handle_data, ptr %handle_data, align 8
-  %unrealize = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i, i64 0, i32 2
+  %unrealize = getelementptr inbounds i8, ptr %call.i, i64 184
   store ptr @usb_hid_unrealize, ptr %unrealize, align 8
-  %handle_attach = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i, i64 0, i32 5
+  %handle_attach = getelementptr inbounds i8, ptr %call.i, i64 208
   store ptr @usb_desc_attach, ptr %handle_attach, align 8
   ret void
 }
@@ -191,7 +164,7 @@ entry:
 define internal void @usb_hid_handle_reset(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 49, ptr noundef nonnull @__func__.USB_HID) #4
-  %hid = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2
+  %hid = getelementptr inbounds i8, ptr %call.i, i64 5872
   tail call void @hid_reset(ptr noundef nonnull %hid) #4
   ret void
 }
@@ -200,7 +173,7 @@ entry:
 define internal void @usb_hid_handle_control(ptr noundef %dev, ptr noundef %p, i32 noundef %request, i32 noundef %value, i32 noundef %index, i32 noundef %length, ptr noundef %data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 49, ptr noundef nonnull @__func__.USB_HID) #4
-  %hid = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2
+  %hid = getelementptr inbounds i8, ptr %call.i, i64 5872
   %call1 = tail call i32 @usb_desc_handle_control(ptr noundef %dev, ptr noundef %p, i32 noundef %request, i32 noundef %value, i32 noundef %index, i32 noundef %length, ptr noundef %data) #4
   %cmp = icmp sgt i32 %call1, -1
   br i1 %cmp, label %sw.epilog77, label %if.end
@@ -222,7 +195,7 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cond, label %sw.bb2, label %fail
 
 sw.bb2:                                           ; preds = %sw.bb
-  %kind = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2, i32 3
+  %kind = getelementptr inbounds i8, ptr %call.i, i64 6140
   %0 = load i32, ptr %kind, align 4
   switch i32 %0, label %sw.epilog77 [
     i32 1, label %if.then4
@@ -232,24 +205,24 @@ sw.bb2:                                           ; preds = %sw.bb
 
 if.then4:                                         ; preds = %sw.bb2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(52) %data, ptr noundef nonnull align 16 dereferenceable(52) @qemu_mouse_hid_report_descriptor, i64 52, i1 false)
-  %actual_length = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length = getelementptr inbounds i8, ptr %p, i64 88
   store i32 52, ptr %actual_length, align 8
   br label %sw.epilog77
 
 if.then7:                                         ; preds = %sw.bb2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(74) %data, ptr noundef nonnull align 16 dereferenceable(74) @qemu_tablet_hid_report_descriptor, i64 74, i1 false)
-  %actual_length8 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length8 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 74, ptr %actual_length8, align 8
   br label %sw.epilog77
 
 if.then12:                                        ; preds = %sw.bb2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %data, ptr noundef nonnull align 16 dereferenceable(63) @qemu_keyboard_hid_report_descriptor, i64 63, i1 false)
-  %actual_length13 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length13 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 63, ptr %actual_length13, align 8
   br label %sw.epilog77
 
 sw.bb17:                                          ; preds = %if.end
-  %kind18 = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2, i32 3
+  %kind18 = getelementptr inbounds i8, ptr %call.i, i64 6140
   %1 = load i32, ptr %kind18, align 4
   switch i32 %1, label %sw.epilog77 [
     i32 1, label %if.then22
@@ -259,30 +232,30 @@ sw.bb17:                                          ; preds = %if.end
 
 if.then22:                                        ; preds = %sw.bb17, %sw.bb17
   %call23 = tail call i32 @hid_pointer_poll(ptr noundef nonnull %hid, ptr noundef %data, i32 noundef %length) #4
-  %actual_length24 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length24 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 %call23, ptr %actual_length24, align 8
   br label %sw.epilog77
 
 if.then28:                                        ; preds = %sw.bb17
   %call29 = tail call i32 @hid_keyboard_poll(ptr noundef nonnull %hid, ptr noundef %data, i32 noundef %length) #4
-  %actual_length30 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length30 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 %call29, ptr %actual_length30, align 8
   br label %sw.epilog77
 
 sw.bb33:                                          ; preds = %if.end
-  %kind34 = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2, i32 3
+  %kind34 = getelementptr inbounds i8, ptr %call.i, i64 6140
   %2 = load i32, ptr %kind34, align 4
   %cmp35 = icmp eq i32 %2, 3
   br i1 %cmp35, label %if.then36, label %fail
 
 if.then36:                                        ; preds = %sw.bb33
   %call37 = tail call i32 @hid_keyboard_write(ptr noundef nonnull %hid, ptr noundef %data, i32 noundef %length) #4
-  %actual_length38 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length38 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 %call37, ptr %actual_length38, align 8
   br label %sw.epilog77
 
 sw.bb41:                                          ; preds = %if.end
-  %kind42 = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2, i32 3
+  %kind42 = getelementptr inbounds i8, ptr %call.i, i64 6140
   %3 = load i32, ptr %kind42, align 4
   switch i32 %3, label %fail [
     i32 3, label %if.end47
@@ -290,16 +263,16 @@ sw.bb41:                                          ; preds = %if.end
   ]
 
 if.end47:                                         ; preds = %sw.bb41, %sw.bb41
-  %protocol = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2, i32 4
+  %protocol = getelementptr inbounds i8, ptr %call.i, i64 6144
   %4 = load i32, ptr %protocol, align 8
   %conv = trunc i32 %4 to i8
   store i8 %conv, ptr %data, align 1
-  %actual_length48 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length48 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 1, ptr %actual_length48, align 8
   br label %sw.epilog77
 
 sw.bb49:                                          ; preds = %if.end
-  %kind50 = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2, i32 3
+  %kind50 = getelementptr inbounds i8, ptr %call.i, i64 6140
   %5 = load i32, ptr %kind50, align 4
   switch i32 %5, label %fail [
     i32 3, label %if.end58
@@ -307,25 +280,25 @@ sw.bb49:                                          ; preds = %if.end
   ]
 
 if.end58:                                         ; preds = %sw.bb49, %sw.bb49
-  %protocol59 = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2, i32 4
+  %protocol59 = getelementptr inbounds i8, ptr %call.i, i64 6144
   store i32 %value, ptr %protocol59, align 8
   br label %sw.epilog77
 
 sw.bb60:                                          ; preds = %if.end
-  %idle = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2, i32 5
+  %idle = getelementptr inbounds i8, ptr %call.i, i64 6148
   %6 = load i8, ptr %idle, align 4
   store i8 %6, ptr %data, align 1
-  %actual_length62 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 9
+  %actual_length62 = getelementptr inbounds i8, ptr %p, i64 88
   store i32 1, ptr %actual_length62, align 8
   br label %sw.epilog77
 
 sw.bb63:                                          ; preds = %if.end
   %shr64 = lshr i32 %value, 8
   %conv65 = trunc i32 %shr64 to i8
-  %idle66 = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2, i32 5
+  %idle66 = getelementptr inbounds i8, ptr %call.i, i64 6148
   store i8 %conv65, ptr %idle66, align 4
   tail call void @hid_set_next_idle(ptr noundef nonnull %hid) #4
-  %kind67 = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2, i32 3
+  %kind67 = getelementptr inbounds i8, ptr %call.i, i64 6140
   %7 = load i32, ptr %kind67, align 4
   %.off = add i32 %7, -1
   %switch = icmp ult i32 %.off, 2
@@ -336,7 +309,7 @@ if.then74:                                        ; preds = %sw.bb63
   br label %sw.epilog77
 
 fail:                                             ; preds = %sw.bb49, %sw.bb41, %if.end, %sw.bb33, %sw.bb
-  %status = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status, align 4
   br label %sw.epilog77
 
@@ -348,8 +321,8 @@ sw.epilog77:                                      ; preds = %sw.bb63, %sw.bb17, 
 define internal void @usb_hid_handle_data(ptr noundef %dev, ptr noundef %p) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 49, ptr noundef nonnull @__func__.USB_HID) #4
-  %hid = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2
-  %size = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 4, i32 2, i32 0, i32 1, i32 1
+  %hid = getelementptr inbounds i8, ptr %call.i, i64 5872
+  %size = getelementptr inbounds i8, ptr %p, i64 64
   %0 = load i64, ptr %size, align 8
   %call1 = tail call noalias ptr @g_malloc(i64 noundef %0) #5
   %1 = load i32, ptr %p, align 8
@@ -357,14 +330,14 @@ entry:
   br i1 %cond, label %sw.bb, label %fail
 
 sw.bb:                                            ; preds = %entry
-  %ep = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 2
+  %ep = getelementptr inbounds i8, ptr %p, i64 16
   %2 = load ptr, ptr %ep, align 8
   %3 = load i8, ptr %2, align 8
   %cmp = icmp eq i8 %3, 1
   br i1 %cmp, label %if.then, label %fail
 
 if.then:                                          ; preds = %sw.bb
-  %kind = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2, i32 3
+  %kind = getelementptr inbounds i8, ptr %call.i, i64 6140
   %4 = load i32, ptr %kind, align 4
   %.off = add i32 %4, -1
   %switch = icmp ult i32 %.off, 2
@@ -379,7 +352,7 @@ if.end:                                           ; preds = %if.then, %if.then8
   br i1 %call9, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %status = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -2, ptr %status, align 4
   br label %cleanup
 
@@ -411,7 +384,7 @@ if.end33:                                         ; preds = %if.end11, %if.then2
   br label %cleanup
 
 fail:                                             ; preds = %entry, %sw.bb
-  %status38 = getelementptr inbounds %struct.USBPacket, ptr %p, i64 0, i32 8
+  %status38 = getelementptr inbounds i8, ptr %p, i64 84
   store i32 -3, ptr %status38, align 4
   br label %cleanup
 
@@ -424,7 +397,7 @@ cleanup:                                          ; preds = %if.end33, %fail, %i
 define internal void @usb_hid_unrealize(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 49, ptr noundef nonnull @__func__.USB_HID) #4
-  %hid = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2
+  %hid = getelementptr inbounds i8, ptr %call.i, i64 5872
   tail call void @hid_free(ptr noundef nonnull %hid) #4
   ret void
 }
@@ -468,14 +441,14 @@ define internal void @usb_tablet_class_initfn(ptr noundef %klass, ptr nocapture 
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #4
-  %realize = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i5, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i5, i64 176
   store ptr @usb_tablet_realize, ptr %realize, align 8
-  %product_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i5, i64 0, i32 14
+  %product_desc = getelementptr inbounds i8, ptr %call.i5, i64 280
   store ptr @.str.10, ptr %product_desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_usb_ptr, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @usb_tablet_properties) #4
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8
@@ -495,9 +468,9 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal fastcc void @usb_hid_initfn(ptr noundef %dev, i32 noundef %kind, ptr noundef %usb1, ptr noundef %usb2, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 49, ptr noundef nonnull @__func__.USB_HID) #4
-  %usb_version = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 3
+  %usb_version = getelementptr inbounds i8, ptr %call.i, i64 6176
   %0 = load i32, ptr %usb_version, align 8
-  %usb_desc3 = getelementptr inbounds %struct.USBDevice, ptr %dev, i64 0, i32 25
+  %usb_desc3 = getelementptr inbounds i8, ptr %dev, i64 5640
   switch i32 %0, label %sw.epilog.thread [
     i32 1, label %sw.epilog
     i32 2, label %sw.bb1
@@ -525,23 +498,23 @@ if.end:                                           ; preds = %sw.epilog
   tail call void @usb_desc_create_serial(ptr noundef nonnull %dev) #4
   tail call void @usb_desc_init(ptr noundef nonnull %dev) #4
   %call6 = tail call ptr @usb_ep_get(ptr noundef nonnull %dev, i32 noundef 105, i32 noundef 1) #4
-  %intr = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 1
+  %intr = getelementptr inbounds i8, ptr %call.i, i64 5864
   store ptr %call6, ptr %intr, align 8
-  %hid = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2
+  %hid = getelementptr inbounds i8, ptr %call.i, i64 5872
   tail call void @hid_init(ptr noundef nonnull %hid, i32 noundef %kind, ptr noundef nonnull @usb_hid_changed) #4
-  %display = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 4
+  %display = getelementptr inbounds i8, ptr %call.i, i64 6184
   %2 = load ptr, ptr %display, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %if.end14, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %s = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 2, i32 9
+  %s = getelementptr inbounds i8, ptr %call.i, i64 6168
   %3 = load ptr, ptr %s, align 8
   %tobool9.not = icmp eq ptr %3, null
   br i1 %tobool9.not, label %if.end14, label %if.then10
 
 if.then10:                                        ; preds = %land.lhs.true
-  %head = getelementptr inbounds %struct.USBHIDState, ptr %call.i, i64 0, i32 5
+  %head = getelementptr inbounds i8, ptr %call.i, i64 6192
   %4 = load i32, ptr %head, align 8
   tail call void @qemu_input_handler_bind(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %4, ptr noundef null) #4
   br label %if.end14
@@ -576,13 +549,13 @@ declare void @usb_wakeup(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @usb_ptr_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
-  %remote_wakeup = getelementptr inbounds %struct.USBDevice, ptr %opaque, i64 0, i32 17
+  %remote_wakeup = getelementptr inbounds i8, ptr %opaque, i64 4376
   %0 = load i32, ptr %remote_wakeup, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %hid = getelementptr inbounds %struct.USBHIDState, ptr %opaque, i64 0, i32 2
+  %hid = getelementptr inbounds i8, ptr %opaque, i64 5872
   tail call void @hid_pointer_activate(ptr noundef nonnull %hid) #4
   br label %if.end
 
@@ -595,14 +568,14 @@ define internal void @usb_mouse_class_initfn(ptr noundef %klass, ptr nocapture r
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #4
-  %realize = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i5, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i5, i64 176
   store ptr @usb_mouse_realize, ptr %realize, align 8
-  %product_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i5, i64 0, i32 14
+  %product_desc = getelementptr inbounds i8, ptr %call.i5, i64 280
   store ptr @.str.18, ptr %product_desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_usb_ptr, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @usb_mouse_properties) #4
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8
@@ -621,14 +594,14 @@ define internal void @usb_keyboard_class_initfn(ptr noundef %klass, ptr nocaptur
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %call.i5 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #4
-  %realize = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i5, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i5, i64 176
   store ptr @usb_keyboard_realize, ptr %realize, align 8
-  %product_desc = getelementptr inbounds %struct.USBDeviceClass, ptr %call.i5, i64 0, i32 14
+  %product_desc = getelementptr inbounds i8, ptr %call.i5, i64 280
   store ptr @.str.19, ptr %product_desc, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_usb_kbd, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @usb_keyboard_properties) #4
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8

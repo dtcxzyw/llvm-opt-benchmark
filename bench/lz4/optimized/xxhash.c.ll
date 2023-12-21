@@ -3,9 +3,6 @@ source_filename = "bench/lz4/original/xxhash.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.XXH32_state_s = type { i32, i32, i32, i32, i32, i32, [4 x i32], i32, i32 }
-%struct.XXH64_state_s = type { i64, i64, i64, i64, i64, [4 x i64], i32, [2 x i32] }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i32 @LZ4_XXH_versionNumber() local_unnamed_addr #0 {
 entry:
@@ -146,11 +143,11 @@ if.end.i17:                                       ; preds = %entry
   %cmp4.i23 = icmp ugt i32 %add.i20, 15
   %or.i25219 = or i1 %cmp1.i21, %cmp4.i23
   %or.i25 = zext i1 %or.i25219 to i32
-  %large_len.i26 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 1
+  %large_len.i26 = getelementptr inbounds i8, ptr %state_in, i64 4
   %1 = load i32, ptr %large_len.i26, align 4
   %or6.i27 = or i32 %1, %or.i25
   store i32 %or6.i27, ptr %large_len.i26, align 4
-  %memsize.i28 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 7
+  %memsize.i28 = getelementptr inbounds i8, ptr %state_in, i64 40
   %2 = load i32, ptr %memsize.i28, align 4
   %conv7.i29 = zext i32 %2 to i64
   %add8.i30 = add i64 %conv7.i29, %len
@@ -158,7 +155,7 @@ if.end.i17:                                       ; preds = %entry
   br i1 %cmp9.i31, label %if.then11.i111, label %if.end17.i32
 
 if.then11.i111:                                   ; preds = %if.end.i17
-  %mem32.i112 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 6
+  %mem32.i112 = getelementptr inbounds i8, ptr %state_in, i64 24
   %add.ptr13.i115 = getelementptr inbounds i8, ptr %mem32.i112, i64 %conv7.i29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr13.i115, ptr nonnull align 1 %input, i64 %len, i1 false)
   %3 = load i32, ptr %memsize.i28, align 4
@@ -170,12 +167,12 @@ if.end17.i32:                                     ; preds = %if.end.i17
   br i1 %tobool.i34.not, label %if.end49.i35, label %if.then19.i77
 
 if.then19.i77:                                    ; preds = %if.end17.i32
-  %mem3220.i78 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 6
+  %mem3220.i78 = getelementptr inbounds i8, ptr %state_in, i64 24
   %add.ptr24.i81 = getelementptr inbounds i8, ptr %mem3220.i78, i64 %conv7.i29
   %sub.i83 = sub i32 16, %2
   %conv26.i84 = zext i32 %sub.i83 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr24.i81, ptr nonnull align 1 %input, i64 %conv26.i84, i1 false)
-  %v1.i87 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 2
+  %v1.i87 = getelementptr inbounds i8, ptr %state_in, i64 8
   %4 = load <4 x i32>, ptr %v1.i87, align 4
   %5 = load <4 x i32>, ptr %mem3220.i78, align 1
   %6 = mul <4 x i32> %5, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
@@ -197,7 +194,7 @@ if.end49.i35:                                     ; preds = %if.then19.i77, %if.
   br i1 %cmp51.i37.not, label %if.end81.i38, label %if.then53.i52
 
 if.then53.i52:                                    ; preds = %if.end49.i35
-  %v156.i54 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 2
+  %v156.i54 = getelementptr inbounds i8, ptr %state_in, i64 8
   %11 = load <4 x i32>, ptr %v156.i54, align 4
   br label %do.body.i58
 
@@ -223,7 +220,7 @@ if.end81.i38:                                     ; preds = %do.end.i72, %if.end
   br i1 %cmp82.i39, label %if.then84.i41, label %return
 
 if.then84.i41:                                    ; preds = %if.end81.i38
-  %mem3285.i42 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 6
+  %mem3285.i42 = getelementptr inbounds i8, ptr %state_in, i64 24
   %sub.ptr.lhs.cast.i43 = ptrtoint ptr %add.ptr.i18 to i64
   %sub.ptr.rhs.cast.i44 = ptrtoint ptr %p.i8.2 to i64
   %sub.ptr.sub.i45 = sub i64 %sub.ptr.lhs.cast.i43, %sub.ptr.rhs.cast.i44
@@ -244,20 +241,20 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @LZ4_XXH32_digest(ptr nocapture noundef readonly %state_in) local_unnamed_addr #9 {
 entry:
-  %large_len.i6 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 1
+  %large_len.i6 = getelementptr inbounds i8, ptr %state_in, i64 4
   %0 = load i32, ptr %large_len.i6, align 4
   %tobool.i7.not = icmp eq i32 %0, 0
   br i1 %tobool.i7.not, label %if.else.i8, label %if.then.i16
 
 if.then.i16:                                      ; preds = %entry
-  %v1.i17 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 2
+  %v1.i17 = getelementptr inbounds i8, ptr %state_in, i64 8
   %1 = load <4 x i32>, ptr %v1.i17, align 4
   %2 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %1, <4 x i32> %1, <4 x i32> <i32 1, i32 7, i32 12, i32 18>)
   %3 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %2)
   br label %XXH32_digest_endian.exit40
 
 if.else.i8:                                       ; preds = %entry
-  %v316.i9 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 4
+  %v316.i9 = getelementptr inbounds i8, ptr %state_in, i64 16
   %4 = load i32, ptr %v316.i9, align 4
   %add17.i10 = add i32 %4, 374761393
   br label %XXH32_digest_endian.exit40
@@ -266,8 +263,8 @@ XXH32_digest_endian.exit40:                       ; preds = %if.else.i8, %if.the
   %h32.i5.0 = phi i32 [ %3, %if.then.i16 ], [ %add17.i10, %if.else.i8 ]
   %5 = load i32, ptr %state_in, align 4
   %add18.i11 = add i32 %5, %h32.i5.0
-  %mem32.i12 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 6
-  %memsize.i13 = getelementptr inbounds %struct.XXH32_state_s, ptr %state_in, i64 0, i32 7
+  %mem32.i12 = getelementptr inbounds i8, ptr %state_in, i64 24
+  %memsize.i13 = getelementptr inbounds i8, ptr %state_in, i64 40
   %6 = load i32, ptr %memsize.i13, align 4
   %conv.i14 = zext i32 %6 to i64
   %call.i15 = tail call fastcc i32 @XXH32_finalize(i32 noundef %add18.i11, ptr noundef nonnull %mem32.i12, i64 noundef %conv.i14)
@@ -435,7 +432,7 @@ if.end.i16:                                       ; preds = %entry
   %0 = load i64, ptr %state_in, align 8
   %add.i18 = add i64 %0, %len
   store i64 %add.i18, ptr %state_in, align 8
-  %memsize.i19 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 6
+  %memsize.i19 = getelementptr inbounds i8, ptr %state_in, i64 72
   %1 = load i32, ptr %memsize.i19, align 8
   %conv.i20 = zext i32 %1 to i64
   %add1.i21 = add i64 %conv.i20, %len
@@ -443,7 +440,7 @@ if.end.i16:                                       ; preds = %entry
   br i1 %cmp2.i22, label %if.then4.i105, label %if.end10.i23
 
 if.then4.i105:                                    ; preds = %if.end.i16
-  %mem64.i106 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 5
+  %mem64.i106 = getelementptr inbounds i8, ptr %state_in, i64 40
   %add.ptr6.i109 = getelementptr inbounds i8, ptr %mem64.i106, i64 %conv.i20
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr6.i109, ptr nonnull align 1 %input, i64 %len, i1 false)
   %conv7.i111 = trunc i64 %len to i32
@@ -456,12 +453,12 @@ if.end10.i23:                                     ; preds = %if.end.i16
   br i1 %tobool.i25.not, label %if.end50.i26, label %if.then12.i68
 
 if.then12.i68:                                    ; preds = %if.end10.i23
-  %mem6413.i69 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 5
+  %mem6413.i69 = getelementptr inbounds i8, ptr %state_in, i64 40
   %add.ptr17.i72 = getelementptr inbounds i8, ptr %mem6413.i69, i64 %conv.i20
   %sub.i74 = sub i32 32, %1
   %conv19.i75 = zext i32 %sub.i74 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr17.i72, ptr nonnull align 1 %input, i64 %conv19.i75, i1 false)
-  %v1.i77 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 1
+  %v1.i77 = getelementptr inbounds i8, ptr %state_in, i64 8
   %3 = load i64, ptr %v1.i77, align 8
   %mem6413.i69.val = load i64, ptr %mem6413.i69, align 1
   %mul.i = mul i64 %mem6413.i69.val, -4417276706812531889
@@ -469,27 +466,27 @@ if.then12.i68:                                    ; preds = %if.end10.i23
   %or.i = tail call i64 @llvm.fshl.i64(i64 %add.i, i64 %add.i, i64 31)
   %mul1.i = mul i64 %or.i, -7046029288634856825
   store i64 %mul1.i, ptr %v1.i77, align 8
-  %v2.i82 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 2
+  %v2.i82 = getelementptr inbounds i8, ptr %state_in, i64 16
   %4 = load i64, ptr %v2.i82, align 8
-  %add.ptr29.i84 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 5, i64 1
+  %add.ptr29.i84 = getelementptr inbounds i8, ptr %state_in, i64 48
   %add.ptr29.i84.val = load i64, ptr %add.ptr29.i84, align 1
   %mul.i207 = mul i64 %add.ptr29.i84.val, -4417276706812531889
   %add.i208 = add i64 %mul.i207, %4
   %or.i209 = tail call i64 @llvm.fshl.i64(i64 %add.i208, i64 %add.i208, i64 31)
   %mul1.i210 = mul i64 %or.i209, -7046029288634856825
   store i64 %mul1.i210, ptr %v2.i82, align 8
-  %v3.i88 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 3
+  %v3.i88 = getelementptr inbounds i8, ptr %state_in, i64 24
   %5 = load i64, ptr %v3.i88, align 8
-  %add.ptr35.i90 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 5, i64 2
+  %add.ptr35.i90 = getelementptr inbounds i8, ptr %state_in, i64 56
   %add.ptr35.i90.val = load i64, ptr %add.ptr35.i90, align 1
   %mul.i211 = mul i64 %add.ptr35.i90.val, -4417276706812531889
   %add.i212 = add i64 %mul.i211, %5
   %or.i213 = tail call i64 @llvm.fshl.i64(i64 %add.i212, i64 %add.i212, i64 31)
   %mul1.i214 = mul i64 %or.i213, -7046029288634856825
   store i64 %mul1.i214, ptr %v3.i88, align 8
-  %v4.i94 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 4
+  %v4.i94 = getelementptr inbounds i8, ptr %state_in, i64 32
   %6 = load i64, ptr %v4.i94, align 8
-  %add.ptr41.i96 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 5, i64 3
+  %add.ptr41.i96 = getelementptr inbounds i8, ptr %state_in, i64 64
   %add.ptr41.i96.val = load i64, ptr %add.ptr41.i96, align 1
   %mul.i215 = mul i64 %add.ptr41.i96.val, -4417276706812531889
   %add.i216 = add i64 %mul.i215, %6
@@ -511,13 +508,13 @@ if.end50.i26:                                     ; preds = %if.then12.i68, %if.
 
 if.then54.i43:                                    ; preds = %if.end50.i26
   %add.ptr55.i44 = getelementptr inbounds i8, ptr %add.ptr.i17, i64 -32
-  %v157.i45 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 1
+  %v157.i45 = getelementptr inbounds i8, ptr %state_in, i64 8
   %8 = load i64, ptr %v157.i45, align 8
-  %v259.i46 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 2
+  %v259.i46 = getelementptr inbounds i8, ptr %state_in, i64 16
   %9 = load i64, ptr %v259.i46, align 8
-  %v361.i47 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 3
+  %v361.i47 = getelementptr inbounds i8, ptr %state_in, i64 24
   %10 = load i64, ptr %v361.i47, align 8
-  %v463.i48 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 4
+  %v463.i48 = getelementptr inbounds i8, ptr %state_in, i64 32
   %11 = load i64, ptr %v463.i48, align 8
   br label %do.body.i49
 
@@ -567,7 +564,7 @@ if.end82.i29:                                     ; preds = %do.end.i63, %if.end
   br i1 %cmp83.i30, label %if.then85.i32, label %return
 
 if.then85.i32:                                    ; preds = %if.end82.i29
-  %mem6486.i33 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 5
+  %mem6486.i33 = getelementptr inbounds i8, ptr %state_in, i64 40
   %sub.ptr.lhs.cast.i34 = ptrtoint ptr %add.ptr.i17 to i64
   %sub.ptr.rhs.cast.i35 = ptrtoint ptr %p.i8.2 to i64
   %sub.ptr.sub.i36 = sub i64 %sub.ptr.lhs.cast.i34, %sub.ptr.rhs.cast.i35
@@ -593,13 +590,13 @@ entry:
   br i1 %cmp.i10, label %if.then.i17, label %if.else.i11
 
 if.then.i17:                                      ; preds = %entry
-  %v11.i18 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 1
+  %v11.i18 = getelementptr inbounds i8, ptr %state_in, i64 8
   %1 = load i64, ptr %v11.i18, align 8
-  %v22.i19 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 2
+  %v22.i19 = getelementptr inbounds i8, ptr %state_in, i64 16
   %2 = load i64, ptr %v22.i19, align 8
-  %v33.i20 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 3
+  %v33.i20 = getelementptr inbounds i8, ptr %state_in, i64 24
   %3 = load i64, ptr %v33.i20, align 8
-  %v44.i21 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 4
+  %v44.i21 = getelementptr inbounds i8, ptr %state_in, i64 32
   %4 = load i64, ptr %v44.i21, align 8
   %or.i24 = tail call i64 @llvm.fshl.i64(i64 %1, i64 %1, i64 1)
   %or7.i27 = tail call i64 @llvm.fshl.i64(i64 %2, i64 %2, i64 7)
@@ -635,7 +632,7 @@ if.then.i17:                                      ; preds = %entry
   br label %XXH64_digest_endian.exit41
 
 if.else.i11:                                      ; preds = %entry
-  %v319.i12 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 3
+  %v319.i12 = getelementptr inbounds i8, ptr %state_in, i64 24
   %5 = load i64, ptr %v319.i12, align 8
   %add20.i13 = add i64 %5, 2870177450012600261
   br label %XXH64_digest_endian.exit41
@@ -643,7 +640,7 @@ if.else.i11:                                      ; preds = %entry
 XXH64_digest_endian.exit41:                       ; preds = %if.else.i11, %if.then.i17
   %h64.i5.0 = phi i64 [ %add.i61, %if.then.i17 ], [ %add20.i13, %if.else.i11 ]
   %add22.i14 = add i64 %h64.i5.0, %0
-  %mem64.i15 = getelementptr inbounds %struct.XXH64_state_s, ptr %state_in, i64 0, i32 5
+  %mem64.i15 = getelementptr inbounds i8, ptr %state_in, i64 40
   %call24.i16 = tail call fastcc i64 @XXH64_finalize(i64 noundef %add22.i14, ptr noundef nonnull %mem64.i15, i64 noundef %0)
   ret i64 %call24.i16
 }

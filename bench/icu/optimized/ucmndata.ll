@@ -4,13 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.commonDataFuncs = type { ptr, ptr }
-%struct.DataHeader = type { %struct.MappedData, %struct.UDataInfo }
-%struct.MappedData = type { i16, i8, i8 }
-%struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
-%struct.UDataMemory = type { ptr, ptr, ptr, i8, ptr, ptr, i32 }
-%struct.UDataOffsetTOC = type { i32, [1 x %struct.UDataOffsetTOCEntry] }
 %struct.UDataOffsetTOCEntry = type { i32, i32 }
-%struct.PointerTOC = type { i32, i32, [1 x %struct.PointerTOCEntry] }
 %struct.PointerTOCEntry = type { ptr, ptr }
 
 @_ZL9CmnDFuncs = internal constant %struct.commonDataFuncs { ptr @_ZL17offsetTOCLookupFnPK11UDataMemoryPKcPiP10UErrorCode, ptr @_ZL19offsetTOCEntryCountPK11UDataMemory }, align 8
@@ -23,7 +17,7 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %isBigEndian = getelementptr inbounds %struct.DataHeader, ptr %udh, i64 0, i32 1, i32 2
+  %isBigEndian = getelementptr inbounds i8, ptr %udh, i64 8
   %0 = load i8, ptr %isBigEndian, align 2
   %cmp1 = icmp eq i8 %0, 0
   %1 = load i16, ptr %udh, align 2
@@ -43,7 +37,7 @@ entry:
   br i1 %cmp, label %return, label %if.else
 
 if.else:                                          ; preds = %entry
-  %isBigEndian = getelementptr inbounds %struct.UDataInfo, ptr %info, i64 0, i32 2
+  %isBigEndian = getelementptr inbounds i8, ptr %info, i64 4
   %0 = load i8, ptr %isBigEndian, align 2
   %cmp1 = icmp eq i8 %0, 0
   %1 = load i16, ptr %info, align 2
@@ -68,37 +62,37 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then107.sink.split, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %pHeader = getelementptr inbounds %struct.UDataMemory, ptr %udm, i64 0, i32 1
+  %pHeader = getelementptr inbounds i8, ptr %udm, i64 8
   %1 = load ptr, ptr %pHeader, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then107.sink.split, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false
-  %magic1 = getelementptr inbounds %struct.MappedData, ptr %1, i64 0, i32 1
+  %magic1 = getelementptr inbounds i8, ptr %1, i64 2
   %2 = load i8, ptr %magic1, align 2
   %cmp4 = icmp eq i8 %2, -38
   br i1 %cmp4, label %land.lhs.true, label %if.then107.sink.split
 
 land.lhs.true:                                    ; preds = %if.else
-  %magic2 = getelementptr inbounds %struct.MappedData, ptr %1, i64 0, i32 2
+  %magic2 = getelementptr inbounds i8, ptr %1, i64 3
   %3 = load i8, ptr %magic2, align 1
   %cmp8 = icmp eq i8 %3, 39
   br i1 %cmp8, label %land.lhs.true9, label %if.then107.sink.split
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  %isBigEndian = getelementptr inbounds %struct.DataHeader, ptr %1, i64 0, i32 1, i32 2
+  %isBigEndian = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i8, ptr %isBigEndian, align 2
   %cmp12 = icmp eq i8 %4, 0
   br i1 %cmp12, label %land.lhs.true13, label %if.then107.sink.split
 
 land.lhs.true13:                                  ; preds = %land.lhs.true9
-  %charsetFamily = getelementptr inbounds %struct.DataHeader, ptr %1, i64 0, i32 1, i32 3
+  %charsetFamily = getelementptr inbounds i8, ptr %1, i64 9
   %5 = load i8, ptr %charsetFamily, align 1
   %cmp17 = icmp eq i8 %5, 0
   br i1 %cmp17, label %if.else19, label %if.then107.sink.split
 
 if.else19:                                        ; preds = %land.lhs.true13
-  %dataFormat = getelementptr inbounds %struct.DataHeader, ptr %1, i64 0, i32 1, i32 6
+  %dataFormat = getelementptr inbounds i8, ptr %1, i64 12
   %6 = load i8, ptr %dataFormat, align 2
   switch i8 %6, label %if.then107.sink.split [
     i8 67, label %land.lhs.true24
@@ -106,25 +100,25 @@ if.else19:                                        ; preds = %land.lhs.true13
   ]
 
 land.lhs.true24:                                  ; preds = %if.else19
-  %arrayidx28 = getelementptr inbounds %struct.DataHeader, ptr %1, i64 0, i32 1, i32 6, i64 1
+  %arrayidx28 = getelementptr inbounds i8, ptr %1, i64 13
   %7 = load i8, ptr %arrayidx28, align 1
   %cmp30 = icmp eq i8 %7, 109
   br i1 %cmp30, label %land.lhs.true31, label %if.then107.sink.split
 
 land.lhs.true31:                                  ; preds = %land.lhs.true24
-  %arrayidx35 = getelementptr inbounds %struct.DataHeader, ptr %1, i64 0, i32 1, i32 6, i64 2
+  %arrayidx35 = getelementptr inbounds i8, ptr %1, i64 14
   %8 = load i8, ptr %arrayidx35, align 2
   %cmp37 = icmp eq i8 %8, 110
   br i1 %cmp37, label %land.lhs.true38, label %if.then107.sink.split
 
 land.lhs.true38:                                  ; preds = %land.lhs.true31
-  %arrayidx42 = getelementptr inbounds %struct.DataHeader, ptr %1, i64 0, i32 1, i32 6, i64 3
+  %arrayidx42 = getelementptr inbounds i8, ptr %1, i64 15
   %9 = load i8, ptr %arrayidx42, align 1
   %cmp44 = icmp eq i8 %9, 68
   br i1 %cmp44, label %land.lhs.true45, label %if.then107.sink.split
 
 land.lhs.true45:                                  ; preds = %land.lhs.true38
-  %formatVersion = getelementptr inbounds %struct.DataHeader, ptr %1, i64 0, i32 1, i32 7
+  %formatVersion = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i8, ptr %formatVersion, align 2
   %cmp50 = icmp eq i8 %10, 1
   br i1 %cmp50, label %udata_getHeaderSize_75.exit, label %if.then107.sink.split
@@ -139,25 +133,25 @@ udata_getHeaderSize_75.exit:                      ; preds = %land.lhs.true45
   br label %if.end104
 
 land.lhs.true63:                                  ; preds = %if.else19
-  %arrayidx67 = getelementptr inbounds %struct.DataHeader, ptr %1, i64 0, i32 1, i32 6, i64 1
+  %arrayidx67 = getelementptr inbounds i8, ptr %1, i64 13
   %13 = load i8, ptr %arrayidx67, align 1
   %cmp69 = icmp eq i8 %13, 111
   br i1 %cmp69, label %land.lhs.true70, label %if.then107.sink.split
 
 land.lhs.true70:                                  ; preds = %land.lhs.true63
-  %arrayidx74 = getelementptr inbounds %struct.DataHeader, ptr %1, i64 0, i32 1, i32 6, i64 2
+  %arrayidx74 = getelementptr inbounds i8, ptr %1, i64 14
   %14 = load i8, ptr %arrayidx74, align 2
   %cmp76 = icmp eq i8 %14, 67
   br i1 %cmp76, label %land.lhs.true77, label %if.then107.sink.split
 
 land.lhs.true77:                                  ; preds = %land.lhs.true70
-  %arrayidx81 = getelementptr inbounds %struct.DataHeader, ptr %1, i64 0, i32 1, i32 6, i64 3
+  %arrayidx81 = getelementptr inbounds i8, ptr %1, i64 15
   %15 = load i8, ptr %arrayidx81, align 1
   %cmp83 = icmp eq i8 %15, 80
   br i1 %cmp83, label %land.lhs.true84, label %if.then107.sink.split
 
 land.lhs.true84:                                  ; preds = %land.lhs.true77
-  %formatVersion87 = getelementptr inbounds %struct.DataHeader, ptr %1, i64 0, i32 1, i32 7
+  %formatVersion87 = getelementptr inbounds i8, ptr %1, i64 16
   %16 = load i8, ptr %formatVersion87, align 2
   %cmp90 = icmp eq i8 %16, 1
   br i1 %cmp90, label %udata_getHeaderSize_75.exit37, label %if.then107.sink.split
@@ -175,7 +169,7 @@ if.end104:                                        ; preds = %udata_getHeaderSize
   %spec.select.i35.sink = phi i16 [ %spec.select.i35, %udata_getHeaderSize_75.exit37 ], [ %spec.select.i, %udata_getHeaderSize_75.exit ]
   %idx.ext97 = zext i16 %spec.select.i35.sink to i64
   %add.ptr98 = getelementptr inbounds i8, ptr %1, i64 %idx.ext97
-  %toc99 = getelementptr inbounds %struct.UDataMemory, ptr %udm, i64 0, i32 2
+  %toc99 = getelementptr inbounds i8, ptr %udm, i64 16
   store ptr %add.ptr98, ptr %toc99, align 8
   %.pr = load i32, ptr %err, align 4
   %cmp.i38 = icmp slt i32 %.pr, 1
@@ -198,14 +192,14 @@ declare void @udata_close_75(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef ptr @_ZL17offsetTOCLookupFnPK11UDataMemoryPKcPiP10UErrorCode(ptr nocapture noundef readonly %pData, ptr nocapture noundef readonly %tocEntryName, ptr nocapture noundef writeonly %pLength, ptr nocapture readnone %pErrorCode) #3 {
 entry:
-  %toc1 = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 2
+  %toc1 = getelementptr inbounds i8, ptr %pData, i64 16
   %0 = load ptr, ptr %toc1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else16, label %if.then
 
 if.then:                                          ; preds = %entry
   %1 = load i32, ptr %0, align 4
-  %entry3 = getelementptr inbounds %struct.UDataOffsetTOC, ptr %0, i64 0, i32 1
+  %entry3 = getelementptr inbounds i8, ptr %0, i64 4
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %return, label %if.end.i
 
@@ -346,15 +340,15 @@ _ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit: ; preds = %
 if.then5:                                         ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit
   %retval.0.i18 = phi i32 [ %retval.0.i, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ]
   %idx.ext = zext nneg i32 %retval.0.i18 to i64
+  %add.ptr = getelementptr inbounds %struct.UDataOffsetTOCEntry, ptr %entry3, i64 %idx.ext
   %add = add nuw nsw i32 %retval.0.i18, 1
   %cmp9 = icmp slt i32 %add, %1
   br i1 %cmp9, label %if.then10, label %if.end
 
 if.then10:                                        ; preds = %if.then5
-  %add.ptr = getelementptr inbounds %struct.UDataOffsetTOCEntry, ptr %entry3, i64 %idx.ext
-  %dataOffset = getelementptr inbounds %struct.UDataOffsetTOCEntry, ptr %add.ptr, i64 1, i32 1
+  %dataOffset = getelementptr inbounds i8, ptr %add.ptr, i64 12
   %16 = load i32, ptr %dataOffset, align 4
-  %dataOffset11 = getelementptr inbounds %struct.UDataOffsetTOCEntry, ptr %entry3, i64 %idx.ext, i32 1
+  %dataOffset11 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %17 = load i32, ptr %dataOffset11, align 4
   %sub = sub i32 %16, %17
   br label %if.end
@@ -362,14 +356,14 @@ if.then10:                                        ; preds = %if.then5
 if.end:                                           ; preds = %if.then5, %if.then10
   %storemerge = phi i32 [ %sub, %if.then10 ], [ -1, %if.then5 ]
   store i32 %storemerge, ptr %pLength, align 4
-  %dataOffset12 = getelementptr inbounds %struct.UDataOffsetTOCEntry, ptr %entry3, i64 %idx.ext, i32 1
+  %dataOffset12 = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %18 = load i32, ptr %dataOffset12, align 4
   %idx.ext13 = zext i32 %18 to i64
   %add.ptr14 = getelementptr inbounds i8, ptr %0, i64 %idx.ext13
   br label %return
 
 if.else16:                                        ; preds = %entry
-  %pHeader = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 1
+  %pHeader = getelementptr inbounds i8, ptr %pData, i64 8
   %19 = load ptr, ptr %pHeader, align 8
   br label %return
 
@@ -381,7 +375,7 @@ return:                                           ; preds = %if.end28.i, %while.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL19offsetTOCEntryCountPK11UDataMemory(ptr nocapture noundef readonly %pData) #4 {
 entry:
-  %toc1 = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 2
+  %toc1 = getelementptr inbounds i8, ptr %pData, i64 16
   %0 = load ptr, ptr %toc1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -398,14 +392,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZL18pointerTOCLookupFnPK11UDataMemoryPKcPiP10UErrorCode(ptr nocapture noundef readonly %pData, ptr nocapture noundef readonly %name, ptr nocapture noundef writeonly %pLength, ptr nocapture readnone %pErrorCode) #1 {
 entry:
-  %toc = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 2
+  %toc = getelementptr inbounds i8, ptr %pData, i64 16
   %0 = load ptr, ptr %toc, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else9, label %if.then
 
 if.then:                                          ; preds = %entry
   %1 = load i32, ptr %0, align 8
-  %entry4 = getelementptr inbounds %struct.PointerTOC, ptr %0, i64 0, i32 2
+  %entry4 = getelementptr inbounds i8, ptr %0, i64 8
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %return, label %if.end.i
 
@@ -541,13 +535,13 @@ if.then6:                                         ; preds = %_ZL17strcmpAfterPre
   %retval.0.i11 = phi i32 [ %retval.0.i, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ]
   store i32 -1, ptr %pLength, align 4
   %idxprom = zext nneg i32 %retval.0.i11 to i64
-  %pHeader = getelementptr inbounds %struct.PointerTOC, ptr %0, i64 0, i32 2, i64 %idxprom, i32 1
+  %pHeader = getelementptr inbounds [1 x %struct.PointerTOCEntry], ptr %entry4, i64 0, i64 %idxprom, i32 1
   %16 = load ptr, ptr %pHeader, align 8
   %call8 = tail call ptr @UDataMemory_normalizeDataPointer_75(ptr noundef %16)
   br label %return
 
 if.else9:                                         ; preds = %entry
-  %pHeader10 = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 1
+  %pHeader10 = getelementptr inbounds i8, ptr %pData, i64 8
   %17 = load ptr, ptr %pHeader10, align 8
   br label %return
 
@@ -559,7 +553,7 @@ return:                                           ; preds = %if.end24.i, %while.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL20pointerTOCEntryCountPK11UDataMemory(ptr nocapture noundef readonly %pData) #4 {
 entry:
-  %toc1 = getelementptr inbounds %struct.UDataMemory, ptr %pData, i64 0, i32 2
+  %toc1 = getelementptr inbounds i8, ptr %pData, i64 16
   %0 = load ptr, ptr %toc1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %cond.end, label %cond.true

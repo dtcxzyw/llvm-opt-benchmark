@@ -19,13 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.9" = type { ptr }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::allocator" = type { i8 }
-%"class.grpc_core::DirectoryReaderImpl" = type { %"class.grpc_core::DirectoryReader", %"class.std::__cxx11::basic_string" }
-%"class.grpc_core::DirectoryReader" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.absl::lts_20230802::Status" = type { i64 }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
 
 $_ZSt11make_uniqueIN9grpc_core19DirectoryReaderImplEJRSt17basic_string_viewIcSt11char_traitsIcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_ = comdat any
 
@@ -66,7 +60,7 @@ _ZNSt10unique_ptrIN9grpc_core19DirectoryReaderImplESt14default_deleteIS1_EED2Ev.
   %filename = alloca %"class.std::basic_string_view", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.2", align 8
   store i64 %filename.coerce0, ptr %filename, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %filename, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %filename, i64 8
   store ptr %filename.coerce1, ptr %0, align 8
   call void @_ZSt11make_uniqueIN9grpc_core19DirectoryReaderImplEJRSt17basic_string_viewIcSt11char_traitsIcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr.2") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %filename)
   %1 = load ptr, ptr %ref.tmp, align 8
@@ -85,7 +79,7 @@ entry:
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core19DirectoryReaderImplE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
-  %directory_path_.i = getelementptr inbounds %"class.grpc_core::DirectoryReaderImpl", ptr %call, i64 0, i32 1
+  %directory_path_.i = getelementptr inbounds i8, ptr %call, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   %call.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.sroa.2.0.copyload) #13
@@ -93,7 +87,7 @@ entry:
   %1 = extractvalue { i64, ptr } %call.i.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, i64 %0, ptr %1) #13
   %2 = load i64, ptr %agg.tmp.i.i, align 8
-  %3 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp.i.i, i64 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %directory_path_.i, i64 %2, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
           to label %invoke.cont unwind label %lpad.i
@@ -116,7 +110,7 @@ invoke.cont:                                      ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core19DirectoryReaderImpl7ForEachEN4absl12lts_2023080211FunctionRefIFvSt17basic_string_viewIcSt11char_traitsIcEEEEE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %callback.coerce0, ptr nocapture readonly %callback.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %directory_path_ = getelementptr inbounds %"class.grpc_core::DirectoryReaderImpl", ptr %this, i64 0, i32 1
+  %directory_path_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %directory_path_) #13
   %call2 = tail call ptr @opendir(ptr noundef %call)
   %cmp = icmp eq ptr %call2, null
@@ -133,7 +127,7 @@ if.then:                                          ; preds = %entry
 
 while.body:                                       ; preds = %while.cond.preheader, %while.cond.backedge
   %call321 = phi ptr [ %call3, %while.cond.backedge ], [ %call319, %while.cond.preheader ]
-  %d_name = getelementptr inbounds %struct.dirent, ptr %call321, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %call321, i64 19
   %call.i.i3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #13
   switch i64 %call.i.i3, label %if.end12 [
     i64 2, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
@@ -185,7 +179,7 @@ declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #4
 define linkonce_odr void @_ZN9grpc_core19DirectoryReaderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core19DirectoryReaderImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %directory_path_ = getelementptr inbounds %"class.grpc_core::DirectoryReaderImpl", ptr %this, i64 0, i32 1
+  %directory_path_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %directory_path_) #13
   ret void
 }
@@ -194,7 +188,7 @@ entry:
 define linkonce_odr void @_ZN9grpc_core19DirectoryReaderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core19DirectoryReaderImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %directory_path_.i = getelementptr inbounds %"class.grpc_core::DirectoryReaderImpl", ptr %this, i64 0, i32 1
+  %directory_path_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %directory_path_.i) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
@@ -203,7 +197,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr { i64, ptr } @_ZNK9grpc_core19DirectoryReaderImpl4NameEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  %directory_path_ = getelementptr inbounds %"class.grpc_core::DirectoryReaderImpl", ptr %this, i64 0, i32 1
+  %directory_path_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %directory_path_) #13
   ret { i64, ptr } %call
 }

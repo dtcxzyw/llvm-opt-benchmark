@@ -3,19 +3,13 @@ source_filename = "bench/openssl/original/libcrypto-lib-dsa_lib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.dsa_st = type { i32, i32, %struct.ffc_params_st, ptr, ptr, i32, ptr, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, i64 }
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.dsa_method = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/dsa/dsa_lib.c\00", align 1
 @__func__.dsa_new_intern = private unnamed_addr constant [15 x i8] c"dsa_new_intern\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define i32 @DSA_set_ex_data(ptr noundef %d, i32 noundef %idx, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 8
+  %ex_data = getelementptr inbounds i8, ptr %d, i64 144
   %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #7
   ret i32 %call
 }
@@ -25,7 +19,7 @@ declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define ptr @DSA_get_ex_data(ptr noundef %d, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 8
+  %ex_data = getelementptr inbounds i8, ptr %d, i64 144
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #7
   ret ptr %call
 }
@@ -45,13 +39,13 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %call4 = tail call ptr @ossl_dh_get0_params(ptr noundef nonnull %call) #7
-  %params = getelementptr inbounds %struct.dsa_st, ptr %r, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %r, i64 8
   %call5 = tail call i32 @ossl_ffc_params_copy(ptr noundef %call4, ptr noundef nonnull %params) #7
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %err, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
-  %pub_key8 = getelementptr inbounds %struct.dsa_st, ptr %r, i64 0, i32 3
+  %pub_key8 = getelementptr inbounds i8, ptr %r, i64 104
   %0 = load ptr, ptr %pub_key8, align 8
   %cmp9.not = icmp eq ptr %0, null
   br i1 %cmp9.not, label %if.else, label %if.then10
@@ -62,7 +56,7 @@ if.then10:                                        ; preds = %if.end7
   br i1 %cmp13, label %err, label %if.end15
 
 if.end15:                                         ; preds = %if.then10
-  %priv_key16 = getelementptr inbounds %struct.dsa_st, ptr %r, i64 0, i32 4
+  %priv_key16 = getelementptr inbounds i8, ptr %r, i64 112
   %1 = load ptr, ptr %priv_key16, align 8
   %cmp17.not = icmp eq ptr %1, null
   br i1 %cmp17.not, label %if.end24, label %if.then18
@@ -79,7 +73,7 @@ if.end24:                                         ; preds = %if.then18, %if.end1
   br i1 %tobool26.not, label %err, label %return
 
 if.else:                                          ; preds = %if.end7
-  %priv_key29 = getelementptr inbounds %struct.dsa_st, ptr %r, i64 0, i32 4
+  %priv_key29 = getelementptr inbounds i8, ptr %r, i64 112
   %2 = load ptr, ptr %priv_key29, align 8
   %cmp30.not = icmp eq ptr %2, null
   br i1 %cmp30.not, label %return, label %err
@@ -116,7 +110,7 @@ declare void @DH_free(ptr noundef) local_unnamed_addr #1
 define void @DSA_clear_flags(ptr nocapture noundef %d, i32 noundef %flags) local_unnamed_addr #2 {
 entry:
   %not = xor i32 %flags, -1
-  %flags1 = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 5
+  %flags1 = getelementptr inbounds i8, ptr %d, i64 120
   %0 = load i32, ptr %flags1, align 8
   %and = and i32 %0, %not
   store i32 %and, ptr %flags1, align 8
@@ -126,7 +120,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @DSA_test_flags(ptr nocapture noundef readonly %d, i32 noundef %flags) local_unnamed_addr #3 {
 entry:
-  %flags1 = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 5
+  %flags1 = getelementptr inbounds i8, ptr %d, i64 120
   %0 = load i32, ptr %flags1, align 8
   %and = and i32 %0, %flags
   ret i32 %and
@@ -135,7 +129,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @DSA_set_flags(ptr nocapture noundef %d, i32 noundef %flags) local_unnamed_addr #2 {
 entry:
-  %flags1 = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 5
+  %flags1 = getelementptr inbounds i8, ptr %d, i64 120
   %0 = load i32, ptr %flags1, align 8
   %or = or i32 %0, %flags
   store i32 %or, ptr %flags1, align 8
@@ -145,7 +139,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_get0_engine(ptr nocapture noundef readonly %d) local_unnamed_addr #3 {
 entry:
-  %engine = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 10
+  %engine = getelementptr inbounds i8, ptr %d, i64 168
   %0 = load ptr, ptr %engine, align 8
   ret ptr %0
 }
@@ -153,9 +147,9 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @DSA_set_method(ptr noundef %dsa, ptr noundef %meth) local_unnamed_addr #0 {
 entry:
-  %meth1 = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 9
+  %meth1 = getelementptr inbounds i8, ptr %dsa, i64 160
   %0 = load ptr, ptr %meth1, align 8
-  %finish = getelementptr inbounds %struct.dsa_method, ptr %0, i64 0, i32 7
+  %finish = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %finish, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -165,12 +159,12 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %engine = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 10
+  %engine = getelementptr inbounds i8, ptr %dsa, i64 168
   %2 = load ptr, ptr %engine, align 8
   %call3 = tail call i32 @ENGINE_finish(ptr noundef %2) #7
   store ptr null, ptr %engine, align 8
   store ptr %meth, ptr %meth1, align 8
-  %init = getelementptr inbounds %struct.dsa_method, ptr %meth, i64 0, i32 6
+  %init = getelementptr inbounds i8, ptr %meth, i64 48
   %3 = load ptr, ptr %init, align 8
   %tobool6.not = icmp eq ptr %3, null
   br i1 %tobool6.not, label %if.end10, label %if.then7
@@ -188,7 +182,7 @@ declare i32 @ENGINE_finish(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_get_method(ptr nocapture noundef readonly %d) local_unnamed_addr #3 {
 entry:
-  %meth = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 9
+  %meth = getelementptr inbounds i8, ptr %d, i64 160
   %0 = load ptr, ptr %meth, align 8
   ret ptr %0
 }
@@ -209,7 +203,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @CRYPTO_THREAD_lock_new() #7
-  %lock = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 11
+  %lock = getelementptr inbounds i8, ptr %call, i64 176
   store ptr %call1, ptr %lock, align 8
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -222,17 +216,17 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %references = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 7
+  %references = getelementptr inbounds i8, ptr %call, i64 136
   store atomic i32 1, ptr %references seq_cst, align 4
-  %libctx10 = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 12
+  %libctx10 = getelementptr inbounds i8, ptr %call, i64 184
   store ptr %libctx, ptr %libctx10, align 8
   %call11 = tail call ptr @DSA_get_default_method() #7
-  %meth = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 9
+  %meth = getelementptr inbounds i8, ptr %call, i64 160
   store ptr %call11, ptr %meth, align 8
-  %flags = getelementptr inbounds %struct.dsa_method, ptr %call11, i64 0, i32 8
+  %flags = getelementptr inbounds i8, ptr %call11, i64 64
   %0 = load i32, ptr %flags, align 8
   %and = and i32 %0, -1025
-  %flags13 = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 5
+  %flags13 = getelementptr inbounds i8, ptr %call, i64 120
   store i32 %and, ptr %flags13, align 8
   %tobool14.not = icmp eq ptr %engine, null
   br i1 %tobool14.not, label %if.end23, label %if.then15
@@ -243,13 +237,13 @@ if.then15:                                        ; preds = %if.end5
   br i1 %tobool17.not, label %err.sink.split, label %if.end23.thread
 
 if.end23.thread:                                  ; preds = %if.then15
-  %engine20 = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 10
+  %engine20 = getelementptr inbounds i8, ptr %call, i64 168
   store ptr %engine, ptr %engine20, align 8
   br label %if.then26
 
 if.end23:                                         ; preds = %if.end5
   %call21 = tail call ptr @ENGINE_get_default_DSA() #7
-  %engine22 = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 10
+  %engine22 = getelementptr inbounds i8, ptr %call, i64 168
   store ptr %call21, ptr %engine22, align 8
   %tobool25.not = icmp eq ptr %call21, null
   br i1 %tobool25.not, label %if.end23.if.end34_crit_edge, label %if.then26
@@ -267,20 +261,20 @@ if.then26:                                        ; preds = %if.end23.thread, %i
 
 if.end34:                                         ; preds = %if.end23.if.end34_crit_edge, %if.then26
   %2 = phi ptr [ %.pre, %if.end23.if.end34_crit_edge ], [ %call28, %if.then26 ]
-  %flags36 = getelementptr inbounds %struct.dsa_method, ptr %2, i64 0, i32 8
+  %flags36 = getelementptr inbounds i8, ptr %2, i64 64
   %3 = load i32, ptr %flags36, align 8
   %and37 = and i32 %3, -1025
   store i32 %and37, ptr %flags13, align 8
-  %ex_data = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 8
+  %ex_data = getelementptr inbounds i8, ptr %call, i64 144
   %call39 = tail call i32 @ossl_crypto_new_ex_data_ex(ptr noundef %libctx, i32 noundef 7, ptr noundef nonnull %call, ptr noundef nonnull %ex_data) #7
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %err, label %if.end42
 
 if.end42:                                         ; preds = %if.end34
-  %params = getelementptr inbounds %struct.dsa_st, ptr %call, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @ossl_ffc_params_init(ptr noundef nonnull %params) #7
   %4 = load ptr, ptr %meth, align 8
-  %init = getelementptr inbounds %struct.dsa_method, ptr %4, i64 0, i32 6
+  %init = getelementptr inbounds i8, ptr %4, i64 48
   %5 = load ptr, ptr %init, align 8
   %cmp44.not = icmp eq ptr %5, null
   br i1 %cmp44.not, label %return, label %land.lhs.true
@@ -328,7 +322,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %references = getelementptr inbounds %struct.dsa_st, ptr %r, i64 0, i32 7
+  %references = getelementptr inbounds i8, ptr %r, i64 136
   %0 = atomicrmw sub ptr %references, i32 1 monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %CRYPTO_DOWN_REF.exit.thread, label %CRYPTO_DOWN_REF.exit
@@ -342,13 +336,13 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %if.end
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %CRYPTO_DOWN_REF.exit.thread, %CRYPTO_DOWN_REF.exit
-  %meth = getelementptr inbounds %struct.dsa_st, ptr %r, i64 0, i32 9
+  %meth = getelementptr inbounds i8, ptr %r, i64 160
   %1 = load ptr, ptr %meth, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
-  %finish = getelementptr inbounds %struct.dsa_method, ptr %1, i64 0, i32 7
+  %finish = getelementptr inbounds i8, ptr %1, i64 56
   %2 = load ptr, ptr %finish, align 8
   %cmp6.not = icmp eq ptr %2, null
   br i1 %cmp6.not, label %if.end11, label %if.then7
@@ -358,20 +352,20 @@ if.then7:                                         ; preds = %land.lhs.true
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then7, %land.lhs.true, %if.end3
-  %engine = getelementptr inbounds %struct.dsa_st, ptr %r, i64 0, i32 10
+  %engine = getelementptr inbounds i8, ptr %r, i64 168
   %3 = load ptr, ptr %engine, align 8
   %call12 = tail call i32 @ENGINE_finish(ptr noundef %3) #7
-  %ex_data = getelementptr inbounds %struct.dsa_st, ptr %r, i64 0, i32 8
+  %ex_data = getelementptr inbounds i8, ptr %r, i64 144
   tail call void @CRYPTO_free_ex_data(i32 noundef 7, ptr noundef nonnull %r, ptr noundef nonnull %ex_data) #7
-  %lock = getelementptr inbounds %struct.dsa_st, ptr %r, i64 0, i32 11
+  %lock = getelementptr inbounds i8, ptr %r, i64 176
   %4 = load ptr, ptr %lock, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %4) #7
-  %params = getelementptr inbounds %struct.dsa_st, ptr %r, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %r, i64 8
   tail call void @ossl_ffc_params_cleanup(ptr noundef nonnull %params) #7
-  %pub_key = getelementptr inbounds %struct.dsa_st, ptr %r, i64 0, i32 3
+  %pub_key = getelementptr inbounds i8, ptr %r, i64 104
   %5 = load ptr, ptr %pub_key, align 8
   tail call void @BN_clear_free(ptr noundef %5) #7
-  %priv_key = getelementptr inbounds %struct.dsa_st, ptr %r, i64 0, i32 4
+  %priv_key = getelementptr inbounds i8, ptr %r, i64 112
   %6 = load ptr, ptr %priv_key, align 8
   tail call void @BN_clear_free(ptr noundef %6) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %r, ptr noundef nonnull @.str, i32 noundef 242) #7
@@ -394,7 +388,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @DSA_up_ref(ptr nocapture noundef %r) local_unnamed_addr #4 {
 entry:
-  %references = getelementptr inbounds %struct.dsa_st, ptr %r, i64 0, i32 7
+  %references = getelementptr inbounds i8, ptr %r, i64 136
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
   %cmp1 = icmp sgt i32 %0, 0
   %cond = zext i1 %cmp1 to i32
@@ -404,7 +398,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_dsa_set0_libctx(ptr nocapture noundef writeonly %d, ptr noundef %libctx) local_unnamed_addr #5 {
 entry:
-  %libctx1 = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 12
+  %libctx1 = getelementptr inbounds i8, ptr %d, i64 184
   store ptr %libctx, ptr %libctx1, align 8
   ret void
 }
@@ -412,7 +406,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @DSA_get0_pqg(ptr noundef %d, ptr noundef %p, ptr noundef %q, ptr noundef %g) local_unnamed_addr #0 {
 entry:
-  %params = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %d, i64 8
   tail call void @ossl_ffc_params_get0_pqg(ptr noundef nonnull %params, ptr noundef %p, ptr noundef %q, ptr noundef %g) #7
   ret void
 }
@@ -422,7 +416,7 @@ declare void @ossl_ffc_params_get0_pqg(ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: nounwind uwtable
 define i32 @DSA_set0_pqg(ptr noundef %d, ptr noundef %p, ptr noundef %q, ptr noundef %g) local_unnamed_addr #0 {
 entry:
-  %params = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %d, i64 8
   %0 = load ptr, ptr %params, align 8
   %cmp = icmp eq ptr %0, null
   %cmp2 = icmp eq ptr %p, null
@@ -430,7 +424,7 @@ entry:
   br i1 %or.cond, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %q4 = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 2, i32 1
+  %q4 = getelementptr inbounds i8, ptr %d, i64 16
   %1 = load ptr, ptr %q4, align 8
   %cmp5 = icmp eq ptr %1, null
   %cmp7 = icmp eq ptr %q, null
@@ -438,7 +432,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond1, label %return, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false
-  %g10 = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 2, i32 2
+  %g10 = getelementptr inbounds i8, ptr %d, i64 24
   %2 = load ptr, ptr %g10, align 8
   %cmp11 = icmp eq ptr %2, null
   %cmp13 = icmp eq ptr %g, null
@@ -447,7 +441,7 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %lor.lhs.false8
   tail call void @ossl_ffc_params_set0_pqg(ptr noundef nonnull %params, ptr noundef %p, ptr noundef %q, ptr noundef %g) #7
-  %dirty_cnt = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 13
+  %dirty_cnt = getelementptr inbounds i8, ptr %d, i64 192
   %3 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %3, 1
   store i64 %inc, ptr %dirty_cnt, align 8
@@ -463,7 +457,7 @@ declare void @ossl_ffc_params_set0_pqg(ptr noundef, ptr noundef, ptr noundef, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_get0_p(ptr nocapture noundef readonly %d) local_unnamed_addr #3 {
 entry:
-  %params = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %d, i64 8
   %0 = load ptr, ptr %params, align 8
   ret ptr %0
 }
@@ -471,7 +465,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_get0_q(ptr nocapture noundef readonly %d) local_unnamed_addr #3 {
 entry:
-  %q = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 2, i32 1
+  %q = getelementptr inbounds i8, ptr %d, i64 16
   %0 = load ptr, ptr %q, align 8
   ret ptr %0
 }
@@ -479,7 +473,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_get0_g(ptr nocapture noundef readonly %d) local_unnamed_addr #3 {
 entry:
-  %g = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 2, i32 2
+  %g = getelementptr inbounds i8, ptr %d, i64 24
   %0 = load ptr, ptr %g, align 8
   ret ptr %0
 }
@@ -487,7 +481,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_get0_pub_key(ptr nocapture noundef readonly %d) local_unnamed_addr #3 {
 entry:
-  %pub_key = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 3
+  %pub_key = getelementptr inbounds i8, ptr %d, i64 104
   %0 = load ptr, ptr %pub_key, align 8
   ret ptr %0
 }
@@ -495,7 +489,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @DSA_get0_priv_key(ptr nocapture noundef readonly %d) local_unnamed_addr #3 {
 entry:
-  %priv_key = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 4
+  %priv_key = getelementptr inbounds i8, ptr %d, i64 112
   %0 = load ptr, ptr %priv_key, align 8
   ret ptr %0
 }
@@ -507,7 +501,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pub_key1 = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 3
+  %pub_key1 = getelementptr inbounds i8, ptr %d, i64 104
   %0 = load ptr, ptr %pub_key1, align 8
   store ptr %0, ptr %pub_key, align 8
   br label %if.end
@@ -517,7 +511,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp2.not, label %if.end5, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %priv_key4 = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 4
+  %priv_key4 = getelementptr inbounds i8, ptr %d, i64 112
   %1 = load ptr, ptr %priv_key4, align 8
   store ptr %1, ptr %priv_key, align 8
   br label %if.end5
@@ -533,7 +527,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %pub_key1 = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 3
+  %pub_key1 = getelementptr inbounds i8, ptr %d, i64 104
   %0 = load ptr, ptr %pub_key1, align 8
   tail call void @BN_free(ptr noundef %0) #7
   store ptr %pub_key, ptr %pub_key1, align 8
@@ -544,14 +538,14 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %priv_key5 = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 4
+  %priv_key5 = getelementptr inbounds i8, ptr %d, i64 112
   %1 = load ptr, ptr %priv_key5, align 8
   tail call void @BN_free(ptr noundef %1) #7
   store ptr %priv_key, ptr %priv_key5, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then4, %if.end
-  %dirty_cnt = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 13
+  %dirty_cnt = getelementptr inbounds i8, ptr %d, i64 192
   %2 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %2, 1
   store i64 %inc, ptr %dirty_cnt, align 8
@@ -561,13 +555,13 @@ if.end7:                                          ; preds = %if.then4, %if.end
 ; Function Attrs: nounwind uwtable
 define i32 @DSA_security_bits(ptr nocapture noundef readonly %d) local_unnamed_addr #0 {
 entry:
-  %params = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %d, i64 8
   %0 = load ptr, ptr %params, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %q = getelementptr inbounds %struct.dsa_st, ptr %d, i64 0, i32 2, i32 1
+  %q = getelementptr inbounds i8, ptr %d, i64 16
   %1 = load ptr, ptr %q, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %return, label %if.then
@@ -591,7 +585,7 @@ declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @DSA_bits(ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
 entry:
-  %params = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %dsa, i64 8
   %0 = load ptr, ptr %params, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %if.then
@@ -608,20 +602,20 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @ossl_dsa_get0_params(ptr noundef readnone %dsa) local_unnamed_addr #6 {
 entry:
-  %params = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2
+  %params = getelementptr inbounds i8, ptr %dsa, i64 8
   ret ptr %params
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_dsa_ffc_params_fromdata(ptr noundef %dsa, ptr noundef %params) local_unnamed_addr #0 {
 entry:
-  %params.i = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 2
+  %params.i = getelementptr inbounds i8, ptr %dsa, i64 8
   %call1 = tail call i32 @ossl_ffc_params_fromdata(ptr noundef nonnull %params.i, ptr noundef %params) #7
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %dirty_cnt = getelementptr inbounds %struct.dsa_st, ptr %dsa, i64 0, i32 13
+  %dirty_cnt = getelementptr inbounds i8, ptr %dsa, i64 192
   %0 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %0, 1
   store i64 %inc, ptr %dirty_cnt, align 8

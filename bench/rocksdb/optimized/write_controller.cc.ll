@@ -9,16 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.rocksdb::WriteControllerToken" = type { ptr, ptr }
-%"class.rocksdb::WriteController" = type { %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic", i64, i64, i64, i64, %"class.std::unique_ptr.2" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
-%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
-%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
-%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
-%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
 
 @_ZTVN7rocksdb14StopWriteTokenE = unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb14StopWriteTokenD1Ev, ptr @_ZN7rocksdb14StopWriteTokenD0Ev] }, align 8
 @_ZTVN7rocksdb15DelayWriteTokenE = unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN7rocksdb15DelayWriteTokenD1Ev, ptr @_ZN7rocksdb15DelayWriteTokenD0Ev] }, align 8
@@ -33,7 +23,7 @@ define void @_ZN7rocksdb15WriteController12GetStopTokenEv(ptr noalias nocapture 
 invoke.cont:
   %0 = atomicrmw add ptr %this, i32 1 seq_cst, align 4
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #9
-  %controller_.i.i = getelementptr inbounds %"class.rocksdb::WriteControllerToken", ptr %call2, i64 0, i32 1
+  %controller_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %this, ptr %controller_.i.i, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb14StopWriteTokenE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
   store ptr %call2, ptr %agg.result, align 8
@@ -51,26 +41,26 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb15WriteController13GetDelayTokenEm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %write_rate) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %total_delayed_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %this, i64 0, i32 1
+  %total_delayed_ = getelementptr inbounds i8, ptr %this, i64 4
   %0 = atomicrmw add ptr %total_delayed_, i32 1 seq_cst, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %credit_in_bytes_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %this, i64 0, i32 3
+  %credit_in_bytes_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %credit_in_bytes_, i8 0, i64 16, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %cmp.i = icmp eq i64 %write_rate, 0
-  %max_delayed_write_rate_.i.i = getelementptr inbounds %"class.rocksdb::WriteController", ptr %this, i64 0, i32 5
+  %max_delayed_write_rate_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %max_delayed_write_rate_.i.i, align 8
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %write_rate)
   %write_rate.addr.0.i = select i1 %cmp.i, i64 1, i64 %spec.select.i
-  %delayed_write_rate_.i = getelementptr inbounds %"class.rocksdb::WriteController", ptr %this, i64 0, i32 6
+  %delayed_write_rate_.i = getelementptr inbounds i8, ptr %this, i64 40
   store i64 %write_rate.addr.0.i, ptr %delayed_write_rate_.i, align 8
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #9
-  %controller_.i.i = getelementptr inbounds %"class.rocksdb::WriteControllerToken", ptr %call2, i64 0, i32 1
+  %controller_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %this, ptr %controller_.i.i, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb15DelayWriteTokenE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
   store ptr %call2, ptr %agg.result, align 8
@@ -80,10 +70,10 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb15WriteController26GetCompactionPressureTokenEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %total_compaction_pressure_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %this, i64 0, i32 2
+  %total_compaction_pressure_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %total_compaction_pressure_, i32 1 seq_cst, align 4
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #9
-  %controller_.i.i = getelementptr inbounds %"class.rocksdb::WriteControllerToken", ptr %call2, i64 0, i32 1
+  %controller_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %this, ptr %controller_.i.i, align 8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb23CompactionPressureTokenE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
   store ptr %call2, ptr %agg.result, align 8
@@ -106,13 +96,13 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %total_delayed_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %this, i64 0, i32 1
+  %total_delayed_ = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load atomic i32, ptr %total_delayed_ monotonic, align 4
   %cmp3 = icmp eq i32 %1, 0
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %credit_in_bytes_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %this, i64 0, i32 3
+  %credit_in_bytes_ = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %credit_in_bytes_, align 8
   %cmp6.not = icmp ult i64 %2, %num_bytes
   br i1 %cmp6.not, label %if.end9, label %if.then7
@@ -124,11 +114,11 @@ if.then7:                                         ; preds = %if.end5
 
 if.end9:                                          ; preds = %if.end5
   %vtable.i = load ptr, ptr %clock, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 20
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 160
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(32) %clock)
   %div.i = udiv i64 %call.i, 1000
-  %next_refill_time_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %this, i64 0, i32 4
+  %next_refill_time_ = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i64, ptr %next_refill_time_, align 8
   %cmp11 = icmp eq i64 %4, 0
   br i1 %cmp11, label %if.end14.thread, label %if.end14
@@ -143,7 +133,7 @@ if.end14:                                         ; preds = %if.end9
   br i1 %cmp16.not, label %if.end14.if.end33_crit_edge, label %if.then17
 
 if.end14.if.end33_crit_edge:                      ; preds = %if.end14
-  %delayed_write_rate_38.phi.trans.insert = getelementptr inbounds %"class.rocksdb::WriteController", ptr %this, i64 0, i32 6
+  %delayed_write_rate_38.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 40
   %.pre15 = load i64, ptr %delayed_write_rate_38.phi.trans.insert, align 8
   %.pre16 = uitofp i64 %.pre15 to double
   br label %if.end33
@@ -155,7 +145,7 @@ if.then17:                                        ; preds = %if.end14.thread, %i
   %add = sub i64 %sub19, %5
   %conv = uitofp i64 %add to double
   %div = fdiv double %conv, 1.000000e+06
-  %delayed_write_rate_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %this, i64 0, i32 6
+  %delayed_write_rate_ = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i64, ptr %delayed_write_rate_, align 8
   %conv20 = uitofp i64 %6 to double
   %7 = tail call double @llvm.fmuladd.f64(double %div, double %conv20, double 0x3FEFFFFDE7210BE9)
@@ -195,7 +185,7 @@ return:                                           ; preds = %if.end, %entry, %if
 define noundef i64 @_ZN7rocksdb15WriteController18NowMicrosMonotonicEPNS_11SystemClockE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %this, ptr noundef %clock) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %clock, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 20
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(32) %clock)
   %div = udiv i64 %call, 1000
@@ -209,7 +199,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #4
 define void @_ZN7rocksdb14StopWriteTokenD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb14StopWriteTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %controller_ = getelementptr inbounds %"class.rocksdb::WriteControllerToken", ptr %this, i64 0, i32 1
+  %controller_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %controller_, align 8
   %1 = atomicrmw sub ptr %0, i32 1 seq_cst, align 4
   ret void
@@ -227,9 +217,9 @@ entry:
 define void @_ZN7rocksdb15DelayWriteTokenD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb15DelayWriteTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %controller_ = getelementptr inbounds %"class.rocksdb::WriteControllerToken", ptr %this, i64 0, i32 1
+  %controller_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %controller_, align 8
-  %total_delayed_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %0, i64 0, i32 1
+  %total_delayed_ = getelementptr inbounds i8, ptr %0, i64 4
   %1 = atomicrmw sub ptr %total_delayed_, i32 1 seq_cst, align 4
   ret void
 }
@@ -246,9 +236,9 @@ entry:
 define void @_ZN7rocksdb23CompactionPressureTokenD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb23CompactionPressureTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %controller_ = getelementptr inbounds %"class.rocksdb::WriteControllerToken", ptr %this, i64 0, i32 1
+  %controller_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %controller_, align 8
-  %total_compaction_pressure_ = getelementptr inbounds %"class.rocksdb::WriteController", ptr %0, i64 0, i32 2
+  %total_compaction_pressure_ = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %total_compaction_pressure_, i32 1 seq_cst, align 4
   ret void
 }

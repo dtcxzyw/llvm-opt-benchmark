@@ -348,7 +348,7 @@ entry:
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %card, i64 noundef 0, i64 noundef 8)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #7
   store ptr %call.i, ptr %agg.tmp, align 8
-  %m_len.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp, i64 0, i32 1
+  %m_len.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #7
   store i64 %call2.i, ptr %m_len.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, i8 0, i64 16, i1 false)
@@ -357,7 +357,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %0 = load ptr, ptr %ref.tmp, align 8
-  %m_len.i.i.i.i = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %ref.tmp, i64 0, i32 1
+  %m_len.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load i64, ptr %m_len.i.i.i.i, align 8
   %call4.i.i9 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %keyname, ptr noundef %0, i64 noundef %1)
           to label %invoke.cont3 unwind label %lpad
@@ -372,7 +372,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %card_cpy, ptr noundef nonnull align 8 dereferenceable(32) %card, i64 noundef %spec.select, i64 noundef %call6)
   %call.i10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %card_cpy) #7
   store ptr %call.i10, ptr %agg.tmp8, align 8
-  %m_len.i11 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp8, i64 0, i32 1
+  %m_len.i11 = getelementptr inbounds i8, ptr %agg.tmp8, i64 8
   %call2.i12 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %card_cpy) #7
   store i64 %call2.i12, ptr %m_len.i11, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9, i8 0, i64 16, i1 false)
@@ -386,7 +386,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 
 invoke.cont11:                                    ; preds = %invoke.cont3
   %4 = load ptr, ptr %ref.tmp7, align 8
-  %m_len.i.i.i.i13 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %ref.tmp7, i64 0, i32 1
+  %m_len.i.i.i.i13 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   %5 = load i64, ptr %m_len.i.i.i.i13, align 8
   %call4.i.i14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %card_cpy, ptr noundef %4, i64 noundef %5)
           to label %invoke.cont12 unwind label %lpad10
@@ -422,7 +422,7 @@ cond.true.i:                                      ; preds = %invoke.cont25
 
 _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; preds = %invoke.cont25, %cond.true.i
   %cond.i = phi i64 [ %call.i.i.i, %cond.true.i ], [ 0, %invoke.cont25 ]
-  %m_len.i16 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %agg.tmp23, i64 0, i32 1
+  %m_len.i16 = getelementptr inbounds i8, ptr %agg.tmp23, i64 8
   store i64 %cond.i, ptr %m_len.i16, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp27, i8 0, i64 16, i1 false)
   invoke void @_ZN18OpenImageIO_v2_6_07Strutil5stripENS_17basic_string_viewIcSt11char_traitsIcEEES4_(ptr nonnull sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %ref.tmp22, ptr noundef nonnull %agg.tmp23, ptr noundef nonnull %agg.tmp27)
@@ -430,7 +430,7 @@ _ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; pr
 
 invoke.cont29:                                    ; preds = %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit
   %8 = load ptr, ptr %ref.tmp22, align 8
-  %m_len.i.i.i.i17 = getelementptr inbounds %"class.OpenImageIO_v2_6_0::basic_string_view", ptr %ref.tmp22, i64 0, i32 1
+  %m_len.i.i.i.i17 = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   %9 = load i64, ptr %m_len.i.i.i.i17, align 8
   %call4.i.i18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef %8, i64 noundef %9)
           to label %invoke.cont30 unwind label %lpad28

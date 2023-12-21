@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QemuThread = type { i64 }
-%struct.sigfd_compat_info = type { %struct.__sigset_t, i32 }
-%struct.__sigset_t = type { [16 x i64] }
 %struct.qemu_signalfd_siginfo = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, [48 x i8] }
 
 @.str = private unnamed_addr constant [16 x i8] c"signalfd_compat\00", align 1
@@ -33,9 +31,9 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i, ptr noundef nonnull align 8 dereferenceable(128) %mask, i64 128, i1 false)
-  %arrayidx.i = getelementptr inbounds [2 x i32], ptr %fds.i, i64 0, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %fds.i, i64 4
   %0 = load i32, ptr %arrayidx.i, align 4
-  %fd.i = getelementptr inbounds %struct.sigfd_compat_info, ptr %call.i, i64 0, i32 1
+  %fd.i = getelementptr inbounds i8, ptr %call.i, i64 128
   store i32 %0, ptr %fd.i, align 8
   call void @qemu_thread_create(ptr noundef nonnull %thread.i, ptr noundef nonnull @.str, ptr noundef nonnull @sigwait_compat, ptr noundef %call.i, i32 noundef 1) #8
   %1 = load i32, ptr %fds.i, align 4
@@ -72,7 +70,7 @@ define internal noalias ptr @sigwait_compat(ptr noundef %opaque) #0 {
 entry:
   %sig = alloca i32, align 4
   %buffer = alloca %struct.qemu_signalfd_siginfo, align 8
-  %fd = getelementptr inbounds %struct.sigfd_compat_info, ptr %opaque, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %opaque, i64 128
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %entry

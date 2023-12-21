@@ -4,28 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.q_obj_set_link_arg = type { ptr, i8 }
-%struct.NetLegacyNicOptions = type { ptr, ptr, ptr, ptr, i8, i32 }
-%struct.NetdevUserOptions = type { ptr, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr, i8, ptr, i8, ptr, ptr }
-%struct.NetdevTapOptions = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i64, i8, i8, i8, i8, ptr, ptr, i8, i8, i8, i32, i8, i32 }
-%struct.NetdevSocketOptions = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.NetdevL2TPv3Options = type { ptr, ptr, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i64, i8, i64, i32, i8, i32, i8, i32 }
-%struct.NetdevVdeOptions = type { ptr, i8, i16, ptr, i8, i16 }
-%struct.NetdevBridgeOptions = type { ptr, ptr }
-%struct.NetdevHubPortOptions = type { i32, ptr }
-%struct.NetdevNetmapOptions = type { ptr, ptr }
-%struct.NetdevVhostUserOptions = type { ptr, i8, i8, i8, i64 }
-%struct.NetdevVhostVDPAOptions = type { ptr, ptr, i8, i64, i8, i8 }
-%struct.NetdevStreamOptions = type { ptr, i8, i8, i8, i32 }
-%struct.NetdevDgramOptions = type { ptr, ptr }
-%struct.q_obj_Netdev_base = type { ptr, i32 }
-%struct.Netdev = type { ptr, i32, %union.anon }
-%union.anon = type { %struct.NetdevUserOptions }
-%struct.RxFilterInfo = type { ptr, i8, i32, i32, i32, i8, i8, i8, ptr, ptr, ptr, ptr }
-%struct.RxFilterInfoList = type { ptr, ptr }
-%struct.q_obj_NIC_RX_FILTER_CHANGED_arg = type { ptr, ptr }
-%struct.AnnounceParameters = type { i64, i64, i64, i64, i8, ptr, ptr }
-%struct.q_obj_NETDEV_STREAM_CONNECTED_arg = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"name\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"up\00", align 1
@@ -151,7 +129,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %up = getelementptr inbounds %struct.q_obj_set_link_arg, ptr %obj, i64 0, i32 1
+  %up = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %up, ptr noundef %errp) #4
   br label %return
 
@@ -182,17 +160,17 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_netdev, align 1
-  %macaddr = getelementptr inbounds %struct.NetLegacyNicOptions, ptr %obj, i64 0, i32 1
+  %macaddr = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %macaddr, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_macaddr, align 1
-  %model = getelementptr inbounds %struct.NetLegacyNicOptions, ptr %obj, i64 0, i32 2
+  %model = getelementptr inbounds i8, ptr %obj, i64 16
   %2 = load ptr, ptr %model, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_model, align 1
-  %addr = getelementptr inbounds %struct.NetLegacyNicOptions, ptr %obj, i64 0, i32 3
+  %addr = getelementptr inbounds i8, ptr %obj, i64 24
   %3 = load ptr, ptr %addr, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
@@ -229,12 +207,12 @@ if.then33:                                        ; preds = %if.end31
   br i1 %call35, label %if.end38, label %return
 
 if.end38:                                         ; preds = %if.then33, %if.end31
-  %has_vectors = getelementptr inbounds %struct.NetLegacyNicOptions, ptr %obj, i64 0, i32 4
+  %has_vectors = getelementptr inbounds i8, ptr %obj, i64 32
   %call39 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %has_vectors) #4
   br i1 %call39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.end38
-  %vectors = getelementptr inbounds %struct.NetLegacyNicOptions, ptr %obj, i64 0, i32 5
+  %vectors = getelementptr inbounds i8, ptr %obj, i64 36
   %call41 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %vectors, ptr noundef %errp) #4
   br i1 %call41, label %if.end44, label %return
 
@@ -338,72 +316,72 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_hostname, align 1
-  %ip = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 7
+  %ip = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %ip, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_ip, align 1
-  %net = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 8
+  %net = getelementptr inbounds i8, ptr %obj, i64 24
   %2 = load ptr, ptr %net, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_net, align 1
-  %host = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 9
+  %host = getelementptr inbounds i8, ptr %obj, i64 32
   %3 = load ptr, ptr %host, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
   store i8 %frombool13, ptr %has_host, align 1
-  %tftp = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 10
+  %tftp = getelementptr inbounds i8, ptr %obj, i64 40
   %4 = load ptr, ptr %tftp, align 8
   %tobool14 = icmp ne ptr %4, null
   %frombool17 = zext i1 %tobool14 to i8
   store i8 %frombool17, ptr %has_tftp, align 1
-  %bootfile = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 11
+  %bootfile = getelementptr inbounds i8, ptr %obj, i64 48
   %5 = load ptr, ptr %bootfile, align 8
   %tobool18 = icmp ne ptr %5, null
   %frombool21 = zext i1 %tobool18 to i8
   store i8 %frombool21, ptr %has_bootfile, align 1
-  %dhcpstart = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 12
+  %dhcpstart = getelementptr inbounds i8, ptr %obj, i64 56
   %6 = load ptr, ptr %dhcpstart, align 8
   %tobool22 = icmp ne ptr %6, null
   %frombool25 = zext i1 %tobool22 to i8
   store i8 %frombool25, ptr %has_dhcpstart, align 1
-  %dns = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 13
+  %dns = getelementptr inbounds i8, ptr %obj, i64 64
   %7 = load ptr, ptr %dns, align 8
   %tobool26 = icmp ne ptr %7, null
   %frombool29 = zext i1 %tobool26 to i8
   store i8 %frombool29, ptr %has_dns, align 1
-  %domainname = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 16
+  %domainname = getelementptr inbounds i8, ptr %obj, i64 88
   %8 = load ptr, ptr %domainname, align 8
   %tobool30 = icmp ne ptr %8, null
   %frombool33 = zext i1 %tobool30 to i8
   store i8 %frombool33, ptr %has_domainname, align 1
-  %ipv6_prefix = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 17
+  %ipv6_prefix = getelementptr inbounds i8, ptr %obj, i64 96
   %9 = load ptr, ptr %ipv6_prefix, align 8
   %tobool34 = icmp ne ptr %9, null
   %frombool37 = zext i1 %tobool34 to i8
   store i8 %frombool37, ptr %has_ipv6_prefix, align 1
-  %ipv6_host = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 20
+  %ipv6_host = getelementptr inbounds i8, ptr %obj, i64 120
   %10 = load ptr, ptr %ipv6_host, align 8
   %tobool38 = icmp ne ptr %10, null
   %frombool41 = zext i1 %tobool38 to i8
   store i8 %frombool41, ptr %has_ipv6_host, align 1
-  %ipv6_dns = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 21
+  %ipv6_dns = getelementptr inbounds i8, ptr %obj, i64 128
   %11 = load ptr, ptr %ipv6_dns, align 8
   %tobool42 = icmp ne ptr %11, null
   %frombool45 = zext i1 %tobool42 to i8
   store i8 %frombool45, ptr %has_ipv6_dns, align 1
-  %smb = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 22
+  %smb = getelementptr inbounds i8, ptr %obj, i64 136
   %12 = load ptr, ptr %smb, align 8
   %tobool46 = icmp ne ptr %12, null
   %frombool49 = zext i1 %tobool46 to i8
   store i8 %frombool49, ptr %has_smb, align 1
-  %smbserver = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 23
+  %smbserver = getelementptr inbounds i8, ptr %obj, i64 144
   %13 = load ptr, ptr %smbserver, align 8
   %tobool50 = icmp ne ptr %13, null
   %frombool53 = zext i1 %tobool50 to i8
   store i8 %frombool53, ptr %has_smbserver, align 1
-  %tftp_server_name = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 28
+  %tftp_server_name = getelementptr inbounds i8, ptr %obj, i64 184
   %14 = load ptr, ptr %tftp_server_name, align 8
   %tobool54 = icmp ne ptr %14, null
   %frombool57 = zext i1 %tobool54 to i8
@@ -416,32 +394,32 @@ if.then:                                          ; preds = %entry
   br i1 %call59, label %if.end61, label %return
 
 if.end61:                                         ; preds = %if.then, %entry
-  %has_q_restrict = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 1
+  %has_q_restrict = getelementptr inbounds i8, ptr %obj, i64 8
   %call62 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %has_q_restrict) #4
   br i1 %call62, label %if.then63, label %if.end67
 
 if.then63:                                        ; preds = %if.end61
-  %q_restrict = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 2
+  %q_restrict = getelementptr inbounds i8, ptr %obj, i64 9
   %call64 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.11, ptr noundef nonnull %q_restrict, ptr noundef %errp) #4
   br i1 %call64, label %if.end67, label %return
 
 if.end67:                                         ; preds = %if.then63, %if.end61
-  %has_ipv4 = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 3
+  %has_ipv4 = getelementptr inbounds i8, ptr %obj, i64 10
   %call68 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %has_ipv4) #4
   br i1 %call68, label %if.then69, label %if.end73
 
 if.then69:                                        ; preds = %if.end67
-  %ipv4 = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 4
+  %ipv4 = getelementptr inbounds i8, ptr %obj, i64 11
   %call70 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.12, ptr noundef nonnull %ipv4, ptr noundef %errp) #4
   br i1 %call70, label %if.end73, label %return
 
 if.end73:                                         ; preds = %if.then69, %if.end67
-  %has_ipv6 = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 5
+  %has_ipv6 = getelementptr inbounds i8, ptr %obj, i64 12
   %call74 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %has_ipv6) #4
   br i1 %call74, label %if.then75, label %if.end79
 
 if.then75:                                        ; preds = %if.end73
-  %ipv6 = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 6
+  %ipv6 = getelementptr inbounds i8, ptr %obj, i64 13
   %call76 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %ipv6, ptr noundef %errp) #4
   br i1 %call76, label %if.end79, label %return
 
@@ -502,12 +480,12 @@ if.then123:                                       ; preds = %if.end121
   br i1 %call125, label %if.end128, label %return
 
 if.end128:                                        ; preds = %if.then123, %if.end121
-  %has_dnssearch = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 14
+  %has_dnssearch = getelementptr inbounds i8, ptr %obj, i64 72
   %call129 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %has_dnssearch) #4
   br i1 %call129, label %if.then130, label %if.end134
 
 if.then130:                                       ; preds = %if.end128
-  %dnssearch = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 15
+  %dnssearch = getelementptr inbounds i8, ptr %obj, i64 80
   %call131 = call zeroext i1 @visit_type_StringList(ptr noundef %v, ptr noundef nonnull @.str.21, ptr noundef nonnull %dnssearch, ptr noundef %errp) #4
   br i1 %call131, label %if.end134, label %return
 
@@ -528,12 +506,12 @@ if.then143:                                       ; preds = %if.end141
   br i1 %call145, label %if.end148, label %return
 
 if.end148:                                        ; preds = %if.then143, %if.end141
-  %has_ipv6_prefixlen = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 18
+  %has_ipv6_prefixlen = getelementptr inbounds i8, ptr %obj, i64 104
   %call149 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %has_ipv6_prefixlen) #4
   br i1 %call149, label %if.then150, label %if.end154
 
 if.then150:                                       ; preds = %if.end148
-  %ipv6_prefixlen = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 19
+  %ipv6_prefixlen = getelementptr inbounds i8, ptr %obj, i64 112
   %call151 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.24, ptr noundef nonnull %ipv6_prefixlen, ptr noundef %errp) #4
   br i1 %call151, label %if.end154, label %return
 
@@ -570,22 +548,22 @@ if.then177:                                       ; preds = %if.end175
   br i1 %call179, label %if.end182, label %return
 
 if.end182:                                        ; preds = %if.then177, %if.end175
-  %has_hostfwd = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 24
+  %has_hostfwd = getelementptr inbounds i8, ptr %obj, i64 152
   %call183 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %has_hostfwd) #4
   br i1 %call183, label %if.then184, label %if.end188
 
 if.then184:                                       ; preds = %if.end182
-  %hostfwd = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 25
+  %hostfwd = getelementptr inbounds i8, ptr %obj, i64 160
   %call185 = call zeroext i1 @visit_type_StringList(ptr noundef %v, ptr noundef nonnull @.str.29, ptr noundef nonnull %hostfwd, ptr noundef %errp) #4
   br i1 %call185, label %if.end188, label %return
 
 if.end188:                                        ; preds = %if.then184, %if.end182
-  %has_guestfwd = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 26
+  %has_guestfwd = getelementptr inbounds i8, ptr %obj, i64 168
   %call189 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %has_guestfwd) #4
   br i1 %call189, label %if.then190, label %if.end194
 
 if.then190:                                       ; preds = %if.end188
-  %guestfwd = getelementptr inbounds %struct.NetdevUserOptions, ptr %obj, i64 0, i32 27
+  %guestfwd = getelementptr inbounds i8, ptr %obj, i64 176
   %call191 = call zeroext i1 @visit_type_StringList(ptr noundef %v, ptr noundef nonnull @.str.30, ptr noundef nonnull %guestfwd, ptr noundef %errp) #4
   br i1 %call191, label %if.end194, label %return
 
@@ -678,42 +656,42 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_ifname, align 1
-  %fd = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 1
+  %fd = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %fd, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_fd, align 1
-  %fds = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 2
+  %fds = getelementptr inbounds i8, ptr %obj, i64 16
   %2 = load ptr, ptr %fds, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_fds, align 1
-  %script = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 3
+  %script = getelementptr inbounds i8, ptr %obj, i64 24
   %3 = load ptr, ptr %script, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
   store i8 %frombool13, ptr %has_script, align 1
-  %downscript = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 4
+  %downscript = getelementptr inbounds i8, ptr %obj, i64 32
   %4 = load ptr, ptr %downscript, align 8
   %tobool14 = icmp ne ptr %4, null
   %frombool17 = zext i1 %tobool14 to i8
   store i8 %frombool17, ptr %has_downscript, align 1
-  %br = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 5
+  %br = getelementptr inbounds i8, ptr %obj, i64 40
   %5 = load ptr, ptr %br, align 8
   %tobool18 = icmp ne ptr %5, null
   %frombool21 = zext i1 %tobool18 to i8
   store i8 %frombool21, ptr %has_br, align 1
-  %helper = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 6
+  %helper = getelementptr inbounds i8, ptr %obj, i64 48
   %6 = load ptr, ptr %helper, align 8
   %tobool22 = icmp ne ptr %6, null
   %frombool25 = zext i1 %tobool22 to i8
   store i8 %frombool25, ptr %has_helper, align 1
-  %vhostfd = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 13
+  %vhostfd = getelementptr inbounds i8, ptr %obj, i64 80
   %7 = load ptr, ptr %vhostfd, align 8
   %tobool26 = icmp ne ptr %7, null
   %frombool29 = zext i1 %tobool26 to i8
   store i8 %frombool29, ptr %has_vhostfd, align 1
-  %vhostfds = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 14
+  %vhostfds = getelementptr inbounds i8, ptr %obj, i64 88
   %8 = load ptr, ptr %vhostfds, align 8
   %tobool30 = icmp ne ptr %8, null
   %frombool33 = zext i1 %tobool30 to i8
@@ -774,32 +752,32 @@ if.then74:                                        ; preds = %if.end72
   br i1 %call76, label %if.end79, label %return
 
 if.end79:                                         ; preds = %if.then74, %if.end72
-  %has_sndbuf = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 7
+  %has_sndbuf = getelementptr inbounds i8, ptr %obj, i64 56
   %call80 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.39, ptr noundef nonnull %has_sndbuf) #4
   br i1 %call80, label %if.then81, label %if.end85
 
 if.then81:                                        ; preds = %if.end79
-  %sndbuf = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 8
+  %sndbuf = getelementptr inbounds i8, ptr %obj, i64 64
   %call82 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef nonnull @.str.39, ptr noundef nonnull %sndbuf, ptr noundef %errp) #4
   br i1 %call82, label %if.end85, label %return
 
 if.end85:                                         ; preds = %if.then81, %if.end79
-  %has_vnet_hdr = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 9
+  %has_vnet_hdr = getelementptr inbounds i8, ptr %obj, i64 72
   %call86 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.40, ptr noundef nonnull %has_vnet_hdr) #4
   br i1 %call86, label %if.then87, label %if.end91
 
 if.then87:                                        ; preds = %if.end85
-  %vnet_hdr = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 10
+  %vnet_hdr = getelementptr inbounds i8, ptr %obj, i64 73
   %call88 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.40, ptr noundef nonnull %vnet_hdr, ptr noundef %errp) #4
   br i1 %call88, label %if.end91, label %return
 
 if.end91:                                         ; preds = %if.then87, %if.end85
-  %has_vhost = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 11
+  %has_vhost = getelementptr inbounds i8, ptr %obj, i64 74
   %call92 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.41, ptr noundef nonnull %has_vhost) #4
   br i1 %call92, label %if.then93, label %if.end97
 
 if.then93:                                        ; preds = %if.end91
-  %vhost = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 12
+  %vhost = getelementptr inbounds i8, ptr %obj, i64 75
   %call94 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.41, ptr noundef nonnull %vhost, ptr noundef %errp) #4
   br i1 %call94, label %if.end97, label %return
 
@@ -820,32 +798,32 @@ if.then106:                                       ; preds = %if.end104
   br i1 %call108, label %if.end111, label %return
 
 if.end111:                                        ; preds = %if.then106, %if.end104
-  %has_vhostforce = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 15
+  %has_vhostforce = getelementptr inbounds i8, ptr %obj, i64 96
   %call112 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %has_vhostforce) #4
   br i1 %call112, label %if.then113, label %if.end117
 
 if.then113:                                       ; preds = %if.end111
-  %vhostforce = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 16
+  %vhostforce = getelementptr inbounds i8, ptr %obj, i64 97
   %call114 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %vhostforce, ptr noundef %errp) #4
   br i1 %call114, label %if.end117, label %return
 
 if.end117:                                        ; preds = %if.then113, %if.end111
-  %has_queues = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 17
+  %has_queues = getelementptr inbounds i8, ptr %obj, i64 98
   %call118 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.45, ptr noundef nonnull %has_queues) #4
   br i1 %call118, label %if.then119, label %if.end123
 
 if.then119:                                       ; preds = %if.end117
-  %queues = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 18
+  %queues = getelementptr inbounds i8, ptr %obj, i64 100
   %call120 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.45, ptr noundef nonnull %queues, ptr noundef %errp) #4
   br i1 %call120, label %if.end123, label %return
 
 if.end123:                                        ; preds = %if.then119, %if.end117
-  %has_poll_us = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 19
+  %has_poll_us = getelementptr inbounds i8, ptr %obj, i64 104
   %call124 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.46, ptr noundef nonnull %has_poll_us) #4
   br i1 %call124, label %if.then125, label %if.end129
 
 if.then125:                                       ; preds = %if.end123
-  %poll_us = getelementptr inbounds %struct.NetdevTapOptions, ptr %obj, i64 0, i32 20
+  %poll_us = getelementptr inbounds i8, ptr %obj, i64 108
   %call126 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.46, ptr noundef nonnull %poll_us, ptr noundef %errp) #4
   br i1 %call126, label %if.end129, label %return
 
@@ -925,27 +903,27 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_fd, align 1
-  %listen = getelementptr inbounds %struct.NetdevSocketOptions, ptr %obj, i64 0, i32 1
+  %listen = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %listen, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
   store i8 %frombool5, ptr %has_listen, align 1
-  %connect = getelementptr inbounds %struct.NetdevSocketOptions, ptr %obj, i64 0, i32 2
+  %connect = getelementptr inbounds i8, ptr %obj, i64 16
   %2 = load ptr, ptr %connect, align 8
   %tobool6 = icmp ne ptr %2, null
   %frombool9 = zext i1 %tobool6 to i8
   store i8 %frombool9, ptr %has_connect, align 1
-  %mcast = getelementptr inbounds %struct.NetdevSocketOptions, ptr %obj, i64 0, i32 3
+  %mcast = getelementptr inbounds i8, ptr %obj, i64 24
   %3 = load ptr, ptr %mcast, align 8
   %tobool10 = icmp ne ptr %3, null
   %frombool13 = zext i1 %tobool10 to i8
   store i8 %frombool13, ptr %has_mcast, align 1
-  %localaddr = getelementptr inbounds %struct.NetdevSocketOptions, ptr %obj, i64 0, i32 4
+  %localaddr = getelementptr inbounds i8, ptr %obj, i64 32
   %4 = load ptr, ptr %localaddr, align 8
   %tobool14 = icmp ne ptr %4, null
   %frombool17 = zext i1 %tobool14 to i8
   store i8 %frombool17, ptr %has_localaddr, align 1
-  %udp = getelementptr inbounds %struct.NetdevSocketOptions, ptr %obj, i64 0, i32 5
+  %udp = getelementptr inbounds i8, ptr %obj, i64 40
   %5 = load ptr, ptr %udp, align 8
   %tobool18 = icmp ne ptr %5, null
   %frombool21 = zext i1 %tobool18 to i8
@@ -1063,12 +1041,12 @@ define dso_local zeroext i1 @visit_type_NetdevL2TPv3Options_members(ptr noundef 
 entry:
   %has_srcport = alloca i8, align 1
   %has_dstport = alloca i8, align 1
-  %srcport = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 2
+  %srcport = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %srcport, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_srcport, align 1
-  %dstport = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 3
+  %dstport = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load ptr, ptr %dstport, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -1077,7 +1055,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %dst = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 1
+  %dst = getelementptr inbounds i8, ptr %obj, i64 8
   %call6 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.53, ptr noundef nonnull %dst, ptr noundef %errp) #4
   br i1 %call6, label %if.end8, label %return
 
@@ -1098,97 +1076,97 @@ if.then17:                                        ; preds = %if.end15
   br i1 %call19, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.then17, %if.end15
-  %has_ipv6 = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 4
+  %has_ipv6 = getelementptr inbounds i8, ptr %obj, i64 32
   %call23 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %has_ipv6) #4
   br i1 %call23, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.end22
-  %ipv6 = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 5
+  %ipv6 = getelementptr inbounds i8, ptr %obj, i64 33
   %call25 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.13, ptr noundef nonnull %ipv6, ptr noundef %errp) #4
   br i1 %call25, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.then24, %if.end22
-  %has_udp = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 6
+  %has_udp = getelementptr inbounds i8, ptr %obj, i64 34
   %call29 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.51, ptr noundef nonnull %has_udp) #4
   br i1 %call29, label %if.then30, label %if.end34
 
 if.then30:                                        ; preds = %if.end28
-  %udp = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 7
+  %udp = getelementptr inbounds i8, ptr %obj, i64 35
   %call31 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.51, ptr noundef nonnull %udp, ptr noundef %errp) #4
   br i1 %call31, label %if.end34, label %return
 
 if.end34:                                         ; preds = %if.then30, %if.end28
-  %has_cookie64 = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 8
+  %has_cookie64 = getelementptr inbounds i8, ptr %obj, i64 36
   %call35 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.56, ptr noundef nonnull %has_cookie64) #4
   br i1 %call35, label %if.then36, label %if.end40
 
 if.then36:                                        ; preds = %if.end34
-  %cookie64 = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 9
+  %cookie64 = getelementptr inbounds i8, ptr %obj, i64 37
   %call37 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.56, ptr noundef nonnull %cookie64, ptr noundef %errp) #4
   br i1 %call37, label %if.end40, label %return
 
 if.end40:                                         ; preds = %if.then36, %if.end34
-  %has_counter = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 10
+  %has_counter = getelementptr inbounds i8, ptr %obj, i64 38
   %call41 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %has_counter) #4
   br i1 %call41, label %if.then42, label %if.end46
 
 if.then42:                                        ; preds = %if.end40
-  %counter = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 11
+  %counter = getelementptr inbounds i8, ptr %obj, i64 39
   %call43 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.57, ptr noundef nonnull %counter, ptr noundef %errp) #4
   br i1 %call43, label %if.end46, label %return
 
 if.end46:                                         ; preds = %if.then42, %if.end40
-  %has_pincounter = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 12
+  %has_pincounter = getelementptr inbounds i8, ptr %obj, i64 40
   %call47 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %has_pincounter) #4
   br i1 %call47, label %if.then48, label %if.end52
 
 if.then48:                                        ; preds = %if.end46
-  %pincounter = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 13
+  %pincounter = getelementptr inbounds i8, ptr %obj, i64 41
   %call49 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.58, ptr noundef nonnull %pincounter, ptr noundef %errp) #4
   br i1 %call49, label %if.end52, label %return
 
 if.end52:                                         ; preds = %if.then48, %if.end46
-  %has_txcookie = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 14
+  %has_txcookie = getelementptr inbounds i8, ptr %obj, i64 42
   %call53 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %has_txcookie) #4
   br i1 %call53, label %if.then54, label %if.end58
 
 if.then54:                                        ; preds = %if.end52
-  %txcookie = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 15
+  %txcookie = getelementptr inbounds i8, ptr %obj, i64 48
   %call55 = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.59, ptr noundef nonnull %txcookie, ptr noundef %errp) #4
   br i1 %call55, label %if.end58, label %return
 
 if.end58:                                         ; preds = %if.then54, %if.end52
-  %has_rxcookie = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 16
+  %has_rxcookie = getelementptr inbounds i8, ptr %obj, i64 56
   %call59 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.60, ptr noundef nonnull %has_rxcookie) #4
   br i1 %call59, label %if.then60, label %if.end64
 
 if.then60:                                        ; preds = %if.end58
-  %rxcookie = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 17
+  %rxcookie = getelementptr inbounds i8, ptr %obj, i64 64
   %call61 = call zeroext i1 @visit_type_uint64(ptr noundef %v, ptr noundef nonnull @.str.60, ptr noundef nonnull %rxcookie, ptr noundef %errp) #4
   br i1 %call61, label %if.end64, label %return
 
 if.end64:                                         ; preds = %if.then60, %if.end58
-  %txsession = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 18
+  %txsession = getelementptr inbounds i8, ptr %obj, i64 72
   %call65 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.61, ptr noundef nonnull %txsession, ptr noundef %errp) #4
   br i1 %call65, label %if.end67, label %return
 
 if.end67:                                         ; preds = %if.end64
-  %has_rxsession = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 19
+  %has_rxsession = getelementptr inbounds i8, ptr %obj, i64 76
   %call68 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %has_rxsession) #4
   br i1 %call68, label %if.then69, label %if.end73
 
 if.then69:                                        ; preds = %if.end67
-  %rxsession = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 20
+  %rxsession = getelementptr inbounds i8, ptr %obj, i64 80
   %call70 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.62, ptr noundef nonnull %rxsession, ptr noundef %errp) #4
   br i1 %call70, label %if.end73, label %return
 
 if.end73:                                         ; preds = %if.then69, %if.end67
-  %has_offset = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 21
+  %has_offset = getelementptr inbounds i8, ptr %obj, i64 84
   %call74 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %has_offset) #4
   br i1 %call74, label %if.then75, label %if.end79
 
 if.then75:                                        ; preds = %if.end73
-  %offset = getelementptr inbounds %struct.NetdevL2TPv3Options, ptr %obj, i64 0, i32 22
+  %offset = getelementptr inbounds i8, ptr %obj, i64 88
   %call76 = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.63, ptr noundef nonnull %offset, ptr noundef %errp) #4
   br i1 %call76, label %if.end79, label %return
 
@@ -1264,7 +1242,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_sock, align 1
-  %group = getelementptr inbounds %struct.NetdevVdeOptions, ptr %obj, i64 0, i32 3
+  %group = getelementptr inbounds i8, ptr %obj, i64 16
   %1 = load ptr, ptr %group, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -1277,12 +1255,12 @@ if.then:                                          ; preds = %entry
   br i1 %call7, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then, %entry
-  %has_port = getelementptr inbounds %struct.NetdevVdeOptions, ptr %obj, i64 0, i32 1
+  %has_port = getelementptr inbounds i8, ptr %obj, i64 8
   %call10 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.65, ptr noundef nonnull %has_port) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %port = getelementptr inbounds %struct.NetdevVdeOptions, ptr %obj, i64 0, i32 2
+  %port = getelementptr inbounds i8, ptr %obj, i64 10
   %call12 = call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.65, ptr noundef nonnull %port, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
@@ -1295,12 +1273,12 @@ if.then17:                                        ; preds = %if.end15
   br i1 %call19, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.then17, %if.end15
-  %has_mode = getelementptr inbounds %struct.NetdevVdeOptions, ptr %obj, i64 0, i32 4
+  %has_mode = getelementptr inbounds i8, ptr %obj, i64 24
   %call23 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.67, ptr noundef nonnull %has_mode) #4
   br i1 %call23, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.end22
-  %mode = getelementptr inbounds %struct.NetdevVdeOptions, ptr %obj, i64 0, i32 5
+  %mode = getelementptr inbounds i8, ptr %obj, i64 26
   %call25 = call zeroext i1 @visit_type_uint16(ptr noundef %v, ptr noundef nonnull @.str.67, ptr noundef nonnull %mode, ptr noundef %errp) #4
   br i1 %call25, label %if.end28, label %return
 
@@ -1376,7 +1354,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_br, align 1
-  %helper = getelementptr inbounds %struct.NetdevBridgeOptions, ptr %obj, i64 0, i32 1
+  %helper = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %helper, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -1436,7 +1414,7 @@ if.end5:                                          ; preds = %if.end
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_br.i, align 1
-  %helper.i = getelementptr inbounds %struct.NetdevBridgeOptions, ptr %0, i64 0, i32 1
+  %helper.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %helper.i, align 8
   %tobool2.i = icmp ne ptr %2, null
   %frombool5.i = zext i1 %tobool2.i to i8
@@ -1490,7 +1468,7 @@ declare void @qapi_free_NetdevBridgeOptions(ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @visit_type_NetdevHubPortOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_netdev = alloca i8, align 1
-  %netdev = getelementptr inbounds %struct.NetdevHubPortOptions, ptr %obj, i64 0, i32 1
+  %netdev = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %netdev, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -1542,7 +1520,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_netdev.i)
-  %netdev.i = getelementptr inbounds %struct.NetdevHubPortOptions, ptr %0, i64 0, i32 1
+  %netdev.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %netdev.i, align 8
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -1590,7 +1568,7 @@ declare void @qapi_free_NetdevHubPortOptions(ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @visit_type_NetdevNetmapOptions_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_devname = alloca i8, align 1
-  %devname = getelementptr inbounds %struct.NetdevNetmapOptions, ptr %obj, i64 0, i32 1
+  %devname = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %devname, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -1640,7 +1618,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_devname.i)
-  %devname.i = getelementptr inbounds %struct.NetdevNetmapOptions, ptr %0, i64 0, i32 1
+  %devname.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %devname.i, align 8
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -1691,22 +1669,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_vhostforce = getelementptr inbounds %struct.NetdevVhostUserOptions, ptr %obj, i64 0, i32 1
+  %has_vhostforce = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %has_vhostforce) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %vhostforce = getelementptr inbounds %struct.NetdevVhostUserOptions, ptr %obj, i64 0, i32 2
+  %vhostforce = getelementptr inbounds i8, ptr %obj, i64 9
   %call3 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %vhostforce, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %has_queues = getelementptr inbounds %struct.NetdevVhostUserOptions, ptr %obj, i64 0, i32 3
+  %has_queues = getelementptr inbounds i8, ptr %obj, i64 10
   %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.45, ptr noundef nonnull %has_queues) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %queues = getelementptr inbounds %struct.NetdevVhostUserOptions, ptr %obj, i64 0, i32 4
+  %queues = getelementptr inbounds i8, ptr %obj, i64 16
   %call9 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.45, ptr noundef nonnull %queues, ptr noundef %errp) #4
   br i1 %call9, label %if.end12, label %return
 
@@ -1746,22 +1724,22 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %has_vhostforce.i = getelementptr inbounds %struct.NetdevVhostUserOptions, ptr %0, i64 0, i32 1
+  %has_vhostforce.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %has_vhostforce.i) #4
   br i1 %call1.i, label %if.then2.i, label %if.end6.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %vhostforce.i = getelementptr inbounds %struct.NetdevVhostUserOptions, ptr %0, i64 0, i32 2
+  %vhostforce.i = getelementptr inbounds i8, ptr %0, i64 9
   %call3.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %vhostforce.i, ptr noundef %errp) #4
   br i1 %call3.i, label %if.end6.i, label %out_obj.thread16
 
 if.end6.i:                                        ; preds = %if.then2.i, %if.end.i
-  %has_queues.i = getelementptr inbounds %struct.NetdevVhostUserOptions, ptr %0, i64 0, i32 3
+  %has_queues.i = getelementptr inbounds i8, ptr %0, i64 10
   %call7.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.45, ptr noundef nonnull %has_queues.i) #4
   br i1 %call7.i, label %if.then8.i, label %out_obj
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %queues.i = getelementptr inbounds %struct.NetdevVhostUserOptions, ptr %0, i64 0, i32 4
+  %queues.i = getelementptr inbounds i8, ptr %0, i64 16
   %call9.i = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.45, ptr noundef nonnull %queues.i, ptr noundef %errp) #4
   br i1 %call9.i, label %out_obj, label %out_obj.thread16
 
@@ -1800,7 +1778,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_vhostdev, align 1
-  %vhostfd = getelementptr inbounds %struct.NetdevVhostVDPAOptions, ptr %obj, i64 0, i32 1
+  %vhostfd = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %vhostfd, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -1821,17 +1799,17 @@ if.then11:                                        ; preds = %if.end9
   br i1 %call13, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.then11, %if.end9
-  %has_queues = getelementptr inbounds %struct.NetdevVhostVDPAOptions, ptr %obj, i64 0, i32 2
+  %has_queues = getelementptr inbounds i8, ptr %obj, i64 16
   %call17 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.45, ptr noundef nonnull %has_queues) #4
   br i1 %call17, label %if.then18, label %if.end22
 
 if.then18:                                        ; preds = %if.end16
-  %queues = getelementptr inbounds %struct.NetdevVhostVDPAOptions, ptr %obj, i64 0, i32 3
+  %queues = getelementptr inbounds i8, ptr %obj, i64 24
   %call19 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.45, ptr noundef nonnull %queues, ptr noundef %errp) #4
   br i1 %call19, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.then18, %if.end16
-  %has_x_svq = getelementptr inbounds %struct.NetdevVhostVDPAOptions, ptr %obj, i64 0, i32 4
+  %has_x_svq = getelementptr inbounds i8, ptr %obj, i64 32
   %call23 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.72, ptr noundef nonnull %has_x_svq) #4
   br i1 %call23, label %if.then24, label %if.end34
 
@@ -1844,7 +1822,7 @@ if.end27:                                         ; preds = %if.then24
   br i1 %call28, label %if.end34, label %if.then29
 
 if.then29:                                        ; preds = %if.end27
-  %x_svq = getelementptr inbounds %struct.NetdevVhostVDPAOptions, ptr %obj, i64 0, i32 5
+  %x_svq = getelementptr inbounds i8, ptr %obj, i64 33
   %call30 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.72, ptr noundef nonnull %x_svq, ptr noundef %errp) #4
   br i1 %call30, label %if.end34, label %return
 
@@ -1920,22 +1898,22 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %has_server = getelementptr inbounds %struct.NetdevStreamOptions, ptr %obj, i64 0, i32 1
+  %has_server = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %has_server) #4
   br i1 %call1, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
-  %server = getelementptr inbounds %struct.NetdevStreamOptions, ptr %obj, i64 0, i32 2
+  %server = getelementptr inbounds i8, ptr %obj, i64 9
   %call3 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %server, ptr noundef %errp) #4
   br i1 %call3, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %has_reconnect = getelementptr inbounds %struct.NetdevStreamOptions, ptr %obj, i64 0, i32 3
+  %has_reconnect = getelementptr inbounds i8, ptr %obj, i64 10
   %call7 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.74, ptr noundef nonnull %has_reconnect) #4
   br i1 %call7, label %if.then8, label %if.end12
 
 if.then8:                                         ; preds = %if.end6
-  %reconnect = getelementptr inbounds %struct.NetdevStreamOptions, ptr %obj, i64 0, i32 4
+  %reconnect = getelementptr inbounds i8, ptr %obj, i64 12
   %call9 = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.74, ptr noundef nonnull %reconnect, ptr noundef %errp) #4
   br i1 %call9, label %if.end12, label %return
 
@@ -1977,22 +1955,22 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.end.i, label %out_obj.thread16
 
 if.end.i:                                         ; preds = %if.end5
-  %has_server.i = getelementptr inbounds %struct.NetdevStreamOptions, ptr %0, i64 0, i32 1
+  %has_server.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %has_server.i) #4
   br i1 %call1.i, label %if.then2.i, label %if.end6.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %server.i = getelementptr inbounds %struct.NetdevStreamOptions, ptr %0, i64 0, i32 2
+  %server.i = getelementptr inbounds i8, ptr %0, i64 9
   %call3.i = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %server.i, ptr noundef %errp) #4
   br i1 %call3.i, label %if.end6.i, label %out_obj.thread16
 
 if.end6.i:                                        ; preds = %if.then2.i, %if.end.i
-  %has_reconnect.i = getelementptr inbounds %struct.NetdevStreamOptions, ptr %0, i64 0, i32 3
+  %has_reconnect.i = getelementptr inbounds i8, ptr %0, i64 10
   %call7.i = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.74, ptr noundef nonnull %has_reconnect.i) #4
   br i1 %call7.i, label %if.then8.i, label %out_obj
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %reconnect.i = getelementptr inbounds %struct.NetdevStreamOptions, ptr %0, i64 0, i32 4
+  %reconnect.i = getelementptr inbounds i8, ptr %0, i64 12
   %call9.i = tail call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.74, ptr noundef nonnull %reconnect.i, ptr noundef %errp) #4
   br i1 %call9.i, label %out_obj, label %out_obj.thread16
 
@@ -2031,7 +2009,7 @@ entry:
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %has_local, align 1
-  %remote = getelementptr inbounds %struct.NetdevDgramOptions, ptr %obj, i64 0, i32 1
+  %remote = getelementptr inbounds i8, ptr %obj, i64 8
   %1 = load ptr, ptr %remote, align 8
   %tobool2 = icmp ne ptr %1, null
   %frombool5 = zext i1 %tobool2 to i8
@@ -2091,7 +2069,7 @@ if.end5:                                          ; preds = %if.end
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_local.i, align 1
-  %remote.i = getelementptr inbounds %struct.NetdevDgramOptions, ptr %0, i64 0, i32 1
+  %remote.i = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %remote.i, align 8
   %tobool2.i = icmp ne ptr %2, null
   %frombool5.i = zext i1 %tobool2.i to i8
@@ -2163,7 +2141,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds %struct.q_obj_Netdev_base, ptr %obj, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %type, align 4
   store i32 %0, ptr %value.i, align 4
@@ -2192,7 +2170,7 @@ entry:
   br i1 %call.i, label %visit_type_q_obj_Netdev_base_members.exit, label %return
 
 visit_type_q_obj_Netdev_base_members.exit:        ; preds = %entry
-  %type.i = getelementptr inbounds %struct.q_obj_Netdev_base, ptr %obj, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %obj, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %0 = load i32, ptr %type.i, align 4
   store i32 %0, ptr %value.i.i, align 4
@@ -2221,52 +2199,52 @@ if.end:                                           ; preds = %visit_type_q_obj_Ne
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2
+  %u = getelementptr inbounds i8, ptr %obj, i64 16
   %call1 = call zeroext i1 @visit_type_NetLegacyNicOptions_members(ptr noundef %v, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = call zeroext i1 @visit_type_NetdevUserOptions_members(ptr noundef %v, ptr noundef nonnull %u3, ptr noundef %errp)
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2
+  %u6 = getelementptr inbounds i8, ptr %obj, i64 16
   %call7 = call zeroext i1 @visit_type_NetdevTapOptions_members(ptr noundef %v, ptr noundef nonnull %u6, ptr noundef %errp)
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %u9 = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2
+  %u9 = getelementptr inbounds i8, ptr %obj, i64 16
   %call10 = call zeroext i1 @visit_type_NetdevL2TPv3Options_members(ptr noundef %v, ptr noundef nonnull %u9, ptr noundef %errp)
   br label %return
 
 sw.bb11:                                          ; preds = %if.end
-  %u12 = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2
+  %u12 = getelementptr inbounds i8, ptr %obj, i64 16
   %call13 = call zeroext i1 @visit_type_NetdevSocketOptions_members(ptr noundef %v, ptr noundef nonnull %u12, ptr noundef %errp)
   br label %return
 
 sw.bb14:                                          ; preds = %if.end
-  %u15 = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2
+  %u15 = getelementptr inbounds i8, ptr %obj, i64 16
   %call.i41 = call zeroext i1 @visit_type_SocketAddress(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %u15, ptr noundef %errp) #4
   br i1 %call.i41, label %if.end.i43, label %return
 
 if.end.i43:                                       ; preds = %sw.bb14
-  %has_server.i = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2, i32 0, i32 1
+  %has_server.i = getelementptr inbounds i8, ptr %obj, i64 24
   %call1.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %has_server.i) #4
   br i1 %call1.i, label %if.then2.i, label %if.end6.i
 
 if.then2.i:                                       ; preds = %if.end.i43
-  %server.i = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2, i32 0, i32 2
+  %server.i = getelementptr inbounds i8, ptr %obj, i64 25
   %call3.i = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.73, ptr noundef nonnull %server.i, ptr noundef %errp) #4
   br i1 %call3.i, label %if.end6.i, label %return
 
 if.end6.i:                                        ; preds = %if.then2.i, %if.end.i43
-  %has_reconnect.i = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2, i32 0, i32 3
+  %has_reconnect.i = getelementptr inbounds i8, ptr %obj, i64 26
   %call7.i = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.74, ptr noundef nonnull %has_reconnect.i) #4
   br i1 %call7.i, label %if.then8.i, label %if.end12.i
 
 if.then8.i:                                       ; preds = %if.end6.i
-  %reconnect.i = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2, i32 0, i32 5
+  %reconnect.i = getelementptr inbounds i8, ptr %obj, i64 28
   %call9.i = call zeroext i1 @visit_type_uint32(ptr noundef %v, ptr noundef nonnull @.str.74, ptr noundef nonnull %reconnect.i, ptr noundef %errp) #4
   br i1 %call9.i, label %if.end12.i, label %return
 
@@ -2274,14 +2252,14 @@ if.end12.i:                                       ; preds = %if.then8.i, %if.end
   br label %return
 
 sw.bb17:                                          ; preds = %if.end
-  %u18 = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2
+  %u18 = getelementptr inbounds i8, ptr %obj, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_local.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_remote.i)
   %2 = load ptr, ptr %u18, align 8
   %tobool.i = icmp ne ptr %2, null
   %frombool.i = zext i1 %tobool.i to i8
   store i8 %frombool.i, ptr %has_local.i, align 1
-  %remote.i = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2, i32 0, i32 1
+  %remote.i = getelementptr inbounds i8, ptr %obj, i64 24
   %3 = load ptr, ptr %remote.i, align 8
   %tobool2.i = icmp ne ptr %3, null
   %frombool5.i = zext i1 %tobool2.i to i8
@@ -2311,19 +2289,19 @@ visit_type_NetdevDgramOptions_members.exit:       ; preds = %if.then.i, %if.then
   br label %return
 
 sw.bb20:                                          ; preds = %if.end
-  %u21 = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2
+  %u21 = getelementptr inbounds i8, ptr %obj, i64 16
   %call22 = call zeroext i1 @visit_type_NetdevVdeOptions_members(ptr noundef %v, ptr noundef nonnull %u21, ptr noundef %errp)
   br label %return
 
 sw.bb23:                                          ; preds = %if.end
-  %u24 = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2
+  %u24 = getelementptr inbounds i8, ptr %obj, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_br.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_helper.i)
   %4 = load ptr, ptr %u24, align 8
   %tobool.i47 = icmp ne ptr %4, null
   %frombool.i48 = zext i1 %tobool.i47 to i8
   store i8 %frombool.i48, ptr %has_br.i, align 1
-  %helper.i = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2, i32 0, i32 1
+  %helper.i = getelementptr inbounds i8, ptr %obj, i64 24
   %5 = load ptr, ptr %helper.i, align 8
   %tobool2.i49 = icmp ne ptr %5, null
   %frombool5.i50 = zext i1 %tobool2.i49 to i8
@@ -2353,9 +2331,9 @@ visit_type_NetdevBridgeOptions_members.exit:      ; preds = %if.then.i58, %if.th
   br label %return
 
 sw.bb26:                                          ; preds = %if.end
-  %u27 = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2
+  %u27 = getelementptr inbounds i8, ptr %obj, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_netdev.i)
-  %netdev.i = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2, i32 0, i32 1
+  %netdev.i = getelementptr inbounds i8, ptr %obj, i64 24
   %6 = load ptr, ptr %netdev.i, align 8
   %tobool.i60 = icmp ne ptr %6, null
   %frombool.i61 = zext i1 %tobool.i60 to i8
@@ -2380,9 +2358,9 @@ visit_type_NetdevHubPortOptions_members.exit:     ; preds = %sw.bb26, %if.then3.
   br label %return
 
 sw.bb29:                                          ; preds = %if.end
-  %u30 = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2
+  %u30 = getelementptr inbounds i8, ptr %obj, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_devname.i)
-  %devname.i = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2, i32 0, i32 1
+  %devname.i = getelementptr inbounds i8, ptr %obj, i64 24
   %7 = load ptr, ptr %devname.i, align 8
   %tobool.i65 = icmp ne ptr %7, null
   %frombool.i66 = zext i1 %tobool.i65 to i8
@@ -2407,27 +2385,27 @@ visit_type_NetdevNetmapOptions_members.exit:      ; preds = %sw.bb29, %if.then3.
   br label %return
 
 sw.bb32:                                          ; preds = %if.end
-  %u33 = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2
+  %u33 = getelementptr inbounds i8, ptr %obj, i64 16
   %call.i74 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.70, ptr noundef nonnull %u33, ptr noundef %errp) #4
   br i1 %call.i74, label %if.end.i76, label %return
 
 if.end.i76:                                       ; preds = %sw.bb32
-  %has_vhostforce.i = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2, i32 0, i32 1
+  %has_vhostforce.i = getelementptr inbounds i8, ptr %obj, i64 24
   %call1.i77 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %has_vhostforce.i) #4
   br i1 %call1.i77, label %if.then2.i83, label %if.end6.i78
 
 if.then2.i83:                                     ; preds = %if.end.i76
-  %vhostforce.i = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2, i32 0, i32 2
+  %vhostforce.i = getelementptr inbounds i8, ptr %obj, i64 25
   %call3.i84 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.44, ptr noundef nonnull %vhostforce.i, ptr noundef %errp) #4
   br i1 %call3.i84, label %if.end6.i78, label %return
 
 if.end6.i78:                                      ; preds = %if.then2.i83, %if.end.i76
-  %has_queues.i = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2, i32 0, i32 3
+  %has_queues.i = getelementptr inbounds i8, ptr %obj, i64 26
   %call7.i79 = call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.45, ptr noundef nonnull %has_queues.i) #4
   br i1 %call7.i79, label %if.then8.i81, label %if.end12.i80
 
 if.then8.i81:                                     ; preds = %if.end6.i78
-  %queues.i = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2, i32 0, i32 7
+  %queues.i = getelementptr inbounds i8, ptr %obj, i64 32
   %call9.i82 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.45, ptr noundef nonnull %queues.i, ptr noundef %errp) #4
   br i1 %call9.i82, label %if.end12.i80, label %return
 
@@ -2435,7 +2413,7 @@ if.end12.i80:                                     ; preds = %if.then8.i81, %if.e
   br label %return
 
 sw.bb35:                                          ; preds = %if.end
-  %u36 = getelementptr inbounds %struct.Netdev, ptr %obj, i64 0, i32 2
+  %u36 = getelementptr inbounds i8, ptr %obj, i64 16
   %call37 = call zeroext i1 @visit_type_NetdevVhostVDPAOptions_members(ptr noundef %v, ptr noundef nonnull %u36, ptr noundef %errp)
   br label %return
 
@@ -2526,12 +2504,12 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %promiscuous = getelementptr inbounds %struct.RxFilterInfo, ptr %obj, i64 0, i32 1
+  %promiscuous = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.78, ptr noundef nonnull %promiscuous, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %multicast = getelementptr inbounds %struct.RxFilterInfo, ptr %obj, i64 0, i32 2
+  %multicast = getelementptr inbounds i8, ptr %obj, i64 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %multicast, align 4
   store i32 %0, ptr %value.i, align 4
@@ -2542,7 +2520,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %call.i, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end3
-  %unicast = getelementptr inbounds %struct.RxFilterInfo, ptr %obj, i64 0, i32 3
+  %unicast = getelementptr inbounds i8, ptr %obj, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i34)
   %2 = load i32, ptr %unicast, align 4
   store i32 %2, ptr %value.i34, align 4
@@ -2553,7 +2531,7 @@ if.end6:                                          ; preds = %if.end3
   br i1 %call.i35, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.end6
-  %vlan = getelementptr inbounds %struct.RxFilterInfo, ptr %obj, i64 0, i32 4
+  %vlan = getelementptr inbounds i8, ptr %obj, i64 20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i36)
   %4 = load i32, ptr %vlan, align 4
   store i32 %4, ptr %value.i36, align 4
@@ -2564,37 +2542,37 @@ if.end9:                                          ; preds = %if.end6
   br i1 %call.i37, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end9
-  %broadcast_allowed = getelementptr inbounds %struct.RxFilterInfo, ptr %obj, i64 0, i32 5
+  %broadcast_allowed = getelementptr inbounds i8, ptr %obj, i64 24
   %call13 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.82, ptr noundef nonnull %broadcast_allowed, ptr noundef %errp) #4
   br i1 %call13, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.end12
-  %multicast_overflow = getelementptr inbounds %struct.RxFilterInfo, ptr %obj, i64 0, i32 6
+  %multicast_overflow = getelementptr inbounds i8, ptr %obj, i64 25
   %call16 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.83, ptr noundef nonnull %multicast_overflow, ptr noundef %errp) #4
   br i1 %call16, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.end15
-  %unicast_overflow = getelementptr inbounds %struct.RxFilterInfo, ptr %obj, i64 0, i32 7
+  %unicast_overflow = getelementptr inbounds i8, ptr %obj, i64 26
   %call19 = call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.84, ptr noundef nonnull %unicast_overflow, ptr noundef %errp) #4
   br i1 %call19, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.end18
-  %main_mac = getelementptr inbounds %struct.RxFilterInfo, ptr %obj, i64 0, i32 8
+  %main_mac = getelementptr inbounds i8, ptr %obj, i64 32
   %call22 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.85, ptr noundef nonnull %main_mac, ptr noundef %errp) #4
   br i1 %call22, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.end21
-  %vlan_table = getelementptr inbounds %struct.RxFilterInfo, ptr %obj, i64 0, i32 9
+  %vlan_table = getelementptr inbounds i8, ptr %obj, i64 40
   %call25 = call zeroext i1 @visit_type_intList(ptr noundef %v, ptr noundef nonnull @.str.86, ptr noundef nonnull %vlan_table, ptr noundef %errp) #4
   br i1 %call25, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.end24
-  %unicast_table = getelementptr inbounds %struct.RxFilterInfo, ptr %obj, i64 0, i32 10
+  %unicast_table = getelementptr inbounds i8, ptr %obj, i64 48
   %call28 = call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.87, ptr noundef nonnull %unicast_table, ptr noundef %errp) #4
   br i1 %call28, label %if.end30, label %return
 
 if.end30:                                         ; preds = %if.end27
-  %multicast_table = getelementptr inbounds %struct.RxFilterInfo, ptr %obj, i64 0, i32 11
+  %multicast_table = getelementptr inbounds i8, ptr %obj, i64 56
   %call31 = call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.88, ptr noundef nonnull %multicast_table, ptr noundef %errp) #4
   br label %return
 
@@ -2696,7 +2674,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.RxFilterInfoList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_RxFilterInfo(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -2755,7 +2733,7 @@ if.then:                                          ; preds = %entry
   br i1 %call3, label %if.end5, label %return
 
 if.end5:                                          ; preds = %if.then, %entry
-  %path = getelementptr inbounds %struct.q_obj_NIC_RX_FILTER_CHANGED_arg, ptr %obj, i64 0, i32 1
+  %path = getelementptr inbounds i8, ptr %obj, i64 8
   %call6 = call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.89, ptr noundef nonnull %path, ptr noundef %errp) #4
   br label %return
 
@@ -2768,7 +2746,7 @@ return:                                           ; preds = %if.end5, %if.then
 define dso_local zeroext i1 @visit_type_AnnounceParameters_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_id = alloca i8, align 1
-  %id = getelementptr inbounds %struct.AnnounceParameters, ptr %obj, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %obj, i64 48
   %0 = load ptr, ptr %id, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -2777,27 +2755,27 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %max = getelementptr inbounds %struct.AnnounceParameters, ptr %obj, i64 0, i32 1
+  %max = getelementptr inbounds i8, ptr %obj, i64 8
   %call2 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.91, ptr noundef nonnull %max, ptr noundef %errp) #4
   br i1 %call2, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %rounds = getelementptr inbounds %struct.AnnounceParameters, ptr %obj, i64 0, i32 2
+  %rounds = getelementptr inbounds i8, ptr %obj, i64 16
   %call5 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.92, ptr noundef nonnull %rounds, ptr noundef %errp) #4
   br i1 %call5, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end4
-  %step = getelementptr inbounds %struct.AnnounceParameters, ptr %obj, i64 0, i32 3
+  %step = getelementptr inbounds i8, ptr %obj, i64 24
   %call8 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.93, ptr noundef nonnull %step, ptr noundef %errp) #4
   br i1 %call8, label %if.end10, label %return
 
 if.end10:                                         ; preds = %if.end7
-  %has_interfaces = getelementptr inbounds %struct.AnnounceParameters, ptr %obj, i64 0, i32 4
+  %has_interfaces = getelementptr inbounds i8, ptr %obj, i64 32
   %call11 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.94, ptr noundef nonnull %has_interfaces) #4
   br i1 %call11, label %if.then12, label %if.end16
 
 if.then12:                                        ; preds = %if.end10
-  %interfaces = getelementptr inbounds %struct.AnnounceParameters, ptr %obj, i64 0, i32 5
+  %interfaces = getelementptr inbounds i8, ptr %obj, i64 40
   %call13 = tail call zeroext i1 @visit_type_strList(ptr noundef %v, ptr noundef nonnull @.str.94, ptr noundef nonnull %interfaces, ptr noundef %errp) #4
   br i1 %call13, label %if.end16, label %return
 
@@ -2884,7 +2862,7 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %addr = getelementptr inbounds %struct.q_obj_NETDEV_STREAM_CONNECTED_arg, ptr %obj, i64 0, i32 1
+  %addr = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_SocketAddress(ptr noundef %v, ptr noundef nonnull @.str.6, ptr noundef nonnull %addr, ptr noundef %errp) #4
   br label %return
 

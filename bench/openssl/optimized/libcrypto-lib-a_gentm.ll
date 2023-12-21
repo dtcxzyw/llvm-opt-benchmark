@@ -21,7 +21,7 @@ declare ptr @ASN1_GENERALIZEDTIME_it() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ASN1_GENERALIZEDTIME_check(ptr noundef %d) local_unnamed_addr #0 {
 entry:
-  %type.i = getelementptr inbounds %struct.asn1_string_st, ptr %d, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %d, i64 4
   %0 = load i32, ptr %type.i, align 4
   %cmp.not.i = icmp eq i32 %0, 24
   br i1 %cmp.not.i, label %if.end.i, label %asn1_generalizedtime_to_tm.exit
@@ -39,14 +39,14 @@ asn1_generalizedtime_to_tm.exit:                  ; preds = %entry, %if.end.i
 define i32 @ASN1_GENERALIZEDTIME_set_string(ptr noundef %s, ptr noundef %str) local_unnamed_addr #0 {
 ASN1_GENERALIZEDTIME_check.exit:
   %t = alloca %struct.asn1_string_st, align 8
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %t, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %t, i64 4
   store i32 24, ptr %type, align 4
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #5
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %t, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %t, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %t, i64 8
   store ptr %str, ptr %data, align 8
-  %flags = getelementptr inbounds %struct.asn1_string_st, ptr %t, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %t, i64 16
   store i64 0, ptr %flags, align 8
   %call.i.i = call i32 @ossl_asn1_time_to_tm(ptr noundef null, ptr noundef nonnull %t) #4
   %tobool.not = icmp eq i32 %call.i.i, 0
@@ -136,7 +136,7 @@ declare ptr @ossl_asn1_time_from_tm(ptr noundef, ptr noundef, i32 noundef) local
 ; Function Attrs: nounwind uwtable
 define i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bp, ptr noundef %tm) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %tm, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %tm, i64 4
   %0 = load i32, ptr %type, align 4
   %cmp.not = icmp eq i32 %0, 24
   br i1 %cmp.not, label %if.end, label %return

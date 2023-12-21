@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.construct_data_st = type { ptr, ptr, i32, i32, ptr, ptr }
-%struct.ossl_method_construct_method_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_algorithm_st = type { ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/core_fetch.c\00", align 1
 @__func__.ossl_method_construct_precondition = private unnamed_addr constant [35 x i8] c"ossl_method_construct_precondition\00", align 1
@@ -24,13 +22,13 @@ cond.true:                                        ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %0, %cond.true ], [ null, %entry ]
-  %store = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 1
+  %store = getelementptr inbounds i8, ptr %cbdata, i64 8
   store ptr null, ptr %store, align 8
-  %force_store1 = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 3
+  %force_store1 = getelementptr inbounds i8, ptr %cbdata, i64 20
   store i32 %force_store, ptr %force_store1, align 4
-  %mcm2 = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 4
+  %mcm2 = getelementptr inbounds i8, ptr %cbdata, i64 24
   store ptr %mcm, ptr %mcm2, align 8
-  %mcm_data3 = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 5
+  %mcm_data3 = getelementptr inbounds i8, ptr %cbdata, i64 32
   store ptr %mcm_data, ptr %mcm_data3, align 8
   call void @ossl_algorithm_do_all(ptr noundef %libctx, i32 noundef %operation_id, ptr noundef %cond, ptr noundef nonnull @ossl_method_construct_precondition, ptr noundef nonnull @ossl_method_construct_reserve_store, ptr noundef nonnull @ossl_method_construct_this, ptr noundef nonnull @ossl_method_construct_unreserve_store, ptr noundef nonnull @ossl_method_construct_postcondition, ptr noundef nonnull %cbdata) #2
   %1 = load ptr, ptr %store, align 8
@@ -38,14 +36,14 @@ cond.end:                                         ; preds = %entry, %cond.true
   br i1 %cmp5.not, label %if.then8, label %if.end
 
 if.end:                                           ; preds = %cond.end
-  %get = getelementptr inbounds %struct.ossl_method_construct_method_st, ptr %mcm, i64 0, i32 3
+  %get = getelementptr inbounds i8, ptr %mcm, i64 24
   %2 = load ptr, ptr %get, align 8
   %call = call ptr %2(ptr noundef nonnull %1, ptr noundef %provider_rw, ptr noundef %mcm_data) #2
   %cmp7 = icmp eq ptr %call, null
   br i1 %cmp7, label %if.then8, label %if.end11
 
 if.then8:                                         ; preds = %cond.end, %if.end
-  %get9 = getelementptr inbounds %struct.ossl_method_construct_method_st, ptr %mcm, i64 0, i32 3
+  %get9 = getelementptr inbounds i8, ptr %mcm, i64 24
   %3 = load ptr, ptr %get9, align 8
   %call10 = call ptr %3(ptr noundef null, ptr noundef %provider_rw, ptr noundef %mcm_data) #2
   br label %if.end11
@@ -75,7 +73,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %land.lhs.true, label %is_temporary_method_store.exit
 
 is_temporary_method_store.exit:                   ; preds = %if.end
-  %force_store.i = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 3
+  %force_store.i = getelementptr inbounds i8, ptr %cbdata, i64 20
   %0 = load i32, ptr %force_store.i, align 4
   %tobool1.not.i.not = icmp eq i32 %0, 0
   br i1 %tobool1.not.i.not, label %if.end10, label %land.lhs.true
@@ -109,22 +107,22 @@ entry:
   br i1 %tobool.not.i, label %if.end5, label %is_temporary_method_store.exit
 
 is_temporary_method_store.exit:                   ; preds = %entry
-  %force_store.i = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 3
+  %force_store.i = getelementptr inbounds i8, ptr %cbdata, i64 20
   %0 = load i32, ptr %force_store.i, align 4
   %tobool1.not.i.not = icmp eq i32 %0, 0
   br i1 %tobool1.not.i.not, label %land.lhs.true, label %if.end5
 
 land.lhs.true:                                    ; preds = %is_temporary_method_store.exit
-  %store = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 1
+  %store = getelementptr inbounds i8, ptr %cbdata, i64 8
   %1 = load ptr, ptr %store, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %land.lhs.true
-  %mcm = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 4
+  %mcm = getelementptr inbounds i8, ptr %cbdata, i64 24
   %2 = load ptr, ptr %mcm, align 8
   %3 = load ptr, ptr %2, align 8
-  %mcm_data = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 5
+  %mcm_data = getelementptr inbounds i8, ptr %cbdata, i64 32
   %4 = load ptr, ptr %mcm_data, align 8
   %call1 = tail call ptr %3(ptr noundef %4) #2
   store ptr %call1, ptr %store, align 8
@@ -132,13 +130,13 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %entry, %if.then, %land.lhs.true, %is_temporary_method_store.exit
-  %mcm6 = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 4
+  %mcm6 = getelementptr inbounds i8, ptr %cbdata, i64 24
   %5 = load ptr, ptr %mcm6, align 8
-  %lock_store = getelementptr inbounds %struct.ossl_method_construct_method_st, ptr %5, i64 0, i32 1
+  %lock_store = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %lock_store, align 8
-  %store7 = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 1
+  %store7 = getelementptr inbounds i8, ptr %cbdata, i64 8
   %7 = load ptr, ptr %store7, align 8
-  %mcm_data8 = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 5
+  %mcm_data8 = getelementptr inbounds i8, ptr %cbdata, i64 32
   %8 = load ptr, ptr %mcm_data8, align 8
   %call9 = tail call i32 %6(ptr noundef %7, ptr noundef %8) #2
   br label %return
@@ -151,11 +149,11 @@ return:                                           ; preds = %if.then, %if.end5
 ; Function Attrs: nounwind uwtable
 define internal void @ossl_method_construct_this(ptr noundef %provider, ptr noundef %algo, i32 %no_store, ptr nocapture noundef readonly %cbdata) #0 {
 entry:
-  %mcm = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 4
+  %mcm = getelementptr inbounds i8, ptr %cbdata, i64 24
   %0 = load ptr, ptr %mcm, align 8
-  %construct = getelementptr inbounds %struct.ossl_method_construct_method_st, ptr %0, i64 0, i32 5
+  %construct = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %construct, align 8
-  %mcm_data = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 5
+  %mcm_data = getelementptr inbounds i8, ptr %cbdata, i64 32
   %2 = load ptr, ptr %mcm_data, align 8
   %call = tail call ptr %1(ptr noundef %algo, ptr noundef %provider, ptr noundef %2) #2
   %cmp = icmp eq ptr %call, null
@@ -163,17 +161,17 @@ entry:
 
 if.end:                                           ; preds = %entry
   %3 = load ptr, ptr %mcm, align 8
-  %put = getelementptr inbounds %struct.ossl_method_construct_method_st, ptr %3, i64 0, i32 4
+  %put = getelementptr inbounds i8, ptr %3, i64 32
   %4 = load ptr, ptr %put, align 8
-  %store = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 1
+  %store = getelementptr inbounds i8, ptr %cbdata, i64 8
   %5 = load ptr, ptr %store, align 8
   %6 = load ptr, ptr %algo, align 8
-  %property_definition = getelementptr inbounds %struct.ossl_algorithm_st, ptr %algo, i64 0, i32 1
+  %property_definition = getelementptr inbounds i8, ptr %algo, i64 8
   %7 = load ptr, ptr %property_definition, align 8
   %8 = load ptr, ptr %mcm_data, align 8
   %call3 = tail call i32 %4(ptr noundef %5, ptr noundef nonnull %call, ptr noundef %provider, ptr noundef %6, ptr noundef %7, ptr noundef %8) #2
   %9 = load ptr, ptr %mcm, align 8
-  %destruct = getelementptr inbounds %struct.ossl_method_construct_method_st, ptr %9, i64 0, i32 6
+  %destruct = getelementptr inbounds i8, ptr %9, i64 48
   %10 = load ptr, ptr %destruct, align 8
   %11 = load ptr, ptr %mcm_data, align 8
   tail call void %10(ptr noundef nonnull %call, ptr noundef %11) #2
@@ -186,13 +184,13 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @ossl_method_construct_unreserve_store(ptr nocapture noundef readonly %cbdata) #0 {
 entry:
-  %mcm = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 4
+  %mcm = getelementptr inbounds i8, ptr %cbdata, i64 24
   %0 = load ptr, ptr %mcm, align 8
-  %unlock_store = getelementptr inbounds %struct.ossl_method_construct_method_st, ptr %0, i64 0, i32 2
+  %unlock_store = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %unlock_store, align 8
-  %store = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 1
+  %store = getelementptr inbounds i8, ptr %cbdata, i64 8
   %2 = load ptr, ptr %store, align 8
-  %mcm_data = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 5
+  %mcm_data = getelementptr inbounds i8, ptr %cbdata, i64 32
   %3 = load ptr, ptr %mcm_data, align 8
   %call = tail call i32 %1(ptr noundef %2, ptr noundef %3) #2
   ret i32 %call
@@ -216,7 +214,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %lor.rhs, label %is_temporary_method_store.exit
 
 is_temporary_method_store.exit:                   ; preds = %if.end
-  %force_store.i = getelementptr inbounds %struct.construct_data_st, ptr %cbdata, i64 0, i32 3
+  %force_store.i = getelementptr inbounds i8, ptr %cbdata, i64 20
   %0 = load i32, ptr %force_store.i, align 4
   %tobool1.not.i.not = icmp eq i32 %0, 0
   br i1 %tobool1.not.i.not, label %return, label %lor.rhs

@@ -6,18 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.audio_driver = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64, i64, %struct.anon }
 %struct.anon = type { ptr, ptr }
 %struct.audio_pcm_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.HWVoiceOut = type { ptr, i32, i32, i32, %struct.audio_pcm_info, ptr, i64, %struct.STSampleBuffer, ptr, i64, i64, i64, i64, %struct.sw_out_listhead, %struct.sw_cap_listhead, ptr, %struct.anon.0 }
-%struct.audio_pcm_info = type { i32, i8, i8, i32, i32, i32, i32, i32 }
-%struct.STSampleBuffer = type { i64, i64, ptr }
-%struct.sw_out_listhead = type { ptr }
-%struct.sw_cap_listhead = type { ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.NoVoiceOut = type { %struct.HWVoiceOut, %struct.RateCtl }
-%struct.RateCtl = type { i64, i64 }
-%struct.HWVoiceIn = type { ptr, i32, i32, %struct.audio_pcm_info, ptr, i64, i64, %struct.STSampleBuffer, ptr, i64, i64, i64, i64, %struct.sw_in_listhead, ptr, %struct.anon.1 }
-%struct.sw_in_listhead = type { ptr }
-%struct.anon.1 = type { ptr, ptr }
-%struct.NoVoiceIn = type { %struct.HWVoiceIn, %struct.RateCtl }
 
 @no_audio_driver = internal global %struct.audio_driver { ptr @.str, ptr @.str.1, ptr @no_audio_init, ptr @no_audio_fini, ptr null, ptr @no_pcm_ops, i32 2147483647, i32 2147483647, i64 184, i64 184, %struct.anon zeroinitializer }, align 8
 @.str = private unnamed_addr constant [5 x i8] c"none\00", align 1
@@ -58,11 +46,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @no_init_out(ptr noundef %hw, ptr noundef %as, ptr nocapture readnone %drv_opaque) #0 {
 entry:
-  %info = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4
+  %info = getelementptr inbounds i8, ptr %hw, i64 20
   tail call void @audio_pcm_init_info(ptr noundef nonnull %info, ptr noundef %as) #3
-  %samples = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 12
+  %samples = getelementptr inbounds i8, ptr %hw, i64 120
   store i64 1024, ptr %samples, align 8
-  %rate = getelementptr inbounds %struct.NoVoiceOut, ptr %hw, i64 0, i32 1
+  %rate = getelementptr inbounds i8, ptr %hw, i64 168
   tail call void @audio_rate_start(ptr noundef nonnull %rate) #3
   ret i32 0
 }
@@ -76,8 +64,8 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @no_write(ptr noundef %hw, ptr nocapture readnone %buf, i64 noundef %len) #0 {
 entry:
-  %rate = getelementptr inbounds %struct.NoVoiceOut, ptr %hw, i64 0, i32 1
-  %info = getelementptr inbounds %struct.HWVoiceOut, ptr %hw, i64 0, i32 4
+  %rate = getelementptr inbounds i8, ptr %hw, i64 168
+  %info = getelementptr inbounds i8, ptr %hw, i64 20
   %call = tail call i64 @audio_rate_get_bytes(ptr noundef nonnull %rate, ptr noundef nonnull %info, i64 noundef %len) #3
   ret i64 %call
 }
@@ -92,7 +80,7 @@ entry:
   br i1 %enable, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %rate = getelementptr inbounds %struct.NoVoiceOut, ptr %hw, i64 0, i32 1
+  %rate = getelementptr inbounds i8, ptr %hw, i64 168
   tail call void @audio_rate_start(ptr noundef nonnull %rate) #3
   br label %if.end
 
@@ -103,11 +91,11 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @no_init_in(ptr noundef %hw, ptr noundef %as, ptr nocapture readnone %drv_opaque) #0 {
 entry:
-  %info = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 3
+  %info = getelementptr inbounds i8, ptr %hw, i64 16
   tail call void @audio_pcm_init_info(ptr noundef nonnull %info, ptr noundef %as) #3
-  %samples = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 12
+  %samples = getelementptr inbounds i8, ptr %hw, i64 128
   store i64 1024, ptr %samples, align 8
-  %rate = getelementptr inbounds %struct.NoVoiceIn, ptr %hw, i64 0, i32 1
+  %rate = getelementptr inbounds i8, ptr %hw, i64 168
   tail call void @audio_rate_start(ptr noundef nonnull %rate) #3
   ret i32 0
 }
@@ -121,10 +109,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @no_read(ptr noundef %hw, ptr noundef %buf, i64 noundef %size) #0 {
 entry:
-  %rate = getelementptr inbounds %struct.NoVoiceIn, ptr %hw, i64 0, i32 1
-  %info = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 3
+  %rate = getelementptr inbounds i8, ptr %hw, i64 168
+  %info = getelementptr inbounds i8, ptr %hw, i64 16
   %call = tail call i64 @audio_rate_get_bytes(ptr noundef nonnull %rate, ptr noundef nonnull %info, i64 noundef %size) #3
-  %bytes_per_frame = getelementptr inbounds %struct.HWVoiceIn, ptr %hw, i64 0, i32 3, i32 5
+  %bytes_per_frame = getelementptr inbounds i8, ptr %hw, i64 32
   %0 = load i32, ptr %bytes_per_frame, align 8
   %conv = sext i32 %0 to i64
   %div = sdiv i64 %call, %conv
@@ -141,7 +129,7 @@ entry:
   br i1 %enable, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %rate = getelementptr inbounds %struct.NoVoiceIn, ptr %hw, i64 0, i32 1
+  %rate = getelementptr inbounds i8, ptr %hw, i64 168
   tail call void @audio_rate_start(ptr noundef nonnull %rate) #3
   br label %if.end
 

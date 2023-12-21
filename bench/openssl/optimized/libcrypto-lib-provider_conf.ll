@@ -3,9 +3,7 @@ source_filename = "bench/openssl/original/libcrypto-lib-provider_conf.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PROVIDER_CONF_GLOBAL = type { ptr, ptr }
 %struct.OSSL_PROVIDER_INFO = type { ptr, ptr, ptr, ptr, i8 }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/provider_conf.c\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"providers\00", align 1
@@ -50,7 +48,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define void @ossl_prov_conf_ctx_free(ptr noundef %vpcgbl) local_unnamed_addr #0 {
 entry:
-  %activated_providers = getelementptr inbounds %struct.PROVIDER_CONF_GLOBAL, ptr %vpcgbl, i64 0, i32 1
+  %activated_providers = getelementptr inbounds i8, ptr %vpcgbl, i64 8
   %0 = load ptr, ptr %activated_providers, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef nonnull @ossl_provider_free) #5
   %1 = load ptr, ptr %vpcgbl, align 8
@@ -88,8 +86,8 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp11, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %path45.i = getelementptr inbounds %struct.OSSL_PROVIDER_INFO, ptr %entry31.i, i64 0, i32 1
-  %parameters.i = getelementptr inbounds %struct.OSSL_PROVIDER_INFO, ptr %entry31.i, i64 0, i32 3
+  %path45.i = getelementptr inbounds i8, ptr %entry31.i, i64 8
+  %parameters.i = getelementptr inbounds i8, ptr %entry31.i, i64 24
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -102,9 +100,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.012 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call5 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1, i32 noundef %i.012) #5
   %call6 = call ptr @NCONF_get0_libctx(ptr noundef %cnf) #5
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call5, i64 8
   %0 = load ptr, ptr %name, align 8
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call5, i64 16
   %1 = load ptr, ptr %value, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %entry31.i)
   %call.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #6
@@ -127,13 +125,13 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %path.043.i = phi ptr [ %path.1.i, %for.inc.i ], [ null, %for.cond.preheader.i ]
   %soft.042.i = phi i32 [ %soft.1.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
   %call5.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1.i, i32 noundef %i.045.i) #5
-  %name6.i = getelementptr inbounds %struct.CONF_VALUE, ptr %call5.i, i64 0, i32 1
+  %name6.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %2 = load ptr, ptr %name6.i, align 8
   %call.i29.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 46) #6
   %cmp.not.i30.i = icmp eq ptr %call.i29.i, null
   %add.ptr.i31.i = getelementptr inbounds i8, ptr %call.i29.i, i64 1
   %retval.0.i32.i = select i1 %cmp.not.i30.i, ptr %2, ptr %add.ptr.i31.i
-  %value8.i = getelementptr inbounds %struct.CONF_VALUE, ptr %call5.i, i64 0, i32 2
+  %value8.i = getelementptr inbounds i8, ptr %call5.i, i64 16
   %3 = load ptr, ptr %value8.i, align 8
   %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i32.i, ptr noundef nonnull dereferenceable(9) @.str.3) #6
   %cmp10.i = icmp eq i32 %call9.i, 0
@@ -189,7 +187,7 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   br label %provider_conf_activate.exit.i
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
-  %activated_providers.i.i = getelementptr inbounds %struct.PROVIDER_CONF_GLOBAL, ptr %call.i33.i, i64 0, i32 1
+  %activated_providers.i.i = getelementptr inbounds i8, ptr %call.i33.i, i64 8
   %5 = load ptr, ptr %activated_providers.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i.i, label %if.then4.i.i, label %if.end.i.i.i
@@ -469,7 +467,7 @@ for.cond:                                         ; preds = %if.end17
 for.body:                                         ; preds = %if.end, %for.cond
   %i.019 = phi i32 [ %inc, %for.cond ], [ 0, %if.end ]
   %call12 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i32 noundef %i.019) #5
-  %name13 = getelementptr inbounds %struct.CONF_VALUE, ptr %call12, i64 0, i32 1
+  %name13 = getelementptr inbounds i8, ptr %call12, i64 8
   %0 = load ptr, ptr %name13, align 8
   %call14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
   %add = add i64 %call14, %buffer_len.0
@@ -480,7 +478,7 @@ if.end17:                                         ; preds = %for.body
   store i8 0, ptr %arrayidx, align 1
   %1 = load ptr, ptr %name13, align 8
   %call20 = call i64 @OPENSSL_strlcat(ptr noundef nonnull %buffer, ptr noundef %1, i64 noundef 512) #5
-  %value22 = getelementptr inbounds %struct.CONF_VALUE, ptr %call12, i64 0, i32 2
+  %value22 = getelementptr inbounds i8, ptr %call12, i64 16
   %2 = load ptr, ptr %value22, align 8
   %call23 = call fastcc i32 @provider_conf_params(ptr noundef %prov, ptr noundef %provinfo, ptr noundef nonnull %buffer, ptr noundef %2, ptr noundef %cnf)
   %tobool.not = icmp eq i32 %call23, 0

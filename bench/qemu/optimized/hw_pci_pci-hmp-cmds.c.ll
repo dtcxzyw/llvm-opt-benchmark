@@ -3,41 +3,7 @@ source_filename = "bench/qemu/original/hw_pci_pci-hmp-cmds.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.PciInfoList = type { ptr, ptr }
-%struct.PciInfo = type { i64, ptr }
-%struct.PciDeviceInfoList = type { ptr, ptr }
-%struct.PciDeviceInfo = type { i64, i64, i64, ptr, ptr, i8, i64, i64, ptr, ptr, ptr }
-%struct.PciDeviceClass = type { ptr, i64 }
-%struct.PciDeviceId = type { i64, i64, i8, i64, i8, i64 }
-%struct.PciBusInfo = type { i64, i64, i64, ptr, ptr, ptr }
-%struct.PciMemoryRange = type { i64, i64 }
-%struct.PciMemoryRegionList = type { ptr, ptr }
-%struct.PciMemoryRegion = type { i64, ptr, i64, i64, i8, i8, i8, i8 }
-%struct.PciBridgeInfo = type { ptr, i8, ptr }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
 %struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.pci_class_desc = type { i16, ptr, ptr, i16 }
 %struct.PCIEAERErr = type { i32, i16, i16, [4 x i32], [4 x i32] }
 
 @error_abort = external global ptr, align 8
@@ -103,16 +69,16 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc5
   %info.010 = phi ptr [ %2, %for.inc5 ], [ %call, %entry ]
-  %value = getelementptr inbounds %struct.PciInfoList, ptr %info.010, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %info.010, i64 8
   %0 = load ptr, ptr %value, align 8
-  %devices = getelementptr inbounds %struct.PciInfo, ptr %0, i64 0, i32 1
+  %devices = getelementptr inbounds i8, ptr %0, i64 8
   %dev.06 = load ptr, ptr %devices, align 8
   %tobool2.not7 = icmp eq ptr %dev.06, null
   br i1 %tobool2.not7, label %for.inc5, label %for.body3
 
 for.body3:                                        ; preds = %for.body, %for.body3
   %dev.08 = phi ptr [ %dev.0, %for.body3 ], [ %dev.06, %for.body ]
-  %value4 = getelementptr inbounds %struct.PciDeviceInfoList, ptr %dev.08, i64 0, i32 1
+  %value4 = getelementptr inbounds i8, ptr %dev.08, i64 8
   %1 = load ptr, ptr %value4, align 8
   tail call fastcc void @hmp_info_pci_device(ptr noundef %mon, ptr noundef %1)
   %dev.0 = load ptr, ptr %dev.08, align 8
@@ -136,13 +102,13 @@ define internal fastcc void @hmp_info_pci_device(ptr noundef %mon, ptr nocapture
 entry:
   %0 = load i64, ptr %dev, align 8
   %call = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.26, i64 noundef %0) #4
-  %slot = getelementptr inbounds %struct.PciDeviceInfo, ptr %dev, i64 0, i32 1
+  %slot = getelementptr inbounds i8, ptr %dev, i64 8
   %1 = load i64, ptr %slot, align 8
-  %function = getelementptr inbounds %struct.PciDeviceInfo, ptr %dev, i64 0, i32 2
+  %function = getelementptr inbounds i8, ptr %dev, i64 16
   %2 = load i64, ptr %function, align 8
   %call1 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.27, i64 noundef %1, i64 noundef %2) #4
   %call2 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.28) #4
-  %class_info = getelementptr inbounds %struct.PciDeviceInfo, ptr %dev, i64 0, i32 3
+  %class_info = getelementptr inbounds i8, ptr %dev, i64 24
   %3 = load ptr, ptr %class_info, align 8
   %4 = load ptr, ptr %3, align 8
   %tobool.not = icmp eq ptr %4, null
@@ -153,51 +119,51 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %q_class = getelementptr inbounds %struct.PciDeviceClass, ptr %3, i64 0, i32 1
+  %q_class = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i64, ptr %q_class, align 8
   %call7 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.29, i64 noundef %5) #4
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %id = getelementptr inbounds %struct.PciDeviceInfo, ptr %dev, i64 0, i32 4
+  %id = getelementptr inbounds i8, ptr %dev, i64 32
   %6 = load ptr, ptr %id, align 8
-  %vendor = getelementptr inbounds %struct.PciDeviceId, ptr %6, i64 0, i32 1
+  %vendor = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load i64, ptr %vendor, align 8
   %8 = load i64, ptr %6, align 8
   %call9 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.30, i64 noundef %7, i64 noundef %8) #4
   %9 = load ptr, ptr %id, align 8
-  %has_subsystem_vendor = getelementptr inbounds %struct.PciDeviceId, ptr %9, i64 0, i32 4
+  %has_subsystem_vendor = getelementptr inbounds i8, ptr %9, i64 32
   %10 = load i8, ptr %has_subsystem_vendor, align 8
   %11 = and i8 %10, 1
   %tobool11.not = icmp eq i8 %11, 0
   br i1 %tobool11.not, label %if.end18, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %has_subsystem = getelementptr inbounds %struct.PciDeviceId, ptr %9, i64 0, i32 2
+  %has_subsystem = getelementptr inbounds i8, ptr %9, i64 16
   %12 = load i8, ptr %has_subsystem, align 8
   %13 = and i8 %12, 1
   %tobool13.not = icmp eq i8 %13, 0
   br i1 %tobool13.not, label %if.end18, label %if.then14
 
 if.then14:                                        ; preds = %land.lhs.true
-  %subsystem_vendor = getelementptr inbounds %struct.PciDeviceId, ptr %9, i64 0, i32 5
+  %subsystem_vendor = getelementptr inbounds i8, ptr %9, i64 40
   %14 = load i64, ptr %subsystem_vendor, align 8
-  %subsystem = getelementptr inbounds %struct.PciDeviceId, ptr %9, i64 0, i32 3
+  %subsystem = getelementptr inbounds i8, ptr %9, i64 24
   %15 = load i64, ptr %subsystem, align 8
   %call17 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.31, i64 noundef %14, i64 noundef %15) #4
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then14, %land.lhs.true, %if.end
-  %has_irq = getelementptr inbounds %struct.PciDeviceInfo, ptr %dev, i64 0, i32 5
+  %has_irq = getelementptr inbounds i8, ptr %dev, i64 40
   %16 = load i8, ptr %has_irq, align 8
   %17 = and i8 %16, 1
   %tobool19.not = icmp eq i8 %17, 0
   br i1 %tobool19.not, label %if.end23, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %irq = getelementptr inbounds %struct.PciDeviceInfo, ptr %dev, i64 0, i32 6
+  %irq = getelementptr inbounds i8, ptr %dev, i64 48
   %18 = load i64, ptr %irq, align 8
-  %irq_pin = getelementptr inbounds %struct.PciDeviceInfo, ptr %dev, i64 0, i32 7
+  %irq_pin = getelementptr inbounds i8, ptr %dev, i64 56
   %19 = load i64, ptr %irq_pin, align 8
   %20 = trunc i64 %19 to i32
   %conv = shl i32 %20, 24
@@ -207,7 +173,7 @@ if.then20:                                        ; preds = %if.end18
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then20, %if.end18
-  %pci_bridge = getelementptr inbounds %struct.PciDeviceInfo, ptr %dev, i64 0, i32 9
+  %pci_bridge = getelementptr inbounds i8, ptr %dev, i64 72
   %21 = load ptr, ptr %pci_bridge, align 8
   %tobool24.not = icmp eq ptr %21, null
   br i1 %tobool24.not, label %if.end57, label %if.then25
@@ -218,58 +184,58 @@ if.then25:                                        ; preds = %if.end23
   %call28 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.33, i64 noundef %23) #4
   %24 = load ptr, ptr %pci_bridge, align 8
   %25 = load ptr, ptr %24, align 8
-  %secondary = getelementptr inbounds %struct.PciBusInfo, ptr %25, i64 0, i32 1
+  %secondary = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load i64, ptr %secondary, align 8
   %call31 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.34, i64 noundef %26) #4
   %27 = load ptr, ptr %pci_bridge, align 8
   %28 = load ptr, ptr %27, align 8
-  %subordinate = getelementptr inbounds %struct.PciBusInfo, ptr %28, i64 0, i32 2
+  %subordinate = getelementptr inbounds i8, ptr %28, i64 16
   %29 = load i64, ptr %subordinate, align 8
   %call34 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.35, i64 noundef %29) #4
   %30 = load ptr, ptr %pci_bridge, align 8
   %31 = load ptr, ptr %30, align 8
-  %io_range = getelementptr inbounds %struct.PciBusInfo, ptr %31, i64 0, i32 3
+  %io_range = getelementptr inbounds i8, ptr %31, i64 24
   %32 = load ptr, ptr %io_range, align 8
   %33 = load i64, ptr %32, align 8
-  %limit = getelementptr inbounds %struct.PciMemoryRange, ptr %32, i64 0, i32 1
+  %limit = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load i64, ptr %limit, align 8
   %call40 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.36, i64 noundef %33, i64 noundef %34) #4
   %35 = load ptr, ptr %pci_bridge, align 8
   %36 = load ptr, ptr %35, align 8
-  %memory_range = getelementptr inbounds %struct.PciBusInfo, ptr %36, i64 0, i32 4
+  %memory_range = getelementptr inbounds i8, ptr %36, i64 32
   %37 = load ptr, ptr %memory_range, align 8
   %38 = load i64, ptr %37, align 8
-  %limit47 = getelementptr inbounds %struct.PciMemoryRange, ptr %37, i64 0, i32 1
+  %limit47 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load i64, ptr %limit47, align 8
   %call48 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.37, i64 noundef %38, i64 noundef %39) #4
   %40 = load ptr, ptr %pci_bridge, align 8
   %41 = load ptr, ptr %40, align 8
-  %prefetchable_range = getelementptr inbounds %struct.PciBusInfo, ptr %41, i64 0, i32 5
+  %prefetchable_range = getelementptr inbounds i8, ptr %41, i64 40
   %42 = load ptr, ptr %prefetchable_range, align 8
   %43 = load i64, ptr %42, align 8
-  %limit55 = getelementptr inbounds %struct.PciMemoryRange, ptr %42, i64 0, i32 1
+  %limit55 = getelementptr inbounds i8, ptr %42, i64 8
   %44 = load i64, ptr %limit55, align 8
   %call56 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.38, i64 noundef %43, i64 noundef %44) #4
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then25, %if.end23
-  %regions = getelementptr inbounds %struct.PciDeviceInfo, ptr %dev, i64 0, i32 10
+  %regions = getelementptr inbounds i8, ptr %dev, i64 80
   %region.063 = load ptr, ptr %regions, align 8
   %tobool58.not64 = icmp eq ptr %region.063, null
   br i1 %tobool58.not64, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end57, %for.inc
   %region.065 = phi ptr [ %region.0, %for.inc ], [ %region.063, %if.end57 ]
-  %value = getelementptr inbounds %struct.PciMemoryRegionList, ptr %region.065, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %region.065, i64 8
   %45 = load ptr, ptr %value, align 8
-  %address = getelementptr inbounds %struct.PciMemoryRegion, ptr %45, i64 0, i32 2
+  %address = getelementptr inbounds i8, ptr %45, i64 16
   %46 = load i64, ptr %address, align 8
-  %size60 = getelementptr inbounds %struct.PciMemoryRegion, ptr %45, i64 0, i32 3
+  %size60 = getelementptr inbounds i8, ptr %45, i64 24
   %47 = load i64, ptr %size60, align 8
   %48 = load i64, ptr %45, align 8
   %call62 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.39, i64 noundef %48) #4
   %49 = load ptr, ptr %value, align 8
-  %type = getelementptr inbounds %struct.PciMemoryRegion, ptr %49, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %49, i64 8
   %50 = load ptr, ptr %type, align 8
   %call64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(3) @.str.40) #5
   %tobool65.not = icmp eq i32 %call64, 0
@@ -282,12 +248,12 @@ if.then66:                                        ; preds = %for.body
   br label %for.inc
 
 if.else70:                                        ; preds = %for.body
-  %mem_type_64 = getelementptr inbounds %struct.PciMemoryRegion, ptr %49, i64 0, i32 7
+  %mem_type_64 = getelementptr inbounds i8, ptr %49, i64 35
   %51 = load i8, ptr %mem_type_64, align 1
   %52 = and i8 %51, 1
   %tobool72.not = icmp eq i8 %52, 0
   %cond = select i1 %tobool72.not, i32 32, i32 64
-  %prefetch = getelementptr inbounds %struct.PciMemoryRegion, ptr %49, i64 0, i32 5
+  %prefetch = getelementptr inbounds i8, ptr %49, i64 33
   %53 = load i8, ptr %prefetch, align 1
   %54 = and i8 %53, 1
   %tobool75.not = icmp eq i8 %54, 0
@@ -303,7 +269,7 @@ for.inc:                                          ; preds = %if.then66, %if.else
   br i1 %tobool58.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.end57
-  %qdev_id = getelementptr inbounds %struct.PciDeviceInfo, ptr %dev, i64 0, i32 8
+  %qdev_id = getelementptr inbounds i8, ptr %dev, i64 64
   %55 = load ptr, ptr %qdev_id, align 8
   %call82 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.44, ptr noundef %55) #4
   %56 = load ptr, ptr %pci_bridge, align 8
@@ -311,21 +277,21 @@ for.end:                                          ; preds = %for.inc, %if.end57
   br i1 %tobool84.not, label %if.end98, label %if.then85
 
 if.then85:                                        ; preds = %for.end
-  %has_devices = getelementptr inbounds %struct.PciBridgeInfo, ptr %56, i64 0, i32 1
+  %has_devices = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load i8, ptr %has_devices, align 8
   %58 = and i8 %57, 1
   %tobool87.not = icmp eq i8 %58, 0
   br i1 %tobool87.not, label %if.end98, label %if.then88
 
 if.then88:                                        ; preds = %if.then85
-  %devices = getelementptr inbounds %struct.PciBridgeInfo, ptr %56, i64 0, i32 2
+  %devices = getelementptr inbounds i8, ptr %56, i64 16
   %cdev.066 = load ptr, ptr %devices, align 8
   %tobool91.not67 = icmp eq ptr %cdev.066, null
   br i1 %tobool91.not67, label %if.end98, label %for.body92
 
 for.body92:                                       ; preds = %if.then88, %for.body92
   %cdev.068 = phi ptr [ %cdev.0, %for.body92 ], [ %cdev.066, %if.then88 ]
-  %value93 = getelementptr inbounds %struct.PciDeviceInfoList, ptr %cdev.068, i64 0, i32 1
+  %value93 = getelementptr inbounds i8, ptr %cdev.068, i64 8
   %59 = load ptr, ptr %value93, align 8
   tail call fastcc void @hmp_info_pci_device(ptr noundef %mon, ptr noundef %59)
   %cdev.0 = load ptr, ptr %cdev.068, align 8
@@ -342,13 +308,13 @@ declare void @qapi_free_PciInfoList(ptr noundef) local_unnamed_addr #1
 define dso_local void @pcibus_dev_print(ptr noundef %mon, ptr noundef %dev, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %ctxt = alloca [64 x i8], align 16
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 10
   %add.ptr.val = load i16, ptr %add.ptr, align 1
   %conv = zext i16 %add.ptr.val to i32
   %call1 = tail call ptr @get_class_desc(i32 noundef %conv) #4
-  %desc2 = getelementptr inbounds %struct.pci_class_desc, ptr %call1, i64 0, i32 1
+  %desc2 = getelementptr inbounds i8, ptr %call1, i64 8
   %1 = load ptr, ptr %desc2, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -366,7 +332,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %call1.i.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i) #4
   %call.i1.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #4
   %call1.i = tail call i32 @pci_bus_num(ptr noundef %call.i1.i.i) #4
-  %devfn = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 8
+  %devfn = getelementptr inbounds i8, ptr %dev, i64 208
   %2 = load i32, ptr %devfn, align 16
   %shr = lshr i32 %2, 3
   %and = and i32 %shr, 31
@@ -384,18 +350,19 @@ if.end:                                           ; preds = %if.else, %if.then
   %add.ptr24.val = load i16, ptr %add.ptr24, align 1
   %conv26 = zext i16 %add.ptr24.val to i32
   %call27 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.2, i32 noundef %indent, ptr noundef nonnull @.str.3, ptr noundef nonnull %ctxt, i32 noundef %call1.i, i32 noundef %and, i32 noundef %and10, i32 noundef %conv14, i32 noundef %conv18, i32 noundef %conv22, i32 noundef %conv26) #4
+  %io_regions = getelementptr inbounds i8, ptr %dev, i64 296
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
-  %size = getelementptr %struct.PCIDevice, ptr %dev, i64 0, i32 11, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr [7 x %struct.PCIIORegion], ptr %io_regions, i64 0, i64 %indvars.iv
+  %size = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i64, ptr %size, align 8
   %tobool29.not = icmp eq i64 %4, 0
   br i1 %tobool29.not, label %for.inc, label %if.end31
 
 if.end31:                                         ; preds = %for.body
-  %arrayidx = getelementptr %struct.PCIDevice, ptr %dev, i64 0, i32 11, i64 %indvars.iv
-  %type = getelementptr %struct.PCIDevice, ptr %dev, i64 0, i32 11, i64 %indvars.iv, i32 2
+  %type = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %5 = load i8, ptr %type, align 8
   %6 = and i8 %5, 1
   %tobool34.not = icmp eq i8 %6, 0
@@ -495,9 +462,9 @@ if.end19:                                         ; preds = %if.else, %if.end13
   store i32 %3, ptr %aer_err, align 4
   %4 = load ptr, ptr %dev, align 8
   %call20 = call zeroext i16 @pci_requester_id(ptr noundef %4) #4
-  %source_id = getelementptr inbounds %struct.PCIEAERErr, ptr %aer_err, i64 0, i32 1
+  %source_id = getelementptr inbounds i8, ptr %aer_err, i64 4
   store i16 %call20, ptr %source_id, align 4
-  %flags = getelementptr inbounds %struct.PCIEAERErr, ptr %aer_err, i64 0, i32 2
+  %flags = getelementptr inbounds i8, ptr %aer_err, i64 6
   %5 = load i8, ptr %correctable, align 1
   %6 = and i8 %5, 1
   %spec.store.select = zext nneg i8 %6 to i16
@@ -535,35 +502,35 @@ if.then43:                                        ; preds = %if.end40
 if.end48:                                         ; preds = %if.then43, %if.end40
   %call49 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.16, i64 noundef 0) #4
   %conv50 = trunc i64 %call49 to i32
-  %header = getelementptr inbounds %struct.PCIEAERErr, ptr %aer_err, i64 0, i32 3
+  %header = getelementptr inbounds i8, ptr %aer_err, i64 8
   store i32 %conv50, ptr %header, align 4
   %call51 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.18, i64 noundef 0) #4
   %conv52 = trunc i64 %call51 to i32
-  %arrayidx54 = getelementptr inbounds %struct.PCIEAERErr, ptr %aer_err, i64 0, i32 3, i64 1
+  %arrayidx54 = getelementptr inbounds i8, ptr %aer_err, i64 12
   store i32 %conv52, ptr %arrayidx54, align 4
   %call55 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.19, i64 noundef 0) #4
   %conv56 = trunc i64 %call55 to i32
-  %arrayidx58 = getelementptr inbounds %struct.PCIEAERErr, ptr %aer_err, i64 0, i32 3, i64 2
+  %arrayidx58 = getelementptr inbounds i8, ptr %aer_err, i64 16
   store i32 %conv56, ptr %arrayidx58, align 4
   %call59 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.20, i64 noundef 0) #4
   %conv60 = trunc i64 %call59 to i32
-  %arrayidx62 = getelementptr inbounds %struct.PCIEAERErr, ptr %aer_err, i64 0, i32 3, i64 3
+  %arrayidx62 = getelementptr inbounds i8, ptr %aer_err, i64 20
   store i32 %conv60, ptr %arrayidx62, align 4
   %call63 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.17, i64 noundef 0) #4
   %conv64 = trunc i64 %call63 to i32
-  %prefix = getelementptr inbounds %struct.PCIEAERErr, ptr %aer_err, i64 0, i32 4
+  %prefix = getelementptr inbounds i8, ptr %aer_err, i64 24
   store i32 %conv64, ptr %prefix, align 4
   %call66 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.21, i64 noundef 0) #4
   %conv67 = trunc i64 %call66 to i32
-  %arrayidx69 = getelementptr inbounds %struct.PCIEAERErr, ptr %aer_err, i64 0, i32 4, i64 1
+  %arrayidx69 = getelementptr inbounds i8, ptr %aer_err, i64 28
   store i32 %conv67, ptr %arrayidx69, align 4
   %call70 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.22, i64 noundef 0) #4
   %conv71 = trunc i64 %call70 to i32
-  %arrayidx73 = getelementptr inbounds %struct.PCIEAERErr, ptr %aer_err, i64 0, i32 4, i64 2
+  %arrayidx73 = getelementptr inbounds i8, ptr %aer_err, i64 32
   store i32 %conv71, ptr %arrayidx73, align 4
   %call74 = call i64 @qdict_get_try_int(ptr noundef %qdict, ptr noundef nonnull @.str.23, i64 noundef 0) #4
   %conv75 = trunc i64 %call74 to i32
-  %arrayidx77 = getelementptr inbounds %struct.PCIEAERErr, ptr %aer_err, i64 0, i32 4, i64 3
+  %arrayidx77 = getelementptr inbounds i8, ptr %aer_err, i64 36
   store i32 %conv75, ptr %arrayidx77, align 4
   %12 = load ptr, ptr %dev, align 8
   %call78 = call i32 @pcie_aer_inject_error(ptr noundef %12, ptr noundef nonnull %aer_err) #4
@@ -584,7 +551,7 @@ if.end82:                                         ; preds = %if.end48
   %call.i1.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #4
   %call1.i = call i32 @pci_bus_num(ptr noundef %call.i1.i.i) #4
   %15 = load ptr, ptr %dev, align 8
-  %devfn = getelementptr inbounds %struct.PCIDevice, ptr %15, i64 0, i32 8
+  %devfn = getelementptr inbounds i8, ptr %15, i64 208
   %16 = load i32, ptr %devfn, align 16
   %shr = lshr i32 %16, 3
   %and = and i32 %shr, 31

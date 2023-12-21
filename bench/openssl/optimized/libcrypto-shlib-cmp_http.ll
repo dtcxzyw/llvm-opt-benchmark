@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-cmp_http.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_cmp_ctx_st = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, i32, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_cmp_msg_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-
 @__const.OSSL_CMP_MSG_http_perform.content_type_pkix = private unnamed_addr constant [20 x i8] c"application/pkixcmp\00", align 16
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/cmp/cmp_http.c\00", align 1
 @__func__.OSSL_CMP_MSG_http_perform = private unnamed_addr constant [26 x i8] c"OSSL_CMP_MSG_http_perform\00", align 1
@@ -52,7 +49,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp6, label %err, label %if.end8
 
 if.end8:                                          ; preds = %if.end4
-  %serverPort = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 9
+  %serverPort = getelementptr inbounds i8, ptr %ctx, i64 72
   %0 = load i32, ptr %serverPort, align 8
   %cmp9.not = icmp eq i32 %0, 0
   br i1 %cmp9.not, label %if.end13, label %if.then10
@@ -62,7 +59,7 @@ if.then10:                                        ; preds = %if.end8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then10, %if.end8
-  %tls_used14 = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 15
+  %tls_used14 = getelementptr inbounds i8, ptr %ctx, i64 108
   %1 = load i32, ptr %tls_used14, align 4
   %cmp15 = icmp sgt i32 %1, -1
   br i1 %cmp15, label %cond.true, label %cond.false
@@ -79,36 +76,36 @@ cond.false:                                       ; preds = %if.end13
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond.in = phi i1 [ %cmp17, %cond.true ], [ %cmp19, %cond.false ]
   %cond = zext i1 %cond.in to i32
-  %http_ctx = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 6
+  %http_ctx = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load ptr, ptr %http_ctx, align 8
   %cmp21 = icmp eq ptr %2, null
   br i1 %cmp21, label %if.then23, label %if.end28
 
 if.then23:                                        ; preds = %cond.end
-  %server = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 8
+  %server = getelementptr inbounds i8, ptr %ctx, i64 64
   %3 = load ptr, ptr %server, align 8
   %cond26 = select i1 %cond.in, ptr @.str.6, ptr @.str.7
   %call27 = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 7, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.OSSL_CMP_MSG_http_perform, ptr noundef nonnull @.str, i32 noundef 75, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef %3, ptr noundef nonnull %server_port, ptr noundef nonnull %cond26) #4
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then23, %cond.end
-  %server30 = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 8
+  %server30 = getelementptr inbounds i8, ptr %ctx, i64 64
   %4 = load ptr, ptr %server30, align 8
-  %serverPath = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 7
+  %serverPath = getelementptr inbounds i8, ptr %ctx, i64 56
   %5 = load ptr, ptr %serverPath, align 8
-  %proxy = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 10
+  %proxy = getelementptr inbounds i8, ptr %ctx, i64 80
   %6 = load ptr, ptr %proxy, align 8
-  %no_proxy = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 11
+  %no_proxy = getelementptr inbounds i8, ptr %ctx, i64 88
   %7 = load ptr, ptr %no_proxy, align 8
-  %http_cb = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 17
+  %http_cb = getelementptr inbounds i8, ptr %ctx, i64 120
   %8 = load ptr, ptr %http_cb, align 8
   %call32 = call ptr @OSSL_CMP_CTX_get_http_cb_arg(ptr noundef nonnull %ctx) #4
   %9 = load ptr, ptr %headers, align 8
-  %msg_timeout = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 13
+  %msg_timeout = getelementptr inbounds i8, ptr %ctx, i64 100
   %10 = load i32, ptr %msg_timeout, align 4
-  %keep_alive = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 12
+  %keep_alive = getelementptr inbounds i8, ptr %ctx, i64 96
   %11 = load i32, ptr %keep_alive, align 8
-  %body = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %req, i64 0, i32 1
+  %body = getelementptr inbounds i8, ptr %req, i64 8
   %12 = load ptr, ptr %body, align 8
   %13 = load i32, ptr %12, align 8
   %cmp.i = icmp ne i32 %11, 0

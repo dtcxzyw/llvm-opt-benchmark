@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
-%struct.kdf_data_st = type { ptr, %struct.CRYPTO_REF_COUNT }
-%struct.CRYPTO_REF_COUNT = type { i32 }
 
 @.str = private unnamed_addr constant [64 x i8] c"../openssl/providers/implementations/keymgmt/kdf_legacy_kmgmt.c\00", align 1
 @ossl_kdf_keymgmt_functions = local_unnamed_addr constant [4 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @kdf_newdata }, %struct.ossl_dispatch_st { i32 10, ptr @kdf_freedata }, %struct.ossl_dispatch_st { i32 21, ptr @kdf_has }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -23,7 +21,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %refcnt = getelementptr inbounds %struct.kdf_data_st, ptr %call1, i64 0, i32 1
+  %refcnt = getelementptr inbounds i8, ptr %call1, i64 8
   store atomic i32 1, ptr %refcnt seq_cst, align 4
   %call8 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #3
   store ptr %call8, ptr %call1, align 8
@@ -49,7 +47,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcnt = getelementptr inbounds %struct.kdf_data_st, ptr %kdfdata, i64 0, i32 1
+  %refcnt = getelementptr inbounds i8, ptr %kdfdata, i64 8
   %0 = atomicrmw sub ptr %refcnt, i32 1 monotonic, align 4
   %cmp.i = icmp eq i32 %0, 1
   br i1 %cmp.i, label %CRYPTO_DOWN_REF.exit.thread, label %CRYPTO_DOWN_REF.exit
@@ -78,7 +76,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %refcnt = getelementptr inbounds %struct.kdf_data_st, ptr %kdfdata, i64 0, i32 1
+  %refcnt = getelementptr inbounds i8, ptr %kdfdata, i64 8
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4
   br label %return
 
@@ -100,7 +98,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %ossl_kdf_data_new.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %refcnt.i = getelementptr inbounds %struct.kdf_data_st, ptr %call1.i, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   store atomic i32 1, ptr %refcnt.i seq_cst, align 4
   %call8.i = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #3
   store ptr %call8.i, ptr %call1.i, align 8
@@ -118,7 +116,7 @@ entry:
   br i1 %cmp.i, label %ossl_kdf_data_free.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %refcnt.i = getelementptr inbounds %struct.kdf_data_st, ptr %kdfdata, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %kdfdata, i64 8
   %0 = atomicrmw sub ptr %refcnt.i, i32 1 monotonic, align 4
   %cmp.i.i = icmp eq i32 %0, 1
   br i1 %cmp.i.i, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i

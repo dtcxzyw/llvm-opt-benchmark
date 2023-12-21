@@ -348,7 +348,7 @@ entry:
   store i8 0, ptr %quotes, align 1
   %0 = trunc i64 %lflags to i16
   %conv = and i16 %0, 1039
-  %type1 = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 1
+  %type1 = getelementptr inbounds i8, ptr %str, i64 4
   %1 = load i32, ptr %type1, align 4
   %.fr = freeze i32 %1
   %and2 = and i64 %lflags, 64
@@ -413,7 +413,7 @@ if.end.i:                                         ; preds = %if.then37
   br i1 %tobool1.not.i, label %if.then2.i, label %if.end6.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %data.i = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %str, i64 8
   %5 = load ptr, ptr %data.i, align 8
   %6 = load i32, ptr %str, align 8
   %.fr.i = freeze i32 %6
@@ -435,7 +435,7 @@ do_dump.exit.thread62:                            ; preds = %if.then.i.i
   br label %return
 
 while.body.lr.ph.i.i:                             ; preds = %if.then.i.i
-  %arrayidx5.i.i = getelementptr inbounds [2 x i8], ptr %hextmp.i.i, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %hextmp.i.i, i64 1
   br label %while.body.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i
@@ -473,7 +473,7 @@ do_hex_dump.exit.i:                               ; preds = %while.cond.i.i, %if
 if.end6.i:                                        ; preds = %if.end.i
   %12 = load i32, ptr %type1, align 4
   store i32 %12, ptr %t.i, align 8
-  %value.i = getelementptr inbounds %struct.asn1_type_st, ptr %t.i, i64 0, i32 1
+  %value.i = getelementptr inbounds i8, ptr %t.i, i64 8
   store ptr %str, ptr %value.i, align 8
   %call8.i = call i32 @i2d_ASN1_TYPE(ptr noundef nonnull %t.i, ptr noundef null) #8
   %call8.fr.i = freeze i32 %call8.i
@@ -495,7 +495,7 @@ if.end16.i:                                       ; preds = %if.end11.i
 
 while.body.lr.ph.i22.i:                           ; preds = %if.end16.i
   %add.ptr.i20.i = getelementptr inbounds i8, ptr %call12.i, i64 %conv.i
-  %arrayidx5.i23.i = getelementptr inbounds [2 x i8], ptr %hextmp.i16.i, i64 0, i64 1
+  %arrayidx5.i23.i = getelementptr inbounds i8, ptr %hextmp.i16.i, i64 1
   br label %while.body.i24.i
 
 while.cond.i32.i:                                 ; preds = %while.body.i24.i
@@ -560,7 +560,7 @@ if.end44.thread:                                  ; preds = %if.else, %land.lhs.
   %tobool46.not75.in = and i64 %lflags, 16
   %tobool46.not75 = icmp eq i64 %tobool46.not75.in, 0
   %type.2 = select i1 %tobool46.not75, i32 %type.15774, i32 %19
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %str, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %str, i64 8
   %20 = load ptr, ptr %data, align 8
   %21 = load i32, ptr %str, align 8
   %call53 = call fastcc i32 @do_buf(ptr noundef %20, i32 noundef %21, i32 noundef %type.2, i16 noundef zeroext %conv, ptr noundef nonnull %quotes, ptr noundef %io_ch, ptr noundef null)
@@ -626,7 +626,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type1 = getelementptr inbounds %struct.asn1_string_st, ptr %in, i64 0, i32 1
+  %type1 = getelementptr inbounds i8, ptr %in, i64 4
   %0 = load i32, ptr %type1, align 4
   %or.cond = icmp ugt i32 %0, 30
   br i1 %or.cond, label %return, label %if.end4
@@ -643,9 +643,9 @@ if.end8:                                          ; preds = %if.end4
   %3 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %3 to i32
   %or = or i32 %conv, 4096
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %stmp, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %stmp, i64 8
   store i32 0, ptr %stmp, align 8
-  %data9 = getelementptr inbounds %struct.asn1_string_st, ptr %in, i64 0, i32 2
+  %data9 = getelementptr inbounds i8, ptr %in, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %data9, align 8
   %5 = load i32, ptr %in, align 8

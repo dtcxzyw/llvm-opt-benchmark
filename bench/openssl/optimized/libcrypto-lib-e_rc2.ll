@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_cipher_st = type { i32, i32, i32, i32, i64, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.EVP_RC2_KEY = type { i32, %struct.rc2_key_st }
-%struct.rc2_key_st = type { [64 x i32] }
-%struct.evp_cipher_ctx_st = type { ptr, ptr, i32, i32, [16 x i8], [16 x i8], [32 x i8], i32, ptr, i32, i32, i64, ptr, i32, i32, [32 x i8], ptr, ptr }
 
 @rc2_cbc = internal constant %struct.evp_cipher_st { i32 37, i32 8, i32 16, i32 8, i64 74, i32 1, ptr @rc2_init_key, ptr @rc2_cbc_cipher, ptr null, i32 260, ptr @rc2_set_asn1_type_and_iv, ptr @rc2_get_asn1_type_and_iv, ptr @rc2_ctrl, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
 @rc2_cfb64 = internal constant %struct.evp_cipher_st { i32 39, i32 1, i32 16, i32 8, i64 75, i32 1, ptr @rc2_init_key, ptr @rc2_cfb64_cipher, ptr null, i32 260, ptr @rc2_set_asn1_type_and_iv, ptr @rc2_get_asn1_type_and_iv, ptr @rc2_ctrl, ptr null, i32 0, ptr null, ptr null, ptr null, %struct.CRYPTO_REF_COUNT zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -59,7 +56,7 @@ entry:
 define internal i32 @rc2_init_key(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %ks = getelementptr inbounds %struct.EVP_RC2_KEY, ptr %call, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %call, i64 4
   %call1 = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %ctx) #6
   %call2 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
   %0 = load i32, ptr %call2, align 4
@@ -74,7 +71,7 @@ entry:
   br i1 %cmp13, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -82,7 +79,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %in.addr.015 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr, %while.body ]
   %out.addr.014 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr2, %while.body ]
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %ks = getelementptr inbounds %struct.EVP_RC2_KEY, ptr %call, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %call, i64 4
   %call1 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
   tail call void @RC2_cbc_encrypt(ptr noundef %in.addr.015, ptr noundef %out.addr.014, i64 noundef 1073741824, ptr noundef nonnull %ks, ptr noundef nonnull %iv, i32 noundef %call1) #6
   %sub = add i64 %inl.addr.016, -1073741824
@@ -100,8 +97,8 @@ while.end:                                        ; preds = %while.body, %entry
 
 if.then:                                          ; preds = %while.end
   %call3 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %ks4 = getelementptr inbounds %struct.EVP_RC2_KEY, ptr %call3, i64 0, i32 1
-  %iv5 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %ks4 = getelementptr inbounds i8, ptr %call3, i64 4
+  %iv5 = getelementptr inbounds i8, ptr %ctx, i64 40
   %call7 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
   tail call void @RC2_cbc_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef nonnull %ks4, ptr noundef nonnull %iv5, i32 noundef %call7) #6
   br label %if.end
@@ -144,7 +141,7 @@ rc2_meth_to_magic.exit:                           ; preds = %if.then, %if.end.i,
   %retval.0.i = phi i64 [ 120, %if.then4.i ], [ 160, %if.then7.i ], [ 0, %if.else8.i ], [ 0, %if.then ], [ 58, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i)
   %call1 = call i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef %c) #6
-  %oiv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %c, i64 0, i32 4
+  %oiv = getelementptr inbounds i8, ptr %c, i64 24
   %call2 = call i32 @ASN1_TYPE_set_int_octetstring(ptr noundef nonnull %type, i64 noundef %retval.0.i, ptr noundef nonnull %oiv, i32 noundef %call1) #6
   br label %if.end
 
@@ -300,7 +297,7 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %spec.select = tail call i64 @llvm.umin.i64(i64 %inl, i64 1073741824)
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -311,7 +308,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #6
   store i32 %call, ptr %num, align 4
   %call2 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %ks = getelementptr inbounds %struct.EVP_RC2_KEY, ptr %call2, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %call2, i64 4
   %call3 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
   call void @RC2_cfb64_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef nonnull %ks, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %call3) #6
   %0 = load i32, ptr %num, align 4
@@ -342,7 +339,7 @@ entry:
   br i1 %cmp15, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %iv = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -352,7 +349,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %call = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #6
   store i32 %call, ptr %num, align 4
   %call1 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %ks = getelementptr inbounds %struct.EVP_RC2_KEY, ptr %call1, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %call1, i64 4
   call void @RC2_ofb64_encrypt(ptr noundef %in.addr.017, ptr noundef %out.addr.016, i64 noundef 1073741824, ptr noundef nonnull %ks, ptr noundef nonnull %iv, ptr noundef nonnull %num) #6
   %0 = load i32, ptr %num, align 4
   %call2 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %0) #6
@@ -373,8 +370,8 @@ if.then:                                          ; preds = %while.end
   %call5 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %ctx) #6
   store i32 %call5, ptr %num4, align 4
   %call6 = call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %ks7 = getelementptr inbounds %struct.EVP_RC2_KEY, ptr %call6, i64 0, i32 1
-  %iv8 = getelementptr inbounds %struct.evp_cipher_ctx_st, ptr %ctx, i64 0, i32 5
+  %ks7 = getelementptr inbounds i8, ptr %call6, i64 4
+  %iv8 = getelementptr inbounds i8, ptr %ctx, i64 40
   call void @RC2_ofb64_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef nonnull %ks7, ptr noundef nonnull %iv8, ptr noundef nonnull %num4) #6
   %1 = load i32, ptr %num4, align 4
   %call10 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %ctx, i32 noundef %1) #6
@@ -390,7 +387,7 @@ declare void @RC2_ofb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nound
 define internal i32 @rc2_ecb_cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %ctx) #6
-  %block_size = getelementptr inbounds %struct.evp_cipher_st, ptr %call, i64 0, i32 1
+  %block_size = getelementptr inbounds i8, ptr %call, i64 4
   %0 = load i32, ptr %block_size, align 4
   %conv = sext i32 %0 to i64
   %cmp = icmp ugt i64 %conv, %inl
@@ -405,7 +402,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %i.010
   %add.ptr4 = getelementptr inbounds i8, ptr %out, i64 %i.010
   %call5 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #6
-  %ks = getelementptr inbounds %struct.EVP_RC2_KEY, ptr %call5, i64 0, i32 1
+  %ks = getelementptr inbounds i8, ptr %call5, i64 4
   %call6 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %ctx) #6
   tail call void @RC2_ecb_encrypt(ptr noundef %add.ptr, ptr noundef %add.ptr4, ptr noundef nonnull %ks, i32 noundef %call6) #6
   %add = add i64 %i.010, %conv

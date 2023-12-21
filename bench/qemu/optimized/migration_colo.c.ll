@@ -6,35 +6,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.QEnumLookup = type { ptr, ptr, i32 }
 %struct.Notifier = type { ptr, %struct.anon.1 }
 %struct.anon.1 = type { ptr, ptr }
-%struct.MigrationState = type { %struct.DeviceState, %struct.QemuThread, ptr, ptr, ptr, ptr, %struct.QemuSemaphore, ptr, %struct.QemuMutex, %struct.QemuSemaphore, i64, double, i64, i64, i64, %struct.MigrationParameters, i32, %struct.anon.0, double, i64, i64, i64, i64, i64, [23 x i8], i64, i32, i8, i8, i8, i8, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuEvent, i64, ptr, ptr, %struct.QemuMutex, i8, i8, i8, i8, %struct.QemuSemaphore, i8, i8, i8, i8, ptr, ptr, i8, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.QemuThread = type { i64 }
-%struct.MigrationParameters = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, i8, i64, i8, i64, i8, i64, i8, i32, i8, i8, i8, i8, i8, i64, i8, i64, i8, i8, i8, i32, i8, i8, i8, i8, i8, ptr, i8, i64, i8, i64, i8, i32 }
-%struct.anon.0 = type { ptr, %struct.QemuThread, i8, %struct.QemuSemaphore, %struct.QemuSemaphore }
-%struct.QemuEvent = type { i32, i8 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QemuSemaphore = type { %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.QemuCond = type { %union.pthread_cond_t, i8 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%struct.MigrationIncomingState = type { ptr, [2 x ptr], ptr, ptr, %struct.QemuSemaphore, %struct.QemuEvent, %struct.AnnounceTimer, i64, i8, %struct.QemuThread, i8, i8, %struct.QemuThread, i32, i32, ptr, %struct.QemuMutex, ptr, i32, ptr, %struct.QemuSemaphore, %struct.QemuThread, i32, %struct.QemuMutex, ptr, ptr, ptr, ptr, i32, ptr, ptr, %struct.QemuSemaphore, ptr, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuSemaphore, ptr, ptr, i32, %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.AnnounceTimer = type { ptr, %struct.AnnounceParameters, i32, i32 }
-%struct.AnnounceParameters = type { i64, i64, i64, i64, i8, ptr, ptr }
-%struct.ReplicationStatus = type { i8, ptr }
-%struct.COLOStatus = type { i32, i32, i32 }
 %struct.timeval = type { i64, i64 }
-%struct.QIOChannelBuffer = type { %struct.QIOChannel, i64, i64, i64, ptr }
-%struct.QIOChannel = type { %struct.Object, i32, ptr, ptr, ptr, ptr, ptr, i8 }
+%struct.QemuThread = type { i64 }
 
 @last_colo_mode = internal unnamed_addr global i32 0, align 4
 @.str = private unnamed_addr constant [68 x i8] c"colo_do_failover failed because the colo mode could not be obtained\00", align 1
@@ -103,7 +76,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local zeroext i1 @migration_in_colo_state() local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @migrate_get_current() #6
-  %state = getelementptr inbounds %struct.MigrationState, ptr %call, i64 0, i32 16
+  %state = getelementptr inbounds i8, ptr %call, i64 776
   %0 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %0, 10
   ret i1 %cmp
@@ -119,7 +92,7 @@ entry:
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %state = getelementptr inbounds %struct.MigrationIncomingState, ptr %call, i64 0, i32 28
+  %state = getelementptr inbounds i8, ptr %call, i64 568
   %0 = load i32, ptr %state, align 8
   %cmp = icmp eq i32 %0, 10
   br label %land.end
@@ -135,23 +108,23 @@ declare ptr @migration_incoming_get_current() local_unnamed_addr #1
 define dso_local void @colo_checkpoint_delay_set() local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @migrate_get_current() #6
-  %state.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 16
+  %state.i = getelementptr inbounds i8, ptr %call.i, i64 776
   %0 = load i32, ptr %state.i, align 8
   %cmp.i = icmp eq i32 %0, 10
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %call1 = tail call ptr @migrate_get_current() #6
-  %colo_checkpoint_event.i = getelementptr inbounds %struct.MigrationState, ptr %call1, i64 0, i32 34
+  %colo_checkpoint_event.i = getelementptr inbounds i8, ptr %call1, i64 1456
   tail call void @qemu_event_set(ptr noundef nonnull %colo_checkpoint_event.i) #6
   %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #6
   %div.i.i = sdiv i64 %call.i.i, 1000000
-  %colo_checkpoint_time.i = getelementptr inbounds %struct.MigrationState, ptr %call1, i64 0, i32 35
+  %colo_checkpoint_time.i = getelementptr inbounds i8, ptr %call1, i64 1464
   store i64 %div.i.i, ptr %colo_checkpoint_time.i, align 8
   %call2.i = tail call i32 @migrate_checkpoint_delay() #6
   %conv.i = zext i32 %call2.i to i64
   %add.i = add nsw i64 %div.i.i, %conv.i
-  %colo_delay_timer.i = getelementptr inbounds %struct.MigrationState, ptr %call1, i64 0, i32 36
+  %colo_delay_timer.i = getelementptr inbounds i8, ptr %call1, i64 1472
   %1 = load ptr, ptr %colo_delay_timer.i, align 8
   tail call void @timer_mod(ptr noundef %1, i64 noundef %add.i) #6
   br label %if.end
@@ -163,16 +136,16 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @colo_checkpoint_notify(ptr noundef %opaque) #0 {
 entry:
-  %colo_checkpoint_event = getelementptr inbounds %struct.MigrationState, ptr %opaque, i64 0, i32 34
+  %colo_checkpoint_event = getelementptr inbounds i8, ptr %opaque, i64 1456
   tail call void @qemu_event_set(ptr noundef nonnull %colo_checkpoint_event) #6
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #6
   %div.i = sdiv i64 %call.i, 1000000
-  %colo_checkpoint_time = getelementptr inbounds %struct.MigrationState, ptr %opaque, i64 0, i32 35
+  %colo_checkpoint_time = getelementptr inbounds i8, ptr %opaque, i64 1464
   store i64 %div.i, ptr %colo_checkpoint_time, align 8
   %call2 = tail call i32 @migrate_checkpoint_delay() #6
   %conv = zext i32 %call2 to i64
   %add = add nsw i64 %div.i, %conv
-  %colo_delay_timer = getelementptr inbounds %struct.MigrationState, ptr %opaque, i64 0, i32 36
+  %colo_delay_timer = getelementptr inbounds i8, ptr %opaque, i64 1472
   %0 = load ptr, ptr %colo_delay_timer, align 8
   tail call void @timer_mod(ptr noundef %0, i64 noundef %add) #6
   ret void
@@ -182,7 +155,7 @@ entry:
 define dso_local i32 @get_colo_mode() local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @migrate_get_current() #6
-  %state.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 16
+  %state.i = getelementptr inbounds i8, ptr %call.i, i64 776
   %0 = load i32, ptr %state.i, align 8
   %cmp.i = icmp eq i32 %0, 10
   br i1 %cmp.i, label %return, label %if.else
@@ -193,7 +166,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool.not.i, label %return, label %migration_incoming_in_colo_state.exit
 
 migration_incoming_in_colo_state.exit:            ; preds = %if.else
-  %state.i2 = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i1, i64 0, i32 28
+  %state.i2 = getelementptr inbounds i8, ptr %call.i1, i64 568
   %1 = load i32, ptr %state.i2, align 8
   %.fr = freeze i32 %1
   %cmp.i3 = icmp eq i32 %.fr, 10
@@ -223,7 +196,7 @@ if.then:                                          ; preds = %colo_runstate_is_st
 
 if.end:                                           ; preds = %entry, %if.then, %colo_runstate_is_stopped.exit
   %call.i.i = tail call ptr @migrate_get_current() #6
-  %state.i.i = getelementptr inbounds %struct.MigrationState, ptr %call.i.i, i64 0, i32 16
+  %state.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 776
   %0 = load i32, ptr %state.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 10
   br i1 %cmp.i.i, label %sw.bb, label %if.else.i
@@ -234,7 +207,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %tobool.not.i.i, label %sw.default, label %migration_incoming_in_colo_state.exit.i
 
 migration_incoming_in_colo_state.exit.i:          ; preds = %if.else.i
-  %state.i2.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i1.i, i64 0, i32 28
+  %state.i2.i = getelementptr inbounds i8, ptr %call.i1.i, i64 568
   %1 = load i32, ptr %state.i2.i, align 8
   %.fr.i = freeze i32 %1
   %cmp.i3.i = icmp eq i32 %.fr.i, 10
@@ -245,21 +218,21 @@ sw.bb:                                            ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   %call.i1 = tail call ptr @migrate_get_current() #6
   store ptr null, ptr %local_err.i, align 8
-  %state.i = getelementptr inbounds %struct.MigrationState, ptr %call.i1, i64 0, i32 16
+  %state.i = getelementptr inbounds i8, ptr %call.i1, i64 776
   tail call void @migrate_set_state(ptr noundef nonnull %state.i, i32 noundef 10, i32 noundef 8) #6
-  %colo_checkpoint_event.i.i = getelementptr inbounds %struct.MigrationState, ptr %call.i1, i64 0, i32 34
+  %colo_checkpoint_event.i.i = getelementptr inbounds i8, ptr %call.i1, i64 1456
   tail call void @qemu_event_set(ptr noundef nonnull %colo_checkpoint_event.i.i) #6
   %call.i.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #6
   %div.i.i.i = sdiv i64 %call.i.i.i, 1000000
-  %colo_checkpoint_time.i.i = getelementptr inbounds %struct.MigrationState, ptr %call.i1, i64 0, i32 35
+  %colo_checkpoint_time.i.i = getelementptr inbounds i8, ptr %call.i1, i64 1464
   store i64 %div.i.i.i, ptr %colo_checkpoint_time.i.i, align 8
   %call2.i.i = tail call i32 @migrate_checkpoint_delay() #6
   %conv.i.i = zext i32 %call2.i.i to i64
   %add.i.i = add nsw i64 %div.i.i.i, %conv.i.i
-  %colo_delay_timer.i.i = getelementptr inbounds %struct.MigrationState, ptr %call.i1, i64 0, i32 36
+  %colo_delay_timer.i.i = getelementptr inbounds i8, ptr %call.i1, i64 1472
   %2 = load ptr, ptr %colo_delay_timer.i.i, align 8
   tail call void @timer_mod(ptr noundef %2, i64 noundef %add.i.i) #6
-  %to_dst_file.i = getelementptr inbounds %struct.MigrationState, ptr %call.i1, i64 0, i32 4
+  %to_dst_file.i = getelementptr inbounds i8, ptr %call.i1, i64 184
   %3 = load ptr, ptr %to_dst_file.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -269,7 +242,7 @@ if.then.i:                                        ; preds = %sw.bb
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb
-  %rp_state.i = getelementptr inbounds %struct.MigrationState, ptr %call.i1, i64 0, i32 17
+  %rp_state.i = getelementptr inbounds i8, ptr %call.i1, i64 784
   %4 = load ptr, ptr %rp_state.i, align 8
   %tobool3.not.i = icmp eq ptr %4, null
   br i1 %tobool3.not.i, label %if.end8.i, label %if.then4.i
@@ -300,7 +273,7 @@ if.then14.i:                                      ; preds = %if.end12.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then14.i, %if.end12.i
-  %colo_exit_sem.i = getelementptr inbounds %struct.MigrationState, ptr %call.i1, i64 0, i32 33
+  %colo_exit_sem.i = getelementptr inbounds i8, ptr %call.i1, i64 1344
   call void @qemu_sem_post(ptr noundef nonnull %colo_exit_sem.i) #6
   br label %primary_vm_do_failover.exit
 
@@ -327,7 +300,7 @@ if.then2.i:                                       ; preds = %if.then.i5
   br label %secondary_vm_do_failover.exit
 
 if.end4.i:                                        ; preds = %sw.bb3
-  %state.i4 = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i3, i64 0, i32 28
+  %state.i4 = getelementptr inbounds i8, ptr %call.i3, i64 568
   tail call void @migrate_set_state(ptr noundef nonnull %state.i4, i32 noundef 10, i32 noundef 8) #6
   call void @replication_stop_all(i1 noundef zeroext true, ptr noundef nonnull %local_err.i2) #6
   %6 = load ptr, ptr %local_err.i2, align 8
@@ -369,7 +342,7 @@ if.then15.i:                                      ; preds = %if.end13.i
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then15.i, %if.end13.i
-  %to_src_file.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i3, i64 0, i32 15
+  %to_src_file.i = getelementptr inbounds i8, ptr %call.i3, i64 280
   %10 = load ptr, ptr %to_src_file.i, align 8
   %tobool19.not.i = icmp eq ptr %10, null
   br i1 %tobool19.not.i, label %if.end23.i, label %if.then20.i
@@ -389,9 +362,9 @@ if.then26.i:                                      ; preds = %if.end23.i
   br label %secondary_vm_do_failover.exit
 
 if.end28.i:                                       ; preds = %if.end23.i
-  %colo_incoming_sem.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i3, i64 0, i32 31
+  %colo_incoming_sem.i = getelementptr inbounds i8, ptr %call.i3, i64 592
   call void @qemu_sem_post(ptr noundef nonnull %colo_incoming_sem.i) #6
-  %colo_incoming_co.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i3, i64 0, i32 30
+  %colo_incoming_co.i = getelementptr inbounds i8, ptr %call.i3, i64 584
   %11 = load ptr, ptr %colo_incoming_co.i, align 8
   %tobool29.not.i = icmp eq ptr %11, null
   br i1 %tobool29.not.i, label %secondary_vm_do_failover.exit, label %if.then30.i
@@ -466,7 +439,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call1 = call ptr @error_get_pretty(ptr noundef nonnull %0) #6
   %call2 = call noalias ptr @g_strdup(ptr noundef %call1) #6
-  %desc = getelementptr inbounds %struct.ReplicationStatus, ptr %call, i64 0, i32 1
+  %desc = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call2, ptr %desc, align 8
   %.pre = load ptr, ptr %err, align 8
   br label %if.end
@@ -523,7 +496,7 @@ define dso_local noalias ptr @qmp_query_colo_status(ptr nocapture noundef readno
 entry:
   %call = tail call noalias dereferenceable_or_null(12) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 12) #7
   %call.i.i = tail call ptr @migrate_get_current() #6
-  %state.i.i = getelementptr inbounds %struct.MigrationState, ptr %call.i.i, i64 0, i32 16
+  %state.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 776
   %0 = load i32, ptr %state.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 10
   br i1 %cmp.i.i, label %get_colo_mode.exit, label %if.else.i
@@ -534,7 +507,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %tobool.not.i.i, label %get_colo_mode.exit, label %migration_incoming_in_colo_state.exit.i
 
 migration_incoming_in_colo_state.exit.i:          ; preds = %if.else.i
-  %state.i2.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i1.i, i64 0, i32 28
+  %state.i2.i = getelementptr inbounds i8, ptr %call.i1.i, i64 568
   %1 = load i32, ptr %state.i2.i, align 8
   %.fr.i = freeze i32 %1
   %cmp.i3.i = icmp eq i32 %.fr.i, 10
@@ -545,7 +518,7 @@ get_colo_mode.exit:                               ; preds = %entry, %if.else.i, 
   %retval.0.i = phi i32 [ 1, %entry ], [ 0, %if.else.i ], [ %spec.select.i, %migration_incoming_in_colo_state.exit.i ]
   store i32 %retval.0.i, ptr %call, align 4
   %2 = load i32, ptr @last_colo_mode, align 4
-  %last_mode = getelementptr inbounds %struct.COLOStatus, ptr %call, i64 0, i32 1
+  %last_mode = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %2, ptr %last_mode, align 4
   %call2 = tail call i32 @failover_get_state() #6
   switch i32 %call2, label %sw.default [
@@ -554,21 +527,21 @@ get_colo_mode.exit:                               ; preds = %entry, %if.else.i, 
   ]
 
 sw.bb:                                            ; preds = %get_colo_mode.exit
-  %reason = getelementptr inbounds %struct.COLOStatus, ptr %call, i64 0, i32 2
+  %reason = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %reason, align 4
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %get_colo_mode.exit
-  %reason4 = getelementptr inbounds %struct.COLOStatus, ptr %call, i64 0, i32 2
+  %reason4 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %reason4, align 4
   br label %sw.epilog
 
 sw.default:                                       ; preds = %get_colo_mode.exit
   %call.i = tail call ptr @migrate_get_current() #6
-  %state.i = getelementptr inbounds %struct.MigrationState, ptr %call.i, i64 0, i32 16
+  %state.i = getelementptr inbounds i8, ptr %call.i, i64 776
   %3 = load i32, ptr %state.i, align 8
   %cmp.i = icmp eq i32 %3, 10
-  %reason6 = getelementptr inbounds %struct.COLOStatus, ptr %call, i64 0, i32 2
+  %reason6 = getelementptr inbounds i8, ptr %call, i64 8
   br i1 %cmp.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.default
@@ -595,18 +568,18 @@ entry:
   %local_err.i.i = alloca ptr, align 8
   %local_err.i = alloca ptr, align 8
   tail call void @qemu_mutex_unlock_iothread() #6
-  %colo_checkpoint_event = getelementptr inbounds %struct.MigrationState, ptr %s, i64 0, i32 34
+  %colo_checkpoint_event = getelementptr inbounds i8, ptr %s, i64 1456
   tail call void @qemu_event_init(ptr noundef nonnull %colo_checkpoint_event, i1 noundef zeroext false) #6
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #7
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 2, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @colo_checkpoint_notify, ptr noundef %s) #6
-  %colo_delay_timer = getelementptr inbounds %struct.MigrationState, ptr %s, i64 0, i32 36
+  %colo_delay_timer = getelementptr inbounds i8, ptr %s, i64 1472
   store ptr %call.i.i.i, ptr %colo_delay_timer, align 8
-  %colo_exit_sem = getelementptr inbounds %struct.MigrationState, ptr %s, i64 0, i32 33
+  %colo_exit_sem = getelementptr inbounds i8, ptr %s, i64 1344
   tail call void @qemu_sem_init(ptr noundef nonnull %colo_exit_sem, i32 noundef 0) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %local_err.i)
   store ptr null, ptr %local_err.i, align 8
   %call.i.i.i5 = tail call ptr @migrate_get_current() #6
-  %state.i.i.i = getelementptr inbounds %struct.MigrationState, ptr %call.i.i.i5, i64 0, i32 16
+  %state.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i5, i64 776
   %0 = load i32, ptr %state.i.i.i, align 8
   %cmp.i.i.i = icmp eq i32 %0, 10
   br i1 %cmp.i.i.i, label %if.end.i, label %if.else.i.i
@@ -618,10 +591,10 @@ if.else.i.i:                                      ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   tail call void @failover_init_state() #6
-  %to_dst_file.i = getelementptr inbounds %struct.MigrationState, ptr %s, i64 0, i32 4
+  %to_dst_file.i = getelementptr inbounds i8, ptr %s, i64 184
   %1 = load ptr, ptr %to_dst_file.i, align 8
   %call1.i = tail call ptr @qemu_file_get_return_path(ptr noundef %1) #6
-  %rp_state.i = getelementptr inbounds %struct.MigrationState, ptr %s, i64 0, i32 17
+  %rp_state.i = getelementptr inbounds i8, ptr %s, i64 784
   store ptr %call1.i, ptr %rp_state.i, align 8
   %tobool.not.i = icmp eq ptr %call1.i, null
   br i1 %tobool.not.i, label %if.then4.i, label %if.end5.i
@@ -701,7 +674,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #6
   %call10.i.i.i = call i32 @qemu_get_thread_id() #6
   %11 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i.i, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #6
   br label %trace_colo_vm_state_change.exit.i
@@ -719,10 +692,10 @@ trace_colo_vm_state_change.exit.i:                ; preds = %if.else.i.i.i, %if.
   %conv.i = zext i32 %call18.i to i64
   %add.i = add nsw i64 %div.i.i, %conv.i
   call void @timer_mod(ptr noundef %13, i64 noundef %add.i) #6
-  %state.i = getelementptr inbounds %struct.MigrationState, ptr %s, i64 0, i32 16
-  %usage.i.i = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call11.i, i64 0, i32 2
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
-  %data.i.i = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call11.i, i64 0, i32 4
+  %state.i = getelementptr inbounds i8, ptr %s, i64 776
+  %usage.i.i = getelementptr inbounds i8, ptr %call11.i, i64 104
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
+  %data.i.i = getelementptr inbounds i8, ptr %call11.i, i64 120
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %colo_do_checkpoint_transaction.exit.i, %trace_colo_vm_state_change.exit.i
@@ -1005,7 +978,7 @@ declare void @qemu_mutex_lock_iothread_impl(ptr noundef, i32 noundef) local_unna
 define dso_local void @colo_shutdown() local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @migrate_get_current() #6
-  %state.i.i = getelementptr inbounds %struct.MigrationState, ptr %call.i.i, i64 0, i32 16
+  %state.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 776
   %0 = load i32, ptr %state.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 10
   br i1 %cmp.i.i, label %sw.bb, label %if.else.i
@@ -1016,7 +989,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %tobool.not.i.i, label %sw.epilog, label %migration_incoming_in_colo_state.exit.i
 
 migration_incoming_in_colo_state.exit.i:          ; preds = %if.else.i
-  %state.i2.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i1.i, i64 0, i32 28
+  %state.i2.i = getelementptr inbounds i8, ptr %call.i1.i, i64 568
   %1 = load i32, ptr %state.i2.i, align 8
   %.fr.i = freeze i32 %1
   %cmp.i3.i = icmp eq i32 %.fr.i, 10
@@ -1024,14 +997,14 @@ migration_incoming_in_colo_state.exit.i:          ; preds = %if.else.i
 
 sw.bb:                                            ; preds = %entry
   %call1 = tail call ptr @migrate_get_current() #6
-  %colo_checkpoint_event = getelementptr inbounds %struct.MigrationState, ptr %call1, i64 0, i32 34
+  %colo_checkpoint_event = getelementptr inbounds i8, ptr %call1, i64 1456
   tail call void @qemu_event_set(ptr noundef nonnull %colo_checkpoint_event) #6
-  %colo_exit_sem = getelementptr inbounds %struct.MigrationState, ptr %call1, i64 0, i32 33
+  %colo_exit_sem = getelementptr inbounds i8, ptr %call1, i64 1344
   br label %sw.epilog.sink.split
 
 sw.bb2:                                           ; preds = %migration_incoming_in_colo_state.exit.i
   %call3 = tail call ptr @migration_incoming_get_current() #6
-  %colo_incoming_sem = getelementptr inbounds %struct.MigrationIncomingState, ptr %call3, i64 0, i32 31
+  %colo_incoming_sem = getelementptr inbounds i8, ptr %call3, i64 592
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb2
@@ -1078,7 +1051,7 @@ if.then5:                                         ; preds = %if.end4
 if.end6:                                          ; preds = %if.end4
   call void @qemu_thread_create(ptr noundef nonnull %th, ptr noundef nonnull @.str.4, ptr noundef nonnull @colo_process_incoming_thread, ptr noundef %call, i32 noundef 0) #6
   %call7 = call ptr @qemu_coroutine_self() #6
-  %colo_incoming_co = getelementptr inbounds %struct.MigrationIncomingState, ptr %call, i64 0, i32 30
+  %colo_incoming_co = getelementptr inbounds i8, ptr %call, i64 584
   store ptr %call7, ptr %colo_incoming_co, align 8
   call void @qemu_coroutine_yield() #6
   store ptr null, ptr %colo_incoming_co, align 8
@@ -1119,12 +1092,12 @@ entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
   tail call void @rcu_register_thread() #6
-  %colo_incoming_sem = getelementptr inbounds %struct.MigrationIncomingState, ptr %opaque, i64 0, i32 31
+  %colo_incoming_sem = getelementptr inbounds i8, ptr %opaque, i64 592
   tail call void @qemu_sem_init(ptr noundef nonnull %colo_incoming_sem, i32 noundef 0) #6
-  %state = getelementptr inbounds %struct.MigrationIncomingState, ptr %opaque, i64 0, i32 28
+  %state = getelementptr inbounds i8, ptr %opaque, i64 568
   tail call void @migrate_set_state(ptr noundef nonnull %state, i32 noundef 4, i32 noundef 10) #6
   %call.i.i = tail call ptr @migrate_get_current() #6
-  %state.i.i = getelementptr inbounds %struct.MigrationState, ptr %call.i.i, i64 0, i32 16
+  %state.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 776
   %0 = load i32, ptr %state.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 10
   br i1 %cmp.i.i, label %if.then, label %if.else.i
@@ -1135,7 +1108,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %tobool.not.i.i, label %if.then, label %migration_incoming_in_colo_state.exit.i
 
 migration_incoming_in_colo_state.exit.i:          ; preds = %if.else.i
-  %state.i2.i = getelementptr inbounds %struct.MigrationIncomingState, ptr %call.i1.i, i64 0, i32 28
+  %state.i2.i = getelementptr inbounds i8, ptr %call.i1.i, i64 568
   %1 = load i32, ptr %state.i2.i, align 8
   %.fr.i = freeze i32 %1
   %cmp.i3.i = icmp eq i32 %.fr.i, 10
@@ -1149,7 +1122,7 @@ if.end:                                           ; preds = %migration_incoming_
   tail call void @failover_init_state() #6
   %2 = load ptr, ptr %opaque, align 8
   %call1 = tail call ptr @qemu_file_get_return_path(ptr noundef %2) #6
-  %to_src_file = getelementptr inbounds %struct.MigrationIncomingState, ptr %opaque, i64 0, i32 15
+  %to_src_file = getelementptr inbounds i8, ptr %opaque, i64 280
   store ptr %call1, ptr %to_src_file, align 8
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.then3, label %if.end4
@@ -1203,7 +1176,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = call i32 @qemu_get_thread_id() #6
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #6
   br label %trace_colo_vm_state_change.exit
@@ -1221,10 +1194,10 @@ trace_colo_vm_state_change.exit:                  ; preds = %if.end11, %land.lhs
   br i1 %tobool13.not, label %while.cond.preheader, label %out
 
 while.cond.preheader:                             ; preds = %trace_colo_vm_state_change.exit
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
-  %capacity.i.i = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call6, i64 0, i32 1
-  %data21.phi.trans.insert.i.i = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call6, i64 0, i32 4
-  %usage.i.i = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call6, i64 0, i32 2
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
+  %capacity.i.i = getelementptr inbounds i8, ptr %call6, i64 96
+  %data21.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call6, i64 120
+  %usage.i.i = getelementptr inbounds i8, ptr %call6, i64 104
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %if.end25
@@ -1603,16 +1576,16 @@ declare ptr @qemu_file_get_return_path(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @colo_compare_notify_checkpoint(ptr nocapture readnone %notifier, ptr noundef %data) #0 {
 entry:
-  %colo_checkpoint_event.i = getelementptr inbounds %struct.MigrationState, ptr %data, i64 0, i32 34
+  %colo_checkpoint_event.i = getelementptr inbounds i8, ptr %data, i64 1456
   tail call void @qemu_event_set(ptr noundef nonnull %colo_checkpoint_event.i) #6
   %call.i.i = tail call i64 @qemu_clock_get_ns(i32 noundef 2) #6
   %div.i.i = sdiv i64 %call.i.i, 1000000
-  %colo_checkpoint_time.i = getelementptr inbounds %struct.MigrationState, ptr %data, i64 0, i32 35
+  %colo_checkpoint_time.i = getelementptr inbounds i8, ptr %data, i64 1464
   store i64 %div.i.i, ptr %colo_checkpoint_time.i, align 8
   %call2.i = tail call i32 @migrate_checkpoint_delay() #6
   %conv.i = zext i32 %call2.i to i64
   %add.i = add nsw i64 %div.i.i, %conv.i
-  %colo_delay_timer.i = getelementptr inbounds %struct.MigrationState, ptr %data, i64 0, i32 36
+  %colo_delay_timer.i = getelementptr inbounds i8, ptr %data, i64 1472
   %0 = load ptr, ptr %colo_delay_timer.i, align 8
   tail call void @timer_mod(ptr noundef %0, i64 noundef %add.i) #6
   ret void
@@ -1682,7 +1655,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #6
   %call10.i = tail call i32 @qemu_get_thread_id() #6
   %5 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds %struct.timeval, ptr %_now.i, i64 0, i32 1
+  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
   %6 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i, i64 noundef %5, i64 noundef %6, ptr noundef %old, ptr noundef %new) #6
   br label %_nocheck__trace_colo_vm_state_change.exit
@@ -1758,7 +1731,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call5) #6
   br label %trace_colo_receive_message.exit
@@ -1830,7 +1803,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %call4) #6
   br label %trace_colo_send_message.exit

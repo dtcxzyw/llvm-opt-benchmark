@@ -870,10 +870,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyStructSequence_Desc = type { ptr, ptr, ptr, i32 }
 %struct.PyStructSequence_Field = type { ptr, ptr }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
-%struct._PyInterpreterFrame = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i16, i8, [1 x ptr] }
-%struct.PyCodeObject = type { %struct.PyVarObject, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i32, ptr, [1 x i8] }
 %union._Py_CODEUNIT = type { i16 }
-%struct._signal_module_state = type { ptr, ptr, ptr, ptr }
 %struct.itimerval = type { %struct.timeval, %struct.timeval }
 %struct.timeval = type { i64, i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
@@ -1177,7 +1174,7 @@ define dso_local i32 @PyErr_CheckSignals() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp, align 8
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %and.i = and i64 %3, 16
@@ -1246,7 +1243,7 @@ if.end:                                           ; preds = %entry
 
 land.rhs.i.i:                                     ; preds = %if.end, %while.body.i.i
   %frame.addr.08.i.i = phi ptr [ %5, %while.body.i.i ], [ %tstate.val, %if.end ]
-  %owner.i.i.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i.i, i64 0, i32 10
+  %owner.i.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i, i64 70
   %2 = load i8, ptr %owner.i.i.i, align 2
   switch i8 %2, label %_PyFrame_IsIncomplete.exit.i.i [
     i8 3, label %while.body.i.i
@@ -1254,11 +1251,11 @@ land.rhs.i.i:                                     ; preds = %if.end, %while.body
   ]
 
 _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %land.rhs.i.i
-  %instr_ptr.i.i.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i.i, i64 0, i32 7
+  %instr_ptr.i.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i, i64 56
   %3 = load ptr, ptr %instr_ptr.i.i.i, align 8
   %frame.val.i.i.i = load ptr, ptr %frame.addr.08.i.i, align 8
-  %co_code_adaptive.i.i.i = getelementptr inbounds %struct.PyCodeObject, ptr %frame.val.i.i.i, i64 0, i32 29
-  %_co_firsttraceable.i.i.i = getelementptr inbounds %struct.PyCodeObject, ptr %frame.val.i.i.i, i64 0, i32 27
+  %co_code_adaptive.i.i.i = getelementptr inbounds i8, ptr %frame.val.i.i.i, i64 200
+  %_co_firsttraceable.i.i.i = getelementptr inbounds i8, ptr %frame.val.i.i.i, i64 184
   %4 = load i32, ptr %_co_firsttraceable.i.i.i, align 8
   %idx.ext.i.i.i = sext i32 %4 to i64
   %add.ptr.i.i.i = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i.i.i, i64 %idx.ext.i.i.i
@@ -1266,7 +1263,7 @@ _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %land.rhs.i.i
   br i1 %cmp7.i.i.i, label %while.body.i.i, label %_PyThreadState_GetFrame.exit
 
 while.body.i.i:                                   ; preds = %_PyFrame_IsIncomplete.exit.i.i, %land.rhs.i.i
-  %previous.i.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.08.i.i, i64 0, i32 1
+  %previous.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i, i64 8
   %5 = load ptr, ptr %previous.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %_PyThreadState_GetFrame.exit, label %land.rhs.i.i, !llvm.loop !8
@@ -1274,7 +1271,7 @@ while.body.i.i:                                   ; preds = %_PyFrame_IsIncomple
 _PyThreadState_GetFrame.exit:                     ; preds = %land.rhs.i.i, %_PyFrame_IsIncomplete.exit.i.i, %while.body.i.i, %if.end
   %frame.addr.0.lcssa.i.i = phi ptr [ null, %if.end ], [ %frame.addr.08.i.i, %land.rhs.i.i ], [ null, %while.body.i.i ], [ %frame.addr.08.i.i, %_PyFrame_IsIncomplete.exit.i.i ]
   %cmp21 = icmp eq ptr %frame.addr.0.lcssa.i.i, null
-  %frame_obj.i = getelementptr inbounds %struct._PyInterpreterFrame, ptr %frame.addr.0.lcssa.i.i, i64 0, i32 6
+  %frame_obj.i = getelementptr inbounds i8, ptr %frame.addr.0.lcssa.i.i, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %_PyThreadState_GetFrame.exit, %for.inc
@@ -1592,7 +1589,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _Py_EnsureFuncTstateNotNULL.exit:                 ; preds = %entry
-  %interp = getelementptr inbounds %struct._ts, ptr %tstate, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
   %call.i.i = tail call i64 @PyThread_get_thread_ident() #15
   %1 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
@@ -1629,7 +1626,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _Py_EnsureFuncTstateNotNULL.exit.i:               ; preds = %entry
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %call.i.i.i = tail call i64 @PyThread_get_thread_ident() #15
   %3 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
@@ -1681,7 +1678,7 @@ define dso_local i32 @_PyOS_IsMainThread() local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i, align 8
   %call.i.i = tail call i64 @PyThread_get_thread_ident() #15
   %3 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
@@ -1698,7 +1695,7 @@ define internal i32 @_signal_module_traverse(ptr nocapture noundef readonly %mod
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
-  %itimer_error = getelementptr inbounds %struct._signal_module_state, ptr %module.val, i64 0, i32 2
+  %itimer_error = getelementptr inbounds i8, ptr %module.val, i64 16
   %1 = load ptr, ptr %itimer_error, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %do.body6, label %if.then
@@ -1709,7 +1706,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %siginfo_type = getelementptr inbounds %struct._signal_module_state, ptr %module.val, i64 0, i32 3
+  %siginfo_type = getelementptr inbounds i8, ptr %module.val, i64 24
   %2 = load ptr, ptr %siginfo_type, align 8
   %tobool7.not = icmp eq ptr %2, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -1732,7 +1729,7 @@ define internal i32 @_signal_module_clear(ptr nocapture noundef readonly %module
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
-  %itimer_error = getelementptr inbounds %struct._signal_module_state, ptr %module.val, i64 0, i32 2
+  %itimer_error = getelementptr inbounds i8, ptr %module.val, i64 16
   %1 = load ptr, ptr %itimer_error, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %do.body1, label %if.then
@@ -1755,7 +1752,7 @@ if.then1.i14:                                     ; preds = %if.end.i11
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i11, %if.then1.i14, %if.then, %entry
-  %siginfo_type = getelementptr inbounds %struct._signal_module_state, ptr %module.val, i64 0, i32 3
+  %siginfo_type = getelementptr inbounds i8, ptr %module.val, i64 24
   %4 = load ptr, ptr %siginfo_type, align 8
   %cmp4.not = icmp eq ptr %4, null
   br i1 %cmp4.not, label %do.end7, label %if.then5
@@ -1786,7 +1783,7 @@ define internal void @_signal_module_free(ptr nocapture noundef readonly %module
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val.i = load ptr, ptr %0, align 8
-  %itimer_error.i = getelementptr inbounds %struct._signal_module_state, ptr %module.val.i, i64 0, i32 2
+  %itimer_error.i = getelementptr inbounds i8, ptr %module.val.i, i64 16
   %1 = load ptr, ptr %itimer_error.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %do.body1.i, label %if.then.i
@@ -1809,7 +1806,7 @@ if.then1.i14.i:                                   ; preds = %if.end.i11.i
   br label %do.body1.i
 
 do.body1.i:                                       ; preds = %if.then1.i14.i, %if.end.i11.i, %if.then.i, %entry
-  %siginfo_type.i = getelementptr inbounds %struct._signal_module_state, ptr %module.val.i, i64 0, i32 3
+  %siginfo_type.i = getelementptr inbounds i8, ptr %module.val.i, i64 24
   %4 = load ptr, ptr %siginfo_type.i, align 8
   %cmp4.not.i = icmp eq ptr %4, null
   br i1 %cmp4.not.i, label %_signal_module_clear.exit, label %if.then5.i
@@ -1918,13 +1915,13 @@ land.lhs.true4:                                   ; preds = %if.end
   br i1 %tobool6.not, label %if.end8, label %exit
 
 if.end8:                                          ; preds = %land.lhs.true4, %if.end
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %cmp10 = icmp slt i64 %nargs, 3
   br i1 %cmp10, label %skip_optional, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %arrayidx13 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx13 = getelementptr i8, ptr %args, i64 16
   %3 = load ptr, ptr %arrayidx13, align 8
   br label %skip_optional
 
@@ -1934,7 +1931,7 @@ skip_optional:                                    ; preds = %if.end8, %if.end12
   %module.val = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %new.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %old.i)
-  %it_value.i = getelementptr inbounds %struct.itimerval, ptr %new.i, i64 0, i32 1
+  %it_value.i = getelementptr inbounds i8, ptr %new.i, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %t.i.i)
   %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %timeval_from_double.exit.thread3.i, label %if.end.i.i
@@ -1992,7 +1989,7 @@ if.end5.i:                                        ; preds = %timeval_from_double
   br i1 %cmp7.not.i, label %if.end10.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end5.i
-  %itimer_error.i = getelementptr inbounds %struct._signal_module_state, ptr %module.val, i64 0, i32 2
+  %itimer_error.i = getelementptr inbounds i8, ptr %module.val, i64 16
   %7 = load ptr, ptr %itimer_error.i, align 8
   %call9.i = call ptr @PyErr_SetFromErrno(ptr noundef %7) #15
   br label %signal_setitimer_impl.exit
@@ -2030,7 +2027,7 @@ entry.split:                                      ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry.split
-  %itimer_error.i = getelementptr inbounds %struct._signal_module_state, ptr %module.val4, i64 0, i32 2
+  %itimer_error.i = getelementptr inbounds i8, ptr %module.val4, i64 16
   %1 = load ptr, ptr %itimer_error.i, align 8
   %call2.i = tail call ptr @PyErr_SetFromErrno(ptr noundef %1) #15
   br label %signal_getitimer_impl.exit
@@ -2058,7 +2055,7 @@ land.lhs.true.split:                              ; preds = %land.lhs.true
   br i1 %cmp.not.i7, label %if.end.i12, label %if.then.i8
 
 if.then.i8:                                       ; preds = %land.lhs.true.split
-  %itimer_error.i9 = getelementptr inbounds %struct._signal_module_state, ptr %module.val, i64 0, i32 2
+  %itimer_error.i9 = getelementptr inbounds i8, ptr %module.val, i64 16
   %3 = load ptr, ptr %itimer_error.i9, align 8
   %call2.i10 = tail call ptr @PyErr_SetFromErrno(ptr noundef %3) #15
   br label %signal_getitimer_impl.exit14
@@ -2095,7 +2092,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %cmp3, label %land.lhs.true4, label %if.end.split
 
 if.end.split:                                     ; preds = %if.end
-  %arrayidx95 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx95 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx95, align 8
   %2 = getelementptr i8, ptr %module, i64 32
   %module.val9 = load ptr, ptr %2, align 8
@@ -2110,7 +2107,7 @@ land.lhs.true4:                                   ; preds = %if.end
 land.lhs.true4.split:                             ; preds = %land.lhs.true4
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %4 = load ptr, ptr %3, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %4, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %interp.i, align 8
   %call.i.i.i = tail call i64 @PyThread_get_thread_ident() #15
   %6 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
@@ -2271,7 +2268,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp, align 8
   %call.i.i = call i64 @PyThread_get_thread_ident() #15
   %3 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
@@ -2352,7 +2349,7 @@ land.lhs.true4:                                   ; preds = %if.end
   br i1 %tobool6.not, label %if.end8, label %exit
 
 if.end8:                                          ; preds = %land.lhs.true4, %if.end
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx9, align 8
   %call10 = tail call i32 @PyLong_AsInt(ptr noundef %1) #15
   %cmp11 = icmp eq i32 %call10, -1
@@ -2372,7 +2369,7 @@ if.then.i:                                        ; preds = %if.end8.split
 if.end.i:                                         ; preds = %if.end8.split
   %call.i = call i32 @sigaction(i32 noundef %call2, ptr noundef null, ptr noundef nonnull %act.i) #15
   %tobool.not.i = icmp eq i32 %call10, 0
-  %sa_flags3.i = getelementptr inbounds %struct.sigaction, ptr %act.i, i64 0, i32 2
+  %sa_flags3.i = getelementptr inbounds i8, ptr %act.i, i64 136
   %4 = load i32, ptr %sa_flags3.i, align 8
   %and.i = and i32 %4, -268435457
   %masksel.i = select i1 %tobool.not.i, i32 268435456, i32 0
@@ -2410,7 +2407,7 @@ if.then.i19:                                      ; preds = %land.lhs.true12.spl
 
 if.end.i10:                                       ; preds = %land.lhs.true12.split
   %call.i11 = call i32 @sigaction(i32 noundef %call2, ptr noundef null, ptr noundef nonnull %act.i8) #15
-  %sa_flags3.i12 = getelementptr inbounds %struct.sigaction, ptr %act.i8, i64 0, i32 2
+  %sa_flags3.i12 = getelementptr inbounds i8, ptr %act.i8, i64 136
   %8 = load i32, ptr %sa_flags3.i12, align 8
   %and.i13 = and i32 %8, -268435457
   store i32 %and.i13, ptr %sa_flags3.i12, align 8
@@ -2441,7 +2438,7 @@ entry:
   tail call void @PyEval_RestoreThread(ptr noundef %call.i) #15
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp.i.i, align 8
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %and.i.i.i = and i64 %3, 16
@@ -2521,7 +2518,7 @@ land.lhs.true4:                                   ; preds = %if.end
   br i1 %tobool6.not, label %if.end8, label %exit
 
 if.end8:                                          ; preds = %land.lhs.true4, %if.end
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx9, align 8
   %call10 = tail call i32 @PyLong_AsInt(ptr noundef %2) #15
   %cmp11 = icmp eq i32 %call10, -1
@@ -2537,13 +2534,13 @@ if.end16:                                         ; preds = %land.lhs.true12, %i
   br i1 %cmp17, label %if.end.i, label %if.end19
 
 if.end19:                                         ; preds = %if.end16
-  %arrayidx20 = getelementptr ptr, ptr %args, i64 2
+  %arrayidx20 = getelementptr i8, ptr %args, i64 16
   %3 = load ptr, ptr %arrayidx20, align 8
   %cmp21 = icmp eq i64 %nargs, 3
   br i1 %cmp21, label %skip_optional, label %if.end23
 
 if.end23:                                         ; preds = %if.end19
-  %arrayidx24 = getelementptr ptr, ptr %args, i64 3
+  %arrayidx24 = getelementptr i8, ptr %args, i64 24
   %4 = load ptr, ptr %arrayidx24, align 8
   %call25 = tail call i32 @PyLong_AsInt(ptr noundef %4) #15
   %cmp26 = icmp eq i32 %call25, -1
@@ -2607,7 +2604,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.end
   %call9 = tail call i64 @PyLong_AsUnsignedLongMask(ptr noundef nonnull %0) #15
-  %arrayidx10 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx10 = getelementptr i8, ptr %args, i64 8
   %4 = load ptr, ptr %arrayidx10, align 8
   %call11 = tail call i32 @PyLong_AsInt(ptr noundef %4) #15
   %cmp12 = icmp eq i32 %call11, -1
@@ -2657,7 +2654,7 @@ land.lhs.true4:                                   ; preds = %if.end
   br i1 %tobool6.not, label %if.end8, label %exit
 
 if.end8:                                          ; preds = %land.lhs.true4, %if.end
-  %arrayidx9 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx9 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx9, align 8
   %call10 = call i32 @_Py_Sigset_Converter(ptr noundef %1, ptr noundef nonnull %mask) #15
   %tobool11.not = icmp eq i32 %call10, 0
@@ -2681,7 +2678,7 @@ if.then.i:                                        ; preds = %if.end13
 if.end.i:                                         ; preds = %if.end13
   %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %4 = load ptr, ptr %3, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %4, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %interp.i.i, align 8
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %and.i.i.i = and i64 %6, 16
@@ -2843,7 +2840,7 @@ land.lhs.true.i:                                  ; preds = %do.body.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %2 = load ptr, ptr %0, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i.i, align 8
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %and.i.i.i = and i64 %4, 16
@@ -2941,7 +2938,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %tobool3.not, label %exit, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %sigset4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %timeout.i)
@@ -2996,7 +2993,7 @@ if.else.i:                                        ; preds = %if.end13.i
 
 if.end21.i:                                       ; preds = %if.end13.i
   %8 = load ptr, ptr %4, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %8, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load ptr, ptr %interp.i.i, align 8
   %10 = load atomic i64, ptr %9 monotonic, align 8
   %and.i.i.i = and i64 %10, 16
@@ -3125,9 +3122,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %it_value = getelementptr inbounds %struct.itimerval, ptr %iv, i64 0, i32 1
+  %it_value = getelementptr inbounds i8, ptr %iv, i64 16
   %it_value.val = load i64, ptr %it_value, align 8
-  %0 = getelementptr %struct.itimerval, ptr %iv, i64 0, i32 1, i32 1
+  %0 = getelementptr i8, ptr %iv, i64 24
   %it_value.val12 = load i64, ptr %0, align 8
   %conv.i = sitofp i64 %it_value.val to double
   %conv1.i = sitofp i64 %it_value.val12 to double
@@ -3154,8 +3151,8 @@ if.then1.i16:                                     ; preds = %if.end.i13
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %arrayidx.i = getelementptr %struct.PyTupleObject, ptr %call, i64 0, i32 1, i64 0
-  store ptr %call2, ptr %arrayidx.i, align 8
+  %ob_item.i = getelementptr inbounds i8, ptr %call, i64 24
+  store ptr %call2, ptr %ob_item.i, align 8
   %iv.val = load i64, ptr %iv, align 8
   %3 = getelementptr i8, ptr %iv, i64 8
   %iv.val13 = load i64, ptr %3, align 8
@@ -3184,8 +3181,8 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end9:                                          ; preds = %if.end4
-  %arrayidx.i18 = getelementptr %struct.PyTupleObject, ptr %call, i64 0, i32 1, i64 1
-  store ptr %call6, ptr %arrayidx.i18, align 8
+  %arrayidx.i = getelementptr i8, ptr %call, i64 32
+  store ptr %call6, ptr %arrayidx.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then1.i, %if.then8, %if.end.i13, %if.then1.i16, %if.then3, %entry, %if.end9
@@ -3209,7 +3206,7 @@ define internal fastcc ptr @signal_signal_impl(ptr nocapture readonly %module.32
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
-  %interp = getelementptr inbounds %struct._ts, ptr %1, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %interp, align 8
   %call.i.i = tail call i64 @PyThread_get_thread_ident() #15
   %3 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 9), align 8
@@ -3240,7 +3237,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool7.not, label %if.else, label %if.end19
 
 if.else:                                          ; preds = %if.end5
-  %ignore_handler = getelementptr inbounds %struct._signal_module_state, ptr %module.32.val, i64 0, i32 1
+  %ignore_handler = getelementptr inbounds i8, ptr %module.32.val, i64 8
   %8 = load ptr, ptr %ignore_handler, align 8
   %cmp.i = icmp eq ptr %handler, null
   %cmp1.i = icmp eq ptr %8, null
@@ -3390,7 +3387,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i, align 8
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %and.i.i = and i64 %4, 16
@@ -3505,7 +3502,7 @@ if.then3:                                         ; preds = %if.end
 if.end6:                                          ; preds = %if.end
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %interp.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i, align 8
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %and.i.i = and i64 %4, 16
@@ -3688,26 +3685,26 @@ if.end:                                           ; preds = %entry
   %conv = sext i32 %0 to i64
   %call1 = tail call ptr @PyLong_FromLong(i64 noundef %conv) #15
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 0, ptr noundef %call1) #15
-  %si_code = getelementptr inbounds %struct.siginfo_t, ptr %si, i64 0, i32 2
+  %si_code = getelementptr inbounds i8, ptr %si, i64 8
   %1 = load i32, ptr %si_code, align 8
   %conv2 = sext i32 %1 to i64
   %call3 = tail call ptr @PyLong_FromLong(i64 noundef %conv2) #15
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 1, ptr noundef %call3) #15
-  %si_errno = getelementptr inbounds %struct.siginfo_t, ptr %si, i64 0, i32 1
+  %si_errno = getelementptr inbounds i8, ptr %si, i64 4
   %2 = load i32, ptr %si_errno, align 4
   %conv4 = sext i32 %2 to i64
   %call5 = tail call ptr @PyLong_FromLong(i64 noundef %conv4) #15
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 2, ptr noundef %call5) #15
-  %_sifields = getelementptr inbounds %struct.siginfo_t, ptr %si, i64 0, i32 4
+  %_sifields = getelementptr inbounds i8, ptr %si, i64 16
   %3 = load i32, ptr %_sifields, align 8
   %conv6 = sext i32 %3 to i64
   %call7 = tail call ptr @PyLong_FromLong(i64 noundef %conv6) #15
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 3, ptr noundef %call7) #15
-  %si_uid = getelementptr inbounds %struct.siginfo_t, ptr %si, i64 0, i32 4, i32 0, i32 1
+  %si_uid = getelementptr inbounds i8, ptr %si, i64 20
   %4 = load i32, ptr %si_uid, align 4
   %call9 = tail call ptr @_PyLong_FromUid(i32 noundef %4) #15
   tail call void @PyStructSequence_SetItem(ptr noundef nonnull %call, i64 noundef 4, ptr noundef %call9) #15
-  %si_status = getelementptr inbounds %struct.siginfo_t, ptr %si, i64 0, i32 4, i32 0, i32 2
+  %si_status = getelementptr inbounds i8, ptr %si, i64 24
   %5 = load i32, ptr %si_status, align 8
   %conv11 = sext i32 %5 to i64
   %call12 = tail call ptr @PyLong_FromLong(i64 noundef %conv11) #15
@@ -3768,11 +3765,11 @@ entry:
   %1 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 3), align 8
   store ptr %1, ptr %m.val, align 8
   %2 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 15, i32 4), align 8
-  %ignore_handler2 = getelementptr inbounds %struct._signal_module_state, ptr %m.val, i64 0, i32 1
+  %ignore_handler2 = getelementptr inbounds i8, ptr %m.val, i64 8
   store ptr %2, ptr %ignore_handler2, align 8
   %3 = load ptr, ptr @PyExc_OSError, align 8
   %call3 = tail call ptr @PyErr_NewException(ptr noundef nonnull @.str.37, ptr noundef %3, ptr noundef null) #15
-  %itimer_error = getelementptr inbounds %struct._signal_module_state, ptr %m.val, i64 0, i32 2
+  %itimer_error = getelementptr inbounds i8, ptr %m.val, i64 16
   store ptr %call3, ptr %itimer_error, align 8
   %cmp = icmp eq ptr %call3, null
   br i1 %cmp, label %return, label %if.end
@@ -4017,7 +4014,7 @@ if.end19:                                         ; preds = %if.end14
 
 if.end24:                                         ; preds = %if.end19
   %call25 = tail call ptr @PyStructSequence_NewType(ptr noundef nonnull @struct_siginfo_desc) #15
-  %siginfo_type = getelementptr inbounds %struct._signal_module_state, ptr %m.val, i64 0, i32 3
+  %siginfo_type = getelementptr inbounds i8, ptr %m.val, i64 24
   store ptr %call25, ptr %siginfo_type, align 8
   %cmp27 = icmp eq ptr %call25, null
   br i1 %cmp27, label %return, label %if.end29
@@ -4030,7 +4027,7 @@ if.end29:                                         ; preds = %if.end24
 if.end34:                                         ; preds = %if.end29
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %8 = load ptr, ptr %7, align 8
-  %interp = getelementptr inbounds %struct._ts, ptr %8, i64 0, i32 2
+  %interp = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load ptr, ptr %interp, align 8
   %10 = load ptr, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 8, i32 2), align 8
   %cmp.i18.not = icmp eq ptr %10, %9

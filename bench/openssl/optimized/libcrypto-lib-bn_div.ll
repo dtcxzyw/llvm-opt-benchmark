@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-bn_div.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [30 x i8] c"../openssl/crypto/bn/bn_div.c\00", align 1
 @__func__.BN_div = private unnamed_addr constant [7 x i8] c"BN_div\00", align 1
 
@@ -23,11 +21,11 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %divisor, align 8
-  %top = getelementptr inbounds %struct.bignum_st, ptr %divisor, i64 0, i32 1
+  %top = getelementptr inbounds i8, ptr %divisor, i64 8
   %1 = load i32, ptr %top, align 8
   %2 = sext i32 %1 to i64
   %3 = getelementptr i64, ptr %0, i64 %2
-  %arrayidx = getelementptr i64, ptr %3, i64 -1
+  %arrayidx = getelementptr i8, ptr %3, i64 -8
   %4 = load i64, ptr %arrayidx, align 8
   %cmp = icmp eq i64 %4, 0
   br i1 %cmp, label %if.then1, label %if.end2
@@ -102,7 +100,7 @@ if.end7:                                          ; preds = %if.end
   %call3.val103 = load i32, ptr %0, align 8
   %1 = sext i32 %call3.val103 to i64
   %2 = getelementptr i64, ptr %call3.val, i64 %1
-  %arrayidx.i = getelementptr i64, ptr %2, i64 -1
+  %arrayidx.i = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %arrayidx.i, align 8
   %call.i = tail call i32 @BN_num_bits_word(i64 noundef %3) #3
   %sub3.i = sub nsw i32 64, %call.i
@@ -135,7 +133,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %exitcond.not.i, label %bn_left_align.exit, label %for.body.i, !llvm.loop !5
 
 bn_left_align.exit:                               ; preds = %for.body.i, %if.end7
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %call3, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %call3, i64 16
   store i32 0, ptr %neg, align 8
   %call9 = tail call i32 @bn_lshift_fixed_top(ptr noundef %call2, ptr noundef %num, i32 noundef %sub3.i) #3
   %tobool10.not = icmp eq i32 %call9, 0
@@ -143,7 +141,7 @@ bn_left_align.exit:                               ; preds = %for.body.i, %if.end
 
 if.end12:                                         ; preds = %bn_left_align.exit
   %5 = load i32, ptr %0, align 8
-  %top13 = getelementptr inbounds %struct.bignum_st, ptr %call2, i64 0, i32 1
+  %top13 = getelementptr inbounds i8, ptr %call2, i64 8
   %6 = load i32, ptr %top13, align 8
   %cmp14.not = icmp sgt i32 %6, %5
   br i1 %cmp14.not, label %if.end23, label %if.then15
@@ -173,17 +171,17 @@ if.end23:                                         ; preds = %if.end19, %if.end12
   %arrayidx27 = getelementptr inbounds i64, ptr %8, i64 %idxprom26
   %9 = sext i32 %num_n.0 to i64
   %10 = getelementptr i64, ptr %8, i64 %9
-  %arrayidx31 = getelementptr i64, ptr %10, i64 -1
+  %arrayidx31 = getelementptr i8, ptr %10, i64 -8
   %11 = load ptr, ptr %call3, align 8
   %12 = sext i32 %5 to i64
   %13 = getelementptr i64, ptr %11, i64 %12
-  %arrayidx35 = getelementptr i64, ptr %13, i64 -1
+  %arrayidx35 = getelementptr i8, ptr %13, i64 -8
   %14 = load i64, ptr %arrayidx35, align 8
   %cmp36 = icmp eq i32 %5, 1
   br i1 %cmp36, label %cond.end44, label %cond.false39
 
 cond.false39:                                     ; preds = %if.end23
-  %arrayidx43 = getelementptr i64, ptr %13, i64 -2
+  %arrayidx43 = getelementptr i8, ptr %13, i64 -16
   %15 = load i64, ptr %arrayidx43, align 8
   br label %cond.end44
 
@@ -194,14 +192,14 @@ cond.end44:                                       ; preds = %if.end23, %cond.fal
   br i1 %tobool47.not, label %err, label %if.end49
 
 if.end49:                                         ; preds = %cond.end44
-  %neg50 = getelementptr inbounds %struct.bignum_st, ptr %num, i64 0, i32 3
+  %neg50 = getelementptr inbounds i8, ptr %num, i64 16
   %16 = load i32, ptr %neg50, align 8
-  %neg51 = getelementptr inbounds %struct.bignum_st, ptr %divisor, i64 0, i32 3
+  %neg51 = getelementptr inbounds i8, ptr %divisor, i64 16
   %17 = load i32, ptr %neg51, align 8
   %xor = xor i32 %17, %16
-  %neg52 = getelementptr inbounds %struct.bignum_st, ptr %cond, i64 0, i32 3
+  %neg52 = getelementptr inbounds i8, ptr %cond, i64 16
   store i32 %xor, ptr %neg52, align 8
-  %top53 = getelementptr inbounds %struct.bignum_st, ptr %cond, i64 0, i32 1
+  %top53 = getelementptr inbounds i8, ptr %cond, i64 8
   store i32 %sub24, ptr %top53, align 8
   %18 = load ptr, ptr %cond, align 8
   %add57 = add nsw i32 %5, 1
@@ -226,7 +224,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %wnum.0116 = phi ptr [ %arrayidx27, %for.body.lr.ph ], [ %incdec.ptr, %for.end126 ]
   %wnumtop.0114 = phi ptr [ %arrayidx31, %for.body.lr.ph ], [ %arrayidx65, %for.end126 ]
   %19 = load i64, ptr %wnumtop.0114, align 8
-  %arrayidx65 = getelementptr inbounds i64, ptr %wnumtop.0114, i64 -1
+  %arrayidx65 = getelementptr inbounds i8, ptr %wnumtop.0114, i64 -8
   %20 = load i64, ptr %arrayidx65, align 8
   %cmp66 = icmp eq i64 %19, %14
   br i1 %cmp66, label %if.end104, label %if.else
@@ -236,7 +234,7 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp69, label %cond.end74, label %cond.false72
 
 cond.false72:                                     ; preds = %if.else
-  %arrayidx73 = getelementptr inbounds i64, ptr %wnumtop.0114, i64 -2
+  %arrayidx73 = getelementptr inbounds i8, ptr %wnumtop.0114, i64 -16
   %21 = load i64, ptr %arrayidx73, align 8
   br label %cond.end74
 
@@ -288,7 +286,7 @@ if.end104:                                        ; preds = %if.end92, %if.end97
   %25 = load ptr, ptr %call1, align 8
   %arrayidx110 = getelementptr inbounds i64, ptr %25, i64 %12
   store i64 %call107, ptr %arrayidx110, align 8
-  %incdec.ptr = getelementptr inbounds i64, ptr %wnum.0116, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %wnum.0116, i64 -8
   %26 = load ptr, ptr %call1, align 8
   %call113 = tail call i64 @bn_sub_words(ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %incdec.ptr, ptr noundef %26, i32 noundef %add57) #3
   %sub114 = sub i64 %q.1, %call113
@@ -314,14 +312,14 @@ for.end126:                                       ; preds = %for.body119, %if.en
   %31 = load i64, ptr %wnumtop.0114, align 8
   %add129 = add i64 %31, %call128
   store i64 %add129, ptr %wnumtop.0114, align 8
-  %incdec.ptr130 = getelementptr inbounds i64, ptr %resp.0117, i64 -1
+  %incdec.ptr130 = getelementptr inbounds i8, ptr %resp.0117, i64 -8
   store i64 %sub114, ptr %incdec.ptr130, align 8
   %inc132 = add nuw nsw i32 %i.0118, 1
   %exitcond120.not = icmp eq i32 %inc132, %sub24
   br i1 %exitcond120.not, label %for.end134, label %for.body, !llvm.loop !9
 
 for.end134:                                       ; preds = %for.end126, %if.end61
-  %neg135 = getelementptr inbounds %struct.bignum_st, ptr %call2, i64 0, i32 3
+  %neg135 = getelementptr inbounds i8, ptr %call2, i64 16
   store i32 %16, ptr %neg135, align 8
   store i32 %5, ptr %top13, align 8
   %cmp139.not = icmp eq ptr %rm, null

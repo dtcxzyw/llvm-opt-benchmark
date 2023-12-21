@@ -3,11 +3,6 @@ source_filename = "bench/assimp/original/STEPFileEncoding.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.utf8::invalid_utf16" = type <{ %"class.utf8::exception", i16, [6 x i8] }>
-%"class.utf8::exception" = type { %"class.std::exception" }
-%"class.std::exception" = type { ptr }
-%"class.utf8::invalid_code_point" = type <{ %"class.utf8::exception", i32, [4 x i8] }>
-
 $_ZN4utf88utf16to8IPKtPhEET0_T_S5_S4_ = comdat any
 
 $_ZN4utf86appendIPhEET_jS2_ = comdat any
@@ -720,7 +715,7 @@ while.body.i283:                                  ; preds = %while.body.i283.pre
           to label %call.i287.noexc unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit297.loopexit
 
 call.i287.noexc:                                  ; preds = %while.body.i283
-  %incdec.ptr.i286 = getelementptr inbounds i32, ptr %start.addr.04.i285, i64 1
+  %incdec.ptr.i286 = getelementptr inbounds i8, ptr %start.addr.04.i285, i64 4
   %cmp.not.i288 = icmp eq ptr %incdec.ptr.i286, %add.ptr235
   br i1 %cmp.not.i288, label %invoke.cont237, label %while.body.i283, !llvm.loop !9
 
@@ -798,7 +793,7 @@ entry:
 while.body:                                       ; preds = %entry, %if.end25
   %start.addr.023 = phi ptr [ %start.addr.1, %if.end25 ], [ %start, %entry ]
   %result.addr.022 = phi ptr [ %call26, %if.end25 ], [ %result, %entry ]
-  %incdec.ptr = getelementptr inbounds i16, ptr %start.addr.023, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %start.addr.023, i64 2
   %0 = load i16, ptr %start.addr.023, align 2
   %conv = zext i16 %0 to i32
   %trunc = and i16 %0, -1024
@@ -819,7 +814,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %3, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.then3
-  %incdec.ptr4 = getelementptr inbounds i16, ptr %start.addr.023, i64 2
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %start.addr.023, i64 4
   %shl = shl nuw nsw i32 %conv, 10
   %add = add nsw i32 %shl, -56613888
   %add9 = add nsw i32 %add, %conv6
@@ -828,7 +823,7 @@ if.then8:                                         ; preds = %if.then3
 if.else:                                          ; preds = %if.then3
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #7
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %u16.i = getelementptr inbounds %"class.utf8::invalid_utf16", ptr %exception, i64 0, i32 1
+  %u16.i = getelementptr inbounds i8, ptr %exception, i64 8
   store i16 %1, ptr %u16.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #10
   unreachable
@@ -836,7 +831,7 @@ if.else:                                          ; preds = %if.then3
 if.else11:                                        ; preds = %if.then
   %exception12 = tail call ptr @__cxa_allocate_exception(i64 16) #7
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, inrange i32 0, i64 2), ptr %exception12, align 8
-  %u16.i13 = getelementptr inbounds %"class.utf8::invalid_utf16", ptr %exception12, i64 0, i32 1
+  %u16.i13 = getelementptr inbounds i8, ptr %exception12, i64 8
   store i16 %0, ptr %u16.i13, align 8
   tail call void @__cxa_throw(ptr nonnull %exception12, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #10
   unreachable
@@ -844,7 +839,7 @@ if.else11:                                        ; preds = %if.then
 if.then19:                                        ; preds = %while.body
   %exception20 = tail call ptr @__cxa_allocate_exception(i64 16) #7
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, inrange i32 0, i64 2), ptr %exception20, align 8
-  %u16.i14 = getelementptr inbounds %"class.utf8::invalid_utf16", ptr %exception20, i64 0, i32 1
+  %u16.i14 = getelementptr inbounds i8, ptr %exception20, i64 8
   store i16 %0, ptr %u16.i14, align 8
   tail call void @__cxa_throw(ptr nonnull %exception20, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #10
   unreachable
@@ -873,7 +868,7 @@ entry:
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #7
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf818invalid_code_pointE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
-  %cp.i = getelementptr inbounds %"class.utf8::invalid_code_point", ptr %exception, i64 0, i32 1
+  %cp.i = getelementptr inbounds i8, ptr %exception, i64 8
   store i32 %cp, ptr %cp.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4utf818invalid_code_pointE, ptr nonnull @_ZN4utf818invalid_code_pointD2Ev) #10
   unreachable

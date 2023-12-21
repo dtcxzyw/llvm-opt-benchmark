@@ -4,12 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.TransactionAction = type { i32, %union.anon }
-%union.anon = type { %struct.AbortWrapper }
-%struct.AbortWrapper = type { ptr }
-%struct.TransactionProperties = type { i8, i32 }
-%struct.TransactionActionList = type { ptr, ptr }
-%struct.q_obj_transaction_arg = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [20 x i8] c"visit_is_dealloc(v)\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"qapi/qapi-visit-transaction.c\00", align 1
@@ -724,62 +718,62 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %u = getelementptr inbounds %struct.TransactionAction, ptr %obj, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i = call zeroext i1 @visit_type_Abort(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %u, ptr noundef %errp)
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %u3 = getelementptr inbounds %struct.TransactionAction, ptr %obj, i64 0, i32 1
+  %u3 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i38 = call zeroext i1 @visit_type_BlockDirtyBitmapAdd(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %u3, ptr noundef %errp) #5
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %u6 = getelementptr inbounds %struct.TransactionAction, ptr %obj, i64 0, i32 1
+  %u6 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i39 = call zeroext i1 @visit_type_BlockDirtyBitmap(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %u6, ptr noundef %errp) #5
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %u9 = getelementptr inbounds %struct.TransactionAction, ptr %obj, i64 0, i32 1
+  %u9 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i40 = call zeroext i1 @visit_type_BlockDirtyBitmap(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %u9, ptr noundef %errp) #5
   br label %return
 
 sw.bb11:                                          ; preds = %if.end
-  %u12 = getelementptr inbounds %struct.TransactionAction, ptr %obj, i64 0, i32 1
+  %u12 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i41 = call zeroext i1 @visit_type_BlockDirtyBitmap(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %u12, ptr noundef %errp) #5
   br label %return
 
 sw.bb14:                                          ; preds = %if.end
-  %u15 = getelementptr inbounds %struct.TransactionAction, ptr %obj, i64 0, i32 1
+  %u15 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i42 = call zeroext i1 @visit_type_BlockDirtyBitmap(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %u15, ptr noundef %errp) #5
   br label %return
 
 sw.bb17:                                          ; preds = %if.end
-  %u18 = getelementptr inbounds %struct.TransactionAction, ptr %obj, i64 0, i32 1
+  %u18 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i43 = call zeroext i1 @visit_type_BlockDirtyBitmapMerge(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %u18, ptr noundef %errp) #5
   br label %return
 
 sw.bb20:                                          ; preds = %if.end
-  %u21 = getelementptr inbounds %struct.TransactionAction, ptr %obj, i64 0, i32 1
+  %u21 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i44 = call zeroext i1 @visit_type_BlockdevBackup(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %u21, ptr noundef %errp) #5
   br label %return
 
 sw.bb23:                                          ; preds = %if.end
-  %u24 = getelementptr inbounds %struct.TransactionAction, ptr %obj, i64 0, i32 1
+  %u24 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i45 = call zeroext i1 @visit_type_BlockdevSnapshot(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %u24, ptr noundef %errp) #5
   br label %return
 
 sw.bb26:                                          ; preds = %if.end
-  %u27 = getelementptr inbounds %struct.TransactionAction, ptr %obj, i64 0, i32 1
+  %u27 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i46 = call zeroext i1 @visit_type_BlockdevSnapshotInternal(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %u27, ptr noundef %errp) #5
   br label %return
 
 sw.bb29:                                          ; preds = %if.end
-  %u30 = getelementptr inbounds %struct.TransactionAction, ptr %obj, i64 0, i32 1
+  %u30 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i47 = call zeroext i1 @visit_type_BlockdevSnapshotSync(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %u30, ptr noundef %errp) #5
   br label %return
 
 sw.bb32:                                          ; preds = %if.end
-  %u33 = getelementptr inbounds %struct.TransactionAction, ptr %obj, i64 0, i32 1
+  %u33 = getelementptr inbounds i8, ptr %obj, i64 8
   %call.i48 = call zeroext i1 @visit_type_DriveBackup(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %u33, ptr noundef %errp) #5
   br label %return
 
@@ -856,7 +850,7 @@ entry:
   br i1 %call, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %completion_mode = getelementptr inbounds %struct.TransactionProperties, ptr %obj, i64 0, i32 1
+  %completion_mode = getelementptr inbounds i8, ptr %obj, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %completion_mode, align 4
   store i32 %0, ptr %value.i, align 4
@@ -905,7 +899,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i, label %if.then.i, label %out_obj
 
 if.then.i:                                        ; preds = %if.end5
-  %completion_mode.i = getelementptr inbounds %struct.TransactionProperties, ptr %0, i64 0, i32 1
+  %completion_mode.i = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i.i)
   %1 = load i32, ptr %completion_mode.i, align 4
   store i32 %1, ptr %value.i.i, align 4
@@ -954,7 +948,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.TransactionActionList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   %call1 = tail call zeroext i1 @visit_type_TransactionAction(ptr noundef %v, ptr noundef null, ptr noundef nonnull %value, ptr noundef %errp)
   br i1 %call1, label %for.inc, label %out_obj.thread
 
@@ -1001,7 +995,7 @@ declare void @qapi_free_TransactionActionList(ptr noundef) local_unnamed_addr #2
 define dso_local zeroext i1 @visit_type_q_obj_transaction_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #1 {
 entry:
   %has_properties = alloca i8, align 1
-  %properties = getelementptr inbounds %struct.q_obj_transaction_arg, ptr %obj, i64 0, i32 1
+  %properties = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %properties, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8

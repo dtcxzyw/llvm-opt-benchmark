@@ -3,13 +3,6 @@ source_filename = "bench/cpython/original/readline_tokenizer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.tok_state = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, [100 x i32], i32, i32, ptr, ptr, i32, i32, i32, i32, i32, [200 x i8], [200 x i32], [200 x i32], ptr, [100 x i32], i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, [150 x %struct._tokenizer_mode], i32, i32, i32, i32 }
-%struct._tokenizer_mode = type { i32, i32, i32, i8, i32, i32, ptr, ptr, i32, i64, i64, i64, i64, ptr, i32 }
-%struct.PyBytesObject = type { %struct.PyVarObject, i64, [1 x i8] }
-%struct.PyVarObject = type { %struct._object, i64 }
-%struct._object = type { %union.anon, ptr }
-%union.anon = type { i64 }
-
 @PyExc_StopIteration = external local_unnamed_addr global ptr, align 8
 @PyExc_TypeError = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [39 x i8] c"readline() returned a non-bytes object\00", align 1
@@ -34,14 +27,14 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %inp = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 2
+  %inp = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call1, ptr %inp, align 8
-  %cur = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %cur, align 8
   %add.ptr = getelementptr i8, ptr %call1, i64 8192
-  %end = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 6
+  %end = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %add.ptr, ptr %end, align 8
-  %fp = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 9
+  %fp = getelementptr inbounds i8, ptr %call, i64 72
   store ptr null, ptr %fp, align 8
   %cmp7.not = icmp eq ptr %enc, null
   br i1 %cmp7.not, label %if.end14, label %if.then8
@@ -49,7 +42,7 @@ if.end4:                                          ; preds = %if.end
 if.then8:                                         ; preds = %if.end4
   %call9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %enc) #6
   %call10 = tail call ptr @_PyTokenizer_new_string(ptr noundef nonnull %enc, i64 noundef %call9, ptr noundef nonnull %call) #5
-  %encoding = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 29
+  %encoding = getelementptr inbounds i8, ptr %call, i64 2752
   store ptr %call10, ptr %encoding, align 8
   %tobool.not = icmp eq ptr %call10, null
   br i1 %tobool.not, label %if.then12, label %if.end14
@@ -59,9 +52,9 @@ if.then12:                                        ; preds = %if.then8
   br label %return
 
 if.end14:                                         ; preds = %if.then8, %if.end4
-  %decoding_state = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 27
+  %decoding_state = getelementptr inbounds i8, ptr %call, i64 2744
   store i32 2, ptr %decoding_state, align 8
-  %underflow = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 41
+  %underflow = getelementptr inbounds i8, ptr %call, i64 2840
   store ptr @tok_underflow_readline, ptr %underflow, align 8
   %0 = load i32, ptr %readline, align 8
   %add.i = add i32 %0, 1
@@ -73,7 +66,7 @@ if.end.i:                                         ; preds = %if.end14
   br label %Py_INCREF.exit
 
 Py_INCREF.exit:                                   ; preds = %if.end14, %if.end.i
-  %readline15 = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 35
+  %readline15 = getelementptr inbounds i8, ptr %call, i64 2800
   store ptr %readline, ptr %readline15, align 8
   br label %return
 
@@ -97,28 +90,28 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 define internal i32 @tok_underflow_readline(ptr noundef %tok) #0 {
 entry:
   %buflen.i = alloca i64, align 8
-  %start = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 7
+  %start = getelementptr inbounds i8, ptr %tok, i64 56
   %0 = load ptr, ptr %start, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %tok_mode_stack_index = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack_index = getelementptr inbounds i8, ptr %tok, i64 17256
   %1 = load i32, ptr %tok_mode_stack_index, align 8
   %cmp1 = icmp sgt i32 %1, 0
   br i1 %cmp1, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   %2 = load ptr, ptr %tok, align 8
-  %inp = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
+  %inp = getelementptr inbounds i8, ptr %tok, i64 16
   store ptr %2, ptr %inp, align 8
-  %cur = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %tok, i64 8
   store ptr %2, ptr %cur, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buflen.i)
-  %readline.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 35
+  %readline.i = getelementptr inbounds i8, ptr %tok, i64 2800
   %3 = load ptr, ptr %readline.i, align 8
   %call.i = tail call ptr @PyObject_CallNoArgs(ptr noundef %3) #5
   %cmp.i = icmp eq ptr %call.i, null
@@ -139,7 +132,7 @@ if.end.i:                                         ; preds = %if.then.i
   br label %tok_readline_string.exit.thread
 
 if.end4.i:                                        ; preds = %if.end
-  %encoding.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 29
+  %encoding.i = getelementptr inbounds i8, ptr %tok, i64 2752
   %5 = load ptr, ptr %encoding.i, align 8
   %cmp5.not.i = icmp eq ptr %5, null
   %6 = getelementptr i8, ptr %call.i, i64 8
@@ -154,7 +147,7 @@ if.then6.i:                                       ; preds = %if.end4.i
   br i1 %tobool9.not.i, label %if.then.i.i, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then6.i
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %9 = getelementptr i8, ptr %call.i, i64 16
   %call.val32.i = load i64, ptr %9, align 8
   %call17.i = tail call ptr @PyUnicode_Decode(ptr noundef nonnull %ob_sval.i.i, i64 noundef %call.val32.i, ptr noundef nonnull %5, ptr noundef nonnull @.str.1) #5
@@ -204,7 +197,7 @@ if.end37.i:                                       ; preds = %if.end32.i
   br i1 %tobool39.not.i, label %if.then.i39.i, label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.end37.i
-  %inp.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
+  %inp.i = getelementptr inbounds i8, ptr %tok, i64 16
   %14 = load ptr, ptr %inp.i, align 8
   %15 = load i64, ptr %buflen.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull align 1 %call33.i, i64 %15, i1 false)
@@ -213,9 +206,9 @@ if.end41.i:                                       ; preds = %if.end37.i
   %add.ptr.i = getelementptr i8, ptr %17, i64 %16
   store ptr %add.ptr.i, ptr %inp.i, align 8
   store i8 0, ptr %add.ptr.i, align 1
-  %cur.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur.i = getelementptr inbounds i8, ptr %tok, i64 8
   %18 = load ptr, ptr %cur.i, align 8
-  %line_start.i = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 31
+  %line_start.i = getelementptr inbounds i8, ptr %tok, i64 2768
   store ptr %18, ptr %line_start.i, align 8
   %19 = load i64, ptr %line.0.i, align 8
   %20 = and i64 %19, 2147483648
@@ -274,20 +267,20 @@ tok_readline_string.exit.thread:                  ; preds = %if.then.i39.i, %if.
 
 if.end3:                                          ; preds = %if.then1.i.i, %if.end.i.i, %if.end41.i, %if.then2.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buflen.i)
-  %inp4 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
+  %inp4 = getelementptr inbounds i8, ptr %tok, i64 16
   %26 = load ptr, ptr %inp4, align 8
-  %cur5 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur5 = getelementptr inbounds i8, ptr %tok, i64 8
   %27 = load ptr, ptr %cur5, align 8
   %cmp6 = icmp eq ptr %26, %27
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end3
-  %done = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done = getelementptr inbounds i8, ptr %tok, i64 64
   store i32 11, ptr %done, align 8
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %implicit_newline = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 47
+  %implicit_newline = getelementptr inbounds i8, ptr %tok, i64 17268
   store i32 0, ptr %implicit_newline, align 4
   %arrayidx = getelementptr i8, ptr %26, i64 -1
   %28 = load i8, ptr %arrayidx, align 1
@@ -304,7 +297,7 @@ if.then12:                                        ; preds = %if.end8
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then12, %if.end8
-  %tok_mode_stack_index17 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 44
+  %tok_mode_stack_index17 = getelementptr inbounds i8, ptr %tok, i64 17256
   %30 = load i32, ptr %tok_mode_stack_index17, align 8
   %tobool18.not = icmp eq i32 %30, 0
   br i1 %tobool18.not, label %if.end23, label %land.lhs.true19
@@ -315,13 +308,13 @@ land.lhs.true19:                                  ; preds = %if.end16
   br i1 %tobool21.not, label %return, label %if.end23
 
 if.end23:                                         ; preds = %land.lhs.true19, %if.end16
-  %lineno = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 17
+  %lineno = getelementptr inbounds i8, ptr %tok, i64 512
   %31 = load i32, ptr %lineno, align 8
   %inc = add i32 %31, 1
   store i32 %inc, ptr %lineno, align 8
-  %col_offset = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset = getelementptr inbounds i8, ptr %tok, i64 524
   store i32 0, ptr %col_offset, align 4
-  %encoding = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 29
+  %encoding = getelementptr inbounds i8, ptr %tok, i64 2752
   %32 = load ptr, ptr %encoding, align 8
   %tobool24.not = icmp eq ptr %32, null
   br i1 %tobool24.not, label %land.lhs.true25, label %if.end31
@@ -337,7 +330,7 @@ if.then29:                                        ; preds = %land.lhs.true25
   br label %return
 
 if.end31:                                         ; preds = %land.lhs.true25, %if.end23
-  %done32 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done32 = getelementptr inbounds i8, ptr %tok, i64 64
   %34 = load i32, ptr %done32, align 8
   %cmp33 = icmp eq i32 %34, 10
   %conv34 = zext i1 %cmp33 to i32

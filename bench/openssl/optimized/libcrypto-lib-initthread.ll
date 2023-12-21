@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %union.anon = type { i64 }
-%struct.global_tevent_register_st = type { ptr, ptr }
-%struct.thread_event_handler_st = type { ptr, ptr, ptr, ptr }
 
 @destructor_key = internal global %union.anon { i64 -1 }, align 8
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/initthread.c\00", align 1
@@ -42,7 +40,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %init_thread_stop.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %lock.i = getelementptr inbounds %struct.global_tevent_register_st, ptr %1, i64 0, i32 1
+  %lock.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %lock.i, align 8
   %call4.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %2) #2
   %tobool.not.i = icmp eq i32 %call4.i, 0
@@ -55,12 +53,12 @@ if.end6.i:                                        ; preds = %if.end3.i
 
 while.body.us.us.i:                               ; preds = %if.end6.i, %while.body.us.us.i
   %curr.019.us.us.i = phi ptr [ %6, %while.body.us.us.i ], [ %3, %if.end6.i ]
-  %handfn.us.us.i = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019.us.us.i, i64 0, i32 2
+  %handfn.us.us.i = getelementptr inbounds i8, ptr %curr.019.us.us.i, i64 16
   %4 = load ptr, ptr %handfn.us.us.i, align 8
-  %arg13.us.us.i = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019.us.us.i, i64 0, i32 1
+  %arg13.us.us.i = getelementptr inbounds i8, ptr %curr.019.us.us.i, i64 8
   %5 = load ptr, ptr %arg13.us.us.i, align 8
   tail call void %4(ptr noundef %5) #2
-  %next16.us.us.i = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019.us.us.i, i64 0, i32 3
+  %next16.us.us.i = getelementptr inbounds i8, ptr %curr.019.us.us.i, i64 24
   %6 = load ptr, ptr %next16.us.us.i, align 8
   store ptr %6, ptr %hands, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %curr.019.us.us.i, ptr noundef nonnull @.str, i32 noundef 358) #2
@@ -105,7 +103,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.end
-  %lock = getelementptr inbounds %struct.global_tevent_register_st, ptr %1, i64 0, i32 1
+  %lock = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %lock, align 8
   %call2 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %2) #2
   %tobool3.not = icmp eq i32 %call2, 0
@@ -132,7 +130,7 @@ if.then12:                                        ; preds = %for.body
   br i1 %tobool.not, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.then12
-  %lock15 = getelementptr inbounds %struct.global_tevent_register_st, ptr %1, i64 0, i32 1
+  %lock15 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %lock15, align 8
   %call16 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %5) #2
   br label %return
@@ -146,7 +144,7 @@ while.body.lr.ph:                                 ; preds = %if.end18, %if.end31
   %prev.0.ph53 = phi ptr [ %.us-phi, %if.end31 ], [ null, %if.end18 ]
   %curr.0.ph52 = phi ptr [ %13, %if.end31 ], [ %6, %if.end18 ]
   %cmp24.not = icmp eq ptr %prev.0.ph53, null
-  %next26 = getelementptr inbounds %struct.thread_event_handler_st, ptr %prev.0.ph53, i64 0, i32 3
+  %next26 = getelementptr inbounds i8, ptr %prev.0.ph53, i64 24
   br i1 %cmp24.not, label %while.body.lr.ph.split.us, label %while.body.lr.ph.split
 
 while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
@@ -159,7 +157,7 @@ while.body.us.us:                                 ; preds = %while.body.lr.ph.sp
   br i1 %cmp22.us.us, label %if.then23.us.us, label %if.end31
 
 if.then23.us.us:                                  ; preds = %while.body.us.us
-  %next28.us.us = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.031.us.us, i64 0, i32 3
+  %next28.us.us = getelementptr inbounds i8, ptr %curr.031.us.us, i64 24
   %8 = load ptr, ptr %next28.us.us, align 8
   store ptr %8, ptr %call.i27, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %curr.031.us.us, ptr noundef nonnull @.str, i32 noundef 455) #2
@@ -168,7 +166,7 @@ if.then23.us.us:                                  ; preds = %while.body.us.us
 
 while.body.us:                                    ; preds = %while.body.lr.ph.split.us, %while.body.us
   %curr.031.us = phi ptr [ %9, %while.body.us ], [ %curr.0.ph52, %while.body.lr.ph.split.us ]
-  %next28.us = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.031.us, i64 0, i32 3
+  %next28.us = getelementptr inbounds i8, ptr %curr.031.us, i64 24
   %9 = load ptr, ptr %next28.us, align 8
   store ptr %9, ptr %call.i27, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %curr.031.us, ptr noundef nonnull @.str, i32 noundef 455) #2
@@ -185,7 +183,7 @@ while.body.us32:                                  ; preds = %while.body.lr.ph.sp
   br i1 %cmp22.us35, label %if.then23.us36, label %if.end31
 
 if.then23.us36:                                   ; preds = %while.body.us32
-  %next.us = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.031.us33, i64 0, i32 3
+  %next.us = getelementptr inbounds i8, ptr %curr.031.us33, i64 24
   %11 = load ptr, ptr %next.us, align 8
   store ptr %11, ptr %next26, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %curr.031.us33, ptr noundef nonnull @.str, i32 noundef 455) #2
@@ -194,7 +192,7 @@ if.then23.us36:                                   ; preds = %while.body.us32
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %while.body
   %curr.031 = phi ptr [ %12, %while.body ], [ %curr.0.ph52, %while.body.lr.ph.split ]
-  %next = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.031, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %curr.031, i64 24
   %12 = load ptr, ptr %next, align 8
   store ptr %12, ptr %next26, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %curr.031, ptr noundef nonnull @.str, i32 noundef 455) #2
@@ -203,7 +201,7 @@ while.body:                                       ; preds = %while.body.lr.ph.sp
 
 if.end31:                                         ; preds = %while.body.us32, %while.body.us.us
   %.us-phi = phi ptr [ %curr.031.us.us, %while.body.us.us ], [ %curr.031.us33, %while.body.us32 ]
-  %next32 = getelementptr inbounds %struct.thread_event_handler_st, ptr %.us-phi, i64 0, i32 3
+  %next32 = getelementptr inbounds i8, ptr %.us-phi, i64 24
   %13 = load ptr, ptr %next32, align 8
   %cmp19.not30 = icmp eq ptr %13, null
   br i1 %cmp19.not30, label %while.end, label %while.body.lr.ph, !llvm.loop !7
@@ -223,7 +221,7 @@ for.inc:                                          ; preds = %while.end, %if.then
   br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.end6
-  %lock41 = getelementptr inbounds %struct.global_tevent_register_st, ptr %1, i64 0, i32 1
+  %lock41 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load ptr, ptr %lock41, align 8
   br i1 %tobool.not, label %if.else40, label %if.then37
 
@@ -305,7 +303,7 @@ if.end.i:                                         ; preds = %if.then
   br i1 %cmp1.i, label %init_thread_stop.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %lock.i = getelementptr inbounds %struct.global_tevent_register_st, ptr %2, i64 0, i32 1
+  %lock.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %lock.i, align 8
   %call4.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %3) #2
   %tobool.not.i = icmp eq i32 %call4.i, 0
@@ -318,12 +316,12 @@ if.end6.i:                                        ; preds = %if.end3.i
 
 while.body.us.us.i:                               ; preds = %if.end6.i, %while.body.us.us.i
   %curr.019.us.us.i = phi ptr [ %7, %while.body.us.us.i ], [ %4, %if.end6.i ]
-  %handfn.us.us.i = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019.us.us.i, i64 0, i32 2
+  %handfn.us.us.i = getelementptr inbounds i8, ptr %curr.019.us.us.i, i64 16
   %5 = load ptr, ptr %handfn.us.us.i, align 8
-  %arg13.us.us.i = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019.us.us.i, i64 0, i32 1
+  %arg13.us.us.i = getelementptr inbounds i8, ptr %curr.019.us.us.i, i64 8
   %6 = load ptr, ptr %arg13.us.us.i, align 8
   tail call void %5(ptr noundef %6) #2
-  %next16.us.us.i = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019.us.us.i, i64 0, i32 3
+  %next16.us.us.i = getelementptr inbounds i8, ptr %curr.019.us.us.i, i64 24
   %7 = load ptr, ptr %next16.us.us.i, align 8
   store ptr %7, ptr %call.i, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %curr.019.us.us.i, ptr noundef nonnull @.str, i32 noundef 358) #2
@@ -362,7 +360,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %lock = getelementptr inbounds %struct.global_tevent_register_st, ptr %1, i64 0, i32 1
+  %lock = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %lock, align 8
   %call4 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %2) #2
   %tobool.not = icmp eq i32 %call4, 0
@@ -382,17 +380,17 @@ while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr
   %prev.0.ph37 = phi ptr [ %.us-phi, %if.then11 ], [ null, %while.body.lr.ph.lr.ph ]
   %prev.0.ph37.fr = freeze ptr %prev.0.ph37
   %cmp14 = icmp eq ptr %prev.0.ph37.fr, null
-  %next18 = getelementptr inbounds %struct.thread_event_handler_st, ptr %prev.0.ph37.fr, i64 0, i32 3
+  %next18 = getelementptr inbounds i8, ptr %prev.0.ph37.fr, i64 24
   br i1 %cmp14, label %while.body.us, label %while.body
 
 while.body.us.us:                                 ; preds = %while.body.lr.ph.lr.ph, %while.body.us.us
   %curr.019.us.us = phi ptr [ %6, %while.body.us.us ], [ %3, %while.body.lr.ph.lr.ph ]
-  %handfn.us.us = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019.us.us, i64 0, i32 2
+  %handfn.us.us = getelementptr inbounds i8, ptr %curr.019.us.us, i64 16
   %4 = load ptr, ptr %handfn.us.us, align 8
-  %arg13.us.us = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019.us.us, i64 0, i32 1
+  %arg13.us.us = getelementptr inbounds i8, ptr %curr.019.us.us, i64 8
   %5 = load ptr, ptr %arg13.us.us, align 8
   tail call void %4(ptr noundef %5) #2
-  %next16.us.us = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019.us.us, i64 0, i32 3
+  %next16.us.us = getelementptr inbounds i8, ptr %curr.019.us.us, i64 24
   %6 = load ptr, ptr %next16.us.us, align 8
   store ptr %6, ptr %hands, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %curr.019.us.us, ptr noundef nonnull @.str, i32 noundef 358) #2
@@ -401,16 +399,16 @@ while.body.us.us:                                 ; preds = %while.body.lr.ph.lr
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end12.us
   %curr.019.us = phi ptr [ %9, %if.end12.us ], [ %curr.0.ph38, %while.body.lr.ph ]
-  %arg9.us = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019.us, i64 0, i32 1
+  %arg9.us = getelementptr inbounds i8, ptr %curr.019.us, i64 8
   %7 = load ptr, ptr %arg9.us, align 8
   %cmp10.not.us = icmp eq ptr %7, %arg
   br i1 %cmp10.not.us, label %if.end12.us, label %if.then11
 
 if.end12.us:                                      ; preds = %while.body.us
-  %handfn.us = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019.us, i64 0, i32 2
+  %handfn.us = getelementptr inbounds i8, ptr %curr.019.us, i64 16
   %8 = load ptr, ptr %handfn.us, align 8
   tail call void %8(ptr noundef nonnull %arg) #2
-  %next16.us = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019.us, i64 0, i32 3
+  %next16.us = getelementptr inbounds i8, ptr %curr.019.us, i64 24
   %9 = load ptr, ptr %next16.us, align 8
   store ptr %9, ptr %hands, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %curr.019.us, ptr noundef nonnull @.str, i32 noundef 358) #2
@@ -419,23 +417,23 @@ if.end12.us:                                      ; preds = %while.body.us
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end12
   %curr.019 = phi ptr [ %13, %if.end12 ], [ %curr.0.ph38, %while.body.lr.ph ]
-  %arg9 = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019, i64 0, i32 1
+  %arg9 = getelementptr inbounds i8, ptr %curr.019, i64 8
   %10 = load ptr, ptr %arg9, align 8
   %cmp10.not = icmp eq ptr %10, %arg
   br i1 %cmp10.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %while.body, %while.body.us
   %.us-phi = phi ptr [ %curr.019.us, %while.body.us ], [ %curr.019, %while.body ]
-  %next = getelementptr inbounds %struct.thread_event_handler_st, ptr %.us-phi, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %.us-phi, i64 24
   %11 = load ptr, ptr %next, align 8
   %cmp7.not18 = icmp eq ptr %11, null
   br i1 %cmp7.not18, label %while.end, label %while.body.lr.ph, !llvm.loop !4
 
 if.end12:                                         ; preds = %while.body
-  %handfn = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019, i64 0, i32 2
+  %handfn = getelementptr inbounds i8, ptr %curr.019, i64 16
   %12 = load ptr, ptr %handfn, align 8
   tail call void %12(ptr noundef nonnull %arg) #2
-  %next17 = getelementptr inbounds %struct.thread_event_handler_st, ptr %curr.019, i64 0, i32 3
+  %next17 = getelementptr inbounds i8, ptr %curr.019, i64 24
   %13 = load ptr, ptr %next17, align 8
   store ptr %13, ptr %next18, align 8
   tail call void @CRYPTO_free(ptr noundef nonnull %curr.019, ptr noundef nonnull @.str, i32 noundef 358) #2
@@ -465,7 +463,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %lock = getelementptr inbounds %struct.global_tevent_register_st, ptr %1, i64 0, i32 1
+  %lock = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %lock, align 8
   %call1 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %2) #2
   %tobool.not = icmp eq i32 %call1, 0
@@ -540,7 +538,7 @@ if.end8.i:                                        ; preds = %if.end.i
   br i1 %cmp.i.i, label %if.then11.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end8.i
-  %lock.i.i = getelementptr inbounds %struct.global_tevent_register_st, ptr %1, i64 0, i32 1
+  %lock.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %lock.i.i, align 8
   %call1.i.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %2) #2
   %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
@@ -566,13 +564,13 @@ if.end:                                           ; preds = %init_thread_push_ha
   br i1 %cmp2, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %handfn5 = getelementptr inbounds %struct.thread_event_handler_st, ptr %call1, i64 0, i32 2
+  %handfn5 = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr %handfn, ptr %handfn5, align 8
-  %arg6 = getelementptr inbounds %struct.thread_event_handler_st, ptr %call1, i64 0, i32 1
+  %arg6 = getelementptr inbounds i8, ptr %call1, i64 8
   store ptr %arg, ptr %arg6, align 8
   store ptr %index, ptr %call1, align 8
   %5 = load ptr, ptr %retval.0.i, align 8
-  %next = getelementptr inbounds %struct.thread_event_handler_st, ptr %call1, i64 0, i32 3
+  %next = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr %5, ptr %next, align 8
   store ptr %call1, ptr %retval.0.i, align 8
   br label %return
@@ -617,7 +615,7 @@ if.end.i:                                         ; preds = %entry
   store ptr %call.i.i, ptr %0, align 8
   %call2.i = tail call ptr @CRYPTO_THREAD_lock_new() #2
   %1 = load ptr, ptr @glob_tevent_reg, align 8
-  %lock.i = getelementptr inbounds %struct.global_tevent_register_st, ptr %1, i64 0, i32 1
+  %lock.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %call2.i, ptr %lock.i, align 8
   %2 = load ptr, ptr %1, align 8
   %cmp4.i = icmp eq ptr %2, null
@@ -628,7 +626,7 @@ if.end.i:                                         ; preds = %entry
 if.then7.i:                                       ; preds = %if.end.i
   tail call void @OPENSSL_sk_free(ptr noundef %2) #2
   %3 = load ptr, ptr @glob_tevent_reg, align 8
-  %lock9.i = getelementptr inbounds %struct.global_tevent_register_st, ptr %3, i64 0, i32 1
+  %lock9.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %lock9.i, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %4) #2
   %5 = load ptr, ptr @glob_tevent_reg, align 8

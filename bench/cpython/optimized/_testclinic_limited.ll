@@ -87,7 +87,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool.not, label %if.end5, label %exit
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %2 = load ptr, ptr %arrayidx6, align 8
   %call7 = tail call i32 @PyLong_AsInt(ptr noundef %2) #3
   %cmp8 = icmp eq i32 %call7, -1

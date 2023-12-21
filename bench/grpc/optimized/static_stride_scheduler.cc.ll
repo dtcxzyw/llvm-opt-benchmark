@@ -19,7 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<grpc_core::StaticStrideScheduler>::_Storage", i8, [15 x i8] }>
 
 $_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_ = comdat any
 
@@ -43,12 +42,12 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 16
   br label %return
 
 if.then2:                                         ; preds = %entry
-  %_M_engaged.i.i.i.i.i17 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i17 = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i8 0, ptr %_M_engaged.i.i.i.i.i17, align 16
   br label %return
 
@@ -69,7 +68,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %cmp10 = fcmp oeq float %0, 0.000000e+00
   %inc = zext i1 %cmp10 to i64
   %num_zero_weight_channels.1 = add i64 %num_zero_weight_channels.0158, %inc
-  %incdec.ptr = getelementptr inbounds float, ptr %__begin1.0156, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0156, i64 4
   %cmp8.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp8.not, label %for.end, label %for.body
 
@@ -78,7 +77,7 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp13, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %for.end
-  %_M_engaged.i.i.i.i.i21 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i21 = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i8 0, ptr %_M_engaged.i.i.i.i.i21, align 16
   br label %return
 
@@ -133,7 +132,7 @@ if.then41:                                        ; preds = %for.body38
 
 if.then.i27:                                      ; preds = %if.then41
   store i16 %conv28, ptr %weights.sroa.12.1163, align 2
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %weights.sroa.12.1163, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %weights.sroa.12.1163, i64 2
   br label %for.inc55
 
 if.else.i:                                        ; preds = %if.then41
@@ -171,7 +170,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit20.i.i
 
 _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i16, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 2
   %tobool.not.i.i.i = icmp eq ptr %weights.sroa.0.1162, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -196,7 +195,7 @@ if.else:                                          ; preds = %for.body38
 if.then.i39:                                      ; preds = %if.else
   %.sroa.speculated92 = tail call i16 @llvm.umax.i16(i16 %.sroa.speculated114, i16 %conv50)
   store i16 %.sroa.speculated92, ptr %weights.sroa.12.1163, align 2
-  %incdec.ptr.i40 = getelementptr inbounds i16, ptr %weights.sroa.12.1163, i64 1
+  %incdec.ptr.i40 = getelementptr inbounds i8, ptr %weights.sroa.12.1163, i64 2
   br label %for.inc55
 
 if.else.i42:                                      ; preds = %if.else
@@ -242,7 +241,7 @@ if.then.i.i.i12.i.i68:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit20.i.i62
 
 _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit20.i.i62: ; preds = %if.then.i.i.i12.i.i68, %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i58
-  %incdec.ptr.i.i63 = getelementptr inbounds i16, ptr %add.ptr.i.i60, i64 1
+  %incdec.ptr.i.i63 = getelementptr inbounds i8, ptr %add.ptr.i.i60, i64 2
   %tobool.not.i.i.i64 = icmp eq ptr %weights.sroa.0.1162, null
   br i1 %tobool.not.i.i.i64, label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i66, label %if.then.i21.i.i65
 
@@ -279,15 +278,15 @@ invoke.cont63:                                    ; preds = %if.then62
 
 do.end:                                           ; preds = %do.body
   store ptr %weights.sroa.0.5, ptr %agg.tmp66, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data", ptr %agg.tmp66, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp66, i64 8
   store ptr %weights.sroa.12.4, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data", ptr %agg.tmp66, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp66, i64 16
   store ptr %weights.sroa.24.4, ptr %_M_end_of_storage.i.i.i.i, align 8
-  %manager_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %next_sequence_func, i64 0, i32 1
+  %manager_.i.i.i = getelementptr inbounds i8, ptr %next_sequence_func, i64 16
   %3 = load ptr, ptr %manager_.i.i.i, align 16
   call void %3(i1 noundef zeroext false, ptr noundef nonnull %next_sequence_func, ptr noundef nonnull %agg.tmp67) #9
-  %manager_5.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.tmp67, i64 0, i32 1
-  %invoker_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %next_sequence_func, i64 0, i32 2
+  %manager_5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp67, i64 16
+  %invoker_.i.i.i = getelementptr inbounds i8, ptr %next_sequence_func, i64 24
   %4 = load <2 x ptr>, ptr %manager_.i.i.i, align 16
   store <2 x ptr> %4, ptr %manager_5.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
@@ -296,25 +295,25 @@ do.end:                                           ; preds = %do.body
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %do.end
-  %manager_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %ref.tmp65, i64 0, i32 1
+  %manager_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp65, i64 16
   %5 = load ptr, ptr %manager_.i.i.i.i.i.i.i.i.i.i, align 16
   call void %5(i1 noundef zeroext false, ptr noundef nonnull %ref.tmp65, ptr noundef nonnull %agg.result) #9
-  %manager_5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %agg.result, i64 0, i32 1
-  %invoker_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %ref.tmp65, i64 0, i32 2
+  %manager_5.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %invoker_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp65, i64 24
   %6 = load <2 x ptr>, ptr %manager_.i.i.i.i.i.i.i.i.i.i, align 16
   store <2 x ptr> %6, ptr %manager_5.i.i.i.i.i.i.i.i.i.i, align 16
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i.i.i.i.i.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i.i.i.i.i.i.i.i, align 8
-  %weights_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::StaticStrideScheduler", ptr %agg.result, i64 0, i32 1
-  %weights_3.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::StaticStrideScheduler", ptr %ref.tmp65, i64 0, i32 1
+  %weights_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %weights_3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp65, i64 32
   %7 = load <2 x ptr>, ptr %weights_3.i.i.i.i.i.i.i, align 16
   store <2 x ptr> %7, ptr %weights_.i.i.i.i.i.i.i, align 16
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::StaticStrideScheduler", ptr %agg.result, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::StaticStrideScheduler", ptr %ref.tmp65, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp65, i64 48
   %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 16
   store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %weights_3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  %_M_engaged.i.i.i.i.i76 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i76 = getelementptr inbounds i8, ptr %agg.result, i64 64
   store i8 1, ptr %_M_engaged.i.i.i.i.i76, align 16
   %9 = load ptr, ptr %manager_5.i.i.i, align 16
   call void %9(i1 noundef zeroext true, ptr noundef nonnull %agg.tmp67, ptr noundef nonnull %agg.tmp67) #9
@@ -379,27 +378,27 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core21StaticStrideSchedulerC2ESt6vectorItSaItEEN4absl12lts_2023080212AnyInvocableIFjvEEE(ptr noundef nonnull align 16 dereferenceable(56) %this, ptr nocapture noundef %weights, ptr noundef %next_sequence_func) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %manager_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %next_sequence_func, i64 0, i32 1
+  %manager_.i.i.i = getelementptr inbounds i8, ptr %next_sequence_func, i64 16
   %0 = load ptr, ptr %manager_.i.i.i, align 16
   tail call void %0(i1 noundef zeroext false, ptr noundef nonnull %next_sequence_func, ptr noundef nonnull %this) #9
   %1 = load ptr, ptr %manager_.i.i.i, align 16
-  %manager_5.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %this, i64 0, i32 1
+  %manager_5.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %1, ptr %manager_5.i.i.i, align 16
-  %invoker_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %next_sequence_func, i64 0, i32 2
+  %invoker_.i.i.i = getelementptr inbounds i8, ptr %next_sequence_func, i64 24
   %2 = load ptr, ptr %invoker_.i.i.i, align 8
-  %invoker_6.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %this, i64 0, i32 2
+  %invoker_6.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %2, ptr %invoker_6.i.i.i, align 8
   store ptr @_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %manager_.i.i.i, align 16
   store ptr null, ptr %invoker_.i.i.i, align 8
-  %weights_ = getelementptr inbounds %"class.grpc_core::StaticStrideScheduler", ptr %this, i64 0, i32 1
+  %weights_ = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %weights, align 8
   store ptr %3, ptr %weights_, align 16
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.grpc_core::StaticStrideScheduler", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data", ptr %weights, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_finish3.i.i.i.i = getelementptr inbounds i8, ptr %weights, i64 8
   %4 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
   store ptr %4, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.grpc_core::StaticStrideScheduler", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data", ptr %weights, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %weights, i64 16
   %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
   store ptr %5, ptr %_M_end_of_storage.i.i.i.i, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %weights, i8 0, i64 24, i1 false)
@@ -437,9 +436,9 @@ do.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK9grpc_core21StaticStrideScheduler4PickEv(ptr noundef nonnull align 16 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %invoker_.i.i = getelementptr inbounds %"class.absl::lts_20230802::internal_any_invocable::CoreImpl", ptr %this, i64 0, i32 2
-  %weights_ = getelementptr inbounds %"class.grpc_core::StaticStrideScheduler", ptr %this, i64 0, i32 1
-  %_M_finish.i = getelementptr inbounds %"class.grpc_core::StaticStrideScheduler", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %invoker_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %weights_ = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body, %entry

@@ -22,30 +22,30 @@ target triple = "x86_64-unknown-linux-gnu"
 define i32 @ossl_digest_md_to_nid(ptr noundef %md, ptr nocapture noundef readonly %it, i64 noundef %it_len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %md, null
-  %cmp17 = icmp ne i64 %it_len, 0
-  %or.cond = and i1 %cmp, %cmp17
+  %cmp16 = icmp ne i64 %it_len, 0
+  %or.cond = and i1 %cmp, %cmp16
   br i1 %or.cond, label %for.body, label %return
 
-for.body:                                         ; preds = %entry, %for.inc
-  %i.08 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %ptr = getelementptr inbounds %struct.ossl_item_st, ptr %it, i64 %i.08, i32 1
-  %0 = load ptr, ptr %ptr, align 8
-  %call = tail call i32 @EVP_MD_is_a(ptr noundef nonnull %md, ptr noundef %0) #2
-  %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %for.inc, label %if.then2
-
-if.then2:                                         ; preds = %for.body
-  %arrayidx = getelementptr inbounds %struct.ossl_item_st, ptr %it, i64 %i.08
-  %1 = load i32, ptr %arrayidx, align 8
-  br label %return
-
-for.inc:                                          ; preds = %for.body
-  %inc = add nuw i64 %i.08, 1
+for.cond:                                         ; preds = %for.body
+  %inc = add nuw i64 %i.07, 1
   %exitcond.not = icmp eq i64 %inc, %it_len
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !4
 
-return:                                           ; preds = %for.inc, %entry, %if.then2
-  %retval.0 = phi i32 [ %1, %if.then2 ], [ 0, %entry ], [ 0, %for.inc ]
+for.body:                                         ; preds = %entry, %for.cond
+  %i.07 = phi i64 [ %inc, %for.cond ], [ 0, %entry ]
+  %arrayidx = getelementptr inbounds %struct.ossl_item_st, ptr %it, i64 %i.07
+  %ptr = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %0 = load ptr, ptr %ptr, align 8
+  %call = tail call i32 @EVP_MD_is_a(ptr noundef nonnull %md, ptr noundef %0) #2
+  %tobool.not = icmp eq i32 %call, 0
+  br i1 %tobool.not, label %for.cond, label %if.then2
+
+if.then2:                                         ; preds = %for.body
+  %1 = load i32, ptr %arrayidx, align 8
+  br label %return
+
+return:                                           ; preds = %for.cond, %entry, %if.then2
+  %retval.0 = phi i32 [ %1, %if.then2 ], [ 0, %entry ], [ 0, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -57,26 +57,26 @@ entry:
   %cmp.i.not = icmp eq ptr %md, null
   br i1 %cmp.i.not, label %ossl_digest_md_to_nid.exit, label %for.body.i
 
-for.body.i:                                       ; preds = %entry, %for.inc.i
-  %i.08.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %entry ]
-  %ptr.i = getelementptr inbounds %struct.ossl_item_st, ptr @ossl_digest_get_approved_nid.name_to_nid, i64 %i.08.i, i32 1
-  %0 = load ptr, ptr %ptr.i, align 8
-  %call.i = tail call i32 @EVP_MD_is_a(ptr noundef nonnull %md, ptr noundef %0) #2
-  %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %for.inc.i, label %if.then2.i
-
-if.then2.i:                                       ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds %struct.ossl_item_st, ptr @ossl_digest_get_approved_nid.name_to_nid, i64 %i.08.i
-  %1 = load i32, ptr %arrayidx.i, align 16
-  br label %ossl_digest_md_to_nid.exit
-
-for.inc.i:                                        ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.08.i, 1
+for.cond.i:                                       ; preds = %for.body.i
+  %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 11
   br i1 %exitcond.not.i, label %ossl_digest_md_to_nid.exit, label %for.body.i, !llvm.loop !4
 
-ossl_digest_md_to_nid.exit:                       ; preds = %for.inc.i, %entry, %if.then2.i
-  %retval.0.i = phi i32 [ %1, %if.then2.i ], [ 0, %entry ], [ 0, %for.inc.i ]
+for.body.i:                                       ; preds = %entry, %for.cond.i
+  %i.07.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
+  %arrayidx.i = getelementptr inbounds %struct.ossl_item_st, ptr @ossl_digest_get_approved_nid.name_to_nid, i64 %i.07.i
+  %ptr.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %0 = load ptr, ptr %ptr.i, align 8
+  %call.i = tail call i32 @EVP_MD_is_a(ptr noundef nonnull %md, ptr noundef %0) #2
+  %tobool.not.i = icmp eq i32 %call.i, 0
+  br i1 %tobool.not.i, label %for.cond.i, label %if.then2.i
+
+if.then2.i:                                       ; preds = %for.body.i
+  %1 = load i32, ptr %arrayidx.i, align 8
+  br label %ossl_digest_md_to_nid.exit
+
+ossl_digest_md_to_nid.exit:                       ; preds = %for.cond.i, %entry, %if.then2.i
+  %retval.0.i = phi i32 [ %1, %if.then2.i ], [ 0, %entry ], [ 0, %for.cond.i ]
   ret i32 %retval.0.i
 }
 

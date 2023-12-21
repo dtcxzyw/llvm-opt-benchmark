@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/cmp-test-bin-cmp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_cmp_ctx_st = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, i32, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_cmp_msg_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [57 x i8] c"assertion failed: (size_t)BIO_write(in, buf, len) == len\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"../openssl/fuzz/cmp.c\00", align 1
 @.str.2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -74,14 +71,14 @@ if.then9:                                         ; preds = %cond.end
 if.then20:                                        ; preds = %if.then9
   %call.i = tail call ptr @X509_NAME_new() #4
   %call1.i = tail call ptr @ASN1_INTEGER_new() #4
-  %unprotectedSend.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call13, i64 0, i32 27
+  %unprotectedSend.i = getelementptr inbounds i8, ptr %call13, i64 192
   store i32 1, ptr %unprotectedSend.i, align 8
-  %disableConfirm.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call13, i64 0, i32 45
+  %disableConfirm.i = getelementptr inbounds i8, ptr %call13, i64 324
   store i32 1, ptr %disableConfirm.i, align 4
-  %popoMethod.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call13, i64 0, i32 59
+  %popoMethod.i = getelementptr inbounds i8, ptr %call13, i64 420
   store i32 -1, ptr %popoMethod.i, align 4
   %call2.i = tail call ptr @X509_new() #4
-  %oldCert.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call13, i64 0, i32 60
+  %oldCert.i = getelementptr inbounds i8, ptr %call13, i64 424
   store ptr %call2.i, ptr %oldCert.i, align 8
   %call3.i = tail call i32 @OSSL_CMP_CTX_set1_secretValue(ptr noundef nonnull %call13, ptr noundef nonnull @.str.2, i32 noundef 0) #4
   %tobool.not.i = icmp eq i32 %call3.i, 0
@@ -112,7 +109,7 @@ if.end.i:                                         ; preds = %lor.lhs.false13.i
   %call18.i = tail call i32 @OSSL_CMP_CTX_set_transfer_cb_arg(ptr noundef nonnull %call13, ptr noundef nonnull %call6) #4
   %call19.i = tail call i32 @OSSL_CMP_CTX_set_log_cb(ptr noundef nonnull %call13, ptr noundef nonnull @print_noop) #4
   store i32 0, ptr @num_responses, align 4
-  %body.i = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %call6, i64 0, i32 1
+  %body.i = getelementptr inbounds i8, ptr %call6, i64 8
   %2 = load ptr, ptr %body.i, align 8
   %cmp20.not.i = icmp eq ptr %2, null
   br i1 %cmp20.not.i, label %sw.default.i, label %cond.end.i
@@ -142,7 +139,7 @@ sw.bb26.i:                                        ; preds = %cond.end.i
   br label %cmp_client_process_response.exit
 
 sw.bb28.i:                                        ; preds = %cond.end.i
-  %status.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %call13, i64 0, i32 64
+  %status.i = getelementptr inbounds i8, ptr %call13, i64 456
   store i32 3, ptr %status.i, align 8
   %call29.i = tail call i32 @OSSL_CMP_try_certreq(ptr noundef nonnull %call13, i32 noundef 2, ptr noundef null, ptr noundef null) #4
   br label %cmp_client_process_response.exit

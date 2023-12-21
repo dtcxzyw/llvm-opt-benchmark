@@ -5,13 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct._GSourceFuncs = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.QIOChannelBuffer = type { %struct.QIOChannel, i64, i64, i64, ptr }
-%struct.QIOChannel = type { %struct.Object, i32, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QIOChannelBufferSource = type { %struct._GSource, ptr, i32 }
-%struct._GSource = type { ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.QIOChannelClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.iovec = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [19 x i8] c"qio-channel-buffer\00", align 1
@@ -35,9 +28,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call2 = tail call noalias ptr @g_malloc0_n(i64 noundef %capacity, i64 noundef 1) #9
-  %data = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 4
+  %data = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr %call2, ptr %data, align 8
-  %capacity3 = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 1
+  %capacity3 = getelementptr inbounds i8, ptr %call.i, i64 96
   store i64 %capacity, ptr %capacity3, align 8
   br label %if.end
 
@@ -54,7 +47,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 define internal i32 @qio_channel_buffer_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture noundef writeonly %timeout) #3 {
 entry:
   store i32 -1, ptr %timeout, align 4
-  %condition = getelementptr inbounds %struct.QIOChannelBufferSource, ptr %source, i64 0, i32 2
+  %condition = getelementptr inbounds i8, ptr %source, i64 104
   %0 = load i32, ptr %condition, align 8
   %and = and i32 %0, 5
   ret i32 %and
@@ -63,7 +56,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal i32 @qio_channel_buffer_source_check(ptr nocapture noundef readonly %source) #4 {
 entry:
-  %condition = getelementptr inbounds %struct.QIOChannelBufferSource, ptr %source, i64 0, i32 2
+  %condition = getelementptr inbounds i8, ptr %source, i64 104
   %0 = load i32, ptr %condition, align 8
   %and = and i32 %0, 5
   ret i32 %and
@@ -72,10 +65,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @qio_channel_buffer_source_dispatch(ptr nocapture noundef readonly %source, ptr nocapture noundef readonly %callback, ptr noundef %user_data) #0 {
 entry:
-  %bioc = getelementptr inbounds %struct.QIOChannelBufferSource, ptr %source, i64 0, i32 1
+  %bioc = getelementptr inbounds i8, ptr %source, i64 96
   %0 = load ptr, ptr %bioc, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #8
-  %condition = getelementptr inbounds %struct.QIOChannelBufferSource, ptr %source, i64 0, i32 2
+  %condition = getelementptr inbounds i8, ptr %source, i64 104
   %1 = load i32, ptr %condition, align 8
   %and = and i32 %1, 5
   %call1 = tail call i32 %callback(ptr noundef %call.i, i32 noundef %and, ptr noundef %user_data) #8
@@ -85,7 +78,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qio_channel_buffer_source_finalize(ptr nocapture noundef readonly %source) #0 {
 entry:
-  %bioc = getelementptr inbounds %struct.QIOChannelBufferSource, ptr %source, i64 0, i32 1
+  %bioc = getelementptr inbounds i8, ptr %source, i64 96
   %0 = load ptr, ptr %bioc, align 8
   tail call void @object_unref(ptr noundef %0) #8
   ret void
@@ -117,10 +110,10 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qio_channel_buffer_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BUFFER) #8
-  %data = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 4
+  %data = getelementptr inbounds i8, ptr %call.i, i64 120
   %0 = load ptr, ptr %data, align 8
   tail call void @g_free(ptr noundef %0) #8
-  %capacity = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %call.i, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %capacity, i8 0, i64 24, i1 false)
   ret void
 }
@@ -129,17 +122,17 @@ entry:
 define internal void @qio_channel_buffer_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_CLASS) #8
-  %io_writev = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 1
+  %io_writev = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @qio_channel_buffer_writev, ptr %io_writev, align 8
-  %io_readv = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 2
+  %io_readv = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @qio_channel_buffer_readv, ptr %io_readv, align 8
-  %io_set_blocking = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 5
+  %io_set_blocking = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @qio_channel_buffer_set_blocking, ptr %io_set_blocking, align 8
-  %io_seek = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 9
+  %io_seek = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @qio_channel_buffer_seek, ptr %io_seek, align 8
-  %io_close = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 3
+  %io_close = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qio_channel_buffer_close, ptr %io_close, align 8
-  %io_create_watch = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 4
+  %io_create_watch = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @qio_channel_buffer_create_watch, ptr %io_create_watch, align 8
   ret void
 }
@@ -165,17 +158,17 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body, %entry
   %towrite.0.lcssa = phi i64 [ 0, %entry ], [ %add, %for.body ]
-  %offset = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %call.i, i64 112
   %1 = load i64, ptr %offset, align 8
   %add1 = add i64 %1, %towrite.0.lcssa
-  %capacity = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %call.i, i64 96
   %2 = load i64, ptr %capacity, align 8
   %cmp2 = icmp ugt i64 %add1, %2
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
   store i64 %add1, ptr %capacity, align 8
-  %data = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 4
+  %data = getelementptr inbounds i8, ptr %call.i, i64 120
   %3 = load ptr, ptr %data, align 8
   %call7 = tail call ptr @g_realloc(ptr noundef %3, i64 noundef %add1) #8
   store ptr %call7, ptr %data, align 8
@@ -184,13 +177,13 @@ if.then:                                          ; preds = %for.end
 
 if.end:                                           ; preds = %if.then, %for.end
   %4 = phi i64 [ %.pre, %if.then ], [ %1, %for.end ]
-  %usage = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 2
+  %usage = getelementptr inbounds i8, ptr %call.i, i64 104
   %5 = load i64, ptr %usage, align 8
   %cmp10 = icmp ugt i64 %4, %5
   br i1 %cmp10, label %if.then11, label %if.end17
 
 if.then11:                                        ; preds = %if.end
-  %data12 = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 4
+  %data12 = getelementptr inbounds i8, ptr %call.i, i64 120
   %6 = load ptr, ptr %data12, align 8
   %sub = sub i64 %4, %5
   tail call void @llvm.memset.p0.i64(ptr align 1 %6, i8 0, i64 %sub, i1 false)
@@ -203,7 +196,7 @@ if.end17:                                         ; preds = %if.then11, %if.end
   br i1 %cmp37.not, label %for.end39, label %for.body20.lr.ph
 
 for.body20.lr.ph:                                 ; preds = %if.end17
-  %data21 = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 4
+  %data21 = getelementptr inbounds i8, ptr %call.i, i64 120
   br label %for.body20
 
 for.body20:                                       ; preds = %for.body20.lr.ph, %for.body20
@@ -214,7 +207,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %add.ptr = getelementptr i8, ptr %10, i64 %9
   %arrayidx23 = getelementptr %struct.iovec, ptr %iov, i64 %i.142
   %11 = load ptr, ptr %arrayidx23, align 8
-  %iov_len25 = getelementptr %struct.iovec, ptr %iov, i64 %i.142, i32 1
+  %iov_len25 = getelementptr inbounds i8, ptr %arrayidx23, i64 8
   %12 = load i64, ptr %iov_len25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %11, i64 %12, i1 false)
   %13 = load i64, ptr %iov_len25, align 8
@@ -240,13 +233,13 @@ for.end39:                                        ; preds = %for.body20, %if.end
 define internal i64 @qio_channel_buffer_readv(ptr noundef %ioc, ptr nocapture noundef readonly %iov, i64 noundef %niov, ptr nocapture readnone %fds, ptr nocapture readnone %nfds, i32 %flags, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BUFFER) #8
-  %offset = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %call.i, i64 112
   %cmp18.not = icmp eq i64 %niov, 0
   br i1 %cmp18.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %usage = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 2
-  %data = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 4
+  %usage = getelementptr inbounds i8, ptr %call.i, i64 104
+  %data = getelementptr inbounds i8, ptr %call.i, i64 120
   %.pre = load i64, ptr %offset, align 8
   br label %for.body
 
@@ -260,7 +253,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 if.end:                                           ; preds = %for.body
   %arrayidx = getelementptr %struct.iovec, ptr %iov, i64 %i.020
-  %iov_len = getelementptr %struct.iovec, ptr %iov, i64 %i.020, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load i64, ptr %iov_len, align 8
   %add = add i64 %2, %0
   %cmp4 = icmp ugt i64 %add, %1
@@ -293,7 +286,7 @@ entry:
 define internal i64 @qio_channel_buffer_seek(ptr noundef %ioc, i64 noundef returned %offset, i32 %whence, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BUFFER) #8
-  %offset1 = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 3
+  %offset1 = getelementptr inbounds i8, ptr %call.i, i64 112
   store i64 %offset, ptr %offset1, align 8
   ret i64 %offset
 }
@@ -302,10 +295,10 @@ entry:
 define internal i32 @qio_channel_buffer_close(ptr noundef %ioc, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BUFFER) #8
-  %data = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 4
+  %data = getelementptr inbounds i8, ptr %call.i, i64 120
   %0 = load ptr, ptr %data, align 8
   tail call void @g_free(ptr noundef %0) #8
-  %capacity = getelementptr inbounds %struct.QIOChannelBuffer, ptr %call.i, i64 0, i32 1
+  %capacity = getelementptr inbounds i8, ptr %call.i, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %capacity, i8 0, i64 32, i1 false)
   ret i32 0
 }
@@ -315,10 +308,10 @@ define internal ptr @qio_channel_buffer_create_watch(ptr noundef %ioc, i32 nound
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BUFFER) #8
   %call1 = tail call ptr @g_source_new(ptr noundef nonnull @qio_channel_buffer_source_funcs, i32 noundef 112) #8
-  %bioc2 = getelementptr inbounds %struct.QIOChannelBufferSource, ptr %call1, i64 0, i32 1
+  %bioc2 = getelementptr inbounds i8, ptr %call1, i64 96
   store ptr %call.i, ptr %bioc2, align 8
   %call3 = tail call ptr @object_ref(ptr noundef %call.i) #8
-  %condition4 = getelementptr inbounds %struct.QIOChannelBufferSource, ptr %call1, i64 0, i32 2
+  %condition4 = getelementptr inbounds i8, ptr %call1, i64 104
   store i32 %condition, ptr %condition4, align 8
   ret ptr %call1
 }

@@ -15,8 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
 %struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
 %struct._PyOnceFlag = type { i8 }
-%struct.ExampleObject = type { %struct._object, ptr }
-%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
 
 @main_def = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str.2, ptr @.str.3, i64 0, ptr @testexport_methods, ptr @main_slots, ptr null, ptr null, ptr null }, align 8
 @def_nonmodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str.22, ptr @.str.23, i64 0, ptr null, ptr @slots_create_nonmodule, ptr null, ptr null, ptr null }, align 8
@@ -534,7 +532,7 @@ declare i32 @PyModule_AddStringConstant(ptr noundef, ptr noundef, ptr noundef) l
 ; Function Attrs: nounwind uwtable
 define internal void @Example_finalize(ptr nocapture noundef %self) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.ExampleObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.end, label %if.then
@@ -563,7 +561,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @Example_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.ExampleObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -584,7 +582,7 @@ return:                                           ; preds = %if.then, %do.end
 ; Function Attrs: nounwind uwtable
 define internal ptr @Example_getattro(ptr noundef %self, ptr noundef %name) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.ExampleObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end8, label %if.then
@@ -621,7 +619,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 ; Function Attrs: nounwind uwtable
 define internal i32 @Example_setattr(ptr nocapture noundef %self, ptr noundef %name, ptr noundef %v) #0 {
 entry:
-  %x_attr = getelementptr inbounds %struct.ExampleObject, ptr %self, i64 0, i32 1
+  %x_attr = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %x_attr, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end5
@@ -1019,7 +1017,7 @@ skip_optional_pos:                                ; preds = %if.then16, %land.lh
 
 if.end31:                                         ; preds = %if.end14, %skip_optional_pos
   %n.037 = phi i32 [ %call18, %skip_optional_pos ], [ 1, %if.end14 ]
-  %arrayidx32 = getelementptr ptr, ptr %cond1030, i64 1
+  %arrayidx32 = getelementptr i8, ptr %cond1030, i64 8
   %5 = load ptr, ptr %arrayidx32, align 8
   %call33 = call i32 @PyObject_IsTrue(ptr noundef %5) #3
   %cmp34 = icmp slt i32 %call33, 0
@@ -1085,7 +1083,7 @@ if.then15:                                        ; preds = %land.lhs.true11
   br i1 %cmp17, label %if.then22, label %lor.lhs.false18
 
 lor.lhs.false18:                                  ; preds = %if.then15
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %kwnames, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %kwnames, i64 24
   %5 = load ptr, ptr %ob_item, align 8
   %call20 = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %5, ptr noundef nonnull @.str.75) #3
   %tobool21.not = icmp eq i32 %call20, 0

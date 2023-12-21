@@ -3,9 +3,6 @@ source_filename = "bench/flac/original/cuesheet.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.FLAC__StreamMetadata = type { i32, i32, i32, %union.anon }
-%union.anon = type { %struct.FLAC__StreamMetadata_CueSheet }
-%struct.FLAC__StreamMetadata_CueSheet = type { [129 x i8], i64, i32, i32, ptr }
 %struct.FLAC__StreamMetadata_CueSheet_Track = type { i64, i8, [13 x i8], i8, i8, ptr }
 %struct.FLAC__StreamMetadata_CueSheet_Index = type { i64, i8 }
 
@@ -122,7 +119,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %buffer.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %line.i)
-  %data.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %call, i64 16
   %tobool.i = icmp ne i32 %is_cdda, 0
   %cmp.i = icmp ne i32 %sample_rate, 44100
   %or.cond.i = and i1 %cmp.i, %tobool.i
@@ -130,9 +127,9 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   %cond.i = select i1 %tobool.i, i64 88200, i64 0
-  %lead_in.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call, i64 0, i32 3, i32 0, i32 1
+  %lead_in.i = getelementptr inbounds i8, ptr %call, i64 152
   store i64 %cond.i, ptr %lead_in.i, align 8
-  %is_cd.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call, i64 0, i32 3, i32 0, i32 2
+  %is_cd.i = getelementptr inbounds i8, ptr %call, i64 160
   store i32 %is_cdda, ptr %is_cd.i, align 8
   %call945.i = call ptr @fgets(ptr noundef nonnull %buffer.i, i32 noundef 4096, ptr noundef %file)
   %cmp2.not946.i = icmp eq ptr %call945.i, null
@@ -140,8 +137,8 @@ if.end.i:                                         ; preds = %if.end
 
 while.body.lr.ph.i:                               ; preds = %if.end.i
   %arrayidx.i = getelementptr inbounds i8, ptr %buffer.i, i64 4094
-  %num_tracks295.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call, i64 0, i32 3, i32 0, i32 3
-  %tracks300.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call, i64 0, i32 3, i32 0, i32 4
+  %num_tracks295.i = getelementptr inbounds i8, ptr %call, i64 164
+  %tracks300.i = getelementptr inbounds i8, ptr %call, i64 168
   %cmp.i323.i = icmp eq i32 %sample_rate, 0
   %mul32.i.i = mul i32 %sample_rate, 60
   %conv33.i.i = zext i32 %mul32.i.i to i64
@@ -152,7 +149,7 @@ while.body.lr.ph.i:                               ; preds = %if.end.i
   %tobool146.i = icmp ne i32 %rem.i, 0
   %mul38.i353.i = mul nuw nsw i64 %conv39.i.i, 60
   %conv59.i.i = uitofp i32 %sample_rate to double
-  %arrayidx.i.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call, i64 0, i32 3, i32 0, i32 0, i64 128
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %call, i64 144
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end499.i, %while.body.lr.ph.i
@@ -571,7 +568,7 @@ local__parse_int64_.exit.i.i:                     ; preds = %if.else.i.i.i
   br i1 %or.cond614.not.i, label %if.end96.i, label %if.then2
 
 if.end96.i:                                       ; preds = %local__parse_int64_.exit.i.i
-  %num_indices.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %45, i64 %idxprom81.i, i32 4
+  %num_indices.i = getelementptr inbounds i8, ptr %arrayidx82.i, i64 23
   %63 = load i8, ptr %num_indices.i, align 1
   %cmp98.i = icmp eq i8 %63, 0
   br i1 %cmp98.i, label %if.then100.i, label %if.else105.i
@@ -582,7 +579,7 @@ if.then100.i:                                     ; preds = %if.end96.i
 
 if.else105.i:                                     ; preds = %if.end96.i
   %conv97.i = zext i8 %63 to i64
-  %indices.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %45, i64 %idxprom81.i, i32 5
+  %indices.i = getelementptr inbounds i8, ptr %arrayidx82.i, i64 24
   %64 = load ptr, ptr %indices.i, align 8
   %sub108.i = add nuw nsw i64 %conv97.i, 4294967295
   %idxprom109.i = and i64 %sub108.i, 4294967295
@@ -916,7 +913,7 @@ land.lhs.true153.i:                               ; preds = %if.end151.i
 
 land.lhs.true157.i:                               ; preds = %land.lhs.true153.i
   %108 = load ptr, ptr %tracks300.i, align 8
-  %num_indices160.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %108, i64 0, i32 4
+  %num_indices160.i = getelementptr inbounds i8, ptr %108, i64 23
   %109 = load i8, ptr %num_indices160.i, align 1
   %cmp162.i = icmp eq i8 %109, 0
   %cmp165.i = icmp ne i64 %xx.0.i, 0
@@ -935,7 +932,7 @@ if.end192.thread1024.i:                           ; preds = %land.lhs.true170.i
 
 land.lhs.true175.i:                               ; preds = %land.lhs.true170.i
   %conv172.i = zext i8 %110 to i64
-  %indices176.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %45, i64 %idxprom81.i, i32 5
+  %indices176.i = getelementptr inbounds i8, ptr %arrayidx82.i, i64 24
   %111 = load ptr, ptr %indices176.i, align 8
   %sub179.i = add nuw nsw i64 %conv172.i, 4294967295
   %idxprom180.i = and i64 %sub179.i, 4294967295
@@ -964,13 +961,13 @@ if.then198.i:                                     ; preds = %land.lhs.true194.i
   %idxprom202.i = zext i32 %sub201.i to i64
   %arrayidx203.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %113, i64 %idxprom202.i
   %114 = load i64, ptr %arrayidx203.i, align 8
-  %indices205.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %113, i64 %idxprom202.i, i32 5
+  %indices205.i = getelementptr inbounds i8, ptr %arrayidx203.i, i64 24
   %115 = load ptr, ptr %indices205.i, align 8
-  %num_indices206.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %113, i64 %idxprom202.i, i32 4
+  %num_indices206.i = getelementptr inbounds i8, ptr %arrayidx203.i, i64 23
   %116 = load i8, ptr %num_indices206.i, align 1
   %conv207.i = zext i8 %116 to i64
   %117 = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %115, i64 %conv207.i
-  %arrayidx210.i = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %117, i64 -1
+  %arrayidx210.i = getelementptr i8, ptr %117, i64 -16
   %118 = load i64, ptr %arrayidx210.i, align 8
   %add212.i = add i64 %118, %114
   %cmp213.not.i = icmp ugt i64 %xx.0.i, %add212.i
@@ -992,19 +989,19 @@ if.end217.i:                                      ; preds = %if.end217.sink.spli
 if.end225.i:                                      ; preds = %if.end217.i
   %120 = load i64, ptr %arrayidx82.i, align 8
   %sub227.i = sub i64 %xx.0.i, %120
-  %indices228.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %45, i64 %idxprom81.i, i32 5
+  %indices228.i = getelementptr inbounds i8, ptr %arrayidx82.i, i64 24
   %121 = load ptr, ptr %indices228.i, align 8
   %122 = load i8, ptr %num_indices.i, align 1
   %conv230.i = zext i8 %122 to i64
   %123 = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %121, i64 %conv230.i
-  %arrayidx233.i = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %123, i64 -1
+  %arrayidx233.i = getelementptr i8, ptr %123, i64 -16
   store i64 %sub227.i, ptr %arrayidx233.i, align 8
   %conv235.i = trunc i64 %add.i.fr.i.i to i8
   %124 = load ptr, ptr %indices228.i, align 8
   %125 = load i8, ptr %num_indices.i, align 1
   %conv238.i = zext i8 %125 to i64
   %126 = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %124, i64 %conv238.i
-  %number242.i = getelementptr %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %126, i64 -1, i32 1
+  %number242.i = getelementptr i8, ptr %126, i64 -8
   store i8 %conv235.i, ptr %number242.i, align 8
   br label %if.end499.i
 
@@ -1170,7 +1167,8 @@ if.then298.i:                                     ; preds = %if.then294.i
   %145 = load ptr, ptr %tracks300.i, align 8
   %sub302.i = add i32 %144, -1
   %idxprom303.i = zext i32 %sub302.i to i64
-  %num_indices305.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %145, i64 %idxprom303.i, i32 4
+  %arrayidx304.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %145, i64 %idxprom303.i
+  %num_indices305.i = getelementptr inbounds i8, ptr %arrayidx304.i, i64 23
   %146 = load i8, ptr %num_indices305.i, align 1
   %cmp307.i = icmp eq i8 %146, 0
   br i1 %cmp307.i, label %if.then342.i, label %lor.lhs.false309.i
@@ -1185,23 +1183,23 @@ land.lhs.true311.i:                               ; preds = %lor.lhs.false309.i
   ]
 
 land.lhs.true316.i:                               ; preds = %land.lhs.true311.i
-  %indices317.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %145, i64 %idxprom303.i, i32 5
+  %indices317.i = getelementptr inbounds i8, ptr %arrayidx304.i, i64 24
   %147 = load ptr, ptr %indices317.i, align 8
-  %number319.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %147, i64 0, i32 1
+  %number319.i = getelementptr inbounds i8, ptr %147, i64 8
   %148 = load i8, ptr %number319.i, align 8
   %cmp321.not.i = icmp eq i8 %148, 1
   br i1 %cmp321.not.i, label %if.end346.i, label %if.then342.i
 
 land.lhs.true328.i:                               ; preds = %land.lhs.true311.i
-  %indices329.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %145, i64 %idxprom303.i, i32 5
+  %indices329.i = getelementptr inbounds i8, ptr %arrayidx304.i, i64 24
   %149 = load ptr, ptr %indices329.i, align 8
-  %number331.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %149, i64 0, i32 1
+  %number331.i = getelementptr inbounds i8, ptr %149, i64 8
   %150 = load i8, ptr %number331.i, align 8
   %cmp333.not.i = icmp eq i8 %150, 1
   br i1 %cmp333.not.i, label %if.end346.i, label %land.lhs.true335.i
 
 land.lhs.true335.i:                               ; preds = %land.lhs.true328.i
-  %number338.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %149, i64 1, i32 1
+  %number338.i = getelementptr inbounds i8, ptr %149, i64 24
   %151 = load i8, ptr %number338.i, align 8
   %cmp340.not.i = icmp eq i8 %151, 1
   br i1 %cmp340.not.i, label %if.end346.i, label %if.then342.i
@@ -1633,17 +1631,18 @@ while.end500.i:                                   ; preds = %while.end500.loopex
   %has_forced_leadout.0.lcssa.i = phi i1 [ true, %if.end.i ], [ %209, %while.end500.loopexit.i ]
   %forced_leadout_track_offset.0.lcssa.i = phi i64 [ 0, %if.end.i ], [ %forced_leadout_track_offset.1.i, %while.end500.loopexit.i ]
   %forced_leadout_track_num.0.lcssa.i = phi i32 [ 0, %if.end.i ], [ %forced_leadout_track_num.1.i, %while.end500.loopexit.i ]
-  %num_tracks501.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call, i64 0, i32 3, i32 0, i32 3
+  %num_tracks501.i = getelementptr inbounds i8, ptr %call, i64 164
   %210 = load i32, ptr %num_tracks501.i, align 4
   %cmp502.i = icmp eq i32 %210, 0
   br i1 %cmp502.i, label %if.then2, label %if.else505.i
 
 if.else505.i:                                     ; preds = %while.end500.i
-  %tracks507.i = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %call, i64 0, i32 3, i32 0, i32 4
+  %tracks507.i = getelementptr inbounds i8, ptr %call, i64 168
   %211 = load ptr, ptr %tracks507.i, align 8
   %sub509.i = add i32 %210, -1
   %idxprom510.i = zext i32 %sub509.i to i64
-  %num_indices512.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %211, i64 %idxprom510.i, i32 4
+  %arrayidx511.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %211, i64 %idxprom510.i
+  %num_indices512.i = getelementptr inbounds i8, ptr %arrayidx511.i, i64 23
   %212 = load i8, ptr %num_indices512.i, align 1
   %cmp514.i = icmp eq i8 %212, 0
   br i1 %cmp514.i, label %if.then549.i, label %lor.lhs.false516.i
@@ -1658,23 +1657,23 @@ land.lhs.true518.i:                               ; preds = %lor.lhs.false516.i
   ]
 
 land.lhs.true523.i:                               ; preds = %land.lhs.true518.i
-  %indices524.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %211, i64 %idxprom510.i, i32 5
+  %indices524.i = getelementptr inbounds i8, ptr %arrayidx511.i, i64 24
   %213 = load ptr, ptr %indices524.i, align 8
-  %number526.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %213, i64 0, i32 1
+  %number526.i = getelementptr inbounds i8, ptr %213, i64 8
   %214 = load i8, ptr %number526.i, align 8
   %cmp528.not.i = icmp eq i8 %214, 1
   br i1 %cmp528.not.i, label %if.end553.i, label %if.then549.i
 
 land.lhs.true535.i:                               ; preds = %land.lhs.true518.i
-  %indices536.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %211, i64 %idxprom510.i, i32 5
+  %indices536.i = getelementptr inbounds i8, ptr %arrayidx511.i, i64 24
   %215 = load ptr, ptr %indices536.i, align 8
-  %number538.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %215, i64 0, i32 1
+  %number538.i = getelementptr inbounds i8, ptr %215, i64 8
   %216 = load i8, ptr %number538.i, align 8
   %cmp540.not.i = icmp eq i8 %216, 1
   br i1 %cmp540.not.i, label %if.end553.i, label %land.lhs.true542.i
 
 land.lhs.true542.i:                               ; preds = %land.lhs.true535.i
-  %number545.i = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %215, i64 1, i32 1
+  %number545.i = getelementptr inbounds i8, ptr %215, i64 24
   %217 = load i8, ptr %number545.i, align 8
   %cmp547.not.i = icmp eq i8 %217, 1
   br i1 %cmp547.not.i, label %if.end553.i, label %if.then549.i
@@ -1734,7 +1733,7 @@ declare void @FLAC__metadata_object_delete(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local void @grabbag__cuesheet_emit(ptr nocapture noundef %file, ptr noundef %cuesheet, ptr noundef %file_reference) local_unnamed_addr #4 {
 entry:
-  %data = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %cuesheet, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %cuesheet, i64 16
   %0 = load i8, ptr %data, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1745,24 +1744,24 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %call3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %file, ptr noundef nonnull @.str.2, ptr noundef %file_reference)
-  %num_tracks = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %cuesheet, i64 0, i32 3, i32 0, i32 3
+  %num_tracks = getelementptr inbounds i8, ptr %cuesheet, i64 164
   %1 = load i32, ptr %num_tracks, align 4
   %cmp37.not = icmp eq i32 %1, 1
   br i1 %cmp37.not, label %for.end43, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %tracks = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %cuesheet, i64 0, i32 3, i32 0, i32 4
-  %is_cd = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %cuesheet, i64 0, i32 3, i32 0, i32 2
+  %tracks = getelementptr inbounds i8, ptr %cuesheet, i64 168
+  %is_cd = getelementptr inbounds i8, ptr %cuesheet, i64 160
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc41
   %indvars.iv40 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next41, %for.inc41 ]
   %2 = load ptr, ptr %tracks, align 8
   %add.ptr = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %2, i64 %indvars.iv40
-  %number = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %2, i64 %indvars.iv40, i32 1
+  %number = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %3 = load i8, ptr %number, align 8
   %conv = zext i8 %3 to i32
-  %type = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %2, i64 %indvars.iv40, i32 3
+  %type = getelementptr inbounds i8, ptr %add.ptr, i64 22
   %bf.load = load i8, ptr %type, align 2
   %bf.clear = and i8 %bf.load, 1
   %cmp4 = icmp eq i8 %bf.clear, 0
@@ -1778,7 +1777,7 @@ if.then11:                                        ; preds = %for.body
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %for.body
-  %isrc = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %2, i64 %indvars.iv40, i32 2
+  %isrc = getelementptr inbounds i8, ptr %add.ptr, i64 9
   %6 = load i8, ptr %isrc, align 1
   %tobool15.not = icmp eq i8 %6, 0
   br i1 %tobool15.not, label %if.end20, label %if.then16
@@ -1788,20 +1787,20 @@ if.then16:                                        ; preds = %if.end13
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then16, %if.end13
-  %num_indices = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %2, i64 %indvars.iv40, i32 4
+  %num_indices = getelementptr inbounds i8, ptr %add.ptr, i64 23
   %7 = load i8, ptr %num_indices, align 1
   %cmp2334.not = icmp eq i8 %7, 0
   br i1 %cmp2334.not, label %for.inc41, label %for.body25.lr.ph
 
 for.body25.lr.ph:                                 ; preds = %if.end20
-  %indices = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %2, i64 %indvars.iv40, i32 5
+  %indices = getelementptr inbounds i8, ptr %add.ptr, i64 24
   br label %for.body25
 
 for.body25:                                       ; preds = %for.body25.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body25.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %8 = load ptr, ptr %indices, align 8
   %add.ptr27 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %8, i64 %indvars.iv
-  %number28 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %8, i64 %indvars.iv, i32 1
+  %number28 = getelementptr inbounds i8, ptr %add.ptr27, i64 8
   %9 = load i8, ptr %number28, align 8
   %conv29 = zext i8 %9 to i32
   %call30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %file, ptr noundef nonnull @.str.8, i32 noundef %conv29)
@@ -1847,13 +1846,13 @@ for.end43.loopexit:                               ; preds = %for.inc41
 
 for.end43:                                        ; preds = %for.end43.loopexit, %if.end
   %track_num.0.lcssa = phi i64 [ 0, %if.end ], [ %17, %for.end43.loopexit ]
-  %lead_in = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %cuesheet, i64 0, i32 3, i32 0, i32 1
+  %lead_in = getelementptr inbounds i8, ptr %cuesheet, i64 152
   %18 = load i64, ptr %lead_in, align 8
   %call44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %file, ptr noundef nonnull @.str.11, i64 noundef %18)
-  %tracks45 = getelementptr inbounds %struct.FLAC__StreamMetadata, ptr %cuesheet, i64 0, i32 3, i32 0, i32 4
+  %tracks45 = getelementptr inbounds i8, ptr %cuesheet, i64 168
   %19 = load ptr, ptr %tracks45, align 8
   %arrayidx = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %19, i64 %track_num.0.lcssa
-  %number46 = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %19, i64 %track_num.0.lcssa, i32 1
+  %number46 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %20 = load i8, ptr %number46, align 8
   %conv47 = zext i8 %20 to i32
   %21 = load i64, ptr %arrayidx, align 8

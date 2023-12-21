@@ -5,55 +5,30 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.uv_stat_t = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t, %struct.uv_timespec_t }
 %struct.uv_timespec_t = type { i64, i64 }
-%struct.uv_handle_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.0, ptr, i32 }
-%struct.uv__queue = type { ptr, ptr }
-%union.anon.0 = type { [4 x ptr] }
-%struct.uv_loop_s = type { ptr, i32, %struct.uv__queue, %union.anon.1, ptr, i32, i64, i32, %struct.uv__queue, %struct.uv__queue, ptr, i32, i32, %struct.uv__queue, %union.pthread_mutex_t, %struct.uv_async_s, %union.pthread_rwlock_t, ptr, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, %struct.uv__queue, ptr, %struct.uv__io_s, i32, %struct.anon, i64, i64, [2 x i32], %struct.uv__io_s, %struct.uv_signal_s, i32, %struct.uv__io_s, ptr, i32 }
-%union.anon.1 = type { ptr }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.uv_async_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.2, ptr, i32, ptr, %struct.uv__queue, i32 }
-%union.anon.2 = type { [4 x ptr] }
-%union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
-%struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%struct.anon = type { ptr, i32 }
-%struct.uv_signal_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.3, ptr, i32, ptr, i32, %struct.anon.4, i32, i32 }
-%union.anon.3 = type { [4 x ptr] }
-%struct.anon.4 = type { ptr, ptr, ptr, i32 }
-%struct.uv__io_s = type { ptr, %struct.uv__queue, %struct.uv__queue, i32, i32, i32 }
-%struct.uv_fs_poll_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon, ptr, i32, ptr }
-%union.anon = type { [4 x ptr] }
-%struct.poll_ctx = type { ptr, i32, i32, i64, ptr, ptr, %struct.uv_timer_s, %struct.uv_fs_s, %struct.uv_stat_t, ptr, [1 x i8] }
-%struct.uv_timer_s = type { ptr, ptr, i32, ptr, %struct.uv__queue, %union.anon.5, ptr, i32, ptr, [3 x ptr], i64, i64, i64 }
-%union.anon.5 = type { [4 x ptr] }
-%struct.uv_fs_s = type { ptr, i32, [6 x ptr], i32, ptr, ptr, i64, ptr, ptr, %struct.uv_stat_t, ptr, i32, i32, i32, i32, ptr, i64, i32, i32, double, double, %struct.uv__work, [4 x %struct.uv_buf_t] }
-%struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
-%struct.uv_buf_t = type { ptr, i64 }
 
 @zero_statbuf = internal global %struct.uv_stat_t zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local i32 @uv_fs_poll_init(ptr noundef %loop, ptr noundef %handle) local_unnamed_addr #0 {
 entry:
-  %loop1 = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 1
+  %loop1 = getelementptr inbounds i8, ptr %handle, i64 8
   store ptr %loop, ptr %loop1, align 8
-  %type = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 2
+  %type = getelementptr inbounds i8, ptr %handle, i64 16
   store i32 4, ptr %type, align 8
-  %flags = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %handle, i64 88
   store i32 8, ptr %flags, align 8
-  %handle_queue = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 2
-  %handle_queue2 = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 4
+  %handle_queue = getelementptr inbounds i8, ptr %loop, i64 16
+  %handle_queue2 = getelementptr inbounds i8, ptr %handle, i64 32
   store ptr %handle_queue, ptr %handle_queue2, align 8
-  %prev.i = getelementptr inbounds %struct.uv_loop_s, ptr %loop, i64 0, i32 2, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %loop, i64 24
   %0 = load ptr, ptr %prev.i, align 8
-  %prev1.i = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 4, i32 1
+  %prev1.i = getelementptr inbounds i8, ptr %handle, i64 40
   store ptr %0, ptr %prev1.i, align 8
   store ptr %handle_queue2, ptr %0, align 8
   store ptr %handle_queue2, ptr %prev.i, align 8
-  %next_closing = getelementptr inbounds %struct.uv_handle_s, ptr %handle, i64 0, i32 6
+  %next_closing = getelementptr inbounds i8, ptr %handle, i64 80
   store ptr null, ptr %next_closing, align 8
-  %poll_ctx = getelementptr inbounds %struct.uv_fs_poll_s, ptr %handle, i64 0, i32 8
+  %poll_ctx = getelementptr inbounds i8, ptr %handle, i64 96
   store ptr null, ptr %poll_ctx, align 8
   ret i32 0
 }
@@ -66,7 +41,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %loop1 = getelementptr inbounds %struct.uv_fs_poll_s, ptr %handle, i64 0, i32 1
+  %loop1 = getelementptr inbounds i8, ptr %handle, i64 8
   %0 = load ptr, ptr %loop1, align 8
   %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #8
   %add = add i64 %call2, 808
@@ -75,27 +50,27 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %loop6 = getelementptr inbounds %struct.poll_ctx, ptr %call3, i64 0, i32 4
+  %loop6 = getelementptr inbounds i8, ptr %call3, i64 24
   store ptr %0, ptr %loop6, align 8
-  %poll_cb = getelementptr inbounds %struct.poll_ctx, ptr %call3, i64 0, i32 5
+  %poll_cb = getelementptr inbounds i8, ptr %call3, i64 32
   store ptr %cb, ptr %poll_cb, align 8
   %cond = tail call i32 @llvm.umax.i32(i32 %interval, i32 1)
-  %interval8 = getelementptr inbounds %struct.poll_ctx, ptr %call3, i64 0, i32 2
+  %interval8 = getelementptr inbounds i8, ptr %call3, i64 12
   store i32 %cond, ptr %interval8, align 4
   %call9 = tail call i64 @uv_now(ptr noundef %0) #7
-  %start_time = getelementptr inbounds %struct.poll_ctx, ptr %call3, i64 0, i32 3
+  %start_time = getelementptr inbounds i8, ptr %call3, i64 16
   store i64 %call9, ptr %start_time, align 8
   store ptr %handle, ptr %call3, align 8
-  %path10 = getelementptr inbounds %struct.poll_ctx, ptr %call3, i64 0, i32 10
+  %path10 = getelementptr inbounds i8, ptr %call3, i64 800
   %add11 = add i64 %call2, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %path10, ptr align 1 %path, i64 %add11, i1 false)
-  %timer_handle = getelementptr inbounds %struct.poll_ctx, ptr %call3, i64 0, i32 6
+  %timer_handle = getelementptr inbounds i8, ptr %call3, i64 40
   %call12 = tail call i32 @uv_timer_init(ptr noundef %0, ptr noundef nonnull %timer_handle) #7
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %error, label %if.end15
 
 if.end15:                                         ; preds = %if.end5
-  %flags = getelementptr inbounds %struct.poll_ctx, ptr %call3, i64 0, i32 6, i32 7
+  %flags = getelementptr inbounds i8, ptr %call3, i64 128
   %1 = load i32, ptr %flags, align 8
   %or = or i32 %1, 16
   store i32 %or, ptr %flags, align 8
@@ -111,34 +86,34 @@ if.end21:                                         ; preds = %if.end15
   br i1 %or.cond.not, label %do.body36, label %do.end40
 
 do.body36:                                        ; preds = %if.end21
-  %loop38 = getelementptr inbounds %struct.poll_ctx, ptr %call3, i64 0, i32 6, i32 1
+  %loop38 = getelementptr inbounds i8, ptr %call3, i64 48
   %3 = load ptr, ptr %loop38, align 8
-  %active_handles = getelementptr inbounds %struct.uv_loop_s, ptr %3, i64 0, i32 1
+  %active_handles = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i32, ptr %active_handles, align 8
   %dec = add i32 %4, -1
   store i32 %dec, ptr %active_handles, align 8
   br label %do.end40
 
 do.end40:                                         ; preds = %do.body36, %if.end21, %if.end15
-  %fs_req = getelementptr inbounds %struct.poll_ctx, ptr %call3, i64 0, i32 7
+  %fs_req = getelementptr inbounds i8, ptr %call3, i64 192
   %call43 = tail call i32 @uv_fs_stat(ptr noundef %0, ptr noundef nonnull %fs_req, ptr noundef nonnull %path10, ptr noundef nonnull @poll_cb) #7
   %cmp44 = icmp slt i32 %call43, 0
   br i1 %cmp44, label %error, label %if.end46
 
 if.end46:                                         ; preds = %do.end40
-  %poll_ctx = getelementptr inbounds %struct.uv_fs_poll_s, ptr %handle, i64 0, i32 8
+  %poll_ctx = getelementptr inbounds i8, ptr %handle, i64 96
   %5 = load ptr, ptr %poll_ctx, align 8
   %cmp47.not = icmp eq ptr %5, null
   br i1 %cmp47.not, label %if.end50, label %if.then48
 
 if.then48:                                        ; preds = %if.end46
-  %previous = getelementptr inbounds %struct.poll_ctx, ptr %call3, i64 0, i32 9
+  %previous = getelementptr inbounds i8, ptr %call3, i64 792
   store ptr %5, ptr %previous, align 8
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then48, %if.end46
   store ptr %call3, ptr %poll_ctx, align 8
-  %flags53 = getelementptr inbounds %struct.uv_fs_poll_s, ptr %handle, i64 0, i32 7
+  %flags53 = getelementptr inbounds i8, ptr %handle, i64 88
   %6 = load i32, ptr %flags53, align 8
   %and54 = and i32 %6, 4
   %cmp55.not = icmp eq i32 %and54, 0
@@ -153,7 +128,7 @@ if.end57:                                         ; preds = %if.end50
 
 do.body64:                                        ; preds = %if.end57
   %7 = load ptr, ptr %loop1, align 8
-  %active_handles66 = getelementptr inbounds %struct.uv_loop_s, ptr %7, i64 0, i32 1
+  %active_handles66 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i32, ptr %active_handles66, align 8
   %inc = add i32 %8, 1
   store i32 %inc, ptr %active_handles66, align 8
@@ -195,14 +170,14 @@ entry:
   br i1 %tobool.not, label %out, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %flags = getelementptr inbounds %struct.uv_fs_poll_s, ptr %0, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %0, i64 88
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 3
   %cmp.not = icmp eq i32 %and, 0
   br i1 %cmp.not, label %if.end, label %out
 
 if.end:                                           ; preds = %lor.lhs.false
-  %result = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 6
+  %result = getelementptr inbounds i8, ptr %req, i64 88
   %2 = load i64, ptr %result, align 8
   %cmp1.not = icmp eq i64 %2, 0
   br i1 %cmp1.not, label %if.end15, label %if.then2
@@ -227,7 +202,7 @@ if.then6:                                         ; preds = %if.then2
   br label %out
 
 if.end15:                                         ; preds = %if.end
-  %statbuf16 = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9
+  %statbuf16 = getelementptr inbounds i8, ptr %req, i64 112
   %busy_polling17 = getelementptr inbounds i8, ptr %req, i64 -184
   %7 = load i32, ptr %busy_polling17, align 8
   %cmp18.not = icmp eq i32 %7, 0
@@ -242,8 +217,8 @@ lor.lhs.false24:                                  ; preds = %if.then20
   %st_ctim.i = getelementptr inbounds i8, ptr %req, i64 568
   %tv_nsec.i = getelementptr inbounds i8, ptr %req, i64 576
   %8 = load i64, ptr %tv_nsec.i, align 8
-  %st_ctim1.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9, i32 14
-  %tv_nsec2.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9, i32 14, i32 1
+  %st_ctim1.i = getelementptr inbounds i8, ptr %req, i64 240
+  %tv_nsec2.i = getelementptr inbounds i8, ptr %req, i64 248
   %9 = load i64, ptr %tv_nsec2.i, align 8
   %cmp.i = icmp eq i64 %8, %9
   br i1 %cmp.i, label %land.lhs.true.i, label %if.then28
@@ -252,8 +227,8 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false24
   %st_mtim.i = getelementptr inbounds i8, ptr %req, i64 552
   %tv_nsec3.i = getelementptr inbounds i8, ptr %req, i64 560
   %10 = load i64, ptr %tv_nsec3.i, align 8
-  %st_mtim4.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9, i32 13
-  %tv_nsec5.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9, i32 13, i32 1
+  %st_mtim4.i = getelementptr inbounds i8, ptr %req, i64 224
+  %tv_nsec5.i = getelementptr inbounds i8, ptr %req, i64 232
   %11 = load i64, ptr %tv_nsec5.i, align 8
   %cmp6.i = icmp eq i64 %10, %11
   br i1 %cmp6.i, label %land.lhs.true7.i, label %if.then28
@@ -262,8 +237,8 @@ land.lhs.true7.i:                                 ; preds = %land.lhs.true.i
   %st_birthtim.i = getelementptr inbounds i8, ptr %req, i64 584
   %tv_nsec8.i = getelementptr inbounds i8, ptr %req, i64 592
   %12 = load i64, ptr %tv_nsec8.i, align 8
-  %st_birthtim9.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9, i32 15
-  %tv_nsec10.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9, i32 15, i32 1
+  %st_birthtim9.i = getelementptr inbounds i8, ptr %req, i64 256
+  %tv_nsec10.i = getelementptr inbounds i8, ptr %req, i64 264
   %13 = load i64, ptr %tv_nsec10.i, align 8
   %cmp11.i = icmp eq i64 %12, %13
   br i1 %cmp11.i, label %land.lhs.true12.i, label %if.then28
@@ -289,7 +264,7 @@ land.lhs.true23.i:                                ; preds = %land.lhs.true17.i
 land.lhs.true29.i:                                ; preds = %land.lhs.true23.i
   %st_size.i = getelementptr inbounds i8, ptr %req, i64 496
   %20 = load i64, ptr %st_size.i, align 8
-  %st_size30.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9, i32 7
+  %st_size30.i = getelementptr inbounds i8, ptr %req, i64 168
   %21 = load i64, ptr %st_size30.i, align 8
   %cmp31.i = icmp eq i64 %20, %21
   br i1 %cmp31.i, label %land.lhs.true32.i, label %if.then28
@@ -297,7 +272,7 @@ land.lhs.true29.i:                                ; preds = %land.lhs.true23.i
 land.lhs.true32.i:                                ; preds = %land.lhs.true29.i
   %st_mode.i = getelementptr inbounds i8, ptr %req, i64 448
   %22 = load i64, ptr %st_mode.i, align 8
-  %st_mode33.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9, i32 1
+  %st_mode33.i = getelementptr inbounds i8, ptr %req, i64 120
   %23 = load i64, ptr %st_mode33.i, align 8
   %cmp34.i = icmp eq i64 %22, %23
   br i1 %cmp34.i, label %land.lhs.true35.i, label %if.then28
@@ -305,7 +280,7 @@ land.lhs.true32.i:                                ; preds = %land.lhs.true29.i
 land.lhs.true35.i:                                ; preds = %land.lhs.true32.i
   %st_uid.i = getelementptr inbounds i8, ptr %req, i64 464
   %24 = load i64, ptr %st_uid.i, align 8
-  %st_uid36.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9, i32 3
+  %st_uid36.i = getelementptr inbounds i8, ptr %req, i64 136
   %25 = load i64, ptr %st_uid36.i, align 8
   %cmp37.i = icmp eq i64 %24, %25
   br i1 %cmp37.i, label %land.lhs.true38.i, label %if.then28
@@ -313,7 +288,7 @@ land.lhs.true35.i:                                ; preds = %land.lhs.true32.i
 land.lhs.true38.i:                                ; preds = %land.lhs.true35.i
   %st_gid.i = getelementptr inbounds i8, ptr %req, i64 472
   %26 = load i64, ptr %st_gid.i, align 8
-  %st_gid39.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9, i32 4
+  %st_gid39.i = getelementptr inbounds i8, ptr %req, i64 144
   %27 = load i64, ptr %st_gid39.i, align 8
   %cmp40.i = icmp eq i64 %26, %27
   br i1 %cmp40.i, label %land.lhs.true41.i, label %if.then28
@@ -321,7 +296,7 @@ land.lhs.true38.i:                                ; preds = %land.lhs.true35.i
 land.lhs.true41.i:                                ; preds = %land.lhs.true38.i
   %st_ino.i = getelementptr inbounds i8, ptr %req, i64 488
   %28 = load i64, ptr %st_ino.i, align 8
-  %st_ino42.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9, i32 6
+  %st_ino42.i = getelementptr inbounds i8, ptr %req, i64 160
   %29 = load i64, ptr %st_ino42.i, align 8
   %cmp43.i = icmp eq i64 %28, %29
   br i1 %cmp43.i, label %land.lhs.true44.i, label %if.then28
@@ -335,7 +310,7 @@ land.lhs.true44.i:                                ; preds = %land.lhs.true41.i
 land.lhs.true47.i:                                ; preds = %land.lhs.true44.i
   %st_flags.i = getelementptr inbounds i8, ptr %req, i64 520
   %32 = load i64, ptr %st_flags.i, align 8
-  %st_flags48.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9, i32 10
+  %st_flags48.i = getelementptr inbounds i8, ptr %req, i64 192
   %33 = load i64, ptr %st_flags48.i, align 8
   %cmp49.i = icmp eq i64 %32, %33
   br i1 %cmp49.i, label %statbuf_eq.exit, label %if.then28
@@ -343,7 +318,7 @@ land.lhs.true47.i:                                ; preds = %land.lhs.true44.i
 statbuf_eq.exit:                                  ; preds = %land.lhs.true47.i
   %st_gen.i = getelementptr inbounds i8, ptr %req, i64 528
   %34 = load i64, ptr %st_gen.i, align 8
-  %st_gen50.i = getelementptr inbounds %struct.uv_fs_s, ptr %req, i64 0, i32 9, i32 11
+  %st_gen50.i = getelementptr inbounds i8, ptr %req, i64 200
   %35 = load i64, ptr %st_gen50.i, align 8
   %cmp51.i.not = icmp eq i64 %34, %35
   br i1 %cmp51.i.not, label %if.end33, label %if.then28
@@ -369,7 +344,7 @@ out:                                              ; preds = %if.then2, %if.then6
   br i1 %tobool37.not, label %if.then43, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %out
-  %flags39 = getelementptr inbounds %struct.uv_fs_poll_s, ptr %0, i64 0, i32 7
+  %flags39 = getelementptr inbounds i8, ptr %0, i64 88
   %38 = load i32, ptr %flags39, align 8
   %and40 = and i32 %38, 3
   %cmp41.not = icmp eq i32 %and40, 0
@@ -415,9 +390,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %poll_ctx = getelementptr inbounds %struct.uv_fs_poll_s, ptr %handle, i64 0, i32 8
+  %poll_ctx = getelementptr inbounds i8, ptr %handle, i64 96
   %0 = load ptr, ptr %poll_ctx, align 8
-  %timer_handle = getelementptr inbounds %struct.poll_ctx, ptr %0, i64 0, i32 6
+  %timer_handle = getelementptr inbounds i8, ptr %0, i64 40
   %call1 = tail call i32 @uv_is_active(ptr noundef nonnull %timer_handle) #7
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %do.body, label %if.then3
@@ -427,7 +402,7 @@ if.then3:                                         ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %if.end, %if.then3
-  %flags = getelementptr inbounds %struct.uv_fs_poll_s, ptr %handle, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 4
   %cmp = icmp eq i32 %and, 0
@@ -441,9 +416,9 @@ if.end7:                                          ; preds = %do.body
   br i1 %cmp12.not, label %return, label %do.body14
 
 do.body14:                                        ; preds = %if.end7
-  %loop = getelementptr inbounds %struct.uv_fs_poll_s, ptr %handle, i64 0, i32 1
+  %loop = getelementptr inbounds i8, ptr %handle, i64 8
   %2 = load ptr, ptr %loop, align 8
-  %active_handles = getelementptr inbounds %struct.uv_loop_s, ptr %2, i64 0, i32 1
+  %active_handles = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %active_handles, align 8
   %dec = add i32 %3, -1
   store i32 %dec, ptr %active_handles, align 8
@@ -460,7 +435,7 @@ define internal void @timer_close_cb(ptr noundef %timer) #1 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %timer, i64 -40
   %0 = load ptr, ptr %add.ptr, align 8
-  %poll_ctx = getelementptr inbounds %struct.uv_fs_poll_s, ptr %0, i64 0, i32 8
+  %poll_ctx = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %poll_ctx, align 8
   %cmp = icmp eq ptr %add.ptr, %1
   br i1 %cmp, label %if.then, label %for.cond
@@ -473,7 +448,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %land.lhs.true, label %if.end12
 
 land.lhs.true:                                    ; preds = %if.then
-  %flags = getelementptr inbounds %struct.uv_fs_poll_s, ptr %0, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load i32, ptr %flags, align 8
   %and = and i32 %3, 3
   %cmp4.not = icmp eq i32 %and, 0
@@ -485,13 +460,13 @@ if.then5:                                         ; preds = %land.lhs.true
 
 for.cond:                                         ; preds = %entry, %for.cond
   %last.0 = phi ptr [ %it.0, %for.cond ], [ %1, %entry ]
-  %it.0.in = getelementptr inbounds %struct.poll_ctx, ptr %last.0, i64 0, i32 9
+  %it.0.in = getelementptr inbounds i8, ptr %last.0, i64 792
   %it.0 = load ptr, ptr %it.0.in, align 8
   %cmp8.not = icmp eq ptr %it.0, %add.ptr
   br i1 %cmp8.not, label %for.end, label %for.cond
 
 for.end:                                          ; preds = %for.cond
-  %it.0.in.le = getelementptr inbounds %struct.poll_ctx, ptr %last.0, i64 0, i32 9
+  %it.0.in.le = getelementptr inbounds i8, ptr %last.0, i64 792
   %previous10 = getelementptr inbounds i8, ptr %timer, i64 752
   %4 = load ptr, ptr %previous10, align 8
   store ptr %4, ptr %it.0.in.le, align 8
@@ -514,9 +489,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %poll_ctx = getelementptr inbounds %struct.uv_fs_poll_s, ptr %handle, i64 0, i32 8
+  %poll_ctx = getelementptr inbounds i8, ptr %handle, i64 96
   %0 = load ptr, ptr %poll_ctx, align 8
-  %path = getelementptr inbounds %struct.poll_ctx, ptr %0, i64 0, i32 10
+  %path = getelementptr inbounds i8, ptr %0, i64 800
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #8
   %1 = load i64, ptr %size, align 8
   %cmp.not = icmp ult i64 %call1, %1
@@ -547,9 +522,9 @@ entry:
   br i1 %tobool.not.i, label %uv_fs_poll_stop.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %poll_ctx.i = getelementptr inbounds %struct.uv_fs_poll_s, ptr %handle, i64 0, i32 8
+  %poll_ctx.i = getelementptr inbounds i8, ptr %handle, i64 96
   %0 = load ptr, ptr %poll_ctx.i, align 8
-  %timer_handle.i = getelementptr inbounds %struct.poll_ctx, ptr %0, i64 0, i32 6
+  %timer_handle.i = getelementptr inbounds i8, ptr %0, i64 40
   %call1.i = tail call i32 @uv_is_active(ptr noundef nonnull %timer_handle.i) #7
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %do.body.i, label %if.then3.i
@@ -559,7 +534,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.then3.i, %if.end.i
-  %flags.i = getelementptr inbounds %struct.uv_fs_poll_s, ptr %handle, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %1, 4
   %cmp.i = icmp eq i32 %and.i, 0
@@ -573,16 +548,16 @@ if.end7.i:                                        ; preds = %do.body.i
   br i1 %cmp12.not.i, label %uv_fs_poll_stop.exit, label %do.body14.i
 
 do.body14.i:                                      ; preds = %if.end7.i
-  %loop.i = getelementptr inbounds %struct.uv_fs_poll_s, ptr %handle, i64 0, i32 1
+  %loop.i = getelementptr inbounds i8, ptr %handle, i64 8
   %2 = load ptr, ptr %loop.i, align 8
-  %active_handles.i = getelementptr inbounds %struct.uv_loop_s, ptr %2, i64 0, i32 1
+  %active_handles.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i32, ptr %active_handles.i, align 8
   %dec.i = add i32 %3, -1
   store i32 %dec.i, ptr %active_handles.i, align 8
   br label %uv_fs_poll_stop.exit
 
 uv_fs_poll_stop.exit:                             ; preds = %entry, %do.body.i, %if.end7.i, %do.body14.i
-  %poll_ctx = getelementptr inbounds %struct.uv_fs_poll_s, ptr %handle, i64 0, i32 8
+  %poll_ctx = getelementptr inbounds i8, ptr %handle, i64 96
   %4 = load ptr, ptr %poll_ctx, align 8
   %cmp = icmp eq ptr %4, null
   br i1 %cmp, label %if.then, label %if.end

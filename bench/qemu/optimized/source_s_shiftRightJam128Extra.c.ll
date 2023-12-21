@@ -16,8 +16,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr = lshr i64 %a64, %dist
-  %v = getelementptr inbounds %struct.uint128_extra, ptr %agg.result, i64 0, i32 1
-  %v64 = getelementptr inbounds %struct.uint128_extra, ptr %agg.result, i64 0, i32 1, i32 1
+  %v = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %v64 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %shr, ptr %v64, align 8
   %1 = and i8 %conv, 63
   %sh_prom = zext nneg i8 %1 to i64
@@ -29,8 +29,8 @@ if.then:                                          ; preds = %entry
   br label %if.end42
 
 if.else:                                          ; preds = %entry
-  %v10 = getelementptr inbounds %struct.uint128_extra, ptr %agg.result, i64 0, i32 1
-  %v6411 = getelementptr inbounds %struct.uint128_extra, ptr %agg.result, i64 0, i32 1, i32 1
+  %v10 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %v6411 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %v6411, align 8
   %cmp12 = icmp eq i64 %dist, 64
   br i1 %cmp12, label %if.then14, label %if.else18

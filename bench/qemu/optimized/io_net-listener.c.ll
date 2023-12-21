@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.QIONetListener = type { %struct.Object, ptr, ptr, ptr, i64, i8, ptr, ptr, ptr }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
 %struct.QIONetListenerClientWaitData = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [17 x i8] c"qio-net-listener\00", align 1
@@ -34,7 +32,7 @@ declare ptr @object_new(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qio_net_listener_set_name(ptr nocapture noundef %listener, ptr noundef %name) local_unnamed_addr #0 {
 entry:
-  %name1 = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 1
+  %name1 = getelementptr inbounds i8, ptr %listener, i64 40
   %0 = load ptr, ptr %name1, align 8
   tail call void @g_free(ptr noundef %0) #4
   %call = tail call noalias ptr @g_strdup(ptr noundef %name) #4
@@ -131,7 +129,7 @@ declare i32 @qio_channel_socket_listen_sync(ptr noundef, ptr noundef, i32 nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qio_net_listener_add(ptr noundef %listener, ptr noundef %sioc) local_unnamed_addr #0 {
 entry:
-  %name = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %listener, i64 40
   %0 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -143,14 +141,14 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %sioc2 = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 2
+  %sioc2 = getelementptr inbounds i8, ptr %listener, i64 48
   %2 = load ptr, ptr %sioc2, align 8
-  %nsioc = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 4
+  %nsioc = getelementptr inbounds i8, ptr %listener, i64 64
   %3 = load i64, ptr %nsioc, align 8
   %add = add i64 %3, 1
   %call3 = tail call ptr @g_realloc_n(ptr noundef %2, i64 noundef %add, i64 noundef 8) #4
   store ptr %call3, ptr %sioc2, align 8
-  %io_source = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 3
+  %io_source = getelementptr inbounds i8, ptr %listener, i64 56
   %4 = load ptr, ptr %io_source, align 8
   %5 = load i64, ptr %nsioc, align 8
   %add6 = add i64 %5, 1
@@ -165,9 +163,9 @@ if.end:                                           ; preds = %if.then, %entry
   %arrayidx13 = getelementptr ptr, ptr %8, i64 %9
   store ptr null, ptr %arrayidx13, align 8
   %call14 = tail call ptr @object_ref(ptr noundef %sioc) #4
-  %connected = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %listener, i64 72
   store i8 1, ptr %connected, align 8
-  %io_func = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 6
+  %io_func = getelementptr inbounds i8, ptr %listener, i64 80
   %10 = load ptr, ptr %io_func, align 8
   %cmp.not = icmp eq ptr %10, null
   br i1 %cmp.not, label %if.end25, label %if.then15
@@ -219,13 +217,13 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %io_func = getelementptr inbounds %struct.QIONetListener, ptr %call.i, i64 0, i32 6
+  %io_func = getelementptr inbounds i8, ptr %call.i, i64 80
   %0 = load ptr, ptr %io_func, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %io_data = getelementptr inbounds %struct.QIONetListener, ptr %call.i, i64 0, i32 7
+  %io_data = getelementptr inbounds i8, ptr %call.i, i64 88
   %1 = load ptr, ptr %io_data, align 8
   tail call void %0(ptr noundef nonnull %call.i, ptr noundef nonnull %call2, ptr noundef %1) #4
   br label %if.end6
@@ -241,30 +239,30 @@ return:                                           ; preds = %entry, %if.end6
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qio_net_listener_set_client_func_full(ptr noundef %listener, ptr noundef %func, ptr noundef %data, ptr noundef %notify, ptr noundef %context) local_unnamed_addr #0 {
 entry:
-  %io_notify = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 8
+  %io_notify = getelementptr inbounds i8, ptr %listener, i64 96
   %0 = load ptr, ptr %io_notify, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %io_data = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 7
+  %io_data = getelementptr inbounds i8, ptr %listener, i64 88
   %1 = load ptr, ptr %io_data, align 8
   tail call void %0(ptr noundef %1) #4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %io_func = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 6
+  %io_func = getelementptr inbounds i8, ptr %listener, i64 80
   store ptr %func, ptr %io_func, align 8
-  %io_data2 = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 7
+  %io_data2 = getelementptr inbounds i8, ptr %listener, i64 88
   store ptr %data, ptr %io_data2, align 8
   store ptr %notify, ptr %io_notify, align 8
-  %nsioc = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 4
+  %nsioc = getelementptr inbounds i8, ptr %listener, i64 64
   %2 = load i64, ptr %nsioc, align 8
   %cmp27.not = icmp eq i64 %2, 0
   br i1 %cmp27.not, label %if.end28, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %io_source = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 3
+  %io_source = getelementptr inbounds i8, ptr %listener, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -302,8 +300,8 @@ for.end:                                          ; preds = %for.inc
   br i1 %brmerge, label %if.end28, label %for.body19.lr.ph
 
 for.body19.lr.ph:                                 ; preds = %for.end
-  %sioc = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 2
-  %io_source23 = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 3
+  %sioc = getelementptr inbounds i8, ptr %listener, i64 48
+  %io_source23 = getelementptr inbounds i8, ptr %listener, i64 56
   br label %for.body19
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.body19
@@ -344,15 +342,15 @@ entry:
   %call = tail call ptr @g_main_context_new() #4
   %call1 = tail call ptr @g_main_loop_new(ptr noundef %call, i32 noundef 1) #4
   store ptr null, ptr %data, align 8
-  %loop2 = getelementptr inbounds %struct.QIONetListenerClientWaitData, ptr %data, i64 0, i32 1
+  %loop2 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %call1, ptr %loop2, align 8
-  %nsioc = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 4
+  %nsioc = getelementptr inbounds i8, ptr %listener, i64 64
   %0 = load i64, ptr %nsioc, align 8
   %cmp43.not = icmp eq i64 %0, 0
   br i1 %cmp43.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %io_source = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 3
+  %io_source = getelementptr inbounds i8, ptr %listener, i64 56
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -390,7 +388,7 @@ for.end:                                          ; preds = %for.inc, %entry
   br i1 %cmp1345.not, label %for.end25, label %for.body14.lr.ph
 
 for.body14.lr.ph:                                 ; preds = %for.end
-  %sioc15 = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 2
+  %sioc15 = getelementptr inbounds i8, ptr %listener, i64 48
   br label %for.body14
 
 for.body14:                                       ; preds = %for.body14.lr.ph, %for.body14
@@ -429,7 +427,7 @@ for.end33:                                        ; preds = %for.body29, %for.en
   call void @g_free(ptr noundef %call10) #4
   call void @g_main_loop_unref(ptr noundef %call1) #4
   call void @g_main_context_unref(ptr noundef %call) #4
-  %io_func = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 6
+  %io_func = getelementptr inbounds i8, ptr %listener, i64 80
   %15 = load ptr, ptr %io_func, align 8
   %cmp34.not = icmp eq ptr %15, null
   br i1 %cmp34.not, label %if.end50, label %for.cond36.preheader
@@ -440,8 +438,8 @@ for.cond36.preheader:                             ; preds = %for.end33
   br i1 %cmp3849.not, label %if.end50, label %for.body39.lr.ph
 
 for.body39.lr.ph:                                 ; preds = %for.cond36.preheader
-  %sioc41 = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 2
-  %io_source45 = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 3
+  %sioc41 = getelementptr inbounds i8, ptr %listener, i64 48
+  %io_source45 = getelementptr inbounds i8, ptr %listener, i64 56
   br label %for.body39
 
 for.body39:                                       ; preds = %for.body39.lr.ph, %for.body39
@@ -495,7 +493,7 @@ if.then4:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   store ptr %call1, ptr %opaque, align 8
-  %loop = getelementptr inbounds %struct.QIONetListenerClientWaitData, ptr %opaque, i64 0, i32 1
+  %loop = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %loop, align 8
   tail call void @g_main_loop_quit(ptr noundef %1) #4
   br label %return
@@ -515,21 +513,21 @@ declare void @g_main_context_unref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qio_net_listener_disconnect(ptr nocapture noundef %listener) local_unnamed_addr #0 {
 entry:
-  %connected = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %listener, i64 72
   %0 = load i8, ptr %connected, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %nsioc = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 4
+  %nsioc = getelementptr inbounds i8, ptr %listener, i64 64
   %2 = load i64, ptr %nsioc, align 8
   %cmp14.not = icmp eq i64 %2, 0
   br i1 %cmp14.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %io_source = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 3
-  %sioc = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 2
+  %io_source = getelementptr inbounds i8, ptr %listener, i64 56
+  %sioc = getelementptr inbounds i8, ptr %listener, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end9
@@ -575,7 +573,7 @@ declare i32 @qio_channel_close(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @qio_net_listener_is_connected(ptr nocapture noundef readonly %listener) local_unnamed_addr #3 {
 entry:
-  %connected = getelementptr inbounds %struct.QIONetListener, ptr %listener, i64 0, i32 5
+  %connected = getelementptr inbounds i8, ptr %listener, i64 72
   %0 = load i8, ptr %connected, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -610,23 +608,23 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qio_net_listener_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 29, ptr noundef nonnull @__func__.QIO_NET_LISTENER) #4
-  %io_notify = getelementptr inbounds %struct.QIONetListener, ptr %call.i, i64 0, i32 8
+  %io_notify = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %io_notify, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %io_data = getelementptr inbounds %struct.QIONetListener, ptr %call.i, i64 0, i32 7
+  %io_data = getelementptr inbounds i8, ptr %call.i, i64 88
   %1 = load ptr, ptr %io_data, align 8
   tail call void %0(ptr noundef %1) #4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %connected.i = getelementptr inbounds %struct.QIONetListener, ptr %call.i, i64 0, i32 5
+  %connected.i = getelementptr inbounds i8, ptr %call.i, i64 72
   %2 = load i8, ptr %connected.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
-  %nsioc.phi.trans.insert = getelementptr inbounds %struct.QIONetListener, ptr %call.i, i64 0, i32 4
+  %nsioc.phi.trans.insert = getelementptr inbounds i8, ptr %call.i, i64 64
   %.pre = load i64, ptr %nsioc.phi.trans.insert, align 8
   br i1 %tobool.not.i, label %qio_net_listener_disconnect.exit, label %for.cond.preheader.i
 
@@ -635,8 +633,8 @@ for.cond.preheader.i:                             ; preds = %if.end
   br i1 %cmp14.not.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %io_source.i = getelementptr inbounds %struct.QIONetListener, ptr %call.i, i64 0, i32 3
-  %sioc.i = getelementptr inbounds %struct.QIONetListener, ptr %call.i, i64 0, i32 2
+  %io_source.i = getelementptr inbounds i8, ptr %call.i, i64 56
+  %sioc.i = getelementptr inbounds i8, ptr %call.i, i64 48
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end9.i, %for.body.lr.ph.i
@@ -676,12 +674,12 @@ for.end.i:                                        ; preds = %if.end9.i, %for.con
 
 qio_net_listener_disconnect.exit:                 ; preds = %if.end, %for.end.i
   %13 = phi i64 [ %12, %for.end.i ], [ %.pre, %if.end ]
-  %nsioc = getelementptr inbounds %struct.QIONetListener, ptr %call.i, i64 0, i32 4
+  %nsioc = getelementptr inbounds i8, ptr %call.i, i64 64
   %cmp11.not = icmp eq i64 %13, 0
   br i1 %cmp11.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %qio_net_listener_disconnect.exit
-  %sioc = getelementptr inbounds %struct.QIONetListener, ptr %call.i, i64 0, i32 2
+  %sioc = getelementptr inbounds i8, ptr %call.i, i64 48
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -696,13 +694,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body, %qio_net_listener_disconnect.exit
-  %io_source = getelementptr inbounds %struct.QIONetListener, ptr %call.i, i64 0, i32 3
+  %io_source = getelementptr inbounds i8, ptr %call.i, i64 56
   %17 = load ptr, ptr %io_source, align 8
   tail call void @g_free(ptr noundef %17) #4
-  %sioc2 = getelementptr inbounds %struct.QIONetListener, ptr %call.i, i64 0, i32 2
+  %sioc2 = getelementptr inbounds i8, ptr %call.i, i64 48
   %18 = load ptr, ptr %sioc2, align 8
   tail call void @g_free(ptr noundef %18) #4
-  %name = getelementptr inbounds %struct.QIONetListener, ptr %call.i, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call.i, i64 40
   %19 = load ptr, ptr %name, align 8
   tail call void @g_free(ptr noundef %19) #4
   ret void

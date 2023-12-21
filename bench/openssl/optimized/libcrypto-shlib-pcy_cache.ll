@@ -3,17 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-pcy_cache.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_POLICY_CACHE_st = type { ptr, ptr, i64, i64, i64 }
-%struct.x509_st = type { %struct.x509_cinf_st, %struct.X509_algor_st, %struct.asn1_string_st, %struct.x509_sig_info_st, %struct.CRYPTO_REF_COUNT, %struct.crypto_ex_data_st, i64, i64, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [20 x i8], ptr, ptr, i32, ptr, ptr, ptr }
-%struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_val_st = type { ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.x509_sig_info_st = type { i32, i32, i32, i32 }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.POLICY_CONSTRAINTS_st = type { ptr, ptr }
 %struct.X509_POLICY_DATA_st = type { i32, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/x509/pcy_cache.c\00", align 1
@@ -28,7 +17,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %cache, align 8
   tail call void @ossl_policy_data_free(ptr noundef %0) #4
-  %data = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %cache, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %cache, i64 8
   %1 = load ptr, ptr %data, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %1, ptr noundef nonnull @ossl_policy_data_free) #4
   tail call void @CRYPTO_free(ptr noundef nonnull %cache, ptr noundef nonnull @.str, i32 noundef 184) #4
@@ -46,13 +35,13 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 define ptr @ossl_policy_cache_set(ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %i.i = alloca i32, align 4
-  %policy_cache = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 14
+  %policy_cache = getelementptr inbounds i8, ptr %x, i64 264
   %0 = load ptr, ptr %policy_cache, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %lock = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 22
+  %lock = getelementptr inbounds i8, ptr %x, i64 344
   %1 = load ptr, ptr %lock, align 8
   %call = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #4
   %tobool.not = icmp eq i32 %call, 0
@@ -70,10 +59,10 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp1.i, label %policy_cache_new.exit, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %any_skip.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %call.i, i64 0, i32 2
+  %any_skip.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i8 0, i64 16, i1 false)
-  %explicit_skip.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %call.i, i64 0, i32 3
-  %map_skip.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %call.i, i64 0, i32 4
+  %explicit_skip.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %map_skip.i = getelementptr inbounds i8, ptr %call.i, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %any_skip.i, i8 -1, i64 24, i1 false)
   store ptr %call.i, ptr %policy_cache, align 8
   %call5.i = call ptr @X509_get_ext_d2i(ptr noundef nonnull %x, i32 noundef 401, ptr noundef nonnull %i.i, ptr noundef null) #4
@@ -91,13 +80,13 @@ if.else.i:                                        ; preds = %if.end3.i
   br i1 %tobool10.not.i, label %land.lhs.true.i, label %if.end.i.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i
-  %inhibitPolicyMapping.i = getelementptr inbounds %struct.POLICY_CONSTRAINTS_st, ptr %call5.i, i64 0, i32 1
+  %inhibitPolicyMapping.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %5 = load ptr, ptr %inhibitPolicyMapping.i, align 8
   %tobool11.not.i = icmp eq ptr %5, null
   br i1 %tobool11.not.i, label %bad_cache.i, label %if.end.i28.i
 
 if.end.i.i:                                       ; preds = %if.else.i
-  %type.i.i = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 1
+  %type.i.i = getelementptr inbounds i8, ptr %4, i64 4
   %6 = load i32, ptr %type.i.i, align 4
   %cmp1.i.i = icmp eq i32 %6, 258
   br i1 %cmp1.i.i, label %bad_cache.i, label %if.end19.i
@@ -105,14 +94,14 @@ if.end.i.i:                                       ; preds = %if.else.i
 if.end19.i:                                       ; preds = %if.end.i.i
   %call.i.i = call i64 @ASN1_INTEGER_get(ptr noundef nonnull %4) #4
   store i64 %call.i.i, ptr %explicit_skip.i, align 8
-  %inhibitPolicyMapping21.phi.trans.insert.i = getelementptr inbounds %struct.POLICY_CONSTRAINTS_st, ptr %call5.i, i64 0, i32 1
+  %inhibitPolicyMapping21.phi.trans.insert.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %.pre.i = load ptr, ptr %inhibitPolicyMapping21.phi.trans.insert.i, align 8
   %cmp.i27.i = icmp eq ptr %.pre.i, null
   br i1 %cmp.i27.i, label %if.end26.i, label %if.end.i28.i
 
 if.end.i28.i:                                     ; preds = %if.end19.i, %land.lhs.true.i
   %7 = phi ptr [ %.pre.i, %if.end19.i ], [ %5, %land.lhs.true.i ]
-  %type.i29.i = getelementptr inbounds %struct.asn1_string_st, ptr %7, i64 0, i32 1
+  %type.i29.i = getelementptr inbounds i8, ptr %7, i64 4
   %8 = load i32, ptr %type.i29.i, align 4
   %cmp1.i30.i = icmp eq i32 %8, 258
   br i1 %cmp1.i30.i, label %bad_cache.i, label %if.end3.i31.i
@@ -140,7 +129,7 @@ if.end33.i:                                       ; preds = %if.end26.i
 
 if.end.i36.i:                                     ; preds = %if.end33.i
   %call.i.i.i = call ptr @OPENSSL_sk_new(ptr noundef nonnull @policy_data_cmp) #4
-  %data3.i.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %10, i64 0, i32 1
+  %data3.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %call.i.i.i, ptr %data3.i.i, align 8
   %cmp5.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp5.i.i, label %just_cleanup.thread.i.i, label %for.body.i.i
@@ -153,7 +142,7 @@ for.body.i.i:                                     ; preds = %if.end.i36.i, %if.e
   br i1 %cmp12.i.i, label %just_cleanup.thread.i.i, label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %for.body.i.i
-  %valid_policy.i.i = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call11.i.i, i64 0, i32 1
+  %valid_policy.i.i = getelementptr inbounds i8, ptr %call11.i.i, i64 8
   %11 = load ptr, ptr %valid_policy.i.i, align 8
   %call15.i.i = call i32 @OBJ_obj2nid(ptr noundef %11) #4
   %cmp16.i.i = icmp eq i32 %call15.i.i, 746
@@ -197,7 +186,7 @@ for.end.i.i:                                      ; preds = %if.end32.i.i
   br label %just_cleanup.i.i
 
 if.then35.i.i:                                    ; preds = %if.else.i.i, %if.then17.i.i
-  %ex_flags.i.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 8
+  %ex_flags.i.i = getelementptr inbounds i8, ptr %x, i64 232
   %15 = load i32, ptr %ex_flags.i.i, align 8
   %or.i.i = or i32 %15, 2048
   store i32 %or.i.i, ptr %ex_flags.i.i, align 8
@@ -226,7 +215,7 @@ policy_cache_create.exit.thread.i:                ; preds = %just_cleanup.i.i
 
 policy_cache_create.exit.i:                       ; preds = %just_cleanup.i.i, %just_cleanup.thread.i.i
   %ret.131.i.i = phi i32 [ 0, %just_cleanup.thread.i.i ], [ %ret.026.i.i, %just_cleanup.i.i ]
-  %data41.i.i = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %10, i64 0, i32 1
+  %data41.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %16 = load ptr, ptr %data41.i.i, align 8
   call void @OPENSSL_sk_pop_free(ptr noundef %16, ptr noundef nonnull @ossl_policy_data_free) #4
   store ptr null, ptr %data41.i.i, align 8
@@ -261,7 +250,7 @@ if.then52.i:                                      ; preds = %if.end49.i
   br i1 %cmp53.not.i, label %just_cleanup.i, label %bad_cache.i
 
 if.end.i38.i:                                     ; preds = %if.end49.i
-  %type.i39.i = getelementptr inbounds %struct.asn1_string_st, ptr %call50.i, i64 0, i32 1
+  %type.i39.i = getelementptr inbounds i8, ptr %call50.i, i64 4
   %19 = load i32, ptr %type.i39.i, align 4
   %cmp1.i40.i = icmp eq i32 %19, 258
   br i1 %cmp1.i40.i, label %bad_cache.i, label %policy_cache_set_int.exit44.i
@@ -273,7 +262,7 @@ policy_cache_set_int.exit44.i:                    ; preds = %if.end.i38.i
 
 bad_cache.i:                                      ; preds = %if.end.i38.i, %if.then52.i, %if.else44.i, %if.then40.i, %if.then29.i, %if.end.i28.i, %if.end.i.i, %land.lhs.true.i, %if.then6.i
   %ext_any.0.i = phi ptr [ null, %if.else44.i ], [ null, %if.then52.i ], [ null, %if.then40.i ], [ null, %if.then29.i ], [ null, %land.lhs.true.i ], [ null, %if.then6.i ], [ null, %if.end.i.i ], [ null, %if.end.i28.i ], [ %call50.i, %if.end.i38.i ]
-  %ex_flags.i = getelementptr inbounds %struct.x509_st, ptr %x, i64 0, i32 8
+  %ex_flags.i = getelementptr inbounds i8, ptr %x, i64 232
   %20 = load i32, ptr %ex_flags.i, align 8
   %or.i = or i32 %20, 2048
   store i32 %or.i, ptr %ex_flags.i, align 8
@@ -305,9 +294,9 @@ declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 define ptr @ossl_policy_cache_find_data(ptr nocapture noundef readonly %cache, ptr noundef %id) local_unnamed_addr #0 {
 entry:
   %tmp = alloca %struct.X509_POLICY_DATA_st, align 8
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %tmp, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %tmp, i64 8
   store ptr %id, ptr %valid_policy, align 8
-  %data = getelementptr inbounds %struct.X509_POLICY_CACHE_st, ptr %cache, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %cache, i64 8
   %0 = load ptr, ptr %data, align 8
   %call.i = call i32 @OPENSSL_sk_find(ptr noundef %0, ptr noundef nonnull %tmp) #4
   %1 = load ptr, ptr %data, align 8
@@ -335,10 +324,10 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #1
 define internal i32 @policy_data_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %0, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %valid_policy, align 8
   %2 = load ptr, ptr %b, align 8
-  %valid_policy1 = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %2, i64 0, i32 1
+  %valid_policy1 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %valid_policy1, align 8
   %call = tail call i32 @OBJ_cmp(ptr noundef %1, ptr noundef %3) #4
   ret i32 %call

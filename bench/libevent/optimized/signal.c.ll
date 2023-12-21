@@ -5,26 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evthread_lock_callbacks = type { i32, i32, ptr, ptr, ptr, ptr }
 %struct.eventop = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i64 }
-%struct.event_base = type { ptr, ptr, %struct.event_changelist, ptr, %struct.evsig_info, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, %struct.evcallback_list, ptr, i32, i32, %struct.event_signal_map, %struct.event_signal_map, %struct.min_heap, %struct.timeval, %struct.evutil_monotonic_timer, %struct.timeval, i64, i64, ptr, ptr, i32, ptr, i32, %struct.timeval, i32, i32, i32, [2 x i32], %struct.event, ptr, %struct.evutil_weakrand_state, %struct.once_event_list, [2 x %struct.evwatch_list] }
-%struct.event_changelist = type { ptr, i32, i32 }
-%struct.evsig_info = type { %struct.event, [2 x i32], i32, i32, [65 x ptr], ptr, i32 }
-%struct.evcallback_list = type { ptr, ptr }
-%struct.event_signal_map = type { ptr, i32 }
-%struct.min_heap = type { ptr, i64, i64 }
-%struct.evutil_monotonic_timer = type { i32, %struct.timeval, %struct.timeval }
-%struct.timeval = type { i64, i64 }
-%struct.event = type { %struct.event_callback, %union.anon.0, i32, i16, i16, ptr, %union.anon.2, %struct.timeval }
-%struct.event_callback = type { %struct.anon, i16, i8, i8, %union.anon, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { ptr }
-%union.anon.0 = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, ptr }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { %struct.anon.4, %struct.timeval }
-%struct.anon.4 = type { ptr, ptr }
-%struct.evutil_weakrand_state = type { i32 }
-%struct.once_event_list = type { ptr }
-%struct.evwatch_list = type { ptr, ptr }
 %struct.sigaction = type { %union.anon.7, %struct.__sigset_t, i32, ptr }
 %union.anon.7 = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
@@ -67,10 +47,10 @@ entry:
 
 do.end.thread:                                    ; preds = %entry
   store ptr %base, ptr @evsig_base, align 8
-  %ev_n_signals_added4 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 3
+  %ev_n_signals_added4 = getelementptr inbounds i8, ptr %base, i64 172
   %1 = load i32, ptr %ev_n_signals_added4, align 4
   store i32 %1, ptr @evsig_base_n_signals_added, align 4
-  %arrayidx5 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 1, i64 1
+  %arrayidx5 = getelementptr inbounds i8, ptr %base, i64 164
   %2 = load i32, ptr %arrayidx5, align 4
   store i32 %2, ptr @evsig_base_fd, align 4
   br label %do.end7
@@ -80,10 +60,10 @@ do.end:                                           ; preds = %entry
   %call = tail call i32 %3(i32 noundef 0, ptr noundef nonnull %0) #7
   %.pre = load ptr, ptr @evsig_base_lock, align 8
   store ptr %base, ptr @evsig_base, align 8
-  %ev_n_signals_added = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 3
+  %ev_n_signals_added = getelementptr inbounds i8, ptr %base, i64 172
   %4 = load i32, ptr %ev_n_signals_added, align 4
   store i32 %4, ptr @evsig_base_n_signals_added, align 4
-  %arrayidx = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 1, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %base, i64 164
   %5 = load i32, ptr %arrayidx, align 4
   store i32 %5, ptr @evsig_base_fd, align 4
   %tobool3.not = icmp eq ptr %.pre, null
@@ -101,7 +81,7 @@ do.end7:                                          ; preds = %do.end.thread, %do.
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @evsig_init_(ptr noundef %base) local_unnamed_addr #0 {
 entry:
-  %ev_signal_pair = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 1
+  %ev_signal_pair = getelementptr inbounds i8, ptr %base, i64 160
   %call = tail call i32 @evutil_make_internal_pipe_(ptr noundef nonnull %ev_signal_pair) #7
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -111,7 +91,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %sh_old = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 5
+  %sh_old = getelementptr inbounds i8, ptr %base, i64 696
   %0 = load ptr, ptr %sh_old, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end5, label %if.then2
@@ -121,18 +101,18 @@ if.then2:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then2, %if.end
-  %sig = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4
+  %sig = getelementptr inbounds i8, ptr %base, i64 40
   store ptr null, ptr %sh_old, align 8
-  %sh_old_max = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 6
+  %sh_old_max = getelementptr inbounds i8, ptr %base, i64 704
   store i32 0, ptr %sh_old_max, align 8
   %1 = load i32, ptr %ev_signal_pair, align 8
   %call12 = tail call i32 @event_assign(ptr noundef nonnull %sig, ptr noundef nonnull %base, i32 noundef %1, i16 noundef signext 18, ptr noundef nonnull @evsig_cb, ptr noundef nonnull %base) #7
-  %evcb_flags = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 0, i32 0, i32 1
+  %evcb_flags = getelementptr inbounds i8, ptr %base, i64 56
   %2 = load i16, ptr %evcb_flags, align 8
   %3 = or i16 %2, 16
   store i16 %3, ptr %evcb_flags, align 8
   %call18 = tail call i32 @event_priority_set(ptr noundef nonnull %sig, i32 noundef 0) #7
-  %evsigsel = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 3
+  %evsigsel = getelementptr inbounds i8, ptr %base, i64 32
   store ptr @evsigops, ptr %evsigsel, align 8
   ret i32 0
 }
@@ -200,7 +180,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
   br i1 %exitcond.not, label %while.body.backedge, label %for.body, !llvm.loop !5
 
 do.body19:                                        ; preds = %while.body, %if.then, %if.then
-  %th_base_lock = getelementptr inbounds %struct.event_base, ptr %arg, i64 0, i32 31
+  %th_base_lock = getelementptr inbounds i8, ptr %arg, i64 952
   %3 = load ptr, ptr %th_base_lock, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %for.body28.preheader, label %if.then20
@@ -249,7 +229,7 @@ declare i32 @event_priority_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @evsig_ensure_saved_(ptr nocapture noundef %sig, i32 noundef %evsignal) local_unnamed_addr #0 {
 entry:
-  %sh_old_max = getelementptr inbounds %struct.evsig_info, ptr %sig, i64 0, i32 6
+  %sh_old_max = getelementptr inbounds i8, ptr %sig, i64 664
   %0 = load i32, ptr %sh_old_max, align 8
   %cmp.not = icmp sgt i32 %0, %evsignal
   br i1 %cmp.not, label %return, label %if.then
@@ -265,7 +245,7 @@ if.then1:                                         ; preds = %if.then
   br label %do.end
 
 do.end:                                           ; preds = %if.then, %if.then1
-  %sh_old = getelementptr inbounds %struct.evsig_info, ptr %sig, i64 0, i32 5
+  %sh_old = getelementptr inbounds i8, ptr %sig, i64 656
   %2 = load ptr, ptr %sh_old, align 8
   %conv = sext i32 %add to i64
   %mul = shl nsw i64 %conv, 3
@@ -308,7 +288,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define dso_local i32 @evsig_set_handler_(ptr nocapture noundef %base, i32 noundef %evsignal, ptr noundef %handler) local_unnamed_addr #0 {
 entry:
   %sa = alloca %struct.sigaction, align 8
-  %sh_old_max.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 6
+  %sh_old_max.i = getelementptr inbounds i8, ptr %base, i64 704
   %0 = load i32, ptr %sh_old_max.i, align 8
   %cmp.not.i = icmp sgt i32 %0, %evsignal
   br i1 %cmp.not.i, label %if.end, label %if.then.i
@@ -324,7 +304,7 @@ if.then1.i:                                       ; preds = %if.then.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then1.i, %if.then.i
-  %sh_old.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 5
+  %sh_old.i = getelementptr inbounds i8, ptr %base, i64 696
   %2 = load ptr, ptr %sh_old.i, align 8
   %conv.i = sext i32 %add.i to i64
   %mul.i = shl nsw i64 %conv.i, 3
@@ -351,7 +331,7 @@ evsig_ensure_saved_.exit:                         ; preds = %do.end.i
 
 if.end:                                           ; preds = %if.end6.i, %entry
   %call2 = tail call ptr @event_mm_malloc_(i64 noundef 152) #7
-  %sh_old = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 5
+  %sh_old = getelementptr inbounds i8, ptr %base, i64 696
   %4 = load ptr, ptr %sh_old, align 8
   %idxprom = sext i32 %evsignal to i64
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %idxprom
@@ -370,9 +350,9 @@ if.end8:                                          ; preds = %if.end
   %7 = getelementptr inbounds i8, ptr %sa, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %7, i8 0, i64 144, i1 false)
   store ptr %handler, ptr %sa, align 8
-  %sa_flags = getelementptr inbounds %struct.sigaction, ptr %sa, i64 0, i32 2
+  %sa_flags = getelementptr inbounds i8, ptr %sa, i64 136
   store i32 268435456, ptr %sa_flags, align 8
-  %sa_mask = getelementptr inbounds %struct.sigaction, ptr %sa, i64 0, i32 1
+  %sa_mask = getelementptr inbounds i8, ptr %sa, i64 8
   %call9 = call i32 @sigfillset(ptr noundef nonnull %sa_mask) #7
   %8 = load ptr, ptr %sh_old, align 8
   %arrayidx12 = getelementptr inbounds ptr, ptr %8, i64 %idxprom
@@ -408,13 +388,13 @@ declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @evsig_restore_handler_(ptr nocapture noundef readonly %base, i32 noundef %evsignal) local_unnamed_addr #0 {
 entry:
-  %sh_old_max = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 6
+  %sh_old_max = getelementptr inbounds i8, ptr %base, i64 704
   %0 = load i32, ptr %sh_old_max, align 8
   %cmp.not = icmp sgt i32 %0, %evsignal
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %sh_old = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 5
+  %sh_old = getelementptr inbounds i8, ptr %base, i64 696
   %1 = load ptr, ptr %sh_old, align 8
   %idxprom = sext i32 %evsignal to i64
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
@@ -441,8 +421,8 @@ return:                                           ; preds = %entry, %if.end7
 ; Function Attrs: nounwind uwtable
 define dso_local void @evsig_dealloc_(ptr noundef %base) local_unnamed_addr #0 {
 entry:
-  %sig = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4
-  %ev_signal_added = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 2
+  %sig = getelementptr inbounds i8, ptr %base, i64 40
+  %ev_signal_added = getelementptr inbounds i8, ptr %base, i64 168
   %0 = load i32, ptr %ev_signal_added, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -454,8 +434,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   tail call void @event_debug_unassign(ptr noundef nonnull %sig) #7
-  %sh_old_max = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 6
-  %sh_old = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 5
+  %sh_old_max = getelementptr inbounds i8, ptr %base, i64 704
+  %sh_old = getelementptr inbounds i8, ptr %base, i64 696
   br label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
@@ -524,7 +504,7 @@ if.then22:                                        ; preds = %do.body20
   br label %do.end25
 
 do.end25:                                         ; preds = %do.body20, %if.then22
-  %ev_signal_pair = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 1
+  %ev_signal_pair = getelementptr inbounds i8, ptr %base, i64 160
   %11 = load i32, ptr %ev_signal_pair, align 8
   %cmp28.not = icmp eq i32 %11, -1
   br i1 %cmp28.not, label %if.end37, label %if.then29
@@ -535,7 +515,7 @@ if.then29:                                        ; preds = %do.end25
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then29, %do.end25
-  %arrayidx40 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 1, i64 1
+  %arrayidx40 = getelementptr inbounds i8, ptr %base, i64 164
   %12 = load i32, ptr %arrayidx40, align 4
   %cmp41.not = icmp eq i32 %12, -1
   br i1 %cmp41.not, label %if.end50, label %if.then42
@@ -621,7 +601,7 @@ declare void @evmap_signal_active_(ptr noundef, i32 noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal i32 @evsig_add(ptr noundef %base, i32 noundef %evsignal, i16 signext %old, i16 signext %events, ptr nocapture readnone %p) #0 {
 entry:
-  %sig1 = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4
+  %sig1 = getelementptr inbounds i8, ptr %base, i64 40
   %0 = load ptr, ptr @evsig_base_lock, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end3, label %if.then
@@ -647,12 +627,12 @@ if.then5:                                         ; preds = %do.end3
 
 if.end6:                                          ; preds = %if.then5, %do.end3
   store ptr %base, ptr @evsig_base, align 8
-  %ev_n_signals_added = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 3
+  %ev_n_signals_added = getelementptr inbounds i8, ptr %base, i64 172
   %6 = load i32, ptr %ev_n_signals_added, align 4
   %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %ev_n_signals_added, align 4
   store i32 %inc, ptr @evsig_base_n_signals_added, align 4
-  %arrayidx = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 1, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %base, i64 164
   %7 = load i32, ptr %arrayidx, align 4
   store i32 %7, ptr @evsig_base_fd, align 4
   %8 = load ptr, ptr @evsig_base_lock, align 8
@@ -679,7 +659,7 @@ do.end18:                                         ; preds = %do.body14, %if.then
   br i1 %cmp20, label %do.body31, label %if.end22
 
 if.end22:                                         ; preds = %do.end18
-  %ev_signal_added = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 2
+  %ev_signal_added = getelementptr inbounds i8, ptr %base, i64 168
   %11 = load i32, ptr %ev_signal_added, align 8
   %tobool23.not = icmp eq i32 %11, 0
   br i1 %tobool23.not, label %if.then24, label %return
@@ -752,7 +732,7 @@ do.end7:                                          ; preds = %do.body3, %if.then5
   %4 = load i32, ptr @evsig_base_n_signals_added, align 4
   %dec = add nsw i32 %4, -1
   store i32 %dec, ptr @evsig_base_n_signals_added, align 4
-  %ev_n_signals_added = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 3
+  %ev_n_signals_added = getelementptr inbounds i8, ptr %base, i64 172
   %5 = load i32, ptr %ev_n_signals_added, align 4
   %dec8 = add nsw i32 %5, -1
   store i32 %dec8, ptr %ev_n_signals_added, align 4
@@ -765,13 +745,13 @@ if.then11:                                        ; preds = %do.end7
   br label %do.end14
 
 do.end14:                                         ; preds = %do.end7, %if.then11
-  %sh_old_max.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 6
+  %sh_old_max.i = getelementptr inbounds i8, ptr %base, i64 704
   %7 = load i32, ptr %sh_old_max.i, align 8
   %cmp.not.i = icmp sgt i32 %7, %evsignal
   br i1 %cmp.not.i, label %if.end.i, label %evsig_restore_handler_.exit
 
 if.end.i:                                         ; preds = %do.end14
-  %sh_old.i = getelementptr inbounds %struct.event_base, ptr %base, i64 0, i32 4, i32 5
+  %sh_old.i = getelementptr inbounds i8, ptr %base, i64 696
   %8 = load ptr, ptr %sh_old.i, align 8
   %idxprom.i = sext i32 %evsignal to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %8, i64 %idxprom.i

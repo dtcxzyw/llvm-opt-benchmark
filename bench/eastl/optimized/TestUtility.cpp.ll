@@ -9,8 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::basic_string<char>::Layout" = type { %union.anon }
 %union.anon = type { %"struct.eastl::basic_string<char>::HeapLayout" }
 %"struct.eastl::basic_string<char>::HeapLayout" = type { ptr, i64, i64 }
-%"struct.eastl::basic_string<char>::SSOLayout" = type { [23 x i8], %"struct.eastl::basic_string<char>::SSOLayout::SSOSize" }
-%"struct.eastl::basic_string<char>::SSOLayout::SSOSize" = type { i8 }
 
 $_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_ = comdat any
 
@@ -280,7 +278,7 @@ common.resume.i:                                  ; preds = %_ZN5eastl6vectorIiN
   br label %common.resume
 
 invoke.cont262.i:                                 ; preds = %land.end197.i
-  %add.ptr.i = getelementptr inbounds i32, ptr %call.i.i.i.i.i1.i.i, i64 5
+  %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i, i64 20
   %7 = load i32, ptr %add.ptr.i, align 4
   %cmp264.i = icmp eq i32 %7, 6
   %call266.i = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp264.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount.i, ptr noundef nonnull @.str, i32 noundef 219, ptr noundef nonnull @.str.41)
@@ -391,15 +389,15 @@ if.else.i.i.i.i:                                  ; preds = %invoke.cont56.i
   store i64 %dec.i32.i, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc3.i33.i = add nsw i64 %16, 2
   store i64 %inc3.i33.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %a62.i, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a62.i, i64 23
   store i8 8, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %a62.i, ptr noundef nonnull align 1 dereferenceable(15) @.str.66, i64 15, i1 false)
-  %mnSize.i.i6.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %a62.i, i64 0, i32 1
+  %mnSize.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %a62.i, i64 8
   %add.ptr.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %a62.i, i64 15
   store i8 0, ptr %add.ptr.i1.i.i.i.i.i, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   store i8 0, ptr %r64.i, align 8, !alias.scope !8
-  %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %r64.i, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %r64.i, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1, !alias.scope !8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %r64.i, i64 24, i1 false)
@@ -424,7 +422,7 @@ lpad.i.i:                                         ; preds = %if.else.i.i.i.i
 invoke.cont66.i:                                  ; preds = %if.else.i.i.i.i
   %20 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %tobool.i.i.i.i42.i = icmp sgt i8 %20, -1
-  %mnSize.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %r64.i, i64 0, i32 1
+  %mnSize.i.i.i.i.i = getelementptr inbounds i8, ptr %r64.i, i64 8
   %21 = load i64, ptr %mnSize.i.i.i.i.i, align 8
   %conv.i.i.i.i.i = zext nneg i8 %20 to i64
   %sub.i.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i.i
@@ -627,10 +625,10 @@ entry:
   br i1 %cmp.not, label %if.end23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mRemainingSizeField.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %this, i64 0, i32 1
+  %mRemainingSizeField.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i = icmp slt i8 %0, 0
-  %mnSize.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %this, i64 0, i32 1
+  %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %mnSize.i.i, align 8
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
@@ -638,7 +636,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %pEnd to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %pBegin to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %mnCapacity.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %this, i64 0, i32 2
+  %mnCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
   %and.i.i = and i64 %2, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 23

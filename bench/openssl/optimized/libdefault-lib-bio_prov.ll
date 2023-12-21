@@ -3,7 +3,6 @@ source_filename = "bench/openssl/original/libdefault-lib-bio_prov.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_dispatch_st = type { i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @c_bio_new_file = internal unnamed_addr global ptr null, align 8
@@ -171,7 +170,7 @@ for.inc:                                          ; preds = %for.cond, %if.then,
   %fns.addr.0.val1926 = phi ptr [ %fns.addr.0.val1927, %for.cond ], [ %fns.addr.0.val1927, %if.then ], [ %fns.addr.0.val1927, %sw.bb ], [ %fns.addr.0.val1927, %if.then5 ], [ %fns.addr.0.val1927, %sw.bb3 ], [ %fns.addr.0.val1927, %if.then10 ], [ %fns.addr.0.val1927, %sw.bb8 ], [ %fns.addr.0.val1927, %if.then15 ], [ %fns.addr.0.val1927, %sw.bb13 ], [ %fns.addr.0.val1927, %if.then20 ], [ %fns.addr.0.val1927, %sw.bb18 ], [ %fns.addr.0.val1927, %if.then25 ], [ %fns.addr.0.val1927, %sw.bb23 ], [ %fns.addr.0.val1927, %if.then30 ], [ %fns.addr.0.val1927, %sw.bb28 ], [ %fns.addr.0.val19, %if.then35 ], [ %fns.addr.0.val1927, %sw.bb33 ], [ %fns.addr.0.val1927, %if.then40 ], [ %fns.addr.0.val1927, %sw.bb38 ], [ %fns.addr.0.val1927, %if.then45 ], [ %fns.addr.0.val1927, %sw.bb43 ]
   %fns.addr.0.val2024 = phi ptr [ %fns.addr.0.val2025, %for.cond ], [ %fns.addr.0.val2025, %if.then ], [ %fns.addr.0.val2025, %sw.bb ], [ %fns.addr.0.val2025, %if.then5 ], [ %fns.addr.0.val2025, %sw.bb3 ], [ %fns.addr.0.val2025, %if.then10 ], [ %fns.addr.0.val2025, %sw.bb8 ], [ %fns.addr.0.val2025, %if.then15 ], [ %fns.addr.0.val2025, %sw.bb13 ], [ %fns.addr.0.val2025, %if.then20 ], [ %fns.addr.0.val2025, %sw.bb18 ], [ %fns.addr.0.val2025, %if.then25 ], [ %fns.addr.0.val2025, %sw.bb23 ], [ %fns.addr.0.val2025, %if.then30 ], [ %fns.addr.0.val2025, %sw.bb28 ], [ %fns.addr.0.val2025, %if.then35 ], [ %fns.addr.0.val2025, %sw.bb33 ], [ %fns.addr.0.val20, %if.then40 ], [ %fns.addr.0.val2025, %sw.bb38 ], [ %fns.addr.0.val2025, %if.then45 ], [ %fns.addr.0.val2025, %sw.bb43 ]
   %fns.addr.0.val2122 = phi ptr [ %fns.addr.0.val2123, %for.cond ], [ %fns.addr.0.val2123, %if.then ], [ %fns.addr.0.val2123, %sw.bb ], [ %fns.addr.0.val2123, %if.then5 ], [ %fns.addr.0.val2123, %sw.bb3 ], [ %fns.addr.0.val2123, %if.then10 ], [ %fns.addr.0.val2123, %sw.bb8 ], [ %fns.addr.0.val2123, %if.then15 ], [ %fns.addr.0.val2123, %sw.bb13 ], [ %fns.addr.0.val2123, %if.then20 ], [ %fns.addr.0.val2123, %sw.bb18 ], [ %fns.addr.0.val2123, %if.then25 ], [ %fns.addr.0.val2123, %sw.bb23 ], [ %fns.addr.0.val2123, %if.then30 ], [ %fns.addr.0.val2123, %sw.bb28 ], [ %fns.addr.0.val2123, %if.then35 ], [ %fns.addr.0.val2123, %sw.bb33 ], [ %fns.addr.0.val2123, %if.then40 ], [ %fns.addr.0.val2123, %sw.bb38 ], [ %fns.addr.0.val21, %if.then45 ], [ %fns.addr.0.val2123, %sw.bb43 ]
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %fns.addr.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond

@@ -3,47 +3,7 @@ source_filename = "bench/hermes/original/SamplingProfilerSampler.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.hermes::vm::sampling_profiler::Sampler" = type { ptr, %"class.std::mutex", %"class.std::unordered_set", i8, i32, %"struct.hermes::vm::SamplingProfiler::StackTrace", %"class.std::thread", %"class.std::condition_variable" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"struct.hermes::vm::SamplingProfiler::StackTrace" = type { i64, %"class.std::chrono::time_point", %"class.std::vector" }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
-%"class.std::condition_variable" = type { %"class.std::__condvar" }
-%"class.std::__condvar" = type { %union.pthread_cond_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 %"struct.std::__detail::_AllocNode" = type { ptr }
-%"class.hermes::vm::SamplingProfiler" = type { ptr, %"class.std::mutex", %"class.std::vector.5", i32, i32, %"struct.hermes::vm::SamplingProfiler::StackTrace", %"class.llvh::DenseMap", %"class.std::unordered_set.10", %"class.std::vector.30", %"class.std::vector.35", ptr }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackTrace, std::allocator<hermes::vm::SamplingProfiler::StackTrace>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackTrace, std::allocator<hermes::vm::SamplingProfiler::StackTrace>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackTrace, std::allocator<hermes::vm::SamplingProfiler::StackTrace>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackTrace, std::allocator<hermes::vm::SamplingProfiler::StackTrace>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvh::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.std::unordered_set.10" = type { %"class.std::_Hashtable.11" }
-%"class.std::_Hashtable.11" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::vector.30" = type { %"struct.std::_Vector_base.31" }
-%"struct.std::_Vector_base.31" = type { %"struct.std::_Vector_base<hermes::vm::Domain *, std::allocator<hermes::vm::Domain *>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::Domain *, std::allocator<hermes::vm::Domain *>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::Domain *, std::allocator<hermes::vm::Domain *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::Domain *, std::allocator<hermes::vm::Domain *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.35" = type { %"struct.std::_Vector_base.36" }
-%"struct.std::_Vector_base.36" = type { %"struct.std::_Vector_base<hermes::vm::NativeFunction *, std::allocator<hermes::vm::NativeFunction *>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::vm::NativeFunction *, std::allocator<hermes::vm::NativeFunction *>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::NativeFunction *, std::allocator<hermes::vm::NativeFunction *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::vm::NativeFunction *, std::allocator<hermes::vm::NativeFunction *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
 %"struct.hermes::vm::SamplingProfiler::StackFrame" = type { %union.anon.210, i32 }
 %union.anon.210 = type { %"struct.hermes::vm::SamplingProfiler::JSFunctionFrameInfo" }
@@ -64,14 +24,15 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.219" = type { %"struct.std::_Tuple_impl.220" }
 %"struct.std::_Tuple_impl.220" = type { %"struct.std::_Head_base.223" }
 %"struct.std::_Head_base.223" = type { ptr }
-%"struct.std::thread::_State_impl" = type { %"struct.std::thread::_State", %"struct.std::thread::_Invoker" }
-%"struct.std::thread::_State" = type { ptr }
-%"struct.std::thread::_Invoker" = type { %"class.std::tuple.224" }
-%"class.std::tuple.224" = type { %"struct.std::_Tuple_impl.225" }
-%"struct.std::_Tuple_impl.225" = type { %"struct.std::_Tuple_impl.226", %"struct.std::_Head_base.228" }
-%"struct.std::_Tuple_impl.226" = type { %"struct.std::_Head_base.227" }
-%"struct.std::_Head_base.227" = type { ptr }
-%"struct.std::_Head_base.228" = type { { i64, i64 } }
+%"class.std::thread" = type { %"class.std::thread::id" }
+%"class.std::thread::id" = type { i64 }
+%"struct.hermes::vm::SamplingProfiler::StackTrace" = type { i64, %"class.std::chrono::time_point", %"class.std::vector" }
+%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
+%"class.std::chrono::duration" = type { i64 }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl" }
+%"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EEaSERKS5_ = comdat any
 
@@ -107,9 +68,9 @@ $_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN6hermes2vm17sampling_profi
 define hidden void @_ZN6hermes2vm17sampling_profiler7SamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler7SamplerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %enabledCondVar_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 7
+  %enabledCondVar_ = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %enabledCondVar_) #14
-  %timerThread_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 6
+  %timerThread_ = getelementptr inbounds i8, ptr %this, i64 152
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %timerThread_, align 8
   %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i, 0
   br i1 %cmp.i.i.not.i, label %_ZNSt6threadD2Ev.exit, label %if.then.i
@@ -119,7 +80,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNSt6threadD2Ev.exit:                            ; preds = %entry
-  %stack.i = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 5, i32 2
+  %stack.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %stack.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN6hermes2vm16SamplingProfiler10StackTraceD2Ev.exit, label %if.then.i.i.i.i
@@ -129,8 +90,8 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6threadD2Ev.ex
   br label %_ZN6hermes2vm16SamplingProfiler10StackTraceD2Ev.exit
 
 _ZN6hermes2vm16SamplingProfiler10StackTraceD2Ev.exit: ; preds = %_ZNSt6threadD2Ev.exit, %if.then.i.i.i.i
-  %profilers_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 2
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 2, i32 0, i32 2
+  %profilers_ = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -144,13 +105,13 @@ while.body.i.i.i.i:                               ; preds = %_ZN6hermes2vm16Samp
 
 _ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %_ZN6hermes2vm16SamplingProfiler10StackTraceD2Ev.exit
   %3 = load ptr, ptr %profilers_, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %mul.i.i.i = shl i64 %4, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %mul.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %profilers_, align 8
-  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 2, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %5
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_setIPN6hermes2vm16SamplingProfilerESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit, label %if.end.i.i.i.i
 
@@ -169,9 +130,9 @@ declare void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 derefere
 define hidden void @_ZN6hermes2vm17sampling_profiler7SamplerD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes2vm17sampling_profiler7SamplerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %enabledCondVar_.i = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 7
+  %enabledCondVar_.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %enabledCondVar_.i) #14
-  %timerThread_.i = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 6
+  %timerThread_.i = getelementptr inbounds i8, ptr %this, i64 152
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i64, ptr %timerThread_.i, align 8
   %cmp.i.i.not.i.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %_ZNSt6threadD2Ev.exit.i, label %if.then.i.i
@@ -181,7 +142,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt6threadD2Ev.exit.i:                          ; preds = %entry
-  %stack.i.i = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 5, i32 2
+  %stack.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %stack.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN6hermes2vm16SamplingProfiler10StackTraceD2Ev.exit.i, label %if.then.i.i.i.i.i
@@ -191,8 +152,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6threadD2Ev.ex
   br label %_ZN6hermes2vm16SamplingProfiler10StackTraceD2Ev.exit.i
 
 _ZN6hermes2vm16SamplingProfiler10StackTraceD2Ev.exit.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt6threadD2Ev.exit.i
-  %profilers_.i = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 2
-  %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 2, i32 0, i32 2
+  %profilers_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
   %tobool.not3.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not3.i.i.i.i.i, label %_ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i, label %while.body.i.i.i.i.i
@@ -206,13 +167,13 @@ while.body.i.i.i.i.i:                             ; preds = %_ZN6hermes2vm16Samp
 
 _ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i.i: ; preds = %while.body.i.i.i.i.i, %_ZN6hermes2vm16SamplingProfiler10StackTraceD2Ev.exit.i
   %3 = load ptr, ptr %profilers_.i, align 8
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %4 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
   %mul.i.i.i.i = shl i64 %4, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %mul.i.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i.i, i8 0, i64 16, i1 false)
   %5 = load ptr, ptr %profilers_.i, align 8
-  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 2, i32 0, i32 5
+  %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i, %5
   br i1 %cmp.i.i.i.i.i.i, label %_ZN6hermes2vm17sampling_profiler7SamplerD2Ev.exit, label %if.end.i.i.i.i.i
 
@@ -234,7 +195,7 @@ entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %profiler.addr = alloca ptr, align 8
   store ptr %profiler, ptr %profiler.addr, align 8
-  %profilerLock_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 1
+  %profilerLock_ = getelementptr inbounds i8, ptr %this, i64 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %profilerLock_) #14
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -244,7 +205,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %profilers_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 2
+  %profilers_ = getelementptr inbounds i8, ptr %this, i64 48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__node_gen.i.i)
   store ptr %profilers_, ptr %__node_gen.i.i, align 8
   %call3.i.i.i = call { ptr, i8 } @_ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS3_SJ_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %profilers_, ptr noundef nonnull align 8 dereferenceable(8) %profiler.addr, ptr noundef nonnull align 8 dereferenceable(8) %profiler.addr, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen.i.i)
@@ -262,7 +223,7 @@ define hidden void @_ZN6hermes2vm17sampling_profiler7Sampler17unregisterRuntimeE
 entry:
   %profiler.addr = alloca ptr, align 8
   store ptr %profiler, ptr %profiler.addr, align 8
-  %profilerLock_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 1
+  %profilerLock_ = getelementptr inbounds i8, ptr %this, i64 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %profilerLock_) #14
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -272,7 +233,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %profilers_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 2
+  %profilers_ = getelementptr inbounds i8, ptr %this, i64 48
   %call.i.i = call noundef i64 @_ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %profilers_, ptr noundef nonnull align 8 dereferenceable(8) %profiler.addr)
   %0 = load ptr, ptr %profiler.addr, align 8
   call void @_ZN6hermes2vm17sampling_profiler7Sampler25platformUnregisterRuntimeEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %0) #14
@@ -285,7 +246,7 @@ declare void @_ZN6hermes2vm17sampling_profiler7Sampler25platformUnregisterRuntim
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN6hermes2vm17sampling_profiler7Sampler12sampleStacksEv(ptr noundef nonnull align 8 dereferenceable(208) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %_M_before_begin.i.i.i = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 2, i32 0, i32 2
+  %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %__begin2.sroa.0.014 = load ptr, ptr %_M_before_begin.i.i.i, align 8
   %cmp.i.not15 = icmp eq ptr %__begin2.sroa.0.014, null
   br i1 %cmp.i.not15, label %return, label %for.body
@@ -294,7 +255,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %__begin2.sroa.0.016 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.014, %entry ]
   %add.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.016, i64 8
   %0 = load ptr, ptr %add.ptr.i, align 8
-  %runtimeDataLock_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %0, i64 0, i32 1
+  %runtimeDataLock_ = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %runtimeDataLock_) #14
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -328,37 +289,37 @@ define hidden noundef zeroext i1 @_ZN6hermes2vm17sampling_profiler7Sampler11samp
 entry:
   %ref.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %ref.tmp24 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %suspendCount_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %localProfiler, i64 0, i32 3
+  %suspendCount_ = getelementptr inbounds i8, ptr %localProfiler, i64 72
   %0 = load volatile i32, ptr %suspendCount_, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.else6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %preSuspendStackDepth_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %localProfiler, i64 0, i32 4
+  %preSuspendStackDepth_ = getelementptr inbounds i8, ptr %localProfiler, i64 76
   %1 = load volatile i32, ptr %preSuspendStackDepth_, align 4
   %cmp2.not = icmp eq i32 %1, 0
   br i1 %cmp2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %preSuspendStackStorage_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %localProfiler, i64 0, i32 5
-  %sampleStorage_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 5
+  %preSuspendStackStorage_ = getelementptr inbounds i8, ptr %localProfiler, i64 80
+  %sampleStorage_ = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sampleStorage_, ptr noundef nonnull align 8 dereferenceable(16) %preSuspendStackStorage_, i64 16, i1 false)
-  %stack.i = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 5, i32 2
-  %stack3.i = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %localProfiler, i64 0, i32 5, i32 2
+  %stack.i = getelementptr inbounds i8, ptr %this, i64 128
+  %stack3.i = getelementptr inbounds i8, ptr %localProfiler, i64 96
   %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %stack.i, ptr noundef nonnull align 8 dereferenceable(24) %stack3.i)
   %2 = load volatile i32, ptr %preSuspendStackDepth_, align 4
-  %sampledStackDepth_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 4
+  %sampledStackDepth_ = getelementptr inbounds i8, ptr %this, i64 108
   store i32 %2, ptr %sampledStackDepth_, align 4
   br label %if.end19
 
 if.else:                                          ; preds = %if.then
-  %sampledStackDepth_5 = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 4
+  %sampledStackDepth_5 = getelementptr inbounds i8, ptr %this, i64 108
   store i32 0, ptr %sampledStackDepth_5, align 4
   br label %if.end19
 
 if.else6:                                         ; preds = %entry
-  %domains_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %localProfiler, i64 0, i32 8
-  %_M_finish.i = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %localProfiler, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %domains_ = getelementptr inbounds i8, ptr %localProfiler, i64 200
+  %_M_finish.i = getelementptr inbounds i8, ptr %localProfiler, i64 208
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %domains_, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %3 to i64
@@ -374,7 +335,7 @@ if.then.i:                                        ; preds = %if.else6
   unreachable
 
 if.end.i:                                         ; preds = %if.else6
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %localProfiler, i64 0, i32 8, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %localProfiler, i64 216
   %5 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
@@ -409,8 +370,8 @@ _ZNSt12_Vector_baseIPN6hermes2vm6DomainESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; 
   br label %_ZNSt6vectorIPN6hermes2vm6DomainESaIS3_EE7reserveEm.exit
 
 _ZNSt6vectorIPN6hermes2vm6DomainESaIS3_EE7reserveEm.exit: ; preds = %if.end.i, %_ZNSt12_Vector_baseIPN6hermes2vm6DomainESaIS3_EE13_M_deallocateEPS3_m.exit.i
-  %nativeFunctions_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %localProfiler, i64 0, i32 9
-  %_M_finish.i16 = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %localProfiler, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %nativeFunctions_ = getelementptr inbounds i8, ptr %localProfiler, i64 224
+  %_M_finish.i16 = getelementptr inbounds i8, ptr %localProfiler, i64 232
   %6 = load ptr, ptr %_M_finish.i16, align 8
   %7 = load ptr, ptr %nativeFunctions_, align 8
   %sub.ptr.lhs.cast.i17 = ptrtoint ptr %6 to i64
@@ -426,7 +387,7 @@ if.then.i41:                                      ; preds = %_ZNSt6vectorIPN6her
   unreachable
 
 if.end.i22:                                       ; preds = %_ZNSt6vectorIPN6hermes2vm6DomainESaIS3_EE7reserveEm.exit
-  %_M_end_of_storage.i.i23 = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %localProfiler, i64 0, i32 9, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i23 = getelementptr inbounds i8, ptr %localProfiler, i64 240
   %8 = load ptr, ptr %_M_end_of_storage.i.i23, align 8
   %sub.ptr.lhs.cast.i.i24 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i24, %sub.ptr.rhs.cast.i18
@@ -465,22 +426,22 @@ _ZNSt6vectorIPN6hermes2vm14NativeFunctionESaIS3_EE7reserveEm.exit: ; preds = %if
   br i1 %call16, label %_ZNSt6vectorIPN6hermes2vm14NativeFunctionESaIS3_EE7reserveEm.exit.if.end19_crit_edge, label %return
 
 _ZNSt6vectorIPN6hermes2vm14NativeFunctionESaIS3_EE7reserveEm.exit.if.end19_crit_edge: ; preds = %_ZNSt6vectorIPN6hermes2vm14NativeFunctionESaIS3_EE7reserveEm.exit
-  %sampledStackDepth_30.phi.trans.insert = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 4
+  %sampledStackDepth_30.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 108
   %.pre = load i32, ptr %sampledStackDepth_30.phi.trans.insert, align 4
   br label %if.end19
 
 if.end19:                                         ; preds = %_ZNSt6vectorIPN6hermes2vm14NativeFunctionESaIS3_EE7reserveEm.exit.if.end19_crit_edge, %if.then3, %if.else
   %9 = phi i32 [ %.pre, %_ZNSt6vectorIPN6hermes2vm14NativeFunctionESaIS3_EE7reserveEm.exit.if.end19_crit_edge ], [ %2, %if.then3 ], [ 0, %if.else ]
-  %sampleStorage_20 = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 5
-  %stack = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 5, i32 2
+  %sampleStorage_20 = getelementptr inbounds i8, ptr %this, i64 112
+  %stack = getelementptr inbounds i8, ptr %this, i64 128
   %10 = load ptr, ptr %stack, align 8
   store ptr %10, ptr %ref.tmp, align 8
   %conv = zext i32 %9 to i64
   %add.ptr.i47 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackFrame", ptr %10, i64 %conv
   store ptr %add.ptr.i47, ptr %ref.tmp24, align 8
-  %_M_finish.i48 = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %localProfiler, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i48 = getelementptr inbounds i8, ptr %localProfiler, i64 56
   %11 = load ptr, ptr %_M_finish.i48, align 8
-  %_M_end_of_storage.i49 = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %localProfiler, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i49 = getelementptr inbounds i8, ptr %localProfiler, i64 64
   %12 = load ptr, ptr %_M_end_of_storage.i49, align 8
   %cmp.not.i = icmp eq ptr %11, %12
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i50
@@ -488,14 +449,14 @@ if.end19:                                         ; preds = %_ZNSt6vectorIPN6her
 if.then.i50:                                      ; preds = %if.end19
   %13 = load <2 x i64>, ptr %sampleStorage_20, align 8
   store <2 x i64> %13, ptr %11, align 8
-  %stack.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %11, i64 0, i32 2
+  %stack.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack.i.i.i.i, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i.i: ; preds = %if.then.i50
   %add.ptr3.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackFrame", ptr null, i64 %conv
-  %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %11, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
   store ptr %add.ptr3.i.i.i.i.i.i, ptr %_M_end_of_storage4.i.i.i.i.i.i, align 8
   br label %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit.i
 
@@ -504,23 +465,23 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i50
   %call5.i.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add.ptr.i47.idx) #17
   store ptr %call5.i.i.i.i.i.i.i.i.i, ptr %stack.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackFrame", ptr %call5.i.i.i.i.i.i.i.i.i, i64 %conv
-  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %11, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 32
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i.i, ptr align 8 %10, i64 %add.ptr.i47.idx, i1 false)
   br label %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit.i
 
 _ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i.i
   %add.ptr5.i.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %11, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %add.ptr5.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i.i, align 8
   %14 = load ptr, ptr %_M_finish.i48, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %14, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %14, i64 40
   store ptr %incdec.ptr.i, ptr %_M_finish.i48, align 8
   br label %return
 
 if.else.i:                                        ; preds = %if.end19
-  %timeStamp = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 5, i32 1
-  %sampledStacks_ = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %localProfiler, i64 0, i32 2
+  %timeStamp = getelementptr inbounds i8, ptr %this, i64 120
+  %sampledStacks_ = getelementptr inbounds i8, ptr %localProfiler, i64 48
   call void @_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE17_M_realloc_insertIJRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameES_ISK_SaISK_EEEESO_EEEvNSJ_IPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %sampledStacks_, ptr %11, ptr noundef nonnull align 8 dereferenceable(8) %sampleStorage_20, ptr noundef nonnull align 8 dereferenceable(8) %timeStamp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp24)
   br label %return
 
@@ -536,9 +497,9 @@ declare noundef zeroext i1 @_ZN6hermes2vm17sampling_profiler7Sampler29platformSu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes2vm17sampling_profiler7Sampler16walkRuntimeStackEPNS0_16SamplingProfilerE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull %profiler) local_unnamed_addr #0 align 2 {
 entry:
-  %sampleStorage_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 5
+  %sampleStorage_ = getelementptr inbounds i8, ptr %this, i64 112
   %call = tail call noundef i32 @_ZN6hermes2vm16SamplingProfiler16walkRuntimeStackERNS1_10StackTraceENS1_6InLoomEj(ptr noundef nonnull align 8 dereferenceable(256) %profiler, ptr noundef nonnull align 8 dereferenceable(40) %sampleStorage_, i32 noundef 0, i32 noundef 0) #14
-  %sampledStackDepth_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 4
+  %sampledStackDepth_ = getelementptr inbounds i8, ptr %this, i64 108
   store i32 %call, ptr %sampledStackDepth_, align 4
   ret void
 }
@@ -589,29 +550,29 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit, label %for.body.i.i, !llvm.loop !6
 
 _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit: ; preds = %for.body.i.i
-  %_M_p.i.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %gen, i64 0, i32 1
+  %_M_p.i.i = getelementptr inbounds i8, ptr %gen, i64 4992
   store i64 624, ptr %_M_p.i.i, align 8
   store <2 x double> <double 1.000000e+01, double 5.000000e+00>, ptr %distribution, align 16
-  %_M_saved.i = getelementptr inbounds %"class.std::normal_distribution", ptr %distribution, i64 0, i32 1
+  %_M_saved.i = getelementptr inbounds i8, ptr %distribution, i64 16
   store double 0.000000e+00, ptr %_M_saved.i, align 16
-  %_M_saved_available.i = getelementptr inbounds %"class.std::normal_distribution", ptr %distribution, i64 0, i32 2
+  %_M_saved_available.i = getelementptr inbounds i8, ptr %distribution, i64 24
   store i8 0, ptr %_M_saved_available.i, align 8
-  %profilerLock_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 1
+  %profilerLock_ = getelementptr inbounds i8, ptr %this, i64 8
   %call1.i.i.i.i = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %profilerLock_) #14
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %while.cond.preheader, label %if.then.i.i.i
 
 while.cond.preheader:                             ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit
-  %enabled_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 3
+  %enabled_ = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load i8, ptr %enabled_, align 8
   %2 = and i8 %1, 1
   %tobool.not16 = icmp eq i8 %2, 0
   br i1 %tobool.not16, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 2, i32 0, i32 2
-  %enabledCondVar_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 7
-  %tv_nsec.i.i.i.i = getelementptr inbounds %struct.timespec, ptr %__ts.i.i.i.i, i64 0, i32 1
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %enabledCondVar_ = getelementptr inbounds i8, ptr %this, i64 160
+  %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %__ts.i.i.i.i, i64 8
   br label %while.body
 
 if.then.i.i.i:                                    ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Em.exit
@@ -627,7 +588,7 @@ for.body.i:                                       ; preds = %while.body, %for.in
   %__begin2.sroa.0.016.i = phi ptr [ %__begin2.sroa.0.0.i, %for.inc.i ], [ %__begin2.sroa.0.014.i, %while.body ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.016.i, i64 8
   %3 = load ptr, ptr %add.ptr.i.i, align 8
-  %runtimeDataLock_.i = getelementptr inbounds %"class.hermes::vm::SamplingProfiler", ptr %3, i64 0, i32 1
+  %runtimeDataLock_.i = getelementptr inbounds i8, ptr %3, i64 8
   %call1.i.i.i.i1 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %runtimeDataLock_.i) #14
   %tobool.not.i.i.i2 = icmp eq i32 %call1.i.i.i.i1, 0
   br i1 %tobool.not.i.i.i2, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i3
@@ -707,7 +668,7 @@ declare double @llvm.round.f64(double) #4
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN6hermes2vm17sampling_profiler7Sampler7enabledEv(ptr noundef nonnull align 8 dereferenceable(208) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %profilerLock_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 1
+  %profilerLock_ = getelementptr inbounds i8, ptr %this, i64 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %profilerLock_) #14
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -717,7 +678,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %enabled_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 3
+  %enabled_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %enabled_, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -730,7 +691,7 @@ define hidden noundef zeroext i1 @_ZN6hermes2vm17sampling_profiler7Sampler6enabl
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.216", align 8
   %ref.tmp = alloca %"class.std::thread", align 8
-  %profilerLock_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 1
+  %profilerLock_ = getelementptr inbounds i8, ptr %this, i64 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %profilerLock_) #14
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -740,7 +701,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %enabled_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 3
+  %enabled_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %enabled_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -756,11 +717,11 @@ if.end3:                                          ; preds = %if.end
   store i64 0, ptr %ref.tmp, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN6hermes2vm17sampling_profiler7SamplerEFvvEPS6_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
-  %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1
+  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %this, ptr %_M_func.i.i, align 8
-  %2 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 ptrtoint (ptr @_ZN6hermes2vm17sampling_profiler7Sampler9timerLoopEv to i64), ptr %2, align 8
-  %this.repack3.i.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %this.repack3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 0, ptr %this.repack3.i.i.i.i.i.i, align 8
   store ptr %call.i, ptr %agg.tmp.i, align 8
   call void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %agg.tmp.i, ptr noundef null) #14
@@ -770,14 +731,14 @@ if.end3:                                          ; preds = %if.end
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %if.end3
   %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
   br label %_ZNSt6threadC2IMN6hermes2vm17sampling_profiler7SamplerEFvvEJPS4_EvEEOT_DpOT0_.exit
 
 _ZNSt6threadC2IMN6hermes2vm17sampling_profiler7SamplerEFvvEJPS4_EvEEOT_DpOT0_.exit: ; preds = %if.end3, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %timerThread_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 6
+  %timerThread_ = getelementptr inbounds i8, ptr %this, i64 152
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %timerThread_, align 8
   %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i, 0
   br i1 %cmp.i.i.not.i, label %_ZNSt6threadD2Ev.exit, label %if.then.i
@@ -803,7 +764,7 @@ declare noundef zeroext i1 @_ZN6hermes2vm17sampling_profiler7Sampler14platformEn
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN6hermes2vm17sampling_profiler7Sampler7disableEv(ptr noundef nonnull align 8 dereferenceable(208) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %profilerLock_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 1
+  %profilerLock_ = getelementptr inbounds i8, ptr %this, i64 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %profilerLock_) #14
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -813,7 +774,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %enabled_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 3
+  %enabled_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load i8, ptr %enabled_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -830,9 +791,9 @@ cleanup.thread:                                   ; preds = %_ZNSt10lock_guardIS
 cleanup.cont:                                     ; preds = %if.end
   store i8 0, ptr %enabled_, align 8
   %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %profilerLock_) #14
-  %enabledCondVar_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 7
+  %enabledCondVar_ = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %enabledCondVar_) #14
-  %timerThread_ = getelementptr inbounds %"struct.hermes::vm::sampling_profiler::Sampler", ptr %this, i64 0, i32 6
+  %timerThread_ = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %timerThread_) #14
   br label %return
 
@@ -864,14 +825,14 @@ entry:
   br i1 %cmp.not, label %if.end75, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl_data", ptr %__x, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__x, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %__x, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 24
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %3 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
@@ -913,7 +874,7 @@ _ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE13_M_deall
   br label %if.end69
 
 if.else:                                          ; preds = %if.then
-  %_M_finish.i19 = getelementptr inbounds %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i19 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %_M_finish.i19, align 8
   %sub.ptr.lhs.cast.i20 = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i22 = sub i64 %sub.ptr.lhs.cast.i20, %sub.ptr.rhs.cast.i15
@@ -965,7 +926,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt4copyIPN6hermes
 if.end69:                                         ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZSt4copyIPN6hermes2vm16SamplingProfiler10StackFrameES4_ET0_T_S6_S5_.exit, %if.then.i.i.i.i.i, %if.then27, %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE13_M_deallocateEPS3_m.exit
   %8 = load ptr, ptr %this, align 8
   %add.ptr72 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackFrame", ptr %8, i64 %sub.ptr.div.i
-  %_M_finish74 = getelementptr inbounds %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackFrame, std::allocator<hermes::vm::SamplingProfiler::StackFrame>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish74 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr72, ptr %_M_finish74, align 8
   br label %if.end75
 
@@ -1023,7 +984,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS3_SJ_NS5_10_AllocNodeISaINS5_10_Hash_nodeIS3_Lb0EEEEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %__k, ptr noundef nonnull align 8 dereferenceable(8) %__v, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.end13.thread
@@ -1031,7 +992,7 @@ entry:
 if.end13.thread:                                  ; preds = %entry
   %1 = load ptr, ptr %__k, align 8
   %2 = ptrtoint ptr %1 to i64
-  %_M_bucket_count.i25 = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i25 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %_M_bucket_count.i25, align 8
   %rem.i.i.i26 = urem i64 %2, %3
   %4 = load ptr, ptr %this, align 8
@@ -1041,7 +1002,7 @@ if.end13.thread:                                  ; preds = %entry
   br i1 %tobool.not.i.i, label %if.end25, label %if.end.i.i
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %__k, align 8
   br label %for.cond
 
@@ -1059,7 +1020,7 @@ for.body:                                         ; preds = %for.cond
 
 if.end13:                                         ; preds = %for.cond
   %8 = ptrtoint ptr %6 to i64
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %8, %9
   br label %if.end25
@@ -1099,7 +1060,7 @@ if.end25:                                         ; preds = %if.end3.i.i, %lor.l
   store ptr null, ptr %call5.i.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 8
   store ptr %17, ptr %add.ptr.i.i.i, align 8
-  %_M_rehash_policy.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 4
+  %_M_rehash_policy.i = getelementptr inbounds i8, ptr %this, i64 32
   %call3.i = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i, i64 noundef %15, i64 noundef %0, i64 noundef 1) #14
   %18 = extractvalue { i8, i64 } %call3.i, 0
   %19 = and i8 %18, 1
@@ -1129,7 +1090,7 @@ if.then.i.i:                                      ; preds = %if.end.i
   br label %_ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %_M_before_begin.i.i14 = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i14 = getelementptr inbounds i8, ptr %this, i64 16
   %26 = load ptr, ptr %_M_before_begin.i.i14, align 8
   store ptr %26, ptr %call5.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i, ptr %_M_before_begin.i.i14, align 8
@@ -1176,7 +1137,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -1204,7 +1165,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN6hermes2vm16SamplingProfil
 
 _ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN6hermes2vm16SamplingProfilerELb0EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPN6hermes2vm16SamplingProfilerELb0EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -1255,7 +1216,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %9 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i, %9
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -1264,7 +1225,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -1273,13 +1234,13 @@ _ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_Identit
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNSt10_HashtableIPN6hermes2vm16SamplingProfilerES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_element_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 3
+  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_before_begin.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %return, label %for.cond.preheader.i
@@ -1306,7 +1267,7 @@ if.end4.i:                                        ; preds = %for.cond.preheader.
 if.end:                                           ; preds = %for.body.i, %for.cond.preheader.i
   %6 = phi ptr [ %1, %for.cond.preheader.i ], [ %5, %for.body.i ]
   %__prev_p.06.i.lcssa = phi ptr [ %_M_before_begin.i, %for.cond.preheader.i ], [ %__p.07.i31, %for.body.i ]
-  %_M_bucket_count.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load i64, ptr %_M_bucket_count.i, align 8
   %8 = ptrtoint ptr %2 to i64
   %rem.i.i.i = urem i64 %8, %7
@@ -1318,7 +1279,7 @@ if.end:                                           ; preds = %for.body.i, %for.co
 if.else:                                          ; preds = %entry
   %9 = load ptr, ptr %__k, align 8
   %10 = ptrtoint ptr %9 to i64
-  %_M_bucket_count.i10 = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i10 = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load i64, ptr %_M_bucket_count.i10, align 8
   %rem.i.i.i11 = urem i64 %10, %11
   %12 = load ptr, ptr %this, align 8
@@ -1402,7 +1363,7 @@ if.end.i.i:                                       ; preds = %if.end13.thread, %i
   %30 = phi ptr [ null, %if.then.i ], [ %27, %if.then3.i.i ], [ null, %if.end13.thread ]
   %31 = phi ptr [ %21, %if.then.i ], [ %.pre23.i, %if.then3.i.i ], [ %13, %if.end13.thread ]
   %32 = phi ptr [ %22, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %12, %if.end13.thread ]
-  %_M_before_begin.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %arrayidx7.i.i = getelementptr inbounds ptr, ptr %32, i64 %__bkt.04350
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %31
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
@@ -1453,7 +1414,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE17_M_realloc_insertIJRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameES_ISK_SaISK_EEEESO_EEEvNSJ_IPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 8 dereferenceable(8) %__args3, ptr noundef nonnull align 8 dereferenceable(8) %__args5) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackTrace, std::allocator<hermes::vm::SamplingProfiler::StackTrace>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -1493,9 +1454,9 @@ _ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE11_M_alloc
   %agg.tmp8.sroa.0.0.copyload.i.i = load ptr, ptr %__args3, align 8
   %agg.tmp9.sroa.0.0.copyload.i.i = load ptr, ptr %__args5, align 8
   store i64 %2, ptr %add.ptr, align 8
-  %timeStamp.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %cond.i10, i64 %sub.ptr.div.i, i32 1
+  %timeStamp.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store i64 %agg.tmp.sroa.0.0.copyload.i.i, ptr %timeStamp.i.i.i, align 8
-  %stack.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2
+  %stack.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack.i.i.i, i8 0, i64 24, i1 false)
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %agg.tmp9.sroa.0.0.copyload.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %agg.tmp8.sroa.0.0.copyload.i.i to i64
@@ -1514,7 +1475,7 @@ _ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE17_S_check_init_l
 
 _ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i.i.i.i
   %add.ptr3.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackFrame", ptr null, i64 %sub.ptr.div.i.i.i.i.i.i.i.i
-  %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   store ptr %add.ptr3.i.i.i.i.i, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
   br label %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit
 
@@ -1522,14 +1483,14 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt6vectorIN6herm
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i.i.i.i) #17
   store ptr %call5.i.i.i.i.i.i.i.i, ptr %stack.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackFrame", ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i.i.i
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 32
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i, ptr align 8 %agg.tmp8.sroa.0.0.copyload.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   br label %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit
 
 _ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit: ; preds = %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
   %add.ptr5.i.i.i.i.i = phi ptr [ %add.ptr3.i.i.i.i.i, %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackFrameESaIS3_EE11_M_allocateEm.exit.thread.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i ]
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %cond.i10, i64 %sub.ptr.div.i, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
   store ptr %add.ptr5.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i
@@ -1540,23 +1501,23 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i, i64 16, i1 false), !alias.scope !19
-  %stack.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__cur.07.i.i.i, i64 0, i32 2
-  %stack3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %stack.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
+  %stack3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %3 = load <2 x ptr>, ptr %stack3.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
   store <2 x ptr> %3, ptr %stack.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__cur.07.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__first.addr.06.i.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
   %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !17, !noalias !14
   store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !14, !noalias !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !17, !noalias !14
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 40
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !20
 
 _ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaIN6hermes2vm16SamplingProfiler10StackTraceEEE9constructIS3_JRmRNSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEN9__gnu_cxx17__normal_iteratorIPNS2_10StackFrameESt6vectorISK_SaISK_EEEESP_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 40
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25, label %for.body.i.i.i12
 
@@ -1566,17 +1527,17 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN6herm
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i14, i64 16, i1 false), !alias.scope !26
-  %stack.i.i.i.i.i.i.i15 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__cur.07.i.i.i13, i64 0, i32 2
-  %stack3.i.i.i.i.i.i.i16 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
+  %stack.i.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
+  %stack3.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %5 = load <2 x ptr>, ptr %stack3.i.i.i.i.i.i.i16, align 8, !alias.scope !24, !noalias !21
   store <2 x ptr> %5, ptr %stack.i.i.i.i.i.i.i15, align 8, !alias.scope !21, !noalias !24
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__cur.07.i.i.i13, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__first.addr.06.i.i.i14, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !24, !noalias !21
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !21, !noalias !24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stack3.i.i.i.i.i.i.i16, i8 0, i64 24, i1 false), !alias.scope !24, !noalias !21
-  %incdec.ptr.i.i.i21 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i22 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i21 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 40
+  %incdec.ptr1.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 40
   %cmp.not.i.i.i23 = icmp eq ptr %incdec.ptr.i.i.i21, %0
   br i1 %cmp.not.i.i.i23, label %_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25, label %for.body.i.i.i12, !llvm.loop !20
 
@@ -1590,7 +1551,7 @@ if.then.i26:                                      ; preds = %_ZNSt6vectorIN6herm
   br label %_ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit25, %if.then.i26
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<hermes::vm::SamplingProfiler::StackTrace, std::allocator<hermes::vm::SamplingProfiler::StackTrace>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i24, ptr %_M_finish.i.i, align 8
   %add.ptr25 = getelementptr inbounds %"struct.hermes::vm::SamplingProfiler::StackTrace", ptr %cond.i10, i64 %cond.i
@@ -1601,22 +1562,22 @@ _ZNSt12_Vector_baseIN6hermes2vm16SamplingProfiler10StackTraceESaIS3_EE13_M_deall
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef double @_ZNSt19normal_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEdRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(5000) %__urng, ptr noundef nonnull align 8 dereferenceable(16) %__param) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_saved_available = getelementptr inbounds %"class.std::normal_distribution", ptr %this, i64 0, i32 2
+  %_M_saved_available = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %_M_saved_available, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %do.body.preheader, label %if.then
 
 do.body.preheader:                                ; preds = %entry
-  %_M_p.i = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %__urng, i64 0, i32 1
-  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds [624 x i64], ptr %__urng, i64 0, i64 227
-  %arrayidx41.i.i = getelementptr inbounds [624 x i64], ptr %__urng, i64 0, i64 623
-  %arrayidx48.i.i = getelementptr inbounds [624 x i64], ptr %__urng, i64 0, i64 396
+  %_M_p.i = getelementptr inbounds i8, ptr %__urng, i64 4992
+  %arrayidx18.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %__urng, i64 1816
+  %arrayidx41.i.i = getelementptr inbounds i8, ptr %__urng, i64 4984
+  %arrayidx48.i.i = getelementptr inbounds i8, ptr %__urng, i64 3168
   br label %do.body
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %_M_saved_available, align 8
-  %_M_saved = getelementptr inbounds %"class.std::normal_distribution", ptr %this, i64 0, i32 1
+  %_M_saved = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load double, ptr %_M_saved, align 8
   br label %if.end
 
@@ -1886,7 +1847,7 @@ do.end:                                           ; preds = %_ZNSt8__detail8_Ada
   %div = fdiv double %mul, %31
   %call7 = tail call double @sqrt(double noundef %div) #14
   %mul8 = fmul double %29, %call7
-  %_M_saved9 = getelementptr inbounds %"class.std::normal_distribution", ptr %this, i64 0, i32 1
+  %_M_saved9 = getelementptr inbounds i8, ptr %this, i64 16
   store double %mul8, ptr %_M_saved9, align 8
   store i8 1, ptr %_M_saved_available, align 8
   %mul11 = fmul double %30, %call7
@@ -1894,7 +1855,7 @@ do.end:                                           ; preds = %_ZNSt8__detail8_Ada
 
 if.end:                                           ; preds = %do.end, %if.then
   %__ret.0 = phi double [ %2, %if.then ], [ %mul11, %do.end ]
-  %_M_stddev.i = getelementptr inbounds %"struct.std::normal_distribution<>::param_type", ptr %__param, i64 0, i32 1
+  %_M_stddev.i = getelementptr inbounds i8, ptr %__param, i64 8
   %33 = load double, ptr %_M_stddev.i, align 8
   %34 = load double, ptr %__param, align 8
   %35 = tail call double @llvm.fmuladd.f64(double %__ret.0, double %33, double %34)
@@ -1941,11 +1902,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN6hermes2vm17sampling_profiler7SamplerEFvvEPS6_EEEEE6_M_runEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1
+  %_M_func = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_func, align 8
   %.unpack.i.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
-  %.elt1.i.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 1, i32 0, i32 1
+  %.elt1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %.unpack2.i.i.i.i = load i64, ptr %.elt1.i.i.i.i, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 %.unpack2.i.i.i.i
   %2 = and i64 %.unpack.i.i.i.i, 1

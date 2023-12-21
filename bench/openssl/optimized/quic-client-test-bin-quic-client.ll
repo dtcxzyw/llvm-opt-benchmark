@@ -132,7 +132,7 @@ if.end51:                                         ; preds = %if.end46
 
 if.end55:                                         ; preds = %if.end51
   store ptr %call5, ptr %allstreams, align 16
-  %1 = getelementptr inbounds { i64, i64 }, ptr %tv, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %tv, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end217, %if.end55

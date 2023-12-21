@@ -4,10 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.LoadState = type { ptr, ptr, ptr, ptr }
-%struct.lua_State = type { ptr, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i32, i32, ptr, %struct.lua_TValue, %struct.lua_TValue, ptr, ptr, ptr, i64 }
 %struct.lua_TValue = type { %union.Value, i32 }
 %union.Value = type { ptr }
-%struct.Proto = type { ptr, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i8, i8, i8, i8 }
 %struct.LocVar = type { ptr, i32, i32 }
 
 @.str.1 = private unnamed_addr constant [14 x i8] c"binary string\00", align 1
@@ -43,12 +41,12 @@ if.else12:                                        ; preds = %entry
 
 if.end14:                                         ; preds = %if.else12, %if.then, %entry
   %.str.1.sink = phi ptr [ %name, %if.else12 ], [ %add.ptr, %if.then ], [ @.str.1, %entry ]
-  %name11 = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 3
+  %name11 = getelementptr inbounds i8, ptr %S, i64 24
   store ptr %.str.1.sink, ptr %name11, align 8, !tbaa !7
   store ptr %L, ptr %S, align 8, !tbaa !10
-  %Z16 = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 1
+  %Z16 = getelementptr inbounds i8, ptr %S, i64 8
   store ptr %Z, ptr %Z16, align 8, !tbaa !11
-  %b = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 2
+  %b = getelementptr inbounds i8, ptr %S, i64 16
   store ptr %buff, ptr %b, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %h.i) #5
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %s.i) #5
@@ -97,7 +95,7 @@ entry:
   %x.i74 = alloca i8, align 1
   %x.i = alloca i8, align 1
   %0 = load ptr, ptr %S, align 8, !tbaa !10
-  %nCcalls = getelementptr inbounds %struct.lua_State, ptr %0, i64 0, i32 15
+  %nCcalls = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load i16, ptr %nCcalls, align 8, !tbaa !13
   %inc = add i16 %1, 1
   store i16 %inc, ptr %nCcalls, align 8, !tbaa !13
@@ -105,7 +103,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %name.i = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 3
+  %name.i = getelementptr inbounds i8, ptr %S, i64 24
   %2 = load ptr, ptr %name.i, align 8, !tbaa !7
   %call.i = tail call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef nonnull @.str.6) #5
   %3 = load ptr, ptr %S, align 8, !tbaa !10
@@ -117,15 +115,15 @@ if.end:                                           ; preds = %if.then, %entry
   %4 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
   %call = tail call ptr @luaF_newproto(ptr noundef %4) #5
   %5 = load ptr, ptr %S, align 8, !tbaa !10
-  %top = getelementptr inbounds %struct.lua_State, ptr %5, i64 0, i32 4
+  %top = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %top, align 8, !tbaa !19
   store ptr %call, ptr %6, align 8, !tbaa !4
-  %tt = getelementptr inbounds %struct.lua_TValue, ptr %6, i64 0, i32 1
+  %tt = getelementptr inbounds i8, ptr %6, i64 8
   store i32 9, ptr %tt, align 8, !tbaa !20
   %7 = load ptr, ptr %S, align 8, !tbaa !10
-  %stack_last = getelementptr inbounds %struct.lua_State, ptr %7, i64 0, i32 9
+  %stack_last = getelementptr inbounds i8, ptr %7, i64 56
   %8 = load ptr, ptr %stack_last, align 8, !tbaa !21
-  %top6 = getelementptr inbounds %struct.lua_State, ptr %7, i64 0, i32 4
+  %top6 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %top6, align 8, !tbaa !19
   %sub.ptr.lhs.cast = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %9 to i64
@@ -136,29 +134,29 @@ if.end:                                           ; preds = %if.then, %entry
 if.then9:                                         ; preds = %if.end
   tail call void @luaD_growstack(ptr noundef nonnull %7, i32 noundef 1) #5
   %.pre195 = load ptr, ptr %S, align 8, !tbaa !10
-  %top13.phi.trans.insert = getelementptr inbounds %struct.lua_State, ptr %.pre195, i64 0, i32 4
+  %top13.phi.trans.insert = getelementptr inbounds i8, ptr %.pre195, i64 16
   %.pre196 = load ptr, ptr %top13.phi.trans.insert, align 8, !tbaa !19
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %if.end
   %10 = phi ptr [ %9, %if.end ], [ %.pre196, %if.then9 ]
   %11 = phi ptr [ %7, %if.end ], [ %.pre195, %if.then9 ]
-  %top13 = getelementptr inbounds %struct.lua_State, ptr %11, i64 0, i32 4
-  %incdec.ptr = getelementptr inbounds %struct.lua_TValue, ptr %10, i64 1
+  %top13 = getelementptr inbounds i8, ptr %11, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %10, i64 16
   store ptr %incdec.ptr, ptr %top13, align 8, !tbaa !19
   %call14 = tail call fastcc ptr @LoadString(ptr noundef nonnull %S)
-  %source = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 9
+  %source = getelementptr inbounds i8, ptr %call, i64 64
   %cmp16 = icmp eq ptr %call14, null
   %spec.select = select i1 %cmp16, ptr %p, ptr %call14
   store ptr %spec.select, ptr %source, align 8, !tbaa !22
   %call21 = tail call fastcc i32 @LoadInt(ptr noundef nonnull %S)
-  %linedefined = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 16
+  %linedefined = getelementptr inbounds i8, ptr %call, i64 96
   store i32 %call21, ptr %linedefined, align 8, !tbaa !24
   %call22 = tail call fastcc i32 @LoadInt(ptr noundef nonnull %S)
-  %lastlinedefined = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 17
+  %lastlinedefined = getelementptr inbounds i8, ptr %call, i64 100
   store i32 %call22, ptr %lastlinedefined, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i) #5
-  %Z.i.i = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 1
+  %Z.i.i = getelementptr inbounds i8, ptr %S, i64 8
   %12 = load ptr, ptr %Z.i.i, align 8, !tbaa !11
   %call.i.i = call i64 @luaZ_read(ptr noundef %12, ptr noundef nonnull %x.i, i64 noundef 1) #5
   %cmp.not.i.i = icmp eq i64 %call.i.i, 0
@@ -166,7 +164,7 @@ if.end11:                                         ; preds = %if.then9, %if.end
 
 if.then.i.i:                                      ; preds = %if.end11
   %13 = load ptr, ptr %S, align 8, !tbaa !10
-  %name.i.i.i = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 3
+  %name.i.i.i = getelementptr inbounds i8, ptr %S, i64 24
   %14 = load ptr, ptr %name.i.i.i, align 8, !tbaa !7
   %call.i.i.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %13, ptr noundef nonnull @.str.5, ptr noundef %14, ptr noundef nonnull @.str.4) #5
   %15 = load ptr, ptr %S, align 8, !tbaa !10
@@ -176,7 +174,7 @@ if.then.i.i:                                      ; preds = %if.end11
 LoadChar.exit:                                    ; preds = %if.then.i.i, %if.end11
   %16 = load i8, ptr %x.i, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i) #5
-  %nups = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 19
+  %nups = getelementptr inbounds i8, ptr %call, i64 112
   store i8 %16, ptr %nups, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i74) #5
   %17 = load ptr, ptr %Z.i.i, align 8, !tbaa !11
@@ -186,7 +184,7 @@ LoadChar.exit:                                    ; preds = %if.then.i.i, %if.en
 
 if.then.i.i78:                                    ; preds = %LoadChar.exit
   %18 = load ptr, ptr %S, align 8, !tbaa !10
-  %name.i.i.i79 = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 3
+  %name.i.i.i79 = getelementptr inbounds i8, ptr %S, i64 24
   %19 = load ptr, ptr %name.i.i.i79, align 8, !tbaa !7
   %call.i.i.i80 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %18, ptr noundef nonnull @.str.5, ptr noundef %19, ptr noundef nonnull @.str.4) #5
   %20 = load ptr, ptr %S, align 8, !tbaa !10
@@ -196,7 +194,7 @@ if.then.i.i78:                                    ; preds = %LoadChar.exit
 LoadChar.exit82:                                  ; preds = %if.then.i.i78, %LoadChar.exit
   %21 = load i8, ptr %x.i74, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i74) #5
-  %numparams = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 20
+  %numparams = getelementptr inbounds i8, ptr %call, i64 113
   store i8 %21, ptr %numparams, align 1, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i83) #5
   %22 = load ptr, ptr %Z.i.i, align 8, !tbaa !11
@@ -206,7 +204,7 @@ LoadChar.exit82:                                  ; preds = %if.then.i.i78, %Loa
 
 if.then.i.i87:                                    ; preds = %LoadChar.exit82
   %23 = load ptr, ptr %S, align 8, !tbaa !10
-  %name.i.i.i88 = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 3
+  %name.i.i.i88 = getelementptr inbounds i8, ptr %S, i64 24
   %24 = load ptr, ptr %name.i.i.i88, align 8, !tbaa !7
   %call.i.i.i89 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %23, ptr noundef nonnull @.str.5, ptr noundef %24, ptr noundef nonnull @.str.4) #5
   %25 = load ptr, ptr %S, align 8, !tbaa !10
@@ -216,7 +214,7 @@ if.then.i.i87:                                    ; preds = %LoadChar.exit82
 LoadChar.exit91:                                  ; preds = %if.then.i.i87, %LoadChar.exit82
   %26 = load i8, ptr %x.i83, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i83) #5
-  %is_vararg = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 21
+  %is_vararg = getelementptr inbounds i8, ptr %call, i64 114
   store i8 %26, ptr %is_vararg, align 2, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %x.i92) #5
   %27 = load ptr, ptr %Z.i.i, align 8, !tbaa !11
@@ -226,7 +224,7 @@ LoadChar.exit91:                                  ; preds = %if.then.i.i87, %Loa
 
 if.then.i.i96:                                    ; preds = %LoadChar.exit91
   %28 = load ptr, ptr %S, align 8, !tbaa !10
-  %name.i.i.i97 = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 3
+  %name.i.i.i97 = getelementptr inbounds i8, ptr %S, i64 24
   %29 = load ptr, ptr %name.i.i.i97, align 8, !tbaa !7
   %call.i.i.i98 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %28, ptr noundef nonnull @.str.5, ptr noundef %29, ptr noundef nonnull @.str.4) #5
   %30 = load ptr, ptr %S, align 8, !tbaa !10
@@ -236,7 +234,7 @@ if.then.i.i96:                                    ; preds = %LoadChar.exit91
 LoadChar.exit100:                                 ; preds = %if.then.i.i96, %LoadChar.exit91
   %31 = load i8, ptr %x.i92, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i92) #5
-  %maxstacksize = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 22
+  %maxstacksize = getelementptr inbounds i8, ptr %call, i64 115
   store i8 %31, ptr %maxstacksize, align 1, !tbaa !29
   %call.i101 = call fastcc i32 @LoadInt(ptr noundef nonnull %S)
   %cmp.i = icmp sgt i32 %call.i101, -2
@@ -258,9 +256,9 @@ cond.false.i:                                     ; preds = %LoadChar.exit100
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %mul8.pre-phi.i = phi i64 [ %.pre17.i, %cond.false.i ], [ %mul.i, %cond.true.i ]
   %cond.i = phi ptr [ %call5.i, %cond.false.i ], [ %call3.i, %cond.true.i ]
-  %code.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 4
+  %code.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %cond.i, ptr %code.i, align 8, !tbaa !30
-  %sizecode.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 12
+  %sizecode.i = getelementptr inbounds i8, ptr %call, i64 80
   store i32 %call.i101, ptr %sizecode.i, align 8, !tbaa !31
   %33 = load ptr, ptr %Z.i.i, align 8, !tbaa !11
   %call.i.i103 = call i64 @luaZ_read(ptr noundef %33, ptr noundef %cond.i, i64 noundef %mul8.pre-phi.i) #5
@@ -269,7 +267,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
 
 if.then.i.i105:                                   ; preds = %cond.end.i
   %34 = load ptr, ptr %S, align 8, !tbaa !10
-  %name.i.i.i106 = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 3
+  %name.i.i.i106 = getelementptr inbounds i8, ptr %S, i64 24
   %35 = load ptr, ptr %name.i.i.i106, align 8, !tbaa !7
   %call.i.i.i107 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %34, ptr noundef nonnull @.str.5, ptr noundef %35, ptr noundef nonnull @.str.4) #5
   %36 = load ptr, ptr %S, align 8, !tbaa !10
@@ -284,9 +282,9 @@ LoadCode.exit:                                    ; preds = %if.then.i.i105, %co
 
 cond.end.i112.thread:                             ; preds = %LoadCode.exit
   %call5.i111 = call ptr @luaM_toobig(ptr noundef %37) #5
-  %k.i198 = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 3
+  %k.i198 = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call5.i111, ptr %k.i198, align 8, !tbaa !32
-  %sizek.i199 = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 11
+  %sizek.i199 = getelementptr inbounds i8, ptr %call, i64 76
   store i32 %call.i108, ptr %sizek.i199, align 4, !tbaa !33
   br label %for.end35.i
 
@@ -294,9 +292,9 @@ cond.end.i112:                                    ; preds = %LoadCode.exit
   %conv2.i115 = sext i32 %call.i108 to i64
   %mul.i116 = shl nsw i64 %conv2.i115, 4
   %call3.i117 = call ptr @luaM_realloc_(ptr noundef %37, ptr noundef null, i64 noundef 0, i64 noundef %mul.i116) #5
-  %k.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 3
+  %k.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call3.i117, ptr %k.i, align 8, !tbaa !32
-  %sizek.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 11
+  %sizek.i = getelementptr inbounds i8, ptr %call, i64 76
   store i32 %call.i108, ptr %sizek.i, align 4, !tbaa !33
   %cmp6.i171 = icmp sgt i32 %call.i108, 0
   br i1 %cmp6.i171, label %for.body.i.preheader, label %for.end35.i
@@ -327,7 +325,7 @@ for.body.i.epil:                                  ; preds = %for.cond9.i.prehead
   br i1 %epil.iter.cmp.not, label %for.body12.i.lr.ph, label %for.body.i.epil, !llvm.loop !34
 
 for.body12.i.lr.ph:                               ; preds = %for.body.i.epil, %for.cond9.i.preheader.unr-lcssa
-  %name.i.i.i166 = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 3
+  %name.i.i.i166 = getelementptr inbounds i8, ptr %S, i64 24
   br label %for.body12.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.i.preheader.new
@@ -457,9 +455,9 @@ for.end35.i:                                      ; preds = %sw.epilog.i, %cond.
 
 cond.end49.i.thread:                              ; preds = %for.end35.i
   %call48.i = call ptr @luaM_toobig(ptr noundef %58) #5
-  %p.i207 = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 5
+  %p.i207 = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call48.i, ptr %p.i207, align 8, !tbaa !41
-  %sizep.i208 = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 14
+  %sizep.i208 = getelementptr inbounds i8, ptr %call, i64 88
   store i32 %call36.i, ptr %sizep.i208, align 8, !tbaa !42
   br label %LoadConstants.exit
 
@@ -467,9 +465,9 @@ cond.end49.i:                                     ; preds = %for.end35.i
   %conv43.i = sext i32 %call36.i to i64
   %mul44.i = shl nsw i64 %conv43.i, 3
   %call45.i = call ptr @luaM_realloc_(ptr noundef %58, ptr noundef null, i64 noundef 0, i64 noundef %mul44.i) #5
-  %p.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 5
+  %p.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %call45.i, ptr %p.i, align 8, !tbaa !41
-  %sizep.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 14
+  %sizep.i = getelementptr inbounds i8, ptr %call, i64 88
   store i32 %call36.i, ptr %sizep.i, align 8, !tbaa !42
   %cmp52.i175 = icmp sgt i32 %call36.i, 0
   br i1 %cmp52.i175, label %for.body54.i.preheader, label %LoadConstants.exit
@@ -527,7 +525,7 @@ for.body54.i:                                     ; preds = %for.body54.i, %for.
 for.body64.i:                                     ; preds = %for.body64.i.preheader, %for.body64.i
   %indvars.iv190 = phi i64 [ %indvars.iv.next191, %for.body64.i ], [ 0, %for.body64.i.preheader ]
   %65 = load ptr, ptr %source, align 8, !tbaa !22
-  %call65.i = call fastcc ptr @LoadFunction(ptr noundef nonnull %S, ptr noundef %65)
+  %call65.i = call fastcc ptr @LoadFunction(ptr noundef %S, ptr noundef %65)
   %66 = load ptr, ptr %p.i, align 8, !tbaa !41
   %arrayidx68.i = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv190
   store ptr %call65.i, ptr %arrayidx68.i, align 8, !tbaa !43
@@ -536,7 +534,7 @@ for.body64.i:                                     ; preds = %for.body64.i.prehea
   br i1 %exitcond194.not, label %LoadConstants.exit, label %for.body64.i, !llvm.loop !46
 
 LoadConstants.exit:                               ; preds = %for.body64.i, %cond.end49.i, %cond.end49.i.thread
-  %call.i118 = call fastcc i32 @LoadInt(ptr noundef nonnull %S)
+  %call.i118 = call fastcc i32 @LoadInt(ptr noundef %S)
   %cmp.i119 = icmp sgt i32 %call.i118, -2
   %67 = load ptr, ptr %S, align 8, !tbaa !10
   br i1 %cmp.i119, label %cond.true.i135, label %cond.false.i120
@@ -556,9 +554,9 @@ cond.false.i120:                                  ; preds = %LoadConstants.exit
 cond.end.i123:                                    ; preds = %cond.false.i120, %cond.true.i135
   %mul8.pre-phi.i124 = phi i64 [ %.pre158.i, %cond.false.i120 ], [ %mul.i137, %cond.true.i135 ]
   %cond.i125 = phi ptr [ %call5.i121, %cond.false.i120 ], [ %call3.i138, %cond.true.i135 ]
-  %lineinfo.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 6
+  %lineinfo.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %cond.i125, ptr %lineinfo.i, align 8, !tbaa !47
-  %sizelineinfo.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 13
+  %sizelineinfo.i = getelementptr inbounds i8, ptr %call, i64 84
   store i32 %call.i118, ptr %sizelineinfo.i, align 4, !tbaa !48
   %68 = load ptr, ptr %Z.i.i, align 8, !tbaa !11
   %call.i.i127 = call i64 @luaZ_read(ptr noundef %68, ptr noundef %cond.i125, i64 noundef %mul8.pre-phi.i124) #5
@@ -567,7 +565,7 @@ cond.end.i123:                                    ; preds = %cond.false.i120, %c
 
 if.then.i.i129:                                   ; preds = %cond.end.i123
   %69 = load ptr, ptr %S, align 8, !tbaa !10
-  %name.i.i.i130 = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 3
+  %name.i.i.i130 = getelementptr inbounds i8, ptr %S, i64 24
   %70 = load ptr, ptr %name.i.i.i130, align 8, !tbaa !7
   %call.i.i.i131 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %69, ptr noundef nonnull @.str.5, ptr noundef %70, ptr noundef nonnull @.str.4) #5
   %71 = load ptr, ptr %S, align 8, !tbaa !10
@@ -582,9 +580,9 @@ LoadBlock.exit.i:                                 ; preds = %if.then.i.i129, %co
 
 cond.end22.thread.i:                              ; preds = %LoadBlock.exit.i
   %call21.i = call ptr @luaM_toobig(ptr noundef %72) #5
-  %locvars160.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 7
+  %locvars160.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call21.i, ptr %locvars160.i, align 8, !tbaa !49
-  %sizelocvars161.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 15
+  %sizelocvars161.i = getelementptr inbounds i8, ptr %call, i64 92
   store i32 %call9.i, ptr %sizelocvars161.i, align 4, !tbaa !50
   br label %for.end46.i
 
@@ -592,9 +590,9 @@ cond.end22.i:                                     ; preds = %LoadBlock.exit.i
   %conv16.i = sext i32 %call9.i to i64
   %mul17.i = shl nsw i64 %conv16.i, 4
   %call18.i = call ptr @luaM_realloc_(ptr noundef %72, ptr noundef null, i64 noundef 0, i64 noundef %mul17.i) #5
-  %locvars.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 7
+  %locvars.i = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call18.i, ptr %locvars.i, align 8, !tbaa !49
-  %sizelocvars.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 15
+  %sizelocvars.i = getelementptr inbounds i8, ptr %call, i64 92
   store i32 %call9.i, ptr %sizelocvars.i, align 4, !tbaa !50
   %cmp24134.i = icmp sgt i32 %call9.i, 0
   br i1 %cmp24134.i, label %for.body.preheader.i, label %for.end46.i
@@ -670,9 +668,9 @@ for.end46.i:                                      ; preds = %for.body30.i, %cond
 
 cond.end60.thread.i:                              ; preds = %for.end46.i
   %call59.i = call ptr @luaM_toobig(ptr noundef %77) #5
-  %upvalues169.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 8
+  %upvalues169.i = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %call59.i, ptr %upvalues169.i, align 8, !tbaa !58
-  %sizeupvalues170.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 10
+  %sizeupvalues170.i = getelementptr inbounds i8, ptr %call, i64 72
   store i32 %call47.i, ptr %sizeupvalues170.i, align 8, !tbaa !59
   br label %LoadDebug.exit
 
@@ -680,9 +678,9 @@ cond.end60.i:                                     ; preds = %for.end46.i
   %conv54.i = sext i32 %call47.i to i64
   %mul55.i = shl nsw i64 %conv54.i, 3
   %call56.i = call ptr @luaM_realloc_(ptr noundef %77, ptr noundef null, i64 noundef 0, i64 noundef %mul55.i) #5
-  %upvalues.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 8
+  %upvalues.i = getelementptr inbounds i8, ptr %call, i64 56
   store ptr %call56.i, ptr %upvalues.i, align 8, !tbaa !58
-  %sizeupvalues.i = getelementptr inbounds %struct.Proto, ptr %call, i64 0, i32 10
+  %sizeupvalues.i = getelementptr inbounds i8, ptr %call, i64 72
   store i32 %call47.i, ptr %sizeupvalues.i, align 8, !tbaa !59
   %cmp63138.i = icmp sgt i32 %call47.i, 0
   br i1 %cmp63138.i, label %for.body65.preheader.i, label %LoadDebug.exit
@@ -754,7 +752,7 @@ LoadDebug.exit:                                   ; preds = %for.body75.i, %cond
 
 if.then32:                                        ; preds = %LoadDebug.exit
   %85 = load ptr, ptr %S, align 8, !tbaa !10
-  %name.i139 = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 3
+  %name.i139 = getelementptr inbounds i8, ptr %S, i64 24
   %86 = load ptr, ptr %name.i139, align 8, !tbaa !7
   %call.i140 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %85, ptr noundef nonnull @.str.5, ptr noundef %86, ptr noundef nonnull @.str.7) #5
   %87 = load ptr, ptr %S, align 8, !tbaa !10
@@ -763,11 +761,11 @@ if.then32:                                        ; preds = %LoadDebug.exit
 
 if.end33:                                         ; preds = %if.then32, %LoadDebug.exit
   %88 = load ptr, ptr %S, align 8, !tbaa !10
-  %top35 = getelementptr inbounds %struct.lua_State, ptr %88, i64 0, i32 4
+  %top35 = getelementptr inbounds i8, ptr %88, i64 16
   %89 = load ptr, ptr %top35, align 8, !tbaa !19
-  %incdec.ptr36 = getelementptr inbounds %struct.lua_TValue, ptr %89, i64 -1
+  %incdec.ptr36 = getelementptr inbounds i8, ptr %89, i64 -16
   store ptr %incdec.ptr36, ptr %top35, align 8, !tbaa !19
-  %nCcalls38 = getelementptr inbounds %struct.lua_State, ptr %88, i64 0, i32 15
+  %nCcalls38 = getelementptr inbounds i8, ptr %88, i64 96
   %90 = load i16, ptr %nCcalls38, align 8, !tbaa !13
   %dec = add i16 %90, -1
   store i16 %dec, ptr %nCcalls38, align 8, !tbaa !13
@@ -803,7 +801,7 @@ define internal fastcc ptr @LoadString(ptr nocapture noundef readonly %S) unname
 entry:
   %size = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size) #5
-  %Z.i = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 1
+  %Z.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load ptr, ptr %Z.i, align 8, !tbaa !11
   %call.i = call i64 @luaZ_read(ptr noundef %0, ptr noundef nonnull %size, i64 noundef 8) #5
   %cmp.not.i = icmp eq i64 %call.i, 0
@@ -811,7 +809,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr %S, align 8, !tbaa !10
-  %name.i.i = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 3
+  %name.i.i = getelementptr inbounds i8, ptr %S, i64 24
   %2 = load ptr, ptr %name.i.i, align 8, !tbaa !7
   %call.i.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef nonnull @.str.4) #5
   %3 = load ptr, ptr %S, align 8, !tbaa !10
@@ -825,7 +823,7 @@ LoadBlock.exit:                                   ; preds = %if.then.i, %entry
 
 if.else:                                          ; preds = %LoadBlock.exit
   %5 = load ptr, ptr %S, align 8, !tbaa !10
-  %b = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 2
+  %b = getelementptr inbounds i8, ptr %S, i64 16
   %6 = load ptr, ptr %b, align 8, !tbaa !12
   %call = call ptr @luaZ_openspace(ptr noundef %5, ptr noundef %6, i64 noundef %4) #5
   %7 = load i64, ptr %size, align 8, !tbaa !63
@@ -836,7 +834,7 @@ if.else:                                          ; preds = %LoadBlock.exit
 
 if.then.i11:                                      ; preds = %if.else
   %9 = load ptr, ptr %S, align 8, !tbaa !10
-  %name.i.i12 = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 3
+  %name.i.i12 = getelementptr inbounds i8, ptr %S, i64 24
   %10 = load ptr, ptr %name.i.i12, align 8, !tbaa !7
   %call.i.i13 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %9, ptr noundef nonnull @.str.5, ptr noundef %10, ptr noundef nonnull @.str.4) #5
   %11 = load ptr, ptr %S, align 8, !tbaa !10
@@ -861,7 +859,7 @@ define internal fastcc i32 @LoadInt(ptr nocapture noundef readonly %S) unnamed_a
 entry:
   %x = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %x) #5
-  %Z.i = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 1
+  %Z.i = getelementptr inbounds i8, ptr %S, i64 8
   %0 = load ptr, ptr %Z.i, align 8, !tbaa !11
   %call.i = call i64 @luaZ_read(ptr noundef %0, ptr noundef nonnull %x, i64 noundef 4) #5
   %cmp.not.i = icmp eq i64 %call.i, 0
@@ -869,7 +867,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr %S, align 8, !tbaa !10
-  %name.i.i = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 3
+  %name.i.i = getelementptr inbounds i8, ptr %S, i64 24
   %2 = load ptr, ptr %name.i.i, align 8, !tbaa !7
   %call.i.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef nonnull @.str.4) #5
   %3 = load ptr, ptr %S, align 8, !tbaa !10
@@ -883,7 +881,7 @@ LoadBlock.exit:                                   ; preds = %if.then.i, %entry
 
 if.then:                                          ; preds = %LoadBlock.exit
   %5 = load ptr, ptr %S, align 8, !tbaa !10
-  %name.i = getelementptr inbounds %struct.LoadState, ptr %S, i64 0, i32 3
+  %name.i = getelementptr inbounds i8, ptr %S, i64 24
   %6 = load ptr, ptr %name.i, align 8, !tbaa !7
   %call.i2 = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %5, ptr noundef nonnull @.str.5, ptr noundef %6, ptr noundef nonnull @.str.8) #5
   %7 = load ptr, ptr %S, align 8, !tbaa !10

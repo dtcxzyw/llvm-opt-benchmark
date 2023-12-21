@@ -7,10 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.ufmt_args = type { i64 }
 %struct.u_printf_spec = type { %struct.u_printf_spec_info, i32, i32, i32 }
 %struct.u_printf_spec_info = type { i32, i32, i16, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.u_localized_print_string = type { ptr, i32, i32, %struct.ULocaleBundle }
-%struct.ULocaleBundle = type { ptr, [5 x ptr], i8 }
-%struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.u_printf_stream_handler = type { ptr, ptr }
 
 @_ZL16g_u_printf_infos = internal unnamed_addr constant <{ [89 x %struct.u_printf_info], [19 x %struct.u_printf_info] }> <{ [89 x %struct.u_printf_info] [%struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info { i32 1, ptr @_ZL31u_printf_simple_percent_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info { i32 9, ptr @_ZL22u_printf_uchar_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info zeroinitializer, %struct.u_printf_info { i32 8, ptr @_ZL27u_printf_scientific_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info zeroinitializer, %struct.u_printf_info { i32 8, ptr @_ZL23u_printf_scidbl_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info { i32 8, ptr @_ZL24u_printf_percent_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info { i32 10, ptr @_ZL24u_printf_ustring_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info { i32 8, ptr @_ZL25u_printf_spellout_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info zeroinitializer, %struct.u_printf_info { i32 3, ptr @_ZL20u_printf_hex_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info { i32 4, ptr @_ZL21u_printf_char_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info { i32 3, ptr @_ZL24u_printf_integer_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info { i32 8, ptr @_ZL27u_printf_scientific_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info { i32 8, ptr @_ZL23u_printf_double_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info { i32 8, ptr @_ZL23u_printf_scidbl_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info zeroinitializer, %struct.u_printf_info { i32 3, ptr @_ZL24u_printf_integer_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info { i32 2, ptr @_ZL22u_printf_count_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info { i32 3, ptr @_ZL22u_printf_octal_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info { i32 6, ptr @_ZL24u_printf_pointer_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info { i32 5, ptr @_ZL23u_printf_string_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info zeroinitializer, %struct.u_printf_info { i32 3, ptr @_ZL25u_printf_uinteger_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }, %struct.u_printf_info zeroinitializer, %struct.u_printf_info zeroinitializer, %struct.u_printf_info { i32 3, ptr @_ZL20u_printf_hex_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args }], [19 x %struct.u_printf_info] zeroinitializer }>, align 16
 @_ZZL31u_printf_simple_percent_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_argsE7PERCENT = internal constant [1 x i16] [i16 37], align 2
@@ -26,7 +22,7 @@ entry:
   br i1 %tobool.not, label %for.cond.i.preheader, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %available = getelementptr inbounds %struct.u_localized_print_string, ptr %locStringContext, i64 0, i32 1
+  %available = getelementptr inbounds i8, ptr %locStringContext, i64 8
   %0 = load i32, ptr %available, align 8
   %cmp = icmp sgt i32 %0, -1
   br i1 %cmp, label %for.cond.i.preheader, label %if.end4
@@ -49,18 +45,18 @@ while.cond.i:                                     ; preds = %while.body.i, %for.
   ]
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds i16, ptr %alias.addr.1.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %alias.addr.1.i, i64 2
   br label %while.cond.i, !llvm.loop !4
 
 if.end.i:                                         ; preds = %while.cond.i
-  %incdec.ptr5.i = getelementptr inbounds i16, ptr %alias.addr.1.i, i64 1
+  %incdec.ptr5.i = getelementptr inbounds i8, ptr %alias.addr.1.i, i64 2
   %2 = load i16, ptr %incdec.ptr5.i, align 2
   %.off.i = add i16 %2, -48
   %switch.i = icmp ult i16 %.off.i, 10
   br i1 %switch.i, label %if.then64.i, label %if.end4
 
 if.then64.i:                                      ; preds = %if.end.i
-  %incdec.ptr65.i = getelementptr inbounds i16, ptr %alias.addr.1.i, i64 2
+  %incdec.ptr65.i = getelementptr inbounds i8, ptr %alias.addr.1.i, i64 4
   %conv66.i = zext nneg i16 %2 to i32
   %sub.i = add nsw i32 %conv66.i, -48
   %3 = load i16, ptr %incdec.ptr65.i, align 2
@@ -73,7 +69,7 @@ while.body96.i:                                   ; preds = %if.then64.i, %while
   %alias.addr.2161.i = phi ptr [ %incdec.ptr97.i, %while.body96.i ], [ %incdec.ptr65.i, %if.then64.i ]
   %pos.1160.i = phi i32 [ %add.i, %while.body96.i ], [ %sub.i, %if.then64.i ]
   %mul.i = mul nsw i32 %pos.1160.i, 10
-  %incdec.ptr97.i = getelementptr inbounds i16, ptr %alias.addr.2161.i, i64 1
+  %incdec.ptr97.i = getelementptr inbounds i8, ptr %alias.addr.2161.i, i64 2
   %conv98.i = zext nneg i16 %4 to i32
   %sub99.i = add nsw i32 %conv98.i, -48
   %add.i = add i32 %sub99.i, %mul.i
@@ -146,24 +142,24 @@ for.cond323.preheader.i:                          ; preds = %while.cond134.i
   br i1 %cmp324169.i, label %for.body.lr.ph.i, label %for.end391.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond323.preheader.i
-  %fp_offset_p376.i = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 1
-  %overflow_arg_area_p382.i = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
-  %8 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
+  %fp_offset_p376.i = getelementptr inbounds i8, ptr %ap, i64 4
+  %overflow_arg_area_p382.i = getelementptr inbounds i8, ptr %ap, i64 8
+  %8 = getelementptr inbounds i8, ptr %ap, i64 16
   br label %for.body.i
 
 while.body141.i:                                  ; preds = %while.cond134.i
-  %incdec.ptr142.i = getelementptr inbounds i16, ptr %alias.addr.5.i, i64 1
+  %incdec.ptr142.i = getelementptr inbounds i8, ptr %alias.addr.5.i, i64 2
   br label %while.cond134.i, !llvm.loop !8
 
 if.end147.i:                                      ; preds = %while.cond134.i
-  %incdec.ptr148.i = getelementptr inbounds i16, ptr %alias.addr.5.i, i64 1
+  %incdec.ptr148.i = getelementptr inbounds i8, ptr %alias.addr.5.i, i64 2
   %9 = load i16, ptr %incdec.ptr148.i, align 2
   %.off150.i = add i16 %9, -48
   %switch151.i = icmp ult i16 %.off150.i, 10
   br i1 %switch151.i, label %if.then178.i, label %if.end220.i
 
 if.then178.i:                                     ; preds = %if.end147.i
-  %incdec.ptr179.i = getelementptr inbounds i16, ptr %alias.addr.5.i, i64 2
+  %incdec.ptr179.i = getelementptr inbounds i8, ptr %alias.addr.5.i, i64 4
   %conv180.i = zext nneg i16 %9 to i32
   %sub181.i = add nsw i32 %conv180.i, -48
   %10 = load i16, ptr %incdec.ptr179.i, align 2
@@ -176,7 +172,7 @@ while.body213.i:                                  ; preds = %if.then178.i, %whil
   %alias.addr.6166.i = phi ptr [ %incdec.ptr215.i, %while.body213.i ], [ %incdec.ptr179.i, %if.then178.i ]
   %pos.4165.i = phi i32 [ %add218.i, %while.body213.i ], [ %sub181.i, %if.then178.i ]
   %mul214.i = mul nsw i32 %pos.4165.i, 10
-  %incdec.ptr215.i = getelementptr inbounds i16, ptr %alias.addr.6166.i, i64 1
+  %incdec.ptr215.i = getelementptr inbounds i8, ptr %alias.addr.6166.i, i64 2
   %conv216.i = zext nneg i16 %11 to i32
   %sub217.i = add nsw i32 %conv216.i, -48
   %add218.i = add i32 %sub217.i, %mul214.i
@@ -231,7 +227,7 @@ while.body288.i:                                  ; preds = %while.cond221.i, %w
   ]
 
 if.then297.i:                                     ; preds = %while.body288.i, %while.body288.i, %while.body288.i
-  %incdec.ptr298.i = getelementptr inbounds i16, ptr %alias.addr.8.i, i64 1
+  %incdec.ptr298.i = getelementptr inbounds i8, ptr %alias.addr.8.i, i64 2
   %16 = load i16, ptr %incdec.ptr298.i, align 2
   %cmp300.i = icmp eq i16 %16, 108
   br i1 %cmp300.i, label %if.then301.i, label %if.end305.i
@@ -242,7 +238,7 @@ if.then301.i:                                     ; preds = %if.then297.i
 
 if.end305.i:                                      ; preds = %if.then301.i, %if.then297.i, %while.body288.i
   %alias.addr.9.i = phi ptr [ %incdec.ptr298.i, %if.then301.i ], [ %incdec.ptr298.i, %if.then297.i ], [ %alias.addr.8.i, %while.body288.i ]
-  %incdec.ptr306.i = getelementptr inbounds i16, ptr %alias.addr.9.i, i64 1
+  %incdec.ptr306.i = getelementptr inbounds i8, ptr %alias.addr.9.i, i64 2
   %.pre.i = load i16, ptr %incdec.ptr306.i, align 2
   br label %while.cond221.i, !llvm.loop !10
 
@@ -431,26 +427,26 @@ for.end391.i:                                     ; preds = %for.inc.i, %for.con
 
 if.end4:                                          ; preds = %if.end.i, %if.end101.i, %for.end391.i, %lor.lhs.false
   %arglist.0 = phi ptr [ null, %lor.lhs.false ], [ %call117.i, %for.end391.i ], [ null, %if.end101.i ], [ null, %if.end.i ]
-  %available6 = getelementptr inbounds %struct.u_localized_print_string, ptr %locStringContext, i64 0, i32 1
-  %fWidthPos = getelementptr inbounds %struct.u_printf_spec, ptr %spec, i64 0, i32 1
-  %fPrecisionPos = getelementptr inbounds %struct.u_printf_spec, ptr %spec, i64 0, i32 2
-  %fArgPos = getelementptr inbounds %struct.u_printf_spec, ptr %spec, i64 0, i32 3
-  %fWidth = getelementptr inbounds %struct.u_printf_spec_info, ptr %spec, i64 0, i32 1
-  %fPadChar = getelementptr inbounds %struct.u_printf_spec_info, ptr %spec, i64 0, i32 4
-  %fZero = getelementptr inbounds %struct.u_printf_spec_info, ptr %spec, i64 0, i32 9
-  %fAlt = getelementptr inbounds %struct.u_printf_spec_info, ptr %spec, i64 0, i32 5
-  %fShowSign157 = getelementptr inbounds %struct.u_printf_spec_info, ptr %spec, i64 0, i32 8
-  %fSpace = getelementptr inbounds %struct.u_printf_spec_info, ptr %spec, i64 0, i32 6
-  %fLeft = getelementptr inbounds %struct.u_printf_spec_info, ptr %spec, i64 0, i32 7
-  %fIsLongDouble = getelementptr inbounds %struct.u_printf_spec_info, ptr %spec, i64 0, i32 10
-  %fIsLong = getelementptr inbounds %struct.u_printf_spec_info, ptr %spec, i64 0, i32 12
-  %fIsLongLong = getelementptr inbounds %struct.u_printf_spec_info, ptr %spec, i64 0, i32 13
-  %fIsShort = getelementptr inbounds %struct.u_printf_spec_info, ptr %spec, i64 0, i32 11
-  %fSpec = getelementptr inbounds %struct.u_printf_spec_info, ptr %spec, i64 0, i32 3
-  %fOrigSpec = getelementptr inbounds %struct.u_printf_spec_info, ptr %spec, i64 0, i32 2
-  %overflow_arg_area_p = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 2
-  %40 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 3
-  %fp_offset_p677 = getelementptr inbounds %struct.__va_list_tag, ptr %ap, i64 0, i32 1
+  %available6 = getelementptr inbounds i8, ptr %locStringContext, i64 8
+  %fWidthPos = getelementptr inbounds i8, ptr %spec, i64 24
+  %fPrecisionPos = getelementptr inbounds i8, ptr %spec, i64 28
+  %fArgPos = getelementptr inbounds i8, ptr %spec, i64 32
+  %fWidth = getelementptr inbounds i8, ptr %spec, i64 4
+  %fPadChar = getelementptr inbounds i8, ptr %spec, i64 12
+  %fZero = getelementptr inbounds i8, ptr %spec, i64 18
+  %fAlt = getelementptr inbounds i8, ptr %spec, i64 14
+  %fShowSign157 = getelementptr inbounds i8, ptr %spec, i64 17
+  %fSpace = getelementptr inbounds i8, ptr %spec, i64 15
+  %fLeft = getelementptr inbounds i8, ptr %spec, i64 16
+  %fIsLongDouble = getelementptr inbounds i8, ptr %spec, i64 19
+  %fIsLong = getelementptr inbounds i8, ptr %spec, i64 21
+  %fIsLongLong = getelementptr inbounds i8, ptr %spec, i64 22
+  %fIsShort = getelementptr inbounds i8, ptr %spec, i64 20
+  %fSpec = getelementptr inbounds i8, ptr %spec, i64 10
+  %fOrigSpec = getelementptr inbounds i8, ptr %spec, i64 8
+  %overflow_arg_area_p = getelementptr inbounds i8, ptr %ap, i64 8
+  %40 = getelementptr inbounds i8, ptr %ap, i64 16
+  %fp_offset_p677 = getelementptr inbounds i8, ptr %ap, i64 4
   %41 = getelementptr inbounds i8, ptr %spec, i64 8
   br label %while.cond
 
@@ -475,7 +471,7 @@ while.cond8:                                      ; preds = %while.cond8.prehead
   ]
 
 while.body12:                                     ; preds = %while.cond8
-  %incdec.ptr = getelementptr inbounds i16, ptr %alias.1, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %alias.1, i64 2
   br label %while.cond8, !llvm.loop !13
 
 while.end:                                        ; preds = %while.cond8, %while.cond8
@@ -509,14 +505,14 @@ if.end21:                                         ; preds = %if.end17
   store i32 -1, ptr %spec, align 4
   store i32 -1, ptr %fWidth, align 4
   store i16 32, ptr %fPadChar, align 4
-  %incdec.ptr22 = getelementptr inbounds i16, ptr %alias.1, i64 1
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %alias.1, i64 2
   %47 = load i16, ptr %incdec.ptr22, align 2
   %.off = add i16 %47, -48
   %switch = icmp ult i16 %.off, 10
   br i1 %switch, label %if.then82, label %while.cond133.preheader
 
 if.then82:                                        ; preds = %if.end21
-  %incdec.ptr83 = getelementptr inbounds i16, ptr %alias.1, i64 2
+  %incdec.ptr83 = getelementptr inbounds i8, ptr %alias.1, i64 4
   %conv84 = zext nneg i16 %47 to i32
   %sub = add nsw i32 %conv84, -48
   store i32 %sub, ptr %fArgPos, align 4
@@ -530,7 +526,7 @@ while.body117:                                    ; preds = %if.then82, %while.b
   %storemerge296 = phi i32 [ %add123, %while.body117 ], [ %sub, %if.then82 ]
   %mul = mul nsw i32 %storemerge296, 10
   store i32 %mul, ptr %fArgPos, align 4
-  %incdec.ptr119 = getelementptr inbounds i16, ptr %alias.2297, i64 1
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %alias.2297, i64 2
   %49 = load i16, ptr %alias.2297, align 2
   %conv120 = zext i16 %49 to i32
   %sub121 = add i32 %mul, -48
@@ -552,7 +548,7 @@ if.then128:                                       ; preds = %if.end125
   br label %while.cond133.preheader
 
 if.else:                                          ; preds = %if.end125
-  %incdec.ptr130 = getelementptr inbounds i16, ptr %alias.2.lcssa, i64 1
+  %incdec.ptr130 = getelementptr inbounds i8, ptr %alias.2.lcssa, i64 2
   br label %while.cond133.preheader
 
 while.cond133.preheader:                          ; preds = %if.end21, %if.then128, %if.else
@@ -582,7 +578,7 @@ while.cond133:                                    ; preds = %while.cond133.backe
   ]
 
 while.body152:                                    ; preds = %while.cond133, %while.cond133, %while.cond133, %while.cond133, %while.cond133, %while.cond133
-  %incdec.ptr153 = getelementptr inbounds i16, ptr %alias.5, i64 1
+  %incdec.ptr153 = getelementptr inbounds i8, ptr %alias.5, i64 2
   switch i16 %52, label %while.cond133.backedge [
     i16 45, label %sw.bb
     i16 43, label %sw.bb155
@@ -615,20 +611,20 @@ sw.bb159:                                         ; preds = %while.body152
   br label %while.cond133.backedge
 
 sw.bb161:                                         ; preds = %while.body152
-  %incdec.ptr162 = getelementptr inbounds i16, ptr %alias.5, i64 2
+  %incdec.ptr162 = getelementptr inbounds i8, ptr %alias.5, i64 4
   %53 = load i16, ptr %incdec.ptr153, align 2
   %call163 = call noundef i32 @_Z18ufmt_digitvalue_75Ds(i16 noundef zeroext %53)
   %conv164 = trunc i32 %call163 to i16
   store i16 %conv164, ptr %fPadChar, align 4
   %conv167 = shl i32 %call163, 4
-  %incdec.ptr169 = getelementptr inbounds i16, ptr %alias.5, i64 3
+  %incdec.ptr169 = getelementptr inbounds i8, ptr %alias.5, i64 6
   %54 = load i16, ptr %incdec.ptr162, align 2
   %call170 = call noundef i32 @_Z18ufmt_digitvalue_75Ds(i16 noundef zeroext %54)
   %add171 = add i32 %call170, %conv167
   %conv172 = trunc i32 %add171 to i16
   store i16 %conv172, ptr %fPadChar, align 4
   %conv175 = shl i32 %add171, 4
-  %incdec.ptr177 = getelementptr inbounds i16, ptr %alias.5, i64 4
+  %incdec.ptr177 = getelementptr inbounds i8, ptr %alias.5, i64 8
   %55 = load i16, ptr %incdec.ptr169, align 2
   %call178 = call noundef i32 @_Z18ufmt_digitvalue_75Ds(i16 noundef zeroext %55)
   %add179 = add i32 %call178, %conv175
@@ -640,7 +636,7 @@ sw.bb161:                                         ; preds = %while.body152
   %add187 = add i32 %call186, %conv183
   %conv188 = trunc i32 %add187 to i16
   store i16 %conv188, ptr %fPadChar, align 4
-  %incdec.ptr190 = getelementptr inbounds i16, ptr %alias.5, i64 6
+  %incdec.ptr190 = getelementptr inbounds i8, ptr %alias.5, i64 12
   br label %while.cond133.backedge
 
 while.cond133.backedge:                           ; preds = %sw.bb161, %sw.bb159, %sw.bb158, %sw.bb156, %sw.bb155, %sw.bb, %while.body152
@@ -649,14 +645,14 @@ while.cond133.backedge:                           ; preds = %sw.bb161, %sw.bb159
 
 if.then194:                                       ; preds = %while.cond133
   store i32 -2, ptr %fWidth, align 4
-  %incdec.ptr196 = getelementptr inbounds i16, ptr %alias.5, i64 1
+  %incdec.ptr196 = getelementptr inbounds i8, ptr %alias.5, i64 2
   %57 = load i16, ptr %incdec.ptr196, align 2
   %.off260 = add i16 %57, -48
   %switch261 = icmp ult i16 %.off260, 10
   br i1 %switch261, label %if.then226, label %if.end271
 
 if.then226:                                       ; preds = %if.then194
-  %incdec.ptr227 = getelementptr inbounds i16, ptr %alias.5, i64 2
+  %incdec.ptr227 = getelementptr inbounds i8, ptr %alias.5, i64 4
   %conv228 = zext nneg i16 %57 to i32
   %sub229 = add nsw i32 %conv228, -48
   store i32 %sub229, ptr %fWidthPos, align 4
@@ -670,7 +666,7 @@ while.body262:                                    ; preds = %if.then226, %while.
   %storemerge253307 = phi i32 [ %add269, %while.body262 ], [ %sub229, %if.then226 ]
   %mul264 = mul nsw i32 %storemerge253307, 10
   store i32 %mul264, ptr %fWidthPos, align 4
-  %incdec.ptr265 = getelementptr inbounds i16, ptr %alias.7308, i64 1
+  %incdec.ptr265 = getelementptr inbounds i8, ptr %alias.7308, i64 2
   %59 = load i16, ptr %alias.7308, align 2
   %conv266 = zext i16 %59 to i32
   %sub267 = add i32 %mul264, -48
@@ -692,13 +688,13 @@ if.then274:                                       ; preds = %if.end271
   br label %if.end355thread-pre-split
 
 if.else276:                                       ; preds = %if.end271
-  %incdec.ptr277 = getelementptr inbounds i16, ptr %alias.8, i64 1
+  %incdec.ptr277 = getelementptr inbounds i8, ptr %alias.8, i64 2
   br label %if.end355thread-pre-split
 
 if.then309:                                       ; preds = %while.cond133, %while.cond133, %while.cond133, %while.cond133, %while.cond133, %while.cond133, %while.cond133, %while.cond133, %while.cond133
   %conv311 = zext nneg i16 %52 to i32
   %sub312 = add nsw i32 %conv311, -48
-  %alias.9298 = getelementptr inbounds i16, ptr %alias.5, i64 1
+  %alias.9298 = getelementptr inbounds i8, ptr %alias.5, i64 2
   store i32 %sub312, ptr %fWidth, align 4
   %62 = load i16, ptr %alias.9298, align 2
   %.off264299 = add i16 %62, -48
@@ -714,7 +710,7 @@ while.body345:                                    ; preds = %if.then309, %while.
   %conv349 = zext i16 %63 to i32
   %sub350 = add i32 %mul347, -48
   %add352 = add i32 %sub350, %conv349
-  %alias.9 = getelementptr inbounds i16, ptr %alias.9302, i64 1
+  %alias.9 = getelementptr inbounds i8, ptr %alias.9302, i64 2
   store i32 %add352, ptr %fWidth, align 4
   %64 = load i16, ptr %alias.9, align 2
   %.off264 = add i16 %64, -48
@@ -733,7 +729,7 @@ if.end355:                                        ; preds = %while.cond133, %whi
   br i1 %cmp357, label %if.then358, label %if.end524thread-pre-split
 
 if.then358:                                       ; preds = %if.end355
-  %incdec.ptr359 = getelementptr inbounds i16, ptr %alias.10, i64 1
+  %incdec.ptr359 = getelementptr inbounds i8, ptr %alias.10, i64 2
   %66 = load i16, ptr %incdec.ptr359, align 2
   switch i16 %66, label %if.end524 [
     i16 42, label %if.then362
@@ -751,14 +747,14 @@ if.then358:                                       ; preds = %if.end355
 
 if.then362:                                       ; preds = %if.then358
   store i32 -2, ptr %spec, align 4
-  %incdec.ptr364 = getelementptr inbounds i16, ptr %alias.10, i64 2
+  %incdec.ptr364 = getelementptr inbounds i8, ptr %alias.10, i64 4
   %67 = load i16, ptr %incdec.ptr364, align 2
   %.off266 = add i16 %67, -48
   %switch267 = icmp ult i16 %.off266, 10
   br i1 %switch267, label %if.then394, label %if.end524
 
 if.then394:                                       ; preds = %if.then362
-  %incdec.ptr395 = getelementptr inbounds i16, ptr %alias.10, i64 3
+  %incdec.ptr395 = getelementptr inbounds i8, ptr %alias.10, i64 6
   %conv396 = zext nneg i16 %67 to i32
   %sub397 = add nsw i32 %conv396, -48
   br label %while.cond399
@@ -785,7 +781,7 @@ while.cond399:                                    ; preds = %while.body430, %if.
 while.body430:                                    ; preds = %while.cond399, %while.cond399, %while.cond399, %while.cond399, %while.cond399, %while.cond399, %while.cond399, %while.cond399, %while.cond399, %while.cond399
   %mul432 = mul nsw i32 %storemerge255, 10
   store i32 %mul432, ptr %fPrecisionPos, align 4
-  %incdec.ptr433 = getelementptr inbounds i16, ptr %alias.11, i64 1
+  %incdec.ptr433 = getelementptr inbounds i8, ptr %alias.11, i64 2
   %69 = load i16, ptr %alias.11, align 2
   %conv434 = zext i16 %69 to i32
   %sub435 = add i32 %mul432, -48
@@ -797,11 +793,11 @@ if.then441:                                       ; preds = %while.cond399
   br label %if.end524thread-pre-split
 
 if.else443:                                       ; preds = %while.cond399
-  %incdec.ptr444 = getelementptr inbounds i16, ptr %alias.11, i64 1
+  %incdec.ptr444 = getelementptr inbounds i8, ptr %alias.11, i64 2
   br label %if.end524thread-pre-split
 
 if.then477:                                       ; preds = %if.then358, %if.then358, %if.then358, %if.then358, %if.then358, %if.then358, %if.then358, %if.then358, %if.then358, %if.then358
-  %incdec.ptr478 = getelementptr inbounds i16, ptr %alias.10, i64 2
+  %incdec.ptr478 = getelementptr inbounds i8, ptr %alias.10, i64 4
   %conv479 = zext nneg i16 %66 to i32
   %sub480 = add nsw i32 %conv479, -48
   store i32 %sub480, ptr %spec, align 4
@@ -815,7 +811,7 @@ while.body513:                                    ; preds = %if.then477, %while.
   %storemerge254313 = phi i32 [ %add520, %while.body513 ], [ %sub480, %if.then477 ]
   %mul515 = mul nsw i32 %storemerge254313, 10
   store i32 %mul515, ptr %spec, align 4
-  %incdec.ptr516 = getelementptr inbounds i16, ptr %alias.12314, i64 1
+  %incdec.ptr516 = getelementptr inbounds i8, ptr %alias.12314, i64 2
   %71 = load i16, ptr %alias.12314, align 2
   %conv517 = zext i16 %71 to i32
   %sub518 = add i32 %mul515, -48
@@ -841,7 +837,7 @@ if.end524:                                        ; preds = %while.body513, %if.
   ]
 
 if.then533:                                       ; preds = %if.end524, %if.end524, %if.end524
-  %incdec.ptr534 = getelementptr inbounds i16, ptr %alias.13, i64 1
+  %incdec.ptr534 = getelementptr inbounds i8, ptr %alias.13, i64 2
   switch i16 %73, label %if.end546 [
     i16 104, label %sw.bb536
     i16 108, label %sw.bb537
@@ -859,7 +855,7 @@ sw.bb537:                                         ; preds = %if.then533
 
 if.then540:                                       ; preds = %sw.bb537
   store i8 1, ptr %fIsLongLong, align 2
-  %incdec.ptr541 = getelementptr inbounds i16, ptr %alias.13, i64 2
+  %incdec.ptr541 = getelementptr inbounds i8, ptr %alias.13, i64 4
   br label %if.end546
 
 if.else542:                                       ; preds = %sw.bb537
@@ -872,7 +868,7 @@ sw.bb544:                                         ; preds = %if.then533
 
 if.end546:                                        ; preds = %if.end524, %if.then533, %sw.bb536, %sw.bb544, %if.else542, %if.then540
   %alias.14 = phi ptr [ %incdec.ptr534, %if.then533 ], [ %incdec.ptr534, %sw.bb544 ], [ %incdec.ptr541, %if.then540 ], [ %incdec.ptr534, %if.else542 ], [ %incdec.ptr534, %sw.bb536 ], [ %alias.13, %if.end524 ]
-  %incdec.ptr547 = getelementptr inbounds i16, ptr %alias.14, i64 1
+  %incdec.ptr547 = getelementptr inbounds i8, ptr %alias.14, i64 2
   %75 = load i16, ptr %alias.14, align 2
   store i16 %75, ptr %fSpec, align 2
   store i16 %75, ptr %fOrigSpec, align 4
@@ -1176,7 +1172,7 @@ sw.default688:                                    ; preds = %if.else622
   br label %if.end690
 
 if.end690:                                        ; preds = %vaarg.end635, %vaarg.end673, %vaarg.end686, %sw.default688, %vaarg.end662, %vaarg.end650, %sw.bb605, %sw.bb609, %sw.bb613, %sw.bb617, %sw.default
-  %handler693 = getelementptr inbounds [108 x %struct.u_printf_info], ptr @_ZL16g_u_printf_infos, i64 0, i64 %idxprom, i32 1
+  %handler693 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %118 = load ptr, ptr %handler693, align 8
   %cmp694.not = icmp eq ptr %118, null
   br i1 %cmp694.not, label %if.else698, label %if.then695
@@ -1259,7 +1255,7 @@ entry:
   %0 = load i64, ptr %args, align 8
   %conv = trunc i64 %0 to i16
   store i16 %conv, ptr %arg, align 2
-  %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
+  %pad_and_justify = getelementptr inbounds i8, ptr %handler, i64 8
   %1 = load ptr, ptr %pad_and_justify, align 8
   %call = call noundef i32 %1(ptr noundef %context, ptr noundef %info, ptr noundef nonnull %arg, i32 noundef 1)
   ret i32 %call
@@ -1284,7 +1280,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call2 = call i32 @unum_getSymbol_75(ptr noundef nonnull %call, i32 noundef 11, ptr noundef nonnull %srcExpBuf, i32 noundef 16, ptr noundef nonnull %status)
-  %fSpec = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 3
+  %fSpec = getelementptr inbounds i8, ptr %info, i64 10
   %1 = load i16, ptr %fSpec, align 2
   %cmp3 = icmp eq i16 %1, 101
   %2 = load ptr, ptr %formatBundle, align 8
@@ -1308,7 +1304,7 @@ if.end12:                                         ; preds = %if.else, %if.then4
   br i1 %cmp16.not, label %if.else28, label %if.then17
 
 if.then17:                                        ; preds = %if.end12
-  %fOrigSpec = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 2
+  %fOrigSpec = getelementptr inbounds i8, ptr %info, i64 8
   %4 = load i16, ptr %fOrigSpec, align 4
   switch i16 %4, label %if.else25 [
     i16 101, label %if.then23
@@ -1330,7 +1326,7 @@ if.else28:                                        ; preds = %if.end12
   br label %if.end32
 
 if.end32:                                         ; preds = %if.else28, %if.then23, %if.else25
-  %fShowSign = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 8
+  %fShowSign = getelementptr inbounds i8, ptr %info, i64 17
   %6 = load i8, ptr %fShowSign, align 1
   %tobool33.not = icmp eq i8 %6, 0
   br i1 %tobool33.not, label %if.end36, label %if.then.i
@@ -1338,7 +1334,7 @@ if.end32:                                         ; preds = %if.else28, %if.then
 if.then.i:                                        ; preds = %if.end32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %plusSymbol.i)
   %call.i = call i32 @unum_getTextAttribute_75(ptr noundef nonnull %call, i32 noundef 0, ptr noundef nonnull %prefixBuffer, i32 noundef 2048, ptr noundef nonnull %status)
-  %fSpace.i = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 6
+  %fSpace.i = getelementptr inbounds i8, ptr %info, i64 15
   %7 = load i8, ptr %fSpace.i, align 1
   %tobool1.not.i = icmp eq i8 %7, 0
   br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
@@ -1374,7 +1370,7 @@ _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; pred
   br label %if.end47
 
 if.end47:                                         ; preds = %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit, %if.end36
-  %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
+  %pad_and_justify = getelementptr inbounds i8, ptr %handler, i64 8
   %10 = load ptr, ptr %pad_and_justify, align 8
   %call49 = call noundef i32 %10(ptr noundef %context, ptr noundef nonnull %info, ptr noundef nonnull %result, i32 noundef %spec.select)
   br label %return
@@ -1400,7 +1396,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %fSpec = getelementptr inbounds %struct.u_printf_spec_info, ptr %scidbl_info, i64 0, i32 3
+  %fSpec = getelementptr inbounds i8, ptr %scidbl_info, i64 10
   store i16 102, ptr %fSpec, align 2
   store i32 0, ptr %scidbl_info, align 4
   %call3 = call noundef i32 @_ZL23u_printf_double_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr noundef %handler, ptr noundef %context, ptr noundef %formatBundle, ptr noundef nonnull %scidbl_info, ptr noundef nonnull %args)
@@ -1425,14 +1421,14 @@ land.lhs.true12:                                  ; preds = %lor.lhs.false9
   br i1 %cmp15, label %if.then16.thread, label %if.else25
 
 if.then16.thread:                                 ; preds = %land.lhs.true12
-  %fSpec1722 = getelementptr inbounds %struct.u_printf_spec_info, ptr %scidbl_info, i64 0, i32 3
+  %fSpec1722 = getelementptr inbounds i8, ptr %scidbl_info, i64 10
   %2 = load i16, ptr %fSpec1722, align 2
   %sub23 = add i16 %2, -2
   store i16 %sub23, ptr %fSpec1722, align 2
   br label %if.end
 
 if.then16:                                        ; preds = %if.else, %lor.lhs.false
-  %fSpec17 = getelementptr inbounds %struct.u_printf_spec_info, ptr %scidbl_info, i64 0, i32 3
+  %fSpec17 = getelementptr inbounds i8, ptr %scidbl_info, i64 10
   %3 = load i16, ptr %fSpec17, align 2
   %sub = add i16 %3, -2
   store i16 %sub, ptr %fSpec17, align 2
@@ -1453,7 +1449,7 @@ if.else25:                                        ; preds = %land.lhs.true12, %l
 
 if.end29:                                         ; preds = %if.else25
   %call30 = tail call i32 @unum_getAttribute_75(ptr noundef nonnull %call26, i32 noundef 18)
-  %fSpec32 = getelementptr inbounds %struct.u_printf_spec_info, ptr %scidbl_info, i64 0, i32 3
+  %fSpec32 = getelementptr inbounds i8, ptr %scidbl_info, i64 10
   store i16 102, ptr %fSpec32, align 2
   %spec.store.select = select i1 %cmp, i32 6, i32 %1
   tail call void @unum_setAttribute_75(ptr noundef nonnull %call26, i32 noundef 16, i32 noundef 1)
@@ -1490,7 +1486,7 @@ if.end:                                           ; preds = %entry
   %cmp4.not = icmp eq i32 %1, -1
   %. = select i1 %cmp4.not, i32 6, i32 %1
   tail call void @unum_setAttribute_75(ptr noundef nonnull %call, i32 noundef 8, i32 noundef %.)
-  %fShowSign = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 8
+  %fShowSign = getelementptr inbounds i8, ptr %info, i64 17
   %2 = load i8, ptr %fShowSign, align 1
   %tobool11.not = icmp eq i8 %2, 0
   br i1 %tobool11.not, label %if.end13, label %if.then.i
@@ -1498,7 +1494,7 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %plusSymbol.i)
   %call.i = call i32 @unum_getTextAttribute_75(ptr noundef nonnull %call, i32 noundef 0, ptr noundef nonnull %prefixBuffer, i32 noundef 2048, ptr noundef nonnull %status)
-  %fSpace.i = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 6
+  %fSpace.i = getelementptr inbounds i8, ptr %info, i64 15
   %3 = load i8, ptr %fSpace.i, align 1
   %tobool1.not.i = icmp eq i8 %3, 0
   br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
@@ -1534,7 +1530,7 @@ _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; pred
   br label %if.end24
 
 if.end24:                                         ; preds = %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit, %if.end13
-  %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
+  %pad_and_justify = getelementptr inbounds i8, ptr %handler, i64 8
   %6 = load ptr, ptr %pad_and_justify, align 8
   %call26 = call noundef i32 %6(ptr noundef %context, ptr noundef nonnull %info, ptr noundef nonnull %result, i32 noundef %spec.select)
   br label %return
@@ -1556,7 +1552,7 @@ entry:
   %cmp3 = icmp slt i32 %1, %call
   %or.cond = select i1 %cmp1.not, i1 %cmp3, i1 false
   %len.0 = select i1 %or.cond, i32 %1, i32 %call
-  %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
+  %pad_and_justify = getelementptr inbounds i8, ptr %handler, i64 8
   %2 = load ptr, ptr %pad_and_justify, align 8
   %call7 = tail call noundef i32 %2(ptr noundef %context, ptr noundef nonnull %info, ptr noundef nonnull %spec.store.select, i32 noundef %len.0)
   ret i32 %call7
@@ -1584,7 +1580,7 @@ if.end:                                           ; preds = %entry
   %cmp4.not = icmp eq i32 %1, -1
   %. = select i1 %cmp4.not, i32 6, i32 %1
   tail call void @unum_setAttribute_75(ptr noundef nonnull %call, i32 noundef 8, i32 noundef %.)
-  %fShowSign = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 8
+  %fShowSign = getelementptr inbounds i8, ptr %info, i64 17
   %2 = load i8, ptr %fShowSign, align 1
   %tobool11.not = icmp eq i8 %2, 0
   br i1 %tobool11.not, label %if.end13, label %if.then.i
@@ -1592,7 +1588,7 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %plusSymbol.i)
   %call.i = call i32 @unum_getTextAttribute_75(ptr noundef nonnull %call, i32 noundef 0, ptr noundef nonnull %prefixBuffer, i32 noundef 2048, ptr noundef nonnull %status)
-  %fSpace.i = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 6
+  %fSpace.i = getelementptr inbounds i8, ptr %info, i64 15
   %3 = load i8, ptr %fSpace.i, align 1
   %tobool1.not.i = icmp eq i8 %3, 0
   br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
@@ -1628,7 +1624,7 @@ _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; pred
   br label %if.end24
 
 if.end24:                                         ; preds = %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit, %if.end13
-  %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
+  %pad_and_justify = getelementptr inbounds i8, ptr %handler, i64 8
   %6 = load ptr, ptr %pad_and_justify, align 8
   %call26 = call noundef i32 %6(ptr noundef %context, ptr noundef nonnull %info, ptr noundef nonnull %result, i32 noundef %spec.select)
   br label %return
@@ -1645,7 +1641,7 @@ entry:
   %len = alloca i32, align 4
   %0 = load i64, ptr %args, align 8
   store i32 1024, ptr %len, align 4
-  %fIsShort = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 11
+  %fIsShort = getelementptr inbounds i8, ptr %info, i64 20
   %1 = load i8, ptr %fIsShort, align 4
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -1655,7 +1651,7 @@ if.then:                                          ; preds = %entry
   br label %if.end4
 
 if.else:                                          ; preds = %entry
-  %fIsLongLong = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 13
+  %fIsLongLong = getelementptr inbounds i8, ptr %info, i64 22
   %2 = load i8, ptr %fIsLongLong, align 2
   %tobool1.not = icmp eq i8 %2, 0
   %and3 = and i64 %0, 4294967295
@@ -1664,7 +1660,7 @@ if.else:                                          ; preds = %entry
 
 if.end4:                                          ; preds = %if.else, %if.then
   %num.0 = phi i64 [ %and, %if.then ], [ %spec.select, %if.else ]
-  %fSpec = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 3
+  %fSpec = getelementptr inbounds i8, ptr %info, i64 10
   %3 = load i16, ptr %fSpec, align 2
   %cmp = icmp eq i16 %3, 120
   %conv5 = zext i1 %cmp to i8
@@ -1673,11 +1669,11 @@ if.end4:                                          ; preds = %if.else, %if.then
   br i1 %cmp6, label %land.lhs.true, label %cond.end
 
 land.lhs.true:                                    ; preds = %if.end4
-  %fZero = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 9
+  %fZero = getelementptr inbounds i8, ptr %info, i64 18
   %5 = load i8, ptr %fZero, align 2
   %tobool7.not = icmp eq i8 %5, 0
-  %fWidth = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 1
-  %spec.select13 = select i1 %tobool7.not, ptr %info, ptr %fWidth
+  %spec.select13.idx = select i1 %tobool7.not, i64 0, i64 4
+  %spec.select13 = getelementptr inbounds i8, ptr %info, i64 %spec.select13.idx
   %cond.pre = load i32, ptr %spec.select13, align 4
   br label %cond.end
 
@@ -1689,7 +1685,7 @@ cond.end:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp9.not, label %if.end21, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %cond.end
-  %fAlt = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 5
+  %fAlt = getelementptr inbounds i8, ptr %info, i64 14
   %6 = load i8, ptr %fAlt, align 2
   %tobool11 = icmp ne i8 %6, 0
   %cmp13 = icmp slt i32 %.pre, 1022
@@ -1697,13 +1693,13 @@ land.lhs.true10:                                  ; preds = %cond.end
   br i1 %or.cond, label %if.then14, label %if.end21
 
 if.then14:                                        ; preds = %land.lhs.true10
-  %add.ptr = getelementptr inbounds i16, ptr %result, i64 2
+  %add.ptr = getelementptr inbounds i8, ptr %result, i64 4
   %conv17 = sext i32 %.pre to i64
   %mul = shl nsw i64 %conv17, 1
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr, ptr nonnull align 16 %result, i64 %mul, i1 false)
   store i16 48, ptr %result, align 16
   %7 = load i16, ptr %fSpec, align 2
-  %arrayidx20 = getelementptr inbounds [1024 x i16], ptr %result, i64 0, i64 1
+  %arrayidx20 = getelementptr inbounds i8, ptr %result, i64 2
   store i16 %7, ptr %arrayidx20, align 2
   %add = add nsw i32 %.pre, 2
   store i32 %add, ptr %len, align 4
@@ -1711,7 +1707,7 @@ if.then14:                                        ; preds = %land.lhs.true10
 
 if.end21:                                         ; preds = %if.then14, %land.lhs.true10, %cond.end
   %8 = phi i32 [ %add, %if.then14 ], [ %.pre, %land.lhs.true10 ], [ %.pre, %cond.end ]
-  %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
+  %pad_and_justify = getelementptr inbounds i8, ptr %handler, i64 8
   %9 = load ptr, ptr %pad_and_justify, align 8
   %call = call noundef i32 %9(ptr noundef %context, ptr noundef nonnull %info, ptr noundef nonnull %result, i32 noundef %8)
   ret i32 %call
@@ -1736,7 +1732,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %len.0 = phi i32 [ %call3, %if.then ], [ 1, %entry ]
-  %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
+  %pad_and_justify = getelementptr inbounds i8, ptr %handler, i64 8
   %2 = load ptr, ptr %pad_and_justify, align 8
   %call5 = call noundef i32 %2(ptr noundef %context, ptr noundef %info, ptr noundef nonnull %s, i32 noundef %len.0)
   ret i32 %call5
@@ -1753,7 +1749,7 @@ entry:
   %0 = load i64, ptr %args, align 8
   store i32 0, ptr %status, align 4
   store i16 0, ptr %prefixBuffer, align 16
-  %fIsShort = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 11
+  %fIsShort = getelementptr inbounds i8, ptr %info, i64 20
   %1 = load i8, ptr %fIsShort, align 4
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -1764,7 +1760,7 @@ if.then:                                          ; preds = %entry
   br label %if.end7
 
 if.else:                                          ; preds = %entry
-  %fIsLongLong = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 13
+  %fIsLongLong = getelementptr inbounds i8, ptr %info, i64 22
   %2 = load i8, ptr %fIsLongLong, align 2
   %tobool3.not = icmp eq i8 %2, 0
   br i1 %tobool3.not, label %if.then4, label %if.end7
@@ -1793,7 +1789,7 @@ if.then11:                                        ; preds = %if.end9
 
 if.end14:                                         ; preds = %if.then11, %if.end9
   %minDigits.0 = phi i32 [ %call12, %if.then11 ], [ -1, %if.end9 ]
-  %fShowSign = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 8
+  %fShowSign = getelementptr inbounds i8, ptr %info, i64 17
   %5 = load i8, ptr %fShowSign, align 1
   %tobool15.not = icmp eq i8 %5, 0
   br i1 %tobool15.not, label %if.end17, label %if.then.i
@@ -1801,7 +1797,7 @@ if.end14:                                         ; preds = %if.then11, %if.end9
 if.then.i:                                        ; preds = %if.end14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %plusSymbol.i)
   %call.i = call i32 @unum_getTextAttribute_75(ptr noundef nonnull %call, i32 noundef 0, ptr noundef nonnull %prefixBuffer, i32 noundef 2048, ptr noundef nonnull %status)
-  %fSpace.i = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 6
+  %fSpace.i = getelementptr inbounds i8, ptr %info, i64 15
   %6 = load i8, ptr %fSpace.i, align 1
   %tobool1.not.i = icmp eq i8 %6, 0
   br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
@@ -1843,7 +1839,7 @@ _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; pred
   br label %if.end31
 
 if.end31:                                         ; preds = %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit, %if.end26
-  %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
+  %pad_and_justify = getelementptr inbounds i8, ptr %handler, i64 8
   %9 = load ptr, ptr %pad_and_justify, align 8
   %call33 = call noundef i32 %9(ptr noundef %context, ptr noundef nonnull %info, ptr noundef nonnull %result, i32 noundef %spec.select)
   br label %return
@@ -1875,7 +1871,7 @@ if.end:                                           ; preds = %entry
   %cmp4.not = icmp eq i32 %1, -1
   %. = select i1 %cmp4.not, i32 6, i32 %1
   tail call void @unum_setAttribute_75(ptr noundef nonnull %call, i32 noundef 8, i32 noundef %.)
-  %fShowSign = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 8
+  %fShowSign = getelementptr inbounds i8, ptr %info, i64 17
   %2 = load i8, ptr %fShowSign, align 1
   %tobool11.not = icmp eq i8 %2, 0
   br i1 %tobool11.not, label %if.end13, label %if.then.i
@@ -1883,7 +1879,7 @@ if.end:                                           ; preds = %entry
 if.then.i:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %plusSymbol.i)
   %call.i = call i32 @unum_getTextAttribute_75(ptr noundef nonnull %call, i32 noundef 0, ptr noundef nonnull %prefixBuffer, i32 noundef 2048, ptr noundef nonnull %status)
-  %fSpace.i = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 6
+  %fSpace.i = getelementptr inbounds i8, ptr %info, i64 15
   %3 = load i8, ptr %fSpace.i, align 1
   %tobool1.not.i = icmp eq i8 %3, 0
   br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
@@ -1919,7 +1915,7 @@ _ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit: ; pred
   br label %if.end24
 
 if.end24:                                         ; preds = %_ZL19u_printf_reset_signPPvPK18u_printf_spec_infoPDsPiP10UErrorCode.exit, %if.end13
-  %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
+  %pad_and_justify = getelementptr inbounds i8, ptr %handler, i64 8
   %6 = load ptr, ptr %pad_and_justify, align 8
   %call26 = call noundef i32 %6(ptr noundef %context, ptr noundef nonnull %info, ptr noundef nonnull %result, i32 noundef %spec.select)
   br label %return
@@ -1933,7 +1929,7 @@ return:                                           ; preds = %entry, %if.end24
 define internal noundef i32 @_ZL22u_printf_count_handlerPK23u_printf_stream_handlerPvP13ULocaleBundlePK18u_printf_spec_infoPK9ufmt_args(ptr nocapture readnone %handler, ptr nocapture readnone %context, ptr nocapture readnone %formatBundle, ptr nocapture noundef readonly %info, ptr nocapture noundef readonly %args) #4 {
 entry:
   %0 = load ptr, ptr %args, align 8
-  %fWidth = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 1
+  %fWidth = getelementptr inbounds i8, ptr %info, i64 4
   %1 = load i32, ptr %fWidth, align 4
   store i32 %1, ptr %0, align 4
   ret i32 0
@@ -1946,7 +1942,7 @@ entry:
   %len = alloca i32, align 4
   %0 = load i64, ptr %args, align 8
   store i32 1024, ptr %len, align 4
-  %fIsShort = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 11
+  %fIsShort = getelementptr inbounds i8, ptr %info, i64 20
   %1 = load i8, ptr %fIsShort, align 4
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -1956,7 +1952,7 @@ if.then:                                          ; preds = %entry
   br label %if.end4
 
 if.else:                                          ; preds = %entry
-  %fIsLongLong = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 13
+  %fIsLongLong = getelementptr inbounds i8, ptr %info, i64 22
   %2 = load i8, ptr %fIsLongLong, align 2
   %tobool1.not = icmp eq i8 %2, 0
   %and3 = and i64 %0, 4294967295
@@ -1970,18 +1966,18 @@ if.end4:                                          ; preds = %if.else, %if.then
   br i1 %cmp, label %land.lhs.true, label %cond.end
 
 land.lhs.true:                                    ; preds = %if.end4
-  %fZero = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 9
+  %fZero = getelementptr inbounds i8, ptr %info, i64 18
   %4 = load i8, ptr %fZero, align 2
   %tobool5.not = icmp eq i8 %4, 0
-  %fWidth = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 1
-  %spec.select11 = select i1 %tobool5.not, ptr %info, ptr %fWidth
+  %spec.select11.idx = select i1 %tobool5.not, i64 0, i64 4
+  %spec.select11 = getelementptr inbounds i8, ptr %info, i64 %spec.select11.idx
   %cond.pre = load i32, ptr %spec.select11, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %land.lhs.true, %if.end4
   %cond = phi i32 [ %3, %if.end4 ], [ %cond.pre, %land.lhs.true ]
   call void @_Z13ufmt_64tou_75PDsPimhai(ptr noundef nonnull %result, ptr noundef nonnull %len, i64 noundef %num.0, i8 noundef zeroext 8, i8 noundef signext 0, i32 noundef %cond)
-  %fAlt = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 5
+  %fAlt = getelementptr inbounds i8, ptr %info, i64 14
   %5 = load i8, ptr %fAlt, align 2
   %tobool7 = icmp ne i8 %5, 0
   %6 = load i16, ptr %result, align 16
@@ -1993,7 +1989,7 @@ cond.end:                                         ; preds = %land.lhs.true, %if.
   br i1 %or.cond1, label %if.then13, label %if.end18
 
 if.then13:                                        ; preds = %cond.end
-  %add.ptr = getelementptr inbounds i16, ptr %result, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %result, i64 2
   %conv16 = sext i32 %7 to i64
   %mul = shl nsw i64 %conv16, 1
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %add.ptr, ptr nonnull align 16 %result, i64 %mul, i1 false)
@@ -2004,7 +2000,7 @@ if.then13:                                        ; preds = %cond.end
 
 if.end18:                                         ; preds = %if.then13, %cond.end
   %8 = phi i32 [ %add, %if.then13 ], [ %7, %cond.end ]
-  %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
+  %pad_and_justify = getelementptr inbounds i8, ptr %handler, i64 8
   %9 = load ptr, ptr %pad_and_justify, align 8
   %call = call noundef i32 %9(ptr noundef %context, ptr noundef nonnull %info, ptr noundef nonnull %result, i32 noundef %8)
   ret i32 %call
@@ -2018,7 +2014,7 @@ entry:
   store i32 1024, ptr %len, align 4
   %0 = load ptr, ptr %args, align 8
   call void @_Z12ufmt_ptou_75PDsPiPva(ptr noundef nonnull %result, ptr noundef nonnull %len, ptr noundef %0, i8 noundef signext 1)
-  %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
+  %pad_and_justify = getelementptr inbounds i8, ptr %handler, i64 8
   %1 = load ptr, ptr %pad_and_justify, align 8
   %2 = load i32, ptr %len, align 4
   %call = call noundef i32 %1(ptr noundef %context, ptr noundef %info, ptr noundef nonnull %result, i32 noundef %2)
@@ -2063,7 +2059,7 @@ if.end17:                                         ; preds = %entry, %if.else, %i
   %cmp21 = icmp slt i32 %1, %call18
   %or.cond18 = select i1 %cmp19.not, i1 %cmp21, i1 false
   %len.0 = select i1 %or.cond18, i32 %1, i32 %call18
-  %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
+  %pad_and_justify = getelementptr inbounds i8, ptr %handler, i64 8
   %2 = load ptr, ptr %pad_and_justify, align 8
   %call25 = call noundef i32 %2(ptr noundef %context, ptr noundef nonnull %info, ptr noundef %s.0, i32 noundef %len.0)
   %cmp26 = icmp ne ptr %s.0, @_ZL8gNullStr
@@ -2087,7 +2083,7 @@ entry:
   %status = alloca i32, align 4
   %0 = load i64, ptr %args, align 8
   store i32 0, ptr %status, align 4
-  %fIsShort = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 11
+  %fIsShort = getelementptr inbounds i8, ptr %info, i64 20
   %1 = load i8, ptr %fIsShort, align 4
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -2097,7 +2093,7 @@ if.then:                                          ; preds = %entry
   br label %if.end4
 
 if.else:                                          ; preds = %entry
-  %fIsLongLong = getelementptr inbounds %struct.u_printf_spec_info, ptr %info, i64 0, i32 13
+  %fIsLongLong = getelementptr inbounds i8, ptr %info, i64 22
   %2 = load i8, ptr %fIsLongLong, align 2
   %tobool1.not = icmp eq i8 %2, 0
   %and3 = and i64 %0, 4294967295
@@ -2135,7 +2131,7 @@ if.then18:                                        ; preds = %if.end11
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then18, %if.end11
-  %pad_and_justify = getelementptr inbounds %struct.u_printf_stream_handler, ptr %handler, i64 0, i32 1
+  %pad_and_justify = getelementptr inbounds i8, ptr %handler, i64 8
   %6 = load ptr, ptr %pad_and_justify, align 8
   %call21 = call noundef i32 %6(ptr noundef %context, ptr noundef nonnull %info, ptr noundef nonnull %result, i32 noundef %spec.select12)
   br label %return

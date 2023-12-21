@@ -6,47 +6,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon.6, i32, ptr, i32, ptr }
 %union.anon.6 = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.VMStateDescription = type { ptr, i8, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CPUClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8 }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.sigaction = type { %union.anon.7, %struct.__sigset_t, i32, ptr }
 %union.anon.7 = type { ptr }
+%struct.__sigset_t = type { [16 x i64] }
 
 @.str = private unnamed_addr constant [79 x i8] c"qdev_get_vmsd(DEVICE(cpu)) == NULL || qdev_get_vmsd(DEVICE(cpu))->unmigratable\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"../qemu/cpu-target.c\00", align 1
@@ -84,7 +48,7 @@ define dso_local zeroext i1 @cpu_exec_realizefn(ptr noundef %cpu, ptr noundef %e
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %cpu) #16
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.CPU_GET_CLASS) #16
-  %cc = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 1
+  %cc = getelementptr inbounds i8, ptr %cpu, i64 160
   store ptr %call1.i, ptr %cc, align 16
   %call1 = tail call zeroext i1 @accel_cpu_common_realize(ptr noundef %cpu, ptr noundef %errp) #16
   br i1 %call1, label %if.end, label %return
@@ -99,7 +63,7 @@ if.end:                                           ; preds = %entry
 lor.lhs.false:                                    ; preds = %if.end
   %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %cpu, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #16
   %call5 = tail call ptr @qdev_get_vmsd(ptr noundef %call.i7) #16
-  %unmigratable = getelementptr inbounds %struct.VMStateDescription, ptr %call5, i64 0, i32 1
+  %unmigratable = getelementptr inbounds i8, ptr %call5, i64 8
   %0 = load i8, ptr %unmigratable, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -149,7 +113,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @cpu_get_start_powered_off(ptr nocapture noundef readonly %obj, ptr nocapture readnone %errp) #3 {
 entry:
-  %start_powered_off = getelementptr inbounds %struct.CPUState, ptr %obj, i64 0, i32 13
+  %start_powered_off = getelementptr inbounds i8, ptr %obj, i64 204
   %0 = load i8, ptr %start_powered_off, align 4
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -160,7 +124,7 @@ entry:
 define internal void @cpu_set_start_powered_off(ptr nocapture noundef writeonly %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #4 {
 entry:
   %frombool = zext i1 %value to i8
-  %start_powered_off = getelementptr inbounds %struct.CPUState, ptr %obj, i64 0, i32 13
+  %start_powered_off = getelementptr inbounds i8, ptr %obj, i64 204
   store i8 %frombool, ptr %start_powered_off, align 4
   ret void
 }
@@ -168,9 +132,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define dso_local void @cpu_exec_initfn(ptr nocapture noundef writeonly %cpu) local_unnamed_addr #4 {
 entry:
-  %as = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 29
+  %as = getelementptr inbounds i8, ptr %cpu, i64 528
   store ptr null, ptr %as, align 16
-  %num_ases = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 28
+  %num_ases = getelementptr inbounds i8, ptr %cpu, i64 520
   store i32 0, ptr %num_ases, align 8
   ret void
 }
@@ -203,9 +167,9 @@ if.then3:                                         ; preds = %if.end
 if.end5:                                          ; preds = %if.end
   %call6 = tail call ptr @object_class_get_name(ptr noundef nonnull %call2) #16
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef nonnull %call2, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 64, ptr noundef nonnull @__func__.CPU_CLASS) #16
-  %parse_features = getelementptr inbounds %struct.CPUClass, ptr %call.i, i64 0, i32 2
+  %parse_features = getelementptr inbounds i8, ptr %call.i, i64 184
   %2 = load ptr, ptr %parse_features, align 8
-  %arrayidx8 = getelementptr ptr, ptr %call, i64 1
+  %arrayidx8 = getelementptr i8, ptr %call, i64 8
   %3 = load ptr, ptr %arrayidx8, align 8
   tail call void %2(ptr noundef %call6, ptr noundef %3, ptr noundef nonnull @error_fatal) #16
   tail call void @g_strfreev(ptr noundef nonnull %call) #16
@@ -253,14 +217,14 @@ declare void @mmap_unlock() local_unnamed_addr #1
 define dso_local void @cpu_single_step(ptr nocapture noundef %cpu, i32 noundef %enabled) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %singlestep_enabled = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 20
+  %singlestep_enabled = getelementptr inbounds i8, ptr %cpu, i64 220
   %0 = load i32, ptr %singlestep_enabled, align 4
   %cmp.not = icmp eq i32 %0, %enabled
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   store i32 %enabled, ptr %singlestep_enabled, align 4
-  %cpu_index = getelementptr inbounds %struct.CPUState, ptr %cpu, i64 0, i32 51
+  %cpu_index = getelementptr inbounds i8, ptr %cpu, i64 712
   %1 = load i32, ptr %cpu_index, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -286,7 +250,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %1, i32 noundef %enabled) #16
   br label %trace_breakpoint_singlestep.exit
@@ -339,10 +303,10 @@ if.end13:                                         ; preds = %if.then, %if.then8,
   call void @llvm.va_end(ptr nonnull %ap2)
   call void @llvm.va_end(ptr nonnull %ap)
   call void @replay_finish() #16
-  %sa_mask = getelementptr inbounds %struct.sigaction, ptr %act, i64 0, i32 1
+  %sa_mask = getelementptr inbounds i8, ptr %act, i64 8
   %call16 = call i32 @sigfillset(ptr noundef nonnull %sa_mask) #16
   store ptr null, ptr %act, align 8
-  %sa_flags = getelementptr inbounds %struct.sigaction, ptr %act, i64 0, i32 2
+  %sa_flags = getelementptr inbounds i8, ptr %act, i64 136
   store i32 0, ptr %sa_flags, align 8
   %call17 = call i32 @sigaction(i32 noundef 6, ptr noundef nonnull %act, ptr noundef null) #16
   call void @abort() #17

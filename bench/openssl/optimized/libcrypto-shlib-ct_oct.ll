@@ -3,7 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-ct_oct.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.sct_st = type { i32, ptr, i64, ptr, i64, i64, ptr, i64, i8, i8, ptr, i64, i32, i32, i32 }
 %struct.asn1_string_st = type { i32, i32, ptr, i64 }
 
 @.str = private unnamed_addr constant [30 x i8] c"../openssl/crypto/ct/ct_oct.c\00", align 1
@@ -41,10 +40,10 @@ if.end3:                                          ; preds = %if.end
   %1 = load ptr, ptr %in, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 1
   %2 = load i8, ptr %1, align 1
-  %hash_alg = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 8
+  %hash_alg = getelementptr inbounds i8, ptr %sct, i64 64
   store i8 %2, ptr %hash_alg, align 8
   %3 = load i8, ptr %incdec.ptr, align 1
-  %sig_alg = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 9
+  %sig_alg = getelementptr inbounds i8, ptr %sct, i64 65
   store i8 %3, ptr %sig_alg, align 1
   %call = tail call i32 @SCT_get_signature_nid(ptr noundef nonnull %sct) #3
   %cmp5 = icmp eq i32 %call, 0
@@ -136,20 +135,20 @@ if.end12:                                         ; preds = %if.then8
   %sub = add nsw i64 %len, -43
   %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 1
   %call13 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %incdec.ptr, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 104) #3
-  %log_id = getelementptr inbounds %struct.sct_st, ptr %call, i64 0, i32 3
+  %log_id = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call13, ptr %log_id, align 8
   %cmp15 = icmp eq ptr %call13, null
   br i1 %cmp15, label %err, label %if.end18
 
 if.end18:                                         ; preds = %if.end12
-  %log_id_len = getelementptr inbounds %struct.sct_st, ptr %call, i64 0, i32 4
+  %log_id_len = getelementptr inbounds i8, ptr %call, i64 32
   store i64 32, ptr %log_id_len, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 33
   %incdec.ptr19 = getelementptr inbounds i8, ptr %1, i64 34
   %3 = load i8, ptr %add.ptr, align 1
   %conv20 = zext i8 %3 to i64
   %shl = shl nuw i64 %conv20, 56
-  %timestamp = getelementptr inbounds %struct.sct_st, ptr %call, i64 0, i32 5
+  %timestamp = getelementptr inbounds i8, ptr %call, i64 40
   store i64 %shl, ptr %timestamp, align 8
   %incdec.ptr21 = getelementptr inbounds i8, ptr %1, i64 35
   %4 = load i8, ptr %incdec.ptr19, align 1
@@ -210,13 +209,13 @@ if.end64:                                         ; preds = %if.end18
 
 if.then67:                                        ; preds = %if.end64
   %call68 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %add.ptr60, i64 noundef %or58, ptr noundef nonnull @.str, i32 noundef 118) #3
-  %ext = getelementptr inbounds %struct.sct_st, ptr %call, i64 0, i32 6
+  %ext = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %call68, ptr %ext, align 8
   %cmp70 = icmp eq ptr %call68, null
   br i1 %cmp70, label %err, label %if.end74
 
 if.end74:                                         ; preds = %if.then67, %if.end64
-  %ext_len = getelementptr inbounds %struct.sct_st, ptr %call, i64 0, i32 7
+  %ext_len = getelementptr inbounds i8, ptr %call, i64 56
   store i64 %or58, ptr %ext_len, align 8
   %add.ptr75 = getelementptr inbounds i8, ptr %add.ptr60, i64 %or58
   store ptr %add.ptr75, ptr %p, align 8
@@ -234,13 +233,13 @@ if.end81:                                         ; preds = %if.end74
 
 if.else:                                          ; preds = %if.end4
   %call85 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %1, i64 noundef %len, ptr noundef nonnull @.str, i32 noundef 135) #3
-  %sct86 = getelementptr inbounds %struct.sct_st, ptr %call, i64 0, i32 1
+  %sct86 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call85, ptr %sct86, align 8
   %cmp88 = icmp eq ptr %call85, null
   br i1 %cmp88, label %err, label %if.end91
 
 if.end91:                                         ; preds = %if.else
-  %sct_len = getelementptr inbounds %struct.sct_st, ptr %call, i64 0, i32 2
+  %sct_len = getelementptr inbounds i8, ptr %call, i64 16
   store i64 %len, ptr %sct_len, align 8
   %add.ptr92 = getelementptr inbounds i8, ptr %1, i64 %len
   br label %if.end93
@@ -294,7 +293,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %if.end2, label %err.sink.split
 
 if.end2:                                          ; preds = %if.end
-  %sig_len = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 11
+  %sig_len = getelementptr inbounds i8, ptr %sct, i64 80
   %1 = load i64, ptr %sig_len, align 8
   %add = add i64 %1, 4
   %cmp3.not = icmp eq ptr %out, null
@@ -318,11 +317,11 @@ if.end11:                                         ; preds = %if.else, %if.then6
   %storemerge = phi ptr [ %add.ptr, %if.then6 ], [ %call7, %if.else ]
   %p.0 = phi ptr [ %2, %if.then6 ], [ %call7, %if.else ]
   store ptr %storemerge, ptr %out, align 8
-  %hash_alg = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 8
+  %hash_alg = getelementptr inbounds i8, ptr %sct, i64 64
   %3 = load i8, ptr %hash_alg, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
   store i8 %3, ptr %p.0, align 1
-  %sig_alg = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 9
+  %sig_alg = getelementptr inbounds i8, ptr %sct, i64 65
   %4 = load i8, ptr %sig_alg, align 1
   %incdec.ptr12 = getelementptr inbounds i8, ptr %p.0, i64 2
   store i8 %4, ptr %incdec.ptr, align 1
@@ -335,7 +334,7 @@ if.end11:                                         ; preds = %if.else, %if.then6
   %arrayidx17 = getelementptr inbounds i8, ptr %p.0, i64 3
   store i8 %conv16, ptr %arrayidx17, align 1
   %add.ptr18 = getelementptr inbounds i8, ptr %p.0, i64 4
-  %sig = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 10
+  %sig = getelementptr inbounds i8, ptr %sct, i64 72
   %7 = load ptr, ptr %sig, align 8
   %8 = load i64, ptr %sig_len, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr18, ptr align 1 %7, i64 %8, i1 false)
@@ -392,16 +391,16 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.end
-  %ext_len = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 7
+  %ext_len = getelementptr inbounds i8, ptr %sct, i64 56
   %1 = load i64, ptr %ext_len, align 8
   %add2 = add i64 %1, 47
-  %sig_len = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 11
+  %sig_len = getelementptr inbounds i8, ptr %sct, i64 80
   %2 = load i64, ptr %sig_len, align 8
   %add3 = add i64 %add2, %2
   br label %if.end4
 
 if.else:                                          ; preds = %if.end
-  %sct_len = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 2
+  %sct_len = getelementptr inbounds i8, ptr %sct, i64 16
   %3 = load i64, ptr %sct_len, align 8
   br label %if.end4
 
@@ -441,11 +440,11 @@ if.end17:                                         ; preds = %if.else11, %if.then
 if.then21:                                        ; preds = %if.end17
   %incdec.ptr = getelementptr inbounds i8, ptr %5, i64 1
   store i8 0, ptr %5, align 1
-  %log_id = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 3
+  %log_id = getelementptr inbounds i8, ptr %sct, i64 24
   %7 = load ptr, ptr %log_id, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %incdec.ptr, ptr noundef nonnull align 1 dereferenceable(32) %7, i64 32, i1 false)
   %add.ptr24 = getelementptr inbounds i8, ptr %5, i64 33
-  %timestamp = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 5
+  %timestamp = getelementptr inbounds i8, ptr %sct, i64 40
   %8 = load i64, ptr %timestamp, align 8
   %shr = lshr i64 %8, 56
   %conv25 = trunc i64 %shr to i8
@@ -485,7 +484,7 @@ if.then21:                                        ; preds = %if.end17
   %conv59 = trunc i64 %15 to i8
   %incdec.ptr60 = getelementptr inbounds i8, ptr %5, i64 41
   store i8 %conv59, ptr %incdec.ptr56, align 1
-  %ext_len61 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 7
+  %ext_len61 = getelementptr inbounds i8, ptr %sct, i64 56
   %16 = load i64, ptr %ext_len61, align 8
   %shr62 = lshr i64 %16, 8
   %conv64 = trunc i64 %shr62 to i8
@@ -501,7 +500,7 @@ if.then21:                                        ; preds = %if.end17
   br i1 %cmp71.not, label %if.end77, label %if.then73
 
 if.then73:                                        ; preds = %if.then21
-  %ext = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 6
+  %ext = getelementptr inbounds i8, ptr %sct, i64 48
   %19 = load ptr, ptr %ext, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr69, ptr align 1 %19, i64 %18, i1 false)
   %20 = load i64, ptr %ext_len61, align 8
@@ -515,7 +514,7 @@ if.end77:                                         ; preds = %if.then73, %if.then
   br i1 %cmp79, label %err, label %if.end85
 
 if.else83:                                        ; preds = %if.end17
-  %sct84 = getelementptr inbounds %struct.sct_st, ptr %sct, i64 0, i32 1
+  %sct84 = getelementptr inbounds i8, ptr %sct, i64 8
   %21 = load ptr, ptr %sct84, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr align 1 %21, i64 %len.0, i1 false)
   br label %if.end85
@@ -726,16 +725,16 @@ if.end.i32:                                       ; preds = %for.body.i
   br i1 %cmp.i33, label %if.then1.i40, label %if.else.i34
 
 if.then1.i40:                                     ; preds = %if.end.i32
-  %ext_len.i41 = getelementptr inbounds %struct.sct_st, ptr %call33.i, i64 0, i32 7
+  %ext_len.i41 = getelementptr inbounds i8, ptr %call33.i, i64 56
   %2 = load i64, ptr %ext_len.i41, align 8
   %add2.i42 = add i64 %2, 47
-  %sig_len.i43 = getelementptr inbounds %struct.sct_st, ptr %call33.i, i64 0, i32 11
+  %sig_len.i43 = getelementptr inbounds i8, ptr %call33.i, i64 80
   %3 = load i64, ptr %sig_len.i43, align 8
   %add3.i44 = add i64 %add2.i42, %3
   br label %i2o_SCT.exit47
 
 if.else.i34:                                      ; preds = %if.end.i32
-  %sct_len.i35 = getelementptr inbounds %struct.sct_st, ptr %call33.i, i64 0, i32 2
+  %sct_len.i35 = getelementptr inbounds i8, ptr %call33.i, i64 16
   %4 = load i64, ptr %sct_len.i35, align 8
   br label %i2o_SCT.exit47
 
@@ -799,15 +798,15 @@ if.end.i.us:                                      ; preds = %for.body.us
   br i1 %cmp.i.us, label %if.then1.i.us, label %if.else.i.us
 
 if.else.i.us:                                     ; preds = %if.end.i.us
-  %sct_len.i.us = getelementptr inbounds %struct.sct_st, ptr %call33.us, i64 0, i32 2
+  %sct_len.i.us = getelementptr inbounds i8, ptr %call33.us, i64 16
   %8 = load i64, ptr %sct_len.i.us, align 8
   br label %i2o_SCT.exit.us
 
 if.then1.i.us:                                    ; preds = %if.end.i.us
-  %ext_len.i.us = getelementptr inbounds %struct.sct_st, ptr %call33.us, i64 0, i32 7
+  %ext_len.i.us = getelementptr inbounds i8, ptr %call33.us, i64 56
   %9 = load i64, ptr %ext_len.i.us, align 8
   %add2.i.us = add i64 %9, 47
-  %sig_len.i.us = getelementptr inbounds %struct.sct_st, ptr %call33.us, i64 0, i32 11
+  %sig_len.i.us = getelementptr inbounds i8, ptr %call33.us, i64 80
   %10 = load i64, ptr %sig_len.i.us, align 8
   %add3.i.us = add i64 %add2.i.us, %10
   br label %i2o_SCT.exit.us
@@ -929,7 +928,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %oct, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %1, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %data, align 8
   store ptr %2, ptr %p, align 8
   %3 = load i32, ptr %1, align 8
@@ -962,7 +961,7 @@ declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #1
 define i32 @i2d_SCT_LIST(ptr noundef %a, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   %oct = alloca %struct.asn1_string_st, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %oct, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %oct, i64 8
   store ptr null, ptr %data, align 8
   %call = call i32 @i2o_SCT_LIST(ptr noundef %a, ptr noundef nonnull %data), !range !8
   store i32 %call, ptr %oct, align 8

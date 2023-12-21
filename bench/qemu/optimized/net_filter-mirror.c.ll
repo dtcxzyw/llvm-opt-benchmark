@@ -4,19 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.MirrorState = type { %struct.NetFilterState, ptr, ptr, %struct.CharBackend, %struct.CharBackend, %struct.SocketReadState, i8 }
-%struct.NetFilterState = type { %struct.Object, ptr, ptr, i32, i8, ptr, i8, %union.anon }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.SocketReadState = type { i32, i8, i32, i32, i32, [69632 x i8], ptr }
-%struct.NetFilterClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.FilterSendCo = type { ptr, ptr, i64, i8, i32 }
-%struct.NetClientState = type { ptr, i32, %union.anon.0, ptr, ptr, ptr, ptr, [256 x i8], i8, ptr, i32, i8, i32, i32, i8, i8, i8, %union.anon.1 }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
 %struct.iovec = type { ptr, i64 }
 
 @filter_mirror_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 69896, i64 0, ptr @filter_mirror_init, ptr null, ptr @filter_mirror_fini, i8 0, i64 0, ptr @filter_mirror_class_init, ptr null, ptr null, ptr null }, align 8
@@ -75,7 +63,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @filter_mirror_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 28, ptr noundef nonnull @__func__.FILTER_MIRROR) #8
-  %vnet_hdr = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 6
+  %vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 69888
   store i8 0, ptr %vnet_hdr, align 8
   ret void
 }
@@ -84,7 +72,7 @@ entry:
 define internal void @filter_mirror_fini(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 28, ptr noundef nonnull @__func__.FILTER_MIRROR) #8
-  %outdev = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 2
+  %outdev = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load ptr, ptr %outdev, align 8
   tail call void @g_free(ptr noundef %0) #8
   ret void
@@ -96,11 +84,11 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER_CLASS) #8
   %call1 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @filter_mirror_get_outdev, ptr noundef nonnull @filter_mirror_set_outdev) #8
   %call2 = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @filter_mirror_get_vnet_hdr, ptr noundef nonnull @filter_mirror_set_vnet_hdr) #8
-  %setup = getelementptr inbounds %struct.NetFilterClass, ptr %call.i, i64 0, i32 1
+  %setup = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @filter_mirror_setup, ptr %setup, align 8
-  %cleanup = getelementptr inbounds %struct.NetFilterClass, ptr %call.i, i64 0, i32 2
+  %cleanup = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @filter_mirror_cleanup, ptr %cleanup, align 8
-  %receive_iov = getelementptr inbounds %struct.NetFilterClass, ptr %call.i, i64 0, i32 5
+  %receive_iov = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @filter_mirror_receive_iov, ptr %receive_iov, align 8
   ret void
 }
@@ -115,7 +103,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @filter_mirror_get_outdev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 28, ptr noundef nonnull @__func__.FILTER_MIRROR) #8
-  %outdev = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 2
+  %outdev = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load ptr, ptr %outdev, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #8
   ret ptr %call1
@@ -125,7 +113,7 @@ entry:
 define internal void @filter_mirror_set_outdev(ptr noundef %obj, ptr noundef %value, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 28, ptr noundef nonnull @__func__.FILTER_MIRROR) #8
-  %outdev = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 2
+  %outdev = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load ptr, ptr %outdev, align 8
   tail call void @g_free(ptr noundef %0) #8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #8
@@ -147,7 +135,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 define internal zeroext i1 @filter_mirror_get_vnet_hdr(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 28, ptr noundef nonnull @__func__.FILTER_MIRROR) #8
-  %vnet_hdr = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 6
+  %vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 69888
   %0 = load i8, ptr %vnet_hdr, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -159,7 +147,7 @@ define internal void @filter_mirror_set_vnet_hdr(ptr noundef %obj, i1 noundef ze
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 28, ptr noundef nonnull @__func__.FILTER_MIRROR) #8
-  %vnet_hdr = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 6
+  %vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 69888
   store i8 %frombool, ptr %vnet_hdr, align 8
   ret void
 }
@@ -168,7 +156,7 @@ entry:
 define internal void @filter_mirror_setup(ptr noundef %nf, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 28, ptr noundef nonnull @__func__.FILTER_MIRROR) #8
-  %outdev = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 2
+  %outdev = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load ptr, ptr %outdev, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -188,7 +176,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %chr_out = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 4
+  %chr_out = getelementptr inbounds i8, ptr %call.i, i64 168
   %call7 = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %chr_out, ptr noundef nonnull %call2, ptr noundef %errp) #8
   br label %return
 
@@ -200,7 +188,7 @@ return:                                           ; preds = %if.end6, %if.then4,
 define internal void @filter_mirror_cleanup(ptr noundef %nf) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 28, ptr noundef nonnull @__func__.FILTER_MIRROR) #8
-  %chr_out = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 4
+  %chr_out = getelementptr inbounds i8, ptr %call.i, i64 168
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr_out, i1 noundef zeroext false) #8
   ret void
 }
@@ -249,13 +237,13 @@ if.end:                                           ; preds = %entry
   %call1 = tail call noalias ptr @g_malloc(i64 noundef %call) #9
   %call.i = tail call i64 @iov_to_buf_full(ptr noundef %iov, i32 noundef %iovcnt, i64 noundef 0, ptr noundef %call1, i64 noundef %call) #8
   store ptr %s, ptr %data, align 8
-  %buf4 = getelementptr inbounds %struct.FilterSendCo, ptr %data, i64 0, i32 1
+  %buf4 = getelementptr inbounds i8, ptr %data, i64 8
   store ptr %call1, ptr %buf4, align 8
-  %size5 = getelementptr inbounds %struct.FilterSendCo, ptr %data, i64 0, i32 2
+  %size5 = getelementptr inbounds i8, ptr %data, i64 16
   store i64 %call, ptr %size5, align 8
-  %done = getelementptr inbounds %struct.FilterSendCo, ptr %data, i64 0, i32 3
+  %done = getelementptr inbounds i8, ptr %data, i64 24
   store i8 0, ptr %done, align 8
-  %ret = getelementptr inbounds %struct.FilterSendCo, ptr %data, i64 0, i32 4
+  %ret = getelementptr inbounds i8, ptr %data, i64 28
   store i32 0, ptr %ret, align 4
   %call6 = call ptr @qemu_coroutine_create(ptr noundef nonnull @filter_send_co, ptr noundef nonnull %data) #8
   call void @qemu_coroutine_enter(ptr noundef %call6) #8
@@ -298,31 +286,31 @@ define internal void @filter_send_co(ptr nocapture noundef %opaque) #0 {
 entry:
   %len.i = alloca i32, align 4
   %0 = load ptr, ptr %opaque, align 8
-  %buf = getelementptr inbounds %struct.FilterSendCo, ptr %opaque, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %opaque, i64 8
   %1 = load ptr, ptr %buf, align 8
-  %size = getelementptr inbounds %struct.FilterSendCo, ptr %opaque, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %opaque, i64 16
   %2 = load i64, ptr %size, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #8
   %conv.i = trunc i64 %2 to i32
   %call1.i = tail call i32 @htonl(i32 noundef %conv.i) #10
   store i32 %call1.i, ptr %len.i, align 4
-  %chr_out.i = getelementptr inbounds %struct.MirrorState, ptr %0, i64 0, i32 4
+  %chr_out.i = getelementptr inbounds i8, ptr %0, i64 168
   %call2.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %chr_out.i, ptr noundef nonnull %len.i, i32 noundef 4) #8
   %cmp.not.i = icmp eq i32 %call2.i, 4
   br i1 %cmp.not.i, label %if.end.i, label %err.i
 
 if.end.i:                                         ; preds = %entry
-  %vnet_hdr.i = getelementptr inbounds %struct.MirrorState, ptr %0, i64 0, i32 6
+  %vnet_hdr.i = getelementptr inbounds i8, ptr %0, i64 69888
   %3 = load i8, ptr %vnet_hdr.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i, label %if.end17.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %netdev.i = getelementptr inbounds %struct.NetFilterState, ptr %call.i.i, i64 0, i32 2
+  %netdev.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
   %5 = load ptr, ptr %netdev.i, align 8
-  %vnet_hdr_len6.i = getelementptr inbounds %struct.NetClientState, ptr %5, i64 0, i32 13
+  %vnet_hdr_len6.i = getelementptr inbounds i8, ptr %5, i64 348
   %6 = load i32, ptr %vnet_hdr_len6.i, align 4
   %call9.i = call i32 @htonl(i32 noundef %6) #10
   store i32 %call9.i, ptr %len.i, align 4
@@ -345,9 +333,9 @@ err.i:                                            ; preds = %if.end17.i, %if.the
 _filter_send.exit:                                ; preds = %if.end17.i, %err.i
   %retval.0.i = phi i32 [ %cond.i, %err.i ], [ %conv.i, %if.end17.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i)
-  %ret = getelementptr inbounds %struct.FilterSendCo, ptr %opaque, i64 0, i32 4
+  %ret = getelementptr inbounds i8, ptr %opaque, i64 28
   store i32 %retval.0.i, ptr %ret, align 4
-  %done = getelementptr inbounds %struct.FilterSendCo, ptr %opaque, i64 0, i32 3
+  %done = getelementptr inbounds i8, ptr %opaque, i64 24
   store i8 1, ptr %done, align 8
   %7 = load ptr, ptr %buf, align 8
   call void @g_free(ptr noundef %7) #8
@@ -374,7 +362,7 @@ declare i32 @qemu_chr_fe_write_all(ptr noundef, ptr noundef, i32 noundef) local_
 define internal void @filter_redirector_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 32, ptr noundef nonnull @__func__.FILTER_REDIRECTOR) #8
-  %vnet_hdr = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 6
+  %vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 69888
   store i8 0, ptr %vnet_hdr, align 8
   ret void
 }
@@ -383,10 +371,10 @@ entry:
 define internal void @filter_redirector_fini(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 32, ptr noundef nonnull @__func__.FILTER_REDIRECTOR) #8
-  %indev = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 1
+  %indev = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %indev, align 8
   tail call void @g_free(ptr noundef %0) #8
-  %outdev = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 2
+  %outdev = getelementptr inbounds i8, ptr %call.i, i64 104
   %1 = load ptr, ptr %outdev, align 8
   tail call void @g_free(ptr noundef %1) #8
   ret void
@@ -399,11 +387,11 @@ entry:
   %call1 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.11, ptr noundef nonnull @filter_redirector_get_indev, ptr noundef nonnull @filter_redirector_set_indev) #8
   %call2 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @filter_redirector_get_outdev, ptr noundef nonnull @filter_redirector_set_outdev) #8
   %call3 = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @filter_redirector_get_vnet_hdr, ptr noundef nonnull @filter_redirector_set_vnet_hdr) #8
-  %setup = getelementptr inbounds %struct.NetFilterClass, ptr %call.i, i64 0, i32 1
+  %setup = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @filter_redirector_setup, ptr %setup, align 8
-  %cleanup = getelementptr inbounds %struct.NetFilterClass, ptr %call.i, i64 0, i32 2
+  %cleanup = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @filter_redirector_cleanup, ptr %cleanup, align 8
-  %receive_iov = getelementptr inbounds %struct.NetFilterClass, ptr %call.i, i64 0, i32 5
+  %receive_iov = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @filter_redirector_receive_iov, ptr %receive_iov, align 8
   ret void
 }
@@ -412,7 +400,7 @@ entry:
 define internal noalias ptr @filter_redirector_get_indev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 32, ptr noundef nonnull @__func__.FILTER_REDIRECTOR) #8
-  %indev = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 1
+  %indev = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %indev, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #8
   ret ptr %call1
@@ -422,7 +410,7 @@ entry:
 define internal void @filter_redirector_set_indev(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 32, ptr noundef nonnull @__func__.FILTER_REDIRECTOR) #8
-  %indev = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 1
+  %indev = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %indev, align 8
   tail call void @g_free(ptr noundef %0) #8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #8
@@ -434,7 +422,7 @@ entry:
 define internal noalias ptr @filter_redirector_get_outdev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 32, ptr noundef nonnull @__func__.FILTER_REDIRECTOR) #8
-  %outdev = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 2
+  %outdev = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load ptr, ptr %outdev, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #8
   ret ptr %call1
@@ -444,7 +432,7 @@ entry:
 define internal void @filter_redirector_set_outdev(ptr noundef %obj, ptr noundef %value, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 32, ptr noundef nonnull @__func__.FILTER_REDIRECTOR) #8
-  %outdev = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 2
+  %outdev = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load ptr, ptr %outdev, align 8
   tail call void @g_free(ptr noundef %0) #8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #8
@@ -456,7 +444,7 @@ entry:
 define internal zeroext i1 @filter_redirector_get_vnet_hdr(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 32, ptr noundef nonnull @__func__.FILTER_REDIRECTOR) #8
-  %vnet_hdr = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 6
+  %vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 69888
   %0 = load i8, ptr %vnet_hdr, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -468,7 +456,7 @@ define internal void @filter_redirector_set_vnet_hdr(ptr noundef %obj, i1 nounde
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 32, ptr noundef nonnull @__func__.FILTER_REDIRECTOR) #8
-  %vnet_hdr = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 6
+  %vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 69888
   store i8 %frombool, ptr %vnet_hdr, align 8
   ret void
 }
@@ -477,10 +465,10 @@ entry:
 define internal void @filter_redirector_setup(ptr noundef %nf, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 32, ptr noundef nonnull @__func__.FILTER_REDIRECTOR) #8
-  %indev = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 1
+  %indev = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %indev, align 8
   %tobool.not = icmp eq ptr %0, null
-  %outdev = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 2
+  %outdev = getelementptr inbounds i8, ptr %call.i, i64 104
   %1 = load ptr, ptr %outdev, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %land.lhs.true, label %land.lhs.true4
@@ -505,8 +493,8 @@ if.then12:                                        ; preds = %if.then7
   br label %if.end41
 
 if.end14:                                         ; preds = %land.lhs.true, %land.lhs.true4, %if.then7
-  %rs = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 5
-  %vnet_hdr = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 6
+  %rs = getelementptr inbounds i8, ptr %call.i, i64 224
+  %vnet_hdr = getelementptr inbounds i8, ptr %call.i, i64 69888
   %2 = load i8, ptr %vnet_hdr, align 8
   %3 = and i8 %2, 1
   %tobool15 = icmp ne i8 %3, 0
@@ -526,7 +514,7 @@ if.then21:                                        ; preds = %if.then18
   br label %if.end41
 
 if.end23:                                         ; preds = %if.then18
-  %chr_in = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 3
+  %chr_in = getelementptr inbounds i8, ptr %call.i, i64 112
   %call24 = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %chr_in, ptr noundef nonnull %call20, ptr noundef %errp) #8
   br i1 %call24, label %if.end26, label %if.end41
 
@@ -535,7 +523,7 @@ if.end26:                                         ; preds = %if.end23
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end26, %if.end14
-  %outdev29 = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 2
+  %outdev29 = getelementptr inbounds i8, ptr %call.i, i64 104
   %6 = load ptr, ptr %outdev29, align 8
   %tobool30.not = icmp eq ptr %6, null
   br i1 %tobool30.not, label %if.end41, label %if.then31
@@ -551,7 +539,7 @@ if.then35:                                        ; preds = %if.then31
   br label %if.end41
 
 if.end37:                                         ; preds = %if.then31
-  %chr_out = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 4
+  %chr_out = getelementptr inbounds i8, ptr %call.i, i64 168
   %call38 = tail call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %chr_out, ptr noundef nonnull %call33, ptr noundef %errp) #8
   br label %if.end41
 
@@ -563,9 +551,9 @@ if.end41:                                         ; preds = %if.end37, %if.end23
 define internal void @filter_redirector_cleanup(ptr noundef %nf) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 32, ptr noundef nonnull @__func__.FILTER_REDIRECTOR) #8
-  %chr_in = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 3
+  %chr_in = getelementptr inbounds i8, ptr %call.i, i64 112
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr_in, i1 noundef zeroext false) #8
-  %chr_out = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 4
+  %chr_out = getelementptr inbounds i8, ptr %call.i, i64 168
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr_out, i1 noundef zeroext false) #8
   ret void
 }
@@ -574,7 +562,7 @@ entry:
 define internal i64 @filter_redirector_receive_iov(ptr noundef %nf, ptr nocapture readnone %sender, i32 %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr nocapture readnone %sent_cb) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %nf, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 32, ptr noundef nonnull @__func__.FILTER_REDIRECTOR) #8
-  %chr_out = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 4
+  %chr_out = getelementptr inbounds i8, ptr %call.i, i64 168
   %call1 = tail call zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef nonnull %chr_out) #8
   br i1 %call1, label %if.then, label %return
 
@@ -609,15 +597,15 @@ entry:
   %iov.i = alloca %struct.iovec, align 8
   %add.ptr = getelementptr i8, ptr %rs, i64 -224
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 18, ptr noundef nonnull @__func__.NETFILTER) #8
-  %buf = getelementptr inbounds %struct.SocketReadState, ptr %rs, i64 0, i32 5
-  %packet_len = getelementptr inbounds %struct.SocketReadState, ptr %rs, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %rs, i64 20
+  %packet_len = getelementptr inbounds i8, ptr %rs, i64 12
   %0 = load i32, ptr %packet_len, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %iov.i)
   store ptr %buf, ptr %iov.i, align 8
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov.i, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
   %conv.i = sext i32 %0 to i64
   store i64 %conv.i, ptr %iov_len.i, align 8
-  %direction.i = getelementptr inbounds %struct.NetFilterState, ptr %call.i, i64 0, i32 3
+  %direction.i = getelementptr inbounds i8, ptr %call.i, i64 56
   %1 = load i32, ptr %direction.i, align 8
   switch i32 %1, label %if.end.i [
     i32 0, label %if.then.i
@@ -625,7 +613,7 @@ entry:
   ]
 
 if.then.i:                                        ; preds = %entry, %entry
-  %netdev.i = getelementptr inbounds %struct.NetFilterState, ptr %call.i, i64 0, i32 2
+  %netdev.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %2 = load ptr, ptr %netdev.i, align 8
   %call.i3 = call i64 @qemu_netfilter_pass_to_next(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %iov.i, i32 noundef 1, ptr noundef nonnull %call.i) #8
   %.pr.i = load i32, ptr %direction.i, align 8
@@ -637,9 +625,9 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   br i1 %switch.i, label %if.then12.i, label %redirector_to_filter.exit
 
 if.then12.i:                                      ; preds = %if.end.i
-  %netdev13.i = getelementptr inbounds %struct.NetFilterState, ptr %call.i, i64 0, i32 2
+  %netdev13.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %4 = load ptr, ptr %netdev13.i, align 8
-  %peer.i = getelementptr inbounds %struct.NetClientState, ptr %4, i64 0, i32 3
+  %peer.i = getelementptr inbounds i8, ptr %4, i64 32
   %5 = load ptr, ptr %peer.i, align 8
   %call14.i = call i64 @qemu_netfilter_pass_to_next(ptr noundef %5, i32 noundef 0, ptr noundef nonnull %iov.i, i32 noundef 1, ptr noundef nonnull %call.i) #8
   br label %redirector_to_filter.exit
@@ -661,13 +649,13 @@ entry:
 define internal void @redirector_chr_read(ptr noundef %opaque, ptr noundef %buf, i32 noundef %size) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.2, i32 noundef 32, ptr noundef nonnull @__func__.FILTER_REDIRECTOR) #8
-  %rs = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 5
+  %rs = getelementptr inbounds i8, ptr %call.i, i64 224
   %call1 = tail call i32 @net_fill_rstate(ptr noundef nonnull %rs, ptr noundef %buf, i32 noundef %size) #8
   %cmp = icmp eq i32 %call1, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %chr_in = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 3
+  %chr_in = getelementptr inbounds i8, ptr %call.i, i64 112
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr_in, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #8
   br label %if.end
 
@@ -683,7 +671,7 @@ entry:
   br i1 %cond, label %sw.bb, label %sw.epilog
 
 sw.bb:                                            ; preds = %entry
-  %chr_in = getelementptr inbounds %struct.MirrorState, ptr %call.i, i64 0, i32 3
+  %chr_in = getelementptr inbounds i8, ptr %call.i, i64 112
   tail call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr_in, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #8
   br label %sw.epilog
 

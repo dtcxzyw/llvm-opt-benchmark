@@ -204,7 +204,7 @@ declare i64 @_mi_heap_random_next(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_os_free_ex(ptr noundef %addr, i64 noundef %size, i1 noundef zeroext %still_committed, ptr nocapture noundef readonly byval(%struct.mi_memid_s) align 8 %memid, ptr nocapture readnone %tld_stats) local_unnamed_addr #1 {
 entry:
-  %memkind = getelementptr inbounds %struct.mi_memid_s, ptr %memid, i64 0, i32 4
+  %memkind = getelementptr inbounds i8, ptr %memid, i64 20
   %0 = load i32, ptr %memkind, align 4
   %1 = add i32 %0, -3
   %2 = icmp ult i32 %1, 3
@@ -828,7 +828,7 @@ if.then7:                                         ; preds = %if.end12.i21, %mi_o
   %tmp8.sroa.526.0.memid.sroa_idx = getelementptr inbounds i8, ptr %memid, i64 20
   store i32 3, ptr %tmp8.sroa.526.0.memid.sroa_idx, align 4
   store ptr %os_base.034, ptr %memid, align 8
-  %alignment13 = getelementptr inbounds %struct.mi_memid_os_info, ptr %memid, i64 0, i32 1
+  %alignment13 = getelementptr inbounds i8, ptr %memid, i64 8
   store i64 %retval.0.i13, ptr %alignment13, align 8
   br label %return
 
@@ -1120,9 +1120,9 @@ cond.end16.i.i:                                   ; preds = %if.else.i.i21.i.i, 
   br i1 %cmp18.i.i, label %return, label %if.end
 
 if.end:                                           ; preds = %cond.end16.i.i
-  %reset = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 4
+  %reset = getelementptr inbounds i8, ptr %stats, i64 128
   tail call void @_mi_stat_increase(ptr noundef nonnull %reset, i64 noundef %sub.ptr.sub.i.i) #8
-  %reset_calls = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 18
+  %reset_calls = getelementptr inbounds i8, ptr %stats, i64 528
   tail call void @_mi_stat_counter_increase(ptr noundef nonnull %reset_calls, i64 noundef 1) #8
   %call1 = tail call i32 @_mi_prim_reset(ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i) #8
   %cmp2.not = icmp eq i32 %call1, 0
@@ -1148,9 +1148,9 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %purge_calls = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 19
+  %purge_calls = getelementptr inbounds i8, ptr %stats, i64 544
   tail call void @_mi_stat_counter_increase(ptr noundef nonnull %purge_calls, i64 noundef 1) #8
-  %purged = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 5
+  %purged = getelementptr inbounds i8, ptr %stats, i64 160
   tail call void @_mi_stat_increase(ptr noundef nonnull %purged, i64 noundef %size) #8
   %call1 = tail call zeroext i1 @mi_option_is_enabled(i32 noundef 5) #8
   br i1 %call1, label %land.lhs.true, label %if.else
@@ -1257,9 +1257,9 @@ cond.end16.i.i.i18:                               ; preds = %if.else.i.i21.i.i.i
   br i1 %cmp18.i.i.i23, label %return, label %if.end.i24
 
 if.end.i24:                                       ; preds = %cond.end16.i.i.i18
-  %reset.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 4
+  %reset.i = getelementptr inbounds i8, ptr %stats, i64 128
   tail call void @_mi_stat_increase(ptr noundef nonnull %reset.i, i64 noundef %sub.ptr.sub.i.i.i22) #8
-  %reset_calls.i = getelementptr inbounds %struct.mi_stats_s, ptr %stats, i64 0, i32 18
+  %reset_calls.i = getelementptr inbounds i8, ptr %stats, i64 528
   tail call void @_mi_stat_counter_increase(ptr noundef nonnull %reset_calls.i, i64 noundef 1) #8
   %call1.i25 = tail call i32 @_mi_prim_reset(ptr noundef %cond39.i.i.i21, i64 noundef %sub.ptr.sub.i.i.i22) #8
   %cmp2.not.i26 = icmp eq i32 %call1.i25, 0

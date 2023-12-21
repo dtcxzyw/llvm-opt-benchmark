@@ -6,27 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.BlockExportDriver = type { i32, i64, ptr, ptr, ptr }
 %struct.BlockDevOps = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VuDevIface = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.BlockExportOptions = type { i32, ptr, i8, i8, ptr, ptr, i8, i8, i8, i8, %union.anon }
-%union.anon = type { %struct.BlockExportOptionsNbd }
-%struct.BlockExportOptionsNbd = type { ptr, ptr, i8, ptr, i8, i8 }
-%struct.VuBlkExport = type { %struct.BlockExport, %struct.VuServer, %struct.VirtioBlkHandler, ptr, %struct.virtio_blk_config }
-%struct.BlockExport = type { ptr, ptr, i32, i8, ptr, ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.VuServer = type { ptr, ptr, ptr, i32, ptr, i32, i8, i8, i8, %struct.VuDev, ptr, ptr, %union.anon.0, ptr }
-%struct.VuDev = type { i32, i32, [32 x %struct.VuDevRegion], ptr, %struct.VuDevInflightInfo, i32, %union.pthread_mutex_t, i32, i64, ptr, i64, i64, i8, i16, ptr, ptr, ptr, ptr, ptr, i32, i8 }
-%struct.VuDevRegion = type { i64, i64, i64, i64, i64 }
-%struct.VuDevInflightInfo = type { i32, ptr, i64 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.VirtioBlkHandler = type { ptr, ptr, i32, i8 }
-%struct.virtio_blk_config = type { i64, i32, i32, %struct.virtio_blk_geometry, i32, i8, i8, i16, i32, i8, i8, i16, i32, i32, i32, i32, i32, i8, [3 x i8], i32, i32, i32, %struct.virtio_blk_zoned_characteristics }
-%struct.virtio_blk_geometry = type { i16, i8, i8 }
-%struct.virtio_blk_zoned_characteristics = type { i32, i32, i32, i32, i32, i8, [3 x i8] }
-%struct.VuBlkReq = type { %struct.VuVirtqElement, ptr, ptr }
-%struct.VuVirtqElement = type { i32, i32, i32, ptr, ptr }
 
 @blk_exp_vhost_user_blk = dso_local local_unnamed_addr constant %struct.BlockExportDriver { i32 1, i64 1736, ptr @vu_blk_exp_create, ptr @vu_blk_exp_delete, ptr @vu_blk_exp_request_shutdown }, align 8
 @.str = private unnamed_addr constant [19 x i8] c"logical-block-size\00", align 1
@@ -52,25 +31,25 @@ target triple = "x86_64-unknown-linux-gnu"
 define internal i32 @vu_blk_exp_create(ptr noundef %exp, ptr nocapture noundef readonly %opts, ptr noundef %errp) #0 {
 entry:
   %local_err = alloca ptr, align 8
-  %u = getelementptr inbounds %struct.BlockExportOptions, ptr %opts, i64 0, i32 10
+  %u = getelementptr inbounds i8, ptr %opts, i64 48
   store ptr null, ptr %local_err, align 8
-  %blkcfg = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 4
-  %wce = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 4, i32 9
+  %blkcfg = getelementptr inbounds i8, ptr %exp, i64 1640
+  %wce = getelementptr inbounds i8, ptr %exp, i64 1672
   store i8 0, ptr %wce, align 8
-  %has_logical_block_size = getelementptr inbounds %struct.BlockExportOptions, ptr %opts, i64 0, i32 10, i32 0, i32 1
+  %has_logical_block_size = getelementptr inbounds i8, ptr %opts, i64 56
   %0 = load i8, ptr %has_logical_block_size, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %logical_block_size1 = getelementptr inbounds %struct.BlockExportOptions, ptr %opts, i64 0, i32 10, i32 0, i32 2
+  %logical_block_size1 = getelementptr inbounds i8, ptr %opts, i64 64
   %2 = load i64, ptr %logical_block_size1, align 8
   br label %if.end
 
 if.end:                                           ; preds = %entry, %if.then
   %logical_block_size.0 = phi i64 [ %2, %if.then ], [ 512, %entry ]
-  %id = getelementptr inbounds %struct.BlockExport, ptr %exp, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %exp, i64 8
   %3 = load ptr, ptr %id, align 8
   call void @check_block_size(ptr noundef %3, ptr noundef nonnull @.str, i64 noundef %logical_block_size.0, ptr noundef nonnull %local_err) #9
   %4 = load ptr, ptr %local_err, align 8
@@ -82,7 +61,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %has_num_queues = getelementptr inbounds %struct.BlockExportOptions, ptr %opts, i64 0, i32 10, i32 0, i32 3
+  %has_num_queues = getelementptr inbounds i8, ptr %opts, i64 72
   %5 = load i8, ptr %has_num_queues, align 8
   %6 = and i8 %5, 1
   %tobool5.not = icmp eq i8 %6, 0
@@ -100,56 +79,56 @@ if.then10:                                        ; preds = %if.end8
 
 if.end11:                                         ; preds = %if.end4, %if.end8
   %num_queues.031 = phi i16 [ %7, %if.end8 ], [ 1, %if.end4 ]
-  %blk = getelementptr inbounds %struct.BlockExport, ptr %exp, i64 0, i32 5
+  %blk = getelementptr inbounds i8, ptr %exp, i64 32
   %8 = load ptr, ptr %blk, align 8
-  %handler = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 2
+  %handler = getelementptr inbounds i8, ptr %exp, i64 1608
   store ptr %8, ptr %handler, align 8
   %call = call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #9
-  %serial = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 2, i32 1
+  %serial = getelementptr inbounds i8, ptr %exp, i64 1616
   store ptr %call, ptr %serial, align 8
   %conv14 = trunc i64 %logical_block_size.0 to i32
-  %logical_block_size16 = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 2, i32 2
+  %logical_block_size16 = getelementptr inbounds i8, ptr %exp, i64 1624
   store i32 %conv14, ptr %logical_block_size16, align 8
-  %writable = getelementptr inbounds %struct.BlockExportOptions, ptr %opts, i64 0, i32 7
+  %writable = getelementptr inbounds i8, ptr %opts, i64 41
   %9 = load i8, ptr %writable, align 1
   %10 = and i8 %9, 1
-  %writable19 = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 2, i32 3
+  %writable19 = getelementptr inbounds i8, ptr %exp, i64 1628
   store i8 %10, ptr %writable19, align 4
   %11 = load ptr, ptr %blk, align 8
   %call21 = call ptr @blk_bs(ptr noundef %11) #9
   %call.i = call i64 @bdrv_getlength(ptr noundef %call21) #9
   %shr.i = ashr i64 %call.i, 9
   store i64 %shr.i, ptr %blkcfg, align 1
-  %blk_size3.i = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 4, i32 4
+  %blk_size3.i = getelementptr inbounds i8, ptr %exp, i64 1660
   store i32 %conv14, ptr %blk_size3.i, align 1
-  %size_max.i = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 4, i32 1
+  %size_max.i = getelementptr inbounds i8, ptr %exp, i64 1648
   store i32 0, ptr %size_max.i, align 1
-  %seg_max.i = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 4, i32 2
+  %seg_max.i = getelementptr inbounds i8, ptr %exp, i64 1652
   store i32 126, ptr %seg_max.i, align 1
-  %min_io_size.i = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 4, i32 7
+  %min_io_size.i = getelementptr inbounds i8, ptr %exp, i64 1666
   store i16 1, ptr %min_io_size.i, align 1
-  %opt_io_size.i = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 4, i32 8
+  %opt_io_size.i = getelementptr inbounds i8, ptr %exp, i64 1668
   store i32 1, ptr %opt_io_size.i, align 1
-  %num_queues9.i = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 4, i32 11
+  %num_queues9.i = getelementptr inbounds i8, ptr %exp, i64 1674
   store i16 %num_queues.031, ptr %num_queues9.i, align 1
-  %max_discard_sectors.i = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 4, i32 12
+  %max_discard_sectors.i = getelementptr inbounds i8, ptr %exp, i64 1676
   store i32 32768, ptr %max_discard_sectors.i, align 1
-  %max_discard_seg.i = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 4, i32 13
+  %max_discard_seg.i = getelementptr inbounds i8, ptr %exp, i64 1680
   store i32 1, ptr %max_discard_seg.i, align 1
   %shr12.i = lshr i32 %conv14, 9
-  %discard_sector_alignment.i = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 4, i32 14
+  %discard_sector_alignment.i = getelementptr inbounds i8, ptr %exp, i64 1684
   store i32 %shr12.i, ptr %discard_sector_alignment.i, align 1
-  %max_write_zeroes_sectors.i = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 4, i32 15
+  %max_write_zeroes_sectors.i = getelementptr inbounds i8, ptr %exp, i64 1688
   store i32 32768, ptr %max_write_zeroes_sectors.i, align 1
-  %max_write_zeroes_seg.i = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 4, i32 16
+  %max_write_zeroes_seg.i = getelementptr inbounds i8, ptr %exp, i64 1692
   store i32 1, ptr %max_write_zeroes_seg.i, align 1
   %12 = load ptr, ptr %blk, align 8
   call void @blk_add_aio_context_notifier(ptr noundef %12, ptr noundef nonnull @blk_aio_attached, ptr noundef nonnull @blk_aio_detach, ptr noundef nonnull %exp) #9
   %13 = load ptr, ptr %blk, align 8
   call void @blk_set_dev_ops(ptr noundef %13, ptr noundef nonnull @vu_blk_dev_ops, ptr noundef nonnull %exp) #9
-  %vu_server = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 1
+  %vu_server = getelementptr inbounds i8, ptr %exp, i64 56
   %14 = load ptr, ptr %u, align 8
-  %ctx = getelementptr inbounds %struct.BlockExport, ptr %exp, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %exp, i64 24
   %15 = load ptr, ptr %ctx, align 8
   %call26 = call zeroext i1 @vhost_user_server_start(ptr noundef nonnull %vu_server, ptr noundef %14, ptr noundef %15, i16 noundef zeroext %num_queues.031, ptr noundef nonnull @vu_blk_iface, ptr noundef %errp) #9
   br i1 %call26, label %return, label %if.then27
@@ -169,10 +148,10 @@ return:                                           ; preds = %if.end11, %if.then2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vu_blk_exp_delete(ptr noundef %exp) #0 {
 entry:
-  %blk = getelementptr inbounds %struct.BlockExport, ptr %exp, i64 0, i32 5
+  %blk = getelementptr inbounds i8, ptr %exp, i64 32
   %0 = load ptr, ptr %blk, align 8
   tail call void @blk_remove_aio_context_notifier(ptr noundef %0, ptr noundef nonnull @blk_aio_attached, ptr noundef nonnull @blk_aio_detach, ptr noundef %exp) #9
-  %serial = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 2, i32 1
+  %serial = getelementptr inbounds i8, ptr %exp, i64 1616
   %1 = load ptr, ptr %serial, align 8
   tail call void @g_free(ptr noundef %1) #9
   ret void
@@ -181,7 +160,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vu_blk_exp_request_shutdown(ptr noundef %exp) #0 {
 entry:
-  %vu_server = getelementptr inbounds %struct.VuBlkExport, ptr %exp, i64 0, i32 1
+  %vu_server = getelementptr inbounds i8, ptr %exp, i64 56
   tail call void @vhost_user_server_stop(ptr noundef nonnull %vu_server) #9
   ret void
 }
@@ -201,7 +180,7 @@ declare void @blk_add_aio_context_notifier(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @blk_aio_attached(ptr noundef %ctx, ptr nocapture noundef writeonly %opaque) #2 {
 entry:
-  %ctx1 = getelementptr inbounds %struct.BlockExport, ptr %opaque, i64 0, i32 4
+  %ctx1 = getelementptr inbounds i8, ptr %opaque, i64 24
   store ptr %ctx, ptr %ctx1, align 8
   ret void
 }
@@ -209,7 +188,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal void @blk_aio_detach(ptr nocapture noundef writeonly %opaque) #2 {
 entry:
-  %ctx = getelementptr inbounds %struct.BlockExport, ptr %opaque, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %opaque, i64 24
   store ptr null, ptr %ctx, align 8
   ret void
 }
@@ -227,8 +206,8 @@ declare i64 @bdrv_getlength(ptr noundef) #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vu_blk_drained_begin(ptr noundef %opaque) #0 {
 entry:
-  %vu_server = getelementptr inbounds %struct.VuBlkExport, ptr %opaque, i64 0, i32 1
-  %quiescing = getelementptr inbounds %struct.VuBlkExport, ptr %opaque, i64 0, i32 1, i32 8
+  %vu_server = getelementptr inbounds i8, ptr %opaque, i64 56
+  %quiescing = getelementptr inbounds i8, ptr %opaque, i64 102
   store i8 1, ptr %quiescing, align 2
   tail call void @vhost_user_server_detach_aio_context(ptr noundef nonnull %vu_server) #9
   ret void
@@ -237,10 +216,10 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vu_blk_drained_end(ptr noundef %opaque) #0 {
 entry:
-  %vu_server = getelementptr inbounds %struct.VuBlkExport, ptr %opaque, i64 0, i32 1
-  %quiescing = getelementptr inbounds %struct.VuBlkExport, ptr %opaque, i64 0, i32 1, i32 8
+  %vu_server = getelementptr inbounds i8, ptr %opaque, i64 56
+  %quiescing = getelementptr inbounds i8, ptr %opaque, i64 102
   store i8 0, ptr %quiescing, align 2
-  %ctx = getelementptr inbounds %struct.BlockExport, ptr %opaque, i64 0, i32 4
+  %ctx = getelementptr inbounds i8, ptr %opaque, i64 24
   %0 = load ptr, ptr %ctx, align 8
   tail call void @vhost_user_server_attach_aio_context(ptr noundef nonnull %vu_server, ptr noundef %0) #9
   ret void
@@ -249,13 +228,13 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal zeroext i1 @vu_blk_drained_poll(ptr noundef %opaque) #0 {
 entry:
-  %co_trip = getelementptr inbounds %struct.VuBlkExport, ptr %opaque, i64 0, i32 1, i32 13
+  %co_trip = getelementptr inbounds i8, ptr %opaque, i64 1600
   %0 = load ptr, ptr %co_trip, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %entry
-  %vu_server = getelementptr inbounds %struct.VuBlkExport, ptr %opaque, i64 0, i32 1
+  %vu_server = getelementptr inbounds i8, ptr %opaque, i64 56
   %call = tail call zeroext i1 @vhost_user_server_has_in_flight(ptr noundef nonnull %vu_server) #9
   br label %lor.end
 
@@ -267,7 +246,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vu_blk_exp_resize(ptr noundef %opaque) #0 {
 entry:
-  %handler = getelementptr inbounds %struct.VuBlkExport, ptr %opaque, i64 0, i32 2
+  %handler = getelementptr inbounds i8, ptr %opaque, i64 1608
   %0 = load ptr, ptr %handler, align 8
   %call = tail call ptr @blk_bs(ptr noundef %0) #9
   %call1 = tail call i64 @bdrv_getlength(ptr noundef %call) #9
@@ -281,9 +260,9 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %shr = lshr i64 %call1, 9
-  %blkcfg = getelementptr inbounds %struct.VuBlkExport, ptr %opaque, i64 0, i32 4
+  %blkcfg = getelementptr inbounds i8, ptr %opaque, i64 1640
   store i64 %shr, ptr %blkcfg, align 8
-  %vu_dev = getelementptr inbounds %struct.VuBlkExport, ptr %opaque, i64 0, i32 1, i32 9
+  %vu_dev = getelementptr inbounds i8, ptr %opaque, i64 104
   tail call void @vu_config_change_msg(ptr noundef nonnull %vu_dev) #9
   br label %return
 
@@ -328,7 +307,7 @@ entry:
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %panic = getelementptr inbounds %struct.VuDev, ptr %dev, i64 0, i32 17
+  %panic = getelementptr inbounds i8, ptr %dev, i64 1440
   %1 = load ptr, ptr %panic, align 8
   tail call void %1(ptr noundef %dev, ptr noundef nonnull @.str.5) #9
   br label %return
@@ -417,9 +396,9 @@ entry:
 
 if.end:                                           ; preds = %entry, %if.end
   %call110 = phi ptr [ %call1, %if.end ], [ %call18, %entry ]
-  %server2 = getelementptr inbounds %struct.VuBlkReq, ptr %call110, i64 0, i32 1
+  %server2 = getelementptr inbounds i8, ptr %call110, i64 32
   store ptr %add.ptr, ptr %server2, align 8
-  %vq3 = getelementptr inbounds %struct.VuBlkReq, ptr %call110, i64 0, i32 2
+  %vq3 = getelementptr inbounds i8, ptr %call110, i64 40
   store ptr %call, ptr %vq3, align 8
   %call4 = tail call ptr @qemu_coroutine_create(ptr noundef nonnull @vu_blk_virtio_process_req, ptr noundef nonnull %call110) #9
   tail call void @vhost_user_server_inc_in_flight(ptr noundef %add.ptr) #9
@@ -439,16 +418,16 @@ declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @vu_blk_virtio_process_req(ptr noundef %opaque) #0 {
 entry:
-  %server1 = getelementptr inbounds %struct.VuBlkReq, ptr %opaque, i64 0, i32 1
+  %server1 = getelementptr inbounds i8, ptr %opaque, i64 32
   %0 = load ptr, ptr %server1, align 8
   %handler3 = getelementptr i8, ptr %0, i64 1552
-  %in_sg = getelementptr inbounds %struct.VuVirtqElement, ptr %opaque, i64 0, i32 3
+  %in_sg = getelementptr inbounds i8, ptr %opaque, i64 16
   %1 = load ptr, ptr %in_sg, align 8
-  %out_sg = getelementptr inbounds %struct.VuVirtqElement, ptr %opaque, i64 0, i32 4
+  %out_sg = getelementptr inbounds i8, ptr %opaque, i64 24
   %2 = load ptr, ptr %out_sg, align 8
-  %in_num4 = getelementptr inbounds %struct.VuVirtqElement, ptr %opaque, i64 0, i32 2
+  %in_num4 = getelementptr inbounds i8, ptr %opaque, i64 8
   %3 = load i32, ptr %in_num4, align 8
-  %out_num5 = getelementptr inbounds %struct.VuVirtqElement, ptr %opaque, i64 0, i32 1
+  %out_num5 = getelementptr inbounds i8, ptr %opaque, i64 4
   %4 = load i32, ptr %out_num5, align 4
   %call = tail call i32 @virtio_blk_process_req(ptr noundef %handler3, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #9
   %cmp = icmp slt i32 %call, 0
@@ -456,8 +435,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   %5 = load ptr, ptr %server1, align 8
-  %vu_dev1.i = getelementptr inbounds %struct.VuServer, ptr %5, i64 0, i32 9
-  %vq.i = getelementptr inbounds %struct.VuBlkReq, ptr %opaque, i64 0, i32 2
+  %vu_dev1.i = getelementptr inbounds i8, ptr %5, i64 48
+  %vq.i = getelementptr inbounds i8, ptr %opaque, i64 40
   %6 = load ptr, ptr %vq.i, align 8
   tail call void @vu_queue_push(ptr noundef nonnull %vu_dev1.i, ptr noundef %6, ptr noundef nonnull %opaque, i32 noundef %call) #9
   %7 = load ptr, ptr %vq.i, align 8

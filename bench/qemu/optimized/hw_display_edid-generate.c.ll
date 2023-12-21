@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.edid_mode = type { i32, i32, i32, i32, i32, i32 }
-%struct.qemu_edid_info = type { ptr, ptr, ptr, i16, i16, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"RHT\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"QEMU Monitor\00", align 1
@@ -23,7 +22,7 @@ entry:
 define dso_local void @qemu_edid_generate(ptr noundef %edid, i64 noundef %size, ptr nocapture noundef %info) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr i8, ptr %edid, i64 54
-  %refresh_rate1 = getelementptr inbounds %struct.qemu_edid_info, ptr %info, i64 0, i32 9
+  %refresh_rate1 = getelementptr inbounds i8, ptr %info, i64 44
   %0 = load i32, ptr %refresh_rate1, align 4
   %tobool.not = icmp eq i32 %0, 0
   %spec.select = select i1 %tobool.not, i32 75000, i32 %0
@@ -41,7 +40,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %lor.lhs.false
-  %name = getelementptr inbounds %struct.qemu_edid_info, ptr %info, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %info, i64 8
   %2 = load ptr, ptr %name, align 8
   %tobool6.not = icmp eq ptr %2, null
   br i1 %tobool6.not, label %if.then7, label %if.end9
@@ -51,7 +50,7 @@ if.then7:                                         ; preds = %if.end
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then7, %if.end
-  %prefx = getelementptr inbounds %struct.qemu_edid_info, ptr %info, i64 0, i32 5
+  %prefx = getelementptr inbounds i8, ptr %info, i64 28
   %3 = load i32, ptr %prefx, align 4
   %tobool10.not = icmp eq i32 %3, 0
   br i1 %tobool10.not, label %if.then11, label %if.end13
@@ -62,7 +61,7 @@ if.then11:                                        ; preds = %if.end9
 
 if.end13:                                         ; preds = %if.then11, %if.end9
   %4 = phi i32 [ 1280, %if.then11 ], [ %3, %if.end9 ]
-  %prefy = getelementptr inbounds %struct.qemu_edid_info, ptr %info, i64 0, i32 6
+  %prefy = getelementptr inbounds i8, ptr %info, i64 32
   %5 = load i32, ptr %prefy, align 8
   %tobool14.not = icmp eq i32 %5, 0
   br i1 %tobool14.not, label %if.then15, label %if.end17
@@ -73,14 +72,14 @@ if.then15:                                        ; preds = %if.end13
 
 if.end17:                                         ; preds = %if.then15, %if.end13
   %6 = phi i32 [ 800, %if.then15 ], [ %5, %if.end13 ]
-  %width_mm18 = getelementptr inbounds %struct.qemu_edid_info, ptr %info, i64 0, i32 3
+  %width_mm18 = getelementptr inbounds i8, ptr %info, i64 24
   %7 = load i16, ptr %width_mm18, align 8
   %conv = zext i16 %7 to i32
   %tobool19.not = icmp eq i16 %7, 0
   br i1 %tobool19.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end17
-  %height_mm20 = getelementptr inbounds %struct.qemu_edid_info, ptr %info, i64 0, i32 4
+  %height_mm20 = getelementptr inbounds i8, ptr %info, i64 26
   %8 = load i16, ptr %height_mm20, align 2
   %tobool22.not = icmp eq i16 %8, 0
   br i1 %tobool22.not, label %if.else, label %if.then23
@@ -202,7 +201,7 @@ if.end62:                                         ; preds = %if.end48, %if.then.
   %18 = and i8 %17, 31
   %and84 = zext nneg i8 %18 to i16
   %or86 = or disjoint i16 %or, %and84
-  %serial = getelementptr inbounds %struct.qemu_edid_info, ptr %info, i64 0, i32 2
+  %serial = getelementptr inbounds i8, ptr %info, i64 16
   %19 = load ptr, ptr %serial, align 8
   %tobool88.not = icmp eq ptr %19, null
   br i1 %tobool88.not, label %cond.end93, label %cond.true89
@@ -377,9 +376,9 @@ if.end21.i152:                                    ; preds = %if.end12.i149, %if.
 
 edid_desc_next.exit158:                           ; preds = %if.end.i140, %if.then10.i154, %if.end12.i149, %if.end21.i152
   %retval.0.i153 = phi ptr [ %add.ptr11.i157, %if.then10.i154 ], [ null, %if.end21.i152 ], [ %add.ptr.i141, %if.end.i140 ], [ %add.ptr.i141, %if.end12.i149 ]
-  %maxx = getelementptr inbounds %struct.qemu_edid_info, ptr %info, i64 0, i32 7
+  %maxx = getelementptr inbounds i8, ptr %info, i64 36
   %26 = load i32, ptr %maxx, align 4
-  %maxy = getelementptr inbounds %struct.qemu_edid_info, ptr %info, i64 0, i32 8
+  %maxy = getelementptr inbounds i8, ptr %info, i64 40
   %27 = load i32, ptr %maxy, align 8
   %tobool.not.i159 = icmp eq i32 %26, 0
   %tobool4.not.i = icmp eq i32 %27, 0
@@ -419,19 +418,19 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i, %f
   br i1 %tobool4.not.i, label %if.end.i164, label %land.lhs.true5.i
 
 land.lhs.true5.i:                                 ; preds = %lor.lhs.false.i
-  %yres.i = getelementptr %struct.edid_mode, ptr @modes, i64 %indvars.iv.i162, i32 1
+  %yres.i = getelementptr inbounds i8, ptr %add.ptr.i163, i64 4
   %34 = load i32, ptr %yres.i, align 4
   %cmp6.i = icmp ugt i32 %34, %27
   br i1 %cmp6.i, label %for.inc.i, label %if.end.i164
 
 if.end.i164:                                      ; preds = %land.lhs.true5.i, %lor.lhs.false.i
-  %byte.i = getelementptr %struct.edid_mode, ptr @modes, i64 %indvars.iv.i162, i32 2
+  %byte.i = getelementptr inbounds i8, ptr %add.ptr.i163, i64 8
   %35 = load i32, ptr %byte.i, align 8
   %tobool8.not.i = icmp eq i32 %35, 0
   br i1 %tobool8.not.i, label %if.else.i, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end.i164
-  %bit.i = getelementptr %struct.edid_mode, ptr @modes, i64 %indvars.iv.i162, i32 4
+  %bit.i = getelementptr inbounds i8, ptr %add.ptr.i163, i64 16
   %36 = load i32, ptr %bit.i, align 8
   %shl.i = shl nuw i32 1, %36
   %idxprom.i = zext i32 %35 to i64
@@ -450,7 +449,7 @@ if.then15.i:                                      ; preds = %if.else.i
   %idx.ext16.i = sext i32 %std.035.i to i64
   %add.ptr17.i = getelementptr i8, ptr %edid, i64 %idx.ext16.i
   %39 = load i32, ptr %add.ptr.i163, align 8
-  %yres19.i = getelementptr %struct.edid_mode, ptr @modes, i64 %indvars.iv.i162, i32 1
+  %yres19.i = getelementptr inbounds i8, ptr %add.ptr.i163, i64 4
   %40 = load i32, ptr %yres19.i, align 4
   %cmp.i.i = icmp eq i32 %39, 0
   %cmp1.i.i = icmp eq i32 %40, 0
@@ -501,13 +500,13 @@ if.end28.i.i:                                     ; preds = %if.end25.i.i
   br label %if.end40.i
 
 if.else24.i:                                      ; preds = %if.else.i
-  %xtra325.i = getelementptr %struct.edid_mode, ptr @modes, i64 %indvars.iv.i162, i32 3
+  %xtra325.i = getelementptr inbounds i8, ptr %add.ptr.i163, i64 12
   %42 = load i32, ptr %xtra325.i, align 4
   %tobool26.i.not = icmp eq i32 %42, 0
   br i1 %tobool26.i.not, label %if.end40.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %if.else24.i
-  %bit30.i = getelementptr %struct.edid_mode, ptr @modes, i64 %indvars.iv.i162, i32 4
+  %bit30.i = getelementptr inbounds i8, ptr %add.ptr.i163, i64 16
   %43 = load i32, ptr %bit30.i, align 8
   %shl31.i = shl nuw i32 1, %43
   %idxprom33.i = zext i32 %42 to i64
@@ -523,7 +522,7 @@ if.end40.i:                                       ; preds = %if.then29.i, %if.el
   br i1 %tobool41.not.i, label %for.inc.i, label %land.lhs.true42.i
 
 land.lhs.true42.i:                                ; preds = %if.end40.i
-  %dta43.i = getelementptr %struct.edid_mode, ptr @modes, i64 %indvars.iv.i162, i32 5
+  %dta43.i = getelementptr inbounds i8, ptr %add.ptr.i163, i64 20
   %46 = load i32, ptr %dta43.i, align 4
   %tobool44.not.i = icmp eq i32 %46, 0
   br i1 %tobool44.not.i, label %for.inc.i, label %if.then45.i

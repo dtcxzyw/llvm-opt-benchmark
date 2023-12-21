@@ -22,7 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.rocksdb::Trace" = type { i64, i8, i64, %"class.std::__cxx11::basic_string" }
 %"class.rocksdb::PinnableSlice" = type <{ %"class.rocksdb::Slice", %"class.rocksdb::Cleanable", %"class.std::__cxx11::basic_string", ptr, i8, [7 x i8] }>
 %"class.rocksdb::Cleanable" = type { %"struct.rocksdb::Cleanable::Cleanup" }
 %"struct.rocksdb::Cleanable::Cleanup" = type { ptr, ptr, ptr, ptr }
@@ -34,14 +33,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.rocksdb::Tracer" = type { ptr, %"struct.rocksdb::TraceOptions", %"class.std::unique_ptr.28", i64, %"class.rocksdb::Status" }
-%"struct.rocksdb::TraceOptions" = type <{ i64, i64, i64, i8, [7 x i8] }>
-%"class.std::unique_ptr.28" = type { %"struct.std::__uniq_ptr_data.29" }
-%"struct.std::__uniq_ptr_data.29" = type { %"class.std::__uniq_ptr_impl.30" }
-%"class.std::__uniq_ptr_impl.30" = type { %"class.std::tuple.31" }
-%"class.std::tuple.31" = type { %"struct.std::_Tuple_impl.32" }
-%"struct.std::_Tuple_impl.32" = type { %"struct.std::_Head_base.35" }
-%"struct.std::_Head_base.35" = type { ptr }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -50,23 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.rocksdb::WriteBatch" = type { %"class.rocksdb::WriteBatchBase", %"class.std::unique_ptr.41", %"struct.rocksdb::SavePoint", i8, i8, i8, %"struct.std::atomic", i64, %"class.std::unique_ptr.49", i64, %"class.std::__cxx11::basic_string" }
-%"class.rocksdb::WriteBatchBase" = type { ptr }
-%"class.std::unique_ptr.41" = type { %"struct.std::__uniq_ptr_data.42" }
-%"struct.std::__uniq_ptr_data.42" = type { %"class.std::__uniq_ptr_impl.43" }
-%"class.std::__uniq_ptr_impl.43" = type { %"class.std::tuple.44" }
-%"class.std::tuple.44" = type { %"struct.std::_Tuple_impl.45" }
-%"struct.std::_Tuple_impl.45" = type { %"struct.std::_Head_base.48" }
-%"struct.std::_Head_base.48" = type { ptr }
-%"struct.rocksdb::SavePoint" = type { i64, i32, i32 }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.std::unique_ptr.49" = type { %"struct.std::__uniq_ptr_data.50" }
-%"struct.std::__uniq_ptr_data.50" = type { %"class.std::__uniq_ptr_impl.51" }
-%"class.std::__uniq_ptr_impl.51" = type { %"class.std::tuple.52" }
-%"class.std::tuple.52" = type { %"struct.std::_Tuple_impl.53" }
-%"struct.std::_Tuple_impl.53" = type { %"struct.std::_Head_base.56" }
-%"struct.std::_Head_base.56" = type { ptr }
+%"struct.rocksdb::Trace" = type { i64, i8, i64, %"class.std::__cxx11::basic_string" }
 %"class.std::vector.57" = type { %"struct.std::_Vector_base.58" }
 %"struct.std::_Vector_base.58" = type { %"struct.std::_Vector_base<rocksdb::ColumnFamilyHandle *, std::allocator<rocksdb::ColumnFamilyHandle *>>::_Vector_impl" }
 %"struct.std::_Vector_base<rocksdb::ColumnFamilyHandle *, std::allocator<rocksdb::ColumnFamilyHandle *>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::ColumnFamilyHandle *, std::allocator<rocksdb::ColumnFamilyHandle *>>::_Vector_impl_data" }
@@ -185,10 +160,10 @@ for.cond.preheader:                               ; preds = %lor.lhs.false
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   store ptr @.str.2, ptr %ref.tmp, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 47, ptr %size_.i, align 8
   store ptr @.str.16, ptr %ref.tmp4, align 8
-  %size_.i12 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp4, i64 0, i32 1
+  %size_.i12 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store i64 0, ptr %size_.i12, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, i8 noundef zeroext 0)
   br label %return
@@ -220,10 +195,10 @@ if.then16:                                        ; preds = %if.else
 
 if.else20:                                        ; preds = %if.else
   store ptr @.str.3, ptr %ref.tmp21, align 8
-  %size_.i14 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp21, i64 0, i32 1
+  %size_.i14 = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
   store i64 46, ptr %size_.i14, align 8
   store ptr @.str.16, ptr %ref.tmp22, align 8
-  %size_.i15 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp22, i64 0, i32 1
+  %size_.i15 = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   store i64 0, ptr %size_.i15, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22, i8 noundef zeroext 0)
   br label %return
@@ -240,7 +215,7 @@ for.inc:                                          ; preds = %for.body, %if.then1
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %tmp_num.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %tmp_num.1, %for.inc ]
   store i32 %tmp_num.0.lcssa, ptr %v_num, align 4
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !6
   br label %return
@@ -272,9 +247,9 @@ entry:
   %ref.tmp17 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp26 = alloca %"class.rocksdb::Status", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %s_vec, i8 0, i64 24, i1 false)
-  %payload = getelementptr inbounds %"struct.rocksdb::Trace", ptr %header, i64 0, i32 3
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %s_vec, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %s_vec, i64 0, i32 2
+  %payload = getelementptr inbounds i8, ptr %header, i64 24
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %s_vec, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %s_vec, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %entry, %invoke.cont6
@@ -297,7 +272,7 @@ invoke.cont:                                      ; preds = %for.body
 if.then.i.i:                                      ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %2, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont6
 
@@ -327,7 +302,7 @@ for.end:                                          ; preds = %invoke.cont6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %t_v_str) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %db_v_str) #19
   %5 = load ptr, ptr %s_vec, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 32
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 noundef 15, i64 noundef -1)
           to label %invoke.cont10 unwind label %lpad9
 
@@ -335,14 +310,14 @@ invoke.cont10:                                    ; preds = %for.end
   %call11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %t_v_str, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #19
   %6 = load ptr, ptr %s_vec, align 8
-  %add.ptr.i10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %6, i64 2
+  %add.ptr.i10 = getelementptr inbounds i8, ptr %6, i64 64
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i10, i64 noundef 17, i64 noundef -1)
           to label %invoke.cont14 unwind label %lpad9
 
 invoke.cont14:                                    ; preds = %invoke.cont10
   %call15 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %db_v_str, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #19
-  %state_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
   invoke void @_ZN7rocksdb12TracerHelper15ParseVersionStrERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(32) %t_v_str, ptr noundef %trace_version)
@@ -353,43 +328,43 @@ invoke.cont19:                                    ; preds = %invoke.cont14
   br i1 %cmp.not.i, label %_ZN7rocksdb6StatusD2Ev.exit17.thread, label %_ZN7rocksdb6StatusD2Ev.exit17
 
 _ZN7rocksdb6StatusD2Ev.exit17.thread:             ; preds = %invoke.cont19
-  %state_.i1253 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp17, i64 0, i32 6
+  %state_.i1253 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
   store ptr null, ptr %state_.i1253, align 8
   br label %if.end
 
 _ZN7rocksdb6StatusD2Ev.exit17:                    ; preds = %invoke.cont19
   %7 = load i8, ptr %ref.tmp17, align 8
   store i8 %7, ptr %agg.result, align 8
-  %subcode_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp17, i64 0, i32 1
+  %subcode_.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 1
   %8 = load i8, ptr %subcode_.i, align 1
-  %subcode_5.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 1
+  %subcode_5.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %8, ptr %subcode_5.i, align 1
-  %sev_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp17, i64 0, i32 2
+  %sev_.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 2
   %9 = load i8, ptr %sev_.i, align 2
-  %sev_7.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 2
+  %sev_7.i = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i8 %9, ptr %sev_7.i, align 2
-  %retryable_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp17, i64 0, i32 3
+  %retryable_.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 3
   %10 = load i8, ptr %retryable_.i, align 1
   %11 = and i8 %10, 1
-  %retryable_9.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 3
+  %retryable_9.i = getelementptr inbounds i8, ptr %agg.result, i64 3
   store i8 %11, ptr %retryable_9.i, align 1
   store <4 x i8> zeroinitializer, ptr %ref.tmp17, align 8
-  %data_loss_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp17, i64 0, i32 4
+  %data_loss_.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 4
   %12 = load i8, ptr %data_loss_.i, align 4
   %13 = and i8 %12, 1
-  %data_loss_12.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 4
+  %data_loss_12.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i8 %13, ptr %data_loss_12.i, align 4
   store i8 0, ptr %data_loss_.i, align 4
-  %scope_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp17, i64 0, i32 5
+  %scope_.i = getelementptr inbounds i8, ptr %ref.tmp17, i64 5
   %14 = load i8, ptr %scope_.i, align 1
-  %scope_15.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 5
+  %scope_15.i = getelementptr inbounds i8, ptr %agg.result, i64 5
   store i8 %14, ptr %scope_15.i, align 1
   store i8 0, ptr %scope_.i, align 1
-  %state_.i11 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp17, i64 0, i32 6
+  %state_.i11 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
   %15 = load ptr, ptr %state_.i11, align 8
   store ptr %15, ptr %state_.i, align 8
   %16 = icmp eq i8 %7, 0
-  %state_.i12 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp17, i64 0, i32 6
+  %state_.i12 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
   store ptr null, ptr %state_.i12, align 8
   br i1 %16, label %if.end, label %nrvo.skipdtor
 
@@ -416,32 +391,32 @@ invoke.cont27:                                    ; preds = %if.end
 if.then.i23:                                      ; preds = %invoke.cont27
   %20 = load i8, ptr %ref.tmp26, align 8
   store i8 %20, ptr %agg.result, align 8
-  %subcode_.i24 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp26, i64 0, i32 1
+  %subcode_.i24 = getelementptr inbounds i8, ptr %ref.tmp26, i64 1
   %21 = load i8, ptr %subcode_.i24, align 1
-  %subcode_5.i25 = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 1
+  %subcode_5.i25 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %21, ptr %subcode_5.i25, align 1
-  %sev_.i26 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp26, i64 0, i32 2
+  %sev_.i26 = getelementptr inbounds i8, ptr %ref.tmp26, i64 2
   %22 = load i8, ptr %sev_.i26, align 2
-  %sev_7.i27 = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 2
+  %sev_7.i27 = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i8 %22, ptr %sev_7.i27, align 2
-  %retryable_.i28 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp26, i64 0, i32 3
+  %retryable_.i28 = getelementptr inbounds i8, ptr %ref.tmp26, i64 3
   %23 = load i8, ptr %retryable_.i28, align 1
   %24 = and i8 %23, 1
-  %retryable_9.i29 = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 3
+  %retryable_9.i29 = getelementptr inbounds i8, ptr %agg.result, i64 3
   store i8 %24, ptr %retryable_9.i29, align 1
   store <4 x i8> zeroinitializer, ptr %ref.tmp26, align 8
-  %data_loss_.i30 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp26, i64 0, i32 4
+  %data_loss_.i30 = getelementptr inbounds i8, ptr %ref.tmp26, i64 4
   %25 = load i8, ptr %data_loss_.i30, align 4
   %26 = and i8 %25, 1
-  %data_loss_12.i31 = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 4
+  %data_loss_12.i31 = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i8 %26, ptr %data_loss_12.i31, align 4
   store i8 0, ptr %data_loss_.i30, align 4
-  %scope_.i32 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp26, i64 0, i32 5
+  %scope_.i32 = getelementptr inbounds i8, ptr %ref.tmp26, i64 5
   %27 = load i8, ptr %scope_.i32, align 1
-  %scope_15.i33 = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 5
+  %scope_15.i33 = getelementptr inbounds i8, ptr %agg.result, i64 5
   store i8 %27, ptr %scope_15.i33, align 1
   store i8 0, ptr %scope_.i32, align 1
-  %state_.i34 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp26, i64 0, i32 6
+  %state_.i34 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
   %28 = load ptr, ptr %state_.i34, align 8
   store ptr null, ptr %state_.i34, align 8
   %29 = load ptr, ptr %state_.i, align 8
@@ -454,7 +429,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %_ZN7rocksdb6StatusaSEOS0_.exit38
 
 _ZN7rocksdb6StatusaSEOS0_.exit38:                 ; preds = %invoke.cont27, %if.then.i23, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i37
-  %state_.i39 = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp26, i64 0, i32 6
+  %state_.i39 = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
   %30 = load ptr, ptr %state_.i39, align 8
   %cmp.not.i.i40 = icmp eq ptr %30, null
   br i1 %cmp.not.i.i40, label %_ZN7rocksdb6StatusD2Ev.exit42, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i41
@@ -478,7 +453,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN7rocksdb6StatusD
 for.body.i.i.i.i:                                 ; preds = %nrvo.skipdtor, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %31, %nrvo.skipdtor ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #19
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %32
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !10
 
@@ -533,7 +508,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -541,7 +516,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #19
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !10
 
@@ -572,10 +547,10 @@ entry:
   store i64 %0, ptr %value.addr.i, align 8
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %encoded_trace, ptr noundef nonnull %value.addr.i, i64 noundef 8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i)
-  %type = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %trace, i64 8
   %1 = load i8, ptr %type, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %encoded_trace, i8 noundef signext %1)
-  %payload = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 3
+  %payload = getelementptr inbounds i8, ptr %trace, i64 24
   %call = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %payload) #19
   %conv = trunc i64 %call to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i7)
@@ -600,17 +575,17 @@ entry:
   %ref.tmp5 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %encoded_trace) #19
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %enc_slice, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %enc_slice, i64 8
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %encoded_trace) #19
   %cmp.i = icmp ugt i64 %call2.i, 7
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   store ptr @.str.4, ptr %ref.tmp, align 8
-  %size_.i4 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp, i64 0, i32 1
+  %size_.i4 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 26, ptr %size_.i4, align 8
   store ptr @.str.16, ptr %ref.tmp1, align 8
-  %size_.i5 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp1, i64 0, i32 1
+  %size_.i5 = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   store i64 0, ptr %size_.i5, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 7, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1, i8 noundef zeroext 0)
   br label %return
@@ -624,10 +599,10 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   store ptr @.str.4, ptr %ref.tmp4, align 8
-  %size_.i8 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp4, i64 0, i32 1
+  %size_.i8 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store i64 26, ptr %size_.i8, align 8
   store ptr @.str.16, ptr %ref.tmp5, align 8
-  %size_.i9 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp5, i64 0, i32 1
+  %size_.i9 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store i64 0, ptr %size_.i9, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 7, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5, i8 noundef zeroext 0)
   br label %return
@@ -635,17 +610,17 @@ if.then3:                                         ; preds = %if.end
 if.end6:                                          ; preds = %if.end
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load i8, ptr %add.ptr.i.i, align 1
-  %type = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %trace, i64 8
   store i8 %0, ptr %type, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 13
   store ptr %add.ptr.i, ptr %enc_slice, align 8
   %sub.i = add i64 %call2.i, -13
   store i64 %sub.i, ptr %size_.i, align 8
   call void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %enc_slice, i1 noundef zeroext false)
-  %payload = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 3
+  %payload = getelementptr inbounds i8, ptr %trace, i64 24
   %call9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %payload, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #19
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !11
   br label %return
@@ -665,17 +640,17 @@ entry:
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp10 = alloca %"class.rocksdb::Slice", align 8
-  %ref.tmp10.sroa.gep = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp10, i64 0, i32 1
+  %ref.tmp10.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   call void @_ZN7rocksdb12TracerHelper11DecodeTraceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_5TraceE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %s, ptr noundef nonnull align 8 dereferenceable(32) %encoded_trace, ptr noundef %header)
-  %type = getelementptr inbounds %"struct.rocksdb::Trace", ptr %header, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %header, i64 8
   %0 = load i8, ptr %type, align 8
   %cmp.not = icmp eq i8 %0, 1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ref.tmp1.sroa.gep = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp1, i64 0, i32 1
+  %ref.tmp1.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   store ptr @.str.5, ptr %ref.tmp, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 39, ptr %size_.i, align 8
   store ptr @.str.16, ptr %ref.tmp1, align 8
   br label %if.then7.invoke
@@ -683,7 +658,7 @@ if.then:                                          ; preds = %entry
 lpad:                                             ; preds = %if.then7.invoke, %if.end
   %1 = landingpad { ptr, i32 }
           cleanup
-  %state_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 6
+  %state_.i = getelementptr inbounds i8, ptr %s, i64 8
   %2 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -696,7 +671,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %lpad, %_ZNKSt14defa
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
-  %payload = getelementptr inbounds %"struct.rocksdb::Trace", ptr %header, i64 0, i32 3
+  %payload = getelementptr inbounds i8, ptr %header, i64 24
   %call = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb11kTraceMagicB5cxx11E) #19
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(32) %payload, i64 noundef 0, i64 noundef %call)
           to label %invoke.cont5 unwind label %lpad
@@ -730,7 +705,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 
 if.then7:                                         ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
   store ptr @.str.6, ptr %ref.tmp8, align 8
-  %size_.i5 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp8, i64 0, i32 1
+  %size_.i5 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
   store i64 38, ptr %size_.i5, align 8
   store ptr @.str.16, ptr %ref.tmp10, align 8
   br label %if.then7.invoke
@@ -744,7 +719,7 @@ if.then7.invoke:                                  ; preds = %if.then, %if.then7
           to label %cleanup unwind label %lpad
 
 if.end13:                                         ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread14, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
   %cmp.not.i.i8 = icmp eq ptr %s, %agg.result
@@ -753,39 +728,39 @@ if.end13:                                         ; preds = %_ZStneIcSt11char_tr
 if.then.i.i:                                      ; preds = %if.end13
   %4 = load i8, ptr %s, align 8
   store i8 %4, ptr %agg.result, align 8
-  %subcode_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 1
+  %subcode_.i.i = getelementptr inbounds i8, ptr %s, i64 1
   %5 = load i8, ptr %subcode_.i.i, align 1
-  %subcode_5.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 1
+  %subcode_5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %5, ptr %subcode_5.i.i, align 1
-  %sev_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 2
+  %sev_.i.i = getelementptr inbounds i8, ptr %s, i64 2
   %6 = load i8, ptr %sev_.i.i, align 2
-  %sev_7.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 2
+  %sev_7.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i8 %6, ptr %sev_7.i.i, align 2
-  %retryable_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 3
+  %retryable_.i.i = getelementptr inbounds i8, ptr %s, i64 3
   %7 = load i8, ptr %retryable_.i.i, align 1
   %8 = and i8 %7, 1
-  %retryable_9.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 3
+  %retryable_9.i.i = getelementptr inbounds i8, ptr %agg.result, i64 3
   store i8 %8, ptr %retryable_9.i.i, align 1
   store <4 x i8> zeroinitializer, ptr %s, align 8
-  %data_loss_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 4
+  %data_loss_.i.i = getelementptr inbounds i8, ptr %s, i64 4
   %9 = load i8, ptr %data_loss_.i.i, align 4
   %10 = and i8 %9, 1
-  %data_loss_12.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 4
+  %data_loss_12.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i8 %10, ptr %data_loss_12.i.i, align 4
   store i8 0, ptr %data_loss_.i.i, align 4
-  %scope_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 5
+  %scope_.i.i = getelementptr inbounds i8, ptr %s, i64 5
   %11 = load i8, ptr %scope_.i.i, align 1
-  %scope_15.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 5
+  %scope_15.i.i = getelementptr inbounds i8, ptr %agg.result, i64 5
   store i8 %11, ptr %scope_15.i.i, align 1
   store i8 0, ptr %scope_.i.i, align 1
-  %state_.i2.i = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 6
+  %state_.i2.i = getelementptr inbounds i8, ptr %s, i64 8
   %12 = load ptr, ptr %state_.i2.i, align 8
   store ptr null, ptr %state_.i2.i, align 8
   store ptr %12, ptr %state_.i.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then7.invoke, %if.end13, %if.then.i.i
-  %state_.i9 = getelementptr inbounds %"class.rocksdb::Status", ptr %s, i64 0, i32 6
+  %state_.i9 = getelementptr inbounds i8, ptr %s, i64 8
   %13 = load ptr, ptr %state_.i9, align 8
   %cmp.not.i.i10 = icmp eq ptr %13, null
   br i1 %cmp.not.i.i10, label %_ZN7rocksdb6StatusD2Ev.exit12, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i11
@@ -852,13 +827,13 @@ if.then:                                          ; preds = %entry
 
 _ZNKSt14default_deleteIN7rocksdb11TraceRecordEEclEPS1_.exit.i.i: ; preds = %if.then
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt14default_deleteIN7rocksdb11TraceRecordEEclEPS1_.exit.i.i, %if.then, %entry
-  %type = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %trace, i64 8
   %2 = load i8, ptr %type, align 8
   %conv = sext i8 %2 to i32
   switch i32 %conv, label %sw.default206 [
@@ -871,18 +846,18 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 
 sw.bb:                                            ; preds = %if.end
   store ptr @.str.16, ptr %rep, align 8
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %rep, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %rep, i64 8
   store i64 0, ptr %size_.i.i, align 8
   %3 = getelementptr inbounds i8, ptr %rep, i64 16
   call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3)
-  %self_space_.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %rep, i64 0, i32 2
+  %self_space_.i = getelementptr inbounds i8, ptr %rep, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #19
-  %pinned_.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %rep, i64 0, i32 4
+  %pinned_.i = getelementptr inbounds i8, ptr %rep, i64 88
   store i8 0, ptr %pinned_.i, align 8
-  %buf_.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %rep, i64 0, i32 3
+  %buf_.i = getelementptr inbounds i8, ptr %rep, i64 80
   store ptr %self_space_.i, ptr %buf_.i, align 8
   %cmp1 = icmp slt i32 %trace_file_version, 2
-  %payload = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 3
+  %payload = getelementptr inbounds i8, ptr %trace, i64 24
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %payload) #19
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %payload) #19
   br i1 %cmp1, label %if.then2.invoke, label %if.else
@@ -905,7 +880,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then2.invoke, %i
   br label %ehcleanup
 
 if.else:                                          ; preds = %sw.bb
-  %payload_map = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 2
+  %payload_map = getelementptr inbounds i8, ptr %trace, i64 16
   %cmp.i = icmp ugt i64 %call2.i, 7
   br i1 %cmp.i, label %if.end.i, label %if.else.invoke.cont6_crit_edge
 
@@ -1029,7 +1004,7 @@ invoke.cont25:                                    ; preds = %invoke.cont22
 
 _ZNKSt14default_deleteIN7rocksdb11TraceRecordEEclEPS1_.exit.i.i80: ; preds = %invoke.cont25
   %vtable.i.i.i81 = load ptr, ptr %15, align 8
-  %vfn.i.i.i82 = getelementptr inbounds ptr, ptr %vtable.i.i.i81, i64 1
+  %vfn.i.i.i82 = getelementptr inbounds i8, ptr %vtable.i.i.i81, i64 8
   %16 = load ptr, ptr %vfn.i.i.i82, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(16) %15) #19
   br label %invoke.cont27
@@ -1041,7 +1016,7 @@ lpad24:                                           ; preds = %invoke.cont22
   br label %ehcleanup
 
 invoke.cont27:                                    ; preds = %if.end19, %invoke.cont25, %_ZNKSt14default_deleteIN7rocksdb11TraceRecordEEclEPS1_.exit.i.i80
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #19
@@ -1056,7 +1031,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 
 sw.bb28:                                          ; preds = %if.end
   %cmp29 = icmp slt i32 %trace_file_version, 2
-  %payload31 = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 3
+  %payload31 = getelementptr inbounds i8, ptr %trace, i64 24
   %call.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %payload31) #19
   %call2.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %payload31) #19
   br i1 %cmp29, label %if.then30, label %if.else32
@@ -1119,7 +1094,7 @@ _ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_t
   br label %if.end57
 
 if.else32:                                        ; preds = %sw.bb28
-  %payload_map35 = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 2
+  %payload_map35 = getelementptr inbounds i8, ptr %trace, i64 16
   %cmp.i93 = icmp ugt i64 %call2.i.i, 7
   br i1 %cmp.i93, label %if.end.i94, label %if.else32._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit98_crit_edge
 
@@ -1236,15 +1211,15 @@ if.end57:                                         ; preds = %sw.epilog53, %_ZN7r
 
 if.then59:                                        ; preds = %if.end57
   store ptr @.str.16, ptr %ps, align 8
-  %size_.i.i130 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ps, i64 0, i32 1
+  %size_.i.i130 = getelementptr inbounds i8, ptr %ps, i64 8
   store i64 0, ptr %size_.i.i130, align 8
   %25 = getelementptr inbounds i8, ptr %ps, i64 16
   call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %25)
-  %self_space_.i131 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps, i64 0, i32 2
+  %self_space_.i131 = getelementptr inbounds i8, ptr %ps, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i131) #19
-  %pinned_.i132 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps, i64 0, i32 4
+  %pinned_.i132 = getelementptr inbounds i8, ptr %ps, i64 88
   store i8 0, ptr %pinned_.i132, align 8
-  %buf_.i133 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps, i64 0, i32 3
+  %buf_.i133 = getelementptr inbounds i8, ptr %ps, i64 80
   store ptr %self_space_.i131, ptr %buf_.i133, align 8
   %call3.i139 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i131, ptr noundef %get_key.sroa.0.4, i64 noundef %get_key.sroa.4.4)
           to label %invoke.cont61 unwind label %lpad60
@@ -1272,7 +1247,7 @@ invoke.cont66:                                    ; preds = %invoke.cont62
 
 _ZNKSt14default_deleteIN7rocksdb11TraceRecordEEclEPS1_.exit.i.i142: ; preds = %invoke.cont66
   %vtable.i.i.i143 = load ptr, ptr %29, align 8
-  %vfn.i.i.i144 = getelementptr inbounds ptr, ptr %vtable.i.i.i143, i64 1
+  %vfn.i.i.i144 = getelementptr inbounds i8, ptr %vtable.i.i.i143, i64 8
   %30 = load ptr, ptr %vfn.i.i.i144, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(16) %29) #19
   br label %_ZNSt10unique_ptrIN7rocksdb11TraceRecordESt14default_deleteIS1_EE5resetEPS1_.exit145
@@ -1300,14 +1275,14 @@ ehcleanup68:                                      ; preds = %lpad65, %lpad60
   br label %eh.resume
 
 if.end69:                                         ; preds = %_ZNSt10unique_ptrIN7rocksdb11TraceRecordESt14default_deleteIS1_EE5resetEPS1_.exit145, %if.end57
-  %state_.i.i148 = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i148 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i148, align 8, !alias.scope !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !19
   br label %return
 
 sw.bb70:                                          ; preds = %if.end, %if.end
   %cmp72 = icmp slt i32 %trace_file_version, 2
-  %payload74 = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 3
+  %payload74 = getelementptr inbounds i8, ptr %trace, i64 24
   %call.i.i153 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %payload74) #19
   %call2.i.i154 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %payload74) #19
   br i1 %cmp72, label %if.then73, label %if.else75
@@ -1370,7 +1345,7 @@ _ZN7rocksdb12_GLOBAL__N_114DecodeCFAndKeyERNSt7__cxx1112basic_stringIcSt11char_t
   br label %if.end104
 
 if.else75:                                        ; preds = %sw.bb70
-  %payload_map78 = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 2
+  %payload_map78 = getelementptr inbounds i8, ptr %trace, i64 16
   %cmp.i188 = icmp ugt i64 %call2.i.i154, 7
   br i1 %cmp.i188, label %if.end.i189, label %if.else75._ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit193_crit_edge
 
@@ -1599,15 +1574,15 @@ if.end104:                                        ; preds = %sw.epilog100, %_ZN7
 
 if.then106:                                       ; preds = %if.end104
   store ptr @.str.16, ptr %ps_key, align 8
-  %size_.i.i279 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ps_key, i64 0, i32 1
+  %size_.i.i279 = getelementptr inbounds i8, ptr %ps_key, i64 8
   store i64 0, ptr %size_.i.i279, align 8
   %46 = getelementptr inbounds i8, ptr %ps_key, i64 16
   call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %46)
-  %self_space_.i280 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps_key, i64 0, i32 2
+  %self_space_.i280 = getelementptr inbounds i8, ptr %ps_key, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i280) #19
-  %pinned_.i281 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps_key, i64 0, i32 4
+  %pinned_.i281 = getelementptr inbounds i8, ptr %ps_key, i64 88
   store i8 0, ptr %pinned_.i281, align 8
-  %buf_.i282 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps_key, i64 0, i32 3
+  %buf_.i282 = getelementptr inbounds i8, ptr %ps_key, i64 80
   store ptr %self_space_.i280, ptr %buf_.i282, align 8
   %call3.i288 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i280, ptr noundef %iter_key.sroa.0.4, i64 noundef %iter_key.sroa.4.4)
           to label %invoke.cont108 unwind label %lpad107
@@ -1620,18 +1595,18 @@ invoke.cont108:                                   ; preds = %if.then106
   %call7.i286 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #19
   store i64 %call7.i286, ptr %size_.i.i279, align 8
   store ptr @.str.16, ptr %ps_lower, align 8
-  %size_.i.i290 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ps_lower, i64 0, i32 1
+  %size_.i.i290 = getelementptr inbounds i8, ptr %ps_lower, i64 8
   store i64 0, ptr %size_.i.i290, align 8
   %49 = getelementptr inbounds i8, ptr %ps_lower, i64 16
   invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %49)
           to label %invoke.cont109 unwind label %lpad107
 
 invoke.cont109:                                   ; preds = %invoke.cont108
-  %self_space_.i291 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps_lower, i64 0, i32 2
+  %self_space_.i291 = getelementptr inbounds i8, ptr %ps_lower, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i291) #19
-  %pinned_.i292 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps_lower, i64 0, i32 4
+  %pinned_.i292 = getelementptr inbounds i8, ptr %ps_lower, i64 88
   store i8 0, ptr %pinned_.i292, align 8
-  %buf_.i293 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps_lower, i64 0, i32 3
+  %buf_.i293 = getelementptr inbounds i8, ptr %ps_lower, i64 80
   store ptr %self_space_.i291, ptr %buf_.i293, align 8
   %call3.i299 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i291, ptr noundef %lower_bound.sroa.0.3, i64 noundef %lower_bound.sroa.3.3)
           to label %invoke.cont111 unwind label %lpad110
@@ -1644,18 +1619,18 @@ invoke.cont111:                                   ; preds = %invoke.cont109
   %call7.i297 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #19
   store i64 %call7.i297, ptr %size_.i.i290, align 8
   store ptr @.str.16, ptr %ps_upper, align 8
-  %size_.i.i301 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ps_upper, i64 0, i32 1
+  %size_.i.i301 = getelementptr inbounds i8, ptr %ps_upper, i64 8
   store i64 0, ptr %size_.i.i301, align 8
   %52 = getelementptr inbounds i8, ptr %ps_upper, i64 16
   invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %52)
           to label %invoke.cont112 unwind label %lpad110
 
 invoke.cont112:                                   ; preds = %invoke.cont111
-  %self_space_.i302 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps_upper, i64 0, i32 2
+  %self_space_.i302 = getelementptr inbounds i8, ptr %ps_upper, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i302) #19
-  %pinned_.i303 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps_upper, i64 0, i32 4
+  %pinned_.i303 = getelementptr inbounds i8, ptr %ps_upper, i64 88
   store i8 0, ptr %pinned_.i303, align 8
-  %buf_.i304 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps_upper, i64 0, i32 3
+  %buf_.i304 = getelementptr inbounds i8, ptr %ps_upper, i64 80
   store ptr %self_space_.i302, ptr %buf_.i304, align 8
   %call3.i311 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i302, ptr noundef %upper_bound.sroa.0.3, i64 noundef %upper_bound.sroa.3.3)
           to label %invoke.cont114 unwind label %lpad113
@@ -1685,7 +1660,7 @@ invoke.cont121:                                   ; preds = %invoke.cont115
 
 _ZNKSt14default_deleteIN7rocksdb11TraceRecordEEclEPS1_.exit.i.i314: ; preds = %invoke.cont121
   %vtable.i.i.i315 = load ptr, ptr %57, align 8
-  %vfn.i.i.i316 = getelementptr inbounds ptr, ptr %vtable.i.i.i315, i64 1
+  %vfn.i.i.i316 = getelementptr inbounds i8, ptr %vtable.i.i.i315, i64 8
   %58 = load ptr, ptr %vfn.i.i.i316, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(16) %57) #19
   br label %_ZNSt10unique_ptrIN7rocksdb11TraceRecordESt14default_deleteIS1_EE5resetEPS1_.exit317
@@ -1739,7 +1714,7 @@ ehcleanup125:                                     ; preds = %ehcleanup124, %lpad
   br label %eh.resume
 
 if.end126:                                        ; preds = %_ZNSt10unique_ptrIN7rocksdb11TraceRecordESt14default_deleteIS1_EE5resetEPS1_.exit317, %if.end104
-  %state_.i.i324 = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i324 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i324, align 8, !alias.scope !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !23
   br label %return
@@ -1750,20 +1725,20 @@ sw.bb127:                                         ; preds = %if.end
 
 if.then129:                                       ; preds = %sw.bb127
   store ptr @.str.7, ptr %ref.tmp130, align 8
-  %size_.i326 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp130, i64 0, i32 1
+  %size_.i326 = getelementptr inbounds i8, ptr %ref.tmp130, i64 8
   store i64 26, ptr %size_.i326, align 8
   store ptr @.str.16, ptr %ref.tmp131, align 8
-  %size_.i327 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp131, i64 0, i32 1
+  %size_.i327 = getelementptr inbounds i8, ptr %ref.tmp131, i64 8
   store i64 0, ptr %size_.i327, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp130, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp131, i8 noundef zeroext 0)
   br label %return
 
 if.end132:                                        ; preds = %sw.bb127
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %multiget_keys, i8 0, i64 24, i1 false)
-  %payload137 = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 3
+  %payload137 = getelementptr inbounds i8, ptr %trace, i64 24
   %call.i330 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %payload137) #19
   %call2.i332 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %payload137) #19
-  %payload_map139 = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 2
+  %payload_map139 = getelementptr inbounds i8, ptr %trace, i64 16
   %cmp.i334 = icmp ugt i64 %call2.i332, 7
   br i1 %cmp.i334, label %if.end.i335, label %if.end132.invoke.cont140_crit_edge
 
@@ -1956,10 +1931,10 @@ while.end166:                                     ; preds = %sw.epilog163
 
 if.then168:                                       ; preds = %invoke.cont140, %while.end166
   store ptr @.str.8, ptr %ref.tmp169, align 8
-  %size_.i402 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp169, i64 0, i32 1
+  %size_.i402 = getelementptr inbounds i8, ptr %ref.tmp169, i64 8
   store i64 30, ptr %size_.i402, align 8
   store ptr @.str.16, ptr %ref.tmp171, align 8
-  %size_.i403 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp171, i64 0, i32 1
+  %size_.i403 = getelementptr inbounds i8, ptr %ref.tmp171, i64 8
   store i64 0, ptr %size_.i403, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp169, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp171, i8 noundef zeroext 0)
           to label %cleanup unwind label %lpad133.loopexit.split-lp.loopexit.split-lp
@@ -1976,13 +1951,13 @@ invoke.cont176:                                   ; preds = %_ZNSt12_Vector_base
 
 for.cond.preheader:                               ; preds = %invoke.cont176
   %add.ptr21.i = getelementptr inbounds i32, ptr %call5.i.i.i.i410, i64 %conv175
-  %size_.i.i454 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ps186, i64 0, i32 1
+  %size_.i.i454 = getelementptr inbounds i8, ptr %ps186, i64 8
   %70 = getelementptr inbounds i8, ptr %ps186, i64 16
-  %self_space_.i455 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps186, i64 0, i32 2
-  %pinned_.i456 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps186, i64 0, i32 4
-  %buf_.i457 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %ps186, i64 0, i32 3
-  %_M_finish.i.i467 = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %multiget_keys, i64 0, i32 1
-  %_M_end_of_storage.i.i468 = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %multiget_keys, i64 0, i32 2
+  %self_space_.i455 = getelementptr inbounds i8, ptr %ps186, i64 48
+  %pinned_.i456 = getelementptr inbounds i8, ptr %ps186, i64 88
+  %buf_.i457 = getelementptr inbounds i8, ptr %ps186, i64 80
+  %_M_finish.i.i467 = getelementptr inbounds i8, ptr %multiget_keys, i64 8
+  %_M_end_of_storage.i.i468 = getelementptr inbounds i8, ptr %multiget_keys, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %invoke.cont190
@@ -2120,7 +2095,7 @@ invoke.cont185:                                   ; preds = %_ZNSt6vectorIjSaIjE
   %cf_ids.sroa.0.3 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %cf_ids.sroa.0.2613, %if.then.i447 ]
   %add.ptr.i.i451.pn = phi ptr [ %add.ptr.i.i451, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %cf_ids.sroa.9.1614, %if.then.i447 ]
   %cf_ids.sroa.16.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %cf_ids.sroa.16.1615, %if.then.i447 ]
-  %cf_ids.sroa.9.2 = getelementptr inbounds i32, ptr %add.ptr.i.i451.pn, i64 1
+  %cf_ids.sroa.9.2 = getelementptr inbounds i8, ptr %add.ptr.i.i451.pn, i64 4
   store ptr @.str.16, ptr %ps186, align 8
   store i64 0, ptr %size_.i.i454, align 8
   invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %70)
@@ -2151,7 +2126,7 @@ if.then.i.i470:                                   ; preds = %invoke.cont189
 
 .noexc472:                                        ; preds = %if.then.i.i470
   %78 = load ptr, ptr %_M_finish.i.i467, align 8
-  %incdec.ptr.i.i471 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %78, i64 1
+  %incdec.ptr.i.i471 = getelementptr inbounds i8, ptr %78, i64 96
   store ptr %incdec.ptr.i.i471, ptr %_M_finish.i.i467, align 8
   br label %invoke.cont190
 
@@ -2182,9 +2157,9 @@ if.then193:                                       ; preds = %for.end
 
 invoke.cont194:                                   ; preds = %if.then193
   store ptr %cf_ids.sroa.0.3, ptr %agg.tmp, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %agg.tmp, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %cf_ids.sroa.9.2, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data", ptr %agg.tmp, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %cf_ids.sroa.16.2, ptr %_M_end_of_storage.i.i.i.i, align 8
   %80 = load i64, ptr %trace, align 8
   invoke void @_ZN7rocksdb24MultiGetQueryTraceRecordC1ESt6vectorIjSaIjEEOS1_INS_13PinnableSliceESaIS4_EEm(ptr noundef nonnull align 8 dereferenceable(64) %call195, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %multiget_keys, i64 noundef %80)
@@ -2198,7 +2173,7 @@ invoke.cont198:                                   ; preds = %invoke.cont194
 
 _ZNKSt14default_deleteIN7rocksdb11TraceRecordEEclEPS1_.exit.i.i477: ; preds = %invoke.cont198
   %vtable.i.i.i478 = load ptr, ptr %81, align 8
-  %vfn.i.i.i479 = getelementptr inbounds ptr, ptr %vtable.i.i.i478, i64 1
+  %vfn.i.i.i479 = getelementptr inbounds i8, ptr %vtable.i.i.i478, i64 8
   %82 = load ptr, ptr %vfn.i.i.i479, align 8
   call void %82(ptr noundef nonnull align 8 dereferenceable(16) %81) #19
   br label %_ZNSt10unique_ptrIN7rocksdb11TraceRecordESt14default_deleteIS1_EE5resetEPS1_.exit480
@@ -2230,7 +2205,7 @@ ehcleanup203.thread:                              ; preds = %if.then.i.i.i484, %
 
 if.end201:                                        ; preds = %if.then.i.i.i482, %_ZNSt10unique_ptrIN7rocksdb11TraceRecordESt14default_deleteIS1_EE5resetEPS1_.exit480, %for.end
   %cf_ids.sroa.0.4 = phi ptr [ %cf_ids.sroa.0.3, %for.end ], [ null, %_ZNSt10unique_ptrIN7rocksdb11TraceRecordESt14default_deleteIS1_EE5resetEPS1_.exit480 ], [ null, %if.then.i.i.i482 ]
-  %state_.i.i486 = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i486 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i486, align 8, !alias.scope !28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !28
   br label %cleanup
@@ -2238,18 +2213,18 @@ if.end201:                                        ; preds = %if.then.i.i.i482, %
 cleanup:                                          ; preds = %if.then168, %if.end201
   %cf_ids.sroa.0.5 = phi ptr [ %cf_ids.sroa.0.4, %if.end201 ], [ null, %if.then168 ]
   %86 = load ptr, ptr %multiget_keys, align 8
-  %_M_finish.i487 = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %multiget_keys, i64 0, i32 1
+  %_M_finish.i487 = getelementptr inbounds i8, ptr %multiget_keys, i64 8
   %87 = load ptr, ptr %_M_finish.i487, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %86, %87
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %cleanup, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %86, %cleanup ]
-  %self_space_.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i.i, i64 0, i32 2
+  %self_space_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i.i.i.i) #19
   %88 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #19
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 96
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %87
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !31
 
@@ -2287,10 +2262,10 @@ if.then.i.i.i496:                                 ; preds = %ehcleanup203
 
 sw.default206:                                    ; preds = %if.end
   store ptr @.str.9, ptr %ref.tmp207, align 8
-  %size_.i499 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp207, i64 0, i32 1
+  %size_.i499 = getelementptr inbounds i8, ptr %ref.tmp207, i64 8
   store i64 23, ptr %size_.i499, align 8
   store ptr @.str.16, ptr %ref.tmp208, align 8
-  %size_.i500 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp208, i64 0, i32 1
+  %size_.i500 = getelementptr inbounds i8, ptr %ref.tmp208, i64 8
   store i64 0, ptr %size_.i500, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 3, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp207, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp208, i8 noundef zeroext 0)
   br label %return
@@ -2329,7 +2304,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -2340,7 +2315,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end33
 
 if.then4:                                         ; preds = %if.end
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i5 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i7 = sub i64 %sub.ptr.lhs.cast.i5, %sub.ptr.rhs.cast.i
@@ -2353,11 +2328,11 @@ if.then4:                                         ; preds = %if.end
 
 for.body.i.i.i:                                   ; preds = %if.then4, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %3, %if.then4 ]
-  %self_space_.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i, i64 0, i32 2
+  %self_space_.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i.i.i) #19
   %5 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 96
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %4
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN7rocksdb13PinnableSliceES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %for.body.i.i.i, !llvm.loop !31
 
@@ -2395,18 +2370,18 @@ declare void @_ZN7rocksdb24MultiGetQueryTraceRecordC1ESt6vectorIjSaIjEEOS1_INS_1
 define linkonce_odr void @_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
-  %self_space_.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i, i64 0, i32 2
+  %self_space_.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i.i.i) #19
   %2 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 96
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !31
 
@@ -2432,21 +2407,21 @@ define void @_ZN7rocksdb6TracerC2EPNS_11SystemClockERKNS_12TraceOptionsEOSt10uni
 invoke.cont:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   store ptr %clock, ptr %this, align 8
-  %trace_options_ = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1
+  %trace_options_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %trace_options_, ptr noundef nonnull align 8 dereferenceable(32) %trace_options, i64 32, i1 false)
-  %trace_writer_ = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 2
+  %trace_writer_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %trace_writer, align 8
   store i64 %0, ptr %trace_writer_, align 8
   store ptr null, ptr %trace_writer, align 8
-  %trace_request_count_ = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 3
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 4, i32 6
+  %trace_request_count_ = getelementptr inbounds i8, ptr %this, i64 48
+  %state_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %trace_request_count_, i8 0, i64 14, i1 false)
   invoke void @_ZN7rocksdb6Tracer11WriteHeaderEv(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %this)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %state_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %ref.tmp, i64 0, i32 6
+  %state_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %1 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -2477,7 +2452,7 @@ _ZN7rocksdb6StatusD2Ev.exit5:                     ; preds = %lpad2, %_ZNKSt14def
 
 _ZNKSt14default_deleteIN7rocksdb11TraceWriterEEclEPS1_.exit.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit5
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   br label %_ZNSt10unique_ptrIN7rocksdb11TraceWriterESt14default_deleteIS1_EED2Ev.exit
@@ -2550,20 +2525,20 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %invoke.cont26 unwind label %lpad
 
 invoke.cont26:                                    ; preds = %invoke.cont24
-  %payload_map.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 2
+  %payload_map.i = getelementptr inbounds i8, ptr %trace, i64 16
   store i64 0, ptr %payload_map.i, align 8
-  %payload.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 3
+  %payload.i = getelementptr inbounds i8, ptr %trace, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload.i) #19
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %1 = load ptr, ptr %vfn, align 8
   %call29 = invoke noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont26
   store i64 %call29, ptr %trace, align 8
-  %type = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %trace, i64 8
   store i8 1, ptr %type, align 8
   %call31 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %payload.i, ptr noundef nonnull align 8 dereferenceable(32) %header)
           to label %invoke.cont30 unwind label %lpad27
@@ -2599,7 +2574,7 @@ ehcleanup:                                        ; preds = %lpad27, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb6TracerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %trace_writer_ = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 2
+  %trace_writer_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %trace_writer_, align 8
   store ptr null, ptr %trace_writer_, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -2607,13 +2582,13 @@ entry:
 
 _ZNKSt14default_deleteIN7rocksdb11TraceWriterEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
   br label %_ZNSt10unique_ptrIN7rocksdb11TraceWriterESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN7rocksdb11TraceWriterESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %entry, %_ZNKSt14default_deleteIN7rocksdb11TraceWriterEEclEPS1_.exit.i.i
-  %state_.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 4, i32 6
+  %state_.i = getelementptr inbounds i8, ptr %this, i64 64
   %2 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
@@ -2630,7 +2605,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZNSt10unique_ptrIN
 
 _ZNKSt14default_deleteIN7rocksdb11TraceWriterEEclEPS1_.exit.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit
   %vtable.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %_ZNSt10unique_ptrIN7rocksdb11TraceWriterESt14default_deleteIS1_EED2Ev.exit
@@ -2646,29 +2621,29 @@ entry:
   %buf.i.i = alloca [5 x i8], align 1
   %value.addr.i = alloca i64, align 8
   %trace = alloca %"struct.rocksdb::Trace", align 8
-  %trace_writer_.i.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 2
+  %trace_writer_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %trace_writer_.i.i, align 8
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %trace_options_.i.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1
+  %trace_options_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %trace_options_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %call2.i.i, %2
   br i1 %cmp.i.i, label %if.then, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %filter.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1, i32 2
+  %filter.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %filter.i, align 8
   %and.i = and i64 %3, 2
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit, label %if.then
 
 _ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit: ; preds = %land.lhs.true.i
-  %trace_request_count_.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 3
+  %trace_request_count_.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i64, ptr %trace_request_count_.i, align 8
   %inc.i = add i64 %4, 1
-  %sampling_frequency.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1, i32 1
+  %sampling_frequency.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i64, ptr %sampling_frequency.i, align 8
   %cmp13.i = icmp ult i64 %inc.i, %5
   %spec.store.select.i = select i1 %cmp13.i, i64 %inc.i, i64 0
@@ -2676,26 +2651,26 @@ _ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit: ; preds = %land.lhs.t
   br i1 %cmp13.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true.i, %entry, %_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !35
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !35
   br label %return
 
 if.end:                                           ; preds = %_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit
-  %payload_map.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 2
+  %payload_map.i = getelementptr inbounds i8, ptr %trace, i64 16
   store i64 0, ptr %payload_map.i, align 8
-  %payload.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 3
+  %payload.i = getelementptr inbounds i8, ptr %trace, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload.i) #19
   %6 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %7 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
   store i64 %call2, ptr %trace, align 8
-  %type = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %trace, i64 8
   store i8 3, ptr %type, align 8
   %8 = load i64, ptr %payload_map.i, align 8
   %or.i = or i64 %8, 2
@@ -2707,7 +2682,7 @@ invoke.cont:                                      ; preds = %if.end
 
 invoke.cont5:                                     ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i)
-  %rep_.i = getelementptr inbounds %"class.rocksdb::WriteBatch", ptr %write_batch, i64 0, i32 10
+  %rep_.i = getelementptr inbounds i8, ptr %write_batch, i64 64
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_.i) #19
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_.i) #19
   %conv.i2 = trunc i64 %call2.i to i32
@@ -2748,13 +2723,13 @@ return:                                           ; preds = %invoke.cont11, %if.
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %trace_type) local_unnamed_addr #3 align 2 {
 entry:
-  %trace_writer_.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 2
+  %trace_writer_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %trace_writer_.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %trace_options_.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1
+  %trace_options_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %trace_options_.i, align 8
   %cmp.i = icmp ugt i64 %call2.i, %2
   br i1 %cmp.i, label %return, label %if.end
@@ -2777,17 +2752,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %6 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [11 x i64], ptr @switch.table._ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE, i64 0, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
-  %filter = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1, i32 2
+  %filter = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load i64, ptr %filter, align 8
   %and = and i64 %7, %switch.load
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %if.end10, label %return
 
 if.end10:                                         ; preds = %switch.hole_check, %if.end, %switch.lookup
-  %trace_request_count_ = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 3
+  %trace_request_count_ = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load i64, ptr %trace_request_count_, align 8
   %inc = add i64 %8, 1
-  %sampling_frequency = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1, i32 1
+  %sampling_frequency = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %sampling_frequency, align 8
   %cmp13 = icmp ult i64 %inc, %9
   %spec.store.select = select i1 %cmp13, i64 %inc, i64 0
@@ -2810,19 +2785,19 @@ entry:
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   %encoded_trace = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp9 = alloca %"class.rocksdb::Slice", align 8
-  %trace_write_status_ = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 4
+  %trace_write_status_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i8, ptr %trace_write_status_, align 8
   %cmp.i = icmp eq i8 %0, 0
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   store ptr @.str.17, ptr %ref.tmp, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 26, ptr %size_.i, align 8
   call void @_ZNK7rocksdb6Status8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(16) %trace_write_status_)
   %call.i3 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #19
   store ptr %call.i3, ptr %ref.tmp2, align 8
-  %size_.i4 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp2, i64 0, i32 1
+  %size_.i4 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #19
   store i64 %call2.i, ptr %size_.i4, align 8
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 7, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, i8 noundef zeroext 0)
@@ -2843,13 +2818,13 @@ if.end:                                           ; preds = %entry
 
 call.i.i.noexc:                                   ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i.i)
-  %type.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %trace, i64 8
   %3 = load i8, ptr %type.i, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %encoded_trace, i8 noundef signext %3)
           to label %.noexc unwind label %lpad6
 
 .noexc:                                           ; preds = %call.i.i.noexc
-  %payload.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 3
+  %payload.i = getelementptr inbounds i8, ptr %trace, i64 24
   %call.i5 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %payload.i) #19
   %conv.i = trunc i64 %call.i5 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i7.i)
@@ -2863,15 +2838,15 @@ call.i8.i.noexc:                                  ; preds = %.noexc
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %call.i8.i.noexc
-  %trace_writer_ = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 2
+  %trace_writer_ = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load ptr, ptr %trace_writer_, align 8
   %call.i10 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %encoded_trace) #19
   store ptr %call.i10, ptr %ref.tmp9, align 8
-  %size_.i11 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp9, i64 0, i32 1
+  %size_.i11 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   %call2.i12 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %encoded_trace) #19
   store i64 %call2.i12, ptr %size_.i11, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %5 = load ptr, ptr %vfn, align 8
   invoke void %5(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp9)
           to label %invoke.cont13 unwind label %lpad6
@@ -2888,29 +2863,29 @@ if.then15:                                        ; preds = %invoke.cont13
 
 if.then.i:                                        ; preds = %if.then15
   store i8 %6, ptr %trace_write_status_, align 8
-  %subcode_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 1
+  %subcode_.i = getelementptr inbounds i8, ptr %agg.result, i64 1
   %7 = load i8, ptr %subcode_.i, align 1
-  %subcode_3.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 4, i32 1
+  %subcode_3.i = getelementptr inbounds i8, ptr %this, i64 57
   store i8 %7, ptr %subcode_3.i, align 1
-  %sev_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 2
+  %sev_.i = getelementptr inbounds i8, ptr %agg.result, i64 2
   %8 = load i8, ptr %sev_.i, align 2
-  %sev_4.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 4, i32 2
+  %sev_4.i = getelementptr inbounds i8, ptr %this, i64 58
   store i8 %8, ptr %sev_4.i, align 2
-  %retryable_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 3
+  %retryable_.i = getelementptr inbounds i8, ptr %agg.result, i64 3
   %9 = load i8, ptr %retryable_.i, align 1
   %10 = and i8 %9, 1
-  %retryable_5.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 4, i32 3
+  %retryable_5.i = getelementptr inbounds i8, ptr %this, i64 59
   store i8 %10, ptr %retryable_5.i, align 1
-  %data_loss_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 4
+  %data_loss_.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   %11 = load i8, ptr %data_loss_.i, align 4
   %12 = and i8 %11, 1
-  %data_loss_7.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 4, i32 4
+  %data_loss_7.i = getelementptr inbounds i8, ptr %this, i64 60
   store i8 %12, ptr %data_loss_7.i, align 4
-  %scope_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 5
+  %scope_.i = getelementptr inbounds i8, ptr %agg.result, i64 5
   %13 = load i8, ptr %scope_.i, align 1
-  %scope_9.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 4, i32 5
+  %scope_9.i = getelementptr inbounds i8, ptr %this, i64 61
   store i8 %13, ptr %scope_9.i, align 1
-  %state_.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %14 = load ptr, ptr %state_.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %14, null
   br i1 %cmp.i.not.i.i, label %cond.end.i, label %cond.false.i
@@ -2925,7 +2900,7 @@ cond.false.i:                                     ; preds = %if.then.i
 
 cond.end.i:                                       ; preds = %.noexc14, %if.then.i
   %15 = phi ptr [ %.pre.i, %.noexc14 ], [ null, %if.then.i ]
-  %state_12.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 4, i32 6
+  %state_12.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %ref.tmp.i, align 8
   %16 = load ptr, ptr %state_12.i, align 8
   store ptr %15, ptr %state_12.i, align 8
@@ -2985,29 +2960,29 @@ entry:
   %value.addr.i4 = alloca i32, align 4
   %value.addr.i = alloca i64, align 8
   %trace = alloca %"struct.rocksdb::Trace", align 8
-  %trace_writer_.i.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 2
+  %trace_writer_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %trace_writer_.i.i, align 8
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %trace_options_.i.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1
+  %trace_options_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %trace_options_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %call2.i.i, %2
   br i1 %cmp.i.i, label %if.then, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %filter.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1, i32 2
+  %filter.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %filter.i, align 8
   %and.i = and i64 %3, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit, label %if.then
 
 _ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit: ; preds = %land.lhs.true.i
-  %trace_request_count_.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 3
+  %trace_request_count_.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i64, ptr %trace_request_count_.i, align 8
   %inc.i = add i64 %4, 1
-  %sampling_frequency.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1, i32 1
+  %sampling_frequency.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i64, ptr %sampling_frequency.i, align 8
   %cmp13.i = icmp ult i64 %inc.i, %5
   %spec.store.select.i = select i1 %cmp13.i, i64 %inc.i, i64 0
@@ -3015,26 +2990,26 @@ _ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit: ; preds = %land.lhs.t
   br i1 %cmp13.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true.i, %entry, %_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !38
   br label %return
 
 if.end:                                           ; preds = %_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit
-  %payload_map.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 2
+  %payload_map.i = getelementptr inbounds i8, ptr %trace, i64 16
   store i64 0, ptr %payload_map.i, align 8
-  %payload.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 3
+  %payload.i = getelementptr inbounds i8, ptr %trace, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload.i) #19
   %6 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %7 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
   store i64 %call2, ptr %trace, align 8
-  %type = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %trace, i64 8
   store i8 4, ptr %type, align 8
   %8 = load i64, ptr %payload_map.i, align 8
   %or.i1 = or i64 %8, 12
@@ -3047,7 +3022,7 @@ invoke.cont:                                      ; preds = %if.end
 invoke.cont7:                                     ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.addr.i)
   %vtable9 = load ptr, ptr %column_family, align 8
-  %vfn10 = getelementptr inbounds ptr, ptr %vtable9, i64 3
+  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 24
   %9 = load ptr, ptr %vfn10, align 8
   %call12 = invoke noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(8) %column_family)
           to label %invoke.cont11 unwind label %lpad
@@ -3060,7 +3035,7 @@ invoke.cont11:                                    ; preds = %invoke.cont7
 
 invoke.cont13:                                    ; preds = %invoke.cont11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i4)
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %key, i64 8
   %10 = load i64, ptr %size_.i.i, align 8
   %conv.i6 = trunc i64 %10 to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i)
@@ -3108,29 +3083,29 @@ entry:
   %value.addr.i12 = alloca i32, align 4
   %value.addr.i = alloca i64, align 8
   %trace = alloca %"struct.rocksdb::Trace", align 8
-  %trace_writer_.i.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 2
+  %trace_writer_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %trace_writer_.i.i, align 8
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %trace_options_.i.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1
+  %trace_options_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %trace_options_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %call2.i.i, %2
   br i1 %cmp.i.i, label %if.then, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %filter.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1, i32 2
+  %filter.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %filter.i, align 8
   %and.i = and i64 %3, 4
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit, label %if.then
 
 _ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit: ; preds = %land.lhs.true.i
-  %trace_request_count_.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 3
+  %trace_request_count_.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i64, ptr %trace_request_count_.i, align 8
   %inc.i = add i64 %4, 1
-  %sampling_frequency.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1, i32 1
+  %sampling_frequency.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i64, ptr %sampling_frequency.i, align 8
   %cmp13.i = icmp ult i64 %inc.i, %5
   %spec.store.select.i = select i1 %cmp13.i, i64 %inc.i, i64 0
@@ -3138,31 +3113,31 @@ _ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit: ; preds = %land.lhs.t
   br i1 %cmp13.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true.i, %entry, %_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !41
   br label %return
 
 if.end:                                           ; preds = %_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit
-  %payload_map.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 2
+  %payload_map.i = getelementptr inbounds i8, ptr %trace, i64 16
   store i64 0, ptr %payload_map.i, align 8
-  %payload.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 3
+  %payload.i = getelementptr inbounds i8, ptr %trace, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload.i) #19
   %6 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %7 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
   store i64 %call2, ptr %trace, align 8
-  %type = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %trace, i64 8
   store i8 5, ptr %type, align 8
   %8 = load i64, ptr %payload_map.i, align 8
   %or.i3 = or i64 %8, 48
   store i64 %or.i3, ptr %payload_map.i, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %lower_bound, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %lower_bound, i64 8
   %9 = load i64, ptr %size_.i, align 8
   %cmp.not = icmp eq i64 %9, 0
   br i1 %cmp.not, label %if.end11, label %if.then8
@@ -3180,7 +3155,7 @@ lpad:                                             ; preds = %call3.i.i.noexc40, 
 
 if.end11:                                         ; preds = %if.then8, %invoke.cont
   %11 = phi i64 [ %or.i5, %if.then8 ], [ %or.i3, %invoke.cont ]
-  %size_.i8 = getelementptr inbounds %"class.rocksdb::Slice", ptr %upper_bound, i64 0, i32 1
+  %size_.i8 = getelementptr inbounds i8, ptr %upper_bound, i64 8
   %12 = load i64, ptr %size_.i8, align 8
   %cmp14.not = icmp eq i64 %12, 0
   br i1 %cmp14.not, label %if.end18, label %if.then15
@@ -3207,7 +3182,7 @@ invoke.cont20:                                    ; preds = %if.end18
 
 invoke.cont22:                                    ; preds = %invoke.cont20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i12)
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %key, i64 8
   %15 = load i64, ptr %size_.i.i, align 8
   %conv.i14 = trunc i64 %15 to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i)
@@ -3296,29 +3271,29 @@ entry:
   %value.addr.i12 = alloca i32, align 4
   %value.addr.i = alloca i64, align 8
   %trace = alloca %"struct.rocksdb::Trace", align 8
-  %trace_writer_.i.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 2
+  %trace_writer_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %trace_writer_.i.i, align 8
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %1 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %trace_options_.i.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1
+  %trace_options_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %trace_options_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %call2.i.i, %2
   br i1 %cmp.i.i, label %if.then, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %filter.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1, i32 2
+  %filter.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %filter.i, align 8
   %and.i = and i64 %3, 8
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit, label %if.then
 
 _ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit: ; preds = %land.lhs.true.i
-  %trace_request_count_.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 3
+  %trace_request_count_.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i64, ptr %trace_request_count_.i, align 8
   %inc.i = add i64 %4, 1
-  %sampling_frequency.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1, i32 1
+  %sampling_frequency.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load i64, ptr %sampling_frequency.i, align 8
   %cmp13.i = icmp ult i64 %inc.i, %5
   %spec.store.select.i = select i1 %cmp13.i, i64 %inc.i, i64 0
@@ -3326,31 +3301,31 @@ _ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit: ; preds = %land.lhs.t
   br i1 %cmp13.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true.i, %entry, %_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !44
   br label %return
 
 if.end:                                           ; preds = %_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit
-  %payload_map.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 2
+  %payload_map.i = getelementptr inbounds i8, ptr %trace, i64 16
   store i64 0, ptr %payload_map.i, align 8
-  %payload.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 3
+  %payload.i = getelementptr inbounds i8, ptr %trace, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload.i) #19
   %6 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %6, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %7 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
   store i64 %call2, ptr %trace, align 8
-  %type = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %trace, i64 8
   store i8 6, ptr %type, align 8
   %8 = load i64, ptr %payload_map.i, align 8
   %or.i3 = or i64 %8, 48
   store i64 %or.i3, ptr %payload_map.i, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %lower_bound, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %lower_bound, i64 8
   %9 = load i64, ptr %size_.i, align 8
   %cmp.not = icmp eq i64 %9, 0
   br i1 %cmp.not, label %if.end11, label %if.then8
@@ -3368,7 +3343,7 @@ lpad:                                             ; preds = %call3.i.i.noexc40, 
 
 if.end11:                                         ; preds = %if.then8, %invoke.cont
   %11 = phi i64 [ %or.i5, %if.then8 ], [ %or.i3, %invoke.cont ]
-  %size_.i8 = getelementptr inbounds %"class.rocksdb::Slice", ptr %upper_bound, i64 0, i32 1
+  %size_.i8 = getelementptr inbounds i8, ptr %upper_bound, i64 8
   %12 = load i64, ptr %size_.i8, align 8
   %cmp14.not = icmp eq i64 %12, 0
   br i1 %cmp14.not, label %if.end18, label %if.then15
@@ -3395,7 +3370,7 @@ invoke.cont20:                                    ; preds = %if.end18
 
 invoke.cont22:                                    ; preds = %invoke.cont20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i12)
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %key, i64 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %key, i64 8
   %15 = load i64, ptr %size_.i.i, align 8
   %conv.i14 = trunc i64 %15 to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i)
@@ -3484,7 +3459,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.then.i
 
 if.then:                                          ; preds = %entry
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !47
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !47
   br label %return
@@ -3577,14 +3552,14 @@ entry:
   %trace = alloca %"struct.rocksdb::Trace", align 8
   %cfids_payload = alloca %"class.std::__cxx11::basic_string", align 8
   %keys_payload = alloca %"class.std::__cxx11::basic_string", align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::ColumnFamilyHandle *, std::allocator<rocksdb::ColumnFamilyHandle *>>::_Vector_impl_data", ptr %column_families, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %column_families, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %column_families, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %_M_finish.i9 = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data", ptr %keys, i64 0, i32 1
+  %_M_finish.i9 = getelementptr inbounds i8, ptr %keys, i64 8
   %2 = load ptr, ptr %_M_finish.i9, align 8
   %3 = load ptr, ptr %keys, align 8
   %sub.ptr.lhs.cast.i10 = ptrtoint ptr %2 to i64
@@ -3596,38 +3571,38 @@ entry:
 
 if.then:                                          ; preds = %entry
   store ptr @.str.10, ptr %ref.tmp, align 8
-  %size_.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp, i64 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 42, ptr %size_.i, align 8
   store ptr @.str.16, ptr %ref.tmp3, align 8
-  %size_.i14 = getelementptr inbounds %"class.rocksdb::Slice", ptr %ref.tmp3, i64 0, i32 1
+  %size_.i14 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store i64 0, ptr %size_.i14, align 8
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3, i8 noundef zeroext 0)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %trace_writer_.i.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 2
+  %trace_writer_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %4 = load ptr, ptr %trace_writer_.i.i, align 8
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %5 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %trace_options_.i.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1
+  %trace_options_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %trace_options_.i.i, align 8
   %cmp.i.i = icmp ugt i64 %call2.i.i, %6
   br i1 %cmp.i.i, label %if.then5, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %filter.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1, i32 2
+  %filter.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load i64, ptr %filter.i, align 8
   %and.i = and i64 %7, 16
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit, label %if.then5
 
 _ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit: ; preds = %land.lhs.true.i
-  %trace_request_count_.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 3
+  %trace_request_count_.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load i64, ptr %trace_request_count_.i, align 8
   %inc.i = add i64 %8, 1
-  %sampling_frequency.i = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1, i32 1
+  %sampling_frequency.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load i64, ptr %sampling_frequency.i, align 8
   %cmp13.i = icmp ult i64 %inc.i, %9
   %spec.store.select.i = select i1 %cmp13.i, i64 %inc.i, i64 0
@@ -3635,7 +3610,7 @@ _ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit: ; preds = %land.lhs.t
   br i1 %cmp13.i, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %land.lhs.true.i, %if.end, %_ZN7rocksdb6Tracer15ShouldSkipTraceERKNS_9TraceTypeE.exit
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !51
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !51
   br label %return
@@ -3648,20 +3623,20 @@ if.end6:                                          ; preds = %_ZN7rocksdb6Tracer1
   %sub.ptr.sub.i18 = sub i64 %sub.ptr.lhs.cast.i16, %sub.ptr.rhs.cast.i17
   %sub.ptr.div.i19 = lshr i64 %sub.ptr.sub.i18, 4
   %conv = trunc i64 %sub.ptr.div.i19 to i32
-  %payload_map.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 2
+  %payload_map.i = getelementptr inbounds i8, ptr %trace, i64 16
   store i64 0, ptr %payload_map.i, align 8
-  %payload.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 3
+  %payload.i = getelementptr inbounds i8, ptr %trace, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload.i) #19
   %12 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %12, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %13 = load ptr, ptr %vfn, align 8
   %call8 = invoke noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end6
   store i64 %call8, ptr %trace, align 8
-  %type = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %trace, i64 8
   store i8 13, ptr %type, align 8
   %14 = load i64, ptr %payload_map.i, align 8
   %or.i22 = or i64 %14, 1792
@@ -3682,7 +3657,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr.i = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
   %16 = load ptr, ptr %add.ptr.i, align 8
   %vtable17 = load ptr, ptr %16, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 3
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 24
   %17 = load ptr, ptr %vfn18, align 8
   %call21 = invoke noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %invoke.cont20 unwind label %lpad19.loopexit
@@ -3697,7 +3672,7 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i)
   %18 = load ptr, ptr %keys, align 8
   %add.ptr.i26 = getelementptr inbounds %"class.rocksdb::Slice", ptr %18, i64 %indvars.iv
-  %size_.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %18, i64 %indvars.iv, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %add.ptr.i26, i64 8
   %19 = load i64, ptr %size_.i.i, align 8
   %conv.i27 = trunc i64 %19 to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %buf.i.i)
@@ -3826,7 +3801,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.then.i
 
 if.then:                                          ; preds = %entry
-  %state_.i.i = getelementptr inbounds %"class.rocksdb::Status", ptr %agg.result, i64 0, i32 6
+  %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !55
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false), !alias.scope !55
   br label %return
@@ -3906,13 +3881,13 @@ return:                                           ; preds = %if.then.i.i.i31, %_
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN7rocksdb6Tracer18IsTraceFileOverMaxEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %trace_writer_ = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 2
+  %trace_writer_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %trace_writer_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %trace_options_ = getelementptr inbounds %"class.rocksdb::Tracer", ptr %this, i64 0, i32 1
+  %trace_options_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %trace_options_, align 8
   %cmp = icmp ugt i64 %call2, %2
   ret i1 %cmp
@@ -3937,20 +3912,20 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 define void @_ZN7rocksdb6Tracer11WriteFooterEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %trace = alloca %"struct.rocksdb::Trace", align 8
-  %payload_map.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 2
+  %payload_map.i = getelementptr inbounds i8, ptr %trace, i64 16
   store i64 0, ptr %payload_map.i, align 8
-  %payload.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 3
+  %payload.i = getelementptr inbounds i8, ptr %trace, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload.i) #19
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 19
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
   %1 = load ptr, ptr %vfn, align 8
   %call = invoke noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   store i64 %call, ptr %trace, align 8
-  %type = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %trace, i64 8
   store i8 2, ptr %type, align 8
   %2 = load i64, ptr %payload_map.i, align 8
   %or.i = or i64 %2, 1
@@ -3982,20 +3957,20 @@ define void @_ZN7rocksdb6Tracer5CloseEv(ptr noalias sret(%"class.rocksdb::Status
 entry:
   %trace.i = alloca %"struct.rocksdb::Trace", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %trace.i)
-  %payload_map.i.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace.i, i64 0, i32 2
+  %payload_map.i.i = getelementptr inbounds i8, ptr %trace.i, i64 16
   store i64 0, ptr %payload_map.i.i, align 8, !noalias !59
-  %payload.i.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace.i, i64 0, i32 3
+  %payload.i.i = getelementptr inbounds i8, ptr %trace.i, i64 24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %payload.i.i) #19, !noalias !59
   %0 = load ptr, ptr %this, align 8, !noalias !59
   %vtable.i = load ptr, ptr %0, align 8, !noalias !59
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 19
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 152
   %1 = load ptr, ptr %vfn.i, align 8, !noalias !59
   %call.i = invoke noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %invoke.cont.i unwind label %lpad.i, !noalias !59
 
 invoke.cont.i:                                    ; preds = %entry
   store i64 %call.i, ptr %trace.i, align 8, !noalias !59
-  %type.i = getelementptr inbounds %"struct.rocksdb::Trace", ptr %trace.i, i64 0, i32 1
+  %type.i = getelementptr inbounds i8, ptr %trace.i, i64 8
   store i8 2, ptr %type.i, align 8, !noalias !59
   %2 = load i64, ptr %payload_map.i.i, align 8, !noalias !59
   %or.i.i = or i64 %2, 1
@@ -4158,7 +4133,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4202,14 +4177,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #19
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #19
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !62
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
@@ -4218,8 +4193,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #19
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #19
-  %incdec.ptr.i.i.i15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
+  %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
   br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !62
 
@@ -4233,7 +4208,7 @@ if.then.i20:                                      ; preds = %_ZNSt6vectorINSt7__
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, %if.then.i20
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %cond.i
@@ -4261,11 +4236,11 @@ entry:
 
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %__first.addr.04.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %__first, %entry ]
-  %self_space_.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i, i64 0, i32 2
+  %self_space_.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i.i) #19
   %1 = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 16
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
-  %incdec.ptr.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i, i64 96
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %__last
   br i1 %cmp.not.i.i, label %_ZSt8_DestroyIPN7rocksdb13PinnableSliceEEvT_S3_.exit, label %for.body.i.i, !llvm.loop !31
 
@@ -4281,11 +4256,11 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__first.addr.04.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %__first, %entry ]
-  %self_space_.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i, i64 0, i32 2
+  %self_space_.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i) #19
   %0 = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 16
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
-  %incdec.ptr.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 96
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %__last
   br i1 %cmp.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN7rocksdb13PinnableSliceEEEvT_S5_.exit, label %for.body.i, !llvm.loop !31
 
@@ -4335,8 +4310,8 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
           to label %for.inc.i.i.i.i unwind label %lpad.i.i.i.i
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.sroa.0.09.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__cur.010.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i, i64 96
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i, i64 96
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__last.coerce
   br i1 %cmp.i.i.not.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i, !llvm.loop !63
 
@@ -4414,7 +4389,7 @@ declare void @_ZN7rocksdb13PinnableSliceC1EOS0_(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7rocksdb13PinnableSliceESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(89) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -4463,8 +4438,8 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %for.i
           to label %for.inc.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.sroa.0.09.i.i.i.i.i, i64 1
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__cur.010.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i.i, i64 96
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 96
   %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %__position.coerce
   br i1 %cmp.i.i.not.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i, !llvm.loop !63
 
@@ -4503,7 +4478,7 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont8.i.i.i.
 
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
   %cmp.i.i.not8.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.i.i.not8.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
@@ -4514,8 +4489,8 @@ for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for
           to label %for.inc.i.i.i.i.i30 unwind label %lpad.i.i.i.i.i24
 
 for.inc.i.i.i.i.i30:                              ; preds = %for.body.i.i.i.i.i21
-  %incdec.ptr.i.i.i.i.i.i31 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.sroa.0.09.i.i.i.i.i23, i64 1
-  %incdec.ptr.i.i.i.i.i32 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__cur.010.i.i.i.i.i22, i64 1
+  %incdec.ptr.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__first.sroa.0.09.i.i.i.i.i23, i64 96
+  %incdec.ptr.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 96
   %cmp.i.i.not.i.i.i.i.i33 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i31, %0
   br i1 %cmp.i.i.not.i.i.i.i.i33, label %invoke.cont14, label %for.body.i.i.i.i.i21, !llvm.loop !63
 
@@ -4559,11 +4534,11 @@ invoke.cont14:                                    ; preds = %for.inc.i.i.i.i.i30
 
 for.body.i.i.i:                                   ; preds = %invoke.cont14, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont14 ]
-  %self_space_.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i, i64 0, i32 2
+  %self_space_.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i.i.i) #19
   %18 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #19
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 96
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN7rocksdb13PinnableSliceES1_EvT_S3_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !31
 
@@ -4576,7 +4551,7 @@ if.then.i39:                                      ; preds = %_ZSt8_DestroyIPN7ro
   br label %_ZNSt12_Vector_baseIN7rocksdb13PinnableSliceESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN7rocksdb13PinnableSliceESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN7rocksdb13PinnableSliceES1_EvT_S3_RSaIT0_E.exit, %if.then.i39
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::PinnableSlice, std::allocator<rocksdb::PinnableSlice>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i19, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i34, ptr %_M_finish.i.i, align 8
   %add.ptr29 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %cond.i19, i64 %cond.i
@@ -4592,7 +4567,7 @@ lpad.body:                                        ; preds = %_ZNSt12_Vector_base
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %lpad.body.thread, %lpad.body
-  %self_space_.i.i.i = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %cond.i19, i64 %sub.ptr.div.i, i32 2
+  %self_space_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i.i.i) #19
   %22 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   tail call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #19
@@ -4642,14 +4617,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::ColumnFamilyHandle *, std::allocator<rocksdb::ColumnFamilyHandle *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::ColumnFamilyHandle *, std::allocator<rocksdb::ColumnFamilyHandle *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -4664,15 +4639,16 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then
   store ptr null, ptr %0, align 8
-  %incdec.ptr.i.i.i = getelementptr ptr, ptr %0, i64 1
-  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
+  %sub.i.i.i = add i64 %__n, -1
+  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPPN7rocksdb18ColumnFamilyHandleEmS2_ET_S4_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl i64 %__n, 3
   %4 = add i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPPN7rocksdb18ColumnFamilyHandleEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN7rocksdb18ColumnFamilyHandleEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
@@ -4707,33 +4683,33 @@ if.then.i.i.i22:                                  ; preds = %_ZNSt16allocator_tr
   %cond.i19 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIPN7rocksdb18ColumnFamilyHandleEEE8allocateERS3_m.exit.i ], [ null, %_ZNKSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds ptr, ptr %cond.i19, i64 %sub.ptr.div.i
   store ptr null, ptr %add.ptr, align 8
-  %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
+  %cmp.i.i.i.i.i25 = icmp eq i64 %__n, 1
+  br i1 %cmp.i.i.i.i.i25, label %try.cont, label %if.end.i.i.i.i.i26
 
-if.end.i.i.i.i.i25:                               ; preds = %if.then.i.i.i22
-  %incdec.ptr.i.i.i23 = getelementptr ptr, ptr %add.ptr, i64 1
+if.end.i.i.i.i.i26:                               ; preds = %if.then.i.i.i22
+  %incdec.ptr.i.i.i23 = getelementptr i8, ptr %add.ptr, i64 8
   %5 = shl i64 %__n, 3
   %6 = add i64 %5, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i23, i8 0, i64 %6, i1 false)
   br label %try.cont
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %if.then.i.i.i22
-  %cmp.i.i.i30.not = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i30.not, label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %if.then.i.i.i31
+try.cont:                                         ; preds = %if.end.i.i.i.i.i26, %if.then.i.i.i22
+  %cmp.i.i.i31.not = icmp eq ptr %0, %1
+  br i1 %cmp.i.i.i31.not, label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %if.then.i.i.i32
 
-if.then.i.i.i31:                                  ; preds = %try.cont
+if.then.i.i.i32:                                  ; preds = %try.cont
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i19, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 
-_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %try.cont, %if.then.i.i.i31
-  %tobool.not.i32 = icmp eq ptr %1, null
-  br i1 %tobool.not.i32, label %_ZNSt12_Vector_baseIPN7rocksdb18ColumnFamilyHandleESaIS2_EE13_M_deallocateEPS2_m.exit34, label %if.then.i33
+_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %try.cont, %if.then.i.i.i32
+  %tobool.not.i33 = icmp eq ptr %1, null
+  br i1 %tobool.not.i33, label %_ZNSt12_Vector_baseIPN7rocksdb18ColumnFamilyHandleESaIS2_EE13_M_deallocateEPS2_m.exit35, label %if.then.i34
 
-if.then.i33:                                      ; preds = %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
+if.then.i34:                                      ; preds = %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   tail call void @_ZdlPv(ptr noundef nonnull %1) #18
-  br label %_ZNSt12_Vector_baseIPN7rocksdb18ColumnFamilyHandleESaIS2_EE13_M_deallocateEPS2_m.exit34
+  br label %_ZNSt12_Vector_baseIPN7rocksdb18ColumnFamilyHandleESaIS2_EE13_M_deallocateEPS2_m.exit35
 
-_ZNSt12_Vector_baseIPN7rocksdb18ColumnFamilyHandleESaIS2_EE13_M_deallocateEPS2_m.exit34: ; preds = %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i33
+_ZNSt12_Vector_baseIPN7rocksdb18ColumnFamilyHandleESaIS2_EE13_M_deallocateEPS2_m.exit35: ; preds = %_ZNSt6vectorIPN7rocksdb18ColumnFamilyHandleESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %if.then.i34
   store ptr %cond.i19, ptr %this, align 8
   %add.ptr37 = getelementptr inbounds ptr, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
@@ -4741,7 +4717,7 @@ _ZNSt12_Vector_baseIPN7rocksdb18ColumnFamilyHandleESaIS2_EE13_M_deallocateEPS2_m
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPPN7rocksdb18ColumnFamilyHandleEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIPN7rocksdb18ColumnFamilyHandleESaIS2_EE13_M_deallocateEPS2_m.exit34, %entry
+if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPPN7rocksdb18ColumnFamilyHandleEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIPN7rocksdb18ColumnFamilyHandleESaIS2_EE13_M_deallocateEPS2_m.exit35, %entry
   ret void
 }
 
@@ -4752,14 +4728,14 @@ entry:
   br i1 %cmp.not, label %if.end44, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
@@ -4776,10 +4752,10 @@ for.inc.i.i.i:                                    ; preds = %if.then, %for.inc.i
   %__cur.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i.i ], [ %0, %if.then ]
   %__n.addr.07.i.i.i = phi i64 [ %dec.i.i.i, %for.inc.i.i.i ], [ %__n, %if.then ]
   store ptr @.str.16, ptr %__cur.08.i.i.i, align 8
-  %size_.i.i.i.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %__cur.08.i.i.i, i64 0, i32 1
+  %size_.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 8
   store i64 0, ptr %size_.i.i.i.i.i, align 8
   %dec.i.i.i = add i64 %__n.addr.07.i.i.i, -1
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %__cur.08.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN7rocksdb5SliceEmS1_ET_S3_T0_RSaIT1_E.exit, label %for.inc.i.i.i, !llvm.loop !64
 
@@ -4819,10 +4795,10 @@ for.inc.i.i.i21:                                  ; preds = %_ZNSt12_Vector_base
   %__cur.08.i.i.i22 = phi ptr [ %incdec.ptr.i.i.i26, %for.inc.i.i.i21 ], [ %add.ptr, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit ]
   %__n.addr.07.i.i.i23 = phi i64 [ %dec.i.i.i25, %for.inc.i.i.i21 ], [ %__n, %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit ]
   store ptr @.str.16, ptr %__cur.08.i.i.i22, align 8
-  %size_.i.i.i.i.i24 = getelementptr inbounds %"class.rocksdb::Slice", ptr %__cur.08.i.i.i22, i64 0, i32 1
+  %size_.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__cur.08.i.i.i22, i64 8
   store i64 0, ptr %size_.i.i.i.i.i24, align 8
   %dec.i.i.i25 = add i64 %__n.addr.07.i.i.i23, -1
-  %incdec.ptr.i.i.i26 = getelementptr inbounds %"class.rocksdb::Slice", ptr %__cur.08.i.i.i22, i64 1
+  %incdec.ptr.i.i.i26 = getelementptr inbounds i8, ptr %__cur.08.i.i.i22, i64 16
   %cmp.not.i.i.i27 = icmp eq i64 %dec.i.i.i25, 0
   br i1 %cmp.not.i.i.i27, label %try.cont, label %for.inc.i.i.i21, !llvm.loop !64
 
@@ -4834,8 +4810,8 @@ for.body.i.i.i:                                   ; preds = %try.cont, %for.body
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i19, %try.cont ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i31, %for.body.i.i.i ], [ %1, %try.cont ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i, i64 16, i1 false), !alias.scope !65
-  %incdec.ptr.i.i.i31 = getelementptr inbounds %"class.rocksdb::Slice", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.rocksdb::Slice", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i31 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %cmp.not.i.i.i32 = icmp eq ptr %incdec.ptr.i.i.i31, %0
   br i1 %cmp.not.i.i.i32, label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %for.body.i.i.i, !llvm.loop !69
 

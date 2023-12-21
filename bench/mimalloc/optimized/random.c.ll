@@ -3,8 +3,6 @@ source_filename = "bench/mimalloc/original/random.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.mi_random_cxt_s = type { [16 x i32], [16 x i32], i32, i8 }
-
 @.str = private unnamed_addr constant [33 x i8] c"unable to use secure randomness\0A\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"expand 32-byte k\00", align 1
 
@@ -14,14 +12,14 @@ entry:
   %0 = ptrtoint ptr %ctx_new to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %ctx_new, i8 0, i64 136, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %ctx_new, ptr noundef nonnull align 1 dereferenceable(64) %ctx, i64 48, i1 false)
-  %arrayidx5.i = getelementptr inbounds [16 x i32], ptr %ctx_new, i64 0, i64 13
+  %arrayidx5.i = getelementptr inbounds i8, ptr %ctx_new, i64 52
   store i32 0, ptr %arrayidx5.i, align 4
   %conv.i = trunc i64 %0 to i32
-  %arrayidx7.i = getelementptr inbounds [16 x i32], ptr %ctx_new, i64 0, i64 14
+  %arrayidx7.i = getelementptr inbounds i8, ptr %ctx_new, i64 56
   store i32 %conv.i, ptr %arrayidx7.i, align 4
   %shr.i = lshr i64 %0, 32
   %conv8.i = trunc i64 %shr.i to i32
-  %arrayidx10.i = getelementptr inbounds [16 x i32], ptr %ctx_new, i64 0, i64 15
+  %arrayidx10.i = getelementptr inbounds i8, ptr %ctx_new, i64 60
   store i32 %conv8.i, ptr %arrayidx10.i, align 4
   tail call fastcc void @chacha_block(ptr noundef %ctx_new) #6
   ret void
@@ -30,7 +28,7 @@ entry:
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
 define hidden i64 @_mi_random_next(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %output_available.i = getelementptr inbounds %struct.mi_random_cxt_s, ptr %ctx, i64 0, i32 2
+  %output_available.i = getelementptr inbounds i8, ptr %ctx, i64 128
   %0 = load i32, ptr %output_available.i, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %if.then.i, label %chacha_next32.exit
@@ -42,34 +40,35 @@ if.then.i:                                        ; preds = %entry
 
 chacha_next32.exit:                               ; preds = %entry, %if.then.i
   %1 = phi i32 [ 16, %if.then.i ], [ %0, %entry ]
+  %output.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %sub.i = sub nsw i32 16, %1
   %idxprom.i = sext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.mi_random_cxt_s, ptr %ctx, i64 0, i32 1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [16 x i32], ptr %output.i, i64 0, i64 %idxprom.i
   %2 = load i32, ptr %arrayidx.i, align 4
   store i32 0, ptr %arrayidx.i, align 4
   %3 = load i32, ptr %output_available.i, align 4
   %dec.i = add nsw i32 %3, -1
   store i32 %dec.i, ptr %output_available.i, align 4
   %cmp.i3 = icmp slt i32 %3, 2
-  br i1 %cmp.i3, label %if.then.i8, label %chacha_next32.exit9
+  br i1 %cmp.i3, label %if.then.i9, label %chacha_next32.exit10
 
-if.then.i8:                                       ; preds = %chacha_next32.exit
+if.then.i9:                                       ; preds = %chacha_next32.exit
   tail call fastcc void @chacha_block(ptr noundef nonnull %ctx) #6
   store i32 16, ptr %output_available.i, align 4
-  br label %chacha_next32.exit9
+  br label %chacha_next32.exit10
 
-chacha_next32.exit9:                              ; preds = %chacha_next32.exit, %if.then.i8
-  %4 = phi i32 [ 16, %if.then.i8 ], [ %dec.i, %chacha_next32.exit ]
+chacha_next32.exit10:                             ; preds = %chacha_next32.exit, %if.then.i9
+  %4 = phi i32 [ 16, %if.then.i9 ], [ %dec.i, %chacha_next32.exit ]
   %conv = zext i32 %2 to i64
   %shl = shl nuw i64 %conv, 32
-  %sub.i4 = sub nsw i32 16, %4
-  %idxprom.i5 = sext i32 %sub.i4 to i64
-  %arrayidx.i6 = getelementptr inbounds %struct.mi_random_cxt_s, ptr %ctx, i64 0, i32 1, i64 %idxprom.i5
-  %5 = load i32, ptr %arrayidx.i6, align 4
-  store i32 0, ptr %arrayidx.i6, align 4
+  %sub.i5 = sub nsw i32 16, %4
+  %idxprom.i6 = sext i32 %sub.i5 to i64
+  %arrayidx.i7 = getelementptr inbounds [16 x i32], ptr %output.i, i64 0, i64 %idxprom.i6
+  %5 = load i32, ptr %arrayidx.i7, align 4
+  store i32 0, ptr %arrayidx.i7, align 4
   %6 = load i32, ptr %output_available.i, align 4
-  %dec.i7 = add nsw i32 %6, -1
-  store i32 %dec.i7, ptr %output_available.i, align 4
+  %dec.i8 = add nsw i32 %6, -1
+  store i32 %dec.i8, ptr %output_available.i, align 4
   %conv2 = zext i32 %5 to i64
   %or = or disjoint i64 %shl, %conv2
   ret i64 %or
@@ -242,16 +241,16 @@ for.body4.i:                                      ; preds = %for.body.i10, %for.
 
 chacha_init.exit:                                 ; preds = %for.body4.i
   %8 = ptrtoint ptr %ctx to i64
-  %arrayidx12.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
+  %arrayidx12.i = getelementptr inbounds i8, ptr %ctx, i64 48
   store i32 0, ptr %arrayidx12.i, align 4
-  %arrayidx14.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 13
+  %arrayidx14.i = getelementptr inbounds i8, ptr %ctx, i64 52
   store i32 0, ptr %arrayidx14.i, align 4
   %conv.i = trunc i64 %8 to i32
-  %arrayidx16.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 14
+  %arrayidx16.i = getelementptr inbounds i8, ptr %ctx, i64 56
   store i32 %conv.i, ptr %arrayidx16.i, align 4
   %shr.i14 = lshr i64 %8, 32
   %conv17.i = trunc i64 %shr.i14 to i32
-  %arrayidx19.i = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 15
+  %arrayidx19.i = getelementptr inbounds i8, ptr %ctx, i64 60
   store i32 %conv17.i, ptr %arrayidx19.i, align 4
   ret void
 }
@@ -266,7 +265,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_random_reinit_if_weak(ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
-  %weak = getelementptr inbounds %struct.mi_random_cxt_s, ptr %ctx, i64 0, i32 3
+  %weak = getelementptr inbounds i8, ptr %ctx, i64 132
   %0 = load i8, ptr %weak, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -288,21 +287,21 @@ define internal fastcc void @chacha_block(ptr nocapture noundef %ctx) unnamed_ad
 entry:
   %x = alloca [16 x i32], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %x, ptr noundef nonnull align 4 dereferenceable(64) %ctx, i64 64, i1 false)
-  %arrayidx.i = getelementptr inbounds i32, ptr %x, i64 4
-  %arrayidx2.i = getelementptr inbounds i32, ptr %x, i64 12
-  %arrayidx6.i = getelementptr inbounds i32, ptr %x, i64 8
-  %arrayidx.i17 = getelementptr inbounds i32, ptr %x, i64 5
-  %arrayidx1.i = getelementptr inbounds i32, ptr %x, i64 1
-  %arrayidx2.i19 = getelementptr inbounds i32, ptr %x, i64 13
-  %arrayidx6.i22 = getelementptr inbounds i32, ptr %x, i64 9
-  %arrayidx.i32 = getelementptr inbounds i32, ptr %x, i64 6
-  %arrayidx1.i33 = getelementptr inbounds i32, ptr %x, i64 2
-  %arrayidx2.i35 = getelementptr inbounds i32, ptr %x, i64 14
-  %arrayidx6.i38 = getelementptr inbounds i32, ptr %x, i64 10
-  %arrayidx.i48 = getelementptr inbounds i32, ptr %x, i64 7
-  %arrayidx1.i49 = getelementptr inbounds i32, ptr %x, i64 3
-  %arrayidx2.i51 = getelementptr inbounds i32, ptr %x, i64 15
-  %arrayidx6.i54 = getelementptr inbounds i32, ptr %x, i64 11
+  %arrayidx.i = getelementptr inbounds i8, ptr %x, i64 16
+  %arrayidx2.i = getelementptr inbounds i8, ptr %x, i64 48
+  %arrayidx6.i = getelementptr inbounds i8, ptr %x, i64 32
+  %arrayidx.i17 = getelementptr inbounds i8, ptr %x, i64 20
+  %arrayidx1.i = getelementptr inbounds i8, ptr %x, i64 4
+  %arrayidx2.i19 = getelementptr inbounds i8, ptr %x, i64 52
+  %arrayidx6.i22 = getelementptr inbounds i8, ptr %x, i64 36
+  %arrayidx.i32 = getelementptr inbounds i8, ptr %x, i64 24
+  %arrayidx1.i33 = getelementptr inbounds i8, ptr %x, i64 8
+  %arrayidx2.i35 = getelementptr inbounds i8, ptr %x, i64 56
+  %arrayidx6.i38 = getelementptr inbounds i8, ptr %x, i64 40
+  %arrayidx.i48 = getelementptr inbounds i8, ptr %x, i64 28
+  %arrayidx1.i49 = getelementptr inbounds i8, ptr %x, i64 12
+  %arrayidx2.i51 = getelementptr inbounds i8, ptr %x, i64 60
+  %arrayidx6.i54 = getelementptr inbounds i8, ptr %x, i64 44
   %arrayidx.i.promoted = load i32, ptr %arrayidx.i, align 16
   %x.promoted = load i32, ptr %x, align 16
   %arrayidx2.i.promoted = load i32, ptr %arrayidx2.i, align 16
@@ -338,31 +337,32 @@ for.cond16.preheader:                             ; preds = %for.body5
   store i32 %add15.i121, ptr %arrayidx1.i49, align 4
   store i32 %or.i41.i75, ptr %arrayidx2.i51, align 4
   store i32 %add23.i92, ptr %arrayidx6.i54, align 4
+  %output = getelementptr inbounds i8, ptr %ctx, i64 64
   br label %for.body18
 
 for.body5:                                        ; preds = %entry, %for.body5
-  %i2.0160 = phi i64 [ 0, %entry ], [ %add, %for.body5 ]
-  %or.i38.i120128159 = phi i32 [ %arrayidx.i.promoted, %entry ], [ %or.i44.i126, %for.body5 ]
-  %add15.i73129158 = phi i32 [ %x.promoted, %entry ], [ %add15.i73, %for.body5 ]
-  %or.i.i84130157 = phi i32 [ %arrayidx2.i.promoted, %entry ], [ %or.i41.i91, %for.body5 ]
-  %add7.i102131156 = phi i32 [ %arrayidx6.i.promoted, %entry ], [ %add23.i108, %for.body5 ]
-  %or.i38.i72132155 = phi i32 [ %arrayidx.i17.promoted, %entry ], [ %or.i44.i78, %for.body5 ]
-  %add.i81133154 = phi i32 [ %arrayidx1.i.promoted, %entry ], [ %add15.i89, %for.body5 ]
-  %or.i.i100134153 = phi i32 [ %arrayidx2.i19.promoted, %entry ], [ %or.i41.i107, %for.body5 ]
-  %add7.i118135152 = phi i32 [ %arrayidx6.i22.promoted, %entry ], [ %add23.i124, %for.body5 ]
-  %or.i38.i88136151 = phi i32 [ %arrayidx.i32.promoted, %entry ], [ %or.i44.i94, %for.body5 ]
-  %add.i97137150 = phi i32 [ %arrayidx1.i33.promoted, %entry ], [ %add15.i105, %for.body5 ]
-  %or.i.i116138149 = phi i32 [ %arrayidx2.i35.promoted, %entry ], [ %or.i41.i123, %for.body5 ]
-  %add7.i70139148 = phi i32 [ %arrayidx6.i38.promoted, %entry ], [ %add23.i76, %for.body5 ]
-  %or.i38.i104140147 = phi i32 [ %arrayidx.i48.promoted, %entry ], [ %or.i44.i110, %for.body5 ]
-  %add.i113141146 = phi i32 [ %arrayidx1.i49.promoted, %entry ], [ %add15.i121, %for.body5 ]
-  %or.i.i68142145 = phi i32 [ %arrayidx2.i51.promoted, %entry ], [ %or.i41.i75, %for.body5 ]
-  %add7.i86143144 = phi i32 [ %arrayidx6.i54.promoted, %entry ], [ %add23.i92, %for.body5 ]
-  %add.i = add i32 %add15.i73129158, %or.i38.i120128159
-  %xor.i = xor i32 %or.i.i84130157, %add.i
+  %i2.0144 = phi i64 [ 0, %entry ], [ %add, %for.body5 ]
+  %0 = phi i32 [ %arrayidx.i.promoted, %entry ], [ %or.i44.i126, %for.body5 ]
+  %add15.i73128143 = phi i32 [ %x.promoted, %entry ], [ %add15.i73, %for.body5 ]
+  %1 = phi i32 [ %arrayidx2.i.promoted, %entry ], [ %or.i41.i91, %for.body5 ]
+  %2 = phi i32 [ %arrayidx6.i.promoted, %entry ], [ %add23.i108, %for.body5 ]
+  %3 = phi i32 [ %arrayidx.i17.promoted, %entry ], [ %or.i44.i78, %for.body5 ]
+  %4 = phi i32 [ %arrayidx1.i.promoted, %entry ], [ %add15.i89, %for.body5 ]
+  %5 = phi i32 [ %arrayidx2.i19.promoted, %entry ], [ %or.i41.i107, %for.body5 ]
+  %6 = phi i32 [ %arrayidx6.i22.promoted, %entry ], [ %add23.i124, %for.body5 ]
+  %7 = phi i32 [ %arrayidx.i32.promoted, %entry ], [ %or.i44.i94, %for.body5 ]
+  %8 = phi i32 [ %arrayidx1.i33.promoted, %entry ], [ %add15.i105, %for.body5 ]
+  %9 = phi i32 [ %arrayidx2.i35.promoted, %entry ], [ %or.i41.i123, %for.body5 ]
+  %10 = phi i32 [ %arrayidx6.i38.promoted, %entry ], [ %add23.i76, %for.body5 ]
+  %11 = phi i32 [ %arrayidx.i48.promoted, %entry ], [ %or.i44.i110, %for.body5 ]
+  %12 = phi i32 [ %arrayidx1.i49.promoted, %entry ], [ %add15.i121, %for.body5 ]
+  %13 = phi i32 [ %arrayidx2.i51.promoted, %entry ], [ %or.i41.i75, %for.body5 ]
+  %14 = phi i32 [ %arrayidx6.i54.promoted, %entry ], [ %add23.i92, %for.body5 ]
+  %add.i = add i32 %add15.i73128143, %0
+  %xor.i = xor i32 %1, %add.i
   %or.i.i = tail call i32 @llvm.fshl.i32(i32 %xor.i, i32 %xor.i, i32 16)
-  %add7.i = add i32 %add7.i102131156, %or.i.i
-  %xor10.i = xor i32 %add7.i, %or.i38.i120128159
+  %add7.i = add i32 %2, %or.i.i
+  %xor10.i = xor i32 %add7.i, %0
   %or.i38.i = tail call i32 @llvm.fshl.i32(i32 %xor10.i, i32 %xor10.i, i32 12)
   %add15.i = add i32 %or.i38.i, %add.i
   %xor18.i = xor i32 %add15.i, %or.i.i
@@ -370,11 +370,11 @@ for.body5:                                        ; preds = %entry, %for.body5
   %add23.i = add i32 %or.i41.i, %add7.i
   %xor26.i = xor i32 %add23.i, %or.i38.i
   %or.i44.i = tail call i32 @llvm.fshl.i32(i32 %xor26.i, i32 %xor26.i, i32 7)
-  %add.i18 = add i32 %add.i81133154, %or.i38.i72132155
-  %xor.i20 = xor i32 %or.i.i100134153, %add.i18
+  %add.i18 = add i32 %4, %3
+  %xor.i20 = xor i32 %5, %add.i18
   %or.i.i21 = tail call i32 @llvm.fshl.i32(i32 %xor.i20, i32 %xor.i20, i32 16)
-  %add7.i23 = add i32 %add7.i118135152, %or.i.i21
-  %xor10.i24 = xor i32 %add7.i23, %or.i38.i72132155
+  %add7.i23 = add i32 %6, %or.i.i21
+  %xor10.i24 = xor i32 %add7.i23, %3
   %or.i38.i25 = tail call i32 @llvm.fshl.i32(i32 %xor10.i24, i32 %xor10.i24, i32 12)
   %add15.i26 = add i32 %or.i38.i25, %add.i18
   %xor18.i27 = xor i32 %add15.i26, %or.i.i21
@@ -382,11 +382,11 @@ for.body5:                                        ; preds = %entry, %for.body5
   %add23.i29 = add i32 %or.i41.i28, %add7.i23
   %xor26.i30 = xor i32 %add23.i29, %or.i38.i25
   %or.i44.i31 = tail call i32 @llvm.fshl.i32(i32 %xor26.i30, i32 %xor26.i30, i32 7)
-  %add.i34 = add i32 %add.i97137150, %or.i38.i88136151
-  %xor.i36 = xor i32 %or.i.i116138149, %add.i34
+  %add.i34 = add i32 %8, %7
+  %xor.i36 = xor i32 %9, %add.i34
   %or.i.i37 = tail call i32 @llvm.fshl.i32(i32 %xor.i36, i32 %xor.i36, i32 16)
-  %add7.i39 = add i32 %add7.i70139148, %or.i.i37
-  %xor10.i40 = xor i32 %add7.i39, %or.i38.i88136151
+  %add7.i39 = add i32 %10, %or.i.i37
+  %xor10.i40 = xor i32 %add7.i39, %7
   %or.i38.i41 = tail call i32 @llvm.fshl.i32(i32 %xor10.i40, i32 %xor10.i40, i32 12)
   %add15.i42 = add i32 %or.i38.i41, %add.i34
   %xor18.i43 = xor i32 %add15.i42, %or.i.i37
@@ -394,11 +394,11 @@ for.body5:                                        ; preds = %entry, %for.body5
   %add23.i45 = add i32 %or.i41.i44, %add7.i39
   %xor26.i46 = xor i32 %add23.i45, %or.i38.i41
   %or.i44.i47 = tail call i32 @llvm.fshl.i32(i32 %xor26.i46, i32 %xor26.i46, i32 7)
-  %add.i50 = add i32 %add.i113141146, %or.i38.i104140147
-  %xor.i52 = xor i32 %or.i.i68142145, %add.i50
+  %add.i50 = add i32 %12, %11
+  %xor.i52 = xor i32 %13, %add.i50
   %or.i.i53 = tail call i32 @llvm.fshl.i32(i32 %xor.i52, i32 %xor.i52, i32 16)
-  %add7.i55 = add i32 %add7.i86143144, %or.i.i53
-  %xor10.i56 = xor i32 %add7.i55, %or.i38.i104140147
+  %add7.i55 = add i32 %14, %or.i.i53
+  %xor10.i56 = xor i32 %add7.i55, %11
   %or.i38.i57 = tail call i32 @llvm.fshl.i32(i32 %xor10.i56, i32 %xor10.i56, i32 12)
   %add15.i58 = add i32 %or.i38.i57, %add.i50
   %xor18.i59 = xor i32 %add15.i58, %or.i.i53
@@ -454,45 +454,45 @@ for.body5:                                        ; preds = %entry, %for.body5
   %add23.i124 = add i32 %or.i41.i123, %add7.i118
   %xor26.i125 = xor i32 %add23.i124, %or.i38.i120
   %or.i44.i126 = tail call i32 @llvm.fshl.i32(i32 %xor26.i125, i32 %xor26.i125, i32 7)
-  %add = add nuw nsw i64 %i2.0160, 2
-  %cmp4 = icmp ult i64 %i2.0160, 18
+  %add = add nuw nsw i64 %i2.0144, 2
+  %cmp4 = icmp ult i64 %i2.0144, 18
   br i1 %cmp4, label %for.body5, label %for.cond16.preheader, !llvm.loop !9
 
 for.body18:                                       ; preds = %for.cond16.preheader, %for.body18
-  %i15.0161 = phi i64 [ 0, %for.cond16.preheader ], [ %inc25, %for.body18 ]
-  %arrayidx19 = getelementptr inbounds [16 x i32], ptr %x, i64 0, i64 %i15.0161
-  %0 = load i32, ptr %arrayidx19, align 4
-  %arrayidx21 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 %i15.0161
-  %1 = load i32, ptr %arrayidx21, align 4
-  %add22 = add i32 %1, %0
-  %arrayidx23 = getelementptr inbounds %struct.mi_random_cxt_s, ptr %ctx, i64 0, i32 1, i64 %i15.0161
+  %i15.0145 = phi i64 [ 0, %for.cond16.preheader ], [ %inc25, %for.body18 ]
+  %arrayidx19 = getelementptr inbounds [16 x i32], ptr %x, i64 0, i64 %i15.0145
+  %15 = load i32, ptr %arrayidx19, align 4
+  %arrayidx21 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 %i15.0145
+  %16 = load i32, ptr %arrayidx21, align 4
+  %add22 = add i32 %16, %15
+  %arrayidx23 = getelementptr inbounds [16 x i32], ptr %output, i64 0, i64 %i15.0145
   store i32 %add22, ptr %arrayidx23, align 4
-  %inc25 = add nuw nsw i64 %i15.0161, 1
+  %inc25 = add nuw nsw i64 %i15.0145, 1
   %exitcond.not = icmp eq i64 %inc25, 16
   br i1 %exitcond.not, label %for.end26, label %for.body18, !llvm.loop !10
 
 for.end26:                                        ; preds = %for.body18
-  %output_available = getelementptr inbounds %struct.mi_random_cxt_s, ptr %ctx, i64 0, i32 2
+  %output_available = getelementptr inbounds i8, ptr %ctx, i64 128
   store i32 16, ptr %output_available, align 4
-  %arrayidx28 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 12
-  %2 = load i32, ptr %arrayidx28, align 4
-  %add29 = add i32 %2, 1
+  %arrayidx28 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %17 = load i32, ptr %arrayidx28, align 4
+  %add29 = add i32 %17, 1
   store i32 %add29, ptr %arrayidx28, align 4
   %cmp32 = icmp eq i32 %add29, 0
   br i1 %cmp32, label %if.then, label %if.end43
 
 if.then:                                          ; preds = %for.end26
-  %arrayidx34 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 13
-  %3 = load i32, ptr %arrayidx34, align 4
-  %add35 = add i32 %3, 1
+  %arrayidx34 = getelementptr inbounds i8, ptr %ctx, i64 52
+  %18 = load i32, ptr %arrayidx34, align 4
+  %add35 = add i32 %18, 1
   store i32 %add35, ptr %arrayidx34, align 4
   %cmp38 = icmp eq i32 %add35, 0
   br i1 %cmp38, label %if.then39, label %if.end43
 
 if.then39:                                        ; preds = %if.then
-  %arrayidx41 = getelementptr inbounds [16 x i32], ptr %ctx, i64 0, i64 14
-  %4 = load i32, ptr %arrayidx41, align 4
-  %add42 = add i32 %4, 1
+  %arrayidx41 = getelementptr inbounds i8, ptr %ctx, i64 56
+  %19 = load i32, ptr %arrayidx41, align 4
+  %add42 = add i32 %19, 1
   store i32 %add42, ptr %arrayidx41, align 4
   br label %if.end43
 

@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.KDF_HMAC_DRBG = type { %struct.drbg_hmac_st, ptr, ptr, ptr, i64, i64, i32 }
-%struct.drbg_hmac_st = type { ptr, %struct.PROV_DIGEST, i64, [64 x i8], [64 x i8] }
-%struct.PROV_DIGEST = type { ptr, ptr, ptr }
 
 @ossl_kdf_hmac_drbg_functions = local_unnamed_addr constant [10 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @hmac_drbg_kdf_new }, %struct.ossl_dispatch_st { i32 3, ptr @hmac_drbg_kdf_free }, %struct.ossl_dispatch_st { i32 2, ptr @hmac_drbg_kdf_dup }, %struct.ossl_dispatch_st { i32 4, ptr @hmac_drbg_kdf_reset }, %struct.ossl_dispatch_st { i32 5, ptr @hmac_drbg_kdf_derive }, %struct.ossl_dispatch_st { i32 8, ptr @hmac_drbg_kdf_settable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @hmac_drbg_kdf_set_ctx_params }, %struct.ossl_dispatch_st { i32 7, ptr @hmac_drbg_kdf_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 10, ptr @hmac_drbg_kdf_get_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [57 x i8] c"../openssl/providers/implementations/kdfs/hmacdrbg_kdf.c\00", align 1
@@ -41,7 +38,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %provctx4 = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %call1, i64 0, i32 1
+  %provctx4 = getelementptr inbounds i8, ptr %call1, i64 168
   store ptr %provctx, ptr %provctx4, align 8
   br label %return
 
@@ -57,20 +54,20 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %provctx1.i = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 1
+  %provctx1.i = getelementptr inbounds i8, ptr %vctx, i64 168
   %0 = load ptr, ptr %provctx1.i, align 8
   %1 = load ptr, ptr %vctx, align 8
   tail call void @EVP_MAC_CTX_free(ptr noundef %1) #4
-  %digest.i = getelementptr inbounds %struct.drbg_hmac_st, ptr %vctx, i64 0, i32 1
+  %digest.i = getelementptr inbounds i8, ptr %vctx, i64 8
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest.i) #4
-  %entropy.i = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 2
+  %entropy.i = getelementptr inbounds i8, ptr %vctx, i64 176
   %2 = load ptr, ptr %entropy.i, align 8
-  %entropylen.i = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 4
+  %entropylen.i = getelementptr inbounds i8, ptr %vctx, i64 192
   %3 = load i64, ptr %entropylen.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 64) #4
-  %nonce.i = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 3
+  %nonce.i = getelementptr inbounds i8, ptr %vctx, i64 184
   %4 = load ptr, ptr %nonce.i, align 8
-  %noncelen.i = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 5
+  %noncelen.i = getelementptr inbounds i8, ptr %vctx, i64 200
   %5 = load i64, ptr %noncelen.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @.str, i32 noundef 65) #4
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %vctx, i64 noundef 216) #4
@@ -85,7 +82,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal ptr @hmac_drbg_kdf_dup(ptr noundef %vctx) #0 {
 entry:
-  %provctx = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 1
+  %provctx = getelementptr inbounds i8, ptr %vctx, i64 168
   %0 = load ptr, ptr %provctx, align 8
   %call.i = tail call i32 @ossl_prov_is_running() #4
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -103,7 +100,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %return
 
 if.then:                                          ; preds = %if.end.i
-  %provctx4.i = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %call1.i, i64 0, i32 1
+  %provctx4.i = getelementptr inbounds i8, ptr %call1.i, i64 168
   store ptr %0, ptr %provctx4.i, align 8
   %1 = load ptr, ptr %vctx, align 8
   %cmp.not.i = icmp eq ptr %1, null
@@ -116,48 +113,48 @@ if.then.i:                                        ; preds = %if.then
   br i1 %cmp4.i, label %hmac_drbg_kdf_free.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then.i, %if.then
-  %digest.i = getelementptr inbounds %struct.drbg_hmac_st, ptr %call1.i, i64 0, i32 1
-  %digest7.i = getelementptr inbounds %struct.drbg_hmac_st, ptr %vctx, i64 0, i32 1
+  %digest.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %digest7.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %call8.i = tail call i32 @ossl_prov_digest_copy(ptr noundef nonnull %digest.i, ptr noundef nonnull %digest7.i) #4
   %tobool.not.i16 = icmp eq i32 %call8.i, 0
   br i1 %tobool.not.i16, label %hmac_drbg_kdf_free.exit, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end6.i
-  %K.i = getelementptr inbounds %struct.drbg_hmac_st, ptr %call1.i, i64 0, i32 3
-  %K11.i = getelementptr inbounds %struct.drbg_hmac_st, ptr %vctx, i64 0, i32 3
+  %K.i = getelementptr inbounds i8, ptr %call1.i, i64 40
+  %K11.i = getelementptr inbounds i8, ptr %vctx, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %K.i, ptr noundef nonnull align 8 dereferenceable(64) %K11.i, i64 64, i1 false)
-  %V.i = getelementptr inbounds %struct.drbg_hmac_st, ptr %call1.i, i64 0, i32 4
-  %V14.i = getelementptr inbounds %struct.drbg_hmac_st, ptr %vctx, i64 0, i32 4
+  %V.i = getelementptr inbounds i8, ptr %call1.i, i64 104
+  %V14.i = getelementptr inbounds i8, ptr %vctx, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %V.i, ptr noundef nonnull align 8 dereferenceable(64) %V14.i, i64 64, i1 false)
-  %blocklen.i = getelementptr inbounds %struct.drbg_hmac_st, ptr %vctx, i64 0, i32 2
+  %blocklen.i = getelementptr inbounds i8, ptr %vctx, i64 32
   %2 = load i64, ptr %blocklen.i, align 8
-  %blocklen16.i = getelementptr inbounds %struct.drbg_hmac_st, ptr %call1.i, i64 0, i32 2
+  %blocklen16.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   store i64 %2, ptr %blocklen16.i, align 8
-  %entropy = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 2
+  %entropy = getelementptr inbounds i8, ptr %vctx, i64 176
   %3 = load ptr, ptr %entropy, align 8
-  %entropylen = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 4
+  %entropylen = getelementptr inbounds i8, ptr %vctx, i64 192
   %4 = load i64, ptr %entropylen, align 8
-  %entropy3 = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %call1.i, i64 0, i32 2
-  %entropylen4 = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %call1.i, i64 0, i32 4
+  %entropy3 = getelementptr inbounds i8, ptr %call1.i, i64 176
+  %entropylen4 = getelementptr inbounds i8, ptr %call1.i, i64 192
   %call5 = tail call i32 @ossl_prov_memdup(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %entropy3, ptr noundef nonnull %entropylen4) #4
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %hmac_drbg_kdf_free.exit, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false
-  %nonce = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 3
+  %nonce = getelementptr inbounds i8, ptr %vctx, i64 184
   %5 = load ptr, ptr %nonce, align 8
-  %noncelen = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 5
+  %noncelen = getelementptr inbounds i8, ptr %vctx, i64 200
   %6 = load i64, ptr %noncelen, align 8
-  %nonce8 = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %call1.i, i64 0, i32 3
-  %noncelen9 = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %call1.i, i64 0, i32 5
+  %nonce8 = getelementptr inbounds i8, ptr %call1.i, i64 184
+  %noncelen9 = getelementptr inbounds i8, ptr %call1.i, i64 200
   %call10 = tail call i32 @ossl_prov_memdup(ptr noundef %5, i64 noundef %6, ptr noundef nonnull %nonce8, ptr noundef nonnull %noncelen9) #4
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %hmac_drbg_kdf_free.exit, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false7
-  %init = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 6
+  %init = getelementptr inbounds i8, ptr %vctx, i64 208
   %7 = load i32, ptr %init, align 8
-  %init13 = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %call1.i, i64 0, i32 6
+  %init13 = getelementptr inbounds i8, ptr %call1.i, i64 208
   store i32 %7, ptr %init13, align 8
   br label %return
 
@@ -165,16 +162,16 @@ hmac_drbg_kdf_free.exit:                          ; preds = %if.end6.i, %if.then
   %8 = load ptr, ptr %provctx4.i, align 8
   %9 = load ptr, ptr %call1.i, align 8
   tail call void @EVP_MAC_CTX_free(ptr noundef %9) #4
-  %digest.i.i = getelementptr inbounds %struct.drbg_hmac_st, ptr %call1.i, i64 0, i32 1
+  %digest.i.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest.i.i) #4
-  %entropy.i.i = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %call1.i, i64 0, i32 2
+  %entropy.i.i = getelementptr inbounds i8, ptr %call1.i, i64 176
   %10 = load ptr, ptr %entropy.i.i, align 8
-  %entropylen.i.i = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %call1.i, i64 0, i32 4
+  %entropylen.i.i = getelementptr inbounds i8, ptr %call1.i, i64 192
   %11 = load i64, ptr %entropylen.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @.str, i32 noundef 64) #4
-  %nonce.i.i = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %call1.i, i64 0, i32 3
+  %nonce.i.i = getelementptr inbounds i8, ptr %call1.i, i64 184
   %12 = load ptr, ptr %nonce.i.i, align 8
-  %noncelen.i.i = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %call1.i, i64 0, i32 5
+  %noncelen.i.i = getelementptr inbounds i8, ptr %call1.i, i64 200
   %13 = load i64, ptr %noncelen.i.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %12, i64 noundef %13, ptr noundef nonnull @.str, i32 noundef 65) #4
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %call1.i, i64 noundef 216) #4
@@ -190,20 +187,20 @@ return:                                           ; preds = %entry, %if.then2.i,
 ; Function Attrs: nounwind uwtable
 define internal void @hmac_drbg_kdf_reset(ptr noundef %vctx) #0 {
 entry:
-  %provctx1 = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 1
+  %provctx1 = getelementptr inbounds i8, ptr %vctx, i64 168
   %0 = load ptr, ptr %provctx1, align 8
   %1 = load ptr, ptr %vctx, align 8
   tail call void @EVP_MAC_CTX_free(ptr noundef %1) #4
-  %digest = getelementptr inbounds %struct.drbg_hmac_st, ptr %vctx, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %vctx, i64 8
   tail call void @ossl_prov_digest_reset(ptr noundef nonnull %digest) #4
-  %entropy = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 2
+  %entropy = getelementptr inbounds i8, ptr %vctx, i64 176
   %2 = load ptr, ptr %entropy, align 8
-  %entropylen = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 4
+  %entropylen = getelementptr inbounds i8, ptr %vctx, i64 192
   %3 = load i64, ptr %entropylen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 64) #4
-  %nonce = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 3
+  %nonce = getelementptr inbounds i8, ptr %vctx, i64 184
   %4 = load ptr, ptr %nonce, align 8
-  %noncelen = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 5
+  %noncelen = getelementptr inbounds i8, ptr %vctx, i64 200
   %5 = load i64, ptr %noncelen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @.str, i32 noundef 65) #4
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %vctx, i64 noundef 216) #4
@@ -224,31 +221,31 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool2.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %init = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 6
+  %init = getelementptr inbounds i8, ptr %vctx, i64 208
   %0 = load i32, ptr %init, align 8
   %tobool3.not = icmp eq i32 %0, 0
   br i1 %tobool3.not, label %if.then4, label %if.end21
 
 if.then4:                                         ; preds = %if.end
-  %entropy = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 2
+  %entropy = getelementptr inbounds i8, ptr %vctx, i64 176
   %1 = load ptr, ptr %entropy, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %return, label %lor.lhs.false5
 
 lor.lhs.false5:                                   ; preds = %if.then4
-  %entropylen = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 4
+  %entropylen = getelementptr inbounds i8, ptr %vctx, i64 192
   %2 = load i64, ptr %entropylen, align 8
   %cmp6 = icmp eq i64 %2, 0
   br i1 %cmp6, label %return, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %lor.lhs.false5
-  %nonce = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 3
+  %nonce = getelementptr inbounds i8, ptr %vctx, i64 184
   %3 = load ptr, ptr %nonce, align 8
   %cmp8 = icmp eq ptr %3, null
   br i1 %cmp8, label %return, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false7
-  %noncelen = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 5
+  %noncelen = getelementptr inbounds i8, ptr %vctx, i64 200
   %4 = load i64, ptr %noncelen, align 8
   %cmp10 = icmp eq i64 %4, 0
   br i1 %cmp10, label %return, label %lor.lhs.false11
@@ -282,7 +279,7 @@ define internal i32 @hmac_drbg_kdf_set_ctx_params(ptr noundef %vctx, ptr noundef
 entry:
   %ptr = alloca ptr, align 8
   %size = alloca i64, align 8
-  %provctx = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 1
+  %provctx = getelementptr inbounds i8, ptr %vctx, i64 168
   %0 = load ptr, ptr %provctx, align 8
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %0) #4
   store ptr null, ptr %ptr, align 8
@@ -301,15 +298,15 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then3
-  %entropy = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 2
+  %entropy = getelementptr inbounds i8, ptr %vctx, i64 176
   %1 = load ptr, ptr %entropy, align 8
   call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 194) #4
   %2 = load ptr, ptr %ptr, align 8
   store ptr %2, ptr %entropy, align 8
   %3 = load i64, ptr %size, align 8
-  %entropylen = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 4
+  %entropylen = getelementptr inbounds i8, ptr %vctx, i64 192
   store i64 %3, ptr %entropylen, align 8
-  %init = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 6
+  %init = getelementptr inbounds i8, ptr %vctx, i64 208
   store i32 0, ptr %init, align 8
   store ptr null, ptr %ptr, align 8
   br label %if.end8
@@ -325,15 +322,15 @@ if.then11:                                        ; preds = %if.end8
   br i1 %tobool13.not, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.then11
-  %nonce = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 3
+  %nonce = getelementptr inbounds i8, ptr %vctx, i64 184
   %4 = load ptr, ptr %nonce, align 8
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 205) #4
   %5 = load ptr, ptr %ptr, align 8
   store ptr %5, ptr %nonce, align 8
   %6 = load i64, ptr %size, align 8
-  %noncelen = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 5
+  %noncelen = getelementptr inbounds i8, ptr %vctx, i64 200
   store i64 %6, ptr %noncelen, align 8
-  %init17 = getelementptr inbounds %struct.KDF_HMAC_DRBG, ptr %vctx, i64 0, i32 6
+  %init17 = getelementptr inbounds i8, ptr %vctx, i64 208
   store i32 0, ptr %init17, align 8
   br label %if.end18
 
@@ -343,7 +340,7 @@ if.end18:                                         ; preds = %if.end15, %if.end8
   br i1 %cmp20.not, label %return, label %if.then21
 
 if.then21:                                        ; preds = %if.end18
-  %digest = getelementptr inbounds %struct.drbg_hmac_st, ptr %vctx, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %vctx, i64 8
   %call22 = call i32 @ossl_prov_digest_load_from_params(ptr noundef nonnull %digest, ptr noundef nonnull %params, ptr noundef %call) #4
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %return, label %if.end25
@@ -368,7 +365,7 @@ if.then32:                                        ; preds = %if.then29
 if.end33:                                         ; preds = %if.then29
   %call34 = call i32 @EVP_MD_get_size(ptr noundef nonnull %call27) #4
   %conv = sext i32 %call34 to i64
-  %blocklen = getelementptr inbounds %struct.drbg_hmac_st, ptr %vctx, i64 0, i32 2
+  %blocklen = getelementptr inbounds i8, ptr %vctx, i64 32
   store i64 %conv, ptr %blocklen, align 8
   br label %if.end35
 
@@ -412,7 +409,7 @@ if.end9:                                          ; preds = %if.end, %entry
   br i1 %cmp11.not, label %if.end20, label %if.then12
 
 if.then12:                                        ; preds = %if.end9
-  %digest = getelementptr inbounds %struct.drbg_hmac_st, ptr %vctx, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %vctx, i64 8
   %call13 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest) #4
   %cmp14 = icmp eq ptr %call13, null
   br i1 %cmp14, label %return, label %lor.lhs.false

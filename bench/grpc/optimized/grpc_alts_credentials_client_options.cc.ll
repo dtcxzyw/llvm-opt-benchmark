@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.grpc_alts_credentials_options_vtable = type { ptr, ptr }
-%struct.target_service_account = type { ptr, ptr }
-%struct.grpc_alts_credentials_client_options = type { %struct.grpc_alts_credentials_options, ptr }
-%struct.grpc_alts_credentials_options = type { ptr, %struct._grpc_gcp_RpcProtocolVersions }
-%struct._grpc_gcp_RpcProtocolVersions = type { %struct._grpc_gcp_RpcProtocolVersions_Version, %struct._grpc_gcp_RpcProtocolVersions_Version }
-%struct._grpc_gcp_RpcProtocolVersions_Version = type { i32, i32 }
 
 @.str = private unnamed_addr constant [166 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/security/credentials/alts/grpc_alts_credentials_client_options.cc\00", align 1
 @.str.1 = private unnamed_addr constant [95 x i8] c"Invalid nullptr arguments to grpc_alts_credentials_client_options_add_target_service_account()\00", align 1
@@ -29,9 +24,9 @@ if.then:                                          ; preds = %entry
 _ZL29target_service_account_createPKc.exit:       ; preds = %entry
   %call.i = tail call ptr @gpr_zalloc(i64 noundef 16)
   %call1.i = tail call ptr @gpr_strdup(ptr noundef nonnull %service_account)
-  %data.i = getelementptr inbounds %struct.target_service_account, ptr %call.i, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call1.i, ptr %data.i, align 8
-  %target_account_list_head = getelementptr inbounds %struct.grpc_alts_credentials_client_options, ptr %options, i64 0, i32 1
+  %target_account_list_head = getelementptr inbounds i8, ptr %options, i64 24
   %0 = load ptr, ptr %target_account_list_head, align 8
   store ptr %0, ptr %call.i, align 8
   store ptr %call.i, ptr %target_account_list_head, align 8
@@ -64,19 +59,19 @@ entry:
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @gpr_zalloc(i64 noundef 32)
   store ptr @_ZL6vtable, ptr %call.i, align 8
-  %target_account_list_head = getelementptr inbounds %struct.grpc_alts_credentials_client_options, ptr %options, i64 0, i32 1
+  %target_account_list_head = getelementptr inbounds i8, ptr %options, i64 24
   %node.011 = load ptr, ptr %target_account_list_head, align 8
   %cmp1.not12 = icmp eq ptr %node.011, null
   br i1 %cmp1.not12, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %target_account_list_head5 = getelementptr inbounds %struct.grpc_alts_credentials_client_options, ptr %call.i, i64 0, i32 1
+  %target_account_list_head5 = getelementptr inbounds i8, ptr %call.i, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZL29target_service_account_createPKc.exit
   %node.014 = phi ptr [ %node.011, %while.body.lr.ph ], [ %node.0, %_ZL29target_service_account_createPKc.exit ]
   %prev.013 = phi ptr [ null, %while.body.lr.ph ], [ %retval.0.i, %_ZL29target_service_account_createPKc.exit ]
-  %data = getelementptr inbounds %struct.target_service_account, ptr %node.014, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %node.014, i64 8
   %0 = load ptr, ptr %data, align 8
   %cmp.i = icmp eq ptr %0, null
   br i1 %cmp.i, label %_ZL29target_service_account_createPKc.exit, label %if.end.i
@@ -84,7 +79,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.end.i:                                         ; preds = %while.body
   %call.i10 = tail call ptr @gpr_zalloc(i64 noundef 16)
   %call1.i = tail call ptr @gpr_strdup(ptr noundef nonnull %0)
-  %data.i = getelementptr inbounds %struct.target_service_account, ptr %call.i10, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %call.i10, i64 8
   store ptr %call1.i, ptr %data.i, align 8
   br label %_ZL29target_service_account_createPKc.exit
 
@@ -98,8 +93,8 @@ _ZL29target_service_account_createPKc.exit:       ; preds = %while.body, %if.end
   br i1 %cmp1.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %_ZL29target_service_account_createPKc.exit, %if.end
-  %rpc_versions = getelementptr inbounds %struct.grpc_alts_credentials_options, ptr %options, i64 0, i32 1
-  %rpc_versions8 = getelementptr inbounds %struct.grpc_alts_credentials_options, ptr %call.i, i64 0, i32 1
+  %rpc_versions = getelementptr inbounds i8, ptr %options, i64 8
+  %rpc_versions8 = getelementptr inbounds i8, ptr %call.i, i64 8
   %call9 = tail call noundef zeroext i1 @_Z35grpc_gcp_rpc_protocol_versions_copyPK29_grpc_gcp_RpcProtocolVersionsPS_(ptr noundef nonnull %rpc_versions, ptr noundef nonnull %rpc_versions8)
   br label %return
 
@@ -115,7 +110,7 @@ entry:
   br i1 %cmp, label %while.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %target_account_list_head = getelementptr inbounds %struct.grpc_alts_credentials_client_options, ptr %options, i64 0, i32 1
+  %target_account_list_head = getelementptr inbounds i8, ptr %options, i64 24
   %0 = load ptr, ptr %target_account_list_head, align 8
   %cmp1.not4 = icmp eq ptr %0, null
   br i1 %cmp1.not4, label %while.end, label %while.body
@@ -123,7 +118,7 @@ if.end:                                           ; preds = %entry
 while.body:                                       ; preds = %if.end, %while.body
   %node.05 = phi ptr [ %1, %while.body ], [ %0, %if.end ]
   %1 = load ptr, ptr %node.05, align 8
-  %data.i = getelementptr inbounds %struct.target_service_account, ptr %node.05, i64 0, i32 1
+  %data.i = getelementptr inbounds i8, ptr %node.05, i64 8
   %2 = load ptr, ptr %data.i, align 8
   tail call void @gpr_free(ptr noundef %2)
   tail call void @gpr_free(ptr noundef nonnull %node.05)

@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-t_bitst.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BIT_STRING_BITNAME_st = type { i32, ptr, ptr }
-
 @.str = private unnamed_addr constant [4 x i8] c"%*s\00", align 1
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.2 = private unnamed_addr constant [3 x i8] c", \00", align 1
@@ -14,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define i32 @ASN1_BIT_STRING_name_print(ptr noundef %out, ptr noundef %bs, ptr nocapture noundef readonly %tbl, i32 noundef %indent) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str, i32 noundef %indent, ptr noundef nonnull @.str.1) #4
-  %lname7 = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %tbl, i64 0, i32 1
+  %lname7 = getelementptr inbounds i8, ptr %tbl, i64 8
   %0 = load ptr, ptr %lname7, align 8
   %tobool.not8 = icmp eq ptr %0, null
   br i1 %tobool.not8, label %for.end, label %for.body
@@ -43,8 +41,8 @@ if.end:                                           ; preds = %if.then4, %if.then
 
 for.inc:                                          ; preds = %for.body, %if.end
   %first.1 = phi i8 [ 0, %if.end ], [ %first.010, %for.body ]
-  %incdec.ptr = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %bnam.09, i64 1
-  %lname = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %bnam.09, i64 1, i32 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %bnam.09, i64 24
+  %lname = getelementptr inbounds i8, ptr %bnam.09, i64 32
   %3 = load ptr, ptr %lname, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !4
@@ -63,7 +61,7 @@ declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ASN1_BIT_STRING_set_asc(ptr noundef %bs, ptr nocapture noundef readonly %name, i32 noundef %value, ptr nocapture noundef readonly %tbl) local_unnamed_addr #0 {
 entry:
-  %lname7.i = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %tbl, i64 0, i32 1
+  %lname7.i = getelementptr inbounds i8, ptr %tbl, i64 8
   %0 = load ptr, ptr %lname7.i, align 8
   %tobool.not8.i = icmp eq ptr %0, null
   br i1 %tobool.not8.i, label %return, label %for.body.i
@@ -71,7 +69,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.inc.i
   %1 = phi ptr [ %3, %for.inc.i ], [ %0, %entry ]
   %bnam.09.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %tbl, %entry ]
-  %sname.i = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %bnam.09.i, i64 0, i32 2
+  %sname.i = getelementptr inbounds i8, ptr %bnam.09.i, i64 16
   %2 = load ptr, ptr %sname.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %name) #5
   %cmp.i = icmp eq i32 %call.i, 0
@@ -83,8 +81,8 @@ lor.lhs.false.i:                                  ; preds = %for.body.i
   br i1 %cmp3.i, label %ASN1_BIT_STRING_num_asc.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %lor.lhs.false.i
-  %incdec.ptr.i = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %bnam.09.i, i64 1
-  %lname.i = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %bnam.09.i, i64 1, i32 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %bnam.09.i, i64 24
+  %lname.i = getelementptr inbounds i8, ptr %bnam.09.i, i64 32
   %3 = load ptr, ptr %lname.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %return, label %for.body.i, !llvm.loop !6
@@ -114,7 +112,7 @@ return:                                           ; preds = %for.inc.i, %entry, 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @ASN1_BIT_STRING_num_asc(ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %tbl) local_unnamed_addr #2 {
 entry:
-  %lname7 = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %tbl, i64 0, i32 1
+  %lname7 = getelementptr inbounds i8, ptr %tbl, i64 8
   %0 = load ptr, ptr %lname7, align 8
   %tobool.not8 = icmp eq ptr %0, null
   br i1 %tobool.not8, label %return, label %for.body
@@ -122,7 +120,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %1 = phi ptr [ %4, %for.inc ], [ %0, %entry ]
   %bnam.09 = phi ptr [ %incdec.ptr, %for.inc ], [ %tbl, %entry ]
-  %sname = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %bnam.09, i64 0, i32 2
+  %sname = getelementptr inbounds i8, ptr %bnam.09, i64 16
   %2 = load ptr, ptr %sname, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %name) #5
   %cmp = icmp eq i32 %call, 0
@@ -138,8 +136,8 @@ if.then:                                          ; preds = %lor.lhs.false, %for
   br label %return
 
 for.inc:                                          ; preds = %lor.lhs.false
-  %incdec.ptr = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %bnam.09, i64 1
-  %lname = getelementptr inbounds %struct.BIT_STRING_BITNAME_st, ptr %bnam.09, i64 1, i32 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %bnam.09, i64 24
+  %lname = getelementptr inbounds i8, ptr %bnam.09, i64 32
   %4 = load ptr, ptr %lname, align 8
   %tobool.not = icmp eq ptr %4, null
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !6

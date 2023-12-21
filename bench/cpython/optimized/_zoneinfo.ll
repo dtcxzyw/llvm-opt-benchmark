@@ -872,19 +872,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.768 = type { i32 }
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
-%struct.CalendarRule = type { %struct.TransitionRuleType, i8, i8, i8, i16, i8, i8 }
-%struct.TransitionRuleType = type { ptr }
-%struct.DayRule = type { %struct.TransitionRuleType, i8, i16, i16, i8, i8 }
-%struct.StrongCacheNode = type { ptr, ptr, ptr, ptr }
-%struct.zoneinfo_state = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct._ttinfo }
 %struct._ttinfo = type { ptr, ptr, ptr, i64 }
-%struct.PyDateTime_CAPI = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PyZoneInfo_ZoneInfo = type { %struct.PyDateTime_TZInfo, ptr, ptr, ptr, i64, i64, ptr, [2 x ptr], ptr, ptr, %struct._tzrule, ptr, i8, i8 }
-%struct.PyDateTime_TZInfo = type { %struct._object }
-%struct._tzrule = type { %struct._ttinfo, %struct._ttinfo, i32, ptr, ptr, i8 }
-%struct._PyDateTime_BaseTZInfo = type { %struct._object, i64, i8 }
-%struct.PyDateTime_DateTime = type { %struct._object, i64, i8, [10 x i8], i8, ptr }
-%struct.PyDateTime_Date = type { %struct._object, i64, i8, [4 x i8] }
 
 @DAYS_IN_MONTH = internal unnamed_addr constant [13 x i32] [i32 -1, i32 31, i32 28, i32 31, i32 30, i32 31, i32 30, i32 31, i32 31, i32 30, i32 31, i32 30, i32 31], align 16
 @PyExc_ValueError = external local_unnamed_addr global ptr, align 8
@@ -998,7 +986,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @calendarrule_year_to_timestamp(ptr nocapture noundef readonly %base_self, i32 noundef %year) #0 {
 entry:
-  %month = getelementptr inbounds %struct.CalendarRule, ptr %base_self, i64 0, i32 1
+  %month = getelementptr inbounds i8, ptr %base_self, i64 8
   %0 = load i8, ptr %month, align 8
   %idxprom.i = zext i8 %0 to i64
   %arrayidx.i = getelementptr [13 x i32], ptr @DAYS_BEFORE_MONTH, i64 0, i64 %idxprom.i
@@ -1060,9 +1048,9 @@ is_leap_year.exit.thread:                         ; preds = %land.lhs.true, %is_
 
 if.end.thread:                                    ; preds = %is_leap_year.exit.thread, %is_leap_year.exit, %is_leap_year.exit.thread51, %ymd_to_ord.exit
   %days_in_month.0.ph = phi i32 [ %conv1054, %is_leap_year.exit.thread51 ], [ %conv10, %is_leap_year.exit ], [ %2, %is_leap_year.exit.thread ], [ %2, %ymd_to_ord.exit ]
-  %day62 = getelementptr inbounds %struct.CalendarRule, ptr %base_self, i64 0, i32 3
+  %day62 = getelementptr inbounds i8, ptr %base_self, i64 10
   %3 = load i8, ptr %day62, align 2
-  %week63 = getelementptr inbounds %struct.CalendarRule, ptr %base_self, i64 0, i32 2
+  %week63 = getelementptr inbounds i8, ptr %base_self, i64 9
   %4 = load i8, ptr %week63, align 1
   br label %ymd_to_ord.exit47
 
@@ -1070,9 +1058,9 @@ land.lhs.true.i34:                                ; preds = %is_leap_year.exit.t
   %yearday.0.i.ph = phi i32 [ %add614.i, %is_leap_year.exit.thread11.i ], [ %add6.i, %is_leap_year.exit.i ], [ %1, %is_leap_year.exit.thread.i ]
   %arrayidx57 = getelementptr [13 x i32], ptr @DAYS_IN_MONTH, i64 0, i64 %idxprom.i
   %5 = load i32, ptr %arrayidx57, align 4
-  %day = getelementptr inbounds %struct.CalendarRule, ptr %base_self, i64 0, i32 3
+  %day = getelementptr inbounds i8, ptr %base_self, i64 10
   %6 = load i8, ptr %day, align 2
-  %week = getelementptr inbounds %struct.CalendarRule, ptr %base_self, i64 0, i32 2
+  %week = getelementptr inbounds i8, ptr %base_self, i64 9
   %7 = load i8, ptr %week, align 1
   %rem.i.i35 = and i32 %year, 3
   %cmp.i.i36 = icmp eq i32 %rem.i.i35, 0
@@ -1137,17 +1125,17 @@ ymd_to_ord.exit47:                                ; preds = %if.end.thread, %is_
   %sub45 = add i32 %add8.i33, %yearday.0.i23
   %conv46 = sext i32 %sub45 to i64
   %mul47 = mul nsw i64 %conv46, 86400
-  %hour = getelementptr inbounds %struct.CalendarRule, ptr %base_self, i64 0, i32 4
+  %hour = getelementptr inbounds i8, ptr %base_self, i64 12
   %12 = load i16, ptr %hour, align 4
   %conv48 = sext i16 %12 to i64
   %mul49 = mul nsw i64 %conv48, 3600
   %add50 = add nsw i64 %mul47, %mul49
-  %minute = getelementptr inbounds %struct.CalendarRule, ptr %base_self, i64 0, i32 5
+  %minute = getelementptr inbounds i8, ptr %base_self, i64 14
   %13 = load i8, ptr %minute, align 2
   %conv51 = sext i8 %13 to i64
   %mul52 = mul nsw i64 %conv51, 60
   %add53 = add nsw i64 %add50, %mul52
-  %second = getelementptr inbounds %struct.CalendarRule, ptr %base_self, i64 0, i32 6
+  %second = getelementptr inbounds i8, ptr %base_self, i64 15
   %14 = load i8, ptr %second, align 1
   %conv54 = sext i8 %14 to i64
   %add55 = add nsw i64 %add53, %conv54
@@ -1230,9 +1218,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @dayrule_year_to_timestamp(ptr nocapture noundef readonly %base_self, i32 noundef %year) #0 {
 entry:
-  %day2 = getelementptr inbounds %struct.DayRule, ptr %base_self, i64 0, i32 2
+  %day2 = getelementptr inbounds i8, ptr %base_self, i64 10
   %0 = load i16, ptr %day2, align 2
-  %julian = getelementptr inbounds %struct.DayRule, ptr %base_self, i64 0, i32 1
+  %julian = getelementptr inbounds i8, ptr %base_self, i64 8
   %1 = load i8, ptr %julian, align 8
   %tobool = icmp ne i8 %1, 0
   %cmp = icmp ugt i16 %0, 58
@@ -1277,17 +1265,17 @@ if.end:                                           ; preds = %is_leap_year.exit.t
   %conv11 = zext i16 %day.0 to i64
   %add12 = add nsw i64 %conv11, %conv
   %mul = mul nsw i64 %add12, 86400
-  %hour = getelementptr inbounds %struct.DayRule, ptr %base_self, i64 0, i32 3
+  %hour = getelementptr inbounds i8, ptr %base_self, i64 12
   %2 = load i16, ptr %hour, align 4
   %conv13 = sext i16 %2 to i64
   %mul14 = mul nsw i64 %conv13, 3600
   %add15 = add nsw i64 %mul, %mul14
-  %minute = getelementptr inbounds %struct.DayRule, ptr %base_self, i64 0, i32 4
+  %minute = getelementptr inbounds i8, ptr %base_self, i64 14
   %3 = load i8, ptr %minute, align 2
   %conv16 = sext i8 %3 to i64
   %mul17 = mul nsw i64 %conv16, 60
   %add18 = add nsw i64 %add15, %mul17
-  %second = getelementptr inbounds %struct.DayRule, ptr %base_self, i64 0, i32 5
+  %second = getelementptr inbounds i8, ptr %base_self, i64 15
   %4 = load i8, ptr %second, align 1
   %conv19 = sext i8 %4 to i64
   %add20 = add nsw i64 %add18, %conv19
@@ -1297,7 +1285,7 @@ if.end:                                           ; preds = %is_leap_year.exit.t
 ; Function Attrs: nounwind uwtable
 define hidden void @strong_cache_node_free(ptr noundef %node) local_unnamed_addr #1 {
 entry:
-  %key = getelementptr inbounds %struct.StrongCacheNode, ptr %node, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %node, i64 16
   %0 = load ptr, ptr %key, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -1319,7 +1307,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %zone = getelementptr inbounds %struct.StrongCacheNode, ptr %node, i64 0, i32 3
+  %zone = getelementptr inbounds i8, ptr %node, i64 24
   %3 = load ptr, ptr %zone, align 8
   %cmp.not.i3 = icmp eq ptr %3, null
   br i1 %cmp.not.i3, label %Py_XDECREF.exit10, label %if.then.i4
@@ -1356,7 +1344,7 @@ entry:
 while.body:                                       ; preds = %entry, %strong_cache_node_free.exit
   %node.04 = phi ptr [ %0, %strong_cache_node_free.exit ], [ %root, %entry ]
   %0 = load ptr, ptr %node.04, align 8
-  %key.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.04, i64 0, i32 2
+  %key.i = getelementptr inbounds i8, ptr %node.04, i64 16
   %1 = load ptr, ptr %key.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i.i
@@ -1378,7 +1366,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i, %while.body
-  %zone.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.04, i64 0, i32 3
+  %zone.i = getelementptr inbounds i8, ptr %node.04, i64 24
   %4 = load ptr, ptr %zone.i, align 8
   %cmp.not.i3.i = icmp eq ptr %4, null
   br i1 %cmp.not.i3.i, label %strong_cache_node_free.exit, label %if.then.i4.i
@@ -1433,7 +1421,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %io_open = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 1
+  %io_open = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %io_open, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -1444,7 +1432,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %_tzpath_find_tzfile = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 2
+  %_tzpath_find_tzfile = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %_tzpath_find_tzfile, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -1455,7 +1443,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %_common_mod = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 3
+  %_common_mod = getelementptr inbounds i8, ptr %call.i, i64 24
   %3 = load ptr, ptr %_common_mod, align 8
   %tobool29.not = icmp eq ptr %3, null
   br i1 %tobool29.not, label %do.body39, label %if.then30
@@ -1466,7 +1454,7 @@ if.then30:                                        ; preds = %do.body28
   br i1 %tobool34.not, label %do.body39, label %return
 
 do.body39:                                        ; preds = %if.then30, %do.body28
-  %TIMEDELTA_CACHE = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 4
+  %TIMEDELTA_CACHE = getelementptr inbounds i8, ptr %call.i, i64 32
   %4 = load ptr, ptr %TIMEDELTA_CACHE, align 8
   %tobool40.not = icmp eq ptr %4, null
   br i1 %tobool40.not, label %do.body50, label %if.then41
@@ -1477,7 +1465,7 @@ if.then41:                                        ; preds = %do.body39
   br i1 %tobool45.not, label %do.body50, label %return
 
 do.body50:                                        ; preds = %if.then41, %do.body39
-  %ZONEINFO_WEAK_CACHE = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 5
+  %ZONEINFO_WEAK_CACHE = getelementptr inbounds i8, ptr %call.i, i64 40
   %5 = load ptr, ptr %ZONEINFO_WEAK_CACHE, align 8
   %tobool51.not = icmp eq ptr %5, null
   br i1 %tobool51.not, label %do.end60, label %if.then52
@@ -1488,7 +1476,7 @@ if.then52:                                        ; preds = %do.body50
   br i1 %tobool56.not, label %do.end60, label %return
 
 do.end60:                                         ; preds = %do.body50, %if.then52
-  %ZONEINFO_STRONG_CACHE = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 6
+  %ZONEINFO_STRONG_CACHE = getelementptr inbounds i8, ptr %call.i, i64 48
   %6 = load ptr, ptr %ZONEINFO_STRONG_CACHE, align 8
   %cmp.not65 = icmp eq ptr %6, null
   br i1 %cmp.not65, label %do.body84, label %while.body
@@ -1496,7 +1484,7 @@ do.end60:                                         ; preds = %do.body50, %if.then
 while.body:                                       ; preds = %do.end60, %do.end83
   %node.066 = phi ptr [ %7, %do.end83 ], [ %6, %do.end60 ]
   %7 = load ptr, ptr %node.066, align 8
-  %key = getelementptr inbounds %struct.StrongCacheNode, ptr %node.066, i64 0, i32 2
+  %key = getelementptr inbounds i8, ptr %node.066, i64 16
   %8 = load ptr, ptr %key, align 8
   %tobool63.not = icmp eq ptr %8, null
   br i1 %tobool63.not, label %do.body73, label %if.then64
@@ -1507,7 +1495,7 @@ if.then64:                                        ; preds = %while.body
   br i1 %tobool68.not, label %do.body73, label %return
 
 do.body73:                                        ; preds = %if.then64, %while.body
-  %zone = getelementptr inbounds %struct.StrongCacheNode, ptr %node.066, i64 0, i32 3
+  %zone = getelementptr inbounds i8, ptr %node.066, i64 24
   %9 = load ptr, ptr %zone, align 8
   %tobool74.not = icmp eq ptr %9, null
   br i1 %tobool74.not, label %do.end83, label %if.then75
@@ -1522,7 +1510,7 @@ do.end83:                                         ; preds = %do.body73, %if.then
   br i1 %cmp.not, label %do.body84, label %while.body, !llvm.loop !6
 
 do.body84:                                        ; preds = %do.end83, %do.end60
-  %NO_TTINFO = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 7
+  %NO_TTINFO = getelementptr inbounds i8, ptr %call.i, i64 56
   %10 = load ptr, ptr %NO_TTINFO, align 8
   %tobool85.not = icmp eq ptr %10, null
   br i1 %tobool85.not, label %do.body96, label %if.then86
@@ -1533,7 +1521,7 @@ if.then86:                                        ; preds = %do.body84
   br i1 %tobool91.not, label %do.body96, label %return
 
 do.body96:                                        ; preds = %if.then86, %do.body84
-  %dstoff = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 7, i32 1
+  %dstoff = getelementptr inbounds i8, ptr %call.i, i64 64
   %11 = load ptr, ptr %dstoff, align 8
   %tobool98.not = icmp eq ptr %11, null
   br i1 %tobool98.not, label %do.body109, label %if.then99
@@ -1544,7 +1532,7 @@ if.then99:                                        ; preds = %do.body96
   br i1 %tobool104.not, label %do.body109, label %return
 
 do.body109:                                       ; preds = %if.then99, %do.body96
-  %tzname = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 7, i32 2
+  %tzname = getelementptr inbounds i8, ptr %call.i, i64 72
   %12 = load ptr, ptr %tzname, align 8
   %tobool111.not = icmp eq ptr %12, null
   br i1 %tobool111.not, label %do.end121, label %if.then112
@@ -1588,7 +1576,7 @@ if.then1.i129:                                    ; preds = %if.end.i126
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i126, %if.then1.i129, %if.then, %entry
-  %io_open = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 1
+  %io_open = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %io_open, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -1611,7 +1599,7 @@ if.then1.i120:                                    ; preds = %if.end.i117
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i117, %if.then1.i120, %if.then5, %do.body1
-  %_tzpath_find_tzfile = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 2
+  %_tzpath_find_tzfile = getelementptr inbounds i8, ptr %call.i, i64 16
   %6 = load ptr, ptr %_tzpath_find_tzfile, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -1634,7 +1622,7 @@ if.then1.i111:                                    ; preds = %if.end.i108
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i108, %if.then1.i111, %if.then12, %do.body8
-  %_common_mod = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 3
+  %_common_mod = getelementptr inbounds i8, ptr %call.i, i64 24
   %9 = load ptr, ptr %_common_mod, align 8
   %cmp18.not = icmp eq ptr %9, null
   br i1 %cmp18.not, label %do.body22, label %if.then19
@@ -1657,7 +1645,7 @@ if.then1.i102:                                    ; preds = %if.end.i99
   br label %do.body22
 
 do.body22:                                        ; preds = %if.end.i99, %if.then1.i102, %if.then19, %do.body15
-  %TIMEDELTA_CACHE = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 4
+  %TIMEDELTA_CACHE = getelementptr inbounds i8, ptr %call.i, i64 32
   %12 = load ptr, ptr %TIMEDELTA_CACHE, align 8
   %cmp25.not = icmp eq ptr %12, null
   br i1 %cmp25.not, label %do.body29, label %if.then26
@@ -1680,7 +1668,7 @@ if.then1.i93:                                     ; preds = %if.end.i90
   br label %do.body29
 
 do.body29:                                        ; preds = %if.end.i90, %if.then1.i93, %if.then26, %do.body22
-  %ZONEINFO_WEAK_CACHE = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 5
+  %ZONEINFO_WEAK_CACHE = getelementptr inbounds i8, ptr %call.i, i64 40
   %15 = load ptr, ptr %ZONEINFO_WEAK_CACHE, align 8
   %cmp32.not = icmp eq ptr %15, null
   br i1 %cmp32.not, label %if.end.i55, label %if.then33
@@ -1703,7 +1691,7 @@ if.then1.i84:                                     ; preds = %if.end.i81
   br label %if.end.i55
 
 if.end.i55:                                       ; preds = %if.end.i81, %if.then1.i84, %if.then33, %do.body29
-  %ZONEINFO_STRONG_CACHE.i = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 6
+  %ZONEINFO_STRONG_CACHE.i = getelementptr inbounds i8, ptr %call.i, i64 48
   %18 = load ptr, ptr %ZONEINFO_STRONG_CACHE.i, align 8
   %cmp.not3.i.i = icmp eq ptr %18, null
   br i1 %cmp.not3.i.i, label %clear_strong_cache.exit, label %while.body.i.i
@@ -1711,7 +1699,7 @@ if.end.i55:                                       ; preds = %if.end.i81, %if.the
 while.body.i.i:                                   ; preds = %if.end.i55, %strong_cache_node_free.exit.i.i
   %node.04.i.i = phi ptr [ %19, %strong_cache_node_free.exit.i.i ], [ %18, %if.end.i55 ]
   %19 = load ptr, ptr %node.04.i.i, align 8
-  %key.i.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.04.i.i, i64 0, i32 2
+  %key.i.i.i = getelementptr inbounds i8, ptr %node.04.i.i, i64 16
   %20 = load ptr, ptr %key.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %cmp.not.i.i.i.i, label %Py_XDECREF.exit.i.i.i, label %if.then.i.i.i.i
@@ -1733,7 +1721,7 @@ if.then1.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br label %Py_XDECREF.exit.i.i.i
 
 Py_XDECREF.exit.i.i.i:                            ; preds = %if.then1.i.i.i.i.i, %if.end.i.i.i.i.i, %if.then.i.i.i.i, %while.body.i.i
-  %zone.i.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.04.i.i, i64 0, i32 3
+  %zone.i.i.i = getelementptr inbounds i8, ptr %node.04.i.i, i64 24
   %23 = load ptr, ptr %zone.i.i.i, align 8
   %cmp.not.i3.i.i.i = icmp eq ptr %23, null
   br i1 %cmp.not.i3.i.i.i, label %strong_cache_node_free.exit.i.i, label %if.then.i4.i.i.i
@@ -1761,7 +1749,7 @@ strong_cache_node_free.exit.i.i:                  ; preds = %if.then1.i.i9.i.i.i
 
 clear_strong_cache.exit:                          ; preds = %strong_cache_node_free.exit.i.i, %if.end.i55
   store ptr null, ptr %ZONEINFO_STRONG_CACHE.i, align 8
-  %NO_TTINFO = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 7
+  %NO_TTINFO = getelementptr inbounds i8, ptr %call.i, i64 56
   %26 = load ptr, ptr %NO_TTINFO, align 8
   %cmp40.not = icmp eq ptr %26, null
   br i1 %cmp40.not, label %do.body44, label %if.then41
@@ -1784,7 +1772,7 @@ if.then1.i75:                                     ; preds = %if.end.i72
   br label %do.body44
 
 do.body44:                                        ; preds = %if.end.i72, %if.then1.i75, %if.then41, %clear_strong_cache.exit
-  %dstoff = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 7, i32 1
+  %dstoff = getelementptr inbounds i8, ptr %call.i, i64 64
   %29 = load ptr, ptr %dstoff, align 8
   %cmp48.not = icmp eq ptr %29, null
   br i1 %cmp48.not, label %do.body52, label %if.then49
@@ -1807,7 +1795,7 @@ if.then1.i66:                                     ; preds = %if.end.i63
   br label %do.body52
 
 do.body52:                                        ; preds = %if.end.i63, %if.then1.i66, %if.then49, %do.body44
-  %tzname = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 7, i32 2
+  %tzname = getelementptr inbounds i8, ptr %call.i, i64 72
   %32 = load ptr, ptr %tzname, align 8
   %cmp56.not = icmp eq ptr %32, null
   br i1 %cmp56.not, label %do.end59, label %if.then57
@@ -1851,7 +1839,7 @@ entry:
 if.end:                                           ; preds = %entry
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #9
   %0 = load ptr, ptr @PyDateTimeAPI, align 8
-  %TZInfoType = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 4
+  %TZInfoType = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load ptr, ptr %TZInfoType, align 8
   %call2 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %m, ptr noundef nonnull @zoneinfo_spec, ptr noundef %1) #9
   store ptr %call2, ptr %call.i, align 8
@@ -1865,27 +1853,27 @@ if.end6:                                          ; preds = %if.end
 
 if.end11:                                         ; preds = %if.end6
   %call12 = tail call ptr @_PyImport_GetModuleAttrString(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9) #9
-  %_tzpath_find_tzfile = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 2
+  %_tzpath_find_tzfile = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call12, ptr %_tzpath_find_tzfile, align 8
   %cmp14 = icmp eq ptr %call12, null
   br i1 %cmp14, label %error, label %if.end16
 
 if.end16:                                         ; preds = %if.end11
   %call17 = tail call ptr @_PyImport_GetModuleAttrString(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #9
-  %io_open = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 1
+  %io_open = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call17, ptr %io_open, align 8
   %cmp19 = icmp eq ptr %call17, null
   br i1 %cmp19, label %error, label %if.end21
 
 if.end21:                                         ; preds = %if.end16
   %call22 = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.12) #9
-  %_common_mod = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 3
+  %_common_mod = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call22, ptr %_common_mod, align 8
   %cmp24 = icmp eq ptr %call22, null
   br i1 %cmp24, label %error, label %if.end26
 
 if.end26:                                         ; preds = %if.end21
-  %NO_TTINFO = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 7
+  %NO_TTINFO = getelementptr inbounds i8, ptr %call.i, i64 56
   %2 = load ptr, ptr %NO_TTINFO, align 8
   %cmp27 = icmp eq ptr %2, null
   br i1 %cmp27, label %if.then28, label %if.end36
@@ -1908,14 +1896,14 @@ _Py_NewRef.exit:                                  ; preds = %if.then28
   br i1 %cmp.i.i17, label %_Py_NewRef.exit19.thread, label %_Py_NewRef.exit19
 
 _Py_NewRef.exit19.thread:                         ; preds = %_Py_NewRef.exit, %_Py_NewRef.exit.thread
-  %dstoff39 = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 7, i32 1
+  %dstoff39 = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @_Py_NoneStruct, ptr %dstoff39, align 8
   br label %_Py_NewRef.exit23
 
 _Py_NewRef.exit19:                                ; preds = %_Py_NewRef.exit
   store i32 %.pre, ptr @_Py_NoneStruct, align 8
   %.pre35 = add i32 %3, 3
-  %dstoff = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 7, i32 1
+  %dstoff = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @_Py_NoneStruct, ptr %dstoff, align 8
   %cmp.i.i21 = icmp eq i32 %.pre35, 0
   br i1 %cmp.i.i21, label %_Py_NewRef.exit23, label %if.end.i.i22
@@ -1925,13 +1913,13 @@ if.end.i.i22:                                     ; preds = %_Py_NewRef.exit19
   br label %_Py_NewRef.exit23
 
 _Py_NewRef.exit23:                                ; preds = %_Py_NewRef.exit19.thread, %_Py_NewRef.exit19, %if.end.i.i22
-  %tzname = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 7, i32 2
+  %tzname = getelementptr inbounds i8, ptr %call.i, i64 72
   store ptr @_Py_NoneStruct, ptr %tzname, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %_Py_NewRef.exit23, %if.end26
   %call.i24 = tail call ptr @PyDict_New() #9
-  %TIMEDELTA_CACHE.i = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 4
+  %TIMEDELTA_CACHE.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store ptr %call.i24, ptr %TIMEDELTA_CACHE.i, align 8
   %cmp.i = icmp eq ptr %call.i24, null
   br i1 %cmp.i, label %error, label %if.end.i
@@ -1942,7 +1930,7 @@ if.end.i:                                         ; preds = %if.end36
   br i1 %cmp.i.i25, label %initialize_caches.exit.thread29, label %if.end.i.i26
 
 initialize_caches.exit.thread29:                  ; preds = %if.end.i
-  %ZONEINFO_WEAK_CACHE.i31 = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 5
+  %ZONEINFO_WEAK_CACHE.i31 = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr null, ptr %ZONEINFO_WEAK_CACHE.i31, align 8
   br label %error
 
@@ -1964,7 +1952,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %initialize_caches.exit
 
 initialize_caches.exit:                           ; preds = %if.end.i.i26, %if.end.i.i.i, %if.then1.i.i.i
-  %ZONEINFO_WEAK_CACHE.i = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i, i64 0, i32 5
+  %ZONEINFO_WEAK_CACHE.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store ptr %call1.i.i, ptr %ZONEINFO_WEAK_CACHE.i, align 8
   %cmp4.i.not = icmp eq ptr %call1.i.i, null
   br i1 %cmp4.i.not, label %error, label %return
@@ -1994,9 +1982,9 @@ define internal ptr @zoneinfo_repr(ptr nocapture noundef readonly %self) #1 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %1 = load ptr, ptr %tp_name, align 8
-  %key = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %self, i64 16
   %2 = load ptr, ptr %key, align 8
   %cmp = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp, label %if.else, label %if.then
@@ -2006,7 +1994,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %file_repr = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 2
+  %file_repr = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load ptr, ptr %file_repr, align 8
   %call3 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.15, ptr noundef %1, ptr noundef %3) #9
   br label %if.end
@@ -2019,7 +2007,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind uwtable
 define internal ptr @zoneinfo_str(ptr nocapture noundef readonly %self) #1 {
 entry:
-  %key = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %key, align 8
   %cmp = icmp eq ptr %0, @_Py_NoneStruct
   br i1 %cmp, label %zoneinfo_repr.exit, label %if.then
@@ -2037,9 +2025,9 @@ if.end.i.i:                                       ; preds = %if.then
 zoneinfo_repr.exit:                               ; preds = %entry
   %2 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %2, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %self.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %self.val.i, i64 24
   %3 = load ptr, ptr %tp_name.i, align 8
-  %file_repr.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 2
+  %file_repr.i = getelementptr inbounds i8, ptr %self, i64 24
   %4 = load ptr, ptr %file_repr.i, align 8
   %call3.i = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.15, ptr noundef %3, ptr noundef %4) #9
   br label %return
@@ -2069,14 +2057,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i23, label %lor.lhs.false
 
 if.end.i23:                                       ; preds = %if.end
-  %ZONEINFO_STRONG_CACHE.i = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i.i, i64 0, i32 6
+  %ZONEINFO_STRONG_CACHE.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
   %2 = load ptr, ptr %ZONEINFO_STRONG_CACHE.i, align 8
   %cmp.not5.i.i = icmp eq ptr %2, null
   br i1 %cmp.not5.i.i, label %lor.lhs.false, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i23, %if.end4.i.i
   %node.06.i.i = phi ptr [ %4, %if.end4.i.i ], [ %2, %if.end.i23 ]
-  %key1.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.06.i.i, i64 0, i32 2
+  %key1.i.i = getelementptr inbounds i8, ptr %node.06.i.i, i64 16
   %3 = load ptr, ptr %key1.i.i, align 8
   %call.i.i24 = call i32 @PyObject_RichCompareBool(ptr noundef %0, ptr noundef %3, i32 noundef 2) #9
   %cmp2.i.i = icmp slt i32 %call.i.i24, 0
@@ -2098,7 +2086,7 @@ if.then2.i:                                       ; preds = %if.end.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then2.i
   %.pre.pre.i.i.i = load ptr, ptr %node.06.i.i, align 8
-  %prev.i.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.06.i.i, i64 0, i32 1
+  %prev.i.i.i = getelementptr inbounds i8, ptr %node.06.i.i, i64 8
   %6 = load ptr, ptr %prev.i.i.i, align 8
   %cmp2.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp2.not.i.i.i, label %if.end7.i.i.i, label %if.then3.i.i.i
@@ -2113,7 +2101,7 @@ if.end7.i.i.i:                                    ; preds = %if.then3.i.i.i, %if
 
 if.then10.i.i.i:                                  ; preds = %if.end7.i.i.i
   %7 = load ptr, ptr %prev.i.i.i, align 8
-  %prev13.i.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %.pre.pre.i.i.i, i64 0, i32 1
+  %prev13.i.i.i = getelementptr inbounds i8, ptr %.pre.pre.i.i.i, i64 8
   store ptr %7, ptr %prev13.i.i.i, align 8
   br label %remove_from_strong_cache.exit.i.i
 
@@ -2124,7 +2112,7 @@ remove_from_strong_cache.exit.i.i:                ; preds = %if.then10.i.i.i, %i
   br i1 %cmp1.not.i.i, label %if.end4.i7.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %remove_from_strong_cache.exit.i.i
-  %prev3.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %5, i64 0, i32 1
+  %prev3.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %node.06.i.i, ptr %prev3.i.i, align 8
   br label %if.end4.i7.i
 
@@ -2133,7 +2121,7 @@ if.end4.i7.i:                                     ; preds = %if.then2.i.i, %remo
   br label %move_strong_cache_node_to_front.exit.i
 
 move_strong_cache_node_to_front.exit.i:           ; preds = %if.end4.i7.i, %if.then2.i
-  %zone.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.06.i.i, i64 0, i32 3
+  %zone.i = getelementptr inbounds i8, ptr %node.06.i.i, i64 24
   %8 = load ptr, ptr %zone.i, align 8
   %9 = load i32, ptr %8, align 8
   %add.i.i.i = add i32 %9, 1
@@ -2155,7 +2143,7 @@ if.end6:                                          ; preds = %lor.lhs.false
   br i1 %cmp.i25, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end6
-  %ZONEINFO_WEAK_CACHE.i = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i.i, i64 0, i32 5
+  %ZONEINFO_WEAK_CACHE.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %11 = load ptr, ptr %ZONEINFO_WEAK_CACHE.i, align 8
   br label %get_weak_cache.exit
 
@@ -2236,7 +2224,7 @@ Py_DECREF.exit:                                   ; preds = %if.end17, %if.then1
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %Py_DECREF.exit
-  %source = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %call18, i64 0, i32 13
+  %source = getelementptr inbounds i8, ptr %call18, i64 201
   store i8 1, ptr %source, align 1
   br label %if.end22
 
@@ -2264,7 +2252,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i34
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end.i.i34
-  %key2.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %call.i.i32, i64 0, i32 2
+  %key2.i.i = getelementptr inbounds i8, ptr %call.i.i32, i64 16
   store ptr %21, ptr %key2.i.i, align 8
   %24 = load i32, ptr %instance.0, align 8
   %add.i.i6.i.i = add i32 %24, 1
@@ -2276,16 +2264,16 @@ if.end.i.i8.i.i:                                  ; preds = %_Py_NewRef.exit.i.i
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i.i8.i.i, %_Py_NewRef.exit.i.i
-  %zone4.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %call.i.i32, i64 0, i32 3
+  %zone4.i.i = getelementptr inbounds i8, ptr %call.i.i32, i64 24
   store ptr %instance.0, ptr %zone4.i.i, align 8
-  %ZONEINFO_STRONG_CACHE.i35 = getelementptr inbounds %struct.zoneinfo_state, ptr %call.i.i, i64 0, i32 6
+  %ZONEINFO_STRONG_CACHE.i35 = getelementptr inbounds i8, ptr %call.i.i, i64 48
   %25 = load ptr, ptr %ZONEINFO_STRONG_CACHE.i35, align 8
   %cmp.i11.i = icmp eq ptr %25, %call.i.i32
   %node.015.pre19.i = load ptr, ptr %call.i.i32, align 8
   br i1 %cmp.i11.i, label %for.body.i.preheader, label %if.end.i.i.i36
 
 if.end.i.i.i36:                                   ; preds = %if.end3.i
-  %prev.i.i.i37 = getelementptr inbounds %struct.StrongCacheNode, ptr %call.i.i32, i64 0, i32 1
+  %prev.i.i.i37 = getelementptr inbounds i8, ptr %call.i.i32, i64 8
   %26 = load ptr, ptr %prev.i.i.i37, align 8
   %cmp2.not.i.i.i38 = icmp eq ptr %26, null
   br i1 %cmp2.not.i.i.i38, label %if.end7.i.i.i40, label %if.then3.i.i.i39
@@ -2300,7 +2288,7 @@ if.end7.i.i.i40:                                  ; preds = %if.then3.i.i.i39, %
 
 if.then10.i.i.i42:                                ; preds = %if.end7.i.i.i40
   %27 = load ptr, ptr %prev.i.i.i37, align 8
-  %prev13.i.i.i43 = getelementptr inbounds %struct.StrongCacheNode, ptr %node.015.pre19.i, i64 0, i32 1
+  %prev13.i.i.i43 = getelementptr inbounds i8, ptr %node.015.pre19.i, i64 8
   store ptr %27, ptr %prev13.i.i.i43, align 8
   br label %remove_from_strong_cache.exit.i.i44
 
@@ -2311,7 +2299,7 @@ remove_from_strong_cache.exit.i.i44:              ; preds = %if.then10.i.i.i42, 
   br i1 %cmp1.not.i.i45, label %if.end4.i.i48, label %if.then2.i.i46
 
 if.then2.i.i46:                                   ; preds = %remove_from_strong_cache.exit.i.i44
-  %prev3.i.i47 = getelementptr inbounds %struct.StrongCacheNode, ptr %25, i64 0, i32 1
+  %prev3.i.i47 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %call.i.i32, ptr %prev3.i.i47, align 8
   br label %if.end4.i.i48
 
@@ -2341,7 +2329,7 @@ for.end.i:                                        ; preds = %for.cond.i
   br i1 %cmp9.not.i, label %return, label %if.then10.i
 
 if.then10.i:                                      ; preds = %for.end.i
-  %prev.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.0.i, i64 0, i32 1
+  %prev.i = getelementptr inbounds i8, ptr %node.0.i, i64 8
   %28 = load ptr, ptr %prev.i, align 8
   %cmp11.not.i = icmp eq ptr %28, null
   br i1 %cmp11.not.i, label %while.body.i.i50.preheader, label %if.then12.i
@@ -2356,7 +2344,7 @@ while.body.i.i50.preheader:                       ; preds = %if.then12.i, %if.th
 while.body.i.i50:                                 ; preds = %while.body.i.i50.preheader, %strong_cache_node_free.exit.i.i
   %node.04.i.i = phi ptr [ %29, %strong_cache_node_free.exit.i.i ], [ %node.0.i, %while.body.i.i50.preheader ]
   %29 = load ptr, ptr %node.04.i.i, align 8
-  %key.i.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.04.i.i, i64 0, i32 2
+  %key.i.i.i = getelementptr inbounds i8, ptr %node.04.i.i, i64 16
   %30 = load ptr, ptr %key.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %30, null
   br i1 %cmp.not.i.i.i.i, label %Py_XDECREF.exit.i.i.i, label %if.then.i.i.i.i
@@ -2378,7 +2366,7 @@ if.then1.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br label %Py_XDECREF.exit.i.i.i
 
 Py_XDECREF.exit.i.i.i:                            ; preds = %if.then1.i.i.i.i.i, %if.end.i.i.i.i.i, %if.then.i.i.i.i, %while.body.i.i50
-  %zone.i.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.04.i.i, i64 0, i32 3
+  %zone.i.i.i = getelementptr inbounds i8, ptr %node.04.i.i, i64 24
   %33 = load ptr, ptr %zone.i.i.i, align 8
   %cmp.not.i3.i.i.i = icmp eq ptr %33, null
   br i1 %cmp.not.i3.i.i.i, label %strong_cache_node_free.exit.i.i, label %if.then.i4.i.i.i
@@ -2415,7 +2403,7 @@ entry:
   %0 = getelementptr i8, ptr %obj_self, i64 8
   %obj_self.val = load ptr, ptr %0, align 8
   tail call void @PyObject_GC_UnTrack(ptr noundef %obj_self) #9
-  %weakreflist = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 3
+  %weakreflist = getelementptr inbounds i8, ptr %obj_self, i64 32
   %1 = load ptr, ptr %weakreflist, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2425,22 +2413,23 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %trans_list_utc = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 6
+  %trans_list_utc = getelementptr inbounds i8, ptr %obj_self, i64 56
   %2 = load ptr, ptr %trans_list_utc, align 8
   %cmp1.not = icmp eq ptr %2, null
-  br i1 %cmp1.not, label %for.body.preheader, label %if.then2
+  br i1 %cmp1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
   tail call void @PyMem_Free(ptr noundef nonnull %2) #9
-  br label %for.body.preheader
+  br label %if.end4
 
-for.body.preheader:                               ; preds = %if.then2, %if.end
+if.end4:                                          ; preds = %if.then2, %if.end
+  %trans_list_wall = getelementptr inbounds i8, ptr %obj_self, i64 64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %cmp5 = phi i1 [ false, %for.inc ], [ true, %for.body.preheader ]
-  %i.037 = phi i64 [ 1, %for.inc ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 7, i64 %i.037
+for.body:                                         ; preds = %if.end4, %for.inc
+  %cmp5 = phi i1 [ true, %if.end4 ], [ false, %for.inc ]
+  %i.037 = phi i64 [ 0, %if.end4 ], [ 1, %for.inc ]
+  %arrayidx = getelementptr [2 x ptr], ptr %trans_list_wall, i64 0, i64 %i.037
   %3 = load ptr, ptr %arrayidx, align 8
   %cmp6.not = icmp eq ptr %3, null
   br i1 %cmp6.not, label %for.inc, label %if.then7
@@ -2453,13 +2442,13 @@ for.inc:                                          ; preds = %for.body, %if.then7
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc
-  %_ttinfos = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 11
+  %_ttinfos = getelementptr inbounds i8, ptr %obj_self, i64 192
   %4 = load ptr, ptr %_ttinfos, align 8
   %cmp11.not = icmp eq ptr %4, null
   br i1 %cmp11.not, label %if.end23, label %for.cond14.preheader
 
 for.cond14.preheader:                             ; preds = %for.end
-  %num_ttinfos = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 5
+  %num_ttinfos = getelementptr inbounds i8, ptr %obj_self, i64 48
   %5 = load i64, ptr %num_ttinfos, align 8
   %cmp1538.not = icmp eq i64 %5, 0
   br i1 %cmp1538.not, label %for.end21, label %for.body16
@@ -2493,7 +2482,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i, %if.then.i
-  %dstoff.i = getelementptr %struct._ttinfo, ptr %6, i64 %i13.039, i32 1
+  %dstoff.i = getelementptr inbounds i8, ptr %arrayidx18, i64 8
   %10 = load ptr, ptr %dstoff.i, align 8
   %cmp.not.i4.i = icmp eq ptr %10, null
   br i1 %cmp.not.i4.i, label %Py_XDECREF.exit11.i, label %if.then.i5.i
@@ -2515,7 +2504,7 @@ if.then1.i.i10.i:                                 ; preds = %if.end.i.i7.i
   br label %Py_XDECREF.exit11.i
 
 Py_XDECREF.exit11.i:                              ; preds = %if.then1.i.i10.i, %if.end.i.i7.i, %if.then.i5.i, %Py_XDECREF.exit.i
-  %tzname.i = getelementptr %struct._ttinfo, ptr %6, i64 %i13.039, i32 2
+  %tzname.i = getelementptr inbounds i8, ptr %arrayidx18, i64 16
   %13 = load ptr, ptr %tzname.i, align 8
   %cmp.not.i12.i = icmp eq ptr %13, null
   br i1 %cmp.not.i12.i, label %xdecref_ttinfo.exit, label %if.then.i13.i
@@ -2552,7 +2541,7 @@ for.end21:                                        ; preds = %for.end21.loopexit,
   br label %if.end23
 
 if.end23:                                         ; preds = %for.end21, %for.end
-  %trans_ttinfos = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 8
+  %trans_ttinfos = getelementptr inbounds i8, ptr %obj_self, i64 80
   %18 = load ptr, ptr %trans_ttinfos, align 8
   %cmp24.not = icmp eq ptr %18, null
   br i1 %cmp24.not, label %if.end27, label %if.then25
@@ -2562,7 +2551,7 @@ if.then25:                                        ; preds = %if.end23
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then25, %if.end23
-  %tzrule_after = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10
+  %tzrule_after = getelementptr inbounds i8, ptr %obj_self, i64 96
   %19 = load ptr, ptr %tzrule_after, align 8
   %cmp.not.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i, label %Py_XDECREF.exit.i.i, label %if.then.i.i.i
@@ -2584,7 +2573,7 @@ if.then1.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %Py_XDECREF.exit.i.i
 
 Py_XDECREF.exit.i.i:                              ; preds = %if.then1.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i, %if.end27
-  %dstoff.i.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 0, i32 1
+  %dstoff.i.i = getelementptr inbounds i8, ptr %obj_self, i64 104
   %22 = load ptr, ptr %dstoff.i.i, align 8
   %cmp.not.i4.i.i = icmp eq ptr %22, null
   br i1 %cmp.not.i4.i.i, label %Py_XDECREF.exit11.i.i, label %if.then.i5.i.i
@@ -2606,7 +2595,7 @@ if.then1.i.i10.i.i:                               ; preds = %if.end.i.i7.i.i
   br label %Py_XDECREF.exit11.i.i
 
 Py_XDECREF.exit11.i.i:                            ; preds = %if.then1.i.i10.i.i, %if.end.i.i7.i.i, %if.then.i5.i.i, %Py_XDECREF.exit.i.i
-  %tzname.i.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 0, i32 2
+  %tzname.i.i = getelementptr inbounds i8, ptr %obj_self, i64 112
   %25 = load ptr, ptr %tzname.i.i, align 8
   %cmp.not.i12.i.i = icmp eq ptr %25, null
   br i1 %cmp.not.i12.i.i, label %xdecref_ttinfo.exit.i, label %if.then.i13.i.i
@@ -2628,13 +2617,13 @@ if.then1.i.i18.i.i:                               ; preds = %if.end.i.i15.i.i
   br label %xdecref_ttinfo.exit.i
 
 xdecref_ttinfo.exit.i:                            ; preds = %if.then1.i.i18.i.i, %if.end.i.i15.i.i, %if.then.i13.i.i, %Py_XDECREF.exit11.i.i
-  %std_only.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 5
+  %std_only.i = getelementptr inbounds i8, ptr %obj_self, i64 184
   %28 = load i8, ptr %std_only.i, align 8
   %tobool.not.i = icmp eq i8 %28, 0
   br i1 %tobool.not.i, label %if.then.i32, label %if.end.i29
 
 if.then.i32:                                      ; preds = %xdecref_ttinfo.exit.i
-  %dst.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 1
+  %dst.i = getelementptr inbounds i8, ptr %obj_self, i64 128
   %29 = load ptr, ptr %dst.i, align 8
   %cmp.not.i.i9.i = icmp eq ptr %29, null
   br i1 %cmp.not.i.i9.i, label %Py_XDECREF.exit.i12.i, label %if.then.i.i10.i
@@ -2656,7 +2645,7 @@ if.then1.i.i.i33.i:                               ; preds = %if.end.i.i.i30.i
   br label %Py_XDECREF.exit.i12.i
 
 Py_XDECREF.exit.i12.i:                            ; preds = %if.then1.i.i.i33.i, %if.end.i.i.i30.i, %if.then.i.i10.i, %if.then.i32
-  %dstoff.i13.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 1, i32 1
+  %dstoff.i13.i = getelementptr inbounds i8, ptr %obj_self, i64 136
   %32 = load ptr, ptr %dstoff.i13.i, align 8
   %cmp.not.i4.i14.i = icmp eq ptr %32, null
   br i1 %cmp.not.i4.i14.i, label %Py_XDECREF.exit11.i17.i, label %if.then.i5.i15.i
@@ -2678,7 +2667,7 @@ if.then1.i.i10.i29.i:                             ; preds = %if.end.i.i7.i26.i
   br label %Py_XDECREF.exit11.i17.i
 
 Py_XDECREF.exit11.i17.i:                          ; preds = %if.then1.i.i10.i29.i, %if.end.i.i7.i26.i, %if.then.i5.i15.i, %Py_XDECREF.exit.i12.i
-  %tzname.i18.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 1, i32 2
+  %tzname.i18.i = getelementptr inbounds i8, ptr %obj_self, i64 144
   %35 = load ptr, ptr %tzname.i18.i, align 8
   %cmp.not.i12.i19.i = icmp eq ptr %35, null
   br i1 %cmp.not.i12.i19.i, label %if.end.i29, label %if.then.i13.i20.i
@@ -2700,7 +2689,7 @@ if.then1.i.i18.i25.i:                             ; preds = %if.end.i.i15.i22.i
   br label %if.end.i29
 
 if.end.i29:                                       ; preds = %if.then1.i.i18.i25.i, %if.end.i.i15.i22.i, %if.then.i13.i20.i, %Py_XDECREF.exit11.i17.i, %xdecref_ttinfo.exit.i
-  %start.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 3
+  %start.i = getelementptr inbounds i8, ptr %obj_self, i64 168
   %38 = load ptr, ptr %start.i, align 8
   %cmp.not.i30 = icmp eq ptr %38, null
   br i1 %cmp.not.i30, label %if.end3.i, label %if.then1.i31
@@ -2710,7 +2699,7 @@ if.then1.i31:                                     ; preds = %if.end.i29
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then1.i31, %if.end.i29
-  %end.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 4
+  %end.i = getelementptr inbounds i8, ptr %obj_self, i64 176
   %39 = load ptr, ptr %end.i, align 8
   %cmp4.not.i = icmp eq ptr %39, null
   br i1 %cmp4.not.i, label %free_tzrule.exit, label %if.then5.i
@@ -2720,7 +2709,7 @@ if.then5.i:                                       ; preds = %if.end3.i
   br label %free_tzrule.exit
 
 free_tzrule.exit:                                 ; preds = %if.end3.i, %if.then5.i
-  %key.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 1
+  %key.i = getelementptr inbounds i8, ptr %obj_self, i64 16
   %40 = load ptr, ptr %key.i, align 8
   %cmp.not.i33 = icmp eq ptr %40, null
   br i1 %cmp.not.i33, label %do.body1.i, label %if.then.i34
@@ -2743,7 +2732,7 @@ if.then1.i14.i:                                   ; preds = %if.end.i11.i
   br label %do.body1.i
 
 do.body1.i:                                       ; preds = %if.then1.i14.i, %if.end.i11.i, %if.then.i34, %free_tzrule.exit
-  %file_repr.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 2
+  %file_repr.i = getelementptr inbounds i8, ptr %obj_self, i64 24
   %43 = load ptr, ptr %file_repr.i, align 8
   %cmp4.not.i35 = icmp eq ptr %43, null
   br i1 %cmp4.not.i35, label %zoneinfo_clear.exit, label %if.then5.i36
@@ -2766,7 +2755,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %zoneinfo_clear.exit
 
 zoneinfo_clear.exit:                              ; preds = %do.body1.i, %if.then5.i36, %if.end.i.i, %if.then1.i.i
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %obj_self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %obj_self.val, i64 320
   %46 = load ptr, ptr %tp_free, align 8
   tail call void %46(ptr noundef nonnull %obj_self) #9
   %47 = load i64, ptr %obj_self.val, align 8
@@ -2802,7 +2791,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %key = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %key, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.end16, label %if.then8
@@ -2823,7 +2812,7 @@ return:                                           ; preds = %if.then8, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal i32 @zoneinfo_clear(ptr nocapture noundef %self) #1 {
 entry:
-  %key = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %key, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.body1, label %if.then
@@ -2846,7 +2835,7 @@ if.then1.i14:                                     ; preds = %if.end.i11
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i11, %if.then1.i14, %if.then, %entry
-  %file_repr = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 2
+  %file_repr = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load ptr, ptr %file_repr, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.end7, label %if.then5
@@ -2920,7 +2909,7 @@ skip_optional_kwonly:                             ; preds = %if.end, %if.end14
   br i1 %cmp.i32.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %skip_optional_kwonly
-  %ZONEINFO_WEAK_CACHE.i.i = getelementptr inbounds %struct.zoneinfo_state, ptr %cls.val.val, i64 0, i32 5
+  %ZONEINFO_WEAK_CACHE.i.i = getelementptr inbounds i8, ptr %cls.val.val, i64 40
   %7 = load ptr, ptr %ZONEINFO_WEAK_CACHE.i.i, align 8
   br label %get_weak_cache.exit.i
 
@@ -2979,7 +2968,7 @@ if.end.i:                                         ; preds = %if.then1.i79.i, %if
   br i1 %cmp.not.i.i, label %if.end.i33.i, label %if.end23.i
 
 if.end.i33.i:                                     ; preds = %if.end.i
-  %ZONEINFO_STRONG_CACHE.i.i = getelementptr inbounds %struct.zoneinfo_state, ptr %cls.val.val, i64 0, i32 6
+  %ZONEINFO_STRONG_CACHE.i.i = getelementptr inbounds i8, ptr %cls.val.val, i64 48
   %13 = load ptr, ptr %ZONEINFO_STRONG_CACHE.i.i, align 8
   %cmp.not3.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not3.i.i.i, label %strong_cache_free.exit.i.i, label %while.body.i.i.i
@@ -2987,7 +2976,7 @@ if.end.i33.i:                                     ; preds = %if.end.i
 while.body.i.i.i:                                 ; preds = %if.end.i33.i, %strong_cache_node_free.exit.i.i.i
   %node.04.i.i.i = phi ptr [ %14, %strong_cache_node_free.exit.i.i.i ], [ %13, %if.end.i33.i ]
   %14 = load ptr, ptr %node.04.i.i.i, align 8
-  %key.i.i.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.04.i.i.i, i64 0, i32 2
+  %key.i.i.i.i = getelementptr inbounds i8, ptr %node.04.i.i.i, i64 16
   %15 = load ptr, ptr %key.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i.i, label %Py_XDECREF.exit.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3009,7 +2998,7 @@ if.then1.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   br label %Py_XDECREF.exit.i.i.i.i
 
 Py_XDECREF.exit.i.i.i.i:                          ; preds = %if.then1.i.i.i.i.i.i, %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %while.body.i.i.i
-  %zone.i.i.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.04.i.i.i, i64 0, i32 3
+  %zone.i.i.i.i = getelementptr inbounds i8, ptr %node.04.i.i.i, i64 24
   %18 = load ptr, ptr %zone.i.i.i.i, align 8
   %cmp.not.i3.i.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i3.i.i.i.i, label %strong_cache_node_free.exit.i.i.i, label %if.then.i4.i.i.i.i
@@ -3055,7 +3044,7 @@ while.cond.preheader.i:                           ; preds = %if.end9.i
   br i1 %tobool.not7.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %while.cond.preheader.i
-  %ZONEINFO_STRONG_CACHE.i38.i = getelementptr inbounds %struct.zoneinfo_state, ptr %cls.val.val, i64 0, i32 6
+  %ZONEINFO_STRONG_CACHE.i38.i = getelementptr inbounds i8, ptr %cls.val.val, i64 48
   br label %while.body.i
 
 if.then12.i:                                      ; preds = %if.end9.i
@@ -3087,7 +3076,7 @@ if.end.i37.i:                                     ; preds = %while.body.i
 
 while.body.i.i39.i:                               ; preds = %if.end.i37.i, %if.end4.i.i.i
   %node.06.i.i.i = phi ptr [ %26, %if.end4.i.i.i ], [ %24, %if.end.i37.i ]
-  %key1.i.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.06.i.i.i, i64 0, i32 2
+  %key1.i.i.i = getelementptr inbounds i8, ptr %node.06.i.i.i, i64 16
   %25 = load ptr, ptr %key1.i.i.i, align 8
   %call.i.i.i = call i32 @PyObject_RichCompareBool(ptr noundef nonnull %call148.i, ptr noundef %25, i32 noundef 2) #9
   %cmp2.i.i.i = icmp slt i32 %call.i.i.i, 0
@@ -3103,7 +3092,7 @@ if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
   br i1 %cmp.not.i.i41.i, label %if.else.i42.i, label %while.body.i.i39.i, !llvm.loop !7
 
 if.then2.i.i:                                     ; preds = %if.end.i.i.i
-  %key1.i.i.i.le = getelementptr inbounds %struct.StrongCacheNode, ptr %node.06.i.i.i, i64 0, i32 2
+  %key1.i.i.i.le = getelementptr inbounds i8, ptr %node.06.i.i.i, i64 16
   %27 = load ptr, ptr %ZONEINFO_STRONG_CACHE.i38.i, align 8
   %cmp.i.i.i = icmp eq ptr %27, %node.06.i.i.i
   %.pre.pre.i.i.i = load ptr, ptr %node.06.i.i.i, align 8
@@ -3114,7 +3103,7 @@ if.then.i.i40.i:                                  ; preds = %if.then2.i.i
   br label %if.end.i5.i.i
 
 if.end.i5.i.i:                                    ; preds = %if.then.i.i40.i, %if.then2.i.i
-  %prev.i.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.06.i.i.i, i64 0, i32 1
+  %prev.i.i.i = getelementptr inbounds i8, ptr %node.06.i.i.i, i64 8
   %28 = load ptr, ptr %prev.i.i.i, align 8
   %cmp2.not.i.i.i = icmp eq ptr %28, null
   br i1 %cmp2.not.i.i.i, label %if.end7.i.i.i, label %if.then3.i.i.i
@@ -3129,7 +3118,7 @@ if.end7.i.i.i:                                    ; preds = %if.then3.i.i.i, %if
 
 if.then10.i.i.i:                                  ; preds = %if.end7.i.i.i
   %29 = load ptr, ptr %prev.i.i.i, align 8
-  %prev13.i.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %.pre.pre.i.i.i, i64 0, i32 1
+  %prev13.i.i.i = getelementptr inbounds i8, ptr %.pre.pre.i.i.i, i64 8
   store ptr %29, ptr %prev13.i.i.i, align 8
   br label %remove_from_strong_cache.exit.i.i
 
@@ -3156,7 +3145,7 @@ if.then1.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br label %Py_XDECREF.exit.i.i.i
 
 Py_XDECREF.exit.i.i.i:                            ; preds = %if.then1.i.i.i.i.i, %if.end.i.i.i.i.i, %if.then.i.i.i.i, %remove_from_strong_cache.exit.i.i
-  %zone.i.i.i = getelementptr inbounds %struct.StrongCacheNode, ptr %node.06.i.i.i, i64 0, i32 3
+  %zone.i.i.i = getelementptr inbounds i8, ptr %node.06.i.i.i, i64 24
   %33 = load ptr, ptr %zone.i.i.i, align 8
   %cmp.not.i3.i.i.i = icmp eq ptr %33, null
   br i1 %cmp.not.i3.i.i.i, label %strong_cache_node_free.exit.i.i, label %if.then.i4.i.i.i
@@ -3315,7 +3304,7 @@ if.end:                                           ; preds = %entry, %cond.end
   br i1 %cmp.not.i, label %exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %source.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %call1.i, i64 0, i32 13
+  %source.i = getelementptr inbounds i8, ptr %call1.i, i64 201
   store i8 0, ptr %source.i, align 1
   br label %exit
 
@@ -3358,13 +3347,13 @@ if.end:                                           ; preds = %cond.end, %cond.end
   br i1 %tobool12.not, label %skip_optional_pos, label %if.end14
 
 if.end14:                                         ; preds = %if.end
-  %arrayidx15 = getelementptr ptr, ptr %cond1025, i64 1
+  %arrayidx15 = getelementptr i8, ptr %cond1025, i64 8
   %5 = load ptr, ptr %arrayidx15, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end, %if.end14
   %key.0 = phi ptr [ %5, %if.end14 ], [ @_Py_NoneStruct, %if.end ]
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %6 = load ptr, ptr %tp_alloc.i, align 8
   %call.i = call ptr %6(ptr noundef %type, i64 noundef 0) #9
   %cmp.i = icmp eq ptr %call.i, null
@@ -3401,9 +3390,9 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %if.then.i14.i
 
 if.end8.i:                                        ; preds = %if.end4.i
-  %source.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %call.i, i64 0, i32 13
+  %source.i = getelementptr inbounds i8, ptr %call.i, i64 201
   store i8 2, ptr %source.i, align 1
-  %file_repr9.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %call.i, i64 0, i32 2
+  %file_repr9.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call1.i, ptr %file_repr9.i, align 8
   %11 = load i32, ptr %key.0, align 8
   %add.i.i.i = add i32 %11, 1
@@ -3415,7 +3404,7 @@ if.end.i.i12.i:                                   ; preds = %if.end8.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i12.i, %if.end8.i
-  %key11.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %call.i, i64 0, i32 1
+  %key11.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %key.0, ptr %key11.i, align 8
   br label %exit
 
@@ -3511,7 +3500,7 @@ if.end:                                           ; preds = %entry, %cond.end
   br i1 %cmp.i, label %exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %dstoff.i = getelementptr inbounds %struct._ttinfo, ptr %call1.i, i64 0, i32 1
+  %dstoff.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %4 = load ptr, ptr %dstoff.i, align 8
   %5 = load i32, ptr %4, align 8
   %add.i.i.i = add i32 %5, 1
@@ -3555,7 +3544,7 @@ if.end:                                           ; preds = %entry, %cond.end
   br i1 %cmp.i, label %exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %tzname.i = getelementptr inbounds %struct._ttinfo, ptr %call1.i, i64 0, i32 2
+  %tzname.i = getelementptr inbounds i8, ptr %call1.i, i64 16
   %4 = load ptr, ptr %tzname.i, align 8
   %5 = load i32, ptr %4, align 8
   %add.i.i.i = add i32 %5, 1
@@ -3576,7 +3565,7 @@ define internal ptr @zoneinfo_fromutc(ptr noundef readonly %obj_self, ptr nounde
 entry:
   %timestamp = alloca i64, align 8
   %0 = load ptr, ptr @PyDateTimeAPI, align 8
-  %DateTimeType = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 1
+  %DateTimeType = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %DateTimeType, align 8
   %2 = getelementptr i8, ptr %dt, i64 8
   %dt.val = load ptr, ptr %2, align 8
@@ -3594,13 +3583,13 @@ if.then:                                          ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %dt, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %dt, i64 24
   %4 = load i8, ptr %hastzinfo, align 8
   %tobool1.not = icmp eq i8 %4, 0
   br i1 %tobool1.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %dt, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %dt, i64 40
   %5 = load ptr, ptr %tzinfo, align 8
   br label %cond.end
 
@@ -3620,60 +3609,59 @@ if.end4:                                          ; preds = %cond.end
   br i1 %tobool6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end4
-  %num_transitions = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 4
+  %num_transitions = getelementptr inbounds i8, ptr %obj_self, i64 40
   %7 = load i64, ptr %num_transitions, align 8
   %cond67 = icmp eq i64 %7, 0
   %.pre = load i64, ptr %timestamp, align 8
   br i1 %cond67, label %if.then20, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end8
-  %trans_list_utc = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 6
+  %trans_list_utc = getelementptr inbounds i8, ptr %obj_self, i64 56
   %8 = load ptr, ptr %trans_list_utc, align 8
   %9 = load i64, ptr %8, align 8
   %cmp11 = icmp slt i64 %.pre, %9
   br i1 %cmp11, label %if.then13, label %lor.lhs.false
 
 if.then13:                                        ; preds = %land.lhs.true
-  %ttinfo_before = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 9
+  %ttinfo_before = getelementptr inbounds i8, ptr %obj_self, i64 88
   %10 = load ptr, ptr %ttinfo_before, align 8
   br label %if.end80
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %11 = getelementptr i64, ptr %8, i64 %7
-  %arrayidx17 = getelementptr i64, ptr %11, i64 -1
+  %arrayidx17 = getelementptr i8, ptr %11, i64 -8
   %12 = load i64, ptr %arrayidx17, align 8
   %cmp18 = icmp sgt i64 %.pre, %12
   br i1 %cmp18, label %if.then20, label %while.body.i
 
 if.then20:                                        ; preds = %if.end8, %lor.lhs.false
-  %tzrule_after = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10
-  %std_only.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 5
+  %tzrule_after = getelementptr inbounds i8, ptr %obj_self, i64 96
+  %std_only.i = getelementptr inbounds i8, ptr %obj_self, i64 184
   %13 = load i8, ptr %std_only.i, align 8
   %tobool.not.i = icmp eq i8 %13, 0
   br i1 %tobool.not.i, label %if.end.i68, label %find_tzrule_ttinfo_fromutc.exit
 
 if.end.i68:                                       ; preds = %if.then20
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %dt, i64 25
   %14 = load i8, ptr %data, align 1
   %conv22 = zext i8 %14 to i32
   %shl = shl nuw nsw i32 %conv22, 8
-  %arrayidx24 = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3, i64 1
+  %arrayidx24 = getelementptr i8, ptr %dt, i64 26
   %15 = load i8, ptr %arrayidx24, align 1
   %conv25 = zext i8 %15 to i32
   %or = or disjoint i32 %shl, %conv25
-  %start1.i.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 3
+  %start1.i.i = getelementptr inbounds i8, ptr %obj_self, i64 168
   %16 = load ptr, ptr %start1.i.i, align 8
   %17 = load ptr, ptr %16, align 8
   %call.i.i = tail call i64 %17(ptr noundef nonnull %16, i32 noundef %or) #9
-  %end3.i.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 4
+  %end3.i.i = getelementptr inbounds i8, ptr %obj_self, i64 176
   %18 = load ptr, ptr %end3.i.i, align 8
   %19 = load ptr, ptr %18, align 8
   %call6.i.i = tail call i64 %19(ptr noundef nonnull %18, i32 noundef %or) #9
-  %utcoff_seconds.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 0, i32 3
+  %utcoff_seconds.i = getelementptr inbounds i8, ptr %obj_self, i64 120
   %20 = load i64, ptr %utcoff_seconds.i, align 8
   %sub.i = sub i64 %call.i.i, %20
-  %dst.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 1
-  %utcoff_seconds2.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 1, i32 3
+  %utcoff_seconds2.i = getelementptr inbounds i8, ptr %obj_self, i64 152
   %21 = load i64, ptr %utcoff_seconds2.i, align 8
   %sub3.i = sub i64 %call6.i.i, %21
   %cmp.i69 = icmp slt i64 %sub.i, %sub3.i
@@ -3693,7 +3681,7 @@ if.else.i:                                        ; preds = %if.end.i68
 
 if.end12.i:                                       ; preds = %if.else.i, %if.then4.i
   %isdst.0.in.i = phi i1 [ %22, %if.then4.i ], [ %23, %if.else.i ]
-  %dst_diff.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 10, i32 2
+  %dst_diff.i = getelementptr inbounds i8, ptr %obj_self, i64 160
   %24 = load i32, ptr %dst_diff.i, align 8
   %cmp13.i = icmp sgt i32 %24, 0
   %conv17.i = zext nneg i32 %24 to i64
@@ -3706,7 +3694,8 @@ if.end12.i:                                       ; preds = %if.else.i, %if.then
   %cmp26.i = icmp sgt i64 %ambig_end.0.i, %.pre
   %25 = select i1 %cmp23.i, i1 %cmp26.i, i1 false
   %conv30.i = zext i1 %25 to i8
-  %spec.select.i = select i1 %isdst.0.in.i, ptr %dst.i, ptr %tzrule_after
+  %spec.select.idx.i = select i1 %isdst.0.in.i, i64 32, i64 0
+  %spec.select.i = getelementptr inbounds i8, ptr %tzrule_after, i64 %spec.select.idx.i
   br label %find_tzrule_ttinfo_fromutc.exit
 
 find_tzrule_ttinfo_fromutc.exit:                  ; preds = %if.then20, %if.end12.i
@@ -3718,32 +3707,32 @@ find_tzrule_ttinfo_fromutc.exit:                  ; preds = %if.then20, %if.end1
   ]
 
 if.then31:                                        ; preds = %find_tzrule_ttinfo_fromutc.exit
-  %ttinfo_before32 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 9
+  %ttinfo_before32 = getelementptr inbounds i8, ptr %obj_self, i64 88
   br label %if.end36
 
 if.else33:                                        ; preds = %find_tzrule_ttinfo_fromutc.exit
-  %trans_ttinfos = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 8
+  %trans_ttinfos = getelementptr inbounds i8, ptr %obj_self, i64 80
   %26 = load ptr, ptr %trans_ttinfos, align 8
   %27 = getelementptr ptr, ptr %26, i64 %7
-  %arrayidx35 = getelementptr ptr, ptr %27, i64 -2
+  %arrayidx35 = getelementptr i8, ptr %27, i64 -16
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else33, %if.then31
   %tti_prev.0.in = phi ptr [ %ttinfo_before32, %if.then31 ], [ %arrayidx35, %if.else33 ]
   %tti_prev.0 = load ptr, ptr %tti_prev.0.in, align 8
-  %utcoff_seconds = getelementptr inbounds %struct._ttinfo, ptr %tti_prev.0, i64 0, i32 3
+  %utcoff_seconds = getelementptr inbounds i8, ptr %tti_prev.0, i64 24
   %28 = load i64, ptr %utcoff_seconds, align 8
-  %utcoff_seconds37 = getelementptr inbounds %struct._ttinfo, ptr %retval.0.i, i64 0, i32 3
+  %utcoff_seconds37 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
   %29 = load i64, ptr %utcoff_seconds37, align 8
   %sub38 = sub i64 %28, %29
   %cmp39 = icmp sgt i64 %sub38, 0
   br i1 %cmp39, label %land.lhs.true41, label %if.end80
 
 land.lhs.true41:                                  ; preds = %if.end36
-  %trans_list_utc42 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 6
+  %trans_list_utc42 = getelementptr inbounds i8, ptr %obj_self, i64 56
   %30 = load ptr, ptr %trans_list_utc42, align 8
   %31 = getelementptr i64, ptr %30, i64 %7
-  %arrayidx44 = getelementptr i64, ptr %31, i64 -1
+  %arrayidx44 = getelementptr i8, ptr %31, i64 -8
   %32 = load i64, ptr %arrayidx44, align 8
   %add = add i64 %32, %sub38
   %cmp45 = icmp slt i64 %.pre, %add
@@ -3769,16 +3758,16 @@ _bisect.exit:                                     ; preds = %while.body.i
   br i1 %cmp54, label %if.then56, label %if.else63
 
 if.then56:                                        ; preds = %_bisect.exit
-  %trans_ttinfos57 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 8
+  %trans_ttinfos57 = getelementptr inbounds i8, ptr %obj_self, i64 80
   %34 = load ptr, ptr %trans_ttinfos57, align 8
   %35 = getelementptr ptr, ptr %34, i64 %hi.1.i
-  %arrayidx59 = getelementptr ptr, ptr %35, i64 -2
-  %arrayidx62 = getelementptr ptr, ptr %35, i64 -1
+  %arrayidx59 = getelementptr i8, ptr %35, i64 -16
+  %arrayidx62 = getelementptr i8, ptr %35, i64 -8
   br label %if.end67
 
 if.else63:                                        ; preds = %_bisect.exit
-  %ttinfo_before64 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 9
-  %trans_ttinfos65 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 8
+  %ttinfo_before64 = getelementptr inbounds i8, ptr %obj_self, i64 88
+  %trans_ttinfos65 = getelementptr inbounds i8, ptr %obj_self, i64 80
   %36 = load ptr, ptr %trans_ttinfos65, align 8
   br label %if.end67
 
@@ -3787,13 +3776,13 @@ if.end67:                                         ; preds = %if.else63, %if.then
   %tti.0.in = phi ptr [ %arrayidx62, %if.then56 ], [ %36, %if.else63 ]
   %tti.0 = load ptr, ptr %tti.0.in, align 8
   %tti_prev53.0 = load ptr, ptr %tti_prev53.0.in, align 8
-  %utcoff_seconds68 = getelementptr inbounds %struct._ttinfo, ptr %tti_prev53.0, i64 0, i32 3
+  %utcoff_seconds68 = getelementptr inbounds i8, ptr %tti_prev53.0, i64 24
   %37 = load i64, ptr %utcoff_seconds68, align 8
-  %utcoff_seconds69 = getelementptr inbounds %struct._ttinfo, ptr %tti.0, i64 0, i32 3
+  %utcoff_seconds69 = getelementptr inbounds i8, ptr %tti.0, i64 24
   %38 = load i64, ptr %utcoff_seconds69, align 8
   %sub70 = sub i64 %37, %38
   %39 = getelementptr i64, ptr %8, i64 %hi.1.i
-  %arrayidx73 = getelementptr i64, ptr %39, i64 -1
+  %arrayidx73 = getelementptr i8, ptr %39, i64 -8
   %40 = load i64, ptr %arrayidx73, align 8
   %sub74 = sub i64 %.pre, %40
   %cmp75 = icmp sgt i64 %sub70, %sub74
@@ -3814,7 +3803,7 @@ if.end85:                                         ; preds = %if.end80
 
 if.then87:                                        ; preds = %if.end85
   %42 = load ptr, ptr @PyDateTimeAPI, align 8
-  %DateTimeType88 = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %42, i64 0, i32 1
+  %DateTimeType88 = getelementptr inbounds i8, ptr %42, i64 8
   %43 = load ptr, ptr %DateTimeType88, align 8
   %44 = getelementptr i8, ptr %call81, i64 8
   %call81.val = load ptr, ptr %44, align 8
@@ -3822,7 +3811,7 @@ if.then87:                                        ; preds = %if.end85
   br i1 %cmp.i72.not, label %if.then91, label %if.else93
 
 if.then91:                                        ; preds = %if.then87
-  %fold92 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %call81, i64 0, i32 4
+  %fold92 = getelementptr inbounds i8, ptr %call81, i64 35
   store i8 1, ptr %fold92, align 1
   br label %return
 
@@ -3971,7 +3960,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal ptr @zoneinfo_reduce(ptr noundef %obj_self, ptr nocapture readnone %unused) #1 {
 entry:
-  %source = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 13
+  %source = getelementptr inbounds i8, ptr %obj_self, i64 201
   %0 = load i8, ptr %source, align 1
   %cmp = icmp eq i8 %0, 2
   br i1 %cmp, label %if.then, label %if.end6
@@ -4001,7 +3990,7 @@ if.end6:                                          ; preds = %entry
 
 if.end16:                                         ; preds = %if.end6
   %cmp9 = icmp eq i8 %0, 1
-  %key = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %obj_self, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %obj_self, i64 16
   %3 = load ptr, ptr %key, align 8
   %conv17 = zext i1 %cmp9 to i32
   %call18 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.63, ptr noundef nonnull %call12, ptr noundef %3, i32 noundef %conv17) #9
@@ -4046,7 +4035,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %entry, %cond.end
   %cond14 = phi ptr [ %call, %cond.end ], [ %args, %entry ]
   %1 = load ptr, ptr %cond14, align 8
-  %arrayidx6 = getelementptr ptr, ptr %cond14, i64 1
+  %arrayidx6 = getelementptr i8, ptr %cond14, i64 8
   %2 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i64 @PyLong_AsUnsignedLongMask(ptr noundef %2) #9
   %cmp8 = icmp eq i64 %call7, -1
@@ -4182,7 +4171,7 @@ declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) loc
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zoneinfo_new_instance(ptr nocapture noundef readonly %state, ptr noundef %type, ptr noundef %key) unnamed_addr #1 {
 entry:
-  %_tzpath_find_tzfile = getelementptr inbounds %struct.zoneinfo_state, ptr %state, i64 0, i32 2
+  %_tzpath_find_tzfile = getelementptr inbounds i8, ptr %state, i64 16
   %0 = load ptr, ptr %_tzpath_find_tzfile, align 8
   %call = tail call ptr (ptr, ...) @PyObject_CallFunctionObjArgs(ptr noundef %0, ptr noundef %key, ptr noundef null) #9
   %cmp = icmp eq ptr %call, null
@@ -4193,7 +4182,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end7
 
 if.then2:                                         ; preds = %if.else
-  %_common_mod = getelementptr inbounds %struct.zoneinfo_state, ptr %state, i64 0, i32 3
+  %_common_mod = getelementptr inbounds i8, ptr %state, i64 24
   %1 = load ptr, ptr %_common_mod, align 8
   %call3 = tail call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef %1, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef %key) #9
   %cmp4 = icmp eq ptr %call3, null
@@ -4213,7 +4202,7 @@ if.end.i96:                                       ; preds = %if.then5
 
 if.end7:                                          ; preds = %if.else, %if.then2
   %file_obj.0 = phi ptr [ %call3, %if.then2 ], [ null, %if.else ]
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %4 = load ptr, ptr %tp_alloc, align 8
   %call8 = tail call ptr %4(ptr noundef %type, i64 noundef 0) #9
   %cmp9 = icmp eq ptr %call8, null
@@ -4224,7 +4213,7 @@ if.end11:                                         ; preds = %if.end7
   br i1 %cmp12, label %if.then13, label %if.end18
 
 if.then13:                                        ; preds = %if.end11
-  %io_open = getelementptr inbounds %struct.zoneinfo_state, ptr %state, i64 0, i32 1
+  %io_open = getelementptr inbounds i8, ptr %state, i64 8
   %5 = load ptr, ptr %io_open, align 8
   %call14 = tail call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %5, ptr noundef nonnull @.str.36, ptr noundef nonnull %call, ptr noundef nonnull @.str.37) #9
   %cmp15 = icmp eq ptr %call14, null
@@ -4284,7 +4273,7 @@ if.end.i.i:                                       ; preds = %Py_DECREF.exit83
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.end.i.i, %Py_DECREF.exit83
-  %key27 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %call8, i64 0, i32 1
+  %key27 = getelementptr inbounds i8, ptr %call8, i64 16
   store ptr %key, ptr %key27, align 8
   br label %if.end47
 
@@ -4380,14 +4369,14 @@ declare ptr @PyObject_CallFunction(ptr noundef, ptr noundef, ...) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @load_data(ptr nocapture noundef readonly %state, ptr nocapture noundef %self, ptr noundef %file_obj) unnamed_addr #1 {
 entry:
-  %trans_list_utc = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 6
-  %trans_list_wall = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 7
-  %trans_ttinfos = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 8
-  %_ttinfos = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 11
+  %trans_list_utc = getelementptr inbounds i8, ptr %self, i64 56
+  %trans_list_wall = getelementptr inbounds i8, ptr %self, i64 64
+  %trans_ttinfos = getelementptr inbounds i8, ptr %self, i64 80
+  %_ttinfos = getelementptr inbounds i8, ptr %self, i64 192
   store ptr null, ptr %_ttinfos, align 8
-  %file_repr = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 2
+  %file_repr = getelementptr inbounds i8, ptr %self, i64 24
   store ptr null, ptr %file_repr, align 8
-  %_common_mod = getelementptr inbounds %struct.zoneinfo_state, ptr %state, i64 0, i32 3
+  %_common_mod = getelementptr inbounds i8, ptr %state, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %trans_list_utc, i8 0, i64 32, i1 false)
   %0 = load ptr, ptr %_common_mod, align 8
   %call = tail call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.35, ptr noundef %file_obj) #9
@@ -4446,9 +4435,9 @@ if.end34:                                         ; preds = %if.end30
   br i1 %cmp36, label %error, label %if.end38
 
 if.end38:                                         ; preds = %if.end34
-  %num_transitions39 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 4
+  %num_transitions39 = getelementptr inbounds i8, ptr %self, i64 40
   store i64 %call31, ptr %num_transitions39, align 8
-  %num_ttinfos40 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 5
+  %num_ttinfos40 = getelementptr inbounds i8, ptr %self, i64 48
   store i64 %call35, ptr %num_ttinfos40, align 8
   %mul = shl i64 %call31, 3
   %call42 = tail call ptr @PyMem_Malloc(i64 noundef %mul) #9
@@ -4670,7 +4659,7 @@ for.body201:                                      ; preds = %for.cond197.prehead
 if.then204:                                       ; preds = %for.body201
   %34 = load ptr, ptr %_ttinfos, align 8
   %arrayidx206 = getelementptr %struct._ttinfo, ptr %34, i64 %i196.0213
-  %ttinfo_before = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 9
+  %ttinfo_before = getelementptr inbounds i8, ptr %self, i64 88
   store ptr %arrayidx206, ptr %ttinfo_before, align 8
   br label %for.end210
 
@@ -4680,7 +4669,7 @@ for.inc208:                                       ; preds = %for.body201
   br i1 %exitcond.not, label %for.end210, label %for.body201, !llvm.loop !18
 
 for.end210:                                       ; preds = %for.inc208, %if.then204
-  %ttinfo_before211 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 9
+  %ttinfo_before211 = getelementptr inbounds i8, ptr %self, i64 88
   %35 = load ptr, ptr %ttinfo_before211, align 8
   %cmp212 = icmp ne ptr %35, null
   %or.cond193 = or i1 %cmp199212.not, %cmp212
@@ -4705,7 +4694,7 @@ land.lhs.true225.if.else233_crit_edge:            ; preds = %land.lhs.true225
   br label %if.else233
 
 if.then228:                                       ; preds = %land.lhs.true225
-  %tzrule_after = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 10
+  %tzrule_after = getelementptr inbounds i8, ptr %self, i64 96
   %call229 = tail call fastcc i32 @parse_tz_str(ptr noundef %state, ptr noundef nonnull %call27, ptr noundef nonnull %tzrule_after), !range !12
   %tobool230.not = icmp eq i32 %call229, 0
   br i1 %tobool230.not, label %if.end262, label %error
@@ -4731,27 +4720,28 @@ if.then241:                                       ; preds = %if.end238
 
 if.else243:                                       ; preds = %if.end238
   %40 = getelementptr i64, ptr %call50, i64 %39
-  %arrayidx246 = getelementptr i64, ptr %40, i64 -1
+  %arrayidx246 = getelementptr i8, ptr %40, i64 -8
   %41 = load i64, ptr %arrayidx246, align 8
   br label %if.end247
 
 if.end247:                                        ; preds = %if.else243, %if.then241
   %idx.0 = phi i64 [ %41, %if.else243 ], [ %sub, %if.then241 ]
   %42 = load ptr, ptr %_ttinfos, align 8
-  %tzname250 = getelementptr %struct._ttinfo, ptr %42, i64 %idx.0, i32 2
+  %arrayidx249 = getelementptr %struct._ttinfo, ptr %42, i64 %idx.0
+  %tzname250 = getelementptr inbounds i8, ptr %arrayidx249, i64 16
   %43 = load ptr, ptr %tzname250, align 8
-  %utcoff_seconds = getelementptr %struct._ttinfo, ptr %42, i64 %idx.0, i32 3
+  %utcoff_seconds = getelementptr inbounds i8, ptr %arrayidx249, i64 24
   %44 = load i64, ptr %utcoff_seconds, align 8
-  %tzrule_after251 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 10
+  %tzrule_after251 = getelementptr inbounds i8, ptr %self, i64 96
   tail call fastcc void @build_tzrule(ptr noundef %state, ptr noundef %43, ptr noundef null, i64 noundef %44, i64 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %tzrule_after251)
-  %dstoff253 = getelementptr %struct._ttinfo, ptr %42, i64 %idx.0, i32 1
+  %dstoff253 = getelementptr inbounds i8, ptr %arrayidx249, i64 8
   %45 = load ptr, ptr %dstoff253, align 8
   %call254 = tail call i32 @PyObject_IsTrue(ptr noundef %45) #9
   %tobool255.not = icmp eq i32 %call254, 0
   br i1 %tobool255.not, label %if.end262, label %if.then256
 
 if.then256:                                       ; preds = %if.end247
-  %dstoff258 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 10, i32 0, i32 1
+  %dstoff258 = getelementptr inbounds i8, ptr %self, i64 104
   %46 = load ptr, ptr %dstoff258, align 8
   %47 = load ptr, ptr %dstoff253, align 8
   %48 = load i32, ptr %47, align 8
@@ -4786,14 +4776,14 @@ if.end262:                                        ; preds = %if.end247, %if.end.
   br i1 %cmp264, label %if.then269, label %lor.lhs.false266
 
 lor.lhs.false266:                                 ; preds = %if.end262
-  %tzrule_after267 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 10
-  %std_only = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 10, i32 5
+  %tzrule_after267 = getelementptr inbounds i8, ptr %self, i64 96
+  %std_only = getelementptr inbounds i8, ptr %self, i64 184
   %52 = load i8, ptr %std_only, align 8
   %tobool268.not = icmp eq i8 %52, 0
   br i1 %tobool268.not, label %if.then269, label %if.else270
 
 if.then269:                                       ; preds = %lor.lhs.false266, %if.end262
-  %fixed_offset = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 12
+  %fixed_offset = getelementptr inbounds i8, ptr %self, i64 200
   store i8 0, ptr %fixed_offset, align 8
   br label %cleanup
 
@@ -4802,7 +4792,7 @@ if.else270:                                       ; preds = %lor.lhs.false266
   br i1 %cmp272, label %if.then274, label %if.else276
 
 if.then274:                                       ; preds = %if.else270
-  %fixed_offset275 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 12
+  %fixed_offset275 = getelementptr inbounds i8, ptr %self, i64 200
   store i8 1, ptr %fixed_offset275, align 8
   br label %cleanup
 
@@ -4814,7 +4804,7 @@ if.else276:                                       ; preds = %if.else270
 
 if.else285:                                       ; preds = %if.else276
   %conv286 = trunc i32 %call281 to i8
-  %fixed_offset287 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 12
+  %fixed_offset287 = getelementptr inbounds i8, ptr %self, i64 200
   store i8 %conv286, ptr %fixed_offset287, align 8
   br label %cleanup
 
@@ -4844,7 +4834,7 @@ if.end297:                                        ; preds = %if.end38, %if.then2
 for.body302:                                      ; preds = %if.end297, %for.inc313
   %cmp300 = phi i1 [ true, %if.end297 ], [ false, %for.inc313 ]
   %i298.0215 = phi i64 [ 0, %if.end297 ], [ 1, %for.inc313 ]
-  %arrayidx304 = getelementptr %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 7, i64 %i298.0215
+  %arrayidx304 = getelementptr [2 x ptr], ptr %trans_list_wall, i64 0, i64 %i298.0215
   %54 = load ptr, ptr %arrayidx304, align 8
   %cmp305.not = icmp eq ptr %54, null
   br i1 %cmp305.not, label %for.inc313, label %if.then307
@@ -4895,7 +4885,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i, %if.then.i
-  %dstoff.i = getelementptr %struct._ttinfo, ptr %56, i64 %i320.0217, i32 1
+  %dstoff.i = getelementptr inbounds i8, ptr %arrayidx326, i64 8
   %60 = load ptr, ptr %dstoff.i, align 8
   %cmp.not.i4.i = icmp eq ptr %60, null
   br i1 %cmp.not.i4.i, label %Py_XDECREF.exit11.i, label %if.then.i5.i
@@ -4917,7 +4907,7 @@ if.then1.i.i10.i:                                 ; preds = %if.end.i.i7.i
   br label %Py_XDECREF.exit11.i
 
 Py_XDECREF.exit11.i:                              ; preds = %if.then1.i.i10.i, %if.end.i.i7.i, %if.then.i5.i, %Py_XDECREF.exit.i
-  %tzname.i = getelementptr %struct._ttinfo, ptr %56, i64 %i320.0217, i32 2
+  %tzname.i = getelementptr inbounds i8, ptr %arrayidx326, i64 16
   %63 = load ptr, ptr %tzname.i, align 8
   %cmp.not.i12.i = icmp eq ptr %63, null
   br i1 %cmp.not.i12.i, label %xdecref_ttinfo.exit, label %if.then.i13.i
@@ -5062,7 +5052,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %for.
   %i2.051 = phi i64 [ 1, %if.end.lr.ph ], [ %inc38, %for.inc37 ]
   %arrayidx = getelementptr i64, ptr %trans_idx, i64 %i2.051
   %0 = load i64, ptr %arrayidx, align 8
-  %arrayidx7 = getelementptr i64, ptr %arrayidx, i64 -1
+  %arrayidx7 = getelementptr i8, ptr %arrayidx, i64 -8
   %1 = load i64, ptr %arrayidx7, align 8
   %arrayidx8 = getelementptr i8, ptr %isdsts, i64 %0
   %2 = load i8, ptr %arrayidx8, align 1
@@ -5095,7 +5085,7 @@ land.lhs.true:                                    ; preds = %if.end12, %if.end19
   br i1 %cmp22, label %if.then23, label %for.inc37
 
 if.then23:                                        ; preds = %land.lhs.true
-  %arrayidx24 = getelementptr i64, ptr %arrayidx, i64 1
+  %arrayidx24 = getelementptr i8, ptr %arrayidx, i64 8
   %7 = load i64, ptr %arrayidx24, align 8
   %arrayidx25 = getelementptr i8, ptr %isdsts, i64 %7
   %8 = load i8, ptr %arrayidx25, align 1
@@ -5197,7 +5187,7 @@ if.end18:                                         ; preds = %for.end, %if.then9
   %4 = load i64, ptr %3, align 8
   %add = add i64 %4, %offset_0.0
   store i64 %add, ptr %3, align 8
-  %arrayidx21 = getelementptr ptr, ptr %trans_local, i64 1
+  %arrayidx21 = getelementptr i8, ptr %trans_local, i64 8
   %5 = load ptr, ptr %arrayidx21, align 8
   %6 = load i64, ptr %5, align 8
   %add23 = add i64 %6, %offset_1.0
@@ -5212,7 +5202,7 @@ for.body27.preheader:                             ; preds = %if.end18
 for.body27:                                       ; preds = %for.body27.preheader, %for.body27
   %i24.049 = phi i64 [ %inc42, %for.body27 ], [ 1, %for.body27.preheader ]
   %7 = getelementptr i64, ptr %trans_idx, i64 %i24.049
-  %arrayidx28 = getelementptr i64, ptr %7, i64 -1
+  %arrayidx28 = getelementptr i8, ptr %7, i64 -8
   %8 = load i64, ptr %arrayidx28, align 8
   %arrayidx29 = getelementptr i64, ptr %utcoff, i64 %8
   %9 = load i64, ptr %arrayidx29, align 8
@@ -5243,8 +5233,8 @@ return:                                           ; preds = %for.body, %for.body
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @build_ttinfo(ptr nocapture noundef readonly %state, i64 noundef %utcoffset, i64 noundef %dstoffset, ptr noundef %tzname, ptr nocapture noundef writeonly %out) unnamed_addr #1 {
 entry:
-  %tzname1 = getelementptr inbounds %struct._ttinfo, ptr %out, i64 0, i32 2
-  %utcoff_seconds = getelementptr inbounds %struct._ttinfo, ptr %out, i64 0, i32 3
+  %tzname1 = getelementptr inbounds i8, ptr %out, i64 16
+  %utcoff_seconds = getelementptr inbounds i8, ptr %out, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, i8 0, i64 24, i1 false)
   store i64 %utcoffset, ptr %utcoff_seconds, align 8
   %call = tail call fastcc ptr @load_timedelta(ptr noundef %state, i64 noundef %utcoffset)
@@ -5253,7 +5243,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dstoff = getelementptr inbounds %struct._ttinfo, ptr %out, i64 0, i32 1
+  %dstoff = getelementptr inbounds i8, ptr %out, i64 8
   %call4 = tail call fastcc ptr @load_timedelta(ptr noundef %state, i64 noundef %dstoffset)
   store ptr %call4, ptr %dstoff, align 8
   %cmp7 = icmp eq ptr %call4, null
@@ -5626,7 +5616,7 @@ if.then33:                                        ; preds = %if.else
 if.end36:                                         ; preds = %if.else.if.end36_crit_edge, %if.then30
   %p.promoted = phi ptr [ %p.promoted.pre, %if.else.if.end36_crit_edge ], [ %ptr.2.i34, %if.then30 ]
   store ptr %start, ptr %transitions, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %transitions, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %transitions, i64 8
   store ptr %end, ptr %arrayinit.element, align 8
   br label %for.body
 
@@ -6329,18 +6319,18 @@ entry:
   br i1 %cmp, label %end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dstoff = getelementptr inbounds %struct._ttinfo, ptr %tti0, i64 0, i32 1
+  %dstoff = getelementptr inbounds i8, ptr %tti0, i64 8
   %2 = load ptr, ptr %dstoff, align 8
-  %dstoff2 = getelementptr inbounds %struct._ttinfo, ptr %tti1, i64 0, i32 1
+  %dstoff2 = getelementptr inbounds i8, ptr %tti1, i64 8
   %3 = load ptr, ptr %dstoff2, align 8
   %call3 = tail call i32 @PyObject_RichCompareBool(ptr noundef %2, ptr noundef %3, i32 noundef 2) #9
   %cmp4 = icmp slt i32 %call3, 1
   br i1 %cmp4, label %end, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %tzname = getelementptr inbounds %struct._ttinfo, ptr %tti0, i64 0, i32 2
+  %tzname = getelementptr inbounds i8, ptr %tti0, i64 16
   %4 = load ptr, ptr %tzname, align 8
-  %tzname7 = getelementptr inbounds %struct._ttinfo, ptr %tti1, i64 0, i32 2
+  %tzname7 = getelementptr inbounds i8, ptr %tti1, i64 16
   %5 = load ptr, ptr %tzname7, align 8
   %call8 = tail call i32 @PyObject_RichCompareBool(ptr noundef %4, ptr noundef %5, i32 noundef 2) #9
   br label %end
@@ -6358,7 +6348,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %TIMEDELTA_CACHE = getelementptr inbounds %struct.zoneinfo_state, ptr %state, i64 0, i32 4
+  %TIMEDELTA_CACHE = getelementptr inbounds i8, ptr %state, i64 32
   %0 = load ptr, ptr %TIMEDELTA_CACHE, align 8
   %call1 = tail call ptr @PyDict_GetItemWithError(ptr noundef %0, ptr noundef nonnull %call) #9
   %cmp2 = icmp eq ptr %call1, null
@@ -6371,10 +6361,10 @@ if.then3:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.then3
   %1 = load ptr, ptr @PyDateTimeAPI, align 8
-  %Delta_FromDelta = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %1, i64 0, i32 9
+  %Delta_FromDelta = getelementptr inbounds i8, ptr %1, i64 72
   %2 = load ptr, ptr %Delta_FromDelta, align 8
   %conv = trunc i64 %seconds to i32
-  %DeltaType = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %1, i64 0, i32 3
+  %DeltaType = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %DeltaType, align 8
   %call7 = tail call ptr %2(i32 noundef 0, i32 noundef %conv, i32 noundef 0, i32 noundef 1, ptr noundef %3) #9
   %cmp8 = icmp eq ptr %call7, null
@@ -6662,17 +6652,17 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %fixed_offset = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 12
+  %fixed_offset = getelementptr inbounds i8, ptr %self, i64 200
   %0 = load i8, ptr %fixed_offset, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %tzrule_after = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 10
+  %tzrule_after = getelementptr inbounds i8, ptr %self, i64 96
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %NO_TTINFO = getelementptr inbounds %struct.zoneinfo_state, ptr %state, i64 0, i32 7
+  %NO_TTINFO = getelementptr inbounds i8, ptr %state, i64 56
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -6681,12 +6671,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %fold5 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %dt, i64 0, i32 4
+  %fold5 = getelementptr inbounds i8, ptr %dt, i64 35
   %1 = load i8, ptr %fold5, align 1
+  %trans_list_wall = getelementptr inbounds i8, ptr %self, i64 64
   %idxprom = zext i8 %1 to i64
-  %arrayidx = getelementptr %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 7, i64 %idxprom
+  %arrayidx = getelementptr [2 x ptr], ptr %trans_list_wall, i64 0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
-  %num_transitions = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 4
+  %num_transitions = getelementptr inbounds i8, ptr %self, i64 40
   %3 = load i64, ptr %num_transitions, align 8
   %tobool6.not = icmp eq i64 %3, 0
   %.pre = load i64, ptr %ts, align 8
@@ -6698,42 +6689,42 @@ land.lhs.true:                                    ; preds = %if.end4
   br i1 %cmp8, label %if.then9, label %lor.lhs.false
 
 if.then9:                                         ; preds = %land.lhs.true
-  %ttinfo_before = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 9
+  %ttinfo_before = getelementptr inbounds i8, ptr %self, i64 88
   %5 = load ptr, ptr %ttinfo_before, align 8
   br label %return
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
   %6 = getelementptr i64, ptr %2, i64 %3
-  %arrayidx13 = getelementptr i64, ptr %6, i64 -1
+  %arrayidx13 = getelementptr i8, ptr %6, i64 -8
   %7 = load i64, ptr %arrayidx13, align 8
   %cmp14 = icmp sgt i64 %.pre, %7
   br i1 %cmp14, label %if.then15, label %while.body.i
 
 if.then15:                                        ; preds = %if.end4, %lor.lhs.false
-  %tzrule_after16 = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 10
-  %std_only.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 10, i32 5
+  %tzrule_after16 = getelementptr inbounds i8, ptr %self, i64 96
+  %std_only.i = getelementptr inbounds i8, ptr %self, i64 184
   %8 = load i8, ptr %std_only.i, align 8
   %tobool.not.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.then15
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %dt, i64 25
   %9 = load i8, ptr %data, align 1
   %conv = zext i8 %9 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx19 = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3, i64 1
+  %arrayidx19 = getelementptr i8, ptr %dt, i64 26
   %10 = load i8, ptr %arrayidx19, align 1
   %conv20 = zext i8 %10 to i32
   %or = or disjoint i32 %shl, %conv20
-  %start1.i.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 10, i32 3
+  %start1.i.i = getelementptr inbounds i8, ptr %self, i64 168
   %11 = load ptr, ptr %start1.i.i, align 8
   %12 = load ptr, ptr %11, align 8
   %call.i.i = tail call i64 %12(ptr noundef nonnull %11, i32 noundef %or) #9
-  %end3.i.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 10, i32 4
+  %end3.i.i = getelementptr inbounds i8, ptr %self, i64 176
   %13 = load ptr, ptr %end3.i.i, align 8
   %14 = load ptr, ptr %13, align 8
   %call6.i.i = tail call i64 %14(ptr noundef nonnull %13, i32 noundef %or) #9
-  %dst_diff.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 10, i32 2
+  %dst_diff.i = getelementptr inbounds i8, ptr %self, i64 160
   %15 = load i32, ptr %dst_diff.i, align 8
   %cmp.i = icmp sgt i32 %15, -1
   %16 = zext i1 %cmp.i to i8
@@ -6760,8 +6751,8 @@ if.else18.i:                                      ; preds = %if.end.i
 
 if.end24.i:                                       ; preds = %if.else18.i, %if.then12.i
   %isdst.0.in.i = phi i1 [ %17, %if.then12.i ], [ %18, %if.else18.i ]
-  %dst.i = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 10, i32 1
-  %spec.select.i = select i1 %isdst.0.in.i, ptr %dst.i, ptr %tzrule_after16
+  %spec.select.idx.i = select i1 %isdst.0.in.i, i64 32, i64 0
+  %spec.select.i = getelementptr inbounds i8, ptr %tzrule_after16, i64 %spec.select.idx.i
   br label %return
 
 while.body.i:                                     ; preds = %lor.lhs.false, %while.body.i
@@ -6779,10 +6770,10 @@ while.body.i:                                     ; preds = %lor.lhs.false, %whi
   br i1 %cmp.i18, label %while.body.i, label %_bisect.exit, !llvm.loop !13
 
 _bisect.exit:                                     ; preds = %while.body.i
-  %trans_ttinfos = getelementptr inbounds %struct.PyZoneInfo_ZoneInfo, ptr %self, i64 0, i32 8
+  %trans_ttinfos = getelementptr inbounds i8, ptr %self, i64 80
   %20 = load ptr, ptr %trans_ttinfos, align 8
   %21 = getelementptr ptr, ptr %20, i64 %hi.1.i
-  %arrayidx26 = getelementptr ptr, ptr %21, i64 -1
+  %arrayidx26 = getelementptr i8, ptr %21, i64 -8
   %22 = load ptr, ptr %arrayidx26, align 8
   br label %return
 
@@ -6795,7 +6786,7 @@ return:                                           ; preds = %if.end24.i, %if.the
 define internal fastcc i32 @get_local_timestamp(ptr noundef %dt, ptr nocapture noundef writeonly %local_ts) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @PyDateTimeAPI, align 8
-  %DateTimeType = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %0, i64 0, i32 1
+  %DateTimeType = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %DateTimeType, align 8
   %2 = getelementptr i8, ptr %dt, i64 8
   %dt.val = load ptr, ptr %2, align 8
@@ -6803,26 +6794,26 @@ entry:
   br i1 %cmp.i37.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %dt, i64 25
   %3 = load i8, ptr %data, align 1
   %conv = zext i8 %3 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %dt, i64 26
   %4 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %4 to i32
   %or = or disjoint i32 %shl, %conv3
-  %arrayidx5 = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %dt, i64 27
   %5 = load i8, ptr %arrayidx5, align 1
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %dt, i64 28
   %6 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %6 to i32
-  %arrayidx11 = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3, i64 4
+  %arrayidx11 = getelementptr i8, ptr %dt, i64 29
   %7 = load i8, ptr %arrayidx11, align 1
   %conv12 = zext i8 %7 to i64
-  %arrayidx14 = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3, i64 5
+  %arrayidx14 = getelementptr i8, ptr %dt, i64 30
   %8 = load i8, ptr %arrayidx14, align 1
   %conv15 = zext i8 %8 to i64
-  %arrayidx17 = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3, i64 6
+  %arrayidx17 = getelementptr i8, ptr %dt, i64 31
   %9 = load i8, ptr %arrayidx17, align 1
   %conv18 = zext i8 %9 to i64
   %idxprom.i = zext i8 %5 to i64

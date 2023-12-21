@@ -14,23 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.13" = type { ptr }
 %"class.std::thread" = type { %"class.std::thread::id" }
 %"class.std::thread::id" = type { i64 }
-%"class.pbrt::ProgressReporter" = type { i64, %"class.std::__cxx11::basic_string", i8, %"class.pbrt::Timer", %"struct.std::atomic", %"struct.std::atomic.0", %"class.std::thread", %"class.pstd::optional" }
-%"class.pbrt::Timer" = type { %"class.std::chrono::time_point" }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
-%"class.std::chrono::duration" = type { i64 }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i8 }
-%"class.pstd::optional" = type { %"union.std::aligned_storage<4, 4>::type", i8, [3 x i8] }
-%"union.std::aligned_storage<4, 4>::type" = type { [4 x i8] }
-%"struct.std::thread::_State_impl" = type { %"struct.std::thread::_State", %"struct.std::thread::_Invoker" }
-%"struct.std::thread::_State" = type { ptr }
-%"struct.std::thread::_Invoker" = type { %"class.std::tuple.14" }
-%"class.std::tuple.14" = type { %"struct.std::_Tuple_impl.15" }
-%"struct.std::_Tuple_impl.15" = type { %"struct.std::_Head_base.16" }
-%"struct.std::_Head_base.16" = type { %class.anon }
-%class.anon = type { ptr }
 %struct.timespec = type { i64, i64 }
 %struct.winsize = type { i16, i16, i16, i16 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -155,21 +138,21 @@ invoke.cont:
   %frombool = zext i1 %quiet to i8
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %totalWork, i64 1)
   store i64 %.sroa.speculated, ptr %this, align 8
-  %title4 = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 1
+  %title4 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %title4, ptr noundef nonnull align 8 dereferenceable(32) %title)
-  %quiet5 = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 2
+  %quiet5 = getelementptr inbounds i8, ptr %this, i64 40
   store i8 %frombool, ptr %quiet5, align 8
-  %timer = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 3
+  %timer = getelementptr inbounds i8, ptr %this, i64 48
   store i64 0, ptr %timer, align 8
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   store i64 %call.i, ptr %timer, align 8
-  %updateThread = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 6
+  %updateThread = getelementptr inbounds i8, ptr %this, i64 72
   store i64 0, ptr %updateThread, align 8
-  %set.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 7, i32 1
+  %set.i = getelementptr inbounds i8, ptr %this, i64 84
   store i8 0, ptr %set.i, align 4
-  %workDone7 = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 4
+  %workDone7 = getelementptr inbounds i8, ptr %this, i64 56
   store atomic i64 0, ptr %workDone7 seq_cst, align 8
-  %exitThread9 = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 5
+  %exitThread9 = getelementptr inbounds i8, ptr %this, i64 64
   store atomic i8 0, ptr %exitThread9 seq_cst, align 8
   br i1 %gpu, label %land.rhs, label %land.end
 
@@ -216,7 +199,7 @@ if.then:                                          ; preds = %land.end
 
 call.i3.noexc:                                    ; preds = %if.then
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4pbrt16ProgressReporterC1ElNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEEEE", i64 0, inrange i32 0, i64 2), ptr %call.i34, align 8
-  %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i34, i64 0, i32 1
+  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i34, i64 8
   %3 = ptrtoint ptr %this to i64
   store i64 %3, ptr %_M_func.i.i, align 8
   store ptr %call.i34, ptr %agg.tmp.i, align 8
@@ -230,7 +213,7 @@ invoke.cont3.i:                                   ; preds = %call.i3.noexc
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.cont3.i
   %vtable.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %5 = load ptr, ptr %vfn.i.i.i, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
   br label %invoke.cont17
@@ -244,7 +227,7 @@ lpad2.i:                                          ; preds = %call.i3.noexc
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i: ; preds = %lpad2.i
   %vtable.i.i4.i = load ptr, ptr %7, align 8
-  %vfn.i.i5.i = getelementptr inbounds ptr, ptr %vtable.i.i4.i, i64 1
+  %vfn.i.i5.i = getelementptr inbounds i8, ptr %vtable.i.i4.i, i64 8
   %8 = load ptr, ptr %vfn.i.i5.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   br label %lpad12.body
@@ -314,26 +297,26 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4pbrt16ProgressReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %quiet.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 2
+  %quiet.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %quiet.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.then.i, label %invoke.cont
 
 if.then.i:                                        ; preds = %entry
-  %set.i.i.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 7, i32 1
+  %set.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
   %2 = load i8, ptr %set.i.i.i, align 4
   %3 = and i8 %2, 1
   %tobool.i.not.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i, label %_ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit.i, label %_ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit.thread.i
 
 _ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit.thread.i: ; preds = %if.then.i
-  %finishTime.i.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 7
+  %finishTime.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load float, ptr %finishTime.i.i, align 8
   br label %_ZN4pstd8optionalIfEaSEOf.exit.i
 
 _ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit.i: ; preds = %if.then.i
-  %timer.i.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 3
+  %timer.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %call.i.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   %retval.sroa.0.0.copyload.i1.i.i.i.i = load i64, ptr %timer.i.i, align 8
   %sub.i.i.i.i.i = sub nsw i64 %call.i.i.i, %retval.sroa.0.0.copyload.i1.i.i.i.i
@@ -345,20 +328,20 @@ _ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit.i: ; preds = %if.then.i
 
 _ZN4pstd8optionalIfEaSEOf.exit.i:                 ; preds = %_ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit.i, %_ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit.thread.i
   %cond.i8.i = phi float [ %4, %_ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit.thread.i ], [ %5, %_ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit.i ]
-  %finishTime.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 7
+  %finishTime.i = getelementptr inbounds i8, ptr %this, i64 80
   store float %cond.i8.i, ptr %finishTime.i, align 8
   store i8 1, ptr %set.i.i.i, align 4
-  %exitThread.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 5
+  %exitThread.i = getelementptr inbounds i8, ptr %this, i64 64
   %6 = cmpxchg ptr %exitThread.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 1
   br i1 %7, label %if.then4.i, label %invoke.cont
 
 if.then4.i:                                       ; preds = %_ZN4pstd8optionalIfEaSEOf.exit.i
   %8 = load i64, ptr %this, align 8
-  %workDone.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 4
+  %workDone.i = getelementptr inbounds i8, ptr %this, i64 56
   store atomic i64 %8, ptr %workDone.i seq_cst, align 8
   store atomic i8 1, ptr %exitThread.i seq_cst, align 8
-  %updateThread.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 6
+  %updateThread.i = getelementptr inbounds i8, ptr %this, i64 72
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %updateThread.i, align 8
   %cmp.i.i.not.i = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i, 0
   br i1 %cmp.i.i.not.i, label %if.end.i, label %if.then9.i
@@ -372,7 +355,7 @@ if.end.i:                                         ; preds = %if.then9.i, %if.the
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.end.i, %_ZN4pstd8optionalIfEaSEOf.exit.i, %entry
-  %set.i.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 7, i32 1
+  %set.i.i = getelementptr inbounds i8, ptr %this, i64 84
   %9 = load i8, ptr %set.i.i, align 4
   %10 = and i8 %9, 1
   %tobool.not.i.i = icmp eq i8 %10, 0
@@ -383,7 +366,7 @@ _ZN4pstd8optionalIfE5valueEv.exit.i.i:            ; preds = %invoke.cont
   br label %_ZN4pstd8optionalIfED2Ev.exit
 
 _ZN4pstd8optionalIfED2Ev.exit:                    ; preds = %invoke.cont, %_ZN4pstd8optionalIfE5valueEv.exit.i.i
-  %updateThread = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 6
+  %updateThread = getelementptr inbounds i8, ptr %this, i64 72
   %agg.tmp.sroa.0.0.copyload.i.i1 = load i64, ptr %updateThread, align 8
   %cmp.i.i.not.i2 = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i.i1, 0
   br i1 %cmp.i.i.not.i2, label %_ZNSt6threadD2Ev.exit, label %if.then.i3
@@ -393,7 +376,7 @@ if.then.i3:                                       ; preds = %_ZN4pstd8optionalIf
   unreachable
 
 _ZNSt6threadD2Ev.exit:                            ; preds = %_ZN4pstd8optionalIfED2Ev.exit
-  %title = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 1
+  %title = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %title) #17
   ret void
 
@@ -408,26 +391,26 @@ terminate.lpad:                                   ; preds = %if.then9.i
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4pbrt16ProgressReporter4DoneEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %quiet = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 2
+  %quiet = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %quiet, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end13
 
 if.then:                                          ; preds = %entry
-  %set.i.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 7, i32 1
+  %set.i.i = getelementptr inbounds i8, ptr %this, i64 84
   %2 = load i8, ptr %set.i.i, align 4
   %3 = and i8 %2, 1
   %tobool.i.not.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i, label %_ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit, label %_ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit.thread
 
 _ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit.thread: ; preds = %if.then
-  %finishTime.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 7
+  %finishTime.i = getelementptr inbounds i8, ptr %this, i64 80
   %4 = load float, ptr %finishTime.i, align 8
   br label %_ZN4pstd8optionalIfEaSEOf.exit
 
 _ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit: ; preds = %if.then
-  %timer.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 3
+  %timer.i = getelementptr inbounds i8, ptr %this, i64 48
   %call.i.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #17
   %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %timer.i, align 8
   %sub.i.i.i.i = sub nsw i64 %call.i.i, %retval.sroa.0.0.copyload.i1.i.i.i
@@ -439,20 +422,20 @@ _ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit: ; preds = %if.then
 
 _ZN4pstd8optionalIfEaSEOf.exit:                   ; preds = %_ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit, %_ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit.thread
   %cond.i8 = phi float [ %4, %_ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit.thread ], [ %5, %_ZNK4pbrt16ProgressReporter14ElapsedSecondsEv.exit ]
-  %finishTime = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 7
+  %finishTime = getelementptr inbounds i8, ptr %this, i64 80
   store float %cond.i8, ptr %finishTime, align 8
   store i8 1, ptr %set.i.i, align 4
-  %exitThread = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 5
+  %exitThread = getelementptr inbounds i8, ptr %this, i64 64
   %6 = cmpxchg ptr %exitThread, i8 0, i8 1 seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 1
   br i1 %7, label %if.then4, label %if.end13
 
 if.then4:                                         ; preds = %_ZN4pstd8optionalIfEaSEOf.exit
   %8 = load i64, ptr %this, align 8
-  %workDone = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 4
+  %workDone = getelementptr inbounds i8, ptr %this, i64 56
   store atomic i64 %8, ptr %workDone seq_cst, align 8
   store atomic i8 1, ptr %exitThread seq_cst, align 8
-  %updateThread = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 6
+  %updateThread = getelementptr inbounds i8, ptr %this, i64 72
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %updateThread, align 8
   %cmp.i.i.not = icmp eq i64 %agg.tmp.sroa.0.0.copyload.i, 0
   br i1 %cmp.i.i.not, label %if.end, label %if.then9
@@ -507,7 +490,7 @@ if.then4.i:                                       ; preds = %if.then3.i
   br label %_ZN4pbrtL13TerminalWidthEv.exit
 
 if.end8.i:                                        ; preds = %entry
-  %ws_col.i = getelementptr inbounds %struct.winsize, ptr %w.i, i64 0, i32 1
+  %ws_col.i = getelementptr inbounds i8, ptr %w.i, i64 2
   %2 = load i16, ptr %ws_col.i, align 2
   %conv.i = zext i16 %2 to i32
   %3 = add nsw i32 %conv.i, -28
@@ -516,7 +499,7 @@ if.end8.i:                                        ; preds = %entry
 _ZN4pbrtL13TerminalWidthEv.exit:                  ; preds = %if.then.i, %if.then3.i, %if.then4.i, %if.end8.i
   %retval.0.i = phi i32 [ %3, %if.end8.i ], [ 52, %if.then3.i ], [ 52, %if.then4.i ], [ 52, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %w.i)
-  %title = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 1
+  %title = getelementptr inbounds i8, ptr %this, i64 8
   %call3 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %title) #17
   %4 = trunc i64 %call3 to i32
   %conv5 = sub i32 %retval.0.i, %4
@@ -549,13 +532,13 @@ _ZN4pbrtL13TerminalWidthEv.exit:                  ; preds = %if.then.i, %if.then
   %call25 = call i32 @fputs(ptr noundef nonnull %call.i20, ptr noundef %12)
   %13 = load ptr, ptr @stdout, align 8
   %call27 = call i32 @fflush(ptr noundef %13)
-  %exitThread = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 5
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %__ts.i, i64 0, i32 1
-  %workDone = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 4
+  %exitThread = getelementptr inbounds i8, ptr %this, i64 64
+  %tv_nsec.i = getelementptr inbounds i8, ptr %__ts.i, i64 8
+  %workDone = getelementptr inbounds i8, ptr %this, i64 56
   %conv54 = sitofp i32 %.sroa.speculated44 to float
-  %set.i.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 7, i32 1
-  %finishTime.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 7
-  %timer.i = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 3
+  %set.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %finishTime.i = getelementptr inbounds i8, ptr %this, i64 80
+  %timer.i = getelementptr inbounds i8, ptr %this, i64 48
   br label %while.body
 
 while.body:                                       ; preds = %_ZN4pbrtL13TerminalWidthEv.exit, %if.end102
@@ -777,10 +760,10 @@ declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4pbrt16ProgressReporter8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %title = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 1
-  %timer = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 3
-  %workDone = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 4
-  %exitThread = getelementptr inbounds %"class.pbrt::ProgressReporter", ptr %this, i64 0, i32 5
+  %title = getelementptr inbounds i8, ptr %this, i64 8
+  %timer = getelementptr inbounds i8, ptr %this, i64 48
+  %workDone = getelementptr inbounds i8, ptr %this, i64 56
+  %exitThread = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #17
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKlJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5TimerERKSt6atomicIlERKSF_IbEEEEvPS9_PKcOT_DpOT0_(ptr noundef nonnull %agg.result, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %title, ptr noundef nonnull align 8 dereferenceable(8) %timer, ptr noundef nonnull align 8 dereferenceable(8) %workDone, ptr noundef nonnull align 1 dereferenceable(1) %exitThread)
           to label %_ZN4pbrt12StringPrintfIJRKlRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5TimerERKSt6atomicIlERKSE_IbEEEES8_PKcDpOT_.exit unwind label %lpad.i
@@ -1445,7 +1428,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4pbrt16ProgressReporterC1ElNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEEE6_M_runEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this, i64 0, i32 1
+  %_M_func = getelementptr inbounds i8, ptr %this, i64 8
   %_M_func.val = load ptr, ptr %_M_func, align 8
   tail call void @_ZN4pbrt16ProgressReporter8printBarEv(ptr noundef nonnull align 8 dereferenceable(88) %_M_func.val)
   ret void

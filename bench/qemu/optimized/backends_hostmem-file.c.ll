@@ -4,16 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.HostMemoryBackendFile = type { %struct.HostMemoryBackend, ptr, i64, i64, i8, i8, i8, i32 }
-%struct.HostMemoryBackend = type { %struct.Object, i64, i8, i8, i8, i8, i8, i8, i8, i32, ptr, [3 x i64], i32, %struct.MemoryRegion }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.HostMemoryBackendClass = type { %struct.ObjectClass, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @file_backend_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 416, i64 0, ptr null, ptr null, ptr @file_backend_instance_finalize, i8 0, i64 0, ptr @file_backend_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [20 x i8] c"memory-backend-file\00", align 1
@@ -73,7 +63,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @file_backend_instance_finalize(ptr noundef %o) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull @__func__.MEMORY_BACKEND_FILE) #3
-  %mem_path = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 1
+  %mem_path = getelementptr inbounds i8, ptr %call.i, i64 384
   %0 = load ptr, ptr %mem_path, align 16
   tail call void @g_free(ptr noundef %0) #3
   ret void
@@ -83,9 +73,9 @@ entry:
 define internal void @file_backend_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13, i32 noundef 25, ptr noundef nonnull @__func__.MEMORY_BACKEND_CLASS) #3
-  %alloc = getelementptr inbounds %struct.HostMemoryBackendClass, ptr %call.i, i64 0, i32 1
+  %alloc = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @file_backend_memory_alloc, ptr %alloc, align 8
-  %unparent = getelementptr inbounds %struct.ObjectClass, ptr %oc, i64 0, i32 4
+  %unparent = getelementptr inbounds i8, ptr %oc, i64 80
   store ptr @file_backend_unparent, ptr %unparent, align 8
   %call1 = tail call ptr @object_class_property_add_bool(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @file_memory_backend_get_discard_data, ptr noundef nonnull @file_memory_backend_set_discard_data) #3
   %call2 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @get_mem_path, ptr noundef nonnull @set_mem_path) #3
@@ -106,7 +96,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 define internal void @file_backend_memory_alloc(ptr noundef %backend, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull @__func__.MEMORY_BACKEND_FILE) #3
-  %size = getelementptr inbounds %struct.HostMemoryBackend, ptr %backend, i64 0, i32 1
+  %size = getelementptr inbounds i8, ptr %backend, i64 40
   %0 = load i64, ptr %size, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -116,7 +106,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mem_path = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 1
+  %mem_path = getelementptr inbounds i8, ptr %call.i, i64 384
   %1 = load ptr, ptr %mem_path, align 16
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then2, label %if.end3
@@ -126,7 +116,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %rom = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 7
+  %rom = getelementptr inbounds i8, ptr %call.i, i64 412
   %2 = load i32, ptr %rom, align 4
   switch i32 %2, label %sw.default [
     i32 0, label %sw.bb
@@ -135,7 +125,7 @@ if.end3:                                          ; preds = %if.end
   ]
 
 sw.bb:                                            ; preds = %if.end3
-  %readonly = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 6
+  %readonly = getelementptr inbounds i8, ptr %call.i, i64 410
   %3 = load i8, ptr %readonly, align 2
   %4 = and i8 %3, 1
   %tobool4.not = icmp eq i8 %4, 0
@@ -144,7 +134,7 @@ sw.bb:                                            ; preds = %if.end3
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end3
-  %readonly7 = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 6
+  %readonly7 = getelementptr inbounds i8, ptr %call.i, i64 410
   %5 = load i8, ptr %readonly7, align 2
   %6 = and i8 %5, 1
   %tobool8.not = icmp eq i8 %6, 0
@@ -155,14 +145,14 @@ if.then9:                                         ; preds = %sw.bb6
   br label %return
 
 sw.bb11:                                          ; preds = %if.end3
-  %readonly12 = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 6
+  %readonly12 = getelementptr inbounds i8, ptr %call.i, i64 410
   %7 = load i8, ptr %readonly12, align 2
   %8 = and i8 %7, 1
   %tobool13.not = icmp eq i8 %8, 0
   br i1 %tobool13.not, label %sw.epilog, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.bb11
-  %share = getelementptr inbounds %struct.HostMemoryBackend, ptr %backend, i64 0, i32 7
+  %share = getelementptr inbounds i8, ptr %backend, i64 53
   %9 = load i8, ptr %share, align 1
   %10 = and i8 %9, 1
   %tobool14.not = icmp eq i8 %10, 0
@@ -178,12 +168,12 @@ sw.default:                                       ; preds = %if.end3
 
 sw.epilog:                                        ; preds = %sw.bb11, %land.lhs.true, %sw.bb6, %sw.bb
   %call17 = tail call ptr @host_memory_backend_get_name(ptr noundef nonnull %backend) #3
-  %share18 = getelementptr inbounds %struct.HostMemoryBackend, ptr %backend, i64 0, i32 7
+  %share18 = getelementptr inbounds i8, ptr %backend, i64 53
   %11 = load i8, ptr %share18, align 1
   %12 = shl i8 %11, 1
   %13 = and i8 %12, 2
   %cond20 = zext nneg i8 %13 to i32
-  %readonly21 = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 6
+  %readonly21 = getelementptr inbounds i8, ptr %call.i, i64 410
   %14 = load i8, ptr %readonly21, align 2
   %15 = and i8 %14, 1
   %16 = zext nneg i8 %15 to i32
@@ -193,25 +183,25 @@ sw.epilog:                                        ; preds = %sw.bb11, %land.lhs.
   %cmp = icmp eq i32 %17, 1
   %cond25 = select i1 %cmp, i32 1024, i32 0
   %or26 = or disjoint i32 %or, %cond25
-  %reserve = getelementptr inbounds %struct.HostMemoryBackend, ptr %backend, i64 0, i32 8
+  %reserve = getelementptr inbounds i8, ptr %backend, i64 54
   %18 = load i8, ptr %reserve, align 2
   %19 = xor i8 %18, -1
   %20 = shl i8 %19, 7
   %cond28 = zext i8 %20 to i32
   %or29 = or disjoint i32 %or26, %cond28
-  %is_pmem = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 5
+  %is_pmem = getelementptr inbounds i8, ptr %call.i, i64 409
   %21 = load i8, ptr %is_pmem, align 1
   %22 = shl i8 %21, 5
   %23 = and i8 %22, 32
   %cond31 = zext nneg i8 %23 to i32
   %or32 = or disjoint i32 %or29, %cond31
   %or33 = or disjoint i32 %or32, 512
-  %mr = getelementptr inbounds %struct.HostMemoryBackend, ptr %backend, i64 0, i32 13
+  %mr = getelementptr inbounds i8, ptr %backend, i64 112
   %24 = load i64, ptr %size, align 8
-  %align = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 2
+  %align = getelementptr inbounds i8, ptr %call.i, i64 392
   %25 = load i64, ptr %align, align 8
   %26 = load ptr, ptr %mem_path, align 16
-  %offset = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %call.i, i64 400
   %27 = load i64, ptr %offset, align 16
   tail call void @memory_region_init_ram_from_file(ptr noundef nonnull %mr, ptr noundef nonnull %backend, ptr noundef %call17, i64 noundef %24, i64 noundef %25, i32 noundef %or33, ptr noundef %26, i64 noundef %27, ptr noundef %errp) #3
   tail call void @g_free(ptr noundef %call17) #3
@@ -230,14 +220,14 @@ entry:
   br i1 %call2, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %discard_data = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i4, i64 0, i32 4
+  %discard_data = getelementptr inbounds i8, ptr %call.i4, i64 408
   %0 = load i8, ptr %discard_data, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %mr = getelementptr inbounds %struct.HostMemoryBackend, ptr %call.i, i64 0, i32 13
+  %mr = getelementptr inbounds i8, ptr %call.i, i64 112
   %call3 = tail call ptr @memory_region_get_ram_ptr(ptr noundef nonnull %mr) #3
   %call5 = tail call i64 @memory_region_size(ptr noundef nonnull %mr) #3
   %call6 = tail call i32 @qemu_madvise(ptr noundef %call3, i64 noundef %call5, i32 noundef 9) #3
@@ -253,7 +243,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 define internal zeroext i1 @file_memory_backend_get_discard_data(ptr noundef %o, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull @__func__.MEMORY_BACKEND_FILE) #3
-  %discard_data = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 4
+  %discard_data = getelementptr inbounds i8, ptr %call.i, i64 408
   %0 = load i8, ptr %discard_data, align 8
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -265,7 +255,7 @@ define internal void @file_memory_backend_set_discard_data(ptr noundef %o, i1 no
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull @__func__.MEMORY_BACKEND_FILE) #3
-  %discard_data = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 4
+  %discard_data = getelementptr inbounds i8, ptr %call.i, i64 408
   store i8 %frombool, ptr %discard_data, align 8
   ret void
 }
@@ -276,7 +266,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @get_mem_path(ptr noundef %o, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull @__func__.MEMORY_BACKEND_FILE) #3
-  %mem_path = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 1
+  %mem_path = getelementptr inbounds i8, ptr %call.i, i64 384
   %0 = load ptr, ptr %mem_path, align 16
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #3
   ret ptr %call1
@@ -296,7 +286,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mem_path = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i4, i64 0, i32 1
+  %mem_path = getelementptr inbounds i8, ptr %call.i4, i64 384
   %0 = load ptr, ptr %mem_path, align 16
   tail call void @g_free(ptr noundef %0) #3
   %call4 = tail call noalias ptr @g_strdup(ptr noundef %str) #3
@@ -314,7 +304,7 @@ define internal void @file_memory_backend_get_align(ptr noundef %o, ptr noundef 
 entry:
   %val = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull @__func__.MEMORY_BACKEND_FILE) #3
-  %align = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 2
+  %align = getelementptr inbounds i8, ptr %call.i, i64 392
   %0 = load i64, ptr %align, align 8
   store i64 %0, ptr %val, align 8
   %call1 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %val, ptr noundef %errp) #3
@@ -341,7 +331,7 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   %0 = load i64, ptr %val, align 8
-  %align = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i5, i64 0, i32 2
+  %align = getelementptr inbounds i8, ptr %call.i5, i64 392
   store i64 %0, ptr %align, align 8
   br label %return
 
@@ -354,7 +344,7 @@ define internal void @file_memory_backend_get_offset(ptr noundef %o, ptr noundef
 entry:
   %val = alloca i64, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull @__func__.MEMORY_BACKEND_FILE) #3
-  %offset = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %call.i, i64 400
   %0 = load i64, ptr %offset, align 16
   store i64 %0, ptr %val, align 8
   %call1 = call zeroext i1 @visit_type_size(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %val, ptr noundef %errp) #3
@@ -381,7 +371,7 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   %0 = load i64, ptr %val, align 8
-  %offset = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i5, i64 0, i32 3
+  %offset = getelementptr inbounds i8, ptr %call.i5, i64 400
   store i64 %0, ptr %offset, align 16
   br label %return
 
@@ -395,7 +385,7 @@ declare void @object_class_property_set_description(ptr noundef, ptr noundef, pt
 define internal zeroext i1 @file_memory_backend_get_readonly(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull @__func__.MEMORY_BACKEND_FILE) #3
-  %readonly = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 6
+  %readonly = getelementptr inbounds i8, ptr %call.i, i64 410
   %0 = load i8, ptr %readonly, align 2
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -417,7 +407,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %frombool = zext i1 %value to i8
-  %readonly = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i3, i64 0, i32 6
+  %readonly = getelementptr inbounds i8, ptr %call.i3, i64 410
   store i8 %frombool, ptr %readonly, align 2
   br label %return
 
@@ -430,7 +420,7 @@ define internal void @file_memory_backend_get_rom(ptr noundef %obj, ptr noundef 
 entry:
   %rom = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 24, ptr noundef nonnull @__func__.MEMORY_BACKEND_FILE) #3
-  %rom1 = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i, i64 0, i32 7
+  %rom1 = getelementptr inbounds i8, ptr %call.i, i64 412
   %0 = load i32, ptr %rom1, align 4
   store i32 %0, ptr %rom, align 4
   %call2 = call zeroext i1 @visit_type_OnOffAuto(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %rom, ptr noundef %errp) #3
@@ -451,7 +441,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %rom = getelementptr inbounds %struct.HostMemoryBackendFile, ptr %call.i5, i64 0, i32 7
+  %rom = getelementptr inbounds i8, ptr %call.i5, i64 412
   %call4 = tail call zeroext i1 @visit_type_OnOffAuto(ptr noundef %v, ptr noundef %name, ptr noundef nonnull %rom, ptr noundef %errp) #3
   br label %return
 

@@ -17,21 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.CompressParam = type { i8, i8, i8, i32, ptr, %struct.QemuMutex, %struct.QemuCond, ptr, i64, %struct.z_stream_s, ptr }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 %struct.QemuThread = type { i64 }
-%struct.MigrationState = type { %struct.DeviceState, %struct.QemuThread, ptr, ptr, ptr, ptr, %struct.QemuSemaphore, ptr, %struct.QemuMutex, %struct.QemuSemaphore, i64, double, i64, i64, i64, %struct.MigrationParameters, i32, %struct.anon.3, double, i64, i64, i64, i64, i64, [23 x i8], i64, i32, i8, i8, i8, i8, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuEvent, i64, ptr, ptr, %struct.QemuMutex, i8, i8, i8, i8, %struct.QemuSemaphore, i8, i8, i8, i8, ptr, ptr, i8, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MigrationParameters = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, i8, i64, i8, i64, i8, i64, i8, i32, i8, i8, i8, i8, i8, i64, i8, i64, i8, i8, i8, i32, i8, i8, i8, i8, i8, ptr, i8, i64, i8, i64, i8, i32 }
-%struct.anon.3 = type { ptr, %struct.QemuThread, i8, %struct.QemuSemaphore, %struct.QemuSemaphore }
-%struct.QemuEvent = type { i32, i8 }
-%struct.QemuSemaphore = type { %struct.QemuMutex, %struct.QemuCond, i32 }
 %struct.DecompressParam = type { i8, i8, %struct.QemuMutex, %struct.QemuCond, ptr, ptr, i32, %struct.z_stream_s }
-%struct.MigrationInfo = type { i8, i32, ptr, ptr, ptr, ptr, i8, i64, i8, i64, i8, i64, i8, i64, i8, i64, ptr, i8, ptr, i8, i32, i8, ptr, ptr, i8, ptr, i8, i64, i8, i64 }
-%struct.CompressionStats = type { i64, i64, double, i64, double }
 
 @comp_param = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [33 x i8] c"../qemu/migration/ram-compress.c\00", align 1
@@ -202,7 +188,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.end12:                                         ; preds = %for.body
   %stream = getelementptr %struct.CompressParam, ptr %0, i64 %indvars.iv, i32 9
   %call15 = tail call i32 @migrate_compress_level() #8
-  %call16 = tail call i32 @deflateInit_(ptr noundef %stream, i32 noundef %call15, ptr noundef nonnull @.str.1, i32 noundef 112) #8
+  %call16 = tail call i32 @deflateInit_(ptr noundef nonnull %stream, i32 noundef %call15, ptr noundef nonnull @.str.1, i32 noundef 112) #8
   %cmp17.not = icmp eq i32 %call16, 0
   br i1 %cmp17.not, label %if.end23, label %if.then19
 
@@ -274,23 +260,23 @@ define internal ptr @do_data_compress(ptr noundef %opaque) #0 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %mutex = getelementptr inbounds %struct.CompressParam, ptr %opaque, i64 0, i32 5
+  %mutex = getelementptr inbounds i8, ptr %opaque, i64 16
   tail call void %1(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 97) #8
-  %quit = getelementptr inbounds %struct.CompressParam, ptr %opaque, i64 0, i32 1
+  %quit = getelementptr inbounds i8, ptr %opaque, i64 1
   %2 = load i8, ptr %quit, align 1
   %3 = and i8 %2, 1
   %tobool.not16 = icmp eq i8 %3, 0
   br i1 %tobool.not16, label %while.body2.lr.ph, label %while.end35
 
 while.body2.lr.ph:                                ; preds = %entry
-  %trigger = getelementptr inbounds %struct.CompressParam, ptr %opaque, i64 0, i32 2
-  %block4 = getelementptr inbounds %struct.CompressParam, ptr %opaque, i64 0, i32 7
-  %offset5 = getelementptr inbounds %struct.CompressParam, ptr %opaque, i64 0, i32 8
-  %file = getelementptr inbounds %struct.CompressParam, ptr %opaque, i64 0, i32 4
-  %stream = getelementptr inbounds %struct.CompressParam, ptr %opaque, i64 0, i32 9
-  %originbuf = getelementptr inbounds %struct.CompressParam, ptr %opaque, i64 0, i32 10
-  %result16 = getelementptr inbounds %struct.CompressParam, ptr %opaque, i64 0, i32 3
-  %cond = getelementptr inbounds %struct.CompressParam, ptr %opaque, i64 0, i32 6
+  %trigger = getelementptr inbounds i8, ptr %opaque, i64 2
+  %block4 = getelementptr inbounds i8, ptr %opaque, i64 120
+  %offset5 = getelementptr inbounds i8, ptr %opaque, i64 128
+  %file = getelementptr inbounds i8, ptr %opaque, i64 8
+  %stream = getelementptr inbounds i8, ptr %opaque, i64 136
+  %originbuf = getelementptr inbounds i8, ptr %opaque, i64 248
+  %result16 = getelementptr inbounds i8, ptr %opaque, i64 4
+  %cond = getelementptr inbounds i8, ptr %opaque, i64 64
   br label %while.body2
 
 while.body2:                                      ; preds = %while.body2.lr.ph, %if.end
@@ -330,7 +316,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.then7.i:                                       ; preds = %if.end4.i
   %call8.i = tail call ptr @migrate_get_current() #8
-  %to_dst_file.i = getelementptr inbounds %struct.MigrationState, ptr %call8.i, i64 0, i32 4
+  %to_dst_file.i = getelementptr inbounds i8, ptr %call8.i, i64 184
   %11 = load ptr, ptr %to_dst_file.i, align 8
   tail call void @qemu_file_set_error(ptr noundef %11, i32 noundef %conv.i) #8
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8) #8
@@ -433,16 +419,16 @@ while.end22:                                      ; preds = %while.end22.prehead
   %mutex = getelementptr %struct.CompressParam, ptr %13, i64 %indvars.iv18, i32 5
   tail call void %12(ptr noundef %mutex, ptr noundef nonnull @.str, i32 noundef 261) #8
   %14 = load ptr, ptr @comp_param, align 8
-  %quit = getelementptr %struct.CompressParam, ptr %14, i64 %indvars.iv18, i32 1
+  %arrayidx28 = getelementptr %struct.CompressParam, ptr %14, i64 %indvars.iv18
+  %quit = getelementptr inbounds i8, ptr %arrayidx28, i64 1
   %15 = load i8, ptr %quit, align 1
   %16 = and i8 %15, 1
   %tobool29.not = icmp eq i8 %16, 0
   br i1 %tobool29.not, label %if.then30, label %if.end37
 
 if.then30:                                        ; preds = %while.end22
-  %arrayidx28 = getelementptr %struct.CompressParam, ptr %14, i64 %indvars.iv18
   %call33 = tail call i32 @compress_send_queued_data(ptr noundef %arrayidx28) #8
-  %file = getelementptr %struct.CompressParam, ptr %14, i64 %indvars.iv18, i32 4
+  %file = getelementptr inbounds i8, ptr %arrayidx28, i64 8
   %17 = load ptr, ptr %file, align 8
   %call34 = tail call zeroext i1 @qemu_file_buffer_empty(ptr noundef %17) #8
   br i1 %call34, label %if.end36, label %if.else
@@ -452,9 +438,9 @@ if.else:                                          ; preds = %if.then30
   unreachable
 
 if.end36:                                         ; preds = %if.then30
-  %result.i = getelementptr %struct.CompressParam, ptr %14, i64 %indvars.iv18, i32 3
+  %result.i = getelementptr inbounds i8, ptr %arrayidx28, i64 4
   store i32 0, ptr %result.i, align 4
-  %block.i = getelementptr %struct.CompressParam, ptr %14, i64 %indvars.iv18, i32 7
+  %block.i = getelementptr inbounds i8, ptr %arrayidx28, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %block.i, i8 0, i64 16, i1 false)
   %.pre23 = load ptr, ptr @comp_param, align 8
   br label %if.end37
@@ -495,30 +481,30 @@ entry.split.us:                                   ; preds = %entry
   %2 = load ptr, ptr @comp_param, align 8
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
-  %tobool4.not.us2332 = icmp eq i8 %4, 0
-  br i1 %tobool4.not.us2332, label %for.cond.us.lr.ph.lr.ph, label %if.then
+  %tobool4.not.us2126 = icmp eq i8 %4, 0
+  br i1 %tobool4.not.us2126, label %for.cond.us.lr.ph.lr.ph, label %if.then
 
 for.cond.us.lr.ph.lr.ph:                          ; preds = %entry.split.us
   %5 = zext nneg i32 %call1 to i64
-  %wide.trip.count52 = zext nneg i32 %call1 to i64
+  %wide.trip.count40 = zext nneg i32 %call1 to i64
   br i1 %tobool.not, label %for.cond.us.us, label %for.cond.us.lr.ph
 
 for.cond.us.us:                                   ; preds = %for.cond.us.lr.ph.lr.ph, %for.body.us.us
-  %indvars.iv49 = phi i64 [ %indvars.iv.next50, %for.body.us.us ], [ 1, %for.cond.us.lr.ph.lr.ph ]
-  %exitcond53.not = icmp eq i64 %indvars.iv49, %wide.trip.count52
-  br i1 %exitcond53.not, label %if.then22.loopexit, label %for.body.us.us, !llvm.loop !12
+  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %for.body.us.us ], [ 1, %for.cond.us.lr.ph.lr.ph ]
+  %exitcond41.not = icmp eq i64 %indvars.iv37, %wide.trip.count40
+  br i1 %exitcond41.not, label %if.then22.loopexit, label %for.body.us.us, !llvm.loop !12
 
 for.body.us.us:                                   ; preds = %for.cond.us.us
-  %arrayidx.us.us = getelementptr %struct.CompressParam, ptr %2, i64 %indvars.iv49
+  %arrayidx.us.us = getelementptr %struct.CompressParam, ptr %2, i64 %indvars.iv37
   %6 = load i8, ptr %arrayidx.us.us, align 8
   %7 = and i8 %6, 1
   %tobool4.not.us.us = icmp eq i8 %7, 0
-  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   br i1 %tobool4.not.us.us, label %for.cond.us.us, label %if.then.loopexit, !llvm.loop !12
 
 for.cond.us:                                      ; preds = %for.cond.us.lr.ph, %for.body.us
   %indvars.iv = phi i64 [ 1, %for.cond.us.lr.ph ], [ %indvars.iv.next, %for.body.us ]
-  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count52
+  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count40
   br i1 %exitcond.not, label %for.cond.for.end_crit_edge.us, label %for.body.us, !llvm.loop !12
 
 for.body.us:                                      ; preds = %for.cond.us
@@ -527,7 +513,7 @@ for.body.us:                                      ; preds = %for.cond.us
   %9 = and i8 %8, 1
   %tobool4.not.us = icmp eq i8 %9, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %tobool4.not.us, label %for.cond.us, label %if.then.loopexit54, !llvm.loop !12
+  br i1 %tobool4.not.us, label %for.cond.us, label %if.then.loopexit42, !llvm.loop !12
 
 for.cond.us.lr.ph:                                ; preds = %for.cond.us.lr.ph.lr.ph, %for.cond.for.end_crit_edge.us
   %10 = phi ptr [ %13, %for.cond.for.end_crit_edge.us ], [ %2, %for.cond.us.lr.ph.lr.ph ]
@@ -540,32 +526,30 @@ for.cond.for.end_crit_edge.us:                    ; preds = %for.cond.us
   %13 = load ptr, ptr @comp_param, align 8
   %14 = load i8, ptr %13, align 8
   %15 = and i8 %14, 1
-  %tobool4.not.us23 = icmp eq i8 %15, 0
-  br i1 %tobool4.not.us23, label %for.cond.us.lr.ph, label %if.then
+  %tobool4.not.us21 = icmp eq i8 %15, 0
+  br i1 %tobool4.not.us21, label %for.cond.us.lr.ph, label %if.then
 
 entry.split:                                      ; preds = %entry
   br i1 %tobool.not, label %if.then22, label %while.end30
 
 if.then.loopexit:                                 ; preds = %for.body.us.us
-  %cmp.us.us.le = icmp ult i64 %indvars.iv49, %5
+  %cmp.us.us.le = icmp ult i64 %indvars.iv37, %5
   br label %if.then
 
-if.then.loopexit54:                               ; preds = %for.body.us
+if.then.loopexit42:                               ; preds = %for.body.us
   %cmp.us.le = icmp ult i64 %indvars.iv, %5
   br label %if.then
 
-if.then:                                          ; preds = %for.cond.for.end_crit_edge.us, %if.then.loopexit54, %if.then.loopexit, %entry.split.us
-  %.lcssa.us = phi ptr [ %2, %entry.split.us ], [ %2, %if.then.loopexit ], [ %10, %if.then.loopexit54 ], [ %13, %for.cond.for.end_crit_edge.us ]
-  %idxprom.lcssa.us = phi i64 [ 0, %entry.split.us ], [ %indvars.iv49, %if.then.loopexit ], [ %indvars.iv, %if.then.loopexit54 ], [ 0, %for.cond.for.end_crit_edge.us ]
-  %arrayidx.lcssa.us = phi ptr [ %2, %entry.split.us ], [ %arrayidx.us.us, %if.then.loopexit ], [ %arrayidx.us, %if.then.loopexit54 ], [ %13, %for.cond.for.end_crit_edge.us ]
-  %cmp.lcssa11.us = phi i1 [ true, %entry.split.us ], [ %cmp.us.us.le, %if.then.loopexit ], [ %cmp.us.le, %if.then.loopexit54 ], [ true, %for.cond.for.end_crit_edge.us ]
+if.then:                                          ; preds = %for.cond.for.end_crit_edge.us, %if.then.loopexit42, %if.then.loopexit, %entry.split.us
+  %arrayidx.lcssa.us = phi ptr [ %2, %entry.split.us ], [ %arrayidx.us.us, %if.then.loopexit ], [ %arrayidx.us, %if.then.loopexit42 ], [ %13, %for.cond.for.end_crit_edge.us ]
+  %cmp.lcssa11.us = phi i1 [ true, %entry.split.us ], [ %cmp.us.us.le, %if.then.loopexit ], [ %cmp.us.le, %if.then.loopexit42 ], [ true, %for.cond.for.end_crit_edge.us ]
   %16 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %17 = inttoptr i64 %16 to ptr
-  %mutex = getelementptr %struct.CompressParam, ptr %.lcssa.us, i64 %idxprom.lcssa.us, i32 5
-  tail call void %17(ptr noundef %mutex, ptr noundef nonnull @.str, i32 noundef 296) #8
+  %mutex = getelementptr inbounds i8, ptr %arrayidx.lcssa.us, i64 16
+  tail call void %17(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 296) #8
   store i8 0, ptr %arrayidx.lcssa.us, align 8
   %call16 = tail call i32 %send_queued_data(ptr noundef nonnull %arrayidx.lcssa.us) #8
-  %file = getelementptr %struct.CompressParam, ptr %.lcssa.us, i64 %idxprom.lcssa.us, i32 4
+  %file = getelementptr inbounds i8, ptr %arrayidx.lcssa.us, i64 8
   %18 = load ptr, ptr %file, align 8
   %call17 = tail call zeroext i1 @qemu_file_buffer_empty(ptr noundef %18) #8
   br i1 %call17, label %if.end, label %if.else
@@ -575,38 +559,36 @@ if.else:                                          ; preds = %if.then
   unreachable
 
 if.end:                                           ; preds = %if.then
-  %result.i = getelementptr %struct.CompressParam, ptr %.lcssa.us, i64 %idxprom.lcssa.us, i32 3
+  %result.i = getelementptr inbounds i8, ptr %arrayidx.lcssa.us, i64 4
   store i32 0, ptr %result.i, align 4
-  %block.i = getelementptr %struct.CompressParam, ptr %.lcssa.us, i64 %idxprom.lcssa.us, i32 7
-  %19 = getelementptr inbounds i8, ptr %block.i, i64 8
-  store i64 0, ptr %19, align 8
+  %block.i = getelementptr inbounds i8, ptr %arrayidx.lcssa.us, i64 120
   store ptr %block, ptr %block.i, align 8
-  %offset2.i = getelementptr %struct.CompressParam, ptr %.lcssa.us, i64 %idxprom.lcssa.us, i32 8
+  %offset2.i = getelementptr inbounds i8, ptr %arrayidx.lcssa.us, i64 128
   store i64 %offset, ptr %offset2.i, align 8
-  %trigger.i = getelementptr %struct.CompressParam, ptr %.lcssa.us, i64 %idxprom.lcssa.us, i32 2
+  %trigger.i = getelementptr inbounds i8, ptr %arrayidx.lcssa.us, i64 2
   store i8 1, ptr %trigger.i, align 2
-  %cond = getelementptr %struct.CompressParam, ptr %.lcssa.us, i64 %idxprom.lcssa.us, i32 6
-  tail call void @qemu_cond_signal(ptr noundef %cond) #8
-  tail call void @qemu_mutex_unlock_impl(ptr noundef %mutex, ptr noundef nonnull @.str, i32 noundef 304) #8
+  %cond = getelementptr inbounds i8, ptr %arrayidx.lcssa.us, i64 64
+  tail call void @qemu_cond_signal(ptr noundef nonnull %cond) #8
+  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 304) #8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @comp_done_lock, ptr noundef nonnull @.str, i32 noundef 305) #8
   br label %return
 
 if.then22.loopexit:                               ; preds = %for.cond.us.us
-  %cmp.us.us.le62 = icmp ult i64 %indvars.iv49, %5
+  %cmp.us.us.le46 = icmp ult i64 %indvars.iv37, %5
   br label %if.then22
 
 if.then22:                                        ; preds = %if.then22.loopexit, %entry.split
-  %.us-phi = phi i1 [ false, %entry.split ], [ %cmp.us.us.le62, %if.then22.loopexit ]
+  %.us-phi = phi i1 [ false, %entry.split ], [ %cmp.us.us.le46, %if.then22.loopexit ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @comp_done_lock, ptr noundef nonnull @.str, i32 noundef 310) #8
-  %20 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i64 0, i32 1), align 8
-  %inc23 = add i64 %20, 1
+  %19 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i64 0, i32 1), align 8
+  %inc23 = add i64 %19, 1
   store i64 %inc23, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i64 0, i32 1), align 8
   br label %return
 
 while.end30:                                      ; preds = %entry.split, %while.end30
-  %21 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
-  %22 = inttoptr i64 %21 to ptr
-  tail call void %22(ptr noundef nonnull @comp_done_cond, ptr noundef nonnull @comp_done_lock, ptr noundef nonnull @.str, i32 noundef 319) #8
+  %20 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
+  %21 = inttoptr i64 %20 to ptr
+  tail call void %21(ptr noundef nonnull @comp_done_cond, ptr noundef nonnull @comp_done_lock, ptr noundef nonnull @.str, i32 noundef 319) #8
   br label %while.end30
 
 return:                                           ; preds = %if.then22, %if.end
@@ -852,24 +834,24 @@ define internal ptr @do_data_decompress(ptr noundef %opaque) #0 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %mutex = getelementptr inbounds %struct.DecompressParam, ptr %opaque, i64 0, i32 2
+  %mutex = getelementptr inbounds i8, ptr %opaque, i64 8
   tail call void %1(ptr noundef nonnull %mutex, ptr noundef nonnull @.str, i32 noundef 355) #8
-  %quit = getelementptr inbounds %struct.DecompressParam, ptr %opaque, i64 0, i32 1
+  %quit = getelementptr inbounds i8, ptr %opaque, i64 1
   %2 = load i8, ptr %quit, align 1
   %3 = and i8 %2, 1
   %tobool.not18 = icmp eq i8 %3, 0
   br i1 %tobool.not18, label %while.body2.lr.ph, label %while.end42
 
 while.body2.lr.ph:                                ; preds = %entry
-  %des3 = getelementptr inbounds %struct.DecompressParam, ptr %opaque, i64 0, i32 4
-  %len6 = getelementptr inbounds %struct.DecompressParam, ptr %opaque, i64 0, i32 6
-  %stream = getelementptr inbounds %struct.DecompressParam, ptr %opaque, i64 0, i32 7
-  %compbuf = getelementptr inbounds %struct.DecompressParam, ptr %opaque, i64 0, i32 5
-  %avail_in.i = getelementptr inbounds %struct.DecompressParam, ptr %opaque, i64 0, i32 7, i32 1
-  %avail_out.i = getelementptr inbounds %struct.DecompressParam, ptr %opaque, i64 0, i32 7, i32 4
-  %next_out.i = getelementptr inbounds %struct.DecompressParam, ptr %opaque, i64 0, i32 7, i32 3
-  %total_out.i = getelementptr inbounds %struct.DecompressParam, ptr %opaque, i64 0, i32 7, i32 5
-  %cond = getelementptr inbounds %struct.DecompressParam, ptr %opaque, i64 0, i32 3
+  %des3 = getelementptr inbounds i8, ptr %opaque, i64 112
+  %len6 = getelementptr inbounds i8, ptr %opaque, i64 128
+  %stream = getelementptr inbounds i8, ptr %opaque, i64 136
+  %compbuf = getelementptr inbounds i8, ptr %opaque, i64 120
+  %avail_in.i = getelementptr inbounds i8, ptr %opaque, i64 144
+  %avail_out.i = getelementptr inbounds i8, ptr %opaque, i64 168
+  %next_out.i = getelementptr inbounds i8, ptr %opaque, i64 160
+  %total_out.i = getelementptr inbounds i8, ptr %opaque, i64 176
+  %cond = getelementptr inbounds i8, ptr %opaque, i64 56
   br label %while.body2
 
 while.body2:                                      ; preds = %while.body2.lr.ph, %if.end41
@@ -906,7 +888,7 @@ qemu_uncompress_data.exit:                        ; preds = %if.end.i
 land.lhs.true:                                    ; preds = %if.end.i, %if.then, %qemu_uncompress_data.exit
   %retval.0.i17 = phi i32 [ %conv7.i, %qemu_uncompress_data.exit ], [ -1, %if.then ], [ -1, %if.end.i ]
   %call11 = tail call ptr @migrate_get_current() #8
-  %decompress_error_check = getelementptr inbounds %struct.MigrationState, ptr %call11, i64 0, i32 44
+  %decompress_error_check = getelementptr inbounds i8, ptr %call11, i64 1656
   %8 = load i8, ptr %decompress_error_check, align 8
   %9 = and i8 %8, 1
   %tobool12.not = icmp eq i8 %9, 0
@@ -1025,18 +1007,18 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #10
-  %compression = getelementptr inbounds %struct.MigrationInfo, ptr %info, i64 0, i32 23
+  %compression = getelementptr inbounds i8, ptr %info, i64 168
   store ptr %call1, ptr %compression, align 8
   %0 = load <2 x i64>, ptr @compression_counters, align 16
   store <2 x i64> %0, ptr %call1, align 8
   %1 = load double, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i64 0, i32 2), align 16
-  %busy_rate = getelementptr inbounds %struct.CompressionStats, ptr %call1, i64 0, i32 2
+  %busy_rate = getelementptr inbounds i8, ptr %call1, i64 16
   store double %1, ptr %busy_rate, align 8
   %2 = load i64, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i64 0, i32 3), align 8
-  %compressed_size = getelementptr inbounds %struct.CompressionStats, ptr %call1, i64 0, i32 3
+  %compressed_size = getelementptr inbounds i8, ptr %call1, i64 24
   store i64 %2, ptr %compressed_size, align 8
   %3 = load double, ptr getelementptr inbounds (%struct.anon.0, ptr @compression_counters, i64 0, i32 4), align 16
-  %compression_rate = getelementptr inbounds %struct.CompressionStats, ptr %call1, i64 0, i32 4
+  %compression_rate = getelementptr inbounds i8, ptr %call1, i64 32
   store double %3, ptr %compression_rate, align 8
   br label %return
 
@@ -1056,7 +1038,7 @@ define dso_local void @update_compress_thread_counts(ptr nocapture noundef reado
 entry:
   %conv = sext i32 %bytes_xmit to i64
   tail call void @ram_transferred_add(i64 noundef %conv) #8
-  %result = getelementptr inbounds %struct.CompressParam, ptr %param, i64 0, i32 3
+  %result = getelementptr inbounds i8, ptr %param, i64 4
   %0 = load i32, ptr %result, align 4
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then, label %if.end

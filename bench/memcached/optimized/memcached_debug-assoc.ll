@@ -11,9 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
 %union.__atomic_wide_counter = type { i64 }
 %struct.settings = type { i64, i32, i32, i32, ptr, i32, i32, i64, i32, ptr, ptr, i32, double, i32, i32, i32, i8, i32, i32, i8, i32, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i32, double, i32, i32, i8, i32, i8, i8, ptr, i32, i32, i32, i32, double, double, i32, i8, i32, i32, i32, i32, i32, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, double, double, i8, i32, i32, ptr, i32 }
-%struct._stritem = type { ptr, ptr, ptr, i32, i32, i32, i16, i16, i8, i8, [0 x %union.anon] }
-%union.anon = type { i64 }
-%struct.assoc_iterator = type { i64, ptr, ptr, i8 }
 
 @hashpower = dso_local local_unnamed_addr global i32 16, align 4
 @primary_hashtable = internal unnamed_addr global ptr null, align 8
@@ -129,15 +126,15 @@ if.end:                                           ; preds = %if.else, %if.then
 
 while.body:                                       ; preds = %if.end, %if.end21
   %it.112 = phi ptr [ %it.1, %if.end21 ], [ %it.110, %if.end ]
-  %nkey10 = getelementptr inbounds %struct._stritem, ptr %it.112, i64 0, i32 9
+  %nkey10 = getelementptr inbounds i8, ptr %it.112, i64 41
   %3 = load i8, ptr %nkey10, align 1
   %conv11 = zext i8 %3 to i64
   %cmp12 = icmp eq i64 %conv11, %nkey
   br i1 %cmp12, label %land.lhs.true14, label %if.end21
 
 land.lhs.true14:                                  ; preds = %while.body
-  %data = getelementptr inbounds %struct._stritem, ptr %it.112, i64 0, i32 10
-  %it_flags = getelementptr inbounds %struct._stritem, ptr %it.112, i64 0, i32 7
+  %data = getelementptr inbounds i8, ptr %it.112, i64 48
+  %it_flags = getelementptr inbounds i8, ptr %it.112, i64 38
   %4 = load i16, ptr %it_flags, align 2
   %5 = shl i16 %4, 2
   %6 = and i16 %5, 8
@@ -148,7 +145,7 @@ land.lhs.true14:                                  ; preds = %while.body
   br i1 %cmp18, label %while.end, label %if.end21
 
 if.end21:                                         ; preds = %land.lhs.true14, %while.body
-  %h_next = getelementptr inbounds %struct._stritem, ptr %it.112, i64 0, i32 2
+  %h_next = getelementptr inbounds i8, ptr %it.112, i64 16
   %it.1 = load ptr, ptr %h_next, align 8
   %tobool9.not = icmp eq ptr %it.1, null
   br i1 %tobool9.not, label %while.end, label %while.body, !llvm.loop !5
@@ -231,7 +228,7 @@ if.else:                                          ; preds = %entry, %land.lhs.tr
 if.end:                                           ; preds = %if.else, %if.then
   %arrayidx9.sink11 = phi ptr [ %arrayidx9, %if.else ], [ %arrayidx, %if.then ]
   %3 = load ptr, ptr %arrayidx9.sink11, align 8
-  %h_next10 = getelementptr inbounds %struct._stritem, ptr %it, i64 0, i32 2
+  %h_next10 = getelementptr inbounds i8, ptr %it, i64 16
   store ptr %3, ptr %h_next10, align 8
   store ptr %it, ptr %arrayidx9.sink11, align 8
   ret i32 1
@@ -278,15 +275,15 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 land.rhs.i:                                       ; preds = %if.end.i, %while.body.i
   %.pr = phi ptr [ %8, %while.body.i ], [ %3, %if.end.i ]
   %pos.111.i = phi ptr [ %h_next.i, %while.body.i ], [ %pos.0.i, %if.end.i ]
-  %nkey10.i = getelementptr inbounds %struct._stritem, ptr %.pr, i64 0, i32 9
+  %nkey10.i = getelementptr inbounds i8, ptr %.pr, i64 41
   %4 = load i8, ptr %nkey10.i, align 1
   %conv11.i = zext i8 %4 to i64
   %cmp12.not.i = icmp eq i64 %conv11.i, %nkey
   br i1 %cmp12.not.i, label %lor.rhs.i, label %while.body.i
 
 lor.rhs.i:                                        ; preds = %land.rhs.i
-  %data.i = getelementptr inbounds %struct._stritem, ptr %.pr, i64 0, i32 10
-  %it_flags.i = getelementptr inbounds %struct._stritem, ptr %.pr, i64 0, i32 7
+  %data.i = getelementptr inbounds i8, ptr %.pr, i64 48
+  %it_flags.i = getelementptr inbounds i8, ptr %.pr, i64 38
   %5 = load i16, ptr %it_flags.i, align 2
   %6 = shl i16 %5, 2
   %7 = and i16 %6, 8
@@ -297,13 +294,13 @@ lor.rhs.i:                                        ; preds = %land.rhs.i
   br i1 %tobool17.not.i, label %if.then, label %while.body.i
 
 while.body.i:                                     ; preds = %lor.rhs.i, %land.rhs.i
-  %h_next.i = getelementptr inbounds %struct._stritem, ptr %.pr, i64 0, i32 2
+  %h_next.i = getelementptr inbounds i8, ptr %.pr, i64 16
   %8 = load ptr, ptr %h_next.i, align 8
   %tobool9.not.i = icmp eq ptr %8, null
   br i1 %tobool9.not.i, label %if.end, label %land.rhs.i, !llvm.loop !7
 
 if.then:                                          ; preds = %lor.rhs.i
-  %h_next = getelementptr inbounds %struct._stritem, ptr %.pr, i64 0, i32 2
+  %h_next = getelementptr inbounds i8, ptr %.pr, i64 16
   %9 = load ptr, ptr %h_next, align 8
   store ptr null, ptr %h_next, align 8
   store ptr %9, ptr %pos.111.i, align 8
@@ -393,17 +390,17 @@ if.then.for.end_crit_edge:                        ; preds = %if.then
 
 for.body7:                                        ; preds = %if.then, %for.body7
   %it.012 = phi ptr [ %7, %for.body7 ], [ %6, %if.then ]
-  %h_next = getelementptr inbounds %struct._stritem, ptr %it.012, i64 0, i32 2
+  %h_next = getelementptr inbounds i8, ptr %it.012, i64 16
   %7 = load ptr, ptr %h_next, align 8
   %8 = load ptr, ptr @hash, align 8
-  %data = getelementptr inbounds %struct._stritem, ptr %it.012, i64 0, i32 10
-  %it_flags = getelementptr inbounds %struct._stritem, ptr %it.012, i64 0, i32 7
+  %data = getelementptr inbounds i8, ptr %it.012, i64 48
+  %it_flags = getelementptr inbounds i8, ptr %it.012, i64 38
   %9 = load i16, ptr %it_flags, align 2
   %10 = shl i16 %9, 2
   %11 = and i16 %10, 8
   %cond = zext nneg i16 %11 to i64
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %cond
-  %nkey = getelementptr inbounds %struct._stritem, ptr %it.012, i64 0, i32 9
+  %nkey = getelementptr inbounds i8, ptr %it.012, i64 41
   %12 = load i8, ptr %nkey, align 1
   %conv10 = zext i8 %12 to i64
   %call11 = tail call i32 %8(ptr noundef nonnull %add.ptr, i64 noundef %conv10) #18
@@ -589,22 +586,22 @@ return:                                           ; preds = %entry, %if.end
 define dso_local zeroext i1 @assoc_iterate(ptr nocapture noundef %iterp, ptr nocapture noundef writeonly %it) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %it, align 8
-  %bucket_locked = getelementptr inbounds %struct.assoc_iterator, ptr %iterp, i64 0, i32 3
+  %bucket_locked = getelementptr inbounds i8, ptr %iterp, i64 24
   %0 = load i8, ptr %bucket_locked, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %entry
-  %next = getelementptr inbounds %struct.assoc_iterator, ptr %iterp, i64 0, i32 2
+  %next = getelementptr inbounds i8, ptr %iterp, i64 16
   %2 = load ptr, ptr %next, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %it3 = getelementptr inbounds %struct.assoc_iterator, ptr %iterp, i64 0, i32 1
+  %it3 = getelementptr inbounds i8, ptr %iterp, i64 8
   store ptr %2, ptr %it3, align 8
-  %h_next = getelementptr inbounds %struct._stritem, ptr %2, i64 0, i32 2
+  %h_next = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %h_next, align 8
   store ptr %3, ptr %next, align 8
   br label %if.end
@@ -639,15 +636,15 @@ if.then13:                                        ; preds = %if.end9
   %9 = load i64, ptr %iterp, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %9
   %10 = load ptr, ptr %arrayidx, align 8
-  %it18 = getelementptr inbounds %struct.assoc_iterator, ptr %iterp, i64 0, i32 1
+  %it18 = getelementptr inbounds i8, ptr %iterp, i64 8
   store ptr %10, ptr %it18, align 8
   %cmp20.not = icmp eq ptr %10, null
   br i1 %cmp20.not, label %if.else27, label %if.then22
 
 if.then22:                                        ; preds = %if.then13
-  %h_next24 = getelementptr inbounds %struct._stritem, ptr %10, i64 0, i32 2
+  %h_next24 = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %h_next24, align 8
-  %next25 = getelementptr inbounds %struct.assoc_iterator, ptr %iterp, i64 0, i32 2
+  %next25 = getelementptr inbounds i8, ptr %iterp, i64 16
   store ptr %11, ptr %next25, align 8
   store ptr %10, ptr %it, align 8
   br label %return
@@ -673,7 +670,7 @@ declare void @item_lock(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local void @assoc_iterate_final(ptr nocapture noundef %iterp) local_unnamed_addr #0 {
 entry:
-  %bucket_locked = getelementptr inbounds %struct.assoc_iterator, ptr %iterp, i64 0, i32 3
+  %bucket_locked = getelementptr inbounds i8, ptr %iterp, i64 24
   %0 = load i8, ptr %bucket_locked, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0

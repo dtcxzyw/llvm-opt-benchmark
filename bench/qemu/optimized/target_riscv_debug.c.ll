@@ -3,53 +3,6 @@ source_filename = "bench/qemu/original/target_riscv_debug.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i64, i8, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [64 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, [32 x %struct.PMUCTRState], [32 x i64], [32 x i64], i64, i64, i64, i64, %struct.pmp_table_t, i64, i64, [2 x i64], [2 x i64], [2 x i64], [2 x ptr], [2 x ptr], [2 x ptr], i64, i8, ptr, ptr, [4 x ptr], [4 x ptr], i8, i64, i64, i64, i64, i64, i64, i64, i64, [4 x i64], [4 x i64], [4 x i64], i64, i64, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.PMUCTRState = type { i64, i64, i64, i64, i8, i64 }
-%struct.pmp_table_t = type { [16 x %struct.pmp_entry_t], [16 x %struct.pmp_addr_t], i32 }
-%struct.pmp_entry_t = type { i64, i8 }
-%struct.pmp_addr_t = type { i64, i64 }
-%struct.ArchCPU = type { %struct.CPUState, %struct.CPUArchState, ptr, ptr, %struct.RISCVCPUConfig, ptr, i32, ptr, [8 x i8] }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.2 }
-%struct.anon.2 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.3 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
-%struct.RISCVCPUConfig = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i64, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr, i16, i16, i16, i16, i8, i8, i8, i8, i8, %struct.RISCVSATPMap }
-%struct.RISCVSATPMap = type { i16, i16, i16 }
-%struct.CPUWatchpoint = type { i64, i64, i64, %struct.MemTxAttrs, i32, %union.anon.6 }
-%union.anon.6 = type { %struct.QTailQLink }
-%struct.CPUBreakpoint = type { i64, i32, %union.anon.7 }
-%union.anon.7 = type { %struct.QTailQLink }
-
 @tdata_mapping = internal unnamed_addr constant [16 x [3 x i8]] [[3 x i8] zeroinitializer, [3 x i8] zeroinitializer, [3 x i8] c"\01\01\01", [3 x i8] c"\01\00\01", [3 x i8] c"\01\01\01", [3 x i8] c"\01\01\01", [3 x i8] c"\01\01\01", [3 x i8] c"\01\00\00", [3 x i8] zeroinitializer, [3 x i8] zeroinitializer, [3 x i8] zeroinitializer, [3 x i8] zeroinitializer, [3 x i8] zeroinitializer, [3 x i8] zeroinitializer, [3 x i8] zeroinitializer, [3 x i8] c"\01\01\01"], align 16
 @use_icount = external local_unnamed_addr global i32, align 4
 @.str = private unnamed_addr constant [29 x i8] c"../qemu/target/riscv/debug.c\00", align 1
@@ -90,9 +43,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @tdata_available(ptr nocapture noundef readonly %env, i32 noundef %tdata_index) local_unnamed_addr #0 {
 entry:
-  %trigger_cur = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 105
+  %trigger_cur = getelementptr inbounds i8, ptr %env, i64 8352
   %0 = load i64, ptr %trigger_cur, align 16
-  %arrayidx.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %0
+  %tdata1.i = getelementptr inbounds i8, ptr %env, i64 8360
+  %arrayidx.i = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %0
   %1 = load i64, ptr %arrayidx.i, align 8
   %2 = getelementptr i8, ptr %env, i64 5008
   %env.val.i = load i32, ptr %2, align 16
@@ -136,7 +90,7 @@ return:                                           ; preds = %get_trigger_type.ex
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @tselect_csr_read(ptr nocapture noundef readonly %env) local_unnamed_addr #1 {
 entry:
-  %trigger_cur = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 105
+  %trigger_cur = getelementptr inbounds i8, ptr %env, i64 8352
   %0 = load i64, ptr %trigger_cur, align 16
   ret i64 %0
 }
@@ -148,7 +102,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %trigger_cur = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 105
+  %trigger_cur = getelementptr inbounds i8, ptr %env, i64 8352
   store i64 %val, ptr %trigger_cur, align 16
   br label %if.end
 
@@ -159,10 +113,11 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @riscv_itrigger_enabled(ptr nocapture noundef readonly %env) local_unnamed_addr #0 {
 entry:
+  %tdata1.i = getelementptr inbounds i8, ptr %env, i64 8360
   %0 = getelementptr i8, ptr %env, i64 5008
   %env.val.i = load i32, ptr %0, align 16
-  %virt_enabled.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 29
-  %priv8.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 28
+  %virt_enabled.i = getelementptr inbounds i8, ptr %env, i64 5056
+  %priv8.i = getelementptr inbounds i8, ptr %env, i64 5048
   %env.val.i.off = add i32 %env.val.i, -1
   %switch = icmp ult i32 %env.val.i.off, 3
   br i1 %switch, label %entry.split, label %do.body.i.i
@@ -173,8 +128,8 @@ entry.split:                                      ; preds = %entry
 
 for.body.us:                                      ; preds = %entry.split, %for.body.us.backedge
   %cmp.us = phi i1 [ false, %for.body.us.backedge ], [ true, %entry.split ]
-  %indvars.iv16 = phi i64 [ 1, %for.body.us.backedge ], [ 0, %entry.split ]
-  %arrayidx.i.us = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %indvars.iv16
+  %indvars.iv17 = phi i64 [ 1, %for.body.us.backedge ], [ 0, %entry.split ]
+  %arrayidx.i.us = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %indvars.iv17
   %1 = load i64, ptr %arrayidx.i.us, align 8
   %2 = and i64 %1, 4026531840
   %cmp1.not.us = icmp eq i64 %2, 805306368
@@ -231,7 +186,7 @@ for.body.us.backedge:                             ; preds = %for.inc.us, %if.end
 for.body:                                         ; preds = %entry.split, %for.body.backedge
   %cmp = phi i1 [ false, %for.body.backedge ], [ true, %entry.split ]
   %indvars.iv = phi i64 [ 1, %for.body.backedge ], [ 0, %entry.split ]
-  %arrayidx.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %indvars.iv
+  %arrayidx.i = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %indvars.iv
   %8 = load i64, ptr %arrayidx.i, align 8
   %shr.i2.i.i.mask = and i64 %8, -1152921504606846976
   %cmp1.not = icmp eq i64 %shr.i2.i.i.mask, 3458764513820540928
@@ -280,8 +235,8 @@ if.end5:                                          ; preds = %if.then.i, %check_i
   %13 = and i64 %8, 16776192
   %tobool.not = icmp ne i64 %13, 0
   %cmp.not = xor i1 %cmp, true
-  %brmerge22 = or i1 %tobool.not, %cmp.not
-  br i1 %brmerge22, label %return, label %for.body.backedge
+  %brmerge23 = or i1 %tobool.not, %cmp.not
+  br i1 %brmerge23, label %return, label %for.body.backedge
 
 for.inc:                                          ; preds = %if.else.i, %lor.lhs.false.i, %if.then.i, %check_itrigger_priv.exit, %for.body
   br i1 %cmp, label %for.body.backedge, label %return
@@ -297,16 +252,17 @@ return:                                           ; preds = %for.inc, %if.end5, 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_itrigger_match(ptr noundef %env) local_unnamed_addr #0 {
 entry:
+  %tdata1.i = getelementptr inbounds i8, ptr %env, i64 8360
   %0 = getelementptr i8, ptr %env, i64 5008
-  %virt_enabled.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 29
-  %priv8.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 28
-  %itrigger_enabled = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 113
+  %virt_enabled.i = getelementptr inbounds i8, ptr %env, i64 5056
+  %priv8.i = getelementptr inbounds i8, ptr %env, i64 5048
+  %itrigger_enabled = getelementptr inbounds i8, ptr %env, i64 8464
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 1, %for.inc ]
-  %arrayidx.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %indvars.iv
+  %arrayidx.i = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx.i, align 8
   %env.val.i = load i32, ptr %0, align 16
   switch i32 %env.val.i, label %do.body.i.i [
@@ -376,10 +332,10 @@ if.end5:                                          ; preds = %if.then.i, %check_i
   br i1 %tobool.not, label %for.inc, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %and.i20 = and i64 %1, -16776193
+  %and.i22 = and i64 %1, -16776193
   %8 = shl nuw nsw i32 %conv.i, 10
   %mul.i = zext nneg i32 %8 to i64
-  %or.i = or disjoint i64 %and.i20, %mul.i
+  %or.i = or disjoint i64 %and.i22, %mul.i
   store i64 %or.i, ptr %arrayidx.i, align 8
   %tobool9.not = icmp eq i32 %conv.i, 1
   br i1 %tobool9.not, label %if.then10, label %for.inc
@@ -401,7 +357,8 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @do_trigger_action(ptr noundef %env, i64 noundef %trigger_index) unnamed_addr #0 {
 entry:
-  %arrayidx.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %trigger_index
+  %tdata11.i = getelementptr inbounds i8, ptr %env, i64 8360
+  %arrayidx.i = getelementptr [2 x i64], ptr %tdata11.i, i64 0, i64 %trigger_index
   %0 = load i64, ptr %arrayidx.i, align 8
   %1 = getelementptr i8, ptr %env, i64 5008
   %env.val.i.i = load i32, ptr %1, align 16
@@ -509,13 +466,15 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @riscv_itrigger_update_count(ptr noundef %env) unnamed_addr #0 {
 entry:
-  %last_icount1 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 112
+  %last_icount1 = getelementptr inbounds i8, ptr %env, i64 8456
   %0 = load i64, ptr %last_icount1, align 8
   %call = tail call i64 @icount_get_raw() #8
   store i64 %call, ptr %last_icount1, align 8
+  %tdata1.i = getelementptr inbounds i8, ptr %env, i64 8360
   %1 = getelementptr i8, ptr %env, i64 5008
-  %virt_enabled.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 29
-  %priv8.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 28
+  %virt_enabled.i = getelementptr inbounds i8, ptr %env, i64 5056
+  %priv8.i = getelementptr inbounds i8, ptr %env, i64 5048
+  %itrigger_timer = getelementptr inbounds i8, ptr %env, i64 8440
   %sub = sub i64 %call, %0
   %conv11 = trunc i64 %sub to i32
   br label %for.body
@@ -523,7 +482,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 1, %for.inc ]
-  %arrayidx.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %indvars.iv
+  %arrayidx.i = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %indvars.iv
   %2 = load i64, ptr %arrayidx.i, align 8
   %env.val.i = load i32, ptr %1, align 16
   switch i32 %env.val.i, label %do.body.i.i [
@@ -594,11 +553,11 @@ check_itrigger_priv.exit:                         ; preds = %lor.lhs.false.i
 
 if.then10:                                        ; preds = %if.else.i, %lor.lhs.false.i, %if.then.i, %check_itrigger_priv.exit
   %sub12 = sub i32 %conv.i, %conv11
-  %and.i25 = and i64 %2, -16776193
-  %conv.i26 = sext i32 %sub12 to i64
-  %mul.i = shl nsw i64 %conv.i26, 10
+  %and.i27 = and i64 %2, -16776193
+  %conv.i28 = sext i32 %sub12 to i64
+  %mul.i = shl nsw i64 %conv.i28, 10
   %and1.i = and i64 %mul.i, 16776192
-  %or.i = or disjoint i64 %and1.i, %and.i25
+  %or.i = or disjoint i64 %and1.i, %and.i27
   store i64 %or.i, ptr %arrayidx.i, align 8
   %cmp13 = icmp eq i32 %conv.i, %conv11
   br i1 %cmp13, label %if.then15, label %for.inc
@@ -608,7 +567,7 @@ if.then15:                                        ; preds = %if.then10
   br label %for.inc
 
 if.else:                                          ; preds = %if.then.i, %check_itrigger_priv.exit
-  %arrayidx = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 111, i64 %indvars.iv
+  %arrayidx = getelementptr [2 x ptr], ptr %itrigger_timer, i64 0, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx, align 8
   %conv18 = zext nneg i32 %conv.i to i64
   %add = add i64 %call, %conv18
@@ -632,9 +591,10 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %trigger_cur = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 105
+  %tdata1 = getelementptr inbounds i8, ptr %env, i64 8360
+  %trigger_cur = getelementptr inbounds i8, ptr %env, i64 8352
   %0 = load i64, ptr %trigger_cur, align 16
-  %arrayidx = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %0
+  %arrayidx = getelementptr [2 x i64], ptr %tdata1, i64 0, i64 %0
   %1 = load i64, ptr %arrayidx, align 8
   %2 = getelementptr i8, ptr %env, i64 5008
   %env.val = load i32, ptr %2, align 16
@@ -668,7 +628,7 @@ extract_trigger_type.exit:                        ; preds = %sw.bb.i, %sw.bb3.i
 if.then:                                          ; preds = %extract_trigger_type.exit
   %sext.i = shl i64 %0, 32
   %idxprom.i.i = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [2 x i64], ptr %tdata1, i64 0, i64 %idxprom.i.i
   %4 = load i64, ptr %arrayidx.i.i, align 8
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 10
@@ -677,11 +637,11 @@ if.then:                                          ; preds = %extract_trigger_typ
   br i1 %cmp.not.i, label %itrigger_get_adjust_count.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %virt_enabled.i.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 29
+  %virt_enabled.i.i = getelementptr inbounds i8, ptr %env, i64 5056
   %7 = load i8, ptr %virt_enabled.i.i, align 16
   %8 = and i8 %7, 1
   %tobool.not.i.i = icmp eq i8 %8, 0
-  %priv8.i.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 28
+  %priv8.i.i = getelementptr inbounds i8, ptr %env, i64 5048
   %9 = load i64, ptr %priv8.i.i, align 8
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
@@ -715,7 +675,7 @@ check_itrigger_priv.exit.i:                       ; preds = %lor.lhs.false.i.i
 
 if.then.i:                                        ; preds = %check_itrigger_priv.exit.i, %lor.lhs.false.i.i, %if.else.i.i, %if.then.i.i
   %call6.i = tail call i64 @icount_get_raw() #8
-  %last_icount.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 112
+  %last_icount.i = getelementptr inbounds i8, ptr %env, i64 8456
   %11 = load i64, ptr %last_icount.i, align 8
   %sub.i = sub i64 %call6.i, %11
   %conv7.i = trunc i64 %sub.i to i32
@@ -732,16 +692,18 @@ itrigger_get_adjust_count.exit:                   ; preds = %if.then, %if.then.i
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %trigger_cur12 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 105
+  %tdata2 = getelementptr inbounds i8, ptr %env, i64 8376
+  %trigger_cur12 = getelementptr inbounds i8, ptr %env, i64 8352
   %12 = load i64, ptr %trigger_cur12, align 16
-  %arrayidx13 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 107, i64 %12
+  %arrayidx13 = getelementptr [2 x i64], ptr %tdata2, i64 0, i64 %12
   %13 = load i64, ptr %arrayidx13, align 8
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %entry
-  %trigger_cur15 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 105
+  %tdata3 = getelementptr inbounds i8, ptr %env, i64 8392
+  %trigger_cur15 = getelementptr inbounds i8, ptr %env, i64 8352
   %14 = load i64, ptr %trigger_cur15, align 16
-  %arrayidx16 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 108, i64 %14
+  %arrayidx16 = getelementptr [2 x i64], ptr %tdata3, i64 0, i64 %14
   %15 = load i64, ptr %arrayidx16, align 8
   br label %sw.epilog
 
@@ -786,9 +748,10 @@ do.body.i:                                        ; preds = %if.then
   unreachable
 
 if.else:                                          ; preds = %entry
-  %trigger_cur = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 105
+  %trigger_cur = getelementptr inbounds i8, ptr %env, i64 8352
   %1 = load i64, ptr %trigger_cur, align 16
-  %arrayidx.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %1
+  %tdata1.i = getelementptr inbounds i8, ptr %env, i64 8360
+  %arrayidx.i = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %1
   %2 = load i64, ptr %arrayidx.i, align 8
   %3 = getelementptr i8, ptr %env, i64 5008
   %env.val.i = load i32, ptr %3, align 16
@@ -827,7 +790,7 @@ if.end:                                           ; preds = %sw.bb3.i.i, %sw.bb.
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %trigger_cur3 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 105
+  %trigger_cur3 = getelementptr inbounds i8, ptr %env, i64 8352
   %4 = load i64, ptr %trigger_cur3, align 16
   switch i32 %tdata_index, label %do.body15.i [
     i32 0, label %sw.bb.i19
@@ -1022,15 +985,17 @@ type2_mcontrol_validate.exit.i:                   ; preds = %if.then8.i.i, %if.e
   %val.0.i.i = phi i64 [ %tdata1.0.i.i.i, %if.then4.i.i ], [ %tdata1.0.i.i.i, %do.body.i.i20 ], [ %or10.i.i, %if.then8.i.i ], [ %or.i.i, %if.else.i.i ]
   %and13.i.i = and i64 %val, 95
   %or14.i.i = or i64 %val.0.i.i, %and13.i.i
-  %arrayidx.i21 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %4
-  %20 = load i64, ptr %arrayidx.i21, align 8
+  %tdata1.i21 = getelementptr inbounds i8, ptr %env, i64 8360
+  %arrayidx.i22 = getelementptr [2 x i64], ptr %tdata1.i21, i64 0, i64 %4
+  %20 = load i64, ptr %arrayidx.i22, align 8
   %cmp.not.i = icmp eq i64 %or14.i.i, %20
   br i1 %cmp.not.i, label %sw.epilog, label %if.then.i
 
 if.then.i:                                        ; preds = %type2_mcontrol_validate.exit.i
-  store i64 %or14.i.i, ptr %arrayidx.i21, align 8
+  store i64 %or14.i.i, ptr %arrayidx.i22, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %arrayidx.i.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 109, i64 %4
+  %cpu_breakpoint.i.i = getelementptr inbounds i8, ptr %env, i64 8408
+  %arrayidx.i.i = getelementptr [2 x ptr], ptr %cpu_breakpoint.i.i, i64 0, i64 %4
   %21 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %21, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -1041,7 +1006,8 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %if.then.i
-  %arrayidx5.i.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 110, i64 %4
+  %cpu_watchpoint.i.i = getelementptr inbounds i8, ptr %env, i64 8424
+  %arrayidx5.i.i = getelementptr [2 x ptr], ptr %cpu_watchpoint.i.i, i64 0, i64 %4
   %22 = load ptr, ptr %arrayidx5.i.i, align 8
   %tobool6.not.i.i = icmp eq ptr %22, null
   br i1 %tobool6.not.i.i, label %type2_breakpoint_remove.exit.i, label %if.then7.i.i
@@ -1052,8 +1018,9 @@ if.then7.i.i:                                     ; preds = %if.end.i.i
   br label %type2_breakpoint_remove.exit.i
 
 type2_breakpoint_remove.exit.i:                   ; preds = %if.then7.i.i, %if.end.i.i
-  %23 = load i64, ptr %arrayidx.i21, align 8
-  %arrayidx1.i.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 107, i64 %4
+  %23 = load i64, ptr %arrayidx.i22, align 8
+  %tdata2.i.i = getelementptr inbounds i8, ptr %env, i64 8376
+  %arrayidx1.i.i = getelementptr [2 x i64], ptr %tdata2.i.i, i64 0, i64 %4
   %24 = load i64, ptr %arrayidx1.i.i, align 8
   %and.i.i20.i = and i64 %23, 88
   %tobool.i.i.i = icmp ne i64 %and.i.i20.i, 0
@@ -1084,100 +1051,104 @@ if.end7.i.i:                                      ; preds = %if.then4.i24.i, %if
 
 if.then19.i.i:                                    ; preds = %if.end7.i.i
   %env.val.i.i = load i32, ptr %5, align 16
-  %cmp.i.i26.i = icmp eq i32 %env.val.i.i, 2
+  %cmp.i.i27.i = icmp eq i32 %env.val.i.i, 2
   %28 = lshr i32 %26, 19
   %29 = and i32 %28, 12
-  %sizehi.0.i.i27.i = select i1 %cmp.i.i26.i, i32 %29, i32 0
-  %shr.i2.i.i28.i = lshr i32 %26, 16
-  %and.i3.i.i29.i = and i32 %shr.i2.i.i28.i, 3
-  %or.i.i30.i = or disjoint i32 %sizehi.0.i.i27.i, %and.i3.i.i29.i
-  %cmp.not.i31.i = icmp eq i32 %or.i.i30.i, 0
-  %narrow.i.i = select i1 %cmp.not.i31.i, i32 8, i32 %or.i.i30.i
+  %sizehi.0.i.i28.i = select i1 %cmp.i.i27.i, i32 %29, i32 0
+  %shr.i2.i.i29.i = lshr i32 %26, 16
+  %and.i3.i.i30.i = and i32 %shr.i2.i.i29.i, 3
+  %or.i.i31.i = or disjoint i32 %sizehi.0.i.i28.i, %and.i3.i.i30.i
+  %cmp.not.i32.i = icmp eq i32 %or.i.i31.i, 0
+  %narrow.i.i = select i1 %cmp.not.i32.i, i32 8, i32 %or.i.i31.i
   %conv.sink.i.i = zext nneg i32 %narrow.i.i to i64
   %call23.i.i = tail call i32 @cpu_watchpoint_insert(ptr noundef %add.ptr.i.i.i, i64 noundef %24, i64 noundef %conv.sink.i.i, i32 noundef %flags.1.i.i, ptr noundef nonnull %arrayidx5.i.i) #8
   br label %sw.epilog
 
 sw.bb3.i18:                                       ; preds = %sw.bb
-  %arrayidx4.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 107, i64 %4
+  %tdata2.i = getelementptr inbounds i8, ptr %env, i64 8376
+  %arrayidx4.i = getelementptr [2 x i64], ptr %tdata2.i, i64 0, i64 %4
   %30 = load i64, ptr %arrayidx4.i, align 8
   %cmp5.not.i = icmp eq i64 %30, %val
   br i1 %cmp5.not.i, label %sw.epilog, label %if.then6.i
 
 if.then6.i:                                       ; preds = %sw.bb3.i18
   store i64 %val, ptr %arrayidx4.i, align 8
-  %add.ptr.i.i32.i = getelementptr i8, ptr %env, i64 -10176
-  %arrayidx.i33.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 109, i64 %4
-  %31 = load ptr, ptr %arrayidx.i33.i, align 8
-  %tobool.not.i34.i = icmp eq ptr %31, null
-  br i1 %tobool.not.i34.i, label %if.end.i36.i, label %if.then.i35.i
+  %add.ptr.i.i34.i = getelementptr i8, ptr %env, i64 -10176
+  %cpu_breakpoint.i35.i = getelementptr inbounds i8, ptr %env, i64 8408
+  %arrayidx.i36.i = getelementptr [2 x ptr], ptr %cpu_breakpoint.i35.i, i64 0, i64 %4
+  %31 = load ptr, ptr %arrayidx.i36.i, align 8
+  %tobool.not.i37.i = icmp eq ptr %31, null
+  br i1 %tobool.not.i37.i, label %if.end.i39.i, label %if.then.i38.i
 
-if.then.i35.i:                                    ; preds = %if.then6.i
-  tail call void @cpu_breakpoint_remove_by_ref(ptr noundef %add.ptr.i.i32.i, ptr noundef nonnull %31) #8
-  store ptr null, ptr %arrayidx.i33.i, align 8
-  br label %if.end.i36.i
+if.then.i38.i:                                    ; preds = %if.then6.i
+  tail call void @cpu_breakpoint_remove_by_ref(ptr noundef %add.ptr.i.i34.i, ptr noundef nonnull %31) #8
+  store ptr null, ptr %arrayidx.i36.i, align 8
+  br label %if.end.i39.i
 
-if.end.i36.i:                                     ; preds = %if.then.i35.i, %if.then6.i
-  %arrayidx5.i37.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 110, i64 %4
-  %32 = load ptr, ptr %arrayidx5.i37.i, align 8
-  %tobool6.not.i38.i = icmp eq ptr %32, null
-  br i1 %tobool6.not.i38.i, label %type2_breakpoint_remove.exit40.i, label %if.then7.i39.i
+if.end.i39.i:                                     ; preds = %if.then.i38.i, %if.then6.i
+  %cpu_watchpoint.i40.i = getelementptr inbounds i8, ptr %env, i64 8424
+  %arrayidx5.i41.i = getelementptr [2 x ptr], ptr %cpu_watchpoint.i40.i, i64 0, i64 %4
+  %32 = load ptr, ptr %arrayidx5.i41.i, align 8
+  %tobool6.not.i42.i = icmp eq ptr %32, null
+  br i1 %tobool6.not.i42.i, label %type2_breakpoint_remove.exit44.i, label %if.then7.i43.i
 
-if.then7.i39.i:                                   ; preds = %if.end.i36.i
-  tail call void @cpu_watchpoint_remove_by_ref(ptr noundef %add.ptr.i.i32.i, ptr noundef nonnull %32) #8
-  store ptr null, ptr %arrayidx5.i37.i, align 8
-  br label %type2_breakpoint_remove.exit40.i
+if.then7.i43.i:                                   ; preds = %if.end.i39.i
+  tail call void @cpu_watchpoint_remove_by_ref(ptr noundef %add.ptr.i.i34.i, ptr noundef nonnull %32) #8
+  store ptr null, ptr %arrayidx5.i41.i, align 8
+  br label %type2_breakpoint_remove.exit44.i
 
-type2_breakpoint_remove.exit40.i:                 ; preds = %if.then7.i39.i, %if.end.i36.i
-  %arrayidx.i41.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %4
-  %33 = load i64, ptr %arrayidx.i41.i, align 8
+type2_breakpoint_remove.exit44.i:                 ; preds = %if.then7.i43.i, %if.end.i39.i
+  %tdata1.i45.i = getelementptr inbounds i8, ptr %env, i64 8360
+  %arrayidx.i46.i = getelementptr [2 x i64], ptr %tdata1.i45.i, i64 0, i64 %4
+  %33 = load i64, ptr %arrayidx.i46.i, align 8
   %34 = load i64, ptr %arrayidx4.i, align 8
-  %and.i.i43.i = and i64 %33, 88
-  %tobool.i.i44.i = icmp ne i64 %and.i.i43.i, 0
-  %and2.i.i45.i = and i64 %33, 7
-  %tobool3.i.i46.i = icmp ne i64 %and2.i.i45.i, 0
-  %35 = and i1 %tobool.i.i44.i, %tobool3.i.i46.i
-  br i1 %35, label %if.end.i48.i, label %sw.epilog
+  %and.i.i49.i = and i64 %33, 88
+  %tobool.i.i50.i = icmp ne i64 %and.i.i49.i, 0
+  %and2.i.i51.i = and i64 %33, 7
+  %tobool3.i.i52.i = icmp ne i64 %and2.i.i51.i, 0
+  %35 = and i1 %tobool.i.i50.i, %tobool3.i.i52.i
+  br i1 %35, label %if.end.i54.i, label %sw.epilog
 
-if.end.i48.i:                                     ; preds = %type2_breakpoint_remove.exit40.i
-  %and.i49.i = and i64 %33, 4
-  %tobool3.not.i50.i = icmp eq i64 %and.i49.i, 0
-  br i1 %tobool3.not.i50.i, label %if.end7.i54.i, label %if.then4.i51.i
+if.end.i54.i:                                     ; preds = %type2_breakpoint_remove.exit44.i
+  %and.i55.i = and i64 %33, 4
+  %tobool3.not.i56.i = icmp eq i64 %and.i55.i, 0
+  br i1 %tobool3.not.i56.i, label %if.end7.i61.i, label %if.then4.i57.i
 
-if.then4.i51.i:                                   ; preds = %if.end.i48.i
-  %call6.i53.i = tail call i32 @cpu_breakpoint_insert(ptr noundef %add.ptr.i.i32.i, i64 noundef %34, i32 noundef 36, ptr noundef nonnull %arrayidx.i33.i) #8
-  br label %if.end7.i54.i
+if.then4.i57.i:                                   ; preds = %if.end.i54.i
+  %call6.i60.i = tail call i32 @cpu_breakpoint_insert(ptr noundef %add.ptr.i.i34.i, i64 noundef %34, i32 noundef 36, ptr noundef nonnull %arrayidx.i36.i) #8
+  br label %if.end7.i61.i
 
-if.end7.i54.i:                                    ; preds = %if.then4.i51.i, %if.end.i48.i
-  %and8.i55.i = and i64 %33, 1
-  %tobool9.not.i56.i = icmp eq i64 %and8.i55.i, 0
-  %spec.select.i57.i = select i1 %tobool9.not.i56.i, i32 36, i32 37
+if.end7.i61.i:                                    ; preds = %if.then4.i57.i, %if.end.i54.i
+  %and8.i62.i = and i64 %33, 1
+  %tobool9.not.i63.i = icmp eq i64 %and8.i62.i, 0
+  %spec.select.i64.i = select i1 %tobool9.not.i63.i, i32 36, i32 37
   %36 = trunc i64 %33 to i32
   %37 = and i32 %36, 2
-  %flags.1.i58.i = or disjoint i32 %spec.select.i57.i, %37
-  %and17.i59.i = and i32 %flags.1.i58.i, 3
-  %tobool18.not.i60.i = icmp eq i32 %and17.i59.i, 0
-  br i1 %tobool18.not.i60.i, label %sw.epilog, label %if.then19.i61.i
+  %flags.1.i65.i = or disjoint i32 %spec.select.i64.i, %37
+  %and17.i66.i = and i32 %flags.1.i65.i, 3
+  %tobool18.not.i67.i = icmp eq i32 %and17.i66.i, 0
+  br i1 %tobool18.not.i67.i, label %sw.epilog, label %if.then19.i68.i
 
-if.then19.i61.i:                                  ; preds = %if.end7.i54.i
+if.then19.i68.i:                                  ; preds = %if.end7.i61.i
   %38 = getelementptr i8, ptr %env, i64 5008
-  %env.val.i62.i = load i32, ptr %38, align 16
-  %cmp.i.i63.i = icmp eq i32 %env.val.i62.i, 2
+  %env.val.i69.i = load i32, ptr %38, align 16
+  %cmp.i.i70.i = icmp eq i32 %env.val.i69.i, 2
   %39 = lshr i32 %36, 19
   %40 = and i32 %39, 12
-  %sizehi.0.i.i64.i = select i1 %cmp.i.i63.i, i32 %40, i32 0
-  %shr.i2.i.i65.i = lshr i32 %36, 16
-  %and.i3.i.i66.i = and i32 %shr.i2.i.i65.i, 3
-  %or.i.i67.i = or disjoint i32 %sizehi.0.i.i64.i, %and.i3.i.i66.i
-  %cmp.not.i68.i = icmp eq i32 %or.i.i67.i, 0
-  %narrow.i69.i = select i1 %cmp.not.i68.i, i32 8, i32 %or.i.i67.i
-  %conv.sink.i70.i = zext nneg i32 %narrow.i69.i to i64
-  %call23.i72.i = tail call i32 @cpu_watchpoint_insert(ptr noundef %add.ptr.i.i32.i, i64 noundef %34, i64 noundef %conv.sink.i70.i, i32 noundef %flags.1.i58.i, ptr noundef nonnull %arrayidx5.i37.i) #8
+  %sizehi.0.i.i71.i = select i1 %cmp.i.i70.i, i32 %40, i32 0
+  %shr.i2.i.i72.i = lshr i32 %36, 16
+  %and.i3.i.i73.i = and i32 %shr.i2.i.i72.i, 3
+  %or.i.i74.i = or disjoint i32 %sizehi.0.i.i71.i, %and.i3.i.i73.i
+  %cmp.not.i75.i = icmp eq i32 %or.i.i74.i, 0
+  %narrow.i76.i = select i1 %cmp.not.i75.i, i32 8, i32 %or.i.i74.i
+  %conv.sink.i77.i = zext nneg i32 %narrow.i76.i to i64
+  %call23.i80.i = tail call i32 @cpu_watchpoint_insert(ptr noundef %add.ptr.i.i34.i, i64 noundef %34, i64 noundef %conv.sink.i77.i, i32 noundef %flags.1.i65.i, ptr noundef nonnull %arrayidx5.i41.i) #8
   br label %sw.epilog
 
 do.body.i17:                                      ; preds = %sw.bb
   %41 = load i32, ptr @qemu_loglevel, align 4
-  %and.i74.i = and i32 %41, 1024
-  %cmp.i.not.i = icmp eq i32 %and.i74.i, 0
+  %and.i82.i = and i32 %41, 1024
+  %cmp.i.not.i = icmp eq i32 %and.i82.i, 0
   br i1 %cmp.i.not.i, label %sw.epilog, label %if.then13.i
 
 if.then13.i:                                      ; preds = %do.body.i17
@@ -1189,91 +1160,91 @@ do.body15.i:                                      ; preds = %sw.bb
   unreachable
 
 sw.bb4:                                           ; preds = %if.end
-  %trigger_cur5 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 105
+  %trigger_cur5 = getelementptr inbounds i8, ptr %env, i64 8352
   %42 = load i64, ptr %trigger_cur5, align 16
-  switch i32 %tdata_index, label %do.body15.i91 [
-    i32 0, label %sw.bb.i29
-    i32 1, label %sw.bb3.i25
-    i32 2, label %do.body.i22
+  switch i32 %tdata_index, label %do.body15.i95 [
+    i32 0, label %sw.bb.i31
+    i32 1, label %sw.bb3.i26
+    i32 2, label %do.body.i23
   ]
 
-sw.bb.i29:                                        ; preds = %sw.bb4
-  switch i32 %env.val17.i.i, label %do.body.i.i.i90 [
-    i32 1, label %sw.bb.i.i.i86
-    i32 2, label %sw.bb5.i.i.i31
-    i32 3, label %sw.bb5.i.i.i31
+sw.bb.i31:                                        ; preds = %sw.bb4
+  switch i32 %env.val17.i.i, label %do.body.i.i.i94 [
+    i32 1, label %sw.bb.i.i.i90
+    i32 2, label %sw.bb5.i.i.i33
+    i32 3, label %sw.bb5.i.i.i33
   ]
 
-sw.bb.i.i.i86:                                    ; preds = %sw.bb.i29
-  %conv.i.i.i87 = trunc i64 %val to i32
-  %shr.i.i.i.i88 = lshr i32 %conv.i.i.i87, 28
-  %shr.i6.i.i.i89 = lshr i32 %conv.i.i.i87, 27
-  br label %sw.epilog.i.i.i35
+sw.bb.i.i.i90:                                    ; preds = %sw.bb.i31
+  %conv.i.i.i91 = trunc i64 %val to i32
+  %shr.i.i.i.i92 = lshr i32 %conv.i.i.i91, 28
+  %shr.i6.i.i.i93 = lshr i32 %conv.i.i.i91, 27
+  br label %sw.epilog.i.i.i37
 
-sw.bb5.i.i.i31:                                   ; preds = %sw.bb.i29, %sw.bb.i29
-  %shr.i7.i.i.i32 = lshr i64 %val, 60
-  %conv7.i.i.i33 = trunc i64 %shr.i7.i.i.i32 to i32
-  %shr.i8.i.i.i34 = lshr i64 %val, 59
-  %43 = trunc i64 %shr.i8.i.i.i34 to i32
-  br label %sw.epilog.i.i.i35
+sw.bb5.i.i.i33:                                   ; preds = %sw.bb.i31, %sw.bb.i31
+  %shr.i7.i.i.i34 = lshr i64 %val, 60
+  %conv7.i.i.i35 = trunc i64 %shr.i7.i.i.i34 to i32
+  %shr.i8.i.i.i36 = lshr i64 %val, 59
+  %43 = trunc i64 %shr.i8.i.i.i36 to i32
+  br label %sw.epilog.i.i.i37
 
-do.body.i.i.i90:                                  ; preds = %sw.bb.i29
+do.body.i.i.i94:                                  ; preds = %sw.bb.i31
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 197, ptr noundef nonnull @__func__.tdata1_validate, ptr noundef null) #7
   unreachable
 
-sw.epilog.i.i.i35:                                ; preds = %sw.bb5.i.i.i31, %sw.bb.i.i.i86
-  %type.0.i.i.i36 = phi i32 [ %conv7.i.i.i33, %sw.bb5.i.i.i31 ], [ %shr.i.i.i.i88, %sw.bb.i.i.i86 ]
-  %dmode.0.in.i.i.i37 = phi i32 [ %43, %sw.bb5.i.i.i31 ], [ %shr.i6.i.i.i89, %sw.bb.i.i.i86 ]
-  %tdata1.0.i.i.i38 = phi i64 [ 6917529027641081856, %sw.bb5.i.i.i31 ], [ 1610612736, %sw.bb.i.i.i86 ]
-  %dmode.0.i.i.i39 = and i32 %dmode.0.in.i.i.i37, 1
-  %cmp.not.i.i.i40 = icmp eq i32 %type.0.i.i.i36, 6
-  br i1 %cmp.not.i.i.i40, label %if.end19.i.i.i45, label %do.body13.i.i.i41
+sw.epilog.i.i.i37:                                ; preds = %sw.bb5.i.i.i33, %sw.bb.i.i.i90
+  %type.0.i.i.i38 = phi i32 [ %conv7.i.i.i35, %sw.bb5.i.i.i33 ], [ %shr.i.i.i.i92, %sw.bb.i.i.i90 ]
+  %dmode.0.in.i.i.i39 = phi i32 [ %43, %sw.bb5.i.i.i33 ], [ %shr.i6.i.i.i93, %sw.bb.i.i.i90 ]
+  %tdata1.0.i.i.i40 = phi i64 [ 6917529027641081856, %sw.bb5.i.i.i33 ], [ 1610612736, %sw.bb.i.i.i90 ]
+  %dmode.0.i.i.i41 = and i32 %dmode.0.in.i.i.i39, 1
+  %cmp.not.i.i.i42 = icmp eq i32 %type.0.i.i.i38, 6
+  br i1 %cmp.not.i.i.i42, label %if.end19.i.i.i47, label %do.body13.i.i.i43
 
-do.body13.i.i.i41:                                ; preds = %sw.epilog.i.i.i35
+do.body13.i.i.i43:                                ; preds = %sw.epilog.i.i.i37
   %44 = load i32, ptr @qemu_loglevel, align 4
-  %and.i10.i.i.i42 = and i32 %44, 2048
-  %cmp.i.not.i.i.i43 = icmp eq i32 %and.i10.i.i.i42, 0
-  br i1 %cmp.i.not.i.i.i43, label %if.end19.i.i.i45, label %if.then17.i.i.i44
+  %and.i10.i.i.i44 = and i32 %44, 2048
+  %cmp.i.not.i.i.i45 = icmp eq i32 %and.i10.i.i.i44, 0
+  br i1 %cmp.i.not.i.i.i45, label %if.end19.i.i.i47, label %if.then17.i.i.i46
 
-if.then17.i.i.i44:                                ; preds = %do.body13.i.i.i41
+if.then17.i.i.i46:                                ; preds = %do.body13.i.i.i43
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15) #8
-  br label %if.end19.i.i.i45
+  br label %if.end19.i.i.i47
 
-if.end19.i.i.i45:                                 ; preds = %if.then17.i.i.i44, %do.body13.i.i.i41, %sw.epilog.i.i.i35
-  %cmp20.not.i.i.i46 = icmp eq i32 %dmode.0.i.i.i39, 0
-  br i1 %cmp20.not.i.i.i46, label %tdata1_validate.exit.i.i51, label %do.body23.i.i.i47
+if.end19.i.i.i47:                                 ; preds = %if.then17.i.i.i46, %do.body13.i.i.i43, %sw.epilog.i.i.i37
+  %cmp20.not.i.i.i48 = icmp eq i32 %dmode.0.i.i.i41, 0
+  br i1 %cmp20.not.i.i.i48, label %tdata1_validate.exit.i.i53, label %do.body23.i.i.i49
 
-do.body23.i.i.i47:                                ; preds = %if.end19.i.i.i45
+do.body23.i.i.i49:                                ; preds = %if.end19.i.i.i47
   %45 = load i32, ptr @qemu_loglevel, align 4
-  %and.i11.i.i.i48 = and i32 %45, 1024
-  %cmp.i12.not.i.i.i49 = icmp eq i32 %and.i11.i.i.i48, 0
-  br i1 %cmp.i12.not.i.i.i49, label %tdata1_validate.exit.i.i51, label %if.then31.i.i.i50
+  %and.i11.i.i.i50 = and i32 %45, 1024
+  %cmp.i12.not.i.i.i51 = icmp eq i32 %and.i11.i.i.i50, 0
+  br i1 %cmp.i12.not.i.i.i51, label %tdata1_validate.exit.i.i53, label %if.then31.i.i.i52
 
-if.then31.i.i.i50:                                ; preds = %do.body23.i.i.i47
+if.then31.i.i.i52:                                ; preds = %do.body23.i.i.i49
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16) #8
-  br label %tdata1_validate.exit.i.i51
+  br label %tdata1_validate.exit.i.i53
 
-tdata1_validate.exit.i.i51:                       ; preds = %if.then31.i.i.i50, %do.body23.i.i.i47, %if.end19.i.i.i45
-  %and.i.i.i52 = and i64 %val, 1920
-  %tobool.not.i.i.i53 = icmp eq i64 %and.i.i.i52, 0
-  br i1 %tobool.not.i.i.i53, label %warn_always_zero_bit.exit.i.i56, label %do.body.i13.i.i
+tdata1_validate.exit.i.i53:                       ; preds = %if.then31.i.i.i52, %do.body23.i.i.i49, %if.end19.i.i.i47
+  %and.i.i.i54 = and i64 %val, 1920
+  %tobool.not.i.i.i55 = icmp eq i64 %and.i.i.i54, 0
+  br i1 %tobool.not.i.i.i55, label %warn_always_zero_bit.exit.i.i58, label %do.body.i13.i.i
 
-do.body.i13.i.i:                                  ; preds = %tdata1_validate.exit.i.i51
+do.body.i13.i.i:                                  ; preds = %tdata1_validate.exit.i.i53
   %46 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i54 = and i32 %46, 1024
-  %cmp.i.not.i14.i.i = icmp eq i32 %and.i.i.i.i54, 0
-  br i1 %cmp.i.not.i14.i.i, label %warn_always_zero_bit.exit.i.i56, label %if.then3.i.i.i55
+  %and.i.i.i.i56 = and i32 %46, 1024
+  %cmp.i.not.i14.i.i = icmp eq i32 %and.i.i.i.i56, 0
+  br i1 %cmp.i.not.i14.i.i, label %warn_always_zero_bit.exit.i.i58, label %if.then3.i.i.i57
 
-if.then3.i.i.i55:                                 ; preds = %do.body.i13.i.i
+if.then3.i.i.i57:                                 ; preds = %do.body.i13.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.8) #8
-  br label %warn_always_zero_bit.exit.i.i56
+  br label %warn_always_zero_bit.exit.i.i58
 
-warn_always_zero_bit.exit.i.i56:                  ; preds = %if.then3.i.i.i55, %do.body.i13.i.i, %tdata1_validate.exit.i.i51
+warn_always_zero_bit.exit.i.i58:                  ; preds = %if.then3.i.i.i57, %do.body.i13.i.i, %tdata1_validate.exit.i.i53
   %and.i15.i.i = and i64 %val, 2048
   %tobool.not.i16.i.i = icmp eq i64 %and.i15.i.i, 0
   br i1 %tobool.not.i16.i.i, label %warn_always_zero_bit.exit21.i.i, label %do.body.i17.i.i
 
-do.body.i17.i.i:                                  ; preds = %warn_always_zero_bit.exit.i.i56
+do.body.i17.i.i:                                  ; preds = %warn_always_zero_bit.exit.i.i58
   %47 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i18.i.i = and i32 %47, 1024
   %cmp.i.not.i19.i.i = icmp eq i32 %and.i.i18.i.i, 0
@@ -1283,7 +1254,7 @@ if.then3.i20.i.i:                                 ; preds = %do.body.i17.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.9) #8
   br label %warn_always_zero_bit.exit21.i.i
 
-warn_always_zero_bit.exit21.i.i:                  ; preds = %if.then3.i20.i.i, %do.body.i17.i.i, %warn_always_zero_bit.exit.i.i56
+warn_always_zero_bit.exit21.i.i:                  ; preds = %if.then3.i20.i.i, %do.body.i17.i.i, %warn_always_zero_bit.exit.i.i58
   %and.i22.i.i = and i64 %val, 61440
   %tobool.not.i23.i.i = icmp eq i64 %and.i22.i.i, 0
   br i1 %tobool.not.i23.i.i, label %warn_always_zero_bit.exit28.i.i, label %do.body.i24.i.i
@@ -1345,53 +1316,56 @@ if.then3.i48.i.i:                                 ; preds = %do.body.i45.i.i
 
 warn_always_zero_bit.exit49.i.i:                  ; preds = %if.then3.i48.i.i, %do.body.i45.i.i, %warn_always_zero_bit.exit42.i.i
   %conv.i.i = trunc i64 %val to i32
-  %shr.i.i.i57 = lshr i32 %conv.i.i, 16
-  %and.i50.i.i = and i32 %shr.i.i.i57, 15
-  %idxprom.i.i58 = zext nneg i32 %and.i50.i.i to i64
-  %52 = lshr i64 65488, %idxprom.i.i58
+  %shr.i.i.i59 = lshr i32 %conv.i.i, 16
+  %and.i50.i.i = and i32 %shr.i.i.i59, 15
+  %idxprom.i.i60 = zext nneg i32 %and.i50.i.i to i64
+  %52 = lshr i64 65488, %idxprom.i.i60
   %53 = and i64 %52, 1
-  %cmp.not.i.i59 = icmp eq i64 %53, 0
-  br i1 %cmp.not.i.i59, label %if.else.i.i83, label %do.body.i.i60
+  %cmp.not.i.i61 = icmp eq i64 %53, 0
+  br i1 %cmp.not.i.i61, label %if.else.i.i87, label %do.body.i.i62
 
-do.body.i.i60:                                    ; preds = %warn_always_zero_bit.exit49.i.i
+do.body.i.i62:                                    ; preds = %warn_always_zero_bit.exit49.i.i
   %54 = load i32, ptr @qemu_loglevel, align 4
   %and.i51.i.i = and i32 %54, 1024
   %cmp.i.not.i.i = icmp eq i32 %and.i51.i.i, 0
   br i1 %cmp.i.not.i.i, label %type6_mcontrol6_validate.exit.i, label %if.then6.i.i
 
-if.then6.i.i:                                     ; preds = %do.body.i.i60
+if.then6.i.i:                                     ; preds = %do.body.i.i62
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %and.i50.i.i) #8
   br label %type6_mcontrol6_validate.exit.i
 
-if.else.i.i83:                                    ; preds = %warn_always_zero_bit.exit49.i.i
-  %and.i.i84 = and i64 %val, 983040
-  %or.i.i85 = or disjoint i64 %tdata1.0.i.i.i38, %and.i.i84
+if.else.i.i87:                                    ; preds = %warn_always_zero_bit.exit49.i.i
+  %and.i.i88 = and i64 %val, 983040
+  %or.i.i89 = or disjoint i64 %tdata1.0.i.i.i40, %and.i.i88
   br label %type6_mcontrol6_validate.exit.i
 
-type6_mcontrol6_validate.exit.i:                  ; preds = %if.else.i.i83, %if.then6.i.i, %do.body.i.i60
-  %val.0.i.i61 = phi i64 [ %tdata1.0.i.i.i38, %if.then6.i.i ], [ %tdata1.0.i.i.i38, %do.body.i.i60 ], [ %or.i.i85, %if.else.i.i83 ]
-  %and8.i.i62 = and i64 %val, 25165919
-  %or9.i.i = or i64 %val.0.i.i61, %and8.i.i62
-  %arrayidx.i63 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %42
-  %55 = load i64, ptr %arrayidx.i63, align 8
-  %cmp.not.i64 = icmp eq i64 %or9.i.i, %55
-  br i1 %cmp.not.i64, label %sw.epilog, label %if.then.i65
+type6_mcontrol6_validate.exit.i:                  ; preds = %if.else.i.i87, %if.then6.i.i, %do.body.i.i62
+  %val.0.i.i63 = phi i64 [ %tdata1.0.i.i.i40, %if.then6.i.i ], [ %tdata1.0.i.i.i40, %do.body.i.i62 ], [ %or.i.i89, %if.else.i.i87 ]
+  %and8.i.i64 = and i64 %val, 25165919
+  %or9.i.i = or i64 %val.0.i.i63, %and8.i.i64
+  %tdata1.i65 = getelementptr inbounds i8, ptr %env, i64 8360
+  %arrayidx.i66 = getelementptr [2 x i64], ptr %tdata1.i65, i64 0, i64 %42
+  %55 = load i64, ptr %arrayidx.i66, align 8
+  %cmp.not.i67 = icmp eq i64 %or9.i.i, %55
+  br i1 %cmp.not.i67, label %sw.epilog, label %if.then.i68
 
-if.then.i65:                                      ; preds = %type6_mcontrol6_validate.exit.i
-  store i64 %or9.i.i, ptr %arrayidx.i63, align 8
+if.then.i68:                                      ; preds = %type6_mcontrol6_validate.exit.i
+  store i64 %or9.i.i, ptr %arrayidx.i66, align 8
   %add.ptr.i.i.i.i = getelementptr i8, ptr %env, i64 -10176
-  %arrayidx.i.i.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 109, i64 %42
+  %cpu_breakpoint.i.i.i = getelementptr inbounds i8, ptr %env, i64 8408
+  %arrayidx.i.i.i = getelementptr [2 x ptr], ptr %cpu_breakpoint.i.i.i, i64 0, i64 %42
   %56 = load ptr, ptr %arrayidx.i.i.i, align 8
   %tobool.not.i.i19.i = icmp eq ptr %56, null
   br i1 %tobool.not.i.i19.i, label %if.end.i.i.i, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %if.then.i65
+if.then.i.i.i:                                    ; preds = %if.then.i68
   tail call void @cpu_breakpoint_remove_by_ref(ptr noundef %add.ptr.i.i.i.i, ptr noundef nonnull %56) #8
   store ptr null, ptr %arrayidx.i.i.i, align 8
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.then.i65
-  %arrayidx5.i.i.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 110, i64 %42
+if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.then.i68
+  %cpu_watchpoint.i.i.i = getelementptr inbounds i8, ptr %env, i64 8424
+  %arrayidx5.i.i.i = getelementptr [2 x ptr], ptr %cpu_watchpoint.i.i.i, i64 0, i64 %42
   %57 = load ptr, ptr %arrayidx5.i.i.i, align 8
   %tobool6.not.i.i.i = icmp eq ptr %57, null
   br i1 %tobool6.not.i.i.i, label %type6_breakpoint_remove.exit.i, label %if.then7.i.i.i
@@ -1402,215 +1376,220 @@ if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %type6_breakpoint_remove.exit.i
 
 type6_breakpoint_remove.exit.i:                   ; preds = %if.then7.i.i.i, %if.end.i.i.i
-  %58 = load i64, ptr %arrayidx.i63, align 8
-  %arrayidx1.i.i66 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 107, i64 %42
-  %59 = load i64, ptr %arrayidx1.i.i66, align 8
-  %and.i.i20.i67 = and i64 %58, 25165912
-  %tobool.i.i.i68 = icmp ne i64 %and.i.i20.i67, 0
-  %and2.i.i.i69 = and i64 %58, 7
-  %tobool3.i.i.i70 = icmp ne i64 %and2.i.i.i69, 0
-  %60 = and i1 %tobool.i.i.i68, %tobool3.i.i.i70
-  br i1 %60, label %if.end.i.i71, label %sw.epilog
+  %58 = load i64, ptr %arrayidx.i66, align 8
+  %tdata2.i.i69 = getelementptr inbounds i8, ptr %env, i64 8376
+  %arrayidx1.i.i70 = getelementptr [2 x i64], ptr %tdata2.i.i69, i64 0, i64 %42
+  %59 = load i64, ptr %arrayidx1.i.i70, align 8
+  %and.i.i20.i71 = and i64 %58, 25165912
+  %tobool.i.i.i72 = icmp ne i64 %and.i.i20.i71, 0
+  %and2.i.i.i73 = and i64 %58, 7
+  %tobool3.i.i.i74 = icmp ne i64 %and2.i.i.i73, 0
+  %60 = and i1 %tobool.i.i.i72, %tobool3.i.i.i74
+  br i1 %60, label %if.end.i.i75, label %sw.epilog
 
-if.end.i.i71:                                     ; preds = %type6_breakpoint_remove.exit.i
+if.end.i.i75:                                     ; preds = %type6_breakpoint_remove.exit.i
   %and.i21.i = and i64 %58, 4
-  %tobool3.not.i.i72 = icmp eq i64 %and.i21.i, 0
-  br i1 %tobool3.not.i.i72, label %if.end7.i.i75, label %if.then4.i.i73
+  %tobool3.not.i.i76 = icmp eq i64 %and.i21.i, 0
+  br i1 %tobool3.not.i.i76, label %if.end7.i.i79, label %if.then4.i.i77
 
-if.then4.i.i73:                                   ; preds = %if.end.i.i71
-  %call6.i.i74 = tail call i32 @cpu_breakpoint_insert(ptr noundef %add.ptr.i.i.i.i, i64 noundef %59, i32 noundef 36, ptr noundef nonnull %arrayidx.i.i.i) #8
-  br label %if.end7.i.i75
+if.then4.i.i77:                                   ; preds = %if.end.i.i75
+  %call6.i.i78 = tail call i32 @cpu_breakpoint_insert(ptr noundef %add.ptr.i.i.i.i, i64 noundef %59, i32 noundef 36, ptr noundef nonnull %arrayidx.i.i.i) #8
+  br label %if.end7.i.i79
 
-if.end7.i.i75:                                    ; preds = %if.then4.i.i73, %if.end.i.i71
+if.end7.i.i79:                                    ; preds = %if.then4.i.i77, %if.end.i.i75
   %and8.i22.i = and i64 %58, 1
-  %tobool9.not.i.i76 = icmp eq i64 %and8.i22.i, 0
-  %spec.select.i.i77 = select i1 %tobool9.not.i.i76, i32 36, i32 37
+  %tobool9.not.i.i80 = icmp eq i64 %and8.i22.i, 0
+  %spec.select.i.i81 = select i1 %tobool9.not.i.i80, i32 36, i32 37
   %61 = trunc i64 %58 to i32
   %62 = and i32 %61, 2
-  %flags.1.i.i78 = or disjoint i32 %spec.select.i.i77, %62
-  %and17.i.i79 = and i32 %flags.1.i.i78, 3
-  %tobool18.not.i.i80 = icmp eq i32 %and17.i.i79, 0
-  br i1 %tobool18.not.i.i80, label %sw.epilog, label %if.then19.i.i81
+  %flags.1.i.i82 = or disjoint i32 %spec.select.i.i81, %62
+  %and17.i.i83 = and i32 %flags.1.i.i82, 3
+  %tobool18.not.i.i84 = icmp eq i32 %and17.i.i83, 0
+  br i1 %tobool18.not.i.i84, label %sw.epilog, label %if.then19.i.i85
 
-if.then19.i.i81:                                  ; preds = %if.end7.i.i75
+if.then19.i.i85:                                  ; preds = %if.end7.i.i79
   %shr.i.i23.i = lshr i32 %61, 16
   %and.i24.i.i = and i32 %shr.i.i23.i, 15
   %cmp.not.i24.i = icmp eq i32 %and.i24.i.i, 0
-  %narrow.i.i82 = select i1 %cmp.not.i24.i, i32 8, i32 %and.i24.i.i
-  %conv23.sink.i.i = zext nneg i32 %narrow.i.i82 to i64
-  %call25.i.i = tail call i32 @cpu_watchpoint_insert(ptr noundef %add.ptr.i.i.i.i, i64 noundef %59, i64 noundef %conv23.sink.i.i, i32 noundef %flags.1.i.i78, ptr noundef nonnull %arrayidx5.i.i.i) #8
+  %narrow.i.i86 = select i1 %cmp.not.i24.i, i32 8, i32 %and.i24.i.i
+  %conv23.sink.i.i = zext nneg i32 %narrow.i.i86 to i64
+  %call25.i.i = tail call i32 @cpu_watchpoint_insert(ptr noundef %add.ptr.i.i.i.i, i64 noundef %59, i64 noundef %conv23.sink.i.i, i32 noundef %flags.1.i.i82, ptr noundef nonnull %arrayidx5.i.i.i) #8
   br label %sw.epilog
 
-sw.bb3.i25:                                       ; preds = %sw.bb4
-  %arrayidx4.i26 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 107, i64 %42
-  %63 = load i64, ptr %arrayidx4.i26, align 8
-  %cmp5.not.i27 = icmp eq i64 %63, %val
-  br i1 %cmp5.not.i27, label %sw.epilog, label %if.then6.i28
+sw.bb3.i26:                                       ; preds = %sw.bb4
+  %tdata2.i27 = getelementptr inbounds i8, ptr %env, i64 8376
+  %arrayidx4.i28 = getelementptr [2 x i64], ptr %tdata2.i27, i64 0, i64 %42
+  %63 = load i64, ptr %arrayidx4.i28, align 8
+  %cmp5.not.i29 = icmp eq i64 %63, %val
+  br i1 %cmp5.not.i29, label %sw.epilog, label %if.then6.i30
 
-if.then6.i28:                                     ; preds = %sw.bb3.i25
-  store i64 %val, ptr %arrayidx4.i26, align 8
+if.then6.i30:                                     ; preds = %sw.bb3.i26
+  store i64 %val, ptr %arrayidx4.i28, align 8
   %add.ptr.i.i.i25.i = getelementptr i8, ptr %env, i64 -10176
-  %arrayidx.i.i26.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 109, i64 %42
-  %64 = load ptr, ptr %arrayidx.i.i26.i, align 8
-  %tobool.not.i.i27.i = icmp eq ptr %64, null
-  br i1 %tobool.not.i.i27.i, label %if.end.i.i29.i, label %if.then.i.i28.i
+  %cpu_breakpoint.i.i26.i = getelementptr inbounds i8, ptr %env, i64 8408
+  %arrayidx.i.i27.i = getelementptr [2 x ptr], ptr %cpu_breakpoint.i.i26.i, i64 0, i64 %42
+  %64 = load ptr, ptr %arrayidx.i.i27.i, align 8
+  %tobool.not.i.i28.i = icmp eq ptr %64, null
+  br i1 %tobool.not.i.i28.i, label %if.end.i.i30.i, label %if.then.i.i29.i
 
-if.then.i.i28.i:                                  ; preds = %if.then6.i28
+if.then.i.i29.i:                                  ; preds = %if.then6.i30
   tail call void @cpu_breakpoint_remove_by_ref(ptr noundef %add.ptr.i.i.i25.i, ptr noundef nonnull %64) #8
-  store ptr null, ptr %arrayidx.i.i26.i, align 8
-  br label %if.end.i.i29.i
+  store ptr null, ptr %arrayidx.i.i27.i, align 8
+  br label %if.end.i.i30.i
 
-if.end.i.i29.i:                                   ; preds = %if.then.i.i28.i, %if.then6.i28
-  %arrayidx5.i.i30.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 110, i64 %42
-  %65 = load ptr, ptr %arrayidx5.i.i30.i, align 8
-  %tobool6.not.i.i31.i = icmp eq ptr %65, null
-  br i1 %tobool6.not.i.i31.i, label %type6_breakpoint_remove.exit33.i, label %if.then7.i.i32.i
+if.end.i.i30.i:                                   ; preds = %if.then.i.i29.i, %if.then6.i30
+  %cpu_watchpoint.i.i31.i = getelementptr inbounds i8, ptr %env, i64 8424
+  %arrayidx5.i.i32.i = getelementptr [2 x ptr], ptr %cpu_watchpoint.i.i31.i, i64 0, i64 %42
+  %65 = load ptr, ptr %arrayidx5.i.i32.i, align 8
+  %tobool6.not.i.i33.i = icmp eq ptr %65, null
+  br i1 %tobool6.not.i.i33.i, label %type6_breakpoint_remove.exit35.i, label %if.then7.i.i34.i
 
-if.then7.i.i32.i:                                 ; preds = %if.end.i.i29.i
+if.then7.i.i34.i:                                 ; preds = %if.end.i.i30.i
   tail call void @cpu_watchpoint_remove_by_ref(ptr noundef %add.ptr.i.i.i25.i, ptr noundef nonnull %65) #8
-  store ptr null, ptr %arrayidx5.i.i30.i, align 8
-  br label %type6_breakpoint_remove.exit33.i
+  store ptr null, ptr %arrayidx5.i.i32.i, align 8
+  br label %type6_breakpoint_remove.exit35.i
 
-type6_breakpoint_remove.exit33.i:                 ; preds = %if.then7.i.i32.i, %if.end.i.i29.i
-  %arrayidx.i34.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %42
-  %66 = load i64, ptr %arrayidx.i34.i, align 8
-  %67 = load i64, ptr %arrayidx4.i26, align 8
-  %and.i.i36.i = and i64 %66, 25165912
-  %tobool.i.i37.i = icmp ne i64 %and.i.i36.i, 0
-  %and2.i.i38.i = and i64 %66, 7
-  %tobool3.i.i39.i = icmp ne i64 %and2.i.i38.i, 0
-  %68 = and i1 %tobool.i.i37.i, %tobool3.i.i39.i
-  br i1 %68, label %if.end.i41.i, label %sw.epilog
+type6_breakpoint_remove.exit35.i:                 ; preds = %if.then7.i.i34.i, %if.end.i.i30.i
+  %tdata1.i36.i = getelementptr inbounds i8, ptr %env, i64 8360
+  %arrayidx.i37.i = getelementptr [2 x i64], ptr %tdata1.i36.i, i64 0, i64 %42
+  %66 = load i64, ptr %arrayidx.i37.i, align 8
+  %67 = load i64, ptr %arrayidx4.i28, align 8
+  %and.i.i40.i = and i64 %66, 25165912
+  %tobool.i.i41.i = icmp ne i64 %and.i.i40.i, 0
+  %and2.i.i42.i = and i64 %66, 7
+  %tobool3.i.i43.i = icmp ne i64 %and2.i.i42.i, 0
+  %68 = and i1 %tobool.i.i41.i, %tobool3.i.i43.i
+  br i1 %68, label %if.end.i45.i, label %sw.epilog
 
-if.end.i41.i:                                     ; preds = %type6_breakpoint_remove.exit33.i
-  %and.i42.i = and i64 %66, 4
-  %tobool3.not.i43.i = icmp eq i64 %and.i42.i, 0
-  br i1 %tobool3.not.i43.i, label %if.end7.i47.i, label %if.then4.i44.i
+if.end.i45.i:                                     ; preds = %type6_breakpoint_remove.exit35.i
+  %and.i46.i = and i64 %66, 4
+  %tobool3.not.i47.i = icmp eq i64 %and.i46.i, 0
+  br i1 %tobool3.not.i47.i, label %if.end7.i52.i, label %if.then4.i48.i
 
-if.then4.i44.i:                                   ; preds = %if.end.i41.i
-  %call6.i46.i = tail call i32 @cpu_breakpoint_insert(ptr noundef %add.ptr.i.i.i25.i, i64 noundef %67, i32 noundef 36, ptr noundef nonnull %arrayidx.i.i26.i) #8
-  br label %if.end7.i47.i
+if.then4.i48.i:                                   ; preds = %if.end.i45.i
+  %call6.i51.i = tail call i32 @cpu_breakpoint_insert(ptr noundef %add.ptr.i.i.i25.i, i64 noundef %67, i32 noundef 36, ptr noundef nonnull %arrayidx.i.i27.i) #8
+  br label %if.end7.i52.i
 
-if.end7.i47.i:                                    ; preds = %if.then4.i44.i, %if.end.i41.i
-  %and8.i48.i = and i64 %66, 1
-  %tobool9.not.i49.i = icmp eq i64 %and8.i48.i, 0
-  %spec.select.i50.i = select i1 %tobool9.not.i49.i, i32 36, i32 37
+if.end7.i52.i:                                    ; preds = %if.then4.i48.i, %if.end.i45.i
+  %and8.i53.i = and i64 %66, 1
+  %tobool9.not.i54.i = icmp eq i64 %and8.i53.i, 0
+  %spec.select.i55.i = select i1 %tobool9.not.i54.i, i32 36, i32 37
   %69 = trunc i64 %66 to i32
   %70 = and i32 %69, 2
-  %flags.1.i51.i = or disjoint i32 %spec.select.i50.i, %70
-  %and17.i52.i = and i32 %flags.1.i51.i, 3
-  %tobool18.not.i53.i = icmp eq i32 %and17.i52.i, 0
-  br i1 %tobool18.not.i53.i, label %sw.epilog, label %if.then19.i54.i
+  %flags.1.i56.i = or disjoint i32 %spec.select.i55.i, %70
+  %and17.i57.i = and i32 %flags.1.i56.i, 3
+  %tobool18.not.i58.i = icmp eq i32 %and17.i57.i, 0
+  br i1 %tobool18.not.i58.i, label %sw.epilog, label %if.then19.i59.i
 
-if.then19.i54.i:                                  ; preds = %if.end7.i47.i
-  %shr.i.i55.i = lshr i32 %69, 16
-  %and.i24.i56.i = and i32 %shr.i.i55.i, 15
-  %cmp.not.i57.i = icmp eq i32 %and.i24.i56.i, 0
-  %narrow.i58.i = select i1 %cmp.not.i57.i, i32 8, i32 %and.i24.i56.i
-  %conv23.sink.i59.i = zext nneg i32 %narrow.i58.i to i64
-  %call25.i61.i = tail call i32 @cpu_watchpoint_insert(ptr noundef %add.ptr.i.i.i25.i, i64 noundef %67, i64 noundef %conv23.sink.i59.i, i32 noundef %flags.1.i51.i, ptr noundef nonnull %arrayidx5.i.i30.i) #8
+if.then19.i59.i:                                  ; preds = %if.end7.i52.i
+  %shr.i.i60.i = lshr i32 %69, 16
+  %and.i24.i61.i = and i32 %shr.i.i60.i, 15
+  %cmp.not.i62.i = icmp eq i32 %and.i24.i61.i, 0
+  %narrow.i63.i = select i1 %cmp.not.i62.i, i32 8, i32 %and.i24.i61.i
+  %conv23.sink.i64.i = zext nneg i32 %narrow.i63.i to i64
+  %call25.i67.i = tail call i32 @cpu_watchpoint_insert(ptr noundef %add.ptr.i.i.i25.i, i64 noundef %67, i64 noundef %conv23.sink.i64.i, i32 noundef %flags.1.i56.i, ptr noundef nonnull %arrayidx5.i.i32.i) #8
   br label %sw.epilog
 
-do.body.i22:                                      ; preds = %sw.bb4
+do.body.i23:                                      ; preds = %sw.bb4
   %71 = load i32, ptr @qemu_loglevel, align 4
-  %and.i63.i = and i32 %71, 1024
-  %cmp.i.not.i23 = icmp eq i32 %and.i63.i, 0
-  br i1 %cmp.i.not.i23, label %sw.epilog, label %if.then13.i24
+  %and.i69.i = and i32 %71, 1024
+  %cmp.i.not.i24 = icmp eq i32 %and.i69.i, 0
+  br i1 %cmp.i.not.i24, label %sw.epilog, label %if.then13.i25
 
-if.then13.i24:                                    ; preds = %do.body.i22
+if.then13.i25:                                    ; preds = %do.body.i23
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18) #8
   br label %sw.epilog
 
-do.body15.i91:                                    ; preds = %sw.bb4
+do.body15.i95:                                    ; preds = %sw.bb4
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 495, ptr noundef nonnull @__func__.type6_reg_write, ptr noundef null) #7
   unreachable
 
 sw.bb6:                                           ; preds = %if.end
-  %trigger_cur7 = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 105
+  %trigger_cur7 = getelementptr inbounds i8, ptr %env, i64 8352
   %72 = load i64, ptr %trigger_cur7, align 16
   switch i32 %tdata_index, label %do.body30.i [
-    i32 0, label %sw.bb.i94
-    i32 1, label %do.body.i92
+    i32 0, label %sw.bb.i98
+    i32 1, label %do.body.i96
     i32 2, label %do.body19.i
   ]
 
-sw.bb.i94:                                        ; preds = %sw.bb6
-  switch i32 %env.val17.i.i, label %do.body.i.i.i140 [
-    i32 1, label %sw.bb.i.i.i136
-    i32 2, label %sw.bb5.i.i.i96
-    i32 3, label %sw.bb5.i.i.i96
+sw.bb.i98:                                        ; preds = %sw.bb6
+  switch i32 %env.val17.i.i, label %do.body.i.i.i145 [
+    i32 1, label %sw.bb.i.i.i141
+    i32 2, label %sw.bb5.i.i.i100
+    i32 3, label %sw.bb5.i.i.i100
   ]
 
-sw.bb.i.i.i136:                                   ; preds = %sw.bb.i94
-  %conv.i.i.i137 = trunc i64 %val to i32
-  %shr.i.i.i.i138 = lshr i32 %conv.i.i.i137, 28
-  %shr.i6.i.i.i139 = lshr i32 %conv.i.i.i137, 27
-  br label %sw.epilog.i.i.i100
+sw.bb.i.i.i141:                                   ; preds = %sw.bb.i98
+  %conv.i.i.i142 = trunc i64 %val to i32
+  %shr.i.i.i.i143 = lshr i32 %conv.i.i.i142, 28
+  %shr.i6.i.i.i144 = lshr i32 %conv.i.i.i142, 27
+  br label %sw.epilog.i.i.i104
 
-sw.bb5.i.i.i96:                                   ; preds = %sw.bb.i94, %sw.bb.i94
-  %shr.i7.i.i.i97 = lshr i64 %val, 60
-  %conv7.i.i.i98 = trunc i64 %shr.i7.i.i.i97 to i32
-  %shr.i8.i.i.i99 = lshr i64 %val, 59
-  %73 = trunc i64 %shr.i8.i.i.i99 to i32
-  br label %sw.epilog.i.i.i100
+sw.bb5.i.i.i100:                                  ; preds = %sw.bb.i98, %sw.bb.i98
+  %shr.i7.i.i.i101 = lshr i64 %val, 60
+  %conv7.i.i.i102 = trunc i64 %shr.i7.i.i.i101 to i32
+  %shr.i8.i.i.i103 = lshr i64 %val, 59
+  %73 = trunc i64 %shr.i8.i.i.i103 to i32
+  br label %sw.epilog.i.i.i104
 
-do.body.i.i.i140:                                 ; preds = %sw.bb.i94
+do.body.i.i.i145:                                 ; preds = %sw.bb.i98
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 197, ptr noundef nonnull @__func__.tdata1_validate, ptr noundef null) #7
   unreachable
 
-sw.epilog.i.i.i100:                               ; preds = %sw.bb5.i.i.i96, %sw.bb.i.i.i136
-  %type.0.i.i.i101 = phi i32 [ %conv7.i.i.i98, %sw.bb5.i.i.i96 ], [ %shr.i.i.i.i138, %sw.bb.i.i.i136 ]
-  %dmode.0.in.i.i.i102 = phi i32 [ %73, %sw.bb5.i.i.i96 ], [ %shr.i6.i.i.i139, %sw.bb.i.i.i136 ]
-  %tdata1.0.i.i.i103 = phi i64 [ 3458764513820540928, %sw.bb5.i.i.i96 ], [ 805306368, %sw.bb.i.i.i136 ]
-  %dmode.0.i.i.i104 = and i32 %dmode.0.in.i.i.i102, 1
-  %cmp.not.i.i.i105 = icmp eq i32 %type.0.i.i.i101, 3
-  br i1 %cmp.not.i.i.i105, label %if.end19.i.i.i110, label %do.body13.i.i.i106
+sw.epilog.i.i.i104:                               ; preds = %sw.bb5.i.i.i100, %sw.bb.i.i.i141
+  %type.0.i.i.i105 = phi i32 [ %conv7.i.i.i102, %sw.bb5.i.i.i100 ], [ %shr.i.i.i.i143, %sw.bb.i.i.i141 ]
+  %dmode.0.in.i.i.i106 = phi i32 [ %73, %sw.bb5.i.i.i100 ], [ %shr.i6.i.i.i144, %sw.bb.i.i.i141 ]
+  %tdata1.0.i.i.i107 = phi i64 [ 3458764513820540928, %sw.bb5.i.i.i100 ], [ 805306368, %sw.bb.i.i.i141 ]
+  %dmode.0.i.i.i108 = and i32 %dmode.0.in.i.i.i106, 1
+  %cmp.not.i.i.i109 = icmp eq i32 %type.0.i.i.i105, 3
+  br i1 %cmp.not.i.i.i109, label %if.end19.i.i.i114, label %do.body13.i.i.i110
 
-do.body13.i.i.i106:                               ; preds = %sw.epilog.i.i.i100
+do.body13.i.i.i110:                               ; preds = %sw.epilog.i.i.i104
   %74 = load i32, ptr @qemu_loglevel, align 4
-  %and.i10.i.i.i107 = and i32 %74, 2048
-  %cmp.i.not.i.i.i108 = icmp eq i32 %and.i10.i.i.i107, 0
-  br i1 %cmp.i.not.i.i.i108, label %if.end19.i.i.i110, label %if.then17.i.i.i109
+  %and.i10.i.i.i111 = and i32 %74, 2048
+  %cmp.i.not.i.i.i112 = icmp eq i32 %and.i10.i.i.i111, 0
+  br i1 %cmp.i.not.i.i.i112, label %if.end19.i.i.i114, label %if.then17.i.i.i113
 
-if.then17.i.i.i109:                               ; preds = %do.body13.i.i.i106
+if.then17.i.i.i113:                               ; preds = %do.body13.i.i.i110
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15) #8
-  br label %if.end19.i.i.i110
+  br label %if.end19.i.i.i114
 
-if.end19.i.i.i110:                                ; preds = %if.then17.i.i.i109, %do.body13.i.i.i106, %sw.epilog.i.i.i100
-  %cmp20.not.i.i.i111 = icmp eq i32 %dmode.0.i.i.i104, 0
-  br i1 %cmp20.not.i.i.i111, label %tdata1_validate.exit.i.i116, label %do.body23.i.i.i112
+if.end19.i.i.i114:                                ; preds = %if.then17.i.i.i113, %do.body13.i.i.i110, %sw.epilog.i.i.i104
+  %cmp20.not.i.i.i115 = icmp eq i32 %dmode.0.i.i.i108, 0
+  br i1 %cmp20.not.i.i.i115, label %tdata1_validate.exit.i.i120, label %do.body23.i.i.i116
 
-do.body23.i.i.i112:                               ; preds = %if.end19.i.i.i110
+do.body23.i.i.i116:                               ; preds = %if.end19.i.i.i114
   %75 = load i32, ptr @qemu_loglevel, align 4
-  %and.i11.i.i.i113 = and i32 %75, 1024
-  %cmp.i12.not.i.i.i114 = icmp eq i32 %and.i11.i.i.i113, 0
-  br i1 %cmp.i12.not.i.i.i114, label %tdata1_validate.exit.i.i116, label %if.then31.i.i.i115
+  %and.i11.i.i.i117 = and i32 %75, 1024
+  %cmp.i12.not.i.i.i118 = icmp eq i32 %and.i11.i.i.i117, 0
+  br i1 %cmp.i12.not.i.i.i118, label %tdata1_validate.exit.i.i120, label %if.then31.i.i.i119
 
-if.then31.i.i.i115:                               ; preds = %do.body23.i.i.i112
+if.then31.i.i.i119:                               ; preds = %do.body23.i.i.i116
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16) #8
-  br label %tdata1_validate.exit.i.i116
+  br label %tdata1_validate.exit.i.i120
 
-tdata1_validate.exit.i.i116:                      ; preds = %if.then31.i.i.i115, %do.body23.i.i.i112, %if.end19.i.i.i110
-  %and.i.i.i117 = and i64 %val, 63
-  %tobool.not.i.i.i118 = icmp eq i64 %and.i.i.i117, 0
-  br i1 %tobool.not.i.i.i118, label %warn_always_zero_bit.exit.i.i121, label %do.body.i6.i.i
+tdata1_validate.exit.i.i120:                      ; preds = %if.then31.i.i.i119, %do.body23.i.i.i116, %if.end19.i.i.i114
+  %and.i.i.i121 = and i64 %val, 63
+  %tobool.not.i.i.i122 = icmp eq i64 %and.i.i.i121, 0
+  br i1 %tobool.not.i.i.i122, label %warn_always_zero_bit.exit.i.i125, label %do.body.i6.i.i
 
-do.body.i6.i.i:                                   ; preds = %tdata1_validate.exit.i.i116
+do.body.i6.i.i:                                   ; preds = %tdata1_validate.exit.i.i120
   %76 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i119 = and i32 %76, 1024
-  %cmp.i.not.i7.i.i = icmp eq i32 %and.i.i.i.i119, 0
-  br i1 %cmp.i.not.i7.i.i, label %warn_always_zero_bit.exit.i.i121, label %if.then3.i.i.i120
+  %and.i.i.i.i123 = and i32 %76, 1024
+  %cmp.i.not.i7.i.i = icmp eq i32 %and.i.i.i.i123, 0
+  br i1 %cmp.i.not.i7.i.i, label %warn_always_zero_bit.exit.i.i125, label %if.then3.i.i.i124
 
-if.then3.i.i.i120:                                ; preds = %do.body.i6.i.i
+if.then3.i.i.i124:                                ; preds = %do.body.i6.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.10) #8
-  br label %warn_always_zero_bit.exit.i.i121
+  br label %warn_always_zero_bit.exit.i.i125
 
-warn_always_zero_bit.exit.i.i121:                 ; preds = %if.then3.i.i.i120, %do.body.i6.i.i, %tdata1_validate.exit.i.i116
+warn_always_zero_bit.exit.i.i125:                 ; preds = %if.then3.i.i.i124, %do.body.i6.i.i, %tdata1_validate.exit.i.i120
   %and.i8.i.i = and i64 %val, 16777216
   %tobool.not.i9.i.i = icmp eq i64 %and.i8.i.i, 0
   br i1 %tobool.not.i9.i.i, label %warn_always_zero_bit.exit14.i.i, label %do.body.i10.i.i
 
-do.body.i10.i.i:                                  ; preds = %warn_always_zero_bit.exit.i.i121
+do.body.i10.i.i:                                  ; preds = %warn_always_zero_bit.exit.i.i125
   %77 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i11.i.i = and i32 %77, 1024
   %cmp.i.not.i12.i.i = icmp eq i32 %and.i.i11.i.i, 0
@@ -1620,65 +1599,67 @@ if.then3.i13.i.i:                                 ; preds = %do.body.i10.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.13) #8
   br label %warn_always_zero_bit.exit14.i.i
 
-warn_always_zero_bit.exit14.i.i:                  ; preds = %if.then3.i13.i.i, %do.body.i10.i.i, %warn_always_zero_bit.exit.i.i121
-  %and.i15.i.i122 = and i64 %val, 256
-  %tobool.not.i16.i.i123 = icmp eq i64 %and.i15.i.i122, 0
-  br i1 %tobool.not.i16.i.i123, label %itrigger_validate.exit.i, label %do.body.i17.i.i124
+warn_always_zero_bit.exit14.i.i:                  ; preds = %if.then3.i13.i.i, %do.body.i10.i.i, %warn_always_zero_bit.exit.i.i125
+  %and.i15.i.i126 = and i64 %val, 256
+  %tobool.not.i16.i.i127 = icmp eq i64 %and.i15.i.i126, 0
+  br i1 %tobool.not.i16.i.i127, label %itrigger_validate.exit.i, label %do.body.i17.i.i128
 
-do.body.i17.i.i124:                               ; preds = %warn_always_zero_bit.exit14.i.i
+do.body.i17.i.i128:                               ; preds = %warn_always_zero_bit.exit14.i.i
   %78 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i18.i.i125 = and i32 %78, 1024
-  %cmp.i.not.i19.i.i126 = icmp eq i32 %and.i.i18.i.i125, 0
-  br i1 %cmp.i.not.i19.i.i126, label %itrigger_validate.exit.i, label %if.then3.i20.i.i127
+  %and.i.i18.i.i129 = and i32 %78, 1024
+  %cmp.i.not.i19.i.i130 = icmp eq i32 %and.i.i18.i.i129, 0
+  br i1 %cmp.i.not.i19.i.i130, label %itrigger_validate.exit.i, label %if.then3.i20.i.i131
 
-if.then3.i20.i.i127:                              ; preds = %do.body.i17.i.i124
+if.then3.i20.i.i131:                              ; preds = %do.body.i17.i.i128
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.21) #8
   br label %itrigger_validate.exit.i
 
-itrigger_validate.exit.i:                         ; preds = %if.then3.i20.i.i127, %do.body.i17.i.i124, %warn_always_zero_bit.exit14.i.i
-  %and.i.i128 = and i64 %val, 117440192
-  %or.i.i129 = or disjoint i64 %tdata1.0.i.i.i103, %and.i.i128
-  %arrayidx.i130 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %72
-  %79 = load i64, ptr %arrayidx.i130, align 8
-  %cmp.not.i131 = icmp eq i64 %or.i.i129, %79
-  br i1 %cmp.not.i131, label %sw.epilog, label %if.then.i132
+itrigger_validate.exit.i:                         ; preds = %if.then3.i20.i.i131, %do.body.i17.i.i128, %warn_always_zero_bit.exit14.i.i
+  %and.i.i132 = and i64 %val, 117440192
+  %or.i.i133 = or disjoint i64 %tdata1.0.i.i.i107, %and.i.i132
+  %tdata1.i134 = getelementptr inbounds i8, ptr %env, i64 8360
+  %arrayidx.i135 = getelementptr [2 x i64], ptr %tdata1.i134, i64 0, i64 %72
+  %79 = load i64, ptr %arrayidx.i135, align 8
+  %cmp.not.i136 = icmp eq i64 %or.i.i133, %79
+  br i1 %cmp.not.i136, label %sw.epilog, label %if.then.i137
 
-if.then.i132:                                     ; preds = %itrigger_validate.exit.i
-  store i64 %or.i.i129, ptr %arrayidx.i130, align 8
+if.then.i137:                                     ; preds = %itrigger_validate.exit.i
+  store i64 %or.i.i133, ptr %arrayidx.i135, align 8
   %80 = load i32, ptr @use_icount, align 4
   %tobool.not.i = icmp eq i32 %80, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then3.i
 
-if.then3.i:                                       ; preds = %if.then.i132
+if.then3.i:                                       ; preds = %if.then.i137
   %call4.i = tail call i64 @icount_get_raw() #8
-  %last_icount.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 112
+  %last_icount.i = getelementptr inbounds i8, ptr %env, i64 8456
   store i64 %call4.i, ptr %last_icount.i, align 8
-  %arrayidx5.i = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 111, i64 %72
+  %itrigger_timer.i = getelementptr inbounds i8, ptr %env, i64 8440
+  %arrayidx5.i = getelementptr [2 x ptr], ptr %itrigger_timer.i, i64 0, i64 %72
   %81 = load ptr, ptr %arrayidx5.i, align 8
   %sext.i = shl i64 %72, 32
-  %idxprom.i.i133 = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i134 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %idxprom.i.i133
-  %82 = load i64, ptr %arrayidx.i.i134, align 8
+  %idxprom.i.i138 = ashr exact i64 %sext.i, 32
+  %arrayidx.i.i139 = getelementptr [2 x i64], ptr %tdata1.i134, i64 0, i64 %idxprom.i.i138
+  %82 = load i64, ptr %arrayidx.i.i139, align 8
   %83 = lshr i64 %82, 10
-  %conv.i.i135 = and i64 %83, 16383
-  %add.i = add i64 %conv.i.i135, %call4.i
+  %conv.i.i140 = and i64 %83, 16383
+  %add.i = add i64 %conv.i.i140, %call4.i
   tail call void @timer_mod(ptr noundef %81, i64 noundef %add.i) #8
   br label %sw.epilog
 
-if.else.i:                                        ; preds = %if.then.i132
+if.else.i:                                        ; preds = %if.then.i137
   %call9.i = tail call zeroext i1 @riscv_itrigger_enabled(ptr noundef nonnull %env)
-  %itrigger_enabled.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 113
+  %itrigger_enabled.i = getelementptr inbounds i8, ptr %env, i64 8464
   %frombool.i = zext i1 %call9.i to i8
   store i8 %frombool.i, ptr %itrigger_enabled.i, align 16
   br label %sw.epilog
 
-do.body.i92:                                      ; preds = %sw.bb6
+do.body.i96:                                      ; preds = %sw.bb6
   %84 = load i32, ptr @qemu_loglevel, align 4
   %and.i13.i = and i32 %84, 1024
-  %cmp.i.not.i93 = icmp eq i32 %and.i13.i, 0
-  br i1 %cmp.i.not.i93, label %sw.epilog, label %if.then16.i
+  %cmp.i.not.i97 = icmp eq i32 %and.i13.i, 0
+  br i1 %cmp.i.not.i97, label %sw.epilog, label %if.then16.i
 
-if.then16.i:                                      ; preds = %do.body.i92
+if.then16.i:                                      ; preds = %do.body.i96
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19) #8
   br label %sw.epilog
 
@@ -1708,9 +1689,9 @@ if.then12:                                        ; preds = %do.body
 
 do.body15:                                        ; preds = %if.end, %if.end
   %87 = load i32, ptr @qemu_loglevel, align 4
-  %and.i141 = and i32 %87, 2048
-  %cmp.i142.not = icmp eq i32 %and.i141, 0
-  br i1 %cmp.i142.not, label %sw.epilog, label %if.then23
+  %and.i146 = and i32 %87, 2048
+  %cmp.i147.not = icmp eq i32 %and.i146, 0
+  br i1 %cmp.i147.not, label %sw.epilog, label %if.then23
 
 if.then23:                                        ; preds = %do.body15
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.2, i32 noundef %trigger_type.0) #8
@@ -1720,7 +1701,7 @@ do.body26:                                        ; preds = %if.end
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 747, ptr noundef nonnull @__func__.tdata_csr_write, ptr noundef null) #7
   unreachable
 
-sw.epilog:                                        ; preds = %if.then27.i, %do.body19.i, %if.then16.i, %do.body.i92, %if.else.i, %if.then3.i, %itrigger_validate.exit.i, %if.then13.i24, %do.body.i22, %if.then19.i54.i, %if.end7.i47.i, %type6_breakpoint_remove.exit33.i, %sw.bb3.i25, %if.then19.i.i81, %if.end7.i.i75, %type6_breakpoint_remove.exit.i, %type6_mcontrol6_validate.exit.i, %if.then13.i, %do.body.i17, %if.then19.i61.i, %if.end7.i54.i, %type2_breakpoint_remove.exit40.i, %sw.bb3.i18, %if.then19.i.i, %if.end7.i.i, %type2_breakpoint_remove.exit.i, %type2_mcontrol_validate.exit.i, %if.then23, %do.body15, %if.then12, %do.body
+sw.epilog:                                        ; preds = %if.then27.i, %do.body19.i, %if.then16.i, %do.body.i96, %if.else.i, %if.then3.i, %itrigger_validate.exit.i, %if.then13.i25, %do.body.i23, %if.then19.i59.i, %if.end7.i52.i, %type6_breakpoint_remove.exit35.i, %sw.bb3.i26, %if.then19.i.i85, %if.end7.i.i79, %type6_breakpoint_remove.exit.i, %type6_mcontrol6_validate.exit.i, %if.then13.i, %do.body.i17, %if.then19.i68.i, %if.end7.i61.i, %type2_breakpoint_remove.exit44.i, %sw.bb3.i18, %if.then19.i.i, %if.end7.i.i, %type2_breakpoint_remove.exit.i, %type2_mcontrol_validate.exit.i, %if.then23, %do.body15, %if.then12, %do.body
   ret void
 }
 
@@ -1736,21 +1717,21 @@ entry:
 define dso_local void @riscv_cpu_debug_excp_handler(ptr noundef %cs) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
-  %env1 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1
-  %watchpoint_hit = getelementptr inbounds %struct.CPUState, ptr %cs, i64 0, i32 38
+  %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
+  %watchpoint_hit = getelementptr inbounds i8, ptr %cs, i64 616
   %0 = load ptr, ptr %watchpoint_hit, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %flags = getelementptr inbounds %struct.CPUWatchpoint, ptr %0, i64 0, i32 4
+  %flags = getelementptr inbounds i8, ptr %0, i64 28
   %1 = load i32, ptr %flags, align 4
   %and = and i32 %1, 32
   %tobool3.not = icmp eq i32 %and, 0
   br i1 %tobool3.not, label %if.end8, label %if.end8.sink.split
 
 if.else:                                          ; preds = %entry
-  %pc = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 9
+  %pc = getelementptr inbounds i8, ptr %call.i, i64 14832
   %2 = load i64, ptr %pc, align 16
   %3 = getelementptr i8, ptr %cs, i64 584
   %cs.val = load ptr, ptr %3, align 8
@@ -1764,14 +1745,14 @@ for.body.i:                                       ; preds = %if.else, %for.inc.i
   br i1 %cmp6.i, label %land.lhs.true.i, label %for.inc.i
 
 land.lhs.true.i:                                  ; preds = %for.body.i
-  %flags.i = getelementptr inbounds %struct.CPUBreakpoint, ptr %bp.01.i, i64 0, i32 1
+  %flags.i = getelementptr inbounds i8, ptr %bp.01.i, i64 8
   %5 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %5, 32
   %tobool8.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool8.not.i, label %for.inc.i, label %if.end8.sink.split
 
 for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
-  %entry10.i = getelementptr inbounds %struct.CPUBreakpoint, ptr %bp.01.i, i64 0, i32 2
+  %entry10.i = getelementptr inbounds i8, ptr %bp.01.i, i64 16
   %6 = load ptr, ptr %entry10.i, align 8
   %tobool4.not.i = icmp eq ptr %6, null
   br i1 %tobool4.not.i, label %if.end8, label %for.body.i, !llvm.loop !9
@@ -1788,16 +1769,18 @@ if.end8:                                          ; preds = %for.inc.i, %if.end8
 define dso_local zeroext i1 @riscv_cpu_debug_check_breakpoint(ptr noundef %cs) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
-  %breakpoints = getelementptr inbounds %struct.CPUState, ptr %cs, i64 0, i32 36
+  %breakpoints = getelementptr inbounds i8, ptr %cs, i64 584
   %bp.027 = load ptr, ptr %breakpoints, align 8
   %tobool.not28 = icmp eq ptr %bp.027, null
   br i1 %tobool.not28, label %return, label %for.cond2.preheader.lr.ph
 
 for.cond2.preheader.lr.ph:                        ; preds = %entry
-  %0 = getelementptr %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 21
+  %tdata1.i = getelementptr inbounds i8, ptr %call.i, i64 18536
+  %0 = getelementptr i8, ptr %call.i, i64 15184
   %env.val.i = load i32, ptr %0, align 16
-  %virt_enabled33 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 29
-  %priv37 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 28
+  %tdata223 = getelementptr inbounds i8, ptr %call.i, i64 18552
+  %virt_enabled33 = getelementptr inbounds i8, ptr %call.i, i64 15232
+  %priv37 = getelementptr inbounds i8, ptr %call.i, i64 15224
   %env.val.i.off = add i32 %env.val.i, -1
   %switch = icmp ult i32 %env.val.i.off, 3
   br i1 %switch, label %for.cond2.preheader.lr.ph.split, label %do.body.i.i
@@ -1813,7 +1796,7 @@ for.cond2.preheader.us:                           ; preds = %for.cond2.preheader
 for.body3.us.us:                                  ; preds = %for.inc.us.us, %for.cond2.preheader.us
   %cmp.us.us = phi i1 [ false, %for.inc.us.us ], [ true, %for.cond2.preheader.us ]
   %indvars.iv36 = phi i64 [ 1, %for.inc.us.us ], [ 0, %for.cond2.preheader.us ]
-  %arrayidx.i.us.us = getelementptr %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 106, i64 %indvars.iv36
+  %arrayidx.i.us.us = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %indvars.iv36
   %1 = load i64, ptr %arrayidx.i.us.us, align 8
   %2 = trunc i64 %1 to i32
   %3 = lshr i32 %2, 28
@@ -1828,7 +1811,7 @@ sw.bb19.us.us:                                    ; preds = %for.body3.us.us
   br i1 %tobool27.not.us.us, label %for.inc.us.us, label %land.lhs.true28.us.us
 
 land.lhs.true28.us.us:                            ; preds = %sw.bb19.us.us
-  %arrayidx25.us.us = getelementptr %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 107, i64 %indvars.iv36
+  %arrayidx25.us.us = getelementptr [2 x i64], ptr %tdata223, i64 0, i64 %indvars.iv36
   %4 = load i64, ptr %arrayidx25.us.us, align 8
   %5 = load i64, ptr %bp.029.us, align 8
   %cmp30.us.us = icmp eq i64 %5, %4
@@ -1866,7 +1849,7 @@ if.end.us.us:                                     ; preds = %sw.bb.us.us
   br i1 %tobool9.not.us.us, label %for.inc.us.us, label %land.lhs.true.us.us
 
 land.lhs.true.us.us:                              ; preds = %if.end.us.us
-  %arrayidx8.us.us = getelementptr %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 107, i64 %indvars.iv36
+  %arrayidx8.us.us = getelementptr [2 x i64], ptr %tdata223, i64 0, i64 %indvars.iv36
   %11 = load i64, ptr %arrayidx8.us.us, align 8
   %12 = load i64, ptr %bp.029.us, align 8
   %cmp11.us.us = icmp eq i64 %12, %11
@@ -1884,7 +1867,7 @@ for.inc.us.us:                                    ; preds = %if.then13.us.us, %l
   br i1 %cmp.us.us, label %for.body3.us.us, label %for.inc52.split.us.us, !llvm.loop !10
 
 for.inc52.split.us.us:                            ; preds = %for.inc.us.us
-  %entry53.us = getelementptr inbounds %struct.CPUBreakpoint, ptr %bp.029.us, i64 0, i32 2
+  %entry53.us = getelementptr inbounds i8, ptr %bp.029.us, i64 16
   %bp.0.us = load ptr, ptr %entry53.us, align 8
   %tobool.not.us = icmp eq ptr %bp.0.us, null
   br i1 %tobool.not.us, label %return, label %for.cond2.preheader.us, !llvm.loop !11
@@ -1896,7 +1879,7 @@ for.cond2.preheader:                              ; preds = %for.cond2.preheader
 for.body3:                                        ; preds = %for.cond2.preheader, %for.inc
   %cmp = phi i1 [ true, %for.cond2.preheader ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.cond2.preheader ], [ 1, %for.inc ]
-  %arrayidx.i = getelementptr %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 106, i64 %indvars.iv
+  %arrayidx.i = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %indvars.iv
   %14 = load i64, ptr %arrayidx.i, align 8
   %shr.i2.i.i = lshr i64 %14, 60
   %conv5 = trunc i64 %shr.i2.i.i to i32
@@ -1921,7 +1904,7 @@ if.end:                                           ; preds = %sw.bb
   br i1 %tobool9.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %arrayidx8 = getelementptr %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 107, i64 %indvars.iv
+  %arrayidx8 = getelementptr [2 x i64], ptr %tdata223, i64 0, i64 %indvars.iv
   %17 = load i64, ptr %arrayidx8, align 8
   %18 = load i64, ptr %bp.029, align 8
   %cmp11 = icmp eq i64 %18, %17
@@ -1941,7 +1924,7 @@ sw.bb19:                                          ; preds = %for.body3
   br i1 %tobool27.not, label %for.inc, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %sw.bb19
-  %arrayidx25 = getelementptr %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 107, i64 %indvars.iv
+  %arrayidx25 = getelementptr [2 x i64], ptr %tdata223, i64 0, i64 %indvars.iv
   %20 = load i64, ptr %arrayidx25, align 8
   %21 = load i64, ptr %bp.029, align 8
   %cmp30 = icmp eq i64 %21, %20
@@ -1971,7 +1954,7 @@ for.inc:                                          ; preds = %if.then13, %land.lh
   br i1 %cmp, label %for.body3, label %for.inc52.split, !llvm.loop !10
 
 for.inc52.split:                                  ; preds = %for.inc
-  %entry53 = getelementptr inbounds %struct.CPUBreakpoint, ptr %bp.029, i64 0, i32 2
+  %entry53 = getelementptr inbounds i8, ptr %bp.029, i64 16
   %bp.0 = load ptr, ptr %entry53, align 8
   %tobool.not = icmp eq ptr %bp.0, null
   br i1 %tobool.not, label %return, label %for.cond2.preheader, !llvm.loop !11
@@ -1985,11 +1968,13 @@ return:                                           ; preds = %for.inc52.split, %s
 define dso_local zeroext i1 @riscv_cpu_debug_check_watchpoint(ptr noundef %cs, ptr nocapture noundef readonly %wp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #8
-  %0 = getelementptr %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 21
+  %tdata1.i = getelementptr inbounds i8, ptr %call.i, i64 18536
+  %0 = getelementptr i8, ptr %call.i, i64 15184
   %env.val.i = load i32, ptr %0, align 16
-  %flags42 = getelementptr inbounds %struct.CPUWatchpoint, ptr %wp, i64 0, i32 4
-  %virt_enabled50 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 29
-  %priv54 = getelementptr inbounds %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 28
+  %flags42 = getelementptr inbounds i8, ptr %wp, i64 28
+  %tdata229 = getelementptr inbounds i8, ptr %call.i, i64 18552
+  %virt_enabled50 = getelementptr inbounds i8, ptr %call.i, i64 15232
+  %priv54 = getelementptr inbounds i8, ptr %call.i, i64 15224
   %env.val.i.off = add i32 %env.val.i, -1
   %switch = icmp ult i32 %env.val.i.off, 3
   br i1 %switch, label %for.body.preheader, label %do.body.i.i
@@ -2001,7 +1986,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.backedge, %for.body.preheader
   %cmp = phi i1 [ true, %for.body.preheader ], [ false, %for.body.backedge ]
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ 1, %for.body.backedge ]
-  %arrayidx.i = getelementptr %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 106, i64 %indvars.iv
+  %arrayidx.i = getelementptr [2 x i64], ptr %tdata1.i, i64 0, i64 %indvars.iv
   %1 = load i64, ptr %arrayidx.i, align 8
   %shr.i2.i.i = lshr i64 %1, 60
   %shr.i.i.i = lshr i64 %1, 28
@@ -2032,7 +2017,7 @@ if.end:                                           ; preds = %sw.bb
   br i1 %tobool16.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %arrayidx5 = getelementptr %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 107, i64 %indvars.iv
+  %arrayidx5 = getelementptr [2 x i64], ptr %tdata229, i64 0, i64 %indvars.iv
   %6 = load i64, ptr %arrayidx5, align 8
   %7 = load i64, ptr %wp, align 8
   %cmp17 = icmp eq i64 %7, %6
@@ -2057,7 +2042,7 @@ sw.bb25:                                          ; preds = %for.body
   br i1 %tobool44.not, label %for.inc, label %land.lhs.true45
 
 land.lhs.true45:                                  ; preds = %sw.bb25
-  %arrayidx31 = getelementptr %struct.ArchCPU, ptr %call.i, i64 0, i32 1, i32 107, i64 %indvars.iv
+  %arrayidx31 = getelementptr [2 x i64], ptr %tdata229, i64 0, i64 %indvars.iv
   %11 = load i64, ptr %arrayidx31, align 8
   %12 = load i64, ptr %wp, align 8
   %cmp47 = icmp eq i64 %12, %11
@@ -2100,13 +2085,13 @@ return:                                           ; preds = %if.else, %if.then52
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @riscv_trigger_realize(ptr noundef %env) local_unnamed_addr #0 {
 entry:
+  %itrigger_timer = getelementptr inbounds i8, ptr %env, i64 8440
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #9
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @riscv_itrigger_timer_cb, ptr noundef %env) #8
-  %arrayidx = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 111, i64 0
-  store ptr %call.i.i.i, ptr %arrayidx, align 8
+  store ptr %call.i.i.i, ptr %itrigger_timer, align 8
   %call.i.i.i.c = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #9
   tail call void @timer_init_full(ptr noundef %call.i.i.i.c, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @riscv_itrigger_timer_cb, ptr noundef %env) #8
-  %arrayidx.c = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 111, i64 1
+  %arrayidx.c = getelementptr i8, ptr %env, i64 8448
   store ptr %call.i.i.i.c, ptr %arrayidx.c, align 8
   ret void
 }
@@ -2135,22 +2120,28 @@ switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.riscv_trigger_reset_hold, i64 0, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
+  %tdata11 = getelementptr inbounds i8, ptr %env, i64 8360
+  %tdata2 = getelementptr inbounds i8, ptr %env, i64 8376
+  %tdata3 = getelementptr inbounds i8, ptr %env, i64 8392
+  %cpu_breakpoint = getelementptr inbounds i8, ptr %env, i64 8408
+  %cpu_watchpoint = getelementptr inbounds i8, ptr %env, i64 8424
+  %itrigger_timer = getelementptr inbounds i8, ptr %env, i64 8440
   br label %for.body
 
 for.body:                                         ; preds = %switch.lookup, %for.body
   %cmp = phi i1 [ true, %switch.lookup ], [ false, %for.body ]
   %indvars.iv = phi i64 [ 0, %switch.lookup ], [ 1, %for.body ]
-  %arrayidx = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 106, i64 %indvars.iv
+  %arrayidx = getelementptr [2 x i64], ptr %tdata11, i64 0, i64 %indvars.iv
   store i64 %switch.load, ptr %arrayidx, align 8
-  %arrayidx3 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 107, i64 %indvars.iv
+  %arrayidx3 = getelementptr [2 x i64], ptr %tdata2, i64 0, i64 %indvars.iv
   store i64 0, ptr %arrayidx3, align 8
-  %arrayidx5 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 108, i64 %indvars.iv
+  %arrayidx5 = getelementptr [2 x i64], ptr %tdata3, i64 0, i64 %indvars.iv
   store i64 0, ptr %arrayidx5, align 8
-  %arrayidx7 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 109, i64 %indvars.iv
+  %arrayidx7 = getelementptr [2 x ptr], ptr %cpu_breakpoint, i64 0, i64 %indvars.iv
   store ptr null, ptr %arrayidx7, align 8
-  %arrayidx9 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 110, i64 %indvars.iv
+  %arrayidx9 = getelementptr [2 x ptr], ptr %cpu_watchpoint, i64 0, i64 %indvars.iv
   store ptr null, ptr %arrayidx9, align 8
-  %arrayidx11 = getelementptr %struct.CPUArchState, ptr %env, i64 0, i32 111, i64 %indvars.iv
+  %arrayidx11 = getelementptr [2 x ptr], ptr %itrigger_timer, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx11, align 8
   tail call void @timer_del(ptr noundef %3) #8
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13

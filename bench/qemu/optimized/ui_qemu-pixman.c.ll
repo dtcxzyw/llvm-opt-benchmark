@@ -23,7 +23,7 @@ entry:
   store i8 %conv, ptr %agg.result, align 4
   %div26 = lshr i32 %shl, 3
   %conv8 = trunc i32 %div26 to i8
-  %bytes_per_pixel = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 1
+  %bytes_per_pixel = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %conv8, ptr %bytes_per_pixel, align 1
   %shr9 = lshr i32 %format, 12
   %and10 = and i32 %shr9, 15
@@ -40,19 +40,19 @@ entry:
   %add24 = add nuw nsw i32 %add, %shl13
   %add30 = add nuw nsw i32 %add24, %shl29
   %conv31 = trunc i32 %add30 to i8
-  %depth = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 2
+  %depth = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i8 %conv31, ptr %depth, align 2
   %conv37 = trunc i32 %shl13 to i8
-  %abits = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 18
+  %abits = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 %conv37, ptr %abits, align 1
   %conv43 = trunc i32 %shl18 to i8
-  %rbits = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 15
+  %rbits = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 %conv43, ptr %rbits, align 4
   %conv49 = trunc i32 %shl23 to i8
-  %gbits = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 16
+  %gbits = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 %conv49, ptr %gbits, align 1
   %conv55 = trunc i32 %shl29 to i8
-  %bbits = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 17
+  %bbits = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 %conv55, ptr %bbits, align 2
   %shr56 = lshr i32 %format, 16
   %and57 = and i32 %shr56, 63
@@ -66,63 +66,63 @@ entry:
 sw.bb:                                            ; preds = %entry
   %0 = add nuw i8 %conv49, %conv55
   %conv66 = add i8 %0, %conv43
-  %ashift = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 10
+  %ashift = getelementptr inbounds i8, ptr %agg.result, i64 23
   store i8 %conv66, ptr %ashift, align 1
-  %rshift = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 7
+  %rshift = getelementptr inbounds i8, ptr %agg.result, i64 20
   store i8 %0, ptr %rshift, align 4
-  %gshift = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 8
+  %gshift = getelementptr inbounds i8, ptr %agg.result, i64 21
   store i8 %conv55, ptr %gshift, align 1
-  %bshift = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 9
+  %bshift = getelementptr inbounds i8, ptr %agg.result, i64 22
   store i8 0, ptr %bshift, align 2
   br label %sw.epilog
 
 sw.bb74:                                          ; preds = %entry
   %add82 = add nuw nsw i32 %add, %shl29
   %conv83 = trunc i32 %add82 to i8
-  %ashift84 = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 10
+  %ashift84 = getelementptr inbounds i8, ptr %agg.result, i64 23
   store i8 %conv83, ptr %ashift84, align 1
   %add89 = add nuw i8 %conv43, %conv49
-  %bshift91 = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 9
+  %bshift91 = getelementptr inbounds i8, ptr %agg.result, i64 22
   store i8 %add89, ptr %bshift91, align 2
-  %gshift93 = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 8
+  %gshift93 = getelementptr inbounds i8, ptr %agg.result, i64 21
   store i8 %conv43, ptr %gshift93, align 1
-  %rshift94 = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 7
+  %rshift94 = getelementptr inbounds i8, ptr %agg.result, i64 20
   store i8 0, ptr %rshift94, align 4
   br label %sw.epilog
 
 sw.bb95:                                          ; preds = %entry
   %sub = sub nsw i32 %shl, %shl29
   %conv99 = trunc i32 %sub to i8
-  %bshift100 = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 9
+  %bshift100 = getelementptr inbounds i8, ptr %agg.result, i64 22
   store i8 %conv99, ptr %bshift100, align 2
   %add106 = add nuw nsw i32 %shl29, %shl23
   %sub107 = sub nsw i32 %shl, %add106
   %conv108 = trunc i32 %sub107 to i8
-  %gshift109 = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 8
+  %gshift109 = getelementptr inbounds i8, ptr %agg.result, i64 21
   store i8 %conv108, ptr %gshift109, align 1
   %1 = add nuw nsw i32 %shl18, %add106
   %sub119 = sub nsw i32 %shl, %1
   %conv120 = trunc i32 %sub119 to i8
-  %rshift121 = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 7
+  %rshift121 = getelementptr inbounds i8, ptr %agg.result, i64 20
   store i8 %conv120, ptr %rshift121, align 4
-  %ashift122 = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 10
+  %ashift122 = getelementptr inbounds i8, ptr %agg.result, i64 23
   store i8 0, ptr %ashift122, align 1
   br label %sw.epilog
 
 sw.bb123:                                         ; preds = %entry
   %conv128 = sub i8 %conv, %conv43
-  %rshift129 = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 7
+  %rshift129 = getelementptr inbounds i8, ptr %agg.result, i64 20
   store i8 %conv128, ptr %rshift129, align 4
   %sub136 = sub nsw i32 %shl, %add
   %conv137 = trunc i32 %sub136 to i8
-  %gshift138 = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 8
+  %gshift138 = getelementptr inbounds i8, ptr %agg.result, i64 21
   store i8 %conv137, ptr %gshift138, align 1
   %2 = add nuw nsw i32 %shl29, %add
   %sub148 = sub nsw i32 %shl, %2
   %conv149 = trunc i32 %sub148 to i8
-  %bshift150 = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 9
+  %bshift150 = getelementptr inbounds i8, ptr %agg.result, i64 22
   store i8 %conv149, ptr %bshift150, align 2
-  %ashift151 = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 10
+  %ashift151 = getelementptr inbounds i8, ptr %agg.result, i64 23
   store i8 0, ptr %ashift151, align 1
   br label %sw.epilog
 
@@ -138,42 +138,42 @@ sw.epilog:                                        ; preds = %sw.bb123, %sw.bb95,
   %notmask = shl nsw i32 -1, %shl13
   %7 = trunc i32 %notmask to i8
   %conv156 = xor i8 %7, -1
-  %amax = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 14
+  %amax = getelementptr inbounds i8, ptr %agg.result, i64 27
   store i8 %conv156, ptr %amax, align 1
   %notmask27 = shl nsw i32 -1, %shl18
   %8 = trunc i32 %notmask27 to i8
   %conv161 = xor i8 %8, -1
-  %rmax = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 11
+  %rmax = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 %conv161, ptr %rmax, align 4
   %notmask28 = shl nsw i32 -1, %shl23
   %9 = trunc i32 %notmask28 to i8
   %conv166 = xor i8 %9, -1
-  %gmax = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 12
+  %gmax = getelementptr inbounds i8, ptr %agg.result, i64 25
   store i8 %conv166, ptr %gmax, align 1
   %notmask29 = shl nsw i32 -1, %shl29
   %10 = trunc i32 %notmask29 to i8
   %conv171 = xor i8 %10, -1
-  %bmax = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 13
+  %bmax = getelementptr inbounds i8, ptr %agg.result, i64 26
   store i8 %conv171, ptr %bmax, align 2
   %conv173 = zext i8 %conv156 to i32
   %conv175 = zext nneg i8 %6 to i32
   %shl176 = shl i32 %conv173, %conv175
-  %amask = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 6
+  %amask = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i32 %shl176, ptr %amask, align 4
   %conv178 = zext i8 %conv161 to i32
   %conv180 = zext nneg i8 %5 to i32
   %shl181 = shl i32 %conv178, %conv180
-  %rmask = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 3
+  %rmask = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 %shl181, ptr %rmask, align 4
   %conv183 = zext i8 %conv166 to i32
   %conv185 = and i32 %4, 255
   %shl186 = shl i32 %conv183, %conv185
-  %gmask = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 4
+  %gmask = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 %shl186, ptr %gmask, align 4
   %conv188 = zext i8 %conv171 to i32
   %conv190 = zext nneg i8 %3 to i32
   %shl191 = shl i32 %conv188, %conv190
-  %bmask = getelementptr inbounds %struct.PixelFormat, ptr %agg.result, i64 0, i32 5
+  %bmask = getelementptr inbounds i8, ptr %agg.result, i64 12
   store i32 %shl191, ptr %bmask, align 4
   ret void
 }
@@ -257,13 +257,13 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %pixman_format2 = getelementptr [5 x %struct.anon], ptr @drm_format_pixman_map, i64 0, i64 %indvars.iv, i32 1
+  %arrayidx = getelementptr [5 x %struct.anon], ptr @drm_format_pixman_map, i64 0, i64 %indvars.iv
+  %pixman_format2 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %0 = load i32, ptr %pixman_format2, align 4
   %cmp3 = icmp eq i32 %0, %pixman_format
   br i1 %cmp3, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr [5 x %struct.anon], ptr @drm_format_pixman_map, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   br label %return
 
@@ -304,11 +304,11 @@ if.end14:                                         ; preds = %if.then8, %if.then,
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_pixman_get_format(ptr nocapture noundef readonly %pf) local_unnamed_addr #0 {
 entry:
-  %rshift = getelementptr inbounds %struct.PixelFormat, ptr %pf, i64 0, i32 7
+  %rshift = getelementptr inbounds i8, ptr %pf, i64 20
   %0 = load i8, ptr %rshift, align 4
-  %gshift = getelementptr inbounds %struct.PixelFormat, ptr %pf, i64 0, i32 8
+  %gshift = getelementptr inbounds i8, ptr %pf, i64 21
   %1 = load i8, ptr %gshift, align 1
-  %bshift = getelementptr inbounds %struct.PixelFormat, ptr %pf, i64 0, i32 9
+  %bshift = getelementptr inbounds i8, ptr %pf, i64 22
   %2 = load i8, ptr %bshift, align 2
   %cmp.i = icmp ugt i8 %0, %1
   %cmp1.i = icmp ugt i8 %1, %2
@@ -337,22 +337,22 @@ qemu_pixman_get_type.exit:                        ; preds = %if.then.i, %if.else
   %conv3 = zext i8 %3 to i32
   %shl = shl nuw i32 %conv3, 24
   %or = or disjoint i32 %shl, %type.0.i
-  %abits = getelementptr inbounds %struct.PixelFormat, ptr %pf, i64 0, i32 18
+  %abits = getelementptr inbounds i8, ptr %pf, i64 31
   %4 = load i8, ptr %abits, align 1
   %conv5 = zext i8 %4 to i32
   %shl6 = shl nuw nsw i32 %conv5, 12
   %or7 = or i32 %or, %shl6
-  %rbits = getelementptr inbounds %struct.PixelFormat, ptr %pf, i64 0, i32 15
+  %rbits = getelementptr inbounds i8, ptr %pf, i64 28
   %5 = load i8, ptr %rbits, align 4
   %conv8 = zext i8 %5 to i32
   %shl9 = shl nuw nsw i32 %conv8, 8
   %or10 = or i32 %or7, %shl9
-  %gbits = getelementptr inbounds %struct.PixelFormat, ptr %pf, i64 0, i32 16
+  %gbits = getelementptr inbounds i8, ptr %pf, i64 29
   %6 = load i8, ptr %gbits, align 1
   %conv11 = zext i8 %6 to i32
   %shl12 = shl nuw nsw i32 %conv11, 4
   %or13 = or i32 %or10, %shl12
-  %bbits = getelementptr inbounds %struct.PixelFormat, ptr %pf, i64 0, i32 17
+  %bbits = getelementptr inbounds i8, ptr %pf, i64 30
   %7 = load i8, ptr %bbits, align 2
   %conv14 = zext i8 %7 to i32
   %or15 = or i32 %or13, %conv14

@@ -26,7 +26,7 @@ entry:
   %ref.tmp = alloca %"class.arrow::util::ArrowLog", align 8
   call void @_ZN5arrow4util8ArrowLogC1EPKciNS0_13ArrowLogLevelE(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp, ptr noundef nonnull @.str, i32 noundef 28, i32 noundef 3)
   %vtable.i = load ptr, ptr %ref.tmp, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i1 = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %call.i.noexc unwind label %lpad
@@ -36,7 +36,7 @@ call.i.noexc:                                     ; preds = %entry
 
 if.then.i:                                        ; preds = %call.i.noexc
   %vtable2.i = load ptr, ptr %ref.tmp, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 3
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 24
   %1 = load ptr, ptr %vfn3.i, align 8
   %call4.i2 = invoke noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %call4.i.noexc unwind label %lpad
@@ -123,7 +123,7 @@ invoke.cont7:                                     ; preds = %if.then5.i, %if.end
 
 .noexc8:                                          ; preds = %invoke.cont7
   %vtable.i.i = load ptr, ptr %ref.tmp.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i, align 8
   %call.i1.i = invoke noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %call.i.noexc.i unwind label %lpad.i7
@@ -133,7 +133,7 @@ call.i.noexc.i:                                   ; preds = %.noexc8
 
 if.then.i.i:                                      ; preds = %call.i.noexc.i
   %vtable2.i.i = load ptr, ptr %ref.tmp.i, align 8
-  %vfn3.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i, i64 3
+  %vfn3.i.i = getelementptr inbounds i8, ptr %vtable2.i.i, i64 24
   %2 = load ptr, ptr %vfn3.i.i, align 8
   %call4.i2.i = invoke noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i)
           to label %call4.i.noexc.i unwind label %lpad.i7

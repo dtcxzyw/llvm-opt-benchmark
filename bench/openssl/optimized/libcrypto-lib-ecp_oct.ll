@@ -3,10 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-ecp_oct.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ec_group_st = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, i64, ptr, [6 x i32], ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, %union.anon, ptr, ptr }
-%union.anon = type { ptr }
-%struct.ec_method_st = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [31 x i8] c"../openssl/crypto/ec/ecp_oct.c\00", align 1
 @__func__.ossl_ec_GFp_simple_set_compressed_coordinates = private unnamed_addr constant [46 x i8] c"ossl_ec_GFp_simple_set_compressed_coordinates\00", align 1
 @__func__.ossl_ec_GFp_simple_point2oct = private unnamed_addr constant [29 x i8] c"ossl_ec_GFp_simple_point2oct\00", align 1
@@ -19,7 +15,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end3
 
 if.then:                                          ; preds = %entry
-  %libctx = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 21
+  %libctx = getelementptr inbounds i8, ptr %group, i64 168
   %0 = load ptr, ptr %libctx, align 8
   %call = tail call ptr @BN_CTX_new_ex(ptr noundef %0) #3
   %cmp1 = icmp eq ptr %call, null
@@ -39,7 +35,7 @@ if.end3:                                          ; preds = %if.then, %entry
   br i1 %cmp9, label %err164, label %if.end12
 
 if.end12:                                         ; preds = %if.end3
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %field = getelementptr inbounds i8, ptr %group, i64 64
   %1 = load ptr, ptr %field, align 8
   %call13 = tail call i32 @BN_nnmod(ptr noundef %call7, ptr noundef %x_, ptr noundef %1, ptr noundef nonnull %ctx.addr.0) #3
   %tobool.not = icmp eq i32 %call13, 0
@@ -47,13 +43,13 @@ if.end12:                                         ; preds = %if.end3
 
 if.end15:                                         ; preds = %if.end12
   %2 = load ptr, ptr %group, align 8
-  %field_decode = getelementptr inbounds %struct.ec_method_st, ptr %2, i64 0, i32 37
+  %field_decode = getelementptr inbounds i8, ptr %2, i64 288
   %3 = load ptr, ptr %field_decode, align 8
   %cmp16 = icmp eq ptr %3, null
   br i1 %cmp16, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %if.end15
-  %field_sqr = getelementptr inbounds %struct.ec_method_st, ptr %2, i64 0, i32 33
+  %field_sqr = getelementptr inbounds i8, ptr %2, i64 256
   %4 = load ptr, ptr %field_sqr, align 8
   %call20 = tail call i32 %4(ptr noundef nonnull %group, ptr noundef %call6, ptr noundef %x_, ptr noundef nonnull %ctx.addr.0) #3
   %tobool21.not = icmp eq i32 %call20, 0
@@ -61,7 +57,7 @@ if.then18:                                        ; preds = %if.end15
 
 if.end23:                                         ; preds = %if.then18
   %5 = load ptr, ptr %group, align 8
-  %field_mul = getelementptr inbounds %struct.ec_method_st, ptr %5, i64 0, i32 32
+  %field_mul = getelementptr inbounds i8, ptr %5, i64 248
   %6 = load ptr, ptr %field_mul, align 8
   %call25 = tail call i32 %6(ptr noundef nonnull %group, ptr noundef %call5, ptr noundef %call6, ptr noundef %x_, ptr noundef nonnull %ctx.addr.0) #3
   %tobool26.not = icmp eq i32 %call25, 0
@@ -80,7 +76,7 @@ if.end33:                                         ; preds = %if.else
   br i1 %tobool36.not, label %err164, label %if.end39
 
 if.end39:                                         ; preds = %if.end33, %if.end23
-  %a_is_minus3 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 14
+  %a_is_minus3 = getelementptr inbounds i8, ptr %group, i64 112
   %9 = load i32, ptr %a_is_minus3, align 8
   %tobool40.not = icmp eq i32 %9, 0
   br i1 %tobool40.not, label %if.else57, label %if.then41
@@ -105,13 +101,13 @@ if.end51:                                         ; preds = %if.end46
 
 if.else57:                                        ; preds = %if.end39
   %13 = load ptr, ptr %group, align 8
-  %field_decode59 = getelementptr inbounds %struct.ec_method_st, ptr %13, i64 0, i32 37
+  %field_decode59 = getelementptr inbounds i8, ptr %13, i64 288
   %14 = load ptr, ptr %field_decode59, align 8
   %tobool60.not = icmp eq ptr %14, null
   br i1 %tobool60.not, label %if.else73, label %if.then61
 
 if.then61:                                        ; preds = %if.else57
-  %a = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 12
+  %a = getelementptr inbounds i8, ptr %group, i64 96
   %15 = load ptr, ptr %a, align 8
   %call64 = tail call i32 %14(ptr noundef nonnull %group, ptr noundef %call6, ptr noundef %15, ptr noundef nonnull %ctx.addr.0) #3
   %tobool65.not = icmp eq i32 %call64, 0
@@ -124,9 +120,9 @@ if.end67:                                         ; preds = %if.then61
   br i1 %tobool70.not, label %err164, label %if.end81
 
 if.else73:                                        ; preds = %if.else57
-  %field_mul75 = getelementptr inbounds %struct.ec_method_st, ptr %13, i64 0, i32 32
+  %field_mul75 = getelementptr inbounds i8, ptr %13, i64 248
   %17 = load ptr, ptr %field_mul75, align 8
-  %a76 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 12
+  %a76 = getelementptr inbounds i8, ptr %group, i64 96
   %18 = load ptr, ptr %a76, align 8
   %call77 = tail call i32 %17(ptr noundef nonnull %group, ptr noundef %call6, ptr noundef %18, ptr noundef %call7, ptr noundef nonnull %ctx.addr.0) #3
   %tobool78.not = icmp eq i32 %call77, 0
@@ -140,10 +136,10 @@ if.end81:                                         ; preds = %if.else73, %if.end6
 
 if.end87:                                         ; preds = %if.end81, %if.end51
   %20 = load ptr, ptr %group, align 8
-  %field_decode89 = getelementptr inbounds %struct.ec_method_st, ptr %20, i64 0, i32 37
+  %field_decode89 = getelementptr inbounds i8, ptr %20, i64 288
   %21 = load ptr, ptr %field_decode89, align 8
   %tobool90.not = icmp eq ptr %21, null
-  %b104 = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 13
+  %b104 = getelementptr inbounds i8, ptr %group, i64 104
   %22 = load ptr, ptr %b104, align 8
   br i1 %tobool90.not, label %if.else103, label %if.then91
 
@@ -342,7 +338,7 @@ if.end9:                                          ; preds = %if.then6
   br label %return
 
 if.end11:                                         ; preds = %if.end
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %field = getelementptr inbounds i8, ptr %group, i64 64
   %0 = load ptr, ptr %field, align 8
   %call12 = tail call i32 @BN_num_bits(ptr noundef %0) #3
   %add = add nsw i32 %call12, 7
@@ -371,7 +367,7 @@ if.end23:                                         ; preds = %if.then19
   br i1 %cmp24, label %if.then26, label %if.end32
 
 if.then26:                                        ; preds = %if.end23
-  %libctx = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 21
+  %libctx = getelementptr inbounds i8, ptr %group, i64 168
   %1 = load ptr, ptr %libctx, align 8
   %call27 = tail call ptr @BN_CTX_new_ex(ptr noundef %1) #3
   %cmp28 = icmp eq ptr %call27, null
@@ -576,7 +572,7 @@ if.end27:                                         ; preds = %if.then23
   br label %return
 
 if.end28:                                         ; preds = %if.end20
-  %field = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 10
+  %field = getelementptr inbounds i8, ptr %group, i64 64
   %3 = load ptr, ptr %field, align 8
   %call29 = tail call i32 @BN_num_bits(ptr noundef %3) #3
   %add = add nsw i32 %call29, 7
@@ -601,7 +597,7 @@ if.end38:                                         ; preds = %if.end28
   br i1 %cmp39, label %if.then41, label %if.end47
 
 if.then41:                                        ; preds = %if.end38
-  %libctx = getelementptr inbounds %struct.ec_group_st, ptr %group, i64 0, i32 21
+  %libctx = getelementptr inbounds i8, ptr %group, i64 168
   %4 = load ptr, ptr %libctx, align 8
   %call42 = tail call ptr @BN_CTX_new_ex(ptr noundef %4) #3
   %cmp43 = icmp eq ptr %call42, null

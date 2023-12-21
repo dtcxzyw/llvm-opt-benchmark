@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.QIOChannelBlock = type { %struct.QIOChannel, ptr, i64 }
-%struct.QIOChannel = type { %struct.Object, i32, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.QIOChannelClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.QEMUIOVector = type { ptr, i32, %union.anon.0 }
 %union.anon.0 = type { %struct.anon }
 %struct.anon = type { i32, %struct.iovec }
@@ -45,7 +40,7 @@ entry:
   %call = tail call ptr @object_new(ptr noundef nonnull @.str) #4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BLOCK) #4
   tail call void @bdrv_ref(ptr noundef %bs) #4
-  %bs2 = getelementptr inbounds %struct.QIOChannelBlock, ptr %call.i, i64 0, i32 1
+  %bs2 = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr %bs, ptr %bs2, align 8
   ret ptr %call.i
 }
@@ -78,7 +73,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @qio_channel_block_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BLOCK) #4
-  %bs = getelementptr inbounds %struct.QIOChannelBlock, ptr %call.i, i64 0, i32 1
+  %bs = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %bs, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -96,17 +91,17 @@ do.end:                                           ; preds = %entry, %if.then
 define internal void @qio_channel_block_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_CLASS) #4
-  %io_writev = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 1
+  %io_writev = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr @qio_channel_block_writev, ptr %io_writev, align 8
-  %io_readv = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 2
+  %io_readv = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @qio_channel_block_readv, ptr %io_readv, align 8
-  %io_set_blocking = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 5
+  %io_set_blocking = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @qio_channel_block_set_blocking, ptr %io_set_blocking, align 8
-  %io_seek = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 9
+  %io_seek = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @qio_channel_block_seek, ptr %io_seek, align 8
-  %io_close = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 3
+  %io_close = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @qio_channel_block_close, ptr %io_close, align 8
-  %io_set_aio_fd_handler = getelementptr inbounds %struct.QIOChannelClass, ptr %call.i, i64 0, i32 10
+  %io_set_aio_fd_handler = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr @qio_channel_block_set_aio_fd_handler, ptr %io_set_aio_fd_handler, align 8
   ret void
 }
@@ -120,9 +115,9 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BLOCK) #4
   %conv = trunc i64 %niov to i32
   call void @qemu_iovec_init_external(ptr noundef nonnull %qiov, ptr noundef %iov, i32 noundef %conv) #4
-  %bs = getelementptr inbounds %struct.QIOChannelBlock, ptr %call.i, i64 0, i32 1
+  %bs = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %bs, align 8
-  %offset = getelementptr inbounds %struct.QIOChannelBlock, ptr %call.i, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %call.i, i64 104
   %1 = load i64, ptr %offset, align 8
   %call1 = call i32 @bdrv_writev_vmstate(ptr noundef %0, ptr noundef nonnull %qiov, i64 noundef %1) #4
   %cmp = icmp slt i32 %call1, 0
@@ -134,7 +129,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %qiov, i64 32
   %2 = load i64, ptr %size, align 8
   %3 = load i64, ptr %offset, align 8
   %add = add i64 %3, %2
@@ -153,9 +148,9 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BLOCK) #4
   %conv = trunc i64 %niov to i32
   call void @qemu_iovec_init_external(ptr noundef nonnull %qiov, ptr noundef %iov, i32 noundef %conv) #4
-  %bs = getelementptr inbounds %struct.QIOChannelBlock, ptr %call.i, i64 0, i32 1
+  %bs = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %bs, align 8
-  %offset = getelementptr inbounds %struct.QIOChannelBlock, ptr %call.i, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %call.i, i64 104
   %1 = load i64, ptr %offset, align 8
   %call1 = call i32 @bdrv_readv_vmstate(ptr noundef %0, ptr noundef nonnull %qiov, i64 noundef %1) #4
   %cmp = icmp slt i32 %call1, 0
@@ -167,7 +162,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %size = getelementptr inbounds %struct.QEMUIOVector, ptr %qiov, i64 0, i32 2, i32 0, i32 1, i32 1
+  %size = getelementptr inbounds i8, ptr %qiov, i64 32
   %2 = load i64, ptr %size, align 8
   %3 = load i64, ptr %offset, align 8
   %add = add i64 %3, %2
@@ -204,12 +199,12 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %offset1 = getelementptr inbounds %struct.QIOChannelBlock, ptr %call.i, i64 0, i32 2
+  %offset1 = getelementptr inbounds i8, ptr %call.i, i64 104
   store i64 %offset, ptr %offset1, align 8
   br label %return
 
 sw.bb2:                                           ; preds = %entry
-  %offset3 = getelementptr inbounds %struct.QIOChannelBlock, ptr %call.i, i64 0, i32 2
+  %offset3 = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load i64, ptr %offset3, align 8
   %add = add i64 %0, 1
   store i64 %add, ptr %offset3, align 8
@@ -232,7 +227,7 @@ return:                                           ; preds = %sw.bb, %sw.bb2, %sw
 define internal i32 @qio_channel_block_close(ptr noundef %ioc, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %ioc, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 28, ptr noundef nonnull @__func__.QIO_CHANNEL_BLOCK) #4
-  %bs = getelementptr inbounds %struct.QIOChannelBlock, ptr %call.i, i64 0, i32 1
+  %bs = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load ptr, ptr %bs, align 8
   %call1 = tail call i32 @bdrv_flush(ptr noundef %0) #4
   %cmp = icmp slt i32 %call1, 0
@@ -254,7 +249,7 @@ if.then3:                                         ; preds = %do.body
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then3
-  %offset = getelementptr inbounds %struct.QIOChannelBlock, ptr %call.i, i64 0, i32 2
+  %offset = getelementptr inbounds i8, ptr %call.i, i64 104
   store i64 0, ptr %offset, align 8
   br label %return
 

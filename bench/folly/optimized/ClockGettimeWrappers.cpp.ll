@@ -30,7 +30,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load i64, ptr %ts, align 8, !tbaa !12
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %ts, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
   %2 = load i64, ptr %tv_nsec, align 8, !tbaa !12
   %mul.i.i.i.i = mul nsw i64 %1, 1000000000
   %add.i = add nsw i64 %mul.i.i.i.i, %2

@@ -8,10 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.anon.0 = type { ptr }
-%struct.MigrationThread = type { ptr, i32, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.MigrationThreadInfo = type { ptr, i64 }
-%struct.MigrationThreadInfoList = type { ptr, ptr }
 
 @migration_threads_lock = dso_local global %struct.QemuMutex zeroinitializer, align 8
 @migration_threads = internal global %struct.anon.0 zeroinitializer, align 8
@@ -33,24 +29,24 @@ define dso_local ptr @migration_threads_add(ptr noundef %name, i32 noundef %thre
 do.body.us:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #6
   store ptr %name, ptr %call, align 8
-  %thread_id2 = getelementptr inbounds %struct.MigrationThread, ptr %call, i64 0, i32 1
+  %thread_id2 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %thread_id, ptr %thread_id2, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @migration_threads_lock, ptr noundef nonnull @.str, i32 noundef 122) #5
-  %node = getelementptr inbounds %struct.MigrationThread, ptr %call, i64 0, i32 2
+  %node = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr @migration_threads, align 8
   store ptr %2, ptr %node, align 8
   %cmp.not.us = icmp eq ptr %2, null
   br i1 %cmp.not.us, label %qemu_lockable_auto_unlock.exit.us, label %if.then.us
 
 if.then.us:                                       ; preds = %do.body.us
-  %le_prev.us = getelementptr inbounds %struct.MigrationThread, ptr %2, i64 0, i32 2, i32 1
+  %le_prev.us = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %node, ptr %le_prev.us, align 8
   br label %qemu_lockable_auto_unlock.exit.us
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %if.then.us, %do.body.us
-  %le_prev8 = getelementptr inbounds %struct.MigrationThread, ptr %call, i64 0, i32 2, i32 1
+  %le_prev8 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %call, ptr @migration_threads, align 8
   store ptr @migration_threads, ptr %le_prev8, align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @migration_threads_lock, ptr noundef nonnull @.str, i32 noundef 132) #5
@@ -70,15 +66,15 @@ entry:
   br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit, label %do.body
 
 do.body:                                          ; preds = %entry
-  %node = getelementptr inbounds %struct.MigrationThread, ptr %thread, i64 0, i32 2
+  %node = getelementptr inbounds i8, ptr %thread, i64 16
   %2 = load ptr, ptr %node, align 8
   %cmp.not = icmp eq ptr %2, null
-  %le_prev11.phi.trans.insert = getelementptr inbounds %struct.MigrationThread, ptr %thread, i64 0, i32 2, i32 1
+  %le_prev11.phi.trans.insert = getelementptr inbounds i8, ptr %thread, i64 24
   %.pre9 = load ptr, ptr %le_prev11.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %do.body
-  %le_prev7 = getelementptr inbounds %struct.MigrationThread, ptr %2, i64 0, i32 2, i32 1
+  %le_prev7 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %.pre9, ptr %le_prev7, align 8
   %.pre = load ptr, ptr %node, align 8
   br label %if.end
@@ -116,17 +112,17 @@ for.body:                                         ; preds = %entry, %for.body
   %2 = load ptr, ptr %thread.011, align 8
   %call3 = tail call noalias ptr @g_strdup(ptr noundef %2) #5
   store ptr %call3, ptr %call2, align 8
-  %thread_id = getelementptr inbounds %struct.MigrationThread, ptr %thread.011, i64 0, i32 1
+  %thread_id = getelementptr inbounds i8, ptr %thread.011, i64 8
   %3 = load i32, ptr %thread_id, align 8
   %conv = sext i32 %3 to i64
-  %thread_id5 = getelementptr inbounds %struct.MigrationThreadInfo, ptr %call2, i64 0, i32 1
+  %thread_id5 = getelementptr inbounds i8, ptr %call2, i64 8
   store i64 %conv, ptr %thread_id5, align 8
   %call6 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #7
   store ptr %call6, ptr %tail.010, align 8
-  %value = getelementptr inbounds %struct.MigrationThreadInfoList, ptr %call6, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %call2, ptr %value, align 8
   %4 = load ptr, ptr %tail.010, align 8
-  %node = getelementptr inbounds %struct.MigrationThread, ptr %thread.011, i64 0, i32 2
+  %node = getelementptr inbounds i8, ptr %thread.011, i64 16
   %thread.0 = load ptr, ptr %node, align 8
   %tobool.not = icmp eq ptr %thread.0, null
   br i1 %tobool.not, label %glib_autoptr_cleanup_QemuLockable.exit.loopexit, label %for.body, !llvm.loop !5

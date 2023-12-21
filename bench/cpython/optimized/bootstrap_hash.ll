@@ -1100,7 +1100,7 @@ lor.lhs.false.i:                                  ; preds = %if.then1.i
   br i1 %cmp4.not.i, label %lor.lhs.false5.i, label %if.then7.i
 
 lor.lhs.false5.i:                                 ; preds = %lor.lhs.false.i
-  %st_ino.i = getelementptr inbounds %struct.stat, ptr %st.i, i64 0, i32 1
+  %st_ino.i = getelementptr inbounds i8, ptr %st.i, i64 8
   %11 = load i64, ptr %st_ino.i, align 8
   %12 = load i64, ptr getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 13, i32 0, i32 2), align 8
   %cmp6.not.i = icmp eq i64 %11, %12
@@ -1252,13 +1252,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i1 true, ptr @_Py_HashSecret_Initialized, align 4
-  %use_hash_seed = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 5
+  %use_hash_seed = getelementptr inbounds i8, ptr %config, i64 20
   %0 = load i32, ptr %use_hash_seed, align 4
   %tobool1.not = icmp eq i32 %0, 0
   br i1 %tobool1.not, label %if.else6, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %hash_seed = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 6
+  %hash_seed = getelementptr inbounds i8, ptr %config, i64 24
   %1 = load i64, ptr %hash_seed, align 8
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %if.then3, label %if.else
@@ -1291,11 +1291,11 @@ if.else6:                                         ; preds = %if.end
 
 if.then9:                                         ; preds = %if.else6
   store i32 1, ptr %agg.result, align 8
-  %func = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr @__func__._Py_HashRandomization_Init, ptr %func, align 8
-  %err_msg = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i64 0, i32 2
+  %err_msg = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr @.str, ptr %err_msg, align 8
-  %exitcode = getelementptr inbounds %struct.PyStatus, ptr %agg.result, i64 0, i32 3
+  %exitcode = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %exitcode, align 8
   br label %return
 

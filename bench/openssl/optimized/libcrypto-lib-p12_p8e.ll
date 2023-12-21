@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-p12_p8e.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_sig_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/crypto/pkcs12/p12_p8e.c\00", align 1
 @__func__.PKCS8_encrypt_ex = private unnamed_addr constant [17 x i8] c"PKCS8_encrypt_ex\00", align 1
 @__func__.PKCS8_set0_pbe_ex = private unnamed_addr constant [18 x i8] c"PKCS8_set0_pbe_ex\00", align 1
@@ -123,7 +121,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   store ptr %pbe, ptr %call2, align 8
-  %digest = getelementptr inbounds %struct.X509_sig_st, ptr %call2, i64 0, i32 1
+  %digest = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %call1, ptr %digest, align 8
   br label %return
 

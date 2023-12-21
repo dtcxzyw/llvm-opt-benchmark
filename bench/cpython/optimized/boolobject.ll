@@ -996,7 +996,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 10), align 8
-  %nb_invert = getelementptr inbounds %struct.PyNumberMethods, ptr %1, i64 0, i32 10
+  %nb_invert = getelementptr inbounds i8, ptr %1, i64 80
   %2 = load ptr, ptr %nb_invert, align 8
   %call1 = tail call ptr %2(ptr noundef %v) #4
   br label %return
@@ -1022,7 +1022,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 10), align 8
-  %nb_and = getelementptr inbounds %struct.PyNumberMethods, ptr %2, i64 0, i32 13
+  %nb_and = getelementptr inbounds i8, ptr %2, i64 104
   %3 = load ptr, ptr %nb_and, align 8
   %call3 = tail call ptr %3(ptr noundef nonnull %a, ptr noundef %b) #4
   br label %return
@@ -1055,7 +1055,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 10), align 8
-  %nb_xor = getelementptr inbounds %struct.PyNumberMethods, ptr %2, i64 0, i32 14
+  %nb_xor = getelementptr inbounds i8, ptr %2, i64 112
   %3 = load ptr, ptr %nb_xor, align 8
   %call3 = tail call ptr %3(ptr noundef nonnull %a, ptr noundef %b) #4
   br label %return
@@ -1088,7 +1088,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
   %2 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyLong_Type, i64 0, i32 10), align 8
-  %nb_or = getelementptr inbounds %struct.PyNumberMethods, ptr %2, i64 0, i32 15
+  %nb_or = getelementptr inbounds i8, ptr %2, i64 120
   %3 = load ptr, ptr %nb_or, align 8
   %call3 = tail call ptr %3(ptr noundef nonnull %a, ptr noundef %b) #4
   br label %return

@@ -12,7 +12,7 @@ entry:
   call void @_ZN7Imf_3_28RationalC1Ed(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp, double noundef %fps)
   %0 = load i32, ptr %ref.tmp, align 8
   %conv.i.i = sitofp i32 %0 to double
-  %d.i.i = getelementptr inbounds %"class.Imf_3_2::Rational", ptr %ref.tmp, i64 0, i32 1
+  %d.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
   %1 = load i32, ptr %d.i.i, align 4
   %conv2.i.i = uitofp i32 %1 to double
   %div.i.i = fdiv double %conv.i.i, %conv2.i.i
@@ -53,7 +53,7 @@ define i64 @_ZN7Imf_3_213guessExactFpsERKNS_8RationalE(ptr nocapture noundef non
 entry:
   %0 = load i32, ptr %fps, align 4
   %conv.i = sitofp i32 %0 to double
-  %d.i = getelementptr inbounds %"class.Imf_3_2::Rational", ptr %fps, i64 0, i32 1
+  %d.i = getelementptr inbounds i8, ptr %fps, i64 4
   %1 = load i32, ptr %d.i, align 4
   %conv2.i = uitofp i32 %1 to double
   %div.i = fdiv double %conv.i, %conv2.i

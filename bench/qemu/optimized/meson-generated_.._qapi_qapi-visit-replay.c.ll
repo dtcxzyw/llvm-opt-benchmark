@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.ReplayInfo = type { i32, ptr, i64 }
 
 @ReplayMode_lookup = external constant %struct.QEnumLookup, align 8
 @.str = private unnamed_addr constant [5 x i8] c"mode\00", align 1
@@ -34,7 +33,7 @@ define dso_local zeroext i1 @visit_type_ReplayInfo_members(ptr noundef %v, ptr n
 entry:
   %value.i = alloca i32, align 4
   %has_filename = alloca i8, align 1
-  %filename = getelementptr inbounds %struct.ReplayInfo, ptr %obj, i64 0, i32 1
+  %filename = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %filename, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -57,7 +56,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %call5, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %icount = getelementptr inbounds %struct.ReplayInfo, ptr %obj, i64 0, i32 2
+  %icount = getelementptr inbounds i8, ptr %obj, i64 16
   %call9 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %icount, ptr noundef %errp) #4
   br label %return
 
@@ -99,7 +98,7 @@ if.else:                                          ; preds = %if.then1
 
 if.end5:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %has_filename.i)
-  %filename.i = getelementptr inbounds %struct.ReplayInfo, ptr %0, i64 0, i32 1
+  %filename.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %filename.i, align 8
   %tobool.i = icmp ne ptr %1, null
   %frombool.i = zext i1 %tobool.i to i8
@@ -126,7 +125,7 @@ visit_type_ReplayInfo_members.exit.thread:        ; preds = %if.end5, %if.then3.
   br label %out_obj.thread
 
 visit_type_ReplayInfo_members.exit:               ; preds = %if.end.i, %if.then3.i
-  %icount.i = getelementptr inbounds %struct.ReplayInfo, ptr %0, i64 0, i32 2
+  %icount.i = getelementptr inbounds i8, ptr %0, i64 16
   %call9.i = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %icount.i, ptr noundef %errp) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %has_filename.i)
   br i1 %call9.i, label %out_obj, label %out_obj.thread

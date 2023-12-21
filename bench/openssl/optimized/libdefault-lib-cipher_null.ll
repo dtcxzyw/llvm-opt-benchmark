@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.prov_cipher_null_ctx_st = type { i32, i64, ptr }
 
 @ossl_null_functions = local_unnamed_addr constant [15 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @null_newctx }, %struct.ossl_dispatch_st { i32 7, ptr @null_freectx }, %struct.ossl_dispatch_st { i32 8, ptr @null_newctx }, %struct.ossl_dispatch_st { i32 2, ptr @null_einit }, %struct.ossl_dispatch_st { i32 3, ptr @null_dinit }, %struct.ossl_dispatch_st { i32 4, ptr @null_cipher }, %struct.ossl_dispatch_st { i32 5, ptr @null_final }, %struct.ossl_dispatch_st { i32 6, ptr @null_cipher }, %struct.ossl_dispatch_st { i32 9, ptr @null_get_params }, %struct.ossl_dispatch_st { i32 12, ptr @ossl_cipher_generic_gettable_params }, %struct.ossl_dispatch_st { i32 10, ptr @null_get_ctx_params }, %struct.ossl_dispatch_st { i32 13, ptr @null_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @null_set_ctx_params }, %struct.ossl_dispatch_st { i32 14, ptr @null_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [59 x i8] c"../openssl/providers/implementations/ciphers/cipher_null.c\00", align 1
@@ -79,7 +78,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %land.lhs.true, label %if.end10
 
 land.lhs.true:                                    ; preds = %if.end
-  %tlsmacsize = getelementptr inbounds %struct.prov_cipher_null_ctx_st, ptr %vctx, i64 0, i32 1
+  %tlsmacsize = getelementptr inbounds i8, ptr %vctx, i64 8
   %1 = load i64, ptr %tlsmacsize, align 8
   %cmp.not = icmp eq i64 %1, 0
   br i1 %cmp.not, label %if.end10, label %if.then2
@@ -92,7 +91,7 @@ if.end6:                                          ; preds = %if.then2
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 %inl
   %idx.neg = sub i64 0, %1
   %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %tlsmac = getelementptr inbounds %struct.prov_cipher_null_ctx_st, ptr %vctx, i64 0, i32 2
+  %tlsmac = getelementptr inbounds i8, ptr %vctx, i64 16
   store ptr %add.ptr8, ptr %tlsmac, align 8
   %sub = sub i64 %inl, %1
   br label %if.end10
@@ -172,9 +171,9 @@ if.end8:                                          ; preds = %land.lhs.true4, %if
   br i1 %cmp10.not, label %return, label %land.lhs.true11
 
 land.lhs.true11:                                  ; preds = %if.end8
-  %tlsmac = getelementptr inbounds %struct.prov_cipher_null_ctx_st, ptr %vctx, i64 0, i32 2
+  %tlsmac = getelementptr inbounds i8, ptr %vctx, i64 16
   %0 = load ptr, ptr %tlsmac, align 8
-  %tlsmacsize = getelementptr inbounds %struct.prov_cipher_null_ctx_st, ptr %vctx, i64 0, i32 1
+  %tlsmacsize = getelementptr inbounds i8, ptr %vctx, i64 8
   %1 = load i64, ptr %tlsmacsize, align 8
   %call12 = tail call i32 @OSSL_PARAM_set_octet_ptr(ptr noundef nonnull %call9, ptr noundef %0, i64 noundef %1) #4
   %tobool13.not = icmp eq i32 %call12, 0
@@ -206,7 +205,7 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tlsmacsize = getelementptr inbounds %struct.prov_cipher_null_ctx_st, ptr %vctx, i64 0, i32 1
+  %tlsmacsize = getelementptr inbounds i8, ptr %vctx, i64 8
   %call1 = tail call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %call, ptr noundef nonnull %tlsmacsize) #4
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then2, label %return

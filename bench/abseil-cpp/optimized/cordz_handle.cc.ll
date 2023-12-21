@@ -3,13 +3,6 @@ source_filename = "bench/abseil-cpp/original/cordz_handle.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.absl::cord_internal::CordzHandle" = type { ptr, i8, ptr, ptr }
-%"struct.absl::cord_internal::(anonymous namespace)::Queue" = type { %"class.absl::Mutex", %"struct.std::atomic.0" }
-%"class.absl::Mutex" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { ptr }
 %"class.std::vector.2" = type { %"struct.std::_Vector_base.3" }
 %"struct.std::_Vector_base.3" = type { %"struct.std::_Vector_base<const absl::cord_internal::CordzHandle *, std::allocator<const absl::cord_internal::CordzHandle *>>::_Vector_impl" }
 %"struct.std::_Vector_base<const absl::cord_internal::CordzHandle *, std::allocator<const absl::cord_internal::CordzHandle *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const absl::cord_internal::CordzHandle *, std::allocator<const absl::cord_internal::CordzHandle *>>::_Vector_impl_data" }
@@ -33,9 +26,9 @@ define dso_local void @_ZN4absl13cord_internal11CordzHandleC2Eb(ptr noundef nonn
 entry:
   %frombool = zext i1 %is_snapshot to i8
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal11CordzHandleE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %is_snapshot_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this, i64 0, i32 1
+  %is_snapshot_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 %frombool, ptr %is_snapshot_, align 8
-  %dq_prev_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this, i64 0, i32 2
+  %dq_prev_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dq_prev_, i8 0, i64 16, i1 false)
   %0 = load atomic i8, ptr @_ZGVZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -68,7 +61,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit: ; preds = %entry, %in
 
 if.then:                                          ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %dq_tail4 = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %3, i64 0, i32 1
+  %dq_tail4 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %dq_tail4 acquire, align 8
   %cmp.not = icmp eq i64 %4, 0
   br i1 %cmp.not, label %if.end, label %if.then6
@@ -76,7 +69,7 @@ if.then:                                          ; preds = %_ZN4absl13cord_inte
 if.then6:                                         ; preds = %if.then
   %atomic-temp.i.0.i = inttoptr i64 %4 to ptr
   store ptr %atomic-temp.i.0.i, ptr %dq_prev_, align 8
-  %dq_next_8 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %atomic-temp.i.0.i, i64 0, i32 3
+  %dq_next_8 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 24
   store ptr %this, ptr %dq_next_8, align 8
   br label %if.end
 
@@ -128,7 +121,7 @@ lpad.i:                                           ; preds = %init.i
 
 invoke.cont:                                      ; preds = %invoke.cont2.i, %init.check.i, %entry
   %3 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
-  %is_snapshot_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this, i64 0, i32 1
+  %is_snapshot_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i8, ptr %is_snapshot_, align 8
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
@@ -139,9 +132,9 @@ if.then:                                          ; preds = %invoke.cont
           to label %invoke.cont2 unwind label %terminate.lpad.loopexit.split-lp
 
 invoke.cont2:                                     ; preds = %if.then
-  %dq_next_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this, i64 0, i32 3
+  %dq_next_ = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %dq_next_, align 8
-  %dq_prev_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this, i64 0, i32 2
+  %dq_prev_ = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load ptr, ptr %dq_prev_, align 8
   %cmp = icmp eq ptr %7, null
   br i1 %cmp, label %while.cond.preheader, label %if.end
@@ -155,7 +148,7 @@ land.rhs:                                         ; preds = %while.cond.preheade
   %next.049 = phi ptr [ %10, %invoke.cont7 ], [ %6, %while.cond.preheader ]
   %to_delete.sroa.5.048 = phi ptr [ %to_delete.sroa.5.1, %invoke.cont7 ], [ null, %while.cond.preheader ]
   %to_delete.sroa.10.047 = phi ptr [ %to_delete.sroa.10.1, %invoke.cont7 ], [ null, %while.cond.preheader ]
-  %is_snapshot_5 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %next.049, i64 0, i32 1
+  %is_snapshot_5 = getelementptr inbounds i8, ptr %next.049, i64 8
   %8 = load i8, ptr %is_snapshot_5, align 8
   %9 = and i8 %8, 1
   %tobool6.not = icmp eq i8 %9, 0
@@ -226,14 +219,14 @@ invoke.cont7:                                     ; preds = %_ZNSt6vectorIPN4abs
   %to_delete.sroa.10.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %to_delete.sroa.10.047, %if.then.i ]
   %add.ptr.i.i.pn = phi ptr [ %add.ptr.i.i, %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %to_delete.sroa.5.048, %if.then.i ]
   %to_delete.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %to_delete.sroa.0.050, %if.then.i ]
-  %to_delete.sroa.5.1 = getelementptr inbounds ptr, ptr %add.ptr.i.i.pn, i64 1
-  %dq_next_8 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %next.049, i64 0, i32 3
+  %to_delete.sroa.5.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.pn, i64 8
+  %dq_next_8 = getelementptr inbounds i8, ptr %next.049, i64 24
   %10 = load ptr, ptr %dq_next_8, align 8
   %tobool4.not = icmp eq ptr %10, null
   br i1 %tobool4.not, label %if.else15, label %land.rhs, !llvm.loop !6
 
 if.end:                                           ; preds = %invoke.cont2
-  %dq_next_10 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %7, i64 0, i32 3
+  %dq_next_10 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %6, ptr %dq_next_10, align 8
   %tobool11.not = icmp eq ptr %6, null
   br i1 %tobool11.not, label %if.else15, label %if.then12
@@ -243,14 +236,14 @@ if.then12:                                        ; preds = %land.rhs, %if.end
   %next.135 = phi ptr [ %6, %if.end ], [ %next.049, %land.rhs ]
   %to_delete.sroa.5.234 = phi ptr [ null, %if.end ], [ %to_delete.sroa.5.048, %land.rhs ]
   %11 = load ptr, ptr %dq_prev_, align 8
-  %dq_prev_14 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %next.135, i64 0, i32 2
+  %dq_prev_14 = getelementptr inbounds i8, ptr %next.135, i64 16
   store ptr %11, ptr %dq_prev_14, align 8
   br label %if.end17
 
 if.else15:                                        ; preds = %invoke.cont7, %while.cond.preheader, %if.end
   %to_delete.sroa.0.228 = phi ptr [ null, %if.end ], [ null, %while.cond.preheader ], [ %to_delete.sroa.0.1, %invoke.cont7 ]
   %to_delete.sroa.5.226 = phi ptr [ null, %if.end ], [ null, %while.cond.preheader ], [ %to_delete.sroa.5.1, %invoke.cont7 ]
-  %dq_tail = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %3, i64 0, i32 1
+  %dq_tail = getelementptr inbounds i8, ptr %3, i64 8
   %12 = load ptr, ptr %dq_prev_, align 8
   %13 = ptrtoint ptr %12 to i64
   store atomic i64 %13, ptr %dq_tail release, align 8
@@ -281,13 +274,13 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 delete.notnull:                                   ; preds = %for.body
   %vtable = load ptr, ptr %16, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %17 = load ptr, ptr %vfn, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(32) %16) #11
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %delete.notnull
-  %incdec.ptr.i8 = getelementptr inbounds ptr, ptr %__begin3.sroa.0.053, i64 1
+  %incdec.ptr.i8 = getelementptr inbounds i8, ptr %__begin3.sroa.0.053, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i8, %to_delete.sroa.5.225
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -346,7 +339,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK4absl13cord_internal11CordzHandle12SafeToDeleteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %is_snapshot_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this, i64 0, i32 1
+  %is_snapshot_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %is_snapshot_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -380,7 +373,7 @@ lpad.i:                                           ; preds = %init.i
 
 _ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit: ; preds = %lor.rhs, %init.check.i, %invoke.cont2.i
   %5 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
-  %dq_tail.i = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %5, i64 0, i32 1
+  %dq_tail.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %dq_tail.i acquire, align 8
   %cmp.i = icmp eq i64 %6, 0
   br label %lor.end
@@ -428,7 +421,7 @@ lpad.i:                                           ; preds = %init.i
 
 _ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit: ; preds = %if.then, %init.check.i, %invoke.cont2.i
   %3 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
-  %is_snapshot_.i = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %handle, i64 0, i32 1
+  %is_snapshot_.i = getelementptr inbounds i8, ptr %handle, i64 8
   %4 = load i8, ptr %is_snapshot_.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i10 = icmp eq i8 %5, 0
@@ -461,23 +454,23 @@ lpad.i.i:                                         ; preds = %init.i.i
 
 _ZNK4absl13cord_internal11CordzHandle12SafeToDeleteEv.exit: ; preds = %lor.rhs.i, %init.check.i.i, %invoke.cont2.i.i
   %9 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
-  %dq_tail.i.i = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %9, i64 0, i32 1
+  %dq_tail.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i64, ptr %dq_tail.i.i acquire, align 8
   %cmp.i.i = icmp eq i64 %10, 0
   br i1 %cmp.i.i, label %delete.notnull, label %if.then2
 
 if.then2:                                         ; preds = %_ZNK4absl13cord_internal11CordzHandle12SafeToDeleteEv.exit
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %dq_tail3 = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %3, i64 0, i32 1
+  %dq_tail3 = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load atomic i64, ptr %dq_tail3 acquire, align 8
   %cmp.not.not = icmp eq i64 %11, 0
   br i1 %cmp.not.not, label %cleanup, label %if.then5
 
 if.then5:                                         ; preds = %if.then2
   %atomic-temp.i.0.i = inttoptr i64 %11 to ptr
-  %dq_prev_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %handle, i64 0, i32 2
+  %dq_prev_ = getelementptr inbounds i8, ptr %handle, i64 16
   store ptr %atomic-temp.i.0.i, ptr %dq_prev_, align 8
-  %dq_next_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %atomic-temp.i.0.i, i64 0, i32 3
+  %dq_next_ = getelementptr inbounds i8, ptr %atomic-temp.i.0.i, i64 24
   store ptr %handle, ptr %dq_next_, align 8
   %12 = ptrtoint ptr %handle to i64
   store atomic i64 %12, ptr %dq_tail3 release, align 8
@@ -499,7 +492,7 @@ _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %cleanup
 
 delete.notnull:                                   ; preds = %_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit, %_ZNK4absl13cord_internal11CordzHandle12SafeToDeleteEv.exit, %_ZN4absl9MutexLockD2Ev.exit
   %vtable = load ptr, ptr %handle, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %15 = load ptr, ptr %vfn, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(32) %handle) #11
   br label %if.end8
@@ -543,7 +536,7 @@ invoke.cont:                                      ; preds = %invoke.cont2.i, %in
           to label %invoke.cont1 unwind label %lpad
 
 invoke.cont1:                                     ; preds = %invoke.cont
-  %dq_tail2 = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %3, i64 0, i32 1
+  %dq_tail2 = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %dq_tail2 acquire, align 8
   %tobool.not13 = icmp eq i64 %4, 0
   br i1 %tobool.not13, label %for.end, label %for.body.lr.ph
@@ -551,8 +544,8 @@ invoke.cont1:                                     ; preds = %invoke.cont
 for.body.lr.ph:                                   ; preds = %invoke.cont1
   %atomic-temp.i.0.i = inttoptr i64 %4 to ptr
   %agg.result.promoted = load ptr, ptr %agg.result, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<const absl::cord_internal::CordzHandle *, std::allocator<const absl::cord_internal::CordzHandle *>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<const absl::cord_internal::CordzHandle *, std::allocator<const absl::cord_internal::CordzHandle *>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %.pre = load ptr, ptr %_M_finish.i, align 8
   br label %for.body
 
@@ -566,7 +559,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then.i:                                        ; preds = %for.body
   store ptr %storemerge15, ptr %5, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %for.inc
 
@@ -612,7 +605,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i
 
 _ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPKN4absl13cord_internal11CordzHandleESaIS4_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %cond.i10.i.i1214, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -630,7 +623,7 @@ _ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE17_M_realloc_insertIJR
 for.inc:                                          ; preds = %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %if.then.i
   %7 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
   %cond.i10.i.i11 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %cond.i10.i.i1214, %if.then.i ]
-  %dq_prev_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %storemerge15, i64 0, i32 2
+  %dq_prev_ = getelementptr inbounds i8, ptr %storemerge15, i64 16
   %8 = load ptr, ptr %dq_prev_, align 8
   %tobool.not = icmp eq ptr %8, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
@@ -693,7 +686,7 @@ _ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EED2Ev.exit: ; preds = %
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK4absl13cord_internal11CordzHandle32DiagnosticsHandleIsSafeToInspectEPKS1_(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef readonly %handle) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %is_snapshot_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this, i64 0, i32 1
+  %is_snapshot_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %is_snapshot_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -704,7 +697,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %is_snapshot_4 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %handle, i64 0, i32 1
+  %is_snapshot_4 = getelementptr inbounds i8, ptr %handle, i64 8
   %2 = load i8, ptr %is_snapshot_4, align 8
   %3 = and i8 %2, 1
   %tobool5.not = icmp eq i8 %3, 0
@@ -739,7 +732,7 @@ lpad.i:                                           ; preds = %init.i
 _ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv.exit: ; preds = %if.end7, %init.check.i, %invoke.cont2.i
   %7 = load ptr, ptr @_ZZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEvE12global_queue, align 8
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %dq_tail = getelementptr inbounds %"struct.absl::cord_internal::(anonymous namespace)::Queue", ptr %7, i64 0, i32 1
+  %dq_tail = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load atomic i64, ptr %dq_tail seq_cst, align 8
   %tobool9.not8 = icmp eq i64 %8, 0
   br i1 %tobool9.not8, label %cleanup, label %for.body.preheader
@@ -762,7 +755,7 @@ if.then11:                                        ; preds = %for.body
 if.end13:                                         ; preds = %for.body
   %cmp14 = icmp eq ptr %p.010, %this
   %spec.select = select i1 %cmp14, i8 1, i8 %snapshot_found.09
-  %dq_prev_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %p.010, i64 0, i32 2
+  %dq_prev_ = getelementptr inbounds i8, ptr %p.010, i64 16
   %11 = load ptr, ptr %dq_prev_, align 8
   %tobool9.not = icmp eq ptr %11, null
   br i1 %tobool9.not, label %cleanup, label %for.body, !llvm.loop !9
@@ -788,7 +781,7 @@ return:                                           ; preds = %cleanup, %if.end3, 
 define dso_local void @_ZN4absl13cord_internal11CordzHandle41DiagnosticsGetSafeToInspectDeletedHandlesEv(ptr noalias nocapture sret(%"class.std::vector.2") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %is_snapshot_.i = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this, i64 0, i32 1
+  %is_snapshot_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %is_snapshot_.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -831,21 +824,21 @@ invoke.cont2:                                     ; preds = %invoke.cont2.i, %in
           to label %for.cond.preheader unwind label %lpad
 
 for.cond.preheader:                               ; preds = %invoke.cont2
-  %storemerge.in14 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this, i64 0, i32 3
+  %storemerge.in14 = getelementptr inbounds i8, ptr %this, i64 24
   %storemerge15 = load ptr, ptr %storemerge.in14, align 8
   %cmp.not16 = icmp eq ptr %storemerge15, null
   br i1 %cmp.not16, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %agg.result.promoted = load ptr, ptr %agg.result, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<const absl::cord_internal::CordzHandle *, std::allocator<const absl::cord_internal::CordzHandle *>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<const absl::cord_internal::CordzHandle *, std::allocator<const absl::cord_internal::CordzHandle *>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %storemerge18 = phi ptr [ %storemerge15, %for.body.lr.ph ], [ %storemerge, %for.inc ]
   %cond.i10.i.i1317 = phi ptr [ %agg.result.promoted, %for.body.lr.ph ], [ %cond.i10.i.i12, %for.inc ]
-  %is_snapshot_.i2 = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %storemerge18, i64 0, i32 1
+  %is_snapshot_.i2 = getelementptr inbounds i8, ptr %storemerge18, i64 8
   %7 = load i8, ptr %is_snapshot_.i2, align 8
   %8 = and i8 %7, 1
   %tobool.i3.not = icmp eq i8 %8, 0
@@ -859,7 +852,7 @@ if.then8:                                         ; preds = %for.body
 
 if.then.i:                                        ; preds = %if.then8
   store ptr %storemerge18, ptr %9, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %9, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %for.inc
 
@@ -905,7 +898,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i
 
 _ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPKN4absl13cord_internal11CordzHandleESaIS4_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %cond.i10.i.i1317, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -944,7 +937,7 @@ terminate.lpad.i:                                 ; preds = %lpad5
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %if.then.i, %for.body
   %cond.i10.i.i12 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPKN4absl13cord_internal11CordzHandleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %cond.i10.i.i1317, %if.then.i ], [ %cond.i10.i.i1317, %for.body ]
-  %storemerge.in = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %storemerge18, i64 0, i32 3
+  %storemerge.in = getelementptr inbounds i8, ptr %storemerge18, i64 24
   %storemerge = load ptr, ptr %storemerge.in, align 8
   %cmp.not = icmp eq ptr %storemerge, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !10

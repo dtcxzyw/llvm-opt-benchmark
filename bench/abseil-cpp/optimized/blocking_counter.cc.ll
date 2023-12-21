@@ -3,12 +3,6 @@ source_filename = "bench/abseil-cpp/original/blocking_counter.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.absl::BlockingCounter" = type <{ %"class.absl::Mutex", %"struct.std::atomic.0", i32, i8, [7 x i8] }>
-%"class.absl::Mutex" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i32 }
 %"class.absl::Condition" = type { [16 x i8], ptr, ptr }
 
 $__clang_call_terminate = comdat any
@@ -28,11 +22,11 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN4absl15BlockingCounterC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, i32 noundef %initial_count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr %this, align 8
-  %count_ = getelementptr inbounds %"class.absl::BlockingCounter", ptr %this, i64 0, i32 1
+  %count_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %initial_count, ptr %count_, align 8
-  %num_waiting_ = getelementptr inbounds %"class.absl::BlockingCounter", ptr %this, i64 0, i32 2
+  %num_waiting_ = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %num_waiting_, align 4
-  %done_ = getelementptr inbounds %"class.absl::BlockingCounter", ptr %this, i64 0, i32 3
+  %done_ = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq i32 %initial_count, 0
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %done_, align 8
@@ -54,7 +48,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4absl15BlockingCounter14DecrementCountEv(ptr noundef nonnull align 8 dereferenceable(17) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %count_ = getelementptr inbounds %"class.absl::BlockingCounter", ptr %this, i64 0, i32 1
+  %count_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = atomicrmw sub ptr %count_, i32 1 acq_rel, align 4
   %cmp = icmp slt i32 %0, 1
   br i1 %cmp, label %do.body2, label %do.end5
@@ -69,7 +63,7 @@ do.end5:                                          ; preds = %entry
 
 if.then7:                                         ; preds = %do.end5
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %done_ = getelementptr inbounds %"class.absl::BlockingCounter", ptr %this, i64 0, i32 3
+  %done_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 1, ptr %done_, align 8
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
           to label %return unwind label %terminate.lpad.i
@@ -90,7 +84,7 @@ define dso_local void @_ZN4absl15BlockingCounter4WaitEv(ptr noundef nonnull alig
 entry:
   %ref.tmp = alloca %"class.absl::Condition", align 8
   tail call void @_ZN4absl5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %num_waiting_ = getelementptr inbounds %"class.absl::BlockingCounter", ptr %this, i64 0, i32 2
+  %num_waiting_ = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %num_waiting_, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %do.end7, label %do.body2
@@ -120,7 +114,7 @@ _ZN4absl9MutexLockD2Ev.exit:                      ; preds = %lpad
 
 do.end7:                                          ; preds = %entry
   store i32 1, ptr %num_waiting_, align 4
-  %done_ = getelementptr inbounds %"class.absl::BlockingCounter", ptr %this, i64 0, i32 3
+  %done_ = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN4absl9ConditionC1EPFbPvES1_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @_ZN4absl12_GLOBAL__N_16IsDoneEPv, ptr noundef nonnull %done_)
           to label %invoke.cont10 unwind label %lpad
 

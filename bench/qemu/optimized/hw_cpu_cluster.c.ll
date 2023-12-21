@@ -7,43 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Property = type { ptr, ptr, i64, i8, i64, i8, %union.anon, i32, ptr, i32, ptr }
 %union.anon = type { i64 }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 %struct.CallbackData = type { ptr, i32 }
-%struct.CPUClusterState = type { %struct.DeviceState, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.CPUState = type { %struct.DeviceState, ptr, i32, i32, ptr, i32, i8, i8, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i64, i64, i64, [1 x %struct.__jmp_buf_tag], %struct.QemuMutex, %struct.anon, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, %union.anon.0, %union.anon.1, %union.anon.2, ptr, ptr, i64, i32, ptr, ptr, ptr, i32, i64, i32, %struct.QemuLockCnt, [1 x i64], ptr, i32, i32, i32, i32, i32, ptr, i8, i8, i64, i8, i8, ptr, [8 x i8], [0 x i8], %struct.CPUNegativeOffsetState }
-%struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
-%struct.__sigset_t = type { [16 x i64] }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.QemuLockCnt = type { i32 }
-%struct.CPUNegativeOffsetState = type { %struct.CPUTLB, %union.IcountDecr, i8, [11 x i8] }
-%struct.CPUTLB = type { %struct.CPUTLBCommon, [16 x %struct.CPUTLBDesc], [16 x %struct.CPUTLBDescFast] }
-%struct.CPUTLBCommon = type { %struct.QemuSpin, i16, i64, i64, i64 }
-%struct.QemuSpin = type { i32 }
-%struct.CPUTLBDesc = type { i64, i64, i64, i64, i64, i64, [8 x %union.CPUTLBEntry], [8 x %struct.CPUTLBEntryFull], ptr }
-%union.CPUTLBEntry = type { %struct.anon.3 }
-%struct.anon.3 = type { i64, i64, i64, i64 }
-%struct.CPUTLBEntryFull = type { i64, i64, %struct.MemTxAttrs, i8, i8, [3 x i8], %union.anon.4 }
-%struct.MemTxAttrs = type { i32 }
-%union.anon.4 = type { %struct.anon.5 }
-%struct.anon.5 = type { i8, i8, i8 }
-%struct.CPUTLBDescFast = type { i64, ptr }
-%union.IcountDecr = type { i32 }
 
 @cpu_cluster_type_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 168, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @cpu_cluster_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [12 x i8] c"cpu-cluster\00", align 1
@@ -86,9 +50,9 @@ define internal void @cpu_cluster_class_init(ptr noundef %klass, ptr nocapture r
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #3
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @cpu_cluster_properties) #3
-  %realize = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 8
+  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @cpu_cluster_realize, ptr %realize, align 8
-  %user_creatable = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 5
+  %user_creatable = getelementptr inbounds i8, ptr %call.i, i64 128
   store i8 0, ptr %user_creatable, align 8
   ret void
 }
@@ -101,9 +65,9 @@ entry:
   %cbdata = alloca %struct.CallbackData, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7, i32 noundef 58, ptr noundef nonnull @__func__.CPU_CLUSTER) #3
   store ptr %call.i, ptr %cbdata, align 8
-  %cpu_count = getelementptr inbounds %struct.CallbackData, ptr %cbdata, i64 0, i32 1
+  %cpu_count = getelementptr inbounds i8, ptr %cbdata, i64 8
   store i32 0, ptr %cpu_count, align 8
-  %cluster_id = getelementptr inbounds %struct.CPUClusterState, ptr %call.i, i64 0, i32 1
+  %cluster_id = getelementptr inbounds i8, ptr %call.i, i64 160
   %0 = load i32, ptr %cluster_id, align 8
   %cmp = icmp ugt i32 %0, 254
   br i1 %cmp, label %if.then, label %if.end
@@ -141,11 +105,11 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %opaque, align 8
-  %cluster_id = getelementptr inbounds %struct.CPUClusterState, ptr %0, i64 0, i32 1
+  %cluster_id = getelementptr inbounds i8, ptr %0, i64 160
   %1 = load i32, ptr %cluster_id, align 8
-  %cluster_index = getelementptr inbounds %struct.CPUState, ptr %call, i64 0, i32 52
+  %cluster_index = getelementptr inbounds i8, ptr %call, i64 716
   store i32 %1, ptr %cluster_index, align 4
-  %cpu_count = getelementptr inbounds %struct.CallbackData, ptr %opaque, i64 0, i32 1
+  %cpu_count = getelementptr inbounds i8, ptr %opaque, i64 8
   %2 = load i32, ptr %cpu_count, align 8
   %inc = add i32 %2, 1
   store i32 %inc, ptr %cpu_count, align 8

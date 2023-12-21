@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%struct.prov_tdes_ctx_st = type { %struct.prov_cipher_ctx_st, %union.anon.0, %union.anon.2 }
-%union.anon.0 = type { double, [376 x i8] }
-%union.anon.2 = type { ptr }
 
 @ede3_ofb = internal constant %struct.prov_cipher_hw_st { ptr @ossl_cipher_hw_tdes_ede3_initkey, ptr @ossl_cipher_hw_tdes_ofb, ptr @ossl_cipher_hw_tdes_copyctx }, align 8
 @ede3_cfb = internal constant %struct.prov_cipher_hw_st { ptr @ossl_cipher_hw_tdes_ede3_initkey, ptr @ossl_cipher_hw_tdes_cfb, ptr @ossl_cipher_hw_tdes_copyctx }, align 8
@@ -73,17 +68,17 @@ declare i32 @ossl_cipher_hw_tdes_ede3_initkey(ptr noundef, ptr noundef, i64 noun
 define internal i32 @ossl_cipher_hw_tdes_ofb(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #2 {
 entry:
   %num = alloca i32, align 4
-  %num1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 18
+  %num1 = getelementptr inbounds i8, ptr %ctx, i64 160
   %0 = load i32, ptr %num1, align 8
   store i32 %0, ptr %num, align 4
   %cmp17 = icmp ugt i64 %inl, 1073741823
   br i1 %cmp17, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %tks = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1
-  %arrayidx3 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 120
-  %arrayidx5 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 248
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %tks = getelementptr inbounds i8, ptr %ctx, i64 192
+  %arrayidx3 = getelementptr inbounds i8, ptr %ctx, i64 320
+  %arrayidx5 = getelementptr inbounds i8, ptr %ctx, i64 448
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -105,10 +100,10 @@ while.end:                                        ; preds = %while.body, %entry
   br i1 %cmp7.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %tks8 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1
-  %arrayidx11 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 120
-  %arrayidx13 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 248
-  %iv14 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %tks8 = getelementptr inbounds i8, ptr %ctx, i64 192
+  %arrayidx11 = getelementptr inbounds i8, ptr %ctx, i64 320
+  %arrayidx13 = getelementptr inbounds i8, ptr %ctx, i64 448
+  %iv14 = getelementptr inbounds i8, ptr %ctx, i64 32
   call void @DES_ede3_ofb64_encrypt(ptr noundef %in.addr.0.lcssa, ptr noundef %out.addr.0.lcssa, i64 noundef %inl.addr.0.lcssa, ptr noundef nonnull %tks8, ptr noundef nonnull %arrayidx11, ptr noundef nonnull %arrayidx13, ptr noundef nonnull %iv14, ptr noundef nonnull %num) #4
   br label %if.end
 
@@ -126,18 +121,18 @@ declare void @DES_ede3_ofb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr 
 define internal i32 @ossl_cipher_hw_tdes_cfb(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %inl) #2 {
 entry:
   %num = alloca i32, align 4
-  %num1 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 18
+  %num1 = getelementptr inbounds i8, ptr %ctx, i64 160
   %0 = load i32, ptr %num1, align 8
   store i32 %0, ptr %num, align 4
   %cmp19 = icmp ugt i64 %inl, 1073741823
   br i1 %cmp19, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %tks = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1
-  %arrayidx3 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 120
-  %arrayidx5 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 248
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %tks = getelementptr inbounds i8, ptr %ctx, i64 192
+  %arrayidx3 = getelementptr inbounds i8, ptr %ctx, i64 320
+  %arrayidx5 = getelementptr inbounds i8, ptr %ctx, i64 448
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -163,11 +158,11 @@ while.end:                                        ; preds = %while.body, %entry
   br i1 %cmp7.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %tks8 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1
-  %arrayidx11 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 120
-  %arrayidx13 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 248
-  %iv14 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc16 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %tks8 = getelementptr inbounds i8, ptr %ctx, i64 192
+  %arrayidx11 = getelementptr inbounds i8, ptr %ctx, i64 320
+  %arrayidx13 = getelementptr inbounds i8, ptr %ctx, i64 448
+  %iv14 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc16 = getelementptr inbounds i8, ptr %ctx, i64 108
   %bf.load17 = load i8, ptr %enc16, align 4
   %bf.lshr18 = lshr i8 %bf.load17, 1
   %bf.clear19 = and i8 %bf.lshr18, 1
@@ -189,7 +184,7 @@ entry:
   %c = alloca [1 x i8], align 1
   %d = alloca [1 x i8], align 1
   store i8 0, ptr %d, align 1
-  %use_bits = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %use_bits = getelementptr inbounds i8, ptr %ctx, i64 108
   %bf.load = load i8, ptr %use_bits, align 4
   %mul = shl i64 %inl, 3
   %cmp16 = icmp slt i8 %bf.load, 0
@@ -198,10 +193,10 @@ entry:
   br i1 %cmp117.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %tks = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1
-  %arrayidx7 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 120
-  %arrayidx9 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 248
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
+  %tks = getelementptr inbounds i8, ptr %ctx, i64 192
+  %arrayidx7 = getelementptr inbounds i8, ptr %ctx, i64 320
+  %arrayidx9 = getelementptr inbounds i8, ptr %ctx, i64 448
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -252,11 +247,11 @@ entry:
   br i1 %cmp17, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %tks = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1
-  %arrayidx2 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 120
-  %arrayidx4 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 248
-  %iv = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %tks = getelementptr inbounds i8, ptr %ctx, i64 192
+  %arrayidx2 = getelementptr inbounds i8, ptr %ctx, i64 320
+  %arrayidx4 = getelementptr inbounds i8, ptr %ctx, i64 448
+  %iv = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 108
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -282,11 +277,11 @@ while.end:                                        ; preds = %while.body, %entry
   br i1 %cmp6.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.end
-  %tks7 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1
-  %arrayidx10 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 120
-  %arrayidx12 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 248
-  %iv13 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 2
-  %enc15 = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 11
+  %tks7 = getelementptr inbounds i8, ptr %ctx, i64 192
+  %arrayidx10 = getelementptr inbounds i8, ptr %ctx, i64 320
+  %arrayidx12 = getelementptr inbounds i8, ptr %ctx, i64 448
+  %iv13 = getelementptr inbounds i8, ptr %ctx, i64 32
+  %enc15 = getelementptr inbounds i8, ptr %ctx, i64 108
   %bf.load16 = load i8, ptr %enc15, align 4
   %bf.lshr17 = lshr i8 %bf.load16, 1
   %bf.clear18 = and i8 %bf.lshr17, 1
@@ -301,14 +296,14 @@ if.end:                                           ; preds = %if.then, %while.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @ossl_cipher_hw_tdes_ede2_initkey(ptr noundef %ctx, ptr noundef %key, i64 %keylen) #2 {
 entry:
-  %tstream = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 2
+  %tstream = getelementptr inbounds i8, ptr %ctx, i64 576
   store ptr null, ptr %tstream, align 8
-  %tks = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1
+  %tks = getelementptr inbounds i8, ptr %ctx, i64 192
   tail call void @DES_set_key_unchecked(ptr noundef %key, ptr noundef nonnull %tks) #4
-  %arrayidx2 = getelementptr inbounds [8 x i8], ptr %key, i64 1
-  %arrayidx4 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 120
+  %arrayidx2 = getelementptr inbounds i8, ptr %key, i64 8
+  %arrayidx4 = getelementptr inbounds i8, ptr %ctx, i64 320
   tail call void @DES_set_key_unchecked(ptr noundef nonnull %arrayidx2, ptr noundef nonnull %arrayidx4) #4
-  %arrayidx6 = getelementptr inbounds %struct.prov_tdes_ctx_st, ptr %ctx, i64 0, i32 1, i32 1, i64 248
+  %arrayidx6 = getelementptr inbounds i8, ptr %ctx, i64 448
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %arrayidx6, ptr noundef nonnull align 8 dereferenceable(128) %tks, i64 128, i1 false)
   ret i32 1
 }

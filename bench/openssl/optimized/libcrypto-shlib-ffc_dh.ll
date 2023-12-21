@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.dh_named_group_st = type { ptr, i32, i32, i32, ptr, ptr, ptr }
 %struct.bignum_st = type opaque
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
 
 @dh_named_groups = internal constant [14 x %struct.dh_named_group_st] [%struct.dh_named_group_st { ptr @.str, i32 1126, i32 2048, i32 225, ptr @ossl_bignum_ffdhe2048_p, ptr @ossl_bignum_ffdhe2048_q, ptr @ossl_bignum_const_2 }, %struct.dh_named_group_st { ptr @.str.1, i32 1127, i32 3072, i32 275, ptr @ossl_bignum_ffdhe3072_p, ptr @ossl_bignum_ffdhe3072_q, ptr @ossl_bignum_const_2 }, %struct.dh_named_group_st { ptr @.str.2, i32 1128, i32 4096, i32 325, ptr @ossl_bignum_ffdhe4096_p, ptr @ossl_bignum_ffdhe4096_q, ptr @ossl_bignum_const_2 }, %struct.dh_named_group_st { ptr @.str.3, i32 1129, i32 6144, i32 375, ptr @ossl_bignum_ffdhe6144_p, ptr @ossl_bignum_ffdhe6144_q, ptr @ossl_bignum_const_2 }, %struct.dh_named_group_st { ptr @.str.4, i32 1130, i32 8192, i32 400, ptr @ossl_bignum_ffdhe8192_p, ptr @ossl_bignum_ffdhe8192_q, ptr @ossl_bignum_const_2 }, %struct.dh_named_group_st { ptr @.str.5, i32 1212, i32 1536, i32 200, ptr @ossl_bignum_modp_1536_p, ptr @ossl_bignum_modp_1536_q, ptr @ossl_bignum_const_2 }, %struct.dh_named_group_st { ptr @.str.6, i32 1213, i32 2048, i32 225, ptr @ossl_bignum_modp_2048_p, ptr @ossl_bignum_modp_2048_q, ptr @ossl_bignum_const_2 }, %struct.dh_named_group_st { ptr @.str.7, i32 1214, i32 3072, i32 275, ptr @ossl_bignum_modp_3072_p, ptr @ossl_bignum_modp_3072_q, ptr @ossl_bignum_const_2 }, %struct.dh_named_group_st { ptr @.str.8, i32 1215, i32 4096, i32 325, ptr @ossl_bignum_modp_4096_p, ptr @ossl_bignum_modp_4096_q, ptr @ossl_bignum_const_2 }, %struct.dh_named_group_st { ptr @.str.9, i32 1216, i32 6144, i32 375, ptr @ossl_bignum_modp_6144_p, ptr @ossl_bignum_modp_6144_q, ptr @ossl_bignum_const_2 }, %struct.dh_named_group_st { ptr @.str.10, i32 1217, i32 8192, i32 400, ptr @ossl_bignum_modp_8192_p, ptr @ossl_bignum_modp_8192_q, ptr @ossl_bignum_const_2 }, %struct.dh_named_group_st { ptr @.str.11, i32 1, i32 1024, i32 0, ptr @ossl_bignum_dh1024_160_p, ptr @ossl_bignum_dh1024_160_q, ptr @ossl_bignum_dh1024_160_g }, %struct.dh_named_group_st { ptr @.str.12, i32 2, i32 2048, i32 0, ptr @ossl_bignum_dh2048_224_p, ptr @ossl_bignum_dh2048_224_q, ptr @ossl_bignum_dh2048_224_g }, %struct.dh_named_group_st { ptr @.str.13, i32 3, i32 2048, i32 0, ptr @ossl_bignum_dh2048_256_p, ptr @ossl_bignum_dh2048_256_q, ptr @ossl_bignum_dh2048_256_g }], align 16
 @.str = private unnamed_addr constant [10 x i8] c"ffdhe2048\00", align 1
@@ -85,24 +84,21 @@ define ptr @ossl_ffc_uid_to_dh_named_group(i32 noundef %uid) local_unnamed_addr 
 entry:
   br label %for.body
 
-for.body:                                         ; preds = %entry, %for.inc
-  %i.05 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %uid1 = getelementptr inbounds [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %i.05, i32 1
-  %0 = load i32, ptr %uid1, align 8
-  %cmp2 = icmp eq i32 %0, %uid
-  br i1 %cmp2, label %if.then, label %for.inc
-
-if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr inbounds [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %i.05
-  br label %return
-
-for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i64 %i.05, 1
+for.cond:                                         ; preds = %for.body
+  %inc = add nuw nsw i64 %i.04, 1
   %exitcond.not = icmp eq i64 %inc, 14
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
-return:                                           ; preds = %for.inc, %if.then
-  %retval.0 = phi ptr [ %arrayidx, %if.then ], [ null, %for.inc ]
+for.body:                                         ; preds = %entry, %for.cond
+  %i.04 = phi i64 [ 0, %entry ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %i.04
+  %uid1 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %0 = load i32, ptr %uid1, align 8
+  %cmp2 = icmp eq i32 %0, %uid
+  br i1 %cmp2, label %return, label %for.cond
+
+return:                                           ; preds = %for.cond, %for.body
+  %retval.0 = phi ptr [ %arrayidx, %for.body ], [ null, %for.cond ]
   ret ptr %retval.0
 }
 
@@ -113,63 +109,57 @@ entry:
   br i1 %cmp8, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %entry, %for.inc.us
-  %i.013.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %entry ]
-  %p1.us = getelementptr inbounds [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %i.013.us, i32 4
+  %i.07.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %entry ]
+  %arrayidx.us = getelementptr inbounds [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %i.07.us
+  %p1.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 24
   %0 = load ptr, ptr %p1.us, align 8
   %call.us = tail call i32 @BN_cmp(ptr noundef %p, ptr noundef %0) #4
   %cmp2.us = icmp eq i32 %call.us, 0
   br i1 %cmp2.us, label %land.lhs.true.us, label %for.inc.us
 
 land.lhs.true.us:                                 ; preds = %for.body.us
-  %g4.us = getelementptr inbounds [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %i.013.us, i32 6
+  %g4.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 40
   %1 = load ptr, ptr %g4.us, align 8
   %call5.us = tail call i32 @BN_cmp(ptr noundef %g, ptr noundef %1) #4
   %cmp6.us = icmp eq i32 %call5.us, 0
-  br i1 %cmp6.us, label %return.split.loop.exit7, label %for.inc.us
+  br i1 %cmp6.us, label %return, label %for.inc.us
 
 for.inc.us:                                       ; preds = %land.lhs.true.us, %for.body.us
-  %inc.us = add nuw nsw i64 %i.013.us, 1
-  %exitcond19.not = icmp eq i64 %inc.us, 14
-  br i1 %exitcond19.not, label %return, label %for.body.us, !llvm.loop !7
+  %inc.us = add nuw nsw i64 %i.07.us, 1
+  %exitcond11.not = icmp eq i64 %inc.us, 14
+  br i1 %exitcond11.not, label %return, label %for.body.us, !llvm.loop !7
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.013 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %p1 = getelementptr inbounds [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %i.013, i32 4
+  %i.07 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
+  %arrayidx = getelementptr inbounds [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %i.07
+  %p1 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %2 = load ptr, ptr %p1, align 8
   %call = tail call i32 @BN_cmp(ptr noundef %p, ptr noundef %2) #4
   %cmp2 = icmp eq i32 %call, 0
   br i1 %cmp2, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %g4 = getelementptr inbounds [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %i.013, i32 6
+  %g4 = getelementptr inbounds i8, ptr %arrayidx, i64 40
   %3 = load ptr, ptr %g4, align 8
   %call5 = tail call i32 @BN_cmp(ptr noundef %g, ptr noundef %3) #4
   %cmp6 = icmp eq i32 %call5, 0
   br i1 %cmp6, label %land.lhs.true7, label %for.inc
 
 land.lhs.true7:                                   ; preds = %land.lhs.true
-  %q10 = getelementptr inbounds [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %i.013, i32 5
+  %q10 = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %4 = load ptr, ptr %q10, align 16
   %call11 = tail call i32 @BN_cmp(ptr noundef nonnull %q, ptr noundef %4) #4
   %cmp12 = icmp eq i32 %call11, 0
-  br i1 %cmp12, label %return.split.loop.exit9, label %for.inc
+  br i1 %cmp12, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %land.lhs.true7
-  %inc = add nuw nsw i64 %i.013, 1
+  %inc = add nuw nsw i64 %i.07, 1
   %exitcond.not = icmp eq i64 %inc, 14
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
 
-return.split.loop.exit7:                          ; preds = %land.lhs.true.us
-  %arrayidx.le11 = getelementptr inbounds [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %i.013.us
-  br label %return
-
-return.split.loop.exit9:                          ; preds = %land.lhs.true7
-  %arrayidx.le = getelementptr inbounds [14 x %struct.dh_named_group_st], ptr @dh_named_groups, i64 0, i64 %i.013
-  br label %return
-
-return:                                           ; preds = %for.inc, %for.inc.us, %return.split.loop.exit9, %return.split.loop.exit7
-  %retval.0 = phi ptr [ %arrayidx.le11, %return.split.loop.exit7 ], [ %arrayidx.le, %return.split.loop.exit9 ], [ null, %for.inc.us ], [ null, %for.inc ]
-  ret ptr %retval.0
+return:                                           ; preds = %land.lhs.true7, %for.inc, %land.lhs.true.us, %for.inc.us
+  %.us-phi = phi ptr [ %arrayidx.us, %land.lhs.true.us ], [ null, %for.inc.us ], [ %arrayidx, %land.lhs.true7 ], [ null, %for.inc ]
+  ret ptr %.us-phi
 }
 
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -181,7 +171,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %uid = getelementptr inbounds %struct.dh_named_group_st, ptr %group, i64 0, i32 1
+  %uid = getelementptr inbounds i8, ptr %group, i64 8
   %0 = load i32, ptr %uid, align 8
   br label %return
 
@@ -212,7 +202,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %keylength = getelementptr inbounds %struct.dh_named_group_st, ptr %group, i64 0, i32 3
+  %keylength = getelementptr inbounds i8, ptr %group, i64 16
   %0 = load i32, ptr %keylength, align 8
   br label %return
 
@@ -228,7 +218,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %q = getelementptr inbounds %struct.dh_named_group_st, ptr %group, i64 0, i32 5
+  %q = getelementptr inbounds i8, ptr %group, i64 32
   %0 = load ptr, ptr %q, align 8
   br label %return
 
@@ -246,18 +236,18 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %p = getelementptr inbounds %struct.dh_named_group_st, ptr %group, i64 0, i32 4
+  %p = getelementptr inbounds i8, ptr %group, i64 24
   %0 = load ptr, ptr %p, align 8
-  %q = getelementptr inbounds %struct.dh_named_group_st, ptr %group, i64 0, i32 5
+  %q = getelementptr inbounds i8, ptr %group, i64 32
   %1 = load ptr, ptr %q, align 8
-  %g = getelementptr inbounds %struct.dh_named_group_st, ptr %group, i64 0, i32 6
+  %g = getelementptr inbounds i8, ptr %group, i64 40
   %2 = load ptr, ptr %g, align 8
   tail call void @ossl_ffc_params_set0_pqg(ptr noundef nonnull %ffc, ptr noundef %0, ptr noundef %1, ptr noundef %2) #4
-  %keylength = getelementptr inbounds %struct.dh_named_group_st, ptr %group, i64 0, i32 3
+  %keylength = getelementptr inbounds i8, ptr %group, i64 16
   %3 = load i32, ptr %keylength, align 8
-  %keylength2 = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 13
+  %keylength2 = getelementptr inbounds i8, ptr %ffc, i64 88
   store i32 %3, ptr %keylength2, align 8
-  %nid = getelementptr inbounds %struct.ffc_params_st, ptr %ffc, i64 0, i32 7
+  %nid = getelementptr inbounds i8, ptr %ffc, i64 52
   store i32 0, ptr %nid, align 4
   br label %return
 

@@ -21,49 +21,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.RAMBlockNotifier = type { ptr, ptr, ptr, %struct.anon.11 }
 %struct.anon.11 = type { ptr, ptr }
 %struct.QemuEvent = type { i32, i8 }
-%struct.rcu_reader_data = type { i64, i8, i32, %struct.anon.12, %struct.NotifierList }
-%struct.anon.12 = type { ptr, ptr }
-%struct.NotifierList = type { %struct.anon.13 }
-%struct.anon.13 = type { ptr }
-%struct.RAMBlock = type { %struct.rcu_head, ptr, ptr, ptr, i64, i64, i64, ptr, i32, [256 x i8], %struct.anon.2, %struct.anon.3, i32, i64, i64, ptr, ptr, ptr, i8, i64 }
-%struct.rcu_head = type { ptr, ptr }
-%struct.anon.2 = type { ptr, ptr }
-%struct.anon.3 = type { ptr }
 %struct.PrecopyNotifyData = type { i32, ptr }
-%struct.RAMState = type { [2 x %struct.PageSearchStatus], i32, i64, ptr, i64, i32, i32, i64, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, %struct.QemuMutex, ptr, %struct.QemuMutex, %struct.anon.5, i32 }
-%struct.PageSearchStatus = type { ptr, ptr, ptr, i64, i8, i8, i64, i64 }
-%struct.anon.5 = type { ptr, ptr }
 %struct.MemoryRegionSection = type { i128, ptr, ptr, i64, i64, i8, i8, i8 }
 %struct.timeval = type { i64, i64 }
-%struct.MigrationState = type { %struct.DeviceState, %struct.QemuThread, ptr, ptr, ptr, ptr, %struct.QemuSemaphore, ptr, %struct.QemuMutex, %struct.QemuSemaphore, i64, double, i64, i64, i64, %struct.MigrationParameters, i32, %struct.anon.7, double, i64, i64, i64, i64, i64, [23 x i8], i64, i32, i8, i8, i8, i8, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuEvent, i64, ptr, ptr, %struct.QemuMutex, i8, i8, i8, i8, %struct.QemuSemaphore, i8, i8, i8, i8, ptr, ptr, i8, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.QemuThread = type { i64 }
-%struct.MigrationParameters = type { i8, i64, i8, i64, i8, i64, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, i8, i64, i8, i64, i8, i64, i8, i32, i8, i8, i8, i8, i8, i64, i8, i64, i8, i8, i8, i32, i8, i8, i8, i8, i8, ptr, i8, i64, i8, i64, i8, i32 }
-%struct.anon.7 = type { ptr, %struct.QemuThread, i8, %struct.QemuSemaphore, %struct.QemuSemaphore }
-%struct.QemuSemaphore = type { %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.QemuCond = type { %union.pthread_cond_t, i8 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%struct.CompressParam = type { i8, i8, i8, i32, ptr, %struct.QemuMutex, %struct.QemuCond, ptr, i64, %struct.z_stream_s, ptr }
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.8, %union.anon.9, ptr, i32, ptr, ptr, i8 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.8 = type { %struct.QTailQLink }
-%union.anon.9 = type { %struct.QTailQLink }
-%struct.RAMSrcPageRequest = type { ptr, i64, i64, %struct.anon.10 }
-%struct.anon.10 = type { ptr }
-%struct.DirtyMemoryBlocks = type { %struct.rcu_head, [0 x ptr] }
-%struct.MigrationIncomingState = type { ptr, [2 x ptr], ptr, ptr, %struct.QemuSemaphore, %struct.QemuEvent, %struct.AnnounceTimer, i64, i8, %struct.QemuThread, i8, i8, %struct.QemuThread, i32, i32, ptr, %struct.QemuMutex, ptr, i32, ptr, %struct.QemuSemaphore, %struct.QemuThread, i32, %struct.QemuMutex, ptr, ptr, ptr, ptr, i32, ptr, ptr, %struct.QemuSemaphore, ptr, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuSemaphore, ptr, ptr, i32, %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.AnnounceTimer = type { ptr, %struct.AnnounceParameters, i32, i32 }
-%struct.AnnounceParameters = type { i64, i64, i64, i64, i8, ptr, ptr }
 %struct.PostcopyTmpPage = type { ptr, ptr, i32, i8 }
 %struct.uffd_msg = type { i8, i8, i16, i32, %union.anon.14 }
 %union.anon.14 = type { %struct.anon.15 }
@@ -365,7 +325,7 @@ declare zeroext i1 @qemu_ram_is_named_file(ptr noundef) local_unnamed_addr #1
 define dso_local i32 @foreach_not_ignored_block(ptr nocapture noundef readonly %func, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -410,7 +370,7 @@ if.else:                                          ; preds = %lor.rhs.i, %land.lh
   br i1 %tobool3.not, label %while.end11, label %if.then.i.i
 
 while.end11:                                      ; preds = %for.body, %migrate_ram_is_ignored.exit, %if.else
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.08, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.08, i64 336
   %3 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !7
   %tobool.not = icmp eq i64 %3, 0
@@ -419,7 +379,7 @@ while.end11:                                      ; preds = %for.body, %migrate_
 if.then.i.i:                                      ; preds = %if.else, %while.end11, %rcu_read_auto_lock.exit
   %ret.2 = phi i32 [ 0, %rcu_read_auto_lock.exit ], [ 0, %while.end11 ], [ %call2, %if.else ]
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %4 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %4, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -438,7 +398,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %5 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %6 = and i8 %5, 1
   %tobool.not.i.i.i.i = icmp eq i8 %6, 0
@@ -462,7 +422,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %rb.val to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %shr.i = lshr i64 %sub.ptr.sub.i, 12
-  %receivedmap = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 16
+  %receivedmap = getelementptr inbounds i8, ptr %rb, i64 392
   %1 = load ptr, ptr %receivedmap, align 8
   %div2.i = lshr i64 %sub.ptr.sub.i, 18
   %arrayidx.i = getelementptr i64, ptr %1, i64 %div2.i
@@ -478,7 +438,7 @@ entry:
 define dso_local zeroext i1 @ramblock_recv_bitmap_test_byte_offset(ptr nocapture noundef readonly %rb, i64 noundef %byte_offset) local_unnamed_addr #2 {
 entry:
   %shr = lshr i64 %byte_offset, 12
-  %receivedmap = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 16
+  %receivedmap = getelementptr inbounds i8, ptr %rb, i64 392
   %0 = load ptr, ptr %receivedmap, align 8
   %div2.i = lshr i64 %byte_offset, 18
   %arrayidx.i = getelementptr i64, ptr %0, i64 %div2.i
@@ -499,7 +459,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %rb.val to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %shr.i = lshr i64 %sub.ptr.sub.i, 12
-  %receivedmap = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 16
+  %receivedmap = getelementptr inbounds i8, ptr %rb, i64 392
   %1 = load ptr, ptr %receivedmap, align 8
   %rem.i = and i64 %shr.i, 63
   %shl.i = shl nuw i64 1, %rem.i
@@ -512,7 +472,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ramblock_recv_bitmap_set_range(ptr nocapture noundef readonly %rb, ptr noundef %host_addr, i64 noundef %nr) local_unnamed_addr #0 {
 entry:
-  %receivedmap = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 16
+  %receivedmap = getelementptr inbounds i8, ptr %rb, i64 392
   %0 = load ptr, ptr %receivedmap, align 8
   %1 = getelementptr i8, ptr %rb, i64 24
   %rb.val = load ptr, ptr %1, align 8
@@ -538,7 +498,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %postcopy_length = getelementptr inbounds %struct.RAMBlock, ptr %call, i64 0, i32 19
+  %postcopy_length = getelementptr inbounds i8, ptr %call, i64 416
   %0 = load i64, ptr %postcopy_length, align 8
   %shr = lshr i64 %0, 12
   %sub.i.i = add nuw nsw i64 %shr, 127
@@ -553,7 +513,7 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 bitmap_new.exit:                                  ; preds = %if.end
-  %receivedmap = getelementptr inbounds %struct.RAMBlock, ptr %call, i64 0, i32 16
+  %receivedmap = getelementptr inbounds i8, ptr %call, i64 392
   %2 = load ptr, ptr %receivedmap, align 8
   tail call void @bitmap_to_le(ptr noundef nonnull %call.i.i, ptr noundef %2, i64 noundef %shr) #16
   %sub = add nuw nsw i64 %shr, 7
@@ -627,7 +587,7 @@ define dso_local i32 @precopy_notify(i32 noundef %reason, ptr noundef %errp) loc
 entry:
   %pnd = alloca %struct.PrecopyNotifyData, align 8
   store i32 %reason, ptr %pnd, align 8
-  %errp2 = getelementptr inbounds %struct.PrecopyNotifyData, ptr %pnd, i64 0, i32 1
+  %errp2 = getelementptr inbounds i8, ptr %pnd, i64 8
   store ptr %errp, ptr %errp2, align 8
   %call = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd) #16
   ret i32 %call
@@ -643,7 +603,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %migration_dirty_pages = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 17
+  %migration_dirty_pages = getelementptr inbounds i8, ptr %0, i64 224
   %1 = load i64, ptr %migration_dirty_pages, align 8
   %mul = shl i64 %1, 12
   br label %cond.end
@@ -680,12 +640,12 @@ entry:
   %0 = load ptr, ptr @ram_state, align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 0) #16
   %div.i = sdiv i64 %call.i, 1000000
-  %time_last_bitmap_sync = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 7
+  %time_last_bitmap_sync = getelementptr inbounds i8, ptr %0, i64 152
   store i64 %div.i, ptr %time_last_bitmap_sync, align 8
-  %num_dirty_pages_period = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 9
+  %num_dirty_pages_period = getelementptr inbounds i8, ptr %0, i64 168
   store i64 0, ptr %num_dirty_pages_period, align 8
   %call1 = tail call i64 @migration_transferred_bytes() #16
-  %bytes_xfer_prev = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 8
+  %bytes_xfer_prev = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %call1, ptr %bytes_xfer_prev, align 8
   ret void
 }
@@ -696,7 +656,7 @@ declare i64 @migration_transferred_bytes() local_unnamed_addr #1
 define dso_local zeroext i1 @ramblock_page_is_discarded(ptr noundef %rb, i64 noundef %start) local_unnamed_addr #0 {
 entry:
   %section = alloca %struct.MemoryRegionSection, align 16
-  %mr = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %rb, i64 16
   %0 = load ptr, ptr %mr, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -712,14 +672,14 @@ if.then:                                          ; preds = %land.lhs.true
   %call4 = tail call i64 @qemu_ram_pagesize(ptr noundef nonnull %rb) #16
   %coerce.sroa.0.0.insert.ext = zext i64 %call4 to i128
   store i128 %coerce.sroa.0.0.insert.ext, ptr %section, align 16
-  %mr6 = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr6 = getelementptr inbounds i8, ptr %section, i64 16
   %2 = load ptr, ptr %mr, align 8
   store ptr %2, ptr %mr6, align 16
-  %fv = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 2
+  %fv = getelementptr inbounds i8, ptr %section, i64 24
   store ptr null, ptr %fv, align 8
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   store i64 %start, ptr %offset_within_region, align 16
-  %offset_within_address_space = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 4
+  %offset_within_address_space = getelementptr inbounds i8, ptr %section, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %offset_within_address_space, i8 0, i64 11, i1 false)
   %call8 = call zeroext i1 @ram_discard_manager_is_populated(ptr noundef %call3, ptr noundef nonnull %section) #16
   %lnot = xor i1 %call8, true
@@ -764,14 +724,14 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
   br i1 %call3.i, label %while.end5, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %page_size = getelementptr inbounds %struct.RAMBlock, ptr %block.09, i64 0, i32 14
+  %page_size = getelementptr inbounds i8, ptr %block.09, i64 376
   %1 = load i64, ptr %page_size, align 8
   %or = or i64 %1, %summary.08
   br label %while.end5
 
 while.end5:                                       ; preds = %for.body, %if.else, %migrate_ram_is_ignored.exit
   %summary.1 = phi i64 [ %summary.08, %migrate_ram_is_ignored.exit ], [ %or, %if.else ], [ %summary.08, %for.body ]
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.09, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.09, i64 336
   %2 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !12
   %tobool.not = icmp eq i64 %2, 0
@@ -845,7 +805,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %rbname, i64 noundef %start, i64 noundef %length) #16
   br label %trace_ram_discard_range.exit
@@ -857,7 +817,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_ram_discard_range.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %7 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %7, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -882,7 +842,7 @@ if.then:                                          ; preds = %rcu_read_auto_lock.
   br label %if.then.i.i10
 
 if.end:                                           ; preds = %rcu_read_auto_lock.exit
-  %receivedmap = getelementptr inbounds %struct.RAMBlock, ptr %call1, i64 0, i32 16
+  %receivedmap = getelementptr inbounds i8, ptr %call1, i64 392
   %9 = load ptr, ptr %receivedmap, align 8
   %tobool2.not = icmp eq ptr %9, null
   br i1 %tobool2.not, label %if.end9, label %if.then3
@@ -904,7 +864,7 @@ if.end9:                                          ; preds = %if.then3, %if.end
 if.then.i.i10:                                    ; preds = %if.then, %if.end9
   %retval.0 = phi i32 [ %call10, %if.end9 ], [ -1, %if.then ]
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %10 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %10, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -923,7 +883,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %11 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %12 = and i8 %11, 1
   %tobool.not.i.i.i.i = icmp eq i8 %12, 0
@@ -943,19 +903,19 @@ define dso_local i32 @compress_send_queued_data(ptr noundef %param) #0 {
 entry:
   %0 = load ptr, ptr @ram_state, align 8
   %call = tail call ptr @migrate_get_current() #16
-  %to_dst_file = getelementptr inbounds %struct.MigrationState, ptr %call, i64 0, i32 4
+  %to_dst_file = getelementptr inbounds i8, ptr %call, i64 184
   %1 = load ptr, ptr %to_dst_file, align 8
-  %block2 = getelementptr inbounds %struct.CompressParam, ptr %param, i64 0, i32 7
+  %block2 = getelementptr inbounds i8, ptr %param, i64 120
   %2 = load ptr, ptr %block2, align 8
-  %offset3 = getelementptr inbounds %struct.CompressParam, ptr %param, i64 0, i32 8
+  %offset3 = getelementptr inbounds i8, ptr %param, i64 128
   %3 = load i64, ptr %offset3, align 8
-  %result = getelementptr inbounds %struct.CompressParam, ptr %param, i64 0, i32 3
+  %result = getelementptr inbounds i8, ptr %param, i64 4
   %4 = load i32, ptr %result, align 4
   %cmp = icmp eq i32 %4, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %last_sent_block = getelementptr inbounds %struct.PageSearchStatus, ptr %0, i64 0, i32 1
+  %last_sent_block = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %last_sent_block, align 8
   %cmp4 = icmp eq ptr %2, %5
   br i1 %cmp4, label %if.end6, label %if.else
@@ -971,7 +931,7 @@ if.end6:                                          ; preds = %if.end
   ]
 
 if.then9:                                         ; preds = %if.end6
-  %file10 = getelementptr inbounds %struct.CompressParam, ptr %param, i64 0, i32 4
+  %file10 = getelementptr inbounds i8, ptr %param, i64 8
   %6 = load ptr, ptr %file10, align 8
   %call11 = tail call zeroext i1 @qemu_file_buffer_empty(ptr noundef %6) #16
   br i1 %call11, label %if.end14, label %if.else13
@@ -989,7 +949,7 @@ if.end14:                                         ; preds = %if.then9
   br i1 %cmp.i, label %save_page_header.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end14
-  %idstr.i = getelementptr inbounds %struct.RAMBlock, ptr %2, i64 0, i32 9
+  %idstr.i = getelementptr inbounds i8, ptr %2, i64 76
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr.i) #19
   %conv.i = trunc i64 %call.i to i32
   tail call void @qemu_put_byte(ptr noundef %1, i32 noundef %conv.i) #16
@@ -1001,7 +961,7 @@ if.then2.i:                                       ; preds = %if.end14
 save_page_header.exit:                            ; preds = %if.end14, %if.then2.i
   %size.0.i = phi i32 [ 9, %if.end14 ], [ %8, %if.then2.i ]
   tail call void @qemu_put_byte(ptr noundef %1, i32 noundef 0) #16
-  %idstr = getelementptr inbounds %struct.RAMBlock, ptr %2, i64 0, i32 9
+  %idstr = getelementptr inbounds i8, ptr %2, i64 76
   %call.i25 = tail call zeroext i1 @migrate_release_ram() #16
   br i1 %call.i25, label %lor.lhs.false.i, label %if.end38
 
@@ -1014,7 +974,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br label %if.end38
 
 if.then22:                                        ; preds = %if.end6
-  %file23 = getelementptr inbounds %struct.CompressParam, ptr %param, i64 0, i32 4
+  %file23 = getelementptr inbounds i8, ptr %param, i64 8
   %9 = load ptr, ptr %file23, align 8
   %call24 = tail call zeroext i1 @qemu_file_buffer_empty(ptr noundef %9) #16
   br i1 %call24, label %if.else26, label %if.end27
@@ -1032,7 +992,7 @@ if.end27:                                         ; preds = %if.then22
   br i1 %cmp.i27, label %save_page_header.exit36, label %if.then2.i30
 
 if.then2.i30:                                     ; preds = %if.end27
-  %idstr.i31 = getelementptr inbounds %struct.RAMBlock, ptr %2, i64 0, i32 9
+  %idstr.i31 = getelementptr inbounds i8, ptr %2, i64 76
   %call.i32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr.i31) #19
   %conv.i33 = trunc i64 %call.i32 to i32
   tail call void @qemu_put_byte(ptr noundef %1, i32 noundef %conv.i33) #16
@@ -1103,7 +1063,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -1143,25 +1103,25 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
   br i1 %call3.i, label %while.end22, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %mr = getelementptr inbounds %struct.RAMBlock, ptr %block.012, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %block.012, i64 16
   %3 = load ptr, ptr %mr, align 8
-  %readonly = getelementptr inbounds %struct.MemoryRegion, ptr %3, i64 0, i32 4
+  %readonly = getelementptr inbounds i8, ptr %3, i64 43
   %4 = load i8, ptr %readonly, align 1
   %5 = and i8 %4, 1
   %tobool4.not = icmp eq i8 %5, 0
   br i1 %tobool4.not, label %lor.lhs.false, label %while.end22
 
 lor.lhs.false:                                    ; preds = %if.else
-  %rom_device = getelementptr inbounds %struct.MemoryRegion, ptr %3, i64 0, i32 6
+  %rom_device = getelementptr inbounds i8, ptr %3, i64 45
   %6 = load i8, ptr %rom_device, align 1
   %7 = and i8 %6, 1
   %tobool6.not = icmp eq i8 %7, 0
   br i1 %tobool6.not, label %if.end8, label %while.end22
 
 if.end8:                                          ; preds = %lor.lhs.false
-  %host = getelementptr inbounds %struct.RAMBlock, ptr %block.012, i64 0, i32 2
+  %host = getelementptr inbounds i8, ptr %block.012, i64 24
   %8 = load ptr, ptr %host, align 8
-  %max_length = getelementptr inbounds %struct.RAMBlock, ptr %block.012, i64 0, i32 6
+  %max_length = getelementptr inbounds i8, ptr %block.012, i64 56
   %9 = load i64, ptr %max_length, align 8
   %call9 = call i32 @uffd_register_memory(i32 noundef %call, ptr noundef %8, i64 noundef %9, i64 noundef 2, ptr noundef nonnull %uffd_ioctls) #16
   %tobool10.not = icmp eq i32 %call9, 0
@@ -1174,7 +1134,7 @@ if.end12:                                         ; preds = %if.end8
   br i1 %cmp13.not.not, label %if.then.i.i, label %while.end22
 
 while.end22:                                      ; preds = %for.body, %migrate_ram_is_ignored.exit, %if.end12, %if.else, %lor.lhs.false
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.012, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.012, i64 336
   %11 = load atomic i64, ptr %next monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !15
   %tobool.not = icmp eq i64 %11, 0
@@ -1184,7 +1144,7 @@ if.then.i.i:                                      ; preds = %while.end22, %if.en
   %tobool.not.lcssa = phi i1 [ true, %rcu_read_auto_lock.exit ], [ false, %if.end8 ], [ false, %if.end12 ], [ true, %while.end22 ]
   call void @uffd_close_fd(i32 noundef %call) #16
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %12 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %12, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -1203,7 +1163,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %13 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %14 = and i8 %13, 1
   %tobool.not.i.i.i.i = icmp eq i8 %14, 0
@@ -1230,7 +1190,7 @@ define dso_local void @ram_write_tracking_prepare() local_unnamed_addr #0 {
 entry:
   %section.i = alloca %struct.MemoryRegionSection, align 16
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -1252,8 +1212,8 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
   br i1 %tobool.not11, label %if.then.i.i, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %rcu_read_auto_lock.exit
-  %mr6.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section.i, i64 0, i32 1
-  %fv.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section.i, i64 0, i32 2
+  %mr6.i = getelementptr inbounds i8, ptr %section.i, i64 16
+  %fv.i = getelementptr inbounds i8, ptr %section.i, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end12
@@ -1275,16 +1235,16 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
   br i1 %call3.i, label %while.end12, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %mr = getelementptr inbounds %struct.RAMBlock, ptr %block.012, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %block.012, i64 16
   %3 = load ptr, ptr %mr, align 8
-  %readonly = getelementptr inbounds %struct.MemoryRegion, ptr %3, i64 0, i32 4
+  %readonly = getelementptr inbounds i8, ptr %3, i64 43
   %4 = load i8, ptr %readonly, align 1
   %5 = and i8 %4, 1
   %tobool2.not = icmp eq i8 %5, 0
   br i1 %tobool2.not, label %lor.lhs.false, label %while.end12
 
 lor.lhs.false:                                    ; preds = %if.else
-  %rom_device = getelementptr inbounds %struct.MemoryRegion, ptr %3, i64 0, i32 6
+  %rom_device = getelementptr inbounds i8, ptr %3, i64 45
   %6 = load i8, ptr %rom_device, align 1
   %7 = and i8 %6, 1
   %tobool4.not = icmp eq i8 %7, 0
@@ -1300,7 +1260,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i6
   %8 = load ptr, ptr %mr, align 8
   %call3.i8 = call ptr @memory_region_get_ram_discard_manager(ptr noundef %8) #16
   %9 = load ptr, ptr %mr, align 8
-  %size5.i = getelementptr inbounds %struct.MemoryRegion, ptr %9, i64 0, i32 18
+  %size5.i = getelementptr inbounds i8, ptr %9, i64 112
   %10 = load i128, ptr %size5.i, align 16
   store i128 %10, ptr %section.i, align 16
   store ptr %9, ptr %mr6.i, align 16
@@ -1309,14 +1269,14 @@ if.then.i:                                        ; preds = %land.lhs.true.i6
   br label %ram_block_populate_read.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i6
-  %used_length.i = getelementptr inbounds %struct.RAMBlock, ptr %block.012, i64 0, i32 5
+  %used_length.i = getelementptr inbounds i8, ptr %block.012, i64 48
   %11 = load i64, ptr %used_length.i, align 8
   %cmp5.i.not.i = icmp eq i64 %11, 0
   br i1 %cmp5.i.not.i, label %ram_block_populate_read.exit, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.else.i
-  %host.i.i = getelementptr inbounds %struct.RAMBlock, ptr %block.012, i64 0, i32 2
-  %page_size.i.i = getelementptr inbounds %struct.RAMBlock, ptr %block.012, i64 0, i32 14
+  %host.i.i = getelementptr inbounds i8, ptr %block.012, i64 24
+  %page_size.i.i = getelementptr inbounds i8, ptr %block.012, i64 376
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
@@ -1335,7 +1295,7 @@ ram_block_populate_read.exit:                     ; preds = %for.body.i.i, %if.t
   br label %while.end12
 
 while.end12:                                      ; preds = %for.body, %ram_block_populate_read.exit, %migrate_ram_is_ignored.exit, %if.else, %lor.lhs.false
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.012, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.012, i64 336
   %16 = load atomic i64, ptr %next monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !20
   %tobool.not = icmp eq i64 %16, 0
@@ -1343,7 +1303,7 @@ while.end12:                                      ; preds = %for.body, %ram_bloc
 
 if.then.i.i:                                      ; preds = %while.end12, %rcu_read_auto_lock.exit
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %17 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %17, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -1362,7 +1322,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %18 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %19 = and i8 %18, 1
   %tobool.not.i.i.i.i = icmp eq i8 %19, 0
@@ -1388,10 +1348,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %uffdio_fd = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 1
+  %uffdio_fd = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %call, ptr %uffdio_fd, align 8
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %1 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %1, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -1413,11 +1373,11 @@ rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.
   br i1 %tobool.not43, label %if.then.i.i39, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %rcu_read_auto_lock.exit
-  %mr8.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section.i, i64 0, i32 1
-  %fv.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section.i, i64 0, i32 2
+  %mr8.i = getelementptr inbounds i8, ptr %section.i, i64 16
+  %fv.i = getelementptr inbounds i8, ptr %section.i, i64 24
   %conv.i = zext nneg i32 %call to i64
   %4 = inttoptr i64 %conv.i to ptr
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end27
@@ -1439,16 +1399,16 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
   br i1 %call3.i, label %while.end27, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %mr = getelementptr inbounds %struct.RAMBlock, ptr %block.044, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %block.044, i64 16
   %5 = load ptr, ptr %mr, align 8
-  %readonly = getelementptr inbounds %struct.MemoryRegion, ptr %5, i64 0, i32 4
+  %readonly = getelementptr inbounds i8, ptr %5, i64 43
   %6 = load i8, ptr %readonly, align 1
   %7 = and i8 %6, 1
   %tobool4.not = icmp eq i8 %7, 0
   br i1 %tobool4.not, label %lor.lhs.false, label %while.end27
 
 lor.lhs.false:                                    ; preds = %if.else
-  %rom_device = getelementptr inbounds %struct.MemoryRegion, ptr %5, i64 0, i32 6
+  %rom_device = getelementptr inbounds i8, ptr %5, i64 45
   %8 = load i8, ptr %rom_device, align 1
   %9 = and i8 %8, 1
   %tobool6.not = icmp eq i8 %9, 0
@@ -1456,16 +1416,16 @@ lor.lhs.false:                                    ; preds = %if.else
 
 if.end8:                                          ; preds = %lor.lhs.false
   %10 = load i32, ptr %uffdio_fd, align 8
-  %host = getelementptr inbounds %struct.RAMBlock, ptr %block.044, i64 0, i32 2
+  %host = getelementptr inbounds i8, ptr %block.044, i64 24
   %11 = load ptr, ptr %host, align 8
-  %max_length = getelementptr inbounds %struct.RAMBlock, ptr %block.044, i64 0, i32 6
+  %max_length = getelementptr inbounds i8, ptr %block.044, i64 56
   %12 = load i64, ptr %max_length, align 8
   %call10 = call i32 @uffd_register_memory(i32 noundef %10, ptr noundef %11, i64 noundef %12, i64 noundef 2, ptr noundef null) #16
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end13, label %fail
 
 if.end13:                                         ; preds = %if.end8
-  %flags = getelementptr inbounds %struct.RAMBlock, ptr %block.044, i64 0, i32 8
+  %flags = getelementptr inbounds i8, ptr %block.044, i64 72
   %13 = load i32, ptr %flags, align 8
   %or = or i32 %13, 64
   store i32 %or, ptr %flags, align 8
@@ -1495,7 +1455,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i29
   %17 = load ptr, ptr %mr, align 8
   %call5.i = call ptr @memory_region_get_ram_discard_manager(ptr noundef %17) #16
   %18 = load ptr, ptr %mr, align 8
-  %size7.i = getelementptr inbounds %struct.MemoryRegion, ptr %18, i64 0, i32 18
+  %size7.i = getelementptr inbounds i8, ptr %18, i64 112
   %19 = load i128, ptr %size7.i, align 16
   store i128 %19, ptr %section.i, align 16
   store ptr %18, ptr %mr8.i, align 16
@@ -1505,7 +1465,7 @@ if.then3.i:                                       ; preds = %land.lhs.true.i29
 
 if.end11.i:                                       ; preds = %land.lhs.true.i29, %if.end.i
   %20 = load ptr, ptr %host, align 8
-  %used_length.i = getelementptr inbounds %struct.RAMBlock, ptr %block.044, i64 0, i32 5
+  %used_length.i = getelementptr inbounds i8, ptr %block.044, i64 48
   %21 = load i64, ptr %used_length.i, align 8
   %call12.i = call i32 @uffd_change_protection(i32 noundef %call, ptr noundef %20, i64 noundef %21, i1 noundef zeroext true, i1 noundef zeroext false) #16
   br label %ram_block_uffd_protect.exit
@@ -1517,8 +1477,8 @@ ram_block_uffd_protect.exit:                      ; preds = %if.then3.i, %if.end
   br i1 %tobool16.not, label %if.end18, label %fail
 
 if.end18:                                         ; preds = %ram_block_uffd_protect.exit
-  %idstr = getelementptr inbounds %struct.RAMBlock, ptr %block.044, i64 0, i32 9
-  %page_size = getelementptr inbounds %struct.RAMBlock, ptr %block.044, i64 0, i32 14
+  %idstr = getelementptr inbounds i8, ptr %block.044, i64 76
+  %page_size = getelementptr inbounds i8, ptr %block.044, i64 376
   %22 = load i64, ptr %page_size, align 8
   %23 = load ptr, ptr %host, align 8
   %24 = load i64, ptr %max_length, align 8
@@ -1559,7 +1519,7 @@ trace_ram_write_tracking_ramblock_start.exit:     ; preds = %if.end18, %land.lhs
   br label %while.end27
 
 while.end27:                                      ; preds = %for.body, %trace_ram_write_tracking_ramblock_start.exit, %migrate_ram_is_ignored.exit, %if.else, %lor.lhs.false
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.044, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.044, i64 336
   %32 = load atomic i64, ptr %next monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !23
   %tobool.not = icmp eq i64 %32, 0
@@ -1569,13 +1529,13 @@ fail:                                             ; preds = %ram_block_uffd_prot
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8) #16
   %33 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !25
-  %tobool37.not46 = icmp eq i64 %33, 0
-  br i1 %tobool37.not46, label %for.end64, label %for.body38
+  %tobool37.not47 = icmp eq i64 %33, 0
+  br i1 %tobool37.not47, label %for.end64, label %for.body38
 
 for.body38:                                       ; preds = %fail, %while.end60
-  %block.147.in = phi i64 [ %40, %while.end60 ], [ %33, %fail ]
-  %block.147 = inttoptr i64 %block.147.in to ptr
-  %call.i31 = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.147) #16
+  %block.148.in = phi i64 [ %40, %while.end60 ], [ %33, %fail ]
+  %block.148 = inttoptr i64 %block.148.in to ptr
+  %call.i31 = call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.148) #16
   br i1 %call.i31, label %lor.rhs.i32, label %while.end60
 
 lor.rhs.i32:                                      ; preds = %for.body38
@@ -1583,15 +1543,15 @@ lor.rhs.i32:                                      ; preds = %for.body38
   br i1 %call1.i33, label %land.lhs.true.i34, label %if.else41
 
 land.lhs.true.i34:                                ; preds = %lor.rhs.i32
-  %call2.i35 = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.147) #16
+  %call2.i35 = call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.148) #16
   br i1 %call2.i35, label %migrate_ram_is_ignored.exit38, label %if.else41
 
 migrate_ram_is_ignored.exit38:                    ; preds = %land.lhs.true.i34
-  %call3.i37 = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.147) #16
+  %call3.i37 = call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.148) #16
   br i1 %call3.i37, label %while.end60, label %if.else41
 
 if.else41:                                        ; preds = %lor.rhs.i32, %land.lhs.true.i34, %migrate_ram_is_ignored.exit38
-  %flags42 = getelementptr inbounds %struct.RAMBlock, ptr %block.147, i64 0, i32 8
+  %flags42 = getelementptr inbounds i8, ptr %block.148, i64 72
   %34 = load i32, ptr %flags42, align 8
   %and = and i32 %34, 64
   %cmp43 = icmp eq i32 %and, 0
@@ -1599,21 +1559,21 @@ if.else41:                                        ; preds = %lor.rhs.i32, %land.
 
 if.end45:                                         ; preds = %if.else41
   %35 = load i32, ptr %uffdio_fd, align 8
-  %host47 = getelementptr inbounds %struct.RAMBlock, ptr %block.147, i64 0, i32 2
+  %host47 = getelementptr inbounds i8, ptr %block.148, i64 24
   %36 = load ptr, ptr %host47, align 8
-  %max_length48 = getelementptr inbounds %struct.RAMBlock, ptr %block.147, i64 0, i32 6
+  %max_length48 = getelementptr inbounds i8, ptr %block.148, i64 56
   %37 = load i64, ptr %max_length48, align 8
   %call49 = call i32 @uffd_unregister_memory(i32 noundef %35, ptr noundef %36, i64 noundef %37) #16
   %38 = load i32, ptr %flags42, align 8
   %and51 = and i32 %38, -65
   store i32 %and51, ptr %flags42, align 8
-  %mr52 = getelementptr inbounds %struct.RAMBlock, ptr %block.147, i64 0, i32 1
+  %mr52 = getelementptr inbounds i8, ptr %block.148, i64 16
   %39 = load ptr, ptr %mr52, align 8
   call void @memory_region_unref(ptr noundef %39) #16
   br label %while.end60
 
 while.end60:                                      ; preds = %for.body38, %if.end45, %migrate_ram_is_ignored.exit38, %if.else41
-  %next61 = getelementptr inbounds %struct.RAMBlock, ptr %block.147, i64 0, i32 10
+  %next61 = getelementptr inbounds i8, ptr %block.148, i64 336
   %40 = load atomic i64, ptr %next61 monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !26
   %tobool37.not = icmp eq i64 %40, 0
@@ -1627,7 +1587,7 @@ for.end64:                                        ; preds = %while.end60, %fail
 if.then.i.i39:                                    ; preds = %while.end27, %rcu_read_auto_lock.exit, %for.end64
   %retval.0 = phi i32 [ -1, %for.end64 ], [ 0, %rcu_read_auto_lock.exit ], [ 0, %while.end27 ]
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %41 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %41, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -1646,7 +1606,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %42 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %43 = and i8 %42, 1
   %tobool.not.i.i.i.i = icmp eq i8 %43, 0
@@ -1674,7 +1634,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr @ram_state, align 8
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %1 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %1, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -1696,8 +1656,8 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
   br i1 %tobool.not17, label %if.then.i.i14, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %rcu_read_auto_lock.exit
-  %uffdio_fd = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 1
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %uffdio_fd = getelementptr inbounds i8, ptr %0, i64 112
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end14
@@ -1719,7 +1679,7 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
   br i1 %call3.i, label %while.end14, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %flags = getelementptr inbounds %struct.RAMBlock, ptr %block.018, i64 0, i32 8
+  %flags = getelementptr inbounds i8, ptr %block.018, i64 72
   %4 = load i32, ptr %flags, align 8
   %and = and i32 %4, 64
   %cmp = icmp eq i32 %and, 0
@@ -1727,13 +1687,13 @@ if.else:                                          ; preds = %lor.rhs.i, %land.lh
 
 if.end:                                           ; preds = %if.else
   %5 = load i32, ptr %uffdio_fd, align 8
-  %host = getelementptr inbounds %struct.RAMBlock, ptr %block.018, i64 0, i32 2
+  %host = getelementptr inbounds i8, ptr %block.018, i64 24
   %6 = load ptr, ptr %host, align 8
-  %max_length = getelementptr inbounds %struct.RAMBlock, ptr %block.018, i64 0, i32 6
+  %max_length = getelementptr inbounds i8, ptr %block.018, i64 56
   %7 = load i64, ptr %max_length, align 8
   %call3 = tail call i32 @uffd_unregister_memory(i32 noundef %5, ptr noundef %6, i64 noundef %7) #16
-  %idstr = getelementptr inbounds %struct.RAMBlock, ptr %block.018, i64 0, i32 9
-  %page_size = getelementptr inbounds %struct.RAMBlock, ptr %block.018, i64 0, i32 14
+  %idstr = getelementptr inbounds i8, ptr %block.018, i64 76
+  %page_size = getelementptr inbounds i8, ptr %block.018, i64 376
   %8 = load i64, ptr %page_size, align 8
   %9 = load ptr, ptr %host, align 8
   %10 = load i64, ptr %max_length, align 8
@@ -1774,25 +1734,25 @@ trace_ram_write_tracking_ramblock_stop.exit:      ; preds = %if.end, %land.lhs.t
   %18 = load i32, ptr %flags, align 8
   %and7 = and i32 %18, -65
   store i32 %and7, ptr %flags, align 8
-  %mr = getelementptr inbounds %struct.RAMBlock, ptr %block.018, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %block.018, i64 16
   %19 = load ptr, ptr %mr, align 8
   tail call void @memory_region_unref(ptr noundef %19) #16
   br label %while.end14
 
 while.end14:                                      ; preds = %for.body, %trace_ram_write_tracking_ramblock_stop.exit, %migrate_ram_is_ignored.exit, %if.else
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.018, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.018, i64 336
   %20 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !29
   %tobool.not = icmp eq i64 %20, 0
   br i1 %tobool.not, label %if.then.i.i14, label %for.body, !llvm.loop !30
 
 if.then.i.i14:                                    ; preds = %while.end14, %rcu_read_auto_lock.exit
-  %uffdio_fd16 = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 1
+  %uffdio_fd16 = getelementptr inbounds i8, ptr %0, i64 112
   %21 = load i32, ptr %uffdio_fd16, align 8
   tail call void @uffd_close_fd(i32 noundef %21) #16
   store i32 -1, ptr %uffdio_fd16, align 8
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %22 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %22, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -1811,7 +1771,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %23 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %24 = and i8 %23, 1
   %tobool.not.i.i.i.i = icmp eq i8 %24, 0
@@ -1835,7 +1795,7 @@ entry:
   %0 = load ptr, ptr @ram_state, align 8
   %1 = atomicrmw add ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 8), i64 1 seq_cst, align 8
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %2 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -1855,7 +1815,7 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %rcu_read_auto_lock.exit
-  %last_req_rb = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 19
+  %last_req_rb = getelementptr inbounds i8, ptr %0, i64 280
   %4 = load ptr, ptr %last_req_rb, align 8
   %tobool1.not = icmp eq ptr %4, null
   br i1 %tobool1.not, label %if.then2, label %if.end8
@@ -1874,13 +1834,13 @@ if.then5:                                         ; preds = %if.else
   br label %if.then.i.i50
 
 if.end6:                                          ; preds = %if.else
-  %last_req_rb7 = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 19
+  %last_req_rb7 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %call3, ptr %last_req_rb7, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then, %if.end6
   %ramblock.0 = phi ptr [ %call3, %if.end6 ], [ %4, %if.then ]
-  %idstr = getelementptr inbounds %struct.RAMBlock, ptr %ramblock.0, i64 0, i32 9
+  %idstr = getelementptr inbounds i8, ptr %ramblock.0, i64 76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %5 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %5, 0
@@ -1905,7 +1865,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.36, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %idstr, i64 noundef %start, i64 noundef %len) #16
   br label %land.lhs.true.i
@@ -1916,20 +1876,20 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i.i, %if.then8.i.i, %land.lhs.true5.i.i, %if.end8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %host.i = getelementptr inbounds %struct.RAMBlock, ptr %ramblock.0, i64 0, i32 2
+  %host.i = getelementptr inbounds i8, ptr %ramblock.0, i64 24
   %12 = load ptr, ptr %host.i, align 8
   %tobool1.not.i = icmp eq ptr %12, null
   br i1 %tobool1.not.i, label %land.lhs.true.i.if.then10_crit_edge, label %offset_in_ramblock.exit
 
 land.lhs.true.i.if.then10_crit_edge:              ; preds = %land.lhs.true.i
-  %used_length.phi.trans.insert = getelementptr inbounds %struct.RAMBlock, ptr %ramblock.0, i64 0, i32 5
+  %used_length.phi.trans.insert = getelementptr inbounds i8, ptr %ramblock.0, i64 48
   %.pre = load i64, ptr %used_length.phi.trans.insert, align 8
   br label %if.then10
 
 offset_in_ramblock.exit:                          ; preds = %land.lhs.true.i
   %add = add i64 %start, -1
   %sub = add i64 %add, %len
-  %used_length.i = getelementptr inbounds %struct.RAMBlock, ptr %ramblock.0, i64 0, i32 5
+  %used_length.i = getelementptr inbounds i8, ptr %ramblock.0, i64 48
   %13 = load i64, ptr %used_length.i, align 8
   %cmp.i = icmp ugt i64 %13, %sub
   br i1 %cmp.i, label %if.end11, label %if.then10
@@ -1951,19 +1911,19 @@ if.then13:                                        ; preds = %postcopy_preempt_ac
   %shr = lshr i64 %start, 12
   %call14 = tail call i64 @qemu_ram_pagesize(ptr noundef nonnull %ramblock.0) #16
   %15 = load ptr, ptr @ram_state, align 8
-  %arrayidx = getelementptr [2 x %struct.PageSearchStatus], ptr %15, i64 0, i64 1
+  %arrayidx = getelementptr i8, ptr %15, i64 56
   %16 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %17 = inttoptr i64 %16 to ptr
-  %bitmap_mutex = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 18
+  %bitmap_mutex = getelementptr inbounds i8, ptr %0, i64 232
   tail call void %17(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 1951) #16
-  %block.i = getelementptr [2 x %struct.PageSearchStatus], ptr %15, i64 0, i64 1, i32 2
+  %block.i = getelementptr i8, ptr %15, i64 72
   store ptr %ramblock.0, ptr %block.i, align 8
-  %page1.i = getelementptr [2 x %struct.PageSearchStatus], ptr %15, i64 0, i64 1, i32 3
+  %page1.i = getelementptr i8, ptr %15, i64 80
   store i64 %shr, ptr %page1.i, align 8
-  %complete_round.i = getelementptr [2 x %struct.PageSearchStatus], ptr %15, i64 0, i64 1, i32 4
+  %complete_round.i = getelementptr i8, ptr %15, i64 88
   store i8 0, ptr %complete_round.i, align 8
   %call16 = tail call ptr @migrate_get_current() #16
-  %postcopy_qemufile_src = getelementptr inbounds %struct.MigrationState, ptr %call16, i64 0, i32 5
+  %postcopy_qemufile_src = getelementptr inbounds i8, ptr %call16, i64 192
   %18 = load ptr, ptr %postcopy_qemufile_src, align 8
   store ptr %18, ptr %arrayidx, align 8
   %tobool18.not = icmp eq ptr %18, null
@@ -1983,11 +1943,11 @@ while.cond25.preheader:                           ; preds = %if.end21
   br i1 %tobool26.not56, label %while.end35, label %while.body27.lr.ph
 
 while.body27.lr.ph:                               ; preds = %while.cond25.preheader
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
-  %host_page_sending.i.i = getelementptr [2 x %struct.PageSearchStatus], ptr %15, i64 0, i64 1, i32 5
-  %19 = getelementptr [2 x %struct.PageSearchStatus], ptr %15, i64 0, i64 1, i32 6
-  %20 = getelementptr [2 x %struct.PageSearchStatus], ptr %15, i64 0, i64 1, i32 7
-  %tv_usec.i.i28.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i16.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %host_page_sending.i.i = getelementptr i8, ptr %15, i64 89
+  %19 = getelementptr i8, ptr %15, i64 96
+  %20 = getelementptr i8, ptr %15, i64 104
+  %tv_usec.i.i28.i = getelementptr inbounds i8, ptr %_now.i.i16.i, i64 8
   br label %while.body27
 
 if.else23:                                        ; preds = %if.end21
@@ -1998,7 +1958,7 @@ while.body27:                                     ; preds = %while.body27.lr.ph,
   %len.addr.057 = phi i64 [ %len, %while.body27.lr.ph ], [ %sub34, %if.end33 ]
   %21 = load ptr, ptr @ram_state, align 8
   %22 = load ptr, ptr %block.i, align 8
-  %idstr.i = getelementptr inbounds %struct.RAMBlock, ptr %22, i64 0, i32 9
+  %idstr.i = getelementptr inbounds i8, ptr %22, i64 76
   %23 = load i64, ptr %page1.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %24 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2061,26 +2021,26 @@ land.lhs.true.i.i:                                ; preds = %if.else.i.i46, %if.
   store i64 %and.sink.i.i, ptr %19, align 8
   store i64 %and9.sink.i.i, ptr %20, align 8
   %35 = load ptr, ptr @ram_state, align 8
-  %host_page_sending1.i.i = getelementptr inbounds %struct.PageSearchStatus, ptr %35, i64 0, i32 5
+  %host_page_sending1.i.i = getelementptr inbounds i8, ptr %35, i64 33
   %36 = load i8, ptr %host_page_sending1.i.i, align 1
   %37 = and i8 %36, 1
   %tobool2.not.i.i = icmp eq i8 %37, 0
   br i1 %tobool2.not.i.i, label %do.body.preheader.i, label %land.rhs.i.i
 
 do.body.preheader.i:                              ; preds = %land.rhs.i.i, %land.lhs.true.i.i
-  %migration_dirty_pages.i.i = getelementptr inbounds %struct.RAMState, ptr %21, i64 0, i32 17
+  %migration_dirty_pages.i.i = getelementptr inbounds i8, ptr %21, i64 224
   %.pre.i = load ptr, ptr %block.i, align 8
   br label %do.body.i
 
 land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
-  %host_page_start3.i.i = getelementptr inbounds %struct.PageSearchStatus, ptr %35, i64 0, i32 6
+  %host_page_start3.i.i = getelementptr inbounds i8, ptr %35, i64 40
   %38 = load i64, ptr %host_page_start3.i.i, align 8
   %cmp.i15.i = icmp eq i64 %and.sink.i.i, %38
   br i1 %cmp.i15.i, label %if.then.i, label %do.body.preheader.i
 
 if.then.i:                                        ; preds = %land.rhs.i.i
   %39 = load ptr, ptr %block.i, align 8
-  %idstr3.i = getelementptr inbounds %struct.RAMBlock, ptr %39, i64 0, i32 9
+  %idstr3.i = getelementptr inbounds i8, ptr %39, i64 76
   %shl.i = shl i64 %34, 12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i16.i)
   %40 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2123,7 +2083,7 @@ do.body.i:                                        ; preds = %pss_within_range.ex
   %48 = phi ptr [ %58, %pss_within_range.exit.i ], [ %.pre.i, %do.body.preheader.i ]
   %sent.0.i = phi i8 [ %sent.1.i, %pss_within_range.exit.i ], [ 0, %do.body.preheader.i ]
   tail call fastcc void @migration_clear_memory_region_dirty_bitmap(ptr noundef %48, i64 noundef %47)
-  %bmap.i.i = getelementptr inbounds %struct.RAMBlock, ptr %48, i64 0, i32 15
+  %bmap.i.i = getelementptr inbounds i8, ptr %48, i64 384
   %49 = load ptr, ptr %bmap.i.i, align 8
   %rem.i.i.i = and i64 %47, 63
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i
@@ -2176,13 +2136,13 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   br i1 %tobool.not.i.i.i, label %out.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end2.i.i
-  %host.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %58, i64 0, i32 2
+  %host.i.i.i = getelementptr inbounds i8, ptr %58, i64 24
   %59 = load ptr, ptr %host.i.i.i, align 8
   %tobool1.not.i.i.i = icmp eq ptr %59, null
   br i1 %tobool1.not.i.i.i, label %out.i, label %pss_within_range.exit.i
 
 pss_within_range.exit.i:                          ; preds = %land.lhs.true.i.i.i
-  %used_length.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %58, i64 0, i32 5
+  %used_length.i.i.i = getelementptr inbounds i8, ptr %58, i64 48
   %60 = load i64, ptr %used_length.i.i.i, align 8
   %cmp.i.i35.i = icmp ugt i64 %60, %shl.i.i
   br i1 %cmp.i.i35.i, label %do.body.i, label %out.i, !llvm.loop !31
@@ -2221,20 +2181,20 @@ while.end35:                                      ; preds = %if.end33, %while.co
 if.end37:                                         ; preds = %if.end11, %postcopy_preempt_active.exit
   %call38 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #20
   store ptr %ramblock.0, ptr %call38, align 8
-  %offset = getelementptr inbounds %struct.RAMSrcPageRequest, ptr %call38, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %call38, i64 8
   store i64 %start, ptr %offset, align 8
-  %len39 = getelementptr inbounds %struct.RAMSrcPageRequest, ptr %call38, i64 0, i32 2
+  %len39 = getelementptr inbounds i8, ptr %call38, i64 16
   store i64 %len, ptr %len39, align 8
-  %mr = getelementptr inbounds %struct.RAMBlock, ptr %ramblock.0, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %ramblock.0, i64 16
   %63 = load ptr, ptr %mr, align 8
   tail call void @memory_region_ref(ptr noundef %63) #16
   %64 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %65 = inttoptr i64 %64 to ptr
-  %src_page_req_mutex = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 20
+  %src_page_req_mutex = getelementptr inbounds i8, ptr %0, i64 288
   tail call void %65(ptr noundef nonnull %src_page_req_mutex, ptr noundef nonnull @.str, i32 noundef 1998) #16
-  %next_req = getelementptr inbounds %struct.RAMSrcPageRequest, ptr %call38, i64 0, i32 3
+  %next_req = getelementptr inbounds i8, ptr %call38, i64 24
   store ptr null, ptr %next_req, align 8
-  %sqh_last = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 21, i32 1
+  %sqh_last = getelementptr inbounds i8, ptr %0, i64 344
   %66 = load ptr, ptr %sqh_last, align 8
   store ptr %call38, ptr %66, align 8
   store ptr %next_req, ptr %sqh_last, align 8
@@ -2245,7 +2205,7 @@ if.end37:                                         ; preds = %if.end11, %postcopy
 if.then.i.i50:                                    ; preds = %if.then2, %if.then5, %if.then10, %while.end35, %if.end37
   %retval.0 = phi i32 [ %ret.0, %while.end35 ], [ 0, %if.end37 ], [ -1, %if.then10 ], [ -1, %if.then5 ], [ -1, %if.then2 ]
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %67 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %67, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -2264,7 +2224,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %68 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %69 = and i8 %68, 1
   %tobool.not.i.i.i.i = icmp eq i8 %69, 0
@@ -2290,7 +2250,7 @@ declare void @migration_make_urgent_request() local_unnamed_addr #1
 define dso_local i64 @ram_bytes_total() local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -2331,14 +2291,14 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
   br i1 %call3.i, label %while.end7, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %used_length = getelementptr inbounds %struct.RAMBlock, ptr %block.09, i64 0, i32 5
+  %used_length = getelementptr inbounds i8, ptr %block.09, i64 48
   %3 = load i64, ptr %used_length, align 8
   %add = add i64 %3, %total.08
   br label %while.end7
 
 while.end7:                                       ; preds = %for.body, %if.else, %migrate_ram_is_ignored.exit
   %total.1 = phi i64 [ %total.08, %migrate_ram_is_ignored.exit ], [ %add, %if.else ], [ %total.08, %for.body ]
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.09, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.09, i64 336
   %4 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !34
   %tobool.not = icmp eq i64 %4, 0
@@ -2347,7 +2307,7 @@ while.end7:                                       ; preds = %for.body, %if.else,
 if.then.i.i:                                      ; preds = %while.end7, %rcu_read_auto_lock.exit
   %total.0.lcssa = phi i64 [ 0, %rcu_read_auto_lock.exit ], [ %total.1, %while.end7 ]
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %5 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %5, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -2366,7 +2326,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %6 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %7 = and i8 %6, 1
   %tobool.not.i.i.i.i = icmp eq i8 %7, 0
@@ -2408,9 +2368,9 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
   br i1 %call3.i, label %while.end14, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %bmap = getelementptr inbounds %struct.RAMBlock, ptr %block.020, i64 0, i32 15
+  %bmap = getelementptr inbounds i8, ptr %block.020, i64 384
   %1 = load ptr, ptr %bmap, align 8
-  %used_length = getelementptr inbounds %struct.RAMBlock, ptr %block.020, i64 0, i32 5
+  %used_length = getelementptr inbounds i8, ptr %block.020, i64 48
   %2 = load i64, ptr %used_length, align 8
   %shr = lshr i64 %2, 12
   %call1 = tail call i64 @find_next_zero_bit(ptr noundef %1, i64 noundef %shr, i64 noundef 0) #16
@@ -2418,7 +2378,7 @@ if.else:                                          ; preds = %lor.rhs.i, %land.lh
   br i1 %cmp16, label %while.body3.lr.ph, label %while.end14
 
 while.body3.lr.ph:                                ; preds = %if.else
-  %idstr = getelementptr inbounds %struct.RAMBlock, ptr %block.020, i64 0, i32 9
+  %idstr = getelementptr inbounds i8, ptr %block.020, i64 76
   br label %while.body3
 
 while.body3:                                      ; preds = %while.body3.lr.ph, %while.body3
@@ -2435,7 +2395,7 @@ while.body3:                                      ; preds = %while.body3.lr.ph, 
   br i1 %cmp, label %while.body3, label %while.end14, !llvm.loop !37
 
 while.end14:                                      ; preds = %while.body3, %if.else, %for.body, %migrate_ram_is_ignored.exit
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.020, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.020, i64 336
   %3 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !38
   %tobool.not = icmp eq i64 %3, 0
@@ -2455,7 +2415,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr @ram_state, align 8
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %1 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %1, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -2472,9 +2432,9 @@ while.end.i.i:                                    ; preds = %entry
 
 rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i.i
   tail call fastcc void @migration_bitmap_sync(ptr noundef %0, i1 noundef zeroext false)
-  %last_sent_block = getelementptr inbounds %struct.PageSearchStatus, ptr %0, i64 0, i32 1
+  %last_sent_block = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %last_sent_block, align 8
-  %last_seen_block = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 3
+  %last_seen_block = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_seen_block, i8 0, i64 16, i1 false)
   %3 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !40
@@ -2500,16 +2460,16 @@ migrate_ram_is_ignored.exit.i:                    ; preds = %land.lhs.true.i.i
   br i1 %call3.i.i, label %while.end5.i, label %if.else.i
 
 if.else.i:                                        ; preds = %migrate_ram_is_ignored.exit.i, %land.lhs.true.i.i, %lor.rhs.i.i
-  %idstr.i = getelementptr inbounds %struct.RAMBlock, ptr %block.021.i, i64 0, i32 9
+  %idstr.i = getelementptr inbounds i8, ptr %block.021.i, i64 76
   tail call void @postcopy_discard_send_init(ptr noundef %ms, ptr noundef nonnull %idstr.i) #16
   %4 = load ptr, ptr @ram_state, align 8
-  %bmap.i.i = getelementptr inbounds %struct.RAMBlock, ptr %block.021.i, i64 0, i32 15
+  %bmap.i.i = getelementptr inbounds i8, ptr %block.021.i, i64 384
   %5 = load ptr, ptr %bmap.i.i, align 8
-  %page_size.i.i = getelementptr inbounds %struct.RAMBlock, ptr %block.021.i, i64 0, i32 14
+  %page_size.i.i = getelementptr inbounds i8, ptr %block.021.i, i64 376
   %6 = load i64, ptr %page_size.i.i, align 8
   %.fr.i.i = freeze i64 %6
   %div26.i.i = lshr i64 %.fr.i.i, 12
-  %used_length.i.i = getelementptr inbounds %struct.RAMBlock, ptr %block.021.i, i64 0, i32 5
+  %used_length.i.i = getelementptr inbounds i8, ptr %block.021.i, i64 48
   %7 = load i64, ptr %used_length.i.i, align 8
   %shr.i.i = lshr i64 %7, 12
   %cmp.i.i = icmp eq i64 %.fr.i.i, 4096
@@ -2523,7 +2483,7 @@ if.end.i.i:                                       ; preds = %if.else.i
 while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
   %conv5.i.i = and i64 %div26.i.i, 4294967295
   %add20.i.i = add nsw i64 %conv5.i.i, -1
-  %migration_dirty_pages.i.i = getelementptr inbounds %struct.RAMState, ptr %4, i64 0, i32 17
+  %migration_dirty_pages.i.i = getelementptr inbounds i8, ptr %4, i64 224
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end32.i.i, %while.body.lr.ph.i.i
@@ -2611,7 +2571,7 @@ postcopy_send_discard_bm_ram.exit.i:              ; preds = %if.end.i14.i, %for.
   br label %while.end5.i
 
 while.end5.i:                                     ; preds = %postcopy_send_discard_bm_ram.exit.i, %migrate_ram_is_ignored.exit.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.RAMBlock, ptr %block.021.i, i64 0, i32 10
+  %next.i = getelementptr inbounds i8, ptr %block.021.i, i64 336
   %13 = load atomic i64, ptr %next.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !44
   %tobool.not.i = icmp eq i64 %13, 0
@@ -2642,7 +2602,7 @@ if.then8.i.i6:                                    ; preds = %if.then.i.i
   %call9.i.i7 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %19 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i, i64 noundef %19, i64 noundef %20) #16
   br label %if.then.i.i8
@@ -2654,7 +2614,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 if.then.i.i8:                                     ; preds = %if.else.i.i, %if.then8.i.i6, %land.lhs.true5.i.i, %postcopy_each_ram_send_discard.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %21 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %21, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -2673,7 +2633,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %22 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %23 = and i8 %22, 1
   %tobool.not.i.i.i.i = icmp eq i8 %23, 0
@@ -2696,7 +2656,7 @@ entry:
   %_now.i.i27 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = atomicrmw add ptr getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 2), i64 1 seq_cst, align 8
-  %time_last_bitmap_sync = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 7
+  %time_last_bitmap_sync = getelementptr inbounds i8, ptr %rs, i64 152
   %1 = load i64, ptr %time_last_bitmap_sync, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -2732,7 +2692,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8) #16
   br label %trace_migration_bitmap_sync_start.exit
@@ -2746,10 +2706,10 @@ trace_migration_bitmap_sync_start.exit:           ; preds = %if.end, %land.lhs.t
   tail call void @memory_global_dirty_log_sync(i1 noundef zeroext %last_stage) #16
   %9 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %10 = inttoptr i64 %9 to ptr
-  %bitmap_mutex = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 18
+  %bitmap_mutex = getelementptr inbounds i8, ptr %rs, i64 232
   tail call void %10(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 1048) #16
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %11 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %11, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -2793,7 +2753,7 @@ if.else:                                          ; preds = %lor.rhs.i, %land.lh
   br label %while.end22
 
 while.end22:                                      ; preds = %for.body13, %if.else, %migrate_ram_is_ignored.exit
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.068, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.068, i64 336
   %14 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !47
   %tobool12.not = icmp eq i64 %14, 0
@@ -2805,7 +2765,7 @@ for.end:                                          ; preds = %while.end22, %rcu_r
   br i1 %tobool.not.i, label %ram_bytes_remaining.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.end
-  %migration_dirty_pages.i = getelementptr inbounds %struct.RAMState, ptr %15, i64 0, i32 17
+  %migration_dirty_pages.i = getelementptr inbounds i8, ptr %15, i64 224
   %16 = load i64, ptr %migration_dirty_pages.i, align 8
   %mul.i = shl i64 %16, 12
   br label %ram_bytes_remaining.exit
@@ -2814,7 +2774,7 @@ ram_bytes_remaining.exit:                         ; preds = %for.end, %cond.true
   %cond.i = phi i64 [ %mul.i, %cond.true.i ], [ 0, %for.end ]
   store atomic i64 %cond.i, ptr @mig_stats monotonic, align 8
   %call.i.i20 = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i21 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i20, i64 0, i32 2
+  %depth.i.i21 = getelementptr inbounds i8, ptr %call.i.i20, i64 12
   %17 = load i32, ptr %depth.i.i21, align 4
   %cmp.not.i.i22 = icmp eq i32 %17, 0
   br i1 %cmp.not.i.i22, label %if.else.i.i24, label %if.end.i.i
@@ -2833,7 +2793,7 @@ while.end.i.i23:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i20 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i20, i64 0, i32 1
+  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i20, i64 8
   %18 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %19 = and i8 %18, 1
   %tobool.not.i.i = icmp eq i8 %19, 0
@@ -2847,7 +2807,7 @@ while.end21.i.i:                                  ; preds = %while.end.i.i23
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i23, %if.end.i.i
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 1055) #16
   tail call void @memory_global_after_dirty_log_sync() #16
-  %num_dirty_pages_period = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 9
+  %num_dirty_pages_period = getelementptr inbounds i8, ptr %rs, i64 168
   %20 = load i64, ptr %num_dirty_pages_period, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i27)
   %21 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2873,7 +2833,7 @@ if.then8.i.i36:                                   ; preds = %if.then.i.i34
   %call9.i.i37 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i27, ptr noundef null) #16
   %call10.i.i38 = tail call i32 @qemu_get_thread_id() #16
   %26 = load i64, ptr %_now.i.i27, align 8
-  %tv_usec.i.i39 = getelementptr inbounds %struct.timeval, ptr %_now.i.i27, i64 0, i32 1
+  %tv_usec.i.i39 = getelementptr inbounds i8, ptr %_now.i.i27, i64 8
   %27 = load i64, ptr %tv_usec.i.i39, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i38, i64 noundef %26, i64 noundef %27, i64 noundef %20) #16
   br label %trace_migration_bitmap_sync_end.exit
@@ -2895,7 +2855,7 @@ if.then30:                                        ; preds = %trace_migration_bit
   %call.i43 = tail call zeroext i8 @migrate_throttle_trigger_threshold() #16
   %conv.i = zext i8 %call.i43 to i64
   %call1.i44 = tail call i64 @migration_transferred_bytes() #16
-  %bytes_xfer_prev.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 8
+  %bytes_xfer_prev.i = getelementptr inbounds i8, ptr %rs, i64 160
   %29 = load i64, ptr %bytes_xfer_prev.i, align 8
   %sub.i = sub i64 %call1.i44, %29
   %30 = load i64, ptr %num_dirty_pages_period, align 8
@@ -2909,7 +2869,7 @@ if.then30:                                        ; preds = %trace_migration_bit
   br i1 %or.cond.i, label %land.lhs.true.i49, label %migration_trigger_throttle.exit
 
 land.lhs.true.i49:                                ; preds = %if.then30
-  %dirty_rate_high_cnt.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 6
+  %dirty_rate_high_cnt.i = getelementptr inbounds i8, ptr %rs, i64 148
   %31 = load i32, ptr %dirty_rate_high_cnt.i, align 4
   %inc.i = add i32 %31, 1
   store i32 %inc.i, ptr %dirty_rate_high_cnt.i, align 4
@@ -2946,7 +2906,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #16
   %37 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %38 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i.i, i64 noundef %37, i64 noundef %38) #16
   br label %trace_migration_throttle.exit.i
@@ -3009,13 +2969,13 @@ if.then12.i:                                      ; preds = %if.else.i
   br i1 %call1.i7.i, label %land.lhs.true.i.i, label %entry.if.end_crit_edge.i.i
 
 entry.if.end_crit_edge.i.i:                       ; preds = %if.then12.i
-  %vcpu_dirty_limit3.phi.trans.insert.i.i = getelementptr inbounds %struct.MigrationState, ptr %call.i6.i, i64 0, i32 15, i32 56
+  %vcpu_dirty_limit3.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %call.i6.i, i64 760
   %.pre.i.i = load i64, ptr %vcpu_dirty_limit3.phi.trans.insert.i.i, align 8
   br label %if.end.i8.i
 
 land.lhs.true.i.i:                                ; preds = %if.then12.i
   %39 = load i64, ptr @migration_dirty_limit_guest.quota_dirtyrate, align 8
-  %vcpu_dirty_limit.i.i = getelementptr inbounds %struct.MigrationState, ptr %call.i6.i, i64 0, i32 15, i32 56
+  %vcpu_dirty_limit.i.i = getelementptr inbounds i8, ptr %call.i6.i, i64 760
   %40 = load i64, ptr %vcpu_dirty_limit.i.i, align 8
   %cmp.i.i = icmp eq i64 %39, %40
   br i1 %cmp.i.i, label %migration_trigger_throttle.exit, label %if.end.i8.i
@@ -3049,7 +3009,7 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #16
   %call10.i.i.i.i = tail call i32 @qemu_get_thread_id() #16
   %48 = load i64, ptr %_now.i.i.i.i, align 8
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %49 = load i64, ptr %tv_usec.i.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i.i.i, i64 noundef %48, i64 noundef %49, i64 noundef %42) #16
   br label %trace_migration_dirty_limit_guest.exit.i.i
@@ -3063,9 +3023,9 @@ trace_migration_dirty_limit_guest.exit.i.i:       ; preds = %if.else.i.i.i.i50, 
   br label %migration_trigger_throttle.exit
 
 migration_trigger_throttle.exit:                  ; preds = %if.then30, %land.lhs.true.i49, %mig_throttle_guest_down.exit.i, %if.else.i, %land.lhs.true.i.i, %trace_migration_dirty_limit_guest.exit.i.i
-  %target_page_count.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 16
+  %target_page_count.i = getelementptr inbounds i8, ptr %rs, i64 216
   %50 = load i64, ptr %target_page_count.i, align 8
-  %target_page_count_prev.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 15
+  %target_page_count_prev.i = getelementptr inbounds i8, ptr %rs, i64 208
   %51 = load i64, ptr %target_page_count_prev.i, align 8
   %sub.i55 = sub i64 %50, %51
   %52 = load i64, ptr %num_dirty_pages_period, align 8
@@ -3083,7 +3043,7 @@ if.end.i:                                         ; preds = %migration_trigger_t
 
 if.then2.i:                                       ; preds = %if.end.i
   %54 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 3), align 8
-  %xbzrle_cache_miss_prev.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 10
+  %xbzrle_cache_miss_prev.i = getelementptr inbounds i8, ptr %rs, i64 176
   %55 = load i64, ptr %xbzrle_cache_miss_prev.i, align 8
   %sub3.i = sub i64 %54, %55
   %conv.i61 = uitofp i64 %sub3.i to double
@@ -3092,10 +3052,10 @@ if.then2.i:                                       ; preds = %if.end.i
   store double %div5.i, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 4), align 8
   store i64 %54, ptr %xbzrle_cache_miss_prev.i, align 8
   %56 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 2), align 8
-  %xbzrle_pages_prev.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 11
+  %xbzrle_pages_prev.i = getelementptr inbounds i8, ptr %rs, i64 184
   %57 = load i64, ptr %xbzrle_pages_prev.i, align 8
   %58 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 1), align 8
-  %xbzrle_bytes_prev.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 12
+  %xbzrle_bytes_prev.i = getelementptr inbounds i8, ptr %rs, i64 192
   %59 = load i64, ptr %xbzrle_bytes_prev.i, align 8
   %cmp.i62 = icmp ne i64 %56, %57
   %tobool14.i = icmp ne i64 %58, %59
@@ -3157,7 +3117,7 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %offset = alloca i64, align 8
   %call = tail call ptr @migrate_get_current() #16
-  %state = getelementptr inbounds %struct.MigrationState, ptr %call, i64 0, i32 16
+  %state = getelementptr inbounds i8, ptr %call, i64 776
   %0 = load i32, ptr %state, align 8
   %call1 = tail call zeroext i1 @migration_is_setup_or_active(i32 noundef %0) #16
   %cmp = icmp ne i64 %len, 0
@@ -3165,7 +3125,7 @@ entry:
   br i1 %or.cond, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %bitmap_count_one_with_offset.exit
@@ -3177,7 +3137,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 lor.rhs:                                          ; preds = %for.body
   %1 = load i64, ptr %offset, align 8
-  %used_length = getelementptr inbounds %struct.RAMBlock, ptr %call2, i64 0, i32 5
+  %used_length = getelementptr inbounds i8, ptr %call2, i64 48
   %2 = load i64, ptr %used_length, align 8
   %cmp3.not = icmp ult i64 %1, %2
   br i1 %cmp3.not, label %if.end9, label %if.then6
@@ -3194,9 +3154,9 @@ if.end9:                                          ; preds = %lor.rhs
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr @ram_state, align 8
-  %bitmap_mutex = getelementptr inbounds %struct.RAMState, ptr %5, i64 0, i32 18
+  %bitmap_mutex = getelementptr inbounds i8, ptr %5, i64 232
   call void %4(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 2905) #16
-  %clear_bmap_shift.i = getelementptr inbounds %struct.RAMBlock, ptr %call2, i64 0, i32 18
+  %clear_bmap_shift.i = getelementptr inbounds i8, ptr %call2, i64 408
   %6 = load i8, ptr %clear_bmap_shift.i, align 8
   %sh_prom.i = zext nneg i8 %6 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -3210,9 +3170,9 @@ if.end9:                                          ; preds = %lor.rhs
   br i1 %cmp14.i, label %for.body.i.preheader, label %migration_clear_memory_region_dirty_bitmap_range.exit
 
 for.body.i.preheader:                             ; preds = %if.end9
-  %clear_bmap.i = getelementptr inbounds %struct.RAMBlock, ptr %call2, i64 0, i32 17
-  %idstr.i = getelementptr inbounds %struct.RAMBlock, ptr %call2, i64 0, i32 9
-  %mr.i = getelementptr inbounds %struct.RAMBlock, ptr %call2, i64 0, i32 1
+  %clear_bmap.i = getelementptr inbounds i8, ptr %call2, i64 400
+  %idstr.i = getelementptr inbounds i8, ptr %call2, i64 76
+  %mr.i = getelementptr inbounds i8, ptr %call2, i64 16
   %8 = load ptr, ptr %clear_bmap.i, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %migration_clear_memory_region_dirty_bitmap_range.exit, label %for.body.i
@@ -3294,7 +3254,7 @@ migration_clear_memory_region_dirty_bitmap.exit:  ; preds = %for.body.i, %lor.lh
   br i1 %cmp.i, label %for.body.ithread-pre-split, label %migration_clear_memory_region_dirty_bitmap_range.exit, !llvm.loop !49
 
 migration_clear_memory_region_dirty_bitmap_range.exit: ; preds = %migration_clear_memory_region_dirty_bitmap.exit, %for.body.i.preheader, %if.end9
-  %bmap = getelementptr inbounds %struct.RAMBlock, ptr %call2, i64 0, i32 15
+  %bmap = getelementptr inbounds i8, ptr %call2, i64 384
   %21 = load ptr, ptr %bmap, align 8
   %div5.i = lshr i64 %1, 18
   %sub.i18 = and i64 %shr, 63
@@ -3338,14 +3298,14 @@ bitmap_count_one_with_offset.exit:                ; preds = %bitmap_count_one.ex
   %retval.0.i13.i = phi i64 [ %25, %if.end.i7.i ], [ 0, %bitmap_count_one.exit.i ]
   %sub3.i.neg = sub i64 %retval.0.i13.i, %retval.0.i.i
   %26 = load ptr, ptr @ram_state, align 8
-  %migration_dirty_pages = getelementptr inbounds %struct.RAMState, ptr %26, i64 0, i32 17
+  %migration_dirty_pages = getelementptr inbounds i8, ptr %26, i64 224
   %27 = load i64, ptr %migration_dirty_pages, align 8
   %sub20 = add i64 %sub3.i.neg, %27
   store i64 %sub20, ptr %migration_dirty_pages, align 8
   %28 = load ptr, ptr %bmap, align 8
   call void @bitmap_clear(ptr noundef %28, i64 noundef %shr, i64 noundef %shr17) #16
   %29 = load ptr, ptr @ram_state, align 8
-  %bitmap_mutex22 = getelementptr inbounds %struct.RAMState, ptr %29, i64 0, i32 18
+  %bitmap_mutex22 = getelementptr inbounds i8, ptr %29, i64 232
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex22, ptr noundef nonnull @.str, i32 noundef 2916) #16
   %sub23 = sub i64 %len.addr.0, %sub.len.addr.0
   %add.ptr = getelementptr i8, ptr %addr.addr.0, i64 %sub.len.addr.0
@@ -3368,7 +3328,7 @@ entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = load ptr, ptr @ram_state, align 8
-  %bitmap_mutex = getelementptr inbounds %struct.RAMState, ptr %2, i64 0, i32 18
+  %bitmap_mutex = getelementptr inbounds i8, ptr %2, i64 232
   tail call void %1(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3348) #16
   %cmp3.not = icmp eq i32 %pages, 0
   br i1 %cmp3.not, label %entry.for.end_crit_edge, label %for.body.lr.ph
@@ -3378,7 +3338,7 @@ entry.for.end_crit_edge:                          ; preds = %entry
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %bmap = getelementptr inbounds %struct.RAMBlock, ptr %block, i64 0, i32 15
+  %bmap = getelementptr inbounds i8, ptr %block, i64 384
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -3399,7 +3359,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = lshr i64 %6, %rem.i
   %conv = and i64 %7, 1
   %8 = load ptr, ptr @ram_state, align 8
-  %migration_dirty_pages = getelementptr inbounds %struct.RAMState, ptr %8, i64 0, i32 17
+  %migration_dirty_pages = getelementptr inbounds i8, ptr %8, i64 224
   %9 = load i64, ptr %migration_dirty_pages, align 8
   %add = add i64 %9, %conv
   store i64 %add, ptr %migration_dirty_pages, align 8
@@ -3409,7 +3369,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %entry.for.end_crit_edge
   %10 = phi ptr [ %.pre, %entry.for.end_crit_edge ], [ %8, %for.body ]
-  %bitmap_mutex1 = getelementptr inbounds %struct.RAMState, ptr %10, i64 0, i32 18
+  %bitmap_mutex1 = getelementptr inbounds i8, ptr %10, i64 232
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex1, ptr noundef nonnull @.str, i32 noundef 3355) #16
   ret void
 }
@@ -3437,7 +3397,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 define dso_local i32 @colo_init_ram_cache() local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -3477,16 +3437,16 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
   br i1 %call3.i, label %while.end52, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %used_length = getelementptr inbounds %struct.RAMBlock, ptr %block.061, i64 0, i32 5
+  %used_length = getelementptr inbounds i8, ptr %block.061, i64 48
   %3 = load i64, ptr %used_length, align 8
   %call5 = tail call ptr @qemu_anon_ram_alloc(i64 noundef %3, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #16
-  %colo_cache = getelementptr inbounds %struct.RAMBlock, ptr %block.061, i64 0, i32 3
+  %colo_cache = getelementptr inbounds i8, ptr %block.061, i64 32
   store ptr %call5, ptr %colo_cache, align 8
   %tobool7.not = icmp eq ptr %call5, null
   br i1 %tobool7.not, label %if.then8, label %if.end38
 
 if.then8:                                         ; preds = %if.else
-  %idstr = getelementptr inbounds %struct.RAMBlock, ptr %block.061, i64 0, i32 9
+  %idstr = getelementptr inbounds i8, ptr %block.061, i64 76
   %4 = load i64, ptr %used_length, align 8
   tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.colo_init_ram_cache, ptr noundef nonnull %idstr, i64 noundef %4) #16
   %5 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
@@ -3513,20 +3473,20 @@ migrate_ram_is_ignored.exit29:                    ; preds = %land.lhs.true.i25
   br i1 %call3.i28, label %while.end35, label %if.else22
 
 if.else22:                                        ; preds = %lor.rhs.i23, %land.lhs.true.i25, %migrate_ram_is_ignored.exit29
-  %colo_cache23 = getelementptr inbounds %struct.RAMBlock, ptr %block.164, i64 0, i32 3
+  %colo_cache23 = getelementptr inbounds i8, ptr %block.164, i64 32
   %6 = load ptr, ptr %colo_cache23, align 8
   %tobool24.not = icmp eq ptr %6, null
   br i1 %tobool24.not, label %while.end35, label %if.then25
 
 if.then25:                                        ; preds = %if.else22
-  %used_length27 = getelementptr inbounds %struct.RAMBlock, ptr %block.164, i64 0, i32 5
+  %used_length27 = getelementptr inbounds i8, ptr %block.164, i64 48
   %7 = load i64, ptr %used_length27, align 8
   tail call void @qemu_anon_ram_free(ptr noundef nonnull %6, i64 noundef %7) #16
   store ptr null, ptr %colo_cache23, align 8
   br label %while.end35
 
 while.end35:                                      ; preds = %for.body19, %migrate_ram_is_ignored.exit29, %if.then25, %if.else22
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.164, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.164, i64 336
   %8 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !55
   %tobool18.not = icmp eq i64 %8, 0
@@ -3544,7 +3504,7 @@ if.then40:                                        ; preds = %if.end38
   br label %while.end52
 
 while.end52:                                      ; preds = %for.body3, %migrate_ram_is_ignored.exit, %if.then40, %if.end38
-  %next53 = getelementptr inbounds %struct.RAMBlock, ptr %block.061, i64 0, i32 10
+  %next53 = getelementptr inbounds i8, ptr %block.061, i64 336
   %12 = load atomic i64, ptr %next53 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !57
   %tobool2.not = icmp eq i64 %12, 0
@@ -3552,7 +3512,7 @@ while.end52:                                      ; preds = %for.body3, %migrate
 
 for.inc57:                                        ; preds = %while.end52, %rcu_read_auto_lock.exit
   %call.i.i30 = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i31 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30, i64 0, i32 2
+  %depth.i.i31 = getelementptr inbounds i8, ptr %call.i.i30, i64 12
   %13 = load i32, ptr %depth.i.i31, align 4
   %cmp.not.i.i32 = icmp eq i32 %13, 0
   br i1 %cmp.not.i.i32, label %if.else.i.i, label %if.end.i.i
@@ -3571,7 +3531,7 @@ while.end.i.i33:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i30 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i30, i64 0, i32 1
+  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i30, i64 8
   %14 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %15 = and i8 %14, 1
   %tobool.not.i.i = icmp eq i8 %15, 0
@@ -3587,7 +3547,7 @@ if.then.i.i:                                      ; preds = %while.end35, %if.th
   %16 = load i32, ptr %call37, align 4
   %sub = sub i32 0, %16
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %17 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %17, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -3606,7 +3566,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %18 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %19 = and i8 %18, 1
   %tobool.not.i.i.i.i = icmp eq i8 %19, 0
@@ -3625,13 +3585,13 @@ for.end58:                                        ; preds = %while.end21.i.i, %w
 while.end67:                                      ; preds = %for.end58
   %20 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !59
-  %tobool70.not66 = icmp eq i64 %20, 0
-  br i1 %tobool70.not66, label %if.end88, label %for.body71
+  %tobool70.not67 = icmp eq i64 %20, 0
+  br i1 %tobool70.not67, label %if.end88, label %for.body71
 
 for.body71:                                       ; preds = %while.end67, %while.end83
-  %block.267.in = phi i64 [ %23, %while.end83 ], [ %20, %while.end67 ]
-  %block.267 = inttoptr i64 %block.267.in to ptr
-  %call.i35 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.267) #16
+  %block.268.in = phi i64 [ %23, %while.end83 ], [ %20, %while.end67 ]
+  %block.268 = inttoptr i64 %block.268.in to ptr
+  %call.i35 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.268) #16
   br i1 %call.i35, label %lor.rhs.i36, label %while.end83
 
 lor.rhs.i36:                                      ; preds = %for.body71
@@ -3639,15 +3599,15 @@ lor.rhs.i36:                                      ; preds = %for.body71
   br i1 %call1.i37, label %land.lhs.true.i38, label %if.else74
 
 land.lhs.true.i38:                                ; preds = %lor.rhs.i36
-  %call2.i39 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.267) #16
+  %call2.i39 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.268) #16
   br i1 %call2.i39, label %migrate_ram_is_ignored.exit42, label %if.else74
 
 migrate_ram_is_ignored.exit42:                    ; preds = %land.lhs.true.i38
-  %call3.i41 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.267) #16
+  %call3.i41 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.268) #16
   br i1 %call3.i41, label %while.end83, label %if.else74
 
 if.else74:                                        ; preds = %lor.rhs.i36, %land.lhs.true.i38, %migrate_ram_is_ignored.exit42
-  %max_length = getelementptr inbounds %struct.RAMBlock, ptr %block.267, i64 0, i32 6
+  %max_length = getelementptr inbounds i8, ptr %block.268, i64 56
   %21 = load i64, ptr %max_length, align 8
   %shr = lshr i64 %21, 12
   %sub.i.i = add nuw nsw i64 %shr, 63
@@ -3662,12 +3622,12 @@ if.then.i:                                        ; preds = %if.else74
   unreachable
 
 bitmap_new.exit:                                  ; preds = %if.else74
-  %bmap = getelementptr inbounds %struct.RAMBlock, ptr %block.267, i64 0, i32 15
+  %bmap = getelementptr inbounds i8, ptr %block.268, i64 384
   store ptr %call.i.i43, ptr %bmap, align 8
   br label %while.end83
 
 while.end83:                                      ; preds = %for.body71, %bitmap_new.exit, %migrate_ram_is_ignored.exit42
-  %next84 = getelementptr inbounds %struct.RAMBlock, ptr %block.267, i64 0, i32 10
+  %next84 = getelementptr inbounds i8, ptr %block.268, i64 336
   %23 = load atomic i64, ptr %next84 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !60
   %tobool70.not = icmp eq i64 %23, 0
@@ -3700,7 +3660,7 @@ entry:
   tail call void @qemu_mutex_lock_ramlist() #16
   tail call void @memory_global_dirty_log_sync(i1 noundef zeroext false) #16
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %0 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %0, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -3742,9 +3702,9 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
   %3 = load ptr, ptr @ram_state, align 8
   tail call fastcc void @ramblock_sync_dirty_bitmap(ptr noundef %3, ptr noundef nonnull %block.014)
-  %bmap = getelementptr inbounds %struct.RAMBlock, ptr %block.014, i64 0, i32 15
+  %bmap = getelementptr inbounds i8, ptr %block.014, i64 384
   %4 = load ptr, ptr %bmap, align 8
-  %max_length = getelementptr inbounds %struct.RAMBlock, ptr %block.014, i64 0, i32 6
+  %max_length = getelementptr inbounds i8, ptr %block.014, i64 56
   %5 = load i64, ptr %max_length, align 8
   %cmp.i = icmp ult i64 %5, 266240
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -3762,7 +3722,7 @@ if.else.i:                                        ; preds = %if.else
   br label %while.end10
 
 while.end10:                                      ; preds = %for.body3, %if.else.i, %if.then.i, %migrate_ram_is_ignored.exit
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.014, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.014, i64 336
   %7 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !64
   %tobool2.not = icmp eq i64 %7, 0
@@ -3771,7 +3731,7 @@ while.end10:                                      ; preds = %for.body3, %if.else
 for.end:                                          ; preds = %while.end10, %rcu_read_auto_lock.exit
   tail call void @memory_global_dirty_log_start(i32 noundef 1) #16
   %call.i.i6 = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i7 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i6, i64 0, i32 2
+  %depth.i.i7 = getelementptr inbounds i8, ptr %call.i.i6, i64 12
   %8 = load i32, ptr %depth.i.i7, align 4
   %cmp.not.i.i8 = icmp eq i32 %8, 0
   br i1 %cmp.not.i.i8, label %if.else.i.i, label %if.end.i.i
@@ -3790,7 +3750,7 @@ while.end.i.i9:                                   ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i6 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i6, i64 0, i32 1
+  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i6, i64 8
   %9 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %10 = and i8 %9, 1
   %tobool.not.i.i = icmp eq i8 %10, 0
@@ -3803,7 +3763,7 @@ while.end21.i.i:                                  ; preds = %while.end.i.i9
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i9, %if.end.i.i
   %11 = load ptr, ptr @ram_state, align 8
-  %migration_dirty_pages = getelementptr inbounds %struct.RAMState, ptr %11, i64 0, i32 17
+  %migration_dirty_pages = getelementptr inbounds i8, ptr %11, i64 224
   store i64 0, ptr %migration_dirty_pages, align 8
   tail call void @qemu_mutex_unlock_ramlist() #16
   tail call void @qemu_mutex_unlock_iothread() #16
@@ -3819,11 +3779,11 @@ declare void @memory_global_dirty_log_sync(i1 noundef zeroext) local_unnamed_add
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @ramblock_sync_dirty_bitmap(ptr nocapture noundef %rs, ptr nocapture noundef readonly %rb) unnamed_addr #0 {
 entry:
-  %used_length = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 5
+  %used_length = getelementptr inbounds i8, ptr %rb, i64 48
   %0 = load i64, ptr %used_length, align 8
-  %offset.i = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 4
+  %offset.i = getelementptr inbounds i8, ptr %rb, i64 40
   %1 = load i64, ptr %offset.i, align 8
-  %bmap.i = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 15
+  %bmap.i = getelementptr inbounds i8, ptr %rb, i64 384
   %2 = load ptr, ptr %bmap.i, align 8
   %3 = or i64 %1, %0
   %4 = and i64 %3, 262143
@@ -3839,7 +3799,7 @@ if.then.i:                                        ; preds = %entry
   %5 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 3, i64 2) monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !66
-  %blocks.i = getelementptr inbounds %struct.DirtyMemoryBlocks, ptr %6, i64 0, i32 1
+  %blocks.i = getelementptr inbounds i8, ptr %6, i64 16
   %sext.i = shl i64 %0, 14
   %conv15.i = ashr exact i64 %sext.i, 32
   %cmp1747.not.i = icmp eq i64 %sext.i, 0
@@ -3890,7 +3850,7 @@ if.end.i:                                         ; preds = %while.end26.i, %for
 
 for.end.i:                                        ; preds = %if.end.i, %if.then.i
   %num_dirty.0.lcssa.i = phi i64 [ 0, %if.then.i ], [ %num_dirty.1.i, %if.end.i ]
-  %clear_bmap.i = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 17
+  %clear_bmap.i = getelementptr inbounds i8, ptr %rb, i64 400
   %13 = load ptr, ptr %clear_bmap.i, align 8
   %tobool43.not.i = icmp eq ptr %13, null
   br i1 %tobool43.not.i, label %if.else.i, label %if.then44.i
@@ -3907,7 +3867,7 @@ if.then44.i:                                      ; preds = %for.end.i
   br label %cpu_physical_memory_sync_dirty_bitmap.exit
 
 if.else.i:                                        ; preds = %for.end.i
-  %mr.i = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 1
+  %mr.i = getelementptr inbounds i8, ptr %rb, i64 16
   %15 = load ptr, ptr %mr.i, align 8
   tail call void @memory_region_clear_dirty_bitmap(ptr noundef %15, i64 noundef 0, i64 noundef %0) #16
   br label %cpu_physical_memory_sync_dirty_bitmap.exit
@@ -3942,11 +3902,11 @@ for.inc68.i:                                      ; preds = %if.then58.i, %for.b
 
 cpu_physical_memory_sync_dirty_bitmap.exit:       ; preds = %for.inc68.i, %for.cond51.preheader.i, %if.then44.i, %if.else.i
   %num_dirty.4.i = phi i64 [ %num_dirty.0.lcssa.i, %if.then44.i ], [ %num_dirty.0.lcssa.i, %if.else.i ], [ 0, %for.cond51.preheader.i ], [ %num_dirty.3.i, %for.inc68.i ]
-  %migration_dirty_pages = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 17
+  %migration_dirty_pages = getelementptr inbounds i8, ptr %rs, i64 224
   %19 = load i64, ptr %migration_dirty_pages, align 8
   %add = add i64 %19, %num_dirty.4.i
   store i64 %add, ptr %migration_dirty_pages, align 8
-  %num_dirty_pages_period = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 9
+  %num_dirty_pages_period = getelementptr inbounds i8, ptr %rs, i64 168
   %20 = load i64, ptr %num_dirty_pages_period, align 8
   %add1 = add i64 %20, %num_dirty.4.i
   store i64 %add1, ptr %num_dirty_pages_period, align 8
@@ -3987,14 +3947,14 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
   br i1 %call3.i, label %while.end6, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %bmap = getelementptr inbounds %struct.RAMBlock, ptr %block.029, i64 0, i32 15
+  %bmap = getelementptr inbounds i8, ptr %block.029, i64 384
   %1 = load ptr, ptr %bmap, align 8
   tail call void @g_free(ptr noundef %1) #16
   store ptr null, ptr %bmap, align 8
   br label %while.end6
 
 while.end6:                                       ; preds = %for.body, %if.else, %migrate_ram_is_ignored.exit
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.029, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.029, i64 336
   %2 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !70
   %tobool.not = icmp eq i64 %2, 0
@@ -4002,7 +3962,7 @@ while.end6:                                       ; preds = %for.body, %if.else,
 
 for.end:                                          ; preds = %while.end6, %entry
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %3 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %3, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -4020,13 +3980,13 @@ while.end.i.i:                                    ; preds = %for.end
 rcu_read_auto_lock.exit:                          ; preds = %for.end, %while.end.i.i
   %5 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !72
-  %tobool19.not31 = icmp eq i64 %5, 0
-  br i1 %tobool19.not31, label %for.inc41, label %for.body20
+  %tobool19.not32 = icmp eq i64 %5, 0
+  br i1 %tobool19.not32, label %for.inc41, label %for.body20
 
 for.body20:                                       ; preds = %rcu_read_auto_lock.exit, %while.end36
-  %block.132.in = phi i64 [ %8, %while.end36 ], [ %5, %rcu_read_auto_lock.exit ]
-  %block.132 = inttoptr i64 %block.132.in to ptr
-  %call.i12 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.132) #16
+  %block.133.in = phi i64 [ %8, %while.end36 ], [ %5, %rcu_read_auto_lock.exit ]
+  %block.133 = inttoptr i64 %block.133.in to ptr
+  %call.i12 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.133) #16
   br i1 %call.i12, label %lor.rhs.i13, label %while.end36
 
 lor.rhs.i13:                                      ; preds = %for.body20
@@ -4034,28 +3994,28 @@ lor.rhs.i13:                                      ; preds = %for.body20
   br i1 %call1.i14, label %land.lhs.true.i15, label %if.else23
 
 land.lhs.true.i15:                                ; preds = %lor.rhs.i13
-  %call2.i16 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.132) #16
+  %call2.i16 = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.133) #16
   br i1 %call2.i16, label %migrate_ram_is_ignored.exit19, label %if.else23
 
 migrate_ram_is_ignored.exit19:                    ; preds = %land.lhs.true.i15
-  %call3.i18 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.132) #16
+  %call3.i18 = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.133) #16
   br i1 %call3.i18, label %while.end36, label %if.else23
 
 if.else23:                                        ; preds = %lor.rhs.i13, %land.lhs.true.i15, %migrate_ram_is_ignored.exit19
-  %colo_cache = getelementptr inbounds %struct.RAMBlock, ptr %block.132, i64 0, i32 3
+  %colo_cache = getelementptr inbounds i8, ptr %block.133, i64 32
   %6 = load ptr, ptr %colo_cache, align 8
   %tobool24.not = icmp eq ptr %6, null
   br i1 %tobool24.not, label %while.end36, label %if.then25
 
 if.then25:                                        ; preds = %if.else23
-  %used_length = getelementptr inbounds %struct.RAMBlock, ptr %block.132, i64 0, i32 5
+  %used_length = getelementptr inbounds i8, ptr %block.133, i64 48
   %7 = load i64, ptr %used_length, align 8
   tail call void @qemu_anon_ram_free(ptr noundef nonnull %6, i64 noundef %7) #16
   store ptr null, ptr %colo_cache, align 8
   br label %while.end36
 
 while.end36:                                      ; preds = %for.body20, %migrate_ram_is_ignored.exit19, %if.then25, %if.else23
-  %next37 = getelementptr inbounds %struct.RAMBlock, ptr %block.132, i64 0, i32 10
+  %next37 = getelementptr inbounds i8, ptr %block.133, i64 336
   %8 = load atomic i64, ptr %next37 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !73
   %tobool19.not = icmp eq i64 %8, 0
@@ -4063,7 +4023,7 @@ while.end36:                                      ; preds = %for.body20, %migrat
 
 for.inc41:                                        ; preds = %while.end36, %rcu_read_auto_lock.exit
   %call.i.i20 = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i21 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i20, i64 0, i32 2
+  %depth.i.i21 = getelementptr inbounds i8, ptr %call.i.i20, i64 12
   %9 = load i32, ptr %depth.i.i21, align 4
   %cmp.not.i.i22 = icmp eq i32 %9, 0
   br i1 %cmp.not.i.i22, label %if.else.i.i, label %if.end.i.i
@@ -4082,7 +4042,7 @@ while.end.i.i23:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i20 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i20, i64 0, i32 1
+  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i20, i64 8
   %10 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %11 = and i8 %10, 1
   %tobool.not.i.i = icmp eq i8 %11, 0
@@ -4109,7 +4069,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i, i64 0, i32 2
+  %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   %1 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %1, 1
   store i32 %inc.i.i.i, ptr %depth.i.i.i, align 4
@@ -4125,25 +4085,25 @@ while.end.i.i.i:                                  ; preds = %if.then
   br label %rcu_read_auto_lock.exit.i
 
 rcu_read_auto_lock.exit.i:                        ; preds = %while.end.i.i.i, %if.then
-  %src_page_requests.i = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 21
+  %src_page_requests.i = getelementptr inbounds i8, ptr %0, i64 336
   %3 = load ptr, ptr %src_page_requests.i, align 8
   %tobool.not9.i = icmp eq ptr %3, null
   br i1 %tobool.not9.i, label %if.then.i.i.i, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %rcu_read_auto_lock.exit.i
-  %sqh_last.i = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 21, i32 1
+  %sqh_last.i = getelementptr inbounds i8, ptr %0, i64 344
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end.i, %land.rhs.lr.ph.i
   %mspr.010.i = phi ptr [ %3, %land.rhs.lr.ph.i ], [ %4, %if.end.i ]
-  %next_req.i = getelementptr inbounds %struct.RAMSrcPageRequest, ptr %mspr.010.i, i64 0, i32 3
+  %next_req.i = getelementptr inbounds i8, ptr %mspr.010.i, i64 24
   %4 = load ptr, ptr %next_req.i, align 8
   %5 = load ptr, ptr %mspr.010.i, align 8
-  %mr.i = getelementptr inbounds %struct.RAMBlock, ptr %5, i64 0, i32 1
+  %mr.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %mr.i, align 8
   tail call void @memory_region_unref(ptr noundef %6) #16
   %7 = load ptr, ptr %src_page_requests.i, align 8
-  %next_req3.i = getelementptr inbounds %struct.RAMSrcPageRequest, ptr %7, i64 0, i32 3
+  %next_req3.i = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %next_req3.i, align 8
   store ptr %8, ptr %src_page_requests.i, align 8
   %cmp.i = icmp eq ptr %8, null
@@ -4161,7 +4121,7 @@ if.end.i:                                         ; preds = %if.then.i, %land.rh
 
 if.then.i.i.i:                                    ; preds = %if.end.i, %rcu_read_auto_lock.exit.i
   %call.i.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 12
   %9 = load i32, ptr %depth.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
@@ -4180,7 +4140,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 8
   %10 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
   %11 = and i8 %10, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %11, 0
@@ -4193,10 +4153,10 @@ while.end21.i.i.i.i.i:                            ; preds = %while.end.i.i.i.i.i
 
 migration_page_queue_free.exit:                   ; preds = %if.end.i.i.i.i.i, %while.end.i.i.i.i.i, %while.end21.i.i.i.i.i
   %12 = load ptr, ptr %rsp, align 8
-  %bitmap_mutex = getelementptr inbounds %struct.RAMState, ptr %12, i64 0, i32 18
+  %bitmap_mutex = getelementptr inbounds i8, ptr %12, i64 232
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %bitmap_mutex) #16
   %13 = load ptr, ptr %rsp, align 8
-  %src_page_req_mutex = getelementptr inbounds %struct.RAMState, ptr %13, i64 0, i32 20
+  %src_page_req_mutex = getelementptr inbounds i8, ptr %13, i64 288
   tail call void @qemu_mutex_destroy(ptr noundef nonnull %src_page_req_mutex) #16
   %14 = load ptr, ptr %rsp, align 8
   tail call void @g_free(ptr noundef %14) #16
@@ -4222,14 +4182,14 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %place_source = alloca ptr, align 8
   %call = tail call ptr @migration_incoming_get_current() #16
-  %postcopy_tmp_pages = getelementptr inbounds %struct.MigrationIncomingState, ptr %call, i64 0, i32 24
+  %postcopy_tmp_pages = getelementptr inbounds i8, ptr %call, i64 536
   %0 = load ptr, ptr %postcopy_tmp_pages, align 8
   %idxprom = sext i32 %channel to i64
   %arrayidx = getelementptr %struct.PostcopyTmpPage, ptr %0, i64 %idxprom
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %target_pages = getelementptr %struct.PostcopyTmpPage, ptr %0, i64 %idxprom, i32 2
-  %host_addr26 = getelementptr %struct.PostcopyTmpPage, ptr %0, i64 %idxprom, i32 1
-  %all_zero66 = getelementptr %struct.PostcopyTmpPage, ptr %0, i64 %idxprom, i32 3
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %target_pages = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %host_addr26 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %all_zero66 = getelementptr inbounds i8, ptr %arrayidx, i64 20
   br label %while.body
 
 while.body:                                       ; preds = %entry, %if.end110
@@ -4289,13 +4249,13 @@ if.then9:                                         ; preds = %trace_ram_load_post
   br i1 %tobool11.not, label %while.end, label %if.end13
 
 if.end13:                                         ; preds = %if.then9
-  %host = getelementptr inbounds %struct.RAMBlock, ptr %call10, i64 0, i32 2
+  %host = getelementptr inbounds i8, ptr %call10, i64 24
   %9 = load ptr, ptr %host, align 8
   %tobool14.not = icmp eq ptr %9, null
   br i1 %tobool14.not, label %if.then16, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end13
-  %postcopy_length = getelementptr inbounds %struct.RAMBlock, ptr %call10, i64 0, i32 19
+  %postcopy_length = getelementptr inbounds i8, ptr %call10, i64 416
   %10 = load i64, ptr %postcopy_length, align 8
   %cmp.not = icmp ult i64 %and6, %10
   br i1 %cmp.not, label %if.end17, label %if.then16
@@ -4308,7 +4268,7 @@ if.end17:                                         ; preds = %lor.lhs.false
   %11 = load i32, ptr %target_pages, align 8
   %inc = add i32 %11, 1
   store i32 %inc, ptr %target_pages, align 8
-  %page_size = getelementptr inbounds %struct.RAMBlock, ptr %call10, i64 0, i32 14
+  %page_size = getelementptr inbounds i8, ptr %call10, i64 376
   %12 = load i64, ptr %page_size, align 8
   %cmp18 = icmp eq i64 %12, 4096
   %frombool = zext i1 %cmp18 to i8
@@ -4344,7 +4304,7 @@ if.else:                                          ; preds = %if.end17
   br i1 %cmp28.not, label %if.end35, label %if.then30
 
 if.then30:                                        ; preds = %if.else
-  %idstr = getelementptr inbounds %struct.RAMBlock, ptr %call10, i64 0, i32 9
+  %idstr = getelementptr inbounds i8, ptr %call10, i64 76
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.19, i32 noundef %channel, ptr noundef %18, ptr noundef %21, ptr noundef nonnull %idstr, i64 noundef %and6, i32 noundef %inc) #16
   br label %while.end
 
@@ -4520,8 +4480,9 @@ declare i32 @qemu_file_get_error(ptr noundef) local_unnamed_addr #1
 define internal fastcc ptr @ram_block_from_stream(ptr nocapture noundef %mis, ptr noundef %f, i32 noundef %flags, i32 noundef %channel) unnamed_addr #0 {
 entry:
   %id = alloca [256 x i8], align 16
+  %last_recv_block = getelementptr inbounds i8, ptr %mis, i64 8
   %idxprom = sext i32 %channel to i64
-  %arrayidx = getelementptr %struct.MigrationIncomingState, ptr %mis, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr [2 x ptr], ptr %last_recv_block, i64 0, i64 %idxprom
   %and = and i32 %flags, 32
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -4615,10 +4576,10 @@ entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   %2 = load ptr, ptr @ram_state, align 8
-  %bitmap_mutex = getelementptr inbounds %struct.RAMState, ptr %2, i64 0, i32 18
+  %bitmap_mutex = getelementptr inbounds i8, ptr %2, i64 232
   tail call void %1(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3753) #16
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %3 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %3, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -4663,7 +4624,7 @@ if.else:                                          ; preds = %lor.rhs.i, %land.lh
   br label %while.end16
 
 while.end16:                                      ; preds = %for.body9, %if.else, %migrate_ram_is_ignored.exit
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.092, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.092, i64 336
   %7 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !78
   %tobool8.not = icmp eq i64 %7, 0
@@ -4671,7 +4632,7 @@ while.end16:                                      ; preds = %for.body9, %if.else
 
 for.inc18:                                        ; preds = %while.end16, %rcu_read_auto_lock.exit
   %call.i.i19 = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i20 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i19, i64 0, i32 2
+  %depth.i.i20 = getelementptr inbounds i8, ptr %call.i.i19, i64 12
   %8 = load i32, ptr %depth.i.i20, align 4
   %cmp.not.i.i21 = icmp eq i32 %8, 0
   br i1 %cmp.not.i.i21, label %if.else.i.i, label %if.end.i.i
@@ -4690,7 +4651,7 @@ while.end.i.i22:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i19 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i19, i64 0, i32 1
+  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i19, i64 8
   %9 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %10 = and i8 %9, 1
   %tobool.not.i.i = icmp eq i8 %10, 0
@@ -4703,7 +4664,7 @@ while.end21.i.i:                                  ; preds = %while.end.i.i22
 
 glib_autoptr_cleanup_RCUReadAuto.exit:            ; preds = %while.end21.i.i, %while.end.i.i22, %if.end.i.i
   %11 = load ptr, ptr @ram_state, align 8
-  %migration_dirty_pages = getelementptr inbounds %struct.RAMState, ptr %11, i64 0, i32 17
+  %migration_dirty_pages = getelementptr inbounds i8, ptr %11, i64 224
   %12 = load i64, ptr %migration_dirty_pages, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %13 = load i32, ptr @trace_events_enabled_count, align 4
@@ -4729,7 +4690,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i24
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %18 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %19 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.68, i32 noundef %call10.i.i, i64 noundef %18, i64 noundef %19, i64 noundef %12) #16
   br label %trace_colo_flush_ram_cache_begin.exit
@@ -4741,7 +4702,7 @@ if.else.i.i25:                                    ; preds = %if.then.i.i24
 trace_colo_flush_ram_cache_begin.exit:            ; preds = %glib_autoptr_cleanup_RCUReadAuto.exit, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call.i.i26 = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i27 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i26, i64 0, i32 2
+  %depth.i.i27 = getelementptr inbounds i8, ptr %call.i.i26, i64 12
   %20 = load i32, ptr %depth.i.i27, align 4
   %inc.i.i28 = add i32 %20, 1
   store i32 %inc.i.i28, ptr %depth.i.i27, align 4
@@ -4757,11 +4718,11 @@ while.end.i.i30:                                  ; preds = %trace_colo_flush_ra
   br label %rcu_read_auto_lock.exit32
 
 rcu_read_auto_lock.exit32:                        ; preds = %trace_colo_flush_ram_cache_begin.exit, %while.end.i.i30
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %22 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !80
-  %tobool33.not95 = icmp eq i64 %22, 0
-  br i1 %tobool33.not95, label %for.inc59, label %while.body34.preheader
+  %tobool33.not96 = icmp eq i64 %22, 0
+  br i1 %tobool33.not96, label %for.inc59, label %while.body34.preheader
 
 while.body34.preheader:                           ; preds = %rcu_read_auto_lock.exit32
   %23 = inttoptr i64 %22 to ptr
@@ -4783,7 +4744,7 @@ if.then8.i.i56:                                   ; preds = %if.then.i.i54
   %call9.i.i57 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i47, ptr noundef null) #16
   %call10.i.i58 = tail call i32 @qemu_get_thread_id() #16
   %27 = load i64, ptr %_now.i.i47, align 8
-  %tv_usec.i.i59 = getelementptr inbounds %struct.timeval, ptr %_now.i.i47, i64 0, i32 1
+  %tv_usec.i.i59 = getelementptr inbounds i8, ptr %_now.i.i47, i64 8
   %28 = load i64, ptr %tv_usec.i.i59, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %call10.i.i58, i64 noundef %27, i64 noundef %28) #16
   br label %trace_colo_flush_ram_cache_end.exit
@@ -4797,14 +4758,14 @@ trace_colo_flush_ram_cache_end.exit:              ; preds = %rcu_read_auto_unloc
   ret void
 
 while.body34:                                     ; preds = %while.body34.preheader, %if.end57
-  %block.197 = phi ptr [ %block.2, %if.end57 ], [ %23, %while.body34.preheader ]
-  %offset.196 = phi i64 [ %offset.2, %if.end57 ], [ 0, %while.body34.preheader ]
-  %used_length.i = getelementptr inbounds %struct.RAMBlock, ptr %block.197, i64 0, i32 5
+  %block.198 = phi ptr [ %block.2, %if.end57 ], [ %23, %while.body34.preheader ]
+  %offset.197 = phi i64 [ %offset.2, %if.end57 ], [ 0, %while.body34.preheader ]
+  %used_length.i = getelementptr inbounds i8, ptr %block.198, i64 48
   %29 = load i64, ptr %used_length.i, align 8
   %shr.i = lshr i64 %29, 12
-  %bmap.i = getelementptr inbounds %struct.RAMBlock, ptr %block.197, i64 0, i32 15
+  %bmap.i = getelementptr inbounds i8, ptr %block.198, i64 384
   %30 = load ptr, ptr %bmap.i, align 8
-  %call.i.i61 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.197) #16
+  %call.i.i61 = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef nonnull %block.198) #16
   br i1 %call.i.i61, label %lor.rhs.i.i, label %land.lhs.true.i63
 
 lor.rhs.i.i:                                      ; preds = %while.body34
@@ -4812,15 +4773,15 @@ lor.rhs.i.i:                                      ; preds = %while.body34
   br i1 %call1.i.i, label %land.lhs.true.i.i, label %if.end.i
 
 land.lhs.true.i.i:                                ; preds = %lor.rhs.i.i
-  %call2.i.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.197) #16
+  %call2.i.i = tail call zeroext i1 @qemu_ram_is_shared(ptr noundef nonnull %block.198) #16
   br i1 %call2.i.i, label %migrate_ram_is_ignored.exit.i, label %if.end.i
 
 migrate_ram_is_ignored.exit.i:                    ; preds = %land.lhs.true.i.i
-  %call3.i.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.197) #16
+  %call3.i.i = tail call zeroext i1 @qemu_ram_is_named_file(ptr noundef nonnull %block.198) #16
   br i1 %call3.i.i, label %land.lhs.true.i63, label %if.end.i
 
 if.end.i:                                         ; preds = %migrate_ram_is_ignored.exit.i, %land.lhs.true.i.i, %lor.rhs.i.i
-  %call1.i62 = tail call i64 @find_next_bit(ptr noundef %30, i64 noundef %shr.i, i64 noundef %offset.196) #16
+  %call1.i62 = tail call i64 @find_next_bit(ptr noundef %30, i64 noundef %shr.i, i64 noundef %offset.197) #16
   %cmp.not.i = icmp ult i64 %call1.i62, %shr.i
   br i1 %cmp.not.i, label %if.end3.i, label %land.lhs.true.i63
 
@@ -4842,7 +4803,7 @@ land.lhs.true.i63:                                ; preds = %if.end7.i, %if.end.
   %num.0 = phi i64 [ 0, %migrate_ram_is_ignored.exit.i ], [ %sub.i, %if.end7.i ], [ 0, %if.end.i ], [ 0, %while.body34 ]
   %retval.0.i = phi i64 [ %shr.i, %migrate_ram_is_ignored.exit.i ], [ %call1.i62, %if.end7.i ], [ %call1.i62, %if.end.i ], [ %shr.i, %while.body34 ]
   %shl = shl i64 %retval.0.i, 12
-  %host.i = getelementptr inbounds %struct.RAMBlock, ptr %block.197, i64 0, i32 2
+  %host.i = getelementptr inbounds i8, ptr %block.198, i64 24
   %31 = load ptr, ptr %host.i, align 8
   %tobool1.not.i = icmp eq ptr %31, null
   br i1 %tobool1.not.i, label %if.then37, label %offset_in_ramblock.exit
@@ -4853,27 +4814,27 @@ offset_in_ramblock.exit:                          ; preds = %land.lhs.true.i63
   br i1 %cmp.i, label %for.cond48.preheader, label %if.then37
 
 for.cond48.preheader:                             ; preds = %offset_in_ramblock.exit
-  %cmp93.not = icmp eq i64 %num.0, 0
-  br i1 %cmp93.not, label %for.end52, label %for.body49.lr.ph
+  %cmp94.not = icmp eq i64 %num.0, 0
+  br i1 %cmp94.not, label %for.end52, label %for.body49.lr.ph
 
 for.body49.lr.ph:                                 ; preds = %for.cond48.preheader
-  %clear_bmap.i = getelementptr inbounds %struct.RAMBlock, ptr %block.197, i64 0, i32 17
-  %33 = getelementptr i8, ptr %block.197, i64 408
-  %idstr.i = getelementptr inbounds %struct.RAMBlock, ptr %block.197, i64 0, i32 9
-  %mr.i = getelementptr inbounds %struct.RAMBlock, ptr %block.197, i64 0, i32 1
+  %clear_bmap.i = getelementptr inbounds i8, ptr %block.198, i64 400
+  %33 = getelementptr i8, ptr %block.198, i64 408
+  %idstr.i = getelementptr inbounds i8, ptr %block.198, i64 76
+  %mr.i = getelementptr inbounds i8, ptr %block.198, i64 16
   br label %for.body49
 
 if.then37:                                        ; preds = %land.lhs.true.i63, %offset_in_ramblock.exit
-  %next44 = getelementptr inbounds %struct.RAMBlock, ptr %block.197, i64 0, i32 10
+  %next44 = getelementptr inbounds i8, ptr %block.198, i64 336
   %34 = load atomic i64, ptr %next44 monotonic, align 8
   %35 = inttoptr i64 %34 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !81
   br label %if.end57
 
 for.body49:                                       ; preds = %for.body49.lr.ph, %migration_bitmap_clear_dirty.exit
-  %i.094 = phi i64 [ 0, %for.body49.lr.ph ], [ %inc, %migration_bitmap_clear_dirty.exit ]
+  %i.095 = phi i64 [ 0, %for.body49.lr.ph ], [ %inc, %migration_bitmap_clear_dirty.exit ]
   %36 = load ptr, ptr @ram_state, align 8
-  %add = add i64 %i.094, %retval.0.i
+  %add = add i64 %i.095, %retval.0.i
   %37 = load ptr, ptr %clear_bmap.i, align 8
   %tobool.not.i80 = icmp eq ptr %37, null
   br i1 %tobool.not.i80, label %migration_clear_memory_region_dirty_bitmap.exit, label %lor.lhs.false.i
@@ -4954,14 +4915,14 @@ migration_clear_memory_region_dirty_bitmap.exit:  ; preds = %for.body49, %lor.lh
   br i1 %cmp.i.i.not, label %migration_bitmap_clear_dirty.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %migration_clear_memory_region_dirty_bitmap.exit
-  %migration_dirty_pages.i = getelementptr inbounds %struct.RAMState, ptr %36, i64 0, i32 17
+  %migration_dirty_pages.i = getelementptr inbounds i8, ptr %36, i64 224
   %50 = load i64, ptr %migration_dirty_pages.i, align 8
   %dec.i = add i64 %50, -1
   store i64 %dec.i, ptr %migration_dirty_pages.i, align 8
   br label %migration_bitmap_clear_dirty.exit
 
 migration_bitmap_clear_dirty.exit:                ; preds = %migration_clear_memory_region_dirty_bitmap.exit, %if.then.i
-  %inc = add nuw i64 %i.094, 1
+  %inc = add nuw i64 %i.095, 1
   %exitcond.not = icmp eq i64 %inc, %num.0
   br i1 %exitcond.not, label %for.end52.loopexit, label %for.body49, !llvm.loop !82
 
@@ -4972,7 +4933,7 @@ for.end52.loopexit:                               ; preds = %migration_bitmap_cl
 for.end52:                                        ; preds = %for.end52.loopexit, %for.cond48.preheader
   %51 = phi ptr [ %.pre, %for.end52.loopexit ], [ %31, %for.cond48.preheader ]
   %add.ptr = getelementptr i8, ptr %51, i64 %shl
-  %colo_cache = getelementptr inbounds %struct.RAMBlock, ptr %block.197, i64 0, i32 3
+  %colo_cache = getelementptr inbounds i8, ptr %block.198, i64 32
   %52 = load ptr, ptr %colo_cache, align 8
   %add.ptr55 = getelementptr i8, ptr %52, i64 %shl
   %mul = shl i64 %num.0, 12
@@ -4982,13 +4943,13 @@ for.end52:                                        ; preds = %for.end52.loopexit,
 
 if.end57:                                         ; preds = %for.end52, %if.then37
   %offset.2 = phi i64 [ %add56, %for.end52 ], [ 0, %if.then37 ]
-  %block.2 = phi ptr [ %block.197, %for.end52 ], [ %35, %if.then37 ]
+  %block.2 = phi ptr [ %block.198, %for.end52 ], [ %35, %if.then37 ]
   %tobool33.not = icmp eq ptr %block.2, null
   br i1 %tobool33.not, label %for.inc59, label %while.body34, !llvm.loop !83
 
 for.inc59:                                        ; preds = %if.end57, %rcu_read_auto_lock.exit32
   %call.i.i68 = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i69 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i68, i64 0, i32 2
+  %depth.i.i69 = getelementptr inbounds i8, ptr %call.i.i68, i64 12
   %53 = load i32, ptr %depth.i.i69, align 4
   %cmp.not.i.i70 = icmp eq i32 %53, 0
   br i1 %cmp.not.i.i70, label %if.else.i.i78, label %if.end.i.i71
@@ -5007,7 +4968,7 @@ while.end.i.i74:                                  ; preds = %if.end.i.i71
   store atomic i64 0, ptr %call.i.i68 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i75 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i68, i64 0, i32 1
+  %waiting.i.i75 = getelementptr inbounds i8, ptr %call.i.i68, i64 8
   %54 = load atomic i8, ptr %waiting.i.i75 monotonic, align 8
   %55 = and i8 %54, 1
   %tobool.not.i.i76 = icmp eq i8 %55, 0
@@ -5020,7 +4981,7 @@ while.end21.i.i77:                                ; preds = %while.end.i.i74
 
 rcu_read_auto_unlock.exit79:                      ; preds = %if.end.i.i71, %while.end.i.i74, %while.end21.i.i77
   %56 = load ptr, ptr @ram_state, align 8
-  %bitmap_mutex61 = getelementptr inbounds %struct.RAMState, ptr %56, i64 0, i32 18
+  %bitmap_mutex61 = getelementptr inbounds i8, ptr %56, i64 232
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex61, ptr noundef nonnull @.str, i32 noundef 3788) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i47)
   %57 = load i32, ptr @trace_events_enabled_count, align 4
@@ -5041,13 +5002,13 @@ entry:
   %cleared_bits.i = alloca i64, align 8
   %section.i = alloca %struct.MemoryRegionSection, align 16
   %_now.i.i = alloca %struct.timeval, align 8
-  %rp_state = getelementptr inbounds %struct.MigrationState, ptr %s, i64 0, i32 17
+  %rp_state = getelementptr inbounds i8, ptr %s, i64 784
   %0 = load ptr, ptr %rp_state, align 8
-  %used_length = getelementptr inbounds %struct.RAMBlock, ptr %block, i64 0, i32 5
+  %used_length = getelementptr inbounds i8, ptr %block, i64 48
   %1 = load i64, ptr %used_length, align 8
   %shr = lshr i64 %1, 12
   %2 = load ptr, ptr @ram_state, align 8
-  %idstr = getelementptr inbounds %struct.RAMBlock, ptr %block, i64 0, i32 9
+  %idstr = getelementptr inbounds i8, ptr %block, i64 76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %3 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %3, 0
@@ -5072,7 +5033,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %idstr) #16
   br label %trace_ram_dirty_bitmap_reload_begin.exit
@@ -5083,7 +5044,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_ram_dirty_bitmap_reload_begin.exit:         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %state = getelementptr inbounds %struct.MigrationState, ptr %s, i64 0, i32 16
+  %state = getelementptr inbounds i8, ptr %s, i64 776
   %10 = load i32, ptr %state, align 8
   %cmp.not = icmp eq i32 %10, 7
   br i1 %cmp.not, label %if.end, label %if.then
@@ -5140,7 +5101,7 @@ if.then21:                                        ; preds = %if.end19
   br label %cleanup
 
 if.end24:                                         ; preds = %if.end19
-  %bmap = getelementptr inbounds %struct.RAMBlock, ptr %block, i64 0, i32 15
+  %bmap = getelementptr inbounds i8, ptr %block, i64 384
   %12 = load ptr, ptr %bmap, align 8
   tail call void @bitmap_from_le(ptr noundef %12, ptr noundef nonnull %call.i.i, i64 noundef %shr) #16
   %13 = load ptr, ptr %bmap, align 8
@@ -5165,7 +5126,7 @@ bitmap_complement.exit:                           ; preds = %if.then.i33, %if.el
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cleared_bits.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %section.i)
   store i64 0, ptr %cleared_bits.i, align 8
-  %mr.i = getelementptr inbounds %struct.RAMBlock, ptr %block, i64 0, i32 1
+  %mr.i = getelementptr inbounds i8, ptr %block, i64 16
   %15 = load ptr, ptr %mr.i, align 8
   %tobool.not.i = icmp eq ptr %15, null
   br i1 %tobool.not.i, label %ramblock_dirty_bitmap_clear_discarded_pages.exit, label %land.lhs.true.i
@@ -5186,10 +5147,10 @@ if.then.i35:                                      ; preds = %land.lhs.true2.i
   %call6.i = tail call i64 @qemu_ram_get_used_length(ptr noundef nonnull %block) #16
   %coerce.sroa.0.0.insert.ext.i = zext i64 %call6.i to i128
   store i128 %coerce.sroa.0.0.insert.ext.i, ptr %section.i, align 16
-  %mr8.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section.i, i64 0, i32 1
+  %mr8.i = getelementptr inbounds i8, ptr %section.i, i64 16
   %18 = load ptr, ptr %mr.i, align 8
   store ptr %18, ptr %mr8.i, align 16
-  %fv.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section.i, i64 0, i32 2
+  %fv.i = getelementptr inbounds i8, ptr %section.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %fv.i, i8 0, i64 27, i1 false)
   call void @ram_discard_manager_replay_discarded(ptr noundef %call5.i, ptr noundef nonnull %section.i, ptr noundef nonnull @dirty_bitmap_clear_section, ptr noundef nonnull %cleared_bits.i) #16
   br label %ramblock_dirty_bitmap_clear_discarded_pages.exit
@@ -5221,7 +5182,7 @@ if.then8.i.i45:                                   ; preds = %if.then.i.i43
   %call9.i.i46 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36, ptr noundef null) #16
   %call10.i.i47 = call i32 @qemu_get_thread_id() #16
   %24 = load i64, ptr %_now.i.i36, align 8
-  %tv_usec.i.i48 = getelementptr inbounds %struct.timeval, ptr %_now.i.i36, i64 0, i32 1
+  %tv_usec.i.i48 = getelementptr inbounds i8, ptr %_now.i.i36, i64 8
   %25 = load i64, ptr %tv_usec.i.i48, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i47, i64 noundef %24, i64 noundef %25, ptr noundef nonnull %idstr) #16
   br label %trace_ram_dirty_bitmap_reload_complete.exit
@@ -5232,7 +5193,7 @@ if.else.i.i49:                                    ; preds = %if.then.i.i43
 
 trace_ram_dirty_bitmap_reload_complete.exit:      ; preds = %ramblock_dirty_bitmap_clear_discarded_pages.exit, %land.lhs.true5.i.i40, %if.then8.i.i45, %if.else.i.i49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i36)
-  %postcopy_bmap_sync_requested = getelementptr inbounds %struct.RAMState, ptr %2, i64 0, i32 22
+  %postcopy_bmap_sync_requested = getelementptr inbounds i8, ptr %2, i64 352
   %26 = atomicrmw sub ptr %postcopy_bmap_sync_requested, i32 1 seq_cst, align 8
   call void @migration_rp_kick(ptr noundef nonnull %s) #16
   br label %cleanup
@@ -5253,7 +5214,7 @@ declare void @migration_rp_kick(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @postcopy_preempt_shutdown_file(ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
 entry:
-  %postcopy_qemufile_src = getelementptr inbounds %struct.MigrationState, ptr %s, i64 0, i32 5
+  %postcopy_qemufile_src = getelementptr inbounds i8, ptr %s, i64 192
   %0 = load ptr, ptr %postcopy_qemufile_src, align 8
   tail call void @qemu_put_be64(ptr noundef %0, i64 noundef 16) #16
   %1 = load ptr, ptr %postcopy_qemufile_src, align 8
@@ -5303,19 +5264,19 @@ if.else.i:                                        ; preds = %entry
 
 int128_get64.exit:                                ; preds = %entry
   %coerce.sroa.0.0.extract.trunc = trunc i128 %0 to i64
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   %1 = load i64, ptr %offset_within_region, align 16
   %add.i = add i64 %1, %coerce.sroa.0.0.extract.trunc
   %cmp5.i = icmp ugt i64 %add.i, %1
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %populate_read_range.exit
 
 for.body.lr.ph.i:                                 ; preds = %int128_get64.exit
-  %mr = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %section, i64 16
   %2 = load ptr, ptr %mr, align 16
-  %ram_block = getelementptr inbounds %struct.MemoryRegion, ptr %2, i64 0, i32 11
+  %ram_block = getelementptr inbounds i8, ptr %2, i64 56
   %3 = load ptr, ptr %ram_block, align 8
-  %host.i = getelementptr inbounds %struct.RAMBlock, ptr %3, i64 0, i32 2
-  %page_size.i = getelementptr inbounds %struct.RAMBlock, ptr %3, i64 0, i32 14
+  %host.i = getelementptr inbounds i8, ptr %3, i64 24
+  %page_size.i = getelementptr inbounds i8, ptr %3, i64 376
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -5346,15 +5307,15 @@ if.else.i:                                        ; preds = %entry
 
 int128_get64.exit:                                ; preds = %entry
   %coerce.sroa.0.0.extract.trunc = trunc i128 %0 to i64
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   %1 = load i64, ptr %offset_within_region, align 16
-  %mr = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %section, i64 16
   %2 = load ptr, ptr %mr, align 16
-  %ram_block = getelementptr inbounds %struct.MemoryRegion, ptr %2, i64 0, i32 11
+  %ram_block = getelementptr inbounds i8, ptr %2, i64 56
   %3 = load ptr, ptr %ram_block, align 8
   %4 = ptrtoint ptr %opaque to i64
   %conv = trunc i64 %4 to i32
-  %host = getelementptr inbounds %struct.RAMBlock, ptr %3, i64 0, i32 2
+  %host = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load ptr, ptr %host, align 8
   %add.ptr = getelementptr i8, ptr %5, i64 %1
   %call2 = tail call i32 @uffd_change_protection(i32 noundef %conv, ptr noundef %add.ptr, i64 noundef %coerce.sroa.0.0.extract.trunc, i1 noundef zeroext true, i1 noundef zeroext false) #16
@@ -5375,12 +5336,12 @@ declare zeroext i1 @migrate_postcopy_preempt() local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @pss_find_next_dirty(ptr nocapture noundef %pss) unnamed_addr #0 {
 entry:
-  %block = getelementptr inbounds %struct.PageSearchStatus, ptr %pss, i64 0, i32 2
+  %block = getelementptr inbounds i8, ptr %pss, i64 16
   %0 = load ptr, ptr %block, align 8
-  %used_length = getelementptr inbounds %struct.RAMBlock, ptr %0, i64 0, i32 5
+  %used_length = getelementptr inbounds i8, ptr %0, i64 48
   %1 = load i64, ptr %used_length, align 8
   %shr = lshr i64 %1, 12
-  %bmap = getelementptr inbounds %struct.RAMBlock, ptr %0, i64 0, i32 15
+  %bmap = getelementptr inbounds i8, ptr %0, i64 384
   %2 = load ptr, ptr %bmap, align 8
   %call.i = tail call zeroext i1 @qemu_ram_is_migratable(ptr noundef %0) #16
   br i1 %call.i, label %lor.rhs.i, label %if.then
@@ -5398,19 +5359,19 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
   br i1 %call3.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %migrate_ram_is_ignored.exit
-  %page = getelementptr inbounds %struct.PageSearchStatus, ptr %pss, i64 0, i32 3
+  %page = getelementptr inbounds i8, ptr %pss, i64 24
   store i64 %shr, ptr %page, align 8
   br label %return
 
 if.end:                                           ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %host_page_sending = getelementptr inbounds %struct.PageSearchStatus, ptr %pss, i64 0, i32 5
+  %host_page_sending = getelementptr inbounds i8, ptr %pss, i64 33
   %3 = load i8, ptr %host_page_sending, align 1
   %4 = and i8 %3, 1
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %if.end6, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %host_page_end = getelementptr inbounds %struct.PageSearchStatus, ptr %pss, i64 0, i32 7
+  %host_page_end = getelementptr inbounds i8, ptr %pss, i64 48
   %5 = load i64, ptr %host_page_end, align 8
   %tobool2.not = icmp eq i64 %5, 0
   br i1 %tobool2.not, label %if.else, label %if.end4
@@ -5425,7 +5386,7 @@ if.end4:                                          ; preds = %if.then1
 
 if.end6:                                          ; preds = %if.end4, %if.end
   %size.0 = phi i64 [ %cond, %if.end4 ], [ %shr, %if.end ]
-  %page7 = getelementptr inbounds %struct.PageSearchStatus, ptr %pss, i64 0, i32 3
+  %page7 = getelementptr inbounds i8, ptr %pss, i64 24
   %6 = load i64, ptr %page7, align 8
   %call8 = tail call i64 @find_next_bit(ptr noundef %2, i64 noundef %size.0, i64 noundef %6) #16
   store i64 %call8, ptr %page7, align 8
@@ -5479,7 +5440,7 @@ declare void @postcopy_discard_send_range(ptr noundef, i64 noundef, i64 noundef)
 define internal fastcc void @migration_clear_memory_region_dirty_bitmap(ptr noundef %rb, i64 noundef %page) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %clear_bmap = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 17
+  %clear_bmap = getelementptr inbounds i8, ptr %rb, i64 400
   %0 = load ptr, ptr %clear_bmap, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -5508,7 +5469,7 @@ if.end3:                                          ; preds = %if.end
   %3 = add nuw nsw i64 %conv, 12
   %div12 = lshr i64 %shl5, %3
   %mul = mul i64 %div12, %shl
-  %idstr = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 9
+  %idstr = getelementptr inbounds i8, ptr %rb, i64 76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %4 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %4, 0
@@ -5533,7 +5494,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = tail call i32 @qemu_get_thread_id() #16
   %9 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %10 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i, i64 noundef %9, i64 noundef %10, ptr noundef nonnull %idstr, i64 noundef %mul, i64 noundef %shl, i64 noundef %page) #16
   br label %trace_migration_bitmap_clear_dirty.exit
@@ -5544,7 +5505,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_migration_bitmap_clear_dirty.exit:          ; preds = %if.end3, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %mr = getelementptr inbounds %struct.RAMBlock, ptr %rb, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %rb, i64 16
   %11 = load ptr, ptr %mr, align 8
   tail call void @memory_region_clear_dirty_bitmap(ptr noundef %11, i64 noundef %mul, i64 noundef %shl) #16
   br label %return
@@ -5577,39 +5538,39 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %bitmap_mutex = getelementptr inbounds %struct.RAMState, ptr %call, i64 0, i32 18
+  %bitmap_mutex = getelementptr inbounds i8, ptr %call, i64 232
   tail call void @qemu_mutex_init(ptr noundef nonnull %bitmap_mutex) #16
   %0 = load ptr, ptr %rsp, align 8
-  %src_page_req_mutex = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 20
+  %src_page_req_mutex = getelementptr inbounds i8, ptr %0, i64 288
   tail call void @qemu_mutex_init(ptr noundef nonnull %src_page_req_mutex) #16
   %1 = load ptr, ptr %rsp, align 8
-  %src_page_requests = getelementptr inbounds %struct.RAMState, ptr %1, i64 0, i32 21
+  %src_page_requests = getelementptr inbounds i8, ptr %1, i64 336
   store ptr null, ptr %src_page_requests, align 8
   %2 = load ptr, ptr %rsp, align 8
-  %src_page_requests1 = getelementptr inbounds %struct.RAMState, ptr %2, i64 0, i32 21
-  %sqh_last = getelementptr inbounds %struct.RAMState, ptr %2, i64 0, i32 21, i32 1
+  %src_page_requests1 = getelementptr inbounds i8, ptr %2, i64 336
+  %sqh_last = getelementptr inbounds i8, ptr %2, i64 344
   store ptr %src_page_requests1, ptr %sqh_last, align 8
   %call4 = tail call i64 @ram_bytes_total()
   %3 = load ptr, ptr %rsp, align 8
-  %ram_bytes_total = getelementptr inbounds %struct.RAMState, ptr %3, i64 0, i32 2
+  %ram_bytes_total = getelementptr inbounds i8, ptr %3, i64 120
   store i64 %call4, ptr %ram_bytes_total, align 8
   %4 = load ptr, ptr %rsp, align 8
-  %ram_bytes_total5 = getelementptr inbounds %struct.RAMState, ptr %4, i64 0, i32 2
+  %ram_bytes_total5 = getelementptr inbounds i8, ptr %4, i64 120
   %5 = load i64, ptr %ram_bytes_total5, align 8
   %shr = lshr i64 %5, 12
-  %migration_dirty_pages = getelementptr inbounds %struct.RAMState, ptr %4, i64 0, i32 17
+  %migration_dirty_pages = getelementptr inbounds i8, ptr %4, i64 224
   store i64 %shr, ptr %migration_dirty_pages, align 8
   %6 = load ptr, ptr %rsp, align 8
-  %last_sent_block.i = getelementptr [2 x %struct.PageSearchStatus], ptr %6, i64 0, i64 0, i32 1
+  %last_sent_block.i = getelementptr i8, ptr %6, i64 8
   store ptr null, ptr %last_sent_block.i, align 8
-  %last_sent_block.i.c = getelementptr [2 x %struct.PageSearchStatus], ptr %6, i64 0, i64 1, i32 1
+  %last_sent_block.i.c = getelementptr i8, ptr %6, i64 64
   store ptr null, ptr %last_sent_block.i.c, align 8
-  %last_seen_block.i = getelementptr inbounds %struct.RAMState, ptr %6, i64 0, i32 3
+  %last_seen_block.i = getelementptr inbounds i8, ptr %6, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_seen_block.i, i8 0, i64 16, i1 false)
   %7 = load i32, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 4), align 8
-  %last_version.i = getelementptr inbounds %struct.RAMState, ptr %6, i64 0, i32 5
+  %last_version.i = getelementptr inbounds i8, ptr %6, i64 144
   store i32 %7, ptr %last_version.i, align 8
-  %xbzrle_started.i = getelementptr inbounds %struct.RAMState, ptr %6, i64 0, i32 13
+  %xbzrle_started.i = getelementptr inbounds i8, ptr %6, i64 200
   store i8 0, ptr %xbzrle_started.i, align 8
   br label %return
 
@@ -5646,13 +5607,13 @@ if.else.i:                                        ; preds = %entry
 
 int128_get64.exit:                                ; preds = %entry
   %coerce.sroa.0.0.extract.trunc = trunc i128 %0 to i64
-  %offset_within_region = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 3
+  %offset_within_region = getelementptr inbounds i8, ptr %section, i64 32
   %1 = load i64, ptr %offset_within_region, align 16
   %shr = lshr i64 %1, 12
   %shr2 = lshr i64 %coerce.sroa.0.0.extract.trunc, 12
-  %mr = getelementptr inbounds %struct.MemoryRegionSection, ptr %section, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %section, i64 16
   %2 = load ptr, ptr %mr, align 16
-  %ram_block = getelementptr inbounds %struct.MemoryRegion, ptr %2, i64 0, i32 11
+  %ram_block = getelementptr inbounds i8, ptr %2, i64 56
   %3 = load ptr, ptr %ram_block, align 8
   %call3 = tail call zeroext i1 @migration_in_postcopy() #16
   br i1 %call3, label %if.end, label %land.lhs.true
@@ -5662,7 +5623,7 @@ land.lhs.true:                                    ; preds = %int128_get64.exit
   br i1 %call4, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %clear_bmap_shift.i = getelementptr inbounds %struct.RAMBlock, ptr %3, i64 0, i32 18
+  %clear_bmap_shift.i = getelementptr inbounds i8, ptr %3, i64 408
   %4 = load i8, ptr %clear_bmap_shift.i, align 8
   %sh_prom.i = zext nneg i8 %4 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
@@ -5683,7 +5644,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   br i1 %cmp.i9, label %for.body.i, label %if.end, !llvm.loop !84
 
 if.end:                                           ; preds = %for.body.i, %if.then, %land.lhs.true, %int128_get64.exit
-  %bmap = getelementptr inbounds %struct.RAMBlock, ptr %3, i64 0, i32 15
+  %bmap = getelementptr inbounds i8, ptr %3, i64 384
   %6 = load ptr, ptr %bmap, align 8
   %div5.i = lshr i64 %1, 18
   %sub.i10 = and i64 %shr, 63
@@ -5865,7 +5826,7 @@ if.end4.i:                                        ; preds = %xbzrle_init.exit.th
   %6 = load ptr, ptr %opaque, align 8
   call void @qemu_mutex_lock_ramlist() #16
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %7 = load i32, ptr %depth.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %7, 1
   store i32 %inc.i.i.i.i, ptr %depth.i.i.i.i, align 4
@@ -5887,7 +5848,7 @@ rcu_read_auto_lock.exit.i.i:                      ; preds = %while.end.i.i.i.i, 
   br i1 %tobool.not.i.i.i, label %ram_list_init_bitmaps.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %rcu_read_auto_lock.exit.i.i
-  %clear_bitmap_shift.i.i.i = getelementptr inbounds %struct.MigrationState, ptr %call.i.i3.i, i64 0, i32 47
+  %clear_bitmap_shift.i.i.i = getelementptr inbounds i8, ptr %call.i.i3.i, i64 1659
   %9 = load i8, ptr %clear_bitmap_shift.i.i.i, align 1
   %conv.i.i.i = zext i8 %9 to i32
   %cmp.i.i.i = icmp ugt i8 %9, 31
@@ -5937,7 +5898,7 @@ migrate_ram_is_ignored.exit.i.i.i:                ; preds = %land.lhs.true.i.i.i
   br i1 %call3.i.i.i.i, label %while.end24.i.i.i, label %if.else14.i.i.i
 
 if.else14.i.i.i:                                  ; preds = %migrate_ram_is_ignored.exit.i.i.i, %land.lhs.true.i.i.i.i, %lor.rhs.i.i.i.i
-  %max_length.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %block.024.i.i.i, i64 0, i32 6
+  %max_length.i.i.i = getelementptr inbounds i8, ptr %block.024.i.i.i, i64 56
   %11 = load i64, ptr %max_length.i.i.i, align 8
   %shr.i.i.i = lshr i64 %11, 12
   %sub.i.i.i.i.i = add nuw nsw i64 %shr.i.i.i, 63
@@ -5952,10 +5913,10 @@ if.then.i.i.i.i:                                  ; preds = %if.else14.i.i.i
   unreachable
 
 bitmap_new.exit.i.i.i:                            ; preds = %if.else14.i.i.i
-  %bmap.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %block.024.i.i.i, i64 0, i32 15
+  %bmap.i.i.i = getelementptr inbounds i8, ptr %block.024.i.i.i, i64 384
   store ptr %call.i.i.i.i.i, ptr %bmap.i.i.i, align 8
   call void @bitmap_set(ptr noundef nonnull %call.i.i.i.i.i, i64 noundef 0, i64 noundef %shr.i.i.i) #16
-  %clear_bmap_shift.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %block.024.i.i.i, i64 0, i32 18
+  %clear_bmap_shift.i.i.i = getelementptr inbounds i8, ptr %block.024.i.i.i, i64 408
   store i8 %shift.0.i.i.i, ptr %clear_bmap_shift.i.i.i, align 8
   %sub.i.i.i.i = add nuw nsw i64 %shr.i.i.i, %add.i.i.i.i
   %div2.i.i.i.i = lshr i64 %sub.i.i.i.i, %sh_prom.i.i.i.i
@@ -5971,12 +5932,12 @@ if.then.i19.i.i.i:                                ; preds = %bitmap_new.exit.i.i
   unreachable
 
 bitmap_new.exit20.i.i.i:                          ; preds = %bitmap_new.exit.i.i.i
-  %clear_bmap.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %block.024.i.i.i, i64 0, i32 17
+  %clear_bmap.i.i.i = getelementptr inbounds i8, ptr %block.024.i.i.i, i64 400
   store ptr %call.i.i17.i.i.i, ptr %clear_bmap.i.i.i, align 8
   br label %while.end24.i.i.i
 
 while.end24.i.i.i:                                ; preds = %bitmap_new.exit20.i.i.i, %migrate_ram_is_ignored.exit.i.i.i, %for.body.i.i.i
-  %next.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %block.024.i.i.i, i64 0, i32 10
+  %next.i.i.i = getelementptr inbounds i8, ptr %block.024.i.i.i, i64 336
   %14 = load atomic i64, ptr %next.i.i.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !86
   %tobool11.not.i.i.i = icmp eq i64 %14, 0
@@ -5992,7 +5953,7 @@ if.then.i.i:                                      ; preds = %ram_list_init_bitma
   store ptr null, ptr %local_err.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pnd.i.i.i.i)
   store i32 1, ptr %pnd.i.i.i.i, align 8
-  %errp2.i.i.i.i = getelementptr inbounds %struct.PrecopyNotifyData, ptr %pnd.i.i.i.i, i64 0, i32 1
+  %errp2.i.i.i.i = getelementptr inbounds i8, ptr %pnd.i.i.i.i, i64 8
   store ptr %local_err.i.i.i, ptr %errp2.i.i.i.i, align 8
   %call.i.i3.i.i = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i.i.i.i) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pnd.i.i.i.i)
@@ -6009,7 +5970,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i5.i.i, %if
   call fastcc void @migration_bitmap_sync(ptr noundef %6, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pnd.i1.i.i.i)
   store i32 2, ptr %pnd.i1.i.i.i, align 8
-  %errp2.i2.i.i.i = getelementptr inbounds %struct.PrecopyNotifyData, ptr %pnd.i1.i.i.i, i64 0, i32 1
+  %errp2.i2.i.i.i = getelementptr inbounds i8, ptr %pnd.i1.i.i.i, i64 8
   store ptr %local_err.i.i.i, ptr %errp2.i2.i.i.i, align 8
   %call.i3.i.i.i = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i1.i.i.i) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pnd.i1.i.i.i)
@@ -6027,7 +5988,7 @@ migration_bitmap_sync_precopy.exit.i.i:           ; preds = %if.then4.i.i.i, %if
 
 for.inc.i.i:                                      ; preds = %migration_bitmap_sync_precopy.exit.i.i, %ram_list_init_bitmaps.exit.i.i
   %call.i.i6.i.i = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i7.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i6.i.i, i64 0, i32 2
+  %depth.i.i7.i.i = getelementptr inbounds i8, ptr %call.i.i6.i.i, i64 12
   %17 = load i32, ptr %depth.i.i7.i.i, align 4
   %cmp.not.i.i8.i.i = icmp eq i32 %17, 0
   br i1 %cmp.not.i.i8.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -6046,7 +6007,7 @@ while.end.i.i9.i.i:                               ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i6.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i6.i.i, i64 0, i32 1
+  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i6.i.i, i64 8
   %18 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %19 = and i8 %18, 1
   %tobool.not.i.i.i.i = icmp eq i8 %19, 0
@@ -6060,7 +6021,7 @@ while.end21.i.i.i.i:                              ; preds = %while.end.i.i9.i.i
 glib_autoptr_cleanup_RCUReadAuto.exit.i.i:        ; preds = %while.end21.i.i.i.i, %while.end.i.i9.i.i, %if.end.i.i.i.i
   call void @qemu_mutex_unlock_ramlist() #16
   %call.i.i.i12.i.i = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i12.i.i, i64 0, i32 2
+  %depth.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i12.i.i, i64 12
   %20 = load i32, ptr %depth.i.i.i.i.i, align 4
   %inc.i.i.i.i.i = add i32 %20, 1
   store i32 %inc.i.i.i.i.i, ptr %depth.i.i.i.i.i, align 4
@@ -6082,9 +6043,9 @@ rcu_read_auto_lock.exit.i.i.i:                    ; preds = %while.end.i.i.i.i.i
   br i1 %tobool.not8.i.i.i, label %if.then.i.i.i.i.i, label %for.body.lr.ph.i13.i.i
 
 for.body.lr.ph.i13.i.i:                           ; preds = %rcu_read_auto_lock.exit.i.i.i
-  %mr8.i.i.i.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section.i.i.i.i, i64 0, i32 1
-  %fv.i.i.i.i = getelementptr inbounds %struct.MemoryRegionSection, ptr %section.i.i.i.i, i64 0, i32 2
-  %migration_dirty_pages.i.i.i = getelementptr inbounds %struct.RAMState, ptr %6, i64 0, i32 17
+  %mr8.i.i.i.i = getelementptr inbounds i8, ptr %section.i.i.i.i, i64 16
+  %fv.i.i.i.i = getelementptr inbounds i8, ptr %section.i.i.i.i, i64 24
+  %migration_dirty_pages.i.i.i = getelementptr inbounds i8, ptr %6, i64 224
   br label %for.body.i14.i.i
 
 for.body.i14.i.i:                                 ; preds = %while.end8.i.i.i, %for.body.lr.ph.i13.i.i
@@ -6109,13 +6070,13 @@ if.else.i20.i.i:                                  ; preds = %migrate_ram_is_igno
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cleared_bits.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %section.i.i.i.i)
   store i64 0, ptr %cleared_bits.i.i.i.i, align 8
-  %mr.i.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %rb.09.i.i.i, i64 0, i32 1
+  %mr.i.i.i.i = getelementptr inbounds i8, ptr %rb.09.i.i.i, i64 16
   %23 = load ptr, ptr %mr.i.i.i.i, align 8
   %tobool.not.i.i21.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i21.i.i, label %ramblock_dirty_bitmap_clear_discarded_pages.exit.i.i.i, label %land.lhs.true.i4.i.i.i
 
 land.lhs.true.i4.i.i.i:                           ; preds = %if.else.i20.i.i
-  %bmap.i.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %rb.09.i.i.i, i64 0, i32 15
+  %bmap.i.i.i.i = getelementptr inbounds i8, ptr %rb.09.i.i.i, i64 384
   %24 = load ptr, ptr %bmap.i.i.i.i, align 8
   %tobool1.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %tobool1.not.i.i.i.i, label %ramblock_dirty_bitmap_clear_discarded_pages.exit.i.i.i, label %land.lhs.true2.i.i.i.i
@@ -6148,7 +6109,7 @@ ramblock_dirty_bitmap_clear_discarded_pages.exit.i.i.i: ; preds = %if.then.i.i22
   br label %while.end8.i.i.i
 
 while.end8.i.i.i:                                 ; preds = %ramblock_dirty_bitmap_clear_discarded_pages.exit.i.i.i, %migrate_ram_is_ignored.exit.i25.i.i, %for.body.i14.i.i
-  %next.i16.i.i = getelementptr inbounds %struct.RAMBlock, ptr %rb.09.i.i.i, i64 0, i32 10
+  %next.i16.i.i = getelementptr inbounds i8, ptr %rb.09.i.i.i, i64 336
   %29 = load atomic i64, ptr %next.i16.i.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !89
   %tobool.not.i17.i.i = icmp eq i64 %29, 0
@@ -6156,7 +6117,7 @@ while.end8.i.i.i:                                 ; preds = %ramblock_dirty_bitm
 
 if.then.i.i.i.i.i:                                ; preds = %while.end8.i.i.i, %rcu_read_auto_lock.exit.i.i.i
   %call.i.i.i.i.i.i.i = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 12
   %30 = load i32, ptr %depth.i.i.i.i.i.i.i, align 4
   %cmp.not.i.i.i.i.i.i.i = icmp eq i32 %30, 0
   br i1 %cmp.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
@@ -6175,7 +6136,7 @@ while.end.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.
   store atomic i64 0, ptr %call.i.i.i.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i.i, i64 8
   %31 = load atomic i8, ptr %waiting.i.i.i.i.i.i.i monotonic, align 8
   %32 = and i8 %31, 1
   %tobool.not.i.i.i.i.i.i.i = icmp eq i8 %32, 0
@@ -6194,7 +6155,7 @@ if.end6:                                          ; preds = %while.end21.i.i.i.i
   %33 = load ptr, ptr %opaque, align 8
   store ptr %f, ptr %33, align 8
   %call.i.i32 = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i32, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i32, i64 12
   %34 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %34, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -6211,7 +6172,7 @@ while.end.i.i:                                    ; preds = %if.end6
 
 rcu_read_auto_lock.exit:                          ; preds = %if.end6, %while.end.i.i
   %call.i.i.i33 = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i33, i64 0, i32 2
+  %depth.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i33, i64 12
   %36 = load i32, ptr %depth.i.i.i, align 4
   %inc.i.i.i = add i32 %36, 1
   store i32 %inc.i.i.i, ptr %depth.i.i.i, align 4
@@ -6240,14 +6201,14 @@ for.body.i:                                       ; preds = %rcu_read_auto_lock.
   br i1 %call1.i, label %if.else.i, label %while.end7.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %used_length.i = getelementptr inbounds %struct.RAMBlock, ptr %block.08.i, i64 0, i32 5
+  %used_length.i = getelementptr inbounds i8, ptr %block.08.i, i64 48
   %39 = load i64, ptr %used_length.i, align 8
   %add.i = add i64 %39, %total.07.i
   br label %while.end7.i
 
 while.end7.i:                                     ; preds = %if.else.i, %for.body.i
   %total.1.i = phi i64 [ %add.i, %if.else.i ], [ %total.07.i, %for.body.i ]
-  %next.i = getelementptr inbounds %struct.RAMBlock, ptr %block.08.i, i64 0, i32 10
+  %next.i = getelementptr inbounds i8, ptr %block.08.i, i64 336
   %40 = load atomic i64, ptr %next.i monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !92
   %tobool.not.i34 = icmp eq i64 %40, 0
@@ -6260,7 +6221,7 @@ if.then.i.i.i35.loopexit:                         ; preds = %while.end7.i
 if.then.i.i.i35:                                  ; preds = %if.then.i.i.i35.loopexit, %rcu_read_auto_lock.exit.i
   %total.0.lcssa.i = phi i64 [ 4, %rcu_read_auto_lock.exit.i ], [ %41, %if.then.i.i.i35.loopexit ]
   %call.i.i.i.i.i36 = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i.i37 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i.i36, i64 0, i32 2
+  %depth.i.i.i.i.i37 = getelementptr inbounds i8, ptr %call.i.i.i.i.i36, i64 12
   %42 = load i32, ptr %depth.i.i.i.i.i37, align 4
   %cmp.not.i.i.i.i.i38 = icmp eq i32 %42, 0
   br i1 %cmp.not.i.i.i.i.i38, label %if.else.i.i.i.i.i, label %if.end.i.i.i.i.i
@@ -6279,7 +6240,7 @@ while.end.i.i.i.i.i39:                            ; preds = %if.end.i.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i.i36 release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i.i36, i64 0, i32 1
+  %waiting.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i36, i64 8
   %43 = load atomic i8, ptr %waiting.i.i.i.i.i monotonic, align 8
   %44 = and i8 %43, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %44, 0
@@ -6304,20 +6265,20 @@ for.body12:                                       ; preds = %ram_bytes_total_wit
   br i1 %call13, label %if.else, label %while.end37
 
 if.else:                                          ; preds = %for.body12
-  %idstr = getelementptr inbounds %struct.RAMBlock, ptr %block.064, i64 0, i32 9
+  %idstr = getelementptr inbounds i8, ptr %block.064, i64 76
   %call15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr) #19
   %conv = trunc i64 %call15 to i32
   call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv) #16
   %call20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr) #19
   call void @qemu_put_buffer(ptr noundef %f, ptr noundef nonnull %idstr, i64 noundef %call20) #16
-  %used_length = getelementptr inbounds %struct.RAMBlock, ptr %block.064, i64 0, i32 5
+  %used_length = getelementptr inbounds i8, ptr %block.064, i64 48
   %46 = load i64, ptr %used_length, align 8
   call void @qemu_put_be64(ptr noundef %f, i64 noundef %46) #16
   %call21 = call zeroext i1 @migrate_postcopy_ram() #16
   br i1 %call21, label %land.lhs.true, label %if.end27
 
 land.lhs.true:                                    ; preds = %if.else
-  %page_size = getelementptr inbounds %struct.RAMBlock, ptr %block.064, i64 0, i32 14
+  %page_size = getelementptr inbounds i8, ptr %block.064, i64 376
   %47 = load i64, ptr %page_size, align 8
   %48 = load i64, ptr @qemu_host_page_size, align 8
   %cmp23.not = icmp eq i64 %47, %48
@@ -6332,15 +6293,15 @@ if.end27:                                         ; preds = %if.then25, %land.lh
   br i1 %call28, label %if.then29, label %while.end37
 
 if.then29:                                        ; preds = %if.end27
-  %mr = getelementptr inbounds %struct.RAMBlock, ptr %block.064, i64 0, i32 1
+  %mr = getelementptr inbounds i8, ptr %block.064, i64 16
   %49 = load ptr, ptr %mr, align 8
-  %addr = getelementptr inbounds %struct.MemoryRegion, ptr %49, i64 0, i32 19
+  %addr = getelementptr inbounds i8, ptr %49, i64 128
   %50 = load i64, ptr %addr, align 16
   call void @qemu_put_be64(ptr noundef %f, i64 noundef %50) #16
   br label %while.end37
 
 while.end37:                                      ; preds = %for.body12, %if.then29, %if.end27
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.064, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.064, i64 336
   %51 = load atomic i64, ptr %next monotonic, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !95
   %tobool11.not = icmp eq i64 %51, 0
@@ -6348,7 +6309,7 @@ while.end37:                                      ; preds = %for.body12, %if.the
 
 for.inc39:                                        ; preds = %while.end37, %ram_bytes_total_with_ignored.exit
   %call.i.i41 = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i42 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i41, i64 0, i32 2
+  %depth.i.i42 = getelementptr inbounds i8, ptr %call.i.i41, i64 12
   %52 = load i32, ptr %depth.i.i42, align 4
   %cmp.not.i.i43 = icmp eq i32 %52, 0
   br i1 %cmp.not.i.i43, label %if.else.i.i, label %if.end.i.i44
@@ -6367,7 +6328,7 @@ while.end.i.i45:                                  ; preds = %if.end.i.i44
   store atomic i64 0, ptr %call.i.i41 release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i41, i64 0, i32 1
+  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i41, i64 8
   %53 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %54 = and i8 %53, 1
   %tobool.not.i.i46 = icmp eq i8 %54, 0
@@ -6451,18 +6412,18 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
   br i1 %call3.i, label %while.end13, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %clear_bmap = getelementptr inbounds %struct.RAMBlock, ptr %block.010, i64 0, i32 17
+  %clear_bmap = getelementptr inbounds i8, ptr %block.010, i64 400
   %2 = load ptr, ptr %clear_bmap, align 8
   tail call void @g_free(ptr noundef %2) #16
   store ptr null, ptr %clear_bmap, align 8
-  %bmap = getelementptr inbounds %struct.RAMBlock, ptr %block.010, i64 0, i32 15
+  %bmap = getelementptr inbounds i8, ptr %block.010, i64 384
   %3 = load ptr, ptr %bmap, align 8
   tail call void @g_free(ptr noundef %3) #16
   store ptr null, ptr %bmap, align 8
   br label %while.end13
 
 while.end13:                                      ; preds = %for.body, %if.else, %migrate_ram_is_ignored.exit
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %block.010, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %block.010, i64 336
   %4 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !98
   %tobool3.not = icmp eq i64 %4, 0
@@ -6521,11 +6482,11 @@ entry:
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call zeroext i1 @migration_in_colo_state() #16
   %lnot = xor i1 %call, true
-  %last_stage = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 14
+  %last_stage = getelementptr inbounds i8, ptr %0, i64 201
   %frombool = zext i1 %lnot to i8
   store i8 %frombool, ptr %last_stage, align 1
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %1 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %1, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -6549,7 +6510,7 @@ if.then:                                          ; preds = %rcu_read_auto_lock.
   store ptr null, ptr %local_err.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pnd.i.i)
   store i32 1, ptr %pnd.i.i, align 8
-  %errp2.i.i = getelementptr inbounds %struct.PrecopyNotifyData, ptr %pnd.i.i, i64 0, i32 1
+  %errp2.i.i = getelementptr inbounds i8, ptr %pnd.i.i, i64 8
   store ptr %local_err.i, ptr %errp2.i.i, align 8
   %call.i.i22 = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i.i) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pnd.i.i)
@@ -6566,7 +6527,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   call fastcc void @migration_bitmap_sync(ptr noundef nonnull %0, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pnd.i1.i)
   store i32 2, ptr %pnd.i1.i, align 8
-  %errp2.i2.i = getelementptr inbounds %struct.PrecopyNotifyData, ptr %pnd.i1.i, i64 0, i32 1
+  %errp2.i2.i = getelementptr inbounds i8, ptr %pnd.i1.i, i64 8
   store ptr %local_err.i, ptr %errp2.i2.i, align 8
   %call.i3.i = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i1.i) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pnd.i1.i)
@@ -6585,7 +6546,7 @@ migration_bitmap_sync_precopy.exit:               ; preds = %if.end.i, %if.then4
 if.end:                                           ; preds = %migration_bitmap_sync_precopy.exit, %rcu_read_auto_lock.exit
   %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
-  %bitmap_mutex = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 18
+  %bitmap_mutex = getelementptr inbounds i8, ptr %0, i64 232
   call void %6(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3161) #16
   br label %while.cond6
 
@@ -6602,7 +6563,7 @@ while.end16:                                      ; preds = %while.cond6
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3175) #16
   call void @compress_flush_data() #16
   %call.i.i23 = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i24 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i23, i64 0, i32 2
+  %depth.i.i24 = getelementptr inbounds i8, ptr %call.i.i23, i64 12
   %7 = load i32, ptr %depth.i.i24, align 4
   %cmp.not.i.i25 = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i25, label %if.else.i.i, label %if.end.i.i
@@ -6621,7 +6582,7 @@ while.end.i.i26:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i23 release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i23, i64 0, i32 1
+  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i23, i64 8
   %8 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %9 = and i8 %8, 1
   %tobool.not.i.i = icmp eq i8 %9, 0
@@ -6635,7 +6596,7 @@ while.end21.i.i:                                  ; preds = %while.end.i.i26
 if.then.i.i:                                      ; preds = %if.end11
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str, i32 noundef 3171) #16
   %call.i.i.i.i = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 2
+  %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %10 = load i32, ptr %depth.i.i.i.i, align 4
   %cmp.not.i.i.i.i = icmp eq i32 %10, 0
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.end.i.i.i.i
@@ -6654,7 +6615,7 @@ while.end.i.i.i.i:                                ; preds = %if.end.i.i.i.i
   store atomic i64 0, ptr %call.i.i.i.i release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i.i.i, i64 0, i32 1
+  %waiting.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   %11 = load atomic i8, ptr %waiting.i.i.i.i monotonic, align 8
   %12 = and i8 %11, 1
   %tobool.not.i.i.i.i = icmp eq i8 %12, 0
@@ -6724,14 +6685,14 @@ if.else:                                          ; preds = %lor.rhs.i, %land.lh
   br i1 %call1, label %if.then2, label %while.end8
 
 if.then2:                                         ; preds = %if.else
-  %idstr = getelementptr inbounds %struct.RAMBlock, ptr %rb.010, i64 0, i32 9
-  %host = getelementptr inbounds %struct.RAMBlock, ptr %rb.010, i64 0, i32 2
+  %idstr = getelementptr inbounds i8, ptr %rb.010, i64 76
+  %host = getelementptr inbounds i8, ptr %rb.010, i64 24
   %1 = load ptr, ptr %host, align 8
   tail call void (ptr, ...) @info_report(ptr noundef nonnull @.str.95, ptr noundef nonnull %idstr, ptr noundef %1) #16
   br label %return
 
 while.end8:                                       ; preds = %for.body, %migrate_ram_is_ignored.exit, %if.else
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %rb.010, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %rb.010, i64 336
   %2 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !101
   %tobool.not = icmp eq i64 %2, 0
@@ -6756,20 +6717,20 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 if.end:                                           ; preds = %entry
-  %bitmap_mutex = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 18
+  %bitmap_mutex = getelementptr inbounds i8, ptr %0, i64 232
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull %bitmap_mutex, ptr noundef nonnull @.str.89, i32 noundef 122) #16
-  %last_version = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 5
-  %last_sent_block.i = getelementptr [2 x %struct.PageSearchStatus], ptr %0, i64 0, i64 0, i32 1
-  %last_sent_block.i.c = getelementptr [2 x %struct.PageSearchStatus], ptr %0, i64 0, i64 1, i32 1
-  %last_seen_block.i = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 3
-  %xbzrle_started.i = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 13
-  %src_page_requests.i = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 21
-  %target_page_count = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 16
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %last_version = getelementptr inbounds i8, ptr %0, i64 144
+  %last_sent_block.i = getelementptr i8, ptr %0, i64 8
+  %last_sent_block.i.c = getelementptr i8, ptr %0, i64 64
+  %last_seen_block.i = getelementptr inbounds i8, ptr %0, i64 128
+  %xbzrle_started.i = getelementptr inbounds i8, ptr %0, i64 200
+  %src_page_requests.i = getelementptr inbounds i8, ptr %0, i64 336
+  %target_page_count = getelementptr inbounds i8, ptr %0, i64 216
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %3 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %3, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -6901,7 +6862,7 @@ if.end45:                                         ; preds = %if.then39, %if.end3
 for.inc:                                          ; preds = %if.end23, %lor.rhs, %while.body, %if.then31, %trace_ram_save_iterate_big_wait.exit
   %done.2 = phi i32 [ 0, %if.then31 ], [ 0, %trace_ram_save_iterate_big_wait.exit ], [ 0, %while.body ], [ 0, %lor.rhs ], [ 1, %if.end23 ]
   %call.i.i32 = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i33 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i32, i64 0, i32 2
+  %depth.i.i33 = getelementptr inbounds i8, ptr %call.i.i32, i64 12
   %17 = load i32, ptr %depth.i.i33, align 4
   %cmp.not.i.i34 = icmp eq i32 %17, 0
   br i1 %cmp.not.i.i34, label %if.else.i.i36, label %if.end.i.i
@@ -6920,7 +6881,7 @@ while.end.i.i35:                                  ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i32 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i32, i64 0, i32 1
+  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i32, i64 8
   %18 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %19 = and i8 %18, 1
   %tobool.not.i.i = icmp eq i8 %19, 0
@@ -6938,7 +6899,7 @@ qemu_lockable_auto_unlock.exit:                   ; preds = %while.end21.i.i, %w
 land.lhs.true:                                    ; preds = %qemu_lockable_auto_unlock.exit, %entry
   %done.4 = phi i32 [ 0, %entry ], [ %done.2, %qemu_lockable_auto_unlock.exit ]
   %call57 = tail call ptr @migrate_get_current() #16
-  %state = getelementptr inbounds %struct.MigrationState, ptr %call57, i64 0, i32 16
+  %state = getelementptr inbounds i8, ptr %call57, i64 776
   %20 = load i32, ptr %state, align 8
   %call58 = tail call zeroext i1 @migration_is_setup_or_active(i32 noundef %20) #16
   br i1 %call58, label %if.then60, label %return
@@ -6985,7 +6946,7 @@ return:                                           ; preds = %if.end74, %land.lhs
 define internal void @ram_state_pending_estimate(ptr nocapture noundef readonly %opaque, ptr nocapture noundef %must_precopy, ptr nocapture noundef %can_postcopy) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
-  %migration_dirty_pages = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 17
+  %migration_dirty_pages = getelementptr inbounds i8, ptr %0, i64 224
   %1 = load i64, ptr %migration_dirty_pages, align 8
   %mul = shl i64 %1, 12
   %call = tail call zeroext i1 @migrate_postcopy_ram() #16
@@ -7004,14 +6965,14 @@ entry:
   %local_err.i = alloca ptr, align 8
   %call = tail call ptr @migrate_get_current() #16
   %0 = load ptr, ptr %opaque, align 8
-  %migration_dirty_pages = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 17
+  %migration_dirty_pages = getelementptr inbounds i8, ptr %0, i64 224
   %1 = load i64, ptr %migration_dirty_pages, align 8
   %mul = shl i64 %1, 12
   %call1 = tail call zeroext i1 @migration_in_postcopy() #16
   br i1 %call1, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %threshold_size = getelementptr inbounds %struct.MigrationState, ptr %call, i64 0, i32 14
+  %threshold_size = getelementptr inbounds i8, ptr %call, i64 512
   %2 = load i64, ptr %threshold_size, align 8
   %cmp = icmp ult i64 %mul, %2
   br i1 %cmp, label %if.then, label %if.end
@@ -7019,7 +6980,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   tail call void @qemu_mutex_lock_iothread_impl(ptr noundef nonnull @.str, i32 noundef 3224) #16
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %3 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %3, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -7039,7 +7000,7 @@ rcu_read_auto_lock.exit:                          ; preds = %if.then, %while.end
   store ptr null, ptr %local_err.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pnd.i.i)
   store i32 1, ptr %pnd.i.i, align 8
-  %errp2.i.i = getelementptr inbounds %struct.PrecopyNotifyData, ptr %pnd.i.i, i64 0, i32 1
+  %errp2.i.i = getelementptr inbounds i8, ptr %pnd.i.i, i64 8
   store ptr %local_err.i, ptr %errp2.i.i, align 8
   %call.i.i5 = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i.i) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pnd.i.i)
@@ -7056,7 +7017,7 @@ if.end.i:                                         ; preds = %if.then.i, %rcu_rea
   call fastcc void @migration_bitmap_sync(ptr noundef nonnull %0, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pnd.i1.i)
   store i32 2, ptr %pnd.i1.i, align 8
-  %errp2.i2.i = getelementptr inbounds %struct.PrecopyNotifyData, ptr %pnd.i1.i, i64 0, i32 1
+  %errp2.i2.i = getelementptr inbounds i8, ptr %pnd.i1.i, i64 8
   store ptr %local_err.i, ptr %errp2.i2.i, align 8
   %call.i3.i = call i32 @notifier_with_return_list_notify(ptr noundef nonnull @precopy_notifier_list, ptr noundef nonnull %pnd.i1.i) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pnd.i1.i)
@@ -7071,7 +7032,7 @@ if.then4.i:                                       ; preds = %if.end.i
 migration_bitmap_sync_precopy.exit:               ; preds = %if.end.i, %if.then4.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_err.i)
   %call.i.i6 = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i7 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i6, i64 0, i32 2
+  %depth.i.i7 = getelementptr inbounds i8, ptr %call.i.i6, i64 12
   %7 = load i32, ptr %depth.i.i7, align 4
   %cmp.not.i.i8 = icmp eq i32 %7, 0
   br i1 %cmp.not.i.i8, label %if.else.i.i, label %if.end.i.i
@@ -7090,7 +7051,7 @@ while.end.i.i9:                                   ; preds = %if.end.i.i
   store atomic i64 0, ptr %call.i.i6 release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i6, i64 0, i32 1
+  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i6, i64 8
   %8 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %9 = and i8 %8, 1
   %tobool.not.i.i = icmp eq i8 %9, 0
@@ -7136,7 +7097,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call.i.i = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i, i64 0, i32 2
+  %depth.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %3 = load i32, ptr %depth.i.i, align 4
   %inc.i.i = add i32 %3, 1
   store i32 %inc.i.i, ptr %depth.i.i, align 4
@@ -7152,13 +7113,13 @@ while.end.i.i:                                    ; preds = %if.end
   br label %rcu_read_auto_lock.exit
 
 rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.i.i
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   br i1 %1, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %rcu_read_auto_lock.exit
   %call4.us = tail call i32 @ram_load_postcopy(ptr noundef %f, i32 noundef 0)
   %call.i.i10.us = tail call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i11.us = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i10.us, i64 0, i32 2
+  %depth.i.i11.us = getelementptr inbounds i8, ptr %call.i.i10.us, i64 12
   %5 = load i32, ptr %depth.i.i11.us, align 4
   %cmp.not.i.i12.us = icmp eq i32 %5, 0
   br i1 %cmp.not.i.i12.us, label %if.else.i.i16, label %if.end.i.i13.us
@@ -7173,7 +7134,7 @@ while.end.i.i14.us:                               ; preds = %if.end.i.i13.us
   store atomic i64 0, ptr %call.i.i10.us release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i.us = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i10.us, i64 0, i32 1
+  %waiting.i.i.us = getelementptr inbounds i8, ptr %call.i.i10.us, i64 8
   %6 = load atomic i8, ptr %waiting.i.i.us monotonic, align 8
   %7 = and i8 %6, 1
   %tobool.not.i.i15.us = icmp eq i8 %7, 0
@@ -7211,7 +7172,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i3
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #16
   %call10.i.i = call i32 @qemu_get_thread_id() #16
   %14 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %15 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.111, i32 noundef %call10.i.i, i64 noundef %14, i64 noundef %15, i32 noundef %.us-phi, i64 noundef %8) #16
   br label %trace_ram_load_complete.exit
@@ -7273,13 +7234,13 @@ if.then23.i:                                      ; preds = %if.end20.i
   br i1 %tobool.not.i.i.i, label %host_from_ram_block_offset.exit.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.then23.i
-  %host.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %call24.i, i64 0, i32 2
+  %host.i.i.i = getelementptr inbounds i8, ptr %call24.i, i64 24
   %17 = load ptr, ptr %host.i.i.i, align 8
   %tobool1.not.i.i.i = icmp eq ptr %17, null
   br i1 %tobool1.not.i.i.i, label %host_from_ram_block_offset.exit.i, label %offset_in_ramblock.exit.i.i
 
 offset_in_ramblock.exit.i.i:                      ; preds = %land.lhs.true.i.i.i
-  %used_length.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %call24.i, i64 0, i32 5
+  %used_length.i.i.i = getelementptr inbounds i8, ptr %call24.i, i64 48
   %18 = load i64, ptr %used_length.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i64 %18, %and11.i
   %add.ptr.i.i = getelementptr i8, ptr %17, i64 %and11.i
@@ -7299,25 +7260,25 @@ if.then29.i:                                      ; preds = %if.then27.i
   br i1 %tobool.not.i.i.i, label %if.then35.i, label %land.lhs.true.i.i53.i
 
 land.lhs.true.i.i53.i:                            ; preds = %if.then29.i
-  %host.i.i54.i = getelementptr inbounds %struct.RAMBlock, ptr %call24.i, i64 0, i32 2
+  %host.i.i54.i = getelementptr inbounds i8, ptr %call24.i, i64 24
   %19 = load ptr, ptr %host.i.i54.i, align 8
   %tobool1.not.i.i55.i = icmp eq ptr %19, null
   br i1 %tobool1.not.i.i55.i, label %if.then35.i, label %offset_in_ramblock.exit.i56.i
 
 offset_in_ramblock.exit.i56.i:                    ; preds = %land.lhs.true.i.i53.i
-  %used_length.i.i57.i = getelementptr inbounds %struct.RAMBlock, ptr %call24.i, i64 0, i32 5
+  %used_length.i.i57.i = getelementptr inbounds i8, ptr %call24.i, i64 48
   %20 = load i64, ptr %used_length.i.i57.i, align 8
   %cmp.i.i58.i = icmp ugt i64 %20, %and11.i
   br i1 %cmp.i.i58.i, label %if.end.i.i, label %if.then35.i
 
 if.end.i.i:                                       ; preds = %offset_in_ramblock.exit.i56.i
-  %colo_cache.i.i = getelementptr inbounds %struct.RAMBlock, ptr %call24.i, i64 0, i32 3
+  %colo_cache.i.i = getelementptr inbounds i8, ptr %call24.i, i64 32
   %21 = load ptr, ptr %colo_cache.i.i, align 8
   %tobool.not.i.i9 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i9, label %if.then1.i.i, label %if.end2.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %idstr.i.i = getelementptr inbounds %struct.RAMBlock, ptr %call24.i, i64 0, i32 9
+  %idstr.i.i = getelementptr inbounds i8, ptr %call24.i, i64 76
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.101, ptr noundef nonnull @__func__.colo_cache_from_block_offset, ptr noundef nonnull %idstr.i.i) #16
   br label %if.then35.i
 
@@ -7325,9 +7286,9 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %22 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %23 = inttoptr i64 %22 to ptr
   %24 = load ptr, ptr @ram_state, align 8
-  %bitmap_mutex.i.i.i = getelementptr inbounds %struct.RAMState, ptr %24, i64 0, i32 18
+  %bitmap_mutex.i.i.i = getelementptr inbounds i8, ptr %24, i64 232
   call void %23(ptr noundef nonnull %bitmap_mutex.i.i.i, ptr noundef nonnull @.str, i32 noundef 3348) #16
-  %bmap.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %call24.i, i64 0, i32 15
+  %bmap.i.i.i = getelementptr inbounds i8, ptr %call24.i, i64 384
   %shr.i.i.i = lshr i64 %call9.i, 12
   %rem.i.i.i.i = and i64 %shr.i.i.i, 63
   %shl.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -7341,11 +7302,11 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   %28 = lshr i64 %27, %rem.i.i.i.i
   %conv.i.i.i = and i64 %28, 1
   %29 = load ptr, ptr @ram_state, align 8
-  %migration_dirty_pages.i.i.i = getelementptr inbounds %struct.RAMState, ptr %29, i64 0, i32 17
+  %migration_dirty_pages.i.i.i = getelementptr inbounds i8, ptr %29, i64 224
   %30 = load i64, ptr %migration_dirty_pages.i.i.i, align 8
   %add.i.i.i = add i64 %30, %conv.i.i.i
   store i64 %add.i.i.i, ptr %migration_dirty_pages.i.i.i, align 8
-  %bitmap_mutex1.i.i.i = getelementptr inbounds %struct.RAMState, ptr %29, i64 0, i32 18
+  %bitmap_mutex1.i.i.i = getelementptr inbounds i8, ptr %29, i64 232
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %bitmap_mutex1.i.i.i, ptr noundef nonnull @.str, i32 noundef 3355) #16
   %.pre.i.i = load ptr, ptr %colo_cache.i.i, align 8
   %add.ptr.i60.i = getelementptr i8, ptr %.pre.i.i, i64 %and11.i
@@ -7355,25 +7316,25 @@ if.else.i:                                        ; preds = %if.then27.i
   br i1 %tobool.not.i.i.i, label %if.end33.i, label %land.lhs.true.i.i62.i
 
 land.lhs.true.i.i62.i:                            ; preds = %if.else.i
-  %host.i.i63.i = getelementptr inbounds %struct.RAMBlock, ptr %call24.i, i64 0, i32 2
+  %host.i.i63.i = getelementptr inbounds i8, ptr %call24.i, i64 24
   %31 = load ptr, ptr %host.i.i63.i, align 8
   %tobool1.not.i.i64.i = icmp eq ptr %31, null
   br i1 %tobool1.not.i.i64.i, label %if.end33.i, label %offset_in_ramblock.exit.i65.i
 
 offset_in_ramblock.exit.i65.i:                    ; preds = %land.lhs.true.i.i62.i
-  %used_length.i.i66.i = getelementptr inbounds %struct.RAMBlock, ptr %call24.i, i64 0, i32 5
+  %used_length.i.i66.i = getelementptr inbounds i8, ptr %call24.i, i64 48
   %32 = load i64, ptr %used_length.i.i66.i, align 8
   %cmp.i.i67.i = icmp ugt i64 %32, %and11.i
   br i1 %cmp.i.i67.i, label %if.end.i69.i, label %if.end33.i
 
 if.end.i69.i:                                     ; preds = %offset_in_ramblock.exit.i65.i
-  %colo_cache.i70.i = getelementptr inbounds %struct.RAMBlock, ptr %call24.i, i64 0, i32 3
+  %colo_cache.i70.i = getelementptr inbounds i8, ptr %call24.i, i64 32
   %33 = load ptr, ptr %colo_cache.i70.i, align 8
   %tobool.not.i71.i = icmp eq ptr %33, null
   br i1 %tobool.not.i71.i, label %if.then1.i74.i, label %if.end2.i72.i
 
 if.then1.i74.i:                                   ; preds = %if.end.i69.i
-  %idstr.i75.i = getelementptr inbounds %struct.RAMBlock, ptr %call24.i, i64 0, i32 9
+  %idstr.i75.i = getelementptr inbounds i8, ptr %call24.i, i64 76
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.101, ptr noundef nonnull @__func__.colo_cache_from_block_offset, ptr noundef nonnull %idstr.i75.i) #16
   br label %if.end33.i
 
@@ -7402,7 +7363,7 @@ if.then38.i:                                      ; preds = %if.end36.i
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %rb.val.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %shr.i.i77.i = lshr i64 %sub.ptr.sub.i.i.i, 12
-  %receivedmap.i.i = getelementptr inbounds %struct.RAMBlock, ptr %call24.i, i64 0, i32 16
+  %receivedmap.i.i = getelementptr inbounds i8, ptr %call24.i, i64 392
   %35 = load ptr, ptr %receivedmap.i.i, align 8
   %rem.i.i.i = and i64 %shr.i.i77.i, 63
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i
@@ -7412,7 +7373,7 @@ if.then38.i:                                      ; preds = %if.end36.i
   br label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then38.i, %if.end36.i
-  %idstr.i = getelementptr inbounds %struct.RAMBlock, ptr %call24.i, i64 0, i32 9
+  %idstr.i = getelementptr inbounds i8, ptr %call24.i, i64 76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %37 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i.i = icmp ne i32 %37, 0
@@ -7488,12 +7449,12 @@ if.then.i.i7:                                     ; preds = %while.body.i.i
   br i1 %call1.i.i.i, label %if.end3.i.i.i, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %if.then.i.i7
-  %idstr.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %call5.i.i, i64 0, i32 9
+  %idstr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 76
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.67, ptr noundef nonnull %idstr.i.i.i) #16
   br label %if.end.thread16.i.i
 
 if.end3.i.i.i:                                    ; preds = %if.then.i.i7
-  %used_length.i.i78.i = getelementptr inbounds %struct.RAMBlock, ptr %call5.i.i, i64 0, i32 5
+  %used_length.i.i78.i = getelementptr inbounds i8, ptr %call5.i.i, i64 48
   %44 = load i64, ptr %used_length.i.i78.i, align 8
   %cmp.not.i.i.i = icmp eq i64 %44, %call3.i.i
   br i1 %cmp.not.i.i.i, label %if.end9.i.i.i, label %if.then4.i.i.i
@@ -7517,7 +7478,7 @@ land.lhs.true.i.i81.i:                            ; preds = %if.end9.i.i.i
   br i1 %call11.i.i.i, label %land.lhs.true12.i.i.i, label %if.end23.i.i.i
 
 land.lhs.true12.i.i.i:                            ; preds = %land.lhs.true.i.i81.i
-  %page_size.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %call5.i.i, i64 0, i32 14
+  %page_size.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 376
   %46 = load i64, ptr %page_size.i.i.i, align 8
   %47 = load i64, ptr @qemu_host_page_size, align 8
   %cmp13.not.i.i.i = icmp eq i64 %46, %47
@@ -7530,7 +7491,7 @@ if.then14.i.i.i:                                  ; preds = %land.lhs.true12.i.i
   br i1 %cmp17.not.i.i.i, label %if.end23.i.i.i, label %if.then18.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %if.then14.i.i.i
-  %idstr19.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %call5.i.i, i64 0, i32 9
+  %idstr19.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 76
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.106, ptr noundef nonnull %idstr19.i.i.i, i64 noundef %48, i64 noundef %call15.i.i.i) #16
   br label %if.end.thread16.i.i
 
@@ -7556,15 +7517,15 @@ migrate_ram_is_ignored.exit.i.i.i:                ; preds = %land.lhs.true.i.i.i
   br i1 %call3.i.i.i.i, label %land.lhs.true28.i.i.i, label %if.end.i79.i
 
 land.lhs.true28.i.i.i:                            ; preds = %migrate_ram_is_ignored.exit.i.i.i, %if.then25.i.i.i
-  %mr.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %call5.i.i, i64 0, i32 1
+  %mr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 16
   %49 = load ptr, ptr %mr.i.i.i, align 8
-  %addr29.i.i.i = getelementptr inbounds %struct.MemoryRegion, ptr %49, i64 0, i32 19
+  %addr29.i.i.i = getelementptr inbounds i8, ptr %49, i64 128
   %50 = load i64, ptr %addr29.i.i.i, align 16
   %cmp30.not.i.i.i = icmp eq i64 %50, %call26.i.i.i
   br i1 %cmp30.not.i.i.i, label %if.end.i79.i, label %if.then31.i.i.i
 
 if.then31.i.i.i:                                  ; preds = %land.lhs.true28.i.i.i
-  %idstr32.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %call5.i.i, i64 0, i32 9
+  %idstr32.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 76
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.107, ptr noundef nonnull %idstr32.i.i.i, i64 noundef %call26.i.i.i, i64 noundef %50) #16
   br label %if.end.thread16.i.i
 
@@ -7710,7 +7671,7 @@ ram_load_precopy.exit:                            ; preds = %if.end93.i, %if.the
   %ret.3.i = phi i32 [ -22, %if.then18.i ], [ -22, %if.then35.i ], [ %ret.2105.i, %if.end93.i ]
   %call94.i = call i32 @wait_for_decompress_done() #16
   %call.i.i10 = call ptr @get_ptr_rcu_reader() #16
-  %depth.i.i11 = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i10, i64 0, i32 2
+  %depth.i.i11 = getelementptr inbounds i8, ptr %call.i.i10, i64 12
   %56 = load i32, ptr %depth.i.i11, align 4
   %cmp.not.i.i12 = icmp eq i32 %56, 0
   br i1 %cmp.not.i.i12, label %if.else.i.i16, label %if.end.i.i13
@@ -7729,7 +7690,7 @@ while.end.i.i14:                                  ; preds = %if.end.i.i13
   store atomic i64 0, ptr %call.i.i10 release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !10
   fence seq_cst
-  %waiting.i.i = getelementptr inbounds %struct.rcu_reader_data, ptr %call.i.i10, i64 0, i32 1
+  %waiting.i.i = getelementptr inbounds i8, ptr %call.i.i10, i64 8
   %57 = load atomic i8, ptr %waiting.i.i monotonic, align 8
   %58 = and i8 %57, 1
   %tobool.not.i.i15 = icmp eq i8 %58, 0
@@ -7778,7 +7739,7 @@ migrate_ram_is_ignored.exit.i:                    ; preds = %land.lhs.true.i.i
   br i1 %call3.i.i, label %while.end12.i, label %if.else.i
 
 if.else.i:                                        ; preds = %migrate_ram_is_ignored.exit.i, %land.lhs.true.i.i, %lor.rhs.i.i
-  %receivedmap.i = getelementptr inbounds %struct.RAMBlock, ptr %rb.09.i, i64 0, i32 16
+  %receivedmap.i = getelementptr inbounds i8, ptr %rb.09.i, i64 392
   %1 = load ptr, ptr %receivedmap.i, align 8
   %tobool1.not.i = icmp eq ptr %1, null
   br i1 %tobool1.not.i, label %if.end.i, label %if.else3.i
@@ -7788,7 +7749,7 @@ if.else3.i:                                       ; preds = %if.else.i
   unreachable
 
 if.end.i:                                         ; preds = %if.else.i
-  %max_length.i = getelementptr inbounds %struct.RAMBlock, ptr %rb.09.i, i64 0, i32 6
+  %max_length.i = getelementptr inbounds i8, ptr %rb.09.i, i64 56
   %2 = load i64, ptr %max_length.i, align 8
   %call4.i = tail call i32 @qemu_target_page_bits() #16
   %sh_prom.i = zext nneg i32 %call4.i to i64
@@ -7809,7 +7770,7 @@ bitmap_new.exit.i:                                ; preds = %if.end.i
   br label %while.end12.i
 
 while.end12.i:                                    ; preds = %bitmap_new.exit.i, %migrate_ram_is_ignored.exit.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.RAMBlock, ptr %rb.09.i, i64 0, i32 10
+  %next.i = getelementptr inbounds i8, ptr %rb.09.i, i64 336
   %4 = load atomic i64, ptr %next.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !108
   %tobool.not.i = icmp eq i64 %4, 0
@@ -7846,13 +7807,13 @@ migrate_ram_is_ignored.exit:                      ; preds = %land.lhs.true.i
   br i1 %call3.i, label %while.end5, label %if.else
 
 if.else:                                          ; preds = %lor.rhs.i, %land.lhs.true.i, %migrate_ram_is_ignored.exit
-  %used_length.i = getelementptr inbounds %struct.RAMBlock, ptr %rb.021, i64 0, i32 5
+  %used_length.i = getelementptr inbounds i8, ptr %rb.021, i64 48
   %1 = load i64, ptr %used_length.i, align 8
   tail call void @qemu_ram_msync(ptr noundef nonnull %rb.021, i64 noundef 0, i64 noundef %1) #16
   br label %while.end5
 
 while.end5:                                       ; preds = %for.body, %if.else, %migrate_ram_is_ignored.exit
-  %next = getelementptr inbounds %struct.RAMBlock, ptr %rb.021, i64 0, i32 10
+  %next = getelementptr inbounds i8, ptr %rb.021, i64 336
   %2 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !111
   %tobool.not = icmp eq i64 %2, 0
@@ -7886,14 +7847,14 @@ migrate_ram_is_ignored.exit16:                    ; preds = %land.lhs.true.i12
   br i1 %call3.i15, label %while.end26, label %if.else18
 
 if.else18:                                        ; preds = %lor.rhs.i10, %land.lhs.true.i12, %migrate_ram_is_ignored.exit16
-  %receivedmap = getelementptr inbounds %struct.RAMBlock, ptr %rb.124, i64 0, i32 16
+  %receivedmap = getelementptr inbounds i8, ptr %rb.124, i64 392
   %5 = load ptr, ptr %receivedmap, align 8
   tail call void @g_free(ptr noundef %5) #16
   store ptr null, ptr %receivedmap, align 8
   br label %while.end26
 
 while.end26:                                      ; preds = %for.body15, %if.else18, %migrate_ram_is_ignored.exit16
-  %next27 = getelementptr inbounds %struct.RAMBlock, ptr %rb.124, i64 0, i32 10
+  %next27 = getelementptr inbounds i8, ptr %rb.124, i64 336
   %6 = load atomic i64, ptr %next27 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !114
   %tobool14.not = icmp eq i64 %6, 0
@@ -7912,7 +7873,7 @@ entry:
   %_now.i.i8.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
-  %to_dst_file.i = getelementptr inbounds %struct.MigrationState, ptr %s, i64 0, i32 4
+  %to_dst_file.i = getelementptr inbounds i8, ptr %s, i64 184
   %1 = load ptr, ptr %to_dst_file.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -7938,7 +7899,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #16
   %7 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.114, i32 noundef %call10.i.i.i, i64 noundef %7, i64 noundef %8) #16
   br label %trace_ram_dirty_bitmap_sync_start.exit.i
@@ -7949,7 +7910,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 
 trace_ram_dirty_bitmap_sync_start.exit.i:         ; preds = %if.else.i.i.i, %if.then8.i.i.i, %land.lhs.true5.i.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %postcopy_bmap_sync_requested.i = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 22
+  %postcopy_bmap_sync_requested.i = getelementptr inbounds i8, ptr %0, i64 352
   store atomic i32 0, ptr %postcopy_bmap_sync_requested.i monotonic, align 8
   %9 = load atomic i64, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 2) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !116
@@ -7957,7 +7918,7 @@ trace_ram_dirty_bitmap_sync_start.exit.i:         ; preds = %if.else.i.i.i, %if.
   br i1 %tobool.not52.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %trace_ram_dirty_bitmap_sync_start.exit.i
-  %tv_usec.i.i20.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i8.i, i64 0, i32 1
+  %tv_usec.i.i20.i = getelementptr inbounds i8, ptr %_now.i.i8.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %while.end16.i, %for.body.lr.ph.i
@@ -7979,7 +7940,7 @@ migrate_ram_is_ignored.exit.i:                    ; preds = %land.lhs.true.i.i
   br i1 %call3.i.i, label %while.end16.i, label %if.else.i
 
 if.else.i:                                        ; preds = %migrate_ram_is_ignored.exit.i, %land.lhs.true.i.i, %lor.rhs.i.i
-  %idstr.i = getelementptr inbounds %struct.RAMBlock, ptr %block.053.i, i64 0, i32 9
+  %idstr.i = getelementptr inbounds i8, ptr %block.053.i, i64 76
   tail call void @qemu_savevm_send_recv_bitmap(ptr noundef %1, ptr noundef nonnull %idstr.i) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i8.i)
   %10 = load i32, ptr @trace_events_enabled_count, align 4
@@ -8019,7 +7980,7 @@ trace_ram_dirty_bitmap_request.exit.i:            ; preds = %if.else.i.i21.i, %i
   br label %while.end16.i
 
 while.end16.i:                                    ; preds = %trace_ram_dirty_bitmap_request.exit.i, %migrate_ram_is_ignored.exit.i, %for.body.i
-  %next.i = getelementptr inbounds %struct.RAMBlock, ptr %block.053.i, i64 0, i32 10
+  %next.i = getelementptr inbounds i8, ptr %block.053.i, i64 336
   %18 = load atomic i64, ptr %next.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !117
   %tobool.not.i = icmp eq i64 %18, 0
@@ -8050,7 +8011,7 @@ if.then8.i.i31.i:                                 ; preds = %if.then.i.i29.i
   %call9.i.i32.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i22.i, ptr noundef null) #16
   %call10.i.i33.i = tail call i32 @qemu_get_thread_id() #16
   %24 = load i64, ptr %_now.i.i22.i, align 8
-  %tv_usec.i.i34.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i22.i, i64 0, i32 1
+  %tv_usec.i.i34.i = getelementptr inbounds i8, ptr %_now.i.i22.i, i64 8
   %25 = load i64, ptr %tv_usec.i.i34.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.118, i32 noundef %call10.i.i33.i, i64 noundef %24, i64 noundef %25) #16
   br label %trace_ram_dirty_bitmap_sync_wait.exit.i
@@ -8098,7 +8059,7 @@ if.then8.i.i45.i:                                 ; preds = %if.then.i.i43.i
   %call9.i.i46.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i36.i, ptr noundef null) #16
   %call10.i.i47.i = tail call i32 @qemu_get_thread_id() #16
   %32 = load i64, ptr %_now.i.i36.i, align 8
-  %tv_usec.i.i48.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i36.i, i64 0, i32 1
+  %tv_usec.i.i48.i = getelementptr inbounds i8, ptr %_now.i.i36.i, i64 8
   %33 = load i64, ptr %tv_usec.i.i48.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.120, i32 noundef %call10.i.i47.i, i64 noundef %32, i64 noundef %33) #16
   br label %if.end
@@ -8135,9 +8096,9 @@ migrate_ram_is_ignored.exit.i28:                  ; preds = %land.lhs.true.i.i26
   br i1 %call3.i.i29, label %while.end6.i, label %if.else.i25
 
 if.else.i25:                                      ; preds = %migrate_ram_is_ignored.exit.i28, %land.lhs.true.i.i26, %lor.rhs.i.i23
-  %bmap.i = getelementptr inbounds %struct.RAMBlock, ptr %block.014.i, i64 0, i32 15
+  %bmap.i = getelementptr inbounds i8, ptr %block.014.i, i64 384
   %36 = load ptr, ptr %bmap.i, align 8
-  %used_length.i = getelementptr inbounds %struct.RAMBlock, ptr %block.014.i, i64 0, i32 5
+  %used_length.i = getelementptr inbounds i8, ptr %block.014.i, i64 48
   %37 = load i64, ptr %used_length.i, align 8
   %shr.i = lshr i64 %37, 12
   %tobool.not.i.i = icmp ult i64 %37, 4096
@@ -8167,7 +8128,7 @@ bitmap_count_one.exit.i:                          ; preds = %if.else.i.i, %if.th
 
 while.end6.i:                                     ; preds = %bitmap_count_one.exit.i, %migrate_ram_is_ignored.exit.i28, %for.body.i5
   %pages.1.i = phi i64 [ %pages.013.i, %migrate_ram_is_ignored.exit.i28 ], [ %add.i, %bitmap_count_one.exit.i ], [ %pages.013.i, %for.body.i5 ]
-  %next.i7 = getelementptr inbounds %struct.RAMBlock, ptr %block.014.i, i64 0, i32 10
+  %next.i7 = getelementptr inbounds i8, ptr %block.014.i, i64 336
   %40 = load atomic i64, ptr %next.i7 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !121
   %tobool.not.i8 = icmp eq i64 %40, 0
@@ -8175,18 +8136,18 @@ while.end6.i:                                     ; preds = %bitmap_count_one.ex
 
 for.end.i9:                                       ; preds = %while.end6.i, %if.end
   %pages.0.lcssa.i = phi i64 [ 0, %if.end ], [ %pages.1.i, %while.end6.i ]
-  %migration_dirty_pages.i = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 17
+  %migration_dirty_pages.i = getelementptr inbounds i8, ptr %0, i64 224
   store i64 %pages.0.lcssa.i, ptr %migration_dirty_pages.i, align 8
-  %last_sent_block.i.i = getelementptr [2 x %struct.PageSearchStatus], ptr %0, i64 0, i64 0, i32 1
+  %last_sent_block.i.i = getelementptr i8, ptr %0, i64 8
   store ptr null, ptr %last_sent_block.i.i, align 8
-  %last_sent_block.i.c.i = getelementptr [2 x %struct.PageSearchStatus], ptr %0, i64 0, i64 1, i32 1
+  %last_sent_block.i.c.i = getelementptr i8, ptr %0, i64 64
   store ptr null, ptr %last_sent_block.i.c.i, align 8
-  %last_seen_block.i.i = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 3
+  %last_seen_block.i.i = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_seen_block.i.i, i8 0, i64 16, i1 false)
   %41 = load i32, ptr getelementptr inbounds (%struct.RAMList, ptr @ram_list, i64 0, i32 4), align 8
-  %last_version.i.i = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 5
+  %last_version.i.i = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %41, ptr %last_version.i.i, align 8
-  %xbzrle_started.i.i = getelementptr inbounds %struct.RAMState, ptr %0, i64 0, i32 13
+  %xbzrle_started.i.i = getelementptr inbounds i8, ptr %0, i64 200
   store i8 0, ptr %xbzrle_started.i.i, align 8
   store ptr %34, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i4)
@@ -8213,7 +8174,7 @@ if.then8.i.i.i18:                                 ; preds = %if.then.i.i.i16
   %call9.i.i.i19 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i4, ptr noundef null) #16
   %call10.i.i.i20 = tail call i32 @qemu_get_thread_id() #16
   %47 = load i64, ptr %_now.i.i.i4, align 8
-  %tv_usec.i.i.i21 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i4, i64 0, i32 1
+  %tv_usec.i.i.i21 = getelementptr inbounds i8, ptr %_now.i.i.i4, i64 8
   %48 = load i64, ptr %tv_usec.i.i.i21, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.122, i32 noundef %call10.i.i.i20, i64 noundef %47, i64 noundef %48, i64 noundef %pages.0.lcssa.i) #16
   br label %ram_state_resume_prepare.exit
@@ -8250,9 +8211,9 @@ entry:
   %_now.i.i23.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %block1 = getelementptr inbounds %struct.PageSearchStatus, ptr %pss, i64 0, i32 2
+  %block1 = getelementptr inbounds i8, ptr %pss, i64 16
   %0 = load ptr, ptr %block1, align 8
-  %page = getelementptr inbounds %struct.PageSearchStatus, ptr %pss, i64 0, i32 3
+  %page = getelementptr inbounds i8, ptr %pss, i64 24
   %1 = load i64, ptr %page, align 8
   %shl = shl i64 %1, 12
   %call.i = tail call zeroext i1 @migrate_compress() #16
@@ -8260,7 +8221,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %2 = load ptr, ptr %block1, align 8
-  %last_sent_block.i = getelementptr inbounds %struct.PageSearchStatus, ptr %pss, i64 0, i32 1
+  %last_sent_block.i = getelementptr inbounds i8, ptr %pss, i64 8
   %3 = load ptr, ptr %last_sent_block.i, align 8
   %cmp.not.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i, label %save_compress_page.exit, label %if.then1.i
@@ -8275,7 +8236,7 @@ save_compress_page.exit:                          ; preds = %if.end.i
 
 if.end4:                                          ; preds = %entry, %if.then1.i, %save_compress_page.exit
   %4 = load ptr, ptr %block1, align 8
-  %host.i = getelementptr inbounds %struct.RAMBlock, ptr %4, i64 0, i32 2
+  %host.i = getelementptr inbounds i8, ptr %4, i64 24
   %5 = load ptr, ptr %host.i, align 8
   %add.ptr.i = getelementptr i8, ptr %5, i64 %shl
   %6 = load ptr, ptr %pss, align 8
@@ -8284,7 +8245,7 @@ if.end4:                                          ; preds = %entry, %if.then1.i,
 
 if.end.i15:                                       ; preds = %if.end4
   %7 = load ptr, ptr %block1, align 8
-  %last_sent_block.i.i = getelementptr inbounds %struct.PageSearchStatus, ptr %pss, i64 0, i32 1
+  %last_sent_block.i.i = getelementptr inbounds i8, ptr %pss, i64 8
   %8 = load ptr, ptr %last_sent_block.i.i, align 8
   %cmp.i.i = icmp eq ptr %8, %7
   %spec.select.i.v.i = select i1 %cmp.i.i, i64 34, i64 2
@@ -8293,7 +8254,7 @@ if.end.i15:                                       ; preds = %if.end4
   br i1 %cmp.i.i, label %save_page_header.exit.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i15
-  %idstr.i.i = getelementptr inbounds %struct.RAMBlock, ptr %7, i64 0, i32 9
+  %idstr.i.i = getelementptr inbounds i8, ptr %7, i64 76
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %idstr.i.i) #19
   %conv.i.i = trunc i64 %call.i.i to i32
   tail call void @qemu_put_byte(ptr noundef %6, i32 noundef %conv.i.i) #16
@@ -8306,7 +8267,7 @@ save_page_header.exit.i:                          ; preds = %if.then2.i.i, %if.e
   %size.0.i.i = phi i32 [ 9, %if.end.i15 ], [ %9, %if.then2.i.i ]
   tail call void @qemu_put_byte(ptr noundef %6, i32 noundef 0) #16
   %10 = load ptr, ptr %block1, align 8
-  %idstr.i = getelementptr inbounds %struct.RAMBlock, ptr %10, i64 0, i32 9
+  %idstr.i = getelementptr inbounds i8, ptr %10, i64 76
   %call.i13.i = tail call zeroext i1 @migrate_release_ram() #16
   br i1 %call.i13.i, label %lor.lhs.false.i.i, label %ram_release_page.exit.i
 
@@ -8332,7 +8293,7 @@ if.else.i.i:                                      ; preds = %ram_release_page.ex
 ram_transferred_add.exit.i:                       ; preds = %if.else.i.i, %ram_release_page.exit.i
   %.sink.i.i = phi ptr [ getelementptr inbounds (%struct.MigrationAtomicStats, ptr @mig_stats, i64 0, i32 9), %ram_release_page.exit.i ], [ %..i.i, %if.else.i.i ]
   %12 = atomicrmw add ptr %.sink.i.i, i64 %conv6.i seq_cst, align 8
-  %xbzrle_started.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 13
+  %xbzrle_started.i = getelementptr inbounds i8, ptr %rs, i64 200
   %13 = load i8, ptr %xbzrle_started.i, align 8
   %14 = and i8 %13, 1
   %tobool.not.i = icmp eq i8 %14, 0
@@ -8350,7 +8311,7 @@ while.end.i.i:                                    ; preds = %if.then7.i
 
 XBZRLE_cache_lock.exit.i:                         ; preds = %while.end.i.i, %if.then7.i
   %17 = load ptr, ptr %block1, align 8
-  %offset9.i = getelementptr inbounds %struct.RAMBlock, ptr %17, i64 0, i32 4
+  %offset9.i = getelementptr inbounds i8, ptr %17, i64 40
   %18 = load i64, ptr %offset9.i, align 8
   %add10.i = add i64 %18, %shl
   %19 = load ptr, ptr getelementptr inbounds (%struct.anon, ptr @XBZRLE, i64 0, i32 2), align 8
@@ -8390,13 +8351,13 @@ if.end12:                                         ; preds = %land.lhs.true, %if.
   %24 = load ptr, ptr %block1, align 8
   %25 = load i64, ptr %page, align 8
   %shl.i = shl i64 %25, 12
-  %offset2.i = getelementptr inbounds %struct.RAMBlock, ptr %24, i64 0, i32 4
+  %offset2.i = getelementptr inbounds i8, ptr %24, i64 40
   %26 = load i64, ptr %offset2.i, align 8
   %add.i = add i64 %26, %shl.i
-  %host.i19 = getelementptr inbounds %struct.RAMBlock, ptr %24, i64 0, i32 2
+  %host.i19 = getelementptr inbounds i8, ptr %24, i64 24
   %27 = load ptr, ptr %host.i19, align 8
   %add.ptr.i20 = getelementptr i8, ptr %27, i64 %shl.i
-  %idstr.i21 = getelementptr inbounds %struct.RAMBlock, ptr %24, i64 0, i32 9
+  %idstr.i21 = getelementptr inbounds i8, ptr %24, i64 76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %28 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i.i = icmp ne i32 %28, 0
@@ -8421,7 +8382,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #16
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #16
   %33 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %34 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i.i, i64 noundef %33, i64 noundef %34, ptr noundef nonnull %idstr.i21, i64 noundef %shl.i, ptr noundef %add.ptr.i20) #16
   br label %trace_ram_save_page.exit.i
@@ -8442,7 +8403,7 @@ while.end.i.i35:                                  ; preds = %trace_ram_save_page
   br label %XBZRLE_cache_lock.exit.i23
 
 XBZRLE_cache_lock.exit.i23:                       ; preds = %while.end.i.i35, %trace_ram_save_page.exit.i
-  %xbzrle_started.i24 = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 13
+  %xbzrle_started.i24 = getelementptr inbounds i8, ptr %rs, i64 200
   %37 = load i8, ptr %xbzrle_started.i24, align 8
   %38 = and i8 %37, 1
   %tobool.not.i25 = icmp eq i8 %38, 0
@@ -8463,7 +8424,7 @@ if.then.i.i28:                                    ; preds = %if.then.i
   %42 = load i64, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 3), align 8
   %inc.i.i = add i64 %42, 1
   store i64 %inc.i.i, ptr getelementptr inbounds (%struct.XBZRLECacheStats, ptr @xbzrle_counters, i64 0, i32 3), align 8
-  %last_stage.i.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 14
+  %last_stage.i.i = getelementptr inbounds i8, ptr %rs, i64 201
   %43 = load i8, ptr %last_stage.i.i, align 1
   %44 = and i8 %43, 1
   %tobool.not.i.i = icmp eq i8 %44, 0
@@ -8490,7 +8451,7 @@ if.end7.i.i:                                      ; preds = %if.then.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %49, ptr noundef nonnull align 1 dereferenceable(4096) %add.ptr.i20, i64 4096, i1 false)
   %50 = load ptr, ptr @XBZRLE, align 8
   %call10.i.i = tail call i32 @xbzrle_encode_buffer(ptr noundef %call9.i.i, ptr noundef %49, i32 noundef 4096, ptr noundef %50, i32 noundef 4096) #16
-  %last_stage11.i.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 14
+  %last_stage11.i.i = getelementptr inbounds i8, ptr %rs, i64 201
   %51 = load i8, ptr %last_stage11.i.i, align 1
   %52 = and i8 %51, 1
   %tobool12.not22.i.i = icmp eq i8 %52, 0
@@ -8535,7 +8496,7 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #16
   %call10.i.i.i.i = tail call i32 @qemu_get_thread_id() #16
   %59 = load i64, ptr %_now.i.i.i.i, align 8
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
   %60 = load i64, ptr %tv_usec.i.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, i32 noundef %call10.i.i.i.i, i64 noundef %59, i64 noundef %60) #16
   br label %trace_save_xbzrle_page_skipping.exit.i.i
@@ -8573,7 +8534,7 @@ if.then8.i.i32.i.i:                               ; preds = %if.then.i.i30.i.i
   %call9.i.i33.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i23.i.i, ptr noundef null) #16
   %call10.i.i34.i.i = tail call i32 @qemu_get_thread_id() #16
   %66 = load i64, ptr %_now.i.i23.i.i, align 8
-  %tv_usec.i.i35.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i23.i.i, i64 0, i32 1
+  %tv_usec.i.i35.i.i = getelementptr inbounds i8, ptr %_now.i.i23.i.i, i64 8
   %67 = load i64, ptr %tv_usec.i.i35.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i.i34.i.i, i64 noundef %66, i64 noundef %67) #16
   br label %trace_save_xbzrle_page_overflow.exit.i.i
@@ -8594,7 +8555,7 @@ trace_save_xbzrle_page_overflow.exit.i.i:         ; preds = %if.else.i.i36.i.i, 
 
 if.end23.i.i:                                     ; preds = %if.end15.i.i
   %70 = load ptr, ptr %pss, align 8
-  %last_sent_block.i.i.i = getelementptr inbounds %struct.PageSearchStatus, ptr %pss, i64 0, i32 1
+  %last_sent_block.i.i.i = getelementptr inbounds i8, ptr %pss, i64 8
   %71 = load ptr, ptr %last_sent_block.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %71, %24
   %spec.select.i.v.i.i = select i1 %cmp.i.i.i, i64 96, i64 64
@@ -8641,7 +8602,7 @@ ram_transferred_add.exit.i.i:                     ; preds = %if.else.i.i15.i, %s
 
 if.end6.thread46.i:                               ; preds = %trace_save_xbzrle_page_overflow.exit.i.i, %if.else.i.i34, %if.then2.i.i32, %if.then.i.i28
   %p.1.ph.i = phi ptr [ %add.ptr.i20, %if.then.i.i28 ], [ %call5.i.i, %if.else.i.i34 ], [ %add.ptr.i20, %if.then2.i.i32 ], [ %p.0.i, %trace_save_xbzrle_page_overflow.exit.i.i ]
-  %last_stage49.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 14
+  %last_stage49.i = getelementptr inbounds i8, ptr %rs, i64 201
   %76 = load i8, ptr %last_stage49.i, align 1
   %77 = and i8 %76, 1
   %tobool4.not50.i = icmp ne i8 %77, 0
@@ -8651,7 +8612,7 @@ if.then7.i29:                                     ; preds = %if.end6.thread46.i,
   %send_async.044.i = phi i1 [ %tobool4.not50.i, %if.end6.thread46.i ], [ true, %land.lhs.true.i ], [ true, %XBZRLE_cache_lock.exit.i23 ]
   %p.243.i = phi ptr [ %p.1.ph.i, %if.end6.thread46.i ], [ %add.ptr.i20, %land.lhs.true.i ], [ %add.ptr.i20, %XBZRLE_cache_lock.exit.i23 ]
   %78 = load ptr, ptr %pss, align 8
-  %last_sent_block.i.i16.i = getelementptr inbounds %struct.PageSearchStatus, ptr %pss, i64 0, i32 1
+  %last_sent_block.i.i16.i = getelementptr inbounds i8, ptr %pss, i64 8
   %79 = load ptr, ptr %last_sent_block.i.i16.i, align 8
   %cmp.i.i17.i = icmp eq ptr %79, %24
   %spec.select.i.v.i18.i = select i1 %cmp.i.i17.i, i64 40, i64 8
@@ -8763,19 +8724,19 @@ entry:
   %_now.i.i15.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
   %offset.i = alloca i64, align 8
-  %ram_bytes_total = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 2
+  %ram_bytes_total = getelementptr inbounds i8, ptr %rs, i64 120
   %0 = load i64, ptr %ram_bytes_total, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %last_seen_block = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 3
+  %last_seen_block = getelementptr inbounds i8, ptr %rs, i64 128
   %1 = load ptr, ptr %last_seen_block, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %while.end, label %if.end.if.end5_crit_edge
 
 if.end.if.end5_crit_edge:                         ; preds = %if.end
-  %last_page7.phi.trans.insert = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 4
+  %last_page7.phi.trans.insert = getelementptr inbounds i8, ptr %rs, i64 136
   %.pre = load i64, ptr %last_page7.phi.trans.insert, align 8
   br label %if.end5
 
@@ -8784,33 +8745,33 @@ while.end:                                        ; preds = %if.end
   %3 = inttoptr i64 %2 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !123
   store ptr %3, ptr %last_seen_block, align 8
-  %last_page = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 4
+  %last_page = getelementptr inbounds i8, ptr %rs, i64 136
   store i64 0, ptr %last_page, align 8
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end.if.end5_crit_edge, %while.end
   %4 = phi i64 [ 0, %while.end ], [ %.pre, %if.end.if.end5_crit_edge ]
   %5 = phi ptr [ %3, %while.end ], [ %1, %if.end.if.end5_crit_edge ]
-  %last_page7 = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 4
-  %block.i = getelementptr inbounds %struct.PageSearchStatus, ptr %rs, i64 0, i32 2
+  %last_page7 = getelementptr inbounds i8, ptr %rs, i64 136
+  %block.i = getelementptr inbounds i8, ptr %rs, i64 16
   store ptr %5, ptr %block.i, align 8
-  %page1.i = getelementptr inbounds %struct.PageSearchStatus, ptr %rs, i64 0, i32 3
+  %page1.i = getelementptr inbounds i8, ptr %rs, i64 24
   store i64 %4, ptr %page1.i, align 8
-  %complete_round.i = getelementptr inbounds %struct.PageSearchStatus, ptr %rs, i64 0, i32 4
+  %complete_round.i = getelementptr inbounds i8, ptr %rs, i64 32
   store i8 0, ptr %complete_round.i, align 8
-  %src_page_requests.i.i.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 21
-  %src_page_req_mutex.i.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 20
-  %sqh_last.i.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 21, i32 1
-  %tv_usec.i.i27.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i15.i, i64 0, i32 1
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
-  %uffdio_fd.i.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 1
-  %address.i.i = getelementptr inbounds %struct.uffd_msg, ptr %uffd_msg.i.i, i64 0, i32 4, i32 0, i32 1
-  %host_page_sending.i.i = getelementptr inbounds %struct.PageSearchStatus, ptr %rs, i64 0, i32 5
-  %6 = getelementptr inbounds %struct.PageSearchStatus, ptr %rs, i64 0, i32 6
-  %7 = getelementptr inbounds %struct.PageSearchStatus, ptr %rs, i64 0, i32 7
-  %migration_dirty_pages.i.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 17
-  %bitmap_mutex.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 18
-  %xbzrle_started.i = getelementptr inbounds %struct.RAMState, ptr %rs, i64 0, i32 13
+  %src_page_requests.i.i.i = getelementptr inbounds i8, ptr %rs, i64 336
+  %src_page_req_mutex.i.i = getelementptr inbounds i8, ptr %rs, i64 288
+  %sqh_last.i.i = getelementptr inbounds i8, ptr %rs, i64 344
+  %tv_usec.i.i27.i = getelementptr inbounds i8, ptr %_now.i.i15.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %uffdio_fd.i.i = getelementptr inbounds i8, ptr %rs, i64 112
+  %address.i.i = getelementptr inbounds i8, ptr %uffd_msg.i.i, i64 16
+  %host_page_sending.i.i = getelementptr inbounds i8, ptr %rs, i64 33
+  %6 = getelementptr inbounds i8, ptr %rs, i64 40
+  %7 = getelementptr inbounds i8, ptr %rs, i64 48
+  %migration_dirty_pages.i.i = getelementptr inbounds i8, ptr %rs, i64 224
+  %bitmap_mutex.i = getelementptr inbounds i8, ptr %rs, i64 232
+  %xbzrle_started.i = getelementptr inbounds i8, ptr %rs, i64 200
   br label %while.body9
 
 while.body9:                                      ; preds = %while.body9.backedge, %if.end5
@@ -8834,20 +8795,20 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 
 if.end7.i.i:                                      ; preds = %if.end.i.i
   %13 = load ptr, ptr %12, align 8
-  %offset8.i.i = getelementptr inbounds %struct.RAMSrcPageRequest, ptr %12, i64 0, i32 1
+  %offset8.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load i64, ptr %offset8.i.i, align 8
   store i64 %14, ptr %offset.i, align 8
-  %len.i.i = getelementptr inbounds %struct.RAMSrcPageRequest, ptr %12, i64 0, i32 2
+  %len.i.i = getelementptr inbounds i8, ptr %12, i64 16
   %15 = load i64, ptr %len.i.i, align 8
   %cmp.i.i = icmp ugt i64 %15, 4096
   br i1 %cmp.i.i, label %unqueue_page.exit.i, label %if.else12.i.i
 
 if.else12.i.i:                                    ; preds = %if.end7.i.i
-  %mr.i.i = getelementptr inbounds %struct.RAMBlock, ptr %13, i64 0, i32 1
+  %mr.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %16 = load ptr, ptr %mr.i.i, align 8
   call void @memory_region_unref(ptr noundef %16) #16
   %17 = load ptr, ptr %src_page_requests.i.i.i, align 8
-  %next_req.i.i = getelementptr inbounds %struct.RAMSrcPageRequest, ptr %17, i64 0, i32 3
+  %next_req.i.i = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %next_req.i.i, align 8
   store ptr %18, ptr %src_page_requests.i.i.i, align 8
   %cmp17.i.i = icmp eq ptr %18, null
@@ -8875,7 +8836,7 @@ unqueue_page.exit.i:                              ; preds = %if.end7.i.i
 
 if.then.i:                                        ; preds = %unqueue_page.exit.i, %unqueue_page.exit.thread38.i
   %shr.i = lshr i64 %14, 12
-  %bmap.i = getelementptr inbounds %struct.RAMBlock, ptr %13, i64 0, i32 15
+  %bmap.i = getelementptr inbounds i8, ptr %13, i64 384
   %19 = load ptr, ptr %bmap.i, align 8
   %div2.i.i = lshr i64 %14, 18
   %arrayidx.i.i = getelementptr i64, ptr %19, i64 %div2.i.i
@@ -8884,7 +8845,7 @@ if.then.i:                                        ; preds = %unqueue_page.exit.i
   %21 = shl nuw i64 1, %and.i.i
   %22 = and i64 %20, %21
   %tobool2.not.i = icmp eq i64 %22, 0
-  %idstr.i = getelementptr inbounds %struct.RAMBlock, ptr %13, i64 0, i32 9
+  %idstr.i = getelementptr inbounds i8, ptr %13, i64 76
   br i1 %tobool2.not.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %if.then.i
@@ -8982,7 +8943,7 @@ if.end3.i.i:                                      ; preds = %if.end.i30.i
   br i1 %tobool.not.i.i, label %if.else.i33.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end3.i.i
-  %flags.i.i = getelementptr inbounds %struct.RAMBlock, ptr %call4.i.i, i64 0, i32 8
+  %flags.i.i = getelementptr inbounds i8, ptr %call4.i.i, i64 72
   %41 = load i32, ptr %flags.i.i, align 8
   %and.i32.i = and i32 %41, 64
   %cmp5.not.i.i = icmp eq i32 %and.i32.i, 0
@@ -9039,20 +9000,20 @@ if.end.i:                                         ; preds = %if.then10.if.end.i_
   br i1 %tobool.not.i.i27, label %if.then5.i, label %land.lhs.true.i.i28
 
 land.lhs.true.i.i28:                              ; preds = %if.end.i
-  %host.i.i = getelementptr inbounds %struct.RAMBlock, ptr %.pre.i26, i64 0, i32 2
+  %host.i.i = getelementptr inbounds i8, ptr %.pre.i26, i64 24
   %47 = load ptr, ptr %host.i.i, align 8
   %tobool1.not.i.i = icmp eq ptr %47, null
   br i1 %tobool1.not.i.i, label %if.then5.i, label %offset_in_ramblock.exit.i
 
 offset_in_ramblock.exit.i:                        ; preds = %land.lhs.true.i.i28
-  %used_length.i.i = getelementptr inbounds %struct.RAMBlock, ptr %.pre.i26, i64 0, i32 5
+  %used_length.i.i = getelementptr inbounds i8, ptr %.pre.i26, i64 48
   %48 = load i64, ptr %used_length.i.i, align 8
   %cmp.i.i29 = icmp ugt i64 %48, %shl.i
   br i1 %cmp.i.i29, label %if.end24, label %if.then5.i
 
 if.then5.i:                                       ; preds = %offset_in_ramblock.exit.i, %land.lhs.true.i.i28, %if.end.i
   store i64 0, ptr %page1.i, align 8
-  %next.i = getelementptr inbounds %struct.RAMBlock, ptr %.pre.i26, i64 0, i32 10
+  %next.i = getelementptr inbounds i8, ptr %.pre.i26, i64 336
   %49 = load atomic i64, ptr %next.i monotonic, align 8
   %50 = inttoptr i64 %49 to ptr
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !125
@@ -9127,7 +9088,7 @@ migrate_ram_is_ignored.exit.i:                    ; preds = %land.lhs.true.i.i55
 
 ram_save_host_page.exit.thread79:                 ; preds = %postcopy_preempt_active.exit.i, %migrate_ram_is_ignored.exit.i
   %58 = load ptr, ptr %block.i, align 8
-  %idstr.i36 = getelementptr inbounds %struct.RAMBlock, ptr %58, i64 0, i32 9
+  %idstr.i36 = getelementptr inbounds i8, ptr %58, i64 76
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.67, ptr noundef nonnull %idstr.i36) #16
   br label %while.body9.backedge
 
@@ -9167,7 +9128,7 @@ do.body.i45:                                      ; preds = %pss_within_range.ex
   %64 = phi ptr [ %.pre.i44, %pss_host_page_prepare.exit.i ], [ %.pre58.i, %pss_within_range.exit.i ]
   %pages.0.i = phi i32 [ 0, %pss_host_page_prepare.exit.i ], [ %pages.251.i, %pss_within_range.exit.i ]
   call fastcc void @migration_clear_memory_region_dirty_bitmap(ptr noundef %64, i64 noundef %63)
-  %bmap.i.i = getelementptr inbounds %struct.RAMBlock, ptr %64, i64 0, i32 15
+  %bmap.i.i = getelementptr inbounds i8, ptr %64, i64 384
   %65 = load ptr, ptr %bmap.i.i, align 8
   %rem.i.i.i = and i64 %63, 63
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i
@@ -9249,14 +9210,14 @@ if.end.i.i49:                                     ; preds = %if.end29.i
 if.end2.i.i:                                      ; preds = %if.end.i.i49
   %tobool.not.i.i.i = icmp ne ptr %.pre58.i, null
   call void @llvm.assume(i1 %tobool.not.i.i.i)
-  %host.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i, i64 0, i32 2
+  %host.i.i.i = getelementptr inbounds i8, ptr %.pre58.i, i64 24
   %76 = load ptr, ptr %host.i.i.i, align 8
   %tobool1.not.i.i.i = icmp eq ptr %76, null
   br i1 %tobool1.not.i.i.i, label %do.end31.i, label %pss_within_range.exit.i
 
 pss_within_range.exit.i:                          ; preds = %if.end2.i.i
   %shl.i.i = shl i64 %74, 12
-  %used_length.i.i.i = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i, i64 0, i32 5
+  %used_length.i.i.i = getelementptr inbounds i8, ptr %.pre58.i, i64 48
   %77 = load i64, ptr %used_length.i.i.i, align 8
   %cmp.i.i33.i = icmp ugt i64 %77, %shl.i.i
   br i1 %cmp.i.i33.i, label %do.body.i45, label %do.end31.i, !llvm.loop !127
@@ -9264,14 +9225,14 @@ pss_within_range.exit.i:                          ; preds = %if.end2.i.i
 do.end31.i:                                       ; preds = %pss_within_range.exit.i, %if.end2.i.i, %if.end.i.i49
   store i8 0, ptr %host_page_sending.i.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %flags.i.i50 = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i, i64 0, i32 8
+  %flags.i.i50 = getelementptr inbounds i8, ptr %.pre58.i, i64 72
   %78 = load i32, ptr %flags.i.i50, align 8
   %and.i38.i = and i32 %78, 64
   %tobool.not.i39.i = icmp eq i32 %and.i38.i, 0
   br i1 %tobool.not.i39.i, label %ram_save_host_page.exit, label %ram_save_release_protection.exit.i
 
 ram_save_release_protection.exit.i:               ; preds = %do.end31.i
-  %host.i.i51 = getelementptr inbounds %struct.RAMBlock, ptr %.pre58.i, i64 0, i32 2
+  %host.i.i51 = getelementptr inbounds i8, ptr %.pre58.i, i64 24
   %79 = load ptr, ptr %host.i.i51, align 8
   %shl.i41.i = shl i64 %56, 12
   %add.ptr.i.i = getelementptr i8, ptr %79, i64 %shl.i41.i
@@ -9385,7 +9346,7 @@ if.end4:                                          ; preds = %lor.rhs.i, %land.lh
   br i1 %call5, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %idstr = getelementptr inbounds %struct.RAMBlock, ptr %call1, i64 0, i32 9
+  %idstr = getelementptr inbounds i8, ptr %call1, i64 76
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str, i32 noundef 4263, ptr noundef nonnull @__func__.ram_mig_ram_block_resized, ptr noundef nonnull @.str.125, ptr noundef nonnull %idstr) #16
   %0 = load ptr, ptr %err, align 8
   call void @migration_cancel(ptr noundef %0) #16
@@ -9406,7 +9367,7 @@ sw.bb:                                            ; preds = %if.end7
   br i1 %cmp, label %if.then8, label %if.end17
 
 if.then8:                                         ; preds = %sw.bb
-  %idstr9 = getelementptr inbounds %struct.RAMBlock, ptr %call1, i64 0, i32 9
+  %idstr9 = getelementptr inbounds i8, ptr %call1, i64 76
   %sub = sub i64 %new_size, %old_size
   %call11 = call i32 @ram_discard_range(ptr noundef nonnull %idstr9, i64 noundef %old_size, i64 noundef %sub)
   %tobool12.not = icmp eq i32 %call11, 0
@@ -9417,12 +9378,12 @@ if.then13:                                        ; preds = %if.then8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then8, %if.then13, %sw.bb
-  %postcopy_length = getelementptr inbounds %struct.RAMBlock, ptr %call1, i64 0, i32 19
+  %postcopy_length = getelementptr inbounds i8, ptr %call1, i64 416
   store i64 %new_size, ptr %postcopy_length, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end7
-  %idstr19 = getelementptr inbounds %struct.RAMBlock, ptr %call1, i64 0, i32 9
+  %idstr19 = getelementptr inbounds i8, ptr %call1, i64 76
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.127, ptr noundef nonnull %idstr19, i32 noundef %call) #16
   call void @exit(i32 noundef -1) #17
   unreachable

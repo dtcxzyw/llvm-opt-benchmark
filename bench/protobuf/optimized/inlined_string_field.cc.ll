@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.google::protobuf::internal::LazyString" = type { %union.anon.0, %"struct.std::atomic" }
-%union.anon.0 = type { %"struct.google::protobuf::internal::LazyString::InitValue", [16 x i8] }
-%"struct.google::protobuf::internal::LazyString::InitValue" = type { ptr, i64 }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -122,7 +117,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal18InlinedStringField14ClearToDefaultERKNS1_10LazyStringEPNS0_5ArenaEb(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(40) %default_value, ptr nocapture noundef readnone %arena, i1 noundef zeroext %donated) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %inited_.i = getelementptr inbounds %"class.google::protobuf::internal::LazyString", ptr %default_value, i64 0, i32 1
+  %inited_.i = getelementptr inbounds i8, ptr %default_value, i64 32
   %0 = load atomic i64, ptr %inited_.i acquire, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
   %cmp.i = icmp eq i64 %0, 0

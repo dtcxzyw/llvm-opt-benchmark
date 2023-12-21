@@ -17,32 +17,16 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<grpc_event_engine::experimental::Timer *, std::allocator<grpc_event_engine::experimental::Timer *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.grpc_event_engine::experimental::Timer" = type { i64, i64, i8, ptr, ptr, ptr, %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle" }
 %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle" = type { [2 x i64] }
-%"class.grpc_event_engine::experimental::TimerList" = type { ptr, i64, %"class.absl::lts_20230802::Mutex", %"struct.std::atomic.0", %"class.absl::lts_20230802::Mutex", %"class.std::unique_ptr", %"class.std::unique_ptr.4" }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.3" }
-%"struct.std::_Head_base.3" = type { ptr }
-%"class.std::unique_ptr.4" = type { %"struct.std::__uniq_ptr_data.5" }
-%"struct.std::__uniq_ptr_data.5" = type { %"class.std::__uniq_ptr_impl.6" }
-%"class.std::__uniq_ptr_impl.6" = type { %"class.std::tuple.7" }
-%"class.std::tuple.7" = type { %"struct.std::_Tuple_impl.8" }
-%"struct.std::_Tuple_impl.8" = type { %"struct.std::_Head_base.11" }
-%"struct.std::_Head_base.11" = type { ptr }
-%"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::Closure *, std::allocator<grpc_event_engine::experimental::EventEngine::Closure *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.12" = type { %"struct.std::_Vector_base.13" }
 %"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::Closure *, std::allocator<grpc_event_engine::experimental::EventEngine::Closure *>>::_Vector_impl" }
 %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::Closure *, std::allocator<grpc_event_engine::experimental::EventEngine::Closure *>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::Closure *, std::allocator<grpc_event_engine::experimental::EventEngine::Closure *>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::Closure *, std::allocator<grpc_event_engine::experimental::EventEngine::Closure *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
 %"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<std::vector<grpc_event_engine::experimental::EventEngine::Closure *>>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<std::vector<grpc_event_engine::experimental::EventEngine::Closure *>>::_Storage" = type { %"class.std::vector.12" }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<std::vector<grpc_event_engine::experimental::EventEngine::Closure *>>::_Storage", i8, [7 x i8] }>
 
 $_ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev = comdat any
 
@@ -69,12 +53,12 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define i64 @_ZN17grpc_event_engine12experimental9TimerList5Shard18ComputeMinDeadlineEv(ptr noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %heap = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 5
+  %heap = getelementptr inbounds i8, ptr %this, i64 88
   %call = tail call noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerHeap8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %heap)
   br i1 %call, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %queue_deadline_cap = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 2
+  %queue_deadline_cap = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %queue_deadline_cap, align 8
   switch i64 %agg.tmp.sroa.0.0.copyload, label %if.end11.i.i [
     i64 9223372036854775807, label %cond.end
@@ -106,13 +90,13 @@ declare noundef ptr @_ZN17grpc_event_engine12experimental9TimerHeap3TopEv(ptr no
 define void @_ZN17grpc_event_engine12experimental9TimerList5ShardC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr %this, align 8
-  %stats = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 1
+  %stats = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN9grpc_core17TimeAveragedStatsC1Eddd(ptr noundef nonnull align 8 dereferenceable(56) %stats, double noundef 0x40083E0F83E0F83E, double noundef 1.000000e-01, double noundef 5.000000e-01)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %queue_deadline_cap = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 2
-  %heap = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 5
+  %queue_deadline_cap = getelementptr inbounds i8, ptr %this, i64 64
+  %heap = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %heap, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %queue_deadline_cap, i8 0, i64 16, i1 false)
   ret void
@@ -135,7 +119,7 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 define void @_ZN17grpc_event_engine12experimental9TimerListC2EPNS0_13TimerListHostE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %host) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %host, ptr %this, align 8
-  %num_shards_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 1
+  %num_shards_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call i32 @gpr_cpu_num_cores()
   %mul = shl i32 %call, 1
   %cmp.i = icmp eq i32 %mul, 0
@@ -143,9 +127,9 @@ entry:
   %retval.0.i = select i1 %cmp.i, i32 1, i32 %max.val.i
   %conv = zext nneg i32 %retval.0.i to i64
   store i64 %conv, ptr %num_shards_, align 8
-  %mu_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 2
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mu_, align 8
-  %min_timer_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 3
+  %min_timer_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %vtable, align 8
@@ -154,9 +138,9 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store i64 %call4, ptr %min_timer_, align 8
-  %checker_mu_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 4
+  %checker_mu_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %checker_mu_, align 8
-  %shards_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 5
+  %shards_ = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i64, ptr %num_shards_, align 8
   %3 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 176)
   %4 = extractvalue { i64, i1 } %3, 1
@@ -205,7 +189,7 @@ arrayctor.cont:                                   ; preds = %invoke.cont13
 11:                                               ; preds = %arrayctor.cont, %arrayctor.cont.thread
   %cmp20.not = phi i1 [ true, %arrayctor.cont.thread ], [ %10, %arrayctor.cont ]
   %12 = phi i64 [ 0, %arrayctor.cont.thread ], [ %spec.select, %arrayctor.cont ]
-  %shard_queue_25 = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 6
+  %shard_queue_25 = getelementptr inbounds i8, ptr %this, i64 48
   %call18 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %12) #17
           to label %invoke.cont17 unwind label %lpad16
 
@@ -218,17 +202,17 @@ invoke.cont27:                                    ; preds = %invoke.cont17, %inv
   %13 = load ptr, ptr %shards_, align 8
   %arrayidx.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %13, i64 %i.021
   %14 = load atomic i64, ptr %min_timer_ monotonic, align 8
-  %queue_deadline_cap = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %13, i64 %i.021, i32 2
+  %queue_deadline_cap = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
   store i64 %14, ptr %queue_deadline_cap, align 8
   %conv30 = trunc i64 %i.021 to i32
-  %shard_queue_index = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %13, i64 %i.021, i32 4
+  %shard_queue_index = getelementptr inbounds i8, ptr %arrayidx.i, i64 80
   store i32 %conv30, ptr %shard_queue_index, align 8
-  %list = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %13, i64 %i.021, i32 6
-  %prev = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %13, i64 %i.021, i32 6, i32 4
+  %list = getelementptr inbounds i8, ptr %arrayidx.i, i64 112
+  %prev = getelementptr inbounds i8, ptr %arrayidx.i, i64 144
   store ptr %list, ptr %prev, align 8
-  %next = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %13, i64 %i.021, i32 6, i32 3
+  %next = getelementptr inbounds i8, ptr %arrayidx.i, i64 136
   store ptr %list, ptr %next, align 8
-  %heap.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %13, i64 %i.021, i32 5
+  %heap.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 88
   %call.i16 = invoke noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerHeap8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %heap.i)
           to label %call.i.noexc unwind label %lpad21
 
@@ -259,7 +243,7 @@ cond.end.fold.split.i:                            ; preds = %cond.true.i
 
 invoke.cont34:                                    ; preds = %cond.end.fold.split.i, %call9.i.noexc, %if.end11.i.i.i, %cond.true.i
   %retval.sroa.0.0.i = phi i64 [ %15, %call9.i.noexc ], [ %agg.tmp.sroa.0.0.copyload.i, %cond.true.i ], [ -9223372036854775808, %cond.end.fold.split.i ], [ %add.i.i.i.i, %if.end11.i.i.i ]
-  %min_deadline = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %13, i64 %i.021, i32 3
+  %min_deadline = getelementptr inbounds i8, ptr %arrayidx.i, i64 72
   store i64 %retval.sroa.0.0.i, ptr %min_deadline, align 8
   %16 = load ptr, ptr %shard_queue_25, align 8
   %arrayidx.i18 = getelementptr inbounds ptr, ptr %16, i64 %i.021
@@ -347,7 +331,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %heap = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 5
+  %heap = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %heap, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN17grpc_event_engine12experimental9TimerHeapD2Ev.exit, label %if.then.i.i.i.i
@@ -383,8 +367,8 @@ arraydestroy.body.preheader.i:                    ; preds = %delete.notnull.i
 
 arraydestroy.body.i:                              ; preds = %_ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev.exit.i, %arraydestroy.body.preheader.i
   %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %_ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev.exit.i ], [ %delete.end.i, %arraydestroy.body.preheader.i ]
-  %arraydestroy.element.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %arraydestroy.elementPast.i, i64 -1
-  %heap.i.i = getelementptr %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %arraydestroy.elementPast.i, i64 -1, i32 5
+  %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -176
+  %heap.i.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -88
   %3 = load ptr, ptr %heap.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN17grpc_event_engine12experimental9TimerList5ShardD2Ev.exit.i, label %if.then.i.i.i.i.i.i
@@ -410,7 +394,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN17grpc_event_engine12experimental9TimerList25SwapAdjacentShardsInQueueEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %first_shard_queue_index) local_unnamed_addr #8 align 2 {
 entry:
-  %shard_queue_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 6
+  %shard_queue_ = getelementptr inbounds i8, ptr %this, i64 48
   %conv = zext i32 %first_shard_queue_index to i64
   %0 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %0, i64 %conv
@@ -426,12 +410,12 @@ entry:
   %4 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i11 = getelementptr inbounds ptr, ptr %4, i64 %conv
   %5 = load ptr, ptr %arrayidx.i11, align 8
-  %shard_queue_index = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %5, i64 0, i32 4
+  %shard_queue_index = getelementptr inbounds i8, ptr %5, i64 80
   store i32 %first_shard_queue_index, ptr %shard_queue_index, align 8
   %6 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i12 = getelementptr inbounds ptr, ptr %6, i64 %conv3
   %7 = load ptr, ptr %arrayidx.i12, align 8
-  %shard_queue_index20 = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %7, i64 0, i32 4
+  %shard_queue_index20 = getelementptr inbounds i8, ptr %7, i64 80
   store i32 %add, ptr %shard_queue_index20, align 8
   ret void
 }
@@ -439,9 +423,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN17grpc_event_engine12experimental9TimerList18NoteDeadlineChangeEPNS1_5ShardE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %shard) local_unnamed_addr #9 align 2 {
 entry:
-  %min_deadline = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %shard, i64 0, i32 3
-  %shard_queue_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 6
-  %shard_queue_index = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %shard, i64 0, i32 4
+  %min_deadline = getelementptr inbounds i8, ptr %shard, i64 72
+  %shard_queue_ = getelementptr inbounds i8, ptr %this, i64 48
+  %shard_queue_index = getelementptr inbounds i8, ptr %shard, i64 80
   %0 = load i32, ptr %shard_queue_index, align 8
   %cmp.not20 = icmp eq i32 %0, 0
   br i1 %cmp.not20, label %while.end, label %land.rhs
@@ -453,7 +437,7 @@ land.rhs:                                         ; preds = %entry, %while.body
   %2 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %2, i64 %conv
   %3 = load ptr, ptr %arrayidx.i, align 8
-  %min_deadline3 = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %3, i64 0, i32 3
+  %min_deadline3 = getelementptr inbounds i8, ptr %3, i64 72
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %min_deadline3, align 8
   %4 = load i64, ptr %min_deadline, align 8
   %cmp.i = icmp slt i64 %4, %agg.tmp.sroa.0.0.copyload
@@ -470,12 +454,12 @@ while.body:                                       ; preds = %land.rhs
   %7 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i11.i = getelementptr inbounds ptr, ptr %7, i64 %conv
   %8 = load ptr, ptr %arrayidx.i11.i, align 8
-  %shard_queue_index.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %8, i64 0, i32 4
+  %shard_queue_index.i = getelementptr inbounds i8, ptr %8, i64 80
   store i32 %sub, ptr %shard_queue_index.i, align 8
   %9 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i12.i = getelementptr inbounds ptr, ptr %9, i64 %conv3.i
   %10 = load ptr, ptr %arrayidx.i12.i, align 8
-  %shard_queue_index20.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %10, i64 0, i32 4
+  %shard_queue_index20.i = getelementptr inbounds i8, ptr %10, i64 80
   store i32 %1, ptr %shard_queue_index20.i, align 8
   %11 = load i32, ptr %shard_queue_index, align 8
   %cmp.not = icmp eq i32 %11, 0
@@ -483,7 +467,7 @@ while.body:                                       ; preds = %land.rhs
 
 while.end:                                        ; preds = %land.rhs, %while.body, %entry
   %12 = phi i32 [ 0, %entry ], [ %1, %land.rhs ], [ 0, %while.body ]
-  %num_shards_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 1
+  %num_shards_ = getelementptr inbounds i8, ptr %this, i64 8
   %conv921 = zext i32 %12 to i64
   %13 = load i64, ptr %num_shards_, align 8
   %sub1022 = add i64 %13, -1
@@ -498,7 +482,7 @@ land.rhs12:                                       ; preds = %while.end, %while.b
   %15 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i8 = getelementptr inbounds ptr, ptr %15, i64 %conv17
   %16 = load ptr, ptr %arrayidx.i8, align 8
-  %min_deadline19 = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %16, i64 0, i32 3
+  %min_deadline19 = getelementptr inbounds i8, ptr %16, i64 72
   %agg.tmp14.sroa.0.0.copyload = load i64, ptr %min_deadline19, align 8
   %17 = load i64, ptr %min_deadline, align 8
   %cmp.i9 = icmp sgt i64 %17, %agg.tmp14.sroa.0.0.copyload
@@ -514,12 +498,12 @@ while.body23:                                     ; preds = %land.rhs12
   %20 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i11.i16 = getelementptr inbounds ptr, ptr %20, i64 %conv924
   %21 = load ptr, ptr %arrayidx.i11.i16, align 8
-  %shard_queue_index.i17 = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %21, i64 0, i32 4
+  %shard_queue_index.i17 = getelementptr inbounds i8, ptr %21, i64 80
   store i32 %14, ptr %shard_queue_index.i17, align 8
   %22 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i12.i18 = getelementptr inbounds ptr, ptr %22, i64 %conv17
   %23 = load ptr, ptr %arrayidx.i12.i18, align 8
-  %shard_queue_index20.i19 = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %23, i64 0, i32 4
+  %shard_queue_index20.i19 = getelementptr inbounds i8, ptr %23, i64 80
   store i32 %add, ptr %shard_queue_index20.i19, align 8
   %24 = load i32, ptr %shard_queue_index, align 8
   %conv9 = zext i32 %24 to i64
@@ -535,8 +519,8 @@ while.end25:                                      ; preds = %land.rhs12, %while.
 ; Function Attrs: mustprogress uwtable
 define void @_ZN17grpc_event_engine12experimental9TimerList9TimerInitEPNS0_5TimerEN9grpc_core9TimestampEPNS0_11EventEngine7ClosureE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %timer, i64 %deadline.coerce, ptr noundef %closure) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %shards_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 5
-  %num_shards_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 1
+  %shards_ = getelementptr inbounds i8, ptr %this, i64 40
+  %num_shards_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %num_shards_, align 8
   %1 = ptrtoint ptr %timer to i64
   %shr.i = lshr i64 %1, 4
@@ -547,11 +531,11 @@ entry:
   %rem.i = urem i64 %xor3.i, %0
   %2 = load ptr, ptr %shards_, align 8
   %arrayidx.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %2, i64 %rem.i
-  %closure3 = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %timer, i64 0, i32 5
+  %closure3 = getelementptr inbounds i8, ptr %timer, i64 40
   store ptr %closure, ptr %closure3, align 8
   store i64 %deadline.coerce, ptr %timer, align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i)
-  %pending = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %timer, i64 0, i32 2
+  %pending = getelementptr inbounds i8, ptr %timer, i64 16
   store i8 1, ptr %pending, align 8
   %3 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %3, align 8
@@ -607,36 +591,36 @@ if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.
 
 invoke.cont15:                                    ; preds = %if.end7.i.i.i, %if.else.i.i.i, %if.then.i.i.i, %if.end.i.i, %invoke.cont
   %retval.0.i.i = phi double [ 0x43E0000000000000, %invoke.cont ], [ 0xC3E0000000000000, %if.end.i.i ], [ %8, %if.end7.i.i.i ], [ 0x43E0000000000000, %if.then.i.i.i ], [ 0xC3E0000000000000, %if.else.i.i.i ]
-  %stats = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %2, i64 %rem.i, i32 1
+  %stats = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %div = fdiv double %retval.0.i.i, 1.000000e+03
   invoke void @_ZN9grpc_core17TimeAveragedStats9AddSampleEd(ptr noundef nonnull align 8 dereferenceable(56) %stats, double noundef %div)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %invoke.cont15
-  %queue_deadline_cap = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %2, i64 %rem.i, i32 2
+  %queue_deadline_cap = getelementptr inbounds i8, ptr %arrayidx.i, i64 64
   %agg.tmp21.sroa.0.0.copyload = load i64, ptr %queue_deadline_cap, align 8
   %cmp.i20 = icmp slt i64 %spec.select, %agg.tmp21.sroa.0.0.copyload
   br i1 %cmp.i20, label %if.then25, label %if.else
 
 if.then25:                                        ; preds = %invoke.cont20
-  %heap = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %2, i64 %rem.i, i32 5
+  %heap = getelementptr inbounds i8, ptr %arrayidx.i, i64 88
   %call27 = invoke noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerHeap3AddEPNS0_5TimerE(ptr noundef nonnull align 8 dereferenceable(24) %heap, ptr noundef nonnull %timer)
           to label %if.end29 unwind label %lpad
 
 if.else:                                          ; preds = %invoke.cont20
-  %heap_index = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %timer, i64 0, i32 1
+  %heap_index = getelementptr inbounds i8, ptr %timer, i64 8
   store i64 -1, ptr %heap_index, align 8
-  %list = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %2, i64 %rem.i, i32 6
-  %next.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %timer, i64 0, i32 3
+  %list = getelementptr inbounds i8, ptr %arrayidx.i, i64 112
+  %next.i = getelementptr inbounds i8, ptr %timer, i64 24
   store ptr %list, ptr %next.i, align 8
-  %prev.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %2, i64 %rem.i, i32 6, i32 4
+  %prev.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 144
   %9 = load ptr, ptr %prev.i, align 8
-  %prev1.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %timer, i64 0, i32 4
+  %prev1.i = getelementptr inbounds i8, ptr %timer, i64 32
   store ptr %9, ptr %prev1.i, align 8
-  %next3.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %9, i64 0, i32 3
+  %next3.i = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %timer, ptr %next3.i, align 8
   %10 = load ptr, ptr %next.i, align 8
-  %prev5.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %10, i64 0, i32 4
+  %prev5.i = getelementptr inbounds i8, ptr %10, i64 32
   store ptr %timer, ptr %prev5.i, align 8
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i)
           to label %if.end56 unwind label %terminate.lpad.i21
@@ -663,21 +647,21 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit24:      ; preds = %if.end29
   br i1 %call27, label %if.then30, label %if.end56
 
 if.then30:                                        ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit24
-  %mu_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 2
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %min_deadline = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %2, i64 %rem.i, i32 3
+  %min_deadline = getelementptr inbounds i8, ptr %arrayidx.i, i64 72
   %agg.tmp32.sroa.0.0.copyload = load i64, ptr %min_deadline, align 8
   %cmp.i25 = icmp slt i64 %spec.select, %agg.tmp32.sroa.0.0.copyload
   br i1 %cmp.i25, label %if.then37, label %if.end55
 
 if.then37:                                        ; preds = %if.then30
-  %shard_queue_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 6
+  %shard_queue_ = getelementptr inbounds i8, ptr %this, i64 48
   %15 = load ptr, ptr %shard_queue_, align 8
   %16 = load ptr, ptr %15, align 8
-  %min_deadline40 = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %16, i64 0, i32 3
+  %min_deadline40 = getelementptr inbounds i8, ptr %16, i64 72
   %old_min_deadline.sroa.0.0.copyload = load i64, ptr %min_deadline40, align 8
   store i64 %spec.select, ptr %min_deadline, align 8
-  %shard_queue_index.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %2, i64 %rem.i, i32 4
+  %shard_queue_index.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 80
   %17 = load i32, ptr %shard_queue_index.i, align 8
   %cmp.not20.i = icmp eq i32 %17, 0
   br i1 %cmp.not20.i, label %while.end.i, label %land.rhs.i
@@ -689,7 +673,7 @@ land.rhs.i:                                       ; preds = %if.then37, %while.b
   %19 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %19, i64 %conv.i
   %20 = load ptr, ptr %arrayidx.i.i, align 8
-  %min_deadline3.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %20, i64 0, i32 3
+  %min_deadline3.i = getelementptr inbounds i8, ptr %20, i64 72
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %min_deadline3.i, align 8
   %21 = load i64, ptr %min_deadline, align 8
   %cmp.i.i27 = icmp slt i64 %21, %agg.tmp.sroa.0.0.copyload.i
@@ -706,12 +690,12 @@ while.body.i:                                     ; preds = %land.rhs.i
   %24 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i11.i.i = getelementptr inbounds ptr, ptr %24, i64 %conv.i
   %25 = load ptr, ptr %arrayidx.i11.i.i, align 8
-  %shard_queue_index.i.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %25, i64 0, i32 4
+  %shard_queue_index.i.i = getelementptr inbounds i8, ptr %25, i64 80
   store i32 %sub.i26, ptr %shard_queue_index.i.i, align 8
   %26 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i12.i.i = getelementptr inbounds ptr, ptr %26, i64 %conv3.i.i
   %27 = load ptr, ptr %arrayidx.i12.i.i, align 8
-  %shard_queue_index20.i.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %27, i64 0, i32 4
+  %shard_queue_index20.i.i = getelementptr inbounds i8, ptr %27, i64 80
   store i32 %18, ptr %shard_queue_index20.i.i, align 8
   %28 = load i32, ptr %shard_queue_index.i, align 8
   %cmp.not.i = icmp eq i32 %28, 0
@@ -733,7 +717,7 @@ land.rhs12.i:                                     ; preds = %while.end.i, %while
   %30 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i8.i = getelementptr inbounds ptr, ptr %30, i64 %conv17.i
   %31 = load ptr, ptr %arrayidx.i8.i, align 8
-  %min_deadline19.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %31, i64 0, i32 3
+  %min_deadline19.i = getelementptr inbounds i8, ptr %31, i64 72
   %agg.tmp14.sroa.0.0.copyload.i = load i64, ptr %min_deadline19.i, align 8
   %32 = load i64, ptr %min_deadline, align 8
   %cmp.i9.i = icmp sgt i64 %32, %agg.tmp14.sroa.0.0.copyload.i
@@ -749,12 +733,12 @@ while.body23.i:                                   ; preds = %land.rhs12.i
   %35 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i11.i16.i = getelementptr inbounds ptr, ptr %35, i64 %conv924.i
   %36 = load ptr, ptr %arrayidx.i11.i16.i, align 8
-  %shard_queue_index.i17.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %36, i64 0, i32 4
+  %shard_queue_index.i17.i = getelementptr inbounds i8, ptr %36, i64 80
   store i32 %.pr45, ptr %shard_queue_index.i17.i, align 8
   %37 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i12.i18.i = getelementptr inbounds ptr, ptr %37, i64 %conv17.i
   %38 = load ptr, ptr %arrayidx.i12.i18.i, align 8
-  %shard_queue_index20.i19.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %38, i64 0, i32 4
+  %shard_queue_index20.i19.i = getelementptr inbounds i8, ptr %38, i64 80
   store i32 %add.i, ptr %shard_queue_index20.i19.i, align 8
   %39 = load i32, ptr %shard_queue_index.i, align 8
   %conv9.i = zext i32 %39 to i64
@@ -771,11 +755,11 @@ invoke.cont42:                                    ; preds = %while.body23.i, %la
   br i1 %or.cond, label %if.then47, label %if.end55
 
 if.then47:                                        ; preds = %invoke.cont42
-  %min_timer_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 3
+  %min_timer_ = getelementptr inbounds i8, ptr %this, i64 24
   store atomic i64 %spec.select, ptr %min_timer_ monotonic, align 8
   %42 = load ptr, ptr %this, align 8
   %vtable51 = load ptr, ptr %42, align 8
-  %vfn52 = getelementptr inbounds ptr, ptr %vtable51, i64 1
+  %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 8
   %43 = load ptr, ptr %vfn52, align 8
   invoke void %43(ptr noundef nonnull align 8 dereferenceable(8) %42)
           to label %if.end55 unwind label %lpad34
@@ -819,8 +803,8 @@ declare noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerHeap3AddEP
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerList11TimerCancelEPNS0_5TimerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %timer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %shards_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 5
-  %num_shards_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 1
+  %shards_ = getelementptr inbounds i8, ptr %this, i64 40
+  %num_shards_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %num_shards_, align 8
   %1 = ptrtoint ptr %timer to i64
   %shr.i = lshr i64 %1, 4
@@ -832,7 +816,7 @@ entry:
   %2 = load ptr, ptr %shards_, align 8
   %arrayidx.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %2, i64 %rem.i
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i)
-  %pending = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %timer, i64 0, i32 2
+  %pending = getelementptr inbounds i8, ptr %timer, i64 16
   %3 = load i8, ptr %pending, align 8
   %4 = and i8 %3, 1
   %tobool.not = icmp ne i8 %4, 0
@@ -840,20 +824,20 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %pending, align 8
-  %heap_index = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %timer, i64 0, i32 1
+  %heap_index = getelementptr inbounds i8, ptr %timer, i64 8
   %5 = load i64, ptr %heap_index, align 8
   %cmp = icmp eq i64 %5, -1
   br i1 %cmp, label %if.then4, label %if.else
 
 if.then4:                                         ; preds = %if.then
-  %prev.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %timer, i64 0, i32 4
+  %prev.i = getelementptr inbounds i8, ptr %timer, i64 32
   %6 = load ptr, ptr %prev.i, align 8
-  %next.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %timer, i64 0, i32 3
+  %next.i = getelementptr inbounds i8, ptr %timer, i64 24
   %7 = load ptr, ptr %next.i, align 8
-  %prev1.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %7, i64 0, i32 4
+  %prev1.i = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %6, ptr %prev1.i, align 8
   %8 = load ptr, ptr %next.i, align 8
-  %next4.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %6, i64 0, i32 3
+  %next4.i = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %8, ptr %next4.i, align 8
   br label %cleanup
 
@@ -874,7 +858,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %lpad
   resume { ptr, i32 } %9
 
 if.else:                                          ; preds = %if.then
-  %heap = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %2, i64 %rem.i, i32 5
+  %heap = getelementptr inbounds i8, ptr %arrayidx.i, i64 88
   invoke void @_ZN17grpc_event_engine12experimental9TimerHeap6RemoveEPNS0_5TimerE(ptr noundef nonnull align 8 dereferenceable(24) %heap, ptr noundef nonnull %timer)
           to label %cleanup unwind label %lpad
 
@@ -898,14 +882,14 @@ declare void @_ZN17grpc_event_engine12experimental9TimerHeap6RemoveEPNS0_5TimerE
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerList5Shard10RefillHeapEN9grpc_core9TimestampE(ptr noundef nonnull align 8 dereferenceable(176) %this, i64 %now.coerce) local_unnamed_addr #3 align 2 {
 entry:
-  %stats = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 1
+  %stats = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef double @_ZN9grpc_core17TimeAveragedStats13UpdateAverageEv(ptr noundef nonnull align 8 dereferenceable(56) %stats)
   %mul = fmul double %call, 3.300000e-01
   %cmp.i = fcmp olt double %mul, 1.000000e-02
   %cmp1.i = fcmp ogt double %mul, 1.000000e+00
   %max.val.i = select i1 %cmp1.i, double 1.000000e+00, double %mul
   %0 = fmul double %max.val.i, 1.000000e+03
-  %queue_deadline_cap = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 2
+  %queue_deadline_cap = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %queue_deadline_cap, align 8
   %agg.tmp.sroa.0.0.copyload.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %agg.tmp.sroa.0.0.copyload.i, i64 %now.coerce)
   %mul.i = select i1 %cmp.i, double 1.000000e+01, double %0
@@ -948,19 +932,19 @@ if.end7.i.i.i:                                    ; preds = %if.else.i.i.i, %if.
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %entry, %if.end.i, %if.end.i.i, %if.then.i.i.i, %if.else.i.i.i, %if.end7.i.i.i
   %retval.0.i.i = phi i64 [ 9223372036854775807, %if.end.i ], [ -9223372036854775808, %if.end.i.i ], [ %add.i.i.i, %if.end7.i.i.i ], [ 9223372036854775807, %if.then.i.i.i ], [ -9223372036854775808, %if.else.i.i.i ], [ 9223372036854775807, %entry ]
   store i64 %retval.0.i.i, ptr %queue_deadline_cap, align 8
-  %list = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 6
-  %next12 = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 6, i32 3
+  %list = getelementptr inbounds i8, ptr %this, i64 112
+  %next12 = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load ptr, ptr %next12, align 8
   %cmp.not14 = icmp eq ptr %1, %list
   br i1 %cmp.not14, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
-  %heap = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 5
+  %heap = getelementptr inbounds i8, ptr %this, i64 88
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %timer.015 = phi ptr [ %1, %for.body.lr.ph ], [ %2, %for.inc ]
-  %next14 = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %timer.015, i64 0, i32 3
+  %next14 = getelementptr inbounds i8, ptr %timer.015, i64 24
   %2 = load ptr, ptr %next14, align 8
   %3 = load i64, ptr %timer.015, align 8
   %agg.tmp17.sroa.0.0.copyload = load i64, ptr %queue_deadline_cap, align 8
@@ -968,12 +952,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i7, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %prev.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %timer.015, i64 0, i32 4
+  %prev.i = getelementptr inbounds i8, ptr %timer.015, i64 32
   %4 = load ptr, ptr %prev.i, align 8
-  %prev1.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %2, i64 0, i32 4
+  %prev1.i = getelementptr inbounds i8, ptr %2, i64 32
   store ptr %4, ptr %prev1.i, align 8
   %5 = load ptr, ptr %next14, align 8
-  %next4.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %4, i64 0, i32 3
+  %next4.i = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %5, ptr %next4.i, align 8
   %call21 = tail call noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerHeap3AddEPNS0_5TimerE(ptr noundef nonnull align 8 dereferenceable(24) %heap, ptr noundef nonnull %timer.015)
   br label %for.inc
@@ -983,7 +967,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
-  %heap22 = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 5
+  %heap22 = getelementptr inbounds i8, ptr %this, i64 88
   %call23 = tail call noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerHeap8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %heap22)
   %lnot = xor i1 %call23, true
   ret i1 %lnot
@@ -994,12 +978,12 @@ declare noundef double @_ZN9grpc_core17TimeAveragedStats13UpdateAverageEv(ptr no
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN17grpc_event_engine12experimental9TimerList5Shard6PopOneEN9grpc_core9TimestampE(ptr noundef nonnull align 8 dereferenceable(176) %this, i64 %now.coerce) local_unnamed_addr #3 align 2 {
 entry:
-  %heap = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 5
+  %heap = getelementptr inbounds i8, ptr %this, i64 88
   %call = tail call noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerHeap8is_emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %heap)
   br i1 %call, label %if.then, label %if.end10
 
 if.then:                                          ; preds = %entry
-  %queue_deadline_cap = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 2
+  %queue_deadline_cap = getelementptr inbounds i8, ptr %this, i64 64
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %queue_deadline_cap, align 8
   %cmp.i = icmp sgt i64 %agg.tmp.sroa.0.0.copyload, %now.coerce
   br i1 %cmp.i, label %return, label %if.end
@@ -1015,7 +999,7 @@ if.end10:                                         ; preds = %if.end, %entry
   br i1 %cmp.i3, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.end10
-  %pending = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %call12, i64 0, i32 2
+  %pending = getelementptr inbounds i8, ptr %call12, i64 16
   store i8 0, ptr %pending, align 8
   tail call void @_ZN17grpc_event_engine12experimental9TimerHeap3PopEv(ptr noundef nonnull align 8 dereferenceable(24) %heap)
   br label %return
@@ -1031,10 +1015,10 @@ declare void @_ZN17grpc_event_engine12experimental9TimerHeap3PopEv(ptr noundef n
 define void @_ZN17grpc_event_engine12experimental9TimerList5Shard9PopTimersEN9grpc_core9TimestampEPS4_PSt6vectorIPNS0_11EventEngine7ClosureESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(176) %this, i64 %now.coerce, ptr nocapture noundef writeonly %new_min_deadline, ptr nocapture noundef %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  %heap.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 5
-  %queue_deadline_cap.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %this, i64 0, i32 2
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::Closure *, std::allocator<grpc_event_engine::experimental::EventEngine::Closure *>>::_Vector_impl_data", ptr %out, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::Closure *, std::allocator<grpc_event_engine::experimental::EventEngine::Closure *>>::_Vector_impl_data", ptr %out, i64 0, i32 2
+  %heap.i = getelementptr inbounds i8, ptr %this, i64 88
+  %queue_deadline_cap.i = getelementptr inbounds i8, ptr %this, i64 64
+  %_M_finish.i = getelementptr inbounds i8, ptr %out, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %out, i64 16
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
@@ -1066,13 +1050,13 @@ call12.i.noexc:                                   ; preds = %if.end10.i
   br i1 %cmp.i3.i, label %while.end, label %if.end19.i
 
 if.end19.i:                                       ; preds = %call12.i.noexc
-  %pending.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %call12.i4, i64 0, i32 2
+  %pending.i = getelementptr inbounds i8, ptr %call12.i4, i64 16
   store i8 0, ptr %pending.i, align 8
   invoke void @_ZN17grpc_event_engine12experimental9TimerHeap3PopEv(ptr noundef nonnull align 8 dereferenceable(24) %heap.i)
           to label %while.body unwind label %lpad.loopexit
 
 while.body:                                       ; preds = %if.end19.i
-  %closure = getelementptr inbounds %"struct.grpc_event_engine::experimental::Timer", ptr %call12.i4, i64 0, i32 5
+  %closure = getelementptr inbounds i8, ptr %call12.i4, i64 40
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %1, %2
@@ -1082,7 +1066,7 @@ if.then.i5:                                       ; preds = %while.body
   %3 = load ptr, ptr %closure, align 8
   store ptr %3, ptr %1, align 8
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %while.cond.backedge
 
@@ -1133,7 +1117,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i
 
 _ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -1223,7 +1207,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit16:      ; preds = %invoke.cont4
 define void @_ZN17grpc_event_engine12experimental9TimerList17FindExpiredTimersEN9grpc_core9TimestampEPS3_(ptr noalias nocapture sret(%"class.std::vector.12") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, i64 %now.coerce, ptr noundef %next) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %new_min_deadline = alloca %"class.grpc_core::Timestamp", align 8
-  %min_timer_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 3
+  %min_timer_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load atomic i64, ptr %min_timer_ monotonic, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp.i = icmp sgt i64 %0, %now.coerce
@@ -1240,14 +1224,14 @@ if.then6:                                         ; preds = %if.then
   br label %nrvo.skipdtor
 
 if.end9:                                          ; preds = %entry
-  %mu_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 2
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %shard_queue_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 6
+  %shard_queue_ = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i12 = icmp ne i64 %now.coerce, 9223372036854775807
-  %num_shards_.i = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 1
+  %num_shards_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %shard_queue_, align 8
   %2 = load ptr, ptr %1, align 8
-  %min_deadline44 = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %2, i64 0, i32 3
+  %min_deadline44 = getelementptr inbounds i8, ptr %2, i64 72
   %3 = load i64, ptr %min_deadline44, align 8
   %cmp.i1145 = icmp slt i64 %3, %now.coerce
   %cmp.i1346 = icmp eq i64 %3, %now.coerce
@@ -1264,13 +1248,13 @@ while.body:                                       ; preds = %if.end9, %_ZN17grpc
 invoke.cont38:                                    ; preds = %while.body
   %5 = load ptr, ptr %shard_queue_, align 8
   %6 = load ptr, ptr %5, align 8
-  %min_deadline42 = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %6, i64 0, i32 3
+  %min_deadline42 = getelementptr inbounds i8, ptr %6, i64 72
   %7 = load i64, ptr %new_min_deadline, align 8
   store i64 %7, ptr %min_deadline42, align 8
   %8 = load ptr, ptr %shard_queue_, align 8
   %9 = load ptr, ptr %8, align 8
-  %min_deadline.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %9, i64 0, i32 3
-  %shard_queue_index.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %9, i64 0, i32 4
+  %min_deadline.i = getelementptr inbounds i8, ptr %9, i64 72
+  %shard_queue_index.i = getelementptr inbounds i8, ptr %9, i64 80
   %10 = load i32, ptr %shard_queue_index.i, align 8
   %cmp.not20.i = icmp eq i32 %10, 0
   br i1 %cmp.not20.i, label %while.end.i, label %land.rhs.i
@@ -1282,7 +1266,7 @@ land.rhs.i:                                       ; preds = %invoke.cont38, %whi
   %12 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %12, i64 %conv.i
   %13 = load ptr, ptr %arrayidx.i.i, align 8
-  %min_deadline3.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %13, i64 0, i32 3
+  %min_deadline3.i = getelementptr inbounds i8, ptr %13, i64 72
   %agg.tmp.sroa.0.0.copyload.i14 = load i64, ptr %min_deadline3.i, align 8
   %14 = load i64, ptr %min_deadline.i, align 8
   %cmp.i.i15 = icmp slt i64 %14, %agg.tmp.sroa.0.0.copyload.i14
@@ -1299,12 +1283,12 @@ while.body.i:                                     ; preds = %land.rhs.i
   %17 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i11.i.i = getelementptr inbounds ptr, ptr %17, i64 %conv.i
   %18 = load ptr, ptr %arrayidx.i11.i.i, align 8
-  %shard_queue_index.i.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %18, i64 0, i32 4
+  %shard_queue_index.i.i = getelementptr inbounds i8, ptr %18, i64 80
   store i32 %sub.i, ptr %shard_queue_index.i.i, align 8
   %19 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i12.i.i = getelementptr inbounds ptr, ptr %19, i64 %conv3.i.i
   %20 = load ptr, ptr %arrayidx.i12.i.i, align 8
-  %shard_queue_index20.i.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %20, i64 0, i32 4
+  %shard_queue_index20.i.i = getelementptr inbounds i8, ptr %20, i64 80
   store i32 %11, ptr %shard_queue_index20.i.i, align 8
   %21 = load i32, ptr %shard_queue_index.i, align 8
   %cmp.not.i = icmp eq i32 %21, 0
@@ -1326,7 +1310,7 @@ land.rhs12.i:                                     ; preds = %while.end.i, %while
   %25 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i8.i = getelementptr inbounds ptr, ptr %25, i64 %conv17.i
   %26 = load ptr, ptr %arrayidx.i8.i, align 8
-  %min_deadline19.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %26, i64 0, i32 3
+  %min_deadline19.i = getelementptr inbounds i8, ptr %26, i64 72
   %agg.tmp14.sroa.0.0.copyload.i = load i64, ptr %min_deadline19.i, align 8
   %27 = load i64, ptr %min_deadline.i, align 8
   %cmp.i9.i = icmp sgt i64 %27, %agg.tmp14.sroa.0.0.copyload.i
@@ -1342,12 +1326,12 @@ while.body23.i:                                   ; preds = %land.rhs12.i
   %30 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i11.i16.i = getelementptr inbounds ptr, ptr %30, i64 %conv924.i
   %31 = load ptr, ptr %arrayidx.i11.i16.i, align 8
-  %shard_queue_index.i17.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %31, i64 0, i32 4
+  %shard_queue_index.i17.i = getelementptr inbounds i8, ptr %31, i64 80
   store i32 %24, ptr %shard_queue_index.i17.i, align 8
   %32 = load ptr, ptr %shard_queue_, align 8
   %arrayidx.i12.i18.i = getelementptr inbounds ptr, ptr %32, i64 %conv17.i
   %33 = load ptr, ptr %arrayidx.i12.i18.i, align 8
-  %shard_queue_index20.i19.i = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %33, i64 0, i32 4
+  %shard_queue_index20.i19.i = getelementptr inbounds i8, ptr %33, i64 80
   store i32 %add.i, ptr %shard_queue_index20.i19.i, align 8
   %34 = load i32, ptr %shard_queue_index.i, align 8
   %conv9.i = zext i32 %34 to i64
@@ -1359,7 +1343,7 @@ while.body23.i:                                   ; preds = %land.rhs12.i
 _ZN17grpc_event_engine12experimental9TimerList18NoteDeadlineChangeEPNS1_5ShardE.exit: ; preds = %land.rhs12.i, %while.body23.i, %while.end.i
   %36 = load ptr, ptr %shard_queue_, align 8
   %37 = load ptr, ptr %36, align 8
-  %min_deadline = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %37, i64 0, i32 3
+  %min_deadline = getelementptr inbounds i8, ptr %37, i64 72
   %38 = load i64, ptr %min_deadline, align 8
   %cmp.i11 = icmp slt i64 %38, %now.coerce
   %cmp.i13 = icmp eq i64 %38, %now.coerce
@@ -1391,7 +1375,7 @@ if.then47:                                        ; preds = %while.end
   store i64 %42, ptr %next, align 8
   %.pre = load ptr, ptr %shard_queue_, align 8
   %.pre36 = load ptr, ptr %.pre, align 8
-  %min_deadline59.phi.trans.insert = getelementptr inbounds %"struct.grpc_event_engine::experimental::TimerList::Shard", ptr %.pre36, i64 0, i32 3
+  %min_deadline59.phi.trans.insert = getelementptr inbounds i8, ptr %.pre36, i64 72
   %.pre37 = load i64, ptr %min_deadline59.phi.trans.insert, align 8
   br label %if.end54
 
@@ -1432,7 +1416,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %1 = load ptr, ptr %vtable, align 8
   %call = tail call i64 %1(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %min_timer_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 3
+  %min_timer_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load atomic i64, ptr %min_timer_ monotonic, align 8
   %cmp.i = icmp slt i64 %call, %2
   br i1 %cmp.i, label %if.then, label %if.end9
@@ -1448,18 +1432,18 @@ if.then7:                                         ; preds = %if.then
   br label %_ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2Ev.exit: ; preds = %if.then, %if.then7
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %return
 
 if.end9:                                          ; preds = %entry
-  %checker_mu_ = getelementptr inbounds %"class.grpc_event_engine::experimental::TimerList", ptr %this, i64 0, i32 4
+  %checker_mu_ = getelementptr inbounds i8, ptr %this, i64 32
   %call10 = tail call noundef zeroext i1 @_ZN4absl12lts_202308025Mutex7TryLockEv(ptr noundef nonnull align 8 dereferenceable(8) %checker_mu_)
   br i1 %call10, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %_M_engaged.i.i.i.i.i5 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 0, ptr %_M_engaged.i.i.i.i.i5, align 8
   br label %return
 
@@ -1471,11 +1455,11 @@ if.end13:                                         ; preds = %if.end9
 invoke.cont:                                      ; preds = %if.end13
   %3 = load <2 x ptr>, ptr %run, align 16
   store <2 x ptr> %3, ptr %agg.result, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i8 = getelementptr inbounds %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::Closure *, std::allocator<grpc_event_engine::experimental::EventEngine::Closure *>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i9 = getelementptr inbounds %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::Closure *, std::allocator<grpc_event_engine::experimental::EventEngine::Closure *>>::_Vector_impl_data", ptr %run, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %run, i64 16
   %4 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i9, align 16
   store ptr %4, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i8, align 8
-  %_M_engaged.i.i.i.i.i10 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 1, ptr %_M_engaged.i.i.i.i.i10, align 8
   br label %return
 

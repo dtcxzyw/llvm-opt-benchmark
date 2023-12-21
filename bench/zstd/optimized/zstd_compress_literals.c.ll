@@ -3,8 +3,6 @@ source_filename = "bench/zstd/original/zstd_compress_literals.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ZSTD_hufCTables_t = type { [257 x i64], i32 }
-
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @ZSTD_noCompressLiterals(ptr nocapture noundef writeonly %dst, i64 noundef %dstCapacity, ptr nocapture noundef readonly %src, i64 noundef %srcSize) local_unnamed_addr #0 {
 entry:
@@ -161,7 +159,7 @@ sw.epilog.i:                                      ; preds = %sw.bb24.i, %sw.bb20
   br label %return
 
 if.end:                                           ; preds = %entry
-  %repeatMode = getelementptr inbounds %struct.ZSTD_hufCTables_t, ptr %prevHuf, i64 0, i32 1
+  %repeatMode = getelementptr inbounds i8, ptr %prevHuf, i64 2056
   %2 = load i32, ptr %repeatMode, align 8
   %sub.i = sub nsw i32 9, %strategy
   %cond.i = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 3)
@@ -334,7 +332,7 @@ if.end85:                                         ; preds = %for.body.i, %if.end
   br i1 %cmp56.not, label %if.then88, label %if.end90
 
 if.then88:                                        ; preds = %if.end85
-  %repeatMode89 = getelementptr inbounds %struct.ZSTD_hufCTables_t, ptr %nextHuf, i64 0, i32 1
+  %repeatMode89 = getelementptr inbounds i8, ptr %nextHuf, i64 2056
   store i32 1, ptr %repeatMode89, align 8
   br label %if.end90
 

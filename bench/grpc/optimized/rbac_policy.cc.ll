@@ -4,27 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.grpc_core::Rbac" = type { %"class.std::__cxx11::basic_string", i32, %"class.std::map", i32, %"class.std::vector" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::Rbac::Policy>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::Rbac::Policy>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::Rbac::Policy>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::Rbac::Policy>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>, std::allocator<std::unique_ptr<grpc_core::experimental::AuditLoggerFactory::Config>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.26" = type { %"struct.std::__uniq_ptr_data.27" }
-%"struct.std::__uniq_ptr_data.27" = type { %"class.std::__uniq_ptr_impl.28" }
-%"class.std::__uniq_ptr_impl.28" = type { %"class.std::tuple.29" }
-%"class.std::tuple.29" = type { %"struct.std::_Tuple_impl.30" }
-%"struct.std::_Tuple_impl.30" = type { %"struct.std::_Head_base.33" }
-%"struct.std::_Head_base.33" = type { ptr }
 %"class.absl::lts_20230802::str_format_internal::FormatArgImpl" = type { %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data", ptr }
 %"union.absl::lts_20230802::str_format_internal::FormatArgImpl::Data" = type { ptr }
 %"class.std::vector.6" = type { %"struct.std::_Vector_base.7" }
@@ -33,9 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::allocator" = type { i8 }
-%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [560 x i8] }
-%"struct.grpc_core::Rbac::Policy" = type { %"struct.grpc_core::Rbac::Permission", %"struct.grpc_core::Rbac::Principal" }
 %"struct.grpc_core::Rbac::Permission" = type <{ i32, [4 x i8], %"class.grpc_core::HeaderMatcher", %"class.grpc_core::StringMatcher", %"struct.grpc_core::Rbac::CidrRange", i32, [4 x i8], %"class.std::vector.13", i8, [7 x i8] }>
 %"class.grpc_core::HeaderMatcher" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8], %"class.grpc_core::StringMatcher", i64, i64, i8, i8, [6 x i8] }>
 %"class.grpc_core::StringMatcher" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_string", %"class.std::unique_ptr", i8, [7 x i8] }>
@@ -50,6 +29,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::Rbac::Permission>, std::allocator<std::unique_ptr<grpc_core::Rbac::Permission>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::unique_ptr<grpc_core::Rbac::Permission>, std::allocator<std::unique_ptr<grpc_core::Rbac::Permission>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::Rbac::Permission>, std::allocator<std::unique_ptr<grpc_core::Rbac::Permission>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::unique_ptr<grpc_core::Rbac::Permission>, std::allocator<std::unique_ptr<grpc_core::Rbac::Permission>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::unique_ptr.35" = type { %"struct.std::__uniq_ptr_data.36" }
+%"struct.std::__uniq_ptr_data.36" = type { %"class.std::__uniq_ptr_impl.37" }
+%"class.std::__uniq_ptr_impl.37" = type { %"class.std::tuple.38" }
+%"class.std::tuple.38" = type { %"struct.std::_Tuple_impl.39" }
+%"struct.std::_Tuple_impl.39" = type { %"struct.std::_Head_base.42" }
+%"struct.std::_Head_base.42" = type { ptr }
 %"struct.grpc_core::Rbac::Principal" = type <{ i32, [4 x i8], %"class.grpc_core::HeaderMatcher", %"class.std::optional", %"struct.grpc_core::Rbac::CidrRange", %"class.std::vector.20", i8, [7 x i8] }>
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
@@ -61,19 +46,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::Rbac::Principal>, std::allocator<std::unique_ptr<grpc_core::Rbac::Principal>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::unique_ptr<grpc_core::Rbac::Principal>, std::allocator<std::unique_ptr<grpc_core::Rbac::Principal>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<grpc_core::Rbac::Principal>, std::allocator<std::unique_ptr<grpc_core::Rbac::Principal>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::unique_ptr<grpc_core::Rbac::Principal>, std::allocator<std::unique_ptr<grpc_core::Rbac::Principal>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.35" = type { %"struct.std::__uniq_ptr_data.36" }
-%"struct.std::__uniq_ptr_data.36" = type { %"class.std::__uniq_ptr_impl.37" }
-%"class.std::__uniq_ptr_impl.37" = type { %"class.std::tuple.38" }
-%"class.std::tuple.38" = type { %"struct.std::_Tuple_impl.39" }
-%"struct.std::_Tuple_impl.39" = type { %"struct.std::_Head_base.42" }
-%"struct.std::_Head_base.42" = type { ptr }
 %"class.std::unique_ptr.47" = type { %"struct.std::__uniq_ptr_data.48" }
 %"struct.std::__uniq_ptr_data.48" = type { %"class.std::__uniq_ptr_impl.49" }
 %"class.std::__uniq_ptr_impl.49" = type { %"class.std::tuple.50" }
 %"class.std::tuple.50" = type { %"struct.std::_Tuple_impl.51" }
 %"struct.std::_Tuple_impl.51" = type { %"struct.std::_Head_base.54" }
 %"struct.std::_Head_base.54" = type { ptr }
-%"struct.std::_Optional_payload_base" = type { %"union.std::_Optional_payload_base<grpc_core::StringMatcher>::_Storage", i8, [7 x i8] }
 %struct._Guard = type { ptr }
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
@@ -155,9 +133,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN9grpc_core4RbacC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_6ActionESt3mapIS6_NS0_6PolicyESt4lessIS6_ESaISt4pairIKS6_S9_EEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %name, i32 noundef %action, ptr noundef %policies) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) #16
-  %action3 = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 1
+  %action3 = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %action, ptr %action3, align 8
-  %0 = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %this, i64 48
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %policies, i64 16
   %1 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -168,21 +146,21 @@ if.then.i.i.i.i:                                  ; preds = %entry
   %2 = load i32, ptr %add.ptr.i.i.i, align 8
   store i32 %2, ptr %0, align 8
   %3 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %_M_parent6.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent6.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %3, ptr %_M_parent6.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %policies, i64 24
   %4 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_left9.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left9.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %4, ptr %_M_left9.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %policies, i64 32
   %5 = load ptr, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_right12.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right12.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %5, ptr %_M_right12.i.i.i.i.i, align 8
-  %_M_parent16.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %3, i64 0, i32 1
+  %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %0, ptr %_M_parent16.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %policies, i64 40
   %6 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
-  %_M_node_count17.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count17.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 %6, ptr %_M_node_count17.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
@@ -191,21 +169,21 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.else.i.i.i.i:                                  ; preds = %entry
   store i32 0, ptr %0, align 8
-  %_M_parent.i2.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i2.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %_M_parent.i2.i.i.i.i, align 8
-  %_M_left.i3.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %0, ptr %_M_left.i3.i.i.i.i, align 8
-  %_M_right.i4.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %0, ptr %_M_right.i4.i.i.i.i, align 8
-  %_M_node_count.i5.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core4Rbac6PolicyESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2EOSF_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core4Rbac6PolicyESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2EOSF_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %_M_node_count.i.sink.i.i.i.i = phi ptr [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ], [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ]
   store i64 0, ptr %_M_node_count.i.sink.i.i.i.i, align 8
-  %audit_condition = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 3
+  %audit_condition = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %audit_condition, align 8
-  %logger_configs = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 4
+  %logger_configs = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %logger_configs, i8 0, i64 24, i1 false)
   ret void
 }
@@ -217,36 +195,36 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 define void @_ZN9grpc_core4RbacC2EOS0_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(120) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) #16
-  %action = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 1
-  %action3 = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 1
+  %action = getelementptr inbounds i8, ptr %this, i64 32
+  %action3 = getelementptr inbounds i8, ptr %other, i64 32
   %0 = load i32, ptr %action3, align 8
   store i32 %0, ptr %action, align 8
-  %1 = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
-  %_M_parent.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 56
   %2 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %other, i64 48
   %3 = load i32, ptr %add.ptr.i.i.i, align 8
   store i32 %3, ptr %1, align 8
   %4 = load ptr, ptr %_M_parent.i.i.i.i, align 8
-  %_M_parent6.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent6.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %4, ptr %_M_parent6.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 64
   %5 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_left9.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left9.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %5, ptr %_M_left9.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 72
   %6 = load ptr, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_right12.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right12.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %6, ptr %_M_right12.i.i.i.i.i, align 8
-  %_M_parent16.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %4, i64 0, i32 1
+  %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %1, ptr %_M_parent16.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 80
   %7 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
-  %_M_node_count17.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count17.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 %7, ptr %_M_node_count17.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
@@ -255,32 +233,32 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.else.i.i.i.i:                                  ; preds = %entry
   store i32 0, ptr %1, align 8
-  %_M_parent.i2.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i2.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %_M_parent.i2.i.i.i.i, align 8
-  %_M_left.i3.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %1, ptr %_M_left.i3.i.i.i.i, align 8
-  %_M_right.i4.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i4.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %1, ptr %_M_right.i4.i.i.i.i, align 8
-  %_M_node_count.i5.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i5.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core4Rbac6PolicyESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2EOSF_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core4Rbac6PolicyESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2EOSF_.exit: ; preds = %if.then.i.i.i.i, %if.else.i.i.i.i
   %_M_node_count.i.sink.i.i.i.i = phi ptr [ %_M_node_count.i.i.i.i.i, %if.then.i.i.i.i ], [ %_M_node_count.i5.i.i.i.i, %if.else.i.i.i.i ]
   store i64 0, ptr %_M_node_count.i.sink.i.i.i.i, align 8
-  %audit_condition = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 3
-  %audit_condition5 = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 3
+  %audit_condition = getelementptr inbounds i8, ptr %this, i64 88
+  %audit_condition5 = getelementptr inbounds i8, ptr %other, i64 88
   %8 = load i32, ptr %audit_condition5, align 8
   store i32 %8, ptr %audit_condition, align 8
-  %logger_configs = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 4
-  %logger_configs6 = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 4
+  %logger_configs = getelementptr inbounds i8, ptr %this, i64 96
+  %logger_configs6 = getelementptr inbounds i8, ptr %other, i64 96
   %9 = load ptr, ptr %logger_configs6, align 8
   store ptr %9, ptr %logger_configs, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
-  %_M_finish3.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %_M_finish3.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 104
   %10 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
   store ptr %10, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
-  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
+  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 112
   %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
   store ptr %11, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %logger_configs6, i8 0, i64 24, i1 false)
@@ -291,12 +269,12 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core4Rbac6P
 define noundef nonnull align 8 dereferenceable(120) ptr @_ZN9grpc_core4RbacaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(120) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) #16
-  %action = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 1
+  %action = getelementptr inbounds i8, ptr %other, i64 32
   %0 = load i32, ptr %action, align 8
-  %action3 = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 1
+  %action3 = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %0, ptr %action3, align 8
-  %policies4 = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %policies4 = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core4Rbac6PolicyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %policies4, ptr noundef %1)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core4Rbac6PolicyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE5clearEv.exit.i.i.i unwind label %terminate.lpad.i.i.i.i
@@ -309,34 +287,34 @@ terminate.lpad.i.i.i.i:                           ; preds = %entry
   unreachable
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core4Rbac6PolicyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE5clearEv.exit.i.i.i: ; preds = %entry
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %add.ptr.i.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %add.ptr.i.i.i.i, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  %_M_parent.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 56
   %4 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core4Rbac6PolicyESt4lessIS5_ESaISt4pairIKS5_S8_EEEaSEOSF_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core4Rbac6PolicyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE5clearEv.exit.i.i.i
-  %add.ptr3.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr3.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 48
   %5 = load i32, ptr %add.ptr3.i.i.i.i, align 8
   store i32 %5, ptr %add.ptr.i.i.i.i, align 8
   %6 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   store ptr %6, ptr %_M_parent.i.i.i.i.i.i, align 8
-  %_M_left.i.i4.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i4.i.i.i = getelementptr inbounds i8, ptr %other, i64 64
   %7 = load ptr, ptr %_M_left.i.i4.i.i.i, align 8
   store ptr %7, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i.i5.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 3
+  %_M_right.i.i5.i.i.i = getelementptr inbounds i8, ptr %other, i64 72
   %8 = load ptr, ptr %_M_right.i.i5.i.i.i, align 8
   store ptr %8, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_parent16.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %6, i64 0, i32 1
+  %_M_parent16.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_parent16.i.i.i.i.i, align 8
-  %_M_node_count.i.i6.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 2, i32 0, i32 0, i32 1, i32 1
+  %_M_node_count.i.i6.i.i.i = getelementptr inbounds i8, ptr %other, i64 80
   %9 = load i64, ptr %_M_node_count.i.i6.i.i.i, align 8
   store i64 %9, ptr %_M_node_count.i.i.i.i.i, align 8
   store ptr null, ptr %_M_parent.i.i.i.i, align 8
@@ -346,22 +324,22 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeINSt7
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core4Rbac6PolicyESt4lessIS5_ESaISt4pairIKS5_S8_EEEaSEOSF_.exit
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core4Rbac6PolicyESt4lessIS5_ESaISt4pairIKS5_S8_EEEaSEOSF_.exit: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core4Rbac6PolicyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE5clearEv.exit.i.i.i, %if.then.i.i.i
-  %audit_condition = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 3
+  %audit_condition = getelementptr inbounds i8, ptr %other, i64 88
   %10 = load i32, ptr %audit_condition, align 8
-  %audit_condition6 = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 3
+  %audit_condition6 = getelementptr inbounds i8, ptr %this, i64 88
   store i32 %10, ptr %audit_condition6, align 8
-  %logger_configs = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 4
-  %logger_configs7 = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 4
+  %logger_configs = getelementptr inbounds i8, ptr %other, i64 96
+  %logger_configs7 = getelementptr inbounds i8, ptr %this, i64 96
   %11 = load ptr, ptr %logger_configs7, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %12 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %13 = load ptr, ptr %logger_configs, align 8
   store ptr %13, ptr %logger_configs7, align 8
-  %_M_finish.i2.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %other, i64 104
   %14 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %14, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %other, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %other, i64 112
   %15 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
   store ptr %15, ptr %_M_end_of_storage.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %11, %12
@@ -376,14 +354,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt3mapINSt7__cxx
 
 _ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 8
   %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16) #16
   br label %_ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN9grpc_core12experimental18AuditLoggerFactory6ConfigESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core12experimental18AuditLoggerFactory6ConfigEEclEPS3_.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.26", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %12
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !4
 
@@ -420,7 +398,7 @@ entry:
   %ref.tmp61 = alloca %"class.std::allocator", align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contents, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %condition_str, i8 0, i64 16, i1 false)
-  %audit_condition = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 3
+  %audit_condition = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %audit_condition, align 8
   switch i32 %0, label %invoke.cont [
     i32 0, label %sw.bb
@@ -452,30 +430,30 @@ invoke.cont.sink.split:                           ; preds = %sw.bb6, %sw.bb4, %s
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %invoke.cont.sink.split, %entry
-  %action = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 1
+  %action = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %action, align 8
   %cmp = icmp eq i32 %1, 0
   %cond = select i1 %cmp, ptr @.str.5, ptr @.str.6
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   store ptr %this, ptr %ref.tmp.i, align 8, !noalias !6
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !6
-  %arrayinit.element.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store ptr %cond, ptr %arrayinit.element.i, align 8, !noalias !6
-  %dispatcher_.i.i1.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1, i32 1
+  %dispatcher_.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i, align 8, !noalias !6
-  %arrayinit.element7.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 2
+  %arrayinit.element7.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store ptr %condition_str, ptr %arrayinit.element7.i, align 8, !noalias !6
-  %dispatcher_.i.i2.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 2, i32 1
+  %dispatcher_.i.i2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchISt17basic_string_viewIcSt11char_traitsIcEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i, align 8, !noalias !6
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp8, ptr nonnull @.str.4, i64 42, ptr nonnull %ref.tmp.i, i64 3)
           to label %invoke.cont11 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont11:                                    ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp.i)
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %contents, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %contents, i64 16
   %3 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -483,7 +461,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
 if.then.i.i:                                      ; preds = %invoke.cont11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #16
   %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %4, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont13
 
@@ -493,26 +471,26 @@ if.else.i.i:                                      ; preds = %invoke.cont11
 
 invoke.cont13:                                    ; preds = %if.then.i.i, %if.else.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #16
-  %_M_left.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 2
+  %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %5 = load ptr, ptr %_M_left.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.not79 = icmp eq ptr %5, %add.ptr.i.i
   br i1 %cmp.i.not79, label %for.end, label %invoke.cont20.lr.ph
 
 invoke.cont20.lr.ph:                              ; preds = %invoke.cont13
-  %dispatcher_.i.i.i23 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i19, i64 0, i32 1
-  %arrayinit.element.i24 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i19, i64 1
-  %dispatcher_.i.i1.i25 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i19, i64 1, i32 1
+  %dispatcher_.i.i.i23 = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 8
+  %arrayinit.element.i24 = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 16
+  %dispatcher_.i.i1.i25 = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 24
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %invoke.cont20.lr.ph, %invoke.cont26
   %__begin1.sroa.0.080 = phi ptr [ %5, %invoke.cont20.lr.ph ], [ %call.i, %invoke.cont26 ]
-  %second = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.080, i64 0, i32 1, i32 0, i64 32
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.080, i64 64
   invoke void @_ZNK9grpc_core4Rbac6Policy8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(528) %second)
           to label %invoke.cont22 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont22:                                    ; preds = %invoke.cont20
-  %_M_storage.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__begin1.sroa.0.080, i64 0, i32 1
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.080, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i19)
   store ptr %_M_storage.i.i, ptr %ref.tmp.i19, align 8, !noalias !9
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i23, align 8, !noalias !9
@@ -531,7 +509,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
 if.then.i.i30:                                    ; preds = %invoke.cont24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #16
   %8 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i31 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %8, i64 1
+  %incdec.ptr.i.i31 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %incdec.ptr.i.i31, ptr %_M_finish.i.i, align 8
   br label %invoke.cont26
 
@@ -584,25 +562,25 @@ ehcleanup:                                        ; preds = %lpad25, %lpad23
   br label %ehcleanup69
 
 for.end:                                          ; preds = %invoke.cont26, %invoke.cont13
-  %logger_configs = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 4
+  %logger_configs = getelementptr inbounds i8, ptr %this, i64 96
   %12 = load ptr, ptr %logger_configs, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.grpc_core::Rbac", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 104
   %13 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i35.not81 = icmp eq ptr %12, %13
   br i1 %cmp.i35.not81, label %for.end59, label %invoke.cont41.lr.ph
 
 invoke.cont41.lr.ph:                              ; preds = %for.end
-  %14 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp42, i64 0, i32 1
-  %dispatcher_.i.i.i42 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i38, i64 0, i32 1
-  %arrayinit.element.i43 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i38, i64 1
-  %dispatcher_.i.i1.i44 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i38, i64 1, i32 1
+  %14 = getelementptr inbounds i8, ptr %ref.tmp42, i64 8
+  %dispatcher_.i.i.i42 = getelementptr inbounds i8, ptr %ref.tmp.i38, i64 8
+  %arrayinit.element.i43 = getelementptr inbounds i8, ptr %ref.tmp.i38, i64 16
+  %dispatcher_.i.i1.i44 = getelementptr inbounds i8, ptr %ref.tmp.i38, i64 24
   br label %invoke.cont41
 
 invoke.cont41:                                    ; preds = %invoke.cont41.lr.ph, %invoke.cont54
   %__begin129.sroa.0.082 = phi ptr [ %12, %invoke.cont41.lr.ph ], [ %incdec.ptr.i, %invoke.cont54 ]
   %15 = load ptr, ptr %__begin129.sroa.0.082, align 8
   %vtable = load ptr, ptr %15, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %16 = load ptr, ptr %vfn, align 8
   %call45 = invoke { i64, ptr } %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %invoke.cont44 unwind label %lpad.loopexit
@@ -614,7 +592,7 @@ invoke.cont44:                                    ; preds = %invoke.cont41
   store ptr %18, ptr %14, align 8
   %19 = load ptr, ptr %__begin129.sroa.0.082, align 8
   %vtable48 = load ptr, ptr %19, align 8
-  %vfn49 = getelementptr inbounds ptr, ptr %vtable48, i64 3
+  %vfn49 = getelementptr inbounds i8, ptr %vtable48, i64 24
   %20 = load ptr, ptr %vfn49, align 8
   invoke void %20(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(8) %19)
           to label %invoke.cont50 unwind label %lpad.loopexit
@@ -638,7 +616,7 @@ invoke.cont52:                                    ; preds = %invoke.cont50
 if.then.i.i49:                                    ; preds = %invoke.cont52
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39) #16
   %23 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i50 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %23, i64 1
+  %incdec.ptr.i.i50 = getelementptr inbounds i8, ptr %23, i64 32
   store ptr %incdec.ptr.i.i50, ptr %_M_finish.i.i, align 8
   br label %invoke.cont54
 
@@ -649,7 +627,7 @@ if.else.i.i51:                                    ; preds = %invoke.cont52
 invoke.cont54:                                    ; preds = %if.then.i.i49, %if.else.i.i51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46) #16
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.26", ptr %__begin129.sroa.0.082, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin129.sroa.0.082, i64 8
   %cmp.i35.not = icmp eq ptr %incdec.ptr.i, %13
   br i1 %cmp.i35.not, label %for.end59, label %invoke.cont41
 
@@ -697,7 +675,7 @@ invoke.cont63:                                    ; preds = %.noexc57
 if.then.i.i61:                                    ; preds = %invoke.cont63
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60) #16
   %29 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i62 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %29, i64 1
+  %incdec.ptr.i.i62 = getelementptr inbounds i8, ptr %29, i64 32
   store ptr %incdec.ptr.i.i62, ptr %_M_finish.i.i, align 8
   br label %invoke.cont65
 
@@ -722,7 +700,7 @@ invoke.cont68:                                    ; preds = %invoke.cont65
 for.body.i.i.i.i:                                 ; preds = %invoke.cont68, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %32, %invoke.cont68 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #16
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %33
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !20
 
@@ -779,18 +757,18 @@ entry:
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNK9grpc_core4Rbac10Permission8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(257) %this)
-  %principals = getelementptr inbounds %"struct.grpc_core::Rbac::Policy", ptr %this, i64 0, i32 1
+  %principals = getelementptr inbounds i8, ptr %this, i64 264
   invoke void @_ZNK9grpc_core4Rbac9Principal8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(257) %principals)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   store ptr %ref.tmp2, ptr %ref.tmp.i, align 8, !noalias !21
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !21
-  %arrayinit.element.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store ptr %ref.tmp3, ptr %arrayinit.element.i, align 8, !noalias !21
-  %dispatcher_.i.i1.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1, i32 1
+  %dispatcher_.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i, align 8, !noalias !21
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.29, i64 54, ptr nonnull %ref.tmp.i, i64 2)
           to label %invoke.cont5 unwind label %lpad4
@@ -828,7 +806,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -836,7 +814,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #16
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !20
 
@@ -861,7 +839,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 define void @_ZN9grpc_core4Rbac9CidrRangeC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %address_prefix, i32 noundef %prefix_len) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %address_prefix) #16
-  %prefix_len3 = getelementptr inbounds %"struct.grpc_core::Rbac::CidrRange", ptr %this, i64 0, i32 1
+  %prefix_len3 = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %prefix_len, ptr %prefix_len3, align 8
   ret void
 }
@@ -870,8 +848,8 @@ entry:
 define void @_ZN9grpc_core4Rbac9CidrRangeC2EOS1_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(36) %other) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) #16
-  %prefix_len = getelementptr inbounds %"struct.grpc_core::Rbac::CidrRange", ptr %this, i64 0, i32 1
-  %prefix_len3 = getelementptr inbounds %"struct.grpc_core::Rbac::CidrRange", ptr %other, i64 0, i32 1
+  %prefix_len = getelementptr inbounds i8, ptr %this, i64 32
+  %prefix_len3 = getelementptr inbounds i8, ptr %other, i64 32
   %0 = load i32, ptr %prefix_len3, align 8
   store i32 %0, ptr %prefix_len, align 8
   ret void
@@ -881,9 +859,9 @@ entry:
 define noundef nonnull align 8 dereferenceable(36) ptr @_ZN9grpc_core4Rbac9CidrRangeaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(36) %other) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) #16
-  %prefix_len = getelementptr inbounds %"struct.grpc_core::Rbac::CidrRange", ptr %other, i64 0, i32 1
+  %prefix_len = getelementptr inbounds i8, ptr %other, i64 32
   %0 = load i32, ptr %prefix_len, align 8
-  %prefix_len3 = getelementptr inbounds %"struct.grpc_core::Rbac::CidrRange", ptr %this, i64 0, i32 1
+  %prefix_len3 = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %0, ptr %prefix_len3, align 8
   ret ptr %this
 }
@@ -892,17 +870,17 @@ entry:
 define void @_ZNK9grpc_core4Rbac9CidrRange8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [2 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
-  %prefix_len = getelementptr inbounds %"struct.grpc_core::Rbac::CidrRange", ptr %this, i64 0, i32 1
+  %prefix_len = getelementptr inbounds i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   store ptr %this, ptr %ref.tmp.i, align 8, !noalias !24
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !24
-  %arrayinit.element.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   %retval.sroa.0.0.copyload.i.i.i.i = load i32, ptr %prefix_len, align 8, !noalias !24
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %retval.sroa.0.0.copyload.i.i.i.i to i64
   %0 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %0, ptr %arrayinit.element.i, align 8, !noalias !24
-  %dispatcher_.i.i1.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 1, i32 1
+  %dispatcher_.i.i1.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i, align 8, !noalias !24
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.11, i64 42, ptr nonnull %ref.tmp.i, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
@@ -913,38 +891,38 @@ entry:
 define void @_ZN9grpc_core4Rbac10Permission17MakeAndPermissionESt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS6_EE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, ptr nocapture noundef %permissions) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EEaSEOS8_.exit:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %string_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3
+  %string_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 128
   store i32 0, ptr %string_matcher.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #16
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 168
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %case_sensitive_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 4
+  %case_sensitive_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 176
   store i8 1, ptr %case_sensitive_.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %permissions.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 7
-  %0 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 8
+  %permissions.i = getelementptr inbounds i8, ptr %agg.result, i64 232
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 256
   store i8 0, ptr %0, align 8
   store i32 0, ptr %agg.result, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 248
   %1 = load <2 x ptr>, ptr %permissions, align 8
   store <2 x ptr> %1, ptr %permissions.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<grpc_core::Rbac::Permission>, std::allocator<std::unique_ptr<grpc_core::Rbac::Permission>>>::_Vector_impl_data", ptr %permissions, i64 0, i32 2
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %permissions, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %permissions, i8 0, i64 24, i1 false)
@@ -954,9 +932,9 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %permissions = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7
+  %permissions = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load ptr, ptr %permissions, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not.i3 = icmp eq ptr %0, %1
   br i1 %cmp.not.i3, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %for.body.i
@@ -974,7 +952,7 @@ _ZNKSt14default_deleteIN9grpc_core4Rbac10PermissionEEclEPS2_.exit.i.i: ; preds =
 
 _ZNSt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core4Rbac10PermissionEEclEPS2_.exit.i.i, %for.body.i
   store ptr null, ptr %__first.addr.0.i4, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.35", ptr %__first.addr.0.i4, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.0.i4, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.not.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit.loopexit, label %for.body.i, !llvm.loop !27
 
@@ -992,9 +970,9 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorISt10un
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit
 
 _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %if.then.i.i
-  %ip = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 4
+  %ip = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip) #16
-  %regex_matcher_.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 3, i32 3
+  %regex_matcher_.i = getelementptr inbounds i8, ptr %this, i64 168
   %4 = load ptr, ptr %regex_matcher_.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core13StringMatcherD2Ev.exit, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i
@@ -1006,9 +984,9 @@ _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i: ; preds = %_ZNSt12_Vector_ba
 
 _ZN9grpc_core13StringMatcherD2Ev.exit:            ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i
   store ptr null, ptr %regex_matcher_.i, align 8
-  %string_matcher_.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 3, i32 2
+  %string_matcher_.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i) #16
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load ptr, ptr %regex_matcher_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13HeaderMatcherD2Ev.exit, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i
@@ -1019,9 +997,9 @@ _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i: ; preds = %_ZN9grpc_core13
   br label %_ZN9grpc_core13HeaderMatcherD2Ev.exit
 
 _ZN9grpc_core13HeaderMatcherD2Ev.exit:            ; preds = %_ZN9grpc_core13StringMatcherD2Ev.exit, %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i
-  %header_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2
+  %header_matcher = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher) #16
   ret void
@@ -1031,38 +1009,38 @@ _ZN9grpc_core13HeaderMatcherD2Ev.exit:            ; preds = %_ZN9grpc_core13Stri
 define void @_ZN9grpc_core4Rbac10Permission16MakeOrPermissionESt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS6_EE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, ptr nocapture noundef %permissions) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EEaSEOS8_.exit:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %string_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3
+  %string_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 128
   store i32 0, ptr %string_matcher.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #16
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 168
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %case_sensitive_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 4
+  %case_sensitive_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 176
   store i8 1, ptr %case_sensitive_.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %permissions.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 7
-  %0 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 8
+  %permissions.i = getelementptr inbounds i8, ptr %agg.result, i64 232
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 256
   store i8 0, ptr %0, align 8
   store i32 1, ptr %agg.result, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 248
   %1 = load <2 x ptr>, ptr %permissions, align 8
   store <2 x ptr> %1, ptr %permissions.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<grpc_core::Rbac::Permission>, std::allocator<std::unique_ptr<grpc_core::Rbac::Permission>>>::_Vector_impl_data", ptr %permissions, i64 0, i32 2
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %permissions, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %permissions, i8 0, i64 24, i1 false)
@@ -1074,31 +1052,31 @@ define void @_ZN9grpc_core4Rbac10Permission17MakeNotPermissionES1_(ptr noalias s
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.35", align 8
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %string_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3
+  %string_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 128
   store i32 0, ptr %string_matcher.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #16
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 168
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %case_sensitive_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 4
+  %case_sensitive_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 176
   store i8 1, ptr %case_sensitive_.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %permissions.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 7
+  %permissions.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %permissions.i, i8 0, i64 25, i1 false)
   store i32 2, ptr %agg.result, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
@@ -1108,9 +1086,9 @@ entry:
 invoke.cont:                                      ; preds = %entry
   tail call void @_ZN9grpc_core4Rbac10PermissionC1EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %call.i2, ptr noundef nonnull align 8 dereferenceable(257) %permission) #16, !noalias !28
   store ptr %call.i2, ptr %ref.tmp, align 8, !alias.scope !28
-  %_M_finish.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 240
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 248
   %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, %1
   %2 = ptrtoint ptr %call.i2 to i64
@@ -1119,7 +1097,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont2.thread:                              ; preds = %invoke.cont
   store i64 %2, ptr %0, align 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.35", ptr %3, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS2_EED2Ev.exit
 
@@ -1169,14 +1147,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !34, !noalias !31
   store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !31, !noalias !34
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !34, !noalias !31
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.35", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.35", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !36
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"class.std::unique_ptr.35", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %invoke.cont2, label %if.then.i20.i
 
@@ -1232,31 +1210,31 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 define void @_ZN9grpc_core4Rbac10Permission17MakeAnyPermissionEv(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %string_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3
+  %string_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 128
   store i32 0, ptr %string_matcher.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #16
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 168
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %case_sensitive_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 4
+  %case_sensitive_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 176
   store i8 1, ptr %case_sensitive_.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %permissions.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 7
+  %permissions.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %permissions.i, i8 0, i64 25, i1 false)
   store i32 3, ptr %agg.result, align 8
   ret void
@@ -1266,31 +1244,31 @@ entry:
 define void @_ZN9grpc_core4Rbac10Permission20MakeHeaderPermissionENS_13HeaderMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, ptr noundef %header_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %string_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3
+  %string_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 128
   store i32 0, ptr %string_matcher.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #16
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 168
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %case_sensitive_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 4
+  %case_sensitive_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 176
   store i8 1, ptr %case_sensitive_.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %permissions.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 7
+  %permissions.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %permissions.i, i8 0, i64 25, i1 false)
   store i32 4, ptr %agg.result, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(114) ptr @_ZN9grpc_core13HeaderMatcheraSEOS0_(ptr noundef nonnull align 8 dereferenceable(114) %header_matcher.i, ptr noundef nonnull align 8 dereferenceable(114) %header_matcher) #16
@@ -1304,31 +1282,31 @@ declare noundef nonnull align 8 dereferenceable(114) ptr @_ZN9grpc_core13HeaderM
 define void @_ZN9grpc_core4Rbac10Permission18MakePathPermissionENS_13StringMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, ptr noundef %string_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %string_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3
+  %string_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 128
   store i32 0, ptr %string_matcher.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #16
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 168
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %case_sensitive_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 4
+  %case_sensitive_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 176
   store i8 1, ptr %case_sensitive_.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %permissions.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 7
+  %permissions.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %permissions.i, i8 0, i64 25, i1 false)
   store i32 5, ptr %agg.result, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZN9grpc_core13StringMatcheraSEOS0_(ptr noundef nonnull align 8 dereferenceable(49) %string_matcher.i, ptr noundef nonnull align 8 dereferenceable(49) %string_matcher) #16
@@ -1342,37 +1320,37 @@ declare noundef nonnull align 8 dereferenceable(49) ptr @_ZN9grpc_core13StringMa
 define void @_ZN9grpc_core4Rbac10Permission20MakeDestIpPermissionENS0_9CidrRangeE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, ptr noundef %ip) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %string_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3
+  %string_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 128
   store i32 0, ptr %string_matcher.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #16
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 168
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %case_sensitive_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 4
+  %case_sensitive_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 176
   store i8 1, ptr %case_sensitive_.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %permissions.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 7
+  %permissions.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %permissions.i, i8 0, i64 25, i1 false)
   store i32 6, ptr %agg.result, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ip.i, ptr noundef nonnull align 8 dereferenceable(32) %ip) #16
-  %prefix_len.i = getelementptr inbounds %"struct.grpc_core::Rbac::CidrRange", ptr %ip, i64 0, i32 1
+  %prefix_len.i = getelementptr inbounds i8, ptr %ip, i64 32
   %0 = load i32, ptr %prefix_len.i, align 8
-  %prefix_len3.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 4, i32 1
+  %prefix_len3.i = getelementptr inbounds i8, ptr %agg.result, i64 216
   store i32 %0, ptr %prefix_len3.i, align 8
   ret void
 }
@@ -1381,34 +1359,34 @@ entry:
 define void @_ZN9grpc_core4Rbac10Permission22MakeDestPortPermissionEi(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, i32 noundef %port) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %string_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3
+  %string_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 128
   store i32 0, ptr %string_matcher.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #16
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 168
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %case_sensitive_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 4
+  %case_sensitive_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 176
   store i8 1, ptr %case_sensitive_.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %permissions.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 7
+  %permissions.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %permissions.i, i8 0, i64 25, i1 false)
   store i32 7, ptr %agg.result, align 8
-  %port1 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 5
+  %port1 = getelementptr inbounds i8, ptr %agg.result, i64 224
   store i32 %port, ptr %port1, align 8
   ret void
 }
@@ -1418,34 +1396,34 @@ define void @_ZN9grpc_core4Rbac10Permission22MakeMetadataPermissionEb(ptr noalia
 entry:
   %frombool = zext i1 %invert to i8
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %string_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3
+  %string_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 128
   store i32 0, ptr %string_matcher.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #16
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 168
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %case_sensitive_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 4
+  %case_sensitive_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 176
   store i8 1, ptr %case_sensitive_.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %permissions.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 7
+  %permissions.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %permissions.i, i8 0, i64 24, i1 false)
   store i32 8, ptr %agg.result, align 8
-  %invert1 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 8
+  %invert1 = getelementptr inbounds i8, ptr %agg.result, i64 256
   store i8 %frombool, ptr %invert1, align 8
   ret void
 }
@@ -1454,31 +1432,31 @@ entry:
 define void @_ZN9grpc_core4Rbac10Permission27MakeReqServerNamePermissionENS_13StringMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, ptr noundef %string_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %string_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3
+  %string_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 128
   store i32 0, ptr %string_matcher.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #16
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 168
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %case_sensitive_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 3, i32 4
+  %case_sensitive_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 176
   store i8 1, ptr %case_sensitive_.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %permissions.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %agg.result, i64 0, i32 7
+  %permissions.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %permissions.i, i8 0, i64 25, i1 false)
   store i32 9, ptr %agg.result, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZN9grpc_core13StringMatcheraSEOS0_(ptr noundef nonnull align 8 dereferenceable(49) %string_matcher.i, ptr noundef nonnull align 8 dereferenceable(49) %string_matcher) #16
@@ -1490,34 +1468,34 @@ define void @_ZN9grpc_core4Rbac10PermissionC2EOS1_(ptr noundef nonnull align 8 d
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
-  %header_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2
+  %header_matcher = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher) #16
-  %type_.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %type_.i, align 8
-  %matcher_.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2, i32 3
+  %matcher_.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %matcher_.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #16
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %case_sensitive_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store i8 1, ptr %case_sensitive_.i.i, align 8
-  %invert_match_.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2, i32 7
+  %invert_match_.i = getelementptr inbounds i8, ptr %this, i64 121
   store i8 0, ptr %invert_match_.i, align 1
-  %string_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 3
+  %string_matcher = getelementptr inbounds i8, ptr %this, i64 128
   store i32 0, ptr %string_matcher, align 8
-  %string_matcher_.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 3, i32 2
+  %string_matcher_.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i) #16
-  %regex_matcher_.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 3, i32 3
+  %regex_matcher_.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr null, ptr %regex_matcher_.i, align 8
-  %case_sensitive_.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 3, i32 4
+  %case_sensitive_.i = getelementptr inbounds i8, ptr %this, i64 176
   store i8 1, ptr %case_sensitive_.i, align 8
-  %ip = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 4
+  %ip = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip) #16
-  %permissions = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7
+  %permissions = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %permissions, i8 0, i64 24, i1 false)
-  %invert = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 8
-  %invert3 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 8
+  %invert = getelementptr inbounds i8, ptr %this, i64 256
+  %invert3 = getelementptr inbounds i8, ptr %other, i64 256
   %1 = load i8, ptr %invert3, align 8
   %2 = and i8 %1, 1
   store i8 %2, ptr %invert, align 8
@@ -1534,43 +1512,43 @@ entry:
   ]
 
 invoke.cont.i.i.i:                                ; preds = %entry, %entry, %entry
-  %permissions5 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 7
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %permissions5 = getelementptr inbounds i8, ptr %other, i64 232
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load ptr, ptr %permissions5, align 8
   store ptr %4, ptr %permissions, align 8
-  %_M_finish.i2.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %other, i64 240
   %5 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %5, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %other, i64 248
   %6 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %permissions5, i8 0, i64 24, i1 false)
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
-  %header_matcher9 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 2
+  %header_matcher9 = getelementptr inbounds i8, ptr %other, i64 8
   %call11 = tail call noundef nonnull align 8 dereferenceable(114) ptr @_ZN9grpc_core13HeaderMatcheraSEOS0_(ptr noundef nonnull align 8 dereferenceable(114) %header_matcher, ptr noundef nonnull align 8 dereferenceable(114) %header_matcher9) #16
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry, %entry
-  %string_matcher13 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 3
+  %string_matcher13 = getelementptr inbounds i8, ptr %other, i64 128
   %call15 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZN9grpc_core13StringMatcheraSEOS0_(ptr noundef nonnull align 8 dereferenceable(49) %string_matcher, ptr noundef nonnull align 8 dereferenceable(49) %string_matcher13) #16
   br label %sw.epilog
 
 sw.bb16:                                          ; preds = %entry
-  %ip17 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 4
+  %ip17 = getelementptr inbounds i8, ptr %other, i64 184
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ip, ptr noundef nonnull align 8 dereferenceable(32) %ip17) #16
-  %prefix_len.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 4, i32 1
+  %prefix_len.i = getelementptr inbounds i8, ptr %other, i64 216
   %7 = load i32, ptr %prefix_len.i, align 8
-  %prefix_len3.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 4, i32 1
+  %prefix_len3.i = getelementptr inbounds i8, ptr %this, i64 216
   store i32 %7, ptr %prefix_len3.i, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %port = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 5
+  %port = getelementptr inbounds i8, ptr %other, i64 224
   %8 = load i32, ptr %port, align 8
-  %port20 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 5
+  %port20 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %8, ptr %port20, align 8
   br label %sw.epilog
 
@@ -1583,10 +1561,10 @@ define noundef nonnull align 8 dereferenceable(257) ptr @_ZN9grpc_core4Rbac10Per
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
-  %invert = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 8
+  %invert = getelementptr inbounds i8, ptr %other, i64 256
   %1 = load i8, ptr %invert, align 8
   %2 = and i8 %1, 1
-  %invert3 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 8
+  %invert3 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 %2, ptr %invert3, align 8
   switch i32 %0, label %sw.default [
     i32 0, label %sw.bb
@@ -1600,18 +1578,18 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry, %entry
-  %permissions = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 7
-  %permissions5 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7
+  %permissions = getelementptr inbounds i8, ptr %other, i64 232
+  %permissions5 = getelementptr inbounds i8, ptr %this, i64 232
   %3 = load ptr, ptr %permissions5, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %5 = load ptr, ptr %permissions, align 8
   store ptr %5, ptr %permissions5, align 8
-  %_M_finish.i2.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %other, i64 240
   %6 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %6, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 7, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %other, i64 248
   %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
   store ptr %7, ptr %_M_end_of_storage.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %3, %4
@@ -1631,7 +1609,7 @@ _ZNKSt14default_deleteIN9grpc_core4Rbac10PermissionEEclEPS2_.exit.i.i.i.i.i.i: ;
 
 _ZNSt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core4Rbac10PermissionEEclEPS2_.exit.i.i.i.i.i.i, %for.body.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.35", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !27
 
@@ -1644,31 +1622,31 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %header_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 2
-  %header_matcher8 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2
+  %header_matcher = getelementptr inbounds i8, ptr %other, i64 8
+  %header_matcher8 = getelementptr inbounds i8, ptr %this, i64 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(114) ptr @_ZN9grpc_core13HeaderMatcheraSEOS0_(ptr noundef nonnull align 8 dereferenceable(114) %header_matcher8, ptr noundef nonnull align 8 dereferenceable(114) %header_matcher) #16
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry, %entry
-  %string_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 3
-  %string_matcher11 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 3
+  %string_matcher = getelementptr inbounds i8, ptr %other, i64 128
+  %string_matcher11 = getelementptr inbounds i8, ptr %this, i64 128
   %call12 = tail call noundef nonnull align 8 dereferenceable(49) ptr @_ZN9grpc_core13StringMatcheraSEOS0_(ptr noundef nonnull align 8 dereferenceable(49) %string_matcher11, ptr noundef nonnull align 8 dereferenceable(49) %string_matcher) #16
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
-  %ip = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 4
-  %ip14 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 4
+  %ip = getelementptr inbounds i8, ptr %other, i64 184
+  %ip14 = getelementptr inbounds i8, ptr %this, i64 184
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ip14, ptr noundef nonnull align 8 dereferenceable(32) %ip) #16
-  %prefix_len.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 4, i32 1
+  %prefix_len.i = getelementptr inbounds i8, ptr %other, i64 216
   %9 = load i32, ptr %prefix_len.i, align 8
-  %prefix_len3.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 4, i32 1
+  %prefix_len3.i = getelementptr inbounds i8, ptr %this, i64 216
   store i32 %9, ptr %prefix_len3.i, align 8
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %port = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %other, i64 0, i32 5
+  %port = getelementptr inbounds i8, ptr %other, i64 224
   %10 = load i32, ptr %port, align 8
-  %port16 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 5
+  %port16 = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %10, ptr %port16, align 8
   br label %sw.epilog
 
@@ -1718,8 +1696,8 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contents, i8 0, i64 24, i1 false)
-  %permissions = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7
-  %_M_finish.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %permissions = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %permissions, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -1737,7 +1715,7 @@ if.then.i:                                        ; preds = %sw.bb
   unreachable
 
 if.end.i:                                         ; preds = %sw.bb
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %contents, i64 16
   %cmp3.i.not = icmp eq ptr %1, %2
   br i1 %cmp3.i.not, label %invoke.cont, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
 
@@ -1747,7 +1725,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
           to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i unwind label %lpad.loopexit.split-lp
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i: ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %contents, i64 8
   store ptr %call5.i.i.i.i8, ptr %contents, align 8
   store ptr %call5.i.i.i.i8, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i8, i64 %sub.ptr.div.i
@@ -1760,7 +1738,7 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i10.not181, label %invoke.cont14, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
-  %_M_finish.i.i11 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents, i64 0, i32 1
+  %_M_finish.i.i11 = getelementptr inbounds i8, ptr %contents, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont11
@@ -1778,7 +1756,7 @@ invoke.cont9:                                     ; preds = %for.body
 if.then.i.i13:                                    ; preds = %invoke.cont9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   %7 = load ptr, ptr %_M_finish.i.i11, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i11, align 8
   br label %invoke.cont11
 
@@ -1788,7 +1766,7 @@ if.else.i.i:                                      ; preds = %invoke.cont9
 
 invoke.cont11:                                    ; preds = %if.then.i.i13, %if.else.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.35", ptr %__begin3.sroa.0.0182, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0182, i64 8
   %cmp.i10.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i10.not, label %invoke.cont14.loopexit, label %for.body
 
@@ -1816,14 +1794,14 @@ invoke.cont14.loopexit:                           ; preds = %invoke.cont11
 invoke.cont14:                                    ; preds = %invoke.cont14.loopexit, %invoke.cont
   %9 = phi ptr [ %.pre185, %invoke.cont14.loopexit ], [ %3, %invoke.cont ]
   %10 = phi ptr [ %.pre184, %invoke.cont14.loopexit ], [ %3, %invoke.cont ]
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %contents, i64 8
   invoke void @_ZN4absl12lts_2023080216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEvEESA_T_SH_St17basic_string_viewIcS8_ENS1_11NoFormatterE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp15, ptr %10, ptr %9, i64 1, ptr nonnull @.str.13)
           to label %invoke.cont16 unwind label %lpad.loopexit.split-lp
 
 invoke.cont16:                                    ; preds = %invoke.cont14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %ref.tmp15, ptr %ref.tmp.i, align 8, !noalias !42
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !42
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.12, i64 8, ptr nonnull %ref.tmp.i, i64 1)
           to label %invoke.cont18 unwind label %lpad17
@@ -1839,7 +1817,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
 for.body.i.i.i.i18:                               ; preds = %invoke.cont18, %for.body.i.i.i.i18
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i19, %for.body.i.i.i.i18 ], [ %11, %invoke.cont18 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #16
-  %incdec.ptr.i.i.i.i19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i20 = icmp eq ptr %incdec.ptr.i.i.i.i19, %12
   br i1 %cmp.not.i.i.i.i20, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i18, !llvm.loop !20
 
@@ -1869,8 +1847,8 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 
 sw.bb19:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contents20, i8 0, i64 24, i1 false)
-  %permissions21 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7
-  %_M_finish.i21 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %permissions21 = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i21 = getelementptr inbounds i8, ptr %this, i64 240
   %15 = load ptr, ptr %_M_finish.i21, align 8
   %16 = load ptr, ptr %permissions21, align 8
   %sub.ptr.lhs.cast.i22 = ptrtoint ptr %15 to i64
@@ -1888,7 +1866,7 @@ if.then.i55:                                      ; preds = %sw.bb19
   unreachable
 
 if.end.i27:                                       ; preds = %sw.bb19
-  %_M_end_of_storage.i.i28 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents20, i64 0, i32 2
+  %_M_end_of_storage.i.i28 = getelementptr inbounds i8, ptr %contents20, i64 16
   %cmp3.i33.not = icmp eq ptr %15, %16
   br i1 %cmp3.i33.not, label %invoke.cont24, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i34
 
@@ -1898,7 +1876,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
           to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i52 unwind label %lpad23.loopexit.split-lp
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i52: ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i34
-  %_M_finish.i.i35 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents20, i64 0, i32 1
+  %_M_finish.i.i35 = getelementptr inbounds i8, ptr %contents20, i64 8
   store ptr %call5.i.i.i.i58, ptr %contents20, align 8
   store ptr %call5.i.i.i.i58, ptr %_M_finish.i.i35, align 8
   %add.ptr21.i54 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i58, i64 %sub.ptr.div.i25
@@ -1911,7 +1889,7 @@ invoke.cont24:                                    ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i61.not179, label %invoke.cont48, label %for.body35.lr.ph
 
 for.body35.lr.ph:                                 ; preds = %invoke.cont24
-  %_M_finish.i.i62 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents20, i64 0, i32 1
+  %_M_finish.i.i62 = getelementptr inbounds i8, ptr %contents20, i64 8
   br label %for.body35
 
 for.body35:                                       ; preds = %for.body35.lr.ph, %invoke.cont42
@@ -1929,7 +1907,7 @@ invoke.cont40:                                    ; preds = %for.body35
 if.then.i.i65:                                    ; preds = %invoke.cont40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #16
   %21 = load ptr, ptr %_M_finish.i.i62, align 8
-  %incdec.ptr.i.i66 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %21, i64 1
+  %incdec.ptr.i.i66 = getelementptr inbounds i8, ptr %21, i64 32
   store ptr %incdec.ptr.i.i66, ptr %_M_finish.i.i62, align 8
   br label %invoke.cont42
 
@@ -1939,7 +1917,7 @@ if.else.i.i67:                                    ; preds = %invoke.cont40
 
 invoke.cont42:                                    ; preds = %if.then.i.i65, %if.else.i.i67
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #16
-  %incdec.ptr.i70 = getelementptr inbounds %"class.std::unique_ptr.35", ptr %__begin327.sroa.0.0180, i64 1
+  %incdec.ptr.i70 = getelementptr inbounds i8, ptr %__begin327.sroa.0.0180, i64 8
   %cmp.i61.not = icmp eq ptr %incdec.ptr.i70, %15
   br i1 %cmp.i61.not, label %invoke.cont48.loopexit, label %for.body35
 
@@ -1967,14 +1945,14 @@ invoke.cont48.loopexit:                           ; preds = %invoke.cont42
 invoke.cont48:                                    ; preds = %invoke.cont48.loopexit, %invoke.cont24
   %23 = phi ptr [ %.pre183, %invoke.cont48.loopexit ], [ %17, %invoke.cont24 ]
   %24 = phi ptr [ %.pre, %invoke.cont48.loopexit ], [ %17, %invoke.cont24 ]
-  %_M_finish.i.i.i.i75 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents20, i64 0, i32 1
+  %_M_finish.i.i.i.i75 = getelementptr inbounds i8, ptr %contents20, i64 8
   invoke void @_ZN4absl12lts_2023080216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEvEESA_T_SH_St17basic_string_viewIcS8_ENS1_11NoFormatterE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp49, ptr %24, ptr %23, i64 1, ptr nonnull @.str.13)
           to label %invoke.cont51 unwind label %lpad23.loopexit.split-lp
 
 invoke.cont51:                                    ; preds = %invoke.cont48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i78)
   store ptr %ref.tmp49, ptr %ref.tmp.i78, align 8, !noalias !50
-  %dispatcher_.i.i.i82 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i78, i64 0, i32 1
+  %dispatcher_.i.i.i82 = getelementptr inbounds i8, ptr %ref.tmp.i78, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i82, align 8, !noalias !50
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.14, i64 7, ptr nonnull %ref.tmp.i78, i64 1)
           to label %invoke.cont53 unwind label %lpad52
@@ -1990,7 +1968,7 @@ invoke.cont53:                                    ; preds = %invoke.cont51
 for.body.i.i.i.i87:                               ; preds = %invoke.cont53, %for.body.i.i.i.i87
   %__first.addr.04.i.i.i.i88 = phi ptr [ %incdec.ptr.i.i.i.i89, %for.body.i.i.i.i87 ], [ %25, %invoke.cont53 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i88) #16
-  %incdec.ptr.i.i.i.i89 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i88, i64 1
+  %incdec.ptr.i.i.i.i89 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i88, i64 32
   %cmp.not.i.i.i.i90 = icmp eq ptr %incdec.ptr.i.i.i.i89, %26
   br i1 %cmp.not.i.i.i.i90, label %invoke.contthread-pre-split.i91, label %for.body.i.i.i.i87, !llvm.loop !20
 
@@ -2019,13 +1997,13 @@ ehcleanup55:                                      ; preds = %lpad23.loopexit, %l
   br label %eh.resume
 
 sw.bb56:                                          ; preds = %entry
-  %permissions59 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 7
+  %permissions59 = getelementptr inbounds i8, ptr %this, i64 232
   %29 = load ptr, ptr %permissions59, align 8
   %30 = load ptr, ptr %29, align 8
   call void @_ZNK9grpc_core4Rbac10Permission8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp58, ptr noundef nonnull align 8 dereferenceable(257) %30)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i99)
   store ptr %ref.tmp58, ptr %ref.tmp.i99, align 8, !noalias !53
-  %dispatcher_.i.i.i103 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i99, i64 0, i32 1
+  %dispatcher_.i.i.i103 = getelementptr inbounds i8, ptr %ref.tmp.i99, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i103, align 8, !noalias !53
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.15, i64 6, ptr nonnull %ref.tmp.i99, i64 1)
           to label %invoke.cont63 unwind label %lpad62
@@ -2075,11 +2053,11 @@ lpad67.body:                                      ; preds = %lpad.i, %lpad67
   br label %eh.resume
 
 sw.bb70:                                          ; preds = %entry
-  %header_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 2
+  %header_matcher = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNK9grpc_core13HeaderMatcher8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp72, ptr noundef nonnull align 8 dereferenceable(114) %header_matcher)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i113)
   store ptr %ref.tmp72, ptr %ref.tmp.i113, align 8, !noalias !56
-  %dispatcher_.i.i.i117 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i113, i64 0, i32 1
+  %dispatcher_.i.i.i117 = getelementptr inbounds i8, ptr %ref.tmp.i113, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i117, align 8, !noalias !56
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.17, i64 9, ptr nonnull %ref.tmp.i113, i64 1)
           to label %invoke.cont74 unwind label %lpad73
@@ -2096,11 +2074,11 @@ lpad73:                                           ; preds = %sw.bb70
   br label %eh.resume
 
 sw.bb76:                                          ; preds = %entry
-  %string_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 3
+  %string_matcher = getelementptr inbounds i8, ptr %this, i64 128
   call void @_ZNK9grpc_core13StringMatcher8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(49) %string_matcher)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i122)
   store ptr %ref.tmp78, ptr %ref.tmp.i122, align 8, !noalias !59
-  %dispatcher_.i.i.i126 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i122, i64 0, i32 1
+  %dispatcher_.i.i.i126 = getelementptr inbounds i8, ptr %ref.tmp.i122, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i126, align 8, !noalias !59
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.18, i64 7, ptr nonnull %ref.tmp.i122, i64 1)
           to label %invoke.cont80 unwind label %lpad79
@@ -2117,24 +2095,24 @@ lpad79:                                           ; preds = %sw.bb76
   br label %eh.resume
 
 sw.bb82:                                          ; preds = %entry
-  %ip = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 4
-  %prefix_len.i = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 4, i32 1
+  %ip = getelementptr inbounds i8, ptr %this, i64 184
+  %prefix_len.i = getelementptr inbounds i8, ptr %this, i64 216
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !62
   store ptr %ip, ptr %ref.tmp.i.i, align 8, !noalias !65
-  %dispatcher_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i, i64 0, i32 1
+  %dispatcher_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i, align 8, !noalias !65
-  %arrayinit.element.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %prefix_len.i, align 8, !noalias !65
   %retval.sroa.0.0.insert.ext.i.i.i.i.i = zext i32 %retval.sroa.0.0.copyload.i.i.i.i.i to i64
   %36 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i to ptr
   store ptr %36, ptr %arrayinit.element.i.i, align 8, !noalias !65
-  %dispatcher_.i.i1.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i, i64 1, i32 1
+  %dispatcher_.i.i1.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i.i, align 8, !noalias !65
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp84, ptr nonnull @.str.11, i64 42, ptr nonnull %ref.tmp.i.i, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !62
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i131)
   store ptr %ref.tmp84, ptr %ref.tmp.i131, align 8, !noalias !68
-  %dispatcher_.i.i.i135 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i131, i64 0, i32 1
+  %dispatcher_.i.i.i135 = getelementptr inbounds i8, ptr %ref.tmp.i131, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i135, align 8, !noalias !68
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.19, i64 10, ptr nonnull %ref.tmp.i131, i64 1)
           to label %invoke.cont86 unwind label %lpad85
@@ -2151,38 +2129,38 @@ lpad85:                                           ; preds = %sw.bb82
   br label %eh.resume
 
 sw.bb88:                                          ; preds = %entry
-  %port = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 5
+  %port = getelementptr inbounds i8, ptr %this, i64 224
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i140)
   %retval.sroa.0.0.copyload.i.i.i.i = load i32, ptr %port, align 8, !noalias !71
   %retval.sroa.0.0.insert.ext.i.i.i.i = zext i32 %retval.sroa.0.0.copyload.i.i.i.i to i64
   %38 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i to ptr
   store ptr %38, ptr %ref.tmp.i140, align 8, !noalias !71
-  %dispatcher_.i.i.i144 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i140, i64 0, i32 1
+  %dispatcher_.i.i.i144 = getelementptr inbounds i8, ptr %ref.tmp.i140, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i144, align 8, !noalias !71
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.20, i64 12, ptr nonnull %ref.tmp.i140, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i140)
   br label %return
 
 sw.bb90:                                          ; preds = %entry
-  %invert = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 8
+  %invert = getelementptr inbounds i8, ptr %this, i64 256
   %39 = load i8, ptr %invert, align 8
   %40 = and i8 %39, 1
   %tobool.not = icmp eq i8 %40, 0
   %cond = select i1 %tobool.not, ptr @.str.23, ptr @.str.22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i147)
   store ptr %cond, ptr %ref.tmp.i147, align 8, !noalias !74
-  %dispatcher_.i.i.i151 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i147, i64 0, i32 1
+  %dispatcher_.i.i.i151 = getelementptr inbounds i8, ptr %ref.tmp.i147, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i151, align 8, !noalias !74
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.21, i64 10, ptr nonnull %ref.tmp.i147, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i147)
   br label %return
 
 sw.bb93:                                          ; preds = %entry
-  %string_matcher96 = getelementptr inbounds %"struct.grpc_core::Rbac::Permission", ptr %this, i64 0, i32 3
+  %string_matcher96 = getelementptr inbounds i8, ptr %this, i64 128
   call void @_ZNK9grpc_core13StringMatcher8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(49) %string_matcher96)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i154)
   store ptr %ref.tmp95, ptr %ref.tmp.i154, align 8, !noalias !77
-  %dispatcher_.i.i.i158 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i154, i64 0, i32 1
+  %dispatcher_.i.i.i158 = getelementptr inbounds i8, ptr %ref.tmp.i154, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i158, align 8, !noalias !77
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.24, i64 24, ptr nonnull %ref.tmp.i154, i64 1)
           to label %invoke.cont98 unwind label %lpad97
@@ -2247,32 +2225,32 @@ declare void @_ZNK9grpc_core13StringMatcher8ToStringB5cxx11Ev(ptr sret(%"class.s
 define void @_ZN9grpc_core4Rbac9Principal16MakeAndPrincipalESt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS6_EE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr nocapture noundef %principals) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EEaSEOS8_.exit:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %principals.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5
-  %0 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 6
+  %principals.i = getelementptr inbounds i8, ptr %agg.result, i64 232
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 256
   store i8 0, ptr %0, align 8
   store i32 0, ptr %agg.result, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 248
   %1 = load <2 x ptr>, ptr %principals, align 8
   store <2 x ptr> %1, ptr %principals.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<grpc_core::Rbac::Principal>, std::allocator<std::unique_ptr<grpc_core::Rbac::Principal>>>::_Vector_impl_data", ptr %principals, i64 0, i32 2
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %principals, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %principals, i8 0, i64 24, i1 false)
@@ -2282,9 +2260,9 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EES
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %principals = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5
+  %principals = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load ptr, ptr %principals, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not.i2 = icmp eq ptr %0, %1
   br i1 %cmp.not.i2, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit, label %for.body.i
@@ -2302,7 +2280,7 @@ _ZNKSt14default_deleteIN9grpc_core4Rbac9PrincipalEEclEPS2_.exit.i.i: ; preds = %
 
 _ZNSt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core4Rbac9PrincipalEEclEPS2_.exit.i.i, %for.body.i
   store ptr null, ptr %__first.addr.0.i3, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.47", ptr %__first.addr.0.i3, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.0.i3, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.not.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit.loopexit, label %for.body.i, !llvm.loop !80
 
@@ -2320,9 +2298,9 @@ if.then.i.i:                                      ; preds = %_ZNSt6vectorISt10un
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit
 
 _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %if.then.i.i
-  %ip = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 4
+  %ip = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip) #16
-  %_M_engaged.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %4 = load i8, ptr %_M_engaged.i.i.i.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i.i.i.i = icmp eq i8 %5, 0
@@ -2330,7 +2308,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_delete
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit
   store i8 0, ptr %_M_engaged.i.i.i.i, align 8
-  %regex_matcher_.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 3
+  %regex_matcher_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %6 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i
@@ -2342,12 +2320,12 @@ _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %if.then
 
 _ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i
   store ptr null, ptr %regex_matcher_.i.i.i.i.i.i, align 8
-  %string_matcher_.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %string_matcher_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i.i.i.i) #16
   br label %_ZNSt8optionalIN9grpc_core13StringMatcherEED2Ev.exit
 
 _ZNSt8optionalIN9grpc_core13StringMatcherEED2Ev.exit: ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EED2Ev.exit, %_ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %7 = load ptr, ptr %regex_matcher_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i, label %_ZN9grpc_core13HeaderMatcherD2Ev.exit, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i
@@ -2358,9 +2336,9 @@ _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i: ; preds = %_ZNSt8optionalI
   br label %_ZN9grpc_core13HeaderMatcherD2Ev.exit
 
 _ZN9grpc_core13HeaderMatcherD2Ev.exit:            ; preds = %_ZNSt8optionalIN9grpc_core13StringMatcherEED2Ev.exit, %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i
-  %header_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2
+  %header_matcher = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher) #16
   ret void
@@ -2370,32 +2348,32 @@ _ZN9grpc_core13HeaderMatcherD2Ev.exit:            ; preds = %_ZNSt8optionalIN9gr
 define void @_ZN9grpc_core4Rbac9Principal15MakeOrPrincipalESt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS6_EE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr nocapture noundef %principals) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EEaSEOS8_.exit:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %principals.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5
-  %0 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 6
+  %principals.i = getelementptr inbounds i8, ptr %agg.result, i64 232
+  %0 = getelementptr inbounds i8, ptr %agg.result, i64 256
   store i8 0, ptr %0, align 8
   store i32 1, ptr %agg.result, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 248
   %1 = load <2 x ptr>, ptr %principals, align 8
   store <2 x ptr> %1, ptr %principals.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<grpc_core::Rbac::Principal>, std::allocator<std::unique_ptr<grpc_core::Rbac::Principal>>>::_Vector_impl_data", ptr %principals, i64 0, i32 2
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %principals, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %principals, i8 0, i64 24, i1 false)
@@ -2407,25 +2385,25 @@ define void @_ZN9grpc_core4Rbac9Principal16MakeNotPrincipalES1_(ptr noalias sret
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.47", align 8
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %principals.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5
+  %principals.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %principals.i, i8 0, i64 25, i1 false)
   store i32 2, ptr %agg.result, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
@@ -2435,9 +2413,9 @@ entry:
 invoke.cont:                                      ; preds = %entry
   tail call void @_ZN9grpc_core4Rbac9PrincipalC1EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %call.i2, ptr noundef nonnull align 8 dereferenceable(257) %principal) #16, !noalias !81
   store ptr %call.i2, ptr %ref.tmp, align 8, !alias.scope !81
-  %_M_finish.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 240
   %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 248
   %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, %1
   %2 = ptrtoint ptr %call.i2 to i64
@@ -2446,7 +2424,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont2.thread:                              ; preds = %invoke.cont
   store i64 %2, ptr %0, align 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.47", ptr %3, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS2_EED2Ev.exit
 
@@ -2496,14 +2474,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %5 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !87, !noalias !84
   store i64 %5, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !84, !noalias !87
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !87, !noalias !84
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.47", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.47", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !89
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i = getelementptr %"class.std::unique_ptr.47", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %invoke.cont2, label %if.then.i20.i
 
@@ -2559,25 +2537,25 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 define void @_ZN9grpc_core4Rbac9Principal16MakeAnyPrincipalEv(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %principals.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5
+  %principals.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %principals.i, i8 0, i64 25, i1 false)
   store i32 3, ptr %agg.result, align 8
   ret void
@@ -2587,32 +2565,32 @@ entry:
 define void @_ZN9grpc_core4Rbac9Principal26MakeAuthenticatedPrincipalESt8optionalINS_13StringMatcherEE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr noundef %string_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %principals.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5
+  %principals.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %principals.i, i8 0, i64 25, i1 false)
   store i32 4, ptr %agg.result, align 8
-  %string_matcher1 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3
+  %string_matcher1 = getelementptr inbounds i8, ptr %agg.result, i64 128
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %1, 0
-  %_M_engaged6.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %string_matcher, i64 0, i32 1
+  %_M_engaged6.i.i.i.i.i = getelementptr inbounds i8, ptr %string_matcher, i64 56
   %2 = load i8, ptr %_M_engaged6.i.i.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool7.not.i.i.i.i.i = icmp eq i8 %3, 0
@@ -2635,7 +2613,7 @@ if.then8.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  %regex_matcher_.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 3
+  %regex_matcher_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 168
   %4 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i
@@ -2647,7 +2625,7 @@ _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.
 
 _ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   store ptr null, ptr %regex_matcher_.i.i.i.i.i.i.i.i, align 8
-  %string_matcher_.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %string_matcher_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i.i.i.i.i.i) #16
   br label %_ZNSt8optionalIN9grpc_core13StringMatcherEEaSEOS2_.exit
 
@@ -2659,31 +2637,31 @@ _ZNSt8optionalIN9grpc_core13StringMatcherEEaSEOS2_.exit: ; preds = %if.then.i.i.
 define void @_ZN9grpc_core4Rbac9Principal21MakeSourceIpPrincipalENS0_9CidrRangeE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr noundef %ip) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %principals.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5
+  %principals.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %principals.i, i8 0, i64 25, i1 false)
   store i32 5, ptr %agg.result, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ip.i, ptr noundef nonnull align 8 dereferenceable(32) %ip) #16
-  %prefix_len.i = getelementptr inbounds %"struct.grpc_core::Rbac::CidrRange", ptr %ip, i64 0, i32 1
+  %prefix_len.i = getelementptr inbounds i8, ptr %ip, i64 32
   %0 = load i32, ptr %prefix_len.i, align 8
-  %prefix_len3.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 4, i32 1
+  %prefix_len3.i = getelementptr inbounds i8, ptr %agg.result, i64 224
   store i32 %0, ptr %prefix_len3.i, align 8
   ret void
 }
@@ -2692,31 +2670,31 @@ entry:
 define void @_ZN9grpc_core4Rbac9Principal27MakeDirectRemoteIpPrincipalENS0_9CidrRangeE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr noundef %ip) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %principals.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5
+  %principals.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %principals.i, i8 0, i64 25, i1 false)
   store i32 6, ptr %agg.result, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ip.i, ptr noundef nonnull align 8 dereferenceable(32) %ip) #16
-  %prefix_len.i = getelementptr inbounds %"struct.grpc_core::Rbac::CidrRange", ptr %ip, i64 0, i32 1
+  %prefix_len.i = getelementptr inbounds i8, ptr %ip, i64 32
   %0 = load i32, ptr %prefix_len.i, align 8
-  %prefix_len3.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 4, i32 1
+  %prefix_len3.i = getelementptr inbounds i8, ptr %agg.result, i64 224
   store i32 %0, ptr %prefix_len3.i, align 8
   ret void
 }
@@ -2725,31 +2703,31 @@ entry:
 define void @_ZN9grpc_core4Rbac9Principal21MakeRemoteIpPrincipalENS0_9CidrRangeE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr noundef %ip) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %principals.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5
+  %principals.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %principals.i, i8 0, i64 25, i1 false)
   store i32 7, ptr %agg.result, align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ip.i, ptr noundef nonnull align 8 dereferenceable(32) %ip) #16
-  %prefix_len.i = getelementptr inbounds %"struct.grpc_core::Rbac::CidrRange", ptr %ip, i64 0, i32 1
+  %prefix_len.i = getelementptr inbounds i8, ptr %ip, i64 32
   %0 = load i32, ptr %prefix_len.i, align 8
-  %prefix_len3.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 4, i32 1
+  %prefix_len3.i = getelementptr inbounds i8, ptr %agg.result, i64 224
   store i32 %0, ptr %prefix_len3.i, align 8
   ret void
 }
@@ -2758,25 +2736,25 @@ entry:
 define void @_ZN9grpc_core4Rbac9Principal19MakeHeaderPrincipalENS_13HeaderMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr noundef %header_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %principals.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5
+  %principals.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %principals.i, i8 0, i64 25, i1 false)
   store i32 8, ptr %agg.result, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(114) ptr @_ZN9grpc_core13HeaderMatcheraSEOS0_(ptr noundef nonnull align 8 dereferenceable(114) %header_matcher.i, ptr noundef nonnull align 8 dereferenceable(114) %header_matcher) #16
@@ -2787,28 +2765,28 @@ entry:
 define void @_ZN9grpc_core4Rbac9Principal17MakePathPrincipalENS_13StringMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr noundef %string_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %principals.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5
+  %principals.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %principals.i, i8 0, i64 25, i1 false)
   store i32 9, ptr %agg.result, align 8
-  %string_matcher1 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3
+  %string_matcher1 = getelementptr inbounds i8, ptr %agg.result, i64 128
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.not.i = icmp eq i8 %1, 0
@@ -2832,28 +2810,28 @@ define void @_ZN9grpc_core4Rbac9Principal21MakeMetadataPrincipalEb(ptr noalias s
 entry:
   %frombool = zext i1 %invert to i8
   store i32 0, ptr %agg.result, align 8
-  %header_matcher.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2
+  %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher.i) #16
-  %type_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 1
+  %type_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 0, ptr %type_.i.i, align 8
-  %matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3
+  %matcher_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   store i32 0, ptr %matcher_.i.i, align 8
-  %string_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i) #16
-  %regex_matcher_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 88
   store ptr null, ptr %regex_matcher_.i.i.i, align 8
-  %case_sensitive_.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 96
   store i8 1, ptr %case_sensitive_.i.i.i, align 8
-  %invert_match_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 2, i32 7
+  %invert_match_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 121
   store i8 0, ptr %invert_match_.i.i, align 1
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 184
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
-  %ip.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 4
+  %ip.i = getelementptr inbounds i8, ptr %agg.result, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip.i) #16
-  %principals.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 5
+  %principals.i = getelementptr inbounds i8, ptr %agg.result, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %principals.i, i8 0, i64 24, i1 false)
   store i32 10, ptr %agg.result, align 8
-  %invert1 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %agg.result, i64 0, i32 6
+  %invert1 = getelementptr inbounds i8, ptr %agg.result, i64 256
   store i8 %frombool, ptr %invert1, align 8
   ret void
 }
@@ -2863,29 +2841,29 @@ define void @_ZN9grpc_core4Rbac9PrincipalC2EOS1_(ptr noundef nonnull align 8 der
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
-  %header_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2
+  %header_matcher = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %header_matcher) #16
-  %type_.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2, i32 1
+  %type_.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %type_.i, align 8
-  %matcher_.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2, i32 3
+  %matcher_.i = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %matcher_.i, align 8
-  %string_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2, i32 3, i32 2
+  %string_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i) #16
-  %regex_matcher_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2, i32 3, i32 3
+  %regex_matcher_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr null, ptr %regex_matcher_.i.i, align 8
-  %case_sensitive_.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2, i32 3, i32 4
+  %case_sensitive_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store i8 1, ptr %case_sensitive_.i.i, align 8
-  %invert_match_.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2, i32 7
+  %invert_match_.i = getelementptr inbounds i8, ptr %this, i64 121
   store i8 0, ptr %invert_match_.i, align 1
-  %string_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %string_matcher = getelementptr inbounds i8, ptr %this, i64 128
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  %ip = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 4
+  %ip = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ip) #16
-  %principals = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5
+  %principals = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %principals, i8 0, i64 24, i1 false)
-  %invert = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 6
-  %invert3 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 6
+  %invert = getelementptr inbounds i8, ptr %this, i64 256
+  %invert3 = getelementptr inbounds i8, ptr %other, i64 256
   %1 = load i8, ptr %invert3, align 8
   %2 = and i8 %1, 1
   store i8 %2, ptr %invert, align 8
@@ -2901,31 +2879,31 @@ entry:
   ]
 
 invoke.cont.i.i.i:                                ; preds = %entry, %entry, %entry
-  %principals5 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 5
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %principals5 = getelementptr inbounds i8, ptr %other, i64 232
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %4 = load ptr, ptr %principals5, align 8
   store ptr %4, ptr %principals, align 8
-  %_M_finish.i2.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %other, i64 240
   %5 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %5, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %other, i64 248
   %6 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %principals5, i8 0, i64 24, i1 false)
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
-  %header_matcher9 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 2
+  %header_matcher9 = getelementptr inbounds i8, ptr %other, i64 8
   %call11 = tail call noundef nonnull align 8 dereferenceable(114) ptr @_ZN9grpc_core13HeaderMatcheraSEOS0_(ptr noundef nonnull align 8 dereferenceable(114) %header_matcher, ptr noundef nonnull align 8 dereferenceable(114) %header_matcher9) #16
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry, %entry
-  %string_matcher13 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 3
+  %string_matcher13 = getelementptr inbounds i8, ptr %other, i64 128
   %7 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %8 = and i8 %7, 1
   %tobool.not.i.i.i.i.i7 = icmp eq i8 %8, 0
-  %_M_engaged6.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged6.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 184
   %9 = load i8, ptr %_M_engaged6.i.i.i.i.i, align 8
   %10 = and i8 %9, 1
   %tobool7.not.i.i.i.i.i = icmp eq i8 %10, 0
@@ -2948,7 +2926,7 @@ if.then8.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  %regex_matcher_.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 3
+  %regex_matcher_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %11 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i
@@ -2960,16 +2938,16 @@ _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.
 
 _ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   store ptr null, ptr %regex_matcher_.i.i.i.i.i.i.i.i, align 8
-  %string_matcher_.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %string_matcher_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i.i.i.i.i.i) #16
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %ip16 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 4
+  %ip16 = getelementptr inbounds i8, ptr %other, i64 192
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ip, ptr noundef nonnull align 8 dereferenceable(32) %ip16) #16
-  %prefix_len.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 4, i32 1
+  %prefix_len.i = getelementptr inbounds i8, ptr %other, i64 224
   %12 = load i32, ptr %prefix_len.i, align 8
-  %prefix_len3.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 4, i32 1
+  %prefix_len3.i = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %12, ptr %prefix_len3.i, align 8
   br label %sw.epilog
 
@@ -2982,10 +2960,10 @@ define noundef nonnull align 8 dereferenceable(257) ptr @_ZN9grpc_core4Rbac9Prin
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
-  %invert = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 6
+  %invert = getelementptr inbounds i8, ptr %other, i64 256
   %1 = load i8, ptr %invert, align 8
   %2 = and i8 %1, 1
-  %invert3 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 6
+  %invert3 = getelementptr inbounds i8, ptr %this, i64 256
   store i8 %2, ptr %invert3, align 8
   switch i32 %0, label %sw.default [
     i32 0, label %sw.bb
@@ -2998,18 +2976,18 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry, %entry
-  %principals = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 5
-  %principals5 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5
+  %principals = getelementptr inbounds i8, ptr %other, i64 232
+  %principals5 = getelementptr inbounds i8, ptr %this, i64 232
   %3 = load ptr, ptr %principals5, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %4 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %5 = load ptr, ptr %principals, align 8
   store ptr %5, ptr %principals5, align 8
-  %_M_finish.i2.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %other, i64 240
   %6 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %6, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %other, i64 248
   %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
   store ptr %7, ptr %_M_end_of_storage.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %3, %4
@@ -3029,7 +3007,7 @@ _ZNKSt14default_deleteIN9grpc_core4Rbac9PrincipalEEclEPS2_.exit.i.i.i.i.i.i: ; p
 
 _ZNSt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS2_EED2Ev.exit.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core4Rbac9PrincipalEEclEPS2_.exit.i.i.i.i.i.i, %for.body.i.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.47", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !80
 
@@ -3042,19 +3020,19 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %entry
-  %header_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 2
-  %header_matcher8 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2
+  %header_matcher = getelementptr inbounds i8, ptr %other, i64 8
+  %header_matcher8 = getelementptr inbounds i8, ptr %this, i64 8
   %call9 = tail call noundef nonnull align 8 dereferenceable(114) ptr @_ZN9grpc_core13HeaderMatcheraSEOS0_(ptr noundef nonnull align 8 dereferenceable(114) %header_matcher8, ptr noundef nonnull align 8 dereferenceable(114) %header_matcher) #16
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry, %entry
-  %string_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 3
-  %string_matcher11 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %string_matcher = getelementptr inbounds i8, ptr %other, i64 128
+  %string_matcher11 = getelementptr inbounds i8, ptr %this, i64 128
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %9 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %10 = and i8 %9, 1
   %tobool.not.i.i.i.i.i6 = icmp eq i8 %10, 0
-  %_M_engaged6.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged6.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 184
   %11 = load i8, ptr %_M_engaged6.i.i.i.i.i, align 8
   %12 = and i8 %11, 1
   %tobool7.not.i.i.i.i.i = icmp eq i8 %12, 0
@@ -3077,7 +3055,7 @@ if.then8.i.i.i.i.i:                               ; preds = %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
-  %regex_matcher_.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 3
+  %regex_matcher_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %13 = load ptr, ptr %regex_matcher_.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i
@@ -3089,17 +3067,17 @@ _ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.
 
 _ZNSt22_Optional_payload_baseIN9grpc_core13StringMatcherEE10_M_destroyEv.exit.i.i.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN3re23RE2EEclEPS1_.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   store ptr null, ptr %regex_matcher_.i.i.i.i.i.i.i.i, align 8
-  %string_matcher_.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %string_matcher_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %string_matcher_.i.i.i.i.i.i.i.i) #16
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
-  %ip = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 4
-  %ip13 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 4
+  %ip = getelementptr inbounds i8, ptr %other, i64 192
+  %ip13 = getelementptr inbounds i8, ptr %this, i64 192
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ip13, ptr noundef nonnull align 8 dereferenceable(32) %ip) #16
-  %prefix_len.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %other, i64 0, i32 4, i32 1
+  %prefix_len.i = getelementptr inbounds i8, ptr %other, i64 224
   %14 = load i32, ptr %prefix_len.i, align 8
-  %prefix_len3.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 4, i32 1
+  %prefix_len3.i = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %14, ptr %prefix_len3.i, align 8
   br label %sw.epilog
 
@@ -3155,8 +3133,8 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contents, i8 0, i64 24, i1 false)
-  %principals = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5
-  %_M_finish.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %principals = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 240
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %principals, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -3174,7 +3152,7 @@ if.then.i:                                        ; preds = %sw.bb
   unreachable
 
 if.end.i:                                         ; preds = %sw.bb
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %contents, i64 16
   %cmp3.i.not = icmp eq ptr %1, %2
   br i1 %cmp3.i.not, label %invoke.cont, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
 
@@ -3184,7 +3162,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
           to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i unwind label %lpad.loopexit.split-lp
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i: ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %contents, i64 8
   store ptr %call5.i.i.i.i8, ptr %contents, align 8
   store ptr %call5.i.i.i.i8, ptr %_M_finish.i.i, align 8
   %add.ptr21.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i8, i64 %sub.ptr.div.i
@@ -3197,7 +3175,7 @@ invoke.cont:                                      ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i10.not206, label %invoke.cont14, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont
-  %_M_finish.i.i11 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents, i64 0, i32 1
+  %_M_finish.i.i11 = getelementptr inbounds i8, ptr %contents, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont11
@@ -3215,7 +3193,7 @@ invoke.cont9:                                     ; preds = %for.body
 if.then.i.i13:                                    ; preds = %invoke.cont9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   %7 = load ptr, ptr %_M_finish.i.i11, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 32
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i11, align 8
   br label %invoke.cont11
 
@@ -3225,7 +3203,7 @@ if.else.i.i:                                      ; preds = %invoke.cont9
 
 invoke.cont11:                                    ; preds = %if.then.i.i13, %if.else.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr.47", ptr %__begin3.sroa.0.0207, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0207, i64 8
   %cmp.i10.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i10.not, label %invoke.cont14.loopexit, label %for.body
 
@@ -3253,14 +3231,14 @@ invoke.cont14.loopexit:                           ; preds = %invoke.cont11
 invoke.cont14:                                    ; preds = %invoke.cont14.loopexit, %invoke.cont
   %9 = phi ptr [ %.pre210, %invoke.cont14.loopexit ], [ %3, %invoke.cont ]
   %10 = phi ptr [ %.pre209, %invoke.cont14.loopexit ], [ %3, %invoke.cont ]
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %contents, i64 8
   invoke void @_ZN4absl12lts_2023080216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEvEESA_T_SH_St17basic_string_viewIcS8_ENS1_11NoFormatterE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp15, ptr %10, ptr %9, i64 1, ptr nonnull @.str.13)
           to label %invoke.cont16 unwind label %lpad.loopexit.split-lp
 
 invoke.cont16:                                    ; preds = %invoke.cont14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %ref.tmp15, ptr %ref.tmp.i, align 8, !noalias !95
-  %dispatcher_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i, i64 0, i32 1
+  %dispatcher_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !95
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.12, i64 8, ptr nonnull %ref.tmp.i, i64 1)
           to label %invoke.cont18 unwind label %lpad17
@@ -3276,7 +3254,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
 for.body.i.i.i.i18:                               ; preds = %invoke.cont18, %for.body.i.i.i.i18
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i19, %for.body.i.i.i.i18 ], [ %11, %invoke.cont18 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #16
-  %incdec.ptr.i.i.i.i19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i19 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i20 = icmp eq ptr %incdec.ptr.i.i.i.i19, %12
   br i1 %cmp.not.i.i.i.i20, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i18, !llvm.loop !20
 
@@ -3306,8 +3284,8 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 
 sw.bb19:                                          ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %contents20, i8 0, i64 24, i1 false)
-  %principals21 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5
-  %_M_finish.i21 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %principals21 = getelementptr inbounds i8, ptr %this, i64 232
+  %_M_finish.i21 = getelementptr inbounds i8, ptr %this, i64 240
   %15 = load ptr, ptr %_M_finish.i21, align 8
   %16 = load ptr, ptr %principals21, align 8
   %sub.ptr.lhs.cast.i22 = ptrtoint ptr %15 to i64
@@ -3325,7 +3303,7 @@ if.then.i55:                                      ; preds = %sw.bb19
   unreachable
 
 if.end.i27:                                       ; preds = %sw.bb19
-  %_M_end_of_storage.i.i28 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents20, i64 0, i32 2
+  %_M_end_of_storage.i.i28 = getelementptr inbounds i8, ptr %contents20, i64 16
   %cmp3.i33.not = icmp eq ptr %15, %16
   br i1 %cmp3.i33.not, label %invoke.cont24, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i34
 
@@ -3335,7 +3313,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
           to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i52 unwind label %lpad23.loopexit.split-lp
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i52: ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i34
-  %_M_finish.i.i35 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents20, i64 0, i32 1
+  %_M_finish.i.i35 = getelementptr inbounds i8, ptr %contents20, i64 8
   store ptr %call5.i.i.i.i58, ptr %contents20, align 8
   store ptr %call5.i.i.i.i58, ptr %_M_finish.i.i35, align 8
   %add.ptr21.i54 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i58, i64 %sub.ptr.div.i25
@@ -3348,7 +3326,7 @@ invoke.cont24:                                    ; preds = %_ZNSt12_Vector_base
   br i1 %cmp.i61.not204, label %invoke.cont48, label %for.body35.lr.ph
 
 for.body35.lr.ph:                                 ; preds = %invoke.cont24
-  %_M_finish.i.i62 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents20, i64 0, i32 1
+  %_M_finish.i.i62 = getelementptr inbounds i8, ptr %contents20, i64 8
   br label %for.body35
 
 for.body35:                                       ; preds = %for.body35.lr.ph, %invoke.cont42
@@ -3366,7 +3344,7 @@ invoke.cont40:                                    ; preds = %for.body35
 if.then.i.i65:                                    ; preds = %invoke.cont40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #16
   %21 = load ptr, ptr %_M_finish.i.i62, align 8
-  %incdec.ptr.i.i66 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %21, i64 1
+  %incdec.ptr.i.i66 = getelementptr inbounds i8, ptr %21, i64 32
   store ptr %incdec.ptr.i.i66, ptr %_M_finish.i.i62, align 8
   br label %invoke.cont42
 
@@ -3376,7 +3354,7 @@ if.else.i.i67:                                    ; preds = %invoke.cont40
 
 invoke.cont42:                                    ; preds = %if.then.i.i65, %if.else.i.i67
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #16
-  %incdec.ptr.i70 = getelementptr inbounds %"class.std::unique_ptr.47", ptr %__begin327.sroa.0.0205, i64 1
+  %incdec.ptr.i70 = getelementptr inbounds i8, ptr %__begin327.sroa.0.0205, i64 8
   %cmp.i61.not = icmp eq ptr %incdec.ptr.i70, %15
   br i1 %cmp.i61.not, label %invoke.cont48.loopexit, label %for.body35
 
@@ -3404,14 +3382,14 @@ invoke.cont48.loopexit:                           ; preds = %invoke.cont42
 invoke.cont48:                                    ; preds = %invoke.cont48.loopexit, %invoke.cont24
   %23 = phi ptr [ %.pre208, %invoke.cont48.loopexit ], [ %17, %invoke.cont24 ]
   %24 = phi ptr [ %.pre, %invoke.cont48.loopexit ], [ %17, %invoke.cont24 ]
-  %_M_finish.i.i.i.i75 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %contents20, i64 0, i32 1
+  %_M_finish.i.i.i.i75 = getelementptr inbounds i8, ptr %contents20, i64 8
   invoke void @_ZN4absl12lts_2023080216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISA_SaISA_EEEEvEESA_T_SH_St17basic_string_viewIcS8_ENS1_11NoFormatterE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp49, ptr %24, ptr %23, i64 1, ptr nonnull @.str.13)
           to label %invoke.cont51 unwind label %lpad23.loopexit.split-lp
 
 invoke.cont51:                                    ; preds = %invoke.cont48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i78)
   store ptr %ref.tmp49, ptr %ref.tmp.i78, align 8, !noalias !103
-  %dispatcher_.i.i.i82 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i78, i64 0, i32 1
+  %dispatcher_.i.i.i82 = getelementptr inbounds i8, ptr %ref.tmp.i78, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i82, align 8, !noalias !103
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.14, i64 7, ptr nonnull %ref.tmp.i78, i64 1)
           to label %invoke.cont53 unwind label %lpad52
@@ -3427,7 +3405,7 @@ invoke.cont53:                                    ; preds = %invoke.cont51
 for.body.i.i.i.i87:                               ; preds = %invoke.cont53, %for.body.i.i.i.i87
   %__first.addr.04.i.i.i.i88 = phi ptr [ %incdec.ptr.i.i.i.i89, %for.body.i.i.i.i87 ], [ %25, %invoke.cont53 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i88) #16
-  %incdec.ptr.i.i.i.i89 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i88, i64 1
+  %incdec.ptr.i.i.i.i89 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i88, i64 32
   %cmp.not.i.i.i.i90 = icmp eq ptr %incdec.ptr.i.i.i.i89, %26
   br i1 %cmp.not.i.i.i.i90, label %invoke.contthread-pre-split.i91, label %for.body.i.i.i.i87, !llvm.loop !20
 
@@ -3456,13 +3434,13 @@ ehcleanup55:                                      ; preds = %lpad23.loopexit, %l
   br label %eh.resume
 
 sw.bb56:                                          ; preds = %entry
-  %principals59 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 5
+  %principals59 = getelementptr inbounds i8, ptr %this, i64 232
   %29 = load ptr, ptr %principals59, align 8
   %30 = load ptr, ptr %29, align 8
   call void @_ZNK9grpc_core4Rbac9Principal8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp58, ptr noundef nonnull align 8 dereferenceable(257) %30)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i99)
   store ptr %ref.tmp58, ptr %ref.tmp.i99, align 8, !noalias !106
-  %dispatcher_.i.i.i103 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i99, i64 0, i32 1
+  %dispatcher_.i.i.i103 = getelementptr inbounds i8, ptr %ref.tmp.i99, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i103, align 8, !noalias !106
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.15, i64 6, ptr nonnull %ref.tmp.i99, i64 1)
           to label %invoke.cont63 unwind label %lpad62
@@ -3512,11 +3490,11 @@ lpad67.body:                                      ; preds = %lpad.i, %lpad67
   br label %eh.resume
 
 sw.bb70:                                          ; preds = %entry
-  %string_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3
+  %string_matcher = getelementptr inbounds i8, ptr %this, i64 128
   call void @_ZNK9grpc_core13StringMatcher8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp72, ptr noundef nonnull align 8 dereferenceable(49) %string_matcher)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i113)
   store ptr %ref.tmp72, ptr %ref.tmp.i113, align 8, !noalias !109
-  %dispatcher_.i.i.i117 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i113, i64 0, i32 1
+  %dispatcher_.i.i.i117 = getelementptr inbounds i8, ptr %ref.tmp.i113, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i117, align 8, !noalias !109
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.25, i64 17, ptr nonnull %ref.tmp.i113, i64 1)
           to label %invoke.cont75 unwind label %lpad74
@@ -3533,24 +3511,24 @@ lpad74:                                           ; preds = %sw.bb70
   br label %eh.resume
 
 sw.bb77:                                          ; preds = %entry
-  %ip = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 4
-  %prefix_len.i = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 4, i32 1
+  %ip = getelementptr inbounds i8, ptr %this, i64 192
+  %prefix_len.i = getelementptr inbounds i8, ptr %this, i64 224
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !112
   store ptr %ip, ptr %ref.tmp.i.i, align 8, !noalias !115
-  %dispatcher_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i, i64 0, i32 1
+  %dispatcher_.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i, align 8, !noalias !115
-  %arrayinit.element.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %prefix_len.i, align 8, !noalias !115
   %retval.sroa.0.0.insert.ext.i.i.i.i.i = zext i32 %retval.sroa.0.0.copyload.i.i.i.i.i to i64
   %35 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i to ptr
   store ptr %35, ptr %arrayinit.element.i.i, align 8, !noalias !115
-  %dispatcher_.i.i1.i.i = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i, i64 1, i32 1
+  %dispatcher_.i.i1.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i.i, align 8, !noalias !115
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp79, ptr nonnull @.str.11, i64 42, ptr nonnull %ref.tmp.i.i, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !112
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i122)
   store ptr %ref.tmp79, ptr %ref.tmp.i122, align 8, !noalias !118
-  %dispatcher_.i.i.i126 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i122, i64 0, i32 1
+  %dispatcher_.i.i.i126 = getelementptr inbounds i8, ptr %ref.tmp.i122, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i126, align 8, !noalias !118
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.26, i64 12, ptr nonnull %ref.tmp.i122, i64 1)
           to label %invoke.cont81 unwind label %lpad80
@@ -3567,24 +3545,24 @@ lpad80:                                           ; preds = %sw.bb77
   br label %eh.resume
 
 sw.bb83:                                          ; preds = %entry
-  %ip86 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 4
-  %prefix_len.i132 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 4, i32 1
+  %ip86 = getelementptr inbounds i8, ptr %this, i64 192
+  %prefix_len.i132 = getelementptr inbounds i8, ptr %this, i64 224
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i131), !noalias !121
   store ptr %ip86, ptr %ref.tmp.i.i131, align 8, !noalias !124
-  %dispatcher_.i.i.i.i133 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i131, i64 0, i32 1
+  %dispatcher_.i.i.i.i133 = getelementptr inbounds i8, ptr %ref.tmp.i.i131, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i133, align 8, !noalias !124
-  %arrayinit.element.i.i134 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i131, i64 1
+  %arrayinit.element.i.i134 = getelementptr inbounds i8, ptr %ref.tmp.i.i131, i64 16
   %retval.sroa.0.0.copyload.i.i.i.i.i135 = load i32, ptr %prefix_len.i132, align 8, !noalias !124
   %retval.sroa.0.0.insert.ext.i.i.i.i.i136 = zext i32 %retval.sroa.0.0.copyload.i.i.i.i.i135 to i64
   %37 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i136 to ptr
   store ptr %37, ptr %arrayinit.element.i.i134, align 8, !noalias !124
-  %dispatcher_.i.i1.i.i137 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i131, i64 1, i32 1
+  %dispatcher_.i.i1.i.i137 = getelementptr inbounds i8, ptr %ref.tmp.i.i131, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i.i137, align 8, !noalias !124
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp85, ptr nonnull @.str.11, i64 42, ptr nonnull %ref.tmp.i.i131, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i131), !noalias !121
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i138)
   store ptr %ref.tmp85, ptr %ref.tmp.i138, align 8, !noalias !127
-  %dispatcher_.i.i.i142 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i138, i64 0, i32 1
+  %dispatcher_.i.i.i142 = getelementptr inbounds i8, ptr %ref.tmp.i138, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i142, align 8, !noalias !127
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.27, i64 19, ptr nonnull %ref.tmp.i138, i64 1)
           to label %invoke.cont88 unwind label %lpad87
@@ -3601,24 +3579,24 @@ lpad87:                                           ; preds = %sw.bb83
   br label %eh.resume
 
 sw.bb90:                                          ; preds = %entry
-  %ip93 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 4
-  %prefix_len.i148 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 4, i32 1
+  %ip93 = getelementptr inbounds i8, ptr %this, i64 192
+  %prefix_len.i148 = getelementptr inbounds i8, ptr %this, i64 224
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i147), !noalias !130
   store ptr %ip93, ptr %ref.tmp.i.i147, align 8, !noalias !133
-  %dispatcher_.i.i.i.i149 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i147, i64 0, i32 1
+  %dispatcher_.i.i.i.i149 = getelementptr inbounds i8, ptr %ref.tmp.i.i147, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i.i149, align 8, !noalias !133
-  %arrayinit.element.i.i150 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i147, i64 1
+  %arrayinit.element.i.i150 = getelementptr inbounds i8, ptr %ref.tmp.i.i147, i64 16
   %retval.sroa.0.0.copyload.i.i.i.i.i151 = load i32, ptr %prefix_len.i148, align 8, !noalias !133
   %retval.sroa.0.0.insert.ext.i.i.i.i.i152 = zext i32 %retval.sroa.0.0.copyload.i.i.i.i.i151 to i64
   %39 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i.i152 to ptr
   store ptr %39, ptr %arrayinit.element.i.i150, align 8, !noalias !133
-  %dispatcher_.i.i1.i.i153 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i.i147, i64 1, i32 1
+  %dispatcher_.i.i1.i.i153 = getelementptr inbounds i8, ptr %ref.tmp.i.i147, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIjEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i1.i.i153, align 8, !noalias !133
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp92, ptr nonnull @.str.11, i64 42, ptr nonnull %ref.tmp.i.i147, i64 2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i147), !noalias !130
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i154)
   store ptr %ref.tmp92, ptr %ref.tmp.i154, align 8, !noalias !136
-  %dispatcher_.i.i.i158 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i154, i64 0, i32 1
+  %dispatcher_.i.i.i158 = getelementptr inbounds i8, ptr %ref.tmp.i154, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i158, align 8, !noalias !136
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.28, i64 12, ptr nonnull %ref.tmp.i154, i64 1)
           to label %invoke.cont95 unwind label %lpad94
@@ -3635,11 +3613,11 @@ lpad94:                                           ; preds = %sw.bb90
   br label %eh.resume
 
 sw.bb97:                                          ; preds = %entry
-  %header_matcher = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 2
+  %header_matcher = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNK9grpc_core13HeaderMatcher8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp99, ptr noundef nonnull align 8 dereferenceable(114) %header_matcher)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i163)
   store ptr %ref.tmp99, ptr %ref.tmp.i163, align 8, !noalias !139
-  %dispatcher_.i.i.i167 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i163, i64 0, i32 1
+  %dispatcher_.i.i.i167 = getelementptr inbounds i8, ptr %ref.tmp.i163, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i167, align 8, !noalias !139
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.17, i64 9, ptr nonnull %ref.tmp.i163, i64 1)
           to label %invoke.cont101 unwind label %lpad100
@@ -3656,11 +3634,11 @@ lpad100:                                          ; preds = %sw.bb97
   br label %eh.resume
 
 sw.bb103:                                         ; preds = %entry
-  %string_matcher106 = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 3
+  %string_matcher106 = getelementptr inbounds i8, ptr %this, i64 128
   call void @_ZNK9grpc_core13StringMatcher8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp105, ptr noundef nonnull align 8 dereferenceable(49) %string_matcher106)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i172)
   store ptr %ref.tmp105, ptr %ref.tmp.i172, align 8, !noalias !142
-  %dispatcher_.i.i.i176 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i172, i64 0, i32 1
+  %dispatcher_.i.i.i176 = getelementptr inbounds i8, ptr %ref.tmp.i172, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i176, align 8, !noalias !142
   invoke void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.18, i64 7, ptr nonnull %ref.tmp.i172, i64 1)
           to label %invoke.cont109 unwind label %lpad108
@@ -3677,14 +3655,14 @@ lpad108:                                          ; preds = %sw.bb103
   br label %eh.resume
 
 sw.bb111:                                         ; preds = %entry
-  %invert = getelementptr inbounds %"struct.grpc_core::Rbac::Principal", ptr %this, i64 0, i32 6
+  %invert = getelementptr inbounds i8, ptr %this, i64 256
   %43 = load i8, ptr %invert, align 8
   %44 = and i8 %43, 1
   %tobool.not = icmp eq i8 %44, 0
   %cond = select i1 %tobool.not, ptr @.str.23, ptr @.str.22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i181)
   store ptr %cond, ptr %ref.tmp.i181, align 8, !noalias !145
-  %dispatcher_.i.i.i185 = getelementptr inbounds %"class.absl::lts_20230802::str_format_internal::FormatArgImpl", ptr %ref.tmp.i181, i64 0, i32 1
+  %dispatcher_.i.i.i185 = getelementptr inbounds i8, ptr %ref.tmp.i181, i64 8
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIPKcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i185, align 8, !noalias !145
   call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str.21, i64 10, ptr nonnull %ref.tmp.i181, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i181)
@@ -3735,7 +3713,7 @@ eh.resume:                                        ; preds = %lpad115.body, %lpad
 define void @_ZN9grpc_core4Rbac6PolicyC2ENS0_10PermissionENS0_9PrincipalE(ptr noundef nonnull align 8 dereferenceable(528) %this, ptr noundef %permissions, ptr noundef %principals) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN9grpc_core4Rbac10PermissionC1EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %this, ptr noundef nonnull align 8 dereferenceable(257) %permissions) #16
-  %principals3 = getelementptr inbounds %"struct.grpc_core::Rbac::Policy", ptr %this, i64 0, i32 1
+  %principals3 = getelementptr inbounds i8, ptr %this, i64 264
   tail call void @_ZN9grpc_core4Rbac9PrincipalC1EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %principals3, ptr noundef nonnull align 8 dereferenceable(257) %principals) #16
   ret void
 }
@@ -3744,8 +3722,8 @@ entry:
 define void @_ZN9grpc_core4Rbac6PolicyC2EOS1_(ptr noundef nonnull align 8 dereferenceable(528) %this, ptr noundef nonnull align 8 dereferenceable(528) %other) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN9grpc_core4Rbac10PermissionC1EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %this, ptr noundef nonnull align 8 dereferenceable(257) %other) #16
-  %principals = getelementptr inbounds %"struct.grpc_core::Rbac::Policy", ptr %this, i64 0, i32 1
-  %principals3 = getelementptr inbounds %"struct.grpc_core::Rbac::Policy", ptr %other, i64 0, i32 1
+  %principals = getelementptr inbounds i8, ptr %this, i64 264
+  %principals3 = getelementptr inbounds i8, ptr %other, i64 264
   tail call void @_ZN9grpc_core4Rbac9PrincipalC1EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %principals, ptr noundef nonnull align 8 dereferenceable(257) %principals3) #16
   ret void
 }
@@ -3754,8 +3732,8 @@ entry:
 define noundef nonnull align 8 dereferenceable(528) ptr @_ZN9grpc_core4Rbac6PolicyaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(528) %this, ptr noundef nonnull align 8 dereferenceable(528) %other) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(257) ptr @_ZN9grpc_core4Rbac10PermissionaSEOS1_(ptr noundef nonnull align 8 dereferenceable(257) %this, ptr noundef nonnull align 8 dereferenceable(257) %other) #16
-  %principals = getelementptr inbounds %"struct.grpc_core::Rbac::Policy", ptr %other, i64 0, i32 1
-  %principals3 = getelementptr inbounds %"struct.grpc_core::Rbac::Policy", ptr %this, i64 0, i32 1
+  %principals = getelementptr inbounds i8, ptr %other, i64 264
+  %principals3 = getelementptr inbounds i8, ptr %this, i64 264
   %call4 = tail call noundef nonnull align 8 dereferenceable(257) ptr @_ZN9grpc_core4Rbac9PrincipalaSEOS1_(ptr noundef nonnull align 8 dereferenceable(257) %principals3, ptr noundef nonnull align 8 dereferenceable(257) %principals) #16
   ret ptr %this
 }
@@ -3779,14 +3757,14 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 3
+  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core4Rbac6PolicyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %__x.addr.05, i64 0, i32 2
+  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1
-  %second.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 32
-  %principals.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %__x.addr.05, i64 0, i32 1, i32 0, i64 296
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
+  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 64
+  %principals.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 328
   tail call void @_ZN9grpc_core4Rbac9PrincipalD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %principals.i.i.i.i.i.i) #16
   tail call void @_ZN9grpc_core4Rbac10PermissionD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %second.i.i.i.i.i) #16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #16
@@ -3920,7 +3898,7 @@ declare noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatA
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -3964,14 +3942,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i) #16
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !149
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
@@ -3980,8 +3958,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorINSt7__
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__cur.07.i.i.i13, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.06.i.i.i14) #16
-  %incdec.ptr.i.i.i15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
+  %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
   br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !149
 
@@ -3995,7 +3973,7 @@ if.then.i20:                                      ; preds = %_ZNSt6vectorINSt7__
   br label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, %if.then.i20
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %cond.i10, i64 %cond.i
@@ -4021,7 +3999,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %start.coerce) #16
-  %incdec.ptr.i27 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %start.coerce, i64 1
+  %incdec.ptr.i27 = getelementptr inbounds i8, ptr %start.coerce, i64 32
   %cmp.i14.not28 = icmp eq ptr %incdec.ptr.i27, %end.coerce
   br i1 %cmp.i14.not28, label %for.end, label %for.body
 
@@ -4031,7 +4009,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %add = add i64 %result_size.029, %s.coerce0
   %call8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i30) #16
   %add9 = add i64 %add, %call8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %incdec.ptr.i30, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr.i30, i64 32
   %cmp.i14.not = icmp eq ptr %incdec.ptr.i, %end.coerce
   br i1 %cmp.i14.not, label %for.end, label %for.body, !llvm.loop !150
 
@@ -4066,7 +4044,7 @@ for.body21:                                       ; preds = %for.body21.preheade
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr25, ptr align 1 %call27, i64 %call28, i1 false)
   %call29 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i1534) #16
   %add.ptr30 = getelementptr inbounds i8, ptr %add.ptr25, i64 %call29
-  %incdec.ptr.i15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %incdec.ptr.i1534, i64 1
+  %incdec.ptr.i15 = getelementptr inbounds i8, ptr %incdec.ptr.i1534, i64 32
   %cmp.i16.not = icmp eq ptr %incdec.ptr.i15, %end.coerce
   br i1 %cmp.i16.not, label %nrvo.skipdtor, label %for.body21, !llvm.loop !151
 

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.evp_cipher_info_st = type { ptr, [16 x i8] }
-%struct.evp_pkey_asn1_method_st = type { i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
 
 @.str = private unnamed_addr constant [23 x i8] c"Enter PEM pass phrase:\00", align 1
 @.str.1 = private unnamed_addr constant [32 x i8] c"../openssl/crypto/pem/pem_lib.c\00", align 1
@@ -356,7 +354,7 @@ if.then14.i:                                      ; preds = %ossl_pem_check_suff
   br i1 %tobool.not.i24, label %check_pem.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then14.i
-  %old_priv_decode.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %call15.i, i64 0, i32 24
+  %old_priv_decode.i = getelementptr inbounds i8, ptr %call15.i, i64 184
   %9 = load ptr, ptr %old_priv_decode.i, align 8
   %tobool16.not.i = icmp eq ptr %9, null
   br i1 %tobool16.not.i, label %check_pem.exit, label %check_pem.exit.thread
@@ -401,7 +399,7 @@ if.then28.i:                                      ; preds = %ossl_pem_check_suff
   br i1 %tobool30.not.i, label %check_pem.exit, label %if.then31.i
 
 if.then31.i:                                      ; preds = %if.then28.i
-  %param_decode.i = getelementptr inbounds %struct.evp_pkey_asn1_method_st, ptr %call29.i, i64 0, i32 15
+  %param_decode.i = getelementptr inbounds i8, ptr %call29.i, i64 112
   %11 = load ptr, ptr %param_decode.i, align 8
   %tobool32.not.i = icmp ne ptr %11, null
   %..i = zext i1 %tobool32.not.i to i32
@@ -1038,7 +1036,7 @@ if.then15:                                        ; preds = %if.end12
 if.end16:                                         ; preds = %if.end12
   %2 = load ptr, ptr %cipher, align 8
   %call18 = call ptr @EVP_md5() #10
-  %iv = getelementptr inbounds %struct.evp_cipher_info_st, ptr %cipher, i64 0, i32 1
+  %iv = getelementptr inbounds i8, ptr %cipher, i64 8
   %call21 = call i32 @EVP_BytesToKey(ptr noundef %2, ptr noundef %call18, ptr noundef nonnull %iv, ptr noundef nonnull %buf, i32 noundef %keylen.0, i32 noundef 1, ptr noundef nonnull %key, ptr noundef null) #10
   %tobool.not = icmp eq i32 %call21, 0
   br i1 %tobool.not, label %return, label %if.end23
@@ -1104,7 +1102,7 @@ declare i32 @EVP_DecryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_un
 define i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %header, ptr nocapture noundef %cipher) local_unnamed_addr #0 {
 entry:
   %header.addr = alloca ptr, align 8
-  %iv = getelementptr inbounds %struct.evp_cipher_info_st, ptr %cipher, i64 0, i32 1
+  %iv = getelementptr inbounds i8, ptr %cipher, i64 8
   %cmp = icmp eq ptr %header, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %cipher, i8 0, i64 24, i1 false)
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1724,7 +1722,7 @@ if.then27:                                        ; preds = %if.end23
 if.end28:                                         ; preds = %if.end23
   call void @EVP_DecodeInit(ptr noundef nonnull %call24) #10
   %6 = load ptr, ptr %buf_mem, align 8
-  %data29 = getelementptr inbounds %struct.buf_mem_st, ptr %6, i64 0, i32 1
+  %data29 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %data29, align 8
   %call31 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %call24, ptr noundef %7, ptr noundef nonnull %len, ptr noundef %7, i32 noundef %conv) #10
   %cmp32 = icmp slt i32 %call31, 0
@@ -1732,7 +1730,7 @@ if.end28:                                         ; preds = %if.end23
 
 lor.lhs.false34:                                  ; preds = %if.end28
   %8 = load ptr, ptr %buf_mem, align 8
-  %data35 = getelementptr inbounds %struct.buf_mem_st, ptr %8, i64 0, i32 1
+  %data35 = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %data35, align 8
   %10 = load i32, ptr %len, align 4
   %idxprom = sext i32 %10 to i64

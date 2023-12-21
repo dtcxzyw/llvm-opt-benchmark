@@ -147,7 +147,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
   br label %release.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread4.i.i.i.i.i.i.i, %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread.i.i.i.i.i.i.i
-  %tv_nsec.i.i.i.i.i.i.i.i.i = getelementptr inbounds %struct.timespec, ptr %ts.i.i.i.i.i.i.i.i.i, i64 0, i32 1
+  %tv_nsec.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ts.i.i.i.i.i.i.i.i.i, i64 8
   br label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
@@ -398,7 +398,7 @@ ehcleanup10:                                      ; preds = %ehcleanup, %lpad
 if.end:                                           ; preds = %entry
   %5 = load i64, ptr %t, align 8
   %mul = mul nsw i64 %5, 1000000000
-  %tv_nsec = getelementptr inbounds %struct.timespec, ptr %t, i64 0, i32 1
+  %tv_nsec = getelementptr inbounds i8, ptr %t, i64 8
   %6 = load i64, ptr %tv_nsec, align 8
   %add = add nsw i64 %mul, %6
   ret i64 %add

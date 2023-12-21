@@ -5,9 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.prov_cipher_ctx_st = type { [16 x i8], [16 x i8], [16 x i8], ptr, %union.anon, i32, i64, i64, i64, i64, i32, i8, i32, ptr, i32, i64, i32, i64, i32, ptr, ptr, ptr }
-%union.anon = type { ptr }
-%struct.prov_cipher_hw_st = type { ptr, ptr, ptr }
 
 @ossl_aes256ecb_functions = local_unnamed_addr constant [15 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @aes_256_ecb_newctx }, %struct.ossl_dispatch_st { i32 7, ptr @aes_freectx }, %struct.ossl_dispatch_st { i32 8, ptr @aes_dupctx }, %struct.ossl_dispatch_st { i32 2, ptr @ossl_cipher_generic_einit }, %struct.ossl_dispatch_st { i32 3, ptr @ossl_cipher_generic_dinit }, %struct.ossl_dispatch_st { i32 4, ptr @ossl_cipher_generic_block_update }, %struct.ossl_dispatch_st { i32 5, ptr @ossl_cipher_generic_block_final }, %struct.ossl_dispatch_st { i32 6, ptr @ossl_cipher_generic_cipher }, %struct.ossl_dispatch_st { i32 9, ptr @aes_256_ecb_get_params }, %struct.ossl_dispatch_st { i32 10, ptr @ossl_cipher_generic_get_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @ossl_cipher_generic_set_ctx_params }, %struct.ossl_dispatch_st { i32 12, ptr @ossl_cipher_generic_gettable_params }, %struct.ossl_dispatch_st { i32 13, ptr @ossl_cipher_generic_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 14, ptr @ossl_cipher_generic_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @ossl_aes192ecb_functions = local_unnamed_addr constant [15 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @aes_192_ecb_newctx }, %struct.ossl_dispatch_st { i32 7, ptr @aes_freectx }, %struct.ossl_dispatch_st { i32 8, ptr @aes_dupctx }, %struct.ossl_dispatch_st { i32 2, ptr @ossl_cipher_generic_einit }, %struct.ossl_dispatch_st { i32 3, ptr @ossl_cipher_generic_dinit }, %struct.ossl_dispatch_st { i32 4, ptr @ossl_cipher_generic_block_update }, %struct.ossl_dispatch_st { i32 5, ptr @ossl_cipher_generic_block_final }, %struct.ossl_dispatch_st { i32 6, ptr @ossl_cipher_generic_cipher }, %struct.ossl_dispatch_st { i32 9, ptr @aes_192_ecb_get_params }, %struct.ossl_dispatch_st { i32 10, ptr @ossl_cipher_generic_get_ctx_params }, %struct.ossl_dispatch_st { i32 11, ptr @ossl_cipher_generic_set_ctx_params }, %struct.ossl_dispatch_st { i32 12, ptr @ossl_cipher_generic_gettable_params }, %struct.ossl_dispatch_st { i32 13, ptr @ossl_cipher_generic_gettable_ctx_params }, %struct.ossl_dispatch_st { i32 14, ptr @ossl_cipher_generic_settable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -90,9 +87,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %hw = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 19
+  %hw = getelementptr inbounds i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %hw, align 8
-  %copyctx = getelementptr inbounds %struct.prov_cipher_hw_st, ptr %0, i64 0, i32 2
+  %copyctx = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %copyctx, align 8
   tail call void %1(ptr noundef nonnull %call1, ptr noundef %ctx) #3
   br label %return
@@ -726,20 +723,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %if.end7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   %cmp1.not.i = icmp eq i32 %0, 4
   br i1 %cmp1.not.i, label %if.end.i, label %err.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %data.i, align 8
   %call3.i = tail call i32 @ossl_cipher_cbc_cts_mode_name2id(ptr noundef %1) #3
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %err.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %cts_mode.i = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 10
+  %cts_mode.i = getelementptr inbounds i8, ptr %ctx, i64 104
   store i32 %call3.i, ptr %cts_mode.i, align 8
   br label %if.end7.i
 
@@ -771,20 +768,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %if.end7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   %cmp1.not.i = icmp eq i32 %0, 4
   br i1 %cmp1.not.i, label %if.end.i, label %err.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %1 = load ptr, ptr %data.i, align 8
   %call3.i = tail call i32 @ossl_cipher_cbc_cts_mode_name2id(ptr noundef %1) #3
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %err.i, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %cts_mode.i = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %ctx, i64 0, i32 10
+  %cts_mode.i = getelementptr inbounds i8, ptr %ctx, i64 104
   store i32 %call3.i, ptr %cts_mode.i, align 8
   br label %if.end7.i
 
@@ -822,7 +819,7 @@ entry:
   br i1 %cmp.not, label %if.end5, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cts_mode = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 10
+  %cts_mode = getelementptr inbounds i8, ptr %vctx, i64 104
   %0 = load i32, ptr %cts_mode, align 8
   %call1 = tail call ptr @ossl_cipher_cbc_cts_mode_id2name(i32 noundef %0) #3
   %cmp2 = icmp eq ptr %call1, null
@@ -856,20 +853,20 @@ entry:
   br i1 %cmp.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp1.not = icmp eq i32 %0, 4
   br i1 %cmp1.not, label %if.end, label %err
 
 if.end:                                           ; preds = %if.then
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %data, align 8
   %call3 = tail call i32 @ossl_cipher_cbc_cts_mode_name2id(ptr noundef %1) #3
   %cmp4 = icmp slt i32 %call3, 0
   br i1 %cmp4, label %err, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %cts_mode = getelementptr inbounds %struct.prov_cipher_ctx_st, ptr %vctx, i64 0, i32 10
+  %cts_mode = getelementptr inbounds i8, ptr %vctx, i64 104
   store i32 %call3, ptr %cts_mode, align 8
   br label %if.end7
 

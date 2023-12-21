@@ -3,14 +3,7 @@ source_filename = "bench/bullet3/original/btPolyhedralContactClipping.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.btAlignedObjectArray = type <{ %class.btAlignedAllocator, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator = type { i8 }
 %class.btVector3 = type { [4 x float] }
-%class.btConvexPolyhedron = type <{ ptr, %class.btAlignedObjectArray, %class.btAlignedObjectArray.0, %class.btAlignedObjectArray, %class.btVector3, %class.btVector3, float, %class.btVector3, %class.btVector3, [4 x i8] }>
-%class.btAlignedObjectArray.0 = type <{ %class.btAlignedAllocator.1, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedAllocator.1 = type { i8 }
-%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
 %struct.btFace = type { %class.btAlignedObjectArray.4, [4 x float] }
 %class.btAlignedObjectArray.4 = type <{ %class.btAlignedAllocator.5, [3 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btAlignedAllocator.5 = type { i8 }
@@ -26,14 +19,14 @@ $_Z23btSegmentsClosestPointsR9btVector3S0_S0_RfS1_RKS_S3_fS3_f = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN27btPolyhedralContactClipping8clipFaceERK20btAlignedObjectArrayI9btVector3ERS2_RKS1_f(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %pVtxIn, ptr nocapture noundef nonnull align 8 dereferenceable(25) %ppVtxOut, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %planeNormalWS, float noundef %planeEqWS) local_unnamed_addr #0 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %pVtxIn, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %pVtxIn, i64 4
   %0 = load i32, ptr %m_size.i, align 4
   %cmp = icmp slt i32 %0, 2
   br i1 %cmp, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
   %sub = add nsw i32 %0, -1
-  %m_data.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %pVtxIn, i64 0, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %pVtxIn, i64 16
   %1 = load ptr, ptr %m_data.i, align 8
   %idxprom.i = zext nneg i32 %sub to i64
   %arrayidx.i = getelementptr inbounds %class.btVector3, ptr %1, i64 %idxprom.i
@@ -41,20 +34,20 @@ if.end:                                           ; preds = %entry
   %firstVertex.sroa.9.0.arrayidx.i.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %firstVertex.sroa.9.0.copyload = load float, ptr %firstVertex.sroa.9.0.arrayidx.i.sroa_idx, align 4
   %3 = load float, ptr %planeNormalWS, align 4
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %planeNormalWS, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %planeNormalWS, i64 4
   %4 = load float, ptr %arrayidx5.i, align 4
   %5 = extractelement <2 x float> %2, i64 1
   %mul8.i = fmul float %5, %4
   %6 = extractelement <2 x float> %2, i64 0
   %7 = tail call float @llvm.fmuladd.f32(float %3, float %6, float %mul8.i)
-  %arrayidx10.i = getelementptr inbounds [4 x float], ptr %planeNormalWS, i64 0, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %planeNormalWS, i64 8
   %8 = load float, ptr %arrayidx10.i, align 4
   %9 = tail call noundef float @llvm.fmuladd.f32(float %8, float %firstVertex.sroa.9.0.copyload, float %7)
   %add = fadd float %9, %planeEqWS
-  %m_size.i.i89 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ppVtxOut, i64 0, i32 2
-  %m_capacity.i.i90 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ppVtxOut, i64 0, i32 3
-  %m_data.i.i.i122 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ppVtxOut, i64 0, i32 5
-  %m_ownsMemory.i.i.i115 = getelementptr inbounds %class.btAlignedObjectArray, ptr %ppVtxOut, i64 0, i32 6
+  %m_size.i.i89 = getelementptr inbounds i8, ptr %ppVtxOut, i64 4
+  %m_capacity.i.i90 = getelementptr inbounds i8, ptr %ppVtxOut, i64 8
+  %m_data.i.i.i122 = getelementptr inbounds i8, ptr %ppVtxOut, i64 16
+  %m_ownsMemory.i.i.i115 = getelementptr inbounds i8, ptr %ppVtxOut, i64 24
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
 
@@ -427,20 +420,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_Z24InverseTransformPoint3x3R9btVector3RKS_RK11btTransform(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %in, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %tr) local_unnamed_addr #2 {
 entry:
-  %arrayidx.i = getelementptr inbounds [3 x %class.btVector3], ptr %tr, i64 0, i64 1
-  %arrayidx.i17 = getelementptr inbounds [3 x %class.btVector3], ptr %tr, i64 0, i64 2
+  %arrayidx.i = getelementptr inbounds i8, ptr %tr, i64 16
+  %arrayidx.i17 = getelementptr inbounds i8, ptr %tr, i64 32
   %0 = load float, ptr %in, align 4
-  %arrayidx.i18 = getelementptr inbounds [4 x float], ptr %in, i64 0, i64 1
+  %arrayidx.i18 = getelementptr inbounds i8, ptr %in, i64 4
   %1 = load float, ptr %arrayidx.i18, align 4
-  %arrayidx.i19 = getelementptr inbounds [4 x float], ptr %in, i64 0, i64 2
+  %arrayidx.i19 = getelementptr inbounds i8, ptr %in, i64 8
   %2 = load float, ptr %arrayidx.i19, align 4
-  %arrayidx.i25 = getelementptr inbounds [4 x float], ptr %tr, i64 0, i64 2
+  %arrayidx.i25 = getelementptr inbounds i8, ptr %tr, i64 8
   %3 = load float, ptr %arrayidx.i25, align 4
-  %arrayidx.i26 = getelementptr inbounds [3 x %class.btVector3], ptr %tr, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i26 = getelementptr inbounds i8, ptr %tr, i64 24
   %4 = load float, ptr %arrayidx.i26, align 4
   %mul22 = fmul float %1, %4
   %5 = tail call float @llvm.fmuladd.f32(float %3, float %0, float %mul22)
-  %arrayidx.i28 = getelementptr inbounds [3 x %class.btVector3], ptr %tr, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i28 = getelementptr inbounds i8, ptr %tr, i64 40
   %6 = load float, ptr %arrayidx.i28, align 4
   %7 = tail call float @llvm.fmuladd.f32(float %6, float %2, float %5)
   %8 = load <2 x float>, ptr %tr, align 4
@@ -456,9 +449,9 @@ entry:
   %18 = shufflevector <2 x float> %17, <2 x float> poison, <2 x i32> zeroinitializer
   %19 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %16, <2 x float> %18, <2 x float> %15)
   store <2 x float> %19, ptr %out, align 4
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %out, i64 0, i64 2
+  %arrayidx5.i = getelementptr inbounds i8, ptr %out, i64 8
   store float %7, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %out, i64 0, i64 3
+  %arrayidx7.i = getelementptr inbounds i8, ptr %out, i64 12
   store float 0.000000e+00, ptr %arrayidx7.i, align 4
   ret void
 }
@@ -471,79 +464,79 @@ define dso_local noundef zeroext i1 @_Z19TestInternalObjectsRK11btTransformS1_RK
 entry:
   %0 = load float, ptr %delta_c, align 4
   %1 = load float, ptr %axis, align 4
-  %arrayidx5.i = getelementptr inbounds [4 x float], ptr %delta_c, i64 0, i64 1
+  %arrayidx5.i = getelementptr inbounds i8, ptr %delta_c, i64 4
   %2 = load float, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds [4 x float], ptr %axis, i64 0, i64 1
+  %arrayidx7.i = getelementptr inbounds i8, ptr %axis, i64 4
   %3 = load float, ptr %arrayidx7.i, align 4
   %mul8.i = fmul float %2, %3
   %4 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %mul8.i)
-  %arrayidx10.i = getelementptr inbounds [4 x float], ptr %delta_c, i64 0, i64 2
+  %arrayidx10.i = getelementptr inbounds i8, ptr %delta_c, i64 8
   %5 = load float, ptr %arrayidx10.i, align 4
-  %arrayidx12.i = getelementptr inbounds [4 x float], ptr %axis, i64 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %axis, i64 8
   %6 = load float, ptr %arrayidx12.i, align 4
   %7 = tail call noundef float @llvm.fmuladd.f32(float %5, float %6, float %4)
-  %arrayidx.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %trans0, i64 0, i64 1
-  %arrayidx.i17.i = getelementptr inbounds [3 x %class.btVector3], ptr %trans0, i64 0, i64 2
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %trans0, i64 16
+  %arrayidx.i17.i = getelementptr inbounds i8, ptr %trans0, i64 32
   %8 = load <4 x float>, ptr %trans0, align 4
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %10 = load <4 x float>, ptr %arrayidx.i.i, align 4
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %12 = load <4 x float>, ptr %arrayidx.i17.i, align 4
   %13 = shufflevector <4 x float> %12, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i20.i = getelementptr inbounds [4 x float], ptr %trans0, i64 0, i64 1
+  %arrayidx.i20.i = getelementptr inbounds i8, ptr %trans0, i64 4
   %14 = load <4 x float>, ptr %arrayidx.i20.i, align 4
   %15 = shufflevector <4 x float> %14, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i21.i = getelementptr inbounds [3 x %class.btVector3], ptr %trans0, i64 0, i64 1, i32 0, i64 1
+  %arrayidx.i21.i = getelementptr inbounds i8, ptr %trans0, i64 20
   %16 = load <4 x float>, ptr %arrayidx.i21.i, align 4
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i23.i = getelementptr inbounds [3 x %class.btVector3], ptr %trans0, i64 0, i64 2, i32 0, i64 1
+  %arrayidx.i23.i = getelementptr inbounds i8, ptr %trans0, i64 36
   %18 = load <4 x float>, ptr %arrayidx.i23.i, align 4
   %19 = shufflevector <4 x float> %18, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i25.i = getelementptr inbounds [4 x float], ptr %trans0, i64 0, i64 2
+  %arrayidx.i25.i = getelementptr inbounds i8, ptr %trans0, i64 8
   %20 = load <4 x float>, ptr %arrayidx.i25.i, align 4
   %21 = shufflevector <4 x float> %20, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i26.i = getelementptr inbounds [3 x %class.btVector3], ptr %trans0, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i26.i = getelementptr inbounds i8, ptr %trans0, i64 24
   %22 = load <4 x float>, ptr %arrayidx.i26.i, align 4
   %23 = shufflevector <4 x float> %22, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i28.i = getelementptr inbounds [3 x %class.btVector3], ptr %trans0, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i28.i = getelementptr inbounds i8, ptr %trans0, i64 40
   %24 = load <4 x float>, ptr %arrayidx.i28.i, align 4
   %25 = shufflevector <4 x float> %24, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx.i.i17 = getelementptr inbounds [3 x %class.btVector3], ptr %trans1, i64 0, i64 1
-  %arrayidx.i17.i18 = getelementptr inbounds [3 x %class.btVector3], ptr %trans1, i64 0, i64 2
+  %arrayidx.i.i17 = getelementptr inbounds i8, ptr %trans1, i64 16
+  %arrayidx.i17.i18 = getelementptr inbounds i8, ptr %trans1, i64 32
   %26 = load float, ptr %trans1, align 4
   %27 = load float, ptr %arrayidx.i.i17, align 4
   %28 = load float, ptr %arrayidx.i17.i18, align 4
-  %arrayidx.i20.i22 = getelementptr inbounds [4 x float], ptr %trans1, i64 0, i64 1
+  %arrayidx.i20.i22 = getelementptr inbounds i8, ptr %trans1, i64 4
   %29 = load float, ptr %arrayidx.i20.i22, align 4
-  %arrayidx.i21.i23 = getelementptr inbounds [3 x %class.btVector3], ptr %trans1, i64 0, i64 1, i32 0, i64 1
+  %arrayidx.i21.i23 = getelementptr inbounds i8, ptr %trans1, i64 20
   %30 = load float, ptr %arrayidx.i21.i23, align 4
-  %arrayidx.i23.i25 = getelementptr inbounds [3 x %class.btVector3], ptr %trans1, i64 0, i64 2, i32 0, i64 1
+  %arrayidx.i23.i25 = getelementptr inbounds i8, ptr %trans1, i64 36
   %31 = load float, ptr %arrayidx.i23.i25, align 4
-  %arrayidx.i25.i26 = getelementptr inbounds [4 x float], ptr %trans1, i64 0, i64 2
+  %arrayidx.i25.i26 = getelementptr inbounds i8, ptr %trans1, i64 8
   %32 = load float, ptr %arrayidx.i25.i26, align 4
-  %arrayidx.i26.i27 = getelementptr inbounds [3 x %class.btVector3], ptr %trans1, i64 0, i64 1, i32 0, i64 2
+  %arrayidx.i26.i27 = getelementptr inbounds i8, ptr %trans1, i64 24
   %33 = load float, ptr %arrayidx.i26.i27, align 4
-  %arrayidx.i28.i29 = getelementptr inbounds [3 x %class.btVector3], ptr %trans1, i64 0, i64 2, i32 0, i64 2
+  %arrayidx.i28.i29 = getelementptr inbounds i8, ptr %trans1, i64 40
   %34 = load float, ptr %arrayidx.i28.i29, align 4
-  %m_extents = getelementptr inbounds %class.btConvexPolyhedron, ptr %convex0, i64 0, i32 5
+  %m_extents = getelementptr inbounds i8, ptr %convex0, i64 120
   %35 = load <4 x float>, ptr %m_extents, align 8
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx7.i33 = getelementptr inbounds %class.btConvexPolyhedron, ptr %convex0, i64 0, i32 5, i32 0, i64 1
+  %arrayidx7.i33 = getelementptr inbounds i8, ptr %convex0, i64 124
   %37 = load <4 x float>, ptr %arrayidx7.i33, align 4
   %38 = shufflevector <4 x float> %37, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx17.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %convex0, i64 0, i32 5, i32 0, i64 2
+  %arrayidx17.i = getelementptr inbounds i8, ptr %convex0, i64 128
   %39 = load <4 x float>, ptr %arrayidx17.i, align 8
   %40 = shufflevector <4 x float> %39, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %m_extents3 = getelementptr inbounds %class.btConvexPolyhedron, ptr %convex1, i64 0, i32 5
+  %m_extents3 = getelementptr inbounds i8, ptr %convex1, i64 120
   %41 = load float, ptr %m_extents3, align 8
-  %arrayidx7.i39 = getelementptr inbounds %class.btConvexPolyhedron, ptr %convex1, i64 0, i32 5, i32 0, i64 1
+  %arrayidx7.i39 = getelementptr inbounds i8, ptr %convex1, i64 124
   %42 = load float, ptr %arrayidx7.i39, align 4
-  %arrayidx17.i45 = getelementptr inbounds %class.btConvexPolyhedron, ptr %convex1, i64 0, i32 5, i32 0, i64 2
+  %arrayidx17.i45 = getelementptr inbounds i8, ptr %convex1, i64 128
   %43 = load float, ptr %arrayidx17.i45, align 8
-  %m_radius = getelementptr inbounds %class.btConvexPolyhedron, ptr %convex0, i64 0, i32 6
+  %m_radius = getelementptr inbounds i8, ptr %convex0, i64 136
   %44 = load <4 x float>, ptr %m_radius, align 8
   %45 = shufflevector <4 x float> %44, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %m_radius21 = getelementptr inbounds %class.btConvexPolyhedron, ptr %convex1, i64 0, i32 6
+  %m_radius21 = getelementptr inbounds i8, ptr %convex1, i64 136
   %46 = load float, ptr %m_radius21, align 8
   %47 = insertelement <2 x float> poison, float %3, i64 0
   %48 = shufflevector <2 x float> %47, <2 x float> poison, <2 x i32> zeroinitializer
@@ -640,107 +633,107 @@ entry:
   %0 = load i32, ptr @_ZL19gActualSATPairTests, align 4
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr @_ZL19gActualSATPairTests, align 4
-  %m_localCenter = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 4
-  %arrayidx.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 1
-  %arrayidx.i1.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 2
+  %m_localCenter = getelementptr inbounds i8, ptr %hullA, i64 104
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %transA, i64 16
+  %arrayidx.i1.i.i = getelementptr inbounds i8, ptr %transA, i64 32
   %1 = load float, ptr %m_localCenter, align 8
   %2 = load float, ptr %transA, align 4
-  %arrayidx5.i.i.i.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 4, i32 0, i64 1
+  %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %hullA, i64 108
   %3 = load float, ptr %arrayidx5.i.i.i.i, align 4
-  %arrayidx7.i.i.i.i = getelementptr inbounds [4 x float], ptr %transA, i64 0, i64 1
+  %arrayidx7.i.i.i.i = getelementptr inbounds i8, ptr %transA, i64 4
   %4 = load float, ptr %arrayidx7.i.i.i.i, align 4
   %mul8.i.i.i.i = fmul float %3, %4
   %5 = tail call float @llvm.fmuladd.f32(float %1, float %2, float %mul8.i.i.i.i)
-  %arrayidx10.i.i.i.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 4, i32 0, i64 2
+  %arrayidx10.i.i.i.i = getelementptr inbounds i8, ptr %hullA, i64 112
   %6 = load float, ptr %arrayidx10.i.i.i.i, align 8
-  %arrayidx12.i.i.i.i = getelementptr inbounds [4 x float], ptr %transA, i64 0, i64 2
+  %arrayidx12.i.i.i.i = getelementptr inbounds i8, ptr %transA, i64 8
   %7 = load float, ptr %arrayidx12.i.i.i.i, align 4
   %8 = tail call noundef float @llvm.fmuladd.f32(float %6, float %7, float %5)
   %9 = load float, ptr %arrayidx.i.i.i, align 4
-  %arrayidx7.i2.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 1, i32 0, i64 1
+  %arrayidx7.i2.i.i.i = getelementptr inbounds i8, ptr %transA, i64 20
   %10 = load float, ptr %arrayidx7.i2.i.i.i, align 4
   %mul8.i3.i.i.i = fmul float %3, %10
   %11 = tail call float @llvm.fmuladd.f32(float %1, float %9, float %mul8.i3.i.i.i)
-  %arrayidx12.i5.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 1, i32 0, i64 2
+  %arrayidx12.i5.i.i.i = getelementptr inbounds i8, ptr %transA, i64 24
   %12 = load float, ptr %arrayidx12.i5.i.i.i, align 4
   %13 = tail call noundef float @llvm.fmuladd.f32(float %6, float %12, float %11)
   %14 = load float, ptr %arrayidx.i1.i.i, align 4
-  %arrayidx7.i7.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 2, i32 0, i64 1
+  %arrayidx7.i7.i.i.i = getelementptr inbounds i8, ptr %transA, i64 36
   %15 = load float, ptr %arrayidx7.i7.i.i.i, align 4
   %mul8.i8.i.i.i = fmul float %3, %15
   %16 = tail call float @llvm.fmuladd.f32(float %1, float %14, float %mul8.i8.i.i.i)
-  %arrayidx12.i10.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 2, i32 0, i64 2
+  %arrayidx12.i10.i.i.i = getelementptr inbounds i8, ptr %transA, i64 40
   %17 = load float, ptr %arrayidx12.i10.i.i.i, align 4
   %18 = tail call noundef float @llvm.fmuladd.f32(float %6, float %17, float %16)
-  %m_origin.i.i = getelementptr inbounds %class.btTransform, ptr %transA, i64 0, i32 1
+  %m_origin.i.i = getelementptr inbounds i8, ptr %transA, i64 48
   %19 = load float, ptr %m_origin.i.i, align 4
   %add.i.i.i = fadd float %8, %19
-  %arrayidx7.i.i.i = getelementptr inbounds %class.btTransform, ptr %transA, i64 0, i32 1, i32 0, i64 1
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %transA, i64 52
   %20 = load float, ptr %arrayidx7.i.i.i, align 4
   %add8.i.i.i = fadd float %13, %20
-  %arrayidx13.i.i.i = getelementptr inbounds %class.btTransform, ptr %transA, i64 0, i32 1, i32 0, i64 2
+  %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %transA, i64 56
   %21 = load float, ptr %arrayidx13.i.i.i, align 4
   %add14.i.i.i = fadd float %18, %21
-  %m_localCenter1 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 4
-  %arrayidx.i.i.i70 = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 1
-  %arrayidx.i1.i.i71 = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 2
+  %m_localCenter1 = getelementptr inbounds i8, ptr %hullB, i64 104
+  %arrayidx.i.i.i70 = getelementptr inbounds i8, ptr %transB, i64 16
+  %arrayidx.i1.i.i71 = getelementptr inbounds i8, ptr %transB, i64 32
   %22 = load float, ptr %m_localCenter1, align 8
   %23 = load float, ptr %transB, align 4
-  %arrayidx5.i.i.i.i72 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 4, i32 0, i64 1
+  %arrayidx5.i.i.i.i72 = getelementptr inbounds i8, ptr %hullB, i64 108
   %24 = load float, ptr %arrayidx5.i.i.i.i72, align 4
-  %arrayidx7.i.i.i.i73 = getelementptr inbounds [4 x float], ptr %transB, i64 0, i64 1
+  %arrayidx7.i.i.i.i73 = getelementptr inbounds i8, ptr %transB, i64 4
   %25 = load float, ptr %arrayidx7.i.i.i.i73, align 4
   %mul8.i.i.i.i74 = fmul float %24, %25
   %26 = tail call float @llvm.fmuladd.f32(float %22, float %23, float %mul8.i.i.i.i74)
-  %arrayidx10.i.i.i.i75 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 4, i32 0, i64 2
+  %arrayidx10.i.i.i.i75 = getelementptr inbounds i8, ptr %hullB, i64 112
   %27 = load float, ptr %arrayidx10.i.i.i.i75, align 8
-  %arrayidx12.i.i.i.i76 = getelementptr inbounds [4 x float], ptr %transB, i64 0, i64 2
+  %arrayidx12.i.i.i.i76 = getelementptr inbounds i8, ptr %transB, i64 8
   %28 = load float, ptr %arrayidx12.i.i.i.i76, align 4
   %29 = tail call noundef float @llvm.fmuladd.f32(float %27, float %28, float %26)
   %30 = load float, ptr %arrayidx.i.i.i70, align 4
-  %arrayidx7.i2.i.i.i77 = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 1, i32 0, i64 1
+  %arrayidx7.i2.i.i.i77 = getelementptr inbounds i8, ptr %transB, i64 20
   %31 = load float, ptr %arrayidx7.i2.i.i.i77, align 4
   %mul8.i3.i.i.i78 = fmul float %24, %31
   %32 = tail call float @llvm.fmuladd.f32(float %22, float %30, float %mul8.i3.i.i.i78)
-  %arrayidx12.i5.i.i.i79 = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 1, i32 0, i64 2
+  %arrayidx12.i5.i.i.i79 = getelementptr inbounds i8, ptr %transB, i64 24
   %33 = load float, ptr %arrayidx12.i5.i.i.i79, align 4
   %34 = tail call noundef float @llvm.fmuladd.f32(float %27, float %33, float %32)
   %35 = load float, ptr %arrayidx.i1.i.i71, align 4
-  %arrayidx7.i7.i.i.i80 = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 2, i32 0, i64 1
+  %arrayidx7.i7.i.i.i80 = getelementptr inbounds i8, ptr %transB, i64 36
   %36 = load float, ptr %arrayidx7.i7.i.i.i80, align 4
   %mul8.i8.i.i.i81 = fmul float %24, %36
   %37 = tail call float @llvm.fmuladd.f32(float %22, float %35, float %mul8.i8.i.i.i81)
-  %arrayidx12.i10.i.i.i82 = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 2, i32 0, i64 2
+  %arrayidx12.i10.i.i.i82 = getelementptr inbounds i8, ptr %transB, i64 40
   %38 = load float, ptr %arrayidx12.i10.i.i.i82, align 4
   %39 = tail call noundef float @llvm.fmuladd.f32(float %27, float %38, float %37)
-  %m_origin.i.i83 = getelementptr inbounds %class.btTransform, ptr %transB, i64 0, i32 1
+  %m_origin.i.i83 = getelementptr inbounds i8, ptr %transB, i64 48
   %40 = load float, ptr %m_origin.i.i83, align 4
   %add.i.i.i84 = fadd float %29, %40
-  %arrayidx7.i.i.i85 = getelementptr inbounds %class.btTransform, ptr %transB, i64 0, i32 1, i32 0, i64 1
+  %arrayidx7.i.i.i85 = getelementptr inbounds i8, ptr %transB, i64 52
   %41 = load float, ptr %arrayidx7.i.i.i85, align 4
   %add8.i.i.i86 = fadd float %34, %41
-  %arrayidx13.i.i.i87 = getelementptr inbounds %class.btTransform, ptr %transB, i64 0, i32 1, i32 0, i64 2
+  %arrayidx13.i.i.i87 = getelementptr inbounds i8, ptr %transB, i64 56
   %42 = load float, ptr %arrayidx13.i.i.i87, align 4
   %add14.i.i.i88 = fadd float %39, %42
   %sub.i = fsub float %add.i.i.i, %add.i.i.i84
   %sub8.i = fsub float %add8.i.i.i, %add8.i.i.i86
   %sub14.i = fsub float %add14.i.i.i, %add14.i.i.i88
-  %m_size.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 2, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %hullA, i64 44
   %43 = load i32, ptr %m_size.i, align 4
   %cmp578 = icmp sgt i32 %43, 0
   br i1 %cmp578, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 2, i32 5
-  %44 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %faceANormalWS, i64 0, i32 1
-  %m_extents.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 5
-  %arrayidx7.i33.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 5, i32 0, i64 1
-  %arrayidx17.i.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 5, i32 0, i64 2
-  %m_extents3.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 5
-  %arrayidx7.i39.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 5, i32 0, i64 1
-  %arrayidx17.i45.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 5, i32 0, i64 2
-  %m_radius.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 6
-  %m_radius21.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 6
+  %m_data.i = getelementptr inbounds i8, ptr %hullA, i64 56
+  %44 = getelementptr inbounds i8, ptr %faceANormalWS, i64 8
+  %m_extents.i = getelementptr inbounds i8, ptr %hullA, i64 120
+  %arrayidx7.i33.i = getelementptr inbounds i8, ptr %hullA, i64 124
+  %arrayidx17.i.i = getelementptr inbounds i8, ptr %hullA, i64 128
+  %m_extents3.i = getelementptr inbounds i8, ptr %hullB, i64 120
+  %arrayidx7.i39.i = getelementptr inbounds i8, ptr %hullB, i64 124
+  %arrayidx17.i45.i = getelementptr inbounds i8, ptr %hullB, i64 128
+  %m_radius.i = getelementptr inbounds i8, ptr %hullA, i64 136
+  %m_radius21.i = getelementptr inbounds i8, ptr %hullB, i64 136
   %wide.trip.count = zext nneg i32 %43 to i64
   br label %for.body
 
@@ -748,9 +741,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %dmin.0580 = phi float [ 0x47EFFFFFE0000000, %for.body.lr.ph ], [ %dmin.1, %for.inc ]
   %45 = load ptr, ptr %m_data.i, align 8
-  %m_plane = getelementptr inbounds %struct.btFace, ptr %45, i64 %indvars.iv, i32 1
-  %arrayidx12 = getelementptr inbounds %struct.btFace, ptr %45, i64 %indvars.iv, i32 1, i64 1
-  %arrayidx16 = getelementptr inbounds %struct.btFace, ptr %45, i64 %indvars.iv, i32 1, i64 2
+  %arrayidx.i = getelementptr inbounds %struct.btFace, ptr %45, i64 %indvars.iv
+  %m_plane = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %arrayidx12 = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
+  %arrayidx16 = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %46 = load float, ptr %m_plane, align 4
   %47 = load float, ptr %arrayidx12, align 4
   %48 = load float, ptr %arrayidx16, align 4
@@ -957,45 +951,45 @@ for.inc:                                          ; preds = %if.end31, %if.then3
 
 for.end:                                          ; preds = %for.inc, %entry
   %dmin.0.lcssa = phi float [ 0x47EFFFFFE0000000, %entry ], [ %dmin.1, %for.inc ]
-  %m_size.i119 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 2, i32 2
+  %m_size.i119 = getelementptr inbounds i8, ptr %hullB, i64 44
   %162 = load i32, ptr %m_size.i119, align 4
   %cmp40581 = icmp sgt i32 %162, 0
   br i1 %cmp40581, label %for.body41.lr.ph, label %for.cond90.preheader
 
 for.body41.lr.ph:                                 ; preds = %for.end
-  %m_data.i120 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 2, i32 5
-  %163 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %WorldNormal, i64 0, i32 1
-  %m_extents.i187 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 5
-  %arrayidx7.i33.i192 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 5, i32 0, i64 1
-  %arrayidx17.i.i196 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 5, i32 0, i64 2
-  %m_extents3.i199 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 5
-  %arrayidx7.i39.i204 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 5, i32 0, i64 1
-  %arrayidx17.i45.i208 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 5, i32 0, i64 2
-  %m_radius.i213 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 6
-  %m_radius21.i216 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 6
+  %m_data.i120 = getelementptr inbounds i8, ptr %hullB, i64 56
+  %163 = getelementptr inbounds i8, ptr %WorldNormal, i64 8
+  %m_extents.i187 = getelementptr inbounds i8, ptr %hullA, i64 120
+  %arrayidx7.i33.i192 = getelementptr inbounds i8, ptr %hullA, i64 124
+  %arrayidx17.i.i196 = getelementptr inbounds i8, ptr %hullA, i64 128
+  %m_extents3.i199 = getelementptr inbounds i8, ptr %hullB, i64 120
+  %arrayidx7.i39.i204 = getelementptr inbounds i8, ptr %hullB, i64 124
+  %arrayidx17.i45.i208 = getelementptr inbounds i8, ptr %hullB, i64 128
+  %m_radius.i213 = getelementptr inbounds i8, ptr %hullA, i64 136
+  %m_radius21.i216 = getelementptr inbounds i8, ptr %hullB, i64 136
   %wide.trip.count687 = zext nneg i32 %162 to i64
   br label %for.body41
 
 for.cond90.preheader:                             ; preds = %for.inc81, %for.end
   %dmin.2.lcssa = phi float [ %dmin.0.lcssa, %for.end ], [ %dmin.3, %for.inc81 ]
-  %m_size.i251 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 3, i32 2
+  %m_size.i251 = getelementptr inbounds i8, ptr %hullA, i64 76
   %164 = load i32, ptr %m_size.i251, align 4
   %cmp92633 = icmp sgt i32 %164, 0
   br i1 %cmp92633, label %for.body93.lr.ph, label %if.end164
 
 for.body93.lr.ph:                                 ; preds = %for.cond90.preheader
-  %m_data.i252 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 3, i32 5
-  %m_size.i273 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 3, i32 2
-  %m_data.i274 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 3, i32 5
-  %165 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %Cross, i64 0, i32 1
-  %m_extents.i349 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 5
-  %arrayidx7.i33.i354 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 5, i32 0, i64 1
-  %arrayidx17.i.i358 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 5, i32 0, i64 2
-  %m_extents3.i361 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 5
-  %arrayidx7.i39.i366 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 5, i32 0, i64 1
-  %arrayidx17.i45.i370 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 5, i32 0, i64 2
-  %m_radius.i375 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 6
-  %m_radius21.i378 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 6
+  %m_data.i252 = getelementptr inbounds i8, ptr %hullA, i64 88
+  %m_size.i273 = getelementptr inbounds i8, ptr %hullB, i64 76
+  %m_data.i274 = getelementptr inbounds i8, ptr %hullB, i64 88
+  %165 = getelementptr inbounds i8, ptr %Cross, i64 8
+  %m_extents.i349 = getelementptr inbounds i8, ptr %hullA, i64 120
+  %arrayidx7.i33.i354 = getelementptr inbounds i8, ptr %hullA, i64 124
+  %arrayidx17.i.i358 = getelementptr inbounds i8, ptr %hullA, i64 128
+  %m_extents3.i361 = getelementptr inbounds i8, ptr %hullB, i64 120
+  %arrayidx7.i39.i366 = getelementptr inbounds i8, ptr %hullB, i64 124
+  %arrayidx17.i45.i370 = getelementptr inbounds i8, ptr %hullB, i64 128
+  %m_radius.i375 = getelementptr inbounds i8, ptr %hullA, i64 136
+  %m_radius21.i378 = getelementptr inbounds i8, ptr %hullB, i64 136
   %166 = load i32, ptr %m_size.i273, align 4
   %167 = icmp sgt i32 %166, 0
   br i1 %167, label %for.body93, label %if.end164
@@ -1004,9 +998,10 @@ for.body41:                                       ; preds = %for.body41.lr.ph, %
   %indvars.iv684 = phi i64 [ 0, %for.body41.lr.ph ], [ %indvars.iv.next685, %for.inc81 ]
   %dmin.2583 = phi float [ %dmin.0.lcssa, %for.body41.lr.ph ], [ %dmin.3, %for.inc81 ]
   %168 = load ptr, ptr %m_data.i120, align 8
-  %m_plane45 = getelementptr inbounds %struct.btFace, ptr %168, i64 %indvars.iv684, i32 1
-  %arrayidx50 = getelementptr inbounds %struct.btFace, ptr %168, i64 %indvars.iv684, i32 1, i64 1
-  %arrayidx54 = getelementptr inbounds %struct.btFace, ptr %168, i64 %indvars.iv684, i32 1, i64 2
+  %arrayidx.i122 = getelementptr inbounds %struct.btFace, ptr %168, i64 %indvars.iv684
+  %m_plane45 = getelementptr inbounds i8, ptr %arrayidx.i122, i64 32
+  %arrayidx50 = getelementptr inbounds i8, ptr %arrayidx.i122, i64 36
+  %arrayidx54 = getelementptr inbounds i8, ptr %arrayidx.i122, i64 40
   %169 = load float, ptr %m_plane45, align 4
   %170 = load float, ptr %arrayidx50, align 4
   %171 = load float, ptr %arrayidx54, align 4
@@ -1612,7 +1607,7 @@ if.then146:                                       ; preds = %for.end142
   %sub14.i413 = fsub float %witnessPointB.sroa.7.1.lcssa, %witnessPointA.sroa.5.1.lcssa
   %retval.sroa.3.12.vec.insert.i416 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %sub14.i413, i64 0
   store <2 x float> %481, ptr %translation, align 8
-  %482 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %translation, i64 0, i32 1
+  %482 = getelementptr inbounds i8, ptr %translation, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i416, ptr %482, align 8
   store <2 x float> %worldEdgeA.sroa.0.1.lcssa, ptr %dirA, align 8
   %worldEdgeA.sroa.2.0.dirA.sroa_idx = getelementptr inbounds i8, ptr %dirA, i64 8
@@ -1626,7 +1621,7 @@ if.then146:                                       ; preds = %for.end142
   %mul8.i.i420 = extractelement <2 x float> %484, i64 1
   %485 = extractelement <2 x float> %483, i64 0
   %486 = call float @llvm.fmuladd.f32(float %485, float %485, float %mul8.i.i420)
-  %arrayidx10.i.i421 = getelementptr inbounds [4 x float], ptr %ptsVector, i64 0, i64 2
+  %arrayidx10.i.i421 = getelementptr inbounds i8, ptr %ptsVector, i64 8
   %487 = load float, ptr %arrayidx10.i.i421, align 8
   %488 = call noundef float @llvm.fmuladd.f32(float %487, float %487, float %486)
   %cmp150 = fcmp ogt float %488, 0x3E80000000000000
@@ -1659,16 +1654,16 @@ if.then157:                                       ; preds = %if.then151
 if.end160:                                        ; preds = %if.then157, %if.then151
   %497 = load <2 x float>, ptr %offsetB, align 8
   %498 = fadd <2 x float> %475, %497
-  %arrayidx13.i441 = getelementptr inbounds [4 x float], ptr %offsetB, i64 0, i64 2
+  %arrayidx13.i441 = getelementptr inbounds i8, ptr %offsetB, i64 8
   %499 = load float, ptr %arrayidx13.i441, align 8
   %add14.i = fadd float %witnessPointB.sroa.7.1.lcssa, %499
   %retval.sroa.3.12.vec.insert.i444 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
   store <2 x float> %498, ptr %ptOnB, align 8
-  %500 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %ptOnB, i64 0, i32 1
+  %500 = getelementptr inbounds i8, ptr %ptOnB, i64 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i444, ptr %500, align 8
   %fneg = fneg float %sqrt
   %vtable = load ptr, ptr %resultOut, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %501 = load ptr, ptr %vfn, align 8
   call void %501(ptr noundef nonnull align 8 dereferenceable(8) %resultOut, ptr noundef nonnull align 4 dereferenceable(16) %ptsVector, ptr noundef nonnull align 4 dereferenceable(16) %ptOnB, float noundef %fneg)
   br label %if.end164
@@ -1679,7 +1674,7 @@ if.end164:                                        ; preds = %for.body93.lr.ph, %
   %mul8.i449 = fmul float %sub8.i, %503
   %504 = extractelement <2 x float> %502, i64 0
   %505 = call float @llvm.fmuladd.f32(float %sub.i, float %504, float %mul8.i449)
-  %arrayidx12.i451 = getelementptr inbounds [4 x float], ptr %sep, i64 0, i64 2
+  %arrayidx12.i451 = getelementptr inbounds i8, ptr %sep, i64 8
   %506 = load float, ptr %arrayidx12.i451, align 4
   %507 = call noundef float @llvm.fmuladd.f32(float %sub14.i, float %506, float %505)
   %cmp166 = fcmp olt float %507, 0.000000e+00
@@ -1703,23 +1698,23 @@ define linkonce_odr dso_local void @_Z23btSegmentsClosestPointsR9btVector3S0_S0_
 entry:
   %0 = load float, ptr %dirA, align 4
   %1 = load float, ptr %dirB, align 4
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %dirA, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %dirA, i64 4
   %2 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx7.i.i = getelementptr inbounds [4 x float], ptr %dirB, i64 0, i64 1
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %dirB, i64 4
   %3 = load float, ptr %arrayidx7.i.i, align 4
   %mul8.i.i = fmul float %2, %3
   %4 = tail call float @llvm.fmuladd.f32(float %0, float %1, float %mul8.i.i)
-  %arrayidx10.i.i = getelementptr inbounds [4 x float], ptr %dirA, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %dirA, i64 8
   %5 = load float, ptr %arrayidx10.i.i, align 4
-  %arrayidx12.i.i = getelementptr inbounds [4 x float], ptr %dirB, i64 0, i64 2
+  %arrayidx12.i.i = getelementptr inbounds i8, ptr %dirB, i64 8
   %6 = load float, ptr %arrayidx12.i.i, align 4
   %7 = tail call noundef float @llvm.fmuladd.f32(float %5, float %6, float %4)
   %8 = load float, ptr %translation, align 4
-  %arrayidx7.i.i60 = getelementptr inbounds [4 x float], ptr %translation, i64 0, i64 1
+  %arrayidx7.i.i60 = getelementptr inbounds i8, ptr %translation, i64 4
   %9 = load float, ptr %arrayidx7.i.i60, align 4
   %mul8.i.i61 = fmul float %2, %9
   %10 = tail call float @llvm.fmuladd.f32(float %0, float %8, float %mul8.i.i61)
-  %arrayidx12.i.i63 = getelementptr inbounds [4 x float], ptr %translation, i64 0, i64 2
+  %arrayidx12.i.i63 = getelementptr inbounds i8, ptr %translation, i64 8
   %11 = load float, ptr %arrayidx12.i.i63, align 4
   %12 = tail call noundef float @llvm.fmuladd.f32(float %5, float %11, float %10)
   %mul8.i.i66 = fmul float %3, %9
@@ -1856,23 +1851,23 @@ define dso_local void @_ZN27btPolyhedralContactClipping19clipFaceAgainstHullERK9
 entry:
   %planeNormalWS = alloca %class.btVector3, align 8
   %point86 = alloca %class.btVector3, align 4
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB2, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %worldVertsB2, i64 4
   %0 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i = icmp slt i32 %0, 0
-  %m_capacity.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB2, i64 0, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %worldVertsB2, i64 8
   %1 = load i32, ptr %m_capacity.i.i.i, align 8
   %cmp.i.i = icmp slt i32 %1, 0
   %or.cond = select i1 %cmp3.i, i1 %cmp.i.i, i1 false
   br i1 %or.cond, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
 
 _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %entry
-  %m_data.i5.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB2, i64 0, i32 5
+  %m_data.i5.i.i = getelementptr inbounds i8, ptr %worldVertsB2, i64 16
   %2 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB2, i64 0, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %worldVertsB2, i64 24
   %3 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool2.not.i.i.i = icmp eq i8 %4, 0
@@ -1883,7 +1878,7 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB2, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %worldVertsB2, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr null, ptr %m_data.i5.i.i, align 8
   store i32 0, ptr %m_capacity.i.i.i, align 8
@@ -1892,9 +1887,9 @@ if.end.i:                                         ; preds = %if.then3.i.i.i, %if
 _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %entry, %if.end.i
   %5 = phi i32 [ 0, %if.end.i ], [ %1, %entry ]
   store i32 0, ptr %m_size.i.i, align 4
-  %m_size.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB1, i64 0, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %worldVertsB1, i64 4
   %6 = load i32, ptr %m_size.i, align 4
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB2, i64 0, i32 3
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %worldVertsB2, i64 8
   %cmp.i41 = icmp slt i32 %5, %6
   br i1 %cmp.i41, label %if.then.i, label %_ZN20btAlignedObjectArrayI9btVector3E7reserveEi.exit
 
@@ -1911,7 +1906,7 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i: ; preds = %if.then.i
   br i1 %cmp4.i.i, label %for.body.lr.ph.i.i, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i
-  %m_data.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB2, i64 0, i32 5
+  %m_data.i.i = getelementptr inbounds i8, ptr %worldVertsB2, i64 16
   %wide.trip.count.i.i = zext nneg i32 %.pre247 to i64
   br label %for.body.i.i
 
@@ -1927,13 +1922,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 
 _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i: ; preds = %for.body.i.i, %if.then.i, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i
   %retval.0.i.i251 = phi ptr [ %call.i.i.i, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i ], [ null, %if.then.i ], [ %call.i.i.i, %for.body.i.i ]
-  %m_data.i5.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB2, i64 0, i32 5
+  %m_data.i5.i = getelementptr inbounds i8, ptr %worldVertsB2, i64 16
   %8 = load ptr, ptr %m_data.i5.i, align 8
   %tobool.not.i6.i = icmp eq ptr %8, null
   br i1 %tobool.not.i6.i, label %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i, label %if.then.i7.i
 
 if.then.i7.i:                                     ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i
-  %m_ownsMemory.i.i45 = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB2, i64 0, i32 6
+  %m_ownsMemory.i.i45 = getelementptr inbounds i8, ptr %worldVertsB2, i64 24
   %9 = load i8, ptr %m_ownsMemory.i.i45, align 8
   %10 = and i8 %9, 1
   %tobool2.not.i.i = icmp eq i8 %10, 0
@@ -1944,42 +1939,42 @@ if.then3.i.i:                                     ; preds = %if.then.i7.i
   br label %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i
 
 _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i: ; preds = %if.then3.i.i, %if.then.i7.i, %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i
-  %m_ownsMemory.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB2, i64 0, i32 6
+  %m_ownsMemory.i = getelementptr inbounds i8, ptr %worldVertsB2, i64 24
   store i8 1, ptr %m_ownsMemory.i, align 8
   store ptr %retval.0.i.i251, ptr %m_data.i5.i, align 8
   store i32 %6, ptr %m_capacity.i.i, align 8
   br label %_ZN20btAlignedObjectArrayI9btVector3E7reserveEi.exit
 
 _ZN20btAlignedObjectArrayI9btVector3E7reserveEi.exit: ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i
-  %m_size.i46 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 2, i32 2
+  %m_size.i46 = getelementptr inbounds i8, ptr %hullA, i64 44
   %11 = load i32, ptr %m_size.i46, align 4
   %cmp227 = icmp sgt i32 %11, 0
   br i1 %cmp227, label %for.body.lr.ph, label %for.end91
 
 for.body.lr.ph:                                   ; preds = %_ZN20btAlignedObjectArrayI9btVector3E7reserveEi.exit
-  %m_data.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %hullA, i64 56
   %12 = load ptr, ptr %m_data.i, align 8
   %13 = load float, ptr %transA, align 4
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %transA, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %transA, i64 4
   %14 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx10.i.i = getelementptr inbounds [4 x float], ptr %transA, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %transA, i64 8
   %15 = load float, ptr %arrayidx10.i.i, align 4
-  %arrayidx.i.i53 = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 1
+  %arrayidx.i.i53 = getelementptr inbounds i8, ptr %transA, i64 16
   %16 = load float, ptr %arrayidx.i.i53, align 4
-  %arrayidx5.i5.i = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %transA, i64 20
   %17 = load float, ptr %arrayidx5.i5.i, align 4
-  %arrayidx10.i8.i = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %transA, i64 24
   %18 = load float, ptr %arrayidx10.i8.i, align 4
-  %arrayidx.i10.i = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 2
+  %arrayidx.i10.i = getelementptr inbounds i8, ptr %transA, i64 32
   %19 = load float, ptr %arrayidx.i10.i, align 4
-  %arrayidx5.i11.i = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i = getelementptr inbounds i8, ptr %transA, i64 36
   %20 = load float, ptr %arrayidx5.i11.i, align 4
-  %arrayidx10.i14.i = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i = getelementptr inbounds i8, ptr %transA, i64 40
   %21 = load float, ptr %arrayidx10.i14.i, align 4
   %22 = load float, ptr %separatingNormal, align 4
-  %arrayidx7.i55 = getelementptr inbounds [4 x float], ptr %separatingNormal, i64 0, i64 1
+  %arrayidx7.i55 = getelementptr inbounds i8, ptr %separatingNormal, i64 4
   %23 = load float, ptr %arrayidx7.i55, align 4
-  %arrayidx12.i = getelementptr inbounds [4 x float], ptr %separatingNormal, i64 0, i64 2
+  %arrayidx12.i = getelementptr inbounds i8, ptr %separatingNormal, i64 8
   %24 = load float, ptr %arrayidx12.i, align 4
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %for.body
@@ -1988,9 +1983,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %closestFaceA.0230 = phi i32 [ -1, %for.body.lr.ph ], [ %closestFaceA.1, %for.body ]
   %dmin.0229 = phi float [ 0x47EFFFFFE0000000, %for.body.lr.ph ], [ %dmin.1, %for.body ]
-  %m_plane = getelementptr inbounds %struct.btFace, ptr %12, i64 %indvars.iv, i32 1
-  %arrayidx7 = getelementptr inbounds %struct.btFace, ptr %12, i64 %indvars.iv, i32 1, i64 1
-  %arrayidx11 = getelementptr inbounds %struct.btFace, ptr %12, i64 %indvars.iv, i32 1, i64 2
+  %arrayidx.i = getelementptr inbounds %struct.btFace, ptr %12, i64 %indvars.iv
+  %m_plane = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %arrayidx7 = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
+  %arrayidx11 = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %25 = load float, ptr %m_plane, align 4
   %26 = load float, ptr %arrayidx7, align 4
   %27 = load float, ptr %arrayidx11, align 4
@@ -2019,32 +2015,32 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp16, label %for.end91, label %if.end18
 
 if.end18:                                         ; preds = %for.end
-  %m_data.i56 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 2, i32 5
+  %m_data.i56 = getelementptr inbounds i8, ptr %hullA, i64 56
   %37 = load ptr, ptr %m_data.i56, align 8
   %idxprom.i57 = zext nneg i32 %closestFaceA.1 to i64
   %arrayidx.i58 = getelementptr inbounds %struct.btFace, ptr %37, i64 %idxprom.i57
-  %m_size.i59 = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %arrayidx.i58, i64 0, i32 2
+  %m_size.i59 = getelementptr inbounds i8, ptr %arrayidx.i58, i64 4
   %38 = load i32, ptr %m_size.i59, align 4
   %cmp23231 = icmp sgt i32 %38, 0
   br i1 %cmp23231, label %for.body24.lr.ph, label %for.end58
 
 for.body24.lr.ph:                                 ; preds = %if.end18
-  %m_data.i60 = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %arrayidx.i58, i64 0, i32 5
-  %m_data.i63 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullA, i64 0, i32 1, i32 5
-  %arrayidx5.i.i80 = getelementptr inbounds [4 x float], ptr %transA, i64 0, i64 1
-  %arrayidx10.i.i83 = getelementptr inbounds [4 x float], ptr %transA, i64 0, i64 2
-  %arrayidx.i.i85 = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 1
-  %arrayidx5.i5.i86 = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 1, i32 0, i64 1
-  %arrayidx10.i8.i88 = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 1, i32 0, i64 2
-  %arrayidx.i10.i89 = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 2
-  %arrayidx5.i11.i90 = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 2, i32 0, i64 1
-  %arrayidx10.i14.i92 = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 2, i32 0, i64 2
-  %m_plane39 = getelementptr inbounds %struct.btFace, ptr %37, i64 %idxprom.i57, i32 1
-  %arrayidx42 = getelementptr inbounds %struct.btFace, ptr %37, i64 %idxprom.i57, i32 1, i64 1
-  %arrayidx44 = getelementptr inbounds %struct.btFace, ptr %37, i64 %idxprom.i57, i32 1, i64 2
-  %m_origin.i.i = getelementptr inbounds %class.btTransform, ptr %transA, i64 0, i32 1
-  %arrayidx7.i.i.i = getelementptr inbounds %class.btTransform, ptr %transA, i64 0, i32 1, i32 0, i64 1
-  %arrayidx13.i.i.i = getelementptr inbounds %class.btTransform, ptr %transA, i64 0, i32 1, i32 0, i64 2
+  %m_data.i60 = getelementptr inbounds i8, ptr %arrayidx.i58, i64 16
+  %m_data.i63 = getelementptr inbounds i8, ptr %hullA, i64 24
+  %arrayidx5.i.i80 = getelementptr inbounds i8, ptr %transA, i64 4
+  %arrayidx10.i.i83 = getelementptr inbounds i8, ptr %transA, i64 8
+  %arrayidx.i.i85 = getelementptr inbounds i8, ptr %transA, i64 16
+  %arrayidx5.i5.i86 = getelementptr inbounds i8, ptr %transA, i64 20
+  %arrayidx10.i8.i88 = getelementptr inbounds i8, ptr %transA, i64 24
+  %arrayidx.i10.i89 = getelementptr inbounds i8, ptr %transA, i64 32
+  %arrayidx5.i11.i90 = getelementptr inbounds i8, ptr %transA, i64 36
+  %arrayidx10.i14.i92 = getelementptr inbounds i8, ptr %transA, i64 40
+  %m_plane39 = getelementptr inbounds i8, ptr %arrayidx.i58, i64 32
+  %arrayidx42 = getelementptr inbounds i8, ptr %arrayidx.i58, i64 36
+  %arrayidx44 = getelementptr inbounds i8, ptr %arrayidx.i58, i64 40
+  %m_origin.i.i = getelementptr inbounds i8, ptr %transA, i64 48
+  %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %transA, i64 52
+  %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %transA, i64 56
   %planeNormalWS1.sroa.4.0.planeNormalWS.sroa_idx = getelementptr inbounds i8, ptr %planeNormalWS, i64 8
   %39 = zext nneg i32 %38 to i64
   br label %for.body24
@@ -2070,14 +2066,14 @@ for.body24:                                       ; preds = %for.body24.lr.ph, %
   %46 = load float, ptr %arrayidx.i65, align 4
   %47 = load float, ptr %arrayidx.i71, align 4
   %sub.i = fsub float %46, %47
-  %arrayidx5.i72 = getelementptr inbounds [4 x float], ptr %arrayidx.i65, i64 0, i64 1
+  %arrayidx5.i72 = getelementptr inbounds i8, ptr %arrayidx.i65, i64 4
   %48 = load float, ptr %arrayidx5.i72, align 4
-  %arrayidx7.i73 = getelementptr inbounds [4 x float], ptr %arrayidx.i71, i64 0, i64 1
+  %arrayidx7.i73 = getelementptr inbounds i8, ptr %arrayidx.i71, i64 4
   %49 = load float, ptr %arrayidx7.i73, align 4
   %sub8.i = fsub float %48, %49
-  %arrayidx11.i74 = getelementptr inbounds [4 x float], ptr %arrayidx.i65, i64 0, i64 2
+  %arrayidx11.i74 = getelementptr inbounds i8, ptr %arrayidx.i65, i64 8
   %50 = load float, ptr %arrayidx11.i74, align 4
-  %arrayidx13.i = getelementptr inbounds [4 x float], ptr %arrayidx.i71, i64 0, i64 2
+  %arrayidx13.i = getelementptr inbounds i8, ptr %arrayidx.i71, i64 8
   %51 = load float, ptr %arrayidx13.i, align 4
   %sub14.i = fsub float %50, %51
   %52 = load float, ptr %transA, align 4
@@ -2167,25 +2163,25 @@ for.body24:                                       ; preds = %for.body24.lr.ph, %
   store <2 x float> %109, ptr %planeNormalWS, align 8
   store <2 x float> %retval.sroa.3.12.vec.insert.i132, ptr %planeNormalWS1.sroa.4.0.planeNormalWS.sroa_idx, align 8
   call void @_ZN27btPolyhedralContactClipping8clipFaceERK20btAlignedObjectArrayI9btVector3ERS2_RKS1_f(ptr noundef nonnull align 8 dereferenceable(25) %pVtxIn.0233, ptr noundef nonnull align 8 dereferenceable(25) %pVtxOut.0232, ptr noundef nonnull align 4 dereferenceable(16) %planeNormalWS, float noundef %fneg)
-  %m_size.i.i141 = getelementptr inbounds %class.btAlignedObjectArray, ptr %pVtxIn.0233, i64 0, i32 2
+  %m_size.i.i141 = getelementptr inbounds i8, ptr %pVtxIn.0233, i64 4
   %123 = load i32, ptr %m_size.i.i141, align 4
   %cmp3.i144 = icmp slt i32 %123, 0
   br i1 %cmp3.i144, label %if.then4.i145, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit175
 
 if.then4.i145:                                    ; preds = %for.body24
-  %m_capacity.i.i.i146 = getelementptr inbounds %class.btAlignedObjectArray, ptr %pVtxIn.0233, i64 0, i32 3
+  %m_capacity.i.i.i146 = getelementptr inbounds i8, ptr %pVtxIn.0233, i64 8
   %124 = load i32, ptr %m_capacity.i.i.i146, align 8
   %cmp.i.i147 = icmp slt i32 %124, 0
   br i1 %cmp.i.i147, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i157, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit175
 
 _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i157: ; preds = %if.then4.i145
-  %m_data.i5.i.i158 = getelementptr inbounds %class.btAlignedObjectArray, ptr %pVtxIn.0233, i64 0, i32 5
+  %m_data.i5.i.i158 = getelementptr inbounds i8, ptr %pVtxIn.0233, i64 16
   %125 = load ptr, ptr %m_data.i5.i.i158, align 8
   %tobool.not.i6.i.i159 = icmp eq ptr %125, null
   br i1 %tobool.not.i6.i.i159, label %if.end.i164, label %if.then.i7.i.i160
 
 if.then.i7.i.i160:                                ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i157
-  %m_ownsMemory.i.i.i161 = getelementptr inbounds %class.btAlignedObjectArray, ptr %pVtxIn.0233, i64 0, i32 6
+  %m_ownsMemory.i.i.i161 = getelementptr inbounds i8, ptr %pVtxIn.0233, i64 24
   %126 = load i8, ptr %m_ownsMemory.i.i.i161, align 8
   %127 = and i8 %126, 1
   %tobool2.not.i.i.i162 = icmp eq i8 %127, 0
@@ -2196,7 +2192,7 @@ if.then3.i.i.i163:                                ; preds = %if.then.i7.i.i160
   br label %if.end.i164
 
 if.end.i164:                                      ; preds = %if.then3.i.i.i163, %if.then.i7.i.i160, %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i157
-  %m_ownsMemory.i.i165 = getelementptr inbounds %class.btAlignedObjectArray, ptr %pVtxIn.0233, i64 0, i32 6
+  %m_ownsMemory.i.i165 = getelementptr inbounds i8, ptr %pVtxIn.0233, i64 24
   store i8 1, ptr %m_ownsMemory.i.i165, align 8
   store ptr null, ptr %m_data.i5.i.i158, align 8
   store i32 0, ptr %m_capacity.i.i.i146, align 8
@@ -2209,57 +2205,57 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit175: ; preds = %if.then4
 
 for.end58:                                        ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit175, %if.end18
   %pVtxIn.0.lcssa = phi ptr [ %worldVertsB1, %if.end18 ], [ %pVtxOut.0232, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit175 ]
-  %m_plane59 = getelementptr inbounds %struct.btFace, ptr %37, i64 %idxprom.i57, i32 1
-  %arrayidx62 = getelementptr inbounds %struct.btFace, ptr %37, i64 %idxprom.i57, i32 1, i64 1
-  %arrayidx64 = getelementptr inbounds %struct.btFace, ptr %37, i64 %idxprom.i57, i32 1, i64 2
+  %m_plane59 = getelementptr inbounds i8, ptr %arrayidx.i58, i64 32
+  %arrayidx62 = getelementptr inbounds i8, ptr %arrayidx.i58, i64 36
+  %arrayidx64 = getelementptr inbounds i8, ptr %arrayidx.i58, i64 40
   %128 = load float, ptr %m_plane59, align 4
   %129 = load float, ptr %arrayidx62, align 4
   %130 = load float, ptr %arrayidx64, align 4
-  %arrayidx66 = getelementptr inbounds %struct.btFace, ptr %37, i64 %idxprom.i57, i32 1, i64 3
+  %arrayidx66 = getelementptr inbounds i8, ptr %arrayidx.i58, i64 44
   %131 = load float, ptr %arrayidx66, align 4
   %132 = load float, ptr %transA, align 4
-  %arrayidx5.i.i179 = getelementptr inbounds [4 x float], ptr %transA, i64 0, i64 1
+  %arrayidx5.i.i179 = getelementptr inbounds i8, ptr %transA, i64 4
   %133 = load float, ptr %arrayidx5.i.i179, align 4
   %mul8.i.i181 = fmul float %129, %133
   %134 = tail call float @llvm.fmuladd.f32(float %132, float %128, float %mul8.i.i181)
-  %arrayidx10.i.i182 = getelementptr inbounds [4 x float], ptr %transA, i64 0, i64 2
+  %arrayidx10.i.i182 = getelementptr inbounds i8, ptr %transA, i64 8
   %135 = load float, ptr %arrayidx10.i.i182, align 4
   %136 = tail call noundef float @llvm.fmuladd.f32(float %135, float %130, float %134)
-  %arrayidx.i.i184 = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 1
+  %arrayidx.i.i184 = getelementptr inbounds i8, ptr %transA, i64 16
   %137 = load float, ptr %arrayidx.i.i184, align 4
-  %arrayidx5.i5.i185 = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i185 = getelementptr inbounds i8, ptr %transA, i64 20
   %138 = load float, ptr %arrayidx5.i5.i185, align 4
   %mul8.i7.i186 = fmul float %129, %138
   %139 = tail call float @llvm.fmuladd.f32(float %137, float %128, float %mul8.i7.i186)
-  %arrayidx10.i8.i187 = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i187 = getelementptr inbounds i8, ptr %transA, i64 24
   %140 = load float, ptr %arrayidx10.i8.i187, align 4
   %141 = tail call noundef float @llvm.fmuladd.f32(float %140, float %130, float %139)
-  %arrayidx.i10.i188 = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 2
+  %arrayidx.i10.i188 = getelementptr inbounds i8, ptr %transA, i64 32
   %142 = load float, ptr %arrayidx.i10.i188, align 4
-  %arrayidx5.i11.i189 = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i189 = getelementptr inbounds i8, ptr %transA, i64 36
   %143 = load float, ptr %arrayidx5.i11.i189, align 4
   %mul8.i13.i190 = fmul float %129, %143
   %144 = tail call float @llvm.fmuladd.f32(float %142, float %128, float %mul8.i13.i190)
-  %arrayidx10.i14.i191 = getelementptr inbounds [3 x %class.btVector3], ptr %transA, i64 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i191 = getelementptr inbounds i8, ptr %transA, i64 40
   %145 = load float, ptr %arrayidx10.i14.i191, align 4
   %146 = tail call noundef float @llvm.fmuladd.f32(float %145, float %130, float %144)
-  %m_origin.i = getelementptr inbounds %class.btTransform, ptr %transA, i64 0, i32 1
+  %m_origin.i = getelementptr inbounds i8, ptr %transA, i64 48
   %147 = load float, ptr %m_origin.i, align 4
-  %arrayidx7.i198 = getelementptr inbounds %class.btTransform, ptr %transA, i64 0, i32 1, i32 0, i64 1
+  %arrayidx7.i198 = getelementptr inbounds i8, ptr %transA, i64 52
   %148 = load float, ptr %arrayidx7.i198, align 4
   %mul8.i199 = fmul float %141, %148
   %149 = tail call float @llvm.fmuladd.f32(float %136, float %147, float %mul8.i199)
-  %arrayidx12.i201 = getelementptr inbounds %class.btTransform, ptr %transA, i64 0, i32 1, i32 0, i64 2
+  %arrayidx12.i201 = getelementptr inbounds i8, ptr %transA, i64 56
   %150 = load float, ptr %arrayidx12.i201, align 4
   %151 = tail call noundef float @llvm.fmuladd.f32(float %146, float %150, float %149)
   %sub = fsub float %131, %151
-  %m_size.i202 = getelementptr inbounds %class.btAlignedObjectArray, ptr %pVtxIn.0.lcssa, i64 0, i32 2
+  %m_size.i202 = getelementptr inbounds i8, ptr %pVtxIn.0.lcssa, i64 4
   %152 = load i32, ptr %m_size.i202, align 4
   %cmp76236 = icmp sgt i32 %152, 0
   br i1 %cmp76236, label %for.body77.lr.ph, label %for.end91
 
 for.body77.lr.ph:                                 ; preds = %for.end58
-  %m_data.i203 = getelementptr inbounds %class.btAlignedObjectArray, ptr %pVtxIn.0.lcssa, i64 0, i32 5
+  %m_data.i203 = getelementptr inbounds i8, ptr %pVtxIn.0.lcssa, i64 16
   br label %for.body77
 
 for.body77:                                       ; preds = %for.body77.lr.ph, %for.inc89
@@ -2284,7 +2280,7 @@ for.body77:                                       ; preds = %for.body77.lr.ph, %
 if.then85:                                        ; preds = %for.body77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %point86, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i205, i64 16, i1 false)
   %vtable = load ptr, ptr %resultOut, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %157 = load ptr, ptr %vfn, align 8
   call void %157(ptr noundef nonnull align 8 dereferenceable(8) %resultOut, ptr noundef nonnull align 4 dereferenceable(16) %separatingNormal, ptr noundef nonnull align 4 dereferenceable(16) %point86, float noundef %depth.0)
   %.pre248 = load i32, ptr %m_size.i202, align 4
@@ -2322,32 +2318,32 @@ entry:
   %mul7.i.i.i.i = fmul float %nrm.sroa.6.8.vec.extract.i, %div.i.i.i
   %nrm.sroa.6.8.vec.insert.i = insertelement <2 x float> %nrm.sroa.6.0.copyload.i, float %mul7.i.i.i.i, i64 0
   store <2 x float> %6, ptr %separatingNormal, align 8
-  %7 = getelementptr inbounds { <2 x float>, <2 x float> }, ptr %separatingNormal, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %separatingNormal, i64 8
   store <2 x float> %nrm.sroa.6.8.vec.insert.i, ptr %7, align 8
-  %m_size.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 2, i32 2
+  %m_size.i = getelementptr inbounds i8, ptr %hullB, i64 44
   %8 = load i32, ptr %m_size.i, align 4
   %cmp67 = icmp sgt i32 %8, 0
   br i1 %cmp67, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %m_data.i = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 2, i32 5
+  %m_data.i = getelementptr inbounds i8, ptr %hullB, i64 56
   %9 = load ptr, ptr %m_data.i, align 8
   %10 = load float, ptr %transB, align 4
-  %arrayidx5.i.i = getelementptr inbounds [4 x float], ptr %transB, i64 0, i64 1
+  %arrayidx5.i.i = getelementptr inbounds i8, ptr %transB, i64 4
   %11 = load float, ptr %arrayidx5.i.i, align 4
-  %arrayidx10.i.i = getelementptr inbounds [4 x float], ptr %transB, i64 0, i64 2
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %transB, i64 8
   %12 = load float, ptr %arrayidx10.i.i, align 4
-  %arrayidx.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %transB, i64 16
   %13 = load float, ptr %arrayidx.i.i, align 4
-  %arrayidx5.i5.i = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 1, i32 0, i64 1
+  %arrayidx5.i5.i = getelementptr inbounds i8, ptr %transB, i64 20
   %14 = load float, ptr %arrayidx5.i5.i, align 4
-  %arrayidx10.i8.i = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 1, i32 0, i64 2
+  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %transB, i64 24
   %15 = load float, ptr %arrayidx10.i8.i, align 4
-  %arrayidx.i10.i = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 2
+  %arrayidx.i10.i = getelementptr inbounds i8, ptr %transB, i64 32
   %16 = load float, ptr %arrayidx.i10.i, align 4
-  %arrayidx5.i11.i = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 2, i32 0, i64 1
+  %arrayidx5.i11.i = getelementptr inbounds i8, ptr %transB, i64 36
   %17 = load float, ptr %arrayidx5.i11.i, align 4
-  %arrayidx10.i14.i = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 2, i32 0, i64 2
+  %arrayidx10.i14.i = getelementptr inbounds i8, ptr %transB, i64 40
   %18 = load float, ptr %arrayidx10.i14.i, align 4
   %wide.trip.count = zext nneg i32 %8 to i64
   %19 = extractelement <2 x float> %6, i64 0
@@ -2358,9 +2354,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %closestFaceB.070 = phi i32 [ -1, %for.body.lr.ph ], [ %closestFaceB.1, %for.body ]
   %dmax.069 = phi float [ 0xC7EFFFFFE0000000, %for.body.lr.ph ], [ %dmax.1, %for.body ]
-  %m_plane = getelementptr inbounds %struct.btFace, ptr %9, i64 %indvars.iv, i32 1
-  %arrayidx7 = getelementptr inbounds %struct.btFace, ptr %9, i64 %indvars.iv, i32 1, i64 1
-  %arrayidx11 = getelementptr inbounds %struct.btFace, ptr %9, i64 %indvars.iv, i32 1, i64 2
+  %arrayidx.i = getelementptr inbounds %struct.btFace, ptr %9, i64 %indvars.iv
+  %m_plane = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %arrayidx7 = getelementptr inbounds i8, ptr %arrayidx.i, i64 36
+  %arrayidx11 = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
   %21 = load float, ptr %m_plane, align 4
   %22 = load float, ptr %arrayidx7, align 4
   %23 = load float, ptr %arrayidx11, align 4
@@ -2386,25 +2383,25 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %entry
   %closestFaceB.0.lcssa = phi i32 [ -1, %entry ], [ %closestFaceB.1, %for.body ]
-  %m_size.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB1, i64 0, i32 2
+  %m_size.i.i = getelementptr inbounds i8, ptr %worldVertsB1, i64 4
   %33 = load i32, ptr %m_size.i.i, align 4
   %cmp3.i = icmp slt i32 %33, 0
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
 
 if.then4.i:                                       ; preds = %for.end
-  %m_capacity.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB1, i64 0, i32 3
+  %m_capacity.i.i.i = getelementptr inbounds i8, ptr %worldVertsB1, i64 8
   %34 = load i32, ptr %m_capacity.i.i.i, align 8
   %cmp.i.i = icmp slt i32 %34, 0
   br i1 %cmp.i.i, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i, label %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
 
 _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i: ; preds = %if.then4.i
-  %m_data.i5.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB1, i64 0, i32 5
+  %m_data.i5.i.i = getelementptr inbounds i8, ptr %worldVertsB1, i64 16
   %35 = load ptr, ptr %m_data.i5.i.i, align 8
   %tobool.not.i6.i.i = icmp eq ptr %35, null
   br i1 %tobool.not.i6.i.i, label %if.end.i, label %if.then.i7.i.i
 
 if.then.i7.i.i:                                   ; preds = %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB1, i64 0, i32 6
+  %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %worldVertsB1, i64 24
   %36 = load i8, ptr %m_ownsMemory.i.i.i, align 8
   %37 = and i8 %36, 1
   %tobool2.not.i.i.i = icmp eq i8 %37, 0
@@ -2415,7 +2412,7 @@ if.then3.i.i.i:                                   ; preds = %if.then.i7.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i.i.i, %if.then.i7.i.i, %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i.i
-  %m_ownsMemory.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB1, i64 0, i32 6
+  %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %worldVertsB1, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr null, ptr %m_data.i5.i.i, align 8
   store i32 0, ptr %m_capacity.i.i.i, align 8
@@ -2423,31 +2420,31 @@ if.end.i:                                         ; preds = %if.then3.i.i.i, %if
 
 _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %if.then4.i, %if.end.i, %for.end
   store i32 0, ptr %m_size.i.i, align 4
-  %m_data.i29 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 2, i32 5
+  %m_data.i29 = getelementptr inbounds i8, ptr %hullB, i64 56
   %38 = load ptr, ptr %m_data.i29, align 8
   %idxprom.i30 = sext i32 %closestFaceB.0.lcssa to i64
   %arrayidx.i31 = getelementptr inbounds %struct.btFace, ptr %38, i64 %idxprom.i30
-  %m_size.i32 = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %arrayidx.i31, i64 0, i32 2
+  %m_size.i32 = getelementptr inbounds i8, ptr %arrayidx.i31, i64 4
   %39 = load i32, ptr %m_size.i32, align 4
   %cmp2171 = icmp sgt i32 %39, 0
   br i1 %cmp2171, label %for.body22.lr.ph, label %for.end31
 
 for.body22.lr.ph:                                 ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit
-  %m_data.i33 = getelementptr inbounds %class.btAlignedObjectArray.4, ptr %arrayidx.i31, i64 0, i32 5
-  %m_data.i36 = getelementptr inbounds %class.btConvexPolyhedron, ptr %hullB, i64 0, i32 1, i32 5
-  %arrayidx.i.i.i39 = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 1
-  %arrayidx.i1.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 2
-  %arrayidx7.i.i.i.i = getelementptr inbounds [4 x float], ptr %transB, i64 0, i64 1
-  %arrayidx12.i.i.i.i = getelementptr inbounds [4 x float], ptr %transB, i64 0, i64 2
-  %arrayidx7.i2.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 1, i32 0, i64 1
-  %arrayidx12.i5.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 1, i32 0, i64 2
-  %arrayidx7.i7.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 2, i32 0, i64 1
-  %arrayidx12.i10.i.i.i = getelementptr inbounds [3 x %class.btVector3], ptr %transB, i64 0, i64 2, i32 0, i64 2
-  %m_origin.i.i = getelementptr inbounds %class.btTransform, ptr %transB, i64 0, i32 1
-  %arrayidx13.i.i.i = getelementptr inbounds %class.btTransform, ptr %transB, i64 0, i32 1, i32 0, i64 2
-  %m_capacity.i.i = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB1, i64 0, i32 3
-  %m_data.i.i.i59 = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB1, i64 0, i32 5
-  %m_ownsMemory.i.i.i54 = getelementptr inbounds %class.btAlignedObjectArray, ptr %worldVertsB1, i64 0, i32 6
+  %m_data.i33 = getelementptr inbounds i8, ptr %arrayidx.i31, i64 16
+  %m_data.i36 = getelementptr inbounds i8, ptr %hullB, i64 24
+  %arrayidx.i.i.i39 = getelementptr inbounds i8, ptr %transB, i64 16
+  %arrayidx.i1.i.i = getelementptr inbounds i8, ptr %transB, i64 32
+  %arrayidx7.i.i.i.i = getelementptr inbounds i8, ptr %transB, i64 4
+  %arrayidx12.i.i.i.i = getelementptr inbounds i8, ptr %transB, i64 8
+  %arrayidx7.i2.i.i.i = getelementptr inbounds i8, ptr %transB, i64 20
+  %arrayidx12.i5.i.i.i = getelementptr inbounds i8, ptr %transB, i64 24
+  %arrayidx7.i7.i.i.i = getelementptr inbounds i8, ptr %transB, i64 36
+  %arrayidx12.i10.i.i.i = getelementptr inbounds i8, ptr %transB, i64 40
+  %m_origin.i.i = getelementptr inbounds i8, ptr %transB, i64 48
+  %arrayidx13.i.i.i = getelementptr inbounds i8, ptr %transB, i64 56
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %worldVertsB1, i64 8
+  %m_data.i.i.i59 = getelementptr inbounds i8, ptr %worldVertsB1, i64 16
+  %m_ownsMemory.i.i.i54 = getelementptr inbounds i8, ptr %worldVertsB1, i64 24
   %wide.trip.count77 = zext nneg i32 %39 to i64
   br label %for.body22
 
@@ -2463,11 +2460,11 @@ for.body22:                                       ; preds = %for.body22.lr.ph, %
   %44 = load float, ptr %arrayidx.i38, align 4
   %45 = load <4 x float>, ptr %transB, align 4
   %46 = shufflevector <4 x float> %45, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx5.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i38, i64 0, i64 1
+  %arrayidx5.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i38, i64 4
   %47 = load float, ptr %arrayidx5.i.i.i.i, align 4
   %48 = load <4 x float>, ptr %arrayidx7.i.i.i.i, align 4
   %49 = shufflevector <4 x float> %48, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %arrayidx10.i.i.i.i = getelementptr inbounds [4 x float], ptr %arrayidx.i38, i64 0, i64 2
+  %arrayidx10.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i38, i64 8
   %50 = load float, ptr %arrayidx10.i.i.i.i, align 4
   %51 = load <4 x float>, ptr %arrayidx12.i.i.i.i, align 4
   %52 = shufflevector <4 x float> %51, <4 x float> poison, <2 x i32> <i32 0, i32 poison>

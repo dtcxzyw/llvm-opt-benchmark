@@ -4,15 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.DictWord = type { i8, i8, i16 }
-%struct.SharedEncoderDictionary = type { i32, %struct.CompoundDictionary, %struct.ContextualEncoderDictionary, i32 }
-%struct.CompoundDictionary = type { i64, i64, [16 x ptr], [16 x ptr], [16 x i64], i64, [16 x ptr] }
-%struct.ContextualEncoderDictionary = type { i32, i8, [64 x i8], [64 x ptr], i64, %struct.BrotliEncoderDictionary, ptr }
 %struct.BrotliEncoderDictionary = type { ptr, i32, i32, i64, ptr, ptr, ptr, ptr, %struct.BrotliTrie, i32, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr }
 %struct.BrotliTrie = type { ptr, i64, i64, %struct.BrotliTrieNode }
 %struct.BrotliTrieNode = type { i8, i8, i8, i32, i32 }
-%struct.BrotliTransforms = type { i16, ptr, ptr, i32, ptr, ptr, [10 x i16] }
-%struct.ManagedDictionary = type { i32, %struct.MemoryManager, ptr }
-%struct.MemoryManager = type { ptr, ptr, ptr }
 
 @kStaticDictionaryHashWords = external constant [32768 x i16], align 16
 @kStaticDictionaryHashLengths = external constant [32768 x i8], align 16
@@ -23,57 +17,57 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @BrotliInitSharedEncoderDictionary(ptr noundef %dict) local_unnamed_addr #0 {
 entry:
   store i32 -558043679, ptr %dict, align 8
-  %compound = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 1
-  %chunk_offsets = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 1, i32 4
+  %compound = getelementptr inbounds i8, ptr %dict, i64 8
+  %chunk_offsets = getelementptr inbounds i8, ptr %dict, i64 280
   store i64 0, ptr %chunk_offsets, align 8
-  %num_prepared_instances_ = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 1, i32 5
+  %num_prepared_instances_ = getelementptr inbounds i8, ptr %dict, i64 408
   store i64 0, ptr %num_prepared_instances_, align 8
-  %contextual = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2
+  %contextual = getelementptr inbounds i8, ptr %dict, i64 544
   store i32 0, ptr %contextual, align 8
-  %num_dictionaries = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 1
+  %num_dictionaries = getelementptr inbounds i8, ptr %dict, i64 548
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %compound, i8 0, i64 16, i1 false)
   store i8 1, ptr %num_dictionaries, align 4
-  %instances_ = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 6
+  %instances_ = getelementptr inbounds i8, ptr %dict, i64 1304
   store ptr null, ptr %instances_, align 8
-  %num_instances_ = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 4
+  %num_instances_ = getelementptr inbounds i8, ptr %dict, i64 1128
   store i64 1, ptr %num_instances_, align 8
-  %instance_ = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5
-  %dict9 = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 3
+  %instance_ = getelementptr inbounds i8, ptr %dict, i64 1136
+  %dict9 = getelementptr inbounds i8, ptr %dict, i64 616
   store ptr %instance_, ptr %dict9, align 8
   %call.i = tail call ptr @BrotliGetDictionary() #3
   store ptr %call.i, ptr %instance_, align 8
   %call1.i = tail call ptr @BrotliGetTransforms() #3
-  %num_transforms.i = getelementptr inbounds %struct.BrotliTransforms, ptr %call1.i, i64 0, i32 3
+  %num_transforms.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   %0 = load i32, ptr %num_transforms.i, align 8
-  %num_transforms2.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 1
+  %num_transforms2.i = getelementptr inbounds i8, ptr %dict, i64 1144
   store i32 %0, ptr %num_transforms2.i, align 8
-  %hash_table_words.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 4
+  %hash_table_words.i = getelementptr inbounds i8, ptr %dict, i64 1160
   store ptr @kStaticDictionaryHashWords, ptr %hash_table_words.i, align 8
-  %hash_table_lengths.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 5
+  %hash_table_lengths.i = getelementptr inbounds i8, ptr %dict, i64 1168
   store ptr @kStaticDictionaryHashLengths, ptr %hash_table_lengths.i, align 8
-  %buckets.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 6
+  %buckets.i = getelementptr inbounds i8, ptr %dict, i64 1176
   store ptr @kStaticDictionaryBuckets, ptr %buckets.i, align 8
-  %dict_words.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 7
+  %dict_words.i = getelementptr inbounds i8, ptr %dict, i64 1184
   store ptr @kStaticDictionaryWords, ptr %dict_words.i, align 8
-  %cutoffTransformsCount.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 2
+  %cutoffTransformsCount.i = getelementptr inbounds i8, ptr %dict, i64 1148
   store i32 10, ptr %cutoffTransformsCount.i, align 4
-  %cutoffTransforms.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 3
+  %cutoffTransforms.i = getelementptr inbounds i8, ptr %dict, i64 1152
   store i64 512093189200228864, ptr %cutoffTransforms.i, align 8
-  %parent.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 10
-  %has_words_heavy.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 9
+  %parent.i = getelementptr inbounds i8, ptr %dict, i64 1240
+  %has_words_heavy.i = getelementptr inbounds i8, ptr %dict, i64 1232
   store i32 0, ptr %has_words_heavy.i, align 8
-  %trie.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 8
-  %len_.i.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 8, i32 3, i32 2
+  %trie.i = getelementptr inbounds i8, ptr %dict, i64 1192
+  %len_.i.i = getelementptr inbounds i8, ptr %dict, i64 1218
   store i8 0, ptr %len_.i.i, align 2
-  %idx_.i.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 8, i32 3, i32 3
+  %idx_.i.i = getelementptr inbounds i8, ptr %dict, i64 1220
   store i32 0, ptr %idx_.i.i, align 4
-  %sub.i.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 8, i32 3, i32 4
+  %sub.i.i = getelementptr inbounds i8, ptr %dict, i64 1224
   store i32 0, ptr %sub.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %trie.i, i8 0, i64 25, i1 false)
-  %1 = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 11
+  %1 = getelementptr inbounds i8, ptr %dict, i64 1248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, i8 0, i64 56, i1 false)
   store ptr %contextual, ptr %parent.i, align 8
-  %max_quality = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 3
+  %max_quality = getelementptr inbounds i8, ptr %dict, i64 1312
   store i32 11, ptr %max_quality, align 8
   ret void
 }
@@ -81,14 +75,18 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @BrotliCleanupSharedEncoderDictionary(ptr noundef %m, ptr nocapture noundef readonly %dict) local_unnamed_addr #0 {
 entry:
-  %num_prepared_instances_ = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 1, i32 5
+  %num_prepared_instances_ = getelementptr inbounds i8, ptr %dict, i64 408
   %0 = load i64, ptr %num_prepared_instances_, align 8
   %cmp23.not = icmp eq i64 %0, 0
-  br i1 %cmp23.not, label %for.end, label %for.body
+  br i1 %cmp23.not, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %entry, %for.body
-  %i.024 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 1, i32 6, i64 %i.024
+for.body.lr.ph:                                   ; preds = %entry
+  %prepared_instances_ = getelementptr inbounds i8, ptr %dict, i64 416
+  br label %for.body
+
+for.body:                                         ; preds = %for.body.lr.ph, %for.body
+  %i.024 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %arrayidx = getelementptr inbounds [16 x ptr], ptr %prepared_instances_, i64 0, i64 %i.024
   %1 = load ptr, ptr %arrayidx, align 8
   tail call void @DestroyPreparedDictionary(ptr noundef %m, ptr noundef %1) #3
   %inc = add nuw i64 %i.024, 1
@@ -97,7 +95,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %entry
-  %num_instances_ = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 4
+  %num_instances_ = getelementptr inbounds i8, ptr %dict, i64 1128
   %3 = load i64, ptr %num_instances_, align 8
   switch i64 %3, label %for.body12.lr.ph [
     i64 1, label %if.then
@@ -105,61 +103,58 @@ for.end:                                          ; preds = %for.body, %entry
   ]
 
 for.body12.lr.ph:                                 ; preds = %for.end
-  %instances_ = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 6
+  %instances_ = getelementptr inbounds i8, ptr %dict, i64 1304
   br label %for.body12
 
 if.then:                                          ; preds = %for.end
-  %hash_table_data_words_.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 11
+  %hash_table_data_words_.i = getelementptr inbounds i8, ptr %dict, i64 1248
   %4 = load ptr, ptr %hash_table_data_words_.i, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %4) #3
-  %hash_table_data_lengths_.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 12
+  %hash_table_data_lengths_.i = getelementptr inbounds i8, ptr %dict, i64 1256
   %5 = load ptr, ptr %hash_table_data_lengths_.i, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %5) #3
-  %buckets_data_.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 14
+  %buckets_data_.i = getelementptr inbounds i8, ptr %dict, i64 1272
   %6 = load ptr, ptr %buckets_data_.i, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %6) #3
-  %dict_words_data_.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 16
+  %dict_words_data_.i = getelementptr inbounds i8, ptr %dict, i64 1288
   %7 = load ptr, ptr %dict_words_data_.i, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %7) #3
-  %words_instance_.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 17
+  %words_instance_.i = getelementptr inbounds i8, ptr %dict, i64 1296
   %8 = load ptr, ptr %words_instance_.i, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %8) #3
-  %trie.i = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 5, i32 8
   br label %if.end20.sink.split
 
 for.body12:                                       ; preds = %for.body12.lr.ph, %for.body12
   %i.126 = phi i64 [ 0, %for.body12.lr.ph ], [ %inc16, %for.body12 ]
   %9 = load ptr, ptr %instances_, align 8
-  %hash_table_data_words_.i16 = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %9, i64 %i.126, i32 11
+  %arrayidx14 = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %9, i64 %i.126
+  %hash_table_data_words_.i16 = getelementptr inbounds i8, ptr %arrayidx14, i64 112
   %10 = load ptr, ptr %hash_table_data_words_.i16, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %10) #3
-  %hash_table_data_lengths_.i17 = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %9, i64 %i.126, i32 12
+  %hash_table_data_lengths_.i17 = getelementptr inbounds i8, ptr %arrayidx14, i64 120
   %11 = load ptr, ptr %hash_table_data_lengths_.i17, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %11) #3
-  %buckets_data_.i18 = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %9, i64 %i.126, i32 14
+  %buckets_data_.i18 = getelementptr inbounds i8, ptr %arrayidx14, i64 136
   %12 = load ptr, ptr %buckets_data_.i18, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %12) #3
-  %dict_words_data_.i19 = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %9, i64 %i.126, i32 16
+  %dict_words_data_.i19 = getelementptr inbounds i8, ptr %arrayidx14, i64 152
   %13 = load ptr, ptr %dict_words_data_.i19, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %13) #3
-  %words_instance_.i20 = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %9, i64 %i.126, i32 17
+  %words_instance_.i20 = getelementptr inbounds i8, ptr %arrayidx14, i64 160
   %14 = load ptr, ptr %words_instance_.i20, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %14) #3
-  %trie.i21 = getelementptr inbounds %struct.BrotliEncoderDictionary, ptr %9, i64 %i.126, i32 8
+  %trie.i21 = getelementptr inbounds i8, ptr %arrayidx14, i64 56
   %trie.val.i22 = load ptr, ptr %trie.i21, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %trie.val.i22) #3
   %inc16 = add nuw i64 %i.126, 1
   %15 = load i64, ptr %num_instances_, align 8
   %cmp11 = icmp ult i64 %inc16, %15
-  br i1 %cmp11, label %for.body12, label %for.end17, !llvm.loop !6
+  br i1 %cmp11, label %for.body12, label %if.end20.sink.split, !llvm.loop !6
 
-for.end17:                                        ; preds = %for.body12
-  %instances_19 = getelementptr inbounds %struct.SharedEncoderDictionary, ptr %dict, i64 0, i32 2, i32 6
-  br label %if.end20.sink.split
-
-if.end20.sink.split:                              ; preds = %if.then, %for.end17
-  %instances_19.sink = phi ptr [ %instances_19, %for.end17 ], [ %trie.i, %if.then ]
-  %16 = load ptr, ptr %instances_19.sink, align 8
+if.end20.sink.split:                              ; preds = %for.body12, %if.then
+  %.sink = phi i64 [ 1192, %if.then ], [ 1304, %for.body12 ]
+  %instances_19 = getelementptr inbounds i8, ptr %dict, i64 %.sink
+  %16 = load ptr, ptr %instances_19, align 8
   tail call void @BrotliFree(ptr noundef %m, ptr noundef %16) #3
   br label %if.end20
 
@@ -180,9 +175,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i32 -558043678, ptr %call, align 8
-  %memory_manager_ = getelementptr inbounds %struct.ManagedDictionary, ptr %call, i64 0, i32 1
+  %memory_manager_ = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @BrotliInitMemoryManager(ptr noundef nonnull %memory_manager_, ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) #3
-  %dictionary = getelementptr inbounds %struct.ManagedDictionary, ptr %call, i64 0, i32 2
+  %dictionary = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %dictionary, align 8
   br label %return
 
@@ -201,7 +196,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %memory_manager_ = getelementptr inbounds %struct.ManagedDictionary, ptr %dictionary, i64 0, i32 1
+  %memory_manager_ = getelementptr inbounds i8, ptr %dictionary, i64 8
   tail call void @BrotliBootstrapFree(ptr noundef nonnull %dictionary, ptr noundef nonnull %memory_manager_) #3
   br label %return
 

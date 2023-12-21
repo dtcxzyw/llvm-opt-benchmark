@@ -47,7 +47,7 @@ if.then:                                          ; preds = %entry
   br label %if.end14
 
 sw.bb:                                            ; preds = %entry
-  %hasVal.i.i = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasVal.i.i, align 8
   br label %return
 
@@ -83,7 +83,7 @@ for.body:                                         ; preds = %if.end14, %for.inc
   br i1 %cmp19, label %if.then21, label %if.end22
 
 if.then21:                                        ; preds = %for.body
-  %hasVal.i.i24 = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i24 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasVal.i.i24, align 8
   br label %cleanup
 
@@ -96,7 +96,7 @@ if.then26:                                        ; preds = %if.end22
   br i1 %cmp27, label %if.then28, label %for.end
 
 if.then28:                                        ; preds = %if.then26
-  %hasVal.i.i25 = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i25 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasVal.i.i25, align 8
   br label %cleanup
 
@@ -108,7 +108,7 @@ if.end30:                                         ; preds = %if.end22
   br i1 %cmp32, label %if.then34, label %if.else35
 
 if.then34:                                        ; preds = %if.end30
-  %hasVal.i.i26 = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i26 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasVal.i.i26, align 8
   br label %cleanup
 
@@ -137,7 +137,7 @@ for.inc:                                          ; preds = %if.then40, %if.else
   br i1 %cmp17.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end14, %if.then26
-  %hasVal.i.i27 = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i27 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 1, ptr %hasVal.i.i27, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %output) #4
   br label %cleanup
@@ -178,7 +178,7 @@ if.end.i33:                                       ; preds = %if.end.i120
   br i1 %cmp.i71, label %if.end.i111, label %if.then3
 
 if.then:                                          ; preds = %entry, %if.end.i120
-  %hasVal.i.i = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasVal.i.i, align 8
   br label %return
 
@@ -194,7 +194,7 @@ if.end.i19:                                       ; preds = %if.end.i111
   br i1 %cmp.i82, label %if.end.i103, label %if.then7
 
 if.then3:                                         ; preds = %if.end.i33, %if.end.i111
-  %hasVal.i.i43 = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i43 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasVal.i.i43, align 8
   br label %return
 
@@ -210,7 +210,7 @@ if.end.i:                                         ; preds = %if.end.i103
   br label %return
 
 if.then7:                                         ; preds = %if.end.i19, %if.end.i103
-  %hasVal.i.i48 = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i48 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasVal.i.i48, align 8
   br label %return
 

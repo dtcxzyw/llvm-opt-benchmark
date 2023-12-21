@@ -8,78 +8,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon = type { i8 }
 %"struct.std::array" = type { [20 x i8] }
 %"struct.hermes::hbc::BytecodeFileFooter" = type { [20 x i8] }
-%"class.hermes::hbc::BytecodeSerializer" = type { ptr, ptr, %"struct.hermes::BytecodeGenerationOptions", i64, i8, i32, i32, i32, %"class.llvh::SHA1" }
-%"struct.hermes::BytecodeGenerationOptions" = type <{ i32, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, [3 x i8] }>
-%"class.llvh::SHA1" = type { %struct.anon.35, [5 x i32] }
-%struct.anon.35 = type { %union.anon, [5 x i32], i32, i8 }
-%union.anon = type { [16 x i32] }
-%"class.hermes::hbc::BytecodeModule" = type <{ %"class.std::vector", i32, [4 x i8], %"class.std::vector.0", %"class.std::vector.5", %"class.std::vector.10", %"class.std::vector.15", %"class.std::vector.20", %"class.std::vector.15", %"class.std::vector.15", %"class.std::vector.25", %"class.hermes::hbc::DebugInfo", %"class.std::vector.15", %"class.std::vector.15", %"class.std::vector.15", i32, [4 x i8], %"class.std::vector.30", %"class.std::vector.30", %"class.std::vector.30", %"union.hermes::hbc::BytecodeOptions", [7 x i8] }>
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::unique_ptr<hermes::hbc::BytecodeFunction>, std::allocator<std::unique_ptr<hermes::hbc::BytecodeFunction>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<hermes::hbc::BytecodeFunction>, std::allocator<std::unique_ptr<hermes::hbc::BytecodeFunction>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<hermes::hbc::BytecodeFunction>, std::allocator<std::unique_ptr<hermes::hbc::BytecodeFunction>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<hermes::hbc::BytecodeFunction>, std::allocator<std::unique_ptr<hermes::hbc::BytecodeFunction>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<hermes::StringKind::Entry, std::allocator<hermes::StringKind::Entry>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::StringKind::Entry, std::allocator<hermes::StringKind::Entry>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::StringKind::Entry, std::allocator<hermes::StringKind::Entry>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::StringKind::Entry, std::allocator<hermes::StringKind::Entry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.10" = type { %"struct.std::_Vector_base.11" }
-%"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<hermes::StringTableEntry, std::allocator<hermes::StringTableEntry>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::StringTableEntry, std::allocator<hermes::StringTableEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::StringTableEntry, std::allocator<hermes::StringTableEntry>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::StringTableEntry, std::allocator<hermes::StringTableEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
-%"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<hermes::bigint::BigIntTableEntry, std::allocator<hermes::bigint::BigIntTableEntry>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::bigint::BigIntTableEntry, std::allocator<hermes::bigint::BigIntTableEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::bigint::BigIntTableEntry, std::allocator<hermes::bigint::BigIntTableEntry>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::bigint::BigIntTableEntry, std::allocator<hermes::bigint::BigIntTableEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.25" = type { %"struct.std::_Vector_base.26" }
-%"struct.std::_Vector_base.26" = type { %"struct.std::_Vector_base<hermes::RegExpTableEntry, std::allocator<hermes::RegExpTableEntry>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::RegExpTableEntry, std::allocator<hermes::RegExpTableEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::RegExpTableEntry, std::allocator<hermes::RegExpTableEntry>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::RegExpTableEntry, std::allocator<hermes::RegExpTableEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.hermes::hbc::DebugInfo" = type { %"class.std::vector.10", %"class.std::vector.15", %"class.llvh::SmallVector", i32, i32, i32, %"class.hermes::hbc::StreamVector" }
-%"class.llvh::SmallVector" = type <{ %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage", [4 x i8] }>
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvh::SmallVectorStorage" = type { [1 x %"struct.llvh::AlignedCharArrayUnion"] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [12 x i8] }
-%"class.hermes::hbc::StreamVector" = type { %"class.std::vector.15", %"class.llvh::ArrayRef" }
-%"class.llvh::ArrayRef" = type { ptr, i64 }
-%"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
-%"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.30" = type { %"struct.std::_Vector_base.31" }
-%"struct.std::_Vector_base.31" = type { %"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned int, unsigned int>, std::allocator<std::pair<unsigned int, unsigned int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.41" }
-%"struct.std::_Head_base.41" = type { ptr }
 %"class.llvh::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %"struct.std::pair.62" = type <{ %"class.llvh::ArrayRef", i32, [4 x i8] }>
-%"class.hermes::hbc::BytecodeFunction" = type { %"class.std::vector.15", %"struct.hermes::hbc::FunctionHeader", %"struct.hermes::hbc::DebugOffsets", %"class.std::vector.43", %"class.std::unique_ptr.48" }
+%"class.llvh::ArrayRef" = type { ptr, i64 }
 %"struct.hermes::hbc::FunctionHeader" = type <{ i32, i32, i32, i32, i32, i32, i32, i8, i8, %"union.hermes::hbc::FunctionHeaderFlag" }>
 %"union.hermes::hbc::FunctionHeaderFlag" = type { %struct.anon.42 }
 %struct.anon.42 = type { i8 }
-%"struct.hermes::hbc::DebugOffsets" = type { i32, i32, i32 }
-%"class.std::vector.43" = type { %"struct.std::_Vector_base.44" }
-%"struct.std::_Vector_base.44" = type { %"struct.std::_Vector_base<hermes::hbc::HBCExceptionHandlerInfo, std::allocator<hermes::hbc::HBCExceptionHandlerInfo>>::_Vector_impl" }
-%"struct.std::_Vector_base<hermes::hbc::HBCExceptionHandlerInfo, std::allocator<hermes::hbc::HBCExceptionHandlerInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::hbc::HBCExceptionHandlerInfo, std::allocator<hermes::hbc::HBCExceptionHandlerInfo>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<hermes::hbc::HBCExceptionHandlerInfo, std::allocator<hermes::hbc::HBCExceptionHandlerInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.48" = type { %"struct.std::__uniq_ptr_data.49" }
-%"struct.std::__uniq_ptr_data.49" = type { %"class.std::__uniq_ptr_impl.50" }
-%"class.std::__uniq_ptr_impl.50" = type { %"class.std::tuple.51" }
-%"class.std::tuple.51" = type { %"struct.std::_Tuple_impl.52" }
-%"struct.std::_Tuple_impl.52" = type { %"struct.std::_Head_base.55" }
-%"struct.std::_Head_base.55" = type { ptr }
 %"struct.hermes::hbc::SmallFuncHeader" = type { [15 x i8], %"union.hermes::hbc::FunctionHeaderFlag" }
 %"struct.hermes::hbc::DebugInfoHeader" = type { i32, i32, i32, i32, i32, i32, i32 }
 %"struct.hermes::hbc::DebugFileRegion" = type { i32, i32, i32 }
@@ -91,6 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::SmallVectorImpl.67" = type { %"class.llvh::SmallVectorTemplateBase.68" }
 %"class.llvh::SmallVectorTemplateBase.68" = type { %"class.llvh::SmallVectorTemplateCommon.69" }
 %"class.llvh::SmallVectorTemplateCommon.69" = type { %"class.llvh::SmallVectorBase" }
+%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvh::SmallVectorStorage.70" = type { [64 x %"struct.llvh::AlignedCharArrayUnion.71"] }
 %"struct.llvh::AlignedCharArrayUnion.71" = type { %"struct.llvh::AlignedCharArray.72" }
 %"struct.llvh::AlignedCharArray.72" = type { [8 x i8] }
@@ -126,253 +61,249 @@ entry:
   %header = alloca %"struct.hermes::hbc::BytecodeFileHeader", align 8
   %fileHash = alloca %"struct.std::array", align 1
   %ref.tmp62 = alloca %"struct.hermes::hbc::BytecodeFileFooter", align 1
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %BM, ptr %bytecodeModule_, align 8
-  %options_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 20
+  %options_.i = getelementptr inbounds i8, ptr %BM, i64 512
   %retval.sroa.0.0.copyload.i = load i8, ptr %options_.i, align 8
   %0 = and i8 %retval.sroa.0.0.copyload.i, 2
   %bf.cast.not = icmp eq i8 %0, 0
-  %cjsModuleTable_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 17
+  %. = select i1 %bf.cast.not, i64 440, i64 464
+  %.135 = select i1 %bf.cast.not, i64 448, i64 472
+  %cjsModuleTable_.i = getelementptr inbounds i8, ptr %BM, i64 %.
   %1 = load ptr, ptr %cjsModuleTable_.i, align 8
-  %_M_finish.i.i.i27 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 17, i32 0, i32 0, i32 0, i32 1
-  %cjsModuleTableStatic_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 18
-  %2 = load ptr, ptr %cjsModuleTableStatic_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 18, i32 0, i32 0, i32 0, i32 1
-  %.sink = select i1 %bf.cast.not, ptr %1, ptr %2
-  %_M_finish.i.i.i27.val = load ptr, ptr %_M_finish.i.i.i27, align 8
-  %_M_finish.i.i.i.val = load ptr, ptr %_M_finish.i.i.i, align 8
-  %3 = select i1 %bf.cast.not, ptr %_M_finish.i.i.i27.val, ptr %_M_finish.i.i.i.val
-  %sub.ptr.lhs.cast.i.i.i28 = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast.i.i.i29 = ptrtoint ptr %.sink to i64
+  %_M_finish.i.i.i27 = getelementptr inbounds i8, ptr %BM, i64 %.135
+  %2 = load ptr, ptr %_M_finish.i.i.i27, align 8
+  %sub.ptr.lhs.cast.i.i.i28 = ptrtoint ptr %2 to i64
+  %sub.ptr.rhs.cast.i.i.i29 = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i.i.i30 = sub i64 %sub.ptr.lhs.cast.i.i.i28, %sub.ptr.rhs.cast.i.i.i29
   %cond = lshr exact i64 %sub.ptr.sub.i.i.i30, 3
   %conv = trunc i64 %cond to i32
-  %fileLength_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 5
-  %4 = load i32, ptr %fileLength_, align 4
-  %globalFunctionIndex_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 1
-  %5 = load i32, ptr %globalFunctionIndex_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<hermes::hbc::BytecodeFunction>, std::allocator<std::unique_ptr<hermes::hbc::BytecodeFunction>>>::_Vector_impl_data", ptr %BM, i64 0, i32 1
-  %6 = load ptr, ptr %_M_finish.i.i, align 8
-  %7 = load ptr, ptr %BM, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
+  %fileLength_ = getelementptr inbounds i8, ptr %this, i64 52
+  %3 = load i32, ptr %fileLength_, align 4
+  %globalFunctionIndex_.i = getelementptr inbounds i8, ptr %BM, i64 24
+  %4 = load i32, ptr %globalFunctionIndex_.i, align 8
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %BM, i64 8
+  %5 = load ptr, ptr %_M_finish.i.i, align 8
+  %6 = load ptr, ptr %BM, align 8
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
-  %stringKinds_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 3
-  %8 = load ptr, ptr %stringKinds_.i, align 8
-  %_M_finish.i.i.i35 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
-  %9 = load ptr, ptr %_M_finish.i.i.i35, align 8
-  %sub.ptr.lhs.cast.i.i.i36 = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i.i37 = ptrtoint ptr %8 to i64
+  %stringKinds_.i = getelementptr inbounds i8, ptr %BM, i64 32
+  %7 = load ptr, ptr %stringKinds_.i, align 8
+  %_M_finish.i.i.i35 = getelementptr inbounds i8, ptr %BM, i64 40
+  %8 = load ptr, ptr %_M_finish.i.i.i35, align 8
+  %sub.ptr.lhs.cast.i.i.i36 = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i.i.i37 = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i.i38 = sub i64 %sub.ptr.lhs.cast.i.i.i36, %sub.ptr.rhs.cast.i.i.i37
   %sub.ptr.div.i.i.i39 = lshr exact i64 %sub.ptr.sub.i.i.i38, 2
   %conv14 = trunc i64 %sub.ptr.div.i.i.i39 to i32
-  %identifierHashes_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 4
-  %_M_finish.i.i43 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
-  %10 = load ptr, ptr %_M_finish.i.i43, align 8
-  %11 = load ptr, ptr %identifierHashes_.i, align 8
-  %sub.ptr.lhs.cast.i.i44 = ptrtoint ptr %10 to i64
-  %sub.ptr.rhs.cast.i.i45 = ptrtoint ptr %11 to i64
+  %identifierHashes_.i = getelementptr inbounds i8, ptr %BM, i64 56
+  %_M_finish.i.i43 = getelementptr inbounds i8, ptr %BM, i64 64
+  %9 = load ptr, ptr %_M_finish.i.i43, align 8
+  %10 = load ptr, ptr %identifierHashes_.i, align 8
+  %sub.ptr.lhs.cast.i.i44 = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast.i.i45 = ptrtoint ptr %10 to i64
   %sub.ptr.sub.i.i46 = sub i64 %sub.ptr.lhs.cast.i.i44, %sub.ptr.rhs.cast.i.i45
   %sub.ptr.div.i.i47 = lshr exact i64 %sub.ptr.sub.i.i46, 2
   %conv.i48 = trunc i64 %sub.ptr.div.i.i47 to i32
-  %stringTable_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 5
-  %_M_finish.i.i49 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
-  %12 = load ptr, ptr %_M_finish.i.i49, align 8
-  %13 = load ptr, ptr %stringTable_.i, align 8
-  %sub.ptr.lhs.cast.i.i50 = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i51 = ptrtoint ptr %13 to i64
+  %stringTable_.i = getelementptr inbounds i8, ptr %BM, i64 80
+  %_M_finish.i.i49 = getelementptr inbounds i8, ptr %BM, i64 88
+  %11 = load ptr, ptr %_M_finish.i.i49, align 8
+  %12 = load ptr, ptr %stringTable_.i, align 8
+  %sub.ptr.lhs.cast.i.i50 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i51 = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i.i52 = sub i64 %sub.ptr.lhs.cast.i.i50, %sub.ptr.rhs.cast.i.i51
   %sub.ptr.div.i.i53 = lshr exact i64 %sub.ptr.sub.i.i52, 3
   %conv.i54 = trunc i64 %sub.ptr.div.i.i53 to i32
-  %overflowStringEntryCount_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 7
-  %14 = load i32, ptr %overflowStringEntryCount_, align 4
-  %stringStorage_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 6
-  %_M_finish.i.i55 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
-  %15 = load ptr, ptr %_M_finish.i.i55, align 8
-  %16 = load ptr, ptr %stringStorage_.i, align 8
-  %sub.ptr.lhs.cast.i.i56 = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i.i57 = ptrtoint ptr %16 to i64
+  %overflowStringEntryCount_ = getelementptr inbounds i8, ptr %this, i64 60
+  %13 = load i32, ptr %overflowStringEntryCount_, align 4
+  %stringStorage_.i = getelementptr inbounds i8, ptr %BM, i64 104
+  %_M_finish.i.i55 = getelementptr inbounds i8, ptr %BM, i64 112
+  %14 = load ptr, ptr %_M_finish.i.i55, align 8
+  %15 = load ptr, ptr %stringStorage_.i, align 8
+  %sub.ptr.lhs.cast.i.i56 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i57 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i58 = sub i64 %sub.ptr.lhs.cast.i.i56, %sub.ptr.rhs.cast.i.i57
   %conv.i59 = trunc i64 %sub.ptr.sub.i.i58 to i32
-  %bigIntTable_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 7
-  %17 = load ptr, ptr %bigIntTable_.i, align 8
-  %_M_finish.i.i.i60 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
-  %18 = load ptr, ptr %_M_finish.i.i.i60, align 8
-  %sub.ptr.lhs.cast.i.i.i61 = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast.i.i.i62 = ptrtoint ptr %17 to i64
+  %bigIntTable_.i = getelementptr inbounds i8, ptr %BM, i64 128
+  %16 = load ptr, ptr %bigIntTable_.i, align 8
+  %_M_finish.i.i.i60 = getelementptr inbounds i8, ptr %BM, i64 136
+  %17 = load ptr, ptr %_M_finish.i.i.i60, align 8
+  %sub.ptr.lhs.cast.i.i.i61 = ptrtoint ptr %17 to i64
+  %sub.ptr.rhs.cast.i.i.i62 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i.i63 = sub i64 %sub.ptr.lhs.cast.i.i.i61, %sub.ptr.rhs.cast.i.i.i62
   %sub.ptr.div.i.i.i64 = lshr exact i64 %sub.ptr.sub.i.i.i63, 3
   %conv21 = trunc i64 %sub.ptr.div.i.i.i64 to i32
-  %bigIntStorage_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 8
-  %19 = load ptr, ptr %bigIntStorage_.i, align 8
-  %_M_finish.i.i.i68 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
-  %20 = load ptr, ptr %_M_finish.i.i.i68, align 8
-  %sub.ptr.lhs.cast.i.i.i69 = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i.i.i70 = ptrtoint ptr %19 to i64
+  %bigIntStorage_.i = getelementptr inbounds i8, ptr %BM, i64 152
+  %18 = load ptr, ptr %bigIntStorage_.i, align 8
+  %_M_finish.i.i.i68 = getelementptr inbounds i8, ptr %BM, i64 160
+  %19 = load ptr, ptr %_M_finish.i.i.i68, align 8
+  %sub.ptr.lhs.cast.i.i.i69 = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i.i.i70 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i.i71 = sub i64 %sub.ptr.lhs.cast.i.i.i69, %sub.ptr.rhs.cast.i.i.i70
   %conv25 = trunc i64 %sub.ptr.sub.i.i.i71 to i32
-  %regExpTable_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 10
-  %21 = load ptr, ptr %regExpTable_.i, align 8
-  %_M_finish.i.i.i75 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
-  %22 = load ptr, ptr %_M_finish.i.i.i75, align 8
-  %sub.ptr.lhs.cast.i.i.i76 = ptrtoint ptr %22 to i64
-  %sub.ptr.rhs.cast.i.i.i77 = ptrtoint ptr %21 to i64
+  %regExpTable_.i = getelementptr inbounds i8, ptr %BM, i64 200
+  %20 = load ptr, ptr %regExpTable_.i, align 8
+  %_M_finish.i.i.i75 = getelementptr inbounds i8, ptr %BM, i64 208
+  %21 = load ptr, ptr %_M_finish.i.i.i75, align 8
+  %sub.ptr.lhs.cast.i.i.i76 = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast.i.i.i77 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i.i78 = sub i64 %sub.ptr.lhs.cast.i.i.i76, %sub.ptr.rhs.cast.i.i.i77
   %sub.ptr.div.i.i.i79 = lshr exact i64 %sub.ptr.sub.i.i.i78, 3
   %conv29 = trunc i64 %sub.ptr.div.i.i.i79 to i32
-  %regExpStorage_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 9
-  %23 = load ptr, ptr %regExpStorage_.i, align 8
-  %_M_finish.i.i.i83 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
-  %24 = load ptr, ptr %_M_finish.i.i.i83, align 8
-  %sub.ptr.lhs.cast.i.i.i84 = ptrtoint ptr %24 to i64
-  %sub.ptr.rhs.cast.i.i.i85 = ptrtoint ptr %23 to i64
+  %regExpStorage_.i = getelementptr inbounds i8, ptr %BM, i64 176
+  %22 = load ptr, ptr %regExpStorage_.i, align 8
+  %_M_finish.i.i.i83 = getelementptr inbounds i8, ptr %BM, i64 184
+  %23 = load ptr, ptr %_M_finish.i.i.i83, align 8
+  %sub.ptr.lhs.cast.i.i.i84 = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i.i.i85 = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i.i.i86 = sub i64 %sub.ptr.lhs.cast.i.i.i84, %sub.ptr.rhs.cast.i.i.i85
   %conv33 = trunc i64 %sub.ptr.sub.i.i.i86 to i32
-  %arrayBuffer_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 12
-  %_M_finish.i.i90 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 12, i32 0, i32 0, i32 0, i32 1
-  %25 = load ptr, ptr %_M_finish.i.i90, align 8
-  %26 = load ptr, ptr %arrayBuffer_.i, align 8
-  %sub.ptr.lhs.cast.i.i91 = ptrtoint ptr %25 to i64
-  %sub.ptr.rhs.cast.i.i92 = ptrtoint ptr %26 to i64
+  %arrayBuffer_.i = getelementptr inbounds i8, ptr %BM, i64 360
+  %_M_finish.i.i90 = getelementptr inbounds i8, ptr %BM, i64 368
+  %24 = load ptr, ptr %_M_finish.i.i90, align 8
+  %25 = load ptr, ptr %arrayBuffer_.i, align 8
+  %sub.ptr.lhs.cast.i.i91 = ptrtoint ptr %24 to i64
+  %sub.ptr.rhs.cast.i.i92 = ptrtoint ptr %25 to i64
   %sub.ptr.sub.i.i93 = sub i64 %sub.ptr.lhs.cast.i.i91, %sub.ptr.rhs.cast.i.i92
   %conv.i94 = trunc i64 %sub.ptr.sub.i.i93 to i32
-  %objKeyBuffer_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 13
-  %_M_finish.i.i95 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 13, i32 0, i32 0, i32 0, i32 1
-  %27 = load ptr, ptr %_M_finish.i.i95, align 8
-  %28 = load ptr, ptr %objKeyBuffer_.i, align 8
-  %sub.ptr.lhs.cast.i.i96 = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast.i.i97 = ptrtoint ptr %28 to i64
+  %objKeyBuffer_.i = getelementptr inbounds i8, ptr %BM, i64 384
+  %_M_finish.i.i95 = getelementptr inbounds i8, ptr %BM, i64 392
+  %26 = load ptr, ptr %_M_finish.i.i95, align 8
+  %27 = load ptr, ptr %objKeyBuffer_.i, align 8
+  %sub.ptr.lhs.cast.i.i96 = ptrtoint ptr %26 to i64
+  %sub.ptr.rhs.cast.i.i97 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i.i98 = sub i64 %sub.ptr.lhs.cast.i.i96, %sub.ptr.rhs.cast.i.i97
   %conv.i99 = trunc i64 %sub.ptr.sub.i.i98 to i32
-  %objValBuffer_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 14
-  %_M_finish.i.i100 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 14, i32 0, i32 0, i32 0, i32 1
-  %29 = load ptr, ptr %_M_finish.i.i100, align 8
-  %30 = load ptr, ptr %objValBuffer_.i, align 8
-  %sub.ptr.lhs.cast.i.i101 = ptrtoint ptr %29 to i64
-  %sub.ptr.rhs.cast.i.i102 = ptrtoint ptr %30 to i64
+  %objValBuffer_.i = getelementptr inbounds i8, ptr %BM, i64 408
+  %_M_finish.i.i100 = getelementptr inbounds i8, ptr %BM, i64 416
+  %28 = load ptr, ptr %_M_finish.i.i100, align 8
+  %29 = load ptr, ptr %objValBuffer_.i, align 8
+  %sub.ptr.lhs.cast.i.i101 = ptrtoint ptr %28 to i64
+  %sub.ptr.rhs.cast.i.i102 = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i.i103 = sub i64 %sub.ptr.lhs.cast.i.i101, %sub.ptr.rhs.cast.i.i102
   %conv.i104 = trunc i64 %sub.ptr.sub.i.i103 to i32
-  %segmentID_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 15
-  %31 = load i32, ptr %segmentID_.i, align 8
-  %functionSourceTable_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 19
-  %32 = load ptr, ptr %functionSourceTable_.i, align 8
-  %_M_finish.i.i.i105 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 19, i32 0, i32 0, i32 0, i32 1
-  %33 = load ptr, ptr %_M_finish.i.i.i105, align 8
-  %sub.ptr.lhs.cast.i.i.i106 = ptrtoint ptr %33 to i64
-  %sub.ptr.rhs.cast.i.i.i107 = ptrtoint ptr %32 to i64
+  %segmentID_.i = getelementptr inbounds i8, ptr %BM, i64 432
+  %30 = load i32, ptr %segmentID_.i, align 8
+  %functionSourceTable_.i = getelementptr inbounds i8, ptr %BM, i64 488
+  %31 = load ptr, ptr %functionSourceTable_.i, align 8
+  %_M_finish.i.i.i105 = getelementptr inbounds i8, ptr %BM, i64 496
+  %32 = load ptr, ptr %_M_finish.i.i.i105, align 8
+  %sub.ptr.lhs.cast.i.i.i106 = ptrtoint ptr %32 to i64
+  %sub.ptr.rhs.cast.i.i.i107 = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i.i.i108 = sub i64 %sub.ptr.lhs.cast.i.i.i106, %sub.ptr.rhs.cast.i.i.i107
   %sub.ptr.div.i.i.i109 = lshr exact i64 %sub.ptr.sub.i.i.i108, 3
   %conv41 = trunc i64 %sub.ptr.div.i.i.i109 to i32
-  %debugInfoOffset_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 6
-  %34 = load i32, ptr %debugInfoOffset_, align 8
+  %debugInfoOffset_ = getelementptr inbounds i8, ptr %this, i64 56
+  %33 = load i32, ptr %debugInfoOffset_, align 8
   store i64 2240826417119764422, ptr %header, align 8
-  %version4.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 1
+  %version4.i = getelementptr inbounds i8, ptr %header, i64 8
   store i32 96, ptr %version4.i, align 8
-  %sourceHash5.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 2
-  %fileLength6.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 3
-  store i32 %4, ptr %fileLength6.i, align 8
-  %globalCodeIndex7.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 4
-  store i32 %5, ptr %globalCodeIndex7.i, align 4
-  %functionCount8.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 5
+  %sourceHash5.i = getelementptr inbounds i8, ptr %header, i64 12
+  %fileLength6.i = getelementptr inbounds i8, ptr %header, i64 32
+  store i32 %3, ptr %fileLength6.i, align 8
+  %globalCodeIndex7.i = getelementptr inbounds i8, ptr %header, i64 36
+  store i32 %4, ptr %globalCodeIndex7.i, align 4
+  %functionCount8.i = getelementptr inbounds i8, ptr %header, i64 40
   store i32 %conv.i, ptr %functionCount8.i, align 8
-  %stringKindCount9.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 6
+  %stringKindCount9.i = getelementptr inbounds i8, ptr %header, i64 44
   store i32 %conv14, ptr %stringKindCount9.i, align 4
-  %identifierCount10.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 7
+  %identifierCount10.i = getelementptr inbounds i8, ptr %header, i64 48
   store i32 %conv.i48, ptr %identifierCount10.i, align 8
-  %stringCount11.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 8
+  %stringCount11.i = getelementptr inbounds i8, ptr %header, i64 52
   store i32 %conv.i54, ptr %stringCount11.i, align 4
-  %overflowStringCount12.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 9
-  store i32 %14, ptr %overflowStringCount12.i, align 8
-  %stringStorageSize13.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 10
+  %overflowStringCount12.i = getelementptr inbounds i8, ptr %header, i64 56
+  store i32 %13, ptr %overflowStringCount12.i, align 8
+  %stringStorageSize13.i = getelementptr inbounds i8, ptr %header, i64 60
   store i32 %conv.i59, ptr %stringStorageSize13.i, align 4
-  %bigIntCount14.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 11
+  %bigIntCount14.i = getelementptr inbounds i8, ptr %header, i64 64
   store i32 %conv21, ptr %bigIntCount14.i, align 8
-  %bigIntStorageSize15.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 12
+  %bigIntStorageSize15.i = getelementptr inbounds i8, ptr %header, i64 68
   store i32 %conv25, ptr %bigIntStorageSize15.i, align 4
-  %regExpCount16.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 13
+  %regExpCount16.i = getelementptr inbounds i8, ptr %header, i64 72
   store i32 %conv29, ptr %regExpCount16.i, align 8
-  %regExpStorageSize17.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 14
+  %regExpStorageSize17.i = getelementptr inbounds i8, ptr %header, i64 76
   store i32 %conv33, ptr %regExpStorageSize17.i, align 4
-  %arrayBufferSize18.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 15
+  %arrayBufferSize18.i = getelementptr inbounds i8, ptr %header, i64 80
   store i32 %conv.i94, ptr %arrayBufferSize18.i, align 8
-  %objKeyBufferSize19.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 16
+  %objKeyBufferSize19.i = getelementptr inbounds i8, ptr %header, i64 84
   store i32 %conv.i99, ptr %objKeyBufferSize19.i, align 4
-  %objValueBufferSize20.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 17
+  %objValueBufferSize20.i = getelementptr inbounds i8, ptr %header, i64 88
   store i32 %conv.i104, ptr %objValueBufferSize20.i, align 8
-  %segmentID21.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 18
-  store i32 %31, ptr %segmentID21.i, align 4
-  %cjsModuleCount22.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 19
+  %segmentID21.i = getelementptr inbounds i8, ptr %header, i64 92
+  store i32 %30, ptr %segmentID21.i, align 4
+  %cjsModuleCount22.i = getelementptr inbounds i8, ptr %header, i64 96
   store i32 %conv, ptr %cjsModuleCount22.i, align 8
-  %functionSourceCount23.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 20
+  %functionSourceCount23.i = getelementptr inbounds i8, ptr %header, i64 100
   store i32 %conv41, ptr %functionSourceCount23.i, align 4
-  %debugInfoOffset24.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 21
-  store i32 %34, ptr %debugInfoOffset24.i, align 8
-  %options25.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 22
+  %debugInfoOffset24.i = getelementptr inbounds i8, ptr %header, i64 104
+  store i32 %33, ptr %debugInfoOffset24.i, align 8
+  %options25.i = getelementptr inbounds i8, ptr %header, i64 108
   store i8 %retval.sroa.0.0.copyload.i, ptr %options25.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %sourceHash5.i, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 20, i1 false)
-  %padding.i = getelementptr inbounds %"struct.hermes::hbc::BytecodeFileHeader", ptr %header, i64 0, i32 23
+  %padding.i = getelementptr inbounds i8, ptr %header, i64 109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %padding.i, i8 0, i64 19, i1 false)
-  %isLayout_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %35 = load i8, ptr %isLayout_.i.i, align 8
-  %36 = and i8 %35, 1
-  %tobool.not.i.i = icmp eq i8 %36, 0
+  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %34 = load i8, ptr %isLayout_.i.i, align 8
+  %35 = and i8 %34, 1
+  %tobool.not.i.i = icmp eq i8 %35, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileHeaderEEEvRKT_.exit
 
 if.then.i.i:                                      ; preds = %entry
-  %outputHasher_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %header, i64 128) #12
-  %37 = load ptr, ptr %this, align 8
-  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %37, ptr noundef nonnull %header, i64 noundef 128) #12
+  %36 = load ptr, ptr %this, align 8
+  %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %36, ptr noundef nonnull %header, i64 noundef 128) #12
   br label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileHeaderEEEvRKT_.exit
 
 _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileHeaderEEEvRKT_.exit: ; preds = %entry, %if.then.i.i
-  %loc_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
-  %38 = load i64, ptr %loc_.i.i, align 8
-  %add.i.i = add i64 %38, 128
+  %loc_.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %37 = load i64, ptr %loc_.i.i, align 8
+  %add.i.i = add i64 %37, 128
   store i64 %add.i.i, ptr %loc_.i.i, align 8
   call void @_ZN6hermes3hbc28visitBytecodeSegmentsInOrderINS0_18BytecodeSerializerEEEvRT_(ptr noundef nonnull align 8 dereferenceable(176) %this)
   call void @_ZN6hermes3hbc18BytecodeSerializer26serializeFunctionsBytecodeERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(513) %BM)
-  %39 = load ptr, ptr %BM, align 8
-  %40 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.not127 = icmp eq ptr %39, %40
+  %38 = load ptr, ptr %BM, align 8
+  %39 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.not127 = icmp eq ptr %38, %39
   br i1 %cmp.i.not127, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileHeaderEEEvRKT_.exit, %for.body
-  %__begin1.sroa.0.0128 = phi ptr [ %incdec.ptr.i, %for.body ], [ %39, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileHeaderEEEvRKT_.exit ]
-  %41 = load ptr, ptr %__begin1.sroa.0.0128, align 8
-  call void @_ZN6hermes3hbc18BytecodeSerializer21serializeFunctionInfoERNS0_16BytecodeFunctionE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(104) %41)
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__begin1.sroa.0.0128, i64 1
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %40
+  %__begin1.sroa.0.0128 = phi ptr [ %incdec.ptr.i, %for.body ], [ %38, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileHeaderEEEvRKT_.exit ]
+  %40 = load ptr, ptr %__begin1.sroa.0.0128, align 8
+  call void @_ZN6hermes3hbc18BytecodeSerializer21serializeFunctionInfoERNS0_16BytecodeFunctionE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(104) %40)
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0128, i64 8
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %39
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileHeaderEEEvRKT_.exit
   call void @_ZN6hermes3hbc18BytecodeSerializer18serializeDebugInfoERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(513) %BM)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %fileHash, i8 0, i64 20, i1 false)
-  %42 = load i8, ptr %isLayout_.i.i, align 8
-  %43 = and i8 %42, 1
-  %tobool.not = icmp eq i8 %43, 0
+  %41 = load i8, ptr %isLayout_.i.i, align 8
+  %42 = and i8 %41, 1
+  %tobool.not = icmp eq i8 %42, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
-  %outputHasher_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_ = getelementptr inbounds i8, ptr %this, i64 64
   %call57 = call { ptr, i64 } @_ZN4llvh4SHA16resultEv(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_) #12
-  %44 = extractvalue { ptr, i64 } %call57, 1
-  %cmp6.i.i.i.i.i = icmp sgt i64 %44, 0
+  %43 = extractvalue { ptr, i64 } %call57, 1
+  %cmp6.i.i.i.i.i = icmp sgt i64 %43, 0
   br i1 %cmp6.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader, label %if.end
 
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then
-  %45 = extractvalue { ptr, i64 } %call57, 0
-  %46 = getelementptr i8, ptr %fileHash, i64 %44
-  %scevgep = getelementptr i8, ptr %46, i64 -1
+  %44 = extractvalue { ptr, i64 } %call57, 0
+  %45 = getelementptr i8, ptr %fileHash, i64 %43
+  %scevgep = getelementptr i8, ptr %45, i64 -1
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
   %__result.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %fileHash, %for.body.i.i.i.i.i.preheader ]
-  %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %45, %for.body.i.i.i.i.i.preheader ]
-  %47 = load i8, ptr %__first.addr.07.i.i.i.i.i, align 1
-  store i8 %47, ptr %__result.addr.08.i.i.i.i.i, align 1
+  %__first.addr.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %44, %for.body.i.i.i.i.i.preheader ]
+  %46 = load i8, ptr %__first.addr.07.i.i.i.i.i, align 1
+  store i8 %46, ptr %__result.addr.08.i.i.i.i.i, align 1
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 1
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.08.i.i.i.i.i, i64 1
   %exitcond.not = icmp eq ptr %__result.addr.08.i.i.i.i.i, %scevgep
@@ -380,28 +311,28 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 
 if.end:                                           ; preds = %for.body.i.i.i.i.i, %if.then, %for.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %ref.tmp62, ptr noundef nonnull align 1 dereferenceable(20) %fileHash, i64 20, i1 false)
-  %48 = load i8, ptr %isLayout_.i.i, align 8
-  %49 = and i8 %48, 1
-  %tobool.not.i.i117 = icmp eq i8 %49, 0
+  %47 = load i8, ptr %isLayout_.i.i, align 8
+  %48 = and i8 %47, 1
+  %tobool.not.i.i117 = icmp eq i8 %48, 0
   br i1 %tobool.not.i.i117, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileFooterEEEvRKT_.exit, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileFooterEEEvRKT_.exit.thread
 
 _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileFooterEEEvRKT_.exit.thread: ; preds = %if.end
-  %50 = load i64, ptr %loc_.i.i, align 8
-  %add.i.i119131 = add i64 %50, 20
+  %49 = load i64, ptr %loc_.i.i, align 8
+  %add.i.i119131 = add i64 %49, 20
   br label %if.then65
 
 _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileFooterEEEvRKT_.exit: ; preds = %if.end
-  %outputHasher_.i.i121 = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i.i121 = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i121, ptr nonnull %ref.tmp62, i64 20) #12
-  %51 = load ptr, ptr %this, align 8
-  %call4.i.i122 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %51, ptr noundef nonnull %ref.tmp62, i64 noundef 20) #12
+  %50 = load ptr, ptr %this, align 8
+  %call4.i.i122 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %50, ptr noundef nonnull %ref.tmp62, i64 noundef 20) #12
   %.pre = load i8, ptr %isLayout_.i.i, align 8
   %.pre129 = and i8 %.pre, 1
-  %52 = icmp eq i8 %.pre129, 0
-  %53 = load i64, ptr %loc_.i.i, align 8
-  %add.i.i119 = add i64 %53, 20
+  %51 = icmp eq i8 %.pre129, 0
+  %52 = load i64, ptr %loc_.i.i, align 8
+  %add.i.i119 = add i64 %52, 20
   store i64 %add.i.i119, ptr %loc_.i.i, align 8
-  br i1 %52, label %if.end66, label %if.then65
+  br i1 %51, label %if.end66, label %if.then65
 
 if.then65:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileFooterEEEvRKT_.exit.thread, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileFooterEEEvRKT_.exit
   %add.i.i119132 = phi i64 [ %add.i.i119131, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileFooterEEEvRKT_.exit.thread ], [ %add.i.i119, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_18BytecodeFileFooterEEEvRKT_.exit ]
@@ -435,7 +366,7 @@ entry:
   tail call void @_ZN6hermes3hbc18BytecodeSerializer16visitRegExpTableEv(ptr noundef nonnull align 8 dereferenceable(176) %visitor)
   tail call void @_ZN6hermes3hbc18BytecodeSerializer18visitRegExpStorageEv(ptr noundef nonnull align 8 dereferenceable(176) %visitor)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %loc_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %visitor, i64 0, i32 3
+  %loc_.i.i = getelementptr inbounds i8, ptr %visitor, i64 40
   %0 = load i64, ptr %loc_.i.i, align 8
   %rem.i.i = and i64 %0, 3
   %cmp.i.i = icmp eq i64 %rem.i.i, 0
@@ -444,8 +375,8 @@ entry:
 if.end.i.i:                                       ; preds = %entry
   %1 = trunc i64 %rem.i.i to i32
   %conv6.i.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %visitor, i64 0, i32 4
-  %outputHasher_.i.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %visitor, i64 0, i32 8
+  %isLayout_.i.i.i.i = getelementptr inbounds i8, ptr %visitor, i64 48
+  %outputHasher_.i.i.i.i = getelementptr inbounds i8, ptr %visitor, i64 64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i, %if.end.i.i
@@ -474,7 +405,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i: ; preds = %if
 
 _ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit: ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i, %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i)
-  %bytecodeModule_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %visitor, i64 0, i32 1
+  %bytecodeModule_.i = getelementptr inbounds i8, ptr %visitor, i64 8
   %7 = load ptr, ptr %bytecodeModule_.i, align 8
   call void @_ZN6hermes3hbc18BytecodeSerializer23serializeCJSModuleTableERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %visitor, ptr noundef nonnull align 8 dereferenceable(513) %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i15)
@@ -486,8 +417,8 @@ _ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit: ; preds = %_ZN6h
 if.end.i.i19:                                     ; preds = %_ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv.exit
   %9 = trunc i64 %rem.i.i17 to i32
   %conv6.i.i20 = sub nuw nsw i32 4, %9
-  %isLayout_.i.i.i.i21 = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %visitor, i64 0, i32 4
-  %outputHasher_.i.i.i.i22 = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %visitor, i64 0, i32 8
+  %isLayout_.i.i.i.i21 = getelementptr inbounds i8, ptr %visitor, i64 48
+  %outputHasher_.i.i.i.i22 = getelementptr inbounds i8, ptr %visitor, i64 64
   br label %for.body.i.i23
 
 for.body.i.i23:                                   ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i.i26, %if.end.i.i19
@@ -532,19 +463,19 @@ entry:
   %ref.tmp56 = alloca i8, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %bcMap, i8 0, i64 20, i1 false)
   %0 = load ptr, ptr %BM, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<hermes::hbc::BytecodeFunction>, std::allocator<std::unique_ptr<hermes::hbc::BytecodeFunction>>>::_Vector_impl_data", ptr %BM, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %BM, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not59 = icmp eq ptr %0, %1
   br i1 %cmp.i.not59, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %optimizationEnabled = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 2, i32 1
-  %isLayout_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %loc_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %optimizationEnabled = getelementptr inbounds i8, ptr %this, i64 20
+  %isLayout_ = getelementptr inbounds i8, ptr %this, i64 48
+  %loc_ = getelementptr inbounds i8, ptr %this, i64 40
   %key.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %second.i.i = getelementptr inbounds %"struct.std::pair.62", ptr %ref.tmp, i64 0, i32 1
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
-  %padFunctionBodiesPercent = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 2, i32 9
+  %second.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %padFunctionBodiesPercent = getelementptr inbounds i8, ptr %this, i64 28
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -563,7 +494,7 @@ if.then:                                          ; preds = %for.body
 
 if.then9:                                         ; preds = %if.then
   %6 = load ptr, ptr %5, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data", ptr %5, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %6 to i64
@@ -582,7 +513,7 @@ if.then9:                                         ; preds = %if.then
 _ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertEOSt4pairIS3_jE.exit: ; preds = %if.then9
   %call.i2.i.i = call noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E20InsertIntoBucketImplIS3_EEPS8_RKS3_RKT_SC_(ptr noundef nonnull align 1 dereferenceable(1) %bcMap, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %9), !noalias !10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i2.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false), !noalias !10
-  %second.i.i3.i.i = getelementptr inbounds %"struct.std::pair.62", ptr %call.i2.i.i, i64 0, i32 1
+  %second.i.i3.i.i = getelementptr inbounds i8, ptr %call.i2.i.i, i64 16
   %10 = load i32, ptr %second.i.i, align 8, !noalias !10
   store i32 %10, ptr %second.i.i3.i.i, align 4, !noalias !10
   %.pre = load i8, ptr %isLayout_, align 8
@@ -590,14 +521,14 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6
 
 if.then14:                                        ; preds = %if.then9
   %11 = load ptr, ptr %__begin1.sroa.0.060, align 8
-  %second17 = getelementptr inbounds %"struct.std::pair.62", ptr %9, i64 0, i32 1
+  %second17 = getelementptr inbounds i8, ptr %9, i64 16
   %12 = load i32, ptr %second17, align 8
-  %header_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %11, i64 0, i32 1
+  %header_.i = getelementptr inbounds i8, ptr %11, i64 24
   store i32 %12, ptr %header_.i, align 8
   br label %for.inc
 
 if.else:                                          ; preds = %if.then
-  %header_.i10 = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %5, i64 0, i32 1
+  %header_.i10 = getelementptr inbounds i8, ptr %5, i64 24
   %13 = load i32, ptr %header_.i10, align 8
   %conv20 = zext i32 %13 to i64
   %14 = load i64, ptr %loc_, align 8
@@ -614,7 +545,7 @@ if.end26:                                         ; preds = %_ZN4llvh12DenseMapB
 if.then29:                                        ; preds = %if.end26
   %17 = load i64, ptr %loc_, align 8
   %conv32 = trunc i64 %17 to i32
-  %header_.i11 = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %.pre64, i64 0, i32 1
+  %header_.i11 = getelementptr inbounds i8, ptr %.pre64, i64 24
   store i32 %conv32, ptr %header_.i11, align 8
   %.pre63 = load ptr, ptr %__begin1.sroa.0.060, align 8
   %.pre65 = load i8, ptr %isLayout_, align 8
@@ -623,7 +554,7 @@ if.then29:                                        ; preds = %if.end26
 if.end33:                                         ; preds = %if.then29, %if.end26
   %18 = phi i8 [ %.pre65, %if.then29 ], [ %15, %if.end26 ]
   %19 = phi ptr [ %.pre63, %if.then29 ], [ %.pre64, %if.end26 ]
-  %bytecodeSizeInBytes.i = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %19, i64 0, i32 1, i32 2
+  %bytecodeSizeInBytes.i = getelementptr inbounds i8, ptr %19, i64 32
   %20 = load i32, ptr %bytecodeSizeInBytes.i, align 8
   %conv.i = zext i32 %20 to i64
   %21 = and i8 %18, 1
@@ -714,7 +645,7 @@ if.end44:                                         ; preds = %_ZN6hermes3hbc18Byt
 
 if.then47:                                        ; preds = %if.end44
   %42 = load ptr, ptr %__begin1.sroa.0.060, align 8
-  %bytecodeSizeInBytes.i25 = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %42, i64 0, i32 1, i32 2
+  %bytecodeSizeInBytes.i25 = getelementptr inbounds i8, ptr %42, i64 32
   %43 = load i32, ptr %bytecodeSizeInBytes.i25, align 8
   %conv.i26 = zext i32 %43 to i64
   %conv54 = zext i32 %41 to i64
@@ -793,7 +724,7 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit48:  ; preds = %_ZN6hermes3hbc18Byt
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then14, %if.end44, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit48, %if.else
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__begin1.sroa.0.060, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.060, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 
@@ -813,27 +744,27 @@ entry:
   %ref.tmp.i = alloca i8, align 1
   %header = alloca %"struct.hermes::hbc::FunctionHeader", align 1
   %ref.tmp = alloca %"struct.hermes::hbc::SmallFuncHeader", align 1
-  %isLayout_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %isLayout_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %loc_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_ = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i64, ptr %loc_, align 8
   %3 = trunc i64 %2 to i32
   %4 = add i32 %3, 3
   %conv = and i32 %4, -4
-  %infoOffset.i = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %BF, i64 0, i32 1, i32 4
+  %infoOffset.i = getelementptr inbounds i8, ptr %BF, i64 40
   store i32 %conv, ptr %infoOffset.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %header_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %BF, i64 0, i32 1
+  %header_.i = getelementptr inbounds i8, ptr %BF, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %header, ptr noundef nonnull align 8 dereferenceable(31) %header_.i, i64 31, i1 false)
   call void @_ZN6hermes3hbc15SmallFuncHeaderC2ERKNS0_14FunctionHeaderE(ptr noundef nonnull align 1 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(31) %header)
-  %flags = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %ref.tmp, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %ref.tmp, i64 15
   %bf.load = load i8, ptr %flags, align 1
   %5 = and i8 %bf.load, 32
   %bf.cast.not = icmp eq i8 %5, 0
@@ -841,7 +772,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %6, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -850,7 +781,7 @@ if.then3:                                         ; preds = %if.end
 if.end.i:                                         ; preds = %if.then3
   %7 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %7
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -886,7 +817,7 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_14FunctionHeaderEEEvRKT_.exit
 
 if.then.i.i:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %header, i64 31) #12
   %16 = load ptr, ptr %this, align 8
   %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %16, ptr noundef nonnull %header, i64 noundef 31) #12
@@ -912,7 +843,7 @@ entry:
   %empty = alloca %"struct.hermes::hbc::DebugInfoHeader", align 1
   %header = alloca %"struct.hermes::hbc::DebugInfoHeader", align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -921,8 +852,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -953,9 +884,9 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   %7 = phi i64 [ %0, %entry ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   %conv = trunc i64 %7 to i32
-  %debugInfoOffset_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 6
+  %debugInfoOffset_ = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %conv, ptr %debugInfoOffset_, align 8
-  %stripDebugInfoSection = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 2, i32 2
+  %stripDebugInfoSection = getelementptr inbounds i8, ptr %this, i64 21
   %8 = load i8, ptr %stripDebugInfoSection, align 1
   %9 = and i8 %8, 1
   %tobool.not = icmp eq i8 %9, 0
@@ -963,14 +894,14 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
 
 if.then:                                          ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %empty, i8 0, i64 28, i1 false)
-  %isLayout_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load i8, ptr %isLayout_.i.i, align 8
   %11 = and i8 %10, 1
   %tobool.not.i.i = icmp eq i8 %11, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit
 
 if.then.i.i:                                      ; preds = %if.then
-  %outputHasher_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %empty, i64 28) #12
   %12 = load ptr, ptr %this, align 8
   %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull %empty, i64 noundef 28) #12
@@ -983,52 +914,52 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.ex
   br label %return
 
 if.end:                                           ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %debugInfo_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 11
+  %debugInfo_.i = getelementptr inbounds i8, ptr %BM, i64 224
   %14 = load ptr, ptr %debugInfo_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 11, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %BM, i64 232
   %15 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 3
-  %filenameStorage_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 11, i32 1
+  %filenameStorage_.i = getelementptr inbounds i8, ptr %BM, i64 248
   %16 = load ptr, ptr %filenameStorage_.i, align 8
-  %_M_finish.i.i.i12 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 11, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i12 = getelementptr inbounds i8, ptr %BM, i64 256
   %17 = load ptr, ptr %_M_finish.i.i.i12, align 8
   %sub.ptr.lhs.cast.i.i.i13 = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i.i.i14 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i.i13, %sub.ptr.rhs.cast.i.i.i14
-  %files_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 11, i32 2
-  %scopeDescDataOffset_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 11, i32 3
-  %stringTableOffset_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 11, i32 5
+  %files_.i = getelementptr inbounds i8, ptr %BM, i64 272
+  %scopeDescDataOffset_.i = getelementptr inbounds i8, ptr %BM, i64 304
+  %stringTableOffset_.i = getelementptr inbounds i8, ptr %BM, i64 312
   %18 = load i32, ptr %stringTableOffset_.i, align 8
   %conv10 = trunc i64 %sub.ptr.div.i.i.i to i32
   store i32 %conv10, ptr %header, align 4
-  %filenameStorageSize = getelementptr inbounds %"struct.hermes::hbc::DebugInfoHeader", ptr %header, i64 0, i32 1
+  %filenameStorageSize = getelementptr inbounds i8, ptr %header, i64 4
   %conv12 = trunc i64 %sub.ptr.sub.i.i.i15 to i32
   store i32 %conv12, ptr %filenameStorageSize, align 4
-  %fileRegionCount = getelementptr inbounds %"struct.hermes::hbc::DebugInfoHeader", ptr %header, i64 0, i32 2
-  %Size.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 11, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %fileRegionCount = getelementptr inbounds i8, ptr %header, i64 8
+  %Size.i = getelementptr inbounds i8, ptr %BM, i64 280
   %19 = load i32, ptr %Size.i, align 8
   store i32 %19, ptr %fileRegionCount, align 4
-  %scopeDescDataOffset = getelementptr inbounds %"struct.hermes::hbc::DebugInfoHeader", ptr %header, i64 0, i32 3
+  %scopeDescDataOffset = getelementptr inbounds i8, ptr %header, i64 12
   %20 = load <2 x i32>, ptr %scopeDescDataOffset_.i, align 8
   store <2 x i32> %20, ptr %scopeDescDataOffset, align 4
-  %stringTableOffset = getelementptr inbounds %"struct.hermes::hbc::DebugInfoHeader", ptr %header, i64 0, i32 5
+  %stringTableOffset = getelementptr inbounds i8, ptr %header, i64 20
   store i32 %18, ptr %stringTableOffset, align 4
-  %debugDataSize = getelementptr inbounds %"struct.hermes::hbc::DebugInfoHeader", ptr %header, i64 0, i32 6
-  %Length.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 11, i32 6, i32 1, i32 1
+  %debugDataSize = getelementptr inbounds i8, ptr %header, i64 24
+  %Length.i.i = getelementptr inbounds i8, ptr %BM, i64 352
   %21 = load i64, ptr %Length.i.i, align 8
   %conv16 = trunc i64 %21 to i32
   store i32 %conv16, ptr %debugDataSize, align 4
-  %isLayout_.i.i19 = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i.i19 = getelementptr inbounds i8, ptr %this, i64 48
   %22 = load i8, ptr %isLayout_.i.i19, align 8
   %23 = and i8 %22, 1
   %tobool.not.i.i20 = icmp eq i8 %23, 0
   br i1 %tobool.not.i.i20, label %if.then.i.i23, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit26
 
 if.then.i.i23:                                    ; preds = %if.end
-  %outputHasher_.i.i24 = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i.i24 = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i24, ptr nonnull %header, i64 28) #12
   %24 = load ptr, ptr %this, align 8
   %call4.i.i25 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %24, ptr noundef nonnull %header, i64 noundef 28) #12
@@ -1046,7 +977,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.ex
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugInfoHeaderEEEvRKT_.exit26
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %14, i64 %sub.ptr.sub.i.i.i) #12
   %28 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %28, ptr noundef %14, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -1064,7 +995,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4
   br i1 %tobool.not.i30, label %if.then.i34, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i34:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16StringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit
-  %outputHasher_.i35 = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i35 = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i35, ptr %16, i64 %sub.ptr.sub.i.i.i15) #12
   %32 = load ptr, ptr %this, align 8
   %call4.i36 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %32, ptr noundef %16, i64 noundef %sub.ptr.sub.i.i.i15) #12
@@ -1083,7 +1014,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
   br i1 %cmp.not57, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
-  %outputHasher_.i.i44 = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i.i44 = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.exit
@@ -1105,7 +1036,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15DebugFileRegionEEEvRKT_.ex
   %40 = phi i64 [ %36, %for.body ], [ %.pre64, %if.then.i.i43 ]
   %add.i.i42 = add i64 %40, 12
   store i64 %add.i.i42, ptr %loc_.i, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.hermes::hbc::DebugFileRegion", ptr %__begin1.058, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.058, i64 12
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -1118,9 +1049,9 @@ for.end:                                          ; preds = %_ZN6hermes3hbc18Byt
   br i1 %tobool.not.i47, label %if.then.i51, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit54
 
 if.then.i51:                                      ; preds = %for.end
-  %ref_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 11, i32 6, i32 1
+  %ref_.i = getelementptr inbounds i8, ptr %BM, i64 344
   %agg.tmp20.sroa.0.0.copyload = load ptr, ptr %ref_.i, align 8
-  %outputHasher_.i52 = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i52 = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i52, ptr %agg.tmp20.sroa.0.0.copyload, i64 %agg.tmp20.sroa.2.0.copyload) #12
   %44 = load ptr, ptr %this, align 8
   %call4.i53 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %44, ptr noundef %agg.tmp20.sroa.0.0.copyload, i64 noundef %agg.tmp20.sroa.2.0.copyload) #12
@@ -1146,12 +1077,12 @@ declare { ptr, i64 } @_ZN4llvh4SHA16resultEv(ptr noundef nonnull align 4 derefer
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer12finishLayoutERNS0_14BytecodeModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(513) %BM) local_unnamed_addr #3 align 2 {
 entry:
-  %loc_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_, align 8
   %conv = trunc i64 %0 to i32
-  %fileLength_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 5
+  %fileLength_ = getelementptr inbounds i8, ptr %this, i64 52
   store i32 %conv, ptr %fileLength_, align 4
-  %isLayout_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_ = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %isLayout_, align 8
   store i64 0, ptr %loc_, align 8
   ret void
@@ -1163,16 +1094,16 @@ entry:
   %header = alloca %"struct.hermes::hbc::FunctionHeader", align 1
   %ref.tmp = alloca %"struct.hermes::hbc::SmallFuncHeader", align 1
   %0 = load ptr, ptr %BM, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<hermes::hbc::BytecodeFunction>, std::allocator<std::unique_ptr<hermes::hbc::BytecodeFunction>>>::_Vector_impl_data", ptr %BM, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %BM, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not5 = icmp eq ptr %0, %1
   br i1 %cmp.i.not5, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %stripDebugInfoSection = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 2, i32 2
-  %isLayout_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
-  %loc_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %stripDebugInfoSection = getelementptr inbounds i8, ptr %this, i64 21
+  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %loc_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.exit
@@ -1184,7 +1115,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 if.then:                                          ; preds = %for.body
   %4 = load ptr, ptr %__begin1.sroa.0.06, align 8
-  %flags.i = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %4, i64 0, i32 1, i32 9
+  %flags.i = getelementptr inbounds i8, ptr %4, i64 54
   %bf.load = load i8, ptr %flags.i, align 1
   %bf.clear = and i8 %bf.load, -17
   store i8 %bf.clear, ptr %flags.i, align 1
@@ -1192,7 +1123,7 @@ if.then:                                          ; preds = %for.body
 
 if.end:                                           ; preds = %if.then, %for.body
   %5 = load ptr, ptr %__begin1.sroa.0.06, align 8
-  %header_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %5, i64 0, i32 1
+  %header_.i = getelementptr inbounds i8, ptr %5, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %header, ptr noundef nonnull align 1 dereferenceable(31) %header_.i, i64 31, i1 false)
   call void @_ZN6hermes3hbc15SmallFuncHeaderC2ERKNS0_14FunctionHeaderE(ptr noundef nonnull align 1 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(31) %header)
   %6 = load i8, ptr %isLayout_.i.i, align 8
@@ -1210,7 +1141,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.ex
   %9 = load i64, ptr %loc_.i.i, align 8
   %add.i.i = add i64 %9, 16
   store i64 %add.i.i, ptr %loc_.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__begin1.sroa.0.06, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1224,9 +1155,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc15SmallFuncHeaderC2ERKNS0_14FunctionHeaderE(ptr noundef nonnull align 1 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(31) %large) unnamed_addr #0 comdat align 2 {
 entry:
-  %flags = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %this, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %this, i64 15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %flags2 = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 9
+  %flags2 = getelementptr inbounds i8, ptr %large, i64 30
   %0 = load i8, ptr %flags2, align 1
   store i8 %0, ptr %flags, align 1
   %1 = load i32, ptr %large, align 1
@@ -1234,7 +1165,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %infoOffset = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 4
+  %infoOffset = getelementptr inbounds i8, ptr %large, i64 16
   %2 = load i32, ptr %infoOffset, align 1
   %bf.set.i = or i8 %0, 32
   store i8 %bf.set.i, ptr %flags, align 1
@@ -1249,13 +1180,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %5 = zext nneg i32 %1 to i120
   store i120 %5, ptr %this, align 1
-  %paramCount = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 1
+  %paramCount = getelementptr inbounds i8, ptr %large, i64 4
   %6 = load i32, ptr %paramCount, align 1
   %cmp5 = icmp ugt i32 %6, 127
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.end
-  %infoOffset7 = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 4
+  %infoOffset7 = getelementptr inbounds i8, ptr %large, i64 16
   %7 = load i32, ptr %infoOffset7, align 1
   %bf.set.i36 = or i8 %0, 32
   store i8 %bf.set.i36, ptr %flags, align 1
@@ -1272,13 +1203,13 @@ if.end8:                                          ; preds = %if.end
   %bf.set1394 = or disjoint i32 %1, %10
   %bf.set13 = zext i32 %bf.set1394 to i120
   store i120 %bf.set13, ptr %this, align 1
-  %bytecodeSizeInBytes = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 2
+  %bytecodeSizeInBytes = getelementptr inbounds i8, ptr %large, i64 8
   %11 = load i32, ptr %bytecodeSizeInBytes, align 1
   %cmp14 = icmp ugt i32 %11, 32767
   br i1 %cmp14, label %if.then15, label %if.end17
 
 if.then15:                                        ; preds = %if.end8
-  %infoOffset16 = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 4
+  %infoOffset16 = getelementptr inbounds i8, ptr %large, i64 16
   %12 = load i32, ptr %infoOffset16, align 1
   %bf.set.i46 = or i8 %0, 32
   store i8 %bf.set.i46, ptr %flags, align 1
@@ -1297,13 +1228,13 @@ if.end17:                                         ; preds = %if.end8
   %bf.shl21 = shl nuw nsw i120 %15, 32
   %bf.set23 = or disjoint i120 %bf.shl21, %bf.set13
   store i120 %bf.set23, ptr %this, align 1
-  %functionName = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 3
+  %functionName = getelementptr inbounds i8, ptr %large, i64 12
   %16 = load i32, ptr %functionName, align 1
   %cmp24 = icmp ugt i32 %16, 131071
   br i1 %cmp24, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %if.end17
-  %infoOffset26 = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 4
+  %infoOffset26 = getelementptr inbounds i8, ptr %large, i64 16
   %17 = load i32, ptr %infoOffset26, align 1
   %bf.set.i56 = or i8 %0, 32
   store i8 %bf.set.i56, ptr %flags, align 1
@@ -1322,7 +1253,7 @@ if.end27:                                         ; preds = %if.end17
   %bf.shl31 = shl nuw nsw i120 %20, 47
   %bf.set33 = or disjoint i120 %bf.shl31, %bf.set23
   store i120 %bf.set33, ptr %this, align 1
-  %infoOffset34 = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 4
+  %infoOffset34 = getelementptr inbounds i8, ptr %large, i64 16
   %21 = load i32, ptr %infoOffset34, align 1
   %cmp35 = icmp ugt i32 %21, 33554431
   br i1 %cmp35, label %if.then36, label %if.end38
@@ -1345,7 +1276,7 @@ if.end38:                                         ; preds = %if.end27
   %bf.shl42 = shl nuw nsw i120 %24, 64
   %bf.set44 = or disjoint i120 %bf.shl42, %bf.set33
   store i120 %bf.set44, ptr %this, align 1
-  %frameSize = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 5
+  %frameSize = getelementptr inbounds i8, ptr %large, i64 20
   %25 = load i32, ptr %frameSize, align 1
   %cmp45 = icmp ugt i32 %25, 127
   br i1 %cmp45, label %if.then46, label %if.end48
@@ -1369,7 +1300,7 @@ if.end48:                                         ; preds = %if.end38
   %bf.shl52 = shl nuw nsw i120 %29, 89
   %bf.set54 = or disjoint i120 %bf.shl52, %bf.set44
   store i120 %bf.set54, ptr %this, align 1
-  %environmentSize = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 6
+  %environmentSize = getelementptr inbounds i8, ptr %large, i64 24
   %30 = load i32, ptr %environmentSize, align 1
   %cmp55 = icmp ugt i32 %30, 255
   br i1 %cmp55, label %if.then56, label %if.end58
@@ -1394,14 +1325,14 @@ if.end58:                                         ; preds = %if.end48
   %bf.clear63 = and i120 %bf.set54, 664593794711016799045817176432836607
   %bf.set64 = or disjoint i120 %bf.shl62, %bf.clear63
   store i120 %bf.set64, ptr %this, align 1
-  %highestReadCacheIndex = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 7
+  %highestReadCacheIndex = getelementptr inbounds i8, ptr %large, i64 28
   %35 = load i8, ptr %highestReadCacheIndex, align 1
   %36 = zext i8 %35 to i120
   %bf.shl73 = shl nuw nsw i120 %36, 104
   %bf.clear74 = and i120 %bf.set64, 659441983443526760493796981062238207
   %bf.set75 = or disjoint i120 %bf.shl73, %bf.clear74
   store i120 %bf.set75, ptr %this, align 1
-  %highestWriteCacheIndex = getelementptr inbounds %"struct.hermes::hbc::FunctionHeader", ptr %large, i64 0, i32 8
+  %highestWriteCacheIndex = getelementptr inbounds i8, ptr %large, i64 29
   %37 = load i8, ptr %highestWriteCacheIndex, align 1
   %38 = zext i8 %37 to i120
   %bf.shl84 = shl nuw i120 %38, 112
@@ -1419,7 +1350,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer23serializeCJSModuleTableE
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -1428,8 +1359,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -1459,9 +1390,9 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   %7 = phi i64 [ %0, %entry ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %cjsModuleTable_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 17
+  %cjsModuleTable_.i = getelementptr inbounds i8, ptr %BM, i64 440
   %8 = load ptr, ptr %cjsModuleTable_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 17, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %BM, i64 448
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %8 to i64
@@ -1472,8 +1403,8 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   br i1 %cmp.not24, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %isLayout_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13
@@ -1502,7 +1433,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit: ; preds = %for.bo
   br i1 %tobool.not.i.i7, label %if.then.i.i10, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13
 
 if.then.i.i10:                                    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit
-  %second = getelementptr inbounds %"struct.std::pair", ptr %__begin1.025, i64 0, i32 1
+  %second = getelementptr inbounds i8, ptr %__begin1.025, i64 4
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %second, i64 4) #12
   %17 = load ptr, ptr %this, align 8
   %call4.i.i12 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull %second, i64 noundef 4) #12
@@ -1513,27 +1444,27 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13: ; preds = %_ZN6
   %18 = phi i64 [ %add.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit ], [ %.pre27, %if.then.i.i10 ]
   %add.i.i9 = add i64 %18, 4
   store i64 %add.i.i9, ptr %loc_.i, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.std::pair", ptr %__begin1.025, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.025, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
   %19 = phi i64 [ %7, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ], [ %add.i.i9, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIjEEvRKT_.exit13 ]
-  %cjsModuleTableStatic_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 18
+  %cjsModuleTableStatic_.i = getelementptr inbounds i8, ptr %BM, i64 464
   %20 = load ptr, ptr %cjsModuleTableStatic_.i, align 8
-  %_M_finish.i.i.i14 = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 18, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i14 = getelementptr inbounds i8, ptr %BM, i64 472
   %21 = load ptr, ptr %_M_finish.i.i.i14, align 8
   %sub.ptr.lhs.cast.i.i.i15 = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i.i.i16 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i.i15, %sub.ptr.rhs.cast.i.i.i16
-  %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
   %22 = load i8, ptr %isLayout_.i, align 8
   %23 = and i8 %22, 1
   %tobool.not.i = icmp eq i8 %23, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayISt4pairIjjEEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %for.end
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %20, i64 %sub.ptr.sub.i.i.i17) #12
   %24 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %24, ptr noundef %20, i64 noundef %sub.ptr.sub.i.i.i17) #12
@@ -1552,7 +1483,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer28serializeFunctionSourceT
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -1561,8 +1492,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -1592,21 +1523,21 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   %7 = phi i64 [ %0, %entry ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %functionSourceTable_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 19
+  %functionSourceTable_.i = getelementptr inbounds i8, ptr %BM, i64 488
   %8 = load ptr, ptr %functionSourceTable_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 19, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %BM, i64 496
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
   %10 = load i8, ptr %isLayout_.i, align 8
   %11 = and i8 %10, 1
   %tobool.not.i = icmp eq i8 %11, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayISt4pairIjjEEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %8, i64 %sub.ptr.sub.i.i.i) #12
   %12 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef %8, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -1625,8 +1556,8 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer30serializeExceptionHandle
 entry:
   %ref.tmp.i = alloca i8, align 1
   %header = alloca %"struct.hermes::hbc::ExceptionHandlerTableHeader", align 4
-  %exceptions_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %BF, i64 0, i32 3
-  %_M_finish.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %BF, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %exceptions_.i = getelementptr inbounds i8, ptr %BF, i64 72
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %BF, i64 80
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %exceptions_.i, align 8
   %cmp.i.not = icmp eq ptr %0, %1
@@ -1634,7 +1565,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %2, 3
   %cmp.i3 = icmp eq i64 %rem.i, 0
@@ -1643,8 +1574,8 @@ if.end:                                           ; preds = %entry
 if.end.i:                                         ; preds = %if.end
   %3 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %3
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -1687,14 +1618,14 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 12
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   store i32 %conv.i, ptr %header, align 4
-  %isLayout_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %12 = load i8, ptr %isLayout_.i.i, align 8
   %13 = and i8 %12, 1
   %tobool.not.i.i = icmp eq i8 %13, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_27ExceptionHandlerTableHeaderEEEvRKT_.exit
 
 if.then.i.i:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %header, i64 4) #12
   %14 = load ptr, ptr %this, align 8
   %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef nonnull %header, i64 noundef 4) #12
@@ -1717,7 +1648,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_27ExceptionHandlerTableHeade
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS0_23HBCExceptionHandlerInfoEEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_27ExceptionHandlerTableHeaderEEEvRKT_.exit
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %17, i64 %sub.ptr.sub.i.i.i) #12
   %20 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %20, ptr noundef %17, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -1737,28 +1668,28 @@ return:                                           ; preds = %entry, %_ZN6hermes3
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer20serializeArrayBufferERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %BM) local_unnamed_addr #0 align 2 {
 entry:
-  %arrayBuffer_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 12
+  %arrayBuffer_.i = getelementptr inbounds i8, ptr %BM, i64 360
   %0 = load ptr, ptr %arrayBuffer_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %BM, i64 368
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i8, ptr %isLayout_.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %entry
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %0, i64 %sub.ptr.sub.i.i.i) #12
   %4 = load ptr, ptr %this, align 8
   %call4.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef %0, i64 noundef %sub.ptr.sub.i.i.i) #12
   br label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
 
 _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit: ; preds = %entry, %if.then.i
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i64, ptr %loc_.i, align 8
   %add.i = add i64 %5, %sub.ptr.sub.i.i.i
   store i64 %add.i, ptr %loc_.i, align 8
@@ -1768,28 +1699,28 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer21serializeObjectBufferERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(513) %BM) local_unnamed_addr #0 align 2 {
 entry:
-  %objKeyBuffer_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 13
+  %objKeyBuffer_.i = getelementptr inbounds i8, ptr %BM, i64 384
   %0 = load ptr, ptr %objKeyBuffer_.i, align 8, !noalias !16
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 13, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %BM, i64 392
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !16
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %objValBuffer_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 14
+  %objValBuffer_.i = getelementptr inbounds i8, ptr %BM, i64 408
   %2 = load ptr, ptr %objValBuffer_.i, align 8, !noalias !16
-  %_M_finish.i.i2.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %BM, i64 0, i32 14, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i2.i = getelementptr inbounds i8, ptr %BM, i64 416
   %3 = load ptr, ptr %_M_finish.i.i2.i, align 8, !noalias !16
   %sub.ptr.lhs.cast.i.i3.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i4.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i5.i = sub i64 %sub.ptr.lhs.cast.i.i3.i, %sub.ptr.rhs.cast.i.i4.i
-  %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
   %4 = load i8, ptr %isLayout_.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %entry
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %0, i64 %sub.ptr.sub.i.i.i) #12
   %6 = load ptr, ptr %this, align 8
   %call4.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef %0, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -1798,7 +1729,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit: ; preds = %entry, %if.then.i
   %7 = phi i8 [ %4, %entry ], [ %.pre, %if.then.i ]
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load i64, ptr %loc_.i, align 8
   %add.i = add i64 %8, %sub.ptr.sub.i.i.i
   store i64 %add.i, ptr %loc_.i, align 8
@@ -1807,7 +1738,7 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
   br i1 %tobool.not.i2, label %if.then.i5, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit8
 
 if.then.i5:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
-  %outputHasher_.i6 = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i6 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i6, ptr %2, i64 %sub.ptr.sub.i.i5.i) #12
   %10 = load ptr, ptr %this, align 8
   %call4.i7 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef %2, i64 noundef %sub.ptr.sub.i.i5.i) #12
@@ -1825,17 +1756,17 @@ _ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.ex
 define hidden void @_ZN6hermes3hbc18BytecodeSerializer21serializeDebugOffsetsERNS0_16BytecodeFunctionE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(104) %BF) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca i8, align 1
-  %stripDebugInfoSection = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 2, i32 2
+  %stripDebugInfoSection = getelementptr inbounds i8, ptr %this, i64 21
   %0 = load i8, ptr %stripDebugInfoSection, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %debugOffsets_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %BF, i64 0, i32 2
+  %debugOffsets_.i = getelementptr inbounds i8, ptr %BF, i64 56
   %2 = load i32, ptr %debugOffsets_.i, align 8
   %cmp.not.i = icmp ne i32 %2, -1
-  %scopeDescData.i = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %BF, i64 0, i32 2, i32 1
+  %scopeDescData.i = getelementptr inbounds i8, ptr %BF, i64 60
   %3 = load i32, ptr %scopeDescData.i, align 4
   %cmp3.i = icmp ne i32 %3, -1
   %4 = select i1 %cmp.not.i, i1 true, i1 %cmp3.i
@@ -1843,7 +1774,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.end:                                           ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %5, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -1852,8 +1783,8 @@ if.end:                                           ; preds = %lor.lhs.false
 if.end.i:                                         ; preds = %if.end
   %6 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %6
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -1883,14 +1814,14 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end
   %12 = phi i64 [ %5, %if.end ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %isLayout_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %13 = load i8, ptr %isLayout_.i.i, align 8
   %14 = and i8 %13, 1
   %tobool.not.i.i = icmp eq i8 %14, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_12DebugOffsetsEEEvRKT_.exit
 
 if.then.i.i:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr nonnull %debugOffsets_.i, i64 12) #12
   %15 = load ptr, ptr %this, align 8
   %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %15, ptr noundef nonnull %debugOffsets_.i, i64 noundef 12) #12
@@ -1916,7 +1847,7 @@ entry:
   %ref.tmp.i1 = alloca %"struct.hermes::hbc::SmallFuncHeader", align 1
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -1925,8 +1856,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -1955,20 +1886,20 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %bytecodeModule_, align 8
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %header.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i1)
   %8 = load ptr, ptr %7, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<hermes::hbc::BytecodeFunction>, std::allocator<std::unique_ptr<hermes::hbc::BytecodeFunction>>>::_Vector_impl_data", ptr %7, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not5.i = icmp eq ptr %8, %9
   br i1 %cmp.i.not5.i, label %_ZN6hermes3hbc18BytecodeSerializer22serializeFunctionTableERNS0_14BytecodeModuleE.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %stripDebugInfoSection.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 2, i32 2
-  %isLayout_.i.i.i2 = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i3 = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %stripDebugInfoSection.i = getelementptr inbounds i8, ptr %this, i64 21
+  %isLayout_.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i3 = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i4
 
 for.body.i4:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.exit.i, %for.body.lr.ph.i
@@ -1980,7 +1911,7 @@ for.body.i4:                                      ; preds = %_ZN6hermes3hbc18Byt
 
 if.then.i:                                        ; preds = %for.body.i4
   %12 = load ptr, ptr %__begin1.sroa.0.06.i, align 8
-  %flags.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %12, i64 0, i32 1, i32 9
+  %flags.i.i = getelementptr inbounds i8, ptr %12, i64 54
   %bf.load.i = load i8, ptr %flags.i.i, align 1
   %bf.clear.i = and i8 %bf.load.i, -17
   store i8 %bf.clear.i, ptr %flags.i.i, align 1
@@ -1988,7 +1919,7 @@ if.then.i:                                        ; preds = %for.body.i4
 
 if.end.i5:                                        ; preds = %if.then.i, %for.body.i4
   %13 = load ptr, ptr %__begin1.sroa.0.06.i, align 8
-  %header_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeFunction", ptr %13, i64 0, i32 1
+  %header_.i.i = getelementptr inbounds i8, ptr %13, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %header.i, ptr noundef nonnull align 1 dereferenceable(31) %header_.i.i, i64 31, i1 false)
   call void @_ZN6hermes3hbc15SmallFuncHeaderC2ERKNS0_14FunctionHeaderE(ptr noundef nonnull align 1 dereferenceable(16) %ref.tmp.i1, ptr noundef nonnull align 1 dereferenceable(31) %header.i)
   %14 = load i8, ptr %isLayout_.i.i.i2, align 8
@@ -2006,7 +1937,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_15SmallFuncHeaderEEEvRKT_.ex
   %17 = load i64, ptr %loc_.i, align 8
   %add.i.i.i7 = add i64 %17, 16
   store i64 %add.i.i.i7, ptr %loc_.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__begin1.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %9
   br i1 %cmp.i.not.i, label %_ZN6hermes3hbc18BytecodeSerializer22serializeFunctionTableERNS0_14BytecodeModuleE.exit, label %for.body.i4
 
@@ -2021,7 +1952,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer16visitStringKindsEv(ptr n
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2030,8 +1961,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -2061,23 +1992,23 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   %7 = phi i64 [ %0, %entry ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %bytecodeModule_, align 8
-  %stringKinds_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 3
+  %stringKinds_.i = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load ptr, ptr %stringKinds_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i8, ptr %isLayout_.i, align 8
   %12 = and i8 %11, 1
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_10StringKind5EntryEEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %9, i64 %sub.ptr.sub.i.i.i) #12
   %13 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef %9, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -2096,7 +2027,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer21visitIdentifierHashesEv(
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2105,8 +2036,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -2136,23 +2067,23 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   %7 = phi i64 [ %0, %entry ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %bytecodeModule_, align 8
-  %identifierHashes_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 4
+  %identifierHashes_.i = getelementptr inbounds i8, ptr %8, i64 56
   %9 = load ptr, ptr %identifierHashes_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %8, i64 64
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i8, ptr %isLayout_.i, align 8
   %12 = and i8 %11, 1
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIjEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %9, i64 %sub.ptr.sub.i.i.i) #12
   %13 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef %9, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -2172,7 +2103,7 @@ entry:
   %ref.tmp.i = alloca i8, align 1
   %small = alloca %"struct.hermes::hbc::SmallStringTableEntry", align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2181,8 +2112,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -2212,11 +2143,11 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   %7 = phi i64 [ %0, %entry ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %bytecodeModule_, align 8
-  %stringTable_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 5
+  %stringTable_.i = getelementptr inbounds i8, ptr %8, i64 80
   %9 = load ptr, ptr %stringTable_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %8, i64 88
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
@@ -2227,15 +2158,15 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   br i1 %cmp.not11, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %isLayout_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit
   %11 = phi i64 [ %7, %for.body.lr.ph ], [ %add.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit ]
   %overflowCount.013 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit ]
   %__begin1.012 = phi ptr [ %9, %for.body.lr.ph ], [ %incdec.ptr, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit ]
-  %length_.i.i = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %__begin1.012, i64 0, i32 1
+  %length_.i.i = getelementptr inbounds i8, ptr %__begin1.012, i64 4
   %12 = load i32, ptr %length_.i.i, align 4
   %.lobit.i = lshr i32 %12, 31
   %13 = load i32, ptr %__begin1.012, align 4
@@ -2283,13 +2214,13 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvR
   %cmp.i9 = icmp ugt i32 %bf.load.i8, -16777217
   %conv = zext i1 %cmp.i9 to i32
   %add = add i32 %overflowCount.013, %conv
-  %incdec.ptr = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %__begin1.012, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.012, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
   %overflowCount.0.lcssa = phi i32 [ 0, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ], [ %add, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryINS0_21SmallStringTableEntryEEEvRKT_.exit ]
-  %overflowStringEntryCount_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 7
+  %overflowStringEntryCount_ = getelementptr inbounds i8, ptr %this, i64 60
   store i32 %overflowCount.0.lcssa, ptr %overflowStringEntryCount_, align 4
   ret void
 }
@@ -2300,7 +2231,7 @@ entry:
   %ref.tmp.i = alloca i8, align 1
   %overflow = alloca %"class.llvh::SmallVector.66", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2309,8 +2240,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -2341,15 +2272,15 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %overflow, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %overflow, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %overflow, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %overflow, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %overflow, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %overflow, i64 12
   store i32 64, ptr %Capacity2.i.i.i.i.i, align 4
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %bytecodeModule_, align 8
-  %stringTable_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %7, i64 0, i32 5
+  %stringTable_.i = getelementptr inbounds i8, ptr %7, i64 80
   %8 = load ptr, ptr %stringTable_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %7, i64 0, i32 5, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %7, i64 88
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %8 to i64
@@ -2362,7 +2293,7 @@ _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18Byt
 for.body:                                         ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit, %for.inc
   %10 = phi i32 [ %17, %for.inc ], [ 0, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ]
   %__begin1.028 = phi ptr [ %incdec.ptr, %for.inc ], [ %8, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ]
-  %length_.i.i = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %__begin1.028, i64 0, i32 1
+  %length_.i.i = getelementptr inbounds i8, ptr %__begin1.028, i64 4
   %11 = load i32, ptr %length_.i.i, align 4
   %12 = load i32, ptr %__begin1.028, align 4
   %cmp.i6 = icmp ugt i32 %12, 8388607
@@ -2390,7 +2321,7 @@ _ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_back
   %conv.i3.i = zext i32 %14 to i64
   %add.ptr.i.i = getelementptr inbounds %"struct.hermes::hbc::OverflowStringTableEntry", ptr %15, i64 %conv.i3.i
   store i32 %12, ptr %add.ptr.i.i, align 1
-  %length3.i.i = getelementptr inbounds %"struct.hermes::hbc::OverflowStringTableEntry", ptr %15, i64 %conv.i3.i, i32 1
+  %length3.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
   store i32 %and.i.i, ptr %length3.i.i, align 1
   %16 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i = add i32 %16, 1
@@ -2399,7 +2330,7 @@ _ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_back
 
 for.inc:                                          ; preds = %for.body, %_ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_backIJjjEEEvDpOT_.exit
   %17 = phi i32 [ %10, %for.body ], [ %add.i, %_ZN4llvh15SmallVectorImplIN6hermes3hbc24OverflowStringTableEntryEE12emplace_backIJjjEEEvDpOT_.exit ]
-  %incdec.ptr = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %__begin1.028, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.028, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end.loopexit, label %for.body
 
@@ -2412,14 +2343,14 @@ for.end.loopexit:                                 ; preds = %for.inc
 for.end:                                          ; preds = %for.end.loopexit, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
   %.pre30 = phi ptr [ %.pre30.pre, %for.end.loopexit ], [ %add.ptr.i.i.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ]
   %conv.i.i.i = phi i64 [ %19, %for.end.loopexit ], [ 0, %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit ]
-  %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
   %20 = load i8, ptr %isLayout_.i, align 8
   %21 = and i8 %20, 1
   %tobool.not.i = icmp eq i8 %21, 0
   br i1 %tobool.not.i, label %if.then.i18, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS0_24OverflowStringTableEntryEEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i18:                                      ; preds = %for.end
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %.pre30, i64 %conv.i.i.i) #12
   %22 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %22, ptr noundef %.pre30, i64 noundef %conv.i.i.i) #12
@@ -2447,7 +2378,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer18visitStringStorageEv(ptr
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2456,8 +2387,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -2487,23 +2418,23 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   %7 = phi i64 [ %0, %entry ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %bytecodeModule_, align 8
-  %stringStorage_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 6
+  %stringStorage_.i = getelementptr inbounds i8, ptr %8, i64 104
   %9 = load ptr, ptr %stringStorage_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 6, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %8, i64 112
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i8, ptr %isLayout_.i, align 8
   %12 = and i8 %11, 1
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %9, i64 %sub.ptr.sub.i.i.i) #12
   %13 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef %9, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -2522,7 +2453,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer16visitArrayBufferEv(ptr n
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2531,8 +2462,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -2562,23 +2493,23 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   %7 = phi i64 [ %0, %entry ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %bytecodeModule_, align 8
-  %arrayBuffer_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 12
+  %arrayBuffer_.i.i = getelementptr inbounds i8, ptr %8, i64 360
   %9 = load ptr, ptr %arrayBuffer_.i.i, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 12, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 368
   %10 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %isLayout_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i8, ptr %isLayout_.i.i, align 8
   %12 = and i8 %11, 1
   %tobool.not.i.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN6hermes3hbc18BytecodeSerializer20serializeArrayBufferERNS0_14BytecodeModuleE.exit
 
 if.then.i.i:                                      ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i.i, ptr %9, i64 %sub.ptr.sub.i.i.i.i) #12
   %13 = load ptr, ptr %this, align 8
   %call4.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef %9, i64 noundef %sub.ptr.sub.i.i.i.i) #12
@@ -2597,7 +2528,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer20visitObjectKeyBufferEv(p
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2606,8 +2537,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -2637,23 +2568,23 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   %7 = phi i64 [ %0, %entry ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %bytecodeModule_, align 8
-  %objKeyBuffer_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 13
+  %objKeyBuffer_.i = getelementptr inbounds i8, ptr %8, i64 384
   %9 = load ptr, ptr %objKeyBuffer_.i, align 8, !noalias !19
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 13, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %8, i64 392
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !19
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i8, ptr %isLayout_.i, align 8
   %12 = and i8 %11, 1
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %9, i64 %sub.ptr.sub.i.i.i) #12
   %13 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef %9, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -2672,7 +2603,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer22visitObjectValueBufferEv
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2681,8 +2612,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -2712,23 +2643,23 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   %7 = phi i64 [ %0, %entry ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %bytecodeModule_, align 8
-  %objValBuffer_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 14
+  %objValBuffer_.i = getelementptr inbounds i8, ptr %8, i64 408
   %9 = load ptr, ptr %objValBuffer_.i, align 8, !noalias !22
-  %_M_finish.i.i2.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 14, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i2.i = getelementptr inbounds i8, ptr %8, i64 416
   %10 = load ptr, ptr %_M_finish.i.i2.i, align 8, !noalias !22
   %sub.ptr.lhs.cast.i.i3.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i4.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i5.i = sub i64 %sub.ptr.lhs.cast.i.i3.i, %sub.ptr.rhs.cast.i.i4.i
-  %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i8, ptr %isLayout_.i, align 8
   %12 = and i8 %11, 1
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %9, i64 %sub.ptr.sub.i.i5.i) #12
   %13 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef %9, i64 noundef %sub.ptr.sub.i.i5.i) #12
@@ -2747,7 +2678,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer16visitBigIntTableEv(ptr n
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2756,8 +2687,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -2787,23 +2718,23 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   %7 = phi i64 [ %0, %entry ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %bytecodeModule_, align 8
-  %bigIntTable_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 7
+  %bigIntTable_.i = getelementptr inbounds i8, ptr %8, i64 128
   %9 = load ptr, ptr %bigIntTable_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 7, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %8, i64 136
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i8, ptr %isLayout_.i, align 8
   %12 = and i8 %11, 1
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_6bigint16BigIntTableEntryEEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %9, i64 %sub.ptr.sub.i.i.i) #12
   %13 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef %9, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -2822,7 +2753,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer18visitBigIntStorageEv(ptr
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2831,8 +2762,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -2862,23 +2793,23 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   %7 = phi i64 [ %0, %entry ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %bytecodeModule_, align 8
-  %bigIntStorage_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 8
+  %bigIntStorage_.i = getelementptr inbounds i8, ptr %8, i64 152
   %9 = load ptr, ptr %bigIntStorage_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 8, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %8, i64 160
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i8, ptr %isLayout_.i, align 8
   %12 = and i8 %11, 1
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %9, i64 %sub.ptr.sub.i.i.i) #12
   %13 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef %9, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -2897,7 +2828,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer16visitRegExpTableEv(ptr n
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2906,8 +2837,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -2937,23 +2868,23 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   %7 = phi i64 [ %0, %entry ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %bytecodeModule_, align 8
-  %regExpTable_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 10
+  %regExpTable_.i = getelementptr inbounds i8, ptr %8, i64 200
   %9 = load ptr, ptr %regExpTable_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %8, i64 208
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i8, ptr %isLayout_.i, align 8
   %12 = and i8 %11, 1
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayINS_16RegExpTableEntryEEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %9, i64 %sub.ptr.sub.i.i.i) #12
   %13 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef %9, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -2972,7 +2903,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer18visitRegExpStorageEv(ptr
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -2981,8 +2912,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -3012,23 +2943,23 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   %7 = phi i64 [ %0, %entry ], [ %add.i.i.i, %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %bytecodeModule_, align 8
-  %regExpStorage_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 9
+  %regExpStorage_.i = getelementptr inbounds i8, ptr %8, i64 176
   %9 = load ptr, ptr %regExpStorage_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeModule", ptr %8, i64 0, i32 9, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %8, i64 184
   %10 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %9 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %isLayout_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
+  %isLayout_.i = getelementptr inbounds i8, ptr %this, i64 48
   %11 = load i8, ptr %isLayout_.i, align 8
   %12 = and i8 %11, 1
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %if.then.i, label %_ZN6hermes3hbc18BytecodeSerializer16writeBinaryArrayIhEEvN4llvh8ArrayRefIT_EE.exit
 
 if.then.i:                                        ; preds = %_ZN6hermes3hbc18BytecodeSerializer3padEj.exit
-  %outputHasher_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %outputHasher_.i = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZN4llvh4SHA16updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(112) %outputHasher_.i, ptr %9, i64 %sub.ptr.sub.i.i.i) #12
   %13 = load ptr, ptr %this, align 8
   %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef %9, i64 noundef %sub.ptr.sub.i.i.i) #12
@@ -3047,7 +2978,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer19visitCJSModuleTableEv(pt
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -3056,8 +2987,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -3086,7 +3017,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %bytecodeModule_, align 8
   call void @_ZN6hermes3hbc18BytecodeSerializer23serializeCJSModuleTableERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(513) %7)
   ret void
@@ -3097,7 +3028,7 @@ define hidden void @_ZN6hermes3hbc18BytecodeSerializer24visitFunctionSourceTable
 entry:
   %ref.tmp.i = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %loc_.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 3
+  %loc_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_.i, align 8
   %rem.i = and i64 %0, 3
   %cmp.i = icmp eq i64 %rem.i, 0
@@ -3106,8 +3037,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %1 = trunc i64 %rem.i to i32
   %conv6.i = sub nuw nsw i32 4, %1
-  %isLayout_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 4
-  %outputHasher_.i.i.i = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 8
+  %isLayout_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %outputHasher_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %if.end.i
@@ -3136,7 +3067,7 @@ _ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i: ; preds = %if.t
 
 _ZN6hermes3hbc18BytecodeSerializer3padEj.exit:    ; preds = %_ZN6hermes3hbc18BytecodeSerializer11writeBinaryIcEEvRKT_.exit.i, %entry
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %bytecodeModule_ = getelementptr inbounds %"class.hermes::hbc::BytecodeSerializer", ptr %this, i64 0, i32 1
+  %bytecodeModule_ = getelementptr inbounds i8, ptr %this, i64 8
   %7 = load ptr, ptr %bytecodeModule_, align 8
   call void @_ZN6hermes3hbc18BytecodeSerializer28serializeFunctionSourceTableERNS0_14BytecodeModuleE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(513) %7)
   ret void
@@ -3156,7 +3087,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E15LookupBucketForIS3_EEbRKT_RPKS8_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %Val, ptr noundef nonnull align 8 dereferenceable(8) %FoundBucket) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %NumBuckets.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %return, label %if.end
@@ -3898,9 +3829,9 @@ define linkonce_odr hidden noundef ptr @_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8
 entry:
   %ConstFoundBucket.i9 = alloca ptr, align 8
   %ConstFoundBucket.i = alloca ptr, align 8
-  %NumEntries.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %NumEntries.i.i, align 8
-  %NumBuckets.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i32, ptr %NumBuckets.i.i, align 8
   %add = shl i32 %0, 2
   %mul = add i32 %add, 4
@@ -3918,7 +3849,7 @@ if.then:                                          ; preds = %entry
   br label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit
 
 if.else:                                          ; preds = %entry
-  %NumTombstones.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %3 = load i32, ptr %NumTombstones.i.i, align 4
   %add.neg = xor i32 %0, -1
   %add8.neg = add i32 %1, %add.neg
@@ -3945,7 +3876,7 @@ _ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit: ; preds = %if.else
   br i1 %cmp7.i, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %6 = load i32, ptr %NumTombstones.i.i.i, align 4
   %sub.i = add i32 %6, -1
   store i32 %sub.i, ptr %NumTombstones.i.i.i, align 4
@@ -3959,7 +3890,7 @@ if.end18:                                         ; preds = %if.then17, %_ZN4llv
 define linkonce_odr hidden void @_ZN4llvh8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE4growEj(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %AtLeast) local_unnamed_addr #0 comdat align 2 {
 _ZN4llvh8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE15allocateBucketsEj.exit:
   %ConstFoundBucket.i.i = alloca ptr, align 8
-  %NumBuckets = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 3
+  %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets, align 8
   %1 = load ptr, ptr %this, align 8
   %sub = add i32 %AtLeast, -1
@@ -3986,9 +3917,9 @@ _ZN4llvh8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPa
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4llvh8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE15allocateBucketsEj.exit
-  %NumEntries.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i, align 8
-  %NumTombstones.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i, align 4
   %3 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i = zext i32 %3 to i64
@@ -4001,16 +3932,16 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i = getelementptr inbounds i8, ptr %B.04.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %B.04.i, i64 24
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %return, label %for.body.i, !llvm.loop !31
 
 if.end:                                           ; preds = %_ZN4llvh8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS2_EENS_6detail12DenseMapPairIS2_jEEE15allocateBucketsEj.exit
   %idx.ext = zext i32 %0 to i64
   %add.ptr = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %1, i64 %idx.ext
-  %NumEntries.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 1
+  %NumEntries.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %NumEntries.i.i.i.i, align 8
-  %NumTombstones.i.i.i.i = getelementptr inbounds %"class.llvh::DenseMap", ptr %this, i64 0, i32 2
+  %NumTombstones.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %NumTombstones.i.i.i.i, align 4
   %4 = load i32, ptr %NumBuckets, align 8
   %idx.ext.i.i.i = zext i32 %4 to i64
@@ -4023,7 +3954,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
   store ptr inttoptr (i64 -1 to ptr), ptr %B.04.i.i, align 8
   %EmptyKey.sroa.2.0.call4.sroa_idx.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 8
   store i64 0, ptr %EmptyKey.sroa.2.0.call4.sroa_idx.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.04.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %B.04.i.i, i64 24
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E9initEmptyEv.exit.i, label %for.body.i.i, !llvm.loop !31
 
@@ -4043,8 +3974,8 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
   %5 = load ptr, ptr %ConstFoundBucket.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ConstFoundBucket.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %B.028.i, i64 16, i1 false)
-  %second.i.i = getelementptr inbounds %"struct.std::pair.62", ptr %5, i64 0, i32 1
-  %second.i23.i = getelementptr inbounds %"struct.std::pair.62", ptr %B.028.i, i64 0, i32 1
+  %second.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %second.i23.i = getelementptr inbounds i8, ptr %B.028.i, i64 16
   %6 = load i32, ptr %second.i23.i, align 4
   store i32 %6, ptr %second.i.i, align 4
   %7 = load i32, ptr %NumEntries.i.i.i.i, align 8
@@ -4053,7 +3984,7 @@ if.then.i:                                        ; preds = %_ZN4llvh12DenseMapI
   br label %if.end.i5
 
 if.end.i5:                                        ; preds = %if.then.i, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit.i
-  %incdec.ptr.i6 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair", ptr %B.028.i, i64 1
+  %incdec.ptr.i6 = getelementptr inbounds i8, ptr %B.028.i, i64 24
   %cmp.not.i7 = icmp eq ptr %incdec.ptr.i6, %add.ptr
   br i1 %cmp.not.i7, label %_ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIhEEjNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E18moveFromOldBucketsEPS8_SB_.exit, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIhEEE7isEqualES2_S2_.exit.i, !llvm.loop !32
 

@@ -26,14 +26,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ossl_quic_frame_new_conn_id_st = type { i64, i64, %struct.quic_conn_id_st, %struct.QUIC_STATELESS_RESET_TOKEN }
 %struct.QUIC_STATELESS_RESET_TOKEN = type { [16 x i8] }
 %struct.ossl_quic_ack_range_st = type { i64, i64 }
-%struct.quic_pkt_hdr_st = type { i24, i32, %struct.quic_conn_id_st, %struct.quic_conn_id_st, [4 x i8], ptr, i64, i64, ptr }
-%struct.ossl_qrx_pkt_st = type { ptr, ptr, ptr, i64, i64, %struct.OSSL_TIME, ptr, i64 }
-%struct.quic_stream_st = type { %struct.quic_stream_list_node_st, %struct.quic_stream_list_node_st, %struct.quic_stream_list_node_st, ptr, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, %struct.quic_txfc_st, %struct.quic_rxfc_st, i40 }
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
 %struct.ossl_ackm_rx_pkt_st = type { i64, %struct.OSSL_TIME, i8 }
 %struct.ossl_quic_frame_conn_close_st = type { i8, i64, i64, ptr, i64 }
-%struct.ossl_ackm_probe_info_st = type { i32, i32, [3 x i32] }
 
 @.str = private unnamed_addr constant [12 x i8] c"test_script\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"test_dyn_script_1\00", align 1
@@ -281,8 +276,8 @@ entry:
   %consumed = alloca i64, align 8
   %consumed328 = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1392) %h, i8 0, i64 1392, i1 false)
-  %bio1.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 3
-  %bio2.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 4
+  %bio1.i = getelementptr inbounds i8, ptr %h, i64 328
+  %bio2.i = getelementptr inbounds i8, ptr %h, i64 336
   %call.i = call i32 @BIO_new_bio_dgram_pair(ptr noundef nonnull %bio1.i, i64 noundef 0, ptr noundef nonnull %bio2.i, i64 noundef 0) #8
   %cmp.i = icmp ne i32 %call.i, 0
   %conv.i = zext i1 %cmp.i to i32
@@ -292,14 +287,14 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %0 = load ptr, ptr %bio1.i, align 8
-  %qtx_args.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 2
-  %bio.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 2, i32 2
+  %qtx_args.i = getelementptr inbounds i8, ptr %h, i64 296
+  %bio.i = getelementptr inbounds i8, ptr %h, i64 312
   store ptr %0, ptr %bio.i, align 8
-  %mdpl.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 2, i32 3
+  %mdpl.i = getelementptr inbounds i8, ptr %h, i64 320
   store i64 1200, ptr %mdpl.i, align 8
   %call5.i = call ptr @ossl_qtx_new(ptr noundef nonnull %qtx_args.i) #8
-  %args.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1
-  %qtx.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 4
+  %args.i = getelementptr inbounds i8, ptr %h, i64 8
+  %qtx.i = getelementptr inbounds i8, ptr %h, i64 168
   store ptr %call5.i, ptr %qtx.i, align 8
   %call6.i = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 125, ptr noundef nonnull @.str.52, ptr noundef %call5.i) #8
   %tobool7.not.i = icmp eq i32 %call6.i, 0
@@ -307,7 +302,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end9.i:                                        ; preds = %if.end.i
   %call10.i = call ptr @ossl_quic_txpim_new() #8
-  %txpim.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 5
+  %txpim.i = getelementptr inbounds i8, ptr %h, i64 176
   store ptr %call10.i, ptr %txpim.i, align 8
   %call12.i = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 128, ptr noundef nonnull @.str.53, ptr noundef %call10.i) #8
   %tobool13.not.i = icmp eq i32 %call12.i, 0
@@ -315,14 +310,14 @@ if.end9.i:                                        ; preds = %if.end.i
 
 if.end15.i:                                       ; preds = %if.end9.i
   %call16.i = call ptr @ossl_quic_cfq_new() #8
-  %cfq.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 6
+  %cfq.i = getelementptr inbounds i8, ptr %h, i64 184
   store ptr %call16.i, ptr %cfq.i, align 8
   %call18.i = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 131, ptr noundef nonnull @.str.54, ptr noundef %call16.i) #8
   %tobool19.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool19.not.i, label %if.end466, label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.end15.i
-  %conn_txfc.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 5
+  %conn_txfc.i = getelementptr inbounds i8, ptr %h, i64 344
   %call22.i = call i32 @ossl_quic_txfc_init(ptr noundef nonnull %conn_txfc.i, ptr noundef null) #8
   %cmp23.i = icmp ne i32 %call22.i, 0
   %conv24.i = zext i1 %cmp23.i to i32
@@ -331,7 +326,7 @@ if.end21.i:                                       ; preds = %if.end15.i
   br i1 %tobool26.not.i, label %if.end466, label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end21.i
-  %conn_rxfc.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 6
+  %conn_rxfc.i = getelementptr inbounds i8, ptr %h, i64 376
   %call29.i = call i32 @ossl_quic_rxfc_init(ptr noundef nonnull %conn_rxfc.i, ptr noundef null, i64 noundef 2097152, i64 noundef 10485760, ptr noundef nonnull @fake_now, ptr noundef null) #8
   %cmp30.i = icmp ne i32 %call29.i, 0
   %conv31.i = zext i1 %cmp30.i to i32
@@ -340,7 +335,7 @@ if.end28.i:                                       ; preds = %if.end21.i
   br i1 %tobool33.not.i, label %if.end466, label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.end28.i
-  %stream_rxfc.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 7
+  %stream_rxfc.i = getelementptr inbounds i8, ptr %h, i64 472
   %call37.i = call i32 @ossl_quic_rxfc_init(ptr noundef nonnull %stream_rxfc.i, ptr noundef nonnull %conn_rxfc.i, i64 noundef 1048576, i64 noundef 5242880, ptr noundef nonnull @fake_now, ptr noundef null) #8
   %cmp38.i = icmp ne i32 %call37.i, 0
   %conv39.i = zext i1 %cmp38.i to i32
@@ -349,7 +344,7 @@ if.end35.i:                                       ; preds = %if.end28.i
   br i1 %tobool41.not.i, label %if.end466, label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.end35.i
-  %max_streams_bidi_rxfc.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 8
+  %max_streams_bidi_rxfc.i = getelementptr inbounds i8, ptr %h, i64 568
   %call44.i = call i32 @ossl_quic_rxfc_init(ptr noundef nonnull %max_streams_bidi_rxfc.i, ptr noundef null, i64 noundef 100, i64 noundef 100, ptr noundef nonnull @fake_now, ptr noundef null) #8
   %cmp45.i = icmp ne i32 %call44.i, 0
   %conv46.i = zext i1 %cmp45.i to i32
@@ -358,7 +353,7 @@ if.end43.i:                                       ; preds = %if.end35.i
   br i1 %tobool48.not.i, label %if.end466, label %if.end50.i
 
 if.end50.i:                                       ; preds = %if.end43.i
-  %max_streams_uni_rxfc.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 9
+  %max_streams_uni_rxfc.i = getelementptr inbounds i8, ptr %h, i64 664
   %call51.i = call i32 @ossl_quic_rxfc_init(ptr noundef nonnull %max_streams_uni_rxfc.i, ptr noundef null, i64 noundef 100, i64 noundef 100, ptr noundef nonnull @fake_now, ptr noundef null) #8
   %cmp52.i = icmp ne i32 %call51.i, 0
   %conv53.i = zext i1 %cmp52.i to i32
@@ -367,7 +362,7 @@ if.end50.i:                                       ; preds = %if.end43.i
   br i1 %tobool55.not.i, label %if.then56.i, label %if.end64.i
 
 if.then56.i:                                      ; preds = %if.end50.i
-  %statm.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 10
+  %statm.i = getelementptr inbounds i8, ptr %h, i64 760
   %call57.i = call i32 @ossl_statm_init(ptr noundef nonnull %statm.i) #8
   %cmp58.i = icmp ne i32 %call57.i, 0
   %conv59.i = zext i1 %cmp58.i to i32
@@ -376,31 +371,31 @@ if.then56.i:                                      ; preds = %if.end50.i
   br i1 %tobool61.not.i, label %if.end466, label %if.end64.i
 
 if.end64.i:                                       ; preds = %if.then56.i, %if.end50.i
-  %have_statm.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 14
+  %have_statm.i = getelementptr inbounds i8, ptr %h, i64 952
   store i8 1, ptr %have_statm.i, align 8
-  %cc_method.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 12
+  %cc_method.i = getelementptr inbounds i8, ptr %h, i64 808
   store ptr @ossl_cc_dummy_method, ptr %cc_method.i, align 8
   %1 = load ptr, ptr @ossl_cc_dummy_method, align 8
   %call66.i = call ptr %1(ptr noundef nonnull @fake_now, ptr noundef null) #8
-  %cc_data.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 11
+  %cc_data.i = getelementptr inbounds i8, ptr %h, i64 800
   store ptr %call66.i, ptr %cc_data.i, align 8
   %call67.i = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 168, ptr noundef nonnull @.str.61, ptr noundef %call66.i) #8
   %tobool68.not.i = icmp eq i32 %call67.i, 0
   br i1 %tobool68.not.i, label %if.end466, label %if.end70.i
 
 if.end70.i:                                       ; preds = %if.end64.i
-  %statm71.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 10
+  %statm71.i = getelementptr inbounds i8, ptr %h, i64 760
   %2 = load ptr, ptr %cc_method.i, align 8
   %3 = load ptr, ptr %cc_data.i, align 8
   %call74.i = call ptr @ossl_ackm_new(ptr noundef nonnull @fake_now, ptr noundef null, ptr noundef nonnull %statm71.i, ptr noundef %2, ptr noundef %3) #8
-  %ackm.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 7
+  %ackm.i = getelementptr inbounds i8, ptr %h, i64 192
   store ptr %call74.i, ptr %ackm.i, align 8
   %call76.i = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 174, ptr noundef nonnull @.str.62, ptr noundef %call74.i) #8
   %tobool77.not.i = icmp eq i32 %call76.i, 0
   br i1 %tobool77.not.i, label %if.end466, label %if.end79.i
 
 if.end79.i:                                       ; preds = %if.end70.i
-  %qsm.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 13
+  %qsm.i = getelementptr inbounds i8, ptr %h, i64 816
   %call82.i = call i32 @ossl_quic_stream_map_init(ptr noundef nonnull %qsm.i, ptr noundef null, ptr noundef null, ptr noundef nonnull %max_streams_bidi_rxfc.i, ptr noundef nonnull %max_streams_uni_rxfc.i, i32 noundef 0) #8
   %cmp83.i = icmp ne i32 %call82.i, 0
   %conv84.i = zext i1 %cmp83.i to i32
@@ -409,8 +404,9 @@ if.end79.i:                                       ; preds = %if.end70.i
   br i1 %tobool86.not.i, label %if.end466, label %if.end88.i
 
 if.end88.i:                                       ; preds = %if.end79.i
-  %have_qsm.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 15
+  %have_qsm.i = getelementptr inbounds i8, ptr %h, i64 953
   store i8 1, ptr %have_qsm.i, align 1
+  %crypto.i = getelementptr inbounds i8, ptr %h, i64 272
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -421,7 +417,7 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.cond.i, %if.end88.i
   %i.067.i = phi i64 [ 0, %if.end88.i ], [ %inc.i, %for.cond.i ]
   %call91.i = call ptr @ossl_quic_sstream_new(i64 noundef 4096) #8
-  %arrayidx.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 17, i64 %i.067.i
+  %arrayidx.i = getelementptr inbounds [3 x ptr], ptr %crypto.i, i64 0, i64 %i.067.i
   store ptr %call91.i, ptr %arrayidx.i, align 8
   %call93.i = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 186, ptr noundef nonnull @.str.64, ptr noundef %call91.i) #8
   %tobool94.not.i = icmp eq i32 %call93.i, 0
@@ -429,23 +425,23 @@ for.body.i:                                       ; preds = %for.cond.i, %if.end
 
 for.end.i:                                        ; preds = %for.cond.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %args.i, ptr noundef nonnull align 1 dereferenceable(21) @scid_1, i64 21, i1 false)
-  %cur_dcid.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 1
+  %cur_dcid.i = getelementptr inbounds i8, ptr %h, i64 29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %cur_dcid.i, ptr noundef nonnull align 1 dereferenceable(21) @dcid_1, i64 21, i1 false)
-  %qsm101.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 8
+  %qsm101.i = getelementptr inbounds i8, ptr %h, i64 200
   store ptr %qsm.i, ptr %qsm101.i, align 8
-  %conn_txfc104.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 9
+  %conn_txfc104.i = getelementptr inbounds i8, ptr %h, i64 208
   store ptr %conn_txfc.i, ptr %conn_txfc104.i, align 8
-  %conn_rxfc107.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 10
+  %conn_rxfc107.i = getelementptr inbounds i8, ptr %h, i64 216
   store ptr %conn_rxfc.i, ptr %conn_rxfc107.i, align 8
-  %max_streams_bidi_rxfc110.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 11
+  %max_streams_bidi_rxfc110.i = getelementptr inbounds i8, ptr %h, i64 224
   store ptr %max_streams_bidi_rxfc.i, ptr %max_streams_bidi_rxfc110.i, align 8
-  %max_streams_uni_rxfc113.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 12
+  %max_streams_uni_rxfc113.i = getelementptr inbounds i8, ptr %h, i64 232
   store ptr %max_streams_uni_rxfc.i, ptr %max_streams_uni_rxfc113.i, align 8
-  %cc_method116.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 13
+  %cc_method116.i = getelementptr inbounds i8, ptr %h, i64 240
   %4 = load <2 x ptr>, ptr %cc_data.i, align 8
   %5 = shufflevector <2 x ptr> %4, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
   store <2 x ptr> %5, ptr %cc_method116.i, align 8
-  %now.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 15
+  %now.i = getelementptr inbounds i8, ptr %h, i64 256
   store ptr @fake_now, ptr %now.i, align 8
   %call122.i = call ptr @ossl_quic_tx_packetiser_new(ptr noundef nonnull %args.i) #8
   store ptr %call122.i, ptr %h, align 8
@@ -456,7 +452,7 @@ for.end.i:                                        ; preds = %for.cond.i
 if.end126.i:                                      ; preds = %for.end.i
   %6 = load ptr, ptr %bio2.i, align 8
   %call128.i = call ptr @ossl_quic_demux_new(ptr noundef %6, i64 noundef 8, ptr noundef nonnull @fake_now, ptr noundef null) #8
-  %demux.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 16
+  %demux.i = getelementptr inbounds i8, ptr %h, i64 960
   store ptr %call128.i, ptr %demux.i, align 8
   %call129.i = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 204, ptr noundef nonnull @.str.66, ptr noundef %call128.i) #8
   %tobool130.not.i = icmp eq i32 %call129.i, 0
@@ -464,15 +460,15 @@ if.end126.i:                                      ; preds = %for.end.i
 
 if.end132.i:                                      ; preds = %if.end126.i
   %7 = load ptr, ptr %demux.i, align 8
-  %qrx_args.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 18
-  %demux134.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 18, i32 2
+  %qrx_args.i = getelementptr inbounds i8, ptr %h, i64 976
+  %demux134.i = getelementptr inbounds i8, ptr %h, i64 992
   store ptr %7, ptr %demux134.i, align 8
-  %short_conn_id_len.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 18, i32 3
+  %short_conn_id_len.i = getelementptr inbounds i8, ptr %h, i64 1000
   store i64 8, ptr %short_conn_id_len.i, align 8
-  %max_deferred.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 18, i32 4
+  %max_deferred.i = getelementptr inbounds i8, ptr %h, i64 1008
   store i64 32, ptr %max_deferred.i, align 8
   %call138.i = call ptr @ossl_qrx_new(ptr noundef nonnull %qrx_args.i) #8
-  %qrx.i = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 17
+  %qrx.i = getelementptr inbounds i8, ptr %h, i64 968
   store ptr %call138.i, ptr %qrx.i, align 8
   %call139.i = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 211, ptr noundef nonnull @.str.67, ptr noundef %call138.i) #8
   %tobool140.not.i = icmp eq i32 %call139.i, 0
@@ -490,15 +486,15 @@ if.end142.i:                                      ; preds = %if.end132.i
 helper_init.exit:                                 ; preds = %if.end142.i
   %9 = load ptr, ptr %qrx.i, align 8
   call void @ossl_qrx_allow_1rtt_processing(ptr noundef %9) #8
-  %pkt.i62 = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 20
-  %10 = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 20, i32 1
-  %frame_type108 = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 21
-  %frame221 = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22
-  %ack_ranges = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 23
-  %num_ack_ranges = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 1
-  %ack_delay_exponent = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 3
-  %qrx_pkt88 = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 19
-  %sent_pkt21 = getelementptr inbounds %struct.quic_txp_status_st, ptr %status, i64 0, i32 2
+  %pkt.i62 = getelementptr inbounds i8, ptr %h, i64 1056
+  %10 = getelementptr inbounds i8, ptr %h, i64 1064
+  %frame_type108 = getelementptr inbounds i8, ptr %h, i64 1072
+  %frame221 = getelementptr inbounds i8, ptr %h, i64 1080
+  %ack_ranges = getelementptr inbounds i8, ptr %h, i64 1136
+  %num_ack_ranges = getelementptr inbounds i8, ptr %h, i64 1088
+  %ack_delay_exponent = getelementptr inbounds i8, ptr %h, i64 164
+  %qrx_pkt88 = getelementptr inbounds i8, ptr %h, i64 1048
+  %sent_pkt21 = getelementptr inbounds i8, ptr %status, i64 8
   br label %for.cond
 
 for.cond:                                         ; preds = %helper_init.exit, %for.inc
@@ -586,13 +582,13 @@ sw.bb26:                                          ; preds = %for.cond
 if.end36:                                         ; preds = %sw.bb26
   %21 = load ptr, ptr %qrx_pkt88, align 8
   %22 = load ptr, ptr %21, align 8
-  %len = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %22, i64 0, i32 7
+  %len = getelementptr inbounds i8, ptr %22, i64 72
   %23 = load i64, ptr %len, align 8
   %cmp.i50 = icmp slt i64 %23, 0
   br i1 %cmp.i50, label %PACKET_buf_init.exit, label %if.end.i51
 
 if.end.i51:                                       ; preds = %if.end36
-  %data = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %22, i64 0, i32 8
+  %data = getelementptr inbounds i8, ptr %22, i64 80
   %24 = load ptr, ptr %data, align 8
   store ptr %24, ptr %pkt.i62, align 8
   store i64 %23, ptr %10, align 8
@@ -625,9 +621,9 @@ if.end58:                                         ; preds = %sw.bb47
 
 sw.bb60:                                          ; preds = %for.cond
   %27 = load ptr, ptr %qrx_pkt88, align 8
-  %datagram_len = getelementptr inbounds %struct.ossl_qrx_pkt_st, ptr %27, i64 0, i32 3
+  %datagram_len = getelementptr inbounds i8, ptr %27, i64 24
   %28 = load i64, ptr %datagram_len, align 8
-  %arg0 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 1
+  %arg0 = getelementptr inbounds i8, ptr %op.0, i64 8
   %29 = load i64, ptr %arg0, align 8
   %call62 = call i32 @test_size_t_ge(ptr noundef nonnull @.str.2, i32 noundef 1328, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i64 noundef %28, i64 noundef %29) #8
   %tobool63.not = icmp eq i32 %call62, 0
@@ -635,9 +631,9 @@ sw.bb60:                                          ; preds = %for.cond
 
 lor.lhs.false:                                    ; preds = %sw.bb60
   %30 = load ptr, ptr %qrx_pkt88, align 8
-  %datagram_len65 = getelementptr inbounds %struct.ossl_qrx_pkt_st, ptr %30, i64 0, i32 3
+  %datagram_len65 = getelementptr inbounds i8, ptr %30, i64 24
   %31 = load i64, ptr %datagram_len65, align 8
-  %arg1 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 2
+  %arg1 = getelementptr inbounds i8, ptr %op.0, i64 16
   %32 = load i64, ptr %arg1, align 8
   %call66 = call i32 @test_size_t_le(ptr noundef nonnull @.str.2, i32 noundef 1329, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10, i64 noundef %31, i64 noundef %32) #8
   %tobool67.not = icmp eq i32 %call66, 0
@@ -645,7 +641,7 @@ lor.lhs.false:                                    ; preds = %sw.bb60
 
 sw.bb70:                                          ; preds = %for.cond
   %33 = load i64, ptr %frame_type108, align 8
-  %arg072 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 1
+  %arg072 = getelementptr inbounds i8, ptr %op.0, i64 8
   %34 = load i64, ptr %arg072, align 8
   %call73 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 1333, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i64 noundef %33, i64 noundef %34) #8
   %tobool74.not = icmp eq i32 %call73, 0
@@ -654,13 +650,13 @@ sw.bb70:                                          ; preds = %for.cond
 sw.bb77:                                          ; preds = %for.cond
   %35 = load ptr, ptr %qrx_pkt88, align 8
   %36 = load ptr, ptr %35, align 8
-  %token = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %36, i64 0, i32 5
+  %token = getelementptr inbounds i8, ptr %36, i64 56
   %37 = load ptr, ptr %token, align 8
-  %token_len = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %36, i64 0, i32 6
+  %token_len = getelementptr inbounds i8, ptr %36, i64 64
   %38 = load i64, ptr %token_len, align 8
-  %buf = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %op.0, i64 24
   %39 = load ptr, ptr %buf, align 8
-  %arg082 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 1
+  %arg082 = getelementptr inbounds i8, ptr %op.0, i64 8
   %40 = load i64, ptr %arg082, align 8
   %call83 = call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 1338, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef %37, i64 noundef %38, ptr noundef %39, i64 noundef %40) #8
   %tobool84.not = icmp eq i32 %call83, 0
@@ -669,7 +665,7 @@ sw.bb77:                                          ; preds = %for.cond
 sw.bb87:                                          ; preds = %for.cond
   %41 = load ptr, ptr %qrx_pkt88, align 8
   %42 = load ptr, ptr %41, align 8
-  %buf90 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 3
+  %buf90 = getelementptr inbounds i8, ptr %op.0, i64 24
   %43 = load ptr, ptr %buf90, align 8
   %bf.load.i = load i32, ptr %42, align 8
   %bf.clear.i = and i32 %bf.load.i, 255
@@ -757,50 +753,50 @@ lor.lhs.false55.i:                                ; preds = %lor.lhs.false46.i
   br i1 %tobool63.not.i, label %if.then95.i, label %lor.lhs.false64.i
 
 lor.lhs.false64.i:                                ; preds = %lor.lhs.false55.i
-  %version.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %42, i64 0, i32 1
+  %version.i = getelementptr inbounds i8, ptr %42, i64 4
   %44 = load i32, ptr %version.i, align 4
-  %version65.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %43, i64 0, i32 1
+  %version65.i = getelementptr inbounds i8, ptr %43, i64 4
   %45 = load i32, ptr %version65.i, align 4
   %call66.i55 = call i32 @test_uint_eq(ptr noundef nonnull @.str.71, i32 noundef 32, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, i32 noundef %44, i32 noundef %45) #8
   %tobool67.not.i = icmp eq i32 %call66.i55, 0
   br i1 %tobool67.not.i, label %if.then95.i, label %lor.lhs.false68.i
 
 lor.lhs.false68.i:                                ; preds = %lor.lhs.false64.i
-  %dst_conn_id.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %42, i64 0, i32 2
-  %dst_conn_id69.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %43, i64 0, i32 2
+  %dst_conn_id.i = getelementptr inbounds i8, ptr %42, i64 8
+  %dst_conn_id69.i = getelementptr inbounds i8, ptr %43, i64 8
   %call70.i = call fastcc i32 @ossl_quic_conn_id_eq(ptr noundef nonnull %dst_conn_id.i, ptr noundef nonnull %dst_conn_id69.i), !range !5
   %call72.i = call i32 @test_true(ptr noundef nonnull @.str.71, i32 noundef 33, ptr noundef nonnull @.str.90, i32 noundef %call70.i) #8
   %tobool73.not.i = icmp eq i32 %call72.i, 0
   br i1 %tobool73.not.i, label %if.then95.i, label %lor.lhs.false74.i
 
 lor.lhs.false74.i:                                ; preds = %lor.lhs.false68.i
-  %src_conn_id.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %42, i64 0, i32 3
-  %src_conn_id75.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %43, i64 0, i32 3
+  %src_conn_id.i = getelementptr inbounds i8, ptr %42, i64 29
+  %src_conn_id75.i = getelementptr inbounds i8, ptr %43, i64 29
   %call76.i56 = call fastcc i32 @ossl_quic_conn_id_eq(ptr noundef nonnull %src_conn_id.i, ptr noundef nonnull %src_conn_id75.i), !range !5
   %call79.i = call i32 @test_true(ptr noundef nonnull @.str.71, i32 noundef 34, ptr noundef nonnull @.str.91, i32 noundef %call76.i56) #8
   %tobool80.not.i = icmp eq i32 %call79.i, 0
   br i1 %tobool80.not.i, label %if.then95.i, label %lor.lhs.false81.i
 
 lor.lhs.false81.i:                                ; preds = %lor.lhs.false74.i
-  %pn.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %42, i64 0, i32 4
-  %pn82.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %43, i64 0, i32 4
+  %pn.i = getelementptr inbounds i8, ptr %42, i64 50
+  %pn82.i = getelementptr inbounds i8, ptr %43, i64 50
   %call84.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.71, i32 noundef 35, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, ptr noundef nonnull %pn.i, i64 noundef 4, ptr noundef nonnull %pn82.i, i64 noundef 4) #8
   %tobool85.not.i = icmp eq i32 %call84.i, 0
   br i1 %tobool85.not.i, label %if.then95.i, label %lor.lhs.false86.i
 
 lor.lhs.false86.i:                                ; preds = %lor.lhs.false81.i
-  %token_len.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %42, i64 0, i32 6
+  %token_len.i = getelementptr inbounds i8, ptr %42, i64 64
   %46 = load i64, ptr %token_len.i, align 8
-  %token_len87.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %43, i64 0, i32 6
+  %token_len87.i = getelementptr inbounds i8, ptr %43, i64 64
   %47 = load i64, ptr %token_len87.i, align 8
   %call88.i = call i32 @test_size_t_eq(ptr noundef nonnull @.str.71, i32 noundef 36, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.95, i64 noundef %46, i64 noundef %47) #8
   %tobool89.not.i = icmp eq i32 %call88.i, 0
   br i1 %tobool89.not.i, label %if.then95.i, label %lor.lhs.false90.i
 
 lor.lhs.false90.i:                                ; preds = %lor.lhs.false86.i
-  %len91.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %42, i64 0, i32 7
+  %len91.i = getelementptr inbounds i8, ptr %42, i64 72
   %48 = load i64, ptr %len91.i, align 8
-  %len92.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %43, i64 0, i32 7
+  %len92.i = getelementptr inbounds i8, ptr %43, i64 72
   %49 = load i64, ptr %len92.i, align 8
   %call93.i57 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.71, i32 noundef 37, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, i64 noundef %48, i64 noundef %49) #8
   %tobool94.not.i58 = icmp eq i32 %call93.i57, 0
@@ -811,21 +807,21 @@ if.then95.i:                                      ; preds = %lor.lhs.false90.i, 
 
 if.end96.i:                                       ; preds = %if.then95.i, %lor.lhs.false90.i
   %ok.0.i = phi i32 [ 1, %lor.lhs.false90.i ], [ 0, %if.then95.i ]
-  %token_len97.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %42, i64 0, i32 6
+  %token_len97.i = getelementptr inbounds i8, ptr %42, i64 64
   %50 = load i64, ptr %token_len97.i, align 8
   %cmp98.not.i = icmp eq i64 %50, 0
   br i1 %cmp98.not.i, label %land.lhs.true114.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end96.i
-  %token_len100.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %43, i64 0, i32 6
+  %token_len100.i = getelementptr inbounds i8, ptr %43, i64 64
   %51 = load i64, ptr %token_len100.i, align 8
   %cmp101.not.i = icmp eq i64 %51, 0
   br i1 %cmp101.not.i, label %lor.lhs.false118.i, label %if.end110.i
 
 if.end110.i:                                      ; preds = %land.lhs.true.i
-  %token.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %42, i64 0, i32 5
+  %token.i = getelementptr inbounds i8, ptr %42, i64 56
   %52 = load ptr, ptr %token.i, align 8
-  %token105.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %43, i64 0, i32 5
+  %token105.i = getelementptr inbounds i8, ptr %43, i64 56
   %53 = load ptr, ptr %token105.i, align 8
   %call107.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.71, i32 noundef 41, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, ptr noundef %52, i64 noundef %50, ptr noundef %53, i64 noundef %51) #8
   %tobool108.not.i = icmp eq i32 %call107.i, 0
@@ -836,7 +832,7 @@ if.end110.i:                                      ; preds = %land.lhs.true.i
 
 land.lhs.true114.i:                               ; preds = %if.end110.i, %if.end96.i
   %ok.14.i = phi i32 [ %spec.select.i, %if.end110.i ], [ %ok.0.i, %if.end96.i ]
-  %token115.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %42, i64 0, i32 5
+  %token115.i = getelementptr inbounds i8, ptr %42, i64 56
   %55 = load ptr, ptr %token115.i, align 8
   %call116.i = call i32 @test_ptr_null(ptr noundef nonnull @.str.71, i32 noundef 44, ptr noundef nonnull @.str.98, ptr noundef %55) #8
   %tobool117.not.i = icmp eq i32 %call116.i, 0
@@ -844,13 +840,13 @@ land.lhs.true114.i:                               ; preds = %if.end110.i, %if.en
 
 lor.lhs.false118.i:                               ; preds = %land.lhs.true114.i, %if.end110.i, %land.lhs.true.i
   %ok.13.i = phi i32 [ %ok.14.i, %land.lhs.true114.i ], [ %spec.select.i, %if.end110.i ], [ %ok.0.i, %land.lhs.true.i ]
-  %token_len119.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %43, i64 0, i32 6
+  %token_len119.i = getelementptr inbounds i8, ptr %43, i64 64
   %56 = load i64, ptr %token_len119.i, align 8
   %cmp120.i = icmp eq i64 %56, 0
   br i1 %cmp120.i, label %land.lhs.true122.i, label %cmp_pkt_hdr.exit
 
 land.lhs.true122.i:                               ; preds = %lor.lhs.false118.i
-  %token123.i = getelementptr inbounds %struct.quic_pkt_hdr_st, ptr %43, i64 0, i32 5
+  %token123.i = getelementptr inbounds i8, ptr %43, i64 56
   %57 = load ptr, ptr %token123.i, align 8
   %call124.i = call i32 @test_ptr_null(ptr noundef nonnull @.str.71, i32 noundef 45, ptr noundef nonnull @.str.99, ptr noundef %57) #8
   %tobool125.not.i = icmp eq i32 %call124.i, 0
@@ -866,7 +862,7 @@ cmp_pkt_hdr.exit:                                 ; preds = %lor.lhs.false118.i,
   br i1 %tobool95.not, label %if.end466.thread86, label %for.inc
 
 sw.bb98:                                          ; preds = %for.cond
-  %check_func = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 5
+  %check_func = getelementptr inbounds i8, ptr %op.0, i64 40
   %58 = load ptr, ptr %check_func, align 8
   %call99 = call i32 %58(ptr noundef nonnull %h) #8
   %cmp100 = icmp ne i32 %call99, 0
@@ -1040,15 +1036,15 @@ skip_padding.exit69:                              ; preds = %sw.bb229, %if.then1
 
 sw.bb236:                                         ; preds = %for.cond
   %63 = load ptr, ptr %qtx.i, align 8
-  %arg0239 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 1
+  %arg0239 = getelementptr inbounds i8, ptr %op.0, i64 8
   %64 = load i64, ptr %arg0239, align 8
   %conv240 = trunc i64 %64 to i32
-  %arg1241 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 2
+  %arg1241 = getelementptr inbounds i8, ptr %op.0, i64 16
   %65 = load i64, ptr %arg1241, align 8
   %conv242 = trunc i64 %65 to i32
-  %buf243 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 3
+  %buf243 = getelementptr inbounds i8, ptr %op.0, i64 24
   %66 = load ptr, ptr %buf243, align 8
-  %buf_len = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 4
+  %buf_len = getelementptr inbounds i8, ptr %op.0, i64 32
   %67 = load i64, ptr %buf_len, align 8
   %call244 = call i32 @ossl_qtx_provide_secret(ptr noundef %63, i32 noundef %conv240, i32 noundef %conv242, ptr noundef null, ptr noundef %66, i64 noundef %67) #8
   %cmp245 = icmp ne i32 %call244, 0
@@ -1074,7 +1070,7 @@ if.end250:                                        ; preds = %sw.bb236
 
 sw.bb265:                                         ; preds = %for.cond
   %73 = load ptr, ptr %h, align 8
-  %arg0267 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 1
+  %arg0267 = getelementptr inbounds i8, ptr %op.0, i64 8
   %74 = load i64, ptr %arg0267, align 8
   %conv268 = trunc i64 %74 to i32
   %call269 = call i32 @ossl_quic_tx_packetiser_discard_enc_level(ptr noundef %73, i32 noundef %conv268) #8
@@ -1086,13 +1082,13 @@ sw.bb265:                                         ; preds = %for.cond
 
 sw.bb276:                                         ; preds = %for.cond
   store i64 0, ptr %consumed, align 8
-  %arg0278 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 1
+  %arg0278 = getelementptr inbounds i8, ptr %op.0, i64 8
   %75 = load i64, ptr %arg0278, align 8
-  %arrayidx = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 17, i64 %75
+  %arrayidx = getelementptr inbounds [3 x ptr], ptr %crypto.i, i64 0, i64 %75
   %76 = load ptr, ptr %arrayidx, align 8
-  %buf279 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 3
+  %buf279 = getelementptr inbounds i8, ptr %op.0, i64 24
   %77 = load ptr, ptr %buf279, align 8
-  %buf_len280 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 4
+  %buf_len280 = getelementptr inbounds i8, ptr %op.0, i64 32
   %78 = load i64, ptr %buf_len280, align 8
   %call281 = call i32 @ossl_quic_sstream_append(ptr noundef %76, ptr noundef %77, i64 noundef %78, ptr noundef nonnull %consumed) #8
   %cmp282 = icmp ne i32 %call281, 0
@@ -1110,7 +1106,7 @@ if.end287:                                        ; preds = %sw.bb276
 
 sw.bb293:                                         ; preds = %for.cond
   %81 = load ptr, ptr %qsm101.i, align 8
-  %arg0295 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 1
+  %arg0295 = getelementptr inbounds i8, ptr %op.0, i64 8
   %82 = load i64, ptr %arg0295, align 8
   %call296 = call ptr @ossl_quic_stream_map_alloc(ptr noundef %81, i64 noundef %82, i32 noundef 0) #8
   %call297 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 1478, ptr noundef nonnull @.str.36, ptr noundef %call296) #8
@@ -1119,14 +1115,14 @@ sw.bb293:                                         ; preds = %for.cond
 
 if.end300:                                        ; preds = %sw.bb293
   %call301 = call ptr @ossl_quic_sstream_new(i64 noundef 524288) #8
-  %sstream = getelementptr inbounds %struct.quic_stream_st, ptr %call296, i64 0, i32 11
+  %sstream = getelementptr inbounds i8, ptr %call296, i64 112
   store ptr %call301, ptr %sstream, align 8
   %call302 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 1481, ptr noundef nonnull @.str.37, ptr noundef %call301) #8
   %tobool303.not = icmp eq i32 %call302, 0
   br i1 %tobool303.not, label %if.then321, label %lor.lhs.false304
 
 lor.lhs.false304:                                 ; preds = %if.end300
-  %txfc = getelementptr inbounds %struct.quic_stream_st, ptr %call296, i64 0, i32 13
+  %txfc = getelementptr inbounds i8, ptr %call296, i64 128
   %call305 = call i32 @ossl_quic_txfc_init(ptr noundef nonnull %txfc, ptr noundef nonnull %conn_txfc.i) #8
   %cmp306 = icmp ne i32 %call305, 0
   %conv307 = zext i1 %cmp306 to i32
@@ -1135,7 +1131,7 @@ lor.lhs.false304:                                 ; preds = %if.end300
   br i1 %tobool309.not, label %if.then321, label %lor.lhs.false310
 
 lor.lhs.false310:                                 ; preds = %lor.lhs.false304
-  %rxfc = getelementptr inbounds %struct.quic_stream_st, ptr %call296, i64 0, i32 14
+  %rxfc = getelementptr inbounds i8, ptr %call296, i64 160
   %call311 = call i32 @ossl_quic_rxfc_init(ptr noundef nonnull %rxfc, ptr noundef nonnull %conn_rxfc.i, i64 noundef 1048576, i64 noundef 16777216, ptr noundef nonnull @fake_now, ptr noundef null) #8
   %cmp312 = icmp ne i32 %call311, 0
   %conv313 = zext i1 %cmp312 to i32
@@ -1145,14 +1141,14 @@ lor.lhs.false310:                                 ; preds = %lor.lhs.false304
 
 lor.lhs.false316:                                 ; preds = %lor.lhs.false310
   %call318 = call ptr @ossl_quic_rstream_new(ptr noundef nonnull %rxfc, ptr noundef null, i64 noundef 1024) #8
-  %rstream = getelementptr inbounds %struct.quic_stream_st, ptr %call296, i64 0, i32 12
+  %rstream = getelementptr inbounds i8, ptr %call296, i64 120
   store ptr %call318, ptr %rstream, align 8
   %call319 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 1488, ptr noundef nonnull @.str.40, ptr noundef %call318) #8
   %tobool320.not = icmp eq i32 %call319, 0
   br i1 %tobool320.not, label %if.then321, label %for.inc
 
 if.then321:                                       ; preds = %lor.lhs.false316, %lor.lhs.false310, %lor.lhs.false304, %if.end300
-  %sstream.le = getelementptr inbounds %struct.quic_stream_st, ptr %call296, i64 0, i32 11
+  %sstream.le = getelementptr inbounds i8, ptr %call296, i64 112
   %83 = load ptr, ptr %sstream.le, align 8
   call void @ossl_quic_sstream_free(ptr noundef %83) #8
   %84 = load ptr, ptr %qsm101.i, align 8
@@ -1162,7 +1158,7 @@ if.then321:                                       ; preds = %lor.lhs.false316, %
 sw.bb326:                                         ; preds = %for.cond
   store i64 0, ptr %consumed328, align 8
   %85 = load ptr, ptr %qsm101.i, align 8
-  %arg0331 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 1
+  %arg0331 = getelementptr inbounds i8, ptr %op.0, i64 8
   %86 = load i64, ptr %arg0331, align 8
   %call332 = call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %85, i64 noundef %86) #8
   %call333 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 1501, ptr noundef nonnull @.str.41, ptr noundef %call332) #8
@@ -1170,11 +1166,11 @@ sw.bb326:                                         ; preds = %for.cond
   br i1 %tobool334.not, label %if.end466.thread86, label %if.end336
 
 if.end336:                                        ; preds = %sw.bb326
-  %sstream337 = getelementptr inbounds %struct.quic_stream_st, ptr %call332, i64 0, i32 11
+  %sstream337 = getelementptr inbounds i8, ptr %call332, i64 112
   %87 = load ptr, ptr %sstream337, align 8
-  %buf338 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 3
+  %buf338 = getelementptr inbounds i8, ptr %op.0, i64 24
   %88 = load ptr, ptr %buf338, align 8
-  %buf_len339 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 4
+  %buf_len339 = getelementptr inbounds i8, ptr %op.0, i64 32
   %89 = load i64, ptr %buf_len339, align 8
   %call340 = call i32 @ossl_quic_sstream_append(ptr noundef %87, ptr noundef %88, i64 noundef %89, ptr noundef nonnull %consumed328) #8
   %cmp341 = icmp ne i32 %call340, 0
@@ -1197,7 +1193,7 @@ if.end351:                                        ; preds = %if.end346
 
 sw.bb354:                                         ; preds = %for.cond
   %93 = load ptr, ptr %qsm101.i, align 8
-  %arg0358 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 1
+  %arg0358 = getelementptr inbounds i8, ptr %op.0, i64 8
   %94 = load i64, ptr %arg0358, align 8
   %call359 = call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %93, i64 noundef %94) #8
   %call360 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 1519, ptr noundef nonnull @.str.41, ptr noundef %call359) #8
@@ -1205,14 +1201,14 @@ sw.bb354:                                         ; preds = %for.cond
   br i1 %tobool361.not, label %if.end466.thread86, label %if.end363
 
 if.end363:                                        ; preds = %sw.bb354
-  %sstream364 = getelementptr inbounds %struct.quic_stream_st, ptr %call359, i64 0, i32 11
+  %sstream364 = getelementptr inbounds i8, ptr %call359, i64 112
   %95 = load ptr, ptr %sstream364, align 8
   call void @ossl_quic_sstream_fin(ptr noundef %95) #8
   br label %for.inc
 
 sw.bb365:                                         ; preds = %for.cond
   %96 = load ptr, ptr %qsm101.i, align 8
-  %arg0369 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 1
+  %arg0369 = getelementptr inbounds i8, ptr %op.0, i64 8
   %97 = load i64, ptr %arg0369, align 8
   %call370 = call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %96, i64 noundef %97) #8
   %call371 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 1530, ptr noundef nonnull @.str.41, ptr noundef %call370) #8
@@ -1221,7 +1217,7 @@ sw.bb365:                                         ; preds = %for.cond
 
 if.end374:                                        ; preds = %sw.bb365
   %98 = load ptr, ptr %qsm101.i, align 8
-  %arg1377 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 2
+  %arg1377 = getelementptr inbounds i8, ptr %op.0, i64 16
   %99 = load i64, ptr %arg1377, align 8
   %call378 = call i32 @ossl_quic_stream_map_stop_sending_recv_part(ptr noundef %98, ptr noundef %call370, i64 noundef %99) #8
   %cmp379 = icmp ne i32 %call378, 0
@@ -1233,7 +1229,7 @@ if.end374:                                        ; preds = %sw.bb365
 if.end384:                                        ; preds = %if.end374
   %100 = load ptr, ptr %qsm101.i, align 8
   call void @ossl_quic_stream_map_update_state(ptr noundef %100, ptr noundef %call370) #8
-  %active = getelementptr inbounds %struct.quic_stream_st, ptr %call370, i64 0, i32 15
+  %active = getelementptr inbounds i8, ptr %call370, i64 256
   %bf.load = load i64, ptr %active, align 8
   %101 = trunc i64 %bf.load to i32
   %102 = lshr i32 %101, 24
@@ -1244,7 +1240,7 @@ if.end384:                                        ; preds = %if.end374
 
 sw.bb393:                                         ; preds = %for.cond
   %103 = load ptr, ptr %qsm101.i, align 8
-  %arg0397 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 1
+  %arg0397 = getelementptr inbounds i8, ptr %op.0, i64 8
   %104 = load i64, ptr %arg0397, align 8
   %call398 = call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %103, i64 noundef %104) #8
   %call399 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 1548, ptr noundef nonnull @.str.41, ptr noundef %call398) #8
@@ -1253,7 +1249,7 @@ sw.bb393:                                         ; preds = %for.cond
 
 if.end402:                                        ; preds = %sw.bb393
   %105 = load ptr, ptr %qsm101.i, align 8
-  %arg1405 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 2
+  %arg1405 = getelementptr inbounds i8, ptr %op.0, i64 16
   %106 = load i64, ptr %arg1405, align 8
   %call406 = call i32 @ossl_quic_stream_map_reset_stream_send_part(ptr noundef %105, ptr noundef %call398, i64 noundef %106) #8
   %cmp407 = icmp ne i32 %call406, 0
@@ -1265,7 +1261,7 @@ if.end402:                                        ; preds = %sw.bb393
 if.end412:                                        ; preds = %if.end402
   %107 = load ptr, ptr %qsm101.i, align 8
   call void @ossl_quic_stream_map_update_state(ptr noundef %107, ptr noundef %call398) #8
-  %active415 = getelementptr inbounds %struct.quic_stream_st, ptr %call398, i64 0, i32 15
+  %active415 = getelementptr inbounds i8, ptr %call398, i64 256
   %bf.load416 = load i64, ptr %active415, align 8
   %108 = trunc i64 %bf.load416 to i32
   %109 = lshr i32 %108, 24
@@ -1276,7 +1272,7 @@ if.end412:                                        ; preds = %if.end402
 
 sw.bb426:                                         ; preds = %for.cond
   %110 = load ptr, ptr %conn_txfc104.i, align 8
-  %arg0429 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 1
+  %arg0429 = getelementptr inbounds i8, ptr %op.0, i64 8
   %111 = load i64, ptr %arg0429, align 8
   %call430 = call i32 @ossl_quic_txfc_bump_cwm(ptr noundef %110, i64 noundef %111) #8
   %cmp431 = icmp ne i32 %call430, 0
@@ -1287,7 +1283,7 @@ sw.bb426:                                         ; preds = %for.cond
 
 sw.bb437:                                         ; preds = %for.cond
   %112 = load ptr, ptr %qsm101.i, align 8
-  %arg1441 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 2
+  %arg1441 = getelementptr inbounds i8, ptr %op.0, i64 16
   %113 = load i64, ptr %arg1441, align 8
   %call442 = call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %112, i64 noundef %113) #8
   %call443 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 1571, ptr noundef nonnull @.str.47, ptr noundef %call442) #8
@@ -1295,8 +1291,8 @@ sw.bb437:                                         ; preds = %for.cond
   br i1 %tobool444.not, label %if.end466.thread86, label %if.end446
 
 if.end446:                                        ; preds = %sw.bb437
-  %txfc447 = getelementptr inbounds %struct.quic_stream_st, ptr %call442, i64 0, i32 13
-  %arg0448 = getelementptr inbounds %struct.script_op, ptr %op.0, i64 0, i32 1
+  %txfc447 = getelementptr inbounds i8, ptr %call442, i64 128
+  %arg0448 = getelementptr inbounds i8, ptr %op.0, i64 8
   %114 = load i64, ptr %arg0448, align 8
   %call449 = call i32 @ossl_quic_txfc_bump_cwm(ptr noundef nonnull %txfc447, i64 noundef %114) #8
   %cmp450 = icmp ne i32 %call449, 0
@@ -1320,7 +1316,7 @@ sw.default461:                                    ; preds = %for.cond
   br label %if.end466.thread86
 
 for.inc:                                          ; preds = %for.cond, %if.end9, %if.end46, %if.end58, %if.then111, %if.end351, %if.end363, %if.end455, %sw.bb458, %land.lhs.true20, %sw.bb13, %lor.lhs.false, %sw.bb70, %sw.bb77, %cmp_pkt_hdr.exit, %sw.bb98, %sw.bb219, %sw.bb209, %sw.bb199, %sw.bb189, %sw.bb179, %sw.bb165, %sw.bb152, %sw.bb142, %sw.bb133, %sw.bb124, %sw.bb115, %skip_padding.exit69, %if.end250, %sw.bb265, %if.end287, %lor.lhs.false316, %if.end384, %if.end412, %sw.bb426
-  %incdec.ptr = getelementptr inbounds %struct.script_op, ptr %op.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %op.0, i64 48
   %inc = add i64 %opn.0, 1
   br label %for.cond, !llvm.loop !8
 
@@ -1448,11 +1444,11 @@ declare void @ossl_quic_tx_packetiser_notify_handshake_complete(ptr noundef) loc
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @helper_cleanup(ptr noundef %h) unnamed_addr #0 {
 entry:
-  %qrx_pkt = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 19
+  %qrx_pkt = getelementptr inbounds i8, ptr %h, i64 1048
   %0 = load ptr, ptr %qrx_pkt, align 8
   tail call void @ossl_qrx_pkt_release(ptr noundef %0) #8
   store ptr null, ptr %qrx_pkt, align 8
-  %ackm = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 7
+  %ackm = getelementptr inbounds i8, ptr %h, i64 192
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -1466,56 +1462,57 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body
   %2 = load ptr, ptr %h, align 8
   tail call void @ossl_quic_tx_packetiser_free(ptr noundef %2) #8
-  %qtx = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 4
+  %qtx = getelementptr inbounds i8, ptr %h, i64 168
   %3 = load ptr, ptr %qtx, align 8
   tail call void @ossl_qtx_free(ptr noundef %3) #8
-  %txpim = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 5
+  %txpim = getelementptr inbounds i8, ptr %h, i64 176
   %4 = load ptr, ptr %txpim, align 8
   tail call void @ossl_quic_txpim_free(ptr noundef %4) #8
-  %cfq = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 6
+  %cfq = getelementptr inbounds i8, ptr %h, i64 184
   %5 = load ptr, ptr %cfq, align 8
   tail call void @ossl_quic_cfq_free(ptr noundef %5) #8
-  %cc_data = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 11
+  %cc_data = getelementptr inbounds i8, ptr %h, i64 800
   %6 = load ptr, ptr %cc_data, align 8
   %cmp5.not = icmp eq ptr %6, null
   br i1 %cmp5.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end
-  %cc_method = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 12
+  %cc_method = getelementptr inbounds i8, ptr %h, i64 808
   %7 = load ptr, ptr %cc_method, align 8
-  %free = getelementptr inbounds %struct.ossl_cc_method_st, ptr %7, i64 0, i32 1
+  %free = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %free, align 8
   tail call void %8(ptr noundef nonnull %6) #8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.end
-  %have_statm = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 14
+  %have_statm = getelementptr inbounds i8, ptr %h, i64 952
   %9 = load i8, ptr %have_statm, align 8
   %tobool.not = icmp eq i8 %9, 0
   br i1 %tobool.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %statm = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 10
+  %statm = getelementptr inbounds i8, ptr %h, i64 760
   tail call void @ossl_statm_destroy(ptr noundef nonnull %statm) #8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %if.end
-  %have_qsm = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 15
+  %have_qsm = getelementptr inbounds i8, ptr %h, i64 953
   %10 = load i8, ptr %have_qsm, align 1
   %tobool9.not = icmp eq i8 %10, 0
-  br i1 %tobool9.not, label %for.body14.preheader, label %if.then10
+  br i1 %tobool9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  %qsm = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 13
+  %qsm = getelementptr inbounds i8, ptr %h, i64 816
   tail call void @ossl_quic_stream_map_cleanup(ptr noundef nonnull %qsm) #8
-  br label %for.body14.preheader
+  br label %if.end11
 
-for.body14.preheader:                             ; preds = %if.then10, %if.end8
+if.end11:                                         ; preds = %if.then10, %if.end8
+  %crypto = getelementptr inbounds i8, ptr %h, i64 272
   br label %for.body14
 
-for.body14:                                       ; preds = %for.body14.preheader, %for.body14
-  %i.025 = phi i64 [ %inc17, %for.body14 ], [ 0, %for.body14.preheader ]
-  %arrayidx = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 17, i64 %i.025
+for.body14:                                       ; preds = %if.end11, %for.body14
+  %i.025 = phi i64 [ 0, %if.end11 ], [ %inc17, %for.body14 ]
+  %arrayidx = getelementptr inbounds [3 x ptr], ptr %crypto, i64 0, i64 %i.025
   %11 = load ptr, ptr %arrayidx, align 8
   tail call void @ossl_quic_sstream_free(ptr noundef %11) #8
   %inc17 = add nuw nsw i64 %i.025, 1
@@ -1525,16 +1522,16 @@ for.body14:                                       ; preds = %for.body14.preheade
 for.end18:                                        ; preds = %for.body14
   %12 = load ptr, ptr %ackm, align 8
   tail call void @ossl_ackm_free(ptr noundef %12) #8
-  %qrx = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 17
+  %qrx = getelementptr inbounds i8, ptr %h, i64 968
   %13 = load ptr, ptr %qrx, align 8
   tail call void @ossl_qrx_free(ptr noundef %13) #8
-  %demux = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 16
+  %demux = getelementptr inbounds i8, ptr %h, i64 960
   %14 = load ptr, ptr %demux, align 8
   tail call void @ossl_quic_demux_free(ptr noundef %14) #8
-  %bio1 = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 3
+  %bio1 = getelementptr inbounds i8, ptr %h, i64 328
   %15 = load ptr, ptr %bio1, align 8
   %call21 = tail call i32 @BIO_free(ptr noundef %15) #8
-  %bio2 = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 4
+  %bio2 = getelementptr inbounds i8, ptr %h, i64 336
   %16 = load ptr, ptr %bio2, align 8
   %call22 = tail call i32 @BIO_free(ptr noundef %16) #8
   ret void
@@ -1585,8 +1582,8 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %id = getelementptr inbounds %struct.quic_conn_id_st, ptr %a, i64 0, i32 1
-  %id8 = getelementptr inbounds %struct.quic_conn_id_st, ptr %b, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %a, i64 1
+  %id8 = getelementptr inbounds i8, ptr %b, i64 1
   %conv11 = zext nneg i8 %0 to i64
   %bcmp = tail call i32 @bcmp(ptr nonnull %id, ptr nonnull %id8, i64 %conv11)
   %cmp12 = icmp eq i32 %bcmp, 0
@@ -1649,7 +1646,7 @@ declare void @ossl_quic_tx_packetiser_schedule_ack_eliciting(ptr noundef, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @schedule_max_data(ptr noundef %h) #0 {
 entry:
-  %stream_rxfc = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 7
+  %stream_rxfc = getelementptr inbounds i8, ptr %h, i64 472
   %call = tail call i64 @ossl_quic_rxfc_get_cwm(ptr noundef nonnull %stream_rxfc) #8
   %call2 = tail call i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef nonnull %stream_rxfc, i64 noundef %call, i32 noundef 0) #8
   %cmp = icmp ne i32 %call2, 0
@@ -1688,11 +1685,11 @@ entry:
   %0 = getelementptr inbounds i8, ptr %ncid, i64 48
   store i64 0, ptr %0, align 8
   store i64 2345, ptr %ncid, align 8
-  %retire_prior_to = getelementptr inbounds %struct.ossl_quic_frame_new_conn_id_st, ptr %ncid, i64 0, i32 1
+  %retire_prior_to = getelementptr inbounds i8, ptr %ncid, i64 8
   store i64 1234, ptr %retire_prior_to, align 8
-  %conn_id = getelementptr inbounds %struct.ossl_quic_frame_new_conn_id_st, ptr %ncid, i64 0, i32 2
+  %conn_id = getelementptr inbounds i8, ptr %ncid, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %conn_id, ptr noundef nonnull align 1 dereferenceable(21) @cid_1, i64 21, i1 false)
-  %stateless_reset = getelementptr inbounds %struct.ossl_quic_frame_new_conn_id_st, ptr %ncid, i64 0, i32 3
+  %stateless_reset = getelementptr inbounds i8, ptr %ncid, i64 37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %stateless_reset, ptr noundef nonnull align 16 dereferenceable(16) @reset_token_1, i64 16, i1 false)
   %call = tail call ptr @BUF_MEM_new() #8
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 408, ptr noundef nonnull @.str.105, ptr noundef %call) #8
@@ -1729,9 +1726,9 @@ if.end13:                                         ; preds = %if.end6
   br i1 %tobool19.not, label %if.then28, label %err
 
 err:                                              ; preds = %if.end13
-  %cfq = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 6
+  %cfq = getelementptr inbounds i8, ptr %h, i64 184
   %1 = load ptr, ptr %cfq, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %l, align 8
   %call22 = call ptr @ossl_quic_cfq_add_frame(ptr noundef %1, i32 noundef 1, i32 noundef 2, i64 noundef 24, i32 noundef 0, ptr noundef %2, i64 noundef %3, ptr noundef nonnull @free_buf_mem, ptr noundef %call) #8
@@ -1751,27 +1748,27 @@ if.end29:                                         ; preds = %if.then28, %err
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_cfq_new_conn_id(ptr noundef %h) #0 {
 entry:
-  %frame = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22
+  %frame = getelementptr inbounds i8, ptr %h, i64 1080
   %0 = load i64, ptr %frame, align 8
   %call = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 441, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.112, i64 noundef %0, i64 noundef 2345) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %retire_prior_to = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 1
+  %retire_prior_to = getelementptr inbounds i8, ptr %h, i64 1088
   %1 = load i64, ptr %retire_prior_to, align 8
   %call2 = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 442, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.114, i64 noundef %1, i64 noundef 1234) #8
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %conn_id = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2
+  %conn_id = getelementptr inbounds i8, ptr %h, i64 1096
   %call6 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 444, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.116, ptr noundef nonnull %conn_id, i64 noundef 21, ptr noundef nonnull @cid_1, i64 noundef 21) #8
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false4
-  %stateless_reset = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 3
+  %stateless_reset = getelementptr inbounds i8, ptr %h, i64 1117
   %call10 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 448, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118, ptr noundef nonnull %stateless_reset, i64 noundef 16, ptr noundef nonnull @reset_token_1, i64 noundef 16) #8
   %tobool11.not = icmp ne i32 %call10, 0
   %spec.select = zext i1 %tobool11.not to i32
@@ -1846,9 +1843,9 @@ if.end13:                                         ; preds = %if.end6
   br i1 %tobool19.not, label %if.then28, label %err
 
 err:                                              ; preds = %if.end13
-  %cfq = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 6
+  %cfq = getelementptr inbounds i8, ptr %h, i64 184
   %0 = load ptr, ptr %cfq, align 8
-  %data = getelementptr inbounds %struct.buf_mem_st, ptr %call, i64 0, i32 1
+  %data = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = load i64, ptr %l, align 8
   %call22 = call ptr @ossl_quic_cfq_add_frame(ptr noundef %0, i32 noundef 1, i32 noundef 2, i64 noundef 7, i32 noundef 0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @free_buf_mem, ptr noundef %call) #8
@@ -1868,9 +1865,9 @@ if.end29:                                         ; preds = %if.then28, %err
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_cfq_new_token(ptr nocapture noundef readonly %h) #0 {
 entry:
-  %frame = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22
+  %frame = getelementptr inbounds i8, ptr %h, i64 1080
   %0 = load ptr, ptr %frame, align 8
-  %token_len = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 1
+  %token_len = getelementptr inbounds i8, ptr %h, i64 1088
   %1 = load i64, ptr %token_len, align 8
   %call = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 520, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.122, ptr noundef %0, i64 noundef %1, ptr noundef nonnull @token_1, i64 noundef 6) #8
   %tobool.not = icmp ne i32 %call, 0
@@ -1886,9 +1883,9 @@ entry:
   %rx_pkt = alloca %struct.ossl_ackm_rx_pkt_st, align 8
   %0 = getelementptr inbounds i8, ptr %rx_pkt, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false)
-  %time = getelementptr inbounds %struct.ossl_ackm_rx_pkt_st, ptr %rx_pkt, i64 0, i32 1
-  %pkt_space = getelementptr inbounds %struct.ossl_ackm_rx_pkt_st, ptr %rx_pkt, i64 0, i32 2
-  %ackm = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 7
+  %time = getelementptr inbounds i8, ptr %rx_pkt, i64 8
+  %pkt_space = getelementptr inbounds i8, ptr %rx_pkt, i64 16
+  %ackm = getelementptr inbounds i8, ptr %h, i64 192
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -1923,9 +1920,9 @@ declare i32 @ossl_ackm_on_rx_packet(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_stream_9(ptr nocapture noundef readonly %h) #0 {
 entry:
-  %data = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2, i32 1, i64 7
+  %data = getelementptr inbounds i8, ptr %h, i64 1104
   %0 = load ptr, ptr %data, align 8
-  %len = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2
+  %len = getelementptr inbounds i8, ptr %h, i64 1096
   %1 = load i64, ptr %len, align 8
   %call = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 625, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, ptr noundef %0, i64 noundef %1, ptr noundef nonnull @stream_9, i64 noundef 8) #8
   %tobool.not = icmp ne i32 %call, 0
@@ -1936,7 +1933,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_stream_10a(ptr nocapture noundef readonly %h) #0 {
 entry:
-  %len = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2
+  %len = getelementptr inbounds i8, ptr %h, i64 1096
   %0 = load i64, ptr %len, align 8
   %call = tail call i32 @test_uint64_t_ge(ptr noundef nonnull @.str.2, i32 noundef 888, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, i64 noundef %0, i64 noundef 1150) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -1949,7 +1946,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool4.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2, i32 1, i64 7
+  %data = getelementptr inbounds i8, ptr %h, i64 1104
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %len, align 8
   %call10 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 893, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.129, ptr noundef %2, i64 noundef %3, ptr noundef nonnull @stream_10a, i64 noundef %3) #8
@@ -1957,7 +1954,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool11.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end
-  %offset = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %h, i64 1088
   %4 = load i64, ptr %offset, align 8
   %5 = load i64, ptr %len, align 8
   %add = add i64 %5, %4
@@ -1972,7 +1969,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_stream_10b(ptr nocapture noundef readonly %h) #0 {
 entry:
-  %len = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2
+  %len = getelementptr inbounds i8, ptr %h, i64 1096
   %0 = load i64, ptr %len, align 8
   %call = tail call i32 @test_uint64_t_ge(ptr noundef nonnull @.str.2, i32 noundef 902, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, i64 noundef %0, i64 noundef 1150) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -1985,7 +1982,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool4.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2, i32 1, i64 7
+  %data = getelementptr inbounds i8, ptr %h, i64 1104
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %len, align 8
   %call10 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 907, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.130, ptr noundef %2, i64 noundef %3, ptr noundef nonnull @stream_10b, i64 noundef %3) #8
@@ -1993,7 +1990,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %tobool11.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end
-  %offset = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %h, i64 1088
   %4 = load i64, ptr %offset, align 8
   %5 = load i64, ptr %len, align 8
   %add = add i64 %5, %4
@@ -2008,7 +2005,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_stream_10c(ptr nocapture noundef readonly %h) #0 {
 entry:
-  %len = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2
+  %len = getelementptr inbounds i8, ptr %h, i64 1096
   %0 = load i64, ptr %len, align 8
   %call = tail call i32 @test_uint64_t_ge(ptr noundef nonnull @.str.2, i32 noundef 916, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.131, i64 noundef %0, i64 noundef 5) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -2021,7 +2018,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool4.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2, i32 1, i64 7
+  %data = getelementptr inbounds i8, ptr %h, i64 1104
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %len, align 8
   %4 = load i64, ptr @stream_10a_off, align 8
@@ -2039,7 +2036,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_stream_10d(ptr nocapture noundef readonly %h) #0 {
 entry:
-  %len = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2
+  %len = getelementptr inbounds i8, ptr %h, i64 1096
   %0 = load i64, ptr %len, align 8
   %call = tail call i32 @test_uint64_t_ge(ptr noundef nonnull @.str.2, i32 noundef 929, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.131, i64 noundef %0, i64 noundef 5) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -2052,7 +2049,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool4.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2, i32 1, i64 7
+  %data = getelementptr inbounds i8, ptr %h, i64 1104
   %2 = load ptr, ptr %data, align 8
   %3 = load i64, ptr %len, align 8
   %4 = load i64, ptr @stream_10b_off, align 8
@@ -2074,14 +2071,14 @@ declare i32 @test_uint64_t_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_stream_12(ptr nocapture noundef readonly %h) #0 {
 entry:
-  %frame = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22
+  %frame = getelementptr inbounds i8, ptr %h, i64 1080
   %0 = load i64, ptr %frame, align 8
   %call = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 1007, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.136, i64 noundef %0, i64 noundef 42) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %app_error_code = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 1
+  %app_error_code = getelementptr inbounds i8, ptr %h, i64 1088
   %1 = load i64, ptr %app_error_code, align 8
   %call2 = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 1008, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.138, i64 noundef %1, i64 noundef 4568) #8
   %tobool3.not = icmp ne i32 %call2, 0
@@ -2096,21 +2093,21 @@ return:                                           ; preds = %lor.lhs.false, %ent
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_stream_13(ptr nocapture noundef readonly %h) #0 {
 entry:
-  %frame = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22
+  %frame = getelementptr inbounds i8, ptr %h, i64 1080
   %0 = load i64, ptr %frame, align 8
   %call = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 1039, ptr noundef nonnull @.str.139, ptr noundef nonnull @.str.136, i64 noundef %0, i64 noundef 42) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %app_error_code = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 1
+  %app_error_code = getelementptr inbounds i8, ptr %h, i64 1088
   %1 = load i64, ptr %app_error_code, align 8
   %call2 = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 1040, ptr noundef nonnull @.str.140, ptr noundef nonnull @.str.138, i64 noundef %1, i64 noundef 4568) #8
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %final_size = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2
+  %final_size = getelementptr inbounds i8, ptr %h, i64 1096
   %2 = load i64, ptr %final_size, align 8
   %call6 = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 1041, ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.5, i64 noundef %2, i64 noundef 0) #8
   %tobool7.not = icmp ne i32 %call6, 0
@@ -2127,13 +2124,13 @@ define internal i32 @gen_conn_close(ptr nocapture noundef readonly %h) #0 {
 entry:
   %f = alloca %struct.ossl_quic_frame_conn_close_st, align 8
   store i64 0, ptr %f, align 8
-  %error_code = getelementptr inbounds %struct.ossl_quic_frame_conn_close_st, ptr %f, i64 0, i32 1
+  %error_code = getelementptr inbounds i8, ptr %f, i64 8
   store i64 2345, ptr %error_code, align 8
-  %frame_type = getelementptr inbounds %struct.ossl_quic_frame_conn_close_st, ptr %f, i64 0, i32 2
+  %frame_type = getelementptr inbounds i8, ptr %f, i64 16
   store i64 30, ptr %frame_type, align 8
-  %reason = getelementptr inbounds %struct.ossl_quic_frame_conn_close_st, ptr %f, i64 0, i32 3
+  %reason = getelementptr inbounds i8, ptr %f, i64 24
   store ptr @.str.142, ptr %reason, align 8
-  %reason_len = getelementptr inbounds %struct.ossl_quic_frame_conn_close_st, ptr %f, i64 0, i32 4
+  %reason_len = getelementptr inbounds i8, ptr %f, i64 32
   store i64 13, ptr %reason_len, align 8
   %0 = load ptr, ptr %h, align 8
   %call2 = call i32 @ossl_quic_tx_packetiser_schedule_conn_close(ptr noundef %0, ptr noundef nonnull %f) #8
@@ -2148,7 +2145,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @check_14(ptr nocapture noundef readonly %h) #0 {
 entry:
-  %frame = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22
+  %frame = getelementptr inbounds i8, ptr %h, i64 1080
   %bf.load = load i8, ptr %frame, align 8
   %bf.clear = and i8 %bf.load, 1
   %bf.cast = zext nneg i8 %bf.clear to i32
@@ -2157,23 +2154,23 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %frame_type = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2
+  %frame_type = getelementptr inbounds i8, ptr %h, i64 1096
   %0 = load i64, ptr %frame_type, align 8
   %call2 = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 1089, ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.146, i64 noundef %0, i64 noundef 30) #8
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %error_code = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 1
+  %error_code = getelementptr inbounds i8, ptr %h, i64 1088
   %1 = load i64, ptr %error_code, align 8
   %call6 = tail call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 1090, ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.112, i64 noundef %1, i64 noundef 2345) #8
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %lor.lhs.false4
-  %reason = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2, i32 1, i64 7
+  %reason = getelementptr inbounds i8, ptr %h, i64 1104
   %2 = load ptr, ptr %reason, align 8
-  %reason_len = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 22, i32 0, i32 2, i32 1, i64 15
+  %reason_len = getelementptr inbounds i8, ptr %h, i64 1112
   %3 = load i64, ptr %reason_len, align 8
   %call11 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 1092, ptr noundef nonnull @.str.148, ptr noundef nonnull @.str.149, ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str.142, i64 noundef 13) #8
   %tobool12.not = icmp ne i32 %call11, 0
@@ -2190,7 +2187,7 @@ declare i32 @ossl_quic_tx_packetiser_schedule_conn_close(ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @gen_probe_initial(ptr nocapture noundef readonly %h) #0 {
 entry:
-  %ackm = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 7
+  %ackm = getelementptr inbounds i8, ptr %h, i64 192
   %0 = load ptr, ptr %ackm, align 8
   %call = tail call ptr @ossl_ackm_get0_probe_request(ptr noundef %0) #8
   %1 = load i32, ptr %call, align 4
@@ -2204,10 +2201,10 @@ declare ptr @ossl_ackm_get0_probe_request(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @gen_probe_handshake(ptr nocapture noundef readonly %h) #0 {
 entry:
-  %ackm = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 7
+  %ackm = getelementptr inbounds i8, ptr %h, i64 192
   %0 = load ptr, ptr %ackm, align 8
   %call = tail call ptr @ossl_ackm_get0_probe_request(ptr noundef %0) #8
-  %anti_deadlock_handshake = getelementptr inbounds %struct.ossl_ackm_probe_info_st, ptr %call, i64 0, i32 1
+  %anti_deadlock_handshake = getelementptr inbounds i8, ptr %call, i64 4
   %1 = load i32, ptr %anti_deadlock_handshake, align 4
   %inc = add i32 %1, 1
   store i32 %inc, ptr %anti_deadlock_handshake, align 4
@@ -2217,10 +2214,10 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @gen_probe_1rtt(ptr nocapture noundef readonly %h) #0 {
 entry:
-  %ackm = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 1, i32 7
+  %ackm = getelementptr inbounds i8, ptr %h, i64 192
   %0 = load ptr, ptr %ackm, align 8
   %call = tail call ptr @ossl_ackm_get0_probe_request(ptr noundef %0) #8
-  %arrayidx = getelementptr inbounds %struct.ossl_ackm_probe_info_st, ptr %call, i64 0, i32 2, i64 2
+  %arrayidx = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load i32, ptr %arrayidx, align 4
   %inc = add i32 %1, 1
   store i32 %inc, ptr %arrayidx, align 4
@@ -2266,7 +2263,7 @@ declare i32 @ossl_quic_tx_packetiser_set_initial_token(ptr noundef, ptr noundef,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @check_is_handshake(ptr nocapture noundef readonly %h) #5 {
 entry:
-  %qrx_pkt = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 19
+  %qrx_pkt = getelementptr inbounds i8, ptr %h, i64 1048
   %0 = load ptr, ptr %qrx_pkt, align 8
   %1 = load ptr, ptr %0, align 8
   %bf.load = load i32, ptr %1, align 8
@@ -2279,7 +2276,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @check_is_initial(ptr nocapture noundef readonly %h) #5 {
 entry:
-  %qrx_pkt = getelementptr inbounds %struct.helper, ptr %h, i64 0, i32 19
+  %qrx_pkt = getelementptr inbounds i8, ptr %h, i64 1048
   %0 = load ptr, ptr %qrx_pkt, align 8
   %1 = load ptr, ptr %0, align 8
   %bf.load = load i32, ptr %1, align 8

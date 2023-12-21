@@ -3,13 +3,6 @@ source_filename = "bench/cpython/original/string_tokenizer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.tok_state = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, [100 x i32], i32, i32, ptr, ptr, i32, i32, i32, i32, i32, [200 x i8], [200 x i32], [200 x i32], ptr, [100 x i32], i32, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, i32, [150 x %struct._tokenizer_mode], i32, i32, i32, i32 }
-%struct._tokenizer_mode = type { i32, i32, i32, i8, i32, i32, ptr, ptr, i32, i64, i64, i64, i64, ptr, i32 }
-%struct.PyBytesObject = type { %struct.PyVarObject, i64, [1 x i8] }
-%struct.PyVarObject = type { %struct._object, i64 }
-%struct._object = type { %union.anon, ptr }
-%union.anon = type { i64 }
-
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyTokenizer_FromString(ptr noundef %str, i32 noundef %exec_input, i32 noundef %preserve_crlf) local_unnamed_addr #0 {
 entry:
@@ -22,15 +15,15 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %newl.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %newl.i, i8 0, i64 16, i1 false)
   %call.i = tail call ptr @_PyTokenizer_translate_newlines(ptr noundef %str, i32 noundef %exec_input, i32 noundef %preserve_crlf, ptr noundef nonnull %call) #10
-  %input1.i = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 38
+  %input1.i = getelementptr inbounds i8, ptr %call, i64 2824
   store ptr %call.i, ptr %input1.i, align 8
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %decode_str.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %enc.i = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 36
+  %enc.i = getelementptr inbounds i8, ptr %call, i64 2808
   store ptr null, ptr %enc.i, align 8
-  %str2.i = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 37
+  %str2.i = getelementptr inbounds i8, ptr %call, i64 2816
   store ptr %call.i, ptr %str2.i, align 8
   %call3.i = tail call i32 @_PyTokenizer_check_bom(ptr noundef nonnull @buf_getc, ptr noundef nonnull @buf_ungetc, ptr noundef nonnull @buf_setreadl, ptr noundef nonnull %call) #10
   %tobool.not.i = icmp eq i32 %call3.i, 0
@@ -105,10 +98,10 @@ if.end40.i:                                       ; preds = %if.then35.i
   br i1 %cmp42.i, label %land.lhs.true.i, label %if.then65.i
 
 land.lhs.true.i:                                  ; preds = %if.end40.i
-  %decoding_state.i = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 27
+  %decoding_state.i = getelementptr inbounds i8, ptr %call, i64 2744
   %5 = load i32, ptr %decoding_state.i, align 8
   %cmp44.i = icmp ne i32 %5, 2
-  %arrayidx47.i = getelementptr inbounds [2 x ptr], ptr %newl.i, i64 0, i64 1
+  %arrayidx47.i = getelementptr inbounds i8, ptr %newl.i, i64 8
   %6 = load ptr, ptr %arrayidx47.i, align 8
   %tobool48.i = icmp ne ptr %6, null
   %or.cond.i = select i1 %cmp44.i, i1 %tobool48.i, i1 false
@@ -138,13 +131,13 @@ if.then70.i:                                      ; preds = %if.then65.i
   br label %decode_str.exit
 
 if.end72.i:                                       ; preds = %if.then65.i
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call67.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call67.i, i64 32
   br label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.end72.i, %if.end61.i, %land.lhs.true.i, %for.end.i
   %utf8.1.i = phi ptr [ %call67.i, %if.end72.i ], [ %utf8.0.i, %if.end61.i ], [ %utf8.0.i, %for.end.i ], [ %utf8.0.i, %land.lhs.true.i ]
   %str.1.i = phi ptr [ %ob_sval.i.i, %if.end72.i ], [ %str.0.i, %if.end61.i ], [ %str.0.i, %for.end.i ], [ %str.0.i, %land.lhs.true.i ]
-  %decoding_buffer.i = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 34
+  %decoding_buffer.i = getelementptr inbounds i8, ptr %call, i64 2792
   store ptr %utf8.1.i, ptr %decoding_buffer.i, align 8
   br label %decode_str.exit
 
@@ -163,14 +156,14 @@ if.then3:                                         ; preds = %decode_str.exit.thr
   br label %return
 
 if.end4:                                          ; preds = %decode_str.exit
-  %inp = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 2
+  %inp = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %retval.0.i, ptr %inp, align 8
-  %cur = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %retval.0.i, ptr %cur, align 8
   store ptr %retval.0.i, ptr %call, align 8
-  %end = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 6
+  %end = getelementptr inbounds i8, ptr %call, i64 48
   store ptr %retval.0.i, ptr %end, align 8
-  %underflow = getelementptr inbounds %struct.tok_state, ptr %call, i64 0, i32 41
+  %underflow = getelementptr inbounds i8, ptr %call, i64 2840
   store ptr @tok_underflow_string, ptr %underflow, align 8
   br label %return
 
@@ -186,7 +179,7 @@ declare void @_PyTokenizer_Free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal i32 @tok_underflow_string(ptr nocapture noundef %tok) #2 {
 entry:
-  %inp = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 2
+  %inp = getelementptr inbounds i8, ptr %tok, i64 16
   %0 = load ptr, ptr %inp, align 8
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 10) #11
   %cmp.not = icmp eq ptr %call, null
@@ -203,16 +196,16 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
-  %done = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 8
+  %done = getelementptr inbounds i8, ptr %tok, i64 64
   store i32 11, ptr %done, align 8
   br label %return
 
 if.end6:                                          ; preds = %if.else, %if.then
   %end.0 = phi ptr [ %incdec.ptr, %if.then ], [ %strchr, %if.else ]
-  %start = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 7
+  %start = getelementptr inbounds i8, ptr %tok, i64 56
   %1 = load ptr, ptr %start, align 8
   %cmp7 = icmp eq ptr %1, null
-  %cur = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 1
+  %cur = getelementptr inbounds i8, ptr %tok, i64 8
   %2 = load ptr, ptr %cur, align 8
   br i1 %cmp7, label %if.then8, label %if.end9
 
@@ -221,13 +214,13 @@ if.then8:                                         ; preds = %if.end6
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end6, %if.then8
-  %line_start = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 31
+  %line_start = getelementptr inbounds i8, ptr %tok, i64 2768
   store ptr %2, ptr %line_start, align 8
-  %lineno = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 17
+  %lineno = getelementptr inbounds i8, ptr %tok, i64 512
   %3 = load i32, ptr %lineno, align 8
   %inc = add i32 %3, 1
   store i32 %inc, ptr %lineno, align 8
-  %col_offset = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 20
+  %col_offset = getelementptr inbounds i8, ptr %tok, i64 524
   store i32 0, ptr %col_offset, align 4
   store ptr %end.0, ptr %inp, align 8
   br label %return
@@ -247,7 +240,7 @@ declare i32 @_PyTokenizer_check_bom(ptr noundef, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal i32 @buf_getc(ptr nocapture noundef %tok) #4 {
 entry:
-  %str = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 37
+  %str = getelementptr inbounds i8, ptr %tok, i64 2816
   %0 = load ptr, ptr %str, align 8
   %incdec.ptr = getelementptr i8, ptr %0, i64 1
   store ptr %incdec.ptr, ptr %str, align 8
@@ -259,7 +252,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @buf_ungetc(i32 %c, ptr nocapture noundef %tok) #5 {
 entry:
-  %str = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 37
+  %str = getelementptr inbounds i8, ptr %tok, i64 2816
   %0 = load ptr, ptr %str, align 8
   %incdec.ptr = getelementptr i8, ptr %0, i64 -1
   store ptr %incdec.ptr, ptr %str, align 8
@@ -269,7 +262,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal i32 @buf_setreadl(ptr nocapture noundef writeonly %tok, ptr noundef %enc) #6 {
 entry:
-  %enc1 = getelementptr inbounds %struct.tok_state, ptr %tok, i64 0, i32 36
+  %enc1 = getelementptr inbounds i8, ptr %tok, i64 2808
   store ptr %enc, ptr %enc1, align 8
   ret i32 1
 }

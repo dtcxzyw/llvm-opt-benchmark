@@ -3,14 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-lib-cmp_vfy.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_cmp_ctx_st = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i32, i32, i64, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i64, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, i32, ptr, ptr, i32, i32, ptr, ptr, i32, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_cmp_msg_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ossl_cmp_pkiheader_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.ossl_cmp_pkibody_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.GENERAL_NAME_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
 %struct.ossl_cmp_protectedpart_st = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/cmp/cmp_vfy.c\00", align 1
@@ -119,14 +111,14 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %0 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %propq, align 8
   %call = tail call ptr @X509_STORE_CTX_new_ex(ptr noundef %0, ptr noundef %1) #2
   %cmp5 = icmp eq ptr %call, null
   br i1 %cmp5, label %err21, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %if.end4
-  %untrusted = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 24
+  %untrusted = getelementptr inbounds i8, ptr %ctx, i64 176
   %2 = load ptr, ptr %untrusted, align 8
   %call7 = tail call i32 @X509_STORE_CTX_init(ptr noundef nonnull %call, ptr noundef nonnull %trusted_store, ptr noundef nonnull %cert, ptr noundef %2) #2
   %tobool.not = icmp eq i32 %call7, 0
@@ -197,7 +189,7 @@ lor.lhs.false2:                                   ; preds = %entry
   br i1 %cmp3, label %if.then, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false2
-  %body = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %msg, i64 0, i32 1
+  %body = getelementptr inbounds i8, ptr %msg, i64 8
   %1 = load ptr, ptr %body, align 8
   %cmp5 = icmp eq ptr %1, null
   br i1 %cmp5, label %if.then, label %if.end
@@ -209,19 +201,19 @@ if.then:                                          ; preds = %lor.lhs.false4, %lo
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false4
-  %protectionAlg = getelementptr inbounds %struct.ossl_cmp_pkiheader_st, ptr %0, i64 0, i32 4
+  %protectionAlg = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load ptr, ptr %protectionAlg, align 8
   %cmp7 = icmp eq ptr %2, null
   br i1 %cmp7, label %if.then13, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %if.end
-  %protection = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %msg, i64 0, i32 2
+  %protection = getelementptr inbounds i8, ptr %msg, i64 16
   %3 = load ptr, ptr %protection, align 8
   %cmp9 = icmp eq ptr %3, null
   br i1 %cmp9, label %if.then13, label %lor.lhs.false10
 
 lor.lhs.false10:                                  ; preds = %lor.lhs.false8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %3, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %data, align 8
   %cmp12 = icmp eq ptr %4, null
   br i1 %cmp12, label %if.then13, label %if.end14
@@ -240,7 +232,7 @@ if.end14:                                         ; preds = %lor.lhs.false10
   ]
 
 sw.bb:                                            ; preds = %if.end14
-  %secretValue = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 32
+  %secretValue = getelementptr inbounds i8, ptr %ctx, i64 232
   %5 = load ptr, ptr %secretValue, align 8
   %cmp17 = icmp eq ptr %5, null
   br i1 %cmp17, label %if.then18, label %if.end20
@@ -268,14 +260,14 @@ if.then22:                                        ; preds = %if.end20
   ]
 
 sw.bb25:                                          ; preds = %if.then22, %if.then22, %if.then22, %if.then22
-  %trusted = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 23
+  %trusted = getelementptr inbounds i8, ptr %ctx, i64 168
   %6 = load ptr, ptr %trusted, align 8
   %cmp26.not = icmp eq ptr %6, null
   br i1 %cmp26.not, label %sw.epilog, label %if.then27
 
 if.then27:                                        ; preds = %sw.bb25
   %7 = load ptr, ptr %body, align 8
-  %value = getelementptr inbounds %struct.ossl_cmp_pkibody_st, ptr %7, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %value, align 8
   %9 = load ptr, ptr %8, align 8
   %call30 = tail call i32 @ossl_cmp_X509_STORE_add1_certs(ptr noundef nonnull %6, ptr noundef %9, i32 noundef 0) #2
@@ -297,13 +289,13 @@ sw.bb38:                                          ; preds = %if.end14
   br label %return
 
 sw.default39:                                     ; preds = %if.end14
-  %srvCert = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 20
+  %srvCert = getelementptr inbounds i8, ptr %ctx, i64 144
   %10 = load ptr, ptr %srvCert, align 8
   %cmp40 = icmp eq ptr %10, null
   br i1 %cmp40, label %if.then41, label %if.else
 
 if.then41:                                        ; preds = %sw.default39
-  %trusted42 = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 23
+  %trusted42 = getelementptr inbounds i8, ptr %ctx, i64 168
   %11 = load ptr, ptr %trusted42, align 8
   %cmp43 = icmp eq ptr %11, null
   br i1 %cmp43, label %if.then44, label %if.end46
@@ -358,7 +350,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %protection1 = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %msg, i64 0, i32 2
+  %protection1 = getelementptr inbounds i8, ptr %msg, i64 16
   %0 = load ptr, ptr %protection1, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %land.end.thread, label %land.lhs.true
@@ -369,9 +361,9 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp4, label %land.lhs.true5, label %land.end.thread
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %type = getelementptr inbounds %struct.asn1_string_st, ptr %0, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %0, i64 4
   %2 = load i32, ptr %type, align 4
-  %type7 = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 1
+  %type7 = getelementptr inbounds i8, ptr %call, i64 4
   %3 = load i32, ptr %type7, align 4
   %cmp8 = icmp eq i32 %2, %3
   br i1 %cmp8, label %land.lhs.true9, label %land.end.thread
@@ -386,9 +378,9 @@ land.end.thread:                                  ; preds = %land.lhs.true9, %la
   br label %if.then20
 
 land.end:                                         ; preds = %land.lhs.true9
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %0, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %data, align 8
-  %data15 = getelementptr inbounds %struct.asn1_string_st, ptr %call, i64 0, i32 2
+  %data15 = getelementptr inbounds i8, ptr %call, i64 8
   %6 = load ptr, ptr %data15, align 8
   %conv = zext nneg i32 %1 to i64
   %call17 = tail call i32 @CRYPTO_memcmp(ptr noundef %5, ptr noundef %6, i64 noundef %conv) #2
@@ -414,20 +406,20 @@ declare i32 @ossl_cmp_X509_STORE_add1_certs(ptr noundef, ptr noundef, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @check_msg_find_cert(ptr noundef %ctx, ptr noundef %msg) unnamed_addr #0 {
 entry:
-  %validatedSrvCert = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 21
+  %validatedSrvCert = getelementptr inbounds i8, ptr %ctx, i64 152
   %0 = load ptr, ptr %validatedSrvCert, align 8
   %1 = load ptr, ptr %msg, align 8
-  %sender1 = getelementptr inbounds %struct.ossl_cmp_pkiheader_st, ptr %1, i64 0, i32 1
+  %sender1 = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %sender1, align 8
-  %senderKID = getelementptr inbounds %struct.ossl_cmp_pkiheader_st, ptr %1, i64 0, i32 5
+  %senderKID = getelementptr inbounds i8, ptr %1, i64 40
   %3 = load ptr, ptr %senderKID, align 8
-  %log_cb = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 2
+  %log_cb = getelementptr inbounds i8, ptr %ctx, i64 16
   %4 = load ptr, ptr %log_cb, align 8
   %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %body = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %msg, i64 0, i32 1
+  %body = getelementptr inbounds i8, ptr %msg, i64 8
   %5 = load ptr, ptr %body, align 8
   %cmp3 = icmp eq ptr %5, null
   br i1 %cmp3, label %return, label %if.end
@@ -456,7 +448,7 @@ if.then9:                                         ; preds = %if.end6
   br i1 %tobool.not.i, label %if.end14, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.then9
-  %trusted.i = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 23
+  %trusted.i = getelementptr inbounds i8, ptr %ctx, i64 168
   %7 = load ptr, ptr %trusted.i, align 8
   %call.i.i = tail call i32 @OSSL_CMP_validate_cert_path(ptr noundef nonnull %ctx, ptr noundef %7, ptr noundef nonnull %0), !range !4
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -481,7 +473,7 @@ if.end14:                                         ; preds = %if.then9, %check_ms
   br i1 %tobool.not.i45, label %if.end18, label %land.rhs.i46
 
 land.rhs.i46:                                     ; preds = %if.end14
-  %trusted.i47 = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 23
+  %trusted.i47 = getelementptr inbounds i8, ptr %ctx, i64 168
   %8 = load ptr, ptr %trusted.i47, align 8
   %call.i.i48 = tail call i32 @OSSL_CMP_validate_cert_path(ptr noundef nonnull %ctx, ptr noundef %8, ptr noundef nonnull %0), !range !4
   %tobool.not.i.i49 = icmp eq i32 %call.i.i48, 0
@@ -513,7 +505,7 @@ if.then25:                                        ; preds = %lor.end.thread, %lo
 
 if.end27:                                         ; preds = %lor.end
   %call28 = tail call i32 @ERR_clear_last_mark() #2
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %2, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load ptr, ptr %d, align 8
   %call29 = tail call ptr @X509_NAME_oneline(ptr noundef %9, ptr noundef null, i32 noundef 0) #2
   %cmp30 = icmp eq ptr %3, null
@@ -599,7 +591,7 @@ entry:
   br i1 %cmp6, label %return, label %if.end9
 
 if.end9:                                          ; preds = %entry
-  %ignore_keyusage = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %cmp_ctx, i64 0, i32 25
+  %ignore_keyusage = getelementptr inbounds i8, ptr %cmp_ctx, i64 184
   %0 = load i32, ptr %ignore_keyusage, align 8
   %tobool10.not = icmp eq i32 %0, 0
   br i1 %tobool10.not, label %land.lhs.true11, label %if.end16
@@ -620,12 +612,12 @@ if.end21:                                         ; preds = %if.end16
   store <2 x ptr> %1, ptr %prot_part, align 16
   %call24 = tail call ptr @OSSL_CMP_PROTECTEDPART_it() #2
   %2 = load ptr, ptr %msg, align 8
-  %protectionAlg = getelementptr inbounds %struct.ossl_cmp_pkiheader_st, ptr %2, i64 0, i32 4
+  %protectionAlg = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %protectionAlg, align 8
-  %protection = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %msg, i64 0, i32 2
+  %protection = getelementptr inbounds i8, ptr %msg, i64 16
   %4 = load ptr, ptr %protection, align 8
   %5 = load ptr, ptr %cmp_ctx, align 8
-  %propq = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %cmp_ctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %cmp_ctx, i64 8
   %6 = load ptr, ptr %propq, align 8
   %call26 = call i32 @ASN1_item_verify_ex(ptr noundef %call24, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %prot_part, ptr noundef null, ptr noundef nonnull %call17, ptr noundef %5, ptr noundef %6) #2
   %cmp27 = icmp sgt i32 %call26, 0
@@ -681,7 +673,7 @@ land.rhs:                                         ; preds = %entry
 
 if.end:                                           ; preds = %land.rhs
   %call = tail call ptr @OSSL_CMP_MSG_get0_header(ptr noundef nonnull %msg) #2
-  %sender = getelementptr inbounds %struct.ossl_cmp_pkiheader_st, ptr %call, i64 0, i32 1
+  %sender = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load ptr, ptr %sender, align 8
   %2 = load i32, ptr %1, align 8
   %cmp5.not = icmp eq i32 %2, 4
@@ -694,13 +686,13 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %expected_sender9 = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 22
+  %expected_sender9 = getelementptr inbounds i8, ptr %ctx, i64 160
   %3 = load ptr, ptr %expected_sender9, align 8
   %cmp10 = icmp eq ptr %3, null
   br i1 %cmp10, label %land.lhs.true12, label %if.end18
 
 land.lhs.true12:                                  ; preds = %if.end8
-  %srvCert = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 20
+  %srvCert = getelementptr inbounds i8, ptr %ctx, i64 144
   %4 = load ptr, ptr %srvCert, align 8
   %cmp13.not = icmp eq ptr %4, null
   br i1 %cmp13.not, label %if.end18, label %if.then15
@@ -713,14 +705,14 @@ if.then15:                                        ; preds = %land.lhs.true12
 if.end18:                                         ; preds = %if.then15, %land.lhs.true12, %if.end8
   %5 = phi ptr [ %.pre, %if.then15 ], [ %1, %land.lhs.true12 ], [ %1, %if.end8 ]
   %expected_sender.0 = phi ptr [ %call17, %if.then15 ], [ null, %land.lhs.true12 ], [ %3, %if.end8 ]
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %5, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %d, align 8
   %call20 = tail call fastcc i32 @check_name(ptr noundef nonnull %ctx, i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef %6, ptr noundef nonnull @.str.14, ptr noundef %expected_sender.0), !range !4
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %return, label %if.end23
 
 if.end23:                                         ; preds = %if.end18
-  %extraCerts = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %msg, i64 0, i32 3
+  %extraCerts = getelementptr inbounds i8, ptr %msg, i64 24
   %7 = load ptr, ptr %extraCerts, align 8
   %call25 = tail call i32 @OPENSSL_sk_num(ptr noundef %7) #2
   %cmp26 = icmp sgt i32 %call25, 10
@@ -731,7 +723,7 @@ if.then28:                                        ; preds = %if.end23
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then28, %if.end23
-  %untrusted = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 24
+  %untrusted = getelementptr inbounds i8, ptr %ctx, i64 176
   %8 = load ptr, ptr %untrusted, align 8
   %9 = load ptr, ptr %extraCerts, align 8
   %call32 = tail call i32 @X509_add_certs(ptr noundef %8, ptr noundef %9, i32 noundef 7) #2
@@ -739,7 +731,7 @@ if.end30:                                         ; preds = %if.then28, %if.end2
   br i1 %tobool33.not, label %return, label %if.end35
 
 if.end35:                                         ; preds = %if.end30
-  %protectionAlg = getelementptr inbounds %struct.ossl_cmp_pkiheader_st, ptr %call, i64 0, i32 4
+  %protectionAlg = getelementptr inbounds i8, ptr %call, i64 32
   %10 = load ptr, ptr %protectionAlg, align 8
   %cmp36.not = icmp eq ptr %10, null
   br i1 %cmp36.not, label %if.else, label %if.then38
@@ -807,18 +799,18 @@ if.then70:                                        ; preds = %if.end66
   br label %return
 
 if.end71:                                         ; preds = %if.end66
-  %transactionID = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 39
+  %transactionID = getelementptr inbounds i8, ptr %ctx, i64 280
   %11 = load ptr, ptr %transactionID, align 8
-  %transactionID72 = getelementptr inbounds %struct.ossl_cmp_pkiheader_st, ptr %call, i64 0, i32 7
+  %transactionID72 = getelementptr inbounds i8, ptr %call, i64 56
   %12 = load ptr, ptr %transactionID72, align 8
   %call73 = tail call fastcc i32 @check_transactionID_or_nonce(ptr noundef %11, ptr noundef %12, i32 noundef 152), !range !4
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %return, label %if.end76
 
 if.end76:                                         ; preds = %if.end71
-  %senderNonce = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 40
+  %senderNonce = getelementptr inbounds i8, ptr %ctx, i64 288
   %13 = load ptr, ptr %senderNonce, align 8
-  %recipNonce = getelementptr inbounds %struct.ossl_cmp_pkiheader_st, ptr %call, i64 0, i32 9
+  %recipNonce = getelementptr inbounds i8, ptr %call, i64 72
   %14 = load ptr, ptr %recipNonce, align 8
   %call77 = tail call fastcc i32 @check_transactionID_or_nonce(ptr noundef %13, ptr noundef %14, i32 noundef 148), !range !4
   %tobool78.not = icmp eq i32 %call77, 0
@@ -836,7 +828,7 @@ land.lhs.true84:                                  ; preds = %if.end80
   br i1 %tobool87.not, label %return, label %if.end89
 
 if.end89:                                         ; preds = %land.lhs.true84, %if.end80
-  %senderNonce90 = getelementptr inbounds %struct.ossl_cmp_pkiheader_st, ptr %call, i64 0, i32 8
+  %senderNonce90 = getelementptr inbounds i8, ptr %call, i64 64
   %17 = load ptr, ptr %senderNonce90, align 8
   %call91 = tail call i32 @ossl_cmp_ctx_set1_recipNonce(ptr noundef nonnull %ctx, ptr noundef %17) #2
   %tobool92.not = icmp eq i32 %call91, 0
@@ -864,15 +856,15 @@ if.then104:                                       ; preds = %if.end100
   ]
 
 sw.bb:                                            ; preds = %if.then104, %if.then104, %if.then104, %if.then104
-  %trusted = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 23
+  %trusted = getelementptr inbounds i8, ptr %ctx, i64 168
   %20 = load ptr, ptr %trusted, align 8
   %cmp106.not = icmp eq ptr %20, null
   br i1 %cmp106.not, label %if.end115, label %if.then108
 
 if.then108:                                       ; preds = %sw.bb
-  %body = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %msg, i64 0, i32 1
+  %body = getelementptr inbounds i8, ptr %msg, i64 8
   %21 = load ptr, ptr %body, align 8
-  %value = getelementptr inbounds %struct.ossl_cmp_pkibody_st, ptr %21, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %21, i64 8
   %22 = load ptr, ptr %value, align 8
   %23 = load ptr, ptr %22, align 8
   %call110 = tail call i32 @ossl_cmp_X509_STORE_add1_certs(ptr noundef nonnull %20, ptr noundef %23, i32 noundef 0) #2
@@ -1013,7 +1005,7 @@ entry:
   br i1 %cmp.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %body = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %msg, i64 0, i32 1
+  %body = getelementptr inbounds i8, ptr %msg, i64 8
   %0 = load ptr, ptr %body, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %return, label %if.end
@@ -1028,11 +1020,11 @@ if.end:                                           ; preds = %land.rhs
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %value = getelementptr inbounds %struct.ossl_cmp_pkibody_st, ptr %0, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %value, align 8
   %call = tail call ptr @X509_REQ_get0_pubkey(ptr noundef %2) #2
   %3 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %propq, align 8
   %call6 = tail call i32 @X509_REQ_verify_ex(ptr noundef %2, ptr noundef %call, ptr noundef %3, ptr noundef %4) #2
   %cmp7 = icmp slt i32 %call6, 1
@@ -1045,10 +1037,10 @@ if.then9:                                         ; preds = %sw.bb
   br label %return
 
 sw.bb11:                                          ; preds = %if.end, %if.end, %if.end
-  %value13 = getelementptr inbounds %struct.ossl_cmp_pkibody_st, ptr %0, i64 0, i32 1
+  %value13 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %value13, align 8
   %6 = load ptr, ptr %ctx, align 8
-  %propq15 = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 1
+  %propq15 = getelementptr inbounds i8, ptr %ctx, i64 8
   %7 = load ptr, ptr %propq15, align 8
   %call16 = tail call i32 @OSSL_CRMF_MSGS_verify_popo(ptr noundef %5, i32 noundef 0, i32 noundef %acceptRAVerified, ptr noundef %6, ptr noundef %7) #2
   %tobool17.not = icmp eq i32 %call16, 0
@@ -1091,7 +1083,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %permitTAInExtraCertsForIR = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 26
+  %permitTAInExtraCertsForIR = getelementptr inbounds i8, ptr %ctx, i64 188
   %0 = load i32, ptr %permitTAInExtraCertsForIR, align 4
   %tobool1.not = icmp eq i32 %0, 0
   br i1 %tobool1.not, label %return, label %lor.lhs.false
@@ -1104,14 +1096,14 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
 if.end:                                           ; preds = %lor.lhs.false, %entry
   %cond = phi ptr [ @.str.45, %lor.lhs.false ], [ @.str.46, %entry ]
   %call3 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 6, ptr noundef %ctx, ptr noundef nonnull @__func__.check_msg_all_certs, ptr noundef nonnull @.str, i32 noundef 434, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, ptr noundef nonnull %cond) #2
-  %extraCerts = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %msg, i64 0, i32 3
+  %extraCerts = getelementptr inbounds i8, ptr %msg, i64 24
   %1 = load ptr, ptr %extraCerts, align 8
   %call4 = tail call fastcc i32 @check_msg_with_certs(ptr noundef %ctx, ptr noundef %1, ptr noundef nonnull @.str.47, ptr noundef null, ptr noundef null, ptr noundef %msg, i32 noundef %mode_3gpp)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end
-  %untrusted = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 24
+  %untrusted = getelementptr inbounds i8, ptr %ctx, i64 176
   %2 = load ptr, ptr %untrusted, align 8
   %3 = load ptr, ptr %extraCerts, align 8
   %call9 = tail call fastcc i32 @check_msg_with_certs(ptr noundef %ctx, ptr noundef %2, ptr noundef nonnull @.str.48, ptr noundef %3, ptr noundef null, ptr noundef nonnull %msg, i32 noundef %mode_3gpp)
@@ -1119,7 +1111,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool10.not, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end7
-  %trusted = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 23
+  %trusted = getelementptr inbounds i8, ptr %ctx, i64 168
   %4 = load ptr, ptr %trusted, align 8
   %cmp13 = icmp eq ptr %4, null
   br i1 %cmp13, label %if.then14, label %if.else
@@ -1156,7 +1148,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @cert_acceptable(ptr noundef %ctx, ptr noundef %desc1, ptr noundef %desc2, ptr noundef %cert, ptr noundef %already_checked1, ptr noundef %already_checked2, ptr nocapture noundef readonly %msg) unnamed_addr #0 {
 entry:
-  %trusted = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 23
+  %trusted = getelementptr inbounds i8, ptr %ctx, i64 168
   %0 = load ptr, ptr %trusted, align 8
   %call = tail call i32 @X509_check_issued(ptr noundef %cert, ptr noundef %cert) #2
   %cmp = icmp eq i32 %call, 0
@@ -1245,7 +1237,7 @@ if.then33:                                        ; preds = %if.end27
   %cmp34 = icmp sgt i32 %call30, 0
   %cond39 = select i1 %cmp34, ptr @.str.32, ptr @.str.33
   %call40 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef %ctx, ptr noundef nonnull @__func__.cert_acceptable, ptr noundef nonnull @.str, i32 noundef 281, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, ptr noundef nonnull %cond39) #2
-  %log_cb = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 2
+  %log_cb = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %log_cb, align 8
   %cmp41.not = icmp eq ptr %1, null
   br i1 %cmp41.not, label %if.end48, label %land.lhs.true
@@ -1284,9 +1276,9 @@ verify_cb_cert.exit:                              ; preds = %land.lhs.true.i
 if.end48:                                         ; preds = %if.then33, %verify_cb_cert.exit, %if.end27
   %call49 = tail call ptr @X509_get_subject_name(ptr noundef %cert) #2
   %2 = load ptr, ptr %msg, align 8
-  %sender = getelementptr inbounds %struct.ossl_cmp_pkiheader_st, ptr %2, i64 0, i32 1
+  %sender = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %sender, align 8
-  %d = getelementptr inbounds %struct.GENERAL_NAME_st, ptr %3, i64 0, i32 1
+  %d = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %d, align 8
   %call50 = tail call fastcc i32 @check_name(ptr noundef %ctx, i32 noundef 1, ptr noundef nonnull @.str.34, ptr noundef %call49, ptr noundef nonnull @.str.35, ptr noundef %4), !range !4
   %tobool51.not = icmp eq i32 %call50, 0
@@ -1295,7 +1287,7 @@ if.end48:                                         ; preds = %if.then33, %verify_
 if.end53:                                         ; preds = %if.end48
   %call54 = tail call ptr @X509_get0_subject_key_id(ptr noundef %cert) #2
   %5 = load ptr, ptr %msg, align 8
-  %senderKID = getelementptr inbounds %struct.ossl_cmp_pkiheader_st, ptr %5, i64 0, i32 5
+  %senderKID = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load ptr, ptr %senderKID, align 8
   %cmp.i50 = icmp eq ptr %6, null
   br i1 %cmp.i50, label %if.end59, label %if.end.i51
@@ -1377,7 +1369,7 @@ return:                                           ; preds = %if.end21.i, %if.the
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @check_cert_path_3gpp(ptr noundef %ctx, ptr nocapture noundef readonly %msg, ptr noundef %scrt) unnamed_addr #0 {
 entry:
-  %permitTAInExtraCertsForIR = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 26
+  %permitTAInExtraCertsForIR = getelementptr inbounds i8, ptr %ctx, i64 188
   %0 = load i32, ptr %permitTAInExtraCertsForIR, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -1388,7 +1380,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %extraCerts = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %msg, i64 0, i32 3
+  %extraCerts = getelementptr inbounds i8, ptr %msg, i64 24
   %1 = load ptr, ptr %extraCerts, align 8
   %call1 = tail call i32 @ossl_cmp_X509_STORE_add1_certs(ptr noundef nonnull %call, ptr noundef %1, i32 noundef 1) #2
   %tobool2.not = icmp eq i32 %call1, 0
@@ -1404,9 +1396,9 @@ if.then7:                                         ; preds = %if.end4
   br label %err
 
 if.else:                                          ; preds = %if.end4
-  %body = getelementptr inbounds %struct.ossl_cmp_msg_st, ptr %msg, i64 0, i32 1
+  %body = getelementptr inbounds i8, ptr %msg, i64 8
   %2 = load ptr, ptr %body, align 8
-  %value = getelementptr inbounds %struct.ossl_cmp_pkibody_st, ptr %2, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %value, align 8
   %call9 = tail call ptr @ossl_cmp_certrepmessage_get0_certresponse(ptr noundef %3, i32 noundef 0) #2
   %call10 = tail call ptr @ossl_cmp_certresponse_get1_cert(ptr noundef nonnull %ctx, ptr noundef %call9) #2
@@ -1479,7 +1471,7 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %tobool23.not = icmp eq i32 %mode_3gpp, 0
-  %trusted = getelementptr inbounds %struct.ossl_cmp_ctx_st, ptr %ctx, i64 0, i32 23
+  %trusted = getelementptr inbounds i8, ptr %ctx, i64 168
   br i1 %tobool23.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us

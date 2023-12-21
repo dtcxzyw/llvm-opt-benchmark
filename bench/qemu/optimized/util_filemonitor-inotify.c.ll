@@ -4,15 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.timeval = type { i64, i64 }
-%struct.QFileMonitor = type { i32, %struct.QemuMutex, ptr, ptr }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.QFileMonitorDir = type { ptr, i32, i32, ptr }
-%struct._GArray = type { ptr, i32 }
 %struct.QFileMonitorWatch = type { i64, ptr, ptr, ptr }
-%struct.inotify_event = type { i32, i32, i32, i32, [0 x i8] }
 
 @.str = private unnamed_addr constant [35 x i8] c"../qemu/util/filemonitor-inotify.c\00", align 1
 @__func__.qemu_file_monitor_new = private unnamed_addr constant [22 x i8] c"qemu_file_monitor_new\00", align 1
@@ -68,14 +60,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %call2 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #12
-  %lock = getelementptr inbounds %struct.QFileMonitor, ptr %call2, i64 0, i32 1
+  %lock = getelementptr inbounds i8, ptr %call2, i64 8
   tail call void @qemu_mutex_init(ptr noundef nonnull %lock) #10
   store i32 %call, ptr %call2, align 8
   %call4 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @qemu_file_monitor_dir_free) #10
-  %dirs = getelementptr inbounds %struct.QFileMonitor, ptr %call2, i64 0, i32 2
+  %dirs = getelementptr inbounds i8, ptr %call2, i64 56
   store ptr %call4, ptr %dirs, align 8
   %call5 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #10
-  %idmap = getelementptr inbounds %struct.QFileMonitor, ptr %call2, i64 0, i32 3
+  %idmap = getelementptr inbounds i8, ptr %call2, i64 64
   store ptr %call5, ptr %idmap, align 8
   %1 = load i32, ptr %call2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -102,7 +94,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.4, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef nonnull %call2, i32 noundef %1) #10
   br label %trace_qemu_file_monitor_new.exit
@@ -142,9 +134,9 @@ declare i32 @g_str_equal(ptr noundef, ptr noundef) #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @qemu_file_monitor_dir_free(ptr noundef %data) #0 {
 entry:
-  %watches = getelementptr inbounds %struct.QFileMonitorDir, ptr %data, i64 0, i32 3
+  %watches = getelementptr inbounds i8, ptr %data, i64 16
   %0 = load ptr, ptr %watches, align 8
-  %len7 = getelementptr inbounds %struct._GArray, ptr %0, i64 0, i32 1
+  %len7 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %len7, align 8
   %cmp9.not = icmp eq i32 %1, 0
   br i1 %cmp9.not, label %for.end, label %for.body
@@ -158,7 +150,7 @@ for.body:                                         ; preds = %entry, %for.body
   tail call void @g_free(ptr noundef %4) #10
   %inc = add nuw nsw i64 %i.010, 1
   %5 = load ptr, ptr %watches, align 8
-  %len = getelementptr inbounds %struct._GArray, ptr %5, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i32, ptr %len, align 8
   %conv = zext i32 %6 to i64
   %cmp = icmp ult i64 %inc, %conv
@@ -190,7 +182,7 @@ entry:
 while.end:                                        ; preds = %entry
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %lock = getelementptr inbounds %struct.QFileMonitor, ptr %mon, i64 0, i32 1
+  %lock = getelementptr inbounds i8, ptr %mon, i64 8
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str, i32 noundef 232) #10
   %2 = load i32, ptr %mon, align 8
   %cmp.not = icmp eq i32 %2, -1
@@ -232,12 +224,12 @@ entry:
 while.end:                                        ; preds = %entry
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %lock = getelementptr inbounds %struct.QFileMonitor, ptr %opaque, i64 0, i32 1
+  %lock = getelementptr inbounds i8, ptr %opaque, i64 8
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str, i32 noundef 212) #10
-  %idmap = getelementptr inbounds %struct.QFileMonitor, ptr %opaque, i64 0, i32 3
+  %idmap = getelementptr inbounds i8, ptr %opaque, i64 64
   %2 = load ptr, ptr %idmap, align 8
   tail call void @g_hash_table_unref(ptr noundef %2) #10
-  %dirs = getelementptr inbounds %struct.QFileMonitor, ptr %opaque, i64 0, i32 2
+  %dirs = getelementptr inbounds i8, ptr %opaque, i64 56
   %3 = load ptr, ptr %dirs, align 8
   tail call void @g_hash_table_unref(ptr noundef %3) #10
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %lock, ptr noundef nonnull @.str, i32 noundef 217) #10
@@ -257,9 +249,9 @@ entry:
   %watch = alloca %struct.QFileMonitorWatch, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %lock = getelementptr inbounds %struct.QFileMonitor, ptr %mon, i64 0, i32 1
+  %lock = getelementptr inbounds i8, ptr %mon, i64 8
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str, i32 noundef 262) #10
-  %dirs = getelementptr inbounds %struct.QFileMonitor, ptr %mon, i64 0, i32 2
+  %dirs = getelementptr inbounds i8, ptr %mon, i64 56
   %2 = load ptr, ptr %dirs, align 8
   %call = tail call ptr @g_hash_table_lookup(ptr noundef %2, ptr noundef %dirpath) #10
   %tobool.not = icmp eq ptr %call, null
@@ -302,7 +294,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull %mon, ptr noundef %dirpath, i32 noundef %call1) #10
   br label %trace_qemu_file_monitor_enable_watch.exit
@@ -316,14 +308,14 @@ trace_qemu_file_monitor_enable_watch.exit:        ; preds = %if.end, %land.lhs.t
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #12
   %call5 = tail call noalias ptr @g_strdup(ptr noundef %dirpath) #10
   store ptr %call5, ptr %call4, align 8
-  %inotify_id = getelementptr inbounds %struct.QFileMonitorDir, ptr %call4, i64 0, i32 1
+  %inotify_id = getelementptr inbounds i8, ptr %call4, i64 8
   store i32 %call1, ptr %inotify_id, align 8
   %call6 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 32) #10
-  %watches = getelementptr inbounds %struct.QFileMonitorDir, ptr %call4, i64 0, i32 3
+  %watches = getelementptr inbounds i8, ptr %call4, i64 16
   store ptr %call6, ptr %watches, align 8
   %12 = load ptr, ptr %dirs, align 8
   %call9 = tail call i32 @g_hash_table_insert(ptr noundef %12, ptr noundef %call5, ptr noundef nonnull %call4) #10
-  %idmap = getelementptr inbounds %struct.QFileMonitor, ptr %mon, i64 0, i32 3
+  %idmap = getelementptr inbounds i8, ptr %mon, i64 64
   %13 = load ptr, ptr %idmap, align 8
   %conv = zext nneg i32 %call1 to i64
   %14 = inttoptr i64 %conv to ptr
@@ -340,11 +332,11 @@ if.then15:                                        ; preds = %trace_qemu_file_mon
 
 if.end18:                                         ; preds = %trace_qemu_file_monitor_enable_watch.exit, %if.then15, %entry
   %dir.0 = phi ptr [ %call, %entry ], [ %call4, %if.then15 ], [ %call4, %trace_qemu_file_monitor_enable_watch.exit ]
-  %inotify_id19 = getelementptr inbounds %struct.QFileMonitorDir, ptr %dir.0, i64 0, i32 1
+  %inotify_id19 = getelementptr inbounds i8, ptr %dir.0, i64 8
   %17 = load i32, ptr %inotify_id19, align 8
   %conv20 = sext i32 %17 to i64
   %shl = shl nsw i64 %conv20, 32
-  %next_file_id = getelementptr inbounds %struct.QFileMonitorDir, ptr %dir.0, i64 0, i32 2
+  %next_file_id = getelementptr inbounds i8, ptr %dir.0, i64 12
   %18 = load i32, ptr %next_file_id, align 4
   %inc = add i32 %18, 1
   store i32 %inc, ptr %next_file_id, align 4
@@ -352,13 +344,13 @@ if.end18:                                         ; preds = %trace_qemu_file_mon
   %or = or i64 %shl, %conv21
   store i64 %or, ptr %watch, align 8
   %call22 = tail call noalias ptr @g_strdup(ptr noundef %filename) #10
-  %filename23 = getelementptr inbounds %struct.QFileMonitorWatch, ptr %watch, i64 0, i32 1
+  %filename23 = getelementptr inbounds i8, ptr %watch, i64 8
   store ptr %call22, ptr %filename23, align 8
-  %cb24 = getelementptr inbounds %struct.QFileMonitorWatch, ptr %watch, i64 0, i32 2
+  %cb24 = getelementptr inbounds i8, ptr %watch, i64 16
   store ptr %cb, ptr %cb24, align 8
-  %opaque25 = getelementptr inbounds %struct.QFileMonitorWatch, ptr %watch, i64 0, i32 3
+  %opaque25 = getelementptr inbounds i8, ptr %watch, i64 24
   store ptr %opaque, ptr %opaque25, align 8
-  %watches26 = getelementptr inbounds %struct.QFileMonitorDir, ptr %dir.0, i64 0, i32 3
+  %watches26 = getelementptr inbounds i8, ptr %dir.0, i64 16
   %19 = load ptr, ptr %watches26, align 8
   %call27 = call ptr @g_array_append_vals(ptr noundef %19, ptr noundef nonnull %watch, i32 noundef 1) #10
   %tobool28.not = icmp eq ptr %filename, null
@@ -388,7 +380,7 @@ if.then8.i.i41:                                   ; preds = %if.then.i.i39
   %call9.i.i42 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i32, ptr noundef null) #10
   %call10.i.i43 = call i32 @qemu_get_thread_id() #10
   %26 = load i64, ptr %_now.i.i32, align 8
-  %tv_usec.i.i44 = getelementptr inbounds %struct.timeval, ptr %_now.i.i32, i64 0, i32 1
+  %tv_usec.i.i44 = getelementptr inbounds i8, ptr %_now.i.i32, i64 8
   %27 = load i64, ptr %tv_usec.i.i44, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i43, i64 noundef %26, i64 noundef %27, ptr noundef nonnull %mon, ptr noundef %dirpath, ptr noundef nonnull %cond, ptr noundef %cb, ptr noundef %opaque, i64 noundef %20) #10
   br label %trace_qemu_file_monitor_add_watch.exit
@@ -429,7 +421,7 @@ entry:
   %buf = alloca [4096 x i8], align 4
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %lock = getelementptr inbounds %struct.QFileMonitor, ptr %arg, i64 0, i32 1
+  %lock = getelementptr inbounds i8, ptr %arg, i64 8
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str, i32 noundef 62) #10
   %2 = load i32, ptr %arg, align 8
   %cmp = icmp eq i32 %2, -1
@@ -450,9 +442,9 @@ while.cond14.preheader:                           ; preds = %if.end
   br i1 %cmp1560.not, label %cleanup, label %while.body17.lr.ph
 
 while.body17.lr.ph:                               ; preds = %while.cond14.preheader
-  %idmap = getelementptr inbounds %struct.QFileMonitor, ptr %arg, i64 0, i32 3
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
-  %tv_usec.i.i54 = getelementptr inbounds %struct.timeval, ptr %_now.i.i42, i64 0, i32 1
+  %idmap = getelementptr inbounds i8, ptr %arg, i64 64
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i54 = getelementptr inbounds i8, ptr %_now.i.i42, i64 8
   br label %while.body17
 
 if.then5:                                         ; preds = %if.end
@@ -481,7 +473,7 @@ if.else:                                          ; preds = %while.body17
 if.end23:                                         ; preds = %while.body17
   %conv19 = sext i32 %sub to i64
   %sub26 = add nsw i64 %conv19, -16
-  %len27 = getelementptr inbounds %struct.inotify_event, ptr %add.ptr, i64 0, i32 3
+  %len27 = getelementptr inbounds i8, ptr %add.ptr, i64 12
   %4 = load i32, ptr %len27, align 4
   %conv28 = zext i32 %4 to i64
   %cmp29.not = icmp ult i64 %sub26, %conv28
@@ -493,7 +485,7 @@ if.else32:                                        ; preds = %if.end23
 
 if.end33:                                         ; preds = %if.end23
   %tobool.not = icmp eq i32 %4, 0
-  %name35 = getelementptr inbounds %struct.inotify_event, ptr %add.ptr, i64 0, i32 4
+  %name35 = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %cond = select i1 %tobool.not, ptr @.str.11, ptr %name35
   %5 = load ptr, ptr %idmap, align 8
   %6 = load i32, ptr %add.ptr, align 4
@@ -511,7 +503,7 @@ while.cond14.backedge:                            ; preds = %for.inc, %trace_qem
   br i1 %cmp15, label %while.body17, label %cleanup, !llvm.loop !7
 
 if.end46:                                         ; preds = %if.end33
-  %mask = getelementptr inbounds %struct.inotify_event, ptr %add.ptr, i64 0, i32 1
+  %mask = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %9 = load i32, ptr %mask, align 4
   %10 = trunc i32 %9 to i16
   %trunc = and i16 %10, -31802
@@ -544,7 +536,7 @@ do.body51:                                        ; preds = %if.end46
 sw.epilog:                                        ; preds = %if.end46, %if.end46, %sw.bb50, %sw.bb49, %sw.bb48, %sw.bb47
   %qev.0 = phi i32 [ 4, %sw.bb50 ], [ 3, %sw.bb49 ], [ 2, %sw.bb48 ], [ 1, %sw.bb47 ], [ 0, %if.end46 ], [ 0, %if.end46 ]
   %11 = load ptr, ptr %call38, align 8
-  %inotify_id = getelementptr inbounds %struct.QFileMonitorDir, ptr %call38, i64 0, i32 1
+  %inotify_id = getelementptr inbounds i8, ptr %call38, i64 8
   %12 = load i32, ptr %inotify_id, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %13 = load i32, ptr @trace_events_enabled_count, align 4
@@ -580,9 +572,9 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qemu_file_monitor_event.exit:               ; preds = %sw.epilog, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %watches = getelementptr inbounds %struct.QFileMonitorDir, ptr %call38, i64 0, i32 3
+  %watches = getelementptr inbounds i8, ptr %call38, i64 16
   %20 = load ptr, ptr %watches, align 8
-  %len5456 = getelementptr inbounds %struct._GArray, ptr %20, i64 0, i32 1
+  %len5456 = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load i32, ptr %len5456, align 8
   %cmp5658.not = icmp eq i32 %21, 0
   br i1 %cmp5658.not, label %while.cond14.backedge, label %for.body, !llvm.loop !7
@@ -592,7 +584,7 @@ for.body:                                         ; preds = %trace_qemu_file_mon
   %i.059 = phi i64 [ %inc, %for.inc ], [ 0, %trace_qemu_file_monitor_event.exit ]
   %23 = load ptr, ptr %22, align 8
   %arrayidx = getelementptr %struct.QFileMonitorWatch, ptr %23, i64 %i.059
-  %filename = getelementptr %struct.QFileMonitorWatch, ptr %23, i64 %i.059, i32 1
+  %filename = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %24 = load ptr, ptr %filename, align 8
   %cmp59 = icmp eq ptr %24, null
   br i1 %cmp59, label %if.then65, label %land.lhs.true
@@ -604,9 +596,9 @@ land.lhs.true:                                    ; preds = %for.body
 
 if.then65:                                        ; preds = %land.lhs.true, %for.body
   %25 = load ptr, ptr %call38, align 8
-  %cb = getelementptr %struct.QFileMonitorWatch, ptr %23, i64 %i.059, i32 2
+  %cb = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %26 = load ptr, ptr %cb, align 8
-  %opaque = getelementptr %struct.QFileMonitorWatch, ptr %23, i64 %i.059, i32 3
+  %opaque = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %27 = load ptr, ptr %opaque, align 8
   %28 = load i64, ptr %arrayidx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i42)
@@ -652,7 +644,7 @@ trace_qemu_file_monitor_dispatch.exit:            ; preds = %if.then65, %land.lh
 for.inc:                                          ; preds = %land.lhs.true, %trace_qemu_file_monitor_dispatch.exit
   %inc = add nuw nsw i64 %i.059, 1
   %39 = load ptr, ptr %watches, align 8
-  %len54 = getelementptr inbounds %struct._GArray, ptr %39, i64 0, i32 1
+  %len54 = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load i32, ptr %len54, align 8
   %conv55 = zext i32 %40 to i64
   %cmp56 = icmp ult i64 %inc, %conv55
@@ -675,7 +667,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  %lock = getelementptr inbounds %struct.QFileMonitor, ptr %mon, i64 0, i32 1
+  %lock = getelementptr inbounds i8, ptr %mon, i64 8
   tail call void %1(ptr noundef nonnull %lock, ptr noundef nonnull @.str, i32 noundef 315) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -701,7 +693,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, ptr noundef %mon, ptr noundef %dirpath, i64 noundef %id) #10
   br label %trace_qemu_file_monitor_remove_watch.exit
@@ -712,16 +704,16 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_qemu_file_monitor_remove_watch.exit:        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %dirs = getelementptr inbounds %struct.QFileMonitor, ptr %mon, i64 0, i32 2
+  %dirs = getelementptr inbounds i8, ptr %mon, i64 56
   %9 = load ptr, ptr %dirs, align 8
   %call = tail call ptr @g_hash_table_lookup(ptr noundef %9, ptr noundef %dirpath) #10
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %cleanup, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %trace_qemu_file_monitor_remove_watch.exit
-  %watches = getelementptr inbounds %struct.QFileMonitorDir, ptr %call, i64 0, i32 3
+  %watches = getelementptr inbounds i8, ptr %call, i64 16
   %10 = load ptr, ptr %watches, align 8
-  %len = getelementptr inbounds %struct._GArray, ptr %10, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i32, ptr %len, align 8
   %conv = zext i32 %11 to i64
   %cmp43.not = icmp eq i32 %11, 0
@@ -739,16 +731,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp4, label %if.then6, label %for.inc
 
 if.then6:                                         ; preds = %for.body
-  %filename = getelementptr %struct.QFileMonitorWatch, ptr %12, i64 %i.044, i32 1
+  %filename = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %14 = load ptr, ptr %filename, align 8
   tail call void @g_free(ptr noundef %14) #10
   %15 = load ptr, ptr %watches, align 8
   %conv8 = trunc i64 %i.044 to i32
   %call9 = tail call ptr @g_array_remove_index(ptr noundef %15, i32 noundef %conv8) #10
   %.pre = load ptr, ptr %watches, align 8
-  %len12.phi.trans.insert = getelementptr inbounds %struct._GArray, ptr %.pre, i64 0, i32 1
-  %.pre46 = load i32, ptr %len12.phi.trans.insert, align 8
-  %16 = icmp eq i32 %.pre46, 0
+  %len12.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
+  %.pre47 = load i32, ptr %len12.phi.trans.insert, align 8
+  %16 = icmp eq i32 %.pre47, 0
   br i1 %16, label %if.then15, label %cleanup
 
 for.inc:                                          ; preds = %for.body
@@ -758,7 +750,7 @@ for.inc:                                          ; preds = %for.body
 
 if.then15:                                        ; preds = %for.cond.preheader, %if.then6
   %17 = load i32, ptr %mon, align 8
-  %inotify_id = getelementptr inbounds %struct.QFileMonitorDir, ptr %call, i64 0, i32 1
+  %inotify_id = getelementptr inbounds i8, ptr %call, i64 8
   %18 = load i32, ptr %inotify_id, align 8
   %call16 = tail call i32 @inotify_rm_watch(i32 noundef %17, i32 noundef %18) #10
   %19 = load ptr, ptr %call, align 8
@@ -787,7 +779,7 @@ if.then8.i.i34:                                   ; preds = %if.then.i.i32
   %call9.i.i35 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i25, ptr noundef null) #10
   %call10.i.i36 = tail call i32 @qemu_get_thread_id() #10
   %26 = load i64, ptr %_now.i.i25, align 8
-  %tv_usec.i.i37 = getelementptr inbounds %struct.timeval, ptr %_now.i.i25, i64 0, i32 1
+  %tv_usec.i.i37 = getelementptr inbounds i8, ptr %_now.i.i25, i64 8
   %27 = load i64, ptr %tv_usec.i.i37, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i36, i64 noundef %26, i64 noundef %27, ptr noundef nonnull %mon, ptr noundef %19, i32 noundef %20) #10
   br label %trace_qemu_file_monitor_disable_watch.exit
@@ -798,7 +790,7 @@ if.else.i.i38:                                    ; preds = %if.then.i.i32
 
 trace_qemu_file_monitor_disable_watch.exit:       ; preds = %if.then15, %land.lhs.true5.i.i29, %if.then8.i.i34, %if.else.i.i38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i25)
-  %idmap = getelementptr inbounds %struct.QFileMonitor, ptr %mon, i64 0, i32 3
+  %idmap = getelementptr inbounds i8, ptr %mon, i64 64
   %28 = load ptr, ptr %idmap, align 8
   %29 = load i32, ptr %inotify_id, align 8
   %conv19 = sext i32 %29 to i64

@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.PBEPARAM_st = type { ptr, ptr }
 
 @PBEPARAM_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @PBEPARAM_seq_tt, i64 2, ptr null, i64 16, ptr @.str }, align 8
 @PBEPARAM_seq_tt = internal constant [2 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 0, ptr @.str.2, ptr @ASN1_OCTET_STRING_it }, %struct.ASN1_TEMPLATE_st { i64 0, i64 0, i64 8, ptr @.str.3, ptr @ASN1_INTEGER_it }], align 16
@@ -76,7 +75,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %cmp1 = icmp slt i32 %iter, 1
   %spec.store.select = select i1 %cmp1, i32 2048, i32 %iter
-  %iter4 = getelementptr inbounds %struct.PBEPARAM_st, ptr %call1.i, i64 0, i32 1
+  %iter4 = getelementptr inbounds i8, ptr %call1.i, i64 8
   %0 = load ptr, ptr %iter4, align 8
   %conv = zext nneg i32 %spec.store.select to i64
   %call5 = tail call i32 @ASN1_INTEGER_set(ptr noundef %0, i64 noundef %conv) #4

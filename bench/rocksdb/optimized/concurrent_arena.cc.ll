@@ -3,32 +3,12 @@ source_filename = "bench/rocksdb/original/concurrent_arena.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.rocksdb::ConcurrentArena" = type { %"class.rocksdb::Allocator", [56 x i8], i64, %"class.rocksdb::CoreLocalArray", [8 x i8], %"class.rocksdb::Arena", %"class.rocksdb::SpinMutex", %"struct.std::atomic.8", %"struct.std::atomic.8", %"struct.std::atomic.8", [56 x i8], [8 x i8] }
-%"class.rocksdb::Allocator" = type { ptr }
-%"class.rocksdb::CoreLocalArray" = type <{ %"class.std::unique_ptr", i32, [4 x i8] }>
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
-%"class.rocksdb::Arena" = type { %"class.rocksdb::Allocator", [8 x i8], [2048 x i8], i64, %"class.std::deque", %"class.std::deque.2", i64, ptr, ptr, i64, i64, i64, ptr }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<std::unique_ptr<char[]>, std::allocator<std::unique_ptr<char[]>>>::_Deque_impl" }
-%"struct.std::_Deque_base<std::unique_ptr<char[]>, std::allocator<std::unique_ptr<char[]>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::unique_ptr<char[]>, std::allocator<std::unique_ptr<char[]>>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<std::unique_ptr<char[]>, std::allocator<std::unique_ptr<char[]>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::deque.2" = type { %"class.std::_Deque_base.3" }
-%"class.std::_Deque_base.3" = type { %"struct.std::_Deque_base<rocksdb::MemMapping, std::allocator<rocksdb::MemMapping>>::_Deque_impl" }
-%"struct.std::_Deque_base<rocksdb::MemMapping, std::allocator<rocksdb::MemMapping>>::_Deque_impl" = type { %"struct.std::_Deque_base<rocksdb::MemMapping, std::allocator<rocksdb::MemMapping>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<rocksdb::MemMapping, std::allocator<rocksdb::MemMapping>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.7", %"struct.std::_Deque_iterator.7" }
-%"struct.std::_Deque_iterator.7" = type { ptr, ptr, ptr, ptr }
+%"struct.rocksdb::ConcurrentArena::Shard" = type { [40 x i8], %"class.rocksdb::SpinMutex", ptr, %"struct.std::atomic.8" }
 %"class.rocksdb::SpinMutex" = type { %"struct.std::atomic" }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i8 }
 %"struct.std::atomic.8" = type { %"struct.std::__atomic_base.9" }
 %"struct.std::__atomic_base.9" = type { i64 }
-%"struct.rocksdb::ConcurrentArena::Shard" = type { [40 x i8], %"class.rocksdb::SpinMutex", ptr, %"struct.std::atomic.8" }
 %class.anon = type { ptr, i64 }
 %class.anon.10 = type { ptr, i64, i64, ptr }
 
@@ -59,11 +39,11 @@ $_ZTVN7rocksdb15ConcurrentArenaE = comdat any
 define void @_ZN7rocksdb15ConcurrentArenaC2EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %block_size, ptr noundef %tracker, i64 noundef %huge_page_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 0, inrange i32 0, i64 2), ptr %this, align 16
-  %shard_block_size_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 2
+  %shard_block_size_ = getelementptr inbounds i8, ptr %this, i64 64
   %div2 = lshr i64 %block_size, 3
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %div2, i64 131072)
   store i64 %.sroa.speculated, ptr %shard_block_size_, align 16
-  %shards_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 3
+  %shards_ = getelementptr inbounds i8, ptr %this, i64 72
   store ptr null, ptr %shards_, align 8
   %call.i = tail call noundef i32 @_ZNSt6thread20hardware_concurrencyEv() #11
   br label %while.cond.i
@@ -76,7 +56,7 @@ while.cond.i:                                     ; preds = %while.cond.i, %entr
   br i1 %cmp.i5, label %while.cond.i, label %while.end.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %while.cond.i
-  %size_shift_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 3, i32 1
+  %size_shift_.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %storemerge.i, ptr %size_shift_.i, align 16
   %sh_prom.i = zext nneg i32 %storemerge.i to i64
   %0 = icmp ugt i32 %storemerge.i, 57
@@ -92,11 +72,11 @@ new.ctorloop.i:                                   ; preds = %while.end.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont9.i, %new.ctorloop.i
   %arrayctor.cur.i = phi ptr [ %call7.i, %new.ctorloop.i ], [ %arrayctor.next.i, %invoke.cont9.i ]
-  %mutex.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %arrayctor.cur.i, i64 0, i32 1
+  %mutex.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 40
   store i8 0, ptr %mutex.i.i, align 1
-  %free_begin_.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %arrayctor.cur.i, i64 0, i32 2
+  %free_begin_.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %free_begin_.i.i, i8 0, i64 16, i1 false)
-  %arrayctor.next.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %arrayctor.cur.i, i64 1
+  %arrayctor.next.i = getelementptr inbounds i8, ptr %arrayctor.cur.i, i64 64
   %arrayctor.done.i = icmp eq ptr %arrayctor.next.i, %arrayctor.end.i
   br i1 %arrayctor.done.i, label %arrayctor.cont.i, label %invoke.cont9.i
 
@@ -118,24 +98,24 @@ lpad.i:                                           ; preds = %while.end.i
   br i1 %cmp.not.i.i, label %ehcleanup8, label %ehcleanup8.sink.split
 
 invoke.cont2:                                     ; preds = %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i, %arrayctor.cont.i
-  %arena_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5
+  %arena_ = getelementptr inbounds i8, ptr %this, i64 96
   invoke void @_ZN7rocksdb5ArenaC1EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2288) %arena_, i64 noundef %block_size, ptr noundef %tracker, i64 noundef %huge_page_size)
           to label %invoke.cont7 unwind label %lpad3
 
 invoke.cont7:                                     ; preds = %invoke.cont2
-  %arena_mutex_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 6
+  %arena_mutex_ = getelementptr inbounds i8, ptr %this, i64 2384
   store i8 0, ptr %arena_mutex_, align 16
-  %alloc_bytes_remaining_.i.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 9
+  %alloc_bytes_remaining_.i.i = getelementptr inbounds i8, ptr %this, i64 2352
   %6 = load i64, ptr %alloc_bytes_remaining_.i.i, align 16
-  %arena_allocated_and_unused_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 7
+  %arena_allocated_and_unused_.i = getelementptr inbounds i8, ptr %this, i64 2392
   store atomic i64 %6, ptr %arena_allocated_and_unused_.i monotonic, align 8
-  %blocks_memory_.i.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 11
+  %blocks_memory_.i.i = getelementptr inbounds i8, ptr %this, i64 2368
   %7 = load i64, ptr %blocks_memory_.i.i, align 16
-  %memory_allocated_bytes_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 8
+  %memory_allocated_bytes_.i = getelementptr inbounds i8, ptr %this, i64 2400
   store atomic i64 %7, ptr %memory_allocated_bytes_.i monotonic, align 16
-  %irregular_block_num.i.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 6
+  %irregular_block_num.i.i = getelementptr inbounds i8, ptr %this, i64 2328
   %8 = load i64, ptr %irregular_block_num.i.i, align 8
-  %irregular_block_num_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 9
+  %irregular_block_num_.i = getelementptr inbounds i8, ptr %this, i64 2408
   store atomic i64 %8, ptr %irregular_block_num_.i monotonic, align 8
   ret void
 
@@ -174,7 +154,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call2.i = tail call noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv()
-  %size_shift_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 3, i32 1
+  %size_shift_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %size_shift_.i, align 16
   %1 = load i32, ptr %call2.i, align 4
   %conv.i.i.i = zext i32 %1 to i64
@@ -195,7 +175,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZNK7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEE21AccessElementAndIndexEv.exit
 
 if.else.i:                                        ; preds = %entry
-  %size_shift_4.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 3, i32 1
+  %size_shift_4.i = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load i32, ptr %size_shift_4.i, align 16
   %4 = tail call noundef i32 @llvm.x86.bmi.bzhi.32(i32 %call.i, i32 %3)
   %conv6.i = sext i32 %4 to i64
@@ -204,7 +184,7 @@ if.else.i:                                        ; preds = %entry
 _ZNK7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEE21AccessElementAndIndexEv.exit: ; preds = %if.then.i, %if.else.i
   %5 = phi i32 [ %3, %if.else.i ], [ %.pre, %if.then.i ]
   %storemerge.i = phi i64 [ %conv6.i, %if.else.i ], [ %conv.i, %if.then.i ]
-  %shards_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 3
+  %shards_ = getelementptr inbounds i8, ptr %this, i64 72
   %6 = load ptr, ptr %shards_, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %6, i64 %storemerge.i
   %sh_prom.i = zext nneg i32 %5 to i64
@@ -222,9 +202,9 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 define linkonce_odr void @_ZN7rocksdb15ConcurrentArenaD2Ev(ptr noundef nonnull align 16 dereferenceable(2472) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 0, inrange i32 0, i64 2), ptr %this, align 16
-  %arena_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5
+  %arena_ = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %arena_) #11
-  %shards_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 3
+  %shards_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %shards_, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEED2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i
@@ -242,9 +222,9 @@ _ZN7rocksdb14CoreLocalArrayINS_15ConcurrentArena5ShardEED2Ev.exit: ; preds = %en
 define linkonce_odr void @_ZN7rocksdb15ConcurrentArenaD0Ev(ptr noundef nonnull align 16 dereferenceable(2472) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 0, inrange i32 0, i64 2), ptr %this, align 16
-  %arena_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5
+  %arena_.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i) #11
-  %shards_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 3
+  %shards_.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %shards_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb15ConcurrentArenaD2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb15ConcurrentArena5ShardEEclIS2_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS3_EE5valueEvE4typeEPS7_.exit.i.i.i
@@ -263,7 +243,7 @@ define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena8AllocateEm(ptr nou
 entry:
   %ref.tmp = alloca %class.anon, align 8
   store ptr %this, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds %class.anon, ptr %ref.tmp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %bytes, ptr %0, align 8
   %call = call noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_8AllocateEmEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %bytes, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
   ret ptr %call
@@ -278,11 +258,11 @@ entry:
   %add = add i64 %or, 1
   %cmp = icmp ne i64 %huge_page_size, 0
   store ptr %this, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds %class.anon.10, ptr %ref.tmp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i64 %add, ptr %0, align 8
-  %1 = getelementptr inbounds %class.anon.10, ptr %ref.tmp, i64 0, i32 2
+  %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i64 %huge_page_size, ptr %1, align 8
-  %2 = getelementptr inbounds %class.anon.10, ptr %ref.tmp, i64 0, i32 3
+  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr %logger, ptr %2, align 8
   %call = call noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_15AllocateAlignedEmmPNS_6LoggerEEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %add, i1 noundef zeroext %cmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   ret ptr %call
@@ -291,7 +271,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb15ConcurrentArena9BlockSizeEv(ptr noundef nonnull align 16 dereferenceable(2472) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %kBlockSize.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 3
+  %kBlockSize.i = getelementptr inbounds i8, ptr %this, i64 2160
   %0 = load i64, ptr %kBlockSize.i, align 16
   ret i64 %0
 }
@@ -321,8 +301,8 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_8AllocateEmEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %bytes, i1 noundef zeroext %force_arena, ptr noundef nonnull align 8 dereferenceable(16) %func) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arena_mutex_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 6
-  %shard_block_size_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 2
+  %arena_mutex_ = getelementptr inbounds i8, ptr %this, i64 2384
+  %shard_block_size_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %shard_block_size_, align 16
   %div29 = lshr i64 %0, 2
   %cmp = icmp ult i64 %div29, %bytes
@@ -336,9 +316,9 @@ lor.lhs.false2:                                   ; preds = %entry
   br i1 %cmp3, label %invoke.cont, label %invoke.cont19
 
 invoke.cont:                                      ; preds = %lor.lhs.false2
-  %shards_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 3
+  %shards_ = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %shards_, align 8
-  %allocated_and_unused_ = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %3, i64 0, i32 3
+  %allocated_and_unused_ = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load atomic i64, ptr %allocated_and_unused_ monotonic, align 8
   %tobool5.not = icmp eq i64 %4, 0
   br i1 %tobool5.not, label %if.else4.i, label %invoke.cont19
@@ -381,15 +361,15 @@ for.inc.i.i:                                      ; preds = %if.then2.i.i, %if.e
 
 if.end:                                           ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %invoke.cont7
   %13 = load ptr, ptr %func, align 8
-  %14 = getelementptr inbounds %class.anon, ptr %func, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %func, i64 8
   %15 = load i64, ptr %14, align 8
-  %alloc_bytes_remaining_.i.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %13, i64 0, i32 5, i32 9
+  %alloc_bytes_remaining_.i.i = getelementptr inbounds i8, ptr %13, i64 2352
   %16 = load i64, ptr %alloc_bytes_remaining_.i.i, align 16
   %cmp.not.i.i = icmp ult i64 %16, %15
   br i1 %cmp.not.i.i, label %if.end.i.i45, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %unaligned_alloc_ptr_.i.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %13, i64 0, i32 5, i32 7
+  %unaligned_alloc_ptr_.i.i = getelementptr inbounds i8, ptr %13, i64 2336
   %17 = load ptr, ptr %unaligned_alloc_ptr_.i.i, align 16
   %idx.neg.i.i = sub i64 0, %15
   %add.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 %idx.neg.i.i
@@ -399,43 +379,43 @@ if.then.i.i:                                      ; preds = %if.end
   br label %cleanup74.thread
 
 if.end.i.i45:                                     ; preds = %if.end
-  %arena_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %13, i64 0, i32 5
+  %arena_.i = getelementptr inbounds i8, ptr %13, i64 96
   %call.i.i46 = invoke noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i, i64 noundef %15, i1 noundef zeroext false)
           to label %cleanup74.thread unwind label %if.then3.i.i112
 
 cleanup74.thread:                                 ; preds = %if.end.i.i45, %if.then.i.i
   %retval.0.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %call.i.i46, %if.end.i.i45 ]
-  %alloc_bytes_remaining_.i.i47 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 9
+  %alloc_bytes_remaining_.i.i47 = getelementptr inbounds i8, ptr %this, i64 2352
   %18 = load i64, ptr %alloc_bytes_remaining_.i.i47, align 16
-  %arena_allocated_and_unused_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 7
+  %arena_allocated_and_unused_.i = getelementptr inbounds i8, ptr %this, i64 2392
   store atomic i64 %18, ptr %arena_allocated_and_unused_.i monotonic, align 8
-  %blocks_memory_.i.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 11
+  %blocks_memory_.i.i = getelementptr inbounds i8, ptr %this, i64 2368
   %19 = load i64, ptr %blocks_memory_.i.i, align 16
-  %memory_allocated_bytes_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 8
+  %memory_allocated_bytes_.i = getelementptr inbounds i8, ptr %this, i64 2400
   store atomic i64 %19, ptr %memory_allocated_bytes_.i monotonic, align 16
-  %irregular_block_num.i.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 6
+  %irregular_block_num.i.i = getelementptr inbounds i8, ptr %this, i64 2328
   %20 = load i64, ptr %irregular_block_num.i.i, align 8
-  %irregular_block_num_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 9
+  %irregular_block_num_.i = getelementptr inbounds i8, ptr %this, i64 2408
   store atomic i64 %20, ptr %irregular_block_num_.i monotonic, align 8
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit107
 
 invoke.cont19:                                    ; preds = %if.else4.i, %lor.lhs.false2, %invoke.cont, %invoke.cont7
-  %shards_16 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 3
-  %size_shift_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 3, i32 1
+  %shards_16 = getelementptr inbounds i8, ptr %this, i64 72
+  %size_shift_.i = getelementptr inbounds i8, ptr %this, i64 80
   %21 = load i32, ptr %size_shift_.i, align 16
   %sh_prom.i = zext nneg i32 %21 to i64
   %notmask = shl nsw i64 -1, %sh_prom.i
   %sub = xor i64 %notmask, -1
   %and = and i64 %2, %sub
   %22 = load ptr, ptr %shards_16, align 8
-  %mutex = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %22, i64 %and, i32 1
+  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %22, i64 %and
+  %mutex = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
   %23 = load atomic i8, ptr %mutex monotonic, align 1
   %24 = and i8 %23, 1
   %tobool.i.i.not.i = icmp eq i8 %24, 0
   br i1 %tobool.i.i.not.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit, label %if.then23
 
 _ZN7rocksdb9SpinMutex8try_lockEv.exit:            ; preds = %invoke.cont19
-  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %22, i64 %and
   %25 = cmpxchg weak ptr %mutex, i8 0, i8 1 acquire monotonic, align 1
   %26 = extractvalue { i8, i1 } %25, 1
   br i1 %26, label %if.end28, label %if.then23
@@ -476,11 +456,12 @@ invoke.cont24:                                    ; preds = %if.else.i.i, %if.th
   %32 = phi i32 [ %30, %if.else.i.i ], [ %.pre.i, %if.then.i.i49 ]
   %storemerge.i.i = phi i64 [ %conv6.i.i, %if.else.i.i ], [ %conv.i.i, %if.then.i.i49 ]
   %33 = load ptr, ptr %shards_16, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %33, i64 %storemerge.i.i
   %sh_prom.i.i = zext nneg i32 %32 to i64
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %or.i = or i64 %shl.i.i, %storemerge.i.i
   store i64 %or.i, ptr %1, align 8
-  %mutex26 = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %33, i64 %storemerge.i.i, i32 1
+  %mutex26 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 40
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.inc.i, %invoke.cont24
@@ -493,7 +474,7 @@ for.cond.i:                                       ; preds = %for.inc.i, %invoke.
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.i:          ; preds = %for.cond.i
   %36 = cmpxchg weak ptr %mutex26, i8 0, i8 1 acquire monotonic, align 1
   %37 = extractvalue { i8, i1 } %36, 1
-  br i1 %37, label %if.end28.loopexit, label %if.end.i
+  br i1 %37, label %if.end28, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %for.cond.i
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
@@ -508,14 +489,10 @@ for.inc.i:                                        ; preds = %if.then2.i, %if.end
   %inc.i = add i64 %tries.0.i, 1
   br label %for.cond.i, !llvm.loop !7
 
-if.end28.loopexit:                                ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i
-  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %33, i64 %storemerge.i.i
-  br label %if.end28
-
-if.end28:                                         ; preds = %if.end28.loopexit, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
-  %s.0 = phi ptr [ %arrayidx.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %arrayidx.i.i.i.i, %if.end28.loopexit ]
-  %mutex29 = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %s.0, i64 0, i32 1
-  %allocated_and_unused_31 = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %s.0, i64 0, i32 3
+if.end28:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
+  %s.0 = phi ptr [ %arrayidx.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %arrayidx.i.i.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
+  %mutex29 = getelementptr inbounds i8, ptr %s.0, i64 40
+  %allocated_and_unused_31 = getelementptr inbounds i8, ptr %s.0, i64 56
   %38 = load atomic i64, ptr %allocated_and_unused_31 monotonic, align 8
   %cmp33 = icmp ult i64 %38, %bytes
   br i1 %cmp33, label %for.cond.i.i55, label %if.end61
@@ -546,19 +523,19 @@ for.inc.i.i60:                                    ; preds = %if.then2.i.i62, %if
   br label %for.cond.i.i55, !llvm.loop !7
 
 invoke.cont37:                                    ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i64
-  %arena_allocated_and_unused_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 7
+  %arena_allocated_and_unused_ = getelementptr inbounds i8, ptr %this, i64 2392
   %43 = load atomic i64, ptr %arena_allocated_and_unused_ monotonic, align 8
   %cmp39.not = icmp ult i64 %43, %bytes
   br i1 %cmp39.not, label %if.end49, label %land.lhs.true40
 
 land.lhs.true40:                                  ; preds = %invoke.cont37
-  %_M_finish.i.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 4, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 2216
+  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 2184
   %44 = load ptr, ptr %_M_finish.i.i, align 8
   %45 = load ptr, ptr %_M_start.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %44, %45
-  %_M_finish.i1.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 5, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i2.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i1.i = getelementptr inbounds i8, ptr %this, i64 2296
+  %_M_start.i2.i = getelementptr inbounds i8, ptr %this, i64 2264
   %46 = load ptr, ptr %_M_finish.i1.i, align 8
   %47 = load ptr, ptr %_M_start.i2.i, align 8
   %cmp.i.i3.i = icmp eq ptr %46, %47
@@ -567,15 +544,15 @@ land.lhs.true40:                                  ; preds = %invoke.cont37
 
 if.then44:                                        ; preds = %land.lhs.true40
   %49 = load ptr, ptr %func, align 8
-  %50 = getelementptr inbounds %class.anon, ptr %func, i64 0, i32 1
+  %50 = getelementptr inbounds i8, ptr %func, i64 8
   %51 = load i64, ptr %50, align 8
-  %alloc_bytes_remaining_.i.i65 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %49, i64 0, i32 5, i32 9
+  %alloc_bytes_remaining_.i.i65 = getelementptr inbounds i8, ptr %49, i64 2352
   %52 = load i64, ptr %alloc_bytes_remaining_.i.i65, align 16
   %cmp.not.i.i66 = icmp ult i64 %52, %51
   br i1 %cmp.not.i.i66, label %if.end.i.i73, label %if.then.i.i67
 
 if.then.i.i67:                                    ; preds = %if.then44
-  %unaligned_alloc_ptr_.i.i68 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %49, i64 0, i32 5, i32 7
+  %unaligned_alloc_ptr_.i.i68 = getelementptr inbounds i8, ptr %49, i64 2336
   %53 = load ptr, ptr %unaligned_alloc_ptr_.i.i68, align 16
   %idx.neg.i.i69 = sub i64 0, %51
   %add.ptr.i.i70 = getelementptr inbounds i8, ptr %53, i64 %idx.neg.i.i69
@@ -585,7 +562,7 @@ if.then.i.i67:                                    ; preds = %if.then44
   br label %cleanup
 
 if.end.i.i73:                                     ; preds = %if.then44
-  %arena_.i74 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %49, i64 0, i32 5
+  %arena_.i74 = getelementptr inbounds i8, ptr %49, i64 96
   %call.i.i76 = invoke noundef ptr @_ZN7rocksdb5Arena16AllocateFallbackEmb(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i74, i64 noundef %51, i1 noundef zeroext false)
           to label %cleanup unwind label %ehcleanup75.thread
 
@@ -603,39 +580,39 @@ if.end49:                                         ; preds = %land.lhs.true40, %i
   %cmp55 = icmp ult i64 %43, %mul
   %or.cond = and i1 %cmp52.not, %cmp55
   %cond = select i1 %or.cond, i64 %43, i64 %55
-  %arena_57 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5
+  %arena_57 = getelementptr inbounds i8, ptr %this, i64 96
   %call59 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_57, i64 noundef %cond, i64 noundef 0, ptr noundef null)
           to label %cleanup.thread unwind label %ehcleanup75.thread
 
 cleanup.thread:                                   ; preds = %if.end49
-  %free_begin_ = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %s.0, i64 0, i32 2
+  %free_begin_ = getelementptr inbounds i8, ptr %s.0, i64 48
   store ptr %call59, ptr %free_begin_, align 8
-  %alloc_bytes_remaining_.i.i84 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 9
+  %alloc_bytes_remaining_.i.i84 = getelementptr inbounds i8, ptr %this, i64 2352
   %56 = load i64, ptr %alloc_bytes_remaining_.i.i84, align 16
   store atomic i64 %56, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i86 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 11
+  %blocks_memory_.i.i86 = getelementptr inbounds i8, ptr %this, i64 2368
   %57 = load i64, ptr %blocks_memory_.i.i86, align 16
-  %memory_allocated_bytes_.i87 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 8
+  %memory_allocated_bytes_.i87 = getelementptr inbounds i8, ptr %this, i64 2400
   store atomic i64 %57, ptr %memory_allocated_bytes_.i87 monotonic, align 16
-  %irregular_block_num.i.i88 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 6
+  %irregular_block_num.i.i88 = getelementptr inbounds i8, ptr %this, i64 2328
   %58 = load i64, ptr %irregular_block_num.i.i88, align 8
-  %irregular_block_num_.i89 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 9
+  %irregular_block_num_.i89 = getelementptr inbounds i8, ptr %this, i64 2408
   store atomic i64 %58, ptr %irregular_block_num_.i89 monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %if.end61
 
 cleanup:                                          ; preds = %if.end.i.i73, %if.then.i.i67
   %retval.0.i.i72 = phi ptr [ %add.ptr.i.i70, %if.then.i.i67 ], [ %call.i.i76, %if.end.i.i73 ]
-  %alloc_bytes_remaining_.i.i78 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 9
+  %alloc_bytes_remaining_.i.i78 = getelementptr inbounds i8, ptr %this, i64 2352
   %59 = load i64, ptr %alloc_bytes_remaining_.i.i78, align 16
   store atomic i64 %59, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i80 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 11
+  %blocks_memory_.i.i80 = getelementptr inbounds i8, ptr %this, i64 2368
   %60 = load i64, ptr %blocks_memory_.i.i80, align 16
-  %memory_allocated_bytes_.i81 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 8
+  %memory_allocated_bytes_.i81 = getelementptr inbounds i8, ptr %this, i64 2400
   store atomic i64 %60, ptr %memory_allocated_bytes_.i81 monotonic, align 16
-  %irregular_block_num.i.i82 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 6
+  %irregular_block_num.i.i82 = getelementptr inbounds i8, ptr %this, i64 2328
   %61 = load i64, ptr %irregular_block_num.i.i82, align 8
-  %irregular_block_num_.i83 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 9
+  %irregular_block_num_.i83 = getelementptr inbounds i8, ptr %this, i64 2408
   store atomic i64 %61, ptr %irregular_block_num_.i83 monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit107
@@ -646,7 +623,7 @@ if.end61:                                         ; preds = %cleanup.thread, %if
   store atomic i64 %sub63, ptr %allocated_and_unused_31 monotonic, align 8
   %rem = and i64 %bytes, 7
   %cmp65 = icmp eq i64 %rem, 0
-  %free_begin_67 = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %s.0, i64 0, i32 2
+  %free_begin_67 = getelementptr inbounds i8, ptr %s.0, i64 48
   %62 = load ptr, ptr %free_begin_67, align 8
   br i1 %cmp65, label %if.then66, label %if.else
 
@@ -689,8 +666,8 @@ declare i32 @sched_yield() local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN7rocksdb15ConcurrentArena12AllocateImplIZNS0_15AllocateAlignedEmmPNS_6LoggerEEUlvE_EEPcmbRKT_(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %bytes, i1 noundef zeroext %force_arena, ptr noundef nonnull align 8 dereferenceable(32) %func) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arena_mutex_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 6
-  %shard_block_size_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 2
+  %arena_mutex_ = getelementptr inbounds i8, ptr %this, i64 2384
+  %shard_block_size_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %shard_block_size_, align 16
   %div29 = lshr i64 %0, 2
   %cmp = icmp ult i64 %div29, %bytes
@@ -704,9 +681,9 @@ lor.lhs.false2:                                   ; preds = %entry
   br i1 %cmp3, label %invoke.cont, label %invoke.cont19
 
 invoke.cont:                                      ; preds = %lor.lhs.false2
-  %shards_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 3
+  %shards_ = getelementptr inbounds i8, ptr %this, i64 72
   %3 = load ptr, ptr %shards_, align 8
-  %allocated_and_unused_ = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %3, i64 0, i32 3
+  %allocated_and_unused_ = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load atomic i64, ptr %allocated_and_unused_ monotonic, align 8
   %tobool5.not = icmp eq i64 %4, 0
   br i1 %tobool5.not, label %if.else4.i, label %invoke.cont19
@@ -749,48 +726,48 @@ for.inc.i.i:                                      ; preds = %if.then2.i.i, %if.e
 
 if.end:                                           ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i, %invoke.cont7
   %13 = load ptr, ptr %func, align 8
-  %arena_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %13, i64 0, i32 5
-  %14 = getelementptr inbounds %class.anon.10, ptr %func, i64 0, i32 1
+  %arena_.i = getelementptr inbounds i8, ptr %13, i64 96
+  %14 = getelementptr inbounds i8, ptr %func, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds %class.anon.10, ptr %func, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %func, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds %class.anon.10, ptr %func, i64 0, i32 3
+  %18 = getelementptr inbounds i8, ptr %func, i64 24
   %19 = load ptr, ptr %18, align 8
   %call.i4546 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i, i64 noundef %15, i64 noundef %17, ptr noundef %19)
           to label %cleanup72.thread unwind label %if.then3.i.i100
 
 cleanup72.thread:                                 ; preds = %if.end
-  %alloc_bytes_remaining_.i.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 9
+  %alloc_bytes_remaining_.i.i = getelementptr inbounds i8, ptr %this, i64 2352
   %20 = load i64, ptr %alloc_bytes_remaining_.i.i, align 16
-  %arena_allocated_and_unused_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 7
+  %arena_allocated_and_unused_.i = getelementptr inbounds i8, ptr %this, i64 2392
   store atomic i64 %20, ptr %arena_allocated_and_unused_.i monotonic, align 8
-  %blocks_memory_.i.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 11
+  %blocks_memory_.i.i = getelementptr inbounds i8, ptr %this, i64 2368
   %21 = load i64, ptr %blocks_memory_.i.i, align 16
-  %memory_allocated_bytes_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 8
+  %memory_allocated_bytes_.i = getelementptr inbounds i8, ptr %this, i64 2400
   store atomic i64 %21, ptr %memory_allocated_bytes_.i monotonic, align 16
-  %irregular_block_num.i.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 6
+  %irregular_block_num.i.i = getelementptr inbounds i8, ptr %this, i64 2328
   %22 = load i64, ptr %irregular_block_num.i.i, align 8
-  %irregular_block_num_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 9
+  %irregular_block_num_.i = getelementptr inbounds i8, ptr %this, i64 2408
   store atomic i64 %22, ptr %irregular_block_num_.i monotonic, align 8
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit95
 
 invoke.cont19:                                    ; preds = %if.else4.i, %lor.lhs.false2, %invoke.cont, %invoke.cont7
-  %shards_16 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 3
-  %size_shift_.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 3, i32 1
+  %shards_16 = getelementptr inbounds i8, ptr %this, i64 72
+  %size_shift_.i = getelementptr inbounds i8, ptr %this, i64 80
   %23 = load i32, ptr %size_shift_.i, align 16
   %sh_prom.i = zext nneg i32 %23 to i64
   %notmask = shl nsw i64 -1, %sh_prom.i
   %sub = xor i64 %notmask, -1
   %and = and i64 %2, %sub
   %24 = load ptr, ptr %shards_16, align 8
-  %mutex = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %24, i64 %and, i32 1
+  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %24, i64 %and
+  %mutex = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 40
   %25 = load atomic i8, ptr %mutex monotonic, align 1
   %26 = and i8 %25, 1
   %tobool.i.i.not.i = icmp eq i8 %26, 0
   br i1 %tobool.i.i.not.i, label %_ZN7rocksdb9SpinMutex8try_lockEv.exit, label %if.then22
 
 _ZN7rocksdb9SpinMutex8try_lockEv.exit:            ; preds = %invoke.cont19
-  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %24, i64 %and
   %27 = cmpxchg weak ptr %mutex, i8 0, i8 1 acquire monotonic, align 1
   %28 = extractvalue { i8, i1 } %27, 1
   br i1 %28, label %if.end27, label %if.then22
@@ -831,11 +808,12 @@ invoke.cont23:                                    ; preds = %if.else.i.i, %if.th
   %34 = phi i32 [ %32, %if.else.i.i ], [ %.pre.i, %if.then.i.i ]
   %storemerge.i.i = phi i64 [ %conv6.i.i, %if.else.i.i ], [ %conv.i.i, %if.then.i.i ]
   %35 = load ptr, ptr %shards_16, align 8
+  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %35, i64 %storemerge.i.i
   %sh_prom.i.i = zext nneg i32 %34 to i64
   %shl.i.i = shl nuw i64 1, %sh_prom.i.i
   %or.i = or i64 %shl.i.i, %storemerge.i.i
   store i64 %or.i, ptr %1, align 8
-  %mutex25 = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %35, i64 %storemerge.i.i, i32 1
+  %mutex25 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 40
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.inc.i, %invoke.cont23
@@ -848,7 +826,7 @@ for.cond.i:                                       ; preds = %for.inc.i, %invoke.
 _ZN7rocksdb9SpinMutex8try_lockEv.exit.i:          ; preds = %for.cond.i
   %38 = cmpxchg weak ptr %mutex25, i8 0, i8 1 acquire monotonic, align 1
   %39 = extractvalue { i8, i1 } %38, 1
-  br i1 %39, label %if.end27.loopexit, label %if.end.i
+  br i1 %39, label %if.end27, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %for.cond.i
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
@@ -863,14 +841,10 @@ for.inc.i:                                        ; preds = %if.then2.i, %if.end
   %inc.i = add i64 %tries.0.i, 1
   br label %for.cond.i, !llvm.loop !7
 
-if.end27.loopexit:                                ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i
-  %arrayidx.i.i.i.i = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %35, i64 %storemerge.i.i
-  br label %if.end27
-
-if.end27:                                         ; preds = %if.end27.loopexit, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
-  %s.0 = phi ptr [ %arrayidx.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %arrayidx.i.i.i.i, %if.end27.loopexit ]
-  %mutex28 = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %s.0, i64 0, i32 1
-  %allocated_and_unused_30 = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %s.0, i64 0, i32 3
+if.end27:                                         ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit
+  %s.0 = phi ptr [ %arrayidx.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit ], [ %arrayidx.i.i.i.i, %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i ]
+  %mutex28 = getelementptr inbounds i8, ptr %s.0, i64 40
+  %allocated_and_unused_30 = getelementptr inbounds i8, ptr %s.0, i64 56
   %40 = load atomic i64, ptr %allocated_and_unused_30 monotonic, align 8
   %cmp32 = icmp ult i64 %40, %bytes
   br i1 %cmp32, label %for.cond.i.i52, label %if.end59
@@ -901,19 +875,19 @@ for.inc.i.i57:                                    ; preds = %if.then2.i.i59, %if
   br label %for.cond.i.i52, !llvm.loop !7
 
 invoke.cont36:                                    ; preds = %_ZN7rocksdb9SpinMutex8try_lockEv.exit.i.i61
-  %arena_allocated_and_unused_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 7
+  %arena_allocated_and_unused_ = getelementptr inbounds i8, ptr %this, i64 2392
   %45 = load atomic i64, ptr %arena_allocated_and_unused_ monotonic, align 8
   %cmp38.not = icmp ult i64 %45, %bytes
   br i1 %cmp38.not, label %if.end47, label %land.lhs.true39
 
 land.lhs.true39:                                  ; preds = %invoke.cont36
-  %_M_finish.i.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 4, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 4, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 2216
+  %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 2184
   %46 = load ptr, ptr %_M_finish.i.i, align 8
   %47 = load ptr, ptr %_M_start.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %46, %47
-  %_M_finish.i1.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 5, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i2.i = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 5, i32 0, i32 0, i32 0, i32 2
+  %_M_finish.i1.i = getelementptr inbounds i8, ptr %this, i64 2296
+  %_M_start.i2.i = getelementptr inbounds i8, ptr %this, i64 2264
   %48 = load ptr, ptr %_M_finish.i1.i, align 8
   %49 = load ptr, ptr %_M_start.i2.i, align 8
   %cmp.i.i3.i = icmp eq ptr %48, %49
@@ -922,12 +896,12 @@ land.lhs.true39:                                  ; preds = %invoke.cont36
 
 if.then41:                                        ; preds = %land.lhs.true39
   %51 = load ptr, ptr %func, align 8
-  %arena_.i62 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %51, i64 0, i32 5
-  %52 = getelementptr inbounds %class.anon.10, ptr %func, i64 0, i32 1
+  %arena_.i62 = getelementptr inbounds i8, ptr %51, i64 96
+  %52 = getelementptr inbounds i8, ptr %func, i64 8
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds %class.anon.10, ptr %func, i64 0, i32 2
+  %54 = getelementptr inbounds i8, ptr %func, i64 16
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds %class.anon.10, ptr %func, i64 0, i32 3
+  %56 = getelementptr inbounds i8, ptr %func, i64 24
   %57 = load ptr, ptr %56, align 8
   %call.i6364 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_.i62, i64 noundef %53, i64 noundef %55, ptr noundef %57)
           to label %cleanup unwind label %ehcleanup73.thread
@@ -946,38 +920,38 @@ if.end47:                                         ; preds = %land.lhs.true39, %i
   %cmp53 = icmp ult i64 %45, %mul
   %or.cond = and i1 %cmp50.not, %cmp53
   %cond = select i1 %or.cond, i64 %45, i64 %59
-  %arena_55 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5
+  %arena_55 = getelementptr inbounds i8, ptr %this, i64 96
   %call57 = invoke noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr noundef nonnull align 16 dereferenceable(2288) %arena_55, i64 noundef %cond, i64 noundef 0, ptr noundef null)
           to label %cleanup.thread unwind label %ehcleanup73.thread
 
 cleanup.thread:                                   ; preds = %if.end47
-  %free_begin_ = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %s.0, i64 0, i32 2
+  %free_begin_ = getelementptr inbounds i8, ptr %s.0, i64 48
   store ptr %call57, ptr %free_begin_, align 8
-  %alloc_bytes_remaining_.i.i72 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 9
+  %alloc_bytes_remaining_.i.i72 = getelementptr inbounds i8, ptr %this, i64 2352
   %60 = load i64, ptr %alloc_bytes_remaining_.i.i72, align 16
   store atomic i64 %60, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i74 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 11
+  %blocks_memory_.i.i74 = getelementptr inbounds i8, ptr %this, i64 2368
   %61 = load i64, ptr %blocks_memory_.i.i74, align 16
-  %memory_allocated_bytes_.i75 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 8
+  %memory_allocated_bytes_.i75 = getelementptr inbounds i8, ptr %this, i64 2400
   store atomic i64 %61, ptr %memory_allocated_bytes_.i75 monotonic, align 16
-  %irregular_block_num.i.i76 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 6
+  %irregular_block_num.i.i76 = getelementptr inbounds i8, ptr %this, i64 2328
   %62 = load i64, ptr %irregular_block_num.i.i76, align 8
-  %irregular_block_num_.i77 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 9
+  %irregular_block_num_.i77 = getelementptr inbounds i8, ptr %this, i64 2408
   store atomic i64 %62, ptr %irregular_block_num_.i77 monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %if.end59
 
 cleanup:                                          ; preds = %if.then41
-  %alloc_bytes_remaining_.i.i66 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 9
+  %alloc_bytes_remaining_.i.i66 = getelementptr inbounds i8, ptr %this, i64 2352
   %63 = load i64, ptr %alloc_bytes_remaining_.i.i66, align 16
   store atomic i64 %63, ptr %arena_allocated_and_unused_ monotonic, align 8
-  %blocks_memory_.i.i68 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 11
+  %blocks_memory_.i.i68 = getelementptr inbounds i8, ptr %this, i64 2368
   %64 = load i64, ptr %blocks_memory_.i.i68, align 16
-  %memory_allocated_bytes_.i69 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 8
+  %memory_allocated_bytes_.i69 = getelementptr inbounds i8, ptr %this, i64 2400
   store atomic i64 %64, ptr %memory_allocated_bytes_.i69 monotonic, align 16
-  %irregular_block_num.i.i70 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 5, i32 6
+  %irregular_block_num.i.i70 = getelementptr inbounds i8, ptr %this, i64 2328
   %65 = load i64, ptr %irregular_block_num.i.i70, align 8
-  %irregular_block_num_.i71 = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this, i64 0, i32 9
+  %irregular_block_num_.i71 = getelementptr inbounds i8, ptr %this, i64 2408
   store atomic i64 %65, ptr %irregular_block_num_.i71 monotonic, align 8
   store atomic i8 0, ptr %arena_mutex_ release, align 16
   br label %_ZNSt11unique_lockIN7rocksdb9SpinMutexEED2Ev.exit95
@@ -988,7 +962,7 @@ if.end59:                                         ; preds = %cleanup.thread, %if
   store atomic i64 %sub61, ptr %allocated_and_unused_30 monotonic, align 8
   %rem = and i64 %bytes, 7
   %cmp63 = icmp eq i64 %rem, 0
-  %free_begin_65 = getelementptr inbounds %"struct.rocksdb::ConcurrentArena::Shard", ptr %s.0, i64 0, i32 2
+  %free_begin_65 = getelementptr inbounds i8, ptr %s.0, i64 48
   %66 = load ptr, ptr %free_begin_65, align 8
   br i1 %cmp63, label %if.then64, label %if.else
 

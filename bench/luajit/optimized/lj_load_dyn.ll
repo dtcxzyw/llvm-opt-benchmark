@@ -7,21 +7,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.TValue = type { i64 }
 %struct.SBuf = type { ptr, ptr, ptr, %struct.MRef }
 %struct.MRef = type { i64 }
-%struct.lua_State = type { %struct.GCRef, i8, i8, i8, i8, %struct.MRef, %struct.GCRef, ptr, ptr, %struct.MRef, %struct.MRef, %struct.GCRef, %struct.GCRef, ptr, i32 }
-%struct.GCRef = type { i64 }
-%struct.global_State = type { ptr, ptr, %struct.GCState, %struct.GCstr, i8, i8, i8, i8, %struct.StrInternState, i32, %struct.GCRef, %struct.SBuf, %union.TValue, %union.TValue, %struct.Node, %union.TValue, %struct.GCupval, i32, i32, ptr, ptr, ptr, i32, i32, %struct.GCRef, %struct.MRef, %struct.MRef, %struct.PRNGState, [38 x %struct.GCRef] }
-%struct.GCState = type { i64, i64, i8, i8, i8, i8, i32, %struct.GCRef, %struct.MRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, %struct.GCRef, i64, i64, i32, i32, %struct.MRef }
-%struct.GCstr = type { %struct.GCRef, i8, i8, i8, i8, i32, i32, i32 }
-%struct.StrInternState = type { ptr, i32, i32, i32, i8, i8, i8, i8, i64 }
-%struct.Node = type { %union.TValue, %union.TValue, %struct.MRef }
-%struct.GCupval = type { %struct.GCRef, i8, i8, i8, i8, %union.anon, %struct.MRef, i32 }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { %struct.GCRef, %struct.GCRef }
-%struct.PRNGState = type { [4 x i64] }
 %struct.FileReaderCtx = type { ptr, [8192 x i8] }
 %struct.StringReaderCtx = type { ptr, i64 }
-%struct.GCfuncC = type { %struct.GCRef, i8, i8, i8, i8, %struct.GCRef, %struct.GCRef, %struct.MRef, ptr, [1 x %union.TValue] }
-%struct.GCfuncL = type { %struct.GCRef, i8, i8, i8, i8, %struct.GCRef, %struct.GCRef, %struct.MRef, [1 x %struct.GCRef] }
 
 @.str = private unnamed_addr constant [2 x i8] c"?\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"rb\00", align 1
@@ -35,29 +22,29 @@ target triple = "x86_64-unknown-linux-gnu"
 define i32 @lua_loadx(ptr noundef %L, ptr noundef %reader, ptr noundef %data, ptr noundef %chunkname, ptr noundef %mode) local_unnamed_addr #0 {
 entry:
   %ls = alloca %struct.LexState, align 8
-  %rfunc = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 10
+  %rfunc = getelementptr inbounds i8, ptr %ls, i64 96
   store ptr %reader, ptr %rfunc, align 8
-  %rdata = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 11
+  %rdata = getelementptr inbounds i8, ptr %ls, i64 104
   store ptr %data, ptr %rdata, align 8
   %tobool.not = icmp eq ptr %chunkname, null
   %cond = select i1 %tobool.not, ptr @.str, ptr %chunkname
-  %chunkarg = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 15
+  %chunkarg = getelementptr inbounds i8, ptr %ls, i64 128
   store ptr %cond, ptr %chunkarg, align 8
-  %mode1 = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 16
+  %mode1 = getelementptr inbounds i8, ptr %ls, i64 136
   store ptr %mode, ptr %mode1, align 8
-  %sb = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9
+  %sb = getelementptr inbounds i8, ptr %ls, i64 64
   %0 = ptrtoint ptr %L to i64
-  %L1.i = getelementptr inbounds %struct.LexState, ptr %ls, i64 0, i32 9, i32 3
+  %L1.i = getelementptr inbounds i8, ptr %ls, i64 88
   store i64 %0, ptr %L1.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, i8 0, i64 24, i1 false)
   %call = call i32 @lj_vm_cpcall(ptr noundef %L, ptr noundef null, ptr noundef nonnull %ls, ptr noundef nonnull @cpparser) #12
   call void @lj_lex_cleanup(ptr noundef %L, ptr noundef nonnull %ls) #12
-  %glref = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref = getelementptr inbounds i8, ptr %L, i64 16
   %1 = load i64, ptr %glref, align 8
   %2 = inttoptr i64 %1 to ptr
-  %gc = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 2
+  %gc = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i64, ptr %gc, align 8
-  %threshold = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 2, i32 1
+  %threshold = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i64, ptr %threshold, align 8
   %cmp.not = icmp ult i64 %3, %4
   br i1 %cmp.not, label %if.end, label %if.then
@@ -75,12 +62,12 @@ declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @cpparser(ptr noundef %L, ptr nocapture readnone %dummy, ptr noundef %ud) #0 {
 entry:
-  %cframe = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 13
+  %cframe = getelementptr inbounds i8, ptr %L, i64 80
   %0 = load ptr, ptr %cframe, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 12
   store i32 -1, ptr %add.ptr, align 4
   %call = tail call i32 @lj_lex_setup(ptr noundef %L, ptr noundef %ud) #12
-  %mode = getelementptr inbounds %struct.LexState, ptr %ud, i64 0, i32 16
+  %mode = getelementptr inbounds i8, ptr %ud, i64 136
   %1 = load ptr, ptr %mode, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -93,9 +80,9 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool4.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   %2 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %2, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
   %call5 = tail call ptr @lj_err_str(ptr noundef nonnull %L, i32 noundef 2120) #12
   %3 = ptrtoint ptr %call5 to i64
@@ -118,13 +105,13 @@ cond.false:                                       ; preds = %if.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond9 = phi ptr [ %call7, %cond.true ], [ %call8, %cond.false ]
-  %env = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 12
+  %env = getelementptr inbounds i8, ptr %L, i64 72
   %4 = load i64, ptr %env, align 8
   %5 = inttoptr i64 %4 to ptr
   %call10 = tail call ptr @lj_func_newL_empty(ptr noundef nonnull %L, ptr noundef %cond9, ptr noundef %5) #12
-  %top11 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top11 = getelementptr inbounds i8, ptr %L, i64 40
   %6 = load ptr, ptr %top11, align 8
-  %incdec.ptr12 = getelementptr inbounds %union.TValue, ptr %6, i64 1
+  %incdec.ptr12 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %incdec.ptr12, ptr %top11, align 8
   %7 = ptrtoint ptr %call10 to i64
   %or.i30 = or i64 %7, -1266637395197952
@@ -141,29 +128,29 @@ define i32 @lua_load(ptr noundef %L, ptr noundef %reader, ptr noundef %data, ptr
 entry:
   %ls.i = alloca %struct.LexState, align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %ls.i)
-  %rfunc.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 10
+  %rfunc.i = getelementptr inbounds i8, ptr %ls.i, i64 96
   store ptr %reader, ptr %rfunc.i, align 8
-  %rdata.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 11
+  %rdata.i = getelementptr inbounds i8, ptr %ls.i, i64 104
   store ptr %data, ptr %rdata.i, align 8
   %tobool.not.i = icmp eq ptr %chunkname, null
   %cond.i = select i1 %tobool.not.i, ptr @.str, ptr %chunkname
-  %chunkarg.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 15
+  %chunkarg.i = getelementptr inbounds i8, ptr %ls.i, i64 128
   store ptr %cond.i, ptr %chunkarg.i, align 8
-  %mode1.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 16
+  %mode1.i = getelementptr inbounds i8, ptr %ls.i, i64 136
   store ptr null, ptr %mode1.i, align 8
-  %sb.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 9
+  %sb.i = getelementptr inbounds i8, ptr %ls.i, i64 64
   %0 = ptrtoint ptr %L to i64
-  %L1.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 9, i32 3
+  %L1.i.i = getelementptr inbounds i8, ptr %ls.i, i64 88
   store i64 %0, ptr %L1.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i, i8 0, i64 24, i1 false)
   %call.i = call i32 @lj_vm_cpcall(ptr noundef %L, ptr noundef null, ptr noundef nonnull %ls.i, ptr noundef nonnull @cpparser) #12
   call void @lj_lex_cleanup(ptr noundef %L, ptr noundef nonnull %ls.i) #12
-  %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref.i = getelementptr inbounds i8, ptr %L, i64 16
   %1 = load i64, ptr %glref.i, align 8
   %2 = inttoptr i64 %1 to ptr
-  %gc.i = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 2
+  %gc.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i64, ptr %gc.i, align 8
-  %threshold.i = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 2, i32 1
+  %threshold.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i64, ptr %threshold.i, align 8
   %cmp.not.i = icmp ult i64 %3, %4
   br i1 %cmp.not.i, label %lua_loadx.exit, label %if.then.i
@@ -210,29 +197,29 @@ if.else:                                          ; preds = %entry
 if.end8:                                          ; preds = %if.else, %if.end
   %chunkname.0 = phi ptr [ %call6, %if.end ], [ @.str.4, %if.else ]
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %ls.i)
-  %rfunc.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 10
+  %rfunc.i = getelementptr inbounds i8, ptr %ls.i, i64 96
   store ptr @reader_file, ptr %rfunc.i, align 8
-  %rdata.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 11
+  %rdata.i = getelementptr inbounds i8, ptr %ls.i, i64 104
   store ptr %ctx, ptr %rdata.i, align 8
   %tobool.not.i = icmp eq ptr %chunkname.0, null
   %cond.i = select i1 %tobool.not.i, ptr @.str, ptr %chunkname.0
-  %chunkarg.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 15
+  %chunkarg.i = getelementptr inbounds i8, ptr %ls.i, i64 128
   store ptr %cond.i, ptr %chunkarg.i, align 8
-  %mode1.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 16
+  %mode1.i = getelementptr inbounds i8, ptr %ls.i, i64 136
   store ptr %mode, ptr %mode1.i, align 8
-  %sb.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 9
+  %sb.i = getelementptr inbounds i8, ptr %ls.i, i64 64
   %2 = ptrtoint ptr %L to i64
-  %L1.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 9, i32 3
+  %L1.i.i = getelementptr inbounds i8, ptr %ls.i, i64 88
   store i64 %2, ptr %L1.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i, i8 0, i64 24, i1 false)
   %call.i = call i32 @lj_vm_cpcall(ptr noundef %L, ptr noundef null, ptr noundef nonnull %ls.i, ptr noundef nonnull @cpparser) #12
   call void @lj_lex_cleanup(ptr noundef %L, ptr noundef nonnull %ls.i) #12
-  %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref.i = getelementptr inbounds i8, ptr %L, i64 16
   %3 = load i64, ptr %glref.i, align 8
   %4 = inttoptr i64 %3 to ptr
-  %gc.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 2
+  %gc.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load i64, ptr %gc.i, align 8
-  %threshold.i = getelementptr inbounds %struct.global_State, ptr %4, i64 0, i32 2, i32 1
+  %threshold.i = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load i64, ptr %threshold.i, align 8
   %cmp.not.i = icmp ult i64 %5, %6
   br i1 %cmp.not.i, label %lua_loadx.exit, label %if.then.i
@@ -249,7 +236,7 @@ lua_loadx.exit:                                   ; preds = %if.end8, %if.then.i
   br i1 %tobool12.not, label %if.end24, label %if.then13
 
 if.then13:                                        ; preds = %lua_loadx.exit
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   %8 = load ptr, ptr %top, align 8
   %idx.ext.neg = select i1 %tobool.not, i64 -1, i64 -2
   %add.ptr = getelementptr inbounds %union.TValue, ptr %8, i64 %idx.ext.neg
@@ -270,11 +257,11 @@ if.end24:                                         ; preds = %lua_loadx.exit
   br i1 %tobool.not, label %return, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
-  %top27 = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top27 = getelementptr inbounds i8, ptr %L, i64 40
   %11 = load ptr, ptr %top27, align 8
-  %incdec.ptr = getelementptr inbounds %union.TValue, ptr %11, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %11, i64 -8
   store ptr %incdec.ptr, ptr %top27, align 8
-  %add.ptr29 = getelementptr inbounds %union.TValue, ptr %11, i64 -2
+  %add.ptr29 = getelementptr inbounds i8, ptr %11, i64 -16
   %12 = load i64, ptr %incdec.ptr, align 8
   store i64 %12, ptr %add.ptr29, align 8
   %13 = load ptr, ptr %ctx, align 8
@@ -306,7 +293,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %buf = getelementptr inbounds %struct.FileReaderCtx, ptr %ud, i64 0, i32 1
+  %buf = getelementptr inbounds i8, ptr %ud, i64 8
   %1 = load ptr, ptr %ud, align 8
   %call2 = tail call i64 @fread(ptr noundef nonnull %buf, i64 noundef 1, i64 noundef 8192, ptr noundef %1)
   store i64 %call2, ptr %size, align 8
@@ -338,32 +325,32 @@ entry:
   %ls.i = alloca %struct.LexState, align 8
   %ctx = alloca %struct.StringReaderCtx, align 8
   store ptr %buf, ptr %ctx, align 8
-  %size1 = getelementptr inbounds %struct.StringReaderCtx, ptr %ctx, i64 0, i32 1
+  %size1 = getelementptr inbounds i8, ptr %ctx, i64 8
   store i64 %size, ptr %size1, align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %ls.i)
-  %rfunc.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 10
+  %rfunc.i = getelementptr inbounds i8, ptr %ls.i, i64 96
   store ptr @reader_string, ptr %rfunc.i, align 8
-  %rdata.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 11
+  %rdata.i = getelementptr inbounds i8, ptr %ls.i, i64 104
   store ptr %ctx, ptr %rdata.i, align 8
   %tobool.not.i = icmp eq ptr %name, null
   %cond.i = select i1 %tobool.not.i, ptr @.str, ptr %name
-  %chunkarg.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 15
+  %chunkarg.i = getelementptr inbounds i8, ptr %ls.i, i64 128
   store ptr %cond.i, ptr %chunkarg.i, align 8
-  %mode1.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 16
+  %mode1.i = getelementptr inbounds i8, ptr %ls.i, i64 136
   store ptr %mode, ptr %mode1.i, align 8
-  %sb.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 9
+  %sb.i = getelementptr inbounds i8, ptr %ls.i, i64 64
   %0 = ptrtoint ptr %L to i64
-  %L1.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i, i64 0, i32 9, i32 3
+  %L1.i.i = getelementptr inbounds i8, ptr %ls.i, i64 88
   store i64 %0, ptr %L1.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i, i8 0, i64 24, i1 false)
   %call.i = call i32 @lj_vm_cpcall(ptr noundef %L, ptr noundef null, ptr noundef nonnull %ls.i, ptr noundef nonnull @cpparser) #12
   call void @lj_lex_cleanup(ptr noundef %L, ptr noundef nonnull %ls.i) #12
-  %glref.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref.i = getelementptr inbounds i8, ptr %L, i64 16
   %1 = load i64, ptr %glref.i, align 8
   %2 = inttoptr i64 %1 to ptr
-  %gc.i = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 2
+  %gc.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i64, ptr %gc.i, align 8
-  %threshold.i = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 2, i32 1
+  %threshold.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i64, ptr %threshold.i, align 8
   %cmp.not.i = icmp ult i64 %3, %4
   br i1 %cmp.not.i, label %lua_loadx.exit, label %if.then.i
@@ -380,7 +367,7 @@ lua_loadx.exit:                                   ; preds = %entry, %if.then.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal ptr @reader_string(ptr nocapture readnone %L, ptr nocapture noundef %ud, ptr nocapture noundef writeonly %size) #7 {
 entry:
-  %size1 = getelementptr inbounds %struct.StringReaderCtx, ptr %ud, i64 0, i32 1
+  %size1 = getelementptr inbounds i8, ptr %ud, i64 8
   %0 = load i64, ptr %size1, align 8
   %cmp = icmp eq i64 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -403,32 +390,32 @@ entry:
   %ctx.i = alloca %struct.StringReaderCtx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ctx.i)
   store ptr %buf, ptr %ctx.i, align 8
-  %size1.i = getelementptr inbounds %struct.StringReaderCtx, ptr %ctx.i, i64 0, i32 1
+  %size1.i = getelementptr inbounds i8, ptr %ctx.i, i64 8
   store i64 %size, ptr %size1.i, align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %ls.i.i)
-  %rfunc.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i.i, i64 0, i32 10
+  %rfunc.i.i = getelementptr inbounds i8, ptr %ls.i.i, i64 96
   store ptr @reader_string, ptr %rfunc.i.i, align 8
-  %rdata.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i.i, i64 0, i32 11
+  %rdata.i.i = getelementptr inbounds i8, ptr %ls.i.i, i64 104
   store ptr %ctx.i, ptr %rdata.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %name, null
   %cond.i.i = select i1 %tobool.not.i.i, ptr @.str, ptr %name
-  %chunkarg.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i.i, i64 0, i32 15
+  %chunkarg.i.i = getelementptr inbounds i8, ptr %ls.i.i, i64 128
   store ptr %cond.i.i, ptr %chunkarg.i.i, align 8
-  %mode1.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i.i, i64 0, i32 16
+  %mode1.i.i = getelementptr inbounds i8, ptr %ls.i.i, i64 136
   store ptr null, ptr %mode1.i.i, align 8
-  %sb.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i.i, i64 0, i32 9
+  %sb.i.i = getelementptr inbounds i8, ptr %ls.i.i, i64 64
   %0 = ptrtoint ptr %L to i64
-  %L1.i.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i.i, i64 0, i32 9, i32 3
+  %L1.i.i.i = getelementptr inbounds i8, ptr %ls.i.i, i64 88
   store i64 %0, ptr %L1.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i.i, i8 0, i64 24, i1 false)
   %call.i.i = call i32 @lj_vm_cpcall(ptr noundef %L, ptr noundef null, ptr noundef nonnull %ls.i.i, ptr noundef nonnull @cpparser) #12
   call void @lj_lex_cleanup(ptr noundef %L, ptr noundef nonnull %ls.i.i) #12
-  %glref.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref.i.i = getelementptr inbounds i8, ptr %L, i64 16
   %1 = load i64, ptr %glref.i.i, align 8
   %2 = inttoptr i64 %1 to ptr
-  %gc.i.i = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 2
+  %gc.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i64, ptr %gc.i.i, align 8
-  %threshold.i.i = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 2, i32 1
+  %threshold.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i64, ptr %threshold.i.i, align 8
   %cmp.not.i.i = icmp ult i64 %3, %4
   br i1 %cmp.not.i.i, label %luaL_loadbufferx.exit, label %if.then.i.i
@@ -451,32 +438,32 @@ entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ctx.i.i)
   store ptr %s, ptr %ctx.i.i, align 8
-  %size1.i.i = getelementptr inbounds %struct.StringReaderCtx, ptr %ctx.i.i, i64 0, i32 1
+  %size1.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store i64 %call, ptr %size1.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %ls.i.i.i)
-  %rfunc.i.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i.i.i, i64 0, i32 10
+  %rfunc.i.i.i = getelementptr inbounds i8, ptr %ls.i.i.i, i64 96
   store ptr @reader_string, ptr %rfunc.i.i.i, align 8
-  %rdata.i.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i.i.i, i64 0, i32 11
+  %rdata.i.i.i = getelementptr inbounds i8, ptr %ls.i.i.i, i64 104
   store ptr %ctx.i.i, ptr %rdata.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %s, null
   %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr @.str, ptr %s
-  %chunkarg.i.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i.i.i, i64 0, i32 15
+  %chunkarg.i.i.i = getelementptr inbounds i8, ptr %ls.i.i.i, i64 128
   store ptr %cond.i.i.i, ptr %chunkarg.i.i.i, align 8
-  %mode1.i.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i.i.i, i64 0, i32 16
+  %mode1.i.i.i = getelementptr inbounds i8, ptr %ls.i.i.i, i64 136
   store ptr null, ptr %mode1.i.i.i, align 8
-  %sb.i.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i.i.i, i64 0, i32 9
+  %sb.i.i.i = getelementptr inbounds i8, ptr %ls.i.i.i, i64 64
   %0 = ptrtoint ptr %L to i64
-  %L1.i.i.i.i = getelementptr inbounds %struct.LexState, ptr %ls.i.i.i, i64 0, i32 9, i32 3
+  %L1.i.i.i.i = getelementptr inbounds i8, ptr %ls.i.i.i, i64 88
   store i64 %0, ptr %L1.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i.i.i, i8 0, i64 24, i1 false)
   %call.i.i.i = call i32 @lj_vm_cpcall(ptr noundef %L, ptr noundef null, ptr noundef nonnull %ls.i.i.i, ptr noundef nonnull @cpparser) #12
   call void @lj_lex_cleanup(ptr noundef %L, ptr noundef nonnull %ls.i.i.i) #12
-  %glref.i.i.i = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 5
+  %glref.i.i.i = getelementptr inbounds i8, ptr %L, i64 16
   %1 = load i64, ptr %glref.i.i.i, align 8
   %2 = inttoptr i64 %1 to ptr
-  %gc.i.i.i = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 2
+  %gc.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i64, ptr %gc.i.i.i, align 8
-  %threshold.i.i.i = getelementptr inbounds %struct.global_State, ptr %2, i64 0, i32 2, i32 1
+  %threshold.i.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load i64, ptr %threshold.i.i.i, align 8
   %cmp.not.i.i.i = icmp ult i64 %3, %4
   br i1 %cmp.not.i.i.i, label %luaL_loadbuffer.exit, label %if.then.i.i.i
@@ -497,9 +484,9 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define i32 @lua_dump(ptr noundef %L, ptr noundef %writer, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %top = getelementptr inbounds %struct.lua_State, ptr %L, i64 0, i32 8
+  %top = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %0, i64 -1
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 -8
   %1 = load i64, ptr %add.ptr, align 8
   %shr = ashr i64 %1, 47
   %2 = and i64 %shr, 4294967295
@@ -509,13 +496,13 @@ entry:
 land.lhs.true:                                    ; preds = %entry
   %and = and i64 %1, 140737488355327
   %3 = inttoptr i64 %and to ptr
-  %ffid = getelementptr inbounds %struct.GCfuncC, ptr %3, i64 0, i32 3
+  %ffid = getelementptr inbounds i8, ptr %3, i64 10
   %4 = load i8, ptr %ffid, align 2
   %cmp3 = icmp eq i8 %4, 0
   br i1 %cmp3, label %if.then, label %return
 
 if.then:                                          ; preds = %land.lhs.true
-  %pc = getelementptr inbounds %struct.GCfuncL, ptr %3, i64 0, i32 7
+  %pc = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load i64, ptr %pc, align 8
   %6 = inttoptr i64 %5 to ptr
   %add.ptr7 = getelementptr inbounds i8, ptr %6, i64 -104

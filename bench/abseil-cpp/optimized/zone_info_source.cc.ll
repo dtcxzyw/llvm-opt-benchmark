@@ -12,10 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
 
 @_ZN4absl13time_internal14cctz_extension24zone_info_source_factoryB5cxx11E = weak dso_local local_unnamed_addr global ptr @_ZN4absl13time_internal14cctz_extension12_GLOBAL__N_114DefaultFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFSt10unique_ptrINS0_4cctz14ZoneInfoSourceESt14default_deleteISE_EESA_EE, align 8
 @_ZTVN4absl13time_internal4cctz14ZoneInfoSourceE = dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN4absl13time_internal4cctz14ZoneInfoSourceE, ptr @_ZN4absl13time_internal4cctz14ZoneInfoSourceD2Ev, ptr @_ZN4absl13time_internal4cctz14ZoneInfoSourceD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK4absl13time_internal4cctz14ZoneInfoSource7VersionB5cxx11Ev] }, align 8
@@ -54,7 +50,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN4absl13time_internal14cctz_extension12_GLOBAL__N_114DefaultFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFSt10unique_ptrINS0_4cctz14ZoneInfoSourceESt14default_deleteISE_EESA_EE(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %fallback_factory) #5 {
 entry:
-  %_M_manager.i.i = getelementptr inbounds %"class.std::_Function_base", ptr %fallback_factory, i64 0, i32 1
+  %_M_manager.i.i = getelementptr inbounds i8, ptr %fallback_factory, i64 16
   %0 = load ptr, ptr %_M_manager.i.i, align 8, !noalias !5
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFSt10unique_ptrIN4absl13time_internal4cctz14ZoneInfoSourceESt14default_deleteIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclESF_.exit
@@ -64,7 +60,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZNKSt8functionIFSt10unique_ptrIN4absl13time_internal4cctz14ZoneInfoSourceESt14default_deleteIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclESF_.exit: ; preds = %entry
-  %_M_invoker.i = getelementptr inbounds %"class.std::function", ptr %fallback_factory, i64 0, i32 1
+  %_M_invoker.i = getelementptr inbounds i8, ptr %fallback_factory, i64 24
   %1 = load ptr, ptr %_M_invoker.i, align 8, !noalias !5
   tail call void %1(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %fallback_factory, ptr noundef nonnull align 8 dereferenceable(32) %name)
   ret void

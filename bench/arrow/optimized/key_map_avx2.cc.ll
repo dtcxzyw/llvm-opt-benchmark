@@ -3,18 +3,10 @@ source_filename = "bench/arrow/original/key_map_avx2.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.arrow::compute::SwissTable" = type { i32, i32, i32, %"class.std::shared_ptr", %"class.std::shared_ptr", i64, ptr }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.arrow::Buffer" = type { ptr, i8, i8, ptr, i64, i64, i8, %"class.std::shared_ptr", %"class.std::shared_ptr.0" }
-%"class.std::shared_ptr.0" = type { %"class.std::__shared_ptr.1" }
-%"class.std::__shared_ptr.1" = type { ptr, %"class.std::__shared_count" }
-
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite) uwtable
 define noundef i32 @_ZNK5arrow7compute10SwissTable24early_filter_imp_avx2_x8EiPKjPhS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %num_hashes, ptr nocapture noundef readonly %hashes, ptr nocapture noundef writeonly %out_match_bitvector, ptr nocapture noundef writeonly %out_local_slots) local_unnamed_addr #0 align 2 {
 entry:
-  %log_blocks_ = getelementptr inbounds %"class.arrow::compute::SwissTable", ptr %this, i64 0, i32 1
+  %log_blocks_ = getelementptr inbounds i8, ptr %this, i64 4
   %cmp200 = icmp sgt i32 %num_hashes, 7
   br i1 %cmp200, label %for.body.lr.ph, label %for.end
 
@@ -29,7 +21,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %add = select i1 %cmp.i198, i32 16, i32 %2
   %vecinit.i307 = insertelement <8 x i32> poison, i32 %add, i64 0
   %vecinit7.i314 = shufflevector <8 x i32> %vecinit.i307, <8 x i32> poison, <8 x i32> zeroinitializer
-  %blocks_ = getelementptr inbounds %"class.arrow::compute::SwissTable", ptr %this, i64 0, i32 3
+  %blocks_ = getelementptr inbounds i8, ptr %this, i64 16
   %wide.trip.count = zext nneg i32 %div203204 to i64
   br label %for.body
 
@@ -50,16 +42,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %9 = lshr <4 x i64> %8, <i64 32, i64 32, i64 32, i64 32>
   %and.i112 = lshr <4 x i64> %6, <i64 32, i64 32, i64 32, i64 32>
   %10 = load ptr, ptr %blocks_, align 8
-  %is_cpu_.i = getelementptr inbounds %"class.arrow::Buffer", ptr %10, i64 0, i32 2
+  %is_cpu_.i = getelementptr inbounds i8, ptr %10, i64 9
   %11 = load i8, ptr %is_cpu_.i, align 1
   %12 = and i8 %11, 1
   %tobool.not.i = icmp ne i8 %12, 0
-  %is_mutable_.i = getelementptr inbounds %"class.arrow::Buffer", ptr %10, i64 0, i32 1
+  %is_mutable_.i = getelementptr inbounds i8, ptr %10, i64 8
   %13 = load i8, ptr %is_mutable_.i, align 8
   %14 = and i8 %13, 1
   %tobool2.i = icmp ne i8 %14, 0
   %15 = select i1 %tobool.not.i, i1 %tobool2.i, i1 false
-  %data_.i = getelementptr inbounds %"class.arrow::Buffer", ptr %10, i64 0, i32 3
+  %data_.i = getelementptr inbounds i8, ptr %10, i64 16
   %16 = load ptr, ptr %data_.i, align 8
   %cond.i199 = select i1 %15, ptr %16, ptr null
   %17 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> zeroinitializer, ptr %cond.i199, <4 x i64> %and.i109, <4 x i64> <i64 -1, i64 -1, i64 -1, i64 -1>, i8 1)
@@ -152,7 +144,7 @@ declare <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64>, ptr, <4 x i64>, <4 x 
 define noundef i32 @_ZNK5arrow7compute10SwissTable25early_filter_imp_avx2_x32EiPKjPhS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %num_hashes, ptr nocapture noundef readonly %hashes, ptr nocapture noundef writeonly %out_match_bitvector, ptr nocapture noundef writeonly %out_local_slots) local_unnamed_addr #2 align 2 {
 entry:
   %block_bytes = alloca [16 x i64], align 16
-  %log_blocks_5 = getelementptr inbounds %"class.arrow::compute::SwissTable", ptr %this, i64 0, i32 1
+  %log_blocks_5 = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %log_blocks_5, align 4
   %cmp71044.not = icmp eq i32 %0, 31
   br i1 %cmp71044.not, label %for.end, label %for.body.lr.ph
@@ -164,13 +156,13 @@ for.body.lr.ph:                                   ; preds = %entry
   %1 = select i1 %cmp4.i, i64 40, i64 72
   %2 = select i1 %cmp1.i, i64 24, i64 %1
   %cmp.i1034 = icmp slt i32 %0, 6
-  %blocks_ = getelementptr inbounds %"class.arrow::compute::SwissTable", ptr %this, i64 0, i32 3
+  %blocks_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %blocks_, align 8
-  %is_cpu_.i = getelementptr inbounds %"class.arrow::Buffer", ptr %3, i64 0, i32 2
+  %is_cpu_.i = getelementptr inbounds i8, ptr %3, i64 9
   %4 = load i8, ptr %is_cpu_.i, align 1
   %5 = and i8 %4, 1
   %tobool.not.i = icmp eq i8 %5, 0
-  %data_.i = getelementptr inbounds %"class.arrow::Buffer", ptr %3, i64 0, i32 3
+  %data_.i = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load ptr, ptr %data_.i, align 8
   %cond.i1035 = select i1 %tobool.not.i, ptr null, ptr %6
   %add = select i1 %cmp.i1034, i64 16, i64 %2
@@ -191,11 +183,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load <32 x i8>, ptr %block_bytes, align 16
-  %add.ptr13.phi.trans.insert = getelementptr inbounds <4 x i64>, ptr %block_bytes, i64 1
+  %add.ptr13.phi.trans.insert = getelementptr inbounds i8, ptr %block_bytes, i64 32
   %.pre1056 = load <32 x i8>, ptr %add.ptr13.phi.trans.insert, align 16
-  %add.ptr16.phi.trans.insert = getelementptr inbounds <4 x i64>, ptr %block_bytes, i64 2
+  %add.ptr16.phi.trans.insert = getelementptr inbounds i8, ptr %block_bytes, i64 64
   %.pre1057 = load <32 x i8>, ptr %add.ptr16.phi.trans.insert, align 16
-  %add.ptr19.phi.trans.insert = getelementptr inbounds <4 x i64>, ptr %block_bytes, i64 3
+  %add.ptr19.phi.trans.insert = getelementptr inbounds i8, ptr %block_bytes, i64 96
   %.pre1058 = load <32 x i8>, ptr %add.ptr19.phi.trans.insert, align 16
   br label %for.end
 
@@ -299,11 +291,11 @@ for.body68:                                       ; preds = %for.body68.lr.ph, %
   %59 = shl nsw i64 %indvars.iv1050, 2
   %add.ptr71 = getelementptr inbounds <4 x i64>, ptr %hashes, i64 %59
   %60 = load <8 x i32>, ptr %add.ptr71, align 1
-  %add.ptr77 = getelementptr inbounds <4 x i64>, ptr %add.ptr71, i64 1
+  %add.ptr77 = getelementptr inbounds i8, ptr %add.ptr71, i64 32
   %61 = load <8 x i32>, ptr %add.ptr77, align 1
-  %add.ptr82 = getelementptr inbounds <4 x i64>, ptr %add.ptr71, i64 2
+  %add.ptr82 = getelementptr inbounds i8, ptr %add.ptr71, i64 64
   %62 = load <8 x i32>, ptr %add.ptr82, align 1
-  %add.ptr87 = getelementptr inbounds <4 x i64>, ptr %add.ptr71, i64 3
+  %add.ptr87 = getelementptr inbounds i8, ptr %add.ptr71, i64 96
   %63 = load <8 x i32>, ptr %add.ptr87, align 1
   %64 = lshr <8 x i32> %60, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
   %65 = lshr <8 x i32> %61, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
@@ -402,18 +394,18 @@ entry:
   %cmp8 = icmp eq i32 %byte_size, 2
   %cond = select i1 %cmp8, i32 65535, i32 -1
   %cond9 = select i1 %cmp7, i32 255, i32 %cond
-  %blocks_ = getelementptr inbounds %"class.arrow::compute::SwissTable", ptr %this, i64 0, i32 3
+  %blocks_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %blocks_, align 8
-  %is_cpu_.i = getelementptr inbounds %"class.arrow::Buffer", ptr %0, i64 0, i32 2
+  %is_cpu_.i = getelementptr inbounds i8, ptr %0, i64 9
   %1 = load i8, ptr %is_cpu_.i, align 1
   %2 = and i8 %1, 1
   %tobool.not.i = icmp eq i8 %2, 0
-  %data_.i = getelementptr inbounds %"class.arrow::Buffer", ptr %0, i64 0, i32 3
+  %data_.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %data_.i, align 8
   %cond.i = select i1 %tobool.not.i, ptr null, ptr %3
   %idx.ext = sext i32 %byte_offset to i64
   %add.ptr = getelementptr inbounds i8, ptr %cond.i, i64 %idx.ext
-  %log_blocks_ = getelementptr inbounds %"class.arrow::compute::SwissTable", ptr %this, i64 0, i32 1
+  %log_blocks_ = getelementptr inbounds i8, ptr %this, i64 4
   %4 = load i32, ptr %log_blocks_, align 4
   %cmp11 = icmp eq i32 %4, 0
   %cmp2673 = icmp sgt i32 %num_keys, 7
@@ -438,7 +430,7 @@ while.end21:                                      ; preds = %entry
 
 for.body.lr.ph:                                   ; preds = %while.end21
   %div8286 = lshr i32 %num_keys, 3
-  %arrayidx = getelementptr inbounds i64, ptr %cond.i, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %cond.i, i64 8
   %5 = load i64, ptr %arrayidx, align 8
   %vecinit.i220 = insertelement <4 x i64> poison, i64 %5, i64 0
   %vecinit3.i223 = shufflevector <4 x i64> %vecinit.i220, <4 x i64> poison, <4 x i32> zeroinitializer

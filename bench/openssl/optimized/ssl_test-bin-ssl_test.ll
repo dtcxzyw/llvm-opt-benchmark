@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.SSL_TEST_CTX = type { i32, i32, i32, i32, i32, %struct.SSL_TEST_EXTRA_CONF, %struct.SSL_TEST_EXTRA_CONF, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, i32, i32, ptr, i32, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr }
-%struct.SSL_TEST_EXTRA_CONF = type { %struct.SSL_TEST_CLIENT_CONF, %struct.SSL_TEST_SERVER_CONF, %struct.SSL_TEST_SERVER_CONF }
-%struct.SSL_TEST_CLIENT_CONF = type { i32, i32, i32, ptr, ptr, i32, ptr, ptr, ptr, i32, i32 }
-%struct.SSL_TEST_SERVER_CONF = type { i32, ptr, ptr, i32, i32, ptr, ptr, i32, ptr }
-%struct.handshake_result = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, ptr, i32, ptr, ptr }
 
 @test_get_options.options = internal constant [9 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -226,7 +221,7 @@ entry:
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fips_version = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %call2, i64 0, i32 34
+  %fips_version = getelementptr inbounds i8, ptr %call2, i64 576
   %2 = load ptr, ptr %fips_version, align 8
   %cmp.not = icmp eq ptr %2, null
   br i1 %cmp.not, label %if.end9, label %land.lhs.true
@@ -266,7 +261,7 @@ lor.lhs.false:                                    ; preds = %if.then11
   br i1 %tobool22.not, label %err, label %if.end24
 
 if.end24:                                         ; preds = %lor.lhs.false
-  %server = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %call2, i64 0, i32 5, i32 1
+  %server = getelementptr inbounds i8, ptr %call2, i64 96
   %6 = load i32, ptr %server, align 8
   %cmp25.not = icmp eq i32 %6, 0
   br i1 %cmp25.not, label %if.end40, label %if.then27
@@ -300,7 +295,7 @@ if.end40:                                         ; preds = %lor.lhs.false32, %i
   br i1 %tobool47.not, label %err, label %if.end49
 
 if.end49:                                         ; preds = %if.end40
-  %handshake_mode = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %call2, i64 0, i32 1
+  %handshake_mode = getelementptr inbounds i8, ptr %call2, i64 4
   %9 = load i32, ptr %handshake_mode, align 4
   %cmp50 = icmp eq i32 %9, 1
   br i1 %cmp50, label %if.then52, label %if.end85thread-pre-split
@@ -381,7 +376,7 @@ lor.lhs.false98:                                  ; preds = %if.then89
   br i1 %tobool103.not, label %err, label %if.end105
 
 if.end105:                                        ; preds = %lor.lhs.false98
-  %server107 = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %call2, i64 0, i32 5, i32 1
+  %server107 = getelementptr inbounds i8, ptr %call2, i64 96
   %14 = load i32, ptr %server107, align 8
   %cmp109.not = icmp eq i32 %14, 0
   br i1 %cmp109.not, label %if.end132, label %if.then111
@@ -423,7 +418,7 @@ if.end132:                                        ; preds = %if.end123, %if.end1
   br i1 %tobool140.not, label %err, label %if.end142
 
 if.end142:                                        ; preds = %if.end132
-  %handshake_mode143 = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %call2, i64 0, i32 1
+  %handshake_mode143 = getelementptr inbounds i8, ptr %call2, i64 4
   %17 = load i32, ptr %handshake_mode143, align 4
   %cmp144 = icmp eq i32 %17, 1
   br i1 %cmp144, label %if.then146, label %if.end181
@@ -609,7 +604,7 @@ declare ptr @do_handshake(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 define internal fastcc i32 @check_test(ptr nocapture noundef readonly %result, ptr nocapture noundef readonly %test_ctx) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %result, align 8
-  %expected_result.i = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %test_ctx, i64 0, i32 7
+  %expected_result.i = getelementptr inbounds i8, ptr %test_ctx, i64 424
   %1 = load i32, ptr %expected_result.i, align 8
   %call.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 36, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef %0, i32 noundef %1) #3
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -625,9 +620,9 @@ if.then.i:                                        ; preds = %entry
 
 check_result.exit:                                ; preds = %entry, %if.then.i
   %retval.0.i = phi i32 [ 0, %if.then.i ], [ 1, %entry ]
-  %client_alert_sent.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 1
+  %client_alert_sent.i = getelementptr inbounds i8, ptr %result, i64 4
   %4 = load i32, ptr %client_alert_sent.i, align 4
-  %client_alert_received.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 3
+  %client_alert_received.i = getelementptr inbounds i8, ptr %result, i64 12
   %5 = load i32, ptr %client_alert_received.i, align 4
   %call.i84 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 48, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, i32 noundef %4, i32 noundef %5) #3
   %tobool.not.i85 = icmp eq i32 %call.i84, 0
@@ -658,9 +653,9 @@ print_alert.exit24.i:                             ; preds = %cond.true.i21.i, %p
   br label %if.end.i
 
 if.end.i:                                         ; preds = %print_alert.exit24.i, %check_result.exit
-  %server_alert_sent.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 4
+  %server_alert_sent.i = getelementptr inbounds i8, ptr %result, i64 16
   %8 = load i32, ptr %server_alert_sent.i, align 8
-  %server_alert_received.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 6
+  %server_alert_received.i = getelementptr inbounds i8, ptr %result, i64 24
   %9 = load i32, ptr %server_alert_received.i, align 8
   %call5.i86 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 67, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef %8, i32 noundef %9) #3
   %tobool6.not.i = icmp eq i32 %call5.i86, 0
@@ -691,7 +686,7 @@ print_alert.exit34.i:                             ; preds = %cond.true.i31.i, %p
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %print_alert.exit34.i, %if.end.i
-  %expected_client_alert.i = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %test_ctx, i64 0, i32 8
+  %expected_client_alert.i = getelementptr inbounds i8, ptr %test_ctx, i64 428
   %12 = load i32, ptr %expected_client_alert.i, align 4
   %tobool13.not.i = icmp eq i32 %12, 0
   br i1 %tobool13.not.i, label %if.end21.i, label %land.lhs.true.i
@@ -718,7 +713,7 @@ print_alert.exit44.i:                             ; preds = %cond.true.i41.i, %p
   br label %check_alerts.exit
 
 if.end21.i:                                       ; preds = %land.lhs.true.i, %if.end12.i
-  %expected_server_alert.i = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %test_ctx, i64 0, i32 9
+  %expected_server_alert.i = getelementptr inbounds i8, ptr %test_ctx, i64 432
   %15 = load i32, ptr %expected_server_alert.i, align 8
   %tobool22.not.i = icmp eq i32 %15, 0
   br i1 %tobool22.not.i, label %if.end33.i, label %land.lhs.true23.i
@@ -745,14 +740,14 @@ print_alert.exit54.i:                             ; preds = %cond.true.i51.i, %p
   br label %check_alerts.exit
 
 if.end33.i:                                       ; preds = %land.lhs.true23.i, %if.end21.i
-  %client_num_fatal_alerts_sent.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 2
+  %client_num_fatal_alerts_sent.i = getelementptr inbounds i8, ptr %result, i64 8
   %18 = load i32, ptr %client_num_fatal_alerts_sent.i, align 8
   %call34.i = tail call i32 @test_int_le(ptr noundef nonnull @.str.14, i32 noundef 96, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef %18, i32 noundef 1) #3
   %tobool35.not.i = icmp eq i32 %call34.i, 0
   br i1 %tobool35.not.i, label %check_alerts.exit, label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end33.i
-  %server_num_fatal_alerts_sent.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 5
+  %server_num_fatal_alerts_sent.i = getelementptr inbounds i8, ptr %result, i64 20
   %19 = load i32, ptr %server_num_fatal_alerts_sent.i, align 4
   %call38.i = tail call i32 @test_int_le(ptr noundef nonnull @.str.14, i32 noundef 98, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.63, i32 noundef %19, i32 noundef 1) #3
   %tobool39.not.i = icmp ne i32 %call38.i, 0
@@ -767,9 +762,9 @@ check_alerts.exit:                                ; preds = %print_alert.exit44.
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %check_alerts.exit
-  %client_protocol.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 8
+  %client_protocol.i = getelementptr inbounds i8, ptr %result, i64 32
   %21 = load i32, ptr %client_protocol.i, align 8
-  %server_protocol.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 7
+  %server_protocol.i = getelementptr inbounds i8, ptr %result, i64 28
   %22 = load i32, ptr %server_protocol.i, align 4
   %call.i89 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 105, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, i32 noundef %21, i32 noundef %22) #3
   %tobool.not.i90 = icmp eq i32 %call.i89, 0
@@ -784,7 +779,7 @@ if.then.i93:                                      ; preds = %if.then
   br label %check_protocol.exit
 
 if.end.i91:                                       ; preds = %if.then
-  %expected_protocol.i = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %test_ctx, i64 0, i32 10
+  %expected_protocol.i = getelementptr inbounds i8, ptr %test_ctx, i64 436
   %25 = load i32, ptr %expected_protocol.i, align 4
   %tobool5.not.i = icmp eq i32 %25, 0
   br i1 %tobool5.not.i, label %check_protocol.exit, label %if.then6.i
@@ -805,9 +800,9 @@ if.then11.i:                                      ; preds = %if.then6.i
 
 check_protocol.exit:                              ; preds = %if.then.i93, %if.end.i91, %if.then6.i, %if.then11.i
   %retval.0.i92 = phi i32 [ 0, %if.then11.i ], [ 0, %if.then.i93 ], [ 1, %if.then6.i ], [ 1, %if.end.i91 ]
-  %servername.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 9
+  %servername.i = getelementptr inbounds i8, ptr %result, i64 36
   %29 = load i32, ptr %servername.i, align 4
-  %expected_servername.i = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %test_ctx, i64 0, i32 11
+  %expected_servername.i = getelementptr inbounds i8, ptr %test_ctx, i64 440
   %30 = load i32, ptr %expected_servername.i, align 8
   %call.i94 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 126, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef %29, i32 noundef %30) #3
   %tobool.not.i95 = icmp eq i32 %call.i94, 0
@@ -824,13 +819,13 @@ if.then.i97:                                      ; preds = %check_protocol.exit
 check_servername.exit:                            ; preds = %check_protocol.exit, %if.then.i97
   %retval.0.i96 = phi i32 [ 0, %if.then.i97 ], [ 1, %check_protocol.exit ]
   %33 = and i32 %retval.0.i96, %retval.0.i92
-  %session_ticket_expected.i = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %test_ctx, i64 0, i32 12
+  %session_ticket_expected.i = getelementptr inbounds i8, ptr %test_ctx, i64 444
   %34 = load i32, ptr %session_ticket_expected.i, align 4
   %cmp.i = icmp eq i32 %34, 0
   br i1 %cmp.i, label %check_session_ticket.exit, label %if.end.i100
 
 if.end.i100:                                      ; preds = %check_servername.exit
-  %session_ticket.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 10
+  %session_ticket.i = getelementptr inbounds i8, ptr %result, i64 40
   %35 = load i32, ptr %session_ticket.i, align 8
   %call.i101 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 140, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, i32 noundef %35, i32 noundef %34) #3
   %tobool.not.i102 = icmp eq i32 %call.i101, 0
@@ -854,13 +849,13 @@ check_session_ticket.exit:                        ; preds = %check_servername.ex
   %call.i105 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 164, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.78, i32 noundef %result.val, i32 noundef %test_ctx.val) #3
   %tobool.not.i106.not = icmp eq i32 %call.i105, 0
   %41 = select i1 %tobool.not.i106.not, i32 0, i32 %38
-  %session_id_expected.i = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %test_ctx, i64 0, i32 30
+  %session_id_expected.i = getelementptr inbounds i8, ptr %test_ctx, i64 544
   %42 = load i32, ptr %session_id_expected.i, align 8
   %cmp.i108 = icmp eq i32 %42, 0
   br i1 %cmp.i108, label %check_session_id.exit, label %if.end.i109
 
 if.end.i109:                                      ; preds = %check_session_ticket.exit
-  %session_id.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 28
+  %session_id.i = getelementptr inbounds i8, ptr %result, i64 144
   %43 = load i32, ptr %session_id.i, align 8
   %call.i110 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 153, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i32 noundef %43, i32 noundef %42) #3
   %tobool.not.i111 = icmp eq i32 %call.i110, 0
@@ -878,16 +873,16 @@ check_session_id.exit:                            ; preds = %check_session_ticke
   %retval.0.i112 = phi i32 [ 0, %if.then2.i113 ], [ 1, %check_session_ticket.exit ], [ 1, %if.end.i109 ]
   %46 = and i32 %41, %retval.0.i112
   %and13 = and i32 %46, %and2
-  %session_ticket_do_not_call = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 12
+  %session_ticket_do_not_call = getelementptr inbounds i8, ptr %result, i64 48
   %47 = load i32, ptr %session_ticket_do_not_call, align 8
   %cmp14 = icmp eq i32 %47, 0
-  %client_npn_negotiated.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 13
+  %client_npn_negotiated.i = getelementptr inbounds i8, ptr %result, i64 56
   %48 = load ptr, ptr %client_npn_negotiated.i, align 8
-  %server_npn_negotiated.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 14
+  %server_npn_negotiated.i = getelementptr inbounds i8, ptr %result, i64 64
   %49 = load ptr, ptr %server_npn_negotiated.i, align 8
   %call.i116 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 173, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, ptr noundef %48, ptr noundef %49) #3
   %tobool.not.i117 = icmp ne i32 %call.i116, 0
-  %expected_npn_protocol.i = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %test_ctx, i64 0, i32 14
+  %expected_npn_protocol.i = getelementptr inbounds i8, ptr %test_ctx, i64 456
   %50 = load ptr, ptr %expected_npn_protocol.i, align 8
   %51 = load ptr, ptr %client_npn_negotiated.i, align 8
   %call2.i118 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 176, ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.82, ptr noundef %50, ptr noundef %51) #3
@@ -895,13 +890,13 @@ check_session_id.exit:                            ; preds = %check_session_ticke
   %narrow.i = select i1 %tobool3.not.i, i1 %tobool.not.i117, i1 false
   %52 = select i1 %narrow.i, i1 %cmp14, i1 false
   %and17 = select i1 %52, i32 %and13, i32 0
-  %expected_cipher.i = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %test_ctx, i64 0, i32 31
+  %expected_cipher.i = getelementptr inbounds i8, ptr %test_ctx, i64 552
   %53 = load ptr, ptr %expected_cipher.i, align 8
   %cmp.i119 = icmp eq ptr %53, null
   br i1 %cmp.i119, label %check_cipher.exit, label %if.end.i120
 
 if.end.i120:                                      ; preds = %check_session_id.exit
-  %cipher.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 29
+  %cipher.i = getelementptr inbounds i8, ptr %result, i64 152
   %54 = load ptr, ptr %cipher.i, align 8
   %call.i121 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 349, ptr noundef nonnull @.str.85, ptr noundef %54) #3
   %tobool.not.i122 = icmp eq i32 %call.i121, 0
@@ -918,13 +913,13 @@ if.end2.i:                                        ; preds = %if.end.i120
 check_cipher.exit:                                ; preds = %check_session_id.exit, %if.end.i120, %if.end2.i
   %retval.0.i126 = phi i32 [ 1, %check_session_id.exit ], [ 0, %if.end.i120 ], [ %..i125, %if.end2.i ]
   %and19 = and i32 %retval.0.i126, %and17
-  %client_alpn_negotiated.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 15
+  %client_alpn_negotiated.i = getelementptr inbounds i8, ptr %result, i64 72
   %57 = load ptr, ptr %client_alpn_negotiated.i, align 8
-  %server_alpn_negotiated.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 16
+  %server_alpn_negotiated.i = getelementptr inbounds i8, ptr %result, i64 80
   %58 = load ptr, ptr %server_alpn_negotiated.i, align 8
   %call.i127 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 186, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88, ptr noundef %57, ptr noundef %58) #3
   %tobool.not.i128 = icmp ne i32 %call.i127, 0
-  %expected_alpn_protocol.i = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %test_ctx, i64 0, i32 15
+  %expected_alpn_protocol.i = getelementptr inbounds i8, ptr %test_ctx, i64 464
   %59 = load ptr, ptr %expected_alpn_protocol.i, align 8
   %60 = load ptr, ptr %client_alpn_negotiated.i, align 8
   %call2.i129 = tail call i32 @test_str_eq(ptr noundef nonnull @.str.14, i32 noundef 189, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.87, ptr noundef %59, ptr noundef %60) #3
@@ -943,7 +938,7 @@ if.then.i134:                                     ; preds = %check_cipher.exit
 
 if.end.i135:                                      ; preds = %if.then.i134, %check_cipher.exit
   %result_len.0.i = phi i1 [ %62, %if.then.i134 ], [ true, %check_cipher.exit ]
-  %expected_session_ticket_app_data.i = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %test_ctx, i64 0, i32 32
+  %expected_session_ticket_app_data.i = getelementptr inbounds i8, ptr %test_ctx, i64 560
   %63 = load ptr, ptr %expected_session_ticket_app_data.i, align 8
   %cmp2.not.i = icmp eq ptr %63, null
   br i1 %cmp2.not.i, label %if.end6.i, label %if.then3.i
@@ -967,9 +962,9 @@ if.end10.i:                                       ; preds = %if.end6.i
 check_session_ticket_app_data.exit:               ; preds = %if.end6.i, %if.end10.i
   %retval.0.i139 = phi i32 [ 1, %if.end6.i ], [ %..i138, %if.end10.i ]
   %and23 = and i32 %retval.0.i139, %and21
-  %client_resumed.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 17
+  %client_resumed.i = getelementptr inbounds i8, ptr %result, i64 88
   %65 = load i32, ptr %client_resumed.i, align 8
-  %server_resumed.i = getelementptr inbounds %struct.handshake_result, ptr %result, i64 0, i32 18
+  %server_resumed.i = getelementptr inbounds i8, ptr %result, i64 92
   %66 = load i32, ptr %server_resumed.i, align 4
   %call.i140 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 217, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, i32 noundef %65, i32 noundef %66) #3
   %tobool.not.i141 = icmp eq i32 %call.i140, 0
@@ -977,7 +972,7 @@ check_session_ticket_app_data.exit:               ; preds = %if.end6.i, %if.end1
 
 if.end.i142:                                      ; preds = %check_session_ticket_app_data.exit
   %67 = load i32, ptr %client_resumed.i, align 8
-  %resumption_expected.i = getelementptr inbounds %struct.SSL_TEST_CTX, ptr %test_ctx, i64 0, i32 16
+  %resumption_expected.i = getelementptr inbounds i8, ptr %test_ctx, i64 472
   %68 = load i32, ptr %resumption_expected.i, align 8
   %call2.i143 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 219, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.94, i32 noundef %67, i32 noundef %68) #3
   %tobool3.not.i144 = icmp ne i32 %call2.i143, 0

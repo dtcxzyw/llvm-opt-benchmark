@@ -5,18 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
 %struct.QemuOptDesc = type { ptr, i32, ptr, ptr }
-%struct.TPMPassthruState = type { %struct.TPMBackend, ptr, ptr, i32, i8, i8, i32, i32, i64 }
-%struct.TPMBackend = type { %struct.Object, ptr, i8, i8, ptr, ptr, %struct.anon }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.anon = type { ptr, ptr }
-%struct.TPMBackendClass = type { %struct.ObjectClass, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.TPMPassthroughOptions = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.TpmTypeOptions = type { i32, %union.anon }
-%union.anon = type { %struct.TPMPassthroughOptionsWrapper }
-%struct.TPMPassthroughOptionsWrapper = type { ptr }
-%struct.TPMBackendCmd = type { i8, ptr, i32, ptr, i32, i8 }
 
 @tpm_passthrough_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 128, i64 0, ptr @tpm_passthrough_inst_init, ptr null, ptr @tpm_passthrough_inst_finalize, i8 0, i64 0, ptr @tpm_passthrough_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [16 x i8] c"tpm-passthrough\00", align 1
@@ -84,11 +73,11 @@ define internal void @tpm_passthrough_inst_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 38, ptr noundef nonnull @__func__.TPM_PASSTHROUGH) #11
   %call1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #12
-  %options = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 1
+  %options = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr %call1, ptr %options, align 8
-  %tpm_fd = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 3
+  %tpm_fd = getelementptr inbounds i8, ptr %call.i, i64 104
   store i32 -1, ptr %tpm_fd, align 8
-  %cancel_fd = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 6
+  %cancel_fd = getelementptr inbounds i8, ptr %call.i, i64 112
   store i32 -1, ptr %cancel_fd, align 8
   ret void
 }
@@ -99,7 +88,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 38, ptr noundef nonnull @__func__.TPM_PASSTHROUGH) #11
   %call.i7 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND) #11
   tail call void @tpm_passthrough_cancel_cmd(ptr noundef %call.i7)
-  %tpm_fd = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 3
+  %tpm_fd = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load i32, ptr %tpm_fd, align 8
   %cmp = icmp sgt i32 %0, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -109,7 +98,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %cancel_fd = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 6
+  %cancel_fd = getelementptr inbounds i8, ptr %call.i, i64 112
   %1 = load i32, ptr %cancel_fd, align 8
   %cmp4 = icmp sgt i32 %1, -1
   br i1 %cmp4, label %if.then5, label %if.end8
@@ -119,7 +108,7 @@ if.then5:                                         ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then5, %if.end
-  %options = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 1
+  %options = getelementptr inbounds i8, ptr %call.i, i64 88
   %2 = load ptr, ptr %options, align 8
   tail call void @qapi_free_TPMPassthroughOptions(ptr noundef %2) #11
   ret void
@@ -129,31 +118,31 @@ if.end8:                                          ; preds = %if.then5, %if.end
 define internal void @tpm_passthrough_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND_CLASS) #11
-  %type = getelementptr inbounds %struct.TPMBackendClass, ptr %call.i, i64 0, i32 1
+  %type = getelementptr inbounds i8, ptr %call.i, i64 96
   store i32 0, ptr %type, align 8
-  %opts = getelementptr inbounds %struct.TPMBackendClass, ptr %call.i, i64 0, i32 2
+  %opts = getelementptr inbounds i8, ptr %call.i, i64 104
   store ptr @tpm_passthrough_cmdline_opts, ptr %opts, align 8
-  %desc = getelementptr inbounds %struct.TPMBackendClass, ptr %call.i, i64 0, i32 3
+  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
   store ptr @.str.7, ptr %desc, align 8
-  %create = getelementptr inbounds %struct.TPMBackendClass, ptr %call.i, i64 0, i32 4
+  %create = getelementptr inbounds i8, ptr %call.i, i64 120
   store ptr @tpm_passthrough_create, ptr %create, align 8
-  %startup_tpm = getelementptr inbounds %struct.TPMBackendClass, ptr %call.i, i64 0, i32 5
+  %startup_tpm = getelementptr inbounds i8, ptr %call.i, i64 128
   store ptr @tpm_passthrough_startup_tpm, ptr %startup_tpm, align 8
-  %reset = getelementptr inbounds %struct.TPMBackendClass, ptr %call.i, i64 0, i32 6
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @tpm_passthrough_reset, ptr %reset, align 8
-  %cancel_cmd = getelementptr inbounds %struct.TPMBackendClass, ptr %call.i, i64 0, i32 7
+  %cancel_cmd = getelementptr inbounds i8, ptr %call.i, i64 144
   store ptr @tpm_passthrough_cancel_cmd, ptr %cancel_cmd, align 8
-  %get_tpm_established_flag = getelementptr inbounds %struct.TPMBackendClass, ptr %call.i, i64 0, i32 8
+  %get_tpm_established_flag = getelementptr inbounds i8, ptr %call.i, i64 152
   store ptr @tpm_passthrough_get_tpm_established_flag, ptr %get_tpm_established_flag, align 8
-  %reset_tpm_established_flag = getelementptr inbounds %struct.TPMBackendClass, ptr %call.i, i64 0, i32 9
+  %reset_tpm_established_flag = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @tpm_passthrough_reset_tpm_established_flag, ptr %reset_tpm_established_flag, align 8
-  %get_tpm_version = getelementptr inbounds %struct.TPMBackendClass, ptr %call.i, i64 0, i32 10
+  %get_tpm_version = getelementptr inbounds i8, ptr %call.i, i64 168
   store ptr @tpm_passthrough_get_tpm_version, ptr %get_tpm_version, align 8
-  %get_buffer_size = getelementptr inbounds %struct.TPMBackendClass, ptr %call.i, i64 0, i32 11
+  %get_buffer_size = getelementptr inbounds i8, ptr %call.i, i64 176
   store ptr @tpm_passthrough_get_buffer_size, ptr %get_buffer_size, align 8
-  %get_tpm_options = getelementptr inbounds %struct.TPMBackendClass, ptr %call.i, i64 0, i32 12
+  %get_tpm_options = getelementptr inbounds i8, ptr %call.i, i64 184
   store ptr @tpm_passthrough_get_tpm_options, ptr %get_tpm_options, align 8
-  %handle_request = getelementptr inbounds %struct.TPMBackendClass, ptr %call.i, i64 0, i32 13
+  %handle_request = getelementptr inbounds i8, ptr %call.i, i64 192
   store ptr @tpm_passthrough_handle_request, ptr %handle_request, align 8
   ret void
 }
@@ -167,20 +156,20 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 define internal void @tpm_passthrough_cancel_cmd(ptr noundef %tb) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %tb, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 38, ptr noundef nonnull @__func__.TPM_PASSTHROUGH) #11
-  %tpm_executing = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 4
+  %tpm_executing = getelementptr inbounds i8, ptr %call.i, i64 108
   %0 = load i8, ptr %tpm_executing, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end10, label %if.then
 
 if.then:                                          ; preds = %entry
-  %cancel_fd = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 6
+  %cancel_fd = getelementptr inbounds i8, ptr %call.i, i64 112
   %2 = load i32, ptr %cancel_fd, align 8
   %cmp = icmp sgt i32 %2, -1
   br i1 %cmp, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.then
-  %tpm_op_canceled = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 5
+  %tpm_op_canceled = getelementptr inbounds i8, ptr %call.i, i64 109
   store i8 1, ptr %tpm_op_canceled, align 1
   %call3 = tail call i64 @write(i32 noundef %2, ptr noundef nonnull @.str.3, i64 noundef 1) #11
   %3 = and i64 %call3, 4294967295
@@ -229,9 +218,9 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call1.i = tail call noalias ptr @g_strdup(ptr noundef nonnull %call.i3) #11
-  %options.i = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 1
+  %options.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %options.i, align 8
-  %cancel_path.i = getelementptr inbounds %struct.TPMPassthroughOptions, ptr %0, i64 0, i32 1
+  %cancel_path.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %call1.i, ptr %cancel_path.i, align 8
   br label %if.end.i
 
@@ -242,17 +231,17 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 
 if.then4.i:                                       ; preds = %if.end.i
   %call5.i = tail call noalias ptr @g_strdup(ptr noundef nonnull %call2.i) #11
-  %options6.i = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 1
+  %options6.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %1 = load ptr, ptr %options6.i, align 8
   store ptr %call5.i, ptr %1, align 8
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then4.i, %if.end.i
   %cond.i = phi ptr [ %call2.i, %if.then4.i ], [ @.str.14, %if.end.i ]
-  %tpm_dev.i = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 2
+  %tpm_dev.i = getelementptr inbounds i8, ptr %call.i, i64 96
   store ptr %cond.i, ptr %tpm_dev.i, align 8
   %call10.i = tail call i32 (ptr, i32, ...) @qemu_open_old(ptr noundef nonnull %cond.i, i32 noundef 2) #11
-  %tpm_fd.i = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 3
+  %tpm_fd.i = getelementptr inbounds i8, ptr %call.i, i64 104
   store i32 %call10.i, ptr %tpm_fd.i, align 8
   %cmp.i = icmp slt i32 %call10.i, 0
   br i1 %cmp.i, label %if.then12.i, label %if.end16.i
@@ -266,7 +255,7 @@ if.then12.i:                                      ; preds = %if.end7.i
   br label %if.then
 
 if.end16.i:                                       ; preds = %if.end7.i
-  %tpm_version.i = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 7
+  %tpm_version.i = getelementptr inbounds i8, ptr %call.i, i64 116
   %call18.i = tail call i32 @tpm_util_test_tpmdev(i32 noundef %call10.i, ptr noundef nonnull %tpm_version.i) #11
   %tobool19.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool19.not.i, label %if.end22.i, label %if.then20.i
@@ -278,9 +267,9 @@ if.then20.i:                                      ; preds = %if.end16.i
 
 if.end22.i:                                       ; preds = %if.end16.i
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %path.i.i)
-  %options.i.i = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 1
+  %options.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   %5 = load ptr, ptr %options.i.i, align 8
-  %cancel_path.i.i = getelementptr inbounds %struct.TPMPassthroughOptions, ptr %5, i64 0, i32 1
+  %cancel_path.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load ptr, ptr %cancel_path.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i, label %if.end6.i.i, label %if.then.i.i
@@ -337,14 +326,14 @@ if.else.i.i:                                      ; preds = %if.end31.i.i, %if.t
   %fd.018.i.i = phi i32 [ %call28.i.i, %if.end31.i.i ], [ %call17.i.i, %if.then15.i.i ]
   %call36.i.i = call noalias ptr @g_strdup(ptr noundef nonnull %path.i.i) #11
   %9 = load ptr, ptr %options.i.i, align 8
-  %cancel_path38.i.i = getelementptr inbounds %struct.TPMPassthroughOptions, ptr %9, i64 0, i32 1
+  %cancel_path38.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %call36.i.i, ptr %cancel_path38.i.i, align 8
   br label %if.end
 
 10:                                               ; preds = %if.then34.i.i, %if.then9.i.i, %if.then3.i.i
   %retval.0.i.ph.i = phi i32 [ %fd.014.i.i, %if.then34.i.i ], [ %call.i.i, %if.then3.i.i ], [ -1, %if.then9.i.i ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %path.i.i)
-  %cancel_fd20.i = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 6
+  %cancel_fd20.i = getelementptr inbounds i8, ptr %call.i, i64 112
   store i32 %retval.0.i.ph.i, ptr %cancel_fd20.i, align 8
   br label %if.then
 
@@ -355,7 +344,7 @@ if.then:                                          ; preds = %if.then12.i, %if.th
 if.end:                                           ; preds = %if.else.i.i, %if.then.i.i
   %retval.0.i.i = phi i32 [ %call.i.i, %if.then.i.i ], [ %fd.018.i.i, %if.else.i.i ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %path.i.i)
-  %cancel_fd.i = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 6
+  %cancel_fd.i = getelementptr inbounds i8, ptr %call.i, i64 112
   store i32 %retval.0.i.i, ptr %cancel_fd.i, align 8
   %call.i4 = call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND) #11
   br label %return
@@ -373,7 +362,7 @@ entry:
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %tpm_buffersize = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 8
+  %tpm_buffersize = getelementptr inbounds i8, ptr %call.i, i64 120
   %0 = load i64, ptr %tpm_buffersize, align 8
   %cmp = icmp ugt i64 %0, %buffersize
   br i1 %cmp, label %if.then, label %return
@@ -415,7 +404,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #11
   br label %trace_tpm_passthrough_reset.exit
@@ -446,7 +435,7 @@ entry:
 define internal i32 @tpm_passthrough_get_tpm_version(ptr noundef %tb) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %tb, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 38, ptr noundef nonnull @__func__.TPM_PASSTHROUGH) #11
-  %tpm_version = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 7
+  %tpm_version = getelementptr inbounds i8, ptr %call.i, i64 116
   %0 = load i32, ptr %tpm_version, align 4
   ret i32 %0
 }
@@ -455,11 +444,11 @@ entry:
 define internal i64 @tpm_passthrough_get_buffer_size(ptr noundef %tb) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %tb, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 38, ptr noundef nonnull @__func__.TPM_PASSTHROUGH) #11
-  %tpm_fd = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 3
+  %tpm_fd = getelementptr inbounds i8, ptr %call.i, i64 104
   %0 = load i32, ptr %tpm_fd, align 8
-  %tpm_version = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 7
+  %tpm_version = getelementptr inbounds i8, ptr %call.i, i64 116
   %1 = load i32, ptr %tpm_version, align 4
-  %tpm_buffersize = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 8
+  %tpm_buffersize = getelementptr inbounds i8, ptr %call.i, i64 120
   %call1 = tail call i32 @tpm_util_get_buffer_size(i32 noundef %0, i32 noundef %1, ptr noundef nonnull %tpm_buffersize) #11
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %if.then, label %entry.if.end_crit_edge
@@ -483,10 +472,10 @@ entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #12
   store i32 0, ptr %call, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %tb, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 38, ptr noundef nonnull @__func__.TPM_PASSTHROUGH) #11
-  %options2 = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 1
+  %options2 = getelementptr inbounds i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %options2, align 8
   %call3 = tail call ptr @qapi_clone(ptr noundef %0, ptr noundef nonnull @visit_type_TPMPassthroughOptions) #11
-  %u = getelementptr inbounds %struct.TpmTypeOptions, ptr %call, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call3, ptr %u, align 8
   ret ptr %call
 }
@@ -520,7 +509,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %cmd) #11
   br label %trace_tpm_passthrough_handle_request.exit
@@ -531,22 +520,22 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_tpm_passthrough_handle_request.exit:        ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %in = getelementptr inbounds %struct.TPMBackendCmd, ptr %cmd, i64 0, i32 1
+  %in = getelementptr inbounds i8, ptr %cmd, i64 8
   %7 = load ptr, ptr %in, align 8
-  %in_len = getelementptr inbounds %struct.TPMBackendCmd, ptr %cmd, i64 0, i32 2
+  %in_len = getelementptr inbounds i8, ptr %cmd, i64 16
   %8 = load i32, ptr %in_len, align 8
-  %out = getelementptr inbounds %struct.TPMBackendCmd, ptr %cmd, i64 0, i32 3
+  %out = getelementptr inbounds i8, ptr %cmd, i64 24
   %9 = load ptr, ptr %out, align 8
-  %out_len = getelementptr inbounds %struct.TPMBackendCmd, ptr %cmd, i64 0, i32 4
+  %out_len = getelementptr inbounds i8, ptr %cmd, i64 32
   %10 = load i32, ptr %out_len, align 8
-  %selftest_done = getelementptr inbounds %struct.TPMBackendCmd, ptr %cmd, i64 0, i32 5
-  %tpm_op_canceled.i = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 5
+  %selftest_done = getelementptr inbounds i8, ptr %cmd, i64 36
+  %tpm_op_canceled.i = getelementptr inbounds i8, ptr %call.i, i64 109
   store i8 0, ptr %tpm_op_canceled.i, align 1
-  %tpm_executing.i = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 4
+  %tpm_executing.i = getelementptr inbounds i8, ptr %call.i, i64 108
   store i8 1, ptr %tpm_executing.i, align 4
   store i8 0, ptr %selftest_done, align 1
   %call.i6 = tail call zeroext i1 @tpm_util_is_selftest(ptr noundef %7, i32 noundef %8) #11
-  %tpm_fd.i = getelementptr inbounds %struct.TPMPassthruState, ptr %call.i, i64 0, i32 3
+  %tpm_fd.i = getelementptr inbounds i8, ptr %call.i, i64 104
   %11 = load i32, ptr %tpm_fd.i, align 8
   %conv.i = zext i32 %8 to i64
   %call1.i = tail call i64 @qemu_write_full(i32 noundef %11, ptr noundef %7, i64 noundef %conv.i) #11

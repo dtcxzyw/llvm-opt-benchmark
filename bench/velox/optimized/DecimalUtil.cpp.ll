@@ -65,7 +65,7 @@ if.then.i:                                        ; preds = %entry
 if.then3.i:                                       ; preds = %if.then.i
   %retval.i5.sroa.0.0.insert.ext.i.i = and i64 %.sroa.1.0.extract.shift, 255
   store i64 0, ptr %ref.tmp.i.i, align 16, !alias.scope !4, !noalias !7
-  %arrayinit.element.i.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i.i, i64 1
+  %arrayinit.element.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store i64 %retval.i5.sroa.0.0.insert.ext.i.i, ptr %arrayinit.element.i.i.i, align 16, !alias.scope !4, !noalias !7
   call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull @.str, i64 7, i64 42, ptr nonnull %ref.tmp.i.i)
   br label %_ZN8facebook5velox12_GLOBAL__N_113formatDecimalB5cxx11Ehn.exit
@@ -230,11 +230,11 @@ ehcleanup36.i:                                    ; preds = %ehcleanup.i, %lpad1
   %call2.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %fractionString.i) #14, !noalias !13
   %15 = ptrtoint ptr %call.i.i.i.i to i64
   store i64 %14, ptr %ref.tmp.i50.i, align 16, !alias.scope !10, !noalias !7
-  %arrayinit.element.i.i30.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i50.i, i64 1
+  %arrayinit.element.i.i30.i = getelementptr inbounds i8, ptr %ref.tmp.i50.i, i64 16
   store i64 %retval.i7.sroa.0.0.extract.trunc.i.i, ptr %arrayinit.element.i.i30.i, align 16, !alias.scope !10, !noalias !7
   %ref.tmp7.i.sroa.2.0.arrayinit.element.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i50.i, i64 24
   store i64 %retval.i7.sroa.2.0.extract.trunc.i.i, ptr %ref.tmp7.i.sroa.2.0.arrayinit.element.i.sroa_idx.i.i, align 8, !alias.scope !10, !noalias !7
-  %arrayinit.element6.i.i.i = getelementptr inbounds %"class.fmt::v8::detail::value", ptr %ref.tmp.i50.i, i64 2
+  %arrayinit.element6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i50.i, i64 32
   store i64 %15, ptr %arrayinit.element6.i.i.i, align 16, !alias.scope !10, !noalias !7
   %ref.tmp11.i.sroa.2.0.arrayinit.element6.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i50.i, i64 40
   store i64 %call2.i.i.i.i, ptr %ref.tmp11.i.sroa.2.0.arrayinit.element6.i.sroa_idx.i.i, align 8, !alias.scope !10, !noalias !7

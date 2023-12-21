@@ -165,7 +165,7 @@ while.body:                                       ; preds = %entry, %while.body
   %arrayidx21 = getelementptr inbounds [8 x [256 x i16]], ptr @FLAC__crc16_table, i64 0, i64 4, i64 %idxprom20
   %5 = load i16, ptr %arrayidx21, align 2
   %xor2324 = xor i16 %xor1723, %5
-  %arrayidx24 = getelementptr inbounds i32, ptr %words.addr.030, i64 1
+  %arrayidx24 = getelementptr inbounds i8, ptr %words.addr.030, i64 4
   %6 = load i32, ptr %arrayidx24, align 4
   %shr25 = lshr i32 %6, 24
   %idxprom26 = zext nneg i32 %shr25 to i64
@@ -189,7 +189,7 @@ while.body:                                       ; preds = %entry, %while.body
   %arrayidx47 = getelementptr inbounds [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %idxprom46
   %10 = load i16, ptr %arrayidx47, align 2
   %xor4928 = xor i16 %xor4327, %10
-  %add.ptr = getelementptr inbounds i32, ptr %words.addr.030, i64 2
+  %add.ptr = getelementptr inbounds i8, ptr %words.addr.030, i64 8
   %sub = add i32 %len.addr.031, -2
   %cmp = icmp ugt i32 %sub, 1
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
@@ -288,7 +288,7 @@ while.body:                                       ; preds = %entry, %while.body
   %arrayidx43 = getelementptr inbounds [256 x i16], ptr @FLAC__crc16_table, i64 0, i64 %and42
   %9 = load i16, ptr %arrayidx43, align 2
   %xor4517 = xor i16 %xor4016, %9
-  %incdec.ptr = getelementptr inbounds i64, ptr %words.addr.019, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %words.addr.019, i64 8
   %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !9
 

@@ -3,7 +3,6 @@ source_filename = "bench/cvc5/original/synth_result.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.cvc5::internal::SynthResult" = type { i32, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -38,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @_ZN4cvc58internal11SynthResultC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 4
-  %d_unknownExplanation = getelementptr inbounds %"class.cvc5::internal::SynthResult", ptr %this, i64 0, i32 1
+  %d_unknownExplanation = getelementptr inbounds i8, ptr %this, i64 4
   store i32 9, ptr %d_unknownExplanation, align 4
   ret void
 }
@@ -47,7 +46,7 @@ entry:
 define hidden void @_ZN4cvc58internal11SynthResultC2ENS1_6StatusENS_18UnknownExplanationE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this, i32 noundef %s, i32 noundef %unknownExplanation) unnamed_addr #0 align 2 {
 entry:
   store i32 %s, ptr %this, align 4
-  %d_unknownExplanation = getelementptr inbounds %"class.cvc5::internal::SynthResult", ptr %this, i64 0, i32 1
+  %d_unknownExplanation = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %unknownExplanation, ptr %d_unknownExplanation, align 4
   ret void
 }
@@ -62,7 +61,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK4cvc58internal11SynthResult21getUnknownExplanationEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %d_unknownExplanation = getelementptr inbounds %"class.cvc5::internal::SynthResult", ptr %this, i64 0, i32 1
+  %d_unknownExplanation = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %d_unknownExplanation, align 4
   ret i32 %0
 }
@@ -82,7 +81,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %d_unknownExplanation = getelementptr inbounds %"class.cvc5::internal::SynthResult", ptr %this, i64 0, i32 1
+  %d_unknownExplanation = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i32, ptr %d_unknownExplanation, align 4
   %cmp.not = icmp eq i32 %1, 9
   br i1 %cmp.not, label %if.end, label %if.then

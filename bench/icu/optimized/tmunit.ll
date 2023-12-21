@@ -3,10 +3,6 @@ source_filename = "bench/icu/original/tmunit.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::TimeUnit" = type { %"class.icu_75::MeasureUnit.base", i32 }
-%"class.icu_75::MeasureUnit.base" = type <{ %"class.icu_75::UObject", ptr, i16, i8 }>
-%"class.icu_75::UObject" = type { ptr }
-
 @_ZZN6icu_758TimeUnit16getStaticClassIDEvE7classID = internal global i8 0, align 1
 @_ZTVN6icu_758TimeUnitE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTIN6icu_758TimeUnitE, ptr @_ZN6icu_758TimeUnitD1Ev, ptr @_ZN6icu_758TimeUnitD0Ev, ptr @_ZNK6icu_758TimeUnit17getDynamicClassIDEv, ptr @_ZNK6icu_758TimeUnit5cloneEv, ptr @_ZNK6icu_7511MeasureUniteqERKNS_7UObjectE] }, align 8
 @.str = private unnamed_addr constant [5 x i8] c"year\00", align 1
@@ -86,7 +82,7 @@ define void @_ZN6icu_758TimeUnitC2ENS0_15UTimeUnitFieldsE(ptr noundef nonnull al
 entry:
   tail call void @_ZN6icu_7511MeasureUnitC2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this)
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_758TimeUnitE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fTimeUnitField = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %this, i64 0, i32 1
+  %fTimeUnitField = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %timeUnitField, ptr %fTimeUnitField, align 4
   %0 = icmp ult i32 %timeUnitField, 7
   br i1 %0, label %switch.lookup, label %sw.default
@@ -127,8 +123,8 @@ define void @_ZN6icu_758TimeUnitC2ERKS0_(ptr noundef nonnull align 8 dereference
 entry:
   tail call void @_ZN6icu_7511MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %this, ptr noundef nonnull align 8 dereferenceable(19) %other)
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_758TimeUnitE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fTimeUnitField = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %this, i64 0, i32 1
-  %fTimeUnitField2 = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %other, i64 0, i32 1
+  %fTimeUnitField = getelementptr inbounds i8, ptr %this, i64 20
+  %fTimeUnitField2 = getelementptr inbounds i8, ptr %other, i64 20
   %0 = load i32, ptr %fTimeUnitField2, align 4
   store i32 %0, ptr %fTimeUnitField, align 4
   ret void
@@ -165,9 +161,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7511MeasureUnitaSERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %this, ptr noundef nonnull align 8 dereferenceable(19) %other)
-  %fTimeUnitField = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %other, i64 0, i32 1
+  %fTimeUnitField = getelementptr inbounds i8, ptr %other, i64 20
   %0 = load i32, ptr %fTimeUnitField, align 4
-  %fTimeUnitField2 = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %this, i64 0, i32 1
+  %fTimeUnitField2 = getelementptr inbounds i8, ptr %this, i64 20
   store i32 %0, ptr %fTimeUnitField2, align 4
   br label %return
 
@@ -180,7 +176,7 @@ declare noundef nonnull align 8 dereferenceable(19) ptr @_ZN6icu_7511MeasureUnit
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_ZNK6icu_758TimeUnit16getTimeUnitFieldEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %fTimeUnitField = getelementptr inbounds %"class.icu_75::TimeUnit", ptr %this, i64 0, i32 1
+  %fTimeUnitField = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %fTimeUnitField, align 4
   ret i32 %0
 }

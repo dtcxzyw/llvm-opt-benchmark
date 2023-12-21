@@ -4,22 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.OCSP_TBLSTR = type { i64, ptr }
-%struct.ocsp_request_st = type { %struct.ocsp_req_info_st, ptr }
-%struct.ocsp_req_info_st = type { ptr, ptr, ptr, ptr }
-%struct.ocsp_one_request_st = type { ptr, ptr }
-%struct.ocsp_signature_st = type { %struct.X509_algor_st, ptr, ptr }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.ocsp_cert_id_st = type { %struct.X509_algor_st, %struct.asn1_string_st, %struct.asn1_string_st, %struct.asn1_string_st }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.ocsp_response_st = type { ptr, ptr }
-%struct.ocsp_response_data_st = type { ptr, %struct.ocsp_responder_id_st, ptr, ptr, ptr }
-%struct.ocsp_responder_id_st = type { i32, %union.anon }
-%union.anon = type { ptr }
-%struct.ocsp_single_response_st = type { ptr, ptr, ptr, ptr, ptr }
-%struct.ocsp_cert_status_st = type { i32, %union.anon.0 }
-%union.anon.0 = type { ptr }
-%struct.ocsp_revoked_info_st = type { ptr, ptr }
-%struct.ocsp_basic_response_st = type { %struct.ocsp_response_data_st, %struct.X509_algor_st, ptr, ptr }
 
 @OCSP_response_status_str.rstat_tbl = internal unnamed_addr constant [6 x %struct.OCSP_TBLSTR] [%struct.OCSP_TBLSTR { i64 0, ptr @.str }, %struct.OCSP_TBLSTR { i64 1, ptr @.str.1 }, %struct.OCSP_TBLSTR { i64 2, ptr @.str.2 }, %struct.OCSP_TBLSTR { i64 3, ptr @.str.3 }, %struct.OCSP_TBLSTR { i64 5, ptr @.str.4 }, %struct.OCSP_TBLSTR { i64 6, ptr @.str.5 }], align 16
 @.str = private unnamed_addr constant [11 x i8] c"successful\00", align 1
@@ -86,13 +70,13 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %m.i = getelementptr inbounds %struct.OCSP_TBLSTR, ptr %ts.addr.06.i, i64 0, i32 1
+  %m.i = getelementptr inbounds i8, ptr %ts.addr.06.i, i64 8
   %1 = load ptr, ptr %m.i, align 8
   br label %do_table2string.exit
 
 for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.07.i, 1
-  %incdec.ptr.i = getelementptr inbounds %struct.OCSP_TBLSTR, ptr %ts.addr.06.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ts.addr.06.i, i64 16
   %exitcond.not.i = icmp eq i64 %inc.i, 6
   br i1 %exitcond.not.i, label %do_table2string.exit, label %for.body.i, !llvm.loop !4
 
@@ -114,13 +98,13 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %m.i = getelementptr inbounds %struct.OCSP_TBLSTR, ptr %ts.addr.06.i, i64 0, i32 1
+  %m.i = getelementptr inbounds i8, ptr %ts.addr.06.i, i64 8
   %1 = load ptr, ptr %m.i, align 8
   br label %do_table2string.exit
 
 for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.07.i, 1
-  %incdec.ptr.i = getelementptr inbounds %struct.OCSP_TBLSTR, ptr %ts.addr.06.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ts.addr.06.i, i64 16
   %exitcond.not.i = icmp eq i64 %inc.i, 3
   br i1 %exitcond.not.i, label %do_table2string.exit, label %for.body.i, !llvm.loop !4
 
@@ -142,13 +126,13 @@ for.body.i:                                       ; preds = %for.inc.i, %entry
   br i1 %cmp1.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %m.i = getelementptr inbounds %struct.OCSP_TBLSTR, ptr %ts.addr.06.i, i64 0, i32 1
+  %m.i = getelementptr inbounds i8, ptr %ts.addr.06.i, i64 8
   %1 = load ptr, ptr %m.i, align 8
   br label %do_table2string.exit
 
 for.inc.i:                                        ; preds = %for.body.i
   %inc.i = add nuw nsw i64 %i.07.i, 1
-  %incdec.ptr.i = getelementptr inbounds %struct.OCSP_TBLSTR, ptr %ts.addr.06.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %ts.addr.06.i, i64 16
   %exitcond.not.i = icmp eq i64 %inc.i, 10
   br i1 %exitcond.not.i, label %do_table2string.exit, label %for.body.i, !llvm.loop !4
 
@@ -160,7 +144,7 @@ do_table2string.exit:                             ; preds = %for.inc.i, %if.then
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_REQUEST_print(ptr noundef %bp, ptr nocapture noundef readonly %o, i64 noundef %flags) local_unnamed_addr #1 {
 entry:
-  %optionalSignature = getelementptr inbounds %struct.ocsp_request_st, ptr %o, i64 0, i32 1
+  %optionalSignature = getelementptr inbounds i8, ptr %o, i64 32
   %0 = load ptr, ptr %optionalSignature, align 8
   %call = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull @.str.19, i32 noundef 19) #3
   %cmp = icmp slt i32 %call, 1
@@ -175,7 +159,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %requestorName = getelementptr inbounds %struct.ocsp_req_info_st, ptr %o, i64 0, i32 1
+  %requestorName = getelementptr inbounds i8, ptr %o, i64 8
   %2 = load ptr, ptr %requestorName, align 8
   %cmp6.not = icmp eq ptr %2, null
   br i1 %cmp6.not, label %if.end14, label %if.then7
@@ -196,7 +180,7 @@ if.end14:                                         ; preds = %if.end11, %if.end5
   br i1 %cmp16, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end14
-  %requestList = getelementptr inbounds %struct.ocsp_req_info_st, ptr %o, i64 0, i32 2
+  %requestList = getelementptr inbounds i8, ptr %o, i64 16
   %4 = load ptr, ptr %requestList, align 8
   %call2032 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #3
   %cmp2133 = icmp sgt i32 %call2032, 0
@@ -215,14 +199,14 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call24 = tail call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %i.034) #3
   %7 = load ptr, ptr %call24, align 8
   tail call fastcc void @ocsp_certid_print(ptr noundef %bp, ptr noundef %7, i32 noundef 8)
-  %singleRequestExtensions = getelementptr inbounds %struct.ocsp_one_request_st, ptr %call24, i64 0, i32 1
+  %singleRequestExtensions = getelementptr inbounds i8, ptr %call24, i64 8
   %8 = load ptr, ptr %singleRequestExtensions, align 8
   %call26 = tail call i32 @X509V3_extensions_print(ptr noundef %bp, ptr noundef nonnull @.str.23, ptr noundef %8, i64 noundef %flags, i32 noundef 8) #3
   %tobool.not = icmp eq i32 %call26, 0
   br i1 %tobool.not, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader
-  %requestExtensions = getelementptr inbounds %struct.ocsp_req_info_st, ptr %o, i64 0, i32 3
+  %requestExtensions = getelementptr inbounds i8, ptr %o, i64 24
   %9 = load ptr, ptr %requestExtensions, align 8
   %call29 = tail call i32 @X509V3_extensions_print(ptr noundef %bp, ptr noundef nonnull @.str.24, ptr noundef %9, i64 noundef %flags, i32 noundef 4) #3
   %tobool30.not = icmp eq i32 %call29, 0
@@ -233,10 +217,10 @@ if.end32:                                         ; preds = %for.end
   br i1 %tobool33.not, label %return, label %if.then34
 
 if.then34:                                        ; preds = %if.end32
-  %signature = getelementptr inbounds %struct.ocsp_signature_st, ptr %0, i64 0, i32 1
+  %signature = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %signature, align 8
   %call35 = tail call i32 @X509_signature_print(ptr noundef %bp, ptr noundef nonnull %0, ptr noundef %10) #3
-  %certs = getelementptr inbounds %struct.ocsp_signature_st, ptr %0, i64 0, i32 2
+  %certs = getelementptr inbounds i8, ptr %0, i64 24
   %11 = load ptr, ptr %certs, align 8
   %call3835 = tail call i32 @OPENSSL_sk_num(ptr noundef %11) #3
   %cmp3936 = icmp sgt i32 %call3835, 0
@@ -282,13 +266,13 @@ entry:
   %0 = load ptr, ptr %a, align 8
   %call2 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %bp, ptr noundef %0) #3
   %call3 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.45, i32 noundef %add, ptr noundef nonnull @.str.43) #3
-  %issuerNameHash = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %a, i64 0, i32 1
+  %issuerNameHash = getelementptr inbounds i8, ptr %a, i64 16
   %call4 = tail call i32 @i2a_ASN1_STRING(ptr noundef %bp, ptr noundef nonnull %issuerNameHash, i32 noundef 0) #3
   %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.46, i32 noundef %add, ptr noundef nonnull @.str.43) #3
-  %issuerKeyHash = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %a, i64 0, i32 2
+  %issuerKeyHash = getelementptr inbounds i8, ptr %a, i64 40
   %call6 = tail call i32 @i2a_ASN1_STRING(ptr noundef %bp, ptr noundef nonnull %issuerKeyHash, i32 noundef 0) #3
   %call7 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.47, i32 noundef %add, ptr noundef nonnull @.str.43) #3
-  %serialNumber = getelementptr inbounds %struct.ocsp_cert_id_st, ptr %a, i64 0, i32 3
+  %serialNumber = getelementptr inbounds i8, ptr %a, i64 64
   %call8 = tail call i32 @i2a_ASN1_INTEGER(ptr noundef %bp, ptr noundef nonnull %serialNumber) #3
   %call9 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.38) #3
   ret void
@@ -305,7 +289,7 @@ declare i32 @PEM_write_bio_X509(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @OCSP_RESPONSE_print(ptr noundef %bp, ptr noundef %o, i64 noundef %flags) local_unnamed_addr #1 {
 entry:
-  %responseBytes = getelementptr inbounds %struct.ocsp_response_st, ptr %o, i64 0, i32 1
+  %responseBytes = getelementptr inbounds i8, ptr %o, i64 8
   %0 = load ptr, ptr %responseBytes, align 8
   %call = tail call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.25) #3
   %cmp = icmp slt i32 %call, 1
@@ -324,13 +308,13 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   br i1 %cmp1.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %m.i.i = getelementptr inbounds %struct.OCSP_TBLSTR, ptr %ts.addr.06.i.i, i64 0, i32 1
+  %m.i.i = getelementptr inbounds i8, ptr %ts.addr.06.i.i, i64 8
   %3 = load ptr, ptr %m.i.i, align 8
   br label %OCSP_response_status_str.exit
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %inc.i.i = add nuw nsw i64 %i.07.i.i, 1
-  %incdec.ptr.i.i = getelementptr inbounds %struct.OCSP_TBLSTR, ptr %ts.addr.06.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %ts.addr.06.i.i, i64 16
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 6
   br i1 %exitcond.not.i.i, label %OCSP_response_status_str.exit, label %for.body.i.i, !llvm.loop !4
 
@@ -384,7 +368,7 @@ if.end32:                                         ; preds = %if.end27
   br i1 %cmp34, label %err, label %if.end36
 
 if.end36:                                         ; preds = %if.end32
-  %responderId = getelementptr inbounds %struct.ocsp_response_data_st, ptr %call24, i64 0, i32 1
+  %responderId = getelementptr inbounds i8, ptr %call24, i64 8
   %7 = load i32, ptr %responderId, align 8
   switch i32 %7, label %sw.epilog [
     i32 0, label %sw.bb
@@ -392,13 +376,13 @@ if.end36:                                         ; preds = %if.end32
   ]
 
 sw.bb:                                            ; preds = %if.end36
-  %value = getelementptr inbounds %struct.ocsp_response_data_st, ptr %call24, i64 0, i32 1, i32 1
+  %value = getelementptr inbounds i8, ptr %call24, i64 16
   %8 = load ptr, ptr %value, align 8
   %call37 = tail call i32 @X509_NAME_print_ex(ptr noundef %bp, ptr noundef %8, i32 noundef 0, i64 noundef 8520479) #3
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %if.end36
-  %value39 = getelementptr inbounds %struct.ocsp_response_data_st, ptr %call24, i64 0, i32 1, i32 1
+  %value39 = getelementptr inbounds i8, ptr %call24, i64 16
   %9 = load ptr, ptr %value39, align 8
   %call40 = tail call i32 @i2a_ASN1_STRING(ptr noundef %bp, ptr noundef %9, i32 noundef 0) #3
   br label %sw.epilog
@@ -409,7 +393,7 @@ sw.epilog:                                        ; preds = %sw.bb38, %sw.bb, %i
   br i1 %cmp42, label %err, label %if.end44
 
 if.end44:                                         ; preds = %sw.epilog
-  %producedAt = getelementptr inbounds %struct.ocsp_response_data_st, ptr %call24, i64 0, i32 2
+  %producedAt = getelementptr inbounds i8, ptr %call24, i64 24
   %10 = load ptr, ptr %producedAt, align 8
   %call45 = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bp, ptr noundef %10) #3
   %tobool.not = icmp eq i32 %call45, 0
@@ -421,7 +405,7 @@ if.end47:                                         ; preds = %if.end44
   br i1 %cmp49, label %err, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end47
-  %responses = getelementptr inbounds %struct.ocsp_response_data_st, ptr %call24, i64 0, i32 3
+  %responses = getelementptr inbounds i8, ptr %call24, i64 32
   %11 = load ptr, ptr %responses, align 8
   %call5395 = tail call i32 @OPENSSL_sk_num(ptr noundef %11) #3
   %cmp5496 = icmp sgt i32 %call5395, 0
@@ -439,7 +423,7 @@ if.end60:                                         ; preds = %for.body
   %call63 = tail call ptr @OPENSSL_sk_value(ptr noundef %13, i32 noundef %i.097) #3
   %14 = load ptr, ptr %call63, align 8
   tail call fastcc void @ocsp_certid_print(ptr noundef %bp, ptr noundef %14, i32 noundef 4)
-  %certStatus = getelementptr inbounds %struct.ocsp_single_response_st, ptr %call63, i64 0, i32 1
+  %certStatus = getelementptr inbounds i8, ptr %call63, i64 8
   %15 = load ptr, ptr %certStatus, align 8
   %16 = load i32, ptr %15, align 8
   %conv = sext i32 %16 to i64
@@ -453,13 +437,13 @@ for.body.i.i69:                                   ; preds = %for.inc.i.i73, %if.
   br i1 %cmp1.i.i72, label %if.then.i.i78, label %for.inc.i.i73
 
 if.then.i.i78:                                    ; preds = %for.body.i.i69
-  %m.i.i79 = getelementptr inbounds %struct.OCSP_TBLSTR, ptr %ts.addr.06.i.i71, i64 0, i32 1
+  %m.i.i79 = getelementptr inbounds i8, ptr %ts.addr.06.i.i71, i64 8
   %18 = load ptr, ptr %m.i.i79, align 8
   br label %OCSP_cert_status_str.exit
 
 for.inc.i.i73:                                    ; preds = %for.body.i.i69
   %inc.i.i74 = add nuw nsw i64 %i.07.i.i70, 1
-  %incdec.ptr.i.i75 = getelementptr inbounds %struct.OCSP_TBLSTR, ptr %ts.addr.06.i.i71, i64 1
+  %incdec.ptr.i.i75 = getelementptr inbounds i8, ptr %ts.addr.06.i.i71, i64 16
   %exitcond.not.i.i76 = icmp eq i64 %inc.i.i74, 3
   br i1 %exitcond.not.i.i76, label %OCSP_cert_status_str.exit, label %for.body.i.i69, !llvm.loop !4
 
@@ -475,7 +459,7 @@ if.end74:                                         ; preds = %OCSP_cert_status_st
   br i1 %cmp76, label %if.then78, label %if.end100
 
 if.then78:                                        ; preds = %if.end74
-  %value79 = getelementptr inbounds %struct.ocsp_cert_status_st, ptr %15, i64 0, i32 1
+  %value79 = getelementptr inbounds i8, ptr %15, i64 8
   %20 = load ptr, ptr %value79, align 8
   %call80 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.34) #3
   %cmp81 = icmp slt i32 %call80, 1
@@ -488,7 +472,7 @@ if.end84:                                         ; preds = %if.then78
   br i1 %tobool86.not, label %err, label %if.end88
 
 if.end88:                                         ; preds = %if.end84
-  %revocationReason = getelementptr inbounds %struct.ocsp_revoked_info_st, ptr %20, i64 0, i32 1
+  %revocationReason = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %revocationReason, align 8
   %tobool89.not = icmp eq ptr %22, null
   br i1 %tobool89.not, label %if.end100, label %if.then90
@@ -505,13 +489,13 @@ for.body.i.i80:                                   ; preds = %for.inc.i.i84, %if.
   br i1 %cmp1.i.i83, label %if.then.i.i89, label %for.inc.i.i84
 
 if.then.i.i89:                                    ; preds = %for.body.i.i80
-  %m.i.i90 = getelementptr inbounds %struct.OCSP_TBLSTR, ptr %ts.addr.06.i.i82, i64 0, i32 1
+  %m.i.i90 = getelementptr inbounds i8, ptr %ts.addr.06.i.i82, i64 8
   %24 = load ptr, ptr %m.i.i90, align 8
   br label %OCSP_crl_reason_str.exit
 
 for.inc.i.i84:                                    ; preds = %for.body.i.i80
   %inc.i.i85 = add nuw nsw i64 %i.07.i.i81, 1
-  %incdec.ptr.i.i86 = getelementptr inbounds %struct.OCSP_TBLSTR, ptr %ts.addr.06.i.i82, i64 1
+  %incdec.ptr.i.i86 = getelementptr inbounds i8, ptr %ts.addr.06.i.i82, i64 16
   %exitcond.not.i.i87 = icmp eq i64 %inc.i.i85, 10
   br i1 %exitcond.not.i.i87, label %OCSP_crl_reason_str.exit, label %for.body.i.i80, !llvm.loop !4
 
@@ -527,14 +511,14 @@ if.end100:                                        ; preds = %if.end88, %OCSP_crl
   br i1 %cmp102, label %err, label %if.end105
 
 if.end105:                                        ; preds = %if.end100
-  %thisUpdate = getelementptr inbounds %struct.ocsp_single_response_st, ptr %call63, i64 0, i32 2
+  %thisUpdate = getelementptr inbounds i8, ptr %call63, i64 16
   %25 = load ptr, ptr %thisUpdate, align 8
   %call106 = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bp, ptr noundef %25) #3
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %err, label %if.end109
 
 if.end109:                                        ; preds = %if.end105
-  %nextUpdate = getelementptr inbounds %struct.ocsp_single_response_st, ptr %call63, i64 0, i32 3
+  %nextUpdate = getelementptr inbounds i8, ptr %call63, i64 24
   %26 = load ptr, ptr %nextUpdate, align 8
   %tobool110.not = icmp eq ptr %26, null
   br i1 %tobool110.not, label %if.end122, label %if.then111
@@ -556,7 +540,7 @@ if.end122:                                        ; preds = %if.end116, %if.end1
   br i1 %cmp124, label %err, label %if.end127
 
 if.end127:                                        ; preds = %if.end122
-  %singleExtensions = getelementptr inbounds %struct.ocsp_single_response_st, ptr %call63, i64 0, i32 4
+  %singleExtensions = getelementptr inbounds i8, ptr %call63, i64 32
   %28 = load ptr, ptr %singleExtensions, align 8
   %call128 = tail call i32 @X509V3_extensions_print(ptr noundef %bp, ptr noundef nonnull @.str.39, ptr noundef %28, i64 noundef %flags, i32 noundef 8) #3
   %tobool129.not = icmp eq i32 %call128, 0
@@ -575,22 +559,22 @@ for.inc:                                          ; preds = %if.end131, %for.bod
   br i1 %cmp54, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %responseExtensions = getelementptr inbounds %struct.ocsp_response_data_st, ptr %call24, i64 0, i32 4
+  %responseExtensions = getelementptr inbounds i8, ptr %call24, i64 40
   %30 = load ptr, ptr %responseExtensions, align 8
   %call137 = tail call i32 @X509V3_extensions_print(ptr noundef %bp, ptr noundef nonnull @.str.40, ptr noundef %30, i64 noundef %flags, i32 noundef 4) #3
   %tobool138.not = icmp eq i32 %call137, 0
   br i1 %tobool138.not, label %err, label %if.end140
 
 if.end140:                                        ; preds = %for.end
-  %signatureAlgorithm = getelementptr inbounds %struct.ocsp_basic_response_st, ptr %call24, i64 0, i32 1
-  %signature = getelementptr inbounds %struct.ocsp_basic_response_st, ptr %call24, i64 0, i32 2
+  %signatureAlgorithm = getelementptr inbounds i8, ptr %call24, i64 48
+  %signature = getelementptr inbounds i8, ptr %call24, i64 64
   %31 = load ptr, ptr %signature, align 8
   %call141 = tail call i32 @X509_signature_print(ptr noundef %bp, ptr noundef nonnull %signatureAlgorithm, ptr noundef %31) #3
   %cmp142 = icmp slt i32 %call141, 1
   br i1 %cmp142, label %err, label %for.cond146.preheader
 
 for.cond146.preheader:                            ; preds = %if.end140
-  %certs = getelementptr inbounds %struct.ocsp_basic_response_st, ptr %call24, i64 0, i32 3
+  %certs = getelementptr inbounds i8, ptr %call24, i64 72
   %32 = load ptr, ptr %certs, align 8
   %call14898 = tail call i32 @OPENSSL_sk_num(ptr noundef %32) #3
   %cmp14999 = icmp sgt i32 %call14898, 0

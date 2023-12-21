@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QEnumLookup = type { ptr, ptr, i32 }
-%struct.q_obj_dump_guest_memory_arg = type { i8, ptr, i8, i8, i8, i64, i8, i64, i8, i32 }
-%struct.DumpQueryResult = type { i32, i64, i64 }
-%struct.q_obj_DUMP_COMPLETED_arg = type { ptr, ptr }
-%struct.DumpGuestMemoryFormatList = type { ptr, i32 }
 
 @DumpGuestMemoryFormat_lookup = external constant %struct.QEnumLookup, align 8
 @.str = private unnamed_addr constant [7 x i8] c"paging\00", align 1
@@ -51,47 +47,47 @@ entry:
   br i1 %call, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %protocol = getelementptr inbounds %struct.q_obj_dump_guest_memory_arg, ptr %obj, i64 0, i32 1
+  %protocol = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = tail call zeroext i1 @visit_type_str(ptr noundef %v, ptr noundef nonnull @.str.1, ptr noundef nonnull %protocol, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %has_detach = getelementptr inbounds %struct.q_obj_dump_guest_memory_arg, ptr %obj, i64 0, i32 2
+  %has_detach = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %has_detach) #4
   br i1 %call4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end3
-  %detach = getelementptr inbounds %struct.q_obj_dump_guest_memory_arg, ptr %obj, i64 0, i32 3
+  %detach = getelementptr inbounds i8, ptr %obj, i64 17
   %call6 = tail call zeroext i1 @visit_type_bool(ptr noundef %v, ptr noundef nonnull @.str.2, ptr noundef nonnull %detach, ptr noundef %errp) #4
   br i1 %call6, label %if.end9, label %return
 
 if.end9:                                          ; preds = %if.then5, %if.end3
-  %has_begin = getelementptr inbounds %struct.q_obj_dump_guest_memory_arg, ptr %obj, i64 0, i32 4
+  %has_begin = getelementptr inbounds i8, ptr %obj, i64 18
   %call10 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %has_begin) #4
   br i1 %call10, label %if.then11, label %if.end15
 
 if.then11:                                        ; preds = %if.end9
-  %begin = getelementptr inbounds %struct.q_obj_dump_guest_memory_arg, ptr %obj, i64 0, i32 5
+  %begin = getelementptr inbounds i8, ptr %obj, i64 24
   %call12 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.3, ptr noundef nonnull %begin, ptr noundef %errp) #4
   br i1 %call12, label %if.end15, label %return
 
 if.end15:                                         ; preds = %if.then11, %if.end9
-  %has_length = getelementptr inbounds %struct.q_obj_dump_guest_memory_arg, ptr %obj, i64 0, i32 6
+  %has_length = getelementptr inbounds i8, ptr %obj, i64 32
   %call16 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %has_length) #4
   br i1 %call16, label %if.then17, label %if.end21
 
 if.then17:                                        ; preds = %if.end15
-  %length = getelementptr inbounds %struct.q_obj_dump_guest_memory_arg, ptr %obj, i64 0, i32 7
+  %length = getelementptr inbounds i8, ptr %obj, i64 40
   %call18 = tail call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.4, ptr noundef nonnull %length, ptr noundef %errp) #4
   br i1 %call18, label %if.end21, label %return
 
 if.end21:                                         ; preds = %if.then17, %if.end15
-  %has_format = getelementptr inbounds %struct.q_obj_dump_guest_memory_arg, ptr %obj, i64 0, i32 8
+  %has_format = getelementptr inbounds i8, ptr %obj, i64 48
   %call22 = tail call zeroext i1 @visit_optional(ptr noundef %v, ptr noundef nonnull @.str.5, ptr noundef nonnull %has_format) #4
   br i1 %call22, label %if.then23, label %if.end27
 
 if.then23:                                        ; preds = %if.end21
-  %format = getelementptr inbounds %struct.q_obj_dump_guest_memory_arg, ptr %obj, i64 0, i32 9
+  %format = getelementptr inbounds i8, ptr %obj, i64 52
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %0 = load i32, ptr %format, align 4
   store i32 %0, ptr %value.i, align 4
@@ -143,12 +139,12 @@ entry:
   br i1 %call.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %completed = getelementptr inbounds %struct.DumpQueryResult, ptr %obj, i64 0, i32 1
+  %completed = getelementptr inbounds i8, ptr %obj, i64 8
   %call1 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %completed, ptr noundef %errp) #4
   br i1 %call1, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %total = getelementptr inbounds %struct.DumpQueryResult, ptr %obj, i64 0, i32 2
+  %total = getelementptr inbounds i8, ptr %obj, i64 16
   %call4 = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %total, ptr noundef %errp) #4
   br label %return
 
@@ -192,12 +188,12 @@ if.end5:                                          ; preds = %if.end
   br i1 %call.i.i, label %if.end.i, label %out_obj.thread
 
 if.end.i:                                         ; preds = %if.end5
-  %completed.i = getelementptr inbounds %struct.DumpQueryResult, ptr %0, i64 0, i32 1
+  %completed.i = getelementptr inbounds i8, ptr %0, i64 8
   %call1.i = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.7, ptr noundef nonnull %completed.i, ptr noundef %errp) #4
   br i1 %call1.i, label %visit_type_DumpQueryResult_members.exit, label %out_obj.thread
 
 visit_type_DumpQueryResult_members.exit:          ; preds = %if.end.i
-  %total.i = getelementptr inbounds %struct.DumpQueryResult, ptr %0, i64 0, i32 2
+  %total.i = getelementptr inbounds i8, ptr %0, i64 16
   %call4.i = call zeroext i1 @visit_type_int(ptr noundef %v, ptr noundef nonnull @.str.8, ptr noundef nonnull %total.i, ptr noundef %errp) #4
   br i1 %call4.i, label %out_obj, label %out_obj.thread
 
@@ -244,7 +240,7 @@ declare void @qapi_free_DumpQueryResult(ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @visit_type_q_obj_DUMP_COMPLETED_arg_members(ptr noundef %v, ptr noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %has_error = alloca i8, align 1
-  %error = getelementptr inbounds %struct.q_obj_DUMP_COMPLETED_arg, ptr %obj, i64 0, i32 1
+  %error = getelementptr inbounds i8, ptr %obj, i64 8
   %0 = load ptr, ptr %error, align 8
   %tobool = icmp ne ptr %0, null
   %frombool = zext i1 %tobool to i8
@@ -282,7 +278,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %tail.019 = phi ptr [ %call4, %for.inc ], [ %0, %if.end ]
-  %value = getelementptr inbounds %struct.DumpGuestMemoryFormatList, ptr %tail.019, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %tail.019, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
   %1 = load i32, ptr %value, align 4
   store i32 %1, ptr %value.i, align 4

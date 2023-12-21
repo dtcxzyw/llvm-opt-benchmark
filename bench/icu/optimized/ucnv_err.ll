@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/ucnv_err.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UConverterFromUnicodeArgs = type { i16, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @UCNV_FROM_U_CALLBACK_STOP_75(ptr nocapture noundef readnone %context, ptr nocapture noundef readnone %fromUArgs, ptr nocapture noundef readnone %codeUnits, i32 noundef %length, i32 noundef %codePoint, i32 noundef %reason, ptr nocapture noundef writeonly %err) local_unnamed_addr #0 {
 entry:
@@ -323,7 +321,7 @@ lor.lhs.false32:                                  ; preds = %lor.lhs.false26
   br i1 %or.cond137, label %return.sink.split, label %if.end57
 
 if.end57:                                         ; preds = %lor.lhs.false32, %if.else
-  %converter = getelementptr inbounds %struct.UConverterFromUnicodeArgs, ptr %fromArgs, i64 0, i32 2
+  %converter = getelementptr inbounds i8, ptr %fromArgs, i64 8
   %5 = load ptr, ptr %converter, align 8
   call void @ucnv_setFromUCallBack_75(ptr noundef %5, ptr noundef nonnull @UCNV_FROM_U_CALLBACK_SUBSTITUTE_75, ptr noundef null, ptr noundef nonnull %original, ptr noundef nonnull %originalContext, ptr noundef nonnull %err2)
   %6 = load i32, ptr %err2, align 4
@@ -419,8 +417,8 @@ while.body74:                                     ; preds = %while.body74.prehea
 sw.bb92:                                          ; preds = %if.else70
   store i16 92, ptr %valueString, align 16
   %cmp96 = icmp eq i32 %length, 2
-  %arrayidx100 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 1
-  %add.ptr103 = getelementptr inbounds i16, ptr %valueString, i64 2
+  %arrayidx100 = getelementptr inbounds i8, ptr %valueString, i64 2
+  %add.ptr103 = getelementptr inbounds i8, ptr %valueString, i64 4
   br i1 %cmp96, label %if.then97, label %if.else107
 
 if.then97:                                        ; preds = %sw.bb92
@@ -439,10 +437,10 @@ if.else107:                                       ; preds = %sw.bb92
 
 sw.bb120:                                         ; preds = %if.else70
   store i16 38, ptr %valueString, align 16
-  %arrayidx126 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 1
+  %arrayidx126 = getelementptr inbounds i8, ptr %valueString, i64 2
   store i16 35, ptr %arrayidx126, align 2
   %cmp127 = icmp eq i32 %length, 2
-  %add.ptr131 = getelementptr inbounds i16, ptr %valueString, i64 2
+  %add.ptr131 = getelementptr inbounds i8, ptr %valueString, i64 4
   br i1 %cmp127, label %if.end144, label %if.else135
 
 if.else135:                                       ; preds = %sw.bb120
@@ -462,12 +460,12 @@ if.end144:                                        ; preds = %sw.bb120, %if.else1
 
 sw.bb148:                                         ; preds = %if.else70
   store i16 38, ptr %valueString, align 16
-  %arrayidx154 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 1
+  %arrayidx154 = getelementptr inbounds i8, ptr %valueString, i64 2
   store i16 35, ptr %arrayidx154, align 2
-  %arrayidx157 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 2
+  %arrayidx157 = getelementptr inbounds i8, ptr %valueString, i64 4
   store i16 120, ptr %arrayidx157, align 4
   %cmp158 = icmp eq i32 %length, 2
-  %add.ptr162 = getelementptr inbounds i16, ptr %valueString, i64 3
+  %add.ptr162 = getelementptr inbounds i8, ptr %valueString, i64 6
   br i1 %cmp158, label %if.end175, label %if.else166
 
 if.else166:                                       ; preds = %sw.bb148
@@ -487,12 +485,12 @@ if.end175:                                        ; preds = %sw.bb148, %if.else1
 
 sw.bb179:                                         ; preds = %if.else70
   store i16 123, ptr %valueString, align 16
-  %arrayidx185 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 1
+  %arrayidx185 = getelementptr inbounds i8, ptr %valueString, i64 2
   store i16 85, ptr %arrayidx185, align 2
-  %arrayidx188 = getelementptr inbounds [48 x i16], ptr %valueString, i64 0, i64 2
+  %arrayidx188 = getelementptr inbounds i8, ptr %valueString, i64 4
   store i16 43, ptr %arrayidx188, align 4
   %cmp189 = icmp eq i32 %length, 2
-  %add.ptr193 = getelementptr inbounds i16, ptr %valueString, i64 3
+  %add.ptr193 = getelementptr inbounds i8, ptr %valueString, i64 6
   br i1 %cmp189, label %if.end206, label %if.else197
 
 if.else197:                                       ; preds = %sw.bb179
@@ -512,7 +510,7 @@ if.end206:                                        ; preds = %sw.bb179, %if.else1
 
 sw.bb210:                                         ; preds = %if.else70
   store i16 92, ptr %valueString, align 16
-  %add.ptr216 = getelementptr inbounds i16, ptr %valueString, i64 1
+  %add.ptr216 = getelementptr inbounds i8, ptr %valueString, i64 2
   %call218 = call i32 @uprv_itou_75(ptr noundef nonnull %add.ptr216, i32 noundef 47, i32 noundef %codePoint, i32 noundef 16, i32 noundef 0)
   %add219 = add nsw i32 %call218, 1
   %inc220 = add nsw i32 %call218, 2

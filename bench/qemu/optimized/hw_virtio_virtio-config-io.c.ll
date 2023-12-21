@@ -3,24 +3,6 @@ source_filename = "bench/qemu/original/hw_virtio_virtio-config-io.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.1, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon, %union.anon.0 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.VirtioDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-
 @.str = private unnamed_addr constant [14 x i8] c"virtio-device\00", align 1
 @.str.1 = private unnamed_addr constant [105 x i8] c"/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/qemu/qemu/include/hw/virtio/virtio.h\00", align 1
 @__func__.VIRTIO_DEVICE_GET_CLASS = private unnamed_addr constant [24 x i8] c"VIRTIO_DEVICE_GET_CLASS\00", align 1
@@ -31,15 +13,15 @@ entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
   %conv = zext i32 %addr to i64
-  %config_len = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 8
+  %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
   %0 = load i64, ptr %config_len, align 8
   %cmp.not = icmp ugt i64 %0, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %get_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i, i64 0, i32 7
+  %get_config = getelementptr inbounds i8, ptr %call1.i, i64 224
   %1 = load ptr, ptr %get_config, align 8
-  %config = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 9
+  %config = getelementptr inbounds i8, ptr %vdev, i64 208
   %2 = load ptr, ptr %config, align 8
   tail call void %1(ptr noundef nonnull %vdev, ptr noundef %2) #2
   %3 = load ptr, ptr %config, align 8
@@ -60,15 +42,15 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
   %conv = zext i32 %addr to i64
   %add = add nuw nsw i64 %conv, 2
-  %config_len = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 8
+  %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
   %0 = load i64, ptr %config_len, align 8
   %cmp = icmp ugt i64 %add, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %get_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i, i64 0, i32 7
+  %get_config = getelementptr inbounds i8, ptr %call1.i, i64 224
   %1 = load ptr, ptr %get_config, align 8
-  %config = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 9
+  %config = getelementptr inbounds i8, ptr %vdev, i64 208
   %2 = load ptr, ptr %config, align 8
   tail call void %1(ptr noundef nonnull %vdev, ptr noundef %2) #2
   %3 = load ptr, ptr %config, align 8
@@ -89,15 +71,15 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
   %conv = zext i32 %addr to i64
   %add = add nuw nsw i64 %conv, 4
-  %config_len = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 8
+  %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
   %0 = load i64, ptr %config_len, align 8
   %cmp = icmp ugt i64 %add, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %get_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i, i64 0, i32 7
+  %get_config = getelementptr inbounds i8, ptr %call1.i, i64 224
   %1 = load ptr, ptr %get_config, align 8
-  %config = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 9
+  %config = getelementptr inbounds i8, ptr %vdev, i64 208
   %2 = load ptr, ptr %config, align 8
   tail call void %1(ptr noundef nonnull %vdev, ptr noundef %2) #2
   %3 = load ptr, ptr %config, align 8
@@ -116,18 +98,18 @@ entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
   %conv1 = zext i32 %addr to i64
-  %config_len = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 8
+  %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
   %0 = load i64, ptr %config_len, align 8
   %cmp.not = icmp ugt i64 %0, %conv1
   br i1 %cmp.not, label %if.end, label %if.end6
 
 if.end:                                           ; preds = %entry
   %conv = trunc i32 %data to i8
-  %config = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 9
+  %config = getelementptr inbounds i8, ptr %vdev, i64 208
   %1 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %1, i64 %conv1
   store i8 %conv, ptr %add.ptr, align 1
-  %set_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i, i64 0, i32 8
+  %set_config = getelementptr inbounds i8, ptr %call1.i, i64 232
   %2 = load ptr, ptr %set_config, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end6, label %if.then3
@@ -148,18 +130,18 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
   %conv1 = zext i32 %addr to i64
   %add = add nuw nsw i64 %conv1, 2
-  %config_len = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 8
+  %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
   %0 = load i64, ptr %config_len, align 8
   %cmp = icmp ugt i64 %add, %0
   br i1 %cmp, label %if.end6, label %if.end
 
 if.end:                                           ; preds = %entry
   %conv = trunc i32 %data to i16
-  %config = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 9
+  %config = getelementptr inbounds i8, ptr %vdev, i64 208
   %1 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %1, i64 %conv1
   store i16 %conv, ptr %add.ptr, align 1
-  %set_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i, i64 0, i32 8
+  %set_config = getelementptr inbounds i8, ptr %call1.i, i64 232
   %2 = load ptr, ptr %set_config, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end6, label %if.then3
@@ -180,17 +162,17 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
   %conv = zext i32 %addr to i64
   %add = add nuw nsw i64 %conv, 4
-  %config_len = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 8
+  %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
   %0 = load i64, ptr %config_len, align 8
   %cmp = icmp ugt i64 %add, %0
   br i1 %cmp, label %if.end5, label %if.end
 
 if.end:                                           ; preds = %entry
-  %config = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 9
+  %config = getelementptr inbounds i8, ptr %vdev, i64 208
   %1 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %1, i64 %conv
   store i32 %data, ptr %add.ptr, align 1
-  %set_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i, i64 0, i32 8
+  %set_config = getelementptr inbounds i8, ptr %call1.i, i64 232
   %2 = load ptr, ptr %set_config, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end5, label %if.then2
@@ -210,15 +192,15 @@ entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
   %conv = zext i32 %addr to i64
-  %config_len = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 8
+  %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
   %0 = load i64, ptr %config_len, align 8
   %cmp.not = icmp ugt i64 %0, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %get_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i, i64 0, i32 7
+  %get_config = getelementptr inbounds i8, ptr %call1.i, i64 224
   %1 = load ptr, ptr %get_config, align 8
-  %config = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 9
+  %config = getelementptr inbounds i8, ptr %vdev, i64 208
   %2 = load ptr, ptr %config, align 8
   tail call void %1(ptr noundef nonnull %vdev, ptr noundef %2) #2
   %3 = load ptr, ptr %config, align 8
@@ -239,15 +221,15 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
   %conv = zext i32 %addr to i64
   %add = add nuw nsw i64 %conv, 2
-  %config_len = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 8
+  %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
   %0 = load i64, ptr %config_len, align 8
   %cmp = icmp ugt i64 %add, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %get_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i, i64 0, i32 7
+  %get_config = getelementptr inbounds i8, ptr %call1.i, i64 224
   %1 = load ptr, ptr %get_config, align 8
-  %config = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 9
+  %config = getelementptr inbounds i8, ptr %vdev, i64 208
   %2 = load ptr, ptr %config, align 8
   tail call void %1(ptr noundef nonnull %vdev, ptr noundef %2) #2
   %3 = load ptr, ptr %config, align 8
@@ -268,15 +250,15 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
   %conv = zext i32 %addr to i64
   %add = add nuw nsw i64 %conv, 4
-  %config_len = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 8
+  %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
   %0 = load i64, ptr %config_len, align 8
   %cmp = icmp ugt i64 %add, %0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %get_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i, i64 0, i32 7
+  %get_config = getelementptr inbounds i8, ptr %call1.i, i64 224
   %1 = load ptr, ptr %get_config, align 8
-  %config = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 9
+  %config = getelementptr inbounds i8, ptr %vdev, i64 208
   %2 = load ptr, ptr %config, align 8
   tail call void %1(ptr noundef nonnull %vdev, ptr noundef %2) #2
   %3 = load ptr, ptr %config, align 8
@@ -295,18 +277,18 @@ entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %vdev) #2
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
   %conv1 = zext i32 %addr to i64
-  %config_len = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 8
+  %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
   %0 = load i64, ptr %config_len, align 8
   %cmp.not = icmp ugt i64 %0, %conv1
   br i1 %cmp.not, label %if.end, label %if.end6
 
 if.end:                                           ; preds = %entry
   %conv = trunc i32 %data to i8
-  %config = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 9
+  %config = getelementptr inbounds i8, ptr %vdev, i64 208
   %1 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %1, i64 %conv1
   store i8 %conv, ptr %add.ptr, align 1
-  %set_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i, i64 0, i32 8
+  %set_config = getelementptr inbounds i8, ptr %call1.i, i64 232
   %2 = load ptr, ptr %set_config, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end6, label %if.then3
@@ -327,18 +309,18 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
   %conv1 = zext i32 %addr to i64
   %add = add nuw nsw i64 %conv1, 2
-  %config_len = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 8
+  %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
   %0 = load i64, ptr %config_len, align 8
   %cmp = icmp ugt i64 %add, %0
   br i1 %cmp, label %if.end6, label %if.end
 
 if.end:                                           ; preds = %entry
   %conv = trunc i32 %data to i16
-  %config = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 9
+  %config = getelementptr inbounds i8, ptr %vdev, i64 208
   %1 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %1, i64 %conv1
   store i16 %conv, ptr %add.ptr, align 1
-  %set_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i, i64 0, i32 8
+  %set_config = getelementptr inbounds i8, ptr %call1.i, i64 232
   %2 = load ptr, ptr %set_config, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end6, label %if.then3
@@ -359,17 +341,17 @@ entry:
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_GET_CLASS) #2
   %conv = zext i32 %addr to i64
   %add = add nuw nsw i64 %conv, 4
-  %config_len = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 8
+  %config_len = getelementptr inbounds i8, ptr %vdev, i64 200
   %0 = load i64, ptr %config_len, align 8
   %cmp = icmp ugt i64 %add, %0
   br i1 %cmp, label %if.end5, label %if.end
 
 if.end:                                           ; preds = %entry
-  %config = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 9
+  %config = getelementptr inbounds i8, ptr %vdev, i64 208
   %1 = load ptr, ptr %config, align 8
   %add.ptr = getelementptr i8, ptr %1, i64 %conv
   store i32 %data, ptr %add.ptr, align 1
-  %set_config = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call1.i, i64 0, i32 8
+  %set_config = getelementptr inbounds i8, ptr %call1.i, i64 232
   %2 = load ptr, ptr %set_config, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end5, label %if.then2

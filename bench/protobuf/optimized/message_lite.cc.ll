@@ -13,10 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"struct.google::protobuf::MessageLite::ClassData" = type <{ ptr, i32, i8, [3 x i8] }>
-%"struct.google::protobuf::MessageLite::ClassDataFull" = type { %"struct.google::protobuf::MessageLite::ClassData.base", ptr, ptr }
-%"struct.google::protobuf::MessageLite::ClassData.base" = type <{ ptr, i32, i8 }>
-%"struct.google::protobuf::MessageLite::DescriptorMethods" = type { ptr, ptr }
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.absl::lts_20230802::strings_internal::StringifySink" = type { %"class.std::__cxx11::basic_string" }
@@ -30,7 +26,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Head_base.11" = type { ptr }
 %"class.google::protobuf::ZeroCopyCodedInputStream" = type { %"class.google::protobuf::io::ZeroCopyInputStream", ptr }
 %"class.google::protobuf::io::ZeroCopyInputStream" = type { ptr }
-%"class.google::protobuf::io::CodedInputStream" = type { ptr, ptr, ptr, i32, i32, i32, i8, i8, i8, i32, i32, i32, i32, i32, ptr, ptr }
 %"class.google::protobuf::io::FileInputStream" = type { %"class.google::protobuf::io::ZeroCopyInputStream", %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream", %"class.google::protobuf::io::CopyingInputStreamAdaptor" }
 %"class.google::protobuf::io::FileInputStream::CopyingFileInputStream" = type <{ %"class.google::protobuf::io::CopyingInputStream", i32, i8, i8, [2 x i8], i32, i8, [3 x i8] }>
 %"class.google::protobuf::io::CopyingInputStream" = type { ptr }
@@ -46,7 +41,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.google::protobuf::internal::SourceWrapper" = type { ptr }
 %"class.google::protobuf::io::EpsCopyOutputStream" = type <{ ptr, ptr, [32 x i8], ptr, i8, i8, i8, i8, [4 x i8] }>
 %"class.absl::lts_20230802::log_internal::LogMessageFatal" = type { %"class.absl::lts_20230802::log_internal::LogMessage" }
-%"class.google::protobuf::io::CodedOutputStream" = type { %"class.google::protobuf::io::EpsCopyOutputStream", ptr, i64 }
 %"class.google::protobuf::io::FileOutputStream" = type { %"class.google::protobuf::io::CopyingOutputStreamAdaptor", %"class.google::protobuf::io::FileOutputStream::CopyingFileOutputStream" }
 %"class.google::protobuf::io::CopyingOutputStreamAdaptor" = type { %"class.google::protobuf::io::ZeroCopyOutputStream", ptr, i8, i8, i64, %"class.std::unique_ptr.12", i32, i32 }
 %"class.google::protobuf::io::ZeroCopyOutputStream" = type { ptr }
@@ -65,21 +59,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.absl::lts_20230802::cord_internal::InlineData::Rep" = type { %union.anon.20 }
 %union.anon.20 = type { %"struct.absl::lts_20230802::cord_internal::InlineData::Rep::AsTree" }
 %"struct.absl::lts_20230802::cord_internal::InlineData::Rep::AsTree" = type { i64, ptr }
-%"struct.absl::lts_20230802::cord_internal::CordRep" = type { i64, %"class.absl::lts_20230802::cord_internal::RefcountAndFlags", i8, [3 x i8] }
-%"class.absl::lts_20230802::cord_internal::RefcountAndFlags" = type { %"struct.std::atomic.27" }
-%"struct.std::atomic.27" = type { %"struct.std::__atomic_base.28" }
-%"struct.std::__atomic_base.28" = type { i32 }
-%"struct.absl::lts_20230802::CordBuffer::Rep::Short" = type { i8, [15 x i8] }
-%"struct.google::protobuf::internal::InternalMetadata::Container" = type { %"struct.google::protobuf::internal::InternalMetadata::ContainerBase", %"class.std::__cxx11::basic_string" }
-%"struct.google::protobuf::internal::InternalMetadata::ContainerBase" = type { ptr }
-%"struct.google::protobuf::internal::ShutdownData" = type { %"class.std::vector", %"class.absl::lts_20230802::Mutex" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<void (*)(const void *), const void *>, std::allocator<std::pair<void (*)(const void *), const void *>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<void (*)(const void *), const void *>, std::allocator<std::pair<void (*)(const void *), const void *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<void (*)(const void *), const void *>, std::allocator<std::pair<void (*)(const void *), const void *>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<void (*)(const void *), const void *>, std::allocator<std::pair<void (*)(const void *), const void *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.absl::lts_20230802::Mutex" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 %"struct.std::pair" = type { ptr, ptr }
 %struct._Guard = type { ptr }
 %"class.google::protobuf::io::CordInputStream" = type { %"class.google::protobuf::io::ZeroCopyInputStream", %"class.absl::lts_20230802::Cord::CharIterator", i64, i64, ptr, i64, i64 }
@@ -185,31 +164,31 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 entry:
   %ctx = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %0 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 5
-  %aliasing_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 7
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
-  %overall_limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 9
+  %zcis_.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %aliasing_.i.i = getelementptr inbounds i8, ptr %ctx, i64 72
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
+  %overall_limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i, i8 0, i64 52, i1 false)
-  %depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 1
+  %depth_.i = getelementptr inbounds i8, ptr %ctx, i64 88
   store i32 %0, ptr %depth_.i, align 8
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
   store i32 -2147483648, ptr %group_depth_.i, align 4
-  %data_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 3
+  %data_.i = getelementptr inbounds i8, ptr %ctx, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i, i8 0, i64 16, i1 false)
   store i32 0, ptr %overall_limit_.i.i, align 4
   %cmp.i.i = icmp ugt i64 %input.coerce0, 16
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 16, ptr %limit_.i.i, align 4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %input.coerce1, i64 %input.coerce0
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -16
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %add.ptr4.i.i, ptr %buffer_end_.i.i, align 8
   store ptr %add.ptr4.i.i, ptr %ctx, align 8
-  %patch_buffer_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 6
-  %next_chunk_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 2
+  %patch_buffer_.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %next_chunk_.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %patch_buffer_.i.i, ptr %next_chunk_.i.i, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit
 
@@ -218,28 +197,28 @@ if.else.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.end15.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %patch_buffer_11.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 6
+  %patch_buffer_11.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %patch_buffer_11.i.i, ptr align 1 %input.coerce1, i64 %input.coerce0, i1 false)
   %.pre.i = load i64, ptr %aliasing_.i.i, align 8
   %1 = icmp eq i64 %.pre.i, 1
-  %limit_16.i3.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
+  %limit_16.i3.i = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 0, ptr %limit_16.i3.i, align 4
   %add.ptr20.i5.i = getelementptr inbounds i8, ptr %patch_buffer_11.i.i, i64 %input.coerce0
-  %buffer_end_21.i6.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_21.i6.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %add.ptr20.i5.i, ptr %buffer_end_21.i6.i, align 8
   store ptr %add.ptr20.i5.i, ptr %ctx, align 8
-  %next_chunk_23.i7.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 2
+  %next_chunk_23.i7.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr null, ptr %next_chunk_23.i7.i, align 8
   br i1 %1, label %if.then26.i.i, label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit
 
 if.end15.i.i:                                     ; preds = %if.else.i.i
-  %limit_16.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
+  %limit_16.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 0, ptr %limit_16.i.i, align 4
-  %patch_buffer_17.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 6
-  %buffer_end_21.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %patch_buffer_17.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %buffer_end_21.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %patch_buffer_17.i.i, ptr %buffer_end_21.i.i, align 8
   store ptr %patch_buffer_17.i.i, ptr %ctx, align 8
-  %next_chunk_23.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 2
+  %next_chunk_23.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr null, ptr %next_chunk_23.i.i, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit
 
@@ -253,7 +232,7 @@ if.then26.i.i:                                    ; preds = %if.then10.i.i
 _ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit: ; preds = %if.then.i.i, %if.then10.i.i, %if.end15.i.i, %if.then26.i.i
   %retval.0.i.i = phi ptr [ %patch_buffer_17.i.i, %if.end15.i.i ], [ %input.coerce1, %if.then.i.i ], [ %patch_buffer_11.i.i, %if.then10.i.i ], [ %patch_buffer_11.i.i, %if.then26.i.i ]
   %vtable = load ptr, ptr %msg, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %4 = load ptr, ptr %vfn, align 8
   %call1 = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %retval.0.i.i, ptr noundef nonnull %ctx)
   %tobool.not = icmp ne ptr %call1, null
@@ -269,7 +248,7 @@ if.then:                                          ; preds = %_ZN6google8protobuf
 
 if.end.i:                                         ; preds = %if.then
   %vtable.i.i = load ptr, ptr %msg, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %6 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %msg)
   br i1 %call.i.i, label %return, label %if.end.i.i
@@ -288,33 +267,33 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 entry:
   %ctx = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %0 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 5
-  %aliasing_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 7
+  %zcis_.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %aliasing_.i.i = getelementptr inbounds i8, ptr %ctx, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %zcis_.i.i, i8 0, i64 40, i1 false)
   store i64 1, ptr %aliasing_.i.i, align 8
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 0, ptr %last_tag_minus_1_.i.i, align 8
-  %overall_limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 9
-  %depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 1
+  %overall_limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 84
+  %depth_.i = getelementptr inbounds i8, ptr %ctx, i64 88
   store i32 %0, ptr %depth_.i, align 8
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
   store i32 -2147483648, ptr %group_depth_.i, align 4
-  %data_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 3
+  %data_.i = getelementptr inbounds i8, ptr %ctx, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i, i8 0, i64 16, i1 false)
   store i32 0, ptr %overall_limit_.i.i, align 4
   %cmp.i.i = icmp ugt i64 %input.coerce0, 16
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 16, ptr %limit_.i.i, align 4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %input.coerce1, i64 %input.coerce0
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -16
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %add.ptr4.i.i, ptr %buffer_end_.i.i, align 8
   store ptr %add.ptr4.i.i, ptr %ctx, align 8
-  %patch_buffer_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 6
-  %next_chunk_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 2
+  %patch_buffer_.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %next_chunk_.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %patch_buffer_.i.i, ptr %next_chunk_.i.i, align 8
   br label %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromESt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i
 
@@ -323,28 +302,28 @@ if.else.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.end15.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %if.else.i.i
-  %patch_buffer_11.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 6
+  %patch_buffer_11.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %patch_buffer_11.i.i, ptr align 1 %input.coerce1, i64 %input.coerce0, i1 false)
   %.pre.i = load i64, ptr %aliasing_.i.i, align 8
   %1 = icmp eq i64 %.pre.i, 1
-  %limit_16.i3.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
+  %limit_16.i3.i = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 0, ptr %limit_16.i3.i, align 4
   %add.ptr20.i5.i = getelementptr inbounds i8, ptr %patch_buffer_11.i.i, i64 %input.coerce0
-  %buffer_end_21.i6.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_21.i6.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %add.ptr20.i5.i, ptr %buffer_end_21.i6.i, align 8
   store ptr %add.ptr20.i5.i, ptr %ctx, align 8
-  %next_chunk_23.i7.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 2
+  %next_chunk_23.i7.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr null, ptr %next_chunk_23.i7.i, align 8
   br i1 %1, label %if.then26.i.i, label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit
 
 if.end15.i.i:                                     ; preds = %if.else.i.i
-  %limit_16.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
+  %limit_16.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 0, ptr %limit_16.i.i, align 4
-  %patch_buffer_17.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 6
-  %buffer_end_21.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %patch_buffer_17.i.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %buffer_end_21.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %patch_buffer_17.i.i, ptr %buffer_end_21.i.i, align 8
   store ptr %patch_buffer_17.i.i, ptr %ctx, align 8
-  %next_chunk_23.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 2
+  %next_chunk_23.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr null, ptr %next_chunk_23.i.i, align 8
   br label %if.then26.i.i
 
@@ -364,7 +343,7 @@ _ZN6google8protobuf8internal18EpsCopyInputStream8InitFromESt17basic_string_viewI
 _ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit: ; preds = %if.then10.i.i, %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromESt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i
   %retval.0.i.i = phi ptr [ %patch_buffer_11.i.i, %if.then10.i.i ], [ %retval.0.i.ph.i, %_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromESt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i ]
   %vtable = load ptr, ptr %msg, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %4 = load ptr, ptr %vfn, align 8
   %call1 = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %retval.0.i.i, ptr noundef nonnull %ctx)
   %tobool.not = icmp ne ptr %call1, null
@@ -380,7 +359,7 @@ if.then:                                          ; preds = %_ZN6google8protobuf
 
 if.end.i:                                         ; preds = %if.then
   %vtable.i.i = load ptr, ptr %msg, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %6 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %msg)
   br i1 %call.i.i, label %return, label %if.end.i.i
@@ -399,20 +378,20 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 entry:
   %ctx = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %0 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 5
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
-  %overall_limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 9
+  %zcis_.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
+  %overall_limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %overall_limit_.i.i, align 4
-  %depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 1
+  %depth_.i = getelementptr inbounds i8, ptr %ctx, i64 88
   store i32 %0, ptr %depth_.i, align 8
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
   store i32 -2147483648, ptr %group_depth_.i, align 4
-  %data_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 3
+  %data_.i = getelementptr inbounds i8, ptr %ctx, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i, i8 0, i64 16, i1 false)
   %call.i = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %input)
   %vtable = load ptr, ptr %msg, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call1 = call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %call.i, ptr noundef nonnull %ctx)
   %tobool.not = icmp ne ptr %call1, null
@@ -428,7 +407,7 @@ if.then:                                          ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then
   %vtable.i.i = load ptr, ptr %msg, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %3 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %msg)
   br i1 %call.i.i, label %return, label %if.end.i.i
@@ -447,23 +426,23 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 entry:
   %ctx = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %0 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 5
-  %aliasing_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 7
+  %zcis_.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %aliasing_.i.i = getelementptr inbounds i8, ptr %ctx, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %zcis_.i.i, i8 0, i64 40, i1 false)
   store i64 1, ptr %aliasing_.i.i, align 8
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 0, ptr %last_tag_minus_1_.i.i, align 8
-  %overall_limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 9
+  %overall_limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 84
   store i32 2147483647, ptr %overall_limit_.i.i, align 4
-  %depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 1
+  %depth_.i = getelementptr inbounds i8, ptr %ctx, i64 88
   store i32 %0, ptr %depth_.i, align 8
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
   store i32 -2147483648, ptr %group_depth_.i, align 4
-  %data_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 3
+  %data_.i = getelementptr inbounds i8, ptr %ctx, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i, i8 0, i64 16, i1 false)
   %call.i = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %input)
   %vtable = load ptr, ptr %msg, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call1 = call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %call.i, ptr noundef nonnull %ctx)
   %tobool.not = icmp ne ptr %call1, null
@@ -479,7 +458,7 @@ if.then:                                          ; preds = %entry
 
 if.end.i:                                         ; preds = %if.then
   %vtable.i.i = load ptr, ptr %msg, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %3 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(16) %msg)
   br i1 %call.i.i, label %return, label %if.end.i.i
@@ -498,16 +477,16 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 entry:
   %ctx = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %0 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 5
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
-  %overall_limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 9
+  %zcis_.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
+  %overall_limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %overall_limit_.i.i, align 4
-  %depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 1
+  %depth_.i = getelementptr inbounds i8, ptr %ctx, i64 88
   store i32 %0, ptr %depth_.i, align 8
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
   store i32 -2147483648, ptr %group_depth_.i, align 4
-  %data_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 3
+  %data_.i = getelementptr inbounds i8, ptr %ctx, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i32 %input.coerce1, -1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
@@ -519,14 +498,14 @@ if.then.i.i:                                      ; preds = %entry
 if.end.i.i:                                       ; preds = %entry
   store i32 %input.coerce1, ptr %overall_limit_.i.i, align 4
   %call2.i.i = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %input.coerce0)
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %buffer_end_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %call2.i.i to i64
   %sub.ptr.sub.neg.i.i = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.lhs.cast.i.i
   %conv.neg.i.i = trunc i64 %sub.ptr.sub.neg.i.i to i32
   %sub.i.i = add i32 %conv.neg.i.i, %input.coerce1
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 %sub.i.i, ptr %limit_.i.i, align 4
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i, i32 0)
   %idx.ext.i.i = sext i32 %.sroa.speculated.i.i to i64
@@ -537,21 +516,21 @@ if.end.i.i:                                       ; preds = %entry
 _ZN6google8protobuf8internal12ParseContextC2IJRPNS0_2io19ZeroCopyInputStreamERiEEEibPPKcDpOT_.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i.i, %if.end.i.i ]
   %vtable = load ptr, ptr %msg, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   %call1 = call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %retval.0.i.i, ptr noundef nonnull %ctx)
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRPNS0_2io19ZeroCopyInputStreamERiEEEibPPKcDpOT_.exit
-  %next_chunk_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 2
+  %next_chunk_.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %next_chunk_.i, align 8
-  %patch_buffer_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 6
+  %patch_buffer_.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %cmp.i = icmp eq ptr %3, %patch_buffer_.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %buffer_end_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
@@ -561,9 +540,9 @@ if.then.i:                                        ; preds = %if.end
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.end
-  %size_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 3
+  %size_.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %5 = load i32, ptr %size_.i, align 8
-  %buffer_end_2.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_2.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %6 = load ptr, ptr %buffer_end_2.i, align 8
   %sub.ptr.lhs.cast3.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast4.i = ptrtoint ptr %call1 to i64
@@ -580,7 +559,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 if.then8.i:                                       ; preds = %if.end.i
   %7 = load ptr, ptr %zcis_.i.i, align 8
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %8 = load ptr, ptr %vfn.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %count.0.i)
   %9 = load i32, ptr %overall_limit_.i.i, align 4
@@ -600,7 +579,7 @@ if.then3:                                         ; preds = %_ZN6google8protobuf
 
 if.end.i5:                                        ; preds = %if.then3
   %vtable.i.i6 = load ptr, ptr %msg, align 8
-  %vfn.i.i7 = getelementptr inbounds ptr, ptr %vtable.i.i6, i64 4
+  %vfn.i.i7 = getelementptr inbounds i8, ptr %vtable.i.i6, i64 32
   %11 = load ptr, ptr %vfn.i.i7, align 8
   %call.i.i8 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %msg)
   br i1 %call.i.i8, label %return, label %if.end.i.i9
@@ -619,19 +598,19 @@ define weak_odr noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplI
 entry:
   %ctx = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %0 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 5
-  %aliasing_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 7
+  %zcis_.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %aliasing_.i.i = getelementptr inbounds i8, ptr %ctx, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %zcis_.i.i, i8 0, i64 40, i1 false)
   store i64 1, ptr %aliasing_.i.i, align 8
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 0, ptr %last_tag_minus_1_.i.i, align 8
-  %overall_limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 9
+  %overall_limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 84
   store i32 2147483647, ptr %overall_limit_.i.i, align 4
-  %depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 1
+  %depth_.i = getelementptr inbounds i8, ptr %ctx, i64 88
   store i32 %0, ptr %depth_.i, align 8
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
   store i32 -2147483648, ptr %group_depth_.i, align 4
-  %data_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 3
+  %data_.i = getelementptr inbounds i8, ptr %ctx, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i, i8 0, i64 16, i1 false)
   %cmp.i.i = icmp eq i32 %input.coerce1, -1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
@@ -643,14 +622,14 @@ if.then.i.i:                                      ; preds = %entry
 if.end.i.i:                                       ; preds = %entry
   store i32 %input.coerce1, ptr %overall_limit_.i.i, align 4
   %call2.i.i = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef %input.coerce0)
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %buffer_end_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %call2.i.i to i64
   %sub.ptr.sub.neg.i.i = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.lhs.cast.i.i
   %conv.neg.i.i = trunc i64 %sub.ptr.sub.neg.i.i to i32
   %sub.i.i = add i32 %conv.neg.i.i, %input.coerce1
-  %limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
+  %limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 28
   store i32 %sub.i.i, ptr %limit_.i.i, align 4
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %sub.i.i, i32 0)
   %idx.ext.i.i = sext i32 %.sroa.speculated.i.i to i64
@@ -661,21 +640,21 @@ if.end.i.i:                                       ; preds = %entry
 _ZN6google8protobuf8internal12ParseContextC2IJRPNS0_2io19ZeroCopyInputStreamERiEEEibPPKcDpOT_.exit: ; preds = %if.then.i.i, %if.end.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i.i, %if.end.i.i ]
   %vtable = load ptr, ptr %msg, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %2 = load ptr, ptr %vfn, align 8
   %call1 = call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %retval.0.i.i, ptr noundef nonnull %ctx)
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRPNS0_2io19ZeroCopyInputStreamERiEEEibPPKcDpOT_.exit
-  %next_chunk_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 2
+  %next_chunk_.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load ptr, ptr %next_chunk_.i, align 8
-  %patch_buffer_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 6
+  %patch_buffer_.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %cmp.i = icmp eq ptr %3, %patch_buffer_.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %buffer_end_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
@@ -685,9 +664,9 @@ if.then.i:                                        ; preds = %if.end
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.end
-  %size_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 3
+  %size_.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %5 = load i32, ptr %size_.i, align 8
-  %buffer_end_2.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_2.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %6 = load ptr, ptr %buffer_end_2.i, align 8
   %sub.ptr.lhs.cast3.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast4.i = ptrtoint ptr %call1 to i64
@@ -704,7 +683,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 if.then8.i:                                       ; preds = %if.end.i
   %7 = load ptr, ptr %zcis_.i.i, align 8
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %8 = load ptr, ptr %vfn.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %count.0.i)
   %9 = load i32, ptr %overall_limit_.i.i, align 4
@@ -724,7 +703,7 @@ if.then3:                                         ; preds = %_ZN6google8protobuf
 
 if.end.i5:                                        ; preds = %if.then3
   %vtable.i.i6 = load ptr, ptr %msg, align 8
-  %vfn.i.i7 = getelementptr inbounds ptr, ptr %vtable.i.i6, i64 4
+  %vfn.i.i7 = getelementptr inbounds i8, ptr %vtable.i.i6, i64 32
   %11 = load ptr, ptr %vfn.i.i7, align 8
   %call.i.i8 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %msg)
   br i1 %call.i.i8, label %return, label %if.end.i.i9
@@ -743,17 +722,17 @@ define void @_ZNK6google8protobuf11MessageLite11GetTypeNameB5cxx11Ev(ptr noalias
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %is_lite = getelementptr inbounds %"struct.google::protobuf::MessageLite::ClassData", ptr %call, i64 0, i32 2
+  %is_lite = getelementptr inbounds i8, ptr %call, i64 12
   %1 = load i8, ptr %is_lite, align 4
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %descriptor_methods = getelementptr inbounds %"struct.google::protobuf::MessageLite::ClassDataFull", ptr %call, i64 0, i32 2
+  %descriptor_methods = getelementptr inbounds i8, ptr %call, i64 24
   %3 = load ptr, ptr %descriptor_methods, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this)
@@ -815,7 +794,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %1 = load ptr, ptr %call, align 8
@@ -835,19 +814,19 @@ define void @_ZNK6google8protobuf11MessageLite25InitializationErrorStringB5cxx11
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %is_lite = getelementptr inbounds %"struct.google::protobuf::MessageLite::ClassData", ptr %call, i64 0, i32 2
+  %is_lite = getelementptr inbounds i8, ptr %call, i64 12
   %1 = load i8, ptr %is_lite, align 4
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %descriptor_methods = getelementptr inbounds %"struct.google::protobuf::MessageLite::ClassDataFull", ptr %call, i64 0, i32 2
+  %descriptor_methods = getelementptr inbounds i8, ptr %call, i64 24
   %3 = load ptr, ptr %descriptor_methods, align 8
-  %initialization_error_string = getelementptr inbounds %"struct.google::protobuf::MessageLite::DescriptorMethods", ptr %3, i64 0, i32 1
+  %initialization_error_string = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %initialization_error_string, align 8
   tail call void %4(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this)
   br label %return
@@ -897,13 +876,13 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp4 = alloca %"class.absl::lts_20230802::strings_internal::StringifySink", align 8
   store i64 17, ptr %ref.tmp, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.1, ptr %0, align 8
   %1 = ptrtoint ptr %this to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4, i8 0, i64 32, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i.i.i)
-  %add.ptr.i.i.i = getelementptr inbounds [32 x i8], ptr %buffer.i.i.i, i64 0, i64 16
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i, i64 16
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %entry
@@ -923,7 +902,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   br i1 %exitcond.not.i.i.i.i, label %_ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i, label %for.body.i.i.i.i, !llvm.loop !4
 
 _ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i: ; preds = %for.body.i.i.i.i
-  %arrayidx.i.i.i = getelementptr inbounds [32 x i8], ptr %buffer.i.i.i, i64 0, i64 32
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i, i64 32
   %or.i.i.i.i = or disjoint i64 %1, 1
   %6 = call i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true), !range !6
   %div.neg5.lhs.trunc.i.i.i.i = trunc i64 %6 to i32
@@ -940,7 +919,7 @@ invoke.cont:                                      ; preds = %_ZN4absl12lts_20230
   %call.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #20
   %7 = extractvalue { i64, ptr } %call.i.i, 0
   store i64 %7, ptr %ref.tmp2, align 8
-  %8 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp2, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %9 = extractvalue { i64, ptr } %call.i.i, 1
   store ptr %9, ptr %8, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp2)
@@ -966,10 +945,10 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 define noundef i32 @_ZNK6google8protobuf11MessageLite13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
   %0 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %cached_size_offset.i = getelementptr inbounds %"struct.google::protobuf::MessageLite::ClassData", ptr %call.i, i64 0, i32 1
+  %cached_size_offset.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load i32, ptr %cached_size_offset.i, align 8
   %idx.ext.i = zext i32 %1 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i
@@ -981,10 +960,10 @@ entry:
 define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protobuf11MessageLite16AccessCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %cached_size_offset = getelementptr inbounds %"struct.google::protobuf::MessageLite::ClassData", ptr %call, i64 0, i32 1
+  %cached_size_offset = getelementptr inbounds i8, ptr %call, i64 8
   %1 = load i32, ptr %cached_size_offset, align 8
   %idx.ext = zext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %idx.ext
@@ -1015,30 +994,30 @@ invoke.cont8.i:                                   ; preds = %.noexc
   %1 = extractvalue { i64, ptr } %call.i.i2, 0
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i.i), !noalias !7
   store i64 6, ptr %ref.tmp.i.i, align 8, !noalias !10
-  %2 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store ptr @.str.6, ptr %2, align 8, !noalias !10
-  %arrayinit.element.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store i64 5, ptr %arrayinit.element.i.i, align 8, !noalias !10
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 1, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
   store ptr @.str.3, ptr %3, align 8, !noalias !10
-  %arrayinit.element2.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 2
+  %arrayinit.element2.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 32
   store i64 18, ptr %arrayinit.element2.i.i, align 8, !noalias !10
-  %4 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 2, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 40
   store ptr @.str.7, ptr %4, align 8, !noalias !10
-  %arrayinit.element4.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 3
+  %arrayinit.element4.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 48
   store i64 %1, ptr %arrayinit.element4.i.i, align 8, !noalias !10
-  %5 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 3, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 56
   store ptr %0, ptr %5, align 8, !noalias !10
-  %arrayinit.element6.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 4
+  %arrayinit.element6.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
   store i64 41, ptr %arrayinit.element6.i.i, align 8, !noalias !10
-  %6 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 4, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 72
   store ptr @.str.8, ptr %6, align 8, !noalias !10
-  %arrayinit.element8.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 5
+  %arrayinit.element8.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 80
   %call.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i) #20, !noalias !10
   %7 = extractvalue { i64, ptr } %call.i.i.i, 0
   %8 = extractvalue { i64, ptr } %call.i.i.i, 1
   store i64 %7, ptr %arrayinit.element8.i.i, align 8, !noalias !10
-  %9 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i.i, i64 5, i32 1
+  %9 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 88
   store ptr %8, ptr %9, align 8, !noalias !10
   invoke void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr nonnull %ref.tmp.i.i, i64 6)
           to label %invoke.cont5 unwind label %lpad9.i
@@ -1107,49 +1086,49 @@ entry:
   %zcis = alloca %"class.google::protobuf::ZeroCopyCodedInputStream", align 8
   %ctx = alloca %"class.google::protobuf::internal::ParseContext", align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf24ZeroCopyCodedInputStreamE, i64 0, inrange i32 0, i64 2), ptr %zcis, align 8
-  %cis_.i = getelementptr inbounds %"class.google::protobuf::ZeroCopyCodedInputStream", ptr %zcis, i64 0, i32 1
+  %cis_.i = getelementptr inbounds i8, ptr %zcis, i64 8
   store ptr %input, ptr %cis_.i, align 8
-  %recursion_budget_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 12
+  %recursion_budget_.i = getelementptr inbounds i8, ptr %input, i64 52
   %0 = load i32, ptr %recursion_budget_.i, align 4
-  %aliasing_enabled_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 7
+  %aliasing_enabled_.i = getelementptr inbounds i8, ptr %input, i64 37
   %1 = load i8, ptr %aliasing_enabled_.i, align 1
   %2 = and i8 %1, 1
-  %zcis_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 5
-  %aliasing_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 7
+  %zcis_.i.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %aliasing_.i.i = getelementptr inbounds i8, ptr %ctx, i64 72
   %conv.i.i = zext nneg i8 %2 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %zcis_.i.i, i8 0, i64 40, i1 false)
   store i64 %conv.i.i, ptr %aliasing_.i.i, align 8
-  %last_tag_minus_1_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 8
+  %last_tag_minus_1_.i.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 0, ptr %last_tag_minus_1_.i.i, align 8
-  %overall_limit_.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 9
+  %overall_limit_.i.i = getelementptr inbounds i8, ptr %ctx, i64 84
   store i32 2147483647, ptr %overall_limit_.i.i, align 4
-  %depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 1
+  %depth_.i = getelementptr inbounds i8, ptr %ctx, i64 88
   store i32 %0, ptr %depth_.i, align 8
-  %group_depth_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 2
+  %group_depth_.i = getelementptr inbounds i8, ptr %ctx, i64 92
   store i32 -2147483648, ptr %group_depth_.i, align 4
-  %data_.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx, i64 0, i32 3
+  %data_.i = getelementptr inbounds i8, ptr %ctx, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i, i8 0, i64 16, i1 false)
   %call.i7 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %ctx, ptr noundef nonnull %zcis)
   store i32 0, ptr %group_depth_.i, align 4
-  %extension_pool_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 14
+  %extension_pool_.i = getelementptr inbounds i8, ptr %input, i64 64
   %3 = load <2 x ptr>, ptr %extension_pool_.i, align 8
   store <2 x ptr> %3, ptr %data_.i, align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %4 = load ptr, ptr %vfn, align 8
   %call15 = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %call.i7, ptr noundef nonnull %ctx)
   %tobool.not = icmp eq ptr %call15, null
   br i1 %tobool.not, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %next_chunk_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 2
+  %next_chunk_.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %5 = load ptr, ptr %next_chunk_.i, align 8
-  %patch_buffer_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 6
+  %patch_buffer_.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %cmp.i = icmp eq ptr %5, %patch_buffer_.i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %6 = load ptr, ptr %buffer_end_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 16
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
@@ -1159,9 +1138,9 @@ if.then.i:                                        ; preds = %if.end
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.end
-  %size_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 3
+  %size_.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %7 = load i32, ptr %size_.i, align 8
-  %buffer_end_2.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_2.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %8 = load ptr, ptr %buffer_end_2.i, align 8
   %sub.ptr.lhs.cast3.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast4.i = ptrtoint ptr %call15 to i64
@@ -1178,7 +1157,7 @@ if.end.i:                                         ; preds = %if.else.i, %if.then
 if.then8.i:                                       ; preds = %if.end.i
   %9 = load ptr, ptr %zcis_.i.i, align 8
   %vtable.i.i = load ptr, ptr %9, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %10 = load ptr, ptr %vfn.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %count.0.i)
   %11 = load i32, ptr %overall_limit_.i.i, align 4
@@ -1202,12 +1181,12 @@ land.rhs.i:                                       ; preds = %while.end
   br i1 %cmp2.i, label %cleanup, label %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit
 
 _ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit: ; preds = %land.rhs.i
-  %buffer_end_.i16 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 1
+  %buffer_end_.i16 = getelementptr inbounds i8, ptr %ctx, i64 8
   %15 = load ptr, ptr %buffer_end_.i16, align 8
   %sub.ptr.lhs.cast.i17 = ptrtoint ptr %call15 to i64
   %sub.ptr.rhs.cast.i18 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i19 = sub i64 %sub.ptr.lhs.cast.i17, %sub.ptr.rhs.cast.i18
-  %limit_.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx, i64 0, i32 4
+  %limit_.i = getelementptr inbounds i8, ptr %ctx, i64 28
   %16 = load i32, ptr %limit_.i, align 4
   %conv.i20 = sext i32 %16 to i64
   %cmp3.i = icmp sgt i64 %sub.ptr.sub.i19, %conv.i20
@@ -1215,12 +1194,12 @@ _ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit: ; p
 
 if.end26:                                         ; preds = %while.end, %_ZN6google8protobuf8internal18EpsCopyInputStream16IsExceedingLimitEPKc.exit
   %add.i22 = add i32 %12, 1
-  %last_tag_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 5
+  %last_tag_.i = getelementptr inbounds i8, ptr %input, i64 32
   store i32 %add.i22, ptr %last_tag_.i, align 8
   br label %if.end31
 
 if.else:                                          ; preds = %invoke.cont16
-  %legitimate_message_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 6
+  %legitimate_message_end_.i = getelementptr inbounds i8, ptr %input, i64 36
   store i8 1, ptr %legitimate_message_end_.i, align 4
   br label %if.end31
 
@@ -1231,7 +1210,7 @@ if.end31:                                         ; preds = %if.else, %if.end26
 
 if.end.i23:                                       ; preds = %if.end31
   %vtable.i.i24 = load ptr, ptr %this, align 8
-  %vfn.i.i25 = getelementptr inbounds ptr, ptr %vtable.i.i24, i64 4
+  %vfn.i.i25 = getelementptr inbounds i8, ptr %vtable.i.i24, i64 32
   %17 = load ptr, ptr %vfn.i.i25, align 8
   %call.i.i26 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(16) %this)
   br i1 %call.i.i26, label %cleanup, label %if.end.i.i
@@ -1269,7 +1248,7 @@ entry:
 define noundef zeroext i1 @_ZN6google8protobuf11MessageLite20ParseFromCodedStreamEPNS0_2io16CodedInputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %input) local_unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call = tail call noundef zeroext i1 @_ZN6google8protobuf11MessageLite13MergeFromImplEPNS0_2io16CodedInputStreamENS1_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %input, i32 noundef 1)
@@ -1280,7 +1259,7 @@ entry:
 define noundef zeroext i1 @_ZN6google8protobuf11MessageLite27ParsePartialFromCodedStreamEPNS0_2io16CodedInputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %input) local_unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call = tail call noundef zeroext i1 @_ZN6google8protobuf11MessageLite13MergeFromImplEPNS0_2io16CodedInputStreamENS1_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %input, i32 noundef 3)
@@ -1292,25 +1271,25 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite23ParseFromZeroCopySt
 entry:
   %ctx.i.i = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx.i.i)
   %1 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 5
-  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 8
-  %overall_limit_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 9
+  %zcis_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 32
+  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 80
+  %overall_limit_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i.i.i, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %overall_limit_.i.i.i.i, align 4
-  %depth_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 1
+  %depth_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 88
   store i32 %1, ptr %depth_.i.i.i, align 8
-  %group_depth_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 2
+  %group_depth_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 92
   store i32 -2147483648, ptr %group_depth_.i.i.i, align 4
-  %data_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 3
+  %data_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i.i, i8 0, i64 16, i1 false)
   %call.i.i.i = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %ctx.i.i, ptr noundef %input)
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 7
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 56
   %2 = load ptr, ptr %vfn.i.i, align 8
   %call1.i.i = call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %call.i.i.i, ptr noundef nonnull %ctx.i.i)
   %tobool.not.i.i = icmp ne ptr %call1.i.i, null
@@ -1321,7 +1300,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %vtable.i.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %this)
   br i1 %call.i.i.i.i, label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1EPNS0_2io19ZeroCopyInputStreamEEEbRKT0_.exit, label %if.end.i.i.i.i
@@ -1341,25 +1320,25 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParsePartialFromZer
 entry:
   %ctx.i.i = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx.i.i)
   %1 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 5
-  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 8
-  %overall_limit_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 9
+  %zcis_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 32
+  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 80
+  %overall_limit_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i.i.i, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %overall_limit_.i.i.i.i, align 4
-  %depth_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 1
+  %depth_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 88
   store i32 %1, ptr %depth_.i.i.i, align 8
-  %group_depth_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 2
+  %group_depth_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 92
   store i32 -2147483648, ptr %group_depth_.i.i.i, align 4
-  %data_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 3
+  %data_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i.i, i8 0, i64 16, i1 false)
   %call.i.i.i = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %ctx.i.i, ptr noundef %input)
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 7
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 56
   %2 = load ptr, ptr %vfn.i.i, align 8
   %call1.i.i = call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %call.i.i.i, ptr noundef nonnull %ctx.i.i)
   %tobool.not.i.i = icmp ne ptr %call1.i.i, null
@@ -1377,7 +1356,7 @@ entry:
   %input = alloca %"class.google::protobuf::io::FileInputStream", align 8
   call void @_ZN6google8protobuf2io15FileInputStreamC1Eii(ptr noundef nonnull align 8 dereferenceable(88) %input, i32 noundef %file_descriptor, i32 noundef -1)
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %.noexc unwind label %lpad
@@ -1385,23 +1364,23 @@ entry:
 .noexc:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx.i.i.i)
   %1 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i.i, i64 0, i32 5
-  %last_tag_minus_1_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i.i, i64 0, i32 8
-  %overall_limit_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i.i, i64 0, i32 9
+  %zcis_.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 32
+  %last_tag_minus_1_.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 80
+  %overall_limit_.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i.i.i.i, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %overall_limit_.i.i.i.i.i, align 4
-  %depth_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i.i, i64 0, i32 1
+  %depth_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 88
   store i32 %1, ptr %depth_.i.i.i.i, align 8
-  %group_depth_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i.i, i64 0, i32 2
+  %group_depth_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 92
   store i32 -2147483648, ptr %group_depth_.i.i.i.i, align 4
-  %data_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i.i, i64 0, i32 3
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i.i.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i1 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %ctx.i.i.i, ptr noundef nonnull %input)
           to label %call.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.noexc:                               ; preds = %.noexc
   %vtable.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 7
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 56
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   %call1.i.i.i2 = invoke noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %call.i.i.i.i1, ptr noundef nonnull %ctx.i.i.i)
           to label %call1.i.i.i.noexc unwind label %lpad
@@ -1415,7 +1394,7 @@ call1.i.i.i.noexc:                                ; preds = %call.i.i.i.i.noexc
 
 if.then.i.i.i:                                    ; preds = %call1.i.i.i.noexc
   %vtable.i.i.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 4
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 32
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i.i.i.i.i3 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %call.i.i.i.i.i.noexc unwind label %lpad
@@ -1433,25 +1412,25 @@ invoke.cont.thread:                               ; preds = %call1.i.i.i.noexc, 
 
 invoke.cont2:                                     ; preds = %call.i.i.i.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ctx.i.i.i)
-  %errno_.i.i = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %input, i64 0, i32 1, i32 5
+  %errno_.i.i = getelementptr inbounds i8, ptr %input, i64 24
   %5 = load i32, ptr %errno_.i.i, align 8
   %cmp = icmp eq i32 %5, 0
   br label %land.end
 
 land.end:                                         ; preds = %invoke.cont.thread, %invoke.cont2
   %6 = phi i1 [ %cmp, %invoke.cont2 ], [ false, %invoke.cont.thread ]
-  %impl_.i = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %input, i64 0, i32 2
+  %impl_.i = getelementptr inbounds i8, ptr %input, i64 32
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_.i) #20
-  %copying_input_.i = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %input, i64 0, i32 1
+  %copying_input_.i = getelementptr inbounds i8, ptr %input, i64 8
   call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %copying_input_.i) #20
   ret i1 %6
 
 lpad:                                             ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i, %call.i.i.i.i.noexc, %.noexc, %entry
   %7 = landingpad { ptr, i32 }
           cleanup
-  %impl_.i5 = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %input, i64 0, i32 2
+  %impl_.i5 = getelementptr inbounds i8, ptr %input, i64 32
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_.i5) #20
-  %copying_input_.i6 = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %input, i64 0, i32 1
+  %copying_input_.i6 = getelementptr inbounds i8, ptr %input, i64 8
   call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %copying_input_.i6) #20
   resume { ptr, i32 } %7
 }
@@ -1465,7 +1444,7 @@ entry:
   %input = alloca %"class.google::protobuf::io::FileInputStream", align 8
   call void @_ZN6google8protobuf2io15FileInputStreamC1Eii(ptr noundef nonnull align 8 dereferenceable(88) %input, i32 noundef %file_descriptor, i32 noundef -1)
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %.noexc unwind label %lpad
@@ -1473,23 +1452,23 @@ entry:
 .noexc:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx.i.i.i)
   %1 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i.i, i64 0, i32 5
-  %last_tag_minus_1_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i.i, i64 0, i32 8
-  %overall_limit_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i.i, i64 0, i32 9
+  %zcis_.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 32
+  %last_tag_minus_1_.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 80
+  %overall_limit_.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i.i.i.i, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %overall_limit_.i.i.i.i.i, align 4
-  %depth_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i.i, i64 0, i32 1
+  %depth_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 88
   store i32 %1, ptr %depth_.i.i.i.i, align 8
-  %group_depth_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i.i, i64 0, i32 2
+  %group_depth_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 92
   store i32 -2147483648, ptr %group_depth_.i.i.i.i, align 4
-  %data_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i.i, i64 0, i32 3
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i.i.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i1 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %ctx.i.i.i, ptr noundef nonnull %input)
           to label %call.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.noexc:                               ; preds = %.noexc
   %vtable.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 7
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 56
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   %call1.i.i.i2 = invoke noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %call.i.i.i.i1, ptr noundef nonnull %ctx.i.i.i)
           to label %invoke.cont unwind label %lpad
@@ -1503,25 +1482,25 @@ invoke.cont:                                      ; preds = %call.i.i.i.i.noexc
   br i1 %or.cond.i.i.i, label %invoke.cont2, label %land.end
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %errno_.i.i = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %input, i64 0, i32 1, i32 5
+  %errno_.i.i = getelementptr inbounds i8, ptr %input, i64 24
   %4 = load i32, ptr %errno_.i.i, align 8
   %cmp = icmp eq i32 %4, 0
   br label %land.end
 
 land.end:                                         ; preds = %invoke.cont2, %invoke.cont
   %5 = phi i1 [ false, %invoke.cont ], [ %cmp, %invoke.cont2 ]
-  %impl_.i = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %input, i64 0, i32 2
+  %impl_.i = getelementptr inbounds i8, ptr %input, i64 32
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_.i) #20
-  %copying_input_.i = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %input, i64 0, i32 1
+  %copying_input_.i = getelementptr inbounds i8, ptr %input, i64 8
   call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %copying_input_.i) #20
   ret i1 %5
 
 lpad:                                             ; preds = %call.i.i.i.i.noexc, %.noexc, %entry
   %6 = landingpad { ptr, i32 }
           cleanup
-  %impl_.i3 = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %input, i64 0, i32 2
+  %impl_.i3 = getelementptr inbounds i8, ptr %input, i64 32
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_.i3) #20
-  %copying_input_.i4 = getelementptr inbounds %"class.google::protobuf::io::FileInputStream", ptr %input, i64 0, i32 1
+  %copying_input_.i4 = getelementptr inbounds i8, ptr %input, i64 8
   call void @_ZN6google8protobuf2io15FileInputStream22CopyingFileInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %copying_input_.i4) #20
   resume { ptr, i32 } %6
 }
@@ -1533,7 +1512,7 @@ entry:
   %zero_copy_input = alloca %"class.google::protobuf::io::IstreamInputStream", align 8
   call void @_ZN6google8protobuf2io18IstreamInputStreamC1EPSii(ptr noundef nonnull align 8 dereferenceable(80) %zero_copy_input, ptr noundef %input, i32 noundef -1)
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %.noexc unwind label %lpad
@@ -1541,23 +1520,23 @@ entry:
 .noexc:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx.i.i.i)
   %1 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i.i, i64 0, i32 5
-  %last_tag_minus_1_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i.i, i64 0, i32 8
-  %overall_limit_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i.i, i64 0, i32 9
+  %zcis_.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 32
+  %last_tag_minus_1_.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 80
+  %overall_limit_.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i.i.i.i, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %overall_limit_.i.i.i.i.i, align 4
-  %depth_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i.i, i64 0, i32 1
+  %depth_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 88
   store i32 %1, ptr %depth_.i.i.i.i, align 8
-  %group_depth_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i.i, i64 0, i32 2
+  %group_depth_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 92
   store i32 -2147483648, ptr %group_depth_.i.i.i.i, align 4
-  %data_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i.i, i64 0, i32 3
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i.i.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i2 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %ctx.i.i.i, ptr noundef nonnull %zero_copy_input)
           to label %call.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.noexc:                               ; preds = %.noexc
   %vtable.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 7
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 56
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   %call1.i.i.i3 = invoke noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %call.i.i.i.i2, ptr noundef nonnull %ctx.i.i.i)
           to label %call1.i.i.i.noexc unwind label %lpad
@@ -1571,7 +1550,7 @@ call1.i.i.i.noexc:                                ; preds = %call.i.i.i.i.noexc
 
 if.then.i.i.i:                                    ; preds = %call1.i.i.i.noexc
   %vtable.i.i.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 4
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 32
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   %call.i.i.i.i.i4 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %call.i.i.i.i.i.noexc unwind label %lpad
@@ -1598,18 +1577,18 @@ land.rhs:                                         ; preds = %call.i.i.i.i.i.noex
 
 land.end:                                         ; preds = %invoke.cont.thread, %land.rhs
   %5 = phi i1 [ %call3, %land.rhs ], [ false, %invoke.cont.thread ]
-  %impl_.i = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %zero_copy_input, i64 0, i32 2
+  %impl_.i = getelementptr inbounds i8, ptr %zero_copy_input, i64 24
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_.i) #20
-  %copying_input_.i = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %zero_copy_input, i64 0, i32 1
+  %copying_input_.i = getelementptr inbounds i8, ptr %zero_copy_input, i64 8
   call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %copying_input_.i) #20
   ret i1 %5
 
 lpad:                                             ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i, %call.i.i.i.i.noexc, %.noexc, %entry, %land.rhs
   %6 = landingpad { ptr, i32 }
           cleanup
-  %impl_.i6 = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %zero_copy_input, i64 0, i32 2
+  %impl_.i6 = getelementptr inbounds i8, ptr %zero_copy_input, i64 24
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_.i6) #20
-  %copying_input_.i7 = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %zero_copy_input, i64 0, i32 1
+  %copying_input_.i7 = getelementptr inbounds i8, ptr %zero_copy_input, i64 8
   call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %copying_input_.i7) #20
   resume { ptr, i32 } %6
 }
@@ -1625,7 +1604,7 @@ entry:
   %zero_copy_input = alloca %"class.google::protobuf::io::IstreamInputStream", align 8
   call void @_ZN6google8protobuf2io18IstreamInputStreamC1EPSii(ptr noundef nonnull align 8 dereferenceable(80) %zero_copy_input, ptr noundef %input, i32 noundef -1)
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %0 = load ptr, ptr %vfn.i.i, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %.noexc unwind label %lpad
@@ -1633,23 +1612,23 @@ entry:
 .noexc:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx.i.i.i)
   %1 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i.i, i64 0, i32 5
-  %last_tag_minus_1_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i.i, i64 0, i32 8
-  %overall_limit_.i.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i.i, i64 0, i32 9
+  %zcis_.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 32
+  %last_tag_minus_1_.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 80
+  %overall_limit_.i.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i.i.i.i, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %overall_limit_.i.i.i.i.i, align 4
-  %depth_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i.i, i64 0, i32 1
+  %depth_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 88
   store i32 %1, ptr %depth_.i.i.i.i, align 8
-  %group_depth_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i.i, i64 0, i32 2
+  %group_depth_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 92
   store i32 -2147483648, ptr %group_depth_.i.i.i.i, align 4
-  %data_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i.i, i64 0, i32 3
+  %data_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i.i.i, i8 0, i64 16, i1 false)
   %call.i.i.i.i2 = invoke noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %ctx.i.i.i, ptr noundef nonnull %zero_copy_input)
           to label %call.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.noexc:                               ; preds = %.noexc
   %vtable.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 7
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 56
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   %call1.i.i.i3 = invoke noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %call.i.i.i.i2, ptr noundef nonnull %ctx.i.i.i)
           to label %invoke.cont unwind label %lpad
@@ -1672,18 +1651,18 @@ land.rhs:                                         ; preds = %invoke.cont
 
 land.end:                                         ; preds = %land.rhs, %invoke.cont
   %4 = phi i1 [ false, %invoke.cont ], [ %call3, %land.rhs ]
-  %impl_.i = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %zero_copy_input, i64 0, i32 2
+  %impl_.i = getelementptr inbounds i8, ptr %zero_copy_input, i64 24
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_.i) #20
-  %copying_input_.i = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %zero_copy_input, i64 0, i32 1
+  %copying_input_.i = getelementptr inbounds i8, ptr %zero_copy_input, i64 8
   call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %copying_input_.i) #20
   ret i1 %4
 
 lpad:                                             ; preds = %call.i.i.i.i.noexc, %.noexc, %entry, %land.rhs
   %5 = landingpad { ptr, i32 }
           cleanup
-  %impl_.i4 = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %zero_copy_input, i64 0, i32 2
+  %impl_.i4 = getelementptr inbounds i8, ptr %zero_copy_input, i64 24
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_.i4) #20
-  %copying_input_.i5 = getelementptr inbounds %"class.google::protobuf::io::IstreamInputStream", ptr %zero_copy_input, i64 0, i32 1
+  %copying_input_.i5 = getelementptr inbounds i8, ptr %zero_copy_input, i64 8
   call void @_ZN6google8protobuf2io18IstreamInputStream25CopyingIstreamInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %copying_input_.i5) #20
   resume { ptr, i32 } %5
 }
@@ -1706,7 +1685,7 @@ entry:
 define noundef zeroext i1 @_ZN6google8protobuf11MessageLite30ParseFromBoundedZeroCopyStreamEPNS0_2io19ZeroCopyInputStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %input, i32 noundef %size) local_unnamed_addr #3 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call.i = tail call noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS1_11BoundedZCISEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %input, i32 %size, ptr noundef nonnull %this, i32 noundef 1)
@@ -1717,7 +1696,7 @@ entry:
 define noundef zeroext i1 @_ZN6google8protobuf11MessageLite37ParsePartialFromBoundedZeroCopyStreamEPNS0_2io19ZeroCopyInputStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %input, i32 noundef %size) local_unnamed_addr #3 align 2 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call.i = tail call noundef zeroext i1 @_ZN6google8protobuf8internal13MergeFromImplILb0EEEbNS1_11BoundedZCISEPNS0_11MessageLiteENS4_10ParseFlagsE(ptr %input, i32 %size, ptr noundef nonnull %this, i32 noundef 3)
@@ -1729,36 +1708,36 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite15ParseFromStringESt1
 entry:
   %ctx.i.i = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx.i.i)
   %1 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 5
-  %aliasing_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 7
-  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 8
-  %overall_limit_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 9
+  %zcis_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 32
+  %aliasing_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 72
+  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 80
+  %overall_limit_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i.i.i, i8 0, i64 52, i1 false)
-  %depth_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 1
+  %depth_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 88
   store i32 %1, ptr %depth_.i.i.i, align 8
-  %group_depth_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 2
+  %group_depth_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 92
   store i32 -2147483648, ptr %group_depth_.i.i.i, align 4
-  %data_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 3
+  %data_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i.i, i8 0, i64 16, i1 false)
   store i32 0, ptr %overall_limit_.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp ugt i64 %data.coerce0, 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %limit_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 16, ptr %limit_.i.i.i.i, align 4
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %data.coerce1, i64 %data.coerce0
   %add.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 -16
-  %buffer_end_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %buffer_end_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %add.ptr4.i.i.i.i, ptr %buffer_end_.i.i.i.i, align 8
   store ptr %add.ptr4.i.i.i.i, ptr %ctx.i.i, align 8
-  %patch_buffer_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
-  %next_chunk_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %patch_buffer_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
+  %next_chunk_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr %patch_buffer_.i.i.i.i, ptr %next_chunk_.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i
 
@@ -1767,28 +1746,28 @@ if.else.i.i.i.i:                                  ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %if.end15.i.i.i.i, label %if.then10.i.i.i.i
 
 if.then10.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %patch_buffer_11.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
+  %patch_buffer_11.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %patch_buffer_11.i.i.i.i, ptr align 1 %data.coerce1, i64 %data.coerce0, i1 false)
   %.pre.i.i.i = load i64, ptr %aliasing_.i.i.i.i, align 8
   %2 = icmp eq i64 %.pre.i.i.i, 1
-  %limit_16.i3.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_16.i3.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 0, ptr %limit_16.i3.i.i.i, align 4
   %add.ptr20.i5.i.i.i = getelementptr inbounds i8, ptr %patch_buffer_11.i.i.i.i, i64 %data.coerce0
-  %buffer_end_21.i6.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %buffer_end_21.i6.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %add.ptr20.i5.i.i.i, ptr %buffer_end_21.i6.i.i.i, align 8
   store ptr %add.ptr20.i5.i.i.i, ptr %ctx.i.i, align 8
-  %next_chunk_23.i7.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %next_chunk_23.i7.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr null, ptr %next_chunk_23.i7.i.i.i, align 8
   br i1 %2, label %if.then26.i.i.i.i, label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i
 
 if.end15.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
-  %limit_16.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_16.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 0, ptr %limit_16.i.i.i.i, align 4
-  %patch_buffer_17.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
-  %buffer_end_21.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %patch_buffer_17.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
+  %buffer_end_21.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %patch_buffer_17.i.i.i.i, ptr %buffer_end_21.i.i.i.i, align 8
   store ptr %patch_buffer_17.i.i.i.i, ptr %ctx.i.i, align 8
-  %next_chunk_23.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %next_chunk_23.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr null, ptr %next_chunk_23.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i
 
@@ -1802,7 +1781,7 @@ if.then26.i.i.i.i:                                ; preds = %if.then10.i.i.i.i
 _ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i: ; preds = %if.then26.i.i.i.i, %if.end15.i.i.i.i, %if.then10.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %patch_buffer_17.i.i.i.i, %if.end15.i.i.i.i ], [ %data.coerce1, %if.then.i.i.i.i ], [ %patch_buffer_11.i.i.i.i, %if.then10.i.i.i.i ], [ %patch_buffer_11.i.i.i.i, %if.then26.i.i.i.i ]
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 7
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 56
   %5 = load ptr, ptr %vfn.i.i, align 8
   %call1.i.i = call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %retval.0.i.i.i.i, ptr noundef nonnull %ctx.i.i)
   %tobool.not.i.i = icmp ne ptr %call1.i.i, null
@@ -1813,7 +1792,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_t
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i
   %vtable.i.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %this)
   br i1 %call.i.i.i.i, label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit, label %if.end.i.i.i.i
@@ -1833,35 +1812,35 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite22ParsePartialFromStr
 entry:
   %ctx.i.i = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx.i.i)
   %1 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 5
-  %aliasing_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 7
-  %overall_limit_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 9
+  %zcis_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 32
+  %aliasing_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 72
+  %overall_limit_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i.i.i, i8 0, i64 52, i1 false)
-  %depth_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 1
+  %depth_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 88
   store i32 %1, ptr %depth_.i.i.i, align 8
-  %group_depth_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 2
+  %group_depth_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 92
   store i32 -2147483648, ptr %group_depth_.i.i.i, align 4
-  %data_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 3
+  %data_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i.i, i8 0, i64 16, i1 false)
   store i32 0, ptr %overall_limit_.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp ugt i64 %data.coerce0, 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %limit_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 16, ptr %limit_.i.i.i.i, align 4
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %data.coerce1, i64 %data.coerce0
   %add.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 -16
-  %buffer_end_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %buffer_end_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %add.ptr4.i.i.i.i, ptr %buffer_end_.i.i.i.i, align 8
   store ptr %add.ptr4.i.i.i.i, ptr %ctx.i.i, align 8
-  %patch_buffer_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
-  %next_chunk_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %patch_buffer_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
+  %next_chunk_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr %patch_buffer_.i.i.i.i, ptr %next_chunk_.i.i.i.i, align 8
   br label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE3ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit
 
@@ -1870,28 +1849,28 @@ if.else.i.i.i.i:                                  ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %if.end15.i.i.i.i, label %if.then10.i.i.i.i
 
 if.then10.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %patch_buffer_11.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
+  %patch_buffer_11.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %patch_buffer_11.i.i.i.i, ptr align 1 %data.coerce1, i64 %data.coerce0, i1 false)
   %.pre.i.i.i = load i64, ptr %aliasing_.i.i.i.i, align 8
   %2 = icmp eq i64 %.pre.i.i.i, 1
-  %limit_16.i3.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_16.i3.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 0, ptr %limit_16.i3.i.i.i, align 4
   %add.ptr20.i5.i.i.i = getelementptr inbounds i8, ptr %patch_buffer_11.i.i.i.i, i64 %data.coerce0
-  %buffer_end_21.i6.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %buffer_end_21.i6.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %add.ptr20.i5.i.i.i, ptr %buffer_end_21.i6.i.i.i, align 8
   store ptr %add.ptr20.i5.i.i.i, ptr %ctx.i.i, align 8
-  %next_chunk_23.i7.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %next_chunk_23.i7.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr null, ptr %next_chunk_23.i7.i.i.i, align 8
   br i1 %2, label %if.then26.i.i.i.i, label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE3ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit
 
 if.end15.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
-  %limit_16.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_16.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 0, ptr %limit_16.i.i.i.i, align 4
-  %patch_buffer_17.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
-  %buffer_end_21.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %patch_buffer_17.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
+  %buffer_end_21.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %patch_buffer_17.i.i.i.i, ptr %buffer_end_21.i.i.i.i, align 8
   store ptr %patch_buffer_17.i.i.i.i, ptr %ctx.i.i, align 8
-  %next_chunk_23.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %next_chunk_23.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr null, ptr %next_chunk_23.i.i.i.i, align 8
   br label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE3ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit
 
@@ -1904,9 +1883,9 @@ if.then26.i.i.i.i:                                ; preds = %if.then10.i.i.i.i
 
 _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE3ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit: ; preds = %if.then.i.i.i.i, %if.then10.i.i.i.i, %if.end15.i.i.i.i, %if.then26.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %patch_buffer_17.i.i.i.i, %if.end15.i.i.i.i ], [ %data.coerce1, %if.then.i.i.i.i ], [ %patch_buffer_11.i.i.i.i, %if.then10.i.i.i.i ], [ %patch_buffer_11.i.i.i.i, %if.then26.i.i.i.i ]
-  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 8
+  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 80
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 7
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 56
   %5 = load ptr, ptr %vfn.i.i, align 8
   %call1.i.i = call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %retval.0.i.i.i.i, ptr noundef nonnull %ctx.i.i)
   %tobool.not.i.i = icmp ne ptr %call1.i.i, null
@@ -1923,36 +1902,36 @@ entry:
   %ctx.i.i = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %conv.i = sext i32 %size to i64
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx.i.i)
   %1 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 5
-  %aliasing_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 7
-  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 8
-  %overall_limit_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 9
+  %zcis_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 32
+  %aliasing_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 72
+  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 80
+  %overall_limit_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i.i.i, i8 0, i64 52, i1 false)
-  %depth_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 1
+  %depth_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 88
   store i32 %1, ptr %depth_.i.i.i, align 8
-  %group_depth_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 2
+  %group_depth_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 92
   store i32 -2147483648, ptr %group_depth_.i.i.i, align 4
-  %data_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 3
+  %data_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i.i, i8 0, i64 16, i1 false)
   store i32 0, ptr %overall_limit_.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp ugt i32 %size, 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %limit_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 16, ptr %limit_.i.i.i.i, align 4
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %data, i64 %conv.i
   %add.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 -16
-  %buffer_end_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %buffer_end_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %add.ptr4.i.i.i.i, ptr %buffer_end_.i.i.i.i, align 8
   store ptr %add.ptr4.i.i.i.i, ptr %ctx.i.i, align 8
-  %patch_buffer_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
-  %next_chunk_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %patch_buffer_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
+  %next_chunk_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr %patch_buffer_.i.i.i.i, ptr %next_chunk_.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i
 
@@ -1961,28 +1940,28 @@ if.else.i.i.i.i:                                  ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %if.end15.i.i.i.i, label %if.then10.i.i.i.i
 
 if.then10.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %patch_buffer_11.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
+  %patch_buffer_11.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %patch_buffer_11.i.i.i.i, ptr align 1 %data, i64 %conv.i, i1 false)
   %.pre.i.i.i = load i64, ptr %aliasing_.i.i.i.i, align 8
   %2 = icmp eq i64 %.pre.i.i.i, 1
-  %limit_16.i3.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_16.i3.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 0, ptr %limit_16.i3.i.i.i, align 4
   %add.ptr20.i5.i.i.i = getelementptr inbounds i8, ptr %patch_buffer_11.i.i.i.i, i64 %conv.i
-  %buffer_end_21.i6.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %buffer_end_21.i6.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %add.ptr20.i5.i.i.i, ptr %buffer_end_21.i6.i.i.i, align 8
   store ptr %add.ptr20.i5.i.i.i, ptr %ctx.i.i, align 8
-  %next_chunk_23.i7.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %next_chunk_23.i7.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr null, ptr %next_chunk_23.i7.i.i.i, align 8
   br i1 %2, label %if.then26.i.i.i.i, label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i
 
 if.end15.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
-  %limit_16.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_16.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 0, ptr %limit_16.i.i.i.i, align 4
-  %patch_buffer_17.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
-  %buffer_end_21.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %patch_buffer_17.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
+  %buffer_end_21.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %patch_buffer_17.i.i.i.i, ptr %buffer_end_21.i.i.i.i, align 8
   store ptr %patch_buffer_17.i.i.i.i, ptr %ctx.i.i, align 8
-  %next_chunk_23.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %next_chunk_23.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr null, ptr %next_chunk_23.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i
 
@@ -1996,7 +1975,7 @@ if.then26.i.i.i.i:                                ; preds = %if.then10.i.i.i.i
 _ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i: ; preds = %if.then26.i.i.i.i, %if.end15.i.i.i.i, %if.then10.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %patch_buffer_17.i.i.i.i, %if.end15.i.i.i.i ], [ %data, %if.then.i.i.i.i ], [ %patch_buffer_11.i.i.i.i, %if.then10.i.i.i.i ], [ %patch_buffer_11.i.i.i.i, %if.then26.i.i.i.i ]
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 7
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 56
   %5 = load ptr, ptr %vfn.i.i, align 8
   %call1.i.i = call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %retval.0.i.i.i.i, ptr noundef nonnull %ctx.i.i)
   %tobool.not.i.i = icmp ne ptr %call1.i.i, null
@@ -2007,7 +1986,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_t
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i
   %vtable.i.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %7 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %this)
   br i1 %call.i.i.i.i, label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE1ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit, label %if.end.i.i.i.i
@@ -2028,35 +2007,35 @@ entry:
   %ctx.i.i = alloca %"class.google::protobuf::internal::ParseContext", align 8
   %conv.i = sext i32 %size to i64
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx.i.i)
   %1 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 5
-  %aliasing_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 7
-  %overall_limit_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 9
+  %zcis_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 32
+  %aliasing_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 72
+  %overall_limit_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i.i.i, i8 0, i64 52, i1 false)
-  %depth_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 1
+  %depth_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 88
   store i32 %1, ptr %depth_.i.i.i, align 8
-  %group_depth_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 2
+  %group_depth_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 92
   store i32 -2147483648, ptr %group_depth_.i.i.i, align 4
-  %data_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 3
+  %data_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i.i, i8 0, i64 16, i1 false)
   store i32 0, ptr %overall_limit_.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp ugt i32 %size, 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %limit_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 16, ptr %limit_.i.i.i.i, align 4
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %data, i64 %conv.i
   %add.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 -16
-  %buffer_end_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %buffer_end_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %add.ptr4.i.i.i.i, ptr %buffer_end_.i.i.i.i, align 8
   store ptr %add.ptr4.i.i.i.i, ptr %ctx.i.i, align 8
-  %patch_buffer_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
-  %next_chunk_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %patch_buffer_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
+  %next_chunk_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr %patch_buffer_.i.i.i.i, ptr %next_chunk_.i.i.i.i, align 8
   br label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE3ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit
 
@@ -2065,28 +2044,28 @@ if.else.i.i.i.i:                                  ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %if.end15.i.i.i.i, label %if.then10.i.i.i.i
 
 if.then10.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %patch_buffer_11.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
+  %patch_buffer_11.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %patch_buffer_11.i.i.i.i, ptr align 1 %data, i64 %conv.i, i1 false)
   %.pre.i.i.i = load i64, ptr %aliasing_.i.i.i.i, align 8
   %2 = icmp eq i64 %.pre.i.i.i, 1
-  %limit_16.i3.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_16.i3.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 0, ptr %limit_16.i3.i.i.i, align 4
   %add.ptr20.i5.i.i.i = getelementptr inbounds i8, ptr %patch_buffer_11.i.i.i.i, i64 %conv.i
-  %buffer_end_21.i6.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %buffer_end_21.i6.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %add.ptr20.i5.i.i.i, ptr %buffer_end_21.i6.i.i.i, align 8
   store ptr %add.ptr20.i5.i.i.i, ptr %ctx.i.i, align 8
-  %next_chunk_23.i7.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %next_chunk_23.i7.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr null, ptr %next_chunk_23.i7.i.i.i, align 8
   br i1 %2, label %if.then26.i.i.i.i, label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE3ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit
 
 if.end15.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
-  %limit_16.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_16.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 0, ptr %limit_16.i.i.i.i, align 4
-  %patch_buffer_17.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
-  %buffer_end_21.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %patch_buffer_17.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
+  %buffer_end_21.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %patch_buffer_17.i.i.i.i, ptr %buffer_end_21.i.i.i.i, align 8
   store ptr %patch_buffer_17.i.i.i.i, ptr %ctx.i.i, align 8
-  %next_chunk_23.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %next_chunk_23.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr null, ptr %next_chunk_23.i.i.i.i, align 8
   br label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE3ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit
 
@@ -2099,9 +2078,9 @@ if.then26.i.i.i.i:                                ; preds = %if.then10.i.i.i.i
 
 _ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE3ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit: ; preds = %if.then.i.i.i.i, %if.then10.i.i.i.i, %if.end15.i.i.i.i, %if.then26.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %patch_buffer_17.i.i.i.i, %if.end15.i.i.i.i ], [ %data, %if.then.i.i.i.i ], [ %patch_buffer_11.i.i.i.i, %if.then10.i.i.i.i ], [ %patch_buffer_11.i.i.i.i, %if.then26.i.i.i.i ]
-  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 8
+  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 80
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 7
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 56
   %5 = load ptr, ptr %vfn.i.i, align 8
   %call1.i.i = call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %retval.0.i.i.i.i, ptr noundef nonnull %ctx.i.i)
   %tobool.not.i.i = icmp ne ptr %call1.i.i, null
@@ -2118,31 +2097,31 @@ entry:
   %ctx.i.i = alloca %"class.google::protobuf::internal::ParseContext", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx.i.i)
   %0 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 5
-  %aliasing_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 7
-  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 8
-  %overall_limit_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 9
+  %zcis_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 32
+  %aliasing_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 72
+  %last_tag_minus_1_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 80
+  %overall_limit_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i.i.i, i8 0, i64 52, i1 false)
-  %depth_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 1
+  %depth_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 88
   store i32 %0, ptr %depth_.i.i.i, align 8
-  %group_depth_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 2
+  %group_depth_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 92
   store i32 -2147483648, ptr %group_depth_.i.i.i, align 4
-  %data_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i.i, i64 0, i32 3
+  %data_.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i.i, i8 0, i64 16, i1 false)
   store i32 0, ptr %overall_limit_.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp ugt i64 %data.coerce0, 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %limit_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 16, ptr %limit_.i.i.i.i, align 4
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %data.coerce1, i64 %data.coerce0
   %add.ptr4.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 -16
-  %buffer_end_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %buffer_end_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %add.ptr4.i.i.i.i, ptr %buffer_end_.i.i.i.i, align 8
   store ptr %add.ptr4.i.i.i.i, ptr %ctx.i.i, align 8
-  %patch_buffer_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
-  %next_chunk_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %patch_buffer_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
+  %next_chunk_.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr %patch_buffer_.i.i.i.i, ptr %next_chunk_.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i
 
@@ -2151,28 +2130,28 @@ if.else.i.i.i.i:                                  ; preds = %entry
   br i1 %cmp.i.i.i.i.i, label %if.end15.i.i.i.i, label %if.then10.i.i.i.i
 
 if.then10.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %patch_buffer_11.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
+  %patch_buffer_11.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %patch_buffer_11.i.i.i.i, ptr align 1 %data.coerce1, i64 %data.coerce0, i1 false)
   %.pre.i.i.i = load i64, ptr %aliasing_.i.i.i.i, align 8
   %1 = icmp eq i64 %.pre.i.i.i, 1
-  %limit_16.i3.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_16.i3.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 0, ptr %limit_16.i3.i.i.i, align 4
   %add.ptr20.i5.i.i.i = getelementptr inbounds i8, ptr %patch_buffer_11.i.i.i.i, i64 %data.coerce0
-  %buffer_end_21.i6.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %buffer_end_21.i6.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %add.ptr20.i5.i.i.i, ptr %buffer_end_21.i6.i.i.i, align 8
   store ptr %add.ptr20.i5.i.i.i, ptr %ctx.i.i, align 8
-  %next_chunk_23.i7.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %next_chunk_23.i7.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr null, ptr %next_chunk_23.i7.i.i.i, align 8
   br i1 %1, label %if.then26.i.i.i.i, label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i
 
 if.end15.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
-  %limit_16.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 4
+  %limit_16.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 28
   store i32 0, ptr %limit_16.i.i.i.i, align 4
-  %patch_buffer_17.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 6
-  %buffer_end_21.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 1
+  %patch_buffer_17.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 40
+  %buffer_end_21.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
   store ptr %patch_buffer_17.i.i.i.i, ptr %buffer_end_21.i.i.i.i, align 8
   store ptr %patch_buffer_17.i.i.i.i, ptr %ctx.i.i, align 8
-  %next_chunk_23.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i.i, i64 0, i32 2
+  %next_chunk_23.i.i.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 16
   store ptr null, ptr %next_chunk_23.i.i.i.i, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i
 
@@ -2186,7 +2165,7 @@ if.then26.i.i.i.i:                                ; preds = %if.then10.i.i.i.i
 _ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i: ; preds = %if.then26.i.i.i.i, %if.end15.i.i.i.i, %if.then10.i.i.i.i, %if.then.i.i.i.i
   %retval.0.i.i.i.i = phi ptr [ %patch_buffer_17.i.i.i.i, %if.end15.i.i.i.i ], [ %data.coerce1, %if.then.i.i.i.i ], [ %patch_buffer_11.i.i.i.i, %if.then10.i.i.i.i ], [ %patch_buffer_11.i.i.i.i, %if.then26.i.i.i.i ]
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 7
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 56
   %4 = load ptr, ptr %vfn.i.i, align 8
   %call1.i.i = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %retval.0.i.i.i.i, ptr noundef nonnull %ctx.i.i)
   %tobool.not.i.i = icmp ne ptr %call1.i.i, null
@@ -2197,7 +2176,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_t
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i.i
   %vtable.i.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 4
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 32
   %6 = load ptr, ptr %vfn.i.i.i.i, align 8
   %call.i.i.i.i = call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %this)
   br i1 %call.i.i.i.i, label %_ZN6google8protobuf11MessageLite9ParseFromILNS1_10ParseFlagsE0ESt17basic_string_viewIcSt11char_traitsIcEEEEbRKT0_.exit, label %if.end.i.i.i.i
@@ -2236,7 +2215,7 @@ entry:
   %ref.tmp = alloca %"struct.google::protobuf::internal::SourceWrapper", align 8
   store ptr %cord, ptr %ref.tmp, align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call.i.i = call noundef zeroext i1 @_ZNK6google8protobuf8internal13SourceWrapperIN4absl12lts_202308024CordEE9MergeIntoILb0EEEbPNS0_11MessageLiteENS8_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %this, i32 noundef 1)
@@ -2249,7 +2228,7 @@ entry:
   %ref.tmp = alloca %"struct.google::protobuf::internal::SourceWrapper", align 8
   store ptr %cord, ptr %ref.tmp, align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %0 = load ptr, ptr %vfn.i, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %call.i.i = call noundef zeroext i1 @_ZNK6google8protobuf8internal13SourceWrapperIN4absl12lts_202308024CordEE9MergeIntoILb0EEEbPNS0_11MessageLiteENS8_10ParseFlagsE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %this, i32 noundef 3)
@@ -2261,10 +2240,10 @@ define noundef ptr @_ZNK6google8protobuf11MessageLite31SerializeWithCachedSizesT
 entry:
   %out.i = alloca %"class.google::protobuf::io::EpsCopyOutputStream", align 8
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 64
   %0 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  %cached_size_offset.i.i = getelementptr inbounds %"struct.google::protobuf::MessageLite::ClassData", ptr %call.i.i, i64 0, i32 1
+  %cached_size_offset.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %1 = load i32, ptr %cached_size_offset.i.i, align 8
   %idx.ext.i.i = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 %idx.ext.i.i
@@ -2275,20 +2254,20 @@ entry:
   %idx.ext.i.i1 = sext i32 %2 to i64
   %add.ptr.i.i2 = getelementptr inbounds i8, ptr %target, i64 %idx.ext.i.i1
   store ptr %add.ptr.i.i2, ptr %out.i, align 8
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %out.i, i64 8
   store ptr null, ptr %buffer_end_.i.i, align 8
-  %stream_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 3
+  %stream_.i.i = getelementptr inbounds i8, ptr %out.i, i64 48
   store ptr null, ptr %stream_.i.i, align 8
-  %had_error_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 4
+  %had_error_.i.i = getelementptr inbounds i8, ptr %out.i, i64 56
   store i8 0, ptr %had_error_.i.i, align 8
-  %aliasing_enabled_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 5
+  %aliasing_enabled_.i.i = getelementptr inbounds i8, ptr %out.i, i64 57
   store i8 0, ptr %aliasing_enabled_.i.i, align 1
-  %is_serialization_deterministic_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 6
+  %is_serialization_deterministic_.i.i = getelementptr inbounds i8, ptr %out.i, i64 58
   store i8 %4, ptr %is_serialization_deterministic_.i.i, align 2
-  %skip_check_consistency.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 7
+  %skip_check_consistency.i.i = getelementptr inbounds i8, ptr %out.i, i64 59
   store i8 0, ptr %skip_check_consistency.i.i, align 1
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %5 = load ptr, ptr %vfn.i, align 8
   %call1.i = call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %target, ptr noundef nonnull %out.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %out.i)
@@ -2313,7 +2292,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessage", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %cmp = icmp ugt i64 %call, 2147483647
@@ -2361,20 +2340,20 @@ ehcleanup:                                        ; preds = %lpad6, %lpad
   resume { ptr, i32 } %.pn
 
 if.end:                                           ; preds = %entry
-  %cur_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i = getelementptr inbounds i8, ptr %output, i64 64
   %3 = load ptr, ptr %cur_.i, align 8
   %call.i = tail call noundef i64 @_ZNK6google8protobuf2io19EpsCopyOutputStream9ByteCountEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %3)
-  %start_count_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 2
+  %start_count_.i = getelementptr inbounds i8, ptr %output, i64 72
   %4 = load i64, ptr %start_count_.i, align 8
   %5 = load ptr, ptr %cur_.i, align 8
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %6 = load ptr, ptr %vfn.i, align 8
   %call3.i = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %5, ptr noundef nonnull %output)
   store ptr %call3.i, ptr %cur_.i, align 8
   %call.i12 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19FlushAndResetBufferEPh(ptr noundef nonnull align 8 dereferenceable(60) %output, ptr noundef %call3.i)
   store ptr %call.i12, ptr %cur_.i, align 8
-  %had_error_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 4
+  %had_error_.i.i = getelementptr inbounds i8, ptr %output, i64 56
   %7 = load i8, ptr %had_error_.i.i, align 8
   %8 = and i8 %7, 1
   %tobool.i.i.not = icmp eq i8 %8, 0
@@ -2393,7 +2372,7 @@ if.end17:                                         ; preds = %if.end
 
 if.then20:                                        ; preds = %if.end17
   %vtable21 = load ptr, ptr %this, align 8
-  %vfn22 = getelementptr inbounds ptr, ptr %vtable21, i64 6
+  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 48
   %12 = load ptr, ptr %vfn22, align 8
   %call23 = tail call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(16) %this)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp4.i)
@@ -2501,7 +2480,7 @@ entry:
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %stream = alloca %"class.google::protobuf::io::EpsCopyOutputStream", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %cmp = icmp ugt i64 %call, 2147483647
@@ -2551,22 +2530,22 @@ ehcleanup:                                        ; preds = %lpad6, %lpad
 if.end:                                           ; preds = %entry
   %3 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
   %4 = and i8 %3, 1
-  %buffer_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %stream, i64 0, i32 2
+  %buffer_.i = getelementptr inbounds i8, ptr %stream, i64 16
   store ptr %buffer_.i, ptr %stream, align 8
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %stream, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %stream, i64 8
   store ptr %buffer_.i, ptr %buffer_end_.i, align 8
-  %stream_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %stream, i64 0, i32 3
+  %stream_.i = getelementptr inbounds i8, ptr %stream, i64 48
   store ptr %output, ptr %stream_.i, align 8
-  %had_error_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %stream, i64 0, i32 4
+  %had_error_.i = getelementptr inbounds i8, ptr %stream, i64 56
   store i8 0, ptr %had_error_.i, align 8
-  %aliasing_enabled_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %stream, i64 0, i32 5
+  %aliasing_enabled_.i = getelementptr inbounds i8, ptr %stream, i64 57
   store i8 0, ptr %aliasing_enabled_.i, align 1
-  %is_serialization_deterministic_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %stream, i64 0, i32 6
+  %is_serialization_deterministic_.i = getelementptr inbounds i8, ptr %stream, i64 58
   store i8 %4, ptr %is_serialization_deterministic_.i, align 2
-  %skip_check_consistency.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %stream, i64 0, i32 7
+  %skip_check_consistency.i = getelementptr inbounds i8, ptr %stream, i64 59
   store i8 0, ptr %skip_check_consistency.i, align 1
   %vtable15 = load ptr, ptr %this, align 8
-  %vfn16 = getelementptr inbounds ptr, ptr %vtable15, i64 9
+  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 72
   %5 = load ptr, ptr %vfn16, align 8
   %call17 = call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %buffer_.i, ptr noundef nonnull %stream)
   %call18 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream4TrimEPh(ptr noundef nonnull align 8 dereferenceable(60) %stream, ptr noundef %call17)
@@ -2716,7 +2695,7 @@ entry:
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %output) #20
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %cmp = icmp ult i64 %call2, 2147483648
@@ -2786,20 +2765,20 @@ _ZN4absl12lts_2023080216strings_internal37STLStringResizeUninitializedAmortizedI
   %4 = and i8 %3, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %call2
   store ptr %add.ptr.i.i, ptr %out.i, align 8
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %out.i, i64 8
   store ptr null, ptr %buffer_end_.i.i, align 8
-  %stream_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 3
+  %stream_.i.i = getelementptr inbounds i8, ptr %out.i, i64 48
   store ptr null, ptr %stream_.i.i, align 8
-  %had_error_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 4
+  %had_error_.i.i = getelementptr inbounds i8, ptr %out.i, i64 56
   store i8 0, ptr %had_error_.i.i, align 8
-  %aliasing_enabled_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 5
+  %aliasing_enabled_.i.i = getelementptr inbounds i8, ptr %out.i, i64 57
   store i8 0, ptr %aliasing_enabled_.i.i, align 1
-  %is_serialization_deterministic_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 6
+  %is_serialization_deterministic_.i.i = getelementptr inbounds i8, ptr %out.i, i64 58
   store i8 %4, ptr %is_serialization_deterministic_.i.i, align 2
-  %skip_check_consistency.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 7
+  %skip_check_consistency.i.i = getelementptr inbounds i8, ptr %out.i, i64 59
   store i8 0, ptr %skip_check_consistency.i.i, align 1
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %5 = load ptr, ptr %vfn.i, align 8
   %call1.i10 = call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr, ptr noundef nonnull %out.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %out.i)
@@ -2846,7 +2825,7 @@ entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessage", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %cmp = icmp ugt i64 %call, 2147483647
@@ -2904,20 +2883,20 @@ if.end16:                                         ; preds = %if.end
   %4 = and i8 %3, 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %data, i64 %call
   store ptr %add.ptr.i.i, ptr %out.i, align 8
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %out.i, i64 8
   store ptr null, ptr %buffer_end_.i.i, align 8
-  %stream_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 3
+  %stream_.i.i = getelementptr inbounds i8, ptr %out.i, i64 48
   store ptr null, ptr %stream_.i.i, align 8
-  %had_error_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 4
+  %had_error_.i.i = getelementptr inbounds i8, ptr %out.i, i64 56
   store i8 0, ptr %had_error_.i.i, align 8
-  %aliasing_enabled_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 5
+  %aliasing_enabled_.i.i = getelementptr inbounds i8, ptr %out.i, i64 57
   store i8 0, ptr %aliasing_enabled_.i.i, align 1
-  %is_serialization_deterministic_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 6
+  %is_serialization_deterministic_.i.i = getelementptr inbounds i8, ptr %out.i, i64 58
   store i8 %4, ptr %is_serialization_deterministic_.i.i, align 2
-  %skip_check_consistency.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out.i, i64 0, i32 7
+  %skip_check_consistency.i.i = getelementptr inbounds i8, ptr %out.i, i64 59
   store i8 0, ptr %skip_check_consistency.i.i, align 1
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %5 = load ptr, ptr %vfn.i, align 8
   %call1.i = call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data, ptr noundef nonnull %out.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %out.i)
@@ -2999,7 +2978,7 @@ entry:
   %out44 = alloca %"class.google::protobuf::io::EpsCopyOutputStream", align 8
   %ref.tmp61 = alloca %"class.absl::lts_20230802::Cord", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %1 = load i8, ptr %output, align 1
@@ -3030,7 +3009,7 @@ lpad:                                             ; preds = %if.then
   br label %eh.resume
 
 cond.true.i.i.i.i:                                ; preds = %_ZNK4absl12lts_202308024Cord4sizeEv.exit.thread
-  %rep.i.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::InlineData::Rep::AsTree", ptr %output, i64 0, i32 1
+  %rep.i.i.i.i.i = getelementptr inbounds i8, ptr %output, i64 8
   %4 = load ptr, ptr %rep.i.i.i.i.i, align 8
   %5 = load i64, ptr %4, align 8
   br label %_ZNK4absl12lts_202308024Cord5emptyEv.exit.i
@@ -3072,7 +3051,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %div36.i.i.i.i.i.i = lshr i64 %and.i.i.i.i.i.i, %.sink8.i.i.i.i.i.i
   %sub.i.i5.i.i.i.i = add nuw nsw i64 %div36.i.i.i.i.i.i, %.sink.i.i.i.i.i.i
   %conv.i.i.i.i.i.i = trunc i64 %sub.i.i5.i.i.i.i to i8
-  %tag.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %call4.i.i.i.i, i64 0, i32 2
+  %tag.i.i.i.i = getelementptr inbounds i8, ptr %call4.i.i.i.i, i64 12
   store i8 %conv.i.i.i.i.i.i, ptr %tag.i.i.i.i, align 4, !noalias !19
   store i64 0, ptr %call4.i.i.i.i, align 8, !noalias !19
   store ptr %call4.i.i.i.i, ptr %buffer, align 8, !alias.scope !19
@@ -3082,7 +3061,7 @@ if.then.i.i:                                      ; preds = %if.then.i
 
 _ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit.thread: ; preds = %if.then.i
   store i8 1, ptr %buffer, align 8, !alias.scope !19
-  %data.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::CordBuffer::Rep::Short", ptr %buffer, i64 0, i32 1
+  %data.i.i.i.i = getelementptr inbounds i8, ptr %buffer, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %data.i.i.i.i, i8 0, i64 15, i1 false), !alias.scope !19
   br label %invoke.cont9.thread
 
@@ -3100,9 +3079,9 @@ _ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit: ; preds = %if.then.i.i, %i
 invoke.cont9:                                     ; preds = %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit
   %12 = load ptr, ptr %buffer, align 8
   %13 = load i64, ptr %12, align 8
-  %storage.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %12, i64 0, i32 3
+  %storage.i.i.i = getelementptr inbounds i8, ptr %12, i64 13
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %storage.i.i.i, i64 %13
-  %tag.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::CordRep", ptr %12, i64 0, i32 2
+  %tag.i.i.i = getelementptr inbounds i8, ptr %12, i64 12
   %14 = load i8, ptr %tag.i.i.i, align 4
   %conv.i.i.i.i.i13 = zext i8 %14 to i32
   %cmp.i.i.i.i.i14 = icmp ult i8 %14, 67
@@ -3122,7 +3101,7 @@ invoke.cont9.thread:                              ; preds = %_ZN4absl12lts_20230
   %16 = phi i8 [ 1, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit.thread ], [ %10, %_ZN4absl12lts_202308024Cord15GetAppendBufferEmm.exit ]
   %17 = ashr i8 %16, 1
   %conv2.i.i.i = sext i8 %17 to i64
-  %data.i.i = getelementptr inbounds %"struct.absl::lts_20230802::CordBuffer::Rep::Short", ptr %buffer, i64 0, i32 1
+  %data.i.i = getelementptr inbounds i8, ptr %buffer, i64 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %data.i.i, i64 %conv2.i.i.i
   %sub.i.i = sub nsw i64 15, %conv2.i.i.i
   %cmp13.not94 = icmp ult i64 %sub.i.i, %call
@@ -3137,20 +3116,20 @@ if.then14:                                        ; preds = %invoke.cont9.thread
   %idx.ext.i = ashr exact i64 %sext, 32
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.pn.i95, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %out, align 8
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %out, i64 8
   store ptr null, ptr %buffer_end_.i, align 8
-  %stream_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out, i64 0, i32 3
+  %stream_.i = getelementptr inbounds i8, ptr %out, i64 48
   store ptr null, ptr %stream_.i, align 8
-  %had_error_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out, i64 0, i32 4
+  %had_error_.i = getelementptr inbounds i8, ptr %out, i64 56
   store i8 0, ptr %had_error_.i, align 8
-  %aliasing_enabled_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out, i64 0, i32 5
+  %aliasing_enabled_.i = getelementptr inbounds i8, ptr %out, i64 57
   store i8 0, ptr %aliasing_enabled_.i, align 1
-  %is_serialization_deterministic_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out, i64 0, i32 6
+  %is_serialization_deterministic_.i = getelementptr inbounds i8, ptr %out, i64 58
   store i8 %19, ptr %is_serialization_deterministic_.i, align 2
-  %skip_check_consistency.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out, i64 0, i32 7
+  %skip_check_consistency.i = getelementptr inbounds i8, ptr %out, i64 59
   store i8 0, ptr %skip_check_consistency.i, align 1
   %vtable19 = load ptr, ptr %this, align 8
-  %vfn20 = getelementptr inbounds ptr, ptr %vtable19, i64 9
+  %vfn20 = getelementptr inbounds i8, ptr %vtable19, i64 72
   %20 = load ptr, ptr %vfn20, align 8
   %call22 = invoke noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %add.ptr.i.pn.i95, ptr noundef nonnull %out)
           to label %invoke.cont21 unwind label %lpad8
@@ -3209,7 +3188,7 @@ if.else.i19:                                      ; preds = %_ZNK4absl12lts_2023
   store i8 1, ptr %agg.tmp27, align 8
   %32 = ashr i8 %26, 1
   %conv2.i.i3.i = sext i8 %32 to i64
-  %data.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::CordBuffer::Rep::Short", ptr %agg.tmp27, i64 0, i32 1
+  %data.i.i.i = getelementptr inbounds i8, ptr %agg.tmp27, i64 1
   invoke void @_ZN4absl12lts_202308024Cord13AppendPreciseESt17basic_string_viewIcSt11char_traitsIcEENS0_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %output, i64 %conv2.i.i3.i, ptr nonnull %data.i.i.i, i32 noundef 2)
           to label %if.else.i19.invoke.cont29_crit_edge unwind label %lpad28
 
@@ -3291,17 +3270,17 @@ invoke.cont50:                                    ; preds = %if.then.i40, %_ZN4a
   %conv46 = trunc i64 %sub.i.pn.i98101108 to i32
   %47 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
   %48 = and i8 %47, 1
-  %buffer_end_.i45 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out44, i64 0, i32 1
-  %buffer_.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out44, i64 0, i32 2
-  %stream_.i46 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out44, i64 0, i32 3
+  %buffer_end_.i45 = getelementptr inbounds i8, ptr %out44, i64 8
+  %buffer_.i = getelementptr inbounds i8, ptr %out44, i64 16
+  %stream_.i46 = getelementptr inbounds i8, ptr %out44, i64 48
   store ptr %output_stream, ptr %stream_.i46, align 8
-  %had_error_.i47 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out44, i64 0, i32 4
+  %had_error_.i47 = getelementptr inbounds i8, ptr %out44, i64 56
   store i8 0, ptr %had_error_.i47, align 8
-  %aliasing_enabled_.i48 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out44, i64 0, i32 5
+  %aliasing_enabled_.i48 = getelementptr inbounds i8, ptr %out44, i64 57
   store i8 0, ptr %aliasing_enabled_.i48, align 1
-  %is_serialization_deterministic_.i49 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out44, i64 0, i32 6
+  %is_serialization_deterministic_.i49 = getelementptr inbounds i8, ptr %out44, i64 58
   store i8 %48, ptr %is_serialization_deterministic_.i49, align 2
-  %skip_check_consistency.i50 = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %out44, i64 0, i32 7
+  %skip_check_consistency.i50 = getelementptr inbounds i8, ptr %out44, i64 59
   store i8 0, ptr %skip_check_consistency.i50, align 1
   %cmp.i.i51 = icmp sgt i32 %conv46, 16
   %idx.ext.i.i = and i64 %sub.i.pn.i98101108, 4294967295
@@ -3316,7 +3295,7 @@ invoke.cont50:                                    ; preds = %if.then.i40, %_ZN4a
   store ptr %add.ptr4.sink.i.i, ptr %out44, align 8
   store ptr %data.sink.i.i, ptr %buffer_end_.i45, align 8
   %vtable51 = load ptr, ptr %this, align 8
-  %vfn52 = getelementptr inbounds ptr, ptr %vtable51, i64 9
+  %vfn52 = getelementptr inbounds i8, ptr %vtable51, i64 72
   %49 = load ptr, ptr %vfn52, align 8
   %call54 = invoke noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %retval.0.i.i, ptr noundef nonnull %out44)
           to label %invoke.cont53 unwind label %lpad47
@@ -3381,7 +3360,7 @@ _ZN4absl12lts_202308024CordaSEOS1_.exit:          ; preds = %invoke.cont62, %if.
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4absl12lts_202308024CordaSEOS1_.exit, %invoke.cont55
-  %buffer_.i65 = getelementptr inbounds %"class.google::protobuf::io::CordOutputStream", ptr %output_stream, i64 0, i32 4
+  %buffer_.i65 = getelementptr inbounds i8, ptr %output_stream, i64 40
   %61 = load i8, ptr %buffer_.i65, align 8
   %62 = and i8 %61, 1
   %cmp.i.not.i.i66 = icmp eq i8 %62, 0
@@ -3393,7 +3372,7 @@ if.then.i.i69:                                    ; preds = %cleanup
   br label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit.i
 
 _ZN4absl12lts_2023080210CordBufferD2Ev.exit.i:    ; preds = %if.then.i.i69, %cleanup
-  %cord_.i = getelementptr inbounds %"class.google::protobuf::io::CordOutputStream", ptr %output_stream, i64 0, i32 1
+  %cord_.i = getelementptr inbounds i8, ptr %output_stream, i64 8
   %64 = load i8, ptr %cord_.i, align 8
   %65 = and i8 %64, 1
   %cmp.i.i.not.i.i67 = icmp eq i8 %65, 0
@@ -3473,7 +3452,7 @@ declare void @_ZN6google8protobuf2io16CordOutputStream7ConsumeEv(ptr sret(%"clas
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf2io16CordOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %buffer_ = getelementptr inbounds %"class.google::protobuf::io::CordOutputStream", ptr %this, i64 0, i32 4
+  %buffer_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %buffer_, align 8
   %1 = and i8 %0, 1
   %cmp.i.not.i = icmp eq i8 %1, 0
@@ -3485,7 +3464,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4absl12lts_2023080210CordBufferD2Ev.exit
 
 _ZN4absl12lts_2023080210CordBufferD2Ev.exit:      ; preds = %entry, %if.then.i
-  %cord_ = getelementptr inbounds %"class.google::protobuf::io::CordOutputStream", ptr %this, i64 0, i32 1
+  %cord_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i8, ptr %cord_, align 8
   %4 = and i8 %3, 1
   %cmp.i.i.not.i = icmp eq i8 %4, 0
@@ -3576,7 +3555,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont, %if.th
 define noundef ptr @_ZN6google8protobuf8internal22NewFromPrototypeHelperEPKNS0_11MessageLiteEPNS0_5ArenaE(ptr noundef %prototype, ptr noundef %arena) local_unnamed_addr #3 {
 entry:
   %vtable = load ptr, ptr %prototype, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(16) %prototype, ptr noundef %arena)
   ret ptr %call
@@ -3586,7 +3565,7 @@ entry:
 define void @_ZN6google8protobuf8internal18GenericTypeHandlerINS0_11MessageLiteEE5MergeERKS3_PS3_(ptr noundef nonnull align 8 dereferenceable(16) %from, ptr noundef %to) local_unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %to, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 5
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(16) %to, ptr noundef nonnull align 8 dereferenceable(16) %from)
   ret void
@@ -3603,7 +3582,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %and.i1 = and i64 %0, -2
   %1 = inttoptr i64 %and.i1 to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %1, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %1, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %entry
@@ -3623,7 +3602,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK6google8protobu
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
   %call.i.sink.i.i.i = phi ptr [ %call.i.i.i.i, %if.end.i.i.i ], [ %call.i.i.i, %if.then.i.i.i ]
-  %unknown_fields.i1.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %call.i.sink.i.i.i, i64 0, i32 1
+  %unknown_fields.i1.i.i.i = getelementptr inbounds i8, ptr %call.i.sink.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %unknown_fields.i1.i.i.i) #20
   %3 = ptrtoint ptr %call.i.sink.i.i.i to i64
   %or.i = or i64 %3, 1
@@ -3648,7 +3627,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %and.i1 = and i64 %0, -2
   %1 = inttoptr i64 %and.i1 to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %1, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %1, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %entry
@@ -3668,7 +3647,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK6google8protobu
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
   %call.i.sink.i.i.i = phi ptr [ %call.i.i.i.i, %if.end.i.i.i ], [ %call.i.i.i, %if.then.i.i.i ]
-  %unknown_fields.i1.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %call.i.sink.i.i.i, i64 0, i32 1
+  %unknown_fields.i1.i.i.i = getelementptr inbounds i8, ptr %call.i.sink.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %unknown_fields.i1.i.i.i) #20
   %3 = ptrtoint ptr %call.i.sink.i.i.i to i64
   %or.i = or i64 %3, 1
@@ -3695,7 +3674,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   %and.i1 = and i64 %0, -2
   %1 = inttoptr i64 %and.i1 to ptr
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %1, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %1, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 _ZNK6google8protobuf8internal16InternalMetadata5arenaEv.exit.i: ; preds = %entry
@@ -3715,7 +3694,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK6google8protobu
 
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i
   %call.i.sink.i.i.i = phi ptr [ %call.i.i.i.i, %if.end.i.i.i ], [ %call.i.i.i, %if.then.i.i.i ]
-  %unknown_fields.i1.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %call.i.sink.i.i.i, i64 0, i32 1
+  %unknown_fields.i1.i.i.i = getelementptr inbounds i8, ptr %call.i.sink.i.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %unknown_fields.i1.i.i.i) #20
   %3 = ptrtoint ptr %call.i.sink.i.i.i to i64
   %or.i = or i64 %3, 1
@@ -3787,11 +3766,11 @@ lpad.i:                                           ; preds = %init.i
 
 invoke.cont:                                      ; preds = %invoke.cont2.i, %init.check.i, %entry
   %3 = load ptr, ptr @_ZZN6google8protobuf8internal12ShutdownData3getEvE4data, align 8
-  %mutex = getelementptr inbounds %"struct.google::protobuf::internal::ShutdownData", ptr %3, i64 0, i32 1
+  %mutex = getelementptr inbounds i8, ptr %3, i64 24
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex)
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<void (*)(const void *), const void *>, std::allocator<std::pair<void (*)(const void *), const void *>>>::_Vector_impl_data", ptr %3, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<void (*)(const void *), const void *>, std::allocator<std::pair<void (*)(const void *), const void *>>>::_Vector_impl_data", ptr %3, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %4, %5
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -3801,7 +3780,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
   %ref.tmp.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %arg, ptr %ref.tmp.sroa.3.0..sroa_idx, align 8
   %6 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %6, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont2
 
@@ -3849,14 +3828,14 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseISt4pairIPFvPKvES2_ESaIS5_EE11_M_allocateEm.exit.i.i.i ]
   %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %7, %_ZNSt12_Vector_baseISt4pairIPFvPKvES2_ESaIS5_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !21
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.addr.06.i.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__cur.07.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %4
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !25
 
 _ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt4pairIPFvPKvES2_ESaIS5_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseISt4pairIPFvPKvES2_ESaIS5_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %incdec.ptr.i.i.i = getelementptr %"struct.std::pair", ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
   %tobool.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt4pairIPFvPKvES2_ESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
@@ -3945,10 +3924,10 @@ _ZN6google8protobuf8internal12ShutdownData3getEv.exit: ; preds = %if.then, %init
 
 delete.notnull:                                   ; preds = %_ZN6google8protobuf8internal12ShutdownData3getEv.exit
   %4 = load ptr, ptr %3, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::pair<void (*)(const void *), const void *>, std::allocator<std::pair<void (*)(const void *), const void *>>>::_Vector_impl_data", ptr %3, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %4, %5
-  %__last.sroa.0.09.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %5, i64 -1
+  %__last.sroa.0.09.i.i.i = getelementptr inbounds i8, ptr %5, i64 -16
   %cmp.i110.i.i.i = icmp ugt ptr %__last.sroa.0.09.i.i.i, %4
   %or.cond.i.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i110.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %while.body.i.i.i, label %invoke.cont.i
@@ -3961,14 +3940,14 @@ while.body.i.i.i:                                 ; preds = %delete.notnull, %wh
   %7 = load ptr, ptr %__last.sroa.0.013.i.i.i, align 8
   store ptr %7, ptr %__first.sroa.0.011.i.i.i, align 8
   store ptr %6, ptr %__last.sroa.0.013.i.i.i, align 8
-  %second.i.i.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.sroa.0.011.i.i.i, i64 0, i32 1
-  %second3.i.i.i.i.i.i = getelementptr %"struct.std::pair", ptr %__last.coerce.pn12.i.i.i, i64 -1, i32 1
+  %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.011.i.i.i, i64 8
+  %second3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.coerce.pn12.i.i.i, i64 -8
   %8 = load ptr, ptr %second.i.i.i.i.i.i, align 8
   %9 = load ptr, ptr %second3.i.i.i.i.i.i, align 8
   store ptr %9, ptr %second.i.i.i.i.i.i, align 8
   store ptr %8, ptr %second3.i.i.i.i.i.i, align 8
-  %incdec.ptr.i2.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first.sroa.0.011.i.i.i, i64 1
-  %__last.sroa.0.0.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__last.sroa.0.013.i.i.i, i64 -1
+  %incdec.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.011.i.i.i, i64 16
+  %__last.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.013.i.i.i, i64 -16
   %cmp.i1.i.i.i = icmp ult ptr %incdec.ptr.i2.i.i.i, %__last.sroa.0.0.i.i.i
   br i1 %cmp.i1.i.i.i, label %while.body.i.i.i, label %invoke.cont.loopexit.i, !llvm.loop !26
 
@@ -3992,12 +3971,12 @@ for.body.i:                                       ; preds = %invoke.cont.i, %for
           to label %for.inc.i unwind label %terminate.lpad.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.std::pair", ptr %__begin3.sroa.0.06.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.06.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %10
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i, %invoke.cont.i
-  %mutex.i = getelementptr inbounds %"struct.google::protobuf::internal::ShutdownData", ptr %3, i64 0, i32 1
+  %mutex.i = getelementptr inbounds i8, ptr %3, i64 24
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mutex.i) #20
   %12 = load ptr, ptr %3, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %12, null
@@ -4061,7 +4040,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCodedInputStream4NextEPPKvPi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data, ptr noundef %size) unnamed_addr #3 comdat align 2 {
 entry:
-  %cis_ = getelementptr inbounds %"class.google::protobuf::ZeroCopyCodedInputStream", ptr %this, i64 0, i32 1
+  %cis_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %cis_, align 8
   %call = tail call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream22GetDirectBufferPointerEPPKvPi(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %data, ptr noundef %size)
   br i1 %call, label %if.end, label %return
@@ -4073,7 +4052,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %1, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %buffer_end_.i.i, align 8
   %4 = load ptr, ptr %1, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
@@ -4100,7 +4079,7 @@ return:                                           ; preds = %if.end4.i, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf24ZeroCopyCodedInputStream6BackUpEi(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %count) unnamed_addr #7 comdat align 2 {
 entry:
-  %cis_ = getelementptr inbounds %"class.google::protobuf::ZeroCopyCodedInputStream", ptr %this, i64 0, i32 1
+  %cis_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %cis_, align 8
   %sub = sub nsw i32 0, %count
   %1 = load ptr, ptr %0, align 8
@@ -4113,13 +4092,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCodedInputStream4SkipEi(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %count) unnamed_addr #3 comdat align 2 {
 entry:
-  %cis_ = getelementptr inbounds %"class.google::protobuf::ZeroCopyCodedInputStream", ptr %this, i64 0, i32 1
+  %cis_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %cis_, align 8
   %cmp.i = icmp slt i32 %count, 0
   br i1 %cmp.i, label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %0, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %buffer_end_.i.i, align 8
   %2 = load ptr, ptr %0, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -4160,7 +4139,7 @@ entry:
   br i1 %cmp.i.i.not.i.i.i, label %cond.false.i.i.i, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %entry
-  %rep.i.i.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::InlineData::Rep::AsTree", ptr %cord, i64 0, i32 1
+  %rep.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cord, i64 8
   %2 = load ptr, ptr %rep.i.i.i.i.i.i, align 8
   %3 = load i64, ptr %2, align 8
   br label %_ZNK4absl12lts_202308024Cord5emptyEv.exit
@@ -4176,14 +4155,14 @@ _ZNK4absl12lts_202308024Cord5emptyEv.exit:        ; preds = %cond.true.i.i.i, %c
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK4absl12lts_202308024Cord5emptyEv.exit
-  %cis_ = getelementptr inbounds %"class.google::protobuf::ZeroCopyCodedInputStream", ptr %this, i64 0, i32 1
+  %cis_ = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %cis_, align 8
   %call2 = tail call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream8ReadCordEPN4absl12lts_202308024CordEi(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %cord, i32 noundef %count)
   br label %return
 
 if.end:                                           ; preds = %_ZNK4absl12lts_202308024Cord5emptyEv.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %tmp, i8 0, i64 16, i1 false)
-  %cis_3 = getelementptr inbounds %"class.google::protobuf::ZeroCopyCodedInputStream", ptr %this, i64 0, i32 1
+  %cis_3 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %cis_3, align 8
   %call4 = invoke noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream8ReadCordEPN4absl12lts_202308024CordEi(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %tmp, i32 noundef %count)
           to label %invoke.cont unwind label %lpad
@@ -4303,7 +4282,7 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal7cleanup21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv(ptr noundef %object) #7 comdat {
 entry:
-  %unknown_fields.i = getelementptr inbounds %"struct.google::protobuf::internal::InternalMetadata::Container", ptr %object, i64 0, i32 1
+  %unknown_fields.i = getelementptr inbounds i8, ptr %object, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %unknown_fields.i) #20
   ret void
 }
@@ -4425,7 +4404,7 @@ entry:
   %1 = load i8, ptr %0, align 1, !noalias !27
   %2 = and i8 %1, 1
   %cmp.i.i.not.i.i = icmp eq i8 %2, 0
-  %rep.i.i.i.i.i = getelementptr inbounds %"struct.absl::lts_20230802::cord_internal::InlineData::Rep::AsTree", ptr %0, i64 0, i32 1
+  %rep.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %rep.i.i.i.i.i, align 8, !noalias !27
   %cmp7.i = icmp eq ptr %3, null
   %cmp.i = select i1 %cmp.i.i.not.i.i, i1 true, i1 %cmp7.i
@@ -4469,31 +4448,31 @@ land.lhs.true:                                    ; preds = %if.then7.i, %cond.f
 if.then:                                          ; preds = %land.lhs.true
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx.i)
   %5 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 5
-  %aliasing_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 7
-  %last_tag_minus_1_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 8
-  %overall_limit_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 9
+  %zcis_.i.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 32
+  %aliasing_.i.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 72
+  %last_tag_minus_1_.i.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 80
+  %overall_limit_.i.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i.i, i8 0, i64 52, i1 false)
-  %depth_.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i, i64 0, i32 1
+  %depth_.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 88
   store i32 %5, ptr %depth_.i.i, align 8
-  %group_depth_.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i, i64 0, i32 2
+  %group_depth_.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 92
   store i32 -2147483648, ptr %group_depth_.i.i, align 4
-  %data_.i.i = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i, i64 0, i32 3
+  %data_.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i, i8 0, i64 16, i1 false)
   store i32 0, ptr %overall_limit_.i.i.i, align 4
   %cmp.i.i.i = icmp ugt i64 %flat.sroa.0.0.ph, 16
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %limit_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 4
+  %limit_.i.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 28
   store i32 16, ptr %limit_.i.i.i, align 4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %flat.sroa.4.0.ph, i64 %flat.sroa.0.0.ph
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -16
-  %buffer_end_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 1
+  %buffer_end_.i.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 8
   store ptr %add.ptr4.i.i.i, ptr %buffer_end_.i.i.i, align 8
   store ptr %add.ptr4.i.i.i, ptr %ctx.i, align 8
-  %patch_buffer_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 6
-  %next_chunk_.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 2
+  %patch_buffer_.i.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 40
+  %next_chunk_.i.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 16
   store ptr %patch_buffer_.i.i.i, ptr %next_chunk_.i.i.i, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i
 
@@ -4502,28 +4481,28 @@ if.else.i.i.i:                                    ; preds = %if.then
   br i1 %cmp.i.i.i.i, label %if.end15.i.i.i, label %if.then10.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %if.else.i.i.i
-  %patch_buffer_11.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 6
+  %patch_buffer_11.i.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %patch_buffer_11.i.i.i, ptr align 1 %flat.sroa.4.0.ph, i64 %flat.sroa.0.0.ph, i1 false)
   %.pre.i.i = load i64, ptr %aliasing_.i.i.i, align 8
   %6 = icmp eq i64 %.pre.i.i, 1
-  %limit_16.i3.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 4
+  %limit_16.i3.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 28
   store i32 0, ptr %limit_16.i3.i.i, align 4
   %add.ptr20.i5.i.i = getelementptr inbounds i8, ptr %patch_buffer_11.i.i.i, i64 %flat.sroa.0.0.ph
-  %buffer_end_21.i6.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 1
+  %buffer_end_21.i6.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 8
   store ptr %add.ptr20.i5.i.i, ptr %buffer_end_21.i6.i.i, align 8
   store ptr %add.ptr20.i5.i.i, ptr %ctx.i, align 8
-  %next_chunk_23.i7.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 2
+  %next_chunk_23.i7.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 16
   store ptr null, ptr %next_chunk_23.i7.i.i, align 8
   br i1 %6, label %if.then26.i.i.i, label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i
 
 if.end15.i.i.i:                                   ; preds = %if.else.i.i.i
-  %limit_16.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 4
+  %limit_16.i.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 28
   store i32 0, ptr %limit_16.i.i.i, align 4
-  %patch_buffer_17.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 6
-  %buffer_end_21.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 1
+  %patch_buffer_17.i.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 40
+  %buffer_end_21.i.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 8
   store ptr %patch_buffer_17.i.i.i, ptr %buffer_end_21.i.i.i, align 8
   store ptr %patch_buffer_17.i.i.i, ptr %ctx.i, align 8
-  %next_chunk_23.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i, i64 0, i32 2
+  %next_chunk_23.i.i.i = getelementptr inbounds i8, ptr %ctx.i, i64 16
   store ptr null, ptr %next_chunk_23.i.i.i, align 8
   br label %_ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i
 
@@ -4537,7 +4516,7 @@ if.then26.i.i.i:                                  ; preds = %if.then10.i.i.i
 _ZN6google8protobuf8internal12ParseContextC2IJRSt17basic_string_viewIcSt11char_traitsIcEEEEEibPPKcDpOT_.exit.i: ; preds = %if.then26.i.i.i, %if.end15.i.i.i, %if.then10.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %patch_buffer_17.i.i.i, %if.end15.i.i.i ], [ %flat.sroa.4.0.ph, %if.then.i.i.i ], [ %patch_buffer_11.i.i.i, %if.then10.i.i.i ], [ %patch_buffer_11.i.i.i, %if.then26.i.i.i ]
   %vtable.i = load ptr, ptr %msg, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %9 = load ptr, ptr %vfn.i, align 8
   %call1.i = call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %retval.0.i.i.i, ptr noundef nonnull %ctx.i)
   %tobool.not.i = icmp ne ptr %call1.i, null
@@ -4553,7 +4532,7 @@ if.then.i3:                                       ; preds = %_ZN6google8protobuf
 
 if.end.i.i:                                       ; preds = %if.then.i3
   %vtable.i.i.i = load ptr, ptr %msg, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 4
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 32
   %11 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %msg)
   br i1 %call.i.i.i, label %_ZN6google8protobuf8internal13MergeFromImplILb0EEEbSt17basic_string_viewIcSt11char_traitsIcEEPNS0_11MessageLiteENS7_10ParseFlagsE.exit, label %if.end.i.i.i
@@ -4572,20 +4551,20 @@ if.else:                                          ; preds = %_ZNK4absl12lts_2023
   call void @_ZN6google8protobuf2io15CordInputStreamC1EPKN4absl12lts_202308024CordE(ptr noundef nonnull align 8 dereferenceable(200) %input, ptr noundef %12)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ctx.i4)
   %13 = load i32, ptr @_ZN6google8protobuf2io16CodedInputStream24default_recursion_limit_E, align 4
-  %zcis_.i.i.i5 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i4, i64 0, i32 5
-  %last_tag_minus_1_.i.i.i6 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i4, i64 0, i32 8
-  %overall_limit_.i.i.i7 = getelementptr inbounds %"class.google::protobuf::internal::EpsCopyInputStream", ptr %ctx.i4, i64 0, i32 9
+  %zcis_.i.i.i5 = getelementptr inbounds i8, ptr %ctx.i4, i64 32
+  %last_tag_minus_1_.i.i.i6 = getelementptr inbounds i8, ptr %ctx.i4, i64 80
+  %overall_limit_.i.i.i7 = getelementptr inbounds i8, ptr %ctx.i4, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %zcis_.i.i.i5, i8 0, i64 52, i1 false)
   store i32 2147483647, ptr %overall_limit_.i.i.i7, align 4
-  %depth_.i.i8 = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i4, i64 0, i32 1
+  %depth_.i.i8 = getelementptr inbounds i8, ptr %ctx.i4, i64 88
   store i32 %13, ptr %depth_.i.i8, align 8
-  %group_depth_.i.i9 = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i4, i64 0, i32 2
+  %group_depth_.i.i9 = getelementptr inbounds i8, ptr %ctx.i4, i64 92
   store i32 -2147483648, ptr %group_depth_.i.i9, align 4
-  %data_.i.i10 = getelementptr inbounds %"class.google::protobuf::internal::ParseContext", ptr %ctx.i4, i64 0, i32 3
+  %data_.i.i10 = getelementptr inbounds i8, ptr %ctx.i4, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i10, i8 0, i64 16, i1 false)
   %call.i.i26 = call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %ctx.i4, ptr noundef nonnull %input)
   %vtable.i11 = load ptr, ptr %msg, align 8
-  %vfn.i12 = getelementptr inbounds ptr, ptr %vtable.i11, i64 7
+  %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 56
   %14 = load ptr, ptr %vfn.i12, align 8
   %call1.i1327 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %call.i.i26, ptr noundef nonnull %ctx.i4)
   %tobool.not.i14 = icmp ne ptr %call1.i1327, null
@@ -4601,7 +4580,7 @@ if.then.i18:                                      ; preds = %if.else
 
 if.end.i.i21:                                     ; preds = %if.then.i18
   %vtable.i.i.i22 = load ptr, ptr %msg, align 8
-  %vfn.i.i.i23 = getelementptr inbounds ptr, ptr %vtable.i.i.i22, i64 4
+  %vfn.i.i.i23 = getelementptr inbounds i8, ptr %vtable.i.i.i22, i64 32
   %16 = load ptr, ptr %vfn.i.i.i23, align 8
   %call.i.i.i2428 = call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %msg)
   br i1 %call.i.i.i2428, label %invoke.cont, label %if.end.i.i.i25

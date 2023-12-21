@@ -569,7 +569,7 @@ entry:
   br i1 %cmp78, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr.i = getelementptr inbounds i32, ptr %buff.i, i64 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %buff.i, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end64

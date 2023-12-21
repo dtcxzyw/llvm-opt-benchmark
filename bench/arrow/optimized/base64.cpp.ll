@@ -54,11 +54,11 @@ entry:
   br i1 %tobool.not26.i, label %_ZN5arrow4utilL13base64_encodeB5cxx11EPKhj.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %arrayidx7.i = getelementptr inbounds [3 x i8], ptr %char_array_3.i, i64 0, i64 1
-  %arrayidx12.i = getelementptr inbounds [4 x i8], ptr %char_array_4.i, i64 0, i64 1
-  %arrayidx17.i = getelementptr inbounds [3 x i8], ptr %char_array_3.i, i64 0, i64 2
-  %arrayidx23.i = getelementptr inbounds [4 x i8], ptr %char_array_4.i, i64 0, i64 2
-  %arrayidx28.i = getelementptr inbounds [4 x i8], ptr %char_array_4.i, i64 0, i64 3
+  %arrayidx7.i = getelementptr inbounds i8, ptr %char_array_3.i, i64 1
+  %arrayidx12.i = getelementptr inbounds i8, ptr %char_array_4.i, i64 1
+  %arrayidx17.i = getelementptr inbounds i8, ptr %char_array_3.i, i64 2
+  %arrayidx23.i = getelementptr inbounds i8, ptr %char_array_4.i, i64 2
+  %arrayidx28.i = getelementptr inbounds i8, ptr %char_array_4.i, i64 3
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %while.body.lr.ph.i
@@ -224,11 +224,11 @@ entry:
   br i1 %tobool.not35, label %nrvo.skipdtor, label %land.lhs.true.lr.ph
 
 land.lhs.true.lr.ph:                              ; preds = %entry
-  %arrayidx20 = getelementptr inbounds [4 x i8], ptr %char_array_4, i64 0, i64 1
-  %arrayidx29 = getelementptr inbounds [4 x i8], ptr %char_array_4, i64 0, i64 2
-  %arrayidx35 = getelementptr inbounds [3 x i8], ptr %char_array_3, i64 0, i64 1
-  %arrayidx40 = getelementptr inbounds [4 x i8], ptr %char_array_4, i64 0, i64 3
-  %arrayidx44 = getelementptr inbounds [3 x i8], ptr %char_array_3, i64 0, i64 2
+  %arrayidx20 = getelementptr inbounds i8, ptr %char_array_4, i64 1
+  %arrayidx29 = getelementptr inbounds i8, ptr %char_array_4, i64 2
+  %arrayidx35 = getelementptr inbounds i8, ptr %char_array_3, i64 1
+  %arrayidx40 = getelementptr inbounds i8, ptr %char_array_4, i64 3
+  %arrayidx44 = getelementptr inbounds i8, ptr %char_array_3, i64 2
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph, %if.end
@@ -349,19 +349,19 @@ for.body59:                                       ; preds = %for.body59.preheade
 for.end69:                                        ; preds = %for.body59, %for.cond57.preheader
   %16 = load i8, ptr %char_array_4, align 1
   %shl72 = shl i8 %16, 2
-  %arrayidx73 = getelementptr inbounds [4 x i8], ptr %char_array_4, i64 0, i64 1
+  %arrayidx73 = getelementptr inbounds i8, ptr %char_array_4, i64 1
   %17 = load i8, ptr %arrayidx73, align 1
   %18 = lshr i8 %17, 4
   %19 = and i8 %18, 3
   %add77 = or disjoint i8 %19, %shl72
   store i8 %add77, ptr %char_array_3, align 1
   %20 = shl i8 %17, 4
-  %arrayidx84 = getelementptr inbounds [4 x i8], ptr %char_array_4, i64 0, i64 2
+  %arrayidx84 = getelementptr inbounds i8, ptr %char_array_4, i64 2
   %21 = load i8, ptr %arrayidx84, align 1
   %22 = lshr i8 %21, 2
   %23 = and i8 %22, 15
   %add8821 = or disjoint i8 %23, %20
-  %arrayidx90 = getelementptr inbounds [3 x i8], ptr %char_array_3, i64 0, i64 1
+  %arrayidx90 = getelementptr inbounds i8, ptr %char_array_3, i64 1
   store i8 %add8821, ptr %arrayidx90, align 1
   %cmp9243 = icmp sgt i32 %i.0.lcssa, 1
   br i1 %cmp9243, label %for.body93.preheader, label %nrvo.skipdtor

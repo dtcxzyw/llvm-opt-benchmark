@@ -38,7 +38,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_756number18ScientificNotationC2Eabs18UNumberSignDisplay(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %this, i8 noundef signext %fEngineeringInterval, i1 noundef zeroext %fRequireMinInt, i16 noundef signext %fMinExponentDigits, i32 noundef %fExponentSignDisplay) unnamed_addr #1 align 2 {
 entry:
-  %fUnion.i = getelementptr inbounds %"class.icu_75::number::Notation", ptr %this, i64 0, i32 1
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 4
   %union_.sroa.4.0.insert.ext = zext i32 %fExponentSignDisplay to i64
   %union_.sroa.4.0.insert.shift = shl nuw i64 %union_.sroa.4.0.insert.ext, 32
   %union_.sroa.3.0.insert.ext = zext i16 %fMinExponentDigits to i64
@@ -101,9 +101,9 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %fUnion = getelementptr inbounds %"class.icu_75::number::Notation", ptr %this, i64 0, i32 1
+  %fUnion = getelementptr inbounds i8, ptr %this, i64 4
   %1 = load i16, ptr %fUnion, align 4
-  %settings.sroa.3.0.fUnion.sroa_idx = getelementptr inbounds %"class.icu_75::number::Notation", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %settings.sroa.3.0.fUnion.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   %settings.sroa.3.0.copyload = load i32, ptr %settings.sroa.3.0.fUnion.sroa_idx, align 4
   %union_.sroa.3.0.insert.ext = zext i32 %settings.sroa.3.0.copyload to i64
   %union_.sroa.3.0.insert.shift = shl nuw i64 %union_.sroa.3.0.insert.ext, 32
@@ -135,7 +135,7 @@ return:                                           ; preds = %if.else, %if.then
 define { i64, i32 } @_ZNK6icu_756number18ScientificNotation23withExponentSignDisplayE18UNumberSignDisplay(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %this, i32 noundef %exponentSignDisplay) local_unnamed_addr #2 align 2 {
 entry:
   %retval.sroa.0 = alloca %"class.icu_75::number::Notation", align 8
-  %fUnion = getelementptr inbounds %"class.icu_75::number::Notation", ptr %this, i64 0, i32 1
+  %fUnion = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %fUnion, align 4
   store i32 0, ptr %retval.sroa.0, align 8
   %union_.sroa.2.0.insert.ext = zext i32 %exponentSignDisplay to i64

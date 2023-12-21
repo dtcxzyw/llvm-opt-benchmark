@@ -128,7 +128,7 @@ if.end39:                                         ; preds = %land.lhs.true33, %i
   br i1 %exitcond, label %err, label %for.end
 
 for.inc:                                          ; preds = %if.end21, %land.lhs.true33, %for.body16
-  %incdec.ptr = getelementptr inbounds %struct.ossl_algorithm_st, ptr %algs.037, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %algs.037, i64 32
   %6 = load ptr, ptr %incdec.ptr, align 8
   %cmp15.not = icmp eq ptr %6, null
   br i1 %cmp15.not, label %err, label %for.body16, !llvm.loop !5
@@ -244,7 +244,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then:                                          ; preds = %for.body
   %3 = load i32, ptr getelementptr inbounds (%struct.filter_prov_globals_st, ptr @ourglobals, i64 0, i32 4), align 4
   store i32 %3, ptr %no_cache, align 4
-  %alg = getelementptr inbounds %struct.filter_prov_globals_st, ptr @ourglobals, i64 0, i32 2, i64 %indvars.iv, i32 1
+  %alg = getelementptr inbounds i8, ptr %arrayidx, i64 8
   br label %return
 
 for.end:                                          ; preds = %for.cond, %entry

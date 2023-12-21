@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.listIter = type { ptr, i32 }
-%struct.aofManifest = type { ptr, ptr, ptr, i64, i64, i32 }
-%struct.list = type { ptr, ptr, ptr, ptr, ptr, i64 }
-%struct.listNode = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [3 x i8] c"\0D\0A\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"Expected \\r\\n, got: %02x%02x\00", align 1
@@ -517,7 +514,7 @@ if.then7:                                         ; preds = %if.end
   unreachable
 
 if.end9:                                          ; preds = %if.end
-  %st_size = getelementptr inbounds %struct.stat, ptr %sb, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %sb, i64 48
   %1 = load i64, ptr %st_size, align 8
   %cmp10 = icmp eq i64 %1, 0
   br i1 %cmp10, label %if.then11, label %if.end13
@@ -532,7 +529,7 @@ if.end13:                                         ; preds = %if.end9
 
 if.then14:                                        ; preds = %if.end13
   store ptr null, ptr %argv, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %argv, i64 8
   store ptr %aof_filepath, ptr %arrayinit.element, align 8
   %call15 = call i32 @redis_check_rdb_main(i32 noundef 2, ptr noundef nonnull %argv, ptr noundef nonnull %call) #17
   %cmp16 = icmp eq i32 %call15, -1
@@ -780,7 +777,7 @@ if.then7:                                         ; preds = %if.end
   unreachable
 
 if.end9:                                          ; preds = %if.end
-  %st_size = getelementptr inbounds %struct.stat, ptr %sb, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %sb, i64 48
   %1 = load i64, ptr %st_size, align 8
   %cmp10 = icmp eq i64 %1, 0
   br i1 %cmp10, label %return, label %if.end13
@@ -837,7 +834,7 @@ if.then7:                                         ; preds = %if.end
   unreachable
 
 if.end9:                                          ; preds = %if.end
-  %st_size = getelementptr inbounds %struct.stat, ptr %sb, i64 0, i32 8
+  %st_size = getelementptr inbounds i8, ptr %sb, i64 48
   %1 = load i64, ptr %st_size, align 8
   %cmp10 = icmp eq i64 %1, 0
   br i1 %cmp10, label %if.then11, label %while.body.outer
@@ -941,13 +938,13 @@ entry:
   %0 = load ptr, ptr %call1, align 8
   %tobool.not = icmp ne ptr %0, null
   %spec.select = zext i1 %tobool.not to i32
-  %incr_aof_list = getelementptr inbounds %struct.aofManifest, ptr %call1, i64 0, i32 1
+  %incr_aof_list = getelementptr inbounds i8, ptr %call1, i64 8
   %1 = load ptr, ptr %incr_aof_list, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %entry
-  %len = getelementptr inbounds %struct.list, ptr %1, i64 0, i32 5
+  %len = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load i64, ptr %len, align 8
   %3 = trunc i64 %2 to i32
   %conv5 = add i32 %3, %spec.select
@@ -1002,7 +999,7 @@ printAofStyle.exit:                               ; preds = %if.then.i, %if.then
 if.end18:                                         ; preds = %printAofStyle.exit, %if.end6
   %6 = phi ptr [ %.pre, %printAofStyle.exit ], [ %1, %if.end6 ]
   %aof_num.0 = phi i32 [ 1, %printAofStyle.exit ], [ 0, %if.end6 ]
-  %len20 = getelementptr inbounds %struct.list, ptr %6, i64 0, i32 5
+  %len20 = getelementptr inbounds i8, ptr %6, i64 40
   %7 = load i64, ptr %len20, align 8
   %tobool21.not = icmp eq i64 %7, 0
   br i1 %tobool21.not, label %if.end36, label %if.then22
@@ -1018,7 +1015,7 @@ if.then22:                                        ; preds = %if.end18
 while.body:                                       ; preds = %if.then22, %printAofStyle.exit35
   %call2539 = phi ptr [ %call25, %printAofStyle.exit35 ], [ %call2536, %if.then22 ]
   %aof_num.138 = phi i32 [ %inc32, %printAofStyle.exit35 ], [ %aof_num.0, %if.then22 ]
-  %value = getelementptr inbounds %struct.listNode, ptr %call2539, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call2539, i64 16
   %9 = load ptr, ptr %value, align 8
   %10 = load ptr, ptr %9, align 8
   %call31 = call ptr @makePath(ptr noundef %dirpath, ptr noundef %10) #17
@@ -1129,14 +1126,14 @@ if.else:                                          ; preds = %entry
   ]
 
 if.then5:                                         ; preds = %if.else
-  %arrayidx6 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx6 = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx6, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.56) #16
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end34, label %invalid_args
 
 if.then12:                                        ; preds = %if.else
-  %arrayidx13 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx13 = getelementptr inbounds i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx13, align 8
   %call14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(24) @.str.57) #16
   %tobool15.not = icmp eq i32 %call14, 0
@@ -1145,7 +1142,7 @@ if.then12:                                        ; preds = %if.else
 if.then16:                                        ; preds = %if.then12
   %call17 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call17, align 4
-  %arrayidx18 = getelementptr inbounds ptr, ptr %argv, i64 2
+  %arrayidx18 = getelementptr inbounds i8, ptr %argv, i64 16
   %2 = load ptr, ptr %arrayidx18, align 8
   %call19 = call i64 @strtol(ptr noundef %2, ptr noundef nonnull %endptr, i32 noundef 10) #17
   store i64 %call19, ptr @to_timestamp, align 8
@@ -1165,9 +1162,9 @@ if.then24:                                        ; preds = %lor.lhs.false, %if.
   unreachable
 
 if.end34:                                         ; preds = %lor.lhs.false, %if.then5, %if.else
-  %.sink = phi i64 [ 1, %if.else ], [ 2, %if.then5 ], [ 3, %lor.lhs.false ]
+  %.sink = phi i64 [ 8, %if.else ], [ 16, %if.then5 ], [ 24, %lor.lhs.false ]
   %fix.0 = phi i32 [ 0, %if.else ], [ 1, %if.then5 ], [ 0, %lor.lhs.false ]
-  %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %.sink
+  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 %.sink
   %filepath.0 = load ptr, ptr %arrayidx, align 8
   %call35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filepath.0) #16
   %add = add i64 %call35, 1

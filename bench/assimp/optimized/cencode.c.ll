@@ -3,17 +3,15 @@ source_filename = "bench/assimp/original/cencode.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.base64_encodestate = type { i32, i8, i32 }
-
 @.str = private unnamed_addr constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @base64_init_encodestate(ptr nocapture noundef writeonly %state_in) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %state_in, align 4
-  %result = getelementptr inbounds %struct.base64_encodestate, ptr %state_in, i64 0, i32 1
+  %result = getelementptr inbounds i8, ptr %state_in, i64 4
   store i8 0, ptr %result, align 4
-  %stepcount = getelementptr inbounds %struct.base64_encodestate, ptr %state_in, i64 0, i32 2
+  %stepcount = getelementptr inbounds i8, ptr %state_in, i64 8
   store i32 0, ptr %stepcount, align 4
   ret void
 }
@@ -40,7 +38,7 @@ define i32 @base64_encode_block(ptr noundef readonly %plaintext_in, i32 noundef 
 entry:
   %idx.ext = sext i32 %length_in to i64
   %add.ptr = getelementptr inbounds i8, ptr %plaintext_in, i64 %idx.ext
-  %result1 = getelementptr inbounds %struct.base64_encodestate, ptr %state_in, i64 0, i32 1
+  %result1 = getelementptr inbounds i8, ptr %state_in, i64 4
   %0 = load i8, ptr %result1, align 4
   %1 = load i32, ptr %state_in, align 4
   switch i32 %1, label %return [
@@ -129,7 +127,7 @@ base64_encode_value.exit51:                       ; preds = %if.end43, %if.end.i
   %16 = load i8, ptr %arrayidx.i54, align 1
   %incdec.ptr58 = getelementptr inbounds i8, ptr %codechar.2, i64 2
   store i8 %16, ptr %incdec.ptr52, align 1
-  %stepcount = getelementptr inbounds %struct.base64_encodestate, ptr %state_in, i64 0, i32 2
+  %stepcount = getelementptr inbounds i8, ptr %state_in, i64 8
   %17 = load i32, ptr %stepcount, align 4
   %inc = add nsw i32 %17, 1
   store i32 %inc, ptr %stepcount, align 4
@@ -169,7 +167,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %result = getelementptr inbounds %struct.base64_encodestate, ptr %state_in, i64 0, i32 1
+  %result = getelementptr inbounds i8, ptr %state_in, i64 4
   %1 = load i8, ptr %result, align 4
   %cmp.i = icmp sgt i8 %1, 63
   br i1 %cmp.i, label %base64_encode_value.exit, label %if.end.i
@@ -189,7 +187,7 @@ base64_encode_value.exit:                         ; preds = %sw.bb, %if.end.i
   br label %sw.epilog.sink.split
 
 sw.bb3:                                           ; preds = %entry
-  %result4 = getelementptr inbounds %struct.base64_encodestate, ptr %state_in, i64 0, i32 1
+  %result4 = getelementptr inbounds i8, ptr %state_in, i64 4
   %3 = load i8, ptr %result4, align 4
   %cmp.i10 = icmp sgt i8 %3, 63
   br i1 %cmp.i10, label %base64_encode_value.exit15, label %if.end.i11

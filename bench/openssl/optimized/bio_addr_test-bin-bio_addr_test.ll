@@ -7,9 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
 %struct.in6_addr = type { %union.anon.0 }
 %union.anon.0 = type { [4 x i32] }
-%struct.sockaddr_in = type { i16, i16, %struct.in_addr, [8 x i8] }
-%struct.in_addr = type { i32 }
-%struct.sockaddr_un = type { i16, [108 x i8] }
 
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/test/bio_addr_test.c\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"Error parsing test options\0A\00", align 1
@@ -63,38 +60,33 @@ entry:
   %0 = load i32, ptr %arrayidx, align 4
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %sa.i)
   switch i32 %0, label %sw.default.i [
-    i32 2, label %sw.bb.i
+    i32 2, label %sw.epilog.i
     i32 10, label %sw.bb1.i
     i32 1, label %sw.bb2.i
   ]
 
-sw.bb.i:                                          ; preds = %entry
-  %sin_addr.i = getelementptr inbounds %struct.sockaddr_in, ptr %sa.i, i64 0, i32 2
-  br label %sw.epilog.i
-
 sw.bb1.i:                                         ; preds = %entry
-  %sin6_addr.i = getelementptr inbounds %struct.sockaddr_in6, ptr %sa.i, i64 0, i32 3
   br label %sw.epilog.i
 
 sw.bb2.i:                                         ; preds = %entry
-  %sun_path.i = getelementptr inbounds %struct.sockaddr_un, ptr %sa.i, i64 0, i32 1
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %entry
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @.str.7) #5
   br label %make_dummy_addr.exit
 
-sw.epilog.i:                                      ; preds = %sw.bb2.i, %sw.bb1.i, %sw.bb.i
-  %where.0.i = phi ptr [ %sun_path.i, %sw.bb2.i ], [ %sin6_addr.i, %sw.bb1.i ], [ %sin_addr.i, %sw.bb.i ]
-  %wherelen.0.i = phi i64 [ 107, %sw.bb2.i ], [ 16, %sw.bb1.i ], [ 4, %sw.bb.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %where.0.i, i8 97, i64 %wherelen.0.i, i1 false)
+sw.epilog.i:                                      ; preds = %sw.bb2.i, %sw.bb1.i, %entry
+  %.sink.i = phi i64 [ 2, %sw.bb2.i ], [ 8, %sw.bb1.i ], [ 4, %entry ]
+  %wherelen.0.i = phi i64 [ 107, %sw.bb2.i ], [ 16, %sw.bb1.i ], [ 4, %entry ]
+  %sun_path.i = getelementptr inbounds i8, ptr %sa.i, i64 %.sink.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %sun_path.i, i8 97, i64 %wherelen.0.i, i1 false)
   %call.i = tail call ptr @BIO_ADDR_new() #5
   %call3.i = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 70, ptr noundef nonnull @.str.8, ptr noundef %call.i) #5
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %make_dummy_addr.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.epilog.i
-  %call4.i = call i32 @BIO_ADDR_rawmake(ptr noundef %call.i, i32 noundef %0, ptr noundef nonnull %where.0.i, i64 noundef %wherelen.0.i, i16 noundef zeroext 1000) #5
+  %call4.i = call i32 @BIO_ADDR_rawmake(ptr noundef %call.i, i32 noundef %0, ptr noundef nonnull %sun_path.i, i64 noundef %wherelen.0.i, i16 noundef zeroext 1000) #5
   %cmp.i = icmp ne i32 %call4.i, 0
   %conv.i = zext i1 %cmp.i to i32
   %call5.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 73, ptr noundef nonnull @.str.9, i32 noundef %conv.i) #5

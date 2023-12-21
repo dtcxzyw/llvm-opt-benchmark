@@ -3,9 +3,6 @@ source_filename = "bench/abseil-cpp/original/periodic_sampler.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.absl::profiling_internal::PeriodicSamplerBase" = type { ptr, i64, %"class.absl::profiling_internal::ExponentialBiased" }
-%"class.absl::profiling_internal::ExponentialBiased" = type <{ i64, double, i8, [7 x i8] }>
-
 $__clang_call_terminate = comdat any
 
 @_ZTVN4absl18profiling_internal19PeriodicSamplerBaseE = dso_local unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN4absl18profiling_internal19PeriodicSamplerBaseE, ptr @_ZN4absl18profiling_internal19PeriodicSamplerBase20GetExponentialBiasedEi, ptr @__cxa_pure_virtual] }, align 8
@@ -16,7 +13,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i64 @_ZN4absl18profiling_internal19PeriodicSamplerBase20GetExponentialBiasedEi(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %period) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %rng_ = getelementptr inbounds %"class.absl::profiling_internal::PeriodicSamplerBase", ptr %this, i64 0, i32 2
+  %rng_ = getelementptr inbounds i8, ptr %this, i64 16
   %conv = sext i32 %period to i64
   %call = invoke noundef i64 @_ZN4absl18profiling_internal17ExponentialBiased9GetStrideEl(ptr noundef nonnull align 8 dereferenceable(17) %rng_, i64 noundef %conv)
           to label %invoke.cont unwind label %terminate.lpad
@@ -51,11 +48,11 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define dso_local noundef zeroext i1 @_ZN4absl18profiling_internal19PeriodicSamplerBase19SubtleConfirmSampleEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(40) %this) #4
   %cmp = icmp slt i32 %call, 2
-  %stride_ = getelementptr inbounds %"class.absl::profiling_internal::PeriodicSamplerBase", ptr %this, i64 0, i32 1
+  %stride_ = getelementptr inbounds i8, ptr %this, i64 8
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

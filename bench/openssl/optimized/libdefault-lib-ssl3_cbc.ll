@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %union.anon = type { double, [208 x i8] }
-%struct.MD5state_st = type { i32, i32, i32, i32, i32, i32, [16 x i32], i32 }
-%struct.SHAstate_st = type { i32, i32, i32, i32, i32, i32, i32, [16 x i32], i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"MD5\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"SHA1\00", align 1
@@ -497,7 +495,7 @@ entry:
   %conv10 = trunc i32 %shr9 to i8
   %incdec.ptr11 = getelementptr inbounds i8, ptr %md_out, i64 4
   store i8 %conv10, ptr %incdec.ptr7, align 1
-  %B = getelementptr inbounds %struct.MD5state_st, ptr %ctx, i64 0, i32 1
+  %B = getelementptr inbounds i8, ptr %ctx, i64 4
   %4 = load i32, ptr %B, align 4
   %conv12 = trunc i32 %4 to i8
   %incdec.ptr13 = getelementptr inbounds i8, ptr %md_out, i64 5
@@ -517,7 +515,7 @@ entry:
   %conv24 = trunc i32 %shr23 to i8
   %incdec.ptr25 = getelementptr inbounds i8, ptr %md_out, i64 8
   store i8 %conv24, ptr %incdec.ptr21, align 1
-  %C = getelementptr inbounds %struct.MD5state_st, ptr %ctx, i64 0, i32 2
+  %C = getelementptr inbounds i8, ptr %ctx, i64 8
   %8 = load i32, ptr %C, align 4
   %conv26 = trunc i32 %8 to i8
   %incdec.ptr27 = getelementptr inbounds i8, ptr %md_out, i64 9
@@ -537,7 +535,7 @@ entry:
   %conv38 = trunc i32 %shr37 to i8
   %incdec.ptr39 = getelementptr inbounds i8, ptr %md_out, i64 12
   store i8 %conv38, ptr %incdec.ptr35, align 1
-  %D = getelementptr inbounds %struct.MD5state_st, ptr %ctx, i64 0, i32 3
+  %D = getelementptr inbounds i8, ptr %ctx, i64 12
   %12 = load i32, ptr %D, align 4
   %conv40 = trunc i32 %12 to i8
   %incdec.ptr41 = getelementptr inbounds i8, ptr %md_out, i64 13
@@ -585,7 +583,7 @@ entry:
   %conv13 = trunc i32 %3 to i8
   %incdec.ptr14 = getelementptr inbounds i8, ptr %md_out, i64 4
   store i8 %conv13, ptr %incdec.ptr10, align 1
-  %h1 = getelementptr inbounds %struct.SHAstate_st, ptr %ctx, i64 0, i32 1
+  %h1 = getelementptr inbounds i8, ptr %ctx, i64 4
   %4 = load i32, ptr %h1, align 4
   %shr15 = lshr i32 %4, 24
   %conv17 = trunc i32 %shr15 to i8
@@ -605,7 +603,7 @@ entry:
   %conv31 = trunc i32 %7 to i8
   %incdec.ptr32 = getelementptr inbounds i8, ptr %md_out, i64 8
   store i8 %conv31, ptr %incdec.ptr28, align 1
-  %h2 = getelementptr inbounds %struct.SHAstate_st, ptr %ctx, i64 0, i32 2
+  %h2 = getelementptr inbounds i8, ptr %ctx, i64 8
   %8 = load i32, ptr %h2, align 4
   %shr33 = lshr i32 %8, 24
   %conv35 = trunc i32 %shr33 to i8
@@ -625,7 +623,7 @@ entry:
   %conv49 = trunc i32 %11 to i8
   %incdec.ptr50 = getelementptr inbounds i8, ptr %md_out, i64 12
   store i8 %conv49, ptr %incdec.ptr46, align 1
-  %h3 = getelementptr inbounds %struct.SHAstate_st, ptr %ctx, i64 0, i32 3
+  %h3 = getelementptr inbounds i8, ptr %ctx, i64 12
   %12 = load i32, ptr %h3, align 4
   %shr51 = lshr i32 %12, 24
   %conv53 = trunc i32 %shr51 to i8
@@ -645,7 +643,7 @@ entry:
   %conv67 = trunc i32 %15 to i8
   %incdec.ptr68 = getelementptr inbounds i8, ptr %md_out, i64 16
   store i8 %conv67, ptr %incdec.ptr64, align 1
-  %h4 = getelementptr inbounds %struct.SHAstate_st, ptr %ctx, i64 0, i32 4
+  %h4 = getelementptr inbounds i8, ptr %ctx, i64 16
   %16 = load i32, ptr %h4, align 4
   %shr69 = lshr i32 %16, 24
   %conv71 = trunc i32 %shr69 to i8

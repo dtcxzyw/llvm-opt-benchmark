@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
-%struct.ecx_key_st = type { ptr, ptr, i8, [57 x i8], ptr, i64, i32, %struct.CRYPTO_REF_COUNT }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.PROV_ECX_CTX = type { i64, ptr, ptr }
 
 @ossl_x25519_keyexch_functions = local_unnamed_addr constant [7 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @x25519_newctx }, %struct.ossl_dispatch_st { i32 2, ptr @ecx_init }, %struct.ossl_dispatch_st { i32 3, ptr @ecx_derive }, %struct.ossl_dispatch_st { i32 4, ptr @ecx_set_peer }, %struct.ossl_dispatch_st { i32 5, ptr @ecx_freectx }, %struct.ossl_dispatch_st { i32 6, ptr @ecx_dupctx }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @ossl_x448_keyexch_functions = local_unnamed_addr constant [7 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @x448_newctx }, %struct.ossl_dispatch_st { i32 2, ptr @ecx_init }, %struct.ossl_dispatch_st { i32 3, ptr @ecx_derive }, %struct.ossl_dispatch_st { i32 4, ptr @ecx_set_peer }, %struct.ossl_dispatch_st { i32 5, ptr @ecx_freectx }, %struct.ossl_dispatch_st { i32 6, ptr @ecx_dupctx }, %struct.ossl_dispatch_st zeroinitializer], align 16
@@ -50,7 +47,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then8, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %if.end
-  %keylen = getelementptr inbounds %struct.ecx_key_st, ptr %vkey, i64 0, i32 5
+  %keylen = getelementptr inbounds i8, ptr %vkey, i64 88
   %0 = load i64, ptr %keylen, align 8
   %1 = load i64, ptr %vecxctx, align 8
   %cmp4.not = icmp eq i64 %0, %1
@@ -68,7 +65,7 @@ if.then8:                                         ; preds = %lor.lhs.false5, %lo
   br label %return
 
 if.end9:                                          ; preds = %lor.lhs.false5
-  %key10 = getelementptr inbounds %struct.PROV_ECX_CTX, ptr %vecxctx, i64 0, i32 1
+  %key10 = getelementptr inbounds i8, ptr %vecxctx, i64 8
   %2 = load ptr, ptr %key10, align 8
   tail call void @ossl_ecx_key_free(ptr noundef %2) #3
   store ptr %vkey, ptr %key10, align 8
@@ -87,9 +84,9 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %peerkey = getelementptr inbounds %struct.PROV_ECX_CTX, ptr %vecxctx, i64 0, i32 2
+  %peerkey = getelementptr inbounds i8, ptr %vecxctx, i64 16
   %0 = load ptr, ptr %peerkey, align 8
-  %key = getelementptr inbounds %struct.PROV_ECX_CTX, ptr %vecxctx, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %vecxctx, i64 8
   %1 = load ptr, ptr %key, align 8
   %2 = load i64, ptr %vecxctx, align 8
   %call1 = tail call i32 @ossl_ecx_compute_key(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %secret, ptr noundef %secretlen, i64 noundef %outlen) #3
@@ -114,7 +111,7 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %if.then8, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %if.end
-  %keylen = getelementptr inbounds %struct.ecx_key_st, ptr %vkey, i64 0, i32 5
+  %keylen = getelementptr inbounds i8, ptr %vkey, i64 88
   %0 = load i64, ptr %keylen, align 8
   %1 = load i64, ptr %vecxctx, align 8
   %cmp4.not = icmp eq i64 %0, %1
@@ -132,7 +129,7 @@ if.then8:                                         ; preds = %lor.lhs.false5, %lo
   br label %return
 
 if.end9:                                          ; preds = %lor.lhs.false5
-  %peerkey = getelementptr inbounds %struct.PROV_ECX_CTX, ptr %vecxctx, i64 0, i32 2
+  %peerkey = getelementptr inbounds i8, ptr %vecxctx, i64 16
   %2 = load ptr, ptr %peerkey, align 8
   tail call void @ossl_ecx_key_free(ptr noundef %2) #3
   store ptr %vkey, ptr %peerkey, align 8
@@ -146,10 +143,10 @@ return:                                           ; preds = %entry, %if.end9, %i
 ; Function Attrs: nounwind uwtable
 define internal void @ecx_freectx(ptr noundef %vecxctx) #0 {
 entry:
-  %key = getelementptr inbounds %struct.PROV_ECX_CTX, ptr %vecxctx, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %vecxctx, i64 8
   %0 = load ptr, ptr %key, align 8
   tail call void @ossl_ecx_key_free(ptr noundef %0) #3
-  %peerkey = getelementptr inbounds %struct.PROV_ECX_CTX, ptr %vecxctx, i64 0, i32 2
+  %peerkey = getelementptr inbounds i8, ptr %vecxctx, i64 16
   %1 = load ptr, ptr %peerkey, align 8
   tail call void @ossl_ecx_key_free(ptr noundef %1) #3
   tail call void @CRYPTO_free(ptr noundef %vecxctx, ptr noundef nonnull @.str, i32 noundef 129) #3
@@ -170,7 +167,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(24) %vecxctx, i64 24, i1 false)
-  %key = getelementptr inbounds %struct.PROV_ECX_CTX, ptr %call1, i64 0, i32 1
+  %key = getelementptr inbounds i8, ptr %call1, i64 8
   %0 = load ptr, ptr %key, align 8
   %cmp4.not = icmp eq ptr %0, null
   br i1 %cmp4.not, label %if.end9, label %land.lhs.true
@@ -187,7 +184,7 @@ if.then8:                                         ; preds = %land.lhs.true
   br label %return.sink.split
 
 if.end9:                                          ; preds = %land.lhs.true, %if.end3
-  %peerkey = getelementptr inbounds %struct.PROV_ECX_CTX, ptr %call1, i64 0, i32 2
+  %peerkey = getelementptr inbounds i8, ptr %call1, i64 16
   %1 = load ptr, ptr %peerkey, align 8
   %cmp10.not = icmp eq ptr %1, null
   br i1 %cmp10.not, label %return, label %land.lhs.true11

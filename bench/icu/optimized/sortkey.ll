@@ -3,11 +3,6 @@ source_filename = "bench/icu/original/sortkey.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::CollationKey" = type { %"class.icu_75::UObject", i32, i32, %"union.icu_75::CollationKey::StackBufferOrFields" }
-%"class.icu_75::UObject" = type { ptr }
-%"union.icu_75::CollationKey::StackBufferOrFields" = type { %struct.anon, [16 x i8] }
-%struct.anon = type { ptr, i32 }
-
 $__clang_call_terminate = comdat any
 
 @_ZZN6icu_7512CollationKey16getStaticClassIDEvE7classID = internal global i8 0, align 1
@@ -38,9 +33,9 @@ entry:
 define void @_ZN6icu_7512CollationKeyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512CollationKeyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fFlagAndLength = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
+  %fFlagAndLength = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %fFlagAndLength, align 8
-  %fHashCode = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 2
+  %fHashCode = getelementptr inbounds i8, ptr %this, i64 12
   store i32 1, ptr %fHashCode, align 4
   ret void
 }
@@ -49,9 +44,9 @@ entry:
 define void @_ZN6icu_7512CollationKeyC2EPKhi(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readonly %newValues, i32 noundef %count) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512CollationKeyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fFlagAndLength = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
+  %fFlagAndLength = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %count, ptr %fFlagAndLength, align 8
-  %fHashCode = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 2
+  %fHashCode = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %fHashCode, align 4
   %cmp = icmp slt i32 %count, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -63,7 +58,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %or.cond, label %if.then, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false
-  %fCapacity.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %fCapacity.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp5 = icmp ugt i32 %count, 32
   br i1 %cmp5, label %land.lhs.true6, label %if.end
 
@@ -82,7 +77,7 @@ if.end.i:                                         ; preds = %call.i.noexc
   br i1 %cmp7.i, label %if.then8.i, label %if.end.thread
 
 if.then8.i:                                       ; preds = %if.end.i
-  %fUnion.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %fUnion.i, align 8
   invoke void @uprv_free_75(ptr noundef %0)
           to label %.noexc unwind label %lpad
@@ -93,7 +88,7 @@ if.then8.i:                                       ; preds = %if.end.i
 
 if.end.thread:                                    ; preds = %.noexc, %if.end.i
   %1 = phi i32 [ %.pre6.i, %.noexc ], [ %.pre, %if.end.i ]
-  %fUnion10.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion10.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call.i11, ptr %fUnion10.i, align 8
   store i32 %count, ptr %fCapacity.i, align 8
   %or.i = or i32 %1, -2147483648
@@ -118,7 +113,7 @@ if.end:                                           ; preds = %lor.lhs.false4
   br i1 %cmp12.not, label %if.end16, label %do.body
 
 do.body:                                          ; preds = %if.end.thread, %if.end
-  %fUnion.i14 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion.i14 = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %fUnion.i14, align 8
   %cond.i15 = select i1 %cmp5, ptr %4, ptr %fUnion.i14
   %conv = zext nneg i32 %count to i64
@@ -141,12 +136,12 @@ entry:
 
 if.end:                                           ; preds = %entry
   %cmp2 = icmp sgt i32 %length, 0
-  %fFlagAndLength.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
+  %fFlagAndLength.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fFlagAndLength.i, align 8
   br i1 %cmp2, label %do.body, label %if.end6
 
 do.body:                                          ; preds = %if.end
-  %fUnion.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fUnion.i, align 8
   %cmp1.i = icmp slt i32 %0, 0
   %cond.i = select i1 %cmp1.i, ptr %1, ptr %fUnion.i
@@ -155,12 +150,12 @@ do.body:                                          ; preds = %if.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %do.body
-  %fFlagAndLength = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
+  %fFlagAndLength = getelementptr inbounds i8, ptr %this, i64 8
   %cmp7 = icmp slt i32 %0, 0
   br i1 %cmp7, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %if.end6
-  %fUnion = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %fUnion, align 8
   tail call void @uprv_free_75(ptr noundef %2)
   %.pre6 = load i32, ptr %fFlagAndLength, align 8
@@ -168,9 +163,9 @@ if.then8:                                         ; preds = %if.end6
 
 if.end9:                                          ; preds = %if.then8, %if.end6
   %3 = phi i32 [ %.pre6, %if.then8 ], [ %0, %if.end6 ]
-  %fUnion10 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion10 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call, ptr %fUnion10, align 8
-  %fCapacity = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %fCapacity = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %newCapacity, ptr %fCapacity, align 8
   %or = or i32 %3, -2147483648
   store i32 %or, ptr %fFlagAndLength, align 8
@@ -183,11 +178,11 @@ return:                                           ; preds = %entry, %if.end9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7512CollationKey10setToBogusEv(ptr noundef nonnull returned align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %fFlagAndLength = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
+  %fFlagAndLength = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fFlagAndLength, align 8
   %and = and i32 %0, -2147483648
   store i32 %and, ptr %fFlagAndLength, align 8
-  %fHashCode = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 2
+  %fHashCode = getelementptr inbounds i8, ptr %this, i64 12
   store i32 2, ptr %fHashCode, align 4
   ret ptr %this
 }
@@ -202,13 +197,13 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZN6icu_7512CollationKeyC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512CollationKeyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fFlagAndLength = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
-  %fFlagAndLength.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %other, i64 0, i32 1
+  %fFlagAndLength = getelementptr inbounds i8, ptr %this, i64 8
+  %fFlagAndLength.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %fFlagAndLength.i, align 8
   %and.i = and i32 %0, 2147483647
   store i32 %and.i, ptr %fFlagAndLength, align 8
-  %fHashCode = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 2
-  %fHashCode2 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %other, i64 0, i32 2
+  %fHashCode = getelementptr inbounds i8, ptr %this, i64 12
+  %fHashCode2 = getelementptr inbounds i8, ptr %other, i64 12
   %1 = load i32, ptr %fHashCode2, align 4
   store i32 %1, ptr %fHashCode, align 4
   %cmp.i.not = icmp eq i32 %1, 2
@@ -226,7 +221,7 @@ lpad:                                             ; preds = %if.then8.i, %land.l
   resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %entry
-  %fCapacity.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %fCapacity.i = getelementptr inbounds i8, ptr %this, i64 24
   %cmp = icmp ugt i32 %and.i, 32
   br i1 %cmp, label %land.lhs.true, label %if.end16
 
@@ -245,7 +240,7 @@ if.end.i:                                         ; preds = %call.i.noexc
   br i1 %cmp7.i, label %if.then8.i, label %if.end16.thread
 
 if.then8.i:                                       ; preds = %if.end.i
-  %fUnion.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %fUnion.i, align 8
   invoke void @uprv_free_75(ptr noundef %4)
           to label %.noexc unwind label %lpad
@@ -256,7 +251,7 @@ if.then8.i:                                       ; preds = %if.end.i
 
 if.end16.thread:                                  ; preds = %.noexc, %if.end.i
   %5 = phi i32 [ %.pre6.i, %.noexc ], [ %3, %if.end.i ]
-  %fUnion10.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion10.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call.i17, ptr %fUnion10.i, align 8
   store i32 %and.i, ptr %fCapacity.i, align 8
   %or.i = or i32 %5, -2147483648
@@ -274,7 +269,7 @@ if.end16:                                         ; preds = %if.end
   br i1 %cmp17.not, label %if.end23, label %if.end16.do.body_crit_edge
 
 if.end16.do.body_crit_edge:                       ; preds = %if.end16
-  %fUnion.i22.phi.trans.insert = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion.i22.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load ptr, ptr %fUnion.i22.phi.trans.insert, align 8
   %.pre29 = zext nneg i32 %and.i to i64
   br label %do.body
@@ -282,10 +277,10 @@ if.end16.do.body_crit_edge:                       ; preds = %if.end16
 do.body:                                          ; preds = %if.end16.do.body_crit_edge, %if.end16.thread
   %conv.pre-phi = phi i64 [ %.pre29, %if.end16.do.body_crit_edge ], [ %conv.i13, %if.end16.thread ]
   %6 = phi ptr [ %.pre, %if.end16.do.body_crit_edge ], [ %call.i17, %if.end16.thread ]
-  %fUnion.i22 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion.i22 = getelementptr inbounds i8, ptr %this, i64 16
   %cond.i23 = select i1 %cmp, ptr %6, ptr %fUnion.i22
   %7 = load i32, ptr %fFlagAndLength.i, align 8
-  %fUnion.i25 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %other, i64 0, i32 3
+  %fUnion.i25 = getelementptr inbounds i8, ptr %other, i64 16
   %8 = load ptr, ptr %fUnion.i25, align 8
   %cmp1.i26 = icmp slt i32 %7, 0
   %cond.i27 = select i1 %cmp1.i26, ptr %8, ptr %fUnion.i25
@@ -300,13 +295,13 @@ if.end23:                                         ; preds = %do.body, %if.end16,
 define void @_ZN6icu_7512CollationKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512CollationKeyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fFlagAndLength = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
+  %fFlagAndLength = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fFlagAndLength, align 8
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %fUnion = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fUnion, align 8
   invoke void @uprv_free_75(ptr noundef %1)
           to label %if.end unwind label %terminate.lpad
@@ -353,12 +348,12 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7512CollationKey9setLengthEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %newLength) local_unnamed_addr #3 align 2 {
 entry:
-  %fFlagAndLength = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
+  %fFlagAndLength = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fFlagAndLength, align 8
   %and = and i32 %0, -2147483648
   %or = or i32 %and, %newLength
   store i32 %or, ptr %fFlagAndLength, align 8
-  %fHashCode = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 2
+  %fHashCode = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %fHashCode, align 4
   ret void
 }
@@ -366,11 +361,11 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZN6icu_7512CollationKey5resetEv(ptr noundef nonnull returned align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %fFlagAndLength = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
+  %fFlagAndLength = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fFlagAndLength, align 8
   %and = and i32 %0, -2147483648
   store i32 %and, ptr %fFlagAndLength, align 8
-  %fHashCode = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 2
+  %fHashCode = getelementptr inbounds i8, ptr %this, i64 12
   store i32 1, ptr %fHashCode, align 4
   ret ptr %this
 }
@@ -378,10 +373,10 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK6icu_7512CollationKeyeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %source) local_unnamed_addr #10 align 2 {
 entry:
-  %fFlagAndLength.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
+  %fFlagAndLength.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fFlagAndLength.i, align 8
   %and.i = and i32 %0, 2147483647
-  %fFlagAndLength.i3 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %source, i64 0, i32 1
+  %fFlagAndLength.i3 = getelementptr inbounds i8, ptr %source, i64 8
   %1 = load i32, ptr %fFlagAndLength.i3, align 8
   %and.i4 = and i32 %1, 2147483647
   %cmp = icmp eq i32 %and.i, %and.i4
@@ -392,11 +387,11 @@ land.rhs:                                         ; preds = %entry
   br i1 %cmp3, label %land.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %land.rhs
-  %fUnion.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %fUnion.i, align 8
   %cmp1.i = icmp slt i32 %0, 0
   %cond.i = select i1 %cmp1.i, ptr %2, ptr %fUnion.i
-  %fUnion.i7 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %source, i64 0, i32 3
+  %fUnion.i7 = getelementptr inbounds i8, ptr %source, i64 16
   %3 = load ptr, ptr %fUnion.i7, align 8
   %cmp1.i8 = icmp slt i32 %1, 0
   %cond.i9 = select i1 %cmp1.i8, ptr %3, ptr %fUnion.i7
@@ -420,26 +415,26 @@ entry:
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fHashCode.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %other, i64 0, i32 2
+  %fHashCode.i = getelementptr inbounds i8, ptr %other, i64 12
   %0 = load i32, ptr %fHashCode.i, align 4
   %cmp.i.not = icmp eq i32 %0, 2
   br i1 %cmp.i.not, label %if.then2, label %if.end
 
 if.then2:                                         ; preds = %if.then
-  %fFlagAndLength.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
+  %fFlagAndLength.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %fFlagAndLength.i, align 8
   %and.i = and i32 %1, -2147483648
   store i32 %and.i, ptr %fFlagAndLength.i, align 8
   br label %return.sink.split
 
 if.end:                                           ; preds = %if.then
-  %fFlagAndLength.i10 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %other, i64 0, i32 1
+  %fFlagAndLength.i10 = getelementptr inbounds i8, ptr %other, i64 8
   %2 = load i32, ptr %fFlagAndLength.i10, align 8
   %and.i11 = and i32 %2, 2147483647
-  %fFlagAndLength.i12 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
+  %fFlagAndLength.i12 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %fFlagAndLength.i12, align 8
   %cmp.i13 = icmp sgt i32 %3, -1
-  %fCapacity.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %fCapacity.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i32, ptr %fCapacity.i, align 8
   %cond.i = select i1 %cmp.i13, i32 32, i32 %4
   %cmp6 = icmp sgt i32 %and.i11, %cond.i
@@ -457,7 +452,7 @@ if.end.i:                                         ; preds = %land.lhs.true
   br i1 %cmp7.i, label %if.then8.i, label %_ZN6icu_7512CollationKey10reallocateEii.exit
 
 if.then8.i:                                       ; preds = %if.end.i
-  %fUnion.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %fUnion.i, align 8
   tail call void @uprv_free_75(ptr noundef %6)
   %.pre6.i = load i32, ptr %fFlagAndLength.i12, align 8
@@ -465,7 +460,7 @@ if.then8.i:                                       ; preds = %if.end.i
 
 _ZN6icu_7512CollationKey10reallocateEii.exit:     ; preds = %if.end.i, %if.then8.i
   %7 = phi i32 [ %.pre6.i, %if.then8.i ], [ %5, %if.end.i ]
-  %fUnion10.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion10.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call.i, ptr %fUnion10.i, align 8
   store i32 %and.i11, ptr %fCapacity.i, align 8
   %or.i = or i32 %7, -2147483648
@@ -483,12 +478,12 @@ if.end11:                                         ; preds = %_ZN6icu_7512Collati
   br i1 %cmp12.not, label %if.end16, label %do.body
 
 do.body:                                          ; preds = %if.end11
-  %fUnion.i22 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion.i22 = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %fUnion.i22, align 8
   %cmp1.i = icmp slt i32 %8, 0
   %cond.i23 = select i1 %cmp1.i, ptr %9, ptr %fUnion.i22
   %10 = load i32, ptr %fFlagAndLength.i10, align 8
-  %fUnion.i25 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %other, i64 0, i32 3
+  %fUnion.i25 = getelementptr inbounds i8, ptr %other, i64 16
   %11 = load ptr, ptr %fUnion.i25, align 8
   %cmp1.i26 = icmp slt i32 %10, 0
   %cond.i27 = select i1 %cmp1.i26, ptr %11, ptr %fUnion.i25
@@ -507,7 +502,7 @@ if.end16:                                         ; preds = %do.body, %if.end11
 
 return.sink.split:                                ; preds = %if.then2, %if.then9, %if.end16
   %.sink = phi i32 [ %13, %if.end16 ], [ 2, %if.then9 ], [ 2, %if.then2 ]
-  %fHashCode18 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 2
+  %fHashCode18 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %.sink, ptr %fHashCode18, align 4
   br label %return
 
@@ -518,15 +513,15 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7512CollationKey9compareToERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %target) local_unnamed_addr #10 align 2 {
 if.then.i:
-  %fFlagAndLength.i.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
+  %fFlagAndLength.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %fFlagAndLength.i.i, align 8
-  %fUnion.i.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fUnion.i.i, align 8
   %cmp1.i.i = icmp slt i32 %0, 0
   %cond.i.i = select i1 %cmp1.i.i, ptr %1, ptr %fUnion.i.i
-  %fFlagAndLength.i10.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %target, i64 0, i32 1
+  %fFlagAndLength.i10.i = getelementptr inbounds i8, ptr %target, i64 8
   %2 = load i32, ptr %fFlagAndLength.i10.i, align 8
-  %fUnion.i11.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %target, i64 0, i32 3
+  %fUnion.i11.i = getelementptr inbounds i8, ptr %target, i64 16
   %3 = load ptr, ptr %fUnion.i11.i, align 8
   %cmp1.i12.i = icmp slt i32 %2, 0
   %cond.i13.i = select i1 %cmp1.i12.i, ptr %3, ptr %fUnion.i11.i
@@ -570,15 +565,15 @@ entry:
   br i1 %cmp.i, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fFlagAndLength.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
+  %fFlagAndLength.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %fFlagAndLength.i, align 8
-  %fUnion.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %fUnion.i, align 8
   %cmp1.i = icmp slt i32 %1, 0
   %cond.i = select i1 %cmp1.i, ptr %2, ptr %fUnion.i
-  %fFlagAndLength.i10 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %target, i64 0, i32 1
+  %fFlagAndLength.i10 = getelementptr inbounds i8, ptr %target, i64 8
   %3 = load i32, ptr %fFlagAndLength.i10, align 8
-  %fUnion.i11 = getelementptr inbounds %"class.icu_75::CollationKey", ptr %target, i64 0, i32 3
+  %fUnion.i11 = getelementptr inbounds i8, ptr %target, i64 16
   %4 = load ptr, ptr %fUnion.i11, align 8
   %cmp1.i12 = icmp slt i32 %3, 0
   %cond.i13 = select i1 %cmp1.i12, ptr %4, ptr %fUnion.i11
@@ -617,15 +612,15 @@ return:                                           ; preds = %entry, %if.else19, 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7512CollationKey8hashCodeEv(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %fHashCode = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 2
+  %fHashCode = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %fHashCode, align 4
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %fFlagAndLength.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 1
+  %fFlagAndLength.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %fFlagAndLength.i, align 8
-  %fUnion.i = getelementptr inbounds %"class.icu_75::CollationKey", ptr %this, i64 0, i32 3
+  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %fUnion.i, align 8
   %cmp1.i = icmp slt i32 %1, 0
   %cond.i = select i1 %cmp1.i, ptr %2, ptr %fUnion.i

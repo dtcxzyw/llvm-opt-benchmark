@@ -145,6 +145,24 @@ while.cond:                                       ; preds = %while.cond.backedge
     i32 1602, label %sw.bb106
   ]
 
+while.cond.backedge:                              ; preds = %while.cond, %sw.bb106, %if.end93, %if.end60, %if.end44, %if.end29, %for.end, %sw.bb103, %sw.bb100, %if.end84, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb7, %sw.bb5
+  %text.0.be = phi i32 [ %text.0, %sw.bb106 ], [ %text.0, %sw.bb103 ], [ %text.0, %sw.bb100 ], [ %text.0, %if.end93 ], [ %text.0, %if.end84 ], [ %text.0, %if.end60 ], [ %text.0, %if.end44 ], [ %text.0, %if.end29 ], [ %text.0, %for.end ], [ %text.0, %sw.bb11 ], [ 1, %sw.bb10 ], [ %text.0, %sw.bb9 ], [ %text.0, %sw.bb7 ], [ %text.0, %sw.bb5 ], [ %text.0, %while.cond ]
+  %recursive.0.be = phi i32 [ %recursive.0, %sw.bb106 ], [ %recursive.0, %sw.bb103 ], [ %recursive.0, %sw.bb100 ], [ %recursive.0, %if.end93 ], [ %recursive.0, %if.end84 ], [ %recursive.0, %if.end60 ], [ %recursive.0, %if.end44 ], [ %recursive.0, %if.end29 ], [ %recursive.0, %for.end ], [ 1, %sw.bb11 ], [ %recursive.0, %sw.bb10 ], [ %recursive.0, %sw.bb9 ], [ %recursive.0, %sw.bb7 ], [ %recursive.0, %sw.bb5 ], [ %recursive.0, %while.cond ]
+  %outfile.0.be = phi ptr [ %outfile.0, %sw.bb106 ], [ %outfile.0, %sw.bb103 ], [ %outfile.0, %sw.bb100 ], [ %outfile.0, %if.end93 ], [ %outfile.0, %if.end84 ], [ %outfile.0, %if.end60 ], [ %outfile.0, %if.end44 ], [ %outfile.0, %if.end29 ], [ %outfile.0, %for.end ], [ %outfile.0, %sw.bb11 ], [ %outfile.0, %sw.bb10 ], [ %outfile.0, %sw.bb9 ], [ %outfile.0, %sw.bb7 ], [ %call6, %sw.bb5 ], [ %outfile.0, %while.cond ]
+  %passinarg.0.be = phi ptr [ %passinarg.0, %sw.bb106 ], [ %passinarg.0, %sw.bb103 ], [ %passinarg.0, %sw.bb100 ], [ %passinarg.0, %if.end93 ], [ %passinarg.0, %if.end84 ], [ %passinarg.0, %if.end60 ], [ %passinarg.0, %if.end44 ], [ %passinarg.0, %if.end29 ], [ %passinarg.0, %for.end ], [ %passinarg.0, %sw.bb11 ], [ %passinarg.0, %sw.bb10 ], [ %passinarg.0, %sw.bb9 ], [ %call8, %sw.bb7 ], [ %passinarg.0, %sw.bb5 ], [ %passinarg.0, %while.cond ]
+  %e.0.be = phi ptr [ %e.0, %sw.bb106 ], [ %e.0, %sw.bb103 ], [ %call102, %sw.bb100 ], [ %e.0, %if.end93 ], [ %e.0, %if.end84 ], [ %e.0, %if.end60 ], [ %e.0, %if.end44 ], [ %e.0, %if.end29 ], [ %e.0, %for.end ], [ %e.0, %sw.bb11 ], [ %e.0, %sw.bb10 ], [ %e.0, %sw.bb9 ], [ %e.0, %sw.bb7 ], [ %e.0, %sw.bb5 ], [ %e.0, %while.cond ]
+  %noout.0.be = phi i32 [ %noout.0, %sw.bb106 ], [ %noout.0, %sw.bb103 ], [ %noout.0, %sw.bb100 ], [ %noout.0, %if.end93 ], [ %noout.0, %if.end84 ], [ %noout.0, %if.end60 ], [ %noout.0, %if.end44 ], [ %noout.0, %if.end29 ], [ %noout.0, %for.end ], [ %noout.0, %sw.bb11 ], [ %noout.0, %sw.bb10 ], [ 1, %sw.bb9 ], [ %noout.0, %sw.bb7 ], [ %noout.0, %sw.bb5 ], [ %noout.0, %while.cond ]
+  %expected.0.be = phi i32 [ %expected.0, %sw.bb106 ], [ %expected.0, %sw.bb103 ], [ %expected.0, %sw.bb100 ], [ %expected.0, %if.end93 ], [ %expected.0, %if.end84 ], [ %expected.0, %if.end60 ], [ %expected.0, %if.end44 ], [ %expected.0, %if.end29 ], [ %3, %for.end ], [ %expected.0, %sw.bb11 ], [ %expected.0, %sw.bb10 ], [ %expected.0, %sw.bb9 ], [ %expected.0, %sw.bb7 ], [ %expected.0, %sw.bb5 ], [ %expected.0, %while.cond ]
+  %criterion.0.be = phi i32 [ %criterion.0, %sw.bb106 ], [ %criterion.0, %sw.bb103 ], [ %criterion.0, %sw.bb100 ], [ 4, %if.end93 ], [ 3, %if.end84 ], [ 2, %if.end60 ], [ 2, %if.end44 ], [ 1, %if.end29 ], [ %criterion.0, %for.end ], [ %criterion.0, %sw.bb11 ], [ %criterion.0, %sw.bb10 ], [ %criterion.0, %sw.bb9 ], [ %criterion.0, %sw.bb7 ], [ %criterion.0, %sw.bb5 ], [ %criterion.0, %while.cond ]
+  %subject.0.be = phi ptr [ %subject.0, %sw.bb106 ], [ %subject.0, %sw.bb103 ], [ %subject.0, %sw.bb100 ], [ %subject.0, %if.end93 ], [ %subject.0, %if.end84 ], [ %subject.0, %if.end60 ], [ %subject.0, %if.end44 ], [ %call31, %if.end29 ], [ %subject.0, %for.end ], [ %subject.0, %sw.bb11 ], [ %subject.0, %sw.bb10 ], [ %subject.0, %sw.bb9 ], [ %subject.0, %sw.bb7 ], [ %subject.0, %sw.bb5 ], [ %subject.0, %while.cond ]
+  %issuer.0.be = phi ptr [ %issuer.0, %sw.bb106 ], [ %issuer.0, %sw.bb103 ], [ %issuer.0, %sw.bb100 ], [ %issuer.0, %if.end93 ], [ %issuer.0, %if.end84 ], [ %issuer.0, %if.end60 ], [ %call46, %if.end44 ], [ %issuer.0, %if.end29 ], [ %issuer.0, %for.end ], [ %issuer.0, %sw.bb11 ], [ %issuer.0, %sw.bb10 ], [ %issuer.0, %sw.bb9 ], [ %issuer.0, %sw.bb7 ], [ %issuer.0, %sw.bb5 ], [ %issuer.0, %while.cond ]
+  %serial.0.be = phi ptr [ %serial.0, %sw.bb106 ], [ %serial.0, %sw.bb103 ], [ %serial.0, %sw.bb100 ], [ %serial.0, %if.end93 ], [ %serial.0, %if.end84 ], [ %call62, %if.end60 ], [ %serial.0, %if.end44 ], [ %serial.0, %if.end29 ], [ %serial.0, %for.end ], [ %serial.0, %sw.bb11 ], [ %serial.0, %sw.bb10 ], [ %serial.0, %sw.bb9 ], [ %serial.0, %sw.bb7 ], [ %serial.0, %sw.bb5 ], [ %serial.0, %while.cond ]
+  %fingerprint.0.be = phi ptr [ %fingerprint.0, %sw.bb106 ], [ %fingerprint.0, %sw.bb103 ], [ %fingerprint.0, %sw.bb100 ], [ %fingerprint.0, %if.end93 ], [ %call80, %if.end84 ], [ %fingerprint.0, %if.end60 ], [ %fingerprint.0, %if.end44 ], [ %fingerprint.0, %if.end29 ], [ %fingerprint.0, %for.end ], [ %fingerprint.0, %sw.bb11 ], [ %fingerprint.0, %sw.bb10 ], [ %fingerprint.0, %sw.bb9 ], [ %fingerprint.0, %sw.bb7 ], [ %fingerprint.0, %sw.bb5 ], [ %fingerprint.0, %while.cond ]
+  %fingerprintlen.0.be = phi i64 [ %fingerprintlen.0, %sw.bb106 ], [ %fingerprintlen.0, %sw.bb103 ], [ %fingerprintlen.0, %sw.bb100 ], [ %fingerprintlen.0, %if.end93 ], [ %16, %if.end84 ], [ %fingerprintlen.0, %if.end60 ], [ %fingerprintlen.0, %if.end44 ], [ %fingerprintlen.0, %if.end29 ], [ %fingerprintlen.0, %for.end ], [ %fingerprintlen.0, %sw.bb11 ], [ %fingerprintlen.0, %sw.bb10 ], [ %fingerprintlen.0, %sw.bb9 ], [ %fingerprintlen.0, %sw.bb7 ], [ %fingerprintlen.0, %sw.bb5 ], [ %fingerprintlen.0, %while.cond ]
+  %alias.0.be = phi ptr [ %alias.0, %sw.bb106 ], [ %alias.0, %sw.bb103 ], [ %alias.0, %sw.bb100 ], [ %call95, %if.end93 ], [ %alias.0, %if.end84 ], [ %alias.0, %if.end60 ], [ %alias.0, %if.end44 ], [ %alias.0, %if.end29 ], [ %alias.0, %for.end ], [ %alias.0, %sw.bb11 ], [ %alias.0, %sw.bb10 ], [ %alias.0, %sw.bb9 ], [ %alias.0, %sw.bb7 ], [ %alias.0, %sw.bb5 ], [ %alias.0, %while.cond ]
+  %digestname.0.be = phi ptr [ %digestname.0, %sw.bb106 ], [ %call104, %sw.bb103 ], [ %digestname.0, %sw.bb100 ], [ %digestname.0, %if.end93 ], [ %digestname.0, %if.end84 ], [ %digestname.0, %if.end60 ], [ %digestname.0, %if.end44 ], [ %digestname.0, %if.end29 ], [ %digestname.0, %for.end ], [ %digestname.0, %sw.bb11 ], [ %digestname.0, %sw.bb10 ], [ %digestname.0, %sw.bb9 ], [ %digestname.0, %sw.bb7 ], [ %digestname.0, %sw.bb5 ], [ %digestname.0, %while.cond ]
+  br label %while.cond, !llvm.loop !5
+
 opthelp:                                          ; preds = %while.cond, %if.end113, %while.end
   %0 = load ptr, ptr @bio_err, align 8
   %call3 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.48, ptr noundef %call1) #4
@@ -181,41 +199,24 @@ if.then:                                          ; preds = %sw.bb12
   br label %end
 
 for.body:                                         ; preds = %sw.bb12, %for.inc
-  %i.0337 = phi i64 [ %inc, %for.inc ], [ 0, %sw.bb12 ]
-  %arrayidx = getelementptr inbounds [3 x %struct.anon], ptr @storeutl_main.map, i64 0, i64 %i.0337
+  %i.0352 = phi i64 [ %inc, %for.inc ], [ 0, %sw.bb12 ]
+  %arrayidx = getelementptr inbounds [3 x %struct.anon], ptr @storeutl_main.map, i64 0, i64 %i.0352
   %2 = load i32, ptr %arrayidx, align 8
   %cmp16 = icmp eq i32 %call2, %2
   br i1 %cmp16, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw nsw i64 %i.0337, 1
+  %inc = add nuw nsw i64 %i.0352, 1
   %exitcond.not = icmp eq i64 %inc, 3
-  br i1 %exitcond.not, label %cond.false, label %for.body, !llvm.loop !5
+  br i1 %exitcond.not, label %cond.false, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body
-  %type = getelementptr inbounds [3 x %struct.anon], ptr @storeutl_main.map, i64 0, i64 %i.0337, i32 1
-  %3 = load i32, ptr %type, align 4
-  br label %while.cond.backedge
+  %gep = getelementptr inbounds [3 x %struct.anon], ptr getelementptr inbounds ([3 x %struct.anon], ptr @storeutl_main.map, i64 0, i64 0, i32 1), i64 0, i64 %i.0352
+  %3 = load i32, ptr %gep, align 4
+  %cmp20.not = icmp eq i32 %3, 0
+  br i1 %cmp20.not, label %cond.false, label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %for.end, %while.cond, %sw.bb106, %if.end93, %if.end60, %if.end44, %if.end29, %sw.bb103, %sw.bb100, %if.end84, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb7, %sw.bb5
-  %text.0.be = phi i32 [ %text.0, %sw.bb106 ], [ %text.0, %sw.bb103 ], [ %text.0, %sw.bb100 ], [ %text.0, %if.end93 ], [ %text.0, %if.end84 ], [ %text.0, %if.end60 ], [ %text.0, %if.end44 ], [ %text.0, %if.end29 ], [ %text.0, %for.end ], [ %text.0, %sw.bb11 ], [ 1, %sw.bb10 ], [ %text.0, %sw.bb9 ], [ %text.0, %sw.bb7 ], [ %text.0, %sw.bb5 ], [ %text.0, %while.cond ]
-  %recursive.0.be = phi i32 [ %recursive.0, %sw.bb106 ], [ %recursive.0, %sw.bb103 ], [ %recursive.0, %sw.bb100 ], [ %recursive.0, %if.end93 ], [ %recursive.0, %if.end84 ], [ %recursive.0, %if.end60 ], [ %recursive.0, %if.end44 ], [ %recursive.0, %if.end29 ], [ %recursive.0, %for.end ], [ 1, %sw.bb11 ], [ %recursive.0, %sw.bb10 ], [ %recursive.0, %sw.bb9 ], [ %recursive.0, %sw.bb7 ], [ %recursive.0, %sw.bb5 ], [ %recursive.0, %while.cond ]
-  %outfile.0.be = phi ptr [ %outfile.0, %sw.bb106 ], [ %outfile.0, %sw.bb103 ], [ %outfile.0, %sw.bb100 ], [ %outfile.0, %if.end93 ], [ %outfile.0, %if.end84 ], [ %outfile.0, %if.end60 ], [ %outfile.0, %if.end44 ], [ %outfile.0, %if.end29 ], [ %outfile.0, %for.end ], [ %outfile.0, %sw.bb11 ], [ %outfile.0, %sw.bb10 ], [ %outfile.0, %sw.bb9 ], [ %outfile.0, %sw.bb7 ], [ %call6, %sw.bb5 ], [ %outfile.0, %while.cond ]
-  %passinarg.0.be = phi ptr [ %passinarg.0, %sw.bb106 ], [ %passinarg.0, %sw.bb103 ], [ %passinarg.0, %sw.bb100 ], [ %passinarg.0, %if.end93 ], [ %passinarg.0, %if.end84 ], [ %passinarg.0, %if.end60 ], [ %passinarg.0, %if.end44 ], [ %passinarg.0, %if.end29 ], [ %passinarg.0, %for.end ], [ %passinarg.0, %sw.bb11 ], [ %passinarg.0, %sw.bb10 ], [ %passinarg.0, %sw.bb9 ], [ %call8, %sw.bb7 ], [ %passinarg.0, %sw.bb5 ], [ %passinarg.0, %while.cond ]
-  %e.0.be = phi ptr [ %e.0, %sw.bb106 ], [ %e.0, %sw.bb103 ], [ %call102, %sw.bb100 ], [ %e.0, %if.end93 ], [ %e.0, %if.end84 ], [ %e.0, %if.end60 ], [ %e.0, %if.end44 ], [ %e.0, %if.end29 ], [ %e.0, %for.end ], [ %e.0, %sw.bb11 ], [ %e.0, %sw.bb10 ], [ %e.0, %sw.bb9 ], [ %e.0, %sw.bb7 ], [ %e.0, %sw.bb5 ], [ %e.0, %while.cond ]
-  %noout.0.be = phi i32 [ %noout.0, %sw.bb106 ], [ %noout.0, %sw.bb103 ], [ %noout.0, %sw.bb100 ], [ %noout.0, %if.end93 ], [ %noout.0, %if.end84 ], [ %noout.0, %if.end60 ], [ %noout.0, %if.end44 ], [ %noout.0, %if.end29 ], [ %noout.0, %for.end ], [ %noout.0, %sw.bb11 ], [ %noout.0, %sw.bb10 ], [ 1, %sw.bb9 ], [ %noout.0, %sw.bb7 ], [ %noout.0, %sw.bb5 ], [ %noout.0, %while.cond ]
-  %expected.0.be = phi i32 [ %expected.0, %sw.bb106 ], [ %expected.0, %sw.bb103 ], [ %expected.0, %sw.bb100 ], [ %expected.0, %if.end93 ], [ %expected.0, %if.end84 ], [ %expected.0, %if.end60 ], [ %expected.0, %if.end44 ], [ %expected.0, %if.end29 ], [ %3, %for.end ], [ %expected.0, %sw.bb11 ], [ %expected.0, %sw.bb10 ], [ %expected.0, %sw.bb9 ], [ %expected.0, %sw.bb7 ], [ %expected.0, %sw.bb5 ], [ %expected.0, %while.cond ]
-  %criterion.0.be = phi i32 [ %criterion.0, %sw.bb106 ], [ %criterion.0, %sw.bb103 ], [ %criterion.0, %sw.bb100 ], [ 4, %if.end93 ], [ 3, %if.end84 ], [ 2, %if.end60 ], [ 2, %if.end44 ], [ 1, %if.end29 ], [ %criterion.0, %for.end ], [ %criterion.0, %sw.bb11 ], [ %criterion.0, %sw.bb10 ], [ %criterion.0, %sw.bb9 ], [ %criterion.0, %sw.bb7 ], [ %criterion.0, %sw.bb5 ], [ %criterion.0, %while.cond ]
-  %subject.0.be = phi ptr [ %subject.0, %sw.bb106 ], [ %subject.0, %sw.bb103 ], [ %subject.0, %sw.bb100 ], [ %subject.0, %if.end93 ], [ %subject.0, %if.end84 ], [ %subject.0, %if.end60 ], [ %subject.0, %if.end44 ], [ %call31, %if.end29 ], [ %subject.0, %for.end ], [ %subject.0, %sw.bb11 ], [ %subject.0, %sw.bb10 ], [ %subject.0, %sw.bb9 ], [ %subject.0, %sw.bb7 ], [ %subject.0, %sw.bb5 ], [ %subject.0, %while.cond ]
-  %issuer.0.be = phi ptr [ %issuer.0, %sw.bb106 ], [ %issuer.0, %sw.bb103 ], [ %issuer.0, %sw.bb100 ], [ %issuer.0, %if.end93 ], [ %issuer.0, %if.end84 ], [ %issuer.0, %if.end60 ], [ %call46, %if.end44 ], [ %issuer.0, %if.end29 ], [ %issuer.0, %for.end ], [ %issuer.0, %sw.bb11 ], [ %issuer.0, %sw.bb10 ], [ %issuer.0, %sw.bb9 ], [ %issuer.0, %sw.bb7 ], [ %issuer.0, %sw.bb5 ], [ %issuer.0, %while.cond ]
-  %serial.0.be = phi ptr [ %serial.0, %sw.bb106 ], [ %serial.0, %sw.bb103 ], [ %serial.0, %sw.bb100 ], [ %serial.0, %if.end93 ], [ %serial.0, %if.end84 ], [ %call62, %if.end60 ], [ %serial.0, %if.end44 ], [ %serial.0, %if.end29 ], [ %serial.0, %for.end ], [ %serial.0, %sw.bb11 ], [ %serial.0, %sw.bb10 ], [ %serial.0, %sw.bb9 ], [ %serial.0, %sw.bb7 ], [ %serial.0, %sw.bb5 ], [ %serial.0, %while.cond ]
-  %fingerprint.0.be = phi ptr [ %fingerprint.0, %sw.bb106 ], [ %fingerprint.0, %sw.bb103 ], [ %fingerprint.0, %sw.bb100 ], [ %fingerprint.0, %if.end93 ], [ %call80, %if.end84 ], [ %fingerprint.0, %if.end60 ], [ %fingerprint.0, %if.end44 ], [ %fingerprint.0, %if.end29 ], [ %fingerprint.0, %for.end ], [ %fingerprint.0, %sw.bb11 ], [ %fingerprint.0, %sw.bb10 ], [ %fingerprint.0, %sw.bb9 ], [ %fingerprint.0, %sw.bb7 ], [ %fingerprint.0, %sw.bb5 ], [ %fingerprint.0, %while.cond ]
-  %fingerprintlen.0.be = phi i64 [ %fingerprintlen.0, %sw.bb106 ], [ %fingerprintlen.0, %sw.bb103 ], [ %fingerprintlen.0, %sw.bb100 ], [ %fingerprintlen.0, %if.end93 ], [ %16, %if.end84 ], [ %fingerprintlen.0, %if.end60 ], [ %fingerprintlen.0, %if.end44 ], [ %fingerprintlen.0, %if.end29 ], [ %fingerprintlen.0, %for.end ], [ %fingerprintlen.0, %sw.bb11 ], [ %fingerprintlen.0, %sw.bb10 ], [ %fingerprintlen.0, %sw.bb9 ], [ %fingerprintlen.0, %sw.bb7 ], [ %fingerprintlen.0, %sw.bb5 ], [ %fingerprintlen.0, %while.cond ]
-  %alias.0.be = phi ptr [ %alias.0, %sw.bb106 ], [ %alias.0, %sw.bb103 ], [ %alias.0, %sw.bb100 ], [ %call95, %if.end93 ], [ %alias.0, %if.end84 ], [ %alias.0, %if.end60 ], [ %alias.0, %if.end44 ], [ %alias.0, %if.end29 ], [ %alias.0, %for.end ], [ %alias.0, %sw.bb11 ], [ %alias.0, %sw.bb10 ], [ %alias.0, %sw.bb9 ], [ %alias.0, %sw.bb7 ], [ %alias.0, %sw.bb5 ], [ %alias.0, %while.cond ]
-  %digestname.0.be = phi ptr [ %digestname.0, %sw.bb106 ], [ %call104, %sw.bb103 ], [ %digestname.0, %sw.bb100 ], [ %digestname.0, %if.end93 ], [ %digestname.0, %if.end84 ], [ %digestname.0, %if.end60 ], [ %digestname.0, %if.end44 ], [ %digestname.0, %if.end29 ], [ %digestname.0, %for.end ], [ %digestname.0, %sw.bb11 ], [ %digestname.0, %sw.bb10 ], [ %digestname.0, %sw.bb9 ], [ %digestname.0, %sw.bb7 ], [ %digestname.0, %sw.bb5 ], [ %digestname.0, %while.cond ]
-  br label %while.cond, !llvm.loop !7
-
-cond.false:                                       ; preds = %for.inc
+cond.false:                                       ; preds = %for.end, %for.inc
   call void @OPENSSL_die(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, i32 noundef 147) #5
   unreachable
 
@@ -461,7 +462,7 @@ if.end153:                                        ; preds = %if.end148
   %27 = load ptr, ptr %passin, align 8
   store ptr %27, ptr %pw_cb_data, align 8
   %28 = load ptr, ptr %call114, align 8
-  %prompt_info = getelementptr inbounds %struct.pw_cb_data, ptr %pw_cb_data, i64 0, i32 1
+  %prompt_info = getelementptr inbounds i8, ptr %pw_cb_data, i64 8
   store ptr %28, ptr %prompt_info, align 8
   %call155 = call ptr @bio_open_default(ptr noundef %outfile.0, i8 noundef signext 119, i32 noundef 32769) #4
   %cmp156 = icmp eq ptr %call155, null

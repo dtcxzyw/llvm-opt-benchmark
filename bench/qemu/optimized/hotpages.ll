@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %union._GMutex = type { ptr }
-%struct._GList = type { ptr, ptr, ptr }
-%struct.PageCounters = type { i64, i32, i32, i64, i64 }
 
 @qemu_plugin_version = local_unnamed_addr global i32 1, align 4
 @.str = private unnamed_addr constant [2 x i8] c"=\00", align 1
@@ -51,7 +49,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp3, label %if.then, label %if.else22
 
 if.then:                                          ; preds = %for.body
-  %arrayidx4 = getelementptr inbounds ptr, ptr %call, i64 1
+  %arrayidx4 = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %arrayidx4, align 8
   %call5 = tail call i32 @g_strcmp0(ptr noundef %2, ptr noundef nonnull @.str.2) #6
   %cmp6 = icmp eq i32 %call5, 0
@@ -95,7 +93,7 @@ if.else22:                                        ; preds = %for.body
   br i1 %cmp25, label %if.then26, label %if.else33
 
 if.then26:                                        ; preds = %if.else22
-  %arrayidx28 = getelementptr inbounds ptr, ptr %call, i64 1
+  %arrayidx28 = getelementptr inbounds i8, ptr %call, i64 8
   %9 = load ptr, ptr %arrayidx28, align 8
   %call29 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %8, ptr noundef %9, ptr noundef nonnull @track_io) #6
   br i1 %call29, label %for.inc, label %if.then30
@@ -111,7 +109,7 @@ if.else33:                                        ; preds = %if.else22
   br i1 %cmp36, label %if.then37, label %if.else40
 
 if.then37:                                        ; preds = %if.else33
-  %arrayidx38 = getelementptr inbounds ptr, ptr %call, i64 1
+  %arrayidx38 = getelementptr inbounds i8, ptr %call, i64 8
   %11 = load ptr, ptr %arrayidx38, align 8
   %call39 = tail call i64 @g_ascii_strtoull(ptr noundef %11, ptr noundef null, i32 noundef 10) #6
   store i64 %call39, ptr @page_size, align 8
@@ -191,7 +189,7 @@ entry:
   br i1 %tobool.not, label %glib_autoptr_cleanup_GString.exit, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %next = getelementptr inbounds %struct._GList, ptr %call1, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call1, i64 8
   %1 = load ptr, ptr %next, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %glib_autoptr_cleanup_GString.exit, label %if.then
@@ -203,7 +201,7 @@ if.then:                                          ; preds = %cond.true
 land.rhs:                                         ; preds = %if.then, %for.body
   %i.014 = phi i32 [ 0, %if.then ], [ %inc, %for.body ]
   %it.013 = phi ptr [ %call4, %if.then ], [ %9, %for.body ]
-  %next5 = getelementptr inbounds %struct._GList, ptr %it.013, i64 0, i32 1
+  %next5 = getelementptr inbounds i8, ptr %it.013, i64 8
   %2 = load ptr, ptr %next5, align 8
   %tobool6.not = icmp eq ptr %2, null
   br i1 %tobool6.not, label %for.end, label %for.body
@@ -211,13 +209,13 @@ land.rhs:                                         ; preds = %if.then, %for.body
 for.body:                                         ; preds = %land.rhs
   %3 = load ptr, ptr %it.013, align 8
   %4 = load i64, ptr %3, align 8
-  %cpu_read = getelementptr inbounds %struct.PageCounters, ptr %3, i64 0, i32 1
+  %cpu_read = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %cpu_read, align 8
-  %reads = getelementptr inbounds %struct.PageCounters, ptr %3, i64 0, i32 3
+  %reads = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load i64, ptr %reads, align 8
-  %cpu_write = getelementptr inbounds %struct.PageCounters, ptr %3, i64 0, i32 2
+  %cpu_write = getelementptr inbounds i8, ptr %3, i64 12
   %7 = load i32, ptr %cpu_write, align 4
-  %writes = getelementptr inbounds %struct.PageCounters, ptr %3, i64 0, i32 4
+  %writes = getelementptr inbounds i8, ptr %3, i64 24
   %8 = load i64, ptr %writes, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %call, ptr noundef nonnull @.str.11, i64 noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, i64 noundef %8) #6
   %inc = add nuw nsw i32 %i.014, 1
@@ -304,22 +302,22 @@ if.end18:                                         ; preds = %if.then15, %if.end1
   br i1 %call19, label %if.then20, label %if.else21
 
 if.then20:                                        ; preds = %if.end18
-  %writes = getelementptr inbounds %struct.PageCounters, ptr %count.0, i64 0, i32 4
+  %writes = getelementptr inbounds i8, ptr %count.0, i64 24
   %6 = load i64, ptr %writes, align 8
   %inc = add i64 %6, 1
   store i64 %inc, ptr %writes, align 8
-  %cpu_write = getelementptr inbounds %struct.PageCounters, ptr %count.0, i64 0, i32 2
+  %cpu_write = getelementptr inbounds i8, ptr %count.0, i64 12
   %7 = load i32, ptr %cpu_write, align 4
   %or = or i32 %7, %shl
   store i32 %or, ptr %cpu_write, align 4
   br label %if.end25
 
 if.else21:                                        ; preds = %if.end18
-  %reads = getelementptr inbounds %struct.PageCounters, ptr %count.0, i64 0, i32 3
+  %reads = getelementptr inbounds i8, ptr %count.0, i64 16
   %8 = load i64, ptr %reads, align 8
   %inc22 = add i64 %8, 1
   store i64 %inc22, ptr %reads, align 8
-  %cpu_read = getelementptr inbounds %struct.PageCounters, ptr %count.0, i64 0, i32 1
+  %cpu_read = getelementptr inbounds i8, ptr %count.0, i64 8
   %9 = load i32, ptr %cpu_read, align 8
   %or24 = or i32 %9, %shl
   store i32 %or24, ptr %cpu_read, align 8
@@ -370,31 +368,31 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %reads = getelementptr inbounds %struct.PageCounters, ptr %a, i64 0, i32 3
+  %reads = getelementptr inbounds i8, ptr %a, i64 16
   %1 = load i64, ptr %reads, align 8
-  %writes = getelementptr inbounds %struct.PageCounters, ptr %a, i64 0, i32 4
+  %writes = getelementptr inbounds i8, ptr %a, i64 24
   %2 = load i64, ptr %writes, align 8
   %add = add i64 %2, %1
-  %reads1 = getelementptr inbounds %struct.PageCounters, ptr %b, i64 0, i32 3
+  %reads1 = getelementptr inbounds i8, ptr %b, i64 16
   %3 = load i64, ptr %reads1, align 8
-  %writes2 = getelementptr inbounds %struct.PageCounters, ptr %b, i64 0, i32 4
+  %writes2 = getelementptr inbounds i8, ptr %b, i64 24
   %4 = load i64, ptr %writes2, align 8
   %add3 = add i64 %4, %3
   %cmp = icmp ugt i64 %add, %add3
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
-  %reads5 = getelementptr inbounds %struct.PageCounters, ptr %a, i64 0, i32 3
+  %reads5 = getelementptr inbounds i8, ptr %a, i64 16
   %5 = load i64, ptr %reads5, align 8
-  %reads6 = getelementptr inbounds %struct.PageCounters, ptr %b, i64 0, i32 3
+  %reads6 = getelementptr inbounds i8, ptr %b, i64 16
   %6 = load i64, ptr %reads6, align 8
   %cmp7 = icmp ugt i64 %5, %6
   br label %sw.epilog
 
 sw.bb9:                                           ; preds = %entry
-  %writes10 = getelementptr inbounds %struct.PageCounters, ptr %a, i64 0, i32 4
+  %writes10 = getelementptr inbounds i8, ptr %a, i64 24
   %7 = load i64, ptr %writes10, align 8
-  %writes11 = getelementptr inbounds %struct.PageCounters, ptr %b, i64 0, i32 4
+  %writes11 = getelementptr inbounds i8, ptr %b, i64 24
   %8 = load i64, ptr %writes11, align 8
   %cmp12 = icmp ugt i64 %7, %8
   br label %sw.epilog

@@ -7,9 +7,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"union.half::uif" = type { i32 }
 %"class.OpenImageIO_v2_6_0::simd::vint4" = type { %union.anon.1 }
 %union.anon.1 = type { <2 x i64> }
-%class.half = type { i16 }
 %"class.OpenImageIO_v2_6_0::simd::vfloat4" = type { %union.anon.0 }
 %union.anon.0 = type { <4 x float> }
+%class.half = type { i16 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -73,8 +73,8 @@ _ZN18OpenImageIO_v2_6_04simd7vfloat4C2EPK4half.exit: ; preds = %for.body.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %h.i.i)
   store <4 x i32> %or.i.i, ptr %dst.addr.09, align 1
   %sub = add i64 %n.addr.08, -4
-  %add.ptr = getelementptr inbounds %class.half, ptr %src.addr.010, i64 4
-  %add.ptr2 = getelementptr inbounds float, ptr %dst.addr.09, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %src.addr.010, i64 8
+  %add.ptr2 = getelementptr inbounds i8, ptr %dst.addr.09, i64 16
   %cmp = icmp ugt i64 %sub, 3
   br i1 %cmp, label %for.body, label %while.cond.preheader, !llvm.loop !6
 
@@ -83,12 +83,12 @@ while.body:                                       ; preds = %while.cond.preheade
   %dst.addr.115 = phi ptr [ %incdec.ptr3, %while.body ], [ %dst.addr.0.lcssa, %while.cond.preheader ]
   %n.addr.114 = phi i64 [ %dec, %while.body ], [ %n.addr.0.lcssa, %while.cond.preheader ]
   %dec = add i64 %n.addr.114, -1
-  %incdec.ptr = getelementptr inbounds %class.half, ptr %src.addr.116, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.116, i64 2
   %10 = load i16, ptr %src.addr.116, align 2
   %idxprom.i = zext i16 %10 to i64
   %arrayidx.i = getelementptr inbounds [65536 x %"union.half::uif"], ptr @_ZN4half8_toFloatE, i64 0, i64 %idxprom.i
   %11 = load float, ptr %arrayidx.i, align 4
-  %incdec.ptr3 = getelementptr inbounds float, ptr %dst.addr.115, i64 1
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %dst.addr.115, i64 4
   store float %11, ptr %dst.addr.115, align 4
   %tobool.not = icmp eq i64 %dec, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
@@ -165,8 +165,8 @@ _ZN4halfaSEf.exit:                                ; preds = %if.then.i.i, %if.th
 
 for.inc:                                          ; preds = %_ZN4halfaSEf.exit
   %sub = add i64 %n.addr.036, -4
-  %add.ptr = getelementptr inbounds float, ptr %src.addr.034, i64 4
-  %add.ptr3 = getelementptr inbounds %class.half, ptr %dst.addr.035, i64 4
+  %add.ptr = getelementptr inbounds i8, ptr %src.addr.034, i64 16
+  %add.ptr3 = getelementptr inbounds i8, ptr %dst.addr.035, i64 8
   %cmp = icmp ugt i64 %sub, 3
   br i1 %cmp, label %for.body, label %while.cond.preheader, !llvm.loop !9
 
@@ -175,9 +175,9 @@ while.body:                                       ; preds = %while.cond.preheade
   %dst.addr.141 = phi ptr [ %incdec.ptr4, %_ZN4halfaSEf.exit31 ], [ %dst.addr.0.lcssa, %while.cond.preheader ]
   %src.addr.140 = phi ptr [ %incdec.ptr, %_ZN4halfaSEf.exit31 ], [ %src.addr.0.lcssa, %while.cond.preheader ]
   %dec = add i64 %n.addr.142, -1
-  %incdec.ptr = getelementptr inbounds float, ptr %src.addr.140, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.140, i64 4
   %5 = load float, ptr %src.addr.140, align 4
-  %incdec.ptr4 = getelementptr inbounds %class.half, ptr %dst.addr.141, i64 1
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %dst.addr.141, i64 2
   %6 = bitcast float %5 to i32
   %cmp.i.i11 = fcmp oeq float %5, 0.000000e+00
   br i1 %cmp.i.i11, label %if.then.i.i28, label %if.else.i.i12

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.UOption = type { ptr, ptr, ptr, ptr, i8, i8, i8 }
-%"class.icu_75::Package" = type <{ [64 x i8], [64 x i8], ptr, [1024 x i8], i32, i32, i8, i8, i8, i8, i32, i32, [4 x i8], ptr, i32, i32, [100000 x i8], [100000 x i8], i32, [4 x i8], ptr, ptr, i32, i32, i32, i8, [3 x i8] }>
 
 @_CRT_glob = dso_local local_unnamed_addr global i32 0, align 4
 @_ZL7options = internal global [18 x %struct.UOption] [%struct.UOption { ptr @.str.10, ptr null, ptr null, ptr null, i8 104, i8 0, i8 0 }, %struct.UOption { ptr @.str.10, ptr null, ptr null, ptr null, i8 63, i8 0, i8 0 }, %struct.UOption { ptr @.str.11, ptr null, ptr null, ptr null, i8 116, i8 1, i8 0 }, %struct.UOption { ptr @.str.12, ptr null, ptr null, ptr null, i8 99, i8 0, i8 0 }, %struct.UOption { ptr @.str.13, ptr null, ptr null, ptr null, i8 67, i8 1, i8 0 }, %struct.UOption { ptr @.str.14, ptr null, ptr null, ptr null, i8 115, i8 1, i8 0 }, %struct.UOption { ptr @.str.15, ptr null, ptr null, ptr null, i8 100, i8 1, i8 0 }, %struct.UOption { ptr @.str.16, ptr null, ptr null, ptr null, i8 119, i8 0, i8 0 }, %struct.UOption { ptr @.str.17, ptr null, ptr null, ptr null, i8 109, i8 1, i8 0 }, %struct.UOption { ptr @.str.18, ptr null, ptr null, ptr null, i8 1, i8 0, i8 0 }, %struct.UOption { ptr @.str.19, ptr null, ptr null, ptr null, i8 97, i8 1, i8 0 }, %struct.UOption { ptr @.str.20, ptr null, ptr null, ptr null, i8 114, i8 1, i8 0 }, %struct.UOption { ptr @.str.21, ptr null, ptr null, ptr null, i8 120, i8 1, i8 0 }, %struct.UOption { ptr @.str.22, ptr null, ptr null, ptr null, i8 108, i8 0, i8 0 }, %struct.UOption { ptr @.str.23, ptr null, ptr null, ptr null, i8 111, i8 1, i8 0 }, %struct.UOption { ptr @.str.24, ptr null, ptr null, ptr null, i8 1, i8 0, i8 0 }, %struct.UOption { ptr @.str.25, ptr null, ptr null, ptr null, i8 1, i8 0, i8 0 }, %struct.UOption { ptr @.str.26, ptr null, ptr null, ptr null, i8 1, i8 1, i8 0 }], align 16
@@ -91,7 +90,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %doAutoPrefix.i = getelementptr inbounds %"class.icu_75::Package", ptr %call4, i64 0, i32 8
+  %doAutoPrefix.i = getelementptr inbounds i8, ptr %call4, i64 1170
   store i8 1, ptr %doAutoPrefix.i, align 2
   br label %if.end10
 
@@ -114,9 +113,9 @@ if.then14:                                        ; preds = %if.then12
   br label %return
 
 if.end16:                                         ; preds = %if.then12
-  %doAutoPrefix.i99 = getelementptr inbounds %"class.icu_75::Package", ptr %call4, i64 0, i32 8
+  %doAutoPrefix.i99 = getelementptr inbounds i8, ptr %call4, i64 1170
   store i8 1, ptr %doAutoPrefix.i99, align 2
-  %prefixEndsWithType.i = getelementptr inbounds %"class.icu_75::Package", ptr %call4, i64 0, i32 9
+  %prefixEndsWithType.i = getelementptr inbounds i8, ptr %call4, i64 1171
   store i8 1, ptr %prefixEndsWithType.i, align 1
   %inc17 = add nuw nsw i32 %autoPrefix.0, 1
   br label %if.end18
@@ -143,7 +142,7 @@ if.end24:                                         ; preds = %if.end18
   %tobool28.not = icmp eq i8 %15, 0
   %16 = load ptr, ptr getelementptr inbounds ([18 x %struct.UOption], ptr @_ZL7options, i64 0, i64 6, i32 1), align 8
   %destPath.0 = select i1 %tobool28.not, ptr null, ptr %16
-  %arrayidx32 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx32 = getelementptr inbounds i8, ptr %argv, i64 8
   %17 = load ptr, ptr %arrayidx32, align 8
   %call33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(4) @.str.2) #15
   %cmp34 = icmp eq i32 %call33, 0
@@ -191,7 +190,7 @@ if.end47.thread:                                  ; preds = %_ZL13isPackageNameP
 if.end64:                                         ; preds = %if.end47, %if.end47.thread
   %tobool58.not120 = phi i1 [ true, %if.end47.thread ], [ false, %if.end47 ]
   %inFilename.0117 = phi ptr [ %17, %if.end47.thread ], [ %inFilename.0, %if.end47 ]
-  %arrayidx50 = getelementptr inbounds ptr, ptr %argv, i64 2
+  %arrayidx50 = getelementptr inbounds i8, ptr %argv, i64 16
   %21 = load ptr, ptr %arrayidx50, align 8
   %22 = load ptr, ptr %arrayidx32, align 8
   %call53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %21) #15

@@ -52,8 +52,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<facebook::velox::exec::TypeSignature>::_Storage", i8, [7 x i8] }>
 %class.anon.268 = type { i8, ptr, %class.anon.264 }
 %class.anon.264 = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %class.anon.267 = type { i8, ptr, %class.anon.264 }
@@ -91,16 +89,18 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.anon.255 = type { i8, ptr, %class.anon.252 }
 %class.anon.253 = type { i8, ptr, %class.anon.251 }
 %class.anon.251 = type { ptr, ptr, ptr, ptr, ptr }
-%"struct.std::_Vector_base<std::shared_ptr<facebook::velox::BaseVector>, std::allocator<std::shared_ptr<facebook::velox::BaseVector>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.72" = type { %"class.std::__shared_ptr.73" }
-%"class.std::__shared_ptr.73" = type { ptr, %"class.std::__shared_count" }
-%"class.facebook::velox::BaseVector" = type <{ ptr, %"class.std::shared_ptr.61", i8, [3 x i8], i32, %"class.boost::intrusive_ptr", ptr, ptr, i32, %"class.std::optional.64", %"class.std::optional.64", %"class.std::optional.64", %"class.std::optional.64", i32, i8, i8, i8, [5 x i8] }>
-%"class.boost::intrusive_ptr" = type { ptr }
-%"class.std::optional.64" = type { %"struct.std::_Optional_base.65" }
-%"struct.std::_Optional_base.65" = type { %"struct.std::_Optional_payload.67" }
-%"struct.std::_Optional_payload.67" = type { %"struct.std::_Optional_payload_base.base.69", [3 x i8] }
-%"struct.std::_Optional_payload_base.base.69" = type <{ %"union.std::_Optional_payload_base<int>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<int>::_Storage" = type { i32 }
+%"struct.facebook::velox::StringView" = type { i32, [4 x i8], %union.anon.117 }
+%union.anon.117 = type { ptr }
+%"class.std::vector.44" = type { %"struct.std::_Vector_base.45" }
+%"struct.std::_Vector_base.45" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
+%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::optional.46" = type { %"struct.std::_Optional_base.47" }
+%"struct.std::_Optional_base.47" = type { %"struct.std::_Optional_payload.49" }
+%"struct.std::_Optional_payload.49" = type { %"struct.std::_Optional_payload.base.53", [7 x i8] }
+%"struct.std::_Optional_payload.base.53" = type { %"struct.std::_Optional_payload_base.base.52" }
+%"struct.std::_Optional_payload_base.base.52" = type <{ %"union.std::_Optional_payload_base<std::vector<unsigned long>>::_Storage", i8 }>
+%"union.std::_Optional_payload_base<std::vector<unsigned long>>::_Storage" = type { %"class.std::vector.44" }
 %"class.facebook::velox::exec::LocalDecodedVector" = type { %"class.std::reference_wrapper", %"class.std::unique_ptr.146" }
 %"class.std::reference_wrapper" = type { ptr }
 %"class.std::unique_ptr.146" = type { %"struct.std::__uniq_ptr_data.147" }
@@ -109,84 +109,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.149" = type { %"struct.std::_Tuple_impl.150" }
 %"struct.std::_Tuple_impl.150" = type { %"struct.std::_Head_base.153" }
 %"struct.std::_Head_base.153" = type { ptr }
-%"class.facebook::velox::exec::VectorWriterBase" = type <{ ptr, i32, [4 x i8] }>
-%"class.facebook::velox::ArrayVector" = type { %"struct.facebook::velox::ArrayVectorBase", %"class.std::shared_ptr.72" }
-%"struct.facebook::velox::ArrayVectorBase" = type { %"class.facebook::velox::BaseVector.base", %"class.boost::intrusive_ptr", ptr, %"class.boost::intrusive_ptr", ptr }
-%"class.facebook::velox::BaseVector.base" = type <{ ptr, %"class.std::shared_ptr.61", i8, [3 x i8], i32, %"class.boost::intrusive_ptr", ptr, ptr, i32, %"class.std::optional.64", %"class.std::optional.64", %"class.std::optional.64", %"class.std::optional.64", i32, i8, i8, i8 }>
-%"class.facebook::velox::DecodedVector" = type { i32, ptr, ptr, ptr, %"class.std::optional.104", ptr, i8, i8, i8, i8, i8, i32, %"class.std::vector.112", %"class.std::vector.44" }
-%"class.std::optional.104" = type { %"struct.std::_Optional_base.105" }
-%"struct.std::_Optional_base.105" = type { %"struct.std::_Optional_payload.107" }
-%"struct.std::_Optional_payload.107" = type { %"struct.std::_Optional_payload_base.base.109", [7 x i8] }
-%"struct.std::_Optional_payload_base.base.109" = type <{ %"union.std::_Optional_payload_base<const unsigned long *>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<const unsigned long *>::_Storage" = type { ptr }
-%"class.std::vector.112" = type { %"struct.std::_Vector_base.113" }
-%"struct.std::_Vector_base.113" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.44" = type { %"struct.std::_Vector_base.45" }
-%"struct.std::_Vector_base.45" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.facebook::velox::StringView" = type { i32, [4 x i8], %union.anon.117 }
-%union.anon.117 = type { ptr }
-%"class.facebook::velox::SelectivityVector" = type <{ %"class.std::vector.44", i32, i32, i32, %"class.std::optional.75", [2 x i8] }>
-%"class.std::optional.75" = type { %"struct.std::_Optional_base.76" }
-%"struct.std::_Optional_base.76" = type { %"struct.std::_Optional_payload.78" }
-%"struct.std::_Optional_payload.78" = type { %"struct.std::_Optional_payload_base.79" }
-%"struct.std::_Optional_payload_base.79" = type { %"union.std::_Optional_payload_base<bool>::_Storage", i8 }
-%"union.std::_Optional_payload_base<bool>::_Storage" = type { %"struct.std::_Optional_payload_base<bool>::_Empty_byte" }
-%"struct.std::_Optional_payload_base<bool>::_Empty_byte" = type { i8 }
-%"class.std::optional.46" = type { %"struct.std::_Optional_base.47" }
-%"struct.std::_Optional_base.47" = type { %"struct.std::_Optional_payload.49" }
-%"struct.std::_Optional_payload.49" = type { %"struct.std::_Optional_payload.base.53", [7 x i8] }
-%"struct.std::_Optional_payload.base.53" = type { %"struct.std::_Optional_payload_base.base.52" }
-%"struct.std::_Optional_payload_base.base.52" = type <{ %"union.std::_Optional_payload_base<std::vector<unsigned long>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<std::vector<unsigned long>>::_Storage" = type { %"class.std::vector.44" }
-%"struct.std::_Optional_payload_base.51" = type <{ %"union.std::_Optional_payload_base<std::vector<unsigned long>>::_Storage", i8, [7 x i8] }>
-%"class.facebook::velox::core::ExecCtx" = type { ptr, ptr, i8, %"class.std::vector.155", %"class.std::vector.160", %"class.std::unique_ptr.165" }
-%"class.std::vector.155" = type { %"struct.std::_Vector_base.156" }
-%"struct.std::_Vector_base.156" = type { %"struct.std::_Vector_base<std::unique_ptr<facebook::velox::DecodedVector>, std::allocator<std::unique_ptr<facebook::velox::DecodedVector>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<facebook::velox::DecodedVector>, std::allocator<std::unique_ptr<facebook::velox::DecodedVector>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<facebook::velox::DecodedVector>, std::allocator<std::unique_ptr<facebook::velox::DecodedVector>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<facebook::velox::DecodedVector>, std::allocator<std::unique_ptr<facebook::velox::DecodedVector>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.160" = type { %"struct.std::_Vector_base.161" }
-%"struct.std::_Vector_base.161" = type { %"struct.std::_Vector_base<std::unique_ptr<facebook::velox::SelectivityVector>, std::allocator<std::unique_ptr<facebook::velox::SelectivityVector>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<facebook::velox::SelectivityVector>, std::allocator<std::unique_ptr<facebook::velox::SelectivityVector>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<facebook::velox::SelectivityVector>, std::allocator<std::unique_ptr<facebook::velox::SelectivityVector>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<facebook::velox::SelectivityVector>, std::allocator<std::unique_ptr<facebook::velox::SelectivityVector>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.165" = type { %"struct.std::__uniq_ptr_data.166" }
-%"struct.std::__uniq_ptr_data.166" = type { %"class.std::__uniq_ptr_impl.167" }
-%"class.std::__uniq_ptr_impl.167" = type { %"class.std::tuple.168" }
-%"class.std::tuple.168" = type { %"struct.std::_Tuple_impl.169" }
-%"struct.std::_Tuple_impl.169" = type { %"struct.std::_Head_base.172" }
-%"struct.std::_Head_base.172" = type { ptr }
-%"class.facebook::velox::Buffer" = type { ptr, ptr, ptr, i64, i64, %"struct.std::atomic.182", i8, [2 x i64] }
-%"struct.std::atomic.182" = type { %"struct.std::__atomic_base.183" }
-%"struct.std::__atomic_base.183" = type { i32 }
 %"class.std::optional.123" = type { %"struct.std::_Optional_base.124" }
 %"struct.std::_Optional_base.124" = type { %"struct.std::_Optional_payload.126" }
 %"struct.std::_Optional_payload.126" = type { %"struct.std::_Optional_payload_base.base.128", [7 x i8] }
 %"struct.std::_Optional_payload_base.base.128" = type <{ %"union.std::_Optional_payload_base<facebook::velox::StringView>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<facebook::velox::StringView>::_Storage" = type { %"struct.facebook::velox::StringView" }
-%"class.facebook::velox::FlatVector" = type { %"class.facebook::velox::SimpleVector", %"class.boost::intrusive_ptr", ptr, %"class.std::vector.131", %"class.folly::F14FastSet" }
-%"class.facebook::velox::SimpleVector" = type { %"class.facebook::velox::BaseVector.base", %"class.std::optional.75", i8, %"struct.facebook::velox::AsciiInfo", %"struct.facebook::velox::SimpleVectorStats" }
-%"struct.facebook::velox::AsciiInfo" = type { %"struct.std::atomic", [7 x i8], %"struct.folly::Synchronized" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i8 }
-%"struct.folly::Synchronized" = type { %"class.facebook::velox::SelectivityVector", %"class.folly::SharedMutexImpl", [4 x i8] }
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic.121" }
-%"struct.std::atomic.121" = type { %"struct.std::__atomic_base.122" }
-%"struct.std::__atomic_base.122" = type { i32 }
-%"struct.facebook::velox::SimpleVectorStats" = type { %"class.std::optional.123", %"class.std::optional.123" }
-%"class.std::vector.131" = type { %"struct.std::_Vector_base.132" }
-%"struct.std::_Vector_base.132" = type { %"struct.std::_Vector_base<boost::intrusive_ptr<facebook::velox::Buffer>, std::allocator<boost::intrusive_ptr<facebook::velox::Buffer>>>::_Vector_impl" }
-%"struct.std::_Vector_base<boost::intrusive_ptr<facebook::velox::Buffer>, std::allocator<boost::intrusive_ptr<facebook::velox::Buffer>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::intrusive_ptr<facebook::velox::Buffer>, std::allocator<boost::intrusive_ptr<facebook::velox::Buffer>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<boost::intrusive_ptr<facebook::velox::Buffer>, std::allocator<boost::intrusive_ptr<facebook::velox::Buffer>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.folly::F14FastSet" = type { %"class.folly::F14ValueSet" }
-%"class.folly::F14ValueSet" = type { %"class.folly::f14::detail::F14BasicSet" }
-%"class.folly::f14::detail::F14BasicSet" = type { %"class.folly::f14::detail::F14Table" }
-%"class.folly::f14::detail::F14Table" = type { ptr, i64, %"struct.folly::f14::detail::SizeAndPackedBegin" }
-%"struct.folly::f14::detail::SizeAndPackedBegin" = type { i64, %"class.folly::f14::detail::PackedChunkItemPtr" }
-%"class.folly::f14::detail::PackedChunkItemPtr" = type { i64 }
-%"struct.std::_Optional_payload_base.127" = type <{ %"union.std::_Optional_payload_base<facebook::velox::StringView>::_Storage", i8, [7 x i8] }>
+%"class.boost::intrusive_ptr" = type { ptr }
 %"class.folly::LockedPtr.204" = type { %"class.folly::upgrade_lock" }
 %"class.folly::upgrade_lock" = type { %"class.folly::upgrade_lock_base.base", [7 x i8] }
 %"class.folly::upgrade_lock_base.base" = type { %"class.folly::detail::lock_base.base" }
@@ -194,7 +122,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::detail::lock_storage.base" = type <{ ptr, i8 }>
 %"class.folly::LockedPtr" = type { %"class.std::unique_lock" }
 %"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
-%"struct.folly::detail::lock_storage" = type <{ ptr, i8, [7 x i8] }>
+%"class.std::vector.131" = type { %"struct.std::_Vector_base.132" }
+%"struct.std::_Vector_base.132" = type { %"struct.std::_Vector_base<boost::intrusive_ptr<facebook::velox::Buffer>, std::allocator<boost::intrusive_ptr<facebook::velox::Buffer>>>::_Vector_impl" }
+%"struct.std::_Vector_base<boost::intrusive_ptr<facebook::velox::Buffer>, std::allocator<boost::intrusive_ptr<facebook::velox::Buffer>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::intrusive_ptr<facebook::velox::Buffer>, std::allocator<boost::intrusive_ptr<facebook::velox::Buffer>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<boost::intrusive_ptr<facebook::velox::Buffer>, std::allocator<boost::intrusive_ptr<facebook::velox::Buffer>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.anon.209 = type <{ ptr, ptr, i8, [7 x i8] }>
 %class.anon.211 = type <{ ptr, ptr, i8, [7 x i8] }>
 %"class.std::system_error" = type { %"class.std::runtime_error", %"class.std::error_code" }
@@ -559,17 +490,17 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false), !alias.scope !4
   %0 = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 0, i64 200, i1 false), !noalias !4
-  %_M_single_bucket.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ref.tmp1.i, i64 0, i32 5
+  %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 48
   store ptr %_M_single_bucket.i.i.i.i, ptr %ref.tmp1.i, align 8, !noalias !4
-  %_M_bucket_count.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ref.tmp1.i, i64 0, i32 1
+  %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 8
   store i64 1, ptr %_M_bucket_count.i.i.i.i, align 8, !noalias !4
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ref.tmp1.i, i64 0, i32 2
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false), !noalias !4
   store float 1.000000e+00, ptr %0, align 8, !noalias !4
-  %_M_next_resize.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ref.tmp1.i, i64 0, i32 4, i32 1
+  %_M_next_resize.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !4
-  %argumentTypes_.i.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %ref.tmp1.i, i64 0, i32 2
-  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %ref.tmp1.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %argumentTypes_.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 160
+  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1.i, i64 216
   store ptr null, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8, !noalias !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %argumentTypes_.i.i, i8 0, i64 36, i1 false), !noalias !4
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #29, !noalias !4
@@ -708,9 +639,9 @@ invoke.cont18.i:                                  ; preds = %invoke.cont16.i
           to label %invoke.cont20.i unwind label %lpad17.i
 
 invoke.cont20.i:                                  ; preds = %invoke.cont18.i
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::exec::FunctionSignature>, std::allocator<std::shared_ptr<facebook::velox::exec::FunctionSignature>>>::_Vector_impl_data", ptr %agg.tmp, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %10 = load ptr, ptr %_M_finish.i.i, align 8, !alias.scope !4
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::exec::FunctionSignature>, std::allocator<std::shared_ptr<facebook::velox::exec::FunctionSignature>>>::_Vector_impl_data", ptr %agg.tmp, i64 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %11 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !alias.scope !4
   %cmp.not.i.i = icmp eq ptr %10, %11
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -718,15 +649,15 @@ invoke.cont20.i:                                  ; preds = %invoke.cont18.i
 if.then.i.i:                                      ; preds = %invoke.cont20.i
   %12 = load ptr, ptr %ref.tmp.i, align 8, !noalias !4
   store ptr %12, ptr %10, align 8
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %10, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i.i, align 8
-  %_M_refcount4.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %13 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i, align 8, !noalias !4
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i, align 8, !noalias !4
   store ptr %13, ptr %_M_refcount.i.i.i.i.i.i, align 8
   store ptr null, ptr %ref.tmp.i, align 8, !noalias !4
   %14 = load ptr, ptr %_M_finish.i.i, align 8, !alias.scope !4
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %14, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !alias.scope !4
   br label %invoke.cont22.i
 
@@ -735,13 +666,13 @@ if.else.i.i:                                      ; preds = %invoke.cont20.i
           to label %invoke.cont22.i unwind label %lpad21.i
 
 invoke.cont22.i:                                  ; preds = %if.else.i.i, %if.then.i.i
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %15 = load ptr, ptr %_M_refcount.i.i.i, align 8, !noalias !4
   %cmp.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont22.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %15, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %16, 4294967297
   %17 = trunc i64 %16 to i32
@@ -749,10 +680,10 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont22.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %15, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %15, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %18 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(16) %15) #29
   br label %if.end8.sink.split.i.i.i.i.i
@@ -778,10 +709,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %15, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %21 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(16) %15) #29
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %15, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 12
   %22 = load i8, ptr @__libc_single_threaded, align 1, !noalias !4
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %22, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -803,7 +734,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %15, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %25 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(16) %15) #29
   br label %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i
@@ -817,16 +748,16 @@ _ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i: ; preds
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #29
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp1.i) #29
   store ptr @.str.2, ptr %ref.tmp31.i, align 8, !noalias !4
-  %arrayinit.element.i = getelementptr inbounds ptr, ptr %ref.tmp31.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp31.i, i64 8
   store ptr @.str.3, ptr %arrayinit.element.i, align 8, !noalias !4
-  %_M_single_bucket.i.i.i39.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ref.tmp35.i, i64 0, i32 5
-  %_M_bucket_count.i.i.i40.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ref.tmp35.i, i64 0, i32 1
-  %_M_before_begin.i.i.i41.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ref.tmp35.i, i64 0, i32 2
-  %_M_rehash_policy.i.i.i42.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ref.tmp35.i, i64 0, i32 4
-  %_M_next_resize.i.i.i.i43.i = getelementptr inbounds %"class.std::_Hashtable", ptr %ref.tmp35.i, i64 0, i32 4, i32 1
-  %argumentTypes_.i45.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %ref.tmp35.i, i64 0, i32 2
-  %_M_end_of_storage.i.i.i.i.i48.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %ref.tmp35.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_refcount4.i.i.i.i.i88.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp34.i, i64 0, i32 1
+  %_M_single_bucket.i.i.i39.i = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 48
+  %_M_bucket_count.i.i.i40.i = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 8
+  %_M_before_begin.i.i.i41.i = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 16
+  %_M_rehash_policy.i.i.i42.i = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 32
+  %_M_next_resize.i.i.i.i43.i = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 40
+  %argumentTypes_.i45.i = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 160
+  %_M_end_of_storage.i.i.i.i.i48.i = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 216
+  %_M_refcount4.i.i.i.i.i88.i = getelementptr inbounds i8, ptr %ref.tmp34.i, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit127.i, %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit.i
@@ -1030,14 +961,14 @@ invoke.cont64.i:                                  ; preds = %invoke.cont62.i
 if.then.i86.i:                                    ; preds = %invoke.cont64.i
   %38 = load ptr, ptr %ref.tmp34.i, align 8, !noalias !4
   store ptr %38, ptr %36, align 8
-  %_M_refcount.i.i.i.i.i87.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %36, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i87.i = getelementptr inbounds i8, ptr %36, i64 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i87.i, align 8
   %39 = load ptr, ptr %_M_refcount4.i.i.i.i.i88.i, align 8, !noalias !4
   store ptr null, ptr %_M_refcount4.i.i.i.i.i88.i, align 8, !noalias !4
   store ptr %39, ptr %_M_refcount.i.i.i.i.i87.i, align 8
   store ptr null, ptr %ref.tmp34.i, align 8, !noalias !4
   %40 = load ptr, ptr %_M_finish.i.i, align 8, !alias.scope !4
-  %incdec.ptr.i89.i = getelementptr inbounds %"class.std::shared_ptr", ptr %40, i64 1
+  %incdec.ptr.i89.i = getelementptr inbounds i8, ptr %40, i64 16
   store ptr %incdec.ptr.i89.i, ptr %_M_finish.i.i, align 8, !alias.scope !4
   br label %invoke.cont66.i
 
@@ -1051,7 +982,7 @@ invoke.cont66.i:                                  ; preds = %if.else.i92.i, %if.
   br i1 %cmp.not.i.i.i97.i, label %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit127.i, label %if.then.i.i.i98.i
 
 if.then.i.i.i98.i:                                ; preds = %invoke.cont66.i
-  %_M_use_count.i.i.i.i99.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %41, i64 0, i32 1
+  %_M_use_count.i.i.i.i99.i = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load atomic i64, ptr %_M_use_count.i.i.i.i99.i acquire, align 8
   %cmp.i.i.i.i100.i = icmp eq i64 %42, 4294967297
   %43 = trunc i64 %42 to i32
@@ -1059,10 +990,10 @@ if.then.i.i.i98.i:                                ; preds = %invoke.cont66.i
 
 if.then.i.i.i.i123.i:                             ; preds = %if.then.i.i.i98.i
   store i32 0, ptr %_M_use_count.i.i.i.i99.i, align 8
-  %_M_weak_count.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %41, i64 0, i32 2
+  %_M_weak_count.i.i.i.i124.i = getelementptr inbounds i8, ptr %41, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i124.i, align 4
   %vtable.i.i.i.i125.i = load ptr, ptr %41, align 8
-  %vfn.i.i.i.i126.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i125.i, i64 2
+  %vfn.i.i.i.i126.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i125.i, i64 16
   %44 = load ptr, ptr %vfn.i.i.i.i126.i, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(16) %41) #29
   br label %if.end8.sink.split.i.i.i.i118.i
@@ -1088,10 +1019,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i105.i: ; preds = %if.
 
 if.then7.i.i.i.i108.i:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i105.i
   %vtable.i.i.i.i.i.i109.i = load ptr, ptr %41, align 8
-  %vfn.i.i.i.i.i.i110.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i109.i, i64 2
+  %vfn.i.i.i.i.i.i110.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i109.i, i64 16
   %47 = load ptr, ptr %vfn.i.i.i.i.i.i110.i, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(16) %41) #29
-  %_M_weak_count.i.i.i.i.i.i111.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %41, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i111.i = getelementptr inbounds i8, ptr %41, i64 12
   %48 = load i8, ptr @__libc_single_threaded, align 1, !noalias !4
   %tobool.i.not.i.i.i.i.i.i112.i = icmp eq i8 %48, 0
   br i1 %tobool.i.not.i.i.i.i.i.i112.i, label %if.else.i.i.i.i.i.i.i121.i, label %if.then.i.i.i.i.i.i.i113.i
@@ -1113,7 +1044,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i115.i: ; preds = 
 
 if.end8.sink.split.i.i.i.i118.i:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i115.i, %if.then.i.i.i.i123.i
   %vtable2.i.i.i.i.i.i119.i = load ptr, ptr %41, align 8
-  %vfn3.i.i.i.i.i.i120.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i119.i, i64 3
+  %vfn3.i.i.i.i.i.i120.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i119.i, i64 24
   %51 = load ptr, ptr %vfn3.i.i.i.i.i.i120.i, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(16) %41) #29
   br label %_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev.exit127.i
@@ -1324,7 +1255,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
 
 _ZNKSt14default_deleteIN8facebook5velox4exec14VectorFunctionEEclEPS3_.exit.i: ; preds = %invoke.cont4
   %vtable.i.i = load ptr, ptr %68, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %69 = load ptr, ptr %vfn.i.i, align 8
   call void %69(ptr noundef nonnull align 8 dereferenceable(8) %68) #29
   br label %_ZNSt10unique_ptrIN8facebook5velox9functions12_GLOBAL__N_113SplitFunctionESt14default_deleteIS4_EED2Ev.exit
@@ -1338,13 +1269,13 @@ _ZNSt10unique_ptrIN8facebook5velox9functions12_GLOBAL__N_113SplitFunctionESt14de
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt10unique_ptrIN8facebook5velox9functions12_GLOBAL__N_113SplitFunctionESt14default_deleteIS4_EED2Ev.exit, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEEvPT_.exit.i.i.i.i ], [ %70, %_ZNSt10unique_ptrIN8facebook5velox9functions12_GLOBAL__N_113SplitFunctionESt14default_deleteIS4_EED2Ev.exit ]
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %72 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %72, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i9
 
 if.then.i.i.i.i.i.i.i.i9:                         ; preds = %for.body.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %72, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 8
   %73 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i64 %73, 4294967297
   %74 = trunc i64 %73 to i32
@@ -1352,10 +1283,10 @@ if.then.i.i.i.i.i.i.i.i9:                         ; preds = %for.body.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i.i9
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %72, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %72, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %75 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(16) %72) #29
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i
@@ -1381,10 +1312,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.then7.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %72, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %78 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void %78(ptr noundef nonnull align 8 dereferenceable(16) %72) #29
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %72, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 12
   %79 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %79, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
@@ -1406,13 +1337,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i: ; pre
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %72, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %82 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void %82(ptr noundef nonnull align 8 dereferenceable(16) %72) #29
   br label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEEvPT_.exit.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i10 = icmp eq ptr %incdec.ptr.i.i.i.i, %71
   br i1 %cmp.not.i.i.i.i10, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !10
 
@@ -1446,7 +1377,7 @@ lpad3:                                            ; preds = %invoke.cont
 
 _ZNKSt14default_deleteIN8facebook5velox4exec14VectorFunctionEEclEPS3_.exit.i13: ; preds = %lpad3
   %vtable.i.i14 = load ptr, ptr %86, align 8
-  %vfn.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i14, i64 1
+  %vfn.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i14, i64 8
   %87 = load ptr, ptr %vfn.i.i15, align 8
   call void %87(ptr noundef nonnull align 8 dereferenceable(8) %86) #29
   br label %_ZNSt10unique_ptrIN8facebook5velox9functions12_GLOBAL__N_113SplitFunctionESt14default_deleteIS4_EED2Ev.exit21
@@ -1464,20 +1395,20 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::exec::FunctionSignature>, std::allocator<std::shared_ptr<facebook::velox::exec::FunctionSignature>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEEvPT_.exit.i.i.i ], [ %0, %entry ]
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %2 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %3, 4294967297
   %4 = trunc i64 %3 to i32
@@ -1485,10 +1416,10 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #29
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i
@@ -1514,10 +1445,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #29
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -1539,13 +1470,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %2) #29
   br label %_ZSt8_DestroyISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEEvPT_.exit.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !10
 
@@ -1573,28 +1504,28 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 define linkonce_odr noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebook5velox4exec24FunctionSignatureBuilder10returnTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(225) %this, ptr noundef nonnull align 8 dereferenceable(32) %type) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.facebook::velox::exec::TypeSignature", align 8
-  %returnType_ = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 1
+  %returnType_ = getelementptr inbounds i8, ptr %this, i64 56
   call void @_ZN8facebook5velox4exec18parseTypeSignatureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.facebook::velox::exec::TypeSignature") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %type)
   %call = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt8optionalIN8facebook5velox4exec13TypeSignatureEE7emplaceIJS3_EEENSt9enable_ifIX18is_constructible_vIS3_DpT_EERS3_E4typeEDpOS7_(ptr noundef nonnull align 8 dereferenceable(104) %returnType_, ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %ref.tmp, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 88
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %rowFieldName_.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %ref.tmp, i64 0, i32 2
+  %rowFieldName_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rowFieldName_.i) #29
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i, %invoke.cont
-  %parameters_.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %ref.tmp, i64 0, i32 1
+  %parameters_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %2 = load ptr, ptr %parameters_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8facebook5velox4exec13TypeSignatureEEEvT_S7_(ptr noundef %2, ptr noundef %3)
           to label %_ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EED2Ev.exit.i unwind label %terminate.lpad.i.i
@@ -1634,9 +1565,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(225) ptr @_ZN8facebo
 entry:
   %ref.tmp = alloca %"class.facebook::velox::exec::TypeSignature", align 8
   call void @_ZN8facebook5velox4exec18parseTypeSignatureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull sret(%"class.facebook::velox::exec::TypeSignature") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %type)
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 176
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -1647,32 +1578,32 @@ if.then.i:                                        ; preds = %entry
 
 .noexc:                                           ; preds = %if.then.i
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %2, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 96
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %invoke.cont
 
 if.else.i:                                        ; preds = %entry
-  %argumentTypes_ = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 2
+  %argumentTypes_ = getelementptr inbounds i8, ptr %this, i64 160
   invoke void @_ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %argumentTypes_, ptr %0, ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else.i, %.noexc
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %ref.tmp, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 88
   %3 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %rowFieldName_.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %ref.tmp, i64 0, i32 2
+  %rowFieldName_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rowFieldName_.i) #29
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i, %invoke.cont
-  %parameters_.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %ref.tmp, i64 0, i32 1
+  %parameters_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   %5 = load ptr, ptr %parameters_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %ref.tmp, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
   %6 = load ptr, ptr %_M_finish.i.i, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8facebook5velox4exec13TypeSignatureEEEvT_S7_(ptr noundef %5, ptr noundef %6)
           to label %_ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EED2Ev.exit.i unwind label %terminate.lpad.i.i
@@ -1695,12 +1626,12 @@ if.then.i.i.i:                                    ; preds = %_ZNSt6vectorIN8face
 
 _ZN8facebook5velox4exec13TypeSignatureD2Ev.exit:  ; preds = %_ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EED2Ev.exit.i, %if.then.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #29
-  %_M_finish.i2 = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i2 = getelementptr inbounds i8, ptr %this, i64 200
   %10 = load ptr, ptr %_M_finish.i2, align 8
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %11 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i3 = icmp eq ptr %10, %11
-  %retval.sroa.2.0._M_finish.sroa_idx.i.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %retval.sroa.2.0._M_finish.sroa_idx.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %retval.sroa.2.0.copyload.i5.i = load i32, ptr %retval.sroa.2.0._M_finish.sroa_idx.i.i, align 8
   br i1 %cmp.not.i3, label %if.else.i6, label %if.then.i4
 
@@ -1712,7 +1643,7 @@ if.then.i4:                                       ; preds = %_ZN8facebook5velox4
 
 if.then.i.i.i5:                                   ; preds = %if.then.i4
   store i32 0, ptr %retval.sroa.2.0._M_finish.sroa_idx.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i64, ptr %10, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i2, align 8
   br label %_ZNSt13_Bit_iteratorppEi.exit.i
 
@@ -1726,7 +1657,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i:                  ; preds = %if.then.i.i.i5, %if
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit
 
 if.else.i6:                                       ; preds = %_ZN8facebook5velox4exec13TypeSignatureD2Ev.exit
-  %constantArguments_ = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 3
+  %constantArguments_ = getelementptr inbounds i8, ptr %this, i64 184
   call void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %constantArguments_, ptr %10, i32 %retval.sroa.2.0.copyload.i5.i, i1 noundef zeroext false)
   br label %_ZNSt6vectorIbSaIbEE9push_backEb.exit
 
@@ -1745,13 +1676,13 @@ declare void @_ZN8facebook5velox4exec24FunctionSignatureBuilder5buildEv(ptr sret
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN8facebook5velox4exec17FunctionSignatureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1759,10 +1690,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   br label %if.end8.sink.split.i.i.i
@@ -1788,10 +1719,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -1813,7 +1744,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   br label %_ZNSt12__shared_ptrIN8facebook5velox4exec17FunctionSignatureELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -1831,13 +1762,13 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %constantArguments_ = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 3
+  %constantArguments_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %constantArguments_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %1 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %0 to i64
@@ -1847,19 +1778,19 @@ if.then.i.i.i:                                    ; preds = %entry
   %add.ptr.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #33
   store ptr null, ptr %constantArguments_, align 8
-  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   store i32 0, ptr %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 200
   store ptr null, ptr %ref.tmp.sroa.31.0.this.sroa_idx.i.i.i.i, align 8
-  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   store i32 0, ptr %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i, align 8
   store ptr null, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
-  %argumentTypes_ = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 2
+  %argumentTypes_ = getelementptr inbounds i8, ptr %this, i64 160
   %2 = load ptr, ptr %argumentTypes_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 168
   %3 = load ptr, ptr %_M_finish.i, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8facebook5velox4exec13TypeSignatureEEEvT_S7_(ptr noundef %2, ptr noundef %3)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -1881,8 +1812,8 @@ terminate.lpad.i:                                 ; preds = %_ZNSt6vectorIbSaIbE
   unreachable
 
 _ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i2
-  %returnType_ = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 1
-  %_M_engaged.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %returnType_ = getelementptr inbounds i8, ptr %this, i64 56
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %7 = load i8, ptr %_M_engaged.i.i.i.i, align 8
   %8 = and i8 %7, 1
   %tobool.not.i.i.i.i = icmp eq i8 %8, 0
@@ -1890,22 +1821,22 @@ _ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EED2Ev.exit: ; preds = %
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EED2Ev.exit
   store i8 0, ptr %_M_engaged.i.i.i.i, align 8
-  %_M_engaged.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %9 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i, align 8
   %10 = and i8 %9, 1
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i
-  %rowFieldName_.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2
+  %rowFieldName_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rowFieldName_.i.i.i.i.i.i) #29
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i
-  %parameters_.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %parameters_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %11 = load ptr, ptr %parameters_.i.i.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::FunctionSignatureBuilder", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %12 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8facebook5velox4exec13TypeSignatureEEEvT_S7_(ptr noundef %11, ptr noundef %12)
           to label %_ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EED2Ev.exit.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
@@ -1931,7 +1862,7 @@ _ZNSt22_Optional_payload_baseIN8facebook5velox4exec13TypeSignatureEE10_M_destroy
   br label %_ZNSt8optionalIN8facebook5velox4exec13TypeSignatureEED2Ev.exit
 
 _ZNSt8optionalIN8facebook5velox4exec13TypeSignatureEED2Ev.exit: ; preds = %_ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EED2Ev.exit, %_ZNSt22_Optional_payload_baseIN8facebook5velox4exec13TypeSignatureEE10_M_destroyEv.exit.i.i.i.i
-  %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 2
+  %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %16 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox4exec17SignatureVariableEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -1951,13 +1882,13 @@ while.body.i.i.i.i:                               ; preds = %_ZNSt8optionalIN8fa
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox4exec17SignatureVariableEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %while.body.i.i.i.i, %_ZNSt8optionalIN8facebook5velox4exec13TypeSignatureEED2Ev.exit
   %18 = load ptr, ptr %this, align 8
-  %_M_bucket_count.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 1
+  %_M_bucket_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %19 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %mul.i.i.i = shl i64 %19, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 %mul.i.i.i, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)
   %20 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds %"class.std::_Hashtable", ptr %this, i64 0, i32 5
+  %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %cmp.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i, %20
   br i1 %cmp.i.i.i.i.i, label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox4exec17SignatureVariableESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S9_EEED2Ev.exit, label %if.end.i.i.i.i
 
@@ -1972,7 +1903,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8faceb
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::exec::FunctionSignature>, std::allocator<std::shared_ptr<facebook::velox::exec::FunctionSignature>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -2007,7 +1938,7 @@ _ZNSt16allocator_traitsISaISt10shared_ptrIN8facebook5velox4exec17FunctionSignatu
 _ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEEE8allocateERS6_m.exit.i
   %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEEEE8allocateERS6_m.exit.i ], [ null, %_ZNKSt6vectorISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr", ptr %cond.i10, i64 %sub.ptr.div.i
-  %_M_refcount4.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__args, i64 0, i32 1
+  %_M_refcount4.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %2 = load <2 x ptr>, ptr %__args, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i, align 8
   store <2 x ptr> %2, ptr %add.ptr, align 8
@@ -2020,19 +1951,19 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %3 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !16, !noalias !13
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !16, !noalias !13
   store <2 x ptr> %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !13, !noalias !16
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !16, !noalias !13
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !18
 
 _ZNSt6vectorISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::shared_ptr", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21, label %for.body.i.i.i12
 
@@ -2041,13 +1972,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10sh
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i17, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %_M_refcount4.i.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.std::__shared_ptr", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %4 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !22, !noalias !19
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i16, align 8, !alias.scope !22, !noalias !19
   store <2 x ptr> %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !19, !noalias !22
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !22, !noalias !19
-  %incdec.ptr.i.i.i17 = getelementptr inbounds %"class.std::shared_ptr", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i18 = getelementptr inbounds %"class.std::shared_ptr", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
+  %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i17, %0
   br i1 %cmp.not.i.i.i19, label %_ZNSt6vectorISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21, label %for.body.i.i.i12, !llvm.loop !18
 
@@ -2061,7 +1992,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorISt10sh
   br label %_ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit21, %if.then.i22
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::exec::FunctionSignature>, std::allocator<std::shared_ptr<facebook::velox::exec::FunctionSignature>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::shared_ptr", ptr %cond.i10, i64 %cond.i
@@ -2098,7 +2029,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt8optionalIN8facebook5velox4exec13TypeSignatureEE7emplaceIJS3_EEENSt9enable_ifIX18is_constructible_vIS3_DpT_EERS3_E4typeEDpOS7_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(96) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_engaged.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %this, i64 0, i32 1
+  %_M_engaged.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load i8, ptr %_M_engaged.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i = icmp eq i8 %1, 0
@@ -2106,22 +2037,22 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   store i8 0, ptr %_M_engaged.i.i, align 8
-  %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8
   %3 = and i8 %2, 1
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i
-  %rowFieldName_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 2
+  %rowFieldName_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rowFieldName_.i.i.i.i) #29
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i
-  %parameters_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 1
+  %parameters_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %parameters_.i.i.i.i, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8facebook5velox4exec13TypeSignatureEEEvT_S7_(ptr noundef %4, ptr noundef %5)
           to label %_ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EED2Ev.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
@@ -2157,22 +2088,22 @@ declare void @_ZN8facebook5velox4exec18parseTypeSignatureERKNSt7__cxx1112basic_s
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec13TypeSignatureD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_engaged.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %rowFieldName_ = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 2
+  %rowFieldName_ = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %_M_engaged.i.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rowFieldName_) #29
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %entry, %if.then.i.i.i.i
-  %parameters_ = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 1
+  %parameters_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %parameters_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %_M_finish.i, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8facebook5velox4exec13TypeSignatureEEEvT_S7_(ptr noundef %2, ptr noundef %3)
           to label %_ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EED2Ev.exit unwind label %terminate.lpad.i
@@ -2202,9 +2133,9 @@ _ZNSt12_Vector_baseIN8facebook5velox4exec13TypeSignatureESaIS3_EED2Ev.exit: ; pr
 define linkonce_odr void @_ZN8facebook5velox4exec13TypeSignatureC2EOS2_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %parameters_ = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 1
-  %parameters_3 = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %0, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %parameters_ = getelementptr inbounds i8, ptr %this, i64 32
+  %parameters_3 = getelementptr inbounds i8, ptr %0, i64 32
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %parameters_3, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -2233,10 +2164,10 @@ _ZNSt16allocator_traitsISaIN8facebook5velox4exec13TypeSignatureEEE8allocateERS4_
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIN8facebook5velox4exec13TypeSignatureEEE8allocateERS4_m.exit.i.i.i.i, %entry
   %cond.i.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6.i3, %_ZNSt16allocator_traitsISaIN8facebook5velox4exec13TypeSignatureEEE8allocateERS4_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %parameters_, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %3 = load ptr, ptr %parameters_3, align 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
@@ -2256,8 +2187,8 @@ if.then.i.i.i:                                    ; preds = %lpad10.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   store ptr %call.i.i9.i, ptr %_M_finish.i.i.i, align 8
-  %_M_engaged.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %0, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i = getelementptr inbounds i8, ptr %0, i64 88
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   %7 = load i8, ptr %_M_engaged.i.i, align 8
   %8 = and i8 %7, 1
@@ -2265,8 +2196,8 @@ invoke.cont:                                      ; preds = %invoke.cont.i
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %rowFieldName_ = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 2
-  %rowFieldName_4 = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %0, i64 0, i32 2
+  %rowFieldName_ = getelementptr inbounds i8, ptr %this, i64 56
+  %rowFieldName_4 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %rowFieldName_, ptr noundef nonnull align 8 dereferenceable(32) %rowFieldName_4) #29
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit
@@ -2303,9 +2234,9 @@ for.body:                                         ; preds = %entry, %for.inc
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %for.body
-  %parameters_.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__cur.015, i64 0, i32 1
-  %parameters_3.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__first.sroa.0.014, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__first.sroa.0.014, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %parameters_.i = getelementptr inbounds i8, ptr %__cur.015, i64 32
+  %parameters_3.i = getelementptr inbounds i8, ptr %__first.sroa.0.014, i64 32
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.014, i64 40
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %parameters_3.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -2334,10 +2265,10 @@ _ZNSt16allocator_traitsISaIN8facebook5velox4exec13TypeSignatureEEE8allocateERS4_
 invoke.cont.i30:                                  ; preds = %_ZNSt16allocator_traitsISaIN8facebook5velox4exec13TypeSignatureEEE8allocateERS4_m.exit.i.i.i.i, %.noexc
   %cond.i.i.i.i = phi ptr [ null, %.noexc ], [ %call5.i.i.i.i2.i6.i32, %_ZNSt16allocator_traitsISaIN8facebook5velox4exec13TypeSignatureEEE8allocateERS4_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %parameters_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__cur.015, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %__cur.015, i64 40
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__cur.015, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.015, i64 48
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %2 = load ptr, ptr %parameters_3.i, align 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8
@@ -2357,8 +2288,8 @@ if.then.i.i.i:                                    ; preds = %lpad10.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i30
   store ptr %call.i.i9.i, ptr %_M_finish.i.i.i, align 8
-  %_M_engaged.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__first.sroa.0.014, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__cur.015, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.014, i64 88
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.015, i64 88
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %6 = load i8, ptr %_M_engaged.i.i.i, align 8
   %7 = and i8 %6, 1
@@ -2366,8 +2297,8 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i30
   br i1 %tobool.not.i.i.i.i.i.i, label %for.inc, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont.i
-  %rowFieldName_.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__cur.015, i64 0, i32 2
-  %rowFieldName_4.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__first.sroa.0.014, i64 0, i32 2
+  %rowFieldName_.i = getelementptr inbounds i8, ptr %__cur.015, i64 56
+  %rowFieldName_4.i = getelementptr inbounds i8, ptr %__first.sroa.0.014, i64 56
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %rowFieldName_.i, ptr noundef nonnull align 8 dereferenceable(32) %rowFieldName_4.i)
           to label %.noexc.i unwind label %lpad5.i
 
@@ -2397,8 +2328,8 @@ ehcleanup.i:                                      ; preds = %lpad.i.loopexit, %l
   br label %lpad.body
 
 for.inc:                                          ; preds = %invoke.cont.i, %.noexc.i
-  %incdec.ptr.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__first.sroa.0.014, i64 1
-  %incdec.ptr = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__cur.015, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.sroa.0.014, i64 96
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.015, i64 96
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %__last.coerce
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !24
 
@@ -2453,9 +2384,9 @@ declare void @llvm.trap() #10
 define linkonce_odr void @_ZN8facebook5velox4exec13TypeSignatureC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %parameters_ = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 1
-  %parameters_3 = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %0, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %0, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %parameters_ = getelementptr inbounds i8, ptr %this, i64 32
+  %parameters_3 = getelementptr inbounds i8, ptr %0, i64 32
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %2 = load ptr, ptr %parameters_3, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -2484,10 +2415,10 @@ _ZNSt16allocator_traitsISaIN8facebook5velox4exec13TypeSignatureEEE8allocateERS4_
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIN8facebook5velox4exec13TypeSignatureEEE8allocateERS4_m.exit.i.i.i.i, %entry
   %cond.i.i.i.i = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i6.i5, %_ZNSt16allocator_traitsISaIN8facebook5velox4exec13TypeSignatureEEE8allocateERS4_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i, ptr %parameters_, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %cond.i.i.i.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %3 = load ptr, ptr %parameters_3, align 8
   %4 = load ptr, ptr %_M_finish.i.i, align 8
@@ -2507,8 +2438,8 @@ if.then.i.i.i:                                    ; preds = %lpad10.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i
   store ptr %call.i.i9.i, ptr %_M_finish.i.i.i, align 8
-  %_M_engaged.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %0, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i = getelementptr inbounds i8, ptr %0, i64 88
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   %7 = load i8, ptr %_M_engaged.i.i, align 8
   %8 = and i8 %7, 1
@@ -2516,8 +2447,8 @@ invoke.cont:                                      ; preds = %invoke.cont.i
   br i1 %tobool.not.i.i.i.i.i, label %invoke.cont6, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont
-  %rowFieldName_ = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %this, i64 0, i32 2
-  %rowFieldName_4 = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %0, i64 0, i32 2
+  %rowFieldName_ = getelementptr inbounds i8, ptr %this, i64 56
+  %rowFieldName_4 = getelementptr inbounds i8, ptr %0, i64 56
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %rowFieldName_, ptr noundef nonnull align 8 dereferenceable(32) %rowFieldName_4)
           to label %.noexc unwind label %lpad5
 
@@ -2549,7 +2480,7 @@ ehcleanup:                                        ; preds = %lpad, %if.then.i.i.
 define linkonce_odr void @_ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::exec::TypeSignature, std::allocator<facebook::velox::exec::TypeSignature>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8facebook5velox4exec13TypeSignatureEEEvT_S7_(ptr noundef %0, ptr noundef %1)
           to label %invoke.cont unwind label %terminate.lpad
@@ -2582,22 +2513,22 @@ entry:
 
 for.body:                                         ; preds = %entry, %_ZN8facebook5velox4exec13TypeSignatureD2Ev.exit
   %__first.addr.04 = phi ptr [ %incdec.ptr, %_ZN8facebook5velox4exec13TypeSignatureD2Ev.exit ], [ %__first, %entry ]
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__first.addr.04, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 88
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body
-  %rowFieldName_.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__first.addr.04, i64 0, i32 2
+  %rowFieldName_.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 56
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rowFieldName_.i) #29
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i, %for.body
-  %parameters_.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__first.addr.04, i64 0, i32 1
+  %parameters_.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 32
   %2 = load ptr, ptr %parameters_.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__first.addr.04, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 40
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8facebook5velox4exec13TypeSignatureEEEvT_S7_(ptr noundef %2, ptr noundef %3)
           to label %_ZSt8_DestroyIPN8facebook5velox4exec13TypeSignatureES3_EvT_S5_RSaIT0_E.exit.i unwind label %terminate.lpad.i.i
@@ -2620,7 +2551,7 @@ if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPN8fa
 
 _ZN8facebook5velox4exec13TypeSignatureD2Ev.exit:  ; preds = %_ZSt8_DestroyIPN8facebook5velox4exec13TypeSignatureES3_EvT_S5_RSaIT0_E.exit.i, %if.then.i.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04) #29
-  %incdec.ptr = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__first.addr.04, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.04, i64 96
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !25
 
@@ -2736,7 +2667,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(96) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::exec::TypeSignature, std::allocator<facebook::velox::exec::TypeSignature>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -2785,8 +2716,8 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %for.i
           to label %for.inc.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__first.addr.09.i.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__cur.010.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i, i64 96
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i, i64 96
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont10, label %for.body.i.i.i.i.i, !llvm.loop !26
 
@@ -2825,7 +2756,7 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont3.i.i.i.
 
 invoke.cont10:                                    ; preds = %for.inc.i.i.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i19, %invoke.cont ], [ %incdec.ptr1.i.i.i.i.i, %for.inc.i.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__cur.0.lcssa.i.i.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 96
   %cmp.not8.i.i.i.i.i20 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not8.i.i.i.i.i20, label %invoke.cont14, label %for.body.i.i.i.i.i21
 
@@ -2836,8 +2767,8 @@ for.body.i.i.i.i.i21:                             ; preds = %invoke.cont10, %for
           to label %for.inc.i.i.i.i.i30 unwind label %lpad.i.i.i.i.i24
 
 for.inc.i.i.i.i.i30:                              ; preds = %for.body.i.i.i.i.i21
-  %incdec.ptr.i.i.i.i.i31 = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__first.addr.09.i.i.i.i.i23, i64 1
-  %incdec.ptr1.i.i.i.i.i32 = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__cur.010.i.i.i.i.i22, i64 1
+  %incdec.ptr.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__first.addr.09.i.i.i.i.i23, i64 96
+  %incdec.ptr1.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__cur.010.i.i.i.i.i22, i64 96
   %cmp.not.i.i.i.i.i33 = icmp eq ptr %incdec.ptr.i.i.i.i.i31, %0
   br i1 %cmp.not.i.i.i.i.i33, label %invoke.cont14, label %for.body.i.i.i.i.i21, !llvm.loop !26
 
@@ -2885,7 +2816,7 @@ if.then.i39:                                      ; preds = %invoke.cont14
   br label %_ZNSt12_Vector_baseIN8facebook5velox4exec13TypeSignatureESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseIN8facebook5velox4exec13TypeSignatureESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %invoke.cont14, %if.then.i39
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::exec::TypeSignature, std::allocator<facebook::velox::exec::TypeSignature>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i19, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i34, ptr %_M_finish.i.i, align 8
   %add.ptr29 = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %cond.i19, i64 %cond.i
@@ -2944,22 +2875,22 @@ unreachable:                                      ; preds = %invoke.cont21
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt16allocator_traitsISaIN8facebook5velox4exec13TypeSignatureEEE7destroyIS3_EEvRS4_PT_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__p, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 88
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i.i.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %entry
-  %rowFieldName_.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__p, i64 0, i32 2
+  %rowFieldName_.i.i = getelementptr inbounds i8, ptr %__p, i64 56
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rowFieldName_.i.i) #29
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i: ; preds = %if.then.i.i.i.i.i.i, %entry
-  %parameters_.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__p, i64 0, i32 1
+  %parameters_.i.i = getelementptr inbounds i8, ptr %__p, i64 32
   %2 = load ptr, ptr %parameters_.i.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::TypeSignature", ptr %__p, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %__p, i64 40
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8facebook5velox4exec13TypeSignatureEEEvT_S7_(ptr noundef %2, ptr noundef %3)
           to label %_ZNSt6vectorIN8facebook5velox4exec13TypeSignatureESaIS3_EED2Ev.exit.i.i unwind label %terminate.lpad.i.i.i
@@ -2988,12 +2919,12 @@ _ZNSt15__new_allocatorIN8facebook5velox4exec13TypeSignatureEE7destroyIS3_EEvPT_.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIbSaIbEE13_M_insert_auxESt13_Bit_iteratorb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr %__position.coerce0, i32 %__position.coerce1, i1 noundef zeroext %__x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not = icmp eq ptr %0, %1
-  %_M_offset.i.i.i.i = getelementptr inbounds %"struct.std::_Bvector_base<std::allocator<bool>>::_Bvector_impl_data", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_offset.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load i32, ptr %_M_offset.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %0 to i64
   br i1 %cmp.not, label %if.else, label %if.then
@@ -3012,45 +2943,45 @@ if.then:                                          ; preds = %entry
 for.body.i.i.i.i.i.preheader:                     ; preds = %if.then
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 1
   %3 = trunc i64 %add.i.i.i to i32
-  %4 = and i32 %3, 63
-  %div.i.i.i104106 = lshr i64 %add.i.i.i, 6
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %0, i64 %div.i.i.i104106
+  %conv4.i.i.i = and i32 %3, 63
+  %div.i.i.i104105 = lshr i64 %add.i.i.i, 6
+  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %0, i64 %div.i.i.i104105
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
   %__n.029.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %__last.sroa.5.028.i.i.i.i.i = phi i32 [ %spec.select23.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %2, %for.body.i.i.i.i.i.preheader ]
   %__last.sroa.0.027.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %0, %for.body.i.i.i.i.i.preheader ]
-  %__result.sroa.5.026.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %4, %for.body.i.i.i.i.i.preheader ]
+  %__result.sroa.5.026.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %conv4.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %__result.sroa.0.025.i.i.i.i.i = phi ptr [ %__result.sroa.0.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %dec.i.i.i.i.i.i.i = add i32 %__last.sroa.5.028.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %__last.sroa.5.028.i.i.i.i.i, 0
-  %spec.select.idx.i.i.i.i.i = sext i1 %cmp.i.i.i.i.i.i.i to i64
-  %spec.select.i.i.i.i.i = getelementptr inbounds i64, ptr %__last.sroa.0.027.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
+  %spec.select.idx.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 -8, i64 0
+  %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.027.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
   %spec.select23.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i32 63, i32 %dec.i.i.i.i.i.i.i
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %spec.select23.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
   %dec.i.i4.i.i.i.i.i = add i32 %__result.sroa.5.026.i.i.i.i.i, -1
   %cmp.i.i5.i.i.i.i.i = icmp eq i32 %__result.sroa.5.026.i.i.i.i.i, 0
-  %__result.sroa.0.1.idx.i.i.i.i.i = sext i1 %cmp.i.i5.i.i.i.i.i to i64
-  %__result.sroa.0.1.i.i.i.i.i = getelementptr inbounds i64, ptr %__result.sroa.0.025.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i
+  %__result.sroa.0.1.idx.i.i.i.i.i = select i1 %cmp.i.i5.i.i.i.i.i, i64 -8, i64 0
+  %__result.sroa.0.1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.025.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i
   %__result.sroa.5.1.i.i.i.i.i = select i1 %cmp.i.i5.i.i.i.i.i, i32 63, i32 %dec.i.i4.i.i.i.i.i
   %sh_prom.i10.i.i.i.i.i = zext nneg i32 %__result.sroa.5.1.i.i.i.i.i to i64
   %shl.i11.i.i.i.i.i = shl nuw i64 1, %sh_prom.i10.i.i.i.i.i
-  %5 = load i64, ptr %spec.select.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i = and i64 %5, %shl.i.i.i.i.i.i
+  %4 = load i64, ptr %spec.select.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i = and i64 %4, %shl.i.i.i.i.i.i
   %tobool.i.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i14.i.i.i.i.i
 
 if.then.i.i14.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i
-  %6 = load i64, ptr %__result.sroa.0.1.i.i.i.i.i, align 8
-  %or.i.i.i.i.i.i.i = or i64 %6, %shl.i11.i.i.i.i.i
+  %5 = load i64, ptr %__result.sroa.0.1.i.i.i.i.i, align 8
+  %or.i.i.i.i.i.i.i = or i64 %5, %shl.i11.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i
   %not.i.i.i.i.i.i.i = xor i64 %shl.i11.i.i.i.i.i, -1
-  %7 = load i64, ptr %__result.sroa.0.1.i.i.i.i.i, align 8
-  %and.i2.i.i.i.i.i.i = and i64 %7, %not.i.i.i.i.i.i.i
+  %6 = load i64, ptr %__result.sroa.0.1.i.i.i.i.i, align 8
+  %and.i2.i.i.i.i.i.i = and i64 %6, %not.i.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i:      ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i14.i.i.i.i.i
@@ -3065,35 +2996,35 @@ _ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit: ; preds = %_ZNSt14_Bi
   br i1 %__x, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
-  %8 = load i64, ptr %__position.coerce0, align 8
-  %or.i = or i64 %8, %shl.i
+  %7 = load i64, ptr %__position.coerce0, align 8
+  %or.i = or i64 %7, %shl.i
   br label %_ZNSt14_Bit_referenceaSEb.exit
 
 if.else.i:                                        ; preds = %_ZSt13copy_backwardISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %not.i = xor i64 %shl.i, -1
-  %9 = load i64, ptr %__position.coerce0, align 8
-  %and.i = and i64 %9, %not.i
+  %8 = load i64, ptr %__position.coerce0, align 8
+  %and.i = and i64 %8, %not.i
   br label %_ZNSt14_Bit_referenceaSEb.exit
 
 _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %if.then.i, %if.else.i
   %storemerge = phi i64 [ %and.i, %if.else.i ], [ %or.i, %if.then.i ]
   store i64 %storemerge, ptr %__position.coerce0, align 8
-  %10 = load i32, ptr %_M_offset.i.i.i.i, align 8
-  %inc.i.i = add i32 %10, 1
+  %9 = load i32, ptr %_M_offset.i.i.i.i, align 8
+  %inc.i.i = add i32 %9, 1
   store i32 %inc.i.i, ptr %_M_offset.i.i.i.i, align 8
-  %cmp.i.i = icmp eq i32 %10, 63
+  %cmp.i.i = icmp eq i32 %9, 63
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end
 
 if.then.i.i:                                      ; preds = %_ZNSt14_Bit_referenceaSEb.exit
   store i32 0, ptr %_M_offset.i.i.i.i, align 8
-  %11 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i64, ptr %11, i64 1
+  %10 = load ptr, ptr %_M_finish, align 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %12 = load ptr, ptr %this, align 8
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %12 to i64
+  %11 = load ptr, ptr %this, align 8
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %mul.i.i.i = shl nsw i64 %sub.ptr.sub.i.i.i, 3
   %conv.i.i.i6 = zext i32 %2 to i64
@@ -3111,18 +3042,18 @@ _ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit:    ; preds = %if.else
   %cmp7.i = icmp ult i64 %add.i, %add.i.i.i7
   %cmp9.i = icmp ugt i64 %add.i, 9223372036854775744
   %or.cond.i = or i1 %cmp7.i, %cmp9.i
-  %13 = add i64 %add.i, 63
-  %sub.i.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %13
-  %14 = lshr i64 %sub.i.i, 3
-  %mul.i.i.i9 = and i64 %14, 2305843009213693944
+  %12 = add i64 %add.i, 63
+  %sub.i.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %12
+  %13 = lshr i64 %sub.i.i, 3
+  %mul.i.i.i9 = and i64 %13, 2305843009213693944
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i9) #32
   %sub.ptr.lhs.cast.i.i.i.i.i.i18 = ptrtoint ptr %__position.coerce0 to i64
   %sub.ptr.sub.i.i.i.i.i.i20 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i18, %sub.ptr.rhs.cast.i.i.i
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %12, %__position.coerce0
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, %__position.coerce0
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i, ptr align 8 %12, i64 %sub.ptr.sub.i.i.i.i.i.i20, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i, ptr align 8 %11, i64 %sub.ptr.sub.i.i.i.i.i.i20, i1 false)
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt6vectorIbSaIbEE12_M_check_lenEmPKc.exit
@@ -3143,22 +3074,22 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt14_Bit_referen
   %__result.sroa.5.021.i.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.preheader.i ]
   %sh_prom.i.i.i.i.i.i.i = zext nneg i32 %__first.sroa.5.024.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i.i
-  %15 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i.i = and i64 %15, %shl.i.i.i.i.i.i.i
+  %14 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i.i = and i64 %14, %shl.i.i.i.i.i.i.i
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i, 0
   %sh_prom.i4.i.i.i.i.i.i = zext nneg i32 %__result.sroa.5.021.i.i.i.i.i.i to i64
   %shl.i5.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i.i
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i22, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
-  %16 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
-  %or.i.i.i.i.i.i.i21 = or i64 %16, %shl.i5.i.i.i.i.i.i
+  %15 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %or.i.i.i.i.i.i.i21 = or i64 %15, %shl.i5.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i22:                          ; preds = %for.body.i.i.i.i.i.i
   %not.i.i.i.i.i.i.i23 = xor i64 %shl.i5.i.i.i.i.i.i, -1
-  %17 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i24 = and i64 %17, %not.i.i.i.i.i.i.i23
+  %16 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i24 = and i64 %16, %not.i.i.i.i.i.i.i23
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i.i22, %if.then.i.i.i.i.i.i.i
@@ -3166,14 +3097,14 @@ _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i
   store i64 %storemerge.i.i.i.i.i.i, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
   %inc.i.i.i.i.i.i.i.i = add i32 %__first.sroa.5.024.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %__first.sroa.5.024.i.i.i.i.i.i, 63
-  %spec.select.idx.i.i.i.i.i.i = zext i1 %cmp.i.i.i.i.i.i.i.i to i64
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
+  %spec.select.idx.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 8, i64 0
+  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.023.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
   %spec.select19.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i32 0, i32 %inc.i.i.i.i.i.i.i.i
   %inc.i.i7.i.i.i.i.i.i = add i32 %__result.sroa.5.021.i.i.i.i.i.i, 1
   %cmp.i.i8.i.i.i.i.i.i = icmp eq i32 %__result.sroa.5.021.i.i.i.i.i.i, 63
   %__result.sroa.5.1.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i32 0, i32 %inc.i.i7.i.i.i.i.i.i
-  %__result.sroa.0.1.idx.i.i.i.i.i.i = zext i1 %cmp.i.i8.i.i.i.i.i.i to i64
-  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
+  %__result.sroa.0.1.idx.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i64 8, i64 0
+  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
   %dec.i.i.i.i.i.i = add nsw i64 %__n.025.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp sgt i64 %__n.025.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, !llvm.loop !28
@@ -3184,7 +3115,7 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   br i1 %cmp.i.i27, label %if.then.i.i30, label %_ZNSt13_Bit_iteratorppEi.exit
 
 if.then.i.i30:                                    ; preds = %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit
-  %incdec.ptr.i.i31 = getelementptr inbounds i64, ptr %__result.sroa.0.1.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i31 = getelementptr inbounds i8, ptr %__result.sroa.0.1.i.i.i.i.i.i, i64 8
   br label %_ZNSt13_Bit_iteratorppEi.exit
 
 _ZNSt13_Bit_iteratorppEi.exit:                    ; preds = %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, %if.then.i.i30
@@ -3197,19 +3128,19 @@ _ZNSt13_Bit_iteratorppEi.exit:                    ; preds = %_ZSt4copyIPmS0_ET0_
   br i1 %__x, label %if.then.i41, label %if.else.i38
 
 if.then.i41:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit
-  %18 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
-  %or.i42 = or i64 %18, %shl.i34
+  %17 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
+  %or.i42 = or i64 %17, %shl.i34
   br label %_ZNSt14_Bit_referenceaSEb.exit43
 
 if.else.i38:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit
   %not.i39 = xor i64 %shl.i34, -1
-  %19 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
-  %and.i40 = and i64 %19, %not.i39
+  %18 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
+  %and.i40 = and i64 %18, %not.i39
   br label %_ZNSt14_Bit_referenceaSEb.exit43
 
 _ZNSt14_Bit_referenceaSEb.exit43:                 ; preds = %if.then.i41, %if.else.i38
-  %storemerge107 = phi i64 [ %and.i40, %if.else.i38 ], [ %or.i42, %if.then.i41 ]
-  store i64 %storemerge107, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
+  %storemerge106 = phi i64 [ %and.i40, %if.else.i38 ], [ %or.i42, %if.then.i41 ]
+  store i64 %storemerge106, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
   %sub.ptr.sub.i.i.i.i.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i.i.i.i.i.i18
   %mul.i.i.i.i.i.i51 = shl nsw i64 %sub.ptr.sub.i.i.i.i.i.i50, 3
   %conv3.i.i.i.i.i.i53 = zext i32 %__position.coerce1 to i64
@@ -3228,20 +3159,20 @@ for.body.i.i.i.i.i61:                             ; preds = %_ZNSt14_Bit_referen
   %shl.i.i.i.i.i.i66 = shl nuw i64 1, %sh_prom.i.i.i.i.i.i65
   %sh_prom.i4.i.i.i.i.i = zext nneg i32 %__result.sroa.5.026.i.i.i.i.i63 to i64
   %shl.i5.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i
-  %20 = load i64, ptr %__first.sroa.0.027.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i67 = and i64 %20, %shl.i.i.i.i.i.i66
+  %19 = load i64, ptr %__first.sroa.0.027.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i67 = and i64 %19, %shl.i.i.i.i.i.i66
   %tobool.i.not.i.i.i.i.i.i68 = icmp eq i64 %and.i.i.i.i.i.i.i67, 0
   br i1 %tobool.i.not.i.i.i.i.i.i68, label %if.else.i.i.i.i.i.i.i82, label %if.then.i.i.i.i.i.i.i69
 
 if.then.i.i.i.i.i.i.i69:                          ; preds = %for.body.i.i.i.i.i61
-  %21 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
-  %or.i.i.i.i.i.i.i70 = or i64 %21, %shl.i5.i.i.i.i.i
+  %20 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
+  %or.i.i.i.i.i.i.i70 = or i64 %20, %shl.i5.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71
 
 if.else.i.i.i.i.i.i.i82:                          ; preds = %for.body.i.i.i.i.i61
   %not.i.i.i.i.i.i.i83 = xor i64 %shl.i5.i.i.i.i.i, -1
-  %22 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
-  %and.i2.i.i.i.i.i.i84 = and i64 %22, %not.i.i.i.i.i.i.i83
+  %21 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
+  %and.i2.i.i.i.i.i.i84 = and i64 %21, %not.i.i.i.i.i.i.i83
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71
 
 _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71:    ; preds = %if.else.i.i.i.i.i.i.i82, %if.then.i.i.i.i.i.i.i69
@@ -3249,13 +3180,13 @@ _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71:    ; preds = %if.else.i.i.i.i.i.i
   store i64 %storemerge.i.i.i.i.i72, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
   %inc.i.i.i.i.i.i.i = add i32 %__first.sroa.5.028.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i73 = icmp eq i32 %__first.sroa.5.028.i.i.i.i.i, 63
-  %spec.select.idx.i.i.i.i.i74 = zext i1 %cmp.i.i.i.i.i.i.i73 to i64
-  %spec.select.i.i.i.i.i75 = getelementptr inbounds i64, ptr %__first.sroa.0.027.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i74
+  %spec.select.idx.i.i.i.i.i74 = select i1 %cmp.i.i.i.i.i.i.i73, i64 8, i64 0
+  %spec.select.i.i.i.i.i75 = getelementptr inbounds i8, ptr %__first.sroa.0.027.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i74
   %spec.select23.i.i.i.i.i76 = select i1 %cmp.i.i.i.i.i.i.i73, i32 0, i32 %inc.i.i.i.i.i.i.i
   %inc.i.i10.i.i.i.i.i = add i32 %__result.sroa.5.026.i.i.i.i.i63, 1
   %cmp.i.i11.i.i.i.i.i = icmp eq i32 %__result.sroa.5.026.i.i.i.i.i63, 63
-  %__result.sroa.0.1.idx.i.i.i.i.i77 = zext i1 %cmp.i.i11.i.i.i.i.i to i64
-  %__result.sroa.0.1.i.i.i.i.i78 = getelementptr inbounds i64, ptr %__result.sroa.0.025.i.i.i.i.i64, i64 %__result.sroa.0.1.idx.i.i.i.i.i77
+  %__result.sroa.0.1.idx.i.i.i.i.i77 = select i1 %cmp.i.i11.i.i.i.i.i, i64 8, i64 0
+  %__result.sroa.0.1.i.i.i.i.i78 = getelementptr inbounds i8, ptr %__result.sroa.0.025.i.i.i.i.i64, i64 %__result.sroa.0.1.idx.i.i.i.i.i77
   %__result.sroa.5.1.i.i.i.i.i79 = select i1 %cmp.i.i11.i.i.i.i.i, i32 0, i32 %inc.i.i10.i.i.i.i.i
   %dec.i.i.i.i.i80 = add nsw i64 %__n.029.i.i.i.i.i62, -1
   %cmp.i.i.i.i.i81 = icmp sgt i64 %__n.029.i.i.i.i.i62, 1
@@ -3266,14 +3197,14 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit: ; preds = %_ZNSt14_Bit
   br label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit, %_ZNSt14_Bit_referenceaSEb.exit43
-  %23 = phi ptr [ %12, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %.pre, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
+  %22 = phi ptr [ %11, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %.pre, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
   %__result.sroa.0.0.lcssa.i.i.i.i.i57 = phi ptr [ %__i.sroa.0.0, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %__result.sroa.0.1.i.i.i.i.i78, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
   %__result.sroa.5.0.lcssa.i.i.i.i.i58 = phi i32 [ %__i.sroa.4.0, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %__result.sroa.5.1.i.i.i.i.i79, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
-  %tobool.not.i = icmp eq ptr %23, null
+  %tobool.not.i = icmp eq ptr %22, null
   br i1 %tobool.not.i, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %if.then.i85
 
 if.then.i85:                                      ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i
@@ -3347,7 +3278,7 @@ entry:
   %resultWriter.i = alloca %"struct.facebook::velox::exec::VectorWriter", align 8
   %pex.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %agg.tmp47.i = alloca %"class.std::invalid_argument", align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::BaseVector>, std::allocator<std::shared_ptr<facebook::velox::BaseVector>>>::_Vector_impl_data", ptr %args, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %args, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %args, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -3357,9 +3288,9 @@ entry:
   br i1 %cmp, label %sw.bb, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr.72", ptr %2, i64 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load ptr, ptr %add.ptr.i, align 8
-  %typeKind_.i = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %3, i64 0, i32 2
+  %typeKind_.i = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load i8, ptr %typeKind_.i, align 8
   switch i8 %4, label %sw.default [
     i8 3, label %sw.bb
@@ -3382,7 +3313,7 @@ sw.bb:                                            ; preds = %entry, %cond.end
 
 invoke.cont.i:                                    ; preds = %sw.bb
   %6 = load ptr, ptr %decodedArgs.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %6, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
   %call2.i26.i = invoke noundef ptr @_ZN8facebook5velox4exec18LocalDecodedVector3getEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i)
           to label %invoke.cont3.i unwind label %lpad.i
 
@@ -3391,7 +3322,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont.i
 
 cond.false.i:                                     ; preds = %invoke.cont3.i
   %7 = load ptr, ptr %decodedArgs.i, align 8
-  %add.ptr.i.i28.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %7, i64 2
+  %add.ptr.i.i28.i = getelementptr inbounds i8, ptr %7, i64 32
   %call2.i29.i = invoke noundef ptr @_ZN8facebook5velox4exec18LocalDecodedVector3getEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i28.i)
           to label %cond.end.i unwind label %lpad.i
 
@@ -3401,8 +3332,8 @@ cond.end.i:                                       ; preds = %cond.false.i, %invo
           to label %invoke.cont9.i unwind label %lpad.i
 
 invoke.cont9.i:                                   ; preds = %cond.end.i
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.62", ptr %agg.tmp.i, i64 0, i32 1
-  %_M_refcount4.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.96", ptr %ref.tmp8.i, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %_M_refcount4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp8.i, i64 8
   %8 = load <2 x ptr>, ptr %ref.tmp8.i, align 16
   store ptr null, ptr %_M_refcount4.i.i.i, align 8
   store <2 x ptr> %8, ptr %agg.tmp.i, align 16
@@ -3411,7 +3342,7 @@ invoke.cont9.i:                                   ; preds = %cond.end.i
           to label %invoke.cont13.i unwind label %lpad10.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont9.i
-  %_M_refcount4.i.i32.i = getelementptr inbounds %"class.std::__shared_ptr.93", ptr %ref.tmp7.i, i64 0, i32 1
+  %_M_refcount4.i.i32.i = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 8
   %9 = load <2 x ptr>, ptr %ref.tmp7.i, align 16
   store ptr null, ptr %_M_refcount4.i.i32.i, align 8
   store <2 x ptr> %9, ptr %ref.tmp.i, align 16
@@ -3422,13 +3353,13 @@ invoke.cont13.i:                                  ; preds = %invoke.cont9.i
           to label %invoke.cont15.i unwind label %lpad12.i
 
 invoke.cont15.i:                                  ; preds = %invoke.cont13.i
-  %_M_refcount.i.i31.i = getelementptr inbounds %"class.std::__shared_ptr.62", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_refcount.i.i31.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %12 = load ptr, ptr %_M_refcount.i.i31.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont15.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %12, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %13, 4294967297
   %14 = trunc i64 %13 to i32
@@ -3436,10 +3367,10 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont15.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %12, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %12, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %15 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
   br label %if.end8.sink.split.i.i.i.i.i
@@ -3465,10 +3396,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %12, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %18 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %12, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 12
   %19 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -3490,7 +3421,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %12, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %22 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(16) %12) #29
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i
@@ -3501,7 +3432,7 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i: ; preds = %if.end8.sink.s
   br i1 %cmp.not.i.i.i35.i, label %_ZNSt10shared_ptrIKN8facebook5velox9ArrayTypeEED2Ev.exit.i, label %if.then.i.i.i36.i
 
 if.then.i.i.i36.i:                                ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i
-  %_M_use_count.i.i.i.i37.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %23, i64 0, i32 1
+  %_M_use_count.i.i.i.i37.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load atomic i64, ptr %_M_use_count.i.i.i.i37.i acquire, align 8
   %cmp.i.i.i.i38.i = icmp eq i64 %24, 4294967297
   %25 = trunc i64 %24 to i32
@@ -3509,10 +3440,10 @@ if.then.i.i.i36.i:                                ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i61.i:                              ; preds = %if.then.i.i.i36.i
   store i32 0, ptr %_M_use_count.i.i.i.i37.i, align 8
-  %_M_weak_count.i.i.i.i62.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %23, i64 0, i32 2
+  %_M_weak_count.i.i.i.i62.i = getelementptr inbounds i8, ptr %23, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i62.i, align 4
   %vtable.i.i.i.i63.i = load ptr, ptr %23, align 8
-  %vfn.i.i.i.i64.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i63.i, i64 2
+  %vfn.i.i.i.i64.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i63.i, i64 16
   %26 = load ptr, ptr %vfn.i.i.i.i64.i, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %23) #29
   br label %if.end8.sink.split.i.i.i.i56.i
@@ -3538,10 +3469,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i43.i: ; preds = %if.e
 
 if.then7.i.i.i.i46.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i43.i
   %vtable.i.i.i.i.i.i47.i = load ptr, ptr %23, align 8
-  %vfn.i.i.i.i.i.i48.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i47.i, i64 2
+  %vfn.i.i.i.i.i.i48.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i47.i, i64 16
   %29 = load ptr, ptr %vfn.i.i.i.i.i.i48.i, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(16) %23) #29
-  %_M_weak_count.i.i.i.i.i.i49.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %23, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i49.i = getelementptr inbounds i8, ptr %23, i64 12
   %30 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i50.i = icmp eq i8 %30, 0
   br i1 %tobool.i.not.i.i.i.i.i.i50.i, label %if.else.i.i.i.i.i.i.i59.i, label %if.then.i.i.i.i.i.i.i51.i
@@ -3563,7 +3494,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i53.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i56.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i53.i, %if.then.i.i.i.i61.i
   %vtable2.i.i.i.i.i.i57.i = load ptr, ptr %23, align 8
-  %vfn3.i.i.i.i.i.i58.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i57.i, i64 3
+  %vfn3.i.i.i.i.i.i58.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i57.i, i64 24
   %33 = load ptr, ptr %vfn3.i.i.i.i.i.i58.i, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(16) %23) #29
   br label %_ZNSt10shared_ptrIKN8facebook5velox9ArrayTypeEED2Ev.exit.i
@@ -3574,7 +3505,7 @@ _ZNSt10shared_ptrIKN8facebook5velox9ArrayTypeEED2Ev.exit.i: ; preds = %if.end8.s
   br i1 %cmp.not.i.i.i66.i, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit96.i, label %if.then.i.i.i67.i
 
 if.then.i.i.i67.i:                                ; preds = %_ZNSt10shared_ptrIKN8facebook5velox9ArrayTypeEED2Ev.exit.i
-  %_M_use_count.i.i.i.i68.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %34, i64 0, i32 1
+  %_M_use_count.i.i.i.i68.i = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load atomic i64, ptr %_M_use_count.i.i.i.i68.i acquire, align 8
   %cmp.i.i.i.i69.i = icmp eq i64 %35, 4294967297
   %36 = trunc i64 %35 to i32
@@ -3582,10 +3513,10 @@ if.then.i.i.i67.i:                                ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i92.i:                              ; preds = %if.then.i.i.i67.i
   store i32 0, ptr %_M_use_count.i.i.i.i68.i, align 8
-  %_M_weak_count.i.i.i.i93.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %34, i64 0, i32 2
+  %_M_weak_count.i.i.i.i93.i = getelementptr inbounds i8, ptr %34, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i93.i, align 4
   %vtable.i.i.i.i94.i = load ptr, ptr %34, align 8
-  %vfn.i.i.i.i95.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i94.i, i64 2
+  %vfn.i.i.i.i95.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i94.i, i64 16
   %37 = load ptr, ptr %vfn.i.i.i.i95.i, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(16) %34) #29
   br label %if.end8.sink.split.i.i.i.i87.i
@@ -3611,10 +3542,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74.i: ; preds = %if.e
 
 if.then7.i.i.i.i77.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74.i
   %vtable.i.i.i.i.i.i78.i = load ptr, ptr %34, align 8
-  %vfn.i.i.i.i.i.i79.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i78.i, i64 2
+  %vfn.i.i.i.i.i.i79.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i78.i, i64 16
   %40 = load ptr, ptr %vfn.i.i.i.i.i.i79.i, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(16) %34) #29
-  %_M_weak_count.i.i.i.i.i.i80.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %34, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i80.i = getelementptr inbounds i8, ptr %34, i64 12
   %41 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i81.i = icmp eq i8 %41, 0
   br i1 %tobool.i.not.i.i.i.i.i.i81.i, label %if.else.i.i.i.i.i.i.i90.i, label %if.then.i.i.i.i.i.i.i82.i
@@ -3636,7 +3567,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i84.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i87.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i84.i, %if.then.i.i.i.i92.i
   %vtable2.i.i.i.i.i.i88.i = load ptr, ptr %34, align 8
-  %vfn3.i.i.i.i.i.i89.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i88.i, i64 3
+  %vfn3.i.i.i.i.i.i89.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i88.i, i64 24
   %44 = load ptr, ptr %vfn3.i.i.i.i.i.i89.i, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(16) %34) #29
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit96.i
@@ -3647,7 +3578,7 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit96.i: ; preds = %if.end8.sink
   br i1 %cmp.not.i.i.i98.i, label %invoke.cont17.i, label %if.then.i.i.i99.i
 
 if.then.i.i.i99.i:                                ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit96.i
-  %_M_use_count.i.i.i.i100.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %45, i64 0, i32 1
+  %_M_use_count.i.i.i.i100.i = getelementptr inbounds i8, ptr %45, i64 8
   %46 = load atomic i64, ptr %_M_use_count.i.i.i.i100.i acquire, align 8
   %cmp.i.i.i.i101.i = icmp eq i64 %46, 4294967297
   %47 = trunc i64 %46 to i32
@@ -3655,10 +3586,10 @@ if.then.i.i.i99.i:                                ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i124.i:                             ; preds = %if.then.i.i.i99.i
   store i32 0, ptr %_M_use_count.i.i.i.i100.i, align 8
-  %_M_weak_count.i.i.i.i125.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %45, i64 0, i32 2
+  %_M_weak_count.i.i.i.i125.i = getelementptr inbounds i8, ptr %45, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i125.i, align 4
   %vtable.i.i.i.i126.i = load ptr, ptr %45, align 8
-  %vfn.i.i.i.i127.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i126.i, i64 2
+  %vfn.i.i.i.i127.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i126.i, i64 16
   %48 = load ptr, ptr %vfn.i.i.i.i127.i, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(16) %45) #29
   br label %if.end8.sink.split.i.i.i.i119.i
@@ -3684,10 +3615,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106.i: ; preds = %if.
 
 if.then7.i.i.i.i109.i:                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106.i
   %vtable.i.i.i.i.i.i110.i = load ptr, ptr %45, align 8
-  %vfn.i.i.i.i.i.i111.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i110.i, i64 2
+  %vfn.i.i.i.i.i.i111.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i110.i, i64 16
   %51 = load ptr, ptr %vfn.i.i.i.i.i.i111.i, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(16) %45) #29
-  %_M_weak_count.i.i.i.i.i.i112.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %45, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i112.i = getelementptr inbounds i8, ptr %45, i64 12
   %52 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i113.i = icmp eq i8 %52, 0
   br i1 %tobool.i.not.i.i.i.i.i.i113.i, label %if.else.i.i.i.i.i.i.i122.i, label %if.then.i.i.i.i.i.i.i114.i
@@ -3709,68 +3640,68 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i116.i: ; preds = 
 
 if.end8.sink.split.i.i.i.i119.i:                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i116.i, %if.then.i.i.i.i124.i
   %vtable2.i.i.i.i.i.i120.i = load ptr, ptr %45, align 8
-  %vfn3.i.i.i.i.i.i121.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i120.i, i64 3
+  %vfn3.i.i.i.i.i.i121.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i120.i, i64 24
   %55 = load ptr, ptr %vfn3.i.i.i.i.i.i121.i, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(16) %45) #29
   br label %invoke.cont17.i
 
 invoke.cont17.i:                                  ; preds = %if.end8.sink.split.i.i.i.i119.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i116.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106.i, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit96.i
-  %offset_.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::VectorWriterBase", ptr %resultWriter.i, i64 0, i32 1
+  %offset_.i.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 8
   store i32 0, ptr %offset_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE, i64 0, inrange i32 0, i64 2), ptr %resultWriter.i, align 8
-  %arrayVector_.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 1
-  %length_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 2, i32 3
+  %arrayVector_.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 16
+  %length_.i.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %length_.i.i.i, i8 0, i64 36, i1 false)
-  %childWriter_.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 3
-  %offset_.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 3, i32 0, i32 1
+  %childWriter_.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 80
+  %offset_.i.i.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 88
   store i32 0, ptr %offset_.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %arrayVector_.i.i, i8 0, i64 25, i1 false)
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox4exec12VectorWriterINS0_7VarcharEvEE, i64 0, inrange i32 0, i64 2), ptr %childWriter_.i.i, align 8
-  %proxy_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 3, i32 1
-  %data_.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 3, i32 1, i32 0, i32 1
+  %proxy_.i.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 96
+  %data_.i.i.i.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec12StringWriterILb0EEE, i64 0, inrange i32 0, i64 2), ptr %proxy_.i.i.i, align 8
-  %finalized_.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 3, i32 1, i32 1
+  %finalized_.i.i.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 128
   store i8 0, ptr %finalized_.i.i.i.i, align 8
-  %dataBuffer_.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 3, i32 1, i32 2
+  %dataBuffer_.i.i.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 136
   store ptr null, ptr %dataBuffer_.i.i.i.i, align 8
-  %value_.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 3, i32 1, i32 5
+  %value_.i.i.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i) #29
   %56 = load ptr, ptr %result, align 8
   %57 = call noundef ptr @__dynamic_cast(ptr nonnull %56, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #29
   store ptr %57, ptr %arrayVector_.i.i, align 8
-  %elements_.i.i.i = getelementptr inbounds %"class.facebook::velox::ArrayVector", ptr %57, i64 0, i32 1
+  %elements_.i.i.i = getelementptr inbounds i8, ptr %57, i64 136
   %58 = load ptr, ptr %elements_.i.i.i, align 8
-  %vector_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 3, i32 1, i32 3
+  %vector_.i.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 144
   store ptr %58, ptr %vector_.i.i.i, align 8
-  %writer_.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 2
-  %childWriter_2.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 2, i32 1
+  %writer_.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 24
+  %childWriter_2.i.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 32
   store ptr %childWriter_.i.i, ptr %childWriter_2.i.i.i, align 8
   store ptr %58, ptr %writer_.i.i, align 8
-  %length_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %58, i64 0, i32 8
+  %length_.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 56
   %59 = load i32, ptr %length_.i.i.i.i, align 8
-  %valuesOffset_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 2, i32 4
+  %valuesOffset_.i.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 48
   store i32 %59, ptr %valuesOffset_.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %childWriter_.i.i, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %60 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %60(ptr noundef nonnull align 8 dereferenceable(112) %childWriter_.i.i, i64 noundef 1)
           to label %invoke.cont22.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont22.i:                                  ; preds = %invoke.cont17.i
   %61 = load ptr, ptr %writer_.i.i, align 8
-  %length_.i1.i.i.i = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %61, i64 0, i32 8
+  %length_.i1.i.i.i = getelementptr inbounds i8, ptr %61, i64 56
   %62 = load i32, ptr %length_.i1.i.i.i, align 8
-  %elementsVectorCapacity_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 2, i32 5
+  %elementsVectorCapacity_.i.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 52
   store i32 %62, ptr %elementsVectorCapacity_.i.i.i, align 4
-  %isIdentityMapping_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i25.i, i64 0, i32 8
+  %isIdentityMapping_.i.i = getelementptr inbounds i8, ptr %call2.i25.i, i64 58
   %63 = load i8, ptr %isIdentityMapping_.i.i, align 2
   %64 = and i8 %63, 1
   %tobool.i.not.i = icmp eq i8 %64, 0
   br i1 %tobool.i.not.i, label %if.else53.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %invoke.cont22.i
-  %isConstantMapping_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i, i64 0, i32 9
+  %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %call2.i26.i, i64 59
   %65 = load i8, ptr %isConstantMapping_.i.i, align 1
   %66 = and i8 %65, 1
   %tobool.i130.not.i = icmp eq i8 %66, 0
@@ -3780,7 +3711,7 @@ land.lhs.true27.i:                                ; preds = %land.lhs.true.i
   br i1 %cmp, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true27.i
-  %isConstantMapping_.i131.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %cond.i, i64 0, i32 9
+  %isConstantMapping_.i131.i = getelementptr inbounds i8, ptr %cond.i, i64 59
   %67 = load i8, ptr %isConstantMapping_.i131.i, align 1
   %68 = and i8 %67, 1
   %tobool.i132.not.i = icmp eq i8 %68, 0
@@ -3797,18 +3728,18 @@ if.else53.thread.i:                               ; preds = %lor.lhs.false.i
   br label %if.else.i382.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %land.lhs.true27.i
-  %data_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i25.i, i64 0, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %call2.i25.i, i64 16
   %69 = load ptr, ptr %data_.i.i, align 8
-  %data_.i133.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i, i64 0, i32 2
+  %data_.i133.i = getelementptr inbounds i8, ptr %call2.i26.i, i64 16
   %70 = load ptr, ptr %data_.i133.i, align 8
-  %isIdentityMapping_.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i, i64 0, i32 8
+  %isIdentityMapping_.i.i.i = getelementptr inbounds i8, ptr %call2.i26.i, i64 58
   %71 = load i8, ptr %isIdentityMapping_.i.i.i, align 2
   %72 = and i8 %71, 1
   %tobool.not.i.i.i = icmp eq i8 %72, 0
   br i1 %tobool.not.i.i.i, label %if.then3.i.i.i, label %invoke.cont33.i
 
 if.then3.i.i.i:                                   ; preds = %if.then.i
-  %constantIndex_.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i, i64 0, i32 11
+  %constantIndex_.i.i.i = getelementptr inbounds i8, ptr %call2.i26.i, i64 64
   %73 = load i32, ptr %constantIndex_.i.i.i, align 8
   br label %invoke.cont33.i
 
@@ -3822,8 +3753,8 @@ invoke.cont33.i:                                  ; preds = %if.then3.i.i.i, %if
   br i1 %cmp, label %if.then36.i, label %if.else.i
 
 if.then36.i:                                      ; preds = %invoke.cont33.i
-  %allSelected_.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 4
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %allSelected_.i.i.i = getelementptr inbounds i8, ptr %rows, i64 36
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %rows, i64 37
   %74 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
   %75 = and i8 %74, 1
   %tobool.i.i.not.i.i.i = icmp eq i8 %75, 0
@@ -3834,15 +3765,15 @@ entry.return_crit_edge.i.i.i:                     ; preds = %if.then36.i
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
 
 if.end.i.i137.i:                                  ; preds = %if.then36.i
-  %begin_.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_.i.i.i = getelementptr inbounds i8, ptr %rows, i64 28
   %76 = load i32, ptr %begin_.i.i.i, align 4
   %cmp.i.i.i = icmp eq i32 %76, 0
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %land.end.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i137.i
-  %end_.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_.i.i.i = getelementptr inbounds i8, ptr %rows, i64 32
   %77 = load i32, ptr %end_.i.i.i, align 8
-  %size_.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 1
+  %size_.i.i.i = getelementptr inbounds i8, ptr %rows, i64 24
   %78 = load i32, ptr %size_.i.i.i, align 8
   %cmp5.i.i.i = icmp eq i32 %77, %78
   br i1 %cmp5.i.i.i, label %land.rhs.i.i.i, label %land.end.i.i.i
@@ -3901,9 +3832,9 @@ _ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i: ; preds = %lan
   br i1 %retval.0.i.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
-  %begin_.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_.i.i = getelementptr inbounds i8, ptr %rows, i64 28
   %88 = load i32, ptr %begin_.i.i, align 4
-  %end_.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_.i.i = getelementptr inbounds i8, ptr %rows, i64 32
   %89 = load i32, ptr %end_.i.i, align 8
   %cmp12.i.i = icmp slt i32 %88, %89
   br i1 %cmp12.i.i, label %for.body.lr.ph.i.i, label %if.end55.i
@@ -3931,9 +3862,9 @@ for.body.i.i:                                     ; preds = %.noexc.i, %for.body
 
 if.else.i.i:                                      ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
   %94 = load ptr, ptr %rows, align 8
-  %begin_3.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_3.i.i = getelementptr inbounds i8, ptr %rows, i64 28
   %95 = load i32, ptr %begin_3.i.i, align 4
-  %end_4.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_4.i.i = getelementptr inbounds i8, ptr %rows, i64 32
   %96 = load i32, ptr %end_4.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp slt i32 %95, %96
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i6.i.i, label %if.end55.i
@@ -4273,28 +4204,28 @@ lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
   br label %ehcleanup68.i
 
 if.else.i:                                        ; preds = %invoke.cont33.i
-  %data_.i145.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %cond.i, i64 0, i32 2
+  %data_.i145.i = getelementptr inbounds i8, ptr %cond.i, i64 16
   %110 = load ptr, ptr %data_.i145.i, align 8
-  %isIdentityMapping_.i.i146.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %cond.i, i64 0, i32 8
+  %isIdentityMapping_.i.i146.i = getelementptr inbounds i8, ptr %cond.i, i64 58
   %111 = load i8, ptr %isIdentityMapping_.i.i146.i, align 2
   %112 = and i8 %111, 1
   %tobool.not.i.i147.i = icmp eq i8 %112, 0
   br i1 %tobool.not.i.i147.i, label %if.end.i.i151.i, label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i
 
 if.end.i.i151.i:                                  ; preds = %if.else.i
-  %isConstantMapping_.i.i152.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %cond.i, i64 0, i32 9
+  %isConstantMapping_.i.i152.i = getelementptr inbounds i8, ptr %cond.i, i64 59
   %113 = load i8, ptr %isConstantMapping_.i.i152.i, align 1
   %114 = and i8 %113, 1
   %tobool2.not.i.i153.i = icmp eq i8 %114, 0
   br i1 %tobool2.not.i.i153.i, label %if.end4.i.i156.i, label %if.then3.i.i154.i
 
 if.then3.i.i154.i:                                ; preds = %if.end.i.i151.i
-  %constantIndex_.i.i155.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %cond.i, i64 0, i32 11
+  %constantIndex_.i.i155.i = getelementptr inbounds i8, ptr %cond.i, i64 64
   %115 = load i32, ptr %constantIndex_.i.i155.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i
 
 if.end4.i.i156.i:                                 ; preds = %if.end.i.i151.i
-  %indices_.i.i157.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %cond.i, i64 0, i32 1
+  %indices_.i.i157.i = getelementptr inbounds i8, ptr %cond.i, i64 8
   %116 = load ptr, ptr %indices_.i.i157.i, align 8
   %117 = load i32, ptr %116, align 4
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i
@@ -4308,8 +4239,8 @@ _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i: ; preds = %if.end4.i.i
   br i1 %cmp42.i, label %if.then43.i, label %if.else46.i
 
 if.then43.i:                                      ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i
-  %allSelected_.i.i159.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 4
-  %_M_engaged.i.i.i.i160.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %allSelected_.i.i159.i = getelementptr inbounds i8, ptr %rows, i64 36
+  %_M_engaged.i.i.i.i160.i = getelementptr inbounds i8, ptr %rows, i64 37
   %119 = load i8, ptr %_M_engaged.i.i.i.i160.i, align 1
   %120 = and i8 %119, 1
   %tobool.i.i.not.i.i161.i = icmp eq i8 %120, 0
@@ -4320,15 +4251,15 @@ entry.return_crit_edge.i.i162.i:                  ; preds = %if.then43.i
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i164.i
 
 if.end.i.i341.i:                                  ; preds = %if.then43.i
-  %begin_.i.i342.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_.i.i342.i = getelementptr inbounds i8, ptr %rows, i64 28
   %121 = load i32, ptr %begin_.i.i342.i, align 4
   %cmp.i.i343.i = icmp eq i32 %121, 0
   br i1 %cmp.i.i343.i, label %land.lhs.true.i.i346.i, label %land.end.i.i344.i
 
 land.lhs.true.i.i346.i:                           ; preds = %if.end.i.i341.i
-  %end_.i.i347.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_.i.i347.i = getelementptr inbounds i8, ptr %rows, i64 32
   %122 = load i32, ptr %end_.i.i347.i, align 8
-  %size_.i.i348.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 1
+  %size_.i.i348.i = getelementptr inbounds i8, ptr %rows, i64 24
   %123 = load i32, ptr %size_.i.i348.i, align 8
   %cmp5.i.i349.i = icmp eq i32 %122, %123
   br i1 %cmp5.i.i349.i, label %land.rhs.i.i350.i, label %land.end.i.i344.i
@@ -4387,9 +4318,9 @@ _ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i164.i: ; preds = %
   br i1 %retval.0.i.not.i167.i, label %if.else.i184.i, label %if.then.i168.i
 
 if.then.i168.i:                                   ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i164.i
-  %begin_.i169.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_.i169.i = getelementptr inbounds i8, ptr %rows, i64 28
   %133 = load i32, ptr %begin_.i169.i, align 4
-  %end_.i170.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_.i170.i = getelementptr inbounds i8, ptr %rows, i64 32
   %134 = load i32, ptr %end_.i170.i, align 8
   %cmp12.i171.i = icmp slt i32 %133, %134
   br i1 %cmp12.i171.i, label %for.body.lr.ph.i172.i, label %if.end55.i
@@ -4417,9 +4348,9 @@ for.body.i174.i:                                  ; preds = %.noexc371.i, %for.b
 
 if.else.i184.i:                                   ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i164.i
   %139 = load ptr, ptr %rows, align 8
-  %begin_3.i185.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_3.i185.i = getelementptr inbounds i8, ptr %rows, i64 28
   %140 = load i32, ptr %begin_3.i185.i, align 4
-  %end_4.i186.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_4.i186.i = getelementptr inbounds i8, ptr %rows, i64 32
   %141 = load i32, ptr %end_4.i186.i, align 8
   %cmp.not.i.i.i.i192.i = icmp slt i32 %140, %141
   br i1 %cmp.not.i.i.i.i192.i, label %if.end.i.i.i6.i193.i, label %if.end55.i
@@ -4672,8 +4603,8 @@ if.else53.i:                                      ; preds = %land.lhs.true.i, %i
 
 if.then.i383.i:                                   ; preds = %if.else53.i
   store i32 2147483647, ptr %limit.i.i, align 4
-  %allSelected_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 4
-  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %allSelected_.i.i.i.i = getelementptr inbounds i8, ptr %rows, i64 36
+  %_M_engaged.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rows, i64 37
   %155 = load i8, ptr %_M_engaged.i.i.i.i.i.i, align 1
   %156 = and i8 %155, 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %156, 0
@@ -4684,15 +4615,15 @@ entry.return_crit_edge.i.i.i.i:                   ; preds = %if.then.i383.i
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i383.i
-  %begin_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_.i.i.i.i = getelementptr inbounds i8, ptr %rows, i64 28
   %157 = load i32, ptr %begin_.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp eq i32 %157, 0
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %land.end.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end.i.i.i.i
-  %end_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_.i.i.i.i = getelementptr inbounds i8, ptr %rows, i64 32
   %158 = load i32, ptr %end_.i.i.i.i, align 8
-  %size_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 1
+  %size_.i.i.i.i = getelementptr inbounds i8, ptr %rows, i64 24
   %159 = load i32, ptr %size_.i.i.i.i, align 8
   %cmp5.i.i.i.i = icmp eq i32 %158, %159
   br i1 %cmp5.i.i.i.i, label %land.rhs.i.i.i.i, label %land.end.i.i.i.i
@@ -4751,24 +4682,24 @@ _ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i: ; preds = %l
   br i1 %retval.0.i.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i
-  %begin_.i.i384.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_.i.i384.i = getelementptr inbounds i8, ptr %rows, i64 28
   %169 = load i32, ptr %begin_.i.i384.i, align 4
-  %end_.i.i385.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_.i.i385.i = getelementptr inbounds i8, ptr %rows, i64 32
   %170 = load i32, ptr %end_.i.i385.i, align 8
   %cmp10.i.i.i = icmp slt i32 %169, %170
   br i1 %cmp10.i.i.i, label %for.body.lr.ph.i.i.i, label %_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.exit.i
 
 for.body.lr.ph.i.i.i:                             ; preds = %if.then.i.i.i
   %171 = sext i32 %169 to i64
-  %data_.i.i.i.i386.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i25.i, i64 0, i32 2
-  %data_.i3.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i, i64 0, i32 2
-  %isIdentityMapping_.i.i4.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i, i64 0, i32 8
-  %isConstantMapping_.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i25.i, i64 0, i32 9
-  %constantIndex_.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i25.i, i64 0, i32 11
-  %indices_.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i25.i, i64 0, i32 1
-  %isConstantMapping_.i.i15.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i, i64 0, i32 9
-  %constantIndex_.i.i18.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i, i64 0, i32 11
-  %indices_.i.i20.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i, i64 0, i32 1
+  %data_.i.i.i.i386.i = getelementptr inbounds i8, ptr %call2.i25.i, i64 16
+  %data_.i3.i.i.i.i = getelementptr inbounds i8, ptr %call2.i26.i, i64 16
+  %isIdentityMapping_.i.i4.i.i.i.i = getelementptr inbounds i8, ptr %call2.i26.i, i64 58
+  %isConstantMapping_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i25.i, i64 59
+  %constantIndex_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i25.i, i64 64
+  %indices_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i25.i, i64 8
+  %isConstantMapping_.i.i15.i.i.i.i = getelementptr inbounds i8, ptr %call2.i26.i, i64 59
+  %constantIndex_.i.i18.i.i.i.i = getelementptr inbounds i8, ptr %call2.i26.i, i64 64
+  %indices_.i.i20.i.i.i.i = getelementptr inbounds i8, ptr %call2.i26.i, i64 8
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %.noexc395.i, %for.body.lr.ph.i.i.i
@@ -4844,9 +4775,9 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRK
 
 if.else.i.i.i:                                    ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i
   %191 = load ptr, ptr %rows, align 8
-  %begin_3.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_3.i.i.i = getelementptr inbounds i8, ptr %rows, i64 28
   %192 = load i32, ptr %begin_3.i.i.i, align 4
-  %end_4.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_4.i.i.i = getelementptr inbounds i8, ptr %rows, i64 32
   %193 = load i32, ptr %end_4.i.i.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp3.i.i.i.i.i)
@@ -4947,28 +4878,28 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %.noexc398.i, %for.b
   %row.054.i.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i.i, %.noexc398.i ]
   %conv7.i.i.i.i.i.i.i = trunc i64 %row.054.i.i.i.i.i.i.i to i32
   %199 = load ptr, ptr %strings.addr.i.i, align 8
-  %data_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %199, i64 0, i32 2
+  %data_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %199, i64 16
   %200 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i, align 8
-  %isIdentityMapping_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %199, i64 0, i32 8
+  %isIdentityMapping_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %199, i64 58
   %201 = load i8, ptr %isIdentityMapping_.i.i.i.i.i.i.i.i.i.i, align 2
   %202 = and i8 %201, 1
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %202, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i, label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i
-  %isConstantMapping_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %199, i64 0, i32 9
+  %isConstantMapping_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %199, i64 59
   %203 = load i8, ptr %isConstantMapping_.i.i.i.i.i.i.i.i.i.i, align 1
   %204 = and i8 %203, 1
   %tobool2.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %204, 0
   br i1 %tobool2.not.i.i.i.i.i.i.i.i.i.i, label %if.end4.i.i.i.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
-  %constantIndex_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %199, i64 0, i32 11
+  %constantIndex_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %199, i64 64
   %205 = load i32, ptr %constantIndex_.i.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.end.i.i.i.i.i.i.i.i.i.i
-  %indices_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %199, i64 0, i32 1
+  %indices_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %199, i64 8
   %206 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i.i.i, align 8
   %sext.i.i.i.i.i.i.i = shl i64 %row.054.i.i.i.i.i.i.i, 32
   %idxprom.i.i.i.i.i.i.i.i.i.i = ashr exact i64 %sext.i.i.i.i.i.i.i, 32
@@ -4984,28 +4915,28 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i.i.i, align 8
   %208 = load ptr, ptr %delims.addr.i.i, align 8
-  %data_.i3.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %208, i64 0, i32 2
+  %data_.i3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %208, i64 16
   %209 = load ptr, ptr %data_.i3.i.i.i.i.i.i.i.i, align 8
-  %isIdentityMapping_.i.i4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %208, i64 0, i32 8
+  %isIdentityMapping_.i.i4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %208, i64 58
   %210 = load i8, ptr %isIdentityMapping_.i.i4.i.i.i.i.i.i.i.i, align 2
   %211 = and i8 %210, 1
   %tobool.not.i.i5.i.i.i.i.i.i.i.i = icmp eq i8 %211, 0
   br i1 %tobool.not.i.i5.i.i.i.i.i.i.i.i, label %if.end.i.i14.i.i.i.i.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit.i.i.i.i.i.i.i
 
 if.end.i.i14.i.i.i.i.i.i.i.i:                     ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i.i.i.i
-  %isConstantMapping_.i.i15.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %208, i64 0, i32 9
+  %isConstantMapping_.i.i15.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %208, i64 59
   %212 = load i8, ptr %isConstantMapping_.i.i15.i.i.i.i.i.i.i.i, align 1
   %213 = and i8 %212, 1
   %tobool2.not.i.i16.i.i.i.i.i.i.i.i = icmp eq i8 %213, 0
   br i1 %tobool2.not.i.i16.i.i.i.i.i.i.i.i, label %if.end4.i.i19.i.i.i.i.i.i.i.i, label %if.then3.i.i17.i.i.i.i.i.i.i.i
 
 if.then3.i.i17.i.i.i.i.i.i.i.i:                   ; preds = %if.end.i.i14.i.i.i.i.i.i.i.i
-  %constantIndex_.i.i18.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %208, i64 0, i32 11
+  %constantIndex_.i.i18.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %208, i64 64
   %214 = load i32, ptr %constantIndex_.i.i18.i.i.i.i.i.i.i.i, align 8
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit.i.i.i.i.i.i.i
 
 if.end4.i.i19.i.i.i.i.i.i.i.i:                    ; preds = %if.end.i.i14.i.i.i.i.i.i.i.i
-  %indices_.i.i20.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %208, i64 0, i32 1
+  %indices_.i.i20.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %208, i64 8
   %215 = load ptr, ptr %indices_.i.i20.i.i.i.i.i.i.i.i, align 8
   %sext49.i.i.i.i.i.i.i = shl i64 %row.054.i.i.i.i.i.i.i, 32
   %idxprom.i.i21.i.i.i.i.i.i.i.i = ashr exact i64 %sext49.i.i.i.i.i.i.i, 32
@@ -5034,28 +4965,28 @@ while.body.i.i.i.i.i.i.i:                         ; preds = %.noexc399.i, %while
   %cast.i.i.i.i.i.i.i = trunc i64 %217 to i32
   %add10.i.i.i.i.i.i.i = or disjoint i32 %mul9.i.i.i.i.i.i.i, %cast.i.i.i.i.i.i.i
   %218 = load ptr, ptr %strings.addr.i.i, align 8
-  %data_.i.i11.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %218, i64 0, i32 2
+  %data_.i.i11.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %218, i64 16
   %219 = load ptr, ptr %data_.i.i11.i.i.i.i.i.i.i, align 8
-  %isIdentityMapping_.i.i.i12.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %218, i64 0, i32 8
+  %isIdentityMapping_.i.i.i12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %218, i64 58
   %220 = load i8, ptr %isIdentityMapping_.i.i.i12.i.i.i.i.i.i.i, align 2
   %221 = and i8 %220, 1
   %tobool.not.i.i.i13.i.i.i.i.i.i.i = icmp eq i8 %221, 0
   br i1 %tobool.not.i.i.i13.i.i.i.i.i.i.i, label %if.end.i.i.i39.i.i.i.i.i.i.i, label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i14.i.i.i.i.i.i.i
 
 if.end.i.i.i39.i.i.i.i.i.i.i:                     ; preds = %while.body.i.i.i.i.i.i.i
-  %isConstantMapping_.i.i.i40.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %218, i64 0, i32 9
+  %isConstantMapping_.i.i.i40.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %218, i64 59
   %222 = load i8, ptr %isConstantMapping_.i.i.i40.i.i.i.i.i.i.i, align 1
   %223 = and i8 %222, 1
   %tobool2.not.i.i.i41.i.i.i.i.i.i.i = icmp eq i8 %223, 0
   br i1 %tobool2.not.i.i.i41.i.i.i.i.i.i.i, label %if.end4.i.i.i44.i.i.i.i.i.i.i, label %if.then3.i.i.i42.i.i.i.i.i.i.i
 
 if.then3.i.i.i42.i.i.i.i.i.i.i:                   ; preds = %if.end.i.i.i39.i.i.i.i.i.i.i
-  %constantIndex_.i.i.i43.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %218, i64 0, i32 11
+  %constantIndex_.i.i.i43.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %218, i64 64
   %224 = load i32, ptr %constantIndex_.i.i.i43.i.i.i.i.i.i.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i14.i.i.i.i.i.i.i
 
 if.end4.i.i.i44.i.i.i.i.i.i.i:                    ; preds = %if.end.i.i.i39.i.i.i.i.i.i.i
-  %indices_.i.i.i45.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %218, i64 0, i32 1
+  %indices_.i.i.i45.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %218, i64 8
   %225 = load ptr, ptr %indices_.i.i.i45.i.i.i.i.i.i.i, align 8
   %idxprom.i.i.i46.i.i.i.i.i.i.i = sext i32 %add10.i.i.i.i.i.i.i to i64
   %arrayidx.i.i.i47.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %225, i64 %idxprom.i.i.i46.i.i.i.i.i.i.i
@@ -5070,28 +5001,28 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i14.i.i.i
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i19.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i17.i.i.i.i.i.i.i, i64 8
   %retval.sroa.2.0.copyload.i.i20.i.i.i.i.i.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i19.i.i.i.i.i.i.i, align 8
   %227 = load ptr, ptr %delims.addr.i.i, align 8
-  %data_.i3.i21.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %227, i64 0, i32 2
+  %data_.i3.i21.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %227, i64 16
   %228 = load ptr, ptr %data_.i3.i21.i.i.i.i.i.i.i, align 8
-  %isIdentityMapping_.i.i4.i22.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %227, i64 0, i32 8
+  %isIdentityMapping_.i.i4.i22.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %227, i64 58
   %229 = load i8, ptr %isIdentityMapping_.i.i4.i22.i.i.i.i.i.i.i, align 2
   %230 = and i8 %229, 1
   %tobool.not.i.i5.i23.i.i.i.i.i.i.i = icmp eq i8 %230, 0
   br i1 %tobool.not.i.i5.i23.i.i.i.i.i.i.i, label %if.end.i.i14.i30.i.i.i.i.i.i.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit48.i.i.i.i.i.i.i
 
 if.end.i.i14.i30.i.i.i.i.i.i.i:                   ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i14.i.i.i.i.i.i.i
-  %isConstantMapping_.i.i15.i31.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %227, i64 0, i32 9
+  %isConstantMapping_.i.i15.i31.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %227, i64 59
   %231 = load i8, ptr %isConstantMapping_.i.i15.i31.i.i.i.i.i.i.i, align 1
   %232 = and i8 %231, 1
   %tobool2.not.i.i16.i32.i.i.i.i.i.i.i = icmp eq i8 %232, 0
   br i1 %tobool2.not.i.i16.i32.i.i.i.i.i.i.i, label %if.end4.i.i19.i35.i.i.i.i.i.i.i, label %if.then3.i.i17.i33.i.i.i.i.i.i.i
 
 if.then3.i.i17.i33.i.i.i.i.i.i.i:                 ; preds = %if.end.i.i14.i30.i.i.i.i.i.i.i
-  %constantIndex_.i.i18.i34.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %227, i64 0, i32 11
+  %constantIndex_.i.i18.i34.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %227, i64 64
   %233 = load i32, ptr %constantIndex_.i.i18.i34.i.i.i.i.i.i.i, align 8
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit48.i.i.i.i.i.i.i
 
 if.end4.i.i19.i35.i.i.i.i.i.i.i:                  ; preds = %if.end.i.i14.i30.i.i.i.i.i.i.i
-  %indices_.i.i20.i36.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %227, i64 0, i32 1
+  %indices_.i.i20.i36.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %227, i64 8
   %234 = load ptr, ptr %indices_.i.i20.i36.i.i.i.i.i.i.i, align 8
   %idxprom.i.i21.i37.i.i.i.i.i.i.i = sext i32 %add10.i.i.i.i.i.i.i to i64
   %arrayidx.i.i22.i38.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %234, i64 %idxprom.i.i21.i37.i.i.i.i.i.i.i
@@ -5147,8 +5078,8 @@ if.else.i382.i:                                   ; preds = %if.else53.i, %if.el
   store ptr %this, ptr %agg.tmp2.sroa.5.0.agg.tmp24.sroa_idx.i.i, align 8
   %agg.tmp2.sroa.6.0.agg.tmp24.sroa_idx.i.i = getelementptr inbounds i8, ptr %agg.tmp24.i.i, i64 40
   store ptr %context, ptr %agg.tmp2.sroa.6.0.agg.tmp24.sroa_idx.i.i, align 8
-  %allSelected_.i.i6.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 4
-  %_M_engaged.i.i.i.i7.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %allSelected_.i.i6.i.i = getelementptr inbounds i8, ptr %rows, i64 36
+  %_M_engaged.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %rows, i64 37
   %236 = load i8, ptr %_M_engaged.i.i.i.i7.i.i, align 1
   %237 = and i8 %236, 1
   %tobool.i.i.not.i.i8.i.i = icmp eq i8 %237, 0
@@ -5159,15 +5090,15 @@ entry.return_crit_edge.i.i9.i.i:                  ; preds = %if.else.i382.i
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i11.i.i
 
 if.end.i.i75.i.i:                                 ; preds = %if.else.i382.i
-  %begin_.i.i76.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_.i.i76.i.i = getelementptr inbounds i8, ptr %rows, i64 28
   %238 = load i32, ptr %begin_.i.i76.i.i, align 4
   %cmp.i.i77.i.i = icmp eq i32 %238, 0
   br i1 %cmp.i.i77.i.i, label %land.lhs.true.i.i80.i.i, label %land.end.i.i78.i.i
 
 land.lhs.true.i.i80.i.i:                          ; preds = %if.end.i.i75.i.i
-  %end_.i.i81.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_.i.i81.i.i = getelementptr inbounds i8, ptr %rows, i64 32
   %239 = load i32, ptr %end_.i.i81.i.i, align 8
-  %size_.i.i82.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 1
+  %size_.i.i82.i.i = getelementptr inbounds i8, ptr %rows, i64 24
   %240 = load i32, ptr %size_.i.i82.i.i, align 8
   %cmp5.i.i83.i.i = icmp eq i32 %239, %240
   br i1 %cmp5.i.i83.i.i, label %land.rhs.i.i84.i.i, label %land.end.i.i78.i.i
@@ -5226,9 +5157,9 @@ _ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i11.i.i: ; preds = 
   br i1 %retval.0.i.not.i14.i.i, label %if.else.i20.i.i, label %if.then.i15.i.i
 
 if.then.i15.i.i:                                  ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i11.i.i
-  %begin_.i16.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_.i16.i.i = getelementptr inbounds i8, ptr %rows, i64 28
   %250 = load i32, ptr %begin_.i16.i.i, align 4
-  %end_.i17.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_.i17.i.i = getelementptr inbounds i8, ptr %rows, i64 32
   %251 = load i32, ptr %end_.i17.i.i, align 8
   %cmp9.i.i.i = icmp slt i32 %250, %251
   br i1 %cmp9.i.i.i, label %for.body.i18.i.i, label %_ZNK8facebook5velox17SelectivityVector15applyToSelectedIZNKS0_9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRKS1_RNS0_4exec7EvalCtxEPNS0_13DecodedVectorESD_SD_RNS9_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEEUliE0_EEvT_.exit.i.i
@@ -5246,9 +5177,9 @@ for.body.i18.i.i:                                 ; preds = %if.then.i15.i.i, %.
 
 if.else.i20.i.i:                                  ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i11.i.i
   %253 = load ptr, ptr %rows, align 8
-  %begin_3.i21.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_3.i21.i.i = getelementptr inbounds i8, ptr %rows, i64 28
   %254 = load i32, ptr %begin_3.i21.i.i, align 4
-  %end_4.i22.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_4.i22.i.i = getelementptr inbounds i8, ptr %rows, i64 32
   %255 = load i32, ptr %end_4.i22.i.i, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i23.i.i = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i5.i.i, i64 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp3.i.i.i5.i.i)
@@ -5466,10 +5397,10 @@ invoke.cont56.i:                                  ; preds = %if.end55.i
   store ptr null, ptr %arrayVector_.i.i, align 8
   %268 = load ptr, ptr %result, align 8
   %269 = call noundef ptr @__dynamic_cast(ptr nonnull %268, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #29
-  %elements_.i.i = getelementptr inbounds %"class.facebook::velox::ArrayVector", ptr %269, i64 0, i32 1
+  %elements_.i.i = getelementptr inbounds i8, ptr %269, i64 136
   %270 = load ptr, ptr %elements_.i.i, align 8
   %271 = call noundef ptr @__dynamic_cast(ptr nonnull %270, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorINS0_10StringViewEEE, i64 0) #29
-  %baseVector_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i25.i, i64 0, i32 5
+  %baseVector_.i.i = getelementptr inbounds i8, ptr %call2.i25.i, i64 48
   %272 = load ptr, ptr %baseVector_.i.i, align 8
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE26acquireSharedStringBuffersEPKNS0_10BaseVectorE(ptr noundef nonnull align 8 dereferenceable(280) %271, ptr noundef %272)
           to label %invoke.cont67.i unwind label %lpad19.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
@@ -5479,7 +5410,7 @@ invoke.cont67.i:                                  ; preds = %invoke.cont56.i
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox4exec12VectorWriterINS0_7VarcharEvEE, i64 0, inrange i32 0, i64 2), ptr %childWriter_.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec12StringWriterILb0EEE, i64 0, inrange i32 0, i64 2), ptr %proxy_.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i) #29
-  %vectorsWithAcquiredBuffers_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i, i64 0, i32 2, i32 6
+  %vectorsWithAcquiredBuffers_.i.i.i = getelementptr inbounds i8, ptr %resultWriter.i, i64 56
   %273 = load ptr, ptr %vectorsWithAcquiredBuffers_.i.i.i, align 8
   %tobool.not.i.i.i.i.i413.i = icmp eq ptr %273, null
   br i1 %tobool.not.i.i.i.i.i413.i, label %_ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvED2Ev.exit.i, label %if.then.i.i.i.i.i414.i
@@ -5490,7 +5421,7 @@ if.then.i.i.i.i.i414.i:                           ; preds = %invoke.cont67.i
 
 _ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i414.i, %invoke.cont67.i
   %274 = load ptr, ptr %decodedArgs.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::exec::LocalDecodedVector, std::allocator<facebook::velox::exec::LocalDecodedVector>>::_Vector_impl_data", ptr %decodedArgs.i, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %decodedArgs.i, i64 8
   %275 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %274, %275
   br i1 %cmp.not3.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i415.i
@@ -5498,7 +5429,7 @@ _ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvED2Ev.exit.i: ;
 for.body.i.i.i.i.i415.i:                          ; preds = %_ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvED2Ev.exit.i, %for.body.i.i.i.i.i415.i
   %__first.addr.04.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i415.i ], [ %274, %_ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvED2Ev.exit.i ]
   call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i.i.i) #29
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i416.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %275
   br i1 %cmp.not.i.i.i.i.i416.i, label %invoke.contthread-pre-split.i.i.i, label %for.body.i.i.i.i.i415.i, !llvm.loop !51
 
@@ -5553,13 +5484,13 @@ sw.bb5:                                           ; preds = %cond.end
 
 invoke.cont.i30:                                  ; preds = %sw.bb5
   %278 = load ptr, ptr %decodedArgs.i15, align 8
-  %add.ptr.i.i.i31 = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %278, i64 1
+  %add.ptr.i.i.i31 = getelementptr inbounds i8, ptr %278, i64 16
   %call2.i26.i32 = invoke noundef ptr @_ZN8facebook5velox4exec18LocalDecodedVector3getEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i31)
           to label %cond.false.i34 unwind label %lpad.i28
 
 cond.false.i34:                                   ; preds = %invoke.cont.i30
   %279 = load ptr, ptr %decodedArgs.i15, align 8
-  %add.ptr.i.i28.i35 = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %279, i64 2
+  %add.ptr.i.i28.i35 = getelementptr inbounds i8, ptr %279, i64 32
   %call2.i29.i36 = invoke noundef ptr @_ZN8facebook5velox4exec18LocalDecodedVector3getEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i28.i35)
           to label %cond.end.i37 unwind label %lpad.i28
 
@@ -5568,8 +5499,8 @@ cond.end.i37:                                     ; preds = %cond.false.i34
           to label %invoke.cont9.i39 unwind label %lpad.i28
 
 invoke.cont9.i39:                                 ; preds = %cond.end.i37
-  %_M_refcount.i.i.i40 = getelementptr inbounds %"class.std::__shared_ptr.62", ptr %agg.tmp.i18, i64 0, i32 1
-  %_M_refcount4.i.i.i41 = getelementptr inbounds %"class.std::__shared_ptr.96", ptr %ref.tmp8.i19, i64 0, i32 1
+  %_M_refcount.i.i.i40 = getelementptr inbounds i8, ptr %agg.tmp.i18, i64 8
+  %_M_refcount4.i.i.i41 = getelementptr inbounds i8, ptr %ref.tmp8.i19, i64 8
   %280 = load <2 x ptr>, ptr %ref.tmp8.i19, align 16
   store ptr null, ptr %_M_refcount4.i.i.i41, align 8
   store <2 x ptr> %280, ptr %agg.tmp.i18, align 16
@@ -5578,7 +5509,7 @@ invoke.cont9.i39:                                 ; preds = %cond.end.i37
           to label %invoke.cont13.i45 unwind label %lpad10.i42
 
 invoke.cont13.i45:                                ; preds = %invoke.cont9.i39
-  %_M_refcount4.i.i32.i47 = getelementptr inbounds %"class.std::__shared_ptr.93", ptr %ref.tmp7.i17, i64 0, i32 1
+  %_M_refcount4.i.i32.i47 = getelementptr inbounds i8, ptr %ref.tmp7.i17, i64 8
   %281 = load <2 x ptr>, ptr %ref.tmp7.i17, align 16
   store ptr null, ptr %_M_refcount4.i.i32.i47, align 8
   store <2 x ptr> %281, ptr %ref.tmp.i16, align 16
@@ -5589,13 +5520,13 @@ invoke.cont13.i45:                                ; preds = %invoke.cont9.i39
           to label %invoke.cont15.i49 unwind label %lpad12.i48
 
 invoke.cont15.i49:                                ; preds = %invoke.cont13.i45
-  %_M_refcount.i.i31.i46 = getelementptr inbounds %"class.std::__shared_ptr.62", ptr %ref.tmp.i16, i64 0, i32 1
+  %_M_refcount.i.i31.i46 = getelementptr inbounds i8, ptr %ref.tmp.i16, i64 8
   %284 = load ptr, ptr %_M_refcount.i.i31.i46, align 8
   %cmp.not.i.i.i.i50 = icmp eq ptr %284, null
   br i1 %cmp.not.i.i.i.i50, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i61, label %if.then.i.i.i.i51
 
 if.then.i.i.i.i51:                                ; preds = %invoke.cont15.i49
-  %_M_use_count.i.i.i.i.i52 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %284, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i52 = getelementptr inbounds i8, ptr %284, i64 8
   %285 = load atomic i64, ptr %_M_use_count.i.i.i.i.i52 acquire, align 8
   %cmp.i.i.i.i.i53 = icmp eq i64 %285, 4294967297
   %286 = trunc i64 %285 to i32
@@ -5603,10 +5534,10 @@ if.then.i.i.i.i51:                                ; preds = %invoke.cont15.i49
 
 if.then.i.i.i.i.i1071:                            ; preds = %if.then.i.i.i.i51
   store i32 0, ptr %_M_use_count.i.i.i.i.i52, align 8
-  %_M_weak_count.i.i.i.i.i1072 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %284, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i1072 = getelementptr inbounds i8, ptr %284, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i1072, align 4
   %vtable.i.i.i.i.i1073 = load ptr, ptr %284, align 8
-  %vfn.i.i.i.i.i1074 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i1073, i64 2
+  %vfn.i.i.i.i.i1074 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i1073, i64 16
   %287 = load ptr, ptr %vfn.i.i.i.i.i1074, align 8
   call void %287(ptr noundef nonnull align 8 dereferenceable(16) %284) #29
   br label %if.end8.sink.split.i.i.i.i.i1066
@@ -5632,10 +5563,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i58: ; preds = %if.e
 
 if.then7.i.i.i.i.i1056:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i58
   %vtable.i.i.i.i.i.i.i1057 = load ptr, ptr %284, align 8
-  %vfn.i.i.i.i.i.i.i1058 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i1057, i64 2
+  %vfn.i.i.i.i.i.i.i1058 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i1057, i64 16
   %290 = load ptr, ptr %vfn.i.i.i.i.i.i.i1058, align 8
   call void %290(ptr noundef nonnull align 8 dereferenceable(16) %284) #29
-  %_M_weak_count.i.i.i.i.i.i.i1059 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %284, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i1059 = getelementptr inbounds i8, ptr %284, i64 12
   %291 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i1060 = icmp eq i8 %291, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1060, label %if.else.i.i.i.i.i.i.i.i1069, label %if.then.i.i.i.i.i.i.i.i1061
@@ -5657,7 +5588,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1063: ; preds =
 
 if.end8.sink.split.i.i.i.i.i1066:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1063, %if.then.i.i.i.i.i1071
   %vtable2.i.i.i.i.i.i.i1067 = load ptr, ptr %284, align 8
-  %vfn3.i.i.i.i.i.i.i1068 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i1067, i64 3
+  %vfn3.i.i.i.i.i.i.i1068 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i1067, i64 24
   %294 = load ptr, ptr %vfn3.i.i.i.i.i.i.i1068, align 8
   call void %294(ptr noundef nonnull align 8 dereferenceable(16) %284) #29
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i61
@@ -5668,7 +5599,7 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i61: ; preds = %if.end8.sink
   br i1 %cmp.not.i.i.i35.i62, label %_ZNSt10shared_ptrIKN8facebook5velox9ArrayTypeEED2Ev.exit.i73, label %if.then.i.i.i36.i63
 
 if.then.i.i.i36.i63:                              ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit.i61
-  %_M_use_count.i.i.i.i37.i64 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %295, i64 0, i32 1
+  %_M_use_count.i.i.i.i37.i64 = getelementptr inbounds i8, ptr %295, i64 8
   %296 = load atomic i64, ptr %_M_use_count.i.i.i.i37.i64 acquire, align 8
   %cmp.i.i.i.i38.i65 = icmp eq i64 %296, 4294967297
   %297 = trunc i64 %296 to i32
@@ -5676,10 +5607,10 @@ if.then.i.i.i36.i63:                              ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i61.i1052:                          ; preds = %if.then.i.i.i36.i63
   store i32 0, ptr %_M_use_count.i.i.i.i37.i64, align 8
-  %_M_weak_count.i.i.i.i62.i1053 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %295, i64 0, i32 2
+  %_M_weak_count.i.i.i.i62.i1053 = getelementptr inbounds i8, ptr %295, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i62.i1053, align 4
   %vtable.i.i.i.i63.i1054 = load ptr, ptr %295, align 8
-  %vfn.i.i.i.i64.i1055 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i63.i1054, i64 2
+  %vfn.i.i.i.i64.i1055 = getelementptr inbounds i8, ptr %vtable.i.i.i.i63.i1054, i64 16
   %298 = load ptr, ptr %vfn.i.i.i.i64.i1055, align 8
   call void %298(ptr noundef nonnull align 8 dereferenceable(16) %295) #29
   br label %if.end8.sink.split.i.i.i.i56.i1047
@@ -5705,10 +5636,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i43.i70: ; preds = %if
 
 if.then7.i.i.i.i46.i1037:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i43.i70
   %vtable.i.i.i.i.i.i47.i1038 = load ptr, ptr %295, align 8
-  %vfn.i.i.i.i.i.i48.i1039 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i47.i1038, i64 2
+  %vfn.i.i.i.i.i.i48.i1039 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i47.i1038, i64 16
   %301 = load ptr, ptr %vfn.i.i.i.i.i.i48.i1039, align 8
   call void %301(ptr noundef nonnull align 8 dereferenceable(16) %295) #29
-  %_M_weak_count.i.i.i.i.i.i49.i1040 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %295, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i49.i1040 = getelementptr inbounds i8, ptr %295, i64 12
   %302 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i50.i1041 = icmp eq i8 %302, 0
   br i1 %tobool.i.not.i.i.i.i.i.i50.i1041, label %if.else.i.i.i.i.i.i.i59.i1050, label %if.then.i.i.i.i.i.i.i51.i1042
@@ -5730,7 +5661,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i53.i1044: ; preds
 
 if.end8.sink.split.i.i.i.i56.i1047:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i53.i1044, %if.then.i.i.i.i61.i1052
   %vtable2.i.i.i.i.i.i57.i1048 = load ptr, ptr %295, align 8
-  %vfn3.i.i.i.i.i.i58.i1049 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i57.i1048, i64 3
+  %vfn3.i.i.i.i.i.i58.i1049 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i57.i1048, i64 24
   %305 = load ptr, ptr %vfn3.i.i.i.i.i.i58.i1049, align 8
   call void %305(ptr noundef nonnull align 8 dereferenceable(16) %295) #29
   br label %_ZNSt10shared_ptrIKN8facebook5velox9ArrayTypeEED2Ev.exit.i73
@@ -5741,7 +5672,7 @@ _ZNSt10shared_ptrIKN8facebook5velox9ArrayTypeEED2Ev.exit.i73: ; preds = %if.end8
   br i1 %cmp.not.i.i.i66.i74, label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit96.i85, label %if.then.i.i.i67.i75
 
 if.then.i.i.i67.i75:                              ; preds = %_ZNSt10shared_ptrIKN8facebook5velox9ArrayTypeEED2Ev.exit.i73
-  %_M_use_count.i.i.i.i68.i76 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %306, i64 0, i32 1
+  %_M_use_count.i.i.i.i68.i76 = getelementptr inbounds i8, ptr %306, i64 8
   %307 = load atomic i64, ptr %_M_use_count.i.i.i.i68.i76 acquire, align 8
   %cmp.i.i.i.i69.i77 = icmp eq i64 %307, 4294967297
   %308 = trunc i64 %307 to i32
@@ -5749,10 +5680,10 @@ if.then.i.i.i67.i75:                              ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i92.i1033:                          ; preds = %if.then.i.i.i67.i75
   store i32 0, ptr %_M_use_count.i.i.i.i68.i76, align 8
-  %_M_weak_count.i.i.i.i93.i1034 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %306, i64 0, i32 2
+  %_M_weak_count.i.i.i.i93.i1034 = getelementptr inbounds i8, ptr %306, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i93.i1034, align 4
   %vtable.i.i.i.i94.i1035 = load ptr, ptr %306, align 8
-  %vfn.i.i.i.i95.i1036 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i94.i1035, i64 2
+  %vfn.i.i.i.i95.i1036 = getelementptr inbounds i8, ptr %vtable.i.i.i.i94.i1035, i64 16
   %309 = load ptr, ptr %vfn.i.i.i.i95.i1036, align 8
   call void %309(ptr noundef nonnull align 8 dereferenceable(16) %306) #29
   br label %if.end8.sink.split.i.i.i.i87.i1028
@@ -5778,10 +5709,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74.i82: ; preds = %if
 
 if.then7.i.i.i.i77.i1018:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i74.i82
   %vtable.i.i.i.i.i.i78.i1019 = load ptr, ptr %306, align 8
-  %vfn.i.i.i.i.i.i79.i1020 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i78.i1019, i64 2
+  %vfn.i.i.i.i.i.i79.i1020 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i78.i1019, i64 16
   %312 = load ptr, ptr %vfn.i.i.i.i.i.i79.i1020, align 8
   call void %312(ptr noundef nonnull align 8 dereferenceable(16) %306) #29
-  %_M_weak_count.i.i.i.i.i.i80.i1021 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %306, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i80.i1021 = getelementptr inbounds i8, ptr %306, i64 12
   %313 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i81.i1022 = icmp eq i8 %313, 0
   br i1 %tobool.i.not.i.i.i.i.i.i81.i1022, label %if.else.i.i.i.i.i.i.i90.i1031, label %if.then.i.i.i.i.i.i.i82.i1023
@@ -5803,7 +5734,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i84.i1025: ; preds
 
 if.end8.sink.split.i.i.i.i87.i1028:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i84.i1025, %if.then.i.i.i.i92.i1033
   %vtable2.i.i.i.i.i.i88.i1029 = load ptr, ptr %306, align 8
-  %vfn3.i.i.i.i.i.i89.i1030 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i88.i1029, i64 3
+  %vfn3.i.i.i.i.i.i89.i1030 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i88.i1029, i64 24
   %316 = load ptr, ptr %vfn3.i.i.i.i.i.i89.i1030, align 8
   call void %316(ptr noundef nonnull align 8 dereferenceable(16) %306) #29
   br label %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit96.i85
@@ -5814,7 +5745,7 @@ _ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit96.i85: ; preds = %if.end8.si
   br i1 %cmp.not.i.i.i98.i86, label %invoke.cont17.i97, label %if.then.i.i.i99.i87
 
 if.then.i.i.i99.i87:                              ; preds = %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit96.i85
-  %_M_use_count.i.i.i.i100.i88 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %317, i64 0, i32 1
+  %_M_use_count.i.i.i.i100.i88 = getelementptr inbounds i8, ptr %317, i64 8
   %318 = load atomic i64, ptr %_M_use_count.i.i.i.i100.i88 acquire, align 8
   %cmp.i.i.i.i101.i89 = icmp eq i64 %318, 4294967297
   %319 = trunc i64 %318 to i32
@@ -5822,10 +5753,10 @@ if.then.i.i.i99.i87:                              ; preds = %_ZNSt10shared_ptrIK
 
 if.then.i.i.i.i124.i1014:                         ; preds = %if.then.i.i.i99.i87
   store i32 0, ptr %_M_use_count.i.i.i.i100.i88, align 8
-  %_M_weak_count.i.i.i.i125.i1015 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %317, i64 0, i32 2
+  %_M_weak_count.i.i.i.i125.i1015 = getelementptr inbounds i8, ptr %317, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i125.i1015, align 4
   %vtable.i.i.i.i126.i1016 = load ptr, ptr %317, align 8
-  %vfn.i.i.i.i127.i1017 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i126.i1016, i64 2
+  %vfn.i.i.i.i127.i1017 = getelementptr inbounds i8, ptr %vtable.i.i.i.i126.i1016, i64 16
   %320 = load ptr, ptr %vfn.i.i.i.i127.i1017, align 8
   call void %320(ptr noundef nonnull align 8 dereferenceable(16) %317) #29
   br label %if.end8.sink.split.i.i.i.i119.i1009
@@ -5851,10 +5782,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106.i94: ; preds = %i
 
 if.then7.i.i.i.i109.i999:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106.i94
   %vtable.i.i.i.i.i.i110.i1000 = load ptr, ptr %317, align 8
-  %vfn.i.i.i.i.i.i111.i1001 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i110.i1000, i64 2
+  %vfn.i.i.i.i.i.i111.i1001 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i110.i1000, i64 16
   %323 = load ptr, ptr %vfn.i.i.i.i.i.i111.i1001, align 8
   call void %323(ptr noundef nonnull align 8 dereferenceable(16) %317) #29
-  %_M_weak_count.i.i.i.i.i.i112.i1002 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %317, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i112.i1002 = getelementptr inbounds i8, ptr %317, i64 12
   %324 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i113.i1003 = icmp eq i8 %324, 0
   br i1 %tobool.i.not.i.i.i.i.i.i113.i1003, label %if.else.i.i.i.i.i.i.i122.i1012, label %if.then.i.i.i.i.i.i.i114.i1004
@@ -5876,75 +5807,75 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i116.i1006: ; pred
 
 if.end8.sink.split.i.i.i.i119.i1009:              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i116.i1006, %if.then.i.i.i.i124.i1014
   %vtable2.i.i.i.i.i.i120.i1010 = load ptr, ptr %317, align 8
-  %vfn3.i.i.i.i.i.i121.i1011 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i120.i1010, i64 3
+  %vfn3.i.i.i.i.i.i121.i1011 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i120.i1010, i64 24
   %327 = load ptr, ptr %vfn3.i.i.i.i.i.i121.i1011, align 8
   call void %327(ptr noundef nonnull align 8 dereferenceable(16) %317) #29
   br label %invoke.cont17.i97
 
 invoke.cont17.i97:                                ; preds = %if.end8.sink.split.i.i.i.i119.i1009, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i116.i1006, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i106.i94, %_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev.exit96.i85
-  %offset_.i.i.i98 = getelementptr inbounds %"class.facebook::velox::exec::VectorWriterBase", ptr %resultWriter.i20, i64 0, i32 1
+  %offset_.i.i.i98 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 8
   store i32 0, ptr %offset_.i.i.i98, align 8
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE, i64 0, inrange i32 0, i64 2), ptr %resultWriter.i20, align 8
-  %arrayVector_.i.i99 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 1
-  %length_.i.i.i100 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 2, i32 3
+  %arrayVector_.i.i99 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 16
+  %length_.i.i.i100 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %length_.i.i.i100, i8 0, i64 36, i1 false)
-  %childWriter_.i.i101 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 3
-  %offset_.i.i.i.i102 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 3, i32 0, i32 1
+  %childWriter_.i.i101 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 80
+  %offset_.i.i.i.i102 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 88
   store i32 0, ptr %offset_.i.i.i.i102, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %arrayVector_.i.i99, i8 0, i64 25, i1 false)
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox4exec12VectorWriterINS0_7VarcharEvEE, i64 0, inrange i32 0, i64 2), ptr %childWriter_.i.i101, align 8
-  %proxy_.i.i.i103 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 3, i32 1
-  %data_.i.i.i.i.i104 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 3, i32 1, i32 0, i32 1
+  %proxy_.i.i.i103 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 96
+  %data_.i.i.i.i.i104 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i.i.i.i.i104, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec12StringWriterILb0EEE, i64 0, inrange i32 0, i64 2), ptr %proxy_.i.i.i103, align 8
-  %finalized_.i.i.i.i105 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 3, i32 1, i32 1
+  %finalized_.i.i.i.i105 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 128
   store i8 0, ptr %finalized_.i.i.i.i105, align 8
-  %dataBuffer_.i.i.i.i106 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 3, i32 1, i32 2
+  %dataBuffer_.i.i.i.i106 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 136
   store ptr null, ptr %dataBuffer_.i.i.i.i106, align 8
-  %value_.i.i.i.i107 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 3, i32 1, i32 5
+  %value_.i.i.i.i107 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i107) #29
   %328 = load ptr, ptr %result, align 8
   %329 = call noundef ptr @__dynamic_cast(ptr nonnull %328, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #29
   store ptr %329, ptr %arrayVector_.i.i99, align 8
-  %elements_.i.i.i108 = getelementptr inbounds %"class.facebook::velox::ArrayVector", ptr %329, i64 0, i32 1
+  %elements_.i.i.i108 = getelementptr inbounds i8, ptr %329, i64 136
   %330 = load ptr, ptr %elements_.i.i.i108, align 8
-  %vector_.i.i.i109 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 3, i32 1, i32 3
+  %vector_.i.i.i109 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 144
   store ptr %330, ptr %vector_.i.i.i109, align 8
-  %writer_.i.i110 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 2
-  %childWriter_2.i.i.i111 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 2, i32 1
+  %writer_.i.i110 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 24
+  %childWriter_2.i.i.i111 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 32
   store ptr %childWriter_.i.i101, ptr %childWriter_2.i.i.i111, align 8
   store ptr %330, ptr %writer_.i.i110, align 8
-  %length_.i.i.i.i112 = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %330, i64 0, i32 8
+  %length_.i.i.i.i112 = getelementptr inbounds i8, ptr %330, i64 56
   %331 = load i32, ptr %length_.i.i.i.i112, align 8
-  %valuesOffset_.i.i.i113 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 2, i32 4
+  %valuesOffset_.i.i.i113 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 48
   store i32 %331, ptr %valuesOffset_.i.i.i113, align 8
   %vtable.i.i.i114 = load ptr, ptr %childWriter_.i.i101, align 8
-  %vfn.i.i.i115 = getelementptr inbounds ptr, ptr %vtable.i.i.i114, i64 2
+  %vfn.i.i.i115 = getelementptr inbounds i8, ptr %vtable.i.i.i114, i64 16
   %332 = load ptr, ptr %vfn.i.i.i115, align 8
   invoke void %332(ptr noundef nonnull align 8 dereferenceable(112) %childWriter_.i.i101, i64 noundef 1)
           to label %invoke.cont21.i unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont21.i:                                  ; preds = %invoke.cont17.i97
   %333 = load ptr, ptr %writer_.i.i110, align 8
-  %length_.i1.i.i.i118 = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %333, i64 0, i32 8
+  %length_.i1.i.i.i118 = getelementptr inbounds i8, ptr %333, i64 56
   %334 = load i32, ptr %length_.i1.i.i.i118, align 8
-  %elementsVectorCapacity_.i.i.i119 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 2, i32 5
+  %elementsVectorCapacity_.i.i.i119 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 52
   store i32 %334, ptr %elementsVectorCapacity_.i.i.i119, align 4
-  %isIdentityMapping_.i.i120 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i25.i27, i64 0, i32 8
+  %isIdentityMapping_.i.i120 = getelementptr inbounds i8, ptr %call2.i25.i27, i64 58
   %335 = load i8, ptr %isIdentityMapping_.i.i120, align 2
   %336 = and i8 %335, 1
   %tobool.i.not.i121 = icmp eq i8 %336, 0
   br i1 %tobool.i.not.i121, label %if.else48.i, label %land.lhs.true.i122
 
 land.lhs.true.i122:                               ; preds = %invoke.cont21.i
-  %isConstantMapping_.i.i123 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i32, i64 0, i32 9
+  %isConstantMapping_.i.i123 = getelementptr inbounds i8, ptr %call2.i26.i32, i64 59
   %337 = load i8, ptr %isConstantMapping_.i.i123, align 1
   %338 = and i8 %337, 1
   %tobool.i130.not.i124 = icmp eq i8 %338, 0
   br i1 %tobool.i130.not.i124, label %if.else48.i, label %lor.lhs.false.i125
 
 lor.lhs.false.i125:                               ; preds = %land.lhs.true.i122
-  %isConstantMapping_.i131.i126 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i29.i36, i64 0, i32 9
+  %isConstantMapping_.i131.i126 = getelementptr inbounds i8, ptr %call2.i29.i36, i64 59
   %339 = load i8, ptr %isConstantMapping_.i131.i126, align 1
   %340 = and i8 %339, 1
   %tobool.i132.not.i127 = icmp eq i8 %340, 0
@@ -5961,18 +5892,18 @@ if.else48.thread.i:                               ; preds = %lor.lhs.false.i125
   br label %if.else.i382.i576
 
 if.then.i128:                                     ; preds = %lor.lhs.false.i125
-  %data_.i.i129 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i25.i27, i64 0, i32 2
+  %data_.i.i129 = getelementptr inbounds i8, ptr %call2.i25.i27, i64 16
   %341 = load ptr, ptr %data_.i.i129, align 8
-  %data_.i133.i130 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i32, i64 0, i32 2
+  %data_.i133.i130 = getelementptr inbounds i8, ptr %call2.i26.i32, i64 16
   %342 = load ptr, ptr %data_.i133.i130, align 8
-  %isIdentityMapping_.i.i.i131 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i32, i64 0, i32 8
+  %isIdentityMapping_.i.i.i131 = getelementptr inbounds i8, ptr %call2.i26.i32, i64 58
   %343 = load i8, ptr %isIdentityMapping_.i.i.i131, align 2
   %344 = and i8 %343, 1
   %tobool.not.i.i.i132 = icmp eq i8 %344, 0
   br i1 %tobool.not.i.i.i132, label %if.then3.i.i.i574, label %invoke.cont28.i
 
 if.then3.i.i.i574:                                ; preds = %if.then.i128
-  %constantIndex_.i.i.i575 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i32, i64 0, i32 11
+  %constantIndex_.i.i.i575 = getelementptr inbounds i8, ptr %call2.i26.i32, i64 64
   %345 = load i32, ptr %constantIndex_.i.i.i575, align 8
   br label %invoke.cont28.i
 
@@ -5983,9 +5914,9 @@ invoke.cont28.i:                                  ; preds = %if.then3.i.i.i574, 
   %retval.sroa.0.0.copyload.i.i136 = load i64, ptr %arrayidx.i.i135, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i137 = getelementptr inbounds i8, ptr %arrayidx.i.i135, i64 8
   %retval.sroa.2.0.copyload.i.i138 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i137, align 8
-  %data_.i145.i140 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i29.i36, i64 0, i32 2
+  %data_.i145.i140 = getelementptr inbounds i8, ptr %call2.i29.i36, i64 16
   %346 = load ptr, ptr %data_.i145.i140, align 8
-  %isIdentityMapping_.i.i146.i141 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i29.i36, i64 0, i32 8
+  %isIdentityMapping_.i.i146.i141 = getelementptr inbounds i8, ptr %call2.i29.i36, i64 58
   %347 = load i8, ptr %isIdentityMapping_.i.i146.i141, align 2
   %348 = and i8 %347, 1
   %tobool.not.i.i147.i142 = icmp eq i8 %348, 0
@@ -6095,7 +6026,7 @@ lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
   br label %ehcleanup59.i
 
 if.then3.i.i154.i371:                             ; preds = %invoke.cont28.i
-  %constantIndex_.i.i155.i372 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i29.i36, i64 0, i32 11
+  %constantIndex_.i.i155.i372 = getelementptr inbounds i8, ptr %call2.i29.i36, i64 64
   %352 = load i32, ptr %constantIndex_.i.i155.i372, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i
 
@@ -6108,8 +6039,8 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i: ; preds = %if.then3.i.
   br i1 %cmp37.i, label %if.then38.i, label %if.else41.i
 
 if.then38.i:                                      ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit.i
-  %allSelected_.i.i159.i169 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 4
-  %_M_engaged.i.i.i.i160.i170 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %allSelected_.i.i159.i169 = getelementptr inbounds i8, ptr %rows, i64 36
+  %_M_engaged.i.i.i.i160.i170 = getelementptr inbounds i8, ptr %rows, i64 37
   %354 = load i8, ptr %_M_engaged.i.i.i.i160.i170, align 1
   %355 = and i8 %354, 1
   %tobool.i.i.not.i.i161.i171 = icmp eq i8 %355, 0
@@ -6120,15 +6051,15 @@ entry.return_crit_edge.i.i162.i172:               ; preds = %if.then38.i
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i164.i174
 
 if.end.i.i341.i338:                               ; preds = %if.then38.i
-  %begin_.i.i342.i339 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_.i.i342.i339 = getelementptr inbounds i8, ptr %rows, i64 28
   %356 = load i32, ptr %begin_.i.i342.i339, align 4
   %cmp.i.i343.i340 = icmp eq i32 %356, 0
   br i1 %cmp.i.i343.i340, label %land.lhs.true.i.i346.i343, label %land.end.i.i344.i341
 
 land.lhs.true.i.i346.i343:                        ; preds = %if.end.i.i341.i338
-  %end_.i.i347.i344 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_.i.i347.i344 = getelementptr inbounds i8, ptr %rows, i64 32
   %357 = load i32, ptr %end_.i.i347.i344, align 8
-  %size_.i.i348.i345 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 1
+  %size_.i.i348.i345 = getelementptr inbounds i8, ptr %rows, i64 24
   %358 = load i32, ptr %size_.i.i348.i345, align 8
   %cmp5.i.i349.i346 = icmp eq i32 %357, %358
   br i1 %cmp5.i.i349.i346, label %land.rhs.i.i350.i347, label %land.end.i.i344.i341
@@ -6187,9 +6118,9 @@ _ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i164.i174: ; preds 
   br i1 %retval.0.i.not.i167.i177, label %if.else.i184.i193, label %if.then.i168.i178
 
 if.then.i168.i178:                                ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i164.i174
-  %begin_.i169.i179 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_.i169.i179 = getelementptr inbounds i8, ptr %rows, i64 28
   %368 = load i32, ptr %begin_.i169.i179, align 4
-  %end_.i170.i180 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_.i170.i180 = getelementptr inbounds i8, ptr %rows, i64 32
   %369 = load i32, ptr %end_.i170.i180, align 8
   %cmp12.i171.i181 = icmp slt i32 %368, %369
   br i1 %cmp12.i171.i181, label %for.body.lr.ph.i172.i182, label %if.end50.i
@@ -6217,9 +6148,9 @@ for.body.i174.i183:                               ; preds = %.noexc371.i190, %fo
 
 if.else.i184.i193:                                ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i164.i174
   %374 = load ptr, ptr %rows, align 8
-  %begin_3.i185.i194 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_3.i185.i194 = getelementptr inbounds i8, ptr %rows, i64 28
   %375 = load i32, ptr %begin_3.i185.i194, align 4
-  %end_4.i186.i195 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_4.i186.i195 = getelementptr inbounds i8, ptr %rows, i64 32
   %376 = load i32, ptr %end_4.i186.i195, align 8
   %cmp.not.i.i.i.i192.i196 = icmp slt i32 %375, %376
   br i1 %cmp.not.i.i.i.i192.i196, label %if.end.i.i.i6.i193.i197, label %if.end50.i
@@ -6472,8 +6403,8 @@ if.else48.i:                                      ; preds = %land.lhs.true.i122,
 
 if.then.i383.i755:                                ; preds = %if.else48.i
   store i64 9223372036854775807, ptr %limit.i.i14, align 8
-  %allSelected_.i.i.i.i756 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 4
-  %_M_engaged.i.i.i.i.i.i757 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %allSelected_.i.i.i.i756 = getelementptr inbounds i8, ptr %rows, i64 36
+  %_M_engaged.i.i.i.i.i.i757 = getelementptr inbounds i8, ptr %rows, i64 37
   %390 = load i8, ptr %_M_engaged.i.i.i.i.i.i757, align 1
   %391 = and i8 %390, 1
   %tobool.i.i.not.i.i.i.i758 = icmp eq i8 %391, 0
@@ -6484,15 +6415,15 @@ entry.return_crit_edge.i.i.i.i759:                ; preds = %if.then.i383.i755
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i761
 
 if.end.i.i.i.i969:                                ; preds = %if.then.i383.i755
-  %begin_.i.i.i.i970 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_.i.i.i.i970 = getelementptr inbounds i8, ptr %rows, i64 28
   %392 = load i32, ptr %begin_.i.i.i.i970, align 4
   %cmp.i.i.i.i971 = icmp eq i32 %392, 0
   br i1 %cmp.i.i.i.i971, label %land.lhs.true.i.i.i.i974, label %land.end.i.i.i.i972
 
 land.lhs.true.i.i.i.i974:                         ; preds = %if.end.i.i.i.i969
-  %end_.i.i.i.i975 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_.i.i.i.i975 = getelementptr inbounds i8, ptr %rows, i64 32
   %393 = load i32, ptr %end_.i.i.i.i975, align 8
-  %size_.i.i.i.i976 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 1
+  %size_.i.i.i.i976 = getelementptr inbounds i8, ptr %rows, i64 24
   %394 = load i32, ptr %size_.i.i.i.i976, align 8
   %cmp5.i.i.i.i977 = icmp eq i32 %393, %394
   br i1 %cmp5.i.i.i.i977, label %land.rhs.i.i.i.i978, label %land.end.i.i.i.i972
@@ -6551,24 +6482,24 @@ _ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i761: ; preds =
   br i1 %retval.0.i.not.i.i.i764, label %if.else.i.i.i810, label %if.then.i.i.i765
 
 if.then.i.i.i765:                                 ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i761
-  %begin_.i.i384.i766 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_.i.i384.i766 = getelementptr inbounds i8, ptr %rows, i64 28
   %404 = load i32, ptr %begin_.i.i384.i766, align 4
-  %end_.i.i385.i767 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_.i.i385.i767 = getelementptr inbounds i8, ptr %rows, i64 32
   %405 = load i32, ptr %end_.i.i385.i767, align 8
   %cmp10.i.i.i768 = icmp slt i32 %404, %405
   br i1 %cmp10.i.i.i768, label %for.body.lr.ph.i.i.i769, label %_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE.exit.i
 
 for.body.lr.ph.i.i.i769:                          ; preds = %if.then.i.i.i765
   %406 = sext i32 %404 to i64
-  %data_.i.i.i.i386.i770 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i25.i27, i64 0, i32 2
-  %data_.i3.i.i.i.i771 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i32, i64 0, i32 2
-  %isIdentityMapping_.i.i4.i.i.i.i772 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i32, i64 0, i32 8
-  %isConstantMapping_.i.i.i.i.i.i773 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i25.i27, i64 0, i32 9
-  %constantIndex_.i.i.i.i.i.i774 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i25.i27, i64 0, i32 11
-  %indices_.i.i.i.i.i.i775 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i25.i27, i64 0, i32 1
-  %isConstantMapping_.i.i15.i.i.i.i776 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i32, i64 0, i32 9
-  %constantIndex_.i.i18.i.i.i.i777 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i32, i64 0, i32 11
-  %indices_.i.i20.i.i.i.i778 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i26.i32, i64 0, i32 1
+  %data_.i.i.i.i386.i770 = getelementptr inbounds i8, ptr %call2.i25.i27, i64 16
+  %data_.i3.i.i.i.i771 = getelementptr inbounds i8, ptr %call2.i26.i32, i64 16
+  %isIdentityMapping_.i.i4.i.i.i.i772 = getelementptr inbounds i8, ptr %call2.i26.i32, i64 58
+  %isConstantMapping_.i.i.i.i.i.i773 = getelementptr inbounds i8, ptr %call2.i25.i27, i64 59
+  %constantIndex_.i.i.i.i.i.i774 = getelementptr inbounds i8, ptr %call2.i25.i27, i64 64
+  %indices_.i.i.i.i.i.i775 = getelementptr inbounds i8, ptr %call2.i25.i27, i64 8
+  %isConstantMapping_.i.i15.i.i.i.i776 = getelementptr inbounds i8, ptr %call2.i26.i32, i64 59
+  %constantIndex_.i.i18.i.i.i.i777 = getelementptr inbounds i8, ptr %call2.i26.i32, i64 64
+  %indices_.i.i20.i.i.i.i778 = getelementptr inbounds i8, ptr %call2.i26.i32, i64 8
   br label %for.body.i.i.i779
 
 for.body.i.i.i779:                                ; preds = %.noexc395.i797, %for.body.lr.ph.i.i.i769
@@ -6644,9 +6575,9 @@ _ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRK
 
 if.else.i.i.i810:                                 ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i.i761
   %426 = load ptr, ptr %rows, align 8
-  %begin_3.i.i.i811 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_3.i.i.i811 = getelementptr inbounds i8, ptr %rows, i64 28
   %427 = load i32, ptr %begin_3.i.i.i811, align 4
-  %end_4.i.i.i812 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_4.i.i.i812 = getelementptr inbounds i8, ptr %rows, i64 32
   %428 = load i32, ptr %end_4.i.i.i812, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i.i.i813 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i.i.i10, i64 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp3.i.i.i.i.i10)
@@ -6747,28 +6678,28 @@ for.body.i.i.i.i.i.i.i862:                        ; preds = %.noexc398.i885, %fo
   %row.054.i.i.i.i.i.i.i863 = phi i64 [ %conv.i.i.i.i.i.i.i861, %for.body.lr.ph.i.i.i.i.i.i.i860 ], [ %inc.i.i.i.i.i.i.i886, %.noexc398.i885 ]
   %conv7.i.i.i.i.i.i.i864 = trunc i64 %row.054.i.i.i.i.i.i.i863 to i32
   %434 = load ptr, ptr %strings.addr.i.i11, align 8
-  %data_.i.i.i.i.i.i.i.i.i865 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %434, i64 0, i32 2
+  %data_.i.i.i.i.i.i.i.i.i865 = getelementptr inbounds i8, ptr %434, i64 16
   %435 = load ptr, ptr %data_.i.i.i.i.i.i.i.i.i865, align 8
-  %isIdentityMapping_.i.i.i.i.i.i.i.i.i.i866 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %434, i64 0, i32 8
+  %isIdentityMapping_.i.i.i.i.i.i.i.i.i.i866 = getelementptr inbounds i8, ptr %434, i64 58
   %436 = load i8, ptr %isIdentityMapping_.i.i.i.i.i.i.i.i.i.i866, align 2
   %437 = and i8 %436, 1
   %tobool.not.i.i.i.i.i.i.i.i.i.i867 = icmp eq i8 %437, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i867, label %if.end.i.i.i.i.i.i.i.i.i.i898, label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i.i.i.i868
 
 if.end.i.i.i.i.i.i.i.i.i.i898:                    ; preds = %for.body.i.i.i.i.i.i.i862
-  %isConstantMapping_.i.i.i.i.i.i.i.i.i.i899 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %434, i64 0, i32 9
+  %isConstantMapping_.i.i.i.i.i.i.i.i.i.i899 = getelementptr inbounds i8, ptr %434, i64 59
   %438 = load i8, ptr %isConstantMapping_.i.i.i.i.i.i.i.i.i.i899, align 1
   %439 = and i8 %438, 1
   %tobool2.not.i.i.i.i.i.i.i.i.i.i900 = icmp eq i8 %439, 0
   br i1 %tobool2.not.i.i.i.i.i.i.i.i.i.i900, label %if.end4.i.i.i.i.i.i.i.i.i.i903, label %if.then3.i.i.i.i.i.i.i.i.i.i901
 
 if.then3.i.i.i.i.i.i.i.i.i.i901:                  ; preds = %if.end.i.i.i.i.i.i.i.i.i.i898
-  %constantIndex_.i.i.i.i.i.i.i.i.i.i902 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %434, i64 0, i32 11
+  %constantIndex_.i.i.i.i.i.i.i.i.i.i902 = getelementptr inbounds i8, ptr %434, i64 64
   %440 = load i32, ptr %constantIndex_.i.i.i.i.i.i.i.i.i.i902, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i.i.i.i868
 
 if.end4.i.i.i.i.i.i.i.i.i.i903:                   ; preds = %if.end.i.i.i.i.i.i.i.i.i.i898
-  %indices_.i.i.i.i.i.i.i.i.i.i904 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %434, i64 0, i32 1
+  %indices_.i.i.i.i.i.i.i.i.i.i904 = getelementptr inbounds i8, ptr %434, i64 8
   %441 = load ptr, ptr %indices_.i.i.i.i.i.i.i.i.i.i904, align 8
   %sext.i.i.i.i.i.i.i905 = shl i64 %row.054.i.i.i.i.i.i.i863, 32
   %idxprom.i.i.i.i.i.i.i.i.i.i906 = ashr exact i64 %sext.i.i.i.i.i.i.i905, 32
@@ -6784,28 +6715,28 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i.i.i873 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i871, i64 8
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i874 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i.i.i.i.i.i.i.i873, align 8
   %443 = load ptr, ptr %delims.addr.i.i12, align 8
-  %data_.i3.i.i.i.i.i.i.i.i875 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %443, i64 0, i32 2
+  %data_.i3.i.i.i.i.i.i.i.i875 = getelementptr inbounds i8, ptr %443, i64 16
   %444 = load ptr, ptr %data_.i3.i.i.i.i.i.i.i.i875, align 8
-  %isIdentityMapping_.i.i4.i.i.i.i.i.i.i.i876 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %443, i64 0, i32 8
+  %isIdentityMapping_.i.i4.i.i.i.i.i.i.i.i876 = getelementptr inbounds i8, ptr %443, i64 58
   %445 = load i8, ptr %isIdentityMapping_.i.i4.i.i.i.i.i.i.i.i876, align 2
   %446 = and i8 %445, 1
   %tobool.not.i.i5.i.i.i.i.i.i.i.i877 = icmp eq i8 %446, 0
   br i1 %tobool.not.i.i5.i.i.i.i.i.i.i.i877, label %if.end.i.i14.i.i.i.i.i.i.i.i888, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit.i.i.i.i.i.i.i
 
 if.end.i.i14.i.i.i.i.i.i.i.i888:                  ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i.i.i.i.i.i.i.i868
-  %isConstantMapping_.i.i15.i.i.i.i.i.i.i.i889 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %443, i64 0, i32 9
+  %isConstantMapping_.i.i15.i.i.i.i.i.i.i.i889 = getelementptr inbounds i8, ptr %443, i64 59
   %447 = load i8, ptr %isConstantMapping_.i.i15.i.i.i.i.i.i.i.i889, align 1
   %448 = and i8 %447, 1
   %tobool2.not.i.i16.i.i.i.i.i.i.i.i890 = icmp eq i8 %448, 0
   br i1 %tobool2.not.i.i16.i.i.i.i.i.i.i.i890, label %if.end4.i.i19.i.i.i.i.i.i.i.i893, label %if.then3.i.i17.i.i.i.i.i.i.i.i891
 
 if.then3.i.i17.i.i.i.i.i.i.i.i891:                ; preds = %if.end.i.i14.i.i.i.i.i.i.i.i888
-  %constantIndex_.i.i18.i.i.i.i.i.i.i.i892 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %443, i64 0, i32 11
+  %constantIndex_.i.i18.i.i.i.i.i.i.i.i892 = getelementptr inbounds i8, ptr %443, i64 64
   %449 = load i32, ptr %constantIndex_.i.i18.i.i.i.i.i.i.i.i892, align 8
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit.i.i.i.i.i.i.i
 
 if.end4.i.i19.i.i.i.i.i.i.i.i893:                 ; preds = %if.end.i.i14.i.i.i.i.i.i.i.i888
-  %indices_.i.i20.i.i.i.i.i.i.i.i894 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %443, i64 0, i32 1
+  %indices_.i.i20.i.i.i.i.i.i.i.i894 = getelementptr inbounds i8, ptr %443, i64 8
   %450 = load ptr, ptr %indices_.i.i20.i.i.i.i.i.i.i.i894, align 8
   %sext49.i.i.i.i.i.i.i895 = shl i64 %row.054.i.i.i.i.i.i.i863, 32
   %idxprom.i.i21.i.i.i.i.i.i.i.i896 = ashr exact i64 %sext49.i.i.i.i.i.i.i895, 32
@@ -6834,28 +6765,28 @@ while.body.i.i.i.i.i.i.i910:                      ; preds = %.noexc399.i934, %wh
   %cast.i.i.i.i.i.i.i912 = trunc i64 %452 to i32
   %add10.i.i.i.i.i.i.i913 = or disjoint i32 %mul9.i.i.i.i.i.i.i909, %cast.i.i.i.i.i.i.i912
   %453 = load ptr, ptr %strings.addr.i.i11, align 8
-  %data_.i.i11.i.i.i.i.i.i.i914 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %453, i64 0, i32 2
+  %data_.i.i11.i.i.i.i.i.i.i914 = getelementptr inbounds i8, ptr %453, i64 16
   %454 = load ptr, ptr %data_.i.i11.i.i.i.i.i.i.i914, align 8
-  %isIdentityMapping_.i.i.i12.i.i.i.i.i.i.i915 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %453, i64 0, i32 8
+  %isIdentityMapping_.i.i.i12.i.i.i.i.i.i.i915 = getelementptr inbounds i8, ptr %453, i64 58
   %455 = load i8, ptr %isIdentityMapping_.i.i.i12.i.i.i.i.i.i.i915, align 2
   %456 = and i8 %455, 1
   %tobool.not.i.i.i13.i.i.i.i.i.i.i916 = icmp eq i8 %456, 0
   br i1 %tobool.not.i.i.i13.i.i.i.i.i.i.i916, label %if.end.i.i.i39.i.i.i.i.i.i.i947, label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i14.i.i.i.i.i.i.i917
 
 if.end.i.i.i39.i.i.i.i.i.i.i947:                  ; preds = %while.body.i.i.i.i.i.i.i910
-  %isConstantMapping_.i.i.i40.i.i.i.i.i.i.i948 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %453, i64 0, i32 9
+  %isConstantMapping_.i.i.i40.i.i.i.i.i.i.i948 = getelementptr inbounds i8, ptr %453, i64 59
   %457 = load i8, ptr %isConstantMapping_.i.i.i40.i.i.i.i.i.i.i948, align 1
   %458 = and i8 %457, 1
   %tobool2.not.i.i.i41.i.i.i.i.i.i.i949 = icmp eq i8 %458, 0
   br i1 %tobool2.not.i.i.i41.i.i.i.i.i.i.i949, label %if.end4.i.i.i44.i.i.i.i.i.i.i952, label %if.then3.i.i.i42.i.i.i.i.i.i.i950
 
 if.then3.i.i.i42.i.i.i.i.i.i.i950:                ; preds = %if.end.i.i.i39.i.i.i.i.i.i.i947
-  %constantIndex_.i.i.i43.i.i.i.i.i.i.i951 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %453, i64 0, i32 11
+  %constantIndex_.i.i.i43.i.i.i.i.i.i.i951 = getelementptr inbounds i8, ptr %453, i64 64
   %459 = load i32, ptr %constantIndex_.i.i.i43.i.i.i.i.i.i.i951, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i14.i.i.i.i.i.i.i917
 
 if.end4.i.i.i44.i.i.i.i.i.i.i952:                 ; preds = %if.end.i.i.i39.i.i.i.i.i.i.i947
-  %indices_.i.i.i45.i.i.i.i.i.i.i953 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %453, i64 0, i32 1
+  %indices_.i.i.i45.i.i.i.i.i.i.i953 = getelementptr inbounds i8, ptr %453, i64 8
   %460 = load ptr, ptr %indices_.i.i.i45.i.i.i.i.i.i.i953, align 8
   %idxprom.i.i.i46.i.i.i.i.i.i.i954 = sext i32 %add10.i.i.i.i.i.i.i913 to i64
   %arrayidx.i.i.i47.i.i.i.i.i.i.i955 = getelementptr inbounds i32, ptr %460, i64 %idxprom.i.i.i46.i.i.i.i.i.i.i954
@@ -6870,28 +6801,28 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i14.i.i.i
   %retval.sroa.2.0.arrayidx.sroa_idx.i.i19.i.i.i.i.i.i.i922 = getelementptr inbounds i8, ptr %arrayidx.i.i17.i.i.i.i.i.i.i920, i64 8
   %retval.sroa.2.0.copyload.i.i20.i.i.i.i.i.i.i923 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i19.i.i.i.i.i.i.i922, align 8
   %462 = load ptr, ptr %delims.addr.i.i12, align 8
-  %data_.i3.i21.i.i.i.i.i.i.i924 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %462, i64 0, i32 2
+  %data_.i3.i21.i.i.i.i.i.i.i924 = getelementptr inbounds i8, ptr %462, i64 16
   %463 = load ptr, ptr %data_.i3.i21.i.i.i.i.i.i.i924, align 8
-  %isIdentityMapping_.i.i4.i22.i.i.i.i.i.i.i925 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %462, i64 0, i32 8
+  %isIdentityMapping_.i.i4.i22.i.i.i.i.i.i.i925 = getelementptr inbounds i8, ptr %462, i64 58
   %464 = load i8, ptr %isIdentityMapping_.i.i4.i22.i.i.i.i.i.i.i925, align 2
   %465 = and i8 %464, 1
   %tobool.not.i.i5.i23.i.i.i.i.i.i.i926 = icmp eq i8 %465, 0
   br i1 %tobool.not.i.i5.i23.i.i.i.i.i.i.i926, label %if.end.i.i14.i30.i.i.i.i.i.i.i938, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit48.i.i.i.i.i.i.i
 
 if.end.i.i14.i30.i.i.i.i.i.i.i938:                ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i14.i.i.i.i.i.i.i917
-  %isConstantMapping_.i.i15.i31.i.i.i.i.i.i.i939 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %462, i64 0, i32 9
+  %isConstantMapping_.i.i15.i31.i.i.i.i.i.i.i939 = getelementptr inbounds i8, ptr %462, i64 59
   %466 = load i8, ptr %isConstantMapping_.i.i15.i31.i.i.i.i.i.i.i939, align 1
   %467 = and i8 %466, 1
   %tobool2.not.i.i16.i32.i.i.i.i.i.i.i940 = icmp eq i8 %467, 0
   br i1 %tobool2.not.i.i16.i32.i.i.i.i.i.i.i940, label %if.end4.i.i19.i35.i.i.i.i.i.i.i943, label %if.then3.i.i17.i33.i.i.i.i.i.i.i941
 
 if.then3.i.i17.i33.i.i.i.i.i.i.i941:              ; preds = %if.end.i.i14.i30.i.i.i.i.i.i.i938
-  %constantIndex_.i.i18.i34.i.i.i.i.i.i.i942 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %462, i64 0, i32 11
+  %constantIndex_.i.i18.i34.i.i.i.i.i.i.i942 = getelementptr inbounds i8, ptr %462, i64 64
   %468 = load i32, ptr %constantIndex_.i.i18.i34.i.i.i.i.i.i.i942, align 8
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit48.i.i.i.i.i.i.i
 
 if.end4.i.i19.i35.i.i.i.i.i.i.i943:               ; preds = %if.end.i.i14.i30.i.i.i.i.i.i.i938
-  %indices_.i.i20.i36.i.i.i.i.i.i.i944 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %462, i64 0, i32 1
+  %indices_.i.i20.i36.i.i.i.i.i.i.i944 = getelementptr inbounds i8, ptr %462, i64 8
   %469 = load ptr, ptr %indices_.i.i20.i36.i.i.i.i.i.i.i944, align 8
   %idxprom.i.i21.i37.i.i.i.i.i.i.i945 = sext i32 %add10.i.i.i.i.i.i.i913 to i64
   %arrayidx.i.i22.i38.i.i.i.i.i.i.i946 = getelementptr inbounds i32, ptr %469, i64 %idxprom.i.i21.i37.i.i.i.i.i.i.i945
@@ -6947,8 +6878,8 @@ if.else.i382.i576:                                ; preds = %if.else48.i, %if.el
   store ptr %this, ptr %agg.tmp2.sroa.5.0.agg.tmp24.sroa_idx.i.i580, align 8
   %agg.tmp2.sroa.6.0.agg.tmp24.sroa_idx.i.i581 = getelementptr inbounds i8, ptr %agg.tmp24.i.i9, i64 40
   store ptr %context, ptr %agg.tmp2.sroa.6.0.agg.tmp24.sroa_idx.i.i581, align 8
-  %allSelected_.i.i6.i.i582 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 4
-  %_M_engaged.i.i.i.i7.i.i583 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %allSelected_.i.i6.i.i582 = getelementptr inbounds i8, ptr %rows, i64 36
+  %_M_engaged.i.i.i.i7.i.i583 = getelementptr inbounds i8, ptr %rows, i64 37
   %471 = load i8, ptr %_M_engaged.i.i.i.i7.i.i583, align 1
   %472 = and i8 %471, 1
   %tobool.i.i.not.i.i8.i.i584 = icmp eq i8 %472, 0
@@ -6959,15 +6890,15 @@ entry.return_crit_edge.i.i9.i.i585:               ; preds = %if.else.i382.i576
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i11.i.i587
 
 if.end.i.i75.i.i724:                              ; preds = %if.else.i382.i576
-  %begin_.i.i76.i.i725 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_.i.i76.i.i725 = getelementptr inbounds i8, ptr %rows, i64 28
   %473 = load i32, ptr %begin_.i.i76.i.i725, align 4
   %cmp.i.i77.i.i726 = icmp eq i32 %473, 0
   br i1 %cmp.i.i77.i.i726, label %land.lhs.true.i.i80.i.i729, label %land.end.i.i78.i.i727
 
 land.lhs.true.i.i80.i.i729:                       ; preds = %if.end.i.i75.i.i724
-  %end_.i.i81.i.i730 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_.i.i81.i.i730 = getelementptr inbounds i8, ptr %rows, i64 32
   %474 = load i32, ptr %end_.i.i81.i.i730, align 8
-  %size_.i.i82.i.i731 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 1
+  %size_.i.i82.i.i731 = getelementptr inbounds i8, ptr %rows, i64 24
   %475 = load i32, ptr %size_.i.i82.i.i731, align 8
   %cmp5.i.i83.i.i732 = icmp eq i32 %474, %475
   br i1 %cmp5.i.i83.i.i732, label %land.rhs.i.i84.i.i733, label %land.end.i.i78.i.i727
@@ -7026,9 +6957,9 @@ _ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i11.i.i587: ; preds
   br i1 %retval.0.i.not.i14.i.i590, label %if.else.i20.i.i601, label %if.then.i15.i.i591
 
 if.then.i15.i.i591:                               ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i11.i.i587
-  %begin_.i16.i.i592 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_.i16.i.i592 = getelementptr inbounds i8, ptr %rows, i64 28
   %485 = load i32, ptr %begin_.i16.i.i592, align 4
-  %end_.i17.i.i593 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_.i17.i.i593 = getelementptr inbounds i8, ptr %rows, i64 32
   %486 = load i32, ptr %end_.i17.i.i593, align 8
   %cmp9.i.i.i594 = icmp slt i32 %485, %486
   br i1 %cmp9.i.i.i594, label %for.body.i18.i.i595, label %_ZNK8facebook5velox17SelectivityVector15applyToSelectedIZNKS0_9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRKS1_RNS0_4exec7EvalCtxEPNS0_13DecodedVectorESD_SD_RNS9_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEEUliE0_EEvT_.exit.i.i
@@ -7046,9 +6977,9 @@ for.body.i18.i.i595:                              ; preds = %if.then.i15.i.i591,
 
 if.else.i20.i.i601:                               ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i11.i.i587
   %488 = load ptr, ptr %rows, align 8
-  %begin_3.i21.i.i602 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 2
+  %begin_3.i21.i.i602 = getelementptr inbounds i8, ptr %rows, i64 28
   %489 = load i32, ptr %begin_3.i21.i.i602, align 4
-  %end_4.i22.i.i603 = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %rows, i64 0, i32 3
+  %end_4.i22.i.i603 = getelementptr inbounds i8, ptr %rows, i64 32
   %490 = load i32, ptr %end_4.i22.i.i603, align 8
   %agg.tmp.sroa.3.0.agg.tmp3.sroa_idx.i.i.i23.i.i604 = getelementptr inbounds i8, ptr %agg.tmp3.i.i.i5.i.i8, i64 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp3.i.i.i5.i.i8)
@@ -7266,10 +7197,10 @@ invoke.cont51.i:                                  ; preds = %if.end50.i
   store ptr null, ptr %arrayVector_.i.i99, align 8
   %503 = load ptr, ptr %result, align 8
   %504 = call noundef ptr @__dynamic_cast(ptr nonnull %503, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox11ArrayVectorE, i64 0) #29
-  %elements_.i.i152 = getelementptr inbounds %"class.facebook::velox::ArrayVector", ptr %504, i64 0, i32 1
+  %elements_.i.i152 = getelementptr inbounds i8, ptr %504, i64 136
   %505 = load ptr, ptr %elements_.i.i152, align 8
   %506 = call noundef ptr @__dynamic_cast(ptr nonnull %505, ptr nonnull @_ZTIN8facebook5velox10BaseVectorE, ptr nonnull @_ZTIN8facebook5velox10FlatVectorINS0_10StringViewEEE, i64 0) #29
-  %baseVector_.i.i153 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call2.i25.i27, i64 0, i32 5
+  %baseVector_.i.i153 = getelementptr inbounds i8, ptr %call2.i25.i27, i64 48
   %507 = load ptr, ptr %baseVector_.i.i153, align 8
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE26acquireSharedStringBuffersEPKNS0_10BaseVectorE(ptr noundef nonnull align 8 dereferenceable(280) %506, ptr noundef %507)
           to label %invoke.cont58.i unwind label %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
@@ -7279,7 +7210,7 @@ invoke.cont58.i:                                  ; preds = %invoke.cont51.i
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox4exec12VectorWriterINS0_7VarcharEvEE, i64 0, inrange i32 0, i64 2), ptr %childWriter_.i.i101, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec12StringWriterILb0EEE, i64 0, inrange i32 0, i64 2), ptr %proxy_.i.i.i103, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i.i107) #29
-  %vectorsWithAcquiredBuffers_.i.i.i154 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter.i20, i64 0, i32 2, i32 6
+  %vectorsWithAcquiredBuffers_.i.i.i154 = getelementptr inbounds i8, ptr %resultWriter.i20, i64 56
   %508 = load ptr, ptr %vectorsWithAcquiredBuffers_.i.i.i154, align 8
   %tobool.not.i.i.i.i.i413.i155 = icmp eq ptr %508, null
   br i1 %tobool.not.i.i.i.i.i413.i155, label %_ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvED2Ev.exit.i157, label %if.then.i.i.i.i.i414.i156
@@ -7290,7 +7221,7 @@ if.then.i.i.i.i.i414.i156:                        ; preds = %invoke.cont58.i
 
 _ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvED2Ev.exit.i157: ; preds = %if.then.i.i.i.i.i414.i156, %invoke.cont58.i
   %509 = load ptr, ptr %decodedArgs.i15, align 8
-  %_M_finish.i.i.i158 = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::exec::LocalDecodedVector, std::allocator<facebook::velox::exec::LocalDecodedVector>>::_Vector_impl_data", ptr %decodedArgs.i15, i64 0, i32 1
+  %_M_finish.i.i.i158 = getelementptr inbounds i8, ptr %decodedArgs.i15, i64 8
   %510 = load ptr, ptr %_M_finish.i.i.i158, align 8
   %cmp.not3.i.i.i.i.i.i159 = icmp eq ptr %509, %510
   br i1 %cmp.not3.i.i.i.i.i.i159, label %invoke.cont.i.i.i166, label %for.body.i.i.i.i.i415.i160
@@ -7298,7 +7229,7 @@ _ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvED2Ev.exit.i157
 for.body.i.i.i.i.i415.i160:                       ; preds = %_ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvED2Ev.exit.i157, %for.body.i.i.i.i.i415.i160
   %__first.addr.04.i.i.i.i.i.i161 = phi ptr [ %incdec.ptr.i.i.i.i.i.i162, %for.body.i.i.i.i.i415.i160 ], [ %509, %_ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvED2Ev.exit.i157 ]
   call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i.i.i161) #29
-  %incdec.ptr.i.i.i.i.i.i162 = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %__first.addr.04.i.i.i.i.i.i161, i64 1
+  %incdec.ptr.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i161, i64 16
   %cmp.not.i.i.i.i.i416.i163 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i162, %510
   br i1 %cmp.not.i.i.i.i.i416.i163, label %invoke.contthread-pre-split.i.i.i164, label %for.body.i.i.i.i.i415.i160, !llvm.loop !51
 
@@ -7379,7 +7310,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNK8facebook5velox4exec14VectorFunction27propagateStringEncodingFromEv(ptr noalias sret(%"class.std::optional.46") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base.51", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   ret void
 }
@@ -7389,14 +7320,14 @@ define linkonce_odr void @_ZN8facebook5velox4exec11DecodedArgsC2ERKNS0_17Selecti
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %args, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<facebook::velox::BaseVector>, std::allocator<std::shared_ptr<facebook::velox::BaseVector>>>::_Vector_impl_data", ptr %args, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %args, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not6 = icmp eq ptr %0, %1
   br i1 %cmp.i.not6, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_finish.i2 = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::exec::LocalDecodedVector, std::allocator<facebook::velox::exec::LocalDecodedVector>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::exec::LocalDecodedVector, std::allocator<facebook::velox::exec::LocalDecodedVector>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_finish.i2 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -7410,7 +7341,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then.i:                                        ; preds = %for.body
   %5 = load ptr, ptr %context, align 8
   store ptr %5, ptr %3, align 8
-  %vector_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %3, i64 0, i32 1
+  %vector_.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %vector_.i.i.i.i, align 8
   %call2.i.i.i.i = invoke noundef ptr @_ZN8facebook5velox4exec18LocalDecodedVector3getEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
@@ -7422,13 +7353,13 @@ invoke.cont.i.i.i.i:                              ; preds = %if.then.i
 lpad.i.i.i.i:                                     ; preds = %invoke.cont.i.i.i.i, %if.then.i
   %6 = landingpad { ptr, i32 }
           cleanup
-  %vector_.i.i.i.i.le = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %3, i64 0, i32 1
+  %vector_.i.i.i.i.le = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @_ZNSt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vector_.i.i.i.i.le) #29
   br label %lpad.body
 
 _ZNSt16allocator_traitsISaIN8facebook5velox4exec18LocalDecodedVectorEEE9constructIS3_JRNS2_7EvalCtxERNS1_10BaseVectorERKNS1_17SelectivityVectorEEEEvRS4_PT_DpOT0_.exit.i: ; preds = %invoke.cont.i.i.i.i
   %7 = load ptr, ptr %_M_finish.i2, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %7, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i2, align 8
   br label %for.inc
 
@@ -7437,7 +7368,7 @@ if.else.i:                                        ; preds = %for.body
           to label %for.inc unwind label %lpad
 
 for.inc:                                          ; preds = %if.else.i, %_ZNSt16allocator_traitsISaIN8facebook5velox4exec18LocalDecodedVectorEEE9constructIS3_JRNS2_7EvalCtxERNS1_10BaseVectorERKNS1_17SelectivityVectorEEEEvRS4_PT_DpOT0_.exit.i
-  %incdec.ptr.i3 = getelementptr inbounds %"class.std::shared_ptr.72", ptr %__begin3.sroa.0.07, i64 1
+  %incdec.ptr.i3 = getelementptr inbounds i8, ptr %__begin3.sroa.0.07, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i3, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -7464,13 +7395,13 @@ declare void @_ZN8facebook5velox7VARCHAREv(ptr sret(%"class.std::shared_ptr.95")
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIKN8facebook5velox4TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.62", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -7478,10 +7409,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   br label %if.end8.sink.split.i.i.i
@@ -7507,10 +7438,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -7532,7 +7463,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   br label %_ZNSt12__shared_ptrIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -7544,13 +7475,13 @@ _ZNSt12__shared_ptrIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIKN8facebook5velox9ArrayTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.93", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIKN8facebook5velox9ArrayTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -7558,10 +7489,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   br label %if.end8.sink.split.i.i.i
@@ -7587,10 +7518,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -7612,7 +7543,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   br label %_ZNSt12__shared_ptrIKN8facebook5velox9ArrayTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -7624,13 +7555,13 @@ _ZNSt12__shared_ptrIKN8facebook5velox9ArrayTypeELN9__gnu_cxx12_Lock_policyE2EED2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE7EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr.96", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE7EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -7638,10 +7569,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   br label %if.end8.sink.split.i.i.i
@@ -7667,10 +7598,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -7692,7 +7623,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   br label %_ZNSt12__shared_ptrIKN8facebook5velox10ScalarTypeILNS1_8TypeKindE7EEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -7711,12 +7642,12 @@ declare void @_ZN8facebook5velox4exec7EvalCtx9setErrorsERKNS0_17SelectivityVecto
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvE6finishEv(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %writer_ = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 2
+  %writer_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %writer_, align 8
-  %valuesOffset_ = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 2, i32 4
+  %valuesOffset_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %valuesOffset_, align 8
   tail call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE6resizeEib(ptr noundef nonnull align 8 dereferenceable(280) %0, i32 noundef %1, i1 noundef zeroext true)
-  %arrayVector_ = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 1
+  %arrayVector_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %arrayVector_, align 8
   ret void
 }
@@ -7727,13 +7658,13 @@ declare void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE26acquireSharedSt
 define linkonce_odr void @_ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %childWriter_ = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 3
+  %childWriter_ = getelementptr inbounds i8, ptr %this, i64 80
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox4exec12VectorWriterINS0_7VarcharEvEE, i64 0, inrange i32 0, i64 2), ptr %childWriter_, align 8
-  %proxy_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 3, i32 1
+  %proxy_.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec12StringWriterILb0EEE, i64 0, inrange i32 0, i64 2), ptr %proxy_.i, align 8
-  %value_.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 3, i32 1, i32 5
+  %value_.i.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i) #29
-  %vectorsWithAcquiredBuffers_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 2, i32 6
+  %vectorsWithAcquiredBuffers_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %vectorsWithAcquiredBuffers_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEED2Ev.exit, label %if.then.i.i.i.i
@@ -7750,7 +7681,7 @@ _ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEED2Ev.exit: ; preds = %entry, 
 define linkonce_odr void @_ZN8facebook5velox4exec11DecodedArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::exec::LocalDecodedVector, std::allocator<facebook::velox::exec::LocalDecodedVector>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
@@ -7758,7 +7689,7 @@ entry:
 for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %0, %entry ]
   tail call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i) #29
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !51
 
@@ -7783,7 +7714,7 @@ _ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev.exit: ; pred
 define linkonce_odr void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::exec::LocalDecodedVector, std::allocator<facebook::velox::exec::LocalDecodedVector>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -7791,7 +7722,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %entry, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %0, %entry ]
   tail call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i) #29
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !51
 
@@ -7815,7 +7746,7 @@ _ZNSt12_Vector_baseIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EED2Ev.exit:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE17_M_realloc_insertIJRNS2_7EvalCtxERNS1_10BaseVectorERKNS1_17SelectivityVectorEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(104) %__args, ptr noundef nonnull align 8 dereferenceable(99) %__args1, ptr noundef nonnull align 8 dereferenceable(38) %__args3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::exec::LocalDecodedVector, std::allocator<facebook::velox::exec::LocalDecodedVector>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -7852,7 +7783,7 @@ _ZNSt12_Vector_baseIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE11_M_alloc
   %add.ptr = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %cond.i17, i64 %sub.ptr.div.i
   %2 = load ptr, ptr %__args, align 8
   store ptr %2, ptr %add.ptr, align 8
-  %vector_.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %cond.i17, i64 %sub.ptr.div.i, i32 1
+  %vector_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   store ptr null, ptr %vector_.i.i.i, align 8
   %call2.i.i.i = invoke noundef ptr @_ZN8facebook5velox4exec18LocalDecodedVector3getEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr)
           to label %invoke.cont.i.i.i unwind label %invoke.cont23
@@ -7870,19 +7801,19 @@ for.body.i.i.i:                                   ; preds = %invoke.cont, %for.b
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %invoke.cont ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  %vector_3.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %vector_3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %3 = load <2 x i64>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !70, !noalias !67
   store <2 x i64> %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !67, !noalias !70
   store ptr null, ptr %vector_3.i.i.i.i.i.i.i, align 8, !alias.scope !70, !noalias !67
   tail call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i) #29, !noalias !67
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !72
 
 _ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %invoke.cont
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i17, %invoke.cont ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
   %cmp.not5.i.i.i18 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i18, label %_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit28, label %for.body.i.i.i19
 
@@ -7891,13 +7822,13 @@ for.body.i.i.i19:                                 ; preds = %_ZNSt6vectorIN8face
   %__first.addr.06.i.i.i21 = phi ptr [ %incdec.ptr.i.i.i24, %for.body.i.i.i19 ], [ %__position.coerce, %_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
-  %vector_3.i.i.i.i.i.i.i23 = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %__first.addr.06.i.i.i21, i64 0, i32 1
+  %vector_3.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 8
   %4 = load <2 x i64>, ptr %__first.addr.06.i.i.i21, align 8, !alias.scope !76, !noalias !73
   store <2 x i64> %4, ptr %__cur.07.i.i.i20, align 8, !alias.scope !73, !noalias !76
   store ptr null, ptr %vector_3.i.i.i.i.i.i.i23, align 8, !alias.scope !76, !noalias !73
   tail call void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i21) #29, !noalias !73
-  %incdec.ptr.i.i.i24 = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %__first.addr.06.i.i.i21, i64 1
-  %incdec.ptr1.i.i.i25 = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %__cur.07.i.i.i20, i64 1
+  %incdec.ptr.i.i.i24 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i21, i64 16
+  %incdec.ptr1.i.i.i25 = getelementptr inbounds i8, ptr %__cur.07.i.i.i20, i64 16
   %cmp.not.i.i.i26 = icmp eq ptr %incdec.ptr.i.i.i24, %0
   br i1 %cmp.not.i.i.i26, label %_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit28, label %for.body.i.i.i19, !llvm.loop !72
 
@@ -7911,7 +7842,7 @@ if.then.i29:                                      ; preds = %_ZNSt6vectorIN8face
   br label %_ZNSt12_Vector_baseIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN8facebook5velox4exec18LocalDecodedVectorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit28, %if.then.i29
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<facebook::velox::exec::LocalDecodedVector, std::allocator<facebook::velox::exec::LocalDecodedVector>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i27, ptr %_M_finish.i.i, align 8
   %add.ptr30 = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %cond.i17, i64 %cond.i
@@ -7951,20 +7882,20 @@ unreachable:                                      ; preds = %invoke.cont23
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN8facebook5velox4exec18LocalDecodedVector3getEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %vector_ = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %this, i64 0, i32 1
+  %vector_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vector_, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %exprEvalCacheEnabled_.i = getelementptr inbounds %"class.facebook::velox::core::ExecCtx", ptr %1, i64 0, i32 2
+  %exprEvalCacheEnabled_.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load i8, ptr %exprEvalCacheEnabled_.i, align 8, !noalias !78
   %3 = and i8 %2, 1
   %tobool.not.i = icmp eq i8 %3, 0
-  %decodedVectorPool_.i = getelementptr inbounds %"class.facebook::velox::core::ExecCtx", ptr %1, i64 0, i32 3
+  %decodedVectorPool_.i = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %decodedVectorPool_.i, align 8, !noalias !78
-  %_M_finish.i.i.i = getelementptr inbounds %"class.facebook::velox::core::ExecCtx", ptr %1, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !78
   %cmp.i.i.not.i = icmp eq ptr %4, %5
   br i1 %tobool.not.i, label %lor.rhs.i, label %if.end.i
@@ -7981,30 +7912,30 @@ if.end.i:                                         ; preds = %if.then
 
 _ZN8facebook5velox4core7ExecCtx16getDecodedVectorEv.exit.thread: ; preds = %lor.rhs.i, %if.end.i
   %call.i.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #32, !noalias !81
-  %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call.i.i, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %call.i.i, i8 0, i64 72, i1 false), !noalias !81
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i, align 8, !noalias !81
-  %baseVector_.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call.i.i, i64 0, i32 5
-  %copiedIndices_.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %call.i.i, i64 0, i32 12
+  %baseVector_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
+  %copiedIndices_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %baseVector_.i.i.i, i8 0, i64 13, i1 false), !noalias !81
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %copiedIndices_.i.i.i, i8 0, i64 48, i1 false), !noalias !81
   store ptr %call.i.i, ptr %vector_, align 8
   br label %if.end
 
 if.end5.i:                                        ; preds = %if.end.i
-  %add.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.146", ptr %5, i64 -1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
   %6 = load i64, ptr %add.ptr.i.i.i, align 8, !noalias !78
   %7 = inttoptr i64 %6 to ptr
   store ptr null, ptr %add.ptr.i.i.i, align 8, !noalias !78
   %8 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !78
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.146", ptr %8, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 -8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i, align 8, !noalias !78
   %9 = load ptr, ptr %incdec.ptr.i.i, align 8, !noalias !78
   %cmp.not.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN8facebook5velox4core7ExecCtx16getDecodedVectorEv.exit, label %delete.notnull.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i:                       ; preds = %if.end5.i
-  %copiedNulls_.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %9, i64 0, i32 13
+  %copiedNulls_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 96
   %10 = load ptr, ptr %copiedNulls_.i.i.i.i.i.i.i, align 8, !noalias !78
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -8014,7 +7945,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %delete.notnull.i.i.
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i.i.i.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit.i.i.i.i.i.i.i:      ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i.i
-  %copiedIndices_.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %9, i64 0, i32 12
+  %copiedIndices_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 72
   %11 = load ptr, ptr %copiedIndices_.i.i.i.i.i.i.i, align 8, !noalias !78
   %tobool.not.i.i.i1.i.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i1.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i.i.i.i, label %if.then.i.i.i2.i.i.i.i.i.i.i
@@ -8035,7 +7966,7 @@ _ZN8facebook5velox4core7ExecCtx16getDecodedVectorEv.exit: ; preds = %if.end5.i, 
   br i1 %tobool.not.i.i.i.i, label %if.end, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox4core7ExecCtx16getDecodedVectorEv.exit
-  %copiedNulls_.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %.pre, i64 0, i32 13
+  %copiedNulls_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 96
   %12 = load ptr, ptr %copiedNulls_.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -8045,7 +7976,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %delete.notnull.i.i.
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i.i.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit.i.i.i.i.i.i:        ; preds = %if.then.i.i.i.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i
-  %copiedIndices_.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %.pre, i64 0, i32 12
+  %copiedIndices_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 72
   %13 = load ptr, ptr %copiedIndices_.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i1.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i.i.i1.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i.i.i.i, label %if.then.i.i.i2.i.i.i.i.i.i
@@ -8072,7 +8003,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
-  %copiedNulls_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %0, i64 0, i32 13
+  %copiedNulls_.i.i = getelementptr inbounds i8, ptr %0, i64 96
   %1 = load ptr, ptr %copiedNulls_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i, label %if.then.i.i.i.i.i
@@ -8082,7 +8013,7 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull.i
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit.i.i:                ; preds = %if.then.i.i.i.i.i, %delete.notnull.i
-  %copiedIndices_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %0, i64 0, i32 12
+  %copiedIndices_.i.i = getelementptr inbounds i8, ptr %0, i64 72
   %2 = load ptr, ptr %copiedIndices_.i.i, align 8
   %tobool.not.i.i.i1.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i1.i.i, label %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit, label %if.then.i.i.i2.i.i
@@ -8105,7 +8036,7 @@ declare void @_ZN8facebook5velox13DecodedVector6decodeERKNS0_10BaseVectorEPKNS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec18LocalDecodedVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %vector_ = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %this, i64 0, i32 1
+  %vector_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vector_, align 8
   %cmp.i.not = icmp eq ptr %0, null
   %1 = ptrtoint ptr %0 to i64
@@ -8113,16 +8044,16 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
-  %exprEvalCacheEnabled_.i = getelementptr inbounds %"class.facebook::velox::core::ExecCtx", ptr %2, i64 0, i32 2
+  %exprEvalCacheEnabled_.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load i8, ptr %exprEvalCacheEnabled_.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i.not = icmp eq i8 %4, 0
   br i1 %tobool.not.i.not, label %if.end, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %_M_finish.i.i.i = getelementptr inbounds %"class.facebook::velox::core::ExecCtx", ptr %2, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %5 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.facebook::velox::core::ExecCtx", ptr %2, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
@@ -8131,12 +8062,12 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   store i64 %1, ptr %5, align 8
   store ptr null, ptr %vector_, align 8
   %7 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.146", ptr %7, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %if.end
 
 if.else.i.i.i:                                    ; preds = %if.then.i
-  %decodedVectorPool_.i = getelementptr inbounds %"class.facebook::velox::core::ExecCtx", ptr %2, i64 0, i32 3
+  %decodedVectorPool_.i = getelementptr inbounds i8, ptr %2, i64 24
   invoke void @_ZNSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %decodedVectorPool_.i, ptr %5, ptr noundef nonnull align 8 dereferenceable(8) %vector_)
           to label %if.end unwind label %terminate.lpad
 
@@ -8146,7 +8077,7 @@ if.end:                                           ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS2_EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %if.end
-  %copiedNulls_.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %.pr, i64 0, i32 13
+  %copiedNulls_.i.i.i = getelementptr inbounds i8, ptr %.pr, i64 96
   %8 = load ptr, ptr %copiedNulls_.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i
@@ -8156,7 +8087,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %delete.notnull.i.i
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i.i.i
 
 _ZNSt6vectorImSaImEED2Ev.exit.i.i.i:              ; preds = %if.then.i.i.i.i.i.i, %delete.notnull.i.i
-  %copiedIndices_.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %.pr, i64 0, i32 12
+  %copiedIndices_.i.i.i = getelementptr inbounds i8, ptr %.pr, i64 72
   %9 = load ptr, ptr %copiedIndices_.i.i.i, align 8
   %tobool.not.i.i.i1.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i1.i.i.i, label %_ZNKSt14default_deleteIN8facebook5velox13DecodedVectorEEclEPS2_.exit.i, label %if.then.i.i.i2.i.i.i
@@ -8184,7 +8115,7 @@ terminate.lpad:                                   ; preds = %if.else.i.i.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<facebook::velox::DecodedVector>, std::allocator<std::unique_ptr<facebook::velox::DecodedVector>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -8233,14 +8164,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %3 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !87, !noalias !84
   store i64 %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !84, !noalias !87
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !87, !noalias !84
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr.146", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::unique_ptr.146", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %for.body.i.i.i, !llvm.loop !89
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr %"class.std::unique_ptr.146", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 8
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19, label %for.body.i.i.i12
 
@@ -8252,8 +8183,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10un
   %4 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !93, !noalias !90
   store i64 %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !90, !noalias !93
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !93, !noalias !90
-  %incdec.ptr.i.i.i15 = getelementptr inbounds %"class.std::unique_ptr.146", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i16 = getelementptr inbounds %"class.std::unique_ptr.146", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
+  %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
   br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19, label %for.body.i.i.i12, !llvm.loop !89
 
@@ -8267,7 +8198,7 @@ if.then.i20:                                      ; preds = %_ZNSt6vectorISt10un
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit
 
 _ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19, %if.then.i20
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<facebook::velox::DecodedVector>, std::allocator<std::unique_ptr<facebook::velox::DecodedVector>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::unique_ptr.146", ptr %cond.i10, i64 %cond.i
@@ -8278,7 +8209,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox13DecodedVectorESt14default_d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec16VectorWriterBase9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %offset) unnamed_addr #2 comdat align 2 {
 entry:
-  %offset_ = getelementptr inbounds %"class.facebook::velox::exec::VectorWriterBase", ptr %this, i64 0, i32 1
+  %offset_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %offset, ptr %offset_, align 8
   ret void
 }
@@ -8289,18 +8220,18 @@ entry:
   br i1 %isSet, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayVector_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 1
+  %arrayVector_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %arrayVector_.i, align 8
-  %offset_.i = getelementptr inbounds %"class.facebook::velox::exec::VectorWriterBase", ptr %this, i64 0, i32 1
+  %offset_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %offset_.i, align 8
-  %valuesOffset_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 2, i32 4
+  %valuesOffset_.i = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load i32, ptr %valuesOffset_.i, align 8
-  %length_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 2, i32 3
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 44
   %3 = load i32, ptr %length_.i, align 4
-  %offsets_.i.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %0, i64 0, i32 1
+  %offsets_.i.i = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %offsets_.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %5 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i.i = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(64) %4)
   br i1 %call.i.i.i, label %if.then.i.i.i, label %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i
@@ -8310,15 +8241,15 @@ if.then.i.i.i:                                    ; preds = %if.then
   unreachable
 
 _ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i: ; preds = %if.then
-  %data_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %4, i64 0, i32 2
+  %data_.i.i.i = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %data_.i.i.i, align 8
   %idxprom.i.i = sext i32 %1 to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %6, i64 %idxprom.i.i
   store i32 %2, ptr %arrayidx.i.i, align 4
-  %sizes_.i.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %0, i64 0, i32 3
+  %sizes_.i.i = getelementptr inbounds i8, ptr %0, i64 120
   %7 = load ptr, ptr %sizes_.i.i, align 8
   %vtable.i2.i.i = load ptr, ptr %7, align 8
-  %vfn.i3.i.i = getelementptr inbounds ptr, ptr %vtable.i2.i.i, i64 3
+  %vfn.i3.i.i = getelementptr inbounds i8, ptr %vtable.i2.i.i, i64 24
   %8 = load ptr, ptr %vfn.i3.i.i, align 8
   %call.i4.i.i = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(64) %7)
   br i1 %call.i4.i.i, label %if.then.i6.i.i, label %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i
@@ -8328,27 +8259,27 @@ if.then.i6.i.i:                                   ; preds = %_ZNK8facebook5velox
   unreachable
 
 _ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i
-  %data_.i5.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %7, i64 0, i32 2
+  %data_.i5.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load ptr, ptr %data_.i5.i.i, align 8
   %arrayidx14.i.i = getelementptr inbounds i32, ptr %9, i64 %idxprom.i.i
   store i32 %3, ptr %arrayidx14.i.i, align 4
   %10 = load ptr, ptr %arrayVector_.i, align 8
   %11 = load i32, ptr %offset_.i, align 8
   %vtable.i = load ptr, ptr %10, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 18
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 144
   %12 = load ptr, ptr %vfn.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(99) %10, i32 noundef %11, i1 noundef zeroext false)
-  %needCommit_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 2, i32 2
+  %needCommit_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %13 = load i8, ptr %needCommit_.i.i.i, align 8
   %14 = and i8 %13, 1
   %tobool.not.i.i.i = icmp eq i8 %14, 0
   br i1 %tobool.not.i.i.i, label %_ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvE6commitEv.exit, label %if.then.i.i1.i
 
 if.then.i.i1.i:                                   ; preds = %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i
-  %childWriter_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 2, i32 1
+  %childWriter_.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %15 = load ptr, ptr %childWriter_.i.i.i, align 8
   %vtable.i.i2.i = load ptr, ptr %15, align 8
-  %vfn.i.i3.i = getelementptr inbounds ptr, ptr %vtable.i.i2.i, i64 1
+  %vfn.i.i3.i = getelementptr inbounds i8, ptr %vtable.i.i2.i, i64 8
   %16 = load ptr, ptr %vfn.i.i3.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(112) %15, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i, align 8
@@ -8364,15 +8295,15 @@ _ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvE6commitEv.exit
 
 if.else:                                          ; preds = %entry
   %vtable.i1 = load ptr, ptr %this, align 8
-  %vfn.i2 = getelementptr inbounds ptr, ptr %vtable.i1, i64 4
+  %vfn.i2 = getelementptr inbounds i8, ptr %vtable.i1, i64 32
   %19 = load ptr, ptr %vfn.i2, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(192) %this)
-  %arrayVector_.i3 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 1
+  %arrayVector_.i3 = getelementptr inbounds i8, ptr %this, i64 16
   %20 = load ptr, ptr %arrayVector_.i3, align 8
-  %offset_.i4 = getelementptr inbounds %"class.facebook::velox::exec::VectorWriterBase", ptr %this, i64 0, i32 1
+  %offset_.i4 = getelementptr inbounds i8, ptr %this, i64 8
   %21 = load i32, ptr %offset_.i4, align 8
   %vtable2.i = load ptr, ptr %20, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 18
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 144
   %22 = load ptr, ptr %vfn3.i, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(99) %20, i32 noundef %21, i1 noundef zeroext true)
   br label %if.end
@@ -8384,9 +8315,9 @@ if.end:                                           ; preds = %if.else, %_ZN8faceb
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvE10ensureSizeEm(ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %size) unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayVector_ = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 1
+  %arrayVector_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %arrayVector_, align 8
-  %length_.i = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %0, i64 0, i32 8
+  %length_.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i32, ptr %length_.i, align 8
   %conv = sext i32 %1 to i64
   %cmp = icmp ult i64 %conv, %size
@@ -8395,7 +8326,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv3 = trunc i64 %size to i32
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %conv3, i1 noundef zeroext true)
   br label %if.end
@@ -8407,7 +8338,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvE12finalizeNullEv(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %length_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 2, i32 3
+  %length_.i = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %length_.i, align 4
   ret void
 }
@@ -8416,13 +8347,13 @@ entry:
 define linkonce_odr void @_ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvED0Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %childWriter_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 3
+  %childWriter_.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox4exec12VectorWriterINS0_7VarcharEvEE, i64 0, inrange i32 0, i64 2), ptr %childWriter_.i, align 8
-  %proxy_.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 3, i32 1
+  %proxy_.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec12StringWriterILb0EEE, i64 0, inrange i32 0, i64 2), ptr %proxy_.i.i, align 8
-  %value_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 3, i32 1, i32 5
+  %value_.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i.i) #29
-  %vectorsWithAcquiredBuffers_.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %this, i64 0, i32 2, i32 6
+  %vectorsWithAcquiredBuffers_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %vectorsWithAcquiredBuffers_.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN8facebook5velox4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvED2Ev.exit, label %if.then.i.i.i.i.i
@@ -8451,7 +8382,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec12VectorWriterINS0_7VarcharEvE9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %offset) unnamed_addr #2 comdat align 2 {
 entry:
-  %offset_ = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 4
+  %offset_ = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %offset, ptr %offset_, align 8
   ret void
 }
@@ -8464,44 +8395,44 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp16.i)
-  %finalized_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 1
+  %finalized_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i8, ptr %finalized_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.then.i8
 
 if.then.i:                                        ; preds = %if.then
-  %size_.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %size_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i64, ptr %size_.i.i, align 8
   %tobool2.not.i = icmp eq i64 %2, 0
   br i1 %tobool2.not.i, label %if.then2.i.thread.i, label %if.end.i
 
 if.then2.i.thread.i:                              ; preds = %if.then.i
-  %vector_4.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 3
+  %vector_4.i = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load ptr, ptr %vector_4.i, align 8
-  %offset_5.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 4
+  %offset_5.i = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i32, ptr %offset_5.i, align 8
   store i32 0, ptr %ref.tmp16.i, align 8
-  %prefix_.i12.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp16.i, i64 0, i32 1
+  %prefix_.i12.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 4
   store i32 0, ptr %prefix_.i12.i, align 4
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %dataBuffer_12.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 2
+  %dataBuffer_12.i = getelementptr inbounds i8, ptr %this, i64 56
   %5 = load ptr, ptr %dataBuffer_12.i, align 8
-  %size_.i1.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %5, i64 0, i32 3
+  %size_.i1.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load i64, ptr %size_.i1.i, align 8
   %add.i = add i64 %6, %2
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef %add.i)
   %.pre.i = load i64, ptr %size_.i.i, align 8
-  %vector_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 3
+  %vector_.i = getelementptr inbounds i8, ptr %this, i64 64
   %8 = load ptr, ptr %vector_.i, align 8
-  %offset_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 4
+  %offset_.i = getelementptr inbounds i8, ptr %this, i64 72
   %9 = load i32, ptr %offset_.i, align 8
-  %data_.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load ptr, ptr %data_.i.i, align 8
   %conv.i = trunc i64 %.pre.i to i32
   store i32 %conv.i, ptr %ref.tmp16.i, align 8
@@ -8514,7 +8445,7 @@ if.then.i.i:                                      ; preds = %if.end.i
 
 if.end.i.i:                                       ; preds = %if.end.i
   %cmp.i.i.i.i = icmp ult i32 %conv.i, 13
-  %prefix_.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp16.i, i64 0, i32 1
+  %prefix_.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 4
   br i1 %cmp.i.i.i.i, label %if.then2.i.i, label %if.else.i.i
 
 if.then2.i.i:                                     ; preds = %if.end.i.i
@@ -8523,7 +8454,7 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %_ZN8facebook5velox10StringViewC2EPKci.exit.i, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then2.i.i
-  %value_7.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp16.i, i64 0, i32 2
+  %value_7.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   store ptr null, ptr %value_7.i.i, align 8
   %conv.i.i = and i64 %.pre.i, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i.i, ptr align 1 %10, i64 %conv.i.i, i1 false)
@@ -8532,7 +8463,7 @@ if.end6.i.i:                                      ; preds = %if.then2.i.i
 if.else.i.i:                                      ; preds = %if.end.i.i
   %11 = load i32, ptr %10, align 1
   store i32 %11, ptr %prefix_.i.i, align 4
-  %value_13.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp16.i, i64 0, i32 2
+  %value_13.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 8
   store ptr %10, ptr %value_13.i.i, align 8
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit.i
 
@@ -8543,17 +8474,17 @@ _ZN8facebook5velox10StringViewC2EPKci.exit.i:     ; preds = %if.else.i.i, %if.en
   br label %if.then.i8
 
 if.else:                                          ; preds = %entry
-  %vector_.i2 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 3
+  %vector_.i2 = getelementptr inbounds i8, ptr %this, i64 64
   %14 = load ptr, ptr %vector_.i2, align 8
-  %offset_.i3 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 4
+  %offset_.i3 = getelementptr inbounds i8, ptr %this, i64 72
   %15 = load i32, ptr %offset_.i3, align 8
-  %nulls_.i.i = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %14, i64 0, i32 5
-  %length_.i.i = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %14, i64 0, i32 8
+  %nulls_.i.i = getelementptr inbounds i8, ptr %14, i64 32
+  %length_.i.i = getelementptr inbounds i8, ptr %14, i64 56
   %16 = load i32, ptr %length_.i.i, align 8
   tail call void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef nonnull align 8 dereferenceable(99) %14, i32 noundef %16, i1 noundef zeroext true)
   %17 = load ptr, ptr %nulls_.i.i, align 8
   %vtable.i.i = load ptr, ptr %17, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %18 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(64) %17)
   br i1 %call.i.i, label %if.then.i.i5, label %if.end
@@ -8563,7 +8494,7 @@ if.then.i.i5:                                     ; preds = %if.else
   unreachable
 
 if.end:                                           ; preds = %if.else
-  %data_.i.i4 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %17, i64 0, i32 2
+  %data_.i.i4 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %data_.i.i4, align 8
   %rem.i.i.i.i = and i32 %15, 7
   %idxprom.i4.i.i.i = zext nneg i32 %rem.i.i.i.i to i64
@@ -8579,22 +8510,22 @@ if.end:                                           ; preds = %if.else
 
 if.then.i8:                                       ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit.i, %if.then
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp16.i)
-  %capacity_.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 0, i32 3
+  %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %22 = load i64, ptr %capacity_.i.i, align 8
-  %size_.i.i9 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %size_.i.i9 = getelementptr inbounds i8, ptr %this, i64 32
   %23 = load i64, ptr %size_.i.i9, align 8
   %sub.i = sub i64 %22, %23
   store i64 %sub.i, ptr %capacity_.i.i, align 8
-  %data_.i.i10 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %data_.i.i10 = getelementptr inbounds i8, ptr %this, i64 24
   %24 = load ptr, ptr %data_.i.i10, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %24, i64 %23
   store ptr %add.ptr.i, ptr %data_.i.i10, align 8
   br label %_ZN8facebook5velox4exec12StringWriterILb0EE15prepareForReuseEb.exit
 
 _ZN8facebook5velox4exec12StringWriterILb0EE15prepareForReuseEb.exit: ; preds = %if.end, %if.then.i8
-  %size_.i5.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 0, i32 2
+  %size_.i5.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %size_.i5.i, align 8
-  %finalized_.i7 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 1
+  %finalized_.i7 = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %finalized_.i7, align 8
   ret void
 }
@@ -8602,9 +8533,9 @@ _ZN8facebook5velox4exec12StringWriterILb0EE15prepareForReuseEb.exit: ; preds = %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec12VectorWriterINS0_7VarcharEvE10ensureSizeEm(ptr noundef nonnull align 8 dereferenceable(112) %this, i64 noundef %size) unnamed_addr #0 comdat align 2 {
 entry:
-  %vector_ = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 3
+  %vector_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %vector_, align 8
-  %length_.i = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %0, i64 0, i32 8
+  %length_.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load i32, ptr %length_.i, align 8
   %conv = sext i32 %1 to i64
   %cmp = icmp ult i64 %conv, %size
@@ -8623,9 +8554,9 @@ if.end:                                           ; preds = %if.then, %entry
 define linkonce_odr void @_ZN8facebook5velox4exec12VectorWriterINS0_7VarcharEvED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox4exec12VectorWriterINS0_7VarcharEvEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %proxy_ = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1
+  %proxy_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec12StringWriterILb0EEE, i64 0, inrange i32 0, i64 2), ptr %proxy_, align 8
-  %value_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 5
+  %value_.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i) #29
   ret void
 }
@@ -8634,9 +8565,9 @@ entry:
 define linkonce_odr void @_ZN8facebook5velox4exec12VectorWriterINS0_7VarcharEvED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox4exec12VectorWriterINS0_7VarcharEvEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %proxy_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1
+  %proxy_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec12StringWriterILb0EEE, i64 0, inrange i32 0, i64 2), ptr %proxy_.i, align 8
-  %value_.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %this, i64 0, i32 1, i32 5
+  %value_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i.i) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
   ret void
@@ -8649,7 +8580,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 define linkonce_odr void @_ZN8facebook5velox4exec12StringWriterILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec12StringWriterILb0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %value_ = getelementptr inbounds %"class.facebook::velox::exec::StringWriter", ptr %this, i64 0, i32 5
+  %value_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_) #29
   ret void
 }
@@ -8658,7 +8589,7 @@ entry:
 define linkonce_odr void @_ZN8facebook5velox4exec12StringWriterILb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #2 comdat align 2 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox4exec12StringWriterILb0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %value_.i = getelementptr inbounds %"class.facebook::velox::exec::StringWriter", ptr %this, i64 0, i32 5
+  %value_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
   ret void
@@ -8667,23 +8598,23 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8facebook5velox4exec12StringWriterILb0EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %newCapacity) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %capacity_.i = getelementptr inbounds %"class.facebook::velox::UDFOutputString", ptr %this, i64 0, i32 3
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %capacity_.i, align 8
   %cmp.not = icmp ult i64 %0, %newCapacity
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %vector_ = getelementptr inbounds %"class.facebook::velox::exec::StringWriter", ptr %this, i64 0, i32 3
+  %vector_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %vector_, align 8
   %conv = trunc i64 %newCapacity to i32
   %call2 = tail call noundef ptr @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE18getBufferWithSpaceEib(ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %conv, i1 noundef zeroext false)
-  %capacity_.i7 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call2, i64 0, i32 4
+  %capacity_.i7 = getelementptr inbounds i8, ptr %call2, i64 32
   %2 = load i64, ptr %capacity_.i7, align 8
-  %size_.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call2, i64 0, i32 3
+  %size_.i = getelementptr inbounds i8, ptr %call2, i64 24
   %3 = load i64, ptr %size_.i, align 8
   %sub = sub i64 %2, %3
   %vtable.i = load ptr, ptr %call2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(64) %call2)
   br i1 %call.i, label %if.then.i, label %_ZNK8facebook5velox6Buffer9asMutableIcEEPT_v.exit
@@ -8693,26 +8624,26 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 _ZNK8facebook5velox6Buffer9asMutableIcEEPT_v.exit: ; preds = %if.end
-  %data_.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call2, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %call2, i64 16
   %5 = load ptr, ptr %data_.i, align 8
   %6 = load i64, ptr %size_.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %5, i64 %6
-  %size_.i9 = getelementptr inbounds %"class.facebook::velox::UDFOutputString", ptr %this, i64 0, i32 2
+  %size_.i9 = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i64, ptr %size_.i9, align 8
   %cmp18.not = icmp eq i64 %7, 0
   br i1 %cmp18.not, label %if.end22, label %if.then19
 
 if.then19:                                        ; preds = %_ZNK8facebook5velox6Buffer9asMutableIcEEPT_v.exit
-  %data_.i10 = getelementptr inbounds %"class.facebook::velox::UDFOutputString", ptr %this, i64 0, i32 1
+  %data_.i10 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %data_.i10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %8, i64 %7, i1 false)
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then19, %_ZNK8facebook5velox6Buffer9asMutableIcEEPT_v.exit
   store i64 %sub, ptr %capacity_.i, align 8
-  %data_.i13 = getelementptr inbounds %"class.facebook::velox::UDFOutputString", ptr %this, i64 0, i32 1
+  %data_.i13 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr, ptr %data_.i13, align 8
-  %dataBuffer_23 = getelementptr inbounds %"class.facebook::velox::exec::StringWriter", ptr %this, i64 0, i32 2
+  %dataBuffer_23 = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %call2, ptr %dataBuffer_23, align 8
   br label %return
 
@@ -8730,32 +8661,32 @@ declare void @_ZN8facebook5velox10BaseVector19ensureNullsCapacityEib(ptr noundef
 define linkonce_odr void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE6resizeEib(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %newSize, i1 noundef zeroext %setNotNull) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::optional.123", align 8
-  %length_ = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %this, i64 0, i32 8
+  %length_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i32, ptr %length_, align 8
   %cmp = icmp eq i32 %0, %newSize
   br i1 %cmp, label %if.end11, label %if.end
 
 if.end:                                           ; preds = %entry
   tail call void @_ZN8facebook5velox10BaseVector6resizeEib(ptr noundef nonnull align 8 dereferenceable(99) %this, i32 noundef %newSize, i1 noundef zeroext %setNotNull)
-  %values_ = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 1
+  %values_ = getelementptr inbounds i8, ptr %this, i64 208
   %1 = load ptr, ptr %values_, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.end11, label %if.end3
 
 if.end3:                                          ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
-  %_M_engaged.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base.127", ptr %ref.tmp, i64 0, i32 1
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 1, ptr %_M_engaged.i.i.i.i, align 8
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE12resizeValuesEiRKSt8optionalIS2_E(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %newSize, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
   %cmp5 = icmp sgt i32 %0, %newSize
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end3
-  %mutex_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SimpleVector", ptr %this, i64 0, i32 3, i32 2, i32 1
+  %mutex_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE4lockEv(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i.i.i.i), !noalias !95
-  %add.ptr.i.i.i = getelementptr inbounds %"class.facebook::velox::SimpleVector", ptr %this, i64 0, i32 3, i32 2
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %2 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %size_.i.i = getelementptr inbounds %"class.facebook::velox::SimpleVector", ptr %this, i64 0, i32 3, i32 2, i32 0, i32 1
+  %size_.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %3 = load i32, ptr %size_.i.i, align 8
   %cmp.not.i.i.i = icmp sgt i32 %3, 0
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then3.i.i.i.i
@@ -8793,11 +8724,11 @@ if.then19.i.i.i:                                  ; preds = %for.end.i.i.i
   br label %if.then3.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.then19.i.i.i, %for.end.i.i.i, %if.then6
-  %begin_.i.i = getelementptr inbounds %"class.facebook::velox::SimpleVector", ptr %this, i64 0, i32 3, i32 2, i32 0, i32 2
+  %begin_.i.i = getelementptr inbounds i8, ptr %this, i64 140
   store i32 0, ptr %begin_.i.i, align 4
-  %end_.i.i = getelementptr inbounds %"class.facebook::velox::SimpleVector", ptr %this, i64 0, i32 3, i32 2, i32 0, i32 3
+  %end_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   store i32 0, ptr %end_.i.i, align 8
-  %allSelected_.i.i = getelementptr inbounds %"class.facebook::velox::SimpleVector", ptr %this, i64 0, i32 3, i32 2, i32 0, i32 4
+  %allSelected_.i.i = getelementptr inbounds i8, ptr %this, i64 148
   store i16 256, ptr %allSelected_.i.i, align 4
   invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i.i.i.i)
           to label %_ZN8facebook5velox12SimpleVectorINS0_10StringViewEE17invalidateIsAsciiIS2_EENSt9enable_ifIXsr3stdE9is_same_vIT_S2_EEvE4typeEv.exit unwind label %terminate.lpad.i.i.i
@@ -8810,7 +8741,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then3.i.i.i.i
   unreachable
 
 _ZN8facebook5velox12SimpleVectorINS0_10StringViewEE17invalidateIsAsciiIS2_EENSt9enable_ifIXsr3stdE9is_same_vIT_S2_EEvE4typeEv.exit: ; preds = %if.then3.i.i.i.i
-  %asciiInfo.i = getelementptr inbounds %"class.facebook::velox::SimpleVector", ptr %this, i64 0, i32 3
+  %asciiInfo.i = getelementptr inbounds i8, ptr %this, i64 104
   store atomic i8 0, ptr %asciiInfo.i seq_cst, align 8
   br label %if.end8
 
@@ -8819,7 +8750,7 @@ if.else:                                          ; preds = %if.end3
   br i1 %cmp711, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %if.else
-  %rawValues_ = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 2
+  %rawValues_ = getelementptr inbounds i8, ptr %this, i64 216
   %13 = load ptr, ptr %rawValues_, align 8
   %14 = sext i32 %0 to i64
   %15 = shl nsw i64 %14, 4
@@ -8854,14 +8785,14 @@ declare void @_ZN8facebook5velox10BaseVector6resizeEib(ptr noundef nonnull align
 define linkonce_odr void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE12resizeValuesEiRKSt8optionalIS2_E(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %newSize, ptr noundef nonnull align 8 dereferenceable(24) %initialValue) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newValues = alloca %"class.boost::intrusive_ptr", align 8
-  %values_ = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 1
+  %values_ = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %values_, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.end18, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(64) %0)
   br i1 %call4, label %if.end18, label %if.then
@@ -8870,7 +8801,7 @@ if.then:                                          ; preds = %land.lhs.true
   %conv.i = sext i32 %newSize to i64
   %mul.i = shl nsw i64 %conv.i, 4
   %2 = load ptr, ptr %values_, align 8
-  %capacity_.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %2, i64 0, i32 4
+  %capacity_.i = getelementptr inbounds i8, ptr %2, i64 32
   %3 = load i64, ptr %capacity_.i, align 8
   %cmp = icmp ult i64 %3, %mul.i
   br i1 %cmp, label %if.then9, label %if.else
@@ -8881,7 +8812,7 @@ if.then9:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %vtable13 = load ptr, ptr %2, align 8
-  %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 2
+  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 16
   %4 = load ptr, ptr %vfn14, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(64) %2, i64 noundef %mul.i)
   br label %if.end
@@ -8889,7 +8820,7 @@ if.else:                                          ; preds = %if.then
 if.end:                                           ; preds = %if.else, %if.then9
   %5 = load ptr, ptr %values_, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %6 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(64) %5)
   br i1 %call.i, label %if.then.i, label %_ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit
@@ -8899,15 +8830,15 @@ if.then.i:                                        ; preds = %if.end
   unreachable
 
 _ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit: ; preds = %if.end
-  %data_.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %5, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %data_.i, align 8
-  %rawValues_ = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 2
+  %rawValues_ = getelementptr inbounds i8, ptr %this, i64 216
   store ptr %7, ptr %rawValues_, align 8
   br label %return
 
 if.end18:                                         ; preds = %land.lhs.true, %entry
   %conv19 = sext i32 %newSize to i64
-  %pool_ = getelementptr inbounds %"class.facebook::velox::BaseVector", ptr %this, i64 0, i32 7
+  %pool_ = getelementptr inbounds i8, ptr %this, i64 48
   %8 = load ptr, ptr %pool_, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %9 = icmp slt i32 %newSize, 0
@@ -8921,27 +8852,27 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %if
   %10 = shl nuw nsw i64 %conv19, 4
   %11 = add nuw nsw i64 %10, 96
   %vtable.i5 = load ptr, ptr %8, align 8, !noalias !100
-  %vfn.i6 = getelementptr inbounds ptr, ptr %vtable.i5, i64 24
+  %vfn.i6 = getelementptr inbounds i8, ptr %vtable.i5, i64 192
   %12 = load ptr, ptr %vfn.i6, align 8, !noalias !100
   %call3.i = tail call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(168) %8, i64 noundef %11), !noalias !100
   %vtable4.i = load ptr, ptr %8, align 8, !noalias !100
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 13
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 104
   %13 = load ptr, ptr %vfn5.i, align 8, !noalias !100
   %call6.i = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(168) %8, i64 noundef %call3.i), !noalias !100
   %sub.i = add i64 %call3.i, -96
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call6.i, i64 64
-  %pool_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call6.i, i64 0, i32 1
+  %pool_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 8
   store ptr %8, ptr %pool_.i.i.i, align 8, !noalias !100
-  %data_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call6.i, i64 0, i32 2
+  %data_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 16
   store ptr %add.ptr.i.i, ptr %data_.i.i.i, align 8, !noalias !100
-  %size_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call6.i, i64 0, i32 3
-  %capacity_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call6.i, i64 0, i32 4
+  %size_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 24
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !100
-  %referenceCount_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call6.i, i64 0, i32 5
+  %referenceCount_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 40
   store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !100
-  %podType_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call6.i, i64 0, i32 6
+  %podType_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !100
-  %padding_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call6.i, i64 0, i32 7
+  %padding_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i, i8 -1, i64 16, i1 false), !noalias !100
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, inrange i32 0, i64 2), ptr %call6.i, align 8, !noalias !100
   store i64 %10, ptr %size_.i.i.i, align 8, !noalias !100
@@ -8960,7 +8891,7 @@ if.end.i.i:                                       ; preds = %_ZN5boost13intrusiv
   br i1 %cmp2.not.i.not.i, label %_ZN8facebook5velox13AlignedBuffer8allocateINS0_10StringViewEEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %_M_engaged.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base.127", ptr %initialValue, i64 0, i32 1
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %initialValue, i64 16
   %16 = load i8, ptr %_M_engaged.i.i.i.i, align 8, !noalias !100
   %17 = and i8 %16, 1
   %tobool.i.i.not.i.i = icmp eq i8 %17, 0
@@ -8968,7 +8899,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
 
 if.then6.i.i:                                     ; preds = %if.end4.i.i
   %vtable.i.i.i = load ptr, ptr %call6.i, align 8, !noalias !100
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 3
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %18 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !100
   %call.i.i12.i = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(64) %call6.i)
           to label %call.i.i.noexc.i unwind label %lpad.i, !noalias !100
@@ -8988,7 +8919,7 @@ for.body.i.i.i.preheader.i.i:                     ; preds = %call.i.i.noexc.i
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.preheader.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %19, %for.body.i.i.i.preheader.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %initialValue, i64 16, i1 false), !noalias !100
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr9.i.i
   br i1 %cmp.not.i.i.i.i.i, label %_ZN8facebook5velox13AlignedBuffer8allocateINS0_10StringViewEEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit, label %for.body.i.i.i.i.i, !llvm.loop !103
 
@@ -9015,7 +8946,7 @@ if.end36.thread:                                  ; preds = %_ZN8facebook5velox1
 
 if.then22:                                        ; preds = %_ZN8facebook5velox13AlignedBuffer8allocateINS0_10StringViewEEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
   %vtable.i8 = load ptr, ptr %22, align 8
-  %vfn.i9 = getelementptr inbounds ptr, ptr %vtable.i8, i64 3
+  %vfn.i9 = getelementptr inbounds i8, ptr %vtable.i8, i64 24
   %23 = load ptr, ptr %vfn.i9, align 8
   %call.i1013 = invoke noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(64) %22)
           to label %call.i10.noexc unwind label %lpad
@@ -9033,15 +8964,15 @@ lpad:                                             ; preds = %_ZN5boost13intrusiv
   br label %common.resume
 
 if.end36:                                         ; preds = %call.i10.noexc
-  %data_.i11 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %22, i64 0, i32 2
+  %data_.i11 = getelementptr inbounds i8, ptr %22, i64 16
   %25 = load ptr, ptr %data_.i11, align 8
   %26 = load ptr, ptr %values_, align 8
-  %data_.i15 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %26, i64 0, i32 2
+  %data_.i15 = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load ptr, ptr %data_.i15, align 8
-  %size_.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %26, i64 0, i32 3
+  %size_.i = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load i64, ptr %size_.i, align 8
   %29 = load ptr, ptr %newValues, align 8
-  %size_.i16 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %29, i64 0, i32 3
+  %size_.i16 = getelementptr inbounds i8, ptr %29, i64 24
   %30 = load i64, ptr %size_.i16, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %30, i64 %28)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %27, i64 %.sroa.speculated, i1 false)
@@ -9052,33 +8983,33 @@ if.end36:                                         ; preds = %call.i10.noexc
   br i1 %cmp.not.i.i, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEOS4_.exit, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %if.end36
-  %referenceCount_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %.pr, i64 0, i32 5
+  %referenceCount_.i.i.i.i = getelementptr inbounds i8, ptr %.pr, i64 40
   %31 = atomicrmw sub ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4
   %cmp.i.i.i.i = icmp eq i32 %31, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEOS4_.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i18
   %vtable.i.i.i.i = load ptr, ptr %.pr, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 64
   %32 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %32(ptr noundef nonnull align 8 dereferenceable(64) %.pr)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
 
 .noexc.i.i:                                       ; preds = %if.then.i.i.i.i
-  %pool_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %.pr, i64 0, i32 1
+  %pool_.i.i.i.i = getelementptr inbounds i8, ptr %.pr, i64 8
   %33 = load ptr, ptr %pool_.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %33, null
   %vtable5.i.i.i.i = load ptr, ptr %.pr, align 8
   br i1 %tobool.not.i.i.i.i, label %delete.notnull.i.i.i.i, label %if.then2.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %.noexc.i.i
-  %vfn4.i.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i, i64 6
+  %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i, i64 48
   %34 = load ptr, ptr %vfn4.i.i.i.i, align 8
   invoke void %34(ptr noundef nonnull align 8 dereferenceable(64) %.pr)
           to label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEOS4_.exit unwind label %terminate.lpad.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %.noexc.i.i
-  %vfn6.i.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i, i64 1
+  %vfn6.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i, i64 8
   %35 = load ptr, ptr %vfn6.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(64) %.pr) #29
   br label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEOS4_.exit
@@ -9093,7 +9024,7 @@ terminate.lpad.i.i:                               ; preds = %if.then2.i.i.i.i, %
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEOS4_.exit: ; preds = %if.end36.thread, %if.end36, %if.then.i.i18, %if.then2.i.i.i.i, %delete.notnull.i.i.i.i
   %38 = load ptr, ptr %values_, align 8
   %vtable.i19 = load ptr, ptr %38, align 8
-  %vfn.i20 = getelementptr inbounds ptr, ptr %vtable.i19, i64 3
+  %vfn.i20 = getelementptr inbounds i8, ptr %vtable.i19, i64 24
   %39 = load ptr, ptr %vfn.i20, align 8
   %call.i2124 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(64) %38)
           to label %call.i21.noexc unwind label %lpad
@@ -9106,42 +9037,42 @@ if.then.i23:                                      ; preds = %call.i21.noexc
   unreachable
 
 invoke.cont41:                                    ; preds = %call.i21.noexc
-  %data_.i22 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %38, i64 0, i32 2
+  %data_.i22 = getelementptr inbounds i8, ptr %38, i64 16
   %40 = load ptr, ptr %data_.i22, align 8
-  %rawValues_43 = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 2
+  %rawValues_43 = getelementptr inbounds i8, ptr %this, i64 216
   store ptr %40, ptr %rawValues_43, align 8
   %41 = load ptr, ptr %newValues, align 8
   %cmp.not.i = icmp eq ptr %41, null
   br i1 %cmp.not.i, label %return, label %if.then.i26
 
 if.then.i26:                                      ; preds = %invoke.cont41
-  %referenceCount_.i.i.i27 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %41, i64 0, i32 5
+  %referenceCount_.i.i.i27 = getelementptr inbounds i8, ptr %41, i64 40
   %42 = atomicrmw sub ptr %referenceCount_.i.i.i27, i32 1 seq_cst, align 4
   %cmp.i.i.i = icmp eq i32 %42, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i28, label %return
 
 if.then.i.i.i28:                                  ; preds = %if.then.i26
   %vtable.i.i.i29 = load ptr, ptr %41, align 8
-  %vfn.i.i.i30 = getelementptr inbounds ptr, ptr %vtable.i.i.i29, i64 8
+  %vfn.i.i.i30 = getelementptr inbounds i8, ptr %vtable.i.i.i29, i64 64
   %43 = load ptr, ptr %vfn.i.i.i30, align 8
   invoke void %43(ptr noundef nonnull align 8 dereferenceable(64) %41)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %if.then.i.i.i28
-  %pool_.i.i.i31 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %41, i64 0, i32 1
+  %pool_.i.i.i31 = getelementptr inbounds i8, ptr %41, i64 8
   %44 = load ptr, ptr %pool_.i.i.i31, align 8
   %tobool.not.i.i.i = icmp eq ptr %44, null
   %vtable5.i.i.i = load ptr, ptr %41, align 8
   br i1 %tobool.not.i.i.i, label %delete.notnull.i.i.i, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %.noexc.i
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i, i64 6
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i, i64 48
   %45 = load ptr, ptr %vfn4.i.i.i, align 8
   invoke void %45(ptr noundef nonnull align 8 dereferenceable(64) %41)
           to label %return unwind label %terminate.lpad.i
 
 delete.notnull.i.i.i:                             ; preds = %.noexc.i
-  %vfn6.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i, i64 1
+  %vfn6.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i, i64 8
   %46 = load ptr, ptr %vfn6.i.i.i, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(64) %41) #29
   br label %return
@@ -9162,20 +9093,20 @@ define linkonce_odr void @_ZN8facebook5velox12SimpleVectorINS0_10StringViewEE23r
 invoke.cont:
   %ulockedAsciiComputedRows = alloca %"class.folly::LockedPtr.204", align 8
   %ref.tmp = alloca %"class.folly::LockedPtr", align 8
-  %asciiInfo = getelementptr inbounds %"class.facebook::velox::SimpleVector", ptr %this, i64 0, i32 3
+  %asciiInfo = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
-  %mutex_.i.i.i = getelementptr inbounds %"class.facebook::velox::SimpleVector", ptr %this, i64 0, i32 3, i32 2, i32 1
-  %state_.i.i.i.i2.i.i.i = getelementptr inbounds %"struct.folly::detail::lock_storage", ptr %ulockedAsciiComputedRows, i64 0, i32 1
+  %mutex_.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
+  %state_.i.i.i.i2.i.i.i = getelementptr inbounds i8, ptr %ulockedAsciiComputedRows, i64 8
   store ptr %mutex_.i.i.i, ptr %ulockedAsciiComputedRows, align 8, !alias.scope !110
   tail call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE12lock_upgradeEv(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i.i.i), !noalias !110
   store i8 1, ptr %state_.i.i.i.i2.i.i.i, align 8, !alias.scope !110
-  %begin_.i = getelementptr inbounds %"class.facebook::velox::SimpleVector", ptr %this, i64 0, i32 3, i32 2, i32 0, i32 2
+  %begin_.i = getelementptr inbounds i8, ptr %this, i64 140
   %0 = load i32, ptr %begin_.i, align 4
-  %end_.i = getelementptr inbounds %"class.facebook::velox::SimpleVector", ptr %this, i64 0, i32 3, i32 2, i32 0, i32 3
+  %end_.i = getelementptr inbounds i8, ptr %this, i64 144
   %1 = load i32, ptr %end_.i, align 8
   %cmp.i = icmp slt i32 %0, %1
-  %size_.i = getelementptr inbounds %"class.facebook::velox::SimpleVector", ptr %this, i64 0, i32 3, i32 2, i32 0, i32 1
+  %size_.i = getelementptr inbounds i8, ptr %this, i64 136
   %2 = load i32, ptr %size_.i, align 8
   %cmp = icmp slt i32 %2, %size
   %or.cond = select i1 %cmp.i, i1 %cmp, i1 false
@@ -9191,7 +9122,7 @@ invoke.cont11:                                    ; preds = %cond.false4.i.i.i.i
   store i8 0, ptr %state_.i.i.i.i2.i.i.i, align 8, !noalias !123
   store ptr null, ptr %ulockedAsciiComputedRows, align 8, !noalias !124
   store ptr %3, ptr %ref.tmp, align 8, !alias.scope !111
-  %_M_owns.i.i.i = getelementptr inbounds %"class.std::unique_lock", ptr %ref.tmp, i64 0, i32 1
+  %_M_owns.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i8 1, ptr %_M_owns.i.i.i, align 8, !alias.scope !111
   %tobool.not.i.i8 = icmp eq ptr %3, null
   %cond.neg.i.i9 = select i1 %tobool.not.i.i8, i64 0, i64 -40
@@ -9277,9 +9208,9 @@ define linkonce_odr void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE25kee
 entry:
   %agg.tmp = alloca %"class.std::vector.131", align 8
   %ref.tmp = alloca [1 x %"class.boost::intrusive_ptr"], align 8
-  %stringBuffers_ = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 3
+  %stringBuffers_ = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %stringBuffers_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i, label %if.end29, label %if.end
@@ -9287,27 +9218,27 @@ entry:
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %0, align 8
   %vtable.i = load ptr, ptr %2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 3
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
   %3 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %2)
   br i1 %call.i, label %if.else, label %_ZNK8facebook5velox6Buffer9isMutableEv.exit
 
 _ZNK8facebook5velox6Buffer9isMutableEv.exit:      ; preds = %if.end
-  %referenceCount_.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %2, i64 0, i32 5
+  %referenceCount_.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %4 = load atomic i32, ptr %referenceCount_.i.i seq_cst, align 4
   %cmp.i.i6 = icmp eq i32 %4, 1
   br i1 %cmp.i.i6, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %_ZNK8facebook5velox6Buffer9isMutableEv.exit
   %5 = load ptr, ptr %0, align 8
-  %capacity_.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %5, i64 0, i32 4
+  %capacity_.i = getelementptr inbounds i8, ptr %5, i64 32
   %6 = load i64, ptr %capacity_.i, align 8
   %cmp = icmp ult i64 %6, 1048513
   br i1 %cmp, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %land.lhs.true
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(64) %5, i64 noundef 0)
   %8 = load ptr, ptr %0, align 8
@@ -9316,7 +9247,7 @@ if.then8:                                         ; preds = %land.lhs.true
   br i1 %cmp.not.i, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then8
-  %referenceCount_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %8, i64 0, i32 5
+  %referenceCount_.i.i.i = getelementptr inbounds i8, ptr %8, i64 40
   %9 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4
   br label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit
 
@@ -9327,8 +9258,8 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit: ; preds = %if.t
 
 call5.i.i.i.i.noexc.i:                            ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit
   store ptr %call5.i.i.i.i2.i, ptr %agg.tmp, align 8
-  %add.ptr.i1.i = getelementptr inbounds %"class.boost::intrusive_ptr", ptr %call5.i.i.i.i2.i, i64 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<boost::intrusive_ptr<facebook::velox::Buffer>, std::allocator<boost::intrusive_ptr<facebook::velox::Buffer>>>::_Vector_impl_data", ptr %agg.tmp, i64 0, i32 2
+  %add.ptr.i1.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %add.ptr.i1.i, ptr %_M_end_of_storage.i.i, align 8
   %10 = load ptr, ptr %ref.tmp, align 8
   store ptr %10, ptr %call5.i.i.i.i2.i, align 8
@@ -9336,12 +9267,12 @@ call5.i.i.i.i.noexc.i:                            ; preds = %_ZN5boost13intrusiv
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %call5.i.i.i.i.noexc.i
-  %referenceCount_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %10, i64 0, i32 5
+  %referenceCount_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 40
   %11 = atomicrmw add ptr %referenceCount_.i.i.i.i.i.i.i.i.i.i, i32 1 seq_cst, align 4
   br label %for.inc.i.i.i.i.i.i
 
 for.inc.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i.i.i.i, %call5.i.i.i.i.noexc.i
-  %_M_finish.i.i7 = getelementptr inbounds %"struct.std::_Vector_base<boost::intrusive_ptr<facebook::velox::Buffer>, std::allocator<boost::intrusive_ptr<facebook::velox::Buffer>>>::_Vector_impl_data", ptr %agg.tmp, i64 0, i32 1
+  %_M_finish.i.i7 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i7, align 8
   invoke void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE16setStringBuffersESt6vectorIN5boost13intrusive_ptrINS0_6BufferEEESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont16 unwind label %lpad15
@@ -9364,33 +9295,33 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont16, %_ZS
   br i1 %cmp.not.i.i.i.i.i.i8, label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i
-  %referenceCount_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %15, i64 0, i32 5
+  %referenceCount_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 40
   %16 = atomicrmw sub ptr %referenceCount_.i.i.i.i.i.i.i.i, i32 1 seq_cst, align 4
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %16, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i11, label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i11:                        ; preds = %if.then.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %15, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 64
   %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(64) %15)
           to label %.noexc.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i.i.i11
-  %pool_.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %15, i64 0, i32 1
+  %pool_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
   %18 = load ptr, ptr %pool_.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %18, null
   %vtable5.i.i.i.i.i.i.i.i = load ptr, ptr %15, align 8
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i.i, label %if.then2.i.i.i.i.i.i.i.i
 
 if.then2.i.i.i.i.i.i.i.i:                         ; preds = %.noexc.i.i.i.i.i.i
-  %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i.i.i.i.i, i64 6
+  %vfn4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i.i.i.i.i, i64 48
   %19 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i, align 8
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(64) %15)
           to label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i:                   ; preds = %.noexc.i.i.i.i.i.i
-  %vfn6.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i.i.i.i.i, i64 1
+  %vfn6.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i.i.i.i.i, i64 8
   %20 = load ptr, ptr %vfn6.i.i.i.i.i.i.i.i, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(64) %15) #29
   br label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i
@@ -9403,7 +9334,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 _ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i, %if.then2.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.boost::intrusive_ptr", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %14
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !125
 
@@ -9426,33 +9357,33 @@ _ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EED2Ev.exit:
   br i1 %cmp.not.i12, label %if.end29, label %if.then.i13
 
 if.then.i13:                                      ; preds = %_ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EED2Ev.exit
-  %referenceCount_.i.i.i14 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %24, i64 0, i32 5
+  %referenceCount_.i.i.i14 = getelementptr inbounds i8, ptr %24, i64 40
   %25 = atomicrmw sub ptr %referenceCount_.i.i.i14, i32 1 seq_cst, align 4
   %cmp.i.i.i = icmp eq i32 %25, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i15, label %if.end29
 
 if.then.i.i.i15:                                  ; preds = %if.then.i13
   %vtable.i.i.i = load ptr, ptr %24, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 64
   %26 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %26(ptr noundef nonnull align 8 dereferenceable(64) %24)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %if.then.i.i.i15
-  %pool_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %24, i64 0, i32 1
+  %pool_.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %27 = load ptr, ptr %pool_.i.i.i, align 8
   %tobool.not.i.i.i16 = icmp eq ptr %27, null
   %vtable5.i.i.i = load ptr, ptr %24, align 8
   br i1 %tobool.not.i.i.i16, label %delete.notnull.i.i.i, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %.noexc.i
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i, i64 6
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i, i64 48
   %28 = load ptr, ptr %vfn4.i.i.i, align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(64) %24)
           to label %if.end29 unwind label %terminate.lpad.i
 
 delete.notnull.i.i.i:                             ; preds = %.noexc.i
-  %vfn6.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i, i64 1
+  %vfn6.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i, i64 8
   %29 = load ptr, ptr %vfn6.i.i.i, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(64) %24) #29
   br label %if.end29
@@ -9505,26 +9436,26 @@ if.then:                                          ; preds = %_ZN8facebook5velox1
   unreachable
 
 if.end:                                           ; preds = %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit
-  %size_.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %2, i64 0, i32 3
+  %size_.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i64, ptr %size_.i, align 8
   %cmp = icmp ugt i64 %1, %3
   br i1 %cmp, label %land.lhs.true, label %if.end13
 
 land.lhs.true:                                    ; preds = %if.end
-  %capacity_.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %2, i64 0, i32 4
+  %capacity_.i = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load i64, ptr %capacity_.i, align 8
   %cmp4 = icmp ult i64 %1, %4
   br i1 %cmp4, label %land.lhs.true5, label %if.end13
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %referenceCount_.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %2, i64 0, i32 5
+  %referenceCount_.i = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load atomic i32, ptr %referenceCount_.i seq_cst, align 4
   %cmp.i = icmp eq i32 %5, 1
   br i1 %cmp.i, label %if.then7, label %if.end13
 
 if.then7:                                         ; preds = %land.lhs.true5
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %6 = load ptr, ptr %vfn, align 8
   %call8 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(64) %2)
   br i1 %call8, label %if.then11, label %if.end12
@@ -9543,7 +9474,7 @@ if.then.i47:                                      ; preds = %if.end12
   unreachable
 
 if.end4.i:                                        ; preds = %if.end12
-  %_M_engaged.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base.127", ptr %initValue, i64 0, i32 1
+  %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %initValue, i64 16
   %8 = load i8, ptr %_M_engaged.i.i.i, align 8
   %9 = and i8 %8, 1
   %tobool.i.i.not.i = icmp eq i8 %9, 0
@@ -9551,7 +9482,7 @@ if.end4.i:                                        ; preds = %if.end12
 
 if.then6.i:                                       ; preds = %if.end4.i
   %vtable.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 3
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
   %10 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(64) %2)
   br i1 %call.i.i, label %if.then.i.i, label %_ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit.i
@@ -9561,7 +9492,7 @@ if.then.i.i:                                      ; preds = %if.then6.i
   unreachable
 
 _ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit.i: ; preds = %if.then6.i
-  %data_.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %2, i64 0, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %11 = load ptr, ptr %data_.i.i, align 8
   %div6.i = lshr i64 %3, 4
   %add.ptr9.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %11, i64 %numElements
@@ -9575,7 +9506,7 @@ for.body.i.i.i.preheader.i:                       ; preds = %_ZNK8facebook5velox
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.i.i.i.preheader.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %add.ptr.i, %for.body.i.i.i.preheader.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %initValue, i64 16, i1 false)
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr9.i
   br i1 %cmp.not.i.i.i.i, label %_ZN8facebook5velox13AlignedBuffer13fillNewMemoryINS0_10StringViewEEEvmmRKSt8optionalIT_E.exit, label %for.body.i.i.i.i, !llvm.loop !103
 
@@ -9584,9 +9515,9 @@ _ZN8facebook5velox13AlignedBuffer13fillNewMemoryINS0_10StringViewEEEvmmRKSt8opti
   br label %return
 
 if.end13:                                         ; preds = %land.lhs.true5, %land.lhs.true, %if.end
-  %pool_.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %2, i64 0, i32 1
+  %pool_.i = getelementptr inbounds i8, ptr %2, i64 8
   %12 = load ptr, ptr %pool_.i, align 8
-  %referenceCount_.i48 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %2, i64 0, i32 5
+  %referenceCount_.i48 = getelementptr inbounds i8, ptr %2, i64 40
   %13 = load atomic i32, ptr %referenceCount_.i48 seq_cst, align 4
   %cmp.i49 = icmp eq i32 %13, 1
   br i1 %cmp.i49, label %if.end30, label %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i
@@ -9604,27 +9535,27 @@ if.then.i6.i:                                     ; preds = %_ZN8facebook5velox1
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i: ; preds = %_ZN8facebook5velox15checkedMultiplyImEET_RKS2_S4_PKc.exit.i
   %16 = extractvalue { i64, i1 } %14, 0
   %vtable.i = load ptr, ptr %12, align 8, !noalias !126
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 24
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 192
   %17 = load ptr, ptr %vfn.i, align 8, !noalias !126
   %call3.i = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(168) %12, i64 noundef %16), !noalias !126
   %vtable4.i = load ptr, ptr %12, align 8, !noalias !126
-  %vfn5.i = getelementptr inbounds ptr, ptr %vtable4.i, i64 13
+  %vfn5.i = getelementptr inbounds i8, ptr %vtable4.i, i64 104
   %18 = load ptr, ptr %vfn5.i, align 8, !noalias !126
   %call6.i = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(168) %12, i64 noundef %call3.i), !noalias !126
   %sub.i = add i64 %call3.i, -96
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call6.i, i64 64
-  %pool_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call6.i, i64 0, i32 1
+  %pool_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 8
   store ptr %12, ptr %pool_.i.i.i, align 8, !noalias !126
-  %data_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call6.i, i64 0, i32 2
+  %data_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 16
   store ptr %add.ptr.i.i, ptr %data_.i.i.i, align 8, !noalias !126
-  %size_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call6.i, i64 0, i32 3
-  %capacity_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call6.i, i64 0, i32 4
+  %size_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 24
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 32
   store i64 %sub.i, ptr %capacity_.i.i.i, align 8, !noalias !126
-  %referenceCount_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call6.i, i64 0, i32 5
+  %referenceCount_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 40
   store i32 0, ptr %referenceCount_.i.i.i, align 4, !noalias !126
-  %podType_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call6.i, i64 0, i32 6
+  %podType_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 44
   store i8 1, ptr %podType_.i.i.i, align 4, !noalias !126
-  %padding_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call6.i, i64 0, i32 7
+  %padding_.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i.i, i8 -1, i64 16, i1 false), !noalias !126
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, inrange i32 0, i64 2), ptr %call6.i, align 8, !noalias !126
   store i64 %1, ptr %size_.i.i.i, align 8, !noalias !126
@@ -9643,14 +9574,14 @@ _ZN8facebook5velox13AlignedBuffer8allocateINS0_10StringViewEEEN5boost13intrusive
   %22 = load i64, ptr %size_.i, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %22, i64 %1)
   %vtable22 = load ptr, ptr %21, align 8
-  %vfn23 = getelementptr inbounds ptr, ptr %vtable22, i64 7
+  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 56
   %23 = load ptr, ptr %vfn23, align 8
   invoke void %23(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull %2, i64 noundef %.sroa.speculated)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8facebook5velox13AlignedBuffer8allocateINS0_10StringViewEEEN5boost13intrusive_ptrINS0_6BufferEEEmPNS0_6memory10MemoryPoolERKSt8optionalIT_E.exit
   %24 = load i64, ptr %size_.i, align 8
-  %capacity_.i.i55 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %21, i64 0, i32 4
+  %capacity_.i.i55 = getelementptr inbounds i8, ptr %21, i64 32
   %25 = load i64, ptr %capacity_.i.i55, align 8
   %cmp.not.i56 = icmp ult i64 %25, %1
   br i1 %cmp.not.i56, label %if.then.i79, label %if.end.i57
@@ -9664,7 +9595,7 @@ if.end.i57:                                       ; preds = %invoke.cont
   br i1 %cmp2.not.i58, label %if.end4.i59, label %invoke.cont26
 
 if.end4.i59:                                      ; preds = %if.end.i57
-  %_M_engaged.i.i.i60 = getelementptr inbounds %"struct.std::_Optional_payload_base.127", ptr %initValue, i64 0, i32 1
+  %_M_engaged.i.i.i60 = getelementptr inbounds i8, ptr %initValue, i64 16
   %26 = load i8, ptr %_M_engaged.i.i.i60, align 8
   %27 = and i8 %26, 1
   %tobool.i.i.not.i61 = icmp eq i8 %27, 0
@@ -9672,7 +9603,7 @@ if.end4.i59:                                      ; preds = %if.end.i57
 
 if.then6.i62:                                     ; preds = %if.end4.i59
   %vtable.i.i63 = load ptr, ptr %21, align 8
-  %vfn.i.i64 = getelementptr inbounds ptr, ptr %vtable.i.i63, i64 3
+  %vfn.i.i64 = getelementptr inbounds i8, ptr %vtable.i.i63, i64 24
   %28 = load ptr, ptr %vfn.i.i64, align 8
   %call.i.i6580 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(64) %21)
           to label %call.i.i65.noexc unwind label %lpad
@@ -9685,7 +9616,7 @@ if.then.i.i78:                                    ; preds = %call.i.i65.noexc
   unreachable
 
 _ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit.i66: ; preds = %call.i.i65.noexc
-  %data_.i.i67 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %21, i64 0, i32 2
+  %data_.i.i67 = getelementptr inbounds i8, ptr %21, i64 16
   %29 = load ptr, ptr %data_.i.i67, align 8
   %div6.i68 = lshr i64 %24, 4
   %add.ptr9.i70 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %29, i64 %numElements
@@ -9699,12 +9630,12 @@ for.body.i.i.i.preheader.i72:                     ; preds = %_ZNK8facebook5velox
 for.body.i.i.i.i74:                               ; preds = %for.body.i.i.i.i74, %for.body.i.i.i.preheader.i72
   %__first.addr.04.i.i.i.i75 = phi ptr [ %incdec.ptr.i.i.i.i76, %for.body.i.i.i.i74 ], [ %add.ptr.i73, %for.body.i.i.i.preheader.i72 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i75, ptr noundef nonnull align 8 dereferenceable(16) %initValue, i64 16, i1 false)
-  %incdec.ptr.i.i.i.i76 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %__first.addr.04.i.i.i.i75, i64 1
+  %incdec.ptr.i.i.i.i76 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i75, i64 16
   %cmp.not.i.i.i.i77 = icmp eq ptr %incdec.ptr.i.i.i.i76, %add.ptr9.i70
   br i1 %cmp.not.i.i.i.i77, label %invoke.cont26, label %for.body.i.i.i.i74, !llvm.loop !103
 
 invoke.cont26:                                    ; preds = %for.body.i.i.i.i74, %_ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit.i66, %if.end4.i59, %if.end.i57
-  %size_28 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %21, i64 0, i32 3
+  %size_28 = getelementptr inbounds i8, ptr %21, i64 24
   store i64 %1, ptr %size_28, align 8
   store ptr null, ptr %newBuffer, align 8
   %30 = load ptr, ptr %buffer, align 8
@@ -9713,33 +9644,33 @@ invoke.cont26:                                    ; preds = %for.body.i.i.i.i74,
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i82
 
 if.then.i.i82:                                    ; preds = %invoke.cont26
-  %referenceCount_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %30, i64 0, i32 5
+  %referenceCount_.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 40
   %31 = atomicrmw sub ptr %referenceCount_.i.i.i.i, i32 1 seq_cst, align 4
   %cmp.i.i.i.i = icmp eq i32 %31, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEOS4_.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i82
   %vtable.i.i.i.i = load ptr, ptr %30, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 8
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 64
   %32 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %32(ptr noundef nonnull align 8 dereferenceable(64) %30)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
 
 .noexc.i.i:                                       ; preds = %if.then.i.i.i.i
-  %pool_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %30, i64 0, i32 1
+  %pool_.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 8
   %33 = load ptr, ptr %pool_.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %33, null
   %vtable5.i.i.i.i = load ptr, ptr %30, align 8
   br i1 %tobool.not.i.i.i.i, label %delete.notnull.i.i.i.i, label %if.then2.i.i.i.i
 
 if.then2.i.i.i.i:                                 ; preds = %.noexc.i.i
-  %vfn4.i.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i, i64 6
+  %vfn4.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i, i64 48
   %34 = load ptr, ptr %vfn4.i.i.i.i, align 8
   invoke void %34(ptr noundef nonnull align 8 dereferenceable(64) %30)
           to label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEOS4_.exit unwind label %terminate.lpad.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %.noexc.i.i
-  %vfn6.i.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i, i64 1
+  %vfn6.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i, i64 8
   %35 = load ptr, ptr %vfn6.i.i.i.i, align 8
   tail call void %35(ptr noundef nonnull align 8 dereferenceable(64) %30) #29
   br label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEOS4_.exit
@@ -9757,33 +9688,33 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEOS4_.exit: ; preds = %if.th
   br i1 %cmp.not.i83, label %return, label %if.then.i84
 
 if.then.i84:                                      ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEOS4_.exit
-  %referenceCount_.i.i.i85 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %.pr, i64 0, i32 5
+  %referenceCount_.i.i.i85 = getelementptr inbounds i8, ptr %.pr, i64 40
   %38 = atomicrmw sub ptr %referenceCount_.i.i.i85, i32 1 seq_cst, align 4
   %cmp.i.i.i = icmp eq i32 %38, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i87, label %return
 
 if.then.i.i.i87:                                  ; preds = %if.then.i84
   %vtable.i.i.i88 = load ptr, ptr %.pr, align 8
-  %vfn.i.i.i89 = getelementptr inbounds ptr, ptr %vtable.i.i.i88, i64 8
+  %vfn.i.i.i89 = getelementptr inbounds i8, ptr %vtable.i.i.i88, i64 64
   %39 = load ptr, ptr %vfn.i.i.i89, align 8
   invoke void %39(ptr noundef nonnull align 8 dereferenceable(64) %.pr)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %if.then.i.i.i87
-  %pool_.i.i.i90 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %.pr, i64 0, i32 1
+  %pool_.i.i.i90 = getelementptr inbounds i8, ptr %.pr, i64 8
   %40 = load ptr, ptr %pool_.i.i.i90, align 8
   %tobool.not.i.i.i = icmp eq ptr %40, null
   %vtable5.i.i.i = load ptr, ptr %.pr, align 8
   br i1 %tobool.not.i.i.i, label %delete.notnull.i.i.i, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %.noexc.i
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i, i64 6
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i, i64 48
   %41 = load ptr, ptr %vfn4.i.i.i, align 8
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(64) %.pr)
           to label %return unwind label %terminate.lpad.i
 
 delete.notnull.i.i.i:                             ; preds = %.noexc.i
-  %vfn6.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i, i64 1
+  %vfn6.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i, i64 8
   %42 = load ptr, ptr %vfn6.i.i.i, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(64) %.pr) #29
   br label %return
@@ -9802,7 +9733,7 @@ lpad:                                             ; preds = %if.then6.i62, %_ZN8
   br label %eh.resume
 
 if.end30:                                         ; preds = %if.end13
-  %capacity_.i91 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %2, i64 0, i32 4
+  %capacity_.i91 = getelementptr inbounds i8, ptr %2, i64 32
   %46 = load i64, ptr %capacity_.i91, align 8
   %47 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %46, i64 96)
   %48 = extractvalue { i64, i1 } %47, 1
@@ -9825,13 +9756,13 @@ _ZN8facebook5velox11checkedPlusImEET_RKS2_S4_PKc.exit96: ; preds = %_ZN8facebook
   %51 = extractvalue { i64, i1 } %47, 0
   %52 = extractvalue { i64, i1 } %49, 0
   %vtable37 = load ptr, ptr %12, align 8
-  %vfn38 = getelementptr inbounds ptr, ptr %vtable37, i64 24
+  %vfn38 = getelementptr inbounds i8, ptr %vtable37, i64 192
   %53 = load ptr, ptr %vfn38, align 8
   %call39 = tail call noundef i64 %53(ptr noundef nonnull align 8 dereferenceable(168) %12, i64 noundef %52)
   store ptr null, ptr %buffer, align 8
   %54 = atomicrmw sub ptr %referenceCount_.i48, i32 1 seq_cst, align 4
   %vtable42 = load ptr, ptr %12, align 8
-  %vfn43 = getelementptr inbounds ptr, ptr %vtable42, i64 15
+  %vfn43 = getelementptr inbounds i8, ptr %vtable42, i64 120
   %55 = load ptr, ptr %vfn43, align 8
   %call46 = invoke noundef ptr %55(ptr noundef nonnull align 8 dereferenceable(168) %12, ptr noundef nonnull %2, i64 noundef %51, i64 noundef %call39)
           to label %invoke.cont45 unwind label %lpad44
@@ -9872,33 +9803,33 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i99: ; preds = %
   br i1 %cmp.not.i1.i, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEPS3_.exit, label %if.then.i2.i
 
 if.then.i2.i:                                     ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i99
-  %referenceCount_.i.i.i3.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %63, i64 0, i32 5
+  %referenceCount_.i.i.i3.i = getelementptr inbounds i8, ptr %63, i64 40
   %64 = atomicrmw sub ptr %referenceCount_.i.i.i3.i, i32 1 seq_cst, align 4
   %cmp.i.i.i.i100 = icmp eq i32 %64, 1
   br i1 %cmp.i.i.i.i100, label %if.then.i.i.i.i101, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEPS3_.exit
 
 if.then.i.i.i.i101:                               ; preds = %if.then.i2.i
   %vtable.i.i.i.i102 = load ptr, ptr %63, align 8
-  %vfn.i.i.i.i103 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i102, i64 8
+  %vfn.i.i.i.i103 = getelementptr inbounds i8, ptr %vtable.i.i.i.i102, i64 64
   %65 = load ptr, ptr %vfn.i.i.i.i103, align 8
   invoke void %65(ptr noundef nonnull align 8 dereferenceable(64) %63)
           to label %.noexc.i.i105 unwind label %terminate.lpad.i.i104
 
 .noexc.i.i105:                                    ; preds = %if.then.i.i.i.i101
-  %pool_.i.i.i.i106 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %63, i64 0, i32 1
+  %pool_.i.i.i.i106 = getelementptr inbounds i8, ptr %63, i64 8
   %66 = load ptr, ptr %pool_.i.i.i.i106, align 8
   %tobool.not.i.i.i.i107 = icmp eq ptr %66, null
   %vtable5.i.i.i.i108 = load ptr, ptr %63, align 8
   br i1 %tobool.not.i.i.i.i107, label %delete.notnull.i.i.i.i111, label %if.then2.i.i.i.i109
 
 if.then2.i.i.i.i109:                              ; preds = %.noexc.i.i105
-  %vfn4.i.i.i.i110 = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i108, i64 6
+  %vfn4.i.i.i.i110 = getelementptr inbounds i8, ptr %vtable5.i.i.i.i108, i64 48
   %67 = load ptr, ptr %vfn4.i.i.i.i110, align 8
   invoke void %67(ptr noundef nonnull align 8 dereferenceable(64) %63)
           to label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEPS3_.exit unwind label %terminate.lpad.i.i104
 
 delete.notnull.i.i.i.i111:                        ; preds = %.noexc.i.i105
-  %vfn6.i.i.i.i112 = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i108, i64 1
+  %vfn6.i.i.i.i112 = getelementptr inbounds i8, ptr %vtable5.i.i.i.i108, i64 8
   %68 = load ptr, ptr %vfn6.i.i.i.i112, align 8
   tail call void %68(ptr noundef nonnull align 8 dereferenceable(64) %63) #29
   br label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEPS3_.exit
@@ -9913,15 +9844,15 @@ terminate.lpad.i.i104:                            ; preds = %if.then2.i.i.i.i109
 _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEaSEPS3_.exit: ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i99, %if.then.i2.i, %if.then2.i.i.i.i109, %delete.notnull.i.i.i.i111
   %71 = load ptr, ptr %buffer, align 8
   %sub = add i64 %call39, -96
-  %capacity_.i113 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %71, i64 0, i32 4
+  %capacity_.i113 = getelementptr inbounds i8, ptr %71, i64 32
   store i64 %sub, ptr %capacity_.i113, align 8
   %72 = load ptr, ptr %buffer, align 8
   %vtable56 = load ptr, ptr %72, align 8
-  %vfn57 = getelementptr inbounds ptr, ptr %vtable56, i64 2
+  %vfn57 = getelementptr inbounds i8, ptr %vtable56, i64 16
   %73 = load ptr, ptr %vfn57, align 8
   tail call void %73(ptr noundef nonnull align 8 dereferenceable(64) %72, i64 noundef %1)
   %74 = load ptr, ptr %buffer, align 8
-  %capacity_.i.i114 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %74, i64 0, i32 4
+  %capacity_.i.i114 = getelementptr inbounds i8, ptr %74, i64 32
   %75 = load i64, ptr %capacity_.i.i114, align 8
   %cmp.not.i115 = icmp ult i64 %75, %1
   br i1 %cmp.not.i115, label %if.then.i138, label %if.end.i116
@@ -9934,7 +9865,7 @@ if.end.i116:                                      ; preds = %_ZN5boost13intrusiv
   br i1 %cmp, label %if.end4.i118, label %return
 
 if.end4.i118:                                     ; preds = %if.end.i116
-  %_M_engaged.i.i.i119 = getelementptr inbounds %"struct.std::_Optional_payload_base.127", ptr %initValue, i64 0, i32 1
+  %_M_engaged.i.i.i119 = getelementptr inbounds i8, ptr %initValue, i64 16
   %76 = load i8, ptr %_M_engaged.i.i.i119, align 8
   %77 = and i8 %76, 1
   %tobool.i.i.not.i120 = icmp eq i8 %77, 0
@@ -9942,7 +9873,7 @@ if.end4.i118:                                     ; preds = %if.end.i116
 
 if.then6.i121:                                    ; preds = %if.end4.i118
   %vtable.i.i122 = load ptr, ptr %74, align 8
-  %vfn.i.i123 = getelementptr inbounds ptr, ptr %vtable.i.i122, i64 3
+  %vfn.i.i123 = getelementptr inbounds i8, ptr %vtable.i.i122, i64 24
   %78 = load ptr, ptr %vfn.i.i123, align 8
   %call.i.i124 = tail call noundef zeroext i1 %78(ptr noundef nonnull align 8 dereferenceable(64) %74)
   br i1 %call.i.i124, label %if.then.i.i137, label %_ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit.i125
@@ -9952,7 +9883,7 @@ if.then.i.i137:                                   ; preds = %if.then6.i121
   unreachable
 
 _ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit.i125: ; preds = %if.then6.i121
-  %data_.i.i126 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %74, i64 0, i32 2
+  %data_.i.i126 = getelementptr inbounds i8, ptr %74, i64 16
   %79 = load ptr, ptr %data_.i.i126, align 8
   %div6.i127 = lshr i64 %3, 4
   %add.ptr9.i129 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %79, i64 %numElements
@@ -9966,26 +9897,26 @@ for.body.i.i.i.preheader.i131:                    ; preds = %_ZNK8facebook5velox
 for.body.i.i.i.i133:                              ; preds = %for.body.i.i.i.i133, %for.body.i.i.i.preheader.i131
   %__first.addr.04.i.i.i.i134 = phi ptr [ %incdec.ptr.i.i.i.i135, %for.body.i.i.i.i133 ], [ %add.ptr.i132, %for.body.i.i.i.preheader.i131 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i134, ptr noundef nonnull align 8 dereferenceable(16) %initValue, i64 16, i1 false)
-  %incdec.ptr.i.i.i.i135 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %__first.addr.04.i.i.i.i134, i64 1
+  %incdec.ptr.i.i.i.i135 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i134, i64 16
   %cmp.not.i.i.i.i136 = icmp eq ptr %incdec.ptr.i.i.i.i135, %add.ptr9.i129
   br i1 %cmp.not.i.i.i.i136, label %return, label %for.body.i.i.i.i133, !llvm.loop !103
 
 if.end.i:                                         ; preds = %invoke.cont45
   %sub61 = add i64 %call39, -96
   %add.ptr.i140 = getelementptr inbounds i8, ptr %call46, i64 64
-  %pool_.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call46, i64 0, i32 1
+  %pool_.i.i = getelementptr inbounds i8, ptr %call46, i64 8
   store ptr %12, ptr %pool_.i.i, align 8
-  %data_.i.i141 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call46, i64 0, i32 2
+  %data_.i.i141 = getelementptr inbounds i8, ptr %call46, i64 16
   store ptr %add.ptr.i140, ptr %data_.i.i141, align 8
-  %size_.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call46, i64 0, i32 3
+  %size_.i.i = getelementptr inbounds i8, ptr %call46, i64 24
   store i64 0, ptr %size_.i.i, align 8
-  %capacity_.i.i142 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call46, i64 0, i32 4
+  %capacity_.i.i142 = getelementptr inbounds i8, ptr %call46, i64 32
   store i64 %sub61, ptr %capacity_.i.i142, align 8
-  %referenceCount_.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call46, i64 0, i32 5
+  %referenceCount_.i.i = getelementptr inbounds i8, ptr %call46, i64 40
   store i32 0, ptr %referenceCount_.i.i, align 4
-  %podType_.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call46, i64 0, i32 6
+  %podType_.i.i = getelementptr inbounds i8, ptr %call46, i64 44
   store i8 1, ptr %podType_.i.i, align 4
-  %padding_.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %call46, i64 0, i32 7
+  %padding_.i.i = getelementptr inbounds i8, ptr %call46, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %padding_.i.i, i8 -1, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8facebook5velox13AlignedBufferE, i64 0, inrange i32 0, i64 2), ptr %call46, align 8
   %cmp.not.i207 = icmp ult i64 %sub61, %1
@@ -10000,7 +9931,7 @@ if.end.i145:                                      ; preds = %if.end.i
   br i1 %cmp, label %if.end4.i147, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i172
 
 if.end4.i147:                                     ; preds = %if.end.i145
-  %_M_engaged.i.i.i148 = getelementptr inbounds %"struct.std::_Optional_payload_base.127", ptr %initValue, i64 0, i32 1
+  %_M_engaged.i.i.i148 = getelementptr inbounds i8, ptr %initValue, i64 16
   %80 = load i8, ptr %_M_engaged.i.i.i148, align 8
   %81 = and i8 %80, 1
   %tobool.i.i.not.i149 = icmp eq i8 %81, 0
@@ -10019,7 +9950,7 @@ for.body.i.i.i.preheader.i160:                    ; preds = %_ZNK8facebook5velox
 for.body.i.i.i.i162:                              ; preds = %for.body.i.i.i.i162, %for.body.i.i.i.preheader.i160
   %__first.addr.04.i.i.i.i163 = phi ptr [ %incdec.ptr.i.i.i.i164, %for.body.i.i.i.i162 ], [ %add.ptr.i161, %for.body.i.i.i.preheader.i160 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i163, ptr noundef nonnull align 8 dereferenceable(16) %initValue, i64 16, i1 false)
-  %incdec.ptr.i.i.i.i164 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %__first.addr.04.i.i.i.i163, i64 1
+  %incdec.ptr.i.i.i.i164 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i163, i64 16
   %cmp.not.i.i.i.i165 = icmp eq ptr %incdec.ptr.i.i.i.i164, %add.ptr9.i158
   br i1 %cmp.not.i.i.i.i165, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i172, label %for.body.i.i.i.i162, !llvm.loop !103
 
@@ -10031,33 +9962,33 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i172: ; preds = 
   br i1 %cmp.not.i1.i173, label %return, label %if.then.i2.i174
 
 if.then.i2.i174:                                  ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i172
-  %referenceCount_.i.i.i3.i175 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %83, i64 0, i32 5
+  %referenceCount_.i.i.i3.i175 = getelementptr inbounds i8, ptr %83, i64 40
   %84 = atomicrmw sub ptr %referenceCount_.i.i.i3.i175, i32 1 seq_cst, align 4
   %cmp.i.i.i.i176 = icmp eq i32 %84, 1
   br i1 %cmp.i.i.i.i176, label %if.then.i.i.i.i177, label %return
 
 if.then.i.i.i.i177:                               ; preds = %if.then.i2.i174
   %vtable.i.i.i.i178 = load ptr, ptr %83, align 8
-  %vfn.i.i.i.i179 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i178, i64 8
+  %vfn.i.i.i.i179 = getelementptr inbounds i8, ptr %vtable.i.i.i.i178, i64 64
   %85 = load ptr, ptr %vfn.i.i.i.i179, align 8
   invoke void %85(ptr noundef nonnull align 8 dereferenceable(64) %83)
           to label %.noexc.i.i181 unwind label %terminate.lpad.i.i180
 
 .noexc.i.i181:                                    ; preds = %if.then.i.i.i.i177
-  %pool_.i.i.i.i182 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %83, i64 0, i32 1
+  %pool_.i.i.i.i182 = getelementptr inbounds i8, ptr %83, i64 8
   %86 = load ptr, ptr %pool_.i.i.i.i182, align 8
   %tobool.not.i.i.i.i183 = icmp eq ptr %86, null
   %vtable5.i.i.i.i184 = load ptr, ptr %83, align 8
   br i1 %tobool.not.i.i.i.i183, label %delete.notnull.i.i.i.i187, label %if.then2.i.i.i.i185
 
 if.then2.i.i.i.i185:                              ; preds = %.noexc.i.i181
-  %vfn4.i.i.i.i186 = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i184, i64 6
+  %vfn4.i.i.i.i186 = getelementptr inbounds i8, ptr %vtable5.i.i.i.i184, i64 48
   %87 = load ptr, ptr %vfn4.i.i.i.i186, align 8
   invoke void %87(ptr noundef nonnull align 8 dereferenceable(64) %83)
           to label %return unwind label %terminate.lpad.i.i180
 
 delete.notnull.i.i.i.i187:                        ; preds = %.noexc.i.i181
-  %vfn6.i.i.i.i188 = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i184, i64 1
+  %vfn6.i.i.i.i188 = getelementptr inbounds i8, ptr %vtable5.i.i.i.i184, i64 8
   %88 = load ptr, ptr %vfn6.i.i.i.i188, align 8
   tail call void %88(ptr noundef nonnull align 8 dereferenceable(64) %83) #29
   br label %return
@@ -10095,33 +10026,33 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %referenceCount_.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %0, i64 0, i32 5
+  %referenceCount_.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = atomicrmw sub ptr %referenceCount_.i.i, i32 1 seq_cst, align 4
   %cmp.i.i = icmp eq i32 %1, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end
 
 if.then.i.i:                                      ; preds = %if.then
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 64
   %2 = load ptr, ptr %vfn.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %if.then.i.i
-  %pool_.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %0, i64 0, i32 1
+  %pool_.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %pool_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   %vtable5.i.i = load ptr, ptr %0, align 8
   br i1 %tobool.not.i.i, label %delete.notnull.i.i, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %.noexc
-  %vfn4.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 6
+  %vfn4.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 48
   %4 = load ptr, ptr %vfn4.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(64) %0)
           to label %if.end unwind label %terminate.lpad
 
 delete.notnull.i.i:                               ; preds = %.noexc
-  %vfn6.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i, i64 1
+  %vfn6.i.i = getelementptr inbounds i8, ptr %vtable5.i.i, i64 8
   %5 = load ptr, ptr %vfn6.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(64) %0) #29
   br label %if.end
@@ -10147,7 +10078,7 @@ entry:
   br i1 %cmp.not.i.not, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %referenceCount_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %rhs, i64 0, i32 5
+  %referenceCount_.i.i.i = getelementptr inbounds i8, ptr %rhs, i64 40
   %0 = atomicrmw add ptr %referenceCount_.i.i.i, i32 1 seq_cst, align 4
   br label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit
 
@@ -10158,33 +10089,33 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit: ; preds = %entr
   br i1 %cmp.not.i1, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit, label %if.then.i2
 
 if.then.i2:                                       ; preds = %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit
-  %referenceCount_.i.i.i3 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %1, i64 0, i32 5
+  %referenceCount_.i.i.i3 = getelementptr inbounds i8, ptr %1, i64 40
   %2 = atomicrmw sub ptr %referenceCount_.i.i.i3, i32 1 seq_cst, align 4
   %cmp.i.i.i = icmp eq i32 %2, 1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i2
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 64
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(64) %1)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %if.then.i.i.i
-  %pool_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %1, i64 0, i32 1
+  %pool_.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %pool_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %4, null
   %vtable5.i.i.i = load ptr, ptr %1, align 8
   br i1 %tobool.not.i.i.i, label %delete.notnull.i.i.i, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %.noexc.i
-  %vfn4.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i, i64 6
+  %vfn4.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i, i64 48
   %5 = load ptr, ptr %vfn4.i.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(64) %1)
           to label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit unwind label %terminate.lpad.i
 
 delete.notnull.i.i.i:                             ; preds = %.noexc.i
-  %vfn6.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i, i64 1
+  %vfn6.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i, i64 8
   %6 = load ptr, ptr %vfn6.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(64) %1) #29
   br label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEED2Ev.exit
@@ -10221,7 +10152,7 @@ entry:
 define linkonce_odr void @_ZN8facebook5velox6Buffer7setSizeEm(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %size) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(64) %this)
   br i1 %call, label %if.then, label %if.end
@@ -10231,7 +10162,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %capacity_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this, i64 0, i32 4
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %capacity_, align 8
   %cmp.not = icmp ult i64 %1, %size
   br i1 %cmp.not, label %if.then4, label %if.end5
@@ -10241,7 +10172,7 @@ if.then4:                                         ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %size_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this, i64 0, i32 3
+  %size_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %size, ptr %size_, align 8
   ret void
 }
@@ -10255,9 +10186,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox13AlignedBuffer15setEndGuardImplEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %data_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this, i64 0, i32 2
+  %data_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_, align 8
-  %capacity_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this, i64 0, i32 4
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %capacity_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
   store i64 -4982426243126403411, ptr %add.ptr, align 8
@@ -10267,9 +10198,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNK8facebook5velox13AlignedBuffer17checkEndGuardImplEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %data_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this, i64 0, i32 2
+  %data_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_, align 8
-  %capacity_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this, i64 0, i32 4
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %capacity_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %1
   %2 = load i64, ptr %add.ptr, align 8
@@ -10287,7 +10218,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8facebook5velox13AlignedBuffer10freeToPoolEv(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this, i64 0, i32 4
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %capacity_, align 8
   %1 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %0, i64 96)
   %2 = extractvalue { i64, i1 } %1, 1
@@ -10298,11 +10229,11 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 _ZN8facebook5velox11checkedPlusImEET_RKS2_S4_PKc.exit: ; preds = %entry
-  %pool_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this, i64 0, i32 1
+  %pool_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %pool_, align 8
   %4 = extractvalue { i64, i1 } %1, 0
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull %this, i64 noundef %4)
   ret void
@@ -10312,7 +10243,7 @@ _ZN8facebook5velox11checkedPlusImEET_RKS2_S4_PKc.exit: ; preds = %entry
 define linkonce_odr void @_ZN8facebook5velox6Buffer8copyFromEPKS1_m(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %other, i64 noundef %bytes) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(64) %this)
   br i1 %call, label %if.then, label %if.end
@@ -10322,7 +10253,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %capacity_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this, i64 0, i32 4
+  %capacity_ = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %capacity_, align 8
   %cmp.not = icmp ult i64 %1, %bytes
   br i1 %cmp.not, label %if.then4, label %if.end5
@@ -10332,7 +10263,7 @@ if.then4:                                         ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %podType_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this, i64 0, i32 6
+  %podType_ = getelementptr inbounds i8, ptr %this, i64 44
   %2 = load i8, ptr %podType_, align 4
   %3 = and i8 %2, 1
   %tobool.not = icmp eq i8 %3, 0
@@ -10343,9 +10274,9 @@ if.then7:                                         ; preds = %if.end5
   unreachable
 
 if.end8:                                          ; preds = %if.end5
-  %data_ = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %this, i64 0, i32 2
+  %data_ = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %data_, align 8
-  %data_9 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %other, i64 0, i32 2
+  %data_9 = getelementptr inbounds i8, ptr %other, i64 16
   %5 = load ptr, ptr %data_9, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %5, i64 %bytes, i1 false)
   ret void
@@ -10360,7 +10291,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9LockedPtrINS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSA_22SynchronizedMutexLevelE1ELNSA_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_owns.i = getelementptr inbounds %"class.std::unique_lock", ptr %this, i64 0, i32 1
+  %_M_owns.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %_M_owns.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -10404,7 +10335,7 @@ entry:
   %add.i.i = add i32 %size, 63
   %div.i = sdiv i32 %add.i.i, 64
   %conv.i = sext i32 %div.i to i64
-  %size_ = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %this, i64 0, i32 1
+  %size_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %size_, align 8
   %.fr = freeze i32 %0
   %cmp = icmp slt i32 %.fr, %size
@@ -10412,7 +10343,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %if.end8, label %if.then
@@ -10423,7 +10354,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %tobool.not, label %if.end8, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %2, i64 -1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %add.i.i7 = add nsw i32 %rem, 63
   %.cmp = icmp ult i32 %add.i.i7, 64
   %mul.i.i = select i1 %.cmp, i32 0, i32 64
@@ -10460,7 +10391,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end14.i
 if.end8:                                          ; preds = %for.body.lr.ph.i, %if.end14.i, %if.then, %land.lhs.true, %entry
   %conv = sext i1 %value to i64
   store i64 %conv, ptr %ref.tmp, align 8
-  %_M_finish.i.i6 = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i6 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %_M_finish.i.i6, align 8
   %6 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
@@ -10531,11 +10462,11 @@ if.then26.i.i.i:                                  ; preds = %for.end.i.i.i
   br i1 %tobool.not.i55.i.i.i, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread.i, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i
 
 _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.thread.i: ; preds = %if.then26.i.i.i, %for.end.i.i.i, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit
-  %begin_2.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %this, i64 0, i32 2
+  %begin_2.i = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %begin_2.i, align 4
-  %end_.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %this, i64 0, i32 3
+  %end_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %end_.i, align 8
-  %allSelected_.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %this, i64 0, i32 4
+  %allSelected_.i = getelementptr inbounds i8, ptr %this, i64 36
   store i16 256, ptr %allSelected_.i, align 4
   br label %_ZN8facebook5velox17SelectivityVector12updateBoundsEv.exit
 
@@ -10549,21 +10480,21 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i: ; preds = %_ZN8facebook5velo
   %14 = call i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i.i, i1 true), !range !32
   %cast.i58.i.i.i = trunc i64 %14 to i32
   %add.i59.i.i.i = or disjoint i32 %.sink.i.i.i, %cast.i58.i.i.i
-  %begin_.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %this, i64 0, i32 2
+  %begin_.i = getelementptr inbounds i8, ptr %this, i64 28
   store i32 %add.i59.i.i.i, ptr %begin_.i, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp2.i.i)
   store i32 -1, ptr %found.i.i, align 4
   store ptr %7, ptr %agg.tmp.i.i, align 8
-  %15 = getelementptr inbounds %class.anon.209, ptr %agg.tmp.i.i, i64 0, i32 1
+  %15 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   store ptr %found.i.i, ptr %15, align 8
-  %16 = getelementptr inbounds %class.anon.209, ptr %agg.tmp.i.i, i64 0, i32 2
+  %16 = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
   store i8 1, ptr %16, align 8
   store ptr %7, ptr %agg.tmp2.i.i, align 8
-  %17 = getelementptr inbounds %class.anon.211, ptr %agg.tmp2.i.i, i64 0, i32 1
+  %17 = getelementptr inbounds i8, ptr %agg.tmp2.i.i, i64 8
   store ptr %found.i.i, ptr %17, align 8
-  %18 = getelementptr inbounds %class.anon.211, ptr %agg.tmp2.i.i, i64 0, i32 2
+  %18 = getelementptr inbounds i8, ptr %agg.tmp2.i.i, i64 16
   store i8 1, ptr %18, align 8
   %call.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %add.i59.i.i.i, i32 noundef %size, ptr noundef nonnull byval(%class.anon.209) align 8 %agg.tmp.i.i, ptr noundef nonnull byval(%class.anon.211) align 8 %agg.tmp2.i.i)
   %19 = load i32, ptr %found.i.i, align 4
@@ -10571,9 +10502,9 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i: ; preds = %_ZN8facebook5velo
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2.i.i)
   %add.i = add nsw i32 %19, 1
-  %end_11.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %this, i64 0, i32 3
+  %end_11.i = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %add.i, ptr %end_11.i, align 8
-  %_M_engaged.i.i.i.i = getelementptr inbounds %"class.facebook::velox::SelectivityVector", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 37
   %20 = load i8, ptr %_M_engaged.i.i.i.i, align 1
   %21 = and i8 %20, 1
   %tobool.not.i.i.i.i = icmp eq i8 %21, 0
@@ -10590,7 +10521,7 @@ _ZN8facebook5velox17SelectivityVector12updateBoundsEv.exit: ; preds = %_ZN8faceb
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9LockedPtrINS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSA_22SynchronizedMutexLevelE3ELNSA_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state_.i.i.i.i = getelementptr inbounds %"struct.folly::detail::lock_storage", ptr %this, i64 0, i32 1
+  %state_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %state_.i.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.i.not.i.i.i = icmp eq i8 %1, 0
@@ -10634,7 +10565,7 @@ entry:
   %ref.tmp = alloca %"class.std::system_error", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %vtable.i.i = load ptr, ptr %args.coerce1, align 8, !noalias !131
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %0 = load ptr, ptr %vfn.i.i, align 8, !noalias !131
   call void %0(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %args.coerce1, i32 noundef %args.coerce0)
   invoke void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
@@ -10653,9 +10584,9 @@ lpad.i:                                           ; preds = %entry
 _ZNSt12system_errorC2ESt10error_code.exit:        ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #29
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
-  %_M_code.i = getelementptr inbounds %"class.std::system_error", ptr %ref.tmp, i64 0, i32 1
+  %_M_code.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i32 %args.coerce0, ptr %_M_code.i, align 8
-  %__ec.sroa.31.0._M_code.sroa_idx.i = getelementptr inbounds %"class.std::system_error", ptr %ref.tmp, i64 0, i32 1, i32 1
+  %__ec.sroa.31.0._M_code.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store ptr %args.coerce1, ptr %__ec.sroa.31.0._M_code.sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   invoke void @_ZN5folly15throw_exceptionISt12system_errorEEvOT_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #34
@@ -10690,8 +10621,8 @@ define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1
-  %_M_code2 = getelementptr inbounds %"class.std::system_error", ptr %0, i64 0, i32 1
+  %_M_code = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_code2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false)
   ret void
 }
@@ -10717,9 +10648,9 @@ entry:
   br i1 %cmp.not, label %if.end94, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -10763,7 +10694,7 @@ invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i, 
 for.body.i.i.i:                                   ; preds = %invoke.cont20, %for.body.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %__position.coerce, %invoke.cont20 ]
   store i64 %2, ptr %__first.addr.04.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds i64, ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr24
   br i1 %cmp.not.i.i.i, label %if.end94, label %for.body.i.i.i, !llvm.loop !134
 
@@ -10779,7 +10710,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.else
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %1, %if.end.i.i.i.i.i ]
   store i64 %2, ptr %__first.addr.04.i.i.i.i.i.i.i, align 8
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i49
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont27, label %for.body.i.i.i.i.i.i.i, !llvm.loop !134
 
@@ -10804,7 +10735,7 @@ invoke.cont35:                                    ; preds = %invoke.cont27
 for.body.i.i.i59:                                 ; preds = %invoke.cont35, %for.body.i.i.i59
   %__first.addr.04.i.i.i60 = phi ptr [ %incdec.ptr.i.i.i61, %for.body.i.i.i59 ], [ %__position.coerce, %invoke.cont35 ]
   store i64 %2, ptr %__first.addr.04.i.i.i60, align 8
-  %incdec.ptr.i.i.i61 = getelementptr inbounds i64, ptr %__first.addr.04.i.i.i60, i64 1
+  %incdec.ptr.i.i.i61 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i60, i64 8
   %cmp.not.i.i.i62 = icmp eq ptr %incdec.ptr.i.i.i61, %1
   br i1 %cmp.not.i.i.i62, label %if.end94, label %for.body.i.i.i59, !llvm.loop !134
 
@@ -10849,7 +10780,7 @@ if.end.i.i.i.i.i66:                               ; preds = %_ZNSt16allocator_tr
 for.body.i.i.i.i.i.i.i68:                         ; preds = %for.body.i.i.i.i.i.i.i68, %if.end.i.i.i.i.i66
   %__first.addr.04.i.i.i.i.i.i.i69 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i70, %for.body.i.i.i.i.i.i.i68 ], [ %add.ptr54, %if.end.i.i.i.i.i66 ]
   store i64 %7, ptr %__first.addr.04.i.i.i.i.i.i.i69, align 8
-  %incdec.ptr.i.i.i.i.i.i.i70 = getelementptr inbounds i64, ptr %__first.addr.04.i.i.i.i.i.i.i69, i64 1
+  %incdec.ptr.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i69, i64 8
   %cmp.not.i.i.i.i.i.i.i71 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i70, %add.ptr.i.i.i.i.i67
   br i1 %cmp.not.i.i.i.i.i.i.i71, label %invoke.cont57, label %for.body.i.i.i.i.i.i.i68, !llvm.loop !134
 
@@ -10922,7 +10853,7 @@ if.then3:                                         ; preds = %if.end
   %sh_prom.i24 = zext nneg i32 %sub.i23 to i64
   %shl.i = shl i64 %sub.i.i, %sh_prom.i24
   %and7 = and i64 %shl.i, %sub.i22
-  %2 = getelementptr inbounds %class.anon.209, ptr %partialWordFunc, i64 0, i32 2
+  %2 = getelementptr inbounds i8, ptr %partialWordFunc, i64 16
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
   %5 = load ptr, ptr %partialWordFunc, align 8
@@ -10941,7 +10872,6 @@ if.then.i:                                        ; preds = %if.then3
   %7 = tail call i64 @llvm.ctlz.i64(i64 %and.i, i1 true), !range !32
   %cast.i = trunc i64 %7 to i32
   %sub.i27 = sub nuw nsw i32 %add.i26, %cast.i
-  %8 = getelementptr inbounds %class.anon.209, ptr %partialWordFunc, i64 0, i32 1
   br label %return.sink.split
 
 if.end9:                                          ; preds = %if.end
@@ -10954,34 +10884,33 @@ if.then11:                                        ; preds = %if.end9
   %sh_prom.i28 = zext nneg i32 %sub13 to i64
   %notmask.i29 = shl nsw i64 -1, %sh_prom.i28
   %sub.i30 = xor i64 %notmask.i29, -1
-  %9 = getelementptr inbounds %class.anon.209, ptr %partialWordFunc, i64 0, i32 2
-  %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 1
-  %12 = load ptr, ptr %partialWordFunc, align 8
+  %8 = getelementptr inbounds i8, ptr %partialWordFunc, i64 16
+  %9 = load i8, ptr %8, align 8
+  %10 = and i8 %9, 1
+  %11 = load ptr, ptr %partialWordFunc, align 8
   %idxprom2.i31 = sext i32 %div12 to i64
-  %arrayidx3.i32 = getelementptr inbounds i64, ptr %12, i64 %idxprom2.i31
-  %13 = load i64, ptr %arrayidx3.i32, align 8
-  %sext.i33 = add nsw i8 %11, -1
+  %arrayidx3.i32 = getelementptr inbounds i64, ptr %11, i64 %idxprom2.i31
+  %12 = load i64, ptr %arrayidx3.i32, align 8
+  %sext.i33 = add nsw i8 %10, -1
   %not.i34 = sext i8 %sext.i33 to i64
-  %cond.i35 = xor i64 %13, %not.i34
+  %cond.i35 = xor i64 %12, %not.i34
   %and.i36 = and i64 %cond.i35, %sub.i30
   %tobool4.not.i37 = icmp eq i64 %and.i36, 0
   br i1 %tobool4.not.i37, label %if.end18, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit43
 
 _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit43: ; preds = %if.then11
   %add.i40 = or i32 %end, 63
-  %14 = tail call i64 @llvm.ctlz.i64(i64 %and.i36, i1 true), !range !32
-  %cast.i41 = trunc i64 %14 to i32
+  %13 = tail call i64 @llvm.ctlz.i64(i64 %and.i36, i1 true), !range !32
+  %cast.i41 = trunc i64 %13 to i32
   %sub.i42 = sub nuw nsw i32 %add.i40, %cast.i41
-  %15 = getelementptr inbounds %class.anon.209, ptr %partialWordFunc, i64 0, i32 1
   br label %return.sink.split
 
 if.end18:                                         ; preds = %if.then11, %if.end9
-  %16 = getelementptr inbounds %class.anon.211, ptr %fullWordFunc, i64 0, i32 2
-  %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 1
-  %19 = load ptr, ptr %fullWordFunc, align 8
-  %sext.i46 = add nsw i8 %18, -1
+  %14 = getelementptr inbounds i8, ptr %fullWordFunc, i64 16
+  %15 = load i8, ptr %14, align 8
+  %16 = and i8 %15, 1
+  %17 = load ptr, ptr %fullWordFunc, align 8
+  %sext.i46 = add nsw i8 %16, -1
   %not.i47 = sext i8 %sext.i46 to i64
   br label %for.cond
 
@@ -10994,18 +10923,17 @@ for.cond:                                         ; preds = %for.body, %if.end18
 for.body:                                         ; preds = %for.cond
   %div21 = ashr exact i32 %i.0, 6
   %idxprom2.i44 = sext i32 %div21 to i64
-  %arrayidx3.i45 = getelementptr inbounds i64, ptr %19, i64 %idxprom2.i44
-  %20 = load i64, ptr %arrayidx3.i45, align 8
-  %cond.i48 = xor i64 %20, %not.i47
+  %arrayidx3.i45 = getelementptr inbounds i64, ptr %17, i64 %idxprom2.i44
+  %18 = load i64, ptr %arrayidx3.i45, align 8
+  %cond.i48 = xor i64 %18, %not.i47
   %tobool4.not.i49 = icmp eq i64 %cond.i48, 0
   br i1 %tobool4.not.i49, label %for.cond, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread, !llvm.loop !135
 
 _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread: ; preds = %for.body
-  %21 = tail call i64 @llvm.ctlz.i64(i64 %cond.i48, i1 true), !range !32
-  %cast.i52 = trunc i64 %21 to i32
-  %22 = xor i32 %cast.i52, -1
-  %sub.i53 = add i32 %i.0.in, %22
-  %23 = getelementptr inbounds %class.anon.211, ptr %fullWordFunc, i64 0, i32 1
+  %19 = tail call i64 @llvm.ctlz.i64(i64 %cond.i48, i1 true), !range !32
+  %cast.i52 = trunc i64 %19 to i32
+  %20 = xor i32 %cast.i52, -1
+  %sub.i53 = add i32 %i.0.in, %20
   br label %return.sink.split
 
 for.end:                                          ; preds = %for.cond
@@ -11021,16 +10949,16 @@ if.then27:                                        ; preds = %for.end
   %sub.i57 = sub nsw i32 64, %sub29
   %sh_prom.i58 = zext nneg i32 %sub.i57 to i64
   %shl.i59 = shl i64 %sub.i.i56, %sh_prom.i58
-  %24 = getelementptr inbounds %class.anon.209, ptr %partialWordFunc, i64 0, i32 2
-  %25 = load i8, ptr %24, align 8
-  %26 = and i8 %25, 1
-  %27 = load ptr, ptr %partialWordFunc, align 8
+  %21 = getelementptr inbounds i8, ptr %partialWordFunc, i64 16
+  %22 = load i8, ptr %21, align 8
+  %23 = and i8 %22, 1
+  %24 = load ptr, ptr %partialWordFunc, align 8
   %idxprom2.i60 = sext i32 %div28 to i64
-  %arrayidx3.i61 = getelementptr inbounds i64, ptr %27, i64 %idxprom2.i60
-  %28 = load i64, ptr %arrayidx3.i61, align 8
-  %sext.i62 = add nsw i8 %26, -1
+  %arrayidx3.i61 = getelementptr inbounds i64, ptr %24, i64 %idxprom2.i60
+  %25 = load i64, ptr %arrayidx3.i61, align 8
+  %sext.i62 = add nsw i8 %23, -1
   %not.i63 = sext i8 %sext.i62 to i64
-  %cond.i64 = xor i64 %28, %not.i63
+  %cond.i64 = xor i64 %25, %not.i63
   %and.i65 = and i64 %cond.i64, %shl.i59
   %tobool4.not.i66 = icmp eq i64 %and.i65, 0
   br i1 %tobool4.not.i66, label %return, label %if.then.i67
@@ -11038,17 +10966,17 @@ if.then27:                                        ; preds = %for.end
 if.then.i67:                                      ; preds = %if.then27
   %mul.i68 = shl nsw i32 %div28, 6
   %add.i69 = or disjoint i32 %mul.i68, 63
-  %29 = tail call i64 @llvm.ctlz.i64(i64 %and.i65, i1 true), !range !32
-  %cast.i70 = trunc i64 %29 to i32
+  %26 = tail call i64 @llvm.ctlz.i64(i64 %and.i65, i1 true), !range !32
+  %cast.i70 = trunc i64 %26 to i32
   %sub.i71 = sub nuw nsw i32 %add.i69, %cast.i70
-  %30 = getelementptr inbounds %class.anon.209, ptr %partialWordFunc, i64 0, i32 1
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit43, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread, %if.then.i67
-  %.sink76 = phi ptr [ %30, %if.then.i67 ], [ %23, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread ], [ %15, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit43 ], [ %8, %if.then.i ]
+  %partialWordFunc.sink = phi ptr [ %partialWordFunc, %if.then.i67 ], [ %fullWordFunc, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread ], [ %partialWordFunc, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit43 ], [ %partialWordFunc, %if.then.i ]
   %sub.i71.sink = phi i32 [ %sub.i71, %if.then.i67 ], [ %sub.i53, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread ], [ %sub.i42, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit43 ], [ %sub.i27, %if.then.i ]
-  %31 = load ptr, ptr %.sink76, align 8
-  store i32 %sub.i71.sink, ptr %31, align 4
+  %27 = getelementptr inbounds i8, ptr %partialWordFunc.sink, i64 8
+  %28 = load ptr, ptr %27, align 8
+  store i32 %sub.i71.sink, ptr %28, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then27, %if.then3, %for.end, %entry
@@ -11064,7 +10992,7 @@ define linkonce_odr void @_ZN5folly6detail9lock_baseINS_15SharedMutexImplILb0EvS
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
-  %state_ = getelementptr inbounds %"struct.folly::detail::lock_storage", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i8, ptr %state_, align 8
   %2 = and i8 %1, 1
   %tobool2.not = icmp eq i8 %2, 0
@@ -11082,17 +11010,17 @@ define linkonce_odr void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE16set
 entry:
   %rv.i.i = alloca %"struct.std::pair.241", align 8
   %ref.tmp = alloca ptr, align 8
-  %stringBuffers_ = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 3
+  %stringBuffers_ = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %stringBuffers_, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %1 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
   %2 = load ptr, ptr %buffers, align 8
   store ptr %2, ptr %stringBuffers_, align 8
-  %_M_finish.i2.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<boost::intrusive_ptr<facebook::velox::Buffer>, std::allocator<boost::intrusive_ptr<facebook::velox::Buffer>>>::_Vector_impl_data", ptr %buffers, i64 0, i32 1
+  %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %buffers, i64 8
   %3 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   store ptr %3, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<boost::intrusive_ptr<facebook::velox::Buffer>, std::allocator<boost::intrusive_ptr<facebook::velox::Buffer>>>::_Vector_impl_data", ptr %buffers, i64 0, i32 2
+  %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %buffers, i64 16
   %4 = load ptr, ptr %_M_end_of_storage.i4.i.i.i, align 8
   store ptr %4, ptr %_M_end_of_storage.i.i.i.i, align 8
   %cmp.not3.i.i.i.i.i.i = icmp eq ptr %0, %1
@@ -11106,33 +11034,33 @@ for.body.i.i.i.i.i.i:                             ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i.i
-  %referenceCount_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %5, i64 0, i32 5
+  %referenceCount_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 40
   %6 = atomicrmw sub ptr %referenceCount_.i.i.i.i.i.i.i.i.i.i, i32 1 seq_cst, align 4
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %6, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 64
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(64) %5)
           to label %.noexc.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
-  %pool_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %5, i64 0, i32 1
+  %pool_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %pool_.i.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, null
   %vtable5.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i.i.i.i, label %if.then2.i.i.i.i.i.i.i.i.i.i
 
 if.then2.i.i.i.i.i.i.i.i.i.i:                     ; preds = %.noexc.i.i.i.i.i.i.i.i
-  %vfn4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i.i.i.i.i.i.i, i64 6
+  %vfn4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i.i.i.i.i.i.i, i64 48
   %9 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i.i.i, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(64) %5)
           to label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc.i.i.i.i.i.i.i.i
-  %vfn6.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn6.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i.i.i.i.i.i.i, i64 8
   %10 = load ptr, ptr %vfn6.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(64) %5) #29
   br label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i.i.i
@@ -11145,7 +11073,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 _ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i.i.i, %if.then2.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.boost::intrusive_ptr", ptr %__first.addr.04.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !125
 
@@ -11158,18 +11086,18 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
   br label %_ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EEaSEOS7_.exit
 
 _ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EEaSEOS7_.exit: ; preds = %invoke.cont.i.i.i, %if.then.i.i.i.i.i
-  %stringBufferSet_ = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 4
+  %stringBufferSet_ = getelementptr inbounds i8, ptr %this, i64 248
   %13 = load ptr, ptr %stringBufferSet_, align 8
   %cmp.i.i.i = icmp eq ptr %13, @_ZN5folly3f146detail15kEmptyTagVectorE
   br i1 %cmp.i.i.i, label %_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE5clearEv.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EEaSEOS7_.exit
-  %chunkMask_.i.i.i = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %chunkMask_.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %14 = load i64, ptr %chunkMask_.i.i.i, align 8
   %15 = add i64 %14, -15
   %cmp2.i.i.i = icmp ult i64 %15, -16
-  %sizeAndPackedBegin_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
-  %control_.i.i.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %13, i64 0, i32 1
+  %sizeAndPackedBegin_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
+  %control_.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 14
   %16 = load i8, ptr %control_.i.i.i.i.i, align 2
   %17 = and i8 %16, 15
   %18 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i, align 8
@@ -11191,7 +11119,7 @@ for.body.i.i.i:                                   ; preds = %if.then10.i.i.i, %f
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %21 = load ptr, ptr %stringBufferSet_, align 8
-  %control_.i11.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %21, i64 0, i32 1
+  %control_.i11.i.i.i = getelementptr inbounds i8, ptr %21, i64 14
   %22 = load i8, ptr %control_.i11.i.i.i, align 2
   %cmp.i12.i.i.i = icmp eq i8 %22, 0
   tail call void @llvm.assume(i1 %cmp.i12.i.i.i)
@@ -11237,7 +11165,7 @@ for.body:                                         ; preds = %_ZN5folly3f146detai
   %add.i.i.i.i.i.i = add i64 %30, %29
   call void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE19tryEmplaceValueImplIS8_JS8_EEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIS8_EEEEbESC_ImmERKT_DpOT0_(ptr nonnull sret(%"struct.std::pair.241") align 8 %rv.i.i, ptr noundef nonnull align 8 dereferenceable(32) %stringBufferSet_, i64 %add.i.i.i.i.i.i, i64 %or.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp), !noalias !140
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %rv.i.i), !noalias !137
-  %incdec.ptr.i = getelementptr inbounds %"class.boost::intrusive_ptr", ptr %__begin3.sroa.0.06, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.06, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %27
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -11249,7 +11177,7 @@ for.end:                                          ; preds = %for.body, %_ZN5foll
 define linkonce_odr void @_ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<boost::intrusive_ptr<facebook::velox::Buffer>, std::allocator<boost::intrusive_ptr<facebook::velox::Buffer>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
@@ -11261,33 +11189,33 @@ for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.not.i.i.i.i.i, label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body.i.i.i
-  %referenceCount_.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %2, i64 0, i32 5
+  %referenceCount_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %3 = atomicrmw sub ptr %referenceCount_.i.i.i.i.i.i.i, i32 1 seq_cst, align 4
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %3, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 64
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %.noexc.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 .noexc.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i.i.i
-  %pool_.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %2, i64 0, i32 1
+  %pool_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %pool_.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %5, null
   %vtable5.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
   br i1 %tobool.not.i.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i, label %if.then2.i.i.i.i.i.i.i
 
 if.then2.i.i.i.i.i.i.i:                           ; preds = %.noexc.i.i.i.i.i
-  %vfn4.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i.i.i.i, i64 6
+  %vfn4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i.i.i.i, i64 48
   %6 = load ptr, ptr %vfn4.i.i.i.i.i.i.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i:                     ; preds = %.noexc.i.i.i.i.i
-  %vfn6.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i.i.i.i, i64 1
+  %vfn6.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn6.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
   br label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i
@@ -11300,7 +11228,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 _ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i, %if.then2.i.i.i.i.i.i.i, %if.then.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.boost::intrusive_ptr", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !125
 
@@ -11324,9 +11252,9 @@ _ZNSt12_Vector_baseIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EED2E
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE18clearStringBuffersEv(ptr noundef nonnull align 8 dereferenceable(280) %this) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stringBuffers_ = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 3
+  %stringBuffers_ = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %stringBuffers_, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EE5clearEv.exit, label %for.body.i.i.i.i.i
@@ -11338,33 +11266,33 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_Destr
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i
-  %referenceCount_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %2, i64 0, i32 5
+  %referenceCount_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %3 = atomicrmw sub ptr %referenceCount_.i.i.i.i.i.i.i.i.i, i32 1 seq_cst, align 4
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i32 %3, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 8
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 64
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %.noexc.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i.i.i.i
-  %pool_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %2, i64 0, i32 1
+  %pool_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %pool_.i.i.i.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   %vtable5.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %delete.notnull.i.i.i.i.i.i.i.i.i, label %if.then2.i.i.i.i.i.i.i.i.i
 
 if.then2.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc.i.i.i.i.i.i.i
-  %vfn4.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i.i.i.i.i.i, i64 6
+  %vfn4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i.i.i.i.i.i, i64 48
   %6 = load ptr, ptr %vfn4.i.i.i.i.i.i.i.i.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(64) %2)
           to label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i.i.i.i.i:                 ; preds = %.noexc.i.i.i.i.i.i.i
-  %vfn6.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable5.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn6.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable5.i.i.i.i.i.i.i.i.i, i64 8
   %7 = load ptr, ptr %vfn6.i.i.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(64) %2) #29
   br label %_ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i.i
@@ -11377,7 +11305,7 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.then2.i.i.i.i.i.
   unreachable
 
 _ZSt8_DestroyIN5boost13intrusive_ptrIN8facebook5velox6BufferEEEEvPT_.exit.i.i.i.i.i: ; preds = %delete.notnull.i.i.i.i.i.i.i.i.i, %if.then2.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.boost::intrusive_ptr", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !125
 
@@ -11386,18 +11314,18 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyIN5boo
   br label %_ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EE5clearEv.exit
 
 _ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EE5clearEv.exit: ; preds = %entry, %invoke.cont.i.i
-  %stringBufferSet_ = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 4
+  %stringBufferSet_ = getelementptr inbounds i8, ptr %this, i64 248
   %10 = load ptr, ptr %stringBufferSet_, align 8
   %cmp.i.i.i = icmp eq ptr %10, @_ZN5folly3f146detail15kEmptyTagVectorE
   br i1 %cmp.i.i.i, label %_ZN5folly3f146detail11F14BasicSetINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE5clearEv.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EE5clearEv.exit
-  %chunkMask_.i.i.i = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 1
+  %chunkMask_.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %11 = load i64, ptr %chunkMask_.i.i.i, align 8
   %12 = add i64 %11, -15
   %cmp2.i.i.i = icmp ult i64 %12, -16
-  %sizeAndPackedBegin_.i.i.i.i = getelementptr inbounds %"class.facebook::velox::FlatVector", ptr %this, i64 0, i32 4, i32 0, i32 0, i32 0, i32 2
-  %control_.i.i.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %10, i64 0, i32 1
+  %sizeAndPackedBegin_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
+  %control_.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 14
   %13 = load i8, ptr %control_.i.i.i.i.i, align 2
   %14 = and i8 %13, 15
   %15 = load i64, ptr %sizeAndPackedBegin_.i.i.i.i, align 8
@@ -11419,7 +11347,7 @@ for.body.i.i.i:                                   ; preds = %if.then10.i.i.i, %f
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
   %18 = load ptr, ptr %stringBufferSet_, align 8
-  %control_.i11.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %18, i64 0, i32 1
+  %control_.i11.i.i.i = getelementptr inbounds i8, ptr %18, i64 14
   %19 = load i8, ptr %control_.i11.i.i.i, align 2
   %cmp.i12.i.i.i = icmp eq i8 %19, 0
   tail call void @llvm.assume(i1 %cmp.i12.i.i.i)
@@ -11512,14 +11440,14 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN5
   br i1 %exitcond.not.i.i, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE16initializeChunksEPhmm.exit.i, label %for.body.i.i, !llvm.loop !143
 
 _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE16initializeChunksEPhmm.exit.i: ; preds = %for.body.i.i
-  %control_.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i2.i.i1.i.i, i64 0, i32 1
+  %control_.i.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i1.i.i, i64 14
   %5 = load i8, ptr %control_.i.i.i, align 2
   %cmp.i.i.i = icmp eq i8 %5, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i)
   store i8 %desiredCapacity.addr.0.pn.i19.i, ptr %control_.i.i.i, align 2
   store ptr %call5.i.i2.i.i1.i.i, ptr %this, align 8
   %sub.i = add nsw i64 %.pn.i17.i, -1
-  %chunkMask_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
+  %chunkMask_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %sub.i, ptr %chunkMask_.i, align 8
   br label %if.end
 
@@ -11534,7 +11462,7 @@ if.end:                                           ; preds = %_ZN5folly3f146detai
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE11reserveImplEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %desiredCapacity) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %sizeAndPackedBegin_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 2
+  %sizeAndPackedBegin_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %sizeAndPackedBegin_.i, align 8
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %0, i64 %desiredCapacity)
   %cmp = icmp eq i64 %.sroa.speculated, 0
@@ -11546,18 +11474,18 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.end21, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then
-  %chunkMask_.i.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
+  %chunkMask_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %this, align 8
   store i64 0, ptr %chunkMask_.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef %1) #33
   br label %if.end21
 
 if.end:                                           ; preds = %entry
-  %chunkMask_ = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
+  %chunkMask_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %chunkMask_, align 8
   %add = add i64 %2, 1
   %3 = load ptr, ptr %this, align 8
-  %control_.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %3, i64 0, i32 1
+  %control_.i = getelementptr inbounds i8, ptr %3, i64 14
   %4 = load i8, ptr %control_.i, align 2
   %5 = and i8 %4, 15
   %conv2.i = zext nneg i8 %5 to i64
@@ -11714,40 +11642,40 @@ for.body.i:                                       ; preds = %_ZN5folly3f146detai
   br i1 %exitcond.not.i, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE16initializeChunksEPhmm.exit.loopexit, label %for.body.i, !llvm.loop !143
 
 _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE16initializeChunksEPhmm.exit.loopexit: ; preds = %for.body.i
-  %control_.i.i.phi.trans.insert = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i2.i.i1.i, i64 0, i32 1
+  %control_.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call5.i.i2.i.i1.i, i64 14
   %.pre = load i8, ptr %control_.i.i.phi.trans.insert, align 2
   %1 = icmp eq i8 %.pre, 0
-  %control_.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i2.i.i1.i, i64 0, i32 1
+  %control_.i.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i1.i, i64 14
   tail call void @llvm.assume(i1 %1)
   %2 = trunc i64 %newCapacityScale to i8
   store i8 %2, ptr %control_.i.i, align 2
   store ptr %call5.i.i2.i.i1.i, ptr %this, align 8
   %sub = add i64 %newChunkCount, -1
-  %chunkMask_ = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
+  %chunkMask_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %sub, ptr %chunkMask_, align 8
   store i8 0, ptr %success, align 1
   store i8 0, ptr %SCOPE_EXIT_STATE3, align 8, !alias.scope !144
-  %function_.i.i.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE3, i64 0, i32 1
+  %function_.i.i.i = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 8
   store ptr %success, ptr %function_.i.i.i, align 8
-  %ref.tmp.sroa.2.0.function_.i.i.i.sroa_idx = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE3, i64 0, i32 1, i32 1
+  %ref.tmp.sroa.2.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 16
   store ptr %origCapacity, ptr %ref.tmp.sroa.2.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.3.0.function_.i.i.i.sroa_idx = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE3, i64 0, i32 1, i32 2
+  %ref.tmp.sroa.3.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 24
   store ptr %origChunks, ptr %ref.tmp.sroa.3.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE3, i64 0, i32 1, i32 3
+  %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 32
   store ptr %origAllocSize, ptr %ref.tmp.sroa.4.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.5.0.function_.i.i.i.sroa_idx = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE3, i64 0, i32 1, i32 4
+  %ref.tmp.sroa.5.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 40
   store ptr %rawAllocation, ptr %ref.tmp.sroa.5.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.6.0.function_.i.i.i.sroa_idx = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE3, i64 0, i32 1, i32 5
+  %ref.tmp.sroa.6.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 48
   store ptr %newAllocSize, ptr %ref.tmp.sroa.6.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.7.0.function_.i.i.i.sroa_idx = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE3, i64 0, i32 1, i32 6
+  %ref.tmp.sroa.7.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 56
   store ptr %this, ptr %ref.tmp.sroa.7.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.8.0.function_.i.i.i.sroa_idx = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE3, i64 0, i32 1, i32 7
+  %ref.tmp.sroa.8.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 64
   store ptr %origChunkCount.addr, ptr %ref.tmp.sroa.8.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.9.0.function_.i.i.i.sroa_idx = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE3, i64 0, i32 1, i32 8
+  %ref.tmp.sroa.9.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 72
   store ptr %undoState, ptr %ref.tmp.sroa.9.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.10.0.function_.i.i.i.sroa_idx = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE3, i64 0, i32 1, i32 9
+  %ref.tmp.sroa.10.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 80
   store ptr %origSize.addr, ptr %ref.tmp.sroa.10.0.function_.i.i.i.sroa_idx, align 8
-  %ref.tmp.sroa.11.0.function_.i.i.i.sroa_idx = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE3, i64 0, i32 1, i32 10
+  %ref.tmp.sroa.11.0.function_.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE3, i64 88
   store ptr %newCapacity, ptr %ref.tmp.sroa.11.0.function_.i.i.i.sroa_idx, align 8
   %cmp = icmp eq i64 %origSize, 0
   br i1 %cmp, label %if.end100, label %if.else
@@ -11757,20 +11685,20 @@ if.else:                                          ; preds = %_ZN5folly3f146detai
   br i1 %or.cond, label %while.cond.preheader, label %if.else30
 
 while.cond.preheader:                             ; preds = %if.else
-  %rawItems_.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %call5.i.i2.i.i1.i, i64 0, i32 3
-  %rawItems_.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %0, i64 0, i32 3
+  %rawItems_.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i1.i, i64 16
+  %rawItems_.i.i = getelementptr inbounds i8, ptr %0, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end
-  %srcI.0117 = phi i64 [ 0, %while.cond.preheader ], [ %inc23, %if.end ]
-  %dstI.0116 = phi i64 [ 0, %while.cond.preheader ], [ %dstI.1, %if.end ]
-  %arrayidx.i.i.i = getelementptr inbounds [14 x i8], ptr %0, i64 0, i64 %srcI.0117
+  %srcI.0116 = phi i64 [ 0, %while.cond.preheader ], [ %inc23, %if.end ]
+  %dstI.0115 = phi i64 [ 0, %while.cond.preheader ], [ %dstI.1, %if.end ]
+  %arrayidx.i.i.i = getelementptr inbounds [14 x i8], ptr %0, i64 0, i64 %srcI.0116
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i33.not = icmp eq i8 %3, 0
   br i1 %cmp.i33.not, label %if.end, label %if.then14
 
 if.then14:                                        ; preds = %while.body
-  %arrayidx.i.i.i35 = getelementptr inbounds [14 x i8], ptr %call5.i.i2.i.i1.i, i64 0, i64 %dstI.0116
+  %arrayidx.i.i.i35 = getelementptr inbounds [14 x i8], ptr %call5.i.i2.i.i1.i, i64 0, i64 %dstI.0115
   %4 = load i8, ptr %arrayidx.i.i.i35, align 1
   %cmp.i36 = icmp eq i8 %4, 0
   br i1 %cmp.i36, label %invoke.cont22, label %if.then.i
@@ -11781,16 +11709,16 @@ if.then.i:                                        ; preds = %if.then14
 
 invoke.cont22:                                    ; preds = %if.then14
   store i8 %3, ptr %arrayidx.i.i.i35, align 1
-  %arrayidx.i.i.i37 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %dstI.0116
-  %arrayidx.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %srcI.0117
+  %arrayidx.i.i.i37 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 %dstI.0115
+  %arrayidx.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %srcI.0116
   %5 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %5, ptr %arrayidx.i.i.i37, align 8
-  %inc = add nuw i64 %dstI.0116, 1
+  %inc = add nuw i64 %dstI.0115, 1
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont22, %while.body
-  %dstI.1 = phi i64 [ %inc, %invoke.cont22 ], [ %dstI.0116, %while.body ]
-  %inc23 = add i64 %srcI.0117, 1
+  %dstI.1 = phi i64 [ %inc, %invoke.cont22 ], [ %dstI.0115, %while.body ]
+  %inc23 = add i64 %srcI.0116, 1
   %cmp12 = icmp ult i64 %dstI.1, %origSize
   br i1 %cmp12, label %while.body, label %invoke.cont27, !llvm.loop !147
 
@@ -11803,7 +11731,7 @@ invoke.cont27:                                    ; preds = %if.end
   call void @llvm.assume(i1 %cmp.i.i39)
   %6 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %or.i.i = or i64 %shr.i.i, %6
-  %packedBegin_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 2, i32 1
+  %packedBegin_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %or.i.i, ptr %packedBegin_.i, align 8
   br label %if.end100
 
@@ -11839,39 +11767,39 @@ if.end41:                                         ; preds = %_ZNSt15__new_alloca
   br label %invoke.cont50
 
 while.cond46.loopexit:                            ; preds = %invoke.cont73, %invoke.cont50
-  %remaining.1.lcssa = phi i64 [ %remaining.0113, %invoke.cont50 ], [ %dec, %invoke.cont73 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0112, %invoke.cont50 ], [ %dec, %invoke.cont73 ]
   %cmp47.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp47.not, label %while.end79, label %invoke.cont50, !llvm.loop !148
 
 invoke.cont50:                                    ; preds = %if.end41, %while.cond46.loopexit
-  %add.ptr.pn114 = phi ptr [ %add.ptr, %if.end41 ], [ %srcChunk44.0115, %while.cond46.loopexit ]
-  %remaining.0113 = phi i64 [ %origSize, %if.end41 ], [ %remaining.1.lcssa, %while.cond46.loopexit ]
-  %srcChunk44.0115 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %add.ptr.pn114, i64 -1
-  %8 = load <16 x i8>, ptr %srcChunk44.0115, align 16
+  %add.ptr.pn113 = phi ptr [ %add.ptr, %if.end41 ], [ %srcChunk44.0114, %while.cond46.loopexit ]
+  %remaining.0112 = phi i64 [ %origSize, %if.end41 ], [ %remaining.1.lcssa, %while.cond46.loopexit ]
+  %srcChunk44.0114 = getelementptr inbounds i8, ptr %add.ptr.pn113, i64 -128
+  %8 = load <16 x i8>, ptr %srcChunk44.0114, align 16
   %9 = icmp slt <16 x i8> %8, zeroinitializer
   %10 = bitcast <16 x i1> %9 to i16
   %11 = and i16 %10, 16383
-  %cmp.i43.not108 = icmp eq i16 %11, 0
-  br i1 %cmp.i43.not108, label %while.cond46.loopexit, label %while.body55.lr.ph
+  %cmp.i43.not107 = icmp eq i16 %11, 0
+  br i1 %cmp.i43.not107, label %while.cond46.loopexit, label %while.body55.lr.ph
 
 while.body55.lr.ph:                               ; preds = %invoke.cont50
   %iter.sroa.0.0.extract.trunc = zext nneg i16 %11 to i32
-  %rawItems_.i.i48 = getelementptr %"struct.folly::f14::detail::F14Chunk", ptr %add.ptr.pn114, i64 -1, i32 3
+  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn113, i64 -112
   br label %while.body55
 
 while.body55:                                     ; preds = %while.body55.lr.ph, %invoke.cont73
-  %remaining.1111 = phi i64 [ %remaining.0113, %while.body55.lr.ph ], [ %dec, %invoke.cont73 ]
-  %iter.sroa.5.0110 = phi i32 [ 0, %while.body55.lr.ph ], [ %add8.i, %invoke.cont73 ]
-  %iter.sroa.0.0109 = phi i32 [ %iter.sroa.0.0.extract.trunc, %while.body55.lr.ph ], [ %iter.sroa.0.1, %invoke.cont73 ]
-  %dec = add i64 %remaining.1111, -1
-  %and.i = and i32 %iter.sroa.0.0109, 1
+  %remaining.1110 = phi i64 [ %remaining.0112, %while.body55.lr.ph ], [ %dec, %invoke.cont73 ]
+  %iter.sroa.5.0109 = phi i32 [ 0, %while.body55.lr.ph ], [ %add8.i, %invoke.cont73 ]
+  %iter.sroa.0.0108 = phi i32 [ %iter.sroa.0.0.extract.trunc, %while.body55.lr.ph ], [ %iter.sroa.0.1, %invoke.cont73 ]
+  %dec = add i64 %remaining.1110, -1
+  %and.i = and i32 %iter.sroa.0.0108, 1
   %cmp.not.i = icmp eq i32 %and.i, 0
-  %12 = call i32 @llvm.cttz.i32(i32 %iter.sroa.0.0109, i1 true), !range !149
+  %12 = call i32 @llvm.cttz.i32(i32 %iter.sroa.0.0108, i1 true), !range !149
   %add5.i = add nuw nsw i32 %12, 1
   %add5.i.pn = select i1 %cmp.not.i, i32 %add5.i, i32 1
   %add.i47 = select i1 %cmp.not.i, i32 %12, i32 0
-  %add.sink.i = add i32 %iter.sroa.5.0110, %add.i47
-  %iter.sroa.0.1 = lshr i32 %iter.sroa.0.0109, %add5.i.pn
+  %add.sink.i = add i32 %iter.sroa.5.0109, %add.i47
+  %iter.sroa.0.1 = lshr i32 %iter.sroa.0.0108, %add5.i.pn
   %add8.i = add i32 %add.sink.i, 1
   %conv = zext i32 %add.sink.i to i64
   %arrayidx.i.i.i.i49 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i48, i64 0, i64 %conv
@@ -11880,7 +11808,7 @@ while.body55:                                     ; preds = %while.body55.lr.ph,
   %15 = call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %14)
   %shr.i50 = lshr i64 %15, 24
   %or.i = or i64 %shr.i50, 128
-  %arrayidx.i.i.i52 = getelementptr inbounds [14 x i8], ptr %srcChunk44.0115, i64 0, i64 %conv
+  %arrayidx.i.i.i52 = getelementptr inbounds [14 x i8], ptr %srcChunk44.0114, i64 0, i64 %conv
   %16 = load i8, ptr %arrayidx.i.i.i52, align 1
   %conv.i53 = zext i8 %16 to i64
   %cmp69 = icmp eq i64 %or.i, %conv.i53
@@ -11895,18 +11823,20 @@ do.end72:                                         ; preds = %while.body55
   %mul.i.i = shl nuw nsw i64 %or.i, 1
   %add.i.i = or disjoint i64 %mul.i.i, 1
   %17 = load i64, ptr %chunkMask_, align 8
-  %and16.i = and i64 %17, %add.i51
+  %and14.i = and i64 %17, %add.i51
   %18 = load ptr, ptr %this, align 8
-  %arrayidx17.i = getelementptr inbounds i8, ptr %fullness.0, i64 %and16.i
-  %19 = load i8, ptr %arrayidx17.i, align 1
-  %cmp18.i = icmp ult i8 %19, 14
-  br i1 %cmp18.i, label %while.end.i, label %if.end.i
+  %add.ptr15.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %18, i64 %and14.i
+  %arrayidx16.i = getelementptr inbounds i8, ptr %fullness.0, i64 %and14.i
+  %19 = load i8, ptr %arrayidx16.i, align 1
+  %cmp17.i = icmp ult i8 %19, 14
+  br i1 %cmp17.i, label %while.end.i, label %if.end.i
 
 if.end.i:                                         ; preds = %do.end72, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i
   %20 = phi ptr [ %23, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i ], [ %18, %do.end72 ]
   %21 = phi i64 [ %24, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i ], [ %17, %do.end72 ]
-  %and19.i = phi i64 [ %and.i56, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i ], [ %and16.i, %do.end72 ]
-  %outboundOverflowCount_.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %20, i64 %and19.i, i32 2
+  %add.ptr19.i = phi ptr [ %add.ptr.i, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i ], [ %add.ptr15.i, %do.end72 ]
+  %and18.i = phi i64 [ %and.i56, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i ], [ %and14.i, %do.end72 ]
+  %outboundOverflowCount_.i.i = getelementptr inbounds i8, ptr %add.ptr19.i, i64 15
   %22 = load i8, ptr %outboundOverflowCount_.i.i, align 1
   %cmp.not.i.i = icmp eq i8 %22, -1
   br i1 %cmp.not.i.i, label %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i, label %if.then.i.i
@@ -11921,24 +11851,24 @@ if.then.i.i:                                      ; preds = %if.end.i
 _ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i: ; preds = %if.then.i.i, %if.end.i
   %23 = phi ptr [ %20, %if.end.i ], [ %.pre26.i, %if.then.i.i ]
   %24 = phi i64 [ %21, %if.end.i ], [ %.pre.i, %if.then.i.i ]
-  %add.i55 = add i64 %add.i.i, %and19.i
+  %add.i55 = add i64 %add.i.i, %and18.i
   %and.i56 = and i64 %24, %add.i55
+  %add.ptr.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %23, i64 %and.i56
   %arrayidx.i57 = getelementptr inbounds i8, ptr %fullness.0, i64 %and.i56
   %25 = load i8, ptr %arrayidx.i57, align 1
   %cmp.i58 = icmp ult i8 %25, 14
   br i1 %cmp.i58, label %while.end.i, label %if.end.i, !llvm.loop !150
 
 while.end.i:                                      ; preds = %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i, %do.end72
-  %and.lcssa15.i = phi i64 [ %and16.i, %do.end72 ], [ %and.i56, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i ]
+  %and.lcssa.i = phi i64 [ %and14.i, %do.end72 ], [ %and.i56, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i ]
   %hostedOp.0.lcssa.i = phi i8 [ 0, %do.end72 ], [ 16, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i ]
-  %.lcssa14.i = phi ptr [ %18, %do.end72 ], [ %23, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i ]
+  %add.ptr.lcssa.i = phi ptr [ %add.ptr15.i, %do.end72 ], [ %add.ptr.i, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i ]
   %.lcssa.i = phi i8 [ %19, %do.end72 ], [ %25, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit.i ]
-  %arrayidx.le.i = getelementptr inbounds i8, ptr %fullness.0, i64 %and.lcssa15.i
-  %add.ptr.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %.lcssa14.i, i64 %and.lcssa15.i
+  %arrayidx.le.i = getelementptr inbounds i8, ptr %fullness.0, i64 %and.lcssa.i
   %inc.i59 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %inc.i59, ptr %arrayidx.le.i, align 1
   %conv5.i = zext nneg i8 %.lcssa.i to i64
-  %arrayidx.i.i.i.i60 = getelementptr inbounds [14 x i8], ptr %add.ptr.i, i64 0, i64 %conv5.i
+  %arrayidx.i.i.i.i60 = getelementptr inbounds [14 x i8], ptr %add.ptr.lcssa.i, i64 0, i64 %conv5.i
   %26 = load i8, ptr %arrayidx.i.i.i.i60, align 1
   %cmp.i.i61 = icmp eq i8 %26, 0
   br i1 %cmp.i.i61, label %invoke.cont73, label %if.then.i12.i
@@ -11950,11 +11880,11 @@ if.then.i12.i:                                    ; preds = %while.end.i
 invoke.cont73:                                    ; preds = %while.end.i
   %conv4.i.i = trunc i64 %or.i to i8
   store i8 %conv4.i.i, ptr %arrayidx.i.i.i.i60, align 1
-  %control_.i.i62 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %.lcssa14.i, i64 %and.lcssa15.i, i32 1
+  %control_.i.i62 = getelementptr inbounds i8, ptr %add.ptr.lcssa.i, i64 14
   %27 = load i8, ptr %control_.i.i62, align 2
   %add.i13.i = add i8 %27, %hostedOp.0.lcssa.i
   store i8 %add.i13.i, ptr %control_.i.i62, align 2
-  %rawItems_.i.i.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %.lcssa14.i, i64 %and.lcssa15.i, i32 3
+  %rawItems_.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.lcssa.i, i64 16
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i.i, i64 0, i64 %conv5.i
   %28 = load ptr, ptr %arrayidx.i.i.i.i49, align 8
   store ptr %28, ptr %arrayidx.i.i.i.i.i.i, align 8
@@ -11984,7 +11914,7 @@ if.then.i75:                                      ; preds = %while.cond81
   call void @llvm.assume(i1 %cmp.i.i70)
   %32 = ptrtoint ptr %arrayidx.i.i.i.i.i65 to i64
   %or.i.i71 = or i64 %shr.i.i69, %32
-  %packedBegin_.i72 = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 2, i32 1
+  %packedBegin_.i72 = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %or.i.i71, ptr %packedBegin_.i72, align 8
   br i1 %cmp32.not, label %invoke.cont4.i.i.i78, label %if.end100
 
@@ -12027,7 +11957,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i82
   %47 = load ptr, ptr %ref.tmp.sroa.8.0.function_.i.i.i.sroa_idx, align 8
   %48 = load i64, ptr %47, align 8
   %sub.i.i.i84 = add i64 %48, -1
-  %chunkMask_.i.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %42, i64 0, i32 1
+  %chunkMask_.i.i.i = getelementptr inbounds i8, ptr %42, i64 8
   store i64 %sub.i.i.i84, ptr %chunkMask_.i.i.i, align 8
   call void @_ZN5folly3f146detail12F14LinkCheckILNS1_17F14IntrinsicsModeE2EE5checkEv() #29
   br label %if.end3.i.i.i
@@ -12054,7 +11984,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %function_.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this, i64 0, i32 1
+  %function_.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load ptr, ptr %function_.i, align 8
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 1
@@ -12062,33 +11992,33 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %5 = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this, i64 0, i32 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   %cmp.not.i.i = icmp eq i64 %7, 0
   br i1 %cmp.not.i.i, label %if.end, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i
-  %8 = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this, i64 0, i32 1, i32 2
+  %8 = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   br label %if.end3.i.i
 
 if.else.i.i:                                      ; preds = %if.then
-  %11 = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this, i64 0, i32 1, i32 6
+  %11 = getelementptr inbounds i8, ptr %this, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this, i64 0, i32 1, i32 4
+  %13 = getelementptr inbounds i8, ptr %this, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this, i64 0, i32 1, i32 2
+  %16 = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %12, align 8
-  %19 = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this, i64 0, i32 1, i32 7
+  %19 = getelementptr inbounds i8, ptr %this, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = load i64, ptr %20, align 8
   %sub.i.i = add i64 %21, -1
-  %chunkMask_.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %12, i64 0, i32 1
+  %chunkMask_.i.i = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %sub.i.i, ptr %chunkMask_.i.i, align 8
   tail call void @_ZN5folly3f146detail12F14LinkCheckILNS1_17F14IntrinsicsModeE2EE5checkEv() #29
   br label %if.end3.i.i
@@ -12121,21 +12051,21 @@ declare void @_ZN5folly3f146detail12F14LinkCheckILNS1_17F14IntrinsicsModeE2EE5ch
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE19tryEmplaceValueImplIS8_JS8_EEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIS8_EEEEbESC_ImmERKT_DpOT0_(ptr noalias sret(%"struct.std::pair.241") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 %hp.coerce0, i64 %hp.coerce1, ptr noundef nonnull align 8 dereferenceable(8) %key, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %sizeAndPackedBegin_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 2
+  %sizeAndPackedBegin_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %sizeAndPackedBegin_.i, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %entry.if.end5_crit_edge, label %if.then
 
 entry.if.end5_crit_edge:                          ; preds = %entry
-  %chunkMask_.i34.phi.trans.insert = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
+  %chunkMask_.i34.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 8
   %.pre = load i64, ptr %chunkMask_.i34.phi.trans.insert, align 8
-  %.pre68 = load ptr, ptr %this, align 8
+  %.pre66 = load ptr, ptr %this, align 8
   br label %if.end5
 
 if.then:                                          ; preds = %entry
   %mul.i = shl i64 %hp.coerce1, 1
   %add.i25 = or disjoint i64 %mul.i, 1
-  %chunkMask_.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
+  %chunkMask_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %chunkMask_.i, align 8
   %2 = load ptr, ptr %this, align 8
   %conv.i26 = trunc i64 %hp.coerce1 to i8
@@ -12145,12 +12075,12 @@ if.then:                                          ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %if.end18.i
-  %index.i.065 = phi i64 [ %hp.coerce0, %if.then ], [ %add.i, %if.end18.i ]
-  %tries.i.064 = phi i64 [ 0, %if.then ], [ %inc.i, %if.end18.i ]
-  %and.i = and i64 %1, %index.i.065
+  %index.i.064 = phi i64 [ %hp.coerce0, %if.then ], [ %add.i, %if.end18.i ]
+  %tries.i.063 = phi i64 [ 0, %if.then ], [ %inc.i, %if.end18.i ]
+  %and.i = and i64 %1, %index.i.064
   %add.ptr.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %and.i
-  %rawItems_.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %and.i, i32 3
-  %arrayidx.i.i.i = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i, i64 0, i64 8
+  %rawItems_.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 80
   tail call void @llvm.prefetch.p0(ptr nonnull %arrayidx.i.i.i, i32 0, i32 3, i32 1)
   %4 = load <16 x i8>, ptr %add.ptr.i, align 16
   %cmp.i.i = icmp eq <16 x i8> %4, %vecinit15.i.i
@@ -12180,8 +12110,8 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %cmp15.i, label %if.end5, label %if.end18.i
 
 if.end18.i:                                       ; preds = %while.end.i
-  %add.i = add i64 %add.i25, %index.i.065
-  %inc.i = add i64 %tries.i.064, 1
+  %add.i = add i64 %add.i25, %index.i.064
+  %inc.i = add i64 %tries.i.063, 1
   %cmp.i.not = icmp ugt i64 %inc.i, %1
   br i1 %cmp.i.not, label %if.end5, label %for.body.i, !llvm.loop !154
 
@@ -12190,11 +12120,11 @@ if.then4:                                         ; preds = %while.body.i
   br label %return
 
 if.end5:                                          ; preds = %if.end18.i, %while.end.i, %entry.if.end5_crit_edge
-  %10 = phi ptr [ %.pre68, %entry.if.end5_crit_edge ], [ %2, %while.end.i ], [ %2, %if.end18.i ]
+  %10 = phi ptr [ %.pre66, %entry.if.end5_crit_edge ], [ %2, %while.end.i ], [ %2, %if.end18.i ]
   %11 = phi i64 [ %.pre, %entry.if.end5_crit_edge ], [ %1, %while.end.i ], [ %1, %if.end18.i ]
-  %chunkMask_.i34 = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 1
+  %chunkMask_.i34 = getelementptr inbounds i8, ptr %this, i64 8
   %add2.i = add i64 %11, 1
-  %control_.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %10, i64 0, i32 1
+  %control_.i.i = getelementptr inbounds i8, ptr %10, i64 14
   %12 = load i8, ptr %control_.i.i, align 2
   %13 = and i8 %12, 15
   %conv2.i.i = zext nneg i8 %13 to i64
@@ -12244,13 +12174,13 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6Buff
   %.pn.i.i.i = phi i64 [ %shl.i.i.i, %if.end34.i.i.i ], [ 1, %if.else.i.i.i ], [ 1, %if.then.i.i.i ]
   %desiredCapacity.addr.0.pn.i.i.i = phi i64 [ 12, %if.end34.i.i.i ], [ %spec.select.i.i.i, %if.else.i.i.i ], [ 2, %if.then.i.i.i ]
   tail call void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE10rehashImplEmmmmm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %0, i64 noundef %add2.i, i64 noundef %conv2.i.i, i64 noundef %.pn.i.i.i, i64 noundef %desiredCapacity.addr.0.pn.i.i.i)
-  %.pre69 = load ptr, ptr %this, align 8
-  %.pre70 = load i64, ptr %chunkMask_.i34, align 8
+  %.pre67 = load ptr, ptr %this, align 8
+  %.pre68 = load i64, ptr %chunkMask_.i34, align 8
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE16reserveForInsertEm.exit
 
 _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE16reserveForInsertEm.exit: ; preds = %if.end5, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE20reserveForInsertImplEmmmm.exit.i
-  %15 = phi i64 [ %11, %if.end5 ], [ %.pre70, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE20reserveForInsertImplEmmmm.exit.i ]
-  %16 = phi ptr [ %10, %if.end5 ], [ %.pre69, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE20reserveForInsertImplEmmmm.exit.i ]
+  %15 = phi i64 [ %11, %if.end5 ], [ %.pre68, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE20reserveForInsertImplEmmmm.exit.i ]
+  %16 = phi ptr [ %10, %if.end5 ], [ %.pre67, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE20reserveForInsertImplEmmmm.exit.i ]
   %and = and i64 %15, %hp.coerce0
   %add.ptr = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %16, i64 %and
   %17 = load <16 x i8>, ptr %add.ptr, align 16
@@ -12271,7 +12201,7 @@ do.body:                                          ; preds = %_ZN5folly3f146detai
   %23 = phi ptr [ %16, %if.then8 ], [ %26, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit ]
   %chunk.0 = phi ptr [ %add.ptr, %if.then8 ], [ %add.ptr14, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit ]
   %index.0 = phi i64 [ %hp.coerce0, %if.then8 ], [ %add, %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit ]
-  %outboundOverflowCount_.i38 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %chunk.0, i64 0, i32 2
+  %outboundOverflowCount_.i38 = getelementptr inbounds i8, ptr %chunk.0, i64 15
   %24 = load i8, ptr %outboundOverflowCount_.i38, align 1
   %cmp.not.i39 = icmp eq i8 %24, -1
   br i1 %cmp.not.i39, label %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit, label %if.then.i40
@@ -12279,13 +12209,13 @@ do.body:                                          ; preds = %_ZN5folly3f146detai
 if.then.i40:                                      ; preds = %do.body
   %inc.i41 = add nuw i8 %24, 1
   store i8 %inc.i41, ptr %outboundOverflowCount_.i38, align 1
-  %.pre71 = load ptr, ptr %this, align 8
-  %.pre72 = load i64, ptr %chunkMask_.i34, align 8
+  %.pre69 = load ptr, ptr %this, align 8
+  %.pre70 = load i64, ptr %chunkMask_.i34, align 8
   br label %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit
 
 _ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit: ; preds = %do.body, %if.then.i40
-  %25 = phi i64 [ %22, %do.body ], [ %.pre72, %if.then.i40 ]
-  %26 = phi ptr [ %23, %do.body ], [ %.pre71, %if.then.i40 ]
+  %25 = phi i64 [ %22, %do.body ], [ %.pre70, %if.then.i40 ]
+  %26 = phi ptr [ %23, %do.body ], [ %.pre69, %if.then.i40 ]
   %add = add i64 %add.i37, %index.0
   %and13 = and i64 %25, %add
   %add.ptr14 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %26, i64 %and13
@@ -12299,7 +12229,7 @@ _ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowC
 
 do.end:                                           ; preds = %_ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE25incrOutboundOverflowCountEv.exit
   %32 = extractelement <16 x i8> %27, i64 14
-  %control_.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %26, i64 %and13, i32 1
+  %control_.i = getelementptr inbounds i8, ptr %add.ptr14, i64 14
   %add.i44 = add i8 %32, 16
   store i8 %add.i44, ptr %control_.i, align 2
   br label %if.end19
@@ -12321,14 +12251,14 @@ if.then.i48:                                      ; preds = %if.end19
 _ZN5folly3f146detail8F14ChunkIPKN8facebook5velox6BufferEE6setTagEmm.exit: ; preds = %if.end19
   %conv4.i = trunc i64 %hp.coerce1 to i8
   store i8 %conv4.i, ptr %arrayidx.i.i.i46, align 1
-  %rawItems_.i.i.i49 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %chunk.1, i64 0, i32 3
+  %rawItems_.i.i.i49 = getelementptr inbounds i8, ptr %chunk.1, i64 16
   %arrayidx.i.i.i.i.i50 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i49, i64 0, i64 %conv
   %35 = load ptr, ptr %args, align 8
   store ptr %35, ptr %arrayidx.i.i.i.i.i50, align 8
   %shr.i.i.i.i = lshr i64 %conv, 1
   %36 = ptrtoint ptr %arrayidx.i.i.i.i.i50 to i64
   %or.i.i.i.i = or i64 %shr.i.i.i.i, %36
-  %packedBegin_.i.i.i = getelementptr inbounds %"class.folly::f14::detail::F14Table", ptr %this, i64 0, i32 2, i32 1
+  %packedBegin_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %37 = load i64, ptr %packedBegin_.i.i.i, align 8
   %cmp.i.i.i = icmp ult i64 %37, %or.i.i.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE13insertAtBlankIJS8_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS8_EEEESt4pairImmEDpOT_.exit
@@ -12350,7 +12280,7 @@ return:                                           ; preds = %_ZN5folly3f146detai
   store ptr %arrayidx.i.i.i.i.i50.sink, ptr %agg.result, align 8
   %iter.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %conv.sink, ptr %iter.sroa.3.0.agg.result.sroa_idx, align 8
-  %second.i.i54 = getelementptr inbounds %"struct.std::pair.241", ptr %agg.result, i64 0, i32 1
+  %second.i.i54 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i8 %.sink, ptr %second.i.i54, align 8
   ret void
 }
@@ -12369,33 +12299,33 @@ entry:
   %ref.tmp = alloca %"struct.facebook::velox::StringView", align 8
   %ref.tmp18 = alloca %"struct.facebook::velox::StringView", align 8
   store i64 %input.coerce0, ptr %input, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %input, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %input, i64 8
   store ptr %input.coerce1, ptr %0, align 8
   store i64 %delim.coerce0, ptr %delim, align 8
-  %1 = getelementptr inbounds { i64, ptr }, ptr %delim, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %delim, i64 8
   store ptr %delim.coerce1, ptr %1, align 8
   %vtable = load ptr, ptr %resultWriter, align 8
   %2 = load ptr, ptr %vtable, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %resultWriter, i32 noundef %row)
   %3 = trunc i64 %input.coerce0 to i32
   %cmp.i.i.i = icmp ult i32 %3, 13
-  %prefix_.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %input, i64 0, i32 1
+  %prefix_.i = getelementptr inbounds i8, ptr %input, i64 4
   %cond.i = select i1 %cmp.i.i.i, ptr %prefix_.i, ptr %input.coerce1
   %conv.i = and i64 %input.coerce0, 4294967295
   %4 = trunc i64 %delim.coerce0 to i32
   %cmp.i.i.i8 = icmp ult i32 %4, 13
-  %prefix_.i9 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %delim, i64 0, i32 1
+  %prefix_.i9 = getelementptr inbounds i8, ptr %delim, i64 4
   %cond.i11 = select i1 %cmp.i.i.i8, ptr %prefix_.i9, ptr %delim.coerce1
   %conv.i12 = and i64 %delim.coerce0, 4294967295
   %cmp.i.i = icmp eq i32 %4, 0
   %inc = zext i1 %cmp.i.i to i64
-  %length_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 3
-  %needCommit_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 2
-  %childWriter_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 1
-  %valuesOffset_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 4
-  %elementsVectorCapacity_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 5
-  %prefix_.i20 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp, i64 0, i32 1
-  %value_13.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %resultWriter, i64 44
+  %needCommit_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 40
+  %childWriter_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 32
+  %valuesOffset_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 48
+  %elementsVectorCapacity_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 52
+  %prefix_.i20 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %value_13.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit, %entry
@@ -12462,7 +12392,7 @@ if.end10:                                         ; preds = %_ZNKSt17basic_strin
 if.then.i.i.i:                                    ; preds = %if.end10
   %9 = load ptr, ptr %childWriter_.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %9, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %10 = load ptr, ptr %vfn.i.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(112) %9, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i, align 8
@@ -12485,7 +12415,7 @@ if.then.i2.i.i:                                   ; preds = %_ZN8facebook5velox4
   %14 = load ptr, ptr %childWriter_.i.i.i, align 8
   %conv5.i.i.i = sext i32 %conv.i.i.i16 to i64
   %vtable.i4.i.i = load ptr, ptr %14, align 8
-  %vfn.i5.i.i = getelementptr inbounds ptr, ptr %vtable.i4.i.i, i64 2
+  %vfn.i5.i.i = getelementptr inbounds i8, ptr %vtable.i4.i.i, i64 16
   %15 = load ptr, ptr %vfn.i5.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(112) %14, i64 noundef %conv5.i.i.i)
   %.pre.i = load i32, ptr %valuesOffset_.i.i.i, align 8
@@ -12532,12 +12462,12 @@ if.else.i:                                        ; preds = %if.end.i
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit
 
 _ZN8facebook5velox10StringViewC2EPKci.exit:       ; preds = %if.then2.i, %if.end6.i, %if.else.i
-  %vector_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %19, i64 0, i32 1, i32 3
+  %vector_.i = getelementptr inbounds i8, ptr %19, i64 64
   %21 = load ptr, ptr %vector_.i, align 8
-  %offset_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %19, i64 0, i32 1, i32 4
+  %offset_.i = getelementptr inbounds i8, ptr %19, i64 72
   %22 = load i32, ptr %offset_.i, align 8
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %21, i32 noundef %22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %finalized_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %19, i64 0, i32 1, i32 1
+  %finalized_.i = getelementptr inbounds i8, ptr %19, i64 48
   store i8 1, ptr %finalized_.i, align 8
   %add = add i64 %spec.select, %conv.i12
   %add.ptr = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %add
@@ -12550,7 +12480,7 @@ while.end:                                        ; preds = %_ZNKSt17basic_strin
 if.then.i.i.i28:                                  ; preds = %while.end
   %23 = load ptr, ptr %childWriter_.i.i.i, align 8
   %vtable.i.i.i30 = load ptr, ptr %23, align 8
-  %vfn.i.i.i31 = getelementptr inbounds ptr, ptr %vtable.i.i.i30, i64 1
+  %vfn.i.i.i31 = getelementptr inbounds i8, ptr %vtable.i.i.i30, i64 8
   %24 = load ptr, ptr %vfn.i.i.i31, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(112) %23, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i, align 8
@@ -12573,7 +12503,7 @@ if.then.i2.i.i41:                                 ; preds = %_ZN8facebook5velox4
   %28 = load ptr, ptr %childWriter_.i.i.i, align 8
   %conv5.i.i.i47 = sext i32 %conv.i.i.i45 to i64
   %vtable.i4.i.i48 = load ptr, ptr %28, align 8
-  %vfn.i5.i.i49 = getelementptr inbounds ptr, ptr %vtable.i4.i.i48, i64 2
+  %vfn.i5.i.i49 = getelementptr inbounds i8, ptr %vtable.i4.i.i48, i64 16
   %29 = load ptr, ptr %vfn.i5.i.i49, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(112) %28, i64 noundef %conv5.i.i.i47)
   %.pre.i50 = load i32, ptr %valuesOffset_.i.i.i, align 8
@@ -12600,7 +12530,7 @@ if.then.i64:                                      ; preds = %_ZN8facebook5velox4
 
 if.end.i54:                                       ; preds = %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit51
   %cmp.i.i.i55 = icmp ult i32 %conv21, 13
-  %prefix_.i56 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp18, i64 0, i32 1
+  %prefix_.i56 = getelementptr inbounds i8, ptr %ref.tmp18, i64 4
   br i1 %cmp.i.i.i55, label %if.then2.i59, label %if.else.i57
 
 if.then2.i59:                                     ; preds = %if.end.i54
@@ -12609,7 +12539,7 @@ if.then2.i59:                                     ; preds = %if.end.i54
   br i1 %cmp4.i60, label %_ZN8facebook5velox10StringViewC2EPKci.exit65, label %if.end6.i61
 
 if.end6.i61:                                      ; preds = %if.then2.i59
-  %value_7.i62 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp18, i64 0, i32 2
+  %value_7.i62 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
   store ptr null, ptr %value_7.i62, align 8
   %conv.i63 = and i64 %sinput.sroa.0.0, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i56, ptr align 1 %sinput.sroa.6.0, i64 %conv.i63, i1 false)
@@ -12618,28 +12548,28 @@ if.end6.i61:                                      ; preds = %if.then2.i59
 if.else.i57:                                      ; preds = %if.end.i54
   %34 = load i32, ptr %sinput.sroa.6.0, align 1
   store i32 %34, ptr %prefix_.i56, align 4
-  %value_13.i58 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp18, i64 0, i32 2
+  %value_13.i58 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
   store ptr %sinput.sroa.6.0, ptr %value_13.i58, align 8
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit65
 
 _ZN8facebook5velox10StringViewC2EPKci.exit65:     ; preds = %if.then2.i59, %if.end6.i61, %if.else.i57
-  %vector_.i66 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %33, i64 0, i32 1, i32 3
+  %vector_.i66 = getelementptr inbounds i8, ptr %33, i64 64
   %35 = load ptr, ptr %vector_.i66, align 8
-  %offset_.i67 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %33, i64 0, i32 1, i32 4
+  %offset_.i67 = getelementptr inbounds i8, ptr %33, i64 72
   %36 = load i32, ptr %offset_.i67, align 8
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %35, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18)
-  %finalized_.i68 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %33, i64 0, i32 1, i32 1
+  %finalized_.i68 = getelementptr inbounds i8, ptr %33, i64 48
   store i8 1, ptr %finalized_.i68, align 8
-  %arrayVector_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 1
+  %arrayVector_.i = getelementptr inbounds i8, ptr %resultWriter, i64 16
   %37 = load ptr, ptr %arrayVector_.i, align 8
-  %offset_.i69 = getelementptr inbounds %"class.facebook::velox::exec::VectorWriterBase", ptr %resultWriter, i64 0, i32 1
+  %offset_.i69 = getelementptr inbounds i8, ptr %resultWriter, i64 8
   %38 = load i32, ptr %offset_.i69, align 8
   %39 = load i32, ptr %valuesOffset_.i.i.i, align 8
   %40 = load i32, ptr %length_.i, align 4
-  %offsets_.i.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %37, i64 0, i32 1
+  %offsets_.i.i = getelementptr inbounds i8, ptr %37, i64 104
   %41 = load ptr, ptr %offsets_.i.i, align 8
   %vtable.i.i.i71 = load ptr, ptr %41, align 8
-  %vfn.i.i.i72 = getelementptr inbounds ptr, ptr %vtable.i.i.i71, i64 3
+  %vfn.i.i.i72 = getelementptr inbounds i8, ptr %vtable.i.i.i71, i64 24
   %42 = load ptr, ptr %vfn.i.i.i72, align 8
   %call.i.i.i73 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(64) %41)
   br i1 %call.i.i.i73, label %if.then.i.i.i79, label %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i
@@ -12649,15 +12579,15 @@ if.then.i.i.i79:                                  ; preds = %_ZN8facebook5velox1
   unreachable
 
 _ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i: ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit65
-  %data_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %41, i64 0, i32 2
+  %data_.i.i.i = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %data_.i.i.i, align 8
   %idxprom.i.i = sext i32 %38 to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %43, i64 %idxprom.i.i
   store i32 %39, ptr %arrayidx.i.i, align 4
-  %sizes_.i.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %37, i64 0, i32 3
+  %sizes_.i.i = getelementptr inbounds i8, ptr %37, i64 120
   %44 = load ptr, ptr %sizes_.i.i, align 8
   %vtable.i2.i.i = load ptr, ptr %44, align 8
-  %vfn.i3.i.i = getelementptr inbounds ptr, ptr %vtable.i2.i.i, i64 3
+  %vfn.i3.i.i = getelementptr inbounds i8, ptr %vtable.i2.i.i, i64 24
   %45 = load ptr, ptr %vfn.i3.i.i, align 8
   %call.i4.i.i = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(64) %44)
   br i1 %call.i4.i.i, label %if.then.i6.i.i, label %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i
@@ -12667,14 +12597,14 @@ if.then.i6.i.i:                                   ; preds = %_ZNK8facebook5velox
   unreachable
 
 _ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i
-  %data_.i5.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %44, i64 0, i32 2
+  %data_.i5.i.i = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load ptr, ptr %data_.i5.i.i, align 8
   %arrayidx14.i.i = getelementptr inbounds i32, ptr %46, i64 %idxprom.i.i
   store i32 %40, ptr %arrayidx14.i.i, align 4
   %47 = load ptr, ptr %arrayVector_.i, align 8
   %48 = load i32, ptr %offset_.i69, align 8
   %vtable.i74 = load ptr, ptr %47, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i74, i64 18
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i74, i64 144
   %49 = load ptr, ptr %vfn.i, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(99) %47, i32 noundef %48, i1 noundef zeroext false)
   %50 = load i8, ptr %needCommit_.i.i.i, align 8
@@ -12685,7 +12615,7 @@ _ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i: ; preds = %_ZN
 if.then.i.i1.i:                                   ; preds = %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i
   %52 = load ptr, ptr %childWriter_.i.i.i, align 8
   %vtable.i.i2.i = load ptr, ptr %52, align 8
-  %vfn.i.i3.i = getelementptr inbounds ptr, ptr %vtable.i.i2.i, i64 1
+  %vfn.i.i3.i = getelementptr inbounds i8, ptr %vtable.i.i2.i, i64 8
   %53 = load ptr, ptr %vfn.i.i3.i, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(112) %52, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i, align 8
@@ -12717,10 +12647,10 @@ entry:
   %ref.tmp = alloca %"struct.facebook::velox::StringView", align 8
   %ref.tmp27 = alloca %"struct.facebook::velox::StringView", align 8
   store i64 %input.coerce0, ptr %input, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %input, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %input, i64 8
   store ptr %input.coerce1, ptr %0, align 8
   store i64 %delim.coerce0, ptr %delim, align 8
-  %1 = getelementptr inbounds { i64, ptr }, ptr %delim, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %delim, i64 8
   store ptr %delim.coerce1, ptr %1, align 8
   %vtable = load ptr, ptr %resultWriter, align 8
   %2 = load ptr, ptr %vtable, align 8
@@ -12729,30 +12659,30 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %length_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 3
+  %length_.i = getelementptr inbounds i8, ptr %resultWriter, i64 44
   %3 = load i32, ptr %length_.i, align 4
   %add.i = add nsw i32 %3, 1
-  %needCommit_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 2
+  %needCommit_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 40
   %4 = load i8, ptr %needCommit_.i.i.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i.i, label %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE25commitMostRecentChildItemEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %childWriter_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 1
+  %childWriter_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 32
   %6 = load ptr, ptr %childWriter_.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(112) %6, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i, align 8
   br label %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE25commitMostRecentChildItemEv.exit.i.i
 
 _ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE25commitMostRecentChildItemEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then
-  %valuesOffset_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 4
+  %valuesOffset_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 48
   %8 = load i32, ptr %valuesOffset_.i.i.i, align 8
   %add.i.i.i = add nsw i32 %8, %add.i
-  %elementsVectorCapacity_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 5
+  %elementsVectorCapacity_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 52
   %9 = load i32, ptr %elementsVectorCapacity_.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %add.i.i.i, %9
   br i1 %cmp.i.i.i, label %if.then.i2.i.i, label %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit
@@ -12764,11 +12694,11 @@ if.then.i2.i.i:                                   ; preds = %_ZN8facebook5velox4
   %exp2.i.i.i = tail call double @exp2(double %10)
   %conv.i.i.i = fptosi double %exp2.i.i.i to i32
   store i32 %conv.i.i.i, ptr %elementsVectorCapacity_.i.i.i, align 4
-  %childWriter_.i3.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 1
+  %childWriter_.i3.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 32
   %11 = load ptr, ptr %childWriter_.i3.i.i, align 8
   %conv5.i.i.i = sext i32 %conv.i.i.i to i64
   %vtable.i4.i.i = load ptr, ptr %11, align 8
-  %vfn.i5.i.i = getelementptr inbounds ptr, ptr %vtable.i4.i.i, i64 2
+  %vfn.i5.i.i = getelementptr inbounds i8, ptr %vtable.i4.i.i, i64 16
   %12 = load ptr, ptr %vfn.i5.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(112) %11, i64 noundef %conv5.i.i.i)
   %.pre.i = load i32, ptr %valuesOffset_.i.i.i, align 8
@@ -12779,29 +12709,29 @@ _ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit: ; preds = %
   store i32 %add.i, ptr %length_.i, align 4
   %sub.i = add i32 %13, %3
   store i8 1, ptr %needCommit_.i.i.i, align 8
-  %childWriter_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 1
+  %childWriter_.i = getelementptr inbounds i8, ptr %resultWriter, i64 32
   %14 = load ptr, ptr %childWriter_.i, align 8
   %vtable.i = load ptr, ptr %14, align 8
   %15 = load ptr, ptr %vtable.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(112) %14, i32 noundef %sub.i)
   %16 = load ptr, ptr %childWriter_.i, align 8
-  %vector_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %16, i64 0, i32 1, i32 3
+  %vector_.i = getelementptr inbounds i8, ptr %16, i64 64
   %17 = load ptr, ptr %vector_.i, align 8
-  %offset_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %16, i64 0, i32 1, i32 4
+  %offset_.i = getelementptr inbounds i8, ptr %16, i64 72
   %18 = load i32, ptr %offset_.i, align 8
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %17, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(16) %input)
-  %finalized_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %16, i64 0, i32 1, i32 1
+  %finalized_.i = getelementptr inbounds i8, ptr %16, i64 48
   store i8 1, ptr %finalized_.i, align 8
-  %arrayVector_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 1
+  %arrayVector_.i = getelementptr inbounds i8, ptr %resultWriter, i64 16
   %19 = load ptr, ptr %arrayVector_.i, align 8
-  %offset_.i12 = getelementptr inbounds %"class.facebook::velox::exec::VectorWriterBase", ptr %resultWriter, i64 0, i32 1
+  %offset_.i12 = getelementptr inbounds i8, ptr %resultWriter, i64 8
   %20 = load i32, ptr %offset_.i12, align 8
   %21 = load i32, ptr %valuesOffset_.i.i.i, align 8
   %22 = load i32, ptr %length_.i, align 4
-  %offsets_.i.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %19, i64 0, i32 1
+  %offsets_.i.i = getelementptr inbounds i8, ptr %19, i64 104
   %23 = load ptr, ptr %offsets_.i.i, align 8
   %vtable.i.i.i14 = load ptr, ptr %23, align 8
-  %vfn.i.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i.i14, i64 3
+  %vfn.i.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i.i14, i64 24
   %24 = load ptr, ptr %vfn.i.i.i15, align 8
   %call.i.i.i = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(64) %23)
   br i1 %call.i.i.i, label %if.then.i.i.i20, label %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i
@@ -12811,15 +12741,15 @@ if.then.i.i.i20:                                  ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i: ; preds = %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit
-  %data_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %23, i64 0, i32 2
+  %data_.i.i.i = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %data_.i.i.i, align 8
   %idxprom.i.i = sext i32 %20 to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %25, i64 %idxprom.i.i
   store i32 %21, ptr %arrayidx.i.i, align 4
-  %sizes_.i.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %19, i64 0, i32 3
+  %sizes_.i.i = getelementptr inbounds i8, ptr %19, i64 120
   %26 = load ptr, ptr %sizes_.i.i, align 8
   %vtable.i2.i.i = load ptr, ptr %26, align 8
-  %vfn.i3.i.i = getelementptr inbounds ptr, ptr %vtable.i2.i.i, i64 3
+  %vfn.i3.i.i = getelementptr inbounds i8, ptr %vtable.i2.i.i, i64 24
   %27 = load ptr, ptr %vfn.i3.i.i, align 8
   %call.i4.i.i = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(64) %26)
   br i1 %call.i4.i.i, label %if.then.i6.i.i, label %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i
@@ -12829,14 +12759,14 @@ if.then.i6.i.i:                                   ; preds = %_ZNK8facebook5velox
   unreachable
 
 _ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i
-  %data_.i5.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %26, i64 0, i32 2
+  %data_.i5.i.i = getelementptr inbounds i8, ptr %26, i64 16
   %28 = load ptr, ptr %data_.i5.i.i, align 8
   %arrayidx14.i.i = getelementptr inbounds i32, ptr %28, i64 %idxprom.i.i
   store i32 %22, ptr %arrayidx14.i.i, align 4
   %29 = load ptr, ptr %arrayVector_.i, align 8
   %30 = load i32, ptr %offset_.i12, align 8
   %vtable.i16 = load ptr, ptr %29, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i16, i64 18
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i16, i64 144
   %31 = load ptr, ptr %vfn.i, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(99) %29, i32 noundef %30, i1 noundef zeroext false)
   %32 = load i8, ptr %needCommit_.i.i.i, align 8
@@ -12848,22 +12778,22 @@ if.end:                                           ; preds = %entry
   %34 = trunc i64 %delim.coerce0 to i32
   %35 = trunc i64 %input.coerce0 to i32
   %cmp.i.i.i21 = icmp ult i32 %35, 13
-  %prefix_.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %input, i64 0, i32 1
+  %prefix_.i = getelementptr inbounds i8, ptr %input, i64 4
   %cond.i = select i1 %cmp.i.i.i21, ptr %prefix_.i, ptr %input.coerce1
   %conv.i = and i64 %input.coerce0, 4294967295
   %cmp.i.i.i22 = icmp ult i32 %34, 13
-  %prefix_.i23 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %delim, i64 0, i32 1
+  %prefix_.i23 = getelementptr inbounds i8, ptr %delim, i64 4
   %cond.i25 = select i1 %cmp.i.i.i22, ptr %prefix_.i23, ptr %delim.coerce1
   %conv.i26 = and i64 %delim.coerce0, 4294967295
   %cmp.i.i = icmp eq i32 %34, 0
   %inc = zext i1 %cmp.i.i to i64
-  %length_.i32 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 3
-  %needCommit_.i.i.i34 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 2
-  %childWriter_.i.i.i37 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 1
-  %valuesOffset_.i.i.i41 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 4
-  %elementsVectorCapacity_.i.i.i43 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 5
-  %prefix_.i63 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp, i64 0, i32 1
-  %value_13.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp, i64 0, i32 2
+  %length_.i32 = getelementptr inbounds i8, ptr %resultWriter, i64 44
+  %needCommit_.i.i.i34 = getelementptr inbounds i8, ptr %resultWriter, i64 40
+  %childWriter_.i.i.i37 = getelementptr inbounds i8, ptr %resultWriter, i64 32
+  %valuesOffset_.i.i.i41 = getelementptr inbounds i8, ptr %resultWriter, i64 48
+  %elementsVectorCapacity_.i.i.i43 = getelementptr inbounds i8, ptr %resultWriter, i64 52
+  %prefix_.i63 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %value_13.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit, %if.end
@@ -12931,7 +12861,7 @@ if.end14:                                         ; preds = %_ZNKSt17basic_strin
 if.then.i.i.i36:                                  ; preds = %if.end14
   %40 = load ptr, ptr %childWriter_.i.i.i37, align 8
   %vtable.i.i.i38 = load ptr, ptr %40, align 8
-  %vfn.i.i.i39 = getelementptr inbounds ptr, ptr %vtable.i.i.i38, i64 1
+  %vfn.i.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i.i38, i64 8
   %41 = load ptr, ptr %vfn.i.i.i39, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(112) %40, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i34, align 8
@@ -12954,7 +12884,7 @@ if.then.i2.i.i49:                                 ; preds = %_ZN8facebook5velox4
   %45 = load ptr, ptr %childWriter_.i.i.i37, align 8
   %conv5.i.i.i55 = sext i32 %conv.i.i.i53 to i64
   %vtable.i4.i.i56 = load ptr, ptr %45, align 8
-  %vfn.i5.i.i57 = getelementptr inbounds ptr, ptr %vtable.i4.i.i56, i64 2
+  %vfn.i5.i.i57 = getelementptr inbounds i8, ptr %vtable.i4.i.i56, i64 16
   %46 = load ptr, ptr %vfn.i5.i.i57, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(112) %45, i64 noundef %conv5.i.i.i55)
   %.pre.i58 = load i32, ptr %valuesOffset_.i.i.i41, align 8
@@ -13001,12 +12931,12 @@ if.else.i:                                        ; preds = %if.end.i
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit
 
 _ZN8facebook5velox10StringViewC2EPKci.exit:       ; preds = %if.then2.i, %if.end6.i, %if.else.i
-  %vector_.i65 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %50, i64 0, i32 1, i32 3
+  %vector_.i65 = getelementptr inbounds i8, ptr %50, i64 64
   %52 = load ptr, ptr %vector_.i65, align 8
-  %offset_.i66 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %50, i64 0, i32 1, i32 4
+  %offset_.i66 = getelementptr inbounds i8, ptr %50, i64 72
   %53 = load i32, ptr %offset_.i66, align 8
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %52, i32 noundef %53, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %finalized_.i67 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %50, i64 0, i32 1, i32 1
+  %finalized_.i67 = getelementptr inbounds i8, ptr %50, i64 48
   store i8 1, ptr %finalized_.i67, align 8
   %add = add i64 %spec.select, %conv.i26
   %add.ptr = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %add
@@ -13029,7 +12959,7 @@ while.end:                                        ; preds = %_ZN8facebook5velox1
 if.then.i.i.i74:                                  ; preds = %while.end
   %57 = load ptr, ptr %childWriter_.i.i.i37, align 8
   %vtable.i.i.i76 = load ptr, ptr %57, align 8
-  %vfn.i.i.i77 = getelementptr inbounds ptr, ptr %vtable.i.i.i76, i64 1
+  %vfn.i.i.i77 = getelementptr inbounds i8, ptr %vtable.i.i.i76, i64 8
   %58 = load ptr, ptr %vfn.i.i.i77, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(112) %57, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i34, align 8
@@ -13052,7 +12982,7 @@ if.then.i2.i.i87:                                 ; preds = %_ZN8facebook5velox4
   %62 = load ptr, ptr %childWriter_.i.i.i37, align 8
   %conv5.i.i.i93 = sext i32 %conv.i.i.i91 to i64
   %vtable.i4.i.i94 = load ptr, ptr %62, align 8
-  %vfn.i5.i.i95 = getelementptr inbounds ptr, ptr %vtable.i4.i.i94, i64 2
+  %vfn.i5.i.i95 = getelementptr inbounds i8, ptr %vtable.i4.i.i94, i64 16
   %63 = load ptr, ptr %vfn.i5.i.i95, align 8
   call void %63(ptr noundef nonnull align 8 dereferenceable(112) %62, i64 noundef %conv5.i.i.i93)
   %.pre.i96 = load i32, ptr %valuesOffset_.i.i.i41, align 8
@@ -13079,7 +13009,7 @@ if.then.i110:                                     ; preds = %_ZN8facebook5velox4
 
 if.end.i100:                                      ; preds = %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit97
   %cmp.i.i.i101 = icmp ult i32 %conv30, 13
-  %prefix_.i102 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp27, i64 0, i32 1
+  %prefix_.i102 = getelementptr inbounds i8, ptr %ref.tmp27, i64 4
   br i1 %cmp.i.i.i101, label %if.then2.i105, label %if.else.i103
 
 if.then2.i105:                                    ; preds = %if.end.i100
@@ -13088,7 +13018,7 @@ if.then2.i105:                                    ; preds = %if.end.i100
   br i1 %cmp4.i106, label %_ZN8facebook5velox10StringViewC2EPKci.exit111, label %if.end6.i107
 
 if.end6.i107:                                     ; preds = %if.then2.i105
-  %value_7.i108 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp27, i64 0, i32 2
+  %value_7.i108 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
   store ptr null, ptr %value_7.i108, align 8
   %conv.i109 = and i64 %sinput.sroa.0.1, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i102, ptr align 1 %sinput.sroa.6.1, i64 %conv.i109, i1 false)
@@ -13097,28 +13027,28 @@ if.end6.i107:                                     ; preds = %if.then2.i105
 if.else.i103:                                     ; preds = %if.end.i100
   %68 = load i32, ptr %sinput.sroa.6.1, align 1
   store i32 %68, ptr %prefix_.i102, align 4
-  %value_13.i104 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp27, i64 0, i32 2
+  %value_13.i104 = getelementptr inbounds i8, ptr %ref.tmp27, i64 8
   store ptr %sinput.sroa.6.1, ptr %value_13.i104, align 8
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit111
 
 _ZN8facebook5velox10StringViewC2EPKci.exit111:    ; preds = %if.then2.i105, %if.end6.i107, %if.else.i103
-  %vector_.i112 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %67, i64 0, i32 1, i32 3
+  %vector_.i112 = getelementptr inbounds i8, ptr %67, i64 64
   %69 = load ptr, ptr %vector_.i112, align 8
-  %offset_.i113 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %67, i64 0, i32 1, i32 4
+  %offset_.i113 = getelementptr inbounds i8, ptr %67, i64 72
   %70 = load i32, ptr %offset_.i113, align 8
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %69, i32 noundef %70, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp27)
-  %finalized_.i114 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %67, i64 0, i32 1, i32 1
+  %finalized_.i114 = getelementptr inbounds i8, ptr %67, i64 48
   store i8 1, ptr %finalized_.i114, align 8
-  %arrayVector_.i115 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 1
+  %arrayVector_.i115 = getelementptr inbounds i8, ptr %resultWriter, i64 16
   %71 = load ptr, ptr %arrayVector_.i115, align 8
-  %offset_.i116 = getelementptr inbounds %"class.facebook::velox::exec::VectorWriterBase", ptr %resultWriter, i64 0, i32 1
+  %offset_.i116 = getelementptr inbounds i8, ptr %resultWriter, i64 8
   %72 = load i32, ptr %offset_.i116, align 8
   %73 = load i32, ptr %valuesOffset_.i.i.i41, align 8
   %74 = load i32, ptr %length_.i32, align 4
-  %offsets_.i.i119 = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %71, i64 0, i32 1
+  %offsets_.i.i119 = getelementptr inbounds i8, ptr %71, i64 104
   %75 = load ptr, ptr %offsets_.i.i119, align 8
   %vtable.i.i.i120 = load ptr, ptr %75, align 8
-  %vfn.i.i.i121 = getelementptr inbounds ptr, ptr %vtable.i.i.i120, i64 3
+  %vfn.i.i.i121 = getelementptr inbounds i8, ptr %vtable.i.i.i120, i64 24
   %76 = load ptr, ptr %vfn.i.i.i121, align 8
   %call.i.i.i122 = call noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(64) %75)
   br i1 %call.i.i.i122, label %if.then.i.i.i144, label %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i123
@@ -13128,15 +13058,15 @@ if.then.i.i.i144:                                 ; preds = %_ZN8facebook5velox1
   unreachable
 
 _ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i123: ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit111
-  %data_.i.i.i124 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %75, i64 0, i32 2
+  %data_.i.i.i124 = getelementptr inbounds i8, ptr %75, i64 16
   %77 = load ptr, ptr %data_.i.i.i124, align 8
   %idxprom.i.i125 = sext i32 %72 to i64
   %arrayidx.i.i126 = getelementptr inbounds i32, ptr %77, i64 %idxprom.i.i125
   store i32 %73, ptr %arrayidx.i.i126, align 4
-  %sizes_.i.i127 = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %71, i64 0, i32 3
+  %sizes_.i.i127 = getelementptr inbounds i8, ptr %71, i64 120
   %78 = load ptr, ptr %sizes_.i.i127, align 8
   %vtable.i2.i.i128 = load ptr, ptr %78, align 8
-  %vfn.i3.i.i129 = getelementptr inbounds ptr, ptr %vtable.i2.i.i128, i64 3
+  %vfn.i3.i.i129 = getelementptr inbounds i8, ptr %vtable.i2.i.i128, i64 24
   %79 = load ptr, ptr %vfn.i3.i.i129, align 8
   %call.i4.i.i130 = call noundef zeroext i1 %79(ptr noundef nonnull align 8 dereferenceable(64) %78)
   br i1 %call.i4.i.i130, label %if.then.i6.i.i143, label %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131
@@ -13146,14 +13076,14 @@ if.then.i6.i.i143:                                ; preds = %_ZNK8facebook5velox
   unreachable
 
 _ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131: ; preds = %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i123
-  %data_.i5.i.i132 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %78, i64 0, i32 2
+  %data_.i5.i.i132 = getelementptr inbounds i8, ptr %78, i64 16
   %80 = load ptr, ptr %data_.i5.i.i132, align 8
   %arrayidx14.i.i133 = getelementptr inbounds i32, ptr %80, i64 %idxprom.i.i125
   store i32 %74, ptr %arrayidx14.i.i133, align 4
   %81 = load ptr, ptr %arrayVector_.i115, align 8
   %82 = load i32, ptr %offset_.i116, align 8
   %vtable.i134 = load ptr, ptr %81, align 8
-  %vfn.i135 = getelementptr inbounds ptr, ptr %vtable.i134, i64 18
+  %vfn.i135 = getelementptr inbounds i8, ptr %vtable.i134, i64 144
   %83 = load ptr, ptr %vfn.i135, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(99) %81, i32 noundef %82, i1 noundef zeroext false)
   %84 = load i8, ptr %needCommit_.i.i.i34, align 8
@@ -13168,7 +13098,7 @@ return.sink.split:                                ; preds = %_ZN8facebook5velox1
   %valuesOffset_.i.i.i41.sink10.ph = phi ptr [ %valuesOffset_.i.i.i, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i ], [ %valuesOffset_.i.i.i41, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131 ]
   %86 = load ptr, ptr %childWriter_.i.sink, align 8
   %vtable.i.i2.i140 = load ptr, ptr %86, align 8
-  %vfn.i.i3.i141 = getelementptr inbounds ptr, ptr %vtable.i.i2.i140, i64 1
+  %vfn.i.i3.i141 = getelementptr inbounds i8, ptr %vtable.i.i2.i140, i64 8
   %87 = load ptr, ptr %vfn.i.i3.i141, align 8
   call void %87(ptr noundef nonnull align 8 dereferenceable(112) %86, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i34.sink, align 8
@@ -13211,7 +13141,7 @@ define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functio
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
-  %2 = getelementptr inbounds %class.anon.253, ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %2, align 8
   %idxprom2 = sext i32 %idx to i64
   %arrayidx3 = getelementptr inbounds i64, ptr %3, i64 %idxprom2
@@ -13224,10 +13154,10 @@ entry:
   br i1 %tobool4.not, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %5 = getelementptr inbounds %class.anon.253, ptr %this, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %this, i64 16
   %mul = shl nsw i32 %idx, 6
-  %6 = getelementptr inbounds %class.anon.253, ptr %this, i64 0, i32 2, i32 1
-  %7 = getelementptr inbounds %class.anon.253, ptr %this, i64 0, i32 2, i32 3
+  %6 = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit
@@ -13237,28 +13167,28 @@ while.body:                                       ; preds = %while.body.preheade
   %add = or disjoint i32 %mul, %cast
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %9, align 8
-  %data_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %10, i64 0, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %data_.i.i, align 8
-  %isIdentityMapping_.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %10, i64 0, i32 8
+  %isIdentityMapping_.i.i.i = getelementptr inbounds i8, ptr %10, i64 58
   %12 = load i8, ptr %isIdentityMapping_.i.i.i, align 2
   %13 = and i8 %12, 1
   %tobool.not.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i
 
 if.end.i.i.i:                                     ; preds = %while.body
-  %isConstantMapping_.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %10, i64 0, i32 9
+  %isConstantMapping_.i.i.i = getelementptr inbounds i8, ptr %10, i64 59
   %14 = load i8, ptr %isConstantMapping_.i.i.i, align 1
   %15 = and i8 %14, 1
   %tobool2.not.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool2.not.i.i.i, label %if.end4.i.i.i, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %constantIndex_.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %10, i64 0, i32 11
+  %constantIndex_.i.i.i = getelementptr inbounds i8, ptr %10, i64 64
   %16 = load i32, ptr %constantIndex_.i.i.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
-  %indices_.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %10, i64 0, i32 1
+  %indices_.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %17 = load ptr, ptr %indices_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %add to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %17, i64 %idxprom.i.i.i
@@ -13274,28 +13204,28 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i: ; pred
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i, align 8
   %19 = load ptr, ptr %6, align 8
   %20 = load ptr, ptr %19, align 8
-  %data_.i3.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %20, i64 0, i32 2
+  %data_.i3.i = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load ptr, ptr %data_.i3.i, align 8
-  %isIdentityMapping_.i.i4.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %20, i64 0, i32 8
+  %isIdentityMapping_.i.i4.i = getelementptr inbounds i8, ptr %20, i64 58
   %22 = load i8, ptr %isIdentityMapping_.i.i4.i, align 2
   %23 = and i8 %22, 1
   %tobool.not.i.i5.i = icmp eq i8 %23, 0
   br i1 %tobool.not.i.i5.i, label %if.end.i.i14.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit
 
 if.end.i.i14.i:                                   ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i
-  %isConstantMapping_.i.i15.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %20, i64 0, i32 9
+  %isConstantMapping_.i.i15.i = getelementptr inbounds i8, ptr %20, i64 59
   %24 = load i8, ptr %isConstantMapping_.i.i15.i, align 1
   %25 = and i8 %24, 1
   %tobool2.not.i.i16.i = icmp eq i8 %25, 0
   br i1 %tobool2.not.i.i16.i, label %if.end4.i.i19.i, label %if.then3.i.i17.i
 
 if.then3.i.i17.i:                                 ; preds = %if.end.i.i14.i
-  %constantIndex_.i.i18.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %20, i64 0, i32 11
+  %constantIndex_.i.i18.i = getelementptr inbounds i8, ptr %20, i64 64
   %26 = load i32, ptr %constantIndex_.i.i18.i, align 8
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit
 
 if.end4.i.i19.i:                                  ; preds = %if.end.i.i14.i
-  %indices_.i.i20.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %20, i64 0, i32 1
+  %indices_.i.i20.i = getelementptr inbounds i8, ptr %20, i64 8
   %27 = load ptr, ptr %indices_.i.i20.i, align 8
   %idxprom.i.i21.i = sext i32 %add to i64
   %arrayidx.i.i22.i = getelementptr inbounds i32, ptr %27, i64 %idxprom.i.i21.i
@@ -13327,28 +13257,28 @@ entry:
   %agg.tmp5 = alloca %"class.std::invalid_argument", align 8
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
-  %data_.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %1, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %data_.i, align 8
-  %isIdentityMapping_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %1, i64 0, i32 8
+  %isIdentityMapping_.i.i = getelementptr inbounds i8, ptr %1, i64 58
   %3 = load i8, ptr %isIdentityMapping_.i.i, align 2
   %4 = and i8 %3, 1
   %tobool.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %isConstantMapping_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %1, i64 0, i32 9
+  %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %1, i64 59
   %5 = load i8, ptr %isConstantMapping_.i.i, align 1
   %6 = and i8 %5, 1
   %tobool2.not.i.i = icmp eq i8 %6, 0
   br i1 %tobool2.not.i.i, label %if.end4.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %constantIndex_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %1, i64 0, i32 11
+  %constantIndex_.i.i = getelementptr inbounds i8, ptr %1, i64 64
   %7 = load i32, ptr %constantIndex_.i.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %indices_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %1, i64 0, i32 1
+  %indices_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %indices_.i.i, align 8
   %idxprom.i.i = sext i32 %row to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %8, i64 %idxprom.i.i
@@ -13364,31 +13294,31 @@ _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit: ; preds = %entry, %if.th
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit
-  %11 = getelementptr inbounds %class.anon.252, ptr %this, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %data_.i6 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %13, i64 0, i32 2
+  %data_.i6 = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load ptr, ptr %data_.i6, align 8
-  %isIdentityMapping_.i.i7 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %13, i64 0, i32 8
+  %isIdentityMapping_.i.i7 = getelementptr inbounds i8, ptr %13, i64 58
   %15 = load i8, ptr %isIdentityMapping_.i.i7, align 2
   %16 = and i8 %15, 1
   %tobool.not.i.i8 = icmp eq i8 %16, 0
   br i1 %tobool.not.i.i8, label %if.end.i.i12, label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
 
 if.end.i.i12:                                     ; preds = %if.then
-  %isConstantMapping_.i.i13 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %13, i64 0, i32 9
+  %isConstantMapping_.i.i13 = getelementptr inbounds i8, ptr %13, i64 59
   %17 = load i8, ptr %isConstantMapping_.i.i13, align 1
   %18 = and i8 %17, 1
   %tobool2.not.i.i14 = icmp eq i8 %18, 0
   br i1 %tobool2.not.i.i14, label %if.end4.i.i17, label %if.then3.i.i15
 
 if.then3.i.i15:                                   ; preds = %if.end.i.i12
-  %constantIndex_.i.i16 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %13, i64 0, i32 11
+  %constantIndex_.i.i16 = getelementptr inbounds i8, ptr %13, i64 64
   %19 = load i32, ptr %constantIndex_.i.i16, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
 
 if.end4.i.i17:                                    ; preds = %if.end.i.i12
-  %indices_.i.i18 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %13, i64 0, i32 1
+  %indices_.i.i18 = getelementptr inbounds i8, ptr %13, i64 8
   %20 = load ptr, ptr %indices_.i.i18, align 8
   %idxprom.i.i19 = sext i32 %row to i64
   %arrayidx.i.i20 = getelementptr inbounds i32, ptr %20, i64 %idxprom.i.i19
@@ -13402,31 +13332,31 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit: ; preds 
   %retval.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i11, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i11, i64 8
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %22 = getelementptr inbounds %class.anon.252, ptr %this, i64 0, i32 2
+  %22 = getelementptr inbounds i8, ptr %this, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
-  %data_.i21 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %24, i64 0, i32 2
+  %data_.i21 = getelementptr inbounds i8, ptr %24, i64 16
   %25 = load ptr, ptr %data_.i21, align 8
-  %isIdentityMapping_.i.i22 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %24, i64 0, i32 8
+  %isIdentityMapping_.i.i22 = getelementptr inbounds i8, ptr %24, i64 58
   %26 = load i8, ptr %isIdentityMapping_.i.i22, align 2
   %27 = and i8 %26, 1
   %tobool.not.i.i23 = icmp eq i8 %27, 0
   br i1 %tobool.not.i.i23, label %if.end.i.i32, label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit41
 
 if.end.i.i32:                                     ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
-  %isConstantMapping_.i.i33 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %24, i64 0, i32 9
+  %isConstantMapping_.i.i33 = getelementptr inbounds i8, ptr %24, i64 59
   %28 = load i8, ptr %isConstantMapping_.i.i33, align 1
   %29 = and i8 %28, 1
   %tobool2.not.i.i34 = icmp eq i8 %29, 0
   br i1 %tobool2.not.i.i34, label %if.end4.i.i37, label %if.then3.i.i35
 
 if.then3.i.i35:                                   ; preds = %if.end.i.i32
-  %constantIndex_.i.i36 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %24, i64 0, i32 11
+  %constantIndex_.i.i36 = getelementptr inbounds i8, ptr %24, i64 64
   %30 = load i32, ptr %constantIndex_.i.i36, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit41
 
 if.end4.i.i37:                                    ; preds = %if.end.i.i32
-  %indices_.i.i38 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %24, i64 0, i32 1
+  %indices_.i.i38 = getelementptr inbounds i8, ptr %24, i64 8
   %31 = load ptr, ptr %indices_.i.i38, align 8
   %idxprom.i.i39 = sext i32 %row to i64
   %arrayidx.i.i40 = getelementptr inbounds i32, ptr %31, i64 %idxprom.i.i39
@@ -13440,7 +13370,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit41: ; pred
   %retval.sroa.0.0.copyload.i27 = load i64, ptr %arrayidx.i26, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i28 = getelementptr inbounds i8, ptr %arrayidx.i26, i64 8
   %retval.sroa.2.0.copyload.i29 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i28, align 8
-  %33 = getelementptr inbounds %class.anon.252, ptr %this, i64 0, i32 3
+  %33 = getelementptr inbounds i8, ptr %this, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1EiEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, i64 %retval.sroa.0.0.copyload.i27, ptr %retval.sroa.2.0.copyload.i29, i32 noundef %10, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(192) %34)
   br label %if.end
@@ -13453,7 +13383,7 @@ if.else:                                          ; preds = %_ZNK8facebook5velox
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt16invalid_argument, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !160
   call void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %pex, ptr noundef nonnull %call.i) #29
   call void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5) #29
-  %35 = getelementptr inbounds %class.anon.252, ptr %this, i64 0, i32 5
+  %35 = getelementptr inbounds i8, ptr %this, i64 40
   %36 = load ptr, ptr %35, align 8
   invoke void @_ZN8facebook5velox4exec7EvalCtx8setErrorEiRKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(104) %36, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(8) %pex)
           to label %invoke.cont unwind label %lpad
@@ -13495,33 +13425,33 @@ entry:
   %ref.tmp = alloca %"struct.facebook::velox::StringView", align 8
   %ref.tmp18 = alloca %"struct.facebook::velox::StringView", align 8
   store i64 %input.coerce0, ptr %input, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %input, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %input, i64 8
   store ptr %input.coerce1, ptr %0, align 8
   store i64 %delim.coerce0, ptr %delim, align 8
-  %1 = getelementptr inbounds { i64, ptr }, ptr %delim, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %delim, i64 8
   store ptr %delim.coerce1, ptr %1, align 8
   %vtable = load ptr, ptr %resultWriter, align 8
   %2 = load ptr, ptr %vtable, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(12) %resultWriter, i32 noundef %row)
   %3 = trunc i64 %input.coerce0 to i32
   %cmp.i.i.i = icmp ult i32 %3, 13
-  %prefix_.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %input, i64 0, i32 1
+  %prefix_.i = getelementptr inbounds i8, ptr %input, i64 4
   %cond.i = select i1 %cmp.i.i.i, ptr %prefix_.i, ptr %input.coerce1
   %conv.i = and i64 %input.coerce0, 4294967295
   %4 = trunc i64 %delim.coerce0 to i32
   %cmp.i.i.i8 = icmp ult i32 %4, 13
-  %prefix_.i9 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %delim, i64 0, i32 1
+  %prefix_.i9 = getelementptr inbounds i8, ptr %delim, i64 4
   %cond.i11 = select i1 %cmp.i.i.i8, ptr %prefix_.i9, ptr %delim.coerce1
   %conv.i12 = and i64 %delim.coerce0, 4294967295
   %cmp.i.i = icmp eq i32 %4, 0
   %inc = zext i1 %cmp.i.i to i64
-  %length_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 3
-  %needCommit_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 2
-  %childWriter_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 1
-  %valuesOffset_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 4
-  %elementsVectorCapacity_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 5
-  %prefix_.i20 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp, i64 0, i32 1
-  %value_13.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp, i64 0, i32 2
+  %length_.i = getelementptr inbounds i8, ptr %resultWriter, i64 44
+  %needCommit_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 40
+  %childWriter_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 32
+  %valuesOffset_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 48
+  %elementsVectorCapacity_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 52
+  %prefix_.i20 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %value_13.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit, %entry
@@ -13588,7 +13518,7 @@ if.end10:                                         ; preds = %_ZNKSt17basic_strin
 if.then.i.i.i:                                    ; preds = %if.end10
   %9 = load ptr, ptr %childWriter_.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %9, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %10 = load ptr, ptr %vfn.i.i.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(112) %9, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i, align 8
@@ -13611,7 +13541,7 @@ if.then.i2.i.i:                                   ; preds = %_ZN8facebook5velox4
   %14 = load ptr, ptr %childWriter_.i.i.i, align 8
   %conv5.i.i.i = sext i32 %conv.i.i.i16 to i64
   %vtable.i4.i.i = load ptr, ptr %14, align 8
-  %vfn.i5.i.i = getelementptr inbounds ptr, ptr %vtable.i4.i.i, i64 2
+  %vfn.i5.i.i = getelementptr inbounds i8, ptr %vtable.i4.i.i, i64 16
   %15 = load ptr, ptr %vfn.i5.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(112) %14, i64 noundef %conv5.i.i.i)
   %.pre.i = load i32, ptr %valuesOffset_.i.i.i, align 8
@@ -13658,12 +13588,12 @@ if.else.i:                                        ; preds = %if.end.i
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit
 
 _ZN8facebook5velox10StringViewC2EPKci.exit:       ; preds = %if.then2.i, %if.end6.i, %if.else.i
-  %vector_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %19, i64 0, i32 1, i32 3
+  %vector_.i = getelementptr inbounds i8, ptr %19, i64 64
   %21 = load ptr, ptr %vector_.i, align 8
-  %offset_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %19, i64 0, i32 1, i32 4
+  %offset_.i = getelementptr inbounds i8, ptr %19, i64 72
   %22 = load i32, ptr %offset_.i, align 8
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %21, i32 noundef %22, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %finalized_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %19, i64 0, i32 1, i32 1
+  %finalized_.i = getelementptr inbounds i8, ptr %19, i64 48
   store i8 1, ptr %finalized_.i, align 8
   %add = add i64 %spec.select, %conv.i12
   %add.ptr = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %add
@@ -13676,7 +13606,7 @@ while.end:                                        ; preds = %_ZNKSt17basic_strin
 if.then.i.i.i28:                                  ; preds = %while.end
   %23 = load ptr, ptr %childWriter_.i.i.i, align 8
   %vtable.i.i.i30 = load ptr, ptr %23, align 8
-  %vfn.i.i.i31 = getelementptr inbounds ptr, ptr %vtable.i.i.i30, i64 1
+  %vfn.i.i.i31 = getelementptr inbounds i8, ptr %vtable.i.i.i30, i64 8
   %24 = load ptr, ptr %vfn.i.i.i31, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(112) %23, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i, align 8
@@ -13699,7 +13629,7 @@ if.then.i2.i.i41:                                 ; preds = %_ZN8facebook5velox4
   %28 = load ptr, ptr %childWriter_.i.i.i, align 8
   %conv5.i.i.i47 = sext i32 %conv.i.i.i45 to i64
   %vtable.i4.i.i48 = load ptr, ptr %28, align 8
-  %vfn.i5.i.i49 = getelementptr inbounds ptr, ptr %vtable.i4.i.i48, i64 2
+  %vfn.i5.i.i49 = getelementptr inbounds i8, ptr %vtable.i4.i.i48, i64 16
   %29 = load ptr, ptr %vfn.i5.i.i49, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(112) %28, i64 noundef %conv5.i.i.i47)
   %.pre.i50 = load i32, ptr %valuesOffset_.i.i.i, align 8
@@ -13726,7 +13656,7 @@ if.then.i64:                                      ; preds = %_ZN8facebook5velox4
 
 if.end.i54:                                       ; preds = %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit51
   %cmp.i.i.i55 = icmp ult i32 %conv21, 13
-  %prefix_.i56 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp18, i64 0, i32 1
+  %prefix_.i56 = getelementptr inbounds i8, ptr %ref.tmp18, i64 4
   br i1 %cmp.i.i.i55, label %if.then2.i59, label %if.else.i57
 
 if.then2.i59:                                     ; preds = %if.end.i54
@@ -13735,7 +13665,7 @@ if.then2.i59:                                     ; preds = %if.end.i54
   br i1 %cmp4.i60, label %_ZN8facebook5velox10StringViewC2EPKci.exit65, label %if.end6.i61
 
 if.end6.i61:                                      ; preds = %if.then2.i59
-  %value_7.i62 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp18, i64 0, i32 2
+  %value_7.i62 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
   store ptr null, ptr %value_7.i62, align 8
   %conv.i63 = and i64 %sinput.sroa.0.0, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i56, ptr align 1 %sinput.sroa.6.0, i64 %conv.i63, i1 false)
@@ -13744,28 +13674,28 @@ if.end6.i61:                                      ; preds = %if.then2.i59
 if.else.i57:                                      ; preds = %if.end.i54
   %34 = load i32, ptr %sinput.sroa.6.0, align 1
   store i32 %34, ptr %prefix_.i56, align 4
-  %value_13.i58 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp18, i64 0, i32 2
+  %value_13.i58 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
   store ptr %sinput.sroa.6.0, ptr %value_13.i58, align 8
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit65
 
 _ZN8facebook5velox10StringViewC2EPKci.exit65:     ; preds = %if.then2.i59, %if.end6.i61, %if.else.i57
-  %vector_.i66 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %33, i64 0, i32 1, i32 3
+  %vector_.i66 = getelementptr inbounds i8, ptr %33, i64 64
   %35 = load ptr, ptr %vector_.i66, align 8
-  %offset_.i67 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %33, i64 0, i32 1, i32 4
+  %offset_.i67 = getelementptr inbounds i8, ptr %33, i64 72
   %36 = load i32, ptr %offset_.i67, align 8
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %35, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18)
-  %finalized_.i68 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %33, i64 0, i32 1, i32 1
+  %finalized_.i68 = getelementptr inbounds i8, ptr %33, i64 48
   store i8 1, ptr %finalized_.i68, align 8
-  %arrayVector_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 1
+  %arrayVector_.i = getelementptr inbounds i8, ptr %resultWriter, i64 16
   %37 = load ptr, ptr %arrayVector_.i, align 8
-  %offset_.i69 = getelementptr inbounds %"class.facebook::velox::exec::VectorWriterBase", ptr %resultWriter, i64 0, i32 1
+  %offset_.i69 = getelementptr inbounds i8, ptr %resultWriter, i64 8
   %38 = load i32, ptr %offset_.i69, align 8
   %39 = load i32, ptr %valuesOffset_.i.i.i, align 8
   %40 = load i32, ptr %length_.i, align 4
-  %offsets_.i.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %37, i64 0, i32 1
+  %offsets_.i.i = getelementptr inbounds i8, ptr %37, i64 104
   %41 = load ptr, ptr %offsets_.i.i, align 8
   %vtable.i.i.i71 = load ptr, ptr %41, align 8
-  %vfn.i.i.i72 = getelementptr inbounds ptr, ptr %vtable.i.i.i71, i64 3
+  %vfn.i.i.i72 = getelementptr inbounds i8, ptr %vtable.i.i.i71, i64 24
   %42 = load ptr, ptr %vfn.i.i.i72, align 8
   %call.i.i.i73 = call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(64) %41)
   br i1 %call.i.i.i73, label %if.then.i.i.i79, label %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i
@@ -13775,15 +13705,15 @@ if.then.i.i.i79:                                  ; preds = %_ZN8facebook5velox1
   unreachable
 
 _ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i: ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit65
-  %data_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %41, i64 0, i32 2
+  %data_.i.i.i = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %data_.i.i.i, align 8
   %idxprom.i.i = sext i32 %38 to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %43, i64 %idxprom.i.i
   store i32 %39, ptr %arrayidx.i.i, align 4
-  %sizes_.i.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %37, i64 0, i32 3
+  %sizes_.i.i = getelementptr inbounds i8, ptr %37, i64 120
   %44 = load ptr, ptr %sizes_.i.i, align 8
   %vtable.i2.i.i = load ptr, ptr %44, align 8
-  %vfn.i3.i.i = getelementptr inbounds ptr, ptr %vtable.i2.i.i, i64 3
+  %vfn.i3.i.i = getelementptr inbounds i8, ptr %vtable.i2.i.i, i64 24
   %45 = load ptr, ptr %vfn.i3.i.i, align 8
   %call.i4.i.i = call noundef zeroext i1 %45(ptr noundef nonnull align 8 dereferenceable(64) %44)
   br i1 %call.i4.i.i, label %if.then.i6.i.i, label %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i
@@ -13793,14 +13723,14 @@ if.then.i6.i.i:                                   ; preds = %_ZNK8facebook5velox
   unreachable
 
 _ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i
-  %data_.i5.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %44, i64 0, i32 2
+  %data_.i5.i.i = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load ptr, ptr %data_.i5.i.i, align 8
   %arrayidx14.i.i = getelementptr inbounds i32, ptr %46, i64 %idxprom.i.i
   store i32 %40, ptr %arrayidx14.i.i, align 4
   %47 = load ptr, ptr %arrayVector_.i, align 8
   %48 = load i32, ptr %offset_.i69, align 8
   %vtable.i74 = load ptr, ptr %47, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i74, i64 18
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i74, i64 144
   %49 = load ptr, ptr %vfn.i, align 8
   call void %49(ptr noundef nonnull align 8 dereferenceable(99) %47, i32 noundef %48, i1 noundef zeroext false)
   %50 = load i8, ptr %needCommit_.i.i.i, align 8
@@ -13811,7 +13741,7 @@ _ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i: ; preds = %_ZN
 if.then.i.i1.i:                                   ; preds = %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i
   %52 = load ptr, ptr %childWriter_.i.i.i, align 8
   %vtable.i.i2.i = load ptr, ptr %52, align 8
-  %vfn.i.i3.i = getelementptr inbounds ptr, ptr %vtable.i.i2.i, i64 1
+  %vfn.i.i3.i = getelementptr inbounds i8, ptr %vtable.i.i2.i, i64 8
   %53 = load ptr, ptr %vfn.i.i3.i, align 8
   call void %53(ptr noundef nonnull align 8 dereferenceable(112) %52, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i, align 8
@@ -13834,10 +13764,10 @@ entry:
   %ref.tmp = alloca %"struct.facebook::velox::StringView", align 8
   %ref.tmp28 = alloca %"struct.facebook::velox::StringView", align 8
   store i64 %input.coerce0, ptr %input, align 8
-  %0 = getelementptr inbounds { i64, ptr }, ptr %input, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %input, i64 8
   store ptr %input.coerce1, ptr %0, align 8
   store i64 %delim.coerce0, ptr %delim, align 8
-  %1 = getelementptr inbounds { i64, ptr }, ptr %delim, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %delim, i64 8
   store ptr %delim.coerce1, ptr %1, align 8
   %vtable = load ptr, ptr %resultWriter, align 8
   %2 = load ptr, ptr %vtable, align 8
@@ -13846,30 +13776,30 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %length_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 3
+  %length_.i = getelementptr inbounds i8, ptr %resultWriter, i64 44
   %3 = load i32, ptr %length_.i, align 4
   %add.i = add nsw i32 %3, 1
-  %needCommit_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 2
+  %needCommit_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 40
   %4 = load i8, ptr %needCommit_.i.i.i, align 8
   %5 = and i8 %4, 1
   %tobool.not.i.i.i = icmp eq i8 %5, 0
   br i1 %tobool.not.i.i.i, label %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE25commitMostRecentChildItemEv.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %childWriter_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 1
+  %childWriter_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 32
   %6 = load ptr, ptr %childWriter_.i.i.i, align 8
   %vtable.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %7 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(112) %6, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i, align 8
   br label %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE25commitMostRecentChildItemEv.exit.i.i
 
 _ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE25commitMostRecentChildItemEv.exit.i.i: ; preds = %if.then.i.i.i, %if.then
-  %valuesOffset_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 4
+  %valuesOffset_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 48
   %8 = load i32, ptr %valuesOffset_.i.i.i, align 8
   %add.i.i.i = add nsw i32 %8, %add.i
-  %elementsVectorCapacity_.i.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 5
+  %elementsVectorCapacity_.i.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 52
   %9 = load i32, ptr %elementsVectorCapacity_.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %add.i.i.i, %9
   br i1 %cmp.i.i.i, label %if.then.i2.i.i, label %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit
@@ -13881,11 +13811,11 @@ if.then.i2.i.i:                                   ; preds = %_ZN8facebook5velox4
   %exp2.i.i.i = tail call double @exp2(double %10)
   %conv.i.i.i = fptosi double %exp2.i.i.i to i32
   store i32 %conv.i.i.i, ptr %elementsVectorCapacity_.i.i.i, align 4
-  %childWriter_.i3.i.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 1
+  %childWriter_.i3.i.i = getelementptr inbounds i8, ptr %resultWriter, i64 32
   %11 = load ptr, ptr %childWriter_.i3.i.i, align 8
   %conv5.i.i.i = sext i32 %conv.i.i.i to i64
   %vtable.i4.i.i = load ptr, ptr %11, align 8
-  %vfn.i5.i.i = getelementptr inbounds ptr, ptr %vtable.i4.i.i, i64 2
+  %vfn.i5.i.i = getelementptr inbounds i8, ptr %vtable.i4.i.i, i64 16
   %12 = load ptr, ptr %vfn.i5.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(112) %11, i64 noundef %conv5.i.i.i)
   %.pre.i = load i32, ptr %valuesOffset_.i.i.i, align 8
@@ -13896,29 +13826,29 @@ _ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit: ; preds = %
   store i32 %add.i, ptr %length_.i, align 4
   %sub.i = add i32 %13, %3
   store i8 1, ptr %needCommit_.i.i.i, align 8
-  %childWriter_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 1
+  %childWriter_.i = getelementptr inbounds i8, ptr %resultWriter, i64 32
   %14 = load ptr, ptr %childWriter_.i, align 8
   %vtable.i = load ptr, ptr %14, align 8
   %15 = load ptr, ptr %vtable.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(112) %14, i32 noundef %sub.i)
   %16 = load ptr, ptr %childWriter_.i, align 8
-  %vector_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %16, i64 0, i32 1, i32 3
+  %vector_.i = getelementptr inbounds i8, ptr %16, i64 64
   %17 = load ptr, ptr %vector_.i, align 8
-  %offset_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %16, i64 0, i32 1, i32 4
+  %offset_.i = getelementptr inbounds i8, ptr %16, i64 72
   %18 = load i32, ptr %offset_.i, align 8
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %17, i32 noundef %18, ptr noundef nonnull align 8 dereferenceable(16) %input)
-  %finalized_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %16, i64 0, i32 1, i32 1
+  %finalized_.i = getelementptr inbounds i8, ptr %16, i64 48
   store i8 1, ptr %finalized_.i, align 8
-  %arrayVector_.i = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 1
+  %arrayVector_.i = getelementptr inbounds i8, ptr %resultWriter, i64 16
   %19 = load ptr, ptr %arrayVector_.i, align 8
-  %offset_.i12 = getelementptr inbounds %"class.facebook::velox::exec::VectorWriterBase", ptr %resultWriter, i64 0, i32 1
+  %offset_.i12 = getelementptr inbounds i8, ptr %resultWriter, i64 8
   %20 = load i32, ptr %offset_.i12, align 8
   %21 = load i32, ptr %valuesOffset_.i.i.i, align 8
   %22 = load i32, ptr %length_.i, align 4
-  %offsets_.i.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %19, i64 0, i32 1
+  %offsets_.i.i = getelementptr inbounds i8, ptr %19, i64 104
   %23 = load ptr, ptr %offsets_.i.i, align 8
   %vtable.i.i.i14 = load ptr, ptr %23, align 8
-  %vfn.i.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i.i14, i64 3
+  %vfn.i.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i.i14, i64 24
   %24 = load ptr, ptr %vfn.i.i.i15, align 8
   %call.i.i.i = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(64) %23)
   br i1 %call.i.i.i, label %if.then.i.i.i20, label %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i
@@ -13928,15 +13858,15 @@ if.then.i.i.i20:                                  ; preds = %_ZN8facebook5velox4
   unreachable
 
 _ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i: ; preds = %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit
-  %data_.i.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %23, i64 0, i32 2
+  %data_.i.i.i = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load ptr, ptr %data_.i.i.i, align 8
   %idxprom.i.i = sext i32 %20 to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %25, i64 %idxprom.i.i
   store i32 %21, ptr %arrayidx.i.i, align 4
-  %sizes_.i.i = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %19, i64 0, i32 3
+  %sizes_.i.i = getelementptr inbounds i8, ptr %19, i64 120
   %26 = load ptr, ptr %sizes_.i.i, align 8
   %vtable.i2.i.i = load ptr, ptr %26, align 8
-  %vfn.i3.i.i = getelementptr inbounds ptr, ptr %vtable.i2.i.i, i64 3
+  %vfn.i3.i.i = getelementptr inbounds i8, ptr %vtable.i2.i.i, i64 24
   %27 = load ptr, ptr %vfn.i3.i.i, align 8
   %call.i4.i.i = call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(64) %26)
   br i1 %call.i4.i.i, label %if.then.i6.i.i, label %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i
@@ -13946,14 +13876,14 @@ if.then.i6.i.i:                                   ; preds = %_ZNK8facebook5velox
   unreachable
 
 _ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i: ; preds = %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i
-  %data_.i5.i.i = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %26, i64 0, i32 2
+  %data_.i5.i.i = getelementptr inbounds i8, ptr %26, i64 16
   %28 = load ptr, ptr %data_.i5.i.i, align 8
   %arrayidx14.i.i = getelementptr inbounds i32, ptr %28, i64 %idxprom.i.i
   store i32 %22, ptr %arrayidx14.i.i, align 4
   %29 = load ptr, ptr %arrayVector_.i, align 8
   %30 = load i32, ptr %offset_.i12, align 8
   %vtable.i16 = load ptr, ptr %29, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i16, i64 18
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i16, i64 144
   %31 = load ptr, ptr %vfn.i, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(99) %29, i32 noundef %30, i1 noundef zeroext false)
   %32 = load i8, ptr %needCommit_.i.i.i, align 8
@@ -13965,22 +13895,22 @@ if.end:                                           ; preds = %entry
   %34 = trunc i64 %delim.coerce0 to i32
   %35 = trunc i64 %input.coerce0 to i32
   %cmp.i.i.i21 = icmp ult i32 %35, 13
-  %prefix_.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %input, i64 0, i32 1
+  %prefix_.i = getelementptr inbounds i8, ptr %input, i64 4
   %cond.i = select i1 %cmp.i.i.i21, ptr %prefix_.i, ptr %input.coerce1
   %conv.i = and i64 %input.coerce0, 4294967295
   %cmp.i.i.i22 = icmp ult i32 %34, 13
-  %prefix_.i23 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %delim, i64 0, i32 1
+  %prefix_.i23 = getelementptr inbounds i8, ptr %delim, i64 4
   %cond.i25 = select i1 %cmp.i.i.i22, ptr %prefix_.i23, ptr %delim.coerce1
   %conv.i26 = and i64 %delim.coerce0, 4294967295
   %cmp.i.i = icmp eq i32 %34, 0
   %inc = zext i1 %cmp.i.i to i64
-  %length_.i32 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 3
-  %needCommit_.i.i.i34 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 2
-  %childWriter_.i.i.i37 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 1
-  %valuesOffset_.i.i.i41 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 4
-  %elementsVectorCapacity_.i.i.i43 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 2, i32 5
-  %prefix_.i63 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp, i64 0, i32 1
-  %value_13.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp, i64 0, i32 2
+  %length_.i32 = getelementptr inbounds i8, ptr %resultWriter, i64 44
+  %needCommit_.i.i.i34 = getelementptr inbounds i8, ptr %resultWriter, i64 40
+  %childWriter_.i.i.i37 = getelementptr inbounds i8, ptr %resultWriter, i64 32
+  %valuesOffset_.i.i.i41 = getelementptr inbounds i8, ptr %resultWriter, i64 48
+  %elementsVectorCapacity_.i.i.i43 = getelementptr inbounds i8, ptr %resultWriter, i64 52
+  %prefix_.i63 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %value_13.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit, %if.end
@@ -14048,7 +13978,7 @@ if.end14:                                         ; preds = %_ZNKSt17basic_strin
 if.then.i.i.i36:                                  ; preds = %if.end14
   %40 = load ptr, ptr %childWriter_.i.i.i37, align 8
   %vtable.i.i.i38 = load ptr, ptr %40, align 8
-  %vfn.i.i.i39 = getelementptr inbounds ptr, ptr %vtable.i.i.i38, i64 1
+  %vfn.i.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i.i38, i64 8
   %41 = load ptr, ptr %vfn.i.i.i39, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(112) %40, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i34, align 8
@@ -14071,7 +14001,7 @@ if.then.i2.i.i49:                                 ; preds = %_ZN8facebook5velox4
   %45 = load ptr, ptr %childWriter_.i.i.i37, align 8
   %conv5.i.i.i55 = sext i32 %conv.i.i.i53 to i64
   %vtable.i4.i.i56 = load ptr, ptr %45, align 8
-  %vfn.i5.i.i57 = getelementptr inbounds ptr, ptr %vtable.i4.i.i56, i64 2
+  %vfn.i5.i.i57 = getelementptr inbounds i8, ptr %vtable.i4.i.i56, i64 16
   %46 = load ptr, ptr %vfn.i5.i.i57, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(112) %45, i64 noundef %conv5.i.i.i55)
   %.pre.i58 = load i32, ptr %valuesOffset_.i.i.i41, align 8
@@ -14118,12 +14048,12 @@ if.else.i:                                        ; preds = %if.end.i
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit
 
 _ZN8facebook5velox10StringViewC2EPKci.exit:       ; preds = %if.then2.i, %if.end6.i, %if.else.i
-  %vector_.i65 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %50, i64 0, i32 1, i32 3
+  %vector_.i65 = getelementptr inbounds i8, ptr %50, i64 64
   %52 = load ptr, ptr %vector_.i65, align 8
-  %offset_.i66 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %50, i64 0, i32 1, i32 4
+  %offset_.i66 = getelementptr inbounds i8, ptr %50, i64 72
   %53 = load i32, ptr %offset_.i66, align 8
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %52, i32 noundef %53, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %finalized_.i67 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %50, i64 0, i32 1, i32 1
+  %finalized_.i67 = getelementptr inbounds i8, ptr %50, i64 48
   store i8 1, ptr %finalized_.i67, align 8
   %add = add i64 %spec.select, %conv.i26
   %add.ptr = getelementptr inbounds i8, ptr %sinput.sroa.6.0, i64 %add
@@ -14146,7 +14076,7 @@ while.end:                                        ; preds = %_ZN8facebook5velox1
 if.then.i.i.i74:                                  ; preds = %while.end
   %58 = load ptr, ptr %childWriter_.i.i.i37, align 8
   %vtable.i.i.i76 = load ptr, ptr %58, align 8
-  %vfn.i.i.i77 = getelementptr inbounds ptr, ptr %vtable.i.i.i76, i64 1
+  %vfn.i.i.i77 = getelementptr inbounds i8, ptr %vtable.i.i.i76, i64 8
   %59 = load ptr, ptr %vfn.i.i.i77, align 8
   call void %59(ptr noundef nonnull align 8 dereferenceable(112) %58, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i34, align 8
@@ -14169,7 +14099,7 @@ if.then.i2.i.i87:                                 ; preds = %_ZN8facebook5velox4
   %63 = load ptr, ptr %childWriter_.i.i.i37, align 8
   %conv5.i.i.i93 = sext i32 %conv.i.i.i91 to i64
   %vtable.i4.i.i94 = load ptr, ptr %63, align 8
-  %vfn.i5.i.i95 = getelementptr inbounds ptr, ptr %vtable.i4.i.i94, i64 2
+  %vfn.i5.i.i95 = getelementptr inbounds i8, ptr %vtable.i4.i.i94, i64 16
   %64 = load ptr, ptr %vfn.i5.i.i95, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(112) %63, i64 noundef %conv5.i.i.i93)
   %.pre.i96 = load i32, ptr %valuesOffset_.i.i.i41, align 8
@@ -14196,7 +14126,7 @@ if.then.i110:                                     ; preds = %_ZN8facebook5velox4
 
 if.end.i100:                                      ; preds = %_ZN8facebook5velox4exec11ArrayWriterINS0_7VarcharEE8add_itemEv.exit97
   %cmp.i.i.i101 = icmp ult i32 %conv31, 13
-  %prefix_.i102 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp28, i64 0, i32 1
+  %prefix_.i102 = getelementptr inbounds i8, ptr %ref.tmp28, i64 4
   br i1 %cmp.i.i.i101, label %if.then2.i105, label %if.else.i103
 
 if.then2.i105:                                    ; preds = %if.end.i100
@@ -14205,7 +14135,7 @@ if.then2.i105:                                    ; preds = %if.end.i100
   br i1 %cmp4.i106, label %_ZN8facebook5velox10StringViewC2EPKci.exit111, label %if.end6.i107
 
 if.end6.i107:                                     ; preds = %if.then2.i105
-  %value_7.i108 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp28, i64 0, i32 2
+  %value_7.i108 = getelementptr inbounds i8, ptr %ref.tmp28, i64 8
   store ptr null, ptr %value_7.i108, align 8
   %conv.i109 = and i64 %sinput.sroa.0.1, 4294967295
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %prefix_.i102, ptr align 1 %sinput.sroa.6.1, i64 %conv.i109, i1 false)
@@ -14214,28 +14144,28 @@ if.end6.i107:                                     ; preds = %if.then2.i105
 if.else.i103:                                     ; preds = %if.end.i100
   %69 = load i32, ptr %sinput.sroa.6.1, align 1
   store i32 %69, ptr %prefix_.i102, align 4
-  %value_13.i104 = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %ref.tmp28, i64 0, i32 2
+  %value_13.i104 = getelementptr inbounds i8, ptr %ref.tmp28, i64 8
   store ptr %sinput.sroa.6.1, ptr %value_13.i104, align 8
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit111
 
 _ZN8facebook5velox10StringViewC2EPKci.exit111:    ; preds = %if.then2.i105, %if.end6.i107, %if.else.i103
-  %vector_.i112 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %68, i64 0, i32 1, i32 3
+  %vector_.i112 = getelementptr inbounds i8, ptr %68, i64 64
   %70 = load ptr, ptr %vector_.i112, align 8
-  %offset_.i113 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %68, i64 0, i32 1, i32 4
+  %offset_.i113 = getelementptr inbounds i8, ptr %68, i64 72
   %71 = load i32, ptr %offset_.i113, align 8
   call void @_ZN8facebook5velox10FlatVectorINS0_10StringViewEE9setNoCopyEiRKS2_(ptr noundef nonnull align 8 dereferenceable(280) %70, i32 noundef %71, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp28)
-  %finalized_.i114 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter.103", ptr %68, i64 0, i32 1, i32 1
+  %finalized_.i114 = getelementptr inbounds i8, ptr %68, i64 48
   store i8 1, ptr %finalized_.i114, align 8
-  %arrayVector_.i115 = getelementptr inbounds %"struct.facebook::velox::exec::VectorWriter", ptr %resultWriter, i64 0, i32 1
+  %arrayVector_.i115 = getelementptr inbounds i8, ptr %resultWriter, i64 16
   %72 = load ptr, ptr %arrayVector_.i115, align 8
-  %offset_.i116 = getelementptr inbounds %"class.facebook::velox::exec::VectorWriterBase", ptr %resultWriter, i64 0, i32 1
+  %offset_.i116 = getelementptr inbounds i8, ptr %resultWriter, i64 8
   %73 = load i32, ptr %offset_.i116, align 8
   %74 = load i32, ptr %valuesOffset_.i.i.i41, align 8
   %75 = load i32, ptr %length_.i32, align 4
-  %offsets_.i.i119 = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %72, i64 0, i32 1
+  %offsets_.i.i119 = getelementptr inbounds i8, ptr %72, i64 104
   %76 = load ptr, ptr %offsets_.i.i119, align 8
   %vtable.i.i.i120 = load ptr, ptr %76, align 8
-  %vfn.i.i.i121 = getelementptr inbounds ptr, ptr %vtable.i.i.i120, i64 3
+  %vfn.i.i.i121 = getelementptr inbounds i8, ptr %vtable.i.i.i120, i64 24
   %77 = load ptr, ptr %vfn.i.i.i121, align 8
   %call.i.i.i122 = call noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(64) %76)
   br i1 %call.i.i.i122, label %if.then.i.i.i144, label %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i123
@@ -14245,15 +14175,15 @@ if.then.i.i.i144:                                 ; preds = %_ZN8facebook5velox1
   unreachable
 
 _ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i123: ; preds = %_ZN8facebook5velox10StringViewC2EPKci.exit111
-  %data_.i.i.i124 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %76, i64 0, i32 2
+  %data_.i.i.i124 = getelementptr inbounds i8, ptr %76, i64 16
   %78 = load ptr, ptr %data_.i.i.i124, align 8
   %idxprom.i.i125 = sext i32 %73 to i64
   %arrayidx.i.i126 = getelementptr inbounds i32, ptr %78, i64 %idxprom.i.i125
   store i32 %74, ptr %arrayidx.i.i126, align 4
-  %sizes_.i.i127 = getelementptr inbounds %"struct.facebook::velox::ArrayVectorBase", ptr %72, i64 0, i32 3
+  %sizes_.i.i127 = getelementptr inbounds i8, ptr %72, i64 120
   %79 = load ptr, ptr %sizes_.i.i127, align 8
   %vtable.i2.i.i128 = load ptr, ptr %79, align 8
-  %vfn.i3.i.i129 = getelementptr inbounds ptr, ptr %vtable.i2.i.i128, i64 3
+  %vfn.i3.i.i129 = getelementptr inbounds i8, ptr %vtable.i2.i.i128, i64 24
   %80 = load ptr, ptr %vfn.i3.i.i129, align 8
   %call.i4.i.i130 = call noundef zeroext i1 %80(ptr noundef nonnull align 8 dereferenceable(64) %79)
   br i1 %call.i4.i.i130, label %if.then.i6.i.i143, label %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131
@@ -14263,14 +14193,14 @@ if.then.i6.i.i143:                                ; preds = %_ZNK8facebook5velox
   unreachable
 
 _ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131: ; preds = %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i.i123
-  %data_.i5.i.i132 = getelementptr inbounds %"class.facebook::velox::Buffer", ptr %79, i64 0, i32 2
+  %data_.i5.i.i132 = getelementptr inbounds i8, ptr %79, i64 16
   %81 = load ptr, ptr %data_.i5.i.i132, align 8
   %arrayidx14.i.i133 = getelementptr inbounds i32, ptr %81, i64 %idxprom.i.i125
   store i32 %75, ptr %arrayidx14.i.i133, align 4
   %82 = load ptr, ptr %arrayVector_.i115, align 8
   %83 = load i32, ptr %offset_.i116, align 8
   %vtable.i134 = load ptr, ptr %82, align 8
-  %vfn.i135 = getelementptr inbounds ptr, ptr %vtable.i134, i64 18
+  %vfn.i135 = getelementptr inbounds i8, ptr %vtable.i134, i64 144
   %84 = load ptr, ptr %vfn.i135, align 8
   call void %84(ptr noundef nonnull align 8 dereferenceable(99) %82, i32 noundef %83, i1 noundef zeroext false)
   %85 = load i8, ptr %needCommit_.i.i.i34, align 8
@@ -14285,7 +14215,7 @@ return.sink.split:                                ; preds = %_ZN8facebook5velox1
   %valuesOffset_.i.i.i41.sink12.ph = phi ptr [ %valuesOffset_.i.i.i, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i ], [ %valuesOffset_.i.i.i41, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131 ]
   %87 = load ptr, ptr %childWriter_.i.sink, align 8
   %vtable.i.i2.i140 = load ptr, ptr %87, align 8
-  %vfn.i.i3.i141 = getelementptr inbounds ptr, ptr %vtable.i.i2.i140, i64 1
+  %vfn.i.i3.i141 = getelementptr inbounds i8, ptr %vtable.i.i2.i140, i64 8
   %88 = load ptr, ptr %vfn.i.i3.i141, align 8
   call void %88(ptr noundef nonnull align 8 dereferenceable(112) %87, i1 noundef zeroext true)
   store i8 0, ptr %needCommit_.i.i.i34.sink, align 8
@@ -14307,7 +14237,7 @@ define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functio
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = and i8 %0, 1
-  %2 = getelementptr inbounds %class.anon.265, ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load ptr, ptr %2, align 8
   %idxprom2 = sext i32 %idx to i64
   %arrayidx3 = getelementptr inbounds i64, ptr %3, i64 %idxprom2
@@ -14320,10 +14250,10 @@ entry:
   br i1 %tobool4.not, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %entry
-  %5 = getelementptr inbounds %class.anon.265, ptr %this, i64 0, i32 2
+  %5 = getelementptr inbounds i8, ptr %this, i64 16
   %mul = shl nsw i32 %idx, 6
-  %6 = getelementptr inbounds %class.anon.265, ptr %this, i64 0, i32 2, i32 1
-  %7 = getelementptr inbounds %class.anon.265, ptr %this, i64 0, i32 2, i32 3
+  %6 = getelementptr inbounds i8, ptr %this, i64 24
+  %7 = getelementptr inbounds i8, ptr %this, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit
@@ -14333,28 +14263,28 @@ while.body:                                       ; preds = %while.body.preheade
   %add = or disjoint i32 %mul, %cast
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %9, align 8
-  %data_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %10, i64 0, i32 2
+  %data_.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load ptr, ptr %data_.i.i, align 8
-  %isIdentityMapping_.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %10, i64 0, i32 8
+  %isIdentityMapping_.i.i.i = getelementptr inbounds i8, ptr %10, i64 58
   %12 = load i8, ptr %isIdentityMapping_.i.i.i, align 2
   %13 = and i8 %12, 1
   %tobool.not.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i
 
 if.end.i.i.i:                                     ; preds = %while.body
-  %isConstantMapping_.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %10, i64 0, i32 9
+  %isConstantMapping_.i.i.i = getelementptr inbounds i8, ptr %10, i64 59
   %14 = load i8, ptr %isConstantMapping_.i.i.i, align 1
   %15 = and i8 %14, 1
   %tobool2.not.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool2.not.i.i.i, label %if.end4.i.i.i, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %constantIndex_.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %10, i64 0, i32 11
+  %constantIndex_.i.i.i = getelementptr inbounds i8, ptr %10, i64 64
   %16 = load i32, ptr %constantIndex_.i.i.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i
 
 if.end4.i.i.i:                                    ; preds = %if.end.i.i.i
-  %indices_.i.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %10, i64 0, i32 1
+  %indices_.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %17 = load ptr, ptr %indices_.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %add to i64
   %arrayidx.i.i.i = getelementptr inbounds i32, ptr %17, i64 %idxprom.i.i.i
@@ -14370,28 +14300,28 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i: ; pred
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i.i, align 8
   %19 = load ptr, ptr %6, align 8
   %20 = load ptr, ptr %19, align 8
-  %data_.i3.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %20, i64 0, i32 2
+  %data_.i3.i = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load ptr, ptr %data_.i3.i, align 8
-  %isIdentityMapping_.i.i4.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %20, i64 0, i32 8
+  %isIdentityMapping_.i.i4.i = getelementptr inbounds i8, ptr %20, i64 58
   %22 = load i8, ptr %isIdentityMapping_.i.i4.i, align 2
   %23 = and i8 %22, 1
   %tobool.not.i.i5.i = icmp eq i8 %23, 0
   br i1 %tobool.not.i.i5.i, label %if.end.i.i14.i, label %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit
 
 if.end.i.i14.i:                                   ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit.i
-  %isConstantMapping_.i.i15.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %20, i64 0, i32 9
+  %isConstantMapping_.i.i15.i = getelementptr inbounds i8, ptr %20, i64 59
   %24 = load i8, ptr %isConstantMapping_.i.i15.i, align 1
   %25 = and i8 %24, 1
   %tobool2.not.i.i16.i = icmp eq i8 %25, 0
   br i1 %tobool2.not.i.i16.i, label %if.end4.i.i19.i, label %if.then3.i.i17.i
 
 if.then3.i.i17.i:                                 ; preds = %if.end.i.i14.i
-  %constantIndex_.i.i18.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %20, i64 0, i32 11
+  %constantIndex_.i.i18.i = getelementptr inbounds i8, ptr %20, i64 64
   %26 = load i32, ptr %constantIndex_.i.i18.i, align 8
   br label %_ZZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESC_SC_RNS8_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEENKUliE_clEi.exit
 
 if.end4.i.i19.i:                                  ; preds = %if.end.i.i14.i
-  %indices_.i.i20.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %20, i64 0, i32 1
+  %indices_.i.i20.i = getelementptr inbounds i8, ptr %20, i64 8
   %27 = load ptr, ptr %indices_.i.i20.i, align 8
   %idxprom.i.i21.i = sext i32 %add to i64
   %arrayidx.i.i22.i = getelementptr inbounds i32, ptr %27, i64 %idxprom.i.i21.i
@@ -14423,28 +14353,28 @@ entry:
   %agg.tmp5 = alloca %"class.std::invalid_argument", align 8
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
-  %data_.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %1, i64 0, i32 2
+  %data_.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load ptr, ptr %data_.i, align 8
-  %isIdentityMapping_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %1, i64 0, i32 8
+  %isIdentityMapping_.i.i = getelementptr inbounds i8, ptr %1, i64 58
   %3 = load i8, ptr %isIdentityMapping_.i.i, align 2
   %4 = and i8 %3, 1
   %tobool.not.i.i = icmp eq i8 %4, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit
 
 if.end.i.i:                                       ; preds = %entry
-  %isConstantMapping_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %1, i64 0, i32 9
+  %isConstantMapping_.i.i = getelementptr inbounds i8, ptr %1, i64 59
   %5 = load i8, ptr %isConstantMapping_.i.i, align 1
   %6 = and i8 %5, 1
   %tobool2.not.i.i = icmp eq i8 %6, 0
   br i1 %tobool2.not.i.i, label %if.end4.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i.i
-  %constantIndex_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %1, i64 0, i32 11
+  %constantIndex_.i.i = getelementptr inbounds i8, ptr %1, i64 64
   %7 = load i32, ptr %constantIndex_.i.i, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  %indices_.i.i = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %1, i64 0, i32 1
+  %indices_.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %indices_.i.i, align 8
   %idxprom.i.i = sext i32 %row to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %8, i64 %idxprom.i.i
@@ -14460,31 +14390,31 @@ _ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit: ; preds = %entry, %if.th
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIlEET_i.exit
-  %11 = getelementptr inbounds %class.anon.264, ptr %this, i64 0, i32 1
+  %11 = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %data_.i6 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %13, i64 0, i32 2
+  %data_.i6 = getelementptr inbounds i8, ptr %13, i64 16
   %14 = load ptr, ptr %data_.i6, align 8
-  %isIdentityMapping_.i.i7 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %13, i64 0, i32 8
+  %isIdentityMapping_.i.i7 = getelementptr inbounds i8, ptr %13, i64 58
   %15 = load i8, ptr %isIdentityMapping_.i.i7, align 2
   %16 = and i8 %15, 1
   %tobool.not.i.i8 = icmp eq i8 %16, 0
   br i1 %tobool.not.i.i8, label %if.end.i.i12, label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
 
 if.end.i.i12:                                     ; preds = %if.then
-  %isConstantMapping_.i.i13 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %13, i64 0, i32 9
+  %isConstantMapping_.i.i13 = getelementptr inbounds i8, ptr %13, i64 59
   %17 = load i8, ptr %isConstantMapping_.i.i13, align 1
   %18 = and i8 %17, 1
   %tobool2.not.i.i14 = icmp eq i8 %18, 0
   br i1 %tobool2.not.i.i14, label %if.end4.i.i17, label %if.then3.i.i15
 
 if.then3.i.i15:                                   ; preds = %if.end.i.i12
-  %constantIndex_.i.i16 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %13, i64 0, i32 11
+  %constantIndex_.i.i16 = getelementptr inbounds i8, ptr %13, i64 64
   %19 = load i32, ptr %constantIndex_.i.i16, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
 
 if.end4.i.i17:                                    ; preds = %if.end.i.i12
-  %indices_.i.i18 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %13, i64 0, i32 1
+  %indices_.i.i18 = getelementptr inbounds i8, ptr %13, i64 8
   %20 = load ptr, ptr %indices_.i.i18, align 8
   %idxprom.i.i19 = sext i32 %row to i64
   %arrayidx.i.i20 = getelementptr inbounds i32, ptr %20, i64 %idxprom.i.i19
@@ -14498,31 +14428,31 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit: ; preds 
   %retval.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i11, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i11, i64 8
   %retval.sroa.2.0.copyload.i = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i, align 8
-  %22 = getelementptr inbounds %class.anon.264, ptr %this, i64 0, i32 2
+  %22 = getelementptr inbounds i8, ptr %this, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
-  %data_.i21 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %24, i64 0, i32 2
+  %data_.i21 = getelementptr inbounds i8, ptr %24, i64 16
   %25 = load ptr, ptr %data_.i21, align 8
-  %isIdentityMapping_.i.i22 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %24, i64 0, i32 8
+  %isIdentityMapping_.i.i22 = getelementptr inbounds i8, ptr %24, i64 58
   %26 = load i8, ptr %isIdentityMapping_.i.i22, align 2
   %27 = and i8 %26, 1
   %tobool.not.i.i23 = icmp eq i8 %27, 0
   br i1 %tobool.not.i.i23, label %if.end.i.i32, label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit41
 
 if.end.i.i32:                                     ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit
-  %isConstantMapping_.i.i33 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %24, i64 0, i32 9
+  %isConstantMapping_.i.i33 = getelementptr inbounds i8, ptr %24, i64 59
   %28 = load i8, ptr %isConstantMapping_.i.i33, align 1
   %29 = and i8 %28, 1
   %tobool2.not.i.i34 = icmp eq i8 %29, 0
   br i1 %tobool2.not.i.i34, label %if.end4.i.i37, label %if.then3.i.i35
 
 if.then3.i.i35:                                   ; preds = %if.end.i.i32
-  %constantIndex_.i.i36 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %24, i64 0, i32 11
+  %constantIndex_.i.i36 = getelementptr inbounds i8, ptr %24, i64 64
   %30 = load i32, ptr %constantIndex_.i.i36, align 8
   br label %_ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit41
 
 if.end4.i.i37:                                    ; preds = %if.end.i.i32
-  %indices_.i.i38 = getelementptr inbounds %"class.facebook::velox::DecodedVector", ptr %24, i64 0, i32 1
+  %indices_.i.i38 = getelementptr inbounds i8, ptr %24, i64 8
   %31 = load ptr, ptr %indices_.i.i38, align 8
   %idxprom.i.i39 = sext i32 %row to i64
   %arrayidx.i.i40 = getelementptr inbounds i32, ptr %31, i64 %idxprom.i.i39
@@ -14536,7 +14466,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_10StringViewEEET_i.exit41: ; pred
   %retval.sroa.0.0.copyload.i27 = load i64, ptr %arrayidx.i26, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i28 = getelementptr inbounds i8, ptr %arrayidx.i26, i64 8
   %retval.sroa.2.0.copyload.i29 = load ptr, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i28, align 8
-  %33 = getelementptr inbounds %class.anon.264, ptr %this, i64 0, i32 3
+  %33 = getelementptr inbounds i8, ptr %this, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_113SplitFunction10applyInnerILb1ElEEvNS0_10StringViewES5_T0_iRNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEE(i64 %retval.sroa.0.0.copyload.i, ptr %retval.sroa.2.0.copyload.i, i64 %retval.sroa.0.0.copyload.i27, ptr %retval.sroa.2.0.copyload.i29, i64 noundef %10, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(192) %34)
   br label %if.end
@@ -14549,7 +14479,7 @@ if.else:                                          ; preds = %_ZNK8facebook5velox
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt16invalid_argument, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !165
   call void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %pex, ptr noundef nonnull %call.i) #29
   call void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp5) #29
-  %35 = getelementptr inbounds %class.anon.264, ptr %this, i64 0, i32 5
+  %35 = getelementptr inbounds i8, ptr %this, i64 40
   %36 = load ptr, ptr %35, align 8
   invoke void @_ZN8facebook5velox4exec7EvalCtx8setErrorEiRKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(104) %36, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(8) %pex)
           to label %invoke.cont unwind label %lpad

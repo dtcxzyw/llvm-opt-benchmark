@@ -3,9 +3,6 @@ source_filename = "bench/icu/original/testdata.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%class.TestData = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%class.RBTestData = type { %class.TestData, ptr, ptr, ptr, ptr }
-
 $__clang_call_terminate = comdat any
 
 @_ZTV8TestData = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTI8TestData, ptr @_ZN8TestDataD1Ev, ptr @_ZN8TestDataD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
@@ -30,9 +27,9 @@ $__clang_call_terminate = comdat any
 define void @_ZN8TestDataC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %testName) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV8TestData, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %name = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %testName, ptr %name, align 8
-  %fInfo = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 2
+  %fInfo = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fInfo, i8 0, i64 40, i1 false)
   ret void
 }
@@ -41,40 +38,40 @@ entry:
 define void @_ZN8TestDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV8TestData, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fInfo = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 2
+  %fInfo = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %fInfo, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
   br label %if.end
 
 if.end:                                           ; preds = %delete.notnull, %entry
-  %fCurrSettings = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 3
+  %fCurrSettings = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %fCurrSettings, align 8
   %cmp3.not = icmp eq ptr %2, null
   br i1 %cmp3.not, label %if.end11, label %delete.notnull7
 
 delete.notnull7:                                  ; preds = %if.end
   %vtable8 = load ptr, ptr %2, align 8
-  %vfn9 = getelementptr inbounds ptr, ptr %vtable8, i64 1
+  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 8
   %3 = load ptr, ptr %vfn9, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
   br label %if.end11
 
 if.end11:                                         ; preds = %delete.notnull7, %if.end
-  %fCurrCase = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 4
+  %fCurrCase = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %fCurrCase, align 8
   %cmp12.not = icmp eq ptr %4, null
   br i1 %cmp12.not, label %if.end20, label %delete.notnull16
 
 delete.notnull16:                                 ; preds = %if.end11
   %vtable17 = load ptr, ptr %4, align 8
-  %vfn18 = getelementptr inbounds ptr, ptr %vtable17, i64 1
+  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 8
   %5 = load ptr, ptr %vfn18, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   br label %if.end20
@@ -96,7 +93,7 @@ declare void @llvm.trap() #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK8TestData7getNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %name = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %name, align 8
   ret ptr %0
 }
@@ -104,12 +101,12 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN10RBTestDataC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr noundef %testName) unnamed_addr #0 align 2 {
 entry:
-  %name.i = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %testName, ptr %name.i, align 8
-  %fInfo.i = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 2
+  %fInfo.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fInfo.i, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10RBTestData, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fData = getelementptr inbounds %class.RBTestData, ptr %this, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %fData, i8 0, i64 32, i1 false)
   ret void
 }
@@ -119,17 +116,17 @@ define void @_ZN10RBTestDataC2EP15UResourceBundleS1_R10UErrorCode(ptr nocapture 
 entry:
   %intStatus = alloca i32, align 4
   %call = tail call ptr @ures_getKey_75(ptr noundef %data)
-  %name.i = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 1
+  %name.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %name.i, align 8
-  %fInfo.i = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 2
+  %fInfo.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fInfo.i, i8 0, i64 40, i1 false)
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10RBTestData, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fData = getelementptr inbounds %class.RBTestData, ptr %this, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %data, ptr %fData, align 8
-  %fHeaders = getelementptr inbounds %class.RBTestData, ptr %this, i64 0, i32 2
+  %fHeaders = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %headers, ptr %fHeaders, align 8
-  %fSettings = getelementptr inbounds %class.RBTestData, ptr %this, i64 0, i32 3
-  %fCases = getelementptr inbounds %class.RBTestData, ptr %this, i64 0, i32 4
+  %fSettings = getelementptr inbounds i8, ptr %this, i64 72
+  %fCases = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fSettings, i8 0, i64 16, i1 false)
   store i32 0, ptr %intStatus, align 4
   %call2 = invoke ptr @ures_getByKey_75(ptr noundef %data, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull %intStatus)
@@ -168,7 +165,7 @@ invoke.cont6:                                     ; preds = %if.end
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  %fSettingsSize = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 5
+  %fSettingsSize = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %call11, ptr %fSettingsSize, align 8
   %call13 = invoke ptr @ures_getByKey_75(ptr noundef %data, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull %intStatus)
           to label %invoke.cont12 unwind label %lpad
@@ -210,7 +207,7 @@ invoke.cont23:                                    ; preds = %if.end22
           to label %invoke.cont27 unwind label %lpad
 
 invoke.cont27:                                    ; preds = %invoke.cont23
-  %fCasesSize = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 6
+  %fCasesSize = getelementptr inbounds i8, ptr %this, i64 44
   store i32 %call28, ptr %fCasesSize, align 4
   invoke void @ures_close_75(ptr noundef %call13)
           to label %invoke.cont29 unwind label %lpad
@@ -246,65 +243,65 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 define void @_ZN10RBTestDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10RBTestData, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fData = getelementptr inbounds %class.RBTestData, ptr %this, i64 0, i32 1
+  %fData = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %fData, align 8
   invoke void @ures_close_75(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %fHeaders = getelementptr inbounds %class.RBTestData, ptr %this, i64 0, i32 2
+  %fHeaders = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load ptr, ptr %fHeaders, align 8
   invoke void @ures_close_75(ptr noundef %1)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %fSettings = getelementptr inbounds %class.RBTestData, ptr %this, i64 0, i32 3
+  %fSettings = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %fSettings, align 8
   invoke void @ures_close_75(ptr noundef %2)
           to label %invoke.cont3 unwind label %terminate.lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont2
-  %fCases = getelementptr inbounds %class.RBTestData, ptr %this, i64 0, i32 4
+  %fCases = getelementptr inbounds i8, ptr %this, i64 80
   %3 = load ptr, ptr %fCases, align 8
   invoke void @ures_close_75(ptr noundef %3)
           to label %invoke.cont4 unwind label %terminate.lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV8TestData, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %fInfo.i = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 2
+  %fInfo.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %fInfo.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %if.end.i, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %invoke.cont4
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 1
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %5 = load ptr, ptr %vfn.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   br label %if.end.i
 
 if.end.i:                                         ; preds = %delete.notnull.i, %invoke.cont4
-  %fCurrSettings.i = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 3
+  %fCurrSettings.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %fCurrSettings.i, align 8
   %cmp3.not.i = icmp eq ptr %6, null
   br i1 %cmp3.not.i, label %if.end11.i, label %delete.notnull7.i
 
 delete.notnull7.i:                                ; preds = %if.end.i
   %vtable8.i = load ptr, ptr %6, align 8
-  %vfn9.i = getelementptr inbounds ptr, ptr %vtable8.i, i64 1
+  %vfn9.i = getelementptr inbounds i8, ptr %vtable8.i, i64 8
   %7 = load ptr, ptr %vfn9.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #12
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %delete.notnull7.i, %if.end.i
-  %fCurrCase.i = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 4
+  %fCurrCase.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %fCurrCase.i, align 8
   %cmp12.not.i = icmp eq ptr %8, null
   br i1 %cmp12.not.i, label %_ZN8TestDataD2Ev.exit, label %delete.notnull16.i
 
 delete.notnull16.i:                               ; preds = %if.end11.i
   %vtable17.i = load ptr, ptr %8, align 8
-  %vfn18.i = getelementptr inbounds ptr, ptr %vtable17.i, i64 1
+  %vfn18.i = getelementptr inbounds i8, ptr %vtable17.i, i64 8
   %9 = load ptr, ptr %vfn18.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
   br label %_ZN8TestDataD2Ev.exit
@@ -342,7 +339,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef signext i8 @_ZNK10RBTestData7getInfoERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %info, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #10 align 2 {
 entry:
-  %fInfo = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 2
+  %fInfo = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fInfo, align 8
   %tobool.not = icmp ne ptr %1, null
   %.2 = zext i1 %tobool.not to i8
@@ -355,9 +352,9 @@ define noundef signext i8 @_ZN10RBTestData12nextSettingsERPK7DataMapR10UErrorCod
 entry:
   %intStatus = alloca i32, align 4
   store i32 0, ptr %intStatus, align 4
-  %fSettings = getelementptr inbounds %class.RBTestData, ptr %this, i64 0, i32 3
+  %fSettings = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %fSettings, align 8
-  %fCurrentSettings = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 7
+  %fCurrentSettings = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load i32, ptr %fCurrentSettings, align 8
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %fCurrentSettings, align 8
@@ -367,9 +364,9 @@ entry:
   br i1 %cmp.i, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fCurrentCase = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 8
+  %fCurrentCase = getelementptr inbounds i8, ptr %this, i64 52
   store i32 0, ptr %fCurrentCase, align 4
-  %fCurrSettings = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 3
+  %fCurrSettings = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %fCurrSettings, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %if.then3, label %if.else
@@ -414,9 +411,9 @@ define noundef signext i8 @_ZN10RBTestData8nextCaseERPK7DataMapR10UErrorCode(ptr
 entry:
   %intStatus = alloca i32, align 4
   store i32 0, ptr %intStatus, align 4
-  %fCases = getelementptr inbounds %class.RBTestData, ptr %this, i64 0, i32 4
+  %fCases = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %fCases, align 8
-  %fCurrentCase = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 8
+  %fCurrentCase = getelementptr inbounds i8, ptr %this, i64 52
   %1 = load i32, ptr %fCurrentCase, align 4
   %inc = add nsw i32 %1, 1
   store i32 %inc, ptr %fCurrentCase, align 4
@@ -426,14 +423,14 @@ entry:
   br i1 %cmp.i, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %fCurrCase = getelementptr inbounds %class.TestData, ptr %this, i64 0, i32 4
+  %fCurrCase = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load ptr, ptr %fCurrCase, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
   %call4 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14
-  %fHeaders = getelementptr inbounds %class.RBTestData, ptr %this, i64 0, i32 2
+  %fHeaders = getelementptr inbounds i8, ptr %this, i64 64
   %4 = load ptr, ptr %fHeaders, align 8
   invoke void @_ZN9RBDataMapC1EP15UResourceBundleS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %call4, ptr noundef %4, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
@@ -449,7 +446,7 @@ lpad:                                             ; preds = %if.then3
   resume { ptr, i32 } %5
 
 if.else:                                          ; preds = %if.then
-  %fHeaders7 = getelementptr inbounds %class.RBTestData, ptr %this, i64 0, i32 2
+  %fHeaders7 = getelementptr inbounds i8, ptr %this, i64 64
   %6 = load ptr, ptr %fHeaders7, align 8
   call void @_ZN9RBDataMap4initEP15UResourceBundleS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %6, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end

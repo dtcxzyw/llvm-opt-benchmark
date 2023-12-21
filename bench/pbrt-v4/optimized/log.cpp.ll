@@ -20,13 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %class.anon = type { i8 }
 %class.anon.0 = type { i8 }
-%"struct.std::thread::_State_impl" = type { %"struct.std::thread::_State", %"struct.std::thread::_Invoker" }
-%"struct.std::thread::_State" = type { ptr }
-%"struct.std::thread::_Invoker" = type { %"class.std::tuple.6" }
-%"class.std::tuple.6" = type { %"struct.std::_Tuple_impl.7" }
-%"struct.std::_Tuple_impl.7" = type { %"struct.std::_Head_base.8" }
-%"struct.std::_Head_base.8" = type { %class.anon.2 }
-%class.anon.2 = type { ptr, ptr }
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -304,9 +297,9 @@ if.then11:                                        ; preds = %if.end9
   store i64 0, ptr %ref.tmp13, align 8
   %call.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN4pbrt11InitLoggingENS3_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEEEE", i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
-  %_M_func.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1
+  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %getCPUUsage, ptr %_M_func.i.i, align 8
-  %ref.tmp14.sroa.2.0._M_func.i.i.sroa_idx = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
+  %ref.tmp14.sroa.2.0._M_func.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %sleepms, ptr %ref.tmp14.sroa.2.0._M_func.i.i.sroa_idx, align 8
   store ptr %call.i, ptr %agg.tmp.i, align 8
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp13, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
@@ -319,7 +312,7 @@ invoke.cont3.i:                                   ; preds = %if.then11
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.cont3.i
   %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 1
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   br label %"_ZNSt6threadC2IZN4pbrt11InitLoggingENS1_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0JEvEEOT_DpOT0_.exit"
@@ -333,7 +326,7 @@ lpad2.i:                                          ; preds = %if.then11
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i3.i: ; preds = %lpad2.i
   %vtable.i.i4.i = load ptr, ptr %6, align 8
-  %vfn.i.i5.i = getelementptr inbounds ptr, ptr %vtable.i.i4.i, i64 1
+  %vfn.i.i5.i = getelementptr inbounds i8, ptr %vtable.i.i4.i, i64 8
   %7 = load ptr, ptr %vfn.i.i5.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #19
   br label %common.resume
@@ -1780,21 +1773,21 @@ entry:
   br i1 %tobool.i.i.not5.i.i.i.i.i, label %while.body.lr.ph.i.i.i.i.i, label %"_ZNSt6thread8_InvokerISt5tupleIJZN4pbrt11InitLoggingENS2_8LogLevelENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbE3$_0EEEclEv.exit"
 
 while.body.lr.ph.i.i.i.i.i:                       ; preds = %entry
-  %tv_nsec.i.i.i.i.i.i = getelementptr inbounds %struct.timespec, ptr %rec.i.i.i.i.i.i, i64 0, i32 1
-  %nice.i.i.i.i.i = getelementptr inbounds %struct.Usage, ptr %currentUsage.i.i.i.i.i, i64 0, i32 1
-  %system.i.i.i.i.i = getelementptr inbounds %struct.Usage, ptr %currentUsage.i.i.i.i.i, i64 0, i32 2
-  %idle.i.i.i.i.i = getelementptr inbounds %struct.Usage, ptr %currentUsage.i.i.i.i.i, i64 0, i32 3
-  %nice5.i.i.i.i.i = getelementptr inbounds %struct.Usage, ptr %prevUsage.i.i.i.i.i, i64 0, i32 1
-  %system7.i.i.i.i.i = getelementptr inbounds %struct.Usage, ptr %prevUsage.i.i.i.i.i, i64 0, i32 2
-  %idle9.i.i.i.i.i = getelementptr inbounds %struct.Usage, ptr %prevUsage.i.i.i.i.i, i64 0, i32 3
-  %readRequest.i.i.i.i.i = getelementptr inbounds %struct.Usage, ptr %currentUsage.i.i.i.i.i, i64 0, i32 4
-  %readRequest42.i.i.i.i.i = getelementptr inbounds %struct.Usage, ptr %prevUsage.i.i.i.i.i, i64 0, i32 4
-  %readActual.i.i.i.i.i = getelementptr inbounds %struct.Usage, ptr %currentUsage.i.i.i.i.i, i64 0, i32 6
-  %readActual45.i.i.i.i.i = getelementptr inbounds %struct.Usage, ptr %prevUsage.i.i.i.i.i, i64 0, i32 6
-  %writeRequest.i.i.i.i.i = getelementptr inbounds %struct.Usage, ptr %currentUsage.i.i.i.i.i, i64 0, i32 5
-  %writeRequest48.i.i.i.i.i = getelementptr inbounds %struct.Usage, ptr %prevUsage.i.i.i.i.i, i64 0, i32 5
-  %writeActual.i.i.i.i.i = getelementptr inbounds %struct.Usage, ptr %currentUsage.i.i.i.i.i, i64 0, i32 7
-  %writeActual51.i.i.i.i.i = getelementptr inbounds %struct.Usage, ptr %prevUsage.i.i.i.i.i, i64 0, i32 7
+  %tv_nsec.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rec.i.i.i.i.i.i, i64 8
+  %nice.i.i.i.i.i = getelementptr inbounds i8, ptr %currentUsage.i.i.i.i.i, i64 8
+  %system.i.i.i.i.i = getelementptr inbounds i8, ptr %currentUsage.i.i.i.i.i, i64 16
+  %idle.i.i.i.i.i = getelementptr inbounds i8, ptr %currentUsage.i.i.i.i.i, i64 24
+  %nice5.i.i.i.i.i = getelementptr inbounds i8, ptr %prevUsage.i.i.i.i.i, i64 8
+  %system7.i.i.i.i.i = getelementptr inbounds i8, ptr %prevUsage.i.i.i.i.i, i64 16
+  %idle9.i.i.i.i.i = getelementptr inbounds i8, ptr %prevUsage.i.i.i.i.i, i64 24
+  %readRequest.i.i.i.i.i = getelementptr inbounds i8, ptr %currentUsage.i.i.i.i.i, i64 32
+  %readRequest42.i.i.i.i.i = getelementptr inbounds i8, ptr %prevUsage.i.i.i.i.i, i64 32
+  %readActual.i.i.i.i.i = getelementptr inbounds i8, ptr %currentUsage.i.i.i.i.i, i64 48
+  %readActual45.i.i.i.i.i = getelementptr inbounds i8, ptr %prevUsage.i.i.i.i.i, i64 48
+  %writeRequest.i.i.i.i.i = getelementptr inbounds i8, ptr %currentUsage.i.i.i.i.i, i64 40
+  %writeRequest48.i.i.i.i.i = getelementptr inbounds i8, ptr %prevUsage.i.i.i.i.i, i64 40
+  %writeActual.i.i.i.i.i = getelementptr inbounds i8, ptr %currentUsage.i.i.i.i.i, i64 56
+  %writeActual51.i.i.i.i.i = getelementptr inbounds i8, ptr %prevUsage.i.i.i.i.i, i64 56
   br label %while.body.i.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.end53.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i
@@ -2018,7 +2011,7 @@ if.end:                                           ; preds = %invoke.cont12
           to label %do.body unwind label %lpad3.loopexit.split-lp
 
 do.body:                                          ; preds = %if.end
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data", ptr %values, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %values, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %values, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
@@ -2051,17 +2044,17 @@ if.then.i.i.i:                                    ; preds = %lpad20
 _ZNSt6vectorIlSaIlEED2Ev.exit7:                   ; preds = %do.body
   %5 = load i64, ptr %2, align 8
   store i64 %5, ptr %agg.result, align 8
-  %add.ptr.i = getelementptr inbounds i64, ptr %2, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %add.ptr.i, align 8
-  %nice = getelementptr inbounds %struct.Usage, ptr %agg.result, i64 0, i32 1
+  %nice = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %6, ptr %nice, align 8
-  %add.ptr.i3 = getelementptr inbounds i64, ptr %2, i64 2
+  %add.ptr.i3 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load i64, ptr %add.ptr.i3, align 8
-  %system = getelementptr inbounds %struct.Usage, ptr %agg.result, i64 0, i32 2
+  %system = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %7, ptr %system, align 8
-  %add.ptr.i4 = getelementptr inbounds i64, ptr %2, i64 3
+  %add.ptr.i4 = getelementptr inbounds i8, ptr %2, i64 24
   %8 = load i64, ptr %add.ptr.i4, align 8
-  %idle = getelementptr inbounds %struct.Usage, ptr %agg.result, i64 0, i32 3
+  %idle = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %8, ptr %idle, align 8
   call void @_ZdlPv(ptr noundef nonnull %2) #24
   br label %while.end
@@ -2082,10 +2075,10 @@ invoke.cont33:                                    ; preds = %invoke.cont27
   br i1 %call34, label %while.cond39.preheader, label %land.rhs35
 
 while.cond39.preheader:                           ; preds = %invoke.cont33
-  %readRequest = getelementptr inbounds %struct.Usage, ptr %agg.result, i64 0, i32 4
-  %writeRequest = getelementptr inbounds %struct.Usage, ptr %agg.result, i64 0, i32 5
-  %readActual = getelementptr inbounds %struct.Usage, ptr %agg.result, i64 0, i32 6
-  %writeActual = getelementptr inbounds %struct.Usage, ptr %agg.result, i64 0, i32 7
+  %readRequest = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %writeRequest = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %readActual = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %writeActual = getelementptr inbounds i8, ptr %agg.result, i64 56
   br label %while.cond39
 
 land.rhs35:                                       ; preds = %invoke.cont33

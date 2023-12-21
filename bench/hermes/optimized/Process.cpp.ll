@@ -146,12 +146,12 @@ entry:
   %ref.tmp17 = alloca %"class.llvh::Twine", align 8
   %ref.tmp20 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %FileName.coerce0, ptr %FileName, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %FileName, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %FileName, i64 8
   store i64 %FileName.coerce1, ptr %0, align 8
-  %hasVal.i.i = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasVal.i.i, align 8
   call void @_ZN4llvh3sys7Process6GetEnvB5cxx11ENS_9StringRefE(ptr nonnull sret(%"class.llvh::Optional") align 8 %OptPath, ptr %EnvName.coerce0, i64 %EnvName.coerce1)
-  %hasVal.i = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %OptPath, i64 0, i32 1
+  %hasVal.i = getelementptr inbounds i8, ptr %OptPath, i64 32
   %1 = load i8, ptr %hasVal.i, align 8
   %2 = and i8 %1, 1
   %tobool.i.not = icmp eq i8 %2, 0
@@ -161,9 +161,9 @@ if.end:                                           ; preds = %entry
   store i16 58, ptr %EnvPathSeparatorStr, align 2
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %Dirs, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %Dirs, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Dirs, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %Dirs, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Dirs, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %Dirs, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i, align 4
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %OptPath) #18
   %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %OptPath) #18
@@ -177,53 +177,53 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not29, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %Length.i40 = getelementptr inbounds %"class.llvh::StringRef", ptr %Dir, i64 0, i32 1
+  %Length.i40 = getelementptr inbounds i8, ptr %Dir, i64 8
   %5 = getelementptr inbounds i8, ptr %IgnoreList, i64 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %S.i.i.i.i.i.i.i.i, i64 0, i32 1
-  %LHSKind.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 0, i32 3
-  %LHSKind.i1.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i.i.i.i.i.i.i, i64 0, i32 3
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %S.i.i27.i.i.i.i.i.i, i64 0, i32 1
-  %LHSKind.i.i.i33.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i28.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i.i.i34.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i28.i.i.i.i.i.i, i64 0, i32 3
-  %LHSKind.i1.i.i35.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i29.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i2.i.i36.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i29.i.i.i.i.i.i, i64 0, i32 3
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %S.i.i41.i.i.i.i.i.i, i64 0, i32 1
-  %LHSKind.i.i.i47.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i42.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i.i.i48.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i42.i.i.i.i.i.i, i64 0, i32 3
-  %LHSKind.i1.i.i49.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i43.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i2.i.i50.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i43.i.i.i.i.i.i, i64 0, i32 3
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %S.i.i55.i.i.i.i.i.i, i64 0, i32 1
-  %LHSKind.i.i.i61.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i56.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i.i.i62.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i56.i.i.i.i.i.i, i64 0, i32 3
-  %LHSKind.i1.i.i63.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i57.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i2.i.i64.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i57.i.i.i.i.i.i, i64 0, i32 3
-  %10 = getelementptr inbounds { ptr, i64 }, ptr %S.i.i69.i.i.i.i.i.i, i64 0, i32 1
-  %LHSKind.i.i.i75.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i70.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i.i.i76.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i70.i.i.i.i.i.i, i64 0, i32 3
-  %LHSKind.i1.i.i77.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i71.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i2.i.i78.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i71.i.i.i.i.i.i, i64 0, i32 3
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %S.i.i83.i.i.i.i.i.i, i64 0, i32 1
-  %LHSKind.i.i.i89.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i84.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i.i.i90.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i84.i.i.i.i.i.i, i64 0, i32 3
-  %LHSKind.i1.i.i91.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i85.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i2.i.i92.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i85.i.i.i.i.i.i, i64 0, i32 3
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %S.i.i97.i.i.i.i.i.i, i64 0, i32 1
-  %LHSKind.i.i.i103.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i98.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i.i.i104.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i.i98.i.i.i.i.i.i, i64 0, i32 3
-  %LHSKind.i1.i.i105.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i99.i.i.i.i.i.i, i64 0, i32 2
-  %RHSKind.i2.i.i106.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2.i.i99.i.i.i.i.i.i, i64 0, i32 3
+  %6 = getelementptr inbounds i8, ptr %S.i.i.i.i.i.i.i.i, i64 8
+  %LHSKind.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 16
+  %RHSKind.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 17
+  %LHSKind.i1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i.i.i.i.i.i.i, i64 16
+  %RHSKind.i2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i.i.i.i.i.i.i, i64 17
+  %7 = getelementptr inbounds i8, ptr %S.i.i27.i.i.i.i.i.i, i64 8
+  %LHSKind.i.i.i33.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i28.i.i.i.i.i.i, i64 16
+  %RHSKind.i.i.i34.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i28.i.i.i.i.i.i, i64 17
+  %LHSKind.i1.i.i35.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i29.i.i.i.i.i.i, i64 16
+  %RHSKind.i2.i.i36.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i29.i.i.i.i.i.i, i64 17
+  %8 = getelementptr inbounds i8, ptr %S.i.i41.i.i.i.i.i.i, i64 8
+  %LHSKind.i.i.i47.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i42.i.i.i.i.i.i, i64 16
+  %RHSKind.i.i.i48.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i42.i.i.i.i.i.i, i64 17
+  %LHSKind.i1.i.i49.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i43.i.i.i.i.i.i, i64 16
+  %RHSKind.i2.i.i50.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i43.i.i.i.i.i.i, i64 17
+  %9 = getelementptr inbounds i8, ptr %S.i.i55.i.i.i.i.i.i, i64 8
+  %LHSKind.i.i.i61.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i56.i.i.i.i.i.i, i64 16
+  %RHSKind.i.i.i62.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i56.i.i.i.i.i.i, i64 17
+  %LHSKind.i1.i.i63.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i57.i.i.i.i.i.i, i64 16
+  %RHSKind.i2.i.i64.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i57.i.i.i.i.i.i, i64 17
+  %10 = getelementptr inbounds i8, ptr %S.i.i69.i.i.i.i.i.i, i64 8
+  %LHSKind.i.i.i75.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i70.i.i.i.i.i.i, i64 16
+  %RHSKind.i.i.i76.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i70.i.i.i.i.i.i, i64 17
+  %LHSKind.i1.i.i77.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i71.i.i.i.i.i.i, i64 16
+  %RHSKind.i2.i.i78.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i71.i.i.i.i.i.i, i64 17
+  %11 = getelementptr inbounds i8, ptr %S.i.i83.i.i.i.i.i.i, i64 8
+  %LHSKind.i.i.i89.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i84.i.i.i.i.i.i, i64 16
+  %RHSKind.i.i.i90.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i84.i.i.i.i.i.i, i64 17
+  %LHSKind.i1.i.i91.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i85.i.i.i.i.i.i, i64 16
+  %RHSKind.i2.i.i92.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i85.i.i.i.i.i.i, i64 17
+  %12 = getelementptr inbounds i8, ptr %S.i.i97.i.i.i.i.i.i, i64 8
+  %LHSKind.i.i.i103.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i98.i.i.i.i.i.i, i64 16
+  %RHSKind.i.i.i104.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i98.i.i.i.i.i.i, i64 17
+  %LHSKind.i1.i.i105.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i99.i.i.i.i.i.i, i64 16
+  %RHSKind.i2.i.i106.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.i.i99.i.i.i.i.i.i, i64 17
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %FilePath, i64 16
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %FilePath, i64 0, i32 1
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %FilePath, i64 0, i32 2
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
-  %LHSKind.i10 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp14, i64 0, i32 2
-  %LHSKind.i12 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp15, i64 0, i32 2
-  %LHSKind.i14 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp16, i64 0, i32 2
-  %LHSKind.i16 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp17, i64 0, i32 2
-  %RHSKind.i17 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp17, i64 0, i32 3
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %FilePath, i64 8
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %FilePath, i64 12
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
+  %LHSKind.i10 = getelementptr inbounds i8, ptr %ref.tmp14, i64 16
+  %LHSKind.i12 = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
+  %LHSKind.i14 = getelementptr inbounds i8, ptr %ref.tmp16, i64 16
+  %LHSKind.i16 = getelementptr inbounds i8, ptr %ref.tmp17, i64 16
+  %RHSKind.i17 = getelementptr inbounds i8, ptr %ref.tmp17, i64 17
   br label %for.body
 
 for.body:                                         ; preds = %for.body.backedge, %for.body.lr.ph
@@ -273,7 +273,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end8, %if.end12.
   br i1 %17, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.0112.i.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0112.i.i.i.i.i.i, i64 32
   %call.i.i30.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i.i.i) #18
   %call2.i.i31.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.i.i.i.i) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %S.i.i27.i.i.i.i.i.i)
@@ -302,7 +302,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   br i1 %21, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end4.i.i.i.i.i.i
 
 if.end4.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
-  %incdec.ptr5.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.0112.i.i.i.i.i.i, i64 2
+  %incdec.ptr5.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0112.i.i.i.i.i.i, i64 64
   %call.i.i44.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr5.i.i.i.i.i.i) #18
   %call2.i.i45.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr5.i.i.i.i.i.i) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %S.i.i41.i.i.i.i.i.i)
@@ -331,7 +331,7 @@ if.end4.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
   br i1 %25, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end8.i.i.i.i.i.i
 
 if.end8.i.i.i.i.i.i:                              ; preds = %if.end4.i.i.i.i.i.i
-  %incdec.ptr9.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.0112.i.i.i.i.i.i, i64 3
+  %incdec.ptr9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0112.i.i.i.i.i.i, i64 96
   %call.i.i58.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr9.i.i.i.i.i.i) #18
   %call2.i.i59.i.i.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr9.i.i.i.i.i.i) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %S.i.i55.i.i.i.i.i.i)
@@ -360,7 +360,7 @@ if.end8.i.i.i.i.i.i:                              ; preds = %if.end4.i.i.i.i.i.i
   br i1 %29, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end12.i.i.i.i.i.i
 
 if.end12.i.i.i.i.i.i:                             ; preds = %if.end8.i.i.i.i.i.i
-  %incdec.ptr13.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.0112.i.i.i.i.i.i, i64 4
+  %incdec.ptr13.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0112.i.i.i.i.i.i, i64 128
   %dec.i.i.i.i.i.i = add nsw i64 %__trip_count.0113.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp sgt i64 %__trip_count.0113.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %for.end.loopexit.i.i.i.i.i.i, !llvm.loop !4
@@ -409,7 +409,7 @@ sw.bb.i.i.i.i.i.i:                                ; preds = %for.end.i.i.i.i.i.i
   br i1 %34, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end20.i.i.i.i.i.i
 
 if.end20.i.i.i.i.i.i:                             ; preds = %sw.bb.i.i.i.i.i.i
-  %incdec.ptr21.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.0.lcssa.i.i.i.i.i.i, i64 1
+  %incdec.ptr21.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.0.lcssa.i.i.i.i.i.i, i64 32
   br label %sw.bb22.i.i.i.i.i.i
 
 sw.bb22.i.i.i.i.i.i:                              ; preds = %if.end20.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
@@ -442,7 +442,7 @@ sw.bb22.i.i.i.i.i.i:                              ; preds = %if.end20.i.i.i.i.i.
   br i1 %38, label %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", label %if.end25.i.i.i.i.i.i
 
 if.end25.i.i.i.i.i.i:                             ; preds = %sw.bb22.i.i.i.i.i.i
-  %incdec.ptr26.i.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.1.i.i.i.i.i.i, i64 1
+  %incdec.ptr26.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i.i.i.i, i64 32
   br label %sw.bb27.i.i.i.i.i.i
 
 sw.bb27.i.i.i.i.i.i:                              ; preds = %if.end25.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
@@ -575,13 +575,13 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %_ZN4llvh11SmallStringILj128EED2Ev.exit
 
 _ZN4llvh11SmallStringILj128EED2Ev.exit:           ; preds = %cleanup, %if.then.i.i.i
-  %incdec.ptr = getelementptr inbounds %"class.llvh::StringRef", ptr %__begin1.030, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.030, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   %or.cond = select i1 %cmp.i.not.i.not, i1 true, i1 %cmp.not
   br i1 %or.cond, label %for.end.loopexit, label %for.body.backedge
 
 for.inc:                                          ; preds = %"_ZN4llvh6any_ofIRNS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZNS_3sys7Process13FindInEnvPathENS_9StringRefESC_S8_E3$_0EEbOT_T0_.exit", %for.body
-  %incdec.ptr.old = getelementptr inbounds %"class.llvh::StringRef", ptr %__begin1.030, i64 1
+  %incdec.ptr.old = getelementptr inbounds i8, ptr %__begin1.030, i64 16
   %cmp.not.old = icmp eq ptr %incdec.ptr.old, %add.ptr.i
   br i1 %cmp.not.old, label %for.end.loopexit, label %for.body.backedge
 
@@ -651,7 +651,7 @@ _ZNK4llvh9StringRef3strB5cxx11Ev.exit:            ; preds = %if.then.i, %if.end.
   br i1 %tobool.not, label %if.then, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
 if.then:                                          ; preds = %_ZNK4llvh9StringRef3strB5cxx11Ev.exit
-  %hasVal.i.i = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 0, ptr %hasVal.i.i, align 8
   br label %cleanup
 
@@ -662,7 +662,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call1) #18
   %add.ptr.i = getelementptr inbounds i8, ptr %call1, i64 %call.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %call1, ptr noundef nonnull %add.ptr.i)
-  %hasVal.i.i4 = getelementptr inbounds %"struct.llvh::optional_detail::OptionalStorage", ptr %agg.result, i64 0, i32 1
+  %hasVal.i.i4 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i8 1, ptr %hasVal.i.i4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
@@ -742,13 +742,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %RU.i)
   %call.i = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %RU.i) #18
   %0 = load i64, ptr %RU.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %RU.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %RU.i, i64 8
   %1 = load i64, ptr %tv_usec.i.i, align 8
   %mul.i.i.i.i.i.i = mul nsw i64 %0, 1000000
   %add.i.i.i = add nsw i64 %mul.i.i.i.i.i.i, %1
-  %ru_stime.i = getelementptr inbounds %struct.rusage, ptr %RU.i, i64 0, i32 1
+  %ru_stime.i = getelementptr inbounds i8, ptr %RU.i, i64 16
   %2 = load i64, ptr %ru_stime.i, align 8
-  %tv_usec.i1.i = getelementptr inbounds %struct.rusage, ptr %RU.i, i64 0, i32 1, i32 1
+  %tv_usec.i1.i = getelementptr inbounds i8, ptr %RU.i, i64 24
   %3 = load i64, ptr %tv_usec.i1.i, align 8
   %mul.i.i.i.i.i2.i = mul nsw i64 %2, 1000000
   %add.i.i3.i = add nsw i64 %mul.i.i.i.i.i2.i, %3
@@ -1029,7 +1029,7 @@ if.then.i:                                        ; preds = %if.end
 if.end3.i:                                        ; preds = %if.then.i, %if.end
   %call5.i = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %ws.i) #18
   %cmp6.i = icmp eq i32 %call5.i, 0
-  %ws_col.i = getelementptr inbounds %struct.winsize, ptr %ws.i, i64 0, i32 1
+  %ws_col.i = getelementptr inbounds i8, ptr %ws.i, i64 2
   %0 = load i16, ptr %ws_col.i, align 2
   %conv.i = zext i16 %0 to i32
   %Columns4.0.i = select i1 %cmp6.i, i32 %conv.i, i32 0
@@ -1067,7 +1067,7 @@ if.then.i:                                        ; preds = %if.end
 if.end3.i:                                        ; preds = %if.then.i, %if.end
   %call5.i = call i32 (i32, i64, ...) @ioctl(i32 noundef 2, i64 noundef 21523, ptr noundef nonnull %ws.i) #18
   %cmp6.i = icmp eq i32 %call5.i, 0
-  %ws_col.i = getelementptr inbounds %struct.winsize, ptr %ws.i, i64 0, i32 1
+  %ws_col.i = getelementptr inbounds i8, ptr %ws.i, i64 2
   %0 = load i16, ptr %ws_col.i, align 2
   %conv.i = zext i16 %0 to i32
   %Columns4.0.i = select i1 %cmp6.i, i32 %conv.i, i32 0
@@ -1315,7 +1315,7 @@ init.i.i.i:                                       ; preds = %init.check.i.i.i
   br label %_ZN4llvh12hash_combineIJliEEENS_9hash_codeEDpRKT_.exit
 
 _ZN4llvh12hash_combineIJliEEENS_9hash_codeEDpRKT_.exit: ; preds = %if.end6, %init.check.i.i.i, %init.i.i.i
-  %seed.i.i = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %helper.i, i64 0, i32 2
+  %seed.i.i = getelementptr inbounds i8, ptr %helper.i, i64 120
   %4 = load i64, ptr @_ZZN4llvh7hashing6detail18get_execution_seedEvE4seed, align 8
   store i64 %4, ptr %seed.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %helper.i, i64 64
@@ -1386,19 +1386,19 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %buffer_ptr to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %this to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %seed = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 2
+  %seed = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load i64, ptr %seed, align 8
   %call = tail call noundef i64 @_ZN4llvh7hashing6detail10hash_shortEPKcmm(ptr noundef nonnull %this, i64 noundef %sub.ptr.sub, i64 noundef %0)
   br label %return
 
 if.end:                                           ; preds = %entry
   %call.i = tail call noundef ptr @_ZNSt3_V28__rotateIPcEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef nonnull %this, ptr noundef %buffer_ptr, ptr noundef %buffer_end)
-  %state = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %this, i64 64
   %1 = load i64, ptr %state, align 8
-  %h1.i = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 1
+  %h1.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load i64, ptr %h1.i, align 8
   %add.i = add i64 %2, %1
-  %h3.i = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 3
+  %h3.i = getelementptr inbounds i8, ptr %this, i64 88
   %3 = load i64, ptr %h3.i, align 8
   %add2.i = add i64 %add.i, %3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1406,7 +1406,7 @@ if.end:                                           ; preds = %entry
   %add3.i = add i64 %add2.i, %result.0.copyload.i.i
   %cond.i.i = tail call i64 @llvm.fshl.i64(i64 %add3.i, i64 %add3.i, i64 27)
   %mul.i = mul i64 %cond.i.i, -5435081209227447693
-  %h4.i = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 4
+  %h4.i = getelementptr inbounds i8, ptr %this, i64 96
   %4 = load i64, ptr %h4.i, align 8
   %add7.i = add i64 %4, %2
   %add.ptr8.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -1414,7 +1414,7 @@ if.end:                                           ; preds = %entry
   %add10.i = add i64 %add7.i, %result.0.copyload.i6.i
   %cond.i7.i = tail call i64 @llvm.fshl.i64(i64 %add10.i, i64 %add10.i, i64 22)
   %mul12.i = mul i64 %cond.i7.i, -5435081209227447693
-  %h6.i = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 6
+  %h6.i = getelementptr inbounds i8, ptr %this, i64 112
   %5 = load i64, ptr %h6.i, align 8
   %xor.i = xor i64 %5, %mul.i
   %add.ptr16.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -1422,9 +1422,9 @@ if.end:                                           ; preds = %entry
   %add18.i = add i64 %mul12.i, %3
   %add20.i = add i64 %add18.i, %result.0.copyload.i8.i
   store i64 %add20.i, ptr %h1.i, align 8
-  %h2.i = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 2
+  %h2.i = getelementptr inbounds i8, ptr %this, i64 80
   %6 = load i64, ptr %h2.i, align 8
-  %h5.i = getelementptr inbounds %"struct.llvh::hashing::detail::hash_combine_recursive_helper", ptr %this, i64 0, i32 1, i32 5
+  %h5.i = getelementptr inbounds i8, ptr %this, i64 104
   %7 = load i64, ptr %h5.i, align 8
   %add21.i = add i64 %7, %6
   %cond.i9.i = tail call i64 @llvm.fshl.i64(i64 %add21.i, i64 %add21.i, i64 31)

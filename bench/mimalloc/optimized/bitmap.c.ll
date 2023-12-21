@@ -964,7 +964,7 @@ while.cond.i31:                                   ; preds = %mi_bitmap_mask_.exi
 while.body.i:                                     ; preds = %if.end4.i, %while.cond.i31
   %field.0100.i = phi ptr [ %incdec.ptr.i, %while.cond.i31 ], [ %arrayidx.i17, %if.end4.i ]
   %found.099.i = phi i64 [ %add18.i, %while.cond.i31 ], [ %11, %if.end4.i ]
-  %incdec.ptr.i = getelementptr inbounds i64, ptr %field.0100.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %field.0100.i, i64 8
   %20 = load atomic i64, ptr %incdec.ptr.i monotonic, align 8
   %add.i25 = add i64 %found.099.i, 64
   %cmp12.not.i = icmp ugt i64 %add.i25, %count
@@ -1013,7 +1013,7 @@ do.cond.i:                                        ; preds = %do.body.i
 
 while.cond27.i:                                   ; preds = %do.cond.i, %while.body30.i
   %field.1.i = phi ptr [ %incdec.ptr28.i, %while.body30.i ], [ %arrayidx.i17, %do.cond.i ]
-  %incdec.ptr28.i = getelementptr inbounds i64, ptr %field.1.i, i64 1
+  %incdec.ptr28.i = getelementptr inbounds i8, ptr %field.1.i, i64 8
   %cmp29.i = icmp ult ptr %field.1.i, %field.0100.i
   br i1 %cmp29.i, label %while.body30.i, label %while.end39.i
 
@@ -1041,14 +1041,14 @@ do.cond47.i:                                      ; preds = %do.body41.i
 
 rollback.i:                                       ; preds = %do.body.i, %while.body30.i, %do.body41.i
   %field.2.i = phi ptr [ %incdec.ptr28.i, %do.body41.i ], [ %incdec.ptr28.i, %while.body30.i ], [ %arrayidx.i17, %do.body.i ]
-  %incdec.ptr58102.i = getelementptr inbounds i64, ptr %field.2.i, i64 -1
+  %incdec.ptr58102.i = getelementptr inbounds i8, ptr %field.2.i, i64 -8
   %cmp59103.i = icmp ugt ptr %incdec.ptr58102.i, %arrayidx.i17
   br i1 %cmp59103.i, label %while.body60.i, label %while.end62.i
 
 while.body60.i:                                   ; preds = %rollback.i, %while.body60.i
   %incdec.ptr58104.i = phi ptr [ %incdec.ptr58.i, %while.body60.i ], [ %incdec.ptr58102.i, %rollback.i ]
   store atomic i64 0, ptr %incdec.ptr58104.i release, align 8
-  %incdec.ptr58.i = getelementptr inbounds i64, ptr %incdec.ptr58104.i, i64 -1
+  %incdec.ptr58.i = getelementptr inbounds i8, ptr %incdec.ptr58104.i, i64 -8
   %cmp59.i = icmp ugt ptr %incdec.ptr58.i, %arrayidx.i17
   br i1 %cmp59.i, label %while.body60.i, label %while.end62.i, !llvm.loop !14
 
@@ -1132,7 +1132,7 @@ if.else.i:                                        ; preds = %entry
   %and = and i64 %0, %retval.0.i21.i
   %cmp.not = icmp eq i64 %and, %retval.0.i21.i
   %spec.select = zext i1 %cmp.not to i8
-  %field.011 = getelementptr inbounds i64, ptr %arrayidx, i64 1
+  %field.011 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %cmp2.not12 = icmp ult i64 %sub4.i, 64
   br i1 %cmp2.not12, label %while.end, label %while.body.lr.ph
 
@@ -1158,7 +1158,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %2 = atomicrmw xchg ptr %field.015, i64 0 acq_rel, align 8
   %cmp8.not = icmp eq i64 %2, -1
   %spec.select6 = select i1 %cmp8.not, i8 %all_one.113, i8 0
-  %field.0 = getelementptr inbounds i64, ptr %field.015, i64 1
+  %field.0 = getelementptr inbounds i8, ptr %field.015, i64 8
   %cmp2.not = icmp eq i64 %dec, 0
   br i1 %cmp2.not, label %while.end, label %while.body, !llvm.loop !17
 
@@ -1235,7 +1235,7 @@ mi_bitmap_mask_across.exit:                       ; preds = %if.then.i, %if.end.
   %spec.select = zext i1 %cmp.not to i8
   %cmp3.not = icmp ne i64 %and, %pre_mask.0
   %any_zero.0 = zext i1 %cmp3.not to i8
-  %field.019 = getelementptr inbounds i64, ptr %arrayidx, i64 1
+  %field.019 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %cmp6.not20 = icmp eq i64 %retval.0.i, 0
   br i1 %cmp6.not20, label %while.end, label %while.body
 
@@ -1251,7 +1251,7 @@ while.body:                                       ; preds = %mi_bitmap_mask_acro
   %spec.select10 = select i1 %cmp11.not, i8 %all_zero.122, i8 0
   %cmp15.not = icmp eq i64 %and10, %mid_mask.0
   %any_zero.2 = select i1 %cmp15.not, i8 %any_zero.121, i8 1
-  %field.0 = getelementptr inbounds i64, ptr %field.024, i64 1
+  %field.0 = getelementptr inbounds i8, ptr %field.024, i64 8
   %cmp6.not = icmp eq i64 %dec, 0
   br i1 %cmp6.not, label %while.end, label %while.body, !llvm.loop !18
 
@@ -1327,7 +1327,7 @@ if.else.i.i:                                      ; preds = %entry
   %and.i = and i64 %0, %retval.0.i21.i.i
   %cmp.not.i = icmp eq i64 %and.i, %retval.0.i21.i.i
   %spec.select.i = zext i1 %cmp.not.i to i8
-  %field.017.i = getelementptr inbounds i64, ptr %arrayidx.i, i64 1
+  %field.017.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %cmp6.not18.i = icmp ult i64 %sub4.i.i, 64
   br i1 %cmp6.not18.i, label %while.end.i, label %while.body.i.preheader
 
@@ -1352,7 +1352,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %2 = load atomic i64, ptr %field.022.i monotonic, align 8
   %cmp10.not.i = icmp eq i64 %2, -1
   %spec.select10.i = select i1 %cmp10.not.i, i8 %all_ones.120.i, i8 0
-  %field.0.i = getelementptr inbounds i64, ptr %field.022.i, i64 1
+  %field.0.i = getelementptr inbounds i8, ptr %field.022.i, i64 8
   %cmp6.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp6.not.i, label %while.end.i, label %while.body.i, !llvm.loop !19
 
@@ -1415,7 +1415,7 @@ if.else.i.i:                                      ; preds = %entry
   %and.i = and i64 %0, %retval.0.i21.i.i
   %cmp3.not.i = icmp ne i64 %and.i, 0
   %any_ones.0.i = zext i1 %cmp3.not.i to i8
-  %field.017.i = getelementptr inbounds i64, ptr %arrayidx.i, i64 1
+  %field.017.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %cmp6.not18.i = icmp ult i64 %sub4.i.i, 64
   br i1 %cmp6.not18.i, label %while.end.i, label %while.body.i.preheader
 
@@ -1440,7 +1440,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   %2 = load atomic i64, ptr %field.022.i monotonic, align 8
   %cmp14.not.i = icmp eq i64 %2, 0
   %any_ones.2.i = select i1 %cmp14.not.i, i8 %any_ones.119.i, i8 1
-  %field.0.i = getelementptr inbounds i64, ptr %field.022.i, i64 1
+  %field.0.i = getelementptr inbounds i8, ptr %field.022.i, i64 8
   %cmp6.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp6.not.i, label %while.end.i, label %while.body.i, !llvm.loop !19
 

@@ -10,27 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.VirtioDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.VirtIORNG = type { %struct.VirtIODevice, ptr, %struct.VirtIORNGConf, ptr, ptr, i64, i8, ptr }
-%struct.VirtIODevice = type { %struct.DeviceState, ptr, i8, i8, i16, i64, i64, i64, i64, ptr, i16, i32, i32, ptr, %struct.MemoryListener, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i8, i8, ptr, ptr, %union.anon.2, %struct.EventNotifier, i8 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.MemoryListener = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.0, %union.anon.1 }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.VirtIORNGConf = type { ptr, i64, i32 }
 %struct.timeval = type { i64, i64 }
-%struct.VirtQueueElement = type { i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr }
 
 @virtio_rng_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 592, i64 0, ptr null, ptr null, ptr null, i8 0, i64 0, ptr @virtio_rng_class_init, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [18 x i8] c"virtio-rng-device\00", align 1
@@ -112,19 +92,19 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #7
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @virtio_rng_properties) #7
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_virtio_rng, ptr %vmsd, align 8
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 128
   store i64 %or.i, ptr %categories, align 8
-  %realize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i7, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i7, i64 176
   store ptr @virtio_rng_device_realize, ptr %realize, align 8
-  %unrealize = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i7, i64 0, i32 2
+  %unrealize = getelementptr inbounds i8, ptr %call.i7, i64 184
   store ptr @virtio_rng_device_unrealize, ptr %unrealize, align 8
-  %get_features = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i7, i64 0, i32 3
+  %get_features = getelementptr inbounds i8, ptr %call.i7, i64 192
   store ptr @get_features, ptr %get_features, align 8
-  %set_status = getelementptr inbounds %struct.VirtioDeviceClass, ptr %call.i7, i64 0, i32 10
+  %set_status = getelementptr inbounds i8, ptr %call.i7, i64 248
   store ptr @virtio_rng_set_status, ptr %set_status, align 8
   ret void
 }
@@ -136,8 +116,8 @@ define internal void @virtio_rng_device_realize(ptr noundef %dev, ptr noundef %e
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #7
   %call.i25 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, i32 noundef 21, ptr noundef nonnull @__func__.VIRTIO_RNG) #7
-  %conf = getelementptr inbounds %struct.VirtIORNG, ptr %call.i25, i64 0, i32 2
-  %period_ms = getelementptr inbounds %struct.VirtIORNG, ptr %call.i25, i64 0, i32 2, i32 2
+  %conf = getelementptr inbounds i8, ptr %call.i25, i64 528
+  %period_ms = getelementptr inbounds i8, ptr %call.i25, i64 544
   %0 = load i32, ptr %period_ms, align 8
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -147,7 +127,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %max_bytes = getelementptr inbounds %struct.VirtIORNG, ptr %call.i25, i64 0, i32 2, i32 1
+  %max_bytes = getelementptr inbounds i8, ptr %call.i25, i64 536
   %1 = load i64, ptr %max_bytes, align 8
   %cmp3 = icmp slt i64 %1, 0
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -162,7 +142,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp7, label %if.then8, label %if.end16.thread
 
 if.end16.thread:                                  ; preds = %if.end5
-  %rng1926 = getelementptr inbounds %struct.VirtIORNG, ptr %call.i25, i64 0, i32 3
+  %rng1926 = getelementptr inbounds i8, ptr %call.i25, i64 552
   store ptr %2, ptr %rng1926, align 8
   br label %if.end23
 
@@ -181,7 +161,7 @@ if.end16:                                         ; preds = %if.then8
   tail call void @object_unref(ptr noundef %call9) #7
   %call15 = tail call zeroext i1 @object_property_set_link(ptr noundef %dev, ptr noundef nonnull @.str.7, ptr noundef %call9, ptr noundef nonnull @error_abort) #7
   %.pr = load ptr, ptr %conf, align 8
-  %rng19 = getelementptr inbounds %struct.VirtIORNG, ptr %call.i25, i64 0, i32 3
+  %rng19 = getelementptr inbounds i8, ptr %call.i25, i64 552
   store ptr %.pr, ptr %rng19, align 8
   %cmp21 = icmp eq ptr %.pr, null
   br i1 %cmp21, label %if.then22, label %if.end23
@@ -193,19 +173,19 @@ if.then22:                                        ; preds = %if.end16
 if.end23:                                         ; preds = %if.end16.thread, %if.end16
   tail call void @virtio_init(ptr noundef %call.i, i16 noundef zeroext 4, i64 noundef 0) #7
   %call24 = tail call ptr @virtio_add_queue(ptr noundef %call.i, i32 noundef 8, ptr noundef nonnull @handle_input) #7
-  %vq = getelementptr inbounds %struct.VirtIORNG, ptr %call.i25, i64 0, i32 1
+  %vq = getelementptr inbounds i8, ptr %call.i25, i64 520
   store ptr %call24, ptr %vq, align 8
   %3 = load i64, ptr %max_bytes, align 8
-  %quota_remaining = getelementptr inbounds %struct.VirtIORNG, ptr %call.i25, i64 0, i32 5
+  %quota_remaining = getelementptr inbounds i8, ptr %call.i25, i64 568
   store i64 %3, ptr %quota_remaining, align 8
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #8
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1000000, i32 noundef 0, ptr noundef nonnull @check_rate_limit, ptr noundef nonnull %call.i25) #7
-  %rate_limit_timer = getelementptr inbounds %struct.VirtIORNG, ptr %call.i25, i64 0, i32 4
+  %rate_limit_timer = getelementptr inbounds i8, ptr %call.i25, i64 560
   store ptr %call.i.i.i, ptr %rate_limit_timer, align 8
-  %activate_timer = getelementptr inbounds %struct.VirtIORNG, ptr %call.i25, i64 0, i32 6
+  %activate_timer = getelementptr inbounds i8, ptr %call.i25, i64 576
   store i8 1, ptr %activate_timer, align 8
   %call28 = tail call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @virtio_rng_vm_state_change, ptr noundef nonnull %call.i25) #7
-  %vmstate = getelementptr inbounds %struct.VirtIORNG, ptr %call.i25, i64 0, i32 7
+  %vmstate = getelementptr inbounds i8, ptr %call.i25, i64 584
   store ptr %call28, ptr %vmstate, align 8
   br label %return
 
@@ -218,10 +198,10 @@ define internal void @virtio_rng_device_unrealize(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #7
   %call.i4 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, i32 noundef 21, ptr noundef nonnull @__func__.VIRTIO_RNG) #7
-  %vmstate = getelementptr inbounds %struct.VirtIORNG, ptr %call.i4, i64 0, i32 7
+  %vmstate = getelementptr inbounds i8, ptr %call.i4, i64 584
   %0 = load ptr, ptr %vmstate, align 8
   tail call void @qemu_del_vm_change_state_handler(ptr noundef %0) #7
-  %rate_limit_timer = getelementptr inbounds %struct.VirtIORNG, ptr %call.i4, i64 0, i32 4
+  %rate_limit_timer = getelementptr inbounds i8, ptr %call.i4, i64 560
   %1 = load ptr, ptr %rate_limit_timer, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
@@ -247,14 +227,14 @@ entry:
 define internal void @virtio_rng_set_status(ptr noundef %vdev, i8 noundef zeroext %status) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, i32 noundef 21, ptr noundef nonnull @__func__.VIRTIO_RNG) #7
-  %vm_running = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 16
+  %vm_running = getelementptr inbounds i8, ptr %vdev, i64 434
   %0 = load i8, ptr %vm_running, align 2
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %status1 = getelementptr inbounds %struct.VirtIODevice, ptr %vdev, i64 0, i32 2
+  %status1 = getelementptr inbounds i8, ptr %vdev, i64 168
   store i8 %status, ptr %status1, align 8
   tail call fastcc void @virtio_rng_process(ptr noundef %call.i)
   br label %return
@@ -294,12 +274,12 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @check_rate_limit(ptr noundef %opaque) #0 {
 entry:
-  %max_bytes = getelementptr inbounds %struct.VirtIORNG, ptr %opaque, i64 0, i32 2, i32 1
+  %max_bytes = getelementptr inbounds i8, ptr %opaque, i64 536
   %0 = load i64, ptr %max_bytes, align 8
-  %quota_remaining = getelementptr inbounds %struct.VirtIORNG, ptr %opaque, i64 0, i32 5
+  %quota_remaining = getelementptr inbounds i8, ptr %opaque, i64 568
   store i64 %0, ptr %quota_remaining, align 8
   tail call fastcc void @virtio_rng_process(ptr noundef %opaque)
-  %activate_timer = getelementptr inbounds %struct.VirtIORNG, ptr %opaque, i64 0, i32 6
+  %activate_timer = getelementptr inbounds i8, ptr %opaque, i64 576
   store i8 1, ptr %activate_timer, align 8
   ret void
 }
@@ -335,7 +315,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %opaque, i32 noundef %conv, i32 noundef %state) #7
   br label %trace_virtio_rng_vm_state_change.exit
@@ -370,18 +350,18 @@ entry:
   br i1 %call, label %if.end, label %if.end23
 
 if.end:                                           ; preds = %entry
-  %activate_timer = getelementptr inbounds %struct.VirtIORNG, ptr %vrng, i64 0, i32 6
+  %activate_timer = getelementptr inbounds i8, ptr %vrng, i64 576
   %0 = load i8, ptr %activate_timer, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end4, label %if.then1
 
 if.then1:                                         ; preds = %if.end
-  %rate_limit_timer = getelementptr inbounds %struct.VirtIORNG, ptr %vrng, i64 0, i32 4
+  %rate_limit_timer = getelementptr inbounds i8, ptr %vrng, i64 560
   %2 = load ptr, ptr %rate_limit_timer, align 8
   %call.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #7
   %div.i = sdiv i64 %call.i, 1000000
-  %period_ms = getelementptr inbounds %struct.VirtIORNG, ptr %vrng, i64 0, i32 2, i32 2
+  %period_ms = getelementptr inbounds i8, ptr %vrng, i64 544
   %3 = load i32, ptr %period_ms, align 8
   %conv = zext i32 %3 to i64
   %add = add nsw i64 %div.i, %conv
@@ -390,13 +370,13 @@ if.then1:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then1, %if.end
-  %quota_remaining = getelementptr inbounds %struct.VirtIORNG, ptr %vrng, i64 0, i32 5
+  %quota_remaining = getelementptr inbounds i8, ptr %vrng, i64 568
   %4 = load i64, ptr %quota_remaining, align 8
   %cmp = icmp slt i64 %4, 0
   %cond = tail call i64 @llvm.umin.i64(i64 %4, i64 4294967295)
   %conv10 = trunc i64 %cond to i32
   %quota.0 = select i1 %cmp, i32 0, i32 %conv10
-  %vq = getelementptr inbounds %struct.VirtIORNG, ptr %vrng, i64 0, i32 1
+  %vq = getelementptr inbounds i8, ptr %vrng, i64 520
   %5 = load ptr, ptr %vq, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %in.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %out.i)
@@ -429,7 +409,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = call i32 @qemu_get_thread_id() #7
   %12 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %13 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %12, i64 noundef %13, ptr noundef nonnull %vrng, i64 noundef %conv.i, i32 noundef %quota.0) #7
   br label %trace_virtio_rng_request.exit
@@ -446,7 +426,7 @@ trace_virtio_rng_request.exit:                    ; preds = %if.end4, %land.lhs.
   br i1 %tobool21.not, label %if.end23, label %if.then22
 
 if.then22:                                        ; preds = %trace_virtio_rng_request.exit
-  %rng = getelementptr inbounds %struct.VirtIORNG, ptr %vrng, i64 0, i32 3
+  %rng = getelementptr inbounds i8, ptr %vrng, i64 552
   %15 = load ptr, ptr %rng, align 8
   call void @rng_backend_request_entropy(ptr noundef %15, i64 noundef %cond20, ptr noundef nonnull @chr_read, ptr noundef nonnull %vrng) #7
   br label %if.end23
@@ -460,14 +440,14 @@ define internal fastcc zeroext i1 @is_guest_ready(ptr noundef %vrng) unnamed_add
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vrng, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.4, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE) #7
-  %vq = getelementptr inbounds %struct.VirtIORNG, ptr %vrng, i64 0, i32 1
+  %vq = getelementptr inbounds i8, ptr %vrng, i64 520
   %0 = load ptr, ptr %vq, align 8
   %call1 = tail call i32 @virtio_queue_ready(ptr noundef %0) #7
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %status = getelementptr inbounds %struct.VirtIODevice, ptr %call.i, i64 0, i32 2
+  %status = getelementptr inbounds i8, ptr %call.i, i64 168
   %1 = load i8, ptr %status, align 8
   %2 = and i8 %1, 4
   %tobool2.not = icmp eq i8 %2, 0
@@ -498,7 +478,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %8 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %9 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i, i64 noundef %8, i64 noundef %9, ptr noundef nonnull %vrng) #7
   br label %trace_virtio_rng_guest_not_ready.exit
@@ -560,7 +540,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #7
   %call10.i.i = tail call i32 @qemu_get_thread_id() #7
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %opaque, i32 noundef %conv) #7
   br label %trace_virtio_rng_cpu_is_stopped.exit
@@ -574,17 +554,17 @@ trace_virtio_rng_cpu_is_stopped.exit:             ; preds = %if.then3, %land.lhs
   br label %if.end22
 
 if.end4:                                          ; preds = %if.end
-  %quota_remaining = getelementptr inbounds %struct.VirtIORNG, ptr %opaque, i64 0, i32 5
+  %quota_remaining = getelementptr inbounds i8, ptr %opaque, i64 568
   %7 = load i64, ptr %quota_remaining, align 8
   %sub = sub i64 %7, %size
   store i64 %sub, ptr %quota_remaining, align 8
-  %vq = getelementptr inbounds %struct.VirtIORNG, ptr %opaque, i64 0, i32 1
+  %vq = getelementptr inbounds i8, ptr %opaque, i64 520
   %cmp52.not = icmp eq i64 %size, 0
   br i1 %cmp52.not, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end4
-  %tv_usec.i.i35 = getelementptr inbounds %struct.timeval, ptr %_now.i.i23, i64 0, i32 1
-  %tv_usec.i.i50 = getelementptr inbounds %struct.timeval, ptr %_now.i.i38, i64 0, i32 1
+  %tv_usec.i.i35 = getelementptr inbounds i8, ptr %_now.i.i23, i64 8
+  %tv_usec.i.i50 = getelementptr inbounds i8, ptr %_now.i.i38, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %trace_virtio_rng_pushed.exit
@@ -631,9 +611,9 @@ trace_virtio_rng_popped.exit:                     ; preds = %if.end9, %land.lhs.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i23)
   %sub11 = sub i64 %size, %conv553
   %add.ptr = getelementptr i8, ptr %buf, i64 %conv553
-  %in_num = getelementptr inbounds %struct.VirtQueueElement, ptr %call7, i64 0, i32 4
+  %in_num = getelementptr inbounds i8, ptr %call7, i64 16
   %16 = load i32, ptr %in_num, align 8
-  %in_sg = getelementptr inbounds %struct.VirtQueueElement, ptr %call7, i64 0, i32 7
+  %in_sg = getelementptr inbounds i8, ptr %call7, i64 40
   %17 = load ptr, ptr %in_sg, align 8
   %call.i37 = tail call i64 @iov_from_buf_full(ptr noundef %17, i32 noundef %16, i64 noundef 0, ptr noundef %add.ptr, i64 noundef %sub11) #7
   %add = add i64 %call.i37, %conv553

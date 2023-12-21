@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-bn_x931p.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.bignum_st = type { ptr, i32, i32, i32, i32 }
-
 ; Function Attrs: nounwind uwtable
 define i32 @BN_X931_derive_prime_ex(ptr noundef %p, ptr noundef %p1, ptr noundef %p2, ptr noundef %Xp, ptr noundef %Xp1, ptr noundef %Xp2, ptr noundef %e, ptr noundef %ctx, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
@@ -79,7 +77,7 @@ if.end41:                                         ; preds = %if.end37
   br i1 %tobool43.not, label %err, label %if.end45
 
 if.end45:                                         ; preds = %if.end41
-  %neg = getelementptr inbounds %struct.bignum_st, ptr %p, i64 0, i32 3
+  %neg = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool46.not = icmp eq i32 %0, 0
   br i1 %tobool46.not, label %if.end50, label %land.lhs.true

@@ -398,7 +398,7 @@ if.end11:                                         ; preds = %entry, %if.then2
   br i1 %cmp13, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end11
-  %arrayidx22 = getelementptr inbounds [133 x i8], ptr %str, i64 0, i64 1
+  %arrayidx22 = getelementptr inbounds i8, ptr %str, i64 1
   %add = add nuw nsw i32 %off.addr.0, 4
   %conv23 = zext nneg i32 %add to i64
   %add26 = add nuw nsw i32 %off.addr.0, 5

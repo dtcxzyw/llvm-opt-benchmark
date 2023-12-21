@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.rerr = type { i32, ptr, ptr }
-%struct.llvm_regex = type { i32, i64, ptr, ptr }
 
 @rerrs = internal unnamed_addr constant [17 x %struct.rerr] [%struct.rerr { i32 1, ptr @.str.1, ptr @.str.2 }, %struct.rerr { i32 2, ptr @.str.3, ptr @.str.4 }, %struct.rerr { i32 3, ptr @.str.5, ptr @.str.6 }, %struct.rerr { i32 4, ptr @.str.7, ptr @.str.8 }, %struct.rerr { i32 5, ptr @.str.9, ptr @.str.10 }, %struct.rerr { i32 6, ptr @.str.11, ptr @.str.12 }, %struct.rerr { i32 7, ptr @.str.13, ptr @.str.14 }, %struct.rerr { i32 8, ptr @.str.15, ptr @.str.16 }, %struct.rerr { i32 9, ptr @.str.17, ptr @.str.18 }, %struct.rerr { i32 10, ptr @.str.19, ptr @.str.20 }, %struct.rerr { i32 11, ptr @.str.21, ptr @.str.22 }, %struct.rerr { i32 12, ptr @.str.23, ptr @.str.24 }, %struct.rerr { i32 13, ptr @.str.25, ptr @.str.26 }, %struct.rerr { i32 14, ptr @.str.27, ptr @.str.28 }, %struct.rerr { i32 15, ptr @.str.29, ptr @.str.30 }, %struct.rerr { i32 16, ptr @.str.31, ptr @.str.32 }, %struct.rerr { i32 0, ptr @.str.33, ptr @.str.34 }], align 16
 @.str = private unnamed_addr constant [9 x i8] c"REG_0x%x\00", align 1
@@ -54,7 +53,7 @@ entry:
   br i1 %cmp, label %if.then, label %for.cond
 
 if.then:                                          ; preds = %entry
-  %re_endp.i = getelementptr inbounds %struct.llvm_regex, ptr %preg, i64 0, i32 2
+  %re_endp.i = getelementptr inbounds i8, ptr %preg, i64 16
   %0 = load ptr, ptr %re_endp.i, align 8
   %call.i12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.1, ptr noundef nonnull dereferenceable(1) %0) #4
   %cmp1.i13 = icmp eq i32 %call.i12, 0
@@ -62,13 +61,13 @@ if.then:                                          ; preds = %entry
 
 for.cond.i:                                       ; preds = %if.then, %for.body.i
   %r.07.i14 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ @rerrs, %if.then ]
-  %incdec.ptr.i = getelementptr inbounds %struct.rerr, ptr %r.07.i14, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %r.07.i14, i64 24
   %1 = load i32, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end19, label %for.body.i, !llvm.loop !4
 
 for.body.i:                                       ; preds = %for.cond.i
-  %name.i = getelementptr inbounds %struct.rerr, ptr %r.07.i14, i64 1, i32 1
+  %name.i = getelementptr inbounds i8, ptr %r.07.i14, i64 32
   %2 = load ptr, ptr %name.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %0) #4
   %cmp1.i = icmp eq i32 %call.i, 0
@@ -85,7 +84,7 @@ for.cond:                                         ; preds = %entry, %for.cond
   %cmp1.not = icmp eq i32 %3, 0
   %cmp3 = icmp eq i32 %3, %and
   %or.cond = or i1 %cmp1.not, %cmp3
-  %incdec.ptr = getelementptr inbounds %struct.rerr, ptr %r.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %r.0, i64 24
   br i1 %or.cond, label %for.end, label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond
@@ -97,7 +96,7 @@ if.then6:                                         ; preds = %for.end
   br i1 %cmp1.not, label %if.else12, label %if.then9
 
 if.then9:                                         ; preds = %if.then6
-  %name = getelementptr inbounds %struct.rerr, ptr %r.0, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %r.0, i64 8
   %4 = load ptr, ptr %name, align 8
   %call11 = call i64 @llvh_strlcpy(ptr noundef nonnull %convbuf, ptr noundef %4, i64 noundef 50) #5
   br label %if.end19
@@ -107,7 +106,7 @@ if.else12:                                        ; preds = %if.then6
   br label %if.end19
 
 if.else17:                                        ; preds = %for.end
-  %explain = getelementptr inbounds %struct.rerr, ptr %r.0, i64 0, i32 2
+  %explain = getelementptr inbounds i8, ptr %r.0, i64 16
   %5 = load ptr, ptr %explain, align 8
   br label %if.end19
 

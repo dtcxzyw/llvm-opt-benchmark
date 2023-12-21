@@ -6,8 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ClassSelector = type { ptr, ptr, i32 }
 %struct.InsnClassExecCount = type { ptr, ptr, i32, i32, i32, i64 }
 %union._GMutex = type { ptr }
-%struct.InsnExecCount = type { ptr, i32, i64, ptr }
-%struct._GList = type { ptr, ptr, ptr }
 
 @qemu_plugin_version = local_unnamed_addr global i32 1, align 4
 @class_tables = internal unnamed_addr constant [4 x %struct.ClassSelector] [%struct.ClassSelector { ptr @.str.6, ptr @aarch64_insn_classes, i32 42 }, %struct.ClassSelector { ptr @.str.7, ptr @sparc32_insn_classes, i32 8 }, %struct.ClassSelector { ptr @.str.8, ptr @sparc64_insn_classes, i32 5 }, %struct.ClassSelector { ptr null, ptr @default_insn_classes, i32 1 }], align 16
@@ -151,37 +149,37 @@ entry:
   %0 = load ptr, ptr %info, align 8
   br label %lor.lhs.false
 
-for.cond:                                         ; preds = %lor.lhs.false
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv71, 1
+for.body:                                         ; preds = %lor.lhs.false
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv70, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond, label %for.end, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %entry, %for.cond
-  %indvars.iv71 = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv71
+lor.lhs.false:                                    ; preds = %entry, %for.body
+  %indvars.iv70 = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
+  %arrayidx = getelementptr inbounds [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv70
   %1 = load ptr, ptr %arrayidx, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %0) #9
   %cmp4 = icmp eq i32 %call, 0
-  br i1 %cmp4, label %for.end, label %for.cond
+  br i1 %cmp4, label %for.end, label %for.body
 
-for.end:                                          ; preds = %for.cond, %lor.lhs.false
-  %indvars.iv.lcssa = phi i64 [ %indvars.iv.next, %for.cond ], [ %indvars.iv71, %lor.lhs.false ]
-  %table = getelementptr inbounds [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv.lcssa, i32 1
+for.end:                                          ; preds = %for.body, %lor.lhs.false
+  %arrayidx.lcssa = phi ptr [ %arrayidx, %lor.lhs.false ], [ getelementptr inbounds ([4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 3, i32 0), %for.body ]
+  %table = getelementptr inbounds i8, ptr %arrayidx.lcssa, i64 8
   %2 = load ptr, ptr %table, align 8
   store ptr %2, ptr @class_table, align 8
-  %table_sz = getelementptr inbounds [4 x %struct.ClassSelector], ptr @class_tables, i64 0, i64 %indvars.iv.lcssa, i32 2
+  %table_sz = getelementptr inbounds i8, ptr %arrayidx.lcssa, i64 16
   %3 = load i32, ptr %table_sz, align 8
   store i32 %3, ptr @class_table_sz, align 4
-  %cmp734 = icmp sgt i32 %argc, 0
-  br i1 %cmp734, label %for.body9.preheader, label %for.end70
+  %cmp733 = icmp sgt i32 %argc, 0
+  br i1 %cmp733, label %for.body9.preheader, label %for.end70
 
 for.body9.preheader:                              ; preds = %for.end
-  %wide.trip.count53 = zext nneg i32 %argc to i64
+  %wide.trip.count52 = zext nneg i32 %argc to i64
   br label %for.body9
 
 for.body9:                                        ; preds = %for.body9.preheader, %for.inc68
-  %indvars.iv50 = phi i64 [ 0, %for.body9.preheader ], [ %indvars.iv.next51, %for.inc68 ]
-  %arrayidx11 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv50
+  %indvars.iv49 = phi i64 [ 0, %for.body9.preheader ], [ %indvars.iv.next50, %for.inc68 ]
+  %arrayidx11 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv49
   %4 = load ptr, ptr %arrayidx11, align 8
   %call12 = tail call ptr @g_strsplit(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef -1) #10
   %5 = load ptr, ptr %call12, align 8
@@ -191,7 +189,7 @@ for.body9:                                        ; preds = %for.body9.preheader
   br i1 %cmp15, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %for.body9
-  %arrayidx19 = getelementptr inbounds ptr, ptr %call12, i64 1
+  %arrayidx19 = getelementptr inbounds i8, ptr %call12, i64 8
   %7 = load ptr, ptr %arrayidx19, align 8
   %call20 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %6, ptr noundef %7, ptr noundef nonnull @do_inline) #10
   br i1 %call20, label %for.inc68, label %glib_auto_cleanup_GStrv.exit
@@ -203,7 +201,7 @@ if.else:                                          ; preds = %for.body9
   br i1 %cmp26, label %if.then28, label %if.else35
 
 if.then28:                                        ; preds = %if.else
-  %arrayidx30 = getelementptr inbounds ptr, ptr %call12, i64 1
+  %arrayidx30 = getelementptr inbounds i8, ptr %call12, i64 8
   %9 = load ptr, ptr %arrayidx30, align 8
   %call31 = tail call zeroext i1 @qemu_plugin_bool_parse(ptr noundef %8, ptr noundef %9, ptr noundef nonnull @verbose) #10
   br i1 %call31, label %for.inc68, label %glib_auto_cleanup_GStrv.exit
@@ -214,7 +212,7 @@ if.else35:                                        ; preds = %if.else
   br i1 %cmp38, label %if.then40, label %glib_auto_cleanup_GStrv.exit
 
 if.then40:                                        ; preds = %if.else35
-  %arrayidx41 = getelementptr inbounds ptr, ptr %call12, i64 1
+  %arrayidx41 = getelementptr inbounds i8, ptr %call12, i64 8
   %10 = load ptr, ptr %arrayidx41, align 8
   %11 = load i8, ptr %10, align 1
   %cmp43 = icmp eq i8 %11, 33
@@ -222,8 +220,8 @@ if.then40:                                        ; preds = %if.else35
   %spec.select = getelementptr inbounds i8, ptr %10, i64 %spec.select.idx
   %spec.select18 = select i1 %cmp43, i32 2, i32 1
   %12 = load i32, ptr @class_table_sz, align 4
-  %cmp4832 = icmp sgt i32 %12, 0
-  br i1 %cmp4832, label %for.body50.lr.ph, label %for.inc68
+  %cmp4831 = icmp sgt i32 %12, 0
+  br i1 %cmp4831, label %for.body50.lr.ph, label %for.inc68
 
 for.body50.lr.ph:                                 ; preds = %if.then40
   %13 = load ptr, ptr @class_table, align 8
@@ -231,20 +229,21 @@ for.body50.lr.ph:                                 ; preds = %if.then40
   br label %for.body50
 
 for.cond47:                                       ; preds = %for.body50
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond49.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count
-  br i1 %exitcond49.not, label %for.inc68, label %for.body50, !llvm.loop !4
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count
+  br i1 %exitcond48.not, label %for.inc68, label %for.body50, !llvm.loop !4
 
 for.body50:                                       ; preds = %for.body50.lr.ph, %for.cond47
-  %indvars.iv46 = phi i64 [ 0, %for.body50.lr.ph ], [ %indvars.iv.next47, %for.cond47 ]
-  %opt = getelementptr inbounds %struct.InsnClassExecCount, ptr %13, i64 %indvars.iv46, i32 1
+  %indvars.iv45 = phi i64 [ 0, %for.body50.lr.ph ], [ %indvars.iv.next46, %for.cond47 ]
+  %arrayidx52 = getelementptr inbounds %struct.InsnClassExecCount, ptr %13, i64 %indvars.iv45
+  %opt = getelementptr inbounds i8, ptr %arrayidx52, i64 8
   %14 = load ptr, ptr %opt, align 8
   %call53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) %14) #9
   %cmp54 = icmp eq i32 %call53, 0
   br i1 %cmp54, label %if.then56, label %for.cond47
 
 if.then56:                                        ; preds = %for.body50
-  %what = getelementptr inbounds %struct.InsnClassExecCount, ptr %13, i64 %indvars.iv46, i32 4
+  %what = getelementptr inbounds i8, ptr %arrayidx52, i64 24
   store i32 %spec.select18, ptr %what, align 8
   br label %for.inc68
 
@@ -257,9 +256,9 @@ glib_auto_cleanup_GStrv.exit:                     ; preds = %if.else35, %if.then
 
 for.inc68:                                        ; preds = %for.cond47, %if.then40, %if.then28, %if.then56, %if.then17
   tail call void @g_strfreev(ptr noundef nonnull %call12) #10
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %for.end70, label %for.body9, !llvm.loop !6
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
+  br i1 %exitcond53.not, label %for.end70, label %for.body9, !llvm.loop !6
 
 for.end70:                                        ; preds = %for.inc68, %for.end
   %call.i = tail call ptr @g_hash_table_new_full(ptr noundef null, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef nonnull @free_record) #10
@@ -319,13 +318,14 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %mask.i = getelementptr inbounds %struct.InsnClassExecCount, ptr %2, i64 %indvars.iv.i, i32 2
+  %arrayidx.i = getelementptr inbounds %struct.InsnClassExecCount, ptr %2, i64 %indvars.iv.i
+  %mask.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %6 = load i32, ptr %mask.i, align 8
   %and.i = and i32 %6, %0
-  %pattern.i = getelementptr inbounds %struct.InsnClassExecCount, ptr %2, i64 %indvars.iv.i, i32 3
+  %pattern.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 20
   %7 = load i32, ptr %pattern.i, align 4
   %cmp1.i = icmp eq i32 %and.i, %7
-  br i1 %cmp1.i, label %do.end.loopexit.i, label %for.cond.i
+  br i1 %cmp1.i, label %do.end.i, label %for.cond.i
 
 do.body.i:                                        ; preds = %for.cond.i
   %tobool2.not.i = icmp eq ptr %scevgep.i, null
@@ -335,13 +335,9 @@ if.else.i:                                        ; preds = %do.body.i, %for.bod
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 262, ptr noundef nonnull @__func__.find_counter, ptr noundef nonnull @.str.113) #12
   unreachable
 
-do.end.loopexit.i:                                ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds %struct.InsnClassExecCount, ptr %2, i64 %indvars.iv.i
-  br label %do.end.i
-
-do.end.i:                                         ; preds = %do.end.loopexit.i, %do.body.i
-  %class.119.i = phi ptr [ %scevgep.i, %do.body.i ], [ %arrayidx.i, %do.end.loopexit.i ]
-  %what.i = getelementptr inbounds %struct.InsnClassExecCount, ptr %class.119.i, i64 0, i32 4
+do.end.i:                                         ; preds = %for.body.i, %do.body.i
+  %class.119.i = phi ptr [ %scevgep.i, %do.body.i ], [ %arrayidx.i, %for.body.i ]
+  %what.i = getelementptr inbounds i8, ptr %class.119.i, i64 24
   %8 = load i32, ptr %what.i, align 8
   switch i32 %8, label %do.body19.i [
     i32 2, label %for.inc
@@ -350,7 +346,7 @@ do.end.i:                                         ; preds = %do.end.loopexit.i, 
   ]
 
 sw.bb5.i:                                         ; preds = %do.end.i
-  %count.i = getelementptr inbounds %struct.InsnClassExecCount, ptr %class.119.i, i64 0, i32 5
+  %count.i = getelementptr inbounds i8, ptr %class.119.i, i64 32
   br label %if.then
 
 sw.bb6.i:                                         ; preds = %do.end.i
@@ -364,11 +360,11 @@ sw.bb6.i:                                         ; preds = %do.end.i
 
 if.then9.i:                                       ; preds = %sw.bb6.i
   %call10.i = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #13
-  %opcode11.i = getelementptr inbounds %struct.InsnExecCount, ptr %call10.i, i64 0, i32 1
+  %opcode11.i = getelementptr inbounds i8, ptr %call10.i, i64 8
   store i32 %0, ptr %opcode11.i, align 8
   %call12.i = tail call ptr @qemu_plugin_insn_disas(ptr noundef %call1) #10
   store ptr %call12.i, ptr %call10.i, align 8
-  %class14.i = getelementptr inbounds %struct.InsnExecCount, ptr %call10.i, i64 0, i32 3
+  %class14.i = getelementptr inbounds i8, ptr %call10.i, i64 24
   store ptr %class.119.i, ptr %class14.i, align 8
   %11 = load ptr, ptr @insns, align 8
   %call16.i = tail call i32 @g_hash_table_insert(ptr noundef %11, ptr noundef %10, ptr noundef nonnull %call10.i) #10
@@ -377,7 +373,7 @@ if.then9.i:                                       ; preds = %sw.bb6.i
 if.end17.i:                                       ; preds = %if.then9.i, %sw.bb6.i
   %icount.0.i = phi ptr [ %call7.i, %sw.bb6.i ], [ %call10.i, %if.then9.i ]
   tail call void @g_mutex_unlock(ptr noundef nonnull @lock) #10
-  %count18.i = getelementptr inbounds %struct.InsnExecCount, ptr %icount.0.i, i64 0, i32 2
+  %count18.i = getelementptr inbounds i8, ptr %icount.0.i, i64 16
   br label %if.then
 
 do.body19.i:                                      ; preds = %do.end.i
@@ -422,7 +418,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %1 = load ptr, ptr @class_table, align 8
   %arrayidx = getelementptr inbounds %struct.InsnClassExecCount, ptr %1, i64 %indvars.iv
-  %what = getelementptr inbounds %struct.InsnClassExecCount, ptr %1, i64 %indvars.iv, i32 4
+  %what = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %2 = load i32, ptr %what, align 8
   switch i32 %2, label %for.inc [
     i32 0, label %sw.bb
@@ -431,7 +427,7 @@ for.body:                                         ; preds = %entry, %for.inc
   ]
 
 sw.bb:                                            ; preds = %for.body
-  %count = getelementptr inbounds %struct.InsnClassExecCount, ptr %1, i64 %indvars.iv, i32 5
+  %count = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %3 = load i64, ptr %count, align 8
   %tobool.not = icmp eq i64 %3, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then
@@ -471,7 +467,7 @@ for.end:                                          ; preds = %for.inc, %entry
   br i1 %tobool9.not, label %glib_autoptr_cleanup_GString.exit, label %cond.true
 
 cond.true:                                        ; preds = %for.end
-  %next = getelementptr inbounds %struct._GList, ptr %call8, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %call8, i64 8
   %12 = load ptr, ptr %next, align 8
   %tobool11.not = icmp eq ptr %12, null
   br i1 %tobool11.not, label %glib_autoptr_cleanup_GString.exit, label %if.then12
@@ -485,7 +481,7 @@ if.then12:                                        ; preds = %cond.true
 cond.end:                                         ; preds = %if.then12, %cond.end29
   %i.134 = phi i32 [ %inc32, %cond.end29 ], [ 0, %if.then12 ]
   %counts.033 = phi ptr [ %20, %cond.end29 ], [ %call13, %if.then12 ]
-  %next18 = getelementptr inbounds %struct._GList, ptr %counts.033, i64 0, i32 1
+  %next18 = getelementptr inbounds i8, ptr %counts.033, i64 8
   %13 = load ptr, ptr %next18, align 8
   %tobool20.not = icmp eq ptr %13, null
   br i1 %tobool20.not, label %for.end39, label %for.body21
@@ -493,11 +489,11 @@ cond.end:                                         ; preds = %if.then12, %cond.en
 for.body21:                                       ; preds = %cond.end
   %14 = load ptr, ptr %counts.033, align 8
   %15 = load ptr, ptr %14, align 8
-  %count22 = getelementptr inbounds %struct.InsnExecCount, ptr %14, i64 0, i32 2
+  %count22 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load i64, ptr %count22, align 8
-  %opcode = getelementptr inbounds %struct.InsnExecCount, ptr %14, i64 0, i32 1
+  %opcode = getelementptr inbounds i8, ptr %14, i64 8
   %17 = load i32, ptr %opcode, align 8
-  %class23 = getelementptr inbounds %struct.InsnExecCount, ptr %14, i64 0, i32 3
+  %class23 = getelementptr inbounds i8, ptr %14, i64 24
   %18 = load ptr, ptr %class23, align 8
   %tobool24.not = icmp eq ptr %18, null
   br i1 %tobool24.not, label %cond.end29, label %cond.true25
@@ -594,9 +590,9 @@ declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @cmp_exec_count(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #8 {
 entry:
-  %count = getelementptr inbounds %struct.InsnExecCount, ptr %a, i64 0, i32 2
+  %count = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i64, ptr %count, align 8
-  %count1 = getelementptr inbounds %struct.InsnExecCount, ptr %b, i64 0, i32 2
+  %count1 = getelementptr inbounds i8, ptr %b, i64 16
   %1 = load i64, ptr %count1, align 8
   %cmp = icmp ugt i64 %0, %1
   %cond = select i1 %cmp, i32 -1, i32 1

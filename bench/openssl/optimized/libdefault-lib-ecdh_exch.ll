@@ -5,7 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.PROV_ECDH_CTX = type { ptr, ptr, ptr, i32, i32, ptr, ptr, i64, i64 }
 
 @ossl_ecdh_keyexch_functions = local_unnamed_addr constant [11 x %struct.ossl_dispatch_st] [%struct.ossl_dispatch_st { i32 1, ptr @ecdh_newctx }, %struct.ossl_dispatch_st { i32 2, ptr @ecdh_init }, %struct.ossl_dispatch_st { i32 3, ptr @ecdh_derive }, %struct.ossl_dispatch_st { i32 4, ptr @ecdh_set_peer }, %struct.ossl_dispatch_st { i32 5, ptr @ecdh_freectx }, %struct.ossl_dispatch_st { i32 6, ptr @ecdh_dupctx }, %struct.ossl_dispatch_st { i32 7, ptr @ecdh_set_ctx_params }, %struct.ossl_dispatch_st { i32 8, ptr @ecdh_settable_ctx_params }, %struct.ossl_dispatch_st { i32 9, ptr @ecdh_get_ctx_params }, %struct.ossl_dispatch_st { i32 10, ptr @ecdh_gettable_ctx_params }, %struct.ossl_dispatch_st zeroinitializer], align 16
 @.str = private unnamed_addr constant [58 x i8] c"../openssl/providers/implementations/exchange/ecdh_exch.c\00", align 1
@@ -38,9 +37,9 @@ if.end:                                           ; preds = %entry
 if.end3:                                          ; preds = %if.end
   %call4 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #7
   store ptr %call4, ptr %call1, align 8
-  %cofactor_mode = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %call1, i64 0, i32 3
+  %cofactor_mode = getelementptr inbounds i8, ptr %call1, i64 24
   store i32 -1, ptr %cofactor_mode, align 8
-  %kdf_type = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %call1, i64 0, i32 4
+  %kdf_type = getelementptr inbounds i8, ptr %call1, i64 28
   store i32 0, ptr %kdf_type, align 4
   br label %return
 
@@ -66,13 +65,13 @@ lor.lhs.false3:                                   ; preds = %entry
   br i1 %tobool5.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false3
-  %k = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 1
+  %k = getelementptr inbounds i8, ptr %vpecdhctx, i64 8
   %0 = load ptr, ptr %k, align 8
   tail call void @EC_KEY_free(ptr noundef %0) #7
   store ptr %vecdh, ptr %k, align 8
-  %cofactor_mode = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 3
+  %cofactor_mode = getelementptr inbounds i8, ptr %vpecdhctx, i64 24
   store i32 -1, ptr %cofactor_mode, align 8
-  %kdf_type = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 4
+  %kdf_type = getelementptr inbounds i8, ptr %vpecdhctx, i64 28
   store i32 0, ptr %kdf_type, align 4
   %call7 = tail call i32 @ecdh_set_ctx_params(ptr noundef nonnull %vpecdhctx, ptr noundef %params), !range !4
   %tobool8.not = icmp eq i32 %call7, 0
@@ -94,7 +93,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 define internal i32 @ecdh_derive(ptr nocapture noundef readonly %vpecdhctx, ptr noundef %secret, ptr nocapture noundef writeonly %psecretlen, i64 noundef %outlen) #0 {
 entry:
   %stmplen.i = alloca i64, align 8
-  %kdf_type = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 4
+  %kdf_type = getelementptr inbounds i8, ptr %vpecdhctx, i64 28
   %0 = load i32, ptr %kdf_type, align 4
   switch i32 %0, label %return [
     i32 0, label %sw.bb
@@ -108,7 +107,7 @@ sw.bb:                                            ; preds = %entry
 sw.bb1:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %stmplen.i)
   %cmp.i = icmp eq ptr %secret, null
-  %kdf_outlen.i = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 8
+  %kdf_outlen.i = getelementptr inbounds i8, ptr %vpecdhctx, i64 56
   %1 = load i64, ptr %kdf_outlen.i, align 8
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -127,13 +126,13 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %ecdh_X9_63_kdf_derive.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %k.i.i = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 1
+  %k.i.i = getelementptr inbounds i8, ptr %vpecdhctx, i64 8
   %2 = load ptr, ptr %k.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %ecdh_plain_derive.exit.thread.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end4.i
-  %peerk.i.i = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 2
+  %peerk.i.i = getelementptr inbounds i8, ptr %vpecdhctx, i64 16
   %3 = load ptr, ptr %peerk.i.i, align 8
   %cmp1.i.i = icmp eq ptr %3, null
   br i1 %cmp1.i.i, label %ecdh_plain_derive.exit.thread.i, label %if.end.i.i
@@ -171,11 +170,11 @@ if.end10.i:                                       ; preds = %if.end6.i
 
 if.end14.i:                                       ; preds = %if.end10.i
   %4 = load i64, ptr %kdf_outlen.i, align 8
-  %kdf_ukm.i = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 6
+  %kdf_ukm.i = getelementptr inbounds i8, ptr %vpecdhctx, i64 40
   %5 = load ptr, ptr %kdf_ukm.i, align 8
-  %kdf_ukmlen.i = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 7
+  %kdf_ukmlen.i = getelementptr inbounds i8, ptr %vpecdhctx, i64 48
   %6 = load i64, ptr %kdf_ukmlen.i, align 8
-  %kdf_md.i = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 5
+  %kdf_md.i = getelementptr inbounds i8, ptr %vpecdhctx, i64 32
   %7 = load ptr, ptr %kdf_md.i, align 8
   %8 = load ptr, ptr %vpecdhctx, align 8
   %call16.i = tail call i32 @ossl_ecdh_kdf_X9_63(ptr noundef nonnull %secret, i64 noundef %4, ptr noundef nonnull %call7.i, i64 noundef %.pre.i, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef null) #7
@@ -214,7 +213,7 @@ entry:
   br i1 %or.cond1, label %return, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %entry
-  %k = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 1
+  %k = getelementptr inbounds i8, ptr %vpecdhctx, i64 8
   %0 = load ptr, ptr %k, align 8
   %call.i = tail call ptr @EC_KEY_get0_group(ptr noundef %0) #7
   %call1.i = tail call ptr @EC_KEY_get0_group(ptr noundef nonnull %vecdh) #7
@@ -260,7 +259,7 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false6
   br i1 %tobool11.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false9
-  %peerk = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 2
+  %peerk = getelementptr inbounds i8, ptr %vpecdhctx, i64 16
   %2 = load ptr, ptr %peerk, align 8
   tail call void @EC_KEY_free(ptr noundef %2) #7
   store ptr %vecdh, ptr %peerk, align 8
@@ -274,18 +273,18 @@ return:                                           ; preds = %ecdh_match_params.e
 ; Function Attrs: nounwind uwtable
 define internal void @ecdh_freectx(ptr noundef %vpecdhctx) #0 {
 entry:
-  %k = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 1
+  %k = getelementptr inbounds i8, ptr %vpecdhctx, i64 8
   %0 = load ptr, ptr %k, align 8
   tail call void @EC_KEY_free(ptr noundef %0) #7
-  %peerk = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 2
+  %peerk = getelementptr inbounds i8, ptr %vpecdhctx, i64 16
   %1 = load ptr, ptr %peerk, align 8
   tail call void @EC_KEY_free(ptr noundef %1) #7
-  %kdf_md = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 5
+  %kdf_md = getelementptr inbounds i8, ptr %vpecdhctx, i64 32
   %2 = load ptr, ptr %kdf_md, align 8
   tail call void @EVP_MD_free(ptr noundef %2) #7
-  %kdf_ukm = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 6
+  %kdf_ukm = getelementptr inbounds i8, ptr %vpecdhctx, i64 40
   %3 = load ptr, ptr %kdf_ukm, align 8
-  %kdf_ukmlen = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 7
+  %kdf_ukmlen = getelementptr inbounds i8, ptr %vpecdhctx, i64 48
   %4 = load i64, ptr %kdf_ukmlen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %3, i64 noundef %4, ptr noundef nonnull @.str, i32 noundef 168) #7
   tail call void @CRYPTO_free(ptr noundef %vpecdhctx, ptr noundef nonnull @.str, i32 noundef 170) #7
@@ -306,11 +305,11 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call1, ptr noundef nonnull align 8 dereferenceable(64) %vpecdhctx, i64 64, i1 false)
-  %k = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %call1, i64 0, i32 1
-  %peerk = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %call1, i64 0, i32 2
-  %kdf_md = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %call1, i64 0, i32 5
-  %kdf_ukm = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %call1, i64 0, i32 6
-  %k4 = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 1
+  %k = getelementptr inbounds i8, ptr %call1, i64 8
+  %peerk = getelementptr inbounds i8, ptr %call1, i64 16
+  %kdf_md = getelementptr inbounds i8, ptr %call1, i64 32
+  %kdf_ukm = getelementptr inbounds i8, ptr %call1, i64 40
+  %k4 = getelementptr inbounds i8, ptr %vpecdhctx, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %k, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %kdf_md, i8 0, i64 16, i1 false)
   %0 = load ptr, ptr %k4, align 8
@@ -329,7 +328,7 @@ land.lhs.true.if.else_crit_edge:                  ; preds = %land.lhs.true
 if.else:                                          ; preds = %land.lhs.true.if.else_crit_edge, %if.end3
   %1 = phi ptr [ %.pre, %land.lhs.true.if.else_crit_edge ], [ null, %if.end3 ]
   store ptr %1, ptr %k, align 8
-  %peerk13 = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 2
+  %peerk13 = getelementptr inbounds i8, ptr %vpecdhctx, i64 16
   %2 = load ptr, ptr %peerk13, align 8
   %cmp14.not = icmp eq ptr %2, null
   br i1 %cmp14.not, label %if.else20, label %land.lhs.true15
@@ -346,7 +345,7 @@ land.lhs.true15.if.else20_crit_edge:              ; preds = %land.lhs.true15
 if.else20:                                        ; preds = %land.lhs.true15.if.else20_crit_edge, %if.else
   %3 = phi ptr [ %.pre30, %land.lhs.true15.if.else20_crit_edge ], [ null, %if.else ]
   store ptr %3, ptr %peerk, align 8
-  %kdf_md24 = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 5
+  %kdf_md24 = getelementptr inbounds i8, ptr %vpecdhctx, i64 32
   %4 = load ptr, ptr %kdf_md24, align 8
   %cmp25.not = icmp eq ptr %4, null
   br i1 %cmp25.not, label %if.else31, label %land.lhs.true26
@@ -363,13 +362,13 @@ land.lhs.true26.if.else31_crit_edge:              ; preds = %land.lhs.true26
 if.else31:                                        ; preds = %land.lhs.true26.if.else31_crit_edge, %if.else20
   %5 = phi ptr [ %.pre31, %land.lhs.true26.if.else31_crit_edge ], [ null, %if.else20 ]
   store ptr %5, ptr %kdf_md, align 8
-  %kdf_ukm35 = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 6
+  %kdf_ukm35 = getelementptr inbounds i8, ptr %vpecdhctx, i64 40
   %6 = load ptr, ptr %kdf_ukm35, align 8
   %cmp36.not = icmp eq ptr %6, null
   br i1 %cmp36.not, label %return, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %if.else31
-  %kdf_ukmlen = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 7
+  %kdf_ukmlen = getelementptr inbounds i8, ptr %vpecdhctx, i64 48
   %7 = load i64, ptr %kdf_ukmlen, align 8
   %cmp38.not = icmp eq i64 %7, 0
   br i1 %cmp38.not, label %return, label %if.then39
@@ -388,7 +387,7 @@ err:                                              ; preds = %if.then39, %land.lh
   %10 = load ptr, ptr %kdf_md, align 8
   tail call void @EVP_MD_free(ptr noundef %10) #7
   %11 = load ptr, ptr %kdf_ukm, align 8
-  %kdf_ukmlen.i = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %call1, i64 0, i32 7
+  %kdf_ukmlen.i = getelementptr inbounds i8, ptr %call1, i64 48
   %12 = load i64, ptr %kdf_ukmlen.i, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %11, i64 noundef %12, ptr noundef nonnull @.str, i32 noundef 168) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %call1, ptr noundef nonnull @.str, i32 noundef 170) #7
@@ -435,7 +434,7 @@ if.end8:                                          ; preds = %if.then5
   br i1 %or.cond, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %cofactor_mode = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 3
+  %cofactor_mode = getelementptr inbounds i8, ptr %vpecdhctx, i64 24
   store i32 %0, ptr %cofactor_mode, align 8
   br label %if.end13
 
@@ -462,7 +461,7 @@ if.else:                                          ; preds = %if.end20
 
 if.end33.sink.split:                              ; preds = %if.else, %if.end20
   %.sink = phi i32 [ 0, %if.end20 ], [ 1, %if.else ]
-  %kdf_type = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 4
+  %kdf_type = getelementptr inbounds i8, ptr %vpecdhctx, i64 28
   store i32 %.sink, ptr %kdf_type, align 4
   br label %if.end33
 
@@ -490,7 +489,7 @@ if.then47:                                        ; preds = %if.end42
   br i1 %tobool49.not, label %return, label %if.end52
 
 if.end52:                                         ; preds = %if.then47, %if.end42
-  %kdf_md = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 5
+  %kdf_md = getelementptr inbounds i8, ptr %vpecdhctx, i64 32
   %3 = load ptr, ptr %kdf_md, align 8
   call void @EVP_MD_free(ptr noundef %3) #7
   %4 = load ptr, ptr %vpecdhctx, align 8
@@ -523,7 +522,7 @@ if.then74:                                        ; preds = %if.end70
 
 if.end78:                                         ; preds = %if.then74
   %7 = load i64, ptr %outlen, align 8
-  %kdf_outlen = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 8
+  %kdf_outlen = getelementptr inbounds i8, ptr %vpecdhctx, i64 56
   store i64 %7, ptr %kdf_outlen, align 8
   br label %if.end79
 
@@ -539,13 +538,13 @@ if.then83:                                        ; preds = %if.end79
   br i1 %tobool85.not, label %return, label %if.end87
 
 if.end87:                                         ; preds = %if.then83
-  %kdf_ukm = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 6
+  %kdf_ukm = getelementptr inbounds i8, ptr %vpecdhctx, i64 40
   %8 = load ptr, ptr %kdf_ukm, align 8
   call void @CRYPTO_free(ptr noundef %8, ptr noundef nonnull @.str, i32 noundef 311) #7
   %9 = load ptr, ptr %tmp_ukm, align 8
   store ptr %9, ptr %kdf_ukm, align 8
   %10 = load i64, ptr %tmp_ukmlen, align 8
-  %kdf_ukmlen = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 7
+  %kdf_ukmlen = getelementptr inbounds i8, ptr %vpecdhctx, i64 48
   store i64 %10, ptr %kdf_ukmlen, align 8
   br label %return
 
@@ -572,13 +571,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end11, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %cofactor_mode = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 3
+  %cofactor_mode = getelementptr inbounds i8, ptr %vpecdhctx, i64 24
   %0 = load i32, ptr %cofactor_mode, align 8
   %cmp3 = icmp eq i32 %0, -1
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.then2
-  %k = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 1
+  %k = getelementptr inbounds i8, ptr %vpecdhctx, i64 8
   %1 = load ptr, ptr %k, align 8
   %call5 = tail call i32 @EC_KEY_get_flags(ptr noundef %1) #7
   %and = lshr i32 %call5, 12
@@ -597,7 +596,7 @@ if.end11:                                         ; preds = %if.end6, %if.end
   br i1 %cmp13.not, label %if.end21, label %if.then14
 
 if.then14:                                        ; preds = %if.end11
-  %kdf_type15 = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 4
+  %kdf_type15 = getelementptr inbounds i8, ptr %vpecdhctx, i64 28
   %2 = load i32, ptr %kdf_type15, align 4
   switch i32 %2, label %return [
     i32 0, label %sw.epilog
@@ -619,7 +618,7 @@ if.end21:                                         ; preds = %sw.epilog, %if.end1
   br i1 %cmp23.not, label %if.end31, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end21
-  %kdf_md = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 5
+  %kdf_md = getelementptr inbounds i8, ptr %vpecdhctx, i64 32
   %3 = load ptr, ptr %kdf_md, align 8
   %cmp24 = icmp eq ptr %3, null
   br i1 %cmp24, label %cond.end, label %cond.false
@@ -640,7 +639,7 @@ if.end31:                                         ; preds = %cond.end, %if.end21
   br i1 %cmp33.not, label %if.end38, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %if.end31
-  %kdf_outlen = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 8
+  %kdf_outlen = getelementptr inbounds i8, ptr %vpecdhctx, i64 56
   %4 = load i64, ptr %kdf_outlen, align 8
   %call35 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call32, i64 noundef %4) #7
   %tobool36.not = icmp eq i32 %call35, 0
@@ -652,9 +651,9 @@ if.end38:                                         ; preds = %land.lhs.true34, %i
   br i1 %cmp40.not, label %if.end45, label %land.lhs.true41
 
 land.lhs.true41:                                  ; preds = %if.end38
-  %kdf_ukm = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 6
+  %kdf_ukm = getelementptr inbounds i8, ptr %vpecdhctx, i64 40
   %5 = load ptr, ptr %kdf_ukm, align 8
-  %kdf_ukmlen = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 7
+  %kdf_ukmlen = getelementptr inbounds i8, ptr %vpecdhctx, i64 48
   %6 = load i64, ptr %kdf_ukmlen, align 8
   %call42 = tail call i32 @OSSL_PARAM_set_octet_ptr(ptr noundef nonnull %call39, ptr noundef %5, i64 noundef %6) #7
   %tobool43.not = icmp eq i32 %call42, 0
@@ -689,13 +688,13 @@ declare i32 @ossl_ec_check_key(ptr noundef, ptr noundef, i32 noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ecdh_plain_derive(ptr nocapture noundef readonly %vpecdhctx, ptr noundef %secret, ptr nocapture noundef writeonly %psecretlen, i64 noundef %outlen) unnamed_addr #0 {
 entry:
-  %k = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 1
+  %k = getelementptr inbounds i8, ptr %vpecdhctx, i64 8
   %0 = load ptr, ptr %k, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %peerk = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 2
+  %peerk = getelementptr inbounds i8, ptr %vpecdhctx, i64 16
   %1 = load ptr, ptr %peerk, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then, label %if.end
@@ -742,7 +741,7 @@ if.end13:                                         ; preds = %lor.lhs.false9
   %cond = tail call i64 @llvm.umin.i64(i64 %retval.0.i, i64 %outlen)
   %3 = load ptr, ptr %k, align 8
   %call16 = tail call i32 @EC_KEY_get_flags(ptr noundef %3) #7
-  %cofactor_mode = getelementptr inbounds %struct.PROV_ECDH_CTX, ptr %vpecdhctx, i64 0, i32 3
+  %cofactor_mode = getelementptr inbounds i8, ptr %vpecdhctx, i64 24
   %4 = load i32, ptr %cofactor_mode, align 8
   %cmp18.not = icmp eq i32 %4, -1
   br i1 %cmp18.not, label %if.else34, label %land.lhs.true

@@ -9,24 +9,27 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__atomic_base.52" = type { i8 }
 %"class.grpc_core::NoDestruct" = type { [8 x i8] }
 %"struct.absl::lts_20230802::container_internal::PolicyFunctions" = type { i64, ptr, ptr, ptr }
+%"class.std::optional" = type { %"struct.std::_Optional_base" }
+%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
+%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
+%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
+%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<grpc_core::ReclamationSweep>::_Storage", i8 }>
+%"union.std::_Optional_payload_base<grpc_core::ReclamationSweep>::_Storage" = type { %"class.grpc_core::ReclamationSweep" }
 %"class.grpc_core::ReclamationSweep" = type { %"class.std::shared_ptr", i64, %"class.grpc_core::Waker" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
 %"class.grpc_core::Waker" = type { %"struct.grpc_core::Waker::WakeableAndArg" }
 %"struct.grpc_core::Waker::WakeableAndArg" = type { ptr, i16 }
-%"class.grpc_core::BasicMemoryQuota" = type { %"class.std::enable_shared_from_this", %"struct.std::atomic", %"struct.std::atomic.0", [3 x %"class.grpc_core::ReclaimerQueue"], %"class.grpc_core::BasicMemoryQuota::AllocatorBucket", %"class.grpc_core::BasicMemoryQuota::AllocatorBucket", %"class.std::unique_ptr", %"struct.std::atomic.0", %"class.grpc_core::memory_quota_detail::PressureTracker", %"class.std::__cxx11::basic_string" }
-%"class.std::enable_shared_from_this" = type { %"class.std::weak_ptr" }
-%"class.std::weak_ptr" = type { %"class.std::__weak_ptr" }
-%"class.std::__weak_ptr" = type { ptr, %"class.std::__weak_count" }
-%"class.std::__weak_count" = type { ptr }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"class.grpc_core::ReclaimerQueue" = type { %"class.std::shared_ptr.2" }
-%"class.std::shared_ptr.2" = type { %"class.std::__shared_ptr.3" }
-%"class.std::__shared_ptr.3" = type { ptr, %"class.std::__shared_count" }
-%"class.grpc_core::BasicMemoryQuota::AllocatorBucket" = type { %"struct.std::array" }
-%"struct.std::array" = type { [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"] }
+%"class.grpc_core::RefCountedPtr" = type { ptr }
+%"class.std::unique_ptr.25" = type { %"struct.std::__uniq_ptr_data.26" }
+%"struct.std::__uniq_ptr_data.26" = type { %"class.std::__uniq_ptr_impl.27" }
+%"class.std::__uniq_ptr_impl.27" = type { %"class.std::tuple.28" }
+%"class.std::tuple.28" = type { %"struct.std::_Tuple_impl.29" }
+%"struct.std::_Tuple_impl.29" = type { %"struct.std::_Head_base.32" }
+%"struct.std::_Head_base.32" = type { ptr }
+%"class.grpc_core::Poll" = type { i8, %union.anon.33 }
+%union.anon.33 = type { %"class.grpc_core::RefCountedPtr" }
 %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard" = type { %"class.absl::lts_20230802::flat_hash_set", %"class.absl::lts_20230802::Mutex" }
 %"class.absl::lts_20230802::flat_hash_set" = type { %"class.absl::lts_20230802::container_internal::raw_hash_set" }
 %"class.absl::lts_20230802::container_internal::raw_hash_set" = type { %"class.absl::lts_20230802::container_internal::CompressedTuple" }
@@ -38,63 +41,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::CompressedTupleImpl.6" = type { %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.7" }
 %"struct.absl::lts_20230802::container_internal::internal_compressed_tuple::Storage.7" = type { i64 }
 %"class.absl::lts_20230802::Mutex" = type { %"struct.std::atomic" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.13" }
-%"struct.std::_Head_base.13" = type { ptr }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i64 }
-%"class.grpc_core::memory_quota_detail::PressureTracker" = type { %"struct.std::atomic.14", %"struct.std::atomic.14", %"class.grpc_core::PeriodicUpdate", %"class.grpc_core::memory_quota_detail::PressureController" }
-%"struct.std::atomic.14" = type { double }
-%"class.grpc_core::PeriodicUpdate" = type { %"struct.std::atomic", %"class.grpc_core::Duration", %"class.grpc_core::Timestamp", i64 }
-%"class.grpc_core::Duration" = type { i64 }
-%"class.grpc_core::Timestamp" = type { i64 }
-%"class.grpc_core::memory_quota_detail::PressureController" = type { i8, i8, i8, i8, double, double, double }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
-%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<grpc_core::ReclamationSweep>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<grpc_core::ReclamationSweep>::_Storage" = type { %"class.grpc_core::ReclamationSweep" }
-%"class.grpc_core::ReclaimerQueue::Handle" = type { %"class.grpc_core::InternallyRefCounted", %"struct.std::atomic.18" }
-%"class.grpc_core::InternallyRefCounted" = type { %"class.grpc_core::Orphanable", %"class.grpc_core::RefCount" }
-%"class.grpc_core::Orphanable" = type { ptr }
-%"class.grpc_core::RefCount" = type { %"struct.std::atomic" }
-%"struct.std::atomic.18" = type { %"struct.std::__atomic_base.19" }
-%"struct.std::__atomic_base.19" = type { ptr }
-%"struct.std::_Optional_payload_base" = type <{ %"union.std::_Optional_payload_base<grpc_core::ReclamationSweep>::_Storage", i8, [7 x i8] }>
-%"class.grpc_core::RefCountedPtr" = type { ptr }
-%"struct.grpc_core::ReclaimerQueue::State" = type { %"class.absl::lts_20230802::Mutex", %"class.grpc_core::MultiProducerSingleConsumerQueue", %"class.grpc_core::Waker" }
-%"class.grpc_core::MultiProducerSingleConsumerQueue" = type { %union.anon.22, ptr, %"struct.grpc_core::MultiProducerSingleConsumerQueue::Node" }
-%union.anon.22 = type { %"struct.std::atomic.23", [56 x i8] }
-%"struct.std::atomic.23" = type { %"struct.std::__atomic_base.24" }
-%"struct.std::__atomic_base.24" = type { ptr }
-%"struct.grpc_core::MultiProducerSingleConsumerQueue::Node" = type { %"struct.std::atomic.23" }
-%"struct.grpc_core::ReclaimerQueue::QueuedNode" = type { %"struct.grpc_core::MultiProducerSingleConsumerQueue::Node", %"class.grpc_core::RefCountedPtr" }
-%"class.std::unique_ptr.25" = type { %"struct.std::__uniq_ptr_data.26" }
-%"struct.std::__uniq_ptr_data.26" = type { %"class.std::__uniq_ptr_impl.27" }
-%"class.std::__uniq_ptr_impl.27" = type { %"class.std::tuple.28" }
-%"class.std::tuple.28" = type { %"struct.std::_Tuple_impl.29" }
-%"struct.std::_Tuple_impl.29" = type { %"struct.std::_Head_base.32" }
-%"struct.std::_Head_base.32" = type { ptr }
-%"class.grpc_core::ReclaimerQueue::Handle::Sweep" = type { ptr, %"class.std::shared_ptr.2" }
-%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<grpc_core::ReclaimerQueue::State, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<grpc_core::ReclaimerQueue::State, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
-%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<104, 8>::type" }
-%"union.std::aligned_storage<104, 8>::type" = type { [104 x i8] }
-%"class.grpc_core::Poll" = type { i8, %union.anon.33 }
-%union.anon.33 = type { %"class.grpc_core::RefCountedPtr" }
-%"class.grpc_core::GrpcMemoryAllocatorImpl" = type { %"class.grpc_event_engine::experimental::internal::MemoryAllocatorImpl", %"class.std::shared_ptr", %"struct.std::atomic.0", %"struct.std::atomic.0", %"struct.std::atomic.0", %"class.grpc_core::PeriodicUpdate", %"class.absl::lts_20230802::Mutex", i8, [3 x %"class.std::unique_ptr.37"] }
-%"class.grpc_event_engine::experimental::internal::MemoryAllocatorImpl" = type { ptr, %"class.std::enable_shared_from_this.34" }
-%"class.std::enable_shared_from_this.34" = type { %"class.std::weak_ptr.35" }
-%"class.std::weak_ptr.35" = type { %"class.std::__weak_ptr.36" }
-%"class.std::__weak_ptr.36" = type { ptr, %"class.std::__weak_count" }
+%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
+%"struct.std::__atomic_base" = type { i64 }
 %"class.std::unique_ptr.37" = type { %"struct.std::__uniq_ptr_data.38" }
 %"struct.std::__uniq_ptr_data.38" = type { %"class.std::__uniq_ptr_impl.39" }
 %"class.std::__uniq_ptr_impl.39" = type { %"class.std::tuple.40" }
@@ -106,10 +54,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%struct.grpc_slice_refcount = type { %"struct.std::atomic.0", ptr }
-%"class.grpc_core::(anonymous namespace)::SliceRefCount" = type { %struct.grpc_slice_refcount, %"class.std::shared_ptr.53", i64 }
-%"class.std::shared_ptr.53" = type { %"class.std::__shared_ptr.54" }
-%"class.std::__shared_ptr.54" = type { ptr, %"class.std::__shared_count" }
 %"class.grpc_core::promise_detail::Loop" = type { %"class.grpc_core::promise_detail::RepeatedPromiseFactory", %union.anon.72, i8, [7 x i8] }
 %"class.grpc_core::promise_detail::RepeatedPromiseFactory" = type { %"class.grpc_core::promise_detail::Seq" }
 %"class.grpc_core::promise_detail::Seq" = type { %"struct.grpc_core::promise_detail::SeqState" }
@@ -145,41 +89,23 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.83" = type { %"struct.std::_Vector_base<std::shared_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::shared_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::shared_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::shared_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::shared_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::shared_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::shared_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::(anonymous namespace)::MemoryQuotaTracker" = type { %"class.absl::lts_20230802::Mutex", %"class.std::vector" }
+%"class.std::weak_ptr" = type { %"class.std::__weak_ptr" }
+%"class.std::__weak_ptr" = type { ptr, %"class.std::__weak_count" }
+%"class.std::__weak_count" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
+%"class.std::basic_string_view" = type { i64, ptr }
+%"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
+%"class.grpc_event_engine::experimental::MemoryAllocator" = type { %"class.std::shared_ptr.53" }
+%"class.std::shared_ptr.53" = type { %"class.std::__shared_ptr.54" }
+%"class.std::__shared_ptr.54" = type { ptr, %"class.std::__shared_count" }
+%"class.grpc_core::MemoryOwner" = type { %"class.grpc_event_engine::experimental::MemoryAllocator" }
+%class.anon.92 = type { i8 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::weak_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::weak_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::weak_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::weak_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::weak_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::weak_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::weak_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::weak_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0" = type { %"class.grpc_core::promise_detail::PromiseLike", %"class.grpc_core::promise_detail::OncePromiseFactory" }
-%"class.grpc_core::promise_detail::PromiseLike" = type { %class.anon }
-%class.anon = type { %"class.std::shared_ptr" }
-%"class.grpc_core::promise_detail::OncePromiseFactory" = type { %class.anon.62 }
-%class.anon.62 = type { %"class.std::shared_ptr" }
-%"class.grpc_core::promise_detail::FreestandingActivity" = type { %"class.grpc_core::Activity", %"class.grpc_core::Wakeable", %"class.absl::lts_20230802::Mutex", %"struct.std::atomic.98", i8, ptr }
-%"class.grpc_core::Activity" = type { %"class.grpc_core::Orphanable" }
-%"class.grpc_core::Wakeable" = type { ptr }
-%"struct.std::atomic.98" = type { %"struct.std::__atomic_base.99" }
-%"struct.std::__atomic_base.99" = type { i32 }
-%"class.grpc_core::promise_detail::PromiseActivity" = type <{ %"class.grpc_core::promise_detail::FreestandingActivity", %"class.grpc_core::ExecCtxWakeupScheduler::BoundScheduler", i8, %"struct.std::atomic.51", [6 x i8], %"union.grpc_core::promise_detail::PromiseActivity<grpc_core::promise_detail::Loop<grpc_core::promise_detail::Seq<(lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>>, grpc_core::ExecCtxWakeupScheduler, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:481:20)>::PromiseHolder.base", [7 x i8] }>
-%"class.grpc_core::ExecCtxWakeupScheduler::BoundScheduler" = type { %struct.grpc_closure }
-%struct.grpc_closure = type { %union.anon.100, ptr, ptr, %union.anon.101 }
-%union.anon.100 = type { ptr }
-%union.anon.101 = type { i64 }
-%"union.grpc_core::promise_detail::PromiseActivity<grpc_core::promise_detail::Loop<grpc_core::promise_detail::Seq<(lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>>, grpc_core::ExecCtxWakeupScheduler, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:481:20)>::PromiseHolder.base" = type { [145 x i8] }
-%"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise" = type { %"class.std::shared_ptr", i64 }
-%"struct.std::_Optional_payload_base.108" = type <{ %"union.std::_Optional_payload_base<absl::lts_20230802::Status>::_Storage", i8, [7 x i8] }>
-%"class.std::basic_string_view" = type { i64, ptr }
-%"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
-%"class.grpc_event_engine::experimental::MemoryAllocator" = type { %"class.std::shared_ptr.53" }
-%"class.grpc_core::MemoryQuota" = type { %"class.grpc_event_engine::experimental::MemoryAllocatorFactory", %"class.std::shared_ptr" }
-%"class.grpc_event_engine::experimental::MemoryAllocatorFactory" = type { ptr }
-%"class.std::_Sp_counted_ptr_inplace.157" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<grpc_core::GrpcMemoryAllocatorImpl, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<grpc_core::GrpcMemoryAllocatorImpl, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer.158" }
-%"struct.__gnu_cxx::__aligned_buffer.158" = type { %"union.std::aligned_storage<136, 8>::type" }
-%"union.std::aligned_storage<136, 8>::type" = type { [136 x i8] }
-%"class.grpc_core::MemoryOwner" = type { %"class.grpc_event_engine::experimental::MemoryAllocator" }
-%class.anon.92 = type { i8 }
-%"class.std::type_info" = type { ptr, ptr }
 %"class.grpc_core::DebugLocation" = type { i8 }
 %"class.grpc_core::Poll.116" = type { i8, [7 x i8], %union.anon.117 }
 %union.anon.117 = type { %"class.std::variant" }
@@ -196,9 +122,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.__gnu_cxx::__aligned_membuf" = type { [8 x i8] }
 %"class.grpc_core::Poll.114" = type { i8, %union.anon.115 }
 %union.anon.115 = type { %"class.absl::lts_20230802::Status" }
-%"struct.std::__detail::__variant::_Variant_storage" = type { %"union.std::__detail::__variant::_Variadic_union", i8, [7 x i8] }
-%"class.std::bad_variant_access" = type { %"class.std::exception", ptr }
-%"class.std::exception" = type { ptr }
 %"class.std::allocator.15" = type { i8 }
 
 $__clang_call_terminate = comdat any
@@ -485,15 +408,15 @@ entry:
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %sweep_token_ = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %this, i64 0, i32 1
+  %sweep_token_ = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %sweep_token_, align 8
-  %waker_ = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %this, i64 0, i32 2
+  %waker_ = getelementptr inbounds i8, ptr %this, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %waker_, align 8
-  %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %retval.sroa.2.0.copyload.i.i.i.i = load i16, ptr %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i, align 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, ptr %waker_, align 8
   store i16 0, ptr %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i, align 8
-  %reclamation_counter_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %0, i64 0, i32 7
+  %reclamation_counter_.i = getelementptr inbounds i8, ptr %0, i64 1368
   %2 = load atomic i64, ptr %reclamation_counter_.i monotonic, align 8
   %cmp.not.i = icmp eq i64 %2, %1
   br i1 %cmp.not.i, label %if.end.i, label %invoke.cont
@@ -505,19 +428,19 @@ if.end.i:                                         ; preds = %if.then
   br i1 %4, label %if.then4.i, label %invoke.cont
 
 if.then4.i:                                       ; preds = %if.end.i
-  %5 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2) monotonic, align 8
+  %5 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %6 = and i8 %5, 1
   %tobool.i.i.i.not.i = icmp eq i8 %6, 0
   br i1 %tobool.i.i.i.not.i, label %if.end12.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.then4.i
-  %free_bytes_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %0, i64 0, i32 1
+  %free_bytes_.i = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load atomic i64, ptr %free_bytes_.i seq_cst, align 8
   %.sroa.speculated.i = tail call i64 @llvm.smax.i64(i64 %7, i64 0)
   %conv.i = sitofp i64 %.sroa.speculated.i to double
-  %quota_size_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %0, i64 0, i32 2
+  %quota_size_.i = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load atomic i64, ptr %quota_size_.i seq_cst, align 8
-  %name_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %0, i64 0, i32 9
+  %name_.i = getelementptr inbounds i8, ptr %0, i64 1456
   %call11.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name_.i) #26
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 539, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %call11.i, double noundef %conv.i, i64 noundef %8)
           to label %if.end12.i unwind label %terminate.lpad
@@ -532,7 +455,7 @@ invoke.cont:                                      ; preds = %if.end.i, %if.then,
   %agg.tmp.sroa.4.0 = phi i16 [ %retval.sroa.2.0.copyload.i.i.i.i, %if.end.i ], [ %retval.sroa.2.0.copyload.i.i.i.i, %if.then ], [ 0, %if.end12.i ]
   %agg.tmp.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload.i.i.i.i, %if.end.i ], [ %retval.sroa.0.0.copyload.i.i.i.i, %if.then ], [ @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, %if.end12.i ]
   %vtable.i.i = load ptr, ptr %agg.tmp.sroa.0.0, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %10 = load ptr, ptr %vfn.i.i, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.sroa.0.0, i16 noundef zeroext %agg.tmp.sroa.4.0)
           to label %if.end unwind label %terminate.lpad.i
@@ -545,12 +468,12 @@ terminate.lpad.i:                                 ; preds = %invoke.cont
   unreachable
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  %waker_4 = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %this, i64 0, i32 2
+  %waker_4 = getelementptr inbounds i8, ptr %this, i64 24
   %13 = load ptr, ptr %waker_4, align 8
-  %wakeup_mask.i.i2 = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %wakeup_mask.i.i2 = getelementptr inbounds i8, ptr %this, i64 32
   %14 = load i16, ptr %wakeup_mask.i.i2, align 8
   %vtable.i.i3 = load ptr, ptr %13, align 8
-  %vfn.i.i4 = getelementptr inbounds ptr, ptr %vtable.i.i3, i64 2
+  %vfn.i.i4 = getelementptr inbounds i8, ptr %vtable.i.i3, i64 16
   %15 = load ptr, ptr %vfn.i.i4, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %13, i16 noundef zeroext %14)
           to label %_ZN9grpc_core5WakerD2Ev.exit6 unwind label %terminate.lpad.i5
@@ -563,13 +486,13 @@ terminate.lpad.i5:                                ; preds = %if.end
   unreachable
 
 _ZN9grpc_core5WakerD2Ev.exit6:                    ; preds = %if.end
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %18 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %18, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN9grpc_core5WakerD2Ev.exit6
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %18, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %19, 4294967297
   %20 = trunc i64 %19 to i32
@@ -577,10 +500,10 @@ if.then.i.i.i:                                    ; preds = %_ZN9grpc_core5Waker
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %18, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %18, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %21 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %18) #26
   br label %if.end8.sink.split.i.i.i.i
@@ -606,10 +529,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %18, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %24 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %18) #26
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %18, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 12
   %25 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -631,7 +554,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %18, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %28 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %18) #26
   br label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit
@@ -650,7 +573,7 @@ terminate.lpad:                                   ; preds = %if.end12.i, %if.the
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core16BasicMemoryQuota17FinishReclamationEmNS_5WakerE(ptr noundef nonnull align 8 dereferenceable(1488) %this, i64 noundef %token, ptr nocapture noundef %waker) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %reclamation_counter_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 7
+  %reclamation_counter_ = getelementptr inbounds i8, ptr %this, i64 1368
   %0 = load atomic i64, ptr %reclamation_counter_ monotonic, align 8
   %cmp.not = icmp eq i64 %0, %token
   br i1 %cmp.not, label %if.end, label %if.end13
@@ -662,19 +585,19 @@ if.end:                                           ; preds = %entry
   br i1 %2, label %if.then4, label %if.end13
 
 if.then4:                                         ; preds = %if.end
-  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2) monotonic, align 8
+  %3 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %4 = and i8 %3, 1
   %tobool.i.i.i.not = icmp eq i8 %4, 0
   br i1 %tobool.i.i.i.not, label %if.end12, label %if.then6
 
 if.then6:                                         ; preds = %if.then4
-  %free_bytes_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 1
+  %free_bytes_ = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load atomic i64, ptr %free_bytes_ seq_cst, align 8
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
   %conv = sitofp i64 %.sroa.speculated to double
-  %quota_size_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 2
+  %quota_size_ = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load atomic i64, ptr %quota_size_ seq_cst, align 8
-  %name_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 9
+  %name_ = getelementptr inbounds i8, ptr %this, i64 1456
   %call11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name_) #26
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 539, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %call11, double noundef %conv, i64 noundef %6)
   br label %if.end12
@@ -710,13 +633,13 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN9grpc_core16BasicMemoryQuotaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -724,10 +647,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   br label %if.end8.sink.split.i.i.i
@@ -753,10 +676,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -778,7 +701,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   br label %_ZNSt12__shared_ptrIN9grpc_core16BasicMemoryQuotaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -791,14 +714,14 @@ _ZNSt12__shared_ptrIN9grpc_core16BasicMemoryQuotaELN9__gnu_cxx12_Lock_policyE2EE
 define void @_ZN9grpc_core14ReclaimerQueue6Handle6OrphanEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::optional", align 8
-  %sweep_ = getelementptr inbounds %"class.grpc_core::ReclaimerQueue::Handle", ptr %this, i64 0, i32 1
+  %sweep_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = atomicrmw xchg ptr %sweep_, i64 0 acq_rel, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   %vtable = load ptr, ptr %atomic-temp.i.0.i, align 8
   %1 = load ptr, ptr %vtable, align 8
@@ -833,14 +756,14 @@ _ZNSt8optionalIN9grpc_core16ReclamationSweepEED2Ev.exit5: ; preds = %lpad, %if.t
   resume { ptr, i32 } %4
 
 if.end:                                           ; preds = %if.then.i.i.i.i, %invoke.cont, %entry
-  %refs_.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %this, i64 0, i32 1
+  %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
   %7 = atomicrmw sub ptr %refs_.i, i64 1 acq_rel, align 8
   %cmp.i.i = icmp eq i64 %7, 1
   br i1 %cmp.i.i, label %if.then.i, label %_ZN9grpc_core20InternallyRefCountedINS_14ReclaimerQueue6HandleENS_11UnrefDeleteEE5UnrefEv.exit
 
 if.then.i:                                        ; preds = %if.end
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(24) %this) #26
   br label %_ZN9grpc_core20InternallyRefCountedINS_14ReclaimerQueue6HandleENS_11UnrefDeleteEE5UnrefEv.exit
@@ -853,33 +776,33 @@ _ZN9grpc_core20InternallyRefCountedINS_14ReclaimerQueue6HandleENS_11UnrefDeleteE
 define void @_ZN9grpc_core14ReclaimerQueue6Handle3RunENS_16ReclamationSweepE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %reclamation_sweep) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::optional", align 16
-  %sweep_ = getelementptr inbounds %"class.grpc_core::ReclaimerQueue::Handle", ptr %this, i64 0, i32 1
+  %sweep_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = atomicrmw xchg ptr %sweep_, i64 0 acq_rel, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
-  %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %reclamation_sweep, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %reclamation_sweep, i64 8
   %1 = load <2 x ptr>, ptr %reclamation_sweep, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8
   store <2 x ptr> %1, ptr %agg.tmp, align 16
   store ptr null, ptr %reclamation_sweep, align 8
-  %sweep_token_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %agg.tmp, i64 0, i32 1
-  %sweep_token_3.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %reclamation_sweep, i64 0, i32 1
+  %sweep_token_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %sweep_token_3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %reclamation_sweep, i64 16
   %2 = load i64, ptr %sweep_token_3.i.i.i.i.i.i.i, align 8
   store i64 %2, ptr %sweep_token_.i.i.i.i.i.i.i, align 16
-  %waker_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %agg.tmp, i64 0, i32 2
-  %waker_4.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %reclamation_sweep, i64 0, i32 2
+  %waker_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
+  %waker_4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %reclamation_sweep, i64 24
   %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %waker_4.i.i.i.i.i.i.i, align 8
-  %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %reclamation_sweep, i64 0, i32 2, i32 0, i32 1
+  %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %reclamation_sweep, i64 32
   %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i16, ptr %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, ptr %waker_4.i.i.i.i.i.i.i, align 8
   store i16 0, ptr %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %waker_.i.i.i.i.i.i.i, align 8
-  %3 = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %agg.tmp, i64 0, i32 2, i32 0, i32 1
+  %3 = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   store i16 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i.i, ptr %3, align 16
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.tmp, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   store i8 1, ptr %_M_engaged.i.i.i.i.i, align 8
   %vtable = load ptr, ptr %atomic-temp.i.0.i, align 8
   %4 = load ptr, ptr %vtable, align 8
@@ -921,14 +844,14 @@ if.end:                                           ; preds = %if.then.i.i.i.i, %i
 define noundef zeroext i1 @_ZN9grpc_core14ReclaimerQueue6Handle7RequeueEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %new_queue) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.grpc_core::RefCountedPtr", align 8
-  %sweep_ = getelementptr inbounds %"class.grpc_core::ReclaimerQueue::Handle", ptr %this, i64 0, i32 1
+  %sweep_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %sweep_ monotonic, align 8
   %tobool.not = icmp ne i64 %0, 0
   br i1 %tobool.not, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %this, i64 0, i32 1
+  %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !4
   store ptr %this, ptr %agg.tmp, align 8, !alias.scope !4
   invoke void @_ZN9grpc_core14ReclaimerQueue7EnqueueENS_13RefCountedPtrINS0_6HandleEEE(ptr noundef nonnull align 8 dereferenceable(16) %new_queue, ptr noundef nonnull %agg.tmp)
@@ -940,14 +863,14 @@ invoke.cont:                                      ; preds = %if.then
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
-  %refs_.i.i1 = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %2, i64 0, i32 1
+  %refs_.i.i1 = getelementptr inbounds i8, ptr %2, i64 8
   %3 = atomicrmw sub ptr %refs_.i.i1, i64 1 acq_rel, align 8
   %cmp.i.i.i = icmp eq i64 %3, 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %return
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(24) %2) #26
   br label %return
@@ -960,14 +883,14 @@ lpad:                                             ; preds = %if.then
   br i1 %cmp.not.i2, label %_ZN9grpc_core13RefCountedPtrINS_14ReclaimerQueue6HandleEED2Ev.exit9, label %if.then.i3
 
 if.then.i3:                                       ; preds = %lpad
-  %refs_.i.i4 = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %6, i64 0, i32 1
+  %refs_.i.i4 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = atomicrmw sub ptr %refs_.i.i4, i64 1 acq_rel, align 8
   %cmp.i.i.i5 = icmp eq i64 %7, 1
   br i1 %cmp.i.i.i5, label %if.then.i.i6, label %_ZN9grpc_core13RefCountedPtrINS_14ReclaimerQueue6HandleEED2Ev.exit9
 
 if.then.i.i6:                                     ; preds = %if.then.i3
   %vtable.i.i.i7 = load ptr, ptr %6, align 8
-  %vfn.i.i.i8 = getelementptr inbounds ptr, ptr %vtable.i.i.i7, i64 2
+  %vfn.i.i.i8 = getelementptr inbounds i8, ptr %vtable.i.i.i7, i64 16
   %8 = load ptr, ptr %vfn.i.i.i8, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %6) #26
   br label %_ZN9grpc_core13RefCountedPtrINS_14ReclaimerQueue6HandleEED2Ev.exit9
@@ -983,11 +906,11 @@ return:                                           ; preds = %if.then.i.i, %if.th
 define void @_ZN9grpc_core14ReclaimerQueue7EnqueueENS_13RefCountedPtrINS0_6HandleEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef %handle) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %queue = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::State", ptr %0, i64 0, i32 1
+  %queue = getelementptr inbounds i8, ptr %0, i64 8
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
   %1 = load ptr, ptr %handle, align 8
   store ptr null, ptr %handle, align 8
-  %reclaimer_handle2.i = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::QueuedNode", ptr %call2, i64 0, i32 1
+  %reclaimer_handle2.i = getelementptr inbounds i8, ptr %call2, i64 8
   store i64 0, ptr %call2, align 8
   store ptr %1, ptr %reclaimer_handle2.i, align 8
   %call4 = tail call noundef zeroext i1 @_ZN9grpc_core32MultiProducerSingleConsumerQueue4PushEPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(80) %queue, ptr noundef nonnull %call2)
@@ -997,9 +920,9 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %this, align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %3 = load ptr, ptr %this, align 8
-  %waker = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::State", ptr %3, i64 0, i32 2
+  %waker = getelementptr inbounds i8, ptr %3, i64 88
   %retval.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %waker, align 8
-  %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::State", ptr %3, i64 0, i32 2, i32 0, i32 1
+  %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 96
   %retval.sroa.2.0.copyload.i.i.i.i = load i16, ptr %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i, align 8
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, ptr %waker, align 8
   store i16 0, ptr %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i, align 8
@@ -1044,7 +967,7 @@ define void @_ZN9grpc_core14ReclaimerQueue6Handle5Sweep13MarkCancelledEv(ptr noc
 entry:
   %empty = alloca i8, align 1
   %node = alloca %"class.std::unique_ptr.25", align 8
-  %state_ = getelementptr inbounds %"class.grpc_core::ReclaimerQueue::Handle::Sweep", ptr %this, i64 0, i32 1
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %state_, align 8
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   br label %while.cond
@@ -1052,7 +975,7 @@ entry:
 while.cond:                                       ; preds = %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue10QueuedNodeESt14default_deleteIS2_EED2Ev.exit, %entry
   store i8 0, ptr %empty, align 1
   %1 = load ptr, ptr %state_, align 8
-  %queue = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::State", ptr %1, i64 0, i32 1
+  %queue = getelementptr inbounds i8, ptr %1, i64 8
   %call4 = invoke noundef ptr @_ZN9grpc_core32MultiProducerSingleConsumerQueue14PopAndCheckEndEPb(ptr noundef nonnull align 8 dereferenceable(80) %queue, ptr noundef nonnull %empty)
           to label %invoke.cont unwind label %lpad
 
@@ -1067,16 +990,16 @@ lpad:                                             ; preds = %while.cond
   br label %ehcleanup
 
 if.end:                                           ; preds = %invoke.cont
-  %reclaimer_handle = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::QueuedNode", ptr %call4, i64 0, i32 1
+  %reclaimer_handle = getelementptr inbounds i8, ptr %call4, i64 8
   %3 = load ptr, ptr %reclaimer_handle, align 8
-  %sweep_ = getelementptr inbounds %"class.grpc_core::ReclaimerQueue::Handle", ptr %3, i64 0, i32 1
+  %sweep_ = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load atomic i64, ptr %sweep_ monotonic, align 8
   %cmp.not = icmp eq i64 %4, 0
   br i1 %cmp.not, label %delete.notnull.i.i, label %if.then11
 
 if.then11:                                        ; preds = %if.end
   %5 = load ptr, ptr %state_, align 8
-  %queue14 = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::State", ptr %5, i64 0, i32 1
+  %queue14 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr null, ptr %node, align 8
   %call17 = invoke noundef zeroext i1 @_ZN9grpc_core32MultiProducerSingleConsumerQueue4PushEPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(80) %queue14, ptr noundef nonnull %call4)
           to label %while.end unwind label %lpad7
@@ -1088,20 +1011,20 @@ lpad7:                                            ; preds = %if.then11
   br label %ehcleanup
 
 delete.notnull.i.i:                               ; preds = %if.end
-  %reclaimer_handle.i.i.i = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::QueuedNode", ptr %call4, i64 0, i32 1
+  %reclaimer_handle.i.i.i = getelementptr inbounds i8, ptr %call4, i64 8
   %7 = load ptr, ptr %reclaimer_handle.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue10QueuedNodeESt14default_deleteIS2_EED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull.i.i
-  %refs_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %7, i64 0, i32 1
+  %refs_.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = atomicrmw sub ptr %refs_.i.i.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %8, 1
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue10QueuedNodeESt14default_deleteIS2_EED2Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(24) %7) #26
   br label %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue10QueuedNodeESt14default_deleteIS2_EED2Ev.exit
@@ -1154,20 +1077,20 @@ entry:
   br i1 %cmp.not, label %if.end, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %entry
-  %reclaimer_handle.i.i = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::QueuedNode", ptr %0, i64 0, i32 1
+  %reclaimer_handle.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %reclaimer_handle.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core14ReclaimerQueue10QueuedNodeEEclEPS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %delete.notnull.i
-  %refs_.i.i.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %1, i64 0, i32 1
+  %refs_.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = atomicrmw sub ptr %refs_.i.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %2, 1
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core14ReclaimerQueue10QueuedNodeEEclEPS2_.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(24) %1) #26
   br label %_ZNKSt14default_deleteIN9grpc_core14ReclaimerQueue10QueuedNodeEEclEPS2_.exit
@@ -1186,21 +1109,21 @@ define void @_ZN9grpc_core14ReclaimerQueueC2Ev(ptr nocapture noundef nonnull wri
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   store ptr null, ptr %this, align 8, !alias.scope !7
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.3", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #28, !noalias !7
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !7
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !7
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN9grpc_core14ReclaimerQueue5StateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !7
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1
-  %queue.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %stub_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 80
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
+  %queue.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 24
+  %stub_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %_M_impl.i.i.i.i.i.i, i8 0, i64 104, i1 false), !noalias !7
   store ptr %stub_.i.i.i.i.i.i.i.i.i, ptr %queue.i.i.i.i.i.i.i.i, align 8, !noalias !7
-  %tail_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 72
+  %tail_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 88
   store ptr %stub_.i.i.i.i.i.i.i.i.i, ptr %tail_.i.i.i.i.i.i.i.i.i, align 8, !noalias !7
-  %waker.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i3.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 88
+  %waker.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 104
   store ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, ptr %waker.i.i.i.i.i.i.i.i, align 8, !noalias !7
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i.i, align 8, !alias.scope !7
   store ptr %_M_impl.i.i.i.i.i.i, ptr %this, align 8, !alias.scope !7
@@ -1210,13 +1133,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core14ReclaimerQueueD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr.3", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core14ReclaimerQueue5StateEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -1224,10 +1147,10 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   br label %if.end8.sink.split.i.i.i.i
@@ -1253,10 +1176,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -1278,7 +1201,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   br label %_ZNSt10shared_ptrIN9grpc_core14ReclaimerQueue5StateEED2Ev.exit
@@ -1304,7 +1227,7 @@ entry:
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   store i8 0, ptr %empty, align 1
   %1 = load ptr, ptr %this, align 8
-  %queue = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::State", ptr %1, i64 0, i32 1
+  %queue = getelementptr inbounds i8, ptr %1, i64 8
   %call4 = invoke noundef ptr @_ZN9grpc_core32MultiProducerSingleConsumerQueue14PopAndCheckEndEPb(ptr noundef nonnull align 8 dereferenceable(80) %queue, ptr noundef nonnull %empty)
           to label %invoke.cont unwind label %lpad
 
@@ -1341,14 +1264,14 @@ invoke.cont10:                                    ; preds = %if.then9, %6
   %7 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   %8 = load ptr, ptr %7, align 8
   %vtable.i = load ptr, ptr %8, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %9 = load ptr, ptr %vfn.i, align 8
   %call.i2 = invoke noundef zeroext i16 %9(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %call.i.noexc unwind label %lpad7
 
 call.i.noexc:                                     ; preds = %invoke.cont10
   %vtable2.i = load ptr, ptr %8, align 8
-  %vfn3.i = getelementptr inbounds ptr, ptr %vtable2.i, i64 3
+  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 24
   %10 = load ptr, ptr %vfn3.i, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %8, i16 noundef zeroext %call.i2)
           to label %cleanup.thread unwind label %lpad7
@@ -1364,24 +1287,24 @@ invoke.cont13:                                    ; preds = %if.else, %11
   %12 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   %13 = load ptr, ptr %12, align 8
   %vtable = load ptr, ptr %13, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %14 = load ptr, ptr %vfn, align 8
   invoke void %14(ptr nonnull sret(%"class.grpc_core::Waker") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %invoke.cont15 unwind label %lpad7
 
 invoke.cont15:                                    ; preds = %invoke.cont13
   %15 = load ptr, ptr %this, align 8
-  %waker = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::State", ptr %15, i64 0, i32 2
+  %waker = getelementptr inbounds i8, ptr %15, i64 88
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__tmp.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i, ptr noundef nonnull align 8 dereferenceable(16) %waker, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %waker, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %__tmp.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__tmp.i.i)
   %16 = load ptr, ptr %ref.tmp, align 8
-  %wakeup_mask.i.i = getelementptr inbounds %"struct.grpc_core::Waker::WakeableAndArg", ptr %ref.tmp, i64 0, i32 1
+  %wakeup_mask.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %17 = load i16, ptr %wakeup_mask.i.i, align 8
   %vtable.i.i = load ptr, ptr %16, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %18 = load ptr, ptr %vfn.i.i, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %16, i16 noundef zeroext %17)
           to label %cleanup.thread unwind label %terminate.lpad.i
@@ -1398,9 +1321,9 @@ cleanup.thread:                                   ; preds = %call.i.noexc, %invo
   br label %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue10QueuedNodeESt14default_deleteIS2_EED2Ev.exit
 
 delete.notnull.i.i:                               ; preds = %invoke.cont
-  %reclaimer_handle = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::QueuedNode", ptr %call4, i64 0, i32 1
+  %reclaimer_handle = getelementptr inbounds i8, ptr %call4, i64 8
   store i8 1, ptr %agg.result, align 8
-  %21 = getelementptr inbounds %"class.grpc_core::Poll", ptr %agg.result, i64 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %22 = load ptr, ptr %reclaimer_handle, align 8
   store ptr %22, ptr %21, align 8
   store ptr null, ptr %reclaimer_handle, align 8
@@ -1444,18 +1367,18 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core23GrpcMemoryAllocatorImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %memory_quota_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 1
+  %memory_quota_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %memory_quota, align 8
   store ptr %1, ptr %memory_quota_, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 1, i32 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %memory_quota, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %memory_quota, i64 8
   %2 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %2, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %invoke.cont3, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -1471,23 +1394,23 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %entry, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %free_bytes_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 2
+  %free_bytes_ = getelementptr inbounds i8, ptr %this, i64 40
   store i64 0, ptr %free_bytes_, align 8
-  %taken_bytes_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 3
+  %taken_bytes_ = getelementptr inbounds i8, ptr %this, i64 48
   store i64 136, ptr %taken_bytes_, align 8
-  %chosen_shard_idx_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 4
+  %chosen_shard_idx_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 0, ptr %chosen_shard_idx_, align 8
-  %donate_back_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 5
+  %donate_back_ = getelementptr inbounds i8, ptr %this, i64 64
   store i64 1, ptr %donate_back_, align 8
-  %period_.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 5, i32 1
+  %period_.i = getelementptr inbounds i8, ptr %this, i64 72
   store i64 10000, ptr %period_.i, align 8
-  %period_start_.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 5, i32 2
+  %period_start_.i = getelementptr inbounds i8, ptr %this, i64 80
   store i64 0, ptr %period_start_.i, align 8
-  %expected_updates_per_period_.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 5, i32 3
+  %expected_updates_per_period_.i = getelementptr inbounds i8, ptr %this, i64 88
   store i64 1, ptr %expected_updates_per_period_.i, align 8
-  %reclaimer_mu_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 6
+  %reclaimer_mu_ = getelementptr inbounds i8, ptr %this, i64 96
   store i64 0, ptr %reclaimer_mu_, align 8
-  %shutdown_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 7
+  %shutdown_ = getelementptr inbounds i8, ptr %this, i64 104
   store i8 0, ptr %shutdown_, align 8
   %scevgep = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i8 0, i64 24, i1 false)
@@ -1532,7 +1455,7 @@ entry:
   br i1 %cmp, label %if.end34, label %acqrel.i
 
 acqrel.i:                                         ; preds = %entry
-  %free_bytes_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 1
+  %free_bytes_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = atomicrmw sub ptr %free_bytes_, i64 %amount acq_rel, align 8
   %cmp2 = icmp sgt i64 %0, -1
   %cmp3 = icmp slt i64 %0, %amount
@@ -1540,7 +1463,7 @@ acqrel.i:                                         ; preds = %entry
   br i1 %or.cond, label %if.then4, label %if.end10
 
 if.then4:                                         ; preds = %acqrel.i
-  %reclaimer_activity_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 6
+  %reclaimer_activity_ = getelementptr inbounds i8, ptr %this, i64 1360
   %1 = load ptr, ptr %reclaimer_activity_, align 8
   %cmp.i.i.not = icmp eq ptr %1, null
   br i1 %cmp.i.i.not, label %if.end10, label %if.then6
@@ -1548,7 +1471,7 @@ if.then4:                                         ; preds = %acqrel.i
 if.then6:                                         ; preds = %if.then4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 5
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
   %2 = load ptr, ptr %vfn.i, align 8
   call void %2(ptr nonnull sret(%"class.grpc_core::Waker") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %retval.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %ref.tmp.i, align 8
@@ -1565,7 +1488,7 @@ invoke.cont.i:                                    ; preds = %if.then6
   %4 = load ptr, ptr %ref.tmp.i, align 8
   %5 = load i16, ptr %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i.i, align 8
   %vtable.i.i1.i = load ptr, ptr %4, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i1.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i1.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(8) %4, i16 noundef zeroext %5)
           to label %_ZN9grpc_core8Activity11ForceWakeupEv.exit unwind label %terminate.lpad.i.i
@@ -1583,7 +1506,7 @@ lpad.i:                                           ; preds = %if.then6
   %10 = load ptr, ptr %ref.tmp.i, align 8
   %11 = load i16, ptr %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i.i, align 8
   %vtable.i.i3.i = load ptr, ptr %10, align 8
-  %vfn.i.i4.i = getelementptr inbounds ptr, ptr %vtable.i.i3.i, i64 2
+  %vfn.i.i4.i = getelementptr inbounds i8, ptr %vtable.i.i3.i, i64 16
   %12 = load ptr, ptr %vfn.i.i4.i, align 8
   invoke void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, i16 noundef zeroext %11)
           to label %_ZN9grpc_core5WakerD2Ev.exit6.i unwind label %terminate.lpad.i5.i
@@ -1609,17 +1532,17 @@ if.end10:                                         ; preds = %if.then4, %_ZN9grpc
   br i1 %or.cond.not, label %if.end15, label %if.end34
 
 if.end15:                                         ; preds = %if.end10
-  %big_allocators_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 5
-  %chosen_shard_idx_.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %allocator, i64 0, i32 4
+  %big_allocators_ = getelementptr inbounds i8, ptr %this, i64 720
+  %chosen_shard_idx_.i = getelementptr inbounds i8, ptr %allocator, i64 56
   %15 = atomicrmw add ptr %chosen_shard_idx_.i, i64 1 monotonic, align 8
   %rem = and i64 %15, 15
   %arrayidx.i.i = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %big_allocators_, i64 0, i64 %rem
-  %shard_mu = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %big_allocators_, i64 0, i64 %rem, i32 1
+  %shard_mu = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   %call21 = call noundef zeroext i1 @_ZN4absl12lts_202308025Mutex7TryLockEv(ptr noundef nonnull align 8 dereferenceable(8) %shard_mu)
   br i1 %call21, label %if.then22, label %if.end34
 
 if.then22:                                        ; preds = %if.end15
-  %compressed_tuple_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i, i64 0, i32 3
+  %compressed_tuple_.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %16 = load i64, ptr %compressed_tuple_.i.i.i, align 8
   %tobool.not.i = icmp eq i64 %16, 0
   br i1 %tobool.not.i, label %if.end30.thread18, label %if.then24
@@ -1630,64 +1553,64 @@ if.end30.thread18:                                ; preds = %if.then22
 
 if.then24:                                        ; preds = %if.then22
   %17 = load ptr, ptr %arrayidx.i.i, align 8, !nonnull !10, !noundef !10
-  %slots_.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i, i64 0, i32 1
+  %slots_.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %18 = load ptr, ptr %slots_.i.i.i.i, align 8
   %19 = load i8, ptr %17, align 1
   %cmp.i3.i.i = icmp slt i8 %19, -1
   br i1 %cmp.i3.i.i, label %while.body.i.i, label %if.end30
 
 while.body.i.i:                                   ; preds = %if.then24, %while.body.i.i
-  %add.ptr65.i.i = phi ptr [ %add.ptr6.i.i, %while.body.i.i ], [ %18, %if.then24 ]
+  %20 = phi ptr [ %add.ptr6.i.i, %while.body.i.i ], [ %18, %if.then24 ]
   %add.ptr24.i.i = phi ptr [ %add.ptr.i.i, %while.body.i.i ], [ %17, %if.then24 ]
-  %20 = load <16 x i8>, ptr %add.ptr24.i.i, align 1
-  %cmp.i.i.i.i.i = icmp slt <16 x i8> %20, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
-  %21 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
-  %22 = zext i16 %21 to i32
-  %add.i.i.i = add nuw nsw i32 %22, 1
-  %23 = call noundef i32 @llvm.cttz.i32(i32 %add.i.i.i, i1 true), !range !11
-  %idx.ext.i.i = zext nneg i32 %23 to i64
+  %21 = load <16 x i8>, ptr %add.ptr24.i.i, align 1
+  %cmp.i.i.i.i.i = icmp slt <16 x i8> %21, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %22 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
+  %23 = zext i16 %22 to i32
+  %add.i.i.i = add nuw nsw i32 %23, 1
+  %24 = call noundef i32 @llvm.cttz.i32(i32 %add.i.i.i, i1 true), !range !11
+  %idx.ext.i.i = zext nneg i32 %24 to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr24.i.i, i64 %idx.ext.i.i
-  %add.ptr6.i.i = getelementptr inbounds ptr, ptr %add.ptr65.i.i, i64 %idx.ext.i.i
-  %24 = load i8, ptr %add.ptr.i.i, align 1
-  %cmp.i.i.i = icmp slt i8 %24, -1
+  %add.ptr6.i.i = getelementptr inbounds ptr, ptr %20, i64 %idx.ext.i.i
+  %25 = load i8, ptr %add.ptr.i.i, align 1
+  %cmp.i.i.i = icmp slt i8 %25, -1
   br i1 %cmp.i.i.i, label %while.body.i.i, label %if.end30, !llvm.loop !12
 
 if.end30:                                         ; preds = %while.body.i.i, %if.then24
   %retval.sroa.5.0.i = phi ptr [ %18, %if.then24 ], [ %add.ptr6.i.i, %while.body.i.i ]
-  %25 = load ptr, ptr %retval.sroa.5.0.i, align 8
+  %26 = load ptr, ptr %retval.sroa.5.0.i, align 8
   call void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %shard_mu)
-  %cmp31.not = icmp eq ptr %25, null
+  %cmp31.not = icmp eq ptr %26, null
   br i1 %cmp31.not, label %if.end34, label %if.then32
 
 if.then32:                                        ; preds = %if.end30
-  %free_bytes_.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %25, i64 0, i32 2
-  %26 = atomicrmw xchg ptr %free_bytes_.i, i64 0 acq_rel, align 8
-  %cmp.i = icmp eq i64 %26, 0
+  %free_bytes_.i = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = atomicrmw xchg ptr %free_bytes_.i, i64 0 acq_rel, align 8
+  %cmp.i = icmp eq i64 %27, 0
   br i1 %cmp.i, label %if.end34, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then32
-  %27 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2) monotonic, align 8
-  %28 = and i8 %27, 1
-  %tobool.i.i.i.not.i = icmp eq i8 %28, 0
+  %28 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
+  %29 = and i8 %28, 1
+  %tobool.i.i.i.not.i = icmp eq i8 %29, 0
   br i1 %tobool.i.i.i.not.i, label %monotonic.i.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.20, i32 noundef 430, i32 noundef 1, ptr noundef nonnull @.str.21, ptr noundef nonnull %25, i64 noundef %26)
+  call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.20, i32 noundef 430, i32 noundef 1, ptr noundef nonnull @.str.21, ptr noundef nonnull %26, i64 noundef %27)
   br label %monotonic.i.i
 
 monotonic.i.i:                                    ; preds = %if.then3.i, %if.end.i
-  %taken_bytes_.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %25, i64 0, i32 3
-  %29 = atomicrmw sub ptr %taken_bytes_.i, i64 %26 monotonic, align 8
-  %memory_quota_.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %25, i64 0, i32 1
-  %30 = load ptr, ptr %memory_quota_.i, align 8
-  %free_bytes_.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %30, i64 0, i32 1
-  %31 = atomicrmw add ptr %free_bytes_.i.i, i64 %26 monotonic, align 8
-  %32 = load ptr, ptr %memory_quota_.i, align 8
+  %taken_bytes_.i = getelementptr inbounds i8, ptr %26, i64 48
+  %30 = atomicrmw sub ptr %taken_bytes_.i, i64 %27 monotonic, align 8
+  %memory_quota_.i = getelementptr inbounds i8, ptr %26, i64 24
+  %31 = load ptr, ptr %memory_quota_.i, align 8
+  %free_bytes_.i.i = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = atomicrmw add ptr %free_bytes_.i.i, i64 %27 monotonic, align 8
+  %33 = load ptr, ptr %memory_quota_.i, align 8
   br label %while.body.i.i14
 
 while.body.i.i14:                                 ; preds = %if.end11.i.i, %monotonic.i.i
-  %old_free_bytes.addr.0.i.i = phi i64 [ %26, %monotonic.i.i ], [ %new_free_bytes.addr.0.i.i, %if.end11.i.i ]
-  %new_free_bytes.addr.0.i.i = phi i64 [ 0, %monotonic.i.i ], [ %33, %if.end11.i.i ]
+  %old_free_bytes.addr.0.i.i = phi i64 [ %27, %monotonic.i.i ], [ %new_free_bytes.addr.0.i.i, %if.end11.i.i ]
+  %new_free_bytes.addr.0.i.i = phi i64 [ 0, %monotonic.i.i ], [ %34, %if.end11.i.i ]
   %cmp.i.i15 = icmp ult i64 %new_free_bytes.addr.0.i.i, 104857
   br i1 %cmp.i.i15, label %if.then.i.i, label %if.else.i.i
 
@@ -1696,7 +1619,7 @@ if.then.i.i:                                      ; preds = %while.body.i.i14
   br i1 %cmp2.i.i, label %if.end34, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  call void @_ZN9grpc_core16BasicMemoryQuota28MaybeMoveAllocatorBigToSmallEPNS_23GrpcMemoryAllocatorImplE(ptr noundef nonnull align 8 dereferenceable(1488) %32, ptr noundef nonnull %25)
+  call void @_ZN9grpc_core16BasicMemoryQuota28MaybeMoveAllocatorBigToSmallEPNS_23GrpcMemoryAllocatorImplE(ptr noundef nonnull align 8 dereferenceable(1488) %33, ptr noundef nonnull %26)
   br label %if.end11.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i14
@@ -1706,11 +1629,11 @@ if.else.i.i:                                      ; preds = %while.body.i.i14
   br i1 %or.cond.i.i, label %if.end34, label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.else.i.i
-  call void @_ZN9grpc_core16BasicMemoryQuota28MaybeMoveAllocatorSmallToBigEPNS_23GrpcMemoryAllocatorImplE(ptr noundef nonnull align 8 dereferenceable(1488) %32, ptr noundef nonnull %25)
+  call void @_ZN9grpc_core16BasicMemoryQuota28MaybeMoveAllocatorSmallToBigEPNS_23GrpcMemoryAllocatorImplE(ptr noundef nonnull align 8 dereferenceable(1488) %33, ptr noundef nonnull %26)
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.end8.i.i, %if.end.i.i
-  %33 = load atomic i64, ptr %free_bytes_.i monotonic, align 8
+  %34 = load atomic i64, ptr %free_bytes_.i monotonic, align 8
   br label %while.body.i.i14, !llvm.loop !14
 
 if.end34:                                         ; preds = %if.else.i.i, %if.then.i.i, %if.end15, %if.then32, %if.end30.thread18, %if.end30, %entry, %if.end10
@@ -1720,7 +1643,7 @@ if.end34:                                         ; preds = %if.else.i.i, %if.th
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core16BasicMemoryQuota15AddNewAllocatorEPNS_23GrpcMemoryAllocatorImplE(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef %allocator) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then
@@ -1730,7 +1653,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %small_allocators_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 4
+  %small_allocators_ = getelementptr inbounds i8, ptr %this, i64 80
   %2 = ptrtoint ptr %allocator to i64
   %shr.i.i = lshr i64 %2, 4
   %shr1.i.i = lshr i64 %2, 9
@@ -1739,7 +1662,7 @@ if.end:                                           ; preds = %if.then, %entry
   %xor3.i.i = xor i64 %xor.i.i, %shr2.i.i
   %rem.i.i = and i64 %xor3.i.i, 15
   %arrayidx.i.i.i = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %small_allocators_, i64 0, i64 %rem.i.i
-  %shard_mu = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %small_allocators_, i64 0, i64 %rem.i.i, i32 1
+  %shard_mu = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 32
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %shard_mu)
   %3 = load ptr, ptr %arrayidx.i.i.i, align 8, !noalias !15
   tail call void @llvm.prefetch.p0(ptr %3, i32 0, i32 1, i32 1), !noalias !15
@@ -1755,7 +1678,7 @@ if.end:                                           ; preds = %if.then, %entry
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %capacity_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i.i, i64 0, i32 2
+  %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
   %4 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !noalias !20
   %shr.i.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %5 = ptrtoint ptr %3 to i64
@@ -1765,7 +1688,7 @@ if.end:                                           ; preds = %if.then, %entry
   %conv.i.i.i.i = and i8 %6, 127
   %vecinit.i.i.i.i.i = insertelement <16 x i8> poison, i8 %conv.i.i.i.i, i64 0
   %vecinit15.i.i.i.i.i = shufflevector <16 x i8> %vecinit.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  %slots_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i.i, i64 0, i32 1
+  %slots_.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %7 = load ptr, ptr %slots_.i.i.i.i.i, align 8, !noalias !15
   br label %while.body.i.i.i
 
@@ -1863,14 +1786,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp.i.i)
-  %sweep_.i.i = getelementptr inbounds %"class.grpc_core::ReclaimerQueue::Handle", ptr %0, i64 0, i32 1
+  %sweep_.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = atomicrmw xchg ptr %sweep_.i.i, i64 0 acq_rel, align 8
   %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then
   %atomic-temp.i.0.i.i.i = inttoptr i64 %1 to ptr
-  %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.tmp.i.i, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 40
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i, align 8
   %vtable.i.i = load ptr, ptr %atomic-temp.i.0.i.i.i, align 8
   %2 = load ptr, ptr %vtable.i.i, align 8
@@ -1902,14 +1825,14 @@ if.then.i.i.i.i4.i.i:                             ; preds = %lpad.i.i
   br label %terminate.lpad.body
 
 if.end.i.i:                                       ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i.i, %if.then
-  %refs_.i.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %0, i64 0, i32 1
+  %refs_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %8 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %8, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   br label %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit
@@ -1935,10 +1858,10 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 define void @_ZN9grpc_core23GrpcMemoryAllocatorImplD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.std::optional", align 8
-  %free_bytes_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 2
+  %free_bytes_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load atomic i64, ptr %free_bytes_ acquire, align 8
   %add = add i64 %0, 136
-  %taken_bytes_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 3
+  %taken_bytes_ = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load atomic i64, ptr %taken_bytes_ monotonic, align 8
   %cmp.not = icmp eq i64 %add, %1
   br i1 %cmp.not, label %do.end, label %if.then
@@ -1951,12 +1874,12 @@ invoke.cont:                                      ; preds = %if.then
   unreachable
 
 do.end:                                           ; preds = %entry
-  %memory_quota_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 1
+  %memory_quota_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load ptr, ptr %memory_quota_, align 8
   %3 = load atomic i64, ptr %taken_bytes_ seq_cst, align 8
-  %free_bytes_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %2, i64 0, i32 1
+  %free_bytes_.i = getelementptr inbounds i8, ptr %2, i64 16
   %4 = atomicrmw add ptr %free_bytes_.i, i64 %3 monotonic, align 8
-  %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.tmp.i.i.i, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 40
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit, %do.end
@@ -1969,7 +1892,7 @@ arraydestroy.body:                                ; preds = %_ZNSt10unique_ptrIN
 
 if.then.i:                                        ; preds = %arraydestroy.body
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp.i.i.i)
-  %sweep_.i.i.i = getelementptr inbounds %"class.grpc_core::ReclaimerQueue::Handle", ptr %5, i64 0, i32 1
+  %sweep_.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = atomicrmw xchg ptr %sweep_.i.i.i, i64 0 acq_rel, align 8
   %tobool.not.i.i.i = icmp eq i64 %6, 0
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
@@ -2007,14 +1930,14 @@ if.then.i.i.i.i4.i.i.i:                           ; preds = %lpad.i.i.i
   br label %terminate.lpad.body.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i.i.i.i.i, %invoke.cont.i.i.i, %if.then.i
-  %refs_.i.i.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %5, i64 0, i32 1
+  %refs_.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %13 = atomicrmw sub ptr %refs_.i.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %13, 1
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(24) %5) #26
   br label %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i
@@ -2034,15 +1957,15 @@ _ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2E
   br i1 %arraydestroy.done, label %arraydestroy.done7, label %arraydestroy.body
 
 arraydestroy.done7:                               ; preds = %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit
-  %reclaimer_mu_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 6
+  %reclaimer_mu_ = getelementptr inbounds i8, ptr %this, i64 96
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %reclaimer_mu_) #26
-  %_M_refcount.i.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %16 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %arraydestroy.done7
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %17, 4294967297
   %18 = trunc i64 %17 to i32
@@ -2050,10 +1973,10 @@ if.then.i.i.i3:                                   ; preds = %arraydestroy.done7
 
 if.then.i.i.i.i5:                                 ; preds = %if.then.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %19 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(16) %16) #26
   br label %if.end8.sink.split.i.i.i.i
@@ -2079,10 +2002,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %16, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %22 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(16) %16) #26
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 12
   %23 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %23, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i4
@@ -2104,7 +2027,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i5
   %vtable2.i.i.i.i.i.i = load ptr, ptr %16, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %26 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(16) %16) #26
   br label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit
@@ -2116,7 +2039,7 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit: ; preds = %arraydest
   br i1 %cmp.not.i.i.i.i.i, label %_ZN17grpc_event_engine12experimental8internal19MemoryAllocatorImplD2Ev.exit, label %if.then.i.i.i.i.i6
 
 if.then.i.i.i.i.i6:                               ; preds = %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit
-  %_M_weak_count.i.i.i.i.i.i7 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %27, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %27, i64 12
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i8 = icmp eq i8 %28, 0
   br i1 %tobool.i.not.i.i.i.i.i.i8, label %if.else.i.i.i.i.i.i.i16, label %if.then.i.i.i.i.i.i.i9
@@ -2138,7 +2061,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i11: ; preds = %if
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i11
   %vtable.i.i.i.i.i.i14 = load ptr, ptr %27, align 8
-  %vfn.i.i.i.i.i.i15 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i14, i64 3
+  %vfn.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i14, i64 24
   %31 = load ptr, ptr %vfn.i.i.i.i.i.i15, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(16) %27) #26
   br label %_ZN17grpc_event_engine12experimental8internal19MemoryAllocatorImplD2Ev.exit
@@ -2160,7 +2083,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN9grpc_core16BasicMemoryQuota6ReturnEm(ptr nocapture noundef nonnull align 8 dereferenceable(1488) %this, i64 noundef %amount) local_unnamed_addr #11 align 2 {
 entry:
-  %free_bytes_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 1
+  %free_bytes_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = atomicrmw add ptr %free_bytes_, i64 %amount monotonic, align 8
   ret void
 }
@@ -2180,18 +2103,18 @@ entry:
   %agg.tmp.i.i.i.i.i.i = alloca %"class.std::optional", align 8
   %memory_quota = alloca %"class.std::shared_ptr", align 8
   %reclamation_handles = alloca [3 x %"class.std::unique_ptr.37"], align 16
-  %memory_quota_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 1
+  %memory_quota_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %memory_quota_, align 8
   tail call void @_ZN9grpc_core16BasicMemoryQuota15RemoveAllocatorEPNS_23GrpcMemoryAllocatorImplE(ptr noundef nonnull align 8 dereferenceable(1488) %0, ptr noundef nonnull %this)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory_quota, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %reclamation_handles, i8 0, i64 24, i1 false)
-  %arrayctor.end = getelementptr inbounds %"class.std::unique_ptr.37", ptr %reclamation_handles, i64 3
-  %reclaimer_mu_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 6
+  %arrayctor.end = getelementptr inbounds i8, ptr %reclamation_handles, i64 24
+  %reclaimer_mu_ = getelementptr inbounds i8, ptr %this, i64 96
   invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %reclaimer_mu_)
           to label %do.body unwind label %lpad
 
 do.body:                                          ; preds = %entry
-  %shutdown_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 7
+  %shutdown_ = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load i8, ptr %shutdown_, align 8
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
@@ -2226,14 +2149,14 @@ do.end:                                           ; preds = %do.body
   store i8 1, ptr %shutdown_, align 8
   %7 = load ptr, ptr %memory_quota_, align 8
   store ptr %7, ptr %memory_quota, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %memory_quota, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %memory_quota, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %_M_refcount3.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEaSERKS2_.exit, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %do.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %8, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.end.i.i.i, label %if.end.i.i.i.thread
@@ -2251,7 +2174,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   br i1 %cmp6.not.i.i.i, label %if.end9.i.i.i, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
-  %_M_use_count.i5.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i.i.pre, i64 0, i32 1
+  %_M_use_count.i5.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i.i.pre, i64 8
   %12 = load atomic i64, ptr %_M_use_count.i5.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %12, 4294967297
   %13 = trunc i64 %12 to i32
@@ -2259,10 +2182,10 @@ if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then7.i.i.i
   store i32 0, ptr %_M_use_count.i5.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i.i.pre, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i.i.pre, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %.pr.i.i.i.pre, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %14 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.pre) #26
   br label %if.end8.sink.split.i.i.i.i
@@ -2288,10 +2211,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %.pr.i.i.i.pre, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.pre) #26
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i.i.pre, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i.i.pre, i64 12
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %18, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -2313,7 +2236,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %.pr.i.i.i.pre, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %21 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i.i.i.pre) #26
   br label %if.end9.i.i.i
@@ -2323,12 +2246,13 @@ if.end9.i.i.i:                                    ; preds = %if.end.i.i.i.thread
   br label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEaSERKS2_.exit
 
 _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEaSERKS2_.exit: ; preds = %do.end, %if.end9.i.i.i
-  %_M_engaged.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.tmp.i.i.i.i.i.i, i64 0, i32 1
+  %reclamation_handles_ = getelementptr inbounds i8, ptr %this, i64 112
+  %_M_engaged.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEaSERKS2_.exit, %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit
   %i.071 = phi i64 [ 0, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEaSERKS2_.exit ], [ %inc, %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit ]
-  %arrayidx = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 8, i64 %i.071
+  %arrayidx = getelementptr inbounds [3 x %"class.std::unique_ptr.37"], ptr %reclamation_handles_, i64 0, i64 %i.071
   %22 = load i64, ptr %arrayidx, align 8, !noalias !24
   %23 = inttoptr i64 %22 to ptr
   store ptr null, ptr %arrayidx, align 8, !noalias !24
@@ -2340,7 +2264,7 @@ for.body:                                         ; preds = %_ZNSt10shared_ptrIN
 
 if.then.i.i.i.i5:                                 ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp.i.i.i.i.i.i)
-  %sweep_.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ReclaimerQueue::Handle", ptr %24, i64 0, i32 1
+  %sweep_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 16
   %25 = atomicrmw xchg ptr %sweep_.i.i.i.i.i.i, i64 0 acq_rel, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %25, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -2378,14 +2302,14 @@ if.then.i.i.i.i4.i.i.i.i.i.i:                     ; preds = %lpad.i.i.i.i.i.i
   br label %terminate.lpad.body.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i, %if.then.i.i.i.i5
-  %refs_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %24, i64 0, i32 1
+  %refs_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %32 = atomicrmw sub ptr %refs_.i.i.i.i.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %32, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i7, label %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i7:                           ; preds = %if.end.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %24, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %33 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(24) %24) #26
   br label %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i.i.i.i
@@ -2409,7 +2333,7 @@ for.end:                                          ; preds = %_ZNSt10unique_ptrIN
           to label %arraydestroy.body.preheader unwind label %terminate.lpad.i12
 
 arraydestroy.body.preheader:                      ; preds = %for.end
-  %_M_engaged.i.i.i.i.i.i.i.i21 = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.tmp.i.i.i14, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i14, i64 40
   br label %arraydestroy.body
 
 terminate.lpad.i12:                               ; preds = %for.end
@@ -2421,14 +2345,14 @@ terminate.lpad.i12:                               ; preds = %for.end
 
 arraydestroy.body:                                ; preds = %arraydestroy.body.preheader, %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit37
   %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit37 ], [ %arrayctor.end, %arraydestroy.body.preheader ]
-  %arraydestroy.element = getelementptr inbounds %"class.std::unique_ptr.37", ptr %arraydestroy.elementPast, i64 -1
+  %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -8
   %37 = load ptr, ptr %arraydestroy.element, align 8
   %cmp.not.i15 = icmp eq ptr %37, null
   br i1 %cmp.not.i15, label %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit37, label %if.then.i16
 
 if.then.i16:                                      ; preds = %arraydestroy.body
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp.i.i.i14)
-  %sweep_.i.i.i17 = getelementptr inbounds %"class.grpc_core::ReclaimerQueue::Handle", ptr %37, i64 0, i32 1
+  %sweep_.i.i.i17 = getelementptr inbounds i8, ptr %37, i64 16
   %38 = atomicrmw xchg ptr %sweep_.i.i.i17, i64 0 acq_rel, align 8
   %tobool.not.i.i.i18 = icmp eq i64 %38, 0
   br i1 %tobool.not.i.i.i18, label %if.end.i.i.i30, label %if.then.i.i.i19
@@ -2466,14 +2390,14 @@ if.then.i.i.i.i4.i.i.i25:                         ; preds = %lpad.i.i.i23
   br label %terminate.lpad.body.i26
 
 if.end.i.i.i30:                                   ; preds = %if.then.i.i.i.i.i.i.i29, %invoke.cont.i.i.i27, %if.then.i16
-  %refs_.i.i.i.i31 = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %37, i64 0, i32 1
+  %refs_.i.i.i.i31 = getelementptr inbounds i8, ptr %37, i64 8
   %45 = atomicrmw sub ptr %refs_.i.i.i.i31, i64 1 acq_rel, align 8
   %cmp.i.i.i.i.i32 = icmp eq i64 %45, 1
   br i1 %cmp.i.i.i.i.i32, label %if.then.i.i.i.i34, label %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i33
 
 if.then.i.i.i.i34:                                ; preds = %if.end.i.i.i30
   %vtable.i.i.i.i.i35 = load ptr, ptr %37, align 8
-  %vfn.i.i.i.i.i36 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i35, i64 2
+  %vfn.i.i.i.i.i36 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i35, i64 16
   %46 = load ptr, ptr %vfn.i.i.i.i.i36, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(24) %37) #26
   br label %_ZN9grpc_core16OrphanableDeleteclINS_14ReclaimerQueue6HandleEEEvPT_.exit.i33
@@ -2498,7 +2422,7 @@ arraydestroy.done12:                              ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp.not.i.i.i39, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit, label %if.then.i.i.i40
 
 if.then.i.i.i40:                                  ; preds = %arraydestroy.done12
-  %_M_use_count.i.i.i.i41 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %48, i64 0, i32 1
+  %_M_use_count.i.i.i.i41 = getelementptr inbounds i8, ptr %48, i64 8
   %49 = load atomic i64, ptr %_M_use_count.i.i.i.i41 acquire, align 8
   %cmp.i.i.i.i42 = icmp eq i64 %49, 4294967297
   %50 = trunc i64 %49 to i32
@@ -2506,10 +2430,10 @@ if.then.i.i.i40:                                  ; preds = %arraydestroy.done12
 
 if.then.i.i.i.i65:                                ; preds = %if.then.i.i.i40
   store i32 0, ptr %_M_use_count.i.i.i.i41, align 8
-  %_M_weak_count.i.i.i.i66 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %48, i64 0, i32 2
+  %_M_weak_count.i.i.i.i66 = getelementptr inbounds i8, ptr %48, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i66, align 4
   %vtable.i.i.i.i67 = load ptr, ptr %48, align 8
-  %vfn.i.i.i.i68 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i67, i64 2
+  %vfn.i.i.i.i68 = getelementptr inbounds i8, ptr %vtable.i.i.i.i67, i64 16
   %51 = load ptr, ptr %vfn.i.i.i.i68, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(16) %48) #26
   br label %if.end8.sink.split.i.i.i.i60
@@ -2535,10 +2459,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i47: ; preds = %if.els
 
 if.then7.i.i.i.i50:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i47
   %vtable.i.i.i.i.i.i51 = load ptr, ptr %48, align 8
-  %vfn.i.i.i.i.i.i52 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i51, i64 2
+  %vfn.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i51, i64 16
   %54 = load ptr, ptr %vfn.i.i.i.i.i.i52, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(16) %48) #26
-  %_M_weak_count.i.i.i.i.i.i53 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %48, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %48, i64 12
   %55 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i54 = icmp eq i8 %55, 0
   br i1 %tobool.i.not.i.i.i.i.i.i54, label %if.else.i.i.i.i.i.i.i63, label %if.then.i.i.i.i.i.i.i55
@@ -2560,7 +2484,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i57: ; preds = %if
 
 if.end8.sink.split.i.i.i.i60:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i57, %if.then.i.i.i.i65
   %vtable2.i.i.i.i.i.i61 = load ptr, ptr %48, align 8
-  %vfn3.i.i.i.i.i.i62 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i61, i64 3
+  %vfn3.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i61, i64 24
   %58 = load ptr, ptr %vfn3.i.i.i.i.i.i62, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(16) %48) #26
   br label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit
@@ -2574,7 +2498,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 
 arraydestroy.body14:                              ; preds = %arraydestroy.body14, %ehcleanup
   %arraydestroy.elementPast15 = phi ptr [ %arrayctor.end, %ehcleanup ], [ %arraydestroy.element16, %arraydestroy.body14 ]
-  %arraydestroy.element16 = getelementptr inbounds %"class.std::unique_ptr.37", ptr %arraydestroy.elementPast15, i64 -1
+  %arraydestroy.element16 = getelementptr inbounds i8, ptr %arraydestroy.elementPast15, i64 -8
   call void @_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element16) #26
   %arraydestroy.done17 = icmp eq ptr %arraydestroy.element16, %reclamation_handles
   br i1 %arraydestroy.done17, label %arraydestroy.done18, label %arraydestroy.body14
@@ -2587,7 +2511,7 @@ arraydestroy.done18:                              ; preds = %arraydestroy.body14
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core16BasicMemoryQuota15RemoveAllocatorEPNS_23GrpcMemoryAllocatorImplE(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef %allocator) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then
@@ -2597,7 +2521,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %small_allocators_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 4
+  %small_allocators_ = getelementptr inbounds i8, ptr %this, i64 80
   %2 = ptrtoint ptr %allocator to i64
   %shr.i.i = lshr i64 %2, 4
   %shr1.i.i = lshr i64 %2, 9
@@ -2606,7 +2530,7 @@ if.end:                                           ; preds = %if.then, %entry
   %xor3.i.i = xor i64 %xor.i.i, %shr2.i.i
   %rem.i.i = and i64 %xor3.i.i, 15
   %arrayidx.i.i.i = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %small_allocators_, i64 0, i64 %rem.i.i
-  %shard_mu = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %small_allocators_, i64 0, i64 %rem.i.i, i32 1
+  %shard_mu = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 32
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %shard_mu)
   %3 = load ptr, ptr %arrayidx.i.i.i, align 8
   tail call void @llvm.prefetch.p0(ptr %3, i32 0, i32 1, i32 1)
@@ -2622,13 +2546,13 @@ if.end:                                           ; preds = %if.then, %entry
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %capacity_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i.i, i64 0, i32 2
+  %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
   %4 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !noalias !30
   %shr.i.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %5 = ptrtoint ptr %3 to i64
   %shr.i.i.i.i.i.i.i = lshr i64 %5, 12
   %xor.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i
-  %slots_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i.i, i64 0, i32 1
+  %slots_.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %6 = load ptr, ptr %slots_.i.i.i.i.i, align 8
   %7 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i = and i8 %7, 127
@@ -2717,18 +2641,18 @@ terminate.lpad.i4:                                ; preds = %lpad
   unreachable
 
 cleanup.cont:                                     ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit
-  %big_allocators_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 5
+  %big_allocators_ = getelementptr inbounds i8, ptr %this, i64 720
   %arrayidx.i.i.i12 = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %big_allocators_, i64 0, i64 %rem.i.i
-  %shard_mu8 = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %big_allocators_, i64 0, i64 %rem.i.i, i32 1
+  %shard_mu8 = getelementptr inbounds i8, ptr %arrayidx.i.i.i12, i64 32
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %shard_mu8)
   %19 = load ptr, ptr %arrayidx.i.i.i12, align 8
   tail call void @llvm.prefetch.p0(ptr %19, i32 0, i32 1, i32 1)
-  %capacity_.i.i.i.i.i25 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i.i12, i64 0, i32 2
+  %capacity_.i.i.i.i.i25 = getelementptr inbounds i8, ptr %arrayidx.i.i.i12, i64 16
   %20 = load i64, ptr %capacity_.i.i.i.i.i25, align 8, !noalias !34
   %21 = ptrtoint ptr %19 to i64
   %shr.i.i.i.i.i.i.i27 = lshr i64 %21, 12
   %xor.i.i.i.i.i.i28 = xor i64 %shr.i.i.i.i.i.i.i27, %shr.i.i.i.i.i.i
-  %slots_.i.i.i.i.i29 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i.i12, i64 0, i32 1
+  %slots_.i.i.i.i.i29 = getelementptr inbounds i8, ptr %arrayidx.i.i.i12, i64 8
   %22 = load ptr, ptr %slots_.i.i.i.i.i29, align 8
   br label %while.body.i.i.i33
 
@@ -2835,7 +2759,7 @@ if.then8:                                         ; preds = %do.body3
   unreachable
 
 do.end10:                                         ; preds = %do.body3
-  %free_bytes_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 2
+  %free_bytes_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load atomic i64, ptr %free_bytes_ monotonic, align 8
   %call127 = tail call { i64, i8 } @_ZN9grpc_core23GrpcMemoryAllocatorImpl10TryReserveEN17grpc_event_engine12experimental13MemoryRequestE(ptr noundef nonnull align 8 dereferenceable(136) %this, i64 %request.coerce0, i64 %request.coerce1)
   %1 = extractvalue { i64, i8 } %call127, 1
@@ -2844,14 +2768,14 @@ do.end10:                                         ; preds = %do.body3
   br i1 %tobool.i.i.not8, label %if.end20.lr.ph, label %if.then15
 
 if.end20.lr.ph:                                   ; preds = %do.end10
-  %taken_bytes_.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 3
-  %memory_quota_.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 1
+  %taken_bytes_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %memory_quota_.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %if.end20
 
 if.then15:                                        ; preds = %if.end20, %do.end10
   %call12.lcssa = phi { i64, i8 } [ %call127, %do.end10 ], [ %call12, %if.end20 ]
   %3 = load atomic i64, ptr %free_bytes_ monotonic, align 8
-  %memory_quota_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 1
+  %memory_quota_ = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load ptr, ptr %memory_quota_, align 8
   br label %while.body.i
 
@@ -2914,11 +2838,11 @@ entry:
   br i1 %cmp.not, label %if.end23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %memory_quota_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 1
+  %memory_quota_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %memory_quota_, align 8
-  %free_bytes_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %0, i64 0, i32 1
+  %free_bytes_.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load atomic i64, ptr %free_bytes_.i seq_cst, align 8, !noalias !38
-  %quota_size_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %0, i64 0, i32 2
+  %quota_size_.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load atomic i64, ptr %quota_size_.i seq_cst, align 8, !noalias !38
   %cmp4.i = icmp eq i64 %2, 0
   br i1 %cmp4.i, label %if.then6, label %if.end6.i
@@ -2935,7 +2859,7 @@ if.end6.i:                                        ; preds = %if.then
   br i1 %call.i.i, label %if.then11.i, label %if.else.i
 
 if.then11.i:                                      ; preds = %if.end6.i
-  %pressure_tracker_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %0, i64 0, i32 8
+  %pressure_tracker_.i = getelementptr inbounds i8, ptr %0, i64 1376
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sample.addr.i.i), !noalias !38
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !38
   store double %.sroa.speculated12.i, ptr %sample.addr.i.i, align 8, !noalias !38
@@ -2954,14 +2878,14 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %if.th
   br i1 %cmp4.i.i, label %if.end6.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %report_.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %0, i64 0, i32 8, i32 1
+  %report_.i.i = getelementptr inbounds i8, ptr %0, i64 1384
   store atomic i64 4607182418800017408, ptr %report_.i.i monotonic, align 8, !noalias !38
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then5.i.i, %if.end.i.i
-  %update_.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %0, i64 0, i32 8, i32 2
+  %update_.i.i = getelementptr inbounds i8, ptr %0, i64 1392
   store ptr %pressure_tracker_.i, ptr %ref.tmp.i.i, align 8, !noalias !38
-  %7 = getelementptr inbounds %class.anon.78, ptr %ref.tmp.i.i, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
   store ptr %sample.addr.i.i, ptr %7, align 8, !noalias !38
   %8 = atomicrmw sub ptr %update_.i.i, i64 1 acquire, align 8, !noalias !38
   %cmp.i.i.i = icmp eq i64 %8, 1
@@ -2972,7 +2896,7 @@ if.then.i.i.i:                                    ; preds = %if.end6.i.i
   br label %_ZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEd.exit.i
 
 _ZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEd.exit.i: ; preds = %if.then.i.i.i, %if.end6.i.i
-  %report_8.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %0, i64 0, i32 8, i32 1
+  %report_8.i.i = getelementptr inbounds i8, ptr %0, i64 1384
   %9 = load atomic i64, ptr %report_8.i.i monotonic, align 8, !noalias !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sample.addr.i.i), !noalias !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i), !noalias !38
@@ -3020,7 +2944,7 @@ if.else:                                          ; preds = %if.end
 if.end23:                                         ; preds = %if.else, %if.end, %entry
   %scaled_size_over_min.1 = phi i64 [ %sub, %entry ], [ 0, %if.end ], [ %spec.select, %if.else ]
   %add25 = add i64 %scaled_size_over_min.1, %request.coerce0
-  %free_bytes_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 2
+  %free_bytes_ = getelementptr inbounds i8, ptr %this, i64 40
   %11 = load atomic i64, ptr %free_bytes_ acquire, align 8
   br label %while.body
 
@@ -3049,7 +2973,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core16BasicMemoryQuota18MaybeMoveAllocatorEPNS_23GrpcMemoryAllocatorImplEmm(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef %allocator, i64 noundef %old_free_bytes, i64 noundef %new_free_bytes) local_unnamed_addr #4 align 2 {
 entry:
-  %free_bytes_.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %allocator, i64 0, i32 2
+  %free_bytes_.i = getelementptr inbounds i8, ptr %allocator, i64 40
   br label %while.body
 
 while.body:                                       ; preds = %if.end11, %entry
@@ -3087,17 +3011,17 @@ return:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core23GrpcMemoryAllocatorImpl9ReplenishEv(ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %taken_bytes_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 3
+  %taken_bytes_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load atomic i64, ptr %taken_bytes_ monotonic, align 8
   %div = udiv i64 %0, 3
   %cmp.i = icmp ult i64 %0, 12288
   %max.val.i = tail call i64 @llvm.umin.i64(i64 %div, i64 1048576)
   %retval.0.i = select i1 %cmp.i, i64 4096, i64 %max.val.i
-  %memory_quota_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 1
+  %memory_quota_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %memory_quota_, align 8
   tail call void @_ZN9grpc_core16BasicMemoryQuota4TakeEPNS_23GrpcMemoryAllocatorImplEm(ptr noundef nonnull align 8 dereferenceable(1488) %1, ptr noundef nonnull %this, i64 noundef %retval.0.i)
   %2 = atomicrmw add ptr %taken_bytes_, i64 %retval.0.i monotonic, align 8
-  %free_bytes_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 2
+  %free_bytes_ = getelementptr inbounds i8, ptr %this, i64 40
   %3 = atomicrmw add ptr %free_bytes_, i64 %retval.0.i acq_rel, align 8
   ret void
 }
@@ -3107,9 +3031,9 @@ define void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr noalias noca
 entry:
   %sample.addr.i = alloca double, align 8
   %ref.tmp.i = alloca %class.anon.78, align 8
-  %free_bytes_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 1
+  %free_bytes_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load atomic i64, ptr %free_bytes_ seq_cst, align 8
-  %quota_size_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 2
+  %quota_size_ = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load atomic i64, ptr %quota_size_ seq_cst, align 8
   %cmp4 = icmp eq i64 %1, 0
   br i1 %cmp4, label %if.then5, label %if.end6
@@ -3133,7 +3057,7 @@ if.end6:                                          ; preds = %entry
   br i1 %call.i, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end6
-  %pressure_tracker_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 8
+  %pressure_tracker_ = getelementptr inbounds i8, ptr %this, i64 1376
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sample.addr.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store double %.sroa.speculated12, ptr %sample.addr.i, align 8
@@ -3152,14 +3076,14 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br i1 %cmp4.i, label %if.end6.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %report_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 8, i32 1
+  %report_.i = getelementptr inbounds i8, ptr %this, i64 1384
   store atomic i64 4607182418800017408, ptr %report_.i monotonic, align 8
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then5.i, %if.end.i
-  %update_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 8, i32 2
+  %update_.i = getelementptr inbounds i8, ptr %this, i64 1392
   store ptr %pressure_tracker_, ptr %ref.tmp.i, align 8
-  %7 = getelementptr inbounds %class.anon.78, ptr %ref.tmp.i, i64 0, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %sample.addr.i, ptr %7, align 8
   %8 = atomicrmw sub ptr %update_.i, i64 1 acquire, align 8
   %cmp.i.i = icmp eq i64 %8, 1
@@ -3170,18 +3094,18 @@ if.then.i.i:                                      ; preds = %if.end6.i
   br label %_ZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEd.exit
 
 _ZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEd.exit: ; preds = %if.end6.i, %if.then.i.i
-  %report_8.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 8, i32 1
+  %report_8.i = getelementptr inbounds i8, ptr %this, i64 1384
   %9 = load atomic i64, ptr %report_8.i monotonic, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sample.addr.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %pressure_control_value14 = getelementptr inbounds %"struct.grpc_core::BasicMemoryQuota::PressureInfo", ptr %agg.result, i64 0, i32 1
+  %pressure_control_value14 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %9, ptr %pressure_control_value14, align 8
   br label %if.end19
 
 if.else:                                          ; preds = %if.end6
   %cmp.i9 = fcmp ogt double %.sroa.speculated12, 1.000000e+00
   %.sroa.speculated = select i1 %cmp.i9, double 1.000000e+00, double %.sroa.speculated12
-  %pressure_control_value18 = getelementptr inbounds %"struct.grpc_core::BasicMemoryQuota::PressureInfo", ptr %agg.result, i64 0, i32 1
+  %pressure_control_value18 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store double %.sroa.speculated, ptr %pressure_control_value18, align 8
   br label %if.end19
 
@@ -3191,7 +3115,7 @@ if.end19:                                         ; preds = %if.else, %_ZN9grpc_
 
 return:                                           ; preds = %if.end19, %if.then5
   %div207.sink = phi i64 [ %div207, %if.end19 ], [ 1, %if.then5 ]
-  %max_recommended_allocation_size21 = getelementptr inbounds %"struct.grpc_core::BasicMemoryQuota::PressureInfo", ptr %agg.result, i64 0, i32 2
+  %max_recommended_allocation_size21 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 %div207.sink, ptr %max_recommended_allocation_size21, align 8
   ret void
 }
@@ -3199,7 +3123,7 @@ return:                                           ; preds = %if.end19, %if.then5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core23GrpcMemoryAllocatorImpl15MaybeDonateBackEv(ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %free_bytes_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 2
+  %free_bytes_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load atomic i64, ptr %free_bytes_ monotonic, align 8
   br label %while.cond
 
@@ -3225,7 +3149,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %2, label %if.then11, label %while.cond, !llvm.loop !42
 
 if.then11:                                        ; preds = %while.body
-  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2) monotonic, align 8
+  %4 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %5 = and i8 %4, 1
   %tobool.i.i.i.not = icmp eq i8 %5, 0
   br i1 %tobool.i.i.i.not, label %monotonic.i35, label %if.then13
@@ -3235,7 +3159,7 @@ if.then13:                                        ; preds = %if.then11
   br label %monotonic.i35
 
 monotonic.i35:                                    ; preds = %if.then13, %if.then11
-  %taken_bytes_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 3
+  %taken_bytes_ = getelementptr inbounds i8, ptr %this, i64 48
   %6 = atomicrmw sub ptr %taken_bytes_, i64 %.sroa.speculated monotonic, align 8
   %cmp16.not = icmp ult i64 %6, %.sroa.speculated
   br i1 %cmp16.not, label %if.then17, label %do.end
@@ -3245,9 +3169,9 @@ if.then17:                                        ; preds = %monotonic.i35
   unreachable
 
 do.end:                                           ; preds = %monotonic.i35
-  %memory_quota_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 1
+  %memory_quota_ = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %memory_quota_, align 8
-  %free_bytes_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %7, i64 0, i32 1
+  %free_bytes_.i = getelementptr inbounds i8, ptr %7, i64 16
   %8 = atomicrmw add ptr %free_bytes_.i, i64 %.sroa.speculated monotonic, align 8
   br label %while.end
 
@@ -3270,7 +3194,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i monotonic, align 8, !noalias !43
   br label %do.body.i.i.i.i.i
 
@@ -3296,18 +3220,18 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorIm
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %add.ptr, align 8, !noalias !43
   store i64 1, ptr %call3, align 8
-  %destroyer_fn_.i.i = getelementptr inbounds %struct.grpc_slice_refcount, ptr %call3, i64 0, i32 1
+  %destroyer_fn_.i.i = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr @_ZN9grpc_core12_GLOBAL__N_113SliceRefCount7DestroyEP19grpc_slice_refcount, ptr %destroyer_fn_.i.i, align 8
-  %allocator_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::SliceRefCount", ptr %call3, i64 0, i32 1
+  %allocator_.i = getelementptr inbounds i8, ptr %call3, i64 16
   store ptr %5, ptr %allocator_.i, align 8
-  %_M_refcount.i.i.i5 = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::SliceRefCount", ptr %call3, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i5 = getelementptr inbounds i8, ptr %call3, i64 24
   store ptr %0, ptr %_M_refcount.i.i.i5, align 8
-  %size_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::SliceRefCount", ptr %call3, i64 0, i32 2
+  %size_.i = getelementptr inbounds i8, ptr %call3, i64 32
   store i64 %call2, ptr %size_.i, align 8
   store ptr %call3, ptr %agg.result, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %call3, i64 40
-  %data = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1
-  %bytes = getelementptr inbounds %struct.grpc_slice, ptr %agg.result, i64 0, i32 1, i32 0, i32 1
+  %data = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %bytes = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr5, ptr %bytes, align 8
   %sub = add i64 %call2, -40
   store i64 %sub, ptr %data, align 8
@@ -3321,9 +3245,9 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 define void @_ZN9grpc_core16BasicMemoryQuotaC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef %name) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %free_bytes_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 1
+  %free_bytes_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 9223372036854775807, ptr %free_bytes_, align 8
-  %quota_size_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 2
+  %quota_size_ = getelementptr inbounds i8, ptr %this, i64 24
   store i64 9223372036854775807, ptr %quota_size_, align 8
   br label %arrayctor.loop
 
@@ -3339,51 +3263,51 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
-  %small_allocators_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 4
+  %small_allocators_ = getelementptr inbounds i8, ptr %this, i64 80
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i, %arrayctor.cont
   %arrayctor.cur.idx.i.i = phi i64 [ 0, %arrayctor.cont ], [ %arrayctor.cur.add.i.i, %invoke.cont.i.i ]
   %arrayctor.cur.ptr.i.i = getelementptr inbounds i8, ptr %small_allocators_, i64 %arrayctor.cur.idx.i.i
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %arrayctor.cur.ptr.i.i, align 8
-  %slots_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayctor.cur.ptr.i.i, i64 0, i32 1
+  %slots_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slots_.i.i.i.i.i.i.i.i.i, i8 0, i64 32, i1 false)
   %arrayctor.cur.add.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i, 40
   %arrayctor.done.i.i = icmp eq i64 %arrayctor.cur.add.i.i, 640
   br i1 %arrayctor.done.i.i, label %invoke.cont4, label %invoke.cont.i.i
 
 invoke.cont4:                                     ; preds = %invoke.cont.i.i
-  %big_allocators_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 5
+  %big_allocators_ = getelementptr inbounds i8, ptr %this, i64 720
   br label %invoke.cont.i.i4
 
 invoke.cont.i.i4:                                 ; preds = %invoke.cont.i.i4, %invoke.cont4
   %arrayctor.cur.idx.i.i5 = phi i64 [ 0, %invoke.cont4 ], [ %arrayctor.cur.add.i.i8, %invoke.cont.i.i4 ]
   %arrayctor.cur.ptr.i.i6 = getelementptr inbounds i8, ptr %big_allocators_, i64 %arrayctor.cur.idx.i.i5
   store ptr getelementptr inbounds ([32 x i8], ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 0, i64 16), ptr %arrayctor.cur.ptr.i.i6, align 8
-  %slots_.i.i.i.i.i.i.i.i.i7 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayctor.cur.ptr.i.i6, i64 0, i32 1
+  %slots_.i.i.i.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i.i6, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slots_.i.i.i.i.i.i.i.i.i7, i8 0, i64 32, i1 false)
   %arrayctor.cur.add.i.i8 = add nuw nsw i64 %arrayctor.cur.idx.i.i5, 40
   %arrayctor.done.i.i9 = icmp eq i64 %arrayctor.cur.add.i.i8, 640
   br i1 %arrayctor.done.i.i9, label %invoke.cont8, label %invoke.cont.i.i4
 
 invoke.cont8:                                     ; preds = %invoke.cont.i.i4
-  %reclaimer_activity_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 6
-  %update_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 8, i32 2
+  %reclaimer_activity_ = getelementptr inbounds i8, ptr %this, i64 1360
+  %update_.i = getelementptr inbounds i8, ptr %this, i64 1392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %reclaimer_activity_, i8 0, i64 32, i1 false)
   store i64 1, ptr %update_.i, align 8
-  %period_.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 8, i32 2, i32 1
+  %period_.i.i = getelementptr inbounds i8, ptr %this, i64 1400
   store i64 1000, ptr %period_.i.i, align 8
-  %period_start_.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 8, i32 2, i32 2
+  %period_start_.i.i = getelementptr inbounds i8, ptr %this, i64 1408
   store i64 0, ptr %period_start_.i.i, align 8
-  %expected_updates_per_period_.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 8, i32 2, i32 3
+  %expected_updates_per_period_.i.i = getelementptr inbounds i8, ptr %this, i64 1416
   store i64 1, ptr %expected_updates_per_period_.i.i, align 8
-  %controller_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 8, i32 3
+  %controller_.i = getelementptr inbounds i8, ptr %this, i64 1424
   store <4 x i8> <i8 0, i8 100, i8 3, i8 1>, ptr %controller_.i, align 8
-  %min_.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 8, i32 3, i32 4
+  %min_.i.i = getelementptr inbounds i8, ptr %this, i64 1432
   store <2 x double> <double 0.000000e+00, double 2.000000e+00>, ptr %min_.i.i, align 8
-  %last_control_.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 8, i32 3, i32 6
+  %last_control_.i.i = getelementptr inbounds i8, ptr %this, i64 1448
   store double 0.000000e+00, ptr %last_control_.i.i, align 8
-  %name_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 9
+  %name_ = getelementptr inbounds i8, ptr %this, i64 1456
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %name_, ptr noundef nonnull align 8 dereferenceable(32) %name) #26
   ret void
 
@@ -3412,13 +3336,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23enable_shared_from_thisIN9grpc_core16BasicMemoryQuotaEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__weak_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i, label %_ZNSt8weak_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3440,7 +3364,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then.i.i.i.i:                                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 3
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   br label %_ZNSt8weak_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit
@@ -3469,15 +3393,15 @@ entry:
   %agg.tmp4 = alloca %"class.grpc_core::promise_detail::Seq", align 8
   %agg.tmp15 = alloca %"class.grpc_core::promise_detail::Loop", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %self, i64 0, i32 1
-  %_M_refcount2.i.i.i = getelementptr inbounds %"class.std::__weak_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %self, i64 8
+  %_M_refcount2.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !47
   store ptr %0, ptr %_M_refcount.i.i.i, align 8, !alias.scope !47
   %cmp.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %lor.lhs.false.i.i.i.i
 
 lor.lhs.false.i.i.i.i:                            ; preds = %entry
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i monotonic, align 8, !noalias !47
   br label %do.body.i.i.i.i.i
 
@@ -3531,14 +3455,14 @@ invoke.cont:                                      ; preds = %invoke.cont2.i, %in
   %9 = load ptr, ptr @_ZZN9grpc_core12_GLOBAL__N_118MemoryQuotaTracker3GetEvE7tracker, align 8
   %10 = load ptr, ptr %self, align 8
   store ptr %10, ptr %agg.tmp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %11 = load ptr, ptr %_M_refcount.i.i.i, align 8
   store ptr %11, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -3565,20 +3489,20 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit: ; preds = %invok
 
 invoke.cont.i:                                    ; preds = %.noexc
   %15 = load ptr, ptr %agg.tmp.ensured.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::shared_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %agg.tmp.ensured.i, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.tmp.ensured.i, i64 8
   %16 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %15, %16
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %invoke.cont.i, %_ZSt8_DestroyISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i.i.i ], [ %15, %invoke.cont.i ]
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__first.addr.04.i.i.i.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %17 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %17, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %18 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %18, 4294967297
   %19 = trunc i64 %18 to i32
@@ -3586,10 +3510,10 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %17, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %17, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(16) %17) #26
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i
@@ -3615,10 +3539,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.then7.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %17, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %23 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(16) %17) #26
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %17, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 12
   %24 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %24, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -3640,13 +3564,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; p
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %17, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %27 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %17) #26
   br label %_ZSt8_DestroyISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %16
   br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !51
 
@@ -3664,17 +3588,17 @@ if.then.i.i.i.i9:                                 ; preds = %invoke.cont.i.i
   br label %_ZNSt6vectorISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EED2Ev.exit.i
 
 _ZNSt6vectorISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i9, %invoke.cont.i.i
-  %quotas_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::MemoryQuotaTracker", ptr %9, i64 0, i32 1
+  %quotas_.i = getelementptr inbounds i8, ptr %9, i64 8
   %29 = load ptr, ptr %agg.tmp, align 8
   store ptr %29, ptr %ref.tmp.i, align 8
-  %_M_refcount.i.i.i10 = getelementptr inbounds %"class.std::__weak_ptr", ptr %ref.tmp.i, i64 0, i32 1
+  %_M_refcount.i.i.i10 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %30 = load ptr, ptr %_M_refcount.i.i, align 8
   store ptr %30, ptr %_M_refcount.i.i.i10, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %30, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEC2IS1_vEERKSt10shared_ptrIT_E.exit.i, label %if.then.i.i.i2.i
 
 if.then.i.i.i2.i:                                 ; preds = %_ZNSt6vectorISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EED2Ev.exit.i
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %30, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 12
   %31 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %31, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -3690,9 +3614,9 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i2.i
   br label %_ZNSt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEC2IS1_vEERKSt10shared_ptrIT_E.exit.i
 
 _ZNSt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEC2IS1_vEERKSt10shared_ptrIT_E.exit.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZNSt6vectorISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EED2Ev.exit.i
-  %_M_finish.i.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::MemoryQuotaTracker", ptr %9, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %34 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::MemoryQuotaTracker", ptr %9, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %35 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp.not.i.i.i11 = icmp eq ptr %34, %35
   br i1 %cmp.not.i.i.i11, label %if.else.i.i.i, label %invoke.cont3.thread.i
@@ -3700,12 +3624,12 @@ _ZNSt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEC2IS1_vEERKSt10shared_ptrIT_E.exit
 invoke.cont3.thread.i:                            ; preds = %_ZNSt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEC2IS1_vEERKSt10shared_ptrIT_E.exit.i
   %36 = load ptr, ptr %ref.tmp.i, align 8
   store ptr %36, ptr %34, align 8
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__weak_ptr", ptr %34, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
   %37 = load ptr, ptr %_M_refcount.i.i.i10, align 8
   store ptr %37, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i8 0, i64 16, i1 false)
   %38 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::weak_ptr", ptr %38, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %38, i64 16
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %_ZNSt8weak_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit.i
 
@@ -3719,7 +3643,7 @@ invoke.cont3.i:                                   ; preds = %if.else.i.i.i
   br i1 %cmp.not.i.i.i4.i, label %_ZNSt8weak_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit.i, label %if.then.i.i.i5.i
 
 if.then.i.i.i5.i:                                 ; preds = %invoke.cont3.i
-  %_M_weak_count.i.i.i.i6.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pre.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i6.i = getelementptr inbounds i8, ptr %.pre.i, i64 12
   %39 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %39, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i9.i, label %if.then.i.i.i.i.i7.i
@@ -3741,7 +3665,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then.i.i.i.i.i12:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %.pre.i, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
   %42 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(16) %.pre.i) #26
   br label %_ZNSt8weak_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit.i
@@ -3770,7 +3694,7 @@ lpad2.i:                                          ; preds = %if.else.i.i.i
   br i1 %cmp.not.i.i.i12.i, label %ehcleanup.i, label %if.then.i.i.i13.i
 
 if.then.i.i.i13.i:                                ; preds = %lpad2.i
-  %_M_weak_count.i.i.i.i14.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %47, i64 0, i32 2
+  %_M_weak_count.i.i.i.i14.i = getelementptr inbounds i8, ptr %47, i64 12
   %48 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i15.i = icmp eq i8 %48, 0
   br i1 %tobool.i.not.i.i.i.i15.i, label %if.else.i.i.i.i.i24.i, label %if.then.i.i.i.i.i16.i
@@ -3792,7 +3716,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18.i: ; preds = %if.e
 
 if.then.i.i.i.i21.i:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i18.i
   %vtable.i.i.i.i22.i = load ptr, ptr %47, align 8
-  %vfn.i.i.i.i23.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i22.i, i64 3
+  %vfn.i.i.i.i23.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i22.i, i64 24
   %51 = load ptr, ptr %vfn.i.i.i.i23.i, align 8
   call void %51(ptr noundef nonnull align 8 dereferenceable(16) %47) #26
   br label %ehcleanup.i
@@ -3817,7 +3741,7 @@ invoke.cont3:                                     ; preds = %_ZNSt8weak_ptrIN9gr
   br i1 %cmp.not.i.i.i15, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit, label %if.then.i.i.i16
 
 if.then.i.i.i16:                                  ; preds = %invoke.cont3
-  %_M_use_count.i.i.i.i17 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %54, i64 0, i32 1
+  %_M_use_count.i.i.i.i17 = getelementptr inbounds i8, ptr %54, i64 8
   %55 = load atomic i64, ptr %_M_use_count.i.i.i.i17 acquire, align 8
   %cmp.i.i.i.i18 = icmp eq i64 %55, 4294967297
   %56 = trunc i64 %55 to i32
@@ -3825,10 +3749,10 @@ if.then.i.i.i16:                                  ; preds = %invoke.cont3
 
 if.then.i.i.i.i22:                                ; preds = %if.then.i.i.i16
   store i32 0, ptr %_M_use_count.i.i.i.i17, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %54, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %54, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %57 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(16) %54) #26
   br label %if.end8.sink.split.i.i.i.i
@@ -3854,10 +3778,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %54, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %60 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(16) %54) #26
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %54, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 12
   %61 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %61, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -3879,7 +3803,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i22
   %vtable2.i.i.i.i.i.i = load ptr, ptr %54, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %64 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %64(ptr noundef nonnull align 8 dereferenceable(16) %54) #26
   br label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit
@@ -3891,7 +3815,7 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit: ; preds = %invoke.co
   br i1 %cmp.not.i.i.i25, label %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit", label %if.then.i.i.i26
 
 if.then.i.i.i26:                                  ; preds = %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit
-  %_M_use_count.i.i.i.i27 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %66, i64 0, i32 1
+  %_M_use_count.i.i.i.i27 = getelementptr inbounds i8, ptr %66, i64 8
   %67 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i28 = icmp eq i8 %67, 0
   br i1 %tobool.i.i.not.i.i.i.i28, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit32, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit32.thread239
@@ -3912,7 +3836,7 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit32: ; preds = %if.
 if.then.i.i.i36:                                  ; preds = %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit32.thread239, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit32
   %.pr242 = phi ptr [ %66, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit32.thread239 ], [ %.pr.pre, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit32 ]
   %70 = phi ptr [ %65, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit32.thread239 ], [ %.pre, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit32 ]
-  %_M_use_count.i.i.i.i37 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr242, i64 0, i32 1
+  %_M_use_count.i.i.i.i37 = getelementptr inbounds i8, ptr %.pr242, i64 8
   %71 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i38 = icmp eq i8 %71, 0
   br i1 %tobool.i.i.not.i.i.i.i38, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit42, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit42.thread243
@@ -3933,7 +3857,7 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit42: ; preds = %if.
 if.then.i.i.i46:                                  ; preds = %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit42.thread243, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit42
   %.pr232246 = phi ptr [ %.pr242, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit42.thread243 ], [ %.pr232.pre, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit42 ]
   %74 = phi ptr [ %70, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit42.thread243 ], [ %.pre238, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit42 ]
-  %_M_use_count.i.i.i.i47 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr232246, i64 0, i32 1
+  %_M_use_count.i.i.i.i47 = getelementptr inbounds i8, ptr %.pr232246, i64 8
   %75 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i48 = icmp eq i8 %75, 0
   br i1 %tobool.i.i.not.i.i.i.i48, label %if.else.i.i.i.i.i51, label %if.then.i.i.i.i.i49
@@ -3953,74 +3877,74 @@ if.else.i.i.i.i.i51:                              ; preds = %if.then.i.i.i46
   %79 = phi ptr [ %.pr242, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit42 ], [ %.pr242, %if.then.i.i.i.i.i49 ], [ %.pr242, %if.else.i.i.i.i.i51 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit32 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit ]
   %80 = phi ptr [ %70, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit42 ], [ %70, %if.then.i.i.i.i.i49 ], [ %70, %if.else.i.i.i.i.i51 ], [ %.pre, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit32 ], [ %65, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit ]
   %81 = phi ptr [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit42 ], [ %.pr232246, %if.then.i.i.i.i.i49 ], [ %.pr232246, %if.else.i.i.i.i.i51 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit32 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit ]
-  %state.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %agg.tmp4, i64 0, i32 1
+  %state.i.i.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 64
   store i8 0, ptr %state.i.i.i, align 8, !alias.scope !52
-  %_M_refcount.i.i.i.i.i.i.i.i53 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp4, i64 0, i32 1
-  %next_factory.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp4, i64 0, i32 1
-  %next_factory3.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp4, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i53 = getelementptr inbounds i8, ptr %agg.tmp4, i64 8
+  %next_factory.i.i.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 16
+  %next_factory3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp4, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %agg.tmp.i)
-  %state.i.i.i54 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %agg.tmp.i, i64 0, i32 1
+  %state.i.i.i54 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 64
   store i8 0, ptr %state.i.i.i54, align 8, !noalias !55
-  %_M_refcount.i.i.i.i.i.i.i.i56 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i56 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i.i.i.i53, align 8, !noalias !55
   store ptr null, ptr %agg.tmp4, align 8, !noalias !55
-  %next_factory.i.i.i58 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp.i, i64 0, i32 1
-  %next_factory13.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp.i, i64 0, i32 1
+  %next_factory.i.i.i58 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
+  %next_factory13.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_factory.i.i.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_factory3.i.i.i, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %agg.tmp.i.i), !noalias !55
-  %state.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %agg.tmp.i.i, i64 0, i32 1
+  %state.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 64
   store i8 0, ptr %state.i.i.i.i, align 8, !noalias !55
-  %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i.i.i.i56, align 8, !noalias !55
   store ptr null, ptr %agg.tmp.i, align 8, !noalias !55
-  %next_factory.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp.i.i, i64 0, i32 1
-  %_M_refcount.i.i.i.i.i10.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %next_factory.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 16
+  %_M_refcount.i.i.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_factory.i.i.i58, i8 0, i64 16, i1 false), !noalias !55
-  %state.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %reclamation_loop, i64 0, i32 1
+  %state.i.i.i.i.i = getelementptr inbounds i8, ptr %reclamation_loop, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next_factory13.i.i.i, i8 0, i64 16, i1 false), !noalias !55
   store i8 0, ptr %state.i.i.i.i.i, align 8, !alias.scope !55
-  %_M_refcount.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %reclamation_loop, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %reclamation_loop, i64 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8, !noalias !55
   store ptr null, ptr %agg.tmp.i.i, align 8, !noalias !55
-  %next_factory.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %reclamation_loop, i64 0, i32 1
-  %_M_refcount.i.i.i.i.i10.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %reclamation_loop, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %next_factory.i.i.i.i.i = getelementptr inbounds i8, ptr %reclamation_loop, i64 16
+  %_M_refcount.i.i.i.i.i10.i.i.i.i.i = getelementptr inbounds i8, ptr %reclamation_loop, i64 24
   store ptr null, ptr %_M_refcount.i.i.i.i.i10.i.i.i.i, align 8, !noalias !55
   store ptr null, ptr %next_factory.i.i.i.i, align 8, !noalias !55
-  %next_factory13.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %reclamation_loop, i64 0, i32 1
-  %next_factory14.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp.i.i, i64 0, i32 1
-  %_M_refcount.i.i.i.i.i12.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %reclamation_loop, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %next_factory13.i.i.i.i.i = getelementptr inbounds i8, ptr %reclamation_loop, i64 48
+  %next_factory14.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 48
+  %_M_refcount.i.i.i.i.i12.i.i.i.i.i = getelementptr inbounds i8, ptr %reclamation_loop, i64 56
+  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 56
   store ptr null, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i.i, align 8, !noalias !55
   store ptr null, ptr %next_factory14.i.i.i.i.i, align 8, !noalias !55
   call fastcc void @"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %agg.tmp.i.i) #26, !noalias !55
-  %started_.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %reclamation_loop, i64 0, i32 2
+  %started_.i.i = getelementptr inbounds i8, ptr %reclamation_loop, i64 144
   store i8 0, ptr %started_.i.i, align 8, !alias.scope !55
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %agg.tmp.i.i), !noalias !55
   call fastcc void @"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %agg.tmp.i) #26, !noalias !55
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %agg.tmp.i)
   call fastcc void @"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %agg.tmp4) #26
-  %state.i.i.i.i132 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %agg.tmp15, i64 0, i32 1
+  %state.i.i.i.i132 = getelementptr inbounds i8, ptr %agg.tmp15, i64 64
   store i8 0, ptr %state.i.i.i.i132, align 8
   store ptr %65, ptr %agg.tmp15, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i.i151 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp15, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i.i151 = getelementptr inbounds i8, ptr %agg.tmp15, i64 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %66, ptr %_M_refcount.i.i.i.i.i.i.i.i.i151, align 8
   store ptr null, ptr %reclamation_loop, align 8
-  %next_factory.i.i.i.i153 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp15, i64 0, i32 1
+  %next_factory.i.i.i.i153 = getelementptr inbounds i8, ptr %agg.tmp15, i64 16
   store ptr %80, ptr %next_factory.i.i.i.i153, align 8
-  %_M_refcount.i.i.i.i.i10.i.i.i.i154 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp15, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i10.i.i.i.i154 = getelementptr inbounds i8, ptr %agg.tmp15, i64 24
   store ptr null, ptr %_M_refcount.i.i.i.i.i10.i.i.i.i.i, align 8
   store ptr %79, ptr %_M_refcount.i.i.i.i.i10.i.i.i.i154, align 8
   store ptr null, ptr %next_factory.i.i.i.i.i, align 8
-  %next_factory13.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp15, i64 0, i32 1
+  %next_factory13.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp15, i64 48
   store ptr %78, ptr %next_factory13.i.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i12.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp15, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp15, i64 56
   store ptr null, ptr %_M_refcount.i.i.i.i.i12.i.i.i.i.i, align 8
   store ptr %81, ptr %_M_refcount.i.i.i.i.i12.i.i.i.i, align 8
   store ptr null, ptr %next_factory13.i.i.i.i.i, align 8
-  %started_.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp15, i64 0, i32 2
+  %started_.i = getelementptr inbounds i8, ptr %agg.tmp15, i64 144
   store i8 0, ptr %started_.i, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %agg.tmp.i155)
   %call.i156185 = invoke noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #28
@@ -4034,23 +3958,23 @@ call.i156.noexc:                                  ; preds = %"_ZN9grpc_core14pro
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp19.i.i), !noalias !58
   %82 = getelementptr inbounds i8, ptr %call.i156185, i64 24
   %83 = getelementptr inbounds i8, ptr %call.i156185, i64 8
-  %mu_.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %call.i156185, i64 0, i32 2
+  %mu_.i.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu_.i.i.i, i8 0, i64 16, i1 false), !noalias !58
   store i32 1, ptr %82, align 4, !noalias !58
-  %handle_.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %call.i156185, i64 0, i32 5
+  %handle_.i.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 32
   store ptr null, ptr %handle_.i.i.i, align 8, !noalias !58
   store ptr getelementptr inbounds ({ [15 x ptr], [6 x ptr] }, ptr @"_ZTVN9grpc_core14promise_detail15PromiseActivityINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEENS_22ExecCtxWakeupSchedulerEZNS4_5StartEvE3$_4JEEE", i64 0, inrange i32 0, i64 2), ptr %call.i156185, align 8, !noalias !58
   store ptr getelementptr inbounds ({ [15 x ptr], [6 x ptr] }, ptr @"_ZTVN9grpc_core14promise_detail15PromiseActivityINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEENS_22ExecCtxWakeupSchedulerEZNS4_5StartEvE3$_4JEEE", i64 0, inrange i32 1, i64 2), ptr %83, align 8, !noalias !58
-  %done_.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 2
+  %done_.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 72
   store i8 0, ptr %done_.i.i, align 8, !noalias !58
-  %wakeup_scheduled_.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 3
+  %wakeup_scheduled_.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 73
   store i8 0, ptr %wakeup_scheduled_.i.i, align 1, !noalias !58
   invoke void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i.i.i)
           to label %invoke.cont7.i.i unwind label %lpad5.i.i, !noalias !58
 
 invoke.cont7.i.i:                                 ; preds = %call.i156.noexc
-  %state.i.i.i.i.i157 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %agg.tmp9.i.i, i64 0, i32 1
-  %state2.i.i.i.i.i158 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %agg.tmp.i155, i64 0, i32 1
+  %state.i.i.i.i.i157 = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 64
+  %state2.i.i.i.i.i158 = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 64
   %84 = load i8, ptr %state2.i.i.i.i.i158, align 16, !noalias !58
   store i8 %84, ptr %state.i.i.i.i.i157, align 16, !noalias !58
   switch i8 %84, label %tail0.i.i.i.i.i180 [
@@ -4061,7 +3985,7 @@ invoke.cont7.i.i:                                 ; preds = %call.i156.noexc
   ]
 
 sw.bb.i.i.i.i.i177:                               ; preds = %invoke.cont7.i.i
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i179 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp.i155, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i179 = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 8
   %85 = load <2 x ptr>, ptr %agg.tmp.i155, align 16, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i179, align 8, !noalias !58
   store <2 x ptr> %85, ptr %agg.tmp9.i.i, align 16, !noalias !58
@@ -4073,21 +3997,21 @@ sw.bb5.i.i.i.i.i171:                              ; preds = %invoke.cont7.i.i
   br label %tail1.i.i.i.i.i172
 
 sw.bb7.i.i.i.i.i166:                              ; preds = %invoke.cont7.i.i
-  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i168 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp.i155, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i168 = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 8
   %86 = load <2 x ptr>, ptr %agg.tmp.i155, align 16, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i9.i.i.i.i.i168, align 8, !noalias !58
   store <2 x ptr> %86, ptr %agg.tmp9.i.i, align 16, !noalias !58
   store ptr null, ptr %agg.tmp.i155, align 16, !noalias !58
-  %token_.i.i.i.i.i.i.i.i169 = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %agg.tmp9.i.i, i64 0, i32 1
-  %token_3.i.i.i.i.i.i.i.i170 = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %agg.tmp.i155, i64 0, i32 1
+  %token_.i.i.i.i.i.i.i.i169 = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 16
+  %token_3.i.i.i.i.i.i.i.i170 = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 16
   %87 = load i64, ptr %token_3.i.i.i.i.i.i.i.i170, align 16, !noalias !58
   store i64 %87, ptr %token_.i.i.i.i.i.i.i.i169, align 16, !noalias !58
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i"
 
 tail0.i.i.i.i.i180:                               ; preds = %sw.bb.i.i.i.i.i177, %invoke.cont7.i.i
-  %next_factory.i.i.i.i.i181 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp9.i.i, i64 0, i32 1
-  %next_factory11.i.i.i.i.i182 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp.i155, i64 0, i32 1
-  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i184 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp.i155, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %next_factory.i.i.i.i.i181 = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 16
+  %next_factory11.i.i.i.i.i182 = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 16
+  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i184 = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 24
   %88 = load <2 x ptr>, ptr %next_factory11.i.i.i.i.i182, align 16, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i11.i.i.i.i.i184, align 8, !noalias !58
   store <2 x ptr> %88, ptr %next_factory.i.i.i.i.i181, align 16, !noalias !58
@@ -4095,9 +4019,9 @@ tail0.i.i.i.i.i180:                               ; preds = %sw.bb.i.i.i.i.i177,
   br label %tail1.i.i.i.i.i172
 
 tail1.i.i.i.i.i172:                               ; preds = %tail0.i.i.i.i.i180, %sw.bb5.i.i.i.i.i171
-  %next_factory13.i.i.i.i.i173 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp9.i.i, i64 0, i32 1
-  %next_factory14.i.i.i.i.i174 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp.i155, i64 0, i32 1
-  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i176 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp.i155, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %next_factory13.i.i.i.i.i173 = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 48
+  %next_factory14.i.i.i.i.i174 = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 48
+  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i176 = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 56
   %89 = load <2 x ptr>, ptr %next_factory14.i.i.i.i.i174, align 16, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i.i176, align 8, !noalias !58
   store <2 x ptr> %89, ptr %next_factory13.i.i.i.i.i173, align 16, !noalias !58
@@ -4105,8 +4029,8 @@ tail1.i.i.i.i.i172:                               ; preds = %tail0.i.i.i.i.i180,
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i"
 
 "_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i": ; preds = %tail1.i.i.i.i.i172, %sw.bb7.i.i.i.i.i166, %invoke.cont7.i.i
-  %started_.i2.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 2
-  %started_3.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i155, i64 0, i32 2
+  %started_.i2.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 144
+  %started_3.i.i = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 144
   %90 = load i8, ptr %started_3.i.i, align 16, !noalias !58
   %91 = and i8 %90, 1
   %tobool.not.i3.i = icmp eq i8 %91, 0
@@ -4114,10 +4038,10 @@ tail1.i.i.i.i.i172:                               ; preds = %tail0.i.i.i.i.i180,
   br i1 %tobool.not.i3.i, label %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i", label %if.then.i4.i
 
 if.then.i4.i:                                     ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i"
-  %92 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1
-  %93 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i155, i64 0, i32 1
-  %state.i.i.i.i.i5.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %state2.i.i.i.i.i6.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i155, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %92 = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 72
+  %93 = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 72
+  %state.i.i.i.i.i5.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 136
+  %state2.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 136
   %94 = load i8, ptr %state2.i.i.i.i.i6.i, align 8, !noalias !58
   store i8 %94, ptr %state.i.i.i.i.i5.i, align 8, !noalias !58
   switch i8 %94, label %tail0.i.i.i.i.i21.i [
@@ -4128,7 +4052,7 @@ if.then.i4.i:                                     ; preds = %"_ZN9grpc_core14pro
   ]
 
 sw.bb.i.i.i.i.i18.i:                              ; preds = %if.then.i4.i
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i20.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i155, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i20.i = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 80
   %95 = load <2 x ptr>, ptr %93, align 8, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i20.i, align 16, !noalias !58
   store <2 x ptr> %95, ptr %92, align 8, !noalias !58
@@ -4140,21 +4064,21 @@ sw.bb5.i.i.i.i.i12.i:                             ; preds = %if.then.i4.i
   br label %tail1.i.i.i.i.i13.i
 
 sw.bb7.i.i.i.i.i7.i:                              ; preds = %if.then.i4.i
-  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i9.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i155, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i9.i = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 80
   %96 = load <2 x ptr>, ptr %93, align 8, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i9.i.i.i.i.i9.i, align 16, !noalias !58
   store <2 x ptr> %96, ptr %92, align 8, !noalias !58
   store ptr null, ptr %93, align 8, !noalias !58
-  %token_.i.i.i.i.i.i.i.i10.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %token_3.i.i.i.i.i.i.i.i11.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i155, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %token_.i.i.i.i.i.i.i.i10.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 88
+  %token_3.i.i.i.i.i.i.i.i11.i = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 88
   %97 = load i64, ptr %token_3.i.i.i.i.i.i.i.i11.i, align 8, !noalias !58
   store i64 %97, ptr %token_.i.i.i.i.i.i.i.i10.i, align 8, !noalias !58
   br label %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i"
 
 tail0.i.i.i.i.i21.i:                              ; preds = %sw.bb.i.i.i.i.i18.i, %if.then.i4.i
-  %next_factory.i.i.i.i.i22.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %next_factory11.i.i.i.i.i23.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i155, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i25.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i155, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %next_factory.i.i.i.i.i22.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 88
+  %next_factory11.i.i.i.i.i23.i = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 88
+  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i25.i = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 96
   %98 = load <2 x ptr>, ptr %next_factory11.i.i.i.i.i23.i, align 8, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i11.i.i.i.i.i25.i, align 16, !noalias !58
   store <2 x ptr> %98, ptr %next_factory.i.i.i.i.i22.i, align 8, !noalias !58
@@ -4162,9 +4086,9 @@ tail0.i.i.i.i.i21.i:                              ; preds = %sw.bb.i.i.i.i.i18.i
   br label %tail1.i.i.i.i.i13.i
 
 tail1.i.i.i.i.i13.i:                              ; preds = %tail0.i.i.i.i.i21.i, %sw.bb5.i.i.i.i.i12.i
-  %next_factory13.i.i.i.i.i14.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %next_factory14.i.i.i.i.i15.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i155, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i17.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i155, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %next_factory13.i.i.i.i.i14.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 120
+  %next_factory14.i.i.i.i.i15.i = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 120
+  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i17.i = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 128
   %99 = load <2 x ptr>, ptr %next_factory14.i.i.i.i.i15.i, align 8, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i.i17.i, align 16, !noalias !58
   store <2 x ptr> %99, ptr %next_factory13.i.i.i.i.i14.i, align 8, !noalias !58
@@ -4172,7 +4096,7 @@ tail1.i.i.i.i.i13.i:                              ; preds = %tail0.i.i.i.i.i21.i
   br label %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i"
 
 "_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i": ; preds = %tail1.i.i.i.i.i13.i, %sw.bb7.i.i.i.i.i7.i, %if.then.i4.i, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i"
-  %state.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %agg.tmp8.i.i, i64 0, i32 1
+  %state.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 64
   store i8 %84, ptr %state.i.i.i.i.i.i, align 16, !noalias !58
   switch i8 %84, label %tail0.i.i.i.i.i.i [
     i8 0, label %sw.bb.i.i.i.i.i.i
@@ -4182,7 +4106,7 @@ tail1.i.i.i.i.i13.i:                              ; preds = %tail0.i.i.i.i.i21.i
   ]
 
 sw.bb.i.i.i.i.i.i:                                ; preds = %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i"
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp9.i.i, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 8
   %100 = load <2 x ptr>, ptr %agg.tmp9.i.i, align 16, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !58
   store <2 x ptr> %100, ptr %agg.tmp8.i.i, align 16, !noalias !58
@@ -4194,21 +4118,21 @@ sw.bb5.i.i.i.i.i.i:                               ; preds = %"_ZN9grpc_core14pro
   br label %tail1.i.i.i.i.i.i
 
 sw.bb7.i.i.i.i.i.i:                               ; preds = %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i"
-  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp9.i.i, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 8
   %101 = load <2 x ptr>, ptr %agg.tmp9.i.i, align 16, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i9.i.i.i.i.i.i, align 8, !noalias !58
   store <2 x ptr> %101, ptr %agg.tmp8.i.i, align 16, !noalias !58
   store ptr null, ptr %agg.tmp9.i.i, align 16, !noalias !58
-  %token_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %agg.tmp8.i.i, i64 0, i32 1
-  %token_3.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %agg.tmp9.i.i, i64 0, i32 1
+  %token_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 16
+  %token_3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 16
   %102 = load i64, ptr %token_3.i.i.i.i.i.i.i.i.i, align 16, !noalias !58
   store i64 %102, ptr %token_.i.i.i.i.i.i.i.i.i, align 16, !noalias !58
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i.i"
 
 tail0.i.i.i.i.i.i:                                ; preds = %sw.bb.i.i.i.i.i.i, %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i"
-  %next_factory.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp8.i.i, i64 0, i32 1
-  %next_factory11.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp9.i.i, i64 0, i32 1
-  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp9.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %next_factory.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 16
+  %next_factory11.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 16
+  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 24
   %103 = load <2 x ptr>, ptr %next_factory11.i.i.i.i.i.i, align 16, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i11.i.i.i.i.i.i, align 8, !noalias !58
   store <2 x ptr> %103, ptr %next_factory.i.i.i.i.i.i, align 16, !noalias !58
@@ -4216,9 +4140,9 @@ tail0.i.i.i.i.i.i:                                ; preds = %sw.bb.i.i.i.i.i.i, 
   br label %tail1.i.i.i.i.i.i
 
 tail1.i.i.i.i.i.i:                                ; preds = %tail0.i.i.i.i.i.i, %sw.bb5.i.i.i.i.i.i
-  %next_factory13.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp8.i.i, i64 0, i32 1
-  %next_factory14.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp9.i.i, i64 0, i32 1
-  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp9.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %next_factory13.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 48
+  %next_factory14.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 48
+  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 56
   %104 = load <2 x ptr>, ptr %next_factory14.i.i.i.i.i.i, align 16, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i.i.i, align 8, !noalias !58
   store <2 x ptr> %104, ptr %next_factory13.i.i.i.i.i.i, align 16, !noalias !58
@@ -4226,15 +4150,15 @@ tail1.i.i.i.i.i.i:                                ; preds = %tail0.i.i.i.i.i.i, 
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i.i"
 
 "_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i.i": ; preds = %tail1.i.i.i.i.i.i, %sw.bb7.i.i.i.i.i.i, %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i"
-  %started_.i12.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 2
+  %started_.i12.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 144
   store i8 %91, ptr %started_.i12.i.i, align 16, !noalias !58
   br i1 %tobool.not.i3.i, label %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i", label %if.then.i14.i.i
 
 if.then.i14.i.i:                                  ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i.i"
-  %105 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1
-  %106 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1
-  %state.i.i.i.i.i15.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %state2.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %105 = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 72
+  %106 = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 72
+  %state.i.i.i.i.i15.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 136
+  %state2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 136
   %107 = load i8, ptr %state2.i.i.i.i.i.i.i, align 8, !noalias !58
   store i8 %107, ptr %state.i.i.i.i.i15.i.i, align 8, !noalias !58
   switch i8 %107, label %tail0.i.i.i.i.i30.i.i [
@@ -4245,7 +4169,7 @@ if.then.i14.i.i:                                  ; preds = %"_ZN9grpc_core14pro
   ]
 
 sw.bb.i.i.i.i.i27.i.i:                            ; preds = %if.then.i14.i.i
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i29.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i29.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 80
   %108 = load <2 x ptr>, ptr %106, align 8, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i29.i.i, align 16, !noalias !58
   store <2 x ptr> %108, ptr %105, align 8, !noalias !58
@@ -4257,21 +4181,21 @@ sw.bb5.i.i.i.i.i21.i.i:                           ; preds = %if.then.i14.i.i
   br label %tail1.i.i.i.i.i22.i.i
 
 sw.bb7.i.i.i.i.i16.i.i:                           ; preds = %if.then.i14.i.i
-  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i18.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i18.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 80
   %109 = load <2 x ptr>, ptr %106, align 8, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i9.i.i.i.i.i18.i.i, align 16, !noalias !58
   store <2 x ptr> %109, ptr %105, align 8, !noalias !58
   store ptr null, ptr %106, align 8, !noalias !58
-  %token_.i.i.i.i.i.i.i.i19.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %token_3.i.i.i.i.i.i.i.i20.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %token_.i.i.i.i.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 88
+  %token_3.i.i.i.i.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 88
   %110 = load i64, ptr %token_3.i.i.i.i.i.i.i.i20.i.i, align 8, !noalias !58
   store i64 %110, ptr %token_.i.i.i.i.i.i.i.i19.i.i, align 8, !noalias !58
   br label %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i"
 
 tail0.i.i.i.i.i30.i.i:                            ; preds = %sw.bb.i.i.i.i.i27.i.i, %if.then.i14.i.i
-  %next_factory.i.i.i.i.i31.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %next_factory11.i.i.i.i.i32.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i34.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %next_factory.i.i.i.i.i31.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 88
+  %next_factory11.i.i.i.i.i32.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 88
+  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i34.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 96
   %111 = load <2 x ptr>, ptr %next_factory11.i.i.i.i.i32.i.i, align 8, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i11.i.i.i.i.i34.i.i, align 16, !noalias !58
   store <2 x ptr> %111, ptr %next_factory.i.i.i.i.i31.i.i, align 8, !noalias !58
@@ -4279,9 +4203,9 @@ tail0.i.i.i.i.i30.i.i:                            ; preds = %sw.bb.i.i.i.i.i27.i
   br label %tail1.i.i.i.i.i22.i.i
 
 tail1.i.i.i.i.i22.i.i:                            ; preds = %tail0.i.i.i.i.i30.i.i, %sw.bb5.i.i.i.i.i21.i.i
-  %next_factory13.i.i.i.i.i23.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %next_factory14.i.i.i.i.i24.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i26.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %next_factory13.i.i.i.i.i23.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 120
+  %next_factory14.i.i.i.i.i24.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 120
+  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i26.i.i = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 128
   %112 = load <2 x ptr>, ptr %next_factory14.i.i.i.i.i24.i.i, align 8, !noalias !58
   store ptr null, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i.i26.i.i, align 16, !noalias !58
   store <2 x ptr> %112, ptr %next_factory13.i.i.i.i.i23.i.i, align 8, !noalias !58
@@ -4309,7 +4233,7 @@ _ZN9grpc_core8Activity14ScopedActivityC2EPS0_.exit.i.i.i: ; preds = %116, %_ZTWN
   store ptr %call.i156185, ptr %114, align 8, !noalias !61
   call void @llvm.experimental.noalias.scope.decl(metadata !64)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %agg.tmp.i.i.i.i), !noalias !61
-  %state.i.i.i.i35.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
+  %state.i.i.i.i35.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 64
   %117 = load i8, ptr %state.i.i.i.i.i.i, align 16, !noalias !67
   store i8 %117, ptr %state.i.i.i.i35.i.i, align 16, !noalias !67
   switch i8 %117, label %tail0.i.i.i.i77.i.i [
@@ -4320,7 +4244,7 @@ _ZN9grpc_core8Activity14ScopedActivityC2EPS0_.exit.i.i.i: ; preds = %116, %_ZTWN
   ]
 
 sw.bb.i.i.i.i74.i.i:                              ; preds = %_ZN9grpc_core8Activity14ScopedActivityC2EPS0_.exit.i.i.i
-  %_M_refcount4.i.i.i.i.i.i.i.i.i76.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp8.i.i, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i.i76.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 8
   %118 = load <2 x ptr>, ptr %agg.tmp8.i.i, align 16, !noalias !67
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i76.i.i, align 8, !noalias !67
   store <2 x ptr> %118, ptr %agg.tmp.i.i.i.i, align 16, !noalias !67
@@ -4332,21 +4256,21 @@ sw.bb5.i.i.i.i68.i.i:                             ; preds = %_ZN9grpc_core8Activ
   br label %tail1.i.i.i.i69.i.i
 
 sw.bb7.i.i.i.i63.i.i:                             ; preds = %_ZN9grpc_core8Activity14ScopedActivityC2EPS0_.exit.i.i.i
-  %_M_refcount4.i.i.i.i.i9.i.i.i.i65.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp8.i.i, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i9.i.i.i.i65.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 8
   %119 = load <2 x ptr>, ptr %agg.tmp8.i.i, align 16, !noalias !67
   store ptr null, ptr %_M_refcount4.i.i.i.i.i9.i.i.i.i65.i.i, align 8, !noalias !67
   store <2 x ptr> %119, ptr %agg.tmp.i.i.i.i, align 16, !noalias !67
   store ptr null, ptr %agg.tmp8.i.i, align 16, !noalias !67
-  %token_.i.i.i.i.i.i.i66.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
-  %token_3.i.i.i.i.i.i.i67.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %agg.tmp8.i.i, i64 0, i32 1
+  %token_.i.i.i.i.i.i.i66.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
+  %token_3.i.i.i.i.i.i.i67.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 16
   %120 = load i64, ptr %token_3.i.i.i.i.i.i.i67.i.i, align 16, !noalias !67
   store i64 %120, ptr %token_.i.i.i.i.i.i.i66.i.i, align 16, !noalias !67
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i37.i.i"
 
 tail0.i.i.i.i77.i.i:                              ; preds = %sw.bb.i.i.i.i74.i.i, %_ZN9grpc_core8Activity14ScopedActivityC2EPS0_.exit.i.i.i
-  %next_factory.i.i.i.i78.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
-  %next_factory11.i.i.i.i79.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp8.i.i, i64 0, i32 1
-  %_M_refcount4.i.i.i.i.i11.i.i.i.i81.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp8.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %next_factory.i.i.i.i78.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
+  %next_factory11.i.i.i.i79.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 16
+  %_M_refcount4.i.i.i.i.i11.i.i.i.i81.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 24
   %121 = load <2 x ptr>, ptr %next_factory11.i.i.i.i79.i.i, align 16, !noalias !67
   store ptr null, ptr %_M_refcount4.i.i.i.i.i11.i.i.i.i81.i.i, align 8, !noalias !67
   store <2 x ptr> %121, ptr %next_factory.i.i.i.i78.i.i, align 16, !noalias !67
@@ -4354,12 +4278,12 @@ tail0.i.i.i.i77.i.i:                              ; preds = %sw.bb.i.i.i.i74.i.i
   br label %tail1.i.i.i.i69.i.i
 
 tail1.i.i.i.i69.i.i:                              ; preds = %tail0.i.i.i.i77.i.i, %sw.bb5.i.i.i.i68.i.i
-  %next_factory13.i.i.i.i70.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
-  %next_factory14.i.i.i.i71.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp8.i.i, i64 0, i32 1
+  %next_factory13.i.i.i.i70.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 48
+  %next_factory14.i.i.i.i71.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 48
   %122 = load ptr, ptr %next_factory14.i.i.i.i71.i.i, align 16, !noalias !67
   store ptr %122, ptr %next_factory13.i.i.i.i70.i.i, align 16, !noalias !67
-  %_M_refcount.i.i.i.i.i12.i.i.i.i72.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount4.i.i.i.i.i13.i.i.i.i73.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp8.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i12.i.i.i.i72.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 56
+  %_M_refcount4.i.i.i.i.i13.i.i.i.i73.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 56
   %123 = load ptr, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i73.i.i, align 8, !noalias !67
   store ptr null, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i73.i.i, align 8, !noalias !67
   store ptr %123, ptr %_M_refcount.i.i.i.i.i12.i.i.i.i72.i.i, align 8, !noalias !67
@@ -4369,7 +4293,7 @@ tail1.i.i.i.i69.i.i:                              ; preds = %tail0.i.i.i.i77.i.i
 "_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i37.i.i": ; preds = %tail1.i.i.i.i69.i.i, %sw.bb7.i.i.i.i63.i.i, %_ZN9grpc_core8Activity14ScopedActivityC2EPS0_.exit.i.i.i
   %124 = phi ptr [ %123, %tail1.i.i.i.i69.i.i ], [ undef, %sw.bb7.i.i.i.i63.i.i ], [ undef, %_ZN9grpc_core8Activity14ScopedActivityC2EPS0_.exit.i.i.i ]
   %125 = phi ptr [ %122, %tail1.i.i.i.i69.i.i ], [ undef, %sw.bb7.i.i.i.i63.i.i ], [ undef, %_ZN9grpc_core8Activity14ScopedActivityC2EPS0_.exit.i.i.i ]
-  %started_.i38.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 2
+  %started_.i38.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 144
   %126 = load i8, ptr %started_.i12.i.i, align 16, !noalias !67
   %127 = and i8 %126, 1
   %tobool.not.i40.i.i = icmp eq i8 %127, 0
@@ -4377,10 +4301,10 @@ tail1.i.i.i.i69.i.i:                              ; preds = %tail0.i.i.i.i77.i.i
   br i1 %tobool.not.i40.i.i, label %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit82.i.i", label %if.then.i41.i.i
 
 if.then.i41.i.i:                                  ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i37.i.i"
-  %128 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
-  %129 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1
-  %state.i.i.i.i.i42.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %state2.i.i.i.i.i43.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %128 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 72
+  %129 = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 72
+  %state.i.i.i.i.i42.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 136
+  %state2.i.i.i.i.i43.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 136
   %130 = load i8, ptr %state2.i.i.i.i.i43.i.i, align 8, !noalias !67
   store i8 %130, ptr %state.i.i.i.i.i42.i.i, align 8, !noalias !67
   switch i8 %130, label %tail0.i.i.i.i.i58.i.i [
@@ -4391,7 +4315,7 @@ if.then.i41.i.i:                                  ; preds = %"_ZN9grpc_core14pro
   ]
 
 sw.bb.i.i.i.i.i55.i.i:                            ; preds = %if.then.i41.i.i
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i57.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i57.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 80
   %131 = load <2 x ptr>, ptr %129, align 8, !noalias !67
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i57.i.i, align 16, !noalias !67
   store <2 x ptr> %131, ptr %128, align 8, !noalias !67
@@ -4403,21 +4327,21 @@ sw.bb5.i.i.i.i.i49.i.i:                           ; preds = %if.then.i41.i.i
   br label %tail1.i.i.i.i.i50.i.i
 
 sw.bb7.i.i.i.i.i44.i.i:                           ; preds = %if.then.i41.i.i
-  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i46.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i46.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 80
   %132 = load <2 x ptr>, ptr %129, align 8, !noalias !67
   store ptr null, ptr %_M_refcount4.i.i.i.i.i9.i.i.i.i.i46.i.i, align 16, !noalias !67
   store <2 x ptr> %132, ptr %128, align 8, !noalias !67
   store ptr null, ptr %129, align 8, !noalias !67
-  %token_.i.i.i.i.i.i.i.i47.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %token_3.i.i.i.i.i.i.i.i48.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %token_.i.i.i.i.i.i.i.i47.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 88
+  %token_3.i.i.i.i.i.i.i.i48.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 88
   %133 = load i64, ptr %token_3.i.i.i.i.i.i.i.i48.i.i, align 8, !noalias !67
   store i64 %133, ptr %token_.i.i.i.i.i.i.i.i47.i.i, align 8, !noalias !67
   br label %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit82.i.i"
 
 tail0.i.i.i.i.i58.i.i:                            ; preds = %sw.bb.i.i.i.i.i55.i.i, %if.then.i41.i.i
-  %next_factory.i.i.i.i.i59.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %next_factory11.i.i.i.i.i60.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i62.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %next_factory.i.i.i.i.i59.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 88
+  %next_factory11.i.i.i.i.i60.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 88
+  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i62.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 96
   %134 = load <2 x ptr>, ptr %next_factory11.i.i.i.i.i60.i.i, align 8, !noalias !67
   store ptr null, ptr %_M_refcount4.i.i.i.i.i11.i.i.i.i.i62.i.i, align 16, !noalias !67
   store <2 x ptr> %134, ptr %next_factory.i.i.i.i.i59.i.i, align 8, !noalias !67
@@ -4425,12 +4349,12 @@ tail0.i.i.i.i.i58.i.i:                            ; preds = %sw.bb.i.i.i.i.i55.i
   br label %tail1.i.i.i.i.i50.i.i
 
 tail1.i.i.i.i.i50.i.i:                            ; preds = %tail0.i.i.i.i.i58.i.i, %sw.bb5.i.i.i.i.i49.i.i
-  %next_factory13.i.i.i.i.i51.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %next_factory14.i.i.i.i.i52.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %next_factory13.i.i.i.i.i51.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 120
+  %next_factory14.i.i.i.i.i52.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 120
   %135 = load ptr, ptr %next_factory14.i.i.i.i.i52.i.i, align 8, !noalias !67
   store ptr %135, ptr %next_factory13.i.i.i.i.i51.i.i, align 8, !noalias !67
-  %_M_refcount.i.i.i.i.i12.i.i.i.i.i53.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i54.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i12.i.i.i.i.i53.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 128
+  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i54.i.i = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 128
   %136 = load ptr, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i.i54.i.i, align 16, !noalias !67
   store ptr null, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i.i54.i.i, align 16, !noalias !67
   store ptr %136, ptr %_M_refcount.i.i.i.i.i12.i.i.i.i.i53.i.i, align 16, !noalias !67
@@ -4441,7 +4365,7 @@ tail1.i.i.i.i.i50.i.i:                            ; preds = %tail0.i.i.i.i.i58.i
   %137 = phi ptr [ %136, %tail1.i.i.i.i.i50.i.i ], [ undef, %sw.bb7.i.i.i.i.i44.i.i ], [ undef, %if.then.i41.i.i ], [ undef, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i37.i.i" ]
   %138 = phi ptr [ %135, %tail1.i.i.i.i.i50.i.i ], [ undef, %sw.bb7.i.i.i.i.i44.i.i ], [ undef, %if.then.i41.i.i ], [ undef, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i37.i.i" ]
   %139 = phi i8 [ %130, %tail1.i.i.i.i.i50.i.i ], [ 2, %sw.bb7.i.i.i.i.i44.i.i ], [ %130, %if.then.i41.i.i ], [ undef, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i37.i.i" ]
-  %state.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  %state.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 64
   store i8 %117, ptr %state.i.i.i.i.i.i.i.i, align 16, !alias.scope !64, !noalias !61
   switch i8 %117, label %tail0.i.i.i.i.i.i.i.i [
     i8 0, label %sw.bb.i.i.i.i.i.i.i.i
@@ -4451,7 +4375,7 @@ tail1.i.i.i.i.i50.i.i:                            ; preds = %tail0.i.i.i.i.i58.i
   ]
 
 sw.bb.i.i.i.i.i.i.i.i:                            ; preds = %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit82.i.i"
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
   %140 = load <2 x ptr>, ptr %agg.tmp.i.i.i.i, align 16, !noalias !67
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !67
   store <2 x ptr> %140, ptr %ref.tmp.i.i.i, align 16, !alias.scope !64, !noalias !61
@@ -4463,21 +4387,21 @@ sw.bb5.i.i.i.i.i.i.i.i:                           ; preds = %"_ZN9grpc_core14pro
   br label %tail1.i.i.i.i.i.i.i.i
 
 sw.bb7.i.i.i.i.i.i.i.i:                           ; preds = %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit82.i.i"
-  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 8
   %141 = load <2 x ptr>, ptr %agg.tmp.i.i.i.i, align 16, !noalias !67
   store ptr null, ptr %_M_refcount4.i.i.i.i.i9.i.i.i.i.i.i.i.i, align 8, !noalias !67
   store <2 x ptr> %141, ptr %ref.tmp.i.i.i, align 16, !alias.scope !64, !noalias !61
   store ptr null, ptr %agg.tmp.i.i.i.i, align 16, !noalias !67
-  %token_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %ref.tmp.i.i.i, i64 0, i32 1
-  %token_3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
+  %token_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
+  %token_3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
   %142 = load i64, ptr %token_3.i.i.i.i.i.i.i.i.i.i.i, align 16, !noalias !67
   store i64 %142, ptr %token_.i.i.i.i.i.i.i.i.i.i.i, align 16, !alias.scope !64, !noalias !61
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i.i.i.i"
 
 tail0.i.i.i.i.i.i.i.i:                            ; preds = %sw.bb.i.i.i.i.i.i.i.i, %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit82.i.i"
-  %next_factory.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %ref.tmp.i.i.i, i64 0, i32 1
-  %next_factory11.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
-  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %next_factory.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
+  %next_factory11.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 16
+  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 24
   %143 = load <2 x ptr>, ptr %next_factory11.i.i.i.i.i.i.i.i, align 16, !noalias !67
   store ptr null, ptr %_M_refcount4.i.i.i.i.i11.i.i.i.i.i.i.i.i, align 8, !noalias !67
   store <2 x ptr> %143, ptr %next_factory.i.i.i.i.i.i.i.i, align 16, !alias.scope !64, !noalias !61
@@ -4485,25 +4409,25 @@ tail0.i.i.i.i.i.i.i.i:                            ; preds = %sw.bb.i.i.i.i.i.i.i
   br label %tail1.i.i.i.i.i.i.i.i
 
 tail1.i.i.i.i.i.i.i.i:                            ; preds = %tail0.i.i.i.i.i.i.i.i, %sw.bb5.i.i.i.i.i.i.i.i
-  %next_factory13.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %ref.tmp.i.i.i, i64 0, i32 1
-  %next_factory14.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
+  %next_factory13.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 48
+  %next_factory14.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 48
   store ptr %125, ptr %next_factory13.i.i.i.i.i.i.i.i, align 16, !alias.scope !64, !noalias !61
-  %_M_refcount.i.i.i.i.i12.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i12.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 56
+  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 56
   store ptr null, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i.i.i.i.i, align 8, !noalias !67
   store ptr %124, ptr %_M_refcount.i.i.i.i.i12.i.i.i.i.i.i.i.i, align 8, !alias.scope !64, !noalias !61
   store ptr null, ptr %next_factory14.i.i.i.i.i.i.i.i, align 16, !noalias !67
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i.i.i.i"
 
 "_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i.i.i.i": ; preds = %tail1.i.i.i.i.i.i.i.i, %sw.bb7.i.i.i.i.i.i.i.i, %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit82.i.i"
-  %started_.i1.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 2
+  %started_.i1.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 144
   store i8 %127, ptr %started_.i1.i.i.i.i, align 16, !alias.scope !64, !noalias !61
   br i1 %tobool.not.i40.i.i, label %invoke.cont2.i.i.i, label %if.then.i3.i.i.i.i
 
 if.then.i3.i.i.i.i:                               ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i.i.i.i"
-  %144 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 1
-  %145 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 1
-  %state.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %144 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 72
+  %145 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 72
+  %state.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 136
   store i8 %139, ptr %state.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !64, !noalias !61
   switch i8 %139, label %tail0.i.i.i.i.i.i.i.i.i [
     i8 0, label %sw.bb.i.i.i.i.i.i.i.i.i
@@ -4513,7 +4437,7 @@ if.then.i3.i.i.i.i:                               ; preds = %"_ZN9grpc_core14pro
   ]
 
 sw.bb.i.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i3.i.i.i.i
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 80
   %146 = load <2 x ptr>, ptr %145, align 8, !noalias !67
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 16, !noalias !67
   store <2 x ptr> %146, ptr %144, align 8, !alias.scope !64, !noalias !61
@@ -4525,21 +4449,21 @@ sw.bb5.i.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i3.i.i.i.i
   br label %tail1.i.i.i.i.i.i.i.i.i
 
 sw.bb7.i.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i3.i.i.i.i
-  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 80
   %147 = load <2 x ptr>, ptr %145, align 8, !noalias !67
   store ptr null, ptr %_M_refcount4.i.i.i.i.i9.i.i.i.i.i.i.i.i.i, align 16, !noalias !67
   store <2 x ptr> %147, ptr %144, align 8, !alias.scope !64, !noalias !61
   store ptr null, ptr %145, align 8, !noalias !67
-  %token_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %token_3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %token_.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 88
+  %token_3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 88
   %148 = load i64, ptr %token_3.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !67
   store i64 %148, ptr %token_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !64, !noalias !61
   br label %if.then.i.i.i.i.i159
 
 tail0.i.i.i.i.i.i.i.i.i:                          ; preds = %sw.bb.i.i.i.i.i.i.i.i.i, %if.then.i3.i.i.i.i
-  %next_factory.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %next_factory11.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %next_factory.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 88
+  %next_factory11.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 88
+  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 96
   %149 = load <2 x ptr>, ptr %next_factory11.i.i.i.i.i.i.i.i.i, align 8, !noalias !67
   store ptr null, ptr %_M_refcount4.i.i.i.i.i11.i.i.i.i.i.i.i.i.i, align 16, !noalias !67
   store <2 x ptr> %149, ptr %next_factory.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !64, !noalias !61
@@ -4547,11 +4471,11 @@ tail0.i.i.i.i.i.i.i.i.i:                          ; preds = %sw.bb.i.i.i.i.i.i.i
   br label %tail1.i.i.i.i.i.i.i.i.i
 
 tail1.i.i.i.i.i.i.i.i.i:                          ; preds = %tail0.i.i.i.i.i.i.i.i.i, %sw.bb5.i.i.i.i.i.i.i.i.i
-  %next_factory13.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %next_factory14.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %next_factory13.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 120
+  %next_factory14.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 120
   store ptr %138, ptr %next_factory13.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !64, !noalias !61
-  %_M_refcount.i.i.i.i.i12.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i12.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 128
+  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i, i64 128
   store ptr null, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i.i.i.i.i.i, align 16, !noalias !67
   store ptr %137, ptr %_M_refcount.i.i.i.i.i12.i.i.i.i.i.i.i.i.i, align 16, !alias.scope !64, !noalias !61
   store ptr null, ptr %next_factory14.i.i.i.i.i.i.i.i.i, align 8, !noalias !67
@@ -4564,8 +4488,8 @@ if.then.i.i.i.i.i159:                             ; preds = %tail1.i.i.i.i.i.i.i
 invoke.cont2.i.i.i:                               ; preds = %if.then.i.i.i.i.i159, %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i.i.i.i"
   call fastcc void @"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %agg.tmp.i.i.i.i) #26, !noalias !67
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %agg.tmp.i.i.i.i), !noalias !61
-  %promise_holder_.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 5
-  %state.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 5, i32 0, i64 64
+  %promise_holder_.i.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 80
+  %state.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 144
   store i8 %117, ptr %state.i.i.i.i.i.i.i, align 8, !noalias !61
   switch i8 %117, label %tail0.i.i.i.i.i.i.i [
     i8 0, label %sw.bb.i.i.i.i.i.i.i
@@ -4575,7 +4499,7 @@ invoke.cont2.i.i.i:                               ; preds = %if.then.i.i.i.i.i15
   ]
 
 sw.bb.i.i.i.i.i.i.i:                              ; preds = %invoke.cont2.i.i.i
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
   %150 = load <2 x ptr>, ptr %ref.tmp.i.i.i, align 16, !noalias !61
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !61
   store <2 x ptr> %150, ptr %promise_holder_.i.i.i, align 8, !noalias !61
@@ -4587,21 +4511,21 @@ sw.bb5.i.i.i.i.i.i.i:                             ; preds = %invoke.cont2.i.i.i
   br label %tail1.i.i.i.i.i.i.i
 
 sw.bb7.i.i.i.i.i.i.i:                             ; preds = %invoke.cont2.i.i.i
-  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 8
   %151 = load <2 x ptr>, ptr %ref.tmp.i.i.i, align 16, !noalias !61
   store ptr null, ptr %_M_refcount4.i.i.i.i.i9.i.i.i.i.i.i.i, align 8, !noalias !61
   store <2 x ptr> %151, ptr %promise_holder_.i.i.i, align 8, !noalias !61
   store ptr null, ptr %ref.tmp.i.i.i, align 16, !noalias !61
-  %token_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 5, i32 0, i64 16
-  %token_3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  %token_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 96
+  %token_3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
   %152 = load i64, ptr %token_3.i.i.i.i.i.i.i.i.i.i, align 16, !noalias !61
   store i64 %152, ptr %token_.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !61
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i.i.i"
 
 tail0.i.i.i.i.i.i.i:                              ; preds = %sw.bb.i.i.i.i.i.i.i, %invoke.cont2.i.i.i
-  %next_factory.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 5, i32 0, i64 16
-  %next_factory11.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %ref.tmp.i.i.i, i64 0, i32 1
-  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %next_factory.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 96
+  %next_factory11.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 16
+  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 24
   %153 = load <2 x ptr>, ptr %next_factory11.i.i.i.i.i.i.i, align 16, !noalias !61
   store ptr null, ptr %_M_refcount4.i.i.i.i.i11.i.i.i.i.i.i.i, align 8, !noalias !61
   store <2 x ptr> %153, ptr %next_factory.i.i.i.i.i.i.i, align 8, !noalias !61
@@ -4609,25 +4533,25 @@ tail0.i.i.i.i.i.i.i:                              ; preds = %sw.bb.i.i.i.i.i.i.i
   br label %tail1.i.i.i.i.i.i.i
 
 tail1.i.i.i.i.i.i.i:                              ; preds = %tail0.i.i.i.i.i.i.i, %sw.bb5.i.i.i.i.i.i.i
-  %next_factory13.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 5, i32 0, i64 48
-  %next_factory14.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %ref.tmp.i.i.i, i64 0, i32 1
+  %next_factory13.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 128
+  %next_factory14.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 48
   store ptr %125, ptr %next_factory13.i.i.i.i.i.i.i, align 8, !noalias !61
-  %_M_refcount.i.i.i.i.i12.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 5, i32 0, i64 56
-  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 136
+  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 56
   store ptr null, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i.i.i.i, align 8, !noalias !61
   store ptr %124, ptr %_M_refcount.i.i.i.i.i12.i.i.i.i.i.i.i, align 8, !noalias !61
   store ptr null, ptr %next_factory14.i.i.i.i.i.i.i, align 16, !noalias !61
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i.i.i"
 
 "_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i.i.i": ; preds = %tail1.i.i.i.i.i.i.i, %sw.bb7.i.i.i.i.i.i.i, %invoke.cont2.i.i.i
-  %started_.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 5, i32 0, i64 144
+  %started_.i.i.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 224
   store i8 %127, ptr %started_.i.i.i.i, align 8, !noalias !61
   br i1 %tobool.not.i40.i.i, label %"_ZN9grpc_core14promise_detail11PromiseLikeINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEEvED2Ev.exit.i.i.i", label %if.then.i.i.i.i160
 
 if.then.i.i.i.i160:                               ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit.i.i.i.i"
-  %154 = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 5, i32 0, i64 72
-  %155 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 1
-  %state.i.i.i.i.i5.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 5, i32 0, i64 136
+  %154 = getelementptr inbounds i8, ptr %call.i156185, i64 152
+  %155 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 72
+  %state.i.i.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 216
   store i8 %139, ptr %state.i.i.i.i.i5.i.i.i, align 8, !noalias !61
   switch i8 %139, label %tail0.i.i.i.i.i21.i.i.i [
     i8 0, label %sw.bb.i.i.i.i.i18.i.i.i
@@ -4637,7 +4561,7 @@ if.then.i.i.i.i160:                               ; preds = %"_ZN9grpc_core14pro
   ]
 
 sw.bb.i.i.i.i.i18.i.i.i:                          ; preds = %if.then.i.i.i.i160
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i20.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i20.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 80
   %156 = load <2 x ptr>, ptr %155, align 8, !noalias !61
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i20.i.i.i, align 16, !noalias !61
   store <2 x ptr> %156, ptr %154, align 8, !noalias !61
@@ -4649,21 +4573,21 @@ sw.bb5.i.i.i.i.i12.i.i.i:                         ; preds = %if.then.i.i.i.i160
   br label %tail1.i.i.i.i.i13.i.i.i
 
 sw.bb7.i.i.i.i.i7.i.i.i:                          ; preds = %if.then.i.i.i.i160
-  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i9.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i9.i.i.i.i.i9.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 80
   %157 = load <2 x ptr>, ptr %155, align 8, !noalias !61
   store ptr null, ptr %_M_refcount4.i.i.i.i.i9.i.i.i.i.i9.i.i.i, align 16, !noalias !61
   store <2 x ptr> %157, ptr %154, align 8, !noalias !61
   store ptr null, ptr %155, align 8, !noalias !61
-  %token_.i.i.i.i.i.i.i.i10.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 5, i32 0, i64 88
-  %token_3.i.i.i.i.i.i.i.i11.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %token_.i.i.i.i.i.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 168
+  %token_3.i.i.i.i.i.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 88
   %158 = load i64, ptr %token_3.i.i.i.i.i.i.i.i11.i.i.i, align 8, !noalias !61
   store i64 %158, ptr %token_.i.i.i.i.i.i.i.i10.i.i.i, align 8, !noalias !61
   br label %if.then.i.i1.i.i.i
 
 tail0.i.i.i.i.i21.i.i.i:                          ; preds = %sw.bb.i.i.i.i.i18.i.i.i, %if.then.i.i.i.i160
-  %next_factory.i.i.i.i.i22.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 5, i32 0, i64 88
-  %next_factory11.i.i.i.i.i23.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i25.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %next_factory.i.i.i.i.i22.i.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 168
+  %next_factory11.i.i.i.i.i23.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 88
+  %_M_refcount4.i.i.i.i.i11.i.i.i.i.i25.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 96
   %159 = load <2 x ptr>, ptr %next_factory11.i.i.i.i.i23.i.i.i, align 8, !noalias !61
   store ptr null, ptr %_M_refcount4.i.i.i.i.i11.i.i.i.i.i25.i.i.i, align 16, !noalias !61
   store <2 x ptr> %159, ptr %next_factory.i.i.i.i.i22.i.i.i, align 8, !noalias !61
@@ -4671,11 +4595,11 @@ tail0.i.i.i.i.i21.i.i.i:                          ; preds = %sw.bb.i.i.i.i.i18.i
   br label %tail1.i.i.i.i.i13.i.i.i
 
 tail1.i.i.i.i.i13.i.i.i:                          ; preds = %tail0.i.i.i.i.i21.i.i.i, %sw.bb5.i.i.i.i.i12.i.i.i
-  %next_factory13.i.i.i.i.i14.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 5, i32 0, i64 120
-  %next_factory14.i.i.i.i.i15.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %next_factory13.i.i.i.i.i14.i.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 200
+  %next_factory14.i.i.i.i.i15.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 120
   store ptr %138, ptr %next_factory13.i.i.i.i.i14.i.i.i, align 8, !noalias !61
-  %_M_refcount.i.i.i.i.i12.i.i.i.i.i16.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %call.i156185, i64 0, i32 5, i32 0, i64 128
-  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i17.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %ref.tmp.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i12.i.i.i.i.i16.i.i.i = getelementptr inbounds i8, ptr %call.i156185, i64 208
+  %_M_refcount4.i.i.i.i.i13.i.i.i.i.i17.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i, i64 128
   store ptr null, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i.i17.i.i.i, align 16, !noalias !61
   store ptr %137, ptr %_M_refcount.i.i.i.i.i12.i.i.i.i.i16.i.i.i, align 8, !noalias !61
   store ptr null, ptr %next_factory14.i.i.i.i.i15.i.i.i, align 8, !noalias !61
@@ -4719,7 +4643,7 @@ invoke.cont13.i.i:                                ; preds = %160, %invoke.cont5.
   br i1 %tobool.not.i.i.i.i161, label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEEED2Ev.exit.i.i", label %if.then.i.i6.i.i
 
 if.then.i.i6.i.i:                                 ; preds = %invoke.cont13.i.i
-  %165 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp8.i.i, i64 0, i32 1
+  %165 = getelementptr inbounds i8, ptr %agg.tmp8.i.i, i64 72
   call fastcc void @"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %165) #26, !noalias !58
   br label %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEEED2Ev.exit.i.i"
 
@@ -4728,7 +4652,7 @@ if.then.i.i6.i.i:                                 ; preds = %invoke.cont13.i.i
   br i1 %tobool.not.i3.i, label %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEED2Ev.exit.i.i", label %if.then.i.i.i162
 
 if.then.i.i.i162:                                 ; preds = %"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEEED2Ev.exit.i.i"
-  %166 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp9.i.i, i64 0, i32 1
+  %166 = getelementptr inbounds i8, ptr %agg.tmp9.i.i, i64 72
   call fastcc void @"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %166) #26, !noalias !58
   br label %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEED2Ev.exit.i.i"
 
@@ -4738,7 +4662,7 @@ if.then.i.i.i162:                                 ; preds = %"_ZN9grpc_core14pro
           to label %invoke.cont17.i.i unwind label %lpad14.i.i, !noalias !58
 
 invoke.cont17.i.i:                                ; preds = %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEED2Ev.exit.i.i"
-  %_M_engaged.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base.108", ptr %status.i.i, i64 0, i32 1
+  %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %status.i.i, i64 8
   %167 = load i8, ptr %_M_engaged.i.i.i.i, align 8, !noalias !58
   %168 = and i8 %167, 1
   %tobool.i.i.not.i.i = icmp eq i8 %168, 0
@@ -4826,14 +4750,14 @@ invoke.cont.i165:                                 ; preds = %if.then.i.i11.i.i, 
   br i1 %tobool.not.i3.i, label %invoke.cont19, label %if.then.i1.i
 
 if.then.i1.i:                                     ; preds = %invoke.cont.i165
-  %177 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp.i155, i64 0, i32 1
+  %177 = getelementptr inbounds i8, ptr %agg.tmp.i155, i64 72
   call fastcc void @"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %177) #26, !noalias !58
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %if.then.i1.i, %invoke.cont.i165
   call fastcc void @"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %agg.tmp.i155) #26, !noalias !58
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %agg.tmp.i155)
-  %reclaimer_activity_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 6
+  %reclaimer_activity_ = getelementptr inbounds i8, ptr %this, i64 1360
   %178 = load ptr, ptr %reclaimer_activity_, align 8
   store ptr %call.i156185, ptr %reclaimer_activity_, align 8
   %tobool.not.i.i.i.i187 = icmp eq ptr %178, null
@@ -4859,7 +4783,7 @@ _ZNSt10unique_ptrIN9grpc_core8ActivityENS0_16OrphanableDeleteEED2Ev.exit: ; pred
   br i1 %tobool.not.i192, label %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEED2Ev.exit197", label %if.then.i193
 
 if.then.i193:                                     ; preds = %_ZNSt10unique_ptrIN9grpc_core8ActivityENS0_16OrphanableDeleteEED2Ev.exit
-  %184 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %agg.tmp15, i64 0, i32 1
+  %184 = getelementptr inbounds i8, ptr %agg.tmp15, i64 72
   call fastcc void @"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %184) #26
   br label %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEED2Ev.exit197"
 
@@ -4871,7 +4795,7 @@ if.then.i193:                                     ; preds = %_ZNSt10unique_ptrIN
   br i1 %cmp.not.i.i.i199, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit229, label %if.then.i.i.i200
 
 if.then.i.i.i200:                                 ; preds = %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEED2Ev.exit197"
-  %_M_use_count.i.i.i.i201 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %185, i64 0, i32 1
+  %_M_use_count.i.i.i.i201 = getelementptr inbounds i8, ptr %185, i64 8
   %186 = load atomic i64, ptr %_M_use_count.i.i.i.i201 acquire, align 8
   %cmp.i.i.i.i202 = icmp eq i64 %186, 4294967297
   %187 = trunc i64 %186 to i32
@@ -4879,10 +4803,10 @@ if.then.i.i.i200:                                 ; preds = %"_ZN9grpc_core14pro
 
 if.then.i.i.i.i225:                               ; preds = %if.then.i.i.i200
   store i32 0, ptr %_M_use_count.i.i.i.i201, align 8
-  %_M_weak_count.i.i.i.i226 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %185, i64 0, i32 2
+  %_M_weak_count.i.i.i.i226 = getelementptr inbounds i8, ptr %185, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i226, align 4
   %vtable.i.i.i.i227 = load ptr, ptr %185, align 8
-  %vfn.i.i.i.i228 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i227, i64 2
+  %vfn.i.i.i.i228 = getelementptr inbounds i8, ptr %vtable.i.i.i.i227, i64 16
   %188 = load ptr, ptr %vfn.i.i.i.i228, align 8
   call void %188(ptr noundef nonnull align 8 dereferenceable(16) %185) #26
   br label %if.end8.sink.split.i.i.i.i220
@@ -4908,10 +4832,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i207: ; preds = %if.el
 
 if.then7.i.i.i.i210:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i207
   %vtable.i.i.i.i.i.i211 = load ptr, ptr %185, align 8
-  %vfn.i.i.i.i.i.i212 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i211, i64 2
+  %vfn.i.i.i.i.i.i212 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i211, i64 16
   %191 = load ptr, ptr %vfn.i.i.i.i.i.i212, align 8
   call void %191(ptr noundef nonnull align 8 dereferenceable(16) %185) #26
-  %_M_weak_count.i.i.i.i.i.i213 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %185, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i213 = getelementptr inbounds i8, ptr %185, i64 12
   %192 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i214 = icmp eq i8 %192, 0
   br i1 %tobool.i.not.i.i.i.i.i.i214, label %if.else.i.i.i.i.i.i.i223, label %if.then.i.i.i.i.i.i.i215
@@ -4933,7 +4857,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i217: ; preds = %i
 
 if.end8.sink.split.i.i.i.i220:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i217, %if.then.i.i.i.i225
   %vtable2.i.i.i.i.i.i221 = load ptr, ptr %185, align 8
-  %vfn3.i.i.i.i.i.i222 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i221, i64 3
+  %vfn3.i.i.i.i.i.i222 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i221, i64 24
   %195 = load ptr, ptr %vfn3.i.i.i.i.i.i222, align 8
   call void %195(ptr noundef nonnull align 8 dereferenceable(16) %185) #26
   br label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit229
@@ -4971,7 +4895,7 @@ ehcleanup23:                                      ; preds = %lpad.i, %lpad18.bod
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EED2Ev"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %this, i64 0, i32 1
+  %state.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %state.i, align 8
   switch i8 %0, label %tail0.i [
     i8 0, label %sw.bb.i
@@ -4987,7 +4911,7 @@ sw.bb.i:                                          ; preds = %entry
   br i1 %cmp.not.i.i.i.i.i.i.i, label %tail0.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this.val.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 8
   %2 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %2, 4294967297
   %3 = trunc i64 %2 to i32
@@ -4995,10 +4919,10 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %sw.bb.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this.val.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %this.val.i, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %this.val.i) #26
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i
@@ -5024,10 +4948,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.val.i, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %this.val.i) #26
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this.val.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i, i64 12
   %8 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -5049,19 +4973,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.val.i, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %11 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %this.val.i) #26
   br label %tail0.i
 
 sw.bb4.i:                                         ; preds = %entry
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %12 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i1.i = icmp eq ptr %12, null
   br i1 %cmp.not.i.i.i.i.i.i1.i, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_9SeqTraitsEZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EED2Ev.exit", label %if.then.i.i.i.i.i.i2.i
 
 if.then.i.i.i.i.i.i2.i:                           ; preds = %sw.bb4.i
-  %_M_use_count.i.i.i.i.i.i.i3.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %12, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i3.i = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i3.i acquire, align 8
   %cmp.i.i.i.i.i.i.i4.i = icmp eq i64 %13, 4294967297
   %14 = trunc i64 %13 to i32
@@ -5088,10 +5012,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i9.i: ; preds = 
 
 if.then7.i.i.i.i.i.i.i12.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i9.i
   %vtable.i.i.i.i.i.i.i.i.i13.i = load ptr, ptr %12, align 8
-  %vfn.i.i.i.i.i.i.i.i.i14.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i13.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i14.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i13.i, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i14.i, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %12) #26
-  %_M_weak_count.i.i.i.i.i.i.i.i.i15.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %12, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i15.i = getelementptr inbounds i8, ptr %12, i64 12
   %18 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i16.i = icmp eq i8 %18, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i16.i, label %if.else.i.i.i.i.i.i.i.i.i.i25.i, label %if.then.i.i.i.i.i.i.i.i.i.i17.i
@@ -5112,13 +5036,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i19.i: ; pre
   br i1 %cmp.i.i.i.i.i.i.i.i.i21.i, label %invoke.cont11.sink.split.i, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_9SeqTraitsEZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EED2Ev.exit"
 
 tail0.i:                                          ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %sw.bb.i, %entry
-  %21 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %21 = getelementptr inbounds i8, ptr %this, i64 24
   %next_factory.val.i = load ptr, ptr %21, align 8
   %cmp.not.i.i.i.i.i.i31.i = icmp eq ptr %next_factory.val.i, null
   br i1 %cmp.not.i.i.i.i.i.i31.i, label %tail1.i, label %if.then.i.i.i.i.i.i32.i
 
 if.then.i.i.i.i.i.i32.i:                          ; preds = %tail0.i
-  %_M_use_count.i.i.i.i.i.i.i33.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %next_factory.val.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i33.i = getelementptr inbounds i8, ptr %next_factory.val.i, i64 8
   %22 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i33.i acquire, align 8
   %cmp.i.i.i.i.i.i.i34.i = icmp eq i64 %22, 4294967297
   %23 = trunc i64 %22 to i32
@@ -5126,10 +5050,10 @@ if.then.i.i.i.i.i.i32.i:                          ; preds = %tail0.i
 
 if.then.i.i.i.i.i.i.i57.i:                        ; preds = %if.then.i.i.i.i.i.i32.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i33.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i58.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %next_factory.val.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i58.i = getelementptr inbounds i8, ptr %next_factory.val.i, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i58.i, align 4
   %vtable.i.i.i.i.i.i.i59.i = load ptr, ptr %next_factory.val.i, align 8
-  %vfn.i.i.i.i.i.i.i60.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i59.i, i64 2
+  %vfn.i.i.i.i.i.i.i60.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i59.i, i64 16
   %24 = load ptr, ptr %vfn.i.i.i.i.i.i.i60.i, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %next_factory.val.i) #26
   br label %if.end8.sink.split.i.i.i.i.i.i.i52.i
@@ -5155,10 +5079,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i39.i: ; preds =
 
 if.then7.i.i.i.i.i.i.i42.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i39.i
   %vtable.i.i.i.i.i.i.i.i.i43.i = load ptr, ptr %next_factory.val.i, align 8
-  %vfn.i.i.i.i.i.i.i.i.i44.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i43.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i44.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i43.i, i64 16
   %27 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i44.i, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %next_factory.val.i) #26
-  %_M_weak_count.i.i.i.i.i.i.i.i.i45.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %next_factory.val.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i45.i = getelementptr inbounds i8, ptr %next_factory.val.i, i64 12
   %28 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i46.i = icmp eq i8 %28, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i46.i, label %if.else.i.i.i.i.i.i.i.i.i.i55.i, label %if.then.i.i.i.i.i.i.i.i.i.i47.i
@@ -5180,19 +5104,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i49.i: ; pre
 
 if.end8.sink.split.i.i.i.i.i.i.i52.i:             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i49.i, %if.then.i.i.i.i.i.i.i57.i
   %vtable2.i.i.i.i.i.i.i.i.i53.i = load ptr, ptr %next_factory.val.i, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i54.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i53.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i54.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i53.i, i64 24
   %31 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i54.i, align 8
   tail call void %31(ptr noundef nonnull align 8 dereferenceable(16) %next_factory.val.i) #26
   br label %tail1.i
 
 tail1.i:                                          ; preds = %if.end8.sink.split.i.i.i.i.i.i.i52.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i49.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i39.i, %tail0.i, %entry
-  %32 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %32 = getelementptr inbounds i8, ptr %this, i64 56
   %next_factory9.val.i = load ptr, ptr %32, align 8
   %cmp.not.i.i.i.i.i.i61.i = icmp eq ptr %next_factory9.val.i, null
   br i1 %cmp.not.i.i.i.i.i.i61.i, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_9SeqTraitsEZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EED2Ev.exit", label %if.then.i.i.i.i.i.i62.i
 
 if.then.i.i.i.i.i.i62.i:                          ; preds = %tail1.i
-  %_M_use_count.i.i.i.i.i.i.i63.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %next_factory9.val.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i63.i = getelementptr inbounds i8, ptr %next_factory9.val.i, i64 8
   %33 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i63.i acquire, align 8
   %cmp.i.i.i.i.i.i.i64.i = icmp eq i64 %33, 4294967297
   %34 = trunc i64 %33 to i32
@@ -5219,10 +5143,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i69.i: ; preds =
 
 if.then7.i.i.i.i.i.i.i72.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i69.i
   %vtable.i.i.i.i.i.i.i.i.i73.i = load ptr, ptr %next_factory9.val.i, align 8
-  %vfn.i.i.i.i.i.i.i.i.i74.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i73.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i74.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i73.i, i64 16
   %37 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i74.i, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %next_factory9.val.i) #26
-  %_M_weak_count.i.i.i.i.i.i.i.i.i75.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %next_factory9.val.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i75.i = getelementptr inbounds i8, ptr %next_factory9.val.i, i64 12
   %38 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i76.i = icmp eq i8 %38, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i76.i, label %if.else.i.i.i.i.i.i.i.i.i.i85.i, label %if.then.i.i.i.i.i.i.i.i.i.i77.i
@@ -5246,10 +5170,10 @@ invoke.cont11.sink.split.sink.split.i:            ; preds = %if.then.i.i.i.i.i.i
   %_M_use_count.i.i.i.i.i.i.i63.sink.i = phi ptr [ %_M_use_count.i.i.i.i.i.i.i3.i, %if.then.i.i.i.i.i.i2.i ], [ %_M_use_count.i.i.i.i.i.i.i63.i, %if.then.i.i.i.i.i.i62.i ]
   %next_factory9.val.sink94.i = phi ptr [ %12, %if.then.i.i.i.i.i.i2.i ], [ %next_factory9.val.i, %if.then.i.i.i.i.i.i62.i ]
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i63.sink.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i88.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %next_factory9.val.sink94.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i88.i = getelementptr inbounds i8, ptr %next_factory9.val.sink94.i, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i88.i, align 4
   %vtable.i.i.i.i.i.i.i89.i = load ptr, ptr %next_factory9.val.sink94.i, align 8
-  %vfn.i.i.i.i.i.i.i90.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i89.i, i64 2
+  %vfn.i.i.i.i.i.i.i90.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i89.i, i64 16
   %41 = load ptr, ptr %vfn.i.i.i.i.i.i.i90.i, align 8
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %next_factory9.val.sink94.i) #26
   br label %invoke.cont11.sink.split.i
@@ -5257,7 +5181,7 @@ invoke.cont11.sink.split.sink.split.i:            ; preds = %if.then.i.i.i.i.i.i
 invoke.cont11.sink.split.i:                       ; preds = %invoke.cont11.sink.split.sink.split.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i79.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i19.i
   %.sink92.i = phi ptr [ %12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i19.i ], [ %next_factory9.val.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i79.i ], [ %next_factory9.val.sink94.i, %invoke.cont11.sink.split.sink.split.i ]
   %vtable2.i.i.i.i.i.i.i.i.i23.i = load ptr, ptr %.sink92.i, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i24.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i23.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i24.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i23.i, i64 24
   %42 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i24.i, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %.sink92.i) #26
   br label %"_ZN9grpc_core14promise_detail8SeqStateINS0_9SeqTraitsEZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EED2Ev.exit"
@@ -5269,8 +5193,8 @@ invoke.cont11.sink.split.i:                       ; preds = %invoke.cont11.sink.
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(145) %this, ptr nocapture noundef nonnull align 8 dereferenceable(145) %loop) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %state.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %this, i64 0, i32 1
-  %state2.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %loop, i64 0, i32 1
+  %state.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %state2.i.i.i = getelementptr inbounds i8, ptr %loop, i64 64
   %0 = load i8, ptr %state2.i.i.i, align 8
   store i8 %0, ptr %state.i.i.i, align 8
   switch i8 %0, label %tail0.i.i.i [
@@ -5283,9 +5207,9 @@ entry:
 sw.bb.i.i.i:                                      ; preds = %entry
   %1 = load ptr, ptr %loop, align 8
   store ptr %1, ptr %this, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
-  %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %loop, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %loop, i64 8
   %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8
   store ptr %2, ptr %_M_refcount.i.i.i.i.i.i.i.i, align 8
@@ -5299,27 +5223,27 @@ sw.bb5.i.i.i:                                     ; preds = %entry
 sw.bb7.i.i.i:                                     ; preds = %entry
   %3 = load ptr, ptr %loop, align 8
   store ptr %3, ptr %this, align 8
-  %_M_refcount.i.i.i.i.i8.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i8.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i8.i.i.i, align 8
-  %_M_refcount4.i.i.i.i.i9.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %loop, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i9.i.i.i = getelementptr inbounds i8, ptr %loop, i64 8
   %4 = load ptr, ptr %_M_refcount4.i.i.i.i.i9.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i9.i.i.i, align 8
   store ptr %4, ptr %_M_refcount.i.i.i.i.i8.i.i.i, align 8
   store ptr null, ptr %loop, align 8
-  %token_.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %this, i64 0, i32 1
-  %token_3.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %loop, i64 0, i32 1
+  %token_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %token_3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %loop, i64 16
   %5 = load i64, ptr %token_3.i.i.i.i.i.i, align 8
   store i64 %5, ptr %token_.i.i.i.i.i.i, align 8
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit"
 
 tail0.i.i.i:                                      ; preds = %sw.bb.i.i.i, %entry
-  %next_factory.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %this, i64 0, i32 1
-  %next_factory11.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %loop, i64 0, i32 1
+  %next_factory.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %next_factory11.i.i.i = getelementptr inbounds i8, ptr %loop, i64 16
   %6 = load ptr, ptr %next_factory11.i.i.i, align 8
   store ptr %6, ptr %next_factory.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i10.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i10.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %_M_refcount.i.i.i.i.i10.i.i.i, align 8
-  %_M_refcount4.i.i.i.i.i11.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %loop, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i11.i.i.i = getelementptr inbounds i8, ptr %loop, i64 24
   %7 = load ptr, ptr %_M_refcount4.i.i.i.i.i11.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i11.i.i.i, align 8
   store ptr %7, ptr %_M_refcount.i.i.i.i.i10.i.i.i, align 8
@@ -5327,13 +5251,13 @@ tail0.i.i.i:                                      ; preds = %sw.bb.i.i.i, %entry
   br label %tail1.i.i.i
 
 tail1.i.i.i:                                      ; preds = %tail0.i.i.i, %sw.bb5.i.i.i
-  %next_factory13.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %this, i64 0, i32 1
-  %next_factory14.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %loop, i64 0, i32 1
+  %next_factory13.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %next_factory14.i.i.i = getelementptr inbounds i8, ptr %loop, i64 48
   %8 = load ptr, ptr %next_factory14.i.i.i, align 8
   store ptr %8, ptr %next_factory13.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i12.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i12.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %_M_refcount.i.i.i.i.i12.i.i.i, align 8
-  %_M_refcount4.i.i.i.i.i13.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %loop, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i13.i.i.i = getelementptr inbounds i8, ptr %loop, i64 56
   %9 = load ptr, ptr %_M_refcount4.i.i.i.i.i13.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i13.i.i.i, align 8
   store ptr %9, ptr %_M_refcount.i.i.i.i.i12.i.i.i, align 8
@@ -5341,8 +5265,8 @@ tail1.i.i.i:                                      ; preds = %tail0.i.i.i, %sw.bb
   br label %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit"
 
 "_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit": ; preds = %entry, %sw.bb7.i.i.i, %tail1.i.i.i
-  %started_ = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %this, i64 0, i32 2
-  %started_3 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %loop, i64 0, i32 2
+  %started_ = getelementptr inbounds i8, ptr %this, i64 144
+  %started_3 = getelementptr inbounds i8, ptr %loop, i64 144
   %10 = load i8, ptr %started_3, align 8
   %11 = and i8 %10, 1
   %tobool.not = icmp eq i8 %11, 0
@@ -5350,10 +5274,10 @@ tail1.i.i.i:                                      ; preds = %tail0.i.i.i, %sw.bb
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %"_ZN9grpc_core14promise_detail22RepeatedPromiseFactoryIvNS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_.exit"
-  %12 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %this, i64 0, i32 1
-  %13 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %loop, i64 0, i32 1
-  %state.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %state2.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %loop, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %this, i64 72
+  %13 = getelementptr inbounds i8, ptr %loop, i64 72
+  %state.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
+  %state2.i.i.i.i = getelementptr inbounds i8, ptr %loop, i64 136
   %14 = load i8, ptr %state2.i.i.i.i, align 8
   store i8 %14, ptr %state.i.i.i.i, align 8
   switch i8 %14, label %tail0.i.i.i.i [
@@ -5366,9 +5290,9 @@ if.then:                                          ; preds = %"_ZN9grpc_core14pro
 sw.bb.i.i.i.i:                                    ; preds = %if.then
   %15 = load ptr, ptr %13, align 8
   store ptr %15, ptr %12, align 8
-  %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr null, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %loop, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %loop, i64 80
   %16 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i, align 8
   store ptr %16, ptr %_M_refcount.i.i.i.i.i.i.i.i.i, align 8
@@ -5382,27 +5306,27 @@ sw.bb5.i.i.i.i:                                   ; preds = %if.then
 sw.bb7.i.i.i.i:                                   ; preds = %if.then
   %17 = load ptr, ptr %13, align 8
   store ptr %17, ptr %12, align 8
-  %_M_refcount.i.i.i.i.i8.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr null, ptr %_M_refcount.i.i.i.i.i8.i.i.i.i, align 8
-  %_M_refcount4.i.i.i.i.i9.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %loop, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i9.i.i.i.i = getelementptr inbounds i8, ptr %loop, i64 80
   %18 = load ptr, ptr %_M_refcount4.i.i.i.i.i9.i.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i9.i.i.i.i, align 8
   store ptr %18, ptr %_M_refcount.i.i.i.i.i8.i.i.i.i, align 8
   store ptr null, ptr %13, align 8
-  %token_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %token_3.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %loop, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %token_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %token_3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %loop, i64 88
   %19 = load i64, ptr %token_3.i.i.i.i.i.i.i, align 8
   store i64 %19, ptr %token_.i.i.i.i.i.i.i, align 8
   br label %if.end
 
 tail0.i.i.i.i:                                    ; preds = %sw.bb.i.i.i.i, %if.then
-  %next_factory.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %next_factory11.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %loop, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %next_factory.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %next_factory11.i.i.i.i = getelementptr inbounds i8, ptr %loop, i64 88
   %20 = load ptr, ptr %next_factory11.i.i.i.i, align 8
   store ptr %20, ptr %next_factory.i.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i10.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr null, ptr %_M_refcount.i.i.i.i.i10.i.i.i.i, align 8
-  %_M_refcount4.i.i.i.i.i11.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %loop, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i11.i.i.i.i = getelementptr inbounds i8, ptr %loop, i64 96
   %21 = load ptr, ptr %_M_refcount4.i.i.i.i.i11.i.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i11.i.i.i.i, align 8
   store ptr %21, ptr %_M_refcount.i.i.i.i.i10.i.i.i.i, align 8
@@ -5410,13 +5334,13 @@ tail0.i.i.i.i:                                    ; preds = %sw.bb.i.i.i.i, %if.
   br label %tail1.i.i.i.i
 
 tail1.i.i.i.i:                                    ; preds = %tail0.i.i.i.i, %sw.bb5.i.i.i.i
-  %next_factory13.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %next_factory14.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %loop, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %next_factory13.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
+  %next_factory14.i.i.i.i = getelementptr inbounds i8, ptr %loop, i64 120
   %22 = load ptr, ptr %next_factory14.i.i.i.i, align 8
   store ptr %22, ptr %next_factory13.i.i.i.i, align 8
-  %_M_refcount.i.i.i.i.i12.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount.i.i.i.i.i12.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store ptr null, ptr %_M_refcount.i.i.i.i.i12.i.i.i.i, align 8
-  %_M_refcount4.i.i.i.i.i13.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %loop, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_refcount4.i.i.i.i.i13.i.i.i.i = getelementptr inbounds i8, ptr %loop, i64 128
   %23 = load ptr, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i, align 8
   store ptr null, ptr %_M_refcount4.i.i.i.i.i13.i.i.i.i, align 8
   store ptr %23, ptr %_M_refcount.i.i.i.i.i12.i.i.i.i, align 8
@@ -5430,14 +5354,14 @@ if.end:                                           ; preds = %tail1.i.i.i.i, %sw.
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEED2Ev"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(145) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %started_ = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %this, i64 0, i32 2
+  %started_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load i8, ptr %started_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %2 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 72
   tail call fastcc void @"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %2) #26
   br label %if.end
 
@@ -5449,7 +5373,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core16BasicMemoryQuota4StopEv(ptr nocapture noundef nonnull align 8 dereferenceable(1488) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %reclaimer_activity_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 6
+  %reclaimer_activity_ = getelementptr inbounds i8, ptr %this, i64 1360
   %0 = load ptr, ptr %reclaimer_activity_, align 8
   store ptr null, ptr %reclaimer_activity_, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -5475,14 +5399,14 @@ _ZNSt10unique_ptrIN9grpc_core8ActivityENS0_16OrphanableDeleteEE5resetEPS1_.exit:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core16BasicMemoryQuota7SetSizeEm(ptr noundef nonnull align 8 dereferenceable(1488) %this, i64 noundef %new_size) local_unnamed_addr #4 align 2 {
 entry:
-  %quota_size_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 2
+  %quota_size_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = atomicrmw xchg ptr %quota_size_, i64 %new_size monotonic, align 8
   %cmp = icmp ult i64 %0, %new_size
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %sub = sub i64 %new_size, %0
-  %free_bytes_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 1
+  %free_bytes_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = atomicrmw add ptr %free_bytes_.i, i64 %sub monotonic, align 8
   br label %if.end
 
@@ -5505,7 +5429,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core16BasicMemoryQuota28MaybeMoveAllocatorBigToSmallEPNS_23GrpcMemoryAllocatorImplE(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef %allocator) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then
@@ -5515,7 +5439,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %big_allocators_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 5
+  %big_allocators_ = getelementptr inbounds i8, ptr %this, i64 720
   %2 = ptrtoint ptr %allocator to i64
   %shr.i.i = lshr i64 %2, 4
   %shr1.i.i = lshr i64 %2, 9
@@ -5524,7 +5448,7 @@ if.end:                                           ; preds = %if.then, %entry
   %xor3.i.i = xor i64 %xor.i.i, %shr2.i.i
   %rem.i.i = and i64 %xor3.i.i, 15
   %arrayidx.i.i.i = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %big_allocators_, i64 0, i64 %rem.i.i
-  %shard_mu = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %big_allocators_, i64 0, i64 %rem.i.i, i32 1
+  %shard_mu = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 32
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %shard_mu)
   %3 = load ptr, ptr %arrayidx.i.i.i, align 8
   tail call void @llvm.prefetch.p0(ptr %3, i32 0, i32 1, i32 1)
@@ -5540,13 +5464,13 @@ if.end:                                           ; preds = %if.then, %entry
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %capacity_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i.i, i64 0, i32 2
+  %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
   %4 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !noalias !68
   %shr.i.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %5 = ptrtoint ptr %3 to i64
   %shr.i.i.i.i.i.i.i = lshr i64 %5, 12
   %xor.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i
-  %slots_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i.i, i64 0, i32 1
+  %slots_.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %6 = load ptr, ptr %slots_.i.i.i.i.i, align 8
   %7 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i = and i8 %7, 127
@@ -5635,18 +5559,18 @@ terminate.lpad.i4:                                ; preds = %lpad
   unreachable
 
 cleanup.cont:                                     ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit
-  %small_allocators_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 4
+  %small_allocators_ = getelementptr inbounds i8, ptr %this, i64 80
   %arrayidx.i.i.i12 = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %small_allocators_, i64 0, i64 %rem.i.i
-  %shard_mu8 = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %small_allocators_, i64 0, i64 %rem.i.i, i32 1
+  %shard_mu8 = getelementptr inbounds i8, ptr %arrayidx.i.i.i12, i64 32
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %shard_mu8)
   %19 = load ptr, ptr %arrayidx.i.i.i12, align 8, !noalias !71
   tail call void @llvm.prefetch.p0(ptr %19, i32 0, i32 1, i32 1), !noalias !71
-  %capacity_.i.i.i.i.i19 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i.i12, i64 0, i32 2
+  %capacity_.i.i.i.i.i19 = getelementptr inbounds i8, ptr %arrayidx.i.i.i12, i64 16
   %20 = load i64, ptr %capacity_.i.i.i.i.i19, align 8, !noalias !76
   %21 = ptrtoint ptr %19 to i64
   %shr.i.i.i.i.i.i.i21 = lshr i64 %21, 12
   %xor.i.i.i.i.i.i22 = xor i64 %shr.i.i.i.i.i.i.i21, %shr.i.i.i.i.i.i
-  %slots_.i.i.i.i.i26 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i.i12, i64 0, i32 1
+  %slots_.i.i.i.i.i26 = getelementptr inbounds i8, ptr %arrayidx.i.i.i12, i64 8
   %22 = load ptr, ptr %slots_.i.i.i.i.i26, align 8, !noalias !71
   br label %while.body.i.i.i27
 
@@ -5738,7 +5662,7 @@ eh.resume:                                        ; preds = %lpad10, %lpad
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core16BasicMemoryQuota28MaybeMoveAllocatorSmallToBigEPNS_23GrpcMemoryAllocatorImplE(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef %allocator) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %1 = and i8 %0, 1
   %tobool.i.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.i.not, label %if.end, label %if.then
@@ -5748,7 +5672,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %small_allocators_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 4
+  %small_allocators_ = getelementptr inbounds i8, ptr %this, i64 80
   %2 = ptrtoint ptr %allocator to i64
   %shr.i.i = lshr i64 %2, 4
   %shr1.i.i = lshr i64 %2, 9
@@ -5757,7 +5681,7 @@ if.end:                                           ; preds = %if.then, %entry
   %xor3.i.i = xor i64 %xor.i.i, %shr2.i.i
   %rem.i.i = and i64 %xor3.i.i, 15
   %arrayidx.i.i.i = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %small_allocators_, i64 0, i64 %rem.i.i
-  %shard_mu = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %small_allocators_, i64 0, i64 %rem.i.i, i32 1
+  %shard_mu = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 32
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %shard_mu)
   %3 = load ptr, ptr %arrayidx.i.i.i, align 8
   tail call void @llvm.prefetch.p0(ptr %3, i32 0, i32 1, i32 1)
@@ -5773,13 +5697,13 @@ if.end:                                           ; preds = %if.then, %entry
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i128 %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 64
   %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i128 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %capacity_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i.i, i64 0, i32 2
+  %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 16
   %4 = load i64, ptr %capacity_.i.i.i.i.i, align 8, !noalias !79
   %shr.i.i.i.i.i.i = lshr i64 %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 7
   %5 = ptrtoint ptr %3 to i64
   %shr.i.i.i.i.i.i.i = lshr i64 %5, 12
   %xor.i.i.i.i.i.i = xor i64 %shr.i.i.i.i.i.i.i, %shr.i.i.i.i.i.i
-  %slots_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i.i, i64 0, i32 1
+  %slots_.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 8
   %6 = load ptr, ptr %slots_.i.i.i.i.i, align 8
   %7 = trunc i128 %xor.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %conv.i.i.i.i = and i8 %7, 127
@@ -5868,18 +5792,18 @@ terminate.lpad.i4:                                ; preds = %lpad
   unreachable
 
 cleanup.cont:                                     ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit
-  %big_allocators_ = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %this, i64 0, i32 5
+  %big_allocators_ = getelementptr inbounds i8, ptr %this, i64 720
   %arrayidx.i.i.i12 = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %big_allocators_, i64 0, i64 %rem.i.i
-  %shard_mu8 = getelementptr inbounds [16 x %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard"], ptr %big_allocators_, i64 0, i64 %rem.i.i, i32 1
+  %shard_mu8 = getelementptr inbounds i8, ptr %arrayidx.i.i.i12, i64 32
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %shard_mu8)
   %19 = load ptr, ptr %arrayidx.i.i.i12, align 8, !noalias !82
   tail call void @llvm.prefetch.p0(ptr %19, i32 0, i32 1, i32 1), !noalias !82
-  %capacity_.i.i.i.i.i19 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i.i12, i64 0, i32 2
+  %capacity_.i.i.i.i.i19 = getelementptr inbounds i8, ptr %arrayidx.i.i.i12, i64 16
   %20 = load i64, ptr %capacity_.i.i.i.i.i19, align 8, !noalias !87
   %21 = ptrtoint ptr %19 to i64
   %shr.i.i.i.i.i.i.i21 = lshr i64 %21, 12
   %xor.i.i.i.i.i.i22 = xor i64 %shr.i.i.i.i.i.i.i21, %shr.i.i.i.i.i.i
-  %slots_.i.i.i.i.i26 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %arrayidx.i.i.i12, i64 0, i32 1
+  %slots_.i.i.i.i.i26 = getelementptr inbounds i8, ptr %arrayidx.i.i.i12, i64 8
   %22 = load ptr, ptr %slots_.i.i.i.i.i26, align 8, !noalias !82
   br label %while.body.i.i.i27
 
@@ -5989,14 +5913,14 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp4, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %report_ = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %this, i64 0, i32 1
+  %report_ = getelementptr inbounds i8, ptr %this, i64 8
   store atomic i64 4607182418800017408, ptr %report_ monotonic, align 8
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then5, %if.end
-  %update_ = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %this, i64 0, i32 2
+  %update_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %this, ptr %ref.tmp, align 8
-  %4 = getelementptr inbounds %class.anon.78, ptr %ref.tmp, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %sample.addr, ptr %4, align 8
   %5 = atomicrmw sub ptr %update_, i64 1 acquire, align 8
   %cmp.i = icmp eq i64 %5, 1
@@ -6007,7 +5931,7 @@ if.then.i:                                        ; preds = %if.end6
   br label %_ZN9grpc_core14PeriodicUpdate4TickEN4absl12lts_2023080211FunctionRefIFvNS_8DurationEEEE.exit
 
 _ZN9grpc_core14PeriodicUpdate4TickEN4absl12lts_2023080211FunctionRefIFvNS_8DurationEEEE.exit: ; preds = %if.end6, %if.then.i
-  %report_8 = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %this, i64 0, i32 1
+  %report_8 = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load atomic i64, ptr %report_8 monotonic, align 8
   %7 = bitcast i64 %6 to double
   ret double %7
@@ -6018,7 +5942,7 @@ define noundef double @_ZN9grpc_core19memory_quota_detail18PressureController6Up
 entry:
   %cmp = fcmp olt double %error, 0.000000e+00
   %frombool = zext i1 %cmp to i8
-  %last_was_low_ = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 3
+  %last_was_low_ = getelementptr inbounds i8, ptr %this, i64 3
   %0 = load i8, ptr %last_was_low_, align 1
   %1 = and i8 %0, 1
   %tobool.i.i = icmp ne i8 %1, 0
@@ -6027,9 +5951,9 @@ entry:
   br i1 %brmerge.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %last_control_ = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 6
+  %last_control_ = getelementptr inbounds i8, ptr %this, i64 24
   %2 = load double, ptr %last_control_, align 8
-  %min_ = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 4
+  %min_ = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load double, ptr %min_, align 8
   %cmp4 = fcmp oeq double %2, %3
   br i1 %cmp4, label %if.then5, label %if.end51
@@ -6038,7 +5962,7 @@ if.then5:                                         ; preds = %if.then
   %4 = load i8, ptr %this, align 8
   %inc = add i8 %4, 1
   store i8 %inc, ptr %this, align 8
-  %max_ticks_same_ = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 1
+  %max_ticks_same_ = getelementptr inbounds i8, ptr %this, i64 1
   %5 = load i8, ptr %max_ticks_same_, align 1
   %cmp8.not = icmp ult i8 %inc, %5
   br i1 %cmp8.not, label %if.end51, label %if.then9
@@ -6057,10 +5981,10 @@ if.then17:                                        ; preds = %if.else
   %6 = load i8, ptr %this, align 8
   %inc19 = add i8 %6, 1
   store i8 %inc19, ptr %this, align 8
-  %max_ticks_same_22 = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 1
+  %max_ticks_same_22 = getelementptr inbounds i8, ptr %this, i64 1
   %7 = load i8, ptr %max_ticks_same_22, align 1
   %cmp24.not = icmp ult i8 %inc19, %7
-  %max_30.phi.trans.insert = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 5
+  %max_30.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load double, ptr %max_30.phi.trans.insert, align 8
   br i1 %cmp24.not, label %if.end51, label %if.then25
 
@@ -6073,12 +5997,12 @@ if.then25:                                        ; preds = %if.then17
 
 if.else31:                                        ; preds = %if.else
   store i8 0, ptr %this, align 8
-  %max_36 = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 5
+  %max_36 = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load double, ptr %max_36, align 8
   br i1 %cmp, label %if.then33, label %if.else41
 
 if.then33:                                        ; preds = %if.else31
-  %min_35 = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 4
+  %min_35 = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load double, ptr %min_35, align 8
   %add37 = fadd double %9, %8
   %div38 = fmul double %add37, 5.000000e-01
@@ -6086,7 +6010,7 @@ if.then33:                                        ; preds = %if.else31
   br label %if.end51
 
 if.else41:                                        ; preds = %if.else31
-  %last_control_43 = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 6
+  %last_control_43 = getelementptr inbounds i8, ptr %this, i64 24
   %10 = load double, ptr %last_control_43, align 8
   %add45 = fadd double %10, %8
   %div46 = fmul double %add45, 5.000000e-01
@@ -6095,13 +6019,13 @@ if.else41:                                        ; preds = %if.else31
 
 if.end51:                                         ; preds = %if.then17, %if.then25, %if.then, %if.then9, %if.then5, %if.else41, %if.then33
   %new_control.0 = phi double [ %div46, %if.else41 ], [ %div38, %if.then33 ], [ %3, %if.then5 ], [ %div, %if.then9 ], [ %3, %if.then ], [ %div26, %if.then25 ], [ %.pre, %if.then17 ]
-  %last_control_52 = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 6
+  %last_control_52 = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load double, ptr %last_control_52, align 8
   %cmp53 = fcmp olt double %new_control.0, %11
   br i1 %cmp53, label %if.then54, label %if.end60
 
 if.then54:                                        ; preds = %if.end51
-  %max_reduction_per_tick_ = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 2
+  %max_reduction_per_tick_ = getelementptr inbounds i8, ptr %this, i64 2
   %12 = load i8, ptr %max_reduction_per_tick_, align 2
   %conv57 = uitofp i8 %12 to double
   %div58 = fdiv double %conv57, 1.000000e+03
@@ -6124,82 +6048,82 @@ entry:
   %ref.tmp25.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp3 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp5 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
-  %last_was_low_ = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 3
+  %last_was_low_ = getelementptr inbounds i8, ptr %this, i64 3
   %0 = load i8, ptr %last_was_low_, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   %cond = select i1 %tobool.not, ptr @.str.13, ptr @.str.12
   %call.i.i.i.i = select i1 %tobool.not, i64 4, i64 3
-  %min_ = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 4
+  %min_ = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load double, ptr %min_, align 8
-  %digits_.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp3, i64 0, i32 1
+  %digits_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   %call.i = call noundef i64 @_ZN4absl12lts_2023080216numbers_internal17SixDigitsToBufferEdPc(double noundef %2, ptr noundef nonnull %digits_.i)
   store i64 %call.i, ptr %ref.tmp3, align 8
-  %_M_str.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp3, i64 0, i32 1
+  %_M_str.i.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store ptr %digits_.i, ptr %_M_str.i.i, align 8
-  %max_ = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 5
+  %max_ = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load double, ptr %max_, align 8
-  %digits_.i3 = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp5, i64 0, i32 1
+  %digits_.i3 = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   %call.i4 = call noundef i64 @_ZN4absl12lts_2023080216numbers_internal17SixDigitsToBufferEdPc(double noundef %3, ptr noundef nonnull %digits_.i3)
   store i64 %call.i4, ptr %ref.tmp5, align 8
-  %_M_str.i.i5 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp5, i64 0, i32 1
+  %_M_str.i.i5 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store ptr %digits_.i3, ptr %_M_str.i.i5, align 8
-  %last_control_ = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureController", ptr %this, i64 0, i32 6
+  %last_control_ = getelementptr inbounds i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp18.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp25.i)
   store i64 %call.i.i.i.i, ptr %ref.tmp.i, align 8, !noalias !90
-  %4 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr %cond, ptr %4, align 8, !noalias !90
-  %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 5, ptr %arrayinit.element.i, align 8, !noalias !90
-  %5 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr @.str.14, ptr %5, align 8, !noalias !90
-  %arrayinit.element8.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
+  %arrayinit.element8.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   %retval.sroa.0.0.copyload.i6.i = load i64, ptr %ref.tmp3, align 8, !noalias !90
   %retval.sroa.2.0.copyload.i8.i = load ptr, ptr %_M_str.i.i, align 8, !noalias !90
   store i64 %retval.sroa.0.0.copyload.i6.i, ptr %arrayinit.element8.i, align 8, !noalias !90
-  %6 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr %retval.sroa.2.0.copyload.i8.i, ptr %6, align 8, !noalias !90
-  %arrayinit.element10.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
+  %arrayinit.element10.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 5, ptr %arrayinit.element10.i, align 8, !noalias !90
-  %7 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  %7 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr @.str.15, ptr %7, align 8, !noalias !90
-  %arrayinit.element12.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
+  %arrayinit.element12.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 %call.i4, ptr %arrayinit.element12.i, align 8, !noalias !90
-  %8 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store ptr %digits_.i3, ptr %8, align 8, !noalias !90
-  %arrayinit.element14.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5
+  %arrayinit.element14.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 80
   store i64 7, ptr %arrayinit.element14.i, align 8, !noalias !90
-  %9 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 5, i32 1
+  %9 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 88
   store ptr @.str.16, ptr %9, align 8, !noalias !90
-  %arrayinit.element17.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 6
+  %arrayinit.element17.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 96
   %10 = load i8, ptr %this, align 8, !noalias !90
   %conv.i = zext i8 %10 to i32
-  %digits_.i.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp18.i, i64 0, i32 1
+  %digits_.i.i = getelementptr inbounds i8, ptr %ref.tmp18.i, i64 16
   %call.i.i = call noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEiPc(i32 noundef %conv.i, ptr noundef nonnull %digits_.i.i), !noalias !90
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %digits_.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   store i64 %sub.ptr.sub.i.i, ptr %ref.tmp18.i, align 8, !noalias !90
-  %_M_str.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp18.i, i64 0, i32 1
+  %_M_str.i.i.i = getelementptr inbounds i8, ptr %ref.tmp18.i, i64 8
   store ptr %digits_.i.i, ptr %_M_str.i.i.i, align 8, !noalias !90
   store i64 %sub.ptr.sub.i.i, ptr %arrayinit.element17.i, align 8, !noalias !90
-  %11 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 6, i32 1
+  %11 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 104
   store ptr %digits_.i.i, ptr %11, align 8, !noalias !90
-  %arrayinit.element20.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 7
+  %arrayinit.element20.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 112
   store i64 14, ptr %arrayinit.element20.i, align 8, !noalias !90
-  %12 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 7, i32 1
+  %12 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 120
   store ptr @.str.17, ptr %12, align 8, !noalias !90
-  %arrayinit.element24.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 8
+  %arrayinit.element24.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 128
   %13 = load double, ptr %last_control_, align 8, !noalias !90
-  %digits_.i37.i = getelementptr inbounds %"class.absl::lts_20230802::AlphaNum", ptr %ref.tmp25.i, i64 0, i32 1
+  %digits_.i37.i = getelementptr inbounds i8, ptr %ref.tmp25.i, i64 16
   %call.i38.i = call noundef i64 @_ZN4absl12lts_2023080216numbers_internal17SixDigitsToBufferEdPc(double noundef %13, ptr noundef nonnull %digits_.i37.i), !noalias !90
   store i64 %call.i38.i, ptr %ref.tmp25.i, align 8, !noalias !90
-  %_M_str.i.i39.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp25.i, i64 0, i32 1
+  %_M_str.i.i39.i = getelementptr inbounds i8, ptr %ref.tmp25.i, i64 8
   store ptr %digits_.i37.i, ptr %_M_str.i.i39.i, align 8, !noalias !90
   store i64 %call.i38.i, ptr %arrayinit.element24.i, align 8, !noalias !90
-  %14 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 8, i32 1
+  %14 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 136
   store ptr %digits_.i37.i, ptr %14, align 8, !noalias !90
   call void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull %ref.tmp.i, i64 9)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %ref.tmp.i)
@@ -6211,14 +6135,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core11MemoryQuota21CreateMemoryAllocatorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.grpc_event_engine::experimental::MemoryAllocator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %name.coerce0, ptr nocapture readnone %name.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %memory_quota_ = getelementptr inbounds %"class.grpc_core::MemoryQuota", ptr %this, i64 0, i32 1
+  %memory_quota_ = getelementptr inbounds i8, ptr %this, i64 8
   %call5.i.i.i3.i.i = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
-  %_M_use_count.i.i.i.i33 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i33 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i33, align 8
-  %_M_weak_count.i.i.i.i34 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i34 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i34, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN9grpc_core23GrpcMemoryAllocatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i, align 8
-  %_M_impl.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.157", ptr %call5.i.i.i3.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i, i64 16
   invoke void @_ZSt10_ConstructIN9grpc_core23GrpcMemoryAllocatorImplEJRSt10shared_ptrINS0_16BasicMemoryQuotaEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %memory_quota_)
           to label %if.then.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core23GrpcMemoryAllocatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i
 
@@ -6229,14 +6153,14 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core23GrpcMemoryAll
   resume { ptr, i32 } %0
 
 if.then.i.i:                                      ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.157", ptr %call5.i.i.i3.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.157", ptr %call5.i.i.i3.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i, i64 24
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i, i64 32
   %1 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i36, label %_ZNKSt10__weak_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i
 
 _ZNKSt10__weak_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i: ; preds = %if.then.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i.i monotonic, align 8
   %cmp.i.i.i.i35 = icmp eq i32 %2, 0
   br i1 %cmp.i.i.i.i35, label %if.then.i.i.i.i.i36, label %_ZNSt10shared_ptrIN9grpc_core23GrpcMemoryAllocatorImplEED2Ev.exit
@@ -6264,7 +6188,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp3.not.i.i.i.i.i, label %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i, label %if.then4.i.i.i.i.i
 
 if.then4.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %_M_weak_count.i4.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i39 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i39, label %if.else.i.i7.i.i.i.i.i, label %if.then.i.i5.i.i.i.i.i
@@ -6286,7 +6210,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i40: ; preds = %if
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i40
   %vtable.i.i.i.i.i.i43 = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i44 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i43, i64 3
+  %vfn.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i43, i64 24
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i44, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   br label %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i
@@ -6297,7 +6221,7 @@ _ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2E
 
 _ZNSt10shared_ptrIN9grpc_core23GrpcMemoryAllocatorImplEED2Ev.exit: ; preds = %_ZNKSt10__weak_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i, %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i
   store ptr %_M_impl.i.i.i.i, ptr %agg.result, align 8
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.54", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i, ptr %_M_refcount.i.i.i, align 8
   ret void
 }
@@ -6305,14 +6229,14 @@ _ZNSt10shared_ptrIN9grpc_core23GrpcMemoryAllocatorImplEED2Ev.exit: ; preds = %_Z
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core11MemoryQuota17CreateMemoryOwnerEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::MemoryOwner") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %memory_quota_ = getelementptr inbounds %"class.grpc_core::MemoryQuota", ptr %this, i64 0, i32 1
+  %memory_quota_ = getelementptr inbounds i8, ptr %this, i64 8
   %call5.i.i.i3.i.i = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
-  %_M_use_count.i.i.i.i34 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i34 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i34, align 8
-  %_M_weak_count.i.i.i.i35 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i3.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i35 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i35, align 4
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN9grpc_core23GrpcMemoryAllocatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i, align 8
-  %_M_impl.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.157", ptr %call5.i.i.i3.i.i, i64 0, i32 1
+  %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i, i64 16
   invoke void @_ZSt10_ConstructIN9grpc_core23GrpcMemoryAllocatorImplEJRSt10shared_ptrINS0_16BasicMemoryQuotaEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %memory_quota_)
           to label %if.then.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core23GrpcMemoryAllocatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i
 
@@ -6323,14 +6247,14 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core23GrpcMemoryAll
   resume { ptr, i32 } %0
 
 if.then.i.i:                                      ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.157", ptr %call5.i.i.i3.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.157", ptr %call5.i.i.i3.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i, i64 24
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i, i64 32
   %1 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i37, label %_ZNKSt10__weak_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i
 
 _ZNKSt10__weak_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i: ; preds = %if.then.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i.i monotonic, align 8
   %cmp.i.i.i.i36 = icmp eq i32 %2, 0
   br i1 %cmp.i.i.i.i36, label %if.then.i.i.i.i.i37, label %_ZNSt10shared_ptrIN9grpc_core23GrpcMemoryAllocatorImplEED2Ev.exit33
@@ -6358,7 +6282,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.else.i.i.i.i.i.i
   br i1 %cmp3.not.i.i.i.i.i, label %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i, label %if.then4.i.i.i.i.i
 
 if.then4.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %_M_weak_count.i4.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %6, i64 0, i32 2
+  %_M_weak_count.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i40 = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i40, label %if.else.i.i7.i.i.i.i.i, label %if.then.i.i5.i.i.i.i.i
@@ -6380,7 +6304,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i41: ; preds = %if
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i41
   %vtable.i.i.i.i.i.i44 = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i45 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i44, i64 3
+  %vfn.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i44, i64 24
   %10 = load ptr, ptr %vfn.i.i.i.i.i.i45, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   br label %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i
@@ -6391,7 +6315,7 @@ _ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2E
 
 _ZNSt10shared_ptrIN9grpc_core23GrpcMemoryAllocatorImplEED2Ev.exit33: ; preds = %_ZNKSt10__weak_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2EE9use_countEv.exit.i.i.i.i, %_ZNSt12__weak_countILN9__gnu_cxx12_Lock_policyE2EEaSERKSt14__shared_countILS1_2EE.exit.i.i.i.i
   store ptr %_M_impl.i.i.i.i, ptr %agg.result, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr.54", ptr %agg.result, i64 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i3.i.i, ptr %_M_refcount.i.i.i.i, align 8
   ret void
 }
@@ -6479,13 +6403,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core11MemoryQuotaD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %memory_quota_ = getelementptr inbounds %"class.grpc_core::MemoryQuota", ptr %this, i64 0, i32 1
+  %memory_quota_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %memory_quota_, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %reclaimer_activity_.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %0, i64 0, i32 6
+  %reclaimer_activity_.i = getelementptr inbounds i8, ptr %0, i64 1360
   %1 = load ptr, ptr %reclaimer_activity_.i, align 8
   store ptr null, ptr %reclaimer_activity_.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -6505,13 +6429,13 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 if.end:                                           ; preds = %if.then.i.i.i, %if.then, %entry
-  %_M_refcount.i.i = getelementptr inbounds %"class.grpc_core::MemoryQuota", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit, label %if.then.i.i.i1
 
 if.then.i.i.i1:                                   ; preds = %if.end
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -6519,10 +6443,10 @@ if.then.i.i.i1:                                   ; preds = %if.end
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i1
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i2 = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i2, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i2, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   br label %if.end8.sink.split.i.i.i.i
@@ -6548,10 +6472,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -6573,7 +6497,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   br label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit
@@ -6585,13 +6509,13 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit: ; preds = %if.end, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core11MemoryQuotaD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %memory_quota_.i = getelementptr inbounds %"class.grpc_core::MemoryQuota", ptr %this, i64 0, i32 1
+  %memory_quota_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %memory_quota_.i, align 8
   %cmp.i.i.not.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %reclaimer_activity_.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %0, i64 0, i32 6
+  %reclaimer_activity_.i.i = getelementptr inbounds i8, ptr %0, i64 1360
   %1 = load ptr, ptr %reclaimer_activity_.i.i, align 8
   store ptr null, ptr %reclaimer_activity_.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -6611,13 +6535,13 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   unreachable
 
 if.end.i:                                         ; preds = %if.then.i.i.i.i, %if.then.i, %entry
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.grpc_core::MemoryQuota", ptr %this, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i, label %_ZN9grpc_core11MemoryQuotaD2Ev.exit, label %if.then.i.i.i1.i
 
 if.then.i.i.i1.i:                                 ; preds = %if.end.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -6625,10 +6549,10 @@ if.then.i.i.i1.i:                                 ; preds = %if.end.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i1.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i2.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i2.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i2.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   br label %if.end8.sink.split.i.i.i.i.i
@@ -6654,10 +6578,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -6679,7 +6603,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   br label %_ZN9grpc_core11MemoryQuotaD2Ev.exit
@@ -6693,7 +6617,7 @@ _ZN9grpc_core11MemoryQuotaD2Ev.exit:              ; preds = %if.end.i, %_ZN9__gn
 define linkonce_odr void @_ZN9grpc_core23GrpcMemoryAllocatorImpl7ReleaseEm(ptr noundef nonnull align 8 dereferenceable(136) %this, i64 noundef %n) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.anon.92, align 1
-  %free_bytes_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 2
+  %free_bytes_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = atomicrmw add ptr %free_bytes_, i64 %n release, align 8
   %call.i8 = tail call noundef zeroext i1 @_ZN9grpc_core19IsExperimentEnabledEm(i64 noundef 32)
   %add = add i64 %0, %n
@@ -6702,7 +6626,7 @@ entry:
   br i1 %or.cond.not, label %lor.rhs, label %if.then
 
 lor.rhs:                                          ; preds = %entry
-  %donate_back_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 5
+  %donate_back_ = getelementptr inbounds i8, ptr %this, i64 64
   %1 = atomicrmw sub ptr %donate_back_, i64 1 acquire, align 8
   %cmp.i = icmp eq i64 %1, 1
   br i1 %cmp.i, label %_ZN9grpc_core14PeriodicUpdate4TickEN4absl12lts_2023080211FunctionRefIFvNS_8DurationEEEE.exit, label %if.end
@@ -6737,7 +6661,7 @@ while.body.i:                                     ; preds = %while.cond.i
   br i1 %4, label %if.then11.i, label %while.cond.i, !llvm.loop !42
 
 if.then11.i:                                      ; preds = %while.body.i
-  %6 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2) monotonic, align 8
+  %6 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %7 = and i8 %6, 1
   %tobool.i.i.i.not.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.i.not.i, label %monotonic.i35.i, label %if.then13.i
@@ -6747,7 +6671,7 @@ if.then13.i:                                      ; preds = %if.then11.i
   br label %monotonic.i35.i
 
 monotonic.i35.i:                                  ; preds = %if.then13.i, %if.then11.i
-  %taken_bytes_.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 3
+  %taken_bytes_.i = getelementptr inbounds i8, ptr %this, i64 48
   %8 = atomicrmw sub ptr %taken_bytes_.i, i64 %.sroa.speculated.i monotonic, align 8
   %cmp16.not.i = icmp ult i64 %8, %.sroa.speculated.i
   br i1 %cmp16.not.i, label %if.then17.i, label %do.end.i
@@ -6757,15 +6681,15 @@ if.then17.i:                                      ; preds = %monotonic.i35.i
   unreachable
 
 do.end.i:                                         ; preds = %monotonic.i35.i
-  %memory_quota_.i = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 1
+  %memory_quota_.i = getelementptr inbounds i8, ptr %this, i64 24
   %9 = load ptr, ptr %memory_quota_.i, align 8
-  %free_bytes_.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %9, i64 0, i32 1
+  %free_bytes_.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = atomicrmw add ptr %free_bytes_.i.i, i64 %.sroa.speculated.i monotonic, align 8
   br label %if.end
 
 if.end:                                           ; preds = %while.cond.i, %lor.rhs, %do.end.i, %_ZN9grpc_core14PeriodicUpdate4TickEN4absl12lts_2023080211FunctionRefIFvNS_8DurationEEEE.exit
   %11 = load atomic i64, ptr %free_bytes_ monotonic, align 8
-  %memory_quota_ = getelementptr inbounds %"class.grpc_core::GrpcMemoryAllocatorImpl", ptr %this, i64 0, i32 1
+  %memory_quota_ = getelementptr inbounds i8, ptr %this, i64 24
   %12 = load ptr, ptr %memory_quota_, align 8
   br label %while.body.i10
 
@@ -6828,7 +6752,7 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %_ZNSt23enable_shared_from_thisIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %1, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -6850,7 +6774,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #26
   br label %_ZNSt23enable_shared_from_thisIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplEED2Ev.exit
@@ -6867,26 +6791,26 @@ declare noundef zeroext i1 @_ZN9grpc_core19IsExperimentEnabledEm(i64 noundef) lo
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_113SliceRefCount7DestroyEP19grpc_slice_refcount(ptr nocapture noundef %p) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %allocator_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::SliceRefCount", ptr %p, i64 0, i32 1
+  %allocator_.i = getelementptr inbounds i8, ptr %p, i64 16
   %0 = load ptr, ptr %allocator_.i, align 8
-  %size_.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::SliceRefCount", ptr %p, i64 0, i32 2
+  %size_.i = getelementptr inbounds i8, ptr %p, i64 32
   %1 = load i64, ptr %size_.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %2 = load ptr, ptr %vfn.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
   store ptr null, ptr %allocator_.i, align 8
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::SliceRefCount", ptr %p, i64 0, i32 1, i32 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %p, i64 24
   %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr null, ptr %_M_refcount3.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_113SliceRefCountD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %4, 4294967297
   %5 = trunc i64 %4 to i32
@@ -6894,10 +6818,10 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
   br label %if.end8.sink.split.i.i.i.i.i
@@ -6923,10 +6847,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %10 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %10, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -6948,7 +6872,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %3, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %13 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #26
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i
@@ -6959,7 +6883,7 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocator
   br i1 %cmp.not.i.i.i1.i, label %_ZN9grpc_core12_GLOBAL__N_113SliceRefCountD2Ev.exit, label %if.then.i.i.i2.i
 
 if.then.i.i.i2.i:                                 ; preds = %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorImplELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i
-  %_M_use_count.i.i.i.i3.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i3.i = getelementptr inbounds i8, ptr %.pr.i, i64 8
   %14 = load atomic i64, ptr %_M_use_count.i.i.i.i3.i acquire, align 8
   %cmp.i.i.i.i4.i = icmp eq i64 %14, 4294967297
   %15 = trunc i64 %14 to i32
@@ -6967,10 +6891,10 @@ if.then.i.i.i2.i:                                 ; preds = %_ZNSt12__shared_ptr
 
 if.then.i.i.i.i27.i:                              ; preds = %if.then.i.i.i2.i
   store i32 0, ptr %_M_use_count.i.i.i.i3.i, align 8
-  %_M_weak_count.i.i.i.i28.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i28.i = getelementptr inbounds i8, ptr %.pr.i, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i28.i, align 4
   %vtable.i.i.i.i29.i = load ptr, ptr %.pr.i, align 8
-  %vfn.i.i.i.i30.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i29.i, i64 2
+  %vfn.i.i.i.i30.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i29.i, i64 16
   %16 = load ptr, ptr %vfn.i.i.i.i30.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #26
   br label %if.end8.sink.split.i.i.i.i22.i
@@ -6996,10 +6920,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i9.i: ; preds = %if.el
 
 if.then7.i.i.i.i12.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i9.i
   %vtable.i.i.i.i.i.i13.i = load ptr, ptr %.pr.i, align 8
-  %vfn.i.i.i.i.i.i14.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i13.i, i64 2
+  %vfn.i.i.i.i.i.i14.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i13.i, i64 16
   %19 = load ptr, ptr %vfn.i.i.i.i.i.i14.i, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #26
-  %_M_weak_count.i.i.i.i.i.i15.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i15.i = getelementptr inbounds i8, ptr %.pr.i, i64 12
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i16.i = icmp eq i8 %20, 0
   br i1 %tobool.i.not.i.i.i.i.i.i16.i, label %if.else.i.i.i.i.i.i.i25.i, label %if.then.i.i.i.i.i.i.i17.i
@@ -7021,7 +6945,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i19.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i22.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i19.i, %if.then.i.i.i.i27.i
   %vtable2.i.i.i.i.i.i23.i = load ptr, ptr %.pr.i, align 8
-  %vfn3.i.i.i.i.i.i24.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i23.i, i64 3
+  %vfn3.i.i.i.i.i.i24.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i23.i, i64 24
   %23 = load ptr, ptr %vfn3.i.i.i.i.i.i24.i, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(16) %.pr.i) #26
   br label %_ZN9grpc_core12_GLOBAL__N_113SliceRefCountD2Ev.exit
@@ -7057,32 +6981,32 @@ entry:
   %p = alloca %"class.std::shared_ptr", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %new_quotas, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %quotas_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::MemoryQuotaTracker", ptr %this, i64 0, i32 1
+  %quotas_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %quotas_, align 8
-  %_M_finish.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::MemoryQuotaTracker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not29 = icmp eq ptr %0, %1
   br i1 %cmp.i.not29, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %p, i64 0, i32 1
-  %_M_finish.i3 = getelementptr inbounds %"struct.std::_Vector_base<std::weak_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::weak_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %new_quotas, i64 0, i32 1
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<std::weak_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::weak_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %new_quotas, i64 0, i32 2
-  %_M_finish.i4 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::shared_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 1
-  %_M_end_of_storage.i5 = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::shared_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %agg.result, i64 0, i32 2
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %p, i64 8
+  %_M_finish.i3 = getelementptr inbounds i8, ptr %new_quotas, i64 8
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %new_quotas, i64 16
+  %_M_finish.i4 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i5 = getelementptr inbounds i8, ptr %agg.result, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit
   %__begin2.sroa.0.030 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i21, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  %_M_refcount2.i.i.i = getelementptr inbounds %"class.std::__weak_ptr", ptr %__begin2.sroa.0.030, i64 0, i32 1
+  %_M_refcount2.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.030, i64 8
   %2 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !96
   store ptr %2, ptr %_M_refcount.i.i.i, align 8, !alias.scope !96
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i, label %_ZNKSt8weak_ptrIN9grpc_core16BasicMemoryQuotaEE4lockEv.exit.thread, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.body
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load atomic i32, ptr %_M_use_count.i.i.i.i.i.i monotonic, align 8, !noalias !96
   br label %do.body.i.i.i.i.i
 
@@ -7108,7 +7032,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2E
   br i1 %tobool.not.i2.i.i.i, label %_ZNKSt8weak_ptrIN9grpc_core16BasicMemoryQuotaEE4lockEv.exit.thread, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i: ; preds = %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2ERKSt12__weak_countILS1_2EESt9nothrow_t.exit.i.i.i
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %.pr.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %.pr.i.i.i, i64 8
   %7 = load atomic i32, ptr %_M_use_count.i.i.i.i.i monotonic, align 8, !noalias !96
   %.fr.i.i.i = freeze i32 %7
   %tobool.not.i.i.i = icmp eq i32 %.fr.i.i.i, 0
@@ -7132,14 +7056,14 @@ if.end:                                           ; preds = %_ZNKSt8weak_ptrIN9g
 
 if.then.i:                                        ; preds = %if.end
   store ptr %8, ptr %9, align 8
-  %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.std::__weak_ptr", ptr %9, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %_M_refcount2.i.i.i, align 8
   store ptr %11, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %11, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -7156,7 +7080,7 @@ if.else.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt16allocator_traitsISaISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %if.then.i
   %15 = load ptr, ptr %_M_finish.i3, align 8
-  %incdec.ptr.i = getelementptr inbounds %"class.std::weak_ptr", ptr %15, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %15, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i3, align 8
   br label %invoke.cont
 
@@ -7173,14 +7097,14 @@ invoke.cont:                                      ; preds = %_ZNSt16allocator_tr
 if.then.i7:                                       ; preds = %invoke.cont
   %18 = load ptr, ptr %p, align 8
   store ptr %18, ptr %16, align 8
-  %_M_refcount.i.i.i.i.i8 = getelementptr inbounds %"class.std::__shared_ptr", ptr %16, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i8 = getelementptr inbounds i8, ptr %16, i64 8
   %19 = load ptr, ptr %_M_refcount.i.i.i, align 8
   store ptr %19, ptr %_M_refcount.i.i.i.i.i8, align 8
   %cmp.not.i.i.i.i.i.i10 = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i.i.i.i10, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i, label %if.then.i.i.i.i.i.i11
 
 if.then.i.i.i.i.i.i11:                            ; preds = %if.then.i7
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %19, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i12 = icmp eq i8 %20, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i12, label %if.else.i.i.i.i.i.i.i.i16, label %if.then.i.i.i.i.i.i.i.i13
@@ -7197,7 +7121,7 @@ if.else.i.i.i.i.i.i.i.i16:                        ; preds = %if.then.i.i.i.i.i.i
 
 _ZNSt16allocator_traitsISaISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i: ; preds = %if.else.i.i.i.i.i.i.i.i16, %if.then.i.i.i.i.i.i.i.i13, %if.then.i7
   %23 = load ptr, ptr %_M_finish.i4, align 8
-  %incdec.ptr.i15 = getelementptr inbounds %"class.std::shared_ptr", ptr %23, i64 1
+  %incdec.ptr.i15 = getelementptr inbounds i8, ptr %23, i64 16
   store ptr %incdec.ptr.i15, ptr %_M_finish.i4, align 8
   br label %cleanup
 
@@ -7211,7 +7135,7 @@ cleanup:                                          ; preds = %_ZNSt16allocator_tr
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %24, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 8
   %25 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %25, 4294967297
   %26 = trunc i64 %25 to i32
@@ -7219,10 +7143,10 @@ if.then.i.i.i:                                    ; preds = %cleanup
 
 if.then.i.i.i.i20:                                ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %24, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %24, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %27 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(16) %24) #26
   br label %if.end8.sink.split.i.i.i.i
@@ -7248,10 +7172,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %24, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %30 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(16) %24) #26
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %24, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 12
   %31 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %31, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -7273,13 +7197,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i20
   %vtable2.i.i.i.i.i.i = load ptr, ptr %24, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %34 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %34(ptr noundef nonnull align 8 dereferenceable(16) %24) #26
   br label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit
 
 _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit: ; preds = %cleanup, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %incdec.ptr.i21 = getelementptr inbounds %"class.std::weak_ptr", ptr %__begin2.sroa.0.030, i64 1
+  %incdec.ptr.i21 = getelementptr inbounds i8, ptr %__begin2.sroa.0.030, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i21, %1
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 
@@ -7303,11 +7227,11 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %38 = phi ptr [ %.pre31, %for.end.loopexit ], [ %0, %entry ]
   %39 = phi ptr [ %.pre, %for.end.loopexit ], [ %0, %entry ]
   %40 = phi <2 x ptr> [ %36, %for.end.loopexit ], [ zeroinitializer, %entry ]
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::MemoryQuotaTracker", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %41 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
-  %_M_finish.i2.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::weak_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::weak_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %new_quotas, i64 0, i32 1
+  %_M_finish.i2.i.i = getelementptr inbounds i8, ptr %new_quotas, i64 8
   store <2 x ptr> %40, ptr %quotas_, align 8
-  %_M_end_of_storage.i4.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::weak_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::weak_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %new_quotas, i64 0, i32 2
+  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %new_quotas, i64 16
   store ptr %37, ptr %_M_end_of_storage.i.i.i, align 8
   store ptr %39, ptr %new_quotas, align 16
   store ptr %38, ptr %_M_finish.i2.i.i, align 8
@@ -7317,13 +7241,13 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 for.body.i.i.i.i:                                 ; preds = %for.end, %_ZSt8_DestroyISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i.i ], [ %39, %for.end ]
-  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__weak_ptr", ptr %__first.addr.04.i.i.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %42 = load ptr, ptr %_M_refcount.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i23
 
 if.then.i.i.i.i.i.i.i.i23:                        ; preds = %for.body.i.i.i.i
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %42, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 12
   %43 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %43, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -7345,13 +7269,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %42, align 8
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 24
   %46 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(16) %42) #26
   br label %_ZSt8_DestroyISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::weak_ptr", ptr %__first.addr.04.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 16
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %38
   br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !99
 
@@ -7376,20 +7300,20 @@ _ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EED2Ev.exit: ; pre
 define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::shared_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i ], [ %0, %entry ]
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %2 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %3, 4294967297
   %4 = trunc i64 %3 to i32
@@ -7397,10 +7321,10 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i
@@ -7426,10 +7350,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.then7.i.i.i.i.i.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
@@ -7451,13 +7375,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds
 
 if.end8.sink.split.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
   br label %_ZSt8_DestroyISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !51
 
@@ -7482,20 +7406,20 @@ _ZNSt12_Vector_baseISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EED2Ev.e
 define linkonce_odr void @_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<std::weak_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::weak_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
   %cmp.not3.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i, label %invoke.cont, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i ], [ %0, %entry ]
-  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds %"class.std::__weak_ptr", ptr %__first.addr.04.i.i.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 8
   %2 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %2, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -7517,13 +7441,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 24
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
   br label %_ZSt8_DestroyISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEvPT_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::weak_ptr", ptr %__first.addr.04.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !99
 
@@ -7547,7 +7471,7 @@ _ZNSt12_Vector_baseISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EED2Ev.exit
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::weak_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::weak_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -7584,15 +7508,15 @@ _ZNSt12_Vector_baseISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_M_allo
   %add.ptr = getelementptr inbounds %"class.std::weak_ptr", ptr %cond.i10, i64 %sub.ptr.div.i
   %2 = load ptr, ptr %__args, align 8
   store ptr %2, ptr %add.ptr, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.std::__weak_ptr", ptr %add.ptr, i64 0, i32 1
-  %_M_refcount3.i.i.i.i = getelementptr inbounds %"class.std::__weak_ptr", ptr %__args, i64 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
   store ptr %3, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_M_allocateEm.exit
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 12
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -7619,14 +7543,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   %7 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !103, !noalias !100
   store <2 x ptr> %7, ptr %__cur.07.i.i.i, align 8, !alias.scope !100, !noalias !103
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i, i8 0, i64 16, i1 false), !alias.scope !103, !noalias !100
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::weak_ptr", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::weak_ptr", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !105
 
 _ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::weak_ptr", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
@@ -7638,8 +7562,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt8wea
   %8 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !109, !noalias !106
   store <2 x ptr> %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !106, !noalias !109
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i14, i8 0, i64 16, i1 false), !alias.scope !109, !noalias !106
-  %incdec.ptr.i.i.i17 = getelementptr inbounds %"class.std::weak_ptr", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i18 = getelementptr inbounds %"class.std::weak_ptr", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
+  %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i17, %0
   br i1 %cmp.not.i.i.i19, label %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12, !llvm.loop !105
 
@@ -7653,7 +7577,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorISt8wea
   br label %_ZNSt12_Vector_baseISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, %if.then.i22
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::weak_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::weak_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::weak_ptr", ptr %cond.i10, i64 %cond.i
@@ -7670,7 +7594,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::shared_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -7707,15 +7631,15 @@ _ZNSt12_Vector_baseISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_M_a
   %add.ptr = getelementptr inbounds %"class.std::shared_ptr", ptr %cond.i10, i64 %sub.ptr.div.i
   %2 = load ptr, ptr %__args, align 8
   store ptr %2, ptr %add.ptr, align 8
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %add.ptr, i64 0, i32 1
-  %_M_refcount3.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__args, i64 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %3 = load ptr, ptr %_M_refcount3.i.i.i.i, align 8
   store ptr %3, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt16allocator_traitsISaISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_M_allocateEm.exit
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -7739,19 +7663,19 @@ for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_tr
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
-  %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %7 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !114, !noalias !111
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
   store <2 x ptr> %7, ptr %__cur.07.i.i.i, align 8, !alias.scope !111, !noalias !114
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !114, !noalias !111
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::shared_ptr", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !116
 
 _ZNSt6vectorISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::shared_ptr", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
@@ -7760,13 +7684,13 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10sh
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i17, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
-  %_M_refcount4.i.i.i.i.i.i.i.i16 = getelementptr inbounds %"class.std::__shared_ptr", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %_M_refcount4.i.i.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %8 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !120, !noalias !117
   store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i16, align 8, !alias.scope !120, !noalias !117
   store <2 x ptr> %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !117, !noalias !120
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !120, !noalias !117
-  %incdec.ptr.i.i.i17 = getelementptr inbounds %"class.std::shared_ptr", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i18 = getelementptr inbounds %"class.std::shared_ptr", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
+  %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i17, %0
   br i1 %cmp.not.i.i.i19, label %_ZNSt6vectorISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12, !llvm.loop !116
 
@@ -7780,7 +7704,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorISt10sh
   br label %_ZNSt12_Vector_baseISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, %if.then.i22
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::shared_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::shared_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::shared_ptr", ptr %cond.i10, i64 %cond.i
@@ -7791,7 +7715,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE13_M_d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::weak_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::weak_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -7840,14 +7764,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %3 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !125, !noalias !122
   store <2 x ptr> %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !122, !noalias !125
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i, i8 0, i64 16, i1 false), !alias.scope !125, !noalias !122
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::weak_ptr", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::weak_ptr", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !105
 
 _ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"class.std::weak_ptr", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 16
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12
 
@@ -7859,8 +7783,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt8wea
   %4 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !130, !noalias !127
   store <2 x ptr> %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !127, !noalias !130
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i14, i8 0, i64 16, i1 false), !alias.scope !130, !noalias !127
-  %incdec.ptr.i.i.i17 = getelementptr inbounds %"class.std::weak_ptr", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i18 = getelementptr inbounds %"class.std::weak_ptr", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
+  %incdec.ptr1.i.i.i18 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
   %cmp.not.i.i.i19 = icmp eq ptr %incdec.ptr.i.i.i17, %0
   br i1 %cmp.not.i.i.i19, label %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, label %for.body.i.i.i12, !llvm.loop !105
 
@@ -7874,7 +7798,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorISt8wea
   br label %_ZNSt12_Vector_baseISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, %if.then.i22
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::weak_ptr<grpc_core::BasicMemoryQuota>, std::allocator<std::weak_ptr<grpc_core::BasicMemoryQuota>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::weak_ptr", ptr %cond.i10, i64 %cond.i
@@ -7908,7 +7832,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN9grpc_core14ReclaimerQueue5StateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN9grpc_core14ReclaimerQueue5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %_M_impl.i) #26
   ret void
 }
@@ -7923,12 +7847,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core14ReclaimerQueu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN9grpc_core14ReclaimerQueue5StateESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -7957,7 +7881,7 @@ define linkonce_odr void @_ZN9grpc_core14ReclaimerQueue5StateD2Ev(ptr noundef no
 entry:
   %empty = alloca i8, align 1
   store i8 0, ptr %empty, align 1
-  %queue = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::State", ptr %this, i64 0, i32 1
+  %queue = getelementptr inbounds i8, ptr %this, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %entry
@@ -7969,20 +7893,20 @@ invoke.cont:                                      ; preds = %do.body
   br i1 %isnull, label %do.cond, label %delete.notnull
 
 delete.notnull:                                   ; preds = %invoke.cont
-  %reclaimer_handle.i = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::QueuedNode", ptr %call, i64 0, i32 1
+  %reclaimer_handle.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %reclaimer_handle.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core14ReclaimerQueue10QueuedNodeD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %delete.notnull
-  %refs_.i.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %0, i64 0, i32 1
+  %refs_.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %1, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZN9grpc_core14ReclaimerQueue10QueuedNodeD2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(24) %0) #26
   br label %_ZN9grpc_core14ReclaimerQueue10QueuedNodeD2Ev.exit
@@ -7998,12 +7922,12 @@ do.cond:                                          ; preds = %invoke.cont, %_ZN9g
   br i1 %tobool.not, label %do.body, label %do.end, !llvm.loop !132
 
 do.end:                                           ; preds = %do.cond
-  %waker = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::State", ptr %this, i64 0, i32 2
+  %waker = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load ptr, ptr %waker, align 8
-  %wakeup_mask.i.i = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::State", ptr %this, i64 0, i32 2, i32 0, i32 1
+  %wakeup_mask.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %6 = load i16, ptr %wakeup_mask.i.i, align 8
   %vtable.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %7 = load ptr, ptr %vfn.i.i, align 8
   invoke void %7(ptr noundef nonnull align 8 dereferenceable(8) %5, i16 noundef zeroext %6)
           to label %_ZN9grpc_core5WakerD2Ev.exit unwind label %terminate.lpad.i
@@ -8018,12 +7942,12 @@ terminate.lpad.i:                                 ; preds = %do.end
 _ZN9grpc_core5WakerD2Ev.exit:                     ; preds = %do.end
   %10 = load atomic i64, ptr %queue monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %10 to ptr
-  %stub_.i = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::State", ptr %this, i64 0, i32 1, i32 2
+  %stub_.i = getelementptr inbounds i8, ptr %this, i64 80
   %cmp.not.i = icmp eq ptr %stub_.i, %atomic-temp.i.0.i.i
   br i1 %cmp.not.i, label %do.body2.i, label %if.then6.invoke.i
 
 do.body2.i:                                       ; preds = %_ZN9grpc_core5WakerD2Ev.exit
-  %tail_.i = getelementptr inbounds %"struct.grpc_core::ReclaimerQueue::State", ptr %this, i64 0, i32 1, i32 1
+  %tail_.i = getelementptr inbounds i8, ptr %this, i64 72
   %11 = load ptr, ptr %tail_.i, align 8
   %cmp4.not.i = icmp eq ptr %11, %atomic-temp.i.0.i.i
   br i1 %cmp4.not.i, label %_ZN9grpc_core32MultiProducerSingleConsumerQueueD2Ev.exit, label %if.then6.invoke.i
@@ -8069,14 +7993,14 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEEED2Ev"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(145) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %started_.i = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %this, i64 0, i32 2
+  %started_.i = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load i8, ptr %started_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
   br i1 %tobool.not.i, label %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEED2Ev.exit", label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %2 = getelementptr inbounds %"class.grpc_core::promise_detail::Loop", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 72
   tail call fastcc void @"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %2) #26
   br label %"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEED2Ev.exit"
 
@@ -8111,7 +8035,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8optionalIN4absl12lts_202308026StatusEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_engaged.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base.108", ptr %this, i64 0, i32 1
+  %_M_engaged.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %_M_engaged.i.i.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i.i.i = icmp eq i8 %1, 0
@@ -8145,7 +8069,7 @@ entry:
   store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail20FreestandingActivityE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail20FreestandingActivityE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
-  %handle_ = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 5
+  %handle_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %handle_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -8155,7 +8079,7 @@ if.then:                                          ; preds = %entry
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %if.then, %entry
-  %mu_ = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 2
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #26
   ret void
 
@@ -8171,17 +8095,17 @@ terminate.lpad:                                   ; preds = %if.then
 define linkonce_odr void @_ZN9grpc_core14promise_detail20FreestandingActivity6OrphanEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(40) %this)
-  %refs_.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 3
+  %refs_.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = atomicrmw sub ptr %refs_.i, i32 1 acq_rel, align 4
   %cmp.not.i = icmp eq i32 %1, 1
   br i1 %cmp.not.i, label %delete.notnull.i, label %_ZN9grpc_core14promise_detail20FreestandingActivity5UnrefEv.exit
 
 delete.notnull.i:                                 ; preds = %entry
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(40) %this) #26
   br label %_ZN9grpc_core14promise_detail20FreestandingActivity5UnrefEv.exit
@@ -8193,7 +8117,7 @@ _ZN9grpc_core14promise_detail20FreestandingActivity5UnrefEv.exit: ; preds = %ent
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN9grpc_core14promise_detail15PromiseActivityINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEENS_22ExecCtxWakeupSchedulerEZNS4_5StartEvE3$_4JEED2Ev"(ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %done_ = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 2
+  %done_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %done_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -8210,7 +8134,7 @@ do.end:                                           ; preds = %entry
   store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail20FreestandingActivityE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail20FreestandingActivityE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
-  %handle_.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 5
+  %handle_.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %handle_.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %_ZN9grpc_core14promise_detail20FreestandingActivityD2Ev.exit, label %if.then.i
@@ -8227,7 +8151,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN9grpc_core14promise_detail20FreestandingActivityD2Ev.exit: ; preds = %do.end, %if.then.i
-  %mu_.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 2
+  %mu_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i) #26
   ret void
 
@@ -8242,7 +8166,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN9grpc_core14promise_detail15PromiseActivityINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEENS_22ExecCtxWakeupSchedulerEZNS4_5StartEvE3$_4JEED0Ev"(ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %done_.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 2
+  %done_.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i8, ptr %done_.i, align 8
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -8259,7 +8183,7 @@ do.end.i:                                         ; preds = %entry
   store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail20FreestandingActivityE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds ({ [12 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail20FreestandingActivityE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i.i, align 8
-  %handle_.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 5
+  %handle_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %handle_.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %"_ZN9grpc_core14promise_detail15PromiseActivityINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEENS_22ExecCtxWakeupSchedulerEZNS4_5StartEvE3$_4JEED2Ev.exit", label %if.then.i.i
@@ -8283,7 +8207,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 "_ZN9grpc_core14promise_detail15PromiseActivityINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEENS_22ExecCtxWakeupSchedulerEZNS4_5StartEvE3$_4JEED2Ev.exit": ; preds = %do.end.i, %if.then.i.i
-  %mu_.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 2
+  %mu_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i.i) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
   ret void
@@ -8292,9 +8216,9 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core14promise_detail20FreestandingActivity20ForceImmediateRepollEt(ptr noundef nonnull align 8 dereferenceable(40) %this, i16 noundef zeroext %0) unnamed_addr #4 comdat align 2 {
 entry:
-  %mu_ = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 2
+  %mu_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNK4absl12lts_202308025Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)
-  %action_during_run_.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 4
+  %action_during_run_.i = getelementptr inbounds i8, ptr %this, i64 28
   %1 = load i8, ptr %action_during_run_.i, align 4
   %.sroa.speculated.i = tail call i8 @llvm.umax.i8(i8 %1, i8 1)
   store i8 %.sroa.speculated.i, ptr %action_during_run_.i, align 4
@@ -8310,11 +8234,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core14promise_detail20FreestandingActivity15MakeOwningWakerEv(ptr noalias sret(%"class.grpc_core::Waker") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %refs_.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 3
+  %refs_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = atomicrmw add ptr %refs_.i, i32 1 monotonic, align 4
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %add.ptr, ptr %agg.result, align 8
-  %wakeup_mask3.i = getelementptr inbounds %"struct.grpc_core::Waker::WakeableAndArg", ptr %agg.result, i64 0, i32 1
+  %wakeup_mask3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 0, ptr %wakeup_mask3.i, align 8
   ret void
 }
@@ -8327,7 +8251,7 @@ declare void @_ZNK9grpc_core8Activity8DebugTagB5cxx11Ev(ptr sret(%"class.std::__
 define linkonce_odr void @_ZNK9grpc_core14promise_detail20FreestandingActivity16ActivityDebugTagB5cxx11Et(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, i16 noundef zeroext %0) unnamed_addr #4 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this)
   ret void
@@ -8347,12 +8271,12 @@ _ZNK9grpc_core8Activity10is_currentEv.exit:       ; preds = %entry, %0
   %1 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
   %2 = load ptr, ptr %1, align 8
   %cmp.i = icmp eq ptr %2, %this
-  %mu_.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 2
+  %mu_.i = getelementptr inbounds i8, ptr %this, i64 16
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK9grpc_core8Activity10is_currentEv.exit
   tail call void @_ZNK4absl12lts_202308025Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i)
-  %action_during_run_.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 4
+  %action_during_run_.i = getelementptr inbounds i8, ptr %this, i64 28
   %3 = load i8, ptr %action_during_run_.i, align 4
   %.sroa.speculated.i = tail call i8 @llvm.umax.i8(i8 %3, i8 2)
   store i8 %.sroa.speculated.i, ptr %action_during_run_.i, align 4
@@ -8360,7 +8284,7 @@ if.then:                                          ; preds = %_ZNK9grpc_core8Acti
 
 if.end:                                           ; preds = %_ZNK9grpc_core8Activity10is_currentEv.exit
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i)
-  %done_ = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 2
+  %done_ = getelementptr inbounds i8, ptr %this, i64 72
   %4 = load i8, ptr %done_, align 8
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
@@ -8397,19 +8321,19 @@ if.then.i:                                        ; preds = %invoke.cont
   unreachable
 
 do.end.i:                                         ; preds = %invoke.cont
-  %started_.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 144
+  %started_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %11 = load i8, ptr %started_.i.i.i.i, align 8
   %12 = and i8 %11, 1
   %tobool.not.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i.i.i, label %invoke.cont9, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.end.i
-  %13 = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 72
+  %13 = getelementptr inbounds i8, ptr %this, i64 152
   tail call fastcc void @"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %13) #26
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %if.then.i.i.i.i, %do.end.i
-  %promise_holder_.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5
+  %promise_holder_.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call fastcc void @"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %promise_holder_.i) #26
   br i1 icmp ne (ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, ptr null), label %14, label %_ZN9grpc_core8Activity14ScopedActivityD2Ev.exit
 
@@ -8535,26 +8459,26 @@ _ZNK9grpc_core8Activity10is_currentEv.exit:       ; preds = %entry, %0
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK9grpc_core8Activity10is_currentEv.exit
-  %mu_.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 2
+  %mu_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNK4absl12lts_202308025Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i)
-  %action_during_run_.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 4
+  %action_during_run_.i = getelementptr inbounds i8, ptr %this, i64 28
   %3 = load i8, ptr %action_during_run_.i, align 4
   %.sroa.speculated.i = tail call i8 @llvm.umax.i8(i8 %3, i8 1)
   store i8 %.sroa.speculated.i, ptr %action_during_run_.i, align 4
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 3
+  %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = atomicrmw sub ptr %refs_.i.i, i32 1 acq_rel, align 4
   %cmp.not.i.i = icmp eq i32 %4, 1
   br i1 %cmp.not.i.i, label %delete.notnull.i.i, label %return
 
 delete.notnull.i.i:                               ; preds = %if.then
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(40) %this) #26
   br label %return
 
 if.end:                                           ; preds = %_ZNK9grpc_core8Activity10is_currentEv.exit
-  %wakeup_scheduled_.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 3
+  %wakeup_scheduled_.i = getelementptr inbounds i8, ptr %this, i64 73
   %6 = atomicrmw xchg ptr %wakeup_scheduled_.i, i8 1 acq_rel, align 1
   %7 = and i8 %6, 1
   %tobool3.i.i.not.i = icmp eq i8 %7, 0
@@ -8603,14 +8527,14 @@ lpad.i.i:                                         ; preds = %if.then.i
   br label %return
 
 if.else.i:                                        ; preds = %if.end
-  %refs_.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 3
+  %refs_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %12 = atomicrmw sub ptr %refs_.i.i.i, i32 1 acq_rel, align 4
   %cmp.not.i.i.i = icmp eq i32 %12, 1
   br i1 %cmp.not.i.i.i, label %delete.notnull.i.i.i, label %return
 
 delete.notnull.i.i.i:                             ; preds = %if.else.i
   %vtable.i.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %13 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(40) %this) #26
   br label %return
@@ -8624,7 +8548,7 @@ define internal void @"_ZN9grpc_core14promise_detail15PromiseActivityINS0_4LoopI
 entry:
   %ref.tmp3.i = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
-  %wakeup_scheduled_ = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 3
+  %wakeup_scheduled_ = getelementptr inbounds i8, ptr %this, i64 73
   %1 = atomicrmw xchg ptr %wakeup_scheduled_, i8 1 acq_rel, align 1
   %2 = and i8 %1, 1
   %tobool3.i.i.not = icmp eq i8 %2, 0
@@ -8673,14 +8597,14 @@ lpad.i:                                           ; preds = %if.then
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 3
+  %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = atomicrmw sub ptr %refs_.i.i, i32 1 acq_rel, align 4
   %cmp.not.i.i = icmp eq i32 %7, 1
   br i1 %cmp.not.i.i, label %delete.notnull.i.i, label %if.end
 
 delete.notnull.i.i:                               ; preds = %if.else
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(40) %this) #26
   br label %if.end
@@ -8692,14 +8616,14 @@ if.end:                                           ; preds = %delete.notnull.i.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN9grpc_core14promise_detail15PromiseActivityINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEENS_22ExecCtxWakeupSchedulerEZNS4_5StartEvE3$_4JEE4DropEt"(ptr noundef nonnull align 8 dereferenceable(232) %this, i16 zeroext %0) unnamed_addr #3 align 2 {
 entry:
-  %refs_.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 3
+  %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = atomicrmw sub ptr %refs_.i.i, i32 1 acq_rel, align 4
   %cmp.not.i.i = icmp eq i32 %1, 1
   br i1 %cmp.not.i.i, label %delete.notnull.i.i, label %_ZN9grpc_core14promise_detail20FreestandingActivity14WakeupCompleteEv.exit
 
 delete.notnull.i.i:                               ; preds = %entry
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(40) %this) #26
   br label %_ZN9grpc_core14promise_detail20FreestandingActivity14WakeupCompleteEv.exit
@@ -8778,7 +8702,7 @@ if.else.i:                                        ; preds = %entry
 
 delete.notnull.i.i.i:                             ; preds = %if.else.i
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(40) %1) #26
   br label %"_ZN9grpc_core14promise_detail15PromiseActivityINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEENS_22ExecCtxWakeupSchedulerEZNS4_5StartEvE3$_4JEE11WakeupAsyncEt.exit"
@@ -8798,7 +8722,7 @@ entry:
 delete.notnull.i.i.i:                             ; preds = %entry
   %2 = getelementptr inbounds i8, ptr %this, i64 -8
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(40) %2) #26
   br label %"_ZN9grpc_core14promise_detail15PromiseActivityINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEENS_22ExecCtxWakeupSchedulerEZNS4_5StartEvE3$_4JEE4DropEt.exit"
@@ -8812,7 +8736,7 @@ define linkonce_odr void @_ZThn8_NK9grpc_core14promise_detail20FreestandingActiv
 entry:
   %1 = getelementptr inbounds i8, ptr %this, i64 -8
   %vtable.i = load ptr, ptr %1, align 8, !noalias !145
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 7
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
   %2 = load ptr, ptr %vfn.i, align 8, !noalias !145
   tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
@@ -8850,65 +8774,65 @@ _ZNK9grpc_core8Activity10is_currentEv.exit:       ; preds = %entry, %0
   br i1 %cmp.i, label %while.body.preheader, label %if.then
 
 while.body.preheader:                             ; preds = %_ZNK9grpc_core8Activity10is_currentEv.exit
-  %done_ = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 2
-  %promise_holder_ = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5
-  %started_.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 144
-  %3 = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 72
-  %state.i.i.i28 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %agg.tmp.i27, i64 0, i32 1
-  %state2.i.i.i29 = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 64
-  %_M_refcount.i.i.i.i.i.i.i.i35 = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp.i27, i64 0, i32 1
-  %_M_refcount3.i.i.i.i.i.i.i.i36 = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 8
-  %token_.i.i.i.i.i.i44 = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %agg.tmp.i27, i64 0, i32 1
-  %token_3.i.i.i.i.i.i45 = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 16
-  %_M_refcount.i.i.i.i.i5.i.i.i46 = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %agg.tmp.i27, i64 1
-  %_M_refcount3.i.i.i.i.i6.i.i.i47 = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 24
-  %next_factory7.i.i.i55 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp.i27, i64 0, i32 1
-  %next_factory8.i.i.i56 = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 48
-  %_M_refcount.i.i.i.i.i14.i.i.i57 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp.i27, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount3.i.i.i.i.i15.i.i.i58 = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 56
-  %state.i.i.i.i.i66 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %ref.tmp.i.i, i64 0, i32 1
-  %state.i.i.i.i.i.i87 = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 136
-  %_M_refcount.i.i.i.i.i8.i.i.i.i.i68 = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp.i.i, i64 0, i32 1
-  %token_.i.i.i.i.i.i.i.i69 = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %ref.tmp.i.i, i64 0, i32 1
-  %_M_refcount.i.i.i.i.i8.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 80
-  %token_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 88
-  %next_factory13.i.i.i.i.i7289 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %ref.tmp.i.i, i64 0, i32 1
-  %_M_refcount.i.i.i.i.i12.i.i.i.i.i7390 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %ref.tmp.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount.i.i.i.i.i10.i.i.i.i.i78 = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %ref.tmp.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_refcount.i.i.i.i.i10.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 96
-  %next_factory13.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 120
-  %_M_refcount.i.i.i.i.i12.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 128
-  %next_promise.sroa.5.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 104
-  %next_promise.sroa.6.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %this, i64 0, i32 5, i32 0, i64 112
-  %4 = getelementptr inbounds %"class.grpc_core::Poll", ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 0, i32 1
-  %5 = getelementptr inbounds %"class.grpc_core::Poll", ptr %ref.tmp.i.i.i.i.i.i.i.i.i.i, i64 0, i32 1
-  %6 = getelementptr inbounds %"class.grpc_core::Poll", ptr %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, i64 0, i32 1
-  %_M_refcount.i.i.i.i.i.i.i.i.i3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp15.i.i.i.i.i.i.i.i.i, i64 0, i32 1
-  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp.i.i.i.i.i.i.i.i.i, i64 0, i32 1
-  %sweep_token_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %agg.tmp.i.i.i.i.i.i.i.i.i, i64 0, i32 1
-  %waker_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %agg.tmp.i.i.i.i.i.i.i.i.i, i64 0, i32 2
+  %done_ = getelementptr inbounds i8, ptr %this, i64 72
+  %promise_holder_ = getelementptr inbounds i8, ptr %this, i64 80
+  %started_.i.i = getelementptr inbounds i8, ptr %this, i64 224
+  %3 = getelementptr inbounds i8, ptr %this, i64 152
+  %state.i.i.i28 = getelementptr inbounds i8, ptr %agg.tmp.i27, i64 64
+  %state2.i.i.i29 = getelementptr inbounds i8, ptr %this, i64 144
+  %_M_refcount.i.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %agg.tmp.i27, i64 8
+  %_M_refcount3.i.i.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %this, i64 88
+  %token_.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %agg.tmp.i27, i64 16
+  %token_3.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 96
+  %_M_refcount.i.i.i.i.i5.i.i.i46 = getelementptr inbounds i8, ptr %agg.tmp.i27, i64 24
+  %_M_refcount3.i.i.i.i.i6.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 104
+  %next_factory7.i.i.i55 = getelementptr inbounds i8, ptr %agg.tmp.i27, i64 48
+  %next_factory8.i.i.i56 = getelementptr inbounds i8, ptr %this, i64 128
+  %_M_refcount.i.i.i.i.i14.i.i.i57 = getelementptr inbounds i8, ptr %agg.tmp.i27, i64 56
+  %_M_refcount3.i.i.i.i.i15.i.i.i58 = getelementptr inbounds i8, ptr %this, i64 136
+  %state.i.i.i.i.i66 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 64
+  %state.i.i.i.i.i.i87 = getelementptr inbounds i8, ptr %this, i64 216
+  %_M_refcount.i.i.i.i.i8.i.i.i.i.i68 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 8
+  %token_.i.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
+  %_M_refcount.i.i.i.i.i8.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %token_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
+  %next_factory13.i.i.i.i.i7289 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 48
+  %_M_refcount.i.i.i.i.i12.i.i.i.i.i7390 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 56
+  %_M_refcount.i.i.i.i.i10.i.i.i.i.i78 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 24
+  %_M_refcount.i.i.i.i.i10.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
+  %next_factory13.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 200
+  %_M_refcount.i.i.i.i.i12.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
+  %next_promise.sroa.5.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
+  %next_promise.sroa.6.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i, i64 8
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i.i, i64 8
+  %6 = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, i64 8
+  %_M_refcount.i.i.i.i.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %agg.tmp15.i.i.i.i.i.i.i.i.i, i64 8
+  %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i.i.i.i, i64 8
+  %sweep_token_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i.i.i.i, i64 16
+  %waker_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i.i.i.i, i64 24
   %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp16.i.i.i.i.i.i.i.i.i, i64 8
-  %7 = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %agg.tmp.i.i.i.i.i.i.i.i.i, i64 0, i32 2, i32 0, i32 1
-  %sweep_token_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %agg.tmp.i.i.i.i.i.i.i.i.i.i, i64 0, i32 1
-  %waker_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %agg.tmp.i.i.i.i.i.i.i.i.i.i, i64 0, i32 2
-  %8 = getelementptr inbounds %"class.grpc_core::ReclamationSweep", ptr %agg.tmp.i.i.i.i.i.i.i.i.i.i, i64 0, i32 2, i32 0, i32 1
-  %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base", ptr %agg.tmp.i.i.i.i.i.i.i.i.i.i, i64 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Poll.116", ptr %promise_result.i.i, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %_M_index.i.i.i.i.i.i.i.i4.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %lc.i.i, i64 0, i32 1
-  %state2.i.i.i.i7.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %ref.tmp11.i.i, i64 0, i32 1
-  %_M_refcount4.i.i.i.i.i9.i.i.i.i10.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %ref.tmp11.i.i, i64 0, i32 1
-  %token_3.i.i.i.i.i.i.i12.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %ref.tmp11.i.i, i64 0, i32 1
-  %_M_refcount4.i.i.i.i.i11.i.i.i.i26.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running0", ptr %ref.tmp11.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %next_factory14.i.i.i.i16.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %ref.tmp11.i.i, i64 0, i32 1
-  %_M_refcount4.i.i.i.i.i13.i.i.i.i18.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %ref.tmp11.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %state.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState", ptr %agg.tmp.i, i64 0, i32 1
-  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp.i, i64 0, i32 1
-  %token_.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %agg.tmp.i, i64 0, i32 1
-  %_M_refcount.i.i.i.i.i5.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota::WaitForSweepPromise", ptr %agg.tmp.i, i64 1
-  %next_factory7.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp.i, i64 0, i32 1
-  %_M_refcount.i.i.i.i.i14.i.i.i = getelementptr inbounds %"struct.grpc_core::promise_detail::SeqState<grpc_core::promise_detail::SeqTraits, (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:430:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:437:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:450:7), (lambda at /home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/grpc/grpc/src/core/lib/resource_quota/memory_quota.cc:474:7)>::Running1", ptr %agg.tmp.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %9 = getelementptr inbounds %"class.grpc_core::Poll.114", ptr %r, i64 0, i32 1
-  %action_during_run_.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %this, i64 0, i32 4
+  %7 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i.i.i.i, i64 32
+  %sweep_token_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i.i.i.i.i, i64 16
+  %waker_.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i.i.i.i.i, i64 24
+  %8 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i.i.i.i.i, i64 32
+  %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i.i.i.i.i.i.i.i.i.i, i64 40
+  %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %promise_result.i.i, i64 16
+  %_M_index.i.i.i.i.i.i.i.i4.i.i = getelementptr inbounds i8, ptr %lc.i.i, i64 8
+  %state2.i.i.i.i7.i.i = getelementptr inbounds i8, ptr %ref.tmp11.i.i, i64 64
+  %_M_refcount4.i.i.i.i.i9.i.i.i.i10.i.i = getelementptr inbounds i8, ptr %ref.tmp11.i.i, i64 8
+  %token_3.i.i.i.i.i.i.i12.i.i = getelementptr inbounds i8, ptr %ref.tmp11.i.i, i64 16
+  %_M_refcount4.i.i.i.i.i11.i.i.i.i26.i.i = getelementptr inbounds i8, ptr %ref.tmp11.i.i, i64 24
+  %next_factory14.i.i.i.i16.i.i = getelementptr inbounds i8, ptr %ref.tmp11.i.i, i64 48
+  %_M_refcount4.i.i.i.i.i13.i.i.i.i18.i.i = getelementptr inbounds i8, ptr %ref.tmp11.i.i, i64 56
+  %state.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 64
+  %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %token_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
+  %_M_refcount.i.i.i.i.i5.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 24
+  %next_factory7.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
+  %_M_refcount.i.i.i.i.i14.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 56
+  %9 = getelementptr inbounds i8, ptr %r, i64 8
+  %action_during_run_.i = getelementptr inbounds i8, ptr %this, i64 28
   br label %while.body
 
 if.then:                                          ; preds = %_ZNK9grpc_core8Activity10is_currentEv.exit
@@ -8961,7 +8885,7 @@ do.end.i.i.i34:                                   ; preds = %if.then.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i37, label %_ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19WaitForSweepPromiseEvEEJRKS5_EEEvPT_DpOT0_.exit.i.i.i43, label %if.then.i.i.i.i.i.i.i.i.i38
 
 if.then.i.i.i.i.i.i.i.i.i38:                      ; preds = %do.end.i.i.i34
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %16, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i39 = getelementptr inbounds i8, ptr %16, i64 8
   %17 = load i8, ptr @__libc_single_threaded, align 1, !noalias !157
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i40 = icmp eq i8 %17, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i40, label %if.else.i.i.i.i.i.i.i.i.i.i.i81, label %if.then.i.i.i.i.i.i.i.i.i.i.i41
@@ -8986,7 +8910,7 @@ _ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19
   br i1 %cmp.not.i.i.i.i.i.i7.i.i.i48, label %"_ZN9grpc_core9ConstructINS_14promise_detail18OncePromiseFactoryIiZNS_16BasicMemoryQuota5StartEvE3$_0EEJRKS5_EEEvPT_DpOT0_.exit.i.i.i54", label %if.then.i.i.i.i.i.i8.i.i.i49
 
 if.then.i.i.i.i.i.i8.i.i.i49:                     ; preds = %_ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19WaitForSweepPromiseEvEEJRKS5_EEEvPT_DpOT0_.exit.i.i.i43
-  %_M_use_count.i.i.i.i.i.i.i9.i.i.i50 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %22, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i9.i.i.i50 = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i8, ptr @__libc_single_threaded, align 1, !noalias !157
   %tobool.i.i.not.i.i.i.i.i.i.i10.i.i.i51 = icmp eq i8 %23, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i10.i.i.i51, label %if.else.i.i.i.i.i.i.i.i13.i.i.i80, label %if.then.i.i.i.i.i.i.i.i11.i.i.i52
@@ -9010,7 +8934,7 @@ if.else.i.i.i.i.i.i.i.i13.i.i.i80:                ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i16.i.i.i59, label %"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EEC2ERKS7_.exit.i65", label %if.then.i.i.i.i.i.i17.i.i.i60
 
 if.then.i.i.i.i.i.i17.i.i.i60:                    ; preds = %"_ZN9grpc_core9ConstructINS_14promise_detail18OncePromiseFactoryIiZNS_16BasicMemoryQuota5StartEvE3$_0EEJRKS5_EEEvPT_DpOT0_.exit.i.i.i54"
-  %_M_use_count.i.i.i.i.i.i.i18.i.i.i61 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %27, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i18.i.i.i61 = getelementptr inbounds i8, ptr %27, i64 8
   %28 = load i8, ptr @__libc_single_threaded, align 1, !noalias !157
   %tobool.i.i.not.i.i.i.i.i.i.i19.i.i.i62 = icmp eq i8 %28, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i19.i.i.i62, label %if.else.i.i.i.i.i.i.i.i22.i.i.i79, label %if.then.i.i.i.i.i.i.i.i20.i.i.i63
@@ -9148,7 +9072,7 @@ entry.sw.bb14_crit_edge.i.i.i.i.i:                ; preds = %while.body.i.i
 
 sw.bb.i.i.i.i.i:                                  ; preds = %while.body.i.i
   %44 = load ptr, ptr %3, align 8, !noalias !184
-  %free_bytes_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %44, i64 0, i32 1
+  %free_bytes_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %44, i64 16
   %45 = load atomic i64, ptr %free_bytes_.i.i.i.i.i.i.i acquire, align 8, !noalias !184
   %cmp.i.i.i.i.i.i.i = icmp sgt i64 %45, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EEclEv.exit.i.i.i", label %if.end9.i.i.i.i.i
@@ -9159,7 +9083,7 @@ if.end9.i.i.i.i.i:                                ; preds = %sw.bb.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont11.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end9.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this.val.i.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i.i.i, i64 8
   %46 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i acquire, align 8, !noalias !172
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %46, 4294967297
   %47 = trunc i64 %46 to i32
@@ -9167,10 +9091,10 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.end9.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !172
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this.val.i.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i.i.i, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !172
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.val.i.i.i.i.i, align 8, !noalias !172
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %48 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !172
   call void %48(ptr noundef nonnull align 8 dereferenceable(16) %this.val.i.i.i.i.i) #26, !noalias !172
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9196,10 +9120,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; p
 
 if.then7.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.val.i.i.i.i.i, align 8, !noalias !172
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %51 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !172
   call void %51(ptr noundef nonnull align 8 dereferenceable(16) %this.val.i.i.i.i.i) #26, !noalias !172
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this.val.i.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this.val.i.i.i.i.i, i64 12
   %52 = load i8, ptr @__libc_single_threaded, align 1, !noalias !172
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %52, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9221,22 +9145,22 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i:
 
 if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i:       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %this.val.i.i.i.i.i, align 8, !noalias !172
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %55 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !172
   call void %55(ptr noundef nonnull align 8 dereferenceable(16) %this.val.i.i.i.i.i) #26, !noalias !172
   br label %invoke.cont11.i.i.i.i.i
 
 invoke.cont11.i.i.i.i.i:                          ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.end9.i.i.i.i.i
   %next_factory.val14.i.i.i.i.i = load ptr, ptr %token_.i.i.i.i.i.i.i.i.i, align 8, !noalias !172
-  %reclaimers_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %next_factory.val14.i.i.i.i.i, i64 0, i32 3
-  %arrayidx14.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %next_factory.val14.i.i.i.i.i, i64 0, i32 3, i64 1
-  %arrayidx27.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %next_factory.val14.i.i.i.i.i, i64 0, i32 3, i64 2
+  %reclaimers_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %next_factory.val14.i.i.i.i.i, i64 32
+  %arrayidx14.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %next_factory.val14.i.i.i.i.i, i64 48
+  %arrayidx27.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %next_factory.val14.i.i.i.i.i, i64 64
   %next_factory.val.i.i.i.i.i = load ptr, ptr %_M_refcount.i.i.i.i.i10.i.i.i.i.i.i, align 8, !noalias !172
   %cmp.not.i.i.i.i.i.i17.i.i.i.i.i = icmp eq ptr %next_factory.val.i.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i.i.i17.i.i.i.i.i, label %cleanup.i.i.i.i.i, label %if.then.i.i.i.i.i.i18.i.i.i.i.i
 
 if.then.i.i.i.i.i.i18.i.i.i.i.i:                  ; preds = %invoke.cont11.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i19.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %next_factory.val.i.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i19.i.i.i.i.i = getelementptr inbounds i8, ptr %next_factory.val.i.i.i.i.i, i64 8
   %56 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i19.i.i.i.i.i acquire, align 8, !noalias !172
   %cmp.i.i.i.i.i.i.i20.i.i.i.i.i = icmp eq i64 %56, 4294967297
   %57 = trunc i64 %56 to i32
@@ -9244,10 +9168,10 @@ if.then.i.i.i.i.i.i18.i.i.i.i.i:                  ; preds = %invoke.cont11.i.i.i
 
 if.then.i.i.i.i.i.i.i43.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i.i18.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i19.i.i.i.i.i, align 8, !noalias !172
-  %_M_weak_count.i.i.i.i.i.i.i44.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %next_factory.val.i.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i44.i.i.i.i.i = getelementptr inbounds i8, ptr %next_factory.val.i.i.i.i.i, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i44.i.i.i.i.i, align 4, !noalias !172
   %vtable.i.i.i.i.i.i.i45.i.i.i.i.i = load ptr, ptr %next_factory.val.i.i.i.i.i, align 8, !noalias !172
-  %vfn.i.i.i.i.i.i.i46.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i45.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i46.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i45.i.i.i.i.i, i64 16
   %58 = load ptr, ptr %vfn.i.i.i.i.i.i.i46.i.i.i.i.i, align 8, !noalias !172
   call void %58(ptr noundef nonnull align 8 dereferenceable(16) %next_factory.val.i.i.i.i.i) #26, !noalias !172
   br label %if.end8.sink.split.i.i.i.i.i.i.i38.i.i.i.i.i
@@ -9273,10 +9197,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25.i.i.i.i.i: ;
 
 if.then7.i.i.i.i.i.i.i28.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i25.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i29.i.i.i.i.i = load ptr, ptr %next_factory.val.i.i.i.i.i, align 8, !noalias !172
-  %vfn.i.i.i.i.i.i.i.i.i30.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i29.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i30.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i29.i.i.i.i.i, i64 16
   %61 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i30.i.i.i.i.i, align 8, !noalias !172
   call void %61(ptr noundef nonnull align 8 dereferenceable(16) %next_factory.val.i.i.i.i.i) #26, !noalias !172
-  %_M_weak_count.i.i.i.i.i.i.i.i.i31.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %next_factory.val.i.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i31.i.i.i.i.i = getelementptr inbounds i8, ptr %next_factory.val.i.i.i.i.i, i64 12
   %62 = load i8, ptr @__libc_single_threaded, align 1, !noalias !172
   %tobool.i.not.i.i.i.i.i.i.i.i.i32.i.i.i.i.i = icmp eq i8 %62, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i32.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i41.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i33.i.i.i.i.i
@@ -9298,7 +9222,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i35.i.i.i.i.
 
 if.end8.sink.split.i.i.i.i.i.i.i38.i.i.i.i.i:     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i35.i.i.i.i.i, %if.then.i.i.i.i.i.i.i43.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i39.i.i.i.i.i = load ptr, ptr %next_factory.val.i.i.i.i.i, align 8, !noalias !172
-  %vfn3.i.i.i.i.i.i.i.i.i40.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i39.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i40.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i39.i.i.i.i.i, i64 24
   %65 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i40.i.i.i.i.i, align 8, !noalias !172
   call void %65(ptr noundef nonnull align 8 dereferenceable(16) %next_factory.val.i.i.i.i.i) #26, !noalias !172
   br label %cleanup.i.i.i.i.i
@@ -9340,7 +9264,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i
   %73 = load i8, ptr %ref.tmp.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !213
   %74 = and i8 %73, 1
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %74, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit132.thread.i.i.i.i.i, label %if.then.i12.i.i.i.i.i.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit133.thread.i.i.i.i.i, label %if.then.i12.i.i.i.i.i.i.i.i.i.i
 
 if.then.i12.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i
   %75 = load ptr, ptr %6, align 8, !noalias !214
@@ -9357,67 +9281,68 @@ if.then.i6.i.i.i.i.i.i.i:                         ; preds = %sw.bb14.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i), !noalias !189
   br label %if.end33.i.i.i.i.i
 
-_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit132.thread.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i
+_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit133.thread.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i), !noalias !203
   br label %"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EEclEv.exit.i.i.i"
 
 if.end33.i.i.i.i.i:                               ; preds = %if.then.i6.i.i.i.i.i.i.i, %if.then.i3.i.i.i.i.i.i.i.i, %if.then.i12.i.i.i.i.i.i.i.i.i.i
-  %ref.tmp.sroa.13.1.ph.in.in.i.i.i.i.i.i = phi ptr [ %next_promise.sroa.6.0.this.sroa_idx.i.i.i.i.i, %if.then.i12.i.i.i.i.i.i.i.i.i.i ], [ %_M_refcount.i.i.i.i.i8.i.i.i.i.i.i, %if.then.i6.i.i.i.i.i.i.i ], [ %_M_refcount.i.i.i.i.i10.i.i.i.i.i.i, %if.then.i3.i.i.i.i.i.i.i.i ]
-  %ref.tmp.sroa.6.1.ph.i.i.i.i.i.i = phi ptr [ %75, %if.then.i12.i.i.i.i.i.i.i.i.i.i ], [ %77, %if.then.i6.i.i.i.i.i.i.i ], [ %76, %if.then.i3.i.i.i.i.i.i.i.i ]
-  %ref.tmp.sroa.13.1.ph.in.i.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.13.1.ph.in.in.i.i.i.i.i.i, align 8, !noalias !201
+  %.sink.i47.i.i.i.i.i = phi i64 [ 24, %if.then.i3.i.i.i.i.i.i.i.i ], [ 8, %if.then.i6.i.i.i.i.i.i.i ], [ 40, %if.then.i12.i.i.i.i.i.i.i.i.i.i ]
+  %ref.tmp.sroa.6.1.ph.i.i.i.i.i.i = phi ptr [ %76, %if.then.i3.i.i.i.i.i.i.i.i ], [ %77, %if.then.i6.i.i.i.i.i.i.i ], [ %75, %if.then.i12.i.i.i.i.i.i.i.i.i.i ]
+  %fn_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.sink.i47.i.i.i.i.i
+  %ref.tmp.sroa.13.1.ph.in.i.i.i.i.i.i = load ptr, ptr %fn_.i.i.i.i.i.i.i.i.i, align 8, !noalias !201
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i.i), !noalias !229
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp15.i.i.i.i.i.i.i.i.i), !noalias !229
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp16.i.i.i.i.i.i.i.i.i), !noalias !229
-  %78 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2) monotonic, align 8, !noalias !236
+  %78 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8, !noalias !236
   %79 = and i8 %78, 1
   %tobool.i.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %79, 0
-  br i1 %tobool.i.i.i.not.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i68.i.i.i.i.i
+  br i1 %tobool.i.i.i.not.i.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i69.i.i.i.i.i
 
-if.then.i.i.i.i68.i.i.i.i.i:                      ; preds = %if.end33.i.i.i.i.i
+if.then.i.i.i.i69.i.i.i.i.i:                      ; preds = %if.end33.i.i.i.i.i
   %80 = load ptr, ptr %next_factory13.i.i.i.i.i.i, align 8, !noalias !236
-  %free_bytes_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %80, i64 0, i32 1
+  %free_bytes_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %80, i64 16
   %81 = load atomic i64, ptr %free_bytes_.i.i.i.i.i.i.i.i.i seq_cst, align 8, !noalias !236
   %.sroa.speculated.i.i.i.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %81, i64 0)
   %conv.i.i.i.i.i.i.i.i.i = sitofp i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i to double
   %82 = load ptr, ptr %next_factory13.i.i.i.i.i.i, align 8, !noalias !236
-  %quota_size_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %82, i64 0, i32 2
+  %quota_size_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %82, i64 24
   %83 = load atomic i64, ptr %quota_size_.i.i.i.i.i.i.i.i.i seq_cst, align 8, !noalias !236
   %84 = load ptr, ptr %next_factory13.i.i.i.i.i.i, align 8, !noalias !236
-  %name_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %84, i64 0, i32 9
+  %name_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %84, i64 1456
   %call10.i.i.i.i.i.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i.i.i.i.i.i.i) #26, !noalias !236
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 456, i32 noundef 1, ptr noundef nonnull @.str.33, ptr noundef %call10.i.i.i.i.i.i.i.i.i, ptr noundef %ref.tmp.sroa.13.1.ph.in.i.i.i.i.i.i, double noundef %conv.i.i.i.i.i.i.i.i.i, i64 noundef %83)
           to label %if.end.i.i.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i.i, !noalias !236
 
-lpad.i.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i68.i.i.i.i.i
+lpad.i.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i69.i.i.i.i.i
   %85 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup30.i.i.i.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i68.i.i.i.i.i, %if.end33.i.i.i.i.i
+if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i69.i.i.i.i.i, %if.end33.i.i.i.i.i
   %86 = load ptr, ptr %next_factory13.i.i.i.i.i.i, align 8, !noalias !236
-  %reclamation_counter_.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %86, i64 0, i32 7
+  %reclamation_counter_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %86, i64 1368
   %87 = atomicrmw add ptr %reclamation_counter_.i.i.i.i.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !236
   %add.i.i.i.i.i.i.i.i.i = add i64 %87, 1
   %88 = load ptr, ptr %next_factory13.i.i.i.i.i.i, align 8, !noalias !236
   store ptr %88, ptr %agg.tmp15.i.i.i.i.i.i.i.i.i, align 16, !noalias !236
   %89 = load ptr, ptr %_M_refcount.i.i.i.i.i12.i.i.i.i.i.i, align 8, !noalias !236
   store ptr %89, ptr %_M_refcount.i.i.i.i.i.i.i.i.i3.i.i, align 8, !noalias !236
-  %cmp.not.i.i.i.i.i.i.i69.i.i.i.i.i = icmp eq ptr %89, null
-  br i1 %cmp.not.i.i.i.i.i.i.i69.i.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i70.i.i.i.i.i
+  %cmp.not.i.i.i.i.i.i.i70.i.i.i.i.i = icmp eq ptr %89, null
+  br i1 %cmp.not.i.i.i.i.i.i.i70.i.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i71.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i70.i.i.i.i.i:                ; preds = %if.end.i.i.i.i.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %89, i64 0, i32 1
+if.then.i.i.i.i.i.i.i71.i.i.i.i.i:                ; preds = %if.end.i.i.i.i.i.i.i.i.i
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %89, i64 8
   %90 = load i8, ptr @__libc_single_threaded, align 1, !noalias !236
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %90, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i70.i.i.i.i.i
+if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i71.i.i.i.i.i
   %91 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !236
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i32 %91, 1
   store i32 %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !236
   br label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i
 
-if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i70.i.i.i.i.i
+if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i:              ; preds = %if.then.i.i.i.i.i.i.i71.i.i.i.i.i
   %92 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !236
   br label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i
 
@@ -9431,7 +9356,7 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i
 invoke.cont18.i.i.i.i.i.i.i.i.i:                  ; preds = %93, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i.i.i.i.i.i.i.i.i
   %94 = load ptr, ptr %1, align 8, !noalias !236
   %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %94, align 8, !noalias !236
-  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 6
+  %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 48
   %95 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
   invoke void %95(ptr nonnull sret(%"class.grpc_core::Waker") align 8 %agg.tmp16.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %94)
           to label %invoke.cont20.i.i.i.i.i.i.i.i.i unwind label %lpad17.i.i.i.i.i.i.i.i.i, !noalias !236
@@ -9449,7 +9374,7 @@ invoke.cont20.i.i.i.i.i.i.i.i.i:                  ; preds = %invoke.cont18.i.i.i
   store ptr %retval.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %waker_.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
   store i16 %retval.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr %7, align 16, !noalias !236
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i.i.i), !noalias !236
-  %sweep_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::ReclaimerQueue::Handle", ptr %ref.tmp.sroa.6.1.ph.i.i.i.i.i.i, i64 0, i32 1
+  %sweep_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.6.1.ph.i.i.i.i.i.i, i64 16
   %97 = atomicrmw xchg ptr %sweep_.i.i.i.i.i.i.i.i.i.i, i64 0 acq_rel, align 8, !noalias !236
   %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %97, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %invoke.cont24.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -9477,8 +9402,8 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont20.i.i.i
 invoke.cont.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i.i
   %101 = load i8, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
   %102 = and i8 %101, 1
-  %tobool.not.i.i.i.i.i.i.i.i.i71.i.i.i.i.i = icmp eq i8 %102, 0
-  br i1 %tobool.not.i.i.i.i.i.i.i.i.i71.i.i.i.i.i, label %invoke.cont24.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i10.i.i.i.i.i.i.i.i.i
+  %tobool.not.i.i.i.i.i.i.i.i.i72.i.i.i.i.i = icmp eq i8 %102, 0
+  br i1 %tobool.not.i.i.i.i.i.i.i.i.i72.i.i.i.i.i, label %invoke.cont24.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i10.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i10.i.i.i.i.i.i.i.i.i:            ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i.i
   store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
@@ -9504,7 +9429,7 @@ invoke.cont24.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i10
   %106 = load ptr, ptr %agg.tmp16.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
   %107 = load i16, ptr %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
   %vtable.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %106, align 8, !noalias !236
-  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %108 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
   invoke void %108(ptr noundef nonnull align 8 dereferenceable(8) %106, i16 noundef zeroext %107)
           to label %_ZN9grpc_core5WakerD2Ev.exit.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i, !noalias !236
@@ -9522,18 +9447,18 @@ _ZN9grpc_core5WakerD2Ev.exit.i.i.i.i.i.i.i.i.i:   ; preds = %invoke.cont24.i.i.i
   br i1 %cmp.not.i.i.i13.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i14.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i14.i.i.i.i.i.i.i.i.i:                ; preds = %_ZN9grpc_core5WakerD2Ev.exit.i.i.i.i.i.i.i.i.i
-  %_M_use_count.i.i.i.i15.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %111, i64 0, i32 1
+  %_M_use_count.i.i.i.i15.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %111, i64 8
   %112 = load atomic i64, ptr %_M_use_count.i.i.i.i15.i.i.i.i.i.i.i.i.i acquire, align 8, !noalias !236
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %112, 4294967297
   %113 = trunc i64 %112 to i32
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i76.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i77.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i76.i.i.i.i.i:              ; preds = %if.then.i.i.i14.i.i.i.i.i.i.i.i.i
+if.then.i.i.i.i.i.i.i.i77.i.i.i.i.i:              ; preds = %if.then.i.i.i14.i.i.i.i.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i15.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %111, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %111, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !236
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %111, align 8, !noalias !236
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %114 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
   call void %114(ptr noundef nonnull align 8 dereferenceable(16) %111) #26, !noalias !236
   br label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9559,10 +9484,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ;
 
 if.then7.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %111, align 8, !noalias !236
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %117 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
   call void %117(ptr noundef nonnull align 8 dereferenceable(16) %111) #26, !noalias !236
-  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %111, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %111, i64 12
   %118 = load i8, ptr @__libc_single_threaded, align 1, !noalias !236
   %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %118, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -9582,9 +9507,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit.i.i.i.i.i.i.i.i.i
 
-if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i76.i.i.i.i.i
+if.end8.sink.split.i.i.i.i.i.i.i.i.i.i.i.i.i:     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i77.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %111, align 8, !noalias !236
-  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %121 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
   call void %121(ptr noundef nonnull align 8 dereferenceable(16) %111) #26, !noalias !236
   br label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit.i.i.i.i.i.i.i.i.i
@@ -9596,7 +9521,7 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit.i.i.i.i.i.i.i.i.i: ; 
   br i1 %cmp.not.i.i.i21.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit62.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i22.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i22.i.i.i.i.i.i.i.i.i:                ; preds = %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit.i.i.i.i.i.i.i.i.i
-  %_M_use_count.i.i.i.i23.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %123, i64 0, i32 1
+  %_M_use_count.i.i.i.i23.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %123, i64 8
   %124 = load i8, ptr @__libc_single_threaded, align 1, !noalias !236
   %tobool.i.i.not.i.i.i.i24.i.i.i.i.i.i.i.i.i = icmp eq i8 %124, 0
   br i1 %tobool.i.i.not.i.i.i.i24.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i27.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i25.i.i.i.i.i.i.i.i.i
@@ -9616,15 +9541,15 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit62.i.i.i.i.i.i.i.i.i: 
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %invoke.cont36.i.i.i.i.i, label %if.then.i63.i.i.i.i.i.i.i.i.i
 
 if.then.i63.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit62.i.i.i.i.i.i.i.i.i
-  %refs_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %ref.tmp.sroa.6.1.ph.i.i.i.i.i.i, i64 0, i32 1
+  %refs_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.6.1.ph.i.i.i.i.i.i, i64 8
   %127 = atomicrmw sub ptr %refs_.i.i.i.i.i.i.i.i.i.i.i, i64 1 acq_rel, align 8, !noalias !236
-  %cmp.i.i.i.i.i.i.i72.i.i.i.i.i = icmp eq i64 %127, 1
-  br i1 %cmp.i.i.i.i.i.i.i72.i.i.i.i.i, label %if.then.i.i.i.i.i.i73.i.i.i.i.i, label %invoke.cont36.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i73.i.i.i.i.i = icmp eq i64 %127, 1
+  br i1 %cmp.i.i.i.i.i.i.i73.i.i.i.i.i, label %if.then.i.i.i.i.i.i74.i.i.i.i.i, label %invoke.cont36.i.i.i.i.i
 
-if.then.i.i.i.i.i.i73.i.i.i.i.i:                  ; preds = %if.then.i63.i.i.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i74.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.6.1.ph.i.i.i.i.i.i, align 8, !noalias !236
-  %vfn.i.i.i.i.i.i.i75.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i74.i.i.i.i.i, i64 2
-  %128 = load ptr, ptr %vfn.i.i.i.i.i.i.i75.i.i.i.i.i, align 8, !noalias !236
+if.then.i.i.i.i.i.i74.i.i.i.i.i:                  ; preds = %if.then.i63.i.i.i.i.i.i.i.i.i
+  %vtable.i.i.i.i.i.i.i75.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.6.1.ph.i.i.i.i.i.i, align 8, !noalias !236
+  %vfn.i.i.i.i.i.i.i76.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i75.i.i.i.i.i, i64 16
+  %128 = load ptr, ptr %vfn.i.i.i.i.i.i.i76.i.i.i.i.i, align 8, !noalias !236
   call void %128(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.6.1.ph.i.i.i.i.i.i) #26, !noalias !236
   br label %invoke.cont36.i.i.i.i.i
 
@@ -9638,7 +9563,7 @@ lpad23.body.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i4.i.
   %130 = load ptr, ptr %agg.tmp16.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
   %131 = load i16, ptr %retval.sroa.2.0.__obj.addr.0..sroa_idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
   %vtable.i.i65.i.i.i.i.i.i.i.i.i = load ptr, ptr %130, align 8, !noalias !236
-  %vfn.i.i66.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i65.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i66.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i65.i.i.i.i.i.i.i.i.i, i64 16
   %132 = load ptr, ptr %vfn.i.i66.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
   invoke void %132(ptr noundef nonnull align 8 dereferenceable(8) %130, i16 noundef zeroext %131)
           to label %ehcleanup25.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i67.i.i.i.i.i.i.i.i.i, !noalias !236
@@ -9661,183 +9586,183 @@ ehcleanup30.i.i.i.i.i.i.i.i.i:                    ; preds = %ehcleanup25.i.i.i.i
   br i1 %cmp.not.i70.i.i.i.i.i.i.i.i.i, label %common.resume, label %if.then.i71.i.i.i.i.i.i.i.i.i
 
 if.then.i71.i.i.i.i.i.i.i.i.i:                    ; preds = %ehcleanup30.i.i.i.i.i.i.i.i.i
-  %refs_.i.i72.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::InternallyRefCounted", ptr %ref.tmp.sroa.6.1.ph.i.i.i.i.i.i, i64 0, i32 1
+  %refs_.i.i72.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.6.1.ph.i.i.i.i.i.i, i64 8
   %135 = atomicrmw sub ptr %refs_.i.i72.i.i.i.i.i.i.i.i.i, i64 1 acq_rel, align 8, !noalias !236
   %cmp.i.i.i73.i.i.i.i.i.i.i.i.i = icmp eq i64 %135, 1
   br i1 %cmp.i.i.i73.i.i.i.i.i.i.i.i.i, label %if.then.i.i74.i.i.i.i.i.i.i.i.i, label %common.resume
 
 if.then.i.i74.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i71.i.i.i.i.i.i.i.i.i
   %vtable.i.i.i75.i.i.i.i.i.i.i.i.i = load ptr, ptr %ref.tmp.sroa.6.1.ph.i.i.i.i.i.i, align 8, !noalias !236
-  %vfn.i.i.i76.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i75.i.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i76.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i75.i.i.i.i.i.i.i.i.i, i64 16
   %136 = load ptr, ptr %vfn.i.i.i76.i.i.i.i.i.i.i.i.i, align 8, !noalias !236
   call void %136(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.sroa.6.1.ph.i.i.i.i.i.i) #26, !noalias !236
   br label %common.resume
 
-invoke.cont36.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i73.i.i.i.i.i, %if.then.i63.i.i.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit62.i.i.i.i.i.i.i.i.i
+invoke.cont36.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i.i.i74.i.i.i.i.i, %if.then.i63.i.i.i.i.i.i.i.i.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit62.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i.i), !noalias !229
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp15.i.i.i.i.i.i.i.i.i), !noalias !229
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp16.i.i.i.i.i.i.i.i.i), !noalias !229
   %next_factory35.val.i.i.i.i.i = load ptr, ptr %_M_refcount.i.i.i.i.i12.i.i.i.i.i.i, align 8, !noalias !172
-  %cmp.not.i.i.i.i.i.i77.i.i.i.i.i = icmp eq ptr %next_factory35.val.i.i.i.i.i, null
-  br i1 %cmp.not.i.i.i.i.i.i77.i.i.i.i.i, label %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit132.i.i.i.i.i, label %if.then.i.i.i.i.i.i78.i.i.i.i.i
+  %cmp.not.i.i.i.i.i.i78.i.i.i.i.i = icmp eq ptr %next_factory35.val.i.i.i.i.i, null
+  br i1 %cmp.not.i.i.i.i.i.i78.i.i.i.i.i, label %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit133.i.i.i.i.i, label %if.then.i.i.i.i.i.i79.i.i.i.i.i
 
-if.then.i.i.i.i.i.i78.i.i.i.i.i:                  ; preds = %invoke.cont36.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i79.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %next_factory35.val.i.i.i.i.i, i64 0, i32 1
-  %137 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i79.i.i.i.i.i acquire, align 8, !noalias !172
-  %cmp.i.i.i.i.i.i.i80.i.i.i.i.i = icmp eq i64 %137, 4294967297
+if.then.i.i.i.i.i.i79.i.i.i.i.i:                  ; preds = %invoke.cont36.i.i.i.i.i
+  %_M_use_count.i.i.i.i.i.i.i80.i.i.i.i.i = getelementptr inbounds i8, ptr %next_factory35.val.i.i.i.i.i, i64 8
+  %137 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i80.i.i.i.i.i acquire, align 8, !noalias !172
+  %cmp.i.i.i.i.i.i.i81.i.i.i.i.i = icmp eq i64 %137, 4294967297
   %138 = trunc i64 %137 to i32
-  br i1 %cmp.i.i.i.i.i.i.i80.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i103.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i81.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i81.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i104.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i82.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i103.i.i.i.i.i:               ; preds = %if.then.i.i.i.i.i.i78.i.i.i.i.i
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i79.i.i.i.i.i, align 8, !noalias !172
-  %_M_weak_count.i.i.i.i.i.i.i104.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %next_factory35.val.i.i.i.i.i, i64 0, i32 2
-  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i104.i.i.i.i.i, align 4, !noalias !172
-  %vtable.i.i.i.i.i.i.i105.i.i.i.i.i = load ptr, ptr %next_factory35.val.i.i.i.i.i, align 8, !noalias !172
-  %vfn.i.i.i.i.i.i.i106.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i105.i.i.i.i.i, i64 2
-  %139 = load ptr, ptr %vfn.i.i.i.i.i.i.i106.i.i.i.i.i, align 8, !noalias !172
+if.then.i.i.i.i.i.i.i104.i.i.i.i.i:               ; preds = %if.then.i.i.i.i.i.i79.i.i.i.i.i
+  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i80.i.i.i.i.i, align 8, !noalias !172
+  %_M_weak_count.i.i.i.i.i.i.i105.i.i.i.i.i = getelementptr inbounds i8, ptr %next_factory35.val.i.i.i.i.i, i64 12
+  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i105.i.i.i.i.i, align 4, !noalias !172
+  %vtable.i.i.i.i.i.i.i106.i.i.i.i.i = load ptr, ptr %next_factory35.val.i.i.i.i.i, align 8, !noalias !172
+  %vfn.i.i.i.i.i.i.i107.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i106.i.i.i.i.i, i64 16
+  %139 = load ptr, ptr %vfn.i.i.i.i.i.i.i107.i.i.i.i.i, align 8, !noalias !172
   call void %139(ptr noundef nonnull align 8 dereferenceable(16) %next_factory35.val.i.i.i.i.i) #26, !noalias !172
-  br label %if.end8.sink.split.i.i.i.i.i.i.i98.i.i.i.i.i
+  br label %if.end8.sink.split.i.i.i.i.i.i.i99.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i81.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i78.i.i.i.i.i
+if.end.i.i.i.i.i.i.i82.i.i.i.i.i:                 ; preds = %if.then.i.i.i.i.i.i79.i.i.i.i.i
   %140 = load i8, ptr @__libc_single_threaded, align 1, !noalias !172
-  %tobool.i.not.i.i.i.i.i.i.i82.i.i.i.i.i = icmp eq i8 %140, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i82.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i102.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i83.i.i.i.i.i
+  %tobool.i.not.i.i.i.i.i.i.i83.i.i.i.i.i = icmp eq i8 %140, 0
+  br i1 %tobool.i.not.i.i.i.i.i.i.i83.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i103.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i84.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i83.i.i.i.i.i:              ; preds = %if.end.i.i.i.i.i.i.i81.i.i.i.i.i
-  %add.i.i.i.i.i.i.i.i84.i.i.i.i.i = add nsw i32 %138, -1
-  store i32 %add.i.i.i.i.i.i.i.i84.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i79.i.i.i.i.i, align 4, !noalias !172
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i85.i.i.i.i.i
+if.then.i.i.i.i.i.i.i.i84.i.i.i.i.i:              ; preds = %if.end.i.i.i.i.i.i.i82.i.i.i.i.i
+  %add.i.i.i.i.i.i.i.i85.i.i.i.i.i = add nsw i32 %138, -1
+  store i32 %add.i.i.i.i.i.i.i.i85.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i80.i.i.i.i.i, align 4, !noalias !172
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i86.i.i.i.i.i
 
-if.else.i.i.i.i.i.i.i.i102.i.i.i.i.i:             ; preds = %if.end.i.i.i.i.i.i.i81.i.i.i.i.i
-  %141 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i79.i.i.i.i.i, i32 -1 acq_rel, align 4, !noalias !172
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i85.i.i.i.i.i
+if.else.i.i.i.i.i.i.i.i103.i.i.i.i.i:             ; preds = %if.end.i.i.i.i.i.i.i82.i.i.i.i.i
+  %141 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i80.i.i.i.i.i, i32 -1 acq_rel, align 4, !noalias !172
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i86.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i85.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i102.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i83.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i.i86.i.i.i.i.i = phi i32 [ %138, %if.then.i.i.i.i.i.i.i.i83.i.i.i.i.i ], [ %141, %if.else.i.i.i.i.i.i.i.i102.i.i.i.i.i ]
-  %cmp6.i.i.i.i.i.i.i87.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i86.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i87.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i88.i.i.i.i.i, label %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit132.i.i.i.i.i
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i86.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i103.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i84.i.i.i.i.i
+  %retval.i.0.i.i.i.i.i.i.i87.i.i.i.i.i = phi i32 [ %138, %if.then.i.i.i.i.i.i.i.i84.i.i.i.i.i ], [ %141, %if.else.i.i.i.i.i.i.i.i103.i.i.i.i.i ]
+  %cmp6.i.i.i.i.i.i.i88.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i87.i.i.i.i.i, 1
+  br i1 %cmp6.i.i.i.i.i.i.i88.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i89.i.i.i.i.i, label %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit133.i.i.i.i.i
 
-if.then7.i.i.i.i.i.i.i88.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i85.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i89.i.i.i.i.i = load ptr, ptr %next_factory35.val.i.i.i.i.i, align 8, !noalias !172
-  %vfn.i.i.i.i.i.i.i.i.i90.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i89.i.i.i.i.i, i64 2
-  %142 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i90.i.i.i.i.i, align 8, !noalias !172
+if.then7.i.i.i.i.i.i.i89.i.i.i.i.i:               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i86.i.i.i.i.i
+  %vtable.i.i.i.i.i.i.i.i.i90.i.i.i.i.i = load ptr, ptr %next_factory35.val.i.i.i.i.i, align 8, !noalias !172
+  %vfn.i.i.i.i.i.i.i.i.i91.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i90.i.i.i.i.i, i64 16
+  %142 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i91.i.i.i.i.i, align 8, !noalias !172
   call void %142(ptr noundef nonnull align 8 dereferenceable(16) %next_factory35.val.i.i.i.i.i) #26, !noalias !172
-  %_M_weak_count.i.i.i.i.i.i.i.i.i91.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %next_factory35.val.i.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i92.i.i.i.i.i = getelementptr inbounds i8, ptr %next_factory35.val.i.i.i.i.i, i64 12
   %143 = load i8, ptr @__libc_single_threaded, align 1, !noalias !172
-  %tobool.i.not.i.i.i.i.i.i.i.i.i92.i.i.i.i.i = icmp eq i8 %143, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i92.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i101.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i93.i.i.i.i.i
+  %tobool.i.not.i.i.i.i.i.i.i.i.i93.i.i.i.i.i = icmp eq i8 %143, 0
+  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i93.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i102.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i94.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i.i93.i.i.i.i.i:          ; preds = %if.then7.i.i.i.i.i.i.i88.i.i.i.i.i
-  %144 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i91.i.i.i.i.i, align 4, !noalias !172
-  %add.i.i.i.i.i.i.i.i.i.i94.i.i.i.i.i = add nsw i32 %144, -1
-  store i32 %add.i.i.i.i.i.i.i.i.i.i94.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i91.i.i.i.i.i, align 4, !noalias !172
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i95.i.i.i.i.i
+if.then.i.i.i.i.i.i.i.i.i.i94.i.i.i.i.i:          ; preds = %if.then7.i.i.i.i.i.i.i89.i.i.i.i.i
+  %144 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i92.i.i.i.i.i, align 4, !noalias !172
+  %add.i.i.i.i.i.i.i.i.i.i95.i.i.i.i.i = add nsw i32 %144, -1
+  store i32 %add.i.i.i.i.i.i.i.i.i.i95.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i92.i.i.i.i.i, align 4, !noalias !172
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i96.i.i.i.i.i
 
-if.else.i.i.i.i.i.i.i.i.i.i101.i.i.i.i.i:         ; preds = %if.then7.i.i.i.i.i.i.i88.i.i.i.i.i
-  %145 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i.i.i91.i.i.i.i.i, i32 -1 acq_rel, align 4, !noalias !172
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i95.i.i.i.i.i
+if.else.i.i.i.i.i.i.i.i.i.i102.i.i.i.i.i:         ; preds = %if.then7.i.i.i.i.i.i.i89.i.i.i.i.i
+  %145 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i.i.i92.i.i.i.i.i, i32 -1 acq_rel, align 4, !noalias !172
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i96.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i95.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i101.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i93.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i.i.i.i96.i.i.i.i.i = phi i32 [ %144, %if.then.i.i.i.i.i.i.i.i.i.i93.i.i.i.i.i ], [ %145, %if.else.i.i.i.i.i.i.i.i.i.i101.i.i.i.i.i ]
-  %cmp.i.i.i.i.i.i.i.i.i97.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i96.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i97.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i98.i.i.i.i.i, label %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit132.i.i.i.i.i
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i96.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i102.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i94.i.i.i.i.i
+  %retval.i.0.i.i.i.i.i.i.i.i.i97.i.i.i.i.i = phi i32 [ %144, %if.then.i.i.i.i.i.i.i.i.i.i94.i.i.i.i.i ], [ %145, %if.else.i.i.i.i.i.i.i.i.i.i102.i.i.i.i.i ]
+  %cmp.i.i.i.i.i.i.i.i.i98.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i97.i.i.i.i.i, 1
+  br i1 %cmp.i.i.i.i.i.i.i.i.i98.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i99.i.i.i.i.i, label %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit133.i.i.i.i.i
 
-if.end8.sink.split.i.i.i.i.i.i.i98.i.i.i.i.i:     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i95.i.i.i.i.i, %if.then.i.i.i.i.i.i.i103.i.i.i.i.i
-  %vtable2.i.i.i.i.i.i.i.i.i99.i.i.i.i.i = load ptr, ptr %next_factory35.val.i.i.i.i.i, align 8, !noalias !172
-  %vfn3.i.i.i.i.i.i.i.i.i100.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i99.i.i.i.i.i, i64 3
-  %146 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i100.i.i.i.i.i, align 8, !noalias !172
+if.end8.sink.split.i.i.i.i.i.i.i99.i.i.i.i.i:     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i96.i.i.i.i.i, %if.then.i.i.i.i.i.i.i104.i.i.i.i.i
+  %vtable2.i.i.i.i.i.i.i.i.i100.i.i.i.i.i = load ptr, ptr %next_factory35.val.i.i.i.i.i, align 8, !noalias !172
+  %vfn3.i.i.i.i.i.i.i.i.i101.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i100.i.i.i.i.i, i64 24
+  %146 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i101.i.i.i.i.i, align 8, !noalias !172
   call void %146(ptr noundef nonnull align 8 dereferenceable(16) %next_factory35.val.i.i.i.i.i) #26, !noalias !172
-  br label %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit132.i.i.i.i.i
+  br label %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit133.i.i.i.i.i
 
-_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit132.i.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i98.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i95.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i85.i.i.i.i.i, %invoke.cont36.i.i.i.i.i
+_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit133.i.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i99.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i96.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i86.i.i.i.i.i, %invoke.cont36.i.i.i.i.i
   store ptr %122, ptr %3, align 8, !noalias !172
   store ptr %123, ptr %_M_refcount.i.i.i.i.i8.i.i.i.i.i.i, align 8, !noalias !172
   store i64 %add.i.i.i.i.i.i.i.i.i, ptr %token_.i.i.i.i.i.i.i.i.i, align 8, !noalias !172
   store i8 2, ptr %state.i.i.i.i.i.i87, align 8, !noalias !172
   br label %sw.bb43.i.i.i.i.i
 
-sw.bb43.i.i.i.i.i:                                ; preds = %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit132.i.i.i.i.i, %entry.sw.bb43.i_crit_edge.i.i.i.i
-  %147 = phi i64 [ %.pre1.i.i.i.i, %entry.sw.bb43.i_crit_edge.i.i.i.i ], [ %add.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit132.i.i.i.i.i ]
-  %148 = phi ptr [ %.pre.i.i.i.i, %entry.sw.bb43.i_crit_edge.i.i.i.i ], [ %122, %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit132.i.i.i.i.i ]
-  %reclamation_counter_.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::BasicMemoryQuota", ptr %148, i64 0, i32 7
+sw.bb43.i.i.i.i.i:                                ; preds = %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit133.i.i.i.i.i, %entry.sw.bb43.i_crit_edge.i.i.i.i
+  %147 = phi i64 [ %.pre1.i.i.i.i, %entry.sw.bb43.i_crit_edge.i.i.i.i ], [ %add.i.i.i.i.i.i.i.i.i, %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit133.i.i.i.i.i ]
+  %148 = phi ptr [ %.pre.i.i.i.i, %entry.sw.bb43.i_crit_edge.i.i.i.i ], [ %122, %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit133.i.i.i.i.i ]
+  %reclamation_counter_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %148, i64 1368
   %149 = load atomic i64, ptr %reclamation_counter_.i.i.i.i.i.i.i monotonic, align 8, !noalias !172
   %cmp.not.i.i.not.i.i.i.i.i = icmp eq i64 %149, %147
   br i1 %cmp.not.i.i.not.i.i.i.i.i, label %"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EEclEv.exit.i.i.i", label %if.end58.i.i.i.i.i
 
 if.end58.i.i.i.i.i:                               ; preds = %sw.bb43.i.i.i.i.i
   %150 = load ptr, ptr %_M_refcount.i.i.i.i.i8.i.i.i.i.i.i, align 8, !noalias !172
-  %cmp.not.i.i.i.i.i.i149.i.i.i.i.i = icmp eq ptr %150, null
-  br i1 %cmp.not.i.i.i.i.i.i149.i.i.i.i.i, label %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19WaitForSweepPromiseEvEEEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i150.i.i.i.i.i
+  %cmp.not.i.i.i.i.i.i150.i.i.i.i.i = icmp eq ptr %150, null
+  br i1 %cmp.not.i.i.i.i.i.i150.i.i.i.i.i, label %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19WaitForSweepPromiseEvEEEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i151.i.i.i.i.i
 
-if.then.i.i.i.i.i.i150.i.i.i.i.i:                 ; preds = %if.end58.i.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i151.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %150, i64 0, i32 1
-  %151 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i151.i.i.i.i.i acquire, align 8, !noalias !172
-  %cmp.i.i.i.i.i.i.i152.i.i.i.i.i = icmp eq i64 %151, 4294967297
+if.then.i.i.i.i.i.i151.i.i.i.i.i:                 ; preds = %if.end58.i.i.i.i.i
+  %_M_use_count.i.i.i.i.i.i.i152.i.i.i.i.i = getelementptr inbounds i8, ptr %150, i64 8
+  %151 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i152.i.i.i.i.i acquire, align 8, !noalias !172
+  %cmp.i.i.i.i.i.i.i153.i.i.i.i.i = icmp eq i64 %151, 4294967297
   %152 = trunc i64 %151 to i32
-  br i1 %cmp.i.i.i.i.i.i.i152.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i175.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i153.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i153.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i176.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i154.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i175.i.i.i.i.i:               ; preds = %if.then.i.i.i.i.i.i150.i.i.i.i.i
-  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i151.i.i.i.i.i, align 8, !noalias !172
-  %_M_weak_count.i.i.i.i.i.i.i176.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %150, i64 0, i32 2
-  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i176.i.i.i.i.i, align 4, !noalias !172
-  %vtable.i.i.i.i.i.i.i177.i.i.i.i.i = load ptr, ptr %150, align 8, !noalias !172
-  %vfn.i.i.i.i.i.i.i178.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i177.i.i.i.i.i, i64 2
-  %153 = load ptr, ptr %vfn.i.i.i.i.i.i.i178.i.i.i.i.i, align 8, !noalias !172
+if.then.i.i.i.i.i.i.i176.i.i.i.i.i:               ; preds = %if.then.i.i.i.i.i.i151.i.i.i.i.i
+  store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i152.i.i.i.i.i, align 8, !noalias !172
+  %_M_weak_count.i.i.i.i.i.i.i177.i.i.i.i.i = getelementptr inbounds i8, ptr %150, i64 12
+  store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i177.i.i.i.i.i, align 4, !noalias !172
+  %vtable.i.i.i.i.i.i.i178.i.i.i.i.i = load ptr, ptr %150, align 8, !noalias !172
+  %vfn.i.i.i.i.i.i.i179.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i178.i.i.i.i.i, i64 16
+  %153 = load ptr, ptr %vfn.i.i.i.i.i.i.i179.i.i.i.i.i, align 8, !noalias !172
   call void %153(ptr noundef nonnull align 8 dereferenceable(16) %150) #26, !noalias !172
-  br label %if.end8.sink.split.i.i.i.i.i.i.i170.i.i.i.i.i
+  br label %if.end8.sink.split.i.i.i.i.i.i.i171.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i153.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i.i150.i.i.i.i.i
+if.end.i.i.i.i.i.i.i154.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i.i151.i.i.i.i.i
   %154 = load i8, ptr @__libc_single_threaded, align 1, !noalias !172
-  %tobool.i.not.i.i.i.i.i.i.i154.i.i.i.i.i = icmp eq i8 %154, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i154.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i174.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i155.i.i.i.i.i
+  %tobool.i.not.i.i.i.i.i.i.i155.i.i.i.i.i = icmp eq i8 %154, 0
+  br i1 %tobool.i.not.i.i.i.i.i.i.i155.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i175.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i156.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i155.i.i.i.i.i:             ; preds = %if.end.i.i.i.i.i.i.i153.i.i.i.i.i
-  %add.i.i.i.i.i.i.i.i156.i.i.i.i.i = add nsw i32 %152, -1
-  store i32 %add.i.i.i.i.i.i.i.i156.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i151.i.i.i.i.i, align 4, !noalias !172
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i157.i.i.i.i.i
+if.then.i.i.i.i.i.i.i.i156.i.i.i.i.i:             ; preds = %if.end.i.i.i.i.i.i.i154.i.i.i.i.i
+  %add.i.i.i.i.i.i.i.i157.i.i.i.i.i = add nsw i32 %152, -1
+  store i32 %add.i.i.i.i.i.i.i.i157.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i152.i.i.i.i.i, align 4, !noalias !172
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i158.i.i.i.i.i
 
-if.else.i.i.i.i.i.i.i.i174.i.i.i.i.i:             ; preds = %if.end.i.i.i.i.i.i.i153.i.i.i.i.i
-  %155 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i151.i.i.i.i.i, i32 -1 acq_rel, align 4, !noalias !172
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i157.i.i.i.i.i
+if.else.i.i.i.i.i.i.i.i175.i.i.i.i.i:             ; preds = %if.end.i.i.i.i.i.i.i154.i.i.i.i.i
+  %155 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i152.i.i.i.i.i, i32 -1 acq_rel, align 4, !noalias !172
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i158.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i157.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i174.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i155.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i.i158.i.i.i.i.i = phi i32 [ %152, %if.then.i.i.i.i.i.i.i.i155.i.i.i.i.i ], [ %155, %if.else.i.i.i.i.i.i.i.i174.i.i.i.i.i ]
-  %cmp6.i.i.i.i.i.i.i159.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i158.i.i.i.i.i, 1
-  br i1 %cmp6.i.i.i.i.i.i.i159.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i160.i.i.i.i.i, label %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19WaitForSweepPromiseEvEEEEvPT_.exit.i.i.i.i.i
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i158.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i175.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i156.i.i.i.i.i
+  %retval.i.0.i.i.i.i.i.i.i159.i.i.i.i.i = phi i32 [ %152, %if.then.i.i.i.i.i.i.i.i156.i.i.i.i.i ], [ %155, %if.else.i.i.i.i.i.i.i.i175.i.i.i.i.i ]
+  %cmp6.i.i.i.i.i.i.i160.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i159.i.i.i.i.i, 1
+  br i1 %cmp6.i.i.i.i.i.i.i160.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i161.i.i.i.i.i, label %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19WaitForSweepPromiseEvEEEEvPT_.exit.i.i.i.i.i
 
-if.then7.i.i.i.i.i.i.i160.i.i.i.i.i:              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i157.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i161.i.i.i.i.i = load ptr, ptr %150, align 8, !noalias !172
-  %vfn.i.i.i.i.i.i.i.i.i162.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i161.i.i.i.i.i, i64 2
-  %156 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i162.i.i.i.i.i, align 8, !noalias !172
+if.then7.i.i.i.i.i.i.i161.i.i.i.i.i:              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i158.i.i.i.i.i
+  %vtable.i.i.i.i.i.i.i.i.i162.i.i.i.i.i = load ptr, ptr %150, align 8, !noalias !172
+  %vfn.i.i.i.i.i.i.i.i.i163.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i162.i.i.i.i.i, i64 16
+  %156 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i163.i.i.i.i.i, align 8, !noalias !172
   call void %156(ptr noundef nonnull align 8 dereferenceable(16) %150) #26, !noalias !172
-  %_M_weak_count.i.i.i.i.i.i.i.i.i163.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %150, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i.i164.i.i.i.i.i = getelementptr inbounds i8, ptr %150, i64 12
   %157 = load i8, ptr @__libc_single_threaded, align 1, !noalias !172
-  %tobool.i.not.i.i.i.i.i.i.i.i.i164.i.i.i.i.i = icmp eq i8 %157, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i164.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i173.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i165.i.i.i.i.i
+  %tobool.i.not.i.i.i.i.i.i.i.i.i165.i.i.i.i.i = icmp eq i8 %157, 0
+  br i1 %tobool.i.not.i.i.i.i.i.i.i.i.i165.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i174.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i166.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i.i.i165.i.i.i.i.i:         ; preds = %if.then7.i.i.i.i.i.i.i160.i.i.i.i.i
-  %158 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i163.i.i.i.i.i, align 4, !noalias !172
-  %add.i.i.i.i.i.i.i.i.i.i166.i.i.i.i.i = add nsw i32 %158, -1
-  store i32 %add.i.i.i.i.i.i.i.i.i.i166.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i163.i.i.i.i.i, align 4, !noalias !172
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i167.i.i.i.i.i
+if.then.i.i.i.i.i.i.i.i.i.i166.i.i.i.i.i:         ; preds = %if.then7.i.i.i.i.i.i.i161.i.i.i.i.i
+  %158 = load i32, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i164.i.i.i.i.i, align 4, !noalias !172
+  %add.i.i.i.i.i.i.i.i.i.i167.i.i.i.i.i = add nsw i32 %158, -1
+  store i32 %add.i.i.i.i.i.i.i.i.i.i167.i.i.i.i.i, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i164.i.i.i.i.i, align 4, !noalias !172
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i168.i.i.i.i.i
 
-if.else.i.i.i.i.i.i.i.i.i.i173.i.i.i.i.i:         ; preds = %if.then7.i.i.i.i.i.i.i160.i.i.i.i.i
-  %159 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i.i.i163.i.i.i.i.i, i32 -1 acq_rel, align 4, !noalias !172
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i167.i.i.i.i.i
+if.else.i.i.i.i.i.i.i.i.i.i174.i.i.i.i.i:         ; preds = %if.then7.i.i.i.i.i.i.i161.i.i.i.i.i
+  %159 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i.i.i.i164.i.i.i.i.i, i32 -1 acq_rel, align 4, !noalias !172
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i168.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i167.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i173.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i165.i.i.i.i.i
-  %retval.i.0.i.i.i.i.i.i.i.i.i168.i.i.i.i.i = phi i32 [ %158, %if.then.i.i.i.i.i.i.i.i.i.i165.i.i.i.i.i ], [ %159, %if.else.i.i.i.i.i.i.i.i.i.i173.i.i.i.i.i ]
-  %cmp.i.i.i.i.i.i.i.i.i169.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i168.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i.i.i.i169.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i170.i.i.i.i.i, label %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19WaitForSweepPromiseEvEEEEvPT_.exit.i.i.i.i.i
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i168.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i174.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i166.i.i.i.i.i
+  %retval.i.0.i.i.i.i.i.i.i.i.i169.i.i.i.i.i = phi i32 [ %158, %if.then.i.i.i.i.i.i.i.i.i.i166.i.i.i.i.i ], [ %159, %if.else.i.i.i.i.i.i.i.i.i.i174.i.i.i.i.i ]
+  %cmp.i.i.i.i.i.i.i.i.i170.i.i.i.i.i = icmp eq i32 %retval.i.0.i.i.i.i.i.i.i.i.i169.i.i.i.i.i, 1
+  br i1 %cmp.i.i.i.i.i.i.i.i.i170.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i171.i.i.i.i.i, label %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19WaitForSweepPromiseEvEEEEvPT_.exit.i.i.i.i.i
 
-if.end8.sink.split.i.i.i.i.i.i.i170.i.i.i.i.i:    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i167.i.i.i.i.i, %if.then.i.i.i.i.i.i.i175.i.i.i.i.i
-  %vtable2.i.i.i.i.i.i.i.i.i171.i.i.i.i.i = load ptr, ptr %150, align 8, !noalias !172
-  %vfn3.i.i.i.i.i.i.i.i.i172.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i.i171.i.i.i.i.i, i64 3
-  %160 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i172.i.i.i.i.i, align 8, !noalias !172
+if.end8.sink.split.i.i.i.i.i.i.i171.i.i.i.i.i:    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i168.i.i.i.i.i, %if.then.i.i.i.i.i.i.i176.i.i.i.i.i
+  %vtable2.i.i.i.i.i.i.i.i.i172.i.i.i.i.i = load ptr, ptr %150, align 8, !noalias !172
+  %vfn3.i.i.i.i.i.i.i.i.i173.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i172.i.i.i.i.i, i64 24
+  %160 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i173.i.i.i.i.i, align 8, !noalias !172
   call void %160(ptr noundef nonnull align 8 dereferenceable(16) %150) #26, !noalias !172
   br label %_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19WaitForSweepPromiseEvEEEEvPT_.exit.i.i.i.i.i
 
-_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19WaitForSweepPromiseEvEEEEvPT_.exit.i.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i170.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i167.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i157.i.i.i.i.i, %if.end58.i.i.i.i.i
+_ZN9grpc_core8DestructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19WaitForSweepPromiseEvEEEEvPT_.exit.i.i.i.i.i: ; preds = %if.end8.sink.split.i.i.i.i.i.i.i171.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i168.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i158.i.i.i.i.i, %if.end58.i.i.i.i.i
   store i8 3, ptr %state.i.i.i.i.i.i87, align 8, !noalias !172
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -9849,8 +9774,8 @@ common.resume:                                    ; preds = %ehcleanup30.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %196, %lpad ], [ %191, %lpad13.i.i ], [ %.pn.pn.i.i.i.i.i.i.i.i.i, %if.then.i.i74.i.i.i.i.i.i.i.i.i ], [ %.pn.pn.i.i.i.i.i.i.i.i.i, %if.then.i71.i.i.i.i.i.i.i.i.i ], [ %.pn.pn.i.i.i.i.i.i.i.i.i, %ehcleanup30.i.i.i.i.i.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EEclEv.exit.i.i.i": ; preds = %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb43.i.i.i.i.i, %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit132.thread.i.i.i.i.i, %sw.bb.i.i.i.i.i
-  %agg.result.sink.i.i.i.i.i = phi ptr [ %ref.tmp.sroa.0.i.i.i, %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit132.thread.i.i.i.i.i ], [ %ref.tmp.sroa.8.i.i.i, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %ref.tmp.sroa.0.i.i.i, %sw.bb.i.i.i.i.i ], [ %ref.tmp.sroa.0.i.i.i, %sw.bb43.i.i.i.i.i ]
+"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EEclEv.exit.i.i.i": ; preds = %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb43.i.i.i.i.i, %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit133.thread.i.i.i.i.i, %sw.bb.i.i.i.i.i
+  %agg.result.sink.i.i.i.i.i = phi ptr [ %ref.tmp.sroa.0.i.i.i, %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit133.thread.i.i.i.i.i ], [ %ref.tmp.sroa.8.i.i.i, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %ref.tmp.sroa.0.i.i.i, %sw.bb.i.i.i.i.i ], [ %ref.tmp.sroa.0.i.i.i, %sw.bb43.i.i.i.i.i ]
   store i8 0, ptr %agg.result.sink.i.i.i.i.i, align 8, !alias.scope !239, !noalias !240
   %ref.tmp.sroa.0.i.i.i.0.ref.tmp.sroa.0.i.i.i.0.ref.tmp.sroa.0.i.i.i.0.ref.tmp.sroa.0.i.i.0.ref.tmp.sroa.0.i.i.0.ref.tmp.sroa.0.i.0.ref.tmp.sroa.0.i.0.ref.tmp.sroa.0.0.ref.tmp.sroa.0.0..i.i.i = load i8, ptr %ref.tmp.sroa.0.i.i.i, align 8, !noalias !240
   %161 = and i8 %ref.tmp.sroa.0.i.i.i.0.ref.tmp.sroa.0.i.i.i.0.ref.tmp.sroa.0.i.i.i.0.ref.tmp.sroa.0.i.i.0.ref.tmp.sroa.0.i.i.0.ref.tmp.sroa.0.i.0.ref.tmp.sroa.0.i.0.ref.tmp.sroa.0.0.ref.tmp.sroa.0.0..i.i.i, 1
@@ -9896,7 +9821,7 @@ do.end.i.i.i:                                     ; preds = %if.then10.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19WaitForSweepPromiseEvEEJRKS5_EEEvPT_DpOT0_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %do.end.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %164, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %164, i64 8
   %165 = load i8, ptr @__libc_single_threaded, align 1, !noalias !252
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %165, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i24
@@ -9921,7 +9846,7 @@ _ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19
   br i1 %cmp.not.i.i.i.i.i.i7.i.i.i, label %"_ZN9grpc_core9ConstructINS_14promise_detail18OncePromiseFactoryIiZNS_16BasicMemoryQuota5StartEvE3$_0EEJRKS5_EEEvPT_DpOT0_.exit.i.i.i", label %if.then.i.i.i.i.i.i8.i.i.i
 
 if.then.i.i.i.i.i.i8.i.i.i:                       ; preds = %_ZN9grpc_core9ConstructINS_14promise_detail11PromiseLikeINS_16BasicMemoryQuota19WaitForSweepPromiseEvEEJRKS5_EEEvPT_DpOT0_.exit.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i9.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %170, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i9.i.i.i = getelementptr inbounds i8, ptr %170, i64 8
   %171 = load i8, ptr @__libc_single_threaded, align 1, !noalias !252
   %tobool.i.i.not.i.i.i.i.i.i.i10.i.i.i = icmp eq i8 %171, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i10.i.i.i, label %if.else.i.i.i.i.i.i.i.i13.i.i.i, label %if.then.i.i.i.i.i.i.i.i11.i.i.i
@@ -9945,7 +9870,7 @@ if.else.i.i.i.i.i.i.i.i13.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i16.i.i.i, label %"_ZN9grpc_core14promise_detail3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS2_5StartEvE3$_0ZNS2_5StartEvE3$_2ZNS2_5StartEvE3$_3EEC2ERKS7_.exit.i", label %if.then.i.i.i.i.i.i17.i.i.i
 
 if.then.i.i.i.i.i.i17.i.i.i:                      ; preds = %"_ZN9grpc_core9ConstructINS_14promise_detail18OncePromiseFactoryIiZNS_16BasicMemoryQuota5StartEvE3$_0EEJRKS5_EEEvPT_DpOT0_.exit.i.i.i"
-  %_M_use_count.i.i.i.i.i.i.i18.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %175, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i.i18.i.i.i = getelementptr inbounds i8, ptr %175, i64 8
   %176 = load i8, ptr @__libc_single_threaded, align 1, !noalias !252
   %tobool.i.i.not.i.i.i.i.i.i.i19.i.i.i = icmp eq i8 %176, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i19.i.i.i, label %if.else.i.i.i.i.i.i.i.i22.i.i.i, label %if.then.i.i.i.i.i.i.i.i20.i.i.i
@@ -10063,7 +9988,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN9grpc_core14prom
   %cmp.i.not.i.i.i.i.i = icmp eq i8 %ref.tmp.sroa.8.i.i.i.0.ref.tmp.sroa.8.i.i.i.0.ref.tmp.sroa.8.i.i.i.0.ref.tmp.sroa.8.i.i.0.ref.tmp.sroa.8.i.i.0.ref.tmp.sroa.8.i.0.ref.tmp.sroa.8.i.0.ref.tmp.sroa.8.0.ref.tmp.sroa.8.16..i.i.i, -1
   %exception.i.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #26, !noalias !151
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i.i, align 8, !noalias !151
-  %_M_reason.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i.i.i.i, i64 0, i32 1
+  %_M_reason.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i.i, i64 8
   %.str.34..str.35.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr @.str.34, ptr @.str.35
   store ptr %.str.34..str.35.i.i, ptr %_M_reason.i.i.i.i.i.i.i, align 8, !noalias !151
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #30
@@ -10165,7 +10090,7 @@ return.sink.split:                                ; preds = %if.then.i21, %_ZN4a
 
 return:                                           ; preds = %if.end13, %return.sink.split
   %storemerge = phi i8 [ 1, %return.sink.split ], [ %197, %if.end13 ]
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base.108", ptr %agg.result, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i8 %storemerge, ptr %_M_engaged.i.i.i.i.i, align 8
   ret void
 }
@@ -10179,7 +10104,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %2 = getelementptr inbounds %"class.grpc_core::Poll.114", ptr %this, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i64, ptr %2, align 8
   %and.i.i.i.i = and i64 %3, 1
   %cmp.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
@@ -10203,7 +10128,7 @@ if.end:                                           ; preds = %if.then.i.i.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt7variantIJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEED2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::__detail::__variant::_Variant_storage", ptr %this, i64 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i, align 8
   switch i8 %0, label %sw.bb2.i.i.i.i.i.i.i.i [
     i8 -1, label %_ZNSt8__detail9__variant13_Variant_baseIJN9grpc_core8ContinueEN4absl12lts_202308026StatusEEED2Ev.exit
@@ -10244,7 +10169,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::Poll.116", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
   switch i8 %2, label %sw.bb2.i.i.i.i.i.i.i.i.i.i [
     i8 -1, label %if.end
@@ -10252,7 +10177,7 @@ if.then:                                          ; preds = %entry
   ]
 
 sw.bb2.i.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then
-  %3 = getelementptr inbounds %"class.grpc_core::Poll.116", ptr %this, i64 0, i32 2
+  %3 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i64, ptr %3, align 8
   %and.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = and i64 %4, 1
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
@@ -10295,7 +10220,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt18bad_variant_access4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this, i64 0, i32 1
+  %_M_reason = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_reason, align 8
   ret ptr %0
 }
@@ -10318,7 +10243,7 @@ define internal void @"_ZZN9grpc_core22ExecCtxWakeupScheduler14BoundSchedulerINS
 entry:
   %status.i.i.i = alloca %"class.std::optional.103", align 8
   %agg.tmp.i.i.i = alloca %"class.absl::lts_20230802::Status", align 8
-  %wakeup_scheduled_.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %arg, i64 0, i32 3
+  %wakeup_scheduled_.i.i = getelementptr inbounds i8, ptr %arg, i64 73
   %1 = atomicrmw xchg ptr %wakeup_scheduled_.i.i, i8 0 acq_rel, align 1
   %2 = and i8 %1, 1
   %tobool3.i.i.not.i.i = icmp eq i8 %2, 0
@@ -10331,9 +10256,9 @@ if.then.i.i:                                      ; preds = %entry
 do.end.i.i:                                       ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %status.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
-  %mu_.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %arg, i64 0, i32 2
+  %mu_.i.i.i.i = getelementptr inbounds i8, ptr %arg, i64 16
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i.i.i.i)
-  %done_.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::PromiseActivity", ptr %arg, i64 0, i32 2
+  %done_.i.i.i = getelementptr inbounds i8, ptr %arg, i64 72
   %3 = load i8, ptr %done_.i.i.i, align 8
   %4 = and i8 %3, 1
   %tobool.not.i.i.i = icmp eq i8 %4, 0
@@ -10394,7 +10319,7 @@ _ZN9grpc_core8Activity14ScopedActivityD2Ev.exit3.i.i.i.i: ; preds = %11, %lpad.i
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %"_ZN9grpc_core14promise_detail15PromiseActivityINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEENS_22ExecCtxWakeupSchedulerEZNS4_5StartEvE3$_4JEE7RunStepEv.exit.i.i.i"
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds %"struct.std::_Optional_payload_base.108", ptr %status.i.i.i, i64 0, i32 1
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %status.i.i.i, i64 8
   %12 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %13 = and i8 %12, 1
   %tobool.i.i.not.i.i.i = icmp eq i8 %13, 0
@@ -10454,14 +10379,14 @@ ehcleanup.i.i.i:                                  ; preds = %lpad7.i.i.i, %lpad.
 "_ZN9grpc_core14promise_detail15PromiseActivityINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEENS_22ExecCtxWakeupSchedulerEZNS4_5StartEvE3$_4JEE4StepEv.exit.i.i": ; preds = %if.then.i.i.i.i.i, %invoke.cont8.i.i.i, %invoke.cont.i.i.i, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %status.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
-  %refs_.i.i.i.i = getelementptr inbounds %"class.grpc_core::promise_detail::FreestandingActivity", ptr %arg, i64 0, i32 3
+  %refs_.i.i.i.i = getelementptr inbounds i8, ptr %arg, i64 24
   %20 = atomicrmw sub ptr %refs_.i.i.i.i, i32 1 acq_rel, align 4
   %cmp.not.i.i1.i.i = icmp eq i32 %20, 1
   br i1 %cmp.not.i.i1.i.i, label %delete.notnull.i.i.i.i, label %"_ZZN9grpc_core22ExecCtxWakeupScheduler14BoundSchedulerINS_14promise_detail15PromiseActivityINS2_4LoopINS2_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS6_5StartEvE3$_0ZNS6_5StartEvE3$_2ZNS6_5StartEvE3$_3EEEEES0_ZNS6_5StartEvE3$_4JEEEE14ScheduleWakeupEvENKUlPvN4absl12lts_202308026StatusEE_clESG_SJ_.exit"
 
 delete.notnull.i.i.i.i:                           ; preds = %"_ZN9grpc_core14promise_detail15PromiseActivityINS0_4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS4_5StartEvE3$_0ZNS4_5StartEvE3$_2ZNS4_5StartEvE3$_3EEEEENS_22ExecCtxWakeupSchedulerEZNS4_5StartEvE3$_4JEE4StepEv.exit.i.i"
   %vtable.i.i.i.i = load ptr, ptr %arg, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %21 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(40) %arg) #26
   br label %"_ZZN9grpc_core22ExecCtxWakeupScheduler14BoundSchedulerINS_14promise_detail15PromiseActivityINS2_4LoopINS2_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS6_5StartEvE3$_0ZNS6_5StartEvE3$_2ZNS6_5StartEvE3$_3EEEEES0_ZNS6_5StartEvE3$_4JEEEE14ScheduleWakeupEvENKUlPvN4absl12lts_202308026StatusEE_clESG_SJ_.exit"
@@ -10492,13 +10417,13 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %cmp.i, label %if.end16, label %if.then13
 
 if.then13:                                        ; preds = %land.rhs
-  %capacity_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load i64, ptr %capacity_.i.i.i, align 8
   %cmp.i10 = icmp ugt i64 %4, 16
   br i1 %cmp.i10, label %land.lhs.true.i, label %if.else.i
 
 land.lhs.true.i:                                  ; preds = %if.then13
-  %compressed_tuple_.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load i64, ptr %compressed_tuple_.i.i.i, align 8
   %mul.i11 = shl i64 %5, 5
   %mul3.i = mul i64 %4, 25
@@ -10526,7 +10451,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 if.end16:                                         ; preds = %land.lhs.true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE28rehash_and_grow_if_necessaryEv.exit, %land.rhs
   %7 = phi ptr [ %.pre, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE28rehash_and_grow_if_necessaryEv.exit ], [ %1, %land.rhs ], [ %1, %land.lhs.true ]
   %target.sroa.0.0 = phi i64 [ %6, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE28rehash_and_grow_if_necessaryEv.exit ], [ %0, %land.rhs ], [ %0, %land.lhs.true ]
-  %compressed_tuple_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load i64, ptr %compressed_tuple_.i, align 8
   %add = add i64 %8, 1
   store i64 %add, ptr %compressed_tuple_.i, align 8
@@ -10540,7 +10465,7 @@ if.end16:                                         ; preds = %land.lhs.true, %_ZN
   store i64 %sub, ptr %add.ptr.i.i.i13, align 8
   %11 = trunc i64 %hash to i8
   %conv.i = and i8 %11, 127
-  %capacity_.i.i.i16 = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load i64, ptr %capacity_.i.i.i16, align 8
   %13 = load ptr, ptr %this, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %13, i64 %target.sroa.0.0
@@ -10562,9 +10487,9 @@ define linkonce_odr void @_ZN4absl12lts_2023080218container_internal12raw_hash_s
 entry:
   %agg.tmp.i = alloca %"class.std::allocator.15", align 1
   %0 = load ptr, ptr %this, align 8
-  %slots_.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 1
+  %slots_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %slots_.i.i, align 8
-  %capacity_.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 2
+  %capacity_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %capacity_.i, align 8
   store i64 %new_capacity, ptr %capacity_.i, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %agg.tmp.i)
@@ -10603,7 +10528,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %add.ptr8.i.i, i64 %new_capacity
   store i8 -1, ptr %arrayidx.i.i.i, align 1
   %div2.i.i.i.i.i = lshr i64 %new_capacity, 3
-  %compressed_tuple_.i.i.i.i.i = getelementptr inbounds %"class.absl::lts_20230802::container_internal::CommonFields", ptr %this, i64 0, i32 3
+  %compressed_tuple_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %4 = load i64, ptr %compressed_tuple_.i.i.i.i.i, align 8
   %5 = add i64 %div2.i.i.i.i.i, %4
   %sub.i.i20.i.i = sub i64 %new_capacity, %5
@@ -10741,11 +10666,11 @@ entry:
   %1 = atomicrmw xchg ptr %ptr.coerce.val, i64 %ptr.coerce.val1.val2 monotonic, align 8
   %2 = bitcast i64 %1 to double
   %cmp.i.i.i.i = fcmp ogt double %2, 0x3FEFAE147AE147AE
-  %controller_.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3
+  %controller_.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 48
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %last_was_low_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 3
+  %last_was_low_.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 51
   %3 = load i8, ptr %last_was_low_.i.i.i.i.i, align 1
   %4 = and i8 %3, 1
   %tobool.i.i.i.not.i.i.i.i = icmp eq i8 %4, 0
@@ -10756,10 +10681,10 @@ if.then17.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   %5 = load i8, ptr %controller_.i.i.i.i, align 8
   %inc19.i.i.i.i.i = add i8 %5, 1
   store i8 %inc19.i.i.i.i.i, ptr %controller_.i.i.i.i, align 8
-  %max_ticks_same_22.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 1
+  %max_ticks_same_22.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 49
   %6 = load i8, ptr %max_ticks_same_22.i.i.i.i.i, align 1
   %cmp24.not.i.i.i.i.i = icmp ult i8 %inc19.i.i.i.i.i, %6
-  %max_30.phi.trans.insert.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 5
+  %max_30.phi.trans.insert.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 64
   %.pre.i.i.i.i.i = load double, ptr %max_30.phi.trans.insert.i.i.i.i.i, align 8
   br i1 %cmp24.not.i.i.i.i.i, label %if.end51.i.i.i.i.i, label %if.then25.i.i.i.i.i
 
@@ -10772,9 +10697,9 @@ if.then25.i.i.i.i.i:                              ; preds = %if.then17.i.i.i.i.i
 
 if.else31.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   store i8 0, ptr %controller_.i.i.i.i, align 8
-  %max_36.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 5
+  %max_36.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 64
   %7 = load double, ptr %max_36.i.i.i.i.i, align 8
-  %last_control_43.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 6
+  %last_control_43.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 72
   %8 = load double, ptr %last_control_43.i.i.i.i.i, align 8
   %add45.i.i.i.i.i = fadd double %7, %8
   %div46.i.i.i.i.i = fmul double %add45.i.i.i.i.i, 5.000000e-01
@@ -10783,13 +10708,13 @@ if.else31.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 
 if.end51.i.i.i.i.i:                               ; preds = %if.else31.i.i.i.i.i, %if.then25.i.i.i.i.i, %if.then17.i.i.i.i.i
   %new_control.0.i.i.i.i.i = phi double [ %div46.i.i.i.i.i, %if.else31.i.i.i.i.i ], [ %div26.i.i.i.i.i, %if.then25.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %if.then17.i.i.i.i.i ]
-  %last_control_52.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 6
+  %last_control_52.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 72
   %9 = load double, ptr %last_control_52.i.i.i.i.i, align 8
   %cmp53.i.i.i.i.i = fcmp olt double %new_control.0.i.i.i.i.i, %9
   br i1 %cmp53.i.i.i.i.i, label %if.then54.i.i.i.i.i, label %_ZN9grpc_core19memory_quota_detail18PressureController6UpdateEd.exit.i.i.i.i
 
 if.then54.i.i.i.i.i:                              ; preds = %if.end51.i.i.i.i.i
-  %max_reduction_per_tick_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 2
+  %max_reduction_per_tick_.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 50
   %10 = load i8, ptr %max_reduction_per_tick_.i.i.i.i.i, align 2
   %conv57.i.i.i.i.i = uitofp i8 %10 to double
   %div58.i.i.i.i.i = fdiv double %conv57.i.i.i.i.i, 1.000000e+03
@@ -10807,7 +10732,7 @@ if.else.i.i.i.i:                                  ; preds = %entry
   %sub.i.i.i.i = fadd double %2, 0xBFEE666666666666
   %cmp.i.i.i.i.i = fcmp olt double %sub.i.i.i.i, 0.000000e+00
   %frombool.i.i.i.i.i = zext i1 %cmp.i.i.i.i.i to i8
-  %last_was_low_.i4.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 3
+  %last_was_low_.i4.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 51
   %11 = load i8, ptr %last_was_low_.i4.i.i.i.i, align 1
   %12 = and i8 %11, 1
   %tobool.i.i.i5.i.i.i.i = icmp ne i8 %12, 0
@@ -10816,9 +10741,9 @@ if.else.i.i.i.i:                                  ; preds = %entry
   br i1 %brmerge.not.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.else.i.i.i.i
-  %last_control_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 6
+  %last_control_.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 72
   %13 = load double, ptr %last_control_.i.i.i.i.i, align 8
-  %min_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 4
+  %min_.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 56
   %14 = load double, ptr %min_.i.i.i.i.i, align 8
   %cmp4.i.i.i.i.i = fcmp oeq double %13, %14
   br i1 %cmp4.i.i.i.i.i, label %if.then5.i.i.i.i.i, label %if.end51.i15.i.i.i.i
@@ -10827,7 +10752,7 @@ if.then5.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
   %15 = load i8, ptr %controller_.i.i.i.i, align 8
   %inc.i.i.i.i.i = add i8 %15, 1
   store i8 %inc.i.i.i.i.i, ptr %controller_.i.i.i.i, align 8
-  %max_ticks_same_.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 1
+  %max_ticks_same_.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 49
   %16 = load i8, ptr %max_ticks_same_.i.i.i.i.i, align 1
   %cmp8.not.i.i.i.i.i = icmp ult i8 %inc.i.i.i.i.i, %16
   br i1 %cmp8.not.i.i.i.i.i, label %if.end51.i15.i.i.i.i, label %if.then9.i.i.i.i.i
@@ -10846,10 +10771,10 @@ if.then17.i6.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i
   %17 = load i8, ptr %controller_.i.i.i.i, align 8
   %inc19.i7.i.i.i.i = add i8 %17, 1
   store i8 %inc19.i7.i.i.i.i, ptr %controller_.i.i.i.i, align 8
-  %max_ticks_same_22.i8.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 1
+  %max_ticks_same_22.i8.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 49
   %18 = load i8, ptr %max_ticks_same_22.i8.i.i.i.i, align 1
   %cmp24.not.i9.i.i.i.i = icmp ult i8 %inc19.i7.i.i.i.i, %18
-  %max_30.phi.trans.insert.i10.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 5
+  %max_30.phi.trans.insert.i10.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 64
   %.pre.i11.i.i.i.i = load double, ptr %max_30.phi.trans.insert.i10.i.i.i.i, align 8
   br i1 %cmp24.not.i9.i.i.i.i, label %if.end51.i15.i.i.i.i, label %if.then25.i12.i.i.i.i
 
@@ -10862,12 +10787,12 @@ if.then25.i12.i.i.i.i:                            ; preds = %if.then17.i6.i.i.i.
 
 if.else31.i27.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i
   store i8 0, ptr %controller_.i.i.i.i, align 8
-  %max_36.i28.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 5
+  %max_36.i28.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 64
   %19 = load double, ptr %max_36.i28.i.i.i.i, align 8
   br i1 %cmp.i.i.i.i.i, label %if.then33.i.i.i.i.i, label %if.else41.i.i.i.i.i
 
 if.then33.i.i.i.i.i:                              ; preds = %if.else31.i27.i.i.i.i
-  %min_35.i.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 4
+  %min_35.i.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 56
   %20 = load double, ptr %min_35.i.i.i.i.i, align 8
   %add37.i.i.i.i.i = fadd double %19, %20
   %div38.i.i.i.i.i = fmul double %add37.i.i.i.i.i, 5.000000e-01
@@ -10875,7 +10800,7 @@ if.then33.i.i.i.i.i:                              ; preds = %if.else31.i27.i.i.i
   br label %if.end51.i15.i.i.i.i
 
 if.else41.i.i.i.i.i:                              ; preds = %if.else31.i27.i.i.i.i
-  %last_control_43.i29.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 6
+  %last_control_43.i29.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 72
   %21 = load double, ptr %last_control_43.i29.i.i.i.i, align 8
   %add45.i30.i.i.i.i = fadd double %19, %21
   %div46.i31.i.i.i.i = fmul double %add45.i30.i.i.i.i, 5.000000e-01
@@ -10884,13 +10809,13 @@ if.else41.i.i.i.i.i:                              ; preds = %if.else31.i27.i.i.i
 
 if.end51.i15.i.i.i.i:                             ; preds = %if.else41.i.i.i.i.i, %if.then33.i.i.i.i.i, %if.then25.i12.i.i.i.i, %if.then17.i6.i.i.i.i, %if.then9.i.i.i.i.i, %if.then5.i.i.i.i.i, %if.then.i.i.i.i.i
   %new_control.0.i16.i.i.i.i = phi double [ %div46.i31.i.i.i.i, %if.else41.i.i.i.i.i ], [ %div38.i.i.i.i.i, %if.then33.i.i.i.i.i ], [ %14, %if.then5.i.i.i.i.i ], [ %div.i.i.i.i.i, %if.then9.i.i.i.i.i ], [ %14, %if.then.i.i.i.i.i ], [ %div26.i14.i.i.i.i, %if.then25.i12.i.i.i.i ], [ %.pre.i11.i.i.i.i, %if.then17.i6.i.i.i.i ]
-  %last_control_52.i17.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 6
+  %last_control_52.i17.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 72
   %22 = load double, ptr %last_control_52.i17.i.i.i.i, align 8
   %cmp53.i18.i.i.i.i = fcmp olt double %new_control.0.i16.i.i.i.i, %22
   br i1 %cmp53.i18.i.i.i.i, label %if.then54.i20.i.i.i.i, label %_ZN9grpc_core19memory_quota_detail18PressureController6UpdateEd.exit32.i.i.i.i
 
 if.then54.i20.i.i.i.i:                            ; preds = %if.end51.i15.i.i.i.i
-  %max_reduction_per_tick_.i21.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 3, i32 2
+  %max_reduction_per_tick_.i21.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 50
   %23 = load i8, ptr %max_reduction_per_tick_.i21.i.i.i.i, align 2
   %conv57.i22.i.i.i.i = uitofp i8 %23 to double
   %div58.i23.i.i.i.i = fdiv double %conv57.i22.i.i.i.i, 1.000000e+03
@@ -10906,7 +10831,7 @@ _ZN9grpc_core19memory_quota_detail18PressureController6UpdateEd.exit32.i.i.i.i: 
 
 if.end.i.i.i.i:                                   ; preds = %_ZN9grpc_core19memory_quota_detail18PressureController6UpdateEd.exit32.i.i.i.i, %_ZN9grpc_core19memory_quota_detail18PressureController6UpdateEd.exit.i.i.i.i
   %report.0.i.i.i.i = phi double [ %new_control.1.i.i.i.i.i, %_ZN9grpc_core19memory_quota_detail18PressureController6UpdateEd.exit.i.i.i.i ], [ %new_control.1.i19.i.i.i.i, %_ZN9grpc_core19memory_quota_detail18PressureController6UpdateEd.exit32.i.i.i.i ]
-  %24 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2) monotonic, align 8
+  %24 = load atomic i8, ptr getelementptr inbounds (%"class.grpc_core::TraceFlag", ptr @grpc_resource_quota_trace, i64 0, i32 2, i32 0, i32 0) monotonic, align 8
   %25 = and i8 %24, 1
   %tobool.i.i.i33.not.i.i.i.i = icmp eq i8 %25, 0
   br i1 %tobool.i.i.i33.not.i.i.i.i, label %"_ZSt6invokeIRKZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEdE3$_0JNS0_8DurationEEENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_.exit", label %if.then6.i.i.i.i
@@ -10928,7 +10853,7 @@ lpad.i.i.i.i:                                     ; preds = %if.then6.i.i.i.i
   resume { ptr, i32 } %26
 
 "_ZSt6invokeIRKZN9grpc_core19memory_quota_detail15PressureTracker27AddSampleAndGetControlValueEdE3$_0JNS0_8DurationEEENSt13invoke_resultIT_JDpT0_EE4typeEOS8_DpOS9_.exit": ; preds = %if.end.i.i.i.i, %invoke.cont.i.i.i.i
-  %report_.i.i.i.i = getelementptr inbounds %"class.grpc_core::memory_quota_detail::PressureTracker", ptr %ptr.coerce.val, i64 0, i32 1
+  %report_.i.i.i.i = getelementptr inbounds i8, ptr %ptr.coerce.val, i64 8
   %27 = bitcast double %report.0.i.i.i.i to i64
   store atomic i64 %27, ptr %report_.i.i.i.i monotonic, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i.i.i)
@@ -10954,7 +10879,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN9grpc_core23GrpcMemoryAllocatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.157", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN9grpc_core23GrpcMemoryAllocatorImplD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl.i) #26
   ret void
 }
@@ -10969,12 +10894,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN9grpc_core23GrpcMemoryAll
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN9grpc_core23GrpcMemoryAllocatorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.157", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %__name.i = getelementptr inbounds %"class.std::type_info", ptr %__ti, i64 0, i32 1
+  %__name.i = getelementptr inbounds i8, ptr %__ti, i64 8
   %0 = load ptr, ptr %__name.i, align 8
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
@@ -11004,15 +10929,15 @@ entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %0 = load ptr, ptr %__args, align 8
   store ptr %0, ptr %agg.tmp, align 8
-  %_M_refcount.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %agg.tmp, i64 0, i32 1
-  %_M_refcount3.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %__args, i64 0, i32 1
+  %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   store ptr %1, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %_M_use_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %1, i64 0, i32 1
+  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i = icmp eq i8 %2, 0
   br i1 %tobool.i.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -11037,7 +10962,7 @@ invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIN
   br i1 %cmp.not.i.i.i2, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit, label %if.then.i.i.i3
 
 if.then.i.i.i3:                                   ; preds = %invoke.cont
-  %_M_use_count.i.i.i.i4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 1
+  %_M_use_count.i.i.i.i4 = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %_M_use_count.i.i.i.i4 acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %6, 4294967297
   %7 = trunc i64 %6 to i32
@@ -11045,10 +10970,10 @@ if.then.i.i.i3:                                   ; preds = %invoke.cont
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i3
   store i32 0, ptr %_M_use_count.i.i.i.i4, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 2
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   br label %if.end8.sink.split.i.i.i.i
@@ -11074,10 +10999,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %5, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 12
   %12 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -11099,7 +11024,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %5, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %15 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(16) %5) #26
   br label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEED2Ev.exit

@@ -15,43 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.VMStateInfo = type { ptr, ptr, ptr }
 %struct.VMStateField = type { ptr, ptr, i64, i64, i64, i32, i64, i64, ptr, i32, ptr, i32, i32, ptr }
 %struct.PropertyInfo = type { ptr, ptr, ptr, i8, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.RTL8139State = type { %struct.PCIDevice, [8 x i8], [8 x i8], [4 x i32], [4 x i32], i32, i32, i32, i32, i16, i16, i32, i32, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i16, i16, i16, i16, i16, i8, ptr, %struct.NICConf, i32, i32, i32, i32, i32, i32, %struct.EEprom9346, i32, i32, i64, %struct.RTL8139TallyCounters, ptr, i32, i32, ptr, %struct.MemoryRegion, %struct.MemoryRegion, i32 }
-%struct.PCIDevice = type { %struct.DeviceState, i8, i8, ptr, ptr, ptr, ptr, ptr, i32, %struct.PCIReqIDCache, [64 x i8], [7 x %struct.PCIIORegion], %struct.AddressSpace, %struct.MemoryRegion, %struct.MemoryRegion, ptr, ptr, [3 x ptr], i8, i8, i32, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, %struct.MemoryRegion, %struct.MemoryRegion, %struct.MemoryRegion, ptr, i8, i32, i8, %struct.PCIExpressDevice, ptr, ptr, i32, i8, %struct.MemoryRegion, i32, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.DeviceState = type { %struct.Object, ptr, ptr, i8, i8, i64, ptr, i32, i8, ptr, %struct.NamedGPIOListHead, %struct.NamedClockListHead, %struct.BusStateHead, i32, i32, i32, %struct.ResettableState, ptr, %struct.MemReentrancyGuard }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.NamedGPIOListHead = type { ptr }
-%struct.NamedClockListHead = type { ptr }
-%struct.BusStateHead = type { ptr }
-%struct.ResettableState = type { i32, i8, i8 }
-%struct.MemReentrancyGuard = type { i8 }
-%struct.PCIReqIDCache = type { ptr, i32 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.AddressSpace = type { %struct.rcu_head, ptr, ptr, ptr, i32, i32, ptr, %union.anon, %union.anon.0 }
-%struct.rcu_head = type { ptr, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%struct.PCIExpressDevice = type { i8, i8, i8, i16, %struct.PCIEAERLog, i16, i16, i16, %struct.PCIESriovPF, %struct.PCIESriovVF }
-%struct.PCIEAERLog = type { i16, i16, ptr }
-%struct.PCIESriovPF = type { i16, [7 x i8], ptr, ptr }
-%struct.PCIESriovVF = type { ptr, i16 }
-%struct.NICConf = type { %struct.MACAddr, %struct.NICPeers, i32 }
-%struct.MACAddr = type { [6 x i8] }
-%struct.NICPeers = type { [1024 x ptr], i32 }
-%struct.EEprom9346 = type { [64 x i16], i32, i32, i8, i16, i16, i8, i8, i8, i8 }
-%struct.RTL8139TallyCounters = type { i64, i64, i64, i32, i16, i16, i32, i32, i64, i64, i32, i16, i16 }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, i8, ptr, i64, i32, %union.anon.1, %union.anon.2, %union.anon.3, ptr, i32, ptr, ptr, i8 }
-%union.anon.1 = type { %struct.QTailQLink }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.PCIDeviceClass = type { %struct.DeviceClass, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i16, i16, ptr }
-%struct.DeviceClass = type { %struct.ObjectClass, [1 x i64], ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.NetClientState = type { ptr, i32, %union.anon.6, ptr, ptr, ptr, ptr, [256 x i8], i8, ptr, i32, i8, i32, i32, i8, i8, i8, %union.anon.7 }
-%union.anon.6 = type { %struct.QTailQLink }
-%union.anon.7 = type { %struct.QTailQLink }
-%struct.tcp_header = type { i16, i16, i32, i32, i16, i16, i16, i16 }
-%struct.udp_header = type { i16, i16, i16, i16 }
 %struct.iovec = type { ptr, i64 }
 
 @rtl8139_info = internal constant %struct.TypeInfo { ptr @.str, ptr @.str.1, i64 11792, i64 0, ptr @rtl8139_instance_init, ptr null, ptr null, i8 0, i64 0, ptr @rtl8139_class_init, ptr null, ptr null, ptr @.compoundliteral }, align 8
@@ -185,7 +148,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @rtl8139_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 96, ptr noundef nonnull @__func__.RTL8139) #12
-  %bootindex = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 32, i32 2
+  %bootindex = getelementptr inbounds i8, ptr %call.i, i64 10936
   %call.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #12
   tail call void @device_add_bootindex_property(ptr noundef %obj, ptr noundef nonnull %bootindex, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef %call.i3) #12
   ret void
@@ -196,26 +159,26 @@ define internal void @rtl8139_class_init(ptr noundef %klass, ptr nocapture readn
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #12
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #12
-  %realize = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 1
+  %realize = getelementptr inbounds i8, ptr %call.i11, i64 176
   store ptr @pci_rtl8139_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 2
+  %exit = getelementptr inbounds i8, ptr %call.i11, i64 184
   store ptr @pci_rtl8139_uninit, ptr %exit, align 8
-  %romfile = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 11
+  %romfile = getelementptr inbounds i8, ptr %call.i11, i64 224
   store ptr @.str.8, ptr %romfile, align 8
-  %vendor_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 5
+  %vendor_id = getelementptr inbounds i8, ptr %call.i11, i64 208
   store i16 4332, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 6
+  %device_id = getelementptr inbounds i8, ptr %call.i11, i64 210
   store i16 -32455, ptr %device_id, align 2
-  %revision = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 7
+  %revision = getelementptr inbounds i8, ptr %call.i11, i64 212
   store i8 32, ptr %revision, align 4
-  %class_id = getelementptr inbounds %struct.PCIDeviceClass, ptr %call.i11, i64 0, i32 8
+  %class_id = getelementptr inbounds i8, ptr %call.i11, i64 214
   store i16 512, ptr %class_id, align 2
-  %reset = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 7
+  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
   store ptr @rtl8139_reset, ptr %reset, align 8
-  %vmsd = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 10
+  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
   store ptr @vmstate_rtl8139, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @rtl8139_properties) #12
-  %categories = getelementptr inbounds %struct.DeviceClass, ptr %call.i, i64 0, i32 1
+  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 8
   store i64 %or.i, ptr %categories, align 8
@@ -231,47 +194,47 @@ define internal void @pci_rtl8139_realize(ptr noundef %dev, ptr nocapture readno
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 96, ptr noundef nonnull @__func__.RTL8139) #12
   %call.i38 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #12
-  %config = getelementptr inbounds %struct.PCIDevice, ptr %dev, i64 0, i32 3
+  %config = getelementptr inbounds i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %0, i64 61
   store i8 1, ptr %arrayidx, align 1
   %arrayidx2 = getelementptr i8, ptr %0, i64 52
   store i8 -36, ptr %arrayidx2, align 1
-  %bar_io = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 48
+  %bar_io = getelementptr inbounds i8, ptr %call.i, i64 11232
   tail call void @memory_region_init_io(ptr noundef nonnull %bar_io, ptr noundef %call.i, ptr noundef nonnull @rtl8139_io_ops, ptr noundef %call.i, ptr noundef nonnull @.str, i64 noundef 256) #12
-  %bar_mem = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 49
+  %bar_mem = getelementptr inbounds i8, ptr %call.i, i64 11504
   tail call void @memory_region_init_alias(ptr noundef nonnull %bar_mem, ptr noundef %call.i, ptr noundef nonnull @.str.10, ptr noundef nonnull %bar_io, i64 noundef 0, i64 noundef 256) #12
   tail call void @pci_register_bar(ptr noundef %dev, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %bar_io) #12
   tail call void @pci_register_bar(ptr noundef %dev, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %bar_mem) #12
-  %conf = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 32
+  %conf = getelementptr inbounds i8, ptr %call.i, i64 2728
   tail call void @qemu_macaddr_default_if_unset(ptr noundef nonnull %conf) #12
-  %eeprom = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 39
+  %eeprom = getelementptr inbounds i8, ptr %call.i, i64 10968
   store i16 -32471, ptr %eeprom, align 8
-  %arrayidx9 = getelementptr %struct.RTL8139State, ptr %call.i, i64 0, i32 39, i32 0, i64 1
+  %arrayidx9 = getelementptr i8, ptr %call.i, i64 10970
   store i16 4332, ptr %arrayidx9, align 2
-  %arrayidx12 = getelementptr %struct.RTL8139State, ptr %call.i, i64 0, i32 39, i32 0, i64 2
+  %arrayidx12 = getelementptr i8, ptr %call.i, i64 10972
   store i16 -32455, ptr %arrayidx12, align 4
-  %arrayidx24 = getelementptr %struct.RTL8139State, ptr %call.i, i64 0, i32 39, i32 0, i64 7
+  %arrayidx24 = getelementptr i8, ptr %call.i, i64 10982
   %1 = load <2 x i16>, ptr %conf, align 8
   store <2 x i16> %1, ptr %arrayidx24, align 2
-  %arrayidx44 = getelementptr %struct.RTL8139State, ptr %call.i, i64 0, i32 32, i32 0, i32 0, i64 4
+  %arrayidx44 = getelementptr i8, ptr %call.i, i64 2732
   %2 = load i16, ptr %arrayidx44, align 4
-  %arrayidx56 = getelementptr %struct.RTL8139State, ptr %call.i, i64 0, i32 39, i32 0, i64 9
+  %arrayidx56 = getelementptr i8, ptr %call.i, i64 10986
   store i16 %2, ptr %arrayidx56, align 2
   %call58 = tail call ptr @object_get_typename(ptr noundef %dev) #12
-  %id = getelementptr inbounds %struct.DeviceState, ptr %call.i38, i64 0, i32 1
+  %id = getelementptr inbounds i8, ptr %call.i38, i64 40
   %3 = load ptr, ptr %id, align 8
-  %mem_reentrancy_guard = getelementptr inbounds %struct.DeviceState, ptr %call.i38, i64 0, i32 18
+  %mem_reentrancy_guard = getelementptr inbounds i8, ptr %call.i38, i64 152
   %call59 = tail call ptr @qemu_new_nic(ptr noundef nonnull @net_rtl8139_info, ptr noundef nonnull %conf, ptr noundef %call58, ptr noundef %3, ptr noundef nonnull %mem_reentrancy_guard, ptr noundef %call.i) #12
-  %nic = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 31
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 2720
   store ptr %call59, ptr %nic, align 16
   %call61 = tail call ptr @qemu_get_queue(ptr noundef %call59) #12
   tail call void @qemu_format_nic_info_str(ptr noundef %call61, ptr noundef nonnull %conf) #12
-  %cplus_txbuffer = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 44
+  %cplus_txbuffer = getelementptr inbounds i8, ptr %call.i, i64 11200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %cplus_txbuffer, i8 0, i64 16, i1 false)
   %call.i.i.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #13
   tail call void @timer_init_full(ptr noundef %call.i.i.i, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @rtl8139_timer, ptr noundef %call.i) #12
-  %timer = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 47
+  %timer = getelementptr inbounds i8, ptr %call.i, i64 11216
   store ptr %call.i.i.i, ptr %timer, align 16
   ret void
 }
@@ -280,11 +243,11 @@ entry:
 define internal void @pci_rtl8139_uninit(ptr noundef %dev) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 96, ptr noundef nonnull @__func__.RTL8139) #12
-  %cplus_txbuffer = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 44
+  %cplus_txbuffer = getelementptr inbounds i8, ptr %call.i, i64 11200
   %0 = load ptr, ptr %cplus_txbuffer, align 16
   tail call void @g_free(ptr noundef %0) #12
   store ptr null, ptr %cplus_txbuffer, align 16
-  %timer = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 47
+  %timer = getelementptr inbounds i8, ptr %call.i, i64 11216
   %1 = load ptr, ptr %timer, align 16
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %timer_free.exit, label %if.then.i
@@ -295,7 +258,7 @@ if.then.i:                                        ; preds = %entry
   br label %timer_free.exit
 
 timer_free.exit:                                  ; preds = %entry, %if.then.i
-  %nic = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 31
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 2720
   %2 = load ptr, ptr %nic, align 16
   tail call void @qemu_del_nic(ptr noundef %2) #12
   ret void
@@ -305,16 +268,16 @@ timer_free.exit:                                  ; preds = %entry, %if.then.i
 define internal void @rtl8139_reset(ptr noundef %d) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %d, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, i32 noundef 96, ptr noundef nonnull @__func__.RTL8139) #12
-  %phys = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 1
-  %conf = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 32
+  %phys = getelementptr inbounds i8, ptr %call.i, i64 2608
+  %conf = getelementptr inbounds i8, ptr %call.i, i64 2728
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %phys, ptr noundef nonnull align 8 dereferenceable(6) %conf, i64 6, i1 false)
-  %nic = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 31
+  %nic = getelementptr inbounds i8, ptr %call.i, i64 2720
   %0 = load ptr, ptr %nic, align 16
   %call2 = tail call ptr @qemu_get_queue(ptr noundef %0) #12
   tail call void @qemu_format_nic_info_str(ptr noundef %call2, ptr noundef nonnull %phys) #12
-  %IntrStatus = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 9
+  %IntrStatus = getelementptr inbounds i8, ptr %call.i, i64 2672
   store i16 0, ptr %IntrStatus, align 16
-  %IntrMask = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 10
+  %IntrMask = getelementptr inbounds i8, ptr %call.i, i64 2674
   store i16 0, ptr %IntrMask, align 2
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
   %1 = load i16, ptr %IntrStatus, align 16
@@ -323,70 +286,71 @@ entry:
   %tobool.i = icmp ne i16 %and6.i, 0
   %conv8.i = zext i1 %tobool.i to i32
   tail call void @pci_set_irq(ptr noundef %call.i.i, i32 noundef %conv8.i) #12
+  %TxStatus = getelementptr inbounds i8, ptr %call.i, i64 2624
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr %struct.RTL8139State, ptr %call.i, i64 0, i32 3, i64 %indvars.iv
+  %arrayidx = getelementptr [4 x i32], ptr %TxStatus, i64 0, i64 %indvars.iv
   store i32 8192, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
-  %currTxDesc = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 33
+  %currTxDesc = getelementptr inbounds i8, ptr %call.i, i64 10944
   store i32 0, ptr %currTxDesc, align 16
-  %currCPlusRxDesc = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 35
-  %RxBuf = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 5
+  %currCPlusRxDesc = getelementptr inbounds i8, ptr %call.i, i64 10952
+  %RxBuf = getelementptr inbounds i8, ptr %call.i, i64 2656
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %currCPlusRxDesc, i8 0, i64 16, i1 false)
   store <4 x i32> <i32 0, i32 8192, i32 0, i32 0>, ptr %RxBuf, align 16
-  %TxConfig = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 11
+  %TxConfig = getelementptr inbounds i8, ptr %call.i, i64 2676
   store i32 1954545664, ptr %TxConfig, align 4
-  %clock_enabled = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 21
+  %clock_enabled = getelementptr inbounds i8, ptr %call.i, i64 2696
   store i8 1, ptr %clock_enabled, align 8
-  %bChipCmdState = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 22
+  %bChipCmdState = getelementptr inbounds i8, ptr %call.i, i64 2697
   store i8 16, ptr %bChipCmdState, align 1
-  %Config0 = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 16
+  %Config0 = getelementptr inbounds i8, ptr %call.i, i64 2691
   store i8 0, ptr %Config0, align 1
-  %Config1 = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 17
+  %Config1 = getelementptr inbounds i8, ptr %call.i, i64 2692
   store i8 12, ptr %Config1, align 4
-  %Config3 = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 18
+  %Config3 = getelementptr inbounds i8, ptr %call.i, i64 2693
   store i8 1, ptr %Config3, align 1
-  %Config5 = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 20
+  %Config5 = getelementptr inbounds i8, ptr %call.i, i64 2695
   store i8 0, ptr %Config5, align 1
-  %CpCmd = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 29
+  %CpCmd = getelementptr inbounds i8, ptr %call.i, i64 2710
   store i16 0, ptr %CpCmd, align 2
-  %cplus_enabled = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 34
+  %cplus_enabled = getelementptr inbounds i8, ptr %call.i, i64 10948
   store i32 0, ptr %cplus_enabled, align 4
-  %BasicModeCtrl = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 24
+  %BasicModeCtrl = getelementptr inbounds i8, ptr %call.i, i64 2700
   store i16 4096, ptr %BasicModeCtrl, align 4
-  %BasicModeStatus.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 25
+  %BasicModeStatus.i = getelementptr inbounds i8, ptr %call.i, i64 2702
   store i16 30761, ptr %BasicModeStatus.i, align 2
   %3 = load ptr, ptr %nic, align 16
   %call.i34 = tail call ptr @qemu_get_queue(ptr noundef %3) #12
-  %link_down.i = getelementptr inbounds %struct.NetClientState, ptr %call.i34, i64 0, i32 1
+  %link_down.i = getelementptr inbounds i8, ptr %call.i34, i64 8
   %4 = load i32, ptr %link_down.i, align 8
   %tobool.not.i = icmp eq i32 %4, 0
   %cond.i = select i1 %tobool.not.i, i16 4, i16 0
   %5 = load i16, ptr %BasicModeStatus.i, align 2
   %or5.i = or i16 %cond.i, %5
   store i16 %or5.i, ptr %BasicModeStatus.i, align 2
-  %NWayAdvert.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 26
+  %NWayAdvert.i = getelementptr inbounds i8, ptr %call.i, i64 2704
   store i16 1505, ptr %NWayAdvert.i, align 16
-  %NWayLPAR.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 27
+  %NWayLPAR.i = getelementptr inbounds i8, ptr %call.i, i64 2706
   store i16 1505, ptr %NWayLPAR.i, align 2
-  %NWayExpansion.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 28
+  %NWayExpansion.i = getelementptr inbounds i8, ptr %call.i, i64 2708
   store i16 1, ptr %NWayExpansion.i, align 4
-  %CSCR.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 14
+  %CSCR.i = getelementptr inbounds i8, ptr %call.i, i64 2688
   store i16 832, ptr %CSCR.i, align 16
-  %TCTR = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 40
+  %TCTR = getelementptr inbounds i8, ptr %call.i, i64 11116
   store i32 0, ptr %TCTR, align 4
-  %TimerInt = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 41
+  %TimerInt = getelementptr inbounds i8, ptr %call.i, i64 11120
   store i32 0, ptr %TimerInt, align 16
-  %TCTR_base = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 42
+  %TCTR_base = getelementptr inbounds i8, ptr %call.i, i64 11128
   store i64 0, ptr %TCTR_base, align 8
   tail call fastcc void @rtl8139_set_next_tctr_time(ptr noundef nonnull %call.i)
-  %tally_counters = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 43
+  %tally_counters = getelementptr inbounds i8, ptr %call.i, i64 11136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %tally_counters, i8 0, i64 64, i1 false)
   ret void
 }
@@ -414,19 +378,19 @@ declare ptr @qemu_get_queue(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @rtl8139_timer(ptr noundef %opaque) #0 {
 entry:
-  %clock_enabled = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 21
+  %clock_enabled = getelementptr inbounds i8, ptr %opaque, i64 2696
   %0 = load i8, ptr %clock_enabled, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %IntrStatus = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 9
+  %IntrStatus = getelementptr inbounds i8, ptr %opaque, i64 2672
   %1 = load i16, ptr %IntrStatus, align 16
   %2 = or i16 %1, 16384
   store i16 %2, ptr %IntrStatus, align 16
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
   %3 = load i16, ptr %IntrStatus, align 16
-  %IntrMask.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 10
+  %IntrMask.i = getelementptr inbounds i8, ptr %opaque, i64 2674
   %4 = load i16, ptr %IntrMask.i, align 2
   %and6.i = and i16 %4, %3
   %tobool.i = icmp ne i16 %and6.i, 0
@@ -499,7 +463,7 @@ if.end.i.i:                                       ; preds = %sw.bb.i
   %conv.i.i = and i32 %0, 254
   %sub.i.i = add nsw i32 %conv.i.i, -32
   %div13.i.i = lshr i32 %sub.i.i, 2
-  %TxAddr.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 4
+  %TxAddr.i = getelementptr inbounds i8, ptr %opaque, i64 2640
   %idxprom.i.i = zext nneg i32 %div13.i.i to i64
   %arrayidx.i.i = getelementptr i32, ptr %TxAddr.i, i64 %idxprom.i.i
   %1 = load i32, ptr %arrayidx.i.i, align 4
@@ -551,19 +515,19 @@ sw.bb13.i:                                        ; preds = %sw.bb2
   br label %rtl8139_io_readw.exit
 
 sw.bb15.i:                                        ; preds = %sw.bb2
-  %NWayAdvert.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 26
+  %NWayAdvert.i = getelementptr inbounds i8, ptr %opaque, i64 2704
   %9 = load i16, ptr %NWayAdvert.i, align 16
   %conv16.i = zext i16 %9 to i32
   br label %rtl8139_io_readw.exit
 
 sw.bb18.i:                                        ; preds = %sw.bb2
-  %NWayLPAR.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 27
+  %NWayLPAR.i = getelementptr inbounds i8, ptr %opaque, i64 2706
   %10 = load i16, ptr %NWayLPAR.i, align 2
   %conv19.i = zext i16 %10 to i32
   br label %rtl8139_io_readw.exit
 
 sw.bb21.i:                                        ; preds = %sw.bb2
-  %NWayExpansion.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 28
+  %NWayExpansion.i = getelementptr inbounds i8, ptr %opaque, i64 2708
   %11 = load i16, ptr %NWayExpansion.i, align 4
   %conv22.i = zext i16 %11 to i32
   br label %rtl8139_io_readw.exit
@@ -575,15 +539,15 @@ sw.bb24.i:                                        ; preds = %sw.bb2
   br label %rtl8139_io_readw.exit
 
 sw.bb28.i:                                        ; preds = %sw.bb2
-  %TxStatus.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 3
-  %arrayidx.i43.i = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 3, i64 3
+  %TxStatus.i.i = getelementptr inbounds i8, ptr %opaque, i64 2624
+  %arrayidx.i43.i = getelementptr i8, ptr %opaque, i64 2636
   %13 = load i32, ptr %arrayidx.i43.i, align 4
   %and.i44.i = and i32 %13, 32768
-  %arrayidx2.i.i = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 3, i64 2
+  %arrayidx2.i.i = getelementptr i8, ptr %opaque, i64 2632
   %14 = load i32, ptr %arrayidx2.i.i, align 8
   %and3.i.i = lshr i32 %14, 1
   %cond5.i.i = and i32 %and3.i.i, 16384
-  %arrayidx7.i.i = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 3, i64 1
+  %arrayidx7.i.i = getelementptr i8, ptr %opaque, i64 2628
   %15 = load i32, ptr %arrayidx7.i.i, align 4
   %and8.i.i = lshr i32 %15, 2
   %cond10.i.i = and i32 %and8.i.i, 8192
@@ -698,7 +662,7 @@ sw.bb6:                                           ; preds = %entry
   ]
 
 sw.bb.i22:                                        ; preds = %sw.bb6
-  %RxMissed.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 13
+  %RxMissed.i = getelementptr inbounds i8, ptr %opaque, i64 2684
   %19 = load i32, ptr %RxMissed.i, align 4
   br label %rtl8139_io_readl.exit
 
@@ -720,7 +684,7 @@ sw.bb5.i10:                                       ; preds = %sw.bb6, %sw.bb6, %s
 if.end.i.i13:                                     ; preds = %sw.bb5.i10
   %sub.i.i14 = add nsw i32 %conv.i, -16
   %div13.i.i15 = lshr exact i32 %sub.i.i14, 2
-  %TxStatus.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 3
+  %TxStatus.i = getelementptr inbounds i8, ptr %opaque, i64 2624
   %idxprom.i.i16 = zext nneg i32 %div13.i.i15 to i64
   %arrayidx.i.i17 = getelementptr i32, ptr %TxStatus.i, i64 %idxprom.i.i16
   %22 = load i32, ptr %arrayidx.i.i17, align 4
@@ -728,9 +692,10 @@ if.end.i.i13:                                     ; preds = %sw.bb5.i10
 
 sw.bb7.i9:                                        ; preds = %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6, %sw.bb6
   %sub.i = add nsw i32 %conv.i, -32
+  %TxAddr.i.i = getelementptr inbounds i8, ptr %opaque, i64 2640
   %div3.i.i = lshr i32 %sub.i, 2
   %idxprom.i34.i = zext nneg i32 %div3.i.i to i64
-  %arrayidx.i35.i = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 4, i64 %idxprom.i34.i
+  %arrayidx.i35.i = getelementptr [4 x i32], ptr %TxAddr.i.i, i64 0, i64 %idxprom.i34.i
   %23 = load i32, ptr %arrayidx.i35.i, align 4
   br label %rtl8139_io_readl.exit
 
@@ -740,18 +705,18 @@ sw.bb10.i:                                        ; preds = %sw.bb6
   br label %rtl8139_io_readl.exit
 
 sw.bb12.i:                                        ; preds = %sw.bb6
-  %RxRingAddrLO.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 37
+  %RxRingAddrLO.i = getelementptr inbounds i8, ptr %opaque, i64 10960
   %25 = load i32, ptr %RxRingAddrLO.i, align 16
   br label %rtl8139_io_readl.exit
 
 sw.bb14.i:                                        ; preds = %sw.bb6
-  %RxRingAddrHI.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 38
+  %RxRingAddrHI.i = getelementptr inbounds i8, ptr %opaque, i64 10964
   %26 = load i32, ptr %RxRingAddrHI.i, align 4
   br label %rtl8139_io_readl.exit
 
 sw.bb16.i:                                        ; preds = %sw.bb6
   %call17.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #12
-  %TCTR_base.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 42
+  %TCTR_base.i = getelementptr inbounds i8, ptr %opaque, i64 11128
   %27 = load i64, ptr %TCTR_base.i, align 8
   %sub18.i = sub i64 %call17.i, %27
   %div.i = sdiv i64 %sub18.i, 30
@@ -759,7 +724,7 @@ sw.bb16.i:                                        ; preds = %sw.bb6
   br label %rtl8139_io_readl.exit
 
 sw.bb21.i5:                                       ; preds = %sw.bb6
-  %TimerInt.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 41
+  %TimerInt.i = getelementptr inbounds i8, ptr %opaque, i64 11120
   %28 = load i32, ptr %TimerInt.i, align 16
   br label %rtl8139_io_readl.exit
 
@@ -826,7 +791,7 @@ sw.bb2:                                           ; preds = %entry
   ]
 
 sw.bb.i:                                          ; preds = %sw.bb2
-  %IntrMask.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 10
+  %IntrMask.i.i = getelementptr inbounds i8, ptr %opaque, i64 2674
   %0 = load i16, ptr %IntrMask.i.i, align 2
   %1 = and i16 %0, 7680
   %2 = trunc i64 %val to i16
@@ -834,7 +799,7 @@ sw.bb.i:                                          ; preds = %sw.bb2
   %conv2.i.i = or disjoint i16 %1, %3
   store i16 %conv2.i.i, ptr %IntrMask.i.i, align 2
   %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
-  %IntrStatus.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 9
+  %IntrStatus.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2672
   %4 = load i16, ptr %IntrStatus.i.i.i, align 16
   %5 = load i16, ptr %IntrMask.i.i, align 2
   %and6.i.i.i = and i16 %5, %4
@@ -844,7 +809,7 @@ sw.bb.i:                                          ; preds = %sw.bb2
   br label %sw.epilog
 
 sw.bb1.i:                                         ; preds = %sw.bb2
-  %IntrStatus.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 9
+  %IntrStatus.i.i = getelementptr inbounds i8, ptr %opaque, i64 2672
   %6 = load i16, ptr %IntrStatus.i.i, align 16
   %7 = trunc i64 %val to i16
   %conv1.i.i = xor i16 %7, -1
@@ -853,7 +818,7 @@ sw.bb1.i:                                         ; preds = %sw.bb2
   store i16 0, ptr %IntrStatus.i.i, align 16
   %call.i.i.i30.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
   %9 = load i16, ptr %IntrStatus.i.i, align 16
-  %IntrMask.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 10
+  %IntrMask.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2674
   %10 = load i16, ptr %IntrMask.i.i.i, align 2
   %and6.i.i31.i = and i16 %10, %9
   %tobool.i.i32.i = icmp ne i16 %and6.i.i31.i, 0
@@ -871,7 +836,7 @@ sw.bb1.i:                                         ; preds = %sw.bb2
   br label %sw.epilog
 
 sw.bb2.i:                                         ; preds = %sw.bb2
-  %MultiIntr.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 23
+  %MultiIntr.i.i = getelementptr inbounds i8, ptr %opaque, i64 2698
   %13 = load i16, ptr %MultiIntr.i.i, align 2
   %14 = and i16 %13, -4096
   %15 = trunc i64 %val to i16
@@ -882,13 +847,13 @@ sw.bb2.i:                                         ; preds = %sw.bb2
 
 sw.bb3.i:                                         ; preds = %sw.bb2
   %add.i.i = add i32 %conv4, 16
-  %RxBufferSize.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 6
+  %RxBufferSize.i.i = getelementptr inbounds i8, ptr %opaque, i64 2660
   %17 = load i32, ptr %RxBufferSize.i.i, align 4
   %sub.i.i = add i32 %17, -1
   %and.i.i = and i32 %sub.i.i, %add.i.i
-  %RxBufPtr.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 7
+  %RxBufPtr.i.i = getelementptr inbounds i8, ptr %opaque, i64 2664
   store i32 %and.i.i, ptr %RxBufPtr.i.i, align 8
-  %nic.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 31
+  %nic.i.i = getelementptr inbounds i8, ptr %opaque, i64 2720
   %18 = load ptr, ptr %nic.i.i, align 16
   %call1.i.i = tail call ptr @qemu_get_queue(ptr noundef %18) #12
   tail call void @qemu_flush_queued_packets(ptr noundef %call1.i.i) #12
@@ -900,30 +865,30 @@ sw.bb4.i:                                         ; preds = %sw.bb2
   br i1 %tobool.not.i.i, label %rtl8139_BasicModeCtrl_write.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %sw.bb4.i
-  %BasicModeStatus.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 25
+  %BasicModeStatus.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2702
   store i16 30761, ptr %BasicModeStatus.i.i.i, align 2
-  %nic.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 31
+  %nic.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2720
   %19 = load ptr, ptr %nic.i.i.i, align 16
   %call.i.i.i = tail call ptr @qemu_get_queue(ptr noundef %19) #12
-  %link_down.i.i.i = getelementptr inbounds %struct.NetClientState, ptr %call.i.i.i, i64 0, i32 1
+  %link_down.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   %20 = load i32, ptr %link_down.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %20, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i16 4, i16 0
   %21 = load i16, ptr %BasicModeStatus.i.i.i, align 2
   %or5.i.i.i = or i16 %cond.i.i.i, %21
   store i16 %or5.i.i.i, ptr %BasicModeStatus.i.i.i, align 2
-  %NWayAdvert.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 26
+  %NWayAdvert.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2704
   store i16 1505, ptr %NWayAdvert.i.i.i, align 16
-  %NWayLPAR.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 27
+  %NWayLPAR.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2706
   store i16 1505, ptr %NWayLPAR.i.i.i, align 2
-  %NWayExpansion.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 28
+  %NWayExpansion.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2708
   store i16 1, ptr %NWayExpansion.i.i.i, align 4
-  %CSCR.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 14
+  %CSCR.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2688
   store i16 832, ptr %CSCR.i.i.i, align 16
   br label %rtl8139_BasicModeCtrl_write.exit.i
 
 rtl8139_BasicModeCtrl_write.exit.i:               ; preds = %if.then.i.i, %sw.bb4.i
-  %BasicModeCtrl.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 24
+  %BasicModeCtrl.i.i = getelementptr inbounds i8, ptr %opaque, i64 2700
   %22 = load i16, ptr %BasicModeCtrl.i.i, align 4
   %23 = and i16 %22, -513
   %24 = trunc i64 %val to i16
@@ -933,7 +898,7 @@ rtl8139_BasicModeCtrl_write.exit.i:               ; preds = %if.then.i.i, %sw.bb
   br label %sw.epilog
 
 sw.bb5.i:                                         ; preds = %sw.bb2
-  %BasicModeStatus.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 25
+  %BasicModeStatus.i.i = getelementptr inbounds i8, ptr %opaque, i64 2702
   %26 = load i16, ptr %BasicModeStatus.i.i, align 2
   %27 = and i16 %26, -193
   %28 = trunc i64 %val to i16
@@ -944,20 +909,20 @@ sw.bb5.i:                                         ; preds = %sw.bb2
 
 sw.bb6.i:                                         ; preds = %sw.bb2
   %conv7.i = trunc i64 %val to i16
-  %NWayAdvert.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 26
+  %NWayAdvert.i = getelementptr inbounds i8, ptr %opaque, i64 2704
   store i16 %conv7.i, ptr %NWayAdvert.i, align 16
   br label %sw.epilog
 
 sw.bb10.i:                                        ; preds = %sw.bb2
   %conv12.i = trunc i64 %val to i16
-  %NWayExpansion.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 28
+  %NWayExpansion.i = getelementptr inbounds i8, ptr %opaque, i64 2708
   store i16 %conv12.i, ptr %NWayExpansion.i, align 4
   br label %sw.epilog
 
 sw.bb13.i:                                        ; preds = %sw.bb2
-  %cplus_enabled.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 34
+  %cplus_enabled.i.i = getelementptr inbounds i8, ptr %opaque, i64 10948
   store i32 1, ptr %cplus_enabled.i.i, align 4
-  %CpCmd.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 29
+  %CpCmd.i.i = getelementptr inbounds i8, ptr %opaque, i64 2710
   %30 = load i16, ptr %CpCmd.i.i, align 2
   %31 = and i16 %30, -124
   %32 = trunc i64 %val to i16
@@ -1024,7 +989,7 @@ sw.bb5:                                           ; preds = %entry
   ]
 
 sw.bb.i17:                                        ; preds = %sw.bb5
-  %RxMissed.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 13
+  %RxMissed.i = getelementptr inbounds i8, ptr %opaque, i64 2684
   store i32 0, ptr %RxMissed.i, align 4
   br label %sw.epilog
 
@@ -1037,7 +1002,7 @@ sw.bb1.i14:                                       ; preds = %sw.bb5
 
 if.end.i.i:                                       ; preds = %sw.bb1.i14
   %and.i.i16 = and i32 %conv7, 51316720
-  %TxConfig.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 11
+  %TxConfig.i.i = getelementptr inbounds i8, ptr %opaque, i64 2676
   %37 = load i32, ptr %TxConfig.i.i, align 4
   %and3.i.i = and i32 %37, -51316721
   %or.i.i = or disjoint i32 %and3.i.i, %and.i.i16
@@ -1046,7 +1011,7 @@ if.end.i.i:                                       ; preds = %sw.bb1.i14
 
 sw.bb2.i13:                                       ; preds = %sw.bb5
   %and.i40.i = and i32 %conv7, 251920319
-  %RxConfig.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 12
+  %RxConfig.i.i = getelementptr inbounds i8, ptr %opaque, i64 2680
   %38 = load i32, ptr %RxConfig.i.i, align 8
   %and1.i.i = and i32 %38, -251920320
   %or.i41.i = or disjoint i32 %and1.i.i, %and.i40.i
@@ -1054,25 +1019,26 @@ sw.bb2.i13:                                       ; preds = %sw.bb5
   %shr.i.i = lshr i32 %conv7, 11
   %and4.i.i = and i32 %shr.i.i, 3
   %shl.i.i = shl nuw nsw i32 8192, %and4.i.i
-  %RxBufferSize.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 6
+  %RxBufferSize.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2660
   store i32 %shl.i.i, ptr %RxBufferSize.i.i.i, align 4
-  %RxBufPtr.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 7
+  %RxBufPtr.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2664
   store i32 0, ptr %RxBufPtr.i.i.i, align 8
-  %RxBufAddr.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 8
+  %RxBufAddr.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2668
   store i32 0, ptr %RxBufAddr.i.i.i, align 4
   br label %sw.epilog
 
 sw.bb3.i9:                                        ; preds = %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5
   %sub.i = add nsw i32 %conv.i, -16
   %div22.i.i = lshr i32 %sub.i, 2
-  %cplus_enabled.i.i10 = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 34
+  %cplus_enabled.i.i10 = getelementptr inbounds i8, ptr %opaque, i64 10948
   %39 = load i32, ptr %cplus_enabled.i.i10, align 4
   %tobool.not.i42.i = icmp eq i32 %39, 0
   br i1 %tobool.not.i42.i, label %if.end12.i.i, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %sw.bb3.i9
+  %TxStatus.i.i = getelementptr inbounds i8, ptr %opaque, i64 2624
   %idxprom.i.i = zext nneg i32 %div22.i.i to i64
-  %arrayidx.i.i = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 3, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr [4 x i32], ptr %TxStatus.i.i, i64 0, i64 %idxprom.i.i
   store i32 %conv7, ptr %arrayidx.i.i, align 4
   %cmp.i.i = icmp ugt i32 %sub.i, 3
   %and.i43.i = and i32 %conv7, 8
@@ -1081,10 +1047,9 @@ if.then.i.i11:                                    ; preds = %sw.bb3.i9
   br i1 %or.cond.i.i, label %sw.epilog, label %if.then2.i.i
 
 if.then2.i.i:                                     ; preds = %if.then.i.i11
-  %TxStatus.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 3
   %40 = load i32, ptr %TxStatus.i.i, align 16
   %and5.i.i = and i32 %40, -64
-  %arrayidx7.i.i = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 3, i64 1
+  %arrayidx7.i.i = getelementptr i8, ptr %opaque, i64 2628
   %41 = load i32, ptr %arrayidx7.i.i, align 4
   %conv.i.i.i = zext i32 %and5.i.i to i64
   %conv1.i.i.i = zext i32 %41 to i64
@@ -1094,91 +1059,91 @@ if.then2.i.i:                                     ; preds = %if.then.i.i11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val32.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %val64.i.i.i)
   %call.i.i.i.i12 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
-  %tally_counters1.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 43
+  %tally_counters1.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11136
   %42 = load i64, ptr %tally_counters1.i.i.i, align 8
   store i64 %42, ptr %val64.i.i.i, align 8
-  %bus_master_as.i.i.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i.i12, i64 0, i32 12
+  %bus_master_as.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i12, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %or.i.i.i, i32 1, ptr noundef nonnull %val64.i.i.i, i64 noundef 8, i1 noundef zeroext true) #12
-  %RxOk.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 43, i32 1
+  %RxOk.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11144
   %43 = load i64, ptr %RxOk.i.i.i, align 8
   store i64 %43, ptr %val64.i.i.i, align 8
   %add5.i.i.i = or disjoint i64 %or.i.i.i, 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i39.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add5.i.i.i, i32 1, ptr noundef nonnull %val64.i.i.i, i64 noundef 8, i1 noundef zeroext true) #12
-  %TxERR.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 43, i32 2
+  %TxERR.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11152
   %44 = load i64, ptr %TxERR.i.i.i, align 8
   store i64 %44, ptr %val64.i.i.i, align 8
   %add8.i.i.i = or disjoint i64 %or.i.i.i, 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i41.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add8.i.i.i, i32 1, ptr noundef nonnull %val64.i.i.i, i64 noundef 8, i1 noundef zeroext true) #12
-  %RxERR.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 43, i32 3
+  %RxERR.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11160
   %45 = load i32, ptr %RxERR.i.i.i, align 8
   store i32 %45, ptr %val32.i.i.i, align 4
   %add11.i.i.i = or disjoint i64 %or.i.i.i, 24
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i43.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add11.i.i.i, i32 1, ptr noundef nonnull %val32.i.i.i, i64 noundef 4, i1 noundef zeroext true) #12
-  %MissPkt.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 43, i32 4
+  %MissPkt.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11164
   %46 = load i16, ptr %MissPkt.i.i.i, align 4
   store i16 %46, ptr %val16.i.i.i, align 2
   %add14.i.i.i = or disjoint i64 %or.i.i.i, 28
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i45.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add14.i.i.i, i32 1, ptr noundef nonnull %val16.i.i.i, i64 noundef 2, i1 noundef zeroext true) #12
-  %FAE.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 43, i32 5
+  %FAE.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11166
   %47 = load i16, ptr %FAE.i.i.i, align 2
   store i16 %47, ptr %val16.i.i.i, align 2
   %add17.i.i.i = or disjoint i64 %or.i.i.i, 30
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i47.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add17.i.i.i, i32 1, ptr noundef nonnull %val16.i.i.i, i64 noundef 2, i1 noundef zeroext true) #12
-  %Tx1Col.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 43, i32 6
+  %Tx1Col.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11168
   %48 = load i32, ptr %Tx1Col.i.i.i, align 8
   store i32 %48, ptr %val32.i.i.i, align 4
   %add20.i.i.i = or disjoint i64 %or.i.i.i, 32
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i49.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add20.i.i.i, i32 1, ptr noundef nonnull %val32.i.i.i, i64 noundef 4, i1 noundef zeroext true) #12
-  %TxMCol.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 43, i32 7
+  %TxMCol.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11172
   %49 = load i32, ptr %TxMCol.i.i.i, align 4
   store i32 %49, ptr %val32.i.i.i, align 4
   %add23.i.i.i = or disjoint i64 %or.i.i.i, 36
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i51.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add23.i.i.i, i32 1, ptr noundef nonnull %val32.i.i.i, i64 noundef 4, i1 noundef zeroext true) #12
-  %RxOkPhy.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 43, i32 8
+  %RxOkPhy.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11176
   %50 = load i64, ptr %RxOkPhy.i.i.i, align 8
   store i64 %50, ptr %val64.i.i.i, align 8
   %add26.i.i.i = or disjoint i64 %or.i.i.i, 40
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i53.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add26.i.i.i, i32 1, ptr noundef nonnull %val64.i.i.i, i64 noundef 8, i1 noundef zeroext true) #12
-  %RxOkBrd.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 43, i32 9
+  %RxOkBrd.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11184
   %51 = load i64, ptr %RxOkBrd.i.i.i, align 8
   store i64 %51, ptr %val64.i.i.i, align 8
   %add29.i.i.i = or disjoint i64 %or.i.i.i, 48
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i55.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add29.i.i.i, i32 1, ptr noundef nonnull %val64.i.i.i, i64 noundef 8, i1 noundef zeroext true) #12
-  %RxOkMul.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 43, i32 10
+  %RxOkMul.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11192
   %52 = load i32, ptr %RxOkMul.i.i.i, align 8
   store i32 %52, ptr %val32.i.i.i, align 4
   %add32.i.i.i = or disjoint i64 %or.i.i.i, 56
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i57.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add32.i.i.i, i32 1, ptr noundef nonnull %val32.i.i.i, i64 noundef 4, i1 noundef zeroext true) #12
-  %TxAbt.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 43, i32 11
+  %TxAbt.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11196
   %53 = load i16, ptr %TxAbt.i.i.i, align 4
   store i16 %53, ptr %val16.i.i.i, align 2
   %add35.i.i.i = or disjoint i64 %or.i.i.i, 60
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i59.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i, i64 noundef %add35.i.i.i, i32 1, ptr noundef nonnull %val16.i.i.i, i64 noundef 2, i1 noundef zeroext true) #12
-  %TxUndrn.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 43, i32 12
+  %TxUndrn.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11198
   %54 = load i16, ptr %TxUndrn.i.i.i, align 2
   store i16 %54, ptr %val16.i.i.i, align 2
   %add38.i.i.i = or disjoint i64 %or.i.i.i, 62
@@ -1195,13 +1160,14 @@ if.then2.i.i:                                     ; preds = %if.then.i.i11
 
 if.end12.i.i:                                     ; preds = %sw.bb3.i9
   %and15.i.i = and i32 %conv7, 4145151
+  %TxStatus16.i.i = getelementptr inbounds i8, ptr %opaque, i64 2624
   %idxprom17.i.i = zext nneg i32 %div22.i.i to i64
-  %arrayidx18.i.i = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 3, i64 %idxprom17.i.i
+  %arrayidx18.i.i = getelementptr [4 x i32], ptr %TxStatus16.i.i, i64 0, i64 %idxprom17.i.i
   %56 = load i32, ptr %arrayidx18.i.i, align 4
   %and19.i.i = and i32 %56, 12582912
   %or.i44.i = or disjoint i32 %and19.i.i, %and15.i.i
   store i32 %or.i44.i, ptr %arrayidx18.i.i, align 4
-  %currTxDesc.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 33
+  %currTxDesc.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 10944
   %57 = load i32, ptr %currTxDesc.i.i.i, align 16
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %txbuffer.i.i.i.i)
   %58 = getelementptr i8, ptr %opaque, i64 2697
@@ -1212,7 +1178,7 @@ if.end12.i.i:                                     ; preds = %sw.bb3.i9
 
 if.end.i.i.i.i:                                   ; preds = %if.end12.i.i
   %idxprom.i.i.i.i = sext i32 %57 to i64
-  %arrayidx.i.i.i.i = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 3, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr [4 x i32], ptr %TxStatus16.i.i, i64 0, i64 %idxprom.i.i.i.i
   %60 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %and.i.i.i.i = and i32 %60, 8192
   %tobool2.not.i.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -1222,11 +1188,12 @@ if.end8.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   %call.i.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
   %61 = load i32, ptr %arrayidx.i.i.i.i, align 4
   %and14.i.i.i.i = and i32 %61, 8191
-  %arrayidx16.i.i.i.i = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 4, i64 %idxprom.i.i.i.i
+  %TxAddr.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2640
+  %arrayidx16.i.i.i.i = getelementptr [4 x i32], ptr %TxAddr.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i
   %62 = load i32, ptr %arrayidx16.i.i.i.i, align 4
   %conv.i.i.i.i = zext i32 %62 to i64
   %conv21.i.i.i.i = zext nneg i32 %and14.i.i.i.i to i64
-  %bus_master_as.i.i.i.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i.i.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i.i.i.i, i64 noundef %conv.i.i.i.i, i32 1, ptr noundef nonnull %txbuffer.i.i.i.i, i64 noundef %conv21.i.i.i.i, i1 noundef zeroext false) #12
@@ -1237,11 +1204,11 @@ if.end8.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end8.i.i.i.i
-  %TxConfig22.i.i.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 11
+  %TxConfig22.i.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2676
   %64 = load i32, ptr %TxConfig22.i.i.i.i.i, align 4
   %and23.i.i.i.i.i = and i32 %64, 393216
   %cmp1124.i.i.i.i.i = icmp eq i32 %and23.i.i.i.i.i, 393216
-  %nic.i.i.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 31
+  %nic.i.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2720
   %65 = load ptr, ptr %nic.i.i.i.i.i, align 16
   %call21.i.i.i.i.i = call ptr @qemu_get_queue(ptr noundef %65) #12
   br i1 %cmp1124.i.i.i.i.i, label %if.end19.i.i.i.i.i, label %if.else31.i.i.i.i.i
@@ -1255,13 +1222,13 @@ if.else31.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else31.i.i.i.i.i, %if.end19.i.i.i.i.i, %if.end8.i.i.i.i
-  %IntrStatus.i.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 9
+  %IntrStatus.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2672
   %66 = load i16, ptr %IntrStatus.i.i.i.i, align 16
   %67 = or i16 %66, 4
   store i16 %67, ptr %IntrStatus.i.i.i.i, align 16
   %call.i.i.i.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %opaque, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
   %68 = load i16, ptr %IntrStatus.i.i.i.i, align 16
-  %IntrMask.i.i.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 10
+  %IntrMask.i.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 2674
   %69 = load i16, ptr %IntrMask.i.i.i.i.i, align 2
   %and6.i.i.i.i.i = and i16 %69, %68
   %tobool.i.i.i.i.i = icmp ne i16 %and6.i.i.i.i.i, 0
@@ -1280,36 +1247,37 @@ if.then5.i.i.i:                                   ; preds = %if.end.i.i.i.i, %if
 
 sw.bb5.i8:                                        ; preds = %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5, %sw.bb5
   %sub7.i = add nsw i32 %conv.i, -32
+  %TxAddr.i.i = getelementptr inbounds i8, ptr %opaque, i64 2640
   %div3.i.i = lshr i32 %sub7.i, 2
   %idxprom.i45.i = zext nneg i32 %div3.i.i to i64
-  %arrayidx.i46.i = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 4, i64 %idxprom.i45.i
+  %arrayidx.i46.i = getelementptr [4 x i32], ptr %TxAddr.i.i, i64 0, i64 %idxprom.i45.i
   store i32 %conv7, ptr %arrayidx.i46.i, align 4
   br label %sw.epilog
 
 sw.bb8.i:                                         ; preds = %sw.bb5
-  %RxBuf.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 5
+  %RxBuf.i.i = getelementptr inbounds i8, ptr %opaque, i64 2656
   store i32 %conv7, ptr %RxBuf.i.i, align 16
   br label %sw.epilog
 
 sw.bb9.i:                                         ; preds = %sw.bb5
-  %RxRingAddrLO.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 37
+  %RxRingAddrLO.i = getelementptr inbounds i8, ptr %opaque, i64 10960
   store i32 %conv7, ptr %RxRingAddrLO.i, align 16
   br label %sw.epilog
 
 sw.bb11.i:                                        ; preds = %sw.bb5
-  %RxRingAddrHI.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 38
+  %RxRingAddrHI.i = getelementptr inbounds i8, ptr %opaque, i64 10964
   store i32 %conv7, ptr %RxRingAddrHI.i, align 4
   br label %sw.epilog
 
 sw.bb13.i7:                                       ; preds = %sw.bb5
   %call15.i = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #12
-  %TCTR_base.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 42
+  %TCTR_base.i = getelementptr inbounds i8, ptr %opaque, i64 11128
   store i64 %call15.i, ptr %TCTR_base.i, align 8
   tail call fastcc void @rtl8139_set_next_tctr_time(ptr noundef %opaque)
   br label %sw.epilog
 
 sw.bb16.i:                                        ; preds = %sw.bb5
-  %TimerInt.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 41
+  %TimerInt.i = getelementptr inbounds i8, ptr %opaque, i64 11120
   %71 = load i32, ptr %TimerInt.i, align 16
   %cmp.not.i = icmp eq i32 %71, %conv7
   br i1 %cmp.not.i, label %sw.epilog, label %if.then.i
@@ -1389,22 +1357,24 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry, %entry, %entry, %entry, %entry, %entry
+  %phys = getelementptr inbounds i8, ptr %opaque, i64 2608
   %idxprom = zext nneg i8 %addr to i64
-  %arrayidx = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr [8 x i8], ptr %phys, i64 0, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
   %conv2 = zext i8 %0 to i32
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
+  %mult = getelementptr inbounds i8, ptr %opaque, i64 2616
   %sub6 = add nsw i32 %conv, -8
   %idxprom7 = zext nneg i32 %sub6 to i64
-  %arrayidx8 = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 2, i64 %idxprom7
+  %arrayidx8 = getelementptr [8 x i8], ptr %mult, i64 0, i64 %idxprom7
   %1 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %1 to i32
   br label %sw.epilog
 
 sw.bb10:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
-  %TxStatus = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 3
+  %TxStatus = getelementptr inbounds i8, ptr %opaque, i64 2624
   %sub.i = add nsw i32 %conv, -16
   %div13.i = lshr i32 %sub.i, 2
   %idxprom.i = zext nneg i32 %div13.i to i64
@@ -1417,14 +1387,14 @@ sw.bb10:                                          ; preds = %entry, %entry, %ent
   br label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
-  %bChipCmdState.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 22
+  %bChipCmdState.i = getelementptr inbounds i8, ptr %opaque, i64 2697
   %3 = load i8, ptr %bChipCmdState.i, align 1
-  %RxBufferSize.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 6
+  %RxBufferSize.i.i = getelementptr inbounds i8, ptr %opaque, i64 2660
   %4 = load i32, ptr %RxBufferSize.i.i, align 4
-  %RxBufAddr.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 8
+  %RxBufAddr.i.i = getelementptr inbounds i8, ptr %opaque, i64 2668
   %5 = load i32, ptr %RxBufAddr.i.i, align 4
   %add.i.i = add i32 %5, %4
-  %RxBufPtr.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 7
+  %RxBufPtr.i.i = getelementptr inbounds i8, ptr %opaque, i64 2664
   %6 = load i32, ptr %RxBufPtr.i.i, align 8
   %sub.i.i = sub i32 %add.i.i, %6
   %sub2.i.i = add i32 %4, -1
@@ -1436,7 +1406,7 @@ sw.bb11:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
-  %Cfg9346.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 15
+  %Cfg9346.i = getelementptr inbounds i8, ptr %opaque, i64 2690
   %9 = load i8, ptr %Cfg9346.i, align 2
   %conv.i28 = zext i8 %9 to i32
   %and.i29 = and i32 %conv.i28, 192
@@ -1444,13 +1414,13 @@ sw.bb13:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %sw.epilog
 
 if.then.i:                                        ; preds = %sw.bb13
-  %eecs.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 6
+  %eecs.i.i = getelementptr inbounds i8, ptr %opaque, i64 11110
   %10 = load i8, ptr %eecs.i.i, align 2
   %tobool.not.i.i = icmp eq i8 %10, 0
   br i1 %tobool.not.i.i, label %if.else.i, label %prom9346_get_wire.exit.i
 
 prom9346_get_wire.exit.i:                         ; preds = %if.then.i
-  %eedo.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 9
+  %eedo.i.i = getelementptr inbounds i8, ptr %opaque, i64 11113
   %11 = load i8, ptr %eedo.i.i, align 1
   %tobool.not.i30 = icmp eq i8 %11, 0
   br i1 %tobool.not.i30, label %if.else.i, label %if.then2.i
@@ -1494,7 +1464,7 @@ sw.bb23:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry
-  %BasicModeStatus = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 25
+  %BasicModeStatus = getelementptr inbounds i8, ptr %opaque, i64 2702
   %17 = load i16, ptr %BasicModeStatus, align 2
   %18 = and i16 %17, 4
   %19 = xor i16 %18, 212
@@ -1502,7 +1472,7 @@ sw.bb25:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb28:                                          ; preds = %entry
-  %clock_enabled = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 21
+  %clock_enabled = getelementptr inbounds i8, ptr %opaque, i64 2696
   %20 = load i8, ptr %clock_enabled, align 8
   %conv29 = zext i8 %20 to i32
   br label %sw.epilog
@@ -1511,13 +1481,13 @@ sw.bb31:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb33:                                          ; preds = %entry
-  %TxThresh = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 30
+  %TxThresh = getelementptr inbounds i8, ptr %opaque, i64 2712
   %21 = load i8, ptr %TxThresh, align 8
   %conv34 = zext i8 %21 to i32
   br label %sw.epilog
 
 sw.bb36:                                          ; preds = %entry
-  %TxConfig = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 11
+  %TxConfig = getelementptr inbounds i8, ptr %opaque, i64 2676
   %22 = load i32, ptr %TxConfig, align 4
   %shr = lshr i32 %22, 24
   br label %sw.epilog
@@ -1562,17 +1532,18 @@ entry:
 
 sw.bb:                                            ; preds = %entry, %entry, %entry, %entry, %entry
   %conv1 = trunc i32 %val to i8
+  %phys = getelementptr inbounds i8, ptr %opaque, i64 2608
   %idxprom = zext nneg i8 %addr to i64
-  %arrayidx = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr [8 x i8], ptr %phys, i64 0, i64 %idxprom
   store i8 %conv1, ptr %arrayidx, align 1
   br label %sw.epilog
 
 sw.bb3:                                           ; preds = %entry
   %conv4 = trunc i32 %val to i8
-  %phys5 = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 1
-  %arrayidx9 = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 1, i64 5
+  %phys5 = getelementptr inbounds i8, ptr %opaque, i64 2608
+  %arrayidx9 = getelementptr i8, ptr %opaque, i64 2613
   store i8 %conv4, ptr %arrayidx9, align 1
-  %nic = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 31
+  %nic = getelementptr inbounds i8, ptr %opaque, i64 2720
   %0 = load ptr, ptr %nic, align 16
   %call = tail call ptr @qemu_get_queue(ptr noundef %0) #12
   tail call void @qemu_format_nic_info_str(ptr noundef %call, ptr noundef nonnull %phys5) #12
@@ -1581,9 +1552,10 @@ sw.bb3:                                           ; preds = %entry
 sw.bb12:                                          ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
   %conv = zext nneg i8 %addr to i64
   %conv13 = trunc i32 %val to i8
+  %mult = getelementptr inbounds i8, ptr %opaque, i64 2616
   %sub15 = add nuw nsw i64 %conv, 4294967288
   %idxprom16 = and i64 %sub15, 4294967295
-  %arrayidx17 = getelementptr %struct.RTL8139State, ptr %opaque, i64 0, i32 2, i64 %idxprom16
+  %arrayidx17 = getelementptr [8 x i8], ptr %mult, i64 0, i64 %idxprom16
   store i8 %conv13, ptr %arrayidx17, align 1
   br label %sw.epilog
 
@@ -1603,7 +1575,7 @@ if.end.i:                                         ; preds = %if.then.i, %sw.bb18
   br i1 %tobool5.not.i, label %if.end8.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %currCPlusRxDesc.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 35
+  %currCPlusRxDesc.i = getelementptr inbounds i8, ptr %opaque, i64 10952
   store i32 0, ptr %currCPlusRxDesc.i, align 8
   br label %if.end8.i
 
@@ -1613,12 +1585,12 @@ if.end8.i:                                        ; preds = %if.then6.i, %if.end
   br i1 %tobool10.not.i, label %rtl8139_ChipCmd_write.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end8.i
-  %currCPlusTxDesc.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 36
+  %currCPlusTxDesc.i = getelementptr inbounds i8, ptr %opaque, i64 10956
   store i32 0, ptr %currCPlusTxDesc.i, align 4
   br label %rtl8139_ChipCmd_write.exit
 
 rtl8139_ChipCmd_write.exit:                       ; preds = %if.end8.i, %if.then11.i
-  %bChipCmdState.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 22
+  %bChipCmdState.i = getelementptr inbounds i8, ptr %opaque, i64 2697
   %1 = load i8, ptr %bChipCmdState.i, align 1
   %2 = and i8 %1, -29
   %3 = trunc i32 %val to i8
@@ -1630,7 +1602,7 @@ rtl8139_ChipCmd_write.exit:                       ; preds = %if.end8.i, %if.then
 sw.bb19:                                          ; preds = %entry
   %call.i.i41 = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #12
   %and2.i42 = and i32 %val, 206
-  %Cfg9346.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 15
+  %Cfg9346.i = getelementptr inbounds i8, ptr %opaque, i64 2690
   %5 = load i8, ptr %Cfg9346.i, align 2
   %6 = and i8 %5, 49
   %and3.i = zext nneg i8 %6 to i32
@@ -1647,10 +1619,10 @@ if.then.i43:                                      ; preds = %sw.bb19
   %and7.lobit.i = and i32 %and7.i, 1
   %and8.i = lshr i32 %val, 2
   %and8.lobit.i = and i32 %and8.i, 1
-  %eeprom1.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39
-  %eecs2.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 6
+  %eeprom1.i.i = getelementptr inbounds i8, ptr %opaque, i64 10968
+  %eecs2.i.i = getelementptr inbounds i8, ptr %opaque, i64 11110
   %8 = load i8, ptr %eecs2.i.i, align 2
-  %eesk3.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 7
+  %eesk3.i.i = getelementptr inbounds i8, ptr %opaque, i64 11111
   %9 = load i8, ptr %eesk3.i.i, align 1
   %conv.i.i = trunc i32 %and7.lobit.i to i8
   store i8 %conv.i.i, ptr %eecs2.i.i, align 2
@@ -1658,7 +1630,7 @@ if.then.i43:                                      ; preds = %sw.bb19
   store i8 %conv5.i.i, ptr %eesk3.i.i, align 1
   %10 = lshr i8 %7, 1
   %conv7.i.i = and i8 %10, 1
-  %eedi8.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 8
+  %eedi8.i.i = getelementptr inbounds i8, ptr %opaque, i64 11112
   store i8 %conv7.i.i, ptr %eedi8.i.i, align 4
   %tobool.i.i = icmp eq i8 %8, 0
   %tobool16.i.i = icmp ne i32 %and7.lobit.i, 0
@@ -1666,13 +1638,13 @@ if.then.i43:                                      ; preds = %sw.bb19
   br i1 %or.cond.i.i, label %if.end.thread.i.i, label %if.end.i.i
 
 if.end.thread.i.i:                                ; preds = %if.then.i43
-  %tick.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 2
+  %tick.i.i = getelementptr inbounds i8, ptr %opaque, i64 11100
   store i32 0, ptr %tick.i.i, align 4
-  %input.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 4
+  %input.i.i = getelementptr inbounds i8, ptr %opaque, i64 11106
   store i16 0, ptr %input.i.i, align 2
-  %output.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 5
+  %output.i.i = getelementptr inbounds i8, ptr %opaque, i64 11108
   store i16 0, ptr %output.i.i, align 4
-  %mode.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 1
+  %mode.i.i = getelementptr inbounds i8, ptr %opaque, i64 11096
   store i32 1, ptr %mode.i.i, align 4
   br label %if.end21.i.i
 
@@ -1687,12 +1659,12 @@ if.end21.i.i:                                     ; preds = %if.end.i.i, %if.end
 
 if.then25.i.i:                                    ; preds = %if.end21.i.i
   %cond.i.i.i = zext nneg i8 %conv7.i.i to i32
-  %tick.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 2
+  %tick.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11100
   %11 = load i32, ptr %tick.i.i.i, align 4
   %inc.i.i.i = add i32 %11, 1
   store i32 %inc.i.i.i, ptr %tick.i.i.i, align 4
-  %eedo.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 9
-  %mode.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 1
+  %eedo.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11113
+  %mode.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11096
   %12 = load i32, ptr %mode.i.i.i, align 4
   switch i32 %12, label %rtl8139_Cfg9346_write.exit [
     i32 1, label %sw.bb.i.i.i
@@ -1709,12 +1681,12 @@ sw.bb.i.i.i:                                      ; preds = %if.then25.i.i
 if.then.i.i.i:                                    ; preds = %sw.bb.i.i.i
   store i32 2, ptr %mode.i.i.i, align 4
   store i32 0, ptr %tick.i.i.i, align 4
-  %input.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 4
+  %input.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11106
   store i16 0, ptr %input.i.i.i, align 2
   br label %rtl8139_Cfg9346_write.exit
 
 sw.bb9.i.i.i:                                     ; preds = %if.then25.i.i
-  %input10.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 4
+  %input10.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11106
   %13 = load i16, ptr %input10.i.i.i, align 2
   %conv11.i.i.i = zext i16 %13 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv11.i.i.i, 1
@@ -1734,19 +1706,19 @@ if.then16.i.i.i:                                  ; preds = %sw.bb9.i.i.i
 
 sw.bb.i.i.i.i:                                    ; preds = %if.then16.i.i.i
   %and3.i.i.i.i = and i8 %conv20.i.i.i, 63
-  %address.i.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 3
+  %address.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11104
   store i8 %and3.i.i.i.i, ptr %address.i.i.i.i, align 4
   %idxprom.i.i.i.i = zext nneg i8 %and3.i.i.i.i to i64
   %arrayidx.i.i.i.i = getelementptr [64 x i16], ptr %eeprom1.i.i, i64 0, i64 %idxprom.i.i.i.i
   %14 = load i16, ptr %arrayidx.i.i.i.i, align 2
-  %output.i.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 5
+  %output.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11108
   store i16 %14, ptr %output.i.i.i.i, align 4
   store i8 0, ptr %eedo.i.i.i, align 1
   br label %sw.epilog30.sink.split.i.i.i.i
 
 sw.bb11.i.i.i.i:                                  ; preds = %if.then16.i.i.i
   %and13.i.i.i.i = and i8 %conv20.i.i.i, 63
-  %address15.i.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 3
+  %address15.i.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11104
   store i8 %and13.i.i.i.i, ptr %address15.i.i.i.i, align 4
   store i16 0, ptr %input10.i.i.i, align 2
   br label %sw.epilog30.sink.split.i.i.i.i
@@ -1762,7 +1734,7 @@ prom9346_decode_command.exit.i.i.i:               ; preds = %sw.epilog30.sink.sp
   br label %rtl8139_Cfg9346_write.exit
 
 sw.bb22.i.i.i:                                    ; preds = %if.then25.i.i
-  %output.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 5
+  %output.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11108
   %15 = load i16, ptr %output.i.i.i, align 4
   %.lobit.i.i.i = lshr i16 %15, 15
   %conv27.i.i.i = trunc i16 %.lobit.i.i.i to i8
@@ -1774,13 +1746,13 @@ sw.bb22.i.i.i:                                    ; preds = %if.then25.i.i
 
 if.then36.i.i.i:                                  ; preds = %sw.bb22.i.i.i
   store i32 1, ptr %mode.i.i.i, align 4
-  %input38.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 4
+  %input38.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11106
   store i16 0, ptr %input38.i.i.i, align 2
   store i32 0, ptr %tick.i.i.i, align 4
   br label %rtl8139_Cfg9346_write.exit
 
 sw.bb42.i.i.i:                                    ; preds = %if.then25.i.i
-  %input43.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 4
+  %input43.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11106
   %16 = load i16, ptr %input43.i.i.i, align 2
   %conv44.i.i.i = zext i16 %16 to i32
   %shl45.i.i.i = shl nuw nsw i32 %conv44.i.i.i, 1
@@ -1791,7 +1763,7 @@ sw.bb42.i.i.i:                                    ; preds = %if.then25.i.i
   br i1 %cmp51.i.i.i, label %if.then53.i.i.i, label %rtl8139_Cfg9346_write.exit
 
 if.then53.i.i.i:                                  ; preds = %sw.bb42.i.i.i
-  %address.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 3
+  %address.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11104
   %17 = load i8, ptr %address.i.i.i, align 4
   %idxprom.i.i.i = zext i8 %17 to i64
   %arrayidx.i.i.i = getelementptr [64 x i16], ptr %eeprom1.i.i, i64 0, i64 %idxprom.i.i.i
@@ -1802,7 +1774,7 @@ if.then53.i.i.i:                                  ; preds = %sw.bb42.i.i.i
   br label %rtl8139_Cfg9346_write.exit
 
 sw.bb64.i.i.i:                                    ; preds = %if.then25.i.i
-  %input65.i.i.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 39, i32 4
+  %input65.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 11106
   %18 = load i16, ptr %input65.i.i.i, align 2
   %conv66.i.i.i = zext i16 %18 to i32
   %shl67.i.i.i = shl nuw nsw i32 %conv66.i.i.i, 1
@@ -1844,7 +1816,7 @@ sw.bb20:                                          ; preds = %entry
   br i1 %tobool.not.i.i, label %sw.epilog, label %if.end.i.i44
 
 if.end.i.i44:                                     ; preds = %sw.bb20
-  %TxConfig.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 11
+  %TxConfig.i = getelementptr inbounds i8, ptr %opaque, i64 2676
   %21 = load i32, ptr %TxConfig.i, align 4
   %and1.i = and i32 %val, 240
   %22 = and i32 %21, -241
@@ -1859,7 +1831,7 @@ sw.bb21:                                          ; preds = %entry
   br i1 %cmp.i.i, label %sw.epilog, label %if.end.i45
 
 if.end.i45:                                       ; preds = %sw.bb21
-  %Config0.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 16
+  %Config0.i = getelementptr inbounds i8, ptr %opaque, i64 2691
   %24 = load i8, ptr %Config0.i, align 1
   %25 = and i8 %24, -8
   %26 = trunc i32 %val to i8
@@ -1875,7 +1847,7 @@ sw.bb22:                                          ; preds = %entry
   br i1 %cmp.i.i47, label %sw.epilog, label %if.end.i48
 
 if.end.i48:                                       ; preds = %sw.bb22
-  %Config1.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 17
+  %Config1.i = getelementptr inbounds i8, ptr %opaque, i64 2692
   %29 = load i8, ptr %Config1.i, align 4
   %30 = and i8 %29, 12
   %31 = trunc i32 %val to i8
@@ -1891,7 +1863,7 @@ sw.bb23:                                          ; preds = %entry
   br i1 %cmp.i.i51, label %sw.epilog, label %if.end.i52
 
 if.end.i52:                                       ; preds = %sw.bb23
-  %Config3.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 18
+  %Config3.i = getelementptr inbounds i8, ptr %opaque, i64 2693
   %34 = load i8, ptr %Config3.i, align 1
   %35 = and i8 %34, -113
   %36 = trunc i32 %val to i8
@@ -1907,7 +1879,7 @@ sw.bb24:                                          ; preds = %entry
   br i1 %cmp.i.i55, label %sw.epilog, label %if.end.i56
 
 if.end.i56:                                       ; preds = %sw.bb24
-  %Config4.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 19
+  %Config4.i = getelementptr inbounds i8, ptr %opaque, i64 2694
   %39 = load i8, ptr %Config4.i, align 2
   %40 = and i8 %39, 10
   %41 = trunc i32 %val to i8
@@ -1917,7 +1889,7 @@ if.end.i56:                                       ; preds = %sw.bb24
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry
-  %Config5.i = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 20
+  %Config5.i = getelementptr inbounds i8, ptr %opaque, i64 2695
   %43 = load i8, ptr %Config5.i, align 1
   %44 = and i8 %43, -128
   %45 = trunc i32 %val to i8
@@ -1933,18 +1905,18 @@ sw.bb28:                                          ; preds = %entry
   ]
 
 if.then:                                          ; preds = %sw.bb28
-  %clock_enabled = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 21
+  %clock_enabled = getelementptr inbounds i8, ptr %opaque, i64 2696
   store i8 1, ptr %clock_enabled, align 8
   br label %sw.epilog
 
 if.then33:                                        ; preds = %sw.bb28
-  %clock_enabled34 = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 21
+  %clock_enabled34 = getelementptr inbounds i8, ptr %opaque, i64 2696
   store i8 0, ptr %clock_enabled34, align 8
   br label %sw.epilog
 
 sw.bb36:                                          ; preds = %entry
   %conv38 = trunc i32 %val to i8
-  %TxThresh = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 30
+  %TxThresh = getelementptr inbounds i8, ptr %opaque, i64 2712
   store i8 %conv38, ptr %TxThresh, align 8
   br label %sw.epilog
 
@@ -1970,13 +1942,13 @@ entry:
   %saved_ip_header315.i = alloca [60 x i8], align 16
   %0 = getelementptr i8, ptr %s, i64 2697
   %1 = getelementptr i8, ptr %s, i64 2710
-  %currCPlusTxDesc.i = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 36
-  %TxAddr.i = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 4
-  %cplus_txbuffer_offset.i = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 46
-  %cplus_txbuffer.i = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 44
-  %cplus_txbuffer_len.i = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 45
-  %arrayidx106.i = getelementptr inbounds i16, ptr %dot1q_buffer_space.i, i64 1
-  %tally_counters.i = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 43
+  %currCPlusTxDesc.i = getelementptr inbounds i8, ptr %s, i64 10956
+  %TxAddr.i = getelementptr inbounds i8, ptr %s, i64 2640
+  %cplus_txbuffer_offset.i = getelementptr inbounds i8, ptr %s, i64 11212
+  %cplus_txbuffer.i = getelementptr inbounds i8, ptr %s, i64 11200
+  %cplus_txbuffer_len.i = getelementptr inbounds i8, ptr %s, i64 11208
+  %arrayidx106.i = getelementptr inbounds i8, ptr %dot1q_buffer_space.i, i64 2
+  %tally_counters.i = getelementptr inbounds i8, ptr %s, i64 11136
   %saved_ip_header.i.12.saved_ip_header.i.12.saved_ip_header.i.12.saved_ip_header.12.saved_ip_header.12.add.ptr239.sroa_idx = getelementptr inbounds i8, ptr %saved_ip_header.i, i64 12
   %saved_ip_header315.i.12.saved_ip_header315.i.12.saved_ip_header315.i.12.saved_ip_header315.12.saved_ip_header315.12.add.ptr323.sroa_idx = getelementptr inbounds i8, ptr %saved_ip_header315.i, i64 12
   br label %land.rhs
@@ -2005,7 +1977,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %mul.i = shl i32 %4, 4
   %conv.i = sext i32 %mul.i to i64
   %add.i = add i64 %5, %conv.i
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 576
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext false) #12
@@ -2195,7 +2167,7 @@ if.end197.i:                                      ; preds = %if.end191.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %saved_ip_header.i, ptr nonnull align 1 %add.ptr129.i, i64 %conv146.i, i1 false)
   %add.ptr204.i = getelementptr i8, ptr %add.ptr129.i, i64 %conv146.i
   %add.ptr205.i = getelementptr i8, ptr %add.ptr204.i, i64 -12
-  %th_offset_flags.i = getelementptr inbounds %struct.tcp_header, ptr %add.ptr204.i, i64 0, i32 4
+  %th_offset_flags.i = getelementptr inbounds i8, ptr %add.ptr204.i, i64 12
   %26 = load i16, ptr %th_offset_flags.i, align 4
   %27 = lshr i16 %26, 2
   %28 = and i16 %27, 60
@@ -2213,13 +2185,13 @@ if.end221.i:                                      ; preds = %if.end197.i
   br i1 %cmp226244.i, label %for.body.lr.ph.i, label %skip_offload.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end221.i
-  %th_seq.i = getelementptr inbounds %struct.tcp_header, ptr %add.ptr204.i, i64 0, i32 2
+  %th_seq.i = getelementptr inbounds i8, ptr %add.ptr204.i, i64 4
   %saved_ip_header.i.12.saved_ip_header.i.12.saved_ip_header.i.12.saved_ip_header.12.saved_ip_header.12..i = load i64, ptr %saved_ip_header.i.12.saved_ip_header.i.12.saved_ip_header.i.12.saved_ip_header.12.saved_ip_header.12.add.ptr239.sroa_idx, align 4
   %add.ptr246.i = getelementptr i8, ptr %add.ptr204.i, i64 %conv213.i
   %zeros.i = getelementptr i8, ptr %add.ptr204.i, i64 -4
   %ip_proto.i = getelementptr i8, ptr %add.ptr204.i, i64 -3
   %ip_payload.i = getelementptr i8, ptr %add.ptr204.i, i64 -2
-  %th_sum.i = getelementptr inbounds %struct.tcp_header, ptr %add.ptr204.i, i64 0, i32 6
+  %th_sum.i = getelementptr inbounds i8, ptr %add.ptr204.i, i64 16
   %add277.i = add nuw nsw i32 %shl.i, %shl212.i
   %ip_id.i = getelementptr i8, ptr %16, i64 18
   %ip_sum289.i = getelementptr i8, ptr %16, i64 24
@@ -2319,7 +2291,7 @@ if.then330.i:                                     ; preds = %if.then313.i
   %41 = call i16 @llvm.bswap.i16(i16 %conv166.i)
   %ip_payload337.i = getelementptr i8, ptr %add.ptr320.i, i64 -2
   store i16 %41, ptr %ip_payload337.i, align 2
-  %th_sum340.i = getelementptr inbounds %struct.tcp_header, ptr %add.ptr320.i, i64 0, i32 6
+  %th_sum340.i = getelementptr inbounds i8, ptr %add.ptr320.i, i64 16
   store i16 0, ptr %th_sum340.i, align 4
   %add343.i = add nuw nsw i64 %conv331.i, 12
   %call345.i = call fastcc zeroext i16 @ip_checksum(ptr noundef nonnull %add.ptr321.i, i64 noundef %add343.i)
@@ -2342,7 +2314,7 @@ if.then357.i:                                     ; preds = %if.else350.i
   %42 = call i16 @llvm.bswap.i16(i16 %conv166.i)
   %ip_payload363.i = getelementptr i8, ptr %add.ptr320.i, i64 -2
   store i16 %42, ptr %ip_payload363.i, align 2
-  %uh_sum.i = getelementptr inbounds %struct.udp_header, ptr %add.ptr320.i, i64 0, i32 3
+  %uh_sum.i = getelementptr inbounds i8, ptr %add.ptr320.i, i64 6
   store i16 0, ptr %uh_sum.i, align 2
   %add366.i = add nuw nsw i64 %conv358.i, 12
   %call368.i = call fastcc zeroext i16 @ip_checksum(ptr noundef nonnull %add.ptr321.i, i64 noundef %add366.i)
@@ -2391,13 +2363,13 @@ while.end:                                        ; preds = %land.rhs, %if.end.i
   br i1 %tobool1.not, label %if.end, label %if.else
 
 if.else:                                          ; preds = %while.body, %while.end
-  %IntrStatus = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 9
+  %IntrStatus = getelementptr inbounds i8, ptr %s, i64 2672
   %45 = load i16, ptr %IntrStatus, align 16
   %46 = or i16 %45, 4
   store i16 %46, ptr %IntrStatus, align 16
   %call.i.i6 = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
   %47 = load i16, ptr %IntrStatus, align 16
-  %IntrMask.i = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 10
+  %IntrMask.i = getelementptr inbounds i8, ptr %s, i64 2674
   %48 = load i16, ptr %IntrMask.i, align 2
   %and6.i = and i16 %48, %47
   %tobool.i = icmp ne i16 %and6.i, 0
@@ -2413,9 +2385,9 @@ if.end:                                           ; preds = %while.end, %if.else
 define internal fastcc void @rtl8139_update_irq(ptr noundef %s) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
-  %IntrStatus = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 9
+  %IntrStatus = getelementptr inbounds i8, ptr %s, i64 2672
   %0 = load i16, ptr %IntrStatus, align 16
-  %IntrMask = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 10
+  %IntrMask = getelementptr inbounds i8, ptr %s, i64 2674
   %1 = load i16, ptr %IntrMask, align 2
   %and6 = and i16 %1, %0
   %tobool = icmp ne i16 %and6, 0
@@ -2512,14 +2484,14 @@ if.end10:                                         ; preds = %if.end
   store ptr %add.ptr, ptr %.compoundliteral.sroa.5.0.arraydecay8.sroa_idx, align 16
   %.compoundliteral.sroa.6.0.arraydecay8.sroa_idx = getelementptr inbounds i8, ptr %vlan_iov, i64 40
   store i64 %conv, ptr %.compoundliteral.sroa.6.0.arraydecay8.sroa_idx, align 8
-  %TxConfig = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 11
+  %TxConfig = getelementptr inbounds i8, ptr %s, i64 2676
   %0 = load i32, ptr %TxConfig, align 4
   %and = and i32 %0, 393216
   %cmp11 = icmp eq i32 %and, 393216
   br i1 %cmp11, label %if.then15, label %if.then27
 
 if.end10.thread:                                  ; preds = %if.end
-  %TxConfig22 = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 11
+  %TxConfig22 = getelementptr inbounds i8, ptr %s, i64 2676
   %1 = load i32, ptr %TxConfig22, align 4
   %and23 = and i32 %1, 393216
   %cmp1124 = icmp eq i32 %and23, 393216
@@ -2534,7 +2506,7 @@ if.then15:                                        ; preds = %if.end10
 if.end19:                                         ; preds = %if.end10.thread, %if.then15
   %buf.addr.0 = phi ptr [ %call17, %if.then15 ], [ %buf, %if.end10.thread ]
   %buf2.0 = phi ptr [ %call17, %if.then15 ], [ undef, %if.end10.thread ]
-  %nic = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 31
+  %nic = getelementptr inbounds i8, ptr %s, i64 2720
   %2 = load ptr, ptr %nic, align 16
   %call21 = call ptr @qemu_get_queue(ptr noundef %2) #12
   %call22 = call i64 @qemu_receive_packet(ptr noundef %call21, ptr noundef %buf.addr.0, i32 noundef %size) #12
@@ -2545,14 +2517,14 @@ if.then24:                                        ; preds = %if.end19
   br label %if.end36
 
 if.then27:                                        ; preds = %if.end10
-  %nic28 = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 31
+  %nic28 = getelementptr inbounds i8, ptr %s, i64 2720
   %3 = load ptr, ptr %nic28, align 16
   %call29 = tail call ptr @qemu_get_queue(ptr noundef %3) #12
   %call30 = call i64 @qemu_sendv_packet(ptr noundef %call29, ptr noundef nonnull %vlan_iov, i32 noundef 3) #12
   br label %if.end36
 
 if.else31:                                        ; preds = %if.end10.thread
-  %nic32 = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 31
+  %nic32 = getelementptr inbounds i8, ptr %s, i64 2720
   %4 = load ptr, ptr %nic32, align 16
   %call33 = tail call ptr @qemu_get_queue(ptr noundef %4) #12
   %call34 = tail call i64 @qemu_send_packet(ptr noundef %call33, ptr noundef %buf, i32 noundef %size) #12
@@ -2584,7 +2556,7 @@ declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @rtl8139_set_next_tctr_time(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
-  %TCTR_base = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 42
+  %TCTR_base = getelementptr inbounds i8, ptr %s, i64 11128
   %0 = load i64, ptr %TCTR_base, align 8
   %add10 = add i64 %0, 128849018880
   %call111 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #12
@@ -2601,13 +2573,13 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %while.body, %entry
-  %TimerInt = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 41
+  %TimerInt = getelementptr inbounds i8, ptr %s, i64 11120
   %2 = load i32, ptr %TimerInt, align 16
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.end
-  %timer = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 47
+  %timer = getelementptr inbounds i8, ptr %s, i64 11216
   %3 = load ptr, ptr %timer, align 16
   tail call void @timer_del(ptr noundef %3) #12
   br label %if.end15
@@ -2621,7 +2593,7 @@ if.else:                                          ; preds = %while.end
   %cmp8.not = icmp ugt i64 %add6, %call7
   %add11 = add nuw nsw i64 %mul, 128849018880
   %spec.select = select i1 %cmp8.not, i64 %mul, i64 %add11
-  %timer12 = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 47
+  %timer12 = getelementptr inbounds i8, ptr %s, i64 11216
   %5 = load ptr, ptr %timer12, align 16
   %6 = load i64, ptr %TCTR_base, align 8
   %add14 = add i64 %6, %spec.select
@@ -2647,7 +2619,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %val303.i)
   %call.i = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #12
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
-  %clock_enabled.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 21
+  %clock_enabled.i = getelementptr inbounds i8, ptr %call.i, i64 2696
   %0 = load i8, ptr %clock_enabled.i, align 8
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %rtl8139_do_receive.exit, label %if.end.i
@@ -2660,7 +2632,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool5.not.i, label %rtl8139_do_receive.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
-  %RxConfig.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 12
+  %RxConfig.i = getelementptr inbounds i8, ptr %call.i, i64 2680
   %3 = load i32, ptr %RxConfig.i, align 8
   %and.i = and i32 %3, 1
   %tobool9.not.i = icmp eq i32 %and.i, 0
@@ -2677,14 +2649,14 @@ if.then14.i:                                      ; preds = %if.else.i
   br i1 %tobool17.not.i, label %if.then18.i, label %if.end20.i
 
 if.then18.i:                                      ; preds = %if.then14.i
-  %RxERR.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 43, i32 3
+  %RxERR.i = getelementptr inbounds i8, ptr %call.i, i64 11160
   %4 = load i32, ptr %RxERR.i, align 8
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %RxERR.i, align 8
   br label %rtl8139_do_receive.exit
 
 if.end20.i:                                       ; preds = %if.then14.i
-  %RxOkBrd.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 43, i32 9
+  %RxOkBrd.i = getelementptr inbounds i8, ptr %call.i, i64 11184
   %5 = load i64, ptr %RxOkBrd.i, align 16
   %inc23.i = add i64 %5, 1
   store i64 %inc23.i, ptr %RxOkBrd.i, align 16
@@ -2702,7 +2674,7 @@ if.then27.i:                                      ; preds = %if.else24.i
   br i1 %tobool30.not.i, label %if.then31.i, label %if.end36.i
 
 if.then31.i:                                      ; preds = %if.then27.i
-  %RxERR34.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 43, i32 3
+  %RxERR34.i = getelementptr inbounds i8, ptr %call.i, i64 11160
   %8 = load i32, ptr %RxERR34.i, align 8
   %inc35.i = add i32 %8, 1
   store i32 %inc35.i, ptr %RxERR34.i, align 8
@@ -2711,9 +2683,10 @@ if.then31.i:                                      ; preds = %if.then27.i
 if.end36.i:                                       ; preds = %if.then27.i
   %call37.i = tail call i32 @net_crc32(ptr noundef nonnull %buf, i32 noundef 6) #12
   %shr.i = lshr i32 %call37.i, 26
+  %mult.i = getelementptr inbounds i8, ptr %call.i, i64 2616
   %shr38.i = lshr i32 %call37.i, 29
   %idxprom.i = zext nneg i32 %shr38.i to i64
-  %arrayidx39.i = getelementptr %struct.RTL8139State, ptr %call.i, i64 0, i32 2, i64 %idxprom.i
+  %arrayidx39.i = getelementptr [8 x i8], ptr %mult.i, i64 0, i64 %idxprom.i
   %9 = load i8, ptr %arrayidx39.i, align 1
   %conv40.i = zext i8 %9 to i32
   %and41.i = and i32 %shr.i, 7
@@ -2723,27 +2696,27 @@ if.end36.i:                                       ; preds = %if.then27.i
   br i1 %tobool43.not.i, label %if.then44.i, label %if.end49.i
 
 if.then44.i:                                      ; preds = %if.end36.i
-  %RxERR47.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 43, i32 3
+  %RxERR47.i = getelementptr inbounds i8, ptr %call.i, i64 11160
   %10 = load i32, ptr %RxERR47.i, align 8
   %inc48.i = add i32 %10, 1
   store i32 %inc48.i, ptr %RxERR47.i, align 8
   br label %rtl8139_do_receive.exit
 
 if.end49.i:                                       ; preds = %if.end36.i
-  %RxOkMul.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 43, i32 10
+  %RxOkMul.i = getelementptr inbounds i8, ptr %call.i, i64 11192
   %11 = load i32, ptr %RxOkMul.i, align 8
   %inc53.i = add i32 %11, 1
   store i32 %inc53.i, ptr %RxOkMul.i, align 8
   br label %if.end121.i
 
 if.else54.i:                                      ; preds = %if.else24.i
-  %phys.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 1
+  %phys.i = getelementptr inbounds i8, ptr %call.i, i64 2608
   %12 = load i8, ptr %phys.i, align 16
   %cmp.i = icmp eq i8 %12, %6
   br i1 %cmp.i, label %land.lhs.true.i, label %if.else113.i
 
 land.lhs.true.i:                                  ; preds = %if.else54.i
-  %arrayidx61.i = getelementptr %struct.RTL8139State, ptr %call.i, i64 0, i32 1, i64 1
+  %arrayidx61.i = getelementptr i8, ptr %call.i, i64 2609
   %13 = load i8, ptr %arrayidx61.i, align 1
   %arrayidx63.i = getelementptr i8, ptr %buf, i64 1
   %14 = load i8, ptr %arrayidx63.i, align 1
@@ -2751,7 +2724,7 @@ land.lhs.true.i:                                  ; preds = %if.else54.i
   br i1 %cmp65.i, label %land.lhs.true67.i, label %if.else113.i
 
 land.lhs.true67.i:                                ; preds = %land.lhs.true.i
-  %arrayidx69.i = getelementptr %struct.RTL8139State, ptr %call.i, i64 0, i32 1, i64 2
+  %arrayidx69.i = getelementptr i8, ptr %call.i, i64 2610
   %15 = load i8, ptr %arrayidx69.i, align 2
   %arrayidx71.i = getelementptr i8, ptr %buf, i64 2
   %16 = load i8, ptr %arrayidx71.i, align 1
@@ -2759,7 +2732,7 @@ land.lhs.true67.i:                                ; preds = %land.lhs.true.i
   br i1 %cmp73.i, label %land.lhs.true75.i, label %if.else113.i
 
 land.lhs.true75.i:                                ; preds = %land.lhs.true67.i
-  %arrayidx77.i = getelementptr %struct.RTL8139State, ptr %call.i, i64 0, i32 1, i64 3
+  %arrayidx77.i = getelementptr i8, ptr %call.i, i64 2611
   %17 = load i8, ptr %arrayidx77.i, align 1
   %arrayidx79.i = getelementptr i8, ptr %buf, i64 3
   %18 = load i8, ptr %arrayidx79.i, align 1
@@ -2767,7 +2740,7 @@ land.lhs.true75.i:                                ; preds = %land.lhs.true67.i
   br i1 %cmp81.i, label %land.lhs.true83.i, label %if.else113.i
 
 land.lhs.true83.i:                                ; preds = %land.lhs.true75.i
-  %arrayidx85.i = getelementptr %struct.RTL8139State, ptr %call.i, i64 0, i32 1, i64 4
+  %arrayidx85.i = getelementptr i8, ptr %call.i, i64 2612
   %19 = load i8, ptr %arrayidx85.i, align 4
   %arrayidx87.i = getelementptr i8, ptr %buf, i64 4
   %20 = load i8, ptr %arrayidx87.i, align 1
@@ -2775,7 +2748,7 @@ land.lhs.true83.i:                                ; preds = %land.lhs.true75.i
   br i1 %cmp89.i, label %land.lhs.true91.i, label %if.else113.i
 
 land.lhs.true91.i:                                ; preds = %land.lhs.true83.i
-  %arrayidx93.i = getelementptr %struct.RTL8139State, ptr %call.i, i64 0, i32 1, i64 5
+  %arrayidx93.i = getelementptr i8, ptr %call.i, i64 2613
   %21 = load i8, ptr %arrayidx93.i, align 1
   %arrayidx95.i = getelementptr i8, ptr %buf, i64 5
   %22 = load i8, ptr %arrayidx95.i, align 1
@@ -2788,21 +2761,21 @@ if.then99.i:                                      ; preds = %land.lhs.true91.i
   br i1 %tobool102.not.i, label %if.then103.i, label %if.end108.i
 
 if.then103.i:                                     ; preds = %if.then99.i
-  %RxERR106.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 43, i32 3
+  %RxERR106.i = getelementptr inbounds i8, ptr %call.i, i64 11160
   %23 = load i32, ptr %RxERR106.i, align 8
   %inc107.i = add i32 %23, 1
   store i32 %inc107.i, ptr %RxERR106.i, align 8
   br label %rtl8139_do_receive.exit
 
 if.end108.i:                                      ; preds = %if.then99.i
-  %RxOkPhy.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 43, i32 8
+  %RxOkPhy.i = getelementptr inbounds i8, ptr %call.i, i64 11176
   %24 = load i64, ptr %RxOkPhy.i, align 8
   %inc112.i = add i64 %24, 1
   store i64 %inc112.i, ptr %RxOkPhy.i, align 8
   br label %if.end121.i
 
 if.else113.i:                                     ; preds = %land.lhs.true91.i, %land.lhs.true83.i, %land.lhs.true75.i, %land.lhs.true67.i, %land.lhs.true.i, %if.else54.i
-  %RxERR116.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 43, i32 3
+  %RxERR116.i = getelementptr inbounds i8, ptr %call.i, i64 11160
   %25 = load i32, ptr %RxERR116.i, align 8
   %inc117.i = add i32 %25, 1
   store i32 %inc117.i, ptr %RxERR116.i, align 8
@@ -2818,17 +2791,17 @@ if.end121.i:                                      ; preds = %if.end108.i, %if.en
   br i1 %tobool123.not.i, label %if.else267.i, label %if.then124.i
 
 if.then124.i:                                     ; preds = %if.end121.i
-  %RxRingAddrLO.i.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 37
+  %RxRingAddrLO.i.i = getelementptr inbounds i8, ptr %call.i, i64 10960
   %28 = load i32, ptr %RxRingAddrLO.i.i, align 16
   %cmp.i.i = icmp eq i32 %28, 0
-  %RxRingAddrHI.i.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 38
+  %RxRingAddrHI.i.i = getelementptr inbounds i8, ptr %call.i, i64 10964
   %29 = load i32, ptr %RxRingAddrHI.i.i, align 4
   %cmp1.i.not.i = icmp eq i32 %29, 0
   %or.cond.i = select i1 %cmp.i.i, i1 %cmp1.i.not.i, i1 false
   br i1 %or.cond.i, label %rtl8139_do_receive.exit, label %if.end127.i
 
 if.end127.i:                                      ; preds = %if.then124.i
-  %currCPlusRxDesc.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 35
+  %currCPlusRxDesc.i = getelementptr inbounds i8, ptr %call.i, i64 10952
   %30 = load i32, ptr %currCPlusRxDesc.i, align 8
   %conv.i.i = zext i32 %28 to i64
   %conv1.i.i = zext i32 %29 to i64
@@ -2837,7 +2810,7 @@ if.end127.i:                                      ; preds = %if.then124.i
   %mul.i = shl i32 %30, 4
   %conv130.i = sext i32 %mul.i to i64
   %add.i = add i64 %or.i.i, %conv130.i
-  %bus_master_as.i.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i.i, i64 0, i32 12
+  %bus_master_as.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext false) #12
@@ -2861,25 +2834,25 @@ if.end127.i:                                      ; preds = %if.then124.i
   br i1 %tobool147.not.i, label %if.then148.i, label %if.end159.i
 
 if.then148.i:                                     ; preds = %if.end127.i
-  %IntrStatus.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 9
+  %IntrStatus.i = getelementptr inbounds i8, ptr %call.i, i64 2672
   %35 = load i16, ptr %IntrStatus.i, align 16
   %36 = or i16 %35, 16
   store i16 %36, ptr %IntrStatus.i, align 16
-  %RxMissed.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 13
+  %RxMissed.i = getelementptr inbounds i8, ptr %call.i, i64 2684
   %37 = load i32, ptr %RxMissed.i, align 4
   %inc153.i = add i32 %37, 1
   store i32 %inc153.i, ptr %RxMissed.i, align 4
-  %RxERR155.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 43, i32 3
+  %RxERR155.i = getelementptr inbounds i8, ptr %call.i, i64 11160
   %38 = load i32, ptr %RxERR155.i, align 8
   %inc156.i = add i32 %38, 1
   store i32 %inc156.i, ptr %RxERR155.i, align 8
-  %MissPkt.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 43, i32 4
+  %MissPkt.i = getelementptr inbounds i8, ptr %call.i, i64 11164
   %39 = load i16, ptr %MissPkt.i, align 4
   %inc158.i = add i16 %39, 1
   store i16 %inc158.i, ptr %MissPkt.i, align 4
   %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
   %40 = load i16, ptr %IntrStatus.i, align 16
-  %IntrMask.i.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 10
+  %IntrMask.i.i = getelementptr inbounds i8, ptr %call.i, i64 2674
   %41 = load i16, ptr %IntrMask.i.i, align 2
   %and6.i.i = and i16 %41, %40
   %tobool.i.i = icmp ne i16 %and6.i.i, 0
@@ -2915,19 +2888,19 @@ if.end185.thread.i:                               ; preds = %land.lhs.true164.i
   br i1 %cmp188204.i, label %if.then190.i, label %if.then207.i
 
 if.then190.i:                                     ; preds = %if.end185.thread.i, %if.end185.i
-  %IntrStatus192.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 9
+  %IntrStatus192.i = getelementptr inbounds i8, ptr %call.i, i64 2672
   %44 = load i16, ptr %IntrStatus192.i, align 16
   %45 = or i16 %44, 16
   store i16 %45, ptr %IntrStatus192.i, align 16
-  %RxMissed196.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 13
+  %RxMissed196.i = getelementptr inbounds i8, ptr %call.i, i64 2684
   %46 = load i32, ptr %RxMissed196.i, align 4
   %inc197.i = add i32 %46, 1
   store i32 %inc197.i, ptr %RxMissed196.i, align 4
-  %RxERR199.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 43, i32 3
+  %RxERR199.i = getelementptr inbounds i8, ptr %call.i, i64 11160
   %47 = load i32, ptr %RxERR199.i, align 8
   %inc200.i = add i32 %47, 1
   store i32 %inc200.i, ptr %RxERR199.i, align 8
-  %MissPkt202.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 43, i32 4
+  %MissPkt202.i = getelementptr inbounds i8, ptr %call.i, i64 11164
   %48 = load i16, ptr %MissPkt202.i, align 4
   %inc203.i = add i16 %48, 1
   store i16 %inc203.i, ptr %MissPkt202.i, align 4
@@ -3001,7 +2974,7 @@ if.end215.i:                                      ; preds = %if.else213.i, %if.t
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i185.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %add136.i, i32 1, ptr noundef nonnull %val.i, i64 noundef 4, i1 noundef zeroext true) #12
-  %RxOk.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 43, i32 1
+  %RxOk.i = getelementptr inbounds i8, ptr %call.i, i64 11144
   %51 = load i64, ptr %RxOk.i, align 8
   %inc257.i = add i64 %51, 1
   store i64 %inc257.i, ptr %RxOk.i, align 8
@@ -3020,12 +2993,12 @@ if.end265.i:                                      ; preds = %if.else262.i, %if.e
   br label %if.end321.i
 
 if.else267.i:                                     ; preds = %if.end121.i
-  %RxBufferSize.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 6
+  %RxBufferSize.i = getelementptr inbounds i8, ptr %call.i, i64 2660
   %53 = load i32, ptr %RxBufferSize.i, align 4
-  %RxBufPtr.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 7
+  %RxBufPtr.i = getelementptr inbounds i8, ptr %call.i, i64 2664
   %54 = load i32, ptr %RxBufPtr.i, align 8
   %add269.i = add i32 %54, %53
-  %RxBufAddr.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 8
+  %RxBufAddr.i = getelementptr inbounds i8, ptr %call.i, i64 2668
   %55 = load i32, ptr %RxBufAddr.i, align 4
   %sub270.i = sub i32 %add269.i, %55
   %sub272.i = add i32 %53, -1
@@ -3041,17 +3014,17 @@ land.lhs.true276.i:                               ; preds = %if.else267.i
   br i1 %cmp281.not.i, label %if.end295.i, label %if.then283.i
 
 if.then283.i:                                     ; preds = %land.lhs.true276.i
-  %IntrStatus289.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 9
+  %IntrStatus289.i = getelementptr inbounds i8, ptr %call.i, i64 2672
   %56 = load i16, ptr %IntrStatus289.i, align 16
   %57 = or i16 %56, 16
   store i16 %57, ptr %IntrStatus289.i, align 16
-  %RxMissed293.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 13
+  %RxMissed293.i = getelementptr inbounds i8, ptr %call.i, i64 2684
   %58 = load i32, ptr %RxMissed293.i, align 4
   %inc294.i = add i32 %58, 1
   store i32 %inc294.i, ptr %RxMissed293.i, align 4
   %call.i.i186.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
   %59 = load i16, ptr %IntrStatus289.i, align 16
-  %IntrMask.i188.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 10
+  %IntrMask.i188.i = getelementptr inbounds i8, ptr %call.i, i64 2674
   %60 = load i16, ptr %IntrMask.i188.i, align 2
   %and6.i189.i = and i16 %60, %59
   %tobool.i190.i = icmp ne i16 %and6.i189.i, 0
@@ -3082,13 +3055,13 @@ if.end295.i:                                      ; preds = %land.lhs.true276.i,
   br label %if.end321.i
 
 if.end321.i:                                      ; preds = %if.end295.i, %if.end265.i
-  %IntrStatus322.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 9
+  %IntrStatus322.i = getelementptr inbounds i8, ptr %call.i, i64 2672
   %65 = load i16, ptr %IntrStatus322.i, align 16
   %66 = or i16 %65, 1
   store i16 %66, ptr %IntrStatus322.i, align 16
   %call.i.i192.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
   %67 = load i16, ptr %IntrStatus322.i, align 16
-  %IntrMask.i194.i = getelementptr inbounds %struct.RTL8139State, ptr %call.i, i64 0, i32 10
+  %IntrMask.i194.i = getelementptr inbounds i8, ptr %call.i, i64 2674
   %68 = load i16, ptr %IntrMask.i194.i, align 2
   %and6.i195.i = and i16 %68, %67
   %tobool.i196.i = icmp ne i16 %and6.i195.i, 0
@@ -3107,7 +3080,7 @@ rtl8139_do_receive.exit:                          ; preds = %entry, %if.end.i, %
 define internal zeroext i1 @rtl8139_can_receive(ptr noundef %nc) #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #12
-  %clock_enabled = getelementptr inbounds %struct.RTL8139State, ptr %call, i64 0, i32 21
+  %clock_enabled = getelementptr inbounds i8, ptr %call, i64 2696
   %0 = load i8, ptr %clock_enabled, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -3127,24 +3100,24 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool6.not, label %if.end9, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end4
-  %RxRingAddrLO.i = getelementptr inbounds %struct.RTL8139State, ptr %call, i64 0, i32 37
+  %RxRingAddrLO.i = getelementptr inbounds i8, ptr %call, i64 10960
   %5 = load i32, ptr %RxRingAddrLO.i, align 16
   %cmp.i = icmp eq i32 %5, 0
   br i1 %cmp.i, label %rtl8139_cp_rx_valid.exit, label %return
 
 rtl8139_cp_rx_valid.exit:                         ; preds = %land.lhs.true
-  %RxRingAddrHI.i = getelementptr inbounds %struct.RTL8139State, ptr %call, i64 0, i32 38
+  %RxRingAddrHI.i = getelementptr inbounds i8, ptr %call, i64 10964
   %6 = load i32, ptr %RxRingAddrHI.i, align 4
   %cmp1.i.not = icmp eq i32 %6, 0
   br i1 %cmp1.i.not, label %if.end9, label %return
 
 if.end9:                                          ; preds = %rtl8139_cp_rx_valid.exit, %if.end4
-  %RxBufferSize = getelementptr inbounds %struct.RTL8139State, ptr %call, i64 0, i32 6
+  %RxBufferSize = getelementptr inbounds i8, ptr %call, i64 2660
   %7 = load i32, ptr %RxBufferSize, align 4
-  %RxBufPtr = getelementptr inbounds %struct.RTL8139State, ptr %call, i64 0, i32 7
+  %RxBufPtr = getelementptr inbounds i8, ptr %call, i64 2664
   %8 = load i32, ptr %RxBufPtr, align 8
   %add = add i32 %8, %7
-  %RxBufAddr = getelementptr inbounds %struct.RTL8139State, ptr %call, i64 0, i32 8
+  %RxBufAddr = getelementptr inbounds i8, ptr %call, i64 2668
   %9 = load i32, ptr %RxBufAddr, align 4
   %sub = sub i32 %add, %9
   %sub11 = add i32 %7, -1
@@ -3155,7 +3128,7 @@ if.end9:                                          ; preds = %rtl8139_cp_rx_valid
   br i1 %or.cond, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end9
-  %IntrMask = getelementptr inbounds %struct.RTL8139State, ptr %call, i64 0, i32 10
+  %IntrMask = getelementptr inbounds i8, ptr %call, i64 2674
   %10 = load i16, ptr %IntrMask, align 2
   %11 = and i16 %10, 16
   %tobool14 = icmp ne i16 %11, 0
@@ -3170,22 +3143,22 @@ return:                                           ; preds = %land.lhs.true, %if.
 define internal void @rtl8139_set_link_status(ptr noundef %nc) #0 {
 entry:
   %call = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #12
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %nc, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %nc, i64 8
   %0 = load i32, ptr %link_down, align 8
   %tobool.not = icmp eq i32 %0, 0
-  %BasicModeStatus2 = getelementptr inbounds %struct.RTL8139State, ptr %call, i64 0, i32 25
+  %BasicModeStatus2 = getelementptr inbounds i8, ptr %call, i64 2702
   %1 = load i16, ptr %BasicModeStatus2, align 2
   %2 = and i16 %1, -5
   %masksel = select i1 %tobool.not, i16 4, i16 0
   %.sink = or disjoint i16 %2, %masksel
   store i16 %.sink, ptr %BasicModeStatus2, align 2
-  %IntrStatus = getelementptr inbounds %struct.RTL8139State, ptr %call, i64 0, i32 9
+  %IntrStatus = getelementptr inbounds i8, ptr %call, i64 2672
   %3 = load i16, ptr %IntrStatus, align 16
   %4 = or i16 %3, 32
   store i16 %4, ptr %IntrStatus, align 16
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
   %5 = load i16, ptr %IntrStatus, align 16
-  %IntrMask.i = getelementptr inbounds %struct.RTL8139State, ptr %call, i64 0, i32 10
+  %IntrMask.i = getelementptr inbounds i8, ptr %call, i64 2674
   %6 = load i16, ptr %IntrMask.i, align 2
   %and6.i = and i16 %6, %5
   %tobool.i = icmp ne i16 %and6.i, 0
@@ -3204,10 +3177,10 @@ declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal fastcc void @rtl8139_write_buffer(ptr noundef %s, ptr noundef %buf, i32 noundef %size) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #12
-  %RxBufAddr = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 8
+  %RxBufAddr = getelementptr inbounds i8, ptr %s, i64 2668
   %0 = load i32, ptr %RxBufAddr, align 4
   %add = add i32 %0, %size
-  %RxBufferSize = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 6
+  %RxBufferSize = getelementptr inbounds i8, ptr %s, i64 2660
   %1 = load i32, ptr %RxBufferSize, align 4
   %cmp = icmp ugt i32 %add, %1
   br i1 %cmp, label %if.then, label %if.end29
@@ -3239,12 +3212,12 @@ if.then9.if.end_crit_edge:                        ; preds = %if.then9
   br label %if.end
 
 if.then13:                                        ; preds = %if.then9
-  %RxBuf = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 5
+  %RxBuf = getelementptr inbounds i8, ptr %s, i64 2656
   %3 = load i32, ptr %RxBuf, align 16
   %add15 = add i32 %3, %0
   %conv = zext i32 %add15 to i64
   %conv17 = sext i32 %sub10 to i64
-  %bus_master_as.i.i.i = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 12
+  %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i, i64 noundef %conv, i32 1, ptr noundef %buf, i64 noundef %conv17, i1 noundef zeroext true) #12
@@ -3253,24 +3226,24 @@ if.then13:                                        ; preds = %if.then9
 if.end:                                           ; preds = %if.then9.if.end_crit_edge, %if.then13
   %idx.ext.pre-phi = phi i64 [ %.pre, %if.then9.if.end_crit_edge ], [ %conv17, %if.then13 ]
   store i32 0, ptr %RxBufAddr, align 4
-  %RxBuf20 = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 5
+  %RxBuf20 = getelementptr inbounds i8, ptr %s, i64 2656
   %4 = load i32, ptr %RxBuf20, align 16
   %conv23 = zext i32 %4 to i64
   %add.ptr = getelementptr i8, ptr %buf, i64 %idx.ext.pre-phi
   %conv25 = sext i32 %and to i64
-  %bus_master_as.i.i.i33 = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 12
+  %bus_master_as.i.i.i33 = getelementptr inbounds i8, ptr %call.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i34 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i33, i64 noundef %conv23, i32 1, ptr noundef %add.ptr, i64 noundef %conv25, i1 noundef zeroext true) #12
   br label %return
 
 if.end29:                                         ; preds = %if.then, %land.lhs.true6, %entry
-  %RxBuf30 = getelementptr inbounds %struct.RTL8139State, ptr %s, i64 0, i32 5
+  %RxBuf30 = getelementptr inbounds i8, ptr %s, i64 2656
   %5 = load i32, ptr %RxBuf30, align 16
   %add32 = add i32 %5, %0
   %conv33 = zext i32 %add32 to i64
   %conv34 = sext i32 %size to i64
-  %bus_master_as.i.i.i35 = getelementptr inbounds %struct.PCIDevice, ptr %call.i, i64 0, i32 12
+  %bus_master_as.i.i.i35 = getelementptr inbounds i8, ptr %call.i, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   fence seq_cst
   %call.i.i.i.i36 = tail call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i35, i64 noundef %conv33, i32 1, ptr noundef %buf, i64 noundef %conv34, i1 noundef zeroext true) #12
@@ -3299,24 +3272,24 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %CpCmd = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 29
+  %CpCmd = getelementptr inbounds i8, ptr %opaque, i64 2710
   %0 = load i16, ptr %CpCmd, align 2
   %cmp1 = icmp ne i16 %0, 0
   %conv2 = zext i1 %cmp1 to i32
-  %cplus_enabled = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 34
+  %cplus_enabled = getelementptr inbounds i8, ptr %opaque, i64 10948
   store i32 %conv2, ptr %cplus_enabled, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %BasicModeStatus = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 25
+  %BasicModeStatus = getelementptr inbounds i8, ptr %opaque, i64 2702
   %1 = load i16, ptr %BasicModeStatus, align 2
   %2 = and i16 %1, 4
   %cmp4 = icmp eq i16 %2, 0
   %conv5 = zext i1 %cmp4 to i32
-  %nic = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 31
+  %nic = getelementptr inbounds i8, ptr %opaque, i64 2720
   %3 = load ptr, ptr %nic, align 16
   %call = tail call ptr @qemu_get_queue(ptr noundef %3) #12
-  %link_down = getelementptr inbounds %struct.NetClientState, ptr %call, i64 0, i32 1
+  %link_down = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %conv5, ptr %link_down, align 8
   ret i32 0
 }
@@ -3325,14 +3298,14 @@ if.end:                                           ; preds = %if.then, %entry
 define internal i32 @rtl8139_pre_save(ptr nocapture noundef %opaque) #0 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #12
-  %TCTR_base = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 42
+  %TCTR_base = getelementptr inbounds i8, ptr %opaque, i64 11128
   %0 = load i64, ptr %TCTR_base, align 8
   %sub = sub i64 %call, %0
   %div = sdiv i64 %sub, 30
   %conv = trunc i64 %div to i32
-  %TCTR = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 40
+  %TCTR = getelementptr inbounds i8, ptr %opaque, i64 11116
   store i32 %conv, ptr %TCTR, align 4
-  %rtl8139_mmio_io_addr_dummy = getelementptr inbounds %struct.RTL8139State, ptr %opaque, i64 0, i32 50
+  %rtl8139_mmio_io_addr_dummy = getelementptr inbounds i8, ptr %opaque, i64 11776
   store i32 0, ptr %rtl8139_mmio_io_addr_dummy, align 16
   ret i32 0
 }

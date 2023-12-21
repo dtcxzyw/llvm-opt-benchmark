@@ -6,10 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.AdmissionSyntax_st = type { ptr, ptr }
-%struct.Admissions_st = type { ptr, ptr, ptr }
-%struct.ProfessionInfo_st = type { ptr, ptr, ptr, ptr, ptr }
-%struct.NamingAuthority_st = type { ptr, ptr, ptr }
 
 @NAMING_AUTHORITY_it.local_it = internal constant %struct.ASN1_ITEM_st { i8 1, i64 16, ptr @NAMING_AUTHORITY_seq_tt, i64 3, ptr null, i64 24, ptr @.str }, align 8
 @NAMING_AUTHORITY_seq_tt = internal constant [3 x %struct.ASN1_TEMPLATE_st] [%struct.ASN1_TEMPLATE_st { i64 1, i64 0, i64 0, ptr @.str.4, ptr @ASN1_OBJECT_it }, %struct.ASN1_TEMPLATE_st { i64 1, i64 0, i64 8, ptr @.str.5, ptr @ASN1_IA5STRING_it }, %struct.ASN1_TEMPLATE_st { i64 1, i64 0, i64 16, ptr @.str.6, ptr @DIRECTORYSTRING_it }], align 16
@@ -230,7 +226,7 @@ lor.lhs.false8:                                   ; preds = %lor.lhs.false4
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %lor.lhs.false8, %entry
-  %contentsOfAdmissions = getelementptr inbounds %struct.AdmissionSyntax_st, ptr %in, i64 0, i32 1
+  %contentsOfAdmissions = getelementptr inbounds i8, ptr %in, i64 8
   %2 = load ptr, ptr %contentsOfAdmissions, align 8
   %call1479 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #4
   %cmp1580 = icmp sgt i32 %call1479, 0
@@ -282,7 +278,7 @@ lor.lhs.false36:                                  ; preds = %lor.lhs.false32
   br i1 %cmp38, label %return, label %if.end41
 
 if.end41:                                         ; preds = %lor.lhs.false36, %if.end23
-  %namingAuthority = getelementptr inbounds %struct.Admissions_st, ptr %call19, i64 0, i32 1
+  %namingAuthority = getelementptr inbounds i8, ptr %call19, i64 8
   %7 = load ptr, ptr %namingAuthority, align 8
   %cmp42.not = icmp eq ptr %7, null
   br i1 %cmp42.not, label %if.end49, label %if.then43
@@ -293,7 +289,7 @@ if.then43:                                        ; preds = %if.end41
   br i1 %cmp46.not.not, label %return, label %if.end49
 
 if.end49:                                         ; preds = %if.then43, %if.end41
-  %professionInfos = getelementptr inbounds %struct.Admissions_st, ptr %call19, i64 0, i32 2
+  %professionInfos = getelementptr inbounds i8, ptr %call19, i64 16
   %8 = load ptr, ptr %professionInfos, align 8
   %call5276 = call i32 @OPENSSL_sk_num(ptr noundef %8) #4
   %cmp5377 = icmp sgt i32 %call5276, 0
@@ -309,7 +305,7 @@ for.body54:                                       ; preds = %if.end49, %for.inc1
   br i1 %cmp60, label %return, label %if.end62
 
 if.end62:                                         ; preds = %for.body54
-  %registrationNumber = getelementptr inbounds %struct.ProfessionInfo_st, ptr %call57, i64 0, i32 3
+  %registrationNumber = getelementptr inbounds i8, ptr %call57, i64 24
   %10 = load ptr, ptr %registrationNumber, align 8
   %cmp63.not = icmp eq ptr %10, null
   br i1 %cmp63.not, label %if.end76, label %if.then64
@@ -341,7 +337,7 @@ if.then79:                                        ; preds = %if.end76
   br i1 %cmp83.not.not, label %return, label %if.end86
 
 if.end86:                                         ; preds = %if.then79, %if.end76
-  %professionItems = getelementptr inbounds %struct.ProfessionInfo_st, ptr %call57, i64 0, i32 1
+  %professionItems = getelementptr inbounds i8, ptr %call57, i64 8
   %13 = load ptr, ptr %professionItems, align 8
   %cmp87.not = icmp eq ptr %13, null
   br i1 %cmp87.not, label %if.end112, label %if.then88
@@ -383,7 +379,7 @@ lor.lhs.false107:                                 ; preds = %lor.lhs.false104
   br i1 %cmp109, label %return, label %for.cond93
 
 if.end112:                                        ; preds = %for.cond93, %for.cond93.preheader, %if.end86
-  %professionOIDs = getelementptr inbounds %struct.ProfessionInfo_st, ptr %call57, i64 0, i32 2
+  %professionOIDs = getelementptr inbounds i8, ptr %call57, i64 16
   %17 = load ptr, ptr %professionOIDs, align 8
   %cmp113.not = icmp eq ptr %17, null
   br i1 %cmp113.not, label %for.inc144, label %if.then114
@@ -453,7 +449,7 @@ declare void @ASN1_OBJECT_free(ptr noundef) #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @NAMING_AUTHORITY_get0_authorityURL(ptr nocapture noundef readonly %n) local_unnamed_addr #3 {
 entry:
-  %namingAuthorityUrl = getelementptr inbounds %struct.NamingAuthority_st, ptr %n, i64 0, i32 1
+  %namingAuthorityUrl = getelementptr inbounds i8, ptr %n, i64 8
   %0 = load ptr, ptr %namingAuthorityUrl, align 8
   ret ptr %0
 }
@@ -461,7 +457,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @NAMING_AUTHORITY_set0_authorityURL(ptr nocapture noundef %n, ptr noundef %u) local_unnamed_addr #1 {
 entry:
-  %namingAuthorityUrl = getelementptr inbounds %struct.NamingAuthority_st, ptr %n, i64 0, i32 1
+  %namingAuthorityUrl = getelementptr inbounds i8, ptr %n, i64 8
   %0 = load ptr, ptr %namingAuthorityUrl, align 8
   tail call void @ASN1_IA5STRING_free(ptr noundef %0) #4
   store ptr %u, ptr %namingAuthorityUrl, align 8
@@ -473,7 +469,7 @@ declare void @ASN1_IA5STRING_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @NAMING_AUTHORITY_get0_authorityText(ptr nocapture noundef readonly %n) local_unnamed_addr #3 {
 entry:
-  %namingAuthorityText = getelementptr inbounds %struct.NamingAuthority_st, ptr %n, i64 0, i32 2
+  %namingAuthorityText = getelementptr inbounds i8, ptr %n, i64 16
   %0 = load ptr, ptr %namingAuthorityText, align 8
   ret ptr %0
 }
@@ -481,7 +477,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @NAMING_AUTHORITY_set0_authorityText(ptr nocapture noundef %n, ptr noundef %t) local_unnamed_addr #1 {
 entry:
-  %namingAuthorityText = getelementptr inbounds %struct.NamingAuthority_st, ptr %n, i64 0, i32 2
+  %namingAuthorityText = getelementptr inbounds i8, ptr %n, i64 16
   %0 = load ptr, ptr %namingAuthorityText, align 8
   tail call void @ASN1_IA5STRING_free(ptr noundef %0) #4
   store ptr %t, ptr %namingAuthorityText, align 8
@@ -509,7 +505,7 @@ declare void @GENERAL_NAME_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ADMISSION_SYNTAX_get0_contentsOfAdmissions(ptr nocapture noundef readonly %as) local_unnamed_addr #3 {
 entry:
-  %contentsOfAdmissions = getelementptr inbounds %struct.AdmissionSyntax_st, ptr %as, i64 0, i32 1
+  %contentsOfAdmissions = getelementptr inbounds i8, ptr %as, i64 8
   %0 = load ptr, ptr %contentsOfAdmissions, align 8
   ret ptr %0
 }
@@ -517,7 +513,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @ADMISSION_SYNTAX_set0_contentsOfAdmissions(ptr nocapture noundef %as, ptr noundef %a) local_unnamed_addr #1 {
 entry:
-  %contentsOfAdmissions = getelementptr inbounds %struct.AdmissionSyntax_st, ptr %as, i64 0, i32 1
+  %contentsOfAdmissions = getelementptr inbounds i8, ptr %as, i64 8
   %0 = load ptr, ptr %contentsOfAdmissions, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef nonnull @ADMISSIONS_free) #4
   store ptr %a, ptr %contentsOfAdmissions, align 8
@@ -545,7 +541,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ADMISSIONS_get0_namingAuthority(ptr nocapture noundef readonly %a) local_unnamed_addr #3 {
 entry:
-  %namingAuthority = getelementptr inbounds %struct.Admissions_st, ptr %a, i64 0, i32 1
+  %namingAuthority = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %namingAuthority, align 8
   ret ptr %0
 }
@@ -553,7 +549,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @ADMISSIONS_set0_namingAuthority(ptr nocapture noundef %a, ptr noundef %na) local_unnamed_addr #1 {
 entry:
-  %namingAuthority = getelementptr inbounds %struct.Admissions_st, ptr %a, i64 0, i32 1
+  %namingAuthority = getelementptr inbounds i8, ptr %a, i64 8
   %0 = load ptr, ptr %namingAuthority, align 8
   tail call void @ASN1_item_free(ptr noundef %0, ptr noundef nonnull @NAMING_AUTHORITY_it.local_it) #4
   store ptr %na, ptr %namingAuthority, align 8
@@ -563,7 +559,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ADMISSIONS_get0_professionInfos(ptr nocapture noundef readonly %a) local_unnamed_addr #3 {
 entry:
-  %professionInfos = getelementptr inbounds %struct.Admissions_st, ptr %a, i64 0, i32 2
+  %professionInfos = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %professionInfos, align 8
   ret ptr %0
 }
@@ -571,7 +567,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @ADMISSIONS_set0_professionInfos(ptr nocapture noundef %a, ptr noundef %pi) local_unnamed_addr #1 {
 entry:
-  %professionInfos = getelementptr inbounds %struct.Admissions_st, ptr %a, i64 0, i32 2
+  %professionInfos = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %professionInfos, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef nonnull @PROFESSION_INFO_free) #4
   store ptr %pi, ptr %professionInfos, align 8
@@ -581,7 +577,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @PROFESSION_INFO_get0_addProfessionInfo(ptr nocapture noundef readonly %pi) local_unnamed_addr #3 {
 entry:
-  %addProfessionInfo = getelementptr inbounds %struct.ProfessionInfo_st, ptr %pi, i64 0, i32 4
+  %addProfessionInfo = getelementptr inbounds i8, ptr %pi, i64 32
   %0 = load ptr, ptr %addProfessionInfo, align 8
   ret ptr %0
 }
@@ -589,7 +585,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @PROFESSION_INFO_set0_addProfessionInfo(ptr nocapture noundef %pi, ptr noundef %aos) local_unnamed_addr #1 {
 entry:
-  %addProfessionInfo = getelementptr inbounds %struct.ProfessionInfo_st, ptr %pi, i64 0, i32 4
+  %addProfessionInfo = getelementptr inbounds i8, ptr %pi, i64 32
   %0 = load ptr, ptr %addProfessionInfo, align 8
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %0) #4
   store ptr %aos, ptr %addProfessionInfo, align 8
@@ -617,7 +613,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @PROFESSION_INFO_get0_professionItems(ptr nocapture noundef readonly %pi) local_unnamed_addr #3 {
 entry:
-  %professionItems = getelementptr inbounds %struct.ProfessionInfo_st, ptr %pi, i64 0, i32 1
+  %professionItems = getelementptr inbounds i8, ptr %pi, i64 8
   %0 = load ptr, ptr %professionItems, align 8
   ret ptr %0
 }
@@ -625,7 +621,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @PROFESSION_INFO_set0_professionItems(ptr nocapture noundef %pi, ptr noundef %as) local_unnamed_addr #1 {
 entry:
-  %professionItems = getelementptr inbounds %struct.ProfessionInfo_st, ptr %pi, i64 0, i32 1
+  %professionItems = getelementptr inbounds i8, ptr %pi, i64 8
   %0 = load ptr, ptr %professionItems, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef nonnull @ASN1_STRING_free) #4
   store ptr %as, ptr %professionItems, align 8
@@ -637,7 +633,7 @@ declare void @ASN1_STRING_free(ptr noundef) #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @PROFESSION_INFO_get0_professionOIDs(ptr nocapture noundef readonly %pi) local_unnamed_addr #3 {
 entry:
-  %professionOIDs = getelementptr inbounds %struct.ProfessionInfo_st, ptr %pi, i64 0, i32 2
+  %professionOIDs = getelementptr inbounds i8, ptr %pi, i64 16
   %0 = load ptr, ptr %professionOIDs, align 8
   ret ptr %0
 }
@@ -645,7 +641,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @PROFESSION_INFO_set0_professionOIDs(ptr nocapture noundef %pi, ptr noundef %po) local_unnamed_addr #1 {
 entry:
-  %professionOIDs = getelementptr inbounds %struct.ProfessionInfo_st, ptr %pi, i64 0, i32 2
+  %professionOIDs = getelementptr inbounds i8, ptr %pi, i64 16
   %0 = load ptr, ptr %professionOIDs, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef nonnull @ASN1_OBJECT_free) #4
   store ptr %po, ptr %professionOIDs, align 8
@@ -655,7 +651,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @PROFESSION_INFO_get0_registrationNumber(ptr nocapture noundef readonly %pi) local_unnamed_addr #3 {
 entry:
-  %registrationNumber = getelementptr inbounds %struct.ProfessionInfo_st, ptr %pi, i64 0, i32 3
+  %registrationNumber = getelementptr inbounds i8, ptr %pi, i64 24
   %0 = load ptr, ptr %registrationNumber, align 8
   ret ptr %0
 }
@@ -663,7 +659,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @PROFESSION_INFO_set0_registrationNumber(ptr nocapture noundef %pi, ptr noundef %rn) local_unnamed_addr #1 {
 entry:
-  %registrationNumber = getelementptr inbounds %struct.ProfessionInfo_st, ptr %pi, i64 0, i32 3
+  %registrationNumber = getelementptr inbounds i8, ptr %pi, i64 24
   %0 = load ptr, ptr %registrationNumber, align 8
   tail call void @ASN1_PRINTABLESTRING_free(ptr noundef %0) #4
   store ptr %rn, ptr %registrationNumber, align 8
@@ -701,13 +697,13 @@ entry:
   br i1 %cmp1, label %land.lhs.true, label %if.end6
 
 land.lhs.true:                                    ; preds = %entry
-  %namingAuthorityText = getelementptr inbounds %struct.NamingAuthority_st, ptr %in, i64 0, i32 2
+  %namingAuthorityText = getelementptr inbounds i8, ptr %in, i64 16
   %1 = load ptr, ptr %namingAuthorityText, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %land.lhs.true3, label %if.end6
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %namingAuthorityUrl = getelementptr inbounds %struct.NamingAuthority_st, ptr %in, i64 0, i32 1
+  %namingAuthorityUrl = getelementptr inbounds i8, ptr %in, i64 8
   %2 = load ptr, ptr %namingAuthorityUrl, align 8
   %cmp4 = icmp eq ptr %2, null
   br i1 %cmp4, label %return, label %if.end6
@@ -741,7 +737,7 @@ if.end19:                                         ; preds = %if.then12
   br i1 %cmp28, label %err, label %if.end31
 
 if.end31:                                         ; preds = %if.end19, %if.end9
-  %namingAuthorityText32 = getelementptr inbounds %struct.NamingAuthority_st, ptr %in, i64 0, i32 2
+  %namingAuthorityText32 = getelementptr inbounds i8, ptr %in, i64 16
   %5 = load ptr, ptr %namingAuthorityText32, align 8
   %cmp33.not = icmp eq ptr %5, null
   br i1 %cmp33.not, label %if.end45, label %if.then34
@@ -763,7 +759,7 @@ lor.lhs.false40:                                  ; preds = %lor.lhs.false
   br i1 %cmp42, label %err, label %if.end45
 
 if.end45:                                         ; preds = %lor.lhs.false40, %if.end31
-  %namingAuthorityUrl46 = getelementptr inbounds %struct.NamingAuthority_st, ptr %in, i64 0, i32 1
+  %namingAuthorityUrl46 = getelementptr inbounds i8, ptr %in, i64 8
   %7 = load ptr, ptr %namingAuthorityUrl46, align 8
   %cmp47.not = icmp eq ptr %7, null
   br i1 %cmp47.not, label %return, label %if.then48

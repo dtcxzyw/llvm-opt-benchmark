@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libdefault-lib-endecoder_common.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_dispatch_st = type { i32, ptr }
-%struct.buf_mem_st = type { i64, ptr, i64, i64 }
-
 @.str = private unnamed_addr constant [70 x i8] c"../openssl/providers/implementations/encode_decode/endecoder_common.c\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -27,7 +24,7 @@ if.then:                                          ; preds = %for.cond
   br label %return
 
 for.inc:                                          ; preds = %for.cond
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %fns.addr.0, i64 16
   br label %for.cond, !llvm.loop !4
 
 return:                                           ; preds = %for.cond, %if.then
@@ -54,7 +51,7 @@ if.then:                                          ; preds = %for.cond
   br label %return
 
 for.inc:                                          ; preds = %for.cond
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %fns.addr.0, i64 16
   br label %for.cond, !llvm.loop !6
 
 return:                                           ; preds = %for.cond, %if.then
@@ -81,7 +78,7 @@ if.then:                                          ; preds = %for.cond
   br label %return
 
 for.inc:                                          ; preds = %for.cond
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %fns.addr.0, i64 16
   br label %for.cond, !llvm.loop !7
 
 return:                                           ; preds = %for.cond, %if.then
@@ -108,7 +105,7 @@ if.then:                                          ; preds = %for.cond
   br label %return
 
 for.inc:                                          ; preds = %for.cond
-  %incdec.ptr = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %fns.addr.0, i64 16
   br label %for.cond, !llvm.loop !8
 
 return:                                           ; preds = %for.cond, %if.then
@@ -135,7 +132,7 @@ if.then.i:                                        ; preds = %for.cond.i
   br label %ossl_prov_get_keymgmt_new.exit
 
 for.inc.i:                                        ; preds = %for.cond.i
-  %incdec.ptr.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %fns.addr.0.i, i64 16
   br label %for.cond.i, !llvm.loop !4
 
 ossl_prov_get_keymgmt_new.exit:                   ; preds = %for.cond.i, %if.then.i
@@ -156,7 +153,7 @@ if.then.i11:                                      ; preds = %for.cond.i9
   br label %ossl_prov_get_keymgmt_free.exit
 
 for.inc.i14:                                      ; preds = %for.cond.i9
-  %incdec.ptr.i15 = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i10, i64 1
+  %incdec.ptr.i15 = getelementptr inbounds i8, ptr %fns.addr.0.i10, i64 16
   br label %for.cond.i9, !llvm.loop !6
 
 ossl_prov_get_keymgmt_free.exit:                  ; preds = %for.cond.i9, %if.then.i11
@@ -172,7 +169,7 @@ for.cond.i16:                                     ; preds = %for.inc.i21, %ossl_
   ]
 
 for.inc.i21:                                      ; preds = %for.cond.i16
-  %incdec.ptr.i22 = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i17, i64 1
+  %incdec.ptr.i22 = getelementptr inbounds i8, ptr %fns.addr.0.i17, i64 16
   br label %for.cond.i16, !llvm.loop !7
 
 ossl_prov_get_keymgmt_import.exit:                ; preds = %for.cond.i16
@@ -218,7 +215,7 @@ for.cond.i:                                       ; preds = %for.inc.i, %entry
   ]
 
 for.inc.i:                                        ; preds = %for.cond.i
-  %incdec.ptr.i = getelementptr inbounds %struct.ossl_dispatch_st, ptr %fns.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %fns.addr.0.i, i64 16
   br label %for.cond.i, !llvm.loop !6
 
 ossl_prov_get_keymgmt_free.exit:                  ; preds = %for.cond.i
@@ -252,7 +249,7 @@ if.end:                                           ; preds = %entry
 
 if.then3:                                         ; preds = %if.end
   %0 = load ptr, ptr %mem, align 8
-  %data4 = getelementptr inbounds %struct.buf_mem_st, ptr %0, i64 0, i32 1
+  %data4 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %data4, align 8
   store ptr %1, ptr %data, align 8
   %2 = load i64, ptr %0, align 8

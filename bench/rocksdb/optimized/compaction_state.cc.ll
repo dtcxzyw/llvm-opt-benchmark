@@ -7,79 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl" }
 %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.rocksdb::CompactionState" = type { ptr, %"class.std::vector.0", %"class.rocksdb::Status" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<rocksdb::SubcompactionState, std::allocator<rocksdb::SubcompactionState>>::_Vector_impl" }
-%"struct.std::_Vector_base<rocksdb::SubcompactionState, std::allocator<rocksdb::SubcompactionState>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::SubcompactionState, std::allocator<rocksdb::SubcompactionState>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<rocksdb::SubcompactionState, std::allocator<rocksdb::SubcompactionState>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.rocksdb::Status" = type { i8, i8, i8, i8, i8, i8, %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.6" }
-%"struct.std::_Head_base.6" = type { ptr }
-%"class.rocksdb::SubcompactionState" = type <{ ptr, %"class.std::optional", %"class.std::optional", %"class.rocksdb::Status", %"class.rocksdb::IOStatus", i8, [7 x i8], %"struct.rocksdb::CompactionJobStats", i32, [4 x i8], %"class.rocksdb::CompactionOutputs", %"class.rocksdb::CompactionOutputs", ptr, i8, i8, [6 x i8] }>
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<rocksdb::Slice>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<rocksdb::Slice>::_Storage" = type { %"class.rocksdb::Slice" }
-%"class.rocksdb::Slice" = type { ptr, i64 }
-%"class.rocksdb::IOStatus" = type { %"class.rocksdb::Status" }
-%"struct.rocksdb::CompactionJobStats" = type { i64, i64, i8, i64, i64, i64, i64, i64, i64, i64, i8, i8, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.rocksdb::CompactionOutputs" = type { ptr, %"class.std::unique_ptr.10", %"class.std::unique_ptr.18", i64, %"class.std::vector.26", %"class.std::vector.31", %"class.std::unique_ptr.36", %"struct.rocksdb::InternalStats::CompactionOutputsStats", i8, %"class.std::unique_ptr.44", %"class.std::__cxx11::basic_string", %"class.std::unique_ptr.52", i8, ptr, %"class.std::vector.60", i32, i32, i64, i8, i64, i8, i64, %"class.rocksdb::InternalKey", %"class.std::vector.65" }
-%"class.std::unique_ptr.10" = type { %"struct.std::__uniq_ptr_data.11" }
-%"struct.std::__uniq_ptr_data.11" = type { %"class.std::__uniq_ptr_impl.12" }
-%"class.std::__uniq_ptr_impl.12" = type { %"class.std::tuple.13" }
-%"class.std::tuple.13" = type { %"struct.std::_Tuple_impl.14" }
-%"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
-%"struct.std::_Head_base.17" = type { ptr }
-%"class.std::unique_ptr.18" = type { %"struct.std::__uniq_ptr_data.19" }
-%"struct.std::__uniq_ptr_data.19" = type { %"class.std::__uniq_ptr_impl.20" }
-%"class.std::__uniq_ptr_impl.20" = type { %"class.std::tuple.21" }
-%"class.std::tuple.21" = type { %"struct.std::_Tuple_impl.22" }
-%"struct.std::_Tuple_impl.22" = type { %"struct.std::_Head_base.25" }
-%"struct.std::_Head_base.25" = type { ptr }
-%"class.std::vector.26" = type { %"struct.std::_Vector_base.27" }
-%"struct.std::_Vector_base.27" = type { %"struct.std::_Vector_base<rocksdb::CompactionOutputs::Output, std::allocator<rocksdb::CompactionOutputs::Output>>::_Vector_impl" }
-%"struct.std::_Vector_base<rocksdb::CompactionOutputs::Output, std::allocator<rocksdb::CompactionOutputs::Output>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::CompactionOutputs::Output, std::allocator<rocksdb::CompactionOutputs::Output>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<rocksdb::CompactionOutputs::Output, std::allocator<rocksdb::CompactionOutputs::Output>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.31" = type { %"struct.std::_Vector_base.32" }
-%"struct.std::_Vector_base.32" = type { %"struct.std::_Vector_base<rocksdb::BlobFileAddition, std::allocator<rocksdb::BlobFileAddition>>::_Vector_impl" }
-%"struct.std::_Vector_base<rocksdb::BlobFileAddition, std::allocator<rocksdb::BlobFileAddition>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::BlobFileAddition, std::allocator<rocksdb::BlobFileAddition>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<rocksdb::BlobFileAddition, std::allocator<rocksdb::BlobFileAddition>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.36" = type { %"struct.std::__uniq_ptr_data.37" }
-%"struct.std::__uniq_ptr_data.37" = type { %"class.std::__uniq_ptr_impl.38" }
-%"class.std::__uniq_ptr_impl.38" = type { %"class.std::tuple.39" }
-%"class.std::tuple.39" = type { %"struct.std::_Tuple_impl.40" }
-%"struct.std::_Tuple_impl.40" = type { %"struct.std::_Head_base.43" }
-%"struct.std::_Head_base.43" = type { ptr }
-%"struct.rocksdb::InternalStats::CompactionOutputsStats" = type { i64, i64, i64, i64, i64 }
-%"class.std::unique_ptr.44" = type { %"struct.std::__uniq_ptr_data.45" }
-%"struct.std::__uniq_ptr_data.45" = type { %"class.std::__uniq_ptr_impl.46" }
-%"class.std::__uniq_ptr_impl.46" = type { %"class.std::tuple.47" }
-%"class.std::tuple.47" = type { %"struct.std::_Tuple_impl.48" }
-%"struct.std::_Tuple_impl.48" = type { %"struct.std::_Head_base.51" }
-%"struct.std::_Head_base.51" = type { ptr }
-%"class.std::unique_ptr.52" = type { %"struct.std::__uniq_ptr_data.53" }
-%"struct.std::__uniq_ptr_data.53" = type { %"class.std::__uniq_ptr_impl.54" }
-%"class.std::__uniq_ptr_impl.54" = type { %"class.std::tuple.55" }
-%"class.std::tuple.55" = type { %"struct.std::_Tuple_impl.56" }
-%"struct.std::_Tuple_impl.56" = type { %"struct.std::_Head_base.59" }
-%"struct.std::_Head_base.59" = type { ptr }
-%"class.std::vector.60" = type { %"struct.std::_Vector_base.61" }
-%"struct.std::_Vector_base.61" = type { %"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl" }
-%"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.rocksdb::InternalKey" = type { %"class.std::__cxx11::basic_string" }
-%"class.std::vector.65" = type { %"struct.std::_Vector_base.66" }
-%"struct.std::_Vector_base.66" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev = comdat any
 
@@ -108,15 +35,15 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define { ptr, i64 } @_ZN7rocksdb15CompactionState15SmallestUserKeyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %sub_compact_states = getelementptr inbounds %"class.rocksdb::CompactionState", ptr %this, i64 0, i32 1
+  %sub_compact_states = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %sub_compact_states, align 8
-  %_M_finish.i = getelementptr inbounds %"class.rocksdb::CompactionState", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not10 = icmp eq ptr %0, %1
   br i1 %cmp.i.not10, label %return, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr.i = getelementptr inbounds %"class.rocksdb::SubcompactionState", ptr %__begin1.sroa.0.011, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.011, i64 1056
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %return, label %for.body
 
@@ -144,8 +71,8 @@ declare { ptr, i64 } @_ZNK7rocksdb18SubcompactionState15SmallestUserKeyEv(ptr no
 ; Function Attrs: mustprogress uwtable
 define { ptr, i64 } @_ZN7rocksdb15CompactionState14LargestUserKeyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %sub_compact_states = getelementptr inbounds %"class.rocksdb::CompactionState", ptr %this, i64 0, i32 1
-  %_M_finish.i.i = getelementptr inbounds %"class.rocksdb::CompactionState", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %sub_compact_states = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !noalias !4
   br label %for.cond
 
@@ -156,7 +83,7 @@ for.cond:                                         ; preds = %for.body, %entry
   br i1 %cmp.i.i, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond
-  %incdec.ptr.i.i = getelementptr inbounds %"class.rocksdb::SubcompactionState", ptr %it.sroa.0.0, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0, i64 -1056
   %call4 = tail call { ptr, i64 } @_ZNK7rocksdb18SubcompactionState14LargestUserKeyEv(ptr noundef nonnull align 8 dereferenceable(1050) %incdec.ptr.i.i)
   %2 = extractvalue { ptr, i64 } %call4, 1
   %cmp.i = icmp eq i64 %2, 0
@@ -179,9 +106,9 @@ declare { ptr, i64 } @_ZNK7rocksdb18SubcompactionState14LargestUserKeyEv(ptr nou
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb15CompactionState24AggregateCompactionStatsERNS_13InternalStats19CompactionStatsFullERNS_18CompactionJobStatsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(392) %compaction_stats, ptr noundef nonnull align 8 dereferenceable(280) %compaction_job_stats) local_unnamed_addr #2 align 2 {
 entry:
-  %sub_compact_states = getelementptr inbounds %"class.rocksdb::CompactionState", ptr %this, i64 0, i32 1
+  %sub_compact_states = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %sub_compact_states, align 8
-  %_M_finish.i = getelementptr inbounds %"class.rocksdb::CompactionState", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not5 = icmp eq ptr %0, %1
   br i1 %cmp.i.not5, label %for.end, label %for.body
@@ -189,9 +116,9 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %__begin1.sroa.0.06 = phi ptr [ %incdec.ptr.i, %for.body ], [ %0, %entry ]
   tail call void @_ZNK7rocksdb18SubcompactionState24AggregateCompactionStatsERNS_13InternalStats19CompactionStatsFullE(ptr noundef nonnull align 8 dereferenceable(1050) %__begin1.sroa.0.06, ptr noundef nonnull align 8 dereferenceable(392) %compaction_stats)
-  %compaction_job_stats6 = getelementptr inbounds %"class.rocksdb::SubcompactionState", ptr %__begin1.sroa.0.06, i64 0, i32 7
+  %compaction_job_stats6 = getelementptr inbounds i8, ptr %__begin1.sroa.0.06, i64 96
   tail call void @_ZN7rocksdb18CompactionJobStats3AddERKS0_(ptr noundef nonnull align 8 dereferenceable(280) %compaction_job_stats, ptr noundef nonnull align 8 dereferenceable(280) %compaction_job_stats6)
-  %incdec.ptr.i = getelementptr inbounds %"class.rocksdb::SubcompactionState", ptr %__begin1.sroa.0.06, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.06, i64 1056
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 

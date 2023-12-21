@@ -27,32 +27,32 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %buf, ptr noundef nonnull align 1 dereferenceable(65) %uts_buf, i64 64, i1 false)
-  %arrayidx = getelementptr [65 x i8], ptr %buf, i64 0, i64 64
+  %arrayidx = getelementptr i8, ptr %buf, i64 64
   store i8 0, ptr %arrayidx, align 1
-  %nodename = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 1
-  %nodename7 = getelementptr inbounds %struct.utsname, ptr %uts_buf, i64 0, i32 1
+  %nodename = getelementptr inbounds i8, ptr %buf, i64 65
+  %nodename7 = getelementptr inbounds i8, ptr %uts_buf, i64 65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %nodename, ptr noundef nonnull align 1 dereferenceable(65) %nodename7, i64 64, i1 false)
-  %arrayidx16 = getelementptr %struct.new_utsname, ptr %buf, i64 0, i32 1, i64 64
+  %arrayidx16 = getelementptr i8, ptr %buf, i64 129
   store i8 0, ptr %arrayidx16, align 1
-  %release = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 2
-  %release20 = getelementptr inbounds %struct.utsname, ptr %uts_buf, i64 0, i32 2
+  %release = getelementptr inbounds i8, ptr %buf, i64 130
+  %release20 = getelementptr inbounds i8, ptr %uts_buf, i64 130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %release, ptr noundef nonnull align 1 dereferenceable(65) %release20, i64 64, i1 false)
-  %arrayidx29 = getelementptr %struct.new_utsname, ptr %buf, i64 0, i32 2, i64 64
+  %arrayidx29 = getelementptr i8, ptr %buf, i64 194
   store i8 0, ptr %arrayidx29, align 1
-  %version = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 3
-  %version33 = getelementptr inbounds %struct.utsname, ptr %uts_buf, i64 0, i32 3
+  %version = getelementptr inbounds i8, ptr %buf, i64 195
+  %version33 = getelementptr inbounds i8, ptr %uts_buf, i64 195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %version, ptr noundef nonnull align 1 dereferenceable(65) %version33, i64 64, i1 false)
-  %arrayidx42 = getelementptr %struct.new_utsname, ptr %buf, i64 0, i32 3, i64 64
+  %arrayidx42 = getelementptr i8, ptr %buf, i64 259
   store i8 0, ptr %arrayidx42, align 1
-  %machine = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 4
-  %machine46 = getelementptr inbounds %struct.utsname, ptr %uts_buf, i64 0, i32 4
+  %machine = getelementptr inbounds i8, ptr %buf, i64 260
+  %machine46 = getelementptr inbounds i8, ptr %uts_buf, i64 260
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %machine, ptr noundef nonnull align 1 dereferenceable(65) %machine46, i64 64, i1 false)
-  %arrayidx55 = getelementptr %struct.new_utsname, ptr %buf, i64 0, i32 4, i64 64
+  %arrayidx55 = getelementptr i8, ptr %buf, i64 324
   store i8 0, ptr %arrayidx55, align 1
-  %domainname = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 5
-  %domainname59 = getelementptr inbounds %struct.utsname, ptr %uts_buf, i64 0, i32 5
+  %domainname = getelementptr inbounds i8, ptr %buf, i64 325
+  %domainname59 = getelementptr inbounds i8, ptr %uts_buf, i64 325
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %domainname, ptr noundef nonnull align 1 dereferenceable(65) %domainname59, i64 64, i1 false)
-  %arrayidx68 = getelementptr %struct.new_utsname, ptr %buf, i64 0, i32 5, i64 64
+  %arrayidx68 = getelementptr i8, ptr %buf, i64 389
   store i8 0, ptr %arrayidx68, align 1
   br label %return
 
@@ -98,32 +98,32 @@ sys_uname.exit:                                   ; preds = %if.else
 
 if.end6:                                          ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %buf, ptr noundef nonnull align 1 dereferenceable(65) %uts_buf.i, i64 64, i1 false)
-  %arrayidx.i = getelementptr inbounds [65 x i8], ptr %buf, i64 0, i64 64
+  %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 64
   store i8 0, ptr %arrayidx.i, align 1
-  %nodename.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 1
-  %nodename7.i = getelementptr inbounds %struct.utsname, ptr %uts_buf.i, i64 0, i32 1
+  %nodename.i = getelementptr inbounds i8, ptr %buf, i64 65
+  %nodename7.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %nodename.i, ptr noundef nonnull align 1 dereferenceable(65) %nodename7.i, i64 64, i1 false)
-  %arrayidx16.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 1, i64 64
+  %arrayidx16.i = getelementptr inbounds i8, ptr %buf, i64 129
   store i8 0, ptr %arrayidx16.i, align 1
-  %release.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 2
-  %release20.i = getelementptr inbounds %struct.utsname, ptr %uts_buf.i, i64 0, i32 2
+  %release.i = getelementptr inbounds i8, ptr %buf, i64 130
+  %release20.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %release.i, ptr noundef nonnull align 1 dereferenceable(65) %release20.i, i64 64, i1 false)
-  %arrayidx29.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 2, i64 64
+  %arrayidx29.i = getelementptr inbounds i8, ptr %buf, i64 194
   store i8 0, ptr %arrayidx29.i, align 1
-  %version.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 3
-  %version33.i = getelementptr inbounds %struct.utsname, ptr %uts_buf.i, i64 0, i32 3
+  %version.i = getelementptr inbounds i8, ptr %buf, i64 195
+  %version33.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %version.i, ptr noundef nonnull align 1 dereferenceable(65) %version33.i, i64 64, i1 false)
-  %arrayidx42.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 3, i64 64
+  %arrayidx42.i = getelementptr inbounds i8, ptr %buf, i64 259
   store i8 0, ptr %arrayidx42.i, align 1
-  %machine.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 4
-  %machine46.i = getelementptr inbounds %struct.utsname, ptr %uts_buf.i, i64 0, i32 4
+  %machine.i = getelementptr inbounds i8, ptr %buf, i64 260
+  %machine46.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 260
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %machine.i, ptr noundef nonnull align 1 dereferenceable(65) %machine46.i, i64 64, i1 false)
-  %arrayidx55.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 4, i64 64
+  %arrayidx55.i = getelementptr inbounds i8, ptr %buf, i64 324
   store i8 0, ptr %arrayidx55.i, align 1
-  %domainname.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 5
-  %domainname59.i = getelementptr inbounds %struct.utsname, ptr %uts_buf.i, i64 0, i32 5
+  %domainname.i = getelementptr inbounds i8, ptr %buf, i64 325
+  %domainname59.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 325
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %domainname.i, ptr noundef nonnull align 1 dereferenceable(65) %domainname59.i, i64 64, i1 false)
-  %arrayidx68.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 5, i64 64
+  %arrayidx68.i = getelementptr inbounds i8, ptr %buf, i64 389
   store i8 0, ptr %arrayidx68.i, align 1
   call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %uts_buf.i)
   br label %while.cond.preheader.i.preheader
@@ -203,32 +203,32 @@ sys_uname.exit:                                   ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %buf, ptr noundef nonnull align 1 dereferenceable(65) %uts_buf.i, i64 64, i1 false)
-  %arrayidx.i = getelementptr inbounds [65 x i8], ptr %buf, i64 0, i64 64
+  %arrayidx.i = getelementptr inbounds i8, ptr %buf, i64 64
   store i8 0, ptr %arrayidx.i, align 1
-  %nodename.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 1
-  %nodename7.i = getelementptr inbounds %struct.utsname, ptr %uts_buf.i, i64 0, i32 1
+  %nodename.i = getelementptr inbounds i8, ptr %buf, i64 65
+  %nodename7.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %nodename.i, ptr noundef nonnull align 1 dereferenceable(65) %nodename7.i, i64 64, i1 false)
-  %arrayidx16.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 1, i64 64
+  %arrayidx16.i = getelementptr inbounds i8, ptr %buf, i64 129
   store i8 0, ptr %arrayidx16.i, align 1
-  %release.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 2
-  %release20.i = getelementptr inbounds %struct.utsname, ptr %uts_buf.i, i64 0, i32 2
+  %release.i = getelementptr inbounds i8, ptr %buf, i64 130
+  %release20.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %release.i, ptr noundef nonnull align 1 dereferenceable(65) %release20.i, i64 64, i1 false)
-  %arrayidx29.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 2, i64 64
+  %arrayidx29.i = getelementptr inbounds i8, ptr %buf, i64 194
   store i8 0, ptr %arrayidx29.i, align 1
-  %version.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 3
-  %version33.i = getelementptr inbounds %struct.utsname, ptr %uts_buf.i, i64 0, i32 3
+  %version.i = getelementptr inbounds i8, ptr %buf, i64 195
+  %version33.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %version.i, ptr noundef nonnull align 1 dereferenceable(65) %version33.i, i64 64, i1 false)
-  %arrayidx42.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 3, i64 64
+  %arrayidx42.i = getelementptr inbounds i8, ptr %buf, i64 259
   store i8 0, ptr %arrayidx42.i, align 1
-  %machine.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 4
-  %machine46.i = getelementptr inbounds %struct.utsname, ptr %uts_buf.i, i64 0, i32 4
+  %machine.i = getelementptr inbounds i8, ptr %buf, i64 260
+  %machine46.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 260
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %machine.i, ptr noundef nonnull align 1 dereferenceable(65) %machine46.i, i64 64, i1 false)
-  %arrayidx55.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 4, i64 64
+  %arrayidx55.i = getelementptr inbounds i8, ptr %buf, i64 324
   store i8 0, ptr %arrayidx55.i, align 1
-  %domainname.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 5
-  %domainname59.i = getelementptr inbounds %struct.utsname, ptr %uts_buf.i, i64 0, i32 5
+  %domainname.i = getelementptr inbounds i8, ptr %buf, i64 325
+  %domainname59.i = getelementptr inbounds i8, ptr %uts_buf.i, i64 325
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %domainname.i, ptr noundef nonnull align 1 dereferenceable(65) %domainname59.i, i64 64, i1 false)
-  %arrayidx68.i = getelementptr inbounds %struct.new_utsname, ptr %buf, i64 0, i32 5, i64 64
+  %arrayidx68.i = getelementptr inbounds i8, ptr %buf, i64 389
   store i8 0, ptr %arrayidx68.i, align 1
   call void @llvm.lifetime.end.p0(i64 390, ptr nonnull %uts_buf.i)
   br label %while.cond.preheader.i

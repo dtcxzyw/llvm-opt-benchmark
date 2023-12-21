@@ -65,7 +65,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %unumsys, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 1
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(86) %unumsys) #4
   br label %delete.end
@@ -124,7 +124,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %unumsys, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   call void %1(ptr nonnull sret(%"class.icu_75::UnicodeString") align 8 %descrip, ptr noundef nonnull align 8 dereferenceable(86) %unumsys)
   store ptr %result, ptr %agg.tmp, align 8

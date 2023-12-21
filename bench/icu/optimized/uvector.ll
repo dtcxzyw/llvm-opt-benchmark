@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/uvector.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.icu_75::UVector" = type { %"class.icu_75::UObject", i32, i32, ptr, ptr, ptr }
-%"class.icu_75::UObject" = type { ptr }
 %union.UElement = type { ptr }
 
 $__clang_call_terminate = comdat any
@@ -38,9 +36,9 @@ entry:
 define void @_ZN6icu_757UVectorC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
-  %capacity.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 2
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %count.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 12
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -77,13 +75,13 @@ _ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode.exit: ; preds = %entry
 define void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %d, ptr noundef %c, i32 noundef %initialCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
-  %capacity = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 2
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
-  %deleter = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %count = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds i8, ptr %this, i64 12
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
+  %deleter = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %count, i8 0, i64 16, i1 false)
   store ptr %d, ptr %deleter, align 8
-  %comparer = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 5
+  %comparer = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %c, ptr %comparer, align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -125,9 +123,9 @@ if.end12:                                         ; preds = %entry, %if.else, %i
 define void @_ZN6icu_757UVectorC2EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %initialCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
-  %capacity.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 2
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %count.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 12
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %count.i, i8 0, i64 32, i1 false)
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -169,13 +167,13 @@ _ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode.exit: ; preds = %entry
 define void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %d, ptr noundef %c, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
-  %capacity.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 2
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
-  %deleter.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %count.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 12
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
+  %deleter.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %count.i, i8 0, i64 16, i1 false)
   store ptr %d, ptr %deleter.i, align 8
-  %comparer.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 5
+  %comparer.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %c, ptr %comparer.i, align 8
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -220,19 +218,19 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 define void @_ZN6icu_757UVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %deleter.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %deleter.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %deleter.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %invoke.cont, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %entry
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %count.i, align 8
   %cmp24.i = icmp sgt i32 %1, 0
   br i1 %cmp24.i, label %for.body.lr.ph.i, label %invoke.cont
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -261,9 +259,9 @@ for.inc.i:                                        ; preds = %.noexc, %for.body.i
   br i1 %cmp2.i, label %for.body.i, label %invoke.cont, !llvm.loop !4
 
 invoke.cont:                                      ; preds = %for.inc.i, %for.cond.preheader.i, %entry
-  %count10.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count10.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %count10.i, align 8
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %elements, align 8
   invoke void @uprv_free_75(ptr noundef %8)
           to label %invoke.cont2 unwind label %terminate.lpad.loopexit.split-lp
@@ -293,19 +291,19 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_757UVector17removeAllElementsEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %deleter = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %deleter = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %deleter, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end9, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %count, align 8
   %cmp24 = icmp sgt i32 %1, 0
   br i1 %cmp24, label %for.body.lr.ph, label %if.end9
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -331,7 +329,7 @@ for.inc:                                          ; preds = %for.body, %if.then4
   br i1 %cmp2, label %for.body, label %if.end9, !llvm.loop !4
 
 if.end9:                                          ; preds = %for.inc, %for.cond.preheader, %entry
-  %count10 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count10 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %count10, align 8
   ret void
 }
@@ -363,7 +361,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_757UVector6assignERKS0_PFvP8UElementS4_ER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other, ptr nocapture noundef readonly %assign, ptr nocapture noundef nonnull align 4 dereferenceable(4) %ec) local_unnamed_addr #1 align 2 {
 entry:
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %count, align 8
   %1 = load i32, ptr %ec, align 4
   %cmp.i.i = icmp slt i32 %1, 1
@@ -374,7 +372,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %if.end21.sink.split, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %capacity.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 2
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %capacity.i, align 4
   %cmp4.i = icmp slt i32 %2, %0
   br i1 %cmp4.i, label %if.then5.i, label %if.then
@@ -390,7 +388,7 @@ if.end9.i:                                        ; preds = %if.then5.i
   br i1 %cmp14.i, label %if.end21.sink.split, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end9.i
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %elements.i, align 8
   %4 = shl nuw nsw i32 %spec.select.i, 3
   %mul17.i = zext nneg i32 %4 to i64
@@ -415,9 +413,9 @@ if.then:                                          ; preds = %if.end21.i, %if.end
   br i1 %or.cond, label %for.body.lr.ph, label %if.end21
 
 for.body.lr.ph:                                   ; preds = %if.then
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
-  %deleter = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
-  %elements17 = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
+  %deleter = getelementptr inbounds i8, ptr %this, i64 24
+  %elements17 = getelementptr inbounds i8, ptr %other, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
@@ -475,7 +473,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %capacity = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 2
+  %capacity = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %capacity, align 4
   %cmp4 = icmp slt i32 %1, %minimumCapacity
   br i1 %cmp4, label %if.then5, label %return
@@ -499,7 +497,7 @@ if.then15:                                        ; preds = %if.end9
   br label %return
 
 if.end16:                                         ; preds = %if.end9
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %elements, align 8
   %3 = shl nuw nsw i32 %spec.select, 3
   %mul17 = zext nneg i32 %3 to i64
@@ -537,7 +535,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end3.i:                                        ; preds = %if.end.i
-  %capacity.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 2
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %1 = load i32, ptr %capacity.i, align 4
   %cmp4.i = icmp slt i32 %1, %newSize
   br i1 %cmp4.i, label %if.then5.i, label %if.end
@@ -561,7 +559,7 @@ if.then15.i:                                      ; preds = %if.end9.i
   br label %return
 
 if.end16.i:                                       ; preds = %if.end9.i
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %elements.i, align 8
   %3 = shl nuw nsw i32 %spec.select.i, 3
   %mul17.i = zext nneg i32 %3 to i64
@@ -579,7 +577,7 @@ if.end21.i:                                       ; preds = %if.end16.i
   br label %if.end
 
 if.end:                                           ; preds = %if.end21.i, %if.end3.i
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %count, align 8
   %cmp = icmp slt i32 %4, %newSize
   br i1 %cmp, label %for.cond.preheader, label %for.cond7.preheader
@@ -589,12 +587,12 @@ for.cond7.preheader:                              ; preds = %if.end
   br i1 %cmp8.not.not14, label %for.body9.lr.ph, label %if.end12
 
 for.body9.lr.ph:                                  ; preds = %for.cond7.preheader
-  %elements.i.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
-  %deleter.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %elements.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %deleter.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body9
 
 for.cond.preheader:                               ; preds = %if.end
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   %5 = sext i32 %4 to i64
   %wide.trip.count = zext nneg i32 %newSize to i64
   br label %for.body
@@ -668,15 +666,15 @@ return:                                           ; preds = %entry, %if.then20.i
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_757UVectoreqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
 entry:
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
-  %count2 = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 1
+  %count2 = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i32, ptr %count2, align 8
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %comparer = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 5
+  %comparer = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %comparer, align 8
   %cmp3.not = icmp ne ptr %2, null
   %cmp65 = icmp sgt i32 %0, 0
@@ -684,8 +682,8 @@ if.end:                                           ; preds = %entry
   br i1 %or.cond, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
-  %elements9 = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
+  %elements9 = getelementptr inbounds i8, ptr %other, i64 16
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -716,7 +714,7 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_757UVector10addElementEPvR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %obj, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
   %add = add nsw i32 %0, 1
   %1 = load i32, ptr %status, align 4
@@ -732,13 +730,13 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end
 
 if.end3.i:                                        ; preds = %if.end.i
-  %capacity.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 2
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %capacity.i, align 4
   %cmp4.i.not = icmp sgt i32 %2, %0
   br i1 %cmp4.i.not, label %if.end3.i.if.then_crit_edge, label %if.then5.i
 
 if.end3.i.if.then_crit_edge:                      ; preds = %if.end3.i
-  %elements.phi.trans.insert = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load ptr, ptr %elements.phi.trans.insert, align 8
   br label %if.then
 
@@ -761,7 +759,7 @@ if.then15.i:                                      ; preds = %if.end9.i
   br label %if.end
 
 if.end16.i:                                       ; preds = %if.end9.i
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %elements.i, align 8
   %4 = shl nuw nsw i32 %spec.select.i, 3
   %mul17.i = zext nneg i32 %4 to i64
@@ -797,7 +795,7 @@ if.end:                                           ; preds = %entry, %if.then20.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %obj, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
   %add = add nsw i32 %0, 1
   %1 = load i32, ptr %status, align 4
@@ -809,13 +807,13 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %if.else.sink.split, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %capacity.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 2
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %capacity.i, align 4
   %cmp4.i.not = icmp sgt i32 %2, %0
   br i1 %cmp4.i.not, label %if.end3.i.if.then_crit_edge, label %if.then5.i
 
 if.end3.i.if.then_crit_edge:                      ; preds = %if.end3.i
-  %elements.phi.trans.insert = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load ptr, ptr %elements.phi.trans.insert, align 8
   br label %if.then
 
@@ -830,7 +828,7 @@ if.end9.i:                                        ; preds = %if.then5.i
   br i1 %cmp14.i, label %if.else.sink.split, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end9.i
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %elements.i, align 8
   %4 = shl nuw nsw i32 %spec.select.i, 3
   %mul17.i = zext nneg i32 %4 to i64
@@ -861,7 +859,7 @@ if.else.sink.split:                               ; preds = %if.end16.i, %if.end
   br label %if.else
 
 if.else:                                          ; preds = %if.else.sink.split, %entry
-  %deleter = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %deleter = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %deleter, align 8
   tail call void %7(ptr noundef %obj)
   br label %if.end
@@ -873,7 +871,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_757UVector10addElementEiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %elem, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
   %add = add nsw i32 %0, 1
   %1 = load i32, ptr %status, align 4
@@ -889,13 +887,13 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end
 
 if.end3.i:                                        ; preds = %if.end.i
-  %capacity.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 2
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %capacity.i, align 4
   %cmp4.i.not = icmp sgt i32 %2, %0
   br i1 %cmp4.i.not, label %if.end3.i.if.then_crit_edge, label %if.then5.i
 
 if.end3.i.if.then_crit_edge:                      ; preds = %if.end3.i
-  %elements.phi.trans.insert = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
   %.pre = load ptr, ptr %elements.phi.trans.insert, align 8
   br label %if.then
 
@@ -918,7 +916,7 @@ if.then15.i:                                      ; preds = %if.end9.i
   br label %if.end
 
 if.end16.i:                                       ; preds = %if.end9.i
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %elements.i, align 8
   %4 = shl nuw nsw i32 %spec.select.i, 3
   %mul17.i = zext nneg i32 %4 to i64
@@ -939,7 +937,7 @@ if.end21.i:                                       ; preds = %if.end16.i
 if.then:                                          ; preds = %if.end3.i.if.then_crit_edge, %if.end21.i
   %5 = phi i32 [ %0, %if.end3.i.if.then_crit_edge ], [ %.pre3, %if.end21.i ]
   %6 = phi ptr [ %.pre, %if.end3.i.if.then_crit_edge ], [ %call18.i, %if.end21.i ]
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   %idxprom = sext i32 %5 to i64
   %arrayidx = getelementptr inbounds %union.UElement, ptr %6, i64 %idxprom
   store ptr null, ptr %arrayidx, align 8
@@ -961,14 +959,14 @@ if.end:                                           ; preds = %entry, %if.then20.i
 define void @_ZN6icu_757UVector12setElementAtEPvi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %obj, i32 noundef %index) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp sgt i32 %index, -1
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
   %cmp2 = icmp sgt i32 %0, %index
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %elements, align 8
   %idxprom = zext nneg i32 %index to i64
   %arrayidx = getelementptr inbounds %union.UElement, ptr %1, i64 %idxprom
@@ -977,7 +975,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3.not, label %if.end, label %land.lhs.true4
 
 land.lhs.true4:                                   ; preds = %if.then
-  %deleter = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %deleter = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %deleter, align 8
   %cmp5.not = icmp eq ptr %3, null
   br i1 %cmp5.not, label %if.end, label %if.then6
@@ -994,7 +992,7 @@ if.end:                                           ; preds = %if.then6, %land.lhs
   br label %if.end19
 
 if.else:                                          ; preds = %entry
-  %deleter14 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %deleter14 = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load ptr, ptr %deleter14, align 8
   %cmp15.not = icmp eq ptr %5, null
   br i1 %cmp15.not, label %if.end19, label %if.then16
@@ -1011,14 +1009,14 @@ if.end19:                                         ; preds = %if.else, %if.then16
 define void @_ZN6icu_757UVector12setElementAtEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %elem, i32 noundef %index) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp sgt i32 %index, -1
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
   %cmp2 = icmp sgt i32 %0, %index
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %elements, align 8
   %idxprom = zext nneg i32 %index to i64
   %arrayidx = getelementptr inbounds %union.UElement, ptr %1, i64 %idxprom
@@ -1035,7 +1033,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_757UVector15insertElementAtEPviR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %obj, i32 noundef %index, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
   %add = add nsw i32 %0, 1
   %1 = load i32, ptr %status, align 4
@@ -1047,7 +1045,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %land.lhs.true17.sink.split, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %capacity.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 2
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %capacity.i, align 4
   %cmp4.i.not = icmp sgt i32 %2, %0
   br i1 %cmp4.i.not, label %if.then, label %if.then5.i
@@ -1063,7 +1061,7 @@ if.end9.i:                                        ; preds = %if.then5.i
   br i1 %cmp14.i, label %land.lhs.true17.sink.split, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end9.i
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %elements.i, align 8
   %4 = shl nuw nsw i32 %spec.select.i, 3
   %mul17.i = zext nneg i32 %4 to i64
@@ -1089,7 +1087,7 @@ for.cond.preheader:                               ; preds = %if.then
   br i1 %cmp614, label %for.body.lr.ph, label %if.end14
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1106,7 +1104,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp6, label %for.body, label %if.end14, !llvm.loop !11
 
 if.end14:                                         ; preds = %for.body, %for.cond.preheader
-  %elements10 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements10 = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %elements10, align 8
   %idxprom11 = zext nneg i32 %index to i64
   %arrayidx12 = getelementptr inbounds %union.UElement, ptr %8, i64 %idxprom11
@@ -1124,7 +1122,7 @@ land.lhs.true17.sink.split:                       ; preds = %if.then, %if.end16.
   br label %land.lhs.true17
 
 land.lhs.true17:                                  ; preds = %land.lhs.true17.sink.split, %entry, %if.end14
-  %deleter = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %deleter = getelementptr inbounds i8, ptr %this, i64 24
   %11 = load ptr, ptr %deleter, align 8
   %cmp18.not = icmp eq ptr %11, null
   br i1 %cmp18.not, label %if.end21, label %if.then19
@@ -1140,7 +1138,7 @@ if.end21:                                         ; preds = %if.then19, %land.lh
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_757UVector15insertElementAtEiiR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %elem, i32 noundef %index, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
   %add = add nsw i32 %0, 1
   %1 = load i32, ptr %status, align 4
@@ -1156,7 +1154,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br label %if.end17
 
 if.end3.i:                                        ; preds = %if.end.i
-  %capacity.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 2
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %capacity.i, align 4
   %cmp4.i.not = icmp sgt i32 %2, %0
   br i1 %cmp4.i.not, label %if.then, label %if.then5.i
@@ -1180,7 +1178,7 @@ if.then15.i:                                      ; preds = %if.end9.i
   br label %if.end17
 
 if.end16.i:                                       ; preds = %if.end9.i
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %elements.i, align 8
   %4 = shl nuw nsw i32 %spec.select.i, 3
   %mul17.i = zext nneg i32 %4 to i64
@@ -1210,7 +1208,7 @@ for.cond.preheader:                               ; preds = %if.then
   br i1 %cmp611, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1227,7 +1225,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %elements10 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements10 = getelementptr inbounds i8, ptr %this, i64 16
   %8 = load ptr, ptr %elements10, align 8
   %idxprom11 = zext nneg i32 %index to i64
   %arrayidx12 = getelementptr inbounds %union.UElement, ptr %8, i64 %idxprom11
@@ -1252,14 +1250,14 @@ if.end17:                                         ; preds = %entry, %if.then20.i
 define noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %index) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp sgt i32 %index, -1
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
   %cmp2 = icmp sgt i32 %0, %index
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %elements, align 8
   %idxprom = zext nneg i32 %index to i64
   %arrayidx = getelementptr inbounds %union.UElement, ptr %1, i64 %idxprom
@@ -1275,14 +1273,14 @@ cond.end:                                         ; preds = %entry, %cond.true
 define noundef i32 @_ZNK6icu_757UVector10elementAtiEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %index) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp sgt i32 %index, -1
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
   %cmp2 = icmp sgt i32 %0, %index
   %or.cond = select i1 %cmp, i1 %cmp2, i1 false
   br i1 %or.cond, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %elements, align 8
   %idxprom = zext nneg i32 %index to i64
   %arrayidx = getelementptr inbounds %union.UElement, ptr %1, i64 %idxprom
@@ -1297,16 +1295,16 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_757UVector11containsAllERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
 entry:
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %count.i, align 8
   %cmp12 = icmp sgt i32 %0, 0
   br i1 %cmp12, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 3
-  %comparer.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 5
-  %count.i4 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %other, i64 16
+  %comparer.i = getelementptr inbounds i8, ptr %this, i64 32
+  %count.i4 = getelementptr inbounds i8, ptr %this, i64 8
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %comparer.i, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %for.body.lr.ph.split.us, label %for.body
@@ -1433,32 +1431,32 @@ return:                                           ; preds = %_ZNK6icu_757UVector
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_757UVector7indexOfE8UElementia(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %key.coerce, i32 noundef %startIndex, i8 noundef signext %hint) local_unnamed_addr #1 align 2 {
 entry:
-  %comparer = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 5
+  %comparer = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %comparer, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %for.cond9.preheader, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %count, align 8
   %cmp212 = icmp sgt i32 %1, %startIndex
   br i1 %cmp212, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   %2 = sext i32 %startIndex to i64
   br label %for.body
 
 for.cond9.preheader:                              ; preds = %entry
   %3 = ptrtoint ptr %key.coerce to i64
   %key.sroa.0.0.extract.trunc = trunc i64 %3 to i32
-  %count10 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count10 = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load i32, ptr %count10, align 8
   %cmp1115 = icmp sgt i32 %4, %startIndex
   br i1 %cmp1115, label %for.body12.lr.ph, label %return
 
 for.body12.lr.ph:                                 ; preds = %for.cond9.preheader
-  %elements15 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements15 = getelementptr inbounds i8, ptr %this, i64 16
   %5 = and i8 %hint, 1
   %tobool13.not = icmp eq i8 %5, 0
   %6 = load ptr, ptr %elements15, align 8
@@ -1527,16 +1525,16 @@ return:                                           ; preds = %for.inc, %for.inc29
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_757UVector12containsNoneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
 entry:
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %count.i, align 8
   %cmp11 = icmp sgt i32 %0, 0
   br i1 %cmp11, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %entry
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 3
-  %comparer.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 5
-  %count.i4 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %other, i64 16
+  %comparer.i = getelementptr inbounds i8, ptr %this, i64 32
+  %count.i4 = getelementptr inbounds i8, ptr %this, i64 8
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %comparer.i, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %for.body.lr.ph.split.us, label %for.body
@@ -1663,17 +1661,17 @@ return:                                           ; preds = %_ZNK6icu_757UVector
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZN6icu_757UVector9removeAllERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
 entry:
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %count.i, align 8
   %cmp13 = icmp sgt i32 %0, 0
   br i1 %cmp13, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 3
-  %comparer.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 5
-  %count.i5 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
-  %deleter.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %elements = getelementptr inbounds i8, ptr %other, i64 16
+  %comparer.i = getelementptr inbounds i8, ptr %this, i64 32
+  %count.i5 = getelementptr inbounds i8, ptr %this, i64 8
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
+  %deleter.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1801,13 +1799,13 @@ entry:
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end
 
 land.lhs.true.i:                                  ; preds = %entry
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count.i, align 8
   %cmp2.i = icmp sgt i32 %0, %index
   br i1 %cmp2.i, label %if.then.i, label %if.end
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %elements.i, align 8
   %idxprom.i = zext nneg i32 %index to i64
   %arrayidx.i = getelementptr inbounds %union.UElement, ptr %1, i64 %idxprom.i
@@ -1837,7 +1835,7 @@ _ZN6icu_757UVector15orphanElementAtEi.exit:       ; preds = %for.body.i, %if.the
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZN6icu_757UVector15orphanElementAtEi.exit
-  %deleter = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %deleter = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load ptr, ptr %deleter, align 8
   %cmp2.not = icmp eq ptr %7, null
   br i1 %cmp2.not, label %if.end, label %if.then
@@ -1853,17 +1851,17 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZN6icu_757UVector9retainAllERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
 entry:
-  %count.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count.i, align 8
   %cmp14 = icmp sgt i32 %0, 0
   br i1 %cmp14, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
-  %comparer.i = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 5
-  %count.i4 = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 1
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 3
-  %deleter.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
+  %comparer.i = getelementptr inbounds i8, ptr %other, i64 32
+  %count.i4 = getelementptr inbounds i8, ptr %other, i64 8
+  %elements.i = getelementptr inbounds i8, ptr %other, i64 16
+  %deleter.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = zext nneg i32 %0 to i64
   br label %for.body
 
@@ -1990,13 +1988,13 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
   %cmp2 = icmp sgt i32 %0, %index
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %elements, align 8
   %idxprom = zext nneg i32 %index to i64
   %arrayidx = getelementptr inbounds %union.UElement, ptr %1, i64 %idxprom
@@ -2032,10 +2030,10 @@ if.end:                                           ; preds = %for.end, %land.lhs.
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZN6icu_757UVector13removeElementEPv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %obj) local_unnamed_addr #1 align 2 {
 entry:
-  %comparer.i.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 5
+  %comparer.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %comparer.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
-  %count10.i.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count10.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %count10.i.i, align 8
   %cmp1115.i.i = icmp sgt i32 %1, 0
   br i1 %cmp.not.i.i, label %for.cond9.preheader.i.i, label %for.cond.preheader.i.i
@@ -2044,14 +2042,14 @@ for.cond.preheader.i.i:                           ; preds = %entry
   br i1 %cmp1115.i.i, label %for.body.lr.ph.i.i, label %return
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %elements.i.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body.i.i
 
 for.cond9.preheader.i.i:                          ; preds = %entry
   br i1 %cmp1115.i.i, label %for.body12.lr.ph.i.i, label %return
 
 for.body12.lr.ph.i.i:                             ; preds = %for.cond9.preheader.i.i
-  %elements15.i.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements15.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %elements15.i.i, align 8
   %wide.trip.count32.i.i = zext nneg i32 %1 to i64
   br label %for.body12.i.i
@@ -2097,7 +2095,7 @@ land.lhs.true.i.i:                                ; preds = %_ZNK6icu_757UVector
   br i1 %cmp2.i.i2, label %if.then.i.i, label %return
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %elements.i.i3 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.i.i3 = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %elements.i.i3, align 8
   %idxprom.i.i = and i64 %retval.0.i.i.in, 4294967295
   %arrayidx.i.i4 = getelementptr inbounds %union.UElement, ptr %9, i64 %idxprom.i.i
@@ -2127,7 +2125,7 @@ _ZN6icu_757UVector15orphanElementAtEi.exit.i:     ; preds = %for.body.i.i5, %if.
   br i1 %cmp.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_ZN6icu_757UVector15orphanElementAtEi.exit.i
-  %deleter.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %deleter.i = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load ptr, ptr %deleter.i, align 8
   %cmp2.not.i = icmp eq ptr %15, null
   br i1 %cmp2.not.i, label %return, label %if.then.i
@@ -2144,10 +2142,10 @@ return:                                           ; preds = %for.inc.i.i, %for.i
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_757UVector7indexOfEPvi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %obj, i32 noundef %startIndex) local_unnamed_addr #1 align 2 {
 entry:
-  %comparer.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 5
+  %comparer.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %comparer.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
-  %count10.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count10.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %count10.i, align 8
   %cmp1115.i = icmp sgt i32 %1, %startIndex
   br i1 %cmp.not.i, label %for.cond9.preheader.i, label %for.cond.preheader.i
@@ -2156,7 +2154,7 @@ for.cond.preheader.i:                             ; preds = %entry
   br i1 %cmp1115.i, label %for.body.lr.ph.i, label %_ZNK6icu_757UVector7indexOfE8UElementia.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = sext i32 %startIndex to i64
   br label %for.body.i
 
@@ -2164,7 +2162,7 @@ for.cond9.preheader.i:                            ; preds = %entry
   br i1 %cmp1115.i, label %for.body12.lr.ph.i, label %_ZNK6icu_757UVector7indexOfE8UElementia.exit
 
 for.body12.lr.ph.i:                               ; preds = %for.cond9.preheader.i
-  %elements15.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements15.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %elements15.i, align 8
   %4 = sext i32 %startIndex to i64
   %wide.trip.count32.i = sext i32 %1 to i64
@@ -2215,26 +2213,26 @@ _ZNK6icu_757UVector7indexOfE8UElementia.exit:     ; preds = %for.inc.i, %for.inc
 ; Function Attrs: mustprogress uwtable
 define noundef signext i8 @_ZNK6icu_757UVector6equalsERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %other) local_unnamed_addr #1 align 2 {
 entry:
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
-  %count2 = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 1
+  %count2 = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load i32, ptr %count2, align 8
   %cmp.not = icmp eq i32 %0, %1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %comparer = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 5
+  %comparer = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %comparer, align 8
   %cmp3 = icmp eq ptr %2, null
   br i1 %cmp3, label %for.cond.preheader, label %for.cond13.preheader
 
 for.cond13.preheader:                             ; preds = %if.end
-  %elements17 = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 3
+  %elements17 = getelementptr inbounds i8, ptr %other, i64 16
   %cmp1512 = icmp sgt i32 %0, 0
   br i1 %cmp1512, label %for.body16.lr.ph, label %return
 
 for.body16.lr.ph:                                 ; preds = %for.cond13.preheader
-  %elements22 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements22 = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body16
 
 for.cond.preheader:                               ; preds = %if.end
@@ -2242,9 +2240,9 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp615, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %elements, align 8
-  %elements7 = getelementptr inbounds %"class.icu_75::UVector", ptr %other, i64 0, i32 3
+  %elements7 = getelementptr inbounds i8, ptr %other, i64 16
   %4 = load ptr, ptr %elements7, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
@@ -2292,10 +2290,10 @@ define noundef i32 @_ZNK6icu_757UVector7indexOfEii(ptr nocapture noundef nonnull
 entry:
   %key.sroa.0.0.insert.ext = zext i32 %obj to i64
   %0 = inttoptr i64 %key.sroa.0.0.insert.ext to ptr
-  %comparer.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 5
+  %comparer.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %comparer.i, align 8
   %cmp.not.i = icmp eq ptr %1, null
-  %count10.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count10.i = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %count10.i, align 8
   %cmp1115.i = icmp sgt i32 %2, %startIndex
   br i1 %cmp.not.i, label %for.cond9.preheader.i, label %for.cond.preheader.i
@@ -2304,7 +2302,7 @@ for.cond.preheader.i:                             ; preds = %entry
   br i1 %cmp1115.i, label %for.body.lr.ph.i, label %_ZNK6icu_757UVector7indexOfE8UElementia.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = sext i32 %startIndex to i64
   br label %for.body.i
 
@@ -2312,7 +2310,7 @@ for.cond9.preheader.i:                            ; preds = %entry
   br i1 %cmp1115.i, label %for.body12.lr.ph.i, label %_ZNK6icu_757UVector7indexOfE8UElementia.exit
 
 for.body12.lr.ph.i:                               ; preds = %for.cond9.preheader.i
-  %elements15.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements15.i = getelementptr inbounds i8, ptr %this, i64 16
   %4 = load ptr, ptr %elements15.i, align 8
   %5 = sext i32 %startIndex to i64
   %wide.trip.count32.i = sext i32 %2 to i64
@@ -2366,13 +2364,13 @@ declare ptr @uprv_realloc_75(ptr noundef, i64 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK6icu_757UVector7toArrayEPPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef returned writeonly %result) local_unnamed_addr #9 align 2 {
 entry:
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
   %cmp4 = icmp sgt i32 %0, 0
   br i1 %cmp4, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -2381,7 +2379,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = load ptr, ptr %elements, align 8
   %arrayidx = getelementptr inbounds %union.UElement, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %a.05, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %a.05, i64 8
   store ptr %2, ptr %a.05, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %count, align 8
@@ -2396,7 +2394,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZN6icu_757UVector10setDeleterEPFvPvE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %d) local_unnamed_addr #11 align 2 {
 entry:
-  %deleter = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %deleter = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %deleter, align 8
   store ptr %d, ptr %deleter, align 8
   ret ptr %0
@@ -2405,7 +2403,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @_ZN6icu_757UVector11setComparerEPFa8UElementS1_E(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %d) local_unnamed_addr #11 align 2 {
 entry:
-  %comparer = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 5
+  %comparer = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %comparer, align 8
   store ptr %d, ptr %comparer, align 8
   ret ptr %0
@@ -2421,7 +2419,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_757UVector12sortedInsertE8UElementPFiS1_S1_ER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr %e.coerce, ptr nocapture noundef readonly %compare, ptr nocapture noundef nonnull align 4 dereferenceable(4) %ec) local_unnamed_addr #1 align 2 {
 entry:
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %count, align 8
   %add = add nsw i32 %0, 1
   %1 = load i32, ptr %ec, align 4
@@ -2433,7 +2431,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i, label %if.then.sink.split, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i
-  %capacity.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 2
+  %capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %capacity.i, align 4
   %cmp4.i.not = icmp sgt i32 %2, %0
   br i1 %cmp4.i.not, label %if.end4, label %if.then5.i
@@ -2449,7 +2447,7 @@ if.end9.i:                                        ; preds = %if.then5.i
   br i1 %cmp14.i, label %if.then.sink.split, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end9.i
-  %elements.i = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements.i = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load ptr, ptr %elements.i, align 8
   %4 = shl nuw nsw i32 %spec.select.i, 3
   %mul17.i = zext nneg i32 %4 to i64
@@ -2469,7 +2467,7 @@ if.then.sink.split:                               ; preds = %if.end16.i, %if.end
   br label %if.then
 
 if.then:                                          ; preds = %if.then.sink.split, %entry
-  %deleter = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 4
+  %deleter = getelementptr inbounds i8, ptr %this, i64 24
   %5 = load ptr, ptr %deleter, align 8
   %cmp.not = icmp eq ptr %5, null
   br i1 %cmp.not, label %return, label %if.then2
@@ -2484,7 +2482,7 @@ if.end4:                                          ; preds = %if.end21.i, %if.end
   br i1 %cmp6.not12, label %while.end.for.end_crit_edge, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end4
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -2515,7 +2513,7 @@ while.end.for.end_crit_edge:                      ; preds = %if.end4, %while.end
   br label %for.end
 
 for.body.lr.ph:                                   ; preds = %while.end
-  %elements18 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements18 = getelementptr inbounds i8, ptr %this, i64 16
   %8 = sext i32 %.pre18 to i64
   %9 = sext i32 %max.1 to i64
   br label %for.body
@@ -2524,7 +2522,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ %8, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %10 = load ptr, ptr %elements18, align 8
   %11 = getelementptr %union.UElement, ptr %10, i64 %indvars.iv
-  %arrayidx20 = getelementptr %union.UElement, ptr %11, i64 -1
+  %arrayidx20 = getelementptr i8, ptr %11, i64 -8
   %12 = load i64, ptr %arrayidx20, align 8
   store i64 %12, ptr %11, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -2533,7 +2531,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %while.end.for.end_crit_edge
   %idxprom25.pre-phi = phi i64 [ %.pre19, %while.end.for.end_crit_edge ], [ %9, %for.body ]
-  %elements24 = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements24 = getelementptr inbounds i8, ptr %this, i64 16
   %13 = load ptr, ptr %elements24, align 8
   %arrayidx26 = getelementptr inbounds %union.UElement, ptr %13, i64 %idxprom25.pre-phi
   store ptr %e.coerce, ptr %arrayidx26, align 8
@@ -2563,9 +2561,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %elements, align 8
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %count, align 8
   tail call void @uprv_sortArray_75(ptr noundef %1, i32 noundef %2, i32 noundef 8, ptr noundef nonnull @_ZN6icu_75L15sortiComparatorEPKvS1_S1_, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %ec)
   br label %if.end
@@ -2598,9 +2596,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %elements, align 8
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %count, align 8
   call void @uprv_sortArray_75(ptr noundef %1, i32 noundef %2, i32 noundef 8, ptr noundef nonnull @_ZN6icu_75L14sortComparatorEPKvS1_S1_, ptr noundef nonnull %compare.addr, i8 noundef signext 0, ptr noundef nonnull %ec)
   br label %if.end
@@ -2627,9 +2625,9 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %elements = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 3
+  %elements = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %elements, align 8
-  %count = getelementptr inbounds %"class.icu_75::UVector", ptr %this, i64 0, i32 1
+  %count = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i32, ptr %count, align 8
   tail call void @uprv_sortArray_75(ptr noundef %1, i32 noundef %2, i32 noundef 8, ptr noundef %compare, ptr noundef %context, i8 noundef signext 1, ptr noundef nonnull %ec)
   br label %if.end

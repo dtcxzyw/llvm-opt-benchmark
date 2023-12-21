@@ -4,13 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.prov_gcm_hw_st = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.prov_sm4_gcm_ctx_st = type { %struct.prov_gcm_ctx_st, %union.anon.0 }
-%struct.prov_gcm_ctx_st = type { i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i8, [128 x i8], [16 x i8], ptr, ptr, %struct.gcm128_context, ptr }
-%struct.gcm128_context = type { %union.anon, %union.anon, %union.anon, %union.anon, %union.anon, %union.anon, [16 x %struct.u128], %struct.gcm_funcs_st, i32, i32, ptr, ptr, [48 x i8] }
-%union.anon = type { [2 x i64] }
-%struct.u128 = type { i64, i64 }
-%struct.gcm_funcs_st = type { ptr, ptr, ptr }
-%union.anon.0 = type { double, [120 x i8] }
 
 @sm4_gcm = internal constant %struct.prov_gcm_hw_st { ptr @sm4_gcm_initkey, ptr @ossl_gcm_setiv, ptr @ossl_gcm_aad_update, ptr @hw_gcm_cipher_update, ptr @ossl_gcm_cipher_final, ptr @ossl_gcm_one_shot }, align 8
 
@@ -23,13 +16,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @sm4_gcm_initkey(ptr noundef %ctx, ptr noundef %key, i64 %keylen) #1 {
 entry:
-  %ks1 = getelementptr inbounds %struct.prov_sm4_gcm_ctx_st, ptr %ctx, i64 0, i32 1
+  %ks1 = getelementptr inbounds i8, ptr %ctx, i64 704
   %call = tail call i32 @ossl_sm4_set_key(ptr noundef %key, ptr noundef nonnull %ks1) #3
-  %gcm = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 16
+  %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
   tail call void @CRYPTO_gcm128_init(ptr noundef nonnull %gcm, ptr noundef nonnull %ks1, ptr noundef nonnull @ossl_sm4_encrypt) #3
-  %ctr = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 17
+  %ctr = getelementptr inbounds i8, ptr %ctx, i64 696
   store ptr null, ptr %ctr, align 8
-  %key_set = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 11
+  %key_set = getelementptr inbounds i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %key_set, align 4
   %bf.set = or i8 %bf.load, 4
   store i8 %bf.set, ptr %key_set, align 4
@@ -43,14 +36,14 @@ declare i32 @ossl_gcm_aad_update(ptr noundef, ptr noundef, i64 noundef) #2
 ; Function Attrs: nounwind uwtable
 define internal i32 @hw_gcm_cipher_update(ptr noundef %ctx, ptr noundef %in, i64 noundef %len, ptr noundef %out) #1 {
 entry:
-  %enc = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 11
+  %enc = getelementptr inbounds i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %enc, align 4
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
-  %ctr12 = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 17
+  %ctr12 = getelementptr inbounds i8, ptr %ctx, i64 696
   %0 = load ptr, ptr %ctr12, align 8
   %cmp13.not = icmp eq ptr %0, null
-  %gcm22 = getelementptr inbounds %struct.prov_gcm_ctx_st, ptr %ctx, i64 0, i32 16
+  %gcm22 = getelementptr inbounds i8, ptr %ctx, i64 248
   br i1 %tobool.not, label %if.else11, label %if.then
 
 if.then:                                          ; preds = %entry

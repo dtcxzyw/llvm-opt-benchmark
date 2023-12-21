@@ -30,7 +30,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::SmallString.8" = type { %"class.llvh::SmallVector.9" }
 %"class.llvh::SmallVector.9" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage.10" }
 %"struct.llvh::SmallVectorStorage.10" = type { [256 x %"struct.llvh::AlignedCharArrayUnion"] }
-%struct.passwd = type { ptr, ptr, i32, i32, ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -39,8 +38,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage.48" = type { [16 x %"struct.llvh::AlignedCharArrayUnion.6"] }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%"class.llvh::sys::fs::file_status" = type { %"class.llvh::sys::fs::basic_file_status", i64, i64, i64 }
-%"class.llvh::sys::fs::basic_file_status" = type { i64, i64, i32, i32, i64, i32, i32 }
 %"class.llvh::ErrorOr" = type { %union.anon.14, i8, [7 x i8] }
 %union.anon.14 = type { %"struct.llvh::AlignedCharArrayUnion.15" }
 %"struct.llvh::AlignedCharArrayUnion.15" = type { %"struct.llvh::AlignedCharArray.16" }
@@ -48,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::MD5" = type { i32, i32, i32, i32, i32, i32, [64 x i8], [16 x i32] }
 %"struct.llvh::MD5::MD5Result" = type { %"struct.std::array" }
 %"struct.std::array" = type { [16 x i8] }
-%"class.llvh::sys::fs::directory_entry" = type { %"class.std::__cxx11::basic_string", i32, i8, %"class.llvh::sys::fs::basic_file_status" }
+%"class.llvh::sys::fs::basic_file_status" = type { i64, i64, i32, i32, i64, i32, i32 }
 %"class.llvh::ErrorOr.21" = type { %union.anon.22, i8, [7 x i8] }
 %union.anon.22 = type { %"struct.llvh::AlignedCharArrayUnion.17" }
 %"struct.llvh::AlignedCharArrayUnion.17" = type { %"struct.llvh::AlignedCharArray.7" }
@@ -58,9 +55,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::AlignedCharArray.31" = type { [24 x i8] }
 %struct.statfs = type { i64, i64, i64, i64, i64, i64, i64, %struct.__fsid_t, i64, i64, i64, [4 x i64] }
 %struct.__fsid_t = type { [2 x i32] }
-%"class.llvh::sys::fs::mapped_file_region" = type <{ i64, ptr, i32, [4 x i8] }>
-%"struct.llvh::sys::fs::detail::DirIterState" = type { i64, %"class.llvh::sys::fs::directory_entry" }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
+%"class.llvh::sys::fs::file_status" = type { %"class.llvh::sys::fs::basic_file_status", i64, i64, i64 }
+%"class.llvh::sys::fs::directory_entry" = type { %"class.std::__cxx11::basic_string", i32, i8, %"class.llvh::sys::fs::basic_file_status" }
 %"class.llvh::ErrorOr.33" = type { %union.anon.34, i8, [7 x i8] }
 %union.anon.34 = type { %"struct.llvh::AlignedCharArrayUnion.35" }
 %"struct.llvh::AlignedCharArrayUnion.35" = type { %"struct.llvh::AlignedCharArray.36" }
@@ -75,30 +71,18 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::_Sp_counted_base" = type { ptr, i32, i32 }
-%"class.llvh::sys::fs::TempFile" = type <{ i8, [7 x i8], %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"class.llvh::Expected.42" = type { %union.anon.43, i8, [7 x i8] }
 %union.anon.43 = type { %"struct.llvh::AlignedCharArrayUnion.44" }
 %"struct.llvh::AlignedCharArrayUnion.44" = type { %"struct.llvh::AlignedCharArray.45" }
 %"struct.llvh::AlignedCharArray.45" = type { [48 x i8] }
 %class.anon.50 = type { i8 }
-%"class.llvh::ErrorList" = type { %"class.llvh::ErrorInfo", %"class.std::vector.54" }
-%"class.llvh::ErrorInfo" = type { %"class.llvh::ErrorInfoBase" }
-%"class.llvh::ErrorInfoBase" = type { ptr }
-%"class.std::vector.54" = type { %"struct.std::_Vector_base.55" }
-%"struct.std::_Vector_base.55" = type { %"struct.std::_Vector_base<std::unique_ptr<llvh::ErrorInfoBase>, std::allocator<std::unique_ptr<llvh::ErrorInfoBase>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<llvh::ErrorInfoBase>, std::allocator<std::unique_ptr<llvh::ErrorInfoBase>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<llvh::ErrorInfoBase>, std::allocator<std::unique_ptr<llvh::ErrorInfoBase>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<llvh::ErrorInfoBase>, std::allocator<std::unique_ptr<llvh::ErrorInfoBase>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.llvh::sys::fs::TempFile" = type <{ i8, [7 x i8], %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.53" }
 %"struct.std::_Head_base.53" = type { ptr }
-%"class.std::_Sp_counted_ptr_inplace" = type { %"class.std::_Sp_counted_base", %"class.std::_Sp_counted_ptr_inplace<llvh::sys::fs::detail::DirIterState, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" }
-%"class.std::_Sp_counted_ptr_inplace<llvh::sys::fs::detail::DirIterState, std::allocator<void>, __gnu_cxx::_S_atomic>::_Impl" = type { %"struct.__gnu_cxx::__aligned_buffer" }
-%"struct.__gnu_cxx::__aligned_buffer" = type { %"union.std::aligned_storage<88, 8>::type" }
-%"union.std::aligned_storage<88, 8>::type" = type { [88 x i8] }
 
 $_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE = comdat any
 
@@ -185,7 +169,7 @@ entry:
   store i64 %path.coerce1, ptr %path.sroa.3.0.Path.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %path.i)
   store ptr %path.coerce0, ptr %path.i, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %path.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %path.i, i64 8
   store i64 %path.coerce1, ptr %0, align 8
   %cmp.i.i = icmp eq i64 %path.coerce1, 0
   br i1 %cmp.i.i, label %_ZN12_GLOBAL__N_120find_first_componentEN4llvh9StringRefENS0_3sys4path5StyleE.exit, label %if.end.i
@@ -264,13 +248,13 @@ _ZN12_GLOBAL__N_120find_first_componentEN4llvh9StringRefENS0_3sys4path5StyleE.ex
   %retval.sroa.0.0.i = phi ptr [ %7, %_ZN4llvh9StringRefC2EPKc.exit59.i ], [ %5, %_ZN4llvh9StringRefC2EPKc.exit.i ], [ %path.coerce0, %entry ], [ %path.coerce0, %land.lhs.true7.i ], [ %path.coerce0, %if.end33.i ]
   %retval.sroa.6.0.i = phi i64 [ %.sroa.speculated.i, %_ZN4llvh9StringRefC2EPKc.exit59.i ], [ %.sroa.speculated79.i, %_ZN4llvh9StringRefC2EPKc.exit.i ], [ 0, %entry ], [ 2, %land.lhs.true7.i ], [ 1, %if.end33.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %path.i)
-  %Component = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %agg.result, i64 0, i32 1
+  %Component = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %retval.sroa.0.0.i, ptr %Component, align 8
-  %ref.tmp.sroa.2.0.Component.sroa_idx = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %agg.result, i64 0, i32 1, i32 1
+  %ref.tmp.sroa.2.0.Component.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i64 %retval.sroa.6.0.i, ptr %ref.tmp.sroa.2.0.Component.sroa_idx, align 8
-  %Position = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %agg.result, i64 0, i32 2
+  %Position = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 0, ptr %Position, align 8
-  %S = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %agg.result, i64 0, i32 3
+  %S = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 %style, ptr %S, align 8
   ret void
 }
@@ -286,7 +270,7 @@ entry:
   store ptr %path.coerce0, ptr %agg.result, align 8
   %path.sroa.2.0.Path.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %path.coerce1, ptr %path.sroa.2.0.Path.sroa_idx, align 8
-  %Position = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %agg.result, i64 0, i32 2
+  %Position = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 %path.coerce1, ptr %Position, align 8
   ret void
 }
@@ -294,14 +278,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull align 8 dereferenceable(44) ptr @_ZN4llvh3sys4path14const_iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(44) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %Component = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %this, i64 0, i32 1
-  %Length.i90 = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %this, i64 0, i32 1, i32 1
+  %Component = getelementptr inbounds i8, ptr %this, i64 16
+  %Length.i90 = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %Length.i90, align 8
-  %Position = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %this, i64 0, i32 2
+  %Position = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i64, ptr %Position, align 8
   %add = add i64 %1, %0
   store i64 %add, ptr %Position, align 8
-  %Length.i87 = getelementptr inbounds %"class.llvh::StringRef", ptr %this, i64 0, i32 1
+  %Length.i87 = getelementptr inbounds i8, ptr %this, i64 8
   %2 = load i64, ptr %Length.i87, align 8
   %cmp = icmp eq i64 %add, %2
   br i1 %cmp, label %if.then, label %if.end
@@ -315,14 +299,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7, label %land.lhs.true, label %if.end.land.end_crit_edge
 
 if.end.land.end_crit_edge:                        ; preds = %if.end
-  %S25.phi.trans.insert = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %this, i64 0, i32 3
+  %S25.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 40
   %.pre = load i32, ptr %S25.phi.trans.insert, align 8
   br label %land.end
 
 land.lhs.true:                                    ; preds = %if.end
   %3 = load ptr, ptr %Component, align 8
   %4 = load i8, ptr %3, align 1
-  %S = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %this, i64 0, i32 3
+  %S = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i32, ptr %S, align 8
   %cmp.i = icmp eq i8 %4, 47
   br i1 %cmp.i, label %land.lhs.true11, label %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit
@@ -402,29 +386,29 @@ land.rhs45.preheader:                             ; preds = %land.rhs.i, %land.r
   br label %land.rhs45
 
 land.rhs45.us:                                    ; preds = %land.rhs45.lr.ph, %while.body.us
-  %inc6769.us = phi i64 [ %inc.us, %while.body.us ], [ %add, %land.rhs45.lr.ph ]
-  %arrayidx.i42.us = getelementptr inbounds i8, ptr %10, i64 %inc6769.us
-  %14 = load i8, ptr %arrayidx.i42.us, align 1
-  %cmp.i43.us = icmp eq i8 %14, 47
+  %14 = phi i64 [ %inc.us, %while.body.us ], [ %add, %land.rhs45.lr.ph ]
+  %arrayidx.i42.us = getelementptr inbounds i8, ptr %10, i64 %14
+  %15 = load i8, ptr %arrayidx.i42.us, align 1
+  %cmp.i43.us = icmp eq i8 %15, 47
   br i1 %cmp.i43.us, label %while.body.us, label %_ZN4llvh9StringRefC2EPKc.exit127
 
 while.body.us:                                    ; preds = %land.rhs45.us
-  %inc.us = add i64 %inc6769.us, 1
+  %inc.us = add i64 %14, 1
   store i64 %inc.us, ptr %Position, align 8
   %cmp44.not.us = icmp eq i64 %inc.us, %2
   br i1 %cmp44.not.us, label %land.lhs.true57, label %land.rhs45.us, !llvm.loop !4
 
 land.rhs45:                                       ; preds = %land.rhs45.preheader, %while.body
-  %inc6769 = phi i64 [ %inc, %while.body ], [ %add, %land.rhs45.preheader ]
-  %arrayidx.i42 = getelementptr inbounds i8, ptr %10, i64 %inc6769
-  %15 = load i8, ptr %arrayidx.i42, align 1
-  switch i8 %15, label %_ZN4llvh9StringRefC2EPKc.exit127 [
+  %16 = phi i64 [ %inc, %while.body ], [ %add, %land.rhs45.preheader ]
+  %arrayidx.i42 = getelementptr inbounds i8, ptr %10, i64 %16
+  %17 = load i8, ptr %arrayidx.i42, align 1
+  switch i8 %17, label %_ZN4llvh9StringRefC2EPKc.exit127 [
     i8 47, label %while.body
     i8 92, label %while.body
   ]
 
 while.body:                                       ; preds = %land.rhs45, %land.rhs45
-  %inc = add i64 %inc6769, 1
+  %inc = add i64 %16, 1
   store i64 %inc, ptr %Position, align 8
   %cmp44.not = icmp eq i64 %inc, %2
   br i1 %cmp44.not, label %land.lhs.true57, label %land.rhs45, !llvm.loop !4
@@ -447,20 +431,20 @@ if.then62:                                        ; preds = %land.lhs.true57, %i
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit127:                 ; preds = %land.rhs45.us, %land.rhs45, %if.end.i.i, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit36
-  %16 = phi i64 [ %2, %if.end.i.i ], [ %add, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit36 ], [ %inc6769, %land.rhs45 ], [ %inc6769.us, %land.rhs45.us ]
+  %18 = phi i64 [ %2, %if.end.i.i ], [ %add, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit36 ], [ %16, %land.rhs45 ], [ %14, %land.rhs45.us ]
   %cmp.i.not.i50 = icmp eq i32 %.fr, 0
   %.str.11..str.1.i = select i1 %cmp.i.not.i50, ptr @.str.11, ptr @.str.1
   %call.i126 = select i1 %cmp.i.not.i50, i64 2, i64 1
-  %call73 = tail call noundef i64 @_ZNK4llvh9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nonnull %.str.11..str.1.i, i64 %call.i126, i64 noundef %16) #29
-  %17 = load i64, ptr %Position, align 8
-  %18 = load i64, ptr %Length.i87, align 8
-  %19 = tail call i64 @llvm.umin.i64(i64 %18, i64 %17)
-  %20 = tail call i64 @llvm.umax.i64(i64 %19, i64 %call73)
-  %cmp.i55 = icmp ugt i64 %call73, %18
-  %21 = select i1 %cmp.i55, i64 %18, i64 %20
-  %22 = load ptr, ptr %this, align 8
-  %add.ptr.i142 = getelementptr inbounds i8, ptr %22, i64 %19
-  %sub.i143 = sub i64 %21, %19
+  %call73 = tail call noundef i64 @_ZNK4llvh9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nonnull %.str.11..str.1.i, i64 %call.i126, i64 noundef %18) #29
+  %19 = load i64, ptr %Position, align 8
+  %20 = load i64, ptr %Length.i87, align 8
+  %21 = tail call i64 @llvm.umin.i64(i64 %20, i64 %19)
+  %22 = tail call i64 @llvm.umax.i64(i64 %21, i64 %call73)
+  %cmp.i55 = icmp ugt i64 %call73, %20
+  %23 = select i1 %cmp.i55, i64 %20, i64 %22
+  %24 = load ptr, ptr %this, align 8
+  %add.ptr.i142 = getelementptr inbounds i8, ptr %24, i64 %21
+  %sub.i143 = sub i64 %23, %21
   store ptr %add.ptr.i142, ptr %Component, align 8
   store i64 %sub.i143, ptr %Length.i90, align 8
   br label %return
@@ -497,9 +481,9 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %RHS, align 8
   %cmp = icmp eq ptr %0, %1
-  %Position = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %this, i64 0, i32 2
+  %Position = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load i64, ptr %Position, align 8
-  %Position4 = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %RHS, i64 0, i32 2
+  %Position4 = getelementptr inbounds i8, ptr %RHS, i64 32
   %3 = load i64, ptr %Position4, align 8
   %cmp5 = icmp eq i64 %2, %3
   %4 = select i1 %cmp, i1 %cmp5, i1 false
@@ -509,9 +493,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK4llvh3sys4path14const_iteratormiERKS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %RHS) local_unnamed_addr #6 align 2 {
 entry:
-  %Position = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %this, i64 0, i32 2
+  %Position = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %Position, align 8
-  %Position2 = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %RHS, i64 0, i32 2
+  %Position2 = getelementptr inbounds i8, ptr %RHS, i64 32
   %1 = load i64, ptr %Position2, align 8
   %sub = sub i64 %0, %1
   ret i64 %sub
@@ -526,9 +510,9 @@ entry:
   store ptr %Path.coerce0, ptr %I, align 8
   %Path.sroa.2.0.Path1.sroa_idx = getelementptr inbounds i8, ptr %I, i64 8
   store i64 %Path.coerce1, ptr %Path.sroa.2.0.Path1.sroa_idx, align 8
-  %Position = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %I, i64 0, i32 2
+  %Position = getelementptr inbounds i8, ptr %I, i64 32
   store i64 %Path.coerce1, ptr %Position, align 8
-  %S = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %I, i64 0, i32 3
+  %S = getelementptr inbounds i8, ptr %I, i64 40
   store i32 %style, ptr %S, align 8
   %call2 = call noundef nonnull align 8 dereferenceable(44) ptr @_ZN4llvh3sys4path16reverse_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(44) %I)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %I, i64 48, i1 false)
@@ -543,11 +527,11 @@ entry:
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %this, align 8
   %agg.tmp.sroa.2.0.Path.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.Path.sroa_idx, align 8
-  %S = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %this, i64 0, i32 3
+  %S = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %S, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %str.i)
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %str.i, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %str.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %str.i, i64 8
   store i64 %agg.tmp.sroa.2.0.copyload, ptr %1, align 8
   %cmp.i.not.i = icmp eq i32 %0, 0
   %cmp2.i = icmp ugt i64 %agg.tmp.sroa.2.0.copyload, 2
@@ -628,7 +612,7 @@ _ZN12_GLOBAL__N_114root_dir_startEN4llvh9StringRefENS0_3sys4path5StyleE.exit: ; 
   %.pre.pre = phi ptr [ %agg.tmp.sroa.0.0.copyload, %if.end34.i ], [ %.pre.pre.pre, %_ZN4llvh9StringRefC2EPKc.exit.i ], [ %agg.tmp.sroa.0.0.copyload, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit34.i ], [ %agg.tmp.sroa.0.0.copyload, %land.lhs.true5.i ], [ %agg.tmp.sroa.0.0.copyload, %land.lhs.true30.i ], [ %agg.tmp.sroa.0.0.copyload, %land.lhs.true5.i ]
   %retval.0.i = phi i64 [ -1, %if.end34.i ], [ %call26.i, %_ZN4llvh9StringRefC2EPKc.exit.i ], [ 0, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit34.i ], [ 2, %land.lhs.true5.i ], [ 0, %land.lhs.true30.i ], [ 2, %land.lhs.true5.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %str.i)
-  %Position = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %this, i64 0, i32 2
+  %Position = getelementptr inbounds i8, ptr %this, i64 32
   %9 = load i64, ptr %Position, align 8
   %cmp.not57 = icmp eq i64 %9, 0
   br i1 %cmp.not57, label %while.end, label %land.lhs.true.lr.ph
@@ -706,9 +690,9 @@ land.lhs.true20:                                  ; preds = %land.lhs.true15, %_
 if.then:                                          ; preds = %land.lhs.true20
   %dec25 = add i64 %9, -1
   store i64 %dec25, ptr %Position, align 8
-  %Component = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %this, i64 0, i32 1
+  %Component = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @.str.2, ptr %Component, align 8
-  %ref.tmp.sroa.2.0.Component.sroa_idx = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %this, i64 0, i32 1, i32 1
+  %ref.tmp.sroa.2.0.Component.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   store i64 1, ptr %ref.tmp.sroa.2.0.Component.sroa_idx, align 8
   br label %return
 
@@ -717,7 +701,7 @@ if.end:                                           ; preds = %land.lhs.true20, %_
   %18 = load i32, ptr %S, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %str.i34)
   store ptr %.pre.pre, ptr %str.i34, align 8
-  %19 = getelementptr inbounds { ptr, i64 }, ptr %str.i34, i64 0, i32 1
+  %19 = getelementptr inbounds i8, ptr %str.i34, i64 8
   store i64 %.sroa.speculated, ptr %19, align 8
   %cmp.not.i = icmp eq i64 %.sroa.speculated, 0
   br i1 %cmp.not.i, label %_ZN4llvh9StringRefC2EPKc.exit.i38, label %land.lhs.true.i35
@@ -795,9 +779,9 @@ _ZN12_GLOBAL__N_112filename_posEN4llvh9StringRefENS0_3sys4path5StyleE.exit: ; pr
   %30 = load ptr, ptr %this, align 8
   %add.ptr.i49 = getelementptr inbounds i8, ptr %30, i64 %27
   %sub.i50 = sub i64 %29, %27
-  %Component34 = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %this, i64 0, i32 1
+  %Component34 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i49, ptr %Component34, align 8
-  %ref.tmp31.sroa.2.0.Component34.sroa_idx = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %this, i64 0, i32 1, i32 1
+  %ref.tmp31.sroa.2.0.Component34.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   store i64 %sub.i50, ptr %ref.tmp31.sroa.2.0.Component34.sroa_idx, align 8
   store i64 %retval.0.i42, ptr %Position, align 8
   br label %return
@@ -812,9 +796,9 @@ entry:
   store ptr %Path.coerce0, ptr %agg.result, align 8
   %Path.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %Path.coerce1, ptr %Path.sroa.3.0.agg.result.sroa_idx, align 8
-  %Component = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %agg.result, i64 0, i32 1
+  %Component = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %Path.coerce0, ptr %Component, align 8
-  %ref.tmp.sroa.2.0.Component.sroa_idx = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %agg.result, i64 0, i32 1, i32 1
+  %ref.tmp.sroa.2.0.Component.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.sroa.2.0.Component.sroa_idx, i8 0, i64 16, i1 false)
   ret void
 }
@@ -828,13 +812,13 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %land.end
 
 land.lhs.true:                                    ; preds = %entry
-  %Component = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %this, i64 0, i32 1
+  %Component = getelementptr inbounds i8, ptr %this, i64 16
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %Component, align 8
-  %agg.tmp.sroa.2.0.Component.sroa_idx = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %this, i64 0, i32 1, i32 1
+  %agg.tmp.sroa.2.0.Component.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.Component.sroa_idx, align 8
-  %Component5 = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %RHS, i64 0, i32 1
+  %Component5 = getelementptr inbounds i8, ptr %RHS, i64 16
   %agg.tmp4.sroa.0.0.copyload = load ptr, ptr %Component5, align 8
-  %agg.tmp4.sroa.2.0.Component5.sroa_idx = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %RHS, i64 0, i32 1, i32 1
+  %agg.tmp4.sroa.2.0.Component5.sroa_idx = getelementptr inbounds i8, ptr %RHS, i64 24
   %agg.tmp4.sroa.2.0.copyload = load i64, ptr %agg.tmp4.sroa.2.0.Component5.sroa_idx, align 8
   %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %agg.tmp4.sroa.2.0.copyload
   br i1 %cmp.i, label %land.rhs.i, label %land.end
@@ -849,9 +833,9 @@ if.end.i.i:                                       ; preds = %land.rhs.i
   br i1 %2, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %land.rhs.i, %if.end.i.i
-  %Position = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %this, i64 0, i32 2
+  %Position = getelementptr inbounds i8, ptr %this, i64 32
   %3 = load i64, ptr %Position, align 8
-  %Position7 = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %RHS, i64 0, i32 2
+  %Position7 = getelementptr inbounds i8, ptr %RHS, i64 32
   %4 = load i64, ptr %Position7, align 8
   %cmp8 = icmp eq i64 %3, %4
   br label %land.end
@@ -864,9 +848,9 @@ land.end:                                         ; preds = %land.lhs.true, %lan
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK4llvh3sys4path16reverse_iteratormiERKS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %RHS) local_unnamed_addr #6 align 2 {
 entry:
-  %Position = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %this, i64 0, i32 2
+  %Position = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %Position, align 8
-  %Position2 = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %RHS, i64 0, i32 2
+  %Position2 = getelementptr inbounds i8, ptr %RHS, i64 32
   %1 = load i64, ptr %Position2, align 8
   %sub = sub i64 %0, %1
   ret i64 %sub
@@ -881,15 +865,15 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pos, ptr noundef nonnull align 8 dereferenceable(48) %b, i64 48, i1 false)
   %0 = load ptr, ptr %b, align 8
   %cmp.i.i = icmp ne ptr %0, %path.coerce0
-  %Position.i.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %b, i64 0, i32 2
+  %Position.i.i = getelementptr inbounds i8, ptr %b, i64 32
   %1 = load i64, ptr %Position.i.i, align 8
   %cmp5.i.i = icmp ne i64 %1, %path.coerce1
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp5.i.i
   br i1 %.not.i, label %if.then, label %if.end42
 
 if.then:                                          ; preds = %entry
-  %Component.i.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %b, i64 0, i32 1
-  %Length.i48 = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %b, i64 0, i32 1, i32 1
+  %Component.i.i = getelementptr inbounds i8, ptr %b, i64 16
+  %Length.i48 = getelementptr inbounds i8, ptr %b, i64 24
   %2 = load i64, ptr %Length.i48, align 8
   %cmp = icmp ugt i64 %2, 2
   br i1 %cmp, label %land.lhs.true, label %land.end
@@ -936,14 +920,14 @@ if.then22:                                        ; preds = %land.end19
   %call23 = call noundef nonnull align 8 dereferenceable(44) ptr @_ZN4llvh3sys4path14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(44) %pos)
   %10 = load ptr, ptr %pos, align 8
   %cmp.i.i22 = icmp ne ptr %10, %path.coerce0
-  %Position.i.i23 = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %pos, i64 0, i32 2
+  %Position.i.i23 = getelementptr inbounds i8, ptr %pos, i64 32
   %11 = load i64, ptr %Position.i.i23, align 8
   %cmp5.i.i25 = icmp ne i64 %11, %path.coerce1
   %.not.i26 = select i1 %cmp.i.i22, i1 true, i1 %cmp5.i.i25
   br i1 %.not.i26, label %land.lhs.true25, label %if.else
 
 land.lhs.true25:                                  ; preds = %if.then22
-  %Component.i27 = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %pos, i64 0, i32 1
+  %Component.i27 = getelementptr inbounds i8, ptr %pos, i64 16
   %12 = load ptr, ptr %Component.i27, align 8
   %13 = load i8, ptr %12, align 1
   %cmp.i28 = icmp eq i8 %13, 47
@@ -956,7 +940,7 @@ _ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit34: ; preds = %land.lhs.true25
   br i1 %spec.select.i32, label %if.then29, label %if.else
 
 if.then29:                                        ; preds = %land.lhs.true25, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit34
-  %Length.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %pos, i64 0, i32 1, i32 1
+  %Length.i = getelementptr inbounds i8, ptr %pos, i64 24
   %14 = load i64, ptr %Length.i, align 8
   %add = add i64 %14, %2
   %.sroa.speculated61 = call i64 @llvm.umin.i64(i64 %add, i64 %path.coerce1)
@@ -996,15 +980,15 @@ entry:
   call void @_ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE(ptr nonnull sret(%"class.llvh::sys::path::const_iterator") align 8 %b, ptr %path.coerce0, i64 %path.coerce1, i32 noundef %style)
   %0 = load ptr, ptr %b, align 8
   %cmp.i.i = icmp ne ptr %0, %path.coerce0
-  %Position.i.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %b, i64 0, i32 2
+  %Position.i.i = getelementptr inbounds i8, ptr %b, i64 32
   %1 = load i64, ptr %Position.i.i, align 8
   %cmp5.i.i = icmp ne i64 %1, %path.coerce1
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp5.i.i
   br i1 %.not.i, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %Component.i.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %b, i64 0, i32 1
-  %Length.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %b, i64 0, i32 1, i32 1
+  %Component.i.i = getelementptr inbounds i8, ptr %b, i64 16
+  %Length.i = getelementptr inbounds i8, ptr %b, i64 24
   %2 = load i64, ptr %Length.i, align 8
   %cmp = icmp ugt i64 %2, 2
   %retval.sroa.0.0.copyload.pre.pre = load ptr, ptr %Component.i.i, align 8
@@ -1065,15 +1049,15 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pos, ptr noundef nonnull align 8 dereferenceable(48) %b, i64 48, i1 false)
   %0 = load ptr, ptr %b, align 8
   %cmp.i.i = icmp ne ptr %0, %path.coerce0
-  %Position.i.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %b, i64 0, i32 2
+  %Position.i.i = getelementptr inbounds i8, ptr %b, i64 32
   %1 = load i64, ptr %Position.i.i, align 8
   %cmp5.i.i = icmp ne i64 %1, %path.coerce1
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp5.i.i
   br i1 %.not.i, label %if.then, label %if.end39
 
 if.then:                                          ; preds = %entry
-  %Component.i.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %b, i64 0, i32 1
-  %Length.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %b, i64 0, i32 1, i32 1
+  %Component.i.i = getelementptr inbounds i8, ptr %b, i64 16
+  %Length.i = getelementptr inbounds i8, ptr %b, i64 24
   %2 = load i64, ptr %Length.i, align 8
   %cmp = icmp ugt i64 %2, 2
   br i1 %cmp, label %land.lhs.true, label %land.end
@@ -1120,14 +1104,14 @@ land.lhs.true22:                                  ; preds = %land.end19
   %call23 = call noundef nonnull align 8 dereferenceable(44) ptr @_ZN4llvh3sys4path14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(44) %pos)
   %10 = load ptr, ptr %pos, align 8
   %cmp.i.i18 = icmp ne ptr %10, %path.coerce0
-  %Position.i.i19 = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %pos, i64 0, i32 2
+  %Position.i.i19 = getelementptr inbounds i8, ptr %pos, i64 32
   %11 = load i64, ptr %Position.i.i19, align 8
   %cmp5.i.i21 = icmp ne i64 %11, %path.coerce1
   %.not.i22 = select i1 %cmp.i.i18, i1 true, i1 %cmp5.i.i21
   br i1 %.not.i22, label %land.lhs.true25, label %if.end
 
 land.lhs.true25:                                  ; preds = %land.lhs.true22
-  %Component.i23 = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %pos, i64 0, i32 1
+  %Component.i23 = getelementptr inbounds i8, ptr %pos, i64 16
   %12 = load ptr, ptr %Component.i23, align 8
   %13 = load i8, ptr %12, align 1
   %cmp.i24 = icmp eq i8 %13, 47
@@ -1140,7 +1124,7 @@ _ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit30: ; preds = %land.lhs.true25
   br i1 %spec.select.i28, label %if.then29, label %if.end
 
 if.then29:                                        ; preds = %land.lhs.true25, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit30
-  %retval.sroa.5.0.Component.i31.sroa_idx = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %pos, i64 0, i32 1, i32 1
+  %retval.sroa.5.0.Component.i31.sroa_idx = getelementptr inbounds i8, ptr %pos, i64 24
   %retval.sroa.5.0.copyload = load i64, ptr %retval.sroa.5.0.Component.i31.sroa_idx, align 8
   br label %return
 
@@ -1194,35 +1178,35 @@ entry:
   %ref.tmp40 = alloca %"class.llvh::Twine", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %a_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %a_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %a_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %a_storage, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %add.ptr.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %b_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i26, ptr %b_storage, align 8
-  %Size.i.i.i.i.i.i27 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %b_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %b_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i27, align 8
-  %Capacity2.i.i.i.i.i.i28 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %b_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %b_storage, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i28, align 4
   %add.ptr.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %c_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i29, ptr %c_storage, align 8
-  %Size.i.i.i.i.i.i30 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %c_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %c_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i30, align 8
-  %Capacity2.i.i.i.i.i.i31 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %c_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %c_storage, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i31, align 4
   %add.ptr.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %d_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i32, ptr %d_storage, align 8
-  %Size.i.i.i.i.i.i33 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %d_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i33 = getelementptr inbounds i8, ptr %d_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i33, align 8
-  %Capacity2.i.i.i.i.i.i34 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %d_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %d_storage, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i34, align 4
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %components, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %components, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %components, i64 0, i32 1
+  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %components, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %components, i64 0, i32 2
+  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %components, i64 12
   store i32 4, ptr %Capacity2.i.i.i.i.i, align 4
-  %LHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %a, i64 0, i32 2
+  %LHSKind.i.i.i.i = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load i8, ptr %LHSKind.i.i.i.i, align 8
   %spec.select.i.i = icmp ult i8 %0, 2
   br i1 %spec.select.i.i, label %if.end, label %if.then
@@ -1256,7 +1240,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit: ; pr
 
 if.end:                                           ; preds = %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit, %entry
   %8 = phi i32 [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit ], [ 0, %entry ]
-  %LHSKind.i.i.i.i35 = getelementptr inbounds %"class.llvh::Twine", ptr %b, i64 0, i32 2
+  %LHSKind.i.i.i.i35 = getelementptr inbounds i8, ptr %b, i64 16
   %9 = load i8, ptr %LHSKind.i.i.i.i35, align 8
   %spec.select.i.i36 = icmp ult i8 %9, 2
   br i1 %spec.select.i.i36, label %if.end6, label %if.then3
@@ -1290,7 +1274,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit46: ; 
 
 if.end6:                                          ; preds = %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit46, %if.end
   %17 = phi i32 [ %add.i45, %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit46 ], [ %8, %if.end ]
-  %LHSKind.i.i.i.i47 = getelementptr inbounds %"class.llvh::Twine", ptr %c, i64 0, i32 2
+  %LHSKind.i.i.i.i47 = getelementptr inbounds i8, ptr %c, i64 16
   %18 = load i8, ptr %LHSKind.i.i.i.i47, align 8
   %spec.select.i.i48 = icmp ult i8 %18, 2
   br i1 %spec.select.i.i48, label %if.end11, label %if.then8
@@ -1324,7 +1308,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit58: ; 
 
 if.end11:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit58, %if.end6
   %26 = phi i32 [ %add.i57, %_ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit58 ], [ %17, %if.end6 ]
-  %LHSKind.i.i.i.i59 = getelementptr inbounds %"class.llvh::Twine", ptr %d, i64 0, i32 2
+  %LHSKind.i.i.i.i59 = getelementptr inbounds i8, ptr %d, i64 16
   %27 = load i8, ptr %LHSKind.i.i.i.i59, align 8
   %spec.select.i.i60 = icmp ult i8 %27, 2
   br i1 %spec.select.i.i60, label %if.end16, label %if.then13
@@ -1365,14 +1349,14 @@ if.end16:                                         ; preds = %_ZN4llvh23SmallVect
   br i1 %cmp.not156, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end16
-  %Size.i71 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path, i64 0, i32 1
+  %Size.i71 = getelementptr inbounds i8, ptr %path, i64 8
   %cmp.i.not.i = icmp eq i32 %style, 0
   %.str.11..str.1.i = select i1 %cmp.i.not.i, ptr @.str.11, ptr @.str.1
   %call.i = select i1 %cmp.i.not.i, i64 2, i64 1
-  %Capacity.i.i80 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path, i64 0, i32 2
+  %Capacity.i.i80 = getelementptr inbounds i8, ptr %path, i64 12
   %add.ptr.i.i.i.i89 = getelementptr inbounds i8, ptr %path, i64 16
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp40, i64 0, i32 2
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp40, i64 0, i32 3
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 16
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 17
   %..i = select i1 %cmp.i.not.i, i8 92, i8 47
   %.pre = load i32, ptr %Size.i71, align 8
   br label %for.body
@@ -1397,7 +1381,7 @@ land.rhs:                                         ; preds = %for.body
 
 _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %land.rhs
   %call25 = call noundef i64 @_ZNK4llvh9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %__begin2.0157, ptr nonnull %.str.11..str.1.i, i64 %call.i, i64 noundef 0) #29
-  %Length.i51 = getelementptr inbounds %"class.llvh::StringRef", ptr %__begin2.0157, i64 0, i32 1
+  %Length.i51 = getelementptr inbounds i8, ptr %__begin2.0157, i64 8
   %41 = load i64, ptr %Length.i51, align 8
   %.sroa.speculated152 = call i64 @llvm.umin.i64(i64 %41, i64 %call25)
   %42 = load ptr, ptr %__begin2.0157, align 8
@@ -1434,19 +1418,19 @@ if.then.i.i:                                      ; preds = %if.end.i84
   br label %for.inc
 
 if.end30:                                         ; preds = %for.body
-  %Length.i55 = getelementptr inbounds %"class.llvh::StringRef", ptr %__begin2.0157, i64 0, i32 1
+  %Length.i55 = getelementptr inbounds i8, ptr %__begin2.0157, i64 8
   %46 = load i64, ptr %Length.i55, align 8
   %cmp.i = icmp eq i64 %46, 0
   br i1 %cmp.i, label %if.end46, label %land.rhs32
 
 if.end30.thread:                                  ; preds = %land.rhs
-  %Length.i55160 = getelementptr inbounds %"class.llvh::StringRef", ptr %__begin2.0157, i64 0, i32 1
-  %47 = load i64, ptr %Length.i55160, align 8
-  %cmp.i161 = icmp eq i64 %47, 0
-  br i1 %cmp.i161, label %lor.rhs, label %land.rhs32
+  %Length.i55161 = getelementptr inbounds i8, ptr %__begin2.0157, i64 8
+  %47 = load i64, ptr %Length.i55161, align 8
+  %cmp.i162 = icmp eq i64 %47, 0
+  br i1 %cmp.i162, label %lor.rhs, label %land.rhs32
 
 land.rhs32:                                       ; preds = %if.end30.thread, %if.end30
-  %Length.i55164 = phi ptr [ %Length.i55160, %if.end30.thread ], [ %Length.i55, %if.end30 ]
+  %Length.i55165 = phi ptr [ %Length.i55161, %if.end30.thread ], [ %Length.i55, %if.end30 ]
   %48 = load ptr, ptr %__begin2.0157, align 8
   %49 = load i8, ptr %48, align 1
   %cmp.i90 = icmp eq i8 %49, 47
@@ -1459,17 +1443,17 @@ _ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit96: ; preds = %land.rhs32
   br i1 %brmerge, label %if.end46thread-pre-split, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end30.thread, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit96
-  %Length.i55162 = phi ptr [ %Length.i55164, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit96 ], [ %Length.i55160, %if.end30.thread ]
+  %Length.i55163 = phi ptr [ %Length.i55165, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit96 ], [ %Length.i55161, %if.end30.thread ]
   store i8 5, ptr %LHSKind.i, align 8
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %__begin2.0157, ptr %ref.tmp40, align 8
   %call41 = call noundef zeroext i1 @_ZN4llvh3sys4path13has_root_nameERKNS_5TwineENS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp40, i32 noundef %style)
-  %.pre158 = load i32, ptr %Size.i71, align 8
+  %.pre159 = load i32, ptr %Size.i71, align 8
   br i1 %call41, label %if.end46thread-pre-split, label %if.then43
 
 if.then43:                                        ; preds = %lor.rhs
   %50 = load i32, ptr %Capacity.i.i80, align 4
-  %cmp.not.i102 = icmp ult i32 %.pre158, %50
+  %cmp.not.i102 = icmp ult i32 %.pre159, %50
   br i1 %cmp.not.i102, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, label %if.then.i103
 
 if.then.i103:                                     ; preds = %if.then43
@@ -1478,7 +1462,7 @@ if.then.i103:                                     ; preds = %if.then43
   br label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit
 
 _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %if.then43, %if.then.i103
-  %51 = phi i32 [ %.pre.i105, %if.then.i103 ], [ %.pre158, %if.then43 ]
+  %51 = phi i32 [ %.pre.i105, %if.then.i103 ], [ %.pre159, %if.then43 ]
   %52 = load ptr, ptr %path, align 8
   %conv.i3.i107 = zext i32 %51 to i64
   %add.ptr.i.i108 = getelementptr inbounds i8, ptr %52, i64 %conv.i3.i107
@@ -1489,9 +1473,9 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %if.then4
   br label %if.end46thread-pre-split
 
 if.end46thread-pre-split:                         ; preds = %lor.rhs, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, %land.rhs32, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit96
-  %Length.i55163.ph = phi ptr [ %Length.i55162, %lor.rhs ], [ %Length.i55162, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %Length.i55164, %land.rhs32 ], [ %Length.i55164, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit96 ]
-  %.ph = phi i32 [ %.pre158, %lor.rhs ], [ %add.i109, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %37, %land.rhs32 ], [ %37, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit96 ]
-  %.pr = load i64, ptr %Length.i55163.ph, align 8
+  %Length.i55164.ph = phi ptr [ %Length.i55163, %lor.rhs ], [ %Length.i55163, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %Length.i55165, %land.rhs32 ], [ %Length.i55165, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit96 ]
+  %.ph = phi i32 [ %.pre159, %lor.rhs ], [ %add.i109, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %37, %land.rhs32 ], [ %37, %_ZN4llvh3sys4path12is_separatorEcNS1_5StyleE.exit96 ]
+  %.pr = load i64, ptr %Length.i55164.ph, align 8
   br label %if.end46
 
 if.end46:                                         ; preds = %if.end46thread-pre-split, %if.end30
@@ -1516,30 +1500,30 @@ if.end.i121:                                      ; preds = %if.end46
   br i1 %cmp.not.i.i123, label %for.inc, label %if.then.i.i124
 
 if.then.i.i124:                                   ; preds = %if.end.i121.thread, %if.end.i121
-  %.pre13.i122169 = phi i32 [ %.pre13.pre.i132, %if.end.i121.thread ], [ %55, %if.end.i121 ]
+  %.pre13.i122170 = phi i32 [ %.pre13.pre.i132, %if.end.i121.thread ], [ %55, %if.end.i121 ]
   %58 = load ptr, ptr %path, align 8
-  %conv.i9.i125 = zext i32 %.pre13.i122169 to i64
+  %conv.i9.i125 = zext i32 %.pre13.i122170 to i64
   %add.ptr.i.i126 = getelementptr inbounds i8, ptr %58, i64 %conv.i9.i125
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i126, ptr align 1 %56, i64 %54, i1 false)
   %.pre.i127 = load i32, ptr %Size.i71, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i.i124, %if.end.i121, %if.then.i.i, %if.end.i84
-  %.sink171 = phi i64 [ %sub.ptr.sub.i.i.i, %if.end.i84 ], [ %sub.ptr.sub.i.i.i, %if.then.i.i ], [ %54, %if.end.i121 ], [ %54, %if.then.i.i124 ]
+  %.sink172 = phi i64 [ %sub.ptr.sub.i.i.i, %if.end.i84 ], [ %sub.ptr.sub.i.i.i, %if.then.i.i ], [ %54, %if.end.i121 ], [ %54, %if.then.i.i124 ]
   %.sink = phi i32 [ %.pre13.i, %if.end.i84 ], [ %.pre.i86, %if.then.i.i ], [ %55, %if.end.i121 ], [ %.pre.i127, %if.then.i.i124 ]
-  %59 = trunc i64 %.sink171 to i32
+  %59 = trunc i64 %.sink172 to i32
   %conv.i12.i128 = add i32 %.sink, %59
   store i32 %conv.i12.i128, ptr %Size.i71, align 8
-  %incdec.ptr = getelementptr inbounds %"class.llvh::StringRef", ptr %__begin2.0157, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0157, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i60
   br i1 %cmp.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %.pre159 = load ptr, ptr %components, align 8
+  %.pre160 = load ptr, ptr %components, align 8
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end16
-  %60 = phi ptr [ %.pre159, %for.end.loopexit ], [ %36, %if.end16 ]
+  %60 = phi ptr [ %.pre160, %for.end.loopexit ], [ %36, %if.end16 ]
   %cmp.i.i.i = icmp eq ptr %60, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorINS_9StringRefELj4EED2Ev.exit, label %if.then.i.i135
 
@@ -1590,13 +1574,13 @@ _ZN4llvh11SmallStringILj32EED2Ev.exit148:         ; preds = %_ZN4llvh11SmallStri
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %this, ptr noundef nonnull align 8 dereferenceable(16) %Out) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %this, i64 17
   %0 = load i8, ptr %RHSKind.i.i, align 1
   %cmp.not.i = icmp eq i8 %0, 1
   br i1 %cmp.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %entry
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %this, i64 0, i32 2
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i8, ptr %LHSKind.i.i, align 8
   switch i8 %1, label %if.end [
     i8 1, label %return
@@ -1631,7 +1615,7 @@ sw.bb5.i:                                         ; preds = %if.end.i
 sw.bb7.i:                                         ; preds = %if.end.i
   %5 = load ptr, ptr %this, align 8
   %6 = load ptr, ptr %5, align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %5, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i32, ptr %Size.i.i, align 8
   %conv.i.i = zext i32 %7 to i64
   br label %return
@@ -1639,7 +1623,7 @@ sw.bb7.i:                                         ; preds = %if.end.i
 if.end:                                           ; preds = %if.end.i, %entry
   tail call void @_ZNK4llvh5Twine8toVectorERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %this, ptr noundef nonnull align 8 dereferenceable(16) %Out) #29
   %8 = load ptr, ptr %Out, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Out, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %Out, i64 8
   %9 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %9 to i64
   br label %return
@@ -1661,9 +1645,9 @@ entry:
   %path_storage = alloca %"class.llvh::SmallString.11", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %path_storage)
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -1672,15 +1656,15 @@ entry:
   call void @_ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE(ptr nonnull sret(%"class.llvh::sys::path::const_iterator") align 8 %b.i, ptr %0, i64 %1, i32 noundef %style)
   %2 = load ptr, ptr %b.i, align 8
   %cmp.i.i.i = icmp ne ptr %2, %0
-  %Position.i.i.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %b.i, i64 0, i32 2
+  %Position.i.i.i = getelementptr inbounds i8, ptr %b.i, i64 32
   %3 = load i64, ptr %Position.i.i.i, align 8
   %cmp5.i.i.i = icmp ne i64 %3, %1
   %.not.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp5.i.i.i
   br i1 %.not.i.i, label %if.then.i, label %_ZN4llvh3sys4path9root_nameENS_9StringRefENS1_5StyleE.exit
 
 if.then.i:                                        ; preds = %entry
-  %Component.i.i.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %b.i, i64 0, i32 1
-  %Length.i.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %b.i, i64 0, i32 1, i32 1
+  %Component.i.i.i = getelementptr inbounds i8, ptr %b.i, i64 16
+  %Length.i.i = getelementptr inbounds i8, ptr %b.i, i64 24
   %4 = load i64, ptr %Length.i.i, align 8
   %cmp.i1 = icmp ugt i64 %4, 2
   %retval.sroa.0.0.copyload.pre.pre.i = load ptr, ptr %Component.i.i.i, align 8
@@ -1754,8 +1738,8 @@ entry:
   %ref.tmp3 = alloca %"class.llvh::Twine", align 8
   %ref.tmp4 = alloca %"class.llvh::Twine", align 8
   %0 = load ptr, ptr %end, align 8
-  %Position.i.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %begin, i64 0, i32 2
-  %Position4.i.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %end, i64 0, i32 2
+  %Position.i.i = getelementptr inbounds i8, ptr %begin, i64 32
+  %Position4.i.i = getelementptr inbounds i8, ptr %end, i64 32
   %1 = load i64, ptr %Position4.i.i, align 8
   %2 = load ptr, ptr %begin, align 8
   %cmp.i.i7 = icmp ne ptr %2, %0
@@ -1765,12 +1749,12 @@ entry:
   br i1 %.not.i9, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %Component.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %begin, i64 0, i32 1
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
-  %LHSKind.i1 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 2
-  %LHSKind.i3 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
-  %LHSKind.i5 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
+  %Component.i = getelementptr inbounds i8, ptr %begin, i64 16
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
+  %LHSKind.i1 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
+  %LHSKind.i3 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
+  %LHSKind.i5 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1813,7 +1797,7 @@ entry:
   %str.i = alloca %"class.llvh::StringRef", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %str.i)
   store ptr %path.coerce0, ptr %str.i, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %str.i, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %str.i, i64 8
   store i64 %path.coerce1, ptr %0, align 8
   %cmp.not.i = icmp eq i64 %path.coerce1, 0
   br i1 %cmp.not.i, label %_ZN4llvh9StringRefC2EPKc.exit.i, label %land.lhs.true.i
@@ -1910,7 +1894,7 @@ land.end:                                         ; preds = %if.end.i, %land.rhs
   %8 = phi i1 [ true, %land.rhs ], [ %spec.select.i, %if.end.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %str.i14)
   store ptr %path.coerce0, ptr %str.i14, align 8
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %str.i14, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %str.i14, i64 8
   store i64 %path.coerce1, ptr %9, align 8
   %cmp.i.not.i15 = icmp eq i32 %style, 0
   %cmp2.i = icmp ugt i64 %path.coerce1, 2
@@ -2045,7 +2029,7 @@ while.end:                                        ; preds = %while.cond, %land.r
 define hidden void @_ZN4llvh3sys4path15remove_filenameERNS_15SmallVectorImplIcEENS1_5StyleE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %path, i32 noundef %style) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %path, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %path, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %call2 = tail call fastcc noundef i64 @_ZN12_GLOBAL__N_115parent_path_endEN4llvh9StringRefENS0_3sys4path5StyleE(ptr %0, i64 %conv.i, i32 noundef %style)
@@ -2067,14 +2051,14 @@ entry:
   %str.i = alloca %"class.llvh::StringRef", align 8
   %ext_storage = alloca %"class.llvh::SmallString", align 8
   %0 = load ptr, ptr %path, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %path, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ext_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %ext_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ext_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ext_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ext_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ext_storage, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call2 = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %extension, ptr noundef nonnull align 8 dereferenceable(16) %ext_storage)
   %2 = extractvalue { ptr, i64 } %call2, 0
@@ -2096,7 +2080,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
 land.lhs.true:                                    ; preds = %while.body.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %str.i)
   store ptr %0, ptr %str.i, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %str.i, i64 0, i32 1
+  %5 = getelementptr inbounds i8, ptr %str.i, i64 8
   store i64 %conv.i, ptr %5, align 8
   %sub.i = add nsw i64 %conv.i, -1
   %arrayidx.i.i7 = getelementptr inbounds i8, ptr %0, i64 %sub.i
@@ -2183,7 +2167,7 @@ land.lhs.true8:                                   ; preds = %if.end
   br i1 %cmp10.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true8
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %path, i64 12
   %13 = load i32, ptr %Capacity.i.i, align 4
   %cmp.not.i9 = icmp ult i32 %.pre26, %13
   br i1 %cmp.not.i9, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, label %if.then.i
@@ -2207,7 +2191,7 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %if.then1
 
 if.end12:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, %land.lhs.true8
   %17 = phi i32 [ %add.i10, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %.pre26, %land.lhs.true8 ]
-  %Capacity.i.i11 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path, i64 0, i32 2
+  %Capacity.i.i11 = getelementptr inbounds i8, ptr %path, i64 12
   %18 = load i32, ptr %Capacity.i.i11, align 4
   %conv.i.i = zext i32 %18 to i64
   %conv.i5.i = zext i32 %17 to i64
@@ -2268,10 +2252,10 @@ entry:
   %ref.tmp21 = alloca %"class.llvh::Twine", align 8
   %ref.tmp22 = alloca %"class.llvh::Twine", align 8
   %ref.tmp23 = alloca %"class.llvh::Twine", align 8
-  %Length.i38 = getelementptr inbounds %"class.llvh::StringRef", ptr %OldPrefix, i64 0, i32 1
+  %Length.i38 = getelementptr inbounds i8, ptr %OldPrefix, i64 8
   %0 = load i64, ptr %Length.i38, align 8
   %cmp.i39 = icmp eq i64 %0, 0
-  %Length.i35 = getelementptr inbounds %"class.llvh::StringRef", ptr %NewPrefix, i64 0, i32 1
+  %Length.i35 = getelementptr inbounds i8, ptr %NewPrefix, i64 8
   %1 = load i64, ptr %Length.i35, align 8
   %cmp.i = icmp eq i64 %1, 0
   %or.cond = select i1 %cmp.i39, i1 %cmp.i, i1 false
@@ -2279,7 +2263,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %Path, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Path, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %Path, i64 8
   %3 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %3 to i64
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %OldPrefix, align 8
@@ -2311,35 +2295,35 @@ if.end14:                                         ; preds = %if.end6.thread, %if
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %0
   %sub.i = sub i64 %conv.i, %0
   store ptr %add.ptr.i, ptr %RelPath, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %RelPath, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %RelPath, i64 8
   store i64 %sub.i, ptr %6, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NewPath, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %NewPath, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NewPath, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NewPath, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %NewPath, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %NewPath, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 5, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %NewPrefix, ptr %ref.tmp, align 8
-  %LHSKind.i18 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp17, i64 0, i32 2
-  %LHSKind.i21 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp18, i64 0, i32 2
+  %LHSKind.i18 = getelementptr inbounds i8, ptr %ref.tmp17, i64 16
+  %LHSKind.i21 = getelementptr inbounds i8, ptr %ref.tmp18, i64 16
   store i16 257, ptr %LHSKind.i18, align 8
-  %LHSKind.i24 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp19, i64 0, i32 2
+  %LHSKind.i24 = getelementptr inbounds i8, ptr %ref.tmp19, i64 16
   store i16 257, ptr %LHSKind.i21, align 8
   store i16 257, ptr %LHSKind.i24, align 8
   call void @_ZN4llvh3sys4path6appendERNS_15SmallVectorImplIcEENS1_5StyleERKNS_5TwineES8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %NewPath, i32 noundef %style, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp17, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp19)
-  %LHSKind.i27 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp20, i64 0, i32 2
+  %LHSKind.i27 = getelementptr inbounds i8, ptr %ref.tmp20, i64 16
   store i8 5, ptr %LHSKind.i27, align 8
-  %RHSKind.i28 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp20, i64 0, i32 3
+  %RHSKind.i28 = getelementptr inbounds i8, ptr %ref.tmp20, i64 17
   store i8 1, ptr %RHSKind.i28, align 1
   store ptr %RelPath, ptr %ref.tmp20, align 8
-  %LHSKind.i29 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp21, i64 0, i32 2
-  %LHSKind.i32 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp22, i64 0, i32 2
+  %LHSKind.i29 = getelementptr inbounds i8, ptr %ref.tmp21, i64 16
+  %LHSKind.i32 = getelementptr inbounds i8, ptr %ref.tmp22, i64 16
   store i16 257, ptr %LHSKind.i29, align 8
-  %LHSKind.i35 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp23, i64 0, i32 2
+  %LHSKind.i35 = getelementptr inbounds i8, ptr %ref.tmp23, i64 16
   store i16 257, ptr %LHSKind.i32, align 8
   store i16 257, ptr %LHSKind.i35, align 8
   call void @_ZN4llvh3sys4path6appendERNS_15SmallVectorImplIcEENS1_5StyleERKNS_5TwineES8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %NewPath, i32 noundef %style, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp22, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp23)
@@ -2377,14 +2361,14 @@ land.lhs.true:                                    ; preds = %if.end
 if.then3:                                         ; preds = %land.lhs.true
   store ptr %1, ptr %this, align 8
   store ptr %0, ptr %RHS, align 8
-  %Size = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
-  %Size5 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %RHS, i64 0, i32 1
+  %Size = getelementptr inbounds i8, ptr %this, i64 8
+  %Size5 = getelementptr inbounds i8, ptr %RHS, i64 8
   %2 = load i32, ptr %Size, align 8
   %3 = load i32, ptr %Size5, align 8
   store i32 %3, ptr %Size, align 8
   store i32 %2, ptr %Size5, align 8
-  %Capacity = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
-  %Capacity6 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %RHS, i64 0, i32 2
+  %Capacity = getelementptr inbounds i8, ptr %this, i64 12
+  %Capacity6 = getelementptr inbounds i8, ptr %RHS, i64 12
   %4 = load i32, ptr %Capacity, align 4
   %5 = load i32, ptr %Capacity6, align 4
   store i32 %5, ptr %Capacity, align 4
@@ -2392,9 +2376,9 @@ if.then3:                                         ; preds = %land.lhs.true
   br label %if.end60
 
 if.end7:                                          ; preds = %land.lhs.true, %if.end
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %RHS, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %RHS, i64 8
   %6 = load i32, ptr %Size.i, align 8
-  %Capacity.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %7 = load i32, ptr %Capacity.i, align 4
   %cmp10 = icmp ugt i32 %6, %7
   br i1 %cmp10, label %if.then11, label %if.end13
@@ -2405,9 +2389,9 @@ if.then11:                                        ; preds = %if.end7
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then11, %if.end7
-  %Size.i39 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i39 = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load i32, ptr %Size.i39, align 8
-  %Capacity.i41 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %RHS, i64 0, i32 2
+  %Capacity.i41 = getelementptr inbounds i8, ptr %RHS, i64 12
   %9 = load i32, ptr %Capacity.i41, align 4
   %cmp16 = icmp ugt i32 %8, %9
   br i1 %cmp16, label %if.then17, label %if.end19
@@ -2515,7 +2499,7 @@ if.end60:                                         ; preds = %if.else, %_ZN4llvh2
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh3sys4path6nativeERKNS_5TwineERNS_15SmallVectorImplIcEENS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %result, i32 noundef %style) local_unnamed_addr #0 {
 entry:
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i32 0, ptr %Size.i.i, align 8
   tail call void @_ZNK4llvh5Twine8toVectorERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %result) #29
   tail call void @_ZN4llvh3sys4path6nativeERNS_15SmallVectorImplIcEENS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(16) %result, i32 noundef %style)
@@ -2528,7 +2512,7 @@ declare void @_ZNK4llvh5Twine8toVectorERNS_15SmallVectorImplIcEE(ptr noundef non
 define hidden void @_ZN4llvh3sys4path6nativeERNS_15SmallVectorImplIcEENS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(16) %Path, i32 noundef %style) local_unnamed_addr #0 {
 entry:
   %PathHome = alloca %"class.llvh::SmallString.11", align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Path, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %Path, i64 8
   %0 = load i32, ptr %Size.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end34, label %if.end
@@ -2577,9 +2561,9 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
 if.then12:                                        ; preds = %lor.lhs.false, %lor.lhs.false, %land.lhs.true
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathHome, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %PathHome, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathHome, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathHome, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathHome, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathHome, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call.i = call ptr @getenv(ptr noundef nonnull @.str.10) #29
   %tobool.not.i23 = icmp eq ptr %call.i, null
@@ -2592,7 +2576,7 @@ if.then.i24:                                      ; preds = %if.then12
   br i1 %tobool3.not.i, label %_ZN4llvh3sys4path14home_directoryERNS_15SmallVectorImplIcEE.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then.i24
-  %pw_dir.i = getelementptr inbounds %struct.passwd, ptr %call2.i25, i64 0, i32 5
+  %pw_dir.i = getelementptr inbounds i8, ptr %call2.i25, i64 32
   %7 = load ptr, ptr %pw_dir.i, align 8
   %tobool8.not.not.i = icmp eq ptr %7, null
   br i1 %tobool8.not.not.i, label %_ZN4llvh3sys4path14home_directoryERNS_15SmallVectorImplIcEE.exit, label %if.end7.i.if.end10.i_crit_edge
@@ -2694,7 +2678,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i
   br label %return.sink.split.i
 
 if.end13.i:                                       ; preds = %if.end.i42
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Path, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %Path, i64 12
   %23 = load i32, ptr %Capacity.i.i, align 4
   %cmp15.i = icmp ult i32 %23, %conv.i12.i.i38
   br i1 %cmp15.i, label %if.then16.i, label %if.else19.i
@@ -2791,17 +2775,17 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.then
-  %pw_dir = getelementptr inbounds %struct.passwd, ptr %call2, i64 0, i32 5
+  %pw_dir = getelementptr inbounds i8, ptr %call2, i64 32
   %0 = load ptr, ptr %pw_dir, align 8
   %tobool8.not.not = icmp eq ptr %0, null
   br i1 %tobool8.not.not, label %return, label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.end7
   %RequestedDir.011 = phi ptr [ %0, %if.end7 ], [ %call, %entry ]
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i32 0, ptr %Size.i.i, align 8
   %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %RequestedDir.011) #28
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %result, i64 12
   %1 = load i32, ptr %Capacity.i.i, align 4
   %conv.i.i = zext i32 %1 to i64
   %cmp.i = icmp ugt i64 %call11, %conv.i.i
@@ -2924,9 +2908,9 @@ entry:
   store ptr %path.coerce0, ptr %I.i, align 8, !noalias !23
   %Path.sroa.2.0.Path1.sroa_idx.i = getelementptr inbounds i8, ptr %I.i, i64 8
   store i64 %path.coerce1, ptr %Path.sroa.2.0.Path1.sroa_idx.i, align 8, !noalias !23
-  %Position.i = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %I.i, i64 0, i32 2
+  %Position.i = getelementptr inbounds i8, ptr %I.i, i64 32
   store i64 %path.coerce1, ptr %Position.i, align 8, !noalias !23
-  %S.i = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %I.i, i64 0, i32 3
+  %S.i = getelementptr inbounds i8, ptr %I.i, i64 40
   store i32 %style, ptr %S.i, align 8, !noalias !23
   %call2.i = call noundef nonnull align 8 dereferenceable(44) ptr @_ZN4llvh3sys4path16reverse_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(44) %I.i), !noalias !23
   %ref.tmp.sroa.1.0.copyload = load ptr, ptr %0, align 8
@@ -2948,9 +2932,9 @@ entry:
   store ptr %path.coerce0, ptr %I.i.i, align 8, !noalias !26
   %Path.sroa.2.0.Path1.sroa_idx.i.i = getelementptr inbounds i8, ptr %I.i.i, i64 8
   store i64 %path.coerce1, ptr %Path.sroa.2.0.Path1.sroa_idx.i.i, align 8, !noalias !26
-  %Position.i.i = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %I.i.i, i64 0, i32 2
+  %Position.i.i = getelementptr inbounds i8, ptr %I.i.i, i64 32
   store i64 %path.coerce1, ptr %Position.i.i, align 8, !noalias !26
-  %S.i.i = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %I.i.i, i64 0, i32 3
+  %S.i.i = getelementptr inbounds i8, ptr %I.i.i, i64 40
   store i32 %style, ptr %S.i.i, align 8, !noalias !26
   %call2.i.i = call noundef nonnull align 8 dereferenceable(44) ptr @_ZN4llvh3sys4path16reverse_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(44) %I.i.i), !noalias !26
   %ref.tmp.sroa.1.0.copyload.i = load ptr, ptr %0, align 8
@@ -3008,9 +2992,9 @@ entry:
   store ptr %path.coerce0, ptr %I.i.i, align 8, !noalias !29
   %Path.sroa.2.0.Path1.sroa_idx.i.i = getelementptr inbounds i8, ptr %I.i.i, i64 8
   store i64 %path.coerce1, ptr %Path.sroa.2.0.Path1.sroa_idx.i.i, align 8, !noalias !29
-  %Position.i.i = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %I.i.i, i64 0, i32 2
+  %Position.i.i = getelementptr inbounds i8, ptr %I.i.i, i64 32
   store i64 %path.coerce1, ptr %Position.i.i, align 8, !noalias !29
-  %S.i.i = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %I.i.i, i64 0, i32 3
+  %S.i.i = getelementptr inbounds i8, ptr %I.i.i, i64 40
   store i32 %style, ptr %S.i.i, align 8, !noalias !29
   %call2.i.i = call noundef nonnull align 8 dereferenceable(44) ptr @_ZN4llvh3sys4path16reverse_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(44) %I.i.i), !noalias !29
   %ref.tmp.sroa.1.0.copyload.i = load ptr, ptr %0, align 8
@@ -3077,9 +3061,9 @@ entry:
   %path_storage = alloca %"class.llvh::SmallString.11", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %path_storage)
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -3105,9 +3089,9 @@ entry:
   %path_storage = alloca %"class.llvh::SmallString.11", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %path_storage)
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -3133,9 +3117,9 @@ entry:
   %path_storage = alloca %"class.llvh::SmallString.11", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %path_storage)
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -3162,9 +3146,9 @@ entry:
   %path_storage = alloca %"class.llvh::SmallString.11", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %path_storage)
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -3175,9 +3159,9 @@ entry:
   store ptr %0, ptr %I.i.i, align 8, !noalias !32
   %Path.sroa.2.0.Path1.sroa_idx.i.i = getelementptr inbounds i8, ptr %I.i.i, i64 8
   store i64 %1, ptr %Path.sroa.2.0.Path1.sroa_idx.i.i, align 8, !noalias !32
-  %Position.i.i = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %I.i.i, i64 0, i32 2
+  %Position.i.i = getelementptr inbounds i8, ptr %I.i.i, i64 32
   store i64 %1, ptr %Position.i.i, align 8, !noalias !32
-  %S.i.i = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %I.i.i, i64 0, i32 3
+  %S.i.i = getelementptr inbounds i8, ptr %I.i.i, i64 40
   store i32 %style, ptr %S.i.i, align 8, !noalias !32
   %call2.i.i = call noundef nonnull align 8 dereferenceable(44) ptr @_ZN4llvh3sys4path16reverse_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(44) %I.i.i), !noalias !32
   %ref.tmp.sroa.2.0.I.i.sroa_idx.i = getelementptr inbounds i8, ptr %I.i.i, i64 24
@@ -3202,9 +3186,9 @@ entry:
   %path_storage = alloca %"class.llvh::SmallString.11", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %path_storage)
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -3233,9 +3217,9 @@ entry:
   %path_storage = alloca %"class.llvh::SmallString.11", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %path_storage)
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -3246,9 +3230,9 @@ entry:
   store ptr %0, ptr %I.i.i.i, align 8, !noalias !35
   %Path.sroa.2.0.Path1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %I.i.i.i, i64 8
   store i64 %1, ptr %Path.sroa.2.0.Path1.sroa_idx.i.i.i, align 8, !noalias !35
-  %Position.i.i.i = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %I.i.i.i, i64 0, i32 2
+  %Position.i.i.i = getelementptr inbounds i8, ptr %I.i.i.i, i64 32
   store i64 %1, ptr %Position.i.i.i, align 8, !noalias !35
-  %S.i.i.i = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %I.i.i.i, i64 0, i32 3
+  %S.i.i.i = getelementptr inbounds i8, ptr %I.i.i.i, i64 40
   store i32 %style, ptr %S.i.i.i, align 8, !noalias !35
   %call2.i.i.i = call noundef nonnull align 8 dereferenceable(44) ptr @_ZN4llvh3sys4path16reverse_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(44) %I.i.i.i), !noalias !35
   %ref.tmp.sroa.1.0.copyload.i.i = load ptr, ptr %2, align 8
@@ -3311,9 +3295,9 @@ entry:
   %path_storage = alloca %"class.llvh::SmallString.11", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %path_storage)
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -3324,9 +3308,9 @@ entry:
   store ptr %0, ptr %I.i.i.i, align 8, !noalias !38
   %Path.sroa.2.0.Path1.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %I.i.i.i, i64 8
   store i64 %1, ptr %Path.sroa.2.0.Path1.sroa_idx.i.i.i, align 8, !noalias !38
-  %Position.i.i.i = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %I.i.i.i, i64 0, i32 2
+  %Position.i.i.i = getelementptr inbounds i8, ptr %I.i.i.i, i64 32
   store i64 %1, ptr %Position.i.i.i, align 8, !noalias !38
-  %S.i.i.i = getelementptr inbounds %"class.llvh::sys::path::reverse_iterator", ptr %I.i.i.i, i64 0, i32 3
+  %S.i.i.i = getelementptr inbounds i8, ptr %I.i.i.i, i64 40
   store i32 %style, ptr %S.i.i.i, align 8, !noalias !38
   %call2.i.i.i = call noundef nonnull align 8 dereferenceable(44) ptr @_ZN4llvh3sys4path16reverse_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(44) %I.i.i.i), !noalias !38
   %ref.tmp.sroa.1.0.copyload.i.i = load ptr, ptr %2, align 8
@@ -3390,27 +3374,27 @@ entry:
   %ref.tmp3 = alloca %"class.llvh::Twine", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %path_storage)
   %0 = extractvalue { ptr, i64 } %call, 0
   store ptr %0, ptr %p, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %p, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %p, i64 8
   %2 = extractvalue { ptr, i64 } %call, 1
   store i64 %2, ptr %1, align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 5, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %p, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %path_storage.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %path_storage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %path_storage.i)
   %3 = extractvalue { ptr, i64 } %call.i, 0
@@ -3430,9 +3414,9 @@ _ZN4llvh3sys4path18has_root_directoryERKNS_5TwineENS1_5StyleE.exit: ; preds = %e
   br i1 %cmp.i.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %_ZN4llvh3sys4path18has_root_directoryERKNS_5TwineENS1_5StyleE.exit
-  %LHSKind.i3 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind.i3 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store i8 5, ptr %LHSKind.i3, align 8
-  %RHSKind.i4 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 3
+  %RHSKind.i4 = getelementptr inbounds i8, ptr %ref.tmp3, i64 17
   store i8 1, ptr %RHSKind.i4, align 1
   store ptr %p, ptr %ref.tmp3, align 8
   %call4 = call noundef zeroext i1 @_ZN4llvh3sys4path13has_root_nameERKNS_5TwineENS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3, i32 noundef 0)
@@ -3577,7 +3561,7 @@ entry:
   %ref.tmp42.i = alloca %"class.llvh::Twine", align 8
   %result = alloca %"class.llvh::SmallString.8", align 8
   %0 = load ptr, ptr %path, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %path, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
@@ -3591,13 +3575,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp41.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp42.i)
   store ptr %0, ptr %path.i, align 8, !noalias !43
-  %2 = getelementptr inbounds { ptr, i64 }, ptr %path.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %path.i, i64 8
   store i64 %conv.i, ptr %2, align 8, !noalias !43
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %components.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %components.i, align 8, !noalias !43
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %components.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %components.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8, !noalias !43
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %components.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %components.i, i64 12
   store i32 16, ptr %Capacity2.i.i.i.i.i.i, align 4, !noalias !43
   %call.i.i = call { ptr, i64 } @_ZN4llvh3sys4path9root_pathENS_9StringRefENS1_5StyleE(ptr %0, i64 %conv.i, i32 noundef %style), !noalias !43
   %3 = extractvalue { ptr, i64 } %call.i.i, 1
@@ -3605,7 +3589,7 @@ entry:
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.speculated.i.i
   %sub.i.i.i = sub nsw i64 %conv.i, %.sroa.speculated.i.i
   call void @_ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE(ptr nonnull sret(%"class.llvh::sys::path::const_iterator") align 8 %__begin2.i, ptr %add.ptr.i.i.i, i64 %sub.i.i.i, i32 noundef %style), !noalias !43
-  %Position.i.i.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %__begin2.i, i64 0, i32 2
+  %Position.i.i.i = getelementptr inbounds i8, ptr %__begin2.i, i64 32
   %4 = load ptr, ptr %__begin2.i, align 8, !noalias !43
   %cmp.i.i46.i = icmp ne ptr %4, %add.ptr.i.i.i
   %5 = load i64, ptr %Position.i.i.i, align 8, !noalias !43
@@ -3614,10 +3598,10 @@ entry:
   br i1 %.not.i48.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %Component.i.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %__begin2.i, i64 0, i32 1
-  %C.sroa.4.0.Component.i.sroa_idx.i = getelementptr inbounds %"class.llvh::sys::path::const_iterator", ptr %__begin2.i, i64 0, i32 1, i32 1
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp22.i, i64 0, i32 2
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp22.i, i64 0, i32 3
+  %Component.i.i = getelementptr inbounds i8, ptr %__begin2.i, i64 16
+  %C.sroa.4.0.Component.i.sroa_idx.i = getelementptr inbounds i8, ptr %__begin2.i, i64 24
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp22.i, i64 16
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp22.i, i64 17
   br i1 %remove_dot_dot, label %for.body.i, label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.inc.us.i
@@ -3691,13 +3675,13 @@ land.lhs.true15.i:                                ; preds = %if.then13.i
   %14 = load ptr, ptr %components.i, align 8, !noalias !43
   %conv.i.i.i = zext i32 %13 to i64
   %add.ptr.i.i24.i = getelementptr inbounds %"class.llvh::StringRef", ptr %14, i64 %conv.i.i.i
-  %agg.tmp16.sroa.2.0.call17.sroa_idx.i = getelementptr %"class.llvh::StringRef", ptr %add.ptr.i.i24.i, i64 -1, i32 1
+  %agg.tmp16.sroa.2.0.call17.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i24.i, i64 -8
   %agg.tmp16.sroa.2.0.copyload.i = load i64, ptr %agg.tmp16.sroa.2.0.call17.sroa_idx.i, align 8, !noalias !43
   %cmp.i114.i = icmp eq i64 %agg.tmp16.sroa.2.0.copyload.i, 2
   br i1 %cmp.i114.i, label %if.end.i.i118.i, label %if.then20.i
 
 if.end.i.i118.i:                                  ; preds = %land.lhs.true15.i
-  %arrayidx.i.i = getelementptr inbounds %"class.llvh::StringRef", ptr %add.ptr.i.i24.i, i64 -1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i24.i, i64 -16
   %agg.tmp16.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i.i, align 8, !noalias !43
   %bcmp45.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %agg.tmp16.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(2) @.str.4, i64 2), !noalias !43
   %cmp5.i121.i = icmp eq i32 %bcmp45.i, 0
@@ -3764,9 +3748,9 @@ for.end.i:                                        ; preds = %for.inc.us.i, %for.
   %23 = extractvalue { ptr, i64 } %call30.i, 1
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %result, align 8, !alias.scope !43
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8, !alias.scope !43
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %result, i64 12
   store i32 256, ptr %Capacity2.i.i.i.i.i.i.i, align 4, !alias.scope !43
   %cmp.i.i.i.i = icmp ugt i64 %23, 256
   br i1 %cmp.i.i.i.i, label %if.end.i.i.thread.i.i, label %if.end.i.i.i.i
@@ -3803,11 +3787,11 @@ _ZN4llvh11SmallStringILj256EEC2ENS_9StringRefE.exit.i: ; preds = %if.then.i.i.i.
   br i1 %cmp.not49.i, label %nrvo.skipdtor.i, label %for.body37.lr.ph.i
 
 for.body37.lr.ph.i:                               ; preds = %_ZN4llvh11SmallStringILj256EEC2ENS_9StringRefE.exit.i
-  %LHSKind.i30.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp39.i, i64 0, i32 2
-  %RHSKind.i31.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp39.i, i64 0, i32 3
-  %LHSKind.i32.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp40.i, i64 0, i32 2
-  %LHSKind.i34.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp41.i, i64 0, i32 2
-  %LHSKind.i36.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp42.i, i64 0, i32 2
+  %LHSKind.i30.i = getelementptr inbounds i8, ptr %ref.tmp39.i, i64 16
+  %RHSKind.i31.i = getelementptr inbounds i8, ptr %ref.tmp39.i, i64 17
+  %LHSKind.i32.i = getelementptr inbounds i8, ptr %ref.tmp40.i, i64 16
+  %LHSKind.i34.i = getelementptr inbounds i8, ptr %ref.tmp41.i, i64 16
+  %LHSKind.i36.i = getelementptr inbounds i8, ptr %ref.tmp42.i, i64 16
   br label %for.body37.i
 
 for.body37.i:                                     ; preds = %for.body37.i, %for.body37.lr.ph.i
@@ -3820,7 +3804,7 @@ for.body37.i:                                     ; preds = %for.body37.i, %for.
   store i16 257, ptr %LHSKind.i34.i, align 8, !noalias !43
   store i16 257, ptr %LHSKind.i36.i, align 8, !noalias !43
   call void @_ZN4llvh3sys4path6appendERNS_15SmallVectorImplIcEENS1_5StyleERKNS_5TwineES8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %result, i32 noundef %style, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp39.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp40.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp41.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp42.i)
-  %incdec.ptr.i = getelementptr inbounds %"class.llvh::StringRef", ptr %__begin232.050.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin232.050.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %nrvo.skipdtor.loopexit.i, label %for.body37.i
 
@@ -3892,9 +3876,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Status.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %PathStorage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Path, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage.i) #29
   %0 = extractvalue { ptr, i64 } %call.i, 0
@@ -3950,9 +3934,9 @@ entry:
   %Status = alloca %struct.stat, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %PathStorage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Path, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage) #29
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -3974,9 +3958,9 @@ _ZN4llvh11SmallStringILj128EED2Ev.exit:           ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden { i64, i64 } @_ZNK4llvh3sys2fs11file_status11getUniqueIDEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %fs_st_dev = getelementptr inbounds %"class.llvh::sys::fs::file_status", ptr %this, i64 0, i32 1
+  %fs_st_dev = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %fs_st_dev, align 8
-  %fs_st_ino = getelementptr inbounds %"class.llvh::sys::fs::file_status", ptr %this, i64 0, i32 3
+  %fs_st_ino = getelementptr inbounds i8, ptr %this, i64 56
   %1 = load i64, ptr %fs_st_ino, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %1, 1
@@ -4007,17 +3991,17 @@ entry:
   %ref.tmp49 = alloca %"class.llvh::Twine", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ModelStorage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %ModelStorage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ModelStorage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ModelStorage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ModelStorage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ModelStorage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   call void @_ZNK4llvh5Twine8toVectorERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Model, ptr noundef nonnull align 8 dereferenceable(16) %ModelStorage) #29
   br i1 %MakeAbsolute, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 6, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %ModelStorage, ptr %ref.tmp, align 8
   %call = call noundef zeroext i1 @_ZN4llvh3sys4path11is_absoluteERKNS_5TwineENS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, i32 noundef 2)
@@ -4026,20 +4010,20 @@ if.then:                                          ; preds = %entry
 if.then1:                                         ; preds = %if.then
   %add.ptr.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %TDir, i64 16
   store ptr %add.ptr.i.i.i.i.i.i14, ptr %TDir, align 8
-  %Size.i.i.i.i.i.i15 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %TDir, i64 0, i32 1
+  %Size.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %TDir, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i15, align 8
-  %Capacity2.i.i.i.i.i.i16 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %TDir, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %TDir, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i16, align 4
   call void @_ZN4llvh3sys4path21system_temp_directoryEbRNS_15SmallVectorImplIcEE(i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %TDir)
-  %LHSKind.i17 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 2
+  %LHSKind.i17 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 6, ptr %LHSKind.i17, align 8
-  %RHSKind.i18 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 3
+  %RHSKind.i18 = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
   store i8 1, ptr %RHSKind.i18, align 1
   store ptr %ModelStorage, ptr %ref.tmp2, align 8
-  %LHSKind.i19 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
-  %LHSKind.i21 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
+  %LHSKind.i19 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
+  %LHSKind.i21 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i16 257, ptr %LHSKind.i19, align 8
-  %LHSKind.i23 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 2
+  %LHSKind.i23 = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   store i16 257, ptr %LHSKind.i21, align 8
   store i16 257, ptr %LHSKind.i23, align 8
   call void @_ZN4llvh3sys4path6appendERNS_15SmallVectorImplIcEENS1_5StyleERKNS_5TwineES8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %TDir, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5)
@@ -4057,14 +4041,14 @@ if.end6:                                          ; preds = %if.then.i.i.i, %if.
   br i1 %cmp.i, label %if.end6._ZN4llvh15SmallVectorImplIcEaSERKS1_.exit_crit_edge, label %if.end.i
 
 if.end6._ZN4llvh15SmallVectorImplIcEaSERKS1_.exit_crit_edge: ; preds = %if.end6
-  %Size.i.i25.phi.trans.insert = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ResultPath, i64 0, i32 1
+  %Size.i.i25.phi.trans.insert = getelementptr inbounds i8, ptr %ResultPath, i64 8
   %.pre = load i32, ptr %Size.i.i25.phi.trans.insert, align 8
   br label %_ZN4llvh15SmallVectorImplIcEaSERKS1_.exit
 
 if.end.i:                                         ; preds = %if.end6
   %1 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i = zext i32 %1 to i64
-  %Size.i18.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ResultPath, i64 0, i32 1
+  %Size.i18.i = getelementptr inbounds i8, ptr %ResultPath, i64 8
   %2 = load i32, ptr %Size.i18.i, align 8
   %conv.i19.i = zext i32 %2 to i64
   %cmp3.not.i = icmp ult i32 %2, %1
@@ -4081,7 +4065,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then4.i
   br label %return.sink.split.i
 
 if.end13.i:                                       ; preds = %if.end.i
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ResultPath, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %ResultPath, i64 12
   %5 = load i32, ptr %Capacity.i.i, align 4
   %cmp15.i = icmp ult i32 %5, %1
   br i1 %cmp15.i, label %if.then16.i, label %if.else19.i
@@ -4127,13 +4111,13 @@ return.sink.split.i:                              ; preds = %if.then.i.i, %if.en
 
 _ZN4llvh15SmallVectorImplIcEaSERKS1_.exit:        ; preds = %if.end6._ZN4llvh15SmallVectorImplIcEaSERKS1_.exit_crit_edge, %return.sink.split.i
   %11 = phi i32 [ %.pre, %if.end6._ZN4llvh15SmallVectorImplIcEaSERKS1_.exit_crit_edge ], [ %1, %return.sink.split.i ]
-  %Capacity.i.i26 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ResultPath, i64 0, i32 2
+  %Capacity.i.i26 = getelementptr inbounds i8, ptr %ResultPath, i64 12
   %12 = load i32, ptr %Capacity.i.i26, align 4
   %cmp.not.i = icmp ult i32 %11, %12
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4llvh15SmallVectorImplIcEaSERKS1_.exit
-  %Size.i.i25 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ResultPath, i64 0, i32 1
+  %Size.i.i25 = getelementptr inbounds i8, ptr %ResultPath, i64 8
   %add.ptr.i.i.i.i27 = getelementptr inbounds i8, ptr %ResultPath, i64 16
   call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, ptr noundef nonnull %add.ptr.i.i.i.i27, i64 noundef 0, i64 noundef 1) #29
   %.pre.i = load i32, ptr %Size.i.i25, align 8
@@ -4146,18 +4130,18 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit: ; preds = %_ZN4llvh
   %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 %conv.i3.i
   store i8 0, ptr %add.ptr.i.i, align 1
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #30
-  %LHSKind.i65 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp49, i64 0, i32 2
-  %RHSKind.i66 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp49, i64 0, i32 3
+  %LHSKind.i65 = getelementptr inbounds i8, ptr %ref.tmp49, i64 16
+  %RHSKind.i66 = getelementptr inbounds i8, ptr %ref.tmp49, i64 17
   %add.ptr.i.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %path_storage.i, i64 16
-  %Size.i.i.i.i.i.i.i73 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage.i, i64 0, i32 1
-  %Capacity2.i.i.i.i.i.i.i74 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage.i, i64 0, i32 2
-  %LHSKind.i45 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp37, i64 0, i32 2
-  %RHSKind.i46 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp37, i64 0, i32 3
+  %Size.i.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %path_storage.i, i64 8
+  %Capacity2.i.i.i.i.i.i.i74 = getelementptr inbounds i8, ptr %path_storage.i, i64 12
+  %LHSKind.i45 = getelementptr inbounds i8, ptr %ref.tmp37, i64 16
+  %RHSKind.i46 = getelementptr inbounds i8, ptr %ref.tmp37, i64 17
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 16
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 1
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 2
-  %LHSKind.i30 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp23, i64 0, i32 2
-  %RHSKind.i31 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp23, i64 0, i32 3
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 8
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 12
+  %LHSKind.i30 = getelementptr inbounds i8, ptr %ref.tmp23, i64 16
+  %RHSKind.i31 = getelementptr inbounds i8, ptr %ref.tmp23, i64 17
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit, %for.inc60
@@ -4403,7 +4387,7 @@ entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %ref.tmp1 = alloca %"class.llvh::Twine", align 8
   store ptr %Suffix.coerce0, ptr %Suffix, align 8
-  %0 = getelementptr inbounds { ptr, i64 }, ptr %Suffix, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %Suffix, i64 8
   store i64 %Suffix.coerce1, ptr %0, align 8
   %cmp.i = icmp eq i64 %Suffix.coerce1, 0
   %cond = select i1 %cmp.i, ptr @.str.6, ptr @.str.13
@@ -4412,7 +4396,7 @@ entry:
   %spec.select = select i1 %cmp.not.i, i8 1, i8 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %LHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %Prefix, i64 0, i32 2
+  %LHSKind.i.i.i.i = getelementptr inbounds i8, ptr %Prefix, i64 16
   %2 = load i8, ptr %LHSKind.i.i.i.i, align 8, !noalias !55
   switch i8 %2, label %if.end5.i.i [
     i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit.thread
@@ -4420,11 +4404,11 @@ entry:
   ]
 
 _ZN4llvhplERKNS_5TwineES2_.exit.thread:           ; preds = %entry
-  %LHSKind.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 2
+  %LHSKind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   store i8 0, ptr %LHSKind.i.i.i, align 8, !alias.scope !55
-  %RHSKind.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 3
+  %RHSKind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 17
   store i8 1, ptr %RHSKind.i.i.i, align 1, !alias.scope !55
-  br label %if.then.i.i28
+  br label %_ZN4llvhplERKNS_5TwineES2_.exit31
 
 if.then4.i.i:                                     ; preds = %entry
   store ptr %cond, ptr %ref.tmp1, align 8
@@ -4439,23 +4423,23 @@ if.end5.i.i:                                      ; preds = %entry
 
 if.then7.i.i:                                     ; preds = %if.end5.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(24) %Prefix, i64 24, i1 false)
-  %LHSKind.i.i.i.i3.phi.trans.insert = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 2
+  %LHSKind.i.i.i.i3.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   %.pre = load i8, ptr %LHSKind.i.i.i.i3.phi.trans.insert, align 8, !noalias !56
   br label %_ZN4llvhplERKNS_5TwineES2_.exit
 
 if.end8.i.i:                                      ; preds = %if.end5.i.i
-  %RHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %Prefix, i64 0, i32 3
+  %RHSKind.i.i.i.i = getelementptr inbounds i8, ptr %Prefix, i64 17
   %3 = load i8, ptr %RHSKind.i.i.i.i, align 1, !noalias !55
   %cmp.i13.i.i = icmp eq i8 %3, 1
   %NewLHS.sroa.0.0.copyload.i.i = load ptr, ptr %Prefix, align 8, !noalias !55
   %spec.select.i.i = select i1 %cmp.i13.i.i, i8 %2, i8 2
   %spec.select20.i.i = select i1 %cmp.i13.i.i, ptr %NewLHS.sroa.0.0.copyload.i.i, ptr %Prefix
   store ptr %spec.select20.i.i, ptr %ref.tmp1, align 8, !alias.scope !55
-  %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 1
+  %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 8
   store ptr %cond, ptr %RHS4.i.i.i, align 8, !alias.scope !55
-  %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 2
+  %LHSKind5.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   store i8 %spec.select.i.i, ptr %LHSKind5.i.i.i, align 8, !alias.scope !55
-  %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 3
+  %RHSKind6.i.i.i = getelementptr inbounds i8, ptr %ref.tmp1, i64 17
   store i8 %spec.select, ptr %RHSKind6.i.i.i, align 1, !alias.scope !55
   br label %_ZN4llvhplERKNS_5TwineES2_.exit
 
@@ -4464,55 +4448,46 @@ _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %if.then4.i.i, %if.t
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
   switch i8 %4, label %if.end8.i.i12 [
-    i8 0, label %if.then.i.i28
+    i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit31
     i8 1, label %if.then4.i.i27
   ]
 
-if.then.i.i28:                                    ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit.thread, %_ZN4llvhplERKNS_5TwineES2_.exit
-  %LHSKind.i.i.i29 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
-  store i8 0, ptr %LHSKind.i.i.i29, align 8, !alias.scope !56
-  %RHSKind.i.i.i30 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
-  store i8 1, ptr %RHSKind.i.i.i30, align 1, !alias.scope !56
-  br label %_ZN4llvhplERKNS_5TwineES2_.exit31
-
 if.then4.i.i27:                                   ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit
   store ptr %Suffix, ptr %ref.tmp, align 8
-  %ref.tmp3.sroa.233.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store i8 5, ptr %ref.tmp3.sroa.233.0.ref.tmp.sroa_idx, align 8
-  %ref.tmp3.sroa.3.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 17
-  store i8 1, ptr %ref.tmp3.sroa.3.0.ref.tmp.sroa_idx, align 1
   br label %_ZN4llvhplERKNS_5TwineES2_.exit31
 
 if.end8.i.i12:                                    ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit
-  %RHSKind.i.i.i.i13 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp1, i64 0, i32 3
+  %RHSKind.i.i.i.i13 = getelementptr inbounds i8, ptr %ref.tmp1, i64 17
   %5 = load i8, ptr %RHSKind.i.i.i.i13, align 1, !noalias !56
   %cmp.i13.i.i14 = icmp eq i8 %5, 1
   %NewLHS.sroa.0.0.copyload.i.i15 = load ptr, ptr %ref.tmp1, align 8, !noalias !56
   %spec.select.i.i16 = select i1 %cmp.i13.i.i14, i8 %4, i8 2
   %spec.select20.i.i17 = select i1 %cmp.i13.i.i14, ptr %NewLHS.sroa.0.0.copyload.i.i15, ptr %ref.tmp1
   store ptr %spec.select20.i.i17, ptr %ref.tmp, align 8, !alias.scope !56
-  %RHS4.i.i.i23 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 1
+  %RHS4.i.i.i23 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %Suffix, ptr %RHS4.i.i.i23, align 8, !alias.scope !56
-  %LHSKind5.i.i.i24 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
-  store i8 %spec.select.i.i16, ptr %LHSKind5.i.i.i24, align 8, !alias.scope !56
-  %RHSKind6.i.i.i25 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
-  store i8 5, ptr %RHSKind6.i.i.i25, align 1, !alias.scope !56
   br label %_ZN4llvhplERKNS_5TwineES2_.exit31
 
-_ZN4llvhplERKNS_5TwineES2_.exit31:                ; preds = %if.then.i.i28, %if.then4.i.i27, %if.end8.i.i12
+_ZN4llvhplERKNS_5TwineES2_.exit31:                ; preds = %_ZN4llvhplERKNS_5TwineES2_.exit, %_ZN4llvhplERKNS_5TwineES2_.exit.thread, %if.then4.i.i27, %if.end8.i.i12
+  %.sink35 = phi i8 [ 5, %if.then4.i.i27 ], [ %spec.select.i.i16, %if.end8.i.i12 ], [ 0, %_ZN4llvhplERKNS_5TwineES2_.exit.thread ], [ %4, %_ZN4llvhplERKNS_5TwineES2_.exit ]
+  %.sink = phi i8 [ 1, %if.then4.i.i27 ], [ 5, %if.end8.i.i12 ], [ 1, %_ZN4llvhplERKNS_5TwineES2_.exit.thread ], [ 1, %_ZN4llvhplERKNS_5TwineES2_.exit ]
+  %LHSKind.i.i.i29 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  store i8 %.sink35, ptr %LHSKind.i.i.i29, align 8
+  %RHSKind.i.i.i30 = getelementptr inbounds i8, ptr %ref.tmp, i64 17
+  store i8 %.sink, ptr %RHSKind.i.i.i30, align 1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Storage.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %Storage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Storage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Storage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %Storage.i) #29
   %6 = extractvalue { ptr, i64 } %call.i, 0
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i, i64 0, i32 2
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i8 1, ptr %LHSKind.i.i, align 8
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp.i, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1
   %7 = load i8, ptr %6, align 1
   %cmp.not.i.i = icmp eq i8 %7, 0
@@ -4565,45 +4540,36 @@ entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %LHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %Prefix, i64 0, i32 2
+  %LHSKind.i.i.i.i = getelementptr inbounds i8, ptr %Prefix, i64 16
   %0 = load i8, ptr %LHSKind.i.i.i.i, align 8, !noalias !69
   switch i8 %0, label %if.end8.i.i [
-    i8 0, label %if.then.i.i
+    i8 0, label %_ZN4llvhplERKNS_5TwineES2_.exit
     i8 1, label %if.then4.i.i
   ]
 
-if.then.i.i:                                      ; preds = %entry
-  %LHSKind.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
-  store i8 0, ptr %LHSKind.i.i.i, align 8, !alias.scope !69
-  %RHSKind.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
-  store i8 1, ptr %RHSKind.i.i.i, align 1, !alias.scope !69
-  br label %_ZN4llvhplERKNS_5TwineES2_.exit
-
 if.then4.i.i:                                     ; preds = %entry
   store ptr @.str.6, ptr %ref.tmp, align 8
-  %ref.tmp1.sroa.21.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store i8 3, ptr %ref.tmp1.sroa.21.0.ref.tmp.sroa_idx, align 8
-  %ref.tmp1.sroa.4.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 17
-  store i8 1, ptr %ref.tmp1.sroa.4.0.ref.tmp.sroa_idx, align 1
   br label %_ZN4llvhplERKNS_5TwineES2_.exit
 
 if.end8.i.i:                                      ; preds = %entry
-  %RHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %Prefix, i64 0, i32 3
+  %RHSKind.i.i.i.i = getelementptr inbounds i8, ptr %Prefix, i64 17
   %1 = load i8, ptr %RHSKind.i.i.i.i, align 1, !noalias !69
   %cmp.i13.i.i = icmp eq i8 %1, 1
   %NewLHS.sroa.0.0.copyload.i.i = load ptr, ptr %Prefix, align 8, !noalias !69
   %spec.select.i.i = select i1 %cmp.i13.i.i, i8 %0, i8 2
   %spec.select20.i.i = select i1 %cmp.i13.i.i, ptr %NewLHS.sroa.0.0.copyload.i.i, ptr %Prefix
   store ptr %spec.select20.i.i, ptr %ref.tmp, align 8, !alias.scope !69
-  %RHS4.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 1
+  %RHS4.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.6, ptr %RHS4.i.i.i, align 8, !alias.scope !69
-  %LHSKind5.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
-  store i8 %spec.select.i.i, ptr %LHSKind5.i.i.i, align 8, !alias.scope !69
-  %RHSKind6.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
-  store i8 3, ptr %RHSKind6.i.i.i, align 1, !alias.scope !69
   br label %_ZN4llvhplERKNS_5TwineES2_.exit
 
-_ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %if.then.i.i, %if.then4.i.i, %if.end8.i.i
+_ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry, %if.then4.i.i, %if.end8.i.i
+  %.sink2 = phi i8 [ 3, %if.then4.i.i ], [ %spec.select.i.i, %if.end8.i.i ], [ %0, %entry ]
+  %.sink = phi i8 [ 1, %if.then4.i.i ], [ 3, %if.end8.i.i ], [ 1, %entry ]
+  %LHSKind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  store i8 %.sink2, ptr %LHSKind.i.i.i, align 8
+  %RHSKind.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
+  store i8 %.sink, ptr %RHSKind.i.i.i, align 1
   %call = call fastcc { i32, ptr } @_ZL18createUniqueEntityRKN4llvh5TwineERiRNS_15SmallVectorImplIcEEbj8FSEntityNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %Dummy, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   ret { i32, ptr } %call
 }
@@ -4649,23 +4615,23 @@ entry:
   %ref.tmp54 = alloca %"class.llvh::Twine", align 8
   %ref.tmp55 = alloca %"class.llvh::Twine", align 8
   %0 = load ptr, ptr %path, align 8
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %path, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   store ptr %0, ptr %p, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %p, i64 0, i32 1
+  %Length.i = getelementptr inbounds i8, ptr %p, i64 8
   store i64 %conv.i, ptr %Length.i, align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 5, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %p, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %path_storage.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %path_storage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %path_storage.i)
   %2 = extractvalue { ptr, i64 } %call.i, 0
@@ -4692,9 +4658,9 @@ if.then:                                          ; preds = %lor.end
 if.end:                                           ; preds = %lor.end
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %current_dir, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %current_dir, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %current_dir, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %current_dir, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %current_dir, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %current_dir, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   br i1 %use_current_directory, label %if.then10, label %if.else
 
@@ -4714,7 +4680,7 @@ if.end37:                                         ; preds = %if.else, %if.then10
   %agg.tmp42.sroa.2.0.copyload = load i64, ptr %Length.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %path.i.i153), !noalias !70
   store ptr %agg.tmp42.sroa.0.0.copyload, ptr %path.i.i153, align 8, !noalias !70
-  %8 = getelementptr inbounds { ptr, i64 }, ptr %path.i.i153, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %path.i.i153, i64 8
   store i64 %agg.tmp42.sroa.2.0.copyload, ptr %8, align 8, !noalias !70
   %cmp.i.i.i155 = icmp eq i64 %agg.tmp42.sroa.2.0.copyload, 0
   br i1 %cmp.i.i.i155, label %_ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit185.thread, label %if.end.i.i156
@@ -4775,7 +4741,7 @@ _ZN4llvh3sys4path9root_nameENS_9StringRefENS1_5StyleE.exit80: ; preds = %_ZN4llv
   %retval.sroa.4.0.i60 = phi i64 [ 0, %_ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit185 ], [ 0, %land.lhs.true.i73 ], [ %spec.select, %land.end.i69 ], [ 0, %_ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit185.thread ]
   %retval.sroa.0.0.i61 = phi ptr [ null, %_ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit185 ], [ null, %land.lhs.true.i73 ], [ %spec.select193, %land.end.i69 ], [ null, %_ZN4llvh3sys4path5beginENS_9StringRefENS1_5StyleE.exit185.thread ]
   store ptr %retval.sroa.0.0.i61, ptr %pRootName, align 8
-  %14 = getelementptr inbounds { ptr, i64 }, ptr %pRootName, i64 0, i32 1
+  %14 = getelementptr inbounds i8, ptr %pRootName, i64 8
   store i64 %retval.sroa.4.0.i60, ptr %14, align 8
   %15 = load ptr, ptr %current_dir, align 8
   %16 = load i32, ptr %Size.i.i.i.i.i.i, align 8
@@ -4783,7 +4749,7 @@ _ZN4llvh3sys4path9root_nameENS_9StringRefENS1_5StyleE.exit80: ; preds = %_ZN4llv
   %call46 = call { ptr, i64 } @_ZN4llvh3sys4path14root_directoryENS_9StringRefENS1_5StyleE(ptr %15, i64 %conv.i.i.i82, i32 noundef 2)
   %17 = extractvalue { ptr, i64 } %call46, 0
   store ptr %17, ptr %bRootDirectory, align 8
-  %18 = getelementptr inbounds { ptr, i64 }, ptr %bRootDirectory, i64 0, i32 1
+  %18 = getelementptr inbounds i8, ptr %bRootDirectory, i64 8
   %19 = extractvalue { ptr, i64 } %call46, 1
   store i64 %19, ptr %18, align 8
   %20 = load ptr, ptr %current_dir, align 8
@@ -4795,7 +4761,7 @@ _ZN4llvh3sys4path9root_nameENS_9StringRefENS1_5StyleE.exit80: ; preds = %_ZN4llv
   %add.ptr.i.i = getelementptr inbounds i8, ptr %20, i64 %.sroa.speculated.i
   %sub.i.i = sub nsw i64 %conv.i.i.i86, %.sroa.speculated.i
   store ptr %add.ptr.i.i, ptr %bRelativePath, align 8
-  %23 = getelementptr inbounds { ptr, i64 }, ptr %bRelativePath, i64 0, i32 1
+  %23 = getelementptr inbounds i8, ptr %bRelativePath, i64 8
   store i64 %sub.i.i, ptr %23, align 8
   %agg.tmp50.sroa.0.0.copyload = load ptr, ptr %p, align 8
   %agg.tmp50.sroa.2.0.copyload = load i64, ptr %Length.i, align 8
@@ -4805,32 +4771,32 @@ _ZN4llvh3sys4path9root_nameENS_9StringRefENS1_5StyleE.exit80: ; preds = %_ZN4llv
   %add.ptr.i.i92 = getelementptr inbounds i8, ptr %agg.tmp50.sroa.0.0.copyload, i64 %.sroa.speculated.i91
   %sub.i.i93 = sub i64 %agg.tmp50.sroa.2.0.copyload, %.sroa.speculated.i91
   store ptr %add.ptr.i.i92, ptr %pRelativePath, align 8
-  %25 = getelementptr inbounds { ptr, i64 }, ptr %pRelativePath, i64 0, i32 1
+  %25 = getelementptr inbounds i8, ptr %pRelativePath, i64 8
   store i64 %sub.i.i93, ptr %25, align 8
   %add.ptr.i.i.i.i.i.i96 = getelementptr inbounds i8, ptr %res, i64 16
   store ptr %add.ptr.i.i.i.i.i.i96, ptr %res, align 8
-  %Size.i.i.i.i.i.i97 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %res, i64 0, i32 1
+  %Size.i.i.i.i.i.i97 = getelementptr inbounds i8, ptr %res, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i97, align 8
-  %Capacity2.i.i.i.i.i.i98 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %res, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i98 = getelementptr inbounds i8, ptr %res, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i98, align 4
-  %LHSKind.i99 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp52, i64 0, i32 2
+  %LHSKind.i99 = getelementptr inbounds i8, ptr %ref.tmp52, i64 16
   store i8 5, ptr %LHSKind.i99, align 8
-  %RHSKind.i100 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp52, i64 0, i32 3
+  %RHSKind.i100 = getelementptr inbounds i8, ptr %ref.tmp52, i64 17
   store i8 1, ptr %RHSKind.i100, align 1
   store ptr %pRootName, ptr %ref.tmp52, align 8
-  %LHSKind.i101 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp53, i64 0, i32 2
+  %LHSKind.i101 = getelementptr inbounds i8, ptr %ref.tmp53, i64 16
   store i8 5, ptr %LHSKind.i101, align 8
-  %RHSKind.i102 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp53, i64 0, i32 3
+  %RHSKind.i102 = getelementptr inbounds i8, ptr %ref.tmp53, i64 17
   store i8 1, ptr %RHSKind.i102, align 1
   store ptr %bRootDirectory, ptr %ref.tmp53, align 8
-  %LHSKind.i103 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp54, i64 0, i32 2
+  %LHSKind.i103 = getelementptr inbounds i8, ptr %ref.tmp54, i64 16
   store i8 5, ptr %LHSKind.i103, align 8
-  %RHSKind.i104 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp54, i64 0, i32 3
+  %RHSKind.i104 = getelementptr inbounds i8, ptr %ref.tmp54, i64 17
   store i8 1, ptr %RHSKind.i104, align 1
   store ptr %bRelativePath, ptr %ref.tmp54, align 8
-  %LHSKind.i105 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp55, i64 0, i32 2
+  %LHSKind.i105 = getelementptr inbounds i8, ptr %ref.tmp55, i64 16
   store i8 5, ptr %LHSKind.i105, align 8
-  %RHSKind.i106 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp55, i64 0, i32 3
+  %RHSKind.i106 = getelementptr inbounds i8, ptr %ref.tmp55, i64 17
   store i8 1, ptr %RHSKind.i106, align 1
   store ptr %pRelativePath, ptr %ref.tmp55, align 8
   call void @_ZN4llvh3sys4path6appendERNS_15SmallVectorImplIcEENS1_5StyleERKNS_5TwineES8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %res, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp53, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp55)
@@ -4867,9 +4833,9 @@ return:                                           ; preds = %if.then.i.i.i115, %
 define hidden { i32, ptr } @_ZN4llvh3sys2fs13make_absoluteERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(16) %path) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 1, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   %call = call fastcc { i32, ptr } @_ZN4llvh3sys2fsL13make_absoluteERKNS_5TwineERNS_15SmallVectorImplIcEEb(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %path, i1 noundef zeroext false)
   ret { i32, ptr } %call
@@ -4888,27 +4854,27 @@ entry:
   %ref.tmp15 = alloca %"class.llvh::Twine", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %PathStorage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Path, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage)
   %0 = extractvalue { ptr, i64 } %call, 0
   store ptr %0, ptr %P, align 8
-  %1 = getelementptr inbounds { ptr, i64 }, ptr %P, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %P, i64 8
   %2 = extractvalue { ptr, i64 } %call, 1
   store i64 %2, ptr %1, align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 5, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %P, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %path_storage.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %path_storage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %path_storage.i) #29
   %3 = extractvalue { ptr, i64 } %call.i, 0
@@ -4959,15 +4925,15 @@ if.end:                                           ; preds = %_ZN4llvh3sys2fs16cr
   %retval.sroa.4.0.i = select i1 %cmp.i20, i64 0, i64 %.sroa.speculated16.i
   %retval.sroa.0.0.i21 = select i1 %cmp.i20, ptr null, ptr %agg.tmp.sroa.0.0.copyload
   store ptr %retval.sroa.0.0.i21, ptr %Parent, align 8
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %Parent, i64 0, i32 1
+  %6 = getelementptr inbounds i8, ptr %Parent, i64 8
   store i64 %retval.sroa.4.0.i, ptr %6, align 8
   %cmp.i = icmp eq i64 %retval.sroa.4.0.i, 0
   br i1 %cmp.i, label %cleanup, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %LHSKind.i24 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp9, i64 0, i32 2
+  %LHSKind.i24 = getelementptr inbounds i8, ptr %ref.tmp9, i64 16
   store i8 5, ptr %LHSKind.i24, align 8
-  %RHSKind.i25 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp9, i64 0, i32 3
+  %RHSKind.i25 = getelementptr inbounds i8, ptr %ref.tmp9, i64 17
   store i8 1, ptr %RHSKind.i25, align 1
   store ptr %Parent, ptr %ref.tmp9, align 8
   %call11 = call { i32, ptr } @_ZN4llvh3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp9, i1 noundef zeroext %IgnoreExisting, i32 noundef %Perms)
@@ -4977,17 +4943,17 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp.i26.not, label %if.end14, label %cleanup
 
 if.end14:                                         ; preds = %if.end7
-  %LHSKind.i27 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp15, i64 0, i32 2
+  %LHSKind.i27 = getelementptr inbounds i8, ptr %ref.tmp15, i64 16
   store i8 5, ptr %LHSKind.i27, align 8
-  %RHSKind.i28 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp15, i64 0, i32 3
+  %RHSKind.i28 = getelementptr inbounds i8, ptr %ref.tmp15, i64 17
   store i8 1, ptr %RHSKind.i28, align 1
   store ptr %P, ptr %ref.tmp15, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %path_storage.i29)
   %add.ptr.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %path_storage.i29, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i30, ptr %path_storage.i29, align 8
-  %Size.i.i.i.i.i.i.i31 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage.i29, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %path_storage.i29, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i31, align 8
-  %Capacity2.i.i.i.i.i.i.i32 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage.i29, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %path_storage.i29, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i32, align 4
   %call.i33 = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(16) %path_storage.i29) #29
   %9 = extractvalue { ptr, i64 } %call.i33, 0
@@ -5044,9 +5010,9 @@ entry:
   %path_storage = alloca %"class.llvh::SmallString.11", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %path_storage) #29
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -5143,7 +5109,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return.sink.split, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %RealPath, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %RealPath, i64 8
   store i32 0, ptr %Size.i.i, align 8
   %2 = load atomic i8, ptr @_ZGVZN4llvh3sys2fsL13hasProcSelfFDEvE6Result acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %2, 0
@@ -5176,7 +5142,7 @@ if.then5:                                         ; preds = %_ZN4llvh3sys2fsL13h
   br i1 %cmp, label %if.then10, label %return.sink.split
 
 if.then10:                                        ; preds = %if.then5
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %RealPath, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %RealPath, i64 12
   %7 = load i32, ptr %Capacity.i.i, align 4
   %conv.i.i = zext i32 %7 to i64
   %8 = load i32, ptr %Size.i.i, align 8
@@ -5207,9 +5173,9 @@ if.then.i.i:                                      ; preds = %if.then10, %if.then
 if.else:                                          ; preds = %_ZN4llvh3sys2fsL13hasProcSelfFDEv.exit
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call14 = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Name, ptr noundef nonnull align 8 dereferenceable(16) %Storage) #29
   %11 = extractvalue { ptr, i64 } %call14, 0
@@ -5219,7 +5185,7 @@ if.else:                                          ; preds = %_ZN4llvh3sys2fsL13h
 
 if.then19:                                        ; preds = %if.else
   %call23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Buffer) #28
-  %Capacity.i.i14 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %RealPath, i64 0, i32 2
+  %Capacity.i.i14 = getelementptr inbounds i8, ptr %RealPath, i64 12
   %12 = load i32, ptr %Capacity.i.i14, align 4
   %conv.i.i15 = zext i32 %12 to i64
   %13 = load i32, ptr %Size.i.i, align 8
@@ -5390,7 +5356,7 @@ if.then6:                                         ; preds = %for.end
   %call8 = tail call ptr @__errno_location() #30
   %0 = load i32, ptr %call8, align 4
   %call9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #30
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %HasError.i, align 8
@@ -5401,7 +5367,7 @@ if.then6:                                         ; preds = %for.end
 
 if.end10:                                         ; preds = %for.end
   call void @_ZN4llvh3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %Hash, ptr noundef nonnull align 1 dereferenceable(16) %Result) #29
-  %HasError.i3 = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i3 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i4 = load i8, ptr %HasError.i3, align 8
   %bf.clear.i = and i8 %bf.load.i4, -2
   store i8 %bf.clear.i, ptr %HasError.i3, align 8
@@ -5439,7 +5405,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = extractvalue { i32, ptr } %call.i, 1
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %HasError.i, align 8
@@ -5461,7 +5427,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN4llvh3sys2fs6existsERKNS1_17basic_file_statusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %status) local_unnamed_addr #6 {
 entry:
-  %Type.i.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %status, i64 0, i32 5
+  %Type.i.i = getelementptr inbounds i8, ptr %status, i64 32
   %0 = load i32, ptr %Type.i.i, align 8
   %spec.select = icmp ugt i32 %0, 1
   ret i1 %spec.select
@@ -5470,7 +5436,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN4llvh3sys2fs12status_knownERKNS1_17basic_file_statusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %s) local_unnamed_addr #6 {
 entry:
-  %Type.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %s, i64 0, i32 5
+  %Type.i = getelementptr inbounds i8, ptr %s, i64 32
   %0 = load i32, ptr %Type.i, align 8
   %cmp = icmp ne i32 %0, 0
   ret i1 %cmp
@@ -5485,9 +5451,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Status.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %PathStorage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Path, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage.i) #29
   %0 = extractvalue { ptr, i64 } %call.i, 0
@@ -5497,7 +5463,7 @@ entry:
   br i1 %cmp.not.i, label %if.end6.i, label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 if.end6.i:                                        ; preds = %entry
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %Status.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %Status.i, i64 24
   %1 = load i32, ptr %st_mode.i, align 8
   %and.i15.i = and i32 %1, 61440
   %2 = add nsw i32 %and.i15.i, -4096
@@ -5530,7 +5496,7 @@ _ZN4llvh3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit: ; preds = %_ZN4llv
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN4llvh3sys2fs12is_directoryERKNS1_17basic_file_statusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %status) local_unnamed_addr #6 {
 entry:
-  %Type.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %status, i64 0, i32 5
+  %Type.i = getelementptr inbounds i8, ptr %status, i64 32
   %0 = load i32, ptr %Type.i, align 8
   %cmp = icmp eq i32 %0, 3
   ret i1 %cmp
@@ -5545,9 +5511,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Status.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %PathStorage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage.i) #29
   %0 = extractvalue { ptr, i64 } %call.i, 0
@@ -5562,7 +5528,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 if.end6.i:                                        ; preds = %entry
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %Status.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %Status.i, i64 24
   %2 = load i32, ptr %st_mode.i, align 8
   %and.i15.i = and i32 %2, 61440
   %3 = add nsw i32 %and.i15.i, -4096
@@ -5614,7 +5580,7 @@ return:                                           ; preds = %_ZN4llvh3sys2fs6sta
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN4llvh3sys2fs15is_regular_fileERKNS1_17basic_file_statusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %status) local_unnamed_addr #6 {
 entry:
-  %Type.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %status, i64 0, i32 5
+  %Type.i = getelementptr inbounds i8, ptr %status, i64 32
   %0 = load i32, ptr %Type.i, align 8
   %cmp = icmp eq i32 %0, 2
   ret i1 %cmp
@@ -5629,9 +5595,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Status.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %PathStorage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage.i) #29
   %0 = extractvalue { ptr, i64 } %call.i, 0
@@ -5646,7 +5612,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 if.end6.i:                                        ; preds = %entry
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %Status.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %Status.i, i64 24
   %2 = load i32, ptr %st_mode.i, align 8
   %and.i15.i = and i32 %2, 61440
   %cond = icmp eq i32 %and.i15.i, 32768
@@ -5687,7 +5653,7 @@ return:                                           ; preds = %_ZN4llvh3sys2fs6sta
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN4llvh3sys2fs15is_symlink_fileERKNS1_17basic_file_statusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %status) local_unnamed_addr #6 {
 entry:
-  %Type.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %status, i64 0, i32 5
+  %Type.i = getelementptr inbounds i8, ptr %status, i64 32
   %0 = load i32, ptr %Type.i, align 8
   %cmp = icmp eq i32 %0, 4
   ret i1 %cmp
@@ -5702,9 +5668,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Status.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %PathStorage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage.i) #29
   %0 = extractvalue { ptr, i64 } %call.i, 0
@@ -5719,7 +5685,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 if.end6.i:                                        ; preds = %entry
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %Status.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %Status.i, i64 24
   %2 = load i32, ptr %st_mode.i, align 8
   %and.i15.i = and i32 %2, 61440
   %cond = icmp eq i32 %and.i15.i, 40960
@@ -5760,7 +5726,7 @@ return:                                           ; preds = %_ZN4llvh3sys2fs6sta
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN4llvh3sys2fs8is_otherERKNS1_17basic_file_statusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %status) local_unnamed_addr #6 {
 entry:
-  %Type.i.i.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %status, i64 0, i32 5
+  %Type.i.i.i = getelementptr inbounds i8, ptr %status, i64 32
   %0 = load i32, ptr %Type.i.i.i, align 8
   %1 = icmp ugt i32 %0, 3
   ret i1 %1
@@ -5775,9 +5741,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Status.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %PathStorage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Path, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage.i) #29
   %0 = extractvalue { ptr, i64 } %call.i, 0
@@ -5792,7 +5758,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 if.end6.i:                                        ; preds = %entry
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %Status.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %Status.i, i64 24
   %2 = load i32, ptr %st_mode.i, align 8
   %and.i15.i = and i32 %2, 61440
   %3 = add nsw i32 %and.i15.i, -4096
@@ -5859,9 +5825,9 @@ entry:
   %retval.sroa.0.0.i = select i1 %cmp.i, ptr null, ptr %call.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStr, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %PathStr, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStr, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStr, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStr, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStr, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %cmp.i.i.i = icmp ugt i64 %retval.sroa.4.0.i, 128
   br i1 %cmp.i.i.i, label %if.end.i.i.thread.i, label %if.end.i.i.i
@@ -5890,10 +5856,10 @@ _ZN4llvh11SmallStringILj128EEC2ENS_9StringRefE.exit: ; preds = %if.end.i.i.i, %i
   %3 = trunc i64 %retval.sroa.4.0.i to i32
   %conv.i12.i.i.i = add i32 %2, %3
   store i32 %conv.i12.i.i.i, ptr %Size.i.i.i.i.i.i, align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
-  %LHSKind.i3 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp3, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %LHSKind.i3 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
   store i16 257, ptr %LHSKind.i, align 8
-  %LHSKind.i5 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
+  %LHSKind.i5 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i16 257, ptr %LHSKind.i3, align 8
   store i16 257, ptr %LHSKind.i5, align 8
   call void @_ZN4llvh3sys4path6appendERNS_15SmallVectorImplIcEENS1_5StyleERKNS_5TwineES8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %PathStr, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(18) %Filename, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4)
@@ -5918,9 +5884,9 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !76
   %call9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #29
-  %Type10 = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %this, i64 0, i32 1
+  %Type10 = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %Type, ptr %Type10, align 8
-  %Status11 = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %this, i64 0, i32 3
+  %Status11 = getelementptr inbounds i8, ptr %this, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Status11, ptr noundef nonnull align 8 dereferenceable(40) %Status, i64 40, i1 false)
   %6 = load ptr, ptr %PathStr, align 8
   %cmp.i.i.i.i = icmp eq ptr %6, %add.ptr.i.i.i.i.i.i
@@ -5946,9 +5912,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Status.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %PathStorage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Path, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage.i) #29
   %0 = extractvalue { ptr, i64 } %call.i, 0
@@ -5963,7 +5929,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 if.end6.i:                                        ; preds = %entry
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %Status.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %Status.i, i64 24
   %2 = load i32, ptr %st_mode.i, align 8
   %and.i.i = and i32 %2, 4095
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #30
@@ -5985,7 +5951,7 @@ _ZN4llvh3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit: ; preds = %_ZN4llv
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %PathStorage.i)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %Status.i)
   %cmp.i.not = icmp eq i32 %retval.sroa.0.0.i, 0
-  %HasError.i2 = getelementptr inbounds %"class.llvh::ErrorOr.21", ptr %agg.result, i64 0, i32 1
+  %HasError.i2 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i3 = load i8, ptr %HasError.i2, align 8
   br i1 %cmp.i.not, label %if.end, label %if.then
 
@@ -6028,19 +5994,19 @@ entry:
   %ref.tmp11 = alloca %"class.std::allocator", align 1
   %ref.tmp14 = alloca %"class.std::allocator", align 1
   store ptr @.str.7, ptr %aPath, align 8
-  %Length.i = getelementptr inbounds %"class.llvh::StringRef", ptr %aPath, i64 0, i32 1
+  %Length.i = getelementptr inbounds i8, ptr %aPath, i64 8
   store i64 14, ptr %Length.i, align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 5, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %aPath, ptr %ref.tmp, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %PathStorage.i.i)
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %PathStorage.i.i, align 8
-  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i.i, align 4
   %call.i.i = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage.i.i) #29
   %0 = extractvalue { ptr, i64 } %call.i.i, 0
@@ -6254,7 +6220,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @_ZNK4llvh3sys2fs17basic_file_status23getLastModificationTimeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %fs_st_mtime = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %this, i64 0, i32 1
+  %fs_st_mtime = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %fs_st_mtime, align 8
   %mul.i.i.i.i = mul nsw i64 %0, 1000000000
   ret i64 %mul.i.i.i.i
@@ -6263,7 +6229,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK4llvh3sys2fs11file_status12getLinkCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %fs_st_nlinks = getelementptr inbounds %"class.llvh::sys::fs::file_status", ptr %this, i64 0, i32 2
+  %fs_st_nlinks = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %fs_st_nlinks, align 8
   %conv = trunc i64 %0 to i32
   ret i32 %conv
@@ -6285,7 +6251,7 @@ if.then:                                          ; preds = %entry
   %call2 = tail call ptr @__errno_location() #30
   %0 = load i32, ptr %call2, align 4
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #30
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr.28", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %HasError.i, align 8
@@ -6293,18 +6259,18 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %f_bsize = getelementptr inbounds %struct.statfs, ptr %Vfs, i64 0, i32 1
+  %f_bsize = getelementptr inbounds i8, ptr %Vfs, i64 8
   %1 = load i64, ptr %f_bsize, align 8
-  %f_blocks = getelementptr inbounds %struct.statfs, ptr %Vfs, i64 0, i32 2
+  %f_blocks = getelementptr inbounds i8, ptr %Vfs, i64 16
   %2 = load i64, ptr %f_blocks, align 8
   %mul = mul i64 %2, %1
-  %f_bfree = getelementptr inbounds %struct.statfs, ptr %Vfs, i64 0, i32 3
+  %f_bfree = getelementptr inbounds i8, ptr %Vfs, i64 24
   %3 = load i64, ptr %f_bfree, align 8
   %mul4 = mul i64 %3, %1
-  %f_bavail = getelementptr inbounds %struct.statfs, ptr %Vfs, i64 0, i32 4
+  %f_bavail = getelementptr inbounds i8, ptr %Vfs, i64 32
   %4 = load i64, ptr %f_bavail, align 8
   %mul5 = mul i64 %4, %1
-  %HasError.i3 = getelementptr inbounds %"class.llvh::ErrorOr.28", ptr %agg.result, i64 0, i32 1
+  %HasError.i3 = getelementptr inbounds i8, ptr %agg.result, i64 24
   %bf.load.i4 = load i8, ptr %HasError.i3, align 8
   %bf.clear.i = and i8 %bf.load.i4, -2
   store i8 %bf.clear.i, ptr %HasError.i3, align 8
@@ -6336,15 +6302,15 @@ entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %ref.tmp4 = alloca %"class.llvh::Twine", align 8
   %ref.tmp9 = alloca %"class.llvh::Twine", align 8
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %result, i64 8
   store i32 0, ptr %Size.i.i, align 8
   %call = tail call ptr @getenv(ptr noundef nonnull @.str.8) #29
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   %0 = load i8, ptr %call, align 1
   %cmp.not.i = icmp eq i8 %0, 0
@@ -6361,8 +6327,8 @@ _ZN4llvh5TwineC2EPKc.exit:                        ; preds = %land.lhs.true, %if.
   br i1 %call1, label %land.lhs.true2, label %if.end
 
 land.lhs.true2:                                   ; preds = %_ZN4llvh5TwineC2EPKc.exit
-  %LHSKind.i16 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
-  %RHSKind.i17 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
+  %LHSKind.i16 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
+  %RHSKind.i17 = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
   store i8 1, ptr %RHSKind.i17, align 1
   %1 = load i8, ptr %call, align 1
   %cmp.not.i18 = icmp eq i8 %1, 0
@@ -6379,9 +6345,9 @@ _ZN4llvh5TwineC2EPKc.exit21:                      ; preds = %land.lhs.true2, %if
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Status.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %PathStorage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage.i) #29
   %2 = extractvalue { ptr, i64 } %call.i, 0
@@ -6397,7 +6363,7 @@ if.then.i68:                                      ; preds = %_ZN4llvh5TwineC2EPK
 
 _ZN4llvh3sys2fsL11typeForModeEj.exit.i:           ; preds = %_ZN4llvh5TwineC2EPKc.exit21
   %5 = load i64, ptr %Status.i, align 8
-  %st_ino.i = getelementptr inbounds %struct.stat, ptr %Status.i, i64 0, i32 1
+  %st_ino.i = getelementptr inbounds i8, ptr %Status.i, i64 8
   %6 = load i64, ptr %st_ino.i, align 8
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
@@ -6419,8 +6385,8 @@ _ZN4llvh3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit: ; preds = %_ZN4llv
   br i1 %retval.sroa.0.0.i, label %land.lhs.true7, label %if.end
 
 land.lhs.true7:                                   ; preds = %_ZN4llvh3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit
-  %LHSKind.i22 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp9, i64 0, i32 2
-  %RHSKind.i23 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp9, i64 0, i32 3
+  %LHSKind.i22 = getelementptr inbounds i8, ptr %ref.tmp9, i64 16
+  %RHSKind.i23 = getelementptr inbounds i8, ptr %ref.tmp9, i64 17
   store i8 1, ptr %RHSKind.i23, align 1
   store ptr @.str.2, ptr %ref.tmp9, align 8
   store i8 3, ptr %LHSKind.i22, align 8
@@ -6428,9 +6394,9 @@ land.lhs.true7:                                   ; preds = %_ZN4llvh3sys2fs6sta
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Status.i27)
   %add.ptr.i.i.i.i.i.i.i28 = getelementptr inbounds i8, ptr %PathStorage.i26, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i28, ptr %PathStorage.i26, align 8
-  %Size.i.i.i.i.i.i.i29 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i26, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %PathStorage.i26, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i29, align 8
-  %Capacity2.i.i.i.i.i.i.i30 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i26, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %PathStorage.i26, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i30, align 4
   %call.i31 = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp9, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage.i26) #29
   %8 = extractvalue { ptr, i64 } %call.i31, 0
@@ -6446,7 +6412,7 @@ if.then.i73:                                      ; preds = %land.lhs.true7
 
 _ZN4llvh3sys2fsL11typeForModeEj.exit.i93:         ; preds = %land.lhs.true7
   %11 = load i64, ptr %Status.i27, align 8
-  %st_ino.i96 = getelementptr inbounds %struct.stat, ptr %Status.i27, i64 0, i32 1
+  %st_ino.i96 = getelementptr inbounds i8, ptr %Status.i27, i64 8
   %12 = load i64, ptr %st_ino.i96, align 8
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit118
 
@@ -6475,7 +6441,7 @@ land.rhs:                                         ; preds = %_ZN4llvh3sys2fs6sta
 
 if.then:                                          ; preds = %land.rhs
   %call17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #28
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %result, i64 12
   %15 = load i32, ptr %Capacity.i.i, align 4
   %conv.i.i = zext i32 %15 to i64
   %16 = load i32, ptr %Size.i.i, align 8
@@ -6513,7 +6479,7 @@ _ZN4llvh15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit: ; preds = %if.end.i, %if.
   br label %return
 
 if.end:                                           ; preds = %_ZN4llvh3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit36, %_ZN4llvh3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit, %_ZN4llvh5TwineC2EPKc.exit, %entry, %land.rhs
-  %Capacity.i.i48 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %result, i64 0, i32 2
+  %Capacity.i.i48 = getelementptr inbounds i8, ptr %result, i64 12
   %20 = load i32, ptr %Capacity.i.i48, align 4
   %cmp.i50 = icmp ult i32 %20, 4096
   br i1 %cmp.i50, label %if.then.i52, label %_ZN4llvh15SmallVectorImplIcE7reserveEm.exit
@@ -6597,9 +6563,9 @@ entry:
   %path_storage = alloca %"class.llvh::SmallString.11", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %path_storage) #29
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -6649,15 +6615,15 @@ entry:
   %to_storage = alloca %"class.llvh::SmallString.11", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %from_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %from_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %from_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %from_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %from_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %from_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %add.ptr.i.i.i.i.i.i1 = getelementptr inbounds i8, ptr %to_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i1, ptr %to_storage, align 8
-  %Size.i.i.i.i.i.i2 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %to_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i2 = getelementptr inbounds i8, ptr %to_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i2, align 8
-  %Capacity2.i.i.i.i.i.i3 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %to_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i3 = getelementptr inbounds i8, ptr %to_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i3, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %from, ptr noundef nonnull align 8 dereferenceable(16) %from_storage) #29
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -6713,15 +6679,15 @@ entry:
   %to_storage = alloca %"class.llvh::SmallString.11", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %from_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %from_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %from_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %from_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %from_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %from_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %add.ptr.i.i.i.i.i.i1 = getelementptr inbounds i8, ptr %to_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i1, ptr %to_storage, align 8
-  %Size.i.i.i.i.i.i2 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %to_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i2 = getelementptr inbounds i8, ptr %to_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i2, align 8
-  %Capacity2.i.i.i.i.i.i3 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %to_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i3 = getelementptr inbounds i8, ptr %to_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i3, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %from, ptr noundef nonnull align 8 dereferenceable(16) %from_storage) #29
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -6777,9 +6743,9 @@ entry:
   %buf = alloca %struct.stat, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %path_storage) #29
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -6803,7 +6769,7 @@ if.end:                                           ; preds = %if.then
   br label %cleanup
 
 if.end8:                                          ; preds = %entry
-  %st_mode = getelementptr inbounds %struct.stat, ptr %buf, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %buf, i64 24
   %2 = load i32, ptr %st_mode, align 8
   %3 = trunc i32 %2 to i16
   %trunc = and i16 %3, -4096
@@ -6954,15 +6920,15 @@ entry:
   %to_storage = alloca %"class.llvh::SmallString.11", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %from_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %from_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %from_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %from_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %from_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %from_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %add.ptr.i.i.i.i.i.i1 = getelementptr inbounds i8, ptr %to_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i1, ptr %to_storage, align 8
-  %Size.i.i.i.i.i.i2 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %to_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i2 = getelementptr inbounds i8, ptr %to_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i2, align 8
-  %Capacity2.i.i.i.i.i.i3 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %to_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i3 = getelementptr inbounds i8, ptr %to_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i3, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %from, ptr noundef nonnull align 8 dereferenceable(16) %from_storage) #29
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -7060,9 +7026,9 @@ entry:
   %buf = alloca %struct.stat, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %PathStorage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Path, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage) #29
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -7105,7 +7071,7 @@ if.then11:                                        ; preds = %if.then7
   br label %cleanup
 
 if.end12:                                         ; preds = %if.then7
-  %st_mode = getelementptr inbounds %struct.stat, ptr %buf, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %buf, i64 24
   %2 = load i32, ptr %st_mode, align 8
   %and = and i32 %2, 61440
   %cmp13 = icmp eq i32 %and, 32768
@@ -7154,14 +7120,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN4llvh3sys2fs10equivalentENS1_11file_statusES2_(ptr nocapture noundef readonly byval(%"class.llvh::sys::fs::file_status") align 8 %A, ptr nocapture noundef readonly byval(%"class.llvh::sys::fs::file_status") align 8 %B) local_unnamed_addr #6 {
 entry:
-  %fs_st_dev = getelementptr inbounds %"class.llvh::sys::fs::file_status", ptr %A, i64 0, i32 1
+  %fs_st_dev = getelementptr inbounds i8, ptr %A, i64 40
   %0 = load i64, ptr %fs_st_dev, align 8
-  %fs_st_dev1 = getelementptr inbounds %"class.llvh::sys::fs::file_status", ptr %B, i64 0, i32 1
+  %fs_st_dev1 = getelementptr inbounds i8, ptr %B, i64 40
   %1 = load i64, ptr %fs_st_dev1, align 8
   %cmp = icmp eq i64 %0, %1
-  %fs_st_ino = getelementptr inbounds %"class.llvh::sys::fs::file_status", ptr %A, i64 0, i32 3
+  %fs_st_ino = getelementptr inbounds i8, ptr %A, i64 56
   %2 = load i64, ptr %fs_st_ino, align 8
-  %fs_st_ino2 = getelementptr inbounds %"class.llvh::sys::fs::file_status", ptr %B, i64 0, i32 3
+  %fs_st_ino2 = getelementptr inbounds i8, ptr %B, i64 56
   %3 = load i64, ptr %fs_st_ino2, align 8
   %cmp3 = icmp eq i64 %2, %3
   %4 = select i1 %cmp, i1 %cmp3, i1 false
@@ -7179,9 +7145,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Status.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %PathStorage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %A, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage.i) #29
   %0 = extractvalue { ptr, i64 } %call.i, 0
@@ -7197,7 +7163,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end6.i:                                        ; preds = %entry
   %2 = load i64, ptr %Status.i, align 8
-  %st_ino.i = getelementptr inbounds %struct.stat, ptr %Status.i, i64 0, i32 1
+  %st_ino.i = getelementptr inbounds i8, ptr %Status.i, i64 8
   %3 = load i64, ptr %st_ino.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #30
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
@@ -7226,9 +7192,9 @@ if.end:                                           ; preds = %_ZN4llvh3sys2fs6sta
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Status.i4)
   %add.ptr.i.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %PathStorage.i3, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i5, ptr %PathStorage.i3, align 8
-  %Size.i.i.i.i.i.i.i6 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i3, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %PathStorage.i3, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i6, align 8
-  %Capacity2.i.i.i.i.i.i.i7 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i3, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %PathStorage.i3, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i7, align 4
   %call.i8 = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %B, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage.i3) #29
   %5 = extractvalue { ptr, i64 } %call.i8, 0
@@ -7244,7 +7210,7 @@ if.then.i20:                                      ; preds = %if.end
 
 if.end6.i35:                                      ; preds = %if.end
   %7 = load i64, ptr %Status.i4, align 8
-  %st_ino.i43 = getelementptr inbounds %struct.stat, ptr %Status.i4, i64 0, i32 1
+  %st_ino.i43 = getelementptr inbounds i8, ptr %Status.i4, i64 8
   %8 = load i64, ptr %st_ino.i43, align 8
   %call.i.i58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #30
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit65
@@ -7317,7 +7283,7 @@ if.else:                                          ; preds = %if.then
   br label %return
 
 if.end6:                                          ; preds = %entry
-  %st_mode = getelementptr inbounds %struct.stat, ptr %Status, i64 0, i32 3
+  %st_mode = getelementptr inbounds i8, ptr %Status, i64 24
   %1 = load i32, ptr %st_mode, align 8
   %and.i = and i32 %1, 4095
   %and.i15 = and i32 %1, 61440
@@ -7335,13 +7301,13 @@ switch.lookup:                                    ; preds = %if.end6
 _ZN4llvh3sys2fsL11typeForModeEj.exit:             ; preds = %if.end6, %switch.lookup
   %retval.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 9, %if.end6 ]
   %6 = load i64, ptr %Status, align 8
-  %st_ino = getelementptr inbounds %struct.stat, ptr %Status, i64 0, i32 1
-  %st_atim = getelementptr inbounds %struct.stat, ptr %Status, i64 0, i32 11
+  %st_ino = getelementptr inbounds i8, ptr %Status, i64 8
+  %st_atim = getelementptr inbounds i8, ptr %Status, i64 72
   %7 = load i64, ptr %st_atim, align 8
-  %st_mtim = getelementptr inbounds %struct.stat, ptr %Status, i64 0, i32 12
+  %st_mtim = getelementptr inbounds i8, ptr %Status, i64 88
   %8 = load i64, ptr %st_mtim, align 8
-  %st_uid = getelementptr inbounds %struct.stat, ptr %Status, i64 0, i32 4
-  %st_size = getelementptr inbounds %struct.stat, ptr %Status, i64 0, i32 8
+  %st_uid = getelementptr inbounds i8, ptr %Status, i64 28
+  %st_size = getelementptr inbounds i8, ptr %Status, i64 48
   %9 = load i64, ptr %st_size, align 8
   %ref.tmp8.sroa.2.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 8
   %ref.tmp8.sroa.3.0.Result.sroa_idx = getelementptr inbounds i8, ptr %Result, i64 16
@@ -7390,9 +7356,9 @@ entry:
   %PathStorage = alloca %"class.llvh::SmallString.11", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %PathStorage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Path, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage) #29
   %0 = extractvalue { ptr, i64 } %call, 0
@@ -7441,9 +7407,9 @@ entry:
   store i64 %rem.i.i, ptr %ref.tmp.sroa.2.0.arrayidx.sroa_idx, align 8
   %div.i.i.i.i1 = sdiv i64 %ModificationTime.coerce, 1000000000
   %rem.i.i2 = srem i64 %ModificationTime.coerce, 1000000000
-  %arrayidx11 = getelementptr inbounds [2 x %struct.timespec], ptr %Times, i64 0, i64 1
+  %arrayidx11 = getelementptr inbounds i8, ptr %Times, i64 16
   store i64 %div.i.i.i.i1, ptr %arrayidx11, align 16
-  %ref.tmp6.sroa.2.0.arrayidx11.sroa_idx = getelementptr inbounds [2 x %struct.timespec], ptr %Times, i64 0, i64 1, i32 1
+  %ref.tmp6.sroa.2.0.arrayidx11.sroa_idx = getelementptr inbounds i8, ptr %Times, i64 24
   store i64 %rem.i.i2, ptr %ref.tmp6.sroa.2.0.arrayidx11.sroa_idx, align 8
   %call12 = call i32 @futimens(i32 noundef %FD, ptr noundef nonnull %Times) #29
   %tobool.not = icmp eq i32 %call12, 0
@@ -7479,7 +7445,7 @@ entry:
   %cond3 = select i1 %cmp2, i32 1, i32 3
   %0 = load i64, ptr %this, align 8
   %call = tail call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef %cond3, i32 noundef %cond, i32 noundef %FD, i64 noundef %Offset) #29
-  %Mapping = getelementptr inbounds %"class.llvh::sys::fs::mapped_file_region", ptr %this, i64 0, i32 1
+  %Mapping = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call, ptr %Mapping, align 8
   %cmp5 = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
   br i1 %cmp5, label %if.then, label %if.end
@@ -7509,9 +7475,9 @@ declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 nounde
 define hidden void @_ZN4llvh3sys2fs18mapped_file_regionC2EiNS2_7mapmodeEmmRSt10error_code(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, i32 noundef %fd, i32 noundef %mode, i64 noundef %length, i64 noundef %offset, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %ec) unnamed_addr #0 align 2 {
 entry:
   store i64 %length, ptr %this, align 8
-  %Mapping = getelementptr inbounds %"class.llvh::sys::fs::mapped_file_region", ptr %this, i64 0, i32 1
+  %Mapping = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %Mapping, align 8
-  %Mode = getelementptr inbounds %"class.llvh::sys::fs::mapped_file_region", ptr %this, i64 0, i32 2
+  %Mode = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %mode, ptr %Mode, align 8
   %cmp.i = icmp eq i32 %mode, 1
   %cond.i = select i1 %cmp.i, i32 1, i32 2
@@ -7550,7 +7516,7 @@ if.end:                                           ; preds = %_ZN4llvh3sys2fs18ma
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh3sys2fs18mapped_file_regionD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 {
 entry:
-  %Mapping = getelementptr inbounds %"class.llvh::sys::fs::mapped_file_region", ptr %this, i64 0, i32 1
+  %Mapping = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Mapping, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -7577,7 +7543,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK4llvh3sys2fs18mapped_file_region4dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %Mapping = getelementptr inbounds %"class.llvh::sys::fs::mapped_file_region", ptr %this, i64 0, i32 1
+  %Mapping = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Mapping, align 8
   ret ptr %0
 }
@@ -7585,7 +7551,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK4llvh3sys2fs18mapped_file_region10const_dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
 entry:
-  %Mapping = getelementptr inbounds %"class.llvh::sys::fs::mapped_file_region", ptr %this, i64 0, i32 1
+  %Mapping = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Mapping, align 8
   ret ptr %0
 }
@@ -7612,9 +7578,9 @@ entry:
   %ref.tmp9 = alloca %"class.llvh::StringRef", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_null, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path_null, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_null, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_null, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_null, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_null, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %cmp.i.i.i = icmp ugt i64 %path.coerce1, 128
   br i1 %cmp.i.i.i, label %if.end.i.i.thread.i, label %if.end.i.i.i
@@ -7673,15 +7639,15 @@ if.then:                                          ; preds = %_ZN4llvh11SmallStri
 if.end:                                           ; preds = %_ZN4llvh11SmallStringILj128EE5c_strEv.exit
   %9 = ptrtoint ptr %call1 to i64
   store i64 %9, ptr %it, align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr @.str.2, ptr %ref.tmp, align 8
   store i8 3, ptr %LHSKind.i, align 8
-  %LHSKind.i4 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
-  %LHSKind.i6 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp5, i64 0, i32 2
+  %LHSKind.i4 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
+  %LHSKind.i6 = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   store i16 257, ptr %LHSKind.i4, align 8
-  %LHSKind.i8 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp6, i64 0, i32 2
+  %LHSKind.i8 = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   store i16 257, ptr %LHSKind.i6, align 8
   store i16 257, ptr %LHSKind.i8, align 8
   call void @_ZN4llvh3sys4path6appendERNS_15SmallVectorImplIcEENS1_5StyleERKNS_5TwineES8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %path_null, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp6)
@@ -7689,26 +7655,26 @@ if.end:                                           ; preds = %_ZN4llvh11SmallStri
   %11 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i = zext i32 %11 to i64
   store ptr %10, ptr %ref.tmp9, align 8
-  %12 = getelementptr inbounds { ptr, i64 }, ptr %ref.tmp9, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   store i64 %conv.i.i, ptr %12, align 8
-  %LHSKind.i10 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp8, i64 0, i32 2
+  %LHSKind.i10 = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
   store i8 5, ptr %LHSKind.i10, align 8
-  %RHSKind.i11 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp8, i64 0, i32 3
+  %RHSKind.i11 = getelementptr inbounds i8, ptr %ref.tmp8, i64 17
   store i8 1, ptr %RHSKind.i11, align 1
   store ptr %ref.tmp9, ptr %ref.tmp8, align 8
   %frombool.i = zext i1 %follow_symlinks to i8
   call void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp8) #29
-  %Type3.i = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp7, i64 0, i32 1
+  %Type3.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 32
   store i32 9, ptr %Type3.i, align 8
-  %FollowSymlinks4.i = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp7, i64 0, i32 2
+  %FollowSymlinks4.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 36
   store i8 %frombool.i, ptr %FollowSymlinks4.i, align 4
-  %Status6.i = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp7, i64 0, i32 3
+  %Status6.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status6.i, i8 0, i64 36, i1 false)
-  %agg.tmp1212.sroa.4.0.Status6.i.sroa_idx = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp7, i64 0, i32 3, i32 6
+  %agg.tmp1212.sroa.4.0.Status6.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp7, i64 76
   store i32 65535, ptr %agg.tmp1212.sroa.4.0.Status6.i.sroa_idx, align 4
-  %CurrentEntry = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %it, i64 0, i32 1
+  %CurrentEntry = getelementptr inbounds i8, ptr %it, i64 8
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %CurrentEntry, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #29
-  %Type.i = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %it, i64 0, i32 1, i32 1
+  %Type.i = getelementptr inbounds i8, ptr %it, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %Type.i, ptr noundef nonnull align 8 dereferenceable(48) %Type3.i, i64 48, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #29
   %call14 = call { i32, ptr } @_ZN4llvh3sys2fs6detail28directory_iterator_incrementERNS2_12DirIterStateE(ptr noundef nonnull align 8 dereferenceable(88) %it)
@@ -7761,9 +7727,9 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.then7:                                         ; preds = %entry
-  %d_name = getelementptr inbounds %struct.dirent, ptr %call1, i64 0, i32 4
+  %d_name = getelementptr inbounds i8, ptr %call1, i64 19
   store ptr %d_name, ptr %Name, align 8
-  %Length.i35 = getelementptr inbounds %"class.llvh::StringRef", ptr %Name, i64 0, i32 1
+  %Length.i35 = getelementptr inbounds i8, ptr %Name, i64 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d_name) #28
   store i64 %call.i, ptr %Length.i35, align 8
   switch i64 %call.i, label %if.end [
@@ -7782,7 +7748,7 @@ land.lhs.true15:                                  ; preds = %if.then7
   br i1 %cmp18, label %land.lhs.true19, label %if.end
 
 land.lhs.true19:                                  ; preds = %land.lhs.true15
-  %arrayidx.i = getelementptr inbounds %struct.dirent, ptr %call1, i64 0, i32 4, i64 1
+  %arrayidx.i = getelementptr inbounds i8, ptr %call1, i64 20
   %5 = load i8, ptr %arrayidx.i, align 1
   %cmp22 = icmp eq i8 %5, 46
   br i1 %cmp22, label %if.then23, label %if.end
@@ -7794,10 +7760,10 @@ if.then23:                                        ; preds = %land.lhs.true19, %l
   br label %return
 
 if.end:                                           ; preds = %if.then7, %land.lhs.true10, %land.lhs.true19, %land.lhs.true15
-  %CurrentEntry = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %It, i64 0, i32 1
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %CurrentEntry = getelementptr inbounds i8, ptr %It, i64 8
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 5, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %Name, ptr %ref.tmp, align 8
   %8 = getelementptr i8, ptr %call1, i64 18
@@ -7818,7 +7784,7 @@ switch.lookup:                                    ; preds = %if.end
 
 _ZN4llvh3sys2fsL10direntTypeEP6dirent.exit:       ; preds = %if.end, %switch.lookup
   %retval.0.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 9, %if.end ]
-  %Perms.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %agg.tmp, i64 0, i32 6
+  %Perms.i = getelementptr inbounds i8, ptr %agg.tmp, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp, i8 0, i64 40, i1 false)
   store i32 65535, ptr %Perms.i, align 4
   call void @_ZN4llvh3sys2fs15directory_entry16replace_filenameERKNS_5TwineENS1_9file_typeENS1_17basic_file_statusE(ptr noundef nonnull align 8 dereferenceable(80) %CurrentEntry, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, i32 noundef %retval.0.i.i, ptr noundef nonnull byval(%"class.llvh::sys::fs::basic_file_status") align 8 %agg.tmp)
@@ -7840,14 +7806,14 @@ _ZN4llvh3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE.exit: ;
   store i64 0, ptr %It, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp.i, i8 0, i64 80, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #29
-  %Status.i.i = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp.i, i64 0, i32 3
-  %Perms.i.i.i = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp.i, i64 0, i32 3, i32 6
+  %Status.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
+  %Perms.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status.i.i, i8 0, i64 36, i1 false)
   store i32 65535, ptr %Perms.i.i.i, align 4
-  %CurrentEntry.i = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %It, i64 0, i32 1
+  %CurrentEntry.i = getelementptr inbounds i8, ptr %It, i64 8
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %CurrentEntry.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #29
-  %Type.i.i = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %It, i64 0, i32 1, i32 1
-  %Type3.i.i = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp.i, i64 0, i32 1
+  %Type.i.i = getelementptr inbounds i8, ptr %It, i64 40
+  %Type3.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %Type.i.i, ptr noundef nonnull align 8 dereferenceable(48) %Type3.i.i, i64 48, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #29
   %call.i4.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #30
@@ -7879,14 +7845,14 @@ if.end:                                           ; preds = %if.then, %entry
   store i64 0, ptr %it, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, i8 0, i64 80, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #29
-  %Status.i = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp, i64 0, i32 3
-  %Perms.i.i = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp, i64 0, i32 3, i32 6
+  %Status.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
+  %Perms.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status.i, i8 0, i64 36, i1 false)
   store i32 65535, ptr %Perms.i.i, align 4
-  %CurrentEntry = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %it, i64 0, i32 1
+  %CurrentEntry = getelementptr inbounds i8, ptr %it, i64 8
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %CurrentEntry, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #29
-  %Type.i = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %it, i64 0, i32 1, i32 1
-  %Type3.i = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp, i64 0, i32 1
+  %Type.i = getelementptr inbounds i8, ptr %it, i64 40
+  %Type3.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %Type.i, ptr noundef nonnull align 8 dereferenceable(48) %Type3.i, i64 48, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #29
   %call.i4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #30
@@ -7905,12 +7871,12 @@ entry:
   %PathStorage.i = alloca %"class.llvh::SmallString.11", align 8
   %Status.i = alloca %struct.stat, align 8
   %ref.tmp = alloca %"class.llvh::Twine", align 8
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 4, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %this, ptr %ref.tmp, align 8
-  %FollowSymlinks = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %this, i64 0, i32 2
+  %FollowSymlinks = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i8, ptr %FollowSymlinks, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -7918,9 +7884,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Status.i)
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %PathStorage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %PathStorage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStorage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %call.i = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %PathStorage.i) #29
   %2 = extractvalue { ptr, i64 } %call.i, 0
@@ -7938,7 +7904,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 if.end6.i:                                        ; preds = %entry
-  %st_mode.i = getelementptr inbounds %struct.stat, ptr %Status.i, i64 0, i32 3
+  %st_mode.i = getelementptr inbounds i8, ptr %Status.i, i64 24
   %4 = load i32, ptr %st_mode.i, align 8
   %and.i.i = and i32 %4, 4095
   %and.i15.i = and i32 %4, 61440
@@ -7955,13 +7921,13 @@ switch.lookup:                                    ; preds = %if.end6.i
 
 _ZN4llvh3sys2fsL11typeForModeEj.exit.i:           ; preds = %if.end6.i, %switch.lookup
   %retval.0.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 9, %if.end6.i ]
-  %st_atim.i = getelementptr inbounds %struct.stat, ptr %Status.i, i64 0, i32 11
+  %st_atim.i = getelementptr inbounds i8, ptr %Status.i, i64 72
   %9 = load i64, ptr %st_atim.i, align 8
-  %st_mtim.i = getelementptr inbounds %struct.stat, ptr %Status.i, i64 0, i32 12
+  %st_mtim.i = getelementptr inbounds i8, ptr %Status.i, i64 88
   %10 = load i64, ptr %st_mtim.i, align 8
-  %st_uid.i = getelementptr inbounds %struct.stat, ptr %Status.i, i64 0, i32 4
+  %st_uid.i = getelementptr inbounds i8, ptr %Status.i, i64 28
   %11 = load <2 x i32>, ptr %st_uid.i, align 4
-  %st_size.i = getelementptr inbounds %struct.stat, ptr %Status.i, i64 0, i32 8
+  %st_size.i = getelementptr inbounds i8, ptr %Status.i, i64 48
   %12 = load i64, ptr %st_size.i, align 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #30
   %13 = inttoptr i64 %10 to ptr
@@ -7988,7 +7954,7 @@ _ZN4llvh3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit: ; preds = %_ZN4llv
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %PathStorage.i)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %Status.i)
   %cmp.i.not = icmp eq i32 %retval.sroa.0.0.i, 0
-  %HasError.i2 = getelementptr inbounds %"class.llvh::ErrorOr.33", ptr %agg.result, i64 0, i32 1
+  %HasError.i2 = getelementptr inbounds i8, ptr %agg.result, i64 40
   %bf.load.i3 = load i8, ptr %HasError.i2, align 8
   br i1 %cmp.i.not, label %if.end, label %if.then
 
@@ -8069,9 +8035,9 @@ _ZN4llvh3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_1
   %Result.3.i = or i32 %Result.1.i, %spec.select19.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call1 = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %Name, ptr noundef nonnull align 8 dereferenceable(16) %Storage) #29
   %3 = extractvalue { ptr, i64 } %call1, 0
@@ -8137,7 +8103,7 @@ entry:
 _ZN4llvh5ErrorD2Ev.exit:                          ; preds = %entry
   %1 = extractvalue { i32, ptr } %call, 1
   call void @_ZN4llvh16errorCodeToErrorESt10error_code(ptr nonnull sret(%"class.llvh::Error") align 8 %agg.tmp, i32 %0, ptr %1) #29
-  %HasError.i = getelementptr inbounds %"class.llvh::Expected", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %HasError.i, align 8
@@ -8150,7 +8116,7 @@ _ZN4llvh5ErrorD2Ev.exit:                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %HasError.i2 = getelementptr inbounds %"class.llvh::Expected", ptr %agg.result, i64 0, i32 1
+  %HasError.i2 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %bf.load.i3 = load i8, ptr %HasError.i2, align 8
   %bf.clear.i = and i8 %bf.load.i3, -2
   store i8 %bf.clear.i, ptr %HasError.i2, align 8
@@ -8183,7 +8149,7 @@ entry:
 _ZN4llvh5ErrorD2Ev.exit:                          ; preds = %entry
   %1 = extractvalue { i32, ptr } %call, 1
   call void @_ZN4llvh16errorCodeToErrorESt10error_code(ptr nonnull sret(%"class.llvh::Error") align 8 %agg.tmp, i32 %0, ptr %1) #29
-  %HasError.i = getelementptr inbounds %"class.llvh::Expected", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %HasError.i, align 8
@@ -8196,7 +8162,7 @@ _ZN4llvh5ErrorD2Ev.exit:                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %HasError.i2 = getelementptr inbounds %"class.llvh::Expected", ptr %agg.result, i64 0, i32 1
+  %HasError.i2 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %bf.load.i3 = load i8, ptr %HasError.i2, align 8
   %bf.clear.i = and i8 %bf.load.i3, -2
   store i8 %bf.clear.i, ptr %HasError.i2, align 8
@@ -8231,17 +8197,17 @@ entry:
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %st.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp16.i)
   store i32 0, ptr %EC.i, align 8
-  %_M_cat.i.i = getelementptr inbounds %"class.std::error_code", ptr %EC.i, i64 0, i32 1
+  %_M_cat.i.i = getelementptr inbounds i8, ptr %EC.i, i64 8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #30
   store ptr %call.i.i, ptr %_M_cat.i.i, align 8
   call void @_ZN4llvh3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb(ptr noundef nonnull align 8 dereferenceable(17) %Begin.i, ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %EC.i, i1 noundef zeroext false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %End.i, i8 0, i64 16, i1 false)
-  %FollowSymlinks.i.i = getelementptr inbounds %"class.llvh::sys::fs::directory_iterator", ptr %End.i, i64 0, i32 1
+  %FollowSymlinks.i.i = getelementptr inbounds i8, ptr %End.i, i64 16
   store i8 1, ptr %FollowSymlinks.i.i, align 8
-  %HasError.i.i = getelementptr inbounds %"class.llvh::ErrorOr.33", ptr %st.i, i64 0, i32 1
-  %Type.i.i.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %st.i, i64 0, i32 5
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp16.i, i64 0, i32 2
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp16.i, i64 0, i32 3
+  %HasError.i.i = getelementptr inbounds i8, ptr %st.i, i64 40
+  %Type.i.i.i = getelementptr inbounds i8, ptr %st.i, i64 32
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 16
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp16.i, i64 17
   br i1 %IgnoreErrors, label %entry.split.us.i, label %while.cond.i
 
 entry.split.us.i:                                 ; preds = %entry
@@ -8250,7 +8216,7 @@ entry.split.us.i:                                 ; preds = %entry
 
 while.body.us.i:                                  ; preds = %entry.split.us.i, %if.end14.us.i
   %0 = load ptr, ptr %Begin.i, align 8
-  %CurrentEntry.i.us.i = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %0, i64 0, i32 1
+  %CurrentEntry.i.us.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZNK4llvh3sys2fs15directory_entry6statusEv(ptr nonnull sret(%"class.llvh::ErrorOr.33") align 8 %st.i, ptr noundef nonnull align 8 dereferenceable(80) %CurrentEntry.i.us.i)
   %1 = load i32, ptr %Type.i.i.i, align 8
   %cmp.i.us.i = icmp eq i32 %1, 3
@@ -8288,7 +8254,7 @@ while.cond.i:                                     ; preds = %entry, %if.end23.i
 
 while.body.i:                                     ; preds = %while.cond.i
   %9 = load ptr, ptr %Begin.i, align 8
-  %CurrentEntry.i.i = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %9, i64 0, i32 1
+  %CurrentEntry.i.i = getelementptr inbounds i8, ptr %9, i64 8
   call void @_ZNK4llvh3sys2fs15directory_entry6statusEv(ptr nonnull sret(%"class.llvh::ErrorOr.33") align 8 %st.i, ptr noundef nonnull align 8 dereferenceable(80) %CurrentEntry.i.i)
   %bf.load.i.i = load i8, ptr %HasError.i.i, align 8
   %10 = and i8 %bf.load.i.i, 1
@@ -8340,13 +8306,13 @@ if.end23.i:                                       ; preds = %if.end14.i
 cleanup30.i:                                      ; preds = %if.end23.i, %if.end14.i, %if.then6.i, %while.cond.i, %if.end14.us.i, %_ZNK4llvh7ErrorOrINS_3sys2fs17basic_file_statusEE8getErrorEv.exit.i, %entry.split.us.i
   %retval.sroa.659.1.i = phi ptr [ %retval.sroa.31.0.copyload.i.i, %_ZNK4llvh7ErrorOrINS_3sys2fs17basic_file_statusEE8getErrorEv.exit.i ], [ %call.i.i, %entry.split.us.i ], [ %call.i.i, %if.end14.us.i ], [ %call.i.i, %while.cond.i ], [ %13, %if.then6.i ], [ %15, %if.end14.i ], [ %18, %if.end23.i ]
   %retval.sroa.0.1.i = phi i32 [ %retval.sroa.0.0.copyload.i.i, %_ZNK4llvh7ErrorOrINS_3sys2fs17basic_file_statusEE8getErrorEv.exit.i ], [ 0, %entry.split.us.i ], [ 0, %if.end14.us.i ], [ 0, %while.cond.i ], [ %12, %if.then6.i ], [ %14, %if.end14.i ], [ %17, %if.end23.i ]
-  %_M_refcount.i.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %End.i, i64 0, i32 1
+  %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %End.i, i64 8
   %19 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN4llvh3sys2fs18directory_iteratorD2Ev.exit.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %cleanup30.i
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %19, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i = icmp eq i64 %20, 4294967297
   %21 = trunc i64 %20 to i32
@@ -8354,10 +8320,10 @@ if.then.i.i.i.i.i:                                ; preds = %cleanup30.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %19, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i.i = load ptr, ptr %19, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %22 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(16) %19) #29
   br label %if.end8.sink.split.i.i.i.i.i.i
@@ -8383,10 +8349,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.then7.i.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %19, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 16
   %25 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(16) %19) #29
-  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %19, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 12
   %26 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %26, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
@@ -8408,19 +8374,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i.i = load ptr, ptr %19, align 8
-  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i, i64 24
   %29 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(16) %19) #29
   br label %_ZN4llvh3sys2fs18directory_iteratorD2Ev.exit.i
 
 _ZN4llvh3sys2fs18directory_iteratorD2Ev.exit.i:   ; preds = %if.end8.sink.split.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %cleanup30.i
-  %_M_refcount.i.i.i21.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %Begin.i, i64 0, i32 1
+  %_M_refcount.i.i.i21.i = getelementptr inbounds i8, ptr %Begin.i, i64 8
   %30 = load ptr, ptr %_M_refcount.i.i.i21.i, align 8
   %cmp.not.i.i.i.i22.i = icmp eq ptr %30, null
   br i1 %cmp.not.i.i.i.i22.i, label %_ZN4llvh3sys2fsL23remove_directories_implINS_5TwineEEESt10error_codeRKT_b.exit, label %if.then.i.i.i.i23.i
 
 if.then.i.i.i.i23.i:                              ; preds = %_ZN4llvh3sys2fs18directory_iteratorD2Ev.exit.i
-  %_M_use_count.i.i.i.i.i24.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %30, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i24.i = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load atomic i64, ptr %_M_use_count.i.i.i.i.i24.i acquire, align 8
   %cmp.i.i.i.i.i25.i = icmp eq i64 %31, 4294967297
   %32 = trunc i64 %31 to i32
@@ -8428,10 +8394,10 @@ if.then.i.i.i.i23.i:                              ; preds = %_ZN4llvh3sys2fs18di
 
 if.then.i.i.i.i.i48.i:                            ; preds = %if.then.i.i.i.i23.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i24.i, align 8
-  %_M_weak_count.i.i.i.i.i49.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %30, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i49.i = getelementptr inbounds i8, ptr %30, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i49.i, align 4
   %vtable.i.i.i.i.i50.i = load ptr, ptr %30, align 8
-  %vfn.i.i.i.i.i51.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i50.i, i64 2
+  %vfn.i.i.i.i.i51.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i50.i, i64 16
   %33 = load ptr, ptr %vfn.i.i.i.i.i51.i, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
   br label %if.end8.sink.split.i.i.i.i.i43.i
@@ -8457,10 +8423,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i30.i: ; preds = %if
 
 if.then7.i.i.i.i.i33.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i30.i
   %vtable.i.i.i.i.i.i.i34.i = load ptr, ptr %30, align 8
-  %vfn.i.i.i.i.i.i.i35.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i34.i, i64 2
+  %vfn.i.i.i.i.i.i.i35.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i34.i, i64 16
   %36 = load ptr, ptr %vfn.i.i.i.i.i.i.i35.i, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
-  %_M_weak_count.i.i.i.i.i.i.i36.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %30, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i36.i = getelementptr inbounds i8, ptr %30, i64 12
   %37 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i37.i = icmp eq i8 %37, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i37.i, label %if.else.i.i.i.i.i.i.i.i46.i, label %if.then.i.i.i.i.i.i.i.i38.i
@@ -8482,7 +8448,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i40.i: ; preds =
 
 if.end8.sink.split.i.i.i.i.i43.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i40.i, %if.then.i.i.i.i.i48.i
   %vtable2.i.i.i.i.i.i.i44.i = load ptr, ptr %30, align 8
-  %vfn3.i.i.i.i.i.i.i45.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i44.i, i64 3
+  %vfn3.i.i.i.i.i.i.i45.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i44.i, i64 24
   %40 = load ptr, ptr %vfn3.i.i.i.i.i.i.i45.i, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
   br label %_ZN4llvh3sys2fsL23remove_directories_implINS_5TwineEEESt10error_codeRKT_b.exit
@@ -8529,9 +8495,9 @@ entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %Storage4 = alloca %"class.llvh::SmallString.11", align 8
   %Buffer = alloca [4096 x i8], align 16
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %dest, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %dest, i64 8
   store i32 0, ptr %Size.i.i, align 8
-  %LHSKind.i.i.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %path, i64 0, i32 2
+  %LHSKind.i.i.i.i = getelementptr inbounds i8, ptr %path, i64 16
   %0 = load i8, ptr %LHSKind.i.i.i.i, align 8
   %spec.select.i.i = icmp ult i8 %0, 2
   br i1 %spec.select.i.i, label %if.then, label %if.end
@@ -8546,9 +8512,9 @@ if.end:                                           ; preds = %entry
 if.then1:                                         ; preds = %if.end
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   call void @_ZNK4llvh5Twine8toVectorERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %Storage) #29
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %Storage.i)
@@ -8600,9 +8566,9 @@ _ZNK4llvh9StringRef7find_ifENS_12function_refIFbcEEEm.exit.i: ; preds = %if.end.
   %sub.i.i = sub i64 %sub.i.i.i, %.sroa.speculated.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage.i, i64 16
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %Storage.i, align 8
-  %Size.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Storage.i, i64 0, i32 1
+  %Size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage.i, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Storage.i, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Storage.i, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i.i, align 4
   %cmp.i.i = icmp eq i64 %.sroa.speculated156.i, 0
   br i1 %cmp.i.i, label %if.then11.i, label %_ZNK4llvh9StringRef3strB5cxx11Ev.exit.i
@@ -8619,7 +8585,7 @@ if.then.i.i:                                      ; preds = %if.then11.i
   br i1 %tobool3.not.i.i, label %cleanup37.i, label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.then.i.i
-  %pw_dir.i.i = getelementptr inbounds %struct.passwd, ptr %call2.i84.i, i64 0, i32 5
+  %pw_dir.i.i = getelementptr inbounds i8, ptr %call2.i84.i, i64 32
   %5 = load ptr, ptr %pw_dir.i.i, align 8
   %tobool8.not.not.i.i = icmp eq ptr %5, null
   br i1 %tobool8.not.not.i.i, label %cleanup37.i, label %if.end7.i.if.end10.i_crit_edge.i
@@ -8716,7 +8682,7 @@ _ZN4llvh11SmallStringILj128EEaSENS_9StringRefE.exit.i: ; preds = %if.then.i.i.i.
   %conv.i12.i.i.i.i.i = add i32 %20, %21
   store i32 %conv.i12.i.i.i.i.i, ptr %Size.i.i.i.i.i.i.i, align 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %pw_dir.i = getelementptr inbounds %struct.passwd, ptr %call24.i, i64 0, i32 5
+  %pw_dir.i = getelementptr inbounds i8, ptr %call24.i, i64 32
   %22 = load ptr, ptr %pw_dir.i, align 8
   %call31.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #28
   %23 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
@@ -8747,15 +8713,15 @@ _ZN4llvh15SmallVectorImplIcE6appendIPcvEEvT_S4_.exit.i: ; preds = %if.then.i.i.i
   %27 = trunc i64 %call31.i to i32
   %conv.i12.i.i = add i32 %26, %27
   store i32 %conv.i12.i.i, ptr %Size.i.i.i.i.i.i, align 8
-  %LHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp33.i, i64 0, i32 2
+  %LHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp33.i, i64 16
   store i8 6, ptr %LHSKind.i.i, align 8
-  %RHSKind.i.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp33.i, i64 0, i32 3
+  %RHSKind.i.i = getelementptr inbounds i8, ptr %ref.tmp33.i, i64 17
   store i8 1, ptr %RHSKind.i.i, align 1
   store ptr %Storage.i, ptr %ref.tmp33.i, align 8
-  %LHSKind.i99.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp34.i, i64 0, i32 2
-  %LHSKind.i102.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp35.i, i64 0, i32 2
+  %LHSKind.i99.i = getelementptr inbounds i8, ptr %ref.tmp34.i, i64 16
+  %LHSKind.i102.i = getelementptr inbounds i8, ptr %ref.tmp35.i, i64 16
   store i16 257, ptr %LHSKind.i99.i, align 8
-  %LHSKind.i105.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp36.i, i64 0, i32 2
+  %LHSKind.i105.i = getelementptr inbounds i8, ptr %ref.tmp36.i, i64 16
   store i16 257, ptr %LHSKind.i102.i, align 8
   store i16 257, ptr %LHSKind.i105.i, align 8
   call void @_ZN4llvh3sys4path6appendERNS_15SmallVectorImplIcEENS1_5StyleERKNS_5TwineES8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(16) %Storage, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp33.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp34.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp35.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp36.i)
@@ -8781,9 +8747,9 @@ _ZN4llvh3sys2fsL15expandTildeExprERNS_15SmallVectorImplIcEE.exit: ; preds = %if.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp34.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp35.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp36.i)
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 6, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %Storage, ptr %ref.tmp, align 8
   %call2 = call { i32, ptr } @_ZN4llvh3sys2fs9real_pathERKNS_5TwineERNS_15SmallVectorImplIcEEb(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %dest, i1 noundef zeroext false)
@@ -8800,9 +8766,9 @@ if.then.i.i.i8:                                   ; preds = %_ZN4llvh3sys2fsL15e
 if.end3:                                          ; preds = %if.end
   %add.ptr.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %Storage4, i64 16
   store ptr %add.ptr.i.i.i.i.i.i9, ptr %Storage4, align 8
-  %Size.i.i.i.i.i.i10 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Storage4, i64 0, i32 1
+  %Size.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %Storage4, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i10, align 8
-  %Capacity2.i.i.i.i.i.i11 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Storage4, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %Storage4, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i11, align 4
   %call5 = call { ptr, i64 } @_ZNK4llvh5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %Storage4) #29
   %32 = extractvalue { ptr, i64 } %call5, 0
@@ -8818,7 +8784,7 @@ if.then8:                                         ; preds = %if.end3
 
 if.end11:                                         ; preds = %if.end3
   %call15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Buffer) #28
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %dest, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %dest, i64 12
   %34 = load i32, ptr %Capacity.i.i, align 4
   %conv.i.i13 = zext i32 %34 to i64
   %35 = load i32, ptr %Size.i.i, align 8
@@ -8882,7 +8848,7 @@ declare i32 @getuid() local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh3sys4path21system_temp_directoryEbRNS_15SmallVectorImplIcEE(i1 noundef zeroext %ErasedOnReboot, ptr noundef nonnull align 8 dereferenceable(16) %Result) local_unnamed_addr #0 {
 entry:
-  %Size.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Result, i64 0, i32 1
+  %Size.i.i = getelementptr inbounds i8, ptr %Result, i64 8
   store i32 0, ptr %Size.i.i, align 8
   br i1 %ErasedOnReboot, label %for.body.i, label %if.end4
 
@@ -8903,7 +8869,7 @@ _ZN4llvh3sys4pathL13getEnvTempDirEv.exit:         ; preds = %for.body.i
 
 if.then2:                                         ; preds = %_ZN4llvh3sys4pathL13getEnvTempDirEv.exit
   %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i) #28
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Result, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %Result, i64 12
   %1 = load i32, ptr %Capacity.i.i, align 4
   %conv.i.i = zext i32 %1 to i64
   %cmp.i = icmp ugt i64 %call3, %conv.i.i
@@ -8935,7 +8901,7 @@ _ZN4llvh15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit: ; preds = %if.end.i, %if.
   br label %return
 
 if.end4:                                          ; preds = %_ZN4llvh3sys4pathL13getEnvTempDirEv.exit, %entry
-  %Capacity.i.i12 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %Result, i64 0, i32 2
+  %Capacity.i.i12 = getelementptr inbounds i8, ptr %Result, i64 12
   %6 = load i32, ptr %Capacity.i.i12, align 4
   %cmp.i17 = icmp ult i32 %6, 4
   br i1 %cmp.i17, label %if.then.i25, label %_ZN4llvh15SmallVectorImplIcE6appendIPKcvEEvT_S5_.exit29
@@ -8967,7 +8933,7 @@ define hidden void @_ZN4llvh3sys2fs8TempFileC2ENS_9StringRefEi(ptr noundef nonnu
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   store i8 0, ptr %this, align 8
-  %TmpName = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %this, i64 0, i32 2
+  %TmpName = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !99
   %tobool.not.i.i = icmp eq ptr %Name.coerce0, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
@@ -8984,7 +8950,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %if.then.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i), !noalias !99
-  %FD2 = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %this, i64 0, i32 3
+  %FD2 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %FD, ptr %FD2, align 8
   ret void
 }
@@ -8993,13 +8959,13 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 define hidden void @_ZN4llvh3sys2fs8TempFileC2EOS2_(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(44) %Other) unnamed_addr #0 align 2 {
 entry:
   store i8 0, ptr %this, align 8
-  %TmpName = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %this, i64 0, i32 2
+  %TmpName = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %TmpName) #29
-  %FD = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %this, i64 0, i32 3
+  %FD = getelementptr inbounds i8, ptr %this, i64 40
   store i32 -1, ptr %FD, align 8
-  %TmpName.i = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %Other, i64 0, i32 2
+  %TmpName.i = getelementptr inbounds i8, ptr %Other, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %TmpName, ptr noundef nonnull align 8 dereferenceable(32) %TmpName.i) #29
-  %FD.i = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %Other, i64 0, i32 3
+  %FD.i = getelementptr inbounds i8, ptr %Other, i64 40
   %0 = load i32, ptr %FD.i, align 8
   store i32 %0, ptr %FD, align 8
   store i8 1, ptr %Other, align 8
@@ -9012,12 +8978,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull align 8 dereferenceable(44) ptr @_ZN4llvh3sys2fs8TempFileaSEOS2_(ptr noundef nonnull returned align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(44) %Other) local_unnamed_addr #0 align 2 {
 entry:
-  %TmpName = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %Other, i64 0, i32 2
-  %TmpName2 = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %this, i64 0, i32 2
+  %TmpName = getelementptr inbounds i8, ptr %Other, i64 8
+  %TmpName2 = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %TmpName2, ptr noundef nonnull align 8 dereferenceable(32) %TmpName) #29
-  %FD = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %Other, i64 0, i32 3
+  %FD = getelementptr inbounds i8, ptr %Other, i64 40
   %0 = load i32, ptr %FD, align 8
-  %FD3 = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %this, i64 0, i32 3
+  %FD3 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %0, ptr %FD3, align 8
   store i8 1, ptr %Other, align 8
   ret ptr %this
@@ -9026,7 +8992,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh3sys2fs8TempFileD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #0 align 2 {
 entry:
-  %TmpName = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %this, i64 0, i32 2
+  %TmpName = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %TmpName) #29
   ret void
 }
@@ -9037,14 +9003,14 @@ entry:
   %ref.tmp2 = alloca %"class.llvh::Twine", align 8
   store i8 1, ptr %this, align 8
   %call.i5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #30
-  %TmpName = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %this, i64 0, i32 2
+  %TmpName = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %TmpName) #29
   br i1 %call, label %if.then7, label %if.end
 
 if.end:                                           ; preds = %entry
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 2
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i8 4, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp2, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %TmpName, ptr %ref.tmp2, align 8
   %call4 = call { i32, ptr } @_ZN4llvh3sys2fs6removeERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp2, i1 noundef zeroext true)
@@ -9064,7 +9030,7 @@ if.then7:                                         ; preds = %entry, %if.end
 if.end10:                                         ; preds = %if.then7, %if.end
   %RemoveEC.sroa.4.014 = phi ptr [ %RemoveEC.sroa.4.013, %if.then7 ], [ %1, %if.end ]
   %RemoveEC.sroa.0.012 = phi i32 [ 0, %if.then7 ], [ %0, %if.end ]
-  %FD = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %this, i64 0, i32 3
+  %FD = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load i32, ptr %FD, align 8
   %cmp.not = icmp eq i32 %2, -1
   br i1 %cmp.not, label %if.end18, label %land.lhs.true
@@ -9106,10 +9072,10 @@ entry:
   %ref.tmp4 = alloca %"class.llvh::Twine", align 8
   %ref.tmp9 = alloca %"class.llvh::Twine", align 8
   store i8 1, ptr %this, align 8
-  %TmpName = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %this, i64 0, i32 2
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 2
+  %TmpName = getelementptr inbounds i8, ptr %this, i64 8
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store i8 4, ptr %LHSKind.i, align 8
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp, i64 0, i32 3
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp, i64 17
   store i8 1, ptr %RHSKind.i, align 1
   store ptr %TmpName, ptr %ref.tmp, align 8
   %call = call { i32, ptr } @_ZN4llvh3sys2fs6renameERKNS_5TwineES4_(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(18) %Name)
@@ -9119,9 +9085,9 @@ entry:
   br i1 %cmp.i.not, label %if.end12, label %if.then
 
 if.then:                                          ; preds = %entry
-  %LHSKind.i6 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 2
+  %LHSKind.i6 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
   store i8 4, ptr %LHSKind.i6, align 8
-  %RHSKind.i7 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp4, i64 0, i32 3
+  %RHSKind.i7 = getelementptr inbounds i8, ptr %ref.tmp4, i64 17
   store i8 1, ptr %RHSKind.i7, align 1
   store ptr %TmpName, ptr %ref.tmp4, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ReadFD.i)
@@ -9166,9 +9132,9 @@ _ZN4llvh3sys2fs9copy_fileERKNS_5TwineES4_.exit:   ; preds = %if.end.i
 if.then8:                                         ; preds = %_ZN4llvh3sys2fs9copy_fileERKNS_5TwineES4_.exit.thread23, %_ZN4llvh3sys2fs9copy_fileERKNS_5TwineES4_.exit.thread, %_ZN4llvh3sys2fs9copy_fileERKNS_5TwineES4_.exit
   %retval.sroa.6.0.i22 = phi ptr [ %retval.sroa.6.0.i17, %_ZN4llvh3sys2fs9copy_fileERKNS_5TwineES4_.exit.thread ], [ %retval.sroa.6.0.i, %_ZN4llvh3sys2fs9copy_fileERKNS_5TwineES4_.exit ], [ %retval.sroa.6.0.i28, %_ZN4llvh3sys2fs9copy_fileERKNS_5TwineES4_.exit.thread23 ]
   %retval.sroa.0.0.i21 = phi i32 [ %2, %_ZN4llvh3sys2fs9copy_fileERKNS_5TwineES4_.exit.thread ], [ %6, %_ZN4llvh3sys2fs9copy_fileERKNS_5TwineES4_.exit ], [ %3, %_ZN4llvh3sys2fs9copy_fileERKNS_5TwineES4_.exit.thread23 ]
-  %LHSKind.i9 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp9, i64 0, i32 2
+  %LHSKind.i9 = getelementptr inbounds i8, ptr %ref.tmp9, i64 16
   store i8 4, ptr %LHSKind.i9, align 8
-  %RHSKind.i10 = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp9, i64 0, i32 3
+  %RHSKind.i10 = getelementptr inbounds i8, ptr %ref.tmp9, i64 17
   store i8 1, ptr %RHSKind.i10, align 1
   store ptr %TmpName, ptr %ref.tmp9, align 8
   %call11 = call { i32, ptr } @_ZN4llvh3sys2fs6removeERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp9, i1 noundef zeroext true)
@@ -9188,7 +9154,7 @@ if.then15:                                        ; preds = %if.end12
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then15, %if.end12
-  %FD = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %this, i64 0, i32 3
+  %FD = getelementptr inbounds i8, ptr %this, i64 40
   %7 = load i32, ptr %FD, align 8
   %call19 = call i32 @close(i32 noundef %7) #29
   %cmp = icmp eq i32 %call19, -1
@@ -9214,12 +9180,12 @@ return:                                           ; preds = %if.end24, %if.then2
 define hidden void @_ZN4llvh3sys2fs8TempFile4keepEv(ptr noalias sret(%"class.llvh::Error") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #0 align 2 {
 entry:
   store i8 1, ptr %this, align 8
-  %TmpName = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %this, i64 0, i32 2
+  %TmpName = getelementptr inbounds i8, ptr %this, i64 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %TmpName) #29
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %TmpName) #29
   tail call void @_ZN4llvh3sys22DontRemoveFileOnSignalENS_9StringRefE(ptr %call.i, i64 %call2.i) #29
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %TmpName, ptr noundef nonnull @.str.3) #29
-  %FD = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %this, i64 0, i32 3
+  %FD = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %FD, align 8
   %call3 = tail call i32 @close(i32 noundef %0) #29
   %cmp = icmp eq i32 %call3, -1
@@ -9256,9 +9222,9 @@ entry:
   %agg.tmp11 = alloca %"class.llvh::Error", align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ResultPath, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %ResultPath, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ResultPath, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ResultPath, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %ResultPath, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ResultPath, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %call.i = call fastcc { i32, ptr } @_ZL18createUniqueEntityRKN4llvh5TwineERiRNS_15SmallVectorImplIcEEbj8FSEntityNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(18) %Model, ptr noundef nonnull align 4 dereferenceable(4) %FD, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i1 noundef zeroext false, i32 noundef %Mode, i32 noundef 1, i32 noundef 4)
   %0 = extractvalue { i32, ptr } %call.i, 0
@@ -9268,7 +9234,7 @@ entry:
 _ZN4llvh5ErrorD2Ev.exit:                          ; preds = %entry
   %1 = extractvalue { i32, ptr } %call.i, 1
   call void @_ZN4llvh16errorCodeToErrorESt10error_code(ptr nonnull sret(%"class.llvh::Error") align 8 %agg.tmp, i32 %0, ptr %1) #29
-  %HasError.i = getelementptr inbounds %"class.llvh::Expected.42", ptr %agg.result, i64 0, i32 1
+  %HasError.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %HasError.i, align 8
@@ -9286,7 +9252,7 @@ if.end:                                           ; preds = %entry
   %6 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %7 = load i32, ptr %FD, align 4
   store i8 0, ptr %Ret, align 8
-  %TmpName.i = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %Ret, i64 0, i32 2
+  %TmpName.i = getelementptr inbounds i8, ptr %Ret, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !108
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
@@ -9304,7 +9270,7 @@ if.end.i.i.i:                                     ; preds = %if.end
 
 _ZN4llvh3sys2fs8TempFileC2ENS_9StringRefEi.exit:  ; preds = %if.then.i.i.i, %if.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !108
-  %FD2.i = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %Ret, i64 0, i32 3
+  %FD2.i = getelementptr inbounds i8, ptr %Ret, i64 40
   store i32 %7, ptr %FD2.i, align 8
   %8 = load ptr, ptr %ResultPath, align 8
   %9 = load i32, ptr %Size.i.i.i.i.i.i, align 8
@@ -9334,7 +9300,7 @@ if.then8:                                         ; preds = %_ZN4llvh3sys2fs8Tem
 delete.notnull.i3.i.i:                            ; preds = %if.then8
   %15 = inttoptr i64 %and.i.i1.i.i to ptr
   %vtable.i4.i.i = load ptr, ptr %15, align 8
-  %vfn.i5.i.i = getelementptr inbounds ptr, ptr %vtable.i4.i.i, i64 1
+  %vfn.i5.i.i = getelementptr inbounds i8, ptr %vtable.i4.i.i, i64 8
   %16 = load ptr, ptr %vfn.i5.i.i, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15) #29
   br label %_ZN4llvh12consumeErrorENS_5ErrorE.exit
@@ -9352,7 +9318,7 @@ _ZN4llvh12consumeErrorENS_5ErrorE.exit:           ; preds = %if.then8, %delete.n
 delete.notnull.i9:                                ; preds = %_ZN4llvh12consumeErrorENS_5ErrorE.exit
   %19 = inttoptr i64 %and.i.i7 to ptr
   %vtable.i10 = load ptr, ptr %19, align 8
-  %vfn.i11 = getelementptr inbounds ptr, ptr %vtable.i10, i64 1
+  %vfn.i11 = getelementptr inbounds i8, ptr %vtable.i10, i64 8
   %20 = load ptr, ptr %vfn.i11, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19) #29
   br label %_ZN4llvh5ErrorD2Ev.exit22
@@ -9360,7 +9326,7 @@ delete.notnull.i9:                                ; preds = %_ZN4llvh12consumeEr
 _ZN4llvh5ErrorD2Ev.exit22:                        ; preds = %delete.notnull.i9, %_ZN4llvh12consumeErrorENS_5ErrorE.exit
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #30
   call void @_ZN4llvh16errorCodeToErrorESt10error_code(ptr nonnull sret(%"class.llvh::Error") align 8 %agg.tmp11, i32 1, ptr nonnull %call.i.i) #29
-  %HasError.i13 = getelementptr inbounds %"class.llvh::Expected.42", ptr %agg.result, i64 0, i32 1
+  %HasError.i13 = getelementptr inbounds i8, ptr %agg.result, i64 48
   %bf.load.i14 = load i8, ptr %HasError.i13, align 8
   %bf.set.i15 = or i8 %bf.load.i14, 1
   store i8 %bf.set.i15, ptr %HasError.i13, align 8
@@ -9374,14 +9340,14 @@ _ZN4llvh5ErrorD2Ev.exit22:                        ; preds = %delete.notnull.i9, 
   br label %cleanup
 
 if.end13:                                         ; preds = %_ZN4llvh3sys2fs8TempFileC2ENS_9StringRefEi.exit
-  %HasError.i23 = getelementptr inbounds %"class.llvh::Expected.42", ptr %agg.result, i64 0, i32 1
+  %HasError.i23 = getelementptr inbounds i8, ptr %agg.result, i64 48
   %bf.load.i24 = load i8, ptr %HasError.i23, align 8
   %bf.clear.i = and i8 %bf.load.i24, -2
   store i8 %bf.clear.i, ptr %HasError.i23, align 8
   store i8 0, ptr %agg.result, align 8
-  %TmpName.i.i = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %agg.result, i64 0, i32 2
+  %TmpName.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %TmpName.i.i) #29
-  %FD.i.i = getelementptr inbounds %"class.llvh::sys::fs::TempFile", ptr %agg.result, i64 0, i32 3
+  %FD.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   store i32 -1, ptr %FD.i.i, align 8
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %TmpName.i.i, ptr noundef nonnull align 8 dereferenceable(32) %TmpName.i) #29
   %24 = load i32, ptr %FD2.i, align 8
@@ -9458,7 +9424,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %I to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %Size.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 1
+  %Size.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %Size.i, align 8
   %conv.i = zext i32 %1 to i64
   %add.ptr.i78 = getelementptr inbounds i8, ptr %0, i64 %conv.i
@@ -9469,7 +9435,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %Capacity.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %Capacity.i.i, align 4
   %conv.i.i = zext i32 %2 to i64
   %sub.i = sub nsw i64 %conv.i.i, %conv.i
@@ -9509,7 +9475,7 @@ _ZN4llvh15SmallVectorImplIcE6appendIPcvEEvT_S4_.exit: ; preds = %if.end.i, %if.t
 
 if.end:                                           ; preds = %entry
   %add = add i64 %sub.ptr.sub.i.i.i, %conv.i
-  %Capacity.i.i31 = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %this, i64 0, i32 2
+  %Capacity.i.i31 = getelementptr inbounds i8, ptr %this, i64 12
   %6 = load i32, ptr %Capacity.i.i31, align 4
   %conv.i.i32 = zext i32 %6 to i64
   %cmp.i33 = icmp ugt i64 %add, %conv.i.i32
@@ -9667,16 +9633,16 @@ if.end:                                           ; preds = %entry
   %3 = inttoptr i64 %and.i.i to ptr
   store ptr null, ptr %E, align 8, !noalias !118
   %vtable.i = load ptr, ptr %3, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %4 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @_ZN4llvh9ErrorList2IDE) #29
   br i1 %call2.i, label %if.then3, label %if.end15
 
 if.then3:                                         ; preds = %if.end
   store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
-  %Payloads = getelementptr inbounds %"class.llvh::ErrorList", ptr %3, i64 0, i32 1
+  %Payloads = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %Payloads, align 8
-  %_M_finish.i = getelementptr inbounds %"class.llvh::ErrorList", ptr %3, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i4.not54 = icmp eq ptr %5, %6
   br i1 %cmp.i4.not54, label %_ZNKSt14default_deleteIN4llvh13ErrorInfoBaseEEclEPS1_.exit.i41, label %for.body
@@ -9691,7 +9657,7 @@ for.body:                                         ; preds = %if.then3, %_ZN4llvh
   store ptr null, ptr %__begin3.sroa.0.055, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   %vtable.i.i.i = load ptr, ptr %10, align 8, !noalias !121
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 6
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 48
   %11 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !121
   %call2.i.i.i = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @_ZN4llvh13ErrorInfoBase2IDE) #29, !noalias !121
   br i1 %call2.i.i.i, label %if.then.i, label %_ZNSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit7.i
@@ -9703,7 +9669,7 @@ if.then.i:                                        ; preds = %for.body
 
 _ZNKSt14default_deleteIN4llvh13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %if.then.i
   %vtable.i.i1.i = load ptr, ptr %10, align 8, !noalias !121
-  %vfn.i.i2.i = getelementptr inbounds ptr, ptr %vtable.i.i1.i, i64 1
+  %vfn.i.i2.i = getelementptr inbounds i8, ptr %vtable.i.i1.i, i64 8
   %12 = load ptr, ptr %vfn.i.i2.i, align 8, !noalias !121
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10) #29, !noalias !121
   br label %_ZN4llvh5ErrorD2Ev.exit
@@ -9731,7 +9697,7 @@ _ZN4llvh5ErrorD2Ev.exit:                          ; preds = %_ZNSt10unique_ptrIN
 delete.notnull.i12:                               ; preds = %_ZN4llvh5ErrorD2Ev.exit
   %19 = inttoptr i64 %and.i.i10 to ptr
   %vtable.i13 = load ptr, ptr %19, align 8
-  %vfn.i14 = getelementptr inbounds ptr, ptr %vtable.i13, i64 1
+  %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 8
   %20 = load ptr, ptr %vfn.i14, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19) #29
   br label %_ZNSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
@@ -9746,20 +9712,20 @@ _ZNSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit: ; pre
 delete.notnull.i20:                               ; preds = %_ZNSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
   %23 = inttoptr i64 %and.i.i18 to ptr
   %vtable.i21 = load ptr, ptr %23, align 8
-  %vfn.i22 = getelementptr inbounds ptr, ptr %vtable.i21, i64 1
+  %vfn.i22 = getelementptr inbounds i8, ptr %vtable.i21, i64 8
   %24 = load ptr, ptr %vfn.i22, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(8) %23) #29
   br label %_ZN4llvh5ErrorD2Ev.exit23
 
 _ZN4llvh5ErrorD2Ev.exit23:                        ; preds = %_ZNSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit, %delete.notnull.i20
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__begin3.sroa.0.055, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.055, i64 8
   %cmp.i4.not = icmp eq ptr %incdec.ptr.i, %6
   br i1 %cmp.i4.not, label %_ZNKSt14default_deleteIN4llvh13ErrorInfoBaseEEclEPS1_.exit.i41, label %for.body
 
 if.end15:                                         ; preds = %if.end
   tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
   %vtable.i.i.i24 = load ptr, ptr %3, align 8, !noalias !130
-  %vfn.i.i.i25 = getelementptr inbounds ptr, ptr %vtable.i.i.i24, i64 6
+  %vfn.i.i.i25 = getelementptr inbounds i8, ptr %vtable.i.i.i24, i64 48
   %25 = load ptr, ptr %vfn.i.i.i25, align 8, !noalias !130
   %call2.i.i.i26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @_ZN4llvh13ErrorInfoBase2IDE) #29, !noalias !130
   br i1 %call2.i.i.i26, label %if.then.i29, label %_ZNSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit7.i27
@@ -9767,7 +9733,7 @@ if.end15:                                         ; preds = %if.end
 if.then.i29:                                      ; preds = %if.end15
   store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8, !alias.scope !133
   %vtable.i.i1.i32 = load ptr, ptr %3, align 8, !noalias !130
-  %vfn.i.i2.i33 = getelementptr inbounds ptr, ptr %vtable.i.i1.i32, i64 1
+  %vfn.i.i2.i33 = getelementptr inbounds i8, ptr %vtable.i.i1.i32, i64 8
   %26 = load ptr, ptr %vfn.i.i2.i33, align 8, !noalias !130
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %3) #29, !noalias !130
   br label %return
@@ -9780,7 +9746,7 @@ _ZNSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit7.i27: 
 
 _ZNKSt14default_deleteIN4llvh13ErrorInfoBaseEEclEPS1_.exit.i41: ; preds = %_ZN4llvh5ErrorD2Ev.exit23, %if.then3
   %vtable.i.i42 = load ptr, ptr %3, align 8
-  %vfn.i.i43 = getelementptr inbounds ptr, ptr %vtable.i.i42, i64 1
+  %vfn.i.i43 = getelementptr inbounds i8, ptr %vtable.i.i42, i64 8
   %28 = load ptr, ptr %vfn.i.i43, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(8) %3) #29
   br label %return
@@ -9837,7 +9803,7 @@ if.end3:                                          ; preds = %if.end
 _ZNK4llvh5Error3isAINS_9ErrorListEEEbv.exit:      ; preds = %if.end3
   %10 = inttoptr i64 %and.i.i9 to ptr
   %vtable.i = load ptr, ptr %10, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 6
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
   %11 = load ptr, ptr %vfn.i, align 8
   %call4.i = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @_ZN4llvh9ErrorList2IDE) #29
   %.pre234 = load ptr, ptr %E2, align 8
@@ -9856,7 +9822,7 @@ if.then5:                                         ; preds = %_ZNK4llvh5Error3isA
 _ZNK4llvh5Error3isAINS_9ErrorListEEEbv.exit16:    ; preds = %if.then5
   %16 = inttoptr i64 %and.i.i10 to ptr
   %vtable.i13 = load ptr, ptr %16, align 8
-  %vfn.i14 = getelementptr inbounds ptr, ptr %vtable.i13, i64 6
+  %vfn.i14 = getelementptr inbounds i8, ptr %vtable.i13, i64 48
   %17 = load ptr, ptr %vfn.i14, align 8
   %call4.i15 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @_ZN4llvh9ErrorList2IDE) #29
   %.pre = load ptr, ptr %E2, align 8, !noalias !139
@@ -9867,17 +9833,17 @@ _ZNK4llvh5Error3isAINS_9ErrorListEEEbv.exit16:    ; preds = %if.then5
 if.then8:                                         ; preds = %_ZNK4llvh5Error3isAINS_9ErrorListEEEbv.exit16
   %19 = inttoptr i64 %and.i.i17 to ptr
   store ptr null, ptr %E2, align 8, !noalias !140
-  %Payloads = getelementptr inbounds %"class.llvh::ErrorList", ptr %19, i64 0, i32 1
+  %Payloads = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %Payloads, align 8
-  %_M_finish.i = getelementptr inbounds %"class.llvh::ErrorList", ptr %19, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i18.not232 = icmp eq ptr %20, %21
   br i1 %cmp.i18.not232, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then8
-  %_M_finish.i.i = getelementptr inbounds %"class.llvh::ErrorList", ptr %14, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.llvh::ErrorList", ptr %14, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
-  %Payloads15 = getelementptr inbounds %"class.llvh::ErrorList", ptr %14, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %14, i64 16
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %14, i64 24
+  %Payloads15 = getelementptr inbounds i8, ptr %14, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
@@ -9892,7 +9858,7 @@ if.then.i.i:                                      ; preds = %for.body
   store i64 %24, ptr %22, align 8
   store ptr null, ptr %__begin4.sroa.0.0233, align 8
   %25 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %25, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
 
@@ -9901,7 +9867,7 @@ if.else.i.i:                                      ; preds = %for.body
   br label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
 
 _ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %incdec.ptr.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__begin4.sroa.0.0233, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.0233, i64 8
   %cmp.i18.not = icmp eq ptr %incdec.ptr.i, %21
   br i1 %cmp.i18.not, label %for.end, label %for.body
 
@@ -9911,18 +9877,18 @@ for.end:                                          ; preds = %_ZNSt6vectorISt10un
 
 _ZNKSt14default_deleteIN4llvh13ErrorInfoBaseEEclEPS1_.exit.i: ; preds = %for.end
   %vtable.i.i = load ptr, ptr %19, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 1
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %26 = load ptr, ptr %vfn.i.i, align 8
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %19) #29
   br label %if.end18
 
 if.else:                                          ; preds = %_ZNK4llvh5Error3isAINS_9ErrorListEEEbv.exit16, %if.then5
   %and.i.i19.pre-phi = phi i64 [ 0, %if.then5 ], [ %and.i.i17, %_ZNK4llvh5Error3isAINS_9ErrorListEEEbv.exit16 ]
-  %Payloads17 = getelementptr inbounds %"class.llvh::ErrorList", ptr %14, i64 0, i32 1
+  %Payloads17 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr null, ptr %E2, align 8, !noalias !143
-  %_M_finish.i.i20 = getelementptr inbounds %"class.llvh::ErrorList", ptr %14, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i20 = getelementptr inbounds i8, ptr %14, i64 16
   %27 = load ptr, ptr %_M_finish.i.i20, align 8
-  %_M_end_of_storage.i.i21 = getelementptr inbounds %"class.llvh::ErrorList", ptr %14, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i21 = getelementptr inbounds i8, ptr %14, i64 24
   %28 = load ptr, ptr %_M_end_of_storage.i.i21, align 8
   %cmp.not.i.i22 = icmp eq ptr %27, %28
   br i1 %cmp.not.i.i22, label %if.else.i.i25, label %if.then.i.i23
@@ -9930,7 +9896,7 @@ if.else:                                          ; preds = %_ZNK4llvh5Error3isA
 if.then.i.i23:                                    ; preds = %if.else
   store i64 %and.i.i19.pre-phi, ptr %27, align 8
   %29 = load ptr, ptr %_M_finish.i.i20, align 8
-  %incdec.ptr.i.i24 = getelementptr inbounds %"class.std::unique_ptr", ptr %29, i64 1
+  %incdec.ptr.i.i24 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %incdec.ptr.i.i24, ptr %_M_finish.i.i20, align 8
   br label %if.end18
 
@@ -9977,14 +9943,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_base
   %31 = load i64, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !149, !noalias !146
   store i64 %31, ptr %__cur.07.i.i.i.i, align 8, !alias.scope !146, !noalias !149
   store ptr null, ptr %__first.addr.06.i.i.i.i, align 8, !alias.scope !149, !noalias !146
-  %incdec.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__first.addr.06.i.i.i.i, i64 1
-  %incdec.ptr1.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__cur.07.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 8
+  %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %27
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i, label %for.body.i.i.i.i, !llvm.loop !151
 
 _ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i: ; preds = %for.body.i.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ]
-  %incdec.ptr.i79 = getelementptr %"class.std::unique_ptr", ptr %__cur.0.lcssa.i.i.i.i, i64 1
+  %incdec.ptr.i79 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i, i64 8
   %tobool.not.i.i = icmp eq ptr %30, null
   br i1 %tobool.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit, label %if.then.i20.i
 
@@ -10018,7 +9984,7 @@ if.end19:                                         ; preds = %if.end3, %_ZNK4llvh
 _ZNK4llvh5Error3isAINS_9ErrorListEEEbv.exit39:    ; preds = %if.end19
   %37 = inttoptr i64 %and.i.i33 to ptr
   %vtable.i36 = load ptr, ptr %37, align 8
-  %vfn.i37 = getelementptr inbounds ptr, ptr %vtable.i36, i64 6
+  %vfn.i37 = getelementptr inbounds i8, ptr %vtable.i36, i64 48
   %38 = load ptr, ptr %vfn.i37, align 8
   %call4.i38 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @_ZN4llvh9ErrorList2IDE) #29
   br i1 %call4.i38, label %if.then21, label %for.body.i.i.i.i153.preheader
@@ -10028,7 +9994,7 @@ if.then21:                                        ; preds = %_ZNK4llvh5Error3isA
   %40 = ptrtoint ptr %39 to i64
   %and.i40 = and i64 %40, -2
   %41 = inttoptr i64 %and.i40 to ptr
-  %Payloads24 = getelementptr inbounds %"class.llvh::ErrorList", ptr %41, i64 0, i32 1
+  %Payloads24 = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load ptr, ptr %Payloads24, align 8
   %43 = load ptr, ptr %E1, align 8, !noalias !152
   %44 = ptrtoint ptr %43 to i64
@@ -10040,9 +10006,9 @@ if.then21:                                        ; preds = %_ZNK4llvh5Error3isA
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %46 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %_M_finish.i.i42 = getelementptr inbounds %"class.llvh::ErrorList", ptr %41, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i42 = getelementptr inbounds i8, ptr %41, i64 16
   %47 = load ptr, ptr %_M_finish.i.i42, align 8
-  %_M_end_of_storage.i.i43 = getelementptr inbounds %"class.llvh::ErrorList", ptr %41, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i43 = getelementptr inbounds i8, ptr %41, i64 24
   %48 = load ptr, ptr %_M_end_of_storage.i.i43, align 8
   %cmp.not.i.i44 = icmp eq ptr %47, %48
   br i1 %cmp.not.i.i44, label %if.else21.i.i, label %if.then.i.i45
@@ -10054,20 +10020,20 @@ if.then.i.i45:                                    ; preds = %if.then21
 if.then9.i.i:                                     ; preds = %if.then.i.i45
   store i64 %and.i.i41, ptr %42, align 8
   %49 = load ptr, ptr %_M_finish.i.i42, align 8
-  %incdec.ptr.i.i47 = getelementptr inbounds %"class.std::unique_ptr", ptr %49, i64 1
+  %incdec.ptr.i.i47 = getelementptr inbounds i8, ptr %49, i64 8
   store ptr %incdec.ptr.i.i47, ptr %_M_finish.i.i42, align 8
   br label %_ZNSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit52
 
 if.else.i.i46:                                    ; preds = %if.then.i.i45
   %add.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %46, i64 %sub.ptr.div.i.i.i
-  %add.ptr.i6.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %47, i64 -1
+  %add.ptr.i6.i.i = getelementptr inbounds i8, ptr %47, i64 -8
   %50 = load i64, ptr %add.ptr.i6.i.i, align 8
   store i64 %50, ptr %47, align 8
   store ptr null, ptr %add.ptr.i6.i.i, align 8
   %51 = load ptr, ptr %_M_finish.i.i42, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %51, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %51, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i42, align 8
-  %add.ptr9.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %51, i64 -1
+  %add.ptr9.i.i.i = getelementptr inbounds i8, ptr %51, i64 -8
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr9.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i
@@ -10079,8 +10045,8 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i46, %_ZN
   %__n.07.i.i.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i.i.i, %if.else.i.i46 ]
   %__result.addr.06.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i ], [ %51, %if.else.i.i46 ]
   %__last.addr.05.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i ], [ %add.ptr9.i.i.i, %if.else.i.i46 ]
-  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__last.addr.05.i.i.i.i.i.i.i.i, i64 -1
-  %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__result.addr.06.i.i.i.i.i.i.i.i, i64 -1
+  %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.05.i.i.i.i.i.i.i.i, i64 -8
+  %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.06.i.i.i.i.i.i.i.i, i64 -8
   %52 = load ptr, ptr %incdec.ptr.i.i.i.i.i.i.i.i, align 8
   store ptr null, ptr %incdec.ptr.i.i.i.i.i.i.i.i, align 8
   %53 = load ptr, ptr %incdec.ptr1.i.i.i.i.i.i.i.i, align 8
@@ -10090,7 +10056,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %if.else.i.i46, %_ZN
 
 _ZNKSt14default_deleteIN4llvh13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %53, align 8
-  %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %54 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   tail call void %54(ptr noundef nonnull align 8 dereferenceable(8) %53) #29
   br label %_ZNSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS1_EEaSEOS4_.exit.i.i.i.i.i.i.i.i
@@ -10108,7 +10074,7 @@ _ZSt13move_backwardIPSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_
 
 _ZNKSt14default_deleteIN4llvh13ErrorInfoBaseEEclEPS1_.exit.i.i.i.i.i.i.i: ; preds = %_ZSt13move_backwardIPSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EES6_ET0_T_S8_S7_.exit.i.i.i
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %55, align 8
-  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i.i, i64 1
+  %vfn.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i, i64 8
   %56 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(8) %55) #29
   br label %_ZNSt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit52
@@ -10155,14 +10121,14 @@ for.body.i.i.i.i105:                              ; preds = %_ZNSt12_Vector_base
   %57 = load i64, ptr %__first.addr.06.i.i.i.i107, align 8, !alias.scope !159, !noalias !156
   store i64 %57, ptr %__cur.07.i.i.i.i106, align 8, !alias.scope !156, !noalias !159
   store ptr null, ptr %__first.addr.06.i.i.i.i107, align 8, !alias.scope !159, !noalias !156
-  %incdec.ptr.i.i.i.i108 = getelementptr inbounds %"class.std::unique_ptr", ptr %__first.addr.06.i.i.i.i107, i64 1
-  %incdec.ptr1.i.i.i.i109 = getelementptr inbounds %"class.std::unique_ptr", ptr %__cur.07.i.i.i.i106, i64 1
+  %incdec.ptr.i.i.i.i108 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i107, i64 8
+  %incdec.ptr1.i.i.i.i109 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i106, i64 8
   %cmp.not.i.i.i.i110 = icmp eq ptr %incdec.ptr.i.i.i.i108, %add.ptr.i7.i.i
   br i1 %cmp.not.i.i.i.i110, label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i111, label %for.body.i.i.i.i105, !llvm.loop !151
 
 _ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i111: ; preds = %for.body.i.i.i.i105, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i101
   %__cur.0.lcssa.i.i.i.i112 = phi ptr [ %cond.i10.i102, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit.i101 ], [ %incdec.ptr1.i.i.i.i109, %for.body.i.i.i.i105 ]
-  %incdec.ptr.i113 = getelementptr %"class.std::unique_ptr", ptr %__cur.0.lcssa.i.i.i.i112, i64 1
+  %incdec.ptr.i113 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i112, i64 8
   %cmp.not5.i.i.i11.i114 = icmp eq ptr %47, %add.ptr.i7.i.i
   br i1 %cmp.not5.i.i.i11.i114, label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i121, label %for.body.i.i.i12.i115
 
@@ -10174,8 +10140,8 @@ for.body.i.i.i12.i115:                            ; preds = %_ZNSt6vectorISt10un
   %58 = load i64, ptr %__first.addr.06.i.i.i14.i117, align 8, !alias.scope !164, !noalias !161
   store i64 %58, ptr %__cur.07.i.i.i13.i116, align 8, !alias.scope !161, !noalias !164
   store ptr null, ptr %__first.addr.06.i.i.i14.i117, align 8, !alias.scope !164, !noalias !161
-  %incdec.ptr.i.i.i15.i118 = getelementptr inbounds %"class.std::unique_ptr", ptr %__first.addr.06.i.i.i14.i117, i64 1
-  %incdec.ptr1.i.i.i16.i119 = getelementptr inbounds %"class.std::unique_ptr", ptr %__cur.07.i.i.i13.i116, i64 1
+  %incdec.ptr.i.i.i15.i118 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14.i117, i64 8
+  %incdec.ptr1.i.i.i16.i119 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13.i116, i64 8
   %cmp.not.i.i.i17.i120 = icmp eq ptr %incdec.ptr.i.i.i15.i118, %47
   br i1 %cmp.not.i.i.i17.i120, label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19.i121, label %for.body.i.i.i12.i115, !llvm.loop !151
 
@@ -10213,26 +10179,26 @@ for.body.i.i.i.i153.preheader:                    ; preds = %_ZNK4llvh5Error3isA
   %and.i.i55 = and i64 %64, -2
   store ptr null, ptr %E2, align 8, !noalias !169
   store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh9ErrorListE, i64 0, inrange i32 0, i64 2), ptr %call36, align 8
-  %Payloads.i = getelementptr inbounds %"class.llvh::ErrorList", ptr %call36, i64 0, i32 1
-  %_M_finish.i.i.i = getelementptr inbounds %"class.llvh::ErrorList", ptr %call36, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
+  %Payloads.i = getelementptr inbounds i8, ptr %call36, i64 8
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %call36, i64 16
   %65 = ptrtoint ptr %62 to i64
   %and.i.i54 = and i64 %65, -2
   %call5.i.i.i.i195 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
   store i64 %and.i.i54, ptr %call5.i.i.i.i195, align 8
-  %_M_end_of_storage.i219 = getelementptr inbounds %"class.llvh::ErrorList", ptr %call36, i64 0, i32 1, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i219 = getelementptr inbounds i8, ptr %call36, i64 24
   %call5.i.i.i.i148 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
-  %add.ptr.i151 = getelementptr inbounds %"class.std::unique_ptr", ptr %call5.i.i.i.i148, i64 1
+  %add.ptr.i151 = getelementptr inbounds i8, ptr %call5.i.i.i.i148, i64 8
   store i64 %and.i.i55, ptr %add.ptr.i151, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
   %66 = load i64, ptr %call5.i.i.i.i195, align 8, !alias.scope !175, !noalias !172
   store i64 %66, ptr %call5.i.i.i.i148, align 8, !alias.scope !172, !noalias !175
   store ptr null, ptr %call5.i.i.i.i195, align 8, !alias.scope !175, !noalias !172
-  %incdec.ptr.i161 = getelementptr inbounds %"class.std::unique_ptr", ptr %call5.i.i.i.i148, i64 2
+  %incdec.ptr.i161 = getelementptr inbounds i8, ptr %call5.i.i.i.i148, i64 16
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i195) #32
   store ptr %call5.i.i.i.i148, ptr %Payloads.i, align 8
   store ptr %incdec.ptr.i161, ptr %_M_finish.i.i.i, align 8
-  %add.ptr19.i174 = getelementptr inbounds %"class.std::unique_ptr", ptr %call5.i.i.i.i148, i64 2
+  %add.ptr19.i174 = getelementptr inbounds i8, ptr %call5.i.i.i.i148, i64 16
   store ptr %add.ptr19.i174, ptr %_M_end_of_storage.i219, align 8
   %67 = ptrtoint ptr %call36 to i64
   %or.i.i56 = or i64 %67, 1
@@ -10250,7 +10216,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<llvh::ErrorInfoBase>, std::allocator<std::unique_ptr<llvh::ErrorInfoBase>>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -10299,14 +10265,14 @@ for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_base
   %3 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !180, !noalias !177
   store i64 %3, ptr %__cur.07.i.i.i, align 8, !alias.scope !177, !noalias !180
   store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !180, !noalias !177
-  %incdec.ptr.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"class.std::unique_ptr", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !151
 
 _ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr %"class.std::unique_ptr", ptr %__cur.0.lcssa.i.i.i, i64 1
+  %incdec.ptr = getelementptr i8, ptr %__cur.0.lcssa.i.i.i, i64 8
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12
 
@@ -10318,8 +10284,8 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10un
   %4 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !185, !noalias !182
   store i64 %4, ptr %__cur.07.i.i.i13, align 8, !alias.scope !182, !noalias !185
   store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !185, !noalias !182
-  %incdec.ptr.i.i.i15 = getelementptr inbounds %"class.std::unique_ptr", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i16 = getelementptr inbounds %"class.std::unique_ptr", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
+  %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
   br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !151
 
@@ -10333,7 +10299,7 @@ if.then.i20:                                      ; preds = %_ZNSt6vectorISt10un
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit
 
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvh13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, %if.then.i20
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<std::unique_ptr<llvh::ErrorInfoBase>, std::allocator<std::unique_ptr<llvh::ErrorInfoBase>>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
   %add.ptr19 = getelementptr inbounds %"class.std::unique_ptr", ptr %cond.i10, i64 %cond.i
@@ -10403,31 +10369,31 @@ entry:
   %path_storage = alloca %"class.llvh::SmallString.11", align 8
   %frombool = zext i1 %follow_symlinks to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %FollowSymlinks = getelementptr inbounds %"class.llvh::sys::fs::directory_iterator", ptr %this, i64 0, i32 1
+  %FollowSymlinks = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %frombool, ptr %FollowSymlinks, align 8
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #31, !noalias !187
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !192
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !192
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvh3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !192
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1
-  %CurrentEntry.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 16
+  %CurrentEntry.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %CurrentEntry.i.i.i.i.i.i.i.i) #29, !noalias !192
-  %Status.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
-  %Perms.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 84
+  %Status.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 64
+  %Perms.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status.i.i.i.i.i.i.i.i.i, i8 0, i64 36, i1 false), !noalias !192
   store i32 65535, ptr %Perms.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !192
   store ptr %_M_impl.i.i.i.i.i.i, ptr %this, align 8
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i.i, ptr %_M_refcount3.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN4llvh3sys2fs6detail12DirIterStateEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -10435,10 +10401,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   br label %if.end8.sink.split.i.i.i.i.i
@@ -10464,10 +10430,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -10489,7 +10455,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   br label %_ZNSt10shared_ptrIN4llvh3sys2fs6detail12DirIterStateEED2Ev.exit
@@ -10497,9 +10463,9 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIN4llvh3sys2fs6detail12DirIterStateEED2Ev.exit: ; preds = %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %entry
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %path_storage, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 1
+  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::SmallVectorBase", ptr %path_storage, i64 0, i32 2
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %path_storage, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %11 = load ptr, ptr %this, align 8
   %call7 = call { ptr, i64 } @_ZNK4llvh5Twine11toStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(18) %path, ptr noundef nonnull align 8 dereferenceable(16) %path_storage)
@@ -10535,17 +10501,17 @@ entry:
   %st = alloca %"class.llvh::ErrorOr.33", align 8
   %ref.tmp16 = alloca %"class.llvh::Twine", align 8
   store i32 0, ptr %EC, align 8
-  %_M_cat.i = getelementptr inbounds %"class.std::error_code", ptr %EC, i64 0, i32 1
+  %_M_cat.i = getelementptr inbounds i8, ptr %EC, i64 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #30
   store ptr %call.i, ptr %_M_cat.i, align 8
   call void @_ZN4llvh3sys2fs18directory_iteratorC2ERKNS1_15directory_entryERSt10error_codeb(ptr noundef nonnull align 8 dereferenceable(17) %Begin, ptr noundef nonnull align 8 dereferenceable(80) %Entry, ptr noundef nonnull align 8 dereferenceable(16) %EC, i1 noundef zeroext false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %End, i8 0, i64 16, i1 false)
-  %FollowSymlinks.i = getelementptr inbounds %"class.llvh::sys::fs::directory_iterator", ptr %End, i64 0, i32 1
+  %FollowSymlinks.i = getelementptr inbounds i8, ptr %End, i64 16
   store i8 1, ptr %FollowSymlinks.i, align 8
-  %HasError.i = getelementptr inbounds %"class.llvh::ErrorOr.33", ptr %st, i64 0, i32 1
-  %Type.i.i = getelementptr inbounds %"class.llvh::sys::fs::basic_file_status", ptr %st, i64 0, i32 5
-  %LHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp16, i64 0, i32 2
-  %RHSKind.i = getelementptr inbounds %"class.llvh::Twine", ptr %ref.tmp16, i64 0, i32 3
+  %HasError.i = getelementptr inbounds i8, ptr %st, i64 40
+  %Type.i.i = getelementptr inbounds i8, ptr %st, i64 32
+  %LHSKind.i = getelementptr inbounds i8, ptr %ref.tmp16, i64 16
+  %RHSKind.i = getelementptr inbounds i8, ptr %ref.tmp16, i64 17
   br i1 %IgnoreErrors, label %entry.split.us, label %while.cond
 
 entry.split.us:                                   ; preds = %entry
@@ -10554,7 +10520,7 @@ entry.split.us:                                   ; preds = %entry
 
 while.body.us:                                    ; preds = %entry.split.us, %if.end14.us
   %0 = load ptr, ptr %Begin, align 8
-  %CurrentEntry.i.us = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %0, i64 0, i32 1
+  %CurrentEntry.i.us = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZNK4llvh3sys2fs15directory_entry6statusEv(ptr nonnull sret(%"class.llvh::ErrorOr.33") align 8 %st, ptr noundef nonnull align 8 dereferenceable(80) %CurrentEntry.i.us)
   %1 = load i32, ptr %Type.i.i, align 8
   %cmp.i.us = icmp eq i32 %1, 3
@@ -10592,7 +10558,7 @@ while.cond:                                       ; preds = %entry, %if.end23
 
 while.body:                                       ; preds = %while.cond
   %9 = load ptr, ptr %Begin, align 8
-  %CurrentEntry.i = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %9, i64 0, i32 1
+  %CurrentEntry.i = getelementptr inbounds i8, ptr %9, i64 8
   call void @_ZNK4llvh3sys2fs15directory_entry6statusEv(ptr nonnull sret(%"class.llvh::ErrorOr.33") align 8 %st, ptr noundef nonnull align 8 dereferenceable(80) %CurrentEntry.i)
   %bf.load.i = load i8, ptr %HasError.i, align 8
   %10 = and i8 %bf.load.i, 1
@@ -10644,13 +10610,13 @@ if.end23:                                         ; preds = %if.end14
 cleanup30:                                        ; preds = %while.cond, %if.then6, %if.end14, %if.end23, %if.end14.us, %entry.split.us, %_ZNK4llvh7ErrorOrINS_3sys2fs17basic_file_statusEE8getErrorEv.exit
   %retval.sroa.659.1 = phi ptr [ %retval.sroa.31.0.copyload.i, %_ZNK4llvh7ErrorOrINS_3sys2fs17basic_file_statusEE8getErrorEv.exit ], [ %call.i, %entry.split.us ], [ %call.i, %if.end14.us ], [ %18, %if.end23 ], [ %15, %if.end14 ], [ %13, %if.then6 ], [ %call.i, %while.cond ]
   %retval.sroa.0.1 = phi i32 [ %retval.sroa.0.0.copyload.i, %_ZNK4llvh7ErrorOrINS_3sys2fs17basic_file_statusEE8getErrorEv.exit ], [ 0, %entry.split.us ], [ 0, %if.end14.us ], [ %17, %if.end23 ], [ %14, %if.end14 ], [ %12, %if.then6 ], [ 0, %while.cond ]
-  %_M_refcount.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %End, i64 0, i32 1
+  %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %End, i64 8
   %19 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4llvh3sys2fs18directory_iteratorD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cleanup30
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %19, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %20, 4294967297
   %21 = trunc i64 %20 to i32
@@ -10658,10 +10624,10 @@ if.then.i.i.i.i:                                  ; preds = %cleanup30
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %19, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %19, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %22 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(16) %19) #29
   br label %if.end8.sink.split.i.i.i.i.i
@@ -10687,10 +10653,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %19, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %25 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(16) %19) #29
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %19, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 12
   %26 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %26, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -10712,19 +10678,19 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %19, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %29 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(16) %19) #29
   br label %_ZN4llvh3sys2fs18directory_iteratorD2Ev.exit
 
 _ZN4llvh3sys2fs18directory_iteratorD2Ev.exit:     ; preds = %cleanup30, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  %_M_refcount.i.i.i21 = getelementptr inbounds %"class.std::__shared_ptr", ptr %Begin, i64 0, i32 1
+  %_M_refcount.i.i.i21 = getelementptr inbounds i8, ptr %Begin, i64 8
   %30 = load ptr, ptr %_M_refcount.i.i.i21, align 8
   %cmp.not.i.i.i.i22 = icmp eq ptr %30, null
   br i1 %cmp.not.i.i.i.i22, label %_ZN4llvh3sys2fs18directory_iteratorD2Ev.exit52, label %if.then.i.i.i.i23
 
 if.then.i.i.i.i23:                                ; preds = %_ZN4llvh3sys2fs18directory_iteratorD2Ev.exit
-  %_M_use_count.i.i.i.i.i24 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %30, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i24 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load atomic i64, ptr %_M_use_count.i.i.i.i.i24 acquire, align 8
   %cmp.i.i.i.i.i25 = icmp eq i64 %31, 4294967297
   %32 = trunc i64 %31 to i32
@@ -10732,10 +10698,10 @@ if.then.i.i.i.i23:                                ; preds = %_ZN4llvh3sys2fs18di
 
 if.then.i.i.i.i.i48:                              ; preds = %if.then.i.i.i.i23
   store i32 0, ptr %_M_use_count.i.i.i.i.i24, align 8
-  %_M_weak_count.i.i.i.i.i49 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %30, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i49 = getelementptr inbounds i8, ptr %30, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i49, align 4
   %vtable.i.i.i.i.i50 = load ptr, ptr %30, align 8
-  %vfn.i.i.i.i.i51 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i50, i64 2
+  %vfn.i.i.i.i.i51 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i50, i64 16
   %33 = load ptr, ptr %vfn.i.i.i.i.i51, align 8
   call void %33(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
   br label %if.end8.sink.split.i.i.i.i.i43
@@ -10761,10 +10727,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i30: ; preds = %if.e
 
 if.then7.i.i.i.i.i33:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i30
   %vtable.i.i.i.i.i.i.i34 = load ptr, ptr %30, align 8
-  %vfn.i.i.i.i.i.i.i35 = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i34, i64 2
+  %vfn.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i34, i64 16
   %36 = load ptr, ptr %vfn.i.i.i.i.i.i.i35, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
-  %_M_weak_count.i.i.i.i.i.i.i36 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %30, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i36 = getelementptr inbounds i8, ptr %30, i64 12
   %37 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i37 = icmp eq i8 %37, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i37, label %if.else.i.i.i.i.i.i.i.i46, label %if.then.i.i.i.i.i.i.i.i38
@@ -10786,7 +10752,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i40: ; preds = %
 
 if.end8.sink.split.i.i.i.i.i43:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i40, %if.then.i.i.i.i.i48
   %vtable2.i.i.i.i.i.i.i44 = load ptr, ptr %30, align 8
-  %vfn3.i.i.i.i.i.i.i45 = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i44, i64 3
+  %vfn3.i.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i44, i64 24
   %40 = load ptr, ptr %vfn3.i.i.i.i.i.i.i45, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(16) %30) #29
   br label %_ZN4llvh3sys2fs18directory_iteratorD2Ev.exit52
@@ -10814,7 +10780,7 @@ entry:
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN4llvh3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.llvh::sys::fs::directory_entry", align 8
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i)
   %0 = load i64, ptr %_M_impl.i, align 8
   %tobool.not.i.i.i.i = icmp eq i64 %0, 0
@@ -10829,14 +10795,14 @@ _ZNSt16allocator_traitsISaIvEE7destroyIN4llvh3sys2fs6detail12DirIterStateEEEvRS0
   store i64 0, ptr %_M_impl.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp.i.i.i.i, i8 0, i64 80, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #29
-  %Status.i.i.i.i.i = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp.i.i.i.i, i64 0, i32 3
-  %Perms.i.i.i.i.i.i = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp.i.i.i.i, i64 0, i32 3, i32 6
+  %Status.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 40
+  %Perms.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status.i.i.i.i.i, i8 0, i64 36, i1 false)
   store i32 65535, ptr %Perms.i.i.i.i.i.i, align 4
-  %CurrentEntry.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %CurrentEntry.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %call.i.i.i.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %CurrentEntry.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #29
-  %Type.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
-  %Type3.i.i.i.i.i = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp.i.i.i.i, i64 0, i32 1
+  %Type.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %Type3.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i.i.i.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %Type.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %Type3.i.i.i.i.i, i64 48, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i.i) #29
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i)
@@ -10854,7 +10820,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4llvh3sys2fs6detail12DirI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4llvh3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this, i64 0, i32 1
+  %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %cmp, label %return, label %lor.lhs.false
 
@@ -10886,11 +10852,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i4.not, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %if.end
-  %CurrentEntry = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %0, i64 0, i32 1
+  %CurrentEntry = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp, i8 0, i64 80, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #29
-  %Status.i = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp, i64 0, i32 3
-  %Perms.i.i = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp, i64 0, i32 3, i32 6
+  %Status.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
+  %Perms.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status.i, i8 0, i64 36, i1 false)
   store i32 65535, ptr %Perms.i.i, align 4
   %call.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %CurrentEntry) #29
@@ -10920,11 +10886,11 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp.i5.not, label %if.then12, label %if.end18
 
 if.then12:                                        ; preds = %if.end9
-  %CurrentEntry15 = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %1, i64 0, i32 1
+  %CurrentEntry15 = getelementptr inbounds i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp16, i8 0, i64 80, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #29
-  %Status.i6 = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp16, i64 0, i32 3
-  %Perms.i.i7 = getelementptr inbounds %"class.llvh::sys::fs::directory_entry", ptr %ref.tmp16, i64 0, i32 3, i32 6
+  %Status.i6 = getelementptr inbounds i8, ptr %ref.tmp16, i64 40
+  %Perms.i.i7 = getelementptr inbounds i8, ptr %ref.tmp16, i64 76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status.i6, i8 0, i64 36, i1 false)
   store i32 65535, ptr %Perms.i.i7, align 4
   %call.i.i8 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %CurrentEntry15) #29
@@ -10950,8 +10916,8 @@ _ZNK4llvh3sys2fs15directory_entryeqERKS2_.exit18: ; preds = %if.then12, %land.rh
   br label %return
 
 if.end18:                                         ; preds = %if.end9
-  %CurrentEntry21 = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %0, i64 0, i32 1
-  %CurrentEntry24 = getelementptr inbounds %"struct.llvh::sys::fs::detail::DirIterState", ptr %1, i64 0, i32 1
+  %CurrentEntry21 = getelementptr inbounds i8, ptr %0, i64 8
+  %CurrentEntry24 = getelementptr inbounds i8, ptr %1, i64 8
   %call.i.i19 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %CurrentEntry21) #29
   %call1.i.i20 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %CurrentEntry24) #29
   %cmp.i.i21 = icmp eq i64 %call.i.i19, %call1.i.i20
@@ -10982,31 +10948,31 @@ define linkonce_odr hidden void @_ZN4llvh3sys2fs18directory_iteratorC2ERKNS1_15d
 entry:
   %frombool = zext i1 %follow_symlinks to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
-  %FollowSymlinks = getelementptr inbounds %"class.llvh::sys::fs::directory_iterator", ptr %this, i64 0, i32 1
+  %FollowSymlinks = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %frombool, ptr %FollowSymlinks, align 8
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #31, !noalias !194
-  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !199
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !199
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4llvh3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !199
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1
-  %CurrentEntry.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
+  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 16
+  %CurrentEntry.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl.i.i.i.i.i.i, i8 0, i64 88, i1 false), !noalias !199
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %CurrentEntry.i.i.i.i.i.i.i.i) #29, !noalias !199
-  %Status.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
-  %Perms.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 84
+  %Status.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 64
+  %Perms.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Status.i.i.i.i.i.i.i.i.i, i8 0, i64 36, i1 false), !noalias !199
   store i32 65535, ptr %Perms.i.i.i.i.i.i.i.i.i.i, align 4, !noalias !199
   store ptr %_M_impl.i.i.i.i.i.i, ptr %this, align 8
-  %_M_refcount3.i.i.i = getelementptr inbounds %"class.std::__shared_ptr", ptr %this, i64 0, i32 1
+  %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i.i, ptr %_M_refcount3.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10shared_ptrIN4llvh3sys2fs6detail12DirIterStateEED2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %_M_use_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 1
+  %_M_use_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -11014,10 +10980,10 @@ if.then.i.i.i.i:                                  ; preds = %entry
 
 if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i, align 4
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   br label %if.end8.sink.split.i.i.i.i.i
@@ -11043,10 +11009,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.then7.i.i.i.i.i:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %vtable.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i.i.i, i64 2
+  %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %0, i64 0, i32 2
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i
@@ -11068,7 +11034,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
 
 if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %vtable2.i.i.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable2.i.i.i.i.i.i.i, i64 3
+  %vfn3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   br label %_ZNSt10shared_ptrIN4llvh3sys2fs6detail12DirIterStateEED2Ev.exit

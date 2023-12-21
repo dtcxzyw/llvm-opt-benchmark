@@ -3,17 +3,6 @@ source_filename = "bench/re2/original/filtered_re2.cc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.re2::FilteredRE2" = type { %"class.std::vector", i8, %"class.std::unique_ptr" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl" }
-%"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl" = type { %"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
 %class.LogMessage = type { i8, %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -26,12 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.re2::RE2" = type <{ ptr, %"class.re2::RE2::Options", ptr, ptr, ptr, ptr, i32, i32, %"class.std::__cxx11::basic_string", ptr, ptr, ptr, ptr, %"class.absl::debian2::once_flag", %"class.absl::debian2::once_flag", %"class.absl::debian2::once_flag", [4 x i8] }>
-%"class.re2::RE2::Options" = type <{ i64, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }>
-%"class.absl::debian2::once_flag" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.7" = type { %"struct.std::_Vector_base.8" }
 %"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
@@ -72,7 +55,7 @@ entry:
           to label %invoke.cont3 unwind label %ehcleanup
 
 invoke.cont3:                                     ; preds = %entry
-  %prefilter_tree_ = getelementptr inbounds %"class.re2::FilteredRE2", ptr %this, i64 0, i32 2
+  %prefilter_tree_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call, ptr %prefilter_tree_, align 8
   ret void
 
@@ -111,7 +94,7 @@ entry:
           to label %invoke.cont3 unwind label %ehcleanup
 
 invoke.cont3:                                     ; preds = %entry
-  %prefilter_tree_ = getelementptr inbounds %"class.re2::FilteredRE2", ptr %this, i64 0, i32 2
+  %prefilter_tree_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call, ptr %prefilter_tree_, align 8
   ret void
 
@@ -136,7 +119,7 @@ declare void @_ZN3re213PrefilterTreeC1Ei(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3re211FilteredRE2D2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %cmp7.not = icmp eq ptr %0, %1
@@ -171,7 +154,7 @@ for.inc:                                          ; preds = %for.body, %delete.n
 
 for.end:                                          ; preds = %for.inc, %entry
   %7 = phi ptr [ %0, %entry ], [ %5, %for.inc ]
-  %prefilter_tree_ = getelementptr inbounds %"class.re2::FilteredRE2", ptr %this, i64 0, i32 2
+  %prefilter_tree_ = getelementptr inbounds i8, ptr %this, i64 32
   %8 = load ptr, ptr %prefilter_tree_, align 8
   %cmp.not.i = icmp eq ptr %8, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN3re213PrefilterTreeESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3re213PrefilterTreeEEclEPS1_.exit.i
@@ -221,22 +204,22 @@ define void @_ZN3re211FilteredRE2C2EOS0_(ptr noundef nonnull align 8 dereference
 entry:
   %0 = load ptr, ptr %other, align 8
   store ptr %0, ptr %this, align 8
-  %_M_finish.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
-  %_M_finish3.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl_data", ptr %other, i64 0, i32 1
+  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish3.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %1 = load ptr, ptr %_M_finish3.i.i.i.i, align 8
   store ptr %1, ptr %_M_finish.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl_data", ptr %other, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage4.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i, align 8
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %other, i8 0, i64 24, i1 false)
-  %compiled_ = getelementptr inbounds %"class.re2::FilteredRE2", ptr %this, i64 0, i32 1
-  %compiled_3 = getelementptr inbounds %"class.re2::FilteredRE2", ptr %other, i64 0, i32 1
+  %compiled_ = getelementptr inbounds i8, ptr %this, i64 24
+  %compiled_3 = getelementptr inbounds i8, ptr %other, i64 24
   %3 = load i8, ptr %compiled_3, align 8
   %4 = and i8 %3, 1
   store i8 %4, ptr %compiled_, align 8
-  %prefilter_tree_ = getelementptr inbounds %"class.re2::FilteredRE2", ptr %this, i64 0, i32 2
-  %prefilter_tree_4 = getelementptr inbounds %"class.re2::FilteredRE2", ptr %other, i64 0, i32 2
+  %prefilter_tree_ = getelementptr inbounds i8, ptr %this, i64 32
+  %prefilter_tree_4 = getelementptr inbounds i8, ptr %other, i64 32
   %5 = load i64, ptr %prefilter_tree_4, align 8
   store i64 %5, ptr %prefilter_tree_, align 8
   store ptr null, ptr %prefilter_tree_4, align 8
@@ -324,14 +307,14 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %error_code_.i = getelementptr inbounds %"class.re2::RE2", ptr %call, i64 0, i32 7
+  %error_code_.i = getelementptr inbounds i8, ptr %call, i64 68
   %bf.load.i = load i32, ptr %error_code_.i, align 4
   %bf.clear.i = and i32 %bf.load.i, 536870911
   %cmp.i = icmp eq i32 %bf.clear.i, 0
   br i1 %cmp.i, label %if.else, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
-  %log_errors_.i = getelementptr inbounds %"class.re2::RE2::Options", ptr %options, i64 0, i32 4
+  %log_errors_.i = getelementptr inbounds i8, ptr %options, i64 14
   %0 = load i8, ptr %log_errors_.i, align 2
   %1 = and i8 %0, 1
   %tobool.i.not = icmp eq i8 %1, 0
@@ -339,7 +322,7 @@ if.then:                                          ; preds = %invoke.cont
 
 if.then5:                                         ; preds = %if.then
   store i8 0, ptr %ref.tmp, align 8
-  %str_.i = getelementptr inbounds %class.LogMessage, ptr %ref.tmp, i64 0, i32 1
+  %str_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i)
   %call3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i, ptr noundef nonnull @.str)
           to label %invoke.cont2.i unwind label %lpad.i
@@ -379,7 +362,7 @@ invoke.cont12:                                    ; preds = %invoke.cont9
           to label %invoke.cont14 unwind label %lpad6
 
 invoke.cont14:                                    ; preds = %invoke.cont12
-  %error_.i = getelementptr inbounds %"class.re2::RE2", ptr %call, i64 0, i32 4
+  %error_.i = getelementptr inbounds i8, ptr %call, i64 48
   %3 = load ptr, ptr %error_.i, align 8
   %call19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call15, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %invoke.cont18 unwind label %lpad6
@@ -406,7 +389,7 @@ delete.notnull:                                   ; preds = %if.then, %invoke.co
   br label %if.end22
 
 if.else:                                          ; preds = %invoke.cont
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load ptr, ptr %_M_finish.i, align 8
   %7 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %6 to i64
@@ -416,7 +399,7 @@ if.else:                                          ; preds = %invoke.cont
   %conv = trunc i64 %sub.ptr.div.i to i32
   store i32 %conv, ptr %id, align 4
   %8 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl_data", ptr %this, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
   %9 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %8, %9
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -424,7 +407,7 @@ if.else:                                          ; preds = %invoke.cont
 if.then.i:                                        ; preds = %if.else
   store ptr %call, ptr %8, align 8
   %10 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds ptr, ptr %10, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end22
 
@@ -468,7 +451,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPN3re23RE2ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i
 
 _ZNSt6vectorIPN3re23RE2ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIPN3re23RE2ESaIS2_EE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN3re23RE2ESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -509,7 +492,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
-  %str_.i.i = getelementptr inbounds %class.LogMessage, ptr %this, i64 0, i32 1
+  %str_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %call2.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i.i, ptr noundef nonnull @.str.8)
           to label %call2.i.noexc unwind label %terminate.lpad
 
@@ -528,7 +511,7 @@ _ZN10LogMessage5FlushEv.exit:                     ; preds = %call2.i.noexc
   br label %if.end
 
 if.end:                                           ; preds = %_ZN10LogMessage5FlushEv.exit, %entry
-  %str_ = getelementptr inbounds %class.LogMessage, ptr %this, i64 0, i32 1
+  %str_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_) #15
   ret void
 
@@ -545,7 +528,7 @@ define void @_ZN3re211FilteredRE27CompileEPSt6vectorINSt7__cxx1112basic_stringIc
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   %ref.tmp6 = alloca %class.LogMessage, align 8
-  %compiled_ = getelementptr inbounds %"class.re2::FilteredRE2", ptr %this, i64 0, i32 1
+  %compiled_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %compiled_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -553,7 +536,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %ref.tmp, align 8
-  %str_.i = getelementptr inbounds %class.LogMessage, ptr %ref.tmp, i64 0, i32 1
+  %str_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i)
   %call3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i, ptr noundef nonnull @.str)
           to label %invoke.cont2.i unwind label %lpad.i
@@ -596,18 +579,18 @@ lpad:                                             ; preds = %_ZN10LogMessageC2EP
 
 if.end:                                           ; preds = %entry
   %4 = load ptr, ptr %this, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i, label %if.then5, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %prefilter_tree_ = getelementptr inbounds %"class.re2::FilteredRE2", ptr %this, i64 0, i32 2
+  %prefilter_tree_ = getelementptr inbounds i8, ptr %this, i64 32
   br label %for.body
 
 if.then5:                                         ; preds = %if.end
   store i8 0, ptr %ref.tmp6, align 8
-  %str_.i6 = getelementptr inbounds %class.LogMessage, ptr %ref.tmp6, i64 0, i32 1
+  %str_.i6 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i6)
   %call3.i7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i6, ptr noundef nonnull @.str)
           to label %invoke.cont2.i9 unwind label %lpad.i8
@@ -664,7 +647,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body
   %13 = load ptr, ptr %atoms, align 8
-  %_M_finish.i.i17 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %atoms, i64 0, i32 1
+  %_M_finish.i.i17 = getelementptr inbounds i8, ptr %atoms, i64 8
   %14 = load ptr, ptr %_M_finish.i.i17, align 8
   %tobool.not.i.i = icmp eq ptr %14, %13
   br i1 %tobool.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, label %for.body.i.i.i.i.i
@@ -672,7 +655,7 @@ for.end:                                          ; preds = %for.body
 for.body.i.i.i.i.i:                               ; preds = %for.end, %for.body.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %13, %for.end ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i) #15
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.addr.04.i.i.i.i.i, i64 1
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %14
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i, !llvm.loop !7
 
@@ -681,7 +664,7 @@ invoke.cont.i.i:                                  ; preds = %for.body.i.i.i.i.i
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit: ; preds = %for.end, %invoke.cont.i.i
-  %prefilter_tree_19 = getelementptr inbounds %"class.re2::FilteredRE2", ptr %this, i64 0, i32 2
+  %prefilter_tree_19 = getelementptr inbounds i8, ptr %this, i64 32
   %15 = load ptr, ptr %prefilter_tree_19, align 8
   tail call void @_ZN3re213PrefilterTree7CompileEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(104) %15, ptr noundef nonnull %atoms)
   store i8 1, ptr %compiled_, align 8
@@ -700,7 +683,7 @@ declare void @_ZN3re213PrefilterTree7CompileEPSt6vectorINSt7__cxx1112basic_strin
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK3re211FilteredRE214SlowFirstMatchEN4absl7debian211string_viewE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %text.coerce0, i64 %text.coerce1) local_unnamed_addr #0 align 2 {
 entry:
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
   %1 = load ptr, ptr %this, align 8
   %cmp9.not = icmp eq ptr %0, %1
@@ -739,7 +722,7 @@ define noundef i32 @_ZNK3re211FilteredRE210FirstMatchEN4absl7debian211string_vie
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   %regexps = alloca %"class.std::vector.7", align 8
-  %compiled_ = getelementptr inbounds %"class.re2::FilteredRE2", ptr %this, i64 0, i32 1
+  %compiled_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %compiled_, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -747,7 +730,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %ref.tmp, align 8
-  %str_.i = getelementptr inbounds %class.LogMessage, ptr %ref.tmp, i64 0, i32 1
+  %str_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i)
   %call3.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i, ptr noundef nonnull @.str)
           to label %invoke.cont2.i unwind label %lpad.i
@@ -790,13 +773,13 @@ lpad:                                             ; preds = %_ZN10LogMessageC2EP
 
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regexps, i8 0, i64 24, i1 false)
-  %prefilter_tree_ = getelementptr inbounds %"class.re2::FilteredRE2", ptr %this, i64 0, i32 2
+  %prefilter_tree_ = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %prefilter_tree_, align 8
   invoke void @_ZNK3re213PrefilterTree19RegexpsGivenStringsERKSt6vectorIiSaIiEEPS3_(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef nonnull align 8 dereferenceable(24) %atoms, ptr noundef nonnull %regexps)
           to label %for.cond.preheader unwind label %lpad5.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %if.end
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %regexps, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %regexps, i64 8
   %5 = load ptr, ptr %_M_finish.i, align 8
   %6 = load ptr, ptr %regexps, align 8
   %cmp22.not = icmp eq ptr %5, %6
@@ -877,7 +860,7 @@ define noundef zeroext i1 @_ZNK3re211FilteredRE210AllMatchesEN4absl7debian211str
 entry:
   %regexps = alloca %"class.std::vector.7", align 8
   %0 = load ptr, ptr %matching_regexps, align 8
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %matching_regexps, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %matching_regexps, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %invoke.cont.i.i
@@ -888,20 +871,20 @@ invoke.cont.i.i:                                  ; preds = %entry
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %entry, %invoke.cont.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regexps, i8 0, i64 24, i1 false)
-  %prefilter_tree_ = getelementptr inbounds %"class.re2::FilteredRE2", ptr %this, i64 0, i32 2
+  %prefilter_tree_ = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %prefilter_tree_, align 8
   invoke void @_ZNK3re213PrefilterTree19RegexpsGivenStringsERKSt6vectorIiSaIiEEPS3_(ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(24) %atoms, ptr noundef nonnull %regexps)
           to label %for.cond.preheader unwind label %lpad.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %regexps, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %regexps, i64 8
   %3 = load ptr, ptr %_M_finish.i, align 8
   %4 = load ptr, ptr %regexps, align 8
   %cmp25.not = icmp eq ptr %3, %4
   br i1 %cmp25.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %_M_end_of_storage.i = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data", ptr %matching_regexps, i64 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %matching_regexps, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -931,7 +914,7 @@ if.then.i:                                        ; preds = %if.then
   %12 = load i32, ptr %add.ptr.i8, align 4
   store i32 %12, ptr %10, align 4
   %13 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i32, ptr %13, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %13, i64 4
   store ptr %incdec.ptr.i, ptr %_M_finish.i.i, align 8
   br label %for.inc
 
@@ -979,7 +962,7 @@ if.then.i.i.i12.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i
 
 _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit20.i.i: ; preds = %if.then.i.i.i12.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
   %tobool.not.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, label %if.then.i21.i.i
 
@@ -1047,7 +1030,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit16:                  ; preds = %for.end, %if.then.i
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3re211FilteredRE213AllPotentialsERKSt6vectorIiSaIiEEPS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %atoms, ptr noundef %potential_regexps) local_unnamed_addr #0 align 2 {
 entry:
-  %prefilter_tree_ = getelementptr inbounds %"class.re2::FilteredRE2", ptr %this, i64 0, i32 2
+  %prefilter_tree_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %prefilter_tree_, align 8
   tail call void @_ZNK3re213PrefilterTree19RegexpsGivenStringsERKSt6vectorIiSaIiEEPS3_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %atoms, ptr noundef %potential_regexps)
   ret void
@@ -1056,7 +1039,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3re211FilteredRE219RegexpsGivenStringsERKSt6vectorIiSaIiEEPS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %matched_atoms, ptr noundef %passed_regexps) local_unnamed_addr #0 align 2 {
 entry:
-  %prefilter_tree_ = getelementptr inbounds %"class.re2::FilteredRE2", ptr %this, i64 0, i32 2
+  %prefilter_tree_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %prefilter_tree_, align 8
   tail call void @_ZNK3re213PrefilterTree19RegexpsGivenStringsERKSt6vectorIiSaIiEEPS3_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %matched_atoms, ptr noundef %passed_regexps)
   ret void
@@ -1065,7 +1048,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3re211FilteredRE214PrintPrefilterEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %regexpid) local_unnamed_addr #0 align 2 {
 entry:
-  %prefilter_tree_ = getelementptr inbounds %"class.re2::FilteredRE2", ptr %this, i64 0, i32 2
+  %prefilter_tree_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %prefilter_tree_, align 8
   tail call void @_ZN3re213PrefilterTree14PrintPrefilterEi(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %regexpid)
   ret void
@@ -1112,7 +1095,7 @@ declare void @_ZN3re213PrefilterTreeD1Ev(ptr noundef nonnull align 8 dereference
 define linkonce_odr noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIPN3re23RE2ESaIS3_EELb1EE8_S_do_itERS5_(ptr noundef nonnull align 8 dereferenceable(24) %__c) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont11:
   %0 = load ptr, ptr %__c, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl_data", ptr %__c, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %__c, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
@@ -1151,7 +1134,7 @@ _ZNSt12_Vector_baseIPN3re23RE2ESaIS2_EED2Ev.exit.i: ; preds = %if.then.i.i.i, %i
 invoke.cont21:                                    ; preds = %_ZNSt6vectorIPN3re23RE2ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i, %call5.i.i.i.i.noexc.i
   %ref.tmp.sroa.0.0 = phi ptr [ %call5.i.i.i.i1.i, %call5.i.i.i.i.noexc.i ], [ null, %_ZNSt6vectorIPN3re23RE2ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ]
   %ref.tmp.sroa.9.0 = getelementptr inbounds ptr, ptr %ref.tmp.sroa.0.0, i64 %sub.ptr.div.i.i.i.i.i.i
-  %_M_end_of_storage.i4.i.i = getelementptr inbounds %"struct.std::_Vector_base<re2::RE2 *, std::allocator<re2::RE2 *>>::_Vector_impl_data", ptr %__c, i64 0, i32 2
+  %_M_end_of_storage.i4.i.i = getelementptr inbounds i8, ptr %__c, i64 16
   store ptr %ref.tmp.sroa.0.0, ptr %__c, align 8
   store ptr %ref.tmp.sroa.9.0, ptr %_M_finish.i, align 8
   store ptr %ref.tmp.sroa.9.0, ptr %_M_end_of_storage.i4.i.i, align 8

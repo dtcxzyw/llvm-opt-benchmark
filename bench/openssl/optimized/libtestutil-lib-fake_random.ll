@@ -6,9 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.ossl_dispatch_st = type { i32, ptr }
 %struct.ossl_algorithm_st = type { ptr, ptr, ptr, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.evp_rand_ctx_st = type { ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.FAKE_RAND = type { ptr, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [39 x i8] c"../openssl/test/testutil/fake_random.c\00", align 1
 @.str.1 = private unnamed_addr constant [72 x i8] c"OSSL_PROVIDER_add_builtin(libctx, \22fake-rand\22, fake_rand_provider_init)\00", align 1
@@ -70,11 +67,11 @@ if.then.i:                                        ; preds = %if.end
   br label %check_rng.exit
 
 if.end.i:                                         ; preds = %if.end
-  %algctx.i = getelementptr inbounds %struct.evp_rand_ctx_st, ptr %call11, i64 0, i32 1
+  %algctx.i = getelementptr inbounds i8, ptr %call11, i64 8
   %0 = load ptr, ptr %algctx.i, align 8
-  %name1.i = getelementptr inbounds %struct.FAKE_RAND, ptr %0, i64 0, i32 2
+  %name1.i = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @.str.7, ptr %name1.i, align 8
-  %ctx.i = getelementptr inbounds %struct.FAKE_RAND, ptr %0, i64 0, i32 3
+  %ctx.i = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %call11, ptr %ctx.i, align 8
   br label %check_rng.exit
 
@@ -95,11 +92,11 @@ if.then.i14:                                      ; preds = %lor.lhs.false17
   br label %check_rng.exit15
 
 if.end.i9:                                        ; preds = %lor.lhs.false17
-  %algctx.i10 = getelementptr inbounds %struct.evp_rand_ctx_st, ptr %call18, i64 0, i32 1
+  %algctx.i10 = getelementptr inbounds i8, ptr %call18, i64 8
   %1 = load ptr, ptr %algctx.i10, align 8
-  %name1.i11 = getelementptr inbounds %struct.FAKE_RAND, ptr %1, i64 0, i32 2
+  %name1.i11 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr @.str.9, ptr %name1.i11, align 8
-  %ctx.i12 = getelementptr inbounds %struct.FAKE_RAND, ptr %1, i64 0, i32 3
+  %ctx.i12 = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %call18, ptr %ctx.i12, align 8
   br label %check_rng.exit15
 
@@ -120,11 +117,11 @@ if.then.i23:                                      ; preds = %lor.lhs.false24
   br label %check_rng.exit24
 
 if.end.i18:                                       ; preds = %lor.lhs.false24
-  %algctx.i19 = getelementptr inbounds %struct.evp_rand_ctx_st, ptr %call25, i64 0, i32 1
+  %algctx.i19 = getelementptr inbounds i8, ptr %call25, i64 8
   %2 = load ptr, ptr %algctx.i19, align 8
-  %name1.i20 = getelementptr inbounds %struct.FAKE_RAND, ptr %2, i64 0, i32 2
+  %name1.i20 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr @.str.11, ptr %name1.i20, align 8
-  %ctx.i21 = getelementptr inbounds %struct.FAKE_RAND, ptr %2, i64 0, i32 3
+  %ctx.i21 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %call25, ptr %ctx.i21, align 8
   br label %check_rng.exit24
 
@@ -193,7 +190,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %algctx = getelementptr inbounds %struct.evp_rand_ctx_st, ptr %rng, i64 0, i32 1
+  %algctx = getelementptr inbounds i8, ptr %rng, i64 8
   %0 = load ptr, ptr %algctx, align 8
   store ptr %cb, ptr %0, align 8
   br label %if.end
@@ -210,7 +207,7 @@ entry:
   br i1 %cmp.not.i, label %fake_rand_set_callback.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %algctx.i = getelementptr inbounds %struct.evp_rand_ctx_st, ptr %call, i64 0, i32 1
+  %algctx.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %algctx.i, align 8
   store ptr %cb, ptr %0, align 8
   br label %fake_rand_set_callback.exit
@@ -221,7 +218,7 @@ fake_rand_set_callback.exit:                      ; preds = %entry, %if.then.i
   br i1 %cmp.not.i3, label %fake_rand_set_callback.exit6, label %if.then.i4
 
 if.then.i4:                                       ; preds = %fake_rand_set_callback.exit
-  %algctx.i5 = getelementptr inbounds %struct.evp_rand_ctx_st, ptr %call1, i64 0, i32 1
+  %algctx.i5 = getelementptr inbounds i8, ptr %call1, i64 8
   %1 = load ptr, ptr %algctx.i5, align 8
   store ptr %cb, ptr %1, align 8
   br label %fake_rand_set_callback.exit6
@@ -251,7 +248,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %state = getelementptr inbounds %struct.FAKE_RAND, ptr %call, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %state, align 8
   br label %if.end
 
@@ -269,7 +266,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal i32 @fake_rand_instantiate(ptr nocapture noundef writeonly %vrng, i32 %strength, i32 %prediction_resistance, ptr nocapture readnone %pstr, i64 %pstr_len, ptr nocapture readnone %params) #3 {
 entry:
-  %state = getelementptr inbounds %struct.FAKE_RAND, ptr %vrng, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %vrng, i64 8
   store i32 1, ptr %state, align 8
   ret i32 1
 }
@@ -277,7 +274,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal i32 @fake_rand_uninstantiate(ptr nocapture noundef writeonly %vrng) #3 {
 entry:
-  %state = getelementptr inbounds %struct.FAKE_RAND, ptr %vrng, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %vrng, i64 8
   store i32 0, ptr %state, align 8
   ret i32 1
 }
@@ -295,9 +292,9 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp2.not12, label %return, label %while.body
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds %struct.FAKE_RAND, ptr %vrng, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %vrng, i64 16
   %1 = load ptr, ptr %name, align 8
-  %ctx = getelementptr inbounds %struct.FAKE_RAND, ptr %vrng, i64 0, i32 3
+  %ctx = getelementptr inbounds i8, ptr %vrng, i64 24
   %2 = load ptr, ptr %ctx, align 8
   %call = tail call i32 %0(ptr noundef %out, i64 noundef %outlen, ptr noundef %1, ptr noundef %2) #7
   br label %return
@@ -339,7 +336,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %state = getelementptr inbounds %struct.FAKE_RAND, ptr %vrng, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %vrng, i64 8
   %0 = load i32, ptr %state, align 8
   %call1 = tail call i32 @OSSL_PARAM_set_int(ptr noundef nonnull %call, i32 noundef %0) #7
   %tobool.not = icmp eq i32 %call1, 0

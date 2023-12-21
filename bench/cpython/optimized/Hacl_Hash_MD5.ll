@@ -18,15 +18,15 @@ entry:
   %0 = load i32, ptr %s, align 4
   store i32 %0, ptr %dst, align 1
   %add.ptr3 = getelementptr i8, ptr %dst, i64 4
-  %arrayidx5 = getelementptr i32, ptr %s, i64 1
+  %arrayidx5 = getelementptr i8, ptr %s, i64 4
   %1 = load i32, ptr %arrayidx5, align 4
   store i32 %1, ptr %add.ptr3, align 1
   %add.ptr10 = getelementptr i8, ptr %dst, i64 8
-  %arrayidx12 = getelementptr i32, ptr %s, i64 2
+  %arrayidx12 = getelementptr i8, ptr %s, i64 8
   %2 = load i32, ptr %arrayidx12, align 4
   store i32 %2, ptr %add.ptr10, align 1
   %add.ptr17 = getelementptr i8, ptr %dst, i64 12
-  %arrayidx19 = getelementptr i32, ptr %s, i64 3
+  %arrayidx19 = getelementptr i8, ptr %s, i64 12
   %3 = load i32, ptr %arrayidx19, align 4
   store i32 %3, ptr %add.ptr17, align 1
   ret void
@@ -39,9 +39,9 @@ entry:
   br i1 %cmp3.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx1.i = getelementptr i32, ptr %s, i64 1
-  %arrayidx2.i = getelementptr i32, ptr %s, i64 2
-  %arrayidx3.i = getelementptr i32, ptr %s, i64 3
+  %arrayidx1.i = getelementptr i8, ptr %s, i64 4
+  %arrayidx2.i = getelementptr i8, ptr %s, i64 8
+  %arrayidx3.i = getelementptr i8, ptr %s, i64 12
   %s.promoted = load i32, ptr %s, align 4
   %arrayidx1.i.promoted = load i32, ptr %arrayidx1.i, align 4
   %arrayidx2.i.promoted = load i32, ptr %arrayidx2.i, align 4

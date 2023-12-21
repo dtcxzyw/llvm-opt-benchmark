@@ -3,18 +3,10 @@ source_filename = "bench/icu/original/utrie2.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.UTrie2 = type { ptr, ptr, ptr, i32, i32, i16, i16, i32, i32, i32, i32, ptr, i32, i8, i8, i16, ptr }
-%struct.UNewTrie2 = type { [544 x i32], [35488 x i32], ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, [34852 x i32] }
-%struct.UTrie2Header = type { i32, i16, i16, i16, i16, i16, i16 }
-%"class.icu_75::UTrie2StringIterator" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.icu_75::BackwardUTrie2StringIterator" = type { %"class.icu_75::UTrie2StringIterator.base", ptr }
-%"class.icu_75::UTrie2StringIterator.base" = type <{ ptr, ptr, ptr, i32 }>
-%"class.icu_75::ForwardUTrie2StringIterator" = type { %"class.icu_75::UTrie2StringIterator.base", ptr }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @utrie2_get32_75(ptr nocapture noundef readonly %trie, i32 noundef %c) local_unnamed_addr #0 {
 entry:
-  %data16 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 1
+  %data16 = getelementptr inbounds i8, ptr %trie, i64 8
   %0 = load ptr, ptr %data16, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -58,19 +50,19 @@ cond.false16:                                     ; preds = %cond.false
   br i1 %cmp17, label %cond.true18, label %cond.false20
 
 cond.true18:                                      ; preds = %cond.false16
-  %indexLength = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 3
+  %indexLength = getelementptr inbounds i8, ptr %trie, i64 24
   %4 = load i32, ptr %indexLength, align 8
   %add19 = add nsw i32 %4, 128
   br label %cond.end45
 
 cond.false20:                                     ; preds = %cond.false16
-  %highStart = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 9
+  %highStart = getelementptr inbounds i8, ptr %trie, i64 44
   %5 = load i32, ptr %highStart, align 4
   %cmp21.not = icmp sgt i32 %5, %c
   br i1 %cmp21.not, label %cond.false23, label %cond.true22
 
 cond.true22:                                      ; preds = %cond.false20
-  %highValueIndex = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 10
+  %highValueIndex = getelementptr inbounds i8, ptr %trie, i64 48
   %6 = load i32, ptr %highValueIndex, align 8
   br label %cond.end45
 
@@ -102,7 +94,7 @@ cond.end45:                                       ; preds = %cond.true5, %cond.t
   br label %return
 
 if.else:                                          ; preds = %entry
-  %data32 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 2
+  %data32 = getelementptr inbounds i8, ptr %trie, i64 16
   %10 = load ptr, ptr %data32, align 8
   %cmp50.not = icmp eq ptr %10, null
   br i1 %cmp50.not, label %if.else113, label %if.then51
@@ -147,13 +139,13 @@ cond.false78:                                     ; preds = %cond.false64
   br i1 %cmp79, label %cond.end109, label %cond.false81
 
 cond.false81:                                     ; preds = %cond.false78
-  %highStart82 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 9
+  %highStart82 = getelementptr inbounds i8, ptr %trie, i64 44
   %15 = load i32, ptr %highStart82, align 4
   %cmp83.not = icmp sgt i32 %15, %c
   br i1 %cmp83.not, label %cond.false86, label %cond.true84
 
 cond.true84:                                      ; preds = %cond.false81
-  %highValueIndex85 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 10
+  %highValueIndex85 = getelementptr inbounds i8, ptr %trie, i64 48
   %16 = load i32, ptr %highValueIndex85, align 8
   br label %cond.end109
 
@@ -189,26 +181,26 @@ if.else113:                                       ; preds = %if.else
   br i1 %cmp114, label %if.then115, label %if.else116
 
 if.then115:                                       ; preds = %if.else113
-  %errorValue = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 8
+  %errorValue = getelementptr inbounds i8, ptr %trie, i64 40
   %21 = load i32, ptr %errorValue, align 8
   br label %return
 
 if.else116:                                       ; preds = %if.else113
-  %newTrie = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 16
+  %newTrie = getelementptr inbounds i8, ptr %trie, i64 72
   %22 = load ptr, ptr %newTrie, align 8
-  %highStart.i = getelementptr inbounds %struct.UNewTrie2, ptr %22, i64 0, i32 11
+  %highStart.i = getelementptr inbounds i8, ptr %22, i64 144168
   %23 = load i32, ptr %highStart.i, align 8
   %cmp.not.i = icmp sgt i32 %23, %c
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else116
-  %data.i = getelementptr inbounds %struct.UNewTrie2, ptr %22, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %22, i64 144128
   %24 = load ptr, ptr %data.i, align 8
-  %dataLength.i = getelementptr inbounds %struct.UNewTrie2, ptr %22, i64 0, i32 7
+  %dataLength.i = getelementptr inbounds i8, ptr %22, i64 144152
   %25 = load i32, ptr %dataLength.i, align 8
   %26 = sext i32 %25 to i64
   %27 = getelementptr i32, ptr %24, i64 %26
-  %arrayidx.i = getelementptr i32, ptr %27, i64 -4
+  %arrayidx.i = getelementptr i8, ptr %27, i64 -16
   br label %_ZL5get32PK9UNewTrie2ia.exit
 
 if.end.i:                                         ; preds = %if.else116
@@ -233,10 +225,11 @@ if.else.i:                                        ; preds = %if.end.i
 
 if.end13.i:                                       ; preds = %if.else.i, %if.then6.i
   %i2.0.i = phi i32 [ %add.i, %if.then6.i ], [ %add12.i, %if.else.i ]
+  %index2.i = getelementptr inbounds i8, ptr %22, i64 2176
   %idxprom14.i = sext i32 %i2.0.i to i64
-  %arrayidx15.i = getelementptr inbounds %struct.UNewTrie2, ptr %22, i64 0, i32 1, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds [35488 x i32], ptr %index2.i, i64 0, i64 %idxprom14.i
   %29 = load i32, ptr %arrayidx15.i, align 4
-  %data16.i = getelementptr inbounds %struct.UNewTrie2, ptr %22, i64 0, i32 2
+  %data16.i = getelementptr inbounds i8, ptr %22, i64 144128
   %30 = load ptr, ptr %data16.i, align 8
   %and17.i = and i32 %c, 31
   %add18.i = add nsw i32 %29, %and17.i
@@ -262,12 +255,12 @@ entry:
   br i1 %cmp, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %errorValue = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 8
+  %errorValue = getelementptr inbounds i8, ptr %trie, i64 40
   %0 = load i32, ptr %errorValue, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %data16 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 1
+  %data16 = getelementptr inbounds i8, ptr %trie, i64 8
   %1 = load ptr, ptr %data16, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.else, label %if.then2
@@ -289,7 +282,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.else:                                          ; preds = %if.end
-  %data32 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 2
+  %data32 = getelementptr inbounds i8, ptr %trie, i64 16
   %5 = load ptr, ptr %data32, align 8
   %cmp9.not = icmp eq ptr %5, null
   br i1 %cmp9.not, label %if.else23, label %if.then10
@@ -310,17 +303,18 @@ if.then10:                                        ; preds = %if.else
   br label %return
 
 if.else23:                                        ; preds = %if.else
-  %newTrie = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 16
+  %newTrie = getelementptr inbounds i8, ptr %trie, i64 72
   %9 = load ptr, ptr %newTrie, align 8
-  %arrayidx9.i = getelementptr inbounds [544 x i32], ptr %9, i64 0, i64 27
+  %arrayidx9.i = getelementptr inbounds i8, ptr %9, i64 108
   %10 = load i32, ptr %arrayidx9.i, align 4
   %shr10.i = lshr i32 %c, 5
   %and11.i = and i32 %shr10.i, 31
   %add12.i = add nsw i32 %10, %and11.i
+  %index2.i = getelementptr inbounds i8, ptr %9, i64 2176
   %idxprom14.i = sext i32 %add12.i to i64
-  %arrayidx15.i = getelementptr inbounds %struct.UNewTrie2, ptr %9, i64 0, i32 1, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds [35488 x i32], ptr %index2.i, i64 0, i64 %idxprom14.i
   %11 = load i32, ptr %arrayidx15.i, align 4
-  %data16.i = getelementptr inbounds %struct.UNewTrie2, ptr %9, i64 0, i32 2
+  %data16.i = getelementptr inbounds i8, ptr %9, i64 144128
   %12 = load ptr, ptr %data16.i, align 8
   %and17.i = and i32 %c, 31
   %add18.i = add nsw i32 %11, %and17.i
@@ -386,25 +380,25 @@ cond.false14.i:                                   ; preds = %cond.false.i
   br i1 %cmp15.i, label %cond.true16.i, label %cond.false22.i
 
 cond.true16.i:                                    ; preds = %cond.false14.i
-  %data32.i = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 2
+  %data32.i = getelementptr inbounds i8, ptr %trie, i64 16
   %5 = load ptr, ptr %data32.i, align 8
   %cmp17.i = icmp eq ptr %5, null
   br i1 %cmp17.i, label %cond.true18.i, label %_ZL7u8IndexPK6UTrie2ii.exit
 
 cond.true18.i:                                    ; preds = %cond.true16.i
-  %indexLength.i = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 3
+  %indexLength.i = getelementptr inbounds i8, ptr %trie, i64 24
   %6 = load i32, ptr %indexLength.i, align 8
   %7 = add nsw i32 %6, 128
   br label %_ZL7u8IndexPK6UTrie2ii.exit
 
 cond.false22.i:                                   ; preds = %cond.false14.i
-  %highStart.i = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 9
+  %highStart.i = getelementptr inbounds i8, ptr %trie, i64 44
   %8 = load i32, ptr %highStart.i, align 4
   %cmp23.not.i = icmp sgt i32 %8, %call
   br i1 %cmp23.not.i, label %cond.false25.i, label %cond.true24.i
 
 cond.true24.i:                                    ; preds = %cond.false22.i
-  %highValueIndex.i = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 10
+  %highValueIndex.i = getelementptr inbounds i8, ptr %trie, i64 48
   %9 = load i32, ptr %highValueIndex.i, align 8
   br label %_ZL7u8IndexPK6UTrie2ii.exit
 
@@ -493,25 +487,25 @@ cond.false14.i:                                   ; preds = %cond.false.i
   br i1 %cmp15.i, label %cond.true16.i, label %cond.false22.i
 
 cond.true16.i:                                    ; preds = %cond.false14.i
-  %data32.i = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 2
+  %data32.i = getelementptr inbounds i8, ptr %trie, i64 16
   %5 = load ptr, ptr %data32.i, align 8
   %cmp17.i = icmp eq ptr %5, null
   br i1 %cmp17.i, label %cond.true18.i, label %_ZL7u8IndexPK6UTrie2ii.exit
 
 cond.true18.i:                                    ; preds = %cond.true16.i
-  %indexLength.i = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 3
+  %indexLength.i = getelementptr inbounds i8, ptr %trie, i64 24
   %6 = load i32, ptr %indexLength.i, align 8
   %7 = add nsw i32 %6, 128
   br label %_ZL7u8IndexPK6UTrie2ii.exit
 
 cond.false22.i:                                   ; preds = %cond.false14.i
-  %highStart.i = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 9
+  %highStart.i = getelementptr inbounds i8, ptr %trie, i64 44
   %8 = load i32, ptr %highStart.i, align 4
   %cmp23.not.i = icmp sgt i32 %8, %call
   br i1 %cmp23.not.i, label %cond.false25.i, label %cond.true24.i
 
 cond.true24.i:                                    ; preds = %cond.false22.i
-  %highValueIndex.i = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 10
+  %highValueIndex.i = getelementptr inbounds i8, ptr %trie, i64 48
   %9 = load i32, ptr %highValueIndex.i, align 8
   br label %_ZL7u8IndexPK6UTrie2ii.exit
 
@@ -585,7 +579,7 @@ if.then12:                                        ; preds = %if.end10
   br label %return
 
 if.end13:                                         ; preds = %if.end10
-  %options = getelementptr inbounds %struct.UTrie2Header, ptr %data, i64 0, i32 1
+  %options = getelementptr inbounds i8, ptr %data, i64 4
   %4 = load i16, ptr %options, align 4
   %5 = and i16 %4, 15
   %and14 = zext nneg i16 %5 to i32
@@ -597,16 +591,16 @@ if.then16:                                        ; preds = %if.end13
   br label %return
 
 if.end17:                                         ; preds = %if.end13
-  %indexLength = getelementptr inbounds %struct.UTrie2Header, ptr %data, i64 0, i32 2
+  %indexLength = getelementptr inbounds i8, ptr %data, i64 6
   %6 = load i16, ptr %indexLength, align 2
   %conv18 = zext i16 %6 to i32
-  %shiftedDataLength = getelementptr inbounds %struct.UTrie2Header, ptr %data, i64 0, i32 3
+  %shiftedDataLength = getelementptr inbounds i8, ptr %data, i64 8
   %7 = load i16, ptr %shiftedDataLength, align 4
   %conv20 = zext i16 %7 to i32
   %shl = shl nuw nsw i32 %conv20, 2
-  %index2NullOffset = getelementptr inbounds %struct.UTrie2Header, ptr %data, i64 0, i32 4
+  %index2NullOffset = getelementptr inbounds i8, ptr %data, i64 10
   %8 = load <2 x i16>, ptr %index2NullOffset, align 2
-  %shiftedHighStart = getelementptr inbounds %struct.UTrie2Header, ptr %data, i64 0, i32 6
+  %shiftedHighStart = getelementptr inbounds i8, ptr %data, i64 14
   %9 = load i16, ptr %shiftedHighStart, align 2
   %conv23 = zext i16 %9 to i32
   %shl24 = shl nuw nsw i32 %conv23, 11
@@ -652,11 +646,11 @@ do.body:                                          ; preds = %if.end44
   store i32 %spec.select, ptr %tempTrie.sroa.12.0.trie.0.2.sroa_idx, align 8
   %tempTrie.sroa.15.0.trie.0.2.sroa_idx = getelementptr inbounds i8, ptr %call45, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %tempTrie.sroa.15.0.trie.0.2.sroa_idx, i8 0, i64 28, i1 false)
-  %memory = getelementptr inbounds %struct.UTrie2, ptr %call45, i64 0, i32 11
+  %memory = getelementptr inbounds i8, ptr %call45, i64 56
   store ptr %data, ptr %memory, align 8
-  %length49 = getelementptr inbounds %struct.UTrie2, ptr %call45, i64 0, i32 12
+  %length49 = getelementptr inbounds i8, ptr %call45, i64 64
   store i32 %actualLength.0, ptr %length49, align 8
-  %add.ptr = getelementptr inbounds %struct.UTrie2Header, ptr %data, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %data, i64 16
   store ptr %add.ptr, ptr %call45, align 8
   %idx.ext = zext i16 %6 to i64
   %add.ptr51 = getelementptr inbounds i16, ptr %add.ptr, i64 %idx.ext
@@ -666,7 +660,7 @@ do.body:                                          ; preds = %if.end44
   ]
 
 sw.bb:                                            ; preds = %do.body
-  %data16 = getelementptr inbounds %struct.UTrie2, ptr %call45, i64 0, i32 1
+  %data16 = getelementptr inbounds i8, ptr %call45, i64 8
   store ptr %add.ptr51, ptr %data16, align 8
   %12 = extractelement <2 x i16> %8, i64 1
   %idxprom = zext i16 %12 to i64
@@ -674,20 +668,20 @@ sw.bb:                                            ; preds = %do.body
   %13 = load i16, ptr %arrayidx, align 2
   %conv54 = zext i16 %13 to i32
   store i32 %conv54, ptr %tempTrie.sroa.11.0.trie.0.2.sroa_idx, align 4
-  %arrayidx56 = getelementptr inbounds i16, ptr %add.ptr51, i64 128
+  %arrayidx56 = getelementptr inbounds i8, ptr %add.ptr51, i64 256
   %14 = load i16, ptr %arrayidx56, align 2
   %conv57 = zext i16 %14 to i32
   br label %sw.epilog
 
 sw.bb58:                                          ; preds = %do.body
-  %data3260 = getelementptr inbounds %struct.UTrie2, ptr %call45, i64 0, i32 2
+  %data3260 = getelementptr inbounds i8, ptr %call45, i64 16
   store ptr %add.ptr51, ptr %data3260, align 8
   %15 = extractelement <2 x i16> %8, i64 1
   %idxprom63 = zext i16 %15 to i64
   %arrayidx64 = getelementptr inbounds i32, ptr %add.ptr51, i64 %idxprom63
   %16 = load i32, ptr %arrayidx64, align 4
   store i32 %16, ptr %tempTrie.sroa.11.0.trie.0.2.sroa_idx, align 4
-  %arrayidx67 = getelementptr inbounds i32, ptr %add.ptr51, i64 128
+  %arrayidx67 = getelementptr inbounds i8, ptr %add.ptr51, i64 512
   %17 = load i32, ptr %arrayidx67, align 4
   br label %sw.epilog
 
@@ -697,7 +691,7 @@ sw.default:                                       ; preds = %do.body
 
 sw.epilog:                                        ; preds = %sw.bb58, %sw.bb
   %.sink = phi i32 [ %17, %sw.bb58 ], [ %conv57, %sw.bb ]
-  %errorValue68 = getelementptr inbounds %struct.UTrie2, ptr %call45, i64 0, i32 8
+  %errorValue68 = getelementptr inbounds i8, ptr %call45, i64 40
   store i32 %.sink, ptr %errorValue68, align 8
   %cmp69.not = icmp eq ptr %pActualLength, null
   br i1 %cmp69.not, label %return, label %if.then70
@@ -742,7 +736,7 @@ if.end14:                                         ; preds = %if.end3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call11, i8 0, i64 80, i1 false)
   %conv = zext nneg i32 %. to i64
   %call15 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv) #11
-  %memory = getelementptr inbounds %struct.UTrie2, ptr %call11, i64 0, i32 11
+  %memory = getelementptr inbounds i8, ptr %call11, i64 56
   store ptr %call15, ptr %memory, align 8
   %cmp17 = icmp eq ptr %call15, null
   br i1 %cmp17, label %if.then18, label %if.end19
@@ -752,44 +746,44 @@ if.then18:                                        ; preds = %if.end14
   br label %return.sink.split
 
 if.end19:                                         ; preds = %if.end14
-  %length20 = getelementptr inbounds %struct.UTrie2, ptr %call11, i64 0, i32 12
+  %length20 = getelementptr inbounds i8, ptr %call11, i64 64
   store i32 %., ptr %length20, align 8
-  %isMemoryOwned = getelementptr inbounds %struct.UTrie2, ptr %call11, i64 0, i32 13
+  %isMemoryOwned = getelementptr inbounds i8, ptr %call11, i64 68
   store i8 1, ptr %isMemoryOwned, align 4
   %.86 = select i1 %cmp4, i32 2112, i32 0
-  %indexLength25 = getelementptr inbounds %struct.UTrie2, ptr %call11, i64 0, i32 3
+  %indexLength25 = getelementptr inbounds i8, ptr %call11, i64 24
   store i32 2112, ptr %indexLength25, align 8
-  %dataLength26 = getelementptr inbounds %struct.UTrie2, ptr %call11, i64 0, i32 4
+  %dataLength26 = getelementptr inbounds i8, ptr %call11, i64 28
   store i32 196, ptr %dataLength26, align 4
-  %index2NullOffset = getelementptr inbounds %struct.UTrie2, ptr %call11, i64 0, i32 5
+  %index2NullOffset = getelementptr inbounds i8, ptr %call11, i64 32
   store i16 0, ptr %index2NullOffset, align 8
   %conv27 = trunc i32 %.86 to i16
-  %dataNullOffset = getelementptr inbounds %struct.UTrie2, ptr %call11, i64 0, i32 6
+  %dataNullOffset = getelementptr inbounds i8, ptr %call11, i64 34
   store i16 %conv27, ptr %dataNullOffset, align 2
-  %initialValue28 = getelementptr inbounds %struct.UTrie2, ptr %call11, i64 0, i32 7
+  %initialValue28 = getelementptr inbounds i8, ptr %call11, i64 36
   store i32 %initialValue, ptr %initialValue28, align 4
-  %errorValue29 = getelementptr inbounds %struct.UTrie2, ptr %call11, i64 0, i32 8
+  %errorValue29 = getelementptr inbounds i8, ptr %call11, i64 40
   store i32 %errorValue, ptr %errorValue29, align 8
-  %highStart = getelementptr inbounds %struct.UTrie2, ptr %call11, i64 0, i32 9
+  %highStart = getelementptr inbounds i8, ptr %call11, i64 44
   store i32 0, ptr %highStart, align 4
   %add30 = add nuw nsw i32 %.86, 192
-  %highValueIndex = getelementptr inbounds %struct.UTrie2, ptr %call11, i64 0, i32 10
+  %highValueIndex = getelementptr inbounds i8, ptr %call11, i64 48
   store i32 %add30, ptr %highValueIndex, align 8
   store i32 1416784178, ptr %call15, align 4
   %conv32 = trunc i32 %valueBits to i16
-  %options = getelementptr inbounds %struct.UTrie2Header, ptr %call15, i64 0, i32 1
+  %options = getelementptr inbounds i8, ptr %call15, i64 4
   store i16 %conv32, ptr %options, align 4
-  %indexLength34 = getelementptr inbounds %struct.UTrie2Header, ptr %call15, i64 0, i32 2
+  %indexLength34 = getelementptr inbounds i8, ptr %call15, i64 6
   store i16 2112, ptr %indexLength34, align 2
-  %shiftedDataLength = getelementptr inbounds %struct.UTrie2Header, ptr %call15, i64 0, i32 3
+  %shiftedDataLength = getelementptr inbounds i8, ptr %call15, i64 8
   store i16 49, ptr %shiftedDataLength, align 4
-  %index2NullOffset36 = getelementptr inbounds %struct.UTrie2Header, ptr %call15, i64 0, i32 4
+  %index2NullOffset36 = getelementptr inbounds i8, ptr %call15, i64 10
   store i16 0, ptr %index2NullOffset36, align 2
-  %dataNullOffset38 = getelementptr inbounds %struct.UTrie2Header, ptr %call15, i64 0, i32 5
+  %dataNullOffset38 = getelementptr inbounds i8, ptr %call15, i64 12
   store i16 %conv27, ptr %dataNullOffset38, align 4
-  %shiftedHighStart = getelementptr inbounds %struct.UTrie2Header, ptr %call15, i64 0, i32 6
+  %shiftedHighStart = getelementptr inbounds i8, ptr %call15, i64 14
   store i16 0, ptr %shiftedHighStart, align 2
-  %add.ptr = getelementptr inbounds %struct.UTrie2Header, ptr %call15, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %call15, i64 16
   store ptr %add.ptr, ptr %call11, align 8
   %shr40 = lshr exact i32 %.86, 2
   %conv41 = trunc i32 %shr40 to i16
@@ -802,7 +796,7 @@ for.cond42.preheader:                             ; preds = %for.body
 for.body:                                         ; preds = %if.end19, %for.body
   %i.090 = phi i32 [ 0, %if.end19 ], [ %inc, %for.body ]
   %dest16.089 = phi ptr [ %add.ptr, %if.end19 ], [ %incdec.ptr, %for.body ]
-  %incdec.ptr = getelementptr inbounds i16, ptr %dest16.089, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %dest16.089, i64 2
   store i16 %conv41, ptr %dest16.089, align 2
   %inc = add nuw nsw i32 %i.090, 1
   %exitcond.not = icmp eq i32 %inc, 2080
@@ -811,22 +805,22 @@ for.body:                                         ; preds = %if.end19, %for.body
 for.body44:                                       ; preds = %for.cond42.preheader, %for.body44
   %cmp43 = phi i1 [ true, %for.cond42.preheader ], [ false, %for.body44 ]
   %dest16.191 = phi ptr [ %incdec.ptr, %for.cond42.preheader ], [ %incdec.ptr47, %for.body44 ]
-  %incdec.ptr47 = getelementptr inbounds i16, ptr %dest16.191, i64 1
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %dest16.191, i64 2
   store i16 %conv46, ptr %dest16.191, align 2
   br i1 %cmp43, label %for.body44, label %for.body53, !llvm.loop !6
 
 for.body53:                                       ; preds = %for.body44, %for.body53
   %i.294 = phi i32 [ %inc57, %for.body53 ], [ 2, %for.body44 ]
   %dest16.293 = phi ptr [ %incdec.ptr55, %for.body53 ], [ %incdec.ptr47, %for.body44 ]
-  %incdec.ptr55 = getelementptr inbounds i16, ptr %dest16.293, i64 1
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %dest16.293, i64 2
   store i16 %conv27, ptr %dest16.293, align 2
   %inc57 = add nuw nsw i32 %i.294, 1
   %exitcond111.not = icmp eq i32 %inc57, 32
   br i1 %exitcond111.not, label %for.end58, label %for.body53, !llvm.loop !7
 
 for.end58:                                        ; preds = %for.body53
-  %data16 = getelementptr inbounds %struct.UTrie2, ptr %call11, i64 0, i32 1
-  %data32 = getelementptr inbounds %struct.UTrie2, ptr %call11, i64 0, i32 2
+  %data16 = getelementptr inbounds i8, ptr %call11, i64 8
+  %data32 = getelementptr inbounds i8, ptr %call11, i64 16
   br i1 %cmp4, label %sw.bb, label %sw.bb83
 
 sw.bb:                                            ; preds = %for.end58
@@ -842,7 +836,7 @@ for.body69.lr.ph:                                 ; preds = %for.body61
 for.body61:                                       ; preds = %sw.bb, %for.body61
   %i.3103 = phi i32 [ 0, %sw.bb ], [ %inc65, %for.body61 ]
   %dest16.3102 = phi ptr [ %incdec.ptr55, %sw.bb ], [ %incdec.ptr63, %for.body61 ]
-  %incdec.ptr63 = getelementptr inbounds i16, ptr %dest16.3102, i64 1
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %dest16.3102, i64 2
   store i16 %conv62, ptr %dest16.3102, align 2
   %inc65 = add nuw nsw i32 %i.3103, 1
   %exitcond115.not = icmp eq i32 %inc65, 128
@@ -851,7 +845,7 @@ for.body61:                                       ; preds = %sw.bb, %for.body61
 for.body69:                                       ; preds = %for.body69.lr.ph, %for.body69
   %i.4106 = phi i32 [ 128, %for.body69.lr.ph ], [ %inc73, %for.body69 ]
   %dest16.4105 = phi ptr [ %incdec.ptr63, %for.body69.lr.ph ], [ %incdec.ptr71, %for.body69 ]
-  %incdec.ptr71 = getelementptr inbounds i16, ptr %dest16.4105, i64 1
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %dest16.4105, i64 2
   store i16 %conv70, ptr %dest16.4105, align 2
   %inc73 = add nuw nsw i32 %i.4106, 1
   %exitcond116.not = icmp eq i32 %inc73, 192
@@ -860,7 +854,7 @@ for.body69:                                       ; preds = %for.body69.lr.ph, %
 for.body77:                                       ; preds = %for.body69, %for.body77
   %i.5109 = phi i32 [ %inc81, %for.body77 ], [ 0, %for.body69 ]
   %dest16.5108 = phi ptr [ %incdec.ptr79, %for.body77 ], [ %incdec.ptr71, %for.body69 ]
-  %incdec.ptr79 = getelementptr inbounds i16, ptr %dest16.5108, i64 1
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %dest16.5108, i64 2
   store i16 %conv62, ptr %dest16.5108, align 2
   %inc81 = add nuw nsw i32 %i.5109, 1
   %exitcond117.not = icmp eq i32 %inc81, 4
@@ -874,7 +868,7 @@ sw.bb83:                                          ; preds = %for.end58
 for.body88:                                       ; preds = %sw.bb83, %for.body88
   %i.696 = phi i32 [ 0, %sw.bb83 ], [ %inc91, %for.body88 ]
   %p.095 = phi ptr [ %incdec.ptr55, %sw.bb83 ], [ %incdec.ptr89, %for.body88 ]
-  %incdec.ptr89 = getelementptr inbounds i32, ptr %p.095, i64 1
+  %incdec.ptr89 = getelementptr inbounds i8, ptr %p.095, i64 4
   store i32 %initialValue, ptr %p.095, align 4
   %inc91 = add nuw nsw i32 %i.696, 1
   %exitcond112.not = icmp eq i32 %inc91, 128
@@ -883,7 +877,7 @@ for.body88:                                       ; preds = %sw.bb83, %for.body8
 for.body95:                                       ; preds = %for.body88, %for.body95
   %i.799 = phi i32 [ %inc98, %for.body95 ], [ 128, %for.body88 ]
   %p.198 = phi ptr [ %incdec.ptr96, %for.body95 ], [ %incdec.ptr89, %for.body88 ]
-  %incdec.ptr96 = getelementptr inbounds i32, ptr %p.198, i64 1
+  %incdec.ptr96 = getelementptr inbounds i8, ptr %p.198, i64 4
   store i32 %errorValue, ptr %p.198, align 4
   %inc98 = add nuw nsw i32 %i.799, 1
   %exitcond113.not = icmp eq i32 %inc98, 192
@@ -892,7 +886,7 @@ for.body95:                                       ; preds = %for.body88, %for.bo
 for.body102:                                      ; preds = %for.body95, %for.body102
   %i.8101 = phi i32 [ %inc105, %for.body102 ], [ 0, %for.body95 ]
   %p.2100 = phi ptr [ %incdec.ptr103, %for.body102 ], [ %incdec.ptr96, %for.body95 ]
-  %incdec.ptr103 = getelementptr inbounds i32, ptr %p.2100, i64 1
+  %incdec.ptr103 = getelementptr inbounds i8, ptr %p.2100, i64 4
   store i32 %initialValue, ptr %p.2100, align 4
   %inc105 = add nuw nsw i32 %i.8101, 1
   %exitcond114.not = icmp eq i32 %inc105, 4
@@ -917,25 +911,25 @@ entry:
   br i1 %cmp.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
-  %isMemoryOwned = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 13
+  %isMemoryOwned = getelementptr inbounds i8, ptr %trie, i64 68
   %0 = load i8, ptr %isMemoryOwned, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %memory = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 11
+  %memory = getelementptr inbounds i8, ptr %trie, i64 56
   %1 = load ptr, ptr %memory, align 8
   tail call void @uprv_free_75(ptr noundef %1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then1, %if.then
-  %newTrie = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 16
+  %newTrie = getelementptr inbounds i8, ptr %trie, i64 72
   %2 = load ptr, ptr %newTrie, align 8
   %cmp2.not = icmp eq ptr %2, null
   br i1 %cmp2.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %data = getelementptr inbounds %struct.UNewTrie2, ptr %2, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %2, i64 144128
   %3 = load ptr, ptr %data, align 8
   tail call void @uprv_free_75(ptr noundef %3)
   %4 = load ptr, ptr %newTrie, align 8
@@ -953,7 +947,7 @@ if.end7:                                          ; preds = %if.end6, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define signext i8 @utrie2_isFrozen_75(ptr nocapture noundef readonly %trie) local_unnamed_addr #6 {
 entry:
-  %newTrie = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 16
+  %newTrie = getelementptr inbounds i8, ptr %trie, i64 72
   %0 = load ptr, ptr %newTrie, align 8
   %cmp = icmp eq ptr %0, null
   %conv = zext i1 %cmp to i8
@@ -972,13 +966,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then11, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %memory = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 11
+  %memory = getelementptr inbounds i8, ptr %trie, i64 56
   %1 = load ptr, ptr %memory, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then11, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %newTrie = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 16
+  %newTrie = getelementptr inbounds i8, ptr %trie, i64 72
   %2 = load ptr, ptr %newTrie, align 8
   %cmp3 = icmp ne ptr %2, null
   %cmp5 = icmp slt i32 %capacity, 0
@@ -1002,7 +996,7 @@ if.then11:                                        ; preds = %land.lhs.true, %lor
   br label %return
 
 if.end12:                                         ; preds = %land.lhs.true, %lor.lhs.false6
-  %length = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 12
+  %length = getelementptr inbounds i8, ptr %trie, i64 64
   %4 = load i32, ptr %length, align 8
   %cmp13.not = icmp sgt i32 %4, %capacity
   br i1 %cmp13.not, label %if.else, label %do.body
@@ -1041,28 +1035,28 @@ entry:
 if.end:                                           ; preds = %entry
   %cmp1 = icmp eq ptr %enumValue, null
   %spec.store.select = select i1 %cmp1, ptr @_ZL13enumSameValuePKvj, ptr %enumValue
-  %newTrie = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 16
+  %newTrie = getelementptr inbounds i8, ptr %trie, i64 72
   %0 = load ptr, ptr %newTrie, align 8
   %cmp4 = icmp eq ptr %0, null
   br i1 %cmp4, label %if.then5, label %if.else
 
 if.then5:                                         ; preds = %if.end
   %1 = load ptr, ptr %trie, align 8
-  %data326 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 2
-  %index2NullOffset7 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 5
+  %data326 = getelementptr inbounds i8, ptr %trie, i64 16
+  %index2NullOffset7 = getelementptr inbounds i8, ptr %trie, i64 32
   %2 = load i16, ptr %index2NullOffset7, align 8
   %conv = zext i16 %2 to i32
-  %dataNullOffset = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 6
+  %dataNullOffset = getelementptr inbounds i8, ptr %trie, i64 34
   %3 = load i16, ptr %dataNullOffset, align 2
   %conv8 = zext i16 %3 to i32
   %4 = freeze ptr %1
   br label %if.end14
 
 if.else:                                          ; preds = %if.end
-  %data = getelementptr inbounds %struct.UNewTrie2, ptr %0, i64 0, i32 2
-  %index2NullOffset11 = getelementptr inbounds %struct.UNewTrie2, ptr %0, i64 0, i32 9
+  %data = getelementptr inbounds i8, ptr %0, i64 144128
+  %index2NullOffset11 = getelementptr inbounds i8, ptr %0, i64 144160
   %5 = load i32, ptr %index2NullOffset11, align 8
-  %dataNullOffset13 = getelementptr inbounds %struct.UNewTrie2, ptr %0, i64 0, i32 10
+  %dataNullOffset13 = getelementptr inbounds i8, ptr %0, i64 144164
   %6 = load i32, ptr %dataNullOffset13, align 4
   br label %if.end14
 
@@ -1072,9 +1066,9 @@ if.end14:                                         ; preds = %if.else, %if.then5
   %index2NullOffset.0 = phi i32 [ %conv, %if.then5 ], [ %5, %if.else ]
   %nullBlock.0 = phi i32 [ %conv8, %if.then5 ], [ %6, %if.else ]
   %data32.0 = load ptr, ptr %data32.0.in, align 8
-  %highStart15 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 9
+  %highStart15 = getelementptr inbounds i8, ptr %trie, i64 44
   %7 = load i32, ptr %highStart15, align 4
-  %initialValue16 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 7
+  %initialValue16 = getelementptr inbounds i8, ptr %trie, i64 36
   %8 = load i32, ptr %initialValue16, align 4
   %call = tail call noundef i32 %spec.store.select(ptr noundef %context, i32 noundef %8)
   %cmp40.not = icmp eq ptr %idx.0, null
@@ -1222,8 +1216,9 @@ if.then84:                                        ; preds = %for.body82
 
 if.else89:                                        ; preds = %for.body82
   %18 = load ptr, ptr %newTrie, align 8
+  %index2 = getelementptr inbounds i8, ptr %18, i64 2176
   %19 = add nsw i64 %indvars.iv219, %16
-  %arrayidx93 = getelementptr inbounds %struct.UNewTrie2, ptr %18, i64 0, i32 1, i64 %19
+  %arrayidx93 = getelementptr inbounds [35488 x i32], ptr %index2, i64 0, i64 %19
   %20 = load i32, ptr %arrayidx93, align 4
   br label %if.end94
 
@@ -1359,7 +1354,7 @@ if.then153:                                       ; preds = %for.end148
   br i1 %cmp40.not, label %if.else167, label %if.then155
 
 if.then155:                                       ; preds = %if.then153
-  %highValueIndex161 = getelementptr inbounds %struct.UTrie2, ptr %trie, i64 0, i32 10
+  %highValueIndex161 = getelementptr inbounds i8, ptr %trie, i64 48
   %24 = load i32, ptr %highValueIndex161, align 8
   %idxprom162 = sext i32 %24 to i64
   br i1 %cmp119.not, label %cond.false160, label %cond.true157
@@ -1377,13 +1372,13 @@ cond.false160:                                    ; preds = %if.then155
 
 if.else167:                                       ; preds = %if.then153
   %27 = load ptr, ptr %newTrie, align 8
-  %data169 = getelementptr inbounds %struct.UNewTrie2, ptr %27, i64 0, i32 2
+  %data169 = getelementptr inbounds i8, ptr %27, i64 144128
   %28 = load ptr, ptr %data169, align 8
-  %dataLength = getelementptr inbounds %struct.UNewTrie2, ptr %27, i64 0, i32 7
+  %dataLength = getelementptr inbounds i8, ptr %27, i64 144152
   %29 = load i32, ptr %dataLength, align 8
   %30 = sext i32 %29 to i64
   %31 = getelementptr i32, ptr %28, i64 %30
-  %arrayidx173 = getelementptr i32, ptr %31, i64 -4
+  %arrayidx173 = getelementptr i8, ptr %31, i64 -16
   %32 = load i32, ptr %arrayidx173, align 4
   br label %if.end174
 
@@ -1436,30 +1431,30 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i16 @_ZN6icu_7528BackwardUTrie2StringIterator10previous16Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %codePointStart = getelementptr inbounds %"class.icu_75::UTrie2StringIterator", ptr %this, i64 0, i32 1
+  %codePointStart = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %codePointStart, align 8
-  %codePointLimit = getelementptr inbounds %"class.icu_75::UTrie2StringIterator", ptr %this, i64 0, i32 2
+  %codePointLimit = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %0, ptr %codePointLimit, align 8
-  %start = getelementptr inbounds %"class.icu_75::BackwardUTrie2StringIterator", ptr %this, i64 0, i32 1
+  %start = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %start, align 8
   %cmp.not = icmp ult ptr %1, %0
   br i1 %cmp.not, label %do.body, label %if.then
 
 if.then:                                          ; preds = %entry
-  %codePoint = getelementptr inbounds %"class.icu_75::UTrie2StringIterator", ptr %this, i64 0, i32 3
+  %codePoint = getelementptr inbounds i8, ptr %this, i64 24
   store i32 -1, ptr %codePoint, align 8
   %2 = load ptr, ptr %this, align 8
-  %errorValue = getelementptr inbounds %struct.UTrie2, ptr %2, i64 0, i32 8
+  %errorValue = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load i32, ptr %errorValue, align 8
   %conv = trunc i32 %3 to i16
   br label %return
 
 do.body:                                          ; preds = %entry
-  %incdec.ptr = getelementptr inbounds i16, ptr %0, i64 -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 -2
   store ptr %incdec.ptr, ptr %codePointStart, align 8
   %4 = load i16, ptr %incdec.ptr, align 2
   %conv4 = zext i16 %4 to i32
-  %codePoint5 = getelementptr inbounds %"class.icu_75::UTrie2StringIterator", ptr %this, i64 0, i32 3
+  %codePoint5 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %conv4, ptr %codePoint5, align 8
   %and = and i32 %conv4, 64512
   %cmp7 = icmp ne i32 %and, 56320
@@ -1468,7 +1463,7 @@ do.body:                                          ; preds = %entry
   br i1 %or.cond, label %if.then16, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %do.body
-  %add.ptr = getelementptr inbounds i16, ptr %0, i64 -2
+  %add.ptr = getelementptr inbounds i8, ptr %0, i64 -4
   %5 = load i16, ptr %add.ptr, align 2
   %conv13 = zext i16 %5 to i32
   %and14 = and i32 %conv13, 64512
@@ -1501,13 +1496,13 @@ if.else:                                          ; preds = %lor.lhs.false11
   store i32 %sub, ptr %codePoint5, align 8
   %9 = load ptr, ptr %this, align 8
   %10 = load ptr, ptr %9, align 8
-  %highStart = getelementptr inbounds %struct.UTrie2, ptr %9, i64 0, i32 9
+  %highStart = getelementptr inbounds i8, ptr %9, i64 44
   %11 = load i32, ptr %highStart, align 4
   %cmp41.not = icmp slt i32 %sub, %11
   br i1 %cmp41.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.else
-  %highValueIndex = getelementptr inbounds %struct.UTrie2, ptr %9, i64 0, i32 10
+  %highValueIndex = getelementptr inbounds i8, ptr %9, i64 48
   %12 = load i32, ptr %highValueIndex, align 8
   br label %cond.end
 
@@ -1515,7 +1510,7 @@ cond.false:                                       ; preds = %if.else
   %shr48 = lshr i32 %sub, 11
   %13 = zext nneg i32 %shr48 to i64
   %14 = getelementptr i16, ptr %10, i64 %13
-  %arrayidx51 = getelementptr i16, ptr %14, i64 2080
+  %arrayidx51 = getelementptr i8, ptr %14, i64 4160
   %15 = load i16, ptr %arrayidx51, align 2
   %conv52 = zext i16 %15 to i32
   %shr54 = lshr i32 %sub, 5
@@ -1549,30 +1544,30 @@ return:                                           ; preds = %do.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i16 @_ZN6icu_7527ForwardUTrie2StringIterator6next16Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %codePointLimit = getelementptr inbounds %"class.icu_75::UTrie2StringIterator", ptr %this, i64 0, i32 2
+  %codePointLimit = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %codePointLimit, align 8
-  %codePointStart = getelementptr inbounds %"class.icu_75::UTrie2StringIterator", ptr %this, i64 0, i32 1
+  %codePointStart = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %0, ptr %codePointStart, align 8
-  %limit = getelementptr inbounds %"class.icu_75::ForwardUTrie2StringIterator", ptr %this, i64 0, i32 1
+  %limit = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %limit, align 8
   %cmp = icmp eq ptr %0, %1
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
-  %codePoint = getelementptr inbounds %"class.icu_75::UTrie2StringIterator", ptr %this, i64 0, i32 3
+  %codePoint = getelementptr inbounds i8, ptr %this, i64 24
   store i32 -1, ptr %codePoint, align 8
   %2 = load ptr, ptr %this, align 8
-  %errorValue = getelementptr inbounds %struct.UTrie2, ptr %2, i64 0, i32 8
+  %errorValue = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load i32, ptr %errorValue, align 8
   %conv = trunc i32 %3 to i16
   br label %return
 
 do.body:                                          ; preds = %entry
-  %incdec.ptr = getelementptr inbounds i16, ptr %0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 2
   store ptr %incdec.ptr, ptr %codePointLimit, align 8
   %4 = load i16, ptr %0, align 2
   %conv4 = zext i16 %4 to i32
-  %codePoint5 = getelementptr inbounds %"class.icu_75::UTrie2StringIterator", ptr %this, i64 0, i32 3
+  %codePoint5 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %conv4, ptr %codePoint5, align 8
   %and = and i32 %conv4, 64512
   %cmp7 = icmp eq i32 %and, 55296
@@ -1610,7 +1605,7 @@ if.then26:                                        ; preds = %lor.lhs.false, %if.
   %shr32 = lshr i32 %conv4, 5
   %11 = zext nneg i32 %shr32 to i64
   %12 = getelementptr i16, ptr %10, i64 %11
-  %arrayidx35 = getelementptr i16, ptr %12, i64 320
+  %arrayidx35 = getelementptr i8, ptr %12, i64 640
   %13 = load i16, ptr %arrayidx35, align 2
   %conv36 = zext i16 %13 to i32
   %shl37 = shl nuw nsw i32 %conv36, 2
@@ -1621,7 +1616,7 @@ if.then26:                                        ; preds = %lor.lhs.false, %if.
   br label %do.end
 
 if.else43:                                        ; preds = %lor.lhs.false
-  %incdec.ptr45 = getelementptr inbounds i16, ptr %0, i64 2
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %0, i64 4
   store ptr %incdec.ptr45, ptr %codePointLimit, align 8
   %shl47 = shl nuw nsw i32 %conv4, 10
   %add49 = add nsw i32 %shl47, -56613888
@@ -1629,13 +1624,13 @@ if.else43:                                        ; preds = %lor.lhs.false
   store i32 %sub, ptr %codePoint5, align 8
   %14 = load ptr, ptr %this, align 8
   %15 = load ptr, ptr %14, align 8
-  %highStart = getelementptr inbounds %struct.UTrie2, ptr %14, i64 0, i32 9
+  %highStart = getelementptr inbounds i8, ptr %14, i64 44
   %16 = load i32, ptr %highStart, align 4
   %cmp55.not = icmp slt i32 %sub, %16
   br i1 %cmp55.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.else43
-  %highValueIndex = getelementptr inbounds %struct.UTrie2, ptr %14, i64 0, i32 10
+  %highValueIndex = getelementptr inbounds i8, ptr %14, i64 48
   %17 = load i32, ptr %highValueIndex, align 8
   br label %cond.end
 
@@ -1643,7 +1638,7 @@ cond.false:                                       ; preds = %if.else43
   %shr62 = lshr i32 %sub, 11
   %18 = zext nneg i32 %shr62 to i64
   %19 = getelementptr i16, ptr %15, i64 %18
-  %arrayidx65 = getelementptr i16, ptr %19, i64 2080
+  %arrayidx65 = getelementptr i8, ptr %19, i64 4160
   %20 = load i16, ptr %arrayidx65, align 2
   %conv66 = zext i16 %20 to i32
   %shr68 = lshr i32 %sub, 5

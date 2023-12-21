@@ -15,8 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._PyLongValue = type { i64, [1 x i32] }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 %struct.PyVarObject = type { %struct._object, i64 }
-%struct.PySequenceMethods = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PyMappingMethods = type { ptr, ptr, ptr }
 
 @_bisectmodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @module_doc, i64 8, ptr @bisect_methods, ptr @bisect_slots, ptr null, ptr @bisect_clear, ptr @bisect_free }, align 8
 @.str = private unnamed_addr constant [8 x i8] c"_bisect\00", align 1
@@ -159,13 +157,13 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1031 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1031, align 8
-  %arrayidx12 = getelementptr ptr, ptr %cond1031, i64 1
+  %arrayidx12 = getelementptr i8, ptr %cond1031, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %tobool13.not = icmp eq i64 %sub, 0
   br i1 %tobool13.not, label %skip_optional_kwonly, label %if.end15
 
 if.end15:                                         ; preds = %if.end
-  %arrayidx16 = getelementptr ptr, ptr %cond1031, i64 2
+  %arrayidx16 = getelementptr i8, ptr %cond1031, i64 16
   %6 = load ptr, ptr %arrayidx16, align 8
   %tobool17.not = icmp eq ptr %6, null
   br i1 %tobool17.not, label %if.end34, label %if.then18
@@ -210,7 +208,7 @@ if.end30:                                         ; preds = %land.lhs.true26, %i
 if.end34:                                         ; preds = %if.end30, %if.end15
   %noptargs.0 = phi i64 [ %dec, %if.end30 ], [ %sub, %if.end15 ]
   %lo.0 = phi i64 [ %ival.034, %if.end30 ], [ 0, %if.end15 ]
-  %arrayidx35 = getelementptr ptr, ptr %cond1031, i64 3
+  %arrayidx35 = getelementptr i8, ptr %cond1031, i64 24
   %9 = load ptr, ptr %arrayidx35, align 8
   %tobool36.not = icmp eq ptr %9, null
   br i1 %tobool36.not, label %if.end50, label %if.then37
@@ -225,7 +223,7 @@ skip_optional_pos:                                ; preds = %if.then37
   br i1 %10, label %skip_optional_kwonly, label %if.end50
 
 if.end50:                                         ; preds = %if.end34, %skip_optional_pos
-  %arrayidx51 = getelementptr ptr, ptr %cond1031, i64 4
+  %arrayidx51 = getelementptr i8, ptr %cond1031, i64 32
   %11 = load ptr, ptr %arrayidx51, align 8
   br label %skip_optional_kwonly
 
@@ -284,13 +282,13 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1032 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1032, align 8
-  %arrayidx12 = getelementptr ptr, ptr %cond1032, i64 1
+  %arrayidx12 = getelementptr i8, ptr %cond1032, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %tobool13.not = icmp eq i64 %sub, 0
   br i1 %tobool13.not, label %if.then.i, label %if.end15
 
 if.end15:                                         ; preds = %if.end
-  %arrayidx16 = getelementptr ptr, ptr %cond1032, i64 2
+  %arrayidx16 = getelementptr i8, ptr %cond1032, i64 16
   %6 = load ptr, ptr %arrayidx16, align 8
   %tobool17.not = icmp eq ptr %6, null
   br i1 %tobool17.not, label %if.end34, label %if.then18
@@ -335,7 +333,7 @@ if.end30:                                         ; preds = %land.lhs.true26, %i
 if.end34:                                         ; preds = %if.end30, %if.end15
   %noptargs.0 = phi i64 [ %dec, %if.end30 ], [ %sub, %if.end15 ]
   %lo.0 = phi i64 [ %ival.035, %if.end30 ], [ 0, %if.end15 ]
-  %arrayidx35 = getelementptr ptr, ptr %cond1032, i64 3
+  %arrayidx35 = getelementptr i8, ptr %cond1032, i64 24
   %9 = load ptr, ptr %arrayidx35, align 8
   %tobool36.not = icmp eq ptr %9, null
   br i1 %tobool36.not, label %skip_optional_kwonly, label %if.then37
@@ -352,7 +350,7 @@ skip_optional_pos:                                ; preds = %if.then37
 
 skip_optional_kwonly:                             ; preds = %skip_optional_pos, %if.end34
   %11 = phi i64 [ -1, %if.end34 ], [ %.pre48, %skip_optional_pos ]
-  %arrayidx51 = getelementptr ptr, ptr %cond1032, i64 4
+  %arrayidx51 = getelementptr i8, ptr %cond1032, i64 32
   %12 = load ptr, ptr %arrayidx51, align 8
   %cmp.i28 = icmp eq ptr %12, @_Py_NoneStruct
   br i1 %cmp.i28, label %if.then.i, label %if.else.i
@@ -465,13 +463,13 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1031 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1031, align 8
-  %arrayidx12 = getelementptr ptr, ptr %cond1031, i64 1
+  %arrayidx12 = getelementptr i8, ptr %cond1031, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %tobool13.not = icmp eq i64 %sub, 0
   br i1 %tobool13.not, label %skip_optional_kwonly, label %if.end15
 
 if.end15:                                         ; preds = %if.end
-  %arrayidx16 = getelementptr ptr, ptr %cond1031, i64 2
+  %arrayidx16 = getelementptr i8, ptr %cond1031, i64 16
   %6 = load ptr, ptr %arrayidx16, align 8
   %tobool17.not = icmp eq ptr %6, null
   br i1 %tobool17.not, label %if.end34, label %if.then18
@@ -516,7 +514,7 @@ if.end30:                                         ; preds = %land.lhs.true26, %i
 if.end34:                                         ; preds = %if.end30, %if.end15
   %noptargs.0 = phi i64 [ %dec, %if.end30 ], [ %sub, %if.end15 ]
   %lo.0 = phi i64 [ %ival.034, %if.end30 ], [ 0, %if.end15 ]
-  %arrayidx35 = getelementptr ptr, ptr %cond1031, i64 3
+  %arrayidx35 = getelementptr i8, ptr %cond1031, i64 24
   %9 = load ptr, ptr %arrayidx35, align 8
   %tobool36.not = icmp eq ptr %9, null
   br i1 %tobool36.not, label %if.end50, label %if.then37
@@ -531,7 +529,7 @@ skip_optional_pos:                                ; preds = %if.then37
   br i1 %10, label %skip_optional_kwonly, label %if.end50
 
 if.end50:                                         ; preds = %if.end34, %skip_optional_pos
-  %arrayidx51 = getelementptr ptr, ptr %cond1031, i64 4
+  %arrayidx51 = getelementptr i8, ptr %cond1031, i64 32
   %11 = load ptr, ptr %arrayidx51, align 8
   br label %skip_optional_kwonly
 
@@ -590,13 +588,13 @@ cond.end9:                                        ; preds = %cond.end
 if.end:                                           ; preds = %cond.end, %cond.end9
   %cond1032 = phi ptr [ %call8, %cond.end9 ], [ %args, %cond.end ]
   %4 = load ptr, ptr %cond1032, align 8
-  %arrayidx12 = getelementptr ptr, ptr %cond1032, i64 1
+  %arrayidx12 = getelementptr i8, ptr %cond1032, i64 8
   %5 = load ptr, ptr %arrayidx12, align 8
   %tobool13.not = icmp eq i64 %sub, 0
   br i1 %tobool13.not, label %if.then.i, label %if.end15
 
 if.end15:                                         ; preds = %if.end
-  %arrayidx16 = getelementptr ptr, ptr %cond1032, i64 2
+  %arrayidx16 = getelementptr i8, ptr %cond1032, i64 16
   %6 = load ptr, ptr %arrayidx16, align 8
   %tobool17.not = icmp eq ptr %6, null
   br i1 %tobool17.not, label %if.end34, label %if.then18
@@ -641,7 +639,7 @@ if.end30:                                         ; preds = %land.lhs.true26, %i
 if.end34:                                         ; preds = %if.end30, %if.end15
   %noptargs.0 = phi i64 [ %dec, %if.end30 ], [ %sub, %if.end15 ]
   %lo.0 = phi i64 [ %ival.035, %if.end30 ], [ 0, %if.end15 ]
-  %arrayidx35 = getelementptr ptr, ptr %cond1032, i64 3
+  %arrayidx35 = getelementptr i8, ptr %cond1032, i64 24
   %9 = load ptr, ptr %arrayidx35, align 8
   %tobool36.not = icmp eq ptr %9, null
   br i1 %tobool36.not, label %skip_optional_kwonly, label %if.then37
@@ -658,7 +656,7 @@ skip_optional_pos:                                ; preds = %if.then37
 
 skip_optional_kwonly:                             ; preds = %skip_optional_pos, %if.end34
   %11 = phi i64 [ -1, %if.end34 ], [ %.pre48, %skip_optional_pos ]
-  %arrayidx51 = getelementptr ptr, ptr %cond1032, i64 4
+  %arrayidx51 = getelementptr i8, ptr %cond1032, i64 32
   %12 = load ptr, ptr %arrayidx51, align 8
   %cmp.i28 = icmp eq ptr %12, @_Py_NoneStruct
   br i1 %cmp.i28, label %if.then.i, label %if.else.i
@@ -776,25 +774,25 @@ if.end6:                                          ; preds = %if.then2, %if.end
   %hi.addr.0 = phi i64 [ %call, %if.then2 ], [ %hi, %if.end ]
   %1 = getelementptr i8, ptr %list, i64 8
   %list.val = load ptr, ptr %1, align 8
-  %tp_as_sequence.i = getelementptr inbounds %struct._typeobject, ptr %list.val, i64 0, i32 11
+  %tp_as_sequence.i = getelementptr inbounds i8, ptr %list.val, i64 104
   %2 = load ptr, ptr %tp_as_sequence.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.end.i58, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end6
-  %sq_item.i = getelementptr inbounds %struct.PySequenceMethods, ptr %2, i64 0, i32 3
+  %sq_item.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %sq_item.i, align 8
   %tobool1.not.i = icmp eq ptr %3, null
   br i1 %tobool1.not.i, label %if.end.i58, label %if.end10
 
 if.end.i58:                                       ; preds = %land.lhs.true.i, %if.end6
-  %tp_as_mapping.i = getelementptr inbounds %struct._typeobject, ptr %list.val, i64 0, i32 12
+  %tp_as_mapping.i = getelementptr inbounds i8, ptr %list.val, i64 112
   %4 = load ptr, ptr %tp_as_mapping.i, align 8
   %tobool3.not.i = icmp eq ptr %4, null
   br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %if.end.i58
-  %mp_subscript.i = getelementptr inbounds %struct.PyMappingMethods, ptr %4, i64 0, i32 1
+  %mp_subscript.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mp_subscript.i, align 8
   %tobool6.not.i = icmp eq ptr %5, null
   br i1 %tobool6.not.i, label %if.else.i, label %get_sq_item.exit.thread
@@ -805,7 +803,7 @@ if.else.i:                                        ; preds = %land.lhs.true4.i, %
 get_sq_item.exit.thread:                          ; preds = %land.lhs.true4.i, %if.else.i
   %msg.0.i = phi ptr [ @.str.13, %if.else.i ], [ @.str.12, %land.lhs.true4.i ]
   %6 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %list.val, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %list.val, i64 24
   %7 = load ptr, ptr %tp_name.i, align 8
   %call9.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull %msg.0.i, ptr noundef %7) #2
   br label %return
@@ -822,7 +820,7 @@ if.end13:                                         ; preds = %if.end10
   br i1 %cmp1595145167, label %while.body.lr.ph.lr.ph.lr.ph, label %while.end
 
 while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %if.end13
-  %tp_richcompare = getelementptr inbounds %struct._typeobject, ptr %item.val, i64 0, i32 23
+  %tp_richcompare = getelementptr inbounds i8, ptr %item.val, i64 200
   %9 = load ptr, ptr %tp_richcompare, align 8
   %cmp20.not = icmp eq ptr %key, @_Py_NoneStruct
   %.fr = freeze ptr %9
@@ -1262,25 +1260,25 @@ if.end6:                                          ; preds = %if.then2, %if.end
   %hi.addr.0 = phi i64 [ %call, %if.then2 ], [ %hi, %if.end ]
   %1 = getelementptr i8, ptr %list, i64 8
   %list.val = load ptr, ptr %1, align 8
-  %tp_as_sequence.i = getelementptr inbounds %struct._typeobject, ptr %list.val, i64 0, i32 11
+  %tp_as_sequence.i = getelementptr inbounds i8, ptr %list.val, i64 104
   %2 = load ptr, ptr %tp_as_sequence.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.end.i58, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end6
-  %sq_item.i = getelementptr inbounds %struct.PySequenceMethods, ptr %2, i64 0, i32 3
+  %sq_item.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load ptr, ptr %sq_item.i, align 8
   %tobool1.not.i = icmp eq ptr %3, null
   br i1 %tobool1.not.i, label %if.end.i58, label %if.end10
 
 if.end.i58:                                       ; preds = %land.lhs.true.i, %if.end6
-  %tp_as_mapping.i = getelementptr inbounds %struct._typeobject, ptr %list.val, i64 0, i32 12
+  %tp_as_mapping.i = getelementptr inbounds i8, ptr %list.val, i64 112
   %4 = load ptr, ptr %tp_as_mapping.i, align 8
   %tobool3.not.i = icmp eq ptr %4, null
   br i1 %tobool3.not.i, label %if.else.i, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %if.end.i58
-  %mp_subscript.i = getelementptr inbounds %struct.PyMappingMethods, ptr %4, i64 0, i32 1
+  %mp_subscript.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %mp_subscript.i, align 8
   %tobool6.not.i = icmp eq ptr %5, null
   br i1 %tobool6.not.i, label %if.else.i, label %get_sq_item.exit.thread
@@ -1291,7 +1289,7 @@ if.else.i:                                        ; preds = %land.lhs.true4.i, %
 get_sq_item.exit.thread:                          ; preds = %land.lhs.true4.i, %if.else.i
   %msg.0.i = phi ptr [ @.str.13, %if.else.i ], [ @.str.12, %land.lhs.true4.i ]
   %6 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %list.val, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %list.val, i64 24
   %7 = load ptr, ptr %tp_name.i, align 8
   %call9.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull %msg.0.i, ptr noundef %7) #2
   br label %return
@@ -1308,7 +1306,7 @@ if.end13:                                         ; preds = %if.end10
   br i1 %cmp1590136158, label %while.body.lr.ph.lr.ph.lr.ph, label %while.end
 
 while.body.lr.ph.lr.ph.lr.ph:                     ; preds = %if.end13
-  %tp_richcompare = getelementptr inbounds %struct._typeobject, ptr %item.val, i64 0, i32 23
+  %tp_richcompare = getelementptr inbounds i8, ptr %item.val, i64 200
   %9 = load ptr, ptr %tp_richcompare, align 8
   %cmp20.not = icmp eq ptr %key, @_Py_NoneStruct
   %.fr = freeze ptr %9

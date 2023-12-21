@@ -15,20 +15,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyMemberDef = type { ptr, i32, i64, i32, ptr }
 %struct._PyArg_Parser = type { ptr, ptr, ptr, ptr, %struct._PyOnceFlag, i32, i32, i32, i32, ptr, ptr }
 %struct._PyOnceFlag = type { i8 }
-%struct._lzma_state = type { ptr, ptr, ptr, ptr }
-%struct.PyBytesObject = type { %struct.PyVarObject, i64, [1 x i8] }
-%struct.PyVarObject = type { %struct._object, i64 }
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.lzma_options_lzma = type { i32, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
-%struct.lzma_options_delta = type { i32, i32, i32, i32, i32, i32, ptr, ptr }
-%struct.Compressor = type { %struct._object, %struct.lzma_allocator, %struct.lzma_stream, i32, ptr }
-%struct.lzma_allocator = type { ptr, ptr, ptr }
-%struct.lzma_stream = type { ptr, i64, i64, ptr, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i32, i32 }
-%struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8 }
 %struct._BlocksOutputBuffer = type { ptr, i64, i64 }
-%struct.PyListObject = type { %struct.PyVarObject, ptr, i64 }
-%struct.Decompressor = type { %struct._object, %struct.lzma_allocator, %struct.lzma_stream, i32, i8, ptr, i8, ptr, i64, ptr }
-%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
+%struct.lzma_options_lzma = type { i32, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
 
 @_lzmamodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr null, i64 32, ptr @lzma_methods, ptr @lzma_slots, ptr @lzma_traverse, ptr @lzma_clear, ptr @lzma_free }, align 8
 @.str = private unnamed_addr constant [6 x i8] c"_lzma\00", align 1
@@ -189,7 +178,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %do.body6, label %return
 
 do.body6:                                         ; preds = %if.then, %entry
-  %lzma_decompressor_type = getelementptr inbounds %struct._lzma_state, ptr %call.i, i64 0, i32 1
+  %lzma_decompressor_type = getelementptr inbounds i8, ptr %call.i, i64 8
   %1 = load ptr, ptr %lzma_decompressor_type, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %do.body17, label %if.then8
@@ -200,7 +189,7 @@ if.then8:                                         ; preds = %do.body6
   br i1 %tobool12.not, label %do.body17, label %return
 
 do.body17:                                        ; preds = %if.then8, %do.body6
-  %error = getelementptr inbounds %struct._lzma_state, ptr %call.i, i64 0, i32 2
+  %error = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %error, align 8
   %tobool18.not = icmp eq ptr %2, null
   br i1 %tobool18.not, label %do.body28, label %if.then19
@@ -211,7 +200,7 @@ if.then19:                                        ; preds = %do.body17
   br i1 %tobool23.not, label %do.body28, label %return
 
 do.body28:                                        ; preds = %if.then19, %do.body17
-  %empty_tuple = getelementptr inbounds %struct._lzma_state, ptr %call.i, i64 0, i32 3
+  %empty_tuple = getelementptr inbounds i8, ptr %call.i, i64 24
   %3 = load ptr, ptr %empty_tuple, align 8
   %tobool29.not = icmp eq ptr %3, null
   br i1 %tobool29.not, label %do.end38, label %if.then30
@@ -255,7 +244,7 @@ if.then1.i46:                                     ; preds = %if.end.i43
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i43, %if.then1.i46, %if.then, %entry
-  %lzma_decompressor_type = getelementptr inbounds %struct._lzma_state, ptr %call.i, i64 0, i32 1
+  %lzma_decompressor_type = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %lzma_decompressor_type, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.body8, label %if.then5
@@ -278,7 +267,7 @@ if.then1.i37:                                     ; preds = %if.end.i34
   br label %do.body8
 
 do.body8:                                         ; preds = %if.end.i34, %if.then1.i37, %if.then5, %do.body1
-  %error = getelementptr inbounds %struct._lzma_state, ptr %call.i, i64 0, i32 2
+  %error = getelementptr inbounds i8, ptr %call.i, i64 16
   %6 = load ptr, ptr %error, align 8
   %cmp11.not = icmp eq ptr %6, null
   br i1 %cmp11.not, label %do.body15, label %if.then12
@@ -301,7 +290,7 @@ if.then1.i28:                                     ; preds = %if.end.i25
   br label %do.body15
 
 do.body15:                                        ; preds = %if.end.i25, %if.then1.i28, %if.then12, %do.body8
-  %empty_tuple = getelementptr inbounds %struct._lzma_state, ptr %call.i, i64 0, i32 3
+  %empty_tuple = getelementptr inbounds i8, ptr %call.i, i64 24
   %9 = load ptr, ptr %empty_tuple, align 8
   %cmp18.not = icmp eq ptr %9, null
   br i1 %cmp18.not, label %do.end21, label %if.then19
@@ -372,12 +361,12 @@ entry:
   br i1 %tobool.not, label %exit, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = getelementptr inbounds { i64, ptr }, ptr %filter, i64 0, i32 1
+  %0 = getelementptr inbounds i8, ptr %filter, i64 8
   %1 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %filter.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %encoded_size.i)
   store i64 %.pre, ptr %filter.i, align 8
-  %2 = getelementptr inbounds { i64, ptr }, ptr %filter.i, i64 0, i32 1
+  %2 = getelementptr inbounds i8, ptr %filter.i, i64 8
   store ptr %1, ptr %2, align 8
   %call.i.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %call1.i = call i32 @lzma_properties_size(ptr noundef nonnull %encoded_size.i, ptr noundef nonnull %filter.i) #9
@@ -393,7 +382,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i, label %_lzma__encode_filter_properties_impl.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call3.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   %call8.i = call i32 @lzma_properties_encode(ptr noundef nonnull %filter.i, ptr noundef nonnull %ob_sval.i.i) #9
   %call9.i = call fastcc i32 @catch_lzma_error(ptr noundef %call.i.i, i32 noundef %call8.i), !range !4
   %tobool10.not.i = icmp eq i32 %call9.i, 0
@@ -427,7 +416,7 @@ exit:                                             ; preds = %entry, %_lzma__enco
   br i1 %cmp.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %exit
-  %options = getelementptr inbounds %struct.lzma_filter, ptr %filter, i64 0, i32 1
+  %options = getelementptr inbounds i8, ptr %filter, i64 8
   %6 = load ptr, ptr %options, align 8
   call void @PyMem_Free(ptr noundef %6) #9
   br label %if.end4
@@ -458,7 +447,7 @@ if.end:                                           ; preds = %entry, %lor.lhs.fal
   br i1 %tobool.not.i, label %if.end5, label %exit
 
 if.end5:                                          ; preds = %if.end
-  %arrayidx6 = getelementptr ptr, ptr %args, i64 1
+  %arrayidx6 = getelementptr i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @PyObject_GetBuffer(ptr noundef %1, ptr noundef nonnull %encoded_props, i32 noundef 0) #9
   %cmp8.not = icmp eq i32 %call7, 0
@@ -469,7 +458,7 @@ if.end10:                                         ; preds = %if.end5
   store i64 %call.i, ptr %filter.i, align 8
   %call.i.i = call ptr @PyModule_GetState(ptr noundef %module) #9
   %2 = load ptr, ptr %encoded_props, align 8
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %encoded_props, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %encoded_props, i64 16
   %3 = load i64, ptr %len.i, align 8
   %call1.i4 = call i32 @lzma_properties_decode(ptr noundef nonnull %filter.i, ptr noundef null, ptr noundef %2, i64 noundef %3) #9
   %call2.i = call fastcc i32 @catch_lzma_error(ptr noundef %call.i.i, i32 noundef %call1.i4), !range !4
@@ -502,9 +491,9 @@ do.end.i.i:                                       ; preds = %do.body.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %do.end.i.i
-  %options6.i.i = getelementptr inbounds %struct.lzma_filter, ptr %filter.i, i64 0, i32 1
+  %options6.i.i = getelementptr inbounds i8, ptr %filter.i, i64 8
   %6 = load ptr, ptr %options6.i.i, align 8
-  %lc.i.i = getelementptr inbounds %struct.lzma_options_lzma, ptr %6, i64 0, i32 3
+  %lc.i.i = getelementptr inbounds i8, ptr %6, i64 20
   %7 = load i32, ptr %lc.i.i, align 4
   %conv.i.i = zext i32 %7 to i64
   %call8.i.i = call fastcc i32 @spec_add_field(ptr noundef nonnull %call.i2.i, ptr noundef nonnull @.str.10, i64 noundef %conv.i.i)
@@ -512,7 +501,7 @@ sw.bb.i.i:                                        ; preds = %do.end.i.i
   br i1 %cmp9.i.i, label %error.i.i, label %do.body14.i.i
 
 do.body14.i.i:                                    ; preds = %sw.bb.i.i
-  %lp.i.i = getelementptr inbounds %struct.lzma_options_lzma, ptr %6, i64 0, i32 4
+  %lp.i.i = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load i32, ptr %lp.i.i, align 8
   %conv15.i.i = zext i32 %8 to i64
   %call16.i.i = call fastcc i32 @spec_add_field(ptr noundef nonnull %call.i2.i, ptr noundef nonnull @.str.11, i64 noundef %conv15.i.i)
@@ -520,7 +509,7 @@ do.body14.i.i:                                    ; preds = %sw.bb.i.i
   br i1 %cmp17.i.i, label %error.i.i, label %do.body22.i.i
 
 do.body22.i.i:                                    ; preds = %do.body14.i.i
-  %pb.i.i = getelementptr inbounds %struct.lzma_options_lzma, ptr %6, i64 0, i32 5
+  %pb.i.i = getelementptr inbounds i8, ptr %6, i64 28
   %9 = load i32, ptr %pb.i.i, align 4
   %conv23.i.i = zext i32 %9 to i64
   %call24.i.i = call fastcc i32 @spec_add_field(ptr noundef nonnull %call.i2.i, ptr noundef nonnull @.str.12, i64 noundef %conv23.i.i)
@@ -535,7 +524,7 @@ do.body30.i.i:                                    ; preds = %do.body22.i.i
   br i1 %cmp33.i.i, label %error.i.i, label %build_filter_spec.exit.i
 
 sw.bb38.i.i:                                      ; preds = %do.end.i.i
-  %options40.i.i = getelementptr inbounds %struct.lzma_filter, ptr %filter.i, i64 0, i32 1
+  %options40.i.i = getelementptr inbounds i8, ptr %filter.i, i64 8
   %11 = load ptr, ptr %options40.i.i, align 8
   %12 = load i32, ptr %11, align 8
   %conv43.i.i = zext i32 %12 to i64
@@ -544,9 +533,9 @@ sw.bb38.i.i:                                      ; preds = %do.end.i.i
   br i1 %cmp45.i.i, label %error.i.i, label %build_filter_spec.exit.i
 
 sw.bb50.i.i:                                      ; preds = %do.end.i.i
-  %options52.i.i = getelementptr inbounds %struct.lzma_filter, ptr %filter.i, i64 0, i32 1
+  %options52.i.i = getelementptr inbounds i8, ptr %filter.i, i64 8
   %13 = load ptr, ptr %options52.i.i, align 8
-  %dist.i.i = getelementptr inbounds %struct.lzma_options_delta, ptr %13, i64 0, i32 1
+  %dist.i.i = getelementptr inbounds i8, ptr %13, i64 4
   %14 = load i32, ptr %dist.i.i, align 4
   %conv54.i.i = zext i32 %14 to i64
   %call55.i.i = call fastcc i32 @spec_add_field(ptr noundef nonnull %call.i2.i, ptr noundef nonnull @.str.23, i64 noundef %conv54.i.i)
@@ -554,7 +543,7 @@ sw.bb50.i.i:                                      ; preds = %do.end.i.i
   br i1 %cmp56.i.i, label %error.i.i, label %build_filter_spec.exit.i
 
 sw.bb61.i.i:                                      ; preds = %do.end.i.i, %do.end.i.i, %do.end.i.i, %do.end.i.i, %do.end.i.i, %do.end.i.i
-  %options63.i.i = getelementptr inbounds %struct.lzma_filter, ptr %filter.i, i64 0, i32 1
+  %options63.i.i = getelementptr inbounds i8, ptr %filter.i, i64 8
   %15 = load ptr, ptr %options63.i.i, align 8
   %16 = load i32, ptr %15, align 4
   %conv65.i.i = zext i32 %16 to i64
@@ -585,7 +574,7 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
 
 build_filter_spec.exit.i:                         ; preds = %if.then1.i.i.i, %if.end.i.i.i, %error.i.i, %sw.bb61.i.i, %sw.bb50.i.i, %sw.bb38.i.i, %do.body30.i.i, %if.end.i
   %retval.0.i.i = phi ptr [ null, %if.end.i ], [ %call.i2.i, %sw.bb61.i.i ], [ %call.i2.i, %sw.bb50.i.i ], [ %call.i2.i, %sw.bb38.i.i ], [ %call.i2.i, %do.body30.i.i ], [ null, %error.i.i ], [ null, %if.then1.i.i.i ], [ null, %if.end.i.i.i ]
-  %options.i = getelementptr inbounds %struct.lzma_filter, ptr %filter.i, i64 0, i32 1
+  %options.i = getelementptr inbounds i8, ptr %filter.i, i64 8
   %20 = load ptr, ptr %options.i, align 8
   call void @free(ptr noundef %20) #9
   br label %_lzma__decode_filter_properties_impl.exit
@@ -597,7 +586,7 @@ _lzma__decode_filter_properties_impl.exit:        ; preds = %if.end10, %build_fi
 
 exit:                                             ; preds = %if.end, %if.end5, %lor.lhs.false, %_lzma__decode_filter_properties_impl.exit
   %return_value.0 = phi ptr [ null, %if.end5 ], [ %retval.0.i6, %_lzma__decode_filter_properties_impl.exit ], [ null, %lor.lhs.false ], [ null, %if.end ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %encoded_props, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %encoded_props, i64 8
   %21 = load ptr, ptr %obj, align 8
   %tobool12.not = icmp eq ptr %21, null
   br i1 %tobool12.not, label %if.end14, label %if.then13
@@ -692,7 +681,7 @@ if.end11:                                         ; preds = %Py_DECREF.exit
 
 sw.bb:                                            ; preds = %if.end11, %if.end11
   %call13 = call fastcc ptr @parse_filter_spec_lzma(ptr noundef %state, ptr noundef %spec)
-  %options = getelementptr inbounds %struct.lzma_filter, ptr %ptr, i64 0, i32 1
+  %options = getelementptr inbounds i8, ptr %ptr, i64 8
   store ptr %call13, ptr %options, align 8
   %cmp15 = icmp ne ptr %call13, null
   br label %return
@@ -701,7 +690,7 @@ sw.bb16:                                          ; preds = %if.end11
   %7 = getelementptr i8, ptr %state, i64 24
   %state.val = load ptr, ptr %7, align 8
   %call17 = call fastcc ptr @parse_filter_spec_delta(ptr %state.val, ptr noundef %spec)
-  %options18 = getelementptr inbounds %struct.lzma_filter, ptr %ptr, i64 0, i32 1
+  %options18 = getelementptr inbounds i8, ptr %ptr, i64 8
   store ptr %call17, ptr %options18, align 8
   %cmp20 = icmp ne ptr %call17, null
   br label %return
@@ -739,7 +728,7 @@ parse_filter_spec_bcj.exit:                       ; preds = %if.then.i, %if.then
   %retval.0.i = phi ptr [ %call3.i, %if.then2.i ], [ %call1.i, %if.end4.i ], [ null, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %id.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %start_offset.i)
-  %options24 = getelementptr inbounds %struct.lzma_filter, ptr %ptr, i64 0, i32 1
+  %options24 = getelementptr inbounds i8, ptr %ptr, i64 8
   store ptr %retval.0.i, ptr %options24, align 8
   %cmp26 = icmp ne ptr %retval.0.i, null
   br label %return
@@ -839,21 +828,21 @@ if.end11:                                         ; preds = %if.end6
 
 if.then14:                                        ; preds = %if.end11
   call void @PyMem_Free(ptr noundef nonnull %call7) #9
-  %error = getelementptr inbounds %struct._lzma_state, ptr %state, i64 0, i32 2
+  %error = getelementptr inbounds i8, ptr %state, i64 16
   %5 = load ptr, ptr %error, align 8
   %call15 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.17, i32 noundef %preset.1) #9
   br label %return
 
 if.end16:                                         ; preds = %if.end11
-  %empty_tuple = getelementptr inbounds %struct._lzma_state, ptr %state, i64 0, i32 3
+  %empty_tuple = getelementptr inbounds i8, ptr %state, i64 24
   %6 = load ptr, ptr %empty_tuple, align 8
-  %lc = getelementptr inbounds %struct.lzma_options_lzma, ptr %call7, i64 0, i32 3
-  %lp = getelementptr inbounds %struct.lzma_options_lzma, ptr %call7, i64 0, i32 4
-  %pb = getelementptr inbounds %struct.lzma_options_lzma, ptr %call7, i64 0, i32 5
-  %mode = getelementptr inbounds %struct.lzma_options_lzma, ptr %call7, i64 0, i32 6
-  %nice_len = getelementptr inbounds %struct.lzma_options_lzma, ptr %call7, i64 0, i32 7
-  %mf = getelementptr inbounds %struct.lzma_options_lzma, ptr %call7, i64 0, i32 8
-  %depth = getelementptr inbounds %struct.lzma_options_lzma, ptr %call7, i64 0, i32 9
+  %lc = getelementptr inbounds i8, ptr %call7, i64 20
+  %lp = getelementptr inbounds i8, ptr %call7, i64 24
+  %pb = getelementptr inbounds i8, ptr %call7, i64 28
+  %mode = getelementptr inbounds i8, ptr %call7, i64 32
+  %nice_len = getelementptr inbounds i8, ptr %call7, i64 36
+  %mf = getelementptr inbounds i8, ptr %call7, i64 40
+  %depth = getelementptr inbounds i8, ptr %call7, i64 44
   %call17 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %6, ptr noundef %spec, ptr noundef nonnull @.str.18, ptr noundef nonnull @parse_filter_spec_lzma.optnames, ptr noundef nonnull %id, ptr noundef nonnull %preset_obj, ptr noundef nonnull @uint32_converter, ptr noundef nonnull %call7, ptr noundef nonnull @uint32_converter, ptr noundef nonnull %lc, ptr noundef nonnull @uint32_converter, ptr noundef nonnull %lp, ptr noundef nonnull @uint32_converter, ptr noundef nonnull %pb, ptr noundef nonnull @lzma_mode_converter, ptr noundef nonnull %mode, ptr noundef nonnull @uint32_converter, ptr noundef nonnull %nice_len, ptr noundef nonnull @lzma_mf_converter, ptr noundef nonnull %mf, ptr noundef nonnull @uint32_converter, ptr noundef nonnull %depth) #9
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %if.then19, label %return
@@ -896,7 +885,7 @@ if.then2:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   store i32 0, ptr %call1, align 8
   %1 = load i32, ptr %dist, align 4
-  %dist5 = getelementptr inbounds %struct.lzma_options_delta, ptr %call1, i64 0, i32 1
+  %dist5 = getelementptr inbounds i8, ptr %call1, i64 4
   store i32 %1, ptr %dist5, align 4
   br label %return
 
@@ -1021,7 +1010,7 @@ entry:
   ]
 
 sw.bb1:                                           ; preds = %entry
-  %error = getelementptr inbounds %struct._lzma_state, ptr %state, i64 0, i32 2
+  %error = getelementptr inbounds i8, ptr %state, i64 16
   %0 = load ptr, ptr %error, align 8
   tail call void @PyErr_SetString(ptr noundef %0, ptr noundef nonnull @.str.28) #9
   br label %return
@@ -1031,43 +1020,43 @@ sw.bb2:                                           ; preds = %entry
   br label %return
 
 sw.bb3:                                           ; preds = %entry
-  %error4 = getelementptr inbounds %struct._lzma_state, ptr %state, i64 0, i32 2
+  %error4 = getelementptr inbounds i8, ptr %state, i64 16
   %1 = load ptr, ptr %error4, align 8
   tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.29) #9
   br label %return
 
 sw.bb5:                                           ; preds = %entry
-  %error6 = getelementptr inbounds %struct._lzma_state, ptr %state, i64 0, i32 2
+  %error6 = getelementptr inbounds i8, ptr %state, i64 16
   %2 = load ptr, ptr %error6, align 8
   tail call void @PyErr_SetString(ptr noundef %2, ptr noundef nonnull @.str.30) #9
   br label %return
 
 sw.bb7:                                           ; preds = %entry
-  %error8 = getelementptr inbounds %struct._lzma_state, ptr %state, i64 0, i32 2
+  %error8 = getelementptr inbounds i8, ptr %state, i64 16
   %3 = load ptr, ptr %error8, align 8
   tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.31) #9
   br label %return
 
 sw.bb9:                                           ; preds = %entry
-  %error10 = getelementptr inbounds %struct._lzma_state, ptr %state, i64 0, i32 2
+  %error10 = getelementptr inbounds i8, ptr %state, i64 16
   %4 = load ptr, ptr %error10, align 8
   tail call void @PyErr_SetString(ptr noundef %4, ptr noundef nonnull @.str.32) #9
   br label %return
 
 sw.bb11:                                          ; preds = %entry
-  %error12 = getelementptr inbounds %struct._lzma_state, ptr %state, i64 0, i32 2
+  %error12 = getelementptr inbounds i8, ptr %state, i64 16
   %5 = load ptr, ptr %error12, align 8
   tail call void @PyErr_SetString(ptr noundef %5, ptr noundef nonnull @.str.33) #9
   br label %return
 
 sw.bb13:                                          ; preds = %entry
-  %error14 = getelementptr inbounds %struct._lzma_state, ptr %state, i64 0, i32 2
+  %error14 = getelementptr inbounds i8, ptr %state, i64 16
   %6 = load ptr, ptr %error14, align 8
   tail call void @PyErr_SetString(ptr noundef %6, ptr noundef nonnull @.str.34) #9
   br label %return
 
 sw.default:                                       ; preds = %entry
-  %error15 = getelementptr inbounds %struct._lzma_state, ptr %state, i64 0, i32 2
+  %error15 = getelementptr inbounds i8, ptr %state, i64 16
   %7 = load ptr, ptr %error15, align 8
   %call16 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.35, i32 noundef %lzret) #9
   br label %return
@@ -1173,7 +1162,7 @@ define internal i32 @lzma_exec(ptr noundef %module) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #9
   %call1 = tail call ptr @PyTuple_New(i64 noundef 0) #9
-  %empty_tuple = getelementptr inbounds %struct._lzma_state, ptr %call.i, i64 0, i32 3
+  %empty_tuple = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %call1, ptr %empty_tuple, align 8
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %do.body
@@ -1344,7 +1333,7 @@ do.body163:                                       ; preds = %do.body157
 
 do.end168:                                        ; preds = %do.body163
   %call169 = tail call ptr @PyErr_NewExceptionWithDoc(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef null, ptr noundef null) #9
-  %error = getelementptr inbounds %struct._lzma_state, ptr %call.i, i64 0, i32 2
+  %error = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call169, ptr %error, align 8
   %cmp171 = icmp eq ptr %call169, null
   br i1 %cmp171, label %return, label %if.end173
@@ -1367,7 +1356,7 @@ if.end183:                                        ; preds = %if.end178
 
 if.end188:                                        ; preds = %if.end183
   %call189 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef %module, ptr noundef nonnull @lzma_decompressor_type_spec, ptr noundef null) #9
-  %lzma_decompressor_type = getelementptr inbounds %struct._lzma_state, ptr %call.i, i64 0, i32 1
+  %lzma_decompressor_type = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %call189, ptr %lzma_decompressor_type, align 8
   %cmp191 = icmp eq ptr %call189, null
   br i1 %cmp191, label %return, label %if.end193
@@ -1399,9 +1388,9 @@ declare ptr @PyLong_FromLongLong(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @Compressor_dealloc(ptr noundef %self) #0 {
 entry:
-  %lzs = getelementptr inbounds %struct.Compressor, ptr %self, i64 0, i32 2
+  %lzs = getelementptr inbounds i8, ptr %self, i64 40
   tail call void @lzma_end(ptr noundef nonnull %lzs) #9
-  %lock = getelementptr inbounds %struct.Compressor, ptr %self, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %self, i64 184
   %0 = load ptr, ptr %lock, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1413,7 +1402,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %1 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %1, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %2 = load ptr, ptr %tp_free, align 8
   tail call void %2(ptr noundef nonnull %self) #9
   %3 = load i64, ptr %self.val, align 8
@@ -1503,24 +1492,24 @@ uint32_converter.exit:                            ; preds = %if.end.i25
 
 if.end17:                                         ; preds = %uint32_converter.exit, %if.end11
   %preset.1 = phi i32 [ %conv.i, %uint32_converter.exit ], [ 6, %if.end11 ]
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %7 = load ptr, ptr %tp_alloc, align 8
   %call18 = call ptr %7(ptr noundef %type, i64 noundef 0) #9
   %cmp19 = icmp eq ptr %call18, null
   br i1 %cmp19, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end17
-  %alloc = getelementptr inbounds %struct.Compressor, ptr %call18, i64 0, i32 1
-  %opaque = getelementptr inbounds %struct.Compressor, ptr %call18, i64 0, i32 1, i32 2
+  %alloc = getelementptr inbounds i8, ptr %call18, i64 16
+  %opaque = getelementptr inbounds i8, ptr %call18, i64 32
   store ptr null, ptr %opaque, align 8
   store ptr @PyLzma_Malloc, ptr %alloc, align 8
-  %free = getelementptr inbounds %struct.Compressor, ptr %call18, i64 0, i32 1, i32 1
+  %free = getelementptr inbounds i8, ptr %call18, i64 24
   store ptr @PyLzma_Free, ptr %free, align 8
-  %lzs = getelementptr inbounds %struct.Compressor, ptr %call18, i64 0, i32 2
-  %allocator = getelementptr inbounds %struct.Compressor, ptr %call18, i64 0, i32 2, i32 6
+  %lzs = getelementptr inbounds i8, ptr %call18, i64 40
+  %allocator = getelementptr inbounds i8, ptr %call18, i64 88
   store ptr %alloc, ptr %allocator, align 8
   %call26 = call ptr @PyThread_allocate_lock() #9
-  %lock = getelementptr inbounds %struct.Compressor, ptr %call18, i64 0, i32 4
+  %lock = getelementptr inbounds i8, ptr %call18, i64 184
   store ptr %call26, ptr %lock, align 8
   %cmp28 = icmp eq ptr %call26, null
   br i1 %cmp28, label %if.then29, label %if.end30
@@ -1547,7 +1536,7 @@ Py_DECREF.exit60:                                 ; preds = %if.then29, %if.then
   br label %return
 
 if.end30:                                         ; preds = %if.end21
-  %flushed = getelementptr inbounds %struct.Compressor, ptr %call18, i64 0, i32 3
+  %flushed = getelementptr inbounds i8, ptr %call18, i64 176
   store i32 0, ptr %flushed, align 8
   %11 = load i32, ptr %format, align 4
   switch i32 %11, label %sw.default [
@@ -1646,7 +1635,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %exit
 
 if.end:                                           ; preds = %entry
-  %lock.i = getelementptr inbounds %struct.Compressor, ptr %self, i64 0, i32 4
+  %lock.i = getelementptr inbounds i8, ptr %self, i64 184
   %0 = load ptr, ptr %lock.i, align 8
   %call.i = call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 0) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -1660,7 +1649,7 @@ if.then.i:                                        ; preds = %if.end
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %if.end
-  %flushed.i = getelementptr inbounds %struct.Compressor, ptr %self, i64 0, i32 3
+  %flushed.i = getelementptr inbounds i8, ptr %self, i64 176
   %2 = load i32, ptr %flushed.i, align 8
   %tobool4.not.i = icmp eq i32 %2, 0
   br i1 %tobool4.not.i, label %if.else.i, label %if.then5.i
@@ -1672,7 +1661,7 @@ if.then5.i:                                       ; preds = %do.end.i
 
 if.else.i:                                        ; preds = %do.end.i
   %4 = load ptr, ptr %data, align 8
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %data, i64 16
   %5 = load i64, ptr %len.i, align 8
   %call6.i = call fastcc ptr @compress(ptr noundef nonnull %self, ptr noundef %4, i64 noundef %5, i32 noundef 0)
   br label %_lzma_LZMACompressor_compress_impl.exit
@@ -1685,7 +1674,7 @@ _lzma_LZMACompressor_compress_impl.exit:          ; preds = %if.then5.i, %if.els
 
 exit:                                             ; preds = %entry, %_lzma_LZMACompressor_compress_impl.exit
   %return_value.0 = phi ptr [ null, %entry ], [ %result.0.i, %_lzma_LZMACompressor_compress_impl.exit ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %7 = load ptr, ptr %obj, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %if.end3, label %if.then2
@@ -1701,7 +1690,7 @@ if.end3:                                          ; preds = %if.then2, %exit
 ; Function Attrs: nounwind uwtable
 define internal ptr @_lzma_LZMACompressor_flush(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %lock.i = getelementptr inbounds %struct.Compressor, ptr %self, i64 0, i32 4
+  %lock.i = getelementptr inbounds i8, ptr %self, i64 184
   %0 = load ptr, ptr %lock.i, align 8
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 0) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -1715,7 +1704,7 @@ if.then.i:                                        ; preds = %entry
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %entry
-  %flushed.i = getelementptr inbounds %struct.Compressor, ptr %self, i64 0, i32 3
+  %flushed.i = getelementptr inbounds i8, ptr %self, i64 176
   %2 = load i32, ptr %flushed.i, align 8
   %tobool4.not.i = icmp eq i32 %2, 0
   br i1 %tobool4.not.i, label %if.else.i, label %if.then5.i
@@ -1751,9 +1740,9 @@ entry:
   %0 = getelementptr i8, ptr %c, i64 8
   %c.val = load ptr, ptr %0, align 8
   %call1 = tail call ptr @PyType_GetModuleState(ptr noundef %c.val) #9
-  %lzs = getelementptr inbounds %struct.Compressor, ptr %c, i64 0, i32 2
-  %next_out = getelementptr inbounds %struct.Compressor, ptr %c, i64 0, i32 2, i32 3
-  %avail_out = getelementptr inbounds %struct.Compressor, ptr %c, i64 0, i32 2, i32 4
+  %lzs = getelementptr inbounds i8, ptr %c, i64 40
+  %next_out = getelementptr inbounds i8, ptr %c, i64 64
+  %avail_out = getelementptr inbounds i8, ptr %c, i64 72
   %call.i.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef 32768) #9
   %cmp2.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp2.i.i, label %OutputBuffer_InitAndGrow.exit.thread, label %if.end4.i.i
@@ -1788,15 +1777,15 @@ if.end:                                           ; preds = %if.end4.i.i
   %3 = getelementptr i8, ptr %call5.i.i, i64 24
   %call5.val.i.i = load ptr, ptr %3, align 8
   store ptr %call.i.i, ptr %call5.val.i.i, align 8
-  %allocated.i.i = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %buffer, i64 0, i32 1
+  %allocated.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   store i64 32768, ptr %allocated.i.i, align 8
-  %max_length11.i.i = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %buffer, i64 0, i32 2
+  %max_length11.i.i = getelementptr inbounds i8, ptr %buffer, i64 16
   store i64 -1, ptr %max_length11.i.i, align 8
-  %ob_sval.i.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call.i.i, i64 0, i32 2
+  %ob_sval.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store ptr %ob_sval.i.i.i, ptr %next_out, align 8
   store i64 32768, ptr %avail_out, align 8
   store ptr %data, ptr %lzs, align 8
-  %avail_in = getelementptr inbounds %struct.Compressor, ptr %c, i64 0, i32 2, i32 1
+  %avail_in = getelementptr inbounds i8, ptr %c, i64 48
   store i64 %len, ptr %avail_in, align 8
   %cmp10 = icmp eq i64 %len, 0
   %cmp20 = icmp eq i32 %action, 0
@@ -2032,9 +2021,9 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end3.i:                                        ; preds = %if.then2.i, %if.end.i
   %block_size.0.i = phi i64 [ %4, %if.then2.i ], [ 268435456, %if.end.i ]
-  %max_length.i = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %buffer, i64 0, i32 2
+  %max_length.i = getelementptr inbounds i8, ptr %buffer, i64 16
   %5 = load i64, ptr %max_length.i, align 8
-  %allocated.i = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %buffer, i64 0, i32 1
+  %allocated.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %6 = load i64, ptr %allocated.i, align 8
   %sub.i = sub i64 %5, %6
   %spec.select.i = tail call i64 @llvm.smin.i64(i64 %block_size.0.i, i64 %sub.i)
@@ -2098,7 +2087,7 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.e
   %12 = load i64, ptr %allocated.i, align 8
   %add.i = add i64 %12, %block_size.1.i
   store i64 %add.i, ptr %allocated.i, align 8
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call16.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call16.i, i64 32
   store ptr %ob_sval.i.i, ptr %next_out, align 8
   br label %_BlocksOutputBuffer_Grow.exit
 
@@ -2120,7 +2109,7 @@ entry:
   br i1 %or.cond.i, label %entry.if.then_crit_edge.i, label %lor.lhs.false.i
 
 entry.if.then_crit_edge.i:                        ; preds = %entry
-  %ob_item8.phi.trans.insert.i = getelementptr inbounds %struct.PyListObject, ptr %0, i64 0, i32 1
+  %ob_item8.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 24
   %.pre.i = load ptr, ptr %ob_item8.phi.trans.insert.i, align 8
   br label %if.then.i
 
@@ -2129,9 +2118,9 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp2.i, label %land.lhs.true3.i, label %if.end13.i
 
 land.lhs.true3.i:                                 ; preds = %lor.lhs.false.i
-  %ob_item.i = getelementptr inbounds %struct.PyListObject, ptr %0, i64 0, i32 1
+  %ob_item.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %ob_item.i, align 8
-  %arrayidx.i = getelementptr ptr, ptr %2, i64 1
+  %arrayidx.i = getelementptr i8, ptr %2, i64 8
   %3 = load ptr, ptr %arrayidx.i, align 8
   %4 = getelementptr i8, ptr %3, i64 16
   %.val40.i = load i64, ptr %4, align 8
@@ -2171,7 +2160,7 @@ if.then1.i50.i:                                   ; preds = %if.end.i47.i
   br label %_BlocksOutputBuffer_Finish.exit
 
 if.end13.i:                                       ; preds = %land.lhs.true3.i, %lor.lhs.false.i
-  %allocated.i = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %buffer, i64 0, i32 1
+  %allocated.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %11 = load i64, ptr %allocated.i, align 8
   %sub.i = sub i64 %11, %avail_out
   %call14.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %sub.i) #9
@@ -2188,7 +2177,7 @@ if.end17.i:                                       ; preds = %if.end13.i
   br i1 %cmp18.i, label %if.then19.i, label %do.body36.i
 
 if.then19.i:                                      ; preds = %if.end17.i
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call14.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call14.i, i64 32
   %sub21.i = add nsw i64 %.val41.i, -1
   br i1 %cmp.i, label %for.end.i, label %for.body.i
 
@@ -2196,11 +2185,11 @@ for.body.i:                                       ; preds = %if.then19.i, %for.b
   %i.046.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then19.i ]
   %posi.045.i = phi ptr [ %add.ptr.i, %for.body.i ], [ %ob_sval.i.i, %if.then19.i ]
   %13 = load ptr, ptr %buffer, align 8
-  %ob_item24.i = getelementptr inbounds %struct.PyListObject, ptr %13, i64 0, i32 1
+  %ob_item24.i = getelementptr inbounds i8, ptr %13, i64 24
   %14 = load ptr, ptr %ob_item24.i, align 8
   %arrayidx25.i = getelementptr ptr, ptr %14, i64 %i.046.i
   %15 = load ptr, ptr %arrayidx25.i, align 8
-  %ob_sval.i42.i = getelementptr inbounds %struct.PyBytesObject, ptr %15, i64 0, i32 2
+  %ob_sval.i42.i = getelementptr inbounds i8, ptr %15, i64 32
   %16 = getelementptr i8, ptr %15, i64 16
   %.val39.i = load i64, ptr %16, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %posi.045.i, ptr nonnull align 1 %ob_sval.i42.i, i64 %.val39.i, i1 false)
@@ -2214,11 +2203,11 @@ for.end.i:                                        ; preds = %for.body.i, %if.the
   %posi.0.lcssa.i = phi ptr [ %ob_sval.i.i, %if.then19.i ], [ %add.ptr.i, %for.body.i ]
   %i.0.lcssa.i = phi i64 [ 0, %if.then19.i ], [ %sub21.i, %for.body.i ]
   %17 = load ptr, ptr %buffer, align 8
-  %ob_item30.i = getelementptr inbounds %struct.PyListObject, ptr %17, i64 0, i32 1
+  %ob_item30.i = getelementptr inbounds i8, ptr %17, i64 24
   %18 = load ptr, ptr %ob_item30.i, align 8
   %arrayidx31.i = getelementptr ptr, ptr %18, i64 %i.0.lcssa.i
   %19 = load ptr, ptr %arrayidx31.i, align 8
-  %ob_sval.i43.i = getelementptr inbounds %struct.PyBytesObject, ptr %19, i64 0, i32 2
+  %ob_sval.i43.i = getelementptr inbounds i8, ptr %19, i64 32
   %20 = getelementptr i8, ptr %19, i64 16
   %.val.i = load i64, ptr %20, align 8
   %sub34.i = sub i64 %.val.i, %avail_out
@@ -2309,9 +2298,9 @@ if.end:                                           ; preds = %if.else
   br i1 %cmp.not4.i, label %if.end7, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %for.body.i
-  %idxprom6.i = phi i64 [ %idxprom.i, %for.body.i ], [ 0, %if.end ]
+  %arrayidx6.i = phi ptr [ %arrayidx.i, %for.body.i ], [ %filters, %if.end ]
   %i.05.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end ]
-  %options.i = getelementptr %struct.lzma_filter, ptr %filters, i64 %idxprom6.i, i32 1
+  %options.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 8
   %1 = load ptr, ptr %options.i, align 8
   call void @PyMem_Free(ptr noundef %1) #9
   %inc.i = add i32 %i.05.i, 1
@@ -2346,7 +2335,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %if.end, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %error = getelementptr inbounds %struct._lzma_state, ptr %state, i64 0, i32 2
+  %error = getelementptr inbounds i8, ptr %state, i64 16
   %0 = load ptr, ptr %error, align 8
   %call2 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %preset) #9
   br label %return
@@ -2363,14 +2352,14 @@ if.else:                                          ; preds = %entry
 if.end7:                                          ; preds = %if.else
   %1 = load i64, ptr %filters, align 16
   %cmp8 = icmp eq i64 %1, 4611686018427387905
-  %arrayidx9 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %filters, i64 0, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %filters, i64 16
   %2 = load i64, ptr %arrayidx9, align 16
   %cmp11 = icmp eq i64 %2, -1
   %or.cond = select i1 %cmp8, i1 %cmp11, i1 false
   br i1 %or.cond, label %if.end17.thread, label %if.end17
 
 if.end17.thread:                                  ; preds = %if.end7
-  %options14 = getelementptr inbounds %struct.lzma_filter, ptr %filters, i64 0, i32 1
+  %options14 = getelementptr inbounds i8, ptr %filters, i64 8
   %3 = load ptr, ptr %options14, align 8
   %call15 = tail call i32 @lzma_alone_encoder(ptr noundef %lzs, ptr noundef %3) #9
   br label %for.body.i.preheader
@@ -2386,9 +2375,9 @@ for.body.i.preheader:                             ; preds = %if.end17.thread, %i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %idxprom6.i = phi i64 [ %idxprom.i, %for.body.i ], [ 0, %for.body.i.preheader ]
+  %arrayidx6.i = phi ptr [ %arrayidx.i, %for.body.i ], [ %filters, %for.body.i.preheader ]
   %i.05.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
-  %options.i = getelementptr %struct.lzma_filter, ptr %filters, i64 %idxprom6.i, i32 1
+  %options.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 8
   %5 = load ptr, ptr %options.i, align 8
   tail call void @PyMem_Free(ptr noundef %5) #9
   %inc.i = add i32 %i.05.i, 1
@@ -2438,9 +2427,9 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp.not4.i, label %free_filter_chain.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end3, %for.body.i
-  %idxprom6.i = phi i64 [ %idxprom.i, %for.body.i ], [ 0, %if.end3 ]
+  %arrayidx6.i = phi ptr [ %arrayidx.i, %for.body.i ], [ %filters, %if.end3 ]
   %i.05.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end3 ]
-  %options.i = getelementptr %struct.lzma_filter, ptr %filters, i64 %idxprom6.i, i32 1
+  %options.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 8
   %2 = load ptr, ptr %options.i, align 8
   call void @PyMem_Free(ptr noundef %2) #9
   %inc.i = add i32 %i.05.i, 1
@@ -2541,9 +2530,9 @@ Py_XDECREF.exit21:                                ; preds = %for.body, %if.then.
   br i1 %cmp.not4.i, label %return, label %for.body.i
 
 for.body.i:                                       ; preds = %Py_XDECREF.exit21, %for.body.i
-  %idxprom6.i = phi i64 [ %idxprom.i, %for.body.i ], [ 0, %Py_XDECREF.exit21 ]
+  %arrayidx6.i = phi ptr [ %arrayidx.i, %for.body.i ], [ %filters, %Py_XDECREF.exit21 ]
   %i.05.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %Py_XDECREF.exit21 ]
-  %options.i = getelementptr %struct.lzma_filter, ptr %filters, i64 %idxprom6.i, i32 1
+  %options.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 8
   %4 = load ptr, ptr %options.i, align 8
   tail call void @PyMem_Free(ptr noundef %4) #9
   %inc.i = add i32 %i.05.i, 1
@@ -2579,7 +2568,7 @@ declare i32 @lzma_raw_encoder(ptr noundef, ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal void @Decompressor_dealloc(ptr noundef %self) #0 {
 entry:
-  %input_buffer = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 7
+  %input_buffer = getelementptr inbounds i8, ptr %self, i64 200
   %0 = load ptr, ptr %input_buffer, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2589,9 +2578,9 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %lzs = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 2
+  %lzs = getelementptr inbounds i8, ptr %self, i64 40
   tail call void @lzma_end(ptr noundef nonnull %lzs) #9
-  %unused_data = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 5
+  %unused_data = getelementptr inbounds i8, ptr %self, i64 184
   %1 = load ptr, ptr %unused_data, align 8
   %cmp2.not = icmp eq ptr %1, null
   br i1 %cmp2.not, label %do.end, label %if.then3
@@ -2614,7 +2603,7 @@ if.then1.i15:                                     ; preds = %if.end.i12
   br label %do.end
 
 do.end:                                           ; preds = %if.end, %if.then3, %if.then1.i15, %if.end.i12
-  %lock = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 9
+  %lock = getelementptr inbounds i8, ptr %self, i64 216
   %4 = load ptr, ptr %lock, align 8
   %cmp5.not = icmp eq ptr %4, null
   br i1 %cmp5.not, label %if.end8, label %if.then6
@@ -2626,7 +2615,7 @@ if.then6:                                         ; preds = %do.end
 if.end8:                                          ; preds = %if.then6, %do.end
   %5 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %5, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %6 = load ptr, ptr %tp_free, align 8
   tail call void %6(ptr noundef nonnull %self) #9
   %7 = load i64, ptr %self.val, align 8
@@ -2661,12 +2650,12 @@ cond.end.thread:                                  ; preds = %entry
   %1 = getelementptr i8, ptr %kwargs, i64 16
   %kwargs.val = load i64, ptr %1, align 8
   %add22 = add i64 %kwargs.val, %args.val
-  %ob_item27 = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item27 = getelementptr inbounds i8, ptr %args, i64 24
   br label %cond.end15
 
 cond.end:                                         ; preds = %entry
   %or.cond1 = icmp ult i64 %args.val, 4
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end, %cond.end.thread
@@ -2705,7 +2694,7 @@ if.end30:                                         ; preds = %land.lhs.true26, %i
 if.end34:                                         ; preds = %if.end30, %if.end20
   %noptargs.0 = phi i64 [ %dec, %if.end30 ], [ %add2934, %if.end20 ]
   %format.0 = phi i32 [ %call24, %if.end30 ], [ 0, %if.end20 ]
-  %arrayidx35 = getelementptr ptr, ptr %cond1635, i64 1
+  %arrayidx35 = getelementptr i8, ptr %cond1635, i64 8
   %3 = load ptr, ptr %arrayidx35, align 8
   %tobool36.not = icmp eq ptr %3, null
   br i1 %tobool36.not, label %if.end43, label %if.then37
@@ -2716,7 +2705,7 @@ if.then37:                                        ; preds = %if.end34
 
 if.end43:                                         ; preds = %if.then37, %if.end34
   %memlimit.0 = phi ptr [ %3, %if.then37 ], [ @_Py_NoneStruct, %if.end34 ]
-  %arrayidx44 = getelementptr ptr, ptr %cond1635, i64 2
+  %arrayidx44 = getelementptr i8, ptr %cond1635, i64 16
   %4 = load ptr, ptr %arrayidx44, align 8
   br label %skip_optional_pos
 
@@ -2778,25 +2767,25 @@ if.then14.i:                                      ; preds = %if.else.i
   br label %exit
 
 if.end16.i:                                       ; preds = %if.else.i
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %8 = load ptr, ptr %tp_alloc.i, align 8
   %call17.i = call ptr %8(ptr noundef %type, i64 noundef 0) #9
   %cmp18.i = icmp eq ptr %call17.i, null
   br i1 %cmp18.i, label %exit, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end16.i
-  %alloc.i = getelementptr inbounds %struct.Decompressor, ptr %call17.i, i64 0, i32 1
-  %opaque.i = getelementptr inbounds %struct.Decompressor, ptr %call17.i, i64 0, i32 1, i32 2
+  %alloc.i = getelementptr inbounds i8, ptr %call17.i, i64 16
+  %opaque.i = getelementptr inbounds i8, ptr %call17.i, i64 32
   store ptr null, ptr %opaque.i, align 8
   store ptr @PyLzma_Malloc, ptr %alloc.i, align 8
-  %free.i = getelementptr inbounds %struct.Decompressor, ptr %call17.i, i64 0, i32 1, i32 1
+  %free.i = getelementptr inbounds i8, ptr %call17.i, i64 24
   store ptr @PyLzma_Free, ptr %free.i, align 8
-  %lzs.i = getelementptr inbounds %struct.Decompressor, ptr %call17.i, i64 0, i32 2
-  %allocator.i = getelementptr inbounds %struct.Decompressor, ptr %call17.i, i64 0, i32 2, i32 6
+  %lzs.i = getelementptr inbounds i8, ptr %call17.i, i64 40
+  %allocator.i = getelementptr inbounds i8, ptr %call17.i, i64 88
   store ptr %alloc.i, ptr %allocator.i, align 8
   store ptr null, ptr %lzs.i, align 8
   %call26.i = call ptr @PyThread_allocate_lock() #9
-  %lock.i = getelementptr inbounds %struct.Decompressor, ptr %call17.i, i64 0, i32 9
+  %lock.i = getelementptr inbounds i8, ptr %call17.i, i64 216
   store ptr %call26.i, ptr %lock.i, align 8
   %cmp28.i = icmp eq ptr %call26.i, null
   br i1 %cmp28.i, label %if.then29.i, label %if.end30.i
@@ -2823,12 +2812,12 @@ Py_DECREF.exit73.i:                               ; preds = %if.then1.i71.i, %if
   br label %exit
 
 if.end30.i:                                       ; preds = %if.end20.i
-  %check.i = getelementptr inbounds %struct.Decompressor, ptr %call17.i, i64 0, i32 3
+  %check.i = getelementptr inbounds i8, ptr %call17.i, i64 176
   store i32 16, ptr %check.i, align 8
-  %needs_input.i = getelementptr inbounds %struct.Decompressor, ptr %call17.i, i64 0, i32 6
+  %needs_input.i = getelementptr inbounds i8, ptr %call17.i, i64 192
   store i8 1, ptr %needs_input.i, align 8
-  %input_buffer.i = getelementptr inbounds %struct.Decompressor, ptr %call17.i, i64 0, i32 7
-  %unused_data.i = getelementptr inbounds %struct.Decompressor, ptr %call17.i, i64 0, i32 5
+  %input_buffer.i = getelementptr inbounds i8, ptr %call17.i, i64 200
+  %unused_data.i = getelementptr inbounds i8, ptr %call17.i, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %input_buffer.i, i8 0, i64 16, i1 false)
   %12 = load ptr, ptr %unused_data.i, align 8
   %call31.i = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef 0) #9
@@ -2983,7 +2972,7 @@ if.end15:                                         ; preds = %if.end
   br i1 %tobool16.not, label %skip_optional_pos, label %if.end18
 
 if.end18:                                         ; preds = %if.end15
-  %arrayidx19 = getelementptr ptr, ptr %cond1021, i64 1
+  %arrayidx19 = getelementptr i8, ptr %cond1021, i64 8
   %5 = load ptr, ptr %arrayidx19, align 8
   %call20 = call ptr @_PyNumber_Index(ptr noundef %5) #9
   %cmp21.not = icmp eq ptr %call20, null
@@ -3017,7 +3006,7 @@ land.lhs.true26:                                  ; preds = %if.end18, %if.end24
 
 skip_optional_pos:                                ; preds = %if.end24, %land.lhs.true26, %if.end15
   %max_length.0 = phi i64 [ -1, %if.end15 ], [ -1, %land.lhs.true26 ], [ %call23, %if.end24 ]
-  %lock.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 9
+  %lock.i = getelementptr inbounds i8, ptr %self, i64 216
   %8 = load ptr, ptr %lock.i, align 8
   %call.i = call i32 @PyThread_acquire_lock(ptr noundef %8, i32 noundef 0) #9
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -3031,7 +3020,7 @@ if.then.i:                                        ; preds = %skip_optional_pos
   br label %do.end.i
 
 do.end.i:                                         ; preds = %if.then.i, %skip_optional_pos
-  %eof.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 4
+  %eof.i = getelementptr inbounds i8, ptr %self, i64 180
   %10 = load i8, ptr %eof.i, align 4
   %tobool4.not.i = icmp eq i8 %10, 0
   br i1 %tobool4.not.i, label %if.else.i, label %if.then5.i
@@ -3043,20 +3032,20 @@ if.then5.i:                                       ; preds = %do.end.i
 
 if.else.i:                                        ; preds = %do.end.i
   %12 = load ptr, ptr %data, align 8
-  %len.i = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 2
+  %len.i = getelementptr inbounds i8, ptr %data, i64 16
   %13 = load i64, ptr %len.i, align 8
-  %lzs1.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 2
+  %lzs1.i.i = getelementptr inbounds i8, ptr %self, i64 40
   %14 = load ptr, ptr %lzs1.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %14, null
   br i1 %cmp.not.i.i, label %if.else37.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.else.i
-  %input_buffer.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 7
+  %input_buffer.i.i = getelementptr inbounds i8, ptr %self, i64 200
   %15 = load ptr, ptr %input_buffer.i.i, align 8
-  %input_buffer_size.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 8
+  %input_buffer_size.i.i = getelementptr inbounds i8, ptr %self, i64 208
   %16 = load i64, ptr %input_buffer_size.i.i, align 8
   %add.ptr.i.i = getelementptr i8, ptr %15, i64 %16
-  %avail_in.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 2, i32 1
+  %avail_in.i.i = getelementptr inbounds i8, ptr %self, i64 48
   %17 = load i64, ptr %avail_in.i.i, align 8
   %add.ptr3.i.i = getelementptr i8, ptr %14, i64 %17
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i.i to i64
@@ -3114,7 +3103,7 @@ if.end31.i.i:                                     ; preds = %if.end31.sink.split
 
 if.else37.i.i:                                    ; preds = %if.else.i
   store ptr %12, ptr %lzs1.i.i, align 8
-  %avail_in39.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 2, i32 1
+  %avail_in39.i.i = getelementptr inbounds i8, ptr %self, i64 48
   store i64 %13, ptr %avail_in39.i.i, align 8
   br label %if.end40.i.i
 
@@ -3124,8 +3113,8 @@ if.end40.i.i:                                     ; preds = %if.else37.i.i, %if.
   %23 = getelementptr i8, ptr %self, i64 8
   %d.val.i.i.i = load ptr, ptr %23, align 8
   %call2.i.i.i = call ptr @PyType_GetModuleState(ptr noundef %d.val.i.i.i) #9
-  %next_out.i.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 2, i32 3
-  %avail_out.i.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 2, i32 4
+  %next_out.i.i.i = getelementptr inbounds i8, ptr %self, i64 64
+  %avail_out.i.i.i = getelementptr inbounds i8, ptr %self, i64 72
   %block_size.0.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %max_length.0, i64 32768)
   %call.i.i.i.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %block_size.0.i.i.i.i.i) #9
   %cmp2.i.i.i.i.i = icmp eq ptr %call.i.i.i.i.i, null
@@ -3161,15 +3150,15 @@ OutputBuffer_InitAndGrow.exit.i.i.i:              ; preds = %if.end4.i.i.i.i.i
   %26 = getelementptr i8, ptr %call5.i.i.i.i.i, i64 24
   %call5.val.i.i.i.i.i = load ptr, ptr %26, align 8
   store ptr %call.i.i.i.i.i, ptr %call5.val.i.i.i.i.i, align 8
-  %allocated.i.i.i.i.i = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %buffer.i.i.i, i64 0, i32 1
+  %allocated.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i, i64 8
   store i64 %block_size.0.i.i.i.i.i, ptr %allocated.i.i.i.i.i, align 8
-  %max_length11.i.i.i.i.i = getelementptr inbounds %struct._BlocksOutputBuffer, ptr %buffer.i.i.i, i64 0, i32 2
+  %max_length11.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i, i64 16
   store i64 %max_length.0, ptr %max_length11.i.i.i.i.i, align 8
-  %ob_sval.i.i.i.i.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call.i.i.i.i.i, i64 0, i32 2
+  %ob_sval.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 32
   store ptr %ob_sval.i.i.i.i.i.i, ptr %next_out.i.i.i, align 8
   store i64 %block_size.0.i.i.i.i.i, ptr %avail_out.i.i.i, align 8
-  %avail_in.i.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 2, i32 1
-  %check.i.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 3
+  %avail_in.i.i.i = getelementptr inbounds i8, ptr %self, i64 48
+  %check.i.i.i = getelementptr inbounds i8, ptr %self, i64 176
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i.backedge, %OutputBuffer_InitAndGrow.exit.i.i.i
@@ -3275,14 +3264,14 @@ if.end45.i.i:                                     ; preds = %for.end.i.i.i
   br i1 %tobool.not.i.i, label %if.else58.i.i, label %if.then46.i.i
 
 if.then46.i.i:                                    ; preds = %if.end45.i.i
-  %needs_input.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 6
+  %needs_input.i.i = getelementptr inbounds i8, ptr %self, i64 192
   store i8 0, ptr %needs_input.i.i, align 8
   %36 = load i64, ptr %avail_in.i.i.i, align 8
   %cmp48.not.i.i = icmp eq i64 %36, 0
   br i1 %cmp48.not.i.i, label %_lzma_LZMADecompressor_decompress_impl.exit, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.then46.i.i
-  %unused_data.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 5
+  %unused_data.i.i = getelementptr inbounds i8, ptr %self, i64 184
   %37 = load ptr, ptr %unused_data.i.i, align 8
   %38 = load ptr, ptr %lzs1.i.i, align 8
   %call52.i.i = call ptr @PyBytes_FromStringAndSize(ptr noundef %38, i64 noundef %36) #9
@@ -3324,7 +3313,7 @@ if.then61.i.i:                                    ; preds = %if.else58.i.i
   store ptr null, ptr %lzs1.i.i, align 8
   %43 = load i64, ptr %avail_out.i.i.i, align 8
   %cmp63.i.i = icmp eq i64 %43, 0
-  %needs_input65.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 6
+  %needs_input65.i.i = getelementptr inbounds i8, ptr %self, i64 192
   br i1 %cmp63.i.i, label %if.then64.i.i, label %if.else66.i.i
 
 if.then64.i.i:                                    ; preds = %if.then61.i.i
@@ -3336,18 +3325,18 @@ if.else66.i.i:                                    ; preds = %if.then61.i.i
   br label %_lzma_LZMADecompressor_decompress_impl.exit
 
 if.else69.i.i:                                    ; preds = %if.else58.i.i
-  %needs_input70.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 6
+  %needs_input70.i.i = getelementptr inbounds i8, ptr %self, i64 192
   store i8 0, ptr %needs_input70.i.i, align 8
   br i1 %cmp.not.i.i, label %if.then72.i.i, label %_lzma_LZMADecompressor_decompress_impl.exit
 
 if.then72.i.i:                                    ; preds = %if.else69.i.i
-  %input_buffer73.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 7
+  %input_buffer73.i.i = getelementptr inbounds i8, ptr %self, i64 200
   %44 = load ptr, ptr %input_buffer73.i.i, align 8
   %cmp74.not.i.i = icmp eq ptr %44, null
   br i1 %cmp74.not.i.i, label %if.then84.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then72.i.i
-  %input_buffer_size75.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 8
+  %input_buffer_size75.i.i = getelementptr inbounds i8, ptr %self, i64 208
   %45 = load i64, ptr %input_buffer_size75.i.i, align 8
   %cmp77.i.i = icmp ult i64 %45, %42
   br i1 %cmp77.i.i, label %if.then78.i.i, label %if.end94.i.i
@@ -3372,7 +3361,7 @@ if.then90.i.i:                                    ; preds = %if.then84.i.i
 
 if.end91.i.i:                                     ; preds = %if.then84.i.i
   %48 = load i64, ptr %avail_in.i.i.i, align 8
-  %input_buffer_size93.i.i = getelementptr inbounds %struct.Decompressor, ptr %self, i64 0, i32 8
+  %input_buffer_size93.i.i = getelementptr inbounds i8, ptr %self, i64 208
   store i64 %48, ptr %input_buffer_size93.i.i, align 8
   br label %if.end94.i.i
 
@@ -3409,7 +3398,7 @@ _lzma_LZMADecompressor_decompress_impl.exit:      ; preds = %if.then5.i, %if.the
 
 exit:                                             ; preds = %land.lhs.true26, %if.end, %cond.end9, %_lzma_LZMADecompressor_decompress_impl.exit
   %return_value.0 = phi ptr [ null, %if.end ], [ null, %land.lhs.true26 ], [ %result.0.i, %_lzma_LZMADecompressor_decompress_impl.exit ], [ null, %cond.end9 ]
-  %obj = getelementptr inbounds %struct.Py_buffer, ptr %data, i64 0, i32 1
+  %obj = getelementptr inbounds i8, ptr %data, i64 8
   %56 = load ptr, ptr %obj, align 8
   %tobool32.not = icmp eq ptr %56, null
   br i1 %tobool32.not, label %if.end34, label %if.then33
@@ -3464,9 +3453,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not4.i, label %free_filter_chain.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %for.body.i
-  %idxprom6.i = phi i64 [ %idxprom.i, %for.body.i ], [ 0, %if.end ]
+  %arrayidx6.i = phi ptr [ %arrayidx.i, %for.body.i ], [ %filters, %if.end ]
   %i.05.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end ]
-  %options.i = getelementptr %struct.lzma_filter, ptr %filters, i64 %idxprom6.i, i32 1
+  %options.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 8
   %1 = load ptr, ptr %options.i, align 8
   call void @PyMem_Free(ptr noundef %1) #9
   %inc.i = add i32 %i.05.i, 1

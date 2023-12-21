@@ -7,15 +7,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.google::protobuf::internal::ExplicitlyConstructed" = type { %"union.google::protobuf::internal::ExplicitlyConstructed<std::__cxx11::basic_string<char>, 8>::AlignedUnion" }
 %"union.google::protobuf::internal::ExplicitlyConstructed<std::__cxx11::basic_string<char>, 8>::AlignedUnion" = type { i64, [24 x i8] }
 %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache" = type { i64, i64, ptr, [8 x i8] }
-%"class.google::protobuf::io::CodedInputStream" = type { ptr, ptr, ptr, i32, i32, i32, i8, i8, i8, i32, i32, i32, i32, i32, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.google::protobuf::io::CodedOutputStream" = type { %"class.google::protobuf::io::EpsCopyOutputStream", ptr, i64 }
-%"class.google::protobuf::io::EpsCopyOutputStream" = type <{ ptr, ptr, [32 x i8], ptr, i8, i8, i8, i8, [4 x i8] }>
-%"class.google::protobuf::internal::CodedOutputStreamFieldSkipper" = type { %"class.google::protobuf::internal::FieldSkipper", ptr }
-%"class.google::protobuf::internal::FieldSkipper" = type { ptr }
-%"class.google::protobuf::RepeatedField" = type { i32, i32, ptr }
 %"class.absl::lts_20230802::log_internal::LogMessageFatal" = type { %"class.absl::lts_20230802::log_internal::LogMessage" }
 %"class.absl::lts_20230802::log_internal::LogMessage" = type { %"class.absl::lts_20230802::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
 %"class.absl::lts_20230802::base_internal::ErrnoSaver" = type { i32 }
@@ -28,20 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::allocator" = type { i8 }
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
-%"class.google::protobuf::RepeatedField.2" = type { i32, i32, ptr }
-%"class.google::protobuf::RepeatedField.4" = type { i32, i32, ptr }
-%"class.google::protobuf::RepeatedField.6" = type { i32, i32, ptr }
-%"struct.google::protobuf::RepeatedField<int>::Rep" = type { %union.anon.8 }
-%union.anon.8 = type { ptr }
-%"class.google::protobuf::internal::SerialArena" = type { %"struct.std::atomic.11", ptr, ptr, ptr, %"struct.std::atomic.13", %"struct.std::atomic.15", %"struct.std::atomic.17", %"struct.std::atomic.15", %"struct.std::atomic.15", ptr, i8, ptr }
-%"struct.std::atomic.11" = type { %"struct.std::__atomic_base.12" }
-%"struct.std::__atomic_base.12" = type { ptr }
-%"struct.std::atomic.13" = type { %"struct.std::__atomic_base.14" }
-%"struct.std::__atomic_base.14" = type { ptr }
-%"struct.std::atomic.17" = type { %"struct.std::__atomic_base.18" }
-%"struct.std::__atomic_base.18" = type { ptr }
-%"struct.std::atomic.15" = type { %"struct.std::__atomic_base.16" }
-%"struct.std::__atomic_base.16" = type { i64 }
 %struct._Guard = type { ptr }
 
 $_ZN6google8protobuf8internal12FieldSkipperD2Ev = comdat any
@@ -142,7 +122,7 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %0 = load ptr, ptr %input, align 8
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load ptr, ptr %buffer_end_.i, align 8
   %cmp.i = icmp ult ptr %0, %1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
@@ -165,7 +145,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %s
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %input, i64 8
   %5 = load ptr, ptr %buffer_end_.i.i, align 8
   %6 = load ptr, ptr %input, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
@@ -186,7 +166,7 @@ if.else.i:                                        ; preds = %sw.bb5
 
 sw.bb10:                                          ; preds = %if.end
   %7 = load ptr, ptr %input, align 8
-  %buffer_end_.i19 = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
+  %buffer_end_.i19 = getelementptr inbounds i8, ptr %input, i64 8
   %8 = load ptr, ptr %buffer_end_.i19, align 8
   %cmp.i20 = icmp ult ptr %7, %8
   br i1 %cmp.i20, label %if.then.i23, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
@@ -237,7 +217,7 @@ if.end4.i:                                        ; preds = %if.end.i27
   br label %return
 
 sw.bb17:                                          ; preds = %if.end
-  %recursion_budget_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 12
+  %recursion_budget_.i = getelementptr inbounds i8, ptr %input, i64 52
   %13 = load i32, ptr %recursion_budget_.i, align 4
   %dec.i = add nsw i32 %13, -1
   store i32 %dec.i, ptr %recursion_budget_.i, align 4
@@ -245,8 +225,8 @@ sw.bb17:                                          ; preds = %if.end
   br i1 %cmp.i35, label %while.body.i.preheader, label %return
 
 while.body.i.preheader:                           ; preds = %sw.bb17
-  %buffer_end_.i.i36 = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
-  %last_tag_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 5
+  %buffer_end_.i.i36 = getelementptr inbounds i8, ptr %input, i64 8
+  %last_tag_.i.i = getelementptr inbounds i8, ptr %input, i64 32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end4.i39
@@ -286,7 +266,7 @@ if.end4.i39:                                      ; preds = %_ZN6google8protobuf
 
 if.end23:                                         ; preds = %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i
   %18 = load i32, ptr %recursion_budget_.i, align 4
-  %recursion_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 13
+  %recursion_limit_.i = getelementptr inbounds i8, ptr %input, i64 56
   %19 = load i32, ptr %recursion_limit_.i, align 8
   %cmp.i44 = icmp slt i32 %18, %19
   br i1 %cmp.i44, label %if.then.i46, label %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit
@@ -302,7 +282,7 @@ _ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit: ; pred
   br label %return
 
 sw.bb30:                                          ; preds = %if.end
-  %buffer_end_.i.i49 = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
+  %buffer_end_.i.i49 = getelementptr inbounds i8, ptr %input, i64 8
   %20 = load ptr, ptr %buffer_end_.i.i49, align 8
   %21 = load ptr, ptr %input, align 8
   %sub.ptr.lhs.cast.i.i50 = ptrtoint ptr %20 to i64
@@ -329,8 +309,8 @@ return:                                           ; preds = %if.end4.i39, %if.el
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite11SkipMessageEPNS0_2io16CodedInputStreamE(ptr noundef %input) local_unnamed_addr #3 align 2 {
 entry:
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
-  %last_tag_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 5
+  %buffer_end_.i = getelementptr inbounds i8, ptr %input, i64 8
+  %last_tag_.i = getelementptr inbounds i8, ptr %input, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %if.end4, %entry
@@ -394,7 +374,7 @@ if.end:                                           ; preds = %entry
 
 sw.bb:                                            ; preds = %if.end
   %0 = load ptr, ptr %input, align 8
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load ptr, ptr %buffer_end_.i, align 8
   %cmp.i = icmp ult ptr %0, %1
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit
@@ -420,7 +400,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit: ; preds = %sw.bb
 
 if.end4:                                          ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit
   %value.0216 = phi i64 [ %conv5.i, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread ], [ %3, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit ]
-  %cur_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i = getelementptr inbounds i8, ptr %output, i64 64
   %6 = load ptr, ptr %cur_.i, align 8
   %7 = load ptr, ptr %output, align 8
   %cmp.not.i.i = icmp ugt ptr %7, %6
@@ -487,7 +467,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit: ; preds = %whil
   br label %return
 
 sw.bb5:                                           ; preds = %if.end
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %input, i64 8
   %11 = load ptr, ptr %buffer_end_.i.i, align 8
   %12 = load ptr, ptr %input, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
@@ -509,7 +489,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit: ; preds = 
   br i1 %call4.i, label %if.end9, label %return
 
 if.end9:                                          ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit.thread, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit
-  %cur_.i48 = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i48 = getelementptr inbounds i8, ptr %output, i64 64
   %14 = load ptr, ptr %cur_.i48, align 8
   %15 = load ptr, ptr %output, align 8
   %cmp.not.i.i49 = icmp ugt ptr %15, %14
@@ -560,7 +540,7 @@ _ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit: ; preds =
 
 sw.bb10:                                          ; preds = %if.end
   %19 = load ptr, ptr %input, align 8
-  %buffer_end_.i74 = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
+  %buffer_end_.i74 = getelementptr inbounds i8, ptr %input, i64 8
   %20 = load ptr, ptr %buffer_end_.i74, align 8
   %cmp.i75 = icmp ult ptr %19, %20
   br i1 %cmp.i75, label %if.then.i78, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
@@ -585,7 +565,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit: ; preds = %sw.bb
 
 if.end13:                                         ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
   %length.0220 = phi i32 [ %conv.i, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread ], [ %conv6.i, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ]
-  %cur_.i81 = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i81 = getelementptr inbounds i8, ptr %output, i64 64
   %22 = load ptr, ptr %cur_.i81, align 8
   %23 = load ptr, ptr %output, align 8
   %cmp.not.i.i82 = icmp ugt ptr %23, %22
@@ -696,7 +676,7 @@ cleanup:                                          ; preds = %_ZN6google8protobuf
   br label %return
 
 sw.bb18:                                          ; preds = %if.end
-  %cur_.i124 = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i124 = getelementptr inbounds i8, ptr %output, i64 64
   %30 = load ptr, ptr %cur_.i124, align 8
   %31 = load ptr, ptr %output, align 8
   %cmp.not.i.i125 = icmp ugt ptr %31, %30
@@ -729,7 +709,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit142: ; preds = %w
   %incdec.ptr2.i.i.i134 = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i.i131, i64 1
   store i8 %conv1.i.i.i133, ptr %ptr.addr.i.0.lcssa.i.i131, align 1
   store ptr %incdec.ptr2.i.i.i134, ptr %cur_.i124, align 8
-  %recursion_budget_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 12
+  %recursion_budget_.i = getelementptr inbounds i8, ptr %input, i64 52
   %33 = load i32, ptr %recursion_budget_.i, align 4
   %dec.i = add nsw i32 %33, -1
   store i32 %dec.i, ptr %recursion_budget_.i, align 4
@@ -737,8 +717,8 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit142: ; preds = %w
   br i1 %cmp.i143, label %while.body.i.preheader, label %return
 
 while.body.i.preheader:                           ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit142
-  %buffer_end_.i.i144 = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
-  %last_tag_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 5
+  %buffer_end_.i.i144 = getelementptr inbounds i8, ptr %input, i64 8
+  %last_tag_.i.i = getelementptr inbounds i8, ptr %input, i64 32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end4.i
@@ -815,7 +795,7 @@ if.end4.i:                                        ; preds = %if.end.i146
 
 if.end24:                                         ; preds = %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit211
   %40 = load i32, ptr %recursion_budget_.i, align 4
-  %recursion_limit_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 13
+  %recursion_limit_.i = getelementptr inbounds i8, ptr %input, i64 56
   %41 = load i32, ptr %recursion_limit_.i, align 8
   %cmp.i151 = icmp slt i32 %40, %41
   br i1 %cmp.i151, label %if.then.i153, label %_ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit
@@ -832,7 +812,7 @@ _ZN6google8protobuf2io16CodedInputStream23DecrementRecursionDepthEv.exit: ; pred
   br label %return
 
 sw.bb31:                                          ; preds = %if.end
-  %buffer_end_.i.i156 = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
+  %buffer_end_.i.i156 = getelementptr inbounds i8, ptr %input, i64 8
   %43 = load ptr, ptr %buffer_end_.i.i156, align 8
   %44 = load ptr, ptr %input, align 8
   %sub.ptr.lhs.cast.i.i157 = ptrtoint ptr %43 to i64
@@ -854,7 +834,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit: ; preds = 
   br i1 %call4.i163, label %if.end35, label %return
 
 if.end35:                                         ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit.thread, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit
-  %cur_.i167 = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i167 = getelementptr inbounds i8, ptr %output, i64 64
   %46 = load ptr, ptr %cur_.i167, align 8
   %47 = load ptr, ptr %output, align 8
   %cmp.not.i.i168 = icmp ugt ptr %47, %46
@@ -921,8 +901,8 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite11SkipMessageEPNS0_2io16CodedInputStreamEPNS3_17CodedOutputStreamE(ptr noundef %input, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
-  %last_tag_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 5
+  %buffer_end_.i = getelementptr inbounds i8, ptr %input, i64 8
+  %last_tag_.i = getelementptr inbounds i8, ptr %input, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %if.end4, %entry
@@ -959,7 +939,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  %cur_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i = getelementptr inbounds i8, ptr %output, i64 64
   %3 = load ptr, ptr %cur_.i, align 8
   %4 = load ptr, ptr %output, align 8
   %cmp.not.i.i = icmp ugt ptr %4, %3
@@ -1013,8 +993,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf8internal12FieldSkipper11SkipMessageEPNS0_2io16CodedInputStreamE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %input) unnamed_addr #3 align 2 {
 entry:
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
-  %last_tag_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 5
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %input, i64 8
+  %last_tag_.i.i = getelementptr inbounds i8, ptr %input, i64 32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end4.i, %entry
@@ -1065,7 +1045,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf8internal29CodedOutputStreamFieldSkipper9SkipFieldEPNS0_2io16CodedInputStreamEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %input, i32 noundef %tag) unnamed_addr #3 align 2 {
 entry:
-  %unknown_fields_ = getelementptr inbounds %"class.google::protobuf::internal::CodedOutputStreamFieldSkipper", ptr %this, i64 0, i32 1
+  %unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %unknown_fields_, align 8
   %call = tail call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9SkipFieldEPNS0_2io16CodedInputStreamEjPNS3_17CodedOutputStreamE(ptr noundef %input, i32 noundef %tag, ptr noundef %0)
   ret i1 %call
@@ -1074,10 +1054,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf8internal29CodedOutputStreamFieldSkipper11SkipMessageEPNS0_2io16CodedInputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %input) unnamed_addr #3 align 2 {
 entry:
-  %unknown_fields_ = getelementptr inbounds %"class.google::protobuf::internal::CodedOutputStreamFieldSkipper", ptr %this, i64 0, i32 1
+  %unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %unknown_fields_, align 8
-  %buffer_end_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
-  %last_tag_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 5
+  %buffer_end_.i.i = getelementptr inbounds i8, ptr %input, i64 8
+  %last_tag_.i.i = getelementptr inbounds i8, ptr %input, i64 32
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end4.i, %entry
@@ -1114,7 +1094,7 @@ if.end.i:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp2.i, label %if.then3.i, label %if.end4.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %0, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %cur_.i.i, align 8
   %5 = load ptr, ptr %0, align 8
   %cmp.not.i.i.i = icmp ugt ptr %5, %4
@@ -1161,9 +1141,9 @@ _ZN6google8protobuf8internal14WireFormatLite11SkipMessageEPNS0_2io16CodedInputSt
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal29CodedOutputStreamFieldSkipper15SkipUnknownEnumEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %field_number, i32 noundef %value) unnamed_addr #3 align 2 {
 entry:
-  %unknown_fields_ = getelementptr inbounds %"class.google::protobuf::internal::CodedOutputStreamFieldSkipper", ptr %this, i64 0, i32 1
+  %unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %unknown_fields_, align 8
-  %cur_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %0, i64 0, i32 1
+  %cur_.i = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %cur_.i, align 8
   %2 = load ptr, ptr %0, align 8
   %cmp.not.i.i = icmp ugt ptr %2, %1
@@ -1198,7 +1178,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
   store ptr %incdec.ptr2.i.i.i, ptr %cur_.i, align 8
   %4 = load ptr, ptr %unknown_fields_, align 8
   %conv = sext i32 %value to i64
-  %cur_.i1 = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %4, i64 0, i32 1
+  %cur_.i1 = getelementptr inbounds i8, ptr %4, i64 64
   %5 = load ptr, ptr %cur_.i1, align 8
   %6 = load ptr, ptr %4, align 8
   %cmp.not.i.i2 = icmp ugt ptr %6, %5
@@ -1238,7 +1218,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit: ; preds = %whil
 define noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite30ReadPackedEnumPreserveUnknownsEPNS0_2io16CodedInputStreamEiPFbiEPNS3_17CodedOutputStreamEPNS0_13RepeatedFieldIiEE(ptr noundef %input, i32 noundef %field_number, ptr noundef readonly %is_valid, ptr noundef %unknown_fields_stream, ptr noundef %values) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %input, align 8
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load ptr, ptr %buffer_end_.i, align 8
   %cmp.i = icmp ult ptr %0, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
@@ -1271,10 +1251,10 @@ if.end:                                           ; preds = %_ZN6google8protobuf
 while.body.lr.ph:                                 ; preds = %if.end
   %cmp6 = icmp eq ptr %is_valid, null
   %shl.i = shl i32 %field_number, 3
-  %cur_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %unknown_fields_stream, i64 0, i32 1
+  %cur_.i = getelementptr inbounds i8, ptr %unknown_fields_stream, i64 64
   %cmp.i7.i.i = icmp ugt i32 %shl.i, 127
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %values, i64 0, i32 1
-  %arena_or_elements_.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %values, i64 0, i32 2
+  %total_size_.i = getelementptr inbounds i8, ptr %values, i64 4
+  %arena_or_elements_.i.i = getelementptr inbounds i8, ptr %values, i64 8
   br i1 %cmp6, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.us
@@ -1488,7 +1468,7 @@ declare void @_ZN6google8protobuf2io16CodedInputStream8PopLimitEi(ptr noundef no
 define void @_ZN6google8protobuf8internal14WireFormatLite15WriteFloatArrayEPKfiPNS0_2io17CodedOutputStreamE(ptr noundef %a, i32 noundef %n, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
   %mul.i = shl i32 %n, 2
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -1518,7 +1498,7 @@ _ZN6google8protobuf8internalL10WriteArrayIfEEvPKT_iPNS0_2io17CodedOutputStreamE.
 define void @_ZN6google8protobuf8internal14WireFormatLite16WriteDoubleArrayEPKdiPNS0_2io17CodedOutputStreamE(ptr noundef %a, i32 noundef %n, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
   %mul.i = shl i32 %n, 3
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -1548,7 +1528,7 @@ _ZN6google8protobuf8internalL10WriteArrayIdEEvPKT_iPNS0_2io17CodedOutputStreamE.
 define void @_ZN6google8protobuf8internal14WireFormatLite17WriteFixed32ArrayEPKjiPNS0_2io17CodedOutputStreamE(ptr noundef %a, i32 noundef %n, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
   %mul.i = shl i32 %n, 2
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -1578,7 +1558,7 @@ _ZN6google8protobuf8internalL10WriteArrayIjEEvPKT_iPNS0_2io17CodedOutputStreamE.
 define void @_ZN6google8protobuf8internal14WireFormatLite17WriteFixed64ArrayEPKmiPNS0_2io17CodedOutputStreamE(ptr noundef %a, i32 noundef %n, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
   %mul.i = shl i32 %n, 3
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -1608,7 +1588,7 @@ _ZN6google8protobuf8internalL10WriteArrayImEEvPKT_iPNS0_2io17CodedOutputStreamE.
 define void @_ZN6google8protobuf8internal14WireFormatLite18WriteSFixed32ArrayEPKiiPNS0_2io17CodedOutputStreamE(ptr noundef %a, i32 noundef %n, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
   %mul.i = shl i32 %n, 2
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -1638,7 +1618,7 @@ _ZN6google8protobuf8internalL10WriteArrayIiEEvPKT_iPNS0_2io17CodedOutputStreamE.
 define void @_ZN6google8protobuf8internal14WireFormatLite18WriteSFixed64ArrayEPKliPNS0_2io17CodedOutputStreamE(ptr noundef %a, i32 noundef %n, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
   %mul.i = shl i32 %n, 3
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -1667,7 +1647,7 @@ _ZN6google8protobuf8internalL10WriteArrayIlEEvPKT_iPNS0_2io17CodedOutputStreamE.
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal14WireFormatLite14WriteBoolArrayEPKbiPNS0_2io17CodedOutputStreamE(ptr noundef %a, i32 noundef %n, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %1 to i64
@@ -1697,7 +1677,7 @@ _ZN6google8protobuf8internalL10WriteArrayIbEEvPKT_iPNS0_2io17CodedOutputStreamE.
 define void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt32EiiPNS0_2io17CodedOutputStreamE(i32 noundef %field_number, i32 noundef %value, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
   %shl.i = shl i32 %field_number, 3
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -1769,7 +1749,7 @@ _ZN6google8protobuf2io17CodedOutputStream25WriteVarint32SignExtendedEi.exit: ; p
 define void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt64EilPNS0_2io17CodedOutputStreamE(i32 noundef %field_number, i64 noundef %value, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
   %shl.i = shl i32 %field_number, 3
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -1840,7 +1820,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit: ; preds = %whil
 define void @_ZN6google8protobuf8internal14WireFormatLite11WriteUInt32EijPNS0_2io17CodedOutputStreamE(i32 noundef %field_number, i32 noundef %value, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
   %shl.i = shl i32 %field_number, 3
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -1911,7 +1891,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
 define void @_ZN6google8protobuf8internal14WireFormatLite11WriteUInt64EimPNS0_2io17CodedOutputStreamE(i32 noundef %field_number, i64 noundef %value, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
   %shl.i = shl i32 %field_number, 3
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -1982,7 +1962,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit: ; preds = %whil
 define void @_ZN6google8protobuf8internal14WireFormatLite11WriteSInt32EiiPNS0_2io17CodedOutputStreamE(i32 noundef %field_number, i32 noundef %value, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
   %shl.i = shl i32 %field_number, 3
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -2056,7 +2036,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
 define void @_ZN6google8protobuf8internal14WireFormatLite11WriteSInt64EilPNS0_2io17CodedOutputStreamE(i32 noundef %field_number, i64 noundef %value, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
   %shl.i = shl i32 %field_number, 3
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -2131,7 +2111,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite12WriteFixed32EijPNS0_2
 entry:
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 5
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -2185,7 +2165,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite12WriteFixed64EimPNS0_2
 entry:
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 1
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -2239,7 +2219,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite13WriteSFixed32EiiPNS0_
 entry:
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 5
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -2293,7 +2273,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite13WriteSFixed64EilPNS0_
 entry:
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 1
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -2347,7 +2327,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite10WriteFloatEifPNS0_2io
 entry:
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 5
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -2401,7 +2381,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite11WriteDoubleEidPNS0_2i
 entry:
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 1
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -2454,7 +2434,7 @@ _ZN6google8protobuf2io17CodedOutputStream19WriteLittleEndian64Em.exit: ; preds =
 define void @_ZN6google8protobuf8internal14WireFormatLite9WriteBoolEibPNS0_2io17CodedOutputStreamE(i32 noundef %field_number, i1 noundef zeroext %value, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
   %shl.i = shl i32 %field_number, 3
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -2508,7 +2488,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %_ZN6
 define void @_ZN6google8protobuf8internal14WireFormatLite9WriteEnumEiiPNS0_2io17CodedOutputStreamE(i32 noundef %field_number, i32 noundef %value, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
   %shl.i = shl i32 %field_number, 3
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -2582,7 +2562,7 @@ entry:
   %ref.tmp5 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 2
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -2710,7 +2690,7 @@ entry:
   %ref.tmp5 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 2
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -2795,7 +2775,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
   %call10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #22
   %conv11 = trunc i64 %call10 to i32
   %8 = load ptr, ptr %cur_.i.i, align 8
-  %aliasing_enabled_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 5
+  %aliasing_enabled_.i.i = getelementptr inbounds i8, ptr %output, i64 57
   %9 = load i8, ptr %aliasing_enabled_.i.i, align 1
   %10 = and i8 %9, 1
   %tobool.not.i.i = icmp eq i8 %10, 0
@@ -2840,7 +2820,7 @@ entry:
   %ref.tmp5 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 2
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -2956,7 +2936,7 @@ entry:
   %ref.tmp5 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 2
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -3041,7 +3021,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
   %call10 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #22
   %conv11 = trunc i64 %call10 to i32
   %8 = load ptr, ptr %cur_.i.i, align 8
-  %aliasing_enabled_.i.i = getelementptr inbounds %"class.google::protobuf::io::EpsCopyOutputStream", ptr %output, i64 0, i32 5
+  %aliasing_enabled_.i.i = getelementptr inbounds i8, ptr %output, i64 57
   %9 = load i8, ptr %aliasing_enabled_.i.i, align 1
   %10 = and i8 %9, 1
   %tobool.not.i.i = icmp eq i8 %10, 0
@@ -3082,7 +3062,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite10WriteGroupEiRKNS0_11M
 entry:
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 3
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -3116,7 +3096,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   store i8 %conv1.i.i.i.i, ptr %ptr.addr.i.0.lcssa.i.i.i, align 1
   store ptr %incdec.ptr2.i.i.i.i, ptr %cur_.i.i, align 8
   %vtable.i = load ptr, ptr %value, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %3 = load ptr, ptr %vfn.i, align 8
   %call3.i = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull %incdec.ptr2.i.i.i.i, ptr noundef nonnull %output)
   store ptr %call3.i, ptr %cur_.i.i, align 8
@@ -3160,7 +3140,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite12WriteMessageEiRKNS0_1
 entry:
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 2
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -3227,7 +3207,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
   store i8 %conv1.i.i.i, ptr %ptr.addr.i.0.lcssa.i.i, align 1
   store ptr %incdec.ptr2.i.i.i, ptr %cur_.i.i, align 8
   %vtable.i = load ptr, ptr %value, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %6 = load ptr, ptr %vfn.i, align 8
   %call3.i = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull %incdec.ptr2.i.i.i, ptr noundef nonnull %output)
   store ptr %call3.i, ptr %cur_.i.i, align 8
@@ -3272,7 +3252,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; pred
   %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i, i64 1
   store i8 %conv1.i.i, ptr %ptr.addr.i.0.lcssa.i, align 1
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull %incdec.ptr2.i.i, ptr noundef nonnull %stream)
   %3 = load ptr, ptr %stream, align 8
@@ -3365,7 +3345,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit19: ; pr
   %incdec.ptr2.i.i11 = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i8, i64 1
   store i8 %conv1.i.i10, ptr %ptr.addr.i.0.lcssa.i8, align 1
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %3 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull %incdec.ptr2.i.i11, ptr noundef nonnull %stream)
   ret ptr %call3
@@ -3374,10 +3354,10 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit19: ; pr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal14WireFormatLite27WriteSubMessageMaybeToArrayEiRKNS0_11MessageLiteEPNS0_2io17CodedOutputStreamE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef %output) local_unnamed_addr #3 align 2 {
 entry:
-  %cur_.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i = getelementptr inbounds i8, ptr %output, i64 64
   %1 = load ptr, ptr %cur_.i, align 8
   %vtable = load ptr, ptr %value, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 9
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef %1, ptr noundef %output)
   store ptr %call2, ptr %cur_.i, align 8
@@ -3389,7 +3369,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite22WriteGroupMaybeToArra
 entry:
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 3
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -3425,7 +3405,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body
   %call = tail call noundef i32 @_ZNK6google8protobuf11MessageLite13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(16) %value)
   %3 = load ptr, ptr %cur_.i.i, align 8
   %vtable.i = load ptr, ptr %value, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %4 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef %3, ptr noundef nonnull %output)
   store ptr %call2.i, ptr %cur_.i.i, align 8
@@ -3469,7 +3449,7 @@ define void @_ZN6google8protobuf8internal14WireFormatLite24WriteMessageMaybeToAr
 entry:
   %shl.i = shl i32 %field_number, 3
   %or.i = or disjoint i32 %shl.i, 2
-  %cur_.i.i = getelementptr inbounds %"class.google::protobuf::io::CodedOutputStream", ptr %output, i64 0, i32 1
+  %cur_.i.i = getelementptr inbounds i8, ptr %output, i64 64
   %0 = load ptr, ptr %cur_.i.i, align 8
   %1 = load ptr, ptr %output, align 8
   %cmp.not.i.i.i = icmp ugt ptr %1, %0
@@ -3536,7 +3516,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
   store i8 %conv1.i.i.i, ptr %ptr.addr.i.0.lcssa.i.i, align 1
   store ptr %incdec.ptr2.i.i.i, ptr %cur_.i.i, align 8
   %vtable.i = load ptr, ptr %value, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 9
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
   %6 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(16) %value, ptr noundef nonnull %incdec.ptr2.i.i.i, ptr noundef nonnull %output)
   store ptr %call2.i, ptr %cur_.i.i, align 8
@@ -3547,7 +3527,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
 define noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadBytesEPNS0_2io16CodedInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %input, ptr noundef %value) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %input, align 8
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %input, i64 8
   %1 = load ptr, ptr %buffer_end_.i, align 8
   %cmp.i = icmp ult ptr %0, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
@@ -3596,7 +3576,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %1 = phi ptr [ %call1, %if.then ], [ %0, %entry ]
   %2 = load ptr, ptr %input, align 8
-  %buffer_end_.i = getelementptr inbounds %"class.google::protobuf::io::CodedInputStream", ptr %input, i64 0, i32 1
+  %buffer_end_.i = getelementptr inbounds i8, ptr %input, i64 8
   %3 = load ptr, ptr %buffer_end_.i, align 8
   %cmp.i = icmp ult ptr %2, %3
   br i1 %cmp.i, label %if.then.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
@@ -3678,23 +3658,23 @@ if.then:                                          ; preds = %invoke.cont
 invoke.cont15:                                    ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i)
   store i64 2, ptr %ref.tmp.i, align 8, !noalias !10
-  %1 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %1 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   store ptr @.str.3, ptr %1, align 8, !noalias !10
-  %arrayinit.element.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   store i64 %message_name.coerce0, ptr %arrayinit.element.i, align 8, !noalias !10
-  %2 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 1, i32 1
+  %2 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 24
   store ptr %message_name.coerce1, ptr %2, align 8, !noalias !10
-  %arrayinit.element2.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2
+  %arrayinit.element2.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 32
   store i64 1, ptr %arrayinit.element2.i, align 8, !noalias !10
-  %3 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 2, i32 1
+  %3 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 40
   store ptr @.str.4, ptr %3, align 8, !noalias !10
-  %arrayinit.element4.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3
+  %arrayinit.element4.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 48
   store i64 %field_name.coerce0, ptr %arrayinit.element4.i, align 8, !noalias !10
-  %4 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 3, i32 1
+  %4 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 56
   store ptr %field_name.coerce1, ptr %4, align 8, !noalias !10
-  %arrayinit.element6.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 64
   store i64 1, ptr %arrayinit.element6.i, align 8, !noalias !10
-  %5 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i, i64 4, i32 1
+  %5 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 72
   store ptr @.str.5, ptr %5, align 8, !noalias !10
   invoke void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr nonnull %ref.tmp.i, i64 5)
           to label %invoke.cont16 unwind label %lpad5
@@ -3720,13 +3700,13 @@ lpad5:                                            ; preds = %invoke.cont38, %inv
 
 invoke.cont25:                                    ; preds = %if.then
   store i64 2, ptr %ref.tmp19, align 8
-  %8 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp19, i64 0, i32 1
+  %8 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store ptr @.str.3, ptr %8, align 8
   store i64 %field_name.coerce0, ptr %ref.tmp21, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i11 = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
   store ptr %field_name.coerce1, ptr %pc.sroa.2.0.piece_.sroa_idx.i11, align 8
   store i64 1, ptr %ref.tmp24, align 8
-  %9 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp24, i64 0, i32 1
+  %9 = getelementptr inbounds i8, ptr %ref.tmp24, i64 8
   store ptr @.str.5, ptr %9, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp18, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp24)
           to label %invoke.cont34.sink.split unwind label %lpad5
@@ -3752,30 +3732,30 @@ invoke.cont38:                                    ; preds = %invoke.cont34, %con
   %retval.sroa.0.0.i.i = phi i64 [ %call.i.i.i.i15, %cond.true.i.i ], [ 0, %invoke.cont34 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i19)
   store i64 12, ptr %ref.tmp.i19, align 8, !noalias !13
-  %12 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i19, i64 0, i32 1
+  %12 = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 8
   store ptr @.str.6, ptr %12, align 8, !noalias !13
-  %arrayinit.element.i23 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i19, i64 1
+  %arrayinit.element.i23 = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 16
   store i64 %10, ptr %arrayinit.element.i23, align 8, !noalias !13
-  %13 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i19, i64 1, i32 1
+  %13 = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 24
   store ptr %11, ptr %13, align 8, !noalias !13
-  %arrayinit.element2.i27 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i19, i64 2
+  %arrayinit.element2.i27 = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 32
   store i64 34, ptr %arrayinit.element2.i27, align 8, !noalias !13
-  %14 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i19, i64 2, i32 1
+  %14 = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 40
   store ptr @.str.7, ptr %14, align 8, !noalias !13
-  %arrayinit.element4.i31 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i19, i64 3
+  %arrayinit.element4.i31 = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 48
   store i64 %retval.sroa.0.0.i.i, ptr %arrayinit.element4.i31, align 8, !noalias !13
-  %15 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i19, i64 3, i32 1
+  %15 = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 56
   store ptr %operation_str, ptr %15, align 8, !noalias !13
-  %arrayinit.element6.i35 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i19, i64 4
+  %arrayinit.element6.i35 = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 64
   store i64 74, ptr %arrayinit.element6.i35, align 8, !noalias !13
-  %16 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i19, i64 4, i32 1
+  %16 = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 72
   store ptr @.str.8, ptr %16, align 8, !noalias !13
-  %arrayinit.element8.i = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i19, i64 5
+  %arrayinit.element8.i = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 80
   %call.i.i39 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %stacktrace) #22, !noalias !13
   %17 = extractvalue { i64, ptr } %call.i.i39, 0
   %18 = extractvalue { i64, ptr } %call.i.i39, 1
   store i64 %17, ptr %arrayinit.element8.i, align 8, !noalias !13
-  %19 = getelementptr inbounds %"class.std::basic_string_view", ptr %ref.tmp.i19, i64 5, i32 1
+  %19 = getelementptr inbounds i8, ptr %ref.tmp.i19, i64 88
   store ptr %18, ptr %19, align 8, !noalias !13
   invoke void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %error_message, ptr nonnull %ref.tmp.i19, i64 6)
           to label %invoke.cont39 unwind label %lpad5
@@ -3870,7 +3850,7 @@ declare noundef zeroext i1 @_ZN10utf8_range19IsStructurallyValidESt17basic_strin
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN6google8protobuf8internal14WireFormatLite9Int32SizeERKNS0_13RepeatedFieldIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) local_unnamed_addr #10 align 2 {
 entry:
-  %arena_or_elements_.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %value, i64 0, i32 2
+  %arena_or_elements_.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i, align 8
   %1 = load i32, ptr %value, align 8
   %cmp14.i = icmp sgt i32 %1, 0
@@ -3914,7 +3894,7 @@ _ZN6google8protobuf8internalL10VarintSizeILb0ELb1EiEEmPKT1_i.exit: ; preds = %en
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10UInt32SizeERKNS0_13RepeatedFieldIjEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) local_unnamed_addr #10 align 2 {
 entry:
-  %arena_or_elements_.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.2", ptr %value, i64 0, i32 2
+  %arena_or_elements_.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i, align 8
   %1 = load i32, ptr %value, align 8
   %cmp11.i = icmp sgt i32 %1, 0
@@ -3949,7 +3929,7 @@ _ZN6google8protobuf8internalL10VarintSizeILb0ELb0EjEEmPKT1_i.exit: ; preds = %fo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN6google8protobuf8internal14WireFormatLite10SInt32SizeERKNS0_13RepeatedFieldIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) local_unnamed_addr #10 align 2 {
 entry:
-  %arena_or_elements_.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %value, i64 0, i32 2
+  %arena_or_elements_.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i, align 8
   %1 = load i32, ptr %value, align 8
   %cmp12.i = icmp sgt i32 %1, 0
@@ -3987,7 +3967,7 @@ _ZN6google8protobuf8internalL10VarintSizeILb1ELb0EiEEmPKT1_i.exit: ; preds = %fo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN6google8protobuf8internal14WireFormatLite8EnumSizeERKNS0_13RepeatedFieldIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) local_unnamed_addr #10 align 2 {
 entry:
-  %arena_or_elements_.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %value, i64 0, i32 2
+  %arena_or_elements_.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %0 = load ptr, ptr %arena_or_elements_.i.i, align 8
   %1 = load i32, ptr %value, align 8
   %cmp14.i = icmp sgt i32 %1, 0
@@ -4036,7 +4016,7 @@ entry:
   br i1 %cmp5, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arena_or_elements_.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.4", ptr %value, i64 0, i32 2
+  %arena_or_elements_.i.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
@@ -4070,7 +4050,7 @@ entry:
   br i1 %cmp5, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arena_or_elements_.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.6", ptr %value, i64 0, i32 2
+  %arena_or_elements_.i.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
@@ -4104,7 +4084,7 @@ entry:
   br i1 %cmp5, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arena_or_elements_.i.i.i = getelementptr inbounds %"class.google::protobuf::RepeatedField.4", ptr %value, i64 0, i32 2
+  %arena_or_elements_.i.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
@@ -4205,10 +4185,10 @@ declare void @llvm.assume(i1 noundef) #17
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %current_size, i32 noundef %new_size) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %total_size_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %this, i64 0, i32 1
+  %total_size_.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %total_size_.i, align 4
   %cmp.i = icmp eq i32 %0, 0
-  %arena_or_elements_.i = getelementptr inbounds %"class.google::protobuf::RepeatedField", ptr %this, i64 0, i32 2
+  %arena_or_elements_.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %arena_or_elements_.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %cond.in.i = select i1 %cmp.i, ptr %arena_or_elements_.i, ptr %add.ptr.i.i
@@ -4256,7 +4236,7 @@ if.then26:                                        ; preds = %if.end
   br i1 %cmp27, label %if.then28, label %if.end33
 
 if.then28:                                        ; preds = %if.then26
-  %add.ptr.i = getelementptr inbounds %"struct.google::protobuf::RepeatedField<int>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   %3 = load ptr, ptr %arena_or_elements_.i, align 8
   %conv31 = zext nneg i32 %current_size to i64
   %mul32 = shl nuw nsw i64 %conv31, 2
@@ -4281,11 +4261,11 @@ if.then.i:                                        ; preds = %if.end33
 
 if.else.i24:                                      ; preds = %if.end33
   %7 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %7, i64 0, i32 1
+  %last_lifecycle_id_seen.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i64, ptr %last_lifecycle_id_seen.i.i.i.i, align 8
   %9 = load i64, ptr %6, align 8
   %cmp.i.i.i.i = icmp eq i64 %8, %9
-  %last_serial_arena.i.i.i.i = getelementptr inbounds %"struct.google::protobuf::internal::ThreadSafeArena::ThreadCache", ptr %7, i64 0, i32 2
+  %last_serial_arena.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 16
   %10 = load ptr, ptr %last_serial_arena.i.i.i.i, align 16
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.end34
 
@@ -4294,7 +4274,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i24
   tail call void @llvm.assume(i1 %cmp.i2.i.i.i)
   %11 = tail call i64 @llvm.ctlz.i64(i64 %add.i21, i1 true), !range !20
   %sub.i.i.i.i = sub nuw nsw i64 59, %11
-  %cached_block_length_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 10
+  %cached_block_length_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %conv2.i.i.i.i = zext i8 %12 to i64
   %cmp3.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i, %conv2.i.i.i.i
@@ -4302,7 +4282,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i24
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %div10.i.i.i.i = lshr i64 %add.i21, 3
-  %cached_blocks_.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 11
+  %cached_blocks_.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 88
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i, label %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i
 
@@ -4334,7 +4314,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
   br label %if.end34
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
-  %cached_blocks_19.i.i.i.i = getelementptr inbounds %"class.google::protobuf::internal::SerialArena", ptr %10, i64 0, i32 11
+  %cached_blocks_19.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
@@ -4344,7 +4324,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
 
 if.end34:                                         ; preds = %if.end.i.i.i.i, %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, %if.else.i24, %if.then.i, %if.end
   store i32 %retval.0.i, ptr %total_size_.i, align 4
-  %add.ptr.i26 = getelementptr inbounds %"struct.google::protobuf::RepeatedField<int>::Rep", ptr %new_rep.0, i64 1
+  %add.ptr.i26 = getelementptr inbounds i8, ptr %new_rep.0, i64 8
   store ptr %add.ptr.i26, ptr %arena_or_elements_.i, align 8
   ret void
 }

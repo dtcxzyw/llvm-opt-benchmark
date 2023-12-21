@@ -3,12 +3,7 @@ source_filename = "bench/openssl/original/libcrypto-lib-hpke.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ossl_hpke_ctx_st = type { ptr, ptr, i32, %struct.OSSL_HPKE_SUITE, ptr, ptr, ptr, ptr, i32, i64, ptr, i64, ptr, i64, ptr, i64, ptr, i64, ptr, ptr, i64, ptr, ptr, i64, ptr, i64 }
-%struct.OSSL_HPKE_SUITE = type { i16, i16, i16 }
-%struct.OSSL_HPKE_AEAD_INFO = type { i16, ptr, i64, i64, i64 }
-%struct.OSSL_HPKE_KEM_INFO = type { i16, ptr, ptr, ptr, i64, i64, i64, i64, i8 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.OSSL_HPKE_KDF_INFO = type { i16, ptr, i64 }
 
 @.str = private unnamed_addr constant [30 x i8] c"../openssl/crypto/hpke/hpke.c\00", align 1
 @__func__.OSSL_HPKE_CTX_new = private unnamed_addr constant [18 x i8] c"OSSL_HPKE_CTX_new\00", align 1
@@ -110,13 +105,13 @@ if.end13:                                         ; preds = %if.end9
 
 if.then16:                                        ; preds = %if.end13
   %call17 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %propq, ptr noundef nonnull @.str, i32 noundef 824) #5
-  %propq18 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %call10, i64 0, i32 1
+  %propq18 = getelementptr inbounds i8, ptr %call10, i64 8
   store ptr %call17, ptr %propq18, align 8
   %cmp20 = icmp eq ptr %call17, null
   br i1 %cmp20, label %if.then16.err_crit_edge, label %if.end23
 
 if.then16.err_crit_edge:                          ; preds = %if.then16
-  %aead_ciph40.phi.trans.insert = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %call10, i64 0, i32 7
+  %aead_ciph40.phi.trans.insert = getelementptr inbounds i8, ptr %call10, i64 56
   %.pre = load ptr, ptr %aead_ciph40.phi.trans.insert, align 8
   br label %err
 
@@ -125,10 +120,10 @@ if.end23:                                         ; preds = %if.then16, %if.end1
   br i1 %cmp24.not, label %if.end33, label %if.then26
 
 if.then26:                                        ; preds = %if.end23
-  %name = getelementptr inbounds %struct.OSSL_HPKE_AEAD_INFO, ptr %call5.i, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call5.i, i64 8
   %0 = load ptr, ptr %name, align 8
   %call27 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %libctx, ptr noundef %0, ptr noundef %propq) #5
-  %aead_ciph = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %call10, i64 0, i32 7
+  %aead_ciph = getelementptr inbounds i8, ptr %call10, i64 56
   store ptr %call27, ptr %aead_ciph, align 8
   %cmp29 = icmp eq ptr %call27, null
   br i1 %cmp29, label %if.then31, label %if.end33
@@ -140,19 +135,19 @@ if.then31:                                        ; preds = %if.then26
   br label %err
 
 if.end33:                                         ; preds = %if.then26, %if.end23
-  %role34 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %call10, i64 0, i32 8
+  %role34 = getelementptr inbounds i8, ptr %call10, i64 64
   store i32 %role, ptr %role34, align 8
-  %mode35 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %call10, i64 0, i32 2
+  %mode35 = getelementptr inbounds i8, ptr %call10, i64 16
   store i32 %mode, ptr %mode35, align 8
-  %suite36 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %call10, i64 0, i32 3
+  %suite36 = getelementptr inbounds i8, ptr %call10, i64 20
   store i32 %suite.sroa.0.0.extract.trunc, ptr %suite36, align 4
-  %suite.sroa.3.0.suite36.sroa_idx = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %call10, i64 0, i32 3, i32 2
+  %suite.sroa.3.0.suite36.sroa_idx = getelementptr inbounds i8, ptr %call10, i64 24
   store i16 %suite.sroa.3.0.extract.trunc, ptr %suite.sroa.3.0.suite36.sroa_idx, align 4
-  %kem_info37 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %call10, i64 0, i32 4
+  %kem_info37 = getelementptr inbounds i8, ptr %call10, i64 32
   store ptr %call.i, ptr %kem_info37, align 8
-  %kdf_info38 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %call10, i64 0, i32 5
+  %kdf_info38 = getelementptr inbounds i8, ptr %call10, i64 40
   store ptr %call1.i, ptr %kdf_info38, align 8
-  %aead_info39 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %call10, i64 0, i32 6
+  %aead_info39 = getelementptr inbounds i8, ptr %call10, i64 48
   store ptr %call5.i, ptr %aead_info39, align 8
   br label %return
 
@@ -193,49 +188,49 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %aead_ciph = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 7
+  %aead_ciph = getelementptr inbounds i8, ptr %ctx, i64 56
   %0 = load ptr, ptr %aead_ciph, align 8
   tail call void @EVP_CIPHER_free(ptr noundef %0) #5
-  %propq = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %propq, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 854) #5
-  %exportersec = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 16
+  %exportersec = getelementptr inbounds i8, ptr %ctx, i64 128
   %2 = load ptr, ptr %exportersec, align 8
-  %exporterseclen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 17
+  %exporterseclen = getelementptr inbounds i8, ptr %ctx, i64 136
   %3 = load i64, ptr %exporterseclen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 855) #5
-  %pskid = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 18
+  %pskid = getelementptr inbounds i8, ptr %ctx, i64 144
   %4 = load ptr, ptr %pskid, align 8
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 856) #5
-  %psk = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 19
+  %psk = getelementptr inbounds i8, ptr %ctx, i64 152
   %5 = load ptr, ptr %psk, align 8
-  %psklen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 20
+  %psklen = getelementptr inbounds i8, ptr %ctx, i64 160
   %6 = load i64, ptr %psklen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %5, i64 noundef %6, ptr noundef nonnull @.str, i32 noundef 857) #5
-  %key = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 12
+  %key = getelementptr inbounds i8, ptr %ctx, i64 96
   %7 = load ptr, ptr %key, align 8
-  %keylen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 13
+  %keylen = getelementptr inbounds i8, ptr %ctx, i64 104
   %8 = load i64, ptr %keylen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %7, i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 858) #5
-  %nonce = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 14
+  %nonce = getelementptr inbounds i8, ptr %ctx, i64 112
   %9 = load ptr, ptr %nonce, align 8
-  %noncelen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 15
+  %noncelen = getelementptr inbounds i8, ptr %ctx, i64 120
   %10 = load i64, ptr %noncelen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %9, i64 noundef %10, ptr noundef nonnull @.str, i32 noundef 859) #5
-  %shared_secret = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 10
+  %shared_secret = getelementptr inbounds i8, ptr %ctx, i64 80
   %11 = load ptr, ptr %shared_secret, align 8
-  %shared_secretlen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 11
+  %shared_secretlen = getelementptr inbounds i8, ptr %ctx, i64 88
   %12 = load i64, ptr %shared_secretlen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %11, i64 noundef %12, ptr noundef nonnull @.str, i32 noundef 860) #5
-  %ikme = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 24
+  %ikme = getelementptr inbounds i8, ptr %ctx, i64 192
   %13 = load ptr, ptr %ikme, align 8
-  %ikmelen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 25
+  %ikmelen = getelementptr inbounds i8, ptr %ctx, i64 200
   %14 = load i64, ptr %ikmelen, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %13, i64 noundef %14, ptr noundef nonnull @.str, i32 noundef 861) #5
-  %authpriv = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 21
+  %authpriv = getelementptr inbounds i8, ptr %ctx, i64 168
   %15 = load ptr, ptr %authpriv, align 8
   tail call void @EVP_PKEY_free(ptr noundef %15) #5
-  %authpub = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 22
+  %authpub = getelementptr inbounds i8, ptr %ctx, i64 176
   %16 = load ptr, ptr %authpub, align 8
   tail call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 863) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %ctx, ptr noundef nonnull @.str, i32 noundef 865) #5
@@ -309,7 +304,7 @@ if.then17:                                        ; preds = %if.end14
   br label %return
 
 if.end18:                                         ; preds = %if.end14
-  %mode = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load i32, ptr %mode, align 8
   switch i32 %0, label %if.then22 [
     i32 1, label %if.end23
@@ -323,9 +318,9 @@ if.then22:                                        ; preds = %if.end18
   br label %return
 
 if.end23:                                         ; preds = %if.end18, %if.end18
-  %psk24 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 19
+  %psk24 = getelementptr inbounds i8, ptr %ctx, i64 152
   %1 = load ptr, ptr %psk24, align 8
-  %psklen25 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 20
+  %psklen25 = getelementptr inbounds i8, ptr %ctx, i64 160
   %2 = load i64, ptr %psklen25, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 899) #5
   %call26 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %psk, i64 noundef %psklen, ptr noundef nonnull @.str, i32 noundef 900) #5
@@ -335,7 +330,7 @@ if.end23:                                         ; preds = %if.end18, %if.end18
 
 if.end31:                                         ; preds = %if.end23
   store i64 %psklen, ptr %psklen25, align 8
-  %pskid33 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 18
+  %pskid33 = getelementptr inbounds i8, ptr %ctx, i64 144
   %3 = load ptr, ptr %pskid33, align 8
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 904) #5
   %call34 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %pskid, ptr noundef nonnull @.str, i32 noundef 905) #5
@@ -386,7 +381,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %role = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 8
+  %role = getelementptr inbounds i8, ptr %ctx, i64 64
   %1 = load i32, ptr %role, align 8
   %cmp7.not = icmp eq i32 %1, 0
   br i1 %cmp7.not, label %if.end9, label %if.then8
@@ -398,9 +393,9 @@ if.then8:                                         ; preds = %if.end6
   br label %return
 
 if.end9:                                          ; preds = %if.end6
-  %ikme10 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 24
+  %ikme10 = getelementptr inbounds i8, ptr %ctx, i64 192
   %2 = load ptr, ptr %ikme10, align 8
-  %ikmelen11 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 25
+  %ikmelen11 = getelementptr inbounds i8, ptr %ctx, i64 200
   %3 = load i64, ptr %ikmelen11, align 8
   tail call void @CRYPTO_clear_free(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef 930) #5
   %call = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %ikme, i64 noundef %ikmelen, ptr noundef nonnull @.str, i32 noundef 931) #5
@@ -432,7 +427,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mode = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load i32, ptr %mode, align 8
   %1 = and i32 %0, -2
   %switch = icmp eq i32 %1, 2
@@ -445,7 +440,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %role = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 8
+  %role = getelementptr inbounds i8, ptr %ctx, i64 64
   %2 = load i32, ptr %role, align 8
   %cmp7.not = icmp eq i32 %2, 0
   br i1 %cmp7.not, label %if.end9, label %if.then8
@@ -457,7 +452,7 @@ if.then8:                                         ; preds = %if.end6
   br label %return
 
 if.end9:                                          ; preds = %if.end6
-  %authpriv = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 21
+  %authpriv = getelementptr inbounds i8, ptr %ctx, i64 168
   %3 = load ptr, ptr %authpriv, align 8
   tail call void @EVP_PKEY_free(ptr noundef %3) #5
   %call = tail call ptr @EVP_PKEY_dup(ptr noundef nonnull %priv) #5
@@ -492,7 +487,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %mode = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load i32, ptr %mode, align 8
   %1 = and i32 %0, -2
   %switch = icmp eq i32 %1, 2
@@ -505,7 +500,7 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %role = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 8
+  %role = getelementptr inbounds i8, ptr %ctx, i64 64
   %2 = load i32, ptr %role, align 8
   %cmp9.not = icmp eq i32 %2, 1
   br i1 %cmp9.not, label %if.end11, label %if.then10
@@ -517,7 +512,7 @@ if.then10:                                        ; preds = %if.end8
   br label %return
 
 if.end11:                                         ; preds = %if.end8
-  %suite = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 3
+  %suite = getelementptr inbounds i8, ptr %ctx, i64 20
   %3 = load i16, ptr %suite, align 4
   %call = tail call ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %3) #5
   %cmp12 = icmp eq ptr %call, null
@@ -530,25 +525,25 @@ if.end14:                                         ; preds = %if.end11
   br i1 %cmp.not.i, label %if.else, label %hpke_kem_id_nist_curve.exit
 
 hpke_kem_id_nist_curve.exit:                      ; preds = %if.end14
-  %groupname.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call.i, i64 0, i32 2
+  %groupname.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %5 = load ptr, ptr %groupname.i, align 8
   %cmp1.i.not = icmp eq ptr %5, null
   br i1 %cmp1.i.not, label %if.else, label %if.then19
 
 if.then19:                                        ; preds = %hpke_kem_id_nist_curve.exit
   %6 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
   %7 = load ptr, ptr %propq, align 8
-  %groupname = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call, i64 0, i32 2
+  %groupname = getelementptr inbounds i8, ptr %call, i64 16
   %8 = load ptr, ptr %groupname, align 8
   %call20 = tail call fastcc ptr @evp_pkey_new_raw_nist_public_key(ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %pub, i64 noundef %publen)
   br label %if.end24
 
 if.else:                                          ; preds = %if.end14, %hpke_kem_id_nist_curve.exit
   %9 = load ptr, ptr %ctx, align 8
-  %keytype = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call, i64 0, i32 1
+  %keytype = getelementptr inbounds i8, ptr %call, i64 8
   %10 = load ptr, ptr %keytype, align 8
-  %propq22 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 1
+  %propq22 = getelementptr inbounds i8, ptr %ctx, i64 8
   %11 = load ptr, ptr %propq22, align 8
   %call23 = tail call ptr @EVP_PKEY_new_raw_public_key_ex(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull %pub, i64 noundef %publen) #5
   br label %if.end24
@@ -582,12 +577,12 @@ if.then34:                                        ; preds = %if.end31
   br label %err
 
 if.end35:                                         ; preds = %if.end31
-  %authpub = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 22
+  %authpub = getelementptr inbounds i8, ptr %ctx, i64 176
   %12 = load ptr, ptr %authpub, align 8
   call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 1017) #5
   store ptr %call28, ptr %authpub, align 8
   %13 = load i64, ptr %lpublen, align 8
-  %authpublen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 23
+  %authpublen = getelementptr inbounds i8, ptr %ctx, i64 184
   store i64 %13, ptr %authpublen, align 8
   br label %err
 
@@ -614,7 +609,7 @@ entry:
   %call = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %libctx, ptr noundef nonnull @.str.4, ptr noundef %propq) #5
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.3, ptr noundef %gname, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx1 = getelementptr inbounds [2 x %struct.ossl_param_st], ptr %params, i64 0, i64 1
+  %arrayidx1 = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1, ptr noundef nonnull align 8 dereferenceable(40) %tmp2, i64 40, i1 false)
   %cmp = icmp eq ptr %call, null
@@ -681,7 +676,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %seq2 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 9
+  %seq2 = getelementptr inbounds i8, ptr %ctx, i64 72
   %0 = load i64, ptr %seq2, align 8
   store i64 %0, ptr %seq, align 8
   br label %return
@@ -704,7 +699,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %role = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 8
+  %role = getelementptr inbounds i8, ptr %ctx, i64 64
   %0 = load i32, ptr %role, align 8
   %cmp1 = icmp eq i32 %0, 0
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -716,7 +711,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %seq4 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 9
+  %seq4 = getelementptr inbounds i8, ptr %ctx, i64 72
   store i64 %seq, ptr %seq4, align 8
   br label %return
 
@@ -751,7 +746,7 @@ if.then:                                          ; preds = %lor.lhs.false4, %en
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false4
-  %role = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 8
+  %role = getelementptr inbounds i8, ptr %ctx, i64 64
   %1 = load i32, ptr %role, align 8
   %cmp10.not = icmp eq i32 %1, 0
   br i1 %cmp10.not, label %if.end12, label %if.then11
@@ -785,7 +780,7 @@ if.then18:                                        ; preds = %if.end15
   br label %return
 
 if.end19:                                         ; preds = %if.end15
-  %suite = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 3
+  %suite = getelementptr inbounds i8, ptr %ctx, i64 20
   %suite.coerce.0.copyload = load i48, ptr %suite, align 4
   %suite.sroa.0.0.extract.trunc.i.i.i = trunc i48 %suite.coerce.0.copyload to i16
   %suite.sroa.3.0.extract.shift.i.i.i = lshr i48 %suite.coerce.0.copyload, 32
@@ -813,7 +808,7 @@ OSSL_HPKE_get_public_encap_size.exit.thread:      ; preds = %if.end19, %if.end.i
   br label %if.then23
 
 OSSL_HPKE_get_public_encap_size.exit:             ; preds = %if.end4.i.i.i
-  %Nenc.i.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call.i.i.i, i64 0, i32 5
+  %Nenc.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
   %2 = load i64, ptr %Nenc.i.i, align 8
   %cmp20 = icmp eq i64 %2, 0
   br i1 %cmp20, label %if.then23, label %lor.lhs.false21
@@ -830,7 +825,7 @@ if.then23:                                        ; preds = %OSSL_HPKE_get_publi
   br label %return
 
 if.end24:                                         ; preds = %lor.lhs.false21
-  %shared_secret = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 10
+  %shared_secret = getelementptr inbounds i8, ptr %ctx, i64 80
   %4 = load ptr, ptr %shared_secret, align 8
   %cmp25.not = icmp eq ptr %4, null
   br i1 %cmp25.not, label %if.end27, label %if.then26
@@ -884,7 +879,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp6.i.i, label %1, label %hpke_expansion.exit
 
 hpke_expansion.exit:                              ; preds = %if.end4.i.i
-  %Nenc.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call.i.i, i64 0, i32 5
+  %Nenc.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %0 = load i64, ptr %Nenc.i, align 8
   br label %2
 
@@ -921,7 +916,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %shared_secret = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 10
+  %shared_secret = getelementptr inbounds i8, ptr %ctx, i64 80
   %1 = load ptr, ptr %shared_secret, align 8
   %cmp10.not = icmp eq ptr %1, null
   br i1 %cmp10.not, label %if.end12, label %if.then11
@@ -933,7 +928,7 @@ if.then11:                                        ; preds = %if.end
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %suite = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 3
+  %suite = getelementptr inbounds i8, ptr %ctx, i64 20
   %2 = load i16, ptr %suite, align 4
   %call = tail call ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %2) #5
   %cmp13 = icmp eq ptr %call, null
@@ -952,25 +947,25 @@ if.end15:                                         ; preds = %if.end12
   br i1 %cmp.not.i, label %if.else, label %hpke_kem_id_nist_curve.exit
 
 hpke_kem_id_nist_curve.exit:                      ; preds = %if.end15
-  %groupname.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call.i, i64 0, i32 2
+  %groupname.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %4 = load ptr, ptr %groupname.i, align 8
   %cmp1.i.not = icmp eq ptr %4, null
   br i1 %cmp1.i.not, label %if.else, label %if.then20
 
 if.then20:                                        ; preds = %hpke_kem_id_nist_curve.exit
   %5 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
   %6 = load ptr, ptr %propq, align 8
-  %groupname = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call, i64 0, i32 2
+  %groupname = getelementptr inbounds i8, ptr %call, i64 16
   %7 = load ptr, ptr %groupname, align 8
   %call21 = tail call fastcc ptr @evp_pkey_new_raw_nist_public_key(ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %pub, i64 noundef %publen)
   br label %if.end25
 
 if.else:                                          ; preds = %if.end15, %hpke_kem_id_nist_curve.exit
   %8 = load ptr, ptr %ctx, align 8
-  %keytype = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call, i64 0, i32 1
+  %keytype = getelementptr inbounds i8, ptr %call, i64 8
   %9 = load ptr, ptr %keytype, align 8
-  %propq23 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 1
+  %propq23 = getelementptr inbounds i8, ptr %ctx, i64 8
   %10 = load ptr, ptr %propq23, align 8
   %call24 = tail call ptr @EVP_PKEY_new_raw_public_key_ex(ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %pub, i64 noundef %publen) #5
   br label %if.end25
@@ -988,7 +983,7 @@ if.then27:                                        ; preds = %if.end25
 
 if.end28:                                         ; preds = %if.end25
   %11 = load ptr, ptr %ctx, align 8
-  %propq30 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 1
+  %propq30 = getelementptr inbounds i8, ptr %ctx, i64 8
   %12 = load ptr, ptr %propq30, align 8
   %call31 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %11, ptr noundef nonnull %pkR.0, ptr noundef %12) #5
   %cmp32 = icmp eq ptr %call31, null
@@ -1001,17 +996,17 @@ if.then33:                                        ; preds = %if.end28
   br label %err
 
 if.end34:                                         ; preds = %if.end28
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %ikme = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 24
+  %ikme = getelementptr inbounds i8, ptr %ctx, i64 192
   %13 = load ptr, ptr %ikme, align 8
   %cmp35.not = icmp eq ptr %13, null
   br i1 %cmp35.not, label %if.end40, label %if.then36
 
 if.then36:                                        ; preds = %if.end34
-  %incdec.ptr37 = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 2
-  %ikmelen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 25
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %params, i64 80
+  %ikmelen = getelementptr inbounds i8, ptr %ctx, i64 200
   %14 = load i64, ptr %ikmelen, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp38, ptr noundef nonnull @.str.8, ptr noundef nonnull %13, i64 noundef %14) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp38, i64 40, i1 false)
@@ -1021,14 +1016,14 @@ if.end40:                                         ; preds = %if.then36, %if.end3
   %p.0 = phi ptr [ %incdec.ptr37, %if.then36 ], [ %incdec.ptr, %if.end34 ]
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp41) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %p.0, ptr noundef nonnull align 8 dereferenceable(40) %tmp41, i64 40, i1 false)
-  %mode = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %ctx, i64 16
   %15 = load i32, ptr %mode, align 8
   %16 = and i32 %15, -2
   %switch = icmp eq i32 %16, 2
   br i1 %switch, label %if.then46, label %if.else52
 
 if.then46:                                        ; preds = %if.end40
-  %authpriv = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 21
+  %authpriv = getelementptr inbounds i8, ptr %ctx, i64 168
   %17 = load ptr, ptr %authpriv, align 8
   %call48 = call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef nonnull %call31, ptr noundef %17, ptr noundef nonnull %params) #5
   %cmp49.not = icmp eq i32 %call48, 1
@@ -1085,7 +1080,7 @@ if.end65:                                         ; preds = %if.end62
 
 if.end71:                                         ; preds = %if.end65
   %22 = load i64, ptr %lsslen, align 8
-  %shared_secretlen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 11
+  %shared_secretlen = getelementptr inbounds i8, ptr %ctx, i64 88
   store i64 %22, ptr %shared_secretlen, align 8
   %call74 = call i32 @EVP_PKEY_encapsulate(ptr noundef nonnull %call31, ptr noundef %enc, ptr noundef nonnull %enclen, ptr noundef nonnull %call66, ptr noundef nonnull %shared_secretlen) #5
   %cmp75.not = icmp eq i32 %call74, 1
@@ -1119,7 +1114,7 @@ entry:
   %ks_context = alloca [512 x i8], align 16
   %secret = alloca [512 x i8], align 16
   %suitebuf = alloca [6 x i8], align 1
-  %exportersec = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 16
+  %exportersec = getelementptr inbounds i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %exportersec, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1131,7 +1126,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %suite = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 3
+  %suite = getelementptr inbounds i8, ptr %ctx, i64 20
   %1 = load i16, ptr %suite, align 4
   %call = tail call ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %1) #5
   %cmp1 = icmp eq ptr %call, null
@@ -1144,7 +1139,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %aead_id = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 3, i32 2
+  %aead_id = getelementptr inbounds i8, ptr %ctx, i64 24
   %2 = load i16, ptr %aead_id, align 4
   %call5 = tail call ptr @ossl_HPKE_AEAD_INFO_find_id(i16 noundef zeroext %2) #5
   %cmp6 = icmp eq ptr %call5, null
@@ -1157,7 +1152,7 @@ if.then7:                                         ; preds = %if.end3
   br label %return
 
 if.end8:                                          ; preds = %if.end3
-  %kdf_id = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 3, i32 1
+  %kdf_id = getelementptr inbounds i8, ptr %ctx, i64 22
   %3 = load i16, ptr %kdf_id, align 2
   %call10 = tail call ptr @ossl_HPKE_KDF_INFO_find_id(i16 noundef zeroext %3) #5
   %cmp11 = icmp eq ptr %call10, null
@@ -1170,14 +1165,14 @@ if.then12:                                        ; preds = %if.end8
   br label %return
 
 if.end13:                                         ; preds = %if.end8
-  %mdname14 = getelementptr inbounds %struct.OSSL_HPKE_KDF_INFO, ptr %call10, i64 0, i32 1
+  %mdname14 = getelementptr inbounds i8, ptr %call10, i64 8
   %4 = load ptr, ptr %mdname14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %ks_context, i8 0, i64 512, i1 false)
-  %mode = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %ctx, i64 16
   %5 = load i32, ptr %mode, align 8
   %conv = trunc i32 %5 to i8
   store i8 %conv, ptr %ks_context, align 16
-  %Nh = getelementptr inbounds %struct.OSSL_HPKE_KDF_INFO, ptr %call10, i64 0, i32 2
+  %Nh = getelementptr inbounds i8, ptr %call10, i64 16
   %6 = load i64, ptr %Nh, align 8
   %mul = shl i64 %6, 1
   %cmp15 = icmp ugt i64 %mul, 511
@@ -1196,19 +1191,19 @@ if.end18:                                         ; preds = %if.end13
   ]
 
 if.then25:                                        ; preds = %if.end18, %if.end18
-  %psk = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 19
+  %psk = getelementptr inbounds i8, ptr %ctx, i64 152
   %7 = load ptr, ptr %psk, align 8
   %cmp26 = icmp eq ptr %7, null
   br i1 %cmp26, label %if.then34, label %lor.lhs.false28
 
 lor.lhs.false28:                                  ; preds = %if.then25
-  %psklen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 20
+  %psklen = getelementptr inbounds i8, ptr %ctx, i64 160
   %8 = load i64, ptr %psklen, align 8
   %cmp29 = icmp eq i64 %8, 0
   br i1 %cmp29, label %if.then34, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false28
-  %pskid = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 18
+  %pskid = getelementptr inbounds i8, ptr %ctx, i64 144
   %9 = load ptr, ptr %pskid, align 8
   %cmp32 = icmp eq ptr %9, null
   br i1 %cmp32, label %if.then34, label %if.end36
@@ -1221,7 +1216,7 @@ if.then34:                                        ; preds = %lor.lhs.false31, %l
 
 if.end36:                                         ; preds = %if.end18, %lor.lhs.false31
   %10 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
   %11 = load ptr, ptr %propq, align 8
   %call37 = tail call ptr @ossl_kdf_ctx_create(ptr noundef nonnull @.str.2, ptr noundef %4, ptr noundef %10, ptr noundef %11) #5
   %cmp38 = icmp eq ptr %call37, null
@@ -1234,10 +1229,10 @@ if.then40:                                        ; preds = %if.end36
   br label %return
 
 if.end41:                                         ; preds = %if.end36
-  %psk42 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 19
+  %psk42 = getelementptr inbounds i8, ptr %ctx, i64 152
   %12 = load ptr, ptr %psk42, align 8
   %cmp43 = icmp eq ptr %12, null
-  %pskid84.phi.trans.insert = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 18
+  %pskid84.phi.trans.insert = getelementptr inbounds i8, ptr %ctx, i64 144
   %.pre = load ptr, ptr %pskid84.phi.trans.insert, align 8
   br i1 %cmp43, label %cond.end, label %cond.false
 
@@ -1252,23 +1247,23 @@ cond.end:                                         ; preds = %if.end41, %cond.fal
   %conv50 = trunc i16 %14 to i8
   store i8 %conv50, ptr %suitebuf, align 1
   %conv56 = trunc i16 %13 to i8
-  %arrayidx57 = getelementptr inbounds [6 x i8], ptr %suitebuf, i64 0, i64 1
+  %arrayidx57 = getelementptr inbounds i8, ptr %suitebuf, i64 1
   store i8 %conv56, ptr %arrayidx57, align 1
   %15 = load i16, ptr %kdf_id, align 2
   %16 = lshr i16 %15, 8
   %conv62 = trunc i16 %16 to i8
-  %arrayidx63 = getelementptr inbounds [6 x i8], ptr %suitebuf, i64 0, i64 2
+  %arrayidx63 = getelementptr inbounds i8, ptr %suitebuf, i64 2
   store i8 %conv62, ptr %arrayidx63, align 1
   %conv68 = trunc i16 %15 to i8
-  %arrayidx69 = getelementptr inbounds [6 x i8], ptr %suitebuf, i64 0, i64 3
+  %arrayidx69 = getelementptr inbounds i8, ptr %suitebuf, i64 3
   store i8 %conv68, ptr %arrayidx69, align 1
   %17 = load i16, ptr %aead_id, align 4
   %18 = lshr i16 %17, 8
   %conv74 = trunc i16 %18 to i8
-  %arrayidx75 = getelementptr inbounds [6 x i8], ptr %suitebuf, i64 0, i64 4
+  %arrayidx75 = getelementptr inbounds i8, ptr %suitebuf, i64 4
   store i8 %conv74, ptr %arrayidx75, align 1
   %conv80 = trunc i16 %17 to i8
-  %arrayidx81 = getelementptr inbounds [6 x i8], ptr %suitebuf, i64 0, i64 5
+  %arrayidx81 = getelementptr inbounds i8, ptr %suitebuf, i64 5
   store i8 %conv80, ptr %arrayidx81, align 1
   %add.ptr = getelementptr inbounds i8, ptr %ks_context, i64 1
   %call85 = call i32 @ossl_hpke_labeled_extract(ptr noundef nonnull %call37, ptr noundef nonnull %add.ptr, i64 noundef %6, ptr noundef null, i64 noundef 0, ptr noundef nonnull @OSSL_HPKE_SEC51LABEL, ptr noundef nonnull %suitebuf, i64 noundef 6, ptr noundef nonnull @OSSL_HPKE_PSKIDHASH_LABEL, ptr noundef %.pre, i64 noundef %cond) #5
@@ -1288,12 +1283,12 @@ if.end98:                                         ; preds = %if.end89
   br i1 %cmp101, label %err.sink.split, label %if.end104
 
 if.end104:                                        ; preds = %if.end98
-  %shared_secret = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 10
+  %shared_secret = getelementptr inbounds i8, ptr %ctx, i64 80
   %20 = load ptr, ptr %shared_secret, align 8
-  %shared_secretlen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 11
+  %shared_secretlen = getelementptr inbounds i8, ptr %ctx, i64 88
   %21 = load i64, ptr %shared_secretlen, align 8
   %22 = load ptr, ptr %psk42, align 8
-  %psklen108 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 20
+  %psklen108 = getelementptr inbounds i8, ptr %ctx, i64 160
   %23 = load i64, ptr %psklen108, align 8
   %call109 = call i32 @ossl_hpke_labeled_extract(ptr noundef nonnull %call37, ptr noundef nonnull %secret, i64 noundef %19, ptr noundef %20, i64 noundef %21, ptr noundef nonnull @OSSL_HPKE_SEC51LABEL, ptr noundef nonnull %suitebuf, i64 noundef 6, ptr noundef nonnull @OSSL_HPKE_SECRET_LABEL, ptr noundef %22, i64 noundef %23) #5
   %cmp110.not = icmp eq i32 %call109, 1
@@ -1305,12 +1300,12 @@ if.end113:                                        ; preds = %if.end104
   br i1 %cmp117.not, label %if.end154, label %if.then119
 
 if.then119:                                       ; preds = %if.end113
-  %Nn = getelementptr inbounds %struct.OSSL_HPKE_AEAD_INFO, ptr %call5, i64 0, i32 4
+  %Nn = getelementptr inbounds i8, ptr %call5, i64 32
   %25 = load i64, ptr %Nn, align 8
-  %noncelen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 15
+  %noncelen = getelementptr inbounds i8, ptr %ctx, i64 120
   store i64 %25, ptr %noncelen, align 8
   %call121 = call noalias ptr @CRYPTO_malloc(i64 noundef %25, ptr noundef nonnull @.str, i32 noundef 749) #5
-  %nonce = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 14
+  %nonce = getelementptr inbounds i8, ptr %ctx, i64 112
   store ptr %call121, ptr %nonce, align 8
   %cmp123 = icmp eq ptr %call121, null
   br i1 %cmp123, label %err, label %if.end126
@@ -1322,12 +1317,12 @@ if.end126:                                        ; preds = %if.then119
   br i1 %cmp133.not, label %if.end136, label %err.sink.split
 
 if.end136:                                        ; preds = %if.end126
-  %Nk = getelementptr inbounds %struct.OSSL_HPKE_AEAD_INFO, ptr %call5, i64 0, i32 3
+  %Nk = getelementptr inbounds i8, ptr %call5, i64 24
   %27 = load i64, ptr %Nk, align 8
-  %keylen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 13
+  %keylen = getelementptr inbounds i8, ptr %ctx, i64 104
   store i64 %27, ptr %keylen, align 8
   %call138 = call noalias ptr @CRYPTO_malloc(i64 noundef %27, ptr noundef nonnull @.str, i32 noundef 761) #5
-  %key = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 12
+  %key = getelementptr inbounds i8, ptr %ctx, i64 96
   store ptr %call138, ptr %key, align 8
   %cmp140 = icmp eq ptr %call138, null
   br i1 %cmp140, label %err, label %if.end143
@@ -1340,7 +1335,7 @@ if.end143:                                        ; preds = %if.end136
 
 if.end154:                                        ; preds = %if.end143, %if.end113
   %29 = load i64, ptr %Nh, align 8
-  %exporterseclen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 17
+  %exporterseclen = getelementptr inbounds i8, ptr %ctx, i64 136
   store i64 %29, ptr %exporterseclen, align 8
   %call157 = call noalias ptr @CRYPTO_malloc(i64 noundef %29, ptr noundef nonnull @.str, i32 noundef 774) #5
   store ptr %call157, ptr %exportersec, align 8
@@ -1391,7 +1386,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %role = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 8
+  %role = getelementptr inbounds i8, ptr %ctx, i64 64
   %0 = load i32, ptr %role, align 8
   %cmp6.not = icmp eq i32 %0, 1
   br i1 %cmp6.not, label %if.end8, label %if.then7
@@ -1425,7 +1420,7 @@ if.then14:                                        ; preds = %if.end11
   br label %return
 
 if.end15:                                         ; preds = %if.end11
-  %suite = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 3
+  %suite = getelementptr inbounds i8, ptr %ctx, i64 20
   %suite.coerce.0.copyload = load i48, ptr %suite, align 4
   %suite.sroa.0.0.extract.trunc.i.i.i = trunc i48 %suite.coerce.0.copyload to i16
   %suite.sroa.3.0.extract.shift.i.i.i = lshr i48 %suite.coerce.0.copyload, 32
@@ -1453,7 +1448,7 @@ OSSL_HPKE_get_public_encap_size.exit.thread:      ; preds = %if.end15, %if.end.i
   br label %if.then19
 
 OSSL_HPKE_get_public_encap_size.exit:             ; preds = %if.end4.i.i.i
-  %Nenc.i.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call.i.i.i, i64 0, i32 5
+  %Nenc.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
   %1 = load i64, ptr %Nenc.i.i, align 8
   %2 = add i64 %1, -1
   %or.cond18.not = icmp ult i64 %2, %enclen
@@ -1466,7 +1461,7 @@ if.then19:                                        ; preds = %OSSL_HPKE_get_publi
   br label %return
 
 if.end20:                                         ; preds = %OSSL_HPKE_get_public_encap_size.exit
-  %shared_secret = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 10
+  %shared_secret = getelementptr inbounds i8, ptr %ctx, i64 80
   %3 = load ptr, ptr %shared_secret, align 8
   %cmp21.not = icmp eq ptr %3, null
   br i1 %cmp21.not, label %if.end23, label %if.then22
@@ -1505,7 +1500,7 @@ entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %tmp12 = alloca %struct.ossl_param_st, align 8
   store i64 0, ptr %lsslen, align 8
-  %shared_secret = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 10
+  %shared_secret = getelementptr inbounds i8, ptr %ctx, i64 80
   %0 = load ptr, ptr %shared_secret, align 8
   %cmp6.not = icmp eq ptr %0, null
   br i1 %cmp6.not, label %if.end8, label %if.then7
@@ -1518,7 +1513,7 @@ if.then7:                                         ; preds = %entry
 
 if.end8:                                          ; preds = %entry
   %1 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %propq, align 8
   %call = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %1, ptr noundef %priv, ptr noundef %2) #5
   %cmp9 = icmp eq ptr %call, null
@@ -1531,19 +1526,19 @@ if.then10:                                        ; preds = %if.end8
   br label %err
 
 if.end11:                                         ; preds = %if.end8
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp12) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp12, i64 40, i1 false)
-  %mode = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 2
+  %mode = getelementptr inbounds i8, ptr %ctx, i64 16
   %3 = load i32, ptr %mode, align 8
   %4 = and i32 %3, -2
   %switch = icmp eq i32 %4, 2
   br i1 %switch, label %if.then17, label %if.else44
 
 if.then17:                                        ; preds = %if.end11
-  %suite = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 3
+  %suite = getelementptr inbounds i8, ptr %ctx, i64 20
   %5 = load i16, ptr %suite, align 4
   %call18 = call ptr @ossl_HPKE_KEM_INFO_find_id(i16 noundef zeroext %5) #5
   %cmp19 = icmp eq ptr %call18, null
@@ -1562,7 +1557,7 @@ if.end21:                                         ; preds = %if.then17
   br i1 %cmp.not.i, label %if.else, label %hpke_kem_id_nist_curve.exit
 
 hpke_kem_id_nist_curve.exit:                      ; preds = %if.end21
-  %groupname.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call.i, i64 0, i32 2
+  %groupname.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %7 = load ptr, ptr %groupname.i, align 8
   %cmp1.i.not = icmp eq ptr %7, null
   br i1 %cmp1.i.not, label %if.else, label %if.then26
@@ -1570,23 +1565,23 @@ hpke_kem_id_nist_curve.exit:                      ; preds = %if.end21
 if.then26:                                        ; preds = %hpke_kem_id_nist_curve.exit
   %8 = load ptr, ptr %ctx, align 8
   %9 = load ptr, ptr %propq, align 8
-  %groupname = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call18, i64 0, i32 2
+  %groupname = getelementptr inbounds i8, ptr %call18, i64 16
   %10 = load ptr, ptr %groupname, align 8
-  %authpub = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 22
+  %authpub = getelementptr inbounds i8, ptr %ctx, i64 176
   %11 = load ptr, ptr %authpub, align 8
-  %authpublen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 23
+  %authpublen = getelementptr inbounds i8, ptr %ctx, i64 184
   %12 = load i64, ptr %authpublen, align 8
   %call29 = call fastcc ptr @evp_pkey_new_raw_nist_public_key(ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %12)
   br label %if.end35
 
 if.else:                                          ; preds = %if.end21, %hpke_kem_id_nist_curve.exit
   %13 = load ptr, ptr %ctx, align 8
-  %keytype = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call18, i64 0, i32 1
+  %keytype = getelementptr inbounds i8, ptr %call18, i64 8
   %14 = load ptr, ptr %keytype, align 8
   %15 = load ptr, ptr %propq, align 8
-  %authpub32 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 22
+  %authpub32 = getelementptr inbounds i8, ptr %ctx, i64 176
   %16 = load ptr, ptr %authpub32, align 8
-  %authpublen33 = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 23
+  %authpublen33 = getelementptr inbounds i8, ptr %ctx, i64 184
   %17 = load i64, ptr %authpublen33, align 8
   %call34 = call ptr @EVP_PKEY_new_raw_public_key_ex(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, i64 noundef %17) #5
   br label %if.end35
@@ -1656,7 +1651,7 @@ if.then64:                                        ; preds = %if.end60
 
 if.end65:                                         ; preds = %if.end60
   %19 = load i64, ptr %lsslen, align 8
-  %shared_secretlen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 11
+  %shared_secretlen = getelementptr inbounds i8, ptr %ctx, i64 88
   store i64 %19, ptr %shared_secretlen, align 8
   br label %err
 
@@ -1706,7 +1701,7 @@ if.then:                                          ; preds = %lor.lhs.false4, %en
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false4
-  %role = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 8
+  %role = getelementptr inbounds i8, ptr %ctx, i64 64
   %1 = load i32, ptr %role, align 8
   %cmp10.not = icmp eq i32 %1, 0
   br i1 %cmp10.not, label %if.end12, label %if.then11
@@ -1718,7 +1713,7 @@ if.then11:                                        ; preds = %if.end
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %seq = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 9
+  %seq = getelementptr inbounds i8, ptr %ctx, i64 72
   %2 = load i64, ptr %seq, align 8
   %cmp13 = icmp eq i64 %2, -1
   br i1 %cmp13, label %if.then14, label %if.end15
@@ -1730,13 +1725,13 @@ if.then14:                                        ; preds = %if.end12
   br label %return
 
 if.end15:                                         ; preds = %if.end12
-  %key = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 12
+  %key = getelementptr inbounds i8, ptr %ctx, i64 96
   %3 = load ptr, ptr %key, align 8
   %cmp16 = icmp eq ptr %3, null
   br i1 %cmp16, label %if.then19, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %if.end15
-  %nonce = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 14
+  %nonce = getelementptr inbounds i8, ptr %ctx, i64 112
   %4 = load ptr, ptr %nonce, align 8
   %cmp18 = icmp eq ptr %4, null
   br i1 %cmp18, label %if.then19, label %if.end20
@@ -1748,7 +1743,7 @@ if.then19:                                        ; preds = %lor.lhs.false17, %i
   br label %return
 
 if.end20:                                         ; preds = %lor.lhs.false17
-  %noncelen.i = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 15
+  %noncelen.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %5 = load i64, ptr %noncelen.i, align 8
   %cmp3.not.i = icmp eq i64 %5, 12
   br i1 %cmp3.not.i, label %if.end.i, label %if.then22
@@ -1816,9 +1811,9 @@ define internal fastcc i32 @hpke_aead_enc(ptr nocapture noundef readonly %hctx, 
 entry:
   %len = alloca i32, align 4
   %tag = alloca [16 x i8], align 16
-  %aead_info = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %hctx, i64 0, i32 6
+  %aead_info = getelementptr inbounds i8, ptr %hctx, i64 48
   %0 = load ptr, ptr %aead_info, align 8
-  %taglen1 = getelementptr inbounds %struct.OSSL_HPKE_AEAD_INFO, ptr %0, i64 0, i32 2
+  %taglen1 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %taglen1, align 8
   %2 = load i64, ptr %ctlen, align 8
   %cmp.not = icmp ule i64 %2, %1
@@ -1849,7 +1844,7 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp10, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end9
-  %aead_ciph = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %hctx, i64 0, i32 7
+  %aead_ciph = getelementptr inbounds i8, ptr %hctx, i64 56
   %3 = load ptr, ptr %aead_ciph, align 8
   %call14 = tail call i32 @EVP_EncryptInit_ex(ptr noundef nonnull %call, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null) #5
   %cmp15.not = icmp eq i32 %call14, 1
@@ -1862,7 +1857,7 @@ if.then17:                                        ; preds = %if.end13
   br label %if.then66
 
 if.end18:                                         ; preds = %if.end13
-  %noncelen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %hctx, i64 0, i32 15
+  %noncelen = getelementptr inbounds i8, ptr %hctx, i64 120
   %4 = load i64, ptr %noncelen, align 8
   %conv19 = trunc i64 %4 to i32
   %call20 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %call, i32 noundef 9, i32 noundef %conv19, ptr noundef null) #5
@@ -1876,7 +1871,7 @@ if.then23:                                        ; preds = %if.end18
   br label %if.then66
 
 if.end24:                                         ; preds = %if.end18
-  %key = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %hctx, i64 0, i32 12
+  %key = getelementptr inbounds i8, ptr %hctx, i64 96
   %5 = load ptr, ptr %key, align 8
   %call25 = tail call i32 @EVP_EncryptInit_ex(ptr noundef nonnull %call, ptr noundef null, ptr noundef null, ptr noundef %5, ptr noundef %iv) #5
   %cmp26.not = icmp eq i32 %call25, 1
@@ -2003,7 +1998,7 @@ if.then:                                          ; preds = %lor.lhs.false4, %en
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false4
-  %role = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 8
+  %role = getelementptr inbounds i8, ptr %ctx, i64 64
   %1 = load i32, ptr %role, align 8
   %cmp10.not = icmp eq i32 %1, 1
   br i1 %cmp10.not, label %if.end12, label %if.then11
@@ -2015,7 +2010,7 @@ if.then11:                                        ; preds = %if.end
   br label %return
 
 if.end12:                                         ; preds = %if.end
-  %seq = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 9
+  %seq = getelementptr inbounds i8, ptr %ctx, i64 72
   %2 = load i64, ptr %seq, align 8
   %cmp13 = icmp eq i64 %2, -1
   br i1 %cmp13, label %if.then14, label %if.end15
@@ -2027,13 +2022,13 @@ if.then14:                                        ; preds = %if.end12
   br label %return
 
 if.end15:                                         ; preds = %if.end12
-  %key = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 12
+  %key = getelementptr inbounds i8, ptr %ctx, i64 96
   %3 = load ptr, ptr %key, align 8
   %cmp16 = icmp eq ptr %3, null
   br i1 %cmp16, label %if.then19, label %lor.lhs.false17
 
 lor.lhs.false17:                                  ; preds = %if.end15
-  %nonce = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 14
+  %nonce = getelementptr inbounds i8, ptr %ctx, i64 112
   %4 = load ptr, ptr %nonce, align 8
   %cmp18 = icmp eq ptr %4, null
   br i1 %cmp18, label %if.then19, label %if.end20
@@ -2045,7 +2040,7 @@ if.then19:                                        ; preds = %lor.lhs.false17, %i
   br label %return
 
 if.end20:                                         ; preds = %lor.lhs.false17
-  %noncelen.i = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 15
+  %noncelen.i = getelementptr inbounds i8, ptr %ctx, i64 120
   %5 = load i64, ptr %noncelen.i, align 8
   %cmp3.not.i = icmp eq i64 %5, 12
   br i1 %cmp3.not.i, label %if.end.i, label %if.then22
@@ -2113,9 +2108,9 @@ define internal fastcc i32 @hpke_aead_dec(ptr nocapture noundef readonly %hctx, 
 entry:
   %len = alloca i32, align 4
   store i32 0, ptr %len, align 4
-  %aead_info = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %hctx, i64 0, i32 6
+  %aead_info = getelementptr inbounds i8, ptr %hctx, i64 48
   %0 = load ptr, ptr %aead_info, align 8
-  %taglen1 = getelementptr inbounds %struct.OSSL_HPKE_AEAD_INFO, ptr %0, i64 0, i32 2
+  %taglen1 = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %taglen1, align 8
   %cmp.not = icmp ult i64 %1, %ctlen
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
@@ -2138,7 +2133,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp3, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %aead_ciph = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %hctx, i64 0, i32 7
+  %aead_ciph = getelementptr inbounds i8, ptr %hctx, i64 56
   %3 = load ptr, ptr %aead_ciph, align 8
   %call6 = tail call i32 @EVP_DecryptInit_ex(ptr noundef nonnull %call, ptr noundef %3, ptr noundef null, ptr noundef null, ptr noundef null) #5
   %cmp7.not = icmp eq i32 %call6, 1
@@ -2151,7 +2146,7 @@ if.then8:                                         ; preds = %if.end5
   br label %if.then53
 
 if.end9:                                          ; preds = %if.end5
-  %noncelen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %hctx, i64 0, i32 15
+  %noncelen = getelementptr inbounds i8, ptr %hctx, i64 120
   %4 = load i64, ptr %noncelen, align 8
   %conv = trunc i64 %4 to i32
   %call10 = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %call, i32 noundef 9, i32 noundef %conv, ptr noundef null) #5
@@ -2165,7 +2160,7 @@ if.then13:                                        ; preds = %if.end9
   br label %if.then53
 
 if.end14:                                         ; preds = %if.end9
-  %key = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %hctx, i64 0, i32 12
+  %key = getelementptr inbounds i8, ptr %hctx, i64 96
   %5 = load ptr, ptr %key, align 8
   %call15 = tail call i32 @EVP_DecryptInit_ex(ptr noundef nonnull %call, ptr noundef null, ptr noundef null, ptr noundef %5, ptr noundef %iv) #5
   %cmp16.not = icmp eq i32 %call15, 1
@@ -2294,7 +2289,7 @@ if.then9:                                         ; preds = %if.end6
   br label %return
 
 if.end10:                                         ; preds = %if.end6
-  %exportersec = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 16
+  %exportersec = getelementptr inbounds i8, ptr %ctx, i64 128
   %0 = load ptr, ptr %exportersec, align 8
   %cmp11 = icmp eq ptr %0, null
   br i1 %cmp11, label %if.then12, label %if.end13
@@ -2306,8 +2301,8 @@ if.then12:                                        ; preds = %if.end10
   br label %return
 
 if.end13:                                         ; preds = %if.end10
-  %suite = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 3
-  %kdf_id = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 3, i32 1
+  %suite = getelementptr inbounds i8, ptr %ctx, i64 20
+  %kdf_id = getelementptr inbounds i8, ptr %ctx, i64 22
   %1 = load i16, ptr %kdf_id, align 2
   %call = tail call ptr @ossl_HPKE_KDF_INFO_find_id(i16 noundef zeroext %1) #5
   %cmp14 = icmp eq ptr %call, null
@@ -2320,10 +2315,10 @@ if.then15:                                        ; preds = %if.end13
   br label %return
 
 if.end16:                                         ; preds = %if.end13
-  %mdname17 = getelementptr inbounds %struct.OSSL_HPKE_KDF_INFO, ptr %call, i64 0, i32 1
+  %mdname17 = getelementptr inbounds i8, ptr %call, i64 8
   %2 = load ptr, ptr %mdname17, align 8
   %3 = load ptr, ptr %ctx, align 8
-  %propq = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 1
+  %propq = getelementptr inbounds i8, ptr %ctx, i64 8
   %4 = load ptr, ptr %propq, align 8
   %call18 = tail call ptr @ossl_kdf_ctx_create(ptr noundef nonnull @.str.2, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5
   %cmp19 = icmp eq ptr %call18, null
@@ -2341,27 +2336,27 @@ if.end21:                                         ; preds = %if.end16
   %conv23 = trunc i16 %6 to i8
   store i8 %conv23, ptr %suitebuf, align 1
   %conv27 = trunc i16 %5 to i8
-  %arrayidx28 = getelementptr inbounds [6 x i8], ptr %suitebuf, i64 0, i64 1
+  %arrayidx28 = getelementptr inbounds i8, ptr %suitebuf, i64 1
   store i8 %conv27, ptr %arrayidx28, align 1
   %7 = load i16, ptr %kdf_id, align 2
   %8 = lshr i16 %7, 8
   %conv33 = trunc i16 %8 to i8
-  %arrayidx34 = getelementptr inbounds [6 x i8], ptr %suitebuf, i64 0, i64 2
+  %arrayidx34 = getelementptr inbounds i8, ptr %suitebuf, i64 2
   store i8 %conv33, ptr %arrayidx34, align 1
   %conv39 = trunc i16 %7 to i8
-  %arrayidx40 = getelementptr inbounds [6 x i8], ptr %suitebuf, i64 0, i64 3
+  %arrayidx40 = getelementptr inbounds i8, ptr %suitebuf, i64 3
   store i8 %conv39, ptr %arrayidx40, align 1
-  %aead_id = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 3, i32 2
+  %aead_id = getelementptr inbounds i8, ptr %ctx, i64 24
   %9 = load i16, ptr %aead_id, align 4
   %10 = lshr i16 %9, 8
   %conv44 = trunc i16 %10 to i8
-  %arrayidx45 = getelementptr inbounds [6 x i8], ptr %suitebuf, i64 0, i64 4
+  %arrayidx45 = getelementptr inbounds i8, ptr %suitebuf, i64 4
   store i8 %conv44, ptr %arrayidx45, align 1
   %conv50 = trunc i16 %9 to i8
-  %arrayidx51 = getelementptr inbounds [6 x i8], ptr %suitebuf, i64 0, i64 5
+  %arrayidx51 = getelementptr inbounds i8, ptr %suitebuf, i64 5
   store i8 %conv50, ptr %arrayidx51, align 1
   %11 = load ptr, ptr %exportersec, align 8
-  %exporterseclen = getelementptr inbounds %struct.ossl_hpke_ctx_st, ptr %ctx, i64 0, i32 17
+  %exporterseclen = getelementptr inbounds i8, ptr %ctx, i64 136
   %12 = load i64, ptr %exporterseclen, align 8
   %call53 = call i32 @ossl_hpke_labeled_expand(ptr noundef nonnull %call18, ptr noundef nonnull %secret, i64 noundef %secretlen, ptr noundef %11, i64 noundef %12, ptr noundef nonnull @OSSL_HPKE_SEC51LABEL, ptr noundef nonnull %suitebuf, i64 noundef 6, ptr noundef nonnull @OSSL_HPKE_EXP_SEC_LABEL, ptr noundef %label, i64 noundef %labellen) #5
   call void @EVP_KDF_CTX_free(ptr noundef nonnull %call18) #5
@@ -2466,14 +2461,14 @@ if.end19:                                         ; preds = %lor.lhs.false12
   br i1 %cmp.not.i, label %if.else, label %hpke_kem_id_nist_curve.exit
 
 hpke_kem_id_nist_curve.exit:                      ; preds = %if.end19
-  %groupname.i = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call.i26, i64 0, i32 2
+  %groupname.i = getelementptr inbounds i8, ptr %call.i26, i64 16
   %1 = load ptr, ptr %groupname.i, align 8
   %cmp1.i.not = icmp eq ptr %1, null
   br i1 %cmp1.i.not, label %if.else, label %if.then22
 
 if.then22:                                        ; preds = %hpke_kem_id_nist_curve.exit
-  %incdec.ptr = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 1
-  %groupname = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call.i, i64 0, i32 2
+  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
+  %groupname = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %groupname, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.3, ptr noundef %2, i64 noundef 0) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
@@ -2481,7 +2476,7 @@ if.then22:                                        ; preds = %hpke_kem_id_nist_cu
   br label %if.end25
 
 if.else:                                          ; preds = %if.end19, %hpke_kem_id_nist_curve.exit
-  %keytype = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call.i, i64 0, i32 1
+  %keytype = getelementptr inbounds i8, ptr %call.i, i64 8
   %3 = load ptr, ptr %keytype, align 8
   %call24 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %libctx, ptr noundef %3, ptr noundef %propq) #5
   br label %if.end25
@@ -2501,7 +2496,7 @@ if.end31:                                         ; preds = %lor.lhs.false27
   br i1 %cmp15, label %if.then33, label %if.end36
 
 if.then33:                                        ; preds = %if.end31
-  %incdec.ptr34 = getelementptr inbounds %struct.ossl_param_st, ptr %p.0, i64 1
+  %incdec.ptr34 = getelementptr inbounds i8, ptr %p.0, i64 40
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp35, ptr noundef nonnull @.str.5, ptr noundef nonnull %ikm, i64 noundef %ikmlen) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %p.0, ptr noundef nonnull align 8 dereferenceable(40) %tmp35, i64 40, i1 false)
   br label %if.end36
@@ -2691,7 +2686,7 @@ if.end17:                                         ; preds = %if.end4.i
   store i16 %chosen.sroa.5.1, ptr %chosen.sroa.5.0.suite.sroa_idx, align 2
   %chosen.sroa.6.0.suite.sroa_idx = getelementptr inbounds i8, ptr %suite, i64 4
   store i16 %chosen.sroa.6.1, ptr %chosen.sroa.6.0.suite.sroa_idx, align 2
-  %taglen = getelementptr inbounds %struct.OSSL_HPKE_AEAD_INFO, ptr %call5.i, i64 0, i32 2
+  %taglen = getelementptr inbounds i8, ptr %call5.i, i64 16
   %10 = load i64, ptr %taglen, align 8
   %cmp18.not = icmp ult i64 %10, %ctlen
   br i1 %cmp18.not, label %if.end20, label %if.then19
@@ -2703,7 +2698,7 @@ if.then19:                                        ; preds = %if.end17
   br label %return
 
 if.end20:                                         ; preds = %if.end17
-  %Npk = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call.i15, i64 0, i32 6
+  %Npk = getelementptr inbounds i8, ptr %call.i15, i64 48
   %11 = load i64, ptr %Npk, align 8
   %12 = load i64, ptr %enclen, align 8
   %cmp21 = icmp ugt i64 %11, %12
@@ -2778,7 +2773,7 @@ if.end4.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp6.i.i, label %1, label %hpke_expansion.exit
 
 hpke_expansion.exit:                              ; preds = %if.end4.i.i
-  %taglen.i = getelementptr inbounds %struct.OSSL_HPKE_AEAD_INFO, ptr %call5.i.i, i64 0, i32 2
+  %taglen.i = getelementptr inbounds i8, ptr %call5.i.i, i64 16
   %0 = load i64, ptr %taglen.i, align 8
   %add.i = add i64 %0, %clearlen
   br label %2
@@ -2817,7 +2812,7 @@ if.end4.i:                                        ; preds = %if.end.i
   br i1 %cmp6.i, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end4.i
-  %Nsk = getelementptr inbounds %struct.OSSL_HPKE_KEM_INFO, ptr %call.i, i64 0, i32 7
+  %Nsk = getelementptr inbounds i8, ptr %call.i, i64 56
   %0 = load i64, ptr %Nsk, align 8
   br label %return
 

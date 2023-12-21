@@ -11,9 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::basic_string<char>::Layout" = type { %union.anon }
 %union.anon = type { %"struct.eastl::basic_string<char>::HeapLayout" }
 %"struct.eastl::basic_string<char>::HeapLayout" = type { ptr, i64, i64 }
-%"struct.eastl::basic_string<char>::SSOLayout" = type { [23 x i8], %"struct.eastl::basic_string<char>::SSOLayout::SSOSize" }
-%"struct.eastl::basic_string<char>::SSOLayout::SSOSize" = type { i8 }
-%"struct.Benchmark::Environment" = type { %"class.eastl::basic_string", %"class.eastl::basic_string", %"class.eastl::basic_string" }
 
 $_ZN5eastl12basic_stringIcNS_9allocatorEE6appendEPKcS4_ = comdat any
 
@@ -42,7 +39,7 @@ entry:
   store ptr @EAMain, ptr @_ZN2EA6EAMain8Internal15gEAMainFunctionE, align 8
   call void @_ZN2EA6EAMain11CommandLineC1EiPPc(ptr noundef nonnull align 8 dereferenceable(24) %commandLine, i32 noundef %argc, ptr noundef %argv)
   %0 = load i32, ptr %commandLine, align 8
-  %mArgv.i = getelementptr inbounds %"class.EA::EAMain::CommandLine", ptr %commandLine, i64 0, i32 1
+  %mArgv.i = getelementptr inbounds i8, ptr %commandLine, i64 8
   %1 = load ptr, ptr %mArgv.i, align 8
   %call4 = invoke noundef ptr @_ZN2EA6EAMain8Internal25ExtractPrintServerAddressEiPPc(i32 noundef %0, ptr noundef %1)
           to label %invoke.cont3 unwind label %lpad
@@ -200,10 +197,10 @@ if.then73:                                        ; preds = %for.end
 
 if.end74:                                         ; preds = %if.then73, %for.end
   %call75 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN9Benchmark14GetEnvironmentEv()
-  %mRemainingSizeField.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %call75, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i = getelementptr inbounds i8, ptr %call75, i64 23
   %3 = load i8, ptr %mRemainingSizeField.i.i.i.i, align 1
   %tobool.i.i.i.i = icmp slt i8 %3, 0
-  %mnSize.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %call75, i64 0, i32 1
+  %mnSize.i.i.i.i = getelementptr inbounds i8, ptr %call75, i64 8
   %4 = load i64, ptr %mnSize.i.i.i.i, align 8
   %conv.i.i.i.i = zext nneg i8 %3 to i64
   %sub.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i
@@ -278,14 +275,14 @@ while.cond.i.i52:                                 ; preds = %while.cond.i.i52, %
   br i1 %tobool.not.i.i54, label %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i56, label %while.cond.i.i52, !llvm.loop !7
 
 _ZN5eastl10CharStrlenIcEEmPKT_.exit.i56:          ; preds = %while.cond.i.i52
-  %msSTLName1 = getelementptr inbounds %"struct.Benchmark::Environment", ptr %call75, i64 0, i32 1
+  %msSTLName1 = getelementptr inbounds i8, ptr %call75, i64 24
   %sub.ptr.lhs.cast.i.i57 = ptrtoint ptr %pCurrent.0.i.i53 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %call77 to i64
   %sub.ptr.sub.i.i58 = sub i64 %sub.ptr.lhs.cast.i.i57, %sub.ptr.rhs.cast.i.i
   %mRemainingSizeField.i.i.i.i59 = getelementptr inbounds i8, ptr %call75, i64 47
   %14 = load i8, ptr %mRemainingSizeField.i.i.i.i59, align 1
   %tobool.i.i.i.i60 = icmp slt i8 %14, 0
-  %mnSize.i.i.i.i61 = getelementptr inbounds %"struct.Benchmark::Environment", ptr %call75, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mnSize.i.i.i.i61 = getelementptr inbounds i8, ptr %call75, i64 32
   %15 = load i64, ptr %mnSize.i.i.i.i61, align 8
   %conv.i.i.i.i62 = zext nneg i8 %14 to i64
   %sub.i.i.i.i63 = sub nsw i64 23, %conv.i.i.i.i62
@@ -362,11 +359,11 @@ if.else.i.i95:                                    ; preds = %_ZN5eastl10CharStrl
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEaSEPKc.exit104
 
 _ZN5eastl12basic_stringIcNS_9allocatorEEaSEPKc.exit104: ; preds = %if.end.i.i74, %cond.true.i.i.i.i94, %cond.false.i.i.i.i92, %if.else.i.i95
-  %msSTLName2 = getelementptr inbounds %"struct.Benchmark::Environment", ptr %call75, i64 0, i32 2
+  %msSTLName2 = getelementptr inbounds i8, ptr %call75, i64 48
   %mRemainingSizeField.i.i.i.i112 = getelementptr inbounds i8, ptr %call75, i64 71
   %27 = load i8, ptr %mRemainingSizeField.i.i.i.i112, align 1
   %tobool.i.i.i.i113 = icmp slt i8 %27, 0
-  %mnSize.i.i.i.i114 = getelementptr inbounds %"struct.Benchmark::Environment", ptr %call75, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %mnSize.i.i.i.i114 = getelementptr inbounds i8, ptr %call75, i64 56
   %28 = load i64, ptr %mnSize.i.i.i.i114, align 8
   %conv.i.i.i.i115 = zext nneg i8 %27 to i64
   %sub.i.i.i.i116 = sub nsw i64 23, %conv.i.i.i.i115
@@ -447,7 +444,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEEaSEPKc.exit157: ; preds = %if.end.i.i127
   call void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch)
   call void @_ZN2EA8UnitTest23SetNormalThreadPriorityEv()
   call void @_ZN9Benchmark12PrintResultsEv()
-  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %sClockTime, i64 0, i32 1
+  %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %sClockTime, i64 23
   store i8 0, ptr %sClockTime, align 8
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %call97 = invoke noundef i64 @_ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch)
@@ -607,10 +604,10 @@ entry:
   br i1 %cmp.not, label %if.end23, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mRemainingSizeField.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::SSOLayout", ptr %this, i64 0, i32 1
+  %mRemainingSizeField.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i = icmp slt i8 %0, 0
-  %mnSize.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %this, i64 0, i32 1
+  %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %mnSize.i.i, align 8
   %conv.i.i = zext nneg i8 %0 to i64
   %sub.i.i = sub nsw i64 23, %conv.i.i
@@ -618,7 +615,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %pEnd to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %pBegin to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %mnCapacity.i.i = getelementptr inbounds %"struct.eastl::basic_string<char>::HeapLayout", ptr %this, i64 0, i32 2
+  %mnCapacity.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load i64, ptr %mnCapacity.i.i, align 8
   %and.i.i = and i64 %2, 9223372036854775807
   %retval.0.i = select i1 %tobool.i.i, i64 %and.i.i, i64 23

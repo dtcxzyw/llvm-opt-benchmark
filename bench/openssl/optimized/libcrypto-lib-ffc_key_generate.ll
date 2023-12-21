@@ -3,12 +3,10 @@ source_filename = "bench/openssl/original/libcrypto-lib-ffc_key_generate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ffc_params_st = type { ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, ptr, i32 }
-
 ; Function Attrs: nounwind uwtable
 define i32 @ossl_ffc_generate_private_key(ptr noundef %ctx, ptr nocapture noundef readonly %params, i32 noundef %N, i32 noundef %s, ptr noundef %priv) local_unnamed_addr #0 {
 entry:
-  %q = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 1
+  %q = getelementptr inbounds i8, ptr %params, i64 8
   %0 = load ptr, ptr %q, align 8
   %call = tail call i32 @BN_num_bits(ptr noundef %0) #2
   %cmp = icmp eq i32 %s, 0
@@ -23,7 +21,7 @@ if.end.if.end4_crit_edge:                         ; preds = %if.end
   br label %if.end4
 
 if.then2:                                         ; preds = %if.end
-  %keylength = getelementptr inbounds %struct.ffc_params_st, ptr %params, i64 0, i32 13
+  %keylength = getelementptr inbounds i8, ptr %params, i64 88
   %1 = load i32, ptr %keylength, align 8
   %tobool.not = icmp eq i32 %1, 0
   %mul = shl nsw i32 %s, 1

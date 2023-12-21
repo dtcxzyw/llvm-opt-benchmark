@@ -3,9 +3,6 @@ source_filename = "bench/qemu/original/target_riscv_fpu_helper.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.CPUArchState = type { [32 x i64], [32 x i64], [512 x i64], i64, i64, i64, i64, i64, i8, i64, i64, i64, [32 x i64], i64, %struct.float_status, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i32, i64, i64, i32, i64, i64, ptr, ptr, i8, i64, i64, [8 x i8] }
-%struct.float_status = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-
 @.str = private unnamed_addr constant [34 x i8] c"../qemu/target/riscv/fpu_helper.c\00", align 1
 @__func__.helper_set_rounding_mode_chkfrm = private unnamed_addr constant [32 x i8] c"helper_set_rounding_mode_chkfrm\00", align 1
 @switch.table.helper_set_rounding_mode_chkfrm = private unnamed_addr constant [9 x i8] c"\00\03\01\02\04\00\00\00\05", align 1
@@ -13,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i64 @riscv_cpu_get_fflags(ptr nocapture noundef readonly %env) local_unnamed_addr #0 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %fp_status.val = load i16, ptr %fp_status, align 2
   %trunc = trunc i16 %fp_status.val to i5
   %rev = tail call i5 @llvm.bitreverse.i5(i5 %trunc)
@@ -26,7 +23,7 @@ define dso_local void @riscv_cpu_set_fflags(ptr nocapture noundef writeonly %env
 entry:
   %trunc13 = trunc i64 %hard to i5
   %rev14 = tail call i5 @llvm.bitreverse.i5(i5 %trunc13)
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %conv.i = zext i5 %rev14 to i16
   store i16 %conv.i, ptr %fp_status, align 2
   ret void
@@ -39,7 +36,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %frm = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 13
+  %frm = getelementptr inbounds i8, ptr %env, i64 4936
   %0 = load i64, ptr %frm, align 8
   %conv = trunc i64 %0 to i32
   br label %if.end
@@ -60,7 +57,7 @@ switch.lookup:                                    ; preds = %if.end
   %switch.shiftamt = zext nneg i32 %4 to i40
   %switch.downshift = lshr i40 17213489920, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
-  %float_rounding_mode.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14, i32 1
+  %float_rounding_mode.i = getelementptr inbounds i8, ptr %env, i64 4946
   store i8 %switch.masked, ptr %float_rounding_mode.i, align 2
   ret void
 }
@@ -74,7 +71,7 @@ declare ptr @llvm.returnaddress(i32 immarg) #4
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @helper_set_rounding_mode_chkfrm(ptr noundef %env, i32 noundef %rm) local_unnamed_addr #2 {
 entry:
-  %frm = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 13
+  %frm = getelementptr inbounds i8, ptr %env, i64 4936
   %0 = load i64, ptr %frm, align 8
   %cmp = icmp ugt i64 %0, 4
   br i1 %cmp, label %if.then, label %if.end
@@ -107,7 +104,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %5 = zext nneg i32 %spec.select to i64
   %switch.gep = getelementptr inbounds [9 x i8], ptr @switch.table.helper_set_rounding_mode_chkfrm, i64 0, i64 %5
   %switch.load = load i8, ptr %switch.gep, align 1
-  %float_rounding_mode.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14, i32 1
+  %float_rounding_mode.i = getelementptr inbounds i8, ptr %env, i64 4946
   store i8 %switch.load, ptr %float_rounding_mode.i, align 2
   ret void
 }
@@ -134,7 +131,7 @@ entry:
   %cmp.i15.i = icmp ugt i64 %frs3, -4294967297
   %spec.select.i16.i = select i1 %cmp.i15.i, i32 %conv.i14.i, i32 2143289344
   %retval.0.i17.i = select i1 %tobool.not.i.i, i32 %spec.select.i16.i, i32 %conv.i14.i
-  %fp_status.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
   %call3.i = tail call i32 @float32_muladd(i32 noundef %retval.0.i.i, i32 noundef %retval.0.i12.i, i32 noundef %retval.0.i17.i, i32 noundef 0, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
   %2 = and i8 %env.val7.i, 1
@@ -149,7 +146,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fmadd_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @float64_muladd(i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3, i32 noundef 0, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -175,7 +172,7 @@ entry:
   %cmp.i15.i = icmp ugt i64 %frs3, -65537
   %spec.select.i16.i = select i1 %cmp.i15.i, i16 %conv.i14.i, i16 32256
   %retval.0.i17.i = select i1 %tobool.not.i.i, i16 %spec.select.i16.i, i16 %conv.i14.i
-  %fp_status.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
   %call3.i = tail call zeroext i16 @float16_muladd(i16 noundef zeroext %retval.0.i.i, i16 noundef zeroext %retval.0.i12.i, i16 noundef zeroext %retval.0.i17.i, i32 noundef 0, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
   %2 = and i8 %env.val7.i, 1
@@ -206,7 +203,7 @@ entry:
   %cmp.i15.i = icmp ugt i64 %frs3, -4294967297
   %spec.select.i16.i = select i1 %cmp.i15.i, i32 %conv.i14.i, i32 2143289344
   %retval.0.i17.i = select i1 %tobool.not.i.i, i32 %spec.select.i16.i, i32 %conv.i14.i
-  %fp_status.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
   %call3.i = tail call i32 @float32_muladd(i32 noundef %retval.0.i.i, i32 noundef %retval.0.i12.i, i32 noundef %retval.0.i17.i, i32 noundef 1, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
   %2 = and i8 %env.val7.i, 1
@@ -221,7 +218,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fmsub_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @float64_muladd(i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3, i32 noundef 1, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -245,7 +242,7 @@ entry:
   %cmp.i15.i = icmp ugt i64 %frs3, -65537
   %spec.select.i16.i = select i1 %cmp.i15.i, i16 %conv.i14.i, i16 32256
   %retval.0.i17.i = select i1 %tobool.not.i.i, i16 %spec.select.i16.i, i16 %conv.i14.i
-  %fp_status.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
   %call3.i = tail call zeroext i16 @float16_muladd(i16 noundef zeroext %retval.0.i.i, i16 noundef zeroext %retval.0.i12.i, i16 noundef zeroext %retval.0.i17.i, i32 noundef 1, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
   %2 = and i8 %env.val7.i, 1
@@ -276,7 +273,7 @@ entry:
   %cmp.i15.i = icmp ugt i64 %frs3, -4294967297
   %spec.select.i16.i = select i1 %cmp.i15.i, i32 %conv.i14.i, i32 2143289344
   %retval.0.i17.i = select i1 %tobool.not.i.i, i32 %spec.select.i16.i, i32 %conv.i14.i
-  %fp_status.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
   %call3.i = tail call i32 @float32_muladd(i32 noundef %retval.0.i.i, i32 noundef %retval.0.i12.i, i32 noundef %retval.0.i17.i, i32 noundef 2, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
   %2 = and i8 %env.val7.i, 1
@@ -291,7 +288,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fnmsub_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @float64_muladd(i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3, i32 noundef 2, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -315,7 +312,7 @@ entry:
   %cmp.i15.i = icmp ugt i64 %frs3, -65537
   %spec.select.i16.i = select i1 %cmp.i15.i, i16 %conv.i14.i, i16 32256
   %retval.0.i17.i = select i1 %tobool.not.i.i, i16 %spec.select.i16.i, i16 %conv.i14.i
-  %fp_status.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
   %call3.i = tail call zeroext i16 @float16_muladd(i16 noundef zeroext %retval.0.i.i, i16 noundef zeroext %retval.0.i12.i, i16 noundef zeroext %retval.0.i17.i, i32 noundef 2, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
   %2 = and i8 %env.val7.i, 1
@@ -346,7 +343,7 @@ entry:
   %cmp.i15.i = icmp ugt i64 %frs3, -4294967297
   %spec.select.i16.i = select i1 %cmp.i15.i, i32 %conv.i14.i, i32 2143289344
   %retval.0.i17.i = select i1 %tobool.not.i.i, i32 %spec.select.i16.i, i32 %conv.i14.i
-  %fp_status.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
   %call3.i = tail call i32 @float32_muladd(i32 noundef %retval.0.i.i, i32 noundef %retval.0.i12.i, i32 noundef %retval.0.i17.i, i32 noundef 3, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
   %2 = and i8 %env.val7.i, 1
@@ -361,7 +358,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fnmadd_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @float64_muladd(i64 noundef %frs1, i64 noundef %frs2, i64 noundef %frs3, i32 noundef 3, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -385,7 +382,7 @@ entry:
   %cmp.i15.i = icmp ugt i64 %frs3, -65537
   %spec.select.i16.i = select i1 %cmp.i15.i, i16 %conv.i14.i, i16 32256
   %retval.0.i17.i = select i1 %tobool.not.i.i, i16 %spec.select.i16.i, i16 %conv.i14.i
-  %fp_status.i = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status.i = getelementptr inbounds i8, ptr %env, i64 4944
   %call3.i = tail call zeroext i16 @float16_muladd(i16 noundef zeroext %retval.0.i.i, i16 noundef zeroext %retval.0.i12.i, i16 noundef zeroext %retval.0.i17.i, i32 noundef 3, ptr noundef nonnull %fp_status.i) #8
   %env.val7.i = load i8, ptr %0, align 1
   %2 = and i8 %env.val7.i, 1
@@ -412,7 +409,7 @@ entry:
   %cmp.i8 = icmp ugt i64 %rs2, -4294967297
   %spec.select.i9 = select i1 %cmp.i8, i32 %conv.i7, i32 2143289344
   %retval.0.i10 = select i1 %tobool.not.i, i32 %spec.select.i9, i32 %conv.i7
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call2 = tail call i32 @float32_add(i32 noundef %retval.0.i, i32 noundef %retval.0.i10, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
   %2 = and i8 %env.val5, 1
@@ -441,7 +438,7 @@ entry:
   %cmp.i8 = icmp ugt i64 %rs2, -4294967297
   %spec.select.i9 = select i1 %cmp.i8, i32 %conv.i7, i32 2143289344
   %retval.0.i10 = select i1 %tobool.not.i, i32 %spec.select.i9, i32 %conv.i7
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call2 = tail call i32 @float32_sub(i32 noundef %retval.0.i, i32 noundef %retval.0.i10, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
   %2 = and i8 %env.val5, 1
@@ -470,7 +467,7 @@ entry:
   %cmp.i8 = icmp ugt i64 %rs2, -4294967297
   %spec.select.i9 = select i1 %cmp.i8, i32 %conv.i7, i32 2143289344
   %retval.0.i10 = select i1 %tobool.not.i, i32 %spec.select.i9, i32 %conv.i7
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call2 = tail call i32 @float32_mul(i32 noundef %retval.0.i, i32 noundef %retval.0.i10, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
   %2 = and i8 %env.val5, 1
@@ -499,7 +496,7 @@ entry:
   %cmp.i8 = icmp ugt i64 %rs2, -4294967297
   %spec.select.i9 = select i1 %cmp.i8, i32 %conv.i7, i32 2143289344
   %retval.0.i10 = select i1 %tobool.not.i, i32 %spec.select.i9, i32 %conv.i7
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call2 = tail call i32 @float32_div(i32 noundef %retval.0.i, i32 noundef %retval.0.i10, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
   %2 = and i8 %env.val5, 1
@@ -528,10 +525,10 @@ entry:
   %cmp.i12 = icmp ugt i64 %rs2, -4294967297
   %spec.select.i13 = select i1 %cmp.i12, i32 %conv.i11, i32 2143289344
   %retval.0.i14 = select i1 %tobool.not.i, i32 %spec.select.i13, i32 %conv.i11
-  %priv_ver = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 18
+  %priv_ver = getelementptr inbounds i8, ptr %env, i64 4984
   %2 = load i64, ptr %priv_ver, align 8
   %cmp = icmp eq i64 %2, 0
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
@@ -573,7 +570,7 @@ entry:
   %cmp.i8 = icmp ugt i64 %rs2, -4294967297
   %spec.select.i9 = select i1 %cmp.i8, i32 %conv.i7, i32 2143289344
   %retval.0.i10 = select i1 %tobool.not.i, i32 %spec.select.i9, i32 %conv.i7
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call2 = tail call i32 @float32_min(i32 noundef %retval.0.i, i32 noundef %retval.0.i10, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
   %2 = and i8 %env.val5, 1
@@ -602,10 +599,10 @@ entry:
   %cmp.i12 = icmp ugt i64 %rs2, -4294967297
   %spec.select.i13 = select i1 %cmp.i12, i32 %conv.i11, i32 2143289344
   %retval.0.i14 = select i1 %tobool.not.i, i32 %spec.select.i13, i32 %conv.i11
-  %priv_ver = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 18
+  %priv_ver = getelementptr inbounds i8, ptr %env, i64 4984
   %2 = load i64, ptr %priv_ver, align 8
   %cmp = icmp eq i64 %2, 0
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
@@ -647,7 +644,7 @@ entry:
   %cmp.i8 = icmp ugt i64 %rs2, -4294967297
   %spec.select.i9 = select i1 %cmp.i8, i32 %conv.i7, i32 2143289344
   %retval.0.i10 = select i1 %tobool.not.i, i32 %spec.select.i9, i32 %conv.i7
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call2 = tail call i32 @float32_max(i32 noundef %retval.0.i, i32 noundef %retval.0.i10, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
   %2 = and i8 %env.val5, 1
@@ -672,7 +669,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -4294967297
   %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
   %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @float32_sqrt(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   %env.val3 = load i8, ptr %0, align 1
   %2 = and i8 %env.val3, 1
@@ -701,7 +698,7 @@ entry:
   %cmp.i6 = icmp ugt i64 %rs2, -4294967297
   %spec.select.i7 = select i1 %cmp.i6, i32 %conv.i5, i32 2143289344
   %retval.0.i8 = select i1 %tobool.not.i, i32 %spec.select.i7, i32 %conv.i5
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float32_compare(i32 noundef %retval.0.i, i32 noundef %retval.0.i8, ptr noundef nonnull %fp_status) #8
   %cmp.i9 = icmp slt i32 %call.i, 1
   %conv = zext i1 %cmp.i9 to i64
@@ -723,7 +720,7 @@ entry:
   %cmp.i6 = icmp ugt i64 %rs2, -4294967297
   %spec.select.i7 = select i1 %cmp.i6, i32 %conv.i5, i32 2143289344
   %retval.0.i8 = select i1 %tobool.not.i, i32 %spec.select.i7, i32 %conv.i5
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float32_compare_quiet(i32 noundef %retval.0.i, i32 noundef %retval.0.i8, ptr noundef nonnull %fp_status) #8
   %cmp.i9 = icmp slt i32 %call.i, 1
   %conv = zext i1 %cmp.i9 to i64
@@ -745,7 +742,7 @@ entry:
   %cmp.i6 = icmp ugt i64 %rs2, -4294967297
   %spec.select.i7 = select i1 %cmp.i6, i32 %conv.i5, i32 2143289344
   %retval.0.i8 = select i1 %tobool.not.i, i32 %spec.select.i7, i32 %conv.i5
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float32_compare(i32 noundef %retval.0.i, i32 noundef %retval.0.i8, ptr noundef nonnull %fp_status) #8
   %call.i.lobit = lshr i32 %call.i, 31
   %conv = zext nneg i32 %call.i.lobit to i64
@@ -767,7 +764,7 @@ entry:
   %cmp.i6 = icmp ugt i64 %rs2, -4294967297
   %spec.select.i7 = select i1 %cmp.i6, i32 %conv.i5, i32 2143289344
   %retval.0.i8 = select i1 %tobool.not.i, i32 %spec.select.i7, i32 %conv.i5
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float32_compare_quiet(i32 noundef %retval.0.i, i32 noundef %retval.0.i8, ptr noundef nonnull %fp_status) #8
   %call.i.lobit = lshr i32 %call.i, 31
   %conv = zext nneg i32 %call.i.lobit to i64
@@ -789,7 +786,7 @@ entry:
   %cmp.i6 = icmp ugt i64 %rs2, -4294967297
   %spec.select.i7 = select i1 %cmp.i6, i32 %conv.i5, i32 2143289344
   %retval.0.i8 = select i1 %tobool.not.i, i32 %spec.select.i7, i32 %conv.i5
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float32_compare_quiet(i32 noundef %retval.0.i, i32 noundef %retval.0.i8, ptr noundef nonnull %fp_status) #8
   %cmp.i9 = icmp eq i32 %call.i, 0
   %conv = zext i1 %cmp.i9 to i64
@@ -807,7 +804,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -4294967297
   %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
   %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @float32_to_int32(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   %conv = sext i32 %call1 to i64
   ret i64 %conv
@@ -826,7 +823,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -4294967297
   %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
   %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @float32_to_uint32(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   %conv = sext i32 %call1 to i64
   ret i64 %conv
@@ -845,7 +842,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -4294967297
   %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
   %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i64 @float32_to_int64(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   ret i64 %call1
 }
@@ -863,7 +860,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -4294967297
   %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
   %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i64 @float32_to_uint64(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   ret i64 %call1
 }
@@ -874,7 +871,7 @@ declare i64 @float32_to_uint64(i32 noundef, ptr noundef) local_unnamed_addr #5
 define dso_local i64 @helper_fcvt_s_w(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %conv = trunc i64 %rs1 to i32
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i32 @int32_to_float32(i32 noundef %conv, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -893,7 +890,7 @@ declare i32 @int32_to_float32(i32 noundef, ptr noundef) local_unnamed_addr #5
 define dso_local i64 @helper_fcvt_s_wu(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %conv = trunc i64 %rs1 to i32
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i32 @uint32_to_float32(i32 noundef %conv, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -911,7 +908,7 @@ declare i32 @uint32_to_float32(i32 noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fcvt_s_l(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i32 @int64_to_float32(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -929,7 +926,7 @@ declare i32 @int64_to_float32(i64 noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fcvt_s_lu(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i32 @uint64_to_float32(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -964,7 +961,7 @@ declare i64 @fclass_s(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fround_s(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %fp_status.val9 = load i16, ptr %fp_status, align 2
   %0 = and i16 %fp_status.val9, 16
   %1 = getelementptr i8, ptr %env, i64 5181
@@ -1003,7 +1000,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -4294967297
   %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
   %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @float32_round_to_int(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   %env.val4 = load i8, ptr %0, align 1
   %2 = and i8 %env.val4, 1
@@ -1018,7 +1015,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fadd_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @float64_add(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -1028,7 +1025,7 @@ declare i64 @float64_add(i64 noundef, i64 noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fsub_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @float64_sub(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -1038,7 +1035,7 @@ declare i64 @float64_sub(i64 noundef, i64 noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fmul_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @float64_mul(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -1048,7 +1045,7 @@ declare i64 @float64_mul(i64 noundef, i64 noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fdiv_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @float64_div(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -1058,10 +1055,10 @@ declare i64 @float64_div(i64 noundef, i64 noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fmin_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
-  %priv_ver = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 18
+  %priv_ver = getelementptr inbounds i8, ptr %env, i64 4984
   %0 = load i64, ptr %priv_ver, align 8
   %cmp = icmp eq i64 %0, 0
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
@@ -1084,7 +1081,7 @@ declare i64 @float64_minimum_number(i64 noundef, i64 noundef, ptr noundef) local
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fminm_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @float64_min(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -1094,10 +1091,10 @@ declare i64 @float64_min(i64 noundef, i64 noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fmax_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
-  %priv_ver = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 18
+  %priv_ver = getelementptr inbounds i8, ptr %env, i64 4984
   %0 = load i64, ptr %priv_ver, align 8
   %cmp = icmp eq i64 %0, 0
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
@@ -1120,7 +1117,7 @@ declare i64 @float64_maximum_number(i64 noundef, i64 noundef, ptr noundef) local
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fmaxm_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @float64_max(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -1130,7 +1127,7 @@ declare i64 @float64_max(i64 noundef, i64 noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fcvt_s_d(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i32 @float64_to_float32(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -1156,7 +1153,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -4294967297
   %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
   %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i64 @float32_to_float64(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   ret i64 %call1
 }
@@ -1166,7 +1163,7 @@ declare i64 @float32_to_float64(i32 noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fsqrt_d(ptr noundef %env, i64 noundef %frs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @float64_sqrt(i64 noundef %frs1, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -1176,7 +1173,7 @@ declare i64 @float64_sqrt(i64 noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fle_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float64_compare(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
   %cmp.i = icmp slt i32 %call.i, 1
   %conv = zext i1 %cmp.i to i64
@@ -1186,7 +1183,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fleq_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float64_compare_quiet(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
   %cmp.i = icmp slt i32 %call.i, 1
   %conv = zext i1 %cmp.i to i64
@@ -1196,7 +1193,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_flt_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float64_compare(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
   %call.i.lobit = lshr i32 %call.i, 31
   %conv = zext nneg i32 %call.i.lobit to i64
@@ -1206,7 +1203,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fltq_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float64_compare_quiet(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
   %call.i.lobit = lshr i32 %call.i, 31
   %conv = zext nneg i32 %call.i.lobit to i64
@@ -1216,7 +1213,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_feq_d(ptr noundef %env, i64 noundef %frs1, i64 noundef %frs2) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float64_compare_quiet(i64 noundef %frs1, i64 noundef %frs2, ptr noundef nonnull %fp_status) #8
   %cmp.i = icmp eq i32 %call.i, 0
   %conv = zext i1 %cmp.i to i64
@@ -1226,7 +1223,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fcvt_w_d(ptr noundef %env, i64 noundef %frs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i32 @float64_to_int32(i64 noundef %frs1, ptr noundef nonnull %fp_status) #8
   %conv = sext i32 %call to i64
   ret i64 %conv
@@ -1237,7 +1234,7 @@ declare i32 @float64_to_int32(i64 noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fcvtmod_w_d(ptr noundef %env, i64 noundef %value) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i32 @float64_to_int32_modulo(i64 noundef %value, i8 noundef zeroext 3, ptr noundef nonnull %fp_status) #8
   %conv = sext i32 %call to i64
   ret i64 %conv
@@ -1248,7 +1245,7 @@ declare i32 @float64_to_int32_modulo(i64 noundef, i8 noundef zeroext, ptr nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fcvt_wu_d(ptr noundef %env, i64 noundef %frs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i32 @float64_to_uint32(i64 noundef %frs1, ptr noundef nonnull %fp_status) #8
   %conv = sext i32 %call to i64
   ret i64 %conv
@@ -1259,7 +1256,7 @@ declare i32 @float64_to_uint32(i64 noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fcvt_l_d(ptr noundef %env, i64 noundef %frs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @float64_to_int64(i64 noundef %frs1, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -1269,7 +1266,7 @@ declare i64 @float64_to_int64(i64 noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fcvt_lu_d(ptr noundef %env, i64 noundef %frs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @float64_to_uint64(i64 noundef %frs1, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -1280,7 +1277,7 @@ declare i64 @float64_to_uint64(i64 noundef, ptr noundef) local_unnamed_addr #5
 define dso_local i64 @helper_fcvt_d_w(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %conv = trunc i64 %rs1 to i32
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @int32_to_float64(i32 noundef %conv, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -1291,7 +1288,7 @@ declare i64 @int32_to_float64(i32 noundef, ptr noundef) local_unnamed_addr #5
 define dso_local i64 @helper_fcvt_d_wu(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %conv = trunc i64 %rs1 to i32
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @uint32_to_float64(i32 noundef %conv, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -1301,7 +1298,7 @@ declare i64 @uint32_to_float64(i32 noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fcvt_d_l(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @int64_to_float64(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -1311,7 +1308,7 @@ declare i64 @int64_to_float64(i64 noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fcvt_d_lu(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @uint64_to_float64(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -1330,7 +1327,7 @@ declare i64 @fclass_d(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fround_d(ptr noundef %env, i64 noundef %frs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %fp_status.val7 = load i16, ptr %fp_status, align 2
   %0 = and i16 %fp_status.val7, 16
   %call1 = tail call i64 @float64_round_to_int(i64 noundef %frs1, ptr noundef nonnull %fp_status) #8
@@ -1346,7 +1343,7 @@ declare i64 @float64_round_to_int(i64 noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_froundnx_d(ptr noundef %env, i64 noundef %frs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call i64 @float64_round_to_int(i64 noundef %frs1, ptr noundef nonnull %fp_status) #8
   ret i64 %call
 }
@@ -1366,7 +1363,7 @@ entry:
   %cmp.i8 = icmp ugt i64 %rs2, -65537
   %spec.select.i9 = select i1 %cmp.i8, i16 %conv.i7, i16 32256
   %retval.0.i10 = select i1 %tobool.not.i, i16 %spec.select.i9, i16 %conv.i7
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call2 = tail call zeroext i16 @float16_add(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i10, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
   %2 = and i8 %env.val5, 1
@@ -1395,7 +1392,7 @@ entry:
   %cmp.i8 = icmp ugt i64 %rs2, -65537
   %spec.select.i9 = select i1 %cmp.i8, i16 %conv.i7, i16 32256
   %retval.0.i10 = select i1 %tobool.not.i, i16 %spec.select.i9, i16 %conv.i7
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call2 = tail call zeroext i16 @float16_sub(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i10, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
   %2 = and i8 %env.val5, 1
@@ -1424,7 +1421,7 @@ entry:
   %cmp.i8 = icmp ugt i64 %rs2, -65537
   %spec.select.i9 = select i1 %cmp.i8, i16 %conv.i7, i16 32256
   %retval.0.i10 = select i1 %tobool.not.i, i16 %spec.select.i9, i16 %conv.i7
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call2 = tail call zeroext i16 @float16_mul(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i10, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
   %2 = and i8 %env.val5, 1
@@ -1453,7 +1450,7 @@ entry:
   %cmp.i8 = icmp ugt i64 %rs2, -65537
   %spec.select.i9 = select i1 %cmp.i8, i16 %conv.i7, i16 32256
   %retval.0.i10 = select i1 %tobool.not.i, i16 %spec.select.i9, i16 %conv.i7
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call2 = tail call zeroext i16 @float16_div(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i10, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
   %2 = and i8 %env.val5, 1
@@ -1482,10 +1479,10 @@ entry:
   %cmp.i12 = icmp ugt i64 %rs2, -65537
   %spec.select.i13 = select i1 %cmp.i12, i16 %conv.i11, i16 32256
   %retval.0.i14 = select i1 %tobool.not.i, i16 %spec.select.i13, i16 %conv.i11
-  %priv_ver = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 18
+  %priv_ver = getelementptr inbounds i8, ptr %env, i64 4984
   %2 = load i64, ptr %priv_ver, align 8
   %cmp = icmp eq i64 %2, 0
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
@@ -1527,7 +1524,7 @@ entry:
   %cmp.i8 = icmp ugt i64 %rs2, -65537
   %spec.select.i9 = select i1 %cmp.i8, i16 %conv.i7, i16 32256
   %retval.0.i10 = select i1 %tobool.not.i, i16 %spec.select.i9, i16 %conv.i7
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call2 = tail call zeroext i16 @float16_min(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i10, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
   %2 = and i8 %env.val5, 1
@@ -1556,10 +1553,10 @@ entry:
   %cmp.i12 = icmp ugt i64 %rs2, -65537
   %spec.select.i13 = select i1 %cmp.i12, i16 %conv.i11, i16 32256
   %retval.0.i14 = select i1 %tobool.not.i, i16 %spec.select.i13, i16 %conv.i11
-  %priv_ver = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 18
+  %priv_ver = getelementptr inbounds i8, ptr %env, i64 4984
   %2 = load i64, ptr %priv_ver, align 8
   %cmp = icmp eq i64 %2, 0
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
@@ -1601,7 +1598,7 @@ entry:
   %cmp.i8 = icmp ugt i64 %rs2, -65537
   %spec.select.i9 = select i1 %cmp.i8, i16 %conv.i7, i16 32256
   %retval.0.i10 = select i1 %tobool.not.i, i16 %spec.select.i9, i16 %conv.i7
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call2 = tail call zeroext i16 @float16_max(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i10, ptr noundef nonnull %fp_status) #8
   %env.val5 = load i8, ptr %0, align 1
   %2 = and i8 %env.val5, 1
@@ -1626,7 +1623,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -65537
   %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
   %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call zeroext i16 @float16_sqrt(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
   %env.val3 = load i8, ptr %0, align 1
   %2 = and i8 %env.val3, 1
@@ -1655,7 +1652,7 @@ entry:
   %cmp.i6 = icmp ugt i64 %rs2, -65537
   %spec.select.i7 = select i1 %cmp.i6, i16 %conv.i5, i16 32256
   %retval.0.i8 = select i1 %tobool.not.i, i16 %spec.select.i7, i16 %conv.i5
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float16_compare(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i8, ptr noundef nonnull %fp_status) #8
   %cmp.i9 = icmp slt i32 %call.i, 1
   %conv = zext i1 %cmp.i9 to i64
@@ -1677,7 +1674,7 @@ entry:
   %cmp.i6 = icmp ugt i64 %rs2, -65537
   %spec.select.i7 = select i1 %cmp.i6, i16 %conv.i5, i16 32256
   %retval.0.i8 = select i1 %tobool.not.i, i16 %spec.select.i7, i16 %conv.i5
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float16_compare_quiet(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i8, ptr noundef nonnull %fp_status) #8
   %cmp.i9 = icmp slt i32 %call.i, 1
   %conv = zext i1 %cmp.i9 to i64
@@ -1699,7 +1696,7 @@ entry:
   %cmp.i6 = icmp ugt i64 %rs2, -65537
   %spec.select.i7 = select i1 %cmp.i6, i16 %conv.i5, i16 32256
   %retval.0.i8 = select i1 %tobool.not.i, i16 %spec.select.i7, i16 %conv.i5
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float16_compare(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i8, ptr noundef nonnull %fp_status) #8
   %call.i.lobit = lshr i32 %call.i, 31
   %conv = zext nneg i32 %call.i.lobit to i64
@@ -1721,7 +1718,7 @@ entry:
   %cmp.i6 = icmp ugt i64 %rs2, -65537
   %spec.select.i7 = select i1 %cmp.i6, i16 %conv.i5, i16 32256
   %retval.0.i8 = select i1 %tobool.not.i, i16 %spec.select.i7, i16 %conv.i5
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float16_compare_quiet(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i8, ptr noundef nonnull %fp_status) #8
   %call.i.lobit = lshr i32 %call.i, 31
   %conv = zext nneg i32 %call.i.lobit to i64
@@ -1743,7 +1740,7 @@ entry:
   %cmp.i6 = icmp ugt i64 %rs2, -65537
   %spec.select.i7 = select i1 %cmp.i6, i16 %conv.i5, i16 32256
   %retval.0.i8 = select i1 %tobool.not.i, i16 %spec.select.i7, i16 %conv.i5
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call.i = tail call i32 @float16_compare_quiet(i16 noundef zeroext %retval.0.i, i16 noundef zeroext %retval.0.i8, ptr noundef nonnull %fp_status) #8
   %cmp.i9 = icmp eq i32 %call.i, 0
   %conv = zext i1 %cmp.i9 to i64
@@ -1770,7 +1767,7 @@ declare i64 @fclass_h(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fround_h(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %fp_status.val9 = load i16, ptr %fp_status, align 2
   %0 = and i16 %fp_status.val9, 16
   %1 = getelementptr i8, ptr %env, i64 5181
@@ -1809,7 +1806,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -4294967297
   %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 0
   %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call zeroext i16 @float16_round_to_int(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
   %env.val4 = load i8, ptr %0, align 1
   %2 = and i8 %env.val4, 1
@@ -1832,7 +1829,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -65537
   %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
   %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @float16_to_int32(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
   %conv = sext i32 %call1 to i64
   ret i64 %conv
@@ -1851,7 +1848,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -65537
   %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
   %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @float16_to_uint32(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
   %conv = sext i32 %call1 to i64
   ret i64 %conv
@@ -1870,7 +1867,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -65537
   %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
   %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i64 @float16_to_int64(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
   ret i64 %call1
 }
@@ -1888,7 +1885,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -65537
   %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
   %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i64 @float16_to_uint64(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
   ret i64 %call1
 }
@@ -1899,7 +1896,7 @@ declare i64 @float16_to_uint64(i16 noundef zeroext, ptr noundef) local_unnamed_a
 define dso_local i64 @helper_fcvt_h_w(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %conv = trunc i64 %rs1 to i32
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call zeroext i16 @int32_to_float16(i32 noundef %conv, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -1918,7 +1915,7 @@ declare zeroext i16 @int32_to_float16(i32 noundef, ptr noundef) local_unnamed_ad
 define dso_local i64 @helper_fcvt_h_wu(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
   %conv = trunc i64 %rs1 to i32
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call zeroext i16 @uint32_to_float16(i32 noundef %conv, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -1936,7 +1933,7 @@ declare zeroext i16 @uint32_to_float16(i32 noundef, ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fcvt_h_l(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call zeroext i16 @int64_to_float16(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -1954,7 +1951,7 @@ declare zeroext i16 @int64_to_float16(i64 noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fcvt_h_lu(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call zeroext i16 @uint64_to_float16(i64 noundef %rs1, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -1980,7 +1977,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -4294967297
   %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
   %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call zeroext i16 @float32_to_float16(i32 noundef %retval.0.i, i1 noundef zeroext true, ptr noundef nonnull %fp_status) #8
   %env.val3 = load i8, ptr %0, align 1
   %2 = and i8 %env.val3, 1
@@ -2005,7 +2002,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -65537
   %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
   %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @float16_to_float32(i16 noundef zeroext %retval.0.i, i1 noundef zeroext true, ptr noundef nonnull %fp_status) #8
   %env.val = load i8, ptr %0, align 1
   %2 = and i8 %env.val, 1
@@ -2022,7 +2019,7 @@ declare i32 @float16_to_float32(i16 noundef zeroext, i1 noundef zeroext, ptr nou
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @helper_fcvt_h_d(ptr noundef %env, i64 noundef %rs1) local_unnamed_addr #2 {
 entry:
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call = tail call zeroext i16 @float64_to_float16(i64 noundef %rs1, i1 noundef zeroext true, ptr noundef nonnull %fp_status) #8
   %0 = getelementptr i8, ptr %env, i64 5181
   %env.val = load i8, ptr %0, align 1
@@ -2048,7 +2045,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -65537
   %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
   %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i64 @float16_to_float64(i16 noundef zeroext %retval.0.i, i1 noundef zeroext true, ptr noundef nonnull %fp_status) #8
   ret i64 %call1
 }
@@ -2066,7 +2063,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -4294967297
   %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 2143289344
   %retval.0.i = select i1 %tobool.not.i, i32 %spec.select.i, i32 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call zeroext i16 @float32_to_bfloat16(i32 noundef %retval.0.i, ptr noundef nonnull %fp_status) #8
   %env.val3 = load i8, ptr %0, align 1
   %2 = and i8 %env.val3, 1
@@ -2091,7 +2088,7 @@ entry:
   %cmp.i = icmp ugt i64 %rs1, -65537
   %spec.select.i = select i1 %cmp.i, i16 %conv.i, i16 32256
   %retval.0.i = select i1 %tobool.not.i, i16 %spec.select.i, i16 %conv.i
-  %fp_status = getelementptr inbounds %struct.CPUArchState, ptr %env, i64 0, i32 14
+  %fp_status = getelementptr inbounds i8, ptr %env, i64 4944
   %call1 = tail call i32 @bfloat16_to_float32(i16 noundef zeroext %retval.0.i, ptr noundef nonnull %fp_status) #8
   %env.val = load i8, ptr %0, align 1
   %2 = and i8 %env.val, 1

@@ -5,17 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.EA::Thread::ThreadTime" = type { %struct.timespec }
 %struct.timespec = type { i64, i64 }
-%struct.EARWMutexData = type { i32, i32, i32, i64, %"class.EA::Thread::Mutex", %"class.EA::Thread::Condition", %"class.EA::Thread::Condition" }
-%"class.EA::Thread::Mutex" = type { %struct.EAMutexData }
-%struct.EAMutexData = type <{ %union.pthread_mutex_t, i32, [4 x i8] }>
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.EA::Thread::Condition" = type { %struct.EAConditionData }
-%struct.EAConditionData = type { %union.pthread_cond_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 %"struct.EA::Thread::MutexParameters" = type { i8, [128 x i8] }
 %"struct.EA::Thread::ConditionParameters" = type { i8, [16 x i8] }
 
@@ -34,20 +23,20 @@ $_ZN13EARWMutexDataD2Ev = comdat any
 define dso_local void @_ZN13EARWMutexDataC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
-  %mnWriteWaiters = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 1
+  %mnWriteWaiters = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %mnWriteWaiters, align 4
-  %mnReaders = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 2
+  %mnReaders = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %mnReaders, align 8
-  %mThreadIdWriter = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 3
+  %mThreadIdWriter = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mThreadIdWriter, align 8
-  %mMutex = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 4
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN2EA6Thread5MutexC1EPKNS0_15MutexParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef null, i1 noundef zeroext false)
-  %mReadCondition = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 5
+  %mReadCondition = getelementptr inbounds i8, ptr %this, i64 72
   invoke void @_ZN2EA6Thread9ConditionC1EPKNS0_19ConditionParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %mReadCondition, ptr noundef null, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %mWriteCondition = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 6
+  %mWriteCondition = getelementptr inbounds i8, ptr %this, i64 120
   invoke void @_ZN2EA6Thread9ConditionC1EPKNS0_19ConditionParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %mWriteCondition, ptr noundef null, i1 noundef zeroext false)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -99,20 +88,20 @@ entry:
   %mup.i = alloca %"struct.EA::Thread::MutexParameters", align 1
   %mop.i = alloca %"struct.EA::Thread::ConditionParameters", align 1
   store i32 0, ptr %this, align 8
-  %mnWriteWaiters.i = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 1
+  %mnWriteWaiters.i = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %mnWriteWaiters.i, align 4
-  %mnReaders.i = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 2
+  %mnReaders.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %mnReaders.i, align 8
-  %mThreadIdWriter.i = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 3
+  %mThreadIdWriter.i = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %mThreadIdWriter.i, align 8
-  %mMutex.i = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 4
+  %mMutex.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN2EA6Thread5MutexC1EPKNS0_15MutexParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %mMutex.i, ptr noundef null, i1 noundef zeroext false)
-  %mReadCondition.i = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 5
+  %mReadCondition.i = getelementptr inbounds i8, ptr %this, i64 72
   invoke void @_ZN2EA6Thread9ConditionC1EPKNS0_19ConditionParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %mReadCondition.i, ptr noundef null, i1 noundef zeroext false)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %mWriteCondition.i = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 6
+  %mWriteCondition.i = getelementptr inbounds i8, ptr %this, i64 120
   invoke void @_ZN2EA6Thread9ConditionC1EPKNS0_19ConditionParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %mWriteCondition.i, ptr noundef null, i1 noundef zeroext false)
           to label %_ZN13EARWMutexDataC2Ev.exit unwind label %lpad2.i
 
@@ -227,15 +216,15 @@ if.then:                                          ; preds = %entry
   %1 = and i8 %0, 1
   %tobool2 = icmp ne i8 %1, 0
   call void @_ZN2EA6Thread15MutexParametersC1EbPKc(ptr noundef nonnull align 1 dereferenceable(129) %mup, i1 noundef zeroext %tobool2, ptr noundef null)
-  %mMutex = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 4
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 24
   %call = call noundef zeroext i1 @_ZN2EA6Thread5Mutex4InitEPKNS0_15MutexParametersE(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef nonnull %mup)
   %2 = load i8, ptr %pRWMutexParameters, align 1
   %3 = and i8 %2, 1
   %tobool4 = icmp ne i8 %3, 0
   call void @_ZN2EA6Thread19ConditionParametersC1EbPKc(ptr noundef nonnull align 1 dereferenceable(17) %mop, i1 noundef zeroext %tobool4, ptr noundef null)
-  %mReadCondition = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 5
+  %mReadCondition = getelementptr inbounds i8, ptr %this, i64 72
   %call6 = call noundef zeroext i1 @_ZN2EA6Thread9Condition4InitEPKNS0_19ConditionParametersE(ptr noundef nonnull align 8 dereferenceable(48) %mReadCondition, ptr noundef nonnull %mop)
-  %mWriteCondition = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 6
+  %mWriteCondition = getelementptr inbounds i8, ptr %this, i64 120
   %call8 = call noundef zeroext i1 @_ZN2EA6Thread9Condition4InitEPKNS0_19ConditionParametersE(ptr noundef nonnull align 8 dereferenceable(48) %mWriteCondition, ptr noundef nonnull %mop)
   br label %return
 
@@ -246,11 +235,11 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13EARWMutexDataD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %mWriteCondition = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 6
+  %mWriteCondition = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mWriteCondition) #10
-  %mReadCondition = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 5
+  %mReadCondition = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mReadCondition) #10
-  %mMutex = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 4
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mMutex) #10
   ret void
 }
@@ -258,11 +247,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA6Thread7RWMutexD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #4 align 2 {
 entry:
-  %mWriteCondition.i = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 6
+  %mWriteCondition.i = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mWriteCondition.i) #10
-  %mReadCondition.i = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 5
+  %mReadCondition.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mReadCondition.i) #10
-  %mMutex.i = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 4
+  %mMutex.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mMutex.i) #10
   ret void
 }
@@ -278,7 +267,7 @@ declare noundef zeroext i1 @_ZN2EA6Thread9Condition4InitEPKNS0_19ConditionParame
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA6Thread7RWMutex4LockENS1_8LockTypeERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(168) %this, i32 noundef %lockType, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute) local_unnamed_addr #0 align 2 {
 entry:
-  %mMutex = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 4
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   switch i32 %lockType, label %return [
     i32 1, label %while.cond.preheader
@@ -286,15 +275,15 @@ entry:
   ]
 
 while.cond20.preheader:                           ; preds = %entry
-  %mnReaders22 = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 2
-  %mThreadIdWriter25 = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 3
-  %mnWriteWaiters = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 1
-  %mWriteCondition = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 6
+  %mnReaders22 = getelementptr inbounds i8, ptr %this, i64 8
+  %mThreadIdWriter25 = getelementptr inbounds i8, ptr %this, i64 16
+  %mnWriteWaiters = getelementptr inbounds i8, ptr %this, i64 4
+  %mWriteCondition = getelementptr inbounds i8, ptr %this, i64 120
   br label %while.cond20
 
 while.cond.preheader:                             ; preds = %entry
-  %mThreadIdWriter = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 3
-  %mReadCondition = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 5
+  %mThreadIdWriter = getelementptr inbounds i8, ptr %this, i64 16
+  %mReadCondition = getelementptr inbounds i8, ptr %this, i64 72
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
@@ -314,7 +303,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp11, label %return, label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %while.cond
-  %mnReaders = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 2
+  %mnReaders = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %mnReaders, align 8
   %inc17 = add nsw i32 %3, 1
   store i32 %inc17, ptr %mnReaders, align 8
@@ -361,9 +350,9 @@ declare noundef i64 @_ZN2EA6Thread11GetThreadIdEv() local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA6Thread7RWMutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(168) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %mMutex = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 4
+  %mMutex = getelementptr inbounds i8, ptr %this, i64 24
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
-  %mThreadIdWriter = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 3
+  %mThreadIdWriter = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %mThreadIdWriter, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.else, label %if.then
@@ -373,7 +362,7 @@ if.then:                                          ; preds = %entry
   br label %if.end11
 
 if.else:                                          ; preds = %entry
-  %mnReaders = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 2
+  %mnReaders = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i32, ptr %mnReaders, align 8
   %dec = add nsw i32 %1, -1
   store i32 %dec, ptr %mnReaders, align 8
@@ -381,28 +370,24 @@ if.else:                                          ; preds = %entry
   br i1 %cmp6, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.then
-  %mnWriteWaiters = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 1
+  %mnWriteWaiters = getelementptr inbounds i8, ptr %this, i64 4
   %2 = load i32, ptr %mnWriteWaiters, align 4
-  %cmp13 = icmp sgt i32 %2, 0
-  br i1 %cmp13, label %if.then14, label %if.else17
-
-if.then14:                                        ; preds = %if.end11
-  %mWriteCondition = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 6
-  %call16 = tail call noundef zeroext i1 @_ZN2EA6Thread9Condition6SignalEb(ptr noundef nonnull align 8 dereferenceable(48) %mWriteCondition, i1 noundef zeroext false)
-  br label %return
+  %cmp13 = icmp slt i32 %2, 1
+  br i1 %cmp13, label %if.else17, label %if.end24.sink.split
 
 if.else17:                                        ; preds = %if.end11
   %3 = load i32, ptr %this, align 8
   %cmp19 = icmp sgt i32 %3, 0
-  br i1 %cmp19, label %if.then20, label %return
+  br i1 %cmp19, label %if.end24.sink.split, label %return
 
-if.then20:                                        ; preds = %if.else17
-  %mReadCondition = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 5
-  %call22 = tail call noundef zeroext i1 @_ZN2EA6Thread9Condition6SignalEb(ptr noundef nonnull align 8 dereferenceable(48) %mReadCondition, i1 noundef zeroext true)
+if.end24.sink.split:                              ; preds = %if.else17, %if.end11
+  %.sink2 = phi i64 [ 120, %if.end11 ], [ 72, %if.else17 ]
+  %mReadCondition = getelementptr inbounds i8, ptr %this, i64 %.sink2
+  %call22 = tail call noundef zeroext i1 @_ZN2EA6Thread9Condition6SignalEb(ptr noundef nonnull align 8 dereferenceable(48) %mReadCondition, i1 noundef zeroext %cmp13)
   br label %return
 
-return:                                           ; preds = %if.then14, %if.then20, %if.else17, %if.else
-  %retval.0 = phi i32 [ %dec, %if.else ], [ 0, %if.else17 ], [ 0, %if.then20 ], [ 0, %if.then14 ]
+return:                                           ; preds = %if.else17, %if.end24.sink.split, %if.else
+  %retval.0 = phi i32 [ %dec, %if.else ], [ 0, %if.end24.sink.split ], [ 0, %if.else17 ]
   %call27 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mMutex)
   ret i32 %retval.0
 }
@@ -418,12 +403,12 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %mnReaders = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 2
+  %mnReaders = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %mnReaders, align 8
   br label %return
 
 land.lhs.true:                                    ; preds = %entry
-  %mThreadIdWriter = getelementptr inbounds %struct.EARWMutexData, ptr %this, i64 0, i32 3
+  %mThreadIdWriter = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load i64, ptr %mThreadIdWriter, align 8
   %cmp4.not = icmp eq i64 %1, 0
   br i1 %cmp4.not, label %if.end6, label %return
@@ -445,7 +430,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 168, ptr noundef null, i32 noundef 0)
   tail call void @_ZN2EA6Thread7RWMutexC2EPKNS0_17RWMutexParametersEb(ptr noundef nonnull align 8 dereferenceable(168) %call, ptr noundef null, i1 noundef zeroext true)
@@ -481,15 +466,15 @@ entry:
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mWriteCondition.i.i = getelementptr inbounds %struct.EARWMutexData, ptr %pRWMutex, i64 0, i32 6
+  %mWriteCondition.i.i = getelementptr inbounds i8, ptr %pRWMutex, i64 120
   tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mWriteCondition.i.i) #10
-  %mReadCondition.i.i = getelementptr inbounds %struct.EARWMutexData, ptr %pRWMutex, i64 0, i32 5
+  %mReadCondition.i.i = getelementptr inbounds i8, ptr %pRWMutex, i64 72
   tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mReadCondition.i.i) #10
-  %mMutex.i.i = getelementptr inbounds %struct.EARWMutexData, ptr %pRWMutex, i64 0, i32 4
+  %mMutex.i.i = getelementptr inbounds i8, ptr %pRWMutex, i64 24
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mMutex.i.i) #10
   %1 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %pRWMutex, i64 noundef 0)
   br label %if.end
@@ -499,11 +484,11 @@ if.else:                                          ; preds = %entry
   br i1 %isnull, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.else
-  %mWriteCondition.i.i3 = getelementptr inbounds %struct.EARWMutexData, ptr %pRWMutex, i64 0, i32 6
+  %mWriteCondition.i.i3 = getelementptr inbounds i8, ptr %pRWMutex, i64 120
   tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mWriteCondition.i.i3) #10
-  %mReadCondition.i.i4 = getelementptr inbounds %struct.EARWMutexData, ptr %pRWMutex, i64 0, i32 5
+  %mReadCondition.i.i4 = getelementptr inbounds i8, ptr %pRWMutex, i64 72
   tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mReadCondition.i.i4) #10
-  %mMutex.i.i5 = getelementptr inbounds %struct.EARWMutexData, ptr %pRWMutex, i64 0, i32 4
+  %mMutex.i.i5 = getelementptr inbounds i8, ptr %pRWMutex, i64 24
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mMutex.i.i5) #10
   tail call void @_ZdlPv(ptr noundef nonnull %pRWMutex) #12
   br label %if.end
@@ -528,11 +513,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA6Thread14RWMutexFactory15DestructRWMutexEPNS0_7RWMutexE(ptr noundef %pRWMutex) local_unnamed_addr #4 align 2 {
 entry:
-  %mWriteCondition.i.i = getelementptr inbounds %struct.EARWMutexData, ptr %pRWMutex, i64 0, i32 6
+  %mWriteCondition.i.i = getelementptr inbounds i8, ptr %pRWMutex, i64 120
   tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mWriteCondition.i.i) #10
-  %mReadCondition.i.i = getelementptr inbounds %struct.EARWMutexData, ptr %pRWMutex, i64 0, i32 5
+  %mReadCondition.i.i = getelementptr inbounds i8, ptr %pRWMutex, i64 72
   tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mReadCondition.i.i) #10
-  %mMutex.i.i = getelementptr inbounds %struct.EARWMutexData, ptr %pRWMutex, i64 0, i32 4
+  %mMutex.i.i = getelementptr inbounds i8, ptr %pRWMutex, i64 24
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mMutex.i.i) #10
   ret void
 }

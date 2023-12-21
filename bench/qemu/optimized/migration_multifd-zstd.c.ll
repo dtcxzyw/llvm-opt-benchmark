@@ -4,27 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.MultiFDMethods = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.MultiFDSendParams = type { i8, ptr, %struct.QemuThread, ptr, i8, i32, i32, i32, i32, %struct.QemuSemaphore, %struct.QemuSemaphore, %struct.QemuMutex, i8, i8, i32, i64, i32, ptr, ptr, i32, i64, i64, ptr, i32, ptr, i32, ptr }
-%struct.QemuThread = type { i64 }
-%struct.QemuSemaphore = type { %struct.QemuMutex, %struct.QemuCond, i32 }
-%struct.QemuCond = type { %union.pthread_cond_t, i8 }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.zstd_data = type { ptr, ptr, %struct.ZSTD_inBuffer_s, %struct.ZSTD_outBuffer_s, ptr, i32 }
-%struct.ZSTD_inBuffer_s = type { ptr, i64, i64 }
-%struct.ZSTD_outBuffer_s = type { ptr, i64, i64 }
-%struct.MultiFDPages_t = type { i32, i32, i64, ptr, ptr }
-%struct.RAMBlock = type { %struct.rcu_head, ptr, ptr, ptr, i64, i64, i64, ptr, i32, [256 x i8], %struct.anon.0, %struct.anon.1, i32, i64, i64, ptr, ptr, ptr, i8, i64 }
-%struct.rcu_head = type { ptr, ptr }
-%struct.anon.0 = type { ptr, ptr }
-%struct.anon.1 = type { ptr }
 %struct.iovec = type { ptr, i64 }
-%struct.MultiFDRecvParams = type { i8, ptr, %struct.QemuThread, ptr, i32, i32, i32, %struct.QemuSemaphore, %struct.QemuMutex, i8, i8, i32, i64, ptr, i32, i64, ptr, ptr, i64, ptr, ptr, i32, ptr }
 
 @multifd_zstd_ops = internal global %struct.MultiFDMethods { ptr @zstd_send_setup, ptr @zstd_send_cleanup, ptr @zstd_send_prepare, ptr @zstd_recv_setup, ptr @zstd_recv_cleanup, ptr @zstd_recv_pages }, align 8
 @.str = private unnamed_addr constant [33 x i8] c"../qemu/migration/multifd-zstd.c\00", align 1
@@ -70,7 +50,7 @@ declare void @multifd_register_ops(i32 noundef, ptr noundef) local_unnamed_addr 
 define internal i32 @zstd_send_setup(ptr nocapture noundef %p, ptr noundef %errp) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #5
-  %data = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 26
+  %data = getelementptr inbounds i8, ptr %p, i64 424
   store ptr %call, ptr %data, align 8
   %call1 = tail call ptr @ZSTD_createCStream() #4
   store ptr %call1, ptr %call, align 8
@@ -106,11 +86,11 @@ if.then10:                                        ; preds = %if.end
 if.end17:                                         ; preds = %if.end
   %call18 = tail call i64 @ZSTD_compressBound(i64 noundef 524288) #4
   %conv19 = trunc i64 %call18 to i32
-  %zbuff_len = getelementptr inbounds %struct.zstd_data, ptr %call, i64 0, i32 5
+  %zbuff_len = getelementptr inbounds i8, ptr %call, i64 72
   store i32 %conv19, ptr %zbuff_len, align 8
   %conv21 = and i64 %call18, 4294967295
   %call22 = tail call noalias ptr @g_try_malloc(i64 noundef %conv21) #6
-  %zbuff = getelementptr inbounds %struct.zstd_data, ptr %call, i64 0, i32 4
+  %zbuff = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %call22, ptr %zbuff, align 8
   %tobool24.not = icmp eq ptr %call22, null
   br i1 %tobool24.not, label %if.then25, label %return
@@ -132,12 +112,12 @@ return:                                           ; preds = %if.end17, %if.then2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @zstd_send_cleanup(ptr nocapture noundef %p, ptr nocapture readnone %errp) #0 {
 entry:
-  %data = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 26
+  %data = getelementptr inbounds i8, ptr %p, i64 424
   %0 = load ptr, ptr %data, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i64 @ZSTD_freeCStream(ptr noundef %1) #4
   store ptr null, ptr %0, align 8
-  %zbuff = getelementptr inbounds %struct.zstd_data, ptr %0, i64 0, i32 4
+  %zbuff = getelementptr inbounds i8, ptr %0, i64 64
   %2 = load ptr, ptr %zbuff, align 8
   tail call void @g_free(ptr noundef %2) #4
   store ptr null, ptr %zbuff, align 8
@@ -150,31 +130,31 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @zstd_send_prepare(ptr nocapture noundef %p, ptr noundef %errp) #0 {
 entry:
-  %data = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 26
+  %data = getelementptr inbounds i8, ptr %p, i64 424
   %0 = load ptr, ptr %data, align 8
-  %zbuff = getelementptr inbounds %struct.zstd_data, ptr %0, i64 0, i32 4
+  %zbuff = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load ptr, ptr %zbuff, align 8
-  %out = getelementptr inbounds %struct.zstd_data, ptr %0, i64 0, i32 3
+  %out = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %out, align 8
-  %zbuff_len = getelementptr inbounds %struct.zstd_data, ptr %0, i64 0, i32 5
+  %zbuff_len = getelementptr inbounds i8, ptr %0, i64 72
   %2 = load i32, ptr %zbuff_len, align 8
   %conv = zext i32 %2 to i64
-  %size = getelementptr inbounds %struct.zstd_data, ptr %0, i64 0, i32 3, i32 1
+  %size = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %conv, ptr %size, align 8
-  %pos = getelementptr inbounds %struct.zstd_data, ptr %0, i64 0, i32 3, i32 2
+  %pos = getelementptr inbounds i8, ptr %0, i64 56
   store i64 0, ptr %pos, align 8
-  %normal_num = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 25
+  %normal_num = getelementptr inbounds i8, ptr %p, i64 416
   %3 = load i32, ptr %normal_num, align 8
   %cmp42.not = icmp eq i32 %3, 0
   br i1 %cmp42.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %pages = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 17
-  %normal = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 24
-  %in = getelementptr inbounds %struct.zstd_data, ptr %0, i64 0, i32 2
-  %page_size = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 6
-  %size9 = getelementptr inbounds %struct.zstd_data, ptr %0, i64 0, i32 2, i32 1
-  %pos11 = getelementptr inbounds %struct.zstd_data, ptr %0, i64 0, i32 2, i32 2
+  %pages = getelementptr inbounds i8, ptr %p, i64 352
+  %normal = getelementptr inbounds i8, ptr %p, i64 408
+  %in = getelementptr inbounds i8, ptr %0, i64 16
+  %page_size = getelementptr inbounds i8, ptr %p, i64 40
+  %size9 = getelementptr inbounds i8, ptr %0, i64 24
+  %pos11 = getelementptr inbounds i8, ptr %0, i64 32
   br label %for.body
 
 for.cond:                                         ; preds = %if.end43
@@ -192,9 +172,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp5 = icmp eq i64 %indvars.iv, %7
   %spec.store.select = zext i1 %cmp5 to i32
   %8 = load ptr, ptr %pages, align 8
-  %block = getelementptr inbounds %struct.MultiFDPages_t, ptr %8, i64 0, i32 4
+  %block = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %block, align 8
-  %host = getelementptr inbounds %struct.RAMBlock, ptr %9, i64 0, i32 2
+  %host = getelementptr inbounds i8, ptr %9, i64 24
   %10 = load ptr, ptr %host, align 8
   %11 = load ptr, ptr %normal, align 8
   %arrayidx = getelementptr i64, ptr %11, i64 %indvars.iv
@@ -252,9 +232,9 @@ for.end.loopexit:                                 ; preds = %for.cond
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %21 = phi ptr [ %.pre, %for.end.loopexit ], [ %1, %entry ]
-  %iov = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 22
+  %iov = getelementptr inbounds i8, ptr %p, i64 392
   %22 = load ptr, ptr %iov, align 8
-  %iovs_num = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 23
+  %iovs_num = getelementptr inbounds i8, ptr %p, i64 400
   %23 = load i32, ptr %iovs_num, align 8
   %idxprom53 = zext i32 %23 to i64
   %arrayidx54 = getelementptr %struct.iovec, ptr %22, i64 %idxprom53
@@ -270,9 +250,9 @@ for.end:                                          ; preds = %for.end.loopexit, %
   store i32 %inc62, ptr %iovs_num, align 8
   %28 = load i64, ptr %pos, align 8
   %conv65 = trunc i64 %28 to i32
-  %next_packet_size = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 19
+  %next_packet_size = getelementptr inbounds i8, ptr %p, i64 368
   store i32 %conv65, ptr %next_packet_size, align 8
-  %flags = getelementptr inbounds %struct.MultiFDSendParams, ptr %p, i64 0, i32 14
+  %flags = getelementptr inbounds i8, ptr %p, i64 332
   %29 = load i32, ptr %flags, align 4
   %or = or i32 %29, 4
   store i32 %or, ptr %flags, align 4
@@ -287,10 +267,10 @@ return:                                           ; preds = %for.end, %if.then46
 define internal i32 @zstd_recv_setup(ptr nocapture noundef %p, ptr noundef %errp) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 80) #5
-  %data = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 22
+  %data = getelementptr inbounds i8, ptr %p, i64 296
   store ptr %call, ptr %data, align 8
   %call1 = tail call ptr @ZSTD_createDStream() #4
-  %zds = getelementptr inbounds %struct.zstd_data, ptr %call, i64 0, i32 1
+  %zds = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %call1, ptr %zds, align 8
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -321,10 +301,10 @@ if.then9:                                         ; preds = %if.end
   br label %return
 
 if.end16:                                         ; preds = %if.end
-  %zbuff_len = getelementptr inbounds %struct.zstd_data, ptr %call, i64 0, i32 5
+  %zbuff_len = getelementptr inbounds i8, ptr %call, i64 72
   store i32 1048576, ptr %zbuff_len, align 8
   %call19 = tail call noalias dereferenceable_or_null(1048576) ptr @g_try_malloc(i64 noundef 1048576) #6
-  %zbuff = getelementptr inbounds %struct.zstd_data, ptr %call, i64 0, i32 4
+  %zbuff = getelementptr inbounds i8, ptr %call, i64 64
   store ptr %call19, ptr %zbuff, align 8
   %tobool21.not = icmp eq ptr %call19, null
   br i1 %tobool21.not, label %if.then22, label %return
@@ -346,13 +326,13 @@ return:                                           ; preds = %if.end16, %if.then2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @zstd_recv_cleanup(ptr nocapture noundef %p) #0 {
 entry:
-  %data = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 22
+  %data = getelementptr inbounds i8, ptr %p, i64 296
   %0 = load ptr, ptr %data, align 8
-  %zds = getelementptr inbounds %struct.zstd_data, ptr %0, i64 0, i32 1
+  %zds = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %zds, align 8
   %call = tail call i64 @ZSTD_freeDStream(ptr noundef %1) #4
   store ptr null, ptr %zds, align 8
-  %zbuff = getelementptr inbounds %struct.zstd_data, ptr %0, i64 0, i32 4
+  %zbuff = getelementptr inbounds i8, ptr %0, i64 64
   %2 = load ptr, ptr %zbuff, align 8
   tail call void @g_free(ptr noundef %2) #4
   store ptr null, ptr %zbuff, align 8
@@ -365,15 +345,15 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @zstd_recv_pages(ptr nocapture noundef readonly %p, ptr noundef %errp) #0 {
 entry:
-  %normal_num = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 21
+  %normal_num = getelementptr inbounds i8, ptr %p, i64 288
   %0 = load i32, ptr %normal_num, align 8
-  %page_size = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 5
+  %page_size = getelementptr inbounds i8, ptr %p, i64 36
   %1 = load i32, ptr %page_size, align 4
   %mul = mul i32 %1, %0
-  %flags1 = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 11
+  %flags1 = getelementptr inbounds i8, ptr %p, i64 212
   %2 = load i32, ptr %flags1, align 4
   %and = and i32 %2, 14
-  %data = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 22
+  %data = getelementptr inbounds i8, ptr %p, i64 296
   %3 = load ptr, ptr %data, align 8
   %cmp.not = icmp eq i32 %and, 4
   br i1 %cmp.not, label %if.end, label %if.then
@@ -385,11 +365,11 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %next_packet_size = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 14
+  %next_packet_size = getelementptr inbounds i8, ptr %p, i64 232
   %5 = load i32, ptr %next_packet_size, align 8
-  %c = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 3
+  %c = getelementptr inbounds i8, ptr %p, i64 24
   %6 = load ptr, ptr %c, align 8
-  %zbuff = getelementptr inbounds %struct.zstd_data, ptr %3, i64 0, i32 4
+  %zbuff = getelementptr inbounds i8, ptr %3, i64 64
   %7 = load ptr, ptr %zbuff, align 8
   %conv2 = zext i32 %5 to i64
   %call = tail call i32 @qio_channel_read_all(ptr noundef %6, ptr noundef %7, i64 noundef %conv2, ptr noundef %errp) #4
@@ -398,23 +378,23 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   %8 = load ptr, ptr %zbuff, align 8
-  %in = getelementptr inbounds %struct.zstd_data, ptr %3, i64 0, i32 2
+  %in = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %8, ptr %in, align 8
-  %size = getelementptr inbounds %struct.zstd_data, ptr %3, i64 0, i32 2, i32 1
+  %size = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %conv2, ptr %size, align 8
-  %pos = getelementptr inbounds %struct.zstd_data, ptr %3, i64 0, i32 2, i32 2
+  %pos = getelementptr inbounds i8, ptr %3, i64 32
   store i64 0, ptr %pos, align 8
   %9 = load i32, ptr %normal_num, align 8
   %cmp1254.not = icmp eq i32 %9, 0
   br i1 %cmp1254.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end6
-  %host = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 17
-  %normal = getelementptr inbounds %struct.MultiFDRecvParams, ptr %p, i64 0, i32 20
-  %out = getelementptr inbounds %struct.zstd_data, ptr %3, i64 0, i32 3
-  %size17 = getelementptr inbounds %struct.zstd_data, ptr %3, i64 0, i32 3, i32 1
-  %pos19 = getelementptr inbounds %struct.zstd_data, ptr %3, i64 0, i32 3, i32 2
-  %zds = getelementptr inbounds %struct.zstd_data, ptr %3, i64 0, i32 1
+  %host = getelementptr inbounds i8, ptr %p, i64 256
+  %normal = getelementptr inbounds i8, ptr %p, i64 280
+  %out = getelementptr inbounds i8, ptr %3, i64 40
+  %size17 = getelementptr inbounds i8, ptr %3, i64 48
+  %pos19 = getelementptr inbounds i8, ptr %3, i64 56
+  %zds = getelementptr inbounds i8, ptr %3, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end58

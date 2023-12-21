@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QNull = type { %struct.QObjectBase_ }
 %struct.QObjectBase_ = type { i32, i64 }
-%struct._GString = type { ptr, i64, i64 }
-%struct.JSONToken = type { i32, i32, i32, [0 x i8] }
 %struct.JSONParserContext = type { ptr, ptr, ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
@@ -67,20 +65,20 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noalias ptr @json_token(i32 noundef %type, i32 noundef %x, i32 noundef %y, ptr nocapture noundef readonly %tokstr) local_unnamed_addr #0 {
 entry:
-  %len = getelementptr inbounds %struct._GString, ptr %tokstr, i64 0, i32 1
+  %len = getelementptr inbounds i8, ptr %tokstr, i64 8
   %0 = load i64, ptr %len, align 8
   %add1 = add i64 %0, 13
   %call = tail call noalias ptr @g_malloc(i64 noundef %add1) #12
   store i32 %type, ptr %call, align 4
-  %str = getelementptr inbounds %struct.JSONToken, ptr %call, i64 0, i32 3
+  %str = getelementptr inbounds i8, ptr %call, i64 12
   %1 = load ptr, ptr %tokstr, align 8
   %2 = load i64, ptr %len, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %str, ptr align 1 %1, i64 %2, i1 false)
-  %arrayidx = getelementptr %struct.JSONToken, ptr %call, i64 0, i32 3, i64 %2
+  %arrayidx = getelementptr [0 x i8], ptr %str, i64 0, i64 %2
   store i8 0, ptr %arrayidx, align 1
-  %x7 = getelementptr inbounds %struct.JSONToken, ptr %call, i64 0, i32 1
+  %x7 = getelementptr inbounds i8, ptr %call, i64 4
   store i32 %x, ptr %x7, align 4
-  %y8 = getelementptr inbounds %struct.JSONToken, ptr %call, i64 0, i32 2
+  %y8 = getelementptr inbounds i8, ptr %call, i64 8
   store i32 %y, ptr %y8, align 4
   ret ptr %call
 }
@@ -95,11 +93,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local ptr @json_parser_parse(ptr noundef %tokens, ptr noundef %ap, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %ctxt = alloca %struct.JSONParserContext, align 8
-  %current = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 1
-  %buf = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 2
+  %current = getelementptr inbounds i8, ptr %ctxt, i64 8
+  %buf = getelementptr inbounds i8, ptr %ctxt, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctxt, i8 0, i64 16, i1 false)
   store ptr %tokens, ptr %buf, align 8
-  %ap1 = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 3
+  %ap1 = getelementptr inbounds i8, ptr %ctxt, i64 24
   store ptr %ap, ptr %ap1, align 8
   %call = call fastcc ptr @parse_value(ptr noundef nonnull %ctxt)
   %0 = load ptr, ptr %ctxt, align 8
@@ -175,7 +173,7 @@ if.end:                                           ; preds = %entry
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %current.i91 = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 1
+  %current.i91 = getelementptr inbounds i8, ptr %ctxt, i64 8
   %2 = load ptr, ptr %current.i91, align 8
   tail call void @g_free(ptr noundef %2) #13
   %3 = load ptr, ptr %0, align 8
@@ -266,7 +264,7 @@ out.i:                                            ; preds = %if.end22.i, %if.the
   br i1 %tobool.not.i82, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %out.i
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call1.i, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call1.i, i64 8
   %11 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %11, 0
   br i1 %tobool1.not.i, label %if.else.i85, label %land.lhs.true.i83
@@ -286,7 +284,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i83
   br label %return
 
 sw.bb2:                                           ; preds = %if.end
-  %current.i111 = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 1
+  %current.i111 = getelementptr inbounds i8, ptr %ctxt, i64 8
   %12 = load ptr, ptr %current.i111, align 8
   tail call void @g_free(ptr noundef %12) #13
   %13 = load ptr, ptr %0, align 8
@@ -387,7 +385,7 @@ out.i38:                                          ; preds = %if.then29.i37, %if.
   br i1 %tobool.not.i94, label %return, label %lor.lhs.false.i95
 
 lor.lhs.false.i95:                                ; preds = %out.i38
-  %refcnt.i96 = getelementptr inbounds %struct.QObjectBase_, ptr %call1.i17, i64 0, i32 1
+  %refcnt.i96 = getelementptr inbounds i8, ptr %call1.i17, i64 8
   %21 = load i64, ptr %refcnt.i96, align 8
   %tobool1.not.i97 = icmp eq i64 %21, 0
   br i1 %tobool1.not.i97, label %if.else.i102, label %land.lhs.true.i98
@@ -407,7 +405,7 @@ if.then5.i101:                                    ; preds = %land.lhs.true.i98
   br label %return
 
 sw.bb4:                                           ; preds = %if.end
-  %current.i.i = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 1
+  %current.i.i = getelementptr inbounds i8, ptr %ctxt, i64 8
   %22 = load ptr, ptr %current.i.i, align 8
   tail call void @g_free(ptr noundef %22) #13
   %23 = load ptr, ptr %0, align 8
@@ -426,20 +424,20 @@ if.else.i51:                                      ; preds = %land.lhs.true.i49, 
   unreachable
 
 if.end.i52:                                       ; preds = %land.lhs.true.i49
-  %str.i = getelementptr inbounds %struct.JSONToken, ptr %call.i.i, i64 0, i32 3
+  %str.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   %call1.i53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %str.i, ptr noundef nonnull dereferenceable(3) @.str.17) #15
   %tobool2.not.i = icmp eq i32 %call1.i53, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.else5.i
 
 if.then3.i:                                       ; preds = %if.end.i52
-  %ap.i = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 3
+  %ap.i = getelementptr inbounds i8, ptr %ctxt, i64 24
   %25 = load ptr, ptr %ap.i, align 8
   %gp_offset.i = load i32, ptr %25, align 8
   %fits_in_gp.i = icmp ult i32 %gp_offset.i, 41
   br i1 %fits_in_gp.i, label %vaarg.in_reg.i, label %vaarg.in_mem.i
 
 vaarg.in_reg.i:                                   ; preds = %if.then3.i
-  %26 = getelementptr inbounds %struct.__va_list_tag, ptr %25, i64 0, i32 3
+  %26 = getelementptr inbounds i8, ptr %25, i64 16
   %reg_save_area.i = load ptr, ptr %26, align 8
   %27 = zext nneg i32 %gp_offset.i to i64
   %28 = getelementptr i8, ptr %reg_save_area.i, i64 %27
@@ -448,7 +446,7 @@ vaarg.in_reg.i:                                   ; preds = %if.then3.i
   br label %vaarg.end.i
 
 vaarg.in_mem.i:                                   ; preds = %if.then3.i
-  %overflow_arg_area_p.i = getelementptr inbounds %struct.__va_list_tag, ptr %25, i64 0, i32 2
+  %overflow_arg_area_p.i = getelementptr inbounds i8, ptr %25, i64 8
   %overflow_arg_area.i = load ptr, ptr %overflow_arg_area_p.i, align 8
   %overflow_arg_area.next.i = getelementptr i8, ptr %overflow_arg_area.i, i64 8
   store ptr %overflow_arg_area.next.i, ptr %overflow_arg_area_p.i, align 8
@@ -465,14 +463,14 @@ if.else5.i:                                       ; preds = %if.end.i52
   br i1 %tobool9.not.i, label %if.then10.i, label %if.else28.i
 
 if.then10.i:                                      ; preds = %if.else5.i
-  %ap11.i = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 3
+  %ap11.i = getelementptr inbounds i8, ptr %ctxt, i64 24
   %31 = load ptr, ptr %ap11.i, align 8
   %gp_offset14.i = load i32, ptr %31, align 8
   %fits_in_gp15.i = icmp ult i32 %gp_offset14.i, 41
   br i1 %fits_in_gp15.i, label %vaarg.in_reg16.i, label %vaarg.in_mem18.i
 
 vaarg.in_reg16.i:                                 ; preds = %if.then10.i
-  %32 = getelementptr inbounds %struct.__va_list_tag, ptr %31, i64 0, i32 3
+  %32 = getelementptr inbounds i8, ptr %31, i64 16
   %reg_save_area17.i = load ptr, ptr %32, align 8
   %33 = zext nneg i32 %gp_offset14.i to i64
   %34 = getelementptr i8, ptr %reg_save_area17.i, i64 %33
@@ -481,7 +479,7 @@ vaarg.in_reg16.i:                                 ; preds = %if.then10.i
   br label %vaarg.end22.i
 
 vaarg.in_mem18.i:                                 ; preds = %if.then10.i
-  %overflow_arg_area_p19.i = getelementptr inbounds %struct.__va_list_tag, ptr %31, i64 0, i32 2
+  %overflow_arg_area_p19.i = getelementptr inbounds i8, ptr %31, i64 8
   %overflow_arg_area20.i = load ptr, ptr %overflow_arg_area_p19.i, align 8
   %overflow_arg_area.next21.i = getelementptr i8, ptr %overflow_arg_area20.i, i64 8
   store ptr %overflow_arg_area.next21.i, ptr %overflow_arg_area_p19.i, align 8
@@ -500,14 +498,14 @@ if.else28.i:                                      ; preds = %if.else5.i
   br i1 %tobool32.not.i, label %if.then33.i, label %if.else58.i
 
 if.then33.i:                                      ; preds = %if.else28.i
-  %ap34.i = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 3
+  %ap34.i = getelementptr inbounds i8, ptr %ctxt, i64 24
   %37 = load ptr, ptr %ap34.i, align 8
   %gp_offset37.i = load i32, ptr %37, align 8
   %fits_in_gp38.i = icmp ult i32 %gp_offset37.i, 41
   br i1 %fits_in_gp38.i, label %vaarg.in_reg39.i, label %vaarg.in_mem41.i
 
 vaarg.in_reg39.i:                                 ; preds = %if.then33.i
-  %38 = getelementptr inbounds %struct.__va_list_tag, ptr %37, i64 0, i32 3
+  %38 = getelementptr inbounds i8, ptr %37, i64 16
   %reg_save_area40.i = load ptr, ptr %38, align 8
   %39 = zext nneg i32 %gp_offset37.i to i64
   %40 = getelementptr i8, ptr %reg_save_area40.i, i64 %39
@@ -516,7 +514,7 @@ vaarg.in_reg39.i:                                 ; preds = %if.then33.i
   br label %vaarg.end45.i
 
 vaarg.in_mem41.i:                                 ; preds = %if.then33.i
-  %overflow_arg_area_p42.i = getelementptr inbounds %struct.__va_list_tag, ptr %37, i64 0, i32 2
+  %overflow_arg_area_p42.i = getelementptr inbounds i8, ptr %37, i64 8
   %overflow_arg_area43.i = load ptr, ptr %overflow_arg_area_p42.i, align 8
   %overflow_arg_area.next44.i = getelementptr i8, ptr %overflow_arg_area43.i, i64 8
   store ptr %overflow_arg_area.next44.i, ptr %overflow_arg_area_p42.i, align 8
@@ -535,14 +533,14 @@ if.else58.i:                                      ; preds = %if.else28.i
   br i1 %tobool62.not.i, label %if.then63.i, label %if.else88.i
 
 if.then63.i:                                      ; preds = %if.else58.i
-  %ap64.i = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 3
+  %ap64.i = getelementptr inbounds i8, ptr %ctxt, i64 24
   %43 = load ptr, ptr %ap64.i, align 8
   %gp_offset67.i = load i32, ptr %43, align 8
   %fits_in_gp68.i = icmp ult i32 %gp_offset67.i, 41
   br i1 %fits_in_gp68.i, label %vaarg.in_reg69.i, label %vaarg.in_mem71.i
 
 vaarg.in_reg69.i:                                 ; preds = %if.then63.i
-  %44 = getelementptr inbounds %struct.__va_list_tag, ptr %43, i64 0, i32 3
+  %44 = getelementptr inbounds i8, ptr %43, i64 16
   %reg_save_area70.i = load ptr, ptr %44, align 8
   %45 = zext nneg i32 %gp_offset67.i to i64
   %46 = getelementptr i8, ptr %reg_save_area70.i, i64 %45
@@ -551,7 +549,7 @@ vaarg.in_reg69.i:                                 ; preds = %if.then63.i
   br label %vaarg.end75.i
 
 vaarg.in_mem71.i:                                 ; preds = %if.then63.i
-  %overflow_arg_area_p72.i = getelementptr inbounds %struct.__va_list_tag, ptr %43, i64 0, i32 2
+  %overflow_arg_area_p72.i = getelementptr inbounds i8, ptr %43, i64 8
   %overflow_arg_area73.i = load ptr, ptr %overflow_arg_area_p72.i, align 8
   %overflow_arg_area.next74.i = getelementptr i8, ptr %overflow_arg_area73.i, i64 8
   store ptr %overflow_arg_area.next74.i, ptr %overflow_arg_area_p72.i, align 8
@@ -569,14 +567,14 @@ if.else88.i:                                      ; preds = %if.else58.i
   br i1 %tobool92.not.i, label %if.then93.i, label %if.else148.i
 
 if.then93.i:                                      ; preds = %if.else88.i
-  %ap94.i = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 3
+  %ap94.i = getelementptr inbounds i8, ptr %ctxt, i64 24
   %49 = load ptr, ptr %ap94.i, align 8
   %gp_offset97.i = load i32, ptr %49, align 8
   %fits_in_gp98.i = icmp ult i32 %gp_offset97.i, 41
   br i1 %fits_in_gp98.i, label %vaarg.in_reg99.i, label %vaarg.in_mem101.i
 
 vaarg.in_reg99.i:                                 ; preds = %if.then93.i
-  %50 = getelementptr inbounds %struct.__va_list_tag, ptr %49, i64 0, i32 3
+  %50 = getelementptr inbounds i8, ptr %49, i64 16
   %reg_save_area100.i = load ptr, ptr %50, align 8
   %51 = zext nneg i32 %gp_offset97.i to i64
   %52 = getelementptr i8, ptr %reg_save_area100.i, i64 %51
@@ -585,7 +583,7 @@ vaarg.in_reg99.i:                                 ; preds = %if.then93.i
   br label %vaarg.end105.i
 
 vaarg.in_mem101.i:                                ; preds = %if.then93.i
-  %overflow_arg_area_p102.i = getelementptr inbounds %struct.__va_list_tag, ptr %49, i64 0, i32 2
+  %overflow_arg_area_p102.i = getelementptr inbounds i8, ptr %49, i64 8
   %overflow_arg_area103.i = load ptr, ptr %overflow_arg_area_p102.i, align 8
   %overflow_arg_area.next104.i = getelementptr i8, ptr %overflow_arg_area103.i, i64 8
   store ptr %overflow_arg_area.next104.i, ptr %overflow_arg_area_p102.i, align 8
@@ -603,14 +601,14 @@ if.else148.i:                                     ; preds = %if.else88.i
   br i1 %tobool152.not.i, label %if.then153.i, label %if.else179.i
 
 if.then153.i:                                     ; preds = %if.else148.i
-  %ap154.i = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 3
+  %ap154.i = getelementptr inbounds i8, ptr %ctxt, i64 24
   %55 = load ptr, ptr %ap154.i, align 8
   %gp_offset157.i = load i32, ptr %55, align 8
   %fits_in_gp158.i = icmp ult i32 %gp_offset157.i, 41
   br i1 %fits_in_gp158.i, label %vaarg.in_reg159.i, label %vaarg.in_mem161.i
 
 vaarg.in_reg159.i:                                ; preds = %if.then153.i
-  %56 = getelementptr inbounds %struct.__va_list_tag, ptr %55, i64 0, i32 3
+  %56 = getelementptr inbounds i8, ptr %55, i64 16
   %reg_save_area160.i = load ptr, ptr %56, align 8
   %57 = zext nneg i32 %gp_offset157.i to i64
   %58 = getelementptr i8, ptr %reg_save_area160.i, i64 %57
@@ -619,7 +617,7 @@ vaarg.in_reg159.i:                                ; preds = %if.then153.i
   br label %vaarg.end165.i
 
 vaarg.in_mem161.i:                                ; preds = %if.then153.i
-  %overflow_arg_area_p162.i = getelementptr inbounds %struct.__va_list_tag, ptr %55, i64 0, i32 2
+  %overflow_arg_area_p162.i = getelementptr inbounds i8, ptr %55, i64 8
   %overflow_arg_area163.i = load ptr, ptr %overflow_arg_area_p162.i, align 8
   %overflow_arg_area.next164.i = getelementptr i8, ptr %overflow_arg_area163.i, i64 8
   store ptr %overflow_arg_area.next164.i, ptr %overflow_arg_area_p162.i, align 8
@@ -638,14 +636,14 @@ if.else179.i:                                     ; preds = %if.else148.i
   br i1 %tobool183.not.i, label %if.then184.i, label %if.else209.i
 
 if.then184.i:                                     ; preds = %if.else179.i
-  %ap185.i = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 3
+  %ap185.i = getelementptr inbounds i8, ptr %ctxt, i64 24
   %61 = load ptr, ptr %ap185.i, align 8
   %gp_offset188.i = load i32, ptr %61, align 8
   %fits_in_gp189.i = icmp ult i32 %gp_offset188.i, 41
   br i1 %fits_in_gp189.i, label %vaarg.in_reg190.i, label %vaarg.in_mem192.i
 
 vaarg.in_reg190.i:                                ; preds = %if.then184.i
-  %62 = getelementptr inbounds %struct.__va_list_tag, ptr %61, i64 0, i32 3
+  %62 = getelementptr inbounds i8, ptr %61, i64 16
   %reg_save_area191.i = load ptr, ptr %62, align 8
   %63 = zext nneg i32 %gp_offset188.i to i64
   %64 = getelementptr i8, ptr %reg_save_area191.i, i64 %63
@@ -654,7 +652,7 @@ vaarg.in_reg190.i:                                ; preds = %if.then184.i
   br label %vaarg.end196.i
 
 vaarg.in_mem192.i:                                ; preds = %if.then184.i
-  %overflow_arg_area_p193.i = getelementptr inbounds %struct.__va_list_tag, ptr %61, i64 0, i32 2
+  %overflow_arg_area_p193.i = getelementptr inbounds i8, ptr %61, i64 8
   %overflow_arg_area194.i = load ptr, ptr %overflow_arg_area_p193.i, align 8
   %overflow_arg_area.next195.i = getelementptr i8, ptr %overflow_arg_area194.i, i64 8
   store ptr %overflow_arg_area.next195.i, ptr %overflow_arg_area_p193.i, align 8
@@ -672,14 +670,14 @@ if.else209.i:                                     ; preds = %if.else179.i
   br i1 %tobool213.not.i, label %if.then214.i, label %if.else269.i
 
 if.then214.i:                                     ; preds = %if.else209.i
-  %ap215.i = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 3
+  %ap215.i = getelementptr inbounds i8, ptr %ctxt, i64 24
   %67 = load ptr, ptr %ap215.i, align 8
   %gp_offset218.i = load i32, ptr %67, align 8
   %fits_in_gp219.i = icmp ult i32 %gp_offset218.i, 41
   br i1 %fits_in_gp219.i, label %vaarg.in_reg220.i, label %vaarg.in_mem222.i
 
 vaarg.in_reg220.i:                                ; preds = %if.then214.i
-  %68 = getelementptr inbounds %struct.__va_list_tag, ptr %67, i64 0, i32 3
+  %68 = getelementptr inbounds i8, ptr %67, i64 16
   %reg_save_area221.i = load ptr, ptr %68, align 8
   %69 = zext nneg i32 %gp_offset218.i to i64
   %70 = getelementptr i8, ptr %reg_save_area221.i, i64 %69
@@ -688,7 +686,7 @@ vaarg.in_reg220.i:                                ; preds = %if.then214.i
   br label %vaarg.end226.i
 
 vaarg.in_mem222.i:                                ; preds = %if.then214.i
-  %overflow_arg_area_p223.i = getelementptr inbounds %struct.__va_list_tag, ptr %67, i64 0, i32 2
+  %overflow_arg_area_p223.i = getelementptr inbounds i8, ptr %67, i64 8
   %overflow_arg_area224.i = load ptr, ptr %overflow_arg_area_p223.i, align 8
   %overflow_arg_area.next225.i = getelementptr i8, ptr %overflow_arg_area224.i, i64 8
   store ptr %overflow_arg_area.next225.i, ptr %overflow_arg_area_p223.i, align 8
@@ -706,14 +704,14 @@ if.else269.i:                                     ; preds = %if.else209.i
   br i1 %tobool273.not.i, label %if.then274.i, label %if.else299.i
 
 if.then274.i:                                     ; preds = %if.else269.i
-  %ap275.i = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 3
+  %ap275.i = getelementptr inbounds i8, ptr %ctxt, i64 24
   %73 = load ptr, ptr %ap275.i, align 8
   %gp_offset278.i = load i32, ptr %73, align 8
   %fits_in_gp279.i = icmp ult i32 %gp_offset278.i, 41
   br i1 %fits_in_gp279.i, label %vaarg.in_reg280.i, label %vaarg.in_mem282.i
 
 vaarg.in_reg280.i:                                ; preds = %if.then274.i
-  %74 = getelementptr inbounds %struct.__va_list_tag, ptr %73, i64 0, i32 3
+  %74 = getelementptr inbounds i8, ptr %73, i64 16
   %reg_save_area281.i = load ptr, ptr %74, align 8
   %75 = zext nneg i32 %gp_offset278.i to i64
   %76 = getelementptr i8, ptr %reg_save_area281.i, i64 %75
@@ -722,7 +720,7 @@ vaarg.in_reg280.i:                                ; preds = %if.then274.i
   br label %vaarg.end286.i
 
 vaarg.in_mem282.i:                                ; preds = %if.then274.i
-  %overflow_arg_area_p283.i = getelementptr inbounds %struct.__va_list_tag, ptr %73, i64 0, i32 2
+  %overflow_arg_area_p283.i = getelementptr inbounds i8, ptr %73, i64 8
   %overflow_arg_area284.i = load ptr, ptr %overflow_arg_area_p283.i, align 8
   %overflow_arg_area.next285.i = getelementptr i8, ptr %overflow_arg_area284.i, i64 8
   store ptr %overflow_arg_area.next285.i, ptr %overflow_arg_area_p283.i, align 8
@@ -740,15 +738,15 @@ if.else299.i:                                     ; preds = %if.else269.i
   br i1 %tobool303.not.i, label %if.then304.i, label %if.end337.i
 
 if.then304.i:                                     ; preds = %if.else299.i
-  %ap305.i = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 3
+  %ap305.i = getelementptr inbounds i8, ptr %ctxt, i64 24
   %79 = load ptr, ptr %ap305.i, align 8
-  %fp_offset_p.i = getelementptr inbounds %struct.__va_list_tag, ptr %79, i64 0, i32 1
+  %fp_offset_p.i = getelementptr inbounds i8, ptr %79, i64 4
   %fp_offset.i = load i32, ptr %fp_offset_p.i, align 4
   %fits_in_fp.i = icmp ult i32 %fp_offset.i, 161
   br i1 %fits_in_fp.i, label %vaarg.in_reg307.i, label %vaarg.in_mem309.i
 
 vaarg.in_reg307.i:                                ; preds = %if.then304.i
-  %80 = getelementptr inbounds %struct.__va_list_tag, ptr %79, i64 0, i32 3
+  %80 = getelementptr inbounds i8, ptr %79, i64 16
   %reg_save_area308.i = load ptr, ptr %80, align 8
   %81 = zext nneg i32 %fp_offset.i to i64
   %82 = getelementptr i8, ptr %reg_save_area308.i, i64 %81
@@ -757,7 +755,7 @@ vaarg.in_reg307.i:                                ; preds = %if.then304.i
   br label %vaarg.end313.i
 
 vaarg.in_mem309.i:                                ; preds = %if.then304.i
-  %overflow_arg_area_p310.i = getelementptr inbounds %struct.__va_list_tag, ptr %79, i64 0, i32 2
+  %overflow_arg_area_p310.i = getelementptr inbounds i8, ptr %79, i64 8
   %overflow_arg_area311.i = load ptr, ptr %overflow_arg_area_p310.i, align 8
   %overflow_arg_area.next312.i = getelementptr i8, ptr %overflow_arg_area311.i, i64 8
   store ptr %overflow_arg_area.next312.i, ptr %overflow_arg_area_p310.i, align 8
@@ -776,7 +774,7 @@ if.end337.i:                                      ; preds = %if.else299.i
 sw.bb6:                                           ; preds = %if.end, %if.end, %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %value.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %uvalue.i)
-  %current.i.i55 = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 1
+  %current.i.i55 = getelementptr inbounds i8, ptr %ctxt, i64 8
   %85 = load ptr, ptr %current.i.i55, align 8
   tail call void @g_free(ptr noundef %85) #13
   %86 = load ptr, ptr %0, align 8
@@ -800,7 +798,7 @@ if.end.i59:                                       ; preds = %sw.bb6
 sw.bb.i:                                          ; preds = %if.end.i59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %utf8_buf.i.i)
-  %str.i.i = getelementptr inbounds %struct.JSONToken, ptr %call.i.i57, i64 0, i32 3
+  %str.i.i = getelementptr inbounds i8, ptr %call.i.i57, i64 12
   %88 = load i8, ptr %str.i.i, align 1
   switch i8 %88, label %if.else.i.i [
     i8 34, label %if.end.i.i
@@ -819,9 +817,9 @@ if.end.i.i:                                       ; preds = %sw.bb.i, %sw.bb.i
   br i1 %cmp8.not172.i.i, label %while.end.i.i, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %if.end.i.i
-  %ap.i.i = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 3
-  %len.i118.i.i = getelementptr inbounds %struct._GString, ptr %call.i18.i, i64 0, i32 1
-  %allocated_len.i120.i.i = getelementptr inbounds %struct._GString, ptr %call.i18.i, i64 0, i32 2
+  %ap.i.i = getelementptr inbounds i8, ptr %ctxt, i64 24
+  %len.i118.i.i = getelementptr inbounds i8, ptr %call.i18.i, i64 8
+  %allocated_len.i120.i.i = getelementptr inbounds i8, ptr %call.i18.i, i64 16
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %sw.epilog99.i.i, %while.body.lr.ph.i.i
@@ -1272,7 +1270,7 @@ parse_string.exit.i:                              ; preds = %out.i.i, %while.end
   br label %parse_literal.exit
 
 sw.bb4.i:                                         ; preds = %if.end.i59
-  %str.i61 = getelementptr inbounds %struct.JSONToken, ptr %call.i.i57, i64 0, i32 3
+  %str.i61 = getelementptr inbounds i8, ptr %call.i.i57, i64 12
   %call5.i = call i32 @qemu_strtoi64(ptr noundef nonnull %str.i61, ptr noundef null, i32 noundef 10, ptr noundef nonnull %value.i) #13
   switch i32 %call5.i, label %if.else21.i [
     i32 0, label %if.then7.i
@@ -1310,7 +1308,7 @@ if.else47.i:                                      ; preds = %if.then26.i
   unreachable
 
 sw.bb50.i:                                        ; preds = %if.then26.i, %if.end22.i62, %if.end.i59
-  %str51.i = getelementptr inbounds %struct.JSONToken, ptr %call.i.i57, i64 0, i32 3
+  %str51.i = getelementptr inbounds i8, ptr %call.i.i57, i64 12
   %call53.i = call double @strtod(ptr nocapture noundef nonnull %str51.i, ptr noundef null) #13
   %call54.i = call ptr @qnum_from_double(double noundef %call53.i) #13
   br label %parse_literal.exit
@@ -1326,7 +1324,7 @@ parse_literal.exit:                               ; preds = %parse_string.exit.i
   br label %return
 
 sw.bb8:                                           ; preds = %if.end
-  %current.i.i66 = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 1
+  %current.i.i66 = getelementptr inbounds i8, ptr %ctxt, i64 8
   %161 = load ptr, ptr %current.i.i66, align 8
   tail call void @g_free(ptr noundef %161) #13
   %162 = load ptr, ptr %0, align 8
@@ -1345,7 +1343,7 @@ if.else.i72:                                      ; preds = %land.lhs.true.i70, 
   unreachable
 
 if.end.i73:                                       ; preds = %land.lhs.true.i70
-  %str.i74 = getelementptr inbounds %struct.JSONToken, ptr %call.i.i68, i64 0, i32 3
+  %str.i74 = getelementptr inbounds i8, ptr %call.i.i68, i64 12
   %call1.i75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %str.i74, ptr noundef nonnull dereferenceable(5) @.str.38) #15
   %tobool2.not.i76 = icmp eq i32 %call1.i75, 0
   br i1 %tobool2.not.i76, label %if.then3.i81, label %if.else7.i
@@ -1397,10 +1395,10 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @parser_context_pop_token(ptr nocapture noundef %ctxt) unnamed_addr #0 {
 entry:
-  %current = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 1
+  %current = getelementptr inbounds i8, ptr %ctxt, i64 8
   %0 = load ptr, ptr %current, align 8
   tail call void @g_free(ptr noundef %0) #13
-  %buf = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 2
+  %buf = getelementptr inbounds i8, ptr %ctxt, i64 16
   %1 = load ptr, ptr %buf, align 8
   %call = tail call ptr @g_queue_pop_head(ptr noundef %1) #13
   store ptr %call, ptr %current, align 8
@@ -1481,7 +1479,7 @@ qobject_type.exit.i:                              ; preds = %land.lhs.true.i
   br i1 %cmp.i, label %if.end4, label %out
 
 if.end4:                                          ; preds = %qobject_type.exit.i
-  %current.i = getelementptr inbounds %struct.JSONParserContext, ptr %ctxt, i64 0, i32 1
+  %current.i = getelementptr inbounds i8, ptr %ctxt, i64 8
   %2 = load ptr, ptr %current.i, align 8
   tail call void @g_free(ptr noundef %2) #13
   %3 = load ptr, ptr %0, align 8
@@ -1525,7 +1523,7 @@ if.then19:                                        ; preds = %if.end15
 lor.lhs.false.i:                                  ; preds = %if.end15
   %call21 = tail call ptr @qstring_get_str(ptr noundef nonnull %call1) #13
   tail call void @qdict_put_obj(ptr noundef %dict, ptr noundef %call21, ptr noundef nonnull %call12) #13
-  %refcnt.i = getelementptr inbounds %struct.QObjectBase_, ptr %call1, i64 0, i32 1
+  %refcnt.i = getelementptr inbounds i8, ptr %call1, i64 8
   %5 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %5, 0
   br i1 %tobool1.not.i, label %if.else.i27, label %land.lhs.true.i25
@@ -1549,7 +1547,7 @@ out:                                              ; preds = %qobject_type.exit.i
   br label %lor.lhs.false.i28
 
 lor.lhs.false.i28:                                ; preds = %if.then19, %if.then14, %if.then10, %if.then7, %out
-  %refcnt.i29 = getelementptr inbounds %struct.QObjectBase_, ptr %call1, i64 0, i32 1
+  %refcnt.i29 = getelementptr inbounds i8, ptr %call1, i64 8
   %6 = load i64, ptr %refcnt.i29, align 8
   %tobool1.not.i30 = icmp eq i64 %6, 0
   br i1 %tobool1.not.i30, label %if.else.i35, label %land.lhs.true.i31

@@ -149,12 +149,12 @@ entry:
   br i1 %tobool51.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %arrayidx106 = getelementptr inbounds i32, ptr %transition_count, i64 1
-  %arrayidx96 = getelementptr inbounds i32, ptr %transition_count, i64 6
-  %arrayidx86 = getelementptr inbounds i32, ptr %transition_count, i64 3
-  %arrayidx73 = getelementptr inbounds i32, ptr %transition_count, i64 5
-  %arrayidx54 = getelementptr inbounds i32, ptr %transition_count, i64 4
-  %arrayidx29 = getelementptr inbounds i32, ptr %transition_count, i64 2
+  %arrayidx106 = getelementptr inbounds i8, ptr %transition_count, i64 4
+  %arrayidx96 = getelementptr inbounds i8, ptr %transition_count, i64 24
+  %arrayidx86 = getelementptr inbounds i8, ptr %transition_count, i64 12
+  %arrayidx73 = getelementptr inbounds i8, ptr %transition_count, i64 20
+  %arrayidx54 = getelementptr inbounds i8, ptr %transition_count, i64 16
+  %arrayidx29 = getelementptr inbounds i8, ptr %transition_count, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc

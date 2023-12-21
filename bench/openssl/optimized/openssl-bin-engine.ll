@@ -96,7 +96,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr %argv, align 8
-  %arrayidx7112 = getelementptr inbounds ptr, ptr %argv, i64 1
+  %arrayidx7112 = getelementptr inbounds i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx7112, align 8
   %cmp8.not113 = icmp eq ptr %1, null
   br i1 %cmp8.not113, label %while.end, label %land.rhs.preheader
@@ -117,7 +117,7 @@ while.body:                                       ; preds = %land.rhs.preheader,
   %4 = phi ptr [ %5, %land.rhs ], [ %1, %land.rhs.preheader ]
   %call13 = tail call i32 @OPENSSL_sk_push(ptr noundef %call, ptr noundef nonnull %4) #7
   %dec = add nsw i32 %argc.addr.0115213, -1
-  %arrayidx7 = getelementptr inbounds ptr, ptr %arrayidx7116212, i64 1
+  %arrayidx7 = getelementptr inbounds i8, ptr %arrayidx7116212, i64 8
   %5 = load ptr, ptr %arrayidx7, align 8
   %cmp8.not = icmp eq ptr %5, null
   br i1 %cmp8.not, label %while.end, label %land.rhs, !llvm.loop !5
@@ -221,7 +221,7 @@ if.then48:                                        ; preds = %for.body
 
 if.end51:                                         ; preds = %for.body
   %call54 = tail call i32 @OPENSSL_sk_push(ptr noundef %call, ptr noundef nonnull %8) #7
-  %incdec.ptr55 = getelementptr inbounds ptr, ptr %argv.addr.1121, i64 1
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %argv.addr.1121, i64 8
   %12 = load ptr, ptr %incdec.ptr55, align 8
   %tobool.not = icmp eq ptr %12, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
@@ -251,9 +251,9 @@ if.end73:                                         ; preds = %for.body65, %if.the
 
 for.body79.lr.ph:                                 ; preds = %if.end73
   %tobool97.not = icmp eq i32 %list_cap.0.ph230, 0
-  %cap_buf189 = getelementptr inbounds %struct.util_store_cap_data, ptr %store_ctx, i64 0, i32 1
-  %cap_size190 = getelementptr inbounds %struct.util_store_cap_data, ptr %store_ctx, i64 0, i32 2
-  %ok = getelementptr inbounds %struct.util_store_cap_data, ptr %store_ctx, i64 0, i32 3
+  %cap_buf189 = getelementptr inbounds i8, ptr %store_ctx, i64 8
+  %cap_size190 = getelementptr inbounds i8, ptr %store_ctx, i64 16
+  %ok = getelementptr inbounds i8, ptr %store_ctx, i64 24
   %tobool206.not = icmp eq i32 %test_avail.0.ph, 0
   %tobool215.not = icmp eq i32 %test_avail_noise.0.ph, 0
   %cmp220 = icmp sgt i32 %verbose.0.ph233, 0
@@ -946,16 +946,16 @@ entry:
 if.then:                                          ; preds = %entry
   %call1 = tail call ptr @OSSL_STORE_LOADER_get0_scheme(ptr noundef %loader) #7
   %call2 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef 256, ptr noundef nonnull @.str.47, ptr noundef %call1) #7
-  %cap_buf = getelementptr inbounds %struct.util_store_cap_data, ptr %arg, i64 0, i32 1
+  %cap_buf = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load ptr, ptr %cap_buf, align 8
-  %cap_size = getelementptr inbounds %struct.util_store_cap_data, ptr %arg, i64 0, i32 2
+  %cap_size = getelementptr inbounds i8, ptr %arg, i64 16
   %2 = load ptr, ptr %cap_size, align 8
   %call4 = call fastcc i32 @append_buf(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %buf), !range !10
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.then
-  %ok = getelementptr inbounds %struct.util_store_cap_data, ptr %arg, i64 0, i32 3
+  %ok = getelementptr inbounds i8, ptr %arg, i64 24
   store i32 0, ptr %ok, align 8
   br label %if.end6
 

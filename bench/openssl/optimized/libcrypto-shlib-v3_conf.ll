@@ -4,15 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.X509V3_CONF_METHOD_st = type { ptr, ptr, ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.v3_ext_ctx = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
-%struct.x509_cinf_st = type { ptr, %struct.asn1_string_st, %struct.X509_algor_st, ptr, %struct.X509_val_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
-%struct.X509_algor_st = type { ptr, ptr }
-%struct.X509_val_st = type { ptr, ptr }
-%struct.ASN1_ENCODING_st = type { ptr, i64, i32 }
-%struct.X509_crl_info_st = type { ptr, %struct.X509_algor_st, ptr, ptr, ptr, ptr, ptr, %struct.ASN1_ENCODING_st }
 
 @.str = private unnamed_addr constant [33 x i8] c"../openssl/crypto/x509/v3_conf.c\00", align 1
 @__func__.X509V3_EXT_i2d = private unnamed_addr constant [15 x i8] c"X509V3_EXT_i2d\00", align 1
@@ -253,7 +244,7 @@ if.then14:                                        ; preds = %if.end11
   br label %err
 
 if.end15:                                         ; preds = %if.end11
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call12, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call12, i64 8
   store ptr %ext_der.0, ptr %data, align 8
   %1 = load i64, ptr %ext_len, align 8
   %conv = trunc i64 %1 to i32
@@ -297,7 +288,7 @@ if.then2:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %v2i = getelementptr inbounds %struct.v3_ext_method, ptr %call, i64 0, i32 10
+  %v2i = getelementptr inbounds i8, ptr %call, i64 72
   %0 = load ptr, ptr %v2i, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else39, label %if.then4
@@ -355,7 +346,7 @@ if.end35:                                         ; preds = %if.then32, %if.end2
   br i1 %tobool36.not, label %return, label %if.end66
 
 if.else39:                                        ; preds = %if.end3
-  %s2i = getelementptr inbounds %struct.v3_ext_method, ptr %call, i64 0, i32 8
+  %s2i = getelementptr inbounds i8, ptr %call, i64 56
   %5 = load ptr, ptr %s2i, align 8
   %tobool40.not = icmp eq ptr %5, null
   br i1 %tobool40.not, label %if.else48, label %if.then41
@@ -366,19 +357,19 @@ if.then41:                                        ; preds = %if.else39
   br i1 %cmp44, label %return, label %if.end66
 
 if.else48:                                        ; preds = %if.else39
-  %r2i = getelementptr inbounds %struct.v3_ext_method, ptr %call, i64 0, i32 12
+  %r2i = getelementptr inbounds i8, ptr %call, i64 88
   %6 = load ptr, ptr %r2i, align 8
   %tobool49.not = icmp eq ptr %6, null
   br i1 %tobool49.not, label %if.else62, label %if.then50
 
 if.then50:                                        ; preds = %if.else48
-  %db = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 6
+  %db = getelementptr inbounds i8, ptr %ctx, i64 48
   %7 = load ptr, ptr %db, align 8
   %tobool51.not = icmp eq ptr %7, null
   br i1 %tobool51.not, label %if.then54, label %lor.lhs.false52
 
 lor.lhs.false52:                                  ; preds = %if.then50
-  %db_meth = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 5
+  %db_meth = getelementptr inbounds i8, ptr %ctx, i64 40
   %8 = load ptr, ptr %db_meth, align 8
   %tobool53.not = icmp eq ptr %8, null
   br i1 %tobool53.not, label %if.then54, label %if.end55
@@ -404,7 +395,7 @@ if.else62:                                        ; preds = %if.else48
 if.end66:                                         ; preds = %if.then41, %if.end55, %if.end35
   %ext_struc.0 = phi ptr [ %call28, %if.end35 ], [ %call43, %if.then41 ], [ %call57, %if.end55 ]
   %call67 = tail call fastcc ptr @do_ext_i2d(ptr noundef nonnull %call, i32 noundef %ext_nid, i32 noundef %crit, ptr noundef nonnull %ext_struc.0)
-  %it = getelementptr inbounds %struct.v3_ext_method, ptr %call, i64 0, i32 2
+  %it = getelementptr inbounds i8, ptr %call, i64 8
   %9 = load ptr, ptr %it, align 8
   %tobool68.not = icmp eq ptr %9, null
   br i1 %tobool68.not, label %if.else72, label %if.then69
@@ -415,7 +406,7 @@ if.then69:                                        ; preds = %if.end66
   br label %return
 
 if.else72:                                        ; preds = %if.end66
-  %ext_free = getelementptr inbounds %struct.v3_ext_method, ptr %call, i64 0, i32 4
+  %ext_free = getelementptr inbounds i8, ptr %call, i64 24
   %10 = load ptr, ptr %ext_free, align 8
   tail call void %10(ptr noundef nonnull %ext_struc.0) #6
   br label %return
@@ -461,7 +452,7 @@ entry:
   %ext_der = alloca ptr, align 8
   %p = alloca ptr, align 8
   store ptr null, ptr %ext_der, align 8
-  %it = getelementptr inbounds %struct.v3_ext_method, ptr %method, i64 0, i32 2
+  %it = getelementptr inbounds i8, ptr %method, i64 8
   %0 = load ptr, ptr %it, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -479,7 +470,7 @@ if.then3:                                         ; preds = %if.then
   br label %err
 
 if.else:                                          ; preds = %entry
-  %i2d = getelementptr inbounds %struct.v3_ext_method, ptr %method, i64 0, i32 6
+  %i2d = getelementptr inbounds i8, ptr %method, i64 40
   %1 = load ptr, ptr %i2d, align 8
   %call4 = tail call i32 %1(ptr noundef %ext_struc, ptr noundef null) #6
   %cmp5 = icmp slt i32 %call4, 1
@@ -518,7 +509,7 @@ if.then19:                                        ; preds = %if.end15
 
 if.end20:                                         ; preds = %if.end15
   %3 = load ptr, ptr %ext_der, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %call16, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call16, i64 8
   store ptr %3, ptr %data, align 8
   store ptr null, ptr %ext_der, align 8
   store i32 %ext_len.0, ptr %call16, align 8
@@ -596,9 +587,9 @@ if.end36.us.us.sink.split:                        ; preds = %for.body19.us.us, %
 if.end36.us.us:                                   ; preds = %if.end36.us.us.sink.split, %if.else29.us.us
   %val.0.us.us = phi ptr [ %call21.us.us, %if.else29.us.us ], [ %call28.us.us, %if.end36.us.us.sink.split ]
   %0 = load ptr, ptr %val.0.us.us, align 8
-  %name38.us.us = getelementptr inbounds %struct.CONF_VALUE, ptr %val.0.us.us, i64 0, i32 1
+  %name38.us.us = getelementptr inbounds i8, ptr %val.0.us.us, i64 8
   %1 = load ptr, ptr %name38.us.us, align 8
-  %value.us.us = getelementptr inbounds %struct.CONF_VALUE, ptr %val.0.us.us, i64 0, i32 2
+  %value.us.us = getelementptr inbounds i8, ptr %val.0.us.us, i64 16
   %2 = load ptr, ptr %value.us.us, align 8
   %call39.us.us = tail call fastcc ptr @X509V3_EXT_nconf_int(ptr noundef %conf, ptr noundef %ctx, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %cmp40.us.us = icmp eq ptr %call39.us.us, null
@@ -615,9 +606,9 @@ for.body19.us:                                    ; preds = %for.body19.lr.ph.sp
   %i.139.us = phi i32 [ %inc54.us, %if.end42.us ], [ 0, %for.body19.lr.ph.split.us ]
   %call21.us = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i32 noundef %i.139.us) #6
   %3 = load ptr, ptr %call21.us, align 8
-  %name38.us = getelementptr inbounds %struct.CONF_VALUE, ptr %call21.us, i64 0, i32 1
+  %name38.us = getelementptr inbounds i8, ptr %call21.us, i64 8
   %4 = load ptr, ptr %name38.us, align 8
-  %value.us = getelementptr inbounds %struct.CONF_VALUE, ptr %call21.us, i64 0, i32 2
+  %value.us = getelementptr inbounds i8, ptr %call21.us, i64 16
   %5 = load ptr, ptr %value.us, align 8
   %call39.us = tail call fastcc ptr @X509V3_EXT_nconf_int(ptr noundef %conf, ptr noundef %ctx, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %cmp40.us = icmp eq ptr %call39.us, null
@@ -635,7 +626,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %akid.034 = phi i32 [ %akid.1, %for.inc ], [ -1, %for.cond.preheader ]
   %i.033 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %call5 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call, i32 noundef %i.033) #6
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call5, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call5, i64 8
   %6 = load ptr, ptr %name, align 8
   %call6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(23) @.str.1) #5
   %cmp7 = icmp eq i32 %call6, 0
@@ -676,9 +667,9 @@ if.end36.sink.split:                              ; preds = %if.else29, %if.then
 if.end36:                                         ; preds = %if.end36.sink.split, %if.else29, %for.body19
   %val.0 = phi ptr [ %call21, %if.else29 ], [ %call21, %for.body19 ], [ %call28, %if.end36.sink.split ]
   %7 = load ptr, ptr %val.0, align 8
-  %name38 = getelementptr inbounds %struct.CONF_VALUE, ptr %val.0, i64 0, i32 1
+  %name38 = getelementptr inbounds i8, ptr %val.0, i64 8
   %8 = load ptr, ptr %name38, align 8
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %val.0, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %val.0, i64 16
   %9 = load ptr, ptr %value, align 8
   %call39 = tail call fastcc ptr @X509V3_EXT_nconf_int(ptr noundef %conf, ptr noundef %ctx, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %cmp40 = icmp eq ptr %call39, null
@@ -738,7 +729,7 @@ declare void @X509_EXTENSION_free(ptr noundef) #1
 define i32 @X509V3_EXT_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %cert) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %cert, null
-  %extensions = getelementptr inbounds %struct.x509_cinf_st, ptr %cert, i64 0, i32 9
+  %extensions = getelementptr inbounds i8, ptr %cert, i64 104
   %spec.select = select i1 %cmp.not, ptr null, ptr %extensions
   %call = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select), !range !10
   ret i32 %call
@@ -748,7 +739,7 @@ entry:
 define i32 @X509V3_EXT_CRL_add_nconf(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %crl) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %crl, null
-  %extensions = getelementptr inbounds %struct.X509_crl_info_st, ptr %crl, i64 0, i32 6
+  %extensions = getelementptr inbounds i8, ptr %crl, i64 56
   %spec.select = select i1 %cmp.not, ptr null, ptr %extensions
   %call = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef %conf, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select), !range !10
   ret i32 %call
@@ -787,13 +778,13 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define ptr @X509V3_get_string(ptr nocapture noundef readonly %ctx, ptr noundef %name, ptr noundef %section) local_unnamed_addr #0 {
 entry:
-  %db = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 6
+  %db = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %db, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %db_meth = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 5
+  %db_meth = getelementptr inbounds i8, ptr %ctx, i64 40
   %1 = load ptr, ptr %db_meth, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then, label %lor.lhs.false2
@@ -821,19 +812,19 @@ return:                                           ; preds = %if.then8, %if.then
 ; Function Attrs: nounwind uwtable
 define ptr @X509V3_get_section(ptr nocapture noundef readonly %ctx, ptr noundef %section) local_unnamed_addr #0 {
 entry:
-  %db = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 6
+  %db = getelementptr inbounds i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %db, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %db_meth = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 5
+  %db_meth = getelementptr inbounds i8, ptr %ctx, i64 40
   %1 = load ptr, ptr %db_meth, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %get_section = getelementptr inbounds %struct.X509V3_CONF_METHOD_st, ptr %1, i64 0, i32 1
+  %get_section = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %get_section, align 8
   %tobool4.not = icmp eq ptr %2, null
   br i1 %tobool4.not, label %if.then, label %if.then8
@@ -860,15 +851,15 @@ entry:
   br i1 %tobool.not, label %if.end5, label %if.end
 
 if.end:                                           ; preds = %entry
-  %db_meth = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 5
+  %db_meth = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %db_meth, align 8
-  %free_string = getelementptr inbounds %struct.X509V3_CONF_METHOD_st, ptr %0, i64 0, i32 2
+  %free_string = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %free_string, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %db = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 6
+  %db = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load ptr, ptr %db, align 8
   tail call void %1(ptr noundef %2, ptr noundef nonnull %str) #6
   br label %if.end5
@@ -884,15 +875,15 @@ entry:
   br i1 %tobool.not, label %if.end5, label %if.end
 
 if.end:                                           ; preds = %entry
-  %db_meth = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 5
+  %db_meth = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %db_meth, align 8
-  %free_section = getelementptr inbounds %struct.X509V3_CONF_METHOD_st, ptr %0, i64 0, i32 3
+  %free_section = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %free_section, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.end5, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %db = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 6
+  %db = getelementptr inbounds i8, ptr %ctx, i64 48
   %2 = load ptr, ptr %db, align 8
   tail call void %1(ptr noundef %2, ptr noundef nonnull %section) #6
   br label %if.end5
@@ -914,9 +905,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %db_meth = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 5
+  %db_meth = getelementptr inbounds i8, ptr %ctx, i64 40
   store ptr @nconf_method, ptr %db_meth, align 8
-  %db = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 6
+  %db = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %conf, ptr %db, align 8
   br label %return
 
@@ -938,15 +929,15 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 %flags, ptr %ctx, align 8
-  %issuer_cert = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 1
+  %issuer_cert = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %issuer, ptr %issuer_cert, align 8
-  %subject_cert = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 2
+  %subject_cert = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %subj, ptr %subject_cert, align 8
-  %subject_req = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 3
+  %subject_req = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %req, ptr %subject_req, align 8
-  %crl2 = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 4
+  %crl2 = getelementptr inbounds i8, ptr %ctx, i64 32
   store ptr %crl, ptr %crl2, align 8
-  %db_meth = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 5
+  %db_meth = getelementptr inbounds i8, ptr %ctx, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %db_meth, i8 0, i64 24, i1 false)
   br label %return
 
@@ -967,7 +958,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %subject_cert = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 2
+  %subject_cert = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %subject_cert, align 8
   %cmp1 = icmp eq ptr %0, null
   %cmp2 = icmp ne ptr %pkey, null
@@ -981,7 +972,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %issuer_pkey = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 7
+  %issuer_pkey = getelementptr inbounds i8, ptr %ctx, i64 56
   store ptr %pkey, ptr %issuer_pkey, align 8
   br label %return
 
@@ -1047,9 +1038,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %db_meth = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 5
+  %db_meth = getelementptr inbounds i8, ptr %ctx, i64 40
   store ptr @conf_lhash_method, ptr %db_meth, align 8
-  %db = getelementptr inbounds %struct.v3_ext_ctx, ptr %ctx, i64 0, i32 6
+  %db = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %lhash, ptr %db, align 8
   br label %return
 
@@ -1067,7 +1058,7 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @CONF_set_nconf(ptr noundef nonnull %call, ptr noundef %conf) #6
   %cmp.not.i = icmp eq ptr %cert, null
-  %extensions.i = getelementptr inbounds %struct.x509_cinf_st, ptr %cert, i64 0, i32 9
+  %extensions.i = getelementptr inbounds i8, ptr %cert, i64 104
   %spec.select.i = select i1 %cmp.not.i, ptr null, ptr %extensions.i
   %call.i = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef nonnull %call, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select.i), !range !10
   tail call void @CONF_set_nconf(ptr noundef nonnull %call, ptr noundef null) #6
@@ -1089,7 +1080,7 @@ entry:
 if.end:                                           ; preds = %entry
   tail call void @CONF_set_nconf(ptr noundef nonnull %call, ptr noundef %conf) #6
   %cmp.not.i = icmp eq ptr %crl, null
-  %extensions.i = getelementptr inbounds %struct.X509_crl_info_st, ptr %crl, i64 0, i32 6
+  %extensions.i = getelementptr inbounds i8, ptr %crl, i64 56
   %spec.select.i = select i1 %cmp.not.i, ptr null, ptr %extensions.i
   %call.i = tail call i32 @X509V3_EXT_add_nconf_sk(ptr noundef nonnull %call, ptr noundef %ctx, ptr noundef %section, ptr noundef %spec.select.i), !range !10
   tail call void @CONF_set_nconf(ptr noundef nonnull %call, ptr noundef null) #6

@@ -12,65 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.phn_link_s = type { ptr, ptr, ptr }
 %union.anon.12 = type { %struct.slab_data_s }
 %struct.slab_data_s = type { [8 x i64] }
-%struct.arena_s = type { [2 x %struct.atomic_u_t], %struct.atomic_u_t, ptr, %struct.arena_stats_s, %struct.anon, %struct.anon.0, %struct.malloc_mutex_s, %struct.atomic_u_t, %struct.edata_list_active_t, %struct.malloc_mutex_s, %struct.pa_shard_s, i32, ptr, %struct.nstime_t, [32 x i8], [40 x i8], [0 x %struct.bin_s] }
-%struct.arena_stats_s = type { i64, i64, i64, i64, i64, i64, %struct.atomic_zu_t, i64, i64, i64, i64, i64, i64, %struct.pa_shard_stats_s, i64, i64, [12 x %struct.mutex_prof_data_t], [196 x %struct.arena_stats_large_s], %struct.nstime_t }
-%struct.atomic_zu_t = type { i64 }
-%struct.pa_shard_stats_s = type { i64, %struct.pac_stats_s }
-%struct.pac_stats_s = type { %struct.pac_decay_stats_s, %struct.pac_decay_stats_s, i64, %struct.atomic_zu_t, %struct.atomic_zu_t }
-%struct.pac_decay_stats_s = type { %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s }
-%struct.locked_u64_s = type { %struct.atomic_u64_t }
-%struct.atomic_u64_t = type { i64 }
-%struct.mutex_prof_data_t = type { %struct.nstime_t, %struct.nstime_t, i64, i64, i32, %struct.atomic_u32_t, i64, ptr, i64 }
-%struct.atomic_u32_t = type { i32 }
-%struct.arena_stats_large_s = type { %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s, %struct.locked_u64_s, i64 }
-%struct.anon = type { ptr }
-%struct.anon.0 = type { ptr }
-%struct.atomic_u_t = type { i32 }
-%struct.edata_list_active_t = type { %struct.anon.3 }
-%struct.anon.3 = type { ptr }
-%struct.malloc_mutex_s = type { %union.anon }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { %struct.mutex_prof_data_t, %struct.atomic_b_t, %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.pa_shard_s = type { ptr, %struct.atomic_zu_t, %struct.atomic_b_t, i8, %struct.pac_s, %struct.sec_s, %struct.hpa_shard_s, %struct.edata_cache_s, i32, ptr, ptr, ptr, ptr }
-%struct.pac_s = type { %struct.pai_s, %struct.ecache_s, %struct.ecache_s, %struct.ecache_s, ptr, ptr, ptr, %struct.exp_grow_s, %struct.malloc_mutex_s, %struct.san_bump_alloc_s, %struct.atomic_zu_t, %struct.decay_s, %struct.decay_s, ptr, ptr, %struct.atomic_zu_t }
-%struct.pai_s = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ecache_s = type { %struct.malloc_mutex_s, %struct.eset_s, %struct.eset_s, i32, i32, i8 }
-%struct.eset_s = type { [4 x i64], [200 x %struct.eset_bin_s], [200 x %struct.eset_bin_stats_s], %struct.edata_list_inactive_t, %struct.atomic_zu_t, i32 }
-%struct.eset_bin_s = type { %struct.edata_heap_t, %struct.edata_cmp_summary_s }
-%struct.edata_heap_t = type { %struct.ph_s }
-%struct.ph_s = type { ptr, i64 }
-%struct.edata_cmp_summary_s = type { i64, i64 }
-%struct.eset_bin_stats_s = type { %struct.atomic_zu_t, %struct.atomic_zu_t }
-%struct.edata_list_inactive_t = type { %struct.anon.4 }
-%struct.anon.4 = type { ptr }
-%struct.exp_grow_s = type { i32, i32 }
-%struct.san_bump_alloc_s = type { %struct.malloc_mutex_s, ptr }
-%struct.decay_s = type { %struct.malloc_mutex_s, i8, %struct.atomic_zd_t, %struct.nstime_t, %struct.nstime_t, i64, %struct.nstime_t, i64, i64, [200 x i64], i64 }
-%struct.atomic_zd_t = type { i64 }
-%struct.sec_s = type { %struct.pai_s, ptr, %struct.sec_opts_s, ptr, i32 }
-%struct.sec_opts_s = type { i64, i64, i64, i64, i64 }
-%struct.hpa_shard_s = type { %struct.pai_s, ptr, %struct.malloc_mutex_s, %struct.malloc_mutex_s, ptr, %struct.edata_cache_fast_s, %struct.psset_s, i64, i32, ptr, %struct.hpa_shard_opts_s, i64, %struct.hpa_shard_nonderived_stats_s, %struct.nstime_t }
-%struct.edata_cache_fast_s = type { %struct.edata_list_inactive_t, ptr, i8 }
-%struct.psset_s = type { [64 x %struct.hpdata_age_heap_t], [1 x i64], %struct.psset_bin_stats_s, %struct.psset_stats_s, %struct.hpdata_empty_list_t, [128 x %struct.hpdata_purge_list_t], [2 x i64], %struct.hpdata_hugify_list_t }
-%struct.hpdata_age_heap_t = type { %struct.ph_s }
-%struct.psset_bin_stats_s = type { i64, i64, i64 }
-%struct.psset_stats_s = type { [64 x [2 x %struct.psset_bin_stats_s]], [2 x %struct.psset_bin_stats_s], [2 x %struct.psset_bin_stats_s] }
-%struct.hpdata_empty_list_t = type { %struct.anon.5 }
-%struct.anon.5 = type { ptr }
-%struct.hpdata_purge_list_t = type { %struct.anon.6 }
-%struct.anon.6 = type { ptr }
-%struct.hpdata_hugify_list_t = type { %struct.anon.7 }
-%struct.anon.7 = type { ptr }
-%struct.hpa_shard_opts_s = type { i64, i64, i32, i8, i64, i64 }
-%struct.hpa_shard_nonderived_stats_s = type { i64, i64, i64, i64 }
-%struct.edata_cache_s = type { %struct.edata_avail_t, %struct.atomic_zu_t, %struct.malloc_mutex_s, ptr }
-%struct.edata_avail_t = type { %struct.ph_s }
-%struct.nstime_t = type { i64 }
-%struct.bin_s = type { %struct.malloc_mutex_s, %struct.bin_stats_s, ptr, %struct.edata_heap_t, %struct.edata_list_active_t }
-%struct.bin_stats_s = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 
 @.str = private unnamed_addr constant [10 x i8] c"secondary\00", align 1
 @opt_dss = hidden local_unnamed_addr global ptr @.str, align 8
@@ -108,7 +49,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %edata_cache = getelementptr inbounds %struct.arena_s, ptr %arena, i64 0, i32 10, i32 7
+  %edata_cache = getelementptr inbounds i8, ptr %arena, i64 78760
   %call = tail call ptr @edata_cache_get(ptr noundef %tsdn, ptr noundef nonnull %edata_cache) #6
   %cmp5 = icmp eq ptr %call, null
   br i1 %cmp5, label %return, label %if.end7
@@ -167,10 +108,10 @@ while.body.preheader:                             ; preds = %extent_dss_extendin
   %sub15 = add i64 %alignment, -1
   %add17 = sub i64 0, %alignment
   %6 = getelementptr i8, ptr %arena, i64 78944
-  %pac = getelementptr inbounds %struct.arena_s, ptr %arena, i64 0, i32 10, i32 4
-  %e_addr.i.i = getelementptr inbounds %struct.edata_s, ptr %call, i64 0, i32 1
-  %7 = getelementptr inbounds %struct.edata_s, ptr %call, i64 0, i32 2
-  %e_sn.i.i = getelementptr inbounds %struct.edata_s, ptr %call, i64 0, i32 4
+  %pac = getelementptr inbounds i8, ptr %arena, i64 10688
+  %e_addr.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %7 = getelementptr inbounds i8, ptr %call, i64 16
+  %e_sn.i.i = getelementptr inbounds i8, ptr %call, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end73
@@ -282,14 +223,14 @@ if.then62:                                        ; preds = %if.end57
   %call64 = tail call ptr @arena_get_ehooks(ptr noundef %arena) #6
   %arena.val56 = load i32, ptr %6, align 32
   %tobool66.not = icmp eq i64 %size, 0
-  %e_addr.i.i60 = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 1
+  %e_addr.i.i60 = getelementptr inbounds i8, ptr %edata, i64 8
   store ptr %add.ptr20, ptr %e_addr.i.i60, align 8
-  %24 = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 2
+  %24 = getelementptr inbounds i8, ptr %edata, i64 16
   store i64 %size, ptr %24, align 8
   %25 = and i32 %arena.val56, -268431361
   %conv.i.masked.i63 = zext i32 %25 to i64
   %shl.i.i = select i1 %tobool66.not, i64 0, i64 4096
-  %e_sn.i.i65 = getelementptr inbounds %struct.edata_s, ptr %edata, i64 0, i32 4
+  %e_sn.i.i65 = getelementptr inbounds i8, ptr %edata, i64 32
   store i64 232, ptr %e_sn.i.i65, align 8
   %cmp.i67.not = icmp eq i8 %10, 0
   %or.i23.i68 = select i1 %cmp.i67.not, i64 8192, i64 17592186052608

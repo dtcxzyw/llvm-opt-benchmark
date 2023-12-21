@@ -95,12 +95,12 @@ cond.false.i:                                     ; preds = %invoke.cont2
 _ZN5folly14InlineExecutor8instanceEv.exit:        ; preds = %cond.false.i, %invoke.cont2
   %cond-lvalue.i = phi ptr [ %call1.i, %cond.false.i ], [ %atomic-temp.0.i.i, %invoke.cont2 ]
   store ptr null, ptr %agg.tmp, align 16, !tbaa !7
-  %call_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 1
-  %call_2.i = getelementptr inbounds %"class.folly::Function", ptr %func, i64 0, i32 1
+  %call_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
+  %call_2.i = getelementptr inbounds i8, ptr %func, i64 48
   %1 = load ptr, ptr %call_2.i, align 16, !tbaa !10
   store ptr %1, ptr %call_.i, align 16, !tbaa !10
-  %exec_.i = getelementptr inbounds %"class.folly::Function", ptr %agg.tmp, i64 0, i32 2
-  %exec_3.i = getelementptr inbounds %"class.folly::Function", ptr %func, i64 0, i32 2
+  %exec_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
+  %exec_3.i = getelementptr inbounds i8, ptr %func, i64 56
   %2 = load ptr, ptr %exec_3.i, align 8, !tbaa !13
   store ptr %2, ptr %exec_.i, align 8, !tbaa !13
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %call_2.i, align 16, !tbaa !10
@@ -114,7 +114,7 @@ if.end.i.i:                                       ; preds = %_ZN5folly14InlineEx
 
 _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %_ZN5folly14InlineExecutor8instanceEv.exit
   %vtable = load ptr, ptr %cond-lvalue.i, align 8, !tbaa !14
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont6 unwind label %lpad5

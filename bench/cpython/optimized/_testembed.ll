@@ -1202,7 +1202,7 @@ entry:
   br i1 %cmp, label %for.cond.preheader, label %if.end6
 
 for.cond.preheader:                               ; preds = %entry
-  %arrayidx = getelementptr ptr, ptr %argv, i64 1
+  %arrayidx = getelementptr i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   br label %for.body
 
@@ -1214,13 +1214,13 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp3, label %if.then4, label %for.inc
 
 if.then4:                                         ; preds = %for.body
-  %func = getelementptr inbounds %struct.TestCase, ptr %tc.01318, i64 0, i32 1
+  %func = getelementptr inbounds i8, ptr %tc.01318, i64 8
   %2 = load ptr, ptr %func, align 8
   %call5 = tail call i32 %2() #16
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr = getelementptr %struct.TestCase, ptr %tc.01318, i64 1
+  %incdec.ptr = getelementptr i8, ptr %tc.01318, i64 16
   %3 = load ptr, ptr %incdec.ptr, align 8
   %tobool1.not = icmp eq ptr %3, null
   br i1 %tobool1.not, label %if.end6, label %for.body
@@ -1234,7 +1234,7 @@ for.body16:                                       ; preds = %if.end6, %for.body1
   %5 = phi ptr [ @.str.2, %if.end6 ], [ %6, %for.body16 ]
   %tc9.01419 = phi ptr [ @TestCases, %if.end6 ], [ %incdec.ptr20, %for.body16 ]
   %call18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %5)
-  %incdec.ptr20 = getelementptr %struct.TestCase, ptr %tc9.01419, i64 1
+  %incdec.ptr20 = getelementptr i8, ptr %tc9.01419, i64 16
   %6 = load ptr, ptr %incdec.ptr20, align 8
   %tobool14.not = icmp eq ptr %6, null
   br i1 %tobool14.not, label %return, label %for.body16
@@ -1265,7 +1265,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %2 = load ptr, ptr @main_argv, align 8
-  %arrayidx = getelementptr ptr, ptr %2, i64 2
+  %arrayidx = getelementptr i8, ptr %2, i64 16
   %3 = load ptr, ptr %arrayidx, align 8
   br label %for.body
 
@@ -1341,7 +1341,7 @@ for.body:                                         ; preds = %entry, %for.end
   tail call void @PyEval_ReleaseThread(ptr noundef %call1) #16
   %call2 = tail call i32 @PyGILState_Ensure() #16
   %call.i = tail call ptr @PyThreadState_Get() #16
-  %interp1.i = getelementptr inbounds %struct._ts, ptr %call.i, i64 0, i32 2
+  %interp1.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %0 = load ptr, ptr %interp1.i, align 8
   %call2.i = tail call i64 @PyInterpreterState_GetID(ptr noundef %0) #16
   %1 = ptrtoint ptr %0 to i64
@@ -1357,7 +1357,7 @@ for.body6:                                        ; preds = %for.body, %for.body
   %j.018 = phi i32 [ 0, %for.body ], [ %inc, %for.body6 ]
   %call7 = tail call ptr @Py_NewInterpreter() #16
   %call.i6 = tail call ptr @PyThreadState_Get() #16
-  %interp1.i7 = getelementptr inbounds %struct._ts, ptr %call.i6, i64 0, i32 2
+  %interp1.i7 = getelementptr inbounds i8, ptr %call.i6, i64 16
   %4 = load ptr, ptr %interp1.i7, align 8
   %call2.i8 = tail call i64 @PyInterpreterState_GetID(ptr noundef %4) #16
   %5 = ptrtoint ptr %4 to i64
@@ -1374,7 +1374,7 @@ for.body6:                                        ; preds = %for.body, %for.body
 for.end:                                          ; preds = %for.body6
   %call8 = tail call ptr @PyThreadState_Swap(ptr noundef %call1) #16
   %call.i12 = tail call ptr @PyThreadState_Get() #16
-  %interp1.i13 = getelementptr inbounds %struct._ts, ptr %call.i12, i64 0, i32 2
+  %interp1.i13 = getelementptr inbounds i8, ptr %call.i12, i64 16
   %8 = load ptr, ptr %interp1.i13, align 8
   %call2.i14 = tail call i64 @PyInterpreterState_GetID(ptr noundef %8) #16
   %9 = ptrtoint ptr %8 to i64
@@ -1401,7 +1401,7 @@ entry:
   %status.i = alloca %struct.PyStatus, align 8
   %argv = alloca [3 x ptr], align 16
   %config = alloca %struct.PyConfig, align 8
-  %isolated = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 1
+  %isolated = getelementptr inbounds i8, ptr %config, i64 4
   br label %for.body
 
 for.cond:                                         ; preds = %init_from_config_clear.exit
@@ -1687,11 +1687,11 @@ entry:
   %warnoptions = alloca [1 x ptr], align 8
   call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %preconfig) #16
   %call = call i32 @putenv(ptr noundef nonnull @.str.121) #16
-  %allocator = getelementptr inbounds %struct.PyPreConfig, ptr %preconfig, i64 0, i32 9
+  %allocator = getelementptr inbounds i8, ptr %preconfig, i64 36
   store i32 3, ptr %allocator, align 4
   %call1 = call i32 @putenv(ptr noundef nonnull @.str.113) #16
   store i32 0, ptr @Py_UTF8Mode, align 4
-  %utf8_mode = getelementptr inbounds %struct.PyPreConfig, ptr %preconfig, i64 0, i32 7
+  %utf8_mode = getelementptr inbounds i8, ptr %preconfig, i64 28
   store i32 1, ptr %utf8_mode, align 4
   call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #16
   %call2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #16
@@ -1704,32 +1704,32 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #16
-  %install_signal_handlers = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 4
+  %install_signal_handlers = getelementptr inbounds i8, ptr %config, i64 16
   store i32 0, ptr %install_signal_handlers, align 8
   %call3 = call i32 @putenv(ptr noundef nonnull @.str.122) #16
-  %use_hash_seed = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 5
+  %use_hash_seed = getelementptr inbounds i8, ptr %config, i64 20
   store i32 1, ptr %use_hash_seed, align 4
-  %hash_seed = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 6
+  %hash_seed = getelementptr inbounds i8, ptr %config, i64 24
   store i64 123, ptr %hash_seed, align 8
   %call4 = call i32 @putenv(ptr noundef nonnull @.str.123) #16
-  %faulthandler = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 7
+  %faulthandler = getelementptr inbounds i8, ptr %config, i64 32
   store i32 1, ptr %faulthandler, align 8
   %call5 = call i32 @putenv(ptr noundef nonnull @.str.124) #16
-  %tracemalloc = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 8
+  %tracemalloc = getelementptr inbounds i8, ptr %config, i64 36
   store i32 2, ptr %tracemalloc, align 4
   %call6 = call i32 @putenv(ptr noundef nonnull @.str.125) #16
-  %import_time = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 10
+  %import_time = getelementptr inbounds i8, ptr %config, i64 44
   store i32 1, ptr %import_time, align 4
   %call7 = call i32 @putenv(ptr noundef nonnull @.str.126) #16
-  %code_debug_ranges = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 11
+  %code_debug_ranges = getelementptr inbounds i8, ptr %config, i64 48
   store i32 0, ptr %code_debug_ranges, align 8
-  %show_ref_count = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 12
+  %show_ref_count = getelementptr inbounds i8, ptr %config, i64 52
   store i32 1, ptr %show_ref_count, align 4
   %call8 = call i32 @putenv(ptr noundef nonnull @.str.127) #16
-  %malloc_stats = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 15
+  %malloc_stats = getelementptr inbounds i8, ptr %config, i64 72
   store i32 1, ptr %malloc_stats, align 8
   %call9 = call i32 @putenv(ptr noundef nonnull @.str.128) #16
-  %pycache_prefix = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 18
+  %pycache_prefix = getelementptr inbounds i8, ptr %config, i64 96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %pycache_prefix, ptr noundef nonnull @.str.129) #16
   %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #16
@@ -1744,7 +1744,7 @@ if.then.i:                                        ; preds = %if.end
 config_set_string.exit:                           ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   call void @Py_SetProgramName(ptr noundef nonnull @.str.114) #16
-  %program_name = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i1)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.130) #16
   %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #16
@@ -1772,10 +1772,10 @@ if.then.i9:                                       ; preds = %config_set_string.e
 
 config_set_argv.exit:                             ; preds = %config_set_string.exit5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i6)
-  %parse_argv = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 19
+  %parse_argv = getelementptr inbounds i8, ptr %config, i64 104
   store i32 1, ptr %parse_argv, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %xoptions, ptr noundef nonnull align 16 dereferenceable(24) @__const.test_init_from_config.xoptions, i64 24, i1 false)
-  %xoptions10 = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 22
+  %xoptions10 = getelementptr inbounds i8, ptr %config, i64 144
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i10)
   call void @PyConfig_SetWideStringList(ptr nonnull sret(%struct.PyStatus) align 8 %status.i10, ptr noundef nonnull %config, ptr noundef nonnull %xoptions10, i64 noundef 3, ptr noundef nonnull %xoptions) #16
   %call.i11 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i10) #16
@@ -1790,7 +1790,7 @@ if.then.i13:                                      ; preds = %config_set_argv.exi
 config_set_wide_string_list.exit:                 ; preds = %config_set_argv.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i10)
   store i64 ptrtoint (ptr @.str.139 to i64), ptr %warnoptions, align 8
-  %warnoptions12 = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 23
+  %warnoptions12 = getelementptr inbounds i8, ptr %config, i64 160
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i14)
   call void @PyConfig_SetWideStringList(ptr nonnull sret(%struct.PyStatus) align 8 %status.i14, ptr noundef nonnull %config, ptr noundef nonnull %warnoptions12, i64 noundef 1, ptr noundef nonnull %warnoptions) #16
   %call.i15 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i14) #16
@@ -1805,7 +1805,7 @@ if.then.i17:                                      ; preds = %config_set_wide_str
 config_set_wide_string_list.exit18:               ; preds = %config_set_wide_string_list.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i14)
   %call14 = call i32 @putenv(ptr noundef nonnull @.str.140) #16
-  %platlibdir = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 48
+  %platlibdir = getelementptr inbounds i8, ptr %config, i64 304
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i19)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i19, ptr noundef nonnull %config, ptr noundef nonnull %platlibdir, ptr noundef nonnull @.str.141) #16
   %call.i20 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i19) #16
@@ -1821,40 +1821,40 @@ config_set_string.exit23:                         ; preds = %config_set_wide_str
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i19)
   %call15 = call i32 @putenv(ptr noundef nonnull @.str.119) #16
   store i32 0, ptr @Py_VerboseFlag, align 4
-  %verbose = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 32
+  %verbose = getelementptr inbounds i8, ptr %config, i64 208
   store i32 1, ptr %verbose, align 8
   store i32 0, ptr @Py_NoSiteFlag, align 4
-  %site_import = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 24
+  %site_import = getelementptr inbounds i8, ptr %config, i64 176
   store i32 0, ptr %site_import, align 8
   store i32 0, ptr @Py_BytesWarningFlag, align 4
-  %bytes_warning = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 25
+  %bytes_warning = getelementptr inbounds i8, ptr %config, i64 180
   store i32 1, ptr %bytes_warning, align 4
   %call16 = call i32 @putenv(ptr noundef nonnull @.str.115) #16
   store i32 0, ptr @Py_InspectFlag, align 4
-  %inspect = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 27
+  %inspect = getelementptr inbounds i8, ptr %config, i64 188
   store i32 1, ptr %inspect, align 4
   store i32 0, ptr @Py_InteractiveFlag, align 4
-  %interactive = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 28
+  %interactive = getelementptr inbounds i8, ptr %config, i64 192
   store i32 1, ptr %interactive, align 8
   %call17 = call i32 @putenv(ptr noundef nonnull @.str.116) #16
   store i32 1, ptr @Py_OptimizeFlag, align 4
-  %optimization_level = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 29
+  %optimization_level = getelementptr inbounds i8, ptr %config, i64 196
   store i32 2, ptr %optimization_level, align 4
   %call18 = call i32 @putenv(ptr noundef nonnull @.str.118) #16
   store i32 0, ptr @Py_DontWriteBytecodeFlag, align 4
-  %write_bytecode = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 31
+  %write_bytecode = getelementptr inbounds i8, ptr %config, i64 204
   store i32 0, ptr %write_bytecode, align 4
   store i32 0, ptr @Py_QuietFlag, align 4
-  %quiet = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 33
+  %quiet = getelementptr inbounds i8, ptr %config, i64 212
   store i32 1, ptr %quiet, align 4
-  %configure_c_stdio = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 35
+  %configure_c_stdio = getelementptr inbounds i8, ptr %config, i64 220
   store i32 1, ptr %configure_c_stdio, align 4
   %call19 = call i32 @putenv(ptr noundef nonnull @.str.120) #16
   store i32 0, ptr @Py_UnbufferedStdioFlag, align 4
-  %buffered_stdio = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 36
+  %buffered_stdio = getelementptr inbounds i8, ptr %config, i64 224
   store i32 0, ptr %buffered_stdio, align 8
   %call20 = call i32 @putenv(ptr noundef nonnull @.str.142) #16
-  %stdio_encoding = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 37
+  %stdio_encoding = getelementptr inbounds i8, ptr %config, i64 232
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i24)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i24, ptr noundef nonnull %config, ptr noundef nonnull %stdio_encoding, ptr noundef nonnull @.str.70) #16
   %call.i25 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i24) #16
@@ -1868,7 +1868,7 @@ if.then.i27:                                      ; preds = %config_set_string.e
 
 config_set_string.exit28:                         ; preds = %config_set_string.exit23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i24)
-  %stdio_errors = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 38
+  %stdio_errors = getelementptr inbounds i8, ptr %config, i64 240
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i29)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i29, ptr noundef nonnull %config, ptr noundef nonnull %stdio_errors, ptr noundef nonnull @.str.72) #16
   %call.i30 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i29) #16
@@ -1884,9 +1884,9 @@ config_set_string.exit33:                         ; preds = %config_set_string.e
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i29)
   %call21 = call i32 @putenv(ptr noundef nonnull @.str.143) #16
   store i32 0, ptr @Py_NoUserSiteDirectory, align 4
-  %user_site_directory = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 34
+  %user_site_directory = getelementptr inbounds i8, ptr %config, i64 216
   store i32 0, ptr %user_site_directory, align 8
-  %check_hash_pycs_mode = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 39
+  %check_hash_pycs_mode = getelementptr inbounds i8, ptr %config, i64 248
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i34)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i34, ptr noundef nonnull %config, ptr noundef nonnull %check_hash_pycs_mode, ptr noundef nonnull @.str.144) #16
   %call.i35 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i34) #16
@@ -1901,14 +1901,14 @@ if.then.i37:                                      ; preds = %config_set_string.e
 config_set_string.exit38:                         ; preds = %config_set_string.exit33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i34)
   store i32 0, ptr @Py_FrozenFlag, align 4
-  %pathconfig_warnings = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 44
+  %pathconfig_warnings = getelementptr inbounds i8, ptr %config, i64 272
   store i32 0, ptr %pathconfig_warnings, align 8
-  %safe_path = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 41
+  %safe_path = getelementptr inbounds i8, ptr %config, i64 260
   store i32 1, ptr %safe_path, align 4
   %call22 = call i32 @putenv(ptr noundef nonnull @.str.145) #16
-  %int_max_str_digits = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 42
+  %int_max_str_digits = getelementptr inbounds i8, ptr %config, i64 264
   store i32 31337, ptr %int_max_str_digits, align 8
-  %cpu_count = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 43
+  %cpu_count = getelementptr inbounds i8, ptr %config, i64 268
   store i32 4321, ptr %cpu_count, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i39)
   call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i39, ptr noundef nonnull %config) #16
@@ -1961,7 +1961,7 @@ entry:
   %config = alloca %struct.PyConfig, align 8
   tail call fastcc void @set_all_env_vars()
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #16
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -2029,11 +2029,11 @@ entry:
   %status = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
   call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %preconfig) #16
-  %configure_locale = getelementptr inbounds %struct.PyPreConfig, ptr %preconfig, i64 0, i32 4
+  %configure_locale = getelementptr inbounds i8, ptr %preconfig, i64 16
   store i32 0, ptr %configure_locale, align 4
-  %coerce_c_locale = getelementptr inbounds %struct.PyPreConfig, ptr %preconfig, i64 0, i32 5
+  %coerce_c_locale = getelementptr inbounds i8, ptr %preconfig, i64 20
   store i32 1, ptr %coerce_c_locale, align 4
-  %coerce_c_locale_warn = getelementptr inbounds %struct.PyPreConfig, ptr %preconfig, i64 0, i32 6
+  %coerce_c_locale_warn = getelementptr inbounds i8, ptr %preconfig, i64 24
   store i32 1, ptr %coerce_c_locale_warn, align 4
   call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #16
   %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #16
@@ -2046,7 +2046,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #16
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -2087,9 +2087,9 @@ entry:
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #16
   %call = call i32 @putenv(ptr noundef nonnull @.str.123) #16
   %call1 = call i32 @putenv(ptr noundef nonnull @.str.85) #16
-  %dev_mode = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 3
+  %dev_mode = getelementptr inbounds i8, ptr %config, i64 12
   store i32 1, ptr %dev_mode, align 4
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -2129,15 +2129,15 @@ entry:
   %config = alloca %struct.PyConfig, align 8
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #16
   store i32 0, ptr @Py_IsolatedFlag, align 4
-  %isolated = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 1
+  %isolated = getelementptr inbounds i8, ptr %config, i64 4
   store i32 1, ptr %isolated, align 4
-  %safe_path = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 41
+  %safe_path = getelementptr inbounds i8, ptr %config, i64 260
   store i32 0, ptr %safe_path, align 4
-  %use_environment = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 2
+  %use_environment = getelementptr inbounds i8, ptr %config, i64 8
   store i32 1, ptr %use_environment, align 8
-  %user_site_directory = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 34
+  %user_site_directory = getelementptr inbounds i8, ptr %config, i64 216
   store i32 1, ptr %user_site_directory, align 8
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -2207,7 +2207,7 @@ entry:
   %status = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
   call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %preconfig) #16
-  %isolated = getelementptr inbounds %struct.PyPreConfig, ptr %preconfig, i64 0, i32 2
+  %isolated = getelementptr inbounds i8, ptr %preconfig, i64 8
   store i32 1, ptr %isolated, align 4
   call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #16
   %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #16
@@ -2220,7 +2220,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #16
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -2262,7 +2262,7 @@ entry:
   %status = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
   call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %preconfig) #16
-  %isolated = getelementptr inbounds %struct.PyPreConfig, ptr %preconfig, i64 0, i32 2
+  %isolated = getelementptr inbounds i8, ptr %preconfig, i64 8
   store i32 0, ptr %isolated, align 4
   call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #16
   %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #16
@@ -2276,9 +2276,9 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #16
   store i32 0, ptr @Py_IsolatedFlag, align 4
-  %isolated1 = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 1
+  %isolated1 = getelementptr inbounds i8, ptr %config, i64 4
   store i32 1, ptr %isolated1, align 4
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -2334,7 +2334,7 @@ if.then.i:                                        ; preds = %entry
 
 config_set_argv.exit:                             ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -2377,7 +2377,7 @@ entry:
   %status = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
   call void @PyPreConfig_InitIsolatedConfig(ptr noundef nonnull %preconfig) #16
-  %isolated = getelementptr inbounds %struct.PyPreConfig, ptr %preconfig, i64 0, i32 2
+  %isolated = getelementptr inbounds i8, ptr %preconfig, i64 8
   store i32 0, ptr %isolated, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %argv, ptr noundef nonnull align 16 dereferenceable(72) @__const.test_preinit_dont_parse_argv.argv, i64 72, i1 false)
   call void @Py_PreInitializeFromArgs(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig, i64 noundef 9, ptr noundef nonnull %argv) #16
@@ -2391,7 +2391,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %config) #16
-  %isolated1 = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 1
+  %isolated1 = getelementptr inbounds i8, ptr %config, i64 4
   store i32 0, ptr %isolated1, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 9, ptr noundef nonnull %argv) #16
@@ -2406,7 +2406,7 @@ if.then.i:                                        ; preds = %if.end
 
 config_set_argv.exit:                             ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -2450,7 +2450,7 @@ entry:
   %tmp1 = alloca %struct.PyStatus, align 8
   %tmp6 = alloca %struct.PyStatus, align 8
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #16
-  %program_name = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.178) #16
   %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #16
@@ -2471,7 +2471,7 @@ config_set_string.exit:                           ; preds = %entry
   br i1 %tobool.not, label %if.end, label %fail
 
 if.end:                                           ; preds = %config_set_string.exit
-  %module_search_paths = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 50
+  %module_search_paths = getelementptr inbounds i8, ptr %config, i64 320
   call void @PyWideStringList_Insert(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1, ptr noundef nonnull %module_search_paths, i64 noundef 1, ptr noundef nonnull @.str.179) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp1, i64 32, i1 false)
   %call2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp1) #16
@@ -2486,7 +2486,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool9.not, label %if.end11, label %fail
 
 if.end11:                                         ; preds = %if.end5
-  %executable = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 52
+  %executable = getelementptr inbounds i8, ptr %config, i64 344
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i1)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config, ptr noundef nonnull %executable, ptr noundef nonnull @.str.181) #16
   %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #16
@@ -2555,7 +2555,7 @@ entry:
   %status = alloca %struct.PyStatus, align 8
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #16
   call fastcc void @configure_init_main(ptr noundef nonnull %config)
-  %_init_main = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 64
+  %_init_main = getelementptr inbounds i8, ptr %config, i64 436
   store i32 0, ptr %_init_main, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #16
@@ -2622,9 +2622,9 @@ if.then.i:                                        ; preds = %entry
 
 config_set_argv.exit:                             ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %parse_argv = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 19
+  %parse_argv = getelementptr inbounds i8, ptr %config, i64 104
   store i32 1, ptr %parse_argv, align 8
-  %xoptions = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 22
+  %xoptions = getelementptr inbounds i8, ptr %config, i64 144
   call void @PyWideStringList_Append(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %xoptions, ptr noundef nonnull @.str.189) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp, i64 32, i1 false)
   %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp) #16
@@ -2632,7 +2632,7 @@ config_set_argv.exit:                             ; preds = %entry
   br i1 %tobool.not, label %if.end, label %fail
 
 if.end:                                           ; preds = %config_set_argv.exit
-  %warnoptions = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 23
+  %warnoptions = getelementptr inbounds i8, ptr %config, i64 160
   call void @PyWideStringList_Append(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1, ptr noundef nonnull %warnoptions, ptr noundef nonnull @.str.190) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp1, i64 32, i1 false)
   %call2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp1) #16
@@ -2640,7 +2640,7 @@ if.end:                                           ; preds = %config_set_argv.exi
   br i1 %tobool3.not, label %if.end5, label %fail
 
 if.end5:                                          ; preds = %if.end
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -2765,7 +2765,7 @@ if.end7:                                          ; preds = %if.end4
   call void @PyMem_RawFree(ptr noundef nonnull %call5) #16
   %call8 = call i32 @putenv(ptr noundef nonnull @.str.194) #16
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #16
-  %program_name = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.195) #16
   %call.i6 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #16
@@ -2779,7 +2779,7 @@ if.then.i:                                        ; preds = %if.end7
 
 config_set_string.exit:                           ; preds = %if.end7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %executable = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 52
+  %executable = getelementptr inbounds i8, ptr %config, i64 344
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i7)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i7, ptr noundef nonnull %config, ptr noundef nonnull %executable, ptr noundef nonnull @.str.196) #16
   %call.i8 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i7) #16
@@ -2888,7 +2888,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #16
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -2902,7 +2902,7 @@ if.then.i.i:                                      ; preds = %if.end3
 
 config_set_program_name.exit:                     ; preds = %if.end3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
-  %home4 = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 47
+  %home4 = getelementptr inbounds i8, ptr %config, i64 296
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %home4, ptr noundef nonnull %call1) #16
   %call.i8 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #16
@@ -2918,7 +2918,7 @@ config_set_string.exit:                           ; preds = %config_set_program_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   call void @PyMem_RawFree(ptr noundef nonnull %call1) #16
   %call5 = call i32 @putenv(ptr noundef nonnull @.str.200) #16
-  %_is_python_build = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 65
+  %_is_python_build = getelementptr inbounds i8, ptr %config, i64 440
   store i32 2147483647, ptr %_is_python_build, align 8
   %call6 = call ptr @getenv(ptr noundef nonnull @.str.201) #16
   %tobool7.not = icmp eq ptr %call6, null
@@ -2988,11 +2988,11 @@ entry:
   tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.204) #16
   tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.205) #16
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #16
-  %dev_mode = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 3
+  %dev_mode = getelementptr inbounds i8, ptr %config, i64 12
   store i32 1, ptr %dev_mode, align 4
-  %bytes_warning = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 25
+  %bytes_warning = getelementptr inbounds i8, ptr %config, i64 180
   store i32 1, ptr %bytes_warning, align 4
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -3006,7 +3006,7 @@ if.then.i.i:                                      ; preds = %entry
 
 config_set_program_name.exit:                     ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
-  %warnoptions = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 23
+  %warnoptions = getelementptr inbounds i8, ptr %config, i64 160
   call void @PyWideStringList_Append(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %warnoptions, ptr noundef nonnull @.str.206) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp, i64 32, i1 false)
   %call1 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp) #16
@@ -3032,7 +3032,7 @@ if.then.i:                                        ; preds = %if.end
 
 config_set_argv.exit:                             ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %parse_argv = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 19
+  %parse_argv = getelementptr inbounds i8, ptr %config, i64 104
   store i32 1, ptr %parse_argv, align 8
   call void @PyConfig_Read(ptr nonnull sret(%struct.PyStatus) align 8 %tmp2, ptr noundef nonnull %config) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp2, i64 32, i1 false)
@@ -3094,7 +3094,7 @@ entry:
   %config = alloca %struct.PyConfig, align 8
   %status = alloca %struct.PyStatus, align 8
   call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %config) #16
-  %program_name = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.64) #16
   %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #16
@@ -3108,9 +3108,9 @@ if.then.i:                                        ; preds = %entry
 
 config_set_string.exit:                           ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %_init_main = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 64
+  %_init_main = getelementptr inbounds i8, ptr %config, i64 436
   store i32 0, ptr %_init_main, align 4
-  %bytes_warning = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 25
+  %bytes_warning = getelementptr inbounds i8, ptr %config, i64 180
   store i32 0, ptr %bytes_warning, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i1)
   call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config) #16
@@ -3138,7 +3138,7 @@ tune_config.exit.thread:                          ; preds = %init_from_config_cl
   br label %if.then
 
 tune_config.exit:                                 ; preds = %init_from_config_clear.exit
-  %bytes_warning.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 25
+  %bytes_warning.i = getelementptr inbounds i8, ptr %config.i, i64 180
   store i32 2, ptr %bytes_warning.i, align 4
   %call1.i = call i32 @_PyInterpreterState_SetConfig(ptr noundef nonnull %config.i) #16
   call void @PyConfig_Clear(ptr noundef nonnull %config.i) #16
@@ -3193,7 +3193,7 @@ if.then.i:                                        ; preds = %entry
 
 config_set_argv.exit:                             ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %program_name = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i1)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.183) #16
   %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #16
@@ -3268,7 +3268,7 @@ if.then.i:                                        ; preds = %entry
 
 config_set_argv.exit:                             ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %program_name = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i6)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i6, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.183) #16
   %call.i7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #16
@@ -3388,16 +3388,16 @@ if.then4.i:                                       ; preds = %if.else.i
 
 if.end5.i:                                        ; preds = %if.else.i, %if.then.i
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #16
-  %parse_argv.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 19
+  %parse_argv.i = getelementptr inbounds i8, ptr %config.i, i64 104
   store i32 1, ptr %parse_argv.i, align 8
   store ptr @.str.146, ptr %argv.i, align 16
-  %arrayinit.element.i = getelementptr inbounds ptr, ptr %argv.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %argv.i, i64 8
   store ptr @.str.134, ptr %arrayinit.element.i, align 8
-  %arrayinit.element6.i = getelementptr inbounds ptr, ptr %argv.i, i64 2
+  %arrayinit.element6.i = getelementptr inbounds i8, ptr %argv.i, i64 16
   store ptr %optval.i, ptr %arrayinit.element6.i, align 16
-  %arrayinit.element8.i = getelementptr inbounds ptr, ptr %argv.i, i64 3
+  %arrayinit.element8.i = getelementptr inbounds i8, ptr %argv.i, i64 24
   store ptr @.str.83, ptr %arrayinit.element8.i, align 8
-  %arrayinit.element9.i = getelementptr inbounds ptr, ptr %argv.i, i64 4
+  %arrayinit.element9.i = getelementptr inbounds i8, ptr %argv.i, i64 32
   store ptr @.str.84, ptr %arrayinit.element9.i, align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config.i, i64 noundef 5, ptr noundef nonnull %argv.i) #16
@@ -3864,21 +3864,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #16
-  %argv1.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 21
+  %argv1.i = getelementptr inbounds i8, ptr %config.i, i64 128
   store i64 1, ptr %argv1.i, align 8
-  %items.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 21, i32 1
+  %items.i = getelementptr inbounds i8, ptr %config.i, i64 136
   store ptr %argv, ptr %items.i, align 8
-  %parse_argv.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 19
+  %parse_argv.i = getelementptr inbounds i8, ptr %config.i, i64 104
   store i32 1, ptr %parse_argv.i, align 8
-  %program_name.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 45
+  %program_name.i = getelementptr inbounds i8, ptr %config.i, i64 280
   store ptr @.str.64, ptr %program_name.i, align 8
-  %interactive.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 28
+  %interactive.i = getelementptr inbounds i8, ptr %config.i, i64 192
   store i32 1, ptr %interactive.i, align 8
-  %isolated.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 1
+  %isolated.i = getelementptr inbounds i8, ptr %config.i, i64 4
   store i32 0, ptr %isolated.i, align 4
-  %use_environment.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 2
+  %use_environment.i = getelementptr inbounds i8, ptr %config.i, i64 8
   store i32 1, ptr %use_environment.i, align 8
-  %quiet.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 33
+  %quiet.i = getelementptr inbounds i8, ptr %config.i, i64 212
   store i32 1, ptr %quiet.i, align 4
   %call.i = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %test) #16
   call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config.i) #16
@@ -3909,21 +3909,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #16
-  %argv1.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 21
+  %argv1.i = getelementptr inbounds i8, ptr %config.i, i64 128
   store i64 1, ptr %argv1.i, align 8
-  %items.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 21, i32 1
+  %items.i = getelementptr inbounds i8, ptr %config.i, i64 136
   store ptr %argv, ptr %items.i, align 8
-  %parse_argv.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 19
+  %parse_argv.i = getelementptr inbounds i8, ptr %config.i, i64 104
   store i32 1, ptr %parse_argv.i, align 8
-  %program_name.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 45
+  %program_name.i = getelementptr inbounds i8, ptr %config.i, i64 280
   store ptr @.str.64, ptr %program_name.i, align 8
-  %interactive.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 28
+  %interactive.i = getelementptr inbounds i8, ptr %config.i, i64 192
   store i32 1, ptr %interactive.i, align 8
-  %isolated.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 1
+  %isolated.i = getelementptr inbounds i8, ptr %config.i, i64 4
   store i32 0, ptr %isolated.i, align 4
-  %use_environment.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 2
+  %use_environment.i = getelementptr inbounds i8, ptr %config.i, i64 8
   store i32 1, ptr %use_environment.i, align 8
-  %quiet.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 33
+  %quiet.i = getelementptr inbounds i8, ptr %config.i, i64 212
   store i32 1, ptr %quiet.i, align 4
   %call.i = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %test) #16
   call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config.i) #16
@@ -3954,21 +3954,21 @@ entry:
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #16
-  %argv1.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 21
+  %argv1.i = getelementptr inbounds i8, ptr %config.i, i64 128
   store i64 1, ptr %argv1.i, align 8
-  %items.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 21, i32 1
+  %items.i = getelementptr inbounds i8, ptr %config.i, i64 136
   store ptr %argv, ptr %items.i, align 8
-  %parse_argv.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 19
+  %parse_argv.i = getelementptr inbounds i8, ptr %config.i, i64 104
   store i32 1, ptr %parse_argv.i, align 8
-  %program_name.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 45
+  %program_name.i = getelementptr inbounds i8, ptr %config.i, i64 280
   store ptr @.str.64, ptr %program_name.i, align 8
-  %interactive.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 28
+  %interactive.i = getelementptr inbounds i8, ptr %config.i, i64 192
   store i32 1, ptr %interactive.i, align 8
-  %isolated.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 1
+  %isolated.i = getelementptr inbounds i8, ptr %config.i, i64 4
   store i32 0, ptr %isolated.i, align 4
-  %use_environment.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 2
+  %use_environment.i = getelementptr inbounds i8, ptr %config.i, i64 8
   store i32 1, ptr %use_environment.i, align 8
-  %quiet.i = getelementptr inbounds %struct.PyConfig, ptr %config.i, i64 0, i32 33
+  %quiet.i = getelementptr inbounds i8, ptr %config.i, i64 212
   store i32 1, ptr %quiet.i, align 4
   %call.i = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %test) #16
   call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config.i) #16
@@ -4078,13 +4078,13 @@ entry:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %wrapper.i)
   call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef nonnull %allocator) #16
   store ptr %allocator, ptr %wrapper.i, align 8
-  %malloc.i = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %wrapper.i, i64 0, i32 1
+  %malloc.i = getelementptr inbounds i8, ptr %wrapper.i, i64 8
   store ptr @malloc_wrapper, ptr %malloc.i, align 8
-  %calloc.i = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %wrapper.i, i64 0, i32 2
+  %calloc.i = getelementptr inbounds i8, ptr %wrapper.i, i64 16
   store ptr @calloc_wrapper, ptr %calloc.i, align 8
-  %realloc.i = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %wrapper.i, i64 0, i32 3
+  %realloc.i = getelementptr inbounds i8, ptr %wrapper.i, i64 24
   store ptr @realloc_wrapper, ptr %realloc.i, align 8
-  %free.i = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %wrapper.i, i64 0, i32 4
+  %free.i = getelementptr inbounds i8, ptr %wrapper.i, i64 32
   store ptr @free_wrapper, ptr %free.i, align 8
   call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %wrapper.i) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %wrapper.i)
@@ -4110,7 +4110,7 @@ entry:
   %status.i.i = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #16
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -4199,7 +4199,7 @@ if.end7:                                          ; preds = %if.else5, %if.then3
   br i1 %tobool.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end7
-  %stdio_encoding = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 37
+  %stdio_encoding = getelementptr inbounds i8, ptr %config, i64 232
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %stdio_encoding, ptr noundef nonnull %encoding) #16
   %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #16
@@ -4219,7 +4219,7 @@ if.end11:                                         ; preds = %config_set_string.e
   br i1 %tobool2.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  %stdio_errors = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 38
+  %stdio_errors = getelementptr inbounds i8, ptr %config, i64 240
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i8)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i8, ptr noundef nonnull %config, ptr noundef nonnull %stdio_errors, ptr noundef nonnull %errors) #16
   %call.i9 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i8) #16
@@ -4236,7 +4236,7 @@ config_set_string.exit12:                         ; preds = %if.then13
   br label %if.end14
 
 if.end14:                                         ; preds = %config_set_string.exit12, %if.end11
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -4403,7 +4403,7 @@ if.then2:                                         ; preds = %if.then
 
 if.end3:                                          ; preds = %if.then, %entry
   call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #16
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -4449,7 +4449,7 @@ entry:
   %config = alloca %struct.PyConfig, align 8
   %argv = alloca [7 x ptr], align 16
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #16
-  %parse_argv1 = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 19
+  %parse_argv1 = getelementptr inbounds i8, ptr %config, i64 104
   store i32 %parse_argv, ptr %parse_argv1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %argv, ptr noundef nonnull align 16 dereferenceable(56) @__const.check_init_parse_argv.argv, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
@@ -4571,7 +4571,7 @@ cond.false5:                                      ; preds = %cond.end
 
 if.end7:                                          ; preds = %cond.end, %entry
   call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %config) #16
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -4666,7 +4666,7 @@ if.then2:                                         ; preds = %if.then
 
 if.end3:                                          ; preds = %if.then, %entry
   call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #16
-  %program_name1.i = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #16
   %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #16
@@ -4713,7 +4713,7 @@ entry:
   %status.i = alloca %struct.PyStatus, align 8
   %argv = alloca [4 x ptr], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %argv, ptr noundef nonnull align 16 dereferenceable(32) @__const.configure_init_main.argv, i64 32, i1 false)
-  %parse_argv = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 19
+  %parse_argv = getelementptr inbounds i8, ptr %config, i64 104
   store i32 1, ptr %parse_argv, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
   call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef %config, i64 noundef 4, ptr noundef nonnull %argv) #16
@@ -4728,7 +4728,7 @@ if.then.i:                                        ; preds = %entry
 
 config_set_argv.exit:                             ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %program_name = getelementptr inbounds %struct.PyConfig, ptr %config, i64 0, i32 45
+  %program_name = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i4)
   call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i4, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.183) #16
   %call.i5 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i4) #16
@@ -4912,7 +4912,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %exit = getelementptr inbounds %struct.AuditRunCommandTest, ptr %userData, i64 0, i32 1
+  %exit = getelementptr inbounds i8, ptr %userData, i64 8
   %1 = load i32, ptr %exit, align 8
   %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %if.end10, label %if.then2
@@ -4980,17 +4980,17 @@ entry:
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %wrapper.i)
   tail call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef %ctx) #16
   store ptr %ctx, ptr %wrapper.i, align 8
-  %malloc.i = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %wrapper.i, i64 0, i32 1
+  %malloc.i = getelementptr inbounds i8, ptr %wrapper.i, i64 8
   store ptr @malloc_wrapper, ptr %malloc.i, align 8
-  %calloc.i = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %wrapper.i, i64 0, i32 2
+  %calloc.i = getelementptr inbounds i8, ptr %wrapper.i, i64 16
   store ptr @calloc_wrapper, ptr %calloc.i, align 8
-  %realloc.i = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %wrapper.i, i64 0, i32 3
+  %realloc.i = getelementptr inbounds i8, ptr %wrapper.i, i64 24
   store ptr @realloc_wrapper, ptr %realloc.i, align 8
-  %free.i = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %wrapper.i, i64 0, i32 4
+  %free.i = getelementptr inbounds i8, ptr %wrapper.i, i64 32
   store ptr @free_wrapper, ptr %free.i, align 8
   call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %wrapper.i) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %wrapper.i)
-  %malloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %ctx, i64 0, i32 1
+  %malloc = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %malloc, align 8
   %1 = load ptr, ptr %ctx, align 8
   %call2 = call ptr %0(ptr noundef %1, i64 noundef %size) #16
@@ -5000,7 +5000,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @calloc_wrapper(ptr nocapture noundef readonly %ctx, i64 noundef %nelem, i64 noundef %elsize) #0 {
 entry:
-  %calloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %ctx, i64 0, i32 2
+  %calloc = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %calloc, align 8
   %1 = load ptr, ptr %ctx, align 8
   %call = tail call ptr %0(ptr noundef %1, i64 noundef %nelem, i64 noundef %elsize) #16
@@ -5010,7 +5010,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @realloc_wrapper(ptr nocapture noundef readonly %ctx, ptr noundef %ptr, i64 noundef %new_size) #0 {
 entry:
-  %realloc = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %ctx, i64 0, i32 3
+  %realloc = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %realloc, align 8
   %1 = load ptr, ptr %ctx, align 8
   %call = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #16
@@ -5020,7 +5020,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @free_wrapper(ptr nocapture noundef readonly %ctx, ptr noundef %ptr) #0 {
 entry:
-  %free = getelementptr inbounds %struct.PyMemAllocatorEx, ptr %ctx, i64 0, i32 4
+  %free = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %free, align 8
   %1 = load ptr, ptr %ctx, align 8
   tail call void %0(ptr noundef %1, ptr noundef %ptr) #16

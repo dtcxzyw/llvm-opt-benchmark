@@ -15,17 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.YAML::StreamCharSource" = type { i64, ptr }
 %"struct.YAML::Mark" = type { i32, i32, i32 }
 %"class.std::allocator" = type { i8 }
-%"class.YAML::Stream" = type { ptr, %"struct.YAML::Mark", i32, %"class.std::deque", ptr, i64, i64 }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<char, std::allocator<char>>::_Deque_impl" }
-%"struct.std::_Deque_base<char, std::allocator<char>>::_Deque_impl" = type { %"struct.std::_Deque_base<char, std::allocator<char>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<char, std::allocator<char>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.YAML::Exception" = type { %"class.std::runtime_error", %"struct.YAML::Mark", %"class.std::__cxx11::basic_string" }
-%"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
-%"class.std::exception" = type { ptr }
-%"struct.std::__cow_string" = type { %union.anon.3 }
-%union.anon.3 = type { ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -141,13 +130,13 @@ entry:
           to label %while.cond.preheader unwind label %lpad.loopexit.split-lp
 
 while.cond.preheader:                             ; preds = %entry
-  %m_stream.i.i = getelementptr inbounds %"class.YAML::StreamCharSource", ptr %source.i, i64 0, i32 1
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node1.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2, i32 3
-  %_M_first.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 3, i32 1
-  %_M_last.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2, i32 2
+  %m_stream.i.i = getelementptr inbounds i8, ptr %source.i, i64 8
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 72
+  %_M_start.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 40
+  %_M_node.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 96
+  %_M_node1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 64
+  %_M_first.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 80
+  %_M_last.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 56
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %invoke.cont16
@@ -251,9 +240,9 @@ lpad15:                                           ; preds = %invoke.cont14
 
 while.end:                                        ; preds = %invoke.cont9, %invoke.cont1, %invoke.cont9.thread
   %exception = call ptr @__cxa_allocate_exception(i64 64) #10
-  %m_mark.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 1
+  %m_mark.i = getelementptr inbounds i8, ptr %INPUT, i64 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %m_mark.i, align 8
-  %retval.sroa.2.0.m_mark.sroa_idx.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 1, i32 2
+  %retval.sroa.2.0.m_mark.sroa_idx.i = getelementptr inbounds i8, ptr %INPUT, i64 16
   %retval.sroa.2.0.copyload.i = load i32, ptr %retval.sroa.2.0.m_mark.sroa_idx.i, align 8
   store i64 %retval.sroa.0.0.copyload.i, ptr %ref.tmp18, align 8
   %tmp.coerce.sroa.2.0.ref.tmp18.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
@@ -493,9 +482,9 @@ entry:
 invoke.cont.i:                                    ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #10
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4YAML9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %mark.i = getelementptr inbounds %"class.YAML::Exception", ptr %this, i64 0, i32 1
+  %mark.i = getelementptr inbounds i8, ptr %this, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %mark.i, ptr noundef nonnull align 4 dereferenceable(12) %mark_, i64 12, i1 false)
-  %msg.i = getelementptr inbounds %"class.YAML::Exception", ptr %this, i64 0, i32 2
+  %msg.i = getelementptr inbounds i8, ptr %this, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg.i, ptr noundef nonnull align 8 dereferenceable(32) %msg_)
           to label %_ZN4YAML9ExceptionC2ERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %lpad2.i
 
@@ -543,20 +532,20 @@ entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
   store i8 1, ptr %canBeHandle, align 1
   store i32 0, ptr %firstNonWordChar, align 8
-  %line.i = getelementptr inbounds %"struct.YAML::Mark", ptr %firstNonWordChar, i64 0, i32 1
+  %line.i = getelementptr inbounds i8, ptr %firstNonWordChar, i64 4
   store i32 0, ptr %line.i, align 4
-  %column.i = getelementptr inbounds %"struct.YAML::Mark", ptr %firstNonWordChar, i64 0, i32 2
+  %column.i = getelementptr inbounds i8, ptr %firstNonWordChar, i64 8
   store i32 0, ptr %column.i, align 8
-  %m_stream.i.i = getelementptr inbounds %"class.YAML::StreamCharSource", ptr %source.i, i64 0, i32 1
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node1.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2, i32 3
-  %_M_first.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 3, i32 1
-  %_M_last.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2, i32 2
-  %m_mark.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 1
-  %retval.sroa.2.0.m_mark.sroa_idx.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 1, i32 2
-  %m_stream.i.i17 = getelementptr inbounds %"class.YAML::StreamCharSource", ptr %source.i16, i64 0, i32 1
+  %m_stream.i.i = getelementptr inbounds i8, ptr %source.i, i64 8
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 72
+  %_M_start.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 40
+  %_M_node.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 96
+  %_M_node1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 64
+  %_M_first.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 80
+  %_M_last.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 56
+  %m_mark.i = getelementptr inbounds i8, ptr %INPUT, i64 8
+  %retval.sroa.2.0.m_mark.sroa_idx.i = getelementptr inbounds i8, ptr %INPUT, i64 16
+  %m_stream.i.i17 = getelementptr inbounds i8, ptr %source.i16, i64 8
   br label %while.cond
 
 while.cond:                                       ; preds = %invoke.cont38, %entry
@@ -987,13 +976,13 @@ entry:
   %ref.tmp15 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp16 = alloca %"class.std::allocator", align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #10
-  %m_stream.i.i = getelementptr inbounds %"class.YAML::StreamCharSource", ptr %source.i, i64 0, i32 1
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 3, i32 3
-  %_M_node1.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2, i32 3
-  %_M_first.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 3, i32 1
-  %_M_last.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2, i32 2
+  %m_stream.i.i = getelementptr inbounds i8, ptr %source.i, i64 8
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 72
+  %_M_start.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 40
+  %_M_node.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 96
+  %_M_node1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 64
+  %_M_first.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 80
+  %_M_last.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %INPUT, i64 56
   br label %while.cond
 
 while.cond:                                       ; preds = %invoke.cont7, %entry
@@ -1084,9 +1073,9 @@ while.end:                                        ; preds = %invoke.cont3, %invo
 
 if.then10:                                        ; preds = %while.end
   %exception = call ptr @__cxa_allocate_exception(i64 64) #10
-  %m_mark.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 1
+  %m_mark.i = getelementptr inbounds i8, ptr %INPUT, i64 8
   %retval.sroa.0.0.copyload.i = load i64, ptr %m_mark.i, align 8
-  %retval.sroa.2.0.m_mark.sroa_idx.i = getelementptr inbounds %"class.YAML::Stream", ptr %INPUT, i64 0, i32 1, i32 2
+  %retval.sroa.2.0.m_mark.sroa_idx.i = getelementptr inbounds i8, ptr %INPUT, i64 16
   %retval.sroa.2.0.copyload.i = load i32, ptr %retval.sroa.2.0.m_mark.sroa_idx.i, align 8
   store i64 %retval.sroa.0.0.copyload.i, ptr %ref.tmp11, align 8
   %tmp.coerce.sroa.2.0.ref.tmp11.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
@@ -1234,9 +1223,9 @@ ehcleanup11:                                      ; preds = %ehcleanup10, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4YAML5RegExD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_params = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3
+  %m_params = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_params, align 8
-  %_M_finish.i = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4YAML5RegExEEEvT_S5_(ptr noundef %0, ptr noundef %1)
           to label %_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev.exit unwind label %terminate.lpad.i
@@ -1319,9 +1308,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %_ZN4YAML5RegExD2Ev.exit
   %__first.addr.04 = phi ptr [ %incdec.ptr, %_ZN4YAML5RegExD2Ev.exit ], [ %__first, %entry ]
-  %m_params.i = getelementptr inbounds %"class.YAML::RegEx", ptr %__first.addr.04, i64 0, i32 3
+  %m_params.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 8
   %0 = load ptr, ptr %m_params.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.YAML::RegEx", ptr %__first.addr.04, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %__first.addr.04, i64 16
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN4YAML5RegExEEEvT_S5_(ptr noundef %0, ptr noundef %1)
           to label %_ZSt8_DestroyIPN4YAML5RegExES1_EvT_S3_RSaIT0_E.exit.i unwind label %terminate.lpad.i.i
@@ -1343,7 +1332,7 @@ if.then.i.i.i:                                    ; preds = %_ZSt8_DestroyIPN4YA
   br label %_ZN4YAML5RegExD2Ev.exit
 
 _ZN4YAML5RegExD2Ev.exit:                          ; preds = %_ZSt8_DestroyIPN4YAML5RegExES1_EvT_S3_RSaIT0_E.exit.i, %if.then.i.i.i
-  %incdec.ptr = getelementptr inbounds %"class.YAML::RegEx", ptr %__first.addr.04, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__first.addr.04, i64 32
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !9
 
@@ -1370,22 +1359,22 @@ entry:
   ]
 
 for.cond.i52.preheader:                           ; preds = %entry
-  %m_params.i53 = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3
-  %_M_finish.i70 = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %m_params.i53 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i70 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i70, align 8
   %2 = load ptr, ptr %m_params.i53, align 8
   %cmp.i5579.not = icmp eq ptr %1, %2
   br i1 %cmp.i5579.not, label %common.ret, label %for.body.i57
 
 sw.bb:                                            ; preds = %entry
-  %m_stream.i.i = getelementptr inbounds %"class.YAML::StreamCharSource", ptr %source, i64 0, i32 1
+  %m_stream.i.i = getelementptr inbounds i8, ptr %source, i64 8
   %3 = load ptr, ptr %m_stream.i.i, align 8
   %4 = load i64, ptr %source, align 8
-  %_M_start.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %3, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load ptr, ptr %_M_start.i.i.i.i, align 8, !noalias !10
-  %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %3, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 48
   %6 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !10
-  %_M_node5.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %3, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 64
   %7 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !10
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %6 to i64
@@ -1427,14 +1416,14 @@ _ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %if.
   br label %common.ret
 
 sw.bb2:                                           ; preds = %entry
-  %m_stream.i.i7 = getelementptr inbounds %"class.YAML::StreamCharSource", ptr %source, i64 0, i32 1
+  %m_stream.i.i7 = getelementptr inbounds i8, ptr %source, i64 8
   %10 = load ptr, ptr %m_stream.i.i7, align 8
   %11 = load i64, ptr %source, align 8
-  %_M_start.i.i.i.i8 = getelementptr inbounds %"class.YAML::Stream", ptr %10, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i.i.i.i8 = getelementptr inbounds i8, ptr %10, i64 40
   %12 = load ptr, ptr %_M_start.i.i.i.i8, align 8, !noalias !13
-  %_M_first3.i.i.i.i.i.i.i9 = getelementptr inbounds %"class.YAML::Stream", ptr %10, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %10, i64 48
   %13 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i9, align 8, !noalias !13
-  %_M_node5.i.i.i.i.i.i.i10 = getelementptr inbounds %"class.YAML::Stream", ptr %10, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i.i.i.i.i10 = getelementptr inbounds i8, ptr %10, i64 64
   %14 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i10, align 8, !noalias !13
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i11 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i12 = ptrtoint ptr %13 to i64
@@ -1471,23 +1460,23 @@ cond.end.i.i.i.i.i.i.i18:                         ; preds = %cond.false.i.i.i.i.
 _ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %if.then.i.i.i.i.i.i.i29, %cond.end.i.i.i.i.i.i.i18
   %storemerge.i.i.i.i.i.i.i24 = phi ptr [ %add.ptr15.i.i.i.i.i.i.i23, %cond.end.i.i.i.i.i.i.i18 ], [ %add.ptr.i.i.i.i.i.i.i30, %if.then.i.i.i.i.i.i.i29 ]
   %16 = load i8, ptr %storemerge.i.i.i.i.i.i.i24, align 1
-  %m_a.i = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 1
+  %m_a.i = getelementptr inbounds i8, ptr %this, i64 4
   %17 = load i8, ptr %m_a.i, align 4
   %cmp.not.i = icmp eq i8 %16, %17
   %..i = select i1 %cmp.not.i, i32 1, i32 -1
   br label %common.ret
 
 sw.bb4:                                           ; preds = %entry
-  %m_a.i31 = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 1
+  %m_a.i31 = getelementptr inbounds i8, ptr %this, i64 4
   %18 = load i8, ptr %m_a.i31, align 4
-  %m_stream.i.i32 = getelementptr inbounds %"class.YAML::StreamCharSource", ptr %source, i64 0, i32 1
+  %m_stream.i.i32 = getelementptr inbounds i8, ptr %source, i64 8
   %19 = load ptr, ptr %m_stream.i.i32, align 8
   %20 = load i64, ptr %source, align 8
-  %_M_start.i.i.i.i33 = getelementptr inbounds %"class.YAML::Stream", ptr %19, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
+  %_M_start.i.i.i.i33 = getelementptr inbounds i8, ptr %19, i64 40
   %21 = load ptr, ptr %_M_start.i.i.i.i33, align 8, !noalias !16
-  %_M_first3.i.i.i.i.i.i.i34 = getelementptr inbounds %"class.YAML::Stream", ptr %19, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2, i32 1
+  %_M_first3.i.i.i.i.i.i.i34 = getelementptr inbounds i8, ptr %19, i64 48
   %22 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i34, align 8, !noalias !16
-  %_M_node5.i.i.i.i.i.i.i35 = getelementptr inbounds %"class.YAML::Stream", ptr %19, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node5.i.i.i.i.i.i.i35 = getelementptr inbounds i8, ptr %19, i64 64
   %23 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i35, align 8, !noalias !16
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i36 = ptrtoint ptr %21 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i37 = ptrtoint ptr %22 to i64
@@ -1537,22 +1526,22 @@ cond.end.i.i.i.i.i.i13.i:                         ; preds = %_ZNK4YAML16StreamCh
 
 _ZNK4YAML16StreamCharSourceixEm.exit26.i:         ; preds = %cond.end.i.i.i.i.i.i13.i, %_ZNK4YAML16StreamCharSourceixEm.exit.thread.i
   %30 = phi i8 [ %.pre.i, %cond.end.i.i.i.i.i.i13.i ], [ %28, %_ZNK4YAML16StreamCharSourceixEm.exit.thread.i ]
-  %.in40.i = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 2
+  %.in40.i = getelementptr inbounds i8, ptr %this, i64 5
   %31 = load i8, ptr %.in40.i, align 1
   %cmp6.i = icmp slt i8 %31, %30
   %spec.select.i = select i1 %cmp6.i, i32 -1, i32 1
   br label %common.ret
 
 sw.bb6:                                           ; preds = %entry
-  %m_params.i = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3
+  %m_params.i = getelementptr inbounds i8, ptr %this, i64 8
   %32 = load ptr, ptr %m_params.i, align 8
-  %_M_finish.i = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %33 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i69.not83 = icmp eq ptr %32, %33
   br i1 %cmp.i69.not83, label %common.ret, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %"class.YAML::RegEx", ptr %__begin2.i.sroa.0.084, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.i.sroa.0.084, i64 32
   %cmp.i69.not = icmp eq ptr %incdec.ptr.i, %33
   br i1 %cmp.i69.not, label %common.ret, label %for.body.i
 
@@ -1585,9 +1574,9 @@ if.end.i:                                         ; preds = %for.body.i57
   br i1 %cmp.i55, label %for.body.i57, label %common.ret, !llvm.loop !17
 
 sw.bb10:                                          ; preds = %entry
-  %m_params.i61 = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3
+  %m_params.i61 = getelementptr inbounds i8, ptr %this, i64 8
   %37 = load ptr, ptr %m_params.i61, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %38 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %37, %38
   br i1 %cmp.i.i, label %common.ret, label %if.end.i63
@@ -1604,16 +1593,16 @@ if.end.i63:                                       ; preds = %sw.bb10
 
 sw.bb12:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %m_params.i91 = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3
+  %m_params.i91 = getelementptr inbounds i8, ptr %this, i64 8
   %39 = load ptr, ptr %m_params.i91, align 8
-  %_M_finish.i.i92 = getelementptr inbounds %"class.YAML::RegEx", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i92 = getelementptr inbounds i8, ptr %this, i64 16
   %40 = load ptr, ptr %_M_finish.i.i92, align 8
   %cmp.i.not11.i = icmp eq ptr %39, %40
   br i1 %cmp.i.not11.i, label %_ZNK4YAML5RegEx10MatchOpSeqINS_16StreamCharSourceEEEiRKT_.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb12
   %retval.sroa.6.0.this.addr.0.this1.sroa_idx.i.i = getelementptr inbounds i8, ptr %source, i64 8
-  %41 = getelementptr inbounds { i64, ptr }, ptr %ref.tmp.i, i64 0, i32 1
+  %41 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   br label %for.body.i93
 
 for.body.i93:                                     ; preds = %if.end.i100, %for.body.lr.ph.i
@@ -1629,11 +1618,11 @@ for.body.i93:                                     ; preds = %if.end.i100, %for.b
   %retval.sroa.0.0.i.i = select i1 %cmp.i5.i, i64 %add4.i.i, i64 0
   store i64 %retval.sroa.0.0.i.i, ptr %ref.tmp.i, align 8
   store ptr %retval.sroa.6.0.copyload.i.i, ptr %41, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %retval.sroa.6.0.copyload.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 3
-  %_M_start.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %retval.sroa.6.0.copyload.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2
-  %_M_node.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %retval.sroa.6.0.copyload.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 3, i32 3
+  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.6.0.copyload.i.i, i64 72
+  %_M_start.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.6.0.copyload.i.i, i64 40
+  %_M_node.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.6.0.copyload.i.i, i64 96
   %42 = load ptr, ptr %_M_node.i.i.i.i.i.i.i, align 8
-  %_M_node1.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %retval.sroa.6.0.copyload.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2, i32 3
+  %_M_node1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.6.0.copyload.i.i, i64 64
   %43 = load ptr, ptr %_M_node1.i.i.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i94 = ptrtoint ptr %42 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i95 = ptrtoint ptr %43 to i64
@@ -1644,11 +1633,11 @@ for.body.i93:                                     ; preds = %if.end.i100, %for.b
   %sub.i.i.i.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i.i.i.i, %conv.neg.i.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i97 = shl nsw i64 %sub.i.i.i.i.i.i.i, 9
   %44 = load ptr, ptr %_M_finish.i.i.i.i.i.i, align 8
-  %_M_first.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %retval.sroa.6.0.copyload.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 3, i32 1
+  %_M_first.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.6.0.copyload.i.i, i64 80
   %45 = load ptr, ptr %_M_first.i.i.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast3.i.i.i.i.i.i.i = ptrtoint ptr %44 to i64
   %sub.ptr.rhs.cast4.i.i.i.i.i.i.i = ptrtoint ptr %45 to i64
-  %_M_last.i.i.i.i.i.i.i = getelementptr inbounds %"class.YAML::Stream", ptr %retval.sroa.6.0.copyload.i.i, i64 0, i32 3, i32 0, i32 0, i32 0, i32 2, i32 2
+  %_M_last.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.6.0.copyload.i.i, i64 56
   %46 = load ptr, ptr %_M_last.i.i.i.i.i.i.i, align 8
   %47 = load ptr, ptr %_M_start.i.i.i.i.i.i, align 8
   %sub.ptr.lhs.cast7.i.i.i.i.i.i.i = ptrtoint ptr %46 to i64
@@ -1671,7 +1660,7 @@ _ZNK4YAML5RegEx5MatchINS_16StreamCharSourceEEEiRKT_.exit.i: ; preds = %_ZNK4YAML
 
 if.end.i100:                                      ; preds = %_ZNK4YAML5RegEx5MatchINS_16StreamCharSourceEEEiRKT_.exit.i
   %add.i = add nsw i32 %call2.i.i, %offset.013.i
-  %incdec.ptr.i.i = getelementptr inbounds %"class.YAML::RegEx", ptr %__begin2.sroa.0.012.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %40
   br i1 %cmp.i.not.i, label %_ZNK4YAML5RegEx10MatchOpSeqINS_16StreamCharSourceEEEiRKT_.exit, label %for.body.i93
 
@@ -1689,11 +1678,11 @@ entry:
   %output = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %0 = load i32, ptr %mark, align 4
   %cmp.i = icmp eq i32 %0, -1
-  %line.i = getelementptr inbounds %"struct.YAML::Mark", ptr %mark, i64 0, i32 1
+  %line.i = getelementptr inbounds i8, ptr %mark, i64 4
   %1 = load i32, ptr %line.i, align 4
   %cmp2.i = icmp eq i32 %1, -1
   %or.cond.i = select i1 %cmp.i, i1 %cmp2.i, i1 false
-  %column.i = getelementptr inbounds %"struct.YAML::Mark", ptr %mark, i64 0, i32 2
+  %column.i = getelementptr inbounds i8, ptr %mark, i64 8
   %2 = load i32, ptr %column.i, align 4
   %cmp3.i = icmp eq i32 %2, -1
   %or.cond = select i1 %or.cond.i, i1 %cmp3.i, i1 false

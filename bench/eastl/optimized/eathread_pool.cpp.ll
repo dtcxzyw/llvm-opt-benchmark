@@ -7,30 +7,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.timespec = type { i64, i64 }
 %"struct.EA::Thread::ThreadPoolParameters" = type { i32, i32, i32, %"struct.EA::Thread::ThreadTime", i32, [4 x i8], %"struct.EA::Thread::ThreadParameters" }
 %"struct.EA::Thread::ThreadParameters" = type <{ ptr, i64, i32, i32, ptr, i64, i8, [7 x i8] }>
-%"struct.EA::Thread::ThreadPool::Job" = type { i32, ptr, ptr, ptr }
-%"struct.EA::Thread::ThreadPool::ThreadInfo" = type { i8, i8, ptr, ptr, %"struct.EA::Thread::ThreadPool::Job" }
-%"class.EA::Thread::ThreadPool" = type { i8, i32, i32, %"class.EA::Thread::AtomicInt", %"class.EA::Thread::AtomicInt", %"struct.EA::Thread::ThreadTime", i32, i32, i32, %"class.EA::Thread::AtomicInt", %"class.EA::Thread::AtomicInt", [4 x i8], %"struct.EA::Thread::ThreadParameters", %"class.EA::Thread::Condition", %"class.EA::Thread::Mutex", %"class.EA::Thread::simple_list", %"class.EA::Thread::simple_list.0" }
-%"class.EA::Thread::AtomicInt" = type { %"struct.std::atomic" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i32 }
-%"class.EA::Thread::Condition" = type { %struct.EAConditionData }
-%struct.EAConditionData = type { %union.pthread_cond_t }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%"class.EA::Thread::Mutex" = type { %struct.EAMutexData }
-%struct.EAMutexData = type <{ %union.pthread_mutex_t, i32, [4 x i8] }>
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.EA::Thread::simple_list" = type { %"struct.EA::Thread::details::ListDefaultAllocatorImpl", ptr, ptr, i64 }
-%"struct.EA::Thread::details::ListDefaultAllocatorImpl" = type { i8 }
-%"class.EA::Thread::simple_list.0" = type { %"struct.EA::Thread::details::ListDefaultAllocatorImpl.1", ptr, ptr, i64 }
-%"struct.EA::Thread::details::ListDefaultAllocatorImpl.1" = type { i8 }
-%"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node" = type { ptr, ptr, ptr }
-%"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node" = type { %"struct.EA::Thread::ThreadPool::Job", ptr, ptr }
 %"struct.EA::Thread::ConditionParameters" = type { i8, [16 x i8] }
 %"struct.EA::Thread::MutexParameters" = type { i8, [128 x i8] }
+%"struct.EA::Thread::ThreadPool::Job" = type { i32, ptr, ptr, ptr }
 
 $_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEEC2Ev = comdat any
 
@@ -55,17 +34,17 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN2EA6Thread20ThreadPoolParametersC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 8
-  %mnMaxCount = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %this, i64 0, i32 1
+  %mnMaxCount = getelementptr inbounds i8, ptr %this, i64 4
   store i32 4, ptr %mnMaxCount, align 4
-  %mnInitialCount = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %this, i64 0, i32 2
+  %mnInitialCount = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %mnInitialCount, align 8
-  %mnIdleTimeoutMilliseconds = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %this, i64 0, i32 3
+  %mnIdleTimeoutMilliseconds = getelementptr inbounds i8, ptr %this, i64 16
   store i64 60, ptr %mnIdleTimeoutMilliseconds, align 8
-  %tv_nsec.i = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %this, i64 0, i32 3, i32 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %tv_nsec.i, align 8
-  %mnProcessorMask = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %this, i64 0, i32 4
+  %mnProcessorMask = getelementptr inbounds i8, ptr %this, i64 32
   store i32 -1, ptr %mnProcessorMask, align 8
-  %mDefaultThreadParameters = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %this, i64 0, i32 6
+  %mDefaultThreadParameters = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN2EA6Thread16ThreadParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %mDefaultThreadParameters)
   ret void
 }
@@ -75,7 +54,7 @@ declare void @_ZN2EA6Thread16ThreadParametersC1Ev(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA6Thread10ThreadPool3JobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 {
 entry:
-  %mpRunnable = getelementptr inbounds %"struct.EA::Thread::ThreadPool::Job", ptr %this, i64 0, i32 1
+  %mpRunnable = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable, i8 0, i64 24, i1 false)
   ret void
 }
@@ -84,10 +63,10 @@ entry:
 define dso_local void @_ZN2EA6Thread10ThreadPool10ThreadInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
   store volatile i8 0, ptr %this, align 8
-  %mbQuit = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %this, i64 0, i32 1
+  %mbQuit = getelementptr inbounds i8, ptr %this, i64 1
   store volatile i8 0, ptr %mbQuit, align 1
-  %mpThread = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %this, i64 0, i32 2
-  %mpRunnable.i = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %this, i64 0, i32 4, i32 1
+  %mpThread = getelementptr inbounds i8, ptr %this, i64 8
+  %mpRunnable.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mpThread, i8 0, i64 16, i1 false)
   ret void
@@ -98,39 +77,39 @@ define dso_local void @_ZN2EA6Thread10ThreadPoolC2EPKNS0_20ThreadPoolParametersE
 entry:
   %parameters = alloca %"struct.EA::Thread::ThreadPoolParameters", align 8
   store i8 0, ptr %this, align 8
-  %mnMinCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 1
+  %mnMinCount = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %mnMinCount, align 4
-  %mnMaxCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 2
+  %mnMaxCount = getelementptr inbounds i8, ptr %this, i64 8
   store i32 4, ptr %mnMaxCount, align 8
-  %mnCurrentCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 3
+  %mnCurrentCount = getelementptr inbounds i8, ptr %this, i64 12
   %0 = atomicrmw xchg ptr %mnCurrentCount, i32 0 seq_cst, align 4
-  %mnActiveCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 4
+  %mnActiveCount = getelementptr inbounds i8, ptr %this, i64 16
   %1 = atomicrmw xchg ptr %mnActiveCount, i32 0 seq_cst, align 4
-  %mnIdleTimeoutMilliseconds = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 5
+  %mnIdleTimeoutMilliseconds = getelementptr inbounds i8, ptr %this, i64 24
   store i64 60, ptr %mnIdleTimeoutMilliseconds, align 8
-  %tv_nsec.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 5, i32 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %tv_nsec.i, align 8
-  %mnProcessorMask = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 6
+  %mnProcessorMask = getelementptr inbounds i8, ptr %this, i64 40
   store i32 -1, ptr %mnProcessorMask, align 8
-  %mnProcessorCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 7
+  %mnProcessorCount = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %mnProcessorCount, align 4
-  %mnNextProcessor = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 8
+  %mnNextProcessor = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %mnNextProcessor, align 8
-  %mnPauseCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 9
+  %mnPauseCount = getelementptr inbounds i8, ptr %this, i64 52
   %2 = atomicrmw xchg ptr %mnPauseCount, i32 0 seq_cst, align 4
-  %mnLastJobID = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 10
+  %mnLastJobID = getelementptr inbounds i8, ptr %this, i64 56
   %3 = atomicrmw xchg ptr %mnLastJobID, i32 0 seq_cst, align 4
-  %mDefaultThreadParameters = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 12
+  %mDefaultThreadParameters = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN2EA6Thread16ThreadParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %mDefaultThreadParameters)
-  %mThreadCondition = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 13
+  %mThreadCondition = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @_ZN2EA6Thread9ConditionC1EPKNS0_19ConditionParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition, ptr noundef null, i1 noundef zeroext false)
-  %mThreadMutex = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 14
+  %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
   invoke void @_ZN2EA6Thread5MutexC1EPKNS0_15MutexParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef null, i1 noundef zeroext false)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %mThreadInfoList = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15
-  %mnSize.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 3
+  %mThreadInfoList = getelementptr inbounds i8, ptr %this, i64 208
+  %mnSize.i = getelementptr inbounds i8, ptr %this, i64 232
   store i64 0, ptr %mnSize.i, align 8
   %call.i.i5 = invoke noundef ptr @_ZN2EA6Thread12GetAllocatorEv()
           to label %call.i.i.noexc unwind label %lpad2
@@ -141,7 +120,7 @@ call.i.i.noexc:                                   ; preds = %invoke.cont
 
 if.then.i.i:                                      ; preds = %call.i.i.noexc
   %vtable.i.i = load ptr, ptr %call.i.i5, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %4 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i6 = invoke noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i5, i64 noundef 24, ptr noundef null, i32 noundef 0)
           to label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listIPNS0_10ThreadPool10ThreadInfoENS2_IS6_EEE9list_nodeEE9constructEv.exit.i unwind label %lpad2
@@ -152,7 +131,7 @@ if.else.i.i:                                      ; preds = %call.i.i.noexc
 
 _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listIPNS0_10ThreadPool10ThreadInfoENS2_IS6_EEE9list_nodeEE9constructEv.exit.i: ; preds = %if.else.i.i, %if.then.i.i
   %retval.0.i.i = phi ptr [ %call2.i.i6, %if.then.i.i ], [ %call3.i.i7, %if.else.i.i ]
-  %mpNodeHead.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 1
+  %mpNodeHead.i = getelementptr inbounds i8, ptr %this, i64 216
   store ptr %retval.0.i.i, ptr %mpNodeHead.i, align 8
   %call.i1.i8 = invoke noundef ptr @_ZN2EA6Thread12GetAllocatorEv()
           to label %call.i1.i.noexc unwind label %lpad2
@@ -163,7 +142,7 @@ call.i1.i.noexc:                                  ; preds = %_ZN2EA6Thread7detai
 
 if.then.i3.i:                                     ; preds = %call.i1.i.noexc
   %vtable.i4.i = load ptr, ptr %call.i1.i8, align 8
-  %vfn.i5.i = getelementptr inbounds ptr, ptr %vtable.i4.i, i64 2
+  %vfn.i5.i = getelementptr inbounds i8, ptr %vtable.i4.i, i64 16
   %5 = load ptr, ptr %vfn.i5.i, align 8
   %call2.i6.i9 = invoke noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %call.i1.i8, i64 noundef 24, ptr noundef null, i32 noundef 0)
           to label %invoke.cont3 unwind label %lpad2
@@ -174,22 +153,22 @@ if.else.i8.i:                                     ; preds = %call.i1.i.noexc
 
 invoke.cont3:                                     ; preds = %if.then.i3.i, %if.else.i8.i
   %retval.0.i7.i = phi ptr [ %call2.i6.i9, %if.then.i3.i ], [ %call3.i9.i10, %if.else.i8.i ]
-  %mpNodeTail.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 2
+  %mpNodeTail.i = getelementptr inbounds i8, ptr %this, i64 224
   store ptr %retval.0.i7.i, ptr %mpNodeTail.i, align 8
   %6 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %6, i64 0, i32 2
+  %mpNext.i = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %retval.0.i7.i, ptr %mpNext.i, align 8
   %7 = load ptr, ptr %mpNodeTail.i, align 8
   %8 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %8, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %7, ptr %mpPrev.i, align 8
   %9 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext11.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %7, i64 0, i32 2
+  %mpNext11.i = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %9, ptr %mpNext11.i, align 8
   %10 = load ptr, ptr %mpNodeTail.i, align 8
-  %mpPrev14.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %10, i64 0, i32 1
+  %mpPrev14.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %9, ptr %mpPrev14.i, align 8
-  %mJobList = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16
+  %mJobList = getelementptr inbounds i8, ptr %this, i64 240
   invoke void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList)
           to label %invoke.cont5 unwind label %lpad4
 
@@ -200,17 +179,17 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 
 if.then:                                          ; preds = %invoke.cont5
   store i32 0, ptr %parameters, align 8
-  %mnMaxCount.i = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %parameters, i64 0, i32 1
+  %mnMaxCount.i = getelementptr inbounds i8, ptr %parameters, i64 4
   store i32 4, ptr %mnMaxCount.i, align 4
-  %mnInitialCount.i = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %parameters, i64 0, i32 2
+  %mnInitialCount.i = getelementptr inbounds i8, ptr %parameters, i64 8
   store i32 0, ptr %mnInitialCount.i, align 8
-  %mnIdleTimeoutMilliseconds.i = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %parameters, i64 0, i32 3
+  %mnIdleTimeoutMilliseconds.i = getelementptr inbounds i8, ptr %parameters, i64 16
   store i64 60, ptr %mnIdleTimeoutMilliseconds.i, align 8
-  %tv_nsec.i.i = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %parameters, i64 0, i32 3, i32 0, i32 1
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %parameters, i64 24
   store i64 0, ptr %tv_nsec.i.i, align 8
-  %mnProcessorMask.i = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %parameters, i64 0, i32 4
+  %mnProcessorMask.i = getelementptr inbounds i8, ptr %parameters, i64 32
   store i32 -1, ptr %mnProcessorMask.i, align 8
-  %mDefaultThreadParameters.i = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %parameters, i64 0, i32 6
+  %mDefaultThreadParameters.i = getelementptr inbounds i8, ptr %parameters, i64 40
   invoke void @_ZN2EA6Thread16ThreadParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(41) %mDefaultThreadParameters.i)
           to label %invoke.cont8 unwind label %lpad7
 
@@ -271,7 +250,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mnSize = getelementptr inbounds %"class.EA::Thread::simple_list.0", ptr %this, i64 0, i32 3
+  %mnSize = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %mnSize, align 8
   %call.i = tail call noundef ptr @_ZN2EA6Thread12GetAllocatorEv()
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -279,7 +258,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %vtable.i = load ptr, ptr %call.i, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 2
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i64 noundef 48, ptr noundef null, i32 noundef 0)
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE9constructEv.exit
@@ -290,9 +269,9 @@ if.else.i:                                        ; preds = %entry
 
 _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE9constructEv.exit: ; preds = %if.then.i, %if.else.i
   %call3.sink.i = phi ptr [ %call3.i, %if.else.i ], [ %call2.i, %if.then.i ]
-  %mpRunnable.i.i2.i = getelementptr inbounds %"struct.EA::Thread::ThreadPool::Job", ptr %call3.sink.i, i64 0, i32 1
+  %mpRunnable.i.i2.i = getelementptr inbounds i8, ptr %call3.sink.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i.i2.i, i8 0, i64 24, i1 false)
-  %mpNodeHead = getelementptr inbounds %"class.EA::Thread::simple_list.0", ptr %this, i64 0, i32 1
+  %mpNodeHead = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call3.sink.i, ptr %mpNodeHead, align 8
   %call.i1 = tail call noundef ptr @_ZN2EA6Thread12GetAllocatorEv()
   %tobool.not.i2 = icmp eq ptr %call.i1, null
@@ -300,7 +279,7 @@ _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPo
 
 if.then.i3:                                       ; preds = %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE9constructEv.exit
   %vtable.i4 = load ptr, ptr %call.i1, align 8
-  %vfn.i5 = getelementptr inbounds ptr, ptr %vtable.i4, i64 2
+  %vfn.i5 = getelementptr inbounds i8, ptr %vtable.i4, i64 16
   %1 = load ptr, ptr %vfn.i5, align 8
   %call2.i6 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %call.i1, i64 noundef 48, ptr noundef null, i32 noundef 0)
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE9constructEv.exit11
@@ -311,22 +290,22 @@ if.else.i9:                                       ; preds = %_ZN2EA6Thread7detai
 
 _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE9constructEv.exit11: ; preds = %if.then.i3, %if.else.i9
   %call3.sink.i7 = phi ptr [ %call3.i10, %if.else.i9 ], [ %call2.i6, %if.then.i3 ]
-  %mpRunnable.i.i2.i8 = getelementptr inbounds %"struct.EA::Thread::ThreadPool::Job", ptr %call3.sink.i7, i64 0, i32 1
+  %mpRunnable.i.i2.i8 = getelementptr inbounds i8, ptr %call3.sink.i7, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i.i2.i8, i8 0, i64 24, i1 false)
-  %mpNodeTail = getelementptr inbounds %"class.EA::Thread::simple_list.0", ptr %this, i64 0, i32 2
+  %mpNodeTail = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %call3.sink.i7, ptr %mpNodeTail, align 8
   %2 = load ptr, ptr %mpNodeHead, align 8
-  %mpNext = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %2, i64 0, i32 2
+  %mpNext = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %call3.sink.i7, ptr %mpNext, align 8
   %3 = load ptr, ptr %mpNodeTail, align 8
   %4 = load ptr, ptr %mpNodeHead, align 8
-  %mpPrev = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %4, i64 0, i32 1
+  %mpPrev = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %3, ptr %mpPrev, align 8
   %5 = load ptr, ptr %mpNodeHead, align 8
-  %mpNext11 = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %3, i64 0, i32 2
+  %mpNext11 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %5, ptr %mpNext11, align 8
   %6 = load ptr, ptr %mpNodeTail, align 8
-  %mpPrev14 = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %6, i64 0, i32 1
+  %mpPrev14 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %5, ptr %mpPrev14, align 8
   ret void
 }
@@ -344,7 +323,7 @@ entry:
   br i1 %or.cond, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
-  %mnCurrentCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 3
+  %mnCurrentCount = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
   %cmp = icmp eq i32 %2, 0
   br i1 %cmp, label %if.then3, label %return
@@ -352,27 +331,27 @@ land.lhs.true:                                    ; preds = %entry
 if.then3:                                         ; preds = %land.lhs.true
   store i8 1, ptr %this, align 8
   %3 = load i32, ptr %pThreadPoolParameters, align 8
-  %mnMinCount5 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 1
+  %mnMinCount5 = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %3, ptr %mnMinCount5, align 4
-  %mnMaxCount = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %pThreadPoolParameters, i64 0, i32 1
+  %mnMaxCount = getelementptr inbounds i8, ptr %pThreadPoolParameters, i64 4
   %4 = load i32, ptr %mnMaxCount, align 4
-  %mnMaxCount6 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 2
+  %mnMaxCount6 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %4, ptr %mnMaxCount6, align 8
-  %mnInitialCount = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %pThreadPoolParameters, i64 0, i32 2
+  %mnInitialCount = getelementptr inbounds i8, ptr %pThreadPoolParameters, i64 8
   %5 = load i32, ptr %mnInitialCount, align 8
   store atomic i32 %5, ptr %mnCurrentCount seq_cst, align 4
-  %mnIdleTimeoutMilliseconds = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %pThreadPoolParameters, i64 0, i32 3
-  %mnIdleTimeoutMilliseconds9 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 5
+  %mnIdleTimeoutMilliseconds = getelementptr inbounds i8, ptr %pThreadPoolParameters, i64 16
+  %mnIdleTimeoutMilliseconds9 = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mnIdleTimeoutMilliseconds9, ptr noundef nonnull align 8 dereferenceable(16) %mnIdleTimeoutMilliseconds, i64 16, i1 false)
-  %mnProcessorMask = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %pThreadPoolParameters, i64 0, i32 4
+  %mnProcessorMask = getelementptr inbounds i8, ptr %pThreadPoolParameters, i64 32
   %6 = load i32, ptr %mnProcessorMask, align 8
-  %mnProcessorMask10 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 6
+  %mnProcessorMask10 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %6, ptr %mnProcessorMask10, align 8
-  %mDefaultThreadParameters = getelementptr inbounds %"struct.EA::Thread::ThreadPoolParameters", ptr %pThreadPoolParameters, i64 0, i32 6
-  %mDefaultThreadParameters11 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 12
+  %mDefaultThreadParameters = getelementptr inbounds i8, ptr %pThreadPoolParameters, i64 40
+  %mDefaultThreadParameters11 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %mDefaultThreadParameters11, ptr noundef nonnull align 8 dereferenceable(41) %mDefaultThreadParameters, i64 41, i1 false)
   %call12 = tail call noundef i32 @_ZN2EA6Thread17GetProcessorCountEv()
-  %mnProcessorCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 7
+  %mnProcessorCount = getelementptr inbounds i8, ptr %this, i64 44
   store i32 %call12, ptr %mnProcessorCount, align 4
   %7 = load i32, ptr %mnMaxCount6, align 8
   %cmp14 = icmp ugt i32 %7, 16
@@ -417,7 +396,7 @@ if.then38:                                        ; preds = %if.end34
 
 if.end40:                                         ; preds = %if.then38, %if.end34
   store ptr null, ptr %mDefaultThreadParameters11, align 8
-  %mnProcessor = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 12, i32 3
+  %mnProcessor = getelementptr inbounds i8, ptr %this, i64 84
   %14 = load i32, ptr %mnProcessor, align 4
   %cmp43.not = icmp eq i32 %14, -2
   br i1 %cmp43.not, label %if.end47, label %if.then44
@@ -428,10 +407,10 @@ if.then44:                                        ; preds = %if.end40
 
 if.end47:                                         ; preds = %if.then44, %if.end40
   call void @_ZN2EA6Thread19ConditionParametersC1EbPKc(ptr noundef nonnull align 1 dereferenceable(17) %mnp, i1 noundef zeroext true, ptr noundef null)
-  %mThreadCondition = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 13
+  %mThreadCondition = getelementptr inbounds i8, ptr %this, i64 112
   %call48 = call noundef zeroext i1 @_ZN2EA6Thread9Condition4InitEPKNS0_19ConditionParametersE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition, ptr noundef nonnull %mnp)
   call void @_ZN2EA6Thread15MutexParametersC1EbPKc(ptr noundef nonnull align 1 dereferenceable(129) %mtp, i1 noundef zeroext true, ptr noundef null)
-  %mThreadMutex = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 14
+  %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
   %call49 = call noundef zeroext i1 @_ZN2EA6Thread5Mutex4InitEPKNS0_15MutexParametersE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull %mtp)
   %call51 = call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %15 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
@@ -448,24 +427,24 @@ return:                                           ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpNodeHead.i.i = getelementptr inbounds %"class.EA::Thread::simple_list.0", ptr %this, i64 0, i32 1
+  %mpNodeHead.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpNodeHead.i.i, align 8
-  %mpNext.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %0, i64 0, i32 2
+  %mpNext.i.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %mpNext.i.i, align 8
-  %mpNodeTail.i.i = getelementptr inbounds %"class.EA::Thread::simple_list.0", ptr %this, i64 0, i32 2
+  %mpNodeTail.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mpNodeTail.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %invoke.cont, label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
   %pNode.08.i = phi ptr [ %3, %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i ], [ %1, %entry ]
-  %mpNext2.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %pNode.08.i, i64 0, i32 2
+  %mpNext2.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 40
   %3 = load ptr, ptr %mpNext2.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %pNode.08.i, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 32
   %4 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %3, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %4, ptr %mpPrev4.i, align 8
-  %mpNext6.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %4, i64 0, i32 2
+  %mpNext6.i = getelementptr inbounds i8, ptr %4, i64 40
   store ptr %3, ptr %mpNext6.i, align 8
   %call.i.i1 = invoke noundef ptr @_ZN2EA6Thread12GetAllocatorEv()
           to label %call.i.i.noexc unwind label %terminate.lpad.loopexit
@@ -476,7 +455,7 @@ call.i.i.noexc:                                   ; preds = %while.body.i
 
 if.then.i.i:                                      ; preds = %call.i.i.noexc
   %vtable.i.i = load ptr, ptr %call.i.i1, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %5 = load ptr, ptr %vfn.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i1, ptr noundef nonnull %pNode.08.i, i64 noundef 0)
           to label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i unwind label %terminate.lpad.loopexit
@@ -491,7 +470,7 @@ _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPo
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
-  %mnSize.i = getelementptr inbounds %"class.EA::Thread::simple_list.0", ptr %this, i64 0, i32 3
+  %mnSize.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %mnSize.i, align 8
   %.pre = load ptr, ptr %mpNodeHead.i.i, align 8
   br label %invoke.cont
@@ -507,7 +486,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 
 if.then.i:                                        ; preds = %call.i.noexc
   %vtable.i = load ptr, ptr %call.i2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %8 = load ptr, ptr %vfn.i, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %call.i2, ptr noundef %7, i64 noundef 0)
           to label %invoke.cont2 unwind label %terminate.lpad.loopexit.split-lp
@@ -531,7 +510,7 @@ call.i.noexc11:                                   ; preds = %invoke.cont2
 
 if.then.i5:                                       ; preds = %call.i.noexc11
   %vtable.i6 = load ptr, ptr %call.i12, align 8
-  %vfn.i7 = getelementptr inbounds ptr, ptr %vtable.i6, i64 4
+  %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 32
   %10 = load ptr, ptr %vfn.i7, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %call.i12, ptr noundef %9, i64 noundef 0)
           to label %invoke.cont4 unwind label %terminate.lpad.loopexit.split-lp
@@ -567,24 +546,24 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mpNodeHead.i.i = getelementptr inbounds %"class.EA::Thread::simple_list", ptr %this, i64 0, i32 1
+  %mpNodeHead.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpNodeHead.i.i, align 8
-  %mpNext.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %0, i64 0, i32 2
+  %mpNext.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %mpNext.i.i, align 8
-  %mpNodeTail.i.i = getelementptr inbounds %"class.EA::Thread::simple_list", ptr %this, i64 0, i32 2
+  %mpNodeTail.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %mpNodeTail.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i, label %invoke.cont, label %while.body.i
 
 while.body.i:                                     ; preds = %entry, %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listIPNS0_10ThreadPool10ThreadInfoENS2_IS6_EEE9list_nodeEE7destroyEPS9_.exit.i
   %pNode.08.i = phi ptr [ %3, %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listIPNS0_10ThreadPool10ThreadInfoENS2_IS6_EEE9list_nodeEE7destroyEPS9_.exit.i ], [ %1, %entry ]
-  %mpNext2.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %pNode.08.i, i64 0, i32 2
+  %mpNext2.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 16
   %3 = load ptr, ptr %mpNext2.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %pNode.08.i, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 8
   %4 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %3, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %4, ptr %mpPrev4.i, align 8
-  %mpNext6.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %4, i64 0, i32 2
+  %mpNext6.i = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %3, ptr %mpNext6.i, align 8
   %call.i.i1 = invoke noundef ptr @_ZN2EA6Thread12GetAllocatorEv()
           to label %call.i.i.noexc unwind label %terminate.lpad.loopexit
@@ -595,7 +574,7 @@ call.i.i.noexc:                                   ; preds = %while.body.i
 
 if.then.i.i:                                      ; preds = %call.i.i.noexc
   %vtable.i.i = load ptr, ptr %call.i.i1, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %5 = load ptr, ptr %vfn.i.i, align 8
   invoke void %5(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i1, ptr noundef nonnull %pNode.08.i, i64 noundef 0)
           to label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listIPNS0_10ThreadPool10ThreadInfoENS2_IS6_EEE9list_nodeEE7destroyEPS9_.exit.i unwind label %terminate.lpad.loopexit
@@ -610,7 +589,7 @@ _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listIPNS0_10ThreadP
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listIPNS0_10ThreadPool10ThreadInfoENS2_IS6_EEE9list_nodeEE7destroyEPS9_.exit.i
-  %mnSize.i = getelementptr inbounds %"class.EA::Thread::simple_list", ptr %this, i64 0, i32 3
+  %mnSize.i = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %mnSize.i, align 8
   %.pre = load ptr, ptr %mpNodeHead.i.i, align 8
   br label %invoke.cont
@@ -626,7 +605,7 @@ call.i.noexc:                                     ; preds = %invoke.cont
 
 if.then.i:                                        ; preds = %call.i.noexc
   %vtable.i = load ptr, ptr %call.i2, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 4
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %8 = load ptr, ptr %vfn.i, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(8) %call.i2, ptr noundef %7, i64 noundef 0)
           to label %invoke.cont2 unwind label %terminate.lpad.loopexit.split-lp
@@ -650,7 +629,7 @@ call.i.noexc11:                                   ; preds = %invoke.cont2
 
 if.then.i5:                                       ; preds = %call.i.noexc11
   %vtable.i6 = load ptr, ptr %call.i12, align 8
-  %vfn.i7 = getelementptr inbounds ptr, ptr %vtable.i6, i64 4
+  %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 32
   %10 = load ptr, ptr %vfn.i7, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(8) %call.i12, ptr noundef %9, i64 noundef 0)
           to label %invoke.cont4 unwind label %terminate.lpad.loopexit.split-lp
@@ -696,13 +675,13 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %mJobList = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16
+  %mJobList = getelementptr inbounds i8, ptr %this, i64 240
   tail call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList) #14
-  %mThreadInfoList = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15
+  %mThreadInfoList = getelementptr inbounds i8, ptr %this, i64 208
   tail call void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mThreadInfoList) #14
-  %mThreadMutex = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 14
+  %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex) #14
-  %mThreadCondition = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 13
+  %mThreadCondition = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition) #14
   ret void
 
@@ -726,30 +705,30 @@ entry:
 if.then:                                          ; preds = %entry
   store i8 0, ptr %this, align 8
   %call = tail call noundef i32 @_ZN2EA6Thread10ThreadPool20WaitForJobCompletionEiNS1_7JobWaitERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef -1, i32 noundef %jobWait, ptr noundef nonnull align 8 dereferenceable(16) %timeoutAbsolute), !range !8
-  %mThreadMutex = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 14
+  %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
   %call3 = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %cmp = icmp eq i32 %jobWait, 0
   br i1 %cmp, label %if.then4, label %if.end
 
 if.then4:                                         ; preds = %if.then
-  %mpNodeHead.i.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16, i32 1
+  %mpNodeHead.i.i = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load ptr, ptr %mpNodeHead.i.i, align 8
-  %mpNext.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %2, i64 0, i32 2
+  %mpNext.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %mpNext.i.i, align 8
-  %mpNodeTail.i.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16, i32 2
+  %mpNodeTail.i.i = getelementptr inbounds i8, ptr %this, i64 256
   %4 = load ptr, ptr %mpNodeTail.i.i, align 8
   %cmp.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i, label %if.end, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then4, %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
   %pNode.08.i = phi ptr [ %5, %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i ], [ %3, %if.then4 ]
-  %mpNext2.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %pNode.08.i, i64 0, i32 2
+  %mpNext2.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 40
   %5 = load ptr, ptr %mpNext2.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %pNode.08.i, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %pNode.08.i, i64 32
   %6 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev4.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %5, i64 0, i32 1
+  %mpPrev4.i = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %6, ptr %mpPrev4.i, align 8
-  %mpNext6.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %6, i64 0, i32 2
+  %mpNext6.i = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %5, ptr %mpNext6.i, align 8
   %call.i.i = tail call noundef ptr @_ZN2EA6Thread12GetAllocatorEv()
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
@@ -757,7 +736,7 @@ while.body.i:                                     ; preds = %if.then4, %_ZN2EA6T
 
 if.then.i.i:                                      ; preds = %while.body.i
   %vtable.i.i = load ptr, ptr %call.i.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %7 = load ptr, ptr %vfn.i.i, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, ptr noundef nonnull %pNode.08.i, i64 noundef 0)
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
@@ -772,30 +751,30 @@ _ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPo
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
-  %mnSize.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16, i32 3
+  %mnSize.i = getelementptr inbounds i8, ptr %this, i64 264
   store i64 0, ptr %mnSize.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %while.end.i, %if.then4, %if.then
-  %mpNodeHead.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 1
+  %mpNodeHead.i = getelementptr inbounds i8, ptr %this, i64 216
   %9 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !9
-  %mpNext.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %9, i64 0, i32 2
+  %mpNext.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load ptr, ptr %mpNext.i, align 8, !noalias !9
-  %mpNodeTail.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 2
+  %mpNodeTail.i = getelementptr inbounds i8, ptr %this, i64 224
   %11 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !12
   %cmp.i.not27 = icmp eq ptr %11, %10
   br i1 %cmp.i.not27, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %mnSize.i9 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 3
+  %mnSize.i9 = getelementptr inbounds i8, ptr %this, i64 232
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end16
   %it.sroa.0.028 = phi ptr [ %10, %for.body.lr.ph ], [ %it.sroa.0.1, %if.end16 ]
   %12 = load ptr, ptr %it.sroa.0.028, align 8
-  %mbQuit = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %12, i64 0, i32 1
+  %mbQuit = getelementptr inbounds i8, ptr %12, i64 1
   store volatile i8 1, ptr %mbQuit, align 1
-  %mpThread = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %12, i64 0, i32 2
+  %mpThread = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load ptr, ptr %mpThread, align 8
   %call9 = tail call noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef null)
   %cmp10.not = icmp eq i32 %call9, 1
@@ -803,21 +782,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 if.then11:                                        ; preds = %for.body
   %14 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !15
-  %mpNext.i.i4 = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %14, i64 0, i32 2
+  %mpNext.i.i4 = getelementptr inbounds i8, ptr %14, i64 16
   %15 = load ptr, ptr %mpNext.i.i4, align 8, !noalias !15
   %16 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !15
   %cmp.i.i6 = icmp eq ptr %15, %16
   br i1 %cmp.i.i6, label %if.end16, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then11
-  %mpNext.i7 = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %it.sroa.0.028, i64 0, i32 2
+  %mpNext.i7 = getelementptr inbounds i8, ptr %it.sroa.0.028, i64 16
   %17 = load ptr, ptr %mpNext.i7, align 8, !noalias !15
-  %mpPrev.i8 = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %it.sroa.0.028, i64 0, i32 1
+  %mpPrev.i8 = getelementptr inbounds i8, ptr %it.sroa.0.028, i64 8
   %18 = load ptr, ptr %mpPrev.i8, align 8, !noalias !15
-  %mpPrev5.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %17, i64 0, i32 1
+  %mpPrev5.i = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %18, ptr %mpPrev5.i, align 8, !noalias !15
   %19 = load ptr, ptr %mpNext.i7, align 8, !noalias !15
-  %mpNext10.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %18, i64 0, i32 2
+  %mpNext10.i = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %19, ptr %mpNext10.i, align 8, !noalias !15
   %20 = load i64, ptr %mnSize.i9, align 8, !noalias !15
   %dec.i = add i64 %20, -1
@@ -828,7 +807,7 @@ if.then.i:                                        ; preds = %if.then11
 
 if.then.i.i12:                                    ; preds = %if.then.i
   %vtable.i.i13 = load ptr, ptr %call.i.i10, align 8, !noalias !15
-  %vfn.i.i14 = getelementptr inbounds ptr, ptr %vtable.i.i13, i64 4
+  %vfn.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i13, i64 32
   %21 = load ptr, ptr %vfn.i.i14, align 8, !noalias !15
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i10, ptr noundef nonnull %it.sroa.0.028, i64 noundef 0), !noalias !15
   br label %if.end16
@@ -838,7 +817,7 @@ delete.notnull.i.i15:                             ; preds = %if.then.i
   br label %if.end16
 
 if.else:                                          ; preds = %for.body
-  %mpNext.i.i16 = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %it.sroa.0.028, i64 0, i32 2
+  %mpNext.i.i16 = getelementptr inbounds i8, ptr %it.sroa.0.028, i64 16
   %22 = load ptr, ptr %mpNext.i.i16, align 8
   br label %if.end16
 
@@ -848,18 +827,18 @@ if.end16:                                         ; preds = %delete.notnull.i.i1
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %if.end16, %if.end
-  %mThreadCondition = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 13
+  %mThreadCondition = getelementptr inbounds i8, ptr %this, i64 112
   %call17 = tail call noundef zeroext i1 @_ZN2EA6Thread9Condition6SignalEb(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition, i1 noundef zeroext true)
   %call19 = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex)
   %23 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i1829 = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %23, i64 0, i32 2
+  %mpNext.i1829 = getelementptr inbounds i8, ptr %23, i64 16
   %24 = load ptr, ptr %mpNext.i1829, align 8
   %25 = load ptr, ptr %mpNodeTail.i, align 8
   %cmp.i2030 = icmp eq ptr %24, %25
   br i1 %cmp.i2030, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %for.end
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ref.tmp22, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -868,7 +847,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp22)
   fence seq_cst
   %26 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i18 = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %26, i64 0, i32 2
+  %mpNext.i18 = getelementptr inbounds i8, ptr %26, i64 16
   %27 = load ptr, ptr %mpNext.i18, align 8
   %28 = load ptr, ptr %mpNodeTail.i, align 8
   %cmp.i20 = icmp eq ptr %27, %28
@@ -876,7 +855,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 while.end:                                        ; preds = %while.body, %for.end
   %call25 = call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
-  %mnPauseCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 9
+  %mnPauseCount = getelementptr inbounds i8, ptr %this, i64 52
   store atomic i32 0, ptr %mnPauseCount seq_cst, align 4
   %call28 = call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex)
   %29 = icmp eq i32 %call, 0
@@ -918,20 +897,20 @@ define dso_local void @_ZN2EA6Thread10ThreadPool17AdjustThreadCountEj(ptr nounde
 entry:
   %tpUsed = alloca %"struct.EA::Thread::ThreadParameters", align 8
   %ref.tmp = alloca %"struct.EA::Thread::ThreadPool::Job", align 8
-  %mnCurrentCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 3
+  %mnCurrentCount = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
   %sub = sub i32 %nDesiredCount, %0
   %cmp9 = icmp sgt i32 %sub, 0
   br i1 %cmp9, label %while.body.lr.ph, label %while.cond5.preheader
 
 while.body.lr.ph:                                 ; preds = %entry
-  %mpNodeTail.i.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 2
-  %mnSize.i.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 3
-  %mDefaultThreadParameters = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 12
-  %mnProcessor.i = getelementptr inbounds %"struct.EA::Thread::ThreadParameters", ptr %tpUsed, i64 0, i32 3
-  %mnProcessorMask.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 6
-  %mnNextProcessor.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 8
-  %mnProcessorCount.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 7
+  %mpNodeTail.i.i = getelementptr inbounds i8, ptr %this, i64 224
+  %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 232
+  %mDefaultThreadParameters = getelementptr inbounds i8, ptr %this, i64 64
+  %mnProcessor.i = getelementptr inbounds i8, ptr %tpUsed, i64 20
+  %mnProcessorMask.i = getelementptr inbounds i8, ptr %this, i64 40
+  %mnNextProcessor.i = getelementptr inbounds i8, ptr %this, i64 48
+  %mnProcessorCount.i = getelementptr inbounds i8, ptr %this, i64 44
   br label %while.body
 
 while.cond5.preheader:                            ; preds = %entry
@@ -939,7 +918,7 @@ while.cond5.preheader:                            ; preds = %entry
   br i1 %cmp611, label %while.body7.lr.ph, label %while.end9
 
 while.body7.lr.ph:                                ; preds = %while.cond5.preheader
-  %mpRunnable.i = getelementptr inbounds %"struct.EA::Thread::ThreadPool::Job", ptr %ref.tmp, i64 0, i32 1
+  %mpRunnable.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   br label %while.body7
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE.exit
@@ -951,7 +930,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 
 if.then.i.i.i:                                    ; preds = %while.body
   %vtable.i.i.i = load ptr, ptr %call.i.i.i, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %1 = load ptr, ptr %vfn.i.i.i, align 8
   %call2.i.i.i = call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i.i, i64 noundef 24, ptr noundef null, i32 noundef 0)
   br label %_ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE.exit
@@ -964,17 +943,17 @@ _ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE.exit: ; preds = %if.then.
   %retval.0.i.i.i = phi ptr [ %call2.i.i.i, %if.then.i.i.i ], [ %call3.i.i.i, %if.else.i.i.i ]
   store ptr %call2, ptr %retval.0.i.i.i, align 8
   %2 = load ptr, ptr %mpNodeTail.i.i, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %2, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %retval.0.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   store ptr %3, ptr %mpPrev2.i.i, align 8
   %4 = load ptr, ptr %mpNodeTail.i.i, align 8
-  %mpNext.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %retval.0.i.i.i, i64 0, i32 2
+  %mpNext.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
   store ptr %4, ptr %mpNext.i.i, align 8
-  %mpNext5.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %3, i64 0, i32 2
+  %mpNext5.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %retval.0.i.i.i, ptr %mpNext5.i.i, align 8
   %5 = load ptr, ptr %mpNodeTail.i.i, align 8
-  %mpPrev7.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %5, i64 0, i32 1
+  %mpPrev7.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %retval.0.i.i.i, ptr %mpPrev7.i.i, align 8
   %6 = load i64, ptr %mnSize.i.i, align 8
   %inc.i.i = add i64 %6, 1
@@ -992,14 +971,14 @@ if.then.i:                                        ; preds = %_ZN2EA6Thread10Thre
 
 while.cond.preheader.i:                           ; preds = %if.then.i
   %mnNextProcessor.promoted.i = load i32, ptr %mnNextProcessor.i, align 8
-  %shl3.i = shl nuw i32 1, %mnNextProcessor.promoted.i
-  %and4.i = and i32 %shl3.i, %9
-  %cmp55.i = icmp eq i32 %and4.i, 0
-  br i1 %cmp55.i, label %while.body.i, label %while.end.i
+  %shl2.i = shl nuw i32 1, %mnNextProcessor.promoted.i
+  %and3.i = and i32 %shl2.i, %9
+  %cmp54.i = icmp eq i32 %and3.i, 0
+  br i1 %cmp54.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
-  %inc26.i = phi i32 [ %inc.i, %while.body.i ], [ %mnNextProcessor.promoted.i, %while.cond.preheader.i ]
-  %inc.i = add i32 %inc26.i, 1
+  %10 = phi i32 [ %inc.i, %while.body.i ], [ %mnNextProcessor.promoted.i, %while.cond.preheader.i ]
+  %inc.i = add i32 %10, 1
   %shl.i = shl nuw i32 1, %inc.i
   %and.i = and i32 %shl.i, %9
   %cmp5.i = icmp eq i32 %and.i, 0
@@ -1007,18 +986,18 @@ while.body.i:                                     ; preds = %while.cond.preheade
 
 while.end.i:                                      ; preds = %while.body.i, %while.cond.preheader.i
   %.lcssa.i = phi i32 [ %mnNextProcessor.promoted.i, %while.cond.preheader.i ], [ %inc.i, %while.body.i ]
-  %10 = load i32, ptr %mnProcessorCount.i, align 4
-  %rem.i = urem i32 %.lcssa.i, %10
+  %11 = load i32, ptr %mnProcessorCount.i, align 4
+  %rem.i = urem i32 %.lcssa.i, %11
   %inc9.i = add nuw i32 %rem.i, 1
   store i32 %inc9.i, ptr %mnNextProcessor.i, align 8
   store i32 %rem.i, ptr %mnProcessor.i, align 4
   br label %_ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE.exit
 
 _ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE.exit: ; preds = %_ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE.exit, %if.then.i, %while.end.i
-  %mpThread = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %call2, i64 0, i32 2
-  %11 = load ptr, ptr %mpThread, align 8
+  %mpThread = getelementptr inbounds i8, ptr %call2, i64 8
+  %12 = load ptr, ptr %mpThread, align 8
   %call3 = call noundef ptr @_ZN2EA6Thread6Thread36GetGlobalRunnableFunctionUserWrapperEv()
-  %call4 = call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @_ZN2EA6Thread10ThreadPool14ThreadFunctionEPv, ptr noundef %call2, ptr noundef nonnull %tpUsed, ptr noundef %call3)
+  %call4 = call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @_ZN2EA6Thread10ThreadPool14ThreadFunctionEPv, ptr noundef %call2, ptr noundef nonnull %tpUsed, ptr noundef %call3)
   %dec = add nsw i32 %nAdjustment.010, -1
   %cmp = icmp sgt i32 %nAdjustment.010, 1
   br i1 %cmp, label %while.body, label %while.end9, !llvm.loop !21
@@ -1032,38 +1011,38 @@ while.body7:                                      ; preds = %while.body7.lr.ph, 
   br i1 %exitcond.not, label %while.end9, label %while.body7, !llvm.loop !23
 
 while.end9:                                       ; preds = %while.body7, %_ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE.exit, %while.cond5.preheader
-  %mpNodeHead.i.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 1
-  %12 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !24
-  %mpNodeTail.i.i6 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 2
-  %13 = load ptr, ptr %mpNodeTail.i.i6, align 8, !noalias !27
-  %it.sroa.0.0.in5.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %12, i64 0, i32 2
+  %mpNodeHead.i.i = getelementptr inbounds i8, ptr %this, i64 216
+  %13 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !24
+  %mpNodeTail.i.i6 = getelementptr inbounds i8, ptr %this, i64 224
+  %14 = load ptr, ptr %mpNodeTail.i.i6, align 8, !noalias !27
+  %it.sroa.0.0.in5.i = getelementptr inbounds i8, ptr %13, i64 16
   %it.sroa.0.06.i = load ptr, ptr %it.sroa.0.0.in5.i, align 8
-  %cmp.i.not7.i = icmp eq ptr %13, %it.sroa.0.06.i
+  %cmp.i.not7.i = icmp eq ptr %14, %it.sroa.0.06.i
   br i1 %cmp.i.not7.i, label %_ZN2EA6Thread10ThreadPool10FixThreadsEv.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %while.end9
-  %mDefaultThreadParameters.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 12
+  %mDefaultThreadParameters.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %it.sroa.0.08.i = phi ptr [ %it.sroa.0.06.i, %for.body.lr.ph.i ], [ %it.sroa.0.0.i, %for.inc.i ]
-  %14 = load ptr, ptr %it.sroa.0.08.i, align 8
-  %mpThread.i = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %14, i64 0, i32 2
-  %15 = load ptr, ptr %mpThread.i, align 8
-  %call5.i = call noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef null)
+  %15 = load ptr, ptr %it.sroa.0.08.i, align 8
+  %mpThread.i = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load ptr, ptr %mpThread.i, align 8
+  %call5.i = call noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef null)
   %cmp.i7 = icmp eq i32 %call5.i, 2
   br i1 %cmp.i7, label %if.then.i8, label %for.inc.i
 
 if.then.i8:                                       ; preds = %for.body.i
-  %16 = load ptr, ptr %mpThread.i, align 8
+  %17 = load ptr, ptr %mpThread.i, align 8
   %call7.i = call noundef ptr @_ZN2EA6Thread6Thread36GetGlobalRunnableFunctionUserWrapperEv()
-  %call8.i = call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @_ZN2EA6Thread10ThreadPool14ThreadFunctionEPv, ptr noundef nonnull %14, ptr noundef nonnull %mDefaultThreadParameters.i, ptr noundef %call7.i)
+  %call8.i = call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @_ZN2EA6Thread10ThreadPool14ThreadFunctionEPv, ptr noundef nonnull %15, ptr noundef nonnull %mDefaultThreadParameters.i, ptr noundef %call7.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i8, %for.body.i
-  %it.sroa.0.0.in.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %it.sroa.0.08.i, i64 0, i32 2
+  %it.sroa.0.0.in.i = getelementptr inbounds i8, ptr %it.sroa.0.08.i, i64 16
   %it.sroa.0.0.i = load ptr, ptr %it.sroa.0.0.in.i, align 8
-  %cmp.i.not.i = icmp eq ptr %13, %it.sroa.0.0.i
+  %cmp.i.not.i = icmp eq ptr %14, %it.sroa.0.0.i
   br i1 %cmp.i.not.i, label %_ZN2EA6Thread10ThreadPool10FixThreadsEv.exit, label %for.body.i, !llvm.loop !30
 
 _ZN2EA6Thread10ThreadPool10FixThreadsEv.exit:     ; preds = %for.inc.i, %while.end9
@@ -1082,13 +1061,13 @@ entry:
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %mThreadMutex53 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 14
-  %mpNodeHead.i30 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16, i32 1
-  %mpNodeTail.i32 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16, i32 2
-  %mpNodeHead.i34 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 1
-  %mpNodeTail.i36 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 2
-  %tv_nsec2.i41 = getelementptr inbounds %struct.timespec, ptr %timeoutAbsolute, i64 0, i32 1
-  %tv_nsec.i49 = getelementptr inbounds %struct.timespec, ptr %ref.tmp93, i64 0, i32 1
+  %mThreadMutex53 = getelementptr inbounds i8, ptr %this, i64 160
+  %mpNodeHead.i30 = getelementptr inbounds i8, ptr %this, i64 248
+  %mpNodeTail.i32 = getelementptr inbounds i8, ptr %this, i64 256
+  %mpNodeHead.i34 = getelementptr inbounds i8, ptr %this, i64 216
+  %mpNodeTail.i36 = getelementptr inbounds i8, ptr %this, i64 224
+  %tv_nsec2.i41 = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
+  %tv_nsec.i49 = getelementptr inbounds i8, ptr %ref.tmp93, i64 8
   br label %for.cond
 
 if.then:                                          ; preds = %entry
@@ -1098,23 +1077,23 @@ if.then:                                          ; preds = %entry
   ]
 
 while.cond.preheader:                             ; preds = %if.then
-  %mnActiveCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 4
+  %mnActiveCount = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load atomic i32, ptr %mnActiveCount seq_cst, align 8
   %cmp6.not77 = icmp eq i32 %0, 0
   br i1 %cmp6.not77, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %while.cond.preheader
-  %tv_nsec2.i = getelementptr inbounds %struct.timespec, ptr %timeoutAbsolute, i64 0, i32 1
-  %tv_nsec.i13 = getelementptr inbounds %struct.timespec, ptr %ref.tmp9, i64 0, i32 1
+  %tv_nsec2.i = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
+  %tv_nsec.i13 = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   br label %land.rhs
 
 while.body18.preheader:                           ; preds = %if.then
-  %mThreadMutex = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 14
-  %mnActiveCount20 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 4
-  %mpNodeHead.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16, i32 1
-  %mpNodeTail.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16, i32 2
-  %tv_nsec2.i17 = getelementptr inbounds %struct.timespec, ptr %timeoutAbsolute, i64 0, i32 1
-  %tv_nsec.i25 = getelementptr inbounds %struct.timespec, ptr %ref.tmp34, i64 0, i32 1
+  %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
+  %mnActiveCount20 = getelementptr inbounds i8, ptr %this, i64 16
+  %mpNodeHead.i = getelementptr inbounds i8, ptr %this, i64 248
+  %mpNodeTail.i = getelementptr inbounds i8, ptr %this, i64 256
+  %tv_nsec2.i17 = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
+  %tv_nsec.i25 = getelementptr inbounds i8, ptr %ref.tmp34, i64 8
   br label %while.body18
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
@@ -1151,7 +1130,7 @@ while.body18:                                     ; preds = %while.body18.prehea
 
 lor.lhs.false:                                    ; preds = %while.body18
   %8 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %8, i64 0, i32 2
+  %mpNext.i = getelementptr inbounds i8, ptr %8, i64 40
   %9 = load ptr, ptr %mpNext.i, align 8
   %10 = load ptr, ptr %mpNodeTail.i, align 8
   %cmp.i14 = icmp eq ptr %9, %10
@@ -1188,7 +1167,7 @@ while.end37:                                      ; preds = %land.rhs24, %while.
 
 land.lhs.true:                                    ; preds = %while.end37
   %16 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i27 = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %16, i64 0, i32 2
+  %mpNext.i27 = getelementptr inbounds i8, ptr %16, i64 40
   %17 = load ptr, ptr %mpNext.i27, align 8
   %18 = load ptr, ptr %mpNodeTail.i, align 8
   %cmp.i29 = icmp eq ptr %17, %18
@@ -1207,7 +1186,7 @@ for.cond:                                         ; preds = %for.cond.preheader,
   %call54 = call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex53, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   %19 = load ptr, ptr %mpNodeHead.i30, align 8, !noalias !32
   %20 = load ptr, ptr %mpNodeTail.i32, align 8, !noalias !35
-  %it.sroa.0.0.in62 = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %19, i64 0, i32 2
+  %it.sroa.0.0.in62 = getelementptr inbounds i8, ptr %19, i64 40
   %it.sroa.0.063 = load ptr, ptr %it.sroa.0.0.in62, align 8
   %cmp.i33.not64 = icmp eq ptr %20, %it.sroa.0.063
   br i1 %cmp.i33.not64, label %for.end, label %for.body
@@ -1220,7 +1199,7 @@ for.body:                                         ; preds = %for.cond, %for.body
   %cmp62 = icmp eq i32 %21, %nJob
   %spec.select = select i1 %cmp62, i8 1, i8 %bJobExists.065
   %spec.select9 = select i1 %cmp62, i32 -2, i32 %nResult.266
-  %it.sroa.0.0.in = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %it.sroa.0.067, i64 0, i32 2
+  %it.sroa.0.0.in = getelementptr inbounds i8, ptr %it.sroa.0.067, i64 40
   %it.sroa.0.0 = load ptr, ptr %it.sroa.0.0.in, align 8
   %cmp.i33.not = icmp eq ptr %20, %it.sroa.0.0
   br i1 %cmp.i33.not, label %for.end, label %for.body, !llvm.loop !38
@@ -1230,7 +1209,7 @@ for.end:                                          ; preds = %for.body, %for.cond
   %nResult.2.lcssa = phi i32 [ %nResult.1, %for.cond ], [ %spec.select9, %for.body ]
   %22 = load ptr, ptr %mpNodeHead.i34, align 8, !noalias !39
   %23 = load ptr, ptr %mpNodeTail.i36, align 8, !noalias !42
-  %it66.sroa.0.0.in69 = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %22, i64 0, i32 2
+  %it66.sroa.0.0.in69 = getelementptr inbounds i8, ptr %22, i64 16
   %it66.sroa.0.070 = load ptr, ptr %it66.sroa.0.0.in69, align 8
   %cmp.i37.not71 = icmp eq ptr %23, %it66.sroa.0.070
   br i1 %cmp.i37.not71, label %for.end83, label %for.body72
@@ -1246,7 +1225,7 @@ for.body72:                                       ; preds = %for.end, %for.inc81
   br i1 %tobool75.not, label %for.inc81, label %land.lhs.true76
 
 land.lhs.true76:                                  ; preds = %for.body72
-  %mCurrentJob = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %24, i64 0, i32 4
+  %mCurrentJob = getelementptr inbounds i8, ptr %24, i64 24
   %27 = load i32, ptr %mCurrentJob, align 8
   %cmp78 = icmp eq i32 %27, %nJob
   %spec.select10 = select i1 %cmp78, i8 1, i8 %bJobExists.272
@@ -1256,7 +1235,7 @@ land.lhs.true76:                                  ; preds = %for.body72
 for.inc81:                                        ; preds = %land.lhs.true76, %for.body72
   %bJobExists.3 = phi i8 [ %bJobExists.272, %for.body72 ], [ %spec.select10, %land.lhs.true76 ]
   %nResult.5 = phi i32 [ %nResult.473, %for.body72 ], [ %spec.select11, %land.lhs.true76 ]
-  %it66.sroa.0.0.in = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %it66.sroa.0.074, i64 0, i32 2
+  %it66.sroa.0.0.in = getelementptr inbounds i8, ptr %it66.sroa.0.074, i64 16
   %it66.sroa.0.0 = load ptr, ptr %it66.sroa.0.0.in, align 8
   %cmp.i37.not = icmp eq ptr %23, %it66.sroa.0.0
   br i1 %cmp.i37.not, label %for.end83, label %for.body72, !llvm.loop !45
@@ -1302,34 +1281,34 @@ declare void @_ZN2EA6Thread11ThreadSleepERKNS0_10ThreadTimeE(ptr noundef nonnull
 define dso_local noundef i64 @_ZN2EA6Thread10ThreadPool14ThreadFunctionEPv(ptr noundef %pContext) #0 align 2 {
 entry:
   %timeoutAbsolute = alloca %"struct.EA::Thread::ThreadTime", align 8
-  %mpThreadPool = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %pContext, i64 0, i32 3
+  %mpThreadPool = getelementptr inbounds i8, ptr %pContext, i64 16
   %0 = load ptr, ptr %mpThreadPool, align 8
-  %mThreadCondition = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %0, i64 0, i32 13
-  %mThreadMutex = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %0, i64 0, i32 14
+  %mThreadCondition = getelementptr inbounds i8, ptr %0, i64 112
+  %mThreadMutex = getelementptr inbounds i8, ptr %0, i64 160
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
-  %mbQuit = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %pContext, i64 0, i32 1
+  %mbQuit = getelementptr inbounds i8, ptr %pContext, i64 1
   %1 = load volatile i8, ptr %mbQuit, align 1
   %2 = and i8 %1, 1
   %tobool.not44 = icmp eq i8 %2, 0
   br i1 %tobool.not44, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %mpNodeHead.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %0, i64 0, i32 16, i32 1
-  %mpNodeTail.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %0, i64 0, i32 16, i32 2
-  %mCurrentJob = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %pContext, i64 0, i32 4
-  %mnSize.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %0, i64 0, i32 16, i32 3
-  %mnActiveCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %0, i64 0, i32 4
-  %mpRunnable = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %pContext, i64 0, i32 4, i32 1
-  %mpContext = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %pContext, i64 0, i32 4, i32 3
-  %mpFunction = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %pContext, i64 0, i32 4, i32 2
-  %mnIdleTimeoutMilliseconds = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %0, i64 0, i32 5
-  %tv_nsec.i.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %0, i64 0, i32 5, i32 0, i32 1
-  %3 = getelementptr inbounds { i64, i64 }, ptr %timeoutAbsolute, i64 0, i32 1
+  %mpNodeHead.i = getelementptr inbounds i8, ptr %0, i64 248
+  %mpNodeTail.i = getelementptr inbounds i8, ptr %0, i64 256
+  %mCurrentJob = getelementptr inbounds i8, ptr %pContext, i64 24
+  %mnSize.i = getelementptr inbounds i8, ptr %0, i64 264
+  %mnActiveCount = getelementptr inbounds i8, ptr %0, i64 16
+  %mpRunnable = getelementptr inbounds i8, ptr %pContext, i64 32
+  %mpContext = getelementptr inbounds i8, ptr %pContext, i64 48
+  %mpFunction = getelementptr inbounds i8, ptr %pContext, i64 40
+  %mnIdleTimeoutMilliseconds = getelementptr inbounds i8, ptr %0, i64 24
+  %tv_nsec.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds i8, ptr %timeoutAbsolute, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end52
   %4 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %4, i64 0, i32 2
+  %mpNext.i = getelementptr inbounds i8, ptr %4, i64 40
   %5 = load ptr, ptr %mpNext.i, align 8
   %6 = load ptr, ptr %mpNodeTail.i, align 8
   %cmp.i = icmp eq ptr %5, %6
@@ -1338,18 +1317,18 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then:                                          ; preds = %while.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %mCurrentJob, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %7 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %7, i64 0, i32 2
+  %mpNext.i.i = getelementptr inbounds i8, ptr %7, i64 40
   %8 = load ptr, ptr %mpNext.i.i, align 8
   %9 = load ptr, ptr %mpNodeTail.i, align 8
   %cmp.i.i = icmp eq ptr %8, %9
   br i1 %cmp.i.i, label %_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9pop_frontEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %mpNext2.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %8, i64 0, i32 2
+  %mpNext2.i = getelementptr inbounds i8, ptr %8, i64 40
   %10 = load ptr, ptr %mpNext2.i, align 8
   store ptr %10, ptr %mpNext.i.i, align 8
   %11 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %10, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %10, i64 32
   store ptr %11, ptr %mpPrev.i, align 8
   %call.i.i = call noundef ptr @_ZN2EA6Thread12GetAllocatorEv()
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
@@ -1357,7 +1336,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %call.i.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %12 = load ptr, ptr %vfn.i.i, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, ptr noundef nonnull %8, i64 noundef 0)
   br label %_ZN2EA6Thread7details24ListDefaultAllocatorImplINS0_11simple_listINS0_10ThreadPool3JobENS2_IS5_EEE9list_nodeEE7destroyEPS8_.exit.i
@@ -1383,7 +1362,7 @@ _ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocat
 if.then9:                                         ; preds = %_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9pop_frontEv.exit
   %16 = load ptr, ptr %mpContext, align 8
   %vtable = load ptr, ptr %15, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %17 = load ptr, ptr %vfn, align 8
   %call13 = call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %16)
   br label %if.end24
@@ -1491,15 +1470,15 @@ declare noundef i32 @_ZN2EA6Thread9Condition4WaitEPNS0_5MutexERKNS0_10ThreadTime
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA6Thread10ThreadPool12RemoveThreadEPNS1_10ThreadInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %pThreadInfo) local_unnamed_addr #0 align 2 {
 entry:
-  %mpNodeHead.i.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 1
+  %mpNodeHead.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !48
-  %mpNodeTail.i.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 2
+  %mpNodeTail.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !53
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %land.rhs.i, %entry
   %.pn.i = phi ptr [ %0, %entry ], [ %storemerge.i, %land.rhs.i ]
-  %storemerge.in.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %.pn.i, i64 0, i32 2
+  %storemerge.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 16
   %storemerge.i = load ptr, ptr %storemerge.in.i, align 8, !noalias !54
   %cmp.i.not.i = icmp eq ptr %1, %storemerge.i
   br i1 %cmp.i.not.i, label %if.end18, label %land.rhs.i
@@ -1512,7 +1491,7 @@ land.rhs.i:                                       ; preds = %while.cond.i
 if.then:                                          ; preds = %land.rhs.i
   %3 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %tobool.not = icmp eq ptr %3, null
-  %mpThread5 = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %pThreadInfo, i64 0, i32 2
+  %mpThread5 = getelementptr inbounds i8, ptr %pThreadInfo, i64 8
   %4 = load ptr, ptr %mpThread5, align 8
   br i1 %tobool.not, label %if.else, label %if.then3
 
@@ -1521,7 +1500,7 @@ if.then3:                                         ; preds = %if.then
   %5 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %6 = load ptr, ptr %mpThread5, align 8
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %7 = load ptr, ptr %vfn, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6, i64 noundef 0)
   br label %if.end
@@ -1536,26 +1515,26 @@ delete.notnull:                                   ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %delete.notnull, %if.then3
-  %mpThread6 = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %pThreadInfo, i64 0, i32 2
+  %mpThread6 = getelementptr inbounds i8, ptr %pThreadInfo, i64 8
   store ptr null, ptr %mpThread6, align 8
   %8 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !56
-  %mpNext.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %8, i64 0, i32 2
+  %mpNext.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %9 = load ptr, ptr %mpNext.i.i, align 8, !noalias !56
   %10 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !56
   %cmp.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i, label %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %mpNext.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %storemerge.i, i64 0, i32 2
+  %mpNext.i = getelementptr inbounds i8, ptr %storemerge.i, i64 16
   %11 = load ptr, ptr %mpNext.i, align 8, !noalias !56
-  %mpPrev.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %storemerge.i, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %storemerge.i, i64 8
   %12 = load ptr, ptr %mpPrev.i, align 8, !noalias !56
-  %mpPrev5.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %11, i64 0, i32 1
+  %mpPrev5.i = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %12, ptr %mpPrev5.i, align 8, !noalias !56
   %13 = load ptr, ptr %mpNext.i, align 8, !noalias !56
-  %mpNext10.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %12, i64 0, i32 2
+  %mpNext10.i = getelementptr inbounds i8, ptr %12, i64 16
   store ptr %13, ptr %mpNext10.i, align 8, !noalias !56
-  %mnSize.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 3
+  %mnSize.i = getelementptr inbounds i8, ptr %this, i64 232
   %14 = load i64, ptr %mnSize.i, align 8, !noalias !56
   %dec.i = add i64 %14, -1
   store i64 %dec.i, ptr %mnSize.i, align 8, !noalias !56
@@ -1565,7 +1544,7 @@ if.then.i:                                        ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.then.i
   %vtable.i.i = load ptr, ptr %call.i.i, align 8, !noalias !56
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 4
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
   %15 = load ptr, ptr %vfn.i.i, align 8, !noalias !56
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, ptr noundef nonnull %storemerge.i, i64 noundef 0), !noalias !56
   br label %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit
@@ -1581,7 +1560,7 @@ _ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefau
 
 if.then9:                                         ; preds = %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE5eraseERNS8_8iteratorE.exit
   %vtable10 = load ptr, ptr %16, align 8
-  %vfn11 = getelementptr inbounds ptr, ptr %vtable10, i64 4
+  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 32
   %17 = load ptr, ptr %vfn11, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %pThreadInfo, i64 noundef 0)
   br label %if.end16
@@ -1591,7 +1570,7 @@ delete.notnull14:                                 ; preds = %_ZN2EA6Thread11simp
   br label %if.end16
 
 if.end16:                                         ; preds = %delete.notnull14, %if.then9
-  %mnCurrentCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 3
+  %mnCurrentCount = getelementptr inbounds i8, ptr %this, i64 12
   %18 = atomicrmw sub ptr %mnCurrentCount, i32 1 seq_cst, align 4
   br label %if.end18
 
@@ -1608,28 +1587,28 @@ entry:
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mThreadMutex = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 14
+  %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
-  %mnActiveCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 4
+  %mnActiveCount = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load atomic i32, ptr %mnActiveCount seq_cst, align 8
-  %mnCurrentCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 3
+  %mnCurrentCount = getelementptr inbounds i8, ptr %this, i64 12
   %4 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
   %cmp.not = icmp slt i32 %3, %4
   br i1 %cmp.not, label %lor.lhs.false, label %land.lhs.true
 
 lor.lhs.false:                                    ; preds = %if.then
-  %mpNodeHead.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16, i32 1
+  %mpNodeHead.i = getelementptr inbounds i8, ptr %this, i64 248
   %5 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %5, i64 0, i32 2
+  %mpNext.i = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load ptr, ptr %mpNext.i, align 8
-  %mpNodeTail.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16, i32 2
+  %mpNodeTail.i = getelementptr inbounds i8, ptr %this, i64 256
   %7 = load ptr, ptr %mpNodeTail.i, align 8
   %cmp.i = icmp eq ptr %6, %7
   br i1 %cmp.i, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false, %if.then
   %8 = load atomic i32, ptr %mnCurrentCount seq_cst, align 4
-  %mnMaxCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 2
+  %mnMaxCount = getelementptr inbounds i8, ptr %this, i64 8
   %9 = load i32, ptr %mnMaxCount, align 8
   %cmp7 = icmp slt i32 %8, %9
   br i1 %cmp7, label %if.then8, label %if.end
@@ -1647,7 +1626,7 @@ if.end:                                           ; preds = %if.then8, %land.lhs
 
 if.then.i.i:                                      ; preds = %if.end
   %vtable.i.i = load ptr, ptr %call.i.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %11 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, i64 noundef 48, ptr noundef null, i32 noundef 0)
   br label %_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9push_backERKS3_.exit
@@ -1658,44 +1637,44 @@ if.else.i.i:                                      ; preds = %if.end
 
 _ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9push_backERKS3_.exit: ; preds = %if.then.i.i, %if.else.i.i
   %call3.sink.i.i = phi ptr [ %call3.i.i, %if.else.i.i ], [ %call2.i.i, %if.then.i.i ]
-  %mpRunnable.i.i2.i.i = getelementptr inbounds %"struct.EA::Thread::ThreadPool::Job", ptr %call3.sink.i.i, i64 0, i32 1
+  %mpRunnable.i.i2.i.i = getelementptr inbounds i8, ptr %call3.sink.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i.i2.i.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %call3.sink.i.i, ptr noundef nonnull align 8 dereferenceable(32) %job, i64 32, i1 false)
-  %mpNodeTail.i2 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16, i32 2
+  %mpNodeTail.i2 = getelementptr inbounds i8, ptr %this, i64 256
   %12 = load ptr, ptr %mpNodeTail.i2, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %12, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %12, i64 32
   %13 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %call3.sink.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %call3.sink.i.i, i64 32
   store ptr %13, ptr %mpPrev2.i, align 8
   %14 = load ptr, ptr %mpNodeTail.i2, align 8
-  %mpNext.i3 = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %call3.sink.i.i, i64 0, i32 2
+  %mpNext.i3 = getelementptr inbounds i8, ptr %call3.sink.i.i, i64 40
   store ptr %14, ptr %mpNext.i3, align 8
-  %mpNext5.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %13, i64 0, i32 2
+  %mpNext5.i = getelementptr inbounds i8, ptr %13, i64 40
   store ptr %call3.sink.i.i, ptr %mpNext5.i, align 8
   %15 = load ptr, ptr %mpNodeTail.i2, align 8
-  %mpPrev7.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %15, i64 0, i32 1
+  %mpPrev7.i = getelementptr inbounds i8, ptr %15, i64 32
   store ptr %call3.sink.i.i, ptr %mpPrev7.i, align 8
-  %mnSize.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16, i32 3
+  %mnSize.i = getelementptr inbounds i8, ptr %this, i64 264
   %16 = load i64, ptr %mnSize.i, align 8
   %inc.i = add i64 %16, 1
   store i64 %inc.i, ptr %mnSize.i, align 8
-  %mpNodeHead.i.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 1
+  %mpNodeHead.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %17 = load ptr, ptr %mpNodeHead.i.i, align 8, !noalias !59
-  %mpNodeTail.i.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 2
+  %mpNodeTail.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %18 = load ptr, ptr %mpNodeTail.i.i, align 8, !noalias !62
-  %it.sroa.0.0.in5.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %17, i64 0, i32 2
+  %it.sroa.0.0.in5.i = getelementptr inbounds i8, ptr %17, i64 16
   %it.sroa.0.06.i = load ptr, ptr %it.sroa.0.0.in5.i, align 8
   %cmp.i.not7.i = icmp eq ptr %18, %it.sroa.0.06.i
   br i1 %cmp.i.not7.i, label %_ZN2EA6Thread10ThreadPool10FixThreadsEv.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9push_backERKS3_.exit
-  %mDefaultThreadParameters.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 12
+  %mDefaultThreadParameters.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %it.sroa.0.08.i = phi ptr [ %it.sroa.0.06.i, %for.body.lr.ph.i ], [ %it.sroa.0.0.i, %for.inc.i ]
   %19 = load ptr, ptr %it.sroa.0.08.i, align 8
-  %mpThread.i = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %19, i64 0, i32 2
+  %mpThread.i = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %mpThread.i, align 8
   %call5.i = tail call noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef null)
   %cmp.i4 = icmp eq i32 %call5.i, 2
@@ -1708,19 +1687,19 @@ if.then.i:                                        ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
-  %it.sroa.0.0.in.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %it.sroa.0.08.i, i64 0, i32 2
+  %it.sroa.0.0.in.i = getelementptr inbounds i8, ptr %it.sroa.0.08.i, i64 16
   %it.sroa.0.0.i = load ptr, ptr %it.sroa.0.0.in.i, align 8
   %cmp.i.not.i = icmp eq ptr %18, %it.sroa.0.0.i
   br i1 %cmp.i.not.i, label %_ZN2EA6Thread10ThreadPool10FixThreadsEv.exit, label %for.body.i, !llvm.loop !30
 
 _ZN2EA6Thread10ThreadPool10FixThreadsEv.exit:     ; preds = %for.inc.i, %_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEE9push_backERKS3_.exit
-  %mnPauseCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 9
+  %mnPauseCount = getelementptr inbounds i8, ptr %this, i64 52
   %22 = load atomic i32, ptr %mnPauseCount seq_cst, align 4
   %cmp13 = icmp eq i32 %22, 0
   br i1 %cmp13, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %_ZN2EA6Thread10ThreadPool10FixThreadsEv.exit
-  %mThreadCondition = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 13
+  %mThreadCondition = getelementptr inbounds i8, ptr %this, i64 112
   %call15 = tail call noundef zeroext i1 @_ZN2EA6Thread9Condition6SignalEb(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition, i1 noundef zeroext false)
   br label %if.end16
 
@@ -1741,23 +1720,23 @@ return:                                           ; preds = %entry, %if.end16, %
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA6Thread10ThreadPool10FixThreadsEv(ptr noundef nonnull align 8 dereferenceable(272) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %mpNodeHead.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 1
+  %mpNodeHead.i = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !65
-  %mpNodeTail.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 2
+  %mpNodeTail.i = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !68
-  %it.sroa.0.0.in5 = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %0, i64 0, i32 2
+  %it.sroa.0.0.in5 = getelementptr inbounds i8, ptr %0, i64 16
   %it.sroa.0.06 = load ptr, ptr %it.sroa.0.0.in5, align 8
   %cmp.i.not7 = icmp eq ptr %1, %it.sroa.0.06
   br i1 %cmp.i.not7, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %mDefaultThreadParameters = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 12
+  %mDefaultThreadParameters = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %it.sroa.0.08 = phi ptr [ %it.sroa.0.06, %for.body.lr.ph ], [ %it.sroa.0.0, %for.inc ]
   %2 = load ptr, ptr %it.sroa.0.08, align 8
-  %mpThread = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %2, i64 0, i32 2
+  %mpThread = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %mpThread, align 8
   %call5 = tail call noundef i32 @_ZNK2EA6Thread6Thread9GetStatusEPl(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef null)
   %cmp = icmp eq i32 %call5, 2
@@ -1770,7 +1749,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %it.sroa.0.0.in = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %it.sroa.0.08, i64 0, i32 2
+  %it.sroa.0.0.in = getelementptr inbounds i8, ptr %it.sroa.0.08, i64 16
   %it.sroa.0.0 = load ptr, ptr %it.sroa.0.0.in, align 8
   %cmp.i.not = icmp eq ptr %1, %it.sroa.0.0
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !30
@@ -1783,16 +1762,16 @@ for.end:                                          ; preds = %for.inc, %entry
 define dso_local noundef i32 @_ZN2EA6Thread10ThreadPool5BeginEPNS0_9IRunnableEPvPPNS0_6ThreadEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %pRunnable, ptr noundef %pContext, ptr noundef %ppThread, i1 noundef zeroext %bEnableDeferred) local_unnamed_addr #0 align 2 {
 entry:
   %job = alloca %"struct.EA::Thread::ThreadPool::Job", align 8
-  %mpRunnable.i = getelementptr inbounds %"struct.EA::Thread::ThreadPool::Job", ptr %job, i64 0, i32 1
+  %mpRunnable.i = getelementptr inbounds i8, ptr %job, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i, i8 0, i64 24, i1 false)
-  %mnLastJobID = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 10
+  %mnLastJobID = getelementptr inbounds i8, ptr %this, i64 56
   %0 = atomicrmw add ptr %mnLastJobID, i32 1 seq_cst, align 4
   %1 = add i32 %0, 1
   store i32 %1, ptr %job, align 8
   store ptr %pRunnable, ptr %mpRunnable.i, align 8
-  %mpFunction = getelementptr inbounds %"struct.EA::Thread::ThreadPool::Job", ptr %job, i64 0, i32 2
+  %mpFunction = getelementptr inbounds i8, ptr %job, i64 16
   store ptr null, ptr %mpFunction, align 8
-  %mpContext = getelementptr inbounds %"struct.EA::Thread::ThreadPool::Job", ptr %job, i64 0, i32 3
+  %mpContext = getelementptr inbounds i8, ptr %job, i64 24
   store ptr %pContext, ptr %mpContext, align 8
   %call2 = call noundef i32 @_ZN2EA6Thread10ThreadPool8QueueJobERKNS1_3JobEPPNS0_6ThreadEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(32) %job, ptr noundef %ppThread, i1 zeroext poison), !range !22
   %cmp.not = icmp eq i32 %call2, -1
@@ -1804,16 +1783,16 @@ entry:
 define dso_local noundef i32 @_ZN2EA6Thread10ThreadPool5BeginEPFlPvES2_PPNS0_6ThreadEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %pFunction, ptr noundef %pContext, ptr noundef %ppThread, i1 noundef zeroext %bEnableDeferred) local_unnamed_addr #0 align 2 {
 entry:
   %job = alloca %"struct.EA::Thread::ThreadPool::Job", align 8
-  %mpRunnable.i = getelementptr inbounds %"struct.EA::Thread::ThreadPool::Job", ptr %job, i64 0, i32 1
+  %mpRunnable.i = getelementptr inbounds i8, ptr %job, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i, i8 0, i64 24, i1 false)
-  %mnLastJobID = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 10
+  %mnLastJobID = getelementptr inbounds i8, ptr %this, i64 56
   %0 = atomicrmw add ptr %mnLastJobID, i32 1 seq_cst, align 4
   %1 = add i32 %0, 1
   store i32 %1, ptr %job, align 8
   store ptr null, ptr %mpRunnable.i, align 8
-  %mpFunction = getelementptr inbounds %"struct.EA::Thread::ThreadPool::Job", ptr %job, i64 0, i32 2
+  %mpFunction = getelementptr inbounds i8, ptr %job, i64 16
   store ptr %pFunction, ptr %mpFunction, align 8
-  %mpContext = getelementptr inbounds %"struct.EA::Thread::ThreadPool::Job", ptr %job, i64 0, i32 3
+  %mpContext = getelementptr inbounds i8, ptr %job, i64 24
   store ptr %pContext, ptr %mpContext, align 8
   %call2 = call noundef i32 @_ZN2EA6Thread10ThreadPool8QueueJobERKNS1_3JobEPPNS0_6ThreadEb(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(32) %job, ptr noundef %ppThread, i1 zeroext poison), !range !22
   %cmp.not = icmp eq i32 %call2, -1
@@ -1824,7 +1803,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA6Thread10ThreadPool5PauseEb(ptr noundef nonnull align 8 dereferenceable(272) %this, i1 noundef zeroext %bPause) local_unnamed_addr #0 align 2 {
 entry:
-  %mnPauseCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 9
+  %mnPauseCount = getelementptr inbounds i8, ptr %this, i64 52
   br i1 %bPause, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -1837,19 +1816,19 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %if.then4, label %if.end12
 
 if.then4:                                         ; preds = %if.else
-  %mThreadMutex = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 14
+  %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
   %call5 = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
-  %mpNodeHead.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16, i32 1
+  %mpNodeHead.i = getelementptr inbounds i8, ptr %this, i64 248
   %2 = load ptr, ptr %mpNodeHead.i, align 8
-  %mpNext.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::Job>::list_node", ptr %2, i64 0, i32 2
+  %mpNext.i = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %mpNext.i, align 8
-  %mpNodeTail.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 16, i32 2
+  %mpNodeTail.i = getelementptr inbounds i8, ptr %this, i64 256
   %4 = load ptr, ptr %mpNodeTail.i, align 8
   %cmp.i = icmp eq ptr %3, %4
   br i1 %cmp.i, label %if.end, label %if.then7
 
 if.then7:                                         ; preds = %if.then4
-  %mThreadCondition = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 13
+  %mThreadCondition = getelementptr inbounds i8, ptr %this, i64 112
   %call8 = tail call noundef zeroext i1 @_ZN2EA6Thread9Condition6SignalEb(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition, i1 noundef zeroext true)
   br label %if.end
 
@@ -1864,7 +1843,7 @@ if.end12:                                         ; preds = %if.else, %if.end, %
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA6Thread10ThreadPool4LockEv(ptr noundef nonnull align 8 dereferenceable(272) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %mThreadMutex = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 14
+  %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
   ret void
 }
@@ -1872,7 +1851,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA6Thread10ThreadPool6UnlockEv(ptr noundef nonnull align 8 dereferenceable(272) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %mThreadMutex = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 14
+  %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
   %call = tail call noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex)
   ret void
 }
@@ -1880,28 +1859,28 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @_ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE(ptr nocapture noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull align 8 dereferenceable(41) %tp) local_unnamed_addr #8 align 2 {
 entry:
-  %mnProcessor = getelementptr inbounds %"struct.EA::Thread::ThreadParameters", ptr %tp, i64 0, i32 3
+  %mnProcessor = getelementptr inbounds i8, ptr %tp, i64 20
   %0 = load i32, ptr %mnProcessor, align 4
   %cmp = icmp eq i32 %0, -1
   br i1 %cmp, label %if.then, label %if.end11
 
 if.then:                                          ; preds = %entry
-  %mnProcessorMask = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 6
+  %mnProcessorMask = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load i32, ptr %mnProcessorMask, align 8
   %cmp2.not = icmp eq i32 %1, -1
   br i1 %cmp2.not, label %if.end11, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.then
-  %mnNextProcessor = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 8
+  %mnNextProcessor = getelementptr inbounds i8, ptr %this, i64 48
   %mnNextProcessor.promoted = load i32, ptr %mnNextProcessor, align 8
-  %shl3 = shl nuw i32 1, %mnNextProcessor.promoted
-  %and4 = and i32 %shl3, %1
-  %cmp55 = icmp eq i32 %and4, 0
-  br i1 %cmp55, label %while.body, label %while.end
+  %shl2 = shl nuw i32 1, %mnNextProcessor.promoted
+  %and3 = and i32 %shl2, %1
+  %cmp54 = icmp eq i32 %and3, 0
+  br i1 %cmp54, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
-  %inc26 = phi i32 [ %inc, %while.body ], [ %mnNextProcessor.promoted, %while.cond.preheader ]
-  %inc = add i32 %inc26, 1
+  %2 = phi i32 [ %inc, %while.body ], [ %mnNextProcessor.promoted, %while.cond.preheader ]
+  %inc = add i32 %2, 1
   %shl = shl nuw i32 1, %inc
   %and = and i32 %shl, %1
   %cmp5 = icmp eq i32 %and, 0
@@ -1909,9 +1888,9 @@ while.body:                                       ; preds = %while.cond.preheade
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
   %.lcssa = phi i32 [ %mnNextProcessor.promoted, %while.cond.preheader ], [ %inc, %while.body ]
-  %mnProcessorCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 7
-  %2 = load i32, ptr %mnProcessorCount, align 4
-  %rem = urem i32 %.lcssa, %2
+  %mnProcessorCount = getelementptr inbounds i8, ptr %this, i64 44
+  %3 = load i32, ptr %mnProcessorCount, align 4
+  %rem = urem i32 %.lcssa, %3
   %inc9 = add nuw i32 %rem, 1
   store i32 %inc9, ptr %mnNextProcessor, align 8
   store i32 %rem, ptr %mnProcessor, align 4
@@ -1936,7 +1915,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then
   %vtable.i.i.i = load ptr, ptr %call.i.i.i, align 8
-  %vfn.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i, i64 2
+  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i.i, align 8
   %call2.i.i.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i.i, i64 noundef 24, ptr noundef null, i32 noundef 0)
   br label %_ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE.exit
@@ -1948,52 +1927,52 @@ if.else.i.i.i:                                    ; preds = %if.then
 _ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %retval.0.i.i.i = phi ptr [ %call2.i.i.i, %if.then.i.i.i ], [ %call3.i.i.i, %if.else.i.i.i ]
   store ptr %call, ptr %retval.0.i.i.i, align 8
-  %mpNodeTail.i.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 2
+  %mpNodeTail.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load ptr, ptr %mpNodeTail.i.i, align 8
-  %mpPrev.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %1, i64 0, i32 1
+  %mpPrev.i.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i.i, align 8
-  %mpPrev2.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %retval.0.i.i.i, i64 0, i32 1
+  %mpPrev2.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   store ptr %2, ptr %mpPrev2.i.i, align 8
   %3 = load ptr, ptr %mpNodeTail.i.i, align 8
-  %mpNext.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %retval.0.i.i.i, i64 0, i32 2
+  %mpNext.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
   store ptr %3, ptr %mpNext.i.i, align 8
-  %mpNext5.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %2, i64 0, i32 2
+  %mpNext5.i.i = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %retval.0.i.i.i, ptr %mpNext5.i.i, align 8
   %4 = load ptr, ptr %mpNodeTail.i.i, align 8
-  %mpPrev7.i.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %4, i64 0, i32 1
+  %mpPrev7.i.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %retval.0.i.i.i, ptr %mpPrev7.i.i, align 8
-  %mnSize.i.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 3
+  %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 232
   %5 = load i64, ptr %mnSize.i.i, align 8
   %inc.i.i = add i64 %5, 1
   store i64 %inc.i.i, ptr %mnSize.i.i, align 8
-  %mnCurrentCount.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 3
+  %mnCurrentCount.i = getelementptr inbounds i8, ptr %this, i64 12
   %6 = atomicrmw add ptr %mnCurrentCount.i, i32 1 seq_cst, align 4
   br i1 %bBeginThread, label %if.then3, label %if.end6
 
 if.then3:                                         ; preds = %_ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %tpUsed, ptr noundef nonnull align 8 dereferenceable(48) %tp, i64 48, i1 false)
-  %mnProcessor.i = getelementptr inbounds %"struct.EA::Thread::ThreadParameters", ptr %tpUsed, i64 0, i32 3
+  %mnProcessor.i = getelementptr inbounds i8, ptr %tpUsed, i64 20
   %7 = load i32, ptr %mnProcessor.i, align 4
   %cmp.i = icmp eq i32 %7, -1
   br i1 %cmp.i, label %if.then.i, label %_ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE.exit
 
 if.then.i:                                        ; preds = %if.then3
-  %mnProcessorMask.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 6
+  %mnProcessorMask.i = getelementptr inbounds i8, ptr %this, i64 40
   %8 = load i32, ptr %mnProcessorMask.i, align 8
   %cmp2.not.i = icmp eq i32 %8, -1
   br i1 %cmp2.not.i, label %_ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE.exit, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.then.i
-  %mnNextProcessor.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 8
+  %mnNextProcessor.i = getelementptr inbounds i8, ptr %this, i64 48
   %mnNextProcessor.promoted.i = load i32, ptr %mnNextProcessor.i, align 8
-  %shl3.i = shl nuw i32 1, %mnNextProcessor.promoted.i
-  %and4.i = and i32 %shl3.i, %8
-  %cmp55.i = icmp eq i32 %and4.i, 0
-  br i1 %cmp55.i, label %while.body.i, label %while.end.i
+  %shl2.i = shl nuw i32 1, %mnNextProcessor.promoted.i
+  %and3.i = and i32 %shl2.i, %8
+  %cmp54.i = icmp eq i32 %and3.i, 0
+  br i1 %cmp54.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
-  %inc26.i = phi i32 [ %inc.i, %while.body.i ], [ %mnNextProcessor.promoted.i, %while.cond.preheader.i ]
-  %inc.i = add i32 %inc26.i, 1
+  %9 = phi i32 [ %inc.i, %while.body.i ], [ %mnNextProcessor.promoted.i, %while.cond.preheader.i ]
+  %inc.i = add i32 %9, 1
   %shl.i = shl nuw i32 1, %inc.i
   %and.i = and i32 %shl.i, %8
   %cmp5.i = icmp eq i32 %and.i, 0
@@ -2001,19 +1980,19 @@ while.body.i:                                     ; preds = %while.cond.preheade
 
 while.end.i:                                      ; preds = %while.body.i, %while.cond.preheader.i
   %.lcssa.i = phi i32 [ %mnNextProcessor.promoted.i, %while.cond.preheader.i ], [ %inc.i, %while.body.i ]
-  %mnProcessorCount.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 7
-  %9 = load i32, ptr %mnProcessorCount.i, align 4
-  %rem.i = urem i32 %.lcssa.i, %9
+  %mnProcessorCount.i = getelementptr inbounds i8, ptr %this, i64 44
+  %10 = load i32, ptr %mnProcessorCount.i, align 4
+  %rem.i = urem i32 %.lcssa.i, %10
   %inc9.i = add nuw i32 %rem.i, 1
   store i32 %inc9.i, ptr %mnNextProcessor.i, align 8
   store i32 %rem.i, ptr %mnProcessor.i, align 4
   br label %_ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE.exit
 
 _ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE.exit: ; preds = %if.then3, %if.then.i, %while.end.i
-  %mpThread = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %call, i64 0, i32 2
-  %10 = load ptr, ptr %mpThread, align 8
+  %mpThread = getelementptr inbounds i8, ptr %call, i64 8
+  %11 = load ptr, ptr %mpThread, align 8
   %call4 = tail call noundef ptr @_ZN2EA6Thread6Thread36GetGlobalRunnableFunctionUserWrapperEv()
-  %call5 = call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @_ZN2EA6Thread10ThreadPool14ThreadFunctionEPv, ptr noundef nonnull %call, ptr noundef nonnull %tpUsed, ptr noundef %call4)
+  %call5 = call noundef i64 @_ZN2EA6Thread6Thread5BeginEPFlPvES2_PKNS0_16ThreadParametersEPFlS4_S2_E(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @_ZN2EA6Thread10ThreadPool14ThreadFunctionEPv, ptr noundef nonnull %call, ptr noundef nonnull %tpUsed, ptr noundef %call4)
   br label %if.end6
 
 if.end6:                                          ; preds = %_ZN2EA6Thread10ThreadPool9AddThreadEPNS1_10ThreadInfoE.exit, %_ZN2EA6Thread10ThreadPool21SetupThreadParametersERNS0_16ThreadParametersE.exit, %entry
@@ -2029,7 +2008,7 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 56, ptr noundef null, i32 noundef 0)
   br label %if.then
@@ -2041,16 +2020,16 @@ cond.false:                                       ; preds = %entry
 if.then:                                          ; preds = %cond.false, %cond.true
   %call2.sink13 = phi ptr [ %call2, %cond.false ], [ %call, %cond.true ]
   store volatile i8 0, ptr %call2.sink13, align 8
-  %mbQuit.i8 = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %call2.sink13, i64 0, i32 1
+  %mbQuit.i8 = getelementptr inbounds i8, ptr %call2.sink13, i64 1
   store volatile i8 0, ptr %mbQuit.i8, align 1
-  %mpThread.i9 = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %call2.sink13, i64 0, i32 2
-  %mpRunnable.i.i10 = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %call2.sink13, i64 0, i32 4, i32 1
+  %mpThread.i9 = getelementptr inbounds i8, ptr %call2.sink13, i64 8
+  %mpRunnable.i.i10 = getelementptr inbounds i8, ptr %call2.sink13, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mpRunnable.i.i10, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mpThread.i9, i8 0, i64 16, i1 false)
   store volatile i8 0, ptr %call2.sink13, align 8
-  %mbQuit = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %call2.sink13, i64 0, i32 1
+  %mbQuit = getelementptr inbounds i8, ptr %call2.sink13, i64 1
   store volatile i8 0, ptr %mbQuit, align 1
-  %mpThreadPool = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %call2.sink13, i64 0, i32 3
+  %mpThreadPool = getelementptr inbounds i8, ptr %call2.sink13, i64 16
   store ptr %this, ptr %mpThreadPool, align 8
   %2 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %tobool4.not = icmp eq ptr %2, null
@@ -2058,7 +2037,7 @@ if.then:                                          ; preds = %cond.false, %cond.t
 
 cond.true5:                                       ; preds = %if.then
   %vtable6 = load ptr, ptr %2, align 8
-  %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 2
+  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 16
   %3 = load ptr, ptr %vfn7, align 8
   %call8 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 8, ptr noundef null, i32 noundef 0)
   tail call void @_ZN2EA6Thread6ThreadC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call8)
@@ -2071,7 +2050,7 @@ cond.false9:                                      ; preds = %if.then
 
 cond.end18:                                       ; preds = %cond.false9, %cond.true5
   %cond19 = phi ptr [ %call8, %cond.true5 ], [ %call10, %cond.false9 ]
-  %mpThread = getelementptr inbounds %"struct.EA::Thread::ThreadPool::ThreadInfo", ptr %call2.sink13, i64 0, i32 2
+  %mpThread = getelementptr inbounds i8, ptr %call2.sink13, i64 8
   store ptr %cond19, ptr %mpThread, align 8
   ret ptr %call2.sink13
 
@@ -2091,7 +2070,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %vtable.i.i = load ptr, ptr %call.i.i, align 8
-  %vfn.i.i = getelementptr inbounds ptr, ptr %vtable.i.i, i64 2
+  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %0 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %call.i.i, i64 noundef 24, ptr noundef null, i32 noundef 0)
   br label %_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE9push_backERKS4_.exit
@@ -2103,25 +2082,25 @@ if.else.i.i:                                      ; preds = %entry
 _ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEE9push_backERKS4_.exit: ; preds = %if.then.i.i, %if.else.i.i
   %retval.0.i.i = phi ptr [ %call2.i.i, %if.then.i.i ], [ %call3.i.i, %if.else.i.i ]
   store ptr %pThreadInfo, ptr %retval.0.i.i, align 8
-  %mpNodeTail.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 2
+  %mpNodeTail.i = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load ptr, ptr %mpNodeTail.i, align 8
-  %mpPrev.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %1, i64 0, i32 1
+  %mpPrev.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %mpPrev.i, align 8
-  %mpPrev2.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %retval.0.i.i, i64 0, i32 1
+  %mpPrev2.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store ptr %2, ptr %mpPrev2.i, align 8
   %3 = load ptr, ptr %mpNodeTail.i, align 8
-  %mpNext.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %retval.0.i.i, i64 0, i32 2
+  %mpNext.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
   store ptr %3, ptr %mpNext.i, align 8
-  %mpNext5.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %2, i64 0, i32 2
+  %mpNext5.i = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %retval.0.i.i, ptr %mpNext5.i, align 8
   %4 = load ptr, ptr %mpNodeTail.i, align 8
-  %mpPrev7.i = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %4, i64 0, i32 1
+  %mpPrev7.i = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %retval.0.i.i, ptr %mpPrev7.i, align 8
-  %mnSize.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 3
+  %mnSize.i = getelementptr inbounds i8, ptr %this, i64 232
   %5 = load i64, ptr %mnSize.i, align 8
   %inc.i = add i64 %5, 1
   store i64 %inc.i, ptr %mnSize.i, align 8
-  %mnCurrentCount = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 3
+  %mnCurrentCount = getelementptr inbounds i8, ptr %this, i64 12
   %6 = atomicrmw add ptr %mnCurrentCount, i32 1 seq_cst, align 4
   ret void
 }
@@ -2133,20 +2112,20 @@ declare noundef ptr @_ZN2EA6Thread6Thread36GetGlobalRunnableFunctionUserWrapperE
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN2EA6Thread10ThreadPool13GetThreadInfoEi(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %index) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  %mThreadMutex = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 14
+  %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
   %call.i = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
-  %mpNodeHead.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 1
+  %mpNodeHead.i = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %mpNodeHead.i, align 8, !noalias !71
-  %mpNodeTail.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 2
+  %mpNodeTail.i = getelementptr inbounds i8, ptr %this, i64 224
   %1 = load ptr, ptr %mpNodeTail.i, align 8, !noalias !74
-  %it.sroa.0.0.in10 = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %0, i64 0, i32 2
+  %it.sroa.0.0.in10 = getelementptr inbounds i8, ptr %0, i64 16
   %it.sroa.0.011 = load ptr, ptr %it.sroa.0.0.in10, align 8
   %cmp.i.not12 = icmp eq ptr %1, %it.sroa.0.011
   br i1 %cmp.i.not12, label %cleanup, label %for.body
 
 invoke.cont5:                                     ; preds = %for.body
   %inc = add nuw nsw i32 %i.013, 1
-  %it.sroa.0.0.in = getelementptr inbounds %"struct.EA::Thread::simple_list<EA::Thread::ThreadPool::ThreadInfo *>::list_node", ptr %it.sroa.0.014, i64 0, i32 2
+  %it.sroa.0.0.in = getelementptr inbounds i8, ptr %it.sroa.0.014, i64 16
   %it.sroa.0.0 = load ptr, ptr %it.sroa.0.0.in, align 8
   %cmp.i.not = icmp eq ptr %1, %it.sroa.0.0
   br i1 %cmp.i.not, label %cleanup, label %for.body
@@ -2180,9 +2159,9 @@ _ZN2EA6Thread9AutoMutexD2Ev.exit5:                ; preds = %cleanup
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN2EA6Thread10ThreadPool14GetThreadCountEv(ptr noundef nonnull align 8 dereferenceable(272) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mThreadMutex = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 14
+  %mThreadMutex = getelementptr inbounds i8, ptr %this, i64 160
   %call.i = tail call noundef i32 @_ZN2EA6Thread5Mutex4LockERKNS0_10ThreadTimeE(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex, ptr noundef nonnull align 8 dereferenceable(16) @_ZN2EA6ThreadL12kTimeoutNoneE)
-  %mnSize.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %this, i64 0, i32 15, i32 3
+  %mnSize.i = getelementptr inbounds i8, ptr %this, i64 232
   %0 = load i64, ptr %mnSize.i, align 8
   %call.i1 = invoke noundef i32 @_ZN2EA6Thread5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex)
           to label %_ZN2EA6Thread9AutoMutexD2Ev.exit unwind label %terminate.lpad.i
@@ -2219,7 +2198,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 272, ptr noundef null, i32 noundef 0)
   tail call void @_ZN2EA6Thread10ThreadPoolC2EPKNS0_20ThreadPoolParametersEb(ptr noundef nonnull align 8 dereferenceable(272) %call, ptr noundef null, i1 noundef zeroext true)
@@ -2260,17 +2239,17 @@ terminate.lpad.i:                                 ; preds = %if.then
   unreachable
 
 _ZN2EA6Thread10ThreadPoolD2Ev.exit:               ; preds = %if.then
-  %mJobList.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %pThreadPool, i64 0, i32 16
+  %mJobList.i = getelementptr inbounds i8, ptr %pThreadPool, i64 240
   tail call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList.i) #14
-  %mThreadInfoList.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %pThreadPool, i64 0, i32 15
+  %mThreadInfoList.i = getelementptr inbounds i8, ptr %pThreadPool, i64 208
   tail call void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mThreadInfoList.i) #14
-  %mThreadMutex.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %pThreadPool, i64 0, i32 14
+  %mThreadMutex.i = getelementptr inbounds i8, ptr %pThreadPool, i64 160
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex.i) #14
-  %mThreadCondition.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %pThreadPool, i64 0, i32 13
+  %mThreadCondition.i = getelementptr inbounds i8, ptr %pThreadPool, i64 112
   tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition.i) #14
   %3 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %pThreadPool, i64 noundef 0)
   br label %if.end
@@ -2291,13 +2270,13 @@ terminate.lpad.i4:                                ; preds = %delete.notnull
   unreachable
 
 _ZN2EA6Thread10ThreadPoolD2Ev.exit9:              ; preds = %delete.notnull
-  %mJobList.i5 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %pThreadPool, i64 0, i32 16
+  %mJobList.i5 = getelementptr inbounds i8, ptr %pThreadPool, i64 240
   tail call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList.i5) #14
-  %mThreadInfoList.i6 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %pThreadPool, i64 0, i32 15
+  %mThreadInfoList.i6 = getelementptr inbounds i8, ptr %pThreadPool, i64 208
   tail call void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mThreadInfoList.i6) #14
-  %mThreadMutex.i7 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %pThreadPool, i64 0, i32 14
+  %mThreadMutex.i7 = getelementptr inbounds i8, ptr %pThreadPool, i64 160
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex.i7) #14
-  %mThreadCondition.i8 = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %pThreadPool, i64 0, i32 13
+  %mThreadCondition.i8 = getelementptr inbounds i8, ptr %pThreadPool, i64 112
   tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition.i8) #14
   tail call void @_ZdlPv(ptr noundef nonnull %pThreadPool) #15
   br label %if.end
@@ -2333,13 +2312,13 @@ terminate.lpad.i:                                 ; preds = %entry
   unreachable
 
 _ZN2EA6Thread10ThreadPoolD2Ev.exit:               ; preds = %entry
-  %mJobList.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %pThreadPool, i64 0, i32 16
+  %mJobList.i = getelementptr inbounds i8, ptr %pThreadPool, i64 240
   tail call void @_ZN2EA6Thread11simple_listINS0_10ThreadPool3JobENS0_7details24ListDefaultAllocatorImplIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mJobList.i) #14
-  %mThreadInfoList.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %pThreadPool, i64 0, i32 15
+  %mThreadInfoList.i = getelementptr inbounds i8, ptr %pThreadPool, i64 208
   tail call void @_ZN2EA6Thread11simple_listIPNS0_10ThreadPool10ThreadInfoENS0_7details24ListDefaultAllocatorImplIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %mThreadInfoList.i) #14
-  %mThreadMutex.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %pThreadPool, i64 0, i32 14
+  %mThreadMutex.i = getelementptr inbounds i8, ptr %pThreadPool, i64 160
   tail call void @_ZN2EA6Thread5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadMutex.i) #14
-  %mThreadCondition.i = getelementptr inbounds %"class.EA::Thread::ThreadPool", ptr %pThreadPool, i64 0, i32 13
+  %mThreadCondition.i = getelementptr inbounds i8, ptr %pThreadPool, i64 112
   tail call void @_ZN2EA6Thread9ConditionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %mThreadCondition.i) #14
   ret void
 }

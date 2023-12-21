@@ -3,17 +3,6 @@ source_filename = "bench/openssl/original/libssl-lib-tls_depr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.ssl_st = type { i32, ptr, ptr, ptr, %struct.CRYPTO_REF_COUNT, ptr, %struct.crypto_ex_data_st }
-%struct.CRYPTO_REF_COUNT = type { i32 }
-%struct.crypto_ex_data_st = type { ptr, ptr }
-%struct.ssl_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, %struct.OSSL_TIME, ptr, ptr, ptr, %struct.anon.3, %struct.CRYPTO_REF_COUNT, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.crypto_ex_data_st, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i64, ptr, ptr, i32, ptr, ptr, i32, i64, [32 x i8], ptr, ptr, ptr, i32, ptr, ptr, ptr, i64, i64, i64, i64, ptr, ptr, ptr, %struct.anon.4, ptr, ptr, ptr, ptr, %struct.srp_ctx_st, %struct.dane_ctx_st, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, i32, ptr, ptr, ptr, [14 x i32], [24 x ptr], [14 x ptr], [14 x i64], i64, ptr, ptr, ptr, i64, i64, ptr, i64, i64, i32, i32, i32, i32, ptr, i64, ptr, i64 }
-%struct.OSSL_TIME = type { i64 }
-%struct.anon.3 = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.anon.4 = type { ptr, ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, i32, i8, i64, ptr, i64, ptr, ptr, i64, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, [32 x i8] }
-%struct.srp_ctx_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64 }
-%struct.dane_ctx_st = type { ptr, ptr, i8, i64 }
-%struct.ssl_hmac_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [26 x i8] c"../openssl/ssl/tls_depr.c\00", align 1
 @__func__.SSL_CTX_set_client_cert_engine = private unnamed_addr constant [31 x i8] c"SSL_CTX_set_client_cert_engine\00", align 1
 @__func__.ssl_set_tmp_ecdh_groups = private unnamed_addr constant [24 x i8] c"ssl_set_tmp_ecdh_groups\00", align 1
@@ -72,9 +61,9 @@ declare ptr @ENGINE_get_digest(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @tls_engine_load_ssl_client_cert(ptr noundef %s, ptr noundef %px509, ptr noundef %ppkey) local_unnamed_addr #0 {
 entry:
-  %ctx = getelementptr inbounds %struct.ssl_st, ptr %s, i64 0, i32 1
+  %ctx = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load ptr, ptr %ctx, align 8
-  %client_cert_engine = getelementptr inbounds %struct.ssl_ctx_st, ptr %0, i64 0, i32 58
+  %client_cert_engine = getelementptr inbounds i8, ptr %0, i64 520
   %1 = load ptr, ptr %client_cert_engine, align 8
   %call = tail call ptr @SSL_get_client_CA_list(ptr noundef %s) #3
   %call3 = tail call i32 @ENGINE_load_ssl_client_cert(ptr noundef %1, ptr noundef %s, ptr noundef %call, ptr noundef %px509, ptr noundef %ppkey, ptr noundef null, ptr noundef null, ptr noundef null) #3
@@ -111,7 +100,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %client_cert_engine = getelementptr inbounds %struct.ssl_ctx_st, ptr %ctx, i64 0, i32 58
+  %client_cert_engine = getelementptr inbounds i8, ptr %ctx, i64 520
   store ptr %e, ptr %client_cert_engine, align 8
   br label %return
 
@@ -134,7 +123,7 @@ declare ptr @ENGINE_get_ssl_client_cert_function(ptr noundef) local_unnamed_addr
 define i32 @ssl_hmac_old_new(ptr nocapture noundef writeonly %ret) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @HMAC_CTX_new() #3
-  %old_ctx = getelementptr inbounds %struct.ssl_hmac_st, ptr %ret, i64 0, i32 1
+  %old_ctx = getelementptr inbounds i8, ptr %ret, i64 8
   store ptr %call, ptr %old_ctx, align 8
   %cmp = icmp ne ptr %call, null
   %. = zext i1 %cmp to i32
@@ -146,7 +135,7 @@ declare ptr @HMAC_CTX_new() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @ssl_hmac_old_free(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
-  %old_ctx = getelementptr inbounds %struct.ssl_hmac_st, ptr %ctx, i64 0, i32 1
+  %old_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %old_ctx, align 8
   tail call void @HMAC_CTX_free(ptr noundef %0) #3
   ret void
@@ -157,7 +146,7 @@ declare void @HMAC_CTX_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ssl_hmac_old_init(ptr nocapture noundef readonly %ctx, ptr noundef %key, i64 noundef %len, ptr noundef %md) local_unnamed_addr #0 {
 entry:
-  %old_ctx = getelementptr inbounds %struct.ssl_hmac_st, ptr %ctx, i64 0, i32 1
+  %old_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %old_ctx, align 8
   %conv = trunc i64 %len to i32
   %call = tail call ptr @EVP_get_digestbyname(ptr noundef %md) #3
@@ -172,7 +161,7 @@ declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @ssl_hmac_old_update(ptr nocapture noundef readonly %ctx, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %old_ctx = getelementptr inbounds %struct.ssl_hmac_st, ptr %ctx, i64 0, i32 1
+  %old_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %old_ctx, align 8
   %call = tail call i32 @HMAC_Update(ptr noundef %0, ptr noundef %data, i64 noundef %len) #3
   ret i32 %call
@@ -184,7 +173,7 @@ declare i32 @HMAC_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 define i32 @ssl_hmac_old_final(ptr nocapture noundef readonly %ctx, ptr noundef %md, ptr noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   %l = alloca i32, align 4
-  %old_ctx = getelementptr inbounds %struct.ssl_hmac_st, ptr %ctx, i64 0, i32 1
+  %old_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %old_ctx, align 8
   %call = call i32 @HMAC_Final(ptr noundef %0, ptr noundef %md, ptr noundef nonnull %l) #3
   %cmp = icmp sgt i32 %call, 0
@@ -210,7 +199,7 @@ declare i32 @HMAC_Final(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define i64 @ssl_hmac_old_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
-  %old_ctx = getelementptr inbounds %struct.ssl_hmac_st, ptr %ctx, i64 0, i32 1
+  %old_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %old_ctx, align 8
   %call = tail call i64 @HMAC_size(ptr noundef %0) #3
   ret i64 %call
@@ -221,7 +210,7 @@ declare i64 @HMAC_size(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @ssl_hmac_get0_HMAC_CTX(ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 {
 entry:
-  %old_ctx = getelementptr inbounds %struct.ssl_hmac_st, ptr %ctx, i64 0, i32 1
+  %old_ctx = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %old_ctx, align 8
   ret ptr %0
 }

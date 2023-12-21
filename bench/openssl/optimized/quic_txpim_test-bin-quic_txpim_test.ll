@@ -76,10 +76,10 @@ for.body15:                                       ; preds = %for.cond13.preheade
   store i64 %sub, ptr %arrayidx16, align 16
   %mul17 = mul nuw nsw i64 %j.026, 10
   %add = add nuw nsw i64 %mul17, %mul
-  %start = getelementptr inbounds [3 x %struct.quic_txpim_chunk_st], ptr %chunks, i64 0, i64 %j.026, i32 1
+  %start = getelementptr inbounds i8, ptr %arrayidx16, i64 8
   store i64 %add, ptr %start, align 8
   %add21 = add nuw nsw i64 %add, 5
-  %end = getelementptr inbounds [3 x %struct.quic_txpim_chunk_st], ptr %chunks, i64 0, i64 %j.026, i32 2
+  %end = getelementptr inbounds i8, ptr %arrayidx16, i64 16
   store i64 %add21, ptr %end, align 16
   %call24 = call i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef %call2, ptr noundef nonnull %arrayidx16) #3
   %cmp25 = icmp ne i32 %call24, 0
@@ -102,14 +102,14 @@ if.end35:                                         ; preds = %for.end
   br i1 %tobool41.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end35
-  %arrayidx42 = getelementptr inbounds %struct.quic_txpim_chunk_st, ptr %call37, i64 1
+  %arrayidx42 = getelementptr inbounds i8, ptr %call37, i64 32
   %1 = load i64, ptr %arrayidx42, align 8
   %call44 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.1, i32 noundef 48, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i64 noundef %1, i64 noundef 99) #3
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %err, label %lor.lhs.false46
 
 lor.lhs.false46:                                  ; preds = %lor.lhs.false
-  %arrayidx47 = getelementptr inbounds %struct.quic_txpim_chunk_st, ptr %call37, i64 2
+  %arrayidx47 = getelementptr inbounds i8, ptr %call37, i64 64
   %2 = load i64, ptr %arrayidx47, align 8
   %call49 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.1, i32 noundef 49, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i64 noundef %2, i64 noundef 100) #3
   %tobool50.not = icmp eq i32 %call49, 0

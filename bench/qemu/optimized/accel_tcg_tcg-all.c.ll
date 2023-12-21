@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.TypeInfo = type { ptr, ptr, i64, i64, ptr, ptr, ptr, i8, i64, ptr, ptr, ptr, ptr }
-%struct.TCGState = type { %struct.AccelState, i8, i8, i32, i64 }
-%struct.AccelState = type { %struct.Object }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%struct.AccelClass = type { %struct.ObjectClass, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
 
 @mttcg_enabled = dso_local local_unnamed_addr global i8 0, align 1
 @one_insn_per_tb = dso_local local_unnamed_addr global i8 0, align 1
@@ -60,9 +55,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @tcg_accel_instance_init(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 56, ptr noundef nonnull @__func__.TCG_STATE) #4
-  %mttcg_enabled = getelementptr inbounds %struct.TCGState, ptr %call.i, i64 0, i32 1
+  %mttcg_enabled = getelementptr inbounds i8, ptr %call.i, i64 40
   store i8 0, ptr %mttcg_enabled, align 8
-  %splitwx_enabled = getelementptr inbounds %struct.TCGState, ptr %call.i, i64 0, i32 3
+  %splitwx_enabled = getelementptr inbounds i8, ptr %call.i, i64 44
   store i32 0, ptr %splitwx_enabled, align 4
   ret void
 }
@@ -71,17 +66,17 @@ entry:
 define internal void @tcg_accel_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 227, ptr noundef nonnull @__func__.tcg_accel_class_init) #4
-  %name = getelementptr inbounds %struct.AccelClass, ptr %call, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call, i64 96
   store ptr @.str.3, ptr %name, align 8
-  %init_machine = getelementptr inbounds %struct.AccelClass, ptr %call, i64 0, i32 2
+  %init_machine = getelementptr inbounds i8, ptr %call, i64 104
   store ptr @tcg_init_machine, ptr %init_machine, align 8
-  %cpu_common_realize = getelementptr inbounds %struct.AccelClass, ptr %call, i64 0, i32 3
+  %cpu_common_realize = getelementptr inbounds i8, ptr %call, i64 112
   store ptr @tcg_exec_realizefn, ptr %cpu_common_realize, align 8
-  %cpu_common_unrealize = getelementptr inbounds %struct.AccelClass, ptr %call, i64 0, i32 4
+  %cpu_common_unrealize = getelementptr inbounds i8, ptr %call, i64 120
   store ptr @tcg_exec_unrealizefn, ptr %cpu_common_unrealize, align 8
-  %allowed = getelementptr inbounds %struct.AccelClass, ptr %call, i64 0, i32 6
+  %allowed = getelementptr inbounds i8, ptr %call, i64 136
   store ptr @tcg_allowed, ptr %allowed, align 8
-  %gdbstub_supported_sstep_flags = getelementptr inbounds %struct.AccelClass, ptr %call, i64 0, i32 5
+  %gdbstub_supported_sstep_flags = getelementptr inbounds i8, ptr %call, i64 128
   store ptr @tcg_gdbstub_supported_sstep_flags, ptr %gdbstub_supported_sstep_flags, align 8
   %call1 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @tcg_get_thread, ptr noundef nonnull @tcg_set_thread) #4
   %call2 = tail call ptr @object_class_property_add(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @tcg_get_tb_size, ptr noundef nonnull @tcg_set_tb_size, ptr noundef null, ptr noundef null) #4
@@ -103,16 +98,16 @@ entry:
   %call = tail call ptr @current_accel() #4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 56, ptr noundef nonnull @__func__.TCG_STATE) #4
   store i8 1, ptr @tcg_allowed, align 1
-  %mttcg_enabled = getelementptr inbounds %struct.TCGState, ptr %call.i, i64 0, i32 1
+  %mttcg_enabled = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i8, ptr %mttcg_enabled, align 8
   %1 = and i8 %0, 1
   store i8 %1, ptr @mttcg_enabled, align 1
   tail call void @page_init() #4
   tail call void @tb_htable_init() #4
-  %tb_size = getelementptr inbounds %struct.TCGState, ptr %call.i, i64 0, i32 4
+  %tb_size = getelementptr inbounds i8, ptr %call.i, i64 48
   %2 = load i64, ptr %tb_size, align 8
   %mul = shl i64 %2, 20
-  %splitwx_enabled = getelementptr inbounds %struct.TCGState, ptr %call.i, i64 0, i32 3
+  %splitwx_enabled = getelementptr inbounds i8, ptr %call.i, i64 44
   %3 = load i32, ptr %splitwx_enabled, align 4
   tail call void @tcg_init(i64 noundef %mul, i32 noundef %3, i32 noundef 1) #4
   ret i32 0
@@ -137,7 +132,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @tcg_get_thread(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 56, ptr noundef nonnull @__func__.TCG_STATE) #4
-  %mttcg_enabled = getelementptr inbounds %struct.TCGState, ptr %call.i, i64 0, i32 1
+  %mttcg_enabled = getelementptr inbounds i8, ptr %call.i, i64 40
   %0 = load i8, ptr %mttcg_enabled, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -165,7 +160,7 @@ if.then2:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.15) #4
-  %mttcg_enabled = getelementptr inbounds %struct.TCGState, ptr %call.i, i64 0, i32 1
+  %mttcg_enabled = getelementptr inbounds i8, ptr %call.i, i64 40
   store i8 1, ptr %mttcg_enabled, align 8
   br label %if.end10
 
@@ -175,7 +170,7 @@ if.else3:                                         ; preds = %entry
   br i1 %cmp5, label %if.then6, label %if.else8
 
 if.then6:                                         ; preds = %if.else3
-  %mttcg_enabled7 = getelementptr inbounds %struct.TCGState, ptr %call.i, i64 0, i32 1
+  %mttcg_enabled7 = getelementptr inbounds i8, ptr %call.i, i64 40
   store i8 0, ptr %mttcg_enabled7, align 8
   br label %if.end10
 
@@ -194,7 +189,7 @@ define internal void @tcg_get_tb_size(ptr noundef %obj, ptr noundef %v, ptr noun
 entry:
   %value = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 56, ptr noundef nonnull @__func__.TCG_STATE) #4
-  %tb_size = getelementptr inbounds %struct.TCGState, ptr %call.i, i64 0, i32 4
+  %tb_size = getelementptr inbounds i8, ptr %call.i, i64 48
   %0 = load i64, ptr %tb_size, align 8
   %conv = trunc i64 %0 to i32
   store i32 %conv, ptr %value, align 4
@@ -213,7 +208,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %value, align 4
   %conv = zext i32 %0 to i64
-  %tb_size = getelementptr inbounds %struct.TCGState, ptr %call.i, i64 0, i32 4
+  %tb_size = getelementptr inbounds i8, ptr %call.i, i64 48
   store i64 %conv, ptr %tb_size, align 8
   br label %return
 
@@ -229,7 +224,7 @@ declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr nounde
 define internal zeroext i1 @tcg_get_splitwx(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 56, ptr noundef nonnull @__func__.TCG_STATE) #4
-  %splitwx_enabled = getelementptr inbounds %struct.TCGState, ptr %call.i, i64 0, i32 3
+  %splitwx_enabled = getelementptr inbounds i8, ptr %call.i, i64 44
   %0 = load i32, ptr %splitwx_enabled, align 4
   %tobool = icmp ne i32 %0, 0
   ret i1 %tobool
@@ -240,7 +235,7 @@ define internal void @tcg_set_splitwx(ptr noundef %obj, i1 noundef zeroext %valu
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 56, ptr noundef nonnull @__func__.TCG_STATE) #4
   %conv = zext i1 %value to i32
-  %splitwx_enabled = getelementptr inbounds %struct.TCGState, ptr %call.i, i64 0, i32 3
+  %splitwx_enabled = getelementptr inbounds i8, ptr %call.i, i64 44
   store i32 %conv, ptr %splitwx_enabled, align 4
   ret void
 }
@@ -249,7 +244,7 @@ entry:
 define internal zeroext i1 @tcg_get_one_insn_per_tb(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 56, ptr noundef nonnull @__func__.TCG_STATE) #4
-  %one_insn_per_tb = getelementptr inbounds %struct.TCGState, ptr %call.i, i64 0, i32 2
+  %one_insn_per_tb = getelementptr inbounds i8, ptr %call.i, i64 41
   %0 = load i8, ptr %one_insn_per_tb, align 1
   %1 = and i8 %0, 1
   %tobool = icmp ne i8 %1, 0
@@ -261,7 +256,7 @@ define internal void @tcg_set_one_insn_per_tb(ptr noundef %obj, i1 noundef zeroe
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 56, ptr noundef nonnull @__func__.TCG_STATE) #4
-  %one_insn_per_tb = getelementptr inbounds %struct.TCGState, ptr %call.i, i64 0, i32 2
+  %one_insn_per_tb = getelementptr inbounds i8, ptr %call.i, i64 41
   store i8 %frombool, ptr %one_insn_per_tb, align 1
   store atomic i8 %frombool, ptr @one_insn_per_tb monotonic, align 1
   ret void

@@ -3,7 +3,6 @@ source_filename = "bench/qemu/original/hw_virtio_vhost-iova-tree.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.VhostIOVATree = type { i64, i64, ptr }
 %struct.DMAMap = type <{ i64, i64, i64, i32 }>
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -14,10 +13,10 @@ entry:
   %conv.i = sext i32 %call.i to i64
   %cond = tail call i64 @llvm.umax.i64(i64 %conv.i, i64 %iova_first)
   store i64 %cond, ptr %call, align 8
-  %iova_last3 = getelementptr inbounds %struct.VhostIOVATree, ptr %call, i64 0, i32 1
+  %iova_last3 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 %iova_last, ptr %iova_last3, align 8
   %call4 = tail call ptr @iova_tree_new() #7
-  %iova_taddr_map = getelementptr inbounds %struct.VhostIOVATree, ptr %call, i64 0, i32 2
+  %iova_taddr_map = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %call4, ptr %iova_taddr_map, align 8
   ret ptr %call
 }
@@ -30,7 +29,7 @@ declare ptr @iova_tree_new() local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_iova_tree_delete(ptr noundef %iova_tree) local_unnamed_addr #0 {
 entry:
-  %iova_taddr_map = getelementptr inbounds %struct.VhostIOVATree, ptr %iova_tree, i64 0, i32 2
+  %iova_taddr_map = getelementptr inbounds i8, ptr %iova_tree, i64 16
   %0 = load ptr, ptr %iova_taddr_map, align 8
   tail call void @iova_tree_destroy(ptr noundef %0) #7
   tail call void @g_free(ptr noundef %iova_tree) #7
@@ -44,7 +43,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @vhost_iova_tree_find_iova(ptr nocapture noundef readonly %tree, ptr noundef %map) local_unnamed_addr #0 {
 entry:
-  %iova_taddr_map = getelementptr inbounds %struct.VhostIOVATree, ptr %tree, i64 0, i32 2
+  %iova_taddr_map = getelementptr inbounds i8, ptr %tree, i64 16
   %0 = load ptr, ptr %iova_taddr_map, align 8
   %call = tail call ptr @iova_tree_find_iova(ptr noundef %0, ptr noundef %map) #7
   ret ptr %call
@@ -66,24 +65,24 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry, %cond.false
   %cond = phi i64 [ %conv.i, %cond.false ], [ %0, %entry ]
-  %translated_addr = getelementptr inbounds %struct.DMAMap, ptr %map, i64 0, i32 1
+  %translated_addr = getelementptr inbounds i8, ptr %map, i64 8
   %1 = load i64, ptr %translated_addr, align 1
-  %size = getelementptr inbounds %struct.DMAMap, ptr %map, i64 0, i32 2
+  %size = getelementptr inbounds i8, ptr %map, i64 16
   %2 = load i64, ptr %size, align 1
   %3 = xor i64 %1, -1
   %cmp = icmp ugt i64 %2, %3
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %cond.end
-  %perm = getelementptr inbounds %struct.DMAMap, ptr %map, i64 0, i32 3
+  %perm = getelementptr inbounds i8, ptr %map, i64 24
   %4 = load i32, ptr %perm, align 1
   %cmp3 = icmp eq i32 %4, 0
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %iova_taddr_map = getelementptr inbounds %struct.VhostIOVATree, ptr %tree, i64 0, i32 2
+  %iova_taddr_map = getelementptr inbounds i8, ptr %tree, i64 16
   %5 = load ptr, ptr %iova_taddr_map, align 8
-  %iova_last = getelementptr inbounds %struct.VhostIOVATree, ptr %tree, i64 0, i32 1
+  %iova_last = getelementptr inbounds i8, ptr %tree, i64 8
   %6 = load i64, ptr %iova_last, align 8
   %call4 = tail call i32 @iova_tree_alloc_map(ptr noundef %5, ptr noundef nonnull %map, i64 noundef %cond, i64 noundef %6) #7
   br label %return
@@ -98,7 +97,7 @@ declare i32 @iova_tree_alloc_map(ptr noundef, ptr noundef, i64 noundef, i64 noun
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_iova_tree_remove(ptr nocapture noundef readonly %iova_tree, ptr noundef byval(%struct.DMAMap) align 8 %map) local_unnamed_addr #0 {
 entry:
-  %iova_taddr_map = getelementptr inbounds %struct.VhostIOVATree, ptr %iova_tree, i64 0, i32 2
+  %iova_taddr_map = getelementptr inbounds i8, ptr %iova_tree, i64 16
   %0 = load ptr, ptr %iova_taddr_map, align 8
   tail call void @iova_tree_remove(ptr noundef %0, ptr noundef nonnull byval(%struct.DMAMap) align 8 %map) #7
   ret void

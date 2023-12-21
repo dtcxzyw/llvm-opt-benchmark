@@ -33,7 +33,7 @@ entry:
   %idxprom = sext i32 %idx to i64
   %arrayidx = getelementptr inbounds [3 x %struct.test_case], ptr @tests, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
-  %key_len = getelementptr inbounds [3 x %struct.test_case], ptr @tests, i64 0, i64 %idxprom, i32 1
+  %key_len = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load i64, ptr %key_len, align 8
   %call = tail call ptr @ossl_quic_srt_gen_new(ptr noundef null, ptr noundef null, ptr noundef %0, i64 noundef %1) #3
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @.str.2, ptr noundef %call) #3
@@ -41,8 +41,8 @@ entry:
   br i1 %tobool.not, label %err, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %expected = getelementptr inbounds [3 x %struct.test_case], ptr @tests, i64 0, i64 %idxprom, i32 3
-  %dcid = getelementptr inbounds [3 x %struct.test_case], ptr @tests, i64 0, i64 %idxprom, i32 2
+  %expected = getelementptr inbounds i8, ptr %arrayidx, i64 37
+  %dcid = getelementptr inbounds i8, ptr %arrayidx, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %if.end7, %for.cond.preheader

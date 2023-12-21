@@ -871,13 +871,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct._err_stackitem = type { ptr, ptr }
 %struct.PyNumberMethods = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.PyMemberDef = type { ptr, i32, i64, i32, ptr }
-%struct.PyDateTime_Delta = type { %struct._object, i64, i32, i32, i32 }
-%struct.PyDateTime_Time = type { %struct._object, i64, i8, [6 x i8], i8, ptr }
-%struct.PyDateTime_Date = type { %struct._object, i64, i8, [4 x i8] }
-%struct.PyDateTime_DateTime = type { %struct._object, i64, i8, [10 x i8], i8, ptr }
-%struct.PyDateTime_TimeZone = type { %struct._object, ptr, ptr }
-%struct.PyDateTime_CAPI = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._PyDateTime_BaseTZInfo = type { %struct._object, i64, i8 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 
 @datetimemodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 4294967295 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @.str.1, i64 -1, ptr @module_methods, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -1277,13 +1270,13 @@ if.end5.i:                                        ; preds = %for.end.i
   br i1 %cmp4.not.i.i, label %error.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %hashcode.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 1
+  %hashcode.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 16
   store i64 -1, ptr %hashcode.i.i, align 8
-  %days6.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 2
+  %days6.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 24
   store i32 0, ptr %days6.i.i, align 8
-  %seconds7.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 3
+  %seconds7.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 28
   store i32 0, ptr %seconds7.i.i, align 4
-  %microseconds8.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 4
+  %microseconds8.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 32
   store i32 1, ptr %microseconds8.i.i, align 8
   %call10.i = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull %call3.i.i) #15
   %cmp11.i = icmp slt i32 %call10.i, 0
@@ -1325,13 +1318,13 @@ do.body14.i:                                      ; preds = %if.then1.i422.i, %i
   br i1 %cmp4.not.i130.i, label %error.i, label %if.end19.i
 
 if.end19.i:                                       ; preds = %do.body14.i
-  %hashcode.i132.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i129.i, i64 0, i32 1
+  %hashcode.i132.i = getelementptr inbounds i8, ptr %call3.i129.i, i64 16
   store i64 -1, ptr %hashcode.i132.i, align 8
-  %days6.i133.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i129.i, i64 0, i32 2
+  %days6.i133.i = getelementptr inbounds i8, ptr %call3.i129.i, i64 24
   store i32 -999999999, ptr %days6.i133.i, align 8
-  %seconds7.i134.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i129.i, i64 0, i32 3
+  %seconds7.i134.i = getelementptr inbounds i8, ptr %call3.i129.i, i64 28
   store i32 0, ptr %seconds7.i134.i, align 4
-  %microseconds8.i135.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i129.i, i64 0, i32 4
+  %microseconds8.i135.i = getelementptr inbounds i8, ptr %call3.i129.i, i64 32
   store i32 0, ptr %microseconds8.i135.i, align 8
   %call20.i = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull %call3.i129.i) #15
   %cmp21.i = icmp slt i32 %call20.i, 0
@@ -1373,13 +1366,13 @@ do.body25.i:                                      ; preds = %if.then1.i404.i, %i
   br i1 %cmp4.not.i140.i, label %error.i, label %if.end30.i
 
 if.end30.i:                                       ; preds = %do.body25.i
-  %hashcode.i142.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i139.i, i64 0, i32 1
+  %hashcode.i142.i = getelementptr inbounds i8, ptr %call3.i139.i, i64 16
   store i64 -1, ptr %hashcode.i142.i, align 8
-  %days6.i143.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i139.i, i64 0, i32 2
+  %days6.i143.i = getelementptr inbounds i8, ptr %call3.i139.i, i64 24
   store i32 999999999, ptr %days6.i143.i, align 8
-  %seconds7.i144.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i139.i, i64 0, i32 3
+  %seconds7.i144.i = getelementptr inbounds i8, ptr %call3.i139.i, i64 28
   store i32 86399, ptr %seconds7.i144.i, align 4
-  %microseconds8.i145.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i139.i, i64 0, i32 4
+  %microseconds8.i145.i = getelementptr inbounds i8, ptr %call3.i139.i, i64 32
   store i32 999999, ptr %microseconds8.i145.i, align 8
   %call31.i = tail call i32 @PyDict_SetItemString(ptr noundef %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %call3.i139.i) #15
   %cmp32.i = icmp slt i32 %call31.i, 0
@@ -1500,13 +1493,13 @@ do.body58.i:                                      ; preds = %if.then1.i350.i, %i
   br i1 %cmp4.not.i150.i, label %error.i, label %if.end63.i
 
 if.end63.i:                                       ; preds = %do.body58.i
-  %hashcode.i152.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i149.i, i64 0, i32 1
+  %hashcode.i152.i = getelementptr inbounds i8, ptr %call3.i149.i, i64 16
   store i64 -1, ptr %hashcode.i152.i, align 8
-  %days6.i153.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i149.i, i64 0, i32 2
+  %days6.i153.i = getelementptr inbounds i8, ptr %call3.i149.i, i64 24
   store i32 1, ptr %days6.i153.i, align 8
-  %seconds7.i154.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i149.i, i64 0, i32 3
+  %seconds7.i154.i = getelementptr inbounds i8, ptr %call3.i149.i, i64 28
   store i32 0, ptr %seconds7.i154.i, align 4
-  %microseconds8.i155.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i149.i, i64 0, i32 4
+  %microseconds8.i155.i = getelementptr inbounds i8, ptr %call3.i149.i, i64 32
   store i32 0, ptr %microseconds8.i155.i, align 8
   %call64.i = tail call i32 @PyDict_SetItemString(ptr noundef %11, ptr noundef nonnull @.str.2, ptr noundef nonnull %call3.i149.i) #15
   %cmp65.i = icmp slt i32 %call64.i, 0
@@ -1549,11 +1542,11 @@ do.end68.i:                                       ; preds = %if.then1.i332.i, %i
   br i1 %cmp11.not.i.i, label %error.i, label %if.end74.i
 
 if.end74.i:                                       ; preds = %do.end68.i
-  %hastzinfo.i.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10.i.i, i64 0, i32 2
+  %hastzinfo.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 24
   store i8 0, ptr %hastzinfo.i.i, align 8
-  %hashcode.i158.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10.i.i, i64 0, i32 1
+  %hashcode.i158.i = getelementptr inbounds i8, ptr %call10.i.i, i64 16
   store i64 -1, ptr %hashcode.i158.i, align 8
-  %data.i.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10.i.i, i64 0, i32 3
+  %data.i.i = getelementptr inbounds i8, ptr %call10.i.i, i64 25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %data.i.i, i8 0, i64 7, i1 false)
   %call75.i = tail call i32 @PyDict_SetItemString(ptr noundef %19, ptr noundef nonnull @.str.3, ptr noundef nonnull %call10.i.i) #15
   %cmp76.i = icmp slt i32 %call75.i, 0
@@ -1595,17 +1588,17 @@ do.body80.i:                                      ; preds = %if.then1.i314.i, %i
   br i1 %cmp11.not.i162.i, label %error.i, label %if.end85.i
 
 if.end85.i:                                       ; preds = %do.body80.i
-  %hastzinfo.i164.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10.i161.i, i64 0, i32 2
+  %hastzinfo.i164.i = getelementptr inbounds i8, ptr %call10.i161.i, i64 24
   store i8 0, ptr %hastzinfo.i164.i, align 8
-  %hashcode.i165.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10.i161.i, i64 0, i32 1
+  %hashcode.i165.i = getelementptr inbounds i8, ptr %call10.i161.i, i64 16
   store i64 -1, ptr %hashcode.i165.i, align 8
-  %data.i166.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10.i161.i, i64 0, i32 3
+  %data.i166.i = getelementptr inbounds i8, ptr %call10.i161.i, i64 25
   store <4 x i8> <i8 23, i8 59, i8 59, i8 15>, ptr %data.i166.i, align 1
-  %arrayidx28.i170.i = getelementptr %struct.PyDateTime_Time, ptr %call10.i161.i, i64 0, i32 3, i64 4
+  %arrayidx28.i170.i = getelementptr i8, ptr %call10.i161.i, i64 29
   store i8 66, ptr %arrayidx28.i170.i, align 1
-  %arrayidx32.i171.i = getelementptr %struct.PyDateTime_Time, ptr %call10.i161.i, i64 0, i32 3, i64 5
+  %arrayidx32.i171.i = getelementptr i8, ptr %call10.i161.i, i64 30
   store i8 63, ptr %arrayidx32.i171.i, align 1
-  %fold38.i172.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10.i161.i, i64 0, i32 4
+  %fold38.i172.i = getelementptr inbounds i8, ptr %call10.i161.i, i64 31
   store i8 0, ptr %fold38.i172.i, align 1
   %call86.i = tail call i32 @PyDict_SetItemString(ptr noundef %19, ptr noundef nonnull @.str.4, ptr noundef nonnull %call10.i161.i) #15
   %cmp87.i = icmp slt i32 %call86.i, 0
@@ -1647,13 +1640,13 @@ do.body91.i:                                      ; preds = %if.then1.i296.i, %i
   br i1 %cmp4.not.i178.i, label %error.i, label %if.end96.i
 
 if.end96.i:                                       ; preds = %do.body91.i
-  %hashcode.i180.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i177.i, i64 0, i32 1
+  %hashcode.i180.i = getelementptr inbounds i8, ptr %call3.i177.i, i64 16
   store i64 -1, ptr %hashcode.i180.i, align 8
-  %days6.i181.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i177.i, i64 0, i32 2
+  %days6.i181.i = getelementptr inbounds i8, ptr %call3.i177.i, i64 24
   store i32 0, ptr %days6.i181.i, align 8
-  %seconds7.i182.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i177.i, i64 0, i32 3
+  %seconds7.i182.i = getelementptr inbounds i8, ptr %call3.i177.i, i64 28
   store i32 0, ptr %seconds7.i182.i, align 4
-  %microseconds8.i183.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i177.i, i64 0, i32 4
+  %microseconds8.i183.i = getelementptr inbounds i8, ptr %call3.i177.i, i64 32
   store i32 1, ptr %microseconds8.i183.i, align 8
   %call97.i = tail call i32 @PyDict_SetItemString(ptr noundef %19, ptr noundef nonnull @.str.2, ptr noundef nonnull %call3.i177.i) #15
   %cmp98.i = icmp slt i32 %call97.i, 0
@@ -1774,13 +1767,13 @@ do.body124.i:                                     ; preds = %if.then1.i242.i, %i
   br i1 %cmp4.not.i188.i, label %error.i, label %if.end129.i
 
 if.end129.i:                                      ; preds = %do.body124.i
-  %hashcode.i190.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i187.i, i64 0, i32 1
+  %hashcode.i190.i = getelementptr inbounds i8, ptr %call3.i187.i, i64 16
   store i64 -1, ptr %hashcode.i190.i, align 8
-  %days6.i191.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i187.i, i64 0, i32 2
+  %days6.i191.i = getelementptr inbounds i8, ptr %call3.i187.i, i64 24
   store i32 0, ptr %days6.i191.i, align 8
-  %seconds7.i192.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i187.i, i64 0, i32 3
+  %seconds7.i192.i = getelementptr inbounds i8, ptr %call3.i187.i, i64 28
   store i32 0, ptr %seconds7.i192.i, align 4
-  %microseconds8.i193.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i187.i, i64 0, i32 4
+  %microseconds8.i193.i = getelementptr inbounds i8, ptr %call3.i187.i, i64 32
   store i32 1, ptr %microseconds8.i193.i, align 8
   %call130.i = tail call i32 @PyDict_SetItemString(ptr noundef %29, ptr noundef nonnull @.str.2, ptr noundef nonnull %call3.i187.i) #15
   %cmp131.i = icmp slt i32 %call130.i, 0
@@ -2226,20 +2219,20 @@ check_delta_day_range.exit.thread:                ; preds = %if.end
   br label %return
 
 if.end2:                                          ; preds = %if.end
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %2 = load ptr, ptr %tp_alloc, align 8
   %call3 = tail call ptr %2(ptr noundef %type, i64 noundef 0) #15
   %cmp4.not = icmp eq ptr %call3, null
   br i1 %cmp4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.end2
-  %hashcode = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3, i64 0, i32 1
+  %hashcode = getelementptr inbounds i8, ptr %call3, i64 16
   store i64 -1, ptr %hashcode, align 8
-  %days6 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3, i64 0, i32 2
+  %days6 = getelementptr inbounds i8, ptr %call3, i64 24
   store i32 %days.addr.1, ptr %days6, align 8
-  %seconds7 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3, i64 0, i32 3
+  %seconds7 = getelementptr inbounds i8, ptr %call3, i64 28
   store i32 %seconds.addr.2, ptr %seconds7, align 4
-  %microseconds8 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3, i64 0, i32 4
+  %microseconds8 = getelementptr inbounds i8, ptr %call3, i64 32
   store i32 %microseconds.addr.1, ptr %microseconds8, align 8
   br label %return
 
@@ -2309,27 +2302,27 @@ if.then11.i:                                      ; preds = %days_in_month.exit.
   br label %return
 
 if.end:                                           ; preds = %days_in_month.exit.i
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %6 = load ptr, ptr %tp_alloc, align 8
   %call1 = tail call ptr %6(ptr noundef %type, i64 noundef 0) #15
   %cmp2.not = icmp eq ptr %call1, null
   br i1 %cmp2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Date, ptr %call1, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call1, i64 16
   store i64 -1, ptr %hashcode.i, align 8
   %and.i = lshr i32 %year, 8
   %conv.i = trunc i32 %and.i to i8
-  %data.i = getelementptr inbounds %struct.PyDateTime_Date, ptr %call1, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %call1, i64 25
   store i8 %conv.i, ptr %data.i, align 1
   %conv2.i = trunc i32 %year to i8
-  %arrayidx4.i = getelementptr %struct.PyDateTime_Date, ptr %call1, i64 0, i32 3, i64 1
+  %arrayidx4.i = getelementptr i8, ptr %call1, i64 26
   store i8 %conv2.i, ptr %arrayidx4.i, align 1
   %conv5.i = trunc i32 %month to i8
-  %arrayidx7.i = getelementptr %struct.PyDateTime_Date, ptr %call1, i64 0, i32 3, i64 2
+  %arrayidx7.i = getelementptr i8, ptr %call1, i64 27
   store i8 %conv5.i, ptr %arrayidx7.i, align 1
   %conv8.i = trunc i32 %day to i8
-  %arrayidx10.i = getelementptr %struct.PyDateTime_Date, ptr %call1, i64 0, i32 3, i64 3
+  %arrayidx10.i = getelementptr i8, ptr %call1, i64 28
   store i8 %conv8.i, ptr %arrayidx10.i, align 1
   br label %return
 
@@ -2386,13 +2379,13 @@ PyObject_TypeCheck.exit.i:                        ; preds = %lor.lhs.false.i
 check_tzinfo_subclass.exit:                       ; preds = %PyObject_TypeCheck.exit.i
   %2 = load ptr, ptr @PyExc_TypeError, align 8
   %p.val.i = load ptr, ptr %1, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %p.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %p.val.i, i64 24
   %3 = load ptr, ptr %tp_name.i, align 8
   %call2.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.184, ptr noundef %3) #15
   br label %return
 
 if.end8:                                          ; preds = %PyObject_TypeCheck.exit.i, %if.end, %lor.lhs.false.i
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %4 = load ptr, ptr %tp_alloc, align 8
   %conv9 = zext i1 %cmp to i64
   %call10 = tail call ptr %4(ptr noundef %type, i64 noundef %conv9) #15
@@ -2400,29 +2393,29 @@ if.end8:                                          ; preds = %PyObject_TypeCheck.
   br i1 %cmp11.not, label %return, label %if.then13
 
 if.then13:                                        ; preds = %if.end8
-  %hastzinfo = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %call10, i64 24
   store i8 %conv1, ptr %hastzinfo, align 8
-  %hashcode = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10, i64 0, i32 1
+  %hashcode = getelementptr inbounds i8, ptr %call10, i64 16
   store i64 -1, ptr %hashcode, align 8
   %conv14 = trunc i32 %hour to i8
-  %data = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %call10, i64 25
   store i8 %conv14, ptr %data, align 1
   %conv15 = trunc i32 %minute to i8
-  %arrayidx17 = getelementptr %struct.PyDateTime_Time, ptr %call10, i64 0, i32 3, i64 1
+  %arrayidx17 = getelementptr i8, ptr %call10, i64 26
   store i8 %conv15, ptr %arrayidx17, align 1
   %conv18 = trunc i32 %second to i8
-  %arrayidx20 = getelementptr %struct.PyDateTime_Time, ptr %call10, i64 0, i32 3, i64 2
+  %arrayidx20 = getelementptr i8, ptr %call10, i64 27
   store i8 %conv18, ptr %arrayidx20, align 1
   %and = lshr i32 %usecond, 16
   %conv21 = trunc i32 %and to i8
-  %arrayidx23 = getelementptr %struct.PyDateTime_Time, ptr %call10, i64 0, i32 3, i64 3
+  %arrayidx23 = getelementptr i8, ptr %call10, i64 28
   store i8 %conv21, ptr %arrayidx23, align 1
   %and24 = lshr i32 %usecond, 8
   %conv26 = trunc i32 %and24 to i8
-  %arrayidx28 = getelementptr %struct.PyDateTime_Time, ptr %call10, i64 0, i32 3, i64 4
+  %arrayidx28 = getelementptr i8, ptr %call10, i64 29
   store i8 %conv26, ptr %arrayidx28, align 1
   %conv30 = trunc i32 %usecond to i8
-  %arrayidx32 = getelementptr %struct.PyDateTime_Time, ptr %call10, i64 0, i32 3, i64 5
+  %arrayidx32 = getelementptr i8, ptr %call10, i64 30
   store i8 %conv30, ptr %arrayidx32, align 1
   br i1 %cmp, label %if.then33, label %if.end36
 
@@ -2437,13 +2430,13 @@ if.end.i.i:                                       ; preds = %if.then33
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.then33, %if.end.i.i
-  %tzinfo35 = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10, i64 0, i32 5
+  %tzinfo35 = getelementptr inbounds i8, ptr %call10, i64 32
   store ptr %tzinfo, ptr %tzinfo35, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %_Py_NewRef.exit, %if.then13
   %conv37 = trunc i32 %fold to i8
-  %fold38 = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10, i64 0, i32 4
+  %fold38 = getelementptr inbounds i8, ptr %call10, i64 31
   store i8 %conv37, ptr %fold38, align 1
   br label %return
 
@@ -2556,13 +2549,13 @@ PyObject_TypeCheck.exit.i:                        ; preds = %lor.lhs.false.i
 check_tzinfo_subclass.exit:                       ; preds = %PyObject_TypeCheck.exit.i
   %8 = load ptr, ptr @PyExc_TypeError, align 8
   %p.val.i = load ptr, ptr %7, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %p.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %p.val.i, i64 24
   %9 = load ptr, ptr %tp_name.i, align 8
   %call2.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.184, ptr noundef %9) #15
   br label %return
 
 if.end13:                                         ; preds = %PyObject_TypeCheck.exit.i, %if.end8, %lor.lhs.false.i
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %10 = load ptr, ptr %tp_alloc, align 8
   %conv14 = zext i1 %cmp to i64
   %call15 = tail call ptr %10(ptr noundef %type, i64 noundef %conv14) #15
@@ -2570,42 +2563,42 @@ if.end13:                                         ; preds = %PyObject_TypeCheck.
   br i1 %cmp16.not, label %return, label %if.then18
 
 if.then18:                                        ; preds = %if.end13
-  %hastzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %call15, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %call15, i64 24
   store i8 %conv1, ptr %hastzinfo, align 8
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Date, ptr %call15, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call15, i64 16
   store i64 -1, ptr %hashcode.i, align 8
   %and.i = lshr i32 %year, 8
   %conv.i = trunc i32 %and.i to i8
-  %data.i = getelementptr inbounds %struct.PyDateTime_Date, ptr %call15, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %call15, i64 25
   store i8 %conv.i, ptr %data.i, align 1
   %conv2.i = trunc i32 %year to i8
-  %arrayidx4.i = getelementptr %struct.PyDateTime_Date, ptr %call15, i64 0, i32 3, i64 1
+  %arrayidx4.i = getelementptr i8, ptr %call15, i64 26
   store i8 %conv2.i, ptr %arrayidx4.i, align 1
   %conv5.i = trunc i32 %month to i8
-  %arrayidx7.i = getelementptr %struct.PyDateTime_Date, ptr %call15, i64 0, i32 3, i64 2
+  %arrayidx7.i = getelementptr i8, ptr %call15, i64 27
   store i8 %conv5.i, ptr %arrayidx7.i, align 1
   %conv8.i = trunc i32 %day to i8
-  %arrayidx10.i = getelementptr %struct.PyDateTime_Date, ptr %call15, i64 0, i32 3, i64 3
+  %arrayidx10.i = getelementptr i8, ptr %call15, i64 28
   store i8 %conv8.i, ptr %arrayidx10.i, align 1
   %conv19 = trunc i32 %hour to i8
-  %arrayidx = getelementptr %struct.PyDateTime_DateTime, ptr %call15, i64 0, i32 3, i64 4
+  %arrayidx = getelementptr i8, ptr %call15, i64 29
   store i8 %conv19, ptr %arrayidx, align 1
   %conv20 = trunc i32 %minute to i8
-  %arrayidx22 = getelementptr %struct.PyDateTime_DateTime, ptr %call15, i64 0, i32 3, i64 5
+  %arrayidx22 = getelementptr i8, ptr %call15, i64 30
   store i8 %conv20, ptr %arrayidx22, align 1
   %conv23 = trunc i32 %second to i8
-  %arrayidx25 = getelementptr %struct.PyDateTime_DateTime, ptr %call15, i64 0, i32 3, i64 6
+  %arrayidx25 = getelementptr i8, ptr %call15, i64 31
   store i8 %conv23, ptr %arrayidx25, align 1
   %and = lshr i32 %usecond, 16
   %conv26 = trunc i32 %and to i8
-  %arrayidx28 = getelementptr %struct.PyDateTime_DateTime, ptr %call15, i64 0, i32 3, i64 7
+  %arrayidx28 = getelementptr i8, ptr %call15, i64 32
   store i8 %conv26, ptr %arrayidx28, align 1
   %and29 = lshr i32 %usecond, 8
   %conv31 = trunc i32 %and29 to i8
-  %arrayidx33 = getelementptr %struct.PyDateTime_DateTime, ptr %call15, i64 0, i32 3, i64 8
+  %arrayidx33 = getelementptr i8, ptr %call15, i64 33
   store i8 %conv31, ptr %arrayidx33, align 1
   %conv35 = trunc i32 %usecond to i8
-  %arrayidx37 = getelementptr %struct.PyDateTime_DateTime, ptr %call15, i64 0, i32 3, i64 9
+  %arrayidx37 = getelementptr i8, ptr %call15, i64 34
   store i8 %conv35, ptr %arrayidx37, align 1
   br i1 %cmp, label %if.then38, label %if.end41
 
@@ -2620,13 +2613,13 @@ if.end.i.i:                                       ; preds = %if.then38
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.then38, %if.end.i.i
-  %tzinfo40 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %call15, i64 0, i32 5
+  %tzinfo40 = getelementptr inbounds i8, ptr %call15, i64 40
   store ptr %tzinfo, ptr %tzinfo40, align 8
   br label %if.end41
 
 if.end41:                                         ; preds = %_Py_NewRef.exit, %if.then18
   %conv42 = trunc i32 %fold to i8
-  %fold43 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %call15, i64 0, i32 4
+  %fold43 = getelementptr inbounds i8, ptr %call15, i64 35
   store i8 %conv42, ptr %fold43, align 1
   br label %return
 
@@ -2690,13 +2683,13 @@ create_timezone_from_delta.exit.thread:           ; preds = %if.end31
   br label %return
 
 if.end.i:                                         ; preds = %if.end31
-  %hashcode.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 1
+  %hashcode.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 16
   store i64 -1, ptr %hashcode.i.i, align 8
-  %days6.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 2
+  %days6.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 24
   store i32 0, ptr %days6.i.i, align 8
-  %seconds7.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 3
+  %seconds7.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 28
   store i32 0, ptr %seconds7.i.i, align 4
-  %microseconds8.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 4
+  %microseconds8.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 32
   store i32 0, ptr %microseconds8.i.i, align 8
   %1 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_TimeZoneType, i64 0, i32 36), align 8
   %call.i.i = tail call ptr %1(ptr noundef nonnull @PyDateTime_TimeZoneType, i64 noundef 0) #15
@@ -2714,9 +2707,9 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i7.i
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end.i7.i
-  %offset2.i.i = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %call.i.i, i64 0, i32 1
+  %offset2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %call3.i.i, ptr %offset2.i.i, align 8
-  %name4.i.i = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %call.i.i, i64 0, i32 2
+  %name4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr null, ptr %name4.i.i, align 8
   br label %create_timezone.exit.i
 
@@ -2791,13 +2784,13 @@ if.end2.i:                                        ; preds = %if.end.i5
   br i1 %cmp4.not.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end2.i
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
-  %days6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 2
+  %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store i32 %days.addr.1.i, ptr %days6.i, align 8
-  %seconds7.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 3
+  %seconds7.i = getelementptr inbounds i8, ptr %call3.i, i64 28
   store i32 %seconds.addr.2.i, ptr %seconds7.i, align 4
-  %microseconds8.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 4
+  %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 0, ptr %microseconds8.i, align 8
   %3 = load ptr, ptr getelementptr inbounds (%struct._typeobject, ptr @PyDateTime_TimeZoneType, i64 0, i32 36), align 8
   %call.i = tail call ptr %3(ptr noundef nonnull @PyDateTime_TimeZoneType, i64 noundef 0) #15
@@ -2815,9 +2808,9 @@ if.end.i.i.i:                                     ; preds = %if.end.i7
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end.i7
-  %offset2.i = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %call.i, i64 0, i32 1
+  %offset2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call3.i, ptr %offset2.i, align 8
-  %name4.i = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %call.i, i64 0, i32 2
+  %name4.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr null, ptr %name4.i, align 8
   br label %create_timezone.exit
 
@@ -2859,34 +2852,34 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store ptr @PyDateTime_DateType, ptr %call, align 8
-  %DateTimeType = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %call, i64 0, i32 1
+  %DateTimeType = getelementptr inbounds i8, ptr %call, i64 8
   store ptr @PyDateTime_DateTimeType, ptr %DateTimeType, align 8
-  %TimeType = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %call, i64 0, i32 2
+  %TimeType = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @PyDateTime_TimeType, ptr %TimeType, align 8
-  %DeltaType = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %call, i64 0, i32 3
+  %DeltaType = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @PyDateTime_DeltaType, ptr %DeltaType, align 8
-  %TZInfoType = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %call, i64 0, i32 4
+  %TZInfoType = getelementptr inbounds i8, ptr %call, i64 32
   store ptr @PyDateTime_TZInfoType, ptr %TZInfoType, align 8
-  %Date_FromDate = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %call, i64 0, i32 6
+  %Date_FromDate = getelementptr inbounds i8, ptr %call, i64 48
   store ptr @new_date_ex, ptr %Date_FromDate, align 8
-  %DateTime_FromDateAndTime = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %call, i64 0, i32 7
+  %DateTime_FromDateAndTime = getelementptr inbounds i8, ptr %call, i64 56
   store ptr @new_datetime_ex, ptr %DateTime_FromDateAndTime, align 8
-  %Time_FromTime = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %call, i64 0, i32 8
+  %Time_FromTime = getelementptr inbounds i8, ptr %call, i64 64
   store ptr @new_time_ex, ptr %Time_FromTime, align 8
-  %Delta_FromDelta = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %call, i64 0, i32 9
+  %Delta_FromDelta = getelementptr inbounds i8, ptr %call, i64 72
   store ptr @new_delta_ex, ptr %Delta_FromDelta, align 8
-  %TimeZone_FromTimeZone = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %call, i64 0, i32 10
+  %TimeZone_FromTimeZone = getelementptr inbounds i8, ptr %call, i64 80
   store ptr @new_timezone, ptr %TimeZone_FromTimeZone, align 8
-  %DateTime_FromTimestamp = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %call, i64 0, i32 11
+  %DateTime_FromTimestamp = getelementptr inbounds i8, ptr %call, i64 88
   store ptr @datetime_fromtimestamp, ptr %DateTime_FromTimestamp, align 8
-  %Date_FromTimestamp = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %call, i64 0, i32 12
+  %Date_FromTimestamp = getelementptr inbounds i8, ptr %call, i64 96
   store ptr @datetime_date_fromtimestamp_capi, ptr %Date_FromTimestamp, align 8
-  %DateTime_FromDateAndTimeAndFold = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %call, i64 0, i32 13
+  %DateTime_FromDateAndTimeAndFold = getelementptr inbounds i8, ptr %call, i64 104
   store ptr @new_datetime_ex2, ptr %DateTime_FromDateAndTimeAndFold, align 8
-  %Time_FromTimeAndFold = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %call, i64 0, i32 14
+  %Time_FromTimeAndFold = getelementptr inbounds i8, ptr %call, i64 112
   store ptr @new_time_ex2, ptr %Time_FromTimeAndFold, align 8
   %0 = load ptr, ptr @_datetime_global_state.7, align 8
-  %TimeZone_UTC = getelementptr inbounds %struct.PyDateTime_CAPI, ptr %call, i64 0, i32 5
+  %TimeZone_UTC = getelementptr inbounds i8, ptr %call, i64 40
   store ptr %0, ptr %TimeZone_UTC, align 8
   br label %return
 
@@ -2928,7 +2921,7 @@ if.end4:                                          ; preds = %if.end
 if.end8:                                          ; preds = %if.end4
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %1 = load ptr, ptr %tp_name, align 8
   %call10 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.12, ptr noundef %1, ptr noundef nonnull %call, ptr noundef nonnull %call1, ptr noundef nonnull %call5) #15
   br label %return
@@ -2949,7 +2942,7 @@ entry:
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   %cmp3 = icmp slt i64 %args.val, 4
   %or.cond1 = select i1 %or.cond, i1 %cmp3, i1 false
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end
 
 cond.end:                                         ; preds = %entry
@@ -2970,7 +2963,7 @@ land.lhs.true14:                                  ; preds = %if.end
   br i1 %tobool16.not, label %if.end18, label %exit
 
 if.end18:                                         ; preds = %land.lhs.true14, %if.end
-  %arrayidx19 = getelementptr ptr, ptr %cond32, i64 1
+  %arrayidx19 = getelementptr i8, ptr %cond32, i64 8
   %2 = load ptr, ptr %arrayidx19, align 8
   %call20 = call i32 @PyLong_AsInt(ptr noundef %2) #15
   %cmp21 = icmp eq i32 %call20, -1
@@ -2982,14 +2975,14 @@ land.lhs.true22:                                  ; preds = %if.end18
   br i1 %tobool24.not, label %if.end26, label %exit
 
 if.end26:                                         ; preds = %land.lhs.true22, %if.end18
-  %arrayidx27 = getelementptr ptr, ptr %cond32, i64 2
+  %arrayidx27 = getelementptr i8, ptr %cond32, i64 16
   %3 = load ptr, ptr %arrayidx27, align 8
   %call28 = call i32 @PyLong_AsInt(ptr noundef %3) #15
   %cmp29 = icmp eq i32 %call28, -1
   br i1 %cmp29, label %land.lhs.true30, label %if.end26.split
 
 if.end26.split:                                   ; preds = %if.end26
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %4 = load ptr, ptr %tp_alloc.i, align 8
   %call.i = call ptr %4(ptr noundef %type, i64 noundef 3) #15
   %cmp.i = icmp eq ptr %call.i, null
@@ -2998,12 +2991,12 @@ if.end26.split:                                   ; preds = %if.end26
 if.end.i:                                         ; preds = %if.end26.split
   %conv.i = sext i32 %call12 to i64
   %call1.i = call ptr @PyLong_FromLong(i64 noundef %conv.i) #15
-  %arrayidx.i.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 0
-  store ptr %call1.i, ptr %arrayidx.i.i, align 8
+  %ob_item.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  store ptr %call1.i, ptr %ob_item.i.i, align 8
   %conv2.i = sext i32 %call20 to i64
   %call3.i = call ptr @PyLong_FromLong(i64 noundef %conv2.i) #15
-  %arrayidx.i6.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 1
-  store ptr %call3.i, ptr %arrayidx.i6.i, align 8
+  %arrayidx.i.i = getelementptr i8, ptr %call.i, i64 32
+  store ptr %call3.i, ptr %arrayidx.i.i, align 8
   %conv4.i = sext i32 %call28 to i64
   br label %exit.sink.split
 
@@ -3013,7 +3006,7 @@ land.lhs.true30:                                  ; preds = %if.end26
   br i1 %tobool32.not, label %land.lhs.true30.split, label %exit
 
 land.lhs.true30.split:                            ; preds = %land.lhs.true30
-  %tp_alloc.i17 = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i17 = getelementptr inbounds i8, ptr %type, i64 304
   %5 = load ptr, ptr %tp_alloc.i17, align 8
   %call.i18 = call ptr %5(ptr noundef %type, i64 noundef 3) #15
   %cmp.i19 = icmp eq ptr %call.i18, null
@@ -3022,20 +3015,20 @@ land.lhs.true30.split:                            ; preds = %land.lhs.true30
 if.end.i20:                                       ; preds = %land.lhs.true30.split
   %conv.i21 = sext i32 %call12 to i64
   %call1.i22 = call ptr @PyLong_FromLong(i64 noundef %conv.i21) #15
-  %arrayidx.i.i23 = getelementptr %struct.PyTupleObject, ptr %call.i18, i64 0, i32 1, i64 0
-  store ptr %call1.i22, ptr %arrayidx.i.i23, align 8
+  %ob_item.i.i23 = getelementptr inbounds i8, ptr %call.i18, i64 24
+  store ptr %call1.i22, ptr %ob_item.i.i23, align 8
   %conv2.i24 = sext i32 %call20 to i64
   %call3.i25 = call ptr @PyLong_FromLong(i64 noundef %conv2.i24) #15
-  %arrayidx.i6.i26 = getelementptr %struct.PyTupleObject, ptr %call.i18, i64 0, i32 1, i64 1
-  store ptr %call3.i25, ptr %arrayidx.i6.i26, align 8
+  %arrayidx.i.i26 = getelementptr i8, ptr %call.i18, i64 32
+  store ptr %call3.i25, ptr %arrayidx.i.i26, align 8
   br label %exit.sink.split
 
 exit.sink.split:                                  ; preds = %if.end.i, %if.end.i20
   %.sink = phi i64 [ -1, %if.end.i20 ], [ %conv4.i, %if.end.i ]
   %call.i18.sink = phi ptr [ %call.i18, %if.end.i20 ], [ %call.i, %if.end.i ]
   %call5.i27 = call ptr @PyLong_FromLong(i64 noundef %.sink) #15
-  %arrayidx.i7.i28 = getelementptr %struct.PyTupleObject, ptr %call.i18.sink, i64 0, i32 1, i64 2
-  store ptr %call5.i27, ptr %arrayidx.i7.i28, align 8
+  %arrayidx.i8.i28 = getelementptr i8, ptr %call.i18.sink, i64 40
+  store ptr %call5.i27, ptr %arrayidx.i8.i28, align 8
   br label %exit
 
 exit:                                             ; preds = %exit.sink.split, %land.lhs.true30.split, %if.end26.split, %land.lhs.true30, %land.lhs.true22, %land.lhs.true14, %cond.end
@@ -3050,11 +3043,11 @@ declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @iso_calendar_date_reduce(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %self, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %ob_item, align 8
-  %arrayidx2 = getelementptr %struct.PyTupleObject, ptr %self, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 32
   %1 = load ptr, ptr %arrayidx2, align 8
-  %arrayidx4 = getelementptr %struct.PyTupleObject, ptr %self, i64 1, i32 0, i32 0, i32 1
+  %arrayidx4 = getelementptr i8, ptr %self, i64 40
   %2 = load ptr, ptr %arrayidx4, align 8
   %call = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.15, ptr noundef nonnull @PyTuple_Type, ptr noundef %0, ptr noundef %1, ptr noundef %2) #15
   ret ptr %call
@@ -3180,7 +3173,7 @@ if.then:                                          ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %dt, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %dt, i64 24
   %2 = load i8, ptr %hastzinfo, align 8
   %tobool1.not = icmp eq i8 %2, 0
   br i1 %tobool1.not, label %cond.end, label %cond.end.thread
@@ -3190,7 +3183,7 @@ cond.end:                                         ; preds = %if.end
   br i1 %cmp.not, label %datetime_utcoffset.exit, label %if.then3
 
 cond.end.thread:                                  ; preds = %if.end
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %dt, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %dt, i64 40
   %3 = load ptr, ptr %tzinfo, align 8
   %cmp.not82 = icmp eq ptr %3, %self
   br i1 %cmp.not82, label %datetime_utcoffset.exit, label %if.then3
@@ -3215,7 +3208,7 @@ if.end13:                                         ; preds = %if.end9
   br i1 %tobool.not.i42, label %datetime_dst.exit, label %cond.true.i43
 
 cond.true.i43:                                    ; preds = %if.end13
-  %tzinfo.i44 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %dt, i64 0, i32 5
+  %tzinfo.i44 = getelementptr inbounds i8, ptr %dt, i64 40
   %6 = load ptr, ptr %tzinfo.i44, align 8
   br label %datetime_dst.exit
 
@@ -3261,7 +3254,7 @@ Py_DECREF.exit95:                                 ; preds = %if.end32, %if.then1
   br i1 %tobool35.not, label %cond.end39, label %cond.true36
 
 cond.true36:                                      ; preds = %Py_DECREF.exit95
-  %tzinfo37 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %dt, i64 0, i32 5
+  %tzinfo37 = getelementptr inbounds i8, ptr %dt, i64 40
   %10 = load ptr, ptr %tzinfo37, align 8
   br label %cond.end39
 
@@ -3276,19 +3269,19 @@ if.end45:                                         ; preds = %cond.end39
   br i1 %cmp46, label %if.then.i.sink.split, label %if.end49
 
 if.end49:                                         ; preds = %if.end45
-  %days.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i, i64 0, i32 2
+  %days.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %11 = load i32, ptr %days.i, align 8
   %cmp.not.i = icmp eq i32 %11, 0
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %do.body
 
 lor.lhs.false.i:                                  ; preds = %if.end49
-  %seconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i, i64 0, i32 3
+  %seconds.i = getelementptr inbounds i8, ptr %call.i, i64 28
   %12 = load i32, ptr %seconds.i, align 4
   %cmp1.not.i = icmp eq i32 %12, 0
   br i1 %cmp1.not.i, label %delta_bool.exit, label %do.body
 
 delta_bool.exit:                                  ; preds = %lor.lhs.false.i
-  %microseconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i, i64 0, i32 4
+  %microseconds.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %13 = load i32, ptr %microseconds.i, align 8
   %cmp2.i.not = icmp eq i32 %13, 0
   br i1 %cmp2.i.not, label %if.end59, label %do.body
@@ -3535,13 +3528,13 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_utcoffset(ptr noundef %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %tzinfo, align 8
   br label %cond.end
 
@@ -3554,13 +3547,13 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_dst(ptr noundef %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %tzinfo, align 8
   br label %cond.end
 
@@ -3595,19 +3588,19 @@ PyObject_TypeCheck.exit16:                        ; preds = %land.lhs.true
   br i1 %tobool3.i14.not, label %if.then12, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true, %PyObject_TypeCheck.exit16
-  %days3 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %left, i64 0, i32 2
+  %days3 = getelementptr inbounds i8, ptr %left, i64 24
   %2 = load i32, ptr %days3, align 8
-  %days4 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %right, i64 0, i32 2
+  %days4 = getelementptr inbounds i8, ptr %right, i64 24
   %3 = load i32, ptr %days4, align 8
   %sub = sub i32 %2, %3
-  %seconds5 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %left, i64 0, i32 3
+  %seconds5 = getelementptr inbounds i8, ptr %left, i64 28
   %4 = load i32, ptr %seconds5, align 4
-  %seconds6 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %right, i64 0, i32 3
+  %seconds6 = getelementptr inbounds i8, ptr %right, i64 28
   %5 = load i32, ptr %seconds6, align 4
   %sub7 = sub i32 %4, %5
-  %microseconds8 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %left, i64 0, i32 4
+  %microseconds8 = getelementptr inbounds i8, ptr %left, i64 32
   %6 = load i32, ptr %microseconds8, align 8
-  %microseconds9 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %right, i64 0, i32 4
+  %microseconds9 = getelementptr inbounds i8, ptr %right, i64 32
   %7 = load i32, ptr %microseconds9, align 8
   %sub10 = sub i32 %6, %7
   %or.cond.i.i = icmp ugt i32 %sub10, 999999
@@ -3662,13 +3655,13 @@ if.end2.i:                                        ; preds = %if.end.i17
   br i1 %cmp4.not.i, label %if.end13, label %if.end
 
 if.end:                                           ; preds = %if.end2.i
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
-  %days6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 2
+  %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store i32 %days.addr.1.i, ptr %days6.i, align 8
-  %seconds7.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 3
+  %seconds7.i = getelementptr inbounds i8, ptr %call3.i, i64 28
   store i32 %seconds.addr.2.i, ptr %seconds7.i, align 4
-  %microseconds8.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 4
+  %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 %microseconds.addr.0.i, ptr %microseconds8.i, align 8
   %cmp = icmp eq ptr %call3.i, @_Py_NotImplementedStruct
   br i1 %cmp, label %if.then12, label %if.end13
@@ -3694,41 +3687,41 @@ entry:
   %year = alloca i32, align 4
   %month = alloca i32, align 4
   %day = alloca i32, align 4
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %date, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %date, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %date, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %date, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv3
   store i32 %or, ptr %year, align 4
-  %arrayidx5 = getelementptr %struct.PyDateTime_Date, ptr %date, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %date, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %2 to i32
   store i32 %conv6, ptr %month, align 4
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %date, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %date, i64 28
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
-  %days = getelementptr inbounds %struct.PyDateTime_Delta, ptr %delta, i64 0, i32 2
+  %days = getelementptr inbounds i8, ptr %delta, i64 24
   %4 = load i32, ptr %days, align 8
   %mul = mul i32 %4, %factor
   %add = add i32 %mul, %conv9
   store i32 %add, ptr %day, align 4
-  %arrayidx11 = getelementptr %struct.PyDateTime_Date, ptr %date, i64 0, i32 3, i64 4
+  %arrayidx11 = getelementptr i8, ptr %date, i64 29
   %5 = load i8, ptr %arrayidx11, align 1
   %conv12 = zext i8 %5 to i32
-  %arrayidx14 = getelementptr %struct.PyDateTime_Date, ptr %date, i64 0, i32 3, i64 5
+  %arrayidx14 = getelementptr i8, ptr %date, i64 30
   %6 = load i8, ptr %arrayidx14, align 1
   %conv15 = zext i8 %6 to i32
-  %arrayidx17 = getelementptr %struct.PyDateTime_Date, ptr %date, i64 0, i32 3, i64 6
+  %arrayidx17 = getelementptr i8, ptr %date, i64 31
   %7 = load i8, ptr %arrayidx17, align 1
   %conv18 = zext i8 %7 to i32
-  %seconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %delta, i64 0, i32 3
+  %seconds = getelementptr inbounds i8, ptr %delta, i64 28
   %8 = load i32, ptr %seconds, align 4
   %mul19 = mul i32 %8, %factor
   %add20 = add i32 %mul19, %conv18
-  %arrayidx22 = getelementptr %struct.PyDateTime_Date, ptr %date, i64 1
+  %arrayidx22 = getelementptr i8, ptr %date, i64 32
   %9 = load i8, ptr %arrayidx22, align 1
   %conv23 = zext i8 %9 to i32
   %shl24 = shl nuw nsw i32 %conv23, 16
@@ -3741,7 +3734,7 @@ entry:
   %11 = load i8, ptr %arrayidx31, align 1
   %conv32 = zext i8 %11 to i32
   %or33 = or disjoint i32 %or29, %conv32
-  %microseconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %delta, i64 0, i32 4
+  %microseconds = getelementptr inbounds i8, ptr %delta, i64 32
   %12 = load i32, ptr %microseconds, align 8
   %mul34 = mul i32 %12, %factor
   %add35 = add i32 %or33, %mul34
@@ -3825,13 +3818,13 @@ if.end:                                           ; preds = %normalize_datetime.
   %13 = load i32, ptr %year, align 4
   %14 = load i32, ptr %month, align 4
   %15 = load i32, ptr %day, align 4
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %date, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %date, i64 24
   %16 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %16, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %date, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %date, i64 40
   %17 = load ptr, ptr %tzinfo, align 8
   br label %cond.end
 
@@ -3858,19 +3851,19 @@ return:                                           ; preds = %if.else.i.i, %if.th
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @delta_bool(ptr nocapture noundef readonly %self) #3 {
 entry:
-  %days = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 2
+  %days = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i32, ptr %days, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %lor.lhs.false, label %lor.end
 
 lor.lhs.false:                                    ; preds = %entry
-  %seconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 3
+  %seconds = getelementptr inbounds i8, ptr %self, i64 28
   %1 = load i32, ptr %seconds, align 4
   %cmp1.not = icmp eq i32 %1, 0
   br i1 %cmp1.not, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %lor.lhs.false
-  %microseconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 4
+  %microseconds = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load i32, ptr %microseconds, align 8
   %cmp2 = icmp ne i32 %2, 0
   %3 = zext i1 %cmp2 to i32
@@ -3908,19 +3901,19 @@ PyObject_TypeCheck.exit:                          ; preds = %if.end4
   br i1 %tobool3.i.not, label %if.else, label %if.then6
 
 if.then6:                                         ; preds = %if.end4, %PyObject_TypeCheck.exit
-  %days = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call, i64 0, i32 2
+  %days = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load i32, ptr %days, align 8
   %cmp7 = icmp eq i32 %1, -1
   br i1 %cmp7, label %land.lhs.true, label %lor.lhs.false11
 
 land.lhs.true:                                    ; preds = %if.then6
-  %seconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call, i64 0, i32 3
+  %seconds = getelementptr inbounds i8, ptr %call, i64 28
   %2 = load i32, ptr %seconds, align 4
   %cmp8 = icmp eq i32 %2, 0
   br i1 %cmp8, label %land.lhs.true9, label %return
 
 land.lhs.true9:                                   ; preds = %land.lhs.true
-  %microseconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call, i64 0, i32 4
+  %microseconds = getelementptr inbounds i8, ptr %call, i64 32
   %3 = load i32, ptr %microseconds, align 8
   %cmp10 = icmp slt i32 %3, 1
   br i1 %cmp10, label %if.then17, label %return
@@ -3954,7 +3947,7 @@ Py_DECREF.exit31:                                 ; preds = %if.then17, %if.then
 if.else:                                          ; preds = %PyObject_TypeCheck.exit
   %7 = load ptr, ptr @PyExc_TypeError, align 8
   %call.val = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %call.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %call.val, i64 24
   %8 = load ptr, ptr %tp_name, align 8
   %call21 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.38, ptr noundef %name, ptr noundef %8) #15
   %9 = load i64, ptr %call, align 8
@@ -4260,7 +4253,7 @@ declare ptr @_PyObject_GetState(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @timezone_dealloc(ptr noundef %self) #0 {
 entry:
-  %offset = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %self, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %offset, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %do.body1, label %if.then
@@ -4283,7 +4276,7 @@ if.then1.i14:                                     ; preds = %if.end.i11
   br label %do.body1
 
 do.body1:                                         ; preds = %if.end.i11, %if.then1.i14, %if.then, %entry
-  %name = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %self, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load ptr, ptr %name, align 8
   %cmp4.not = icmp eq ptr %3, null
   br i1 %cmp4.not, label %do.end7, label %if.then5
@@ -4308,7 +4301,7 @@ if.then1.i:                                       ; preds = %if.end.i
 do.end7:                                          ; preds = %do.body1, %if.then5, %if.then1.i, %if.end.i
   %6 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %6, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %7 = load ptr, ptr %tp_free, align 8
   tail call void %7(ptr noundef nonnull %self) #15
   ret void
@@ -4319,7 +4312,7 @@ define internal ptr @timezone_repr(ptr noundef readonly %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %1 = load ptr, ptr %tp_name, align 8
   %2 = load ptr, ptr @_datetime_global_state.7, align 8
   %cmp = icmp eq ptr %2, %self
@@ -4330,10 +4323,10 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %name = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %self, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %self, i64 24
   %3 = load ptr, ptr %name, align 8
   %cmp2 = icmp eq ptr %3, null
-  %offset = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %self, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %self, i64 16
   %4 = load ptr, ptr %offset, align 8
   br i1 %cmp2, label %if.then3, label %if.end5
 
@@ -4353,19 +4346,19 @@ return:                                           ; preds = %if.end5, %if.then3,
 ; Function Attrs: nounwind uwtable
 define internal i64 @timezone_hash(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %offset = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %self, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %offset, align 8
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %0, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load i64, ptr %hashcode.i, align 8
   %cmp.i = icmp eq i64 %1, -1
   br i1 %cmp.i, label %if.then.i, label %delta_hash.exit
 
 if.then.i:                                        ; preds = %entry
-  %days.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %0, i64 0, i32 2
+  %days.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i32, ptr %days.i.i, align 8
-  %seconds.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %0, i64 0, i32 3
+  %seconds.i.i = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i32, ptr %seconds.i.i, align 4
-  %microseconds.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %0, i64 0, i32 4
+  %microseconds.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %microseconds.i.i, align 8
   %call.i.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.46, i32 noundef %2, i32 noundef %3, i32 noundef %4) #15
   %cmp1.not.i = icmp eq ptr %call.i.i, null
@@ -4397,7 +4390,7 @@ delta_hash.exit:                                  ; preds = %entry, %if.then.i, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @timezone_str(ptr noundef readonly %self) #0 {
 entry:
-  %name = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %self, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %name, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -4418,22 +4411,22 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %offset3 = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %self, i64 0, i32 1
+  %offset3 = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load ptr, ptr %offset3, align 8
-  %days = getelementptr inbounds %struct.PyDateTime_Delta, ptr %3, i64 0, i32 2
+  %days = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load i32, ptr %days, align 8
   %sub.i = sub i32 0, %4
   %cmp4 = icmp eq i32 %4, 0
   br i1 %cmp4, label %land.lhs.true, label %if.end14
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %seconds6 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %3, i64 0, i32 3
+  %seconds6 = getelementptr inbounds i8, ptr %3, i64 28
   %5 = load i32, ptr %seconds6, align 4
   %cmp7 = icmp eq i32 %5, 0
   br i1 %cmp7, label %land.lhs.true8, label %if.else
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
-  %microseconds10 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %3, i64 0, i32 4
+  %microseconds10 = getelementptr inbounds i8, ptr %3, i64 32
   %6 = load i32, ptr %microseconds10, align 8
   %cmp11 = icmp eq i32 %6, 0
   br i1 %cmp11, label %if.then12, label %if.else
@@ -4447,10 +4440,10 @@ if.end14:                                         ; preds = %lor.lhs.false
   br i1 %cmp17, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %if.end14
-  %seconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %3, i64 0, i32 3
+  %seconds.i = getelementptr inbounds i8, ptr %3, i64 28
   %7 = load i32, ptr %seconds.i, align 4
   %sub1.i = sub i32 0, %7
-  %microseconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %3, i64 0, i32 4
+  %microseconds.i = getelementptr inbounds i8, ptr %3, i64 32
   %8 = load i32, ptr %microseconds.i, align 8
   %sub2.i = sub i32 0, %8
   %or.cond.i.i.i = icmp ugt i32 %sub2.i, 999999
@@ -4505,13 +4498,13 @@ if.end2.i.i:                                      ; preds = %if.end.i.i21
   br i1 %cmp4.not.i.i, label %return, label %delta_negative.exit
 
 delta_negative.exit:                              ; preds = %if.end2.i.i
-  %hashcode.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 1
+  %hashcode.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 16
   store i64 -1, ptr %hashcode.i.i, align 8
-  %days6.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 2
+  %days6.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 24
   store i32 %days.addr.1.i.i, ptr %days6.i.i, align 8
-  %seconds7.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 3
+  %seconds7.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 28
   store i32 %seconds.addr.2.i.i, ptr %seconds7.i.i, align 4
-  %microseconds8.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 4
+  %microseconds8.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 32
   store i32 %microseconds.addr.0.i.i, ptr %microseconds8.i.i, align 8
   br label %if.end26
 
@@ -4528,9 +4521,9 @@ if.end.i.i24:                                     ; preds = %if.else
 if.end26:                                         ; preds = %if.end.i.i24, %if.else, %delta_negative.exit
   %offset.0 = phi ptr [ %call3.i.i, %delta_negative.exit ], [ %3, %if.else ], [ %3, %if.end.i.i24 ]
   %sign.0 = phi i32 [ 45, %delta_negative.exit ], [ 43, %if.else ], [ 43, %if.end.i.i24 ]
-  %microseconds27 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset.0, i64 0, i32 4
+  %microseconds27 = getelementptr inbounds i8, ptr %offset.0, i64 32
   %13 = load i32, ptr %microseconds27, align 8
-  %seconds28 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset.0, i64 0, i32 3
+  %seconds28 = getelementptr inbounds i8, ptr %offset.0, i64 28
   %14 = load i32, ptr %seconds28, align 4
   %15 = load i64, ptr %offset.0, align 8
   %16 = and i64 %15, 2147483648
@@ -4607,9 +4600,9 @@ PyObject_TypeCheck.exit:                          ; preds = %if.end
   br i1 %tobool3.i.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end, %PyObject_TypeCheck.exit
-  %offset = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %self, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %self, i64 16
   %2 = load ptr, ptr %offset, align 8
-  %offset4 = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %other, i64 0, i32 1
+  %offset4 = getelementptr inbounds i8, ptr %other, i64 16
   %3 = load ptr, ptr %offset4, align 8
   %4 = getelementptr i8, ptr %3, i64 8
   %other.val.i = load ptr, ptr %4, align 8
@@ -4622,25 +4615,25 @@ PyObject_TypeCheck.exit.i:                        ; preds = %if.end3
   br i1 %tobool3.i.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %PyObject_TypeCheck.exit.i, %if.end3
-  %days.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %2, i64 0, i32 2
+  %days.i.i = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load i32, ptr %days.i.i, align 8
-  %days1.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %3, i64 0, i32 2
+  %days1.i.i = getelementptr inbounds i8, ptr %3, i64 24
   %6 = load i32, ptr %days1.i.i, align 8
   %cmp.i.i = icmp eq i32 %5, %6
   br i1 %cmp.i.i, label %if.then.i.i, label %delta_cmp.exit.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %seconds.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %2, i64 0, i32 3
+  %seconds.i.i = getelementptr inbounds i8, ptr %2, i64 28
   %7 = load i32, ptr %seconds.i.i, align 4
-  %seconds2.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %3, i64 0, i32 3
+  %seconds2.i.i = getelementptr inbounds i8, ptr %3, i64 28
   %8 = load i32, ptr %seconds2.i.i, align 4
   %cmp4.i.i = icmp eq i32 %7, %8
   br i1 %cmp4.i.i, label %if.then5.i.i, label %delta_cmp.exit.i
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %microseconds.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %2, i64 0, i32 4
+  %microseconds.i.i = getelementptr inbounds i8, ptr %2, i64 32
   %9 = load i32, ptr %microseconds.i.i, align 8
-  %microseconds6.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %3, i64 0, i32 4
+  %microseconds6.i.i = getelementptr inbounds i8, ptr %3, i64 32
   %10 = load i32, ptr %microseconds6.i.i, align 8
   %11 = icmp eq i32 %9, %10
   br label %delta_cmp.exit.i
@@ -4677,20 +4670,20 @@ if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %offset, align 8
   %1 = load ptr, ptr %name, align 8
   %cmp.i = icmp eq ptr %1, null
-  %days.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %0, i64 0, i32 2
+  %days.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load i32, ptr %days.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %2, 0
   %or.cond.i = select i1 %cmp.i, i1 %cmp.not.i.i, i1 false
   br i1 %or.cond.i, label %lor.lhs.false.i.i, label %if.end.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then
-  %seconds.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %0, i64 0, i32 3
+  %seconds.i.i = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i32, ptr %seconds.i.i, align 4
   %cmp1.not.i.i = icmp eq i32 %3, 0
   br i1 %cmp1.not.i.i, label %delta_bool.exit.i, label %if.end15.i
 
 delta_bool.exit.i:                                ; preds = %lor.lhs.false.i.i
-  %microseconds.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %0, i64 0, i32 4
+  %microseconds.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %microseconds.i.i, align 8
   %cmp2.i.not.i = icmp eq i32 %4, 0
   br i1 %cmp2.i.not.i, label %if.then.i, label %if.end15.i
@@ -4711,13 +4704,13 @@ if.end.i:                                         ; preds = %if.then
   br i1 %cmp3.i, label %land.lhs.true4.i, label %lor.lhs.false.i
 
 land.lhs.true4.i:                                 ; preds = %if.end.i
-  %seconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %0, i64 0, i32 3
+  %seconds.i = getelementptr inbounds i8, ptr %0, i64 28
   %7 = load i32, ptr %seconds.i, align 4
   %cmp5.i = icmp eq i32 %7, 0
   br i1 %cmp5.i, label %land.lhs.true6.i, label %if.end15.i
 
 land.lhs.true6.i:                                 ; preds = %land.lhs.true4.i
-  %microseconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %0, i64 0, i32 4
+  %microseconds.i = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load i32, ptr %microseconds.i, align 8
   %cmp7.i = icmp slt i32 %8, 1
   br i1 %cmp7.i, label %if.then13.i, label %if.end15.i
@@ -4749,7 +4742,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end.i.i
-  %offset2.i.i = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %call.i.i, i64 0, i32 1
+  %offset2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %0, ptr %offset2.i.i, align 8
   br i1 %cmp.i, label %_Py_XNewRef.exit.i.i, label %if.then.i.i.i.i
 
@@ -4764,7 +4757,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   br label %_Py_XNewRef.exit.i.i
 
 _Py_XNewRef.exit.i.i:                             ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %_Py_NewRef.exit.i.i
-  %name4.i.i = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %call.i.i, i64 0, i32 2
+  %name4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %1, ptr %name4.i.i, align 8
   br label %return
 
@@ -4776,17 +4769,17 @@ return:                                           ; preds = %_Py_XNewRef.exit.i.
 ; Function Attrs: nounwind uwtable
 define internal i64 @delta_hash(ptr nocapture noundef %self) #0 {
 entry:
-  %hashcode = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 1
+  %hashcode = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i64, ptr %hashcode, align 8
   %cmp = icmp eq i64 %0, -1
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry
-  %days.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 2
+  %days.i = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i32, ptr %days.i, align 8
-  %seconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 3
+  %seconds.i = getelementptr inbounds i8, ptr %self, i64 28
   %2 = load i32, ptr %seconds.i, align 4
-  %microseconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 4
+  %microseconds.i = getelementptr inbounds i8, ptr %self, i64 32
   %3 = load i32, ptr %microseconds.i, align 8
   %call.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.46, i32 noundef %1, i32 noundef %2, i32 noundef %3) #15
   %cmp1.not = icmp eq ptr %call.i, null
@@ -4822,13 +4815,13 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @delta_negative(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %days = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 2
+  %days = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i32, ptr %days, align 8
   %sub = sub i32 0, %0
-  %seconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 3
+  %seconds = getelementptr inbounds i8, ptr %self, i64 28
   %1 = load i32, ptr %seconds, align 4
   %sub1 = sub i32 0, %1
-  %microseconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 4
+  %microseconds = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load i32, ptr %microseconds, align 8
   %sub2 = sub i32 0, %2
   %or.cond.i.i = icmp ugt i32 %sub2, 999999
@@ -4883,13 +4876,13 @@ if.end2.i:                                        ; preds = %if.end.i
   br i1 %cmp4.not.i, label %new_delta_ex.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end2.i
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
-  %days6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 2
+  %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store i32 %days.addr.1.i, ptr %days6.i, align 8
-  %seconds7.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 3
+  %seconds7.i = getelementptr inbounds i8, ptr %call3.i, i64 28
   store i32 %seconds.addr.2.i, ptr %seconds7.i, align 4
-  %microseconds8.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 4
+  %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 %microseconds.addr.0.i, ptr %microseconds8.i, align 8
   br label %new_delta_ex.exit
 
@@ -4912,27 +4905,27 @@ PyObject_TypeCheck.exit:                          ; preds = %entry
   br i1 %tobool3.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
-  %days.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 2
+  %days.i = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i32, ptr %days.i, align 8
-  %days1.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %other, i64 0, i32 2
+  %days1.i = getelementptr inbounds i8, ptr %other, i64 24
   %2 = load i32, ptr %days1.i, align 8
   %sub.i = sub i32 %1, %2
   %cmp.i = icmp eq i32 %sub.i, 0
   br i1 %cmp.i, label %if.then.i, label %delta_cmp.exit
 
 if.then.i:                                        ; preds = %if.then
-  %seconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 3
+  %seconds.i = getelementptr inbounds i8, ptr %self, i64 28
   %3 = load i32, ptr %seconds.i, align 4
-  %seconds2.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %other, i64 0, i32 3
+  %seconds2.i = getelementptr inbounds i8, ptr %other, i64 28
   %4 = load i32, ptr %seconds2.i, align 4
   %sub3.i = sub i32 %3, %4
   %cmp4.i = icmp eq i32 %sub3.i, 0
   br i1 %cmp4.i, label %if.then5.i, label %delta_cmp.exit
 
 if.then5.i:                                       ; preds = %if.then.i
-  %microseconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 4
+  %microseconds.i = getelementptr inbounds i8, ptr %self, i64 32
   %5 = load i32, ptr %microseconds.i, align 8
-  %microseconds6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %other, i64 0, i32 4
+  %microseconds6.i = getelementptr inbounds i8, ptr %other, i64 32
   %6 = load i32, ptr %microseconds6.i, align 8
   %sub7.i = sub i32 %5, %6
   br label %delta_cmp.exit
@@ -5006,7 +4999,7 @@ PyObject_TypeCheck.exit.i:                        ; preds = %lor.lhs.false.i
 _timezone_check_argument.exit:                    ; preds = %PyObject_TypeCheck.exit.i
   %1 = load ptr, ptr @PyExc_TypeError, align 8
   %dt.val.i = load ptr, ptr %0, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %dt.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %dt.val.i, i64 24
   %2 = load ptr, ptr %tp_name.i, align 8
   %call2.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.21, ptr noundef %2) #15
   br label %return
@@ -5040,13 +5033,13 @@ PyObject_TypeCheck.exit.i:                        ; preds = %lor.lhs.false.i
 _timezone_check_argument.exit:                    ; preds = %PyObject_TypeCheck.exit.i
   %1 = load ptr, ptr @PyExc_TypeError, align 8
   %dt.val.i = load ptr, ptr %0, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %dt.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %dt.val.i, i64 24
   %2 = load ptr, ptr %tp_name.i, align 8
   %call2.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.23, ptr noundef %2) #15
   br label %return
 
 if.end:                                           ; preds = %PyObject_TypeCheck.exit.i, %entry, %lor.lhs.false.i
-  %offset = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %self, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %self, i64 16
   %3 = load ptr, ptr %offset, align 8
   %4 = load i32, ptr %3, align 8
   %add.i.i = add i32 %4, 1
@@ -5082,7 +5075,7 @@ PyObject_TypeCheck.exit.i:                        ; preds = %lor.lhs.false.i
 1:                                                ; preds = %PyObject_TypeCheck.exit.i
   %2 = load ptr, ptr @PyExc_TypeError, align 8
   %dt.val.i = load ptr, ptr %0, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %dt.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %dt.val.i, i64 24
   %3 = load ptr, ptr %tp_name.i, align 8
   %call2.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.25, ptr noundef %3) #15
   br label %_timezone_check_argument.exit.thread
@@ -5111,13 +5104,13 @@ if.then:                                          ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %dt, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %dt, i64 24
   %2 = load i8, ptr %hastzinfo, align 8
   %tobool1.not = icmp eq i8 %2, 0
   br i1 %tobool1.not, label %if.then2, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %dt, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %dt, i64 40
   %3 = load ptr, ptr %tzinfo, align 8
   %cmp.not = icmp eq ptr %3, %self
   br i1 %cmp.not, label %if.end3, label %if.then2
@@ -5128,7 +5121,7 @@ if.then2:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %offset = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %self, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %self, i64 16
   %5 = load ptr, ptr %offset, align 8
   %call4 = tail call fastcc ptr @add_datetime_timedelta(ptr noundef nonnull %dt, ptr noundef %5, i32 noundef 1)
   br label %return
@@ -5141,10 +5134,10 @@ return:                                           ; preds = %if.end3, %if.then2,
 ; Function Attrs: nounwind uwtable
 define internal ptr @timezone_getinitargs(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %name = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %self, i64 0, i32 2
+  %name = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %name, align 8
   %cmp = icmp eq ptr %0, null
-  %offset = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %self, i64 0, i32 1
+  %offset = getelementptr inbounds i8, ptr %self, i64 16
   %1 = load ptr, ptr %offset, align 8
   br i1 %cmp, label %if.then, label %if.end
 
@@ -5169,20 +5162,20 @@ declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, 
 define internal ptr @new_timezone(ptr noundef %offset, ptr noundef %name) #0 {
 entry:
   %cmp = icmp eq ptr %name, null
-  %days.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset, i64 0, i32 2
+  %days.i = getelementptr inbounds i8, ptr %offset, i64 24
   %0 = load i32, ptr %days.i, align 8
   %cmp.not.i = icmp eq i32 %0, 0
   %or.cond = select i1 %cmp, i1 %cmp.not.i, i1 false
   br i1 %or.cond, label %lor.lhs.false.i, label %if.end
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %seconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset, i64 0, i32 3
+  %seconds.i = getelementptr inbounds i8, ptr %offset, i64 28
   %1 = load i32, ptr %seconds.i, align 4
   %cmp1.not.i = icmp eq i32 %1, 0
   br i1 %cmp1.not.i, label %delta_bool.exit, label %if.end15
 
 delta_bool.exit:                                  ; preds = %lor.lhs.false.i
-  %microseconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset, i64 0, i32 4
+  %microseconds.i = getelementptr inbounds i8, ptr %offset, i64 32
   %2 = load i32, ptr %microseconds.i, align 8
   %cmp2.i.not = icmp eq i32 %2, 0
   br i1 %cmp2.i.not, label %if.then, label %if.end15
@@ -5203,13 +5196,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %land.lhs.true4, label %lor.lhs.false
 
 land.lhs.true4:                                   ; preds = %if.end
-  %seconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset, i64 0, i32 3
+  %seconds = getelementptr inbounds i8, ptr %offset, i64 28
   %5 = load i32, ptr %seconds, align 4
   %cmp5 = icmp eq i32 %5, 0
   br i1 %cmp5, label %land.lhs.true6, label %if.end15
 
 land.lhs.true6:                                   ; preds = %land.lhs.true4
-  %microseconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset, i64 0, i32 4
+  %microseconds = getelementptr inbounds i8, ptr %offset, i64 32
   %6 = load i32, ptr %microseconds, align 8
   %cmp7 = icmp slt i32 %6, 1
   br i1 %cmp7, label %if.then13, label %if.end15
@@ -5241,7 +5234,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end.i
-  %offset2.i = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %call.i, i64 0, i32 1
+  %offset2.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %offset, ptr %offset2.i, align 8
   br i1 %cmp, label %_Py_XNewRef.exit.i, label %if.then.i.i.i
 
@@ -5256,7 +5249,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   br label %_Py_XNewRef.exit.i
 
 _Py_XNewRef.exit.i:                               ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %_Py_NewRef.exit.i
-  %name4.i = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %call.i, i64 0, i32 2
+  %name4.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %name, ptr %name4.i, align 8
   br label %return
 
@@ -5270,20 +5263,20 @@ define internal ptr @date_repr(ptr nocapture noundef readonly %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %1 = load ptr, ptr %tp_name, align 8
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %2 = load i8, ptr %data, align 1
   %conv = zext i8 %2 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 26
   %3 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %3 to i32
   %or = or disjoint i32 %shl, %conv3
-  %arrayidx5 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %self, i64 27
   %4 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %4 to i32
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %self, i64 28
   %5 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %5 to i32
   %call10 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.61, ptr noundef %1, i32 noundef %or, i32 noundef %conv6, i32 noundef %conv9) #15
@@ -5293,13 +5286,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i64 @date_hash(ptr noundef %self) #0 {
 entry:
-  %hashcode = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 1
+  %hashcode = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i64, ptr %hashcode, align 8
   %cmp = icmp eq i64 %0, -1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %call.i = tail call i64 @_Py_HashBytes(ptr noundef nonnull %data, i64 noundef 4) #15
   store i64 %call.i, ptr %hashcode, align 8
   br label %if.end
@@ -5334,8 +5327,8 @@ PyObject_TypeCheck.exit:                          ; preds = %entry
   br i1 %tobool3.i.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
-  %data1 = getelementptr inbounds %struct.PyDateTime_Date, ptr %other, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
+  %data1 = getelementptr inbounds i8, ptr %other, i64 25
   %call3 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(4) %data, ptr noundef nonnull dereferenceable(4) %data1, i64 noundef 4) #16
   switch i32 %op, label %sw.default.i [
     i32 2, label %sw.bb.i
@@ -5396,7 +5389,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end38
 
 if.then:                                          ; preds = %entry
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   %1 = load ptr, ptr %ob_item, align 8
   %2 = getelementptr i8, ptr %1, i64 8
   %.val18 = load ptr, ptr %2, align 8
@@ -5413,8 +5406,8 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp5, label %land.lhs.true, label %if.end38
 
 land.lhs.true:                                    ; preds = %if.then3
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %1, i64 0, i32 2
-  %arrayidx7 = getelementptr %struct.PyBytesObject, ptr %1, i64 0, i32 2, i64 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %1, i64 32
+  %arrayidx7 = getelementptr i8, ptr %1, i64 34
   %6 = load i8, ptr %arrayidx7, align 1
   %conv = sext i8 %6 to i32
   %sub = add nsw i32 %conv, -1
@@ -5422,17 +5415,17 @@ land.lhs.true:                                    ; preds = %if.then3
   br i1 %cmp8, label %if.then10, label %if.end38
 
 if.then10:                                        ; preds = %land.lhs.true
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %7 = load ptr, ptr %tp_alloc.i, align 8
   %call.i = tail call ptr %7(ptr noundef %type, i64 noundef 0) #15
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then10
-  %data.i = getelementptr inbounds %struct.PyDateTime_Date, ptr %call.i, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 25
   %8 = load i32, ptr %ob_sval.i, align 1
   store i32 %8, ptr %data.i, align 1
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Date, ptr %call.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
   br label %return
 
@@ -5448,26 +5441,25 @@ if.then15:                                        ; preds = %if.else
   br i1 %cmp17, label %land.lhs.true19, label %if.end38
 
 land.lhs.true19:                                  ; preds = %if.then15
-  %state.i = getelementptr inbounds %struct.PyASCIIObject, ptr %1, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %1, i64 32
   %bf.load.i = load i32, ptr %state.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 2
   %bf.clear.i = and i32 %bf.lshr.i, 7
   %11 = and i32 %bf.load.i, 32
-  %tobool.not.i19.i = icmp eq i32 %11, 0
+  %tobool.not.i18.i = icmp eq i32 %11, 0
   switch i32 %bf.clear.i, label %if.end7.i [
     i32 1, label %if.then.i26
     i32 2, label %if.then3.i
   ]
 
 if.then.i26:                                      ; preds = %land.lhs.true19
-  br i1 %tobool.not.i19.i, label %if.end.i.i, label %if.then.i.i
+  br i1 %tobool.not.i18.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i26
   %12 = and i32 %bf.load.i, 64
   %tobool.not.i.i.i = icmp eq i32 %12, 0
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %1, i64 1
-  %add.ptr1.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %1, i64 1
-  %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr %add.ptr1.i.i.i, ptr %add.ptr.i.i.i
+  %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
+  %retval.0.i.i.i = getelementptr i8, ptr %1, i64 %retval.0.v.i.i.i
   br label %PyUnicode_DATA.exit.i
 
 if.end.i.i:                                       ; preds = %if.then.i26
@@ -5483,52 +5475,50 @@ PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.the
   br label %PyUnicode_READ_CHAR.exit
 
 if.then3.i:                                       ; preds = %land.lhs.true19
-  br i1 %tobool.not.i19.i, label %if.end.i15.i, label %if.then.i9.i
+  br i1 %tobool.not.i18.i, label %if.end.i14.i, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %if.then3.i
   %15 = and i32 %bf.load.i, 64
   %tobool.not.i.i10.i = icmp eq i32 %15, 0
-  %add.ptr.i.i11.i = getelementptr %struct.PyASCIIObject, ptr %1, i64 1
-  %add.ptr1.i.i12.i = getelementptr %struct.PyCompactUnicodeObject, ptr %1, i64 1
-  %retval.0.i.i13.i = select i1 %tobool.not.i.i10.i, ptr %add.ptr1.i.i12.i, ptr %add.ptr.i.i11.i
-  br label %PyUnicode_DATA.exit17.i
+  %retval.0.v.i.i11.i = select i1 %tobool.not.i.i10.i, i64 56, i64 40
+  %retval.0.i.i12.i = getelementptr i8, ptr %1, i64 %retval.0.v.i.i11.i
+  br label %PyUnicode_DATA.exit16.i
 
-if.end.i15.i:                                     ; preds = %if.then3.i
+if.end.i14.i:                                     ; preds = %if.then3.i
   %16 = getelementptr i8, ptr %1, i64 56
-  %op.val3.i16.i = load ptr, ptr %16, align 8
-  br label %PyUnicode_DATA.exit17.i
+  %op.val3.i15.i = load ptr, ptr %16, align 8
+  br label %PyUnicode_DATA.exit16.i
 
-PyUnicode_DATA.exit17.i:                          ; preds = %if.end.i15.i, %if.then.i9.i
-  %retval.0.i14.i = phi ptr [ %retval.0.i.i13.i, %if.then.i9.i ], [ %op.val3.i16.i, %if.end.i15.i ]
-  %arrayidx5.i = getelementptr i16, ptr %retval.0.i14.i, i64 2
+PyUnicode_DATA.exit16.i:                          ; preds = %if.end.i14.i, %if.then.i9.i
+  %retval.0.i13.i = phi ptr [ %retval.0.i.i12.i, %if.then.i9.i ], [ %op.val3.i15.i, %if.end.i14.i ]
+  %arrayidx5.i = getelementptr i8, ptr %retval.0.i13.i, i64 4
   %17 = load i16, ptr %arrayidx5.i, align 2
   %conv6.i = zext i16 %17 to i32
   br label %PyUnicode_READ_CHAR.exit
 
 if.end7.i:                                        ; preds = %land.lhs.true19
-  br i1 %tobool.not.i19.i, label %if.end.i26.i, label %if.then.i20.i
+  br i1 %tobool.not.i18.i, label %if.end.i24.i, label %if.then.i19.i
 
-if.then.i20.i:                                    ; preds = %if.end7.i
+if.then.i19.i:                                    ; preds = %if.end7.i
   %18 = and i32 %bf.load.i, 64
-  %tobool.not.i.i21.i = icmp eq i32 %18, 0
-  %add.ptr.i.i22.i = getelementptr %struct.PyASCIIObject, ptr %1, i64 1
-  %add.ptr1.i.i23.i = getelementptr %struct.PyCompactUnicodeObject, ptr %1, i64 1
-  %retval.0.i.i24.i = select i1 %tobool.not.i.i21.i, ptr %add.ptr1.i.i23.i, ptr %add.ptr.i.i22.i
-  br label %PyUnicode_DATA.exit28.i
+  %tobool.not.i.i20.i = icmp eq i32 %18, 0
+  %retval.0.v.i.i21.i = select i1 %tobool.not.i.i20.i, i64 56, i64 40
+  %retval.0.i.i22.i = getelementptr i8, ptr %1, i64 %retval.0.v.i.i21.i
+  br label %PyUnicode_DATA.exit26.i
 
-if.end.i26.i:                                     ; preds = %if.end7.i
+if.end.i24.i:                                     ; preds = %if.end7.i
   %19 = getelementptr i8, ptr %1, i64 56
-  %op.val3.i27.i = load ptr, ptr %19, align 8
-  br label %PyUnicode_DATA.exit28.i
+  %op.val3.i25.i = load ptr, ptr %19, align 8
+  br label %PyUnicode_DATA.exit26.i
 
-PyUnicode_DATA.exit28.i:                          ; preds = %if.end.i26.i, %if.then.i20.i
-  %retval.0.i25.i = phi ptr [ %retval.0.i.i24.i, %if.then.i20.i ], [ %op.val3.i27.i, %if.end.i26.i ]
-  %arrayidx9.i = getelementptr i32, ptr %retval.0.i25.i, i64 2
+PyUnicode_DATA.exit26.i:                          ; preds = %if.end.i24.i, %if.then.i19.i
+  %retval.0.i23.i = phi ptr [ %retval.0.i.i22.i, %if.then.i19.i ], [ %op.val3.i25.i, %if.end.i24.i ]
+  %arrayidx9.i = getelementptr i8, ptr %retval.0.i23.i, i64 8
   %20 = load i32, ptr %arrayidx9.i, align 4
   br label %PyUnicode_READ_CHAR.exit
 
-PyUnicode_READ_CHAR.exit:                         ; preds = %PyUnicode_DATA.exit.i, %PyUnicode_DATA.exit17.i, %PyUnicode_DATA.exit28.i
-  %retval.0.i = phi i32 [ %conv.i27, %PyUnicode_DATA.exit.i ], [ %conv6.i, %PyUnicode_DATA.exit17.i ], [ %20, %PyUnicode_DATA.exit28.i ]
+PyUnicode_READ_CHAR.exit:                         ; preds = %PyUnicode_DATA.exit.i, %PyUnicode_DATA.exit16.i, %PyUnicode_DATA.exit26.i
+  %retval.0.i = phi i32 [ %conv.i27, %PyUnicode_DATA.exit.i ], [ %conv6.i, %PyUnicode_DATA.exit16.i ], [ %20, %PyUnicode_DATA.exit26.i ]
   %sub21 = add i32 %retval.0.i, -1
   %cmp22 = icmp ult i32 %sub21, 12
   br i1 %cmp22, label %if.then24, label %if.end38
@@ -5550,18 +5540,18 @@ if.then31:                                        ; preds = %if.then28
   br label %return
 
 if.end33:                                         ; preds = %if.then24
-  %tp_alloc.i28 = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i28 = getelementptr inbounds i8, ptr %type, i64 304
   %23 = load ptr, ptr %tp_alloc.i28, align 8
   %call.i29 = tail call ptr %23(ptr noundef %type, i64 noundef 0) #15
   %cmp.not.i30 = icmp eq ptr %call.i29, null
   br i1 %cmp.not.i30, label %date_from_pickle.exit36, label %if.then.i31
 
 if.then.i31:                                      ; preds = %if.end33
-  %ob_sval.i.i32 = getelementptr inbounds %struct.PyBytesObject, ptr %call25, i64 0, i32 2
-  %data.i33 = getelementptr inbounds %struct.PyDateTime_Date, ptr %call.i29, i64 0, i32 3
+  %ob_sval.i.i32 = getelementptr inbounds i8, ptr %call25, i64 32
+  %data.i33 = getelementptr inbounds i8, ptr %call.i29, i64 25
   %24 = load i32, ptr %ob_sval.i.i32, align 1
   store i32 %24, ptr %data.i33, align 1
-  %hashcode.i34 = getelementptr inbounds %struct.PyDateTime_Date, ptr %call.i29, i64 0, i32 1
+  %hashcode.i34 = getelementptr inbounds i8, ptr %call.i29, i64 16
   store i64 -1, ptr %hashcode.i34, align 8
   br label %date_from_pickle.exit36
 
@@ -5710,17 +5700,17 @@ PyObject_TypeCheck.exit35:                        ; preds = %if.then5
   br i1 %tobool3.i33.not, label %if.end35, label %if.then8
 
 if.then8:                                         ; preds = %if.then5, %PyObject_TypeCheck.exit35
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %left, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %left, i64 25
   %2 = load i8, ptr %data, align 1
   %conv = zext i8 %2 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx10 = getelementptr %struct.PyDateTime_Date, ptr %left, i64 0, i32 3, i64 1
+  %arrayidx10 = getelementptr i8, ptr %left, i64 26
   %3 = load i8, ptr %arrayidx10, align 1
   %conv11 = zext i8 %3 to i32
   %or = or disjoint i32 %shl, %conv11
-  %arrayidx13 = getelementptr %struct.PyDateTime_Date, ptr %left, i64 0, i32 3, i64 2
+  %arrayidx13 = getelementptr i8, ptr %left, i64 27
   %4 = load i8, ptr %arrayidx13, align 1
-  %arrayidx16 = getelementptr %struct.PyDateTime_Date, ptr %left, i64 0, i32 3, i64 3
+  %arrayidx16 = getelementptr i8, ptr %left, i64 28
   %5 = load i8, ptr %arrayidx16, align 1
   %conv17 = zext i8 %5 to i32
   %idxprom.i.i = zext i8 %4 to i64
@@ -5759,17 +5749,17 @@ ymd_to_ord.exit:                                  ; preds = %if.then8, %is_leap.
   %div.i.i = sdiv i32 %sub.i.i, 4
   %div1.neg.i.i = sdiv i32 %sub.i.i, -100
   %div3.i.i = sdiv i32 %sub.i.i, 400
-  %data19 = getelementptr inbounds %struct.PyDateTime_Date, ptr %right, i64 0, i32 3
+  %data19 = getelementptr inbounds i8, ptr %right, i64 25
   %7 = load i8, ptr %data19, align 1
   %conv21 = zext i8 %7 to i32
   %shl22 = shl nuw nsw i32 %conv21, 8
-  %arrayidx24 = getelementptr %struct.PyDateTime_Date, ptr %right, i64 0, i32 3, i64 1
+  %arrayidx24 = getelementptr i8, ptr %right, i64 26
   %8 = load i8, ptr %arrayidx24, align 1
   %conv25 = zext i8 %8 to i32
   %or26 = or disjoint i32 %shl22, %conv25
-  %arrayidx28 = getelementptr %struct.PyDateTime_Date, ptr %right, i64 0, i32 3, i64 2
+  %arrayidx28 = getelementptr i8, ptr %right, i64 27
   %9 = load i8, ptr %arrayidx28, align 1
-  %arrayidx31 = getelementptr %struct.PyDateTime_Date, ptr %right, i64 0, i32 3, i64 3
+  %arrayidx31 = getelementptr i8, ptr %right, i64 28
   %10 = load i8, ptr %arrayidx31, align 1
   %conv32 = zext i8 %10 to i32
   %idxprom.i.i36 = zext i8 %9 to i64
@@ -5836,13 +5826,13 @@ if.end2.i:                                        ; preds = %ymd_to_ord.exit63
   br i1 %cmp4.not.i, label %return, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end2.i
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
-  %days6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 2
+  %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store i32 %sub, ptr %days6.i, align 8
-  %seconds7.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 3
+  %seconds7.i = getelementptr inbounds i8, ptr %call3.i, i64 28
   store i32 0, ptr %seconds7.i, align 4
-  %microseconds8.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 4
+  %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 0, ptr %microseconds8.i, align 8
   br label %return
 
@@ -5873,20 +5863,20 @@ entry:
   %year = alloca i32, align 4
   %month = alloca i32, align 4
   %day = alloca i32, align 4
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %date, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %date, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %date, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %date, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv3
   store i32 %or, ptr %year, align 4
-  %arrayidx5 = getelementptr %struct.PyDateTime_Date, ptr %date, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %date, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %2 to i32
   store i32 %conv6, ptr %month, align 4
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %date, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %date, i64 28
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   %tobool.not = icmp eq i32 %negate, 0
@@ -6248,7 +6238,7 @@ time_time.exit:                                   ; preds = %if.then.i, %if.end.
 if.end:                                           ; preds = %time_time.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i)
   store ptr %cls, ptr %args.i, align 16
-  %arrayinit.element.i = getelementptr inbounds ptr, ptr %args.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
   store ptr %call1.i, ptr %arrayinit.element.i, align 8
   %call.i6 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 376), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
@@ -6275,17 +6265,17 @@ return:                                           ; preds = %entry, %if.end.i, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @date_ctime(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %data.i = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %self, i64 25
   %0 = load i8, ptr %data.i, align 1
   %conv.i = zext i8 %0 to i32
   %shl.i = shl nuw nsw i32 %conv.i, 8
-  %arrayidx2.i = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2.i = getelementptr i8, ptr %self, i64 26
   %1 = load i8, ptr %arrayidx2.i, align 1
   %conv3.i = zext i8 %1 to i32
   %or.i = or disjoint i32 %shl.i, %conv3.i
-  %arrayidx5.i = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5.i = getelementptr i8, ptr %self, i64 27
   %2 = load i8, ptr %arrayidx5.i, align 1
-  %arrayidx8.i = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx8.i = getelementptr i8, ptr %self, i64 28
   %3 = load i8, ptr %arrayidx8.i, align 1
   %idxprom.i.i.i.i = zext i8 %2 to i64
   %arrayidx.i.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i.i
@@ -6405,7 +6395,7 @@ if.end4:                                          ; preds = %if.end
   %1 = load ptr, ptr %format, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i)
   store ptr %self, ptr %args.i, align 16
-  %arrayinit.element.i = getelementptr inbounds ptr, ptr %args.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
   store ptr %1, ptr %arrayinit.element.i, align 8
   %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 633), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
@@ -6419,18 +6409,18 @@ return:                                           ; preds = %entry, %if.end4, %i
 ; Function Attrs: nounwind uwtable
 define internal ptr @date_timetuple(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv3
-  %arrayidx5 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %self, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %2 to i32
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %self, i64 28
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   %call = tail call fastcc ptr @build_struct_time(i32 noundef %or, i32 noundef %conv6, i32 noundef %conv9, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef -1)
@@ -6440,11 +6430,11 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @date_isocalendar(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv3
@@ -6463,9 +6453,9 @@ entry:
   %cmp.i = icmp sgt i32 %rem.i, 3
   %add1.i = add nsw i32 %sub.i, 7
   %spec.select.i = select i1 %cmp.i, i32 %add1.i, i32 %sub.i
-  %arrayidx5 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %self, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %self, i64 28
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   %idxprom.i.i = zext i8 %2 to i64
@@ -6583,16 +6573,16 @@ if.end.i:                                         ; preds = %if.end22
   %add23 = add nsw i32 %week.0, 1
   %conv.i = sext i32 %year.0 to i64
   %call1.i = tail call ptr @PyLong_FromLong(i64 noundef %conv.i) #15
-  %arrayidx.i.i60 = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 0
-  store ptr %call1.i, ptr %arrayidx.i.i60, align 8
+  %ob_item.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  store ptr %call1.i, ptr %ob_item.i.i, align 8
   %conv2.i = sext i32 %add23 to i64
   %call3.i = tail call ptr @PyLong_FromLong(i64 noundef %conv2.i) #15
-  %arrayidx.i6.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 1
-  store ptr %call3.i, ptr %arrayidx.i6.i, align 8
+  %arrayidx.i.i60 = getelementptr i8, ptr %call.i, i64 32
+  store ptr %call3.i, ptr %arrayidx.i.i60, align 8
   %conv4.i = sext i32 %add24 to i64
   %call5.i = tail call ptr @PyLong_FromLong(i64 noundef %conv4.i) #15
-  %arrayidx.i7.i = getelementptr %struct.PyTupleObject, ptr %call.i, i64 0, i32 1, i64 2
-  store ptr %call5.i, ptr %arrayidx.i7.i, align 8
+  %arrayidx.i8.i = getelementptr i8, ptr %call.i, i64 40
+  store ptr %call5.i, ptr %arrayidx.i8.i, align 8
   br label %iso_calendar_date_new_impl.exit
 
 iso_calendar_date_new_impl.exit:                  ; preds = %if.end22, %if.end.i
@@ -6602,18 +6592,18 @@ iso_calendar_date_new_impl.exit:                  ; preds = %if.end22, %if.end.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @date_isoformat(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv3
-  %arrayidx5 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %self, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %2 to i32
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %self, i64 28
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   %call = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.138, i32 noundef %or, i32 noundef %conv6, i32 noundef %conv9) #15
@@ -6623,17 +6613,17 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @date_isoweekday(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv3
-  %arrayidx5 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %self, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %self, i64 28
   %3 = load i8, ptr %arrayidx8, align 1
   %idxprom.i.i.i = zext i8 %2 to i64
   %arrayidx.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i
@@ -6689,17 +6679,17 @@ weekday.exit:                                     ; preds = %entry, %is_leap.exi
 ; Function Attrs: nounwind uwtable
 define internal ptr @date_toordinal(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv3
-  %arrayidx5 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %self, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %self, i64 28
   %3 = load i8, ptr %arrayidx8, align 1
   %idxprom.i.i = zext i8 %2 to i64
   %arrayidx.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i
@@ -6752,17 +6742,17 @@ ymd_to_ord.exit:                                  ; preds = %entry, %is_leap.exi
 ; Function Attrs: nounwind uwtable
 define internal ptr @date_weekday(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv3
-  %arrayidx5 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %self, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %self, i64 28
   %3 = load i8, ptr %arrayidx8, align 1
   %idxprom.i.i.i = zext i8 %2 to i64
   %arrayidx.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i
@@ -6820,20 +6810,20 @@ entry:
   %year = alloca i32, align 4
   %month = alloca i32, align 4
   %day = alloca i32, align 4
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv3
   store i32 %or, ptr %year, align 4
-  %arrayidx5 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %self, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %2 to i32
   store i32 %conv6, ptr %month, align 4
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %self, i64 28
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   store i32 %conv9, ptr %day, align 4
@@ -6878,7 +6868,7 @@ define internal ptr @date_reduce(ptr noundef %self, ptr nocapture readnone %arg)
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %data.i = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %self, i64 25
   %call.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %data.i, i64 noundef 4) #15
   %call1.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.142, ptr noundef %call.i) #15
   %call2 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.141, ptr noundef %self.val, ptr noundef %call1.i) #15
@@ -6901,13 +6891,13 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %tm_year = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %tm, i64 20
   %1 = load i32, ptr %tm_year, align 4
   %add = add i32 %1, 1900
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %tm, i64 16
   %2 = load i32, ptr %tm_mon, align 8
   %add5 = add i32 %2, 1
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %tm, i64 12
   %3 = load i32, ptr %tm_mday, align 4
   %cmp.i = icmp eq ptr %cls, @PyDateTime_DateType
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -7253,7 +7243,7 @@ if.then29:                                        ; preds = %if.then26
 
 if.end35:                                         ; preds = %if.then29, %if.then26
   %zreplacement.1 = phi ptr [ %call30, %if.then29 ], [ %zreplacement.0, %if.then26 ]
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %zreplacement.1, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %zreplacement.1, i64 32
   %3 = getelementptr i8, ptr %zreplacement.1, i64 16
   %zreplacement.1.val = load i64, ptr %3, align 8
   store i64 %zreplacement.1.val, ptr %ntoappend, align 8
@@ -7276,7 +7266,7 @@ if.then51:                                        ; preds = %land.lhs.true45
 
 if.end57:                                         ; preds = %if.then51, %land.lhs.true45
   %colonzreplacement.1 = phi ptr [ %call52, %if.then51 ], [ %colonzreplacement.0, %land.lhs.true45 ]
-  %ob_sval.i50 = getelementptr inbounds %struct.PyBytesObject, ptr %colonzreplacement.1, i64 0, i32 2
+  %ob_sval.i50 = getelementptr inbounds i8, ptr %colonzreplacement.1, i64 32
   %5 = getelementptr i8, ptr %colonzreplacement.1, i64 16
   %colonzreplacement.1.val = load i64, ptr %5, align 8
   store i64 %colonzreplacement.1.val, ptr %ntoappend, align 8
@@ -7308,7 +7298,7 @@ if.then86:                                        ; preds = %if.then83
 
 if.end92:                                         ; preds = %if.then86, %if.then83
   %freplacement.1 = phi ptr [ %call87, %if.then86 ], [ %freplacement.0, %if.then83 ]
-  %ob_sval.i51 = getelementptr inbounds %struct.PyBytesObject, ptr %freplacement.1, i64 0, i32 2
+  %ob_sval.i51 = getelementptr inbounds i8, ptr %freplacement.1, i64 32
   %6 = getelementptr i8, ptr %freplacement.1, i64 16
   %freplacement.1.val = load i64, ptr %6, align 8
   store i64 %freplacement.1.val, ptr %ntoappend, align 8
@@ -7394,7 +7384,7 @@ if.end131:                                        ; preds = %while.end126
 
 if.end137:                                        ; preds = %if.end131
   %12 = load ptr, ptr %newfmt, align 8
-  %ob_sval.i52 = getelementptr inbounds %struct.PyBytesObject, ptr %12, i64 0, i32 2
+  %ob_sval.i52 = getelementptr inbounds i8, ptr %12, i64 32
   %call139 = call ptr @PyUnicode_FromString(ptr noundef nonnull %ob_sval.i52) #15
   %cmp140.not = icmp eq ptr %call139, null
   br i1 %cmp140.not, label %if.end144, label %if.then142
@@ -7570,14 +7560,10 @@ PyObject_TypeCheck.exit.i:                        ; preds = %entry
   br i1 %tobool3.i.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %PyObject_TypeCheck.exit.i, %entry
-  %hastzinfo.i = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %object, i64 0, i32 2
+  %hastzinfo.i = getelementptr inbounds i8, ptr %object, i64 24
   %1 = load i8, ptr %hastzinfo.i, align 8
   %tobool1.not.i = icmp eq i8 %1, 0
-  br i1 %tobool1.not.i, label %if.else.i, label %if.then.i
-
-if.then.i:                                        ; preds = %land.lhs.true.i
-  %tzinfo2.i = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %object, i64 0, i32 5
-  br label %get_tzinfo_member.exit
+  br i1 %tobool1.not.i, label %if.else.i, label %get_tzinfo_member.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %PyObject_TypeCheck.exit.i
   %self.val.i = load ptr, ptr %0, align 8
@@ -7590,18 +7576,15 @@ PyObject_TypeCheck.exit12.i:                      ; preds = %if.else.i
   br i1 %tobool3.i10.not.i, label %if.then, label %land.lhs.true5.i
 
 land.lhs.true5.i:                                 ; preds = %PyObject_TypeCheck.exit12.i, %if.else.i
-  %hastzinfo6.i = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %object, i64 0, i32 2
+  %hastzinfo6.i = getelementptr inbounds i8, ptr %object, i64 24
   %2 = load i8, ptr %hastzinfo6.i, align 8
   %tobool8.not.i = icmp eq i8 %2, 0
-  br i1 %tobool8.not.i, label %if.then, label %if.then9.i
+  br i1 %tobool8.not.i, label %if.then, label %get_tzinfo_member.exit
 
-if.then9.i:                                       ; preds = %land.lhs.true5.i
-  %tzinfo10.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %object, i64 0, i32 5
-  br label %get_tzinfo_member.exit
-
-get_tzinfo_member.exit:                           ; preds = %if.then.i, %if.then9.i
-  %tzinfo10.sink.i = phi ptr [ %tzinfo10.i, %if.then9.i ], [ %tzinfo2.i, %if.then.i ]
-  %3 = load ptr, ptr %tzinfo10.sink.i, align 8
+get_tzinfo_member.exit:                           ; preds = %land.lhs.true.i, %land.lhs.true5.i
+  %.sink.i = phi i64 [ 40, %land.lhs.true.i ], [ 32, %land.lhs.true5.i ]
+  %tzinfo10.i = getelementptr inbounds i8, ptr %object, i64 %.sink.i
+  %3 = load ptr, ptr %tzinfo10.i, align 8
   %cmp = icmp eq ptr %3, @_Py_NoneStruct
   %cmp1 = icmp eq ptr %3, null
   %or.cond = or i1 %cmp, %cmp1
@@ -7641,14 +7624,10 @@ PyObject_TypeCheck.exit.i:                        ; preds = %entry
   br i1 %tobool3.i.not.i, label %if.else.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %PyObject_TypeCheck.exit.i, %entry
-  %hastzinfo.i = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %object, i64 0, i32 2
+  %hastzinfo.i = getelementptr inbounds i8, ptr %object, i64 24
   %1 = load i8, ptr %hastzinfo.i, align 8
   %tobool1.not.i = icmp eq i8 %1, 0
-  br i1 %tobool1.not.i, label %if.else.i, label %if.then.i
-
-if.then.i:                                        ; preds = %land.lhs.true.i
-  %tzinfo2.i = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %object, i64 0, i32 5
-  br label %if.end11.sink.split.i
+  br i1 %tobool1.not.i, label %if.else.i, label %if.end11.sink.split.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %PyObject_TypeCheck.exit.i
   %self.val.i = load ptr, ptr %0, align 8
@@ -7661,18 +7640,15 @@ PyObject_TypeCheck.exit12.i:                      ; preds = %if.else.i
   br i1 %tobool3.i10.not.i, label %get_tzinfo_member.exit, label %land.lhs.true5.i
 
 land.lhs.true5.i:                                 ; preds = %PyObject_TypeCheck.exit12.i, %if.else.i
-  %hastzinfo6.i = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %object, i64 0, i32 2
+  %hastzinfo6.i = getelementptr inbounds i8, ptr %object, i64 24
   %2 = load i8, ptr %hastzinfo6.i, align 8
   %tobool8.not.i = icmp eq i8 %2, 0
-  br i1 %tobool8.not.i, label %get_tzinfo_member.exit, label %if.then9.i
+  br i1 %tobool8.not.i, label %get_tzinfo_member.exit, label %if.end11.sink.split.i
 
-if.then9.i:                                       ; preds = %land.lhs.true5.i
-  %tzinfo10.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %object, i64 0, i32 5
-  br label %if.end11.sink.split.i
-
-if.end11.sink.split.i:                            ; preds = %if.then9.i, %if.then.i
-  %tzinfo10.sink.i = phi ptr [ %tzinfo10.i, %if.then9.i ], [ %tzinfo2.i, %if.then.i ]
-  %3 = load ptr, ptr %tzinfo10.sink.i, align 8
+if.end11.sink.split.i:                            ; preds = %land.lhs.true5.i, %land.lhs.true.i
+  %.sink.i = phi i64 [ 40, %land.lhs.true.i ], [ 32, %land.lhs.true5.i ]
+  %tzinfo10.i = getelementptr inbounds i8, ptr %object, i64 %.sink.i
+  %3 = load ptr, ptr %tzinfo10.i, align 8
   br label %get_tzinfo_member.exit
 
 get_tzinfo_member.exit:                           ; preds = %PyObject_TypeCheck.exit12.i, %land.lhs.true5.i, %if.end11.sink.split.i
@@ -7690,7 +7666,7 @@ if.end:                                           ; preds = %get_tzinfo_member.e
 if.end.i23:                                       ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   store ptr %tzinfo.0.i, ptr %args.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds ptr, ptr %args.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %tzinfoarg, ptr %arrayinit.element.i.i, align 8
   %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 668), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
@@ -7710,7 +7686,7 @@ if.end4.i:                                        ; preds = %if.end.i23
 
 if.then7.i:                                       ; preds = %if.end4.i
   %7 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %call.val11.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %call.val11.i, i64 24
   %8 = load ptr, ptr %tp_name.i, align 8
   %call9.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.133, ptr noundef %8) #15
   %9 = load i64, ptr %call.i.i, align 8
@@ -7828,55 +7804,40 @@ entry:
   %0 = getelementptr i8, ptr %object, i64 8
   %object.val8 = load ptr, ptr %0, align 8
   %cmp.i.not.i = icmp eq ptr %object.val8, @PyDateTime_TimeType
-  br i1 %cmp.i.not.i, label %if.then, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.end31.sink.split, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %entry
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %object.val8, ptr noundef nonnull @PyDateTime_TimeType) #15
   %tobool3.i.not = icmp eq i32 %call2.i, 0
-  br i1 %tobool3.i.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry, %PyObject_TypeCheck.exit
-  %arrayidx = getelementptr %struct.PyDateTime_Time, ptr %object, i64 0, i32 3, i64 3
-  %1 = load i8, ptr %arrayidx, align 1
-  %conv = zext i8 %1 to i32
-  %shl = shl nuw nsw i32 %conv, 16
-  %arrayidx2 = getelementptr %struct.PyDateTime_Time, ptr %object, i64 0, i32 3, i64 4
-  %2 = load i8, ptr %arrayidx2, align 1
-  %conv3 = zext i8 %2 to i32
-  %shl4 = shl nuw nsw i32 %conv3, 8
-  %or = or disjoint i32 %shl4, %shl
-  %arrayidx6 = getelementptr %struct.PyDateTime_Time, ptr %object, i64 0, i32 3, i64 5
-  br label %if.end31.sink.split
+  br i1 %tobool3.i.not, label %if.else, label %if.end31.sink.split
 
 if.else:                                          ; preds = %PyObject_TypeCheck.exit
   %object.val = load ptr, ptr %0, align 8
   %cmp.i.not.i9 = icmp eq ptr %object.val, @PyDateTime_DateTimeType
-  br i1 %cmp.i.not.i9, label %if.then12, label %PyObject_TypeCheck.exit14
+  br i1 %cmp.i.not.i9, label %if.end31.sink.split, label %PyObject_TypeCheck.exit14
 
 PyObject_TypeCheck.exit14:                        ; preds = %if.else
   %call2.i11 = tail call i32 @PyType_IsSubtype(ptr noundef %object.val, ptr noundef nonnull @PyDateTime_DateTimeType) #15
   %tobool3.i12.not = icmp eq i32 %call2.i11, 0
-  br i1 %tobool3.i12.not, label %if.end31, label %if.then12
+  br i1 %tobool3.i12.not, label %if.end31, label %if.end31.sink.split
 
-if.then12:                                        ; preds = %if.else, %PyObject_TypeCheck.exit14
-  %arrayidx15 = getelementptr %struct.PyDateTime_DateTime, ptr %object, i64 0, i32 3, i64 7
-  %3 = load i8, ptr %arrayidx15, align 1
-  %conv16 = zext i8 %3 to i32
+if.end31.sink.split:                              ; preds = %PyObject_TypeCheck.exit14, %if.else, %PyObject_TypeCheck.exit, %entry
+  %.sink22 = phi i64 [ 28, %entry ], [ 28, %PyObject_TypeCheck.exit ], [ 32, %if.else ], [ 32, %PyObject_TypeCheck.exit14 ]
+  %.sink20 = phi i64 [ 29, %entry ], [ 29, %PyObject_TypeCheck.exit ], [ 33, %if.else ], [ 33, %PyObject_TypeCheck.exit14 ]
+  %.sink = phi i64 [ 30, %entry ], [ 30, %PyObject_TypeCheck.exit ], [ 34, %if.else ], [ 34, %PyObject_TypeCheck.exit14 ]
+  %arrayidx15 = getelementptr i8, ptr %object, i64 %.sink22
+  %1 = load i8, ptr %arrayidx15, align 1
+  %conv16 = zext i8 %1 to i32
   %shl17 = shl nuw nsw i32 %conv16, 16
-  %arrayidx19 = getelementptr %struct.PyDateTime_DateTime, ptr %object, i64 0, i32 3, i64 8
-  %4 = load i8, ptr %arrayidx19, align 1
-  %conv20 = zext i8 %4 to i32
+  %arrayidx19 = getelementptr i8, ptr %object, i64 %.sink20
+  %2 = load i8, ptr %arrayidx19, align 1
+  %conv20 = zext i8 %2 to i32
   %shl21 = shl nuw nsw i32 %conv20, 8
   %or22 = or disjoint i32 %shl21, %shl17
-  %arrayidx24 = getelementptr %struct.PyDateTime_DateTime, ptr %object, i64 0, i32 3, i64 9
-  br label %if.end31.sink.split
-
-if.end31.sink.split:                              ; preds = %if.then, %if.then12
-  %arrayidx24.sink = phi ptr [ %arrayidx24, %if.then12 ], [ %arrayidx6, %if.then ]
-  %or22.sink = phi i32 [ %or22, %if.then12 ], [ %or, %if.then ]
-  %5 = load i8, ptr %arrayidx24.sink, align 1
-  %conv25 = zext i8 %5 to i32
-  %or26 = or disjoint i32 %or22.sink, %conv25
+  %arrayidx24 = getelementptr i8, ptr %object, i64 %.sink
+  %3 = load i8, ptr %arrayidx24, align 1
+  %conv25 = zext i8 %3 to i32
+  %or26 = or disjoint i32 %or22, %conv25
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end31.sink.split, %PyObject_TypeCheck.exit14
@@ -7923,17 +7884,17 @@ Py_DECREF.exit42:                                 ; preds = %if.then2, %if.then1
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %days = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i, i64 0, i32 2
+  %days = getelementptr inbounds i8, ptr %call.i, i64 24
   %2 = load i32, ptr %days, align 8
   %sub.i = sub i32 0, %2
   %cmp4 = icmp slt i32 %2, 0
   br i1 %cmp4, label %if.then5, label %if.end10
 
 if.then5:                                         ; preds = %if.end3
-  %seconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i, i64 0, i32 3
+  %seconds.i = getelementptr inbounds i8, ptr %call.i, i64 28
   %3 = load i32, ptr %seconds.i, align 4
   %sub1.i = sub i32 0, %3
-  %microseconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i, i64 0, i32 4
+  %microseconds.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %4 = load i32, ptr %microseconds.i, align 8
   %sub2.i = sub i32 0, %4
   %or.cond.i.i.i = icmp ugt i32 %sub2.i, 999999
@@ -7988,13 +7949,13 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp4.not.i.i, label %delta_negative.exit, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end2.i.i
-  %hashcode.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 1
+  %hashcode.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 16
   store i64 -1, ptr %hashcode.i.i, align 8
-  %days6.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 2
+  %days6.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 24
   store i32 %days.addr.1.i.i, ptr %days6.i.i, align 8
-  %seconds7.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 3
+  %seconds7.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 28
   store i32 %seconds.addr.2.i.i, ptr %seconds7.i.i, align 4
-  %microseconds8.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 4
+  %microseconds8.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 32
   store i32 %microseconds.addr.0.i.i, ptr %microseconds8.i.i, align 8
   br label %delta_negative.exit
 
@@ -8022,9 +7983,9 @@ do.end:                                           ; preds = %if.end.i28, %if.the
 if.end10:                                         ; preds = %if.end3, %do.end
   %offset.0 = phi ptr [ %retval.0.i.i, %do.end ], [ %call.i, %if.end3 ]
   %sign.0 = phi i32 [ 45, %do.end ], [ 43, %if.end3 ]
-  %microseconds11 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset.0, i64 0, i32 4
+  %microseconds11 = getelementptr inbounds i8, ptr %offset.0, i64 32
   %10 = load i32, ptr %microseconds11, align 8
-  %seconds12 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset.0, i64 0, i32 3
+  %seconds12 = getelementptr inbounds i8, ptr %offset.0, i64 28
   %11 = load i32, ptr %seconds12, align 4
   %12 = load i64, ptr %offset.0, align 8
   %13 = and i64 %12, 2147483648
@@ -8199,11 +8160,11 @@ return:                                           ; preds = %if.end.i, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal ptr @date_year(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i64
   %shl = shl nuw nsw i64 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i64
   %or = or disjoint i64 %shl, %conv3
@@ -8214,7 +8175,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @date_month(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %arrayidx = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx = getelementptr i8, ptr %self, i64 27
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #15
@@ -8224,7 +8185,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @date_day(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %arrayidx = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx = getelementptr i8, ptr %self, i64 28
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #15
@@ -8236,13 +8197,13 @@ declare ptr @PyUnicode_AsLatin1String(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @datetime_dealloc(ptr noundef %self) #0 {
 entry:
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %tzinfo, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %if.end, label %if.then.i
@@ -8266,7 +8227,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end:                                           ; preds = %if.then1.i.i, %if.end.i.i, %if.then.i, %if.then, %entry
   %4 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %4, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %5 = load ptr, ptr %tp_free, align 8
   tail call void %5(ptr noundef nonnull %self) #15
   ret void
@@ -8277,19 +8238,19 @@ define internal ptr @datetime_repr(ptr nocapture noundef readonly %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %1 = load ptr, ptr %tp_name, align 8
-  %data = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3
-  %arrayidx = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 7
+  %data = getelementptr inbounds i8, ptr %self, i64 25
+  %arrayidx = getelementptr i8, ptr %self, i64 32
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i32
   %shl = shl nuw nsw i32 %conv, 16
-  %arrayidx2 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 8
+  %arrayidx2 = getelementptr i8, ptr %self, i64 33
   %3 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %3 to i32
   %shl4 = shl nuw nsw i32 %conv3, 8
   %or = or disjoint i32 %shl4, %shl
-  %arrayidx6 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 9
+  %arrayidx6 = getelementptr i8, ptr %self, i64 34
   %4 = load i8, ptr %arrayidx6, align 1
   %conv7 = zext i8 %4 to i32
   %or8 = or disjoint i32 %or, %conv7
@@ -8300,49 +8261,49 @@ if.then:                                          ; preds = %entry
   %5 = load i8, ptr %data, align 1
   %conv11 = zext i8 %5 to i32
   %shl12 = shl nuw nsw i32 %conv11, 8
-  %arrayidx14 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx14 = getelementptr i8, ptr %self, i64 26
   %6 = load i8, ptr %arrayidx14, align 1
   %conv15 = zext i8 %6 to i32
   %or16 = or disjoint i32 %shl12, %conv15
-  %arrayidx18 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx18 = getelementptr i8, ptr %self, i64 27
   %7 = load i8, ptr %arrayidx18, align 1
   %conv19 = zext i8 %7 to i32
-  %arrayidx21 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx21 = getelementptr i8, ptr %self, i64 28
   %8 = load i8, ptr %arrayidx21, align 1
   %conv22 = zext i8 %8 to i32
-  %arrayidx24 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx24 = getelementptr i8, ptr %self, i64 29
   %9 = load i8, ptr %arrayidx24, align 1
   %conv25 = zext i8 %9 to i32
-  %arrayidx27 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx27 = getelementptr i8, ptr %self, i64 30
   %10 = load i8, ptr %arrayidx27, align 1
   %conv28 = zext i8 %10 to i32
-  %arrayidx30 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 6
+  %arrayidx30 = getelementptr i8, ptr %self, i64 31
   %11 = load i8, ptr %arrayidx30, align 1
   %conv31 = zext i8 %11 to i32
   %call45 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.145, ptr noundef %1, i32 noundef %or16, i32 noundef %conv19, i32 noundef %conv22, i32 noundef %conv25, i32 noundef %conv28, i32 noundef %conv31, i32 noundef %or8) #15
   br label %if.end96
 
 if.else:                                          ; preds = %entry
-  %arrayidx47 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 6
+  %arrayidx47 = getelementptr i8, ptr %self, i64 31
   %12 = load i8, ptr %arrayidx47, align 1
   %tobool48.not = icmp eq i8 %12, 0
   %13 = load i8, ptr %data, align 1
   %conv77 = zext i8 %13 to i32
   %shl78 = shl nuw nsw i32 %conv77, 8
-  %arrayidx80 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx80 = getelementptr i8, ptr %self, i64 26
   %14 = load i8, ptr %arrayidx80, align 1
   %conv81 = zext i8 %14 to i32
   %or82 = or disjoint i32 %shl78, %conv81
-  %arrayidx84 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx84 = getelementptr i8, ptr %self, i64 27
   %15 = load i8, ptr %arrayidx84, align 1
   %conv85 = zext i8 %15 to i32
-  %arrayidx87 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx87 = getelementptr i8, ptr %self, i64 28
   %16 = load i8, ptr %arrayidx87, align 1
   %conv88 = zext i8 %16 to i32
-  %arrayidx90 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx90 = getelementptr i8, ptr %self, i64 29
   %17 = load i8, ptr %arrayidx90, align 1
   %conv91 = zext i8 %17 to i32
-  %arrayidx93 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx93 = getelementptr i8, ptr %self, i64 30
   %18 = load i8, ptr %arrayidx93, align 1
   %conv94 = zext i8 %18 to i32
   br i1 %tobool48.not, label %if.else74, label %if.then49
@@ -8362,7 +8323,7 @@ if.end96:                                         ; preds = %if.then49, %if.else
   br i1 %cmp.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end96
-  %fold = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 4
+  %fold = getelementptr inbounds i8, ptr %self, i64 35
   %19 = load i8, ptr %fold, align 1
   %cmp99.not = icmp eq i8 %19, 0
   br i1 %cmp99.not, label %lor.lhs.false, label %if.then101
@@ -8415,13 +8376,13 @@ if.end105:                                        ; preds = %if.then1.i.i, %if.e
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %if.end105
   %baserepr.161 = phi ptr [ %call5.i, %if.end105 ], [ %baserepr.0, %land.lhs.true ]
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %25 = load i8, ptr %hastzinfo, align 8
   %tobool108.not = icmp eq i8 %25, 0
   br i1 %tobool108.not, label %return, label %if.end110
 
 if.end110:                                        ; preds = %lor.lhs.false
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 40
   %26 = load ptr, ptr %tzinfo, align 8
   %cmp.i = icmp eq ptr %26, @_Py_NoneStruct
   br i1 %cmp.i, label %return, label %if.end.i
@@ -8475,42 +8436,42 @@ return:                                           ; preds = %Py_DECREF.exit14.i,
 ; Function Attrs: nounwind uwtable
 define internal i64 @datetime_hash(ptr noundef %self) #0 {
 entry:
-  %hashcode = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 1
+  %hashcode = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i64, ptr %hashcode, align 8
   %cmp = icmp eq i64 %0, -1
   br i1 %cmp, label %if.then, label %if.end105
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 4
+  %fold = getelementptr inbounds i8, ptr %self, i64 35
   %1 = load i8, ptr %fold, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %2 = load i8, ptr %data, align 1
   %conv = zext i8 %2 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx3 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx3 = getelementptr i8, ptr %self, i64 26
   %3 = load i8, ptr %arrayidx3, align 1
   %conv4 = zext i8 %3 to i32
   %or = or disjoint i32 %shl, %conv4
-  %arrayidx6 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx6 = getelementptr i8, ptr %self, i64 27
   %4 = load i8, ptr %arrayidx6, align 1
   %conv7 = zext i8 %4 to i32
-  %arrayidx9 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx9 = getelementptr i8, ptr %self, i64 28
   %5 = load i8, ptr %arrayidx9, align 1
   %conv10 = zext i8 %5 to i32
-  %arrayidx12 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx12 = getelementptr i8, ptr %self, i64 29
   %6 = load i8, ptr %arrayidx12, align 1
   %conv13 = zext i8 %6 to i32
-  %arrayidx15 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx15 = getelementptr i8, ptr %self, i64 30
   %7 = load i8, ptr %arrayidx15, align 1
   %conv16 = zext i8 %7 to i32
-  %arrayidx18 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 6
+  %arrayidx18 = getelementptr i8, ptr %self, i64 31
   %8 = load i8, ptr %arrayidx18, align 1
   %conv19 = zext i8 %8 to i32
-  %arrayidx21 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 1
+  %arrayidx21 = getelementptr i8, ptr %self, i64 32
   %9 = load i8, ptr %arrayidx21, align 1
   %conv22 = zext i8 %9 to i32
   %shl23 = shl nuw nsw i32 %conv22, 16
@@ -8523,13 +8484,13 @@ if.then1:                                         ; preds = %if.then
   %11 = load i8, ptr %arrayidx30, align 1
   %conv31 = zext i8 %11 to i32
   %or32 = or disjoint i32 %or28, %conv31
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %12 = load i8, ptr %hastzinfo, align 8
   %tobool34.not = icmp eq i8 %12, 0
   br i1 %tobool34.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.then1
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 40
   %13 = load ptr, ptr %tzinfo, align 8
   br label %cond.end
 
@@ -8553,13 +8514,13 @@ if.end.i.i:                                       ; preds = %if.else
 
 if.end40:                                         ; preds = %if.end.i.i, %if.else, %cond.end
   %self0.0 = phi ptr [ %call35, %cond.end ], [ %self, %if.else ], [ %self, %if.end.i.i ]
-  %hastzinfo.i = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self0.0, i64 0, i32 2
+  %hastzinfo.i = getelementptr inbounds i8, ptr %self0.0, i64 24
   %16 = load i8, ptr %hastzinfo.i, align 8
   %tobool.not.i = icmp eq i8 %16, 0
   br i1 %tobool.not.i, label %datetime_utcoffset.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end40
-  %tzinfo.i = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self0.0, i64 0, i32 5
+  %tzinfo.i = getelementptr inbounds i8, ptr %self0.0, i64 40
   %17 = load ptr, ptr %tzinfo.i, align 8
   br label %datetime_utcoffset.exit
 
@@ -8587,26 +8548,25 @@ Py_DECREF.exit151:                                ; preds = %datetime_utcoffset.
 
 if.end45:                                         ; preds = %Py_DECREF.exit151
   %cmp46 = icmp eq ptr %call.i.i, @_Py_NoneStruct
+  %data49 = getelementptr inbounds i8, ptr %self, i64 25
   br i1 %cmp46, label %if.then48, label %if.else52
 
 if.then48:                                        ; preds = %if.end45
-  %data49 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3
   %call.i = tail call i64 @_Py_HashBytes(ptr noundef nonnull %data49, i64 noundef 10) #15
   store i64 %call.i, ptr %hashcode, align 8
   br label %if.end104
 
 if.else52:                                        ; preds = %if.end45
-  %data53 = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
-  %20 = load i8, ptr %data53, align 1
+  %20 = load i8, ptr %data49, align 1
   %conv55 = zext i8 %20 to i32
   %shl56 = shl nuw nsw i32 %conv55, 8
-  %arrayidx58 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx58 = getelementptr i8, ptr %self, i64 26
   %21 = load i8, ptr %arrayidx58, align 1
   %conv59 = zext i8 %21 to i32
   %or60 = or disjoint i32 %shl56, %conv59
-  %arrayidx62 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx62 = getelementptr i8, ptr %self, i64 27
   %22 = load i8, ptr %arrayidx62, align 1
-  %arrayidx65 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx65 = getelementptr i8, ptr %self, i64 28
   %23 = load i8, ptr %arrayidx65, align 1
   %conv66 = zext i8 %23 to i32
   %idxprom.i.i = zext i8 %22 to i64
@@ -8651,20 +8611,20 @@ ymd_to_ord.exit:                                  ; preds = %if.else52, %is_leap
   %add4.i.i = add nsw i32 %sub2.i.i, %div1.neg.i.i
   %add.i = add nsw i32 %add4.i.i, %div3.i.i
   %add2.i = add i32 %add.i, %days.0.i.i
-  %arrayidx69 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx69 = getelementptr i8, ptr %self, i64 29
   %25 = load i8, ptr %arrayidx69, align 1
   %conv70 = zext i8 %25 to i32
   %mul = mul nuw nsw i32 %conv70, 3600
-  %arrayidx72 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx72 = getelementptr i8, ptr %self, i64 30
   %26 = load i8, ptr %arrayidx72, align 1
   %conv73 = zext i8 %26 to i32
   %mul74 = mul nuw nsw i32 %conv73, 60
   %add = add nuw nsw i32 %mul74, %mul
-  %arrayidx76 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 6
+  %arrayidx76 = getelementptr i8, ptr %self, i64 31
   %27 = load i8, ptr %arrayidx76, align 1
   %conv77 = zext i8 %27 to i32
   %add78 = add nuw nsw i32 %add, %conv77
-  %arrayidx80 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 1
+  %arrayidx80 = getelementptr i8, ptr %self, i64 32
   %28 = load i8, ptr %arrayidx80, align 1
   %conv81 = zext i8 %28 to i32
   %shl82 = shl nuw nsw i32 %conv81, 16
@@ -8745,13 +8705,13 @@ if.then1.i140:                                    ; preds = %if.end.i137
   br label %return
 
 if.end96:                                         ; preds = %if.end2.i
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
-  %days6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 2
+  %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store i32 %days.addr.1.i, ptr %days6.i, align 8
-  %seconds7.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 3
+  %seconds7.i = getelementptr inbounds i8, ptr %call3.i, i64 28
   store i32 %seconds.addr.2.i, ptr %seconds7.i, align 4
-  %microseconds8.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 4
+  %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 %microseconds.addr.0.i, ptr %microseconds8.i, align 8
   %call97 = tail call ptr @delta_subtract(ptr noundef nonnull %call3.i, ptr noundef nonnull %call.i.i)
   %36 = load i64, ptr %call3.i, align 8
@@ -8843,7 +8803,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i)
   store ptr %self, ptr %args.i, align 16
-  %arrayinit.element.i = getelementptr inbounds ptr, ptr %args.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
   store ptr %call, ptr %arrayinit.element.i, align 8
   %call.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 429), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
@@ -8912,25 +8872,25 @@ if.end7:                                          ; preds = %if.then3
   br label %return
 
 if.end10:                                         ; preds = %entry, %PyObject_TypeCheck.exit
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %5 = load i8, ptr %hastzinfo, align 8
   %tobool11.not = icmp eq i8 %5, 0
   br i1 %tobool11.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end10
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 40
   %6 = load ptr, ptr %tzinfo, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end10, %cond.true
   %cond = phi ptr [ %6, %cond.true ], [ @_Py_NoneStruct, %if.end10 ]
-  %hastzinfo12 = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %other, i64 0, i32 2
+  %hastzinfo12 = getelementptr inbounds i8, ptr %other, i64 24
   %7 = load i8, ptr %hastzinfo12, align 8
   %tobool14.not = icmp eq i8 %7, 0
   br i1 %tobool14.not, label %cond.end18, label %cond.true15
 
 cond.true15:                                      ; preds = %cond.end
-  %tzinfo16 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %other, i64 0, i32 5
+  %tzinfo16 = getelementptr inbounds i8, ptr %other, i64 40
   %8 = load ptr, ptr %tzinfo16, align 8
   br label %cond.end18
 
@@ -8940,8 +8900,8 @@ cond.end18:                                       ; preds = %cond.end, %cond.tru
   br i1 %cmp20, label %if.then22, label %if.end27
 
 if.then22:                                        ; preds = %cond.end18
-  %data = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3
-  %data23 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %other, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
+  %data23 = getelementptr inbounds i8, ptr %other, i64 25
   %call25 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(10) %data, ptr noundef nonnull dereferenceable(10) %data23, i64 noundef 10) #16
   switch i32 %op, label %sw.default.i [
     i32 2, label %sw.bb.i
@@ -8989,7 +8949,7 @@ if.end27:                                         ; preds = %cond.end18
   br i1 %tobool11.not, label %datetime_utcoffset.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end27
-  %tzinfo.i = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo.i = getelementptr inbounds i8, ptr %self, i64 40
   %9 = load ptr, ptr %tzinfo.i, align 8
   br label %datetime_utcoffset.exit
 
@@ -9005,7 +8965,7 @@ if.end32:                                         ; preds = %datetime_utcoffset.
   br i1 %tobool.not.i72, label %datetime_utcoffset.exit77, label %cond.true.i73
 
 cond.true.i73:                                    ; preds = %if.end32
-  %tzinfo.i74 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %other, i64 0, i32 5
+  %tzinfo.i74 = getelementptr inbounds i8, ptr %other, i64 40
   %11 = load ptr, ptr %tzinfo.i74, align 8
   br label %datetime_utcoffset.exit77
 
@@ -9042,32 +9002,32 @@ PyObject_TypeCheck.exit89:                        ; preds = %land.lhs.true
   br i1 %tobool3.i87.not, label %if.else, label %land.lhs.true44
 
 land.lhs.true44:                                  ; preds = %land.lhs.true, %PyObject_TypeCheck.exit89
-  %days.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i, i64 0, i32 2
+  %days.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %14 = load i32, ptr %days.i, align 8
-  %days1.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i76, i64 0, i32 2
+  %days1.i = getelementptr inbounds i8, ptr %call.i.i76, i64 24
   %15 = load i32, ptr %days1.i, align 8
   %cmp.i90 = icmp eq i32 %14, %15
   br i1 %cmp.i90, label %if.then.i, label %if.else
 
 if.then.i:                                        ; preds = %land.lhs.true44
-  %seconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i, i64 0, i32 3
+  %seconds.i = getelementptr inbounds i8, ptr %call.i.i, i64 28
   %16 = load i32, ptr %seconds.i, align 4
-  %seconds2.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i76, i64 0, i32 3
+  %seconds2.i = getelementptr inbounds i8, ptr %call.i.i76, i64 28
   %17 = load i32, ptr %seconds2.i, align 4
   %cmp4.i = icmp eq i32 %16, %17
   br i1 %cmp4.i, label %delta_cmp.exit, label %if.else
 
 delta_cmp.exit:                                   ; preds = %if.then.i
-  %microseconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i, i64 0, i32 4
+  %microseconds.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %18 = load i32, ptr %microseconds.i, align 8
-  %microseconds6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i76, i64 0, i32 4
+  %microseconds6.i = getelementptr inbounds i8, ptr %call.i.i76, i64 32
   %19 = load i32, ptr %microseconds6.i, align 8
   %cmp46 = icmp eq i32 %18, %19
   br i1 %cmp46, label %if.then48, label %if.else
 
 if.then48:                                        ; preds = %delta_cmp.exit, %if.end37
-  %data49 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3
-  %data51 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %other, i64 0, i32 3
+  %data49 = getelementptr inbounds i8, ptr %self, i64 25
+  %data51 = getelementptr inbounds i8, ptr %other, i64 25
   %call53 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(10) %data49, ptr noundef nonnull dereferenceable(10) %data51, i64 noundef 10) #16
   %20 = and i32 %op, -2
   %or.cond = icmp eq i32 %20, 2
@@ -9141,15 +9101,15 @@ if.then78:                                        ; preds = %if.else
   br i1 %cmp80, label %done, label %if.end83
 
 if.end83:                                         ; preds = %if.then78
-  %days = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call79, i64 0, i32 2
+  %days = getelementptr inbounds i8, ptr %call79, i64 24
   %21 = load i32, ptr %days, align 8
   %cmp84 = icmp eq i32 %21, 0
   br i1 %cmp84, label %if.then86, label %if.end87
 
 if.then86:                                        ; preds = %if.end83
-  %seconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call79, i64 0, i32 3
+  %seconds = getelementptr inbounds i8, ptr %call79, i64 28
   %22 = load i32, ptr %seconds, align 4
-  %microseconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call79, i64 0, i32 4
+  %microseconds = getelementptr inbounds i8, ptr %call79, i64 32
   %23 = load i32, ptr %microseconds, align 8
   %or = or i32 %23, %22
   br label %if.end87
@@ -9318,7 +9278,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ob_type.i.i = getelementptr inbounds %struct._object, ptr %call, i64 0, i32 1
+  %ob_type.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %type, ptr %ob_type.i.i, align 8
   %0 = getelementptr i8, ptr %type, i64 168
   %typeobj.val.i = load i64, ptr %0, align 8
@@ -9370,13 +9330,13 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end48
 
 if.then:                                          ; preds = %entry
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   %2 = load ptr, ptr %ob_item, align 8
   %cmp4 = icmp eq i64 %args.val23, 2
   br i1 %cmp4, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %if.then
-  %arrayidx7 = getelementptr %struct.PyTupleObject, ptr %args, i64 1
+  %arrayidx7 = getelementptr i8, ptr %args, i64 32
   %3 = load ptr, ptr %arrayidx7, align 8
   br label %if.end
 
@@ -9397,7 +9357,7 @@ if.then10:                                        ; preds = %if.end
   br i1 %cmp12, label %land.lhs.true13, label %if.end47
 
 land.lhs.true13:                                  ; preds = %if.then10
-  %arrayidx15 = getelementptr %struct.PyBytesObject, ptr %2, i64 0, i32 2, i64 2
+  %arrayidx15 = getelementptr i8, ptr %2, i64 34
   %9 = load i8, ptr %arrayidx15, align 1
   %10 = and i8 %9, 127
   %and = zext nneg i8 %10 to i32
@@ -9421,26 +9381,25 @@ if.then24:                                        ; preds = %if.else
   br i1 %cmp26, label %land.lhs.true28, label %if.end47
 
 land.lhs.true28:                                  ; preds = %if.then24
-  %state.i = getelementptr inbounds %struct.PyASCIIObject, ptr %2, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %2, i64 32
   %bf.load.i = load i32, ptr %state.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 2
   %bf.clear.i = and i32 %bf.lshr.i, 7
   %13 = and i32 %bf.load.i, 32
-  %tobool.not.i19.i = icmp eq i32 %13, 0
+  %tobool.not.i18.i = icmp eq i32 %13, 0
   switch i32 %bf.clear.i, label %if.end7.i [
     i32 1, label %if.then.i
     i32 2, label %if.then3.i
   ]
 
 if.then.i:                                        ; preds = %land.lhs.true28
-  br i1 %tobool.not.i19.i, label %if.end.i.i, label %if.then.i.i
+  br i1 %tobool.not.i18.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %14 = and i32 %bf.load.i, 64
   %tobool.not.i.i.i = icmp eq i32 %14, 0
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr1.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr %add.ptr1.i.i.i, ptr %add.ptr.i.i.i
+  %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
+  %retval.0.i.i.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i.i
   br label %PyUnicode_DATA.exit.i
 
 if.end.i.i:                                       ; preds = %if.then.i
@@ -9456,52 +9415,50 @@ PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.the
   br label %PyUnicode_READ_CHAR.exit
 
 if.then3.i:                                       ; preds = %land.lhs.true28
-  br i1 %tobool.not.i19.i, label %if.end.i15.i, label %if.then.i9.i
+  br i1 %tobool.not.i18.i, label %if.end.i14.i, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %if.then3.i
   %17 = and i32 %bf.load.i, 64
   %tobool.not.i.i10.i = icmp eq i32 %17, 0
-  %add.ptr.i.i11.i = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr1.i.i12.i = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i13.i = select i1 %tobool.not.i.i10.i, ptr %add.ptr1.i.i12.i, ptr %add.ptr.i.i11.i
-  br label %PyUnicode_DATA.exit17.i
+  %retval.0.v.i.i11.i = select i1 %tobool.not.i.i10.i, i64 56, i64 40
+  %retval.0.i.i12.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i11.i
+  br label %PyUnicode_DATA.exit16.i
 
-if.end.i15.i:                                     ; preds = %if.then3.i
+if.end.i14.i:                                     ; preds = %if.then3.i
   %18 = getelementptr i8, ptr %2, i64 56
-  %op.val3.i16.i = load ptr, ptr %18, align 8
-  br label %PyUnicode_DATA.exit17.i
+  %op.val3.i15.i = load ptr, ptr %18, align 8
+  br label %PyUnicode_DATA.exit16.i
 
-PyUnicode_DATA.exit17.i:                          ; preds = %if.end.i15.i, %if.then.i9.i
-  %retval.0.i14.i = phi ptr [ %retval.0.i.i13.i, %if.then.i9.i ], [ %op.val3.i16.i, %if.end.i15.i ]
-  %arrayidx5.i = getelementptr i16, ptr %retval.0.i14.i, i64 2
+PyUnicode_DATA.exit16.i:                          ; preds = %if.end.i14.i, %if.then.i9.i
+  %retval.0.i13.i = phi ptr [ %retval.0.i.i12.i, %if.then.i9.i ], [ %op.val3.i15.i, %if.end.i14.i ]
+  %arrayidx5.i = getelementptr i8, ptr %retval.0.i13.i, i64 4
   %19 = load i16, ptr %arrayidx5.i, align 2
   %conv6.i = zext i16 %19 to i32
   br label %PyUnicode_READ_CHAR.exit
 
 if.end7.i:                                        ; preds = %land.lhs.true28
-  br i1 %tobool.not.i19.i, label %if.end.i26.i, label %if.then.i20.i
+  br i1 %tobool.not.i18.i, label %if.end.i24.i, label %if.then.i19.i
 
-if.then.i20.i:                                    ; preds = %if.end7.i
+if.then.i19.i:                                    ; preds = %if.end7.i
   %20 = and i32 %bf.load.i, 64
-  %tobool.not.i.i21.i = icmp eq i32 %20, 0
-  %add.ptr.i.i22.i = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr1.i.i23.i = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i24.i = select i1 %tobool.not.i.i21.i, ptr %add.ptr1.i.i23.i, ptr %add.ptr.i.i22.i
-  br label %PyUnicode_DATA.exit28.i
+  %tobool.not.i.i20.i = icmp eq i32 %20, 0
+  %retval.0.v.i.i21.i = select i1 %tobool.not.i.i20.i, i64 56, i64 40
+  %retval.0.i.i22.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i21.i
+  br label %PyUnicode_DATA.exit26.i
 
-if.end.i26.i:                                     ; preds = %if.end7.i
+if.end.i24.i:                                     ; preds = %if.end7.i
   %21 = getelementptr i8, ptr %2, i64 56
-  %op.val3.i27.i = load ptr, ptr %21, align 8
-  br label %PyUnicode_DATA.exit28.i
+  %op.val3.i25.i = load ptr, ptr %21, align 8
+  br label %PyUnicode_DATA.exit26.i
 
-PyUnicode_DATA.exit28.i:                          ; preds = %if.end.i26.i, %if.then.i20.i
-  %retval.0.i25.i = phi ptr [ %retval.0.i.i24.i, %if.then.i20.i ], [ %op.val3.i27.i, %if.end.i26.i ]
-  %arrayidx9.i = getelementptr i32, ptr %retval.0.i25.i, i64 2
+PyUnicode_DATA.exit26.i:                          ; preds = %if.end.i24.i, %if.then.i19.i
+  %retval.0.i23.i = phi ptr [ %retval.0.i.i22.i, %if.then.i19.i ], [ %op.val3.i25.i, %if.end.i24.i ]
+  %arrayidx9.i = getelementptr i8, ptr %retval.0.i23.i, i64 8
   %22 = load i32, ptr %arrayidx9.i, align 4
   br label %PyUnicode_READ_CHAR.exit
 
-PyUnicode_READ_CHAR.exit:                         ; preds = %PyUnicode_DATA.exit.i, %PyUnicode_DATA.exit17.i, %PyUnicode_DATA.exit28.i
-  %retval.0.i = phi i32 [ %conv.i30, %PyUnicode_DATA.exit.i ], [ %conv6.i, %PyUnicode_DATA.exit17.i ], [ %22, %PyUnicode_DATA.exit28.i ]
+PyUnicode_READ_CHAR.exit:                         ; preds = %PyUnicode_DATA.exit.i, %PyUnicode_DATA.exit16.i, %PyUnicode_DATA.exit26.i
+  %retval.0.i = phi i32 [ %conv.i30, %PyUnicode_DATA.exit.i ], [ %conv6.i, %PyUnicode_DATA.exit16.i ], [ %22, %PyUnicode_DATA.exit26.i ]
   %and30 = and i32 %retval.0.i, 127
   %sub31 = add nsw i32 %and30, -1
   %cmp32 = icmp ult i32 %sub31, 12
@@ -9641,25 +9598,25 @@ PyObject_TypeCheck.exit80:                        ; preds = %if.then
   br i1 %tobool3.i78.not, label %if.else133, label %if.then3
 
 if.then3:                                         ; preds = %if.then, %PyObject_TypeCheck.exit80
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %left, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %left, i64 24
   %2 = load i8, ptr %hastzinfo, align 8
   %tobool4.not = icmp eq i8 %2, 0
   br i1 %tobool4.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.then3
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %left, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %left, i64 40
   %3 = load ptr, ptr %tzinfo, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then3, %cond.true
   %cond = phi ptr [ %3, %cond.true ], [ @_Py_NoneStruct, %if.then3 ]
-  %hastzinfo5 = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %right, i64 0, i32 2
+  %hastzinfo5 = getelementptr inbounds i8, ptr %right, i64 24
   %4 = load i8, ptr %hastzinfo5, align 8
   %tobool7.not = icmp eq i8 %4, 0
   br i1 %tobool7.not, label %cond.end11, label %cond.true8
 
 cond.true8:                                       ; preds = %cond.end
-  %tzinfo9 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %right, i64 0, i32 5
+  %tzinfo9 = getelementptr inbounds i8, ptr %right, i64 40
   %5 = load ptr, ptr %tzinfo9, align 8
   br label %cond.end11
 
@@ -9685,7 +9642,7 @@ if.else:                                          ; preds = %cond.end11
   br i1 %tobool4.not, label %datetime_utcoffset.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.else
-  %tzinfo.i = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %left, i64 0, i32 5
+  %tzinfo.i = getelementptr inbounds i8, ptr %left, i64 40
   %7 = load ptr, ptr %tzinfo.i, align 8
   br label %datetime_utcoffset.exit
 
@@ -9701,7 +9658,7 @@ if.end:                                           ; preds = %datetime_utcoffset.
   br i1 %tobool.not.i86, label %datetime_utcoffset.exit91, label %cond.true.i87
 
 cond.true.i87:                                    ; preds = %if.end
-  %tzinfo.i88 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %right, i64 0, i32 5
+  %tzinfo.i88 = getelementptr inbounds i8, ptr %right, i64 40
   %9 = load ptr, ptr %tzinfo.i88, align 8
   br label %datetime_utcoffset.exit91
 
@@ -9772,25 +9729,25 @@ if.end34:                                         ; preds = %if.end25
   br i1 %cmp35.not, label %if.end46, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end34
-  %days.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i, i64 0, i32 2
+  %days.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %18 = load i32, ptr %days.i, align 8
-  %days1.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i90, i64 0, i32 2
+  %days1.i = getelementptr inbounds i8, ptr %call.i.i90, i64 24
   %19 = load i32, ptr %days1.i, align 8
   %cmp.i92 = icmp eq i32 %18, %19
   br i1 %cmp.i92, label %if.then.i, label %if.then40
 
 if.then.i:                                        ; preds = %land.lhs.true
-  %seconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i, i64 0, i32 3
+  %seconds.i = getelementptr inbounds i8, ptr %call.i.i, i64 28
   %20 = load i32, ptr %seconds.i, align 4
-  %seconds2.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i90, i64 0, i32 3
+  %seconds2.i = getelementptr inbounds i8, ptr %call.i.i90, i64 28
   %21 = load i32, ptr %seconds2.i, align 4
   %cmp4.i = icmp eq i32 %20, %21
   br i1 %cmp4.i, label %delta_cmp.exit, label %if.then40
 
 delta_cmp.exit:                                   ; preds = %if.then.i
-  %microseconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i, i64 0, i32 4
+  %microseconds.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %22 = load i32, ptr %microseconds.i, align 8
-  %microseconds6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i90, i64 0, i32 4
+  %microseconds6.i = getelementptr inbounds i8, ptr %call.i.i90, i64 32
   %23 = load i32, ptr %microseconds6.i, align 8
   %cmp38.not = icmp eq i32 %22, %23
   br i1 %cmp38.not, label %if.end46, label %if.then40
@@ -9868,17 +9825,17 @@ if.then1.i160:                                    ; preds = %if.end.i157
   br label %Py_DECREF.exit162
 
 Py_DECREF.exit162:                                ; preds = %Py_DECREF.exit171, %if.then1.i160, %if.end.i157
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %left, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %left, i64 25
   %32 = load i8, ptr %data, align 1
   %conv47 = zext i8 %32 to i32
   %shl = shl nuw nsw i32 %conv47, 8
-  %arrayidx49 = getelementptr %struct.PyDateTime_Date, ptr %left, i64 0, i32 3, i64 1
+  %arrayidx49 = getelementptr i8, ptr %left, i64 26
   %33 = load i8, ptr %arrayidx49, align 1
   %conv50 = zext i8 %33 to i32
   %or = or disjoint i32 %shl, %conv50
-  %arrayidx52 = getelementptr %struct.PyDateTime_Date, ptr %left, i64 0, i32 3, i64 2
+  %arrayidx52 = getelementptr i8, ptr %left, i64 27
   %34 = load i8, ptr %arrayidx52, align 1
-  %arrayidx55 = getelementptr %struct.PyDateTime_Date, ptr %left, i64 0, i32 3, i64 3
+  %arrayidx55 = getelementptr i8, ptr %left, i64 28
   %35 = load i8, ptr %arrayidx55, align 1
   %conv56 = zext i8 %35 to i32
   %idxprom.i.i = zext i8 %34 to i64
@@ -9917,17 +9874,17 @@ ymd_to_ord.exit:                                  ; preds = %Py_DECREF.exit162, 
   %div.i.i = sdiv i32 %sub.i.i, 4
   %div1.neg.i.i = sdiv i32 %sub.i.i, -100
   %div3.i.i = sdiv i32 %sub.i.i, 400
-  %data58 = getelementptr inbounds %struct.PyDateTime_Date, ptr %right, i64 0, i32 3
+  %data58 = getelementptr inbounds i8, ptr %right, i64 25
   %37 = load i8, ptr %data58, align 1
   %conv60 = zext i8 %37 to i32
   %shl61 = shl nuw nsw i32 %conv60, 8
-  %arrayidx63 = getelementptr %struct.PyDateTime_Date, ptr %right, i64 0, i32 3, i64 1
+  %arrayidx63 = getelementptr i8, ptr %right, i64 26
   %38 = load i8, ptr %arrayidx63, align 1
   %conv64 = zext i8 %38 to i32
   %or65 = or disjoint i32 %shl61, %conv64
-  %arrayidx67 = getelementptr %struct.PyDateTime_Date, ptr %right, i64 0, i32 3, i64 2
+  %arrayidx67 = getelementptr i8, ptr %right, i64 27
   %39 = load i8, ptr %arrayidx67, align 1
-  %arrayidx70 = getelementptr %struct.PyDateTime_Date, ptr %right, i64 0, i32 3, i64 3
+  %arrayidx70 = getelementptr i8, ptr %right, i64 28
   %40 = load i8, ptr %arrayidx70, align 1
   %conv71 = zext i8 %40 to i32
   %idxprom.i.i96 = zext i8 %39 to i64
@@ -9978,32 +9935,32 @@ ymd_to_ord.exit123:                               ; preds = %ymd_to_ord.exit, %i
   %add.i95 = add i32 %add4.i.i, %div3.i.i106.neg157
   %add2.i = add i32 %add.i95, %reass.mul
   %sub = sub i32 %add2.i, %days.0.i.i99
-  %arrayidx74 = getelementptr %struct.PyDateTime_Date, ptr %left, i64 0, i32 3, i64 4
+  %arrayidx74 = getelementptr i8, ptr %left, i64 29
   %43 = load i8, ptr %arrayidx74, align 1
   %conv75 = zext i8 %43 to i32
-  %arrayidx77 = getelementptr %struct.PyDateTime_Date, ptr %right, i64 0, i32 3, i64 4
+  %arrayidx77 = getelementptr i8, ptr %right, i64 29
   %44 = load i8, ptr %arrayidx77, align 1
   %conv78 = zext i8 %44 to i32
   %sub79 = sub nsw i32 %conv75, %conv78
   %mul = mul nsw i32 %sub79, 3600
-  %arrayidx81 = getelementptr %struct.PyDateTime_Date, ptr %left, i64 0, i32 3, i64 5
+  %arrayidx81 = getelementptr i8, ptr %left, i64 30
   %45 = load i8, ptr %arrayidx81, align 1
   %conv82 = zext i8 %45 to i32
-  %arrayidx84 = getelementptr %struct.PyDateTime_Date, ptr %right, i64 0, i32 3, i64 5
+  %arrayidx84 = getelementptr i8, ptr %right, i64 30
   %46 = load i8, ptr %arrayidx84, align 1
   %conv85 = zext i8 %46 to i32
   %sub86 = sub nsw i32 %conv82, %conv85
   %mul87 = mul nsw i32 %sub86, 60
   %add = add nsw i32 %mul87, %mul
-  %arrayidx89 = getelementptr %struct.PyDateTime_Date, ptr %left, i64 0, i32 3, i64 6
+  %arrayidx89 = getelementptr i8, ptr %left, i64 31
   %47 = load i8, ptr %arrayidx89, align 1
   %conv90 = zext i8 %47 to i32
-  %arrayidx92 = getelementptr %struct.PyDateTime_Date, ptr %right, i64 0, i32 3, i64 6
+  %arrayidx92 = getelementptr i8, ptr %right, i64 31
   %48 = load i8, ptr %arrayidx92, align 1
   %conv93 = zext i8 %48 to i32
   %sub94 = sub nsw i32 %conv90, %conv93
   %add95 = add nsw i32 %add, %sub94
-  %arrayidx97 = getelementptr %struct.PyDateTime_Date, ptr %left, i64 1
+  %arrayidx97 = getelementptr i8, ptr %left, i64 32
   %49 = load i8, ptr %arrayidx97, align 1
   %conv98 = zext i8 %49 to i32
   %shl99 = shl nuw nsw i32 %conv98, 16
@@ -10016,7 +9973,7 @@ ymd_to_ord.exit123:                               ; preds = %ymd_to_ord.exit, %i
   %51 = load i8, ptr %arrayidx106, align 1
   %conv107 = zext i8 %51 to i32
   %or108 = or disjoint i32 %or104, %conv107
-  %arrayidx110 = getelementptr %struct.PyDateTime_Date, ptr %right, i64 1
+  %arrayidx110 = getelementptr i8, ptr %right, i64 32
   %52 = load i8, ptr %arrayidx110, align 1
   %conv111 = zext i8 %52 to i32
   %shl112 = shl nuw nsw i32 %conv111, 16
@@ -10082,13 +10039,13 @@ if.end2.i:                                        ; preds = %if.end.i126
   br i1 %cmp4.not.i, label %return, label %if.end127
 
 if.end127:                                        ; preds = %if.end2.i
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
-  %days6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 2
+  %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store i32 %days.addr.1.i, ptr %days6.i, align 8
-  %seconds7.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 3
+  %seconds7.i = getelementptr inbounds i8, ptr %call3.i, i64 28
   store i32 %seconds.addr.2.i, ptr %seconds7.i, align 4
-  %microseconds8.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 4
+  %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 %microseconds.addr.0.i, ptr %microseconds8.i, align 8
   %cmp128.not = icmp eq ptr %offdiff.0, null
   br i1 %cmp128.not, label %if.end140, label %do.body
@@ -10172,25 +10129,25 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end4, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %days.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call, i64 0, i32 2
+  %days.i = getelementptr inbounds i8, ptr %call, i64 24
   %0 = load i32, ptr %days.i, align 8
-  %days1.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset_self, i64 0, i32 2
+  %days1.i = getelementptr inbounds i8, ptr %offset_self, i64 24
   %1 = load i32, ptr %days1.i, align 8
   %cmp.i14 = icmp eq i32 %0, %1
   br i1 %cmp.i14, label %if.then.i, label %done
 
 if.then.i:                                        ; preds = %land.lhs.true
-  %seconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call, i64 0, i32 3
+  %seconds.i = getelementptr inbounds i8, ptr %call, i64 28
   %2 = load i32, ptr %seconds.i, align 4
-  %seconds2.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset_self, i64 0, i32 3
+  %seconds2.i = getelementptr inbounds i8, ptr %offset_self, i64 28
   %3 = load i32, ptr %seconds2.i, align 4
   %cmp4.i = icmp eq i32 %2, %3
   br i1 %cmp4.i, label %delta_cmp.exit, label %done
 
 delta_cmp.exit:                                   ; preds = %if.then.i
-  %microseconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call, i64 0, i32 4
+  %microseconds.i = getelementptr inbounds i8, ptr %call, i64 32
   %4 = load i32, ptr %microseconds.i, align 8
-  %microseconds6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset_self, i64 0, i32 4
+  %microseconds6.i = getelementptr inbounds i8, ptr %offset_self, i64 32
   %5 = load i32, ptr %microseconds6.i, align 8
   %tobool.not = icmp eq i32 %4, %5
   br i1 %tobool.not, label %if.end4, label %done
@@ -10221,25 +10178,25 @@ if.end8:                                          ; preds = %Py_DECREF.exit23
   br i1 %cmp9.not, label %done, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %if.end8
-  %days.i15 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call5, i64 0, i32 2
+  %days.i15 = getelementptr inbounds i8, ptr %call5, i64 24
   %8 = load i32, ptr %days.i15, align 8
-  %days1.i16 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset_other, i64 0, i32 2
+  %days1.i16 = getelementptr inbounds i8, ptr %offset_other, i64 24
   %9 = load i32, ptr %days1.i16, align 8
   %cmp.i18 = icmp eq i32 %8, %9
   br i1 %cmp.i18, label %if.then.i20, label %done
 
 if.then.i20:                                      ; preds = %land.lhs.true10
-  %seconds.i21 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call5, i64 0, i32 3
+  %seconds.i21 = getelementptr inbounds i8, ptr %call5, i64 28
   %10 = load i32, ptr %seconds.i21, align 4
-  %seconds2.i22 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset_other, i64 0, i32 3
+  %seconds2.i22 = getelementptr inbounds i8, ptr %offset_other, i64 28
   %11 = load i32, ptr %seconds2.i22, align 4
   %cmp4.i24 = icmp eq i32 %10, %11
   br i1 %cmp4.i24, label %if.then5.i25, label %done
 
 if.then5.i25:                                     ; preds = %if.then.i20
-  %microseconds.i26 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call5, i64 0, i32 4
+  %microseconds.i26 = getelementptr inbounds i8, ptr %call5, i64 32
   %12 = load i32, ptr %microseconds.i26, align 8
-  %microseconds6.i27 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %offset_other, i64 0, i32 4
+  %microseconds6.i27 = getelementptr inbounds i8, ptr %offset_other, i64 32
   %13 = load i32, ptr %microseconds6.i27, align 8
   %14 = icmp ne i32 %12, %13
   %15 = zext i1 %14 to i32
@@ -10271,33 +10228,33 @@ return:                                           ; preds = %if.end.i, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_flip_fold_offset(ptr nocapture noundef readonly %dt) unnamed_addr #0 {
 entry:
-  %data.i = getelementptr inbounds %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %dt, i64 25
   %0 = load i8, ptr %data.i, align 1
-  %arrayidx2.i = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3, i64 1
+  %arrayidx2.i = getelementptr i8, ptr %dt, i64 26
   %1 = load i8, ptr %arrayidx2.i, align 1
-  %arrayidx5.i = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3, i64 2
+  %arrayidx5.i = getelementptr i8, ptr %dt, i64 27
   %2 = load i8, ptr %arrayidx5.i, align 1
-  %arrayidx8.i = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3, i64 3
+  %arrayidx8.i = getelementptr i8, ptr %dt, i64 28
   %3 = load i8, ptr %arrayidx8.i, align 1
-  %arrayidx11.i = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3, i64 4
+  %arrayidx11.i = getelementptr i8, ptr %dt, i64 29
   %4 = load i8, ptr %arrayidx11.i, align 1
-  %arrayidx14.i = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3, i64 5
+  %arrayidx14.i = getelementptr i8, ptr %dt, i64 30
   %5 = load i8, ptr %arrayidx14.i, align 1
-  %arrayidx17.i = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 0, i32 3, i64 6
+  %arrayidx17.i = getelementptr i8, ptr %dt, i64 31
   %6 = load i8, ptr %arrayidx17.i, align 1
-  %arrayidx20.i = getelementptr %struct.PyDateTime_Date, ptr %dt, i64 1
+  %arrayidx20.i = getelementptr i8, ptr %dt, i64 32
   %7 = load i8, ptr %arrayidx20.i, align 1
   %arrayidx24.i = getelementptr i8, ptr %dt, i64 33
   %8 = load i8, ptr %arrayidx24.i, align 1
   %arrayidx29.i = getelementptr i8, ptr %dt, i64 34
   %9 = load i8, ptr %arrayidx29.i, align 1
-  %hastzinfo.i = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %dt, i64 0, i32 2
+  %hastzinfo.i = getelementptr inbounds i8, ptr %dt, i64 24
   %10 = load i8, ptr %hastzinfo.i, align 8
   %tobool.not.i = icmp eq i8 %10, 0
   br i1 %tobool.not.i, label %flip_fold.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %entry
-  %tzinfo.i = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %dt, i64 0, i32 5
+  %tzinfo.i = getelementptr inbounds i8, ptr %dt, i64 40
   %11 = load ptr, ptr %tzinfo.i, align 8
   br label %flip_fold.exit
 
@@ -10319,7 +10276,7 @@ flip_fold.exit:                                   ; preds = %entry, %cond.true.i
   %shl.i = shl nuw nsw i32 %conv.i, 8
   %conv3.i = zext i8 %1 to i32
   %or.i = or disjoint i32 %shl.i, %conv3.i
-  %fold.i = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %dt, i64 0, i32 4
+  %fold.i = getelementptr inbounds i8, ptr %dt, i64 35
   %12 = load i8, ptr %fold.i, align 1
   %tobool33.not.i = icmp eq i8 %12, 0
   %lnot.ext.i = zext i1 %tobool33.not.i to i32
@@ -10330,13 +10287,13 @@ flip_fold.exit:                                   ; preds = %entry, %cond.true.i
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %flip_fold.exit
-  %hastzinfo.i5 = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %call34.i, i64 0, i32 2
+  %hastzinfo.i5 = getelementptr inbounds i8, ptr %call34.i, i64 24
   %14 = load i8, ptr %hastzinfo.i5, align 8
   %tobool.not.i6 = icmp eq i8 %14, 0
   br i1 %tobool.not.i6, label %datetime_utcoffset.exit, label %cond.true.i7
 
 cond.true.i7:                                     ; preds = %if.end
-  %tzinfo.i8 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %call34.i, i64 0, i32 5
+  %tzinfo.i8 = getelementptr inbounds i8, ptr %call34.i, i64 40
   %15 = load ptr, ptr %tzinfo.i8, align 8
   br label %datetime_utcoffset.exit
 
@@ -10416,7 +10373,7 @@ PyObject_TypeCheck.exit.i.i:                      ; preds = %lor.lhs.false.i.i
 check_tzinfo_subclass.exit.i:                     ; preds = %PyObject_TypeCheck.exit.i.i
   %5 = load ptr, ptr @PyExc_TypeError, align 8
   %p.val.i.i = load ptr, ptr %4, align 8
-  %tp_name.i.i = getelementptr inbounds %struct._typeobject, ptr %p.val.i.i, i64 0, i32 1
+  %tp_name.i.i = getelementptr inbounds i8, ptr %p.val.i.i, i64 24
   %6 = load ptr, ptr %tp_name.i.i, align 8
   %call2.i.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.184, ptr noundef %6) #15
   br label %exit
@@ -10450,7 +10407,7 @@ datetime_best_possible.exit.i:                    ; preds = %if.end.i
 if.then5.i:                                       ; preds = %datetime_best_possible.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   store ptr %tz.026, ptr %args.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds ptr, ptr %args.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %call2.i14.i, ptr %arrayinit.element.i.i, align 8
   %call.i16.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 377), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
@@ -10502,17 +10459,17 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.not.i, label %if.end.i3, label %datetime_from_timet_and_us.exit
 
 if.end.i3:                                        ; preds = %if.end.i
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 5
+  %tm_year.i = getelementptr inbounds i8, ptr %tm.i, i64 20
   %3 = load i32, ptr %tm_year.i, align 4
   %add.i = add i32 %3, 1900
-  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 4
+  %tm_mon.i = getelementptr inbounds i8, ptr %tm.i, i64 16
   %4 = load i32, ptr %tm_mon.i, align 8
   %add1.i = add i32 %4, 1
-  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 3
+  %tm_mday.i = getelementptr inbounds i8, ptr %tm.i, i64 12
   %5 = load i32, ptr %tm_mday.i, align 4
-  %tm_hour.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 2
+  %tm_hour.i = getelementptr inbounds i8, ptr %tm.i, i64 8
   %6 = load i32, ptr %tm_hour.i, align 8
-  %tm_min.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 1
+  %tm_min.i = getelementptr inbounds i8, ptr %tm.i, i64 4
   %7 = load i32, ptr %tm_min.i, align 4
   %8 = load i32, ptr %tm.i, align 8
   %cond.i = call i32 @llvm.smin.i32(i32 %8, i32 59)
@@ -10579,7 +10536,7 @@ PyObject_TypeCheck.exit.i.if.end3_crit_edge:      ; preds = %PyObject_TypeCheck.
 check_tzinfo_subclass.exit:                       ; preds = %PyObject_TypeCheck.exit.i
   %2 = load ptr, ptr @PyExc_TypeError, align 8
   %p.val.i = load ptr, ptr %1, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %p.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %p.val.i, i64 24
   %3 = load ptr, ptr %tp_name.i, align 8
   %call2.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.184, ptr noundef %3) #15
   br label %return
@@ -10616,7 +10573,7 @@ datetime_from_timestamp.exit:                     ; preds = %if.end3
 if.then8:                                         ; preds = %datetime_from_timestamp.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i)
   store ptr %8, ptr %args.i, align 16
-  %arrayinit.element.i = getelementptr inbounds ptr, ptr %args.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
   store ptr %call1.i, ptr %arrayinit.element.i, align 8
   %call.i11 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 377), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
@@ -10675,17 +10632,17 @@ if.end.i:                                         ; preds = %if.then3
   br i1 %cmp.not.i, label %if.end.i3, label %datetime_from_timet_and_us.exit
 
 if.end.i3:                                        ; preds = %if.end.i
-  %tm_year.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 5
+  %tm_year.i = getelementptr inbounds i8, ptr %tm.i, i64 20
   %4 = load i32, ptr %tm_year.i, align 4
   %add.i = add i32 %4, 1900
-  %tm_mon.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 4
+  %tm_mon.i = getelementptr inbounds i8, ptr %tm.i, i64 16
   %5 = load i32, ptr %tm_mon.i, align 8
   %add1.i = add i32 %5, 1
-  %tm_mday.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 3
+  %tm_mday.i = getelementptr inbounds i8, ptr %tm.i, i64 12
   %6 = load i32, ptr %tm_mday.i, align 4
-  %tm_hour.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 2
+  %tm_hour.i = getelementptr inbounds i8, ptr %tm.i, i64 8
   %7 = load i32, ptr %tm_hour.i, align 8
-  %tm_min.i = getelementptr inbounds %struct.tm, ptr %tm.i, i64 0, i32 1
+  %tm_min.i = getelementptr inbounds i8, ptr %tm.i, i64 4
   %8 = load i32, ptr %tm_min.i, align 4
   %9 = load i32, ptr %tm.i, align 8
   %cond.i = call i32 @llvm.smin.i32(i32 %9, i32 59)
@@ -10766,13 +10723,13 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.end5
 
 if.then1:                                         ; preds = %if.then
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %.pre, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %.pre, i64 24
   %1 = load i8, ptr %hastzinfo, align 8
   %tobool2.not = icmp eq i8 %1, 0
   br i1 %tobool2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.then1
-  %tzinfo4 = getelementptr inbounds %struct.PyDateTime_Time, ptr %.pre, i64 0, i32 5
+  %tzinfo4 = getelementptr inbounds i8, ptr %.pre, i64 32
   %2 = load ptr, ptr %tzinfo4, align 8
   store ptr %2, ptr %tzinfo, align 8
   br label %if.end5
@@ -10784,39 +10741,39 @@ if.else:                                          ; preds = %if.then1
 if.end5:                                          ; preds = %if.then3, %if.else, %if.then
   %3 = phi ptr [ %2, %if.then3 ], [ @_Py_NoneStruct, %if.else ], [ %0, %if.then ]
   %4 = load ptr, ptr %date, align 8
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %4, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %4, i64 25
   %5 = load i8, ptr %data, align 1
   %conv = zext i8 %5 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx7 = getelementptr %struct.PyDateTime_Date, ptr %4, i64 0, i32 3, i64 1
+  %arrayidx7 = getelementptr i8, ptr %4, i64 26
   %6 = load i8, ptr %arrayidx7, align 1
   %conv8 = zext i8 %6 to i32
   %or = or disjoint i32 %shl, %conv8
-  %arrayidx10 = getelementptr %struct.PyDateTime_Date, ptr %4, i64 0, i32 3, i64 2
+  %arrayidx10 = getelementptr i8, ptr %4, i64 27
   %7 = load i8, ptr %arrayidx10, align 1
   %conv11 = zext i8 %7 to i32
-  %arrayidx13 = getelementptr %struct.PyDateTime_Date, ptr %4, i64 0, i32 3, i64 3
+  %arrayidx13 = getelementptr i8, ptr %4, i64 28
   %8 = load i8, ptr %arrayidx13, align 1
   %conv14 = zext i8 %8 to i32
-  %data15 = getelementptr inbounds %struct.PyDateTime_Time, ptr %.pre, i64 0, i32 3
+  %data15 = getelementptr inbounds i8, ptr %.pre, i64 25
   %9 = load i8, ptr %data15, align 1
   %conv17 = zext i8 %9 to i32
-  %arrayidx19 = getelementptr %struct.PyDateTime_Time, ptr %.pre, i64 0, i32 3, i64 1
+  %arrayidx19 = getelementptr i8, ptr %.pre, i64 26
   %10 = load i8, ptr %arrayidx19, align 1
   %conv20 = zext i8 %10 to i32
-  %arrayidx22 = getelementptr %struct.PyDateTime_Time, ptr %.pre, i64 0, i32 3, i64 2
+  %arrayidx22 = getelementptr i8, ptr %.pre, i64 27
   %11 = load i8, ptr %arrayidx22, align 1
   %conv23 = zext i8 %11 to i32
-  %arrayidx25 = getelementptr %struct.PyDateTime_Time, ptr %.pre, i64 0, i32 3, i64 3
+  %arrayidx25 = getelementptr i8, ptr %.pre, i64 28
   %12 = load i8, ptr %arrayidx25, align 1
   %conv26 = zext i8 %12 to i32
   %shl27 = shl nuw nsw i32 %conv26, 16
-  %arrayidx29 = getelementptr %struct.PyDateTime_Time, ptr %.pre, i64 0, i32 3, i64 4
+  %arrayidx29 = getelementptr i8, ptr %.pre, i64 29
   %13 = load i8, ptr %arrayidx29, align 1
   %conv30 = zext i8 %13 to i32
   %shl31 = shl nuw nsw i32 %conv30, 8
   %or32 = or disjoint i32 %shl31, %shl27
-  %arrayidx34 = getelementptr %struct.PyDateTime_Time, ptr %.pre, i64 0, i32 3, i64 5
+  %arrayidx34 = getelementptr i8, ptr %.pre, i64 30
   %14 = load i8, ptr %arrayidx34, align 1
   %conv35 = zext i8 %14 to i32
   %or36 = or disjoint i32 %or32, %conv35
@@ -10824,7 +10781,7 @@ if.end5:                                          ; preds = %if.then3, %if.else,
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end5
-  %fold = getelementptr inbounds %struct.PyDateTime_Time, ptr %.pre, i64 0, i32 4
+  %fold = getelementptr inbounds i8, ptr %.pre, i64 31
   %15 = load i8, ptr %fold, align 1
   %conv37 = zext i8 %15 to i32
   %call.i = call ptr @new_datetime_ex2(i32 noundef %or, i32 noundef %conv11, i32 noundef %conv14, i32 noundef %conv17, i32 noundef %conv20, i32 noundef %conv23, i32 noundef %or36, ptr noundef %3, i32 noundef %conv37, ptr noundef nonnull @PyDateTime_DateTimeType)
@@ -10881,9 +10838,8 @@ if.end.i30:                                       ; preds = %if.end
 if.then.i.i:                                      ; preds = %if.end.i30
   %6 = and i32 %op.val.i.fr.i, 64
   %tobool.not.i.i.i = icmp eq i32 %6, 0
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %dtstr, i64 1
-  %add.ptr1.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %dtstr, i64 1
-  %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr %add.ptr1.i.i.i, ptr %add.ptr.i.i.i
+  %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
+  %retval.0.i.i.i = getelementptr i8, ptr %dtstr, i64 %retval.0.v.i.i.i
   br label %PyUnicode_DATA.exit.i
 
 if.end.i16.i:                                     ; preds = %if.end.i30
@@ -11213,18 +11169,18 @@ return:                                           ; preds = %if.then1.i.i46, %if
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_getdate(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv3
-  %arrayidx5 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %self, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %2 to i32
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %self, i64 28
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   %call = tail call ptr @new_date_ex(i32 noundef %or, i32 noundef %conv6, i32 noundef %conv9, ptr noundef nonnull @PyDateTime_DateType)
@@ -11234,26 +11190,26 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_gettime(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %arrayidx = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx = getelementptr i8, ptr %self, i64 29
   %0 = load i8, ptr %arrayidx, align 1
-  %arrayidx2 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx2 = getelementptr i8, ptr %self, i64 30
   %1 = load i8, ptr %arrayidx2, align 1
-  %arrayidx5 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 6
+  %arrayidx5 = getelementptr i8, ptr %self, i64 31
   %2 = load i8, ptr %arrayidx5, align 1
-  %arrayidx8 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 7
+  %arrayidx8 = getelementptr i8, ptr %self, i64 32
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   %shl = shl nuw nsw i32 %conv9, 16
-  %arrayidx11 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 8
+  %arrayidx11 = getelementptr i8, ptr %self, i64 33
   %4 = load i8, ptr %arrayidx11, align 1
   %conv12 = zext i8 %4 to i32
   %shl13 = shl nuw nsw i32 %conv12, 8
-  %arrayidx15 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 9
+  %arrayidx15 = getelementptr i8, ptr %self, i64 34
   %5 = load i8, ptr %arrayidx15, align 1
   %conv16 = zext i8 %5 to i32
   %6 = or disjoint i32 %shl13, %shl
   %or17 = or disjoint i32 %6, %conv16
-  %fold = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 4
+  %fold = getelementptr inbounds i8, ptr %self, i64 35
   %7 = load i8, ptr %fold, align 1
   %or.cond.i.i = icmp ugt i8 %0, 23
   br i1 %or.cond.i.i, label %check_time_args.exit.thread.i, label %if.end.i.i
@@ -11287,23 +11243,23 @@ if.end.i:                                         ; preds = %if.end16.i.i
   br i1 %cmp11.not.i, label %new_time_ex2.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %if.end.i
-  %hastzinfo.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10.i, i64 0, i32 2
+  %hastzinfo.i = getelementptr inbounds i8, ptr %call10.i, i64 24
   store i8 0, ptr %hastzinfo.i, align 8
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call10.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
-  %data.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10.i, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %call10.i, i64 25
   store i8 %0, ptr %data.i, align 1
-  %arrayidx17.i = getelementptr %struct.PyDateTime_Time, ptr %call10.i, i64 0, i32 3, i64 1
+  %arrayidx17.i = getelementptr i8, ptr %call10.i, i64 26
   store i8 %1, ptr %arrayidx17.i, align 1
-  %arrayidx20.i = getelementptr %struct.PyDateTime_Time, ptr %call10.i, i64 0, i32 3, i64 2
+  %arrayidx20.i = getelementptr i8, ptr %call10.i, i64 27
   store i8 %2, ptr %arrayidx20.i, align 1
-  %arrayidx23.i = getelementptr %struct.PyDateTime_Time, ptr %call10.i, i64 0, i32 3, i64 3
+  %arrayidx23.i = getelementptr i8, ptr %call10.i, i64 28
   store i8 %3, ptr %arrayidx23.i, align 1
-  %arrayidx28.i = getelementptr %struct.PyDateTime_Time, ptr %call10.i, i64 0, i32 3, i64 4
+  %arrayidx28.i = getelementptr i8, ptr %call10.i, i64 29
   store i8 %4, ptr %arrayidx28.i, align 1
-  %arrayidx32.i = getelementptr %struct.PyDateTime_Time, ptr %call10.i, i64 0, i32 3, i64 5
+  %arrayidx32.i = getelementptr i8, ptr %call10.i, i64 30
   store i8 %5, ptr %arrayidx32.i, align 1
-  %fold38.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %call10.i, i64 0, i32 4
+  %fold38.i = getelementptr inbounds i8, ptr %call10.i, i64 31
   store i8 %7, ptr %fold38.i, align 1
   br label %new_time_ex2.exit
 
@@ -11315,25 +11271,25 @@ new_time_ex2.exit:                                ; preds = %check_time_args.exi
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_gettimetz(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %arrayidx = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx = getelementptr i8, ptr %self, i64 29
   %0 = load i8, ptr %arrayidx, align 1
-  %arrayidx2 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx2 = getelementptr i8, ptr %self, i64 30
   %1 = load i8, ptr %arrayidx2, align 1
-  %arrayidx5 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 6
+  %arrayidx5 = getelementptr i8, ptr %self, i64 31
   %2 = load i8, ptr %arrayidx5, align 1
-  %arrayidx8 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 7
+  %arrayidx8 = getelementptr i8, ptr %self, i64 32
   %3 = load i8, ptr %arrayidx8, align 1
-  %arrayidx11 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 8
+  %arrayidx11 = getelementptr i8, ptr %self, i64 33
   %4 = load i8, ptr %arrayidx11, align 1
-  %arrayidx15 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 9
+  %arrayidx15 = getelementptr i8, ptr %self, i64 34
   %5 = load i8, ptr %arrayidx15, align 1
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %6 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 40
   %7 = load ptr, ptr %tzinfo, align 8
   br label %cond.end
 
@@ -11349,7 +11305,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %conv6 = zext i8 %2 to i32
   %conv3 = zext i8 %1 to i32
   %conv = zext i8 %0 to i32
-  %fold = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 4
+  %fold = getelementptr inbounds i8, ptr %self, i64 35
   %8 = load i8, ptr %fold, align 1
   %conv19 = zext i8 %8 to i32
   %call = tail call ptr @new_time_ex2(i32 noundef %conv, i32 noundef %conv3, i32 noundef %conv6, i32 noundef %or17, ptr noundef %cond, i32 noundef %conv19, ptr noundef nonnull @PyDateTime_TimeType)
@@ -11359,23 +11315,23 @@ cond.end:                                         ; preds = %entry, %cond.true
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_ctime(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %arrayidx = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx = getelementptr i8, ptr %self, i64 29
   %0 = load i8, ptr %arrayidx, align 1
-  %arrayidx2 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx2 = getelementptr i8, ptr %self, i64 30
   %1 = load i8, ptr %arrayidx2, align 1
-  %arrayidx5 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 6
+  %arrayidx5 = getelementptr i8, ptr %self, i64 31
   %2 = load i8, ptr %arrayidx5, align 1
-  %data.i = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %self, i64 25
   %3 = load i8, ptr %data.i, align 1
   %conv.i = zext i8 %3 to i32
   %shl.i = shl nuw nsw i32 %conv.i, 8
-  %arrayidx2.i = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2.i = getelementptr i8, ptr %self, i64 26
   %4 = load i8, ptr %arrayidx2.i, align 1
   %conv3.i = zext i8 %4 to i32
   %or.i = or disjoint i32 %shl.i, %conv3.i
-  %arrayidx5.i = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5.i = getelementptr i8, ptr %self, i64 27
   %5 = load i8, ptr %arrayidx5.i, align 1
-  %arrayidx8.i = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx8.i = getelementptr i8, ptr %self, i64 28
   %6 = load i8, ptr %arrayidx8.i, align 1
   %idxprom.i.i.i.i = zext i8 %5 to i64
   %arrayidx.i.i.i.i = getelementptr [13 x i32], ptr @_days_before_month, i64 0, i64 %idxprom.i.i.i.i
@@ -11438,13 +11394,13 @@ format_ctime.exit:                                ; preds = %entry, %is_leap.exi
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_timetuple(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %tzinfo, align 8
   %cmp.not = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %cmp.not, label %if.end11, label %if.then
@@ -11459,19 +11415,19 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp6.not, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %if.end
-  %days.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i, i64 0, i32 2
+  %days.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %2 = load i32, ptr %days.i, align 8
   %cmp.not.i = icmp eq i32 %2, 0
   br i1 %cmp.not.i, label %lor.lhs.false.i, label %if.end10
 
 lor.lhs.false.i:                                  ; preds = %if.then8
-  %seconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i, i64 0, i32 3
+  %seconds.i = getelementptr inbounds i8, ptr %call.i, i64 28
   %3 = load i32, ptr %seconds.i, align 4
   %cmp1.not.i = icmp eq i32 %3, 0
   br i1 %cmp1.not.i, label %lor.rhs.i, label %if.end10
 
 lor.rhs.i:                                        ; preds = %lor.lhs.false.i
-  %microseconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i, i64 0, i32 4
+  %microseconds.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %4 = load i32, ptr %microseconds.i, align 8
   %cmp2.i = icmp ne i32 %4, 0
   %5 = zext i1 %cmp2.i to i32
@@ -11496,27 +11452,27 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.end11:                                         ; preds = %if.end.i, %if.then1.i, %if.end10, %land.lhs.true, %entry
   %dstflag.1 = phi i32 [ %dstflag.0, %if.end10 ], [ %dstflag.0, %if.then1.i ], [ %dstflag.0, %if.end.i ], [ -1, %land.lhs.true ], [ -1, %entry ]
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %8 = load i8, ptr %data, align 1
   %conv12 = zext i8 %8 to i32
   %shl = shl nuw nsw i32 %conv12, 8
-  %arrayidx14 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx14 = getelementptr i8, ptr %self, i64 26
   %9 = load i8, ptr %arrayidx14, align 1
   %conv15 = zext i8 %9 to i32
   %or = or disjoint i32 %shl, %conv15
-  %arrayidx17 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx17 = getelementptr i8, ptr %self, i64 27
   %10 = load i8, ptr %arrayidx17, align 1
   %conv18 = zext i8 %10 to i32
-  %arrayidx20 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx20 = getelementptr i8, ptr %self, i64 28
   %11 = load i8, ptr %arrayidx20, align 1
   %conv21 = zext i8 %11 to i32
-  %arrayidx23 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx23 = getelementptr i8, ptr %self, i64 29
   %12 = load i8, ptr %arrayidx23, align 1
   %conv24 = zext i8 %12 to i32
-  %arrayidx26 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx26 = getelementptr i8, ptr %self, i64 30
   %13 = load i8, ptr %arrayidx26, align 1
   %conv27 = zext i8 %13 to i32
-  %arrayidx29 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 6
+  %arrayidx29 = getelementptr i8, ptr %self, i64 31
   %14 = load i8, ptr %arrayidx29, align 1
   %conv30 = zext i8 %14 to i32
   %call31 = tail call fastcc ptr @build_struct_time(i32 noundef %or, i32 noundef %conv18, i32 noundef %conv21, i32 noundef %conv24, i32 noundef %conv27, i32 noundef %conv30, i32 noundef %dstflag.1)
@@ -11530,13 +11486,13 @@ return:                                           ; preds = %if.then, %if.end11
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_timestamp(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %tzinfo, align 8
   %cmp.not = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %cmp.not, label %if.else, label %if.then
@@ -11588,30 +11544,30 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %entry
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %8 = load i8, ptr %data, align 1
   %conv6 = zext i8 %8 to i32
   %shl = shl nuw nsw i32 %conv6, 8
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx8 = getelementptr i8, ptr %self, i64 26
   %9 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %9 to i32
   %or = or disjoint i32 %shl, %conv9
-  %arrayidx11 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx11 = getelementptr i8, ptr %self, i64 27
   %10 = load i8, ptr %arrayidx11, align 1
   %conv12 = zext i8 %10 to i32
-  %arrayidx14 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx14 = getelementptr i8, ptr %self, i64 28
   %11 = load i8, ptr %arrayidx14, align 1
   %conv15 = zext i8 %11 to i32
-  %arrayidx17 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx17 = getelementptr i8, ptr %self, i64 29
   %12 = load i8, ptr %arrayidx17, align 1
   %conv18 = zext i8 %12 to i32
-  %arrayidx20 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx20 = getelementptr i8, ptr %self, i64 30
   %13 = load i8, ptr %arrayidx20, align 1
   %conv21 = zext i8 %13 to i32
-  %arrayidx23 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 6
+  %arrayidx23 = getelementptr i8, ptr %self, i64 31
   %14 = load i8, ptr %arrayidx23, align 1
   %conv24 = zext i8 %14 to i32
-  %fold = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 4
+  %fold = getelementptr inbounds i8, ptr %self, i64 35
   %15 = load i8, ptr %fold, align 1
   %conv25 = zext i8 %15 to i32
   %call26 = tail call fastcc i64 @local_to_seconds(i32 noundef %or, i32 noundef %conv12, i32 noundef %conv15, i32 noundef %conv18, i32 noundef %conv21, i32 noundef %conv24, i32 noundef %conv25)
@@ -11621,7 +11577,7 @@ if.else:                                          ; preds = %land.lhs.true, %ent
 if.end30:                                         ; preds = %if.else
   %sub = add i64 %call26, -62135683200
   %conv31 = sitofp i64 %sub to double
-  %arrayidx33 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 1
+  %arrayidx33 = getelementptr i8, ptr %self, i64 32
   %16 = load i8, ptr %arrayidx33, align 1
   %conv34 = zext i8 %16 to i32
   %shl35 = shl nuw nsw i32 %conv34, 16
@@ -11648,13 +11604,13 @@ return:                                           ; preds = %if.end30, %delta_to
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_utctimetuple(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.then, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %tzinfo1 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo1 = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %tzinfo1, align 8
   %cmp = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %cmp, label %if.then, label %if.else
@@ -11724,27 +11680,27 @@ if.end18.sink.split:                              ; preds = %Py_DECREF.exit56, %
 
 if.end18:                                         ; preds = %if.end18.sink.split, %Py_DECREF.exit56, %if.then, %Py_DECREF.exit47
   %utcself.0 = phi ptr [ %call12, %Py_DECREF.exit47 ], [ %self, %if.then ], [ %self, %Py_DECREF.exit56 ], [ %self, %if.end18.sink.split ]
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %utcself.0, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %utcself.0, i64 25
   %8 = load i8, ptr %data, align 1
   %conv19 = zext i8 %8 to i32
   %shl = shl nuw nsw i32 %conv19, 8
-  %arrayidx21 = getelementptr %struct.PyDateTime_Date, ptr %utcself.0, i64 0, i32 3, i64 1
+  %arrayidx21 = getelementptr i8, ptr %utcself.0, i64 26
   %9 = load i8, ptr %arrayidx21, align 1
   %conv22 = zext i8 %9 to i32
   %or = or disjoint i32 %shl, %conv22
-  %arrayidx24 = getelementptr %struct.PyDateTime_Date, ptr %utcself.0, i64 0, i32 3, i64 2
+  %arrayidx24 = getelementptr i8, ptr %utcself.0, i64 27
   %10 = load i8, ptr %arrayidx24, align 1
   %conv25 = zext i8 %10 to i32
-  %arrayidx27 = getelementptr %struct.PyDateTime_Date, ptr %utcself.0, i64 0, i32 3, i64 3
+  %arrayidx27 = getelementptr i8, ptr %utcself.0, i64 28
   %11 = load i8, ptr %arrayidx27, align 1
   %conv28 = zext i8 %11 to i32
-  %arrayidx30 = getelementptr %struct.PyDateTime_Date, ptr %utcself.0, i64 0, i32 3, i64 4
+  %arrayidx30 = getelementptr i8, ptr %utcself.0, i64 29
   %12 = load i8, ptr %arrayidx30, align 1
   %conv31 = zext i8 %12 to i32
-  %arrayidx33 = getelementptr %struct.PyDateTime_Date, ptr %utcself.0, i64 0, i32 3, i64 5
+  %arrayidx33 = getelementptr i8, ptr %utcself.0, i64 30
   %13 = load i8, ptr %arrayidx33, align 1
   %conv34 = zext i8 %13 to i32
-  %arrayidx36 = getelementptr %struct.PyDateTime_Date, ptr %utcself.0, i64 0, i32 3, i64 6
+  %arrayidx36 = getelementptr i8, ptr %utcself.0, i64 31
   %14 = load i8, ptr %arrayidx36, align 1
   %conv37 = zext i8 %14 to i32
   %15 = load i64, ptr %utcself.0, align 8
@@ -11780,17 +11736,17 @@ entry:
   %result = alloca ptr, align 8
   store i32 84, ptr %sep, align 4
   store ptr null, ptr %timespec, align 8
-  %data = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3
-  %arrayidx = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 7
+  %data = getelementptr inbounds i8, ptr %self, i64 25
+  %arrayidx = getelementptr i8, ptr %self, i64 32
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 16
-  %arrayidx2 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 8
+  %arrayidx2 = getelementptr i8, ptr %self, i64 33
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %shl4 = shl nuw nsw i32 %conv3, 8
   %or = or disjoint i32 %shl4, %shl
-  %arrayidx6 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 9
+  %arrayidx6 = getelementptr i8, ptr %self, i64 34
   %2 = load i8, ptr %arrayidx6, align 1
   %conv7 = zext i8 %2 to i32
   %or8 = or disjoint i32 %or, %conv7
@@ -11847,24 +11803,24 @@ if.else37:                                        ; preds = %if.then13, %if.then
   %7 = load i8, ptr %data, align 1
   %conv42 = zext i8 %7 to i32
   %shl43 = shl nuw nsw i32 %conv42, 8
-  %arrayidx45 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx45 = getelementptr i8, ptr %self, i64 26
   %8 = load i8, ptr %arrayidx45, align 1
   %conv46 = zext i8 %8 to i32
   %or47 = or disjoint i32 %shl43, %conv46
-  %arrayidx49 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx49 = getelementptr i8, ptr %self, i64 27
   %9 = load i8, ptr %arrayidx49, align 1
   %conv50 = zext i8 %9 to i32
-  %arrayidx52 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx52 = getelementptr i8, ptr %self, i64 28
   %10 = load i8, ptr %arrayidx52, align 1
   %conv53 = zext i8 %10 to i32
   %11 = load i32, ptr %sep, align 4
-  %arrayidx55 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx55 = getelementptr i8, ptr %self, i64 29
   %12 = load i8, ptr %arrayidx55, align 1
   %conv56 = zext i8 %12 to i32
-  %arrayidx58 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx58 = getelementptr i8, ptr %self, i64 30
   %13 = load i8, ptr %arrayidx58, align 1
   %conv59 = zext i8 %13 to i32
-  %arrayidx61 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 6
+  %arrayidx61 = getelementptr i8, ptr %self, i64 31
   %14 = load i8, ptr %arrayidx61, align 1
   %conv62 = zext i8 %14 to i32
   %call63 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef %6, i32 noundef %or47, i32 noundef %conv50, i32 noundef %conv53, i32 noundef %11, i32 noundef %conv56, i32 noundef %conv59, i32 noundef %conv62, i32 noundef %us.025) #15
@@ -11873,13 +11829,13 @@ if.else37:                                        ; preds = %if.then13, %if.then
   br i1 %tobool65.not, label %return, label %lor.lhs.false66
 
 lor.lhs.false66:                                  ; preds = %if.else37
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %15 = load i8, ptr %hastzinfo, align 8
   %tobool67.not = icmp eq i8 %15, 0
   br i1 %tobool67.not, label %return, label %if.end69
 
 if.end69:                                         ; preds = %lor.lhs.false66
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 40
   %16 = load ptr, ptr %tzinfo, align 8
   %call70 = call fastcc i32 @format_utcoffset(ptr noundef nonnull %buffer, ptr noundef nonnull @.str.125, ptr noundef %16, ptr noundef nonnull %self)
   %cmp71 = icmp slt i32 %call70, 0
@@ -11916,13 +11872,13 @@ return:                                           ; preds = %if.else37, %lor.lhs
 define internal ptr @datetime_tzname(ptr noundef %self, ptr nocapture readnone %unused) #0 {
 entry:
   %args.i.i = alloca [2 x ptr], align 16
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %call_tzname.exit, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %tzinfo, align 8
   %cmp.i = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %cmp.i, label %call_tzname.exit, label %if.end.i
@@ -11930,7 +11886,7 @@ cond.end:                                         ; preds = %entry
 if.end.i:                                         ; preds = %cond.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   store ptr %1, ptr %args.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds ptr, ptr %args.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %self, ptr %arrayinit.element.i.i, align 8
   %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 668), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
@@ -11950,7 +11906,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.then7.i:                                       ; preds = %if.end4.i
   %5 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %call.val11.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %call.val11.i, i64 24
   %6 = load ptr, ptr %tp_name.i, align 8
   %call9.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.133, ptr noundef %6) #15
   %7 = load i64, ptr %call.i.i, align 8
@@ -11985,36 +11941,36 @@ entry:
   %us = alloca i32, align 4
   %tzinfo = alloca ptr, align 8
   %fold = alloca i32, align 4
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx2 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv3
   store i32 %or, ptr %y, align 4
-  %arrayidx5 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %self, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %2 to i32
   store i32 %conv6, ptr %m, align 4
-  %arrayidx8 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %self, i64 28
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   store i32 %conv9, ptr %d, align 4
-  %arrayidx11 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx11 = getelementptr i8, ptr %self, i64 29
   %4 = load i8, ptr %arrayidx11, align 1
   %conv12 = zext i8 %4 to i32
   store i32 %conv12, ptr %hh, align 4
-  %arrayidx14 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx14 = getelementptr i8, ptr %self, i64 30
   %5 = load i8, ptr %arrayidx14, align 1
   %conv15 = zext i8 %5 to i32
   store i32 %conv15, ptr %mm, align 4
-  %arrayidx17 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 6
+  %arrayidx17 = getelementptr i8, ptr %self, i64 31
   %6 = load i8, ptr %arrayidx17, align 1
   %conv18 = zext i8 %6 to i32
   store i32 %conv18, ptr %ss, align 4
-  %arrayidx20 = getelementptr %struct.PyDateTime_Date, ptr %self, i64 1
+  %arrayidx20 = getelementptr i8, ptr %self, i64 32
   %7 = load i8, ptr %arrayidx20, align 1
   %conv21 = zext i8 %7 to i32
   %shl22 = shl nuw nsw i32 %conv21, 16
@@ -12028,20 +11984,20 @@ entry:
   %conv30 = zext i8 %9 to i32
   %or31 = or disjoint i32 %or27, %conv30
   store i32 %or31, ptr %us, align 4
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %10 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %10, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %tzinfo33 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo33 = getelementptr inbounds i8, ptr %self, i64 40
   %11 = load ptr, ptr %tzinfo33, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %11, %cond.true ], [ @_Py_NoneStruct, %entry ]
   store ptr %cond, ptr %tzinfo, align 8
-  %fold34 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 4
+  %fold34 = getelementptr inbounds i8, ptr %self, i64 35
   %12 = load i8, ptr %fold34, align 1
   %conv35 = zext i8 %12 to i32
   store i32 %conv35, ptr %fold, align 4
@@ -12082,7 +12038,7 @@ if.end46:                                         ; preds = %if.end41
 if.then51:                                        ; preds = %if.end46
   %24 = load i32, ptr %fold, align 4
   %conv52 = trunc i32 %24 to i8
-  %fold53 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %call48, i64 0, i32 4
+  %fold53 = getelementptr inbounds i8, ptr %call48, i64 35
   store i8 %conv52, ptr %fold53, align 1
   br label %if.end54
 
@@ -12136,48 +12092,48 @@ PyObject_TypeCheck.exit.i:                        ; preds = %lor.lhs.false.i
 check_tzinfo_subclass.exit:                       ; preds = %PyObject_TypeCheck.exit.i
   %2 = load ptr, ptr @PyExc_TypeError, align 8
   %p.val.i = load ptr, ptr %1, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %p.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %p.val.i, i64 24
   %3 = load ptr, ptr %tp_name.i, align 8
   %call2.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %2, ptr noundef nonnull @.str.184, ptr noundef %3) #15
   br label %return
 
 if.end3:                                          ; preds = %PyObject_TypeCheck.exit.i, %if.end, %lor.lhs.false.i
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %4 = load i8, ptr %hastzinfo, align 8
   %tobool4.not = icmp eq i8 %4, 0
   br i1 %tobool4.not, label %naive, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %tzinfo5 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo5 = getelementptr inbounds i8, ptr %self, i64 40
   %5 = load ptr, ptr %tzinfo5, align 8
   %cmp6 = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp6, label %naive, label %if.else
 
 naive:                                            ; preds = %if.end.i157, %if.then1.i160, %if.then24, %if.end3, %lor.lhs.false
-  %fold1.i = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 4
+  %fold1.i = getelementptr inbounds i8, ptr %self, i64 35
   %6 = load i8, ptr %fold1.i, align 1
   %conv.i = zext i8 %6 to i32
-  %data.i = getelementptr inbounds %struct.PyDateTime_Date, ptr %self, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %self, i64 25
   %7 = load i8, ptr %data.i, align 1
   %conv2.i = zext i8 %7 to i32
   %shl.i = shl nuw nsw i32 %conv2.i, 8
-  %arrayidx4.i = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx4.i = getelementptr i8, ptr %self, i64 26
   %8 = load i8, ptr %arrayidx4.i, align 1
   %conv5.i = zext i8 %8 to i32
   %or.i = or disjoint i32 %shl.i, %conv5.i
-  %arrayidx7.i = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx7.i = getelementptr i8, ptr %self, i64 27
   %9 = load i8, ptr %arrayidx7.i, align 1
   %conv8.i = zext i8 %9 to i32
-  %arrayidx10.i = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx10.i = getelementptr i8, ptr %self, i64 28
   %10 = load i8, ptr %arrayidx10.i, align 1
   %conv11.i = zext i8 %10 to i32
-  %arrayidx13.i = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx13.i = getelementptr i8, ptr %self, i64 29
   %11 = load i8, ptr %arrayidx13.i, align 1
   %conv14.i = zext i8 %11 to i32
-  %arrayidx16.i = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx16.i = getelementptr i8, ptr %self, i64 30
   %12 = load i8, ptr %arrayidx16.i, align 1
   %conv17.i = zext i8 %12 to i32
-  %arrayidx19.i = getelementptr %struct.PyDateTime_Date, ptr %self, i64 0, i32 3, i64 6
+  %arrayidx19.i = getelementptr i8, ptr %self, i64 31
   %13 = load i8, ptr %arrayidx19.i, align 1
   %conv20.i = zext i8 %13 to i32
   %call.i = call fastcc i64 @local_to_seconds(i32 noundef %or.i, i32 noundef %conv8.i, i32 noundef %conv11.i, i32 noundef %conv14.i, i32 noundef %conv17.i, i32 noundef %conv20.i, i32 noundef %conv.i)
@@ -12332,7 +12288,7 @@ if.then1.i151:                                    ; preds = %if.end.i148
 Py_DECREF.exit153:                                ; preds = %if.then28, %if.then1.i151, %if.end.i148
   %34 = load ptr, ptr @PyExc_TypeError, align 8
   %call19.val = load ptr, ptr %31, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %call19.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %call19.val, i64 24
   %35 = load ptr, ptr %tp_name, align 8
   %call30 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %34, ptr noundef nonnull @.str.218, ptr noundef %35) #15
   br label %return
@@ -12359,36 +12315,36 @@ Py_DECREF.exit144:                                ; preds = %if.end33, %if.then1
   br i1 %cmp35, label %return, label %if.end37
 
 if.end37:                                         ; preds = %Py_DECREF.exit144
-  %hastzinfo38 = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %call34, i64 0, i32 2
+  %hastzinfo38 = getelementptr inbounds i8, ptr %call34, i64 24
   %38 = load i8, ptr %hastzinfo38, align 8
   %tobool39.not = icmp eq i8 %38, 0
   br i1 %tobool39.not, label %if.then40, label %do.body
 
 if.then40:                                        ; preds = %if.end37
-  %data = getelementptr inbounds %struct.PyDateTime_Date, ptr %call34, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %call34, i64 25
   %39 = load i8, ptr %data, align 1
   %conv = zext i8 %39 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx42 = getelementptr %struct.PyDateTime_Date, ptr %call34, i64 0, i32 3, i64 1
+  %arrayidx42 = getelementptr i8, ptr %call34, i64 26
   %40 = load i8, ptr %arrayidx42, align 1
   %conv43 = zext i8 %40 to i32
   %or = or disjoint i32 %shl, %conv43
-  %arrayidx45 = getelementptr %struct.PyDateTime_Date, ptr %call34, i64 0, i32 3, i64 2
+  %arrayidx45 = getelementptr i8, ptr %call34, i64 27
   %41 = load i8, ptr %arrayidx45, align 1
   %conv46 = zext i8 %41 to i32
-  %arrayidx48 = getelementptr %struct.PyDateTime_Date, ptr %call34, i64 0, i32 3, i64 3
+  %arrayidx48 = getelementptr i8, ptr %call34, i64 28
   %42 = load i8, ptr %arrayidx48, align 1
   %conv49 = zext i8 %42 to i32
-  %arrayidx51 = getelementptr %struct.PyDateTime_Date, ptr %call34, i64 0, i32 3, i64 4
+  %arrayidx51 = getelementptr i8, ptr %call34, i64 29
   %43 = load i8, ptr %arrayidx51, align 1
   %conv52 = zext i8 %43 to i32
-  %arrayidx54 = getelementptr %struct.PyDateTime_Date, ptr %call34, i64 0, i32 3, i64 5
+  %arrayidx54 = getelementptr i8, ptr %call34, i64 30
   %44 = load i8, ptr %arrayidx54, align 1
   %conv55 = zext i8 %44 to i32
-  %arrayidx57 = getelementptr %struct.PyDateTime_Date, ptr %call34, i64 0, i32 3, i64 6
+  %arrayidx57 = getelementptr i8, ptr %call34, i64 31
   %45 = load i8, ptr %arrayidx57, align 1
   %conv58 = zext i8 %45 to i32
-  %arrayidx60 = getelementptr %struct.PyDateTime_Date, ptr %call34, i64 1
+  %arrayidx60 = getelementptr i8, ptr %call34, i64 32
   %46 = load i8, ptr %arrayidx60, align 1
   %conv61 = zext i8 %46 to i32
   %shl62 = shl nuw nsw i32 %conv61, 16
@@ -12402,7 +12358,7 @@ if.then40:                                        ; preds = %if.end37
   %conv70 = zext i8 %48 to i32
   %or71 = or disjoint i32 %or67, %conv70
   %49 = load ptr, ptr @_datetime_global_state.7, align 8
-  %fold = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %call34, i64 0, i32 4
+  %fold = getelementptr inbounds i8, ptr %call34, i64 35
   %50 = load i8, ptr %fold, align 1
   %conv72 = zext i8 %50 to i32
   %51 = getelementptr i8, ptr %call34, i64 8
@@ -12428,7 +12384,7 @@ Py_DECREF.exit135:                                ; preds = %if.then40, %if.then
   br i1 %cmp75, label %return, label %if.end83
 
 do.body:                                          ; preds = %if.end37
-  %tzinfo80 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %call34, i64 0, i32 5
+  %tzinfo80 = getelementptr inbounds i8, ptr %call34, i64 40
   %54 = load ptr, ptr %tzinfo80, align 8
   %55 = load ptr, ptr @_datetime_global_state.7, align 8
   %56 = load i32, ptr %55, align 8
@@ -12498,7 +12454,7 @@ if.end.i183:                                      ; preds = %if.else92
 
 do.body94:                                        ; preds = %if.then86, %if.else92, %if.end.i183
   %63 = phi ptr [ %call87, %if.then86 ], [ %59, %if.else92 ], [ %.pre, %if.end.i183 ]
-  %tzinfo96 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %result.0, i64 0, i32 5
+  %tzinfo96 = getelementptr inbounds i8, ptr %result.0, i64 40
   %64 = load ptr, ptr %tzinfo96, align 8
   store ptr %63, ptr %tzinfo96, align 8
   %65 = load i64, ptr %64, align 8
@@ -12520,7 +12476,7 @@ do.end98:                                         ; preds = %if.end.i103, %if.th
   %67 = load ptr, ptr %tzinfo, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i)
   store ptr %67, ptr %args.i, align 16
-  %arrayinit.element.i = getelementptr inbounds ptr, ptr %args.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
   store ptr %result.0, ptr %arrayinit.element.i, align 8
   %call.i83 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 377), ptr noundef nonnull %args.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i)
@@ -12556,7 +12512,7 @@ if.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   %1 = load i32, ptr %proto, align 4
-  %data.i = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %self, i64 25
   %call.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %data.i, i64 noundef 10) #15
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %datetime_getstate.exit, label %if.then.i
@@ -12566,26 +12522,26 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp1.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %fold.i = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 4
+  %fold.i = getelementptr inbounds i8, ptr %self, i64 35
   %2 = load i8, ptr %fold.i, align 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
-  %arrayidx.i = getelementptr %struct.PyBytesObject, ptr %call.i, i64 0, i32 2, i64 2
+  %arrayidx.i = getelementptr i8, ptr %call.i, i64 34
   %3 = load i8, ptr %arrayidx.i, align 1
   %or.i = or i8 %3, -128
   store i8 %or.i, ptr %arrayidx.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2.i, %land.lhs.true.i, %if.then.i
-  %hastzinfo.i = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo.i = getelementptr inbounds i8, ptr %self, i64 24
   %4 = load i8, ptr %hastzinfo.i, align 8
   %tobool6.not.i = icmp eq i8 %4, 0
   br i1 %tobool6.not.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %tzinfo.i = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo.i = getelementptr inbounds i8, ptr %self, i64 40
   %5 = load ptr, ptr %tzinfo.i, align 8
   %cmp7.i = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp7.i, label %if.then9.i, label %if.else.i
@@ -12630,19 +12586,19 @@ define internal ptr @datetime_reduce(ptr noundef %self, ptr nocapture readnone %
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %data.i = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %self, i64 25
   %call.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %data.i, i64 noundef 10) #15
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %datetime_getstate.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %hastzinfo.i = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo.i = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i8, ptr %hastzinfo.i, align 8
   %tobool6.not.i = icmp eq i8 %1, 0
   br i1 %tobool6.not.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %tzinfo.i = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo.i = getelementptr inbounds i8, ptr %self, i64 40
   %2 = load ptr, ptr %tzinfo.i, align 8
   %cmp7.i = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp7.i, label %if.then9.i, label %if.else.i
@@ -12693,17 +12649,17 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %tm_year = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %tm, i64 20
   %0 = load i32, ptr %tm_year, align 4
   %add = add i32 %0, 1900
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %tm, i64 16
   %1 = load i32, ptr %tm_mon, align 8
   %add1 = add i32 %1, 1
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %tm, i64 12
   %2 = load i32, ptr %tm_mday, align 4
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %tm, i64 8
   %3 = load i32, ptr %tm_hour, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %tm, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %tm, i64 4
   %4 = load i32, ptr %tm_min, align 4
   %5 = load i32, ptr %tm, align 8
   %cond = call i32 @llvm.smin.i32(i32 %5, i32 59)
@@ -12837,14 +12793,14 @@ entry:
   br i1 %cmp1.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %entry
-  %tm_year = getelementptr inbounds %struct.tm, ptr %local_time, i64 0, i32 5
+  %tm_year = getelementptr inbounds i8, ptr %local_time, i64 20
   %0 = load i32, ptr %tm_year, align 4
   %add = add i32 %0, 1900
-  %tm_mday = getelementptr inbounds %struct.tm, ptr %local_time, i64 0, i32 3
+  %tm_mday = getelementptr inbounds i8, ptr %local_time, i64 12
   %1 = load i32, ptr %tm_mday, align 4
-  %tm_hour = getelementptr inbounds %struct.tm, ptr %local_time, i64 0, i32 2
+  %tm_hour = getelementptr inbounds i8, ptr %local_time, i64 8
   %2 = load i32, ptr %tm_hour, align 8
-  %tm_min = getelementptr inbounds %struct.tm, ptr %local_time, i64 0, i32 1
+  %tm_min = getelementptr inbounds i8, ptr %local_time, i64 4
   %3 = load i32, ptr %tm_min, align 4
   %4 = load i32, ptr %local_time, align 8
   %5 = add i32 %0, -8100
@@ -12857,7 +12813,7 @@ if.then.i:                                        ; preds = %if.end3
   br label %return
 
 if.end.i:                                         ; preds = %if.end3
-  %tm_mon = getelementptr inbounds %struct.tm, ptr %local_time, i64 0, i32 4
+  %tm_mon = getelementptr inbounds i8, ptr %local_time, i64 16
   %7 = load i32, ptr %tm_mon, align 8
   %add4 = add i32 %7, 1
   %idxprom.i.i.i = sext i32 %add4 to i64
@@ -13073,13 +13029,13 @@ if.end2.i:                                        ; preds = %if.end.i7, %if.end.
   br i1 %cmp4.not.i, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.end2.i
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
-  %days6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 2
+  %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store i32 %days.addr.1.i23, ptr %days6.i, align 8
-  %seconds7.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 3
+  %seconds7.i = getelementptr inbounds i8, ptr %call3.i, i64 28
   store i32 %3, ptr %seconds7.i, align 4
-  %microseconds8.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 4
+  %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 %2, ptr %microseconds8.i, align 8
   switch i32 %days.addr.1.i23, label %if.then13.i [
     i32 0, label %lor.lhs.false.i.i
@@ -13131,9 +13087,9 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i11
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end.i.i11
-  %offset2.i.i = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %call.i.i9, i64 0, i32 1
+  %offset2.i.i = getelementptr inbounds i8, ptr %call.i.i9, i64 16
   store ptr %call3.i, ptr %offset2.i.i, align 8
-  %name4.i.i = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %call.i.i9, i64 0, i32 2
+  %name4.i.i = getelementptr inbounds i8, ptr %call.i.i9, i64 24
   store ptr null, ptr %name4.i.i, align 8
   br label %new_timezone.exit
 
@@ -13182,9 +13138,9 @@ entry:
   store i32 0, ptr %minute, align 4
   store i32 0, ptr %hour, align 4
   store ptr %hour, ptr %vals, align 16
-  %arrayinit.element = getelementptr inbounds ptr, ptr %vals, i64 1
+  %arrayinit.element = getelementptr inbounds i8, ptr %vals, i64 8
   store ptr %minute, ptr %arrayinit.element, align 8
-  %arrayinit.element1 = getelementptr inbounds ptr, ptr %vals, i64 2
+  %arrayinit.element1 = getelementptr inbounds i8, ptr %vals, i64 16
   store ptr %second, ptr %arrayinit.element1, align 16
   br label %for.body
 
@@ -13491,7 +13447,7 @@ declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @delta_to_microseconds(ptr nocapture noundef readonly %self) unnamed_addr #0 {
 entry:
-  %days = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 2
+  %days = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i32, ptr %days, align 8
   %conv = sext i32 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #15
@@ -13521,7 +13477,7 @@ if.then1.i58:                                     ; preds = %if.end.i55
   br label %do.end
 
 do.end:                                           ; preds = %if.end.i55, %if.then1.i58, %do.body
-  %seconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 3
+  %seconds = getelementptr inbounds i8, ptr %self, i64 28
   %4 = load i32, ptr %seconds, align 4
   %conv7 = sext i32 %4 to i64
   %call8 = tail call ptr @PyLong_FromLong(i64 noundef %conv7) #15
@@ -13588,7 +13544,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %do.end26
 
 do.end26:                                         ; preds = %if.end.i, %if.then1.i, %do.body23
-  %microseconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 4
+  %microseconds = getelementptr inbounds i8, ptr %self, i64 32
   %12 = load i32, ptr %microseconds, align 8
   %conv27 = sext i32 %12 to i64
   %call28 = tail call ptr @PyLong_FromLong(i64 noundef %conv27) #15
@@ -13698,13 +13654,13 @@ if.then1.i39:                                     ; preds = %if.end.i36
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
-  %days6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 2
+  %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store i32 0, ptr %days6.i, align 8
-  %seconds7.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 3
+  %seconds7.i = getelementptr inbounds i8, ptr %call3.i, i64 28
   store i32 1, ptr %seconds7.i, align 4
-  %microseconds8.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 4
+  %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 0, ptr %microseconds8.i, align 8
   %call5 = tail call fastcc ptr @divide_timedelta_timedelta(ptr noundef nonnull %call, ptr noundef nonnull %call3.i)
   %4 = load i64, ptr %call3.i, align 8
@@ -13790,9 +13746,9 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %tm_zone = getelementptr inbounds %struct.tm, ptr %local_time_tm, i64 0, i32 10
+  %tm_zone = getelementptr inbounds i8, ptr %local_time_tm, i64 48
   %0 = load ptr, ptr %tm_zone, align 8
-  %tm_gmtoff = getelementptr inbounds %struct.tm, ptr %local_time_tm, i64 0, i32 9
+  %tm_gmtoff = getelementptr inbounds i8, ptr %local_time_tm, i64 40
   %1 = load i64, ptr %tm_gmtoff, align 8
   %conv = trunc i64 %1 to i32
   %or.cond7.i.i = icmp ugt i32 %conv, 86399
@@ -13818,13 +13774,13 @@ if.end2.i:                                        ; preds = %if.end.i8, %if.end
   br i1 %cmp4.not.i, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end2.i
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
-  %days6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 2
+  %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store i32 %3, ptr %days6.i, align 8
-  %seconds7.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 3
+  %seconds7.i = getelementptr inbounds i8, ptr %call3.i, i64 28
   store i32 %2, ptr %seconds7.i, align 4
-  %microseconds8.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 4
+  %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 0, ptr %microseconds8.i, align 8
   %cmp6.not = icmp eq ptr %0, null
   br i1 %cmp6.not, label %if.end14, label %if.then8
@@ -13901,7 +13857,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i.i
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %if.end.i.i.i.i, %if.end.i.i
-  %offset2.i.i = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %call.i.i11, i64 0, i32 1
+  %offset2.i.i = getelementptr inbounds i8, ptr %call.i.i11, i64 16
   store ptr %call3.i, ptr %offset2.i.i, align 8
   br i1 %cmp6.not, label %_Py_XNewRef.exit.i.i, label %if.then.i.i.i.i
 
@@ -13916,12 +13872,12 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   br label %_Py_XNewRef.exit.i.i.thread
 
 _Py_XNewRef.exit.i.i.thread:                      ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i
-  %name4.i.i38 = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %call.i.i11, i64 0, i32 2
+  %name4.i.i38 = getelementptr inbounds i8, ptr %call.i.i11, i64 24
   store ptr %nameo.029, ptr %name4.i.i38, align 8
   br label %if.then.i13
 
 _Py_XNewRef.exit.i.i:                             ; preds = %_Py_NewRef.exit.i.i
-  %name4.i.i = getelementptr inbounds %struct.PyDateTime_TimeZone, ptr %call.i.i11, i64 0, i32 2
+  %name4.i.i = getelementptr inbounds i8, ptr %call.i.i11, i64 24
   store ptr %nameo.029, ptr %name4.i.i, align 8
   br label %error
 
@@ -14041,7 +13997,7 @@ declare ptr @PyNumber_FloorDivide(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_hour(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %arrayidx = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx = getelementptr i8, ptr %self, i64 29
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #15
@@ -14051,7 +14007,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_minute(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %arrayidx = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx = getelementptr i8, ptr %self, i64 30
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #15
@@ -14061,7 +14017,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_second(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %arrayidx = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 6
+  %arrayidx = getelementptr i8, ptr %self, i64 31
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #15
@@ -14071,16 +14027,16 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_microsecond(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %arrayidx = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 7
+  %arrayidx = getelementptr i8, ptr %self, i64 32
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %shl = shl nuw nsw i64 %conv, 16
-  %arrayidx2 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 8
+  %arrayidx2 = getelementptr i8, ptr %self, i64 33
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i64
   %shl4 = shl nuw nsw i64 %conv3, 8
   %or = or disjoint i64 %shl4, %shl
-  %arrayidx6 = getelementptr %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 3, i64 9
+  %arrayidx6 = getelementptr i8, ptr %self, i64 34
   %2 = load i8, ptr %arrayidx6, align 1
   %conv7 = zext i8 %2 to i64
   %or8 = or disjoint i64 %or, %conv7
@@ -14091,13 +14047,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal ptr @datetime_tzinfo(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #9 {
 entry:
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 40
   %1 = load ptr, ptr %tzinfo, align 8
   br label %cond.end
 
@@ -14119,7 +14075,7 @@ _Py_NewRef.exit:                                  ; preds = %cond.end, %if.end.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @datetime_fold(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %fold = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %self, i64 0, i32 4
+  %fold = getelementptr inbounds i8, ptr %self, i64 35
   %0 = load i8, ptr %fold, align 1
   %conv = zext i8 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #15
@@ -14151,7 +14107,7 @@ PyObject_TypeCheck.exit.i:                        ; preds = %lor.lhs.false.i
 if.then:                                          ; preds = %PyObject_TypeCheck.exit.i
   %1 = load ptr, ptr @PyExc_TypeError, align 8
   %p.val.i = load ptr, ptr %0, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %p.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %p.val.i, i64 24
   %2 = load ptr, ptr %tp_name.i, align 8
   %call2.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.184, ptr noundef %2) #15
   %3 = load ptr, ptr @PyExc_TypeError, align 8
@@ -14159,7 +14115,7 @@ if.then:                                          ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false.i, %PyObject_TypeCheck.exit.i, %entry
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %4 = load ptr, ptr %tp_alloc, align 8
   %conv5 = zext i1 %cmp to i64
   %call6 = tail call ptr %4(ptr noundef %type, i64 noundef %conv5) #15
@@ -14167,12 +14123,12 @@ if.end:                                           ; preds = %lor.lhs.false.i, %P
   br i1 %cmp7.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %state, i64 0, i32 2
-  %data = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %call6, i64 0, i32 3
+  %ob_sval.i = getelementptr inbounds i8, ptr %state, i64 32
+  %data = getelementptr inbounds i8, ptr %call6, i64 25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %data, ptr noundef nonnull align 1 dereferenceable(10) %ob_sval.i, i64 10, i1 false)
-  %hashcode = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %call6, i64 0, i32 1
+  %hashcode = getelementptr inbounds i8, ptr %call6, i64 16
   store i64 -1, ptr %hashcode, align 8
-  %hastzinfo = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %call6, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %call6, i64 24
   store i8 %conv1, ptr %hastzinfo, align 8
   br i1 %cmp, label %if.then12, label %if.end15
 
@@ -14187,27 +14143,27 @@ if.end.i.i:                                       ; preds = %if.then12
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.then12, %if.end.i.i
-  %tzinfo14 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %call6, i64 0, i32 5
+  %tzinfo14 = getelementptr inbounds i8, ptr %call6, i64 40
   store ptr %tzinfo, ptr %tzinfo14, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %_Py_NewRef.exit, %if.then9
-  %arrayidx = getelementptr %struct.PyBytesObject, ptr %state, i64 0, i32 2, i64 2
+  %arrayidx = getelementptr i8, ptr %state, i64 34
   %6 = load i8, ptr %arrayidx, align 1
   %tobool17.not = icmp sgt i8 %6, -1
   br i1 %tobool17.not, label %if.else, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
-  %arrayidx20 = getelementptr %struct.PyDateTime_DateTime, ptr %call6, i64 0, i32 3, i64 2
+  %arrayidx20 = getelementptr i8, ptr %call6, i64 27
   %7 = load i8, ptr %arrayidx20, align 1
   %sub = xor i8 %7, -128
   store i8 %sub, ptr %arrayidx20, align 1
-  %fold = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %call6, i64 0, i32 4
+  %fold = getelementptr inbounds i8, ptr %call6, i64 35
   store i8 1, ptr %fold, align 1
   br label %return
 
 if.else:                                          ; preds = %if.end15
-  %fold23 = getelementptr inbounds %struct.PyDateTime_DateTime, ptr %call6, i64 0, i32 4
+  %fold23 = getelementptr inbounds i8, ptr %call6, i64 35
   store i8 0, ptr %fold23, align 1
   br label %return
 
@@ -14219,13 +14175,13 @@ return:                                           ; preds = %if.end, %if.else, %
 ; Function Attrs: nounwind uwtable
 define internal void @time_dealloc(ptr noundef %self) #0 {
 entry:
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 32
   %1 = load ptr, ptr %tzinfo, align 8
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %if.end, label %if.then.i
@@ -14249,7 +14205,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end:                                           ; preds = %if.then1.i.i, %if.end.i.i, %if.then.i, %if.then, %entry
   %4 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %4, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %5 = load ptr, ptr %tp_free, align 8
   tail call void %5(ptr noundef nonnull %self) #15
   ret void
@@ -14260,31 +14216,31 @@ define internal ptr @time_repr(ptr nocapture noundef readonly %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %1 = load ptr, ptr %tp_name, align 8
-  %data = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %2 = load i8, ptr %data, align 1
   %conv = zext i8 %2 to i32
-  %arrayidx2 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 26
   %3 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %3 to i32
-  %arrayidx5 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %self, i64 27
   %4 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %4 to i32
-  %arrayidx8 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %self, i64 28
   %5 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %5 to i32
   %shl = shl nuw nsw i32 %conv9, 16
-  %arrayidx11 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx11 = getelementptr i8, ptr %self, i64 29
   %6 = load i8, ptr %arrayidx11, align 1
   %conv12 = zext i8 %6 to i32
   %shl13 = shl nuw nsw i32 %conv12, 8
   %or = or disjoint i32 %shl13, %shl
-  %arrayidx15 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx15 = getelementptr i8, ptr %self, i64 30
   %7 = load i8, ptr %arrayidx15, align 1
   %conv16 = zext i8 %7 to i32
   %or17 = or disjoint i32 %or, %conv16
-  %fold18 = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 4
+  %fold18 = getelementptr inbounds i8, ptr %self, i64 31
   %8 = load i8, ptr %fold18, align 1
   %conv19 = zext i8 %8 to i32
   %tobool.not = icmp eq i32 %or17, 0
@@ -14312,13 +14268,13 @@ if.end26:                                         ; preds = %if.then22, %if.else
   br i1 %cmp.not, label %if.end39, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end26
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %9 = load i8, ptr %hastzinfo, align 8
   %tobool29.not = icmp eq i8 %9, 0
   br i1 %tobool29.not, label %if.end32, label %if.then30
 
 if.then30:                                        ; preds = %land.lhs.true
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 32
   %10 = load ptr, ptr %tzinfo, align 8
   %cmp.i = icmp eq ptr %10, @_Py_NoneStruct
   br i1 %cmp.i, label %if.end32, label %if.end.i
@@ -14420,47 +14376,47 @@ if.end39:                                         ; preds = %Py_DECREF.exit14.i,
 ; Function Attrs: nounwind uwtable
 define internal i64 @time_hash(ptr noundef %self) #0 {
 entry:
-  %hashcode = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 1
+  %hashcode = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load i64, ptr %hashcode, align 8
   %cmp = icmp eq i64 %0, -1
   br i1 %cmp, label %if.then, label %if.end76
 
 if.then:                                          ; preds = %entry
-  %fold = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 4
+  %fold = getelementptr inbounds i8, ptr %self, i64 31
   %1 = load i8, ptr %fold, align 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.else, label %if.then1
 
 if.then1:                                         ; preds = %if.then
-  %data = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %2 = load i8, ptr %data, align 1
   %conv = zext i8 %2 to i32
-  %arrayidx3 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx3 = getelementptr i8, ptr %self, i64 26
   %3 = load i8, ptr %arrayidx3, align 1
   %conv4 = zext i8 %3 to i32
-  %arrayidx6 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx6 = getelementptr i8, ptr %self, i64 27
   %4 = load i8, ptr %arrayidx6, align 1
   %conv7 = zext i8 %4 to i32
-  %arrayidx9 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx9 = getelementptr i8, ptr %self, i64 28
   %5 = load i8, ptr %arrayidx9, align 1
   %conv10 = zext i8 %5 to i32
   %shl = shl nuw nsw i32 %conv10, 16
-  %arrayidx12 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx12 = getelementptr i8, ptr %self, i64 29
   %6 = load i8, ptr %arrayidx12, align 1
   %conv13 = zext i8 %6 to i32
   %shl14 = shl nuw nsw i32 %conv13, 8
   %or = or disjoint i32 %shl14, %shl
-  %arrayidx16 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx16 = getelementptr i8, ptr %self, i64 30
   %7 = load i8, ptr %arrayidx16, align 1
   %conv17 = zext i8 %7 to i32
   %or18 = or disjoint i32 %or, %conv17
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %8 = load i8, ptr %hastzinfo, align 8
   %tobool20.not = icmp eq i8 %8, 0
   br i1 %tobool20.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.then1
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 32
   %9 = load ptr, ptr %tzinfo, align 8
   br label %cond.end
 
@@ -14484,13 +14440,13 @@ if.end.i.i:                                       ; preds = %if.else
 
 if.end26:                                         ; preds = %if.end.i.i, %if.else, %cond.end
   %self0.0 = phi ptr [ %call21, %cond.end ], [ %self, %if.else ], [ %self, %if.end.i.i ]
-  %hastzinfo.i = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self0.0, i64 0, i32 2
+  %hastzinfo.i = getelementptr inbounds i8, ptr %self0.0, i64 24
   %12 = load i8, ptr %hastzinfo.i, align 8
   %tobool.not.i = icmp eq i8 %12, 0
   br i1 %tobool.not.i, label %time_utcoffset.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end26
-  %tzinfo.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %self0.0, i64 0, i32 5
+  %tzinfo.i = getelementptr inbounds i8, ptr %self0.0, i64 32
   %13 = load ptr, ptr %tzinfo.i, align 8
   br label %time_utcoffset.exit
 
@@ -14518,7 +14474,7 @@ Py_DECREF.exit122:                                ; preds = %time_utcoffset.exit
 
 if.end31:                                         ; preds = %Py_DECREF.exit122
   %cmp32 = icmp eq ptr %call.i.i, @_Py_NoneStruct
-  %data35 = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 3
+  %data35 = getelementptr inbounds i8, ptr %self, i64 25
   br i1 %cmp32, label %if.then34, label %if.else38
 
 if.then34:                                        ; preds = %if.end31
@@ -14530,25 +14486,25 @@ if.else38:                                        ; preds = %if.end31
   %16 = load i8, ptr %data35, align 1
   %conv41 = zext i8 %16 to i32
   %mul = mul nuw nsw i32 %conv41, 3600
-  %arrayidx43 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx43 = getelementptr i8, ptr %self, i64 26
   %17 = load i8, ptr %arrayidx43, align 1
   %conv44 = zext i8 %17 to i32
   %mul45 = mul nuw nsw i32 %conv44, 60
   %add = add nuw nsw i32 %mul45, %mul
-  %arrayidx47 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx47 = getelementptr i8, ptr %self, i64 27
   %18 = load i8, ptr %arrayidx47, align 1
   %conv48 = zext i8 %18 to i32
   %add49 = add nuw nsw i32 %add, %conv48
-  %arrayidx51 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx51 = getelementptr i8, ptr %self, i64 28
   %19 = load i8, ptr %arrayidx51, align 1
   %conv52 = zext i8 %19 to i32
   %shl53 = shl nuw nsw i32 %conv52, 16
-  %arrayidx55 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx55 = getelementptr i8, ptr %self, i64 29
   %20 = load i8, ptr %arrayidx55, align 1
   %conv56 = zext i8 %20 to i32
   %shl57 = shl nuw nsw i32 %conv56, 8
   %or58 = or disjoint i32 %shl57, %shl53
-  %arrayidx60 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx60 = getelementptr i8, ptr %self, i64 30
   %21 = load i8, ptr %arrayidx60, align 1
   %conv61 = zext i8 %21 to i32
   %or62 = or disjoint i32 %or58, %conv61
@@ -14609,13 +14565,13 @@ if.then1.i111:                                    ; preds = %if.end.i108
   br label %return
 
 if.end67:                                         ; preds = %if.end2.i
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
-  %days6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 2
+  %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store i32 %days.addr.1.i51, ptr %days6.i, align 8
-  %seconds7.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 3
+  %seconds7.i = getelementptr inbounds i8, ptr %call3.i, i64 28
   store i32 %seconds.addr.2.i52, ptr %seconds7.i, align 4
-  %microseconds8.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 4
+  %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 %microseconds.addr.0.i, ptr %microseconds8.i, align 8
   %call68 = tail call ptr @delta_subtract(ptr noundef nonnull %call3.i, ptr noundef nonnull %call.i.i)
   %25 = load i64, ptr %call3.i, align 8
@@ -14721,25 +14677,25 @@ PyObject_TypeCheck.exit:                          ; preds = %entry
   br i1 %tobool3.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i8, ptr %hastzinfo, align 8
   %tobool1.not = icmp eq i8 %1, 0
   br i1 %tobool1.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load ptr, ptr %tzinfo, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.true
   %cond = phi ptr [ %2, %cond.true ], [ @_Py_NoneStruct, %if.end ]
-  %hastzinfo2 = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %other, i64 0, i32 2
+  %hastzinfo2 = getelementptr inbounds i8, ptr %other, i64 24
   %3 = load i8, ptr %hastzinfo2, align 8
   %tobool4.not = icmp eq i8 %3, 0
   br i1 %tobool4.not, label %cond.end8, label %cond.true5
 
 cond.true5:                                       ; preds = %cond.end
-  %tzinfo6 = getelementptr inbounds %struct.PyDateTime_Time, ptr %other, i64 0, i32 5
+  %tzinfo6 = getelementptr inbounds i8, ptr %other, i64 32
   %4 = load ptr, ptr %tzinfo6, align 8
   br label %cond.end8
 
@@ -14749,8 +14705,8 @@ cond.end8:                                        ; preds = %cond.end, %cond.tru
   br i1 %cmp, label %if.then11, label %if.end16
 
 if.then11:                                        ; preds = %cond.end8
-  %data = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 3
-  %data12 = getelementptr inbounds %struct.PyDateTime_Time, ptr %other, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
+  %data12 = getelementptr inbounds i8, ptr %other, i64 25
   %call14 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %data, ptr noundef nonnull dereferenceable(6) %data12, i64 noundef 6) #16
   switch i32 %op, label %sw.default.i [
     i32 2, label %sw.bb.i
@@ -14798,7 +14754,7 @@ if.end16:                                         ; preds = %cond.end8
   br i1 %tobool1.not, label %time_utcoffset.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end16
-  %tzinfo.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 5
+  %tzinfo.i = getelementptr inbounds i8, ptr %self, i64 32
   %5 = load ptr, ptr %tzinfo.i, align 8
   br label %time_utcoffset.exit
 
@@ -14814,7 +14770,7 @@ if.end21:                                         ; preds = %time_utcoffset.exit
   br i1 %tobool.not.i47, label %time_utcoffset.exit52, label %cond.true.i48
 
 cond.true.i48:                                    ; preds = %if.end21
-  %tzinfo.i49 = getelementptr inbounds %struct.PyDateTime_Time, ptr %other, i64 0, i32 5
+  %tzinfo.i49 = getelementptr inbounds i8, ptr %other, i64 32
   %7 = load ptr, ptr %tzinfo.i49, align 8
   br label %time_utcoffset.exit52
 
@@ -14851,32 +14807,32 @@ PyObject_TypeCheck.exit64:                        ; preds = %land.lhs.true
   br i1 %tobool3.i62.not, label %if.else, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %land.lhs.true, %PyObject_TypeCheck.exit64
-  %days.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i, i64 0, i32 2
+  %days.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %10 = load i32, ptr %days.i, align 8
-  %days1.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i51, i64 0, i32 2
+  %days1.i = getelementptr inbounds i8, ptr %call.i.i51, i64 24
   %11 = load i32, ptr %days1.i, align 8
   %cmp.i65 = icmp eq i32 %10, %11
   br i1 %cmp.i65, label %if.then.i, label %if.else
 
 if.then.i:                                        ; preds = %land.lhs.true33
-  %seconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i, i64 0, i32 3
+  %seconds.i = getelementptr inbounds i8, ptr %call.i.i, i64 28
   %12 = load i32, ptr %seconds.i, align 4
-  %seconds2.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i51, i64 0, i32 3
+  %seconds2.i = getelementptr inbounds i8, ptr %call.i.i51, i64 28
   %13 = load i32, ptr %seconds2.i, align 4
   %cmp4.i = icmp eq i32 %12, %13
   br i1 %cmp4.i, label %delta_cmp.exit, label %if.else
 
 delta_cmp.exit:                                   ; preds = %if.then.i
-  %microseconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i, i64 0, i32 4
+  %microseconds.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   %14 = load i32, ptr %microseconds.i, align 8
-  %microseconds6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i51, i64 0, i32 4
+  %microseconds6.i = getelementptr inbounds i8, ptr %call.i.i51, i64 32
   %15 = load i32, ptr %microseconds6.i, align 8
   %cmp35 = icmp eq i32 %14, %15
   br i1 %cmp35, label %if.then37, label %if.else
 
 if.then37:                                        ; preds = %delta_cmp.exit, %if.end26
-  %data38 = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 3
-  %data40 = getelementptr inbounds %struct.PyDateTime_Time, ptr %other, i64 0, i32 3
+  %data38 = getelementptr inbounds i8, ptr %self, i64 25
+  %data40 = getelementptr inbounds i8, ptr %other, i64 25
   %call42 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(6) %data38, ptr noundef nonnull dereferenceable(6) %data40, i64 noundef 6) #16
   switch i32 %op, label %sw.default.i85 [
     i32 2, label %sw.bb.i82
@@ -14927,31 +14883,31 @@ if.else:                                          ; preds = %land.lhs.true33, %i
   br i1 %or.cond, label %if.then49, label %if.else111
 
 if.then49:                                        ; preds = %if.else
-  %data50 = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 3
+  %data50 = getelementptr inbounds i8, ptr %self, i64 25
   %16 = load i8, ptr %data50, align 1
   %conv51 = zext i8 %16 to i32
-  %arrayidx53 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx53 = getelementptr i8, ptr %self, i64 26
   %17 = load i8, ptr %arrayidx53, align 1
   %conv54 = zext i8 %17 to i32
-  %arrayidx57 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx57 = getelementptr i8, ptr %self, i64 27
   %18 = load i8, ptr %arrayidx57, align 1
   %conv58 = zext i8 %18 to i32
-  %days = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i, i64 0, i32 2
+  %days = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %19 = load i32, ptr %days, align 8
-  %seconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i, i64 0, i32 3
+  %seconds = getelementptr inbounds i8, ptr %call.i.i, i64 28
   %20 = load i32, ptr %seconds, align 4
-  %data62 = getelementptr inbounds %struct.PyDateTime_Time, ptr %other, i64 0, i32 3
+  %data62 = getelementptr inbounds i8, ptr %other, i64 25
   %21 = load i8, ptr %data62, align 1
   %conv64 = zext i8 %21 to i32
-  %arrayidx67 = getelementptr %struct.PyDateTime_Time, ptr %other, i64 0, i32 3, i64 1
+  %arrayidx67 = getelementptr i8, ptr %other, i64 26
   %22 = load i8, ptr %arrayidx67, align 1
   %conv68 = zext i8 %22 to i32
-  %arrayidx72 = getelementptr %struct.PyDateTime_Time, ptr %other, i64 0, i32 3, i64 2
+  %arrayidx72 = getelementptr i8, ptr %other, i64 27
   %23 = load i8, ptr %arrayidx72, align 1
   %conv73 = zext i8 %23 to i32
-  %days75 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i51, i64 0, i32 2
+  %days75 = getelementptr inbounds i8, ptr %call.i.i51, i64 24
   %24 = load i32, ptr %days75, align 8
-  %seconds78 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call.i.i51, i64 0, i32 3
+  %seconds78 = getelementptr inbounds i8, ptr %call.i.i51, i64 28
   %25 = load i32, ptr %seconds78, align 4
   %reass.add = sub i32 %24, %19
   %reass.mul = mul i32 %reass.add, 86400
@@ -14969,29 +14925,29 @@ if.then49:                                        ; preds = %if.else
   br i1 %cmp81, label %if.then83, label %if.end109
 
 if.then83:                                        ; preds = %if.then49
-  %arrayidx85 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx85 = getelementptr i8, ptr %self, i64 28
   %27 = load i8, ptr %arrayidx85, align 1
   %conv86 = zext i8 %27 to i32
   %shl = shl nuw nsw i32 %conv86, 16
-  %arrayidx88 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx88 = getelementptr i8, ptr %self, i64 29
   %28 = load i8, ptr %arrayidx88, align 1
   %conv89 = zext i8 %28 to i32
   %shl90 = shl nuw nsw i32 %conv89, 8
   %or = or disjoint i32 %shl90, %shl
-  %arrayidx92 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx92 = getelementptr i8, ptr %self, i64 30
   %29 = load i8, ptr %arrayidx92, align 1
   %conv93 = zext i8 %29 to i32
   %or94 = or disjoint i32 %or, %conv93
-  %arrayidx96 = getelementptr %struct.PyDateTime_Time, ptr %other, i64 0, i32 3, i64 3
+  %arrayidx96 = getelementptr i8, ptr %other, i64 28
   %30 = load i8, ptr %arrayidx96, align 1
   %conv97 = zext i8 %30 to i32
   %shl98 = shl nuw nsw i32 %conv97, 16
-  %arrayidx100 = getelementptr %struct.PyDateTime_Time, ptr %other, i64 0, i32 3, i64 4
+  %arrayidx100 = getelementptr i8, ptr %other, i64 29
   %31 = load i8, ptr %arrayidx100, align 1
   %conv101 = zext i8 %31 to i32
   %shl102 = shl nuw nsw i32 %conv101, 8
   %or103 = or disjoint i32 %shl102, %shl98
-  %arrayidx105 = getelementptr %struct.PyDateTime_Time, ptr %other, i64 0, i32 3, i64 5
+  %arrayidx105 = getelementptr i8, ptr %other, i64 30
   %32 = load i8, ptr %arrayidx105, align 1
   %conv106 = zext i8 %32 to i32
   %or107 = or disjoint i32 %or103, %conv106
@@ -15128,7 +15084,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ob_type.i.i = getelementptr inbounds %struct._object, ptr %call, i64 0, i32 1
+  %ob_type.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %type, ptr %ob_type.i.i, align 8
   %0 = getelementptr i8, ptr %type, i64 168
   %typeobj.val.i = load i64, ptr %0, align 8
@@ -15177,13 +15133,13 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end47
 
 if.then:                                          ; preds = %entry
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %args, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
   %2 = load ptr, ptr %ob_item, align 8
   %cmp4 = icmp eq i64 %args.val23, 2
   br i1 %cmp4, label %if.then5, label %if.end
 
 if.then5:                                         ; preds = %if.then
-  %arrayidx7 = getelementptr %struct.PyTupleObject, ptr %args, i64 1
+  %arrayidx7 = getelementptr i8, ptr %args, i64 32
   %3 = load ptr, ptr %arrayidx7, align 8
   br label %if.end
 
@@ -15204,7 +15160,7 @@ if.then10:                                        ; preds = %if.end
   br i1 %cmp12, label %land.lhs.true13, label %if.end46
 
 land.lhs.true13:                                  ; preds = %if.then10
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %2, i64 0, i32 2
+  %ob_sval.i = getelementptr inbounds i8, ptr %2, i64 32
   %9 = load i8, ptr %ob_sval.i, align 1
   %10 = and i8 %9, 120
   %cmp16 = icmp ult i8 %10, 24
@@ -15226,26 +15182,25 @@ if.then24:                                        ; preds = %if.else
   br i1 %cmp26, label %land.lhs.true28, label %if.end46
 
 land.lhs.true28:                                  ; preds = %if.then24
-  %state.i = getelementptr inbounds %struct.PyASCIIObject, ptr %2, i64 0, i32 3
+  %state.i = getelementptr inbounds i8, ptr %2, i64 32
   %bf.load.i = load i32, ptr %state.i, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 2
   %bf.clear.i = and i32 %bf.lshr.i, 7
   %13 = and i32 %bf.load.i, 32
-  %tobool.not.i19.i = icmp eq i32 %13, 0
+  %tobool.not.i18.i = icmp eq i32 %13, 0
   switch i32 %bf.clear.i, label %if.end7.i [
     i32 1, label %if.then.i
     i32 2, label %if.then3.i
   ]
 
 if.then.i:                                        ; preds = %land.lhs.true28
-  br i1 %tobool.not.i19.i, label %if.end.i.i, label %if.then.i.i
+  br i1 %tobool.not.i18.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
   %14 = and i32 %bf.load.i, 64
   %tobool.not.i.i.i = icmp eq i32 %14, 0
-  %add.ptr.i.i.i = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr1.i.i.i = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i.i = select i1 %tobool.not.i.i.i, ptr %add.ptr1.i.i.i, ptr %add.ptr.i.i.i
+  %retval.0.v.i.i.i = select i1 %tobool.not.i.i.i, i64 56, i64 40
+  %retval.0.i.i.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i.i
   br label %PyUnicode_DATA.exit.i
 
 if.end.i.i:                                       ; preds = %if.then.i
@@ -15260,50 +15215,48 @@ PyUnicode_DATA.exit.i:                            ; preds = %if.end.i.i, %if.the
   br label %PyUnicode_READ_CHAR.exit
 
 if.then3.i:                                       ; preds = %land.lhs.true28
-  br i1 %tobool.not.i19.i, label %if.end.i15.i, label %if.then.i9.i
+  br i1 %tobool.not.i18.i, label %if.end.i14.i, label %if.then.i9.i
 
 if.then.i9.i:                                     ; preds = %if.then3.i
   %17 = and i32 %bf.load.i, 64
   %tobool.not.i.i10.i = icmp eq i32 %17, 0
-  %add.ptr.i.i11.i = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr1.i.i12.i = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i13.i = select i1 %tobool.not.i.i10.i, ptr %add.ptr1.i.i12.i, ptr %add.ptr.i.i11.i
-  br label %PyUnicode_DATA.exit17.i
+  %retval.0.v.i.i11.i = select i1 %tobool.not.i.i10.i, i64 56, i64 40
+  %retval.0.i.i12.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i11.i
+  br label %PyUnicode_DATA.exit16.i
 
-if.end.i15.i:                                     ; preds = %if.then3.i
+if.end.i14.i:                                     ; preds = %if.then3.i
   %18 = getelementptr i8, ptr %2, i64 56
-  %op.val3.i16.i = load ptr, ptr %18, align 8
-  br label %PyUnicode_DATA.exit17.i
+  %op.val3.i15.i = load ptr, ptr %18, align 8
+  br label %PyUnicode_DATA.exit16.i
 
-PyUnicode_DATA.exit17.i:                          ; preds = %if.end.i15.i, %if.then.i9.i
-  %retval.0.i14.i = phi ptr [ %retval.0.i.i13.i, %if.then.i9.i ], [ %op.val3.i16.i, %if.end.i15.i ]
-  %19 = load i16, ptr %retval.0.i14.i, align 2
+PyUnicode_DATA.exit16.i:                          ; preds = %if.end.i14.i, %if.then.i9.i
+  %retval.0.i13.i = phi ptr [ %retval.0.i.i12.i, %if.then.i9.i ], [ %op.val3.i15.i, %if.end.i14.i ]
+  %19 = load i16, ptr %retval.0.i13.i, align 2
   %conv6.i = zext i16 %19 to i32
   br label %PyUnicode_READ_CHAR.exit
 
 if.end7.i:                                        ; preds = %land.lhs.true28
-  br i1 %tobool.not.i19.i, label %if.end.i26.i, label %if.then.i20.i
+  br i1 %tobool.not.i18.i, label %if.end.i24.i, label %if.then.i19.i
 
-if.then.i20.i:                                    ; preds = %if.end7.i
+if.then.i19.i:                                    ; preds = %if.end7.i
   %20 = and i32 %bf.load.i, 64
-  %tobool.not.i.i21.i = icmp eq i32 %20, 0
-  %add.ptr.i.i22.i = getelementptr %struct.PyASCIIObject, ptr %2, i64 1
-  %add.ptr1.i.i23.i = getelementptr %struct.PyCompactUnicodeObject, ptr %2, i64 1
-  %retval.0.i.i24.i = select i1 %tobool.not.i.i21.i, ptr %add.ptr1.i.i23.i, ptr %add.ptr.i.i22.i
-  br label %PyUnicode_DATA.exit28.i
+  %tobool.not.i.i20.i = icmp eq i32 %20, 0
+  %retval.0.v.i.i21.i = select i1 %tobool.not.i.i20.i, i64 56, i64 40
+  %retval.0.i.i22.i = getelementptr i8, ptr %2, i64 %retval.0.v.i.i21.i
+  br label %PyUnicode_DATA.exit26.i
 
-if.end.i26.i:                                     ; preds = %if.end7.i
+if.end.i24.i:                                     ; preds = %if.end7.i
   %21 = getelementptr i8, ptr %2, i64 56
-  %op.val3.i27.i = load ptr, ptr %21, align 8
-  br label %PyUnicode_DATA.exit28.i
+  %op.val3.i25.i = load ptr, ptr %21, align 8
+  br label %PyUnicode_DATA.exit26.i
 
-PyUnicode_DATA.exit28.i:                          ; preds = %if.end.i26.i, %if.then.i20.i
-  %retval.0.i25.i = phi ptr [ %retval.0.i.i24.i, %if.then.i20.i ], [ %op.val3.i27.i, %if.end.i26.i ]
-  %22 = load i32, ptr %retval.0.i25.i, align 4
+PyUnicode_DATA.exit26.i:                          ; preds = %if.end.i24.i, %if.then.i19.i
+  %retval.0.i23.i = phi ptr [ %retval.0.i.i22.i, %if.then.i19.i ], [ %op.val3.i25.i, %if.end.i24.i ]
+  %22 = load i32, ptr %retval.0.i23.i, align 4
   br label %PyUnicode_READ_CHAR.exit
 
-PyUnicode_READ_CHAR.exit:                         ; preds = %PyUnicode_DATA.exit.i, %PyUnicode_DATA.exit17.i, %PyUnicode_DATA.exit28.i
-  %retval.0.i = phi i32 [ %conv.i30, %PyUnicode_DATA.exit.i ], [ %conv6.i, %PyUnicode_DATA.exit17.i ], [ %22, %PyUnicode_DATA.exit28.i ]
+PyUnicode_READ_CHAR.exit:                         ; preds = %PyUnicode_DATA.exit.i, %PyUnicode_DATA.exit16.i, %PyUnicode_DATA.exit26.i
+  %retval.0.i = phi i32 [ %conv.i30, %PyUnicode_DATA.exit.i ], [ %conv6.i, %PyUnicode_DATA.exit16.i ], [ %22, %PyUnicode_DATA.exit26.i ]
   %and30 = and i32 %retval.0.i, 120
   %cmp31 = icmp ult i32 %and30, 24
   br i1 %cmp31, label %if.then33, label %if.end46
@@ -15368,13 +15321,13 @@ return:                                           ; preds = %if.end47, %if.then5
 ; Function Attrs: nounwind uwtable
 define internal ptr @time_utcoffset(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 32
   %1 = load ptr, ptr %tzinfo, align 8
   br label %cond.end
 
@@ -15391,17 +15344,17 @@ entry:
   %timespec = alloca ptr, align 8
   %result = alloca ptr, align 8
   store ptr null, ptr %timespec, align 8
-  %data = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 3
-  %arrayidx = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
+  %arrayidx = getelementptr i8, ptr %self, i64 28
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 16
-  %arrayidx2 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx2 = getelementptr i8, ptr %self, i64 29
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   %shl4 = shl nuw nsw i32 %conv3, 8
   %or = or disjoint i32 %shl4, %shl
-  %arrayidx6 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx6 = getelementptr i8, ptr %self, i64 30
   %2 = load i8, ptr %arrayidx6, align 1
   %conv7 = zext i8 %2 to i32
   %or8 = or disjoint i32 %or, %conv7
@@ -15457,10 +15410,10 @@ if.else37:                                        ; preds = %if.then13, %if.then
   %6 = load ptr, ptr %arrayidx39, align 8
   %7 = load i8, ptr %data, align 1
   %conv42 = zext i8 %7 to i32
-  %arrayidx44 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx44 = getelementptr i8, ptr %self, i64 26
   %8 = load i8, ptr %arrayidx44, align 1
   %conv45 = zext i8 %8 to i32
-  %arrayidx47 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx47 = getelementptr i8, ptr %self, i64 27
   %9 = load i8, ptr %arrayidx47, align 1
   %conv48 = zext i8 %9 to i32
   %call49 = call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef %6, i32 noundef %conv42, i32 noundef %conv45, i32 noundef %conv48, i32 noundef %us.022) #15
@@ -15469,13 +15422,13 @@ if.else37:                                        ; preds = %if.then13, %if.then
   br i1 %cmp51, label %return, label %lor.lhs.false53
 
 lor.lhs.false53:                                  ; preds = %if.else37
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %10 = load i8, ptr %hastzinfo, align 8
   %tobool54.not = icmp eq i8 %10, 0
   br i1 %tobool54.not, label %return, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %lor.lhs.false53
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 32
   %11 = load ptr, ptr %tzinfo, align 8
   %cmp56 = icmp eq ptr %11, @_Py_NoneStruct
   br i1 %cmp56, label %return, label %if.end59
@@ -15521,13 +15474,13 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
-  %arrayidx2 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
-  %arrayidx5 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %self, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %2 to i32
   %call7 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.237, i32 noundef 1900, i32 noundef 1, i32 noundef 1, i32 noundef %conv, i32 noundef %conv3, i32 noundef %conv6, i32 noundef 0, i32 noundef 1, i32 noundef -1) #15
@@ -15561,13 +15514,13 @@ return:                                           ; preds = %if.end.i, %if.then1
 define internal ptr @time_tzname(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
   %args.i.i = alloca [2 x ptr], align 16
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %call_tzname.exit, label %cond.end
 
 cond.end:                                         ; preds = %entry
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 32
   %1 = load ptr, ptr %tzinfo, align 8
   %cmp.i = icmp eq ptr %1, @_Py_NoneStruct
   br i1 %cmp.i, label %call_tzname.exit, label %if.end.i
@@ -15575,7 +15528,7 @@ cond.end:                                         ; preds = %entry
 if.end.i:                                         ; preds = %cond.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   store ptr %1, ptr %args.i.i, align 16
-  %arrayinit.element.i.i = getelementptr inbounds ptr, ptr %args.i.i, i64 1
+  %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr @_Py_NoneStruct, ptr %arrayinit.element.i.i, align 8
   %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 668), ptr noundef nonnull %args.i.i, i64 noundef -9223372036854775806, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %args.i.i)
@@ -15595,7 +15548,7 @@ if.end4.i:                                        ; preds = %if.end.i
 
 if.then7.i:                                       ; preds = %if.end4.i
   %5 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %call.val11.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %call.val11.i, i64 24
   %6 = load ptr, ptr %tp_name.i, align 8
   %call9.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.133, ptr noundef %6) #15
   %7 = load i64, ptr %call.i.i, align 8
@@ -15621,13 +15574,13 @@ call_tzname.exit:                                 ; preds = %entry, %cond.end, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @time_dst(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 32
   %1 = load ptr, ptr %tzinfo, align 8
   br label %cond.end
 
@@ -15646,46 +15599,46 @@ entry:
   %us = alloca i32, align 4
   %tzinfo = alloca ptr, align 8
   %fold = alloca i32, align 4
-  %data = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i32
   store i32 %conv, ptr %hh, align 4
-  %arrayidx2 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx2 = getelementptr i8, ptr %self, i64 26
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i32
   store i32 %conv3, ptr %mm, align 4
-  %arrayidx5 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx5 = getelementptr i8, ptr %self, i64 27
   %2 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %2 to i32
   store i32 %conv6, ptr %ss, align 4
-  %arrayidx8 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx8 = getelementptr i8, ptr %self, i64 28
   %3 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %3 to i32
   %shl = shl nuw nsw i32 %conv9, 16
-  %arrayidx11 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx11 = getelementptr i8, ptr %self, i64 29
   %4 = load i8, ptr %arrayidx11, align 1
   %conv12 = zext i8 %4 to i32
   %shl13 = shl nuw nsw i32 %conv12, 8
   %or = or disjoint i32 %shl13, %shl
-  %arrayidx15 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx15 = getelementptr i8, ptr %self, i64 30
   %5 = load i8, ptr %arrayidx15, align 1
   %conv16 = zext i8 %5 to i32
   %or17 = or disjoint i32 %or, %conv16
   store i32 %or17, ptr %us, align 4
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %6 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %6, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %tzinfo19 = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 5
+  %tzinfo19 = getelementptr inbounds i8, ptr %self, i64 32
   %7 = load ptr, ptr %tzinfo19, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %cond.true
   %cond = phi ptr [ %7, %cond.true ], [ @_Py_NoneStruct, %entry ]
   store ptr %cond, ptr %tzinfo, align 8
-  %fold20 = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 4
+  %fold20 = getelementptr inbounds i8, ptr %self, i64 31
   %8 = load i8, ptr %fold20, align 1
   %conv21 = zext i8 %8 to i32
   store i32 %conv21, ptr %fold, align 4
@@ -15723,7 +15676,7 @@ if.end32:                                         ; preds = %if.end27
 if.then37:                                        ; preds = %if.end32
   %17 = load i32, ptr %fold, align 4
   %conv38 = trunc i32 %17 to i8
-  %fold39 = getelementptr inbounds %struct.PyDateTime_Time, ptr %call34, i64 0, i32 4
+  %fold39 = getelementptr inbounds i8, ptr %call34, i64 31
   store i8 %conv38, ptr %fold39, align 1
   br label %if.end40
 
@@ -15863,7 +15816,7 @@ if.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
   %1 = load i32, ptr %proto, align 4
-  %data.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %self, i64 25
   %call.i = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %data.i, i64 noundef 6) #15
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %time_getstate.exit, label %if.then.i
@@ -15873,26 +15826,26 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp1.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.then.i
-  %fold.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 4
+  %fold.i = getelementptr inbounds i8, ptr %self, i64 31
   %2 = load i8, ptr %fold.i, align 1
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %land.lhs.true.i
-  %ob_sval.i.i = getelementptr inbounds %struct.PyBytesObject, ptr %call.i, i64 0, i32 2
+  %ob_sval.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %3 = load i8, ptr %ob_sval.i.i, align 1
   %or.i = or i8 %3, -128
   store i8 %or.i, ptr %ob_sval.i.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then2.i, %land.lhs.true.i, %if.then.i
-  %hastzinfo.i = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo.i = getelementptr inbounds i8, ptr %self, i64 24
   %4 = load i8, ptr %hastzinfo.i, align 8
   %tobool6.not.i = icmp eq i8 %4, 0
   br i1 %tobool6.not.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %tzinfo.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 5
+  %tzinfo.i = getelementptr inbounds i8, ptr %self, i64 32
   %5 = load ptr, ptr %tzinfo.i, align 8
   %cmp7.i = icmp eq ptr %5, @_Py_NoneStruct
   br i1 %cmp7.i, label %if.then9.i, label %if.else.i
@@ -15937,19 +15890,19 @@ define internal ptr @time_reduce(ptr noundef %self, ptr nocapture readnone %arg)
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %data.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 3
+  %data.i = getelementptr inbounds i8, ptr %self, i64 25
   %call.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %data.i, i64 noundef 6) #15
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %time_getstate.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %hastzinfo.i = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo.i = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i8, ptr %hastzinfo.i, align 8
   %tobool6.not.i = icmp eq i8 %1, 0
   br i1 %tobool6.not.i, label %if.then9.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %tzinfo.i = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 5
+  %tzinfo.i = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load ptr, ptr %tzinfo.i, align 8
   %cmp7.i = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %cmp7.i, label %if.then9.i, label %if.else.i
@@ -15988,7 +15941,7 @@ time_getstate.exit:                               ; preds = %entry, %if.end13.i,
 ; Function Attrs: nounwind uwtable
 define internal ptr @time_hour(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %data = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 3
+  %data = getelementptr inbounds i8, ptr %self, i64 25
   %0 = load i8, ptr %data, align 1
   %conv = zext i8 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #15
@@ -15998,7 +15951,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @time_minute(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %arrayidx = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 1
+  %arrayidx = getelementptr i8, ptr %self, i64 26
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #15
@@ -16008,7 +15961,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @py_time_second(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %arrayidx = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 2
+  %arrayidx = getelementptr i8, ptr %self, i64 27
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #15
@@ -16018,16 +15971,16 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @time_microsecond(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %arrayidx = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 3
+  %arrayidx = getelementptr i8, ptr %self, i64 28
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i64
   %shl = shl nuw nsw i64 %conv, 16
-  %arrayidx2 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 4
+  %arrayidx2 = getelementptr i8, ptr %self, i64 29
   %1 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %1 to i64
   %shl4 = shl nuw nsw i64 %conv3, 8
   %or = or disjoint i64 %shl4, %shl
-  %arrayidx6 = getelementptr %struct.PyDateTime_Time, ptr %self, i64 0, i32 3, i64 5
+  %arrayidx6 = getelementptr i8, ptr %self, i64 30
   %2 = load i8, ptr %arrayidx6, align 1
   %conv7 = zext i8 %2 to i64
   %or8 = or disjoint i64 %or, %conv7
@@ -16038,13 +15991,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal ptr @time_tzinfo(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #9 {
 entry:
-  %hastzinfo = getelementptr inbounds %struct._PyDateTime_BaseTZInfo, ptr %self, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i8, ptr %hastzinfo, align 8
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %tzinfo = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 5
+  %tzinfo = getelementptr inbounds i8, ptr %self, i64 32
   %1 = load ptr, ptr %tzinfo, align 8
   br label %cond.end
 
@@ -16066,7 +16019,7 @@ _Py_NewRef.exit:                                  ; preds = %cond.end, %if.end.i
 ; Function Attrs: nounwind uwtable
 define internal ptr @time_fold(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
 entry:
-  %fold = getelementptr inbounds %struct.PyDateTime_Time, ptr %self, i64 0, i32 4
+  %fold = getelementptr inbounds i8, ptr %self, i64 31
   %0 = load i8, ptr %fold, align 1
   %conv = zext i8 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #15
@@ -16094,7 +16047,7 @@ PyObject_TypeCheck.exit.i:                        ; preds = %lor.lhs.false.i
 if.then:                                          ; preds = %PyObject_TypeCheck.exit.i
   %1 = load ptr, ptr @PyExc_TypeError, align 8
   %p.val.i = load ptr, ptr %0, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %p.val.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %p.val.i, i64 24
   %2 = load ptr, ptr %tp_name.i, align 8
   %call2.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.184, ptr noundef %2) #15
   %3 = load ptr, ptr @PyExc_TypeError, align 8
@@ -16102,7 +16055,7 @@ if.then:                                          ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false.i, %PyObject_TypeCheck.exit.i, %entry
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %4 = load ptr, ptr %tp_alloc, align 8
   %conv5 = zext i1 %cmp to i64
   %call6 = tail call ptr %4(ptr noundef %type, i64 noundef %conv5) #15
@@ -16110,12 +16063,12 @@ if.end:                                           ; preds = %lor.lhs.false.i, %P
   br i1 %cmp7.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %ob_sval.i = getelementptr inbounds %struct.PyBytesObject, ptr %state, i64 0, i32 2
-  %data = getelementptr inbounds %struct.PyDateTime_Time, ptr %call6, i64 0, i32 3
+  %ob_sval.i = getelementptr inbounds i8, ptr %state, i64 32
+  %data = getelementptr inbounds i8, ptr %call6, i64 25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %data, ptr noundef nonnull align 1 dereferenceable(6) %ob_sval.i, i64 6, i1 false)
-  %hashcode = getelementptr inbounds %struct.PyDateTime_Time, ptr %call6, i64 0, i32 1
+  %hashcode = getelementptr inbounds i8, ptr %call6, i64 16
   store i64 -1, ptr %hashcode, align 8
-  %hastzinfo = getelementptr inbounds %struct.PyDateTime_Time, ptr %call6, i64 0, i32 2
+  %hastzinfo = getelementptr inbounds i8, ptr %call6, i64 24
   store i8 %conv1, ptr %hastzinfo, align 8
   br i1 %cmp, label %if.then12, label %if.end15
 
@@ -16130,7 +16083,7 @@ if.end.i.i:                                       ; preds = %if.then12
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.then12, %if.end.i.i
-  %tzinfo14 = getelementptr inbounds %struct.PyDateTime_Time, ptr %call6, i64 0, i32 5
+  %tzinfo14 = getelementptr inbounds i8, ptr %call6, i64 32
   store ptr %tzinfo, ptr %tzinfo14, align 8
   br label %if.end15
 
@@ -16143,12 +16096,12 @@ if.then18:                                        ; preds = %if.end15
   %7 = load i8, ptr %data, align 1
   %sub = xor i8 %7, -128
   store i8 %sub, ptr %data, align 1
-  %fold = getelementptr inbounds %struct.PyDateTime_Time, ptr %call6, i64 0, i32 4
+  %fold = getelementptr inbounds i8, ptr %call6, i64 31
   store i8 1, ptr %fold, align 1
   br label %return
 
 if.else:                                          ; preds = %if.end15
-  %fold23 = getelementptr inbounds %struct.PyDateTime_Time, ptr %call6, i64 0, i32 4
+  %fold23 = getelementptr inbounds i8, ptr %call6, i64 31
   store i8 0, ptr %fold23, align 1
   br label %return
 
@@ -16165,7 +16118,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %days = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 2
+  %days = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i32, ptr %days, align 8
   %cmp1.not = icmp eq i32 %0, 0
   br i1 %cmp1.not, label %if.end8, label %do.body
@@ -16194,7 +16147,7 @@ do.end:                                           ; preds = %if.end.i77, %if.the
 if.end8:                                          ; preds = %do.end, %if.end
   %args.0 = phi ptr [ %call, %if.end ], [ %call4, %do.end ]
   %sep.0 = phi ptr [ @.str.124, %if.end ], [ @.str.244, %do.end ]
-  %seconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 3
+  %seconds = getelementptr inbounds i8, ptr %self, i64 28
   %3 = load i32, ptr %seconds, align 4
   %cmp9.not = icmp eq i32 %3, 0
   br i1 %cmp9.not, label %if.end20, label %do.body11
@@ -16223,7 +16176,7 @@ do.end16:                                         ; preds = %if.end.i68, %if.the
 if.end20:                                         ; preds = %do.end16, %if.end8
   %args.1 = phi ptr [ %args.0, %if.end8 ], [ %call15, %do.end16 ]
   %sep.1 = phi ptr [ %sep.0, %if.end8 ], [ @.str.244, %do.end16 ]
-  %microseconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 4
+  %microseconds = getelementptr inbounds i8, ptr %self, i64 32
   %6 = load i32, ptr %microseconds, align 8
   %cmp21.not = icmp eq i32 %6, 0
   br i1 %cmp21.not, label %if.end32, label %do.body23
@@ -16281,7 +16234,7 @@ if.end44:                                         ; preds = %do.end40, %if.end32
   %args.3 = phi ptr [ %call39, %do.end40 ], [ %args.2, %if.end32 ]
   %12 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %12, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %self.val, i64 24
   %13 = load ptr, ptr %tp_name, align 8
   %call46 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.248, ptr noundef %13, ptr noundef nonnull %args.3) #15
   %14 = load i64, ptr %args.3, align 8
@@ -16307,9 +16260,9 @@ return:                                           ; preds = %if.end.i, %if.then1
 ; Function Attrs: nounwind uwtable
 define internal ptr @delta_str(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %microseconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 4
+  %microseconds = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load i32, ptr %microseconds, align 8
-  %seconds1 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 3
+  %seconds1 = getelementptr inbounds i8, ptr %self, i64 28
   %1 = load i32, ptr %seconds1, align 4
   %div.i = sdiv i32 %1, 60
   %mul.i.neg = mul nsw i32 %div.i, -60
@@ -16327,7 +16280,7 @@ entry:
   %storemerge.i21 = add nsw i32 %add.i20, %sub.i18
   %sub.lobit.i22 = ashr i32 %sub.i18, 31
   %quo.0.i23 = add nsw i32 %sub.lobit.i22, %div.i16
-  %days3 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 2
+  %days3 = getelementptr inbounds i8, ptr %self, i64 24
   %2 = load i32, ptr %days3, align 8
   %tobool.not = icmp eq i32 %2, 0
   %tobool15.not = icmp eq i32 %0, 0
@@ -16765,19 +16718,19 @@ PyObject_TypeCheck.exit16:                        ; preds = %land.lhs.true
   br i1 %tobool3.i14.not, label %if.then12, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true, %PyObject_TypeCheck.exit16
-  %days3 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %left, i64 0, i32 2
+  %days3 = getelementptr inbounds i8, ptr %left, i64 24
   %2 = load i32, ptr %days3, align 8
-  %days4 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %right, i64 0, i32 2
+  %days4 = getelementptr inbounds i8, ptr %right, i64 24
   %3 = load i32, ptr %days4, align 8
   %add = add i32 %3, %2
-  %seconds5 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %left, i64 0, i32 3
+  %seconds5 = getelementptr inbounds i8, ptr %left, i64 28
   %4 = load i32, ptr %seconds5, align 4
-  %seconds6 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %right, i64 0, i32 3
+  %seconds6 = getelementptr inbounds i8, ptr %right, i64 28
   %5 = load i32, ptr %seconds6, align 4
   %add7 = add i32 %5, %4
-  %microseconds8 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %left, i64 0, i32 4
+  %microseconds8 = getelementptr inbounds i8, ptr %left, i64 32
   %6 = load i32, ptr %microseconds8, align 8
-  %microseconds9 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %right, i64 0, i32 4
+  %microseconds9 = getelementptr inbounds i8, ptr %right, i64 32
   %7 = load i32, ptr %microseconds9, align 8
   %add10 = add i32 %7, %6
   %or.cond.i.i = icmp ugt i32 %add10, 999999
@@ -16832,13 +16785,13 @@ if.end2.i:                                        ; preds = %if.end.i17
   br i1 %cmp4.not.i, label %if.end13, label %if.end
 
 if.end:                                           ; preds = %if.end2.i
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
-  %days6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 2
+  %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store i32 %days.addr.1.i, ptr %days6.i, align 8
-  %seconds7.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 3
+  %seconds7.i = getelementptr inbounds i8, ptr %call3.i, i64 28
   store i32 %seconds.addr.2.i, ptr %seconds7.i, align 4
-  %microseconds8.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 4
+  %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 %microseconds.addr.0.i, ptr %microseconds8.i, align 8
   %cmp = icmp eq ptr %call3.i, @_Py_NotImplementedStruct
   br i1 %cmp, label %if.then12, label %if.end13
@@ -17211,7 +17164,7 @@ Py_DECREF.exit47:                                 ; preds = %Py_DECREF.exit56, %
   br i1 %cmp11, label %return, label %if.end13
 
 if.end13:                                         ; preds = %Py_DECREF.exit47
-  %arrayidx = getelementptr %struct.PyTupleObject, ptr %call10, i64 1
+  %arrayidx = getelementptr i8, ptr %call10, i64 32
   %8 = load ptr, ptr %arrayidx, align 8
   %call14 = tail call fastcc ptr @microseconds_to_delta_ex(ptr noundef %8, ptr noundef nonnull @PyDateTime_DeltaType)
   %cmp15 = icmp eq ptr %call14, null
@@ -17230,7 +17183,7 @@ if.end.i33:                                       ; preds = %if.then16
   br i1 %cmp.i35, label %return.sink.split, label %return
 
 if.end17:                                         ; preds = %if.end13
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %call10, i64 0, i32 1
+  %ob_item = getelementptr inbounds i8, ptr %call10, i64 24
   %11 = load ptr, ptr %ob_item, align 8
   %call20 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 2, ptr noundef %11, ptr noundef nonnull %call14) #15
   %12 = load i64, ptr %call14, align 8
@@ -17274,9 +17227,9 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define internal ptr @delta_positive(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %days = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 2
+  %days = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load <2 x i32>, ptr %days, align 8
-  %microseconds = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 4
+  %microseconds = getelementptr inbounds i8, ptr %self, i64 32
   %1 = load i32, ptr %microseconds, align 8
   %2 = extractelement <2 x i32> %0, i64 0
   %3 = add i32 %2, 999999999
@@ -17295,11 +17248,11 @@ if.end2.i:                                        ; preds = %entry
   br i1 %cmp4.not.i, label %new_delta_ex.exit, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end2.i
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
-  %days6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 2
+  %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store <2 x i32> %0, ptr %days6.i, align 8
-  %microseconds8.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 4
+  %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 %1, ptr %microseconds8.i, align 8
   br label %new_delta_ex.exit
 
@@ -17311,17 +17264,17 @@ new_delta_ex.exit:                                ; preds = %check_delta_day_ran
 ; Function Attrs: nounwind uwtable
 define internal ptr @delta_abs(ptr nocapture noundef readonly %self) #0 {
 entry:
-  %days = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 2
+  %days = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i32, ptr %days, align 8
   %sub.i = sub i32 0, %0
   %cmp = icmp slt i32 %0, 0
-  %seconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 3
+  %seconds.i = getelementptr inbounds i8, ptr %self, i64 28
   %1 = load i32, ptr %seconds.i, align 4
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
   %sub1.i = sub i32 0, %1
-  %microseconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 4
+  %microseconds.i = getelementptr inbounds i8, ptr %self, i64 32
   %2 = load i32, ptr %microseconds.i, align 8
   %sub2.i = sub i32 0, %2
   %or.cond.i.i.i = icmp ugt i32 %sub2.i, 999999
@@ -17376,18 +17329,18 @@ if.end2.i.i:                                      ; preds = %if.end.i.i
   br i1 %cmp4.not.i.i, label %if.end, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end2.i.i
-  %hashcode.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 1
+  %hashcode.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 16
   store i64 -1, ptr %hashcode.i.i, align 8
-  %days6.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 2
+  %days6.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 24
   store i32 %days.addr.1.i.i, ptr %days6.i.i, align 8
-  %seconds7.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 3
+  %seconds7.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 28
   store i32 %seconds.addr.2.i.i, ptr %seconds7.i.i, align 4
-  %microseconds8.i.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i, i64 0, i32 4
+  %microseconds8.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 32
   store i32 %microseconds.addr.0.i.i, ptr %microseconds8.i.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %microseconds.i5 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 4
+  %microseconds.i5 = getelementptr inbounds i8, ptr %self, i64 32
   %6 = load i32, ptr %microseconds.i5, align 8
   %or.cond.i7.i.i6 = icmp ult i32 %0, 1000000000
   br i1 %or.cond.i7.i.i6, label %if.end2.i.i10, label %check_delta_day_range.exit.thread.i.i7
@@ -17404,13 +17357,13 @@ if.end2.i.i10:                                    ; preds = %if.else
   br i1 %cmp4.not.i.i12, label %if.end, label %if.then5.i.i13
 
 if.then5.i.i13:                                   ; preds = %if.end2.i.i10
-  %hashcode.i.i14 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i11, i64 0, i32 1
+  %hashcode.i.i14 = getelementptr inbounds i8, ptr %call3.i.i11, i64 16
   store i64 -1, ptr %hashcode.i.i14, align 8
-  %days6.i.i15 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i11, i64 0, i32 2
+  %days6.i.i15 = getelementptr inbounds i8, ptr %call3.i.i11, i64 24
   store i32 %0, ptr %days6.i.i15, align 8
-  %seconds7.i.i16 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i11, i64 0, i32 3
+  %seconds7.i.i16 = getelementptr inbounds i8, ptr %call3.i.i11, i64 28
   store i32 %1, ptr %seconds7.i.i16, align 4
-  %microseconds8.i.i17 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i.i11, i64 0, i32 4
+  %microseconds8.i.i17 = getelementptr inbounds i8, ptr %call3.i.i11, i64 32
   store i32 %6, ptr %microseconds8.i.i17, align 8
   br label %if.end
 
@@ -17631,7 +17584,7 @@ if.end.i32:                                       ; preds = %if.then13
   br i1 %cmp.i9.i, label %divide_nearest.exit.i, label %if.end.i10.i
 
 if.end.i10.i:                                     ; preds = %if.end.i32
-  %ob_item.i.i = getelementptr inbounds %struct.PyTupleObject, ptr %call.i.i, i64 0, i32 1
+  %ob_item.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %10 = load ptr, ptr %ob_item.i.i, align 8
   %11 = load i32, ptr %10, align 8
   %add.i.i.i.i = add i32 %11, 1
@@ -17743,7 +17696,7 @@ if.end.i21:                                       ; preds = %if.end
 
 if.then3.i:                                       ; preds = %if.end.i21
   %3 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name.i = getelementptr inbounds %struct._typeobject, ptr %call.val11.i, i64 0, i32 1
+  %tp_name.i = getelementptr inbounds i8, ptr %call.val11.i, i64 24
   %4 = load ptr, ptr %tp_name.i, align 8
   %call5.i = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.252, ptr noundef %4) #15
   %5 = load i64, ptr %call.i.i, align 8
@@ -17781,8 +17734,9 @@ return.sink.split.i:                              ; preds = %if.end.i.i, %if.end
   br label %if.then.i
 
 if.end4:                                          ; preds = %if.end6.i
+  %ob_item = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %idxprom = zext nneg i32 %op to i64
-  %arrayidx = getelementptr %struct.PyTupleObject, ptr %call.i.i, i64 0, i32 1, i64 %idxprom
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %idxprom
   %10 = load ptr, ptr %arrayidx, align 8
   %call5 = call ptr @PyNumber_Multiply(ptr noundef nonnull %call, ptr noundef %10) #15
   %11 = load i64, ptr %call, align 8
@@ -17807,14 +17761,14 @@ do.end:                                           ; preds = %if.end.i29, %if.the
 if.end8:                                          ; preds = %do.end
   %tobool.not = icmp eq i32 %op, 0
   %idxprom10 = zext i1 %tobool.not to i64
-  %arrayidx11 = getelementptr %struct.PyTupleObject, ptr %call.i.i, i64 0, i32 1, i64 %idxprom10
+  %arrayidx11 = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %idxprom10
   %13 = load ptr, ptr %arrayidx11, align 8
   %call.i = call ptr @_PyLong_DivmodNear(ptr noundef nonnull %call5, ptr noundef %13) #15
   %cmp.i23 = icmp eq ptr %call.i, null
   br i1 %cmp.i23, label %divide_nearest.exit, label %if.end.i24
 
 if.end.i24:                                       ; preds = %if.end8
-  %ob_item.i = getelementptr inbounds %struct.PyTupleObject, ptr %call.i, i64 0, i32 1
+  %ob_item.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %14 = load ptr, ptr %ob_item.i, align 8
   %15 = load i32, ptr %14, align 8
   %add.i.i.i = add i32 %15, 1
@@ -17924,8 +17878,8 @@ entry:
   br i1 %cmp, label %Py_XDECREF.exit59, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ob_item = getelementptr inbounds %struct.PyTupleObject, ptr %call, i64 0, i32 1
-  %arrayidx = getelementptr %struct.PyTupleObject, ptr %call, i64 1
+  %ob_item = getelementptr inbounds i8, ptr %call, i64 24
+  %arrayidx = getelementptr i8, ptr %call, i64 32
   %1 = load ptr, ptr %arrayidx, align 8
   %call1 = tail call i32 @PyLong_AsInt(ptr noundef %1) #15
   %cmp2 = icmp eq i32 %call1, -1
@@ -17990,8 +17944,8 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end17, %if.then1.i, %if.end.i
-  %ob_item18 = getelementptr inbounds %struct.PyTupleObject, ptr %call14, i64 0, i32 1
-  %arrayidx19 = getelementptr %struct.PyTupleObject, ptr %call14, i64 1
+  %ob_item18 = getelementptr inbounds i8, ptr %call14, i64 24
+  %arrayidx19 = getelementptr i8, ptr %call14, i64 32
   %9 = load ptr, ptr %arrayidx19, align 8
   %call20 = tail call i32 @PyLong_AsInt(ptr noundef %9) #15
   %cmp21 = icmp eq i32 %call20, -1
@@ -18033,20 +17987,20 @@ check_delta_day_range.exit.thread.i:              ; preds = %if.end31.split
   br label %if.then.i
 
 if.end2.i:                                        ; preds = %if.end31.split
-  %tp_alloc.i = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i = getelementptr inbounds i8, ptr %type, i64 304
   %14 = load ptr, ptr %tp_alloc.i, align 8
   %call3.i = tail call ptr %14(ptr noundef %type, i64 noundef 0) #15
   %cmp4.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp4.not.i, label %if.then.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end2.i
-  %hashcode.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 1
+  %hashcode.i = getelementptr inbounds i8, ptr %call3.i, i64 16
   store i64 -1, ptr %hashcode.i, align 8
-  %days6.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 2
+  %days6.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   store i32 %call35, ptr %days6.i, align 8
-  %seconds7.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 3
+  %seconds7.i = getelementptr inbounds i8, ptr %call3.i, i64 28
   store i32 %call20, ptr %seconds7.i, align 4
-  %microseconds8.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i, i64 0, i32 4
+  %microseconds8.i = getelementptr inbounds i8, ptr %call3.i, i64 32
   store i32 %call1, ptr %microseconds8.i, align 8
   br label %if.then.i
 
@@ -18056,20 +18010,20 @@ land.lhs.true37:                                  ; preds = %_Py_NewRef.exit31
   br i1 %tobool39.not, label %land.lhs.true37.split, label %if.then.i
 
 land.lhs.true37.split:                            ; preds = %land.lhs.true37
-  %tp_alloc.i39 = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc.i39 = getelementptr inbounds i8, ptr %type, i64 304
   %15 = load ptr, ptr %tp_alloc.i39, align 8
   %call3.i40 = tail call ptr %15(ptr noundef %type, i64 noundef 0) #15
   %cmp4.not.i41 = icmp eq ptr %call3.i40, null
   br i1 %cmp4.not.i41, label %if.then.i, label %if.then5.i42
 
 if.then5.i42:                                     ; preds = %land.lhs.true37.split
-  %hashcode.i43 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i40, i64 0, i32 1
+  %hashcode.i43 = getelementptr inbounds i8, ptr %call3.i40, i64 16
   store i64 -1, ptr %hashcode.i43, align 8
-  %days6.i44 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i40, i64 0, i32 2
+  %days6.i44 = getelementptr inbounds i8, ptr %call3.i40, i64 24
   store i32 -1, ptr %days6.i44, align 8
-  %seconds7.i45 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i40, i64 0, i32 3
+  %seconds7.i45 = getelementptr inbounds i8, ptr %call3.i40, i64 28
   store i32 %call20, ptr %seconds7.i45, align 4
-  %microseconds8.i46 = getelementptr inbounds %struct.PyDateTime_Delta, ptr %call3.i40, i64 0, i32 4
+  %microseconds8.i46 = getelementptr inbounds i8, ptr %call3.i40, i64 32
   store i32 %call1, ptr %microseconds8.i46, align 8
   br label %if.then.i
 
@@ -18143,7 +18097,7 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %if.then
   %3 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %call.val12, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %call.val12, i64 24
   %4 = load ptr, ptr %tp_name, align 8
   %call5 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %3, ptr noundef nonnull @.str.250, ptr noundef %4) #15
   %5 = load i64, ptr %call, align 8
@@ -18199,11 +18153,11 @@ define internal ptr @delta_reduce(ptr nocapture noundef readonly %self, ptr noca
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
-  %days.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 2
+  %days.i = getelementptr inbounds i8, ptr %self, i64 24
   %1 = load i32, ptr %days.i, align 8
-  %seconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 3
+  %seconds.i = getelementptr inbounds i8, ptr %self, i64 28
   %2 = load i32, ptr %seconds.i, align 4
-  %microseconds.i = getelementptr inbounds %struct.PyDateTime_Delta, ptr %self, i64 0, i32 4
+  %microseconds.i = getelementptr inbounds i8, ptr %self, i64 32
   %3 = load i32, ptr %microseconds.i, align 8
   %call.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.46, i32 noundef %1, i32 noundef %2, i32 noundef %3) #15
   %call2 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.261, ptr noundef %self.val, ptr noundef %call.i) #15
@@ -18383,7 +18337,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit49, %
 if.end38:                                         ; preds = %PyObject_TypeCheck.exit
   %18 = load ptr, ptr @PyExc_TypeError, align 8
   %num.val = load ptr, ptr %0, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %num.val, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %num.val, i64 24
   %19 = load ptr, ptr %tp_name, align 8
   %call40 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.268, ptr noundef %tag, ptr noundef %19) #15
   br label %return

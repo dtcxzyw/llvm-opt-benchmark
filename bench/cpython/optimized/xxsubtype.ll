@@ -13,11 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.PyVarObject = type { %struct._object, i64 }
 %struct.PyMemberDef = type { ptr, i32, i64, i32, ptr }
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
-%struct.spamdictobject = type { %struct.PyDictObject, i32 }
-%struct.PyDictObject = type { %struct._object, i64, i64, ptr, ptr }
-%struct.spamlistobject = type { %struct.PyListObject, i32 }
-%struct.PyListObject = type { %struct.PyVarObject, ptr, i64 }
-%struct.PyTupleObject = type { %struct.PyVarObject, [1 x ptr] }
 
 @xxsubtypemodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 1 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr @xxsubtype__doc__, i64 0, ptr @xxsubtype_functions, ptr @xxsubtype_slots, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [10 x i8] c"xxsubtype\00", align 1
@@ -186,7 +181,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds %struct.spamdictobject, ptr %self, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %self, i64 48
   store i32 0, ptr %state, align 8
   br label %return
 
@@ -203,7 +198,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds %struct.spamdictobject, ptr %self, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %self, i64 48
   %0 = load i32, ptr %state, align 8
   %conv = sext i32 %0 to i64
   %call1 = tail call ptr @PyLong_FromLong(i64 noundef %conv) #3
@@ -224,7 +219,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %state, align 4
-  %state1 = getelementptr inbounds %struct.spamdictobject, ptr %self, i64 0, i32 1
+  %state1 = getelementptr inbounds i8, ptr %self, i64 48
   store i32 %0, ptr %state1, align 8
   %1 = load i32, ptr @_Py_NoneStruct, align 8
   %add.i.i = add i32 %1, 1
@@ -251,7 +246,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds %struct.spamlistobject, ptr %self, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %self, i64 40
   store i32 0, ptr %state, align 8
   br label %return
 
@@ -268,7 +263,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %state = getelementptr inbounds %struct.spamlistobject, ptr %self, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load i32, ptr %state, align 8
   %conv = sext i32 %0 to i64
   %call1 = tail call ptr @PyLong_FromLong(i64 noundef %conv) #3
@@ -289,7 +284,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %state, align 4
-  %state1 = getelementptr inbounds %struct.spamlistobject, ptr %self, i64 0, i32 1
+  %state1 = getelementptr inbounds i8, ptr %self, i64 40
   store i32 %0, ptr %state1, align 8
   %1 = load i32, ptr @_Py_NoneStruct, align 8
   %add.i.i = add i32 %1, 1
@@ -327,8 +322,8 @@ if.end.i.i:                                       ; preds = %if.then
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.then, %if.end.i.i
-  %arrayidx.i = getelementptr %struct.PyTupleObject, ptr %call, i64 0, i32 1, i64 0
-  store ptr %spec.store.select, ptr %arrayidx.i, align 8
+  %ob_item.i = getelementptr inbounds i8, ptr %call, i64 24
+  store ptr %spec.store.select, ptr %ob_item.i, align 8
   %1 = load i32, ptr %args, align 8
   %add.i.i8 = add i32 %1, 1
   %cmp.i.i9 = icmp eq i32 %add.i.i8, 0
@@ -339,8 +334,8 @@ if.end.i.i10:                                     ; preds = %_Py_NewRef.exit
   br label %_Py_NewRef.exit11
 
 _Py_NewRef.exit11:                                ; preds = %_Py_NewRef.exit, %if.end.i.i10
-  %arrayidx.i12 = getelementptr %struct.PyTupleObject, ptr %call, i64 0, i32 1, i64 1
-  store ptr %args, ptr %arrayidx.i12, align 8
+  %arrayidx.i = getelementptr i8, ptr %call, i64 32
+  store ptr %args, ptr %arrayidx.i, align 8
   %2 = load i32, ptr %spec.store.select1, align 8
   %add.i.i13 = add i32 %2, 1
   %cmp.i.i14 = icmp eq i32 %add.i.i13, 0
@@ -351,8 +346,8 @@ if.end.i.i15:                                     ; preds = %_Py_NewRef.exit11
   br label %_Py_NewRef.exit16
 
 _Py_NewRef.exit16:                                ; preds = %_Py_NewRef.exit11, %if.end.i.i15
-  %arrayidx.i17 = getelementptr %struct.PyTupleObject, ptr %call, i64 0, i32 1, i64 2
-  store ptr %spec.store.select1, ptr %arrayidx.i17, align 8
+  %arrayidx.i18 = getelementptr i8, ptr %call, i64 40
+  store ptr %spec.store.select1, ptr %arrayidx.i18, align 8
   br label %if.end9
 
 if.end9:                                          ; preds = %_Py_NewRef.exit16, %entry
@@ -364,7 +359,7 @@ declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @spamlist_state_get(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %state = getelementptr inbounds %struct.spamlistobject, ptr %self, i64 0, i32 1
+  %state = getelementptr inbounds i8, ptr %self, i64 40
   %0 = load i32, ptr %state, align 8
   %conv = sext i32 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #3

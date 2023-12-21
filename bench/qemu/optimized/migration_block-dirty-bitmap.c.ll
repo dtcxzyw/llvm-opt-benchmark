@@ -12,36 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.SaveVMHandlers = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.BitmapMigrationNodeAliasList = type { ptr, ptr }
-%struct.BitmapMigrationNodeAlias = type { ptr, ptr, ptr }
-%struct.BitmapMigrationBitmapAliasList = type { ptr, ptr }
-%struct.BitmapMigrationBitmapAlias = type { ptr, ptr, ptr }
-%struct.LoadBitmapState = type { ptr, ptr, i8, i8 }
-%struct.SaveBitmapState = type { ptr, ptr, ptr, ptr, i64, i64, %struct.anon.0, i8, i8, i64 }
-%struct.anon.0 = type { ptr }
-%struct._GSList = type { ptr, ptr }
-%struct.AliasMapInnerNode = type { ptr, ptr }
-%struct.BlockDriverState = type { i32, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.anon.1, i8, [4096 x i8], [4096 x i8], [4096 x i8], [16 x i8], ptr, [4096 x i8], %struct.BlockLimits, i32, i32, i32, i32, [32 x i8], %union.anon, %union.anon.2, %union.anon.3, i32, [16 x %struct.anon.4], ptr, %struct.anon.5, ptr, ptr, %struct.anon.6, ptr, ptr, i32, ptr, i64, i64, %struct.QemuMutex, %struct.anon.7, %struct.Stat64, i32, i32, i32, i32, i32, i32, %struct.QemuMutex, %struct.anon.8, %struct.CoQueue, i8, i32, i8, %struct.CoMutex, ptr, ptr }
-%struct.anon.1 = type { ptr }
-%struct.BlockLimits = type { i32, i64, i32, i64, i32, i32, i32, i64, i32, i64, i64, i32, i8, i32, i32, i32, i32, i32, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.2 = type { %struct.QTailQLink }
-%union.anon.3 = type { %struct.QTailQLink }
-%struct.anon.4 = type { ptr }
-%struct.anon.5 = type { ptr }
-%struct.anon.6 = type { ptr }
-%struct.anon.7 = type { ptr }
-%struct.Stat64 = type { i64 }
-%struct.anon.8 = type { ptr }
-%struct.CoQueue = type { %struct.anon.9 }
-%struct.anon.9 = type { ptr, ptr }
-%struct.CoMutex = type { i32, ptr, %struct.anon.10, %struct.anon.10, i32, i32, ptr }
-%struct.anon.10 = type { ptr }
-%struct.BlockDriver = type { ptr, i32, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon.11, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.anon.11 = type { ptr, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.BitmapMigrationBitmapAliasTransform = type { i8, i8 }
 
 @dbm_state = internal global %struct.DBMState zeroinitializer, align 8
 @.str = private unnamed_addr constant [39 x i8] c"../qemu/migration/block-dirty-bitmap.c\00", align 1
@@ -166,9 +137,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc75
   %bbm.addr.0102 = phi ptr [ %16, %for.inc75 ], [ %bbm, %entry ]
-  %value = getelementptr inbounds %struct.BitmapMigrationNodeAliasList, ptr %bbm.addr.0102, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %bbm.addr.0102, i64 8
   %0 = load ptr, ptr %value, align 8
-  %alias = getelementptr inbounds %struct.BitmapMigrationNodeAlias, ptr %0, i64 0, i32 1
+  %alias = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %alias, align 8
   %call1 = tail call zeroext i1 @id_wellformed(ptr noundef %1) #11
   %2 = load ptr, ptr %alias, align 8
@@ -233,7 +204,7 @@ if.end31:                                         ; preds = %if.else, %if.then14
   store ptr %call32, ptr %.compoundliteral.sroa.2.0..sroa_idx, align 8
   %call35 = tail call noalias ptr @g_strdup(ptr noundef %node_map_from.0) #11
   %call36 = tail call i32 @g_hash_table_insert(ptr noundef %call, ptr noundef %call35, ptr noundef nonnull %call33) #11
-  %bitmaps = getelementptr inbounds %struct.BitmapMigrationNodeAlias, ptr %0, i64 0, i32 2
+  %bitmaps = getelementptr inbounds i8, ptr %0, i64 16
   %bmbal.095 = load ptr, ptr %bitmaps, align 8
   %tobool38.not96 = icmp eq ptr %bmbal.095, null
   br i1 %tobool38.not96, label %for.inc75, label %for.body39.lr.ph
@@ -243,9 +214,9 @@ for.body39.lr.ph:                                 ; preds = %if.end31
 
 for.body39.us:                                    ; preds = %for.body39.lr.ph, %if.end71.us
   %bmbal.097.us = phi ptr [ %bmbal.0.us, %if.end71.us ], [ %bmbal.095, %for.body39.lr.ph ]
-  %value40.us = getelementptr inbounds %struct.BitmapMigrationBitmapAliasList, ptr %bmbal.097.us, i64 0, i32 1
+  %value40.us = getelementptr inbounds i8, ptr %bmbal.097.us, i64 8
   %6 = load ptr, ptr %value40.us, align 8
-  %alias41.us = getelementptr inbounds %struct.BitmapMigrationBitmapAlias, ptr %6, i64 0, i32 1
+  %alias41.us = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %alias41.us, align 8
   %call42.us = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #12
   %cmp43.us = icmp ugt i64 %call42.us, 255
@@ -272,9 +243,9 @@ if.end71.us:                                      ; preds = %if.end51.us
 
 for.body39:                                       ; preds = %for.body39.lr.ph, %if.end71
   %bmbal.097 = phi ptr [ %bmbal.0, %if.end71 ], [ %bmbal.095, %for.body39.lr.ph ]
-  %value40 = getelementptr inbounds %struct.BitmapMigrationBitmapAliasList, ptr %bmbal.097, i64 0, i32 1
+  %value40 = getelementptr inbounds i8, ptr %bmbal.097, i64 8
   %9 = load ptr, ptr %value40, align 8
-  %alias41 = getelementptr inbounds %struct.BitmapMigrationBitmapAlias, ptr %9, i64 0, i32 1
+  %alias41 = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load ptr, ptr %alias41, align 8
   %call42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #12
   %cmp43 = icmp ugt i64 %call42, 255
@@ -308,7 +279,7 @@ if.then58:                                        ; preds = %if.end51.us
   br label %fail
 
 if.then67:                                        ; preds = %if.end51
-  %alias41.le = getelementptr inbounds %struct.BitmapMigrationBitmapAlias, ptr %9, i64 0, i32 1
+  %alias41.le = getelementptr inbounds i8, ptr %9, i64 8
   %14 = load ptr, ptr %alias, align 8
   %15 = load ptr, ptr %alias41.le, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 314, ptr noundef nonnull @__func__.construct_alias_map, ptr noundef nonnull @.str.11, ptr noundef %14, ptr noundef %15) #11
@@ -369,18 +340,18 @@ declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @before_vm_start_handle_item(ptr noundef %item, ptr nocapture noundef %opaque) #0 {
 entry:
-  %enabled = getelementptr inbounds %struct.LoadBitmapState, ptr %item, i64 0, i32 3
+  %enabled = getelementptr inbounds i8, ptr %item, i64 17
   %0 = load i8, ptr %enabled, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
   br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %migrated = getelementptr inbounds %struct.LoadBitmapState, ptr %item, i64 0, i32 2
+  %migrated = getelementptr inbounds i8, ptr %item, i64 16
   %2 = load i8, ptr %migrated, align 8
   %3 = and i8 %2, 1
   %tobool1.not = icmp eq i8 %3, 0
-  %bitmap3 = getelementptr inbounds %struct.LoadBitmapState, ptr %item, i64 0, i32 1
+  %bitmap3 = getelementptr inbounds i8, ptr %item, i64 8
   %4 = load ptr, ptr %bitmap3, align 8
   br i1 %tobool1.not, label %if.else, label %if.then2
 
@@ -393,14 +364,14 @@ if.else:                                          ; preds = %if.then
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then2, %if.else, %entry
-  %migrated5 = getelementptr inbounds %struct.LoadBitmapState, ptr %item, i64 0, i32 2
+  %migrated5 = getelementptr inbounds i8, ptr %item, i64 16
   %5 = load i8, ptr %migrated5, align 8
   %6 = and i8 %5, 1
   %tobool6.not = icmp eq i8 %6, 0
   br i1 %tobool6.not, label %if.end9, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %bitmaps = getelementptr inbounds %struct.DBMLoadState, ptr %opaque, i64 0, i32 9
+  %bitmaps = getelementptr inbounds i8, ptr %opaque, i64 1584
   %7 = load ptr, ptr %bitmaps, align 8
   %call = tail call ptr @g_slist_remove(ptr noundef %7, ptr noundef nonnull %item) #11
   store ptr %call, ptr %bitmaps, align 8
@@ -422,7 +393,7 @@ entry:
 
 do.body.i:                                        ; preds = %entry, %if.end.i
   %1 = phi ptr [ %7, %if.end.i ], [ %0, %entry ]
-  %entry3.i = getelementptr inbounds %struct.SaveBitmapState, ptr %1, i64 0, i32 6
+  %entry3.i = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load ptr, ptr %entry3.i, align 8
   store ptr %2, ptr @dbm_state, align 8
   %cmp6.i = icmp eq ptr %2, null
@@ -434,15 +405,15 @@ if.then.i:                                        ; preds = %do.body.i
 
 if.end.i:                                         ; preds = %if.then.i, %do.body.i
   store ptr null, ptr %entry3.i, align 8
-  %bitmap.i = getelementptr inbounds %struct.SaveBitmapState, ptr %1, i64 0, i32 3
+  %bitmap.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %bitmap.i, align 8
   tail call void @bdrv_dirty_bitmap_set_busy(ptr noundef %3, i1 noundef zeroext false) #11
   %4 = load ptr, ptr %1, align 8
   tail call void @bdrv_unref(ptr noundef %4) #11
-  %node_alias.i = getelementptr inbounds %struct.SaveBitmapState, ptr %1, i64 0, i32 1
+  %node_alias.i = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %node_alias.i, align 8
   tail call void @g_free(ptr noundef %5) #11
-  %bitmap_alias.i = getelementptr inbounds %struct.SaveBitmapState, ptr %1, i64 0, i32 2
+  %bitmap_alias.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %bitmap_alias.i, align 8
   tail call void @g_free(ptr noundef %6) #11
   tail call void @g_free(ptr noundef nonnull %1) #11
@@ -468,7 +439,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @cancel_incoming_locked(ptr nocapture noundef %s) unnamed_addr #0 {
 entry:
-  %cancelled = getelementptr inbounds %struct.DBMLoadState, ptr %s, i64 0, i32 8
+  %cancelled = getelementptr inbounds i8, ptr %s, i64 1576
   %0 = load i8, ptr %cancelled, align 8
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -476,15 +447,15 @@ entry:
 
 if.end:                                           ; preds = %entry
   store i8 1, ptr %cancelled, align 8
-  %bs = getelementptr inbounds %struct.DBMLoadState, ptr %s, i64 0, i32 4
-  %bitmaps = getelementptr inbounds %struct.DBMLoadState, ptr %s, i64 0, i32 9
+  %bs = getelementptr inbounds i8, ptr %s, i64 1544
+  %bitmaps = getelementptr inbounds i8, ptr %s, i64 1584
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bs, i8 0, i64 16, i1 false)
   %item.015 = load ptr, ptr %bitmaps, align 8
   %tobool2.not16 = icmp eq ptr %item.015, null
   br i1 %tobool2.not16, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %before_vm_start_handled = getelementptr inbounds %struct.DBMLoadState, ptr %s, i64 0, i32 6
+  %before_vm_start_handled = getelementptr inbounds i8, ptr %s, i64 1560
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end13
@@ -496,7 +467,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %tobool3.not, label %if.end6, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body
-  %migrated = getelementptr inbounds %struct.LoadBitmapState, ptr %2, i64 0, i32 2
+  %migrated = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load i8, ptr %migrated, align 8
   %6 = and i8 %5, 1
   %tobool4.not = icmp eq i8 %6, 0
@@ -507,7 +478,7 @@ if.else:                                          ; preds = %lor.lhs.false
   unreachable
 
 if.end6:                                          ; preds = %for.body, %lor.lhs.false
-  %bitmap7 = getelementptr inbounds %struct.LoadBitmapState, ptr %2, i64 0, i32 1
+  %bitmap7 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %bitmap7, align 8
   %call = tail call zeroext i1 @bdrv_dirty_bitmap_has_successor(ptr noundef %7) #11
   %8 = load ptr, ptr %bitmap7, align 8
@@ -524,7 +495,7 @@ if.else11:                                        ; preds = %if.end6
 if.end13:                                         ; preds = %if.else11, %if.then8
   %9 = load ptr, ptr %bitmap7, align 8
   tail call void @bdrv_release_dirty_bitmap(ptr noundef %9) #11
-  %next = getelementptr inbounds %struct._GSList, ptr %item.017, i64 0, i32 1
+  %next = getelementptr inbounds i8, ptr %item.017, i64 8
   %item.0 = load ptr, ptr %next, align 8
   %tobool2.not = icmp eq ptr %item.0, null
   br i1 %tobool2.not, label %for.end.loopexit, label %for.body, !llvm.loop !9
@@ -570,7 +541,7 @@ define internal void @free_alias_map_inner_node(ptr noundef %amin_ptr) #0 {
 entry:
   %0 = load ptr, ptr %amin_ptr, align 8
   tail call void @g_free(ptr noundef %0) #11
-  %subtree = getelementptr inbounds %struct.AliasMapInnerNode, ptr %amin_ptr, i64 0, i32 1
+  %subtree = getelementptr inbounds i8, ptr %amin_ptr, i64 8
   %1 = load ptr, ptr %subtree, align 8
   tail call void @g_hash_table_unref(ptr noundef %1) #11
   tail call void @g_free(ptr noundef nonnull %amin_ptr) #11
@@ -636,10 +607,10 @@ do.end.i:                                         ; preds = %entry
   br i1 %call3.i, label %if.end7.i, label %if.end7.thread.i
 
 if.end7.thread.i:                                 ; preds = %do.end.i
-  %bulk_completed42.i = getelementptr inbounds %struct.DBMSaveState, ptr %opaque, i64 0, i32 1
+  %bulk_completed42.i = getelementptr inbounds i8, ptr %opaque, i64 16
   store i8 0, ptr %bulk_completed42.i, align 8
-  %prev_bs43.i = getelementptr inbounds %struct.DBMSaveState, ptr %opaque, i64 0, i32 3
-  %no_bitmaps45.i = getelementptr inbounds %struct.DBMSaveState, ptr %opaque, i64 0, i32 2
+  %prev_bs43.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %no_bitmaps45.i = getelementptr inbounds i8, ptr %opaque, i64 17
   store i8 0, ptr %no_bitmaps45.i, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev_bs43.i, i8 0, i64 16, i1 false)
   br label %if.then8.i
@@ -647,10 +618,10 @@ if.end7.thread.i:                                 ; preds = %do.end.i
 if.end7.i:                                        ; preds = %do.end.i
   %call5.i = tail call ptr @migrate_block_bitmap_mapping() #11
   %call6.i = tail call fastcc ptr @construct_alias_map(ptr noundef %call5.i, i1 noundef zeroext true, ptr noundef nonnull @error_abort)
-  %bulk_completed.i = getelementptr inbounds %struct.DBMSaveState, ptr %opaque, i64 0, i32 1
+  %bulk_completed.i = getelementptr inbounds i8, ptr %opaque, i64 16
   store i8 0, ptr %bulk_completed.i, align 8
-  %prev_bs.i = getelementptr inbounds %struct.DBMSaveState, ptr %opaque, i64 0, i32 3
-  %no_bitmaps.i = getelementptr inbounds %struct.DBMSaveState, ptr %opaque, i64 0, i32 2
+  %prev_bs.i = getelementptr inbounds i8, ptr %opaque, i64 24
+  %no_bitmaps.i = getelementptr inbounds i8, ptr %opaque, i64 17
   store i8 0, ptr %no_bitmaps.i, align 1
   %tobool.not.i = icmp eq ptr %call6.i, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev_bs.i, i8 0, i64 16, i1 false)
@@ -680,13 +651,13 @@ if.end15.i:                                       ; preds = %lor.lhs.false.i
 
 land.lhs.true.i:                                  ; preds = %if.end15.i, %bdrv_filter_bs.exit.i
   %bs.059.i = phi ptr [ %3, %bdrv_filter_bs.exit.i ], [ %call16.i, %if.end15.i ]
-  %drv.i = getelementptr inbounds %struct.BlockDriverState, ptr %bs.059.i, i64 0, i32 6
+  %drv.i = getelementptr inbounds i8, ptr %bs.059.i, i64 16
   %0 = load ptr, ptr %drv.i, align 8
   %tobool18.not.i = icmp eq ptr %0, null
   br i1 %tobool18.not.i, label %for.inc.i, label %land.lhs.true19.i
 
 land.lhs.true19.i:                                ; preds = %land.lhs.true.i
-  %is_filter.i = getelementptr inbounds %struct.BlockDriver, ptr %0, i64 0, i32 2
+  %is_filter.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i8, ptr %is_filter.i, align 4
   %2 = and i8 %1, 1
   %tobool21.not.i = icmp eq i8 %2, 0
@@ -707,13 +678,13 @@ bdrv_filter_bs.exit.i:                            ; preds = %while.body.i
   br i1 %tobool17.not.i, label %for.inc.i, label %land.lhs.true.i, !llvm.loop !10
 
 land.lhs.true25.i:                                ; preds = %land.rhs.i
-  %drv.i.le = getelementptr inbounds %struct.BlockDriverState, ptr %bs.059.i, i64 0, i32 6
+  %drv.i.le = getelementptr inbounds i8, ptr %bs.059.i, i64 16
   %.pr.pre.i = load ptr, ptr %drv.i.le, align 8
   %tobool27.not.i = icmp eq ptr %.pr.pre.i, null
   br i1 %tobool27.not.i, label %for.inc.i, label %land.lhs.true25.i.land.lhs.true28.i_crit_edge
 
 land.lhs.true25.i.land.lhs.true28.i_crit_edge:    ; preds = %land.lhs.true25.i
-  %is_filter30.i.phi.trans.insert = getelementptr inbounds %struct.BlockDriver, ptr %.pr.pre.i, i64 0, i32 2
+  %is_filter30.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pr.pre.i, i64 12
   %.pre = load i8, ptr %is_filter30.i.phi.trans.insert, align 4
   br label %land.lhs.true28.i
 
@@ -773,10 +744,10 @@ for.inc54.i:                                      ; preds = %if.end48.i, %for.bo
 
 for.body59.i:                                     ; preds = %for.cond57.preheader.i, %for.body59.i
   %dbms.066.i = phi ptr [ %dbms.0.i, %for.body59.i ], [ %dbms.064.i, %for.cond57.preheader.i ]
-  %bitmap.i = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.066.i, i64 0, i32 3
+  %bitmap.i = getelementptr inbounds i8, ptr %dbms.066.i, i64 24
   %6 = load ptr, ptr %bitmap.i, align 8
   tail call void @bdrv_dirty_bitmap_skip_store(ptr noundef %6, i1 noundef zeroext true) #11
-  %entry61.i = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.066.i, i64 0, i32 6
+  %entry61.i = getelementptr inbounds i8, ptr %dbms.066.i, i64 48
   %dbms.0.i = load ptr, ptr %entry61.i, align 8
   %tobool58.not.i = icmp eq ptr %dbms.0.i, null
   br i1 %tobool58.not.i, label %for.end62.i, label %for.body59.i, !llvm.loop !14
@@ -812,12 +783,12 @@ if.end74.i:                                       ; preds = %if.then73.i, %fail.
   br i1 %cmp.not10.i.i, label %init_dirty_bitmap_migration.exit.thread, label %do.body.lr.ph.i.i
 
 do.body.lr.ph.i.i:                                ; preds = %if.end74.i
-  %sqh_last.i.i = getelementptr inbounds %struct.anon, ptr %opaque, i64 0, i32 1
+  %sqh_last.i.i = getelementptr inbounds i8, ptr %opaque, i64 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.end.i.i, %do.body.lr.ph.i.i
   %9 = phi ptr [ %8, %do.body.lr.ph.i.i ], [ %15, %if.end.i.i ]
-  %entry3.i.i = getelementptr inbounds %struct.SaveBitmapState, ptr %9, i64 0, i32 6
+  %entry3.i.i = getelementptr inbounds i8, ptr %9, i64 48
   %10 = load ptr, ptr %entry3.i.i, align 8
   store ptr %10, ptr %opaque, align 8
   %cmp6.i.i = icmp eq ptr %10, null
@@ -829,15 +800,15 @@ if.then.i.i:                                      ; preds = %do.body.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %do.body.i.i
   store ptr null, ptr %entry3.i.i, align 8
-  %bitmap.i.i = getelementptr inbounds %struct.SaveBitmapState, ptr %9, i64 0, i32 3
+  %bitmap.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %bitmap.i.i, align 8
   tail call void @bdrv_dirty_bitmap_set_busy(ptr noundef %11, i1 noundef zeroext false) #11
   %12 = load ptr, ptr %9, align 8
   tail call void @bdrv_unref(ptr noundef %12) #11
-  %node_alias.i.i = getelementptr inbounds %struct.SaveBitmapState, ptr %9, i64 0, i32 1
+  %node_alias.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %13 = load ptr, ptr %node_alias.i.i, align 8
   tail call void @g_free(ptr noundef %13) #11
-  %bitmap_alias.i.i = getelementptr inbounds %struct.SaveBitmapState, ptr %9, i64 0, i32 2
+  %bitmap_alias.i.i = getelementptr inbounds i8, ptr %9, i64 16
   %14 = load ptr, ptr %bitmap_alias.i.i, align 8
   tail call void @g_free(ptr noundef %14) #11
   tail call void @g_free(ptr noundef nonnull %9) #11
@@ -858,15 +829,15 @@ init_dirty_bitmap_migration.exit:                 ; preds = %if.end68.i, %if.the
 for.body:                                         ; preds = %init_dirty_bitmap_migration.exit, %for.body
   %dbms.019 = phi ptr [ %dbms.0, %for.body ], [ %dbms.017, %init_dirty_bitmap_migration.exit ]
   tail call fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef nonnull %opaque, ptr noundef nonnull %dbms.019, i32 noundef 16)
-  %bitmap.i6 = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.019, i64 0, i32 3
+  %bitmap.i6 = getelementptr inbounds i8, ptr %dbms.019, i64 24
   %16 = load ptr, ptr %bitmap.i6, align 8
   %call.i7 = tail call i32 @bdrv_dirty_bitmap_granularity(ptr noundef %16) #11
   tail call void @qemu_put_be32(ptr noundef %f, i32 noundef %call.i7) #11
-  %flags.i = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.019, i64 0, i32 7
+  %flags.i = getelementptr inbounds i8, ptr %dbms.019, i64 56
   %17 = load i8, ptr %flags.i, align 8
   %conv.i = zext i8 %17 to i32
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %conv.i) #11
-  %entry1 = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.019, i64 0, i32 6
+  %entry1 = getelementptr inbounds i8, ptr %dbms.019, i64 48
   %dbms.0 = load ptr, ptr %entry1, align 8
   %tobool.not = icmp eq ptr %dbms.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !15
@@ -888,12 +859,12 @@ entry:
   br i1 %cmp.not10.i, label %dirty_bitmap_do_save_cleanup.exit, label %do.body.lr.ph.i
 
 do.body.lr.ph.i:                                  ; preds = %entry
-  %sqh_last.i = getelementptr inbounds %struct.anon, ptr %opaque, i64 0, i32 1
+  %sqh_last.i = getelementptr inbounds i8, ptr %opaque, i64 8
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i, %do.body.lr.ph.i
   %1 = phi ptr [ %0, %do.body.lr.ph.i ], [ %7, %if.end.i ]
-  %entry3.i = getelementptr inbounds %struct.SaveBitmapState, ptr %1, i64 0, i32 6
+  %entry3.i = getelementptr inbounds i8, ptr %1, i64 48
   %2 = load ptr, ptr %entry3.i, align 8
   store ptr %2, ptr %opaque, align 8
   %cmp6.i = icmp eq ptr %2, null
@@ -905,15 +876,15 @@ if.then.i:                                        ; preds = %do.body.i
 
 if.end.i:                                         ; preds = %if.then.i, %do.body.i
   store ptr null, ptr %entry3.i, align 8
-  %bitmap.i = getelementptr inbounds %struct.SaveBitmapState, ptr %1, i64 0, i32 3
+  %bitmap.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %bitmap.i, align 8
   tail call void @bdrv_dirty_bitmap_set_busy(ptr noundef %3, i1 noundef zeroext false) #11
   %4 = load ptr, ptr %1, align 8
   tail call void @bdrv_unref(ptr noundef %4) #11
-  %node_alias.i = getelementptr inbounds %struct.SaveBitmapState, ptr %1, i64 0, i32 1
+  %node_alias.i = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %node_alias.i, align 8
   tail call void @g_free(ptr noundef %5) #11
-  %bitmap_alias.i = getelementptr inbounds %struct.SaveBitmapState, ptr %1, i64 0, i32 2
+  %bitmap_alias.i = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %bitmap_alias.i, align 8
   tail call void @g_free(ptr noundef %6) #11
   tail call void @g_free(ptr noundef nonnull %1) #11
@@ -954,7 +925,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #11
   br label %trace_dirty_bitmap_save_complete_enter.exit
@@ -965,7 +936,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_dirty_bitmap_save_complete_enter.exit:      ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %bulk_completed = getelementptr inbounds %struct.DBMSaveState, ptr %opaque, i64 0, i32 1
+  %bulk_completed = getelementptr inbounds i8, ptr %opaque, i64 16
   %7 = load i8, ptr %bulk_completed, align 8
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
@@ -983,7 +954,7 @@ if.end:                                           ; preds = %if.then, %trace_dir
 for.body:                                         ; preds = %if.end, %for.body
   %dbms.026 = phi ptr [ %dbms.0, %for.body ], [ %dbms.024, %if.end ]
   tail call fastcc void @send_bitmap_header(ptr noundef %f, ptr noundef nonnull %opaque, ptr noundef nonnull %dbms.026, i32 noundef 32)
-  %entry2 = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.026, i64 0, i32 6
+  %entry2 = getelementptr inbounds i8, ptr %dbms.026, i64 48
   %dbms.0 = load ptr, ptr %entry2, align 8
   %tobool1.not = icmp eq ptr %dbms.0, null
   br i1 %tobool1.not, label %for.end, label %for.body, !llvm.loop !16
@@ -1014,7 +985,7 @@ if.then8.i.i18:                                   ; preds = %if.then.i.i16
   %call9.i.i19 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i9, ptr noundef null) #11
   %call10.i.i20 = tail call i32 @qemu_get_thread_id() #11
   %14 = load i64, ptr %_now.i.i9, align 8
-  %tv_usec.i.i21 = getelementptr inbounds %struct.timeval, ptr %_now.i.i9, i64 0, i32 1
+  %tv_usec.i.i21 = getelementptr inbounds i8, ptr %_now.i.i9, i64 8
   %15 = load i64, ptr %tv_usec.i.i21, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i20, i64 noundef %14, i64 noundef %15) #11
   br label %trace_dirty_bitmap_save_complete_finish.exit
@@ -1030,12 +1001,12 @@ trace_dirty_bitmap_save_complete_finish.exit:     ; preds = %for.end, %land.lhs.
   br i1 %cmp.not10.i.i, label %dirty_bitmap_save_cleanup.exit, label %do.body.lr.ph.i.i
 
 do.body.lr.ph.i.i:                                ; preds = %trace_dirty_bitmap_save_complete_finish.exit
-  %sqh_last.i.i = getelementptr inbounds %struct.anon, ptr %opaque, i64 0, i32 1
+  %sqh_last.i.i = getelementptr inbounds i8, ptr %opaque, i64 8
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.end.i.i, %do.body.lr.ph.i.i
   %17 = phi ptr [ %16, %do.body.lr.ph.i.i ], [ %23, %if.end.i.i ]
-  %entry3.i.i = getelementptr inbounds %struct.SaveBitmapState, ptr %17, i64 0, i32 6
+  %entry3.i.i = getelementptr inbounds i8, ptr %17, i64 48
   %18 = load ptr, ptr %entry3.i.i, align 8
   store ptr %18, ptr %opaque, align 8
   %cmp6.i.i = icmp eq ptr %18, null
@@ -1047,15 +1018,15 @@ if.then.i.i23:                                    ; preds = %do.body.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i23, %do.body.i.i
   store ptr null, ptr %entry3.i.i, align 8
-  %bitmap.i.i = getelementptr inbounds %struct.SaveBitmapState, ptr %17, i64 0, i32 3
+  %bitmap.i.i = getelementptr inbounds i8, ptr %17, i64 24
   %19 = load ptr, ptr %bitmap.i.i, align 8
   tail call void @bdrv_dirty_bitmap_set_busy(ptr noundef %19, i1 noundef zeroext false) #11
   %20 = load ptr, ptr %17, align 8
   tail call void @bdrv_unref(ptr noundef %20) #11
-  %node_alias.i.i = getelementptr inbounds %struct.SaveBitmapState, ptr %17, i64 0, i32 1
+  %node_alias.i.i = getelementptr inbounds i8, ptr %17, i64 8
   %21 = load ptr, ptr %node_alias.i.i, align 8
   tail call void @g_free(ptr noundef %21) #11
-  %bitmap_alias.i.i = getelementptr inbounds %struct.SaveBitmapState, ptr %17, i64 0, i32 2
+  %bitmap_alias.i.i = getelementptr inbounds i8, ptr %17, i64 16
   %22 = load ptr, ptr %bitmap_alias.i.i, align 8
   tail call void @g_free(ptr noundef %22) #11
   tail call void @g_free(ptr noundef nonnull %17) #11
@@ -1074,7 +1045,7 @@ entry:
   br i1 %call, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %no_bitmaps = getelementptr inbounds %struct.DBMSaveState, ptr %opaque, i64 0, i32 2
+  %no_bitmaps = getelementptr inbounds i8, ptr %opaque, i64 17
   %0 = load i8, ptr %no_bitmaps, align 1
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -1098,7 +1069,7 @@ entry:
   br i1 %call.i, label %dirty_bitmap_is_active.exit, label %land.end
 
 dirty_bitmap_is_active.exit:                      ; preds = %entry
-  %no_bitmaps.i = getelementptr inbounds %struct.DBMSaveState, ptr %opaque, i64 0, i32 2
+  %no_bitmaps.i = getelementptr inbounds i8, ptr %opaque, i64 17
   %0 = load i8, ptr %no_bitmaps.i, align 1
   %1 = and i8 %0, 1
   %tobool.not.i = icmp eq i8 %1, 0
@@ -1144,7 +1115,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv) #11
   br label %trace_dirty_bitmap_save_iterate.exit
@@ -1159,7 +1130,7 @@ trace_dirty_bitmap_save_iterate.exit:             ; preds = %entry, %land.lhs.tr
   br i1 %call1, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %trace_dirty_bitmap_save_iterate.exit
-  %bulk_completed = getelementptr inbounds %struct.DBMSaveState, ptr %opaque, i64 0, i32 1
+  %bulk_completed = getelementptr inbounds i8, ptr %opaque, i64 16
   %7 = load i8, ptr %bulk_completed, align 8
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
@@ -1171,7 +1142,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %trace_dirty_bitmap_save_iterate.exit
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef 1) #11
-  %bulk_completed3 = getelementptr inbounds %struct.DBMSaveState, ptr %opaque, i64 0, i32 1
+  %bulk_completed3 = getelementptr inbounds i8, ptr %opaque, i64 16
   %9 = load i8, ptr %bulk_completed3, align 8
   %10 = and i8 %9, 1
   %conv5 = zext nneg i8 %10 to i32
@@ -1190,20 +1161,20 @@ entry:
 for.body:                                         ; preds = %entry, %cond.end
   %dbms.012 = phi ptr [ %dbms.0, %cond.end ], [ %dbms.09, %entry ]
   %pending.011 = phi i64 [ %add4, %cond.end ], [ 0, %entry ]
-  %bitmap = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.012, i64 0, i32 3
+  %bitmap = getelementptr inbounds i8, ptr %dbms.012, i64 24
   %0 = load ptr, ptr %bitmap, align 8
   %call = tail call i32 @bdrv_dirty_bitmap_granularity(ptr noundef %0) #11
   %conv = zext i32 %call to i64
-  %bulk_completed = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.012, i64 0, i32 8
+  %bulk_completed = getelementptr inbounds i8, ptr %dbms.012, i64 57
   %1 = load i8, ptr %bulk_completed, align 1
   %2 = and i8 %1, 1
   %tobool1.not = icmp eq i8 %2, 0
   br i1 %tobool1.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %for.body
-  %total_sectors = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.012, i64 0, i32 4
+  %total_sectors = getelementptr inbounds i8, ptr %dbms.012, i64 32
   %3 = load i64, ptr %total_sectors, align 8
-  %cur_sector = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.012, i64 0, i32 9
+  %cur_sector = getelementptr inbounds i8, ptr %dbms.012, i64 64
   %4 = load i64, ptr %cur_sector, align 8
   %sub = sub i64 %3, %4
   br label %cond.end
@@ -1215,7 +1186,7 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %sub3 = add i64 %add, %mul
   %div = udiv i64 %sub3, %conv
   %add4 = add i64 %div, %pending.011
-  %entry5 = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.012, i64 0, i32 6
+  %entry5 = getelementptr inbounds i8, ptr %dbms.012, i64 48
   %dbms.0 = load ptr, ptr %entry5, align 8
   %tobool.not = icmp eq ptr %dbms.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !17
@@ -1247,7 +1218,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i64 noundef %pending.0.lcssa) #11
   br label %trace_dirty_bitmap_state_pending.exit
@@ -1275,7 +1246,7 @@ entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %local_err.i = alloca ptr, align 8
   %_now.i.i = alloca %struct.timeval, align 8
-  %load = getelementptr inbounds %struct.DBMState, ptr %opaque, i64 0, i32 1
+  %load = getelementptr inbounds i8, ptr %opaque, i64 40
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i = icmp ne i32 %0, 0
@@ -1300,7 +1271,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #11
   br label %trace_dirty_bitmap_load_enter.exit
@@ -1315,7 +1286,7 @@ trace_dirty_bitmap_load_enter.exit:               ; preds = %entry, %land.lhs.tr
   br i1 %cmp.not, label %if.end, label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %trace_dirty_bitmap_load_enter.exit
-  %lock = getelementptr inbounds %struct.DBMState, ptr %opaque, i64 0, i32 1, i32 10
+  %lock = getelementptr inbounds i8, ptr %opaque, i64 1632
   %7 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %8 = inttoptr i64 %7 to ptr
   tail call void %8(ptr noundef nonnull %lock, ptr noundef nonnull @.str.35, i32 noundef 122) #11
@@ -1334,22 +1305,22 @@ if.then5:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.then5, %if.end
   %alias_map.0 = phi ptr [ %call7, %if.then5 ], [ null, %if.end ]
-  %lock9 = getelementptr inbounds %struct.DBMState, ptr %opaque, i64 0, i32 1, i32 10
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
-  %node_alias.i = getelementptr inbounds %struct.DBMState, ptr %opaque, i64 0, i32 1, i32 1
-  %cancelled.i = getelementptr inbounds %struct.DBMState, ptr %opaque, i64 0, i32 1, i32 8
+  %lock9 = getelementptr inbounds i8, ptr %opaque, i64 1632
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %node_alias.i = getelementptr inbounds i8, ptr %opaque, i64 44
+  %cancelled.i = getelementptr inbounds i8, ptr %opaque, i64 1616
   %tobool11.not.i = icmp eq ptr %alias_map.0, null
-  %bs.i = getelementptr inbounds %struct.DBMState, ptr %opaque, i64 0, i32 1, i32 4
+  %bs.i = getelementptr inbounds i8, ptr %opaque, i64 1584
   %tobool64.i = icmp ne ptr %alias_map.0, null
-  %bitmap_alias.i = getelementptr inbounds %struct.DBMState, ptr %opaque, i64 0, i32 1, i32 2
-  %bmap_inner104.i = getelementptr inbounds %struct.DBMState, ptr %opaque, i64 0, i32 1, i32 7
-  %bitmap_name109.i = getelementptr inbounds %struct.DBMState, ptr %opaque, i64 0, i32 1, i32 3
-  %bitmap.i = getelementptr inbounds %struct.DBMState, ptr %opaque, i64 0, i32 1, i32 5
-  %bitmaps.i = getelementptr inbounds %struct.DBMState, ptr %opaque, i64 0, i32 1, i32 9
-  %tv_usec.i.i.i69 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i44, i64 0, i32 1
-  %before_vm_start_handled.i = getelementptr inbounds %struct.DBMState, ptr %opaque, i64 0, i32 1, i32 6
-  %tv_usec.i.i.i95 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i71, i64 0, i32 1
-  %tv_usec.i.i36.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i24.i, i64 0, i32 1
+  %bitmap_alias.i = getelementptr inbounds i8, ptr %opaque, i64 300
+  %bmap_inner104.i = getelementptr inbounds i8, ptr %opaque, i64 1608
+  %bitmap_name109.i = getelementptr inbounds i8, ptr %opaque, i64 556
+  %bitmap.i = getelementptr inbounds i8, ptr %opaque, i64 1592
+  %bitmaps.i = getelementptr inbounds i8, ptr %opaque, i64 1624
+  %tv_usec.i.i.i69 = getelementptr inbounds i8, ptr %_now.i.i.i44, i64 8
+  %before_vm_start_handled.i = getelementptr inbounds i8, ptr %opaque, i64 1600
+  %tv_usec.i.i.i95 = getelementptr inbounds i8, ptr %_now.i.i.i71, i64 8
+  %tv_usec.i.i36.i = getelementptr inbounds i8, ptr %_now.i.i24.i, i64 8
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end8
@@ -1442,7 +1413,7 @@ if.end30.thread.i:                                ; preds = %if.then12.i
   br label %if.then33.i
 
 if.else.i:                                        ; preds = %if.then12.i
-  %subtree.i = getelementptr inbounds %struct.AliasMapInnerNode, ptr %call15.i, i64 0, i32 1
+  %subtree.i = getelementptr inbounds i8, ptr %call15.i, i64 8
   %21 = load ptr, ptr %subtree.i, align 8
   %22 = load ptr, ptr %call15.i, align 8
   %call20.i = call ptr @bdrv_lookup_bs(ptr noundef null, ptr noundef %22, ptr noundef nonnull %local_err.i) #11
@@ -1483,7 +1454,7 @@ if.else48.i:                                      ; preds = %if.then41.i
   unreachable
 
 if.end49.i:                                       ; preds = %if.then41.i
-  %subtree50.i = getelementptr inbounds %struct.AliasMapInnerNode, ptr %call45.i, i64 0, i32 1
+  %subtree50.i = getelementptr inbounds i8, ptr %call45.i, i64 8
   %25 = load ptr, ptr %subtree50.i, align 8
   br label %if.end59.i
 
@@ -1550,7 +1521,7 @@ if.then90.i:                                      ; preds = %if.end83.i
 
 if.then95.i:                                      ; preds = %if.then90.i
   %34 = load ptr, ptr %bs.i, align 8
-  %node_name.i = getelementptr inbounds %struct.BlockDriverState, ptr %34, i64 0, i32 22
+  %node_name.i = getelementptr inbounds i8, ptr %34, i64 16600
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.42, ptr noundef nonnull %bitmap_alias.i, ptr noundef nonnull %node_name.i, ptr noundef nonnull %node_alias.i) #11
   call fastcc void @cancel_incoming_locked(ptr noundef nonnull %load)
   br label %if.end103.i
@@ -1588,7 +1559,7 @@ land.lhs.true118.i:                               ; preds = %if.then108.i
 
 if.then122.i:                                     ; preds = %land.lhs.true118.i
   %40 = load ptr, ptr %bs.i, align 8
-  %node_name126.i = getelementptr inbounds %struct.BlockDriverState, ptr %40, i64 0, i32 22
+  %node_name126.i = getelementptr inbounds i8, ptr %40, i64 16600
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.43, ptr noundef nonnull %bitmap_name109.i, ptr noundef nonnull %node_name126.i) #11
   br label %if.end20.sink.split
 
@@ -1673,7 +1644,7 @@ if.end17.i:                                       ; preds = %if.end12.i
   br i1 %tobool18.not.i, label %if.else31.i, label %land.lhs.true.i41
 
 land.lhs.true.i41:                                ; preds = %if.end17.i
-  %transform.i = getelementptr inbounds %struct.BitmapMigrationBitmapAlias, ptr %50, i64 0, i32 2
+  %transform.i = getelementptr inbounds i8, ptr %50, i64 16
   %51 = load ptr, ptr %transform.i, align 8
   %tobool20.not.i = icmp eq ptr %51, null
   br i1 %tobool20.not.i, label %if.else31.i, label %land.lhs.true21.i
@@ -1685,7 +1656,7 @@ land.lhs.true21.i:                                ; preds = %land.lhs.true.i41
   br i1 %tobool24.not.i, label %if.else31.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %land.lhs.true21.i
-  %persistent29.i = getelementptr inbounds %struct.BitmapMigrationBitmapAliasTransform, ptr %51, i64 0, i32 1
+  %persistent29.i = getelementptr inbounds i8, ptr %51, i64 1
   %54 = load i8, ptr %persistent29.i, align 1
   br label %if.end36.i
 
@@ -1731,9 +1702,9 @@ if.end53.i:                                       ; preds = %if.else51.i, %if.th
   %call54.i = call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #13
   %61 = load <2 x ptr>, ptr %bs.i, align 8
   store <2 x ptr> %61, ptr %call54.i, align 8
-  %migrated.i = getelementptr inbounds %struct.LoadBitmapState, ptr %call54.i, i64 0, i32 2
+  %migrated.i = getelementptr inbounds i8, ptr %call54.i, i64 16
   store i8 0, ptr %migrated.i, align 8
-  %enabled.i = getelementptr inbounds %struct.LoadBitmapState, ptr %call54.i, i64 0, i32 3
+  %enabled.i = getelementptr inbounds i8, ptr %call54.i, i64 17
   %frombool62.i = trunc i32 %and43.i to i8
   store i8 %frombool62.i, ptr %enabled.i, align 1
   %62 = load ptr, ptr %bitmaps.i, align 8
@@ -1817,7 +1788,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end6.i
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %next.i = getelementptr inbounds %struct._GSList, ptr %item.03.i, i64 0, i32 1
+  %next.i = getelementptr inbounds i8, ptr %item.03.i, i64 8
   %item.0.i = load ptr, ptr %next.i, align 8
   %tobool7.not.i56 = icmp eq ptr %item.0.i, null
   br i1 %tobool7.not.i56, label %if.end39, label %for.body.i, !llvm.loop !18
@@ -1825,13 +1796,13 @@ for.cond.i:                                       ; preds = %for.body.i
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %item.03.i = phi ptr [ %item.01.i, %for.body.lr.ph.i ], [ %item.0.i, %for.cond.i ]
   %76 = load ptr, ptr %item.03.i, align 8
-  %bitmap8.i = getelementptr inbounds %struct.LoadBitmapState, ptr %76, i64 0, i32 1
+  %bitmap8.i = getelementptr inbounds i8, ptr %76, i64 8
   %77 = load ptr, ptr %bitmap8.i, align 8
   %cmp.i55 = icmp eq ptr %77, %75
   br i1 %cmp.i55, label %if.then10.i57, label %for.cond.i
 
 if.then10.i57:                                    ; preds = %for.body.i
-  %migrated.i58 = getelementptr inbounds %struct.LoadBitmapState, ptr %76, i64 0, i32 2
+  %migrated.i58 = getelementptr inbounds i8, ptr %76, i64 16
   store i8 1, ptr %migrated.i58, align 8
   %78 = load i8, ptr %before_vm_start_handled.i, align 8
   %79 = and i8 %78, 1
@@ -2039,7 +2010,7 @@ if.then8.i.i111:                                  ; preds = %if.then.i.i109
   %call9.i.i112 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i102, ptr noundef null) #11
   %call10.i.i113 = call i32 @qemu_get_thread_id() #11
   %110 = load i64, ptr %_now.i.i102, align 8
-  %tv_usec.i.i114 = getelementptr inbounds %struct.timeval, ptr %_now.i.i102, i64 0, i32 1
+  %tv_usec.i.i114 = getelementptr inbounds i8, ptr %_now.i.i102, i64 8
   %111 = load i64, ptr %tv_usec.i.i114, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i113, i64 noundef %110, i64 noundef %111) #11
   br label %trace_dirty_bitmap_load_success.exit
@@ -2148,7 +2119,7 @@ if.then20:                                        ; preds = %if.end18
 
 if.end24:                                         ; preds = %if.then20
   %0 = load ptr, ptr %call21, align 8
-  %subtree = getelementptr inbounds %struct.AliasMapInnerNode, ptr %call21, i64 0, i32 1
+  %subtree = getelementptr inbounds i8, ptr %call21, i64 8
   %1 = load ptr, ptr %subtree, align 8
   %.pr = load i8, ptr %0, align 1
   br label %if.end26
@@ -2171,7 +2142,7 @@ if.end30:                                         ; preds = %if.end26
 
 for.body34.lr.ph:                                 ; preds = %if.end30
   %tobool43.not = icmp eq ptr %bitmap_aliases.0, null
-  %sqh_last = getelementptr inbounds %struct.anon, ptr %s, i64 0, i32 1
+  %sqh_last = getelementptr inbounds i8, ptr %s, i64 8
   br label %for.body34
 
 for.body34:                                       ; preds = %for.body34.lr.ph, %for.inc106
@@ -2199,9 +2170,9 @@ if.then44:                                        ; preds = %if.end42
   br i1 %tobool46.not, label %for.inc106, label %if.end48
 
 if.end48:                                         ; preds = %if.then44
-  %alias = getelementptr inbounds %struct.BitmapMigrationBitmapAlias, ptr %call45, i64 0, i32 1
+  %alias = getelementptr inbounds i8, ptr %call45, i64 8
   %4 = load ptr, ptr %alias, align 8
-  %transform = getelementptr inbounds %struct.BitmapMigrationBitmapAlias, ptr %call45, i64 0, i32 2
+  %transform = getelementptr inbounds i8, ptr %call45, i64 16
   %5 = load ptr, ptr %transform, align 8
   br label %if.end59
 
@@ -2222,21 +2193,21 @@ if.end59:                                         ; preds = %if.end48, %if.else5
   %call60 = call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #13
   store ptr %bs, ptr %call60, align 8
   %call62 = call noalias ptr @g_strdup(ptr noundef nonnull %node_alias.0) #11
-  %node_alias63 = getelementptr inbounds %struct.SaveBitmapState, ptr %call60, i64 0, i32 1
+  %node_alias63 = getelementptr inbounds i8, ptr %call60, i64 8
   store ptr %call62, ptr %node_alias63, align 8
   %call64 = call noalias ptr @g_strdup(ptr noundef %bitmap_alias.0) #11
-  %bitmap_alias65 = getelementptr inbounds %struct.SaveBitmapState, ptr %call60, i64 0, i32 2
+  %bitmap_alias65 = getelementptr inbounds i8, ptr %call60, i64 16
   store ptr %call64, ptr %bitmap_alias65, align 8
-  %bitmap66 = getelementptr inbounds %struct.SaveBitmapState, ptr %call60, i64 0, i32 3
+  %bitmap66 = getelementptr inbounds i8, ptr %call60, i64 24
   store ptr %bitmap.162, ptr %bitmap66, align 8
   %call67 = call i64 @bdrv_nb_sectors(ptr noundef %bs) #11
-  %total_sectors = getelementptr inbounds %struct.SaveBitmapState, ptr %call60, i64 0, i32 4
+  %total_sectors = getelementptr inbounds i8, ptr %call60, i64 32
   store i64 %call67, ptr %total_sectors, align 8
   %call68 = call i32 @bdrv_dirty_bitmap_granularity(ptr noundef nonnull %bitmap.162) #11
   %shr = lshr i32 %call68, 9
   %conv69 = zext nneg i32 %shr to i64
   %mul = shl nuw nsw i64 %conv69, 13
-  %sectors_per_chunk = getelementptr inbounds %struct.SaveBitmapState, ptr %call60, i64 0, i32 5
+  %sectors_per_chunk = getelementptr inbounds i8, ptr %call60, i64 40
   store i64 %mul, ptr %sectors_per_chunk, align 8
   %cmp71.not = icmp ult i32 %call68, 512
   br i1 %cmp71.not, label %if.else74, label %if.end75
@@ -2250,7 +2221,7 @@ if.end75:                                         ; preds = %if.end59
   br i1 %call76, label %if.then77, label %if.end80
 
 if.then77:                                        ; preds = %if.end75
-  %flags = getelementptr inbounds %struct.SaveBitmapState, ptr %call60, i64 0, i32 7
+  %flags = getelementptr inbounds i8, ptr %call60, i64 56
   %6 = load i8, ptr %flags, align 8
   %7 = or i8 %6, 1
   store i8 %7, ptr %flags, align 8
@@ -2267,7 +2238,7 @@ land.lhs.true:                                    ; preds = %if.end80
   br i1 %tobool82.not, label %if.else92, label %if.then84
 
 if.then84:                                        ; preds = %land.lhs.true
-  %persistent = getelementptr inbounds %struct.BitmapMigrationBitmapAliasTransform, ptr %bitmap_transform.0, i64 0, i32 1
+  %persistent = getelementptr inbounds i8, ptr %bitmap_transform.0, i64 1
   %10 = load i8, ptr %persistent, align 1
   %11 = and i8 %10, 1
   %tobool85.not = icmp eq i8 %11, 0
@@ -2278,14 +2249,14 @@ if.else92:                                        ; preds = %land.lhs.true, %if.
   br i1 %call93, label %do.body.sink.split, label %do.body
 
 do.body.sink.split:                               ; preds = %if.else92, %if.then84
-  %flags95 = getelementptr inbounds %struct.SaveBitmapState, ptr %call60, i64 0, i32 7
+  %flags95 = getelementptr inbounds i8, ptr %call60, i64 56
   %12 = load i8, ptr %flags95, align 8
   %13 = or i8 %12, 2
   store i8 %13, ptr %flags95, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.sink.split, %if.then84, %if.else92
-  %entry101 = getelementptr inbounds %struct.SaveBitmapState, ptr %call60, i64 0, i32 6
+  %entry101 = getelementptr inbounds i8, ptr %call60, i64 48
   store ptr null, ptr %entry101, align 8
   %14 = load ptr, ptr %sqh_last, align 8
   store ptr %call60, ptr %14, align 8
@@ -2348,7 +2319,7 @@ define internal fastcc void @send_bitmap_header(ptr noundef %f, ptr nocapture no
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %dbms, align 8
-  %bitmap2 = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms, i64 0, i32 3
+  %bitmap2 = getelementptr inbounds i8, ptr %dbms, i64 24
   %1 = load ptr, ptr %bitmap2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2374,7 +2345,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8) #11
   br label %trace_send_bitmap_header_enter.exit
@@ -2385,7 +2356,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_send_bitmap_header_enter.exit:              ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %prev_bs = getelementptr inbounds %struct.DBMSaveState, ptr %s, i64 0, i32 3
+  %prev_bs = getelementptr inbounds i8, ptr %s, i64 24
   %9 = load ptr, ptr %prev_bs, align 8
   %cmp.not = icmp eq ptr %0, %9
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2397,7 +2368,7 @@ if.then:                                          ; preds = %trace_send_bitmap_h
 
 if.end:                                           ; preds = %if.then, %trace_send_bitmap_header_enter.exit
   %flags.0 = phi i32 [ %or, %if.then ], [ %additional_flags, %trace_send_bitmap_header_enter.exit ]
-  %prev_bitmap = getelementptr inbounds %struct.DBMSaveState, ptr %s, i64 0, i32 4
+  %prev_bitmap = getelementptr inbounds i8, ptr %s, i64 32
   %10 = load ptr, ptr %prev_bitmap, align 8
   %cmp4.not = icmp eq ptr %1, %10
   br i1 %cmp4.not, label %if.end8, label %if.then5
@@ -2423,7 +2394,7 @@ qemu_put_bitmap_flags.exit:                       ; preds = %if.end8
   br i1 %tobool.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %qemu_put_bitmap_flags.exit
-  %node_alias = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms, i64 0, i32 1
+  %node_alias = getelementptr inbounds i8, ptr %dbms, i64 8
   %11 = load ptr, ptr %node_alias, align 8
   tail call void @qemu_put_counted_string(ptr noundef %f, ptr noundef %11) #11
   br label %if.end10
@@ -2434,7 +2405,7 @@ if.end10:                                         ; preds = %if.then9, %qemu_put
   br i1 %tobool12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
-  %bitmap_alias = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms, i64 0, i32 2
+  %bitmap_alias = getelementptr inbounds i8, ptr %dbms, i64 16
   %12 = load ptr, ptr %bitmap_alias, align 8
   tail call void @qemu_put_counted_string(ptr noundef %f, ptr noundef %12) #11
   br label %if.end14
@@ -2466,23 +2437,23 @@ entry:
   br i1 %tobool.not9, label %for.end, label %while.cond.preheader.lr.ph
 
 while.cond.preheader.lr.ph:                       ; preds = %entry
-  %tv_usec.i.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i.i, i64 0, i32 1
-  %tv_usec.i.i40.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i28.i.i, i64 0, i32 1
+  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
+  %tv_usec.i.i40.i.i = getelementptr inbounds i8, ptr %_now.i.i28.i.i, i64 8
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %while.cond.preheader.lr.ph, %for.inc
   %dbms.010 = phi ptr [ %dbms.08, %while.cond.preheader.lr.ph ], [ %dbms.0, %for.inc ]
-  %bulk_completed = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.010, i64 0, i32 8
+  %bulk_completed = getelementptr inbounds i8, ptr %dbms.010, i64 57
   %0 = load i8, ptr %bulk_completed, align 1
   %1 = and i8 %0, 1
   %tobool1.not7 = icmp eq i8 %1, 0
   br i1 %tobool1.not7, label %while.body.lr.ph, label %for.inc
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %total_sectors.i = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.010, i64 0, i32 4
-  %cur_sector.i = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.010, i64 0, i32 9
-  %sectors_per_chunk.i = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.010, i64 0, i32 5
-  %bitmap.i.i = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.010, i64 0, i32 3
+  %total_sectors.i = getelementptr inbounds i8, ptr %dbms.010, i64 32
+  %cur_sector.i = getelementptr inbounds i8, ptr %dbms.010, i64 64
+  %sectors_per_chunk.i = getelementptr inbounds i8, ptr %dbms.010, i64 40
+  %bitmap.i.i = getelementptr inbounds i8, ptr %dbms.010, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -2625,13 +2596,13 @@ if.end:                                           ; preds = %land.lhs.true, %bul
   br i1 %tobool1.not, label %while.body, label %for.inc, !llvm.loop !22
 
 for.inc:                                          ; preds = %if.end, %while.cond.preheader
-  %entry3 = getelementptr inbounds %struct.SaveBitmapState, ptr %dbms.010, i64 0, i32 6
+  %entry3 = getelementptr inbounds i8, ptr %dbms.010, i64 48
   %dbms.0 = load ptr, ptr %entry3, align 8
   %tobool.not = icmp eq ptr %dbms.0, null
   br i1 %tobool.not, label %for.end, label %while.cond.preheader, !llvm.loop !23
 
 for.end:                                          ; preds = %for.inc, %entry
-  %bulk_completed4 = getelementptr inbounds %struct.DBMSaveState, ptr %s, i64 0, i32 1
+  %bulk_completed4 = getelementptr inbounds i8, ptr %s, i64 16
   store i8 1, ptr %bulk_completed4, align 8
   br label %return
 

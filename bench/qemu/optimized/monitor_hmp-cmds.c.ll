@@ -8,23 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.0 = type { %struct.QTailQLink }
 %struct.QTailQLink = type { ptr, ptr }
 %union.anon.1 = type { %struct.QTailQLink }
-%struct.strList = type { ptr, ptr }
-%struct.VersionTriple = type { i64, i64, i64 }
-%struct.VersionInfo = type { ptr, ptr }
-%struct.InterruptStatsProviderClass = type { %struct.InterfaceClass, ptr, ptr }
-%struct.InterfaceClass = type { %struct.ObjectClass, ptr, ptr }
-%struct.ObjectClass = type { ptr, ptr, [4 x ptr], [4 x ptr], ptr, ptr }
-%struct.IOThreadInfoList = type { ptr, ptr }
-%struct.IOThreadInfo = type { ptr, i64, i64, i64, i64, i64 }
-%struct.MonitorHMP = type { %struct.Monitor, i8, ptr }
-%struct.Monitor = type { %struct.CharBackend, i32, i8, i8, i8, ptr, %union.anon, %struct.QemuMutex, %struct.anon, ptr, i32, i32, i32 }
-%struct.CharBackend = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%union.anon = type { %struct.QTailQLink }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.anon = type { ptr }
 
 @.str = private unnamed_addr constant [8 x i8] c"Error: \00", align 1
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -128,7 +111,7 @@ do.body:                                          ; preds = %entry, %do.body
   %call2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #6
   store ptr %call2, ptr %tail.08, align 8
   %1 = load ptr, ptr %arrayidx10, align 8
-  %value = getelementptr inbounds %struct.strList, ptr %call2, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %1, ptr %value, align 8
   %2 = load ptr, ptr %tail.08, align 8
   %inc = add i32 %i.09, 1
@@ -184,11 +167,11 @@ entry:
   %call = tail call ptr @qmp_query_version(ptr noundef null) #5
   %0 = load ptr, ptr %call, align 8
   %1 = load i64, ptr %0, align 8
-  %minor = getelementptr inbounds %struct.VersionTriple, ptr %0, i64 0, i32 1
+  %minor = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i64, ptr %minor, align 8
-  %micro = getelementptr inbounds %struct.VersionTriple, ptr %0, i64 0, i32 2
+  %micro = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %micro, align 8
-  %package = getelementptr inbounds %struct.VersionInfo, ptr %call, i64 0, i32 1
+  %package = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load ptr, ptr %package, align 8
   %call3 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.4, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) #5
   tail call void @qapi_free_VersionInfo(ptr noundef nonnull %call) #5
@@ -222,7 +205,7 @@ if.then:                                          ; preds = %entry
   %call1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.10, i32 noundef 91, ptr noundef nonnull @__func__.hmp_info_pic_foreach) #5
   %call.i = tail call ptr @object_get_class(ptr noundef %obj) #5
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.61, i32 noundef 10, ptr noundef nonnull @__func__.INTERRUPT_STATS_PROVIDER_GET_CLASS) #5
-  %print_info = getelementptr inbounds %struct.InterruptStatsProviderClass, ptr %call1.i, i64 0, i32 2
+  %print_info = getelementptr inbounds i8, ptr %call1.i, i64 120
   %0 = load ptr, ptr %print_info, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %if.else, label %if.then4
@@ -487,23 +470,23 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %info.015 = phi ptr [ %7, %for.body ], [ %call, %entry ]
-  %value1 = getelementptr inbounds %struct.IOThreadInfoList, ptr %info.015, i64 0, i32 1
+  %value1 = getelementptr inbounds i8, ptr %info.015, i64 8
   %0 = load ptr, ptr %value1, align 8
   %1 = load ptr, ptr %0, align 8
   %call2 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.21, ptr noundef %1) #5
-  %thread_id = getelementptr inbounds %struct.IOThreadInfo, ptr %0, i64 0, i32 1
+  %thread_id = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load i64, ptr %thread_id, align 8
   %call3 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.22, i64 noundef %2) #5
-  %poll_max_ns = getelementptr inbounds %struct.IOThreadInfo, ptr %0, i64 0, i32 2
+  %poll_max_ns = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %poll_max_ns, align 8
   %call4 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.23, i64 noundef %3) #5
-  %poll_grow = getelementptr inbounds %struct.IOThreadInfo, ptr %0, i64 0, i32 3
+  %poll_grow = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %poll_grow, align 8
   %call5 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.24, i64 noundef %4) #5
-  %poll_shrink = getelementptr inbounds %struct.IOThreadInfo, ptr %0, i64 0, i32 4
+  %poll_shrink = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i64, ptr %poll_shrink, align 8
   %call6 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.25, i64 noundef %5) #5
-  %aio_max_batch = getelementptr inbounds %struct.IOThreadInfo, ptr %0, i64 0, i32 5
+  %aio_max_batch = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i64, ptr %aio_max_batch, align 8
   %call7 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.26, i64 noundef %6) #5
   %7 = load ptr, ptr %info.015, align 8
@@ -555,7 +538,7 @@ declare void @qsp_report(i64 noundef, i32 noundef, i1 noundef zeroext) local_unn
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @hmp_info_history(ptr noundef %mon, ptr nocapture noundef readnone %qdict) local_unnamed_addr #0 {
 entry:
-  %rs = getelementptr inbounds %struct.MonitorHMP, ptr %mon, i64 0, i32 2
+  %rs = getelementptr inbounds i8, ptr %mon, i64 176
   %0 = load ptr, ptr %rs, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %for.end, label %for.cond.preheader

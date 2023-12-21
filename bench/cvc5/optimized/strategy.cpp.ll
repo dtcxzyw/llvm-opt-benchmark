@@ -10,164 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl" }
 %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::theory::arith::nl::Interleaving" = type { i64, i64, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::Interleaving::Branch, std::allocator<cvc5::internal::theory::arith::nl::Interleaving::Branch>>::_Vector_impl" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::Interleaving::Branch, std::allocator<cvc5::internal::theory::arith::nl::Interleaving::Branch>>::_Vector_impl" = type { %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::Interleaving::Branch, std::allocator<cvc5::internal::theory::arith::nl::Interleaving::Branch>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::Interleaving::Branch, std::allocator<cvc5::internal::theory::arith::nl::Interleaving::Branch>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cvc5::internal::theory::arith::nl::StepGenerator" = type { ptr, i64 }
-%"class.cvc5::internal::Options" = type { %"class.std::unique_ptr", %"class.std::unique_ptr.7", %"class.std::unique_ptr.15", %"class.std::unique_ptr.23", %"class.std::unique_ptr.31", %"class.std::unique_ptr.39", %"class.std::unique_ptr.47", %"class.std::unique_ptr.55", %"class.std::unique_ptr.63", %"class.std::unique_ptr.71", %"class.std::unique_ptr.79", %"class.std::unique_ptr.87", %"class.std::unique_ptr.95", %"class.std::unique_ptr.103", %"class.std::unique_ptr.111", %"class.std::unique_ptr.119", %"class.std::unique_ptr.127", %"class.std::unique_ptr.135", %"class.std::unique_ptr.143", %"class.std::unique_ptr.151", %"class.std::unique_ptr.159", %"class.std::unique_ptr.167", %"class.std::unique_ptr.175", %"class.std::unique_ptr.183", ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::unique_ptr.191" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.6" }
-%"struct.std::_Head_base.6" = type { ptr }
-%"class.std::unique_ptr.7" = type { %"struct.std::__uniq_ptr_data.8" }
-%"struct.std::__uniq_ptr_data.8" = type { %"class.std::__uniq_ptr_impl.9" }
-%"class.std::__uniq_ptr_impl.9" = type { %"class.std::tuple.10" }
-%"class.std::tuple.10" = type { %"struct.std::_Tuple_impl.11" }
-%"struct.std::_Tuple_impl.11" = type { %"struct.std::_Head_base.14" }
-%"struct.std::_Head_base.14" = type { ptr }
-%"class.std::unique_ptr.15" = type { %"struct.std::__uniq_ptr_data.16" }
-%"struct.std::__uniq_ptr_data.16" = type { %"class.std::__uniq_ptr_impl.17" }
-%"class.std::__uniq_ptr_impl.17" = type { %"class.std::tuple.18" }
-%"class.std::tuple.18" = type { %"struct.std::_Tuple_impl.19" }
-%"struct.std::_Tuple_impl.19" = type { %"struct.std::_Head_base.22" }
-%"struct.std::_Head_base.22" = type { ptr }
-%"class.std::unique_ptr.23" = type { %"struct.std::__uniq_ptr_data.24" }
-%"struct.std::__uniq_ptr_data.24" = type { %"class.std::__uniq_ptr_impl.25" }
-%"class.std::__uniq_ptr_impl.25" = type { %"class.std::tuple.26" }
-%"class.std::tuple.26" = type { %"struct.std::_Tuple_impl.27" }
-%"struct.std::_Tuple_impl.27" = type { %"struct.std::_Head_base.30" }
-%"struct.std::_Head_base.30" = type { ptr }
-%"class.std::unique_ptr.31" = type { %"struct.std::__uniq_ptr_data.32" }
-%"struct.std::__uniq_ptr_data.32" = type { %"class.std::__uniq_ptr_impl.33" }
-%"class.std::__uniq_ptr_impl.33" = type { %"class.std::tuple.34" }
-%"class.std::tuple.34" = type { %"struct.std::_Tuple_impl.35" }
-%"struct.std::_Tuple_impl.35" = type { %"struct.std::_Head_base.38" }
-%"struct.std::_Head_base.38" = type { ptr }
-%"class.std::unique_ptr.39" = type { %"struct.std::__uniq_ptr_data.40" }
-%"struct.std::__uniq_ptr_data.40" = type { %"class.std::__uniq_ptr_impl.41" }
-%"class.std::__uniq_ptr_impl.41" = type { %"class.std::tuple.42" }
-%"class.std::tuple.42" = type { %"struct.std::_Tuple_impl.43" }
-%"struct.std::_Tuple_impl.43" = type { %"struct.std::_Head_base.46" }
-%"struct.std::_Head_base.46" = type { ptr }
-%"class.std::unique_ptr.47" = type { %"struct.std::__uniq_ptr_data.48" }
-%"struct.std::__uniq_ptr_data.48" = type { %"class.std::__uniq_ptr_impl.49" }
-%"class.std::__uniq_ptr_impl.49" = type { %"class.std::tuple.50" }
-%"class.std::tuple.50" = type { %"struct.std::_Tuple_impl.51" }
-%"struct.std::_Tuple_impl.51" = type { %"struct.std::_Head_base.54" }
-%"struct.std::_Head_base.54" = type { ptr }
-%"class.std::unique_ptr.55" = type { %"struct.std::__uniq_ptr_data.56" }
-%"struct.std::__uniq_ptr_data.56" = type { %"class.std::__uniq_ptr_impl.57" }
-%"class.std::__uniq_ptr_impl.57" = type { %"class.std::tuple.58" }
-%"class.std::tuple.58" = type { %"struct.std::_Tuple_impl.59" }
-%"struct.std::_Tuple_impl.59" = type { %"struct.std::_Head_base.62" }
-%"struct.std::_Head_base.62" = type { ptr }
-%"class.std::unique_ptr.63" = type { %"struct.std::__uniq_ptr_data.64" }
-%"struct.std::__uniq_ptr_data.64" = type { %"class.std::__uniq_ptr_impl.65" }
-%"class.std::__uniq_ptr_impl.65" = type { %"class.std::tuple.66" }
-%"class.std::tuple.66" = type { %"struct.std::_Tuple_impl.67" }
-%"struct.std::_Tuple_impl.67" = type { %"struct.std::_Head_base.70" }
-%"struct.std::_Head_base.70" = type { ptr }
-%"class.std::unique_ptr.71" = type { %"struct.std::__uniq_ptr_data.72" }
-%"struct.std::__uniq_ptr_data.72" = type { %"class.std::__uniq_ptr_impl.73" }
-%"class.std::__uniq_ptr_impl.73" = type { %"class.std::tuple.74" }
-%"class.std::tuple.74" = type { %"struct.std::_Tuple_impl.75" }
-%"struct.std::_Tuple_impl.75" = type { %"struct.std::_Head_base.78" }
-%"struct.std::_Head_base.78" = type { ptr }
-%"class.std::unique_ptr.79" = type { %"struct.std::__uniq_ptr_data.80" }
-%"struct.std::__uniq_ptr_data.80" = type { %"class.std::__uniq_ptr_impl.81" }
-%"class.std::__uniq_ptr_impl.81" = type { %"class.std::tuple.82" }
-%"class.std::tuple.82" = type { %"struct.std::_Tuple_impl.83" }
-%"struct.std::_Tuple_impl.83" = type { %"struct.std::_Head_base.86" }
-%"struct.std::_Head_base.86" = type { ptr }
-%"class.std::unique_ptr.87" = type { %"struct.std::__uniq_ptr_data.88" }
-%"struct.std::__uniq_ptr_data.88" = type { %"class.std::__uniq_ptr_impl.89" }
-%"class.std::__uniq_ptr_impl.89" = type { %"class.std::tuple.90" }
-%"class.std::tuple.90" = type { %"struct.std::_Tuple_impl.91" }
-%"struct.std::_Tuple_impl.91" = type { %"struct.std::_Head_base.94" }
-%"struct.std::_Head_base.94" = type { ptr }
-%"class.std::unique_ptr.95" = type { %"struct.std::__uniq_ptr_data.96" }
-%"struct.std::__uniq_ptr_data.96" = type { %"class.std::__uniq_ptr_impl.97" }
-%"class.std::__uniq_ptr_impl.97" = type { %"class.std::tuple.98" }
-%"class.std::tuple.98" = type { %"struct.std::_Tuple_impl.99" }
-%"struct.std::_Tuple_impl.99" = type { %"struct.std::_Head_base.102" }
-%"struct.std::_Head_base.102" = type { ptr }
-%"class.std::unique_ptr.103" = type { %"struct.std::__uniq_ptr_data.104" }
-%"struct.std::__uniq_ptr_data.104" = type { %"class.std::__uniq_ptr_impl.105" }
-%"class.std::__uniq_ptr_impl.105" = type { %"class.std::tuple.106" }
-%"class.std::tuple.106" = type { %"struct.std::_Tuple_impl.107" }
-%"struct.std::_Tuple_impl.107" = type { %"struct.std::_Head_base.110" }
-%"struct.std::_Head_base.110" = type { ptr }
-%"class.std::unique_ptr.111" = type { %"struct.std::__uniq_ptr_data.112" }
-%"struct.std::__uniq_ptr_data.112" = type { %"class.std::__uniq_ptr_impl.113" }
-%"class.std::__uniq_ptr_impl.113" = type { %"class.std::tuple.114" }
-%"class.std::tuple.114" = type { %"struct.std::_Tuple_impl.115" }
-%"struct.std::_Tuple_impl.115" = type { %"struct.std::_Head_base.118" }
-%"struct.std::_Head_base.118" = type { ptr }
-%"class.std::unique_ptr.119" = type { %"struct.std::__uniq_ptr_data.120" }
-%"struct.std::__uniq_ptr_data.120" = type { %"class.std::__uniq_ptr_impl.121" }
-%"class.std::__uniq_ptr_impl.121" = type { %"class.std::tuple.122" }
-%"class.std::tuple.122" = type { %"struct.std::_Tuple_impl.123" }
-%"struct.std::_Tuple_impl.123" = type { %"struct.std::_Head_base.126" }
-%"struct.std::_Head_base.126" = type { ptr }
-%"class.std::unique_ptr.127" = type { %"struct.std::__uniq_ptr_data.128" }
-%"struct.std::__uniq_ptr_data.128" = type { %"class.std::__uniq_ptr_impl.129" }
-%"class.std::__uniq_ptr_impl.129" = type { %"class.std::tuple.130" }
-%"class.std::tuple.130" = type { %"struct.std::_Tuple_impl.131" }
-%"struct.std::_Tuple_impl.131" = type { %"struct.std::_Head_base.134" }
-%"struct.std::_Head_base.134" = type { ptr }
-%"class.std::unique_ptr.135" = type { %"struct.std::__uniq_ptr_data.136" }
-%"struct.std::__uniq_ptr_data.136" = type { %"class.std::__uniq_ptr_impl.137" }
-%"class.std::__uniq_ptr_impl.137" = type { %"class.std::tuple.138" }
-%"class.std::tuple.138" = type { %"struct.std::_Tuple_impl.139" }
-%"struct.std::_Tuple_impl.139" = type { %"struct.std::_Head_base.142" }
-%"struct.std::_Head_base.142" = type { ptr }
-%"class.std::unique_ptr.143" = type { %"struct.std::__uniq_ptr_data.144" }
-%"struct.std::__uniq_ptr_data.144" = type { %"class.std::__uniq_ptr_impl.145" }
-%"class.std::__uniq_ptr_impl.145" = type { %"class.std::tuple.146" }
-%"class.std::tuple.146" = type { %"struct.std::_Tuple_impl.147" }
-%"struct.std::_Tuple_impl.147" = type { %"struct.std::_Head_base.150" }
-%"struct.std::_Head_base.150" = type { ptr }
-%"class.std::unique_ptr.151" = type { %"struct.std::__uniq_ptr_data.152" }
-%"struct.std::__uniq_ptr_data.152" = type { %"class.std::__uniq_ptr_impl.153" }
-%"class.std::__uniq_ptr_impl.153" = type { %"class.std::tuple.154" }
-%"class.std::tuple.154" = type { %"struct.std::_Tuple_impl.155" }
-%"struct.std::_Tuple_impl.155" = type { %"struct.std::_Head_base.158" }
-%"struct.std::_Head_base.158" = type { ptr }
-%"class.std::unique_ptr.159" = type { %"struct.std::__uniq_ptr_data.160" }
-%"struct.std::__uniq_ptr_data.160" = type { %"class.std::__uniq_ptr_impl.161" }
-%"class.std::__uniq_ptr_impl.161" = type { %"class.std::tuple.162" }
-%"class.std::tuple.162" = type { %"struct.std::_Tuple_impl.163" }
-%"struct.std::_Tuple_impl.163" = type { %"struct.std::_Head_base.166" }
-%"struct.std::_Head_base.166" = type { ptr }
-%"class.std::unique_ptr.167" = type { %"struct.std::__uniq_ptr_data.168" }
-%"struct.std::__uniq_ptr_data.168" = type { %"class.std::__uniq_ptr_impl.169" }
-%"class.std::__uniq_ptr_impl.169" = type { %"class.std::tuple.170" }
-%"class.std::tuple.170" = type { %"struct.std::_Tuple_impl.171" }
-%"struct.std::_Tuple_impl.171" = type { %"struct.std::_Head_base.174" }
-%"struct.std::_Head_base.174" = type { ptr }
-%"class.std::unique_ptr.175" = type { %"struct.std::__uniq_ptr_data.176" }
-%"struct.std::__uniq_ptr_data.176" = type { %"class.std::__uniq_ptr_impl.177" }
-%"class.std::__uniq_ptr_impl.177" = type { %"class.std::tuple.178" }
-%"class.std::tuple.178" = type { %"struct.std::_Tuple_impl.179" }
-%"struct.std::_Tuple_impl.179" = type { %"struct.std::_Head_base.182" }
-%"struct.std::_Head_base.182" = type { ptr }
-%"class.std::unique_ptr.183" = type { %"struct.std::__uniq_ptr_data.184" }
-%"struct.std::__uniq_ptr_data.184" = type { %"class.std::__uniq_ptr_impl.185" }
-%"class.std::__uniq_ptr_impl.185" = type { %"class.std::tuple.186" }
-%"class.std::tuple.186" = type { %"struct.std::_Tuple_impl.187" }
-%"struct.std::_Tuple_impl.187" = type { %"struct.std::_Head_base.190" }
-%"struct.std::_Head_base.190" = type { ptr }
-%"class.std::unique_ptr.191" = type { %"struct.std::__uniq_ptr_data.192" }
-%"struct.std::__uniq_ptr_data.192" = type { %"class.std::__uniq_ptr_impl.193" }
-%"class.std::__uniq_ptr_impl.193" = type { %"class.std::tuple.194" }
-%"class.std::tuple.194" = type { %"struct.std::_Tuple_impl.195" }
-%"struct.std::_Tuple_impl.195" = type { %"struct.std::_Head_base.198" }
-%"struct.std::_Head_base.198" = type { ptr }
-%"struct.cvc5::internal::options::HolderARITH" = type <{ i64, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, [3 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i64, i8, [3 x i8], i32, i8, i8, i8, [5 x i8], i64, i8, i8, i8, [5 x i8], i64, i8, i8, i8, [5 x i8], i64, i8, i8, i8, i8, i8, i8, i8, i8, i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i64, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, i8, i8, i8, i8, i8, [3 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, [7 x i8], i64, i8, i8, i8, i8, i8, [3 x i8], i64, i8, i8, i8, [5 x i8], i64, i8, i8, i8, [5 x i8], i64, i8, [3 x i8], i32, i8, i8, i8, i8, i8, i8, i8, i8 }>
 
 $_ZNSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_ = comdat any
 
@@ -233,13 +75,13 @@ invoke.cont:                                      ; preds = %sw.default
           to label %invoke.cont56 unwind label %lpad
 
 invoke.cont56:                                    ; preds = %invoke.cont
-  call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
+  call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   unreachable
 
 lpad:                                             ; preds = %invoke.cont, %sw.default
   %1 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
+  call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
   unreachable
 
 switch.lookup:                                    ; preds = %entry
@@ -265,8 +107,8 @@ declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 der
 define hidden void @_ZN4cvc58internal6theory5arith2nl12Interleaving3addERKSt6vectorINS3_9InferStepESaIS6_EEm(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ss, i64 noundef %constant) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", align 8
-  %d_branches = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::Interleaving", ptr %this, i64 0, i32 2
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %ss, i64 0, i32 1
+  %d_branches = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %ss, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %ss, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -278,9 +120,9 @@ entry:
   br i1 %cmp.not.i.i.i.i, label %invoke.cont.i.thread, label %cond.true.i.i.i.i
 
 invoke.cont.i.thread:                             ; preds = %entry
-  %_M_finish.i.i.i7 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 1
+  %_M_finish.i.i.i7 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %add.ptr.i.i.i8 = getelementptr inbounds i32, ptr null, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i9 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
+  %_M_end_of_storage.i.i.i9 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i8, ptr %_M_end_of_storage.i.i.i9, align 8
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EEC2ERKS7_.exit
@@ -290,16 +132,16 @@ cond.true.i.i.i.i:                                ; preds = %entry
   br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #21
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #20
   unreachable
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i6.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #22
+  %call5.i.i.i.i2.i6.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #21
   store ptr %call5.i.i.i.i2.i6.i, ptr %ref.tmp, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr %call5.i.i.i.i2.i6.i, ptr %_M_finish.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i6.i, i64 %sub.ptr.div.i.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %ref.tmp, i64 0, i32 2
+  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i6.i, ptr align 4 %1, i64 %sub.ptr.sub.i.i, i1 false)
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EEC2ERKS7_.exit
@@ -309,25 +151,25 @@ _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EEC2ERKS7_.exit: ; 
   %_M_finish.i.i.i11 = phi ptr [ %_M_finish.i.i.i7, %invoke.cont.i.thread ], [ %_M_finish.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %cond.i.i.i.i10 = phi ptr [ null, %invoke.cont.i.thread ], [ %call5.i.i.i.i2.i6.i, %if.then.i.i.i.i.i.i.i.i.i ]
   store ptr %2, ptr %_M_finish.i.i.i11, align 8
-  %d_interleavingConstant = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %ref.tmp, i64 0, i32 1
+  %d_interleavingConstant = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i64 %constant, ptr %d_interleavingConstant, align 8
-  %_M_finish.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::Interleaving", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::Interleaving", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 32
   %4 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %3, %4
   br i1 %cmp.not.i, label %if.else.i, label %invoke.cont.thread
 
 invoke.cont.thread:                               ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EEC2ERKS7_.exit
   store ptr %cond.i.i.i.i10, ptr %3, align 8
-  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %3, i64 0, i32 1
+  %_M_finish.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %2, ptr %_M_finish.i.i.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %3, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i, align 8
-  %d_interleavingConstant.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %3, i64 0, i32 1
+  %d_interleavingConstant.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %constant, ptr %d_interleavingConstant.i.i.i.i, align 8
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %5, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZN4cvc58internal6theory5arith2nl12Interleaving6BranchD2Ev.exit
 
@@ -341,11 +183,11 @@ invoke.cont:                                      ; preds = %if.else.i
   br i1 %tobool.not.i.i.i.i, label %_ZN4cvc58internal6theory5arith2nl12Interleaving6BranchD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont
-  call void @_ZdlPv(ptr noundef nonnull %.pre) #23
+  call void @_ZdlPv(ptr noundef nonnull %.pre) #22
   br label %_ZN4cvc58internal6theory5arith2nl12Interleaving6BranchD2Ev.exit
 
 _ZN4cvc58internal6theory5arith2nl12Interleaving6BranchD2Ev.exit: ; preds = %invoke.cont.thread, %invoke.cont, %if.then.i.i.i.i
-  %d_size = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::Interleaving", ptr %this, i64 0, i32 1
+  %d_size = getelementptr inbounds i8, ptr %this, i64 8
   %6 = load i64, ptr %d_size, align 8
   %add = add i64 %6, %constant
   store i64 %add, ptr %d_size, align 8
@@ -359,7 +201,7 @@ lpad:                                             ; preds = %if.else.i
   br i1 %tobool.not.i.i.i.i3, label %_ZN4cvc58internal6theory5arith2nl12Interleaving6BranchD2Ev.exit5, label %if.then.i.i.i.i4
 
 if.then.i.i.i.i4:                                 ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %8) #23
+  call void @_ZdlPv(ptr noundef nonnull %8) #22
   br label %_ZN4cvc58internal6theory5arith2nl12Interleaving6BranchD2Ev.exit5
 
 _ZN4cvc58internal6theory5arith2nl12Interleaving6BranchD2Ev.exit5: ; preds = %lpad, %if.then.i.i.i.i4
@@ -378,13 +220,13 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4cvc58internal
 entry:
   %0 = load i64, ptr %this, align 8
   %add = add i64 %0, 1
-  %d_size = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::Interleaving", ptr %this, i64 0, i32 1
+  %d_size = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %d_size, align 8
   %rem = urem i64 %add, %1
   store i64 %rem, ptr %this, align 8
-  %d_branches = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::Interleaving", ptr %this, i64 0, i32 2
+  %d_branches = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %d_branches, align 8
-  %_M_finish.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::Interleaving", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not7 = icmp eq ptr %2, %3
   br i1 %cmp.i.not7, label %return, label %for.body
@@ -392,14 +234,14 @@ entry:
 for.body:                                         ; preds = %entry, %if.end
   %cnt.09 = phi i64 [ %sub, %if.end ], [ %0, %entry ]
   %__begin3.sroa.0.08 = phi ptr [ %incdec.ptr.i, %if.end ], [ %2, %entry ]
-  %d_interleavingConstant = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %__begin3.sroa.0.08, i64 0, i32 1
+  %d_interleavingConstant = getelementptr inbounds i8, ptr %__begin3.sroa.0.08, i64 24
   %4 = load i64, ptr %d_interleavingConstant, align 8
   %cmp = icmp ult i64 %cnt.09, %4
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %for.body
   %sub = sub i64 %cnt.09, %4
-  %incdec.ptr.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %__begin3.sroa.0.08, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.08, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.i.not, label %return, label %for.body
 
@@ -411,9 +253,9 @@ return:                                           ; preds = %for.body, %if.end, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith2nl12Interleaving5emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %d_branches = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::Interleaving", ptr %this, i64 0, i32 2
+  %d_branches = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_branches, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::Interleaving", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %0, %1
   ret i1 %cmp.i.i
@@ -422,10 +264,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith2nl13StepGenerator7hasNextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %d_next = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::StepGenerator", ptr %this, i64 0, i32 1
+  %d_next = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %d_next, align 8
   %1 = load ptr, ptr %this, align 8
-  %_M_finish.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %1, i64 0, i32 1
+  %_M_finish.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %3 = load ptr, ptr %1, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
@@ -440,7 +282,7 @@ entry:
 define hidden noundef i32 @_ZN4cvc58internal6theory5arith2nl13StepGenerator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %d_next = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::StepGenerator", ptr %this, i64 0, i32 1
+  %d_next = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %d_next, align 8
   %inc = add i64 %1, 1
   store i64 %inc, ptr %d_next, align 8
@@ -453,9 +295,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith2nl8Strategy14isStrategyInitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %d_branches.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::Interleaving", ptr %this, i64 0, i32 2
+  %d_branches.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_branches.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::Interleaving", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp ne ptr %0, %1
   ret i1 %cmp.i.i.i
@@ -466,24 +308,24 @@ define hidden void @_ZN4cvc58internal6theory5arith2nl8Strategy18initializeStrate
 entry:
   %one = alloca %"class.std::vector.0", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %one, i8 0, i64 24, i1 false)
-  %arith = getelementptr inbounds %"class.cvc5::internal::Options", ptr %options, i64 0, i32 24
+  %arith = getelementptr inbounds i8, ptr %options, i64 192
   %0 = load ptr, ptr %arith, align 8
-  %nlICP = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %0, i64 0, i32 92
+  %nlICP = getelementptr inbounds i8, ptr %0, i64 183
   %1 = load i8, ptr %nlICP, align 1
   %2 = and i8 %1, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %if.end.thread, label %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i: ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %one, i64 0, i32 1
-  %_M_end_of_storage.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %one, i64 0, i32 2
-  %call5.i.i.i.i.i.i19 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #22
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %one, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %one, i64 16
+  %call5.i.i.i.i.i.i19 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #21
           to label %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i39 unwind label %lpad
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i39: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i
   store i32 11, ptr %call5.i.i.i.i.i.i19, align 4
   store ptr %call5.i.i.i.i.i.i19, ptr %one, align 8
-  %call5.i.i.i.i.i.i55 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
+  %call5.i.i.i.i.i.i55 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %if.end unwind label %lpad
 
 lpad:                                             ; preds = %if.then.i.i.i.i1680.invoke, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1667, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1630, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1593, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1556, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1519, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1482, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1445, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1408, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1371, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1334, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1297, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1260, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1223, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1186, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1149, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1112, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1075, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1038, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1001, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i964, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i927, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i890, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i853, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i816, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i779, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i742, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i705, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i668, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i631, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i594, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i557, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i520, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i483, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i446, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i409, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i372, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i335, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i298, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i261, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i224, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i187, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i150, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i113, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i76, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i39, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i, %if.end151
@@ -494,32 +336,32 @@ lpad:                                             ; preds = %if.then.i.i.i.i1680
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EED2Ev.exit
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i
   resume { ptr, i32 } %3
 
 if.end:                                           ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i39
-  %add.ptr.i.i.i43 = getelementptr inbounds i32, ptr %call5.i.i.i.i.i.i55, i64 1
+  %add.ptr.i.i.i43 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i55, i64 4
   store i32 1, ptr %add.ptr.i.i.i43, align 4
   %5 = load i32, ptr %call5.i.i.i.i.i.i19, align 4
   store i32 %5, ptr %call5.i.i.i.i.i.i55, align 4
-  %incdec.ptr.i.i.i46 = getelementptr inbounds i32, ptr %call5.i.i.i.i.i.i55, i64 2
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i19) #23
+  %incdec.ptr.i.i.i46 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i55, i64 8
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i19) #22
   %.pre.pre = load ptr, ptr %arith, align 8
   store ptr %call5.i.i.i.i.i.i55, ptr %one, align 8
   store ptr %incdec.ptr.i.i.i46, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i50 = getelementptr inbounds i32, ptr %call5.i.i.i.i.i.i55, i64 2
+  %add.ptr19.i.i.i50 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i55, i64 8
   store ptr %add.ptr19.i.i.i50, ptr %_M_end_of_storage.i.i, align 8
-  %nlExt = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %.pre.pre, i64 0, i32 67
+  %nlExt = getelementptr inbounds i8, ptr %.pre.pre, i64 148
   %6 = load i32, ptr %nlExt, align 4
   %.off = add i32 %6, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %if.else.i.i62, label %if.end13
 
 if.end.thread:                                    ; preds = %entry
-  %nlExt1727 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %0, i64 0, i32 67
+  %nlExt1727 = getelementptr inbounds i8, ptr %0, i64 148
   %7 = load i32, ptr %nlExt1727, align 4
   %.off1728 = add i32 %7, -1
   %switch1729 = icmp ult i32 %.off1728, 2
@@ -528,8 +370,8 @@ if.end.thread:                                    ; preds = %entry
 if.else.i.i62:                                    ; preds = %if.end, %if.end.thread
   %8 = phi ptr [ null, %if.end.thread ], [ %call5.i.i.i.i.i.i55, %if.end ]
   %9 = phi ptr [ null, %if.end.thread ], [ %add.ptr19.i.i.i50, %if.end ]
-  %_M_finish.i.i57 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %one, i64 0, i32 1
-  %_M_end_of_storage.i.i58 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %one, i64 0, i32 2
+  %_M_finish.i.i57 = getelementptr inbounds i8, ptr %one, i64 8
+  %_M_end_of_storage.i.i58 = getelementptr inbounds i8, ptr %one, i64 16
   %sub.ptr.lhs.cast.i.i.i.i.i63 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i64 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i.i65 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i63, %sub.ptr.rhs.cast.i.i.i.i.i64
@@ -549,7 +391,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i76: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i67
   %mul.i.i.i.i.i.i77 = shl nuw nsw i64 %cond.i.i.i.i74, 2
-  %call5.i.i.i.i.i.i92 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i77) #22
+  %call5.i.i.i.i.i.i92 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i77) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i78 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i78: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i76, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i67
@@ -564,12 +406,12 @@ if.then.i.i.i12.i.i.i88:                          ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i82
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i82: ; preds = %if.then.i.i.i12.i.i.i88, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i78
-  %incdec.ptr.i.i.i83 = getelementptr inbounds i32, ptr %add.ptr.i.i.i80, i64 1
+  %incdec.ptr.i.i.i83 = getelementptr inbounds i8, ptr %add.ptr.i.i.i80, i64 4
   %tobool.not.i.i.i.i84 = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i.i84, label %invoke.cont9, label %if.then.i21.i.i.i85
 
 if.then.i21.i.i.i85:                              ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i82
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #22
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i82, %if.then.i21.i.i.i85
@@ -583,7 +425,7 @@ invoke.cont9:                                     ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i97:                                    ; preds = %invoke.cont9
   store i32 1, ptr %incdec.ptr.i.i.i83, align 4
   %10 = load ptr, ptr %_M_finish.i.i57, align 8
-  %incdec.ptr.i.i98 = getelementptr inbounds i32, ptr %10, i64 1
+  %incdec.ptr.i.i98 = getelementptr inbounds i8, ptr %10, i64 4
   store ptr %incdec.ptr.i.i98, ptr %_M_finish.i.i57, align 8
   br label %if.end13
 
@@ -608,7 +450,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i113: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i104
   %mul.i.i.i.i.i.i114 = shl nuw nsw i64 %cond.i.i.i.i111, 2
-  %call5.i.i.i.i.i.i129 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i114) #22
+  %call5.i.i.i.i.i.i129 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i114) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i115 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i115: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i113, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i104
@@ -623,12 +465,12 @@ if.then.i.i.i12.i.i.i125:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i119
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i119: ; preds = %if.then.i.i.i12.i.i.i125, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i115
-  %incdec.ptr.i.i.i120 = getelementptr inbounds i32, ptr %add.ptr.i.i.i117, i64 1
+  %incdec.ptr.i.i.i120 = getelementptr inbounds i8, ptr %add.ptr.i.i.i117, i64 4
   %tobool.not.i.i.i.i121 = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i121, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i123, label %if.then.i21.i.i.i122
 
 if.then.i21.i.i.i122:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i119
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %11) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i123
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i123: ; preds = %if.then.i21.i.i.i122, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i119
@@ -641,14 +483,14 @@ _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_inse
 if.end13:                                         ; preds = %if.end.thread, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i123, %if.then.i.i97, %if.end
   %12 = phi ptr [ %incdec.ptr.i.i.i120, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i123 ], [ %incdec.ptr.i.i98, %if.then.i.i97 ], [ %incdec.ptr.i.i.i46, %if.end ], [ null, %if.end.thread ]
   %13 = load ptr, ptr %arith, align 8
-  %nlExt15 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %13, i64 0, i32 67
+  %nlExt15 = getelementptr inbounds i8, ptr %13, i64 148
   %14 = load i32, ptr %nlExt15, align 4
   %cmp16 = icmp eq i32 %14, 2
   br i1 %cmp16, label %if.then17, label %if.end34
 
 if.then17:                                        ; preds = %if.end13
-  %_M_finish.i.i131 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %one, i64 0, i32 1
-  %_M_end_of_storage.i.i132 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %one, i64 0, i32 2
+  %_M_finish.i.i131 = getelementptr inbounds i8, ptr %one, i64 8
+  %_M_end_of_storage.i.i132 = getelementptr inbounds i8, ptr %one, i64 16
   %15 = load ptr, ptr %_M_end_of_storage.i.i132, align 8
   %cmp.not.i.i133 = icmp eq ptr %12, %15
   br i1 %cmp.not.i.i133, label %if.else.i.i136, label %if.then.i.i134
@@ -656,7 +498,7 @@ if.then17:                                        ; preds = %if.end13
 if.then.i.i134:                                   ; preds = %if.then17
   store i32 23, ptr %12, align 4
   %16 = load ptr, ptr %_M_finish.i.i131, align 8
-  %incdec.ptr.i.i135 = getelementptr inbounds i32, ptr %16, i64 1
+  %incdec.ptr.i.i135 = getelementptr inbounds i8, ptr %16, i64 4
   store ptr %incdec.ptr.i.i135, ptr %_M_finish.i.i131, align 8
   %.pre1689 = load ptr, ptr %_M_end_of_storage.i.i132, align 8
   br label %invoke.cont18
@@ -682,7 +524,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i150: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i141
   %mul.i.i.i.i.i.i151 = shl nuw nsw i64 %cond.i.i.i.i148, 2
-  %call5.i.i.i.i.i.i166 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i151) #22
+  %call5.i.i.i.i.i.i166 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i151) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i152 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i152: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i150, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i141
@@ -697,12 +539,12 @@ if.then.i.i.i12.i.i.i162:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i156
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i156: ; preds = %if.then.i.i.i12.i.i.i162, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i152
-  %incdec.ptr.i.i.i157 = getelementptr inbounds i32, ptr %add.ptr.i.i.i154, i64 1
+  %incdec.ptr.i.i.i157 = getelementptr inbounds i8, ptr %add.ptr.i.i.i154, i64 4
   %tobool.not.i.i.i.i158 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i158, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i160, label %if.then.i21.i.i.i159
 
 if.then.i21.i.i.i159:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i156
-  tail call void @_ZdlPv(ptr noundef nonnull %17) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %17) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i160
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i160: ; preds = %if.then.i21.i.i.i159, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i156
@@ -721,7 +563,7 @@ invoke.cont18:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i171:                                   ; preds = %invoke.cont18
   store i32 1, ptr %19, align 4
   %20 = load ptr, ptr %_M_finish.i.i131, align 8
-  %incdec.ptr.i.i172 = getelementptr inbounds i32, ptr %20, i64 1
+  %incdec.ptr.i.i172 = getelementptr inbounds i8, ptr %20, i64 4
   store ptr %incdec.ptr.i.i172, ptr %_M_finish.i.i131, align 8
   %.pre1692.pre = load ptr, ptr %_M_end_of_storage.i.i132, align 8
   br label %invoke.cont20
@@ -747,7 +589,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i187: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i178
   %mul.i.i.i.i.i.i188 = shl nuw nsw i64 %cond.i.i.i.i185, 2
-  %call5.i.i.i.i.i.i203 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i188) #22
+  %call5.i.i.i.i.i.i203 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i188) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i189 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i189: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i187, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i178
@@ -762,12 +604,12 @@ if.then.i.i.i12.i.i.i199:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i193
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i193: ; preds = %if.then.i.i.i12.i.i.i199, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i189
-  %incdec.ptr.i.i.i194 = getelementptr inbounds i32, ptr %add.ptr.i.i.i191, i64 1
+  %incdec.ptr.i.i.i194 = getelementptr inbounds i8, ptr %add.ptr.i.i.i191, i64 4
   %tobool.not.i.i.i.i195 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i.i195, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i197, label %if.then.i21.i.i.i196
 
 if.then.i21.i.i.i196:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i193
-  tail call void @_ZdlPv(ptr noundef nonnull %21) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %21) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i197
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i197: ; preds = %if.then.i21.i.i.i196, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i193
@@ -781,7 +623,7 @@ invoke.cont20:                                    ; preds = %_ZNSt6vectorIN4cvc5
   %.pre1692 = phi ptr [ %add.ptr19.i.i.i198, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i197 ], [ %.pre1692.pre, %if.then.i.i171 ]
   %22 = phi ptr [ %incdec.ptr.i.i.i194, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i197 ], [ %incdec.ptr.i.i172, %if.then.i.i171 ]
   %23 = load ptr, ptr %arith, align 8
-  %nlExtSplitZero = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %23, i64 0, i32 81
+  %nlExtSplitZero = getelementptr inbounds i8, ptr %23, i64 165
   %24 = load i8, ptr %nlExtSplitZero, align 1
   %25 = and i8 %24, 1
   %tobool23.not = icmp eq i8 %25, 0
@@ -794,7 +636,7 @@ if.then24:                                        ; preds = %invoke.cont20
 if.then.i.i208:                                   ; preds = %if.then24
   store i32 20, ptr %22, align 4
   %26 = load ptr, ptr %_M_finish.i.i131, align 8
-  %incdec.ptr.i.i209 = getelementptr inbounds i32, ptr %26, i64 1
+  %incdec.ptr.i.i209 = getelementptr inbounds i8, ptr %26, i64 4
   store ptr %incdec.ptr.i.i209, ptr %_M_finish.i.i131, align 8
   %.pre1690 = load ptr, ptr %_M_end_of_storage.i.i132, align 8
   br label %invoke.cont25
@@ -820,7 +662,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i224: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i215
   %mul.i.i.i.i.i.i225 = shl nuw nsw i64 %cond.i.i.i.i222, 2
-  %call5.i.i.i.i.i.i240 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i225) #22
+  %call5.i.i.i.i.i.i240 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i225) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i226 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i226: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i224, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i215
@@ -835,12 +677,12 @@ if.then.i.i.i12.i.i.i236:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i230
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i230: ; preds = %if.then.i.i.i12.i.i.i236, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i226
-  %incdec.ptr.i.i.i231 = getelementptr inbounds i32, ptr %add.ptr.i.i.i228, i64 1
+  %incdec.ptr.i.i.i231 = getelementptr inbounds i8, ptr %add.ptr.i.i.i228, i64 4
   %tobool.not.i.i.i.i232 = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i.i232, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i234, label %if.then.i21.i.i.i233
 
 if.then.i21.i.i.i233:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i230
-  tail call void @_ZdlPv(ptr noundef nonnull %27) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %27) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i234
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i234: ; preds = %if.then.i21.i.i.i233, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i230
@@ -859,7 +701,7 @@ invoke.cont25:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i245:                                   ; preds = %invoke.cont25
   store i32 1, ptr %29, align 4
   %30 = load ptr, ptr %_M_finish.i.i131, align 8
-  %incdec.ptr.i.i246 = getelementptr inbounds i32, ptr %30, i64 1
+  %incdec.ptr.i.i246 = getelementptr inbounds i8, ptr %30, i64 4
   store ptr %incdec.ptr.i.i246, ptr %_M_finish.i.i131, align 8
   %.pre1691 = load ptr, ptr %_M_end_of_storage.i.i132, align 8
   br label %if.end29
@@ -885,7 +727,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i261: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i252
   %mul.i.i.i.i.i.i262 = shl nuw nsw i64 %cond.i.i.i.i259, 2
-  %call5.i.i.i.i.i.i277 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i262) #22
+  %call5.i.i.i.i.i.i277 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i262) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i263 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i263: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i261, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i252
@@ -900,12 +742,12 @@ if.then.i.i.i12.i.i.i273:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i267
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i267: ; preds = %if.then.i.i.i12.i.i.i273, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i263
-  %incdec.ptr.i.i.i268 = getelementptr inbounds i32, ptr %add.ptr.i.i.i265, i64 1
+  %incdec.ptr.i.i.i268 = getelementptr inbounds i8, ptr %add.ptr.i.i.i265, i64 4
   %tobool.not.i.i.i.i269 = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i.i269, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i271, label %if.then.i21.i.i.i270
 
 if.then.i21.i.i.i270:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i267
-  tail call void @_ZdlPv(ptr noundef nonnull %31) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %31) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i271
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i271: ; preds = %if.then.i21.i.i.i270, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i267
@@ -924,7 +766,7 @@ if.end29:                                         ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i282:                                   ; preds = %if.end29
   store i32 24, ptr %33, align 4
   %34 = load ptr, ptr %_M_finish.i.i131, align 8
-  %incdec.ptr.i.i283 = getelementptr inbounds i32, ptr %34, i64 1
+  %incdec.ptr.i.i283 = getelementptr inbounds i8, ptr %34, i64 4
   store ptr %incdec.ptr.i.i283, ptr %_M_finish.i.i131, align 8
   %.pre1693 = load ptr, ptr %_M_end_of_storage.i.i132, align 8
   br label %invoke.cont30
@@ -950,7 +792,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i298: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i289
   %mul.i.i.i.i.i.i299 = shl nuw nsw i64 %cond.i.i.i.i296, 2
-  %call5.i.i.i.i.i.i314 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i299) #22
+  %call5.i.i.i.i.i.i314 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i299) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i300 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i300: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i298, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i289
@@ -965,12 +807,12 @@ if.then.i.i.i12.i.i.i310:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i304
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i304: ; preds = %if.then.i.i.i12.i.i.i310, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i300
-  %incdec.ptr.i.i.i305 = getelementptr inbounds i32, ptr %add.ptr.i.i.i302, i64 1
+  %incdec.ptr.i.i.i305 = getelementptr inbounds i8, ptr %add.ptr.i.i.i302, i64 4
   %tobool.not.i.i.i.i306 = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i.i306, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i308, label %if.then.i21.i.i.i307
 
 if.then.i21.i.i.i307:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i304
-  tail call void @_ZdlPv(ptr noundef nonnull %35) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %35) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i308
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i308: ; preds = %if.then.i21.i.i.i307, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i304
@@ -989,7 +831,7 @@ invoke.cont30:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i319:                                   ; preds = %invoke.cont30
   store i32 1, ptr %37, align 4
   %38 = load ptr, ptr %_M_finish.i.i131, align 8
-  %incdec.ptr.i.i320 = getelementptr inbounds i32, ptr %38, i64 1
+  %incdec.ptr.i.i320 = getelementptr inbounds i8, ptr %38, i64 4
   store ptr %incdec.ptr.i.i320, ptr %_M_finish.i.i131, align 8
   br label %if.end34
 
@@ -1014,7 +856,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i335: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i326
   %mul.i.i.i.i.i.i336 = shl nuw nsw i64 %cond.i.i.i.i333, 2
-  %call5.i.i.i.i.i.i351 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i336) #22
+  %call5.i.i.i.i.i.i351 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i336) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i337 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i337: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i335, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i326
@@ -1029,12 +871,12 @@ if.then.i.i.i12.i.i.i347:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i341
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i341: ; preds = %if.then.i.i.i12.i.i.i347, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i337
-  %incdec.ptr.i.i.i342 = getelementptr inbounds i32, ptr %add.ptr.i.i.i339, i64 1
+  %incdec.ptr.i.i.i342 = getelementptr inbounds i8, ptr %add.ptr.i.i.i339, i64 4
   %tobool.not.i.i.i.i343 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i.i.i343, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i345, label %if.then.i21.i.i.i344
 
 if.then.i21.i.i.i344:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i341
-  tail call void @_ZdlPv(ptr noundef nonnull %39) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %39) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i345
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i345: ; preds = %if.then.i21.i.i.i344, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i341
@@ -1046,8 +888,8 @@ _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_inse
 
 if.end34:                                         ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i345, %if.then.i.i319, %if.end13
   %40 = phi ptr [ %incdec.ptr.i.i.i342, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i345 ], [ %incdec.ptr.i.i320, %if.then.i.i319 ], [ %12, %if.end13 ]
-  %_M_finish.i.i353 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %one, i64 0, i32 1
-  %_M_end_of_storage.i.i354 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %one, i64 0, i32 2
+  %_M_finish.i.i353 = getelementptr inbounds i8, ptr %one, i64 8
+  %_M_end_of_storage.i.i354 = getelementptr inbounds i8, ptr %one, i64 16
   %41 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   %cmp.not.i.i355 = icmp eq ptr %40, %41
   br i1 %cmp.not.i.i355, label %if.else.i.i358, label %if.then.i.i356
@@ -1055,7 +897,7 @@ if.end34:                                         ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i356:                                   ; preds = %if.end34
   store i32 5, ptr %40, align 4
   %42 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i357 = getelementptr inbounds i32, ptr %42, i64 1
+  %incdec.ptr.i.i357 = getelementptr inbounds i8, ptr %42, i64 4
   store ptr %incdec.ptr.i.i357, ptr %_M_finish.i.i353, align 8
   %.pre1694 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont35
@@ -1081,7 +923,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i372: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i363
   %mul.i.i.i.i.i.i373 = shl nuw nsw i64 %cond.i.i.i.i370, 2
-  %call5.i.i.i.i.i.i388 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i373) #22
+  %call5.i.i.i.i.i.i388 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i373) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i374 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i374: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i372, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i363
@@ -1096,12 +938,12 @@ if.then.i.i.i12.i.i.i384:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i378
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i378: ; preds = %if.then.i.i.i12.i.i.i384, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i374
-  %incdec.ptr.i.i.i379 = getelementptr inbounds i32, ptr %add.ptr.i.i.i376, i64 1
+  %incdec.ptr.i.i.i379 = getelementptr inbounds i8, ptr %add.ptr.i.i.i376, i64 4
   %tobool.not.i.i.i.i380 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i.i.i380, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i382, label %if.then.i21.i.i.i381
 
 if.then.i21.i.i.i381:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i378
-  tail call void @_ZdlPv(ptr noundef nonnull %43) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %43) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i382
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i382: ; preds = %if.then.i21.i.i.i381, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i378
@@ -1120,7 +962,7 @@ invoke.cont35:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i393:                                   ; preds = %invoke.cont35
   store i32 7, ptr %45, align 4
   %46 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i394 = getelementptr inbounds i32, ptr %46, i64 1
+  %incdec.ptr.i.i394 = getelementptr inbounds i8, ptr %46, i64 4
   store ptr %incdec.ptr.i.i394, ptr %_M_finish.i.i353, align 8
   %.pre1695 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont37
@@ -1146,7 +988,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i409: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i400
   %mul.i.i.i.i.i.i410 = shl nuw nsw i64 %cond.i.i.i.i407, 2
-  %call5.i.i.i.i.i.i425 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i410) #22
+  %call5.i.i.i.i.i.i425 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i410) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i411 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i411: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i409, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i400
@@ -1161,12 +1003,12 @@ if.then.i.i.i12.i.i.i421:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i415
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i415: ; preds = %if.then.i.i.i12.i.i.i421, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i411
-  %incdec.ptr.i.i.i416 = getelementptr inbounds i32, ptr %add.ptr.i.i.i413, i64 1
+  %incdec.ptr.i.i.i416 = getelementptr inbounds i8, ptr %add.ptr.i.i.i413, i64 4
   %tobool.not.i.i.i.i417 = icmp eq ptr %47, null
   br i1 %tobool.not.i.i.i.i417, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i419, label %if.then.i21.i.i.i418
 
 if.then.i21.i.i.i418:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i415
-  tail call void @_ZdlPv(ptr noundef nonnull %47) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %47) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i419
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i419: ; preds = %if.then.i21.i.i.i418, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i415
@@ -1185,7 +1027,7 @@ invoke.cont37:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i430:                                   ; preds = %invoke.cont37
   store i32 1, ptr %49, align 4
   %50 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i431 = getelementptr inbounds i32, ptr %50, i64 1
+  %incdec.ptr.i.i431 = getelementptr inbounds i8, ptr %50, i64 4
   store ptr %incdec.ptr.i.i431, ptr %_M_finish.i.i353, align 8
   %.pre1696 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont39
@@ -1211,7 +1053,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i446: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i437
   %mul.i.i.i.i.i.i447 = shl nuw nsw i64 %cond.i.i.i.i444, 2
-  %call5.i.i.i.i.i.i462 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i447) #22
+  %call5.i.i.i.i.i.i462 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i447) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i448 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i448: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i446, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i437
@@ -1226,12 +1068,12 @@ if.then.i.i.i12.i.i.i458:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i452
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i452: ; preds = %if.then.i.i.i12.i.i.i458, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i448
-  %incdec.ptr.i.i.i453 = getelementptr inbounds i32, ptr %add.ptr.i.i.i450, i64 1
+  %incdec.ptr.i.i.i453 = getelementptr inbounds i8, ptr %add.ptr.i.i.i450, i64 4
   %tobool.not.i.i.i.i454 = icmp eq ptr %51, null
   br i1 %tobool.not.i.i.i.i454, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i456, label %if.then.i21.i.i.i455
 
 if.then.i21.i.i.i455:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i452
-  tail call void @_ZdlPv(ptr noundef nonnull %51) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %51) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i456
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i456: ; preds = %if.then.i21.i.i.i455, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i452
@@ -1250,7 +1092,7 @@ invoke.cont39:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i467:                                   ; preds = %invoke.cont39
   store i32 8, ptr %53, align 4
   %54 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i468 = getelementptr inbounds i32, ptr %54, i64 1
+  %incdec.ptr.i.i468 = getelementptr inbounds i8, ptr %54, i64 4
   store ptr %incdec.ptr.i.i468, ptr %_M_finish.i.i353, align 8
   %.pre1697 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont41
@@ -1276,7 +1118,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i483: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i474
   %mul.i.i.i.i.i.i484 = shl nuw nsw i64 %cond.i.i.i.i481, 2
-  %call5.i.i.i.i.i.i499 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i484) #22
+  %call5.i.i.i.i.i.i499 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i484) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i485 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i485: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i483, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i474
@@ -1291,12 +1133,12 @@ if.then.i.i.i12.i.i.i495:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i489
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i489: ; preds = %if.then.i.i.i12.i.i.i495, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i485
-  %incdec.ptr.i.i.i490 = getelementptr inbounds i32, ptr %add.ptr.i.i.i487, i64 1
+  %incdec.ptr.i.i.i490 = getelementptr inbounds i8, ptr %add.ptr.i.i.i487, i64 4
   %tobool.not.i.i.i.i491 = icmp eq ptr %55, null
   br i1 %tobool.not.i.i.i.i491, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i493, label %if.then.i21.i.i.i492
 
 if.then.i21.i.i.i492:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i489
-  tail call void @_ZdlPv(ptr noundef nonnull %55) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %55) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i493
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i493: ; preds = %if.then.i21.i.i.i492, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i489
@@ -1315,7 +1157,7 @@ invoke.cont41:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i504:                                   ; preds = %invoke.cont41
   store i32 10, ptr %57, align 4
   %58 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i505 = getelementptr inbounds i32, ptr %58, i64 1
+  %incdec.ptr.i.i505 = getelementptr inbounds i8, ptr %58, i64 4
   store ptr %incdec.ptr.i.i505, ptr %_M_finish.i.i353, align 8
   %.pre1698 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont43
@@ -1341,7 +1183,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i520: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i511
   %mul.i.i.i.i.i.i521 = shl nuw nsw i64 %cond.i.i.i.i518, 2
-  %call5.i.i.i.i.i.i536 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i521) #22
+  %call5.i.i.i.i.i.i536 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i521) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i522 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i522: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i520, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i511
@@ -1356,12 +1198,12 @@ if.then.i.i.i12.i.i.i532:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i526
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i526: ; preds = %if.then.i.i.i12.i.i.i532, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i522
-  %incdec.ptr.i.i.i527 = getelementptr inbounds i32, ptr %add.ptr.i.i.i524, i64 1
+  %incdec.ptr.i.i.i527 = getelementptr inbounds i8, ptr %add.ptr.i.i.i524, i64 4
   %tobool.not.i.i.i.i528 = icmp eq ptr %59, null
   br i1 %tobool.not.i.i.i.i528, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i530, label %if.then.i21.i.i.i529
 
 if.then.i21.i.i.i529:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i526
-  tail call void @_ZdlPv(ptr noundef nonnull %59) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %59) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i530
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i530: ; preds = %if.then.i21.i.i.i529, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i526
@@ -1380,7 +1222,7 @@ invoke.cont43:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i541:                                   ; preds = %invoke.cont43
   store i32 1, ptr %61, align 4
   %62 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i542 = getelementptr inbounds i32, ptr %62, i64 1
+  %incdec.ptr.i.i542 = getelementptr inbounds i8, ptr %62, i64 4
   store ptr %incdec.ptr.i.i542, ptr %_M_finish.i.i353, align 8
   %.pre1715.pre1724.pre = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont45
@@ -1406,7 +1248,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i557: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i548
   %mul.i.i.i.i.i.i558 = shl nuw nsw i64 %cond.i.i.i.i555, 2
-  %call5.i.i.i.i.i.i573 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i558) #22
+  %call5.i.i.i.i.i.i573 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i558) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i559 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i559: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i557, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i548
@@ -1421,12 +1263,12 @@ if.then.i.i.i12.i.i.i569:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i563
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i563: ; preds = %if.then.i.i.i12.i.i.i569, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i559
-  %incdec.ptr.i.i.i564 = getelementptr inbounds i32, ptr %add.ptr.i.i.i561, i64 1
+  %incdec.ptr.i.i.i564 = getelementptr inbounds i8, ptr %add.ptr.i.i.i561, i64 4
   %tobool.not.i.i.i.i565 = icmp eq ptr %63, null
   br i1 %tobool.not.i.i.i.i565, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i567, label %if.then.i21.i.i.i566
 
 if.then.i21.i.i.i566:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i563
-  tail call void @_ZdlPv(ptr noundef nonnull %63) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %63) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i567
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i567: ; preds = %if.then.i21.i.i.i566, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i563
@@ -1440,7 +1282,7 @@ invoke.cont45:                                    ; preds = %_ZNSt6vectorIN4cvc5
   %.pre1715.pre1724 = phi ptr [ %add.ptr19.i.i.i568, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i567 ], [ %.pre1715.pre1724.pre, %if.then.i.i541 ]
   %64 = phi ptr [ %incdec.ptr.i.i.i564, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i567 ], [ %incdec.ptr.i.i542, %if.then.i.i541 ]
   %65 = load ptr, ptr %arith, align 8
-  %nlExt48 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %65, i64 0, i32 67
+  %nlExt48 = getelementptr inbounds i8, ptr %65, i64 148
   %66 = load i32, ptr %nlExt48, align 4
   %.off17 = add i32 %66, -1
   %switch18 = icmp ult i32 %.off17, 2
@@ -1453,7 +1295,7 @@ if.then54:                                        ; preds = %invoke.cont45
 if.then.i.i578:                                   ; preds = %if.then54
   store i32 18, ptr %64, align 4
   %67 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i579 = getelementptr inbounds i32, ptr %67, i64 1
+  %incdec.ptr.i.i579 = getelementptr inbounds i8, ptr %67, i64 4
   store ptr %incdec.ptr.i.i579, ptr %_M_finish.i.i353, align 8
   %.pre1699 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont55
@@ -1479,7 +1321,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i594: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i585
   %mul.i.i.i.i.i.i595 = shl nuw nsw i64 %cond.i.i.i.i592, 2
-  %call5.i.i.i.i.i.i610 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i595) #22
+  %call5.i.i.i.i.i.i610 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i595) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i596 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i596: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i594, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i585
@@ -1494,12 +1336,12 @@ if.then.i.i.i12.i.i.i606:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i600
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i600: ; preds = %if.then.i.i.i12.i.i.i606, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i596
-  %incdec.ptr.i.i.i601 = getelementptr inbounds i32, ptr %add.ptr.i.i.i598, i64 1
+  %incdec.ptr.i.i.i601 = getelementptr inbounds i8, ptr %add.ptr.i.i.i598, i64 4
   %tobool.not.i.i.i.i602 = icmp eq ptr %68, null
   br i1 %tobool.not.i.i.i.i602, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i604, label %if.then.i21.i.i.i603
 
 if.then.i21.i.i.i603:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i600
-  tail call void @_ZdlPv(ptr noundef nonnull %68) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %68) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i604
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i604: ; preds = %if.then.i21.i.i.i603, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i600
@@ -1518,7 +1360,7 @@ invoke.cont55:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i615:                                   ; preds = %invoke.cont55
   store i32 1, ptr %70, align 4
   %71 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i616 = getelementptr inbounds i32, ptr %71, i64 1
+  %incdec.ptr.i.i616 = getelementptr inbounds i8, ptr %71, i64 4
   store ptr %incdec.ptr.i.i616, ptr %_M_finish.i.i353, align 8
   %.pre1700 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont57
@@ -1544,7 +1386,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i631: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i622
   %mul.i.i.i.i.i.i632 = shl nuw nsw i64 %cond.i.i.i.i629, 2
-  %call5.i.i.i.i.i.i647 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i632) #22
+  %call5.i.i.i.i.i.i647 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i632) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i633 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i633: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i631, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i622
@@ -1559,12 +1401,12 @@ if.then.i.i.i12.i.i.i643:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i637
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i637: ; preds = %if.then.i.i.i12.i.i.i643, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i633
-  %incdec.ptr.i.i.i638 = getelementptr inbounds i32, ptr %add.ptr.i.i.i635, i64 1
+  %incdec.ptr.i.i.i638 = getelementptr inbounds i8, ptr %add.ptr.i.i.i635, i64 4
   %tobool.not.i.i.i.i639 = icmp eq ptr %72, null
   br i1 %tobool.not.i.i.i.i639, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i641, label %if.then.i21.i.i.i640
 
 if.then.i21.i.i.i640:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i637
-  tail call void @_ZdlPv(ptr noundef nonnull %72) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %72) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i641
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i641: ; preds = %if.then.i21.i.i.i640, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i637
@@ -1583,7 +1425,7 @@ invoke.cont57:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i652:                                   ; preds = %invoke.cont57
   store i32 15, ptr %74, align 4
   %75 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i653 = getelementptr inbounds i32, ptr %75, i64 1
+  %incdec.ptr.i.i653 = getelementptr inbounds i8, ptr %75, i64 4
   store ptr %incdec.ptr.i.i653, ptr %_M_finish.i.i353, align 8
   %.pre1701 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont59
@@ -1609,7 +1451,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i668: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i659
   %mul.i.i.i.i.i.i669 = shl nuw nsw i64 %cond.i.i.i.i666, 2
-  %call5.i.i.i.i.i.i684 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i669) #22
+  %call5.i.i.i.i.i.i684 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i669) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i670 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i670: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i668, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i659
@@ -1624,12 +1466,12 @@ if.then.i.i.i12.i.i.i680:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i674
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i674: ; preds = %if.then.i.i.i12.i.i.i680, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i670
-  %incdec.ptr.i.i.i675 = getelementptr inbounds i32, ptr %add.ptr.i.i.i672, i64 1
+  %incdec.ptr.i.i.i675 = getelementptr inbounds i8, ptr %add.ptr.i.i.i672, i64 4
   %tobool.not.i.i.i.i676 = icmp eq ptr %76, null
   br i1 %tobool.not.i.i.i.i676, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i678, label %if.then.i21.i.i.i677
 
 if.then.i21.i.i.i677:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i674
-  tail call void @_ZdlPv(ptr noundef nonnull %76) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %76) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i678
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i678: ; preds = %if.then.i21.i.i.i677, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i674
@@ -1648,7 +1490,7 @@ invoke.cont59:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i689:                                   ; preds = %invoke.cont59
   store i32 1, ptr %78, align 4
   %79 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i690 = getelementptr inbounds i32, ptr %79, i64 1
+  %incdec.ptr.i.i690 = getelementptr inbounds i8, ptr %79, i64 4
   store ptr %incdec.ptr.i.i690, ptr %_M_finish.i.i353, align 8
   %.pre1715.pre = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %if.end63
@@ -1674,7 +1516,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i705: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i696
   %mul.i.i.i.i.i.i706 = shl nuw nsw i64 %cond.i.i.i.i703, 2
-  %call5.i.i.i.i.i.i721 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i706) #22
+  %call5.i.i.i.i.i.i721 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i706) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i707 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i707: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i705, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i696
@@ -1689,12 +1531,12 @@ if.then.i.i.i12.i.i.i717:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i711
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i711: ; preds = %if.then.i.i.i12.i.i.i717, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i707
-  %incdec.ptr.i.i.i712 = getelementptr inbounds i32, ptr %add.ptr.i.i.i709, i64 1
+  %incdec.ptr.i.i.i712 = getelementptr inbounds i8, ptr %add.ptr.i.i.i709, i64 4
   %tobool.not.i.i.i.i713 = icmp eq ptr %80, null
   br i1 %tobool.not.i.i.i.i713, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i715, label %if.then.i21.i.i.i714
 
 if.then.i21.i.i.i714:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i711
-  tail call void @_ZdlPv(ptr noundef nonnull %80) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %80) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i715
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i715: ; preds = %if.then.i21.i.i.i714, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i711
@@ -1708,7 +1550,7 @@ if.end63:                                         ; preds = %_ZNSt6vectorIN4cvc5
   %.pre1715 = phi ptr [ %add.ptr19.i.i.i716, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i715 ], [ %.pre1715.pre, %if.then.i.i689 ], [ %.pre1715.pre1724, %invoke.cont45 ]
   %81 = phi ptr [ %incdec.ptr.i.i.i712, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i715 ], [ %incdec.ptr.i.i690, %if.then.i.i689 ], [ %64, %invoke.cont45 ]
   %82 = load ptr, ptr %arith, align 8
-  %nlExt65 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %82, i64 0, i32 67
+  %nlExt65 = getelementptr inbounds i8, ptr %82, i64 148
   %83 = load i32, ptr %nlExt65, align 4
   %cmp66 = icmp eq i32 %83, 2
   br i1 %cmp66, label %if.then67, label %if.end131
@@ -1720,7 +1562,7 @@ if.then67:                                        ; preds = %if.end63
 if.then.i.i726:                                   ; preds = %if.then67
   store i32 25, ptr %81, align 4
   %84 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i727 = getelementptr inbounds i32, ptr %84, i64 1
+  %incdec.ptr.i.i727 = getelementptr inbounds i8, ptr %84, i64 4
   store ptr %incdec.ptr.i.i727, ptr %_M_finish.i.i353, align 8
   %.pre1702 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont68
@@ -1746,7 +1588,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i742: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i733
   %mul.i.i.i.i.i.i743 = shl nuw nsw i64 %cond.i.i.i.i740, 2
-  %call5.i.i.i.i.i.i758 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i743) #22
+  %call5.i.i.i.i.i.i758 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i743) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i744 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i744: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i742, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i733
@@ -1761,12 +1603,12 @@ if.then.i.i.i12.i.i.i754:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i748
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i748: ; preds = %if.then.i.i.i12.i.i.i754, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i744
-  %incdec.ptr.i.i.i749 = getelementptr inbounds i32, ptr %add.ptr.i.i.i746, i64 1
+  %incdec.ptr.i.i.i749 = getelementptr inbounds i8, ptr %add.ptr.i.i.i746, i64 4
   %tobool.not.i.i.i.i750 = icmp eq ptr %85, null
   br i1 %tobool.not.i.i.i.i750, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i752, label %if.then.i21.i.i.i751
 
 if.then.i21.i.i.i751:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i748
-  tail call void @_ZdlPv(ptr noundef nonnull %85) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %85) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i752
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i752: ; preds = %if.then.i21.i.i.i751, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i748
@@ -1785,7 +1627,7 @@ invoke.cont68:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i763:                                   ; preds = %invoke.cont68
   store i32 1, ptr %87, align 4
   %88 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i764 = getelementptr inbounds i32, ptr %88, i64 1
+  %incdec.ptr.i.i764 = getelementptr inbounds i8, ptr %88, i64 4
   store ptr %incdec.ptr.i.i764, ptr %_M_finish.i.i353, align 8
   %.pre1703 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont70
@@ -1811,7 +1653,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i779: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i770
   %mul.i.i.i.i.i.i780 = shl nuw nsw i64 %cond.i.i.i.i777, 2
-  %call5.i.i.i.i.i.i795 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i780) #22
+  %call5.i.i.i.i.i.i795 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i780) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i781 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i781: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i779, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i770
@@ -1826,12 +1668,12 @@ if.then.i.i.i12.i.i.i791:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i785
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i785: ; preds = %if.then.i.i.i12.i.i.i791, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i781
-  %incdec.ptr.i.i.i786 = getelementptr inbounds i32, ptr %add.ptr.i.i.i783, i64 1
+  %incdec.ptr.i.i.i786 = getelementptr inbounds i8, ptr %add.ptr.i.i.i783, i64 4
   %tobool.not.i.i.i.i787 = icmp eq ptr %89, null
   br i1 %tobool.not.i.i.i.i787, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i789, label %if.then.i21.i.i.i788
 
 if.then.i21.i.i.i788:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i785
-  tail call void @_ZdlPv(ptr noundef nonnull %89) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %89) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i789
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i789: ; preds = %if.then.i21.i.i.i788, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i785
@@ -1850,7 +1692,7 @@ invoke.cont70:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i800:                                   ; preds = %invoke.cont70
   store i32 16, ptr %91, align 4
   %92 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i801 = getelementptr inbounds i32, ptr %92, i64 1
+  %incdec.ptr.i.i801 = getelementptr inbounds i8, ptr %92, i64 4
   store ptr %incdec.ptr.i.i801, ptr %_M_finish.i.i353, align 8
   %.pre1704 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont72
@@ -1876,7 +1718,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i816: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i807
   %mul.i.i.i.i.i.i817 = shl nuw nsw i64 %cond.i.i.i.i814, 2
-  %call5.i.i.i.i.i.i832 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i817) #22
+  %call5.i.i.i.i.i.i832 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i817) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i818 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i818: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i816, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i807
@@ -1891,12 +1733,12 @@ if.then.i.i.i12.i.i.i828:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i822
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i822: ; preds = %if.then.i.i.i12.i.i.i828, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i818
-  %incdec.ptr.i.i.i823 = getelementptr inbounds i32, ptr %add.ptr.i.i.i820, i64 1
+  %incdec.ptr.i.i.i823 = getelementptr inbounds i8, ptr %add.ptr.i.i.i820, i64 4
   %tobool.not.i.i.i.i824 = icmp eq ptr %93, null
   br i1 %tobool.not.i.i.i.i824, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i826, label %if.then.i21.i.i.i825
 
 if.then.i21.i.i.i825:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i822
-  tail call void @_ZdlPv(ptr noundef nonnull %93) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %93) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i826
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i826: ; preds = %if.then.i21.i.i.i825, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i822
@@ -1915,7 +1757,7 @@ invoke.cont72:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i837:                                   ; preds = %invoke.cont72
   store i32 1, ptr %95, align 4
   %96 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i838 = getelementptr inbounds i32, ptr %96, i64 1
+  %incdec.ptr.i.i838 = getelementptr inbounds i8, ptr %96, i64 4
   store ptr %incdec.ptr.i.i838, ptr %_M_finish.i.i353, align 8
   %.pre1705 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont74
@@ -1941,7 +1783,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i853: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i844
   %mul.i.i.i.i.i.i854 = shl nuw nsw i64 %cond.i.i.i.i851, 2
-  %call5.i.i.i.i.i.i869 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i854) #22
+  %call5.i.i.i.i.i.i869 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i854) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i855 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i855: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i853, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i844
@@ -1956,12 +1798,12 @@ if.then.i.i.i12.i.i.i865:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i859
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i859: ; preds = %if.then.i.i.i12.i.i.i865, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i855
-  %incdec.ptr.i.i.i860 = getelementptr inbounds i32, ptr %add.ptr.i.i.i857, i64 1
+  %incdec.ptr.i.i.i860 = getelementptr inbounds i8, ptr %add.ptr.i.i.i857, i64 4
   %tobool.not.i.i.i.i861 = icmp eq ptr %97, null
   br i1 %tobool.not.i.i.i.i861, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i863, label %if.then.i21.i.i.i862
 
 if.then.i21.i.i.i862:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i859
-  tail call void @_ZdlPv(ptr noundef nonnull %97) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %97) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i863
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i863: ; preds = %if.then.i21.i.i.i862, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i859
@@ -1980,7 +1822,7 @@ invoke.cont74:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i874:                                   ; preds = %invoke.cont74
   store i32 17, ptr %99, align 4
   %100 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i875 = getelementptr inbounds i32, ptr %100, i64 1
+  %incdec.ptr.i.i875 = getelementptr inbounds i8, ptr %100, i64 4
   store ptr %incdec.ptr.i.i875, ptr %_M_finish.i.i353, align 8
   %.pre1706 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont76
@@ -2006,7 +1848,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i890: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i881
   %mul.i.i.i.i.i.i891 = shl nuw nsw i64 %cond.i.i.i.i888, 2
-  %call5.i.i.i.i.i.i906 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i891) #22
+  %call5.i.i.i.i.i.i906 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i891) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i892 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i892: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i890, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i881
@@ -2021,12 +1863,12 @@ if.then.i.i.i12.i.i.i902:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i896
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i896: ; preds = %if.then.i.i.i12.i.i.i902, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i892
-  %incdec.ptr.i.i.i897 = getelementptr inbounds i32, ptr %add.ptr.i.i.i894, i64 1
+  %incdec.ptr.i.i.i897 = getelementptr inbounds i8, ptr %add.ptr.i.i.i894, i64 4
   %tobool.not.i.i.i.i898 = icmp eq ptr %101, null
   br i1 %tobool.not.i.i.i.i898, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i900, label %if.then.i21.i.i.i899
 
 if.then.i21.i.i.i899:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i896
-  tail call void @_ZdlPv(ptr noundef nonnull %101) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %101) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i900
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i900: ; preds = %if.then.i21.i.i.i899, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i896
@@ -2045,7 +1887,7 @@ invoke.cont76:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i911:                                   ; preds = %invoke.cont76
   store i32 1, ptr %103, align 4
   %104 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i912 = getelementptr inbounds i32, ptr %104, i64 1
+  %incdec.ptr.i.i912 = getelementptr inbounds i8, ptr %104, i64 4
   store ptr %incdec.ptr.i.i912, ptr %_M_finish.i.i353, align 8
   %.pre1707 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont78
@@ -2071,7 +1913,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i927: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i918
   %mul.i.i.i.i.i.i928 = shl nuw nsw i64 %cond.i.i.i.i925, 2
-  %call5.i.i.i.i.i.i943 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i928) #22
+  %call5.i.i.i.i.i.i943 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i928) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i929 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i929: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i927, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i918
@@ -2086,12 +1928,12 @@ if.then.i.i.i12.i.i.i939:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i933
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i933: ; preds = %if.then.i.i.i12.i.i.i939, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i929
-  %incdec.ptr.i.i.i934 = getelementptr inbounds i32, ptr %add.ptr.i.i.i931, i64 1
+  %incdec.ptr.i.i.i934 = getelementptr inbounds i8, ptr %add.ptr.i.i.i931, i64 4
   %tobool.not.i.i.i.i935 = icmp eq ptr %105, null
   br i1 %tobool.not.i.i.i.i935, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i937, label %if.then.i21.i.i.i936
 
 if.then.i21.i.i.i936:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i933
-  tail call void @_ZdlPv(ptr noundef nonnull %105) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %105) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i937
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i937: ; preds = %if.then.i21.i.i.i936, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i933
@@ -2110,7 +1952,7 @@ invoke.cont78:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i948:                                   ; preds = %invoke.cont78
   store i32 14, ptr %107, align 4
   %108 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i949 = getelementptr inbounds i32, ptr %108, i64 1
+  %incdec.ptr.i.i949 = getelementptr inbounds i8, ptr %108, i64 4
   store ptr %incdec.ptr.i.i949, ptr %_M_finish.i.i353, align 8
   br label %invoke.cont80
 
@@ -2135,7 +1977,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i964: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i955
   %mul.i.i.i.i.i.i965 = shl nuw nsw i64 %cond.i.i.i.i962, 2
-  %call5.i.i.i.i.i.i980 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i965) #22
+  %call5.i.i.i.i.i.i980 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i965) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i966 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i966: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i964, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i955
@@ -2150,12 +1992,12 @@ if.then.i.i.i12.i.i.i976:                         ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i970
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i970: ; preds = %if.then.i.i.i12.i.i.i976, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i966
-  %incdec.ptr.i.i.i971 = getelementptr inbounds i32, ptr %add.ptr.i.i.i968, i64 1
+  %incdec.ptr.i.i.i971 = getelementptr inbounds i8, ptr %add.ptr.i.i.i968, i64 4
   %tobool.not.i.i.i.i972 = icmp eq ptr %109, null
   br i1 %tobool.not.i.i.i.i972, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i974, label %if.then.i21.i.i.i973
 
 if.then.i21.i.i.i973:                             ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i970
-  tail call void @_ZdlPv(ptr noundef nonnull %109) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %109) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i974
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i974: ; preds = %if.then.i21.i.i.i973, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i970
@@ -2168,14 +2010,14 @@ _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_inse
 invoke.cont80:                                    ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i974, %if.then.i.i948
   %110 = phi ptr [ %incdec.ptr.i.i.i971, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i974 ], [ %incdec.ptr.i.i949, %if.then.i.i948 ]
   %111 = load ptr, ptr %arith, align 8
-  %nlExtTangentPlanes = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %111, i64 0, i32 88
+  %nlExtTangentPlanes = getelementptr inbounds i8, ptr %111, i64 179
   %112 = load i8, ptr %nlExtTangentPlanes, align 1
   %113 = and i8 %112, 1
   %tobool83.not = icmp eq i8 %113, 0
   br i1 %tobool83.not, label %if.end89, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %invoke.cont80
-  %nlExtTangentPlanesInterleave = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %111, i64 0, i32 90
+  %nlExtTangentPlanesInterleave = getelementptr inbounds i8, ptr %111, i64 181
   %114 = load i8, ptr %nlExtTangentPlanesInterleave, align 1
   %115 = and i8 %114, 1
   %tobool85.not = icmp eq i8 %115, 0
@@ -2189,7 +2031,7 @@ if.then86:                                        ; preds = %land.lhs.true
 if.then.i.i985:                                   ; preds = %if.then86
   store i32 21, ptr %110, align 4
   %117 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i986 = getelementptr inbounds i32, ptr %117, i64 1
+  %incdec.ptr.i.i986 = getelementptr inbounds i8, ptr %117, i64 4
   store ptr %incdec.ptr.i.i986, ptr %_M_finish.i.i353, align 8
   br label %if.end89
 
@@ -2214,7 +2056,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1001: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i992
   %mul.i.i.i.i.i.i1002 = shl nuw nsw i64 %cond.i.i.i.i999, 2
-  %call5.i.i.i.i.i.i1017 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1002) #22
+  %call5.i.i.i.i.i.i1017 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1002) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1003 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1003: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1001, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i992
@@ -2229,12 +2071,12 @@ if.then.i.i.i12.i.i.i1013:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1007
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1007: ; preds = %if.then.i.i.i12.i.i.i1013, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1003
-  %incdec.ptr.i.i.i1008 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1005, i64 1
+  %incdec.ptr.i.i.i1008 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1005, i64 4
   %tobool.not.i.i.i.i1009 = icmp eq ptr %118, null
   br i1 %tobool.not.i.i.i.i1009, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1011, label %if.then.i21.i.i.i1010
 
 if.then.i21.i.i.i1010:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1007
-  tail call void @_ZdlPv(ptr noundef nonnull %118) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %118) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1011
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1011: ; preds = %if.then.i21.i.i.i1010, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1007
@@ -2253,7 +2095,7 @@ if.end89:                                         ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i1022:                                  ; preds = %if.end89
   store i32 1, ptr %119, align 4
   %121 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1023 = getelementptr inbounds i32, ptr %121, i64 1
+  %incdec.ptr.i.i1023 = getelementptr inbounds i8, ptr %121, i64 4
   store ptr %incdec.ptr.i.i1023, ptr %_M_finish.i.i353, align 8
   %.pre1708 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont90
@@ -2279,7 +2121,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1038: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1029
   %mul.i.i.i.i.i.i1039 = shl nuw nsw i64 %cond.i.i.i.i1036, 2
-  %call5.i.i.i.i.i.i1054 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1039) #22
+  %call5.i.i.i.i.i.i1054 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1039) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1040 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1040: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1038, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1029
@@ -2294,12 +2136,12 @@ if.then.i.i.i12.i.i.i1050:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1044
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1044: ; preds = %if.then.i.i.i12.i.i.i1050, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1040
-  %incdec.ptr.i.i.i1045 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1042, i64 1
+  %incdec.ptr.i.i.i1045 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1042, i64 4
   %tobool.not.i.i.i.i1046 = icmp eq ptr %122, null
   br i1 %tobool.not.i.i.i.i1046, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1048, label %if.then.i21.i.i.i1047
 
 if.then.i21.i.i.i1047:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1044
-  tail call void @_ZdlPv(ptr noundef nonnull %122) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %122) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1048
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1048: ; preds = %if.then.i21.i.i.i1047, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1044
@@ -2318,7 +2160,7 @@ invoke.cont90:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i1059:                                  ; preds = %invoke.cont90
   store i32 2, ptr %124, align 4
   %125 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1060 = getelementptr inbounds i32, ptr %125, i64 1
+  %incdec.ptr.i.i1060 = getelementptr inbounds i8, ptr %125, i64 4
   store ptr %incdec.ptr.i.i1060, ptr %_M_finish.i.i353, align 8
   %.pre1709 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont92
@@ -2344,7 +2186,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1075: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1066
   %mul.i.i.i.i.i.i1076 = shl nuw nsw i64 %cond.i.i.i.i1073, 2
-  %call5.i.i.i.i.i.i1091 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1076) #22
+  %call5.i.i.i.i.i.i1091 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1076) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1077 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1077: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1075, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1066
@@ -2359,12 +2201,12 @@ if.then.i.i.i12.i.i.i1087:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1081
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1081: ; preds = %if.then.i.i.i12.i.i.i1087, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1077
-  %incdec.ptr.i.i.i1082 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1079, i64 1
+  %incdec.ptr.i.i.i1082 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1079, i64 4
   %tobool.not.i.i.i.i1083 = icmp eq ptr %126, null
   br i1 %tobool.not.i.i.i.i1083, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1085, label %if.then.i21.i.i.i1084
 
 if.then.i21.i.i.i1084:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1081
-  tail call void @_ZdlPv(ptr noundef nonnull %126) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %126) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1085
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1085: ; preds = %if.then.i21.i.i.i1084, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1081
@@ -2383,7 +2225,7 @@ invoke.cont92:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i1096:                                  ; preds = %invoke.cont92
   store i32 1, ptr %128, align 4
   %129 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1097 = getelementptr inbounds i32, ptr %129, i64 1
+  %incdec.ptr.i.i1097 = getelementptr inbounds i8, ptr %129, i64 4
   store ptr %incdec.ptr.i.i1097, ptr %_M_finish.i.i353, align 8
   br label %invoke.cont94
 
@@ -2408,7 +2250,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1112: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1103
   %mul.i.i.i.i.i.i1113 = shl nuw nsw i64 %cond.i.i.i.i1110, 2
-  %call5.i.i.i.i.i.i1128 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1113) #22
+  %call5.i.i.i.i.i.i1128 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1113) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1114 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1114: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1112, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1103
@@ -2423,12 +2265,12 @@ if.then.i.i.i12.i.i.i1124:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1118
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1118: ; preds = %if.then.i.i.i12.i.i.i1124, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1114
-  %incdec.ptr.i.i.i1119 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1116, i64 1
+  %incdec.ptr.i.i.i1119 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1116, i64 4
   %tobool.not.i.i.i.i1120 = icmp eq ptr %130, null
   br i1 %tobool.not.i.i.i.i1120, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1122, label %if.then.i21.i.i.i1121
 
 if.then.i21.i.i.i1121:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1118
-  tail call void @_ZdlPv(ptr noundef nonnull %130) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %130) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1122
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1122: ; preds = %if.then.i21.i.i.i1121, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1118
@@ -2441,7 +2283,7 @@ _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_inse
 invoke.cont94:                                    ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1122, %if.then.i.i1096
   %131 = phi ptr [ %incdec.ptr.i.i.i1119, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1122 ], [ %incdec.ptr.i.i1097, %if.then.i.i1096 ]
   %132 = load ptr, ptr %arith, align 8
-  %nlExtFactor = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %132, i64 0, i32 71
+  %nlExtFactor = getelementptr inbounds i8, ptr %132, i64 155
   %133 = load i8, ptr %nlExtFactor, align 1
   %134 = and i8 %133, 1
   %tobool97.not = icmp eq i8 %134, 0
@@ -2455,7 +2297,7 @@ if.then98:                                        ; preds = %invoke.cont94
 if.then.i.i1133:                                  ; preds = %if.then98
   store i32 13, ptr %131, align 4
   %136 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1134 = getelementptr inbounds i32, ptr %136, i64 1
+  %incdec.ptr.i.i1134 = getelementptr inbounds i8, ptr %136, i64 4
   store ptr %incdec.ptr.i.i1134, ptr %_M_finish.i.i353, align 8
   %.pre1710 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont99
@@ -2481,7 +2323,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1149: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1140
   %mul.i.i.i.i.i.i1150 = shl nuw nsw i64 %cond.i.i.i.i1147, 2
-  %call5.i.i.i.i.i.i1165 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1150) #22
+  %call5.i.i.i.i.i.i1165 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1150) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1151 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1151: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1149, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1140
@@ -2496,12 +2338,12 @@ if.then.i.i.i12.i.i.i1161:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1155
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1155: ; preds = %if.then.i.i.i12.i.i.i1161, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1151
-  %incdec.ptr.i.i.i1156 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1153, i64 1
+  %incdec.ptr.i.i.i1156 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1153, i64 4
   %tobool.not.i.i.i.i1157 = icmp eq ptr %137, null
   br i1 %tobool.not.i.i.i.i1157, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1159, label %if.then.i21.i.i.i1158
 
 if.then.i21.i.i.i1158:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1155
-  tail call void @_ZdlPv(ptr noundef nonnull %137) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %137) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1159
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1159: ; preds = %if.then.i21.i.i.i1158, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1155
@@ -2520,7 +2362,7 @@ invoke.cont99:                                    ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i1170:                                  ; preds = %invoke.cont99
   store i32 1, ptr %139, align 4
   %140 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1171 = getelementptr inbounds i32, ptr %140, i64 1
+  %incdec.ptr.i.i1171 = getelementptr inbounds i8, ptr %140, i64 4
   store ptr %incdec.ptr.i.i1171, ptr %_M_finish.i.i353, align 8
   br label %if.end103
 
@@ -2545,7 +2387,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1186: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1177
   %mul.i.i.i.i.i.i1187 = shl nuw nsw i64 %cond.i.i.i.i1184, 2
-  %call5.i.i.i.i.i.i1202 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1187) #22
+  %call5.i.i.i.i.i.i1202 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1187) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1188 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1188: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1186, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1177
@@ -2560,12 +2402,12 @@ if.then.i.i.i12.i.i.i1198:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1192
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1192: ; preds = %if.then.i.i.i12.i.i.i1198, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1188
-  %incdec.ptr.i.i.i1193 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1190, i64 1
+  %incdec.ptr.i.i.i1193 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1190, i64 4
   %tobool.not.i.i.i.i1194 = icmp eq ptr %141, null
   br i1 %tobool.not.i.i.i.i1194, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1196, label %if.then.i21.i.i.i1195
 
 if.then.i21.i.i.i1195:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1192
-  tail call void @_ZdlPv(ptr noundef nonnull %141) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %141) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1196
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1196: ; preds = %if.then.i21.i.i.i1195, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1192
@@ -2578,7 +2420,7 @@ _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_inse
 if.end103:                                        ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1196, %if.then.i.i1170, %invoke.cont94
   %142 = phi ptr [ %incdec.ptr.i.i.i1193, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1196 ], [ %incdec.ptr.i.i1171, %if.then.i.i1170 ], [ %131, %invoke.cont94 ]
   %143 = load ptr, ptr %arith, align 8
-  %nlExtResBound = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %143, i64 0, i32 77
+  %nlExtResBound = getelementptr inbounds i8, ptr %143, i64 161
   %144 = load i8, ptr %nlExtResBound, align 1
   %145 = and i8 %144, 1
   %tobool105.not = icmp eq i8 %145, 0
@@ -2592,7 +2434,7 @@ if.then106:                                       ; preds = %if.end103
 if.then.i.i1207:                                  ; preds = %if.then106
   store i32 14, ptr %142, align 4
   %147 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1208 = getelementptr inbounds i32, ptr %147, i64 1
+  %incdec.ptr.i.i1208 = getelementptr inbounds i8, ptr %147, i64 4
   store ptr %incdec.ptr.i.i1208, ptr %_M_finish.i.i353, align 8
   %.pre1711 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont107
@@ -2618,7 +2460,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1223: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1214
   %mul.i.i.i.i.i.i1224 = shl nuw nsw i64 %cond.i.i.i.i1221, 2
-  %call5.i.i.i.i.i.i1239 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1224) #22
+  %call5.i.i.i.i.i.i1239 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1224) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1225 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1225: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1223, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1214
@@ -2633,12 +2475,12 @@ if.then.i.i.i12.i.i.i1235:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1229
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1229: ; preds = %if.then.i.i.i12.i.i.i1235, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1225
-  %incdec.ptr.i.i.i1230 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1227, i64 1
+  %incdec.ptr.i.i.i1230 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1227, i64 4
   %tobool.not.i.i.i.i1231 = icmp eq ptr %148, null
   br i1 %tobool.not.i.i.i.i1231, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1233, label %if.then.i21.i.i.i1232
 
 if.then.i21.i.i.i1232:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1229
-  tail call void @_ZdlPv(ptr noundef nonnull %148) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %148) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1233
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1233: ; preds = %if.then.i21.i.i.i1232, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1229
@@ -2657,7 +2499,7 @@ invoke.cont107:                                   ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i1244:                                  ; preds = %invoke.cont107
   store i32 1, ptr %150, align 4
   %151 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1245 = getelementptr inbounds i32, ptr %151, i64 1
+  %incdec.ptr.i.i1245 = getelementptr inbounds i8, ptr %151, i64 4
   store ptr %incdec.ptr.i.i1245, ptr %_M_finish.i.i353, align 8
   br label %if.end111
 
@@ -2682,7 +2524,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1260: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1251
   %mul.i.i.i.i.i.i1261 = shl nuw nsw i64 %cond.i.i.i.i1258, 2
-  %call5.i.i.i.i.i.i1276 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1261) #22
+  %call5.i.i.i.i.i.i1276 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1261) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1262 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1262: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1260, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1251
@@ -2697,12 +2539,12 @@ if.then.i.i.i12.i.i.i1272:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1266
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1266: ; preds = %if.then.i.i.i12.i.i.i1272, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1262
-  %incdec.ptr.i.i.i1267 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1264, i64 1
+  %incdec.ptr.i.i.i1267 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1264, i64 4
   %tobool.not.i.i.i.i1268 = icmp eq ptr %152, null
   br i1 %tobool.not.i.i.i.i1268, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1270, label %if.then.i21.i.i.i1269
 
 if.then.i21.i.i.i1269:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1266
-  tail call void @_ZdlPv(ptr noundef nonnull %152) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %152) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1270
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1270: ; preds = %if.then.i21.i.i.i1269, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1266
@@ -2715,14 +2557,14 @@ _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_inse
 if.end111:                                        ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1270, %if.then.i.i1244, %if.end103
   %153 = phi ptr [ %incdec.ptr.i.i.i1267, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1270 ], [ %incdec.ptr.i.i1245, %if.then.i.i1244 ], [ %142, %if.end103 ]
   %154 = load ptr, ptr %arith, align 8
-  %nlExtTangentPlanes113 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %154, i64 0, i32 88
+  %nlExtTangentPlanes113 = getelementptr inbounds i8, ptr %154, i64 179
   %155 = load i8, ptr %nlExtTangentPlanes113, align 1
   %156 = and i8 %155, 1
   %tobool114.not = icmp eq i8 %156, 0
   br i1 %tobool114.not, label %if.end122, label %land.lhs.true115
 
 land.lhs.true115:                                 ; preds = %if.end111
-  %nlExtTangentPlanesInterleave117 = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %154, i64 0, i32 90
+  %nlExtTangentPlanesInterleave117 = getelementptr inbounds i8, ptr %154, i64 181
   %157 = load i8, ptr %nlExtTangentPlanesInterleave117, align 1
   %158 = and i8 %157, 1
   %tobool118.not = icmp eq i8 %158, 0
@@ -2736,7 +2578,7 @@ if.then119:                                       ; preds = %land.lhs.true115
 if.then.i.i1281:                                  ; preds = %if.then119
   store i32 22, ptr %153, align 4
   %160 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1282 = getelementptr inbounds i32, ptr %160, i64 1
+  %incdec.ptr.i.i1282 = getelementptr inbounds i8, ptr %160, i64 4
   store ptr %incdec.ptr.i.i1282, ptr %_M_finish.i.i353, align 8
   br label %if.end122
 
@@ -2761,7 +2603,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1297: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1288
   %mul.i.i.i.i.i.i1298 = shl nuw nsw i64 %cond.i.i.i.i1295, 2
-  %call5.i.i.i.i.i.i1313 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1298) #22
+  %call5.i.i.i.i.i.i1313 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1298) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1299 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1299: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1297, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1288
@@ -2776,12 +2618,12 @@ if.then.i.i.i12.i.i.i1309:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1303
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1303: ; preds = %if.then.i.i.i12.i.i.i1309, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1299
-  %incdec.ptr.i.i.i1304 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1301, i64 1
+  %incdec.ptr.i.i.i1304 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1301, i64 4
   %tobool.not.i.i.i.i1305 = icmp eq ptr %161, null
   br i1 %tobool.not.i.i.i.i1305, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1307, label %if.then.i21.i.i.i1306
 
 if.then.i21.i.i.i1306:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1303
-  tail call void @_ZdlPv(ptr noundef nonnull %161) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %161) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1307
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1307: ; preds = %if.then.i21.i.i.i1306, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1303
@@ -2794,7 +2636,7 @@ _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_inse
 if.end122:                                        ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1307, %if.then.i.i1281, %land.lhs.true115, %if.end111
   %162 = phi ptr [ %incdec.ptr.i.i.i1304, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1307 ], [ %incdec.ptr.i.i1282, %if.then.i.i1281 ], [ %153, %land.lhs.true115 ], [ %153, %if.end111 ]
   %163 = load ptr, ptr %arith, align 8
-  %nlExtTfTangentPlanes = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %163, i64 0, i32 86
+  %nlExtTfTangentPlanes = getelementptr inbounds i8, ptr %163, i64 177
   %164 = load i8, ptr %nlExtTfTangentPlanes, align 1
   %165 = and i8 %164, 1
   %tobool124.not = icmp eq i8 %165, 0
@@ -2808,7 +2650,7 @@ if.then125:                                       ; preds = %if.end122
 if.then.i.i1318:                                  ; preds = %if.then125
   store i32 26, ptr %162, align 4
   %166 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1319 = getelementptr inbounds i32, ptr %166, i64 1
+  %incdec.ptr.i.i1319 = getelementptr inbounds i8, ptr %166, i64 4
   store ptr %incdec.ptr.i.i1319, ptr %_M_finish.i.i353, align 8
   %.pre1712 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %if.end128
@@ -2834,7 +2676,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1334: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1325
   %mul.i.i.i.i.i.i1335 = shl nuw nsw i64 %cond.i.i.i.i1332, 2
-  %call5.i.i.i.i.i.i1350 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1335) #22
+  %call5.i.i.i.i.i.i1350 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1335) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1336 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1336: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1334, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1325
@@ -2849,12 +2691,12 @@ if.then.i.i.i12.i.i.i1346:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1340
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1340: ; preds = %if.then.i.i.i12.i.i.i1346, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1336
-  %incdec.ptr.i.i.i1341 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1338, i64 1
+  %incdec.ptr.i.i.i1341 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1338, i64 4
   %tobool.not.i.i.i.i1342 = icmp eq ptr %167, null
   br i1 %tobool.not.i.i.i.i1342, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1344, label %if.then.i21.i.i.i1343
 
 if.then.i21.i.i.i1343:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1340
-  tail call void @_ZdlPv(ptr noundef nonnull %167) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %167) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1344
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1344: ; preds = %if.then.i21.i.i.i1343, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1340
@@ -2873,7 +2715,7 @@ if.end128:                                        ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i1355:                                  ; preds = %if.end128
   store i32 1, ptr %169, align 4
   %170 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1356 = getelementptr inbounds i32, ptr %170, i64 1
+  %incdec.ptr.i.i1356 = getelementptr inbounds i8, ptr %170, i64 4
   store ptr %incdec.ptr.i.i1356, ptr %_M_finish.i.i353, align 8
   %.pre1714 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %if.end131
@@ -2899,7 +2741,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1371: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1362
   %mul.i.i.i.i.i.i1372 = shl nuw nsw i64 %cond.i.i.i.i1369, 2
-  %call5.i.i.i.i.i.i1387 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1372) #22
+  %call5.i.i.i.i.i.i1387 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1372) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1373 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1373: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1371, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1362
@@ -2914,12 +2756,12 @@ if.then.i.i.i12.i.i.i1383:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1377
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1377: ; preds = %if.then.i.i.i12.i.i.i1383, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1373
-  %incdec.ptr.i.i.i1378 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1375, i64 1
+  %incdec.ptr.i.i.i1378 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1375, i64 4
   %tobool.not.i.i.i.i1379 = icmp eq ptr %171, null
   br i1 %tobool.not.i.i.i.i1379, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1381, label %if.then.i21.i.i.i1380
 
 if.then.i21.i.i.i1380:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1377
-  tail call void @_ZdlPv(ptr noundef nonnull %171) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %171) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1381
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1381: ; preds = %if.then.i21.i.i.i1380, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1377
@@ -2938,7 +2780,7 @@ if.end131:                                        ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i1392:                                  ; preds = %if.end131
   store i32 6, ptr %173, align 4
   %174 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1393 = getelementptr inbounds i32, ptr %174, i64 1
+  %incdec.ptr.i.i1393 = getelementptr inbounds i8, ptr %174, i64 4
   store ptr %incdec.ptr.i.i1393, ptr %_M_finish.i.i353, align 8
   %.pre1716 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont132
@@ -2964,7 +2806,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1408: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1399
   %mul.i.i.i.i.i.i1409 = shl nuw nsw i64 %cond.i.i.i.i1406, 2
-  %call5.i.i.i.i.i.i1424 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1409) #22
+  %call5.i.i.i.i.i.i1424 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1409) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1410 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1410: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1408, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1399
@@ -2979,12 +2821,12 @@ if.then.i.i.i12.i.i.i1420:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1414
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1414: ; preds = %if.then.i.i.i12.i.i.i1420, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1410
-  %incdec.ptr.i.i.i1415 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1412, i64 1
+  %incdec.ptr.i.i.i1415 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1412, i64 4
   %tobool.not.i.i.i.i1416 = icmp eq ptr %175, null
   br i1 %tobool.not.i.i.i.i1416, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1418, label %if.then.i21.i.i.i1417
 
 if.then.i21.i.i.i1417:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1414
-  tail call void @_ZdlPv(ptr noundef nonnull %175) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %175) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1418
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1418: ; preds = %if.then.i21.i.i.i1417, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1414
@@ -3003,7 +2845,7 @@ invoke.cont132:                                   ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i1429:                                  ; preds = %invoke.cont132
   store i32 1, ptr %177, align 4
   %178 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1430 = getelementptr inbounds i32, ptr %178, i64 1
+  %incdec.ptr.i.i1430 = getelementptr inbounds i8, ptr %178, i64 4
   store ptr %incdec.ptr.i.i1430, ptr %_M_finish.i.i353, align 8
   %.pre1717 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont134
@@ -3029,7 +2871,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1445: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1436
   %mul.i.i.i.i.i.i1446 = shl nuw nsw i64 %cond.i.i.i.i1443, 2
-  %call5.i.i.i.i.i.i1461 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1446) #22
+  %call5.i.i.i.i.i.i1461 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1446) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1447 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1447: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1445, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1436
@@ -3044,12 +2886,12 @@ if.then.i.i.i12.i.i.i1457:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1451
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1451: ; preds = %if.then.i.i.i12.i.i.i1457, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1447
-  %incdec.ptr.i.i.i1452 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1449, i64 1
+  %incdec.ptr.i.i.i1452 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1449, i64 4
   %tobool.not.i.i.i.i1453 = icmp eq ptr %179, null
   br i1 %tobool.not.i.i.i.i1453, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1455, label %if.then.i21.i.i.i1454
 
 if.then.i21.i.i.i1454:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1451
-  tail call void @_ZdlPv(ptr noundef nonnull %179) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %179) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1455
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1455: ; preds = %if.then.i21.i.i.i1454, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1451
@@ -3068,7 +2910,7 @@ invoke.cont134:                                   ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i1466:                                  ; preds = %invoke.cont134
   store i32 9, ptr %181, align 4
   %182 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1467 = getelementptr inbounds i32, ptr %182, i64 1
+  %incdec.ptr.i.i1467 = getelementptr inbounds i8, ptr %182, i64 4
   store ptr %incdec.ptr.i.i1467, ptr %_M_finish.i.i353, align 8
   %.pre1718 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont136
@@ -3094,7 +2936,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1482: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1473
   %mul.i.i.i.i.i.i1483 = shl nuw nsw i64 %cond.i.i.i.i1480, 2
-  %call5.i.i.i.i.i.i1498 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1483) #22
+  %call5.i.i.i.i.i.i1498 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1483) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1484 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1484: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1482, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1473
@@ -3109,12 +2951,12 @@ if.then.i.i.i12.i.i.i1494:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1488
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1488: ; preds = %if.then.i.i.i12.i.i.i1494, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1484
-  %incdec.ptr.i.i.i1489 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1486, i64 1
+  %incdec.ptr.i.i.i1489 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1486, i64 4
   %tobool.not.i.i.i.i1490 = icmp eq ptr %183, null
   br i1 %tobool.not.i.i.i.i1490, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1492, label %if.then.i21.i.i.i1491
 
 if.then.i21.i.i.i1491:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1488
-  tail call void @_ZdlPv(ptr noundef nonnull %183) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %183) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1492
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1492: ; preds = %if.then.i21.i.i.i1491, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1488
@@ -3133,7 +2975,7 @@ invoke.cont136:                                   ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i1503:                                  ; preds = %invoke.cont136
   store i32 1, ptr %185, align 4
   %186 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1504 = getelementptr inbounds i32, ptr %186, i64 1
+  %incdec.ptr.i.i1504 = getelementptr inbounds i8, ptr %186, i64 4
   store ptr %incdec.ptr.i.i1504, ptr %_M_finish.i.i353, align 8
   br label %invoke.cont138
 
@@ -3158,7 +3000,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1519: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1510
   %mul.i.i.i.i.i.i1520 = shl nuw nsw i64 %cond.i.i.i.i1517, 2
-  %call5.i.i.i.i.i.i1535 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1520) #22
+  %call5.i.i.i.i.i.i1535 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1520) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1521 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1521: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1519, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1510
@@ -3173,12 +3015,12 @@ if.then.i.i.i12.i.i.i1531:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1525
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1525: ; preds = %if.then.i.i.i12.i.i.i1531, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1521
-  %incdec.ptr.i.i.i1526 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1523, i64 1
+  %incdec.ptr.i.i.i1526 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1523, i64 4
   %tobool.not.i.i.i.i1527 = icmp eq ptr %187, null
   br i1 %tobool.not.i.i.i.i1527, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1529, label %if.then.i21.i.i.i1528
 
 if.then.i21.i.i.i1528:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1525
-  tail call void @_ZdlPv(ptr noundef nonnull %187) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %187) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1529
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1529: ; preds = %if.then.i21.i.i.i1528, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1525
@@ -3191,7 +3033,7 @@ _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_inse
 invoke.cont138:                                   ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1529, %if.then.i.i1503
   %188 = phi ptr [ %incdec.ptr.i.i.i1526, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1529 ], [ %incdec.ptr.i.i1504, %if.then.i.i1503 ]
   %189 = load ptr, ptr %arith, align 8
-  %nlCov = getelementptr inbounds %"struct.cvc5::internal::options::HolderARITH", ptr %189, i64 0, i32 49
+  %nlCov = getelementptr inbounds i8, ptr %189, i64 115
   %190 = load i8, ptr %nlCov, align 1
   %191 = and i8 %190, 1
   %tobool141.not = icmp eq i8 %191, 0
@@ -3205,7 +3047,7 @@ if.then142:                                       ; preds = %invoke.cont138
 if.then.i.i1540:                                  ; preds = %if.then142
   store i32 3, ptr %188, align 4
   %193 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1541 = getelementptr inbounds i32, ptr %193, i64 1
+  %incdec.ptr.i.i1541 = getelementptr inbounds i8, ptr %193, i64 4
   store ptr %incdec.ptr.i.i1541, ptr %_M_finish.i.i353, align 8
   %.pre1719 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont143
@@ -3231,7 +3073,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1556: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1547
   %mul.i.i.i.i.i.i1557 = shl nuw nsw i64 %cond.i.i.i.i1554, 2
-  %call5.i.i.i.i.i.i1572 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1557) #22
+  %call5.i.i.i.i.i.i1572 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1557) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1558 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1558: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1556, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1547
@@ -3246,12 +3088,12 @@ if.then.i.i.i12.i.i.i1568:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1562
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1562: ; preds = %if.then.i.i.i12.i.i.i1568, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1558
-  %incdec.ptr.i.i.i1563 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1560, i64 1
+  %incdec.ptr.i.i.i1563 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1560, i64 4
   %tobool.not.i.i.i.i1564 = icmp eq ptr %194, null
   br i1 %tobool.not.i.i.i.i1564, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1566, label %if.then.i21.i.i.i1565
 
 if.then.i21.i.i.i1565:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1562
-  tail call void @_ZdlPv(ptr noundef nonnull %194) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %194) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1566
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1566: ; preds = %if.then.i21.i.i.i1565, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1562
@@ -3270,7 +3112,7 @@ invoke.cont143:                                   ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i1577:                                  ; preds = %invoke.cont143
   store i32 1, ptr %196, align 4
   %197 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1578 = getelementptr inbounds i32, ptr %197, i64 1
+  %incdec.ptr.i.i1578 = getelementptr inbounds i8, ptr %197, i64 4
   store ptr %incdec.ptr.i.i1578, ptr %_M_finish.i.i353, align 8
   %.pre1720 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont145
@@ -3296,7 +3138,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1593: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1584
   %mul.i.i.i.i.i.i1594 = shl nuw nsw i64 %cond.i.i.i.i1591, 2
-  %call5.i.i.i.i.i.i1609 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1594) #22
+  %call5.i.i.i.i.i.i1609 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1594) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1595 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1595: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1593, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1584
@@ -3311,12 +3153,12 @@ if.then.i.i.i12.i.i.i1605:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1599
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1599: ; preds = %if.then.i.i.i12.i.i.i1605, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1595
-  %incdec.ptr.i.i.i1600 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1597, i64 1
+  %incdec.ptr.i.i.i1600 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1597, i64 4
   %tobool.not.i.i.i.i1601 = icmp eq ptr %198, null
   br i1 %tobool.not.i.i.i.i1601, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1603, label %if.then.i21.i.i.i1602
 
 if.then.i21.i.i.i1602:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1599
-  tail call void @_ZdlPv(ptr noundef nonnull %198) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %198) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1603
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1603: ; preds = %if.then.i21.i.i.i1602, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1599
@@ -3335,7 +3177,7 @@ invoke.cont145:                                   ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i1614:                                  ; preds = %invoke.cont145
   store i32 4, ptr %200, align 4
   %201 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1615 = getelementptr inbounds i32, ptr %201, i64 1
+  %incdec.ptr.i.i1615 = getelementptr inbounds i8, ptr %201, i64 4
   store ptr %incdec.ptr.i.i1615, ptr %_M_finish.i.i353, align 8
   %.pre1721 = load ptr, ptr %_M_end_of_storage.i.i354, align 8
   br label %invoke.cont147
@@ -3361,7 +3203,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1630: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1621
   %mul.i.i.i.i.i.i1631 = shl nuw nsw i64 %cond.i.i.i.i1628, 2
-  %call5.i.i.i.i.i.i1646 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1631) #22
+  %call5.i.i.i.i.i.i1646 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1631) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1632 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1632: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1630, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1621
@@ -3376,12 +3218,12 @@ if.then.i.i.i12.i.i.i1642:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1636
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1636: ; preds = %if.then.i.i.i12.i.i.i1642, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1632
-  %incdec.ptr.i.i.i1637 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1634, i64 1
+  %incdec.ptr.i.i.i1637 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1634, i64 4
   %tobool.not.i.i.i.i1638 = icmp eq ptr %202, null
   br i1 %tobool.not.i.i.i.i1638, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1640, label %if.then.i21.i.i.i1639
 
 if.then.i21.i.i.i1639:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1636
-  tail call void @_ZdlPv(ptr noundef nonnull %202) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %202) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1640
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1640: ; preds = %if.then.i21.i.i.i1639, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1636
@@ -3400,7 +3242,7 @@ invoke.cont147:                                   ; preds = %_ZNSt6vectorIN4cvc5
 if.then.i.i1651:                                  ; preds = %invoke.cont147
   store i32 1, ptr %204, align 4
   %205 = load ptr, ptr %_M_finish.i.i353, align 8
-  %incdec.ptr.i.i1652 = getelementptr inbounds i32, ptr %205, i64 1
+  %incdec.ptr.i.i1652 = getelementptr inbounds i8, ptr %205, i64 4
   store ptr %incdec.ptr.i.i1652, ptr %_M_finish.i.i353, align 8
   br label %if.end151
 
@@ -3413,7 +3255,7 @@ if.else.i.i1653:                                  ; preds = %invoke.cont147
   br i1 %cmp.i.i.i.i1657, label %if.then.i.i.i.i1680.invoke, label %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1658
 
 if.then.i.i.i.i1680.invoke:                       ; preds = %if.else.i.i1653, %if.else.i.i1616, %if.else.i.i1579, %if.else.i.i1542, %if.else.i.i1505, %if.else.i.i1468, %if.else.i.i1431, %if.else.i.i1394, %if.else.i.i1357, %if.else.i.i1320, %if.else.i.i1283, %if.else.i.i1246, %if.else.i.i1209, %if.else.i.i1172, %if.else.i.i1135, %if.else.i.i1098, %if.else.i.i1061, %if.else.i.i1024, %if.else.i.i987, %if.else.i.i950, %if.else.i.i913, %if.else.i.i876, %if.else.i.i839, %if.else.i.i802, %if.else.i.i765, %if.else.i.i728, %if.else.i.i691, %if.else.i.i654, %if.else.i.i617, %if.else.i.i580, %if.else.i.i543, %if.else.i.i506, %if.else.i.i469, %if.else.i.i432, %if.else.i.i395, %if.else.i.i358, %if.else.i.i321, %if.else.i.i284, %if.else.i.i247, %if.else.i.i210, %if.else.i.i173, %if.else.i.i136, %if.else.i.i99, %if.else.i.i62
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.30) #21
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.30) #20
           to label %if.then.i.i.i.i1680.cont unwind label %lpad
 
 if.then.i.i.i.i1680.cont:                         ; preds = %if.then.i.i.i.i1680.invoke
@@ -3432,7 +3274,7 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEm
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1667: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1658
   %mul.i.i.i.i.i.i1668 = shl nuw nsw i64 %cond.i.i.i.i1665, 2
-  %call5.i.i.i.i.i.i1683 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1668) #22
+  %call5.i.i.i.i.i.i1683 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i1668) #21
           to label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1669 unwind label %lpad
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1669: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl9InferStepEEE8allocateERS6_m.exit.i.i.i.i1667, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i1658
@@ -3447,12 +3289,12 @@ if.then.i.i.i12.i.i.i1679:                        ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1673
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1673: ; preds = %if.then.i.i.i12.i.i.i1679, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_M_allocateEm.exit.i.i.i1669
-  %incdec.ptr.i.i.i1674 = getelementptr inbounds i32, ptr %add.ptr.i.i.i1671, i64 1
+  %incdec.ptr.i.i.i1674 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1671, i64 4
   %tobool.not.i.i.i.i1675 = icmp eq ptr %206, null
   br i1 %tobool.not.i.i.i.i1675, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1677, label %if.then.i21.i.i.i1676
 
 if.then.i21.i.i.i1676:                            ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1673
-  tail call void @_ZdlPv(ptr noundef nonnull %206) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %206) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1677
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE17_M_realloc_insertIJRS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i1677: ; preds = %if.then.i21.i.i.i1676, %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit20.i.i.i1673
@@ -3472,7 +3314,7 @@ invoke.cont152:                                   ; preds = %if.end151
   br i1 %tobool.not.i.i.i1685, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EED2Ev.exit1687, label %if.then.i.i.i1686
 
 if.then.i.i.i1686:                                ; preds = %invoke.cont152
-  tail call void @_ZdlPv(ptr noundef nonnull %207) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %207) #22
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EED2Ev.exit1687
 
 _ZNSt6vectorIN4cvc58internal6theory5arith2nl9InferStepESaIS5_EED2Ev.exit1687: ; preds = %invoke.cont152, %if.then.i.i.i1686
@@ -3484,13 +3326,13 @@ define hidden { ptr, i64 } @_ZN4cvc58internal6theory5arith2nl8Strategy11getStrat
 entry:
   %0 = load i64, ptr %this, align 8
   %add.i = add i64 %0, 1
-  %d_size.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::Interleaving", ptr %this, i64 0, i32 1
+  %d_size.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %d_size.i, align 8
   %rem.i = urem i64 %add.i, %1
   store i64 %rem.i, ptr %this, align 8
-  %d_branches.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::Interleaving", ptr %this, i64 0, i32 2
+  %d_branches.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %d_branches.i, align 8
-  %_M_finish.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::Interleaving", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.not7.i = icmp eq ptr %2, %3
   br i1 %cmp.i.not7.i, label %_ZN4cvc58internal6theory5arith2nl12Interleaving3getEv.exit, label %for.body.i
@@ -3498,14 +3340,14 @@ entry:
 for.body.i:                                       ; preds = %entry, %if.end.i
   %cnt.09.i = phi i64 [ %sub.i, %if.end.i ], [ %0, %entry ]
   %__begin3.sroa.0.08.i = phi ptr [ %incdec.ptr.i.i, %if.end.i ], [ %2, %entry ]
-  %d_interleavingConstant.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %__begin3.sroa.0.08.i, i64 0, i32 1
+  %d_interleavingConstant.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.08.i, i64 24
   %4 = load i64, ptr %d_interleavingConstant.i, align 8
   %cmp.i = icmp ult i64 %cnt.09.i, %4
   br i1 %cmp.i, label %_ZN4cvc58internal6theory5arith2nl12Interleaving3getEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
   %sub.i = sub i64 %cnt.09.i, %4
-  %incdec.ptr.i.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %__begin3.sroa.0.08.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.08.i, i64 32
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %3
   br i1 %cmp.i.not.i, label %_ZN4cvc58internal6theory5arith2nl12Interleaving3getEv.exit, label %for.body.i
 
@@ -3534,7 +3376,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::Interleaving::Branch, std::allocator<cvc5::internal::theory::arith::nl::Interleaving::Branch>>::_Vector_impl_data", ptr %this, i64 0, i32 1
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
   %1 = load ptr, ptr %this, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
@@ -3544,7 +3386,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.30) #21
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.30) #20
   unreachable
 
 _ZNKSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -3558,49 +3400,55 @@ _ZNKSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE12_M_
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
-  %cmp.not.i = icmp ne i64 %cond.i, 0
-  tail call void @llvm.assume(i1 %cmp.not.i)
+  %cmp.not.i = icmp eq i64 %cond.i, 0
+  br i1 %cmp.not.i, label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_M_allocateEm.exit, label %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl12Interleaving6BranchEEE8allocateERS7_m.exit.i
+
+_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl12Interleaving6BranchEEE8allocateERS7_m.exit.i: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 5
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #22
-  %add.ptr = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %call5.i.i.i, i64 %sub.ptr.div.i
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #21
+  br label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_M_allocateEm.exit
+
+_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE12_M_check_lenEmPKc.exit, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl12Interleaving6BranchEEE8allocateERS7_m.exit.i
+  %cond.i10 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN4cvc58internal6theory5arith2nl12Interleaving6BranchEEE8allocateERS7_m.exit.i ], [ null, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE12_M_check_lenEmPKc.exit ]
+  %add.ptr = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %cond.i10, i64 %sub.ptr.div.i
   %2 = load <2 x ptr>, ptr %__args, align 8
   store <2 x ptr> %2, ptr %add.ptr, align 8
-  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %add.ptr, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %__args, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__args, i64 16
   %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__args, i8 0, i64 24, i1 false)
-  %d_interleavingConstant.i.i.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %call5.i.i.i, i64 %sub.ptr.div.i, i32 1
-  %d_interleavingConstant3.i.i.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %__args, i64 0, i32 1
+  %d_interleavingConstant.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  %d_interleavingConstant3.i.i.i = getelementptr inbounds i8, ptr %__args, i64 24
   %4 = load i64, ptr %d_interleavingConstant3.i.i.i, align 8
   store i64 %4, ptr %d_interleavingConstant.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not5.i.i.i, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i
-  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE12_M_check_lenEmPKc.exit ]
-  %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE12_M_check_lenEmPKc.exit ]
+for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_M_allocateEm.exit, %for.body.i.i.i
+  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i10, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_M_allocateEm.exit ]
+  %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_M_allocateEm.exit ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %5 = load <2 x ptr>, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !7, !noalias !4
   store <2 x ptr> %5, ptr %__cur.07.i.i.i, align 8, !alias.scope !4, !noalias !7
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %__cur.07.i.i.i, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 16
   %6 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !4
   store ptr %6, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !4, !noalias !7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i, i8 0, i64 24, i1 false), !alias.scope !7, !noalias !4
-  %d_interleavingConstant.i.i.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %__cur.07.i.i.i, i64 0, i32 1
-  %d_interleavingConstant3.i.i.i.i.i.i.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %__first.addr.06.i.i.i, i64 0, i32 1
+  %d_interleavingConstant.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 24
+  %d_interleavingConstant3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 24
   %7 = load i64, ptr %d_interleavingConstant3.i.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !4
   store i64 %7, ptr %d_interleavingConstant.i.i.i.i.i.i.i, align 8, !alias.scope !4, !noalias !7
-  %incdec.ptr.i.i.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %__first.addr.06.i.i.i, i64 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %__cur.07.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 32
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
   br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %for.body.i.i.i, !llvm.loop !9
 
-_ZNSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %for.body.i.i.i, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE12_M_check_lenEmPKc.exit
-  %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %_ZNKSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
-  %incdec.ptr = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %__cur.0.lcssa.i.i.i, i64 1
+_ZNSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_M_allocateEm.exit
+  %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i, i64 32
   %cmp.not5.i.i.i11 = icmp eq ptr %0, %__position.coerce
   br i1 %cmp.not5.i.i.i11, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit25, label %for.body.i.i.i12
 
@@ -3611,17 +3459,17 @@ for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN4cvc5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %8 = load <2 x ptr>, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !14, !noalias !11
   store <2 x ptr> %8, ptr %__cur.07.i.i.i13, align 8, !alias.scope !11, !noalias !14
-  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %__cur.07.i.i.i13, i64 0, i32 2
-  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::InferStep, std::allocator<cvc5::internal::theory::arith::nl::InferStep>>::_Vector_impl_data", ptr %__first.addr.06.i.i.i14, i64 0, i32 2
+  %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 16
+  %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 16
   %9 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !14, !noalias !11
   store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i17, align 8, !alias.scope !11, !noalias !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first.addr.06.i.i.i14, i8 0, i64 24, i1 false), !alias.scope !14, !noalias !11
-  %d_interleavingConstant.i.i.i.i.i.i.i19 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %__cur.07.i.i.i13, i64 0, i32 1
-  %d_interleavingConstant3.i.i.i.i.i.i.i20 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %__first.addr.06.i.i.i14, i64 0, i32 1
+  %d_interleavingConstant.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 24
+  %d_interleavingConstant3.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 24
   %10 = load i64, ptr %d_interleavingConstant3.i.i.i.i.i.i.i20, align 8, !alias.scope !14, !noalias !11
   store i64 %10, ptr %d_interleavingConstant.i.i.i.i.i.i.i19, align 8, !alias.scope !11, !noalias !14
-  %incdec.ptr.i.i.i21 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %__first.addr.06.i.i.i14, i64 1
-  %incdec.ptr1.i.i.i22 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %__cur.07.i.i.i13, i64 1
+  %incdec.ptr.i.i.i21 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 32
+  %incdec.ptr1.i.i.i22 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 32
   %cmp.not.i.i.i23 = icmp eq ptr %incdec.ptr.i.i.i21, %0
   br i1 %cmp.not.i.i.i23, label %_ZNSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit25, label %for.body.i.i.i12, !llvm.loop !9
 
@@ -3631,14 +3479,14 @@ _ZNSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_S_r
   br i1 %tobool.not.i, label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE13_M_deallocateEPS6_m.exit, label %if.then.i26
 
 if.then.i26:                                      ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit25
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #22
   br label %_ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE13_M_deallocateEPS6_m.exit
 
 _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit25, %if.then.i26
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<cvc5::internal::theory::arith::nl::Interleaving::Branch, std::allocator<cvc5::internal::theory::arith::nl::Interleaving::Branch>>::_Vector_impl_data", ptr %this, i64 0, i32 2
-  store ptr %call5.i.i.i, ptr %this, align 8
+  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
+  store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds %"struct.cvc5::internal::theory::arith::nl::Interleaving::Branch", ptr %cond.i10, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -3647,7 +3495,7 @@ _ZNSt12_Vector_baseIN4cvc58internal6theory5arith2nl12Interleaving6BranchESaIS6_E
 define internal void @_GLOBAL__sub_I_strategy.cpp() #14 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
+  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
   ret void
 }
 
@@ -3660,11 +3508,8 @@ declare i64 @llvm.umax.i64(i64, i64) #16
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #18
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3684,13 +3529,12 @@ attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "n
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { noreturn }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { builtin nounwind }
-attributes #24 = { nounwind }
+attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { noreturn }
+attributes #21 = { builtin allocsize(0) }
+attributes #22 = { builtin nounwind }
+attributes #23 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -3,25 +3,6 @@ source_filename = "bench/qemu/original/ui_vnc-enc-zlib.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.VncState = type { i64, ptr, ptr, i32, i32, [2048 x [3 x i64]], ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i64, i64, i32, i32, i32, i32, i32, i32, [16 x i8], ptr, i8, i8, ptr, i64, i64, %struct.Buffer, %struct.Buffer, ptr, %struct.PixelFormat, i32, i8, ptr, %struct.audsettings, ptr, i64, i8, %struct.QemuMutex, ptr, %struct.Buffer, ptr, %struct.VncZlib, %struct.VncHextile, ptr, %struct.VncZywrle, %struct.Notifier, %struct.QemuClipboardPeer, ptr, i32, %union.anon }
-%struct.PixelFormat = type { i8, i8, i8, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.audsettings = type { i32, i32, i32, i32 }
-%struct.QemuMutex = type { %union.pthread_mutex_t, i8 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.Buffer = type { ptr, i64, i64, i64, ptr }
-%struct.VncZlib = type { %struct.Buffer, %struct.Buffer, %struct.z_stream_s, i32 }
-%struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%struct.VncHextile = type { ptr }
-%struct.VncZywrle = type { [4096 x i32] }
-%struct.Notifier = type { ptr, %struct.anon }
-%struct.anon = type { ptr, ptr }
-%struct.QemuClipboardPeer = type { ptr, %struct.Notifier, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%struct.VncTight = type { i32, i8, i8, i8, %struct.Buffer, %struct.Buffer, %struct.Buffer, %struct.Buffer, %struct.Buffer, %struct.Buffer, [4 x i32], [4 x %struct.z_stream_s] }
-
 @.str = private unnamed_addr constant [7 x i8] c"1.2.11\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [30 x i8] c"VNC: error initializing zlib\0A\00", align 1
@@ -54,39 +35,39 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 define dso_local i32 @vnc_zlib_send_framebuffer_update(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) local_unnamed_addr #0 {
 entry:
   tail call void @vnc_framebuffer_update(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, i32 noundef 6) #6
-  %offset = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 31, i32 2
+  %offset = getelementptr inbounds i8, ptr %vs, i64 49344
   %0 = load i64, ptr %offset, align 8
   tail call void @vnc_write_s32(ptr noundef %vs, i32 noundef 0) #6
-  %zlib.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46
+  %zlib.i = getelementptr inbounds i8, ptr %vs, i64 49608
   tail call void @buffer_reset(ptr noundef nonnull %zlib.i) #6
-  %tmp.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 1
-  %output.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 31
+  %tmp.i = getelementptr inbounds i8, ptr %vs, i64 49648
+  %output.i = getelementptr inbounds i8, ptr %vs, i64 49328
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %zlib.i, i64 40, i1 false)
   %call = tail call i32 @vnc_raw_send_framebuffer_update(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h) #6
-  %stream.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 2
+  %stream.i = getelementptr inbounds i8, ptr %vs, i64 49688
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %zlib.i, ptr noundef nonnull align 8 dereferenceable(40) %output.i, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %output.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
-  %opaque.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 2, i32 10
+  %opaque.i = getelementptr inbounds i8, ptr %vs, i64 49768
   %1 = load ptr, ptr %opaque.i, align 8
   %cmp.not.i = icmp eq ptr %1, %vs
   br i1 %cmp.not.i, label %entry.if.end16_crit_edge.i, label %do.end6.i
 
 entry.if.end16_crit_edge.i:                       ; preds = %entry
-  %tight17.phi.trans.insert.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 45
+  %tight17.phi.trans.insert.i = getelementptr inbounds i8, ptr %vs, i64 49600
   %.pre.i = load ptr, ptr %tight17.phi.trans.insert.i, align 8
-  %level21.phi.trans.insert.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 3
+  %level21.phi.trans.insert.i = getelementptr inbounds i8, ptr %vs, i64 49800
   %.pre39.i = load i32, ptr %level21.phi.trans.insert.i, align 8
   br label %if.end16.i
 
 do.end6.i:                                        ; preds = %entry
-  %zalloc.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 2, i32 8
+  %zalloc.i = getelementptr inbounds i8, ptr %vs, i64 49752
   store ptr @vnc_zlib_zalloc, ptr %zalloc.i, align 8
-  %zfree.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 2, i32 9
+  %zfree.i = getelementptr inbounds i8, ptr %vs, i64 49760
   store ptr @vnc_zlib_zfree, ptr %zfree.i, align 8
-  %tight.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 45
+  %tight.i = getelementptr inbounds i8, ptr %vs, i64 49600
   %2 = load ptr, ptr %tight.i, align 8
-  %compression.i = getelementptr inbounds %struct.VncTight, ptr %2, i64 0, i32 2
+  %compression.i = getelementptr inbounds i8, ptr %2, i64 5
   %3 = load i8, ptr %compression.i, align 1
   %conv.i = zext i8 %3 to i32
   %call.i = tail call i32 @deflateInit2_(ptr noundef nonnull %stream.i, i32 noundef %conv.i, i32 noundef 8, i32 noundef 15, i32 noundef 9, i32 noundef 0, ptr noundef nonnull @.str, i32 noundef 112) #6
@@ -100,10 +81,10 @@ if.then9.i:                                       ; preds = %do.end6.i
 
 if.end.i:                                         ; preds = %do.end6.i
   %6 = load ptr, ptr %tight.i, align 8
-  %compression12.i = getelementptr inbounds %struct.VncTight, ptr %6, i64 0, i32 2
+  %compression12.i = getelementptr inbounds i8, ptr %6, i64 5
   %7 = load i8, ptr %compression12.i, align 1
   %conv13.i = zext i8 %7 to i32
-  %level.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 3
+  %level.i = getelementptr inbounds i8, ptr %vs, i64 49800
   store i32 %conv13.i, ptr %level.i, align 8
   store ptr %vs, ptr %opaque.i, align 8
   br label %if.end16.i
@@ -111,11 +92,11 @@ if.end.i:                                         ; preds = %do.end6.i
 if.end16.i:                                       ; preds = %if.end.i, %entry.if.end16_crit_edge.i
   %8 = phi i32 [ %.pre39.i, %entry.if.end16_crit_edge.i ], [ %conv13.i, %if.end.i ]
   %9 = phi ptr [ %.pre.i, %entry.if.end16_crit_edge.i ], [ %6, %if.end.i ]
-  %tight17.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 45
-  %compression18.i = getelementptr inbounds %struct.VncTight, ptr %9, i64 0, i32 2
+  %tight17.i = getelementptr inbounds i8, ptr %vs, i64 49600
+  %compression18.i = getelementptr inbounds i8, ptr %9, i64 5
   %10 = load i8, ptr %compression18.i, align 1
   %conv19.i = zext i8 %10 to i32
-  %level21.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 3
+  %level21.i = getelementptr inbounds i8, ptr %vs, i64 49800
   %cmp22.not.i = icmp eq i32 %8, %conv19.i
   br i1 %cmp22.not.i, label %if.end38.i, label %if.then24.i
 
@@ -126,37 +107,37 @@ if.then24.i:                                      ; preds = %if.end16.i
 
 if.end32.i:                                       ; preds = %if.then24.i
   %11 = load ptr, ptr %tight17.i, align 8
-  %compression34.i = getelementptr inbounds %struct.VncTight, ptr %11, i64 0, i32 2
+  %compression34.i = getelementptr inbounds i8, ptr %11, i64 5
   %12 = load i8, ptr %compression34.i, align 1
   %conv35.i = zext i8 %12 to i32
   store i32 %conv35.i, ptr %level21.i, align 8
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.end32.i, %if.end16.i
-  %offset.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 0, i32 2
+  %offset.i = getelementptr inbounds i8, ptr %vs, i64 49624
   %13 = load i64, ptr %offset.i, align 8
   %add.i = add i64 %13, 64
   tail call void @buffer_reserve(ptr noundef nonnull %output.i, i64 noundef %add.i) #6
-  %buffer.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 0, i32 4
+  %buffer.i = getelementptr inbounds i8, ptr %vs, i64 49640
   %14 = load ptr, ptr %buffer.i, align 8
   store ptr %14, ptr %stream.i, align 8
   %15 = load i64, ptr %offset.i, align 8
   %conv47.i = trunc i64 %15 to i32
-  %avail_in.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 2, i32 1
+  %avail_in.i = getelementptr inbounds i8, ptr %vs, i64 49696
   store i32 %conv47.i, ptr %avail_in.i, align 8
-  %buffer49.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 31, i32 4
+  %buffer49.i = getelementptr inbounds i8, ptr %vs, i64 49360
   %16 = load ptr, ptr %buffer49.i, align 8
   %17 = load i64, ptr %offset, align 8
   %add.ptr.i = getelementptr i8, ptr %16, i64 %17
-  %next_out.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 2, i32 3
+  %next_out.i = getelementptr inbounds i8, ptr %vs, i64 49712
   store ptr %add.ptr.i, ptr %next_out.i, align 8
-  %capacity.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 31, i32 1
+  %capacity.i = getelementptr inbounds i8, ptr %vs, i64 49336
   %18 = load i64, ptr %capacity.i, align 8
   %sub.i = sub i64 %18, %17
   %conv55.i = trunc i64 %sub.i to i32
-  %avail_out.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 2, i32 4
+  %avail_out.i = getelementptr inbounds i8, ptr %vs, i64 49720
   store i32 %conv55.i, ptr %avail_out.i, align 8
-  %data_type.i = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 2, i32 11
+  %data_type.i = getelementptr inbounds i8, ptr %vs, i64 49776
   store i32 0, ptr %data_type.i, align 8
   %call57.i = tail call i32 @deflate(ptr noundef nonnull %stream.i, i32 noundef 2) #6
   %cmp58.not.i = icmp eq i32 %call57.i, 0
@@ -203,18 +184,18 @@ declare void @vnc_write_u32(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vnc_zlib_clear(ptr noundef %vs) local_unnamed_addr #0 {
 entry:
-  %opaque = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 2, i32 10
+  %opaque = getelementptr inbounds i8, ptr %vs, i64 49768
   %0 = load ptr, ptr %opaque, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %stream = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46, i32 2
+  %stream = getelementptr inbounds i8, ptr %vs, i64 49688
   %call = tail call i32 @deflateEnd(ptr noundef nonnull %stream) #6
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %zlib = getelementptr inbounds %struct.VncState, ptr %vs, i64 0, i32 46
+  %zlib = getelementptr inbounds i8, ptr %vs, i64 49608
   tail call void @buffer_free(ptr noundef nonnull %zlib) #6
   ret void
 }

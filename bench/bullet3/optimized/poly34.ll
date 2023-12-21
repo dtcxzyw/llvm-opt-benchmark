@@ -40,7 +40,7 @@ if.end:                                           ; preds = %entry
 return:                                           ; preds = %if.end, %if.then
   %conv13.sink = phi float [ %call.i12, %if.end ], [ %conv13, %if.then ]
   %retval.0 = phi i32 [ 0, %if.end ], [ 2, %if.then ]
-  %3 = getelementptr inbounds float, ptr %x, i64 1
+  %3 = getelementptr inbounds i8, ptr %x, i64 4
   store float %conv13.sink, ptr %3, align 4
   ret i32 %retval.0
 }
@@ -93,14 +93,14 @@ if.then11:                                        ; preds = %entry
   %neg33 = fneg double %conv32
   %4 = tail call double @llvm.fmuladd.f64(double %conv, double %call30, double %neg33)
   %conv34 = fptrunc double %4 to float
-  %arrayidx35 = getelementptr inbounds float, ptr %x, i64 1
+  %arrayidx35 = getelementptr inbounds i8, ptr %x, i64 4
   store float %conv34, ptr %arrayidx35, align 4
   %sub = fadd double %conv27, 0xC01921FB54442D18
   %div38 = fdiv double %sub, 3.000000e+00
   %call39 = tail call double @cos(double noundef %div38) #6
   %5 = tail call double @llvm.fmuladd.f64(double %conv, double %call39, double %neg33)
   %conv43 = fptrunc double %5 to float
-  %arrayidx44 = getelementptr inbounds float, ptr %x, i64 2
+  %arrayidx44 = getelementptr inbounds i8, ptr %x, i64 8
   store float %conv43, ptr %arrayidx44, align 4
   br label %return
 
@@ -125,13 +125,13 @@ if.else:                                          ; preds = %entry
   %neg64 = fneg double %conv63
   %7 = tail call double @llvm.fmuladd.f64(double %conv61, double -5.000000e-01, double %neg64)
   %conv65 = fptrunc double %7 to float
-  %arrayidx66 = getelementptr inbounds float, ptr %x, i64 1
+  %arrayidx66 = getelementptr inbounds i8, ptr %x, i64 4
   store float %conv65, ptr %arrayidx66, align 4
   %sub69 = fsub float %A.0, %cond
   %conv70 = fpext float %sub69 to double
   %mul71 = fmul double %conv70, 0x3FEBB67AE8584CAA
   %conv72 = fptrunc double %mul71 to float
-  %arrayidx73 = getelementptr inbounds float, ptr %x, i64 2
+  %arrayidx73 = getelementptr inbounds i8, ptr %x, i64 8
   store float %conv72, ptr %arrayidx73, align 4
   %8 = tail call noundef float @llvm.fabs.f32(float %conv72)
   %cmp76 = fcmp olt float %8, 0x3E80000000000000
@@ -381,20 +381,20 @@ if.then5:                                         ; preds = %if.then
   %call.i35 = tail call noundef float @sqrtf(float noundef %div3) #6
   %fneg8 = fneg float %call.i34
   store float %fneg8, ptr %x, align 4
-  %arrayidx9 = getelementptr inbounds float, ptr %x, i64 1
+  %arrayidx9 = getelementptr inbounds i8, ptr %x, i64 4
   store float %call.i34, ptr %arrayidx9, align 4
   %fneg10 = fneg float %call.i35
-  %arrayidx11 = getelementptr inbounds float, ptr %x, i64 2
+  %arrayidx11 = getelementptr inbounds i8, ptr %x, i64 8
   store float %fneg10, ptr %arrayidx11, align 4
-  %arrayidx12 = getelementptr inbounds float, ptr %x, i64 3
+  %arrayidx12 = getelementptr inbounds i8, ptr %x, i64 12
   store float %call.i35, ptr %arrayidx12, align 4
   br label %return
 
 if.end:                                           ; preds = %if.then
   %cmp13 = fcmp olt float %div, 0.000000e+00
-  %arrayidx22 = getelementptr inbounds float, ptr %x, i64 1
-  %arrayidx23 = getelementptr inbounds float, ptr %x, i64 2
-  %arrayidx24 = getelementptr inbounds float, ptr %x, i64 3
+  %arrayidx22 = getelementptr inbounds i8, ptr %x, i64 4
+  %arrayidx23 = getelementptr inbounds i8, ptr %x, i64 8
+  %arrayidx24 = getelementptr inbounds i8, ptr %x, i64 12
   br i1 %cmp13, label %if.then14, label %if.end25
 
 if.then14:                                        ; preds = %if.end
@@ -424,7 +424,7 @@ if.else:                                          ; preds = %entry
   %call.i40 = tail call noundef float @sqrtf(float noundef %fneg36) #6
   %conv38 = fmul float %call.i40, 5.000000e-01
   %conv41 = fmul float %b, -5.000000e-01
-  %arrayidx43 = getelementptr inbounds float, ptr %x, i64 1
+  %arrayidx43 = getelementptr inbounds i8, ptr %x, i64 4
   %mul1.i = fmul float %conv38, %conv38
   %1 = tail call float @llvm.fmuladd.f32(float %conv41, float %conv41, float %mul1.i)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %1)
@@ -438,7 +438,7 @@ if.then.i:                                        ; preds = %if.else
   %sqrt16.i. = select i1 %cmp3.i, float %sqrt16.i, float 0.000000e+00
   store float %.sqrt16.i, ptr %x, align 4
   store float %sqrt16.i., ptr %arrayidx43, align 4
-  %arrayidx4863 = getelementptr inbounds float, ptr %x, i64 2
+  %arrayidx4863 = getelementptr inbounds i8, ptr %x, i64 8
   %sqrt16.i57 = tail call float @llvm.sqrt.f32(float %sqrt.i)
   %cmp3.i58 = fcmp ult float %conv41, 0.000000e+00
   br i1 %cmp3.i58, label %if.else.i60, label %if.then4.i59
@@ -464,7 +464,7 @@ if.else5.i44:                                     ; preds = %if.else
   %div.i = fdiv double %mul9.i, %conv10.i
   %conv11.i = fptrunc double %div.i to float
   store float %conv11.i, ptr %arrayidx43, align 4
-  %arrayidx48 = getelementptr inbounds float, ptr %x, i64 2
+  %arrayidx48 = getelementptr inbounds i8, ptr %x, i64 8
   %fneg47 = fneg float %conv38
   %add.i45 = fadd float %conv41, %sqrt.i
   %conv.i46 = fpext float %add.i45 to double
@@ -481,7 +481,7 @@ if.else5.i44:                                     ; preds = %if.else
 
 _Z5CSqrtffRfS_.exit61:                            ; preds = %if.then4.i59, %if.else.i60, %if.else5.i44
   %.sink.i55 = phi float [ 0.000000e+00, %if.then4.i59 ], [ %sqrt16.i57, %if.else.i60 ], [ %conv11.i54, %if.else5.i44 ]
-  %arrayidx4966 = getelementptr inbounds float, ptr %x, i64 3
+  %arrayidx4966 = getelementptr inbounds i8, ptr %x, i64 12
   store float %.sink.i55, ptr %arrayidx4966, align 4
   br label %return
 
@@ -518,8 +518,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp10, label %if.then11, label %if.end99
 
 if.then11:                                        ; preds = %if.end
-  %arrayidx12 = getelementptr inbounds float, ptr %x, i64 1
-  %arrayidx13 = getelementptr inbounds float, ptr %x, i64 2
+  %arrayidx12 = getelementptr inbounds i8, ptr %x, i64 4
+  %arrayidx13 = getelementptr inbounds i8, ptr %x, i64 8
   %4 = load float, ptr %x, align 4
   %5 = load float, ptr %arrayidx12, align 4
   %cmp.i = fcmp ogt float %4, %5
@@ -628,9 +628,9 @@ if.end99:                                         ; preds = %if.end
   %cmp101 = fcmp olt float %44, 0.000000e+00
   %45 = select i1 %cmp101, float 0.000000e+00, float %44
   %call.i92 = tail call noundef float @sqrtf(float noundef %45) #6
-  %arrayidx108 = getelementptr inbounds float, ptr %x, i64 1
+  %arrayidx108 = getelementptr inbounds i8, ptr %x, i64 4
   %46 = load float, ptr %arrayidx108, align 4
-  %arrayidx109 = getelementptr inbounds float, ptr %x, i64 2
+  %arrayidx109 = getelementptr inbounds i8, ptr %x, i64 8
   %47 = load float, ptr %arrayidx109, align 4
   %mul1.i = fmul float %47, %47
   %48 = tail call float @llvm.fmuladd.f32(float %46, float %46, float %mul1.i)
@@ -663,7 +663,7 @@ _Z5CSqrtffRfS_.exit:                              ; preds = %if.then.i94, %if.el
   %szr.0 = phi float [ 0.000000e+00, %if.else.i ], [ %conv7.i, %if.else5.i ], [ %sqrt16.i, %if.then.i94 ]
   %.sink.i = phi float [ %sqrt16.i, %if.else.i ], [ %conv11.i, %if.else5.i ], [ 0.000000e+00, %if.then.i94 ]
   %cmp110 = fcmp ogt float %c, 0.000000e+00
-  %arrayidx122 = getelementptr inbounds float, ptr %x, i64 3
+  %arrayidx122 = getelementptr inbounds i8, ptr %x, i64 12
   br i1 %cmp110, label %if.then111, label %if.end123
 
 if.then111:                                       ; preds = %_Z5CSqrtffRfS_.exit
@@ -752,13 +752,13 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %arrayidx35 = getelementptr inbounds float, ptr %x, i64 1
+  %arrayidx35 = getelementptr inbounds i8, ptr %x, i64 4
   %8 = load <2 x float>, ptr %arrayidx35, align 4
   %9 = insertelement <2 x float> poison, float %div55, i64 0
   %10 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> zeroinitializer
   %11 = fsub <2 x float> %8, %10
   store <2 x float> %11, ptr %arrayidx35, align 4
-  %arrayidx41 = getelementptr inbounds float, ptr %x, i64 3
+  %arrayidx41 = getelementptr inbounds i8, ptr %x, i64 12
   %12 = load float, ptr %arrayidx41, align 4
   %sub42 = fsub float %12, %div55
   store float %sub42, ptr %arrayidx41, align 4
@@ -766,7 +766,7 @@ if.then:                                          ; preds = %entry
   br label %if.then63
 
 if.then44:                                        ; preds = %entry
-  %arrayidx49 = getelementptr inbounds float, ptr %x, i64 1
+  %arrayidx49 = getelementptr inbounds i8, ptr %x, i64 4
   %14 = load <2 x float>, ptr %arrayidx49, align 4
   %15 = insertelement <2 x float> poison, float %div55, i64 0
   %16 = shufflevector <2 x float> %15, <2 x float> poison, <2 x i32> zeroinitializer
@@ -777,7 +777,7 @@ if.then44:                                        ; preds = %entry
 
 if.end61:                                         ; preds = %entry
   store float %sub57, ptr %x, align 4
-  %arrayidx59 = getelementptr inbounds float, ptr %x, i64 2
+  %arrayidx59 = getelementptr inbounds i8, ptr %x, i64 8
   %19 = load float, ptr %arrayidx59, align 4
   %sub60 = fsub float %19, %div55
   store float %sub60, ptr %arrayidx59, align 4
@@ -806,7 +806,7 @@ if.end.i:                                         ; preds = %if.then63
 _Z6N4Stepfffff.exit:                              ; preds = %if.then63, %if.end.i
   %retval.0.i = phi float [ %sub.i, %if.end.i ], [ %sub57, %if.then63 ]
   store float %retval.0.i, ptr %x, align 4
-  %arrayidx67 = getelementptr inbounds float, ptr %x, i64 1
+  %arrayidx67 = getelementptr inbounds i8, ptr %x, i64 4
   %27 = load float, ptr %arrayidx67, align 4
   %28 = tail call float @llvm.fmuladd.f32(float %27, float 4.000000e+00, float %mul1.i)
   %29 = tail call float @llvm.fmuladd.f32(float %28, float %27, float %mul2.i)
@@ -830,7 +830,7 @@ if.end70:                                         ; preds = %if.end.i62, %_Z6N4S
   br i1 %cmp71, label %if.then72, label %if.end79
 
 if.then72:                                        ; preds = %if.end70
-  %arrayidx73 = getelementptr inbounds float, ptr %x, i64 2
+  %arrayidx73 = getelementptr inbounds i8, ptr %x, i64 8
   %34 = tail call float @llvm.fmuladd.f32(float %20, float 4.000000e+00, float %mul1.i)
   %35 = tail call float @llvm.fmuladd.f32(float %34, float %20, float %mul2.i)
   %36 = tail call float @llvm.fmuladd.f32(float %35, float %20, float %c)
@@ -849,7 +849,7 @@ if.end.i71:                                       ; preds = %if.then72
 _Z6N4Stepfffff.exit76:                            ; preds = %if.then72, %if.end.i71
   %retval.0.i75 = phi float [ %sub.i74, %if.end.i71 ], [ %20, %if.then72 ]
   store float %retval.0.i75, ptr %arrayidx73, align 4
-  %arrayidx76 = getelementptr inbounds float, ptr %x, i64 3
+  %arrayidx76 = getelementptr inbounds i8, ptr %x, i64 12
   %40 = load float, ptr %arrayidx76, align 4
   %41 = tail call float @llvm.fmuladd.f32(float %40, float 4.000000e+00, float %mul1.i)
   %42 = tail call float @llvm.fmuladd.f32(float %41, float %40, float %mul2.i)
@@ -1017,7 +1017,7 @@ entry:
   %0 = tail call float @llvm.fmuladd.f32(float %call, float %add, float %b)
   %1 = tail call float @llvm.fmuladd.f32(float %call, float %0, float %c)
   %2 = tail call float @llvm.fmuladd.f32(float %call, float %1, float %d)
-  %add.ptr = getelementptr inbounds float, ptr %x, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %x, i64 4
   %call1 = tail call noundef i32 @_Z7SolveP4Pfffff(ptr noundef nonnull %add.ptr, float noundef %add, float noundef %0, float noundef %1, float noundef %2), !range !8
   %add2 = add nuw nsw i32 %call1, 1
   ret i32 %add2

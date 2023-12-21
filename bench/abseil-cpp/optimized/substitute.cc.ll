@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::basic_string_view" = type { i64, ptr }
-%"class.absl::substitute_internal::Arg" = type { %"class.std::basic_string_view", [32 x i8] }
 
 @.str = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
 @_ZN4absl16numbers_internal8kHexCharE = external local_unnamed_addr constant [17 x i8], align 16
@@ -105,13 +104,13 @@ if.then48:                                        ; preds = %for.body44
 if.then52:                                        ; preds = %if.then48
   %conv55 = zext nneg i8 %6 to i64
   %9 = getelementptr %"class.std::basic_string_view", ptr %args_array, i64 %conv55
-  %arrayidx58 = getelementptr %"class.std::basic_string_view", ptr %9, i64 -48
+  %arrayidx58 = getelementptr i8, ptr %9, i64 -768
   %src.sroa.0.0.copyload = load i64, ptr %arrayidx58, align 8
   %tobool.not.i.i.i.i.i = icmp eq i64 %src.sroa.0.0.copyload, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.then52
-  %src.sroa.2.0.arrayidx58.sroa_idx = getelementptr %"class.std::basic_string_view", ptr %9, i64 -48, i32 1
+  %src.sroa.2.0.arrayidx58.sroa_idx = getelementptr i8, ptr %9, i64 -760
   %src.sroa.2.0.copyload = load ptr, ptr %src.sroa.2.0.arrayidx58.sroa_idx, align 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %target.064, ptr align 1 %src.sroa.2.0.copyload, i64 %src.sroa.0.0.copyload, i1 false)
   br label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit
@@ -158,7 +157,7 @@ entry:
   br i1 %cmp, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  %add.ptr = getelementptr inbounds %"class.absl::substitute_internal::Arg", ptr %this, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %this, i64 48
   %0 = ptrtoint ptr %value to i64
   br label %do.body
 
@@ -197,7 +196,7 @@ if.end:                                           ; preds = %entry, %do.end
 define dso_local void @_ZN4absl19substitute_internal3ArgC2ENS_3HexE(ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %hex.coerce0, i64 %hex.coerce1) unnamed_addr #3 align 2 {
 entry:
   %hex.sroa.4.8.extract.shift = lshr i64 %hex.coerce1, 8
-  %arrayidx = getelementptr inbounds %"class.absl::substitute_internal::Arg", ptr %this, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 48
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %entry
@@ -248,7 +247,7 @@ define dso_local void @_ZN4absl19substitute_internal3ArgC2ENS_3DecE(ptr noundef 
 entry:
   %dec.sroa.4.8.extract.shift = lshr i64 %dec.coerce1, 8
   %dec.sroa.4.8.extract.trunc = trunc i64 %dec.sroa.4.8.extract.shift to i8
-  %arrayidx = getelementptr inbounds %"class.absl::substitute_internal::Arg", ptr %this, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %this, i64 48
   %idx.ext = and i64 %dec.coerce1, 255
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr = getelementptr inbounds i8, ptr %arrayidx, i64 %idx.neg

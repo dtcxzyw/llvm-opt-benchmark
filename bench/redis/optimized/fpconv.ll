@@ -218,11 +218,11 @@ entry:
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 8, ptr noundef nonnull @.str.1, double noundef 5.000000e-01) #11
   %0 = load i8, ptr %buf.i, align 1, !tbaa !4
   %cmp.i = icmp ne i8 %0, 48
-  %arrayidx2.i = getelementptr inbounds [8 x i8], ptr %buf.i, i64 0, i64 2
+  %arrayidx2.i = getelementptr inbounds i8, ptr %buf.i, i64 2
   %1 = load i8, ptr %arrayidx2.i, align 1
   %cmp4.i = icmp ne i8 %1, 53
   %or.cond.i = select i1 %cmp.i, i1 true, i1 %cmp4.i
-  %arrayidx7.i = getelementptr inbounds [8 x i8], ptr %buf.i, i64 0, i64 3
+  %arrayidx7.i = getelementptr inbounds i8, ptr %buf.i, i64 3
   %2 = load i8, ptr %arrayidx7.i, align 1
   %cmp9.i = icmp ne i8 %2, 0
   %or.cond13.i = select i1 %or.cond.i, i1 true, i1 %cmp9.i
@@ -235,7 +235,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 fpconv_update_locale.exit:                        ; preds = %entry
-  %arrayidx12.i = getelementptr inbounds [8 x i8], ptr %buf.i, i64 0, i64 1
+  %arrayidx12.i = getelementptr inbounds i8, ptr %buf.i, i64 1
   %5 = load i8, ptr %arrayidx12.i, align 1, !tbaa !4
   store i8 %5, ptr @locale_decimal_point, align 1, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i) #11

@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ASN1_ITEM_st = type { i8, i64, ptr, i64, ptr, i64, ptr }
 %struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
 
 @ossl_v3_ext_ku = local_unnamed_addr constant %struct.v3_ext_method { i32 126, i32 0, ptr @EXTENDED_KEY_USAGE_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2v_EXTENDED_KEY_USAGE, ptr @v2i_EXTENDED_KEY_USAGE, ptr null, ptr null, ptr null }, align 8
 @ossl_v3_ocsp_accresp = local_unnamed_addr constant %struct.v3_ext_method { i32 368, i32 0, ptr @EXTENDED_KEY_USAGE_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2v_EXTENDED_KEY_USAGE, ptr @v2i_EXTENDED_KEY_USAGE, ptr null, ptr null, ptr null }, align 8
@@ -74,13 +73,13 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %if.end16
   %i.013 = phi i32 [ %inc, %if.end16 ], [ 0, %for.cond.preheader ]
   %call7 = tail call ptr @OPENSSL_sk_value(ptr noundef %nval, i32 noundef %i.013) #3
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %call7, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %call7, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.else, label %if.end10
 
 if.else:                                          ; preds = %for.body
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call7, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call7, i64 8
   %1 = load ptr, ptr %name, align 8
   br label %if.end10
 

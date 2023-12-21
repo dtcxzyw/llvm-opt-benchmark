@@ -188,7 +188,7 @@ if.end70.us:                                      ; preds = %if.then55.us
   %tobool74.not.us = icmp eq i32 %call73.us, 0
   %cond75.us = select i1 %tobool74.not.us, ptr @.str.35, ptr @.str.34
   %call76.us = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.33, ptr noundef %9, ptr noundef nonnull %cond75.us) #3
-  %incdec.ptr.us = getelementptr inbounds ptr, ptr %argv.addr.036.us, i64 1
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %argv.addr.036.us, i64 8
   %11 = load ptr, ptr %incdec.ptr.us, align 8
   %tobool52.not.us = icmp eq ptr %11, null
   br i1 %tobool52.not.us, label %end, label %for.body.us, !llvm.loop !8
@@ -322,7 +322,7 @@ if.end70:                                         ; preds = %cond.true57
   %tobool74.not = icmp eq i32 %call73, 0
   %cond75 = select i1 %tobool74.not, ptr @.str.35, ptr @.str.34
   %call76 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %26, ptr noundef nonnull @.str.33, ptr noundef %27, ptr noundef nonnull %cond75) #3
-  %incdec.ptr = getelementptr inbounds ptr, ptr %argv.addr.036, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.036, i64 8
   %29 = load ptr, ptr %incdec.ptr, align 8
   %tobool52.not = icmp eq ptr %29, null
   br i1 %tobool52.not, label %end, label %for.body, !llvm.loop !8

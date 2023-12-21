@@ -14,41 +14,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.folly::c_array.33" = type { [256 x i16] }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr }
-%"class.folly::symbolizer::(anonymous namespace)::FatalSignalCallbackRegistry" = type { %"struct.std::atomic", %"class.std::mutex", %"class.std::vector" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<void (*)(), std::allocator<void (*)()>>::_Vector_impl" }
-%"struct.std::_Vector_base<void (*)(), std::allocator<void (*)()>>::_Vector_impl" = type { %"struct.std::_Vector_base<void (*)(), std::allocator<void (*)()>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<void (*)(), std::allocator<void (*)()>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %struct.stack_t = type { ptr, i32, i64 }
 %"class.google::ErrnoLogMessage" = type { %"class.google::LogMessage" }
-%"class.folly::symbolizer::UnsafeSelfAllocateStackTracePrinter" = type { %"class.folly::symbolizer::SafeStackTracePrinter", i64 }
-%"class.folly::symbolizer::SafeStackTracePrinter" = type { ptr, i32, %"class.folly::symbolizer::FDSymbolizePrinter", %"class.std::unique_ptr.4" }
-%"class.folly::symbolizer::FDSymbolizePrinter" = type { %"class.folly::symbolizer::SymbolizePrinter.base", i32, %"class.std::unique_ptr" }
-%"class.folly::symbolizer::SymbolizePrinter.base" = type <{ ptr, i32, i8 }>
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.3" }
-%"struct.std::_Head_base.3" = type { ptr }
-%"class.std::unique_ptr.4" = type { %"struct.std::__uniq_ptr_data.5" }
-%"struct.std::__uniq_ptr_data.5" = type { %"class.std::__uniq_ptr_impl.6" }
-%"class.std::__uniq_ptr_impl.6" = type { %"class.std::tuple.7" }
-%"class.std::tuple.7" = type { %"struct.std::_Tuple_impl.8" }
-%"struct.std::_Tuple_impl.8" = type { %"struct.std::_Head_base.11" }
-%"struct.std::_Head_base.11" = type { ptr }
 %struct.timespec = type { i64, i64 }
 %"class.folly::detail::ScopeGuardImpl" = type { %"class.folly::detail::ScopeGuardImplBase", %class.anon }
 %"class.folly::detail::ScopeGuardImplBase" = type { i8 }
 %class.anon = type { ptr }
-%struct.siginfo_t = type { i32, i32, i32, i32, %union.anon.21 }
-%union.anon.21 = type { %struct.anon.25, [80 x i8] }
-%struct.anon.25 = type { i32, i32, i32, i64, i64 }
 
 $__clang_call_terminate = comdat any
 
@@ -160,7 +131,7 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i8 0, ptr %call.i, align 1, !tbaa !8
-  %mutex_.i.i = getelementptr inbounds %"class.folly::symbolizer::(anonymous namespace)::FatalSignalCallbackRegistry", ptr %call.i, i64 0, i32 1
+  %mutex_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mutex_.i.i, i8 0, i64 64, i1 false)
   store ptr %call.i, ptr @_ZZN5folly10symbolizer12_GLOBAL__N_130getFatalSignalCallbackRegistryEvE27fatalSignalCallbackRegistry, align 8, !tbaa !13
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly10symbolizer12_GLOBAL__N_130getFatalSignalCallbackRegistryEvE27fatalSignalCallbackRegistry) #18
@@ -178,7 +149,7 @@ lpad.i:                                           ; preds = %init.i
 
 _ZN5folly10symbolizer12_GLOBAL__N_130getFatalSignalCallbackRegistryEv.exit: ; preds = %invoke.cont.i, %init.check.i, %entry
   %3 = load ptr, ptr @_ZZN5folly10symbolizer12_GLOBAL__N_130getFatalSignalCallbackRegistryEvE27fatalSignalCallbackRegistry, align 8, !tbaa !13
-  %mutex_.i = getelementptr inbounds %"class.folly::symbolizer::(anonymous namespace)::FatalSignalCallbackRegistry", ptr %3, i64 0, i32 1
+  %mutex_.i = getelementptr inbounds i8, ptr %3, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
@@ -227,10 +198,10 @@ lpad7.i:                                          ; preds = %invoke.cont10.i, %i
   unreachable
 
 cleanup.done20.i:                                 ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i
-  %handlers_.i = getelementptr inbounds %"class.folly::symbolizer::(anonymous namespace)::FatalSignalCallbackRegistry", ptr %3, i64 0, i32 2
-  %_M_finish.i.i = getelementptr inbounds %"class.folly::symbolizer::(anonymous namespace)::FatalSignalCallbackRegistry", ptr %3, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %handlers_.i = getelementptr inbounds i8, ptr %3, i64 48
+  %_M_finish.i.i = getelementptr inbounds i8, ptr %3, i64 56
   %8 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !13
-  %_M_end_of_storage.i.i = getelementptr inbounds %"class.folly::symbolizer::(anonymous namespace)::FatalSignalCallbackRegistry", ptr %3, i64 0, i32 2, i32 0, i32 0, i32 0, i32 2
+  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %3, i64 64
   %9 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !16
   %cmp.not.i.i = icmp eq ptr %8, %9
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
@@ -238,7 +209,7 @@ cleanup.done20.i:                                 ; preds = %_ZNSt10lock_guardIS
 if.then.i.i:                                      ; preds = %cleanup.done20.i
   store ptr %cb, ptr %8, align 8, !tbaa !13
   %10 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !18
-  %incdec.ptr.i.i = getelementptr inbounds ptr, ptr %10, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !18
   br label %_ZN5folly10symbolizer12_GLOBAL__N_127FatalSignalCallbackRegistry3addEPFvvE.exit
 
@@ -285,7 +256,7 @@ if.then.i.i.i33.i.i.i:                            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIPFvvESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit41.i.i.i
 
 _ZNSt6vectorIPFvvESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit41.i.i.i: ; preds = %if.then.i.i.i33.i.i.i, %_ZNSt12_Vector_baseIPFvvESaIS1_EE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %tobool.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPFvvESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %if.then.i42.i.i.i
 
@@ -398,7 +369,7 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i8 0, ptr %call.i, align 1, !tbaa !8
-  %mutex_.i.i = getelementptr inbounds %"class.folly::symbolizer::(anonymous namespace)::FatalSignalCallbackRegistry", ptr %call.i, i64 0, i32 1
+  %mutex_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mutex_.i.i, i8 0, i64 64, i1 false)
   store ptr %call.i, ptr @_ZZN5folly10symbolizer12_GLOBAL__N_130getFatalSignalCallbackRegistryEvE27fatalSignalCallbackRegistry, align 8, !tbaa !13
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly10symbolizer12_GLOBAL__N_130getFatalSignalCallbackRegistryEvE27fatalSignalCallbackRegistry) #18
@@ -416,7 +387,7 @@ lpad.i:                                           ; preds = %init.i
 
 _ZN5folly10symbolizer12_GLOBAL__N_130getFatalSignalCallbackRegistryEv.exit: ; preds = %invoke.cont.i, %init.check.i, %entry
   %3 = load ptr, ptr @_ZZN5folly10symbolizer12_GLOBAL__N_130getFatalSignalCallbackRegistryEvE27fatalSignalCallbackRegistry, align 8, !tbaa !13
-  %mutex_.i = getelementptr inbounds %"class.folly::symbolizer::(anonymous namespace)::FatalSignalCallbackRegistry", ptr %3, i64 0, i32 1
+  %mutex_.i = getelementptr inbounds i8, ptr %3, i64 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_.i) #18
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i, label %if.then.i.i.i
@@ -502,7 +473,7 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i8 0, ptr %call.i, align 1, !tbaa !8
-  %mutex_.i.i = getelementptr inbounds %"class.folly::symbolizer::(anonymous namespace)::FatalSignalCallbackRegistry", ptr %call.i, i64 0, i32 1
+  %mutex_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mutex_.i.i, i8 0, i64 64, i1 false)
   store ptr %call.i, ptr @_ZZN5folly10symbolizer12_GLOBAL__N_130getFatalSignalCallbackRegistryEvE27fatalSignalCallbackRegistry, align 8, !tbaa !13
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly10symbolizer12_GLOBAL__N_130getFatalSignalCallbackRegistryEvE27fatalSignalCallbackRegistry) #18
@@ -528,7 +499,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_130getFatalSignalCallbackRegistryEv.exit: ; pr
   br i1 %cmp.not.i, label %if.end.i, label %_ZN5folly10symbolizer12_GLOBAL__N_125isSmallSigAltStackEnabledEv.exit.thread
 
 if.end.i:                                         ; preds = %_ZN5folly10symbolizer12_GLOBAL__N_130getFatalSignalCallbackRegistryEv.exit
-  %ss_flags.i = getelementptr inbounds %struct.stack_t, ptr %ss.i, i64 0, i32 1
+  %ss_flags.i = getelementptr inbounds i8, ptr %ss.i, i64 8
   %7 = load i32, ptr %ss_flags.i, align 8, !tbaa !20
   %and.i = and i32 %7, 2
   %cmp1.not.i = icmp eq i32 %and.i, 0
@@ -539,7 +510,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_125isSmallSigAltStackEnabledEv.exit.thread: ; 
   br label %if.else
 
 _ZN5folly10symbolizer12_GLOBAL__N_125isSmallSigAltStackEnabledEv.exit: ; preds = %if.end.i
-  %ss_size.i = getelementptr inbounds %struct.stack_t, ptr %ss.i, i64 0, i32 2
+  %ss_size.i = getelementptr inbounds i8, ptr %ss.i, i64 16
   %8 = load i64, ptr %ss_size.i, align 8, !tbaa !24
   %cmp4.i = icmp ult i64 %8, 51393
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ss.i) #18
@@ -570,13 +541,13 @@ lpad7:                                            ; preds = %if.else
 
 if.then11:                                        ; preds = %if.then4
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10symbolizer35UnsafeSelfAllocateStackTracePrinterE, i64 0, inrange i32 0, i64 2), ptr %call5, align 8, !tbaa !25
-  %pageSizeUnchecked_.i = getelementptr inbounds %"class.folly::symbolizer::UnsafeSelfAllocateStackTracePrinter", ptr %call5, i64 0, i32 1
+  %pageSizeUnchecked_.i = getelementptr inbounds i8, ptr %call5, i64 56
   %call.i54 = call i64 @sysconf(i32 noundef 30) #18
   store i64 %call.i54, ptr %pageSizeUnchecked_.i, align 8, !tbaa !27
   store ptr %call5, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %sa, i8 0, i64 152, i1 false)
-  %sa_mask = getelementptr inbounds %struct.sigaction, ptr %sa, i64 0, i32 1
+  %sa_mask = getelementptr inbounds i8, ptr %sa, i64 8
   %call12 = call i32 @sigfillset(ptr noundef nonnull %sa_mask) #18
   br label %if.end16
 
@@ -584,12 +555,12 @@ if.else13:                                        ; preds = %if.else
   store ptr %call6, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %sa) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %sa, i8 0, i64 152, i1 false)
-  %sa_mask14 = getelementptr inbounds %struct.sigaction, ptr %sa, i64 0, i32 1
+  %sa_mask14 = getelementptr inbounds i8, ptr %sa, i64 8
   %call15 = call i32 @sigemptyset(ptr noundef nonnull %sa_mask14) #18
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else13, %if.then11
-  %sa_flags = getelementptr inbounds %struct.sigaction, ptr %sa, i64 0, i32 2
+  %sa_flags = getelementptr inbounds i8, ptr %sa, i64 136
   %11 = load i32, ptr %sa_flags, align 8, !tbaa !44
   %or = or i32 %11, 134217732
   store i32 %or, ptr %sa_flags, align 8, !tbaa !44
@@ -599,7 +570,7 @@ if.end16:                                         ; preds = %if.else13, %if.then
   br i1 %tobool17.not63, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end16
-  %.fca.1.gep = getelementptr inbounds { i64, i64 }, ptr %indirect-arg-temp, i64 0, i32 1
+  %.fca.1.gep = getelementptr inbounds i8, ptr %indirect-arg-temp, i64 8
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.inc, %if.end16
@@ -628,7 +599,7 @@ _ZNKSt6bitsetILm64EE4testEm.exit:                 ; preds = %land.lhs.true
   br i1 %cmp.i3.i.not, label %for.inc, label %if.then22
 
 if.then22:                                        ; preds = %_ZNKSt6bitsetILm64EE4testEm.exit
-  %oldAction = getelementptr inbounds %struct.anon, ptr %p.064, i64 0, i32 2
+  %oldAction = getelementptr inbounds i8, ptr %p.064, i64 16
   %call24 = call i32 @sigaction(i32 noundef %13, ptr noundef nonnull %sa, ptr noundef nonnull %oldAction) #18
   %cmp25 = icmp eq i32 %call24, -1
   br i1 %cmp25, label %cond.false, label %for.inc, !prof !51
@@ -659,8 +630,8 @@ lpad30:                                           ; preds = %invoke.cont31, %con
   br label %common.resume
 
 for.inc:                                          ; preds = %cleanup.action, %if.then22, %_ZNKSt6bitsetILm64EE4testEm.exit, %for.body
-  %incdec.ptr = getelementptr inbounds %struct.anon, ptr %p.064, i64 1
-  %name = getelementptr inbounds %struct.anon, ptr %p.064, i64 1, i32 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.064, i64 168
+  %name = getelementptr inbounds i8, ptr %p.064, i64 176
   %15 = load ptr, ptr %name, align 8, !tbaa !48
   %tobool17.not = icmp eq ptr %15, null
   br i1 %tobool17.not, label %for.cond.cleanup, label %for.body, !llvm.loop !52
@@ -703,7 +674,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %SCOPE_EXIT_STATE2) #18
   %1 = ptrtoint ptr %savedErrno to i64
   store i8 0, ptr %SCOPE_EXIT_STATE2, align 8, !tbaa !55, !alias.scope !57
-  %function_.i.i.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %SCOPE_EXIT_STATE2, i64 0, i32 1
+  %function_.i.i.i = getelementptr inbounds i8, ptr %SCOPE_EXIT_STATE2, i64 8
   store i64 %1, ptr %function_.i.i.i, align 8, !tbaa !13, !alias.scope !57
   %call.i = tail call i64 @pthread_self() #23
   %2 = cmpxchg ptr @_ZN5folly10symbolizer12_GLOBAL__N_113gSignalThreadE, i64 0, i64 %call.i seq_cst seq_cst, align 8
@@ -711,7 +682,7 @@ entry:
   br i1 %3, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %tv_nsec.i = getelementptr inbounds %struct.timespec, ptr %ts.i, i64 0, i32 1
+  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %call6.i.noexc, %while.body.lr.ph.i
@@ -728,9 +699,9 @@ if.then.i:                                        ; preds = %while.body.i
 
 if.then4.i:                                       ; preds = %if.then.i
   %8 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %8, i64 0, i32 2
+  %printer_.i.i.i = getelementptr inbounds i8, ptr %8, i64 16
   %vtable.i.i.i.i = load ptr, ptr %printer_.i.i.i, align 8, !tbaa !25
-  %vfn.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i, i64 3
+  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i.i, ptr nonnull @.str.8, ptr nonnull getelementptr inbounds ([61 x i8], ptr @.str.8, i64 0, i64 60))
           to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
@@ -756,9 +727,9 @@ call6.i.noexc:                                    ; preds = %if.end5.i
 while.end.i:                                      ; preds = %call6.i.noexc, %entry
   %call.i.i = call i64 @time(ptr noundef null) #18
   %13 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %13, i64 0, i32 2
+  %printer_.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
   %vtable.i.i.i.i.i = load ptr, ptr %printer_.i.i.i.i, align 8, !tbaa !25
-  %vfn.i.i.i.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i.i, i64 3
+  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %14(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i.i.i, ptr nonnull @.str.9, ptr nonnull getelementptr inbounds ([16 x i8], ptr @.str.9, i64 0, i64 15))
           to label %invoke.cont1.i.i unwind label %lpad.i.i
@@ -771,9 +742,9 @@ invoke.cont1.i.i:                                 ; preds = %while.end.i
 call.i.i.i13.noexc.i.i:                           ; preds = %invoke.cont1.i.i
   %15 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 %call.i.i.i1317.i.i
-  %printer_.i.i14.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %15, i64 0, i32 2
+  %printer_.i.i14.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %vtable.i.i.i15.i.i = load ptr, ptr %printer_.i.i14.i.i, align 8, !tbaa !25
-  %vfn.i.i.i16.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i15.i.i, i64 3
+  %vfn.i.i.i16.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i15.i.i, i64 24
   %16 = load ptr, ptr %vfn.i.i.i16.i.i, align 8
   invoke void %16(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i14.i.i, ptr nonnull %buf.i.i.i, ptr nonnull %add.ptr.i.i.i.i)
           to label %invoke.cont2.i.i unwind label %lpad.i.i
@@ -781,9 +752,9 @@ call.i.i.i13.noexc.i.i:                           ; preds = %invoke.cont1.i.i
 invoke.cont2.i.i:                                 ; preds = %call.i.i.i13.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buf.i.i.i) #18
   %17 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i21.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %17, i64 0, i32 2
+  %printer_.i.i21.i.i = getelementptr inbounds i8, ptr %17, i64 16
   %vtable.i.i.i22.i.i = load ptr, ptr %printer_.i.i21.i.i, align 8, !tbaa !25
-  %vfn.i.i.i23.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i22.i.i, i64 3
+  %vfn.i.i.i23.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i22.i.i, i64 24
   %18 = load ptr, ptr %vfn.i.i.i23.i.i, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i21.i.i, ptr nonnull @.str.10, ptr nonnull getelementptr inbounds ([28 x i8], ptr @.str.10, i64 0, i64 27))
           to label %invoke.cont5.i.i unwind label %lpad.i.i
@@ -796,9 +767,9 @@ invoke.cont5.i.i:                                 ; preds = %invoke.cont2.i.i
 call.i.i.i26.noexc.i.i:                           ; preds = %invoke.cont5.i.i
   %19 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
   %add.ptr.i.i27.i.i = getelementptr inbounds i8, ptr %buf.i25.i.i, i64 %call.i.i.i2631.i.i
-  %printer_.i.i28.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %19, i64 0, i32 2
+  %printer_.i.i28.i.i = getelementptr inbounds i8, ptr %19, i64 16
   %vtable.i.i.i29.i.i = load ptr, ptr %printer_.i.i28.i.i, align 8, !tbaa !25
-  %vfn.i.i.i30.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i29.i.i, i64 3
+  %vfn.i.i.i30.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i29.i.i, i64 24
   %20 = load ptr, ptr %vfn.i.i.i30.i.i, align 8
   invoke void %20(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i28.i.i, ptr nonnull %buf.i25.i.i, ptr nonnull %add.ptr.i.i27.i.i)
           to label %invoke.cont6.i.i unwind label %lpad.i.i
@@ -806,9 +777,9 @@ call.i.i.i26.noexc.i.i:                           ; preds = %invoke.cont5.i.i
 invoke.cont6.i.i:                                 ; preds = %call.i.i.i26.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buf.i25.i.i) #18
   %21 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i36.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %21, i64 0, i32 2
+  %printer_.i.i36.i.i = getelementptr inbounds i8, ptr %21, i64 16
   %vtable.i.i.i37.i.i = load ptr, ptr %printer_.i.i36.i.i, align 8, !tbaa !25
-  %vfn.i.i.i38.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i37.i.i, i64 3
+  %vfn.i.i.i38.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i37.i.i, i64 24
   %22 = load ptr, ptr %vfn.i.i.i38.i.i, align 8
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i36.i.i, ptr nonnull @.str.11, ptr nonnull getelementptr inbounds ([8 x i8], ptr @.str.11, i64 0, i64 7))
           to label %if.then.i.i.i unwind label %lpad.i.i
@@ -843,13 +814,13 @@ for.body.i.preheader.i:                           ; preds = %_ZN5folly10symboliz
 
 for.cond.i.i:                                     ; preds = %for.body.i.preheader.i, %for.body.i.i
   %p.0291.i7.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ @_ZN5folly10symbolizer12_GLOBAL__N_113kFatalSignalsE, %for.body.i.preheader.i ]
-  %name1.i.i = getelementptr inbounds %struct.anon, ptr %p.0291.i7.i, i64 1, i32 1
+  %name1.i.i = getelementptr inbounds i8, ptr %p.0291.i7.i, i64 176
   %29 = load ptr, ptr %name1.i.i, align 8, !tbaa !48
   %tobool.not.i.i = icmp eq ptr %29, null
   br i1 %tobool.not.i.i, label %cleanup.i.i, label %for.body.i.i, !llvm.loop !64
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
-  %incdec.ptr.i.i = getelementptr inbounds %struct.anon, ptr %p.0291.i7.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.0291.i7.i, i64 168
   %30 = load i32, ptr %incdec.ptr.i.i, align 8, !tbaa !50
   %cmp.i15.i = icmp eq i32 %30, %signum
   br i1 %cmp.i15.i, label %cleanup.i.i, label %for.cond.i.i, !llvm.loop !65
@@ -857,9 +828,9 @@ for.body.i.i:                                     ; preds = %for.cond.i.i
 cleanup.i.i:                                      ; preds = %for.body.i.i, %for.cond.i.i, %for.body.i.preheader.i, %_ZN5folly10symbolizer12_GLOBAL__N_112dumpTimeInfoEv.exit.i
   %.lcssa.i.i = phi ptr [ null, %_ZN5folly10symbolizer12_GLOBAL__N_112dumpTimeInfoEv.exit.i ], [ %27, %for.body.i.preheader.i ], [ null, %for.cond.i.i ], [ %29, %for.body.i.i ]
   %31 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i.i16.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %31, i64 0, i32 2
+  %printer_.i.i.i16.i = getelementptr inbounds i8, ptr %31, i64 16
   %vtable.i.i.i.i17.i = load ptr, ptr %printer_.i.i.i16.i, align 8, !tbaa !25
-  %vfn.i.i.i.i18.i = getelementptr inbounds ptr, ptr %vtable.i.i.i.i17.i, i64 3
+  %vfn.i.i.i.i18.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i17.i, i64 24
   %32 = load ptr, ptr %vfn.i.i.i.i18.i, align 8
   invoke void %32(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i.i16.i, ptr nonnull @.str.12, ptr nonnull getelementptr inbounds ([12 x i8], ptr @.str.12, i64 0, i64 11))
           to label %invoke.cont3.i.i unwind label %lpad.i19.i
@@ -873,9 +844,9 @@ invoke.cont3.i.i:                                 ; preds = %cleanup.i.i
 call.i.i.i101.noexc.i.i:                          ; preds = %invoke.cont3.i.i
   %33 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
   %add.ptr.i.i.i21.i = getelementptr inbounds i8, ptr %buf.i.i14.i, i64 %call.i.i.i101105.i.i
-  %printer_.i.i102.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %33, i64 0, i32 2
+  %printer_.i.i102.i.i = getelementptr inbounds i8, ptr %33, i64 16
   %vtable.i.i.i103.i.i = load ptr, ptr %printer_.i.i102.i.i, align 8, !tbaa !25
-  %vfn.i.i.i104.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i103.i.i, i64 3
+  %vfn.i.i.i104.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i103.i.i, i64 24
   %34 = load ptr, ptr %vfn.i.i.i104.i.i, align 8
   invoke void %34(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i102.i.i, ptr nonnull %buf.i.i14.i, ptr nonnull %add.ptr.i.i.i21.i)
           to label %invoke.cont4.i.i unwind label %lpad.i19.i
@@ -887,9 +858,9 @@ invoke.cont4.i.i:                                 ; preds = %call.i.i.i101.noexc
 
 if.then6.i.i:                                     ; preds = %invoke.cont4.i.i
   %35 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i109.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %35, i64 0, i32 2
+  %printer_.i.i109.i.i = getelementptr inbounds i8, ptr %35, i64 16
   %vtable.i.i.i110.i.i = load ptr, ptr %printer_.i.i109.i.i, align 8, !tbaa !25
-  %vfn.i.i.i111.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i110.i.i, i64 3
+  %vfn.i.i.i111.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i110.i.i, i64 24
   %36 = load ptr, ptr %vfn.i.i.i111.i.i, align 8
   invoke void %36(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i109.i.i, ptr nonnull @.str.13, ptr nonnull getelementptr inbounds ([3 x i8], ptr @.str.13, i64 0, i64 2))
           to label %invoke.cont9.i.i unwind label %lpad.i19.i
@@ -898,18 +869,18 @@ invoke.cont9.i.i:                                 ; preds = %if.then6.i.i
   %call.i.i.i114.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.lcssa.i.i) #18
   %add.ptr.i115.i.i = getelementptr inbounds i8, ptr %.lcssa.i.i, i64 %call.i.i.i114.i.i
   %37 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i116.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %37, i64 0, i32 2
+  %printer_.i.i116.i.i = getelementptr inbounds i8, ptr %37, i64 16
   %vtable.i.i.i117.i.i = load ptr, ptr %printer_.i.i116.i.i, align 8, !tbaa !25
-  %vfn.i.i.i118.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i117.i.i, i64 3
+  %vfn.i.i.i118.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i117.i.i, i64 24
   %38 = load ptr, ptr %vfn.i.i.i118.i.i, align 8
   invoke void %38(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i116.i.i, ptr nonnull %.lcssa.i.i, ptr nonnull %add.ptr.i115.i.i)
           to label %invoke.cont12.i.i unwind label %lpad.i19.i
 
 invoke.cont12.i.i:                                ; preds = %invoke.cont9.i.i
   %39 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i123.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %39, i64 0, i32 2
+  %printer_.i.i123.i.i = getelementptr inbounds i8, ptr %39, i64 16
   %vtable.i.i.i124.i.i = load ptr, ptr %printer_.i.i123.i.i, align 8, !tbaa !25
-  %vfn.i.i.i125.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i124.i.i, i64 3
+  %vfn.i.i.i125.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i124.i.i, i64 24
   %40 = load ptr, ptr %vfn.i.i.i125.i.i, align 8
   invoke void %40(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i123.i.i, ptr nonnull @.str.14, ptr nonnull getelementptr inbounds ([2 x i8], ptr @.str.14, i64 0, i64 1))
           to label %if.end16.i.i unwind label %lpad.i19.i
@@ -921,15 +892,15 @@ lpad.i19.i:                                       ; preds = %call.i.i.i238.noexc
 
 if.end16.i.i:                                     ; preds = %invoke.cont12.i.i, %invoke.cont4.i.i
   %42 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i130.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %42, i64 0, i32 2
+  %printer_.i.i130.i.i = getelementptr inbounds i8, ptr %42, i64 16
   %vtable.i.i.i131.i.i = load ptr, ptr %printer_.i.i130.i.i, align 8, !tbaa !25
-  %vfn.i.i.i132.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i131.i.i, i64 3
+  %vfn.i.i.i132.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i131.i.i, i64 24
   %43 = load ptr, ptr %vfn.i.i.i132.i.i, align 8
   invoke void %43(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i130.i.i, ptr nonnull @.str.13, ptr nonnull getelementptr inbounds ([3 x i8], ptr @.str.13, i64 0, i64 2))
           to label %invoke.cont19.i.i unwind label %lpad.i19.i
 
 invoke.cont19.i.i:                                ; preds = %if.end16.i.i
-  %_sifields.i.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4
+  %_sifields.i.i = getelementptr inbounds i8, ptr %info, i64 16
   %44 = load ptr, ptr %_sifields.i.i, align 8, !tbaa !47
   %45 = ptrtoint ptr %44 to i64
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %buf.i134.i.i) #18
@@ -1025,9 +996,9 @@ _ZN5folly14to_ascii_lowerILm16EEEmPcPKcm.exit.i.i.i: ; preds = %if.else.i.i.i.i.
   %retval.0.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i.i.i ], [ %add.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %retval.0.i4192228.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   %add.ptr4.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr1.i.i.i, i64 %retval.0.i.i.i.i.i.i
   %57 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i135.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %57, i64 0, i32 2
+  %printer_.i.i135.i.i = getelementptr inbounds i8, ptr %57, i64 16
   %vtable.i.i.i136.i.i = load ptr, ptr %printer_.i.i135.i.i, align 8, !tbaa !25
-  %vfn.i.i.i137.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i136.i.i, i64 3
+  %vfn.i.i.i137.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i136.i.i, i64 24
   %58 = load ptr, ptr %vfn.i.i.i137.i.i, align 8
   invoke void %58(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i135.i.i, ptr nonnull %buf.i134.i.i, ptr nonnull %add.ptr4.i.i.i)
           to label %invoke.cont20.i.i unwind label %lpad.i19.i
@@ -1035,9 +1006,9 @@ _ZN5folly14to_ascii_lowerILm16EEEmPcPKcm.exit.i.i.i: ; preds = %if.else.i.i.i.i.
 invoke.cont20.i.i:                                ; preds = %_ZN5folly14to_ascii_lowerILm16EEEmPcPKcm.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %buf.i134.i.i) #18
   %59 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i141.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %59, i64 0, i32 2
+  %printer_.i.i141.i.i = getelementptr inbounds i8, ptr %59, i64 16
   %vtable.i.i.i142.i.i = load ptr, ptr %printer_.i.i141.i.i, align 8, !tbaa !25
-  %vfn.i.i.i143.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i142.i.i, i64 3
+  %vfn.i.i.i143.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i142.i.i, i64 24
   %60 = load ptr, ptr %vfn.i.i.i143.i.i, align 8
   invoke void %60(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i141.i.i, ptr nonnull @.str.15, ptr nonnull getelementptr inbounds ([19 x i8], ptr @.str.15, i64 0, i64 18))
           to label %invoke.cont23.i.i unwind label %lpad.i19.i
@@ -1052,9 +1023,9 @@ invoke.cont23.i.i:                                ; preds = %invoke.cont20.i.i
 call.i.i.i146.noexc.i.i:                          ; preds = %invoke.cont23.i.i
   %61 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
   %add.ptr.i.i147.i.i = getelementptr inbounds i8, ptr %buf.i145.i.i, i64 %call.i.i.i146151.i.i
-  %printer_.i.i148.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %61, i64 0, i32 2
+  %printer_.i.i148.i.i = getelementptr inbounds i8, ptr %61, i64 16
   %vtable.i.i.i149.i.i = load ptr, ptr %printer_.i.i148.i.i, align 8, !tbaa !25
-  %vfn.i.i.i150.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i149.i.i, i64 3
+  %vfn.i.i.i150.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i149.i.i, i64 24
   %62 = load ptr, ptr %vfn.i.i.i150.i.i, align 8
   invoke void %62(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i148.i.i, ptr nonnull %buf.i145.i.i, ptr nonnull %add.ptr.i.i147.i.i)
           to label %invoke.cont25.i.i unwind label %lpad.i19.i
@@ -1062,9 +1033,9 @@ call.i.i.i146.noexc.i.i:                          ; preds = %invoke.cont23.i.i
 invoke.cont25.i.i:                                ; preds = %call.i.i.i146.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buf.i145.i.i) #18
   %63 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i156.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %63, i64 0, i32 2
+  %printer_.i.i156.i.i = getelementptr inbounds i8, ptr %63, i64 16
   %vtable.i.i.i157.i.i = load ptr, ptr %printer_.i.i156.i.i, align 8, !tbaa !25
-  %vfn.i.i.i158.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i157.i.i, i64 3
+  %vfn.i.i.i158.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i157.i.i, i64 24
   %64 = load ptr, ptr %vfn.i.i.i158.i.i, align 8
   invoke void %64(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i156.i.i, ptr nonnull @.str.16, ptr nonnull getelementptr inbounds ([15 x i8], ptr @.str.16, i64 0, i64 14))
           to label %invoke.cont28.i.i unwind label %lpad.i19.i
@@ -1163,9 +1134,9 @@ _ZN5folly14to_ascii_lowerILm16EEEmPcPKcm.exit.i182.i.i: ; preds = %if.else.i.i.i
   %retval.0.i.i.i.i183.i.i = phi i64 [ 0, %_ZN5folly6detail19to_ascii_size_clzllILm16EEEmm.exit.i.i.i164.i.i ], [ %add.i.i.i.i170.i.i, %if.then.i.i.i.i188.i.i ], [ %retval.0.i4192228.i.i.i180.i.i, %if.else.i.i.i.i179.i.i ]
   %add.ptr4.i184.i.i = getelementptr inbounds i8, ptr %incdec.ptr1.i162.i.i, i64 %retval.0.i.i.i.i183.i.i
   %76 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i185.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %76, i64 0, i32 2
+  %printer_.i.i185.i.i = getelementptr inbounds i8, ptr %76, i64 16
   %vtable.i.i.i186.i.i = load ptr, ptr %printer_.i.i185.i.i, align 8, !tbaa !25
-  %vfn.i.i.i187.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i186.i.i, i64 3
+  %vfn.i.i.i187.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i186.i.i, i64 24
   %77 = load ptr, ptr %vfn.i.i.i187.i.i, align 8
   invoke void %77(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i185.i.i, ptr nonnull %buf.i160.i.i, ptr nonnull %add.ptr4.i184.i.i)
           to label %invoke.cont30.i.i unwind label %lpad.i19.i
@@ -1173,9 +1144,9 @@ _ZN5folly14to_ascii_lowerILm16EEEmPcPKcm.exit.i182.i.i: ; preds = %if.else.i.i.i
 invoke.cont30.i.i:                                ; preds = %_ZN5folly14to_ascii_lowerILm16EEEmPcPKcm.exit.i182.i.i
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %buf.i160.i.i) #18
   %78 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i203.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %78, i64 0, i32 2
+  %printer_.i.i203.i.i = getelementptr inbounds i8, ptr %78, i64 16
   %vtable.i.i.i204.i.i = load ptr, ptr %printer_.i.i203.i.i, align 8, !tbaa !25
-  %vfn.i.i.i205.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i204.i.i, i64 3
+  %vfn.i.i.i205.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i204.i.i, i64 24
   %79 = load ptr, ptr %vfn.i.i.i205.i.i, align 8
   invoke void %79(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i203.i.i, ptr nonnull @.str.17, ptr nonnull getelementptr inbounds ([14 x i8], ptr @.str.17, i64 0, i64 13))
           to label %invoke.cont33.i.i unwind label %lpad.i19.i
@@ -1189,25 +1160,25 @@ invoke.cont33.i.i:                                ; preds = %invoke.cont30.i.i
 call.i.i.i208.noexc.i.i:                          ; preds = %invoke.cont33.i.i
   %80 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
   %add.ptr.i.i209.i.i = getelementptr inbounds i8, ptr %buf.i207.i.i, i64 %call.i.i.i208213.i.i
-  %printer_.i.i210.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %80, i64 0, i32 2
+  %printer_.i.i210.i.i = getelementptr inbounds i8, ptr %80, i64 16
   %vtable.i.i.i211.i.i = load ptr, ptr %printer_.i.i210.i.i, align 8, !tbaa !25
-  %vfn.i.i.i212.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i211.i.i, i64 3
+  %vfn.i.i.i212.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i211.i.i, i64 24
   %81 = load ptr, ptr %vfn.i.i.i212.i.i, align 8
   invoke void %81(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i210.i.i, ptr nonnull %buf.i207.i.i, ptr nonnull %add.ptr.i.i209.i.i)
           to label %invoke.cont35.i.i unwind label %lpad.i19.i
 
 invoke.cont35.i.i:                                ; preds = %call.i.i.i208.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buf.i207.i.i) #18
-  %si_code.i.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 2
+  %si_code.i.i = getelementptr inbounds i8, ptr %info, i64 8
   %82 = load i32, ptr %si_code.i.i, align 8, !tbaa !76
   %cmp36.i.i = icmp slt i32 %82, 1
   br i1 %cmp36.i.i, label %if.then37.i.i, label %if.end50.i.i
 
 if.then37.i.i:                                    ; preds = %invoke.cont35.i.i
   %83 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i218.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %83, i64 0, i32 2
+  %printer_.i.i218.i.i = getelementptr inbounds i8, ptr %83, i64 16
   %vtable.i.i.i219.i.i = load ptr, ptr %printer_.i.i218.i.i, align 8, !tbaa !25
-  %vfn.i.i.i220.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i219.i.i, i64 3
+  %vfn.i.i.i220.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i219.i.i, i64 24
   %84 = load ptr, ptr %vfn.i.i.i220.i.i, align 8
   invoke void %84(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i218.i.i, ptr nonnull @.str.18, ptr nonnull getelementptr inbounds ([19 x i8], ptr @.str.18, i64 0, i64 18))
           to label %invoke.cont40.i.i unwind label %lpad.i19.i
@@ -1222,9 +1193,9 @@ invoke.cont40.i.i:                                ; preds = %if.then37.i.i
 call.i.i.i223.noexc.i.i:                          ; preds = %invoke.cont40.i.i
   %86 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
   %add.ptr.i.i224.i.i = getelementptr inbounds i8, ptr %buf.i222.i.i, i64 %call.i.i.i223228.i.i
-  %printer_.i.i225.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %86, i64 0, i32 2
+  %printer_.i.i225.i.i = getelementptr inbounds i8, ptr %86, i64 16
   %vtable.i.i.i226.i.i = load ptr, ptr %printer_.i.i225.i.i, align 8, !tbaa !25
-  %vfn.i.i.i227.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i226.i.i, i64 3
+  %vfn.i.i.i227.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i226.i.i, i64 24
   %87 = load ptr, ptr %vfn.i.i.i227.i.i, align 8
   invoke void %87(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i225.i.i, ptr nonnull %buf.i222.i.i, ptr nonnull %add.ptr.i.i224.i.i)
           to label %invoke.cont43.i.i unwind label %lpad.i19.i
@@ -1232,15 +1203,15 @@ call.i.i.i223.noexc.i.i:                          ; preds = %invoke.cont40.i.i
 invoke.cont43.i.i:                                ; preds = %call.i.i.i223.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buf.i222.i.i) #18
   %88 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i233.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %88, i64 0, i32 2
+  %printer_.i.i233.i.i = getelementptr inbounds i8, ptr %88, i64 16
   %vtable.i.i.i234.i.i = load ptr, ptr %printer_.i.i233.i.i, align 8, !tbaa !25
-  %vfn.i.i.i235.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i234.i.i, i64 3
+  %vfn.i.i.i235.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i234.i.i, i64 24
   %89 = load ptr, ptr %vfn.i.i.i235.i.i, align 8
   invoke void %89(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i233.i.i, ptr nonnull @.str.19, ptr nonnull getelementptr inbounds ([7 x i8], ptr @.str.19, i64 0, i64 6))
           to label %invoke.cont46.i.i unwind label %lpad.i19.i
 
 invoke.cont46.i.i:                                ; preds = %invoke.cont43.i.i
-  %si_uid.i.i = getelementptr inbounds %struct.siginfo_t, ptr %info, i64 0, i32 4, i32 0, i32 1
+  %si_uid.i.i = getelementptr inbounds i8, ptr %info, i64 20
   %90 = load i32, ptr %si_uid.i.i, align 4, !tbaa !47
   %conv48.i.i = zext i32 %90 to i64
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %buf.i237.i.i) #18
@@ -1250,9 +1221,9 @@ invoke.cont46.i.i:                                ; preds = %invoke.cont43.i.i
 call.i.i.i238.noexc.i.i:                          ; preds = %invoke.cont46.i.i
   %91 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
   %add.ptr.i.i239.i.i = getelementptr inbounds i8, ptr %buf.i237.i.i, i64 %call.i.i.i238243.i.i
-  %printer_.i.i240.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %91, i64 0, i32 2
+  %printer_.i.i240.i.i = getelementptr inbounds i8, ptr %91, i64 16
   %vtable.i.i.i241.i.i = load ptr, ptr %printer_.i.i240.i.i, align 8, !tbaa !25
-  %vfn.i.i.i242.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i241.i.i, i64 3
+  %vfn.i.i.i242.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i241.i.i, i64 24
   %92 = load ptr, ptr %vfn.i.i.i242.i.i, align 8
   invoke void %92(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i240.i.i, ptr nonnull %buf.i237.i.i, ptr nonnull %add.ptr.i.i239.i.i)
           to label %_ZN5folly10symbolizer12_GLOBAL__N_18printDecEm.exit244.i.i unwind label %lpad.i19.i
@@ -1346,9 +1317,9 @@ switch.lookup33:                                  ; preds = %sw.bb11.i.i.i
 invoke.cont53.i.i:                                ; preds = %switch.lookup33, %switch.lookup29, %switch.lookup25, %switch.lookup21, %switch.lookup, %sw.bb11.i.i.i, %sw.bb9.i.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %sw.bb1.i.i.i, %sw.bb.i.i.i, %if.end50.i.i
   %retval.0.i.i.i = phi ptr [ %switch.select3.i35.i.i.i, %sw.bb7.i.i.i ], [ %switch.select3.i.i.i.i, %sw.bb3.i.i.i ], [ null, %if.end50.i.i ], [ %reltable.intrinsic, %switch.lookup ], [ null, %sw.bb.i.i.i ], [ %reltable.intrinsic44, %switch.lookup21 ], [ null, %sw.bb1.i.i.i ], [ %reltable.intrinsic46, %switch.lookup25 ], [ null, %sw.bb5.i.i.i ], [ %reltable.intrinsic48, %switch.lookup29 ], [ null, %sw.bb9.i.i.i ], [ %reltable.intrinsic50, %switch.lookup33 ], [ null, %sw.bb11.i.i.i ]
   %104 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i248.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %104, i64 0, i32 2
+  %printer_.i.i248.i.i = getelementptr inbounds i8, ptr %104, i64 16
   %vtable.i.i.i249.i.i = load ptr, ptr %printer_.i.i248.i.i, align 8, !tbaa !25
-  %vfn.i.i.i250.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i249.i.i, i64 3
+  %vfn.i.i.i250.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i249.i.i, i64 24
   %105 = load ptr, ptr %vfn.i.i.i250.i.i, align 8
   invoke void %105(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i248.i.i, ptr nonnull @.str.20, ptr nonnull getelementptr inbounds ([10 x i8], ptr @.str.20, i64 0, i64 9))
           to label %invoke.cont57.i.i unwind label %lpad52.i.i
@@ -1361,9 +1332,9 @@ if.then59.i.i:                                    ; preds = %invoke.cont57.i.i
   %call.i.i.i253.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i.i.i) #18
   %add.ptr.i254.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 %call.i.i.i253.i.i
   %106 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i255.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %106, i64 0, i32 2
+  %printer_.i.i255.i.i = getelementptr inbounds i8, ptr %106, i64 16
   %vtable.i.i.i256.i.i = load ptr, ptr %printer_.i.i255.i.i, align 8, !tbaa !25
-  %vfn.i.i.i257.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i256.i.i, i64 3
+  %vfn.i.i.i257.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i256.i.i, i64 24
   %107 = load ptr, ptr %vfn.i.i.i257.i.i, align 8
   invoke void %107(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i255.i.i, ptr nonnull %retval.0.i.i.i, ptr nonnull %add.ptr.i254.i.i)
           to label %if.end77.i.i unwind label %lpad52.i.i
@@ -1380,9 +1351,9 @@ if.else.i.i:                                      ; preds = %invoke.cont57.i.i
 
 if.then65.i.i:                                    ; preds = %if.else.i.i
   %110 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i262.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %110, i64 0, i32 2
+  %printer_.i.i262.i.i = getelementptr inbounds i8, ptr %110, i64 16
   %vtable.i.i.i263.i.i = load ptr, ptr %printer_.i.i262.i.i, align 8, !tbaa !25
-  %vfn.i.i.i264.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i263.i.i, i64 3
+  %vfn.i.i.i264.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i263.i.i, i64 24
   %111 = load ptr, ptr %vfn.i.i.i264.i.i, align 8
   invoke void %111(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i262.i.i, ptr nonnull @.str.21, ptr nonnull getelementptr inbounds ([2 x i8], ptr @.str.21, i64 0, i64 1))
           to label %invoke.cont68.i.i unwind label %lpad52.i.i
@@ -1398,9 +1369,9 @@ invoke.cont68.i.i:                                ; preds = %if.then65.i.i
 call.i.i.i267.noexc.i.i:                          ; preds = %invoke.cont68.i.i
   %113 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
   %add.ptr.i.i268.i.i = getelementptr inbounds i8, ptr %buf.i266.i.i, i64 %call.i.i.i267272.i.i
-  %printer_.i.i269.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %113, i64 0, i32 2
+  %printer_.i.i269.i.i = getelementptr inbounds i8, ptr %113, i64 16
   %vtable.i.i.i270.i.i = load ptr, ptr %printer_.i.i269.i.i, align 8, !tbaa !25
-  %vfn.i.i.i271.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i270.i.i, i64 3
+  %vfn.i.i.i271.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i270.i.i, i64 24
   %114 = load ptr, ptr %vfn.i.i.i271.i.i, align 8
   invoke void %114(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i269.i.i, ptr nonnull %buf.i266.i.i, ptr nonnull %add.ptr.i.i268.i.i)
           to label %_ZN5folly10symbolizer12_GLOBAL__N_18printDecEm.exit273.i.i unwind label %lpad52.i.i
@@ -1418,9 +1389,9 @@ if.else72.i.i:                                    ; preds = %if.else.i.i
 call.i.i.i275.noexc.i.i:                          ; preds = %if.else72.i.i
   %115 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
   %add.ptr.i.i276.i.i = getelementptr inbounds i8, ptr %buf.i274.i.i, i64 %call.i.i.i275280.i.i
-  %printer_.i.i277.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %115, i64 0, i32 2
+  %printer_.i.i277.i.i = getelementptr inbounds i8, ptr %115, i64 16
   %vtable.i.i.i278.i.i = load ptr, ptr %printer_.i.i277.i.i, align 8, !tbaa !25
-  %vfn.i.i.i279.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i278.i.i, i64 3
+  %vfn.i.i.i279.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i278.i.i, i64 24
   %116 = load ptr, ptr %vfn.i.i.i279.i.i, align 8
   invoke void %116(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i277.i.i, ptr nonnull %buf.i274.i.i, ptr nonnull %add.ptr.i.i276.i.i)
           to label %_ZN5folly10symbolizer12_GLOBAL__N_18printDecEm.exit281.i.i unwind label %lpad52.i.i
@@ -1431,9 +1402,9 @@ _ZN5folly10symbolizer12_GLOBAL__N_18printDecEm.exit281.i.i: ; preds = %call.i.i.
 
 if.end77.i.i:                                     ; preds = %_ZN5folly10symbolizer12_GLOBAL__N_18printDecEm.exit281.i.i, %_ZN5folly10symbolizer12_GLOBAL__N_18printDecEm.exit273.i.i, %if.then59.i.i
   %117 = load ptr, ptr @_ZN5folly10symbolizer12_GLOBAL__N_118gStackTracePrinterE, align 8, !tbaa !13
-  %printer_.i.i285.i.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %117, i64 0, i32 2
+  %printer_.i.i285.i.i = getelementptr inbounds i8, ptr %117, i64 16
   %vtable.i.i.i286.i.i = load ptr, ptr %printer_.i.i285.i.i, align 8, !tbaa !25
-  %vfn.i.i.i287.i.i = getelementptr inbounds ptr, ptr %vtable.i.i.i286.i.i, i64 3
+  %vfn.i.i.i287.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i286.i.i, i64 24
   %118 = load ptr, ptr %vfn.i.i.i287.i.i, align 8
   invoke void %118(ptr noundef nonnull align 8 dereferenceable(13) %printer_.i.i285.i.i, ptr nonnull @.str.22, ptr nonnull getelementptr inbounds ([21 x i8], ptr @.str.22, i64 0, i64 20))
           to label %if.then.i.i23.i unwind label %lpad52.i.i
@@ -1473,9 +1444,9 @@ if.then9.i:                                       ; preds = %.noexc7
   br i1 %tobool.i.i.not.i.i, label %invoke.cont, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then9.i
-  %handlers_.i.i = getelementptr inbounds %"class.folly::symbolizer::(anonymous namespace)::FatalSignalCallbackRegistry", ptr %124, i64 0, i32 2
+  %handlers_.i.i = getelementptr inbounds i8, ptr %124, i64 48
   %127 = load ptr, ptr %handlers_.i.i, align 8, !tbaa !13
-  %_M_finish.i.i.i = getelementptr inbounds %"class.folly::symbolizer::(anonymous namespace)::FatalSignalCallbackRegistry", ptr %124, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
+  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %124, i64 56
   %128 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !13
   %cmp.i.not11.i.i = icmp eq ptr %127, %128
   br i1 %cmp.i.not11.i.i, label %invoke.cont, label %for.body.i25.i
@@ -1487,7 +1458,7 @@ for.body.i25.i:                                   ; preds = %if.end.i.i, %.noexc
           to label %.noexc8 unwind label %lpad.loopexit
 
 .noexc8:                                          ; preds = %for.body.i25.i
-  %incdec.ptr.i.i26.i = getelementptr inbounds ptr, ptr %__begin2.sroa.0.012.i.i, i64 1
+  %incdec.ptr.i.i26.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.012.i.i, i64 8
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i26.i, %128
   br i1 %cmp.i.not.i.i, label %invoke.cont, label %for.body.i25.i
 
@@ -1504,14 +1475,14 @@ for.body.i:                                       ; preds = %invoke.cont, %for.i
   br i1 %cmp.i, label %cleanup.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %incdec.ptr.i = getelementptr inbounds %struct.anon, ptr %p.016.i, i64 1
-  %name.i = getelementptr inbounds %struct.anon, ptr %p.016.i, i64 1, i32 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.016.i, i64 168
+  %name.i = getelementptr inbounds i8, ptr %p.016.i, i64 176
   %132 = load ptr, ptr %name.i, align 8, !tbaa !48
   %tobool.not.i = icmp eq ptr %132, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !78
 
 cleanup.i:                                        ; preds = %for.body.i
-  %oldAction.i = getelementptr inbounds %struct.anon, ptr %p.016.i, i64 0, i32 2
+  %oldAction.i = getelementptr inbounds i8, ptr %p.016.i, i64 16
   %call.i9 = call i32 @sigaction(i32 noundef %signum, ptr noundef nonnull %oldAction.i, ptr noundef null) #18
   %call1.i = call i32 @raise(i32 noundef %signum) #18
   br label %_ZN5folly10symbolizer12_GLOBAL__N_125callPreviousSignalHandlerEi.exit
@@ -1616,7 +1587,7 @@ terminate.lpad.i.i:                               ; preds = %if.then
   unreachable
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPvE3$_0Lb1EE7executeEv.exit": ; preds = %if.then
-  %function_.i = getelementptr inbounds %"class.folly::detail::ScopeGuardImpl", ptr %this, i64 0, i32 1
+  %function_.i = getelementptr inbounds i8, ptr %this, i64 8
   %4 = load ptr, ptr %function_.i, align 8, !tbaa !81
   %5 = load i32, ptr %4, align 4, !tbaa !54
   %call.i.i = tail call ptr @__errno_location() #23

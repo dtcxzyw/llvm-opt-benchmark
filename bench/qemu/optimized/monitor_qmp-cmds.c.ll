@@ -235,7 +235,7 @@ for.body:                                         ; preds = %if.end, %for.cond
   br i1 %tobool.not, label %if.then12, label %for.cond
 
 if.then12:                                        ; preds = %for.body
-  %add_client = getelementptr [3 x %struct.anon], ptr @qmp_add_client.protocol_table, i64 0, i64 %indvars.iv, i32 1
+  %add_client = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %add_client, align 8
   %call19 = tail call zeroext i1 %1(i32 noundef %call4, i1 noundef zeroext %has_skipauth, i1 noundef zeroext %skipauth, i1 noundef zeroext %has_tls, i1 noundef zeroext %tls, ptr noundef %errp) #6
   br i1 %call19, label %if.end31, label %if.end31.sink.split
@@ -291,11 +291,11 @@ if.then3:                                         ; preds = %if.then
 
 qemu_lockable_auto_unlock.exit.us:                ; preds = %entry, %if.then
   call void @handle_hmp_command(ptr noundef nonnull %hmp, ptr noundef %command_line) #6
-  %mon_lock = getelementptr inbounds %struct.Monitor, ptr %hmp, i64 0, i32 7
+  %mon_lock = getelementptr inbounds i8, ptr %hmp, i64 88
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   call void %1(ptr noundef nonnull %mon_lock, ptr noundef nonnull @.str.13, i32 noundef 122) #6
-  %outbuf = getelementptr inbounds %struct.Monitor, ptr %hmp, i64 0, i32 9
+  %outbuf = getelementptr inbounds i8, ptr %hmp, i64 144
   %2 = load ptr, ptr %outbuf, align 8
   %3 = load ptr, ptr %2, align 8
   %call9.us = call noalias ptr @g_strdup(ptr noundef %3) #6

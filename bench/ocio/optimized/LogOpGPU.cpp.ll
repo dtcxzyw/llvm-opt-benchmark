@@ -18,27 +18,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine" = type { ptr }
 %"class.std::allocator" = type { i8 }
-%"class.OpenColorIO_v2_4dev::LogOpData" = type <{ %"class.OpenColorIO_v2_4dev::OpData", %"class.std::vector.8", %"class.std::vector.8", %"class.std::vector.8", double, i32, [4 x i8] }>
-%"class.OpenColorIO_v2_4dev::OpData" = type { ptr, %"class.std::mutex", %"class.OpenColorIO_v2_4dev::FormatMetadataImpl" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.OpenColorIO_v2_4dev::FormatMetadataImpl" = type { %"class.OpenColorIO_v2_4dev::FormatMetadata", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector", %"class.std::vector.3" }
-%"class.OpenColorIO_v2_4dev::FormatMetadata" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl" = type { %"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<OpenColorIO_v2_4dev::FormatMetadataImpl, std::allocator<OpenColorIO_v2_4dev::FormatMetadataImpl>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
-%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -108,20 +87,20 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN19OpenColorIO_v2_4dev22GetLogGPUShaderProgramERSt10shared_ptrINS_16GpuShaderCreatorEERS0_IKNS_9LogOpDataEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shaderCreator, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %logData) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %st.i155 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
-  %st.i155.sroa.gep296 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 2
-  %st.i155.sroa.gep295 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 2
-  %st.i155.sroa.gep294 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 2
-  %st.i155.sroa.gep293 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 2
-  %st.i155.sroa.gep292 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 2
-  %st.i155.sroa.gep291 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 2
-  %st.i155.sroa.gep290 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 2
-  %st.i155.sroa.gep267 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 3
-  %st.i155.sroa.gep266 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 3
-  %st.i155.sroa.gep265 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 3
-  %st.i155.sroa.gep264 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 3
-  %st.i155.sroa.gep263 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 3
-  %st.i155.sroa.gep262 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 3
-  %st.i155.sroa.gep = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 3
+  %st.i155.sroa.gep296 = getelementptr inbounds i8, ptr %st.i155, i64 8
+  %st.i155.sroa.gep295 = getelementptr inbounds i8, ptr %st.i155, i64 8
+  %st.i155.sroa.gep294 = getelementptr inbounds i8, ptr %st.i155, i64 8
+  %st.i155.sroa.gep293 = getelementptr inbounds i8, ptr %st.i155, i64 8
+  %st.i155.sroa.gep292 = getelementptr inbounds i8, ptr %st.i155, i64 8
+  %st.i155.sroa.gep291 = getelementptr inbounds i8, ptr %st.i155, i64 8
+  %st.i155.sroa.gep290 = getelementptr inbounds i8, ptr %st.i155, i64 8
+  %st.i155.sroa.gep267 = getelementptr inbounds i8, ptr %st.i155, i64 384
+  %st.i155.sroa.gep266 = getelementptr inbounds i8, ptr %st.i155, i64 384
+  %st.i155.sroa.gep265 = getelementptr inbounds i8, ptr %st.i155, i64 384
+  %st.i155.sroa.gep264 = getelementptr inbounds i8, ptr %st.i155, i64 384
+  %st.i155.sroa.gep263 = getelementptr inbounds i8, ptr %st.i155, i64 384
+  %st.i155.sroa.gep262 = getelementptr inbounds i8, ptr %st.i155, i64 384
+  %st.i155.sroa.gep = getelementptr inbounds i8, ptr %st.i155, i64 384
   %ref.tmp.i156 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp34.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp39.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -147,20 +126,20 @@ entry:
   %ref.tmp150.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp157.i168 = alloca %"class.std::__cxx11::basic_string", align 8
   %st.i118 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
-  %st.i118.sroa.gep289 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 2
-  %st.i118.sroa.gep288 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 2
-  %st.i118.sroa.gep287 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 2
-  %st.i118.sroa.gep286 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 2
-  %st.i118.sroa.gep285 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 2
-  %st.i118.sroa.gep284 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 2
-  %st.i118.sroa.gep283 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 2
-  %st.i118.sroa.gep261 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 3
-  %st.i118.sroa.gep260 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 3
-  %st.i118.sroa.gep259 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 3
-  %st.i118.sroa.gep258 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 3
-  %st.i118.sroa.gep257 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 3
-  %st.i118.sroa.gep256 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 3
-  %st.i118.sroa.gep = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 3
+  %st.i118.sroa.gep289 = getelementptr inbounds i8, ptr %st.i118, i64 8
+  %st.i118.sroa.gep288 = getelementptr inbounds i8, ptr %st.i118, i64 8
+  %st.i118.sroa.gep287 = getelementptr inbounds i8, ptr %st.i118, i64 8
+  %st.i118.sroa.gep286 = getelementptr inbounds i8, ptr %st.i118, i64 8
+  %st.i118.sroa.gep285 = getelementptr inbounds i8, ptr %st.i118, i64 8
+  %st.i118.sroa.gep284 = getelementptr inbounds i8, ptr %st.i118, i64 8
+  %st.i118.sroa.gep283 = getelementptr inbounds i8, ptr %st.i118, i64 8
+  %st.i118.sroa.gep261 = getelementptr inbounds i8, ptr %st.i118, i64 384
+  %st.i118.sroa.gep260 = getelementptr inbounds i8, ptr %st.i118, i64 384
+  %st.i118.sroa.gep259 = getelementptr inbounds i8, ptr %st.i118, i64 384
+  %st.i118.sroa.gep258 = getelementptr inbounds i8, ptr %st.i118, i64 384
+  %st.i118.sroa.gep257 = getelementptr inbounds i8, ptr %st.i118, i64 384
+  %st.i118.sroa.gep256 = getelementptr inbounds i8, ptr %st.i118, i64 384
+  %st.i118.sroa.gep = getelementptr inbounds i8, ptr %st.i118, i64 384
   %ref.tmp.i119 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp15.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp20.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -185,20 +164,20 @@ entry:
   %ref.tmp130.i125 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp137.i126 = alloca %"class.std::__cxx11::basic_string", align 8
   %st.i25 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
-  %st.i25.sroa.gep282 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 2
-  %st.i25.sroa.gep281 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 2
-  %st.i25.sroa.gep280 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 2
-  %st.i25.sroa.gep279 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 2
-  %st.i25.sroa.gep278 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 2
-  %st.i25.sroa.gep277 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 2
-  %st.i25.sroa.gep276 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 2
-  %st.i25.sroa.gep255 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 3
-  %st.i25.sroa.gep254 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 3
-  %st.i25.sroa.gep253 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 3
-  %st.i25.sroa.gep252 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 3
-  %st.i25.sroa.gep251 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 3
-  %st.i25.sroa.gep250 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 3
-  %st.i25.sroa.gep = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 3
+  %st.i25.sroa.gep282 = getelementptr inbounds i8, ptr %st.i25, i64 8
+  %st.i25.sroa.gep281 = getelementptr inbounds i8, ptr %st.i25, i64 8
+  %st.i25.sroa.gep280 = getelementptr inbounds i8, ptr %st.i25, i64 8
+  %st.i25.sroa.gep279 = getelementptr inbounds i8, ptr %st.i25, i64 8
+  %st.i25.sroa.gep278 = getelementptr inbounds i8, ptr %st.i25, i64 8
+  %st.i25.sroa.gep277 = getelementptr inbounds i8, ptr %st.i25, i64 8
+  %st.i25.sroa.gep276 = getelementptr inbounds i8, ptr %st.i25, i64 8
+  %st.i25.sroa.gep255 = getelementptr inbounds i8, ptr %st.i25, i64 384
+  %st.i25.sroa.gep254 = getelementptr inbounds i8, ptr %st.i25, i64 384
+  %st.i25.sroa.gep253 = getelementptr inbounds i8, ptr %st.i25, i64 384
+  %st.i25.sroa.gep252 = getelementptr inbounds i8, ptr %st.i25, i64 384
+  %st.i25.sroa.gep251 = getelementptr inbounds i8, ptr %st.i25, i64 384
+  %st.i25.sroa.gep250 = getelementptr inbounds i8, ptr %st.i25, i64 384
+  %st.i25.sroa.gep = getelementptr inbounds i8, ptr %st.i25, i64 384
   %ref.tmp.i26 = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp43.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp48.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -246,20 +225,20 @@ entry:
   %ref.tmp255.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp262.i = alloca %"class.std::__cxx11::basic_string", align 8
   %st.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText", align 8
-  %st.i.sroa.gep275 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 2
-  %st.i.sroa.gep274 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 2
-  %st.i.sroa.gep273 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 2
-  %st.i.sroa.gep272 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 2
-  %st.i.sroa.gep271 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 2
-  %st.i.sroa.gep270 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 2
-  %st.i.sroa.gep269 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 2
-  %st.i.sroa.gep249 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 3
-  %st.i.sroa.gep248 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 3
-  %st.i.sroa.gep247 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 3
-  %st.i.sroa.gep246 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 3
-  %st.i.sroa.gep245 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 3
-  %st.i.sroa.gep244 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 3
-  %st.i.sroa.gep = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 3
+  %st.i.sroa.gep275 = getelementptr inbounds i8, ptr %st.i, i64 8
+  %st.i.sroa.gep274 = getelementptr inbounds i8, ptr %st.i, i64 8
+  %st.i.sroa.gep273 = getelementptr inbounds i8, ptr %st.i, i64 8
+  %st.i.sroa.gep272 = getelementptr inbounds i8, ptr %st.i, i64 8
+  %st.i.sroa.gep271 = getelementptr inbounds i8, ptr %st.i, i64 8
+  %st.i.sroa.gep270 = getelementptr inbounds i8, ptr %st.i, i64 8
+  %st.i.sroa.gep269 = getelementptr inbounds i8, ptr %st.i, i64 8
+  %st.i.sroa.gep249 = getelementptr inbounds i8, ptr %st.i, i64 384
+  %st.i.sroa.gep248 = getelementptr inbounds i8, ptr %st.i, i64 384
+  %st.i.sroa.gep247 = getelementptr inbounds i8, ptr %st.i, i64 384
+  %st.i.sroa.gep246 = getelementptr inbounds i8, ptr %st.i, i64 384
+  %st.i.sroa.gep245 = getelementptr inbounds i8, ptr %st.i, i64 384
+  %st.i.sroa.gep244 = getelementptr inbounds i8, ptr %st.i, i64 384
+  %st.i.sroa.gep = getelementptr inbounds i8, ptr %st.i, i64 384
   %ref.tmp.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp35.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp40.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
@@ -306,7 +285,7 @@ entry:
   %ref.tmp241.i = alloca %"class.OpenColorIO_v2_4dev::GpuShaderText::GpuShaderLine", align 8
   %ref.tmp248.i = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %logData, align 8
-  %m_direction.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %0, i64 0, i32 5
+  %m_direction.i = getelementptr inbounds i8, ptr %0, i64 248
   %1 = load i32, ptr %m_direction.i, align 8
   %call3 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev9LogOpData6isLog2Ev(ptr noundef nonnull align 8 dereferenceable(252) %0)
   br i1 %call3, label %if.then, label %if.else
@@ -403,9 +382,9 @@ sw.bb15:                                          ; preds = %if.then14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp231.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp241.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp248.i)
-  %m_redParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %logData.val, i64 0, i32 1
-  %m_greenParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %logData.val, i64 0, i32 2
-  %m_blueParams.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %logData.val, i64 0, i32 3
+  %m_redParams.i.i = getelementptr inbounds i8, ptr %logData.val, i64 168
+  %m_greenParams.i.i = getelementptr inbounds i8, ptr %logData.val, i64 192
+  %m_blueParams.i.i = getelementptr inbounds i8, ptr %logData.val, i64 216
   %call7.i = tail call noundef double @_ZNK19OpenColorIO_v2_4dev9LogOpData7getBaseEv(ptr noundef nonnull align 8 dereferenceable(252) %logData.val) #7
   %call8.i = tail call noundef float @_ZN19OpenColorIO_v2_4dev7LogUtil14GetLinearSlopeERKSt6vectorIdSaIdEEd(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i, double noundef %call7.i)
   %call9.i = tail call noundef float @_ZN19OpenColorIO_v2_4dev7LogUtil14GetLinearSlopeERKSt6vectorIdSaIdEEd(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i, double noundef %call7.i)
@@ -515,13 +494,13 @@ invoke.cont67.i:                                  ; preds = %invoke.cont65.i
 
 invoke.cont73.i:                                  ; preds = %invoke.cont67.i
   %12 = load ptr, ptr %m_redParams.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds double, ptr %12, i64 4
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 32
   %13 = load double, ptr %add.ptr.i.i, align 8
   %14 = load ptr, ptr %m_greenParams.i.i, align 8
-  %add.ptr.i74.i = getelementptr inbounds double, ptr %14, i64 4
+  %add.ptr.i74.i = getelementptr inbounds i8, ptr %14, i64 32
   %15 = load double, ptr %add.ptr.i74.i, align 8
   %16 = load ptr, ptr %m_blueParams.i.i, align 8
-  %add.ptr.i75.i = getelementptr inbounds double, ptr %16, i64 4
+  %add.ptr.i75.i = getelementptr inbounds i8, ptr %16, i64 32
   %17 = load double, ptr %add.ptr.i75.i, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd(ptr noundef nonnull align 8 dereferenceable(764) %st.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70.i, double noundef %13, double noundef %15, double noundef %17)
           to label %invoke.cont78.i unwind label %lpad77.i
@@ -557,13 +536,13 @@ invoke.cont94.i:                                  ; preds = %invoke.cont92.i
 
 invoke.cont100.i:                                 ; preds = %invoke.cont94.i
   %18 = load ptr, ptr %m_redParams.i.i, align 8
-  %add.ptr.i76.i = getelementptr inbounds double, ptr %18, i64 2
+  %add.ptr.i76.i = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load double, ptr %add.ptr.i76.i, align 8
   %20 = load ptr, ptr %m_greenParams.i.i, align 8
-  %add.ptr.i77.i = getelementptr inbounds double, ptr %20, i64 2
+  %add.ptr.i77.i = getelementptr inbounds i8, ptr %20, i64 16
   %21 = load double, ptr %add.ptr.i77.i, align 8
   %22 = load ptr, ptr %m_blueParams.i.i, align 8
-  %add.ptr.i78.i = getelementptr inbounds double, ptr %22, i64 2
+  %add.ptr.i78.i = getelementptr inbounds i8, ptr %22, i64 16
   %23 = load double, ptr %add.ptr.i78.i, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd(ptr noundef nonnull align 8 dereferenceable(764) %st.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97.i, double noundef %19, double noundef %21, double noundef %23)
           to label %invoke.cont105.i unwind label %lpad104.i
@@ -577,13 +556,13 @@ invoke.cont105.i:                                 ; preds = %invoke.cont100.i
 
 invoke.cont111.i:                                 ; preds = %invoke.cont105.i
   %24 = load ptr, ptr %m_redParams.i.i, align 8
-  %add.ptr.i79.i = getelementptr inbounds double, ptr %24, i64 3
+  %add.ptr.i79.i = getelementptr inbounds i8, ptr %24, i64 24
   %25 = load double, ptr %add.ptr.i79.i, align 8
   %26 = load ptr, ptr %m_greenParams.i.i, align 8
-  %add.ptr.i80.i = getelementptr inbounds double, ptr %26, i64 3
+  %add.ptr.i80.i = getelementptr inbounds i8, ptr %26, i64 24
   %27 = load double, ptr %add.ptr.i80.i, align 8
   %28 = load ptr, ptr %m_blueParams.i.i, align 8
-  %add.ptr.i81.i = getelementptr inbounds double, ptr %28, i64 3
+  %add.ptr.i81.i = getelementptr inbounds i8, ptr %28, i64 24
   %29 = load double, ptr %add.ptr.i81.i, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd(ptr noundef nonnull align 8 dereferenceable(764) %st.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp108.i, double noundef %25, double noundef %27, double noundef %29)
           to label %invoke.cont116.i unwind label %lpad115.i
@@ -608,13 +587,13 @@ invoke.cont126.i:                                 ; preds = %invoke.cont122.i
 
 invoke.cont132.i:                                 ; preds = %invoke.cont126.i
   %30 = load ptr, ptr %m_redParams.i.i, align 8
-  %add.ptr.i82.i = getelementptr inbounds double, ptr %30, i64 1
+  %add.ptr.i82.i = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load double, ptr %add.ptr.i82.i, align 8
   %32 = load ptr, ptr %m_greenParams.i.i, align 8
-  %add.ptr.i83.i = getelementptr inbounds double, ptr %32, i64 1
+  %add.ptr.i83.i = getelementptr inbounds i8, ptr %32, i64 8
   %33 = load double, ptr %add.ptr.i83.i, align 8
   %34 = load ptr, ptr %m_blueParams.i.i, align 8
-  %add.ptr.i84.i = getelementptr inbounds double, ptr %34, i64 1
+  %add.ptr.i84.i = getelementptr inbounds i8, ptr %34, i64 8
   %35 = load double, ptr %add.ptr.i84.i, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd(ptr noundef nonnull align 8 dereferenceable(764) %st.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp129.i, double noundef %31, double noundef %33, double noundef %35)
           to label %invoke.cont137.i unwind label %lpad136.i
@@ -788,7 +767,7 @@ invoke.cont244.i:                                 ; preds = %invoke.cont242.i
 invoke.cont249.i:                                 ; preds = %invoke.cont244.i
   %call250.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp248.i) #7
   %vtable.i = load ptr, ptr %36, align 8
-  %vfn.i = getelementptr inbounds ptr, ptr %vtable.i, i64 18
+  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 144
   %37 = load ptr, ptr %vfn.i, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef %call250.i)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit unwind label %lpad251.i
@@ -1144,9 +1123,9 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLinToLogShaderERSt10shared_ptrI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp248.i) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pixrgb.i) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pix.i) #7
-  %m_ossLine.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 3
+  %m_ossLine.i.i = getelementptr inbounds i8, ptr %st.i, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i.i) #7
-  %m_ossText.i.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i, i64 0, i32 2
+  %m_ossText.i.i = getelementptr inbounds i8, ptr %st.i, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i.i) #7
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %st.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
@@ -1245,9 +1224,9 @@ sw.bb16:                                          ; preds = %if.then14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp245.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp255.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp262.i)
-  %m_redParams.i.i38 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %logData.val22, i64 0, i32 1
-  %m_greenParams.i.i39 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %logData.val22, i64 0, i32 2
-  %m_blueParams.i.i40 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %logData.val22, i64 0, i32 3
+  %m_redParams.i.i38 = getelementptr inbounds i8, ptr %logData.val22, i64 168
+  %m_greenParams.i.i39 = getelementptr inbounds i8, ptr %logData.val22, i64 192
+  %m_blueParams.i.i40 = getelementptr inbounds i8, ptr %logData.val22, i64 216
   %call7.i41 = tail call noundef double @_ZNK19OpenColorIO_v2_4dev9LogOpData7getBaseEv(ptr noundef nonnull align 8 dereferenceable(252) %logData.val22) #7
   %call8.i42 = tail call noundef float @_ZN19OpenColorIO_v2_4dev7LogUtil14GetLinearSlopeERKSt6vectorIdSaIdEEd(ptr noundef nonnull align 8 dereferenceable(24) %m_redParams.i.i38, double noundef %call7.i41)
   %call9.i43 = tail call noundef float @_ZN19OpenColorIO_v2_4dev7LogUtil14GetLinearSlopeERKSt6vectorIdSaIdEEd(ptr noundef nonnull align 8 dereferenceable(24) %m_greenParams.i.i39, double noundef %call7.i41)
@@ -1270,15 +1249,15 @@ sw.bb16:                                          ; preds = %if.then14
   %85 = load double, ptr %84, align 8
   %conv23.i = fptrunc double %85 to float
   %div24.i = fdiv float 1.000000e+00, %conv23.i
-  %add.ptr.i.i53 = getelementptr inbounds double, ptr %80, i64 2
+  %add.ptr.i.i53 = getelementptr inbounds i8, ptr %80, i64 16
   %86 = load double, ptr %add.ptr.i.i53, align 8
   %conv27.i54 = fptrunc double %86 to float
   %div28.i = fdiv float 1.000000e+00, %conv27.i54
-  %add.ptr.i73.i = getelementptr inbounds double, ptr %82, i64 2
+  %add.ptr.i73.i = getelementptr inbounds i8, ptr %82, i64 16
   %87 = load double, ptr %add.ptr.i73.i, align 8
   %conv31.i = fptrunc double %87 to float
   %div32.i = fdiv float 1.000000e+00, %conv31.i
-  %add.ptr.i74.i55 = getelementptr inbounds double, ptr %84, i64 2
+  %add.ptr.i74.i55 = getelementptr inbounds i8, ptr %84, i64 16
   %88 = load double, ptr %add.ptr.i74.i55, align 8
   %conv35.i = fptrunc double %88 to float
   %div36.i = fdiv float 1.000000e+00, %conv35.i
@@ -1402,13 +1381,13 @@ invoke.cont104.i:                                 ; preds = %invoke.cont100.i78
 
 invoke.cont110.i:                                 ; preds = %invoke.cont104.i
   %91 = load ptr, ptr %m_redParams.i.i38, align 8
-  %add.ptr.i76.i80 = getelementptr inbounds double, ptr %91, i64 3
+  %add.ptr.i76.i80 = getelementptr inbounds i8, ptr %91, i64 24
   %92 = load double, ptr %add.ptr.i76.i80, align 8
   %93 = load ptr, ptr %m_greenParams.i.i39, align 8
-  %add.ptr.i77.i81 = getelementptr inbounds double, ptr %93, i64 3
+  %add.ptr.i77.i81 = getelementptr inbounds i8, ptr %93, i64 24
   %94 = load double, ptr %add.ptr.i77.i81, align 8
   %95 = load ptr, ptr %m_blueParams.i.i40, align 8
-  %add.ptr.i78.i82 = getelementptr inbounds double, ptr %95, i64 3
+  %add.ptr.i78.i82 = getelementptr inbounds i8, ptr %95, i64 24
   %96 = load double, ptr %add.ptr.i78.i82, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd(ptr noundef nonnull align 8 dereferenceable(764) %st.i25, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107.i, double noundef %92, double noundef %94, double noundef %96)
           to label %invoke.cont115.i unwind label %lpad114.i
@@ -1444,13 +1423,13 @@ invoke.cont134.i:                                 ; preds = %invoke.cont132.i89
 
 invoke.cont140.i:                                 ; preds = %invoke.cont134.i
   %97 = load ptr, ptr %m_redParams.i.i38, align 8
-  %add.ptr.i79.i91 = getelementptr inbounds double, ptr %97, i64 1
+  %add.ptr.i79.i91 = getelementptr inbounds i8, ptr %97, i64 8
   %98 = load double, ptr %add.ptr.i79.i91, align 8
   %99 = load ptr, ptr %m_greenParams.i.i39, align 8
-  %add.ptr.i80.i92 = getelementptr inbounds double, ptr %99, i64 1
+  %add.ptr.i80.i92 = getelementptr inbounds i8, ptr %99, i64 8
   %100 = load double, ptr %add.ptr.i80.i92, align 8
   %101 = load ptr, ptr %m_blueParams.i.i40, align 8
-  %add.ptr.i81.i93 = getelementptr inbounds double, ptr %101, i64 1
+  %add.ptr.i81.i93 = getelementptr inbounds i8, ptr %101, i64 8
   %102 = load double, ptr %add.ptr.i81.i93, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd(ptr noundef nonnull align 8 dereferenceable(764) %st.i25, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp137.i, double noundef %98, double noundef %100, double noundef %102)
           to label %invoke.cont145.i unwind label %lpad144.i
@@ -1633,7 +1612,7 @@ invoke.cont258.i:                                 ; preds = %invoke.cont256.i
 invoke.cont263.i:                                 ; preds = %invoke.cont258.i
   %call264.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp262.i) #7
   %vtable.i114 = load ptr, ptr %103, align 8
-  %vfn.i115 = getelementptr inbounds ptr, ptr %vtable.i114, i64 18
+  %vfn.i115 = getelementptr inbounds i8, ptr %vtable.i114, i64 144
   %104 = load ptr, ptr %vfn.i115, align 8
   invoke void %104(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef %call264.i)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit unwind label %lpad265.i
@@ -1987,9 +1966,9 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123AddCameraLogToLinShaderERSt10shared_ptrI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp262.i) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pixrgb.i29) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pix.i28) #7
-  %m_ossLine.i.i116 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 3
+  %m_ossLine.i.i116 = getelementptr inbounds i8, ptr %st.i25, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i.i116) #7
-  %m_ossText.i.i117 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i25, i64 0, i32 2
+  %m_ossText.i.i117 = getelementptr inbounds i8, ptr %st.i25, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i.i117) #7
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %st.i25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i26)
@@ -2072,9 +2051,9 @@ sw.bb19:                                          ; preds = %if.else18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp117.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp130.i125)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp137.i126)
-  %m_redParams.i.i127 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %logData.val23, i64 0, i32 1
-  %m_greenParams.i.i128 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %logData.val23, i64 0, i32 2
-  %m_blueParams.i.i129 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %logData.val23, i64 0, i32 3
+  %m_redParams.i.i127 = getelementptr inbounds i8, ptr %logData.val23, i64 168
+  %m_greenParams.i.i128 = getelementptr inbounds i8, ptr %logData.val23, i64 192
+  %m_blueParams.i.i129 = getelementptr inbounds i8, ptr %logData.val23, i64 216
   %call7.i130 = tail call noundef double @_ZNK19OpenColorIO_v2_4dev9LogOpData7getBaseEv(ptr noundef nonnull align 8 dereferenceable(252) %logData.val23) #7
   %148 = load ptr, ptr %shaderCreator, align 8
   %call10.i131 = tail call noundef i32 @_ZNK19OpenColorIO_v2_4dev16GpuShaderCreator11getLanguageEv(ptr noundef nonnull align 8 dereferenceable(16) %148) #7
@@ -2160,13 +2139,13 @@ invoke.cont47.i:                                  ; preds = %invoke.cont45.i
 
 invoke.cont53.i:                                  ; preds = %invoke.cont47.i
   %150 = load ptr, ptr %m_redParams.i.i127, align 8
-  %add.ptr.i.i140 = getelementptr inbounds double, ptr %150, i64 2
+  %add.ptr.i.i140 = getelementptr inbounds i8, ptr %150, i64 16
   %151 = load double, ptr %add.ptr.i.i140, align 8
   %152 = load ptr, ptr %m_greenParams.i.i128, align 8
-  %add.ptr.i33.i = getelementptr inbounds double, ptr %152, i64 2
+  %add.ptr.i33.i = getelementptr inbounds i8, ptr %152, i64 16
   %153 = load double, ptr %add.ptr.i33.i, align 8
   %154 = load ptr, ptr %m_blueParams.i.i129, align 8
-  %add.ptr.i34.i = getelementptr inbounds double, ptr %154, i64 2
+  %add.ptr.i34.i = getelementptr inbounds i8, ptr %154, i64 16
   %155 = load double, ptr %add.ptr.i34.i, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd(ptr noundef nonnull align 8 dereferenceable(764) %st.i118, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50.i, double noundef %151, double noundef %153, double noundef %155)
           to label %invoke.cont58.i141 unwind label %lpad57.i
@@ -2180,13 +2159,13 @@ invoke.cont58.i141:                               ; preds = %invoke.cont53.i
 
 invoke.cont64.i:                                  ; preds = %invoke.cont58.i141
   %156 = load ptr, ptr %m_redParams.i.i127, align 8
-  %add.ptr.i35.i = getelementptr inbounds double, ptr %156, i64 3
+  %add.ptr.i35.i = getelementptr inbounds i8, ptr %156, i64 24
   %157 = load double, ptr %add.ptr.i35.i, align 8
   %158 = load ptr, ptr %m_greenParams.i.i128, align 8
-  %add.ptr.i36.i = getelementptr inbounds double, ptr %158, i64 3
+  %add.ptr.i36.i = getelementptr inbounds i8, ptr %158, i64 24
   %159 = load double, ptr %add.ptr.i36.i, align 8
   %160 = load ptr, ptr %m_blueParams.i.i129, align 8
-  %add.ptr.i37.i = getelementptr inbounds double, ptr %160, i64 3
+  %add.ptr.i37.i = getelementptr inbounds i8, ptr %160, i64 24
   %161 = load double, ptr %add.ptr.i37.i, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd(ptr noundef nonnull align 8 dereferenceable(764) %st.i118, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61.i123, double noundef %157, double noundef %159, double noundef %161)
           to label %invoke.cont69.i143 unwind label %lpad68.i142
@@ -2226,13 +2205,13 @@ invoke.cont90.i:                                  ; preds = %invoke.cont86.i145
 
 invoke.cont96.i:                                  ; preds = %invoke.cont90.i
   %168 = load ptr, ptr %m_redParams.i.i127, align 8
-  %add.ptr.i38.i = getelementptr inbounds double, ptr %168, i64 1
+  %add.ptr.i38.i = getelementptr inbounds i8, ptr %168, i64 8
   %169 = load double, ptr %add.ptr.i38.i, align 8
   %170 = load ptr, ptr %m_greenParams.i.i128, align 8
-  %add.ptr.i39.i = getelementptr inbounds double, ptr %170, i64 1
+  %add.ptr.i39.i = getelementptr inbounds i8, ptr %170, i64 8
   %171 = load double, ptr %add.ptr.i39.i, align 8
   %172 = load ptr, ptr %m_blueParams.i.i129, align 8
-  %add.ptr.i40.i = getelementptr inbounds double, ptr %172, i64 1
+  %add.ptr.i40.i = getelementptr inbounds i8, ptr %172, i64 8
   %173 = load double, ptr %add.ptr.i40.i, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd(ptr noundef nonnull align 8 dereferenceable(764) %st.i118, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93.i, double noundef %169, double noundef %171, double noundef %173)
           to label %invoke.cont101.i unwind label %lpad100.i
@@ -2302,7 +2281,7 @@ invoke.cont133.i:                                 ; preds = %invoke.cont131.i
 invoke.cont138.i:                                 ; preds = %invoke.cont133.i
   %call139.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp137.i126) #7
   %vtable.i151 = load ptr, ptr %174, align 8
-  %vfn.i152 = getelementptr inbounds ptr, ptr %vtable.i151, i64 18
+  %vfn.i152 = getelementptr inbounds i8, ptr %vtable.i151, i64 144
   %175 = load ptr, ptr %vfn.i152, align 8
   invoke void %175(ptr noundef nonnull align 8 dereferenceable(16) %174, ptr noundef %call139.i)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLinToLogShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit unwind label %lpad140.i
@@ -2481,9 +2460,9 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLinToLogShaderERSt10shared_ptrINS_16G
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp137.i126) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pixrgb.i121) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pix.i120) #7
-  %m_ossLine.i.i153 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 3
+  %m_ossLine.i.i153 = getelementptr inbounds i8, ptr %st.i118, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i.i153) #7
-  %m_ossText.i.i154 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i118, i64 0, i32 2
+  %m_ossText.i.i154 = getelementptr inbounds i8, ptr %st.i118, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i.i154) #7
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %st.i118)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i119)
@@ -2538,9 +2517,9 @@ sw.bb20:                                          ; preds = %if.else18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp137.i167)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp150.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp157.i168)
-  %m_redParams.i.i169 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %logData.val24, i64 0, i32 1
-  %m_greenParams.i.i170 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %logData.val24, i64 0, i32 2
-  %m_blueParams.i.i171 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::LogOpData", ptr %logData.val24, i64 0, i32 3
+  %m_redParams.i.i169 = getelementptr inbounds i8, ptr %logData.val24, i64 168
+  %m_greenParams.i.i170 = getelementptr inbounds i8, ptr %logData.val24, i64 192
+  %m_blueParams.i.i171 = getelementptr inbounds i8, ptr %logData.val24, i64 216
   %call7.i172 = tail call noundef double @_ZNK19OpenColorIO_v2_4dev9LogOpData7getBaseEv(ptr noundef nonnull align 8 dereferenceable(252) %logData.val24) #7
   %199 = load ptr, ptr %m_redParams.i.i169, align 8
   %200 = load double, ptr %199, align 8
@@ -2554,15 +2533,15 @@ sw.bb20:                                          ; preds = %if.else18
   %204 = load double, ptr %203, align 8
   %conv14.i = fptrunc double %204 to float
   %div15.i = fdiv float 1.000000e+00, %conv14.i
-  %add.ptr.i.i175 = getelementptr inbounds double, ptr %199, i64 2
+  %add.ptr.i.i175 = getelementptr inbounds i8, ptr %199, i64 16
   %205 = load double, ptr %add.ptr.i.i175, align 8
   %conv18.i = fptrunc double %205 to float
   %div19.i = fdiv float 1.000000e+00, %conv18.i
-  %add.ptr.i32.i = getelementptr inbounds double, ptr %201, i64 2
+  %add.ptr.i32.i = getelementptr inbounds i8, ptr %201, i64 16
   %206 = load double, ptr %add.ptr.i32.i, align 8
   %conv22.i176 = fptrunc double %206 to float
   %div23.i = fdiv float 1.000000e+00, %conv22.i176
-  %add.ptr.i33.i177 = getelementptr inbounds double, ptr %203, i64 2
+  %add.ptr.i33.i177 = getelementptr inbounds i8, ptr %203, i64 16
   %207 = load double, ptr %add.ptr.i33.i177, align 8
   %conv26.i = fptrunc double %207 to float
   %div27.i = fdiv float 1.000000e+00, %conv26.i
@@ -2661,13 +2640,13 @@ invoke.cont79.i:                                  ; preds = %invoke.cont74.i
 
 invoke.cont85.i:                                  ; preds = %invoke.cont79.i
   %210 = load ptr, ptr %m_redParams.i.i169, align 8
-  %add.ptr.i35.i204 = getelementptr inbounds double, ptr %210, i64 3
+  %add.ptr.i35.i204 = getelementptr inbounds i8, ptr %210, i64 24
   %211 = load double, ptr %add.ptr.i35.i204, align 8
   %212 = load ptr, ptr %m_greenParams.i.i170, align 8
-  %add.ptr.i36.i205 = getelementptr inbounds double, ptr %212, i64 3
+  %add.ptr.i36.i205 = getelementptr inbounds i8, ptr %212, i64 24
   %213 = load double, ptr %add.ptr.i36.i205, align 8
   %214 = load ptr, ptr %m_blueParams.i.i171, align 8
-  %add.ptr.i37.i206 = getelementptr inbounds double, ptr %214, i64 3
+  %add.ptr.i37.i206 = getelementptr inbounds i8, ptr %214, i64 24
   %215 = load double, ptr %add.ptr.i37.i206, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd(ptr noundef nonnull align 8 dereferenceable(764) %st.i155, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82.i163, double noundef %211, double noundef %213, double noundef %215)
           to label %invoke.cont90.i208 unwind label %lpad89.i207
@@ -2692,13 +2671,13 @@ invoke.cont98.i:                                  ; preds = %invoke.cont96.i211
 
 invoke.cont104.i214:                              ; preds = %invoke.cont98.i
   %216 = load ptr, ptr %m_redParams.i.i169, align 8
-  %add.ptr.i38.i215 = getelementptr inbounds double, ptr %216, i64 1
+  %add.ptr.i38.i215 = getelementptr inbounds i8, ptr %216, i64 8
   %217 = load double, ptr %add.ptr.i38.i215, align 8
   %218 = load ptr, ptr %m_greenParams.i.i170, align 8
-  %add.ptr.i39.i216 = getelementptr inbounds double, ptr %218, i64 1
+  %add.ptr.i39.i216 = getelementptr inbounds i8, ptr %218, i64 8
   %219 = load double, ptr %add.ptr.i39.i216, align 8
   %220 = load ptr, ptr %m_blueParams.i.i171, align 8
-  %add.ptr.i40.i217 = getelementptr inbounds double, ptr %220, i64 1
+  %add.ptr.i40.i217 = getelementptr inbounds i8, ptr %220, i64 8
   %221 = load double, ptr %add.ptr.i40.i217, align 8
   invoke void @_ZN19OpenColorIO_v2_4dev13GpuShaderText13declareFloat3ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEddd(ptr noundef nonnull align 8 dereferenceable(764) %st.i155, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp101.i, double noundef %217, double noundef %219, double noundef %221)
           to label %invoke.cont109.i unwind label %lpad108.i
@@ -2789,7 +2768,7 @@ invoke.cont153.i236:                              ; preds = %invoke.cont151.i234
 invoke.cont158.i:                                 ; preds = %invoke.cont153.i236
   %call159.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp157.i168) #7
   %vtable.i237 = load ptr, ptr %222, align 8
-  %vfn.i238 = getelementptr inbounds ptr, ptr %vtable.i237, i64 18
+  %vfn.i238 = getelementptr inbounds i8, ptr %vtable.i237, i64 144
   %223 = load ptr, ptr %vfn.i238, align 8
   invoke void %223(ptr noundef nonnull align 8 dereferenceable(16) %222, ptr noundef %call159.i)
           to label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLogToLinShaderERSt10shared_ptrINS_16GpuShaderCreatorEERS1_IKNS_9LogOpDataEE.exit unwind label %lpad160.i239
@@ -2974,9 +2953,9 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117AddLogToLinShaderERSt10shared_ptrINS_16G
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp157.i168) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pixrgb.i158) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pix.i157) #7
-  %m_ossLine.i.i241 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 3
+  %m_ossLine.i.i241 = getelementptr inbounds i8, ptr %st.i155, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i.i241) #7
-  %m_ossText.i.i242 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st.i155, i64 0, i32 2
+  %m_ossText.i.i242 = getelementptr inbounds i8, ptr %st.i155, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i.i242) #7
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %st.i155)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i156)
@@ -3310,7 +3289,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
 invoke.cont97:                                    ; preds = %invoke.cont92
   %call98 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96) #7
   %vtable = load ptr, ptr %16, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %17 = load ptr, ptr %vfn, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %call98)
           to label %invoke.cont100 unwind label %lpad99
@@ -3319,9 +3298,9 @@ invoke.cont100:                                   ; preds = %invoke.cont97
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pixrgb) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pix) #7
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i) #7
-  %m_ossText.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 2
+  %m_ossText.i = getelementptr inbounds i8, ptr %st, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i) #7
   ret void
 
@@ -3349,9 +3328,9 @@ ehcleanup103:                                     ; preds = %ehcleanup102, %ehcl
 
 ehcleanup104:                                     ; preds = %ehcleanup103, %lpad26, %lpad19, %lpad14, %lpad9, %lpad4, %lpad
   %.pn9.pn.pn = phi { ptr, i32 } [ %.pn9.pn, %ehcleanup103 ], [ %7, %lpad26 ], [ %2, %lpad ], [ %6, %lpad19 ], [ %5, %lpad14 ], [ %4, %lpad9 ], [ %3, %lpad4 ]
-  %m_ossLine.i14 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i14 = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i14) #7
-  %m_ossText.i15 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 2
+  %m_ossText.i15 = getelementptr inbounds i8, ptr %st, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i15) #7
   resume { ptr, i32 } %.pn9.pn.pn
 }
@@ -3494,7 +3473,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
 invoke.cont63:                                    ; preds = %invoke.cont58
   %call64 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62) #7
   %vtable = load ptr, ptr %2, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 18
+  %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %call64)
           to label %invoke.cont66 unwind label %lpad65
@@ -3503,9 +3482,9 @@ invoke.cont66:                                    ; preds = %invoke.cont63
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pixrgb) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pix) #7
-  %m_ossLine.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i) #7
-  %m_ossText.i = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 2
+  %m_ossText.i = getelementptr inbounds i8, ptr %st, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i) #7
   ret void
 
@@ -3605,9 +3584,9 @@ ehcleanup69:                                      ; preds = %ehcleanup68, %ehcle
 
 ehcleanup70:                                      ; preds = %ehcleanup69, %lpad25, %lpad18, %lpad13, %lpad8, %lpad3, %lpad
   %.pn6.pn.pn = phi { ptr, i32 } [ %.pn6.pn, %ehcleanup69 ], [ %9, %lpad25 ], [ %4, %lpad ], [ %8, %lpad18 ], [ %7, %lpad13 ], [ %6, %lpad8 ], [ %5, %lpad3 ]
-  %m_ossLine.i11 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 3
+  %m_ossLine.i11 = getelementptr inbounds i8, ptr %st, i64 384
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossLine.i11) #7
-  %m_ossText.i12 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GpuShaderText", ptr %st, i64 0, i32 2
+  %m_ossText.i12 = getelementptr inbounds i8, ptr %st, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %m_ossText.i12) #7
   resume { ptr, i32 } %.pn6.pn.pn
 }

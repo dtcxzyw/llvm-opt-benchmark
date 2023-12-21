@@ -3,16 +3,13 @@ source_filename = "bench/openssl/original/libdefault-lib-blake2s_prov.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.blake2s_param_st = type { i8, i8, i8, i8, [4 x i8], [6 x i8], i8, i8, [8 x i8], [8 x i8] }
-%struct.blake2s_ctx_st = type { [8 x i32], [2 x i32], [2 x i32], [64 x i8], i64, i64 }
-
 @blake2s_IV = internal unnamed_addr constant [8 x i32] [i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534, i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225], align 16
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_blake2s_param_init(ptr nocapture noundef writeonly %P) local_unnamed_addr #0 {
 entry:
   store <4 x i8> <i8 32, i8 0, i8 1, i8 1>, ptr %P, align 1
-  %leaf_length = getelementptr inbounds %struct.blake2s_param_st, ptr %P, i64 0, i32 4
+  %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %leaf_length, i8 0, i64 28, i1 false)
   ret void
 }
@@ -30,7 +27,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_blake2s_param_set_key_length(ptr nocapture noundef writeonly %P, i8 noundef zeroext %keylen) local_unnamed_addr #2 {
 entry:
-  %key_length = getelementptr inbounds %struct.blake2s_param_st, ptr %P, i64 0, i32 1
+  %key_length = getelementptr inbounds i8, ptr %P, i64 1
   store i8 %keylen, ptr %key_length, align 1
   ret void
 }
@@ -38,7 +35,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ossl_blake2s_param_set_personal(ptr nocapture noundef writeonly %P, ptr nocapture noundef readonly %personal, i64 noundef %len) local_unnamed_addr #3 {
 entry:
-  %personal1 = getelementptr inbounds %struct.blake2s_param_st, ptr %P, i64 0, i32 9
+  %personal1 = getelementptr inbounds i8, ptr %P, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %personal1, ptr align 1 %personal, i64 %len, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %personal1, i64 %len
   %sub = sub i64 8, %len
@@ -52,7 +49,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ossl_blake2s_param_set_salt(ptr nocapture noundef writeonly %P, ptr nocapture noundef readonly %salt, i64 noundef %len) local_unnamed_addr #3 {
 entry:
-  %salt1 = getelementptr inbounds %struct.blake2s_param_st, ptr %P, i64 0, i32 8
+  %salt1 = getelementptr inbounds i8, ptr %P, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %salt1, ptr align 1 %salt, i64 %len, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %salt1, i64 %len
   %sub = sub i64 8, %len
@@ -68,7 +65,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %c, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   %1 = load i8, ptr %P, align 1
   %conv.i = zext i8 %1 to i64
-  %outlen.i = getelementptr inbounds %struct.blake2s_ctx_st, ptr %c, i64 0, i32 5
+  %outlen.i = getelementptr inbounds i8, ptr %c, i64 120
   store i64 %conv.i, ptr %outlen.i, align 8
   br label %for.body.i
 
@@ -98,7 +95,7 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %c, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
   %1 = load i8, ptr %P, align 1
   %conv.i = zext i8 %1 to i64
-  %outlen.i = getelementptr inbounds %struct.blake2s_ctx_st, ptr %c, i64 0, i32 5
+  %outlen.i = getelementptr inbounds i8, ptr %c, i64 120
   store i64 %conv.i, ptr %outlen.i, align 8
   br label %for.body.i
 
@@ -116,7 +113,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %blake2s_init_param.exit, label %for.body.i, !llvm.loop !4
 
 blake2s_init_param.exit:                          ; preds = %for.body.i
-  %key_length = getelementptr inbounds %struct.blake2s_param_st, ptr %P, i64 0, i32 1
+  %key_length = getelementptr inbounds i8, ptr %P, i64 1
   %3 = load i8, ptr %key_length, align 1
   %conv = zext i8 %3 to i64
   %4 = icmp ugt i8 %3, 63
@@ -125,7 +122,7 @@ blake2s_init_param.exit:                          ; preds = %for.body.i
   %7 = getelementptr i8, ptr %block, i64 %conv
   call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %6, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block, ptr align 1 %key, i64 %conv, i1 false)
-  %buflen.i = getelementptr inbounds %struct.blake2s_ctx_st, ptr %c, i64 0, i32 4
+  %buflen.i = getelementptr inbounds i8, ptr %c, i64 112
   %8 = load i64, ptr %buflen.i, align 8
   %sub.i = sub i64 64, %8
   %cmp.i = icmp ult i64 %sub.i, 64
@@ -136,7 +133,7 @@ if.then.i:                                        ; preds = %blake2s_init_param.
   br i1 %tobool.not.i, label %ossl_blake2s_update.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
-  %buf.i = getelementptr inbounds %struct.blake2s_ctx_st, ptr %c, i64 0, i32 3
+  %buf.i = getelementptr inbounds i8, ptr %c, i64 48
   %add.ptr.i = getelementptr inbounds i8, ptr %buf.i, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 16 %block, i64 %sub.i, i1 false)
   tail call fastcc void @blake2s_compress(ptr noundef nonnull %c, ptr noundef nonnull %buf.i, i64 noundef 64)
@@ -159,7 +156,7 @@ ossl_blake2s_update.exit:                         ; preds = %if.then.i, %blake2s
   %9 = phi i64 [ %.pre.i, %if.then10.i ], [ 0, %if.end.i ], [ %8, %blake2s_init_param.exit ], [ 0, %if.then.i ]
   %in.1.i = phi ptr [ %add.ptr13.i, %if.then10.i ], [ %add.ptr7.i, %if.end.i ], [ %block, %blake2s_init_param.exit ], [ %block, %if.then.i ]
   %datalen.addr.1.i = phi i64 [ %cond.i, %if.then10.i ], [ %8, %if.end.i ], [ 64, %blake2s_init_param.exit ], [ 64, %if.then.i ]
-  %buf16.i = getelementptr inbounds %struct.blake2s_ctx_st, ptr %c, i64 0, i32 3
+  %buf16.i = getelementptr inbounds i8, ptr %c, i64 48
   %add.ptr19.i = getelementptr inbounds i8, ptr %buf16.i, i64 %9
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19.i, ptr nonnull align 1 %in.1.i, i64 %datalen.addr.1.i, i1 false)
   %10 = load i64, ptr %buflen.i, align 8
@@ -172,7 +169,7 @@ ossl_blake2s_update.exit:                         ; preds = %if.then.i, %blake2s
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @ossl_blake2s_update(ptr nocapture noundef %c, ptr nocapture noundef readonly %data, i64 noundef %datalen) local_unnamed_addr #7 {
 entry:
-  %buflen = getelementptr inbounds %struct.blake2s_ctx_st, ptr %c, i64 0, i32 4
+  %buflen = getelementptr inbounds i8, ptr %c, i64 112
   %0 = load i64, ptr %buflen, align 8
   %sub = sub i64 64, %0
   %cmp = icmp ult i64 %sub, %datalen
@@ -183,7 +180,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %buf = getelementptr inbounds %struct.blake2s_ctx_st, ptr %c, i64 0, i32 3
+  %buf = getelementptr inbounds i8, ptr %c, i64 48
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %0
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %data, i64 %sub, i1 false)
   tail call fastcc void @blake2s_compress(ptr noundef nonnull %c, ptr noundef nonnull %buf, i64 noundef 64)
@@ -212,7 +209,7 @@ if.end15:                                         ; preds = %if.end, %if.then10,
   %1 = phi i64 [ %.pre, %if.then10 ], [ 0, %if.end ], [ %0, %entry ]
   %in.1 = phi ptr [ %add.ptr13, %if.then10 ], [ %in.0, %if.end ], [ %data, %entry ]
   %datalen.addr.1 = phi i64 [ %cond, %if.then10 ], [ %datalen.addr.0, %if.end ], [ %datalen, %entry ]
-  %buf16 = getelementptr inbounds %struct.blake2s_ctx_st, ptr %c, i64 0, i32 3
+  %buf16 = getelementptr inbounds i8, ptr %c, i64 48
   %add.ptr19 = getelementptr inbounds i8, ptr %buf16, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19, ptr align 1 %in.1, i64 %datalen.addr.1, i1 false)
   %2 = load i64, ptr %buflen, align 8
@@ -229,26 +226,26 @@ entry:
   %v = alloca [16 x i32], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %v, ptr noundef nonnull align 4 dereferenceable(32) %S, i64 32, i1 false)
   %cond = tail call i64 @llvm.umin.i64(i64 %len, i64 64)
-  %t = getelementptr inbounds %struct.blake2s_ctx_st, ptr %S, i64 0, i32 1
+  %t = getelementptr inbounds i8, ptr %S, i64 32
   %0 = trunc i64 %cond to i32
-  %arrayidx18 = getelementptr inbounds %struct.blake2s_ctx_st, ptr %S, i64 0, i32 1, i64 1
-  %arrayidx20 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 8
-  %arrayidx21 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 9
-  %arrayidx22 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 10
-  %arrayidx23 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 11
-  %arrayidx26 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 12
-  %arrayidx30 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 13
-  %f = getelementptr inbounds %struct.blake2s_ctx_st, ptr %S, i64 0, i32 2
-  %arrayidx33 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 14
-  %arrayidx35 = getelementptr inbounds %struct.blake2s_ctx_st, ptr %S, i64 0, i32 2, i64 1
-  %arrayidx37 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 15
-  %arrayidx41 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 4
-  %arrayidx82 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 1
-  %arrayidx83 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 5
-  %arrayidx126 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 2
-  %arrayidx127 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 6
-  %arrayidx170 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 3
-  %arrayidx171 = getelementptr inbounds [16 x i32], ptr %v, i64 0, i64 7
+  %arrayidx18 = getelementptr inbounds i8, ptr %S, i64 36
+  %arrayidx20 = getelementptr inbounds i8, ptr %v, i64 32
+  %arrayidx21 = getelementptr inbounds i8, ptr %v, i64 36
+  %arrayidx22 = getelementptr inbounds i8, ptr %v, i64 40
+  %arrayidx23 = getelementptr inbounds i8, ptr %v, i64 44
+  %arrayidx26 = getelementptr inbounds i8, ptr %v, i64 48
+  %arrayidx30 = getelementptr inbounds i8, ptr %v, i64 52
+  %f = getelementptr inbounds i8, ptr %S, i64 40
+  %arrayidx33 = getelementptr inbounds i8, ptr %v, i64 56
+  %arrayidx35 = getelementptr inbounds i8, ptr %S, i64 44
+  %arrayidx37 = getelementptr inbounds i8, ptr %v, i64 60
+  %arrayidx41 = getelementptr inbounds i8, ptr %v, i64 16
+  %arrayidx82 = getelementptr inbounds i8, ptr %v, i64 4
+  %arrayidx83 = getelementptr inbounds i8, ptr %v, i64 20
+  %arrayidx126 = getelementptr inbounds i8, ptr %v, i64 8
+  %arrayidx127 = getelementptr inbounds i8, ptr %v, i64 24
+  %arrayidx170 = getelementptr inbounds i8, ptr %v, i64 12
+  %arrayidx171 = getelementptr inbounds i8, ptr %v, i64 28
   br label %do.body
 
 do.body:                                          ; preds = %entry, %for.end3591
@@ -1570,7 +1567,7 @@ define i32 @ossl_blake2s_final(ptr noundef %md, ptr noundef %c) local_unnamed_ad
 entry:
   %outbuffer = alloca [32 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %outbuffer, i8 0, i64 32, i1 false)
-  %outlen = getelementptr inbounds %struct.blake2s_ctx_st, ptr %c, i64 0, i32 5
+  %outlen = getelementptr inbounds i8, ptr %c, i64 120
   %0 = load i64, ptr %outlen, align 8
   %add = add i64 %0, 3
   %div19 = lshr i64 %add, 2
@@ -1578,10 +1575,10 @@ entry:
   %rem = and i64 %0, 3
   %cmp = icmp eq i64 %rem, 0
   %spec.select = select i1 %cmp, ptr %md, ptr %outbuffer
-  %f.i = getelementptr inbounds %struct.blake2s_ctx_st, ptr %c, i64 0, i32 2
+  %f.i = getelementptr inbounds i8, ptr %c, i64 40
   store i32 -1, ptr %f.i, align 8
-  %buf = getelementptr inbounds %struct.blake2s_ctx_st, ptr %c, i64 0, i32 3
-  %buflen = getelementptr inbounds %struct.blake2s_ctx_st, ptr %c, i64 0, i32 4
+  %buf = getelementptr inbounds i8, ptr %c, i64 48
+  %buflen = getelementptr inbounds i8, ptr %c, i64 112
   %1 = load i64, ptr %buflen, align 8
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %1
   %sub = sub i64 64, %1

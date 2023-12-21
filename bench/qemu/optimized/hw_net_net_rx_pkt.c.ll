@@ -3,24 +3,7 @@ source_filename = "bench/qemu/original/hw_net_net_rx_pkt.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.NetRxPkt = type { %struct.virtio_net_hdr, %struct.anon, ptr, i16, i16, i32, i16, i64, i32, i8, i8, i64, i64, i64, %struct.eth_ip6_hdr_info_st, %struct.eth_ip4_hdr_info_st, %struct.eth_l4_hdr_info_st }
-%struct.virtio_net_hdr = type { i8, i8, i16, i16, i16, i16 }
-%struct.anon = type { %struct.eth_header, %struct.vlan_header }
-%struct.eth_header = type { [6 x i8], [6 x i8], i16 }
-%struct.vlan_header = type { i16, i16 }
-%struct.eth_ip6_hdr_info_st = type { i8, i64, %struct.ip6_header, i8, i8, %struct.in6_address, i8, %struct.in6_address, i8 }
-%struct.ip6_header = type { %union.anon, %struct.in6_address, %struct.in6_address }
-%union.anon = type { %struct.ip6_hdrctl }
-%struct.ip6_hdrctl = type { i32, i16, i8, i8 }
-%struct.in6_address = type { %union.anon.0 }
-%union.anon.0 = type { [16 x i8] }
-%struct.eth_ip4_hdr_info_st = type { %struct.ip_header, i8 }
-%struct.ip_header = type { i8, i8, i16, i16, i16, i8, i8, i16, i32, i32 }
-%struct.eth_l4_hdr_info_st = type { %union.anon.1, i32, i8 }
-%union.anon.1 = type { %struct.tcp_header }
-%struct.tcp_header = type { i16, i16, i32, i32, i16, i16, i16, i16 }
 %struct.timeval = type { i64, i64 }
-%struct.iovec = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [4 x i8] c"pkt\00", align 1
 @.str.1 = private unnamed_addr constant [28 x i8] c"../qemu/hw/net/net_rx_pkt.c\00", align 1
@@ -161,9 +144,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local void @net_rx_pkt_init(ptr nocapture noundef writeonly %pkt) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(248) ptr @g_malloc0(i64 noundef 248) #10
-  %vec = getelementptr inbounds %struct.NetRxPkt, ptr %call, i64 0, i32 2
+  %vec = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %vec, align 8
-  %vec_len_total = getelementptr inbounds %struct.NetRxPkt, ptr %call, i64 0, i32 3
+  %vec_len_total = getelementptr inbounds i8, ptr %call, i64 40
   store i16 0, ptr %vec_len_total, align 8
   store ptr %call, ptr %pkt, align 8
   ret void
@@ -175,13 +158,13 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @net_rx_pkt_uninit(ptr noundef %pkt) local_unnamed_addr #0 {
 entry:
-  %vec_len_total = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 3
+  %vec_len_total = getelementptr inbounds i8, ptr %pkt, i64 40
   %0 = load i16, ptr %vec_len_total, align 8
   %cmp.not = icmp eq i16 %0, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %vec = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 2
+  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
   %1 = load ptr, ptr %vec, align 8
   tail call void @g_free(ptr noundef %1) #11
   br label %if.end
@@ -229,7 +212,7 @@ if.end:                                           ; preds = %entry
   br i1 %strip_vlan, label %if.then2, label %if.end5
 
 if.then2:                                         ; preds = %if.end
-  %ehdr_buf = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 1
+  %ehdr_buf = getelementptr inbounds i8, ptr %pkt, i64 10
   %call = call i64 @eth_strip_vlan(ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %iovoff, ptr noundef nonnull %ehdr_buf, ptr noundef nonnull %ploff, ptr noundef nonnull %tci) #11
   %.pre = load i16, ptr %tci, align 2
   %.pre9 = load i16, ptr %ploff, align 2
@@ -239,9 +222,9 @@ if.end5:                                          ; preds = %if.end, %if.then2
   %0 = phi i16 [ %.pre9, %if.then2 ], [ %conv, %if.end ]
   %1 = phi i16 [ %.pre, %if.then2 ], [ 0, %if.end ]
   %.sink = phi i64 [ %call, %if.then2 ], [ 0, %if.end ]
-  %2 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 7
+  %2 = getelementptr inbounds i8, ptr %pkt, i64 56
   store i64 %.sink, ptr %2, align 8
-  %tci6 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 6
+  %tci6 = getelementptr inbounds i8, ptr %pkt, i64 48
   store i16 %1, ptr %tci6, align 8
   %conv7 = zext i16 %0 to i64
   call fastcc void @net_rx_pkt_pull_data(ptr noundef nonnull %pkt, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %conv7)
@@ -256,13 +239,13 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i64 @iov_size(ptr noundef %iov, i32 noundef %iovcnt) #11
   %sub = sub i64 %call, %ploff
-  %ehdr_buf_len = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 7
+  %ehdr_buf_len = getelementptr inbounds i8, ptr %pkt, i64 56
   %0 = load i64, ptr %ehdr_buf_len, align 8
   %tobool.not = icmp eq i64 %0, 0
-  %vec_len_total.i43 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 3
+  %vec_len_total.i43 = getelementptr inbounds i8, ptr %pkt, i64 40
   %1 = load i16, ptr %vec_len_total.i43, align 8
   %conv.i44 = zext i16 %1 to i32
-  %vec.i47 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 2
+  %vec.i47 = getelementptr inbounds i8, ptr %pkt, i64 32
   %2 = load ptr, ptr %vec.i47, align 8
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -283,20 +266,20 @@ if.then.i:                                        ; preds = %if.then
 
 net_rx_pkt_iovec_realloc.exit:                    ; preds = %if.then, %if.then.i
   %3 = phi ptr [ %call.i, %if.then.i ], [ %2, %if.then ]
-  %ehdr_buf = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 1
-  %vec = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 2
+  %ehdr_buf = getelementptr inbounds i8, ptr %pkt, i64 10
+  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
   store ptr %ehdr_buf, ptr %3, align 8
   %4 = load i64, ptr %ehdr_buf_len, align 8
   %5 = load ptr, ptr %vec, align 8
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %5, i64 0, i32 1
+  %iov_len = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %4, ptr %iov_len, align 8
   %conv4 = and i64 %sub, 4294967295
   %add6 = add i64 %4, %sub
   %conv7 = trunc i64 %add6 to i32
-  %tot_len = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 5
+  %tot_len = getelementptr inbounds i8, ptr %pkt, i64 44
   store i32 %conv7, ptr %tot_len, align 4
   %6 = load ptr, ptr %vec, align 8
-  %add.ptr = getelementptr %struct.iovec, ptr %6, i64 1
+  %add.ptr = getelementptr i8, ptr %6, i64 16
   %7 = load i16, ptr %vec_len_total.i43, align 8
   %conv9 = zext i16 %7 to i32
   %sub10 = add nsw i32 %conv9, -1
@@ -324,7 +307,7 @@ if.then.i46:                                      ; preds = %if.else
 net_rx_pkt_iovec_realloc.exit52:                  ; preds = %if.else, %if.then.i46
   %conv18.pre-phi = phi i32 [ %.pre54, %if.then.i46 ], [ %conv.i44, %if.else ]
   %9 = phi ptr [ %call.i50, %if.then.i46 ], [ %2, %if.else ]
-  %tot_len15 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 5
+  %tot_len15 = getelementptr inbounds i8, ptr %pkt, i64 44
   store i32 %conv, ptr %tot_len15, align 4
   %conv20 = and i64 %sub, 4294967295
   %call21 = tail call i32 @iov_copy(ptr noundef %9, i32 noundef %conv18.pre-phi, ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %ploff, i64 noundef %conv20) #11
@@ -333,25 +316,25 @@ net_rx_pkt_iovec_realloc.exit52:                  ; preds = %if.else, %if.then.i
 
 if.end:                                           ; preds = %net_rx_pkt_iovec_realloc.exit52, %net_rx_pkt_iovec_realloc.exit
   %conv22.sink = phi i16 [ %conv22, %net_rx_pkt_iovec_realloc.exit52 ], [ %conv14, %net_rx_pkt_iovec_realloc.exit ]
-  %vec_len23 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 4
+  %vec_len23 = getelementptr inbounds i8, ptr %pkt, i64 42
   store i16 %conv22.sink, ptr %vec_len23, align 2
-  %vec24 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 2
+  %vec24 = getelementptr inbounds i8, ptr %pkt, i64 32
   %10 = load ptr, ptr %vec24, align 8
   %conv26 = zext i16 %conv22.sink to i64
-  %hasip4 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 9
-  %hasip6 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 10
-  %l3hdr_off = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 11
-  %l4hdr_off = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 12
-  %l5hdr_off = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 13
-  %ip6hdr_info = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14
-  %ip4hdr_info = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15
-  %l4hdr_info = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16
+  %hasip4 = getelementptr inbounds i8, ptr %pkt, i64 68
+  %hasip6 = getelementptr inbounds i8, ptr %pkt, i64 69
+  %l3hdr_off = getelementptr inbounds i8, ptr %pkt, i64 72
+  %l4hdr_off = getelementptr inbounds i8, ptr %pkt, i64 80
+  %l5hdr_off = getelementptr inbounds i8, ptr %pkt, i64 88
+  %ip6hdr_info = getelementptr inbounds i8, ptr %pkt, i64 96
+  %ip4hdr_info = getelementptr inbounds i8, ptr %pkt, i64 192
+  %l4hdr_info = getelementptr inbounds i8, ptr %pkt, i64 216
   tail call void @eth_get_protocols(ptr noundef %10, i64 noundef %conv26, i64 noundef 0, ptr noundef nonnull %hasip4, ptr noundef nonnull %hasip6, ptr noundef nonnull %l3hdr_off, ptr noundef nonnull %l4hdr_off, ptr noundef nonnull %l5hdr_off, ptr noundef nonnull %ip6hdr_info, ptr noundef nonnull %ip4hdr_info, ptr noundef nonnull %l4hdr_info) #11
   %11 = load i8, ptr %hasip4, align 4
   %12 = and i8 %11, 1
   %13 = load i8, ptr %hasip6, align 1
   %14 = and i8 %13, 1
-  %proto = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 1
+  %proto = getelementptr inbounds i8, ptr %pkt, i64 236
   %15 = load i32, ptr %proto, align 4
   %16 = load i64, ptr %l3hdr_off, align 8
   %17 = load i64, ptr %l4hdr_off, align 8
@@ -380,7 +363,7 @@ if.then9.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call11.i.i = tail call i32 @qemu_get_thread_id() #11
   %24 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %25 = load i64, ptr %tv_usec.i.i, align 8
   %conv13.i.i = zext nneg i8 %12 to i32
   %conv15.i.i = zext nneg i8 %14 to i32
@@ -414,12 +397,12 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %ehdr_buf = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 1
+  %ehdr_buf = getelementptr inbounds i8, ptr %pkt, i64 10
   %call = call i64 @eth_strip_vlan_ex(ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %iovoff, i32 noundef %strip_vlan_index, i16 noundef zeroext %vet, i16 noundef zeroext %vet_ext, ptr noundef nonnull %ehdr_buf, ptr noundef nonnull %ploff, ptr noundef nonnull %tci) #11
-  %ehdr_buf_len = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 7
+  %ehdr_buf_len = getelementptr inbounds i8, ptr %pkt, i64 56
   store i64 %call, ptr %ehdr_buf_len, align 8
   %0 = load i16, ptr %tci, align 2
-  %tci1 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 6
+  %tci1 = getelementptr inbounds i8, ptr %pkt, i64 48
   store i16 %0, ptr %tci1, align 8
   %1 = load i16, ptr %ploff, align 2
   %conv2 = zext i16 %1 to i64
@@ -446,7 +429,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %packet_type1 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 8
+  %packet_type1 = getelementptr inbounds i8, ptr %pkt, i64 64
   store i32 %packet_type, ptr %packet_type1, align 8
   ret void
 }
@@ -462,7 +445,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %packet_type = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 8
+  %packet_type = getelementptr inbounds i8, ptr %pkt, i64 64
   %0 = load i32, ptr %packet_type, align 8
   ret i32 %0
 }
@@ -478,7 +461,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %tot_len = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 5
+  %tot_len = getelementptr inbounds i8, ptr %pkt, i64 44
   %0 = load i32, ptr %tot_len, align 4
   %conv = zext i32 %0 to i64
   ret i64 %conv
@@ -495,14 +478,14 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %hasip4 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 9
-  %hasip6 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 10
-  %l3hdr_off = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 11
-  %l4hdr_off = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 12
-  %l5hdr_off = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 13
-  %ip6hdr_info = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14
-  %ip4hdr_info = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15
-  %l4hdr_info = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16
+  %hasip4 = getelementptr inbounds i8, ptr %pkt, i64 68
+  %hasip6 = getelementptr inbounds i8, ptr %pkt, i64 69
+  %l3hdr_off = getelementptr inbounds i8, ptr %pkt, i64 72
+  %l4hdr_off = getelementptr inbounds i8, ptr %pkt, i64 80
+  %l5hdr_off = getelementptr inbounds i8, ptr %pkt, i64 88
+  %ip6hdr_info = getelementptr inbounds i8, ptr %pkt, i64 96
+  %ip4hdr_info = getelementptr inbounds i8, ptr %pkt, i64 192
+  %l4hdr_info = getelementptr inbounds i8, ptr %pkt, i64 216
   tail call void @eth_get_protocols(ptr noundef %iov, i64 noundef %iovcnt, i64 noundef %iovoff, ptr noundef nonnull %hasip4, ptr noundef nonnull %hasip6, ptr noundef nonnull %l3hdr_off, ptr noundef nonnull %l4hdr_off, ptr noundef nonnull %l5hdr_off, ptr noundef nonnull %ip6hdr_info, ptr noundef nonnull %ip4hdr_info, ptr noundef nonnull %l4hdr_info) #11
   ret void
 }
@@ -520,15 +503,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %hasip41 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 9
+  %hasip41 = getelementptr inbounds i8, ptr %pkt, i64 68
   %0 = load i8, ptr %hasip41, align 4
   %1 = and i8 %0, 1
   store i8 %1, ptr %hasip4, align 1
-  %hasip63 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 10
+  %hasip63 = getelementptr inbounds i8, ptr %pkt, i64 69
   %2 = load i8, ptr %hasip63, align 1
   %3 = and i8 %2, 1
   store i8 %3, ptr %hasip6, align 1
-  %proto = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 1
+  %proto = getelementptr inbounds i8, ptr %pkt, i64 236
   %4 = load i32, ptr %proto, align 4
   store i32 %4, ptr %l4hdr_proto, align 4
   ret void
@@ -545,7 +528,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %l3hdr_off = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 11
+  %l3hdr_off = getelementptr inbounds i8, ptr %pkt, i64 72
   %0 = load i64, ptr %l3hdr_off, align 8
   ret i64 %0
 }
@@ -561,7 +544,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %l4hdr_off = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 12
+  %l4hdr_off = getelementptr inbounds i8, ptr %pkt, i64 80
   %0 = load i64, ptr %l4hdr_off, align 8
   ret i64 %0
 }
@@ -577,7 +560,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %l5hdr_off = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 13
+  %l5hdr_off = getelementptr inbounds i8, ptr %pkt, i64 88
   %0 = load i64, ptr %l5hdr_off, align 8
   ret i64 %0
 }
@@ -585,54 +568,54 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local nonnull ptr @net_rx_pkt_get_ip6_info(ptr noundef readnone %pkt) local_unnamed_addr #4 {
 entry:
-  %ip6hdr_info = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14
+  %ip6hdr_info = getelementptr inbounds i8, ptr %pkt, i64 96
   ret ptr %ip6hdr_info
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local nonnull ptr @net_rx_pkt_get_ip4_info(ptr noundef readnone %pkt) local_unnamed_addr #4 {
 entry:
-  %ip4hdr_info = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15
+  %ip4hdr_info = getelementptr inbounds i8, ptr %pkt, i64 192
   ret ptr %ip4hdr_info
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @net_rx_pkt_calc_rss_hash(ptr noundef %pkt, i32 noundef %type, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
 entry:
-  %_now.i.i.i680 = alloca %struct.timeval, align 8
-  %_now.i.i.i663 = alloca %struct.timeval, align 8
-  %_now.i.i.i646 = alloca %struct.timeval, align 8
-  %_now.i.i.i629 = alloca %struct.timeval, align 8
-  %_now.i.i.i612 = alloca %struct.timeval, align 8
-  %_now.i.i.i595 = alloca %struct.timeval, align 8
-  %_now.i.i.i578 = alloca %struct.timeval, align 8
-  %_now.i.i.i561 = alloca %struct.timeval, align 8
-  %_now.i.i.i544 = alloca %struct.timeval, align 8
-  %_now.i.i.i527 = alloca %struct.timeval, align 8
-  %_now.i.i.i510 = alloca %struct.timeval, align 8
-  %_now.i.i.i493 = alloca %struct.timeval, align 8
-  %_now.i.i.i476 = alloca %struct.timeval, align 8
-  %_now.i.i.i459 = alloca %struct.timeval, align 8
-  %_now.i.i.i442 = alloca %struct.timeval, align 8
-  %_now.i.i.i425 = alloca %struct.timeval, align 8
-  %_now.i.i.i408 = alloca %struct.timeval, align 8
-  %_now.i.i.i391 = alloca %struct.timeval, align 8
-  %_now.i.i.i374 = alloca %struct.timeval, align 8
-  %_now.i.i.i357 = alloca %struct.timeval, align 8
-  %_now.i.i.i340 = alloca %struct.timeval, align 8
-  %_now.i.i.i323 = alloca %struct.timeval, align 8
-  %_now.i.i.i306 = alloca %struct.timeval, align 8
-  %_now.i.i.i289 = alloca %struct.timeval, align 8
-  %_now.i.i.i272 = alloca %struct.timeval, align 8
-  %_now.i.i.i255 = alloca %struct.timeval, align 8
-  %_now.i.i.i238 = alloca %struct.timeval, align 8
-  %_now.i.i.i221 = alloca %struct.timeval, align 8
-  %_now.i.i.i204 = alloca %struct.timeval, align 8
+  %_now.i.i.i674 = alloca %struct.timeval, align 8
+  %_now.i.i.i657 = alloca %struct.timeval, align 8
+  %_now.i.i.i640 = alloca %struct.timeval, align 8
+  %_now.i.i.i623 = alloca %struct.timeval, align 8
+  %_now.i.i.i606 = alloca %struct.timeval, align 8
+  %_now.i.i.i589 = alloca %struct.timeval, align 8
+  %_now.i.i.i572 = alloca %struct.timeval, align 8
+  %_now.i.i.i555 = alloca %struct.timeval, align 8
+  %_now.i.i.i538 = alloca %struct.timeval, align 8
+  %_now.i.i.i521 = alloca %struct.timeval, align 8
+  %_now.i.i.i504 = alloca %struct.timeval, align 8
+  %_now.i.i.i487 = alloca %struct.timeval, align 8
+  %_now.i.i.i470 = alloca %struct.timeval, align 8
+  %_now.i.i.i453 = alloca %struct.timeval, align 8
+  %_now.i.i.i436 = alloca %struct.timeval, align 8
+  %_now.i.i.i419 = alloca %struct.timeval, align 8
+  %_now.i.i.i402 = alloca %struct.timeval, align 8
+  %_now.i.i.i385 = alloca %struct.timeval, align 8
+  %_now.i.i.i368 = alloca %struct.timeval, align 8
+  %_now.i.i.i351 = alloca %struct.timeval, align 8
+  %_now.i.i.i334 = alloca %struct.timeval, align 8
+  %_now.i.i.i317 = alloca %struct.timeval, align 8
+  %_now.i.i.i300 = alloca %struct.timeval, align 8
+  %_now.i.i.i283 = alloca %struct.timeval, align 8
+  %_now.i.i.i266 = alloca %struct.timeval, align 8
+  %_now.i.i.i249 = alloca %struct.timeval, align 8
+  %_now.i.i.i232 = alloca %struct.timeval, align 8
+  %_now.i.i.i215 = alloca %struct.timeval, align 8
+  %_now.i.i.i198 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
-  %_now.i.i189 = alloca %struct.timeval, align 8
-  %_now.i.i159 = alloca %struct.timeval, align 8
-  %_now.i.i139 = alloca %struct.timeval, align 8
-  %_now.i.i122 = alloca %struct.timeval, align 8
+  %_now.i.i183 = alloca %struct.timeval, align 8
+  %_now.i.i156 = alloca %struct.timeval, align 8
+  %_now.i.i136 = alloca %struct.timeval, align 8
+  %_now.i.i119 = alloca %struct.timeval, align 8
   %_now.i.i93 = alloca %struct.timeval, align 8
   %_now.i.i78 = alloca %struct.timeval, align 8
   %_now.i.i62 = alloca %struct.timeval, align 8
@@ -653,7 +636,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %hasip4 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 9
+  %hasip4 = getelementptr inbounds i8, ptr %pkt, i64 68
   %0 = load i8, ptr %hasip4, align 4
   %1 = and i8 %0, 1
   %tobool.not = icmp eq i8 %1, 0
@@ -688,7 +671,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8) #11
   br label %trace_net_rx_pkt_rss_ip4.exit
@@ -699,48 +682,48 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_net_rx_pkt_rss_ip4.exit:                    ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %ip_src.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15, i32 0, i32 8
+  %ip_src.i = getelementptr inbounds i8, ptr %pkt, i64 204
   %9 = load i32, ptr %ip_src.i, align 1
   store i32 %9, ptr %rss_input, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i204)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i198)
   %10 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i206 = icmp ne i32 %10, 0
+  %tobool.i.i.i200 = icmp ne i32 %10, 0
   %11 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i207 = icmp ne i16 %11, 0
-  %or.cond.i.i.i208 = select i1 %tobool.i.i.i206, i1 %tobool4.i.i.i207, i1 false
-  br i1 %or.cond.i.i.i208, label %land.lhs.true5.i.i.i210, label %_net_rx_rss_add_chunk.exit220
+  %tobool4.i.i.i201 = icmp ne i16 %11, 0
+  %or.cond.i.i.i202 = select i1 %tobool.i.i.i200, i1 %tobool4.i.i.i201, i1 false
+  br i1 %or.cond.i.i.i202, label %land.lhs.true5.i.i.i204, label %_net_rx_rss_add_chunk.exit214
 
-land.lhs.true5.i.i.i210:                          ; preds = %trace_net_rx_pkt_rss_ip4.exit
+land.lhs.true5.i.i.i204:                          ; preds = %trace_net_rx_pkt_rss_ip4.exit
   %12 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i211 = and i32 %12, 32768
-  %cmp.i.not.i.i.i212 = icmp eq i32 %and.i.i.i.i211, 0
-  br i1 %cmp.i.not.i.i.i212, label %_net_rx_rss_add_chunk.exit220, label %if.then.i.i.i213
+  %and.i.i.i.i205 = and i32 %12, 32768
+  %cmp.i.not.i.i.i206 = icmp eq i32 %and.i.i.i.i205, 0
+  br i1 %cmp.i.not.i.i.i206, label %_net_rx_rss_add_chunk.exit214, label %if.then.i.i.i207
 
-if.then.i.i.i213:                                 ; preds = %land.lhs.true5.i.i.i210
+if.then.i.i.i207:                                 ; preds = %land.lhs.true5.i.i.i204
   %13 = load i8, ptr @message_with_timestamp, align 1
   %14 = and i8 %13, 1
-  %tobool7.not.i.i.i214 = icmp eq i8 %14, 0
-  br i1 %tobool7.not.i.i.i214, label %if.else.i.i.i219, label %if.then8.i.i.i215
+  %tobool7.not.i.i.i208 = icmp eq i8 %14, 0
+  br i1 %tobool7.not.i.i.i208, label %if.else.i.i.i213, label %if.then8.i.i.i209
 
-if.then8.i.i.i215:                                ; preds = %if.then.i.i.i213
-  %call9.i.i.i216 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i204, ptr noundef null) #11
-  %call10.i.i.i217 = tail call i32 @qemu_get_thread_id() #11
-  %15 = load i64, ptr %_now.i.i.i204, align 8
-  %tv_usec.i.i.i218 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i204, i64 0, i32 1
-  %16 = load i64, ptr %tv_usec.i.i.i218, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i217, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %ip_src.i, i64 noundef 4, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit220
+if.then8.i.i.i209:                                ; preds = %if.then.i.i.i207
+  %call9.i.i.i210 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i198, ptr noundef null) #11
+  %call10.i.i.i211 = tail call i32 @qemu_get_thread_id() #11
+  %15 = load i64, ptr %_now.i.i.i198, align 8
+  %tv_usec.i.i.i212 = getelementptr inbounds i8, ptr %_now.i.i.i198, i64 8
+  %16 = load i64, ptr %tv_usec.i.i.i212, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i211, i64 noundef %15, i64 noundef %16, ptr noundef nonnull %ip_src.i, i64 noundef 4, i64 noundef 0) #11
+  br label %_net_rx_rss_add_chunk.exit214
 
-if.else.i.i.i219:                                 ; preds = %if.then.i.i.i213
+if.else.i.i.i213:                                 ; preds = %if.then.i.i.i207
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip_src.i, i64 noundef 4, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit220
+  br label %_net_rx_rss_add_chunk.exit214
 
-_net_rx_rss_add_chunk.exit220:                    ; preds = %trace_net_rx_pkt_rss_ip4.exit, %land.lhs.true5.i.i.i210, %if.then8.i.i.i215, %if.else.i.i.i219
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i204)
-  %ip_dst.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15, i32 0, i32 9
-  %arrayidx.i203 = getelementptr inbounds i8, ptr %rss_input, i64 4
+_net_rx_rss_add_chunk.exit214:                    ; preds = %trace_net_rx_pkt_rss_ip4.exit, %land.lhs.true5.i.i.i204, %if.then8.i.i.i209, %if.else.i.i.i213
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i198)
+  %ip_dst.i = getelementptr inbounds i8, ptr %pkt, i64 208
+  %arrayidx.i197 = getelementptr inbounds i8, ptr %rss_input, i64 4
   %17 = load i32, ptr %ip_dst.i, align 1
-  store i32 %17, ptr %arrayidx.i203, align 4
+  store i32 %17, ptr %arrayidx.i197, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
   %18 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i.i = icmp ne i32 %18, 0
@@ -749,7 +732,7 @@ _net_rx_rss_add_chunk.exit220:                    ; preds = %trace_net_rx_pkt_rs
   %or.cond.i.i.i = select i1 %tobool.i.i.i, i1 %tobool4.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %land.lhs.true5.i.i.i, label %_net_rx_rss_add_chunk.exit
 
-land.lhs.true5.i.i.i:                             ; preds = %_net_rx_rss_add_chunk.exit220
+land.lhs.true5.i.i.i:                             ; preds = %_net_rx_rss_add_chunk.exit214
   %20 = load i32, ptr @qemu_loglevel, align 4
   %and.i.i.i.i = and i32 %20, 32768
   %cmp.i.not.i.i.i = icmp eq i32 %and.i.i.i.i, 0
@@ -765,7 +748,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #11
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #11
   %23 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i, i64 0, i32 1
+  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %24 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i, i64 noundef %23, i64 noundef %24, ptr noundef nonnull %ip_dst.i, i64 noundef 4, i64 noundef 4) #11
   br label %_net_rx_rss_add_chunk.exit
@@ -774,12 +757,12 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip_dst.i, i64 noundef 4, i64 noundef 4) #11
   br label %_net_rx_rss_add_chunk.exit
 
-_net_rx_rss_add_chunk.exit:                       ; preds = %_net_rx_rss_add_chunk.exit220, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
+_net_rx_rss_add_chunk.exit:                       ; preds = %_net_rx_rss_add_chunk.exit214, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
   br label %for.body.lr.ph.i
 
 sw.bb1:                                           ; preds = %entry
-  %hasip42 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 9
+  %hasip42 = getelementptr inbounds i8, ptr %pkt, i64 68
   %25 = load i8, ptr %hasip42, align 4
   %26 = and i8 %25, 1
   %tobool3.not = icmp eq i8 %26, 0
@@ -790,7 +773,7 @@ if.else5:                                         ; preds = %sw.bb1
   unreachable
 
 if.end6:                                          ; preds = %sw.bb1
-  %proto = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 1
+  %proto = getelementptr inbounds i8, ptr %pkt, i64 236
   %27 = load i32, ptr %proto, align 4
   %cmp = icmp eq i32 %27, 1
   br i1 %cmp, label %if.end9, label %if.else8
@@ -824,7 +807,7 @@ if.then8.i.i39:                                   ; preds = %if.then.i.i37
   %call9.i.i40 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i30, ptr noundef null) #11
   %call10.i.i41 = tail call i32 @qemu_get_thread_id() #11
   %33 = load i64, ptr %_now.i.i30, align 8
-  %tv_usec.i.i42 = getelementptr inbounds %struct.timeval, ptr %_now.i.i30, i64 0, i32 1
+  %tv_usec.i.i42 = getelementptr inbounds i8, ptr %_now.i.i30, i64 8
   %34 = load i64, ptr %tv_usec.i.i42, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i41, i64 noundef %33, i64 noundef %34) #11
   br label %trace_net_rx_pkt_rss_ip4_tcp.exit
@@ -835,165 +818,165 @@ if.else.i.i43:                                    ; preds = %if.then.i.i37
 
 trace_net_rx_pkt_rss_ip4_tcp.exit:                ; preds = %if.end9, %land.lhs.true5.i.i34, %if.then8.i.i39, %if.else.i.i43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i30)
-  %ip_src.i44 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15, i32 0, i32 8
+  %ip_src.i44 = getelementptr inbounds i8, ptr %pkt, i64 204
   %35 = load i32, ptr %ip_src.i44, align 1
   store i32 %35, ptr %rss_input, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i238)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i232)
   %36 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i240 = icmp ne i32 %36, 0
+  %tobool.i.i.i234 = icmp ne i32 %36, 0
   %37 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i241 = icmp ne i16 %37, 0
-  %or.cond.i.i.i242 = select i1 %tobool.i.i.i240, i1 %tobool4.i.i.i241, i1 false
-  br i1 %or.cond.i.i.i242, label %land.lhs.true5.i.i.i244, label %_net_rx_rss_add_chunk.exit254
+  %tobool4.i.i.i235 = icmp ne i16 %37, 0
+  %or.cond.i.i.i236 = select i1 %tobool.i.i.i234, i1 %tobool4.i.i.i235, i1 false
+  br i1 %or.cond.i.i.i236, label %land.lhs.true5.i.i.i238, label %_net_rx_rss_add_chunk.exit248
 
-land.lhs.true5.i.i.i244:                          ; preds = %trace_net_rx_pkt_rss_ip4_tcp.exit
+land.lhs.true5.i.i.i238:                          ; preds = %trace_net_rx_pkt_rss_ip4_tcp.exit
   %38 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i245 = and i32 %38, 32768
-  %cmp.i.not.i.i.i246 = icmp eq i32 %and.i.i.i.i245, 0
-  br i1 %cmp.i.not.i.i.i246, label %_net_rx_rss_add_chunk.exit254, label %if.then.i.i.i247
+  %and.i.i.i.i239 = and i32 %38, 32768
+  %cmp.i.not.i.i.i240 = icmp eq i32 %and.i.i.i.i239, 0
+  br i1 %cmp.i.not.i.i.i240, label %_net_rx_rss_add_chunk.exit248, label %if.then.i.i.i241
 
-if.then.i.i.i247:                                 ; preds = %land.lhs.true5.i.i.i244
+if.then.i.i.i241:                                 ; preds = %land.lhs.true5.i.i.i238
   %39 = load i8, ptr @message_with_timestamp, align 1
   %40 = and i8 %39, 1
-  %tobool7.not.i.i.i248 = icmp eq i8 %40, 0
-  br i1 %tobool7.not.i.i.i248, label %if.else.i.i.i253, label %if.then8.i.i.i249
+  %tobool7.not.i.i.i242 = icmp eq i8 %40, 0
+  br i1 %tobool7.not.i.i.i242, label %if.else.i.i.i247, label %if.then8.i.i.i243
 
-if.then8.i.i.i249:                                ; preds = %if.then.i.i.i247
-  %call9.i.i.i250 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i238, ptr noundef null) #11
-  %call10.i.i.i251 = tail call i32 @qemu_get_thread_id() #11
-  %41 = load i64, ptr %_now.i.i.i238, align 8
-  %tv_usec.i.i.i252 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i238, i64 0, i32 1
-  %42 = load i64, ptr %tv_usec.i.i.i252, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i251, i64 noundef %41, i64 noundef %42, ptr noundef nonnull %ip_src.i44, i64 noundef 4, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit254
+if.then8.i.i.i243:                                ; preds = %if.then.i.i.i241
+  %call9.i.i.i244 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i232, ptr noundef null) #11
+  %call10.i.i.i245 = tail call i32 @qemu_get_thread_id() #11
+  %41 = load i64, ptr %_now.i.i.i232, align 8
+  %tv_usec.i.i.i246 = getelementptr inbounds i8, ptr %_now.i.i.i232, i64 8
+  %42 = load i64, ptr %tv_usec.i.i.i246, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i245, i64 noundef %41, i64 noundef %42, ptr noundef nonnull %ip_src.i44, i64 noundef 4, i64 noundef 0) #11
+  br label %_net_rx_rss_add_chunk.exit248
 
-if.else.i.i.i253:                                 ; preds = %if.then.i.i.i247
+if.else.i.i.i247:                                 ; preds = %if.then.i.i.i241
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip_src.i44, i64 noundef 4, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit254
+  br label %_net_rx_rss_add_chunk.exit248
 
-_net_rx_rss_add_chunk.exit254:                    ; preds = %trace_net_rx_pkt_rss_ip4_tcp.exit, %land.lhs.true5.i.i.i244, %if.then8.i.i.i249, %if.else.i.i.i253
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i238)
-  %ip_dst.i45 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15, i32 0, i32 9
-  %arrayidx.i222 = getelementptr inbounds i8, ptr %rss_input, i64 4
+_net_rx_rss_add_chunk.exit248:                    ; preds = %trace_net_rx_pkt_rss_ip4_tcp.exit, %land.lhs.true5.i.i.i238, %if.then8.i.i.i243, %if.else.i.i.i247
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i232)
+  %ip_dst.i45 = getelementptr inbounds i8, ptr %pkt, i64 208
+  %arrayidx.i216 = getelementptr inbounds i8, ptr %rss_input, i64 4
   %43 = load i32, ptr %ip_dst.i45, align 1
-  store i32 %43, ptr %arrayidx.i222, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i221)
+  store i32 %43, ptr %arrayidx.i216, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i215)
   %44 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i223 = icmp ne i32 %44, 0
+  %tobool.i.i.i217 = icmp ne i32 %44, 0
   %45 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i224 = icmp ne i16 %45, 0
-  %or.cond.i.i.i225 = select i1 %tobool.i.i.i223, i1 %tobool4.i.i.i224, i1 false
-  br i1 %or.cond.i.i.i225, label %land.lhs.true5.i.i.i227, label %_net_rx_rss_add_chunk.exit237
+  %tobool4.i.i.i218 = icmp ne i16 %45, 0
+  %or.cond.i.i.i219 = select i1 %tobool.i.i.i217, i1 %tobool4.i.i.i218, i1 false
+  br i1 %or.cond.i.i.i219, label %land.lhs.true5.i.i.i221, label %_net_rx_rss_add_chunk.exit231
 
-land.lhs.true5.i.i.i227:                          ; preds = %_net_rx_rss_add_chunk.exit254
+land.lhs.true5.i.i.i221:                          ; preds = %_net_rx_rss_add_chunk.exit248
   %46 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i228 = and i32 %46, 32768
-  %cmp.i.not.i.i.i229 = icmp eq i32 %and.i.i.i.i228, 0
-  br i1 %cmp.i.not.i.i.i229, label %_net_rx_rss_add_chunk.exit237, label %if.then.i.i.i230
+  %and.i.i.i.i222 = and i32 %46, 32768
+  %cmp.i.not.i.i.i223 = icmp eq i32 %and.i.i.i.i222, 0
+  br i1 %cmp.i.not.i.i.i223, label %_net_rx_rss_add_chunk.exit231, label %if.then.i.i.i224
 
-if.then.i.i.i230:                                 ; preds = %land.lhs.true5.i.i.i227
+if.then.i.i.i224:                                 ; preds = %land.lhs.true5.i.i.i221
   %47 = load i8, ptr @message_with_timestamp, align 1
   %48 = and i8 %47, 1
-  %tobool7.not.i.i.i231 = icmp eq i8 %48, 0
-  br i1 %tobool7.not.i.i.i231, label %if.else.i.i.i236, label %if.then8.i.i.i232
+  %tobool7.not.i.i.i225 = icmp eq i8 %48, 0
+  br i1 %tobool7.not.i.i.i225, label %if.else.i.i.i230, label %if.then8.i.i.i226
 
-if.then8.i.i.i232:                                ; preds = %if.then.i.i.i230
-  %call9.i.i.i233 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i221, ptr noundef null) #11
-  %call10.i.i.i234 = tail call i32 @qemu_get_thread_id() #11
-  %49 = load i64, ptr %_now.i.i.i221, align 8
-  %tv_usec.i.i.i235 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i221, i64 0, i32 1
-  %50 = load i64, ptr %tv_usec.i.i.i235, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i234, i64 noundef %49, i64 noundef %50, ptr noundef nonnull %ip_dst.i45, i64 noundef 4, i64 noundef 4) #11
-  br label %_net_rx_rss_add_chunk.exit237
+if.then8.i.i.i226:                                ; preds = %if.then.i.i.i224
+  %call9.i.i.i227 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i215, ptr noundef null) #11
+  %call10.i.i.i228 = tail call i32 @qemu_get_thread_id() #11
+  %49 = load i64, ptr %_now.i.i.i215, align 8
+  %tv_usec.i.i.i229 = getelementptr inbounds i8, ptr %_now.i.i.i215, i64 8
+  %50 = load i64, ptr %tv_usec.i.i.i229, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i228, i64 noundef %49, i64 noundef %50, ptr noundef nonnull %ip_dst.i45, i64 noundef 4, i64 noundef 4) #11
+  br label %_net_rx_rss_add_chunk.exit231
 
-if.else.i.i.i236:                                 ; preds = %if.then.i.i.i230
+if.else.i.i.i230:                                 ; preds = %if.then.i.i.i224
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip_dst.i45, i64 noundef 4, i64 noundef 4) #11
-  br label %_net_rx_rss_add_chunk.exit237
+  br label %_net_rx_rss_add_chunk.exit231
 
-_net_rx_rss_add_chunk.exit237:                    ; preds = %_net_rx_rss_add_chunk.exit254, %land.lhs.true5.i.i.i227, %if.then8.i.i.i232, %if.else.i.i.i236
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i221)
-  %l4hdr_info.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16
-  %arrayidx.i273 = getelementptr inbounds i8, ptr %rss_input, i64 8
+_net_rx_rss_add_chunk.exit231:                    ; preds = %_net_rx_rss_add_chunk.exit248, %land.lhs.true5.i.i.i221, %if.then8.i.i.i226, %if.else.i.i.i230
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i215)
+  %l4hdr_info.i = getelementptr inbounds i8, ptr %pkt, i64 216
+  %arrayidx.i267 = getelementptr inbounds i8, ptr %rss_input, i64 8
   %51 = load i16, ptr %l4hdr_info.i, align 1
-  store i16 %51, ptr %arrayidx.i273, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i272)
+  store i16 %51, ptr %arrayidx.i267, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i266)
   %52 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i274 = icmp ne i32 %52, 0
+  %tobool.i.i.i268 = icmp ne i32 %52, 0
   %53 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i275 = icmp ne i16 %53, 0
-  %or.cond.i.i.i276 = select i1 %tobool.i.i.i274, i1 %tobool4.i.i.i275, i1 false
-  br i1 %or.cond.i.i.i276, label %land.lhs.true5.i.i.i278, label %_net_rx_rss_add_chunk.exit288
+  %tobool4.i.i.i269 = icmp ne i16 %53, 0
+  %or.cond.i.i.i270 = select i1 %tobool.i.i.i268, i1 %tobool4.i.i.i269, i1 false
+  br i1 %or.cond.i.i.i270, label %land.lhs.true5.i.i.i272, label %_net_rx_rss_add_chunk.exit282
 
-land.lhs.true5.i.i.i278:                          ; preds = %_net_rx_rss_add_chunk.exit237
+land.lhs.true5.i.i.i272:                          ; preds = %_net_rx_rss_add_chunk.exit231
   %54 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i279 = and i32 %54, 32768
-  %cmp.i.not.i.i.i280 = icmp eq i32 %and.i.i.i.i279, 0
-  br i1 %cmp.i.not.i.i.i280, label %_net_rx_rss_add_chunk.exit288, label %if.then.i.i.i281
+  %and.i.i.i.i273 = and i32 %54, 32768
+  %cmp.i.not.i.i.i274 = icmp eq i32 %and.i.i.i.i273, 0
+  br i1 %cmp.i.not.i.i.i274, label %_net_rx_rss_add_chunk.exit282, label %if.then.i.i.i275
 
-if.then.i.i.i281:                                 ; preds = %land.lhs.true5.i.i.i278
+if.then.i.i.i275:                                 ; preds = %land.lhs.true5.i.i.i272
   %55 = load i8, ptr @message_with_timestamp, align 1
   %56 = and i8 %55, 1
-  %tobool7.not.i.i.i282 = icmp eq i8 %56, 0
-  br i1 %tobool7.not.i.i.i282, label %if.else.i.i.i287, label %if.then8.i.i.i283
+  %tobool7.not.i.i.i276 = icmp eq i8 %56, 0
+  br i1 %tobool7.not.i.i.i276, label %if.else.i.i.i281, label %if.then8.i.i.i277
 
-if.then8.i.i.i283:                                ; preds = %if.then.i.i.i281
-  %call9.i.i.i284 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i272, ptr noundef null) #11
-  %call10.i.i.i285 = tail call i32 @qemu_get_thread_id() #11
-  %57 = load i64, ptr %_now.i.i.i272, align 8
-  %tv_usec.i.i.i286 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i272, i64 0, i32 1
-  %58 = load i64, ptr %tv_usec.i.i.i286, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i285, i64 noundef %57, i64 noundef %58, ptr noundef nonnull %l4hdr_info.i, i64 noundef 2, i64 noundef 8) #11
-  br label %_net_rx_rss_add_chunk.exit288
+if.then8.i.i.i277:                                ; preds = %if.then.i.i.i275
+  %call9.i.i.i278 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i266, ptr noundef null) #11
+  %call10.i.i.i279 = tail call i32 @qemu_get_thread_id() #11
+  %57 = load i64, ptr %_now.i.i.i266, align 8
+  %tv_usec.i.i.i280 = getelementptr inbounds i8, ptr %_now.i.i.i266, i64 8
+  %58 = load i64, ptr %tv_usec.i.i.i280, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i279, i64 noundef %57, i64 noundef %58, ptr noundef nonnull %l4hdr_info.i, i64 noundef 2, i64 noundef 8) #11
+  br label %_net_rx_rss_add_chunk.exit282
 
-if.else.i.i.i287:                                 ; preds = %if.then.i.i.i281
+if.else.i.i.i281:                                 ; preds = %if.then.i.i.i275
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %l4hdr_info.i, i64 noundef 2, i64 noundef 8) #11
-  br label %_net_rx_rss_add_chunk.exit288
+  br label %_net_rx_rss_add_chunk.exit282
 
-_net_rx_rss_add_chunk.exit288:                    ; preds = %_net_rx_rss_add_chunk.exit237, %land.lhs.true5.i.i.i278, %if.then8.i.i.i283, %if.else.i.i.i287
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i272)
-  %th_dport.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 0, i32 0, i32 1
-  %arrayidx.i256 = getelementptr inbounds i8, ptr %rss_input, i64 10
+_net_rx_rss_add_chunk.exit282:                    ; preds = %_net_rx_rss_add_chunk.exit231, %land.lhs.true5.i.i.i272, %if.then8.i.i.i277, %if.else.i.i.i281
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i266)
+  %th_dport.i = getelementptr inbounds i8, ptr %pkt, i64 218
+  %arrayidx.i250 = getelementptr inbounds i8, ptr %rss_input, i64 10
   %59 = load i16, ptr %th_dport.i, align 1
-  store i16 %59, ptr %arrayidx.i256, align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i255)
+  store i16 %59, ptr %arrayidx.i250, align 2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i249)
   %60 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i257 = icmp ne i32 %60, 0
+  %tobool.i.i.i251 = icmp ne i32 %60, 0
   %61 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i258 = icmp ne i16 %61, 0
-  %or.cond.i.i.i259 = select i1 %tobool.i.i.i257, i1 %tobool4.i.i.i258, i1 false
-  br i1 %or.cond.i.i.i259, label %land.lhs.true5.i.i.i261, label %_net_rx_rss_add_chunk.exit271
+  %tobool4.i.i.i252 = icmp ne i16 %61, 0
+  %or.cond.i.i.i253 = select i1 %tobool.i.i.i251, i1 %tobool4.i.i.i252, i1 false
+  br i1 %or.cond.i.i.i253, label %land.lhs.true5.i.i.i255, label %_net_rx_rss_add_chunk.exit265
 
-land.lhs.true5.i.i.i261:                          ; preds = %_net_rx_rss_add_chunk.exit288
+land.lhs.true5.i.i.i255:                          ; preds = %_net_rx_rss_add_chunk.exit282
   %62 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i262 = and i32 %62, 32768
-  %cmp.i.not.i.i.i263 = icmp eq i32 %and.i.i.i.i262, 0
-  br i1 %cmp.i.not.i.i.i263, label %_net_rx_rss_add_chunk.exit271, label %if.then.i.i.i264
+  %and.i.i.i.i256 = and i32 %62, 32768
+  %cmp.i.not.i.i.i257 = icmp eq i32 %and.i.i.i.i256, 0
+  br i1 %cmp.i.not.i.i.i257, label %_net_rx_rss_add_chunk.exit265, label %if.then.i.i.i258
 
-if.then.i.i.i264:                                 ; preds = %land.lhs.true5.i.i.i261
+if.then.i.i.i258:                                 ; preds = %land.lhs.true5.i.i.i255
   %63 = load i8, ptr @message_with_timestamp, align 1
   %64 = and i8 %63, 1
-  %tobool7.not.i.i.i265 = icmp eq i8 %64, 0
-  br i1 %tobool7.not.i.i.i265, label %if.else.i.i.i270, label %if.then8.i.i.i266
+  %tobool7.not.i.i.i259 = icmp eq i8 %64, 0
+  br i1 %tobool7.not.i.i.i259, label %if.else.i.i.i264, label %if.then8.i.i.i260
 
-if.then8.i.i.i266:                                ; preds = %if.then.i.i.i264
-  %call9.i.i.i267 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i255, ptr noundef null) #11
-  %call10.i.i.i268 = tail call i32 @qemu_get_thread_id() #11
-  %65 = load i64, ptr %_now.i.i.i255, align 8
-  %tv_usec.i.i.i269 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i255, i64 0, i32 1
-  %66 = load i64, ptr %tv_usec.i.i.i269, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i268, i64 noundef %65, i64 noundef %66, ptr noundef nonnull %th_dport.i, i64 noundef 2, i64 noundef 10) #11
-  br label %_net_rx_rss_add_chunk.exit271
+if.then8.i.i.i260:                                ; preds = %if.then.i.i.i258
+  %call9.i.i.i261 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i249, ptr noundef null) #11
+  %call10.i.i.i262 = tail call i32 @qemu_get_thread_id() #11
+  %65 = load i64, ptr %_now.i.i.i249, align 8
+  %tv_usec.i.i.i263 = getelementptr inbounds i8, ptr %_now.i.i.i249, i64 8
+  %66 = load i64, ptr %tv_usec.i.i.i263, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i262, i64 noundef %65, i64 noundef %66, ptr noundef nonnull %th_dport.i, i64 noundef 2, i64 noundef 10) #11
+  br label %_net_rx_rss_add_chunk.exit265
 
-if.else.i.i.i270:                                 ; preds = %if.then.i.i.i264
+if.else.i.i.i264:                                 ; preds = %if.then.i.i.i258
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %th_dport.i, i64 noundef 2, i64 noundef 10) #11
-  br label %_net_rx_rss_add_chunk.exit271
+  br label %_net_rx_rss_add_chunk.exit265
 
-_net_rx_rss_add_chunk.exit271:                    ; preds = %_net_rx_rss_add_chunk.exit288, %land.lhs.true5.i.i.i261, %if.then8.i.i.i266, %if.else.i.i.i270
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i255)
+_net_rx_rss_add_chunk.exit265:                    ; preds = %_net_rx_rss_add_chunk.exit282, %land.lhs.true5.i.i.i255, %if.then8.i.i.i260, %if.else.i.i.i264
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i249)
   br label %for.body.lr.ph.i
 
 sw.bb12:                                          ; preds = %entry
-  %hasip6 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 10
+  %hasip6 = getelementptr inbounds i8, ptr %pkt, i64 69
   %67 = load i8, ptr %hasip6, align 1
   %68 = and i8 %67, 1
   %tobool13.not = icmp eq i8 %68, 0
@@ -1004,7 +987,7 @@ if.else15:                                        ; preds = %sw.bb12
   unreachable
 
 if.end16:                                         ; preds = %sw.bb12
-  %proto18 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 1
+  %proto18 = getelementptr inbounds i8, ptr %pkt, i64 236
   %69 = load i32, ptr %proto18, align 4
   %cmp19 = icmp eq i32 %69, 1
   br i1 %cmp19, label %if.end22, label %if.else21
@@ -1038,7 +1021,7 @@ if.then8.i.i55:                                   ; preds = %if.then.i.i53
   %call9.i.i56 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i46, ptr noundef null) #11
   %call10.i.i57 = tail call i32 @qemu_get_thread_id() #11
   %75 = load i64, ptr %_now.i.i46, align 8
-  %tv_usec.i.i58 = getelementptr inbounds %struct.timeval, ptr %_now.i.i46, i64 0, i32 1
+  %tv_usec.i.i58 = getelementptr inbounds i8, ptr %_now.i.i46, i64 8
   %76 = load i64, ptr %tv_usec.i.i58, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i57, i64 noundef %75, i64 noundef %76) #11
   br label %trace_net_rx_pkt_rss_ip6_tcp.exit
@@ -1049,163 +1032,163 @@ if.else.i.i59:                                    ; preds = %if.then.i.i53
 
 trace_net_rx_pkt_rss_ip6_tcp.exit:                ; preds = %if.end22, %land.lhs.true5.i.i50, %if.then8.i.i55, %if.else.i.i59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i46)
-  %ip6_src.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 2, i32 1
+  %ip6_src.i = getelementptr inbounds i8, ptr %pkt, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rss_input, ptr noundef nonnull align 1 dereferenceable(16) %ip6_src.i, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i306)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i300)
   %77 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i308 = icmp ne i32 %77, 0
+  %tobool.i.i.i302 = icmp ne i32 %77, 0
   %78 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i309 = icmp ne i16 %78, 0
-  %or.cond.i.i.i310 = select i1 %tobool.i.i.i308, i1 %tobool4.i.i.i309, i1 false
-  br i1 %or.cond.i.i.i310, label %land.lhs.true5.i.i.i312, label %_net_rx_rss_add_chunk.exit322
+  %tobool4.i.i.i303 = icmp ne i16 %78, 0
+  %or.cond.i.i.i304 = select i1 %tobool.i.i.i302, i1 %tobool4.i.i.i303, i1 false
+  br i1 %or.cond.i.i.i304, label %land.lhs.true5.i.i.i306, label %_net_rx_rss_add_chunk.exit316
 
-land.lhs.true5.i.i.i312:                          ; preds = %trace_net_rx_pkt_rss_ip6_tcp.exit
+land.lhs.true5.i.i.i306:                          ; preds = %trace_net_rx_pkt_rss_ip6_tcp.exit
   %79 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i313 = and i32 %79, 32768
-  %cmp.i.not.i.i.i314 = icmp eq i32 %and.i.i.i.i313, 0
-  br i1 %cmp.i.not.i.i.i314, label %_net_rx_rss_add_chunk.exit322, label %if.then.i.i.i315
+  %and.i.i.i.i307 = and i32 %79, 32768
+  %cmp.i.not.i.i.i308 = icmp eq i32 %and.i.i.i.i307, 0
+  br i1 %cmp.i.not.i.i.i308, label %_net_rx_rss_add_chunk.exit316, label %if.then.i.i.i309
 
-if.then.i.i.i315:                                 ; preds = %land.lhs.true5.i.i.i312
+if.then.i.i.i309:                                 ; preds = %land.lhs.true5.i.i.i306
   %80 = load i8, ptr @message_with_timestamp, align 1
   %81 = and i8 %80, 1
-  %tobool7.not.i.i.i316 = icmp eq i8 %81, 0
-  br i1 %tobool7.not.i.i.i316, label %if.else.i.i.i321, label %if.then8.i.i.i317
+  %tobool7.not.i.i.i310 = icmp eq i8 %81, 0
+  br i1 %tobool7.not.i.i.i310, label %if.else.i.i.i315, label %if.then8.i.i.i311
 
-if.then8.i.i.i317:                                ; preds = %if.then.i.i.i315
-  %call9.i.i.i318 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i306, ptr noundef null) #11
-  %call10.i.i.i319 = tail call i32 @qemu_get_thread_id() #11
-  %82 = load i64, ptr %_now.i.i.i306, align 8
-  %tv_usec.i.i.i320 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i306, i64 0, i32 1
-  %83 = load i64, ptr %tv_usec.i.i.i320, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i319, i64 noundef %82, i64 noundef %83, ptr noundef nonnull %ip6_src.i, i64 noundef 16, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit322
+if.then8.i.i.i311:                                ; preds = %if.then.i.i.i309
+  %call9.i.i.i312 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i300, ptr noundef null) #11
+  %call10.i.i.i313 = tail call i32 @qemu_get_thread_id() #11
+  %82 = load i64, ptr %_now.i.i.i300, align 8
+  %tv_usec.i.i.i314 = getelementptr inbounds i8, ptr %_now.i.i.i300, i64 8
+  %83 = load i64, ptr %tv_usec.i.i.i314, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i313, i64 noundef %82, i64 noundef %83, ptr noundef nonnull %ip6_src.i, i64 noundef 16, i64 noundef 0) #11
+  br label %_net_rx_rss_add_chunk.exit316
 
-if.else.i.i.i321:                                 ; preds = %if.then.i.i.i315
+if.else.i.i.i315:                                 ; preds = %if.then.i.i.i309
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_src.i, i64 noundef 16, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit322
+  br label %_net_rx_rss_add_chunk.exit316
 
-_net_rx_rss_add_chunk.exit322:                    ; preds = %trace_net_rx_pkt_rss_ip6_tcp.exit, %land.lhs.true5.i.i.i312, %if.then8.i.i.i317, %if.else.i.i.i321
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i306)
-  %ip6_dst.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 2, i32 2
-  %arrayidx.i290 = getelementptr inbounds i8, ptr %rss_input, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i290, ptr noundef nonnull align 1 dereferenceable(16) %ip6_dst.i, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i289)
+_net_rx_rss_add_chunk.exit316:                    ; preds = %trace_net_rx_pkt_rss_ip6_tcp.exit, %land.lhs.true5.i.i.i306, %if.then8.i.i.i311, %if.else.i.i.i315
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i300)
+  %ip6_dst.i = getelementptr inbounds i8, ptr %pkt, i64 136
+  %arrayidx.i284 = getelementptr inbounds i8, ptr %rss_input, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i284, ptr noundef nonnull align 1 dereferenceable(16) %ip6_dst.i, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i283)
   %84 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i291 = icmp ne i32 %84, 0
+  %tobool.i.i.i285 = icmp ne i32 %84, 0
   %85 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i292 = icmp ne i16 %85, 0
-  %or.cond.i.i.i293 = select i1 %tobool.i.i.i291, i1 %tobool4.i.i.i292, i1 false
-  br i1 %or.cond.i.i.i293, label %land.lhs.true5.i.i.i295, label %_net_rx_rss_add_chunk.exit305
+  %tobool4.i.i.i286 = icmp ne i16 %85, 0
+  %or.cond.i.i.i287 = select i1 %tobool.i.i.i285, i1 %tobool4.i.i.i286, i1 false
+  br i1 %or.cond.i.i.i287, label %land.lhs.true5.i.i.i289, label %_net_rx_rss_add_chunk.exit299
 
-land.lhs.true5.i.i.i295:                          ; preds = %_net_rx_rss_add_chunk.exit322
+land.lhs.true5.i.i.i289:                          ; preds = %_net_rx_rss_add_chunk.exit316
   %86 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i296 = and i32 %86, 32768
-  %cmp.i.not.i.i.i297 = icmp eq i32 %and.i.i.i.i296, 0
-  br i1 %cmp.i.not.i.i.i297, label %_net_rx_rss_add_chunk.exit305, label %if.then.i.i.i298
+  %and.i.i.i.i290 = and i32 %86, 32768
+  %cmp.i.not.i.i.i291 = icmp eq i32 %and.i.i.i.i290, 0
+  br i1 %cmp.i.not.i.i.i291, label %_net_rx_rss_add_chunk.exit299, label %if.then.i.i.i292
 
-if.then.i.i.i298:                                 ; preds = %land.lhs.true5.i.i.i295
+if.then.i.i.i292:                                 ; preds = %land.lhs.true5.i.i.i289
   %87 = load i8, ptr @message_with_timestamp, align 1
   %88 = and i8 %87, 1
-  %tobool7.not.i.i.i299 = icmp eq i8 %88, 0
-  br i1 %tobool7.not.i.i.i299, label %if.else.i.i.i304, label %if.then8.i.i.i300
+  %tobool7.not.i.i.i293 = icmp eq i8 %88, 0
+  br i1 %tobool7.not.i.i.i293, label %if.else.i.i.i298, label %if.then8.i.i.i294
 
-if.then8.i.i.i300:                                ; preds = %if.then.i.i.i298
-  %call9.i.i.i301 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i289, ptr noundef null) #11
-  %call10.i.i.i302 = tail call i32 @qemu_get_thread_id() #11
-  %89 = load i64, ptr %_now.i.i.i289, align 8
-  %tv_usec.i.i.i303 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i289, i64 0, i32 1
-  %90 = load i64, ptr %tv_usec.i.i.i303, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i302, i64 noundef %89, i64 noundef %90, ptr noundef nonnull %ip6_dst.i, i64 noundef 16, i64 noundef 16) #11
-  br label %_net_rx_rss_add_chunk.exit305
+if.then8.i.i.i294:                                ; preds = %if.then.i.i.i292
+  %call9.i.i.i295 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i283, ptr noundef null) #11
+  %call10.i.i.i296 = tail call i32 @qemu_get_thread_id() #11
+  %89 = load i64, ptr %_now.i.i.i283, align 8
+  %tv_usec.i.i.i297 = getelementptr inbounds i8, ptr %_now.i.i.i283, i64 8
+  %90 = load i64, ptr %tv_usec.i.i.i297, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i296, i64 noundef %89, i64 noundef %90, ptr noundef nonnull %ip6_dst.i, i64 noundef 16, i64 noundef 16) #11
+  br label %_net_rx_rss_add_chunk.exit299
 
-if.else.i.i.i304:                                 ; preds = %if.then.i.i.i298
+if.else.i.i.i298:                                 ; preds = %if.then.i.i.i292
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_dst.i, i64 noundef 16, i64 noundef 16) #11
-  br label %_net_rx_rss_add_chunk.exit305
+  br label %_net_rx_rss_add_chunk.exit299
 
-_net_rx_rss_add_chunk.exit305:                    ; preds = %_net_rx_rss_add_chunk.exit322, %land.lhs.true5.i.i.i295, %if.then8.i.i.i300, %if.else.i.i.i304
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i289)
-  %l4hdr_info.i60 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16
-  %arrayidx.i341 = getelementptr inbounds i8, ptr %rss_input, i64 32
+_net_rx_rss_add_chunk.exit299:                    ; preds = %_net_rx_rss_add_chunk.exit316, %land.lhs.true5.i.i.i289, %if.then8.i.i.i294, %if.else.i.i.i298
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i283)
+  %l4hdr_info.i60 = getelementptr inbounds i8, ptr %pkt, i64 216
+  %arrayidx.i335 = getelementptr inbounds i8, ptr %rss_input, i64 32
   %91 = load i16, ptr %l4hdr_info.i60, align 1
-  store i16 %91, ptr %arrayidx.i341, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i340)
+  store i16 %91, ptr %arrayidx.i335, align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i334)
   %92 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i342 = icmp ne i32 %92, 0
+  %tobool.i.i.i336 = icmp ne i32 %92, 0
   %93 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i343 = icmp ne i16 %93, 0
-  %or.cond.i.i.i344 = select i1 %tobool.i.i.i342, i1 %tobool4.i.i.i343, i1 false
-  br i1 %or.cond.i.i.i344, label %land.lhs.true5.i.i.i346, label %_net_rx_rss_add_chunk.exit356
+  %tobool4.i.i.i337 = icmp ne i16 %93, 0
+  %or.cond.i.i.i338 = select i1 %tobool.i.i.i336, i1 %tobool4.i.i.i337, i1 false
+  br i1 %or.cond.i.i.i338, label %land.lhs.true5.i.i.i340, label %_net_rx_rss_add_chunk.exit350
 
-land.lhs.true5.i.i.i346:                          ; preds = %_net_rx_rss_add_chunk.exit305
+land.lhs.true5.i.i.i340:                          ; preds = %_net_rx_rss_add_chunk.exit299
   %94 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i347 = and i32 %94, 32768
-  %cmp.i.not.i.i.i348 = icmp eq i32 %and.i.i.i.i347, 0
-  br i1 %cmp.i.not.i.i.i348, label %_net_rx_rss_add_chunk.exit356, label %if.then.i.i.i349
+  %and.i.i.i.i341 = and i32 %94, 32768
+  %cmp.i.not.i.i.i342 = icmp eq i32 %and.i.i.i.i341, 0
+  br i1 %cmp.i.not.i.i.i342, label %_net_rx_rss_add_chunk.exit350, label %if.then.i.i.i343
 
-if.then.i.i.i349:                                 ; preds = %land.lhs.true5.i.i.i346
+if.then.i.i.i343:                                 ; preds = %land.lhs.true5.i.i.i340
   %95 = load i8, ptr @message_with_timestamp, align 1
   %96 = and i8 %95, 1
-  %tobool7.not.i.i.i350 = icmp eq i8 %96, 0
-  br i1 %tobool7.not.i.i.i350, label %if.else.i.i.i355, label %if.then8.i.i.i351
+  %tobool7.not.i.i.i344 = icmp eq i8 %96, 0
+  br i1 %tobool7.not.i.i.i344, label %if.else.i.i.i349, label %if.then8.i.i.i345
 
-if.then8.i.i.i351:                                ; preds = %if.then.i.i.i349
-  %call9.i.i.i352 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i340, ptr noundef null) #11
-  %call10.i.i.i353 = tail call i32 @qemu_get_thread_id() #11
-  %97 = load i64, ptr %_now.i.i.i340, align 8
-  %tv_usec.i.i.i354 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i340, i64 0, i32 1
-  %98 = load i64, ptr %tv_usec.i.i.i354, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i353, i64 noundef %97, i64 noundef %98, ptr noundef nonnull %l4hdr_info.i60, i64 noundef 2, i64 noundef 32) #11
-  br label %_net_rx_rss_add_chunk.exit356
+if.then8.i.i.i345:                                ; preds = %if.then.i.i.i343
+  %call9.i.i.i346 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i334, ptr noundef null) #11
+  %call10.i.i.i347 = tail call i32 @qemu_get_thread_id() #11
+  %97 = load i64, ptr %_now.i.i.i334, align 8
+  %tv_usec.i.i.i348 = getelementptr inbounds i8, ptr %_now.i.i.i334, i64 8
+  %98 = load i64, ptr %tv_usec.i.i.i348, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i347, i64 noundef %97, i64 noundef %98, ptr noundef nonnull %l4hdr_info.i60, i64 noundef 2, i64 noundef 32) #11
+  br label %_net_rx_rss_add_chunk.exit350
 
-if.else.i.i.i355:                                 ; preds = %if.then.i.i.i349
+if.else.i.i.i349:                                 ; preds = %if.then.i.i.i343
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %l4hdr_info.i60, i64 noundef 2, i64 noundef 32) #11
-  br label %_net_rx_rss_add_chunk.exit356
+  br label %_net_rx_rss_add_chunk.exit350
 
-_net_rx_rss_add_chunk.exit356:                    ; preds = %_net_rx_rss_add_chunk.exit305, %land.lhs.true5.i.i.i346, %if.then8.i.i.i351, %if.else.i.i.i355
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i340)
-  %th_dport.i61 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 0, i32 0, i32 1
-  %arrayidx.i324 = getelementptr inbounds i8, ptr %rss_input, i64 34
+_net_rx_rss_add_chunk.exit350:                    ; preds = %_net_rx_rss_add_chunk.exit299, %land.lhs.true5.i.i.i340, %if.then8.i.i.i345, %if.else.i.i.i349
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i334)
+  %th_dport.i61 = getelementptr inbounds i8, ptr %pkt, i64 218
+  %arrayidx.i318 = getelementptr inbounds i8, ptr %rss_input, i64 34
   %99 = load i16, ptr %th_dport.i61, align 1
-  store i16 %99, ptr %arrayidx.i324, align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i323)
+  store i16 %99, ptr %arrayidx.i318, align 2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i317)
   %100 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i325 = icmp ne i32 %100, 0
+  %tobool.i.i.i319 = icmp ne i32 %100, 0
   %101 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i326 = icmp ne i16 %101, 0
-  %or.cond.i.i.i327 = select i1 %tobool.i.i.i325, i1 %tobool4.i.i.i326, i1 false
-  br i1 %or.cond.i.i.i327, label %land.lhs.true5.i.i.i329, label %_net_rx_rss_add_chunk.exit339
+  %tobool4.i.i.i320 = icmp ne i16 %101, 0
+  %or.cond.i.i.i321 = select i1 %tobool.i.i.i319, i1 %tobool4.i.i.i320, i1 false
+  br i1 %or.cond.i.i.i321, label %land.lhs.true5.i.i.i323, label %_net_rx_rss_add_chunk.exit333
 
-land.lhs.true5.i.i.i329:                          ; preds = %_net_rx_rss_add_chunk.exit356
+land.lhs.true5.i.i.i323:                          ; preds = %_net_rx_rss_add_chunk.exit350
   %102 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i330 = and i32 %102, 32768
-  %cmp.i.not.i.i.i331 = icmp eq i32 %and.i.i.i.i330, 0
-  br i1 %cmp.i.not.i.i.i331, label %_net_rx_rss_add_chunk.exit339, label %if.then.i.i.i332
+  %and.i.i.i.i324 = and i32 %102, 32768
+  %cmp.i.not.i.i.i325 = icmp eq i32 %and.i.i.i.i324, 0
+  br i1 %cmp.i.not.i.i.i325, label %_net_rx_rss_add_chunk.exit333, label %if.then.i.i.i326
 
-if.then.i.i.i332:                                 ; preds = %land.lhs.true5.i.i.i329
+if.then.i.i.i326:                                 ; preds = %land.lhs.true5.i.i.i323
   %103 = load i8, ptr @message_with_timestamp, align 1
   %104 = and i8 %103, 1
-  %tobool7.not.i.i.i333 = icmp eq i8 %104, 0
-  br i1 %tobool7.not.i.i.i333, label %if.else.i.i.i338, label %if.then8.i.i.i334
+  %tobool7.not.i.i.i327 = icmp eq i8 %104, 0
+  br i1 %tobool7.not.i.i.i327, label %if.else.i.i.i332, label %if.then8.i.i.i328
 
-if.then8.i.i.i334:                                ; preds = %if.then.i.i.i332
-  %call9.i.i.i335 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i323, ptr noundef null) #11
-  %call10.i.i.i336 = tail call i32 @qemu_get_thread_id() #11
-  %105 = load i64, ptr %_now.i.i.i323, align 8
-  %tv_usec.i.i.i337 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i323, i64 0, i32 1
-  %106 = load i64, ptr %tv_usec.i.i.i337, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i336, i64 noundef %105, i64 noundef %106, ptr noundef nonnull %th_dport.i61, i64 noundef 2, i64 noundef 34) #11
-  br label %_net_rx_rss_add_chunk.exit339
+if.then8.i.i.i328:                                ; preds = %if.then.i.i.i326
+  %call9.i.i.i329 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i317, ptr noundef null) #11
+  %call10.i.i.i330 = tail call i32 @qemu_get_thread_id() #11
+  %105 = load i64, ptr %_now.i.i.i317, align 8
+  %tv_usec.i.i.i331 = getelementptr inbounds i8, ptr %_now.i.i.i317, i64 8
+  %106 = load i64, ptr %tv_usec.i.i.i331, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i330, i64 noundef %105, i64 noundef %106, ptr noundef nonnull %th_dport.i61, i64 noundef 2, i64 noundef 34) #11
+  br label %_net_rx_rss_add_chunk.exit333
 
-if.else.i.i.i338:                                 ; preds = %if.then.i.i.i332
+if.else.i.i.i332:                                 ; preds = %if.then.i.i.i326
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %th_dport.i61, i64 noundef 2, i64 noundef 34) #11
-  br label %_net_rx_rss_add_chunk.exit339
+  br label %_net_rx_rss_add_chunk.exit333
 
-_net_rx_rss_add_chunk.exit339:                    ; preds = %_net_rx_rss_add_chunk.exit356, %land.lhs.true5.i.i.i329, %if.then8.i.i.i334, %if.else.i.i.i338
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i323)
+_net_rx_rss_add_chunk.exit333:                    ; preds = %_net_rx_rss_add_chunk.exit350, %land.lhs.true5.i.i.i323, %if.then8.i.i.i328, %if.else.i.i.i332
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i317)
   br label %for.body.lr.ph.i
 
 sw.bb25:                                          ; preds = %entry
-  %hasip626 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 10
+  %hasip626 = getelementptr inbounds i8, ptr %pkt, i64 69
   %107 = load i8, ptr %hasip626, align 1
   %108 = and i8 %107, 1
   %tobool27.not = icmp eq i8 %108, 0
@@ -1240,7 +1223,7 @@ if.then8.i.i71:                                   ; preds = %if.then.i.i69
   %call9.i.i72 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i62, ptr noundef null) #11
   %call10.i.i73 = tail call i32 @qemu_get_thread_id() #11
   %114 = load i64, ptr %_now.i.i62, align 8
-  %tv_usec.i.i74 = getelementptr inbounds %struct.timeval, ptr %_now.i.i62, i64 0, i32 1
+  %tv_usec.i.i74 = getelementptr inbounds i8, ptr %_now.i.i62, i64 8
   %115 = load i64, ptr %tv_usec.i.i74, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %call10.i.i73, i64 noundef %114, i64 noundef %115) #11
   br label %trace_net_rx_pkt_rss_ip6.exit
@@ -1251,85 +1234,85 @@ if.else.i.i75:                                    ; preds = %if.then.i.i69
 
 trace_net_rx_pkt_rss_ip6.exit:                    ; preds = %if.end30, %land.lhs.true5.i.i66, %if.then8.i.i71, %if.else.i.i75
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i62)
-  %ip6_src.i76 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 2, i32 1
+  %ip6_src.i76 = getelementptr inbounds i8, ptr %pkt, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rss_input, ptr noundef nonnull align 1 dereferenceable(16) %ip6_src.i76, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i374)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i368)
   %116 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i376 = icmp ne i32 %116, 0
+  %tobool.i.i.i370 = icmp ne i32 %116, 0
   %117 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i377 = icmp ne i16 %117, 0
-  %or.cond.i.i.i378 = select i1 %tobool.i.i.i376, i1 %tobool4.i.i.i377, i1 false
-  br i1 %or.cond.i.i.i378, label %land.lhs.true5.i.i.i380, label %_net_rx_rss_add_chunk.exit390
+  %tobool4.i.i.i371 = icmp ne i16 %117, 0
+  %or.cond.i.i.i372 = select i1 %tobool.i.i.i370, i1 %tobool4.i.i.i371, i1 false
+  br i1 %or.cond.i.i.i372, label %land.lhs.true5.i.i.i374, label %_net_rx_rss_add_chunk.exit384
 
-land.lhs.true5.i.i.i380:                          ; preds = %trace_net_rx_pkt_rss_ip6.exit
+land.lhs.true5.i.i.i374:                          ; preds = %trace_net_rx_pkt_rss_ip6.exit
   %118 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i381 = and i32 %118, 32768
-  %cmp.i.not.i.i.i382 = icmp eq i32 %and.i.i.i.i381, 0
-  br i1 %cmp.i.not.i.i.i382, label %_net_rx_rss_add_chunk.exit390, label %if.then.i.i.i383
+  %and.i.i.i.i375 = and i32 %118, 32768
+  %cmp.i.not.i.i.i376 = icmp eq i32 %and.i.i.i.i375, 0
+  br i1 %cmp.i.not.i.i.i376, label %_net_rx_rss_add_chunk.exit384, label %if.then.i.i.i377
 
-if.then.i.i.i383:                                 ; preds = %land.lhs.true5.i.i.i380
+if.then.i.i.i377:                                 ; preds = %land.lhs.true5.i.i.i374
   %119 = load i8, ptr @message_with_timestamp, align 1
   %120 = and i8 %119, 1
-  %tobool7.not.i.i.i384 = icmp eq i8 %120, 0
-  br i1 %tobool7.not.i.i.i384, label %if.else.i.i.i389, label %if.then8.i.i.i385
+  %tobool7.not.i.i.i378 = icmp eq i8 %120, 0
+  br i1 %tobool7.not.i.i.i378, label %if.else.i.i.i383, label %if.then8.i.i.i379
 
-if.then8.i.i.i385:                                ; preds = %if.then.i.i.i383
-  %call9.i.i.i386 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i374, ptr noundef null) #11
-  %call10.i.i.i387 = tail call i32 @qemu_get_thread_id() #11
-  %121 = load i64, ptr %_now.i.i.i374, align 8
-  %tv_usec.i.i.i388 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i374, i64 0, i32 1
-  %122 = load i64, ptr %tv_usec.i.i.i388, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i387, i64 noundef %121, i64 noundef %122, ptr noundef nonnull %ip6_src.i76, i64 noundef 16, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit390
+if.then8.i.i.i379:                                ; preds = %if.then.i.i.i377
+  %call9.i.i.i380 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i368, ptr noundef null) #11
+  %call10.i.i.i381 = tail call i32 @qemu_get_thread_id() #11
+  %121 = load i64, ptr %_now.i.i.i368, align 8
+  %tv_usec.i.i.i382 = getelementptr inbounds i8, ptr %_now.i.i.i368, i64 8
+  %122 = load i64, ptr %tv_usec.i.i.i382, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i381, i64 noundef %121, i64 noundef %122, ptr noundef nonnull %ip6_src.i76, i64 noundef 16, i64 noundef 0) #11
+  br label %_net_rx_rss_add_chunk.exit384
 
-if.else.i.i.i389:                                 ; preds = %if.then.i.i.i383
+if.else.i.i.i383:                                 ; preds = %if.then.i.i.i377
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_src.i76, i64 noundef 16, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit390
+  br label %_net_rx_rss_add_chunk.exit384
 
-_net_rx_rss_add_chunk.exit390:                    ; preds = %trace_net_rx_pkt_rss_ip6.exit, %land.lhs.true5.i.i.i380, %if.then8.i.i.i385, %if.else.i.i.i389
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i374)
-  %ip6_dst.i77 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 2, i32 2
-  %arrayidx.i358 = getelementptr inbounds i8, ptr %rss_input, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i358, ptr noundef nonnull align 1 dereferenceable(16) %ip6_dst.i77, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i357)
+_net_rx_rss_add_chunk.exit384:                    ; preds = %trace_net_rx_pkt_rss_ip6.exit, %land.lhs.true5.i.i.i374, %if.then8.i.i.i379, %if.else.i.i.i383
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i368)
+  %ip6_dst.i77 = getelementptr inbounds i8, ptr %pkt, i64 136
+  %arrayidx.i352 = getelementptr inbounds i8, ptr %rss_input, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i352, ptr noundef nonnull align 1 dereferenceable(16) %ip6_dst.i77, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i351)
   %123 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i359 = icmp ne i32 %123, 0
+  %tobool.i.i.i353 = icmp ne i32 %123, 0
   %124 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i360 = icmp ne i16 %124, 0
-  %or.cond.i.i.i361 = select i1 %tobool.i.i.i359, i1 %tobool4.i.i.i360, i1 false
-  br i1 %or.cond.i.i.i361, label %land.lhs.true5.i.i.i363, label %_net_rx_rss_add_chunk.exit373
+  %tobool4.i.i.i354 = icmp ne i16 %124, 0
+  %or.cond.i.i.i355 = select i1 %tobool.i.i.i353, i1 %tobool4.i.i.i354, i1 false
+  br i1 %or.cond.i.i.i355, label %land.lhs.true5.i.i.i357, label %_net_rx_rss_add_chunk.exit367
 
-land.lhs.true5.i.i.i363:                          ; preds = %_net_rx_rss_add_chunk.exit390
+land.lhs.true5.i.i.i357:                          ; preds = %_net_rx_rss_add_chunk.exit384
   %125 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i364 = and i32 %125, 32768
-  %cmp.i.not.i.i.i365 = icmp eq i32 %and.i.i.i.i364, 0
-  br i1 %cmp.i.not.i.i.i365, label %_net_rx_rss_add_chunk.exit373, label %if.then.i.i.i366
+  %and.i.i.i.i358 = and i32 %125, 32768
+  %cmp.i.not.i.i.i359 = icmp eq i32 %and.i.i.i.i358, 0
+  br i1 %cmp.i.not.i.i.i359, label %_net_rx_rss_add_chunk.exit367, label %if.then.i.i.i360
 
-if.then.i.i.i366:                                 ; preds = %land.lhs.true5.i.i.i363
+if.then.i.i.i360:                                 ; preds = %land.lhs.true5.i.i.i357
   %126 = load i8, ptr @message_with_timestamp, align 1
   %127 = and i8 %126, 1
-  %tobool7.not.i.i.i367 = icmp eq i8 %127, 0
-  br i1 %tobool7.not.i.i.i367, label %if.else.i.i.i372, label %if.then8.i.i.i368
+  %tobool7.not.i.i.i361 = icmp eq i8 %127, 0
+  br i1 %tobool7.not.i.i.i361, label %if.else.i.i.i366, label %if.then8.i.i.i362
 
-if.then8.i.i.i368:                                ; preds = %if.then.i.i.i366
-  %call9.i.i.i369 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i357, ptr noundef null) #11
-  %call10.i.i.i370 = tail call i32 @qemu_get_thread_id() #11
-  %128 = load i64, ptr %_now.i.i.i357, align 8
-  %tv_usec.i.i.i371 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i357, i64 0, i32 1
-  %129 = load i64, ptr %tv_usec.i.i.i371, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i370, i64 noundef %128, i64 noundef %129, ptr noundef nonnull %ip6_dst.i77, i64 noundef 16, i64 noundef 16) #11
-  br label %_net_rx_rss_add_chunk.exit373
+if.then8.i.i.i362:                                ; preds = %if.then.i.i.i360
+  %call9.i.i.i363 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i351, ptr noundef null) #11
+  %call10.i.i.i364 = tail call i32 @qemu_get_thread_id() #11
+  %128 = load i64, ptr %_now.i.i.i351, align 8
+  %tv_usec.i.i.i365 = getelementptr inbounds i8, ptr %_now.i.i.i351, i64 8
+  %129 = load i64, ptr %tv_usec.i.i.i365, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i364, i64 noundef %128, i64 noundef %129, ptr noundef nonnull %ip6_dst.i77, i64 noundef 16, i64 noundef 16) #11
+  br label %_net_rx_rss_add_chunk.exit367
 
-if.else.i.i.i372:                                 ; preds = %if.then.i.i.i366
+if.else.i.i.i366:                                 ; preds = %if.then.i.i.i360
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_dst.i77, i64 noundef 16, i64 noundef 16) #11
-  br label %_net_rx_rss_add_chunk.exit373
+  br label %_net_rx_rss_add_chunk.exit367
 
-_net_rx_rss_add_chunk.exit373:                    ; preds = %_net_rx_rss_add_chunk.exit390, %land.lhs.true5.i.i.i363, %if.then8.i.i.i368, %if.else.i.i.i372
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i357)
+_net_rx_rss_add_chunk.exit367:                    ; preds = %_net_rx_rss_add_chunk.exit384, %land.lhs.true5.i.i.i357, %if.then8.i.i.i362, %if.else.i.i.i366
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i351)
   br label %for.body.lr.ph.i
 
 sw.bb32:                                          ; preds = %entry
-  %hasip633 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 10
+  %hasip633 = getelementptr inbounds i8, ptr %pkt, i64 69
   %130 = load i8, ptr %hasip633, align 1
   %131 = and i8 %130, 1
   %tobool34.not = icmp eq i8 %131, 0
@@ -1364,7 +1347,7 @@ if.then8.i.i87:                                   ; preds = %if.then.i.i85
   %call9.i.i88 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i78, ptr noundef null) #11
   %call10.i.i89 = tail call i32 @qemu_get_thread_id() #11
   %137 = load i64, ptr %_now.i.i78, align 8
-  %tv_usec.i.i90 = getelementptr inbounds %struct.timeval, ptr %_now.i.i78, i64 0, i32 1
+  %tv_usec.i.i90 = getelementptr inbounds i8, ptr %_now.i.i78, i64 8
   %138 = load i64, ptr %tv_usec.i.i90, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.19, i32 noundef %call10.i.i89, i64 noundef %137, i64 noundef %138) #11
   br label %trace_net_rx_pkt_rss_ip6_ex.exit
@@ -1375,97 +1358,95 @@ if.else.i.i91:                                    ; preds = %if.then.i.i85
 
 trace_net_rx_pkt_rss_ip6_ex.exit:                 ; preds = %if.end37, %land.lhs.true5.i.i82, %if.then8.i.i87, %if.else.i.i91
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i78)
-  %rss_ex_src_valid.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 4
+  %rss_ex_src_valid.i = getelementptr inbounds i8, ptr %pkt, i64 153
   %139 = load i8, ptr %rss_ex_src_valid.i, align 1
   %140 = and i8 %139, 1
   %tobool1.not.i = icmp eq i8 %140, 0
-  %ip6_src12.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 2, i32 1
-  %rss_ex_src.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 5
-  %ip6_src12.sink.i = select i1 %tobool1.not.i, ptr %ip6_src12.i, ptr %rss_ex_src.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rss_input, ptr noundef nonnull align 1 dereferenceable(16) %ip6_src12.sink.i, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i408)
+  %..i = select i1 %tobool1.not.i, i64 120, i64 154
+  %ip6_src12.i = getelementptr inbounds i8, ptr %pkt, i64 %..i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rss_input, ptr noundef nonnull align 1 dereferenceable(16) %ip6_src12.i, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i402)
   %141 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i410 = icmp ne i32 %141, 0
+  %tobool.i.i.i404 = icmp ne i32 %141, 0
   %142 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i411 = icmp ne i16 %142, 0
-  %or.cond.i.i.i412 = select i1 %tobool.i.i.i410, i1 %tobool4.i.i.i411, i1 false
-  br i1 %or.cond.i.i.i412, label %land.lhs.true5.i.i.i414, label %_net_rx_rss_add_chunk.exit424
+  %tobool4.i.i.i405 = icmp ne i16 %142, 0
+  %or.cond.i.i.i406 = select i1 %tobool.i.i.i404, i1 %tobool4.i.i.i405, i1 false
+  br i1 %or.cond.i.i.i406, label %land.lhs.true5.i.i.i408, label %_net_rx_rss_add_chunk.exit418
 
-land.lhs.true5.i.i.i414:                          ; preds = %trace_net_rx_pkt_rss_ip6_ex.exit
+land.lhs.true5.i.i.i408:                          ; preds = %trace_net_rx_pkt_rss_ip6_ex.exit
   %143 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i415 = and i32 %143, 32768
-  %cmp.i.not.i.i.i416 = icmp eq i32 %and.i.i.i.i415, 0
-  br i1 %cmp.i.not.i.i.i416, label %_net_rx_rss_add_chunk.exit424, label %if.then.i.i.i417
+  %and.i.i.i.i409 = and i32 %143, 32768
+  %cmp.i.not.i.i.i410 = icmp eq i32 %and.i.i.i.i409, 0
+  br i1 %cmp.i.not.i.i.i410, label %_net_rx_rss_add_chunk.exit418, label %if.then.i.i.i411
 
-if.then.i.i.i417:                                 ; preds = %land.lhs.true5.i.i.i414
+if.then.i.i.i411:                                 ; preds = %land.lhs.true5.i.i.i408
   %144 = load i8, ptr @message_with_timestamp, align 1
   %145 = and i8 %144, 1
-  %tobool7.not.i.i.i418 = icmp eq i8 %145, 0
-  br i1 %tobool7.not.i.i.i418, label %if.else.i.i.i423, label %if.then8.i.i.i419
+  %tobool7.not.i.i.i412 = icmp eq i8 %145, 0
+  br i1 %tobool7.not.i.i.i412, label %if.else.i.i.i417, label %if.then8.i.i.i413
 
-if.then8.i.i.i419:                                ; preds = %if.then.i.i.i417
-  %call9.i.i.i420 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i408, ptr noundef null) #11
-  %call10.i.i.i421 = tail call i32 @qemu_get_thread_id() #11
-  %146 = load i64, ptr %_now.i.i.i408, align 8
-  %tv_usec.i.i.i422 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i408, i64 0, i32 1
-  %147 = load i64, ptr %tv_usec.i.i.i422, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i421, i64 noundef %146, i64 noundef %147, ptr noundef nonnull %ip6_src12.sink.i, i64 noundef 16, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit424
+if.then8.i.i.i413:                                ; preds = %if.then.i.i.i411
+  %call9.i.i.i414 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i402, ptr noundef null) #11
+  %call10.i.i.i415 = tail call i32 @qemu_get_thread_id() #11
+  %146 = load i64, ptr %_now.i.i.i402, align 8
+  %tv_usec.i.i.i416 = getelementptr inbounds i8, ptr %_now.i.i.i402, i64 8
+  %147 = load i64, ptr %tv_usec.i.i.i416, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i415, i64 noundef %146, i64 noundef %147, ptr noundef nonnull %ip6_src12.i, i64 noundef 16, i64 noundef 0) #11
+  br label %_net_rx_rss_add_chunk.exit418
 
-if.else.i.i.i423:                                 ; preds = %if.then.i.i.i417
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_src12.sink.i, i64 noundef 16, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit424
+if.else.i.i.i417:                                 ; preds = %if.then.i.i.i411
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_src12.i, i64 noundef 16, i64 noundef 0) #11
+  br label %_net_rx_rss_add_chunk.exit418
 
-_net_rx_rss_add_chunk.exit424:                    ; preds = %trace_net_rx_pkt_rss_ip6_ex.exit, %land.lhs.true5.i.i.i414, %if.then8.i.i.i419, %if.else.i.i.i423
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i408)
-  %rss_ex_dst_valid.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 6
+_net_rx_rss_add_chunk.exit418:                    ; preds = %trace_net_rx_pkt_rss_ip6_ex.exit, %land.lhs.true5.i.i.i408, %if.then8.i.i.i413, %if.else.i.i.i417
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i402)
+  %rss_ex_dst_valid.i = getelementptr inbounds i8, ptr %pkt, i64 170
   %148 = load i8, ptr %rss_ex_dst_valid.i, align 2
   %149 = and i8 %148, 1
   %tobool4.not.i = icmp eq i8 %149, 0
-  %rss_ex_dst.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 7
-  %ip6_dst.i92 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 2, i32 2
-  %cond9.i = select i1 %tobool4.not.i, ptr %ip6_dst.i92, ptr %rss_ex_dst.i
-  %arrayidx.i392 = getelementptr inbounds i8, ptr %rss_input, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i392, ptr noundef nonnull align 1 dereferenceable(16) %cond9.i, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i391)
+  %spec.select = select i1 %tobool4.not.i, i64 136, i64 171
+  %ip6_dst.i92 = getelementptr inbounds i8, ptr %pkt, i64 %spec.select
+  %arrayidx.i386 = getelementptr inbounds i8, ptr %rss_input, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i386, ptr noundef nonnull align 1 dereferenceable(16) %ip6_dst.i92, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i385)
   %150 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i393 = icmp ne i32 %150, 0
+  %tobool.i.i.i387 = icmp ne i32 %150, 0
   %151 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i394 = icmp ne i16 %151, 0
-  %or.cond.i.i.i395 = select i1 %tobool.i.i.i393, i1 %tobool4.i.i.i394, i1 false
-  br i1 %or.cond.i.i.i395, label %land.lhs.true5.i.i.i397, label %_net_rx_rss_add_chunk.exit407
+  %tobool4.i.i.i388 = icmp ne i16 %151, 0
+  %or.cond.i.i.i389 = select i1 %tobool.i.i.i387, i1 %tobool4.i.i.i388, i1 false
+  br i1 %or.cond.i.i.i389, label %land.lhs.true5.i.i.i391, label %_net_rx_rss_add_chunk.exit401
 
-land.lhs.true5.i.i.i397:                          ; preds = %_net_rx_rss_add_chunk.exit424
+land.lhs.true5.i.i.i391:                          ; preds = %_net_rx_rss_add_chunk.exit418
   %152 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i398 = and i32 %152, 32768
-  %cmp.i.not.i.i.i399 = icmp eq i32 %and.i.i.i.i398, 0
-  br i1 %cmp.i.not.i.i.i399, label %_net_rx_rss_add_chunk.exit407, label %if.then.i.i.i400
+  %and.i.i.i.i392 = and i32 %152, 32768
+  %cmp.i.not.i.i.i393 = icmp eq i32 %and.i.i.i.i392, 0
+  br i1 %cmp.i.not.i.i.i393, label %_net_rx_rss_add_chunk.exit401, label %if.then.i.i.i394
 
-if.then.i.i.i400:                                 ; preds = %land.lhs.true5.i.i.i397
+if.then.i.i.i394:                                 ; preds = %land.lhs.true5.i.i.i391
   %153 = load i8, ptr @message_with_timestamp, align 1
   %154 = and i8 %153, 1
-  %tobool7.not.i.i.i401 = icmp eq i8 %154, 0
-  br i1 %tobool7.not.i.i.i401, label %if.else.i.i.i406, label %if.then8.i.i.i402
+  %tobool7.not.i.i.i395 = icmp eq i8 %154, 0
+  br i1 %tobool7.not.i.i.i395, label %if.else.i.i.i400, label %if.then8.i.i.i396
 
-if.then8.i.i.i402:                                ; preds = %if.then.i.i.i400
-  %call9.i.i.i403 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i391, ptr noundef null) #11
-  %call10.i.i.i404 = tail call i32 @qemu_get_thread_id() #11
-  %155 = load i64, ptr %_now.i.i.i391, align 8
-  %tv_usec.i.i.i405 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i391, i64 0, i32 1
-  %156 = load i64, ptr %tv_usec.i.i.i405, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i404, i64 noundef %155, i64 noundef %156, ptr noundef nonnull %cond9.i, i64 noundef 16, i64 noundef 16) #11
-  br label %_net_rx_rss_add_chunk.exit407
+if.then8.i.i.i396:                                ; preds = %if.then.i.i.i394
+  %call9.i.i.i397 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i385, ptr noundef null) #11
+  %call10.i.i.i398 = tail call i32 @qemu_get_thread_id() #11
+  %155 = load i64, ptr %_now.i.i.i385, align 8
+  %tv_usec.i.i.i399 = getelementptr inbounds i8, ptr %_now.i.i.i385, i64 8
+  %156 = load i64, ptr %tv_usec.i.i.i399, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i398, i64 noundef %155, i64 noundef %156, ptr noundef nonnull %ip6_dst.i92, i64 noundef 16, i64 noundef 16) #11
+  br label %_net_rx_rss_add_chunk.exit401
 
-if.else.i.i.i406:                                 ; preds = %if.then.i.i.i400
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %cond9.i, i64 noundef 16, i64 noundef 16) #11
-  br label %_net_rx_rss_add_chunk.exit407
+if.else.i.i.i400:                                 ; preds = %if.then.i.i.i394
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_dst.i92, i64 noundef 16, i64 noundef 16) #11
+  br label %_net_rx_rss_add_chunk.exit401
 
-_net_rx_rss_add_chunk.exit407:                    ; preds = %_net_rx_rss_add_chunk.exit424, %land.lhs.true5.i.i.i397, %if.then8.i.i.i402, %if.else.i.i.i406
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i391)
+_net_rx_rss_add_chunk.exit401:                    ; preds = %_net_rx_rss_add_chunk.exit418, %land.lhs.true5.i.i.i391, %if.then8.i.i.i396, %if.else.i.i.i400
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i385)
   br label %for.body.lr.ph.i
 
 sw.bb39:                                          ; preds = %entry
-  %hasip640 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 10
+  %hasip640 = getelementptr inbounds i8, ptr %pkt, i64 69
   %157 = load i8, ptr %hasip640, align 1
   %158 = and i8 %157, 1
   %tobool41.not = icmp eq i8 %158, 0
@@ -1476,7 +1457,7 @@ if.else43:                                        ; preds = %sw.bb39
   unreachable
 
 if.end44:                                         ; preds = %sw.bb39
-  %proto46 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 1
+  %proto46 = getelementptr inbounds i8, ptr %pkt, i64 236
   %159 = load i32, ptr %proto46, align 4
   %cmp47 = icmp eq i32 %159, 1
   br i1 %cmp47, label %if.end50, label %if.else49
@@ -1510,7 +1491,7 @@ if.then8.i.i102:                                  ; preds = %if.then.i.i100
   %call9.i.i103 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i93, ptr noundef null) #11
   %call10.i.i104 = tail call i32 @qemu_get_thread_id() #11
   %165 = load i64, ptr %_now.i.i93, align 8
-  %tv_usec.i.i105 = getelementptr inbounds %struct.timeval, ptr %_now.i.i93, i64 0, i32 1
+  %tv_usec.i.i105 = getelementptr inbounds i8, ptr %_now.i.i93, i64 8
   %166 = load i64, ptr %tv_usec.i.i105, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i104, i64 noundef %165, i64 noundef %166) #11
   br label %trace_net_rx_pkt_rss_ip6_ex_tcp.exit
@@ -1521,175 +1502,173 @@ if.else.i.i106:                                   ; preds = %if.then.i.i100
 
 trace_net_rx_pkt_rss_ip6_ex_tcp.exit:             ; preds = %if.end50, %land.lhs.true5.i.i97, %if.then8.i.i102, %if.else.i.i106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i93)
-  %rss_ex_src_valid.i107 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 4
+  %rss_ex_src_valid.i107 = getelementptr inbounds i8, ptr %pkt, i64 153
   %167 = load i8, ptr %rss_ex_src_valid.i107, align 1
   %168 = and i8 %167, 1
   %tobool1.not.i108 = icmp eq i8 %168, 0
-  %ip6_src12.i109 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 2, i32 1
-  %rss_ex_src.i110 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 5
-  %ip6_src12.sink.i111 = select i1 %tobool1.not.i108, ptr %ip6_src12.i109, ptr %rss_ex_src.i110
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rss_input, ptr noundef nonnull align 1 dereferenceable(16) %ip6_src12.sink.i111, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i442)
+  %..i109 = select i1 %tobool1.not.i108, i64 120, i64 154
+  %ip6_src12.i110 = getelementptr inbounds i8, ptr %pkt, i64 %..i109
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rss_input, ptr noundef nonnull align 1 dereferenceable(16) %ip6_src12.i110, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i436)
   %169 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i444 = icmp ne i32 %169, 0
+  %tobool.i.i.i438 = icmp ne i32 %169, 0
   %170 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i445 = icmp ne i16 %170, 0
-  %or.cond.i.i.i446 = select i1 %tobool.i.i.i444, i1 %tobool4.i.i.i445, i1 false
-  br i1 %or.cond.i.i.i446, label %land.lhs.true5.i.i.i448, label %_net_rx_rss_add_chunk.exit458
+  %tobool4.i.i.i439 = icmp ne i16 %170, 0
+  %or.cond.i.i.i440 = select i1 %tobool.i.i.i438, i1 %tobool4.i.i.i439, i1 false
+  br i1 %or.cond.i.i.i440, label %land.lhs.true5.i.i.i442, label %_net_rx_rss_add_chunk.exit452
 
-land.lhs.true5.i.i.i448:                          ; preds = %trace_net_rx_pkt_rss_ip6_ex_tcp.exit
+land.lhs.true5.i.i.i442:                          ; preds = %trace_net_rx_pkt_rss_ip6_ex_tcp.exit
   %171 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i449 = and i32 %171, 32768
-  %cmp.i.not.i.i.i450 = icmp eq i32 %and.i.i.i.i449, 0
-  br i1 %cmp.i.not.i.i.i450, label %_net_rx_rss_add_chunk.exit458, label %if.then.i.i.i451
+  %and.i.i.i.i443 = and i32 %171, 32768
+  %cmp.i.not.i.i.i444 = icmp eq i32 %and.i.i.i.i443, 0
+  br i1 %cmp.i.not.i.i.i444, label %_net_rx_rss_add_chunk.exit452, label %if.then.i.i.i445
 
-if.then.i.i.i451:                                 ; preds = %land.lhs.true5.i.i.i448
+if.then.i.i.i445:                                 ; preds = %land.lhs.true5.i.i.i442
   %172 = load i8, ptr @message_with_timestamp, align 1
   %173 = and i8 %172, 1
-  %tobool7.not.i.i.i452 = icmp eq i8 %173, 0
-  br i1 %tobool7.not.i.i.i452, label %if.else.i.i.i457, label %if.then8.i.i.i453
+  %tobool7.not.i.i.i446 = icmp eq i8 %173, 0
+  br i1 %tobool7.not.i.i.i446, label %if.else.i.i.i451, label %if.then8.i.i.i447
 
-if.then8.i.i.i453:                                ; preds = %if.then.i.i.i451
-  %call9.i.i.i454 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i442, ptr noundef null) #11
-  %call10.i.i.i455 = tail call i32 @qemu_get_thread_id() #11
-  %174 = load i64, ptr %_now.i.i.i442, align 8
-  %tv_usec.i.i.i456 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i442, i64 0, i32 1
-  %175 = load i64, ptr %tv_usec.i.i.i456, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i455, i64 noundef %174, i64 noundef %175, ptr noundef nonnull %ip6_src12.sink.i111, i64 noundef 16, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit458
+if.then8.i.i.i447:                                ; preds = %if.then.i.i.i445
+  %call9.i.i.i448 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i436, ptr noundef null) #11
+  %call10.i.i.i449 = tail call i32 @qemu_get_thread_id() #11
+  %174 = load i64, ptr %_now.i.i.i436, align 8
+  %tv_usec.i.i.i450 = getelementptr inbounds i8, ptr %_now.i.i.i436, i64 8
+  %175 = load i64, ptr %tv_usec.i.i.i450, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i449, i64 noundef %174, i64 noundef %175, ptr noundef nonnull %ip6_src12.i110, i64 noundef 16, i64 noundef 0) #11
+  br label %_net_rx_rss_add_chunk.exit452
 
-if.else.i.i.i457:                                 ; preds = %if.then.i.i.i451
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_src12.sink.i111, i64 noundef 16, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit458
+if.else.i.i.i451:                                 ; preds = %if.then.i.i.i445
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_src12.i110, i64 noundef 16, i64 noundef 0) #11
+  br label %_net_rx_rss_add_chunk.exit452
 
-_net_rx_rss_add_chunk.exit458:                    ; preds = %trace_net_rx_pkt_rss_ip6_ex_tcp.exit, %land.lhs.true5.i.i.i448, %if.then8.i.i.i453, %if.else.i.i.i457
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i442)
-  %rss_ex_dst_valid.i112 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 6
-  %176 = load i8, ptr %rss_ex_dst_valid.i112, align 2
+_net_rx_rss_add_chunk.exit452:                    ; preds = %trace_net_rx_pkt_rss_ip6_ex_tcp.exit, %land.lhs.true5.i.i.i442, %if.then8.i.i.i447, %if.else.i.i.i451
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i436)
+  %rss_ex_dst_valid.i111 = getelementptr inbounds i8, ptr %pkt, i64 170
+  %176 = load i8, ptr %rss_ex_dst_valid.i111, align 2
   %177 = and i8 %176, 1
-  %tobool4.not.i113 = icmp eq i8 %177, 0
-  %rss_ex_dst.i115 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 7
-  %ip6_dst.i118 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 2, i32 2
-  %cond9.i116 = select i1 %tobool4.not.i113, ptr %ip6_dst.i118, ptr %rss_ex_dst.i115
-  %arrayidx.i426 = getelementptr inbounds i8, ptr %rss_input, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i426, ptr noundef nonnull align 1 dereferenceable(16) %cond9.i116, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i425)
+  %tobool4.not.i112 = icmp eq i8 %177, 0
+  %spec.select784 = select i1 %tobool4.not.i112, i64 136, i64 171
+  %ip6_dst.i114 = getelementptr inbounds i8, ptr %pkt, i64 %spec.select784
+  %arrayidx.i420 = getelementptr inbounds i8, ptr %rss_input, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i420, ptr noundef nonnull align 1 dereferenceable(16) %ip6_dst.i114, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i419)
   %178 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i427 = icmp ne i32 %178, 0
+  %tobool.i.i.i421 = icmp ne i32 %178, 0
   %179 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i428 = icmp ne i16 %179, 0
-  %or.cond.i.i.i429 = select i1 %tobool.i.i.i427, i1 %tobool4.i.i.i428, i1 false
-  br i1 %or.cond.i.i.i429, label %land.lhs.true5.i.i.i431, label %_net_rx_rss_add_chunk.exit441
+  %tobool4.i.i.i422 = icmp ne i16 %179, 0
+  %or.cond.i.i.i423 = select i1 %tobool.i.i.i421, i1 %tobool4.i.i.i422, i1 false
+  br i1 %or.cond.i.i.i423, label %land.lhs.true5.i.i.i425, label %_net_rx_rss_add_chunk.exit435
 
-land.lhs.true5.i.i.i431:                          ; preds = %_net_rx_rss_add_chunk.exit458
+land.lhs.true5.i.i.i425:                          ; preds = %_net_rx_rss_add_chunk.exit452
   %180 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i432 = and i32 %180, 32768
-  %cmp.i.not.i.i.i433 = icmp eq i32 %and.i.i.i.i432, 0
-  br i1 %cmp.i.not.i.i.i433, label %_net_rx_rss_add_chunk.exit441, label %if.then.i.i.i434
+  %and.i.i.i.i426 = and i32 %180, 32768
+  %cmp.i.not.i.i.i427 = icmp eq i32 %and.i.i.i.i426, 0
+  br i1 %cmp.i.not.i.i.i427, label %_net_rx_rss_add_chunk.exit435, label %if.then.i.i.i428
 
-if.then.i.i.i434:                                 ; preds = %land.lhs.true5.i.i.i431
+if.then.i.i.i428:                                 ; preds = %land.lhs.true5.i.i.i425
   %181 = load i8, ptr @message_with_timestamp, align 1
   %182 = and i8 %181, 1
-  %tobool7.not.i.i.i435 = icmp eq i8 %182, 0
-  br i1 %tobool7.not.i.i.i435, label %if.else.i.i.i440, label %if.then8.i.i.i436
+  %tobool7.not.i.i.i429 = icmp eq i8 %182, 0
+  br i1 %tobool7.not.i.i.i429, label %if.else.i.i.i434, label %if.then8.i.i.i430
 
-if.then8.i.i.i436:                                ; preds = %if.then.i.i.i434
-  %call9.i.i.i437 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i425, ptr noundef null) #11
-  %call10.i.i.i438 = tail call i32 @qemu_get_thread_id() #11
-  %183 = load i64, ptr %_now.i.i.i425, align 8
-  %tv_usec.i.i.i439 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i425, i64 0, i32 1
-  %184 = load i64, ptr %tv_usec.i.i.i439, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i438, i64 noundef %183, i64 noundef %184, ptr noundef nonnull %cond9.i116, i64 noundef 16, i64 noundef 16) #11
-  br label %_net_rx_rss_add_chunk.exit441
+if.then8.i.i.i430:                                ; preds = %if.then.i.i.i428
+  %call9.i.i.i431 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i419, ptr noundef null) #11
+  %call10.i.i.i432 = tail call i32 @qemu_get_thread_id() #11
+  %183 = load i64, ptr %_now.i.i.i419, align 8
+  %tv_usec.i.i.i433 = getelementptr inbounds i8, ptr %_now.i.i.i419, i64 8
+  %184 = load i64, ptr %tv_usec.i.i.i433, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i432, i64 noundef %183, i64 noundef %184, ptr noundef nonnull %ip6_dst.i114, i64 noundef 16, i64 noundef 16) #11
+  br label %_net_rx_rss_add_chunk.exit435
 
-if.else.i.i.i440:                                 ; preds = %if.then.i.i.i434
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %cond9.i116, i64 noundef 16, i64 noundef 16) #11
-  br label %_net_rx_rss_add_chunk.exit441
+if.else.i.i.i434:                                 ; preds = %if.then.i.i.i428
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_dst.i114, i64 noundef 16, i64 noundef 16) #11
+  br label %_net_rx_rss_add_chunk.exit435
 
-_net_rx_rss_add_chunk.exit441:                    ; preds = %_net_rx_rss_add_chunk.exit458, %land.lhs.true5.i.i.i431, %if.then8.i.i.i436, %if.else.i.i.i440
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i425)
-  %l4hdr_info.i120 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16
-  %arrayidx.i477 = getelementptr inbounds i8, ptr %rss_input, i64 32
-  %185 = load i16, ptr %l4hdr_info.i120, align 1
-  store i16 %185, ptr %arrayidx.i477, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i476)
+_net_rx_rss_add_chunk.exit435:                    ; preds = %_net_rx_rss_add_chunk.exit452, %land.lhs.true5.i.i.i425, %if.then8.i.i.i430, %if.else.i.i.i434
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i419)
+  %l4hdr_info.i117 = getelementptr inbounds i8, ptr %pkt, i64 216
+  %arrayidx.i471 = getelementptr inbounds i8, ptr %rss_input, i64 32
+  %185 = load i16, ptr %l4hdr_info.i117, align 1
+  store i16 %185, ptr %arrayidx.i471, align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i470)
   %186 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i478 = icmp ne i32 %186, 0
+  %tobool.i.i.i472 = icmp ne i32 %186, 0
   %187 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i479 = icmp ne i16 %187, 0
-  %or.cond.i.i.i480 = select i1 %tobool.i.i.i478, i1 %tobool4.i.i.i479, i1 false
-  br i1 %or.cond.i.i.i480, label %land.lhs.true5.i.i.i482, label %_net_rx_rss_add_chunk.exit492
+  %tobool4.i.i.i473 = icmp ne i16 %187, 0
+  %or.cond.i.i.i474 = select i1 %tobool.i.i.i472, i1 %tobool4.i.i.i473, i1 false
+  br i1 %or.cond.i.i.i474, label %land.lhs.true5.i.i.i476, label %_net_rx_rss_add_chunk.exit486
 
-land.lhs.true5.i.i.i482:                          ; preds = %_net_rx_rss_add_chunk.exit441
+land.lhs.true5.i.i.i476:                          ; preds = %_net_rx_rss_add_chunk.exit435
   %188 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i483 = and i32 %188, 32768
-  %cmp.i.not.i.i.i484 = icmp eq i32 %and.i.i.i.i483, 0
-  br i1 %cmp.i.not.i.i.i484, label %_net_rx_rss_add_chunk.exit492, label %if.then.i.i.i485
+  %and.i.i.i.i477 = and i32 %188, 32768
+  %cmp.i.not.i.i.i478 = icmp eq i32 %and.i.i.i.i477, 0
+  br i1 %cmp.i.not.i.i.i478, label %_net_rx_rss_add_chunk.exit486, label %if.then.i.i.i479
 
-if.then.i.i.i485:                                 ; preds = %land.lhs.true5.i.i.i482
+if.then.i.i.i479:                                 ; preds = %land.lhs.true5.i.i.i476
   %189 = load i8, ptr @message_with_timestamp, align 1
   %190 = and i8 %189, 1
-  %tobool7.not.i.i.i486 = icmp eq i8 %190, 0
-  br i1 %tobool7.not.i.i.i486, label %if.else.i.i.i491, label %if.then8.i.i.i487
+  %tobool7.not.i.i.i480 = icmp eq i8 %190, 0
+  br i1 %tobool7.not.i.i.i480, label %if.else.i.i.i485, label %if.then8.i.i.i481
 
-if.then8.i.i.i487:                                ; preds = %if.then.i.i.i485
-  %call9.i.i.i488 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i476, ptr noundef null) #11
-  %call10.i.i.i489 = tail call i32 @qemu_get_thread_id() #11
-  %191 = load i64, ptr %_now.i.i.i476, align 8
-  %tv_usec.i.i.i490 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i476, i64 0, i32 1
-  %192 = load i64, ptr %tv_usec.i.i.i490, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i489, i64 noundef %191, i64 noundef %192, ptr noundef nonnull %l4hdr_info.i120, i64 noundef 2, i64 noundef 32) #11
-  br label %_net_rx_rss_add_chunk.exit492
+if.then8.i.i.i481:                                ; preds = %if.then.i.i.i479
+  %call9.i.i.i482 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i470, ptr noundef null) #11
+  %call10.i.i.i483 = tail call i32 @qemu_get_thread_id() #11
+  %191 = load i64, ptr %_now.i.i.i470, align 8
+  %tv_usec.i.i.i484 = getelementptr inbounds i8, ptr %_now.i.i.i470, i64 8
+  %192 = load i64, ptr %tv_usec.i.i.i484, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i483, i64 noundef %191, i64 noundef %192, ptr noundef nonnull %l4hdr_info.i117, i64 noundef 2, i64 noundef 32) #11
+  br label %_net_rx_rss_add_chunk.exit486
 
-if.else.i.i.i491:                                 ; preds = %if.then.i.i.i485
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %l4hdr_info.i120, i64 noundef 2, i64 noundef 32) #11
-  br label %_net_rx_rss_add_chunk.exit492
+if.else.i.i.i485:                                 ; preds = %if.then.i.i.i479
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %l4hdr_info.i117, i64 noundef 2, i64 noundef 32) #11
+  br label %_net_rx_rss_add_chunk.exit486
 
-_net_rx_rss_add_chunk.exit492:                    ; preds = %_net_rx_rss_add_chunk.exit441, %land.lhs.true5.i.i.i482, %if.then8.i.i.i487, %if.else.i.i.i491
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i476)
-  %th_dport.i121 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 0, i32 0, i32 1
-  %arrayidx.i460 = getelementptr inbounds i8, ptr %rss_input, i64 34
-  %193 = load i16, ptr %th_dport.i121, align 1
-  store i16 %193, ptr %arrayidx.i460, align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i459)
+_net_rx_rss_add_chunk.exit486:                    ; preds = %_net_rx_rss_add_chunk.exit435, %land.lhs.true5.i.i.i476, %if.then8.i.i.i481, %if.else.i.i.i485
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i470)
+  %th_dport.i118 = getelementptr inbounds i8, ptr %pkt, i64 218
+  %arrayidx.i454 = getelementptr inbounds i8, ptr %rss_input, i64 34
+  %193 = load i16, ptr %th_dport.i118, align 1
+  store i16 %193, ptr %arrayidx.i454, align 2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i453)
   %194 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i461 = icmp ne i32 %194, 0
+  %tobool.i.i.i455 = icmp ne i32 %194, 0
   %195 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i462 = icmp ne i16 %195, 0
-  %or.cond.i.i.i463 = select i1 %tobool.i.i.i461, i1 %tobool4.i.i.i462, i1 false
-  br i1 %or.cond.i.i.i463, label %land.lhs.true5.i.i.i465, label %_net_rx_rss_add_chunk.exit475
+  %tobool4.i.i.i456 = icmp ne i16 %195, 0
+  %or.cond.i.i.i457 = select i1 %tobool.i.i.i455, i1 %tobool4.i.i.i456, i1 false
+  br i1 %or.cond.i.i.i457, label %land.lhs.true5.i.i.i459, label %_net_rx_rss_add_chunk.exit469
 
-land.lhs.true5.i.i.i465:                          ; preds = %_net_rx_rss_add_chunk.exit492
+land.lhs.true5.i.i.i459:                          ; preds = %_net_rx_rss_add_chunk.exit486
   %196 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i466 = and i32 %196, 32768
-  %cmp.i.not.i.i.i467 = icmp eq i32 %and.i.i.i.i466, 0
-  br i1 %cmp.i.not.i.i.i467, label %_net_rx_rss_add_chunk.exit475, label %if.then.i.i.i468
+  %and.i.i.i.i460 = and i32 %196, 32768
+  %cmp.i.not.i.i.i461 = icmp eq i32 %and.i.i.i.i460, 0
+  br i1 %cmp.i.not.i.i.i461, label %_net_rx_rss_add_chunk.exit469, label %if.then.i.i.i462
 
-if.then.i.i.i468:                                 ; preds = %land.lhs.true5.i.i.i465
+if.then.i.i.i462:                                 ; preds = %land.lhs.true5.i.i.i459
   %197 = load i8, ptr @message_with_timestamp, align 1
   %198 = and i8 %197, 1
-  %tobool7.not.i.i.i469 = icmp eq i8 %198, 0
-  br i1 %tobool7.not.i.i.i469, label %if.else.i.i.i474, label %if.then8.i.i.i470
+  %tobool7.not.i.i.i463 = icmp eq i8 %198, 0
+  br i1 %tobool7.not.i.i.i463, label %if.else.i.i.i468, label %if.then8.i.i.i464
 
-if.then8.i.i.i470:                                ; preds = %if.then.i.i.i468
-  %call9.i.i.i471 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i459, ptr noundef null) #11
-  %call10.i.i.i472 = tail call i32 @qemu_get_thread_id() #11
-  %199 = load i64, ptr %_now.i.i.i459, align 8
-  %tv_usec.i.i.i473 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i459, i64 0, i32 1
-  %200 = load i64, ptr %tv_usec.i.i.i473, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i472, i64 noundef %199, i64 noundef %200, ptr noundef nonnull %th_dport.i121, i64 noundef 2, i64 noundef 34) #11
-  br label %_net_rx_rss_add_chunk.exit475
+if.then8.i.i.i464:                                ; preds = %if.then.i.i.i462
+  %call9.i.i.i465 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i453, ptr noundef null) #11
+  %call10.i.i.i466 = tail call i32 @qemu_get_thread_id() #11
+  %199 = load i64, ptr %_now.i.i.i453, align 8
+  %tv_usec.i.i.i467 = getelementptr inbounds i8, ptr %_now.i.i.i453, i64 8
+  %200 = load i64, ptr %tv_usec.i.i.i467, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i466, i64 noundef %199, i64 noundef %200, ptr noundef nonnull %th_dport.i118, i64 noundef 2, i64 noundef 34) #11
+  br label %_net_rx_rss_add_chunk.exit469
 
-if.else.i.i.i474:                                 ; preds = %if.then.i.i.i468
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %th_dport.i121, i64 noundef 2, i64 noundef 34) #11
-  br label %_net_rx_rss_add_chunk.exit475
+if.else.i.i.i468:                                 ; preds = %if.then.i.i.i462
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %th_dport.i118, i64 noundef 2, i64 noundef 34) #11
+  br label %_net_rx_rss_add_chunk.exit469
 
-_net_rx_rss_add_chunk.exit475:                    ; preds = %_net_rx_rss_add_chunk.exit492, %land.lhs.true5.i.i.i465, %if.then8.i.i.i470, %if.else.i.i.i474
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i459)
+_net_rx_rss_add_chunk.exit469:                    ; preds = %_net_rx_rss_add_chunk.exit486, %land.lhs.true5.i.i.i459, %if.then8.i.i.i464, %if.else.i.i.i468
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i453)
   br label %for.body.lr.ph.i
 
 sw.bb53:                                          ; preds = %entry
-  %hasip454 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 9
+  %hasip454 = getelementptr inbounds i8, ptr %pkt, i64 68
   %201 = load i8, ptr %hasip454, align 4
   %202 = and i8 %201, 1
   %tobool55.not = icmp eq i8 %202, 0
@@ -1700,7 +1679,7 @@ if.else57:                                        ; preds = %sw.bb53
   unreachable
 
 if.end58:                                         ; preds = %sw.bb53
-  %proto60 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 1
+  %proto60 = getelementptr inbounds i8, ptr %pkt, i64 236
   %203 = load i32, ptr %proto60, align 4
   %cmp61 = icmp eq i32 %203, 2
   br i1 %cmp61, label %if.end64, label %if.else63
@@ -1710,200 +1689,200 @@ if.else63:                                        ; preds = %if.end58
   unreachable
 
 if.end64:                                         ; preds = %if.end58
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i122)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i119)
   %204 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i123 = icmp ne i32 %204, 0
+  %tobool.i.i120 = icmp ne i32 %204, 0
   %205 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_IP4_UDP_DSTATE, align 2
-  %tobool4.i.i124 = icmp ne i16 %205, 0
-  %or.cond.i.i125 = select i1 %tobool.i.i123, i1 %tobool4.i.i124, i1 false
-  br i1 %or.cond.i.i125, label %land.lhs.true5.i.i126, label %trace_net_rx_pkt_rss_ip4_udp.exit
+  %tobool4.i.i121 = icmp ne i16 %205, 0
+  %or.cond.i.i122 = select i1 %tobool.i.i120, i1 %tobool4.i.i121, i1 false
+  br i1 %or.cond.i.i122, label %land.lhs.true5.i.i123, label %trace_net_rx_pkt_rss_ip4_udp.exit
 
-land.lhs.true5.i.i126:                            ; preds = %if.end64
+land.lhs.true5.i.i123:                            ; preds = %if.end64
   %206 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i127 = and i32 %206, 32768
-  %cmp.i.not.i.i128 = icmp eq i32 %and.i.i.i127, 0
-  br i1 %cmp.i.not.i.i128, label %trace_net_rx_pkt_rss_ip4_udp.exit, label %if.then.i.i129
+  %and.i.i.i124 = and i32 %206, 32768
+  %cmp.i.not.i.i125 = icmp eq i32 %and.i.i.i124, 0
+  br i1 %cmp.i.not.i.i125, label %trace_net_rx_pkt_rss_ip4_udp.exit, label %if.then.i.i126
 
-if.then.i.i129:                                   ; preds = %land.lhs.true5.i.i126
+if.then.i.i126:                                   ; preds = %land.lhs.true5.i.i123
   %207 = load i8, ptr @message_with_timestamp, align 1
   %208 = and i8 %207, 1
-  %tobool7.not.i.i130 = icmp eq i8 %208, 0
-  br i1 %tobool7.not.i.i130, label %if.else.i.i135, label %if.then8.i.i131
+  %tobool7.not.i.i127 = icmp eq i8 %208, 0
+  br i1 %tobool7.not.i.i127, label %if.else.i.i132, label %if.then8.i.i128
 
-if.then8.i.i131:                                  ; preds = %if.then.i.i129
-  %call9.i.i132 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i122, ptr noundef null) #11
-  %call10.i.i133 = tail call i32 @qemu_get_thread_id() #11
-  %209 = load i64, ptr %_now.i.i122, align 8
-  %tv_usec.i.i134 = getelementptr inbounds %struct.timeval, ptr %_now.i.i122, i64 0, i32 1
-  %210 = load i64, ptr %tv_usec.i.i134, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i133, i64 noundef %209, i64 noundef %210) #11
+if.then8.i.i128:                                  ; preds = %if.then.i.i126
+  %call9.i.i129 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i119, ptr noundef null) #11
+  %call10.i.i130 = tail call i32 @qemu_get_thread_id() #11
+  %209 = load i64, ptr %_now.i.i119, align 8
+  %tv_usec.i.i131 = getelementptr inbounds i8, ptr %_now.i.i119, i64 8
+  %210 = load i64, ptr %tv_usec.i.i131, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.23, i32 noundef %call10.i.i130, i64 noundef %209, i64 noundef %210) #11
   br label %trace_net_rx_pkt_rss_ip4_udp.exit
 
-if.else.i.i135:                                   ; preds = %if.then.i.i129
+if.else.i.i132:                                   ; preds = %if.then.i.i126
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24) #11
   br label %trace_net_rx_pkt_rss_ip4_udp.exit
 
-trace_net_rx_pkt_rss_ip4_udp.exit:                ; preds = %if.end64, %land.lhs.true5.i.i126, %if.then8.i.i131, %if.else.i.i135
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i122)
-  %ip_src.i136 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15, i32 0, i32 8
-  %211 = load i32, ptr %ip_src.i136, align 1
+trace_net_rx_pkt_rss_ip4_udp.exit:                ; preds = %if.end64, %land.lhs.true5.i.i123, %if.then8.i.i128, %if.else.i.i132
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i119)
+  %ip_src.i133 = getelementptr inbounds i8, ptr %pkt, i64 204
+  %211 = load i32, ptr %ip_src.i133, align 1
   store i32 %211, ptr %rss_input, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i510)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i504)
   %212 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i512 = icmp ne i32 %212, 0
+  %tobool.i.i.i506 = icmp ne i32 %212, 0
   %213 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i513 = icmp ne i16 %213, 0
-  %or.cond.i.i.i514 = select i1 %tobool.i.i.i512, i1 %tobool4.i.i.i513, i1 false
-  br i1 %or.cond.i.i.i514, label %land.lhs.true5.i.i.i516, label %_net_rx_rss_add_chunk.exit526
+  %tobool4.i.i.i507 = icmp ne i16 %213, 0
+  %or.cond.i.i.i508 = select i1 %tobool.i.i.i506, i1 %tobool4.i.i.i507, i1 false
+  br i1 %or.cond.i.i.i508, label %land.lhs.true5.i.i.i510, label %_net_rx_rss_add_chunk.exit520
 
-land.lhs.true5.i.i.i516:                          ; preds = %trace_net_rx_pkt_rss_ip4_udp.exit
+land.lhs.true5.i.i.i510:                          ; preds = %trace_net_rx_pkt_rss_ip4_udp.exit
   %214 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i517 = and i32 %214, 32768
-  %cmp.i.not.i.i.i518 = icmp eq i32 %and.i.i.i.i517, 0
-  br i1 %cmp.i.not.i.i.i518, label %_net_rx_rss_add_chunk.exit526, label %if.then.i.i.i519
+  %and.i.i.i.i511 = and i32 %214, 32768
+  %cmp.i.not.i.i.i512 = icmp eq i32 %and.i.i.i.i511, 0
+  br i1 %cmp.i.not.i.i.i512, label %_net_rx_rss_add_chunk.exit520, label %if.then.i.i.i513
 
-if.then.i.i.i519:                                 ; preds = %land.lhs.true5.i.i.i516
+if.then.i.i.i513:                                 ; preds = %land.lhs.true5.i.i.i510
   %215 = load i8, ptr @message_with_timestamp, align 1
   %216 = and i8 %215, 1
-  %tobool7.not.i.i.i520 = icmp eq i8 %216, 0
-  br i1 %tobool7.not.i.i.i520, label %if.else.i.i.i525, label %if.then8.i.i.i521
+  %tobool7.not.i.i.i514 = icmp eq i8 %216, 0
+  br i1 %tobool7.not.i.i.i514, label %if.else.i.i.i519, label %if.then8.i.i.i515
 
-if.then8.i.i.i521:                                ; preds = %if.then.i.i.i519
-  %call9.i.i.i522 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i510, ptr noundef null) #11
-  %call10.i.i.i523 = tail call i32 @qemu_get_thread_id() #11
-  %217 = load i64, ptr %_now.i.i.i510, align 8
-  %tv_usec.i.i.i524 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i510, i64 0, i32 1
-  %218 = load i64, ptr %tv_usec.i.i.i524, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i523, i64 noundef %217, i64 noundef %218, ptr noundef nonnull %ip_src.i136, i64 noundef 4, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit526
+if.then8.i.i.i515:                                ; preds = %if.then.i.i.i513
+  %call9.i.i.i516 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i504, ptr noundef null) #11
+  %call10.i.i.i517 = tail call i32 @qemu_get_thread_id() #11
+  %217 = load i64, ptr %_now.i.i.i504, align 8
+  %tv_usec.i.i.i518 = getelementptr inbounds i8, ptr %_now.i.i.i504, i64 8
+  %218 = load i64, ptr %tv_usec.i.i.i518, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i517, i64 noundef %217, i64 noundef %218, ptr noundef nonnull %ip_src.i133, i64 noundef 4, i64 noundef 0) #11
+  br label %_net_rx_rss_add_chunk.exit520
 
-if.else.i.i.i525:                                 ; preds = %if.then.i.i.i519
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip_src.i136, i64 noundef 4, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit526
+if.else.i.i.i519:                                 ; preds = %if.then.i.i.i513
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip_src.i133, i64 noundef 4, i64 noundef 0) #11
+  br label %_net_rx_rss_add_chunk.exit520
 
-_net_rx_rss_add_chunk.exit526:                    ; preds = %trace_net_rx_pkt_rss_ip4_udp.exit, %land.lhs.true5.i.i.i516, %if.then8.i.i.i521, %if.else.i.i.i525
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i510)
-  %ip_dst.i137 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15, i32 0, i32 9
-  %arrayidx.i494 = getelementptr inbounds i8, ptr %rss_input, i64 4
-  %219 = load i32, ptr %ip_dst.i137, align 1
-  store i32 %219, ptr %arrayidx.i494, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i493)
+_net_rx_rss_add_chunk.exit520:                    ; preds = %trace_net_rx_pkt_rss_ip4_udp.exit, %land.lhs.true5.i.i.i510, %if.then8.i.i.i515, %if.else.i.i.i519
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i504)
+  %ip_dst.i134 = getelementptr inbounds i8, ptr %pkt, i64 208
+  %arrayidx.i488 = getelementptr inbounds i8, ptr %rss_input, i64 4
+  %219 = load i32, ptr %ip_dst.i134, align 1
+  store i32 %219, ptr %arrayidx.i488, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i487)
   %220 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i495 = icmp ne i32 %220, 0
+  %tobool.i.i.i489 = icmp ne i32 %220, 0
   %221 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i496 = icmp ne i16 %221, 0
-  %or.cond.i.i.i497 = select i1 %tobool.i.i.i495, i1 %tobool4.i.i.i496, i1 false
-  br i1 %or.cond.i.i.i497, label %land.lhs.true5.i.i.i499, label %_net_rx_rss_add_chunk.exit509
+  %tobool4.i.i.i490 = icmp ne i16 %221, 0
+  %or.cond.i.i.i491 = select i1 %tobool.i.i.i489, i1 %tobool4.i.i.i490, i1 false
+  br i1 %or.cond.i.i.i491, label %land.lhs.true5.i.i.i493, label %_net_rx_rss_add_chunk.exit503
 
-land.lhs.true5.i.i.i499:                          ; preds = %_net_rx_rss_add_chunk.exit526
+land.lhs.true5.i.i.i493:                          ; preds = %_net_rx_rss_add_chunk.exit520
   %222 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i500 = and i32 %222, 32768
-  %cmp.i.not.i.i.i501 = icmp eq i32 %and.i.i.i.i500, 0
-  br i1 %cmp.i.not.i.i.i501, label %_net_rx_rss_add_chunk.exit509, label %if.then.i.i.i502
+  %and.i.i.i.i494 = and i32 %222, 32768
+  %cmp.i.not.i.i.i495 = icmp eq i32 %and.i.i.i.i494, 0
+  br i1 %cmp.i.not.i.i.i495, label %_net_rx_rss_add_chunk.exit503, label %if.then.i.i.i496
 
-if.then.i.i.i502:                                 ; preds = %land.lhs.true5.i.i.i499
+if.then.i.i.i496:                                 ; preds = %land.lhs.true5.i.i.i493
   %223 = load i8, ptr @message_with_timestamp, align 1
   %224 = and i8 %223, 1
-  %tobool7.not.i.i.i503 = icmp eq i8 %224, 0
-  br i1 %tobool7.not.i.i.i503, label %if.else.i.i.i508, label %if.then8.i.i.i504
+  %tobool7.not.i.i.i497 = icmp eq i8 %224, 0
+  br i1 %tobool7.not.i.i.i497, label %if.else.i.i.i502, label %if.then8.i.i.i498
 
-if.then8.i.i.i504:                                ; preds = %if.then.i.i.i502
-  %call9.i.i.i505 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i493, ptr noundef null) #11
-  %call10.i.i.i506 = tail call i32 @qemu_get_thread_id() #11
-  %225 = load i64, ptr %_now.i.i.i493, align 8
-  %tv_usec.i.i.i507 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i493, i64 0, i32 1
-  %226 = load i64, ptr %tv_usec.i.i.i507, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i506, i64 noundef %225, i64 noundef %226, ptr noundef nonnull %ip_dst.i137, i64 noundef 4, i64 noundef 4) #11
-  br label %_net_rx_rss_add_chunk.exit509
+if.then8.i.i.i498:                                ; preds = %if.then.i.i.i496
+  %call9.i.i.i499 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i487, ptr noundef null) #11
+  %call10.i.i.i500 = tail call i32 @qemu_get_thread_id() #11
+  %225 = load i64, ptr %_now.i.i.i487, align 8
+  %tv_usec.i.i.i501 = getelementptr inbounds i8, ptr %_now.i.i.i487, i64 8
+  %226 = load i64, ptr %tv_usec.i.i.i501, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i500, i64 noundef %225, i64 noundef %226, ptr noundef nonnull %ip_dst.i134, i64 noundef 4, i64 noundef 4) #11
+  br label %_net_rx_rss_add_chunk.exit503
 
-if.else.i.i.i508:                                 ; preds = %if.then.i.i.i502
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip_dst.i137, i64 noundef 4, i64 noundef 4) #11
-  br label %_net_rx_rss_add_chunk.exit509
+if.else.i.i.i502:                                 ; preds = %if.then.i.i.i496
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip_dst.i134, i64 noundef 4, i64 noundef 4) #11
+  br label %_net_rx_rss_add_chunk.exit503
 
-_net_rx_rss_add_chunk.exit509:                    ; preds = %_net_rx_rss_add_chunk.exit526, %land.lhs.true5.i.i.i499, %if.then8.i.i.i504, %if.else.i.i.i508
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i493)
-  %l4hdr_info.i138 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16
-  %arrayidx.i545 = getelementptr inbounds i8, ptr %rss_input, i64 8
-  %227 = load i16, ptr %l4hdr_info.i138, align 1
-  store i16 %227, ptr %arrayidx.i545, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i544)
+_net_rx_rss_add_chunk.exit503:                    ; preds = %_net_rx_rss_add_chunk.exit520, %land.lhs.true5.i.i.i493, %if.then8.i.i.i498, %if.else.i.i.i502
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i487)
+  %l4hdr_info.i135 = getelementptr inbounds i8, ptr %pkt, i64 216
+  %arrayidx.i539 = getelementptr inbounds i8, ptr %rss_input, i64 8
+  %227 = load i16, ptr %l4hdr_info.i135, align 1
+  store i16 %227, ptr %arrayidx.i539, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i538)
   %228 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i546 = icmp ne i32 %228, 0
+  %tobool.i.i.i540 = icmp ne i32 %228, 0
   %229 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i547 = icmp ne i16 %229, 0
-  %or.cond.i.i.i548 = select i1 %tobool.i.i.i546, i1 %tobool4.i.i.i547, i1 false
-  br i1 %or.cond.i.i.i548, label %land.lhs.true5.i.i.i550, label %_net_rx_rss_add_chunk.exit560
+  %tobool4.i.i.i541 = icmp ne i16 %229, 0
+  %or.cond.i.i.i542 = select i1 %tobool.i.i.i540, i1 %tobool4.i.i.i541, i1 false
+  br i1 %or.cond.i.i.i542, label %land.lhs.true5.i.i.i544, label %_net_rx_rss_add_chunk.exit554
 
-land.lhs.true5.i.i.i550:                          ; preds = %_net_rx_rss_add_chunk.exit509
+land.lhs.true5.i.i.i544:                          ; preds = %_net_rx_rss_add_chunk.exit503
   %230 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i551 = and i32 %230, 32768
-  %cmp.i.not.i.i.i552 = icmp eq i32 %and.i.i.i.i551, 0
-  br i1 %cmp.i.not.i.i.i552, label %_net_rx_rss_add_chunk.exit560, label %if.then.i.i.i553
+  %and.i.i.i.i545 = and i32 %230, 32768
+  %cmp.i.not.i.i.i546 = icmp eq i32 %and.i.i.i.i545, 0
+  br i1 %cmp.i.not.i.i.i546, label %_net_rx_rss_add_chunk.exit554, label %if.then.i.i.i547
 
-if.then.i.i.i553:                                 ; preds = %land.lhs.true5.i.i.i550
+if.then.i.i.i547:                                 ; preds = %land.lhs.true5.i.i.i544
   %231 = load i8, ptr @message_with_timestamp, align 1
   %232 = and i8 %231, 1
-  %tobool7.not.i.i.i554 = icmp eq i8 %232, 0
-  br i1 %tobool7.not.i.i.i554, label %if.else.i.i.i559, label %if.then8.i.i.i555
+  %tobool7.not.i.i.i548 = icmp eq i8 %232, 0
+  br i1 %tobool7.not.i.i.i548, label %if.else.i.i.i553, label %if.then8.i.i.i549
 
-if.then8.i.i.i555:                                ; preds = %if.then.i.i.i553
-  %call9.i.i.i556 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i544, ptr noundef null) #11
-  %call10.i.i.i557 = tail call i32 @qemu_get_thread_id() #11
-  %233 = load i64, ptr %_now.i.i.i544, align 8
-  %tv_usec.i.i.i558 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i544, i64 0, i32 1
-  %234 = load i64, ptr %tv_usec.i.i.i558, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i557, i64 noundef %233, i64 noundef %234, ptr noundef nonnull %l4hdr_info.i138, i64 noundef 2, i64 noundef 8) #11
-  br label %_net_rx_rss_add_chunk.exit560
+if.then8.i.i.i549:                                ; preds = %if.then.i.i.i547
+  %call9.i.i.i550 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i538, ptr noundef null) #11
+  %call10.i.i.i551 = tail call i32 @qemu_get_thread_id() #11
+  %233 = load i64, ptr %_now.i.i.i538, align 8
+  %tv_usec.i.i.i552 = getelementptr inbounds i8, ptr %_now.i.i.i538, i64 8
+  %234 = load i64, ptr %tv_usec.i.i.i552, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i551, i64 noundef %233, i64 noundef %234, ptr noundef nonnull %l4hdr_info.i135, i64 noundef 2, i64 noundef 8) #11
+  br label %_net_rx_rss_add_chunk.exit554
 
-if.else.i.i.i559:                                 ; preds = %if.then.i.i.i553
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %l4hdr_info.i138, i64 noundef 2, i64 noundef 8) #11
-  br label %_net_rx_rss_add_chunk.exit560
+if.else.i.i.i553:                                 ; preds = %if.then.i.i.i547
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %l4hdr_info.i135, i64 noundef 2, i64 noundef 8) #11
+  br label %_net_rx_rss_add_chunk.exit554
 
-_net_rx_rss_add_chunk.exit560:                    ; preds = %_net_rx_rss_add_chunk.exit509, %land.lhs.true5.i.i.i550, %if.then8.i.i.i555, %if.else.i.i.i559
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i544)
-  %uh_dport.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 0, i32 0, i32 1
-  %arrayidx.i528 = getelementptr inbounds i8, ptr %rss_input, i64 10
+_net_rx_rss_add_chunk.exit554:                    ; preds = %_net_rx_rss_add_chunk.exit503, %land.lhs.true5.i.i.i544, %if.then8.i.i.i549, %if.else.i.i.i553
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i538)
+  %uh_dport.i = getelementptr inbounds i8, ptr %pkt, i64 218
+  %arrayidx.i522 = getelementptr inbounds i8, ptr %rss_input, i64 10
   %235 = load i16, ptr %uh_dport.i, align 1
-  store i16 %235, ptr %arrayidx.i528, align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i527)
+  store i16 %235, ptr %arrayidx.i522, align 2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i521)
   %236 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i529 = icmp ne i32 %236, 0
+  %tobool.i.i.i523 = icmp ne i32 %236, 0
   %237 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i530 = icmp ne i16 %237, 0
-  %or.cond.i.i.i531 = select i1 %tobool.i.i.i529, i1 %tobool4.i.i.i530, i1 false
-  br i1 %or.cond.i.i.i531, label %land.lhs.true5.i.i.i533, label %_net_rx_rss_add_chunk.exit543
+  %tobool4.i.i.i524 = icmp ne i16 %237, 0
+  %or.cond.i.i.i525 = select i1 %tobool.i.i.i523, i1 %tobool4.i.i.i524, i1 false
+  br i1 %or.cond.i.i.i525, label %land.lhs.true5.i.i.i527, label %_net_rx_rss_add_chunk.exit537
 
-land.lhs.true5.i.i.i533:                          ; preds = %_net_rx_rss_add_chunk.exit560
+land.lhs.true5.i.i.i527:                          ; preds = %_net_rx_rss_add_chunk.exit554
   %238 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i534 = and i32 %238, 32768
-  %cmp.i.not.i.i.i535 = icmp eq i32 %and.i.i.i.i534, 0
-  br i1 %cmp.i.not.i.i.i535, label %_net_rx_rss_add_chunk.exit543, label %if.then.i.i.i536
+  %and.i.i.i.i528 = and i32 %238, 32768
+  %cmp.i.not.i.i.i529 = icmp eq i32 %and.i.i.i.i528, 0
+  br i1 %cmp.i.not.i.i.i529, label %_net_rx_rss_add_chunk.exit537, label %if.then.i.i.i530
 
-if.then.i.i.i536:                                 ; preds = %land.lhs.true5.i.i.i533
+if.then.i.i.i530:                                 ; preds = %land.lhs.true5.i.i.i527
   %239 = load i8, ptr @message_with_timestamp, align 1
   %240 = and i8 %239, 1
-  %tobool7.not.i.i.i537 = icmp eq i8 %240, 0
-  br i1 %tobool7.not.i.i.i537, label %if.else.i.i.i542, label %if.then8.i.i.i538
+  %tobool7.not.i.i.i531 = icmp eq i8 %240, 0
+  br i1 %tobool7.not.i.i.i531, label %if.else.i.i.i536, label %if.then8.i.i.i532
 
-if.then8.i.i.i538:                                ; preds = %if.then.i.i.i536
-  %call9.i.i.i539 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i527, ptr noundef null) #11
-  %call10.i.i.i540 = tail call i32 @qemu_get_thread_id() #11
-  %241 = load i64, ptr %_now.i.i.i527, align 8
-  %tv_usec.i.i.i541 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i527, i64 0, i32 1
-  %242 = load i64, ptr %tv_usec.i.i.i541, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i540, i64 noundef %241, i64 noundef %242, ptr noundef nonnull %uh_dport.i, i64 noundef 2, i64 noundef 10) #11
-  br label %_net_rx_rss_add_chunk.exit543
+if.then8.i.i.i532:                                ; preds = %if.then.i.i.i530
+  %call9.i.i.i533 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i521, ptr noundef null) #11
+  %call10.i.i.i534 = tail call i32 @qemu_get_thread_id() #11
+  %241 = load i64, ptr %_now.i.i.i521, align 8
+  %tv_usec.i.i.i535 = getelementptr inbounds i8, ptr %_now.i.i.i521, i64 8
+  %242 = load i64, ptr %tv_usec.i.i.i535, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i534, i64 noundef %241, i64 noundef %242, ptr noundef nonnull %uh_dport.i, i64 noundef 2, i64 noundef 10) #11
+  br label %_net_rx_rss_add_chunk.exit537
 
-if.else.i.i.i542:                                 ; preds = %if.then.i.i.i536
+if.else.i.i.i536:                                 ; preds = %if.then.i.i.i530
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %uh_dport.i, i64 noundef 2, i64 noundef 10) #11
-  br label %_net_rx_rss_add_chunk.exit543
+  br label %_net_rx_rss_add_chunk.exit537
 
-_net_rx_rss_add_chunk.exit543:                    ; preds = %_net_rx_rss_add_chunk.exit560, %land.lhs.true5.i.i.i533, %if.then8.i.i.i538, %if.else.i.i.i542
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i527)
+_net_rx_rss_add_chunk.exit537:                    ; preds = %_net_rx_rss_add_chunk.exit554, %land.lhs.true5.i.i.i527, %if.then8.i.i.i532, %if.else.i.i.i536
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i521)
   br label %for.body.lr.ph.i
 
 sw.bb67:                                          ; preds = %entry
-  %hasip668 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 10
+  %hasip668 = getelementptr inbounds i8, ptr %pkt, i64 69
   %243 = load i8, ptr %hasip668, align 1
   %244 = and i8 %243, 1
   %tobool69.not = icmp eq i8 %244, 0
@@ -1914,7 +1893,7 @@ if.else71:                                        ; preds = %sw.bb67
   unreachable
 
 if.end72:                                         ; preds = %sw.bb67
-  %proto74 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 1
+  %proto74 = getelementptr inbounds i8, ptr %pkt, i64 236
   %245 = load i32, ptr %proto74, align 4
   %cmp75 = icmp eq i32 %245, 2
   br i1 %cmp75, label %if.end78, label %if.else77
@@ -1924,198 +1903,198 @@ if.else77:                                        ; preds = %if.end72
   unreachable
 
 if.end78:                                         ; preds = %if.end72
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i139)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i136)
   %246 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i140 = icmp ne i32 %246, 0
+  %tobool.i.i137 = icmp ne i32 %246, 0
   %247 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_IP6_UDP_DSTATE, align 2
-  %tobool4.i.i141 = icmp ne i16 %247, 0
-  %or.cond.i.i142 = select i1 %tobool.i.i140, i1 %tobool4.i.i141, i1 false
-  br i1 %or.cond.i.i142, label %land.lhs.true5.i.i143, label %trace_net_rx_pkt_rss_ip6_udp.exit
+  %tobool4.i.i138 = icmp ne i16 %247, 0
+  %or.cond.i.i139 = select i1 %tobool.i.i137, i1 %tobool4.i.i138, i1 false
+  br i1 %or.cond.i.i139, label %land.lhs.true5.i.i140, label %trace_net_rx_pkt_rss_ip6_udp.exit
 
-land.lhs.true5.i.i143:                            ; preds = %if.end78
+land.lhs.true5.i.i140:                            ; preds = %if.end78
   %248 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i144 = and i32 %248, 32768
-  %cmp.i.not.i.i145 = icmp eq i32 %and.i.i.i144, 0
-  br i1 %cmp.i.not.i.i145, label %trace_net_rx_pkt_rss_ip6_udp.exit, label %if.then.i.i146
+  %and.i.i.i141 = and i32 %248, 32768
+  %cmp.i.not.i.i142 = icmp eq i32 %and.i.i.i141, 0
+  br i1 %cmp.i.not.i.i142, label %trace_net_rx_pkt_rss_ip6_udp.exit, label %if.then.i.i143
 
-if.then.i.i146:                                   ; preds = %land.lhs.true5.i.i143
+if.then.i.i143:                                   ; preds = %land.lhs.true5.i.i140
   %249 = load i8, ptr @message_with_timestamp, align 1
   %250 = and i8 %249, 1
-  %tobool7.not.i.i147 = icmp eq i8 %250, 0
-  br i1 %tobool7.not.i.i147, label %if.else.i.i152, label %if.then8.i.i148
+  %tobool7.not.i.i144 = icmp eq i8 %250, 0
+  br i1 %tobool7.not.i.i144, label %if.else.i.i149, label %if.then8.i.i145
 
-if.then8.i.i148:                                  ; preds = %if.then.i.i146
-  %call9.i.i149 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i139, ptr noundef null) #11
-  %call10.i.i150 = tail call i32 @qemu_get_thread_id() #11
-  %251 = load i64, ptr %_now.i.i139, align 8
-  %tv_usec.i.i151 = getelementptr inbounds %struct.timeval, ptr %_now.i.i139, i64 0, i32 1
-  %252 = load i64, ptr %tv_usec.i.i151, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i150, i64 noundef %251, i64 noundef %252) #11
+if.then8.i.i145:                                  ; preds = %if.then.i.i143
+  %call9.i.i146 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i136, ptr noundef null) #11
+  %call10.i.i147 = tail call i32 @qemu_get_thread_id() #11
+  %251 = load i64, ptr %_now.i.i136, align 8
+  %tv_usec.i.i148 = getelementptr inbounds i8, ptr %_now.i.i136, i64 8
+  %252 = load i64, ptr %tv_usec.i.i148, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %call10.i.i147, i64 noundef %251, i64 noundef %252) #11
   br label %trace_net_rx_pkt_rss_ip6_udp.exit
 
-if.else.i.i152:                                   ; preds = %if.then.i.i146
+if.else.i.i149:                                   ; preds = %if.then.i.i143
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26) #11
   br label %trace_net_rx_pkt_rss_ip6_udp.exit
 
-trace_net_rx_pkt_rss_ip6_udp.exit:                ; preds = %if.end78, %land.lhs.true5.i.i143, %if.then8.i.i148, %if.else.i.i152
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i139)
-  %ip6_src.i153 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 2, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rss_input, ptr noundef nonnull align 1 dereferenceable(16) %ip6_src.i153, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i578)
+trace_net_rx_pkt_rss_ip6_udp.exit:                ; preds = %if.end78, %land.lhs.true5.i.i140, %if.then8.i.i145, %if.else.i.i149
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i136)
+  %ip6_src.i150 = getelementptr inbounds i8, ptr %pkt, i64 120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rss_input, ptr noundef nonnull align 1 dereferenceable(16) %ip6_src.i150, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i572)
   %253 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i580 = icmp ne i32 %253, 0
+  %tobool.i.i.i574 = icmp ne i32 %253, 0
   %254 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i581 = icmp ne i16 %254, 0
-  %or.cond.i.i.i582 = select i1 %tobool.i.i.i580, i1 %tobool4.i.i.i581, i1 false
-  br i1 %or.cond.i.i.i582, label %land.lhs.true5.i.i.i584, label %_net_rx_rss_add_chunk.exit594
+  %tobool4.i.i.i575 = icmp ne i16 %254, 0
+  %or.cond.i.i.i576 = select i1 %tobool.i.i.i574, i1 %tobool4.i.i.i575, i1 false
+  br i1 %or.cond.i.i.i576, label %land.lhs.true5.i.i.i578, label %_net_rx_rss_add_chunk.exit588
 
-land.lhs.true5.i.i.i584:                          ; preds = %trace_net_rx_pkt_rss_ip6_udp.exit
+land.lhs.true5.i.i.i578:                          ; preds = %trace_net_rx_pkt_rss_ip6_udp.exit
   %255 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i585 = and i32 %255, 32768
-  %cmp.i.not.i.i.i586 = icmp eq i32 %and.i.i.i.i585, 0
-  br i1 %cmp.i.not.i.i.i586, label %_net_rx_rss_add_chunk.exit594, label %if.then.i.i.i587
+  %and.i.i.i.i579 = and i32 %255, 32768
+  %cmp.i.not.i.i.i580 = icmp eq i32 %and.i.i.i.i579, 0
+  br i1 %cmp.i.not.i.i.i580, label %_net_rx_rss_add_chunk.exit588, label %if.then.i.i.i581
 
-if.then.i.i.i587:                                 ; preds = %land.lhs.true5.i.i.i584
+if.then.i.i.i581:                                 ; preds = %land.lhs.true5.i.i.i578
   %256 = load i8, ptr @message_with_timestamp, align 1
   %257 = and i8 %256, 1
-  %tobool7.not.i.i.i588 = icmp eq i8 %257, 0
-  br i1 %tobool7.not.i.i.i588, label %if.else.i.i.i593, label %if.then8.i.i.i589
+  %tobool7.not.i.i.i582 = icmp eq i8 %257, 0
+  br i1 %tobool7.not.i.i.i582, label %if.else.i.i.i587, label %if.then8.i.i.i583
 
-if.then8.i.i.i589:                                ; preds = %if.then.i.i.i587
-  %call9.i.i.i590 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i578, ptr noundef null) #11
-  %call10.i.i.i591 = tail call i32 @qemu_get_thread_id() #11
-  %258 = load i64, ptr %_now.i.i.i578, align 8
-  %tv_usec.i.i.i592 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i578, i64 0, i32 1
-  %259 = load i64, ptr %tv_usec.i.i.i592, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i591, i64 noundef %258, i64 noundef %259, ptr noundef nonnull %ip6_src.i153, i64 noundef 16, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit594
+if.then8.i.i.i583:                                ; preds = %if.then.i.i.i581
+  %call9.i.i.i584 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i572, ptr noundef null) #11
+  %call10.i.i.i585 = tail call i32 @qemu_get_thread_id() #11
+  %258 = load i64, ptr %_now.i.i.i572, align 8
+  %tv_usec.i.i.i586 = getelementptr inbounds i8, ptr %_now.i.i.i572, i64 8
+  %259 = load i64, ptr %tv_usec.i.i.i586, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i585, i64 noundef %258, i64 noundef %259, ptr noundef nonnull %ip6_src.i150, i64 noundef 16, i64 noundef 0) #11
+  br label %_net_rx_rss_add_chunk.exit588
 
-if.else.i.i.i593:                                 ; preds = %if.then.i.i.i587
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_src.i153, i64 noundef 16, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit594
+if.else.i.i.i587:                                 ; preds = %if.then.i.i.i581
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_src.i150, i64 noundef 16, i64 noundef 0) #11
+  br label %_net_rx_rss_add_chunk.exit588
 
-_net_rx_rss_add_chunk.exit594:                    ; preds = %trace_net_rx_pkt_rss_ip6_udp.exit, %land.lhs.true5.i.i.i584, %if.then8.i.i.i589, %if.else.i.i.i593
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i578)
-  %ip6_dst.i155 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 2, i32 2
-  %arrayidx.i562 = getelementptr inbounds i8, ptr %rss_input, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i562, ptr noundef nonnull align 1 dereferenceable(16) %ip6_dst.i155, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i561)
+_net_rx_rss_add_chunk.exit588:                    ; preds = %trace_net_rx_pkt_rss_ip6_udp.exit, %land.lhs.true5.i.i.i578, %if.then8.i.i.i583, %if.else.i.i.i587
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i572)
+  %ip6_dst.i153 = getelementptr inbounds i8, ptr %pkt, i64 136
+  %arrayidx.i556 = getelementptr inbounds i8, ptr %rss_input, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i556, ptr noundef nonnull align 1 dereferenceable(16) %ip6_dst.i153, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i555)
   %260 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i563 = icmp ne i32 %260, 0
+  %tobool.i.i.i557 = icmp ne i32 %260, 0
   %261 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i564 = icmp ne i16 %261, 0
-  %or.cond.i.i.i565 = select i1 %tobool.i.i.i563, i1 %tobool4.i.i.i564, i1 false
-  br i1 %or.cond.i.i.i565, label %land.lhs.true5.i.i.i567, label %_net_rx_rss_add_chunk.exit577
+  %tobool4.i.i.i558 = icmp ne i16 %261, 0
+  %or.cond.i.i.i559 = select i1 %tobool.i.i.i557, i1 %tobool4.i.i.i558, i1 false
+  br i1 %or.cond.i.i.i559, label %land.lhs.true5.i.i.i561, label %_net_rx_rss_add_chunk.exit571
 
-land.lhs.true5.i.i.i567:                          ; preds = %_net_rx_rss_add_chunk.exit594
+land.lhs.true5.i.i.i561:                          ; preds = %_net_rx_rss_add_chunk.exit588
   %262 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i568 = and i32 %262, 32768
-  %cmp.i.not.i.i.i569 = icmp eq i32 %and.i.i.i.i568, 0
-  br i1 %cmp.i.not.i.i.i569, label %_net_rx_rss_add_chunk.exit577, label %if.then.i.i.i570
+  %and.i.i.i.i562 = and i32 %262, 32768
+  %cmp.i.not.i.i.i563 = icmp eq i32 %and.i.i.i.i562, 0
+  br i1 %cmp.i.not.i.i.i563, label %_net_rx_rss_add_chunk.exit571, label %if.then.i.i.i564
 
-if.then.i.i.i570:                                 ; preds = %land.lhs.true5.i.i.i567
+if.then.i.i.i564:                                 ; preds = %land.lhs.true5.i.i.i561
   %263 = load i8, ptr @message_with_timestamp, align 1
   %264 = and i8 %263, 1
-  %tobool7.not.i.i.i571 = icmp eq i8 %264, 0
-  br i1 %tobool7.not.i.i.i571, label %if.else.i.i.i576, label %if.then8.i.i.i572
+  %tobool7.not.i.i.i565 = icmp eq i8 %264, 0
+  br i1 %tobool7.not.i.i.i565, label %if.else.i.i.i570, label %if.then8.i.i.i566
 
-if.then8.i.i.i572:                                ; preds = %if.then.i.i.i570
-  %call9.i.i.i573 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i561, ptr noundef null) #11
-  %call10.i.i.i574 = tail call i32 @qemu_get_thread_id() #11
-  %265 = load i64, ptr %_now.i.i.i561, align 8
-  %tv_usec.i.i.i575 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i561, i64 0, i32 1
-  %266 = load i64, ptr %tv_usec.i.i.i575, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i574, i64 noundef %265, i64 noundef %266, ptr noundef nonnull %ip6_dst.i155, i64 noundef 16, i64 noundef 16) #11
-  br label %_net_rx_rss_add_chunk.exit577
+if.then8.i.i.i566:                                ; preds = %if.then.i.i.i564
+  %call9.i.i.i567 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i555, ptr noundef null) #11
+  %call10.i.i.i568 = tail call i32 @qemu_get_thread_id() #11
+  %265 = load i64, ptr %_now.i.i.i555, align 8
+  %tv_usec.i.i.i569 = getelementptr inbounds i8, ptr %_now.i.i.i555, i64 8
+  %266 = load i64, ptr %tv_usec.i.i.i569, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i568, i64 noundef %265, i64 noundef %266, ptr noundef nonnull %ip6_dst.i153, i64 noundef 16, i64 noundef 16) #11
+  br label %_net_rx_rss_add_chunk.exit571
 
-if.else.i.i.i576:                                 ; preds = %if.then.i.i.i570
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_dst.i155, i64 noundef 16, i64 noundef 16) #11
-  br label %_net_rx_rss_add_chunk.exit577
+if.else.i.i.i570:                                 ; preds = %if.then.i.i.i564
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_dst.i153, i64 noundef 16, i64 noundef 16) #11
+  br label %_net_rx_rss_add_chunk.exit571
 
-_net_rx_rss_add_chunk.exit577:                    ; preds = %_net_rx_rss_add_chunk.exit594, %land.lhs.true5.i.i.i567, %if.then8.i.i.i572, %if.else.i.i.i576
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i561)
-  %l4hdr_info.i157 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16
-  %arrayidx.i613 = getelementptr inbounds i8, ptr %rss_input, i64 32
-  %267 = load i16, ptr %l4hdr_info.i157, align 1
-  store i16 %267, ptr %arrayidx.i613, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i612)
+_net_rx_rss_add_chunk.exit571:                    ; preds = %_net_rx_rss_add_chunk.exit588, %land.lhs.true5.i.i.i561, %if.then8.i.i.i566, %if.else.i.i.i570
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i555)
+  %l4hdr_info.i154 = getelementptr inbounds i8, ptr %pkt, i64 216
+  %arrayidx.i607 = getelementptr inbounds i8, ptr %rss_input, i64 32
+  %267 = load i16, ptr %l4hdr_info.i154, align 1
+  store i16 %267, ptr %arrayidx.i607, align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i606)
   %268 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i614 = icmp ne i32 %268, 0
+  %tobool.i.i.i608 = icmp ne i32 %268, 0
   %269 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i615 = icmp ne i16 %269, 0
-  %or.cond.i.i.i616 = select i1 %tobool.i.i.i614, i1 %tobool4.i.i.i615, i1 false
-  br i1 %or.cond.i.i.i616, label %land.lhs.true5.i.i.i618, label %_net_rx_rss_add_chunk.exit628
+  %tobool4.i.i.i609 = icmp ne i16 %269, 0
+  %or.cond.i.i.i610 = select i1 %tobool.i.i.i608, i1 %tobool4.i.i.i609, i1 false
+  br i1 %or.cond.i.i.i610, label %land.lhs.true5.i.i.i612, label %_net_rx_rss_add_chunk.exit622
 
-land.lhs.true5.i.i.i618:                          ; preds = %_net_rx_rss_add_chunk.exit577
+land.lhs.true5.i.i.i612:                          ; preds = %_net_rx_rss_add_chunk.exit571
   %270 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i619 = and i32 %270, 32768
-  %cmp.i.not.i.i.i620 = icmp eq i32 %and.i.i.i.i619, 0
-  br i1 %cmp.i.not.i.i.i620, label %_net_rx_rss_add_chunk.exit628, label %if.then.i.i.i621
+  %and.i.i.i.i613 = and i32 %270, 32768
+  %cmp.i.not.i.i.i614 = icmp eq i32 %and.i.i.i.i613, 0
+  br i1 %cmp.i.not.i.i.i614, label %_net_rx_rss_add_chunk.exit622, label %if.then.i.i.i615
 
-if.then.i.i.i621:                                 ; preds = %land.lhs.true5.i.i.i618
+if.then.i.i.i615:                                 ; preds = %land.lhs.true5.i.i.i612
   %271 = load i8, ptr @message_with_timestamp, align 1
   %272 = and i8 %271, 1
-  %tobool7.not.i.i.i622 = icmp eq i8 %272, 0
-  br i1 %tobool7.not.i.i.i622, label %if.else.i.i.i627, label %if.then8.i.i.i623
+  %tobool7.not.i.i.i616 = icmp eq i8 %272, 0
+  br i1 %tobool7.not.i.i.i616, label %if.else.i.i.i621, label %if.then8.i.i.i617
 
-if.then8.i.i.i623:                                ; preds = %if.then.i.i.i621
-  %call9.i.i.i624 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i612, ptr noundef null) #11
-  %call10.i.i.i625 = tail call i32 @qemu_get_thread_id() #11
-  %273 = load i64, ptr %_now.i.i.i612, align 8
-  %tv_usec.i.i.i626 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i612, i64 0, i32 1
-  %274 = load i64, ptr %tv_usec.i.i.i626, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i625, i64 noundef %273, i64 noundef %274, ptr noundef nonnull %l4hdr_info.i157, i64 noundef 2, i64 noundef 32) #11
-  br label %_net_rx_rss_add_chunk.exit628
+if.then8.i.i.i617:                                ; preds = %if.then.i.i.i615
+  %call9.i.i.i618 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i606, ptr noundef null) #11
+  %call10.i.i.i619 = tail call i32 @qemu_get_thread_id() #11
+  %273 = load i64, ptr %_now.i.i.i606, align 8
+  %tv_usec.i.i.i620 = getelementptr inbounds i8, ptr %_now.i.i.i606, i64 8
+  %274 = load i64, ptr %tv_usec.i.i.i620, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i619, i64 noundef %273, i64 noundef %274, ptr noundef nonnull %l4hdr_info.i154, i64 noundef 2, i64 noundef 32) #11
+  br label %_net_rx_rss_add_chunk.exit622
 
-if.else.i.i.i627:                                 ; preds = %if.then.i.i.i621
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %l4hdr_info.i157, i64 noundef 2, i64 noundef 32) #11
-  br label %_net_rx_rss_add_chunk.exit628
+if.else.i.i.i621:                                 ; preds = %if.then.i.i.i615
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %l4hdr_info.i154, i64 noundef 2, i64 noundef 32) #11
+  br label %_net_rx_rss_add_chunk.exit622
 
-_net_rx_rss_add_chunk.exit628:                    ; preds = %_net_rx_rss_add_chunk.exit577, %land.lhs.true5.i.i.i618, %if.then8.i.i.i623, %if.else.i.i.i627
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i612)
-  %uh_dport.i158 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 0, i32 0, i32 1
-  %arrayidx.i596 = getelementptr inbounds i8, ptr %rss_input, i64 34
-  %275 = load i16, ptr %uh_dport.i158, align 1
-  store i16 %275, ptr %arrayidx.i596, align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i595)
+_net_rx_rss_add_chunk.exit622:                    ; preds = %_net_rx_rss_add_chunk.exit571, %land.lhs.true5.i.i.i612, %if.then8.i.i.i617, %if.else.i.i.i621
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i606)
+  %uh_dport.i155 = getelementptr inbounds i8, ptr %pkt, i64 218
+  %arrayidx.i590 = getelementptr inbounds i8, ptr %rss_input, i64 34
+  %275 = load i16, ptr %uh_dport.i155, align 1
+  store i16 %275, ptr %arrayidx.i590, align 2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i589)
   %276 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i597 = icmp ne i32 %276, 0
+  %tobool.i.i.i591 = icmp ne i32 %276, 0
   %277 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i598 = icmp ne i16 %277, 0
-  %or.cond.i.i.i599 = select i1 %tobool.i.i.i597, i1 %tobool4.i.i.i598, i1 false
-  br i1 %or.cond.i.i.i599, label %land.lhs.true5.i.i.i601, label %_net_rx_rss_add_chunk.exit611
+  %tobool4.i.i.i592 = icmp ne i16 %277, 0
+  %or.cond.i.i.i593 = select i1 %tobool.i.i.i591, i1 %tobool4.i.i.i592, i1 false
+  br i1 %or.cond.i.i.i593, label %land.lhs.true5.i.i.i595, label %_net_rx_rss_add_chunk.exit605
 
-land.lhs.true5.i.i.i601:                          ; preds = %_net_rx_rss_add_chunk.exit628
+land.lhs.true5.i.i.i595:                          ; preds = %_net_rx_rss_add_chunk.exit622
   %278 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i602 = and i32 %278, 32768
-  %cmp.i.not.i.i.i603 = icmp eq i32 %and.i.i.i.i602, 0
-  br i1 %cmp.i.not.i.i.i603, label %_net_rx_rss_add_chunk.exit611, label %if.then.i.i.i604
+  %and.i.i.i.i596 = and i32 %278, 32768
+  %cmp.i.not.i.i.i597 = icmp eq i32 %and.i.i.i.i596, 0
+  br i1 %cmp.i.not.i.i.i597, label %_net_rx_rss_add_chunk.exit605, label %if.then.i.i.i598
 
-if.then.i.i.i604:                                 ; preds = %land.lhs.true5.i.i.i601
+if.then.i.i.i598:                                 ; preds = %land.lhs.true5.i.i.i595
   %279 = load i8, ptr @message_with_timestamp, align 1
   %280 = and i8 %279, 1
-  %tobool7.not.i.i.i605 = icmp eq i8 %280, 0
-  br i1 %tobool7.not.i.i.i605, label %if.else.i.i.i610, label %if.then8.i.i.i606
+  %tobool7.not.i.i.i599 = icmp eq i8 %280, 0
+  br i1 %tobool7.not.i.i.i599, label %if.else.i.i.i604, label %if.then8.i.i.i600
 
-if.then8.i.i.i606:                                ; preds = %if.then.i.i.i604
-  %call9.i.i.i607 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i595, ptr noundef null) #11
-  %call10.i.i.i608 = tail call i32 @qemu_get_thread_id() #11
-  %281 = load i64, ptr %_now.i.i.i595, align 8
-  %tv_usec.i.i.i609 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i595, i64 0, i32 1
-  %282 = load i64, ptr %tv_usec.i.i.i609, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i608, i64 noundef %281, i64 noundef %282, ptr noundef nonnull %uh_dport.i158, i64 noundef 2, i64 noundef 34) #11
-  br label %_net_rx_rss_add_chunk.exit611
+if.then8.i.i.i600:                                ; preds = %if.then.i.i.i598
+  %call9.i.i.i601 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i589, ptr noundef null) #11
+  %call10.i.i.i602 = tail call i32 @qemu_get_thread_id() #11
+  %281 = load i64, ptr %_now.i.i.i589, align 8
+  %tv_usec.i.i.i603 = getelementptr inbounds i8, ptr %_now.i.i.i589, i64 8
+  %282 = load i64, ptr %tv_usec.i.i.i603, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i602, i64 noundef %281, i64 noundef %282, ptr noundef nonnull %uh_dport.i155, i64 noundef 2, i64 noundef 34) #11
+  br label %_net_rx_rss_add_chunk.exit605
 
-if.else.i.i.i610:                                 ; preds = %if.then.i.i.i604
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %uh_dport.i158, i64 noundef 2, i64 noundef 34) #11
-  br label %_net_rx_rss_add_chunk.exit611
+if.else.i.i.i604:                                 ; preds = %if.then.i.i.i598
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %uh_dport.i155, i64 noundef 2, i64 noundef 34) #11
+  br label %_net_rx_rss_add_chunk.exit605
 
-_net_rx_rss_add_chunk.exit611:                    ; preds = %_net_rx_rss_add_chunk.exit628, %land.lhs.true5.i.i.i601, %if.then8.i.i.i606, %if.else.i.i.i610
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i595)
+_net_rx_rss_add_chunk.exit605:                    ; preds = %_net_rx_rss_add_chunk.exit622, %land.lhs.true5.i.i.i595, %if.then8.i.i.i600, %if.else.i.i.i604
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i589)
   br label %for.body.lr.ph.i
 
 sw.bb81:                                          ; preds = %entry
-  %hasip682 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 10
+  %hasip682 = getelementptr inbounds i8, ptr %pkt, i64 69
   %283 = load i8, ptr %hasip682, align 1
   %284 = and i8 %283, 1
   %tobool83.not = icmp eq i8 %284, 0
@@ -2126,7 +2105,7 @@ if.else85:                                        ; preds = %sw.bb81
   unreachable
 
 if.end86:                                         ; preds = %sw.bb81
-  %proto88 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 1
+  %proto88 = getelementptr inbounds i8, ptr %pkt, i64 236
   %285 = load i32, ptr %proto88, align 4
   %cmp89 = icmp eq i32 %285, 2
   br i1 %cmp89, label %if.end92, label %if.else91
@@ -2136,214 +2115,212 @@ if.else91:                                        ; preds = %if.end86
   unreachable
 
 if.end92:                                         ; preds = %if.end86
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i159)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i156)
   %286 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i160 = icmp ne i32 %286, 0
+  %tobool.i.i157 = icmp ne i32 %286, 0
   %287 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_IP6_EX_UDP_DSTATE, align 2
-  %tobool4.i.i161 = icmp ne i16 %287, 0
-  %or.cond.i.i162 = select i1 %tobool.i.i160, i1 %tobool4.i.i161, i1 false
-  br i1 %or.cond.i.i162, label %land.lhs.true5.i.i163, label %trace_net_rx_pkt_rss_ip6_ex_udp.exit
+  %tobool4.i.i158 = icmp ne i16 %287, 0
+  %or.cond.i.i159 = select i1 %tobool.i.i157, i1 %tobool4.i.i158, i1 false
+  br i1 %or.cond.i.i159, label %land.lhs.true5.i.i160, label %trace_net_rx_pkt_rss_ip6_ex_udp.exit
 
-land.lhs.true5.i.i163:                            ; preds = %if.end92
+land.lhs.true5.i.i160:                            ; preds = %if.end92
   %288 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i164 = and i32 %288, 32768
-  %cmp.i.not.i.i165 = icmp eq i32 %and.i.i.i164, 0
-  br i1 %cmp.i.not.i.i165, label %trace_net_rx_pkt_rss_ip6_ex_udp.exit, label %if.then.i.i166
+  %and.i.i.i161 = and i32 %288, 32768
+  %cmp.i.not.i.i162 = icmp eq i32 %and.i.i.i161, 0
+  br i1 %cmp.i.not.i.i162, label %trace_net_rx_pkt_rss_ip6_ex_udp.exit, label %if.then.i.i163
 
-if.then.i.i166:                                   ; preds = %land.lhs.true5.i.i163
+if.then.i.i163:                                   ; preds = %land.lhs.true5.i.i160
   %289 = load i8, ptr @message_with_timestamp, align 1
   %290 = and i8 %289, 1
-  %tobool7.not.i.i167 = icmp eq i8 %290, 0
-  br i1 %tobool7.not.i.i167, label %if.else.i.i172, label %if.then8.i.i168
+  %tobool7.not.i.i164 = icmp eq i8 %290, 0
+  br i1 %tobool7.not.i.i164, label %if.else.i.i169, label %if.then8.i.i165
 
-if.then8.i.i168:                                  ; preds = %if.then.i.i166
-  %call9.i.i169 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i159, ptr noundef null) #11
-  %call10.i.i170 = tail call i32 @qemu_get_thread_id() #11
-  %291 = load i64, ptr %_now.i.i159, align 8
-  %tv_usec.i.i171 = getelementptr inbounds %struct.timeval, ptr %_now.i.i159, i64 0, i32 1
-  %292 = load i64, ptr %tv_usec.i.i171, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i170, i64 noundef %291, i64 noundef %292) #11
+if.then8.i.i165:                                  ; preds = %if.then.i.i163
+  %call9.i.i166 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i156, ptr noundef null) #11
+  %call10.i.i167 = tail call i32 @qemu_get_thread_id() #11
+  %291 = load i64, ptr %_now.i.i156, align 8
+  %tv_usec.i.i168 = getelementptr inbounds i8, ptr %_now.i.i156, i64 8
+  %292 = load i64, ptr %tv_usec.i.i168, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.27, i32 noundef %call10.i.i167, i64 noundef %291, i64 noundef %292) #11
   br label %trace_net_rx_pkt_rss_ip6_ex_udp.exit
 
-if.else.i.i172:                                   ; preds = %if.then.i.i166
+if.else.i.i169:                                   ; preds = %if.then.i.i163
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.28) #11
   br label %trace_net_rx_pkt_rss_ip6_ex_udp.exit
 
-trace_net_rx_pkt_rss_ip6_ex_udp.exit:             ; preds = %if.end92, %land.lhs.true5.i.i163, %if.then8.i.i168, %if.else.i.i172
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i159)
-  %rss_ex_src_valid.i173 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 4
-  %293 = load i8, ptr %rss_ex_src_valid.i173, align 1
+trace_net_rx_pkt_rss_ip6_ex_udp.exit:             ; preds = %if.end92, %land.lhs.true5.i.i160, %if.then8.i.i165, %if.else.i.i169
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i156)
+  %rss_ex_src_valid.i170 = getelementptr inbounds i8, ptr %pkt, i64 153
+  %293 = load i8, ptr %rss_ex_src_valid.i170, align 1
   %294 = and i8 %293, 1
-  %tobool1.not.i174 = icmp eq i8 %294, 0
-  %ip6_src12.i175 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 2, i32 1
-  %rss_ex_src.i176 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 5
-  %ip6_src12.sink.i177 = select i1 %tobool1.not.i174, ptr %ip6_src12.i175, ptr %rss_ex_src.i176
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rss_input, ptr noundef nonnull align 1 dereferenceable(16) %ip6_src12.sink.i177, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i646)
+  %tobool1.not.i171 = icmp eq i8 %294, 0
+  %..i172 = select i1 %tobool1.not.i171, i64 120, i64 154
+  %ip6_src12.i173 = getelementptr inbounds i8, ptr %pkt, i64 %..i172
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rss_input, ptr noundef nonnull align 1 dereferenceable(16) %ip6_src12.i173, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i640)
   %295 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i648 = icmp ne i32 %295, 0
+  %tobool.i.i.i642 = icmp ne i32 %295, 0
   %296 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i649 = icmp ne i16 %296, 0
-  %or.cond.i.i.i650 = select i1 %tobool.i.i.i648, i1 %tobool4.i.i.i649, i1 false
-  br i1 %or.cond.i.i.i650, label %land.lhs.true5.i.i.i652, label %_net_rx_rss_add_chunk.exit662
+  %tobool4.i.i.i643 = icmp ne i16 %296, 0
+  %or.cond.i.i.i644 = select i1 %tobool.i.i.i642, i1 %tobool4.i.i.i643, i1 false
+  br i1 %or.cond.i.i.i644, label %land.lhs.true5.i.i.i646, label %_net_rx_rss_add_chunk.exit656
 
-land.lhs.true5.i.i.i652:                          ; preds = %trace_net_rx_pkt_rss_ip6_ex_udp.exit
+land.lhs.true5.i.i.i646:                          ; preds = %trace_net_rx_pkt_rss_ip6_ex_udp.exit
   %297 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i653 = and i32 %297, 32768
-  %cmp.i.not.i.i.i654 = icmp eq i32 %and.i.i.i.i653, 0
-  br i1 %cmp.i.not.i.i.i654, label %_net_rx_rss_add_chunk.exit662, label %if.then.i.i.i655
+  %and.i.i.i.i647 = and i32 %297, 32768
+  %cmp.i.not.i.i.i648 = icmp eq i32 %and.i.i.i.i647, 0
+  br i1 %cmp.i.not.i.i.i648, label %_net_rx_rss_add_chunk.exit656, label %if.then.i.i.i649
 
-if.then.i.i.i655:                                 ; preds = %land.lhs.true5.i.i.i652
+if.then.i.i.i649:                                 ; preds = %land.lhs.true5.i.i.i646
   %298 = load i8, ptr @message_with_timestamp, align 1
   %299 = and i8 %298, 1
-  %tobool7.not.i.i.i656 = icmp eq i8 %299, 0
-  br i1 %tobool7.not.i.i.i656, label %if.else.i.i.i661, label %if.then8.i.i.i657
+  %tobool7.not.i.i.i650 = icmp eq i8 %299, 0
+  br i1 %tobool7.not.i.i.i650, label %if.else.i.i.i655, label %if.then8.i.i.i651
 
-if.then8.i.i.i657:                                ; preds = %if.then.i.i.i655
-  %call9.i.i.i658 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i646, ptr noundef null) #11
-  %call10.i.i.i659 = tail call i32 @qemu_get_thread_id() #11
-  %300 = load i64, ptr %_now.i.i.i646, align 8
-  %tv_usec.i.i.i660 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i646, i64 0, i32 1
-  %301 = load i64, ptr %tv_usec.i.i.i660, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i659, i64 noundef %300, i64 noundef %301, ptr noundef nonnull %ip6_src12.sink.i177, i64 noundef 16, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit662
+if.then8.i.i.i651:                                ; preds = %if.then.i.i.i649
+  %call9.i.i.i652 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i640, ptr noundef null) #11
+  %call10.i.i.i653 = tail call i32 @qemu_get_thread_id() #11
+  %300 = load i64, ptr %_now.i.i.i640, align 8
+  %tv_usec.i.i.i654 = getelementptr inbounds i8, ptr %_now.i.i.i640, i64 8
+  %301 = load i64, ptr %tv_usec.i.i.i654, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i653, i64 noundef %300, i64 noundef %301, ptr noundef nonnull %ip6_src12.i173, i64 noundef 16, i64 noundef 0) #11
+  br label %_net_rx_rss_add_chunk.exit656
 
-if.else.i.i.i661:                                 ; preds = %if.then.i.i.i655
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_src12.sink.i177, i64 noundef 16, i64 noundef 0) #11
-  br label %_net_rx_rss_add_chunk.exit662
+if.else.i.i.i655:                                 ; preds = %if.then.i.i.i649
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_src12.i173, i64 noundef 16, i64 noundef 0) #11
+  br label %_net_rx_rss_add_chunk.exit656
 
-_net_rx_rss_add_chunk.exit662:                    ; preds = %trace_net_rx_pkt_rss_ip6_ex_udp.exit, %land.lhs.true5.i.i.i652, %if.then8.i.i.i657, %if.else.i.i.i661
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i646)
-  %rss_ex_dst_valid.i178 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 6
-  %302 = load i8, ptr %rss_ex_dst_valid.i178, align 2
+_net_rx_rss_add_chunk.exit656:                    ; preds = %trace_net_rx_pkt_rss_ip6_ex_udp.exit, %land.lhs.true5.i.i.i646, %if.then8.i.i.i651, %if.else.i.i.i655
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i640)
+  %rss_ex_dst_valid.i174 = getelementptr inbounds i8, ptr %pkt, i64 170
+  %302 = load i8, ptr %rss_ex_dst_valid.i174, align 2
   %303 = and i8 %302, 1
-  %tobool4.not.i179 = icmp eq i8 %303, 0
-  %rss_ex_dst.i181 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 7
-  %ip6_dst.i184 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 2, i32 2
-  %cond9.i182 = select i1 %tobool4.not.i179, ptr %ip6_dst.i184, ptr %rss_ex_dst.i181
-  %arrayidx.i630 = getelementptr inbounds i8, ptr %rss_input, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i630, ptr noundef nonnull align 1 dereferenceable(16) %cond9.i182, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i629)
+  %tobool4.not.i175 = icmp eq i8 %303, 0
+  %spec.select785 = select i1 %tobool4.not.i175, i64 136, i64 171
+  %ip6_dst.i177 = getelementptr inbounds i8, ptr %pkt, i64 %spec.select785
+  %arrayidx.i624 = getelementptr inbounds i8, ptr %rss_input, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx.i624, ptr noundef nonnull align 1 dereferenceable(16) %ip6_dst.i177, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i623)
   %304 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i631 = icmp ne i32 %304, 0
+  %tobool.i.i.i625 = icmp ne i32 %304, 0
   %305 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i632 = icmp ne i16 %305, 0
-  %or.cond.i.i.i633 = select i1 %tobool.i.i.i631, i1 %tobool4.i.i.i632, i1 false
-  br i1 %or.cond.i.i.i633, label %land.lhs.true5.i.i.i635, label %_net_rx_rss_add_chunk.exit645
+  %tobool4.i.i.i626 = icmp ne i16 %305, 0
+  %or.cond.i.i.i627 = select i1 %tobool.i.i.i625, i1 %tobool4.i.i.i626, i1 false
+  br i1 %or.cond.i.i.i627, label %land.lhs.true5.i.i.i629, label %_net_rx_rss_add_chunk.exit639
 
-land.lhs.true5.i.i.i635:                          ; preds = %_net_rx_rss_add_chunk.exit662
+land.lhs.true5.i.i.i629:                          ; preds = %_net_rx_rss_add_chunk.exit656
   %306 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i636 = and i32 %306, 32768
-  %cmp.i.not.i.i.i637 = icmp eq i32 %and.i.i.i.i636, 0
-  br i1 %cmp.i.not.i.i.i637, label %_net_rx_rss_add_chunk.exit645, label %if.then.i.i.i638
+  %and.i.i.i.i630 = and i32 %306, 32768
+  %cmp.i.not.i.i.i631 = icmp eq i32 %and.i.i.i.i630, 0
+  br i1 %cmp.i.not.i.i.i631, label %_net_rx_rss_add_chunk.exit639, label %if.then.i.i.i632
 
-if.then.i.i.i638:                                 ; preds = %land.lhs.true5.i.i.i635
+if.then.i.i.i632:                                 ; preds = %land.lhs.true5.i.i.i629
   %307 = load i8, ptr @message_with_timestamp, align 1
   %308 = and i8 %307, 1
-  %tobool7.not.i.i.i639 = icmp eq i8 %308, 0
-  br i1 %tobool7.not.i.i.i639, label %if.else.i.i.i644, label %if.then8.i.i.i640
+  %tobool7.not.i.i.i633 = icmp eq i8 %308, 0
+  br i1 %tobool7.not.i.i.i633, label %if.else.i.i.i638, label %if.then8.i.i.i634
 
-if.then8.i.i.i640:                                ; preds = %if.then.i.i.i638
-  %call9.i.i.i641 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i629, ptr noundef null) #11
-  %call10.i.i.i642 = tail call i32 @qemu_get_thread_id() #11
-  %309 = load i64, ptr %_now.i.i.i629, align 8
-  %tv_usec.i.i.i643 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i629, i64 0, i32 1
-  %310 = load i64, ptr %tv_usec.i.i.i643, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i642, i64 noundef %309, i64 noundef %310, ptr noundef nonnull %cond9.i182, i64 noundef 16, i64 noundef 16) #11
-  br label %_net_rx_rss_add_chunk.exit645
+if.then8.i.i.i634:                                ; preds = %if.then.i.i.i632
+  %call9.i.i.i635 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i623, ptr noundef null) #11
+  %call10.i.i.i636 = tail call i32 @qemu_get_thread_id() #11
+  %309 = load i64, ptr %_now.i.i.i623, align 8
+  %tv_usec.i.i.i637 = getelementptr inbounds i8, ptr %_now.i.i.i623, i64 8
+  %310 = load i64, ptr %tv_usec.i.i.i637, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i636, i64 noundef %309, i64 noundef %310, ptr noundef nonnull %ip6_dst.i177, i64 noundef 16, i64 noundef 16) #11
+  br label %_net_rx_rss_add_chunk.exit639
 
-if.else.i.i.i644:                                 ; preds = %if.then.i.i.i638
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %cond9.i182, i64 noundef 16, i64 noundef 16) #11
-  br label %_net_rx_rss_add_chunk.exit645
+if.else.i.i.i638:                                 ; preds = %if.then.i.i.i632
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %ip6_dst.i177, i64 noundef 16, i64 noundef 16) #11
+  br label %_net_rx_rss_add_chunk.exit639
 
-_net_rx_rss_add_chunk.exit645:                    ; preds = %_net_rx_rss_add_chunk.exit662, %land.lhs.true5.i.i.i635, %if.then8.i.i.i640, %if.else.i.i.i644
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i629)
-  %l4hdr_info.i186 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16
-  %arrayidx.i681 = getelementptr inbounds i8, ptr %rss_input, i64 32
-  %311 = load i16, ptr %l4hdr_info.i186, align 1
-  store i16 %311, ptr %arrayidx.i681, align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i680)
+_net_rx_rss_add_chunk.exit639:                    ; preds = %_net_rx_rss_add_chunk.exit656, %land.lhs.true5.i.i.i629, %if.then8.i.i.i634, %if.else.i.i.i638
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i623)
+  %l4hdr_info.i180 = getelementptr inbounds i8, ptr %pkt, i64 216
+  %arrayidx.i675 = getelementptr inbounds i8, ptr %rss_input, i64 32
+  %311 = load i16, ptr %l4hdr_info.i180, align 1
+  store i16 %311, ptr %arrayidx.i675, align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i674)
   %312 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i682 = icmp ne i32 %312, 0
+  %tobool.i.i.i676 = icmp ne i32 %312, 0
   %313 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i683 = icmp ne i16 %313, 0
-  %or.cond.i.i.i684 = select i1 %tobool.i.i.i682, i1 %tobool4.i.i.i683, i1 false
-  br i1 %or.cond.i.i.i684, label %land.lhs.true5.i.i.i686, label %_net_rx_rss_add_chunk.exit696
+  %tobool4.i.i.i677 = icmp ne i16 %313, 0
+  %or.cond.i.i.i678 = select i1 %tobool.i.i.i676, i1 %tobool4.i.i.i677, i1 false
+  br i1 %or.cond.i.i.i678, label %land.lhs.true5.i.i.i680, label %_net_rx_rss_add_chunk.exit690
 
-land.lhs.true5.i.i.i686:                          ; preds = %_net_rx_rss_add_chunk.exit645
+land.lhs.true5.i.i.i680:                          ; preds = %_net_rx_rss_add_chunk.exit639
   %314 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i687 = and i32 %314, 32768
-  %cmp.i.not.i.i.i688 = icmp eq i32 %and.i.i.i.i687, 0
-  br i1 %cmp.i.not.i.i.i688, label %_net_rx_rss_add_chunk.exit696, label %if.then.i.i.i689
+  %and.i.i.i.i681 = and i32 %314, 32768
+  %cmp.i.not.i.i.i682 = icmp eq i32 %and.i.i.i.i681, 0
+  br i1 %cmp.i.not.i.i.i682, label %_net_rx_rss_add_chunk.exit690, label %if.then.i.i.i683
 
-if.then.i.i.i689:                                 ; preds = %land.lhs.true5.i.i.i686
+if.then.i.i.i683:                                 ; preds = %land.lhs.true5.i.i.i680
   %315 = load i8, ptr @message_with_timestamp, align 1
   %316 = and i8 %315, 1
-  %tobool7.not.i.i.i690 = icmp eq i8 %316, 0
-  br i1 %tobool7.not.i.i.i690, label %if.else.i.i.i695, label %if.then8.i.i.i691
+  %tobool7.not.i.i.i684 = icmp eq i8 %316, 0
+  br i1 %tobool7.not.i.i.i684, label %if.else.i.i.i689, label %if.then8.i.i.i685
 
-if.then8.i.i.i691:                                ; preds = %if.then.i.i.i689
-  %call9.i.i.i692 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i680, ptr noundef null) #11
-  %call10.i.i.i693 = tail call i32 @qemu_get_thread_id() #11
-  %317 = load i64, ptr %_now.i.i.i680, align 8
-  %tv_usec.i.i.i694 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i680, i64 0, i32 1
-  %318 = load i64, ptr %tv_usec.i.i.i694, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i693, i64 noundef %317, i64 noundef %318, ptr noundef nonnull %l4hdr_info.i186, i64 noundef 2, i64 noundef 32) #11
-  br label %_net_rx_rss_add_chunk.exit696
+if.then8.i.i.i685:                                ; preds = %if.then.i.i.i683
+  %call9.i.i.i686 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i674, ptr noundef null) #11
+  %call10.i.i.i687 = tail call i32 @qemu_get_thread_id() #11
+  %317 = load i64, ptr %_now.i.i.i674, align 8
+  %tv_usec.i.i.i688 = getelementptr inbounds i8, ptr %_now.i.i.i674, i64 8
+  %318 = load i64, ptr %tv_usec.i.i.i688, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i687, i64 noundef %317, i64 noundef %318, ptr noundef nonnull %l4hdr_info.i180, i64 noundef 2, i64 noundef 32) #11
+  br label %_net_rx_rss_add_chunk.exit690
 
-if.else.i.i.i695:                                 ; preds = %if.then.i.i.i689
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %l4hdr_info.i186, i64 noundef 2, i64 noundef 32) #11
-  br label %_net_rx_rss_add_chunk.exit696
+if.else.i.i.i689:                                 ; preds = %if.then.i.i.i683
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %l4hdr_info.i180, i64 noundef 2, i64 noundef 32) #11
+  br label %_net_rx_rss_add_chunk.exit690
 
-_net_rx_rss_add_chunk.exit696:                    ; preds = %_net_rx_rss_add_chunk.exit645, %land.lhs.true5.i.i.i686, %if.then8.i.i.i691, %if.else.i.i.i695
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i680)
-  %uh_dport.i187 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 0, i32 0, i32 1
-  %arrayidx.i664 = getelementptr inbounds i8, ptr %rss_input, i64 34
-  %319 = load i16, ptr %uh_dport.i187, align 1
-  store i16 %319, ptr %arrayidx.i664, align 2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i663)
+_net_rx_rss_add_chunk.exit690:                    ; preds = %_net_rx_rss_add_chunk.exit639, %land.lhs.true5.i.i.i680, %if.then8.i.i.i685, %if.else.i.i.i689
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i674)
+  %uh_dport.i181 = getelementptr inbounds i8, ptr %pkt, i64 218
+  %arrayidx.i658 = getelementptr inbounds i8, ptr %rss_input, i64 34
+  %319 = load i16, ptr %uh_dport.i181, align 1
+  store i16 %319, ptr %arrayidx.i658, align 2
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i657)
   %320 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i665 = icmp ne i32 %320, 0
+  %tobool.i.i.i659 = icmp ne i32 %320, 0
   %321 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_ADD_CHUNK_DSTATE, align 2
-  %tobool4.i.i.i666 = icmp ne i16 %321, 0
-  %or.cond.i.i.i667 = select i1 %tobool.i.i.i665, i1 %tobool4.i.i.i666, i1 false
-  br i1 %or.cond.i.i.i667, label %land.lhs.true5.i.i.i669, label %_net_rx_rss_add_chunk.exit679
+  %tobool4.i.i.i660 = icmp ne i16 %321, 0
+  %or.cond.i.i.i661 = select i1 %tobool.i.i.i659, i1 %tobool4.i.i.i660, i1 false
+  br i1 %or.cond.i.i.i661, label %land.lhs.true5.i.i.i663, label %_net_rx_rss_add_chunk.exit673
 
-land.lhs.true5.i.i.i669:                          ; preds = %_net_rx_rss_add_chunk.exit696
+land.lhs.true5.i.i.i663:                          ; preds = %_net_rx_rss_add_chunk.exit690
   %322 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i670 = and i32 %322, 32768
-  %cmp.i.not.i.i.i671 = icmp eq i32 %and.i.i.i.i670, 0
-  br i1 %cmp.i.not.i.i.i671, label %_net_rx_rss_add_chunk.exit679, label %if.then.i.i.i672
+  %and.i.i.i.i664 = and i32 %322, 32768
+  %cmp.i.not.i.i.i665 = icmp eq i32 %and.i.i.i.i664, 0
+  br i1 %cmp.i.not.i.i.i665, label %_net_rx_rss_add_chunk.exit673, label %if.then.i.i.i666
 
-if.then.i.i.i672:                                 ; preds = %land.lhs.true5.i.i.i669
+if.then.i.i.i666:                                 ; preds = %land.lhs.true5.i.i.i663
   %323 = load i8, ptr @message_with_timestamp, align 1
   %324 = and i8 %323, 1
-  %tobool7.not.i.i.i673 = icmp eq i8 %324, 0
-  br i1 %tobool7.not.i.i.i673, label %if.else.i.i.i678, label %if.then8.i.i.i674
+  %tobool7.not.i.i.i667 = icmp eq i8 %324, 0
+  br i1 %tobool7.not.i.i.i667, label %if.else.i.i.i672, label %if.then8.i.i.i668
 
-if.then8.i.i.i674:                                ; preds = %if.then.i.i.i672
-  %call9.i.i.i675 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i663, ptr noundef null) #11
-  %call10.i.i.i676 = tail call i32 @qemu_get_thread_id() #11
-  %325 = load i64, ptr %_now.i.i.i663, align 8
-  %tv_usec.i.i.i677 = getelementptr inbounds %struct.timeval, ptr %_now.i.i.i663, i64 0, i32 1
-  %326 = load i64, ptr %tv_usec.i.i.i677, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i676, i64 noundef %325, i64 noundef %326, ptr noundef nonnull %uh_dport.i187, i64 noundef 2, i64 noundef 34) #11
-  br label %_net_rx_rss_add_chunk.exit679
+if.then8.i.i.i668:                                ; preds = %if.then.i.i.i666
+  %call9.i.i.i669 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i657, ptr noundef null) #11
+  %call10.i.i.i670 = tail call i32 @qemu_get_thread_id() #11
+  %325 = load i64, ptr %_now.i.i.i657, align 8
+  %tv_usec.i.i.i671 = getelementptr inbounds i8, ptr %_now.i.i.i657, i64 8
+  %326 = load i64, ptr %tv_usec.i.i.i671, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, i32 noundef %call10.i.i.i670, i64 noundef %325, i64 noundef %326, ptr noundef nonnull %uh_dport.i181, i64 noundef 2, i64 noundef 34) #11
+  br label %_net_rx_rss_add_chunk.exit673
 
-if.else.i.i.i678:                                 ; preds = %if.then.i.i.i672
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %uh_dport.i187, i64 noundef 2, i64 noundef 34) #11
-  br label %_net_rx_rss_add_chunk.exit679
+if.else.i.i.i672:                                 ; preds = %if.then.i.i.i666
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, ptr noundef nonnull %uh_dport.i181, i64 noundef 2, i64 noundef 34) #11
+  br label %_net_rx_rss_add_chunk.exit673
 
-_net_rx_rss_add_chunk.exit679:                    ; preds = %_net_rx_rss_add_chunk.exit696, %land.lhs.true5.i.i.i669, %if.then8.i.i.i674, %if.else.i.i.i678
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i663)
+_net_rx_rss_add_chunk.exit673:                    ; preds = %_net_rx_rss_add_chunk.exit690, %land.lhs.true5.i.i.i663, %if.then8.i.i.i668, %if.else.i.i.i672
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i657)
   br label %for.body.lr.ph.i
 
 sw.default:                                       ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 378, ptr noundef nonnull @__PRETTY_FUNCTION__.net_rx_pkt_calc_rss_hash) #12
   unreachable
 
-for.body.lr.ph.i:                                 ; preds = %_net_rx_rss_add_chunk.exit, %_net_rx_rss_add_chunk.exit271, %_net_rx_rss_add_chunk.exit339, %_net_rx_rss_add_chunk.exit373, %_net_rx_rss_add_chunk.exit407, %_net_rx_rss_add_chunk.exit475, %_net_rx_rss_add_chunk.exit543, %_net_rx_rss_add_chunk.exit611, %_net_rx_rss_add_chunk.exit679
-  %rss_length.0 = phi i64 [ 36, %_net_rx_rss_add_chunk.exit679 ], [ 36, %_net_rx_rss_add_chunk.exit611 ], [ 12, %_net_rx_rss_add_chunk.exit543 ], [ 36, %_net_rx_rss_add_chunk.exit475 ], [ 32, %_net_rx_rss_add_chunk.exit407 ], [ 32, %_net_rx_rss_add_chunk.exit373 ], [ 36, %_net_rx_rss_add_chunk.exit339 ], [ 12, %_net_rx_rss_add_chunk.exit271 ], [ 8, %_net_rx_rss_add_chunk.exit ]
+for.body.lr.ph.i:                                 ; preds = %_net_rx_rss_add_chunk.exit, %_net_rx_rss_add_chunk.exit265, %_net_rx_rss_add_chunk.exit333, %_net_rx_rss_add_chunk.exit367, %_net_rx_rss_add_chunk.exit401, %_net_rx_rss_add_chunk.exit469, %_net_rx_rss_add_chunk.exit537, %_net_rx_rss_add_chunk.exit605, %_net_rx_rss_add_chunk.exit673
+  %rss_length.0 = phi i64 [ 36, %_net_rx_rss_add_chunk.exit673 ], [ 36, %_net_rx_rss_add_chunk.exit605 ], [ 12, %_net_rx_rss_add_chunk.exit537 ], [ 36, %_net_rx_rss_add_chunk.exit469 ], [ 32, %_net_rx_rss_add_chunk.exit401 ], [ 32, %_net_rx_rss_add_chunk.exit367 ], [ 36, %_net_rx_rss_add_chunk.exit333 ], [ 12, %_net_rx_rss_add_chunk.exit265 ], [ 8, %_net_rx_rss_add_chunk.exit ]
   %327 = load i32, ptr %key, align 4
   %328 = tail call i32 @llvm.bswap.i32(i32 %327)
   %add.ptr.i = getelementptr i8, ptr %key, i64 4
@@ -2351,26 +2328,26 @@ for.body.lr.ph.i:                                 ; preds = %_net_rx_rss_add_chu
 
 for.body.i:                                       ; preds = %for.inc15.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc15.i ]
-  %incdec.ptr23.i = phi ptr [ %add.ptr.i, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc15.i ]
+  %329 = phi ptr [ %add.ptr.i, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc15.i ]
   %leftmost_32_bits.020.i = phi i32 [ %328, %for.body.lr.ph.i ], [ %or.i, %for.inc15.i ]
   %accumulator.019.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %spec.select.i, %for.inc15.i ]
   %arrayidx.i = getelementptr i8, ptr %rss_input, i64 %indvars.iv.i
-  %329 = load i8, ptr %arrayidx.i, align 1
-  %330 = load i8, ptr %incdec.ptr23.i, align 1
+  %330 = load i8, ptr %arrayidx.i, align 1
+  %331 = load i8, ptr %329, align 1
   br label %for.body5.i
 
 for.body5.i:                                      ; preds = %for.body5.i, %for.body.i
   %bit.017.i = phi i8 [ 0, %for.body.i ], [ %inc.i, %for.body5.i ]
-  %key_byte.016.i = phi i8 [ %330, %for.body.i ], [ %shl13.i, %for.body5.i ]
-  %input_byte.015.i = phi i8 [ %329, %for.body.i ], [ %shl10.i, %for.body5.i ]
+  %key_byte.016.i = phi i8 [ %331, %for.body.i ], [ %shl13.i, %for.body5.i ]
+  %input_byte.015.i = phi i8 [ %330, %for.body.i ], [ %shl10.i, %for.body5.i ]
   %leftmost_32_bits.114.i = phi i32 [ %leftmost_32_bits.020.i, %for.body.i ], [ %or.i, %for.body5.i ]
   %accumulator.113.i = phi i32 [ %accumulator.019.i, %for.body.i ], [ %spec.select.i, %for.body5.i ]
   %tobool.not12.i = icmp slt i8 %input_byte.015.i, 0
   %xor.i = select i1 %tobool.not12.i, i32 %leftmost_32_bits.114.i, i32 0
   %spec.select.i = xor i32 %xor.i, %accumulator.113.i
   %shl.i = shl i32 %leftmost_32_bits.114.i, 1
-  %331 = lshr i8 %key_byte.016.i, 7
-  %shr.i = zext nneg i8 %331 to i32
+  %332 = lshr i8 %key_byte.016.i, 7
+  %shr.i = zext nneg i8 %332 to i32
   %or.i = or disjoint i32 %shl.i, %shr.i
   %shl10.i = shl i8 %input_byte.015.i, 1
   %shl13.i = shl i8 %key_byte.016.i, 1
@@ -2379,47 +2356,47 @@ for.body5.i:                                      ; preds = %for.body5.i, %for.b
   br i1 %exitcond.not.i, label %for.inc15.i, label %for.body5.i, !llvm.loop !5
 
 for.inc15.i:                                      ; preds = %for.body5.i
-  %incdec.ptr.i = getelementptr i8, ptr %incdec.ptr23.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %329, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond25.not.i = icmp eq i64 %indvars.iv.next.i, %rss_length.0
-  br i1 %exitcond25.not.i, label %net_toeplitz_add.exit, label %for.body.i, !llvm.loop !7
+  %exitcond24.not.i = icmp eq i64 %indvars.iv.next.i, %rss_length.0
+  br i1 %exitcond24.not.i, label %net_toeplitz_add.exit, label %for.body.i, !llvm.loop !7
 
 net_toeplitz_add.exit:                            ; preds = %for.inc15.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i189)
-  %332 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i190 = icmp ne i32 %332, 0
-  %333 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_HASH_DSTATE, align 2
-  %tobool4.i.i191 = icmp ne i16 %333, 0
-  %or.cond.i.i192 = select i1 %tobool.i.i190, i1 %tobool4.i.i191, i1 false
-  br i1 %or.cond.i.i192, label %land.lhs.true5.i.i193, label %trace_net_rx_pkt_rss_hash.exit
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i183)
+  %333 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i184 = icmp ne i32 %333, 0
+  %334 = load i16, ptr @_TRACE_NET_RX_PKT_RSS_HASH_DSTATE, align 2
+  %tobool4.i.i185 = icmp ne i16 %334, 0
+  %or.cond.i.i186 = select i1 %tobool.i.i184, i1 %tobool4.i.i185, i1 false
+  br i1 %or.cond.i.i186, label %land.lhs.true5.i.i187, label %trace_net_rx_pkt_rss_hash.exit
 
-land.lhs.true5.i.i193:                            ; preds = %net_toeplitz_add.exit
-  %334 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i194 = and i32 %334, 32768
-  %cmp.i.not.i.i195 = icmp eq i32 %and.i.i.i194, 0
-  br i1 %cmp.i.not.i.i195, label %trace_net_rx_pkt_rss_hash.exit, label %if.then.i.i196
+land.lhs.true5.i.i187:                            ; preds = %net_toeplitz_add.exit
+  %335 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i188 = and i32 %335, 32768
+  %cmp.i.not.i.i189 = icmp eq i32 %and.i.i.i188, 0
+  br i1 %cmp.i.not.i.i189, label %trace_net_rx_pkt_rss_hash.exit, label %if.then.i.i190
 
-if.then.i.i196:                                   ; preds = %land.lhs.true5.i.i193
-  %335 = load i8, ptr @message_with_timestamp, align 1
-  %336 = and i8 %335, 1
-  %tobool7.not.i.i197 = icmp eq i8 %336, 0
-  br i1 %tobool7.not.i.i197, label %if.else.i.i202, label %if.then8.i.i198
+if.then.i.i190:                                   ; preds = %land.lhs.true5.i.i187
+  %336 = load i8, ptr @message_with_timestamp, align 1
+  %337 = and i8 %336, 1
+  %tobool7.not.i.i191 = icmp eq i8 %337, 0
+  br i1 %tobool7.not.i.i191, label %if.else.i.i196, label %if.then8.i.i192
 
-if.then8.i.i198:                                  ; preds = %if.then.i.i196
-  %call9.i.i199 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i189, ptr noundef null) #11
-  %call10.i.i200 = tail call i32 @qemu_get_thread_id() #11
-  %337 = load i64, ptr %_now.i.i189, align 8
-  %tv_usec.i.i201 = getelementptr inbounds %struct.timeval, ptr %_now.i.i189, i64 0, i32 1
-  %338 = load i64, ptr %tv_usec.i.i201, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i200, i64 noundef %337, i64 noundef %338, i64 noundef %rss_length.0, i32 noundef %spec.select.i) #11
+if.then8.i.i192:                                  ; preds = %if.then.i.i190
+  %call9.i.i193 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i183, ptr noundef null) #11
+  %call10.i.i194 = tail call i32 @qemu_get_thread_id() #11
+  %338 = load i64, ptr %_now.i.i183, align 8
+  %tv_usec.i.i195 = getelementptr inbounds i8, ptr %_now.i.i183, i64 8
+  %339 = load i64, ptr %tv_usec.i.i195, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.29, i32 noundef %call10.i.i194, i64 noundef %338, i64 noundef %339, i64 noundef %rss_length.0, i32 noundef %spec.select.i) #11
   br label %trace_net_rx_pkt_rss_hash.exit
 
-if.else.i.i202:                                   ; preds = %if.then.i.i196
+if.else.i.i196:                                   ; preds = %if.then.i.i190
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.30, i64 noundef %rss_length.0, i32 noundef %spec.select.i) #11
   br label %trace_net_rx_pkt_rss_hash.exit
 
-trace_net_rx_pkt_rss_hash.exit:                   ; preds = %net_toeplitz_add.exit, %land.lhs.true5.i.i193, %if.then8.i.i198, %if.else.i.i202
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i189)
+trace_net_rx_pkt_rss_hash.exit:                   ; preds = %net_toeplitz_add.exit, %land.lhs.true5.i.i187, %if.then8.i.i192, %if.else.i.i196
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i183)
   ret i32 %spec.select.i
 }
 
@@ -2434,14 +2411,14 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %hasip4 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 9
+  %hasip4 = getelementptr inbounds i8, ptr %pkt, i64 68
   %0 = load i8, ptr %hasip4, align 4
   %1 = and i8 %0, 1
   %tobool1.not = icmp eq i8 %1, 0
   br i1 %tobool1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %ip_id = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15, i32 0, i32 3
+  %ip_id = getelementptr inbounds i8, ptr %pkt, i64 196
   %2 = load i16, ptr %ip_id, align 4
   %3 = tail call i16 @llvm.bswap.i16(i16 %2)
   br label %return
@@ -2462,13 +2439,13 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %proto = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 1
+  %proto = getelementptr inbounds i8, ptr %pkt, i64 236
   %0 = load i32, ptr %proto, align 4
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then1, label %return
 
 if.then1:                                         ; preds = %if.end
-  %th_offset_flags = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 0, i32 0, i32 4
+  %th_offset_flags = getelementptr inbounds i8, ptr %pkt, i64 228
   %1 = load i16, ptr %th_offset_flags, align 4
   %2 = and i16 %1, 4096
   %tobool4 = icmp ne i16 %2, 0
@@ -2490,13 +2467,13 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %proto = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 1
+  %proto = getelementptr inbounds i8, ptr %pkt, i64 236
   %0 = load i32, ptr %proto, align 4
   %cmp = icmp eq i32 %0, 1
   br i1 %cmp, label %if.then1, label %return
 
 if.then1:                                         ; preds = %if.end
-  %has_tcp_data = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 2
+  %has_tcp_data = getelementptr inbounds i8, ptr %pkt, i64 240
   %1 = load i8, ptr %has_tcp_data, align 8
   %2 = and i8 %1, 1
   %tobool3 = icmp ne i8 %2, 0
@@ -2518,7 +2495,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %vec = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 2
+  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
   %0 = load ptr, ptr %vec, align 8
   ret ptr %0
 }
@@ -2534,7 +2511,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %vec_len = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 4
+  %vec_len = getelementptr inbounds i8, ptr %pkt, i64 42
   %0 = load i16, ptr %vec_len, align 2
   ret i16 %0
 }
@@ -2572,7 +2549,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.i.not, label %if.else.i, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %if.end
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %iov, i64 8
   %0 = load i64, ptr %iov_len.i, align 8
   %cmp5.not.i = icmp ult i64 %0, 10
   br i1 %cmp5.not.i, label %if.else.i, label %if.then.i
@@ -2619,7 +2596,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %ehdr_buf_len = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 7
+  %ehdr_buf_len = getelementptr inbounds i8, ptr %pkt, i64 56
   %0 = load i64, ptr %ehdr_buf_len, align 8
   %tobool1 = icmp ne i64 %0, 0
   ret i1 %tobool1
@@ -2636,7 +2613,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %tci = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 6
+  %tci = getelementptr inbounds i8, ptr %pkt, i64 48
   %0 = load i16, ptr %tci, align 8
   ret i16 %0
 }
@@ -2671,7 +2648,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.31, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #11
   br label %trace_net_rx_pkt_l3_csum_validate_entry.exit
@@ -2682,7 +2659,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_net_rx_pkt_l3_csum_validate_entry.exit:     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %hasip4 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 9
+  %hasip4 = getelementptr inbounds i8, ptr %pkt, i64 68
   %7 = load i8, ptr %hasip4, align 4
   %8 = and i8 %7, 1
   %tobool.not = icmp ne i8 %8, 0
@@ -2713,7 +2690,7 @@ if.then8.i.i20:                                   ; preds = %if.then.i.i18
   %call9.i.i21 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i11, ptr noundef null) #11
   %call10.i.i22 = tail call i32 @qemu_get_thread_id() #11
   %14 = load i64, ptr %_now.i.i11, align 8
-  %tv_usec.i.i23 = getelementptr inbounds %struct.timeval, ptr %_now.i.i11, i64 0, i32 1
+  %tv_usec.i.i23 = getelementptr inbounds i8, ptr %_now.i.i11, i64 8
   %15 = load i64, ptr %tv_usec.i.i23, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.33, i32 noundef %call10.i.i22, i64 noundef %14, i64 noundef %15) #11
   br label %trace_net_rx_pkt_l3_csum_validate_not_ip4.exit
@@ -2727,15 +2704,15 @@ trace_net_rx_pkt_l3_csum_validate_not_ip4.exit:   ; preds = %if.then, %land.lhs.
   br label %return
 
 if.end:                                           ; preds = %trace_net_rx_pkt_l3_csum_validate_entry.exit
-  %l4hdr_off = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 12
+  %l4hdr_off = getelementptr inbounds i8, ptr %pkt, i64 80
   %16 = load i64, ptr %l4hdr_off, align 8
-  %l3hdr_off = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 11
+  %l3hdr_off = getelementptr inbounds i8, ptr %pkt, i64 72
   %17 = load i64, ptr %l3hdr_off, align 8
   %sub = sub i64 %16, %17
   %conv = trunc i64 %sub to i32
-  %vec = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 2
+  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
   %18 = load ptr, ptr %vec, align 8
-  %vec_len = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 4
+  %vec_len = getelementptr inbounds i8, ptr %pkt, i64 42
   %19 = load i16, ptr %vec_len, align 2
   %conv1 = zext i16 %19 to i32
   %conv3 = trunc i64 %17 to i32
@@ -2769,7 +2746,7 @@ if.then8.i.i34:                                   ; preds = %if.then.i.i32
   %call9.i.i35 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i25, ptr noundef null) #11
   %call10.i.i36 = tail call i32 @qemu_get_thread_id() #11
   %26 = load i64, ptr %_now.i.i25, align 8
-  %tv_usec.i.i37 = getelementptr inbounds %struct.timeval, ptr %_now.i.i25, i64 0, i32 1
+  %tv_usec.i.i37 = getelementptr inbounds i8, ptr %_now.i.i25, i64 8
   %27 = load i64, ptr %tv_usec.i.i37, align 8
   %conv11.i.i = zext i16 %call4 to i32
   %conv13.i.i = zext i1 %cmp to i32
@@ -2828,7 +2805,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.37, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #11
   br label %trace_net_rx_pkt_l4_csum_validate_entry.exit
@@ -2839,14 +2816,14 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_net_rx_pkt_l4_csum_validate_entry.exit:     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %hasip4 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 9
+  %hasip4 = getelementptr inbounds i8, ptr %pkt, i64 68
   %7 = load i8, ptr %hasip4, align 4
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %trace_net_rx_pkt_l4_csum_validate_entry.exit
-  %fragment = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15, i32 1
+  %fragment = getelementptr inbounds i8, ptr %pkt, i64 212
   %9 = load i8, ptr %fragment, align 4
   %10 = and i8 %9, 1
   %tobool1.not = icmp eq i8 %10, 0
@@ -2877,7 +2854,7 @@ if.then8.i.i18:                                   ; preds = %if.then.i.i16
   %call9.i.i19 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i9, ptr noundef null) #11
   %call10.i.i20 = tail call i32 @qemu_get_thread_id() #11
   %16 = load i64, ptr %_now.i.i9, align 8
-  %tv_usec.i.i21 = getelementptr inbounds %struct.timeval, ptr %_now.i.i9, i64 0, i32 1
+  %tv_usec.i.i21 = getelementptr inbounds i8, ptr %_now.i.i9, i64 8
   %17 = load i64, ptr %tv_usec.i.i21, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.39, i32 noundef %call10.i.i20, i64 noundef %16, i64 noundef %17) #11
   br label %trace_net_rx_pkt_l4_csum_validate_ip4_fragment.exit
@@ -2891,7 +2868,7 @@ trace_net_rx_pkt_l4_csum_validate_ip4_fragment.exit: ; preds = %if.then, %land.l
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %trace_net_rx_pkt_l4_csum_validate_entry.exit
-  %proto = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 1
+  %proto = getelementptr inbounds i8, ptr %pkt, i64 236
   %18 = load i32, ptr %proto, align 4
   switch i32 %18, label %sw.default [
     i32 2, label %sw.bb
@@ -2930,7 +2907,7 @@ if.then8.i.i32:                                   ; preds = %if.then.i.i30
   %call9.i.i33 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i23, ptr noundef null) #11
   %call10.i.i34 = tail call i32 @qemu_get_thread_id() #11
   %25 = load i64, ptr %_now.i.i23, align 8
-  %tv_usec.i.i35 = getelementptr inbounds %struct.timeval, ptr %_now.i.i23, i64 0, i32 1
+  %tv_usec.i.i35 = getelementptr inbounds i8, ptr %_now.i.i23, i64 8
   %26 = load i64, ptr %tv_usec.i.i35, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.41, i32 noundef %call10.i.i34, i64 noundef %25, i64 noundef %26) #11
   br label %trace_net_rx_pkt_l4_csum_validate_udp_with_no_checksum.exit
@@ -2952,15 +2929,15 @@ sw.bb6:                                           ; preds = %sw.bb, %if.end
 sw.bb12:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %calculated.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %original.i)
-  %l4hdr_off.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 12
+  %l4hdr_off.i = getelementptr inbounds i8, ptr %pkt, i64 80
   %29 = load i64, ptr %l4hdr_off.i, align 8
-  %vec_len1.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 4
+  %vec_len1.i = getelementptr inbounds i8, ptr %pkt, i64 42
   %30 = load i16, ptr %vec_len1.i, align 2
   %conv.i = zext i16 %30 to i64
   store i32 0, ptr %calculated.i, align 4
-  %vec2.i = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 2
+  %vec2.i = getelementptr inbounds i8, ptr %pkt, i64 32
   %31 = load ptr, ptr %vec2.i, align 8
-  %iov_len55.i = getelementptr inbounds %struct.iovec, ptr %31, i64 0, i32 1
+  %iov_len55.i = getelementptr inbounds i8, ptr %31, i64 8
   %32 = load i64, ptr %iov_len55.i, align 8
   %cmp56.i = icmp ult i64 %32, %29
   br i1 %cmp56.i, label %for.body.i, label %for.end.i
@@ -2972,8 +2949,8 @@ for.body.i:                                       ; preds = %sw.bb12, %for.body.
   %off.057.i = phi i64 [ %sub.i, %for.body.i ], [ %29, %sw.bb12 ]
   %sub.i = sub i64 %off.057.i, %33
   %dec.i = add i64 %vec_len.058.i, -1
-  %incdec.ptr.i = getelementptr %struct.iovec, ptr %vec.059.i, i64 1
-  %iov_len.i = getelementptr %struct.iovec, ptr %vec.059.i, i64 1, i32 1
+  %incdec.ptr.i = getelementptr i8, ptr %vec.059.i, i64 16
+  %iov_len.i = getelementptr i8, ptr %vec.059.i, i64 24
   %34 = load i64, ptr %iov_len.i, align 8
   %cmp.i = icmp ult i64 %34, %sub.i
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !8
@@ -2983,7 +2960,7 @@ for.end.i:                                        ; preds = %for.body.i, %sw.bb1
   %off.0.lcssa.i = phi i64 [ %29, %sw.bb12 ], [ %sub.i, %for.body.i ]
   %vec_len.0.lcssa.i = phi i64 [ %conv.i, %sw.bb12 ], [ %dec.i, %for.body.i ]
   %.lcssa.i = phi i64 [ %32, %sw.bb12 ], [ %34, %for.body.i ]
-  %iov_len.le.i = getelementptr inbounds %struct.iovec, ptr %vec.0.lcssa54.i, i64 0, i32 1
+  %iov_len.le.i = getelementptr inbounds i8, ptr %vec.0.lcssa54.i, i64 8
   %add.i = add i64 %off.0.lcssa.i, 8
   %conv5.i = trunc i64 %vec_len.0.lcssa.i to i32
   %tobool.i.not.i = icmp eq i32 %conv5.i, 0
@@ -3042,7 +3019,7 @@ if.end10.i:                                       ; preds = %iov_from_buf.exit.i
   %call14.i = call i32 @crc32c(i32 noundef -1, ptr noundef %add.ptr.i, i32 noundef %conv13.i) #11
   store i32 %call14.i, ptr %calculated.i, align 4
   %xor.i = xor i32 %call14.i, -1
-  %add.ptr15.i = getelementptr %struct.iovec, ptr %vec.0.lcssa54.i, i64 1
+  %add.ptr15.i = getelementptr i8, ptr %vec.0.lcssa54.i, i64 16
   %sub16.i = add i64 %vec_len.0.lcssa.i, -1
   %call17.i = call i32 @iov_crc32c(i32 noundef %xor.i, ptr noundef %add.ptr15.i, i64 noundef %sub16.i) #11
   store i32 %call17.i, ptr %calculated.i, align 4
@@ -3099,7 +3076,7 @@ if.then8.i.i46:                                   ; preds = %if.then.i.i44
   %call9.i.i47 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i37, ptr noundef null) #11
   %call10.i.i48 = tail call i32 @qemu_get_thread_id() #11
   %50 = load i64, ptr %_now.i.i37, align 8
-  %tv_usec.i.i49 = getelementptr inbounds %struct.timeval, ptr %_now.i.i37, i64 0, i32 1
+  %tv_usec.i.i49 = getelementptr inbounds i8, ptr %_now.i.i37, i64 8
   %51 = load i64, ptr %tv_usec.i.i49, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %call10.i.i48, i64 noundef %50, i64 noundef %51) #11
   br label %trace_net_rx_pkt_l4_csum_validate_not_xxp.exit
@@ -3140,7 +3117,7 @@ if.then8.i.i60:                                   ; preds = %if.then.i.i58
   %call9.i.i61 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i51, ptr noundef null) #11
   %call10.i.i62 = call i32 @qemu_get_thread_id() #11
   %57 = load i64, ptr %_now.i.i51, align 8
-  %tv_usec.i.i63 = getelementptr inbounds %struct.timeval, ptr %_now.i.i51, i64 0, i32 1
+  %tv_usec.i.i63 = getelementptr inbounds i8, ptr %_now.i.i51, i64 8
   %58 = load i64, ptr %tv_usec.i.i63, align 8
   %conv12.i.i = zext i1 %storemerge.in to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %call10.i.i62, i64 noundef %57, i64 noundef %58, i32 noundef %conv12.i.i) #11
@@ -3196,7 +3173,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.43, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #11
   br label %trace_net_rx_pkt_l4_csum_calc_entry.exit
@@ -3207,11 +3184,11 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_net_rx_pkt_l4_csum_calc_entry.exit:         ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %hasip4 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 9
+  %hasip4 = getelementptr inbounds i8, ptr %pkt, i64 68
   %7 = load i8, ptr %hasip4, align 4
   %8 = and i8 %7, 1
   %tobool.not = icmp eq i8 %8, 0
-  %proto13 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 1
+  %proto13 = getelementptr inbounds i8, ptr %pkt, i64 236
   %9 = load i32, ptr %proto13, align 4
   %cmp14 = icmp eq i32 %9, 2
   br i1 %tobool.not, label %if.else11, label %if.then
@@ -3220,7 +3197,7 @@ if.then:                                          ; preds = %trace_net_rx_pkt_l4
   br i1 %cmp14, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.then
-  %uh_ulen = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 0, i32 0, i32 2
+  %uh_ulen = getelementptr inbounds i8, ptr %pkt, i64 220
   %10 = load i16, ptr %uh_ulen, align 4
   %11 = tail call i16 @llvm.bswap.i16(i16 %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i27)
@@ -3247,7 +3224,7 @@ if.then8.i.i36:                                   ; preds = %if.then.i.i34
   %call9.i.i37 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i27, ptr noundef null) #11
   %call10.i.i38 = tail call i32 @qemu_get_thread_id() #11
   %17 = load i64, ptr %_now.i.i27, align 8
-  %tv_usec.i.i39 = getelementptr inbounds %struct.timeval, ptr %_now.i.i27, i64 0, i32 1
+  %tv_usec.i.i39 = getelementptr inbounds i8, ptr %_now.i.i27, i64 8
   %18 = load i64, ptr %tv_usec.i.i39, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i38, i64 noundef %17, i64 noundef %18) #11
   br label %trace_net_rx_pkt_l4_csum_calc_ip4_udp.exit
@@ -3261,8 +3238,8 @@ trace_net_rx_pkt_l4_csum_calc_ip4_udp.exit:       ; preds = %if.then1, %land.lhs
   br label %if.end
 
 if.else:                                          ; preds = %if.then
-  %ip4hdr_info = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15
-  %ip_len = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15, i32 0, i32 2
+  %ip4hdr_info = getelementptr inbounds i8, ptr %pkt, i64 192
+  %ip_len = getelementptr inbounds i8, ptr %pkt, i64 194
   %19 = load i16, ptr %ip_len, align 2
   %20 = tail call i16 @llvm.bswap.i16(i16 %19)
   %ip4hdr_info.val = load i8, ptr %ip4hdr_info, align 1
@@ -3294,7 +3271,7 @@ if.then8.i.i50:                                   ; preds = %if.then.i.i48
   %call9.i.i51 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i41, ptr noundef null) #11
   %call10.i.i52 = tail call i32 @qemu_get_thread_id() #11
   %28 = load i64, ptr %_now.i.i41, align 8
-  %tv_usec.i.i53 = getelementptr inbounds %struct.timeval, ptr %_now.i.i41, i64 0, i32 1
+  %tv_usec.i.i53 = getelementptr inbounds i8, ptr %_now.i.i41, i64 8
   %29 = load i64, ptr %tv_usec.i.i53, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i52, i64 noundef %28, i64 noundef %29) #11
   br label %trace_net_rx_pkt_l4_csum_calc_ip4_tcp.exit
@@ -3309,7 +3286,7 @@ trace_net_rx_pkt_l4_csum_calc_ip4_tcp.exit:       ; preds = %if.else, %land.lhs.
 
 if.end:                                           ; preds = %trace_net_rx_pkt_l4_csum_calc_ip4_tcp.exit, %trace_net_rx_pkt_l4_csum_calc_ip4_udp.exit
   %csl.0 = phi i16 [ %11, %trace_net_rx_pkt_l4_csum_calc_ip4_udp.exit ], [ %conv7, %trace_net_rx_pkt_l4_csum_calc_ip4_tcp.exit ]
-  %ip4hdr_info8 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15
+  %ip4hdr_info8 = getelementptr inbounds i8, ptr %pkt, i64 192
   %call10 = call i32 @eth_calc_ip4_pseudo_hdr_csum(ptr noundef nonnull %ip4hdr_info8, i16 noundef zeroext %csl.0, ptr noundef nonnull %cso) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i55)
   %30 = load i32, ptr @trace_events_enabled_count, align 4
@@ -3335,7 +3312,7 @@ if.then8.i.i64:                                   ; preds = %if.then.i.i62
   %call9.i.i65 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i55, ptr noundef null) #11
   %call10.i.i66 = call i32 @qemu_get_thread_id() #11
   %35 = load i64, ptr %_now.i.i55, align 8
-  %tv_usec.i.i67 = getelementptr inbounds %struct.timeval, ptr %_now.i.i55, i64 0, i32 1
+  %tv_usec.i.i67 = getelementptr inbounds i8, ptr %_now.i.i55, i64 8
   %36 = load i64, ptr %tv_usec.i.i67, align 8
   %conv11.i.i = zext i16 %csl.0 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i66, i64 noundef %35, i64 noundef %36, i32 noundef %call10, i32 noundef %conv11.i.i) #11
@@ -3354,7 +3331,7 @@ if.else11:                                        ; preds = %trace_net_rx_pkt_l4
   br i1 %cmp14, label %if.then16, label %if.else21
 
 if.then16:                                        ; preds = %if.else11
-  %uh_ulen19 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 0, i32 0, i32 2
+  %uh_ulen19 = getelementptr inbounds i8, ptr %pkt, i64 220
   %37 = load i16, ptr %uh_ulen19, align 4
   %38 = tail call i16 @llvm.bswap.i16(i16 %37)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i69)
@@ -3381,7 +3358,7 @@ if.then8.i.i78:                                   ; preds = %if.then.i.i76
   %call9.i.i79 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i69, ptr noundef null) #11
   %call10.i.i80 = tail call i32 @qemu_get_thread_id() #11
   %44 = load i64, ptr %_now.i.i69, align 8
-  %tv_usec.i.i81 = getelementptr inbounds %struct.timeval, ptr %_now.i.i69, i64 0, i32 1
+  %tv_usec.i.i81 = getelementptr inbounds i8, ptr %_now.i.i69, i64 8
   %45 = load i64, ptr %tv_usec.i.i81, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.51, i32 noundef %call10.i.i80, i64 noundef %44, i64 noundef %45) #11
   br label %trace_net_rx_pkt_l4_csum_calc_ip6_udp.exit
@@ -3395,12 +3372,12 @@ trace_net_rx_pkt_l4_csum_calc_ip6_udp.exit:       ; preds = %if.then16, %land.lh
   br label %if.end28
 
 if.else21:                                        ; preds = %if.else11
-  %l4hdr_off = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 12
+  %l4hdr_off = getelementptr inbounds i8, ptr %pkt, i64 80
   %46 = load i64, ptr %l4hdr_off, align 8
-  %l3hdr_off = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 11
+  %l3hdr_off = getelementptr inbounds i8, ptr %pkt, i64 72
   %47 = load i64, ptr %l3hdr_off, align 8
   %sub22.neg = sub i64 %47, %46
-  %ip6_un1_plen = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 2, i32 0, i32 0, i32 1
+  %ip6_un1_plen = getelementptr inbounds i8, ptr %pkt, i64 116
   %48 = load i16, ptr %ip6_un1_plen, align 4
   %49 = tail call i16 @llvm.bswap.i16(i16 %48)
   %50 = trunc i64 %sub22.neg to i16
@@ -3430,7 +3407,7 @@ if.then8.i.i92:                                   ; preds = %if.then.i.i90
   %call9.i.i93 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i83, ptr noundef null) #11
   %call10.i.i94 = tail call i32 @qemu_get_thread_id() #11
   %57 = load i64, ptr %_now.i.i83, align 8
-  %tv_usec.i.i95 = getelementptr inbounds %struct.timeval, ptr %_now.i.i83, i64 0, i32 1
+  %tv_usec.i.i95 = getelementptr inbounds i8, ptr %_now.i.i83, i64 8
   %58 = load i64, ptr %tv_usec.i.i95, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.53, i32 noundef %call10.i.i94, i64 noundef %57, i64 noundef %58) #11
   br label %trace_net_rx_pkt_l4_csum_calc_ip6_tcp.exit
@@ -3445,8 +3422,8 @@ trace_net_rx_pkt_l4_csum_calc_ip6_tcp.exit:       ; preds = %if.else21, %land.lh
 
 if.end28:                                         ; preds = %trace_net_rx_pkt_l4_csum_calc_ip6_tcp.exit, %trace_net_rx_pkt_l4_csum_calc_ip6_udp.exit
   %csl.1 = phi i16 [ %38, %trace_net_rx_pkt_l4_csum_calc_ip6_udp.exit ], [ %conv27, %trace_net_rx_pkt_l4_csum_calc_ip6_tcp.exit ]
-  %ip6hdr_info29 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14
-  %ip6_hdr30 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 14, i32 2
+  %ip6hdr_info29 = getelementptr inbounds i8, ptr %pkt, i64 96
+  %ip6_hdr30 = getelementptr inbounds i8, ptr %pkt, i64 112
   %59 = load i8, ptr %ip6hdr_info29, align 8
   %call32 = call i32 @eth_calc_ip6_pseudo_hdr_csum(ptr noundef nonnull %ip6_hdr30, i16 noundef zeroext %csl.1, i8 noundef zeroext %59, ptr noundef nonnull %cso) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i97)
@@ -3473,7 +3450,7 @@ if.then8.i.i106:                                  ; preds = %if.then.i.i104
   %call9.i.i107 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i97, ptr noundef null) #11
   %call10.i.i108 = call i32 @qemu_get_thread_id() #11
   %65 = load i64, ptr %_now.i.i97, align 8
-  %tv_usec.i.i109 = getelementptr inbounds %struct.timeval, ptr %_now.i.i97, i64 0, i32 1
+  %tv_usec.i.i109 = getelementptr inbounds i8, ptr %_now.i.i97, i64 8
   %66 = load i64, ptr %tv_usec.i.i109, align 8
   %conv11.i.i110 = zext i16 %csl.1 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.49, i32 noundef %call10.i.i108, i64 noundef %65, i64 noundef %66, i32 noundef %call32, i32 noundef %conv11.i.i110) #11
@@ -3491,12 +3468,12 @@ trace_net_rx_pkt_l4_csum_calc_ph_csum.exit113:    ; preds = %if.end28, %land.lhs
 if.end33:                                         ; preds = %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit113, %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit
   %csl.2 = phi i16 [ %csl.0, %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit ], [ %csl.1, %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit113 ]
   %cntr.0 = phi i32 [ %call10, %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit ], [ %call32, %trace_net_rx_pkt_l4_csum_calc_ph_csum.exit113 ]
-  %vec = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 2
+  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
   %67 = load ptr, ptr %vec, align 8
-  %vec_len = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 4
+  %vec_len = getelementptr inbounds i8, ptr %pkt, i64 42
   %68 = load i16, ptr %vec_len, align 2
   %conv34 = zext i16 %68 to i32
-  %l4hdr_off35 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 12
+  %l4hdr_off35 = getelementptr inbounds i8, ptr %pkt, i64 80
   %69 = load i64, ptr %l4hdr_off35, align 8
   %conv36 = trunc i64 %69 to i32
   %conv37 = zext i16 %csl.2 to i32
@@ -3531,7 +3508,7 @@ if.then8.i.i123:                                  ; preds = %if.then.i.i121
   %call9.i.i124 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i114, ptr noundef null) #11
   %call10.i.i125 = call i32 @qemu_get_thread_id() #11
   %77 = load i64, ptr %_now.i.i114, align 8
-  %tv_usec.i.i126 = getelementptr inbounds %struct.timeval, ptr %_now.i.i114, i64 0, i32 1
+  %tv_usec.i.i126 = getelementptr inbounds i8, ptr %_now.i.i114, i64 8
   %78 = load i64, ptr %tv_usec.i.i126, align 8
   %conv12.i.i128 = zext i16 %narrow.i to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.55, i32 noundef %call10.i.i125, i64 noundef %77, i64 noundef %78, i64 noundef %71, i32 noundef %conv37, i32 noundef %add, i32 noundef %conv12.i.i128) #11
@@ -3583,7 +3560,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #11
   %call10.i.i = tail call i32 @qemu_get_thread_id() #11
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds %struct.timeval, ptr %_now.i.i, i64 0, i32 1
+  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #11
   br label %trace_net_rx_pkt_l4_csum_fix_entry.exit
@@ -3594,7 +3571,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_net_rx_pkt_l4_csum_fix_entry.exit:          ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %proto = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 16, i32 1
+  %proto = getelementptr inbounds i8, ptr %pkt, i64 236
   %7 = load i32, ptr %proto, align 4
   switch i32 %7, label %sw.default [
     i32 1, label %sw.bb
@@ -3626,7 +3603,7 @@ if.then8.i.i25:                                   ; preds = %if.then.i.i23
   %call9.i.i26 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i16, ptr noundef null) #11
   %call10.i.i27 = tail call i32 @qemu_get_thread_id() #11
   %13 = load i64, ptr %_now.i.i16, align 8
-  %tv_usec.i.i28 = getelementptr inbounds %struct.timeval, ptr %_now.i.i16, i64 0, i32 1
+  %tv_usec.i.i28 = getelementptr inbounds i8, ptr %_now.i.i16, i64 8
   %14 = load i64, ptr %tv_usec.i.i28, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i27, i64 noundef %13, i64 noundef %14, i32 noundef 16) #11
   br label %trace_net_rx_pkt_l4_csum_fix_tcp.exit
@@ -3670,7 +3647,7 @@ if.then8.i.i39:                                   ; preds = %if.then.i.i37
   %call9.i.i40 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i30, ptr noundef null) #11
   %call10.i.i41 = tail call i32 @qemu_get_thread_id() #11
   %21 = load i64, ptr %_now.i.i30, align 8
-  %tv_usec.i.i42 = getelementptr inbounds %struct.timeval, ptr %_now.i.i30, i64 0, i32 1
+  %tv_usec.i.i42 = getelementptr inbounds i8, ptr %_now.i.i30, i64 8
   %22 = load i64, ptr %tv_usec.i.i42, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.65, i32 noundef %call10.i.i41, i64 noundef %21, i64 noundef %22) #11
   br label %trace_net_rx_pkt_l4_csum_fix_udp_with_no_checksum.exit
@@ -3708,7 +3685,7 @@ if.then8.i.i53:                                   ; preds = %if.then.i.i51
   %call9.i.i54 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i44, ptr noundef null) #11
   %call10.i.i55 = tail call i32 @qemu_get_thread_id() #11
   %28 = load i64, ptr %_now.i.i44, align 8
-  %tv_usec.i.i56 = getelementptr inbounds %struct.timeval, ptr %_now.i.i44, i64 0, i32 1
+  %tv_usec.i.i56 = getelementptr inbounds i8, ptr %_now.i.i44, i64 8
   %29 = load i64, ptr %tv_usec.i.i56, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.67, i32 noundef %call10.i.i55, i64 noundef %28, i64 noundef %29, i32 noundef 6) #11
   br label %trace_net_rx_pkt_l4_csum_fix_udp.exit
@@ -3746,7 +3723,7 @@ if.then8.i.i67:                                   ; preds = %if.then.i.i65
   %call9.i.i68 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i58, ptr noundef null) #11
   %call10.i.i69 = tail call i32 @qemu_get_thread_id() #11
   %35 = load i64, ptr %_now.i.i58, align 8
-  %tv_usec.i.i70 = getelementptr inbounds %struct.timeval, ptr %_now.i.i58, i64 0, i32 1
+  %tv_usec.i.i70 = getelementptr inbounds i8, ptr %_now.i.i58, i64 8
   %36 = load i64, ptr %tv_usec.i.i70, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.69, i32 noundef %call10.i.i69, i64 noundef %35, i64 noundef %36) #11
   br label %trace_net_rx_pkt_l4_csum_fix_not_xxp.exit
@@ -3761,14 +3738,14 @@ trace_net_rx_pkt_l4_csum_fix_not_xxp.exit:        ; preds = %sw.default, %land.l
 
 sw.epilog:                                        ; preds = %trace_net_rx_pkt_l4_csum_fix_udp.exit, %trace_net_rx_pkt_l4_csum_fix_tcp.exit
   %l4_cso.0 = phi i64 [ 6, %trace_net_rx_pkt_l4_csum_fix_udp.exit ], [ 16, %trace_net_rx_pkt_l4_csum_fix_tcp.exit ]
-  %hasip4 = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 9
+  %hasip4 = getelementptr inbounds i8, ptr %pkt, i64 68
   %37 = load i8, ptr %hasip4, align 4
   %38 = and i8 %37, 1
   %tobool.not = icmp eq i8 %38, 0
   br i1 %tobool.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sw.epilog
-  %fragment = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 15, i32 1
+  %fragment = getelementptr inbounds i8, ptr %pkt, i64 212
   %39 = load i8, ptr %fragment, align 4
   %40 = and i8 %39, 1
   %tobool5.not = icmp eq i8 %40, 0
@@ -3799,7 +3776,7 @@ if.then8.i.i81:                                   ; preds = %if.then.i.i79
   %call9.i.i82 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i72, ptr noundef null) #11
   %call10.i.i83 = tail call i32 @qemu_get_thread_id() #11
   %46 = load i64, ptr %_now.i.i72, align 8
-  %tv_usec.i.i84 = getelementptr inbounds %struct.timeval, ptr %_now.i.i72, i64 0, i32 1
+  %tv_usec.i.i84 = getelementptr inbounds i8, ptr %_now.i.i72, i64 8
   %47 = load i64, ptr %tv_usec.i.i84, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.71, i32 noundef %call10.i.i83, i64 noundef %46, i64 noundef %47) #11
   br label %trace_net_rx_pkt_l4_csum_fix_ip4_fragment.exit
@@ -3813,19 +3790,19 @@ trace_net_rx_pkt_l4_csum_fix_ip4_fragment.exit:   ; preds = %if.then7, %land.lhs
   br label %return
 
 if.end8:                                          ; preds = %land.lhs.true, %sw.epilog
-  %vec = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 2
+  %vec = getelementptr inbounds i8, ptr %pkt, i64 32
   %48 = load ptr, ptr %vec, align 8
-  %vec_len = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 4
+  %vec_len = getelementptr inbounds i8, ptr %pkt, i64 42
   %49 = load i16, ptr %vec_len, align 2
   %conv9 = zext i16 %49 to i32
-  %l4hdr_off = getelementptr inbounds %struct.NetRxPkt, ptr %pkt, i64 0, i32 12
+  %l4hdr_off = getelementptr inbounds i8, ptr %pkt, i64 80
   %50 = load i64, ptr %l4hdr_off, align 8
   %add = add i64 %50, %l4_cso.0
   %tobool.i.not = icmp eq i16 %49, 0
   br i1 %tobool.i.not, label %if.else.i, label %land.lhs.true1.i
 
 land.lhs.true1.i:                                 ; preds = %if.end8
-  %iov_len.i = getelementptr inbounds %struct.iovec, ptr %48, i64 0, i32 1
+  %iov_len.i = getelementptr inbounds i8, ptr %48, i64 8
   %51 = load i64, ptr %iov_len.i, align 8
   %cmp.not.i = icmp ult i64 %51, %add
   %sub.i = sub i64 %51, %add
@@ -3856,7 +3833,7 @@ iov_from_buf.exit:                                ; preds = %if.then.i, %if.else
   br i1 %tobool.i86.not, label %if.else.i87, label %land.lhs.true1.i90
 
 land.lhs.true1.i90:                               ; preds = %iov_from_buf.exit
-  %iov_len.i91 = getelementptr inbounds %struct.iovec, ptr %54, i64 0, i32 1
+  %iov_len.i91 = getelementptr inbounds i8, ptr %54, i64 8
   %57 = load i64, ptr %iov_len.i91, align 8
   %cmp.not.i92 = icmp ult i64 %57, %add18
   %sub.i93 = sub i64 %57, %add18
@@ -3903,7 +3880,7 @@ if.then8.i.i108:                                  ; preds = %if.then.i.i106
   %call9.i.i109 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i99, ptr noundef null) #11
   %call10.i.i110 = call i32 @qemu_get_thread_id() #11
   %66 = load i64, ptr %_now.i.i99, align 8
-  %tv_usec.i.i111 = getelementptr inbounds %struct.timeval, ptr %_now.i.i99, i64 0, i32 1
+  %tv_usec.i.i111 = getelementptr inbounds i8, ptr %_now.i.i99, i64 8
   %67 = load i64, ptr %tv_usec.i.i111, align 8
   %conv11.i.i = zext i16 %60 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i110, i64 noundef %66, i64 noundef %67, i32 noundef %conv23, i32 noundef %conv11.i.i) #11

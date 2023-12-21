@@ -866,9 +866,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.3 = type { i32 }
 %struct._py_trashcan = type { i32, ptr }
 %struct._err_stackitem = type { ptr, ptr }
-%struct.seqiterobject = type { %struct._object, i64, ptr }
-%struct.calliterobject = type { %struct._object, ptr, ptr }
-%struct.anextawaitableobject = type { %struct._object, ptr, ptr }
 
 @.str = private unnamed_addr constant [32 x i8] c"../cpython/Objects/iterobject.c\00", align 1
 @PySeqIter_Type = dso_local global %struct._typeobject { %struct.PyVarObject { %struct._object { %union.anon { i64 4294967295 }, ptr @PyType_Type }, i64 0 }, ptr @.str.1, i64 32, i64 0, ptr @iter_dealloc, i64 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @PyObject_GenericGetAttr, ptr null, ptr null, i64 16384, ptr null, ptr @iter_traverse, ptr null, ptr null, i64 0, ptr @PyObject_SelfIter, ptr @iter_iternext, ptr @seqiter_methods, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i64 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, i8 0 }, align 8
@@ -927,7 +924,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %it_index = getelementptr inbounds %struct.seqiterobject, ptr %call1, i64 0, i32 1
+  %it_index = getelementptr inbounds i8, ptr %call1, i64 16
   store i64 0, ptr %it_index, align 8
   %0 = load i32, ptr %seq, align 8
   %add.i.i = add i32 %0, 1
@@ -939,16 +936,16 @@ if.end.i.i:                                       ; preds = %if.end3
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end3, %if.end.i.i
-  %it_seq = getelementptr inbounds %struct.seqiterobject, ptr %call1, i64 0, i32 2
+  %it_seq = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr %seq, ptr %it_seq, align 8
   %add.ptr.i.i = getelementptr i8, ptr %call1, i64 -16
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %2 = load ptr, ptr %1, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %2, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %3, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %3, i64 1096
   %4 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %4, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i64, ptr %_gc_prev.i, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = ptrtoint ptr %add.ptr.i.i to i64
@@ -985,7 +982,7 @@ entry:
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %2 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %1, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %2, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %3, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -994,7 +991,7 @@ entry:
   %4 = load i64, ptr %0, align 8
   %and.i = and i64 %4, 1
   store i64 %and.i, ptr %0, align 8
-  %it_seq = getelementptr inbounds %struct.seqiterobject, ptr %it, i64 0, i32 2
+  %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %5 = load ptr, ptr %it_seq, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -1025,7 +1022,7 @@ declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @iter_traverse(ptr nocapture noundef readonly %it, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %it_seq = getelementptr inbounds %struct.seqiterobject, ptr %it, i64 0, i32 2
+  %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -1048,13 +1045,13 @@ declare ptr @PyObject_SelfIter(ptr noundef) #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @iter_iternext(ptr nocapture noundef %iterator) #0 {
 entry:
-  %it_seq = getelementptr inbounds %struct.seqiterobject, ptr %iterator, i64 0, i32 2
+  %it_seq = getelementptr inbounds i8, ptr %iterator, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %it_index = getelementptr inbounds %struct.seqiterobject, ptr %iterator, i64 0, i32 1
+  %it_index = getelementptr inbounds i8, ptr %iterator, i64 16
   %1 = load i64, ptr %it_index, align 8
   %cmp1 = icmp eq i64 %1, 9223372036854775807
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -1128,7 +1125,7 @@ if.end.i.i:                                       ; preds = %if.end
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end, %if.end.i.i
-  %it_callable = getelementptr inbounds %struct.calliterobject, ptr %call, i64 0, i32 1
+  %it_callable = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %callable, ptr %it_callable, align 8
   %1 = load i32, ptr %sentinel, align 8
   %add.i.i5 = add i32 %1, 1
@@ -1140,16 +1137,16 @@ if.end.i.i7:                                      ; preds = %_Py_NewRef.exit
   br label %_Py_NewRef.exit8
 
 _Py_NewRef.exit8:                                 ; preds = %_Py_NewRef.exit, %if.end.i.i7
-  %it_sentinel = getelementptr inbounds %struct.calliterobject, ptr %call, i64 0, i32 2
+  %it_sentinel = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %sentinel, ptr %it_sentinel, align 8
   %add.ptr.i.i = getelementptr i8, ptr %call, i64 -16
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %3, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %4, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %4, i64 1096
   %5 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %5, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %_gc_prev.i, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = ptrtoint ptr %add.ptr.i.i to i64
@@ -1179,7 +1176,7 @@ entry:
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %2 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %1, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %2, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %3, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -1188,7 +1185,7 @@ entry:
   %4 = load i64, ptr %0, align 8
   %and.i = and i64 %4, 1
   store i64 %and.i, ptr %0, align 8
-  %it_callable = getelementptr inbounds %struct.calliterobject, ptr %it, i64 0, i32 1
+  %it_callable = getelementptr inbounds i8, ptr %it, i64 16
   %5 = load ptr, ptr %it_callable, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -1210,7 +1207,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %it_sentinel = getelementptr inbounds %struct.calliterobject, ptr %it, i64 0, i32 2
+  %it_sentinel = getelementptr inbounds i8, ptr %it, i64 24
   %8 = load ptr, ptr %it_sentinel, align 8
   %cmp.not.i4 = icmp eq ptr %8, null
   br i1 %cmp.not.i4, label %Py_XDECREF.exit11, label %if.then.i5
@@ -1239,7 +1236,7 @@ Py_XDECREF.exit11:                                ; preds = %Py_XDECREF.exit, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @calliter_traverse(ptr nocapture noundef readonly %it, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %it_callable = getelementptr inbounds %struct.calliterobject, ptr %it, i64 0, i32 1
+  %it_callable = getelementptr inbounds i8, ptr %it, i64 16
   %0 = load ptr, ptr %it_callable, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.body5, label %if.then
@@ -1250,7 +1247,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %do.body5, label %return
 
 do.body5:                                         ; preds = %if.then, %entry
-  %it_sentinel = getelementptr inbounds %struct.calliterobject, ptr %it, i64 0, i32 2
+  %it_sentinel = getelementptr inbounds i8, ptr %it, i64 24
   %1 = load ptr, ptr %it_sentinel, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %do.end15, label %if.then7
@@ -1271,7 +1268,7 @@ return:                                           ; preds = %if.then7, %if.then,
 ; Function Attrs: nounwind uwtable
 define internal ptr @calliter_iternext(ptr nocapture noundef %it) #0 {
 entry:
-  %it_callable = getelementptr inbounds %struct.calliterobject, ptr %it, i64 0, i32 1
+  %it_callable = getelementptr inbounds i8, ptr %it, i64 16
   %0 = load ptr, ptr %it_callable, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %if.end
@@ -1288,7 +1285,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_PyVectorcall_FunctionInline.exit.i.i
 
 _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %if.end
-  %tp_vectorcall_offset.i.i.i = getelementptr inbounds %struct._typeobject, ptr %callable.val.i.i.i, i64 0, i32 5
+  %tp_vectorcall_offset.i.i.i = getelementptr inbounds i8, ptr %callable.val.i.i.i, i64 56
   %6 = load i64, ptr %tp_vectorcall_offset.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr i8, ptr %0, i64 %6
   %ptr.0.copyload.i.i.i = load ptr, ptr %add.ptr.i.i.i, align 1
@@ -1310,7 +1307,7 @@ _PyObject_CallNoArgs.exit:                        ; preds = %if.then.i.i, %if.en
   br i1 %cmp2.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_PyObject_CallNoArgs.exit
-  %it_sentinel = getelementptr inbounds %struct.calliterobject, ptr %it, i64 0, i32 2
+  %it_sentinel = getelementptr inbounds i8, ptr %it, i64 24
   %7 = load ptr, ptr %it_sentinel, align 8
   %cmp3.not = icmp eq ptr %7, null
   br i1 %cmp3.not, label %if.else, label %if.then4
@@ -1398,7 +1395,7 @@ if.then1.i51:                                     ; preds = %if.end.i48
   br label %do.body35
 
 do.body35:                                        ; preds = %if.end.i48, %if.then1.i51, %if.then32, %if.then26
-  %it_sentinel37 = getelementptr inbounds %struct.calliterobject, ptr %it, i64 0, i32 2
+  %it_sentinel37 = getelementptr inbounds i8, ptr %it, i64 24
   %18 = load ptr, ptr %it_sentinel37, align 8
   %cmp39.not = icmp eq ptr %18, null
   br i1 %cmp39.not, label %if.end44, label %if.then40
@@ -1455,7 +1452,7 @@ entry:
   %call.val6.i = load i64, ptr %add.ptr.i.i, align 8
   %2 = inttoptr i64 %call.val6.i to ptr
   store i64 %call.val6.i, ptr %1, align 8
-  %_gc_prev.i.i = getelementptr inbounds %struct.PyGC_Head, ptr %2, i64 0, i32 1
+  %_gc_prev.i.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load i64, ptr %_gc_prev.i.i, align 8
   %and.i7.i = and i64 %3, 3
   %or.i.i = or disjoint i64 %and.i7.i, %and.i.i
@@ -1464,7 +1461,7 @@ entry:
   %4 = load i64, ptr %0, align 8
   %and.i = and i64 %4, 1
   store i64 %and.i, ptr %0, align 8
-  %wrapped = getelementptr inbounds %struct.anextawaitableobject, ptr %obj, i64 0, i32 1
+  %wrapped = getelementptr inbounds i8, ptr %obj, i64 16
   %5 = load ptr, ptr %wrapped, align 8
   %cmp.not.i = icmp eq ptr %5, null
   br i1 %cmp.not.i, label %Py_XDECREF.exit, label %if.then.i
@@ -1486,7 +1483,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, %if.end.i.i, %if.then1.i.i
-  %default_value = getelementptr inbounds %struct.anextawaitableobject, ptr %obj, i64 0, i32 2
+  %default_value = getelementptr inbounds i8, ptr %obj, i64 24
   %8 = load ptr, ptr %default_value, align 8
   %cmp.not.i4 = icmp eq ptr %8, null
   br i1 %cmp.not.i4, label %Py_XDECREF.exit11, label %if.then.i5
@@ -1515,7 +1512,7 @@ Py_XDECREF.exit11:                                ; preds = %Py_XDECREF.exit, %i
 ; Function Attrs: nounwind uwtable
 define internal i32 @anextawaitable_traverse(ptr nocapture noundef readonly %obj, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %wrapped = getelementptr inbounds %struct.anextawaitableobject, ptr %obj, i64 0, i32 1
+  %wrapped = getelementptr inbounds i8, ptr %obj, i64 16
   %0 = load ptr, ptr %wrapped, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.body5, label %if.then
@@ -1526,7 +1523,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %do.body5, label %return
 
 do.body5:                                         ; preds = %if.then, %entry
-  %default_value = getelementptr inbounds %struct.anextawaitableobject, ptr %obj, i64 0, i32 2
+  %default_value = getelementptr inbounds i8, ptr %obj, i64 24
   %1 = load ptr, ptr %default_value, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %do.end15, label %if.then7
@@ -1556,7 +1553,7 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = getelementptr i8, ptr %call, i64 8
   %call.val = load ptr, ptr %1, align 8
-  %tp_iternext = getelementptr inbounds %struct._typeobject, ptr %call.val, i64 0, i32 26
+  %tp_iternext = getelementptr inbounds i8, ptr %call.val, i64 224
   %2 = load ptr, ptr %tp_iternext, align 8
   %call2 = tail call ptr %2(ptr noundef nonnull %call) #4
   %3 = load i64, ptr %call, align 8
@@ -1585,7 +1582,7 @@ if.end5:                                          ; preds = %Py_DECREF.exit
   br i1 %tobool.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %default_value = getelementptr inbounds %struct.anextawaitableobject, ptr %obj, i64 0, i32 2
+  %default_value = getelementptr inbounds i8, ptr %obj, i64 24
   %6 = load ptr, ptr %default_value, align 8
   %call8 = tail call i32 @_PyGen_SetStopIterationValue(ptr noundef %6) #4
   br label %return
@@ -1613,7 +1610,7 @@ if.end.i.i:                                       ; preds = %if.end
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %if.end, %if.end.i.i
-  %wrapped = getelementptr inbounds %struct.anextawaitableobject, ptr %call, i64 0, i32 1
+  %wrapped = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %awaitable, ptr %wrapped, align 8
   %1 = load i32, ptr %default_value, align 8
   %add.i.i5 = add i32 %1, 1
@@ -1625,16 +1622,16 @@ if.end.i.i7:                                      ; preds = %_Py_NewRef.exit
   br label %_Py_NewRef.exit8
 
 _Py_NewRef.exit8:                                 ; preds = %_Py_NewRef.exit, %if.end.i.i7
-  %default_value3 = getelementptr inbounds %struct.anextawaitableobject, ptr %call, i64 0, i32 2
+  %default_value3 = getelementptr inbounds i8, ptr %call, i64 24
   store ptr %default_value, ptr %default_value3, align 8
   %add.ptr.i.i = getelementptr i8, ptr %call, i64 -16
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8
-  %interp.i.i = getelementptr inbounds %struct._ts, ptr %3, i64 0, i32 2
+  %interp.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %interp.i.i, align 8
-  %generation03.i = getelementptr inbounds %struct._is, ptr %4, i64 0, i32 13, i32 5
+  %generation03.i = getelementptr inbounds i8, ptr %4, i64 1096
   %5 = load ptr, ptr %generation03.i, align 8
-  %_gc_prev.i = getelementptr inbounds %struct.PyGC_Head, ptr %5, i64 0, i32 1
+  %_gc_prev.i = getelementptr inbounds i8, ptr %5, i64 8
   %6 = load i64, ptr %_gc_prev.i, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = ptrtoint ptr %add.ptr.i.i to i64
@@ -1671,7 +1668,7 @@ declare void @PyErr_Clear() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @iter_len(ptr nocapture noundef readonly %it, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %it_seq = getelementptr inbounds %struct.seqiterobject, ptr %it, i64 0, i32 2
+  %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end12, label %if.then
@@ -1688,7 +1685,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.then3
-  %it_index = getelementptr inbounds %struct.seqiterobject, ptr %it, i64 0, i32 1
+  %it_index = getelementptr inbounds i8, ptr %it, i64 16
   %2 = load i64, ptr %it_index, align 8
   %sub = sub i64 %call5, %2
   %cmp8 = icmp sgt i64 %sub, -1
@@ -1711,13 +1708,13 @@ return:                                           ; preds = %if.then, %if.then3,
 define internal ptr @iter_reduce(ptr nocapture noundef readonly %it, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 434)) #4
-  %it_seq = getelementptr inbounds %struct.seqiterobject, ptr %it, i64 0, i32 2
+  %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %it_index = getelementptr inbounds %struct.seqiterobject, ptr %it, i64 0, i32 1
+  %it_index = getelementptr inbounds i8, ptr %it, i64 16
   %1 = load i64, ptr %it_index, align 8
   %call2 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.8, ptr noundef %call, ptr noundef nonnull %0, i64 noundef %1) #4
   br label %return
@@ -1744,14 +1741,14 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %it_seq = getelementptr inbounds %struct.seqiterobject, ptr %it, i64 0, i32 2
+  %it_seq = getelementptr inbounds i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %return, label %if.then3
 
 if.then3:                                         ; preds = %if.end
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %call, i64 0)
-  %it_index = getelementptr inbounds %struct.seqiterobject, ptr %it, i64 0, i32 1
+  %it_index = getelementptr inbounds i8, ptr %it, i64 16
   store i64 %spec.store.select, ptr %it_index, align 8
   br label %return
 
@@ -1786,13 +1783,13 @@ declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr 
 define internal ptr @calliter_reduce(ptr nocapture noundef readonly %it, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 434)) #4
-  %it_callable = getelementptr inbounds %struct.calliterobject, ptr %it, i64 0, i32 1
+  %it_callable = getelementptr inbounds i8, ptr %it, i64 16
   %0 = load ptr, ptr %it_callable, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %it_sentinel = getelementptr inbounds %struct.calliterobject, ptr %it, i64 0, i32 2
+  %it_sentinel = getelementptr inbounds i8, ptr %it, i64 24
   %1 = load ptr, ptr %it_sentinel, align 8
   %cmp1.not = icmp eq ptr %1, null
   br i1 %cmp1.not, label %if.else, label %if.then
@@ -1820,13 +1817,13 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %call, i64 8
   %call.val17 = load ptr, ptr %0, align 8
-  %tp_iternext = getelementptr inbounds %struct._typeobject, ptr %call.val17, i64 0, i32 26
+  %tp_iternext = getelementptr inbounds i8, ptr %call.val17, i64 224
   %1 = load ptr, ptr %tp_iternext, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end
-  %tp_as_async = getelementptr inbounds %struct._typeobject, ptr %call.val17, i64 0, i32 8
+  %tp_as_async = getelementptr inbounds i8, ptr %call.val17, i64 80
   %2 = load ptr, ptr %tp_as_async, align 8
   %3 = load ptr, ptr %2, align 8
   %call5 = tail call ptr %3(ptr noundef nonnull %call) #4
@@ -1930,7 +1927,7 @@ if.end4.i:                                        ; preds = %Py_DECREF.exit.i
   br i1 %tobool.not.i, label %anextawaitable_proxy.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %default_value.i = getelementptr inbounds %struct.anextawaitableobject, ptr %obj, i64 0, i32 2
+  %default_value.i = getelementptr inbounds i8, ptr %obj, i64 24
   %4 = load ptr, ptr %default_value.i, align 8
   %call7.i = tail call i32 @_PyGen_SetStopIterationValue(ptr noundef %4) #4
   br label %anextawaitable_proxy.exit
@@ -1977,7 +1974,7 @@ if.end4.i:                                        ; preds = %Py_DECREF.exit.i
   br i1 %tobool.not.i, label %anextawaitable_proxy.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %default_value.i = getelementptr inbounds %struct.anextawaitableobject, ptr %obj, i64 0, i32 2
+  %default_value.i = getelementptr inbounds i8, ptr %obj, i64 24
   %4 = load ptr, ptr %default_value.i, align 8
   %call7.i = tail call i32 @_PyGen_SetStopIterationValue(ptr noundef %4) #4
   br label %anextawaitable_proxy.exit
@@ -2024,7 +2021,7 @@ if.end4.i:                                        ; preds = %Py_DECREF.exit.i
   br i1 %tobool.not.i, label %anextawaitable_proxy.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end4.i
-  %default_value.i = getelementptr inbounds %struct.anextawaitableobject, ptr %obj, i64 0, i32 2
+  %default_value.i = getelementptr inbounds i8, ptr %obj, i64 24
   %4 = load ptr, ptr %default_value.i, align 8
   %call7.i = tail call i32 @_PyGen_SetStopIterationValue(ptr noundef %4) #4
   br label %anextawaitable_proxy.exit

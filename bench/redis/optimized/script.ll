@@ -15,20 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
 %struct.sharedObjectsStruct = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [4 x ptr], [4 x ptr], [4 x ptr], [4 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [10 x ptr], [10000 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], ptr, ptr }
-%struct.scriptRunCtx = type { ptr, ptr, ptr, i32, i32, i64 }
-%struct.client = type { i64, i64, ptr, i32, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, ptr, i32, i32, ptr, i64, ptr, ptr, ptr, ptr, i32, i32, i64, ptr, i64, ptr, i64, i64, i64, i32, ptr, i64, i64, i32, i32, i32, i32, i64, i64, ptr, i64, i64, i64, i64, i64, i64, i64, i64, [41 x i8], i32, ptr, i32, i32, %struct.multiState, %struct.blockingState, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, i32, ptr, ptr, ptr, i64, %struct.listNode, i64, i64, i32, i64, ptr }
-%struct.multiState = type { ptr, i32, i32, i32, i64, i32 }
-%struct.blockingState = type { i32, i64, i32, ptr, i32, i32, i64, ptr, ptr }
-%struct.listNode = type { ptr, ptr, ptr }
-%struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr, i32, [2 x %struct.dbDictState] }
-%struct.dbDictState = type { i32, i32, i64, i64, ptr }
-%struct.redisCommand = type { ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, i32, i64, i64, ptr, i32, ptr, i32, ptr, ptr, i64, i64, i64, i64, i32, ptr, ptr, %struct.keySpec, ptr, ptr, ptr }
-%struct.keySpec = type { ptr, i64, i32, %union.anon, i32, %union.anon.2 }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, i32 }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { i32, i32, i32 }
-%struct.redisObject = type { i32, i32, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"no-writes\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"allow-oom\00", align 1
@@ -83,7 +69,7 @@ entry:
   br i1 %cmp.i.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %flags = getelementptr inbounds %struct.scriptRunCtx, ptr %0, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %flags, align 8
   %2 = lshr i32 %1, 3
   %.lobit = and i32 %2, 1
@@ -116,7 +102,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %c = getelementptr inbounds %struct.scriptRunCtx, ptr %0, i64 0, i32 1
+  %c = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %c, align 8
   ret ptr %1
 }
@@ -139,7 +125,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %original_client = getelementptr inbounds %struct.scriptRunCtx, ptr %0, i64 0, i32 2
+  %original_client = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %original_client, align 8
   ret ptr %1
 }
@@ -147,14 +133,14 @@ cond.end:                                         ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @scriptInterrupt(ptr noundef %run_ctx) local_unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %run_ctx, i64 24
   %0 = load i32, ptr %flags, align 8
   %1 = and i32 %0, 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %entry
-  %start_time = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 5
+  %start_time = getelementptr inbounds i8, ptr %run_ctx, i64 32
   %2 = load i64, ptr %start_time, align 8
   %3 = load ptr, ptr @getMonotonicUs, align 8
   %call.i.i = tail call i64 %3() #10
@@ -203,7 +189,7 @@ enterScriptTimedoutMode.exit:                     ; preds = %scriptIsTimedout.ex
   %12 = or disjoint i32 %10, 8
   store i32 %12, ptr %flags, align 8
   tail call void @blockingOperationStarts() #10
-  %original_client = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 2
+  %original_client = getelementptr inbounds i8, ptr %run_ctx, i64 16
   %13 = load ptr, ptr %original_client, align 8
   tail call void @protectClient(ptr noundef %13) #10
   br label %return.sink.split
@@ -258,7 +244,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %flags = getelementptr inbounds %struct.client, ptr %caller, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %caller, i64 8
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 17592186044416
   %tobool4.not = icmp eq i64 %and, 0
@@ -390,17 +376,17 @@ if.then68:                                        ; preds = %if.else66
 
 if.end70:                                         ; preds = %land.end.thread, %if.else66, %if.end55
   %tobool14.not58 = phi i1 [ false, %if.else66 ], [ true, %if.end55 ], [ false, %land.end.thread ]
-  %c = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 1
+  %c = getelementptr inbounds i8, ptr %run_ctx, i64 8
   store ptr %engine_client, ptr %c, align 8
-  %original_client = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 2
+  %original_client = getelementptr inbounds i8, ptr %run_ctx, i64 16
   store ptr %caller, ptr %original_client, align 8
   store ptr %funcname, ptr %run_ctx, align 8
-  %db = getelementptr inbounds %struct.client, ptr %caller, i64 0, i32 4
+  %db = getelementptr inbounds i8, ptr %caller, i64 32
   %14 = load ptr, ptr %db, align 8
-  %id = getelementptr inbounds %struct.redisDb, ptr %14, i64 0, i32 6
+  %id = getelementptr inbounds i8, ptr %14, i64 48
   %15 = load i32, ptr %id, align 8
   %call74 = tail call i32 @selectDb(ptr noundef %engine_client, i32 noundef %15) #10
-  %resp = getelementptr inbounds %struct.client, ptr %engine_client, i64 0, i32 3
+  %resp = getelementptr inbounds i8, ptr %engine_client, i64 24
   store i32 2, ptr %resp, align 8
   %16 = load i64, ptr %flags, align 8
   %and76 = and i64 %16, 8
@@ -408,7 +394,7 @@ if.end70:                                         ; preds = %land.end.thread, %i
   br i1 %tobool77.not, label %if.end80, label %if.then78
 
 if.then78:                                        ; preds = %if.end70
-  %flags79 = getelementptr inbounds %struct.client, ptr %engine_client, i64 0, i32 1
+  %flags79 = getelementptr inbounds i8, ptr %engine_client, i64 8
   %17 = load i64, ptr %flags79, align 8
   %or = or i64 %17, 8
   store i64 %or, ptr %flags79, align 8
@@ -417,11 +403,11 @@ if.then78:                                        ; preds = %if.end70
 if.end80:                                         ; preds = %if.then78, %if.end70
   %18 = load ptr, ptr @getMonotonicUs, align 8
   %call81 = tail call i64 %18() #10
-  %start_time = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 5
+  %start_time = getelementptr inbounds i8, ptr %run_ctx, i64 32
   store i64 %call81, ptr %start_time, align 8
-  %flags82 = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 3
+  %flags82 = getelementptr inbounds i8, ptr %run_ctx, i64 24
   store i32 0, ptr %flags82, align 8
-  %repl_flags = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 4
+  %repl_flags = getelementptr inbounds i8, ptr %run_ctx, i64 28
   store i32 3, ptr %repl_flags, align 4
   %tobool83.not = icmp eq i32 %ro, 0
   br i1 %tobool83.not, label %lor.lhs.false, label %if.then89
@@ -502,13 +488,13 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 scriptIsTimedout.exit:                            ; preds = %entry
-  %c = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 1
+  %c = getelementptr inbounds i8, ptr %run_ctx, i64 8
   %1 = load ptr, ptr %c, align 8
-  %flags = getelementptr inbounds %struct.client, ptr %1, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load i64, ptr %flags, align 8
   %and = and i64 %2, -9
   store i64 %and, ptr %flags, align 8
-  %flags.i = getelementptr inbounds %struct.scriptRunCtx, ptr %0, i64 0, i32 3
+  %flags.i = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i32, ptr %flags.i, align 8
   %4 = and i32 %3, 8
   %tobool3.not = icmp eq i32 %4, 0
@@ -524,7 +510,7 @@ cond.false.i:                                     ; preds = %if.then
   unreachable
 
 scriptIsTimedout.exit.i:                          ; preds = %if.then
-  %flags.i.i = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 3
+  %flags.i.i = getelementptr inbounds i8, ptr %run_ctx, i64 24
   %5 = load i32, ptr %flags.i.i, align 8
   %6 = and i32 %5, 8
   %tobool2.not.i = icmp eq i32 %6, 0
@@ -551,13 +537,13 @@ if.then.i:                                        ; preds = %cond.end11.i
   br label %exitScriptTimedoutMode.exit
 
 exitScriptTimedoutMode.exit:                      ; preds = %cond.end11.i, %if.then.i
-  %original_client = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 2
+  %original_client = getelementptr inbounds i8, ptr %run_ctx, i64 16
   %10 = load ptr, ptr %original_client, align 8
   tail call void @unprotectClient(ptr noundef %10) #10
   br label %if.end
 
 if.end:                                           ; preds = %exitScriptTimedoutMode.exit, %scriptIsTimedout.exit
-  %original_client4 = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 2
+  %original_client4 = getelementptr inbounds i8, ptr %run_ctx, i64 16
   %11 = load ptr, ptr %original_client4, align 8
   tail call void @preventCommandPropagation(ptr noundef %11) #10
   store ptr null, ptr @curr_run_ctx, align 8
@@ -598,7 +584,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %flags = getelementptr inbounds %struct.scriptRunCtx, ptr %0, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load i32, ptr %flags, align 8
   %2 = and i32 %1, 128
   ret i32 %2
@@ -616,7 +602,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %original_client = getelementptr inbounds %struct.scriptRunCtx, ptr %0, i64 0, i32 2
+  %original_client = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %original_client, align 8
   %call = tail call i32 @mustObeyClient(ptr noundef %1) #10
   %tobool1.not = icmp eq i32 %call, 0
@@ -628,7 +614,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end3:                                          ; preds = %if.end
   %2 = load ptr, ptr @curr_run_ctx, align 8
-  %flags = getelementptr inbounds %struct.scriptRunCtx, ptr %2, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i32, ptr %flags, align 8
   %conv9 = zext i32 %3 to i64
   %and = and i64 %conv9, 1
@@ -683,9 +669,9 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %c = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 1
+  %c = getelementptr inbounds i8, ptr %run_ctx, i64 8
   %1 = load ptr, ptr %c, align 8
-  %resp2 = getelementptr inbounds %struct.client, ptr %1, i64 0, i32 3
+  %resp2 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %resp, ptr %resp2, align 8
   br label %return
 
@@ -701,7 +687,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %repl_flags = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 4
+  %repl_flags = getelementptr inbounds i8, ptr %run_ctx, i64 28
   store i32 %repl, ptr %repl_flags, align 4
   br label %return
 
@@ -714,32 +700,32 @@ return:                                           ; preds = %entry, %if.end
 define dso_local void @scriptCall(ptr nocapture noundef %run_ctx, ptr nocapture noundef %err) local_unnamed_addr #2 {
 entry:
   %acl_errpos.i = alloca i32, align 4
-  %c1 = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 1
+  %c1 = getelementptr inbounds i8, ptr %run_ctx, i64 8
   %0 = load ptr, ptr %c1, align 8
-  %original_client = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 2
+  %original_client = getelementptr inbounds i8, ptr %run_ctx, i64 16
   %1 = load ptr, ptr %original_client, align 8
-  %user = getelementptr inbounds %struct.client, ptr %1, i64 0, i32 20
+  %user = getelementptr inbounds i8, ptr %1, i64 152
   %2 = load ptr, ptr %user, align 8
-  %user2 = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 20
+  %user2 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %2, ptr %user2, align 8
   tail call void @moduleCallCommandFilters(ptr noundef %0) #10
-  %argv = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %argv, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i32, ptr %argc, align 8
   %call = tail call ptr @lookupCommand(ptr noundef %3, i32 noundef %4) #10
-  %realcmd = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 19
+  %realcmd = getelementptr inbounds i8, ptr %0, i64 144
   store ptr %call, ptr %realcmd, align 8
-  %lastcmd = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 18
+  %lastcmd = getelementptr inbounds i8, ptr %0, i64 136
   store ptr %call, ptr %lastcmd, align 8
-  %cmd3 = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 17
+  %cmd3 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %call, ptr %cmd3, align 8
   %tobool.not.i = icmp eq ptr %call, null
   br i1 %tobool.not.i, label %scriptVerifyCommandArity.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
   %5 = load i32, ptr %argc, align 8
-  %arity.i = getelementptr inbounds %struct.redisCommand, ptr %call, i64 0, i32 13
+  %arity.i = getelementptr inbounds i8, ptr %call, i64 104
   %6 = load i32, ptr %arity.i, align 8
   %cmp.i = icmp sgt i32 %6, 0
   %cmp2.not.i = icmp ne i32 %6, %5
@@ -761,7 +747,7 @@ if.end:                                           ; preds = %lor.lhs.false.i
   br i1 %tobool.not, label %land.lhs.true, label %if.end9
 
 land.lhs.true:                                    ; preds = %if.end
-  %flags = getelementptr inbounds %struct.redisCommand, ptr %call, i64 0, i32 14
+  %flags = getelementptr inbounds i8, ptr %call, i64 112
   %8 = load i64, ptr %flags, align 8
   %and = and i64 %8, 64
   %tobool6.not = icmp eq i64 %and, 0
@@ -784,7 +770,7 @@ if.end9:                                          ; preds = %land.lhs.true, %if.
   br i1 %or.cond1.i, label %if.end13, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end9
-  %flags.i = getelementptr inbounds %struct.redisCommand, ptr %call, i64 0, i32 14
+  %flags.i = getelementptr inbounds i8, ptr %call, i64 112
   %12 = load i64, ptr %flags.i, align 8
   %and.i = and i64 %12, 1024
   %tobool6.not.i = icmp eq i64 %and.i, 0
@@ -811,7 +797,7 @@ scriptVerifyACL.exit:                             ; preds = %if.end13
   %idxprom.i = sext i32 %17 to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %16, i64 %idxprom.i
   %18 = load ptr, ptr %arrayidx.i, align 8
-  %ptr.i = getelementptr inbounds %struct.redisObject, ptr %18, i64 0, i32 2
+  %ptr.i = getelementptr inbounds i8, ptr %18, i64 8
   %19 = load ptr, ptr %ptr.i, align 8
   %call1.i = call ptr @getAclErrorMessage(i32 noundef %call.i39, ptr noundef %14, ptr noundef %15, ptr noundef %19, i32 noundef 0) #10
   %call2.i = call ptr @sdsnew(ptr noundef nonnull @.str.30) #10
@@ -823,14 +809,14 @@ scriptVerifyACL.exit:                             ; preds = %if.end13
 
 if.end17:                                         ; preds = %if.end13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %acl_errpos.i)
-  %flags.i42 = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 3
+  %flags.i42 = getelementptr inbounds i8, ptr %run_ctx, i64 24
   %20 = load i32, ptr %flags.i42, align 8
   %21 = and i32 %20, 32
   %tobool.not.i43 = icmp eq i32 %21, 0
   %.pre.i = load ptr, ptr %c1, align 8
-  %cmd5.phi.trans.insert.i = getelementptr inbounds %struct.client, ptr %.pre.i, i64 0, i32 17
+  %cmd5.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 128
   %.pre10.i = load ptr, ptr %cmd5.phi.trans.insert.i, align 8
-  %flags6.phi.trans.insert.i = getelementptr inbounds %struct.redisCommand, ptr %.pre10.i, i64 0, i32 14
+  %flags6.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre10.i, i64 112
   %.pre11.i = load i64, ptr %flags6.phi.trans.insert.i, align 8
   %and2.i = and i64 %.pre11.i, 65537
   %tobool3.not.i = icmp eq i64 %and2.i, 0
@@ -866,7 +852,7 @@ land.lhs.true21.i:                                ; preds = %if.end16.i
 
 if.then24.i:                                      ; preds = %land.lhs.true21.i
   %26 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 25), align 8
-  %ptr.i50 = getelementptr inbounds %struct.redisObject, ptr %26, i64 0, i32 2
+  %ptr.i50 = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load ptr, ptr %ptr.i50, align 8
   %call25.i = call ptr @sdsdup(ptr noundef %27) #10
   br label %scriptVerifyWriteCommandAllow.exit
@@ -886,7 +872,7 @@ if.end30.i:                                       ; preds = %if.end26.i
 
 if.then33.i:                                      ; preds = %if.end30.i
   %28 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 28), align 8
-  %ptr34.i = getelementptr inbounds %struct.redisObject, ptr %28, i64 0, i32 2
+  %ptr34.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %ptr34.i, align 8
   %call35.i = call ptr @sdsdup(ptr noundef %29) #10
   br label %scriptVerifyWriteCommandAllow.exit
@@ -902,7 +888,7 @@ if.end21:                                         ; preds = %if.end.i47, %if.end
   br i1 %cmp23.not, label %if.end25, label %error
 
 if.end25:                                         ; preds = %if.end21
-  %flags26 = getelementptr inbounds %struct.redisCommand, ptr %call, i64 0, i32 14
+  %flags26 = getelementptr inbounds i8, ptr %call, i64 112
   %30 = load i64, ptr %flags26, align 8
   %and27 = and i64 %30, 1
   %tobool28.not = icmp eq i64 %and27, 0
@@ -921,11 +907,11 @@ if.end32:                                         ; preds = %if.then29, %if.end2
   br i1 %cmp35.not, label %if.end38, label %error
 
 if.end38:                                         ; preds = %if.end32
-  %repl_flags = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 4
+  %repl_flags = getelementptr inbounds i8, ptr %run_ctx, i64 28
   %34 = load i32, ptr %repl_flags, align 4
   %call_flags.1 = and i32 %34, 3
   call void @call(ptr noundef nonnull %0, i32 noundef %call_flags.1) #10
-  %flags50 = getelementptr inbounds %struct.client, ptr %0, i64 0, i32 1
+  %flags50 = getelementptr inbounds i8, ptr %0, i64 8
   %35 = load i64, ptr %flags50, align 8
   %and51 = and i64 %35, 16
   %cmp52 = icmp eq i64 %and51, 0
@@ -997,7 +983,7 @@ declare ptr @sdsnew(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @scriptVerifyOOM(ptr nocapture noundef readonly %run_ctx, ptr nocapture noundef writeonly %err) unnamed_addr #2 {
 entry:
-  %flags = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %run_ctx, i64 24
   %0 = load i32, ptr %flags, align 8
   %1 = and i32 %0, 64
   %tobool.not = icmp ne i32 %1, 0
@@ -1007,7 +993,7 @@ entry:
   br i1 %or.cond4, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %original_client = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 2
+  %original_client = getelementptr inbounds i8, ptr %run_ctx, i64 16
   %3 = load ptr, ptr %original_client, align 8
   %call = tail call i32 @mustObeyClient(ptr noundef %3) #10
   %tobool2.not = icmp eq i32 %call, 0
@@ -1023,11 +1009,11 @@ land.lhs.true3:                                   ; preds = %land.lhs.true
   br i1 %or.cond, label %land.lhs.true10, label %return
 
 land.lhs.true10:                                  ; preds = %land.lhs.true3
-  %c = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 1
+  %c = getelementptr inbounds i8, ptr %run_ctx, i64 8
   %7 = load ptr, ptr %c, align 8
-  %cmd = getelementptr inbounds %struct.client, ptr %7, i64 0, i32 17
+  %cmd = getelementptr inbounds i8, ptr %7, i64 128
   %8 = load ptr, ptr %cmd, align 8
-  %flags11 = getelementptr inbounds %struct.redisCommand, ptr %8, i64 0, i32 14
+  %flags11 = getelementptr inbounds i8, ptr %8, i64 112
   %9 = load i64, ptr %flags11, align 8
   %and12 = and i64 %9, 4
   %tobool13.not = icmp eq i64 %and12, 0
@@ -1035,7 +1021,7 @@ land.lhs.true10:                                  ; preds = %land.lhs.true3
 
 if.then14:                                        ; preds = %land.lhs.true10
   %10 = load ptr, ptr getelementptr inbounds (%struct.sharedObjectsStruct, ptr @shared, i64 0, i32 30), align 8
-  %ptr = getelementptr inbounds %struct.redisObject, ptr %10, i64 0, i32 2
+  %ptr = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %ptr, align 8
   %call15 = tail call ptr @sdsdup(ptr noundef %11) #10
   store ptr %call15, ptr %err, align 8
@@ -1061,21 +1047,21 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %flags = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 1
+  %flags = getelementptr inbounds i8, ptr %c, i64 8
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, -131585
   store i64 %and, ptr %flags, align 8
-  %flags2 = getelementptr inbounds %struct.client, ptr %original_c, i64 0, i32 1
+  %flags2 = getelementptr inbounds i8, ptr %original_c, i64 8
   %2 = load i64, ptr %flags2, align 8
   %and3 = and i64 %2, 131584
   %or = or disjoint i64 %and3, %and
   store i64 %or, ptr %flags, align 8
   store i32 -1, ptr %hashslot, align 4
-  %cmd = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 17
+  %cmd = getelementptr inbounds i8, ptr %c, i64 128
   %3 = load ptr, ptr %cmd, align 8
-  %argv = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 12
+  %argv = getelementptr inbounds i8, ptr %c, i64 96
   %4 = load ptr, ptr %argv, align 8
-  %argc = getelementptr inbounds %struct.client, ptr %c, i64 0, i32 11
+  %argc = getelementptr inbounds i8, ptr %c, i64 88
   %5 = load i32, ptr %argc, align 8
   %call5 = call ptr @getNodeByQuery(ptr noundef %c, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %hashslot, ptr noundef nonnull %error_code) #10
   %call6 = call ptr @getMyClusterNode() #10
@@ -1105,7 +1091,7 @@ if.then12:                                        ; preds = %if.then7
 if.then16:                                        ; preds = %if.then7
   %call17 = call ptr @sdsempty() #10
   %7 = load ptr, ptr %cmd, align 8
-  %fullname = getelementptr inbounds %struct.redisCommand, ptr %7, i64 0, i32 27
+  %fullname = getelementptr inbounds i8, ptr %7, i64 216
   %8 = load ptr, ptr %fullname, align 8
   %call19 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call17, ptr noundef nonnull @.str.34, ptr noundef %8) #10
   store ptr %call19, ptr %err, align 8
@@ -1114,7 +1100,7 @@ if.then16:                                        ; preds = %if.then7
 if.then22:                                        ; preds = %if.then7
   %call23 = call ptr @sdsempty() #10
   %9 = load ptr, ptr %cmd, align 8
-  %fullname25 = getelementptr inbounds %struct.redisCommand, ptr %9, i64 0, i32 27
+  %fullname25 = getelementptr inbounds i8, ptr %9, i64 216
   %10 = load ptr, ptr %fullname25, align 8
   %call26 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %call23, ptr noundef nonnull @.str.35, ptr noundef %10) #10
   store ptr %call26, ptr %err, align 8
@@ -1136,14 +1122,14 @@ if.end38:                                         ; preds = %if.end
   br i1 %cmp39.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end38
-  %flags40 = getelementptr inbounds %struct.scriptRunCtx, ptr %run_ctx, i64 0, i32 3
+  %flags40 = getelementptr inbounds i8, ptr %run_ctx, i64 24
   %12 = load i32, ptr %flags40, align 8
   %13 = and i32 %12, 256
   %tobool42.not = icmp eq i32 %13, 0
   br i1 %tobool42.not, label %if.then43, label %return
 
 if.then43:                                        ; preds = %land.lhs.true
-  %slot = getelementptr inbounds %struct.client, ptr %original_c, i64 0, i32 30
+  %slot = getelementptr inbounds i8, ptr %original_c, i64 224
   %14 = load i32, ptr %slot, align 8
   %cmp44 = icmp eq i32 %14, -1
   br i1 %cmp44, label %if.then46, label %if.else48
@@ -1185,7 +1171,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %start_time = getelementptr inbounds %struct.scriptRunCtx, ptr %0, i64 0, i32 5
+  %start_time = getelementptr inbounds i8, ptr %0, i64 32
   %1 = load i64, ptr %start_time, align 8
   %2 = load ptr, ptr @getMonotonicUs, align 8
   %call.i.i = tail call i64 %2() #10

@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/libcrypto-shlib-pcy_data.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.X509_POLICY_DATA_st = type { i32, ptr, ptr, ptr }
-%struct.POLICYINFO_st = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/x509/pcy_data.c\00", align 1
 @__func__.ossl_policy_data_new = private unnamed_addr constant [21 x i8] c"ossl_policy_data_new\00", align 1
 
@@ -16,7 +13,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %data, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load ptr, ptr %valid_policy, align 8
   tail call void @ASN1_OBJECT_free(ptr noundef %0) #2
   %1 = load i32, ptr %data, align 8
@@ -25,13 +22,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.then1, label %if.end3
 
 if.then1:                                         ; preds = %if.end
-  %qualifier_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %data, i64 0, i32 2
+  %qualifier_set = getelementptr inbounds i8, ptr %data, i64 16
   %2 = load ptr, ptr %qualifier_set, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %2, ptr noundef nonnull @POLICYQUALINFO_free) #2
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then1, %if.end
-  %expected_policy_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %data, i64 0, i32 3
+  %expected_policy_set = getelementptr inbounds i8, ptr %data, i64 24
   %3 = load ptr, ptr %expected_policy_set, align 8
   tail call void @OPENSSL_sk_pop_free(ptr noundef %3, ptr noundef nonnull @ASN1_OBJECT_free) #2
   tail call void @CRYPTO_free(ptr noundef nonnull %data, ptr noundef nonnull @.str, i32 noundef 27) #2
@@ -77,7 +74,7 @@ if.then9:                                         ; preds = %if.end6
 
 if.end10:                                         ; preds = %if.end6
   %call11 = tail call ptr @OPENSSL_sk_new_null() #2
-  %expected_policy_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call7, i64 0, i32 3
+  %expected_policy_set = getelementptr inbounds i8, ptr %call7, i64 24
   store ptr %call11, ptr %expected_policy_set, align 8
   %cmp13 = icmp eq ptr %call11, null
   br i1 %cmp13, label %if.then14, label %if.end15
@@ -104,20 +101,20 @@ if.end18:                                         ; preds = %if.then17, %if.end1
 
 if.end24.thread:                                  ; preds = %if.end18
   %0 = load ptr, ptr %policy, align 8
-  %valid_policy22 = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call7, i64 0, i32 1
+  %valid_policy22 = getelementptr inbounds i8, ptr %call7, i64 8
   store ptr %0, ptr %valid_policy22, align 8
   store ptr null, ptr %policy, align 8
   br label %if.then26
 
 if.end24:                                         ; preds = %if.end18
-  %valid_policy = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call7, i64 0, i32 1
+  %valid_policy = getelementptr inbounds i8, ptr %call7, i64 8
   store ptr %id.0, ptr %valid_policy, align 8
   br i1 %cmp, label %return, label %if.then26
 
 if.then26:                                        ; preds = %if.end24.thread, %if.end24
-  %qualifiers = getelementptr inbounds %struct.POLICYINFO_st, ptr %policy, i64 0, i32 1
+  %qualifiers = getelementptr inbounds i8, ptr %policy, i64 8
   %1 = load ptr, ptr %qualifiers, align 8
-  %qualifier_set = getelementptr inbounds %struct.X509_POLICY_DATA_st, ptr %call7, i64 0, i32 2
+  %qualifier_set = getelementptr inbounds i8, ptr %call7, i64 16
   store ptr %1, ptr %qualifier_set, align 8
   store ptr null, ptr %qualifiers, align 8
   br label %return

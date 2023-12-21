@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.v3_ext_method = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.PROXY_CERT_INFO_EXTENSION_st = type { ptr, ptr }
-%struct.PROXY_POLICY_st = type { ptr, ptr }
-%struct.asn1_string_st = type { i32, i32, ptr, i64 }
-%struct.CONF_VALUE = type { ptr, ptr, ptr }
 
 @ossl_v3_pci = local_unnamed_addr constant %struct.v3_ext_method { i32 663, i32 0, ptr @PROXY_CERT_INFO_EXTENSION_it, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @i2r_pci, ptr @r2i_pci, ptr null }, align 8
 @.str = private unnamed_addr constant [28 x i8] c"%*sPath Length Constraint: \00", align 1
@@ -51,18 +47,18 @@ if.else:                                          ; preds = %entry
 if.end:                                           ; preds = %if.else, %if.then
   %call4 = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.3) #4
   %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.4, i32 noundef %indent, ptr noundef nonnull @.str.1) #4
-  %proxyPolicy = getelementptr inbounds %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %pci, i64 0, i32 1
+  %proxyPolicy = getelementptr inbounds i8, ptr %pci, i64 8
   %1 = load ptr, ptr %proxyPolicy, align 8
   %2 = load ptr, ptr %1, align 8
   %call6 = tail call i32 @i2a_ASN1_OBJECT(ptr noundef %out, ptr noundef %2) #4
   %3 = load ptr, ptr %proxyPolicy, align 8
-  %policy = getelementptr inbounds %struct.PROXY_POLICY_st, ptr %3, i64 0, i32 1
+  %policy = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %policy, align 8
   %tobool8.not = icmp eq ptr %4, null
   br i1 %tobool8.not, label %if.end19, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %4, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load ptr, ptr %data, align 8
   %tobool11.not = icmp eq ptr %5, null
   br i1 %tobool11.not, label %if.end19, label %if.then12
@@ -93,7 +89,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc46
   %i.050 = phi i32 [ %inc47, %for.inc46 ], [ 0, %entry ]
   %call4 = call ptr @OPENSSL_sk_value(ptr noundef %call, i32 noundef %i.050) #4
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %call4, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %call4, i64 8
   %0 = load ptr, ptr %name, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false
@@ -104,19 +100,19 @@ lor.lhs.false:                                    ; preds = %for.body
   br i1 %cmp6.not, label %if.then16, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %lor.lhs.false
-  %value8 = getelementptr inbounds %struct.CONF_VALUE, ptr %call4, i64 0, i32 2
+  %value8 = getelementptr inbounds i8, ptr %call4, i64 16
   %2 = load ptr, ptr %value8, align 8
   %tobool9.not = icmp eq ptr %2, null
   br i1 %tobool9.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true, %for.body
-  %name.le70 = getelementptr inbounds %struct.CONF_VALUE, ptr %call4, i64 0, i32 1
+  %name.le70 = getelementptr inbounds i8, ptr %call4, i64 8
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.6, i32 noundef 251, ptr noundef nonnull @__func__.r2i_pci) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 153, ptr noundef null) #4
   %3 = load ptr, ptr %call4, align 8
   %4 = load ptr, ptr %name.le70, align 8
-  %value11 = getelementptr inbounds %struct.CONF_VALUE, ptr %call4, i64 0, i32 2
+  %value11 = getelementptr inbounds i8, ptr %call4, i64 16
   %5 = load ptr, ptr %value11, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef %3, ptr noundef nonnull @.str.8, ptr noundef %4, ptr noundef nonnull @.str.9, ptr noundef %5) #4
   br label %err
@@ -128,13 +124,13 @@ if.then16:                                        ; preds = %lor.lhs.false
   br i1 %tobool19.not, label %if.then20, label %land.rhs
 
 if.then20:                                        ; preds = %if.then16
-  %name.le = getelementptr inbounds %struct.CONF_VALUE, ptr %call4, i64 0, i32 1
+  %name.le = getelementptr inbounds i8, ptr %call4, i64 8
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.6, i32 noundef 261, ptr noundef nonnull @__func__.r2i_pci) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 135, ptr noundef null) #4
   %6 = load ptr, ptr %call4, align 8
   %7 = load ptr, ptr %name.le, align 8
-  %value23 = getelementptr inbounds %struct.CONF_VALUE, ptr %call4, i64 0, i32 2
+  %value23 = getelementptr inbounds i8, ptr %call4, i64 16
   %8 = load ptr, ptr %value23, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef %7, ptr noundef nonnull @.str.9, ptr noundef %8) #4
   br label %err
@@ -162,8 +158,8 @@ if.else:                                          ; preds = %land.lhs.true
   br i1 %tobool39.not, label %if.then40, label %for.inc46
 
 if.then40:                                        ; preds = %if.else
-  %name.le68 = getelementptr inbounds %struct.CONF_VALUE, ptr %call4, i64 0, i32 1
-  %value8.le = getelementptr inbounds %struct.CONF_VALUE, ptr %call4, i64 0, i32 2
+  %name.le68 = getelementptr inbounds i8, ptr %call4, i64 8
+  %value8.le = getelementptr inbounds i8, ptr %call4, i64 16
   %9 = load ptr, ptr %call4, align 8
   %10 = load ptr, ptr %name.le68, align 8
   %11 = load ptr, ptr %value8.le, align 8
@@ -214,11 +210,11 @@ if.then65:                                        ; preds = %if.end61
   br label %err
 
 if.end66:                                         ; preds = %if.end61
-  %proxyPolicy = getelementptr inbounds %struct.PROXY_CERT_INFO_EXTENSION_st, ptr %call62, i64 0, i32 1
+  %proxyPolicy = getelementptr inbounds i8, ptr %call62, i64 8
   %14 = load ptr, ptr %proxyPolicy, align 8
   store ptr %.pre, ptr %14, align 8
   %15 = load ptr, ptr %proxyPolicy, align 8
-  %policy68 = getelementptr inbounds %struct.PROXY_POLICY_st, ptr %15, i64 0, i32 1
+  %policy68 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %13, ptr %policy68, align 8
   %16 = load ptr, ptr %pathlen, align 8
   store ptr %16, ptr %call62, align 8
@@ -275,7 +271,7 @@ define internal fastcc i32 @process_pci_value(ptr noundef %val, ptr nocapture no
 entry:
   %val_len = alloca i64, align 8
   %buf = alloca [2048 x i8], align 16
-  %name = getelementptr inbounds %struct.CONF_VALUE, ptr %val, i64 0, i32 1
+  %name = getelementptr inbounds i8, ptr %val, i64 8
   %0 = load ptr, ptr %name, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.10) #5
   %cmp = icmp eq i32 %call, 0
@@ -292,13 +288,13 @@ if.then1:                                         ; preds = %if.then
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 155, ptr noundef null) #4
   %2 = load ptr, ptr %val, align 8
   %3 = load ptr, ptr %name, align 8
-  %value = getelementptr inbounds %struct.CONF_VALUE, ptr %val, i64 0, i32 2
+  %value = getelementptr inbounds i8, ptr %val, i64 16
   %4 = load ptr, ptr %value, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef %2, ptr noundef nonnull @.str.8, ptr noundef %3, ptr noundef nonnull @.str.9, ptr noundef %4) #4
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %value3 = getelementptr inbounds %struct.CONF_VALUE, ptr %val, i64 0, i32 2
+  %value3 = getelementptr inbounds i8, ptr %val, i64 16
   %5 = load ptr, ptr %value3, align 8
   %call4 = tail call ptr @OBJ_txt2obj(ptr noundef %5, i32 noundef 0) #4
   store ptr %call4, ptr %language, align 8
@@ -331,7 +327,7 @@ if.then16:                                        ; preds = %if.then14
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 157, ptr noundef null) #4
   %10 = load ptr, ptr %val, align 8
   %11 = load ptr, ptr %name, align 8
-  %value19 = getelementptr inbounds %struct.CONF_VALUE, ptr %val, i64 0, i32 2
+  %value19 = getelementptr inbounds i8, ptr %val, i64 16
   %12 = load ptr, ptr %value19, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef %10, ptr noundef nonnull @.str.8, ptr noundef %11, ptr noundef nonnull @.str.9, ptr noundef %12) #4
   br label %return
@@ -347,7 +343,7 @@ if.then23:                                        ; preds = %if.end20
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 156, ptr noundef null) #4
   %13 = load ptr, ptr %val, align 8
   %14 = load ptr, ptr %name, align 8
-  %value26 = getelementptr inbounds %struct.CONF_VALUE, ptr %val, i64 0, i32 2
+  %value26 = getelementptr inbounds i8, ptr %val, i64 16
   %15 = load ptr, ptr %value26, align 8
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 6, ptr noundef nonnull @.str.7, ptr noundef %13, ptr noundef nonnull @.str.8, ptr noundef %14, ptr noundef nonnull @.str.9, ptr noundef %15) #4
   br label %return
@@ -358,7 +354,7 @@ if.else28:                                        ; preds = %if.else
   br i1 %cmp31, label %if.then32, label %return
 
 if.then32:                                        ; preds = %if.else28
-  %value33 = getelementptr inbounds %struct.CONF_VALUE, ptr %val, i64 0, i32 2
+  %value33 = getelementptr inbounds i8, ptr %val, i64 16
   %16 = load ptr, ptr %value33, align 8
   %17 = load ptr, ptr %policy, align 8
   %cmp34.not = icmp eq ptr %17, null
@@ -401,7 +397,7 @@ if.then49:                                        ; preds = %cond.true
 
 if.end53:                                         ; preds = %cond.true
   %25 = load ptr, ptr %policy, align 8
-  %data = getelementptr inbounds %struct.asn1_string_st, ptr %25, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load ptr, ptr %data, align 8
   %27 = load i32, ptr %25, align 8
   %conv = sext i32 %27 to i64
@@ -414,10 +410,10 @@ if.end53:                                         ; preds = %cond.true
 
 if.then57:                                        ; preds = %if.end53
   %29 = load ptr, ptr %policy, align 8
-  %data58 = getelementptr inbounds %struct.asn1_string_st, ptr %29, i64 0, i32 2
+  %data58 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %call55, ptr %data58, align 8
   %30 = load ptr, ptr %policy, align 8
-  %data59 = getelementptr inbounds %struct.asn1_string_st, ptr %30, i64 0, i32 2
+  %data59 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %data59, align 8
   %32 = load i32, ptr %30, align 8
   %idxprom = sext i32 %32 to i64
@@ -431,7 +427,7 @@ if.then57:                                        ; preds = %if.end53
   %conv64 = add i32 %36, %37
   store i32 %conv64, ptr %35, align 8
   %38 = load ptr, ptr %policy, align 8
-  %data65 = getelementptr inbounds %struct.asn1_string_st, ptr %38, i64 0, i32 2
+  %data65 = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load ptr, ptr %data65, align 8
   %40 = load i32, ptr %38, align 8
   %idxprom67 = sext i32 %40 to i64
@@ -443,11 +439,11 @@ if.then57:                                        ; preds = %if.end53
 if.else69:                                        ; preds = %if.end53
   call void @CRYPTO_free(ptr noundef nonnull %call47, ptr noundef nonnull @.str.6, i32 noundef 146) #4
   %41 = load ptr, ptr %policy, align 8
-  %data70 = getelementptr inbounds %struct.asn1_string_st, ptr %41, i64 0, i32 2
+  %data70 = getelementptr inbounds i8, ptr %41, i64 8
   %42 = load ptr, ptr %data70, align 8
   call void @CRYPTO_free(ptr noundef %42, ptr noundef nonnull @.str.6, i32 noundef 151) #4
   %43 = load ptr, ptr %policy, align 8
-  %data71 = getelementptr inbounds %struct.asn1_string_st, ptr %43, i64 0, i32 2
+  %data71 = getelementptr inbounds i8, ptr %43, i64 8
   store ptr null, ptr %data71, align 8
   %44 = load ptr, ptr %policy, align 8
   store i32 0, ptr %44, align 8
@@ -494,7 +490,7 @@ land.rhs:                                         ; preds = %lor.rhs
 
 if.end101:                                        ; preds = %while.cond
   %51 = load ptr, ptr %policy, align 8
-  %data102 = getelementptr inbounds %struct.asn1_string_st, ptr %51, i64 0, i32 2
+  %data102 = getelementptr inbounds i8, ptr %51, i64 8
   %52 = load ptr, ptr %data102, align 8
   %53 = load i32, ptr %51, align 8
   %add104 = add nuw i32 %call92, 1
@@ -503,14 +499,14 @@ if.end101:                                        ; preds = %while.cond
   %call107 = call ptr @CRYPTO_realloc(ptr noundef %52, i64 noundef %conv106, ptr noundef nonnull @.str.6, i32 noundef 173) #4
   %tobool108.not = icmp eq ptr %call107, null
   %54 = load ptr, ptr %policy, align 8
-  %data110 = getelementptr inbounds %struct.asn1_string_st, ptr %54, i64 0, i32 2
+  %data110 = getelementptr inbounds i8, ptr %54, i64 8
   br i1 %tobool108.not, label %if.then109, label %if.end116
 
 if.then109:                                       ; preds = %if.end101
   %55 = load ptr, ptr %data110, align 8
   call void @CRYPTO_free(ptr noundef %55, ptr noundef nonnull @.str.6, i32 noundef 176) #4
   %56 = load ptr, ptr %policy, align 8
-  %data111 = getelementptr inbounds %struct.asn1_string_st, ptr %56, i64 0, i32 2
+  %data111 = getelementptr inbounds i8, ptr %56, i64 8
   store ptr null, ptr %data111, align 8
   %57 = load ptr, ptr %policy, align 8
   store i32 0, ptr %57, align 8
@@ -524,7 +520,7 @@ if.then109:                                       ; preds = %if.end101
 if.end116:                                        ; preds = %if.end101
   store ptr %call107, ptr %data110, align 8
   %61 = load ptr, ptr %policy, align 8
-  %data118 = getelementptr inbounds %struct.asn1_string_st, ptr %61, i64 0, i32 2
+  %data118 = getelementptr inbounds i8, ptr %61, i64 8
   %62 = load ptr, ptr %data118, align 8
   %63 = load i32, ptr %61, align 8
   %idxprom120 = sext i32 %63 to i64
@@ -536,7 +532,7 @@ if.end116:                                        ; preds = %if.end101
   %add125 = add nsw i32 %65, %call92
   store i32 %add125, ptr %64, align 8
   %66 = load ptr, ptr %policy, align 8
-  %data126 = getelementptr inbounds %struct.asn1_string_st, ptr %66, i64 0, i32 2
+  %data126 = getelementptr inbounds i8, ptr %66, i64 8
   %67 = load ptr, ptr %data126, align 8
   %68 = load i32, ptr %66, align 8
   %idxprom128 = sext i32 %68 to i64
@@ -568,7 +564,7 @@ cond.true141:                                     ; preds = %if.else137
   %add.ptr142 = getelementptr inbounds i8, ptr %16, i64 5
   %call145 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr142) #5
   store i64 %call145, ptr %val_len, align 8
-  %data146 = getelementptr inbounds %struct.asn1_string_st, ptr %21, i64 0, i32 2
+  %data146 = getelementptr inbounds i8, ptr %21, i64 8
   %72 = load ptr, ptr %data146, align 8
   %73 = load i32, ptr %21, align 8
   %conv148 = sext i32 %73 to i64
@@ -577,13 +573,13 @@ cond.true141:                                     ; preds = %if.else137
   %call151 = tail call ptr @CRYPTO_realloc(ptr noundef %72, i64 noundef %add150, ptr noundef nonnull @.str.6, i32 noundef 199) #4
   %tobool152.not = icmp eq ptr %call151, null
   %74 = load ptr, ptr %policy, align 8
-  %data170 = getelementptr inbounds %struct.asn1_string_st, ptr %74, i64 0, i32 2
+  %data170 = getelementptr inbounds i8, ptr %74, i64 8
   br i1 %tobool152.not, label %if.else169, label %if.then153
 
 if.then153:                                       ; preds = %cond.true141
   store ptr %call151, ptr %data170, align 8
   %75 = load ptr, ptr %policy, align 8
-  %data155 = getelementptr inbounds %struct.asn1_string_st, ptr %75, i64 0, i32 2
+  %data155 = getelementptr inbounds i8, ptr %75, i64 8
   %76 = load ptr, ptr %data155, align 8
   %77 = load i32, ptr %75, align 8
   %idxprom157 = sext i32 %77 to i64
@@ -597,7 +593,7 @@ if.then153:                                       ; preds = %cond.true141
   %conv164 = add i32 %80, %81
   store i32 %conv164, ptr %79, align 8
   %82 = load ptr, ptr %policy, align 8
-  %data165 = getelementptr inbounds %struct.asn1_string_st, ptr %82, i64 0, i32 2
+  %data165 = getelementptr inbounds i8, ptr %82, i64 8
   %83 = load ptr, ptr %data165, align 8
   %84 = load i32, ptr %82, align 8
   %idxprom167 = sext i32 %84 to i64
@@ -609,7 +605,7 @@ if.else169:                                       ; preds = %cond.true141
   %85 = load ptr, ptr %data170, align 8
   tail call void @CRYPTO_free(ptr noundef %85, ptr noundef nonnull @.str.6, i32 noundef 211) #4
   %86 = load ptr, ptr %policy, align 8
-  %data171 = getelementptr inbounds %struct.asn1_string_st, ptr %86, i64 0, i32 2
+  %data171 = getelementptr inbounds i8, ptr %86, i64 8
   store ptr null, ptr %data171, align 8
   %87 = load ptr, ptr %policy, align 8
   store i32 0, ptr %87, align 8

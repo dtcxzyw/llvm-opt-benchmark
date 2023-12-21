@@ -9,9 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64 }
 %struct.PyBufferProcs = type { ptr, ptr }
 %struct.PyMethodDef = type { ptr, ptr, i32, ptr }
-%struct.PyPickleBufferObject = type { %struct._object, %struct.Py_buffer, ptr }
-%struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.PyMemoryViewObject = type { %struct.PyVarObject, ptr, i64, i32, i64, %struct.Py_buffer, ptr, [1 x i64] }
 
 @PyPickleBuffer_Type = dso_local global %struct._typeobject { %struct.PyVarObject { %struct._object { %union.anon { i64 4294967295 }, ptr null }, i64 0 }, ptr @.str.2, i64 104, i64 0, ptr @picklebuf_dealloc, i64 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @picklebuf_as_buffer, i64 16384, ptr @.str.3, ptr @picklebuf_traverse, ptr @picklebuf_clear, ptr null, i64 96, ptr null, ptr null, ptr @picklebuf_methods, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i64 0, ptr null, ptr null, ptr @picklebuf_new, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i32 0, ptr null, ptr null, i8 0 }, align 8
 @PyExc_TypeError = external local_unnamed_addr global ptr, align 8
@@ -43,10 +40,10 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %view = getelementptr inbounds %struct.PyPickleBufferObject, ptr %call, i64 0, i32 1
-  %obj = getelementptr inbounds %struct.PyPickleBufferObject, ptr %call, i64 0, i32 1, i32 1
+  %view = getelementptr inbounds i8, ptr %call, i64 16
+  %obj = getelementptr inbounds i8, ptr %call, i64 24
   store ptr null, ptr %obj, align 8
-  %weakreflist = getelementptr inbounds %struct.PyPickleBufferObject, ptr %call, i64 0, i32 2
+  %weakreflist = getelementptr inbounds i8, ptr %call, i64 96
   store ptr null, ptr %weakreflist, align 8
   %call2 = tail call i32 @PyObject_GetBuffer(ptr noundef %base, ptr noundef nonnull %view, i32 noundef 284) #4
   %cmp3 = icmp slt i32 %call2, 0
@@ -85,13 +82,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %obj.val4, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %obj.val4, i64 24
   %2 = load ptr, ptr %tp_name, align 8
   %call2 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %2) #4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %obj3 = getelementptr inbounds %struct.PyPickleBufferObject, ptr %obj, i64 0, i32 1, i32 1
+  %obj3 = getelementptr inbounds i8, ptr %obj, i64 24
   %3 = load ptr, ptr %obj3, align 8
   %cmp = icmp eq ptr %3, null
   br i1 %cmp, label %if.then4, label %if.end5
@@ -102,7 +99,7 @@ if.then4:                                         ; preds = %if.end
   br label %return
 
 if.end5:                                          ; preds = %if.end
-  %view = getelementptr inbounds %struct.PyPickleBufferObject, ptr %obj, i64 0, i32 1
+  %view = getelementptr inbounds i8, ptr %obj, i64 16
   br label %return
 
 return:                                           ; preds = %if.end5, %if.then4, %if.then
@@ -124,13 +121,13 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @PyExc_TypeError, align 8
-  %tp_name = getelementptr inbounds %struct._typeobject, ptr %obj.val3, i64 0, i32 1
+  %tp_name = getelementptr inbounds i8, ptr %obj.val3, i64 24
   %2 = load ptr, ptr %tp_name, align 8
   %call2 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %2) #4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %view = getelementptr inbounds %struct.PyPickleBufferObject, ptr %obj, i64 0, i32 1
+  %view = getelementptr inbounds i8, ptr %obj, i64 16
   tail call void @PyBuffer_Release(ptr noundef nonnull %view) #4
   br label %return
 
@@ -145,7 +142,7 @@ declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 define internal void @picklebuf_dealloc(ptr noundef %self) #0 {
 entry:
   tail call void @PyObject_GC_UnTrack(ptr noundef %self) #4
-  %weakreflist = getelementptr inbounds %struct.PyPickleBufferObject, ptr %self, i64 0, i32 2
+  %weakreflist = getelementptr inbounds i8, ptr %self, i64 96
   %0 = load ptr, ptr %weakreflist, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -155,11 +152,11 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %view = getelementptr inbounds %struct.PyPickleBufferObject, ptr %self, i64 0, i32 1
+  %view = getelementptr inbounds i8, ptr %self, i64 16
   tail call void @PyBuffer_Release(ptr noundef nonnull %view) #4
   %1 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %1, align 8
-  %tp_free = getelementptr inbounds %struct._typeobject, ptr %self.val, i64 0, i32 38
+  %tp_free = getelementptr inbounds i8, ptr %self.val, i64 320
   %2 = load ptr, ptr %tp_free, align 8
   tail call void %2(ptr noundef nonnull %self) #4
   ret void
@@ -168,7 +165,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal i32 @picklebuf_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
 entry:
-  %obj = getelementptr inbounds %struct.PyPickleBufferObject, ptr %self, i64 0, i32 1, i32 1
+  %obj = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %obj, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -189,7 +186,7 @@ return:                                           ; preds = %if.then, %do.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @picklebuf_clear(ptr noundef %self) #0 {
 entry:
-  %view = getelementptr inbounds %struct.PyPickleBufferObject, ptr %self, i64 0, i32 1
+  %view = getelementptr inbounds i8, ptr %self, i64 16
   tail call void @PyBuffer_Release(ptr noundef nonnull %view) #4
   ret i32 0
 }
@@ -205,17 +202,17 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tp_alloc = getelementptr inbounds %struct._typeobject, ptr %type, i64 0, i32 36
+  %tp_alloc = getelementptr inbounds i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc, align 8
   %call1 = call ptr %0(ptr noundef %type, i64 noundef 0) #4
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %view = getelementptr inbounds %struct.PyPickleBufferObject, ptr %call1, i64 0, i32 1
-  %obj = getelementptr inbounds %struct.PyPickleBufferObject, ptr %call1, i64 0, i32 1, i32 1
+  %view = getelementptr inbounds i8, ptr %call1, i64 16
+  %obj = getelementptr inbounds i8, ptr %call1, i64 24
   store ptr null, ptr %obj, align 8
-  %weakreflist = getelementptr inbounds %struct.PyPickleBufferObject, ptr %call1, i64 0, i32 2
+  %weakreflist = getelementptr inbounds i8, ptr %call1, i64 96
   store ptr null, ptr %weakreflist, align 8
   %1 = load ptr, ptr %base, align 8
   %call5 = call i32 @PyObject_GetBuffer(ptr noundef %1, ptr noundef nonnull %view, i32 noundef 284) #4
@@ -252,7 +249,7 @@ declare void @PyObject_ClearWeakRefs(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal i32 @picklebuf_getbuf(ptr nocapture noundef readonly %self, ptr noundef %view, i32 noundef %flags) #0 {
 entry:
-  %obj = getelementptr inbounds %struct.PyPickleBufferObject, ptr %self, i64 0, i32 1, i32 1
+  %obj = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %obj, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -280,8 +277,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @picklebuf_raw(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %view = getelementptr inbounds %struct.PyPickleBufferObject, ptr %self, i64 0, i32 1
-  %obj = getelementptr inbounds %struct.PyPickleBufferObject, ptr %self, i64 0, i32 1, i32 1
+  %view = getelementptr inbounds i8, ptr %self, i64 16
+  %obj = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load ptr, ptr %obj, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %if.end
@@ -292,7 +289,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %suboffsets = getelementptr inbounds %struct.PyPickleBufferObject, ptr %self, i64 0, i32 1, i32 9
+  %suboffsets = getelementptr inbounds i8, ptr %self, i64 80
   %2 = load ptr, ptr %suboffsets, align 8
   %cmp2.not = icmp eq ptr %2, null
   br i1 %cmp2.not, label %lor.lhs.false, label %if.then4
@@ -313,18 +310,18 @@ if.end5:                                          ; preds = %lor.lhs.false
   br i1 %cmp7, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end5
-  %format = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call6, i64 0, i32 5, i32 6
+  %format = getelementptr inbounds i8, ptr %call6, i64 96
   store ptr @.str.7, ptr %format, align 8
-  %ndim = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call6, i64 0, i32 5, i32 5
+  %ndim = getelementptr inbounds i8, ptr %call6, i64 92
   store i32 1, ptr %ndim, align 4
-  %itemsize = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call6, i64 0, i32 5, i32 3
+  %itemsize = getelementptr inbounds i8, ptr %call6, i64 80
   store i64 1, ptr %itemsize, align 8
-  %len = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call6, i64 0, i32 5, i32 2
-  %shape = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call6, i64 0, i32 5, i32 7
+  %len = getelementptr inbounds i8, ptr %call6, i64 72
+  %shape = getelementptr inbounds i8, ptr %call6, i64 104
   store ptr %len, ptr %shape, align 8
-  %strides = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call6, i64 0, i32 5, i32 8
+  %strides = getelementptr inbounds i8, ptr %call6, i64 112
   store ptr %itemsize, ptr %strides, align 8
-  %flags = getelementptr inbounds %struct.PyMemoryViewObject, ptr %call6, i64 0, i32 3
+  %flags = getelementptr inbounds i8, ptr %call6, i64 40
   store i32 6, ptr %flags, align 8
   br label %return
 
@@ -336,7 +333,7 @@ return:                                           ; preds = %if.end5, %if.end9, 
 ; Function Attrs: nounwind uwtable
 define internal nonnull ptr @picklebuf_release(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
-  %view = getelementptr inbounds %struct.PyPickleBufferObject, ptr %self, i64 0, i32 1
+  %view = getelementptr inbounds i8, ptr %self, i64 16
   tail call void @PyBuffer_Release(ptr noundef nonnull %view) #4
   ret ptr @_Py_NoneStruct
 }

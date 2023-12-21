@@ -6,14 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %class.buffer = type { ptr, i32, i32, [16 x %"union.std::aligned_storage<16, 8>::type"] }
 %"union.std::aligned_storage<16, 8>::type" = type { [16 x i8] }
-%struct.expr_stat = type <{ i32, i32, i32, i32, i8, [3 x i8] }>
 %"struct.std::pair" = type <{ ptr, i32, [4 x i8] }>
-%class.ast = type { i32, i24, i32, i32 }
-%class.app = type { %class.expr, ptr, i32, [0 x ptr] }
-%class.expr = type { %class.ast }
-%class.var = type { %class.expr, i32, ptr }
-%class.quantifier = type { %class.expr, i32, i32, ptr, ptr, i32, i32, i8, i8, %class.symbol, %class.symbol, i32, i32, [0 x i8] }
-%class.symbol = type { ptr }
 %class.ptr_buffer = type { %class.buffer.0 }
 %class.buffer.0 = type { ptr, i32, i32, [16 x %"union.std::aligned_storage<8, 8>::type"] }
 %"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
@@ -42,19 +35,19 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_Z13get_expr_statP4exprR9expr_stat(ptr noundef %n, ptr nocapture noundef nonnull align 4 dereferenceable(17) %r) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN6bufferISt4pairIP4exprjELb1ELj16EE9push_backEOS3_.exit:
   %todo = alloca %class.buffer, align 8
-  %m_initial_buffer.i = getelementptr inbounds %class.buffer, ptr %todo, i64 0, i32 3
+  %m_initial_buffer.i = getelementptr inbounds i8, ptr %todo, i64 16
   store ptr %m_initial_buffer.i, ptr %todo, align 8
-  %m_pos.i = getelementptr inbounds %class.buffer, ptr %todo, i64 0, i32 1
-  %m_capacity.i = getelementptr inbounds %class.buffer, ptr %todo, i64 0, i32 2
+  %m_pos.i = getelementptr inbounds i8, ptr %todo, i64 8
+  %m_capacity.i = getelementptr inbounds i8, ptr %todo, i64 12
   store i32 16, ptr %m_capacity.i, align 4
   store ptr %n, ptr %m_initial_buffer.i, align 8
-  %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx = getelementptr inbounds %class.buffer, ptr %todo, i64 0, i32 3, i64 0, i32 0, i64 8
+  %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx = getelementptr inbounds i8, ptr %todo, i64 24
   store i32 0, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx, align 8
   store i32 1, ptr %m_pos.i, align 8
-  %m_depth = getelementptr inbounds %struct.expr_stat, ptr %r, i64 0, i32 1
-  %m_max_var_idx = getelementptr inbounds %struct.expr_stat, ptr %r, i64 0, i32 3
-  %m_ground = getelementptr inbounds %struct.expr_stat, ptr %r, i64 0, i32 4
-  %m_const_count = getelementptr inbounds %struct.expr_stat, ptr %r, i64 0, i32 2
+  %m_depth = getelementptr inbounds i8, ptr %r, i64 4
+  %m_max_var_idx = getelementptr inbounds i8, ptr %r, i64 12
+  %m_ground = getelementptr inbounds i8, ptr %r, i64 16
+  %m_const_count = getelementptr inbounds i8, ptr %r, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %_ZN6bufferISt4pairIP4exprjELb1ELj16EE9push_backEOS3_.exit, %sw.epilog
@@ -64,7 +57,7 @@ while.body:                                       ; preds = %_ZN6bufferISt4pairI
   %idxprom.i = zext i32 %sub.i to i64
   %arrayidx.i = getelementptr inbounds %"struct.std::pair", ptr %1, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
-  %second = getelementptr inbounds %"struct.std::pair", ptr %1, i64 %idxprom.i, i32 1
+  %second = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %3 = load i32, ptr %second, align 8
   store i32 %sub.i, ptr %m_pos.i, align 8
   %4 = load i32, ptr %r, align 4
@@ -99,7 +92,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %if.then, %while.body
-  %m_kind.i = getelementptr inbounds %class.ast, ptr %2, i64 0, i32 1
+  %m_kind.i = getelementptr inbounds i8, ptr %2, i64 4
   %bf.load.i = load i32, ptr %m_kind.i, align 4
   %trunc = trunc i32 %bf.load.i to i16
   switch i16 %trunc, label %sw.default [
@@ -109,7 +102,7 @@ if.end:                                           ; preds = %if.then, %while.bod
   ]
 
 sw.bb:                                            ; preds = %if.end
-  %m_num_args.i = getelementptr inbounds %class.app, ptr %2, i64 0, i32 2
+  %m_num_args.i = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load i32, ptr %m_num_args.i, align 8
   %cond = icmp eq i32 %6, 0
   br i1 %cond, label %if.then15, label %while.body20.lr.ph
@@ -121,6 +114,7 @@ if.then15:                                        ; preds = %sw.bb
   br label %sw.epilog
 
 while.body20.lr.ph:                               ; preds = %sw.bb
+  %m_args.i = getelementptr inbounds i8, ptr %2, i64 32
   %add = add i32 %3, 1
   %8 = zext i32 %6 to i64
   br label %while.body20
@@ -129,7 +123,7 @@ while.body20:                                     ; preds = %while.body20.lr.ph,
   %9 = phi i32 [ %sub.i, %while.body20.lr.ph ], [ %inc.i50, %_ZN6bufferISt4pairIP4exprjELb1ELj16EE9push_backEOS3_.exit56 ]
   %indvars.iv = phi i64 [ %8, %while.body20.lr.ph ], [ %10, %_ZN6bufferISt4pairIP4exprjELb1ELj16EE9push_backEOS3_.exit56 ]
   %10 = add nsw i64 %indvars.iv, -1
-  %arrayidx.i20 = getelementptr inbounds %class.app, ptr %2, i64 0, i32 3, i64 %10
+  %arrayidx.i20 = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %10
   %11 = load ptr, ptr %arrayidx.i20, align 8
   %12 = load i32, ptr %m_capacity.i, align 4
   %cmp.not.i24 = icmp ult i32 %9, %12
@@ -200,7 +194,7 @@ _ZN6bufferISt4pairIP4exprjELb1ELj16EE9push_backEOS3_.exit56: ; preds = %entry.if
   br i1 %cmp19.not.wide, label %sw.epilog, label %while.body20
 
 sw.bb30:                                          ; preds = %if.end
-  %m_idx.i = getelementptr inbounds %class.var, ptr %2, i64 0, i32 1
+  %m_idx.i = getelementptr inbounds i8, ptr %2, i64 16
   %17 = load i32, ptr %m_idx.i, align 8
   %18 = load i32, ptr %m_max_var_idx, align 4
   %cmp35 = icmp ugt i32 %17, %18
@@ -215,7 +209,7 @@ if.end42:                                         ; preds = %if.then36, %sw.bb30
   br label %sw.epilog
 
 sw.bb43:                                          ; preds = %if.end
-  %m_expr.i = getelementptr inbounds %class.quantifier, ptr %2, i64 0, i32 3
+  %m_expr.i = getelementptr inbounds i8, ptr %2, i64 24
   %19 = load ptr, ptr %m_expr.i, align 8
   %add51 = add i32 %3, 1
   %20 = load i32, ptr %m_capacity.i, align 4
@@ -327,7 +321,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #4
 define linkonce_odr hidden void @_ZN6bufferISt4pairIP4exprjELb1ELj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_initial_buffer.i.i = getelementptr inbounds %class.buffer, ptr %this, i64 0, i32 3
+  %m_initial_buffer.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.not.i.i = icmp eq ptr %0, %m_initial_buffer.i.i
   %cmp.i.i.i = icmp eq ptr %0, null
   %or.cond.i.i = or i1 %cmp.not.i.i, %cmp.i.i.i
@@ -352,10 +346,10 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i
 define hidden noundef i32 @_Z16get_symbol_countP4expr(ptr noundef %n) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit:
   %todo = alloca %class.ptr_buffer, align 8
-  %m_initial_buffer.i.i = getelementptr inbounds %class.buffer.0, ptr %todo, i64 0, i32 3
+  %m_initial_buffer.i.i = getelementptr inbounds i8, ptr %todo, i64 16
   store ptr %m_initial_buffer.i.i, ptr %todo, align 8
-  %m_pos.i.i = getelementptr inbounds %class.buffer.0, ptr %todo, i64 0, i32 1
-  %m_capacity.i.i = getelementptr inbounds %class.buffer.0, ptr %todo, i64 0, i32 2
+  %m_pos.i.i = getelementptr inbounds i8, ptr %todo, i64 8
+  %m_capacity.i.i = getelementptr inbounds i8, ptr %todo, i64 12
   store i32 16, ptr %m_capacity.i.i, align 4
   store ptr %n, ptr %m_initial_buffer.i.i, align 8
   store i32 1, ptr %m_pos.i.i, align 8
@@ -371,7 +365,7 @@ while.body:                                       ; preds = %_ZN6bufferIP4exprLb
   %2 = load ptr, ptr %arrayidx.i, align 8
   store i32 %sub.i, ptr %m_pos.i.i, align 8
   %inc = add i32 %r.089, 1
-  %m_kind.i = getelementptr inbounds %class.ast, ptr %2, i64 0, i32 1
+  %m_kind.i = getelementptr inbounds i8, ptr %2, i64 4
   %bf.load.i = load i32, ptr %m_kind.i, align 4
   %trunc = trunc i32 %bf.load.i to i16
   switch i16 %trunc, label %sw.epilog [
@@ -395,20 +389,21 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 sw.bb:                                            ; preds = %while.body
-  %m_num_args.i = getelementptr inbounds %class.app, ptr %2, i64 0, i32 2
+  %m_num_args.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i32, ptr %m_num_args.i, align 8
   %cmp.not87 = icmp eq i32 %3, 0
-  br i1 %cmp.not87, label %sw.epilog, label %while.body12.preheader
+  br i1 %cmp.not87, label %sw.epilog, label %while.body12.lr.ph
 
-while.body12.preheader:                           ; preds = %sw.bb
+while.body12.lr.ph:                               ; preds = %sw.bb
+  %m_args.i = getelementptr inbounds i8, ptr %2, i64 32
   %4 = zext i32 %3 to i64
   br label %while.body12
 
-while.body12:                                     ; preds = %while.body12.preheader, %_ZN6bufferIP4exprLb0ELj16EE9push_backEOS1_.exit
-  %5 = phi i32 [ %sub.i, %while.body12.preheader ], [ %inc.i38, %_ZN6bufferIP4exprLb0ELj16EE9push_backEOS1_.exit ]
-  %indvars.iv = phi i64 [ %4, %while.body12.preheader ], [ %6, %_ZN6bufferIP4exprLb0ELj16EE9push_backEOS1_.exit ]
+while.body12:                                     ; preds = %while.body12.lr.ph, %_ZN6bufferIP4exprLb0ELj16EE9push_backEOS1_.exit
+  %5 = phi i32 [ %sub.i, %while.body12.lr.ph ], [ %inc.i38, %_ZN6bufferIP4exprLb0ELj16EE9push_backEOS1_.exit ]
+  %indvars.iv = phi i64 [ %4, %while.body12.lr.ph ], [ %6, %_ZN6bufferIP4exprLb0ELj16EE9push_backEOS1_.exit ]
   %6 = add nsw i64 %indvars.iv, -1
-  %arrayidx.i9 = getelementptr inbounds %class.app, ptr %2, i64 0, i32 3, i64 %6
+  %arrayidx.i9 = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %6
   %7 = load ptr, ptr %arrayidx.i9, align 8
   %8 = load i32, ptr %m_capacity.i.i, align 4
   %cmp.not.i12 = icmp ult i32 %5, %8
@@ -478,7 +473,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backEOS1_.exit:  ; preds = %entry.if.end_crit_e
   br i1 %cmp.not.wide, label %sw.epilog, label %while.body12
 
 sw.bb18:                                          ; preds = %while.body
-  %m_expr.i = getelementptr inbounds %class.quantifier, ptr %2, i64 0, i32 3
+  %m_expr.i = getelementptr inbounds i8, ptr %2, i64 24
   %14 = load ptr, ptr %m_expr.i, align 8
   %15 = load i32, ptr %m_capacity.i.i, align 4
   %cmp.not.i46 = icmp ult i32 %sub.i, %15
@@ -573,7 +568,7 @@ _ZN10ptr_bufferI4exprLj16EED2Ev.exit:             ; preds = %while.end25, %if.en
 define linkonce_odr hidden void @_ZN10ptr_bufferI4exprLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %m_initial_buffer.i.i.i = getelementptr inbounds %class.buffer.0, ptr %this, i64 0, i32 3
+  %m_initial_buffer.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp.not.i.i.i = icmp eq ptr %0, %m_initial_buffer.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %0, null
   %or.cond.i.i.i = or i1 %cmp.not.i.i.i, %cmp.i.i.i.i

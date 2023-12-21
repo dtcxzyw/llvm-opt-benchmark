@@ -113,16 +113,16 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp4.not.i, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end3.i
-  %data_type.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 1
+  %data_type.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %0 = load i32, ptr %data_type.i, align 8
   %cmp5.i = icmp eq i32 %0, 5
   br i1 %cmp5.i, label %if.then6.i, label %land.end
 
 if.then6.i:                                       ; preds = %land.lhs.true.i
-  %data_size.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 3
+  %data_size.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %1 = load i64, ptr %data_size.i, align 8
   %conv.i = trunc i64 %1 to i32
-  %data.i = getelementptr inbounds %struct.ossl_param_st, ptr %call.i, i64 0, i32 2
+  %data.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %2 = load ptr, ptr %data.i, align 8
   %call7.i = tail call i32 @ossl_md5_sha1_ctrl(ptr noundef nonnull %ctx, i32 noundef 29, i32 noundef %conv.i, ptr noundef %2) #4
   %3 = icmp ne i32 %call7.i, 0
@@ -156,16 +156,16 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end3
-  %data_type = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 1
+  %data_type = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp5 = icmp eq i32 %0, 5
   br i1 %cmp5, label %if.then6, label %return
 
 if.then6:                                         ; preds = %land.lhs.true
-  %data_size = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 3
+  %data_size = getelementptr inbounds i8, ptr %call, i64 24
   %1 = load i64, ptr %data_size, align 8
   %conv = trunc i64 %1 to i32
-  %data = getelementptr inbounds %struct.ossl_param_st, ptr %call, i64 0, i32 2
+  %data = getelementptr inbounds i8, ptr %call, i64 16
   %2 = load ptr, ptr %data, align 8
   %call7 = tail call i32 @ossl_md5_sha1_ctrl(ptr noundef nonnull %vctx, i32 noundef 29, i32 noundef %conv, ptr noundef %2) #4
   br label %return

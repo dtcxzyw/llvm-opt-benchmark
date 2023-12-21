@@ -5,12 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.QOSGraphEdgeOptions = type { ptr, i32, ptr, ptr, ptr, ptr }
 %struct.QPCIAddress = type { i32, i16, i16 }
-%struct.QE1000E_PCI = type { %struct.QOSGraphObject, %struct.QPCIDevice, %struct.QPCIBar, %struct.QE1000E }
-%struct.QOSGraphObject = type { ptr, ptr, ptr, ptr, ptr }
-%struct.QPCIDevice = type { ptr, i32, i8, %struct.QPCIBar, %struct.QPCIBar, i64, i64 }
-%struct.QPCIBar = type { i64, i8 }
-%struct.QE1000E = type { i64, i64 }
-%struct.QPCIBus = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i8, i8 }
 
 @.str = private unnamed_addr constant [11 x i8] c"netdev=hs0\00", align 1
 @__const.igb_register_nodes.opts = private unnamed_addr constant %struct.QOSGraphEdgeOptions { ptr null, i32 0, ptr @.str, ptr null, ptr null, ptr null }, align 8
@@ -63,23 +57,23 @@ declare void @qos_node_create_driver(ptr noundef, ptr noundef) local_unnamed_add
 define internal ptr @igb_pci_create(ptr noundef %pci_bus, ptr noundef %alloc, ptr nocapture noundef readonly %addr) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(136) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 136) #7
-  %vendor_id = getelementptr inbounds %struct.QPCIAddress, ptr %addr, i64 0, i32 1
+  %vendor_id = getelementptr inbounds i8, ptr %addr, i64 4
   %0 = load i16, ptr %vendor_id, align 4
   %conv = zext i16 %0 to i32
-  %device_id = getelementptr inbounds %struct.QPCIAddress, ptr %addr, i64 0, i32 2
+  %device_id = getelementptr inbounds i8, ptr %addr, i64 6
   %1 = load i16, ptr %device_id, align 2
   %conv1 = zext i16 %1 to i32
-  %pci_dev = getelementptr inbounds %struct.QE1000E_PCI, ptr %call, i64 0, i32 1
+  %pci_dev = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @qpci_device_foreach(ptr noundef %pci_bus, i32 noundef %conv, i32 noundef %conv1, ptr noundef nonnull @e1000e_foreach_callback, ptr noundef nonnull %pci_dev) #6
-  %mac_regs = getelementptr inbounds %struct.QE1000E_PCI, ptr %call, i64 0, i32 2
+  %mac_regs = getelementptr inbounds i8, ptr %call, i64 104
   %call3 = tail call { i64, i8 } @qpci_iomap(ptr noundef nonnull %pci_dev, i32 noundef 0, ptr noundef null) #6
   %2 = extractvalue { i64, i8 } %call3, 0
   %3 = extractvalue { i64, i8 } %call3, 1
   store i64 %2, ptr %mac_regs, align 8
-  %tmp.sroa.2.0.mac_regs.sroa_idx = getelementptr inbounds %struct.QE1000E_PCI, ptr %call, i64 0, i32 2, i32 1
+  %tmp.sroa.2.0.mac_regs.sroa_idx = getelementptr inbounds i8, ptr %call, i64 112
   store i8 %3, ptr %tmp.sroa.2.0.mac_regs.sroa_idx, align 8
   %call4 = tail call i64 @guest_alloc(ptr noundef %alloc, i64 noundef 4096) #6
-  %e1000e = getelementptr inbounds %struct.QE1000E_PCI, ptr %call, i64 0, i32 3
+  %e1000e = getelementptr inbounds i8, ptr %call, i64 120
   store i64 %call4, ptr %e1000e, align 8
   %cmp.not = icmp eq i64 %call4, 0
   br i1 %cmp.not, label %if.else, label %do.end
@@ -90,7 +84,7 @@ if.else:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry
   %call8 = tail call i64 @guest_alloc(ptr noundef %alloc, i64 noundef 4096) #6
-  %rx_ring = getelementptr inbounds %struct.QE1000E_PCI, ptr %call, i64 0, i32 3, i32 1
+  %rx_ring = getelementptr inbounds i8, ptr %call, i64 128
   store i64 %call8, ptr %rx_ring, align 8
   %cmp13.not = icmp eq i64 %call8, 0
   br i1 %cmp13.not, label %if.else16, label %do.end18
@@ -101,9 +95,9 @@ if.else16:                                        ; preds = %do.end
 
 do.end18:                                         ; preds = %do.end
   store ptr @igb_pci_get_driver, ptr %call, align 8
-  %start_hw = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 2
+  %start_hw = getelementptr inbounds i8, ptr %call, i64 16
   store ptr @igb_pci_start_hw, ptr %start_hw, align 8
-  %destructor = getelementptr inbounds %struct.QOSGraphObject, ptr %call, i64 0, i32 3
+  %destructor = getelementptr inbounds i8, ptr %call, i64 24
   store ptr @e1000e_pci_destructor, ptr %destructor, align 8
   ret ptr %call
 }
@@ -135,20 +129,12 @@ define internal nonnull ptr @igb_pci_get_driver(ptr noundef readnone %obj, ptr n
 entry:
   %call = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.6) #6
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %e1000e = getelementptr inbounds %struct.QE1000E_PCI, ptr %obj, i64 0, i32 3
-  br label %do.end
+  br i1 %tobool.not, label %do.end, label %if.end
 
 if.end:                                           ; preds = %entry
   %call1 = tail call i32 @g_strcmp0(ptr noundef %interface, ptr noundef nonnull @.str.7) #6
   %tobool2.not = icmp eq i32 %call1, 0
-  br i1 %tobool2.not, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  %pci_dev = getelementptr inbounds %struct.QE1000E_PCI, ptr %obj, i64 0, i32 1
-  br label %do.end
+  br i1 %tobool2.not, label %do.end, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %0 = load ptr, ptr @stderr, align 8
@@ -156,19 +142,20 @@ if.end4:                                          ; preds = %if.end
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 141, ptr noundef nonnull @__func__.igb_pci_get_driver, ptr noundef null) #8
   unreachable
 
-do.end:                                           ; preds = %if.then3, %if.then
-  %retval.0 = phi ptr [ %pci_dev, %if.then3 ], [ %e1000e, %if.then ]
-  ret ptr %retval.0
+do.end:                                           ; preds = %if.end, %entry
+  %.sink = phi i64 [ 120, %entry ], [ 40, %if.end ]
+  %pci_dev = getelementptr inbounds i8, ptr %obj, i64 %.sink
+  ret ptr %pci_dev
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @igb_pci_start_hw(ptr noundef %obj) #0 {
 entry:
-  %pci_dev = getelementptr %struct.QE1000E_PCI, ptr %obj, i64 0, i32 1
+  %pci_dev = getelementptr i8, ptr %obj, i64 40
   tail call void @qpci_device_enable(ptr noundef nonnull %pci_dev) #6
-  %mac_regs.i = getelementptr %struct.QE1000E_PCI, ptr %obj, i64 0, i32 2
+  %mac_regs.i = getelementptr i8, ptr %obj, i64 104
   %0 = load i64, ptr %mac_regs.i, align 8
-  %1 = getelementptr %struct.QE1000E_PCI, ptr %obj, i64 0, i32 2, i32 1
+  %1 = getelementptr i8, ptr %obj, i64 112
   %2 = load i8, ptr %1, align 8
   %call.i = tail call i32 @qpci_io_readl(ptr noundef %pci_dev, i64 %0, i8 %2, i64 noundef 0) #6
   %or2 = or i32 %call.i, 67108928
@@ -179,7 +166,7 @@ entry:
   %6 = load i8, ptr %1, align 8
   tail call void @qpci_io_writel(ptr noundef %pci_dev, i64 %5, i8 %6, i64 noundef 32, i32 noundef 69210624) #6
   %7 = load ptr, ptr %pci_dev, align 8
-  %qts = getelementptr inbounds %struct.QPCIBus, ptr %7, i64 0, i32 16
+  %qts = getelementptr inbounds i8, ptr %7, i64 128
   %8 = load ptr, ptr %qts, align 8
   %call5 = tail call i64 @qtest_clock_step(ptr noundef %8, i64 noundef 900000000) #6
   tail call void @qpci_msix_enable(ptr noundef nonnull %pci_dev) #6
@@ -198,7 +185,7 @@ if.else:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %if.else, %entry
-  %e1000e = getelementptr inbounds %struct.QE1000E_PCI, ptr %obj, i64 0, i32 3
+  %e1000e = getelementptr inbounds i8, ptr %obj, i64 120
   %13 = load i64, ptr %mac_regs.i, align 8
   %14 = load i8, ptr %1, align 8
   tail call void @qpci_io_writel(ptr noundef %pci_dev, i64 %13, i8 %14, i64 noundef 256, i32 noundef 0) #6
@@ -228,7 +215,7 @@ do.end:                                           ; preds = %if.else, %entry
   %29 = load i64, ptr %mac_regs.i, align 8
   %30 = load i8, ptr %1, align 8
   tail call void @qpci_io_writel(ptr noundef %pci_dev, i64 %29, i8 %30, i64 noundef 1024, i32 noundef 2) #6
-  %rx_ring = getelementptr inbounds %struct.QE1000E_PCI, ptr %obj, i64 0, i32 3, i32 1
+  %rx_ring = getelementptr inbounds i8, ptr %obj, i64 128
   %31 = load i64, ptr %rx_ring, align 8
   %conv35 = trunc i64 %31 to i32
   %32 = load i64, ptr %mac_regs.i, align 8
@@ -279,10 +266,10 @@ do.end:                                           ; preds = %if.else, %entry
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @e1000e_pci_destructor(ptr noundef %obj) #0 {
 entry:
-  %pci_dev = getelementptr inbounds %struct.QE1000E_PCI, ptr %obj, i64 0, i32 1
-  %mac_regs = getelementptr inbounds %struct.QE1000E_PCI, ptr %obj, i64 0, i32 2
+  %pci_dev = getelementptr inbounds i8, ptr %obj, i64 40
+  %mac_regs = getelementptr inbounds i8, ptr %obj, i64 104
   %0 = load i64, ptr %mac_regs, align 8
-  %1 = getelementptr inbounds %struct.QE1000E_PCI, ptr %obj, i64 0, i32 2, i32 1
+  %1 = getelementptr inbounds i8, ptr %obj, i64 112
   %2 = load i8, ptr %1, align 8
   tail call void @qpci_iounmap(ptr noundef nonnull %pci_dev, i64 %0, i8 %2) #6
   tail call void @qpci_msix_disable(ptr noundef nonnull %pci_dev) #6

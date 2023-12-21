@@ -3,11 +3,6 @@ source_filename = "bench/qemu/original/block_monitor_bitmap-qmp-cmds.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.BlockDirtyBitmapOrStrList = type { ptr, ptr }
-%struct.BlockDirtyBitmapOrStr = type { i32, %union.anon }
-%union.anon = type { %struct.BlockDirtyBitmap }
-%struct.BlockDirtyBitmap = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [22 x i8] c"qemu_in_main_thread()\00", align 1
 @.str.1 = private unnamed_addr constant [40 x i8] c"../qemu/block/monitor/bitmap-qmp-cmds.c\00", align 1
 @__PRETTY_FUNCTION__.block_dirty_bitmap_lookup = private unnamed_addr constant [102 x i8] c"BdrvDirtyBitmap *block_dirty_bitmap_lookup(const char *, const char *, BlockDriverState **, Error **)\00", align 1
@@ -364,7 +359,7 @@ for.cond.preheader:                               ; preds = %do.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %lst.018 = phi ptr [ %7, %for.inc ], [ %bms, %for.cond.preheader ]
-  %value = getelementptr inbounds %struct.BlockDirtyBitmapOrStrList, ptr %lst.018, i64 0, i32 1
+  %value = getelementptr inbounds i8, ptr %lst.018, i64 8
   %0 = load ptr, ptr %value, align 8
   %1 = load i32, ptr %0, align 8
   switch i32 %1, label %sw.default [
@@ -373,7 +368,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   ]
 
 sw.bb:                                            ; preds = %for.body
-  %u = getelementptr inbounds %struct.BlockDirtyBitmapOrStr, ptr %0, i64 0, i32 1
+  %u = getelementptr inbounds i8, ptr %0, i64 8
   %2 = load ptr, ptr %u, align 8
   %3 = load ptr, ptr %bs, align 8
   %call6 = call ptr @bdrv_find_dirty_bitmap(ptr noundef %3, ptr noundef %2) #4
@@ -385,9 +380,9 @@ if.then8:                                         ; preds = %sw.bb
   br label %fail
 
 sw.bb10:                                          ; preds = %for.body
-  %u12 = getelementptr inbounds %struct.BlockDirtyBitmapOrStr, ptr %0, i64 0, i32 1
+  %u12 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %u12, align 8
-  %name = getelementptr inbounds %struct.BlockDirtyBitmapOrStr, ptr %0, i64 0, i32 1, i32 0, i32 1
+  %name = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %name, align 8
   %call15 = call ptr @block_dirty_bitmap_lookup(ptr noundef %4, ptr noundef %5, ptr noundef null, ptr noundef %errp)
   %tobool16.not = icmp eq ptr %call15, null

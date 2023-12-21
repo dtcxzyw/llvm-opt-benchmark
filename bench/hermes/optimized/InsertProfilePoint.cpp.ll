@@ -3,50 +3,9 @@ source_filename = "bench/hermes/original/InsertProfilePoint.cpp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.hermes::BasicBlock" = type { %"class.llvh::ilist_node_with_parent", %"class.hermes::Value", %"class.llvh::iplist", ptr }
-%"class.llvh::ilist_node_with_parent" = type { %"class.llvh::ilist_node" }
-%"class.llvh::ilist_node" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::ilist_node_impl" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::ilist_node_base" = type { ptr, ptr }
-%"class.hermes::Value" = type { i8, %"class.hermes::Type", %"class.llvh::SmallVector" }
-%"class.hermes::Type" = type { i16, i16 }
-%"class.llvh::SmallVector" = type { %"class.llvh::SmallVectorImpl", %"struct.llvh::SmallVectorStorage" }
-%"class.llvh::SmallVectorImpl" = type { %"class.llvh::SmallVectorTemplateBase" }
-%"class.llvh::SmallVectorTemplateBase" = type { %"class.llvh::SmallVectorTemplateCommon" }
-%"class.llvh::SmallVectorTemplateCommon" = type { %"class.llvh::SmallVectorBase" }
-%"class.llvh::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvh::SmallVectorStorage" = type { [2 x %"struct.llvh::AlignedCharArrayUnion"] }
-%"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
-%"struct.llvh::AlignedCharArray" = type { [8 x i8] }
-%"class.llvh::iplist" = type { %"class.llvh::iplist_impl" }
-%"class.llvh::iplist_impl" = type { %"class.llvh::simple_ilist" }
-%"class.llvh::simple_ilist" = type { %"class.llvh::ilist_sentinel" }
-%"class.llvh::ilist_sentinel" = type { %"class.llvh::ilist_node_impl.0" }
-%"class.llvh::ilist_node_impl.0" = type { %"class.llvh::ilist_node_base" }
 %"class.hermes::IRBuilder" = type { ptr, %"class.llvh::ilist_iterator", ptr, %"class.llvh::SMLoc", ptr }
 %"class.llvh::ilist_iterator" = type { ptr }
 %"class.llvh::SMLoc" = type { ptr }
-%"class.hermes::Function" = type { %"class.llvh::ilist_node_with_parent.12", %"class.hermes::Value", ptr, i8, ptr, %"class.llvh::iplist.15", %"class.llvh::SmallVector.23", %"class.hermes::Identifier", i32, i8, %"class.llvh::SMRange", i32, %"class.hermes::Identifier", ptr, i32, %"class.hermes::OptValue", [4 x i8], %"struct.hermes::LazySource", %"class.std::shared_ptr", ptr }
-%"class.llvh::ilist_node_with_parent.12" = type { %"class.llvh::ilist_node.13" }
-%"class.llvh::ilist_node.13" = type { %"class.llvh::ilist_node_impl.14" }
-%"class.llvh::ilist_node_impl.14" = type { %"class.llvh::ilist_node_base" }
-%"class.llvh::iplist.15" = type { %"class.llvh::iplist_impl.16" }
-%"class.llvh::iplist_impl.16" = type { %"class.llvh::simple_ilist.21" }
-%"class.llvh::simple_ilist.21" = type { %"class.llvh::ilist_sentinel.22" }
-%"class.llvh::ilist_sentinel.22" = type { %"class.llvh::ilist_node_impl" }
-%"class.llvh::SmallVector.23" = type { %"class.llvh::SmallVectorImpl.24", %"struct.llvh::SmallVectorStorage.27" }
-%"class.llvh::SmallVectorImpl.24" = type { %"class.llvh::SmallVectorTemplateBase.25" }
-%"class.llvh::SmallVectorTemplateBase.25" = type { %"class.llvh::SmallVectorTemplateCommon.26" }
-%"class.llvh::SmallVectorTemplateCommon.26" = type { %"class.llvh::SmallVectorBase" }
-%"struct.llvh::SmallVectorStorage.27" = type { [8 x %"struct.llvh::AlignedCharArrayUnion.28"] }
-%"struct.llvh::AlignedCharArrayUnion.28" = type { %"struct.llvh::AlignedCharArray" }
-%"class.llvh::SMRange" = type { %"class.llvh::SMLoc", %"class.llvh::SMLoc" }
-%"class.hermes::Identifier" = type { ptr }
-%"class.hermes::OptValue" = type <{ i32, i8, [3 x i8] }>
-%"struct.hermes::LazySource" = type <{ i32, i32, %"class.llvh::SMRange", i8, i8, [6 x i8] }>
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 
 $_ZN6hermes3hbc18InsertProfilePointD2Ev = comdat any
 
@@ -57,8 +16,8 @@ $_ZN6hermes3hbc18InsertProfilePointD0Ev = comdat any
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, inaccessiblemem: write) uwtable
 define hidden noundef ptr @_ZNK6hermes3hbc18InsertProfilePoint18findInsertionPointERNS_10BasicBlockE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(80) %BB) local_unnamed_addr #0 align 2 {
 entry:
-  %InstList.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %BB, i64 0, i32 2
-  %Next.i.i.i.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %BB, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %InstList.i = getelementptr inbounds i8, ptr %BB, i64 56
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %BB, i64 64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
@@ -78,7 +37,7 @@ if.then:                                          ; preds = %for.cond
   ret ptr %__begin2.sroa.0.0
 
 for.inc:                                          ; preds = %for.cond, %for.cond, %for.cond
-  %Next.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.0, i64 0, i32 1
+  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0, i64 8
   br label %for.cond
 }
 
@@ -86,12 +45,12 @@ for.inc:                                          ; preds = %for.cond, %for.cond
 define hidden noundef zeroext i1 @_ZN6hermes3hbc18InsertProfilePoint13runOnFunctionEPNS_8FunctionE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %F) unnamed_addr #1 align 2 {
 entry:
   %builder = alloca %"class.hermes::IRBuilder", align 8
-  %parent_.i.i = getelementptr inbounds %"class.hermes::Function", ptr %F, i64 0, i32 2
+  %parent_.i.i = getelementptr inbounds i8, ptr %F, i64 56
   %0 = load ptr, ptr %parent_.i.i, align 8
   store ptr %0, ptr %builder, align 8
-  %InsertionPoint.i = getelementptr inbounds %"class.hermes::IRBuilder", ptr %builder, i64 0, i32 1
+  %InsertionPoint.i = getelementptr inbounds i8, ptr %builder, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %InsertionPoint.i, i8 0, i64 32, i1 false)
-  %BasicBlockList.i = getelementptr inbounds %"class.hermes::Function", ptr %F, i64 0, i32 5
+  %BasicBlockList.i = getelementptr inbounds i8, ptr %F, i64 80
   %it.sroa.0.08 = load ptr, ptr %BasicBlockList.i, align 8
   %cmp.i.not9 = icmp ne ptr %it.sroa.0.08, %BasicBlockList.i
   br i1 %cmp.i.not9, label %for.body, label %for.end
@@ -99,8 +58,8 @@ entry:
 for.body:                                         ; preds = %entry, %_ZNK6hermes3hbc18InsertProfilePoint18findInsertionPointERNS_10BasicBlockE.exit
   %it.sroa.0.011 = phi ptr [ %it.sroa.0.0, %_ZNK6hermes3hbc18InsertProfilePoint18findInsertionPointERNS_10BasicBlockE.exit ], [ %it.sroa.0.08, %entry ]
   %basicBlockIndex.010 = phi i16 [ %spec.select, %_ZNK6hermes3hbc18InsertProfilePoint18findInsertionPointERNS_10BasicBlockE.exit ], [ 1, %entry ]
-  %InstList.i.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %it.sroa.0.011, i64 0, i32 2
-  %Next.i.i.i.i.i = getelementptr inbounds %"class.hermes::BasicBlock", ptr %it.sroa.0.011, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %InstList.i.i = getelementptr inbounds i8, ptr %it.sroa.0.011, i64 56
+  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.011, i64 64
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.inc.i, %for.body
@@ -117,7 +76,7 @@ for.cond.i:                                       ; preds = %for.inc.i, %for.bod
   ]
 
 for.inc.i:                                        ; preds = %for.cond.i, %for.cond.i, %for.cond.i
-  %Next.i.i.i.i = getelementptr inbounds %"class.llvh::ilist_node_base", ptr %__begin2.sroa.0.0.i, i64 0, i32 1
+  %Next.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0.i, i64 8
   br label %for.cond.i
 
 _ZNK6hermes3hbc18InsertProfilePoint18findInsertionPointERNS_10BasicBlockE.exit: ; preds = %for.cond.i
